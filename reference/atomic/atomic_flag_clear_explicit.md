@@ -8,7 +8,6 @@ namespace std {
 ```
 * atomic_flag[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic_flag]
 * memory_order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
-* atomic_flag[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic_flag]
 * memory_order [link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
 
 ##概要

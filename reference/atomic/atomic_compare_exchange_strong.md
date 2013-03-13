@@ -10,7 +10,6 @@ namespace std {
 }
 ```
 * atomic[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic]
-* atomic[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic]
 
 ##概要
 

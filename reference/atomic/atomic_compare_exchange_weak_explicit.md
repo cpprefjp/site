@@ -13,10 +13,6 @@ namespace std {
 ```
 * atomic[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic]
 * memory_order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
-* memory_order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
-* atomic[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic]
-* memory_order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
-* memory_order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
 
 ##概要
 

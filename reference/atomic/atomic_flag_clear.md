@@ -7,7 +7,6 @@ namespace std {
 }
 ```
 * atomic_flag[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic_flag]
-* atomic_flag[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic_flag]
 
 ##概要
 

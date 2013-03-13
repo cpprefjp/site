@@ -11,15 +11,6 @@
 #define ATOMIC_POINTER_LOCK_FREE unspecified
 ```
 * unspecified[italic]
-* unspecified[italic]
-* unspecified[italic]
-* unspecified[italic]
-* unspecified[italic]
-* unspecified[italic]
-* unspecified[italic]
-* unspecified[italic]
-* unspecified[italic]
-* unspecified[italic]
 
 ##概要
 
