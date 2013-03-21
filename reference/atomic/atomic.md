@@ -13,7 +13,7 @@ namespace std {
 `atomic`クラスは、型`T`をアトミック操作するためのクラスである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラスを使用する場合、型`T`はtrivially copyable (TODO)である必要がある。特殊化された整数型および`bool`型にはそれぞれ`atomic_T`という名前の`typedef`が提供される。
 
 | | |
-|-----------------------------|--------------------------------|
+|--------------------------------|--------------------------------------------|
 | 名前付きアトミック型 | テンプレート引数となる整数型 |
 |` atomic_char` |` char` |
 |` atomic_schar` |` signed char` |
@@ -32,7 +32,7 @@ namespace std {
 また、<inttypes.h>で定義される整数型に対する以下の`typedef`も提供される。
 
 | | |
-|-----------------------------------|----------------------------|
+|------------------------------------|--------------------------------------------|
 | 名前付きアトミック型 | テンプレート引数となる整数型 |
 |` atomic_int_least8_t` |` int_least8_t` |
 |` atomic_uint_least8_t` |` uint_least8_t` |
@@ -61,7 +61,7 @@ namespace std {
 ###共通メンバ関数
 
 | | |
-|------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+|-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | [`(constructor)`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/atomic) | コンストラクタ |
 | `~atomic() = default` | デストラクタ |
 | [`operator=`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/op_assign) | 代入演算子 |
@@ -76,7 +76,7 @@ namespace std {
 ###atomic<integral>専用メンバ関数
 
 | | |
-|---------------------------------------------------------------------------------------------------------------------|--------|
+|----------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [`fetch_add`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/fetch_add) | 加算 |
 | [`fetch_sub`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/fetch_sub) | 減算 |
 | [`fetch_and`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/fetch_and) | AND演算 |
@@ -93,7 +93,7 @@ namespace std {
 ###atomic<T*>専用メンバ関数
 
 | | |
-|---------------------------------------------------------------------------------------------------------------------|--------|
+|----------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [`fetch_add`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/fetch_add) | 加算 |
 | [`fetch_sub`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/fetch_sub) | 減算 |
 | [`operator++`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/op_increment) | インクリメント |
