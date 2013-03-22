@@ -87,12 +87,11 @@ int main()
   increment_iterator first(0);
   increment_iterator last(10);
 
-  std::for_each(first, last,  {
+  std::for_each(first, last, [](int x) {
     std::cout << x << std::endl;
   });
 }
 ```
-* [link int x]
 * iterator[color ff0000]
 
 ###出力

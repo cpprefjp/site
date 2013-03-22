@@ -65,10 +65,9 @@ int main()
   std::istreambuf_iterator<char> last;
 
   // イテレータを進めることにより、入力ストリームからデータを順に読み取る
-  std::for_each(it, last,  { std::cout << c; });
+  std::for_each(it, last, [](char c) { std::cout << c; });
 }
 ```
-* [link char c]
 
 ###出力
 ```cpp

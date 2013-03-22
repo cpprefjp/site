@@ -1,7 +1,6 @@
 ```cpp
-unspecified operator const;
+unspecified operator[](typename reverse_iterator<Iterator>::difference_type n) const;
 ```
-* [link typename reverse_iterator<Iterator>::difference_type n]
 * unspecified[italic]
 
 ##概要

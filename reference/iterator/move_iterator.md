@@ -75,10 +75,9 @@ int main()
             std::make_move_iterator(v.end()));
 
   std::for_each(v2.begin(), v2.end(),
-     { std::cout << *v << std::endl; });
+    [](const std::unique_ptr<int>& v) { std::cout << *v << std::endl; });
 }
 ```
-* [link const std::unique_ptr<int>& v]
 * make_move_iterator[color ff0000]
 * make_move_iterator[color ff0000]
 

@@ -28,12 +28,11 @@ int main()
   std::istream_iterator<int> it(ss); // 入力ストリームオブジェクトへの参照を渡す
   std::istream_iterator<int> last;   // デフォルト構築。終端値として使用する
 
-  std::for_each(it, last,  {
+  std::for_each(it, last, [](int x) {
     std::cout << x << std::endl;
   });
 }
 ```
-* [link int x]
 
 ###出力
 

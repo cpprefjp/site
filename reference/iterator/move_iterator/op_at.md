@@ -1,7 +1,6 @@
 ```cpp
-unspecified operator const;
+unspecified operator[](difference_type n) const;
 ```
-* [link difference_type n]
 * unspecified[italic]
 
 ##概要

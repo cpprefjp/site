@@ -115,12 +115,11 @@ int main()
   std::reverse_iterator<decltype(v)::iterator> first(v.end());
   std::reverse_iterator<decltype(v)::iterator> last(v.begin());
 
-  std::for_each(first, last,  {
+  std::for_each(first, last, [](int x) {
     std::cout << x << std::endl;
   });
 }
 ```
-* [link int x]
 * reverse_iterator[color ff0000]
 * reverse_iterator[color ff0000]
 
