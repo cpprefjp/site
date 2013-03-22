@@ -62,44 +62,44 @@ namespace std {
 
 | | |
 |-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| [`(constructor)`](/reference/atomic/atomic/atomic) | コンストラクタ |
+| [`(constructor)`](./atomic) | コンストラクタ |
 | `~atomic() = default` | デストラクタ |
-| [`operator=`](/reference/atomic/atomic/op_assign) | 代入演算子 |
-| [`is_lock_free`](/reference/atomic/atomic/is_lock_free) | オブジェクトがロックフリーに振る舞えるかを判定する |
-| [`store`](/reference/atomic/atomic/store) | 値を書き込む |
-| [`load`](/reference/atomic/atomic/load) | 値を読み込む |
-| [`operator T`](/reference/atomic/atomic/op_t) | 型Tへの変換演算子 |
-| [`exchange`](/reference/atomic/atomic/exchange) | 値を入れ替える |
-| [`compare_exchange_weak`](/reference/atomic/atomic/compare_exchange_weak) | 弱い比較で値を入れ替える |
-| [`compare_exchange_strong`](/reference/atomic/atomic/compare_exchange_strong) | 強い比較で値を入れ替える |
+| [`operator=`](./op_assign) | 代入演算子 |
+| [`is_lock_free`](./is_lock_free) | オブジェクトがロックフリーに振る舞えるかを判定する |
+| [`store`](./store) | 値を書き込む |
+| [`load`](./load) | 値を読み込む |
+| [`operator T`](./op_t) | 型Tへの変換演算子 |
+| [`exchange`](./exchange) | 値を入れ替える |
+| [`compare_exchange_weak`](./compare_exchange_weak) | 弱い比較で値を入れ替える |
+| [`compare_exchange_strong`](./compare_exchange_strong) | 強い比較で値を入れ替える |
 
 ###atomic<integral>専用メンバ関数
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`fetch_add`](/reference/atomic/atomic/fetch_add) | 加算 |
-| [`fetch_sub`](/reference/atomic/atomic/fetch_sub) | 減算 |
-| [`fetch_and`](/reference/atomic/atomic/fetch_and) | AND演算 |
-| [`fetch_or`](/reference/atomic/atomic/fetch_or) | OR演算 |
-| [`fetch_xor`](/reference/atomic/atomic/fetch_xor) | XOR演算 |
-| [`operator++`](/reference/atomic/atomic/op_increment) | インクリメント |
-| [`operator--`](/reference/atomic/atomic/op_decrement) | デクリメント |
-| [`operator+=`](/reference/atomic/atomic/op_plus_assign) | 加算 |
-| [`operator-=`](/reference/atomic/atomic/op_minus_assign) | 減算 |
-| [`operator&=`](/reference/atomic/atomic/op_and_assign) | AND演算 |
-| <code>[operator&#x7C;=](/reference/atomic/atomic/op_or_assign)</code> | OR演算 |
-| [`operator^=`](/reference/atomic/atomic/op_xor_assign) | XOR演算 |
+| [`fetch_add`](./fetch_add) | 加算 |
+| [`fetch_sub`](./fetch_sub) | 減算 |
+| [`fetch_and`](./fetch_and) | AND演算 |
+| [`fetch_or`](./fetch_or) | OR演算 |
+| [`fetch_xor`](./fetch_xor) | XOR演算 |
+| [`operator++`](./op_increment) | インクリメント |
+| [`operator--`](./op_decrement) | デクリメント |
+| [`operator+=`](./op_plus_assign) | 加算 |
+| [`operator-=`](./op_minus_assign) | 減算 |
+| [`operator&=`](./op_and_assign) | AND演算 |
+| <code>[operator&#x7C;=](./op_or_assign)</code> | OR演算 |
+| [`operator^=`](./op_xor_assign) | XOR演算 |
 
 ###atomic<T*>専用メンバ関数
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`fetch_add`](/reference/atomic/atomic/fetch_add) | 加算 |
-| [`fetch_sub`](/reference/atomic/atomic/fetch_sub) | 減算 |
-| [`operator++`](/reference/atomic/atomic/op_increment) | インクリメント |
-| [`operator--`](/reference/atomic/atomic/op_decrement) | デクリメント |
-| [`operator+=`](/reference/atomic/atomic/op_plus_assign) | 加算 |
-| [`operator-=`](/reference/atomic/atomic/op_minus_assign) | 減算 |
+| [`fetch_add`](./fetch_add) | 加算 |
+| [`fetch_sub`](./fetch_sub) | 減算 |
+| [`operator++`](./op_increment) | インクリメント |
+| [`operator--`](./op_decrement) | デクリメント |
+| [`operator+=`](./op_plus_assign) | 加算 |
+| [`operator-=`](./op_minus_assign) | 減算 |
 
 ###例
 

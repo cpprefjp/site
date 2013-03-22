@@ -43,20 +43,20 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`(constructor)`](/reference/iterator/reverse_iterator/reverse_iterator) | コンストラクタ |
+| [`(constructor)`](./reverse_iterator) | コンストラクタ |
 | `~reverse_iterator() = default` | デストラクタ |
-| [`operator=`](/reference/iterator/reverse_iterator/op_assign) | 代入演算子 |
+| [`operator=`](./op_assign) | 代入演算子 |
 | [`base`](/site/cpprefjp/) | 元となったイテレータを取得する |
-| [`operator*`](/reference/iterator/reverse_iterator/op_deref) | 間接参照演算子
+| [`operator*`](./op_deref) | 間接参照演算子
  |
-| [`operator->`](/reference/iterator/reverse_iterator/op_arrow) | メンバアクセス演算子 |
-| [`operator++`](/reference/iterator/reverse_iterator/op_increment) | イテレータをインクリメントする |
-| [`operator--`](/reference/iterator/reverse_iterator/op_decrement) | イテレータをデクリメントする |
-| [`operator+`](/reference/iterator/reverse_iterator/op_plus) | イテレータを進める |
-| [`operator+=`](/reference/iterator/reverse_iterator/op_plus_assign) | イテレータ自身を進める |
-| [`operator-`](/reference/iterator/reverse_iterator/op_minus) | イテレータを逆に進める |
-| [`operator-=`](/reference/iterator/reverse_iterator/op_minus_assign) | イテレータ自身を逆に進める |
-| [`operator[]`](/reference/iterator/reverse_iterator/op_at) | 任意の位置にランダムアクセスする |
+| [`operator->`](./op_arrow) | メンバアクセス演算子 |
+| [`operator++`](./op_increment) | イテレータをインクリメントする |
+| [`operator--`](./op_decrement) | イテレータをデクリメントする |
+| [`operator+`](./op_plus) | イテレータを進める |
+| [`operator+=`](./op_plus_assign) | イテレータ自身を進める |
+| [`operator-`](./op_minus) | イテレータを逆に進める |
+| [`operator-=`](./op_minus_assign) | イテレータ自身を逆に進める |
+| [`operator[]`](./op_at) | 任意の位置にランダムアクセスする |
 
 
 ###protectedメンバ変数
@@ -86,14 +86,14 @@ namespace std {
 
 | | |
 |-----------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
-| [`operator==`](/reference/iterator/reverse_iterator/op_equal) | 等値比較 |
-| [`operator!=`](/reference/iterator/reverse_iterator/op_not_equal) | 非等値比較 |
-| [`operator<`](/reference/iterator/reverse_iterator/op_less) | 左辺が右辺より小さいかの判定を行う |
-| [`operator<=`](/reference/iterator/reverse_iterator/op_less_equal) | 左辺が右辺以下かの判定を行う |
-| [`operator>`](/reference/iterator/reverse_iterator/op_greater) | 左辺が右辺より大きいかの判定を行う |
-| [`operator>=`](/reference/iterator/reverse_iterator/op_greater_equal) | 左辺が右辺以上かの判定を行う |
-| [`operator-`](/reference/iterator/reverse_iterator/op_minus_free) | 2つの`reverse_iterator`の差を求める |
-| [`operator+`](/reference/iterator/reverse_iterator/op_plus_free) | イテレータを進める |
+| [`operator==`](./op_equal) | 等値比較 |
+| [`operator!=`](./op_not_equal) | 非等値比較 |
+| [`operator<`](./op_less) | 左辺が右辺より小さいかの判定を行う |
+| [`operator<=`](./op_less_equal) | 左辺が右辺以下かの判定を行う |
+| [`operator>`](./op_greater) | 左辺が右辺より大きいかの判定を行う |
+| [`operator>=`](./op_greater_equal) | 左辺が右辺以上かの判定を行う |
+| [`operator-`](./op_minus_free) | 2つの`reverse_iterator`の差を求める |
+| [`operator+`](./op_plus_free) | イテレータを進める |
 
 
 

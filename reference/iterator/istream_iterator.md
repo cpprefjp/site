@@ -33,13 +33,13 @@ namespace std {
 
 | | |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](/reference/iterator/istream_iterator/istream_iterator) | コンストラクタ |
+| [`(constructor)`](./istream_iterator) | コンストラクタ |
 | `~istream_iterator() = default` | デストラクタ |
 | <code>operator=(const istream_iterator&) = default
  operator=(istream_iterator&&) = default</code> | 代入演算子 |
-| [`operator*`](/reference/iterator/istream_iterator/op_deref) | 間接参照 |
-| [`operator->`](/reference/iterator/istream_iterator/op_arrow) | メンバアクセス |
-| [`operator++`](/reference/iterator/istream_iterator/op_increment) | イテレータをインクリメントする |
+| [`operator*`](./op_deref) | 間接参照 |
+| [`operator->`](./op_arrow) | メンバアクセス |
+| [`operator++`](./op_increment) | イテレータをインクリメントする |
 
 
 ###メンバ型
@@ -61,8 +61,8 @@ namespace std {
 
 | | |
 |-------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [`operator==`](/reference/iterator/istream_iterator/op_equal) | 等値比較 |
-| [`operator!=`](/reference/iterator/istream_iterator/op_not_equal) | 非等値比較 |
+| [`operator==`](./op_equal) | 等値比較 |
+| [`operator!=`](./op_not_equal) | 非等値比較 |
 
 
 

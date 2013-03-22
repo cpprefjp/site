@@ -16,11 +16,11 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`(constructor)`](/reference/iterator/ostream_iterator/ostream_iterator) | コンストラクタ |
+| [`(constructor)`](./ostream_iterator) | コンストラクタ |
 | `~ostream_iterator() = default` | デストラクタ |
-| [`operator=`](/reference/iterator/ostream_iterator/op_assign) | 代入演算子 |
-| [`operator*`](/reference/iterator/ostream_iterator/op_deref) | 間接参照 |
-| [`operator++`](/reference/iterator/ostream_iterator/op_increment) | インクリメント |
+| [`operator=`](./op_assign) | 代入演算子 |
+| [`operator*`](./op_deref) | 間接参照 |
+| [`operator++`](./op_increment) | インクリメント |
 
 ###メンバ型
 

@@ -7,86 +7,86 @@
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| [`memory_order`](/reference/atomic/memory_order) | メモリオーダーの種類(enum) |
-| [`kill_dependency`](/reference/atomic/kill_dependency) | データ依存性を切る(function template) |
+| [`memory_order`](./memory_order) | メモリオーダーの種類(enum) |
+| [`kill_dependency`](./kill_dependency) | データ依存性を切る(function template) |
 
 
 <b>ロックフリープロパティ</b>
 
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| [`ATOMIC_BOOL_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<bool>`に対する操作がロックフリーかを調べる(define) |
-| [`ATOMIC_CHAR_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<char>`に対する操作がロックフリーかを調べる(define) |
-| [`ATOMIC_CHAR16_T_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<char16_t>`に対する操作がロックフリーかを調べる(define) |
-| [`ATOMIC_CHAR32_T_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<char32_t>`に対する操作がロックフリーかを調べる(define) |
-| [`ATOMIC_WCHAR_T_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<wchar_t>`に対する操作がロックフリーかを調べる(define) |
-| [`ATOMIC_SHORT_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<short>`に対する操作がロックフリーかを調べる(define) |
-| [`ATOMIC_INT_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<int>`に対する操作がロックフリーかを調べる(define) |
-| [`ATOMIC_LONG_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<long>`に対する操作がロックフリーかを調べる(define) |
-| [`ATOMIC_LLONG_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<long long>`に対する操作がロックフリーかを調べる(define) |
-| [`ATOMIC_POINTER_LOCK_FREE`](/reference/atomic/lock_free_property) | `atomic<T*>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_BOOL_LOCK_FREE`](./lock_free_property) | `atomic<bool>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_CHAR_LOCK_FREE`](./lock_free_property) | `atomic<char>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_CHAR16_T_LOCK_FREE`](./lock_free_property) | `atomic<char16_t>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_CHAR32_T_LOCK_FREE`](./lock_free_property) | `atomic<char32_t>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_WCHAR_T_LOCK_FREE`](./lock_free_property) | `atomic<wchar_t>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_SHORT_LOCK_FREE`](./lock_free_property) | `atomic<short>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_INT_LOCK_FREE`](./lock_free_property) | `atomic<int>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_LONG_LOCK_FREE`](./lock_free_property) | `atomic<long>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_LLONG_LOCK_FREE`](./lock_free_property) | `atomic<long long>`に対する操作がロックフリーかを調べる(define) |
+| [`ATOMIC_POINTER_LOCK_FREE`](./lock_free_property) | `atomic<T*>`に対する操作がロックフリーかを調べる(define) |
 
 <b>汎用型</b>
 
 | | |
 |--------------------------------------------------------------------------------------------------|------------------------------------|
-| [`atomic`](/reference/atomic/atomic) | アトミック型(class template) |
+| [`atomic`](./atomic) | アトミック型(class template) |
 
 <b>アトミック型に対する一般的な操作</b>
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| [`atomic_is_lock_free`](/reference/atomic/atomic_is_lock_free) | 指定されたオブジェクトがロックフリーに振る舞うことができるかを調べる(function template) |
-| [`atomic_init`](/reference/atomic/atomic_init) | 初期化(function template) |
-| [`atomic_store`](/reference/atomic/atomic_store) | 値を書き込む(function template) |
-| [`atomic_store_explicit`](/reference/atomic/atomic_store_explicit) | メモリオーダーを指定して値を書き込む(function template) |
-| [`atomic_load`](/reference/atomic/atomic_load) | 値を読み込む(function template) |
-| [`atomic_load_explicit`](/reference/atomic/atomic_load_explicit) | メモリオーダーを指定して値を読み込む(function template) |
-| [`atomic_exchange`](/reference/atomic/atomic_exchange) | 値を入れ替える(function template) |
-| [`atomic_exchange_explicit`](/reference/atomic/atomic_exchange_explicit) | メモリオーダーを指定して値を入れ替える(function template) |
-| [`atomic_compare_exchange_weak`](/reference/atomic/atomic_compare_exchange_weak) | 弱い比較で値の入れ替えを行う(function template) |
-| [`atomic_compare_exchange_strong`](/reference/atomic/atomic_compare_exchange_strong) | 強い比較で値の入れ替えを行う(function template) |
-| [`atomic_compare_exchange_weak_explicit`](/reference/atomic/atomic_compare_exchange_weak_explicit) | 弱い比較でメモリオーダーを指定して値の入れ替えを行う(function template) |
-| [`atomic_compare_exchange_strong_explicit`](/reference/atomic/atomic_compare_exchange_strong_explicit) | 強い比較でメモリオーダーを指定して値の入れ替えを行う(function template) |
+| [`atomic_is_lock_free`](./atomic_is_lock_free) | 指定されたオブジェクトがロックフリーに振る舞うことができるかを調べる(function template) |
+| [`atomic_init`](./atomic_init) | 初期化(function template) |
+| [`atomic_store`](./atomic_store) | 値を書き込む(function template) |
+| [`atomic_store_explicit`](./atomic_store_explicit) | メモリオーダーを指定して値を書き込む(function template) |
+| [`atomic_load`](./atomic_load) | 値を読み込む(function template) |
+| [`atomic_load_explicit`](./atomic_load_explicit) | メモリオーダーを指定して値を読み込む(function template) |
+| [`atomic_exchange`](./atomic_exchange) | 値を入れ替える(function template) |
+| [`atomic_exchange_explicit`](./atomic_exchange_explicit) | メモリオーダーを指定して値を入れ替える(function template) |
+| [`atomic_compare_exchange_weak`](./atomic_compare_exchange_weak) | 弱い比較で値の入れ替えを行う(function template) |
+| [`atomic_compare_exchange_strong`](./atomic_compare_exchange_strong) | 強い比較で値の入れ替えを行う(function template) |
+| [`atomic_compare_exchange_weak_explicit`](./atomic_compare_exchange_weak_explicit) | 弱い比較でメモリオーダーを指定して値の入れ替えを行う(function template) |
+| [`atomic_compare_exchange_strong_explicit`](./atomic_compare_exchange_strong_explicit) | 強い比較でメモリオーダーを指定して値の入れ替えを行う(function template) |
 
 <b>アトミック型に対する算術操作</b>
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
-| [`atomic_fetch_add`](/reference/atomic/atomic_fetch_add) | 加算(function template) |
-| [`atomic_fetch_add_explicit`](/reference/atomic/atomic_fetch_add_explicit) | メモリオーダーを指定して加算(function template) |
-| [`atomic_fetch_sub`](/reference/atomic/atomic_fetch_sub) | 減算(function template) |
-| [`atomic_fetch_sub_explicit`](/reference/atomic/atomic_fetch_sub_explicit) | メモリオーダーを指定して減算(function template) |
-| [`atomic_fetch_and`](/reference/atomic/atomic_fetch_and) | AND演算(function template) |
-| [`atomic_fetch_and_explicit`](/reference/atomic/atomic_fetch_and_explicit) | メモリオーダーを指定してAND演算(function template) |
-| [`atomic_fetch_or`](/reference/atomic/atomic_fetch_or) | OR演算(function template) |
-| [`atomic_fetch_or_explicit`](/reference/atomic/atomic_fetch_or_explicit) | メモリオーダーを指定してOR演算(function template) |
-| [`atomic_fetch_xor`](/reference/atomic/atomic_fetch_xor) | XOR演算(function template) |
-| [`atomic_fetch_xor_explicit`](/reference/atomic/atomic_fetch_xor_explicit) | メモリオーダーを指定してXOR演算(function template) |
+| [`atomic_fetch_add`](./atomic_fetch_add) | 加算(function template) |
+| [`atomic_fetch_add_explicit`](./atomic_fetch_add_explicit) | メモリオーダーを指定して加算(function template) |
+| [`atomic_fetch_sub`](./atomic_fetch_sub) | 減算(function template) |
+| [`atomic_fetch_sub_explicit`](./atomic_fetch_sub_explicit) | メモリオーダーを指定して減算(function template) |
+| [`atomic_fetch_and`](./atomic_fetch_and) | AND演算(function template) |
+| [`atomic_fetch_and_explicit`](./atomic_fetch_and_explicit) | メモリオーダーを指定してAND演算(function template) |
+| [`atomic_fetch_or`](./atomic_fetch_or) | OR演算(function template) |
+| [`atomic_fetch_or_explicit`](./atomic_fetch_or_explicit) | メモリオーダーを指定してOR演算(function template) |
+| [`atomic_fetch_xor`](./atomic_fetch_xor) | XOR演算(function template) |
+| [`atomic_fetch_xor_explicit`](./atomic_fetch_xor_explicit) | メモリオーダーを指定してXOR演算(function template) |
 
 <b>初期化</b>
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
-| [`ATOMIC_VAR_INIT`](/reference/atomic/atomic_var_init) | アトミック変数の初期化(define) |
+| [`ATOMIC_VAR_INIT`](./atomic_var_init) | アトミック変数の初期化(define) |
 
 <b>フラグ型とその操作</b>
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| [`atomic_flag`](/reference/atomic/atomic_flag) | フラグ用アトミック型(class) |
-| [`atomic_flag_test_and_set`](/reference/atomic/atomic_flag_test_and_set) | フラグを立てる(function) |
-| [`atomic_flag_test_and_set_explicit`](/reference/atomic/atomic_flag_test_and_set_explicit) | メモリオーダーを指定してフラグを立てる(function) |
-| [`atomic_flag_clear`](/reference/atomic/atomic_flag_clear) | フラグをクリアする(function) |
-| [`atomic_flag_clear_explicit`](/reference/atomic/atomic_flag_clear_explicit) | メモリオーダーを指定してフラグをクリアする(function) |
-| [`ATOMIC_FLAG_INIT`](/reference/atomic/atomic_flag_init) | フラグ変数の初期化(define) |
+| [`atomic_flag`](./atomic_flag) | フラグ用アトミック型(class) |
+| [`atomic_flag_test_and_set`](./atomic_flag_test_and_set) | フラグを立てる(function) |
+| [`atomic_flag_test_and_set_explicit`](./atomic_flag_test_and_set_explicit) | メモリオーダーを指定してフラグを立てる(function) |
+| [`atomic_flag_clear`](./atomic_flag_clear) | フラグをクリアする(function) |
+| [`atomic_flag_clear_explicit`](./atomic_flag_clear_explicit) | メモリオーダーを指定してフラグをクリアする(function) |
+| [`ATOMIC_FLAG_INIT`](./atomic_flag_init) | フラグ変数の初期化(define) |
 
 <b>フェンス</b>
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`atomic_thread_fence`](/reference/atomic/atomic_thread_fence) | スレッド間で有効なフェンスを設定する(function) |
-| [`atomic_signal_fence`](/reference/atomic/atomic_signal_fence) | スレッドと、そのスレッド上で処理されるシグナルハンドラとの間でのみ有効なフェンスを設定する(function) |
+| [`atomic_thread_fence`](./atomic_thread_fence) | スレッド間で有効なフェンスを設定する(function) |
+| [`atomic_signal_fence`](./atomic_signal_fence) | スレッドと、そのスレッド上で処理されるシグナルハンドラとの間でのみ有効なフェンスを設定する(function) |
 
 
 ##バージョン

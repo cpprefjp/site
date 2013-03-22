@@ -12,11 +12,11 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| [`(constructor)`](/reference/atomic/atomic_flag/atomic_flag) | コンストラクタ |
+| [`(constructor)`](./atomic_flag) | コンストラクタ |
 | `~atomic_flag() = default` | デストラクタ |
 | `operator=(const atomic_flag&) = delete operator=(const atomic_flag&) volatile = delete` | 代入演算子 |
-| [`test_and_set`](/reference/atomic/atomic_flag/test_and_set) | テストしてフラグを立てる |
-| [`clear`](/reference/atomic/atomic_flag/clear) | フラグをクリアする |
+| [`test_and_set`](./test_and_set) | テストしてフラグを立てる |
+| [`clear`](./clear) | フラグをクリアする |
 
 ###例
 ```cpp
