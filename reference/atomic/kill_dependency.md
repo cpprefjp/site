@@ -28,7 +28,7 @@ namespace std {
 
 ##備考
 
-この関数は、読み込んだ値に依存する式に対する順序を保証する[`memory_order_consume`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order)メモリーオーダーにおいて、値の依存性を断ち切り、最適化を許可するために用意されている。
+この関数は、読み込んだ値に依存する式に対する順序を保証する[`memory_order_consume`](/reference/atomic/memory_order)メモリーオーダーにおいて、値の依存性を断ち切り、最適化を許可するために用意されている。
 この関数とは逆に、依存性を持ち運ぶことをコンパイラに指示するための`[[carries_dependency]]`属性も用意されている。
 
 ##注意
@@ -101,11 +101,11 @@ int main()
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.7.0
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.7.0
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 

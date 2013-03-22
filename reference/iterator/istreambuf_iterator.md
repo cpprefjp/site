@@ -5,24 +5,24 @@ namespace std {
     : public iterator<input_iterator_tag, CharT, typename Traits::off_type, unspecified, CharT>
 }
 ```
-* iterator[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator]
-* input_iterator_tag[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator]
+* input_iterator_tag[link /reference/iterator/iterator_tag]
 * unspecified[italic]
 
 ##概要
 
-`istreambuf_iterator`は、`operator++()`でイテレータを進めることにより、ストリームバッファのsbumpc()メンバ関数でストリームからデータを読み込む入力イテレータである。ストリームからの`sgetc()`メンバ関数による読み取りが`Traits::eof()を返した`場合に、イテレータは`end`イテレータと等しくなる。[`istream_iterator`](https://sites.google.com/site/cpprefjp/reference/iterator/istream_iterator)とは異なり、スペースや改行が読み飛ばされることはない。いくつかのメンバ関数は、同じ`streambuf`オブジェクトを参照するためにプロキシオブジェクトを返す。
+`istreambuf_iterator`は、`operator++()`でイテレータを進めることにより、ストリームバッファのsbumpc()メンバ関数でストリームからデータを読み込む入力イテレータである。ストリームからの`sgetc()`メンバ関数による読み取りが`Traits::eof()を返した`場合に、イテレータは`end`イテレータと等しくなる。[`istream_iterator`](/reference/iterator/istream_iterator)とは異なり、スペースや改行が読み飛ばされることはない。いくつかのメンバ関数は、同じ`streambuf`オブジェクトを参照するためにプロキシオブジェクトを返す。
 
 ###メンバ関数
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| [`(constructor)`](https://sites.google.com/site/cpprefjp/reference/iterator/istreambuf_iterator/istreambuf_iterator) | コンストラクタ |
+| [`(constructor)`](/reference/iterator/istreambuf_iterator/istreambuf_iterator) | コンストラクタ |
 | `~istreambuf_iterator() = default` | デストラクタ |
-| [`operator*`](https://sites.google.com/site/cpprefjp/reference/iterator/istreambuf_iterator/op_deref) | 間接参照 |
-| [`operator->`](https://sites.google.com/site/cpprefjp/reference/iterator/istreambuf_iterator/op_arrow) | メンバアクセス(C++11) |
-| [`operator++`](https://sites.google.com/site/cpprefjp/reference/iterator/istreambuf_iterator/op_increment) | イテレータをインクリメントする |
-| [`equal`](https://sites.google.com/site/cpprefjp/reference/iterator/istreambuf_iterator/equal) | `istreambuf_iterator`オブジェクトの等値比較 |
+| [`operator*`](/reference/iterator/istreambuf_iterator/op_deref) | 間接参照 |
+| [`operator->`](/reference/iterator/istreambuf_iterator/op_arrow) | メンバアクセス(C++11) |
+| [`operator++`](/reference/iterator/istreambuf_iterator/op_increment) | イテレータをインクリメントする |
+| [`equal`](/reference/iterator/istreambuf_iterator/equal) | `istreambuf_iterator`オブジェクトの等値比較 |
 
 ###メンバ型
 
@@ -36,15 +36,15 @@ namespace std {
 | `difference_type` | `Traits::off_type` |
 | `pointer` | 未規定 |
 | `value_type` | `CharT` |
-| `iterator_category` | [`input_iterator_tag`](https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag) |
+| `iterator_category` | [`input_iterator_tag`](/reference/iterator/iterator_tag) |
 | `reference` | `CharT` |
 
 ###非メンバ関数
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [`operator==`](https://sites.google.com/site/cpprefjp/reference/iterator/istreambuf_iterator/op_equal) | 等値比較 |
-| [`operator!=`](https://sites.google.com/site/cpprefjp/reference/iterator/istreambuf_iterator/op_not_equal) | 非等値比較 |
+| [`operator==`](/reference/iterator/istreambuf_iterator/op_equal) | 等値比較 |
+| [`operator!=`](/reference/iterator/istreambuf_iterator/op_not_equal) | 非等値比較 |
 
 
 ##例

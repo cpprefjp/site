@@ -17,8 +17,8 @@ namespace std {
 
 }
 ```
-* iterator[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator]
-* input_iterator_tag[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator]
+* input_iterator_tag[link /reference/iterator/iterator_tag]
 
  |
 
@@ -33,13 +33,13 @@ namespace std {
 
 | | |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](https://sites.google.com/site/cpprefjp/reference/iterator/istream_iterator/istream_iterator) | コンストラクタ |
+| [`(constructor)`](/reference/iterator/istream_iterator/istream_iterator) | コンストラクタ |
 | `~istream_iterator() = default` | デストラクタ |
 | <code>operator=(const istream_iterator&) = default
  operator=(istream_iterator&&) = default</code> | 代入演算子 |
-| [`operator*`](https://sites.google.com/site/cpprefjp/reference/iterator/istream_iterator/op_deref) | 間接参照 |
-| [`operator->`](https://sites.google.com/site/cpprefjp/reference/iterator/istream_iterator/op_arrow) | メンバアクセス |
-| [`operator++`](https://sites.google.com/site/cpprefjp/reference/iterator/istream_iterator/op_increment) | イテレータをインクリメントする |
+| [`operator*`](/reference/iterator/istream_iterator/op_deref) | 間接参照 |
+| [`operator->`](/reference/iterator/istream_iterator/op_arrow) | メンバアクセス |
+| [`operator++`](/reference/iterator/istream_iterator/op_increment) | イテレータをインクリメントする |
 
 
 ###メンバ型
@@ -52,7 +52,7 @@ namespace std {
 | `difference_type` | `Distance (デフォルトはptrdiff_t)` |
 | `pointer` | `const T*` |
 | `value_type` | `T` |
-| `iterator_category` | [`input_iterator_tag`](https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag) |
+| `iterator_category` | [`input_iterator_tag`](/reference/iterator/iterator_tag) |
 | `reference` | `const T&` |
 
 
@@ -61,8 +61,8 @@ namespace std {
 
 | | |
 |-------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [`operator==`](https://sites.google.com/site/cpprefjp/reference/iterator/istream_iterator/op_equal) | 等値比較 |
-| [`operator!=`](https://sites.google.com/site/cpprefjp/reference/iterator/istream_iterator/op_not_equal) | 非等値比較 |
+| [`operator==`](/reference/iterator/istream_iterator/op_equal) | 等値比較 |
+| [`operator!=`](/reference/iterator/istream_iterator/op_not_equal) | 非等値比較 |
 
 
 

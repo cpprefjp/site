@@ -26,5 +26,5 @@ namespace std {
 イテレータの関係性の定義に従い、これらのクラスは継承関係を持っている。
 
 これらのタグは、コンパイル時にイテレータの分類を判定し、イテレータごとの最適な実装を選択するために使用される。
-使用例は、[distance()](https://sites.google.com/site/cpprefjp/reference/iterator/distance)関数の実装例を参照。
+使用例は、[distance()](/reference/iterator/distance)関数の実装例を参照。
 

@@ -2,9 +2,9 @@
 T load(memory_order order = memory_order_seq_cst) const volatile noexcept;
 T load(memory_order order = memory_order_seq_cst) const noexcept;
 ```
-* memory_order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
-* memory_order_seq_cst[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
-* memory_order order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
+* memory_order[link /reference/atomic/memory_order]
+* memory_order_seq_cst[link /reference/atomic/memory_order]
+* memory_order order[link /reference/atomic/memory_order]
 
 ##概要
 
@@ -15,8 +15,8 @@ T load(memory_order order = memory_order_seq_cst) const noexcept;
 
 `order`が以下のメモリオーダーではないこと：
 
-- [`memory_order_release`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order)
-- [`memory_order_acq_rel`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order)
+- [`memory_order_release`](/reference/atomic/memory_order)
+- [`memory_order_acq_rel`](/reference/atomic/memory_order)
 
 
 ##効果
@@ -67,11 +67,11 @@ int main()
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.7.0
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.7.0
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 

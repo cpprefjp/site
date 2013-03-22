@@ -37,11 +37,11 @@ pointer operator->() const;
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 

@@ -5,8 +5,8 @@ namespace std {
     : public iterator<output_iterator_tag, void, void, void, void>
 }
 ```
-* iterator[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator]
-* output_iterator_tag[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator]
+* output_iterator_tag[link /reference/iterator/iterator_tag]
 
 ##概要
 <p>`ostream_iterator`は出力イテレータであり、代入の際に外部から渡された`ostream`オブジェクトに`operator<<()`で値を出力するイテレータアダプタである。
@@ -16,11 +16,11 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`(constructor)`](https://sites.google.com/site/cpprefjp/reference/iterator/ostream_iterator/ostream_iterator) | コンストラクタ |
+| [`(constructor)`](/reference/iterator/ostream_iterator/ostream_iterator) | コンストラクタ |
 | `~ostream_iterator() = default` | デストラクタ |
-| [`operator=`](https://sites.google.com/site/cpprefjp/reference/iterator/ostream_iterator/op_assign) | 代入演算子 |
-| [`operator*`](https://sites.google.com/site/cpprefjp/reference/iterator/ostream_iterator/op_deref) | 間接参照 |
-| [`operator++`](https://sites.google.com/site/cpprefjp/reference/iterator/ostream_iterator/op_increment) | インクリメント |
+| [`operator=`](/reference/iterator/ostream_iterator/op_assign) | 代入演算子 |
+| [`operator*`](/reference/iterator/ostream_iterator/op_deref) | 間接参照 |
+| [`operator++`](/reference/iterator/ostream_iterator/op_increment) | インクリメント |
 
 ###メンバ型
 
@@ -32,7 +32,7 @@ namespace std {
 | `difference_type` | `void` |
 | `pointer` | `void` |
 | `value_type` | `void` |
-| `iterator_category` | [`output_iterator_tag`](https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag) |
+| `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag) |
 | `reference` | `void` |
 
 ###例

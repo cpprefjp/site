@@ -11,10 +11,10 @@ move_iterator operator--(int);
 ##効果
 
 前置デクリメント operator--()：
-`--[base](https://sites.google.com/site/cpprefjp/reference/iterator/move_iterator/base)();``return *this;`
+`--[base](/reference/iterator/move_iterator/base)();``return *this;`
 
 後置デクリメント operator--(int)：
-`move_iterator tmp = *this;``--[base](https://sites.google.com/site/cpprefjp/reference/iterator/move_iterator/base)();`
+`move_iterator tmp = *this;``--[base](/reference/iterator/move_iterator/base)();`
 `return tmp;`
 
 
@@ -60,11 +60,11 @@ int main()
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.6.1
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.6.1
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 

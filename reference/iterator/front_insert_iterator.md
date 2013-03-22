@@ -6,8 +6,8 @@ namespace std {
 
 }
 ```
-* iterator[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator]
-* output_iterator_tag[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator]
+* output_iterator_tag[link /reference/iterator/iterator_tag]
 
 ##概要
 <p>`front_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_front`メンバ関数を呼び出すイテレータアダプタである。
@@ -17,11 +17,11 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](https://sites.google.com/site/cpprefjp/reference/iterator/front_insert_iterator/front_insert_iterator) | コンストラクタ |
+| [`(constructor)`](/reference/iterator/front_insert_iterator/front_insert_iterator) | コンストラクタ |
 | `~front_insert_iterator() = default` | デストラクタ |
-| [`operator=`](https://sites.google.com/site/cpprefjp/reference/iterator/front_insert_iterator/op_assign) | 代入演算子 |
-| [`operator*`](https://sites.google.com/site/cpprefjp/reference/iterator/front_insert_iterator/op_deref) | 間接参照演算子 |
-| [`operator++`](https://sites.google.com/site/cpprefjp/reference/iterator/front_insert_iterator/op_increment) | イテレータをインクリメントする |
+| [`operator=`](/reference/iterator/front_insert_iterator/op_assign) | 代入演算子 |
+| [`operator*`](/reference/iterator/front_insert_iterator/op_deref) | 間接参照演算子 |
+| [`operator++`](/reference/iterator/front_insert_iterator/op_increment) | イテレータをインクリメントする |
 
 ###protectedメンバ変数
 
@@ -39,14 +39,14 @@ namespace std {
 |` difference_type` |` void` |
 |` pointer` |` void` |
 |` value_type` |` void` |
-|` iterator_category` |` [output_iterator_tag](https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag)` |
+|` iterator_category` |` [output_iterator_tag](/reference/iterator/iterator_tag)` |
 |` reference` |` void` |
 
 ###非メンバ関数
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [`front_inserter`](https://sites.google.com/site/cpprefjp/reference/iterator/front_insert_iterator/front_inserter) | `front_insert_iterator`のヘルパ関数 |
+| [`front_inserter`](/reference/iterator/front_insert_iterator/front_inserter) | `front_insert_iterator`のヘルパ関数 |
 
 
 ##例

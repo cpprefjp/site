@@ -9,7 +9,7 @@ namespace std {
 
 }
 ```
-* atomic[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic]
+* atomic[link /reference/atomic/atomic]
 
 ##概要
 
@@ -56,11 +56,11 @@ namespace std {
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): 
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??<h4>備考</h4>
+- [Clang](/implementation#clang): 
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??<h4>備考</h4>
 この関数は、GCC 4.7およびClang 3.1では実装が存在しなかった。動作する環境がないため、サンプルコードは記載していない。
 
 

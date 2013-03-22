@@ -11,8 +11,8 @@ namespace std {
 
 }
 ```
-* atomic[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic]
-* memory_order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
+* atomic[link /reference/atomic/atomic]
+* memory_order[link /reference/atomic/memory_order]
 
 ##概要
 
@@ -22,7 +22,7 @@ namespace std {
 
 ##要件
 
-`failure`が[`memory_order_release`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order), [`memory_order_acq_rel`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order)ではないこと。
+`failure`が[`memory_order_release`](/reference/atomic/memory_order), [`memory_order_acq_rel`](/reference/atomic/memory_order)ではないこと。
 `failure`が`success`よりも強くないこと。
 
 
@@ -57,12 +57,12 @@ namespace std {
 ##備考
 
 この関数は、値が交換可能な場合でもCAS操作が失敗する可能性がある。
-[`atomic_compare_exchange_strong_explicit`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic_compare_exchange_strong_explicit)()はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
+[`atomic_compare_exchange_strong_explicit`](/reference/atomic/atomic_compare_exchange_strong_explicit)()はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
 
-アーキテクチャによっては、この関数は[`atomic_compare_exchange_strong_explicit`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic_compare_exchange_strong_explicit)`()`と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](http://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](http://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
+アーキテクチャによっては、この関数は[`atomic_compare_exchange_strong_explicit`](/reference/atomic/atomic_compare_exchange_strong_explicit)`()`と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](http://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](http://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
 
 通常、CAS操作は、CASが成功するまでループさせる。
-しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、[atomic_compare_exchange_strong_explicit()](https://sites.google.com/site/cpprefjp/reference/atomic/atomic_compare_exchange_strong_explicit)を使うことで効率良くCASを行うことができる。
+しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、[atomic_compare_exchange_strong_explicit()](/reference/atomic/atomic_compare_exchange_strong_explicit)を使うことで効率良くCASを行うことができる。
 逆に言えば、そのような状況でないなら常にループで`atomic_compare_exchange_weak_explicit()`を利用すれば良い。
 
 
@@ -122,11 +122,11 @@ false 3 3
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.7.0
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.7.0
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 

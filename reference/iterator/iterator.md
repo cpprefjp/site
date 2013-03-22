@@ -24,7 +24,7 @@ namespace std {
 | | |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | テンプレートパラメータ | 説明 |
-| `Category` | イテレータの分類。 (参照： [iterator tag](https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag)) |
+| `Category` | イテレータの分類。 (参照： [iterator tag](/reference/iterator/iterator_tag)) |
 | `T` | イテレータが指す値型 |
 | `Distance` | イテレータ間の差を表す型。 デフォルトは`std::ptrdiff_t` |
 | `Pointer` | イテレータが指す値のポインタ型 デフォルトは`T*` |

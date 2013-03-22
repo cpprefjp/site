@@ -11,13 +11,13 @@ namespace std {
 ##概要
 
 <b>n回逆に進めた</b><b>イテレータを返す</b><b>。</b>
-<b>[advance](https://sites.google.com/site/cpprefjp/reference/iterator/advance)()と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、n回逆に進んだイテレータのコピーを返す。</b>
+<b>[advance](/reference/iterator/advance)()と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、n回逆に進んだイテレータのコピーを返す。</b>
 
 
 
 ##効果
 
-`[advance](https://sites.google.com/site/cpprefjp/reference/iterator/advance)(x, -n);`<br style='color:rgb(0,0,0)'/>`return x;`
+`[advance](/reference/iterator/advance)(x, -n);`<br style='color:rgb(0,0,0)'/>`return x;`
 
 
 
@@ -70,11 +70,11 @@ int main()
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.7.0
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.7.0
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 

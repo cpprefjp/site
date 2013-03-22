@@ -13,8 +13,8 @@ namespace std {
 
     : public iterator<output_iterator_tag, void, void, void, void>;
 ```
-* iterator[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator]
-* output_iterator_tag[link https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator]
+* output_iterator_tag[link /reference/iterator/iterator_tag]
 
 `}`
 
@@ -34,11 +34,11 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](https://sites.google.com/site/cpprefjp/reference/iterator/insert_iterator/insert_iterator) | コンストラクタ |
+| [`(constructor)`](/reference/iterator/insert_iterator/insert_iterator) | コンストラクタ |
 | `~insert_iterator() = default` | デストラクタ |
-| [`operator=`](https://sites.google.com/site/cpprefjp/reference/iterator/insert_iterator/op_assign) | 代入演算子 |
-| [`operator*`](https://sites.google.com/site/cpprefjp/reference/iterator/insert_iterator/op_deref) | 間接参照演算子 |
-| [`operator++`](https://sites.google.com/site/cpprefjp/reference/iterator/insert_iterator/op_increment) | イテレータをインクリメントする |
+| [`operator=`](/reference/iterator/insert_iterator/op_assign) | 代入演算子 |
+| [`operator*`](/reference/iterator/insert_iterator/op_deref) | 間接参照演算子 |
+| [`operator++`](/reference/iterator/insert_iterator/op_increment) | イテレータをインクリメントする |
 
 
 ###protectedメンバ変数
@@ -61,7 +61,7 @@ namespace std {
 |` difference_type` |` void` |
 |` pointer` |` void` |
 |` value_type` |` void` |
-|` iterator_category` |` [output_iterator_tag](https://sites.google.com/site/cpprefjp/reference/iterator/iterator_tag)` |
+|` iterator_category` |` [output_iterator_tag](/reference/iterator/iterator_tag)` |
 |` reference` |` void` |
 
 
@@ -70,7 +70,7 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| [`inserter`](https://sites.google.com/site/cpprefjp/reference/iterator/insert_iterator/inserter) | `insert_iterator`のヘルパ関数 |
+| [`inserter`](/reference/iterator/insert_iterator/inserter) | `insert_iterator`のヘルパ関数 |
 
 
 

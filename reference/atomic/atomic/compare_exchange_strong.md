@@ -5,8 +5,8 @@ bool compare_exchange_strong(T& expected, T desired, memory_order success, memor
 bool compare_exchange_strong(T& expected, T desired, memory_order order = memory_order_seq_cst) volatile noexcept;
 bool compare_exchange_strong(T& expected, T desired, memory_order order = memory_order_seq_cst) noexcept;
 ```
-* memory_order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
-* memory_order_seq_cst[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
+* memory_order[link /reference/atomic/memory_order]
+* memory_order_seq_cst[link /reference/atomic/memory_order]
 
 ##概要
 
@@ -16,7 +16,7 @@ bool compare_exchange_strong(T& expected, T desired, memory_order order = memory
 
 ##要件
 
-`failure`が[`memory_order_release`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order), [`memory_order_acq_rel`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order)ではないこと。
+`failure`が[`memory_order_release`](/reference/atomic/memory_order), [`memory_order_acq_rel`](/reference/atomic/memory_order)ではないこと。
 `failure`が`success`よりも強くないこと。
 
 
@@ -43,11 +43,11 @@ bool compare_exchange_strong(T& expected, T desired, memory_order order = memory
 ##備考
 
 この関数は、値が交換可能な場合はCAS操作が常に成功する。
-[`compare_exchange_weak`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/compare_exchange_weak)()はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。
+[`compare_exchange_weak`](/reference/atomic/atomic/compare_exchange_weak)()はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。
 
 通常、CAS操作は、CASが成功するまでループさせる。
 しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、`compare_exchange_strong``()`を使うことで効率良くCASを行うことができる。
-逆に言えば、そのような状況でないなら常にループで[compare_exchange_weak()](https://sites.google.com/site/cpprefjp/reference/atomic/atomic/compare_exchange_weak)を利用すれば良い。
+逆に言えば、そのような状況でないなら常にループで[compare_exchange_weak()](/reference/atomic/atomic/compare_exchange_weak)を利用すれば良い。
 
 
 
@@ -101,11 +101,11 @@ false 3 3
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.7.0
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.7.0
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 

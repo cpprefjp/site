@@ -9,7 +9,7 @@ ostreambuf_iterator& operator=(CharT c);
 
 ##効果
 
-`[failed()](https://sites.google.com/site/cpprefjp/reference/iterator/ostreambuf_iterator/failed) == false`の場合に`sbuf_->sputc(c);`を行い、そうでなければ何もしない。
+`[failed()](/reference/iterator/ostreambuf_iterator/failed) == false`の場合に`sbuf_->sputc(c);`を行い、そうでなければ何もしない。
 
 ※ `sbuf_`はメンバ変数として保持している`streambuf_type`オブジェクトへのポインタ
 

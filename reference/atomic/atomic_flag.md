@@ -6,17 +6,17 @@ namespace std {
 
 ##概要
 
-`atomic_flag`クラスは、フラグを表現するためのアトミッククラスである。このクラスは、シンプルなtest-and-set (TAS)機能を提供し、セットとクリアの2状態のみを持つ。このクラスに対する操作はロックフリーであることが保証される。（機能的には[`atomic<bool>`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic)クラスよりも貧弱だが、atomic_flagクラスの操作は必ずロックフリーである点が異なる。）
+`atomic_flag`クラスは、フラグを表現するためのアトミッククラスである。このクラスは、シンプルなtest-and-set (TAS)機能を提供し、セットとクリアの2状態のみを持つ。このクラスに対する操作はロックフリーであることが保証される。（機能的には[`atomic<bool>`](/reference/atomic/atomic)クラスよりも貧弱だが、atomic_flagクラスの操作は必ずロックフリーである点が異なる。）
 
 ###メンバ関数
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| [`(constructor)`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic_flag/atomic_flag) | コンストラクタ |
+| [`(constructor)`](/reference/atomic/atomic_flag/atomic_flag) | コンストラクタ |
 | `~atomic_flag() = default` | デストラクタ |
 | `operator=(const atomic_flag&) = delete operator=(const atomic_flag&) volatile = delete` | 代入演算子 |
-| [`test_and_set`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic_flag/test_and_set) | テストしてフラグを立てる |
-| [`clear`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic_flag/clear) | フラグをクリアする |
+| [`test_and_set`](/reference/atomic/atomic_flag/test_and_set) | テストしてフラグを立てる |
+| [`clear`](/reference/atomic/atomic_flag/clear) | フラグをクリアする |
 
 ###例
 ```cpp
@@ -97,11 +97,11 @@ int main()
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.7.0
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.7.0
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 ###参照

@@ -9,7 +9,7 @@ namespace std {
 
 }
 ```
-* atomic[link https://sites.google.com/site/cpprefjp/reference/atomic/atomic]
+* atomic[link /reference/atomic/atomic]
 
 ##概要
 
@@ -18,7 +18,7 @@ namespace std {
 
 ##効果
 
-[memory_order_seq_cst](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order)のメモリオーダーにしたがって現在の値と`expected`をバイトレベルで等値比較を行う、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
+[memory_order_seq_cst](/reference/atomic/memory_order)のメモリオーダーにしたがって現在の値と`expected`をバイトレベルで等値比較を行う、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
 
 
 ##戻り値
@@ -35,11 +35,11 @@ namespace std {
 ##備考
 
 この関数は、値が交換可能な場合はCAS操作が常に成功する。
-[`atomic_compare_exchange_weak`](https://sites.google.com/site/cpprefjp/reference/atomic/atomic_compare_exchange_weak)()はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。
+[`atomic_compare_exchange_weak`](/reference/atomic/atomic_compare_exchange_weak)()はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。
 
 通常、CAS操作は、CASが成功するまでループさせる。
 しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、`atomic_compare_exchange_strong``()`を使うことで効率良くCASを行うことができる。
-逆に言えば、そのような状況でないなら常にループで[atomic_compare_exchange_weak()](https://sites.google.com/site/cpprefjp/reference/atomic/atomic_compare_exchange_weak)を利用すれば良い。
+逆に言えば、そのような状況でないなら常にループで[atomic_compare_exchange_weak()](/reference/atomic/atomic_compare_exchange_weak)を利用すれば良い。
 
 
 
@@ -94,11 +94,11 @@ false 3 3
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.7.0
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.7.0
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 

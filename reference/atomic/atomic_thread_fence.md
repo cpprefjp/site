@@ -4,7 +4,7 @@ namespace std {
   extern "C" void atomic_thread_fence(memory_order order) noexcept;
 }
 ```
-* memory_order[link https://sites.google.com/site/cpprefjp/reference/atomic/memory_order]
+* memory_order[link /reference/atomic/memory_order]
 
 ##概要
 
@@ -54,11 +54,11 @@ assert(i == 1 || j == 1); // すなわち、i と j が共に0となることは
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | メモリオーダー | フェンス |
-| [`memory_order_relaxed`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order) | 何も行わない |
-| [`memory_order_acquire`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order) [`memory_order_consume`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order) | acquireフェンス |
-| [`memory_order_release`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order) | releaseフェンス |
-| [`memory_order_acq_rel`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order) | acquireフェンスとreleaseフェンスの両方 |
-| [`memory_order_seq_cst`](https://sites.google.com/site/cpprefjp/reference/atomic/memory_order) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
+| [`memory_order_relaxed`](/reference/atomic/memory_order) | 何も行わない |
+| [`memory_order_acquire`](/reference/atomic/memory_order) [`memory_order_consume`](/reference/atomic/memory_order) | acquireフェンス |
+| [`memory_order_release`](/reference/atomic/memory_order) | releaseフェンス |
+| [`memory_order_acq_rel`](/reference/atomic/memory_order) | acquireフェンスとreleaseフェンスの両方 |
+| [`memory_order_seq_cst`](/reference/atomic/memory_order) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
 
 
 
@@ -128,11 +128,11 @@ int main()
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.7.0
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.7.0
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 

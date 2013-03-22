@@ -13,7 +13,7 @@ namespace std {
 
 ##戻り値
 
-return x.[base](https://sites.google.com/site/cpprefjp/reference/iterator/move_iterator/base)() < y.[base](https://sites.google.com/site/cpprefjp/reference/iterator/move_iterator/base)();
+return x.[base](/reference/iterator/move_iterator/base)() < y.[base](/reference/iterator/move_iterator/base)();
 
 
 
@@ -63,11 +63,11 @@ less
 
 ###処理系
 
-- [Clang](https://sites.google.com/site/cpprefjp/implementation#clang): ??
-- [GCC](https://sites.google.com/site/cpprefjp/implementation#gcc): 
-- [GCC, C++0x mode](https://sites.google.com/site/cpprefjp/implementation#gcc): 4.7.0
-- [ICC](https://sites.google.com/site/cpprefjp/implementation#icc): ??
-- [Visual C++](https://sites.google.com/site/cpprefjp/implementation#visual_cpp) ??
+- [Clang](/implementation#clang): ??
+- [GCC](/implementation#gcc): 
+- [GCC, C++0x mode](/implementation#gcc): 4.7.0
+- [ICC](/implementation#icc): ??
+- [Visual C++](/implementation#visual_cpp) ??
 
 
 
