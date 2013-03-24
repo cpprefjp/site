@@ -18,11 +18,11 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./front_insert_iterator) | コンストラクタ |
+| [`(constructor)`](./front_insert_iterator/front_insert_iterator) | コンストラクタ |
 | `~front_insert_iterator() = default` | デストラクタ |
-| [`operator=`](./op_assign) | 代入演算子 |
-| [`operator*`](./op_deref) | 間接参照演算子 |
-| [`operator++`](./op_increment) | イテレータをインクリメントする |
+| [`operator=`](./front_insert_iterator/op_assign) | 代入演算子 |
+| [`operator*`](./front_insert_iterator/op_deref) | 間接参照演算子 |
+| [`operator++`](./front_insert_iterator/op_increment) | イテレータをインクリメントする |
 
 ###protectedメンバ変数
 
@@ -47,7 +47,7 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [`front_inserter`](./front_inserter) | `front_insert_iterator`のヘルパ関数 |
+| [`front_inserter`](./front_insert_iterator/front_inserter) | `front_insert_iterator`のヘルパ関数 |
 
 
 ##例

@@ -17,19 +17,19 @@ move_iteratorクラスのテンプレートパラメータIteratorは、入力�
 
 | | |
 |-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [(constructor)](./move_iterator) | コンストラクタ |
+| [(constructor)](./move_iterator/move_iterator) | コンストラクタ |
 | ~move_iterator() = default | デストラクタ |
-| [operator=](./op_assign) | 代入演算子 |
-| [base](./base) | 元のイテレータを取得する |
-| [operator*](./op_deref) | 間接参照演算子 |
-| [operator->](./op_arrow) | メンバアクセス演算子 |
-| [operator++](./op_increment) | イテレータをインクリメントする |
-| [operator--](./op_decrement) | イテレータをデクリメントする |
-| [operator+](./op_plus) | イテレータを進める |
-| [operator+=](./op_plus_assign) | イテレータ自身を進める |
-| [operator-](./op_minus) | イテレータを逆に進める |
-| [operator-=](./op_minus_assign) | イテレータ自身を逆に進める |
-| [operator[]](./op_at) | 任意の位置にランダムアクセスする |
+| [operator=](./move_iterator/op_assign) | 代入演算子 |
+| [base](./move_iterator/base) | 元のイテレータを取得する |
+| [operator*](./move_iterator/op_deref) | 間接参照演算子 |
+| [operator->](./move_iterator/op_arrow) | メンバアクセス演算子 |
+| [operator++](./move_iterator/op_increment) | イテレータをインクリメントする |
+| [operator--](./move_iterator/op_decrement) | イテレータをデクリメントする |
+| [operator+](./move_iterator/op_plus) | イテレータを進める |
+| [operator+=](./move_iterator/op_plus_assign) | イテレータ自身を進める |
+| [operator-](./move_iterator/op_minus) | イテレータを逆に進める |
+| [operator-=](./move_iterator/op_minus_assign) | イテレータ自身を逆に進める |
+| [operator[]](./move_iterator/op_at) | 任意の位置にランダムアクセスする |
 
 ###メンバ型
 
@@ -46,15 +46,15 @@ move_iteratorクラスのテンプレートパラメータIteratorは、入力�
 
 | | |
 |-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| [operator==](./op_equal) | 等値比較 |
-| [operator!=](./op_not_equal) | 非等値比較 |
-| [operator<](./op_less) | 左辺が右辺より小さいかの判定を行う |
-| [operator<=](./op_less_equal) | 左辺が右辺以下かの判定を行う |
-| [operator>](./op_greater) | 左辺が右辺より大きいかの判定を行う |
-| [operator>=](./op_greater_equal) | 左辺が右辺以上かの判定を行う |
-| [operator-](./op_minus_free) | 2つのmove_iteratorの差を求める |
-| [operator+](./op_plus_free) | イテレータを進める |
-| [make_move_iterator](./make_move_iterator) | move_iteratorのヘルパ関数 |
+| [operator==](./move_iterator/op_equal) | 等値比較 |
+| [operator!=](./move_iterator/op_not_equal) | 非等値比較 |
+| [operator<](./move_iterator/op_less) | 左辺が右辺より小さいかの判定を行う |
+| [operator<=](./move_iterator/op_less_equal) | 左辺が右辺以下かの判定を行う |
+| [operator>](./move_iterator/op_greater) | 左辺が右辺より大きいかの判定を行う |
+| [operator>=](./move_iterator/op_greater_equal) | 左辺が右辺以上かの判定を行う |
+| [operator-](./move_iterator/op_minus_free) | 2つのmove_iteratorの差を求める |
+| [operator+](./move_iterator/op_plus_free) | イテレータを進める |
+| [make_move_iterator](./move_iterator/make_move_iterator) | move_iteratorのヘルパ関数 |
 
 
 ##例

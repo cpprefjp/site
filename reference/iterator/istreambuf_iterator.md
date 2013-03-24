@@ -18,12 +18,12 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| [`(constructor)`](./istreambuf_iterator) | コンストラクタ |
+| [`(constructor)`](./istreambuf_iterator/istreambuf_iterator) | コンストラクタ |
 | `~istreambuf_iterator() = default` | デストラクタ |
-| [`operator*`](./op_deref) | 間接参照 |
-| [`operator->`](./op_arrow) | メンバアクセス(C++11) |
-| [`operator++`](./op_increment) | イテレータをインクリメントする |
-| [`equal`](./equal) | `istreambuf_iterator`オブジェクトの等値比較 |
+| [`operator*`](./istreambuf_iterator/op_deref) | 間接参照 |
+| [`operator->`](./istreambuf_iterator/op_arrow) | メンバアクセス(C++11) |
+| [`operator++`](./istreambuf_iterator/op_increment) | イテレータをインクリメントする |
+| [`equal`](./istreambuf_iterator/equal) | `istreambuf_iterator`オブジェクトの等値比較 |
 
 ###メンバ型
 
@@ -44,8 +44,8 @@ namespace std {
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [`operator==`](./op_equal) | 等値比較 |
-| [`operator!=`](./op_not_equal) | 非等値比較 |
+| [`operator==`](./istreambuf_iterator/op_equal) | 等値比較 |
+| [`operator!=`](./istreambuf_iterator/op_not_equal) | 非等値比較 |
 
 
 ##例

@@ -18,11 +18,11 @@ namespace std {
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./back_insert_iterator) | コンストラクタ |
+| [`(constructor)`](./back_insert_iterator/back_insert_iterator) | コンストラクタ |
 | `~back_insert_iterator() = default` | デストラクタ |
-| [`operator=`](./op_assign) | 代入演算子 |
-| [`operator*`](./op_deref) | 間接参照演算子 |
-| [`operator++`](./op_increment) | イテレータをインクリメントする |
+| [`operator=`](./back_insert_iterator/op_assign) | 代入演算子 |
+| [`operator*`](./back_insert_iterator/op_deref) | 間接参照演算子 |
+| [`operator++`](./back_insert_iterator/op_increment) | イテレータをインクリメントする |
 
 ###protectedメンバ変数
 
@@ -46,7 +46,7 @@ namespace std {
 
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| [`back_inserter`](./back_inserter) | `back_insert_iterator`のヘルパ関数 |
+| [`back_inserter`](./back_insert_iterator/back_inserter) | `back_insert_iterator`のヘルパ関数 |
 
 
 ##例

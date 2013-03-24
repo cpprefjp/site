@@ -32,12 +32,12 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./ostreambuf_iterator) | コンストラクタ |
+| [`(constructor)`](./ostreambuf_iterator/ostreambuf_iterator) | コンストラクタ |
 | `~ostream_iterator() = default` | デストラクタ |
-| [`operator=`](./op_assign) | 代入演算子 |
-| [`operator*`](./op_deref) | 間接参照 |
-| [`operator++`](./op_increment) | インクリメント |
-| [`failed`](./failed) | 書き込みが失敗したかを判定する |
+| [`operator=`](./ostreambuf_iterator/op_assign) | 代入演算子 |
+| [`operator*`](./ostreambuf_iterator/op_deref) | 間接参照 |
+| [`operator++`](./ostreambuf_iterator/op_increment) | インクリメント |
+| [`failed`](./ostreambuf_iterator/failed) | 書き込みが失敗したかを判定する |
 
 
 ###メンバ型
