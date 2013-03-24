@@ -1,3 +1,4 @@
+#ATOMIC_VAR_INIT
 ```cpp
 #define ATOMIC_VAR_INIT(value) see below
 ```

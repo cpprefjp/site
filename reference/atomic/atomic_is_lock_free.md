@@ -1,3 +1,4 @@
+#atomic_is_lock_free
 ```cpp
 namespace std {
 

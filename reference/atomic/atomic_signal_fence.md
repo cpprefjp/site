@@ -1,3 +1,4 @@
+#atomic_signal_fence
 ```cpp
 namespace std {
 

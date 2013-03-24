@@ -1,3 +1,4 @@
+#clear
 ```cpp
 void clear(memory_order order = memory_order_seq_cst) volatile noexcept;
 void clear(memory_order order = memory_order_seq_cst) noexcept;

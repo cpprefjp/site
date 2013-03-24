@@ -1,3 +1,4 @@
+#operator*
 ```cpp
 ostream_iterator<T, CharT, Traits>& operator*();
 ```

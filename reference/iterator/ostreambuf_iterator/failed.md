@@ -1,3 +1,4 @@
+#failed
 ```cpp
 bool failed() const noexcept;
 ```

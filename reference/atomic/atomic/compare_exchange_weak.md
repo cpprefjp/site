@@ -1,3 +1,4 @@
+#compare_exchange_weak
 ```cpp
 bool compare_exchange_weak(T& expected, T desired, memory_order success, memory_order failure) volatile noexcept;
 bool compare_exchange_weak(T& expected, T desired, memory_order success, memory_order failure) noexcept;

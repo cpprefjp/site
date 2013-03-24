@@ -1,3 +1,4 @@
+#operator++
 ```cpp
 istreambuf_iterator<CharT, Traits>& operator++();
 proxy operator++(int);

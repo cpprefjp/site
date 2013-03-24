@@ -1,3 +1,4 @@
+#operator-
 ```cpp
 reverse_iterator
   operator-(typename reverse_iterator<Iterator>::difference_type n) const;

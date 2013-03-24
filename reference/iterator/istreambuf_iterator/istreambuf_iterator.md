@@ -1,3 +1,4 @@
+#コンストラクタ
 ```cpp
 constexpr istreambuf_iterator() noexcept;
 istreambuf_iterator(const istreambuf_iterator&) noexcept = default;

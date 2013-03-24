@@ -1,3 +1,4 @@
+#atomic_init
 ```cpp
 namespace std {
 

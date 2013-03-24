@@ -1,3 +1,4 @@
+#equal
 ```cpp
 bool equal(const istreambuf_iterator& b) const;
 ```

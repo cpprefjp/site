@@ -1,3 +1,4 @@
+#atomic_store
 ```cpp
 namespace std {
 

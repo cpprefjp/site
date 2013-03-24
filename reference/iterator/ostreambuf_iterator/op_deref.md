@@ -1,3 +1,4 @@
+#operator*
 ```cpp
 ostreambuf_iterator& operator*();
 ```

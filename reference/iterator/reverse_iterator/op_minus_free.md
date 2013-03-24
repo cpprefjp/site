@@ -1,3 +1,4 @@
+#operator- (フリー関数版)
 ```cpp
 namespace std {
 

@@ -1,3 +1,4 @@
+#ATOMIC_FLAG_INIT
 ```cpp
 namespace std {
 

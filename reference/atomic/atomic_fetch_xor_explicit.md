@@ -1,3 +1,4 @@
+#atomic_fetch_xor_explicit
 ```cpp
 namespace std {
 

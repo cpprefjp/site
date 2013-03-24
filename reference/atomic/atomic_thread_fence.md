@@ -1,3 +1,4 @@
+#atomic_thread_fence
 ```cpp
 namespace std {
 

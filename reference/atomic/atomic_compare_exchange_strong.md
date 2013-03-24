@@ -1,3 +1,4 @@
+#atomic_compare_exchange_strong
 ```cpp
 namespace std {
 

@@ -1,3 +1,4 @@
+#atomic_flag_clear
 ```cpp
 namespace std {
 

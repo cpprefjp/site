@@ -1,3 +1,4 @@
+#operator*
 ```cpp
 insert_iterator<Container>& operator*();
 ```

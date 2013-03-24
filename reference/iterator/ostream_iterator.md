@@ -1,3 +1,4 @@
+#ostream_iterator
 ```cpp
 namespace std {
   template <class T, class CharT = char, class Traits = char_traits<CharT> >

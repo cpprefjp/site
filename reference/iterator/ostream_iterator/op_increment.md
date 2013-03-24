@@ -1,3 +1,4 @@
+#operator++
 ```cpp
 ostream_iterator& operator++();
 ostream_iterator& operator++(int);

@@ -1,3 +1,4 @@
+#operator++
 ```cpp
 istream_iterator<T, CharT, Traits, Distance>& operator++();
 

@@ -1,3 +1,4 @@
+#コンストラクタ
 ```cpp
 explicit back_insert_iterator(Container& x);
 ```

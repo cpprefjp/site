@@ -1,3 +1,4 @@
+#load
 ```cpp
 T load(memory_order order = memory_order_seq_cst) const volatile noexcept;
 T load(memory_order order = memory_order_seq_cst) const noexcept;

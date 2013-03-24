@@ -1,3 +1,4 @@
+#atomic_flag
 ```cpp
 namespace std {
   struct atomic_flag;

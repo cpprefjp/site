@@ -1,3 +1,4 @@
+#inserter
 ```cpp
 namespace std {
   template <class Container>

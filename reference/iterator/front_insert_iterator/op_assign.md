@@ -1,3 +1,4 @@
+#代入演算子
 ```cpp
 front_insert_iterator<Container>&
   operator=(const typename Container::value_type& value);

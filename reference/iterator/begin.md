@@ -1,3 +1,4 @@
+#begin
 ```cpp
 namespace std {
   template <class C> auto begin(C& c) -> decltype(c.begin());

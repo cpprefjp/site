@@ -1,3 +1,4 @@
+#ロックフリープロパティ
 ```cpp
 #define ATOMIC_BOOL_LOCK_FREE unspecified
 #define ATOMIC_CHAR_LOCK_FREE unspecified

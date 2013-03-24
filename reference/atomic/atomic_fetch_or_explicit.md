@@ -1,3 +1,4 @@
+#atomic_fetch_or_explicit
 ```cpp
 namespace std {
 

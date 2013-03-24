@@ -1,3 +1,4 @@
+#代入演算子
 ```cpp
 ostreambuf_iterator& operator=(CharT c);
 ```
