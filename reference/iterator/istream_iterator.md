@@ -2,27 +2,11 @@
 
 | |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|
-
-
-```cpp
-namespace std {
-
-  template <class T, class CharT = char,
-
-            class Traits = char_traits<CharT>, class Distance = ptrdiff_t>
-
-  class istream_iterator
-
-    : public iterator<input_iterator_tag, T, Distance, const T*, const T&>
-
-}
+|<br/><br/><br/>```cpp
+<br/>namespace std {<br/><br/>  template <class T, class CharT = char,<br/><br/>            class Traits = char_traits<CharT>, class Distance = ptrdiff_t><br/><br/>  class istream_iterator<br/><br/>    : public iterator<input_iterator_tag, T, Distance, const T*, const T&><br/><br/>}<br/><br/><br/><br/><br/><br/> |
 ```
 * iterator[link /reference/iterator/iterator]
 * input_iterator_tag[link /reference/iterator/iterator_tag]
-
- |
-
 
 ##概要
 
@@ -36,8 +20,7 @@ namespace std {
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 | [`(constructor)`](./istream_iterator/istream_iterator) | コンストラクタ |
 | `~istream_iterator() = default` | デストラクタ |
-| <code>operator=(const istream_iterator&) = default
- operator=(istream_iterator&&) = default</code> | 代入演算子 |
+| `operator=(const istream_iterator&) = default<br/> operator=(istream_iterator&&) = default` | 代入演算子 |
 | [`operator*`](./istream_iterator/op_deref) | 間接参照 |
 | [`operator->`](./istream_iterator/op_arrow) | メンバアクセス |
 | [`operator++`](./istream_iterator/op_increment) | イテレータをインクリメントする |

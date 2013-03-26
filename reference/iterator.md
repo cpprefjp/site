@@ -17,8 +17,7 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 | [`input_iterator_tag`](./iterator/iterator_tag) | 入力イテレータを表すタグ(class) |
 | [`output_iterator_tag`](./iterator/iterator_tag) | 出力イテレータを表すタグ(class) |
 | [`forward_iterator_tag`](./iterator/iterator_tag) | 前方向イテレータを表すタグ(class) |
-| <code>[bidirectional_iterator_tag](./iterator/iterator_tag)
-</code> | 双方向イテレータを表すタグ(class) |
+| `[bidirectional_iterator_tag](./iterator/iterator_tag)<br/>` | 双方向イテレータを表すタグ(class) |
 | [`random_access_iterator_tag`](./iterator/iterator_tag) | ランダムアクセスイテレータを表すタグ(class) |
 | [`advance`](./iterator/advance) | イテレータを進める(function template) |
 | [`distance`](./iterator/distance) | イテレータ間の距離を求める(function template) |

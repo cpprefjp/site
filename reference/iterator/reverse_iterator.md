@@ -2,33 +2,11 @@
 
 | |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|
-
-
-```cpp
-namespace std {
-
-  template <class Iterator>
-
-  class reverse_iterator
-
-    : public iterator<typename iterator_traits<Iterator>::iterator_category,
-
-                      typename iterator_traits<Iterator>::value_type,
-
-                      typename iterator_traits<Iterator>::difference_type,
-
-                      typename iterator_traits<Iterator>::pointer,
-
-                      typename iterator_traits<Iterator>::reference>;
-
-}
+|<br/><br/><br/>```cpp
+<br/>namespace std {<br/><br/>  template <class Iterator><br/><br/>  class reverse_iterator<br/><br/>    : public iterator<typename iterator_traits<Iterator>::iterator_category,<br/><br/>                      typename iterator_traits<Iterator>::value_type,<br/><br/>                      typename iterator_traits<Iterator>::difference_type,<br/><br/>                      typename iterator_traits<Iterator>::pointer,<br/><br/>                      typename iterator_traits<Iterator>::reference>;<br/><br/>}<br/><br/><br/><br/><br/><br/> |
 ```
 * iterator[link /reference/iterator/iterator]
 * iterator_traits[link /reference/iterator/iterator_traits]
-
- |
-
 
 ##概要
 
@@ -48,8 +26,7 @@ namespace std {
 | `~reverse_iterator() = default` | デストラクタ |
 | [`operator=`](./reverse_iterator/op_assign) | 代入演算子 |
 | [`base`](/site/cpprefjp/) | 元となったイテレータを取得する |
-| [`operator*`](./reverse_iterator/op_deref) | 間接参照演算子
- |
+| [`operator*`](./reverse_iterator/op_deref) | 間接参照演算子<br/> |
 | [`operator->`](./reverse_iterator/op_arrow) | メンバアクセス演算子 |
 | [`operator++`](./reverse_iterator/op_increment) | イテレータをインクリメントする |
 | [`operator--`](./reverse_iterator/op_decrement) | イテレータをデクリメントする |

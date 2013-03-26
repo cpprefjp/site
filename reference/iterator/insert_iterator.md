@@ -2,27 +2,11 @@
 
 | |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|
-
-
-```cpp
-namespace std {
-
-  template <class Container>
-
-  class insert_iterator
-
-    : public iterator<output_iterator_tag, void, void, void, void>;
+|<br/><br/><br/>```cpp
+<br/><br/>namespace std {<br/><br/>  template <class Container><br/><br/>  class insert_iterator<br/><br/>    : public iterator<output_iterator_tag, void, void, void, void>;<br/><br/><br/><br/>}<br/><br/><br/><br/><br/><br/> |
 ```
 * iterator[link /reference/iterator/iterator]
 * output_iterator_tag[link /reference/iterator/iterator_tag]
-
-`}`
-
-
-
- |
-
 
 ##概要
 
