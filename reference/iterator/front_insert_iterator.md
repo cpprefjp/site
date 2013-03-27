@@ -7,8 +7,8 @@ namespace std {
 
 }
 ```
-* iterator[link /reference/iterator/iterator]
-* output_iterator_tag[link /reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator.md]
+* output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
 <p>`front_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_front`メンバ関数を呼び出すイテレータアダプタである。
@@ -18,11 +18,11 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./front_insert_iterator/front_insert_iterator) | コンストラクタ |
+| [`(constructor)`](./front_insert_iterator/front_insert_iterator.md) | コンストラクタ |
 | `~front_insert_iterator() = default` | デストラクタ |
-| [`operator=`](./front_insert_iterator/op_assign) | 代入演算子 |
-| [`operator*`](./front_insert_iterator/op_deref) | 間接参照演算子 |
-| [`operator++`](./front_insert_iterator/op_increment) | イテレータをインクリメントする |
+| [`operator=`](./front_insert_iterator/op_assign.md) | 代入演算子 |
+| [`operator*`](./front_insert_iterator/op_deref.md) | 間接参照演算子 |
+| [`operator++`](./front_insert_iterator/op_increment.md) | イテレータをインクリメントする |
 
 ###protectedメンバ変数
 
@@ -40,14 +40,14 @@ namespace std {
 |` difference_type` |` void` |
 |` pointer` |` void` |
 |` value_type` |` void` |
-|` iterator_category` |` [output_iterator_tag](/reference/iterator/iterator_tag)` |
+|` iterator_category` |` [output_iterator_tag](/reference/iterator/iterator_tag.md)` |
 |` reference` |` void` |
 
 ###非メンバ関数
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [`front_inserter`](./front_insert_iterator/front_inserter) | `front_insert_iterator`のヘルパ関数 |
+| [`front_inserter`](./front_insert_iterator/front_inserter.md) | `front_insert_iterator`のヘルパ関数 |
 
 
 ##例

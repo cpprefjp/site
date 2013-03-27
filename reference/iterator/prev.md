@@ -12,13 +12,13 @@ namespace std {
 ##概要
 
 <b>n回逆に進めた</b><b>イテレータを返す</b><b>。</b>
-<b>[advance](/reference/iterator/advance)()と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、n回逆に進んだイテレータのコピーを返す。</b>
+<b>[advance](/reference/iterator/advance.md)()と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、n回逆に進んだイテレータのコピーを返す。</b>
 
 
 
 ##効果
 
-`[advance](/reference/iterator/advance)(x, -n);`<br style='color:rgb(0,0,0)'/>`return x;`
+`[advance](/reference/iterator/advance.md)(x, -n);`<br style='color:rgb(0,0,0)'/>`return x;`
 
 
 
@@ -71,11 +71,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

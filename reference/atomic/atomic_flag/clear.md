@@ -3,8 +3,8 @@
 void clear(memory_order order = memory_order_seq_cst) volatile noexcept;
 void clear(memory_order order = memory_order_seq_cst) noexcept;
 ```
-* memory_order[link /reference/atomic/memory_order]
-* memory_order_seq_cst[link /reference/atomic/memory_order]
+* memory_order[link /reference/atomic/memory_order.md]
+* memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 ##概要
 
@@ -15,8 +15,8 @@ void clear(memory_order order = memory_order_seq_cst) noexcept;
 
 `order`が以下のメモリオーダーではないこと：
 
-- [`memory_order_acquire`](/reference/atomic/memory_order)
-- [`memory_order_acq_rel`](/reference/atomic/memory_order)
+- [`memory_order_acquire`](/reference/atomic/memory_order.md)
+- [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
 
 
 ##効果
@@ -83,11 +83,11 @@ false
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

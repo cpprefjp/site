@@ -7,17 +7,17 @@ namespace std {
 
 ##概要
 
-`atomic_flag`クラスは、フラグを表現するためのアトミッククラスである。このクラスは、シンプルなtest-and-set (TAS)機能を提供し、セットとクリアの2状態のみを持つ。このクラスに対する操作はロックフリーであることが保証される。（機能的には[`atomic<bool>`](/reference/atomic/atomic)クラスよりも貧弱だが、atomic_flagクラスの操作は必ずロックフリーである点が異なる。）
+`atomic_flag`クラスは、フラグを表現するためのアトミッククラスである。このクラスは、シンプルなtest-and-set (TAS)機能を提供し、セットとクリアの2状態のみを持つ。このクラスに対する操作はロックフリーであることが保証される。（機能的には[`atomic<bool>`](/reference/atomic/atomic.md)クラスよりも貧弱だが、atomic_flagクラスの操作は必ずロックフリーである点が異なる。）
 
 ###メンバ関数
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| [`(constructor)`](./atomic_flag/atomic_flag) | コンストラクタ |
+| [`(constructor)`](./atomic_flag/atomic_flag.md) | コンストラクタ |
 | `~atomic_flag() = default` | デストラクタ |
 | `operator=(const atomic_flag&) = delete operator=(const atomic_flag&) volatile = delete` | 代入演算子 |
-| [`test_and_set`](./atomic_flag/test_and_set) | テストしてフラグを立てる |
-| [`clear`](./atomic_flag/clear) | フラグをクリアする |
+| [`test_and_set`](./atomic_flag/test_and_set.md) | テストしてフラグを立てる |
+| [`clear`](./atomic_flag/clear.md) | フラグをクリアする |
 
 ###例
 ```cpp
@@ -98,11 +98,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 ###参照

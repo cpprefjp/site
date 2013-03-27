@@ -5,8 +5,8 @@
 |<br/><br/><br/>```cpp
 <br/><br/>namespace std {<br/><br/>  template <class Container><br/><br/>  class insert_iterator<br/><br/>    : public iterator<output_iterator_tag, void, void, void, void>;<br/><br/><br/><br/>}<br/><br/><br/><br/><br/><br/> |
 ```
-* iterator[link /reference/iterator/iterator]
-* output_iterator_tag[link /reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator.md]
+* output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
 
@@ -19,11 +19,11 @@
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./insert_iterator/insert_iterator) | コンストラクタ |
+| [`(constructor)`](./insert_iterator/insert_iterator.md) | コンストラクタ |
 | `~insert_iterator() = default` | デストラクタ |
-| [`operator=`](./insert_iterator/op_assign) | 代入演算子 |
-| [`operator*`](./insert_iterator/op_deref) | 間接参照演算子 |
-| [`operator++`](./insert_iterator/op_increment) | イテレータをインクリメントする |
+| [`operator=`](./insert_iterator/op_assign.md) | 代入演算子 |
+| [`operator*`](./insert_iterator/op_deref.md) | 間接参照演算子 |
+| [`operator++`](./insert_iterator/op_increment.md) | イテレータをインクリメントする |
 
 
 ###protectedメンバ変数
@@ -46,7 +46,7 @@
 |` difference_type` |` void` |
 |` pointer` |` void` |
 |` value_type` |` void` |
-|` iterator_category` |` [output_iterator_tag](/reference/iterator/iterator_tag)` |
+|` iterator_category` |` [output_iterator_tag](/reference/iterator/iterator_tag.md)` |
 |` reference` |` void` |
 
 
@@ -55,7 +55,7 @@
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| [`inserter`](./insert_iterator/inserter) | `insert_iterator`のヘルパ関数 |
+| [`inserter`](./insert_iterator/inserter.md) | `insert_iterator`のヘルパ関数 |
 
 
 

@@ -10,7 +10,7 @@ namespace std {
 
 }
 ```
-* atomic[link /reference/atomic/atomic]
+* atomic[link /reference/atomic/atomic.md]
 
 ##概要
 
@@ -19,7 +19,7 @@ namespace std {
 
 ##効果
 
-[memory_order_seq_cst](/reference/atomic/memory_order)のメモリオーダーにしたがって、現在の値に`operandを`OR`した値`でアトミックに置き換える
+[memory_order_seq_cst](/reference/atomic/memory_order.md)のメモリオーダーにしたがって、現在の値に`operandを`OR`した値`でアトミックに置き換える
 
 
 ##戻り値
@@ -83,11 +83,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

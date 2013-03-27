@@ -6,24 +6,24 @@ namespace std {
     : public iterator<input_iterator_tag, CharT, typename Traits::off_type, unspecified, CharT>
 }
 ```
-* iterator[link /reference/iterator/iterator]
-* input_iterator_tag[link /reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator.md]
+* input_iterator_tag[link /reference/iterator/iterator_tag.md]
 * unspecified[italic]
 
 ##概要
 
-`istreambuf_iterator`は、`operator++()`でイテレータを進めることにより、ストリームバッファのsbumpc()メンバ関数でストリームからデータを読み込む入力イテレータである。ストリームからの`sgetc()`メンバ関数による読み取りが`Traits::eof()を返した`場合に、イテレータは`end`イテレータと等しくなる。[`istream_iterator`](/reference/iterator/istream_iterator)とは異なり、スペースや改行が読み飛ばされることはない。いくつかのメンバ関数は、同じ`streambuf`オブジェクトを参照するためにプロキシオブジェクトを返す。
+`istreambuf_iterator`は、`operator++()`でイテレータを進めることにより、ストリームバッファのsbumpc()メンバ関数でストリームからデータを読み込む入力イテレータである。ストリームからの`sgetc()`メンバ関数による読み取りが`Traits::eof()を返した`場合に、イテレータは`end`イテレータと等しくなる。[`istream_iterator`](/reference/iterator/istream_iterator.md)とは異なり、スペースや改行が読み飛ばされることはない。いくつかのメンバ関数は、同じ`streambuf`オブジェクトを参照するためにプロキシオブジェクトを返す。
 
 ###メンバ関数
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| [`(constructor)`](./istreambuf_iterator/istreambuf_iterator) | コンストラクタ |
+| [`(constructor)`](./istreambuf_iterator/istreambuf_iterator.md) | コンストラクタ |
 | `~istreambuf_iterator() = default` | デストラクタ |
-| [`operator*`](./istreambuf_iterator/op_deref) | 間接参照 |
-| [`operator->`](./istreambuf_iterator/op_arrow) | メンバアクセス(C++11) |
-| [`operator++`](./istreambuf_iterator/op_increment) | イテレータをインクリメントする |
-| [`equal`](./istreambuf_iterator/equal) | `istreambuf_iterator`オブジェクトの等値比較 |
+| [`operator*`](./istreambuf_iterator/op_deref.md) | 間接参照 |
+| [`operator->`](./istreambuf_iterator/op_arrow.md) | メンバアクセス(C++11) |
+| [`operator++`](./istreambuf_iterator/op_increment.md) | イテレータをインクリメントする |
+| [`equal`](./istreambuf_iterator/equal.md) | `istreambuf_iterator`オブジェクトの等値比較 |
 
 ###メンバ型
 
@@ -37,15 +37,15 @@ namespace std {
 | `difference_type` | `Traits::off_type` |
 | `pointer` | 未規定 |
 | `value_type` | `CharT` |
-| `iterator_category` | [`input_iterator_tag`](/reference/iterator/iterator_tag) |
+| `iterator_category` | [`input_iterator_tag`](/reference/iterator/iterator_tag.md) |
 | `reference` | `CharT` |
 
 ###非メンバ関数
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [`operator==`](./istreambuf_iterator/op_equal) | 等値比較 |
-| [`operator!=`](./istreambuf_iterator/op_not_equal) | 非等値比較 |
+| [`operator==`](./istreambuf_iterator/op_equal.md) | 等値比較 |
+| [`operator!=`](./istreambuf_iterator/op_not_equal.md) | 非等値比較 |
 
 
 ##例

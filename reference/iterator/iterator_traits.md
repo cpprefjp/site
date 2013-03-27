@@ -45,7 +45,7 @@ namespace std {
 | `value_type` | イテレータが指している値型 |
 | `pointer` | ポインタ型 |
 | `reference` | イテレータが指している参照型 |
-| `iterator_category` | イテレータの分類を表す型(参照： [iterator tag](/reference/iterator/iterator_tag)) |
+| `iterator_category` | イテレータの分類を表す型(参照： [iterator tag](/reference/iterator/iterator_tag.md)) |
 
 
 ##例

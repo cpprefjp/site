@@ -5,10 +5,10 @@ namespace std {
   template <class T>
   T atomic_fetch_add(volatile atomic<T>* object, T operand) noexcept;
 ```
-* atomic[link /reference/atomic/atomic]
+* atomic[link /reference/atomic/atomic.md]
 
   template <class T>
-  T atomic_fetch_add([atomic](/reference/atomic/atomic)<T>* object, T operand) noexcept;
+  T atomic_fetch_add([atomic](/reference/atomic/atomic.md)<T>* object, T operand) noexcept;
 }
 
 
@@ -21,7 +21,7 @@ namespace std {
 
 ##効果
 
-[memory_order_seq_cst](/reference/atomic/memory_order)のメモリオーダーにしたがって、現在の値に`operandを加算した値`でアトミックに置き換える
+[memory_order_seq_cst](/reference/atomic/memory_order.md)のメモリオーダーにしたがって、現在の値に`operandを加算した値`でアトミックに置き換える
 
 
 
@@ -79,11 +79,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

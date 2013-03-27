@@ -6,8 +6,8 @@ bool compare_exchange_weak(T& expected, T desired, memory_order success, memory_
 bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_order_seq_cst) volatile noexcept;
 bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_order_seq_cst) noexcept;
 ```
-* memory_order[link /reference/atomic/memory_order]
-* memory_order_seq_cst[link /reference/atomic/memory_order]
+* memory_order[link /reference/atomic/memory_order.md]
+* memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 ##概要
 
@@ -16,7 +16,7 @@ bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_o
 
 ##要件
 
-`failure`が[`memory_order_release`](/reference/atomic/memory_order), [`memory_order_acq_rel`](/reference/atomic/memory_order)ではないこと。
+`failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと。
 
 `failure`が`success`よりも強くないこと。
 
@@ -41,12 +41,12 @@ bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_o
 ##備考
 
 この関数は、値が交換可能な場合でもCAS操作が失敗する可能性がある(Spurious Failure)。
-[`compare_exchange_strong`](/reference/atomic/atomic/compare_exchange_strong)()はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
+[`compare_exchange_strong`](/reference/atomic/atomic/compare_exchange_strong.md)()はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
 
-アーキテクチャによっては、この関数は[`compare_exchange_strong`](/reference/atomic/atomic/compare_exchange_strong)()と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](http://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](http://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
+アーキテクチャによっては、この関数は[`compare_exchange_strong`](/reference/atomic/atomic/compare_exchange_strong.md)()と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](http://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](http://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
 
 通常、CAS操作は、CASが成功するまでループさせる。
-しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、[compare_exchange_strong()](/reference/atomic/atomic/compare_exchange_strong)を使うことで効率良くCASを行うことができる。
+しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、[compare_exchange_strong()](/reference/atomic/atomic/compare_exchange_strong.md)を使うことで効率良くCASを行うことができる。
 逆に言えば、そのような状況でないなら常にループで`compare_exchange_weak()`を利用すれば良い。
 
 
@@ -100,11 +100,11 @@ false 3 3
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

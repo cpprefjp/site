@@ -63,44 +63,44 @@ namespace std {
 
 | | |
 |-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| [`(constructor)`](./atomic/atomic) | コンストラクタ |
+| [`(constructor)`](./atomic/atomic.md) | コンストラクタ |
 | `~atomic() = default` | デストラクタ |
-| [`operator=`](./atomic/op_assign) | 代入演算子 |
-| [`is_lock_free`](./atomic/is_lock_free) | オブジェクトがロックフリーに振る舞えるかを判定する |
-| [`store`](./atomic/store) | 値を書き込む |
-| [`load`](./atomic/load) | 値を読み込む |
-| [`operator T`](./atomic/op_t) | 型Tへの変換演算子 |
-| [`exchange`](./atomic/exchange) | 値を入れ替える |
-| [`compare_exchange_weak`](./atomic/compare_exchange_weak) | 弱い比較で値を入れ替える |
-| [`compare_exchange_strong`](./atomic/compare_exchange_strong) | 強い比較で値を入れ替える |
+| [`operator=`](./atomic/op_assign.md) | 代入演算子 |
+| [`is_lock_free`](./atomic/is_lock_free.md) | オブジェクトがロックフリーに振る舞えるかを判定する |
+| [`store`](./atomic/store.md) | 値を書き込む |
+| [`load`](./atomic/load.md) | 値を読み込む |
+| [`operator T`](./atomic/op_t.md) | 型Tへの変換演算子 |
+| [`exchange`](./atomic/exchange.md) | 値を入れ替える |
+| [`compare_exchange_weak`](./atomic/compare_exchange_weak.md) | 弱い比較で値を入れ替える |
+| [`compare_exchange_strong`](./atomic/compare_exchange_strong.md) | 強い比較で値を入れ替える |
 
 ###atomic<integral>専用メンバ関数
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`fetch_add`](./atomic/fetch_add) | 加算 |
-| [`fetch_sub`](./atomic/fetch_sub) | 減算 |
-| [`fetch_and`](./atomic/fetch_and) | AND演算 |
-| [`fetch_or`](./atomic/fetch_or) | OR演算 |
-| [`fetch_xor`](./atomic/fetch_xor) | XOR演算 |
-| [`operator++`](./atomic/op_increment) | インクリメント |
-| [`operator--`](./atomic/op_decrement) | デクリメント |
-| [`operator+=`](./atomic/op_plus_assign) | 加算 |
-| [`operator-=`](./atomic/op_minus_assign) | 減算 |
-| [`operator&=`](./atomic/op_and_assign) | AND演算 |
-| <code>[operator&#x7C;=](./atomic/op_or_assign)</code> | OR演算 |
-| [`operator^=`](./atomic/op_xor_assign) | XOR演算 |
+| [`fetch_add`](./atomic/fetch_add.md) | 加算 |
+| [`fetch_sub`](./atomic/fetch_sub.md) | 減算 |
+| [`fetch_and`](./atomic/fetch_and.md) | AND演算 |
+| [`fetch_or`](./atomic/fetch_or.md) | OR演算 |
+| [`fetch_xor`](./atomic/fetch_xor.md) | XOR演算 |
+| [`operator++`](./atomic/op_increment.md) | インクリメント |
+| [`operator--`](./atomic/op_decrement.md) | デクリメント |
+| [`operator+=`](./atomic/op_plus_assign.md) | 加算 |
+| [`operator-=`](./atomic/op_minus_assign.md) | 減算 |
+| [`operator&=`](./atomic/op_and_assign.md) | AND演算 |
+| <code>[operator&#x7C;=](./atomic/op_or_assign.md)</code> | OR演算 |
+| [`operator^=`](./atomic/op_xor_assign.md) | XOR演算 |
 
 ###atomic<T*>専用メンバ関数
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`fetch_add`](./atomic/fetch_add) | 加算 |
-| [`fetch_sub`](./atomic/fetch_sub) | 減算 |
-| [`operator++`](./atomic/op_increment) | インクリメント |
-| [`operator--`](./atomic/op_decrement) | デクリメント |
-| [`operator+=`](./atomic/op_plus_assign) | 加算 |
-| [`operator-=`](./atomic/op_minus_assign) | 減算 |
+| [`fetch_add`](./atomic/fetch_add.md) | 加算 |
+| [`fetch_sub`](./atomic/fetch_sub.md) | 減算 |
+| [`operator++`](./atomic/op_increment.md) | インクリメント |
+| [`operator--`](./atomic/op_decrement.md) | デクリメント |
+| [`operator+=`](./atomic/op_plus_assign.md) | 加算 |
+| [`operator-=`](./atomic/op_minus_assign.md) | 減算 |
 
 ###例
 
@@ -184,11 +184,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0(atomic_addressは未実装)
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0(atomic_addressは未実装)
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 ###参照

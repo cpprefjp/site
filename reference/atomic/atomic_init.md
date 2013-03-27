@@ -10,7 +10,7 @@ namespace std {
 
 }
 ```
-* atomic[link /reference/atomic/atomic]
+* atomic[link /reference/atomic/atomic.md]
 
 ##概要
 
@@ -57,11 +57,11 @@ namespace std {
 
 ###処理系
 
-- [Clang](/implementation#clang): 
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??<h4>備考</h4>
+- [Clang](/implementation#clang.md): 
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
 この関数は、GCC 4.7およびClang 3.1では実装が存在しなかった。動作する環境がないため、サンプルコードは記載していない。
 
 

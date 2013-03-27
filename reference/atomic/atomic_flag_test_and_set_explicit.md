@@ -7,8 +7,8 @@ namespace std {
 
 }
 ```
-* atomic_flag[link /reference/atomic/atomic_flag]
-* memory_order[link /reference/atomic/memory_order]
+* atomic_flag[link /reference/atomic/atomic_flag.md]
+* memory_order[link /reference/atomic/memory_order.md]
 
 ##概要
 
@@ -78,11 +78,11 @@ true
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

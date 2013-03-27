@@ -11,7 +11,7 @@ unspecified operator[](difference_type n) const;
 
 ##戻り値
 
-`return std::[move](/reference/utility/move)([base](/reference/iterator/move_iterator/base)()[n]);`
+`return std::[move](/reference/utility/move.md)([base](/reference/iterator/move_iterator/base.md)()[n]);`
 
 ##例
 
@@ -53,11 +53,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.6.1
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

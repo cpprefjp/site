@@ -5,7 +5,7 @@ namespace std {
   extern "C" void atomic_thread_fence(memory_order order) noexcept;
 }
 ```
-* memory_order[link /reference/atomic/memory_order]
+* memory_order[link /reference/atomic/memory_order.md]
 
 ##概要
 
@@ -55,11 +55,11 @@ assert(i == 1 || j == 1); // すなわち、i と j が共に0となることは
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | メモリオーダー | フェンス |
-| [`memory_order_relaxed`](/reference/atomic/memory_order) | 何も行わない |
-| [`memory_order_acquire`](/reference/atomic/memory_order) [`memory_order_consume`](/reference/atomic/memory_order) | acquireフェンス |
-| [`memory_order_release`](/reference/atomic/memory_order) | releaseフェンス |
-| [`memory_order_acq_rel`](/reference/atomic/memory_order) | acquireフェンスとreleaseフェンスの両方 |
-| [`memory_order_seq_cst`](/reference/atomic/memory_order) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
+| [`memory_order_relaxed`](/reference/atomic/memory_order.md) | 何も行わない |
+| [`memory_order_acquire`](/reference/atomic/memory_order.md) [`memory_order_consume`](/reference/atomic/memory_order.md) | acquireフェンス |
+| [`memory_order_release`](/reference/atomic/memory_order.md) | releaseフェンス |
+| [`memory_order_acq_rel`](/reference/atomic/memory_order.md) | acquireフェンスとreleaseフェンスの両方 |
+| [`memory_order_seq_cst`](/reference/atomic/memory_order.md) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
 
 
 
@@ -129,11 +129,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

@@ -9,8 +9,8 @@ namespace std {
   T atomic_exchange_explicit(atomic<T>* object, T desired, memory_order order) noexcept;
 ]
 ```
-* atomic[link /reference/atomic/atomic]
-* memory_order[link /reference/atomic/memory_order]
+* atomic[link /reference/atomic/atomic.md]
+* memory_order[link /reference/atomic/memory_order.md]
 
 ##概要
 
@@ -36,7 +36,7 @@ namespace std {
 
 ##備考
 
-この関数は、特殊化された[`atomic`](/reference/atomic/atomic)型に対して定義される。
+この関数は、特殊化された[`atomic`](/reference/atomic/atomic.md)型に対して定義される。
 
 
 
@@ -78,11 +78,11 @@ replaced 1 by 2
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

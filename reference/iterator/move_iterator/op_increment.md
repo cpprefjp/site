@@ -13,10 +13,10 @@ move_iterator operator++(int);
 
 前置インクリメント operator++()：
 
-`++[base](/reference/iterator/move_iterator/base)();``return *this;`
+`++[base](/reference/iterator/move_iterator/base.md)();``return *this;`
 
 後置インクリメント operator++(int)：
-`move_iterator tmp = *this;``++[base](/reference/iterator/move_iterator/base)();`
+`move_iterator tmp = *this;``++[base](/reference/iterator/move_iterator/base.md)();`
 `return tmp;`
 
 
@@ -61,11 +61,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.6.1
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

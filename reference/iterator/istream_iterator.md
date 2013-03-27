@@ -5,8 +5,8 @@
 |<br/><br/><br/>```cpp
 <br/>namespace std {<br/><br/>  template <class T, class CharT = char,<br/><br/>            class Traits = char_traits<CharT>, class Distance = ptrdiff_t><br/><br/>  class istream_iterator<br/><br/>    : public iterator<input_iterator_tag, T, Distance, const T*, const T&><br/><br/>}<br/><br/><br/><br/><br/><br/> |
 ```
-* iterator[link /reference/iterator/iterator]
-* input_iterator_tag[link /reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator.md]
+* input_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
 
@@ -18,12 +18,12 @@
 
 | | |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./istream_iterator/istream_iterator) | コンストラクタ |
+| [`(constructor)`](./istream_iterator/istream_iterator.md) | コンストラクタ |
 | `~istream_iterator() = default` | デストラクタ |
 | `operator=(const istream_iterator&) = default<br/> operator=(istream_iterator&&) = default` | 代入演算子 |
-| [`operator*`](./istream_iterator/op_deref) | 間接参照 |
-| [`operator->`](./istream_iterator/op_arrow) | メンバアクセス |
-| [`operator++`](./istream_iterator/op_increment) | イテレータをインクリメントする |
+| [`operator*`](./istream_iterator/op_deref.md) | 間接参照 |
+| [`operator->`](./istream_iterator/op_arrow.md) | メンバアクセス |
+| [`operator++`](./istream_iterator/op_increment.md) | イテレータをインクリメントする |
 
 
 ###メンバ型
@@ -36,7 +36,7 @@
 | `difference_type` | `Distance (デフォルトはptrdiff_t)` |
 | `pointer` | `const T*` |
 | `value_type` | `T` |
-| `iterator_category` | [`input_iterator_tag`](/reference/iterator/iterator_tag) |
+| `iterator_category` | [`input_iterator_tag`](/reference/iterator/iterator_tag.md) |
 | `reference` | `const T&` |
 
 
@@ -45,8 +45,8 @@
 
 | | |
 |-------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [`operator==`](./istream_iterator/op_equal) | 等値比較 |
-| [`operator!=`](./istream_iterator/op_not_equal) | 非等値比較 |
+| [`operator==`](./istream_iterator/op_equal.md) | 等値比較 |
+| [`operator!=`](./istream_iterator/op_not_equal.md) | 非等値比較 |
 
 
 

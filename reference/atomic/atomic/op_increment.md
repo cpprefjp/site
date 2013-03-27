@@ -16,9 +16,9 @@ T operator++(int) noexcept;
 
 前置operator++：
 
-`[fetch_add](/reference/atomic/atomic/fetch_add)(1) + 1`
+`[fetch_add](/reference/atomic/atomic/fetch_add.md)(1) + 1`
 後置operator++：
-[`fetch_add`](/reference/atomic/atomic/fetch_add)(1)
+[`fetch_add`](/reference/atomic/atomic/fetch_add.md)(1)
 
 ##例外
 
@@ -64,11 +64,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

@@ -10,7 +10,7 @@ namespace std {
 
 }
 ```
-* atomic[link /reference/atomic/atomic]
+* atomic[link /reference/atomic/atomic.md]
 
 ##概要
 
@@ -19,7 +19,7 @@ namespace std {
 
 ##効果
 
-[memory_order_seq_cst](/reference/atomic/memory_order)のメモリオーダーにしたがって、アトミックに値を読み込む
+[memory_order_seq_cst](/reference/atomic/memory_order.md)のメモリオーダーにしたがって、アトミックに値を読み込む
 
 
 
@@ -36,7 +36,7 @@ namespace std {
 
 ##備考
 
-この関数は、特殊化された[`atomic`](/reference/atomic/atomic)型に対して定義される。
+この関数は、特殊化された[`atomic`](/reference/atomic/atomic.md)型に対して定義される。
 
 
 
@@ -76,11 +76,11 @@ int main()
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 

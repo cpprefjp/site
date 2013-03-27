@@ -5,12 +5,12 @@
 |<br/><br/><br/>```cpp
 <br/>namespace std {<br/><br/>  template <class CharT, class Traits = char_traits<CharT> ><br/><br/>  class ostreambuf_iterator<br/><br/>    : public iterator<output_iterator_tag, void, void, void, void><br/><br/>}<br/><br/><br/><br/><br/><br/> |
 ```
-* iterator[link /reference/iterator/iterator]
-* output_iterator_tag[link /reference/iterator/iterator_tag]
+* iterator[link /reference/iterator/iterator.md]
+* output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
 
-`ostreambuf_iterator`は出力イテレータであり、代入の際に外部から渡された`ostream`オブジェクトにストリームバッファの`sputc()`メンバ関数で値を出力するイテレータアダプタである。[`ostream_iterator`](/reference/iterator/ostream_iterator)がフォーマットされた出力を扱うのに対し、`osteambuf_iterator`はフォーマットなしの生の出力を扱う。
+`ostreambuf_iterator`は出力イテレータであり、代入の際に外部から渡された`ostream`オブジェクトにストリームバッファの`sputc()`メンバ関数で値を出力するイテレータアダプタである。[`ostream_iterator`](/reference/iterator/ostream_iterator.md)がフォーマットされた出力を扱うのに対し、`osteambuf_iterator`はフォーマットなしの生の出力を扱う。
 
 
 ###メンバ関数
@@ -18,12 +18,12 @@
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./ostreambuf_iterator/ostreambuf_iterator) | コンストラクタ |
+| [`(constructor)`](./ostreambuf_iterator/ostreambuf_iterator.md) | コンストラクタ |
 | `~ostream_iterator() = default` | デストラクタ |
-| [`operator=`](./ostreambuf_iterator/op_assign) | 代入演算子 |
-| [`operator*`](./ostreambuf_iterator/op_deref) | 間接参照 |
-| [`operator++`](./ostreambuf_iterator/op_increment) | インクリメント |
-| [`failed`](./ostreambuf_iterator/failed) | 書き込みが失敗したかを判定する |
+| [`operator=`](./ostreambuf_iterator/op_assign.md) | 代入演算子 |
+| [`operator*`](./ostreambuf_iterator/op_deref.md) | 間接参照 |
+| [`operator++`](./ostreambuf_iterator/op_increment.md) | インクリメント |
+| [`failed`](./ostreambuf_iterator/failed.md) | 書き込みが失敗したかを判定する |
 
 
 ###メンバ型
@@ -39,7 +39,7 @@
 | `difference_type` | `void` |
 | `pointer` | `void` |
 | `value_type` | `void` |
-| `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag) |
+| `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) |
 | `reference` | `void` |
 
 

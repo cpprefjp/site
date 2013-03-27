@@ -7,7 +7,7 @@ namespace std {
 
 }
 ```
-* atomic_flag[link /reference/atomic/atomic_flag]
+* atomic_flag[link /reference/atomic/atomic_flag.md]
 
 ##概要
 
@@ -16,7 +16,7 @@ namespace std {
 
 ##効果
 
-[memory_order_seq_cst](/reference/atomic/memory_order)のメモリオーダーにしたがって、アトミックに`false`値を書き込む。
+[memory_order_seq_cst](/reference/atomic/memory_order.md)のメモリオーダーにしたがって、アトミックに`false`値を書き込む。
 
 
 
@@ -79,11 +79,11 @@ false
 
 ###処理系
 
-- [Clang](/implementation#clang): ??
-- [GCC](/implementation#gcc): 
-- [GCC, C++0x mode](/implementation#gcc): 4.7.0
-- [ICC](/implementation#icc): ??
-- [Visual C++](/implementation#visual_cpp) ??
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 
