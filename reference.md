@@ -1,4 +1,3 @@
-
 #リファレンス
 <b>言語サポートライブラリ(Language support library) 5/5</b>
 
@@ -76,7 +75,7 @@
 | <map> | 連想配列 | 担当不在 | <span style="background-color:rgb(255,0,0)">未着手</span> |
 | [<set>](/reference/set.md) | 集合 | @PG_kura | <span style="background-color:rgb(255,153,0)">5%</span> |
 | [`<unordered_map>`](/reference/unordered_map.md) | 非順序連想配列(C++11) | @kariya_mitsuru | <span style="background-color:rgb(255,153,0)">着手中</span> |
-| [`<unordered_set>`](/reference/unordered_set.md) | 非順序集合(C++11) | @kariya_mitsuru | <span style="background-color:lime>一応完了</span>ツッコミ希望 |
+| [`<unordered_set>`](/reference/unordered_set.md) | 非順序集合(C++11) | @kariya_mitsuru | <span style="background-color:lime">一応完了</span>ツッコミ希望 |
 
 
 <b>イテレータライブラリ(Iterator library) 1/1</b>
