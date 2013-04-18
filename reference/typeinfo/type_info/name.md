@@ -1,0 +1,52 @@
+#name
+```cpp
+const char* name() const noexcept;
+```
+
+##概要
+
+<b>実装定義の型名を取得する</b>
+
+
+##戻り値
+
+実装定義の型名を返す。
+
+
+##例外
+
+投げない
+
+
+##備考
+
+GCC(libstdc++)は、少なくても4.7時点まではマングリングされた名前を返す。完全な型名を取得するには、デマングルする必要がある。参照：
+
+[C++ のシンボルをデマングルする - bkブログ](http://0xcc.net/blog/archives/000095.html)
+
+
+##例
+
+```cpp
+#include <iostream>
+#include <typeinfo>
+
+int main()
+{
+  std::cout << typeid(int).name() << std::endl;
+  std::cout << typeid(char).name() << std::endl;
+}
+```
+* name[color ff0000]
+* name[color ff0000]
+
+###出力
+
+```cpp
+i
+c
+```
+
+##参照
+
+

@@ -185,7 +185,7 @@ vector<bool>の要素は参照するとプロキシオブジェクトのコピ�
 
 参照：
 N1211 - vector<bool>: More Problems, Better Solutions
-<span style='background-color:rgb(255,255,255)>ビット配列に関しては、bitset(ビットを格納する固定長コンテナ)も参照。</span>
+<span style='background-color:rgb(255,255,255)'>ビット配列に関しては、bitset(ビットを格納する固定長コンテナ)も参照。</span>
 可変長のビット配列の実装としては、Boost C++ Librariesのdynamic_bitsetがある。
 ```
 * N1211 - vector<bool>: More Problems, Better Solutions[link http://www.gotw.ca/publications/N1211.pdf]

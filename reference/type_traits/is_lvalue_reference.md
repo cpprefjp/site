@@ -1,0 +1,74 @@
+#is_lvalue_reference
+```cpp
+namespace std {
+  template <class T>
+  struct is_lvalue_reference;
+}
+```
+
+##概要
+
+<b>型Tが左辺値参照型かを調べる</b>
+
+
+##効果
+
+`is_lvalue_reference`は、型`T`が左辺値参照型であるならば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
+
+
+##備考
+
+右辺値参照型は左辺値参照型ではない。
+
+
+##例
+
+```cpp
+#include <type_traits>
+
+static_assert(std::is_lvalue_reference<int&>::value == true, "value == true, int& is lvalue reference");
+static_assert(std::is_same<std::is_lvalue_reference<int&>::value_type, bool>::value, "value_type == bool");
+static_assert(std::is_same<std::is_lvalue_reference<int&>::type, std::true_type>::value, "type == true_type");
+static_assert(std::is_lvalue_reference<int&>() == true, "is_lvalue_reference<int&>() == true");
+
+static_assert(std::is_lvalue_reference<int>::value == false, "value == false, int is not lvalue reference");
+static_assert(std::is_same<std::is_lvalue_reference<int>::value_type, bool>::value, "value_type == bool");
+static_assert(std::is_same<std::is_lvalue_reference<int>::type, std::false_type>::value, "type == false_type");
+static_assert(std::is_lvalue_reference<int>() == false, "is_lvalue_reference<int>() == false");
+
+static_assert(std::is_lvalue_reference<unsigned&>::value == true, "unsigned& is lvalue reference");
+static_assert(std::is_lvalue_reference<const long&>::value == true, "const long& is lvalue reference");
+static_assert(std::is_lvalue_reference<const double*&>::value == true, "const double*& is lvalue reference");
+static_assert(std::is_lvalue_reference<void (&)()>::value == true, "void (&)() is lvalue reference");
+
+static_assert(std::is_lvalue_reference<int*>::value == false, "int* is not lvalue reference");
+static_assert(std::is_lvalue_reference<int&&>::value == false, "int&& is not lvalue reference");
+static_assert(std::is_lvalue_reference<void ()>::value == false, "void () is not lvalue reference");
+static_assert(std::is_lvalue_reference<void (int&)>::value == false, "void (int&) is not lvalue reference");
+
+int main(){}
+```
+
+###出力
+
+```cpp
+```
+
+##バージョン
+```
+###言語
+
+
+- C++11
+
+
+
+###処理系
+
+<li style='list-style-position:outside;list-style-type:square'>GCC, C++0x mode: 4.3.4, 4.5.3, 4.6.1, 4.7.2</li>
+- Visual C++ 10.0
+
+<h3><h4>備考</h4>
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [integral_constant](/reference/type_traits/integral_constant-true_type-false_type.md) が operator bool を持っていないためエラーになる。
+</h3>
+

@@ -1,0 +1,68 @@
+#is_floating_point
+```cpp
+namespace std {
+  template <class T>
+  struct is_floating_point;
+
+}
+```
+
+##概要
+<b>型Tが浮動小数点型かを調べる</b>
+
+##効果
+
+`is_floating_point`は、型`T`が浮動小数点型(cv修飾を許容する)であれば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
+
+
+##例
+
+```cpp
+#include <type_traits>
+
+static_assert(std::is_floating_point<float>::value == true, "value == true, float is floating point");
+static_assert(std::is_same<std::is_floating_point<float>::value_type, bool>::value, "value_type == bool");
+static_assert(std::is_same<std::is_floating_point<float>::type, std::true_type>::value, "type == true_type");
+static_assert(std::is_floating_point<float>() == true, "is_floating_point<float>() == true");
+
+static_assert(std::is_floating_point<int>::value == false, "value == false, int is not floating point");
+static_assert(std::is_same<std::is_floating_point<int>::value_type, bool>::value, "value_type == bool");
+static_assert(std::is_same<std::is_floating_point<int>::type, std::false_type>::value, "type == false_type");
+static_assert(std::is_floating_point<int>() == false, "is_floating_point<int>() == false");
+
+static_assert(std::is_floating_point<double>::value == true, "double is floating point");
+static_assert(std::is_floating_point<long double>::value == true, "long double is floating point");
+static_assert(std::is_floating_point<const float>::value == true, "const float is floating point");
+static_assert(std::is_floating_point<volatile double>::value == true, "volatile double is floating point");
+
+static_assert(std::is_floating_point<unsigned>::value == false, "unsigned is not floating point");
+static_assert(std::is_floating_point<float*>::value == false, "float* is not floating point");
+static_assert(std::is_floating_point<double&>::value == false, "double& is not floating point");
+static_assert(std::is_floating_point<long double[1]>::value == false, "long double[1] is not floating point");
+
+int main(){}
+```
+
+###出力
+
+```cpp
+```
+
+##バージョン
+
+<h3>
+言語</h3>
+```
+- C++11
+
+
+
+###処理系
+
+
+- GCC, C++0x mode: 4.3.4, 4.5.3, 4.6.1, 4.7.2
+
+- Visual C++ 10.0<h3><h4>備考</h4>
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [integral_constant](/reference/type_traits/integral_constant-true_type-false_type.md) が operator bool を持っていないためエラーになる。
+</h3>
+
