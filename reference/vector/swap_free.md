@@ -1,0 +1,68 @@
+#swap(非メンバ関数)
+```cpp
+namespace std {
+  template <class T, class Allocator>
+  void swap(vector<T, Allocator>& x, vector<T, Allocator>& y);
+}
+```
+
+##概要
+
+<b>2つのvectorオブジェクトを入れ替える</b>
+
+
+##効果
+
+`x.[swap](/reference/vector/swap.md)(y)`
+
+
+##戻り値
+
+なし
+
+
+##備考
+
+
+
+##例
+
+```cpp
+#include <iostream>
+#include <vector>
+
+template <class T>
+void print(const char* name, const std::vector<T>& v)
+{
+  std::cout << name << " : {";
+
+  for (const T& x : v) {
+    std::cout << x << " ";
+  }
+
+  std::cout << "}" << std::endl;
+}
+
+int main()
+{
+  std::vector<int> v1 = {1, 2, 3};
+  std::vector<int> v2 = {4, 5, 6};
+
+  std::swap(v1, v2);
+
+  print("v1", v1);
+  print("v2", v2);
+}
+```
+* swap[color ff0000]
+
+###出力
+
+```cpp
+v1 : {1 2 3 }
+v2 : {4 5 6 }
+```
+
+##参照
+
+
