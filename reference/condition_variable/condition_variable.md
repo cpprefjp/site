@@ -1,0 +1,118 @@
+#condition_variable
+```cpp
+namespace std {
+  class condition_variable;
+}
+```
+
+##概要
+
+`condition_variable`は、特定のイベントもしくは条件を満たすまでスレッドの実行を待機するためのクラスである。[`wait()`](./condition_variable/wait.md)/[wait_for()](./condition_variable/wait_for.md)/[wait_until()](./condition_variable/wait_until.md)を使用してスレッドを待機させ、[`notify_one()`](./condition_variable/notify_one.md)/[notify_all()](./condition_variable/notify_all.md)によって待機しているスレッドを起床させる。`condition_variable`は[`condition_variable_any`](/reference/condition_variable/condition_variable_any.md)と違い、ロック型として[`unique_lock`](/reference/mutex/unique_lock.md)<[mutex](/reference/mutex/mutex.md)>`のみをサポートしている。これは、処理系に`condition_variable`クラスに最も効率の良い実装を許可するためである。（例：POSIXスレッド環境においては`condition_variable`が`pthread_cond_t`の、`[mutex](/reference/mutex/mutex.md)が`pthread_mutex_t`の単純なラッパクラスとして実装されうる）
+
+###メンバ関数
+
+| | |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| [`(constructor)`](./condition_variable/condition_variable.md) | コンストラクタ |
+| [`(destructor)`](./condition_variable/-condition_variable.md) | デストラクタ |
+| `operator=(const condition_variable&) = delete;` | 代入演算子 |
+| [`notify_one`](./condition_variable/notify_one.md) | 待機しているスレッドをひとつ起床させる |
+| [`notify_all`](./condition_variable/notify_all.md) | 待機している全てのスレッドを起床させる |
+| [`wait`](./condition_variable/wait.md) | 起床されるまで待機する |
+| [`wait_for`](./condition_variable/wait_for.md) | 相対時間のタイムアウトを指定して、起床されるまで待機する |
+| [`wait_until`](./condition_variable/wait_until.md) | 絶対時間のタイムアウトを指定して、起床されるまで待機する |
+| [`native_handle`](./condition_variable/native_handle.md) | 条件変数のハンドルを取得する |
+
+###メンバ型
+
+| | |
+|--------------------------------------------------------------------------------|--------------------------------|
+| native_handle_type | 実装依存のハンドル型 |
+
+###非メンバ関数
+
+| | |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [`notify_all_at_thread_exit`](./condition_variable/notify_all_at_thread_exit.md) | 現在のスレッド終了時に、条件変数が待っている全てのスレッドを起床させる |
+
+
+###例
+
+```cpp
+#include <iostream>
+#include <condition_variable>
+#include <mutex>
+#include <thread>
+
+struct ProcessData {
+  std::mutex mtx_;
+  std::condition_variable cond_;
+
+  bool data_ready_ = false;
+
+public:
+  // 処理に必要なデータの準備をする
+  void prepare_data_for_processing()
+  {
+    // ...準備処理...
+
+    {
+      std::lock_guard<std::mutex> lk(mtx_);
+      data_ready_ = true;
+    }
+
+    // 準備完了したので待機スレッドを起床させる
+    cond_.notify_one();
+  }
+
+  void wait_for_data_to_process()
+  {
+    std::unique_lock<std::mutex> lk(mtx_);
+
+    // データの準備ができるまで待機してから処理する
+    cond_.wait(lk, [this] { return data_ready_; });
+    process_data();
+  }
+
+private:
+  void process_data()
+  {
+    // ...データを処理する...
+    std::cout << "process data" << std::endl;
+  }
+};
+
+int main()
+{
+  ProcessData p;
+
+  std::thread t1([&] { p.prepare_data_for_processing(); });
+  std::thread t2([&] { p.wait_for_data_to_process(); });
+
+  t1.join();
+  t2.join();
+}
+```
+
+###出力
+```cpp
+process data
+```
+
+##バージョン
+
+###言語
+
+- C++11
+
+###処理系
+
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
+
+
+###参照
+

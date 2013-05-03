@@ -1,0 +1,58 @@
+#UINT_MAX
+```cpp
+#define UINT_MAX implementation-defined
+```
+* implementation-defined[italic]
+
+##概要
+
+unsigned の最大値。
+
+std::[numeric_limits](/reference/limits/numeric_limits.md)<unsigned>::[max](/reference/limits/numeric_limits/max.md)() と等しい。
+
+
+##例
+
+
+```cpp
+#include <climits>
+
+#include <iostream>
+```
+
+`int main()`
+
+`{`
+
+`  std::cout << UINT_MAX << '\n';`
+
+`}`
+
+
+
+
+###出力例
+
+```cpp
+4294967295
+```
+
+##バージョン
+
+
+###言語
+
+
+- C++03
+
+- C++11
+
+###処理系
+
+
+- [GCC](/implementation#gcc.md): 4.5.3
+
+- [GCC, C++0x mode](/implementation#gcc.md): 4.5.3
+
+- [Visual C++](/implementation#visual_cpp.md): 7.1, 8.0, 9.0, 10.0
+

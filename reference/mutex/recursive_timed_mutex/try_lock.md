@@ -1,0 +1,126 @@
+#try_lock
+```cpp
+bool try_lock();
+```
+
+##概要
+
+<b>ロックの取得を試みる</b>
+
+
+
+##効果
+
+ブロッキングせずにこの関数を呼び出したスレッドがミューテックスの所有権を取得する
+
+
+
+##戻り値
+
+所有権が取得できなかった場合は何もせずに関数が`false`で返り、所有権を取得できた場合は`true`を返す。
+
+
+
+##例外
+
+投げない
+
+
+
+##備考
+
+
+
+##例
+
+```cpp
+#include <iostream>
+#include <mutex>
+#include <thread>
+#include <system_error>
+
+class counter {
+  int count_ = 0;
+  std::recursive_timed_mutex mtx_;
+public:
+  int add(int value)
+  {
+    if (!mtx_.try_lock()) {
+      // ロックの取得に失敗
+      std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
+      throw std::system_error(ec);
+    }
+    int result = count_ += value;
+    mtx_.unlock();
+    return result;
+  }
+
+  int increment()
+  {
+    if (!mtx_.try_lock()) { // ロックを取得する
+      // ロックの取得に失敗
+      std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
+      throw std::system_error(ec);
+    }
+    int result = add(1); // add()関数内でも同じミューテックスからロックを取得する
+    mtx_.unlock();
+    return result;
+  }
+};
+
+std::mutex print_mtx_;
+void print_value(int value)
+{
+  std::lock_guard<std::mutex> lock(print_mtx_);
+  std::cout << "count == " << value << std::endl;
+}
+
+counter c;
+void change_count()
+{
+  int value = c.increment();
+  print_value(value);
+}
+
+int main()
+{
+  std::thread t1(change_count);
+  std::thread t2(change_count);
+
+  t1.join();
+  t2.join();
+}
+```
+* try_lock[color ff0000]
+* try_lock[color ff0000]
+
+###出力例
+
+```cpp
+count == 1
+count == 2
+```
+
+##バージョン
+
+
+###言語
+
+
+- C++11
+
+
+
+###処理系
+
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
+
+
+
+##参照
+
+
