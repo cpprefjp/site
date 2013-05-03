@@ -6,7 +6,7 @@
 
 ##概要
 `long` の最小値。
-std::[numeric_limits](/reference/limits/numeric_limits.md)<long>::[min](/reference/limits/numeric_limits/min.md)() と等しい。
+`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しい。
 
 
 ##例

@@ -6,7 +6,7 @@
 
 ##概要
 `long long` の最大値。
-std::[numeric_limits](/reference/limits/numeric_limits.md)<long long>::[max](/reference/limits/numeric_limits/max.md)() と等しい。
+`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long long>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しい。
 
 
 ##例

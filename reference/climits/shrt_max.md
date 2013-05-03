@@ -6,7 +6,7 @@
 
 ##概要
 `short` の最大値。
-std::[numeric_limits](/reference/limits/numeric_limits.md)<short>::[max](/reference/limits/numeric_limits/max.md)() と等しい。
+`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<short>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しい。
 
 
 ##例
@@ -19,7 +19,6 @@ int main()
   std::cout << SHRT_MAX << '\n';
 }
 ```
-
 
 
 ###出力例
