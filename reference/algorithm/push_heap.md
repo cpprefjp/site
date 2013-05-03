@@ -10,40 +10,27 @@ namespace std {
 ```
 
 ##概要
-
 ヒープ化された範囲に要素を追加したヒープ範囲を得る
 
 
-
 ##要件
-
-[first,last - 1) は有効な heap である必要がある。
-*first の型は MoveConstructible と MoveAssignable の要件を満たしている必要がある。
-
+`[first,last - 1)` は有効な heap である必要がある。
+`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 ##効果
-
-last - 1 の値を、[first,last) が有効な heap となるように配置する
+`last - 1` の値を、`[first,last)` が有効な heap となるように配置する
 
 
 ##戻り値
-
 なし
 
 
 ##計算量
-
-最大で log(last - first) 回比較する。
-
-
-
-##備考
-
+最大で `log(last - first)` 回比較する。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -69,8 +56,7 @@ int main()
 * push_heap[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 2
 3
@@ -78,9 +64,8 @@ int main()
 ```
 
 ##実装例
-
 ```cpp
 ```
 
 ##参照
-```
+

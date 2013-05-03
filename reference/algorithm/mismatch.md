@@ -1,6 +1,6 @@
 #mismatch
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template <class InputIterator1, class InputIterator2>
   pair<InputIterator1, InputIterator2>
     mismatch(InputIterator1 first1, InputIterator1 last1, InputIterator2 first2);
@@ -9,27 +9,25 @@
   pair<InputIterator1, InputIterator2>
   mismatch(InputIterator1 first1, InputIterator1 last1,
            InputIterator2 first2, BinaryPredicate pred);
-}</pre>
+}
 ```
 * pair[link /reference/utility/pair.md]
 
-###概要
 
+###概要
 ２つのシーケンスが一致していない場所を検索する。
 
-###戻り値
 
-[first1,last1) 内にあるイテレータ i と、j == first2 + (i - first1) であるイテレータ j について、!(*i == *j) もしくは pred(*i, *j) == false であるような最初のイテレータのペアを返す。
-そのようなイテレータが見つからなかった場合は last1 と first2 + (last1 - first1) のペアを返す。
+###戻り値
+`[first1,last1)` 内にあるイテレータ `i` と、`j == first2 + (i - first1)` であるイテレータ `j` について、`!(*i == *j)` もしくは `pred(*i, *j) == false` であるような最初のイテレータのペアを返す。
+そのようなイテレータが見つからなかった場合は `last1` と `first2 + (last1 - first1)` のペアを返す。
 
 ###計算量
-
-最大で last1 - first1 回の対応する比較もしくは述語が適用される。
+最大で `last1 - first1` 回の対応する比較もしくは述語が適用される。
 
 ###実装例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>template <class InputIterator1, class InputIterator2>
+template <class InputIterator1, class InputIterator2>
 pair<InputIterator1, InputIterator2> mismatch(
   InputIterator1 first1, InputIterator1 last1, InputIterator2 first2) {
   for ( ; first1 != last1; ++first1, ++first2)
@@ -45,13 +43,12 @@ pair<InputIterator1, InputIterator2> mismatch(
     if (!bool(pred(*first1, *first2)))
       return make_pair(first1, first2);
   return make_pair(first1, first2);
-}</pre>
+}
 ```
 
 ###使用例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <algorithm>
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include <array>
@@ -83,20 +80,16 @@ int main() {
   // v.size() > v3.size() なので mismatch(v.begin(), v.end(), v3.begin()) とやってはいけない。
   auto pair2 = std::mismatch(v3.begin(), v3.end(), v.begin());
   print_mismatch_value(v3, v, pair2);
-}</pre>
+}
 ```
-* mismatch[color ff0000]
 * mismatch[color ff0000]
 
 ###出力
-
-```cpp
-mismatch index: 2
-
-mismatch value: (3,4)
 ```
+mismatch index: 2
+mismatch value: (3,4)
 
-`mismatch index: 5`
-
-`mismatch value: (end,2)`
+mismatch index: 5
+mismatch value: (end,2)
+```
 

@@ -7,28 +7,23 @@ namespace std {
 ```
 
 ##概要
-
 与えられた範囲を条件によって 2 つのグループに分け、それらの間の位置を得る。
 
 
 ##要件
-
-ForwardIterator の value type は Predicate の argument type へ変換可能でなければならない。
-[first,last) は pred によって partition されていなければならない。つまり、pred を満たす全ての要素が、pred を満たさない全ての要素より前に出現してなければならない。
+`ForwardIterator` の value type は `Predicate` の argument type へ変換可能でなければならない。
+`[first,last)` は `pred` によって partition されていなければならない。つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現してなければならない。
 
 
 ##戻り値
-
-all_of(first, mid, pred) と none_of(mid, last, pred) が true であるようなイテレータ mid を返す。
+[`all_of`](/reference/algorithm/all_of.md)`(first, mid, pred)` と [`none_of`](/reference/algorithm/none_of.md)`(mid, last, pred)` が `true` であるようなイテレータ `mid` を返す。
 
 
 ##計算量
-
-O(log(last - first)) のオーダーで pred が適用される。
+O(log(`last - first`)) のオーダーで `pred` が適用される。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -61,25 +56,19 @@ int main()
 ```
 * partition_point[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 v : 4,2,3,1,5,
 3
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
 
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -87,11 +76,9 @@ v : 4,2,3,1,5,
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##実装例
-
 ```cpp
 ```
 
 ##参照
-```
+

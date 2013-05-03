@@ -14,38 +14,27 @@ namespace std {
 ```
 
 ##概要
-
 2つのソート済み範囲をマージする
 
 
-
 ##要件
-
-[first1,last1) と [first2,last2) は operator< または comp でソートされている必要がある。
+`[first1,last1)` と `[first2,last2)` は `operator<` または `comp` でソートされている必要がある。
 結果の範囲と入力の範囲は重なっていてはならない。
 
 
 ##効果
-
-[first1,last1) と [first2,last2) の２つの要素を全て [result,result_last) へコピーする。その際に、is_sorted(result, result_last) または is_sorted(result, result_last, comp) の条件を満たすようにコピーする（result_last は result + (last1 - first1) + (last2 - first2) とする）。
+`[first1,last1)` と `[first2,last2)` の２つの要素を全て `[result,result_last)` へコピーする。その際に、[`is_sorted`](/reference/algorithm/is_sorted.md)`(result, result_last)` または [`is_sorted`](/reference/algorithm/is_sorted.md)`(result, result_last, comp)` の条件を満たすようにコピーする（`result_last` は `result + (last1 - first1) + (last2 - first2)` とする）。
 
 
 ##戻り値
-
-result + (last1 - first1) + (last2 - first2)
+`result + (last1 - first1) + (last2 - first2)`
 
 
 ##計算量
-
-最大で (last1 - first1) + (last2 - first2) - 1 回比較する。
-
-
-##備考
-
+最大で `(last1 - first1) + (last2 - first2) - 1` 回比較する。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -73,8 +62,7 @@ int main()
 * merge[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 2
 2
@@ -86,9 +74,8 @@ int main()
 ```
 
 ##実装例
-
 ```cpp
 ```
 
 ##参照
-```
+

@@ -2,11 +2,8 @@
 
 ```cpp
 namespace std {
-
   template <class ForwardIterator, class Generator>
-
   void generate(ForwardIterator first, ForwardIterator last, Generator gen);
-
 }
 ```
 
@@ -14,19 +11,15 @@ namespace std {
 出力の範囲へ関数の結果を書き込む。
 
 ###効果
-
-[first,last) のそれぞれのイテレータについて関数オブジェクト gen を呼び出し、その戻り値を代入する
+`[first,last)` のそれぞれのイテレータについて関数オブジェクト `gen` を呼び出し、その戻り値を代入する
 
 ###要件
-
-gen は引数を取らない
+`gen` は引数を取らない
 
 ###計算量
-
-正確に last - first 回の gen の呼び出しと代入が行われる。
+正確に `last - first` 回の `gen` の呼び出しと代入が行われる。
 
 ###実装例
-
 ```cpp
 template <class ForwardIterator, class Generator>
 void generate(ForwardIterator first, ForwardIterator last, Generator gen) {
@@ -36,7 +29,6 @@ void generate(ForwardIterator first, ForwardIterator last, Generator gen) {
 ```
 
 ###使用例
-
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -56,7 +48,7 @@ int main() {
 * generate[color ff0000]
 
 ###出力
-
-```cpp
+```
 1,2,4,8,16,32,64,128,256,512,
 ```
+

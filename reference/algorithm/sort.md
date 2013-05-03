@@ -10,44 +10,35 @@ namespace std {
 ```
 
 ##概要
-
 範囲を並べ替える
 
 
-
 ##要件
-
-RandomAccessIterator は ValueSwappable の要求を満たしている必要がある。*first の型は MoveConstructible と MoveAssignable の要件を満たしている必要がある。
+`RandomAccessIterator` は `ValueSwappable` の要求を満たしている必要がある。`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 ##効果
-
-[first,last) の範囲をソートする
+`[first,last)` の範囲をソートする
 
 
 ##戻り値
-
 なし
 
 
 ##計算量
-
 C++03:
-平均して約N log N (N == last - first) 回の比較
+平均して約N log N (N == `last - first`) 回の比較
 
 C++11以降:
-O(N log(N)) (N == last - first) 回の比較
+N log N (N == `last - first`) 回の比較
 
 
 ##備考
-
 実装のアルゴリズムとしては、クイックソートもしくはその改良版であるイントロソートが使われることが多い。
-
 (※特定のアルゴリズムで実装すべきという規定はない)
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -67,9 +58,9 @@ int main()
 ```
 * sort[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 1
 2
 3
@@ -77,10 +68,10 @@ int main()
 5
 ```
 
-##実装例
 
+##実装例
 ```cpp
 ```
 
 ##参照
-```
+

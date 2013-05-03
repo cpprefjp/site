@@ -13,36 +13,24 @@ namespace std {
 ```
 
 ##概要
-
-<b>前の順列を生成する。</b>
+前の順列を生成する。
 
 
 ##要件
-
-BidriectionalIteratorがValueSwappableの要件を満たしていること。
-
+`BidriectionalIterator`が`ValueSwappable`の要件を満たしていること。
 
 
 ##効果
-
-[first, last)の範囲を前の順列に変換する。
-operator<またはcompによって辞書順に並んでいる全ての順列の集合があると仮定すると、前の順列が発見される。
-
+`[first, last)`の範囲を前の順列に変換する。
+`operator<`または`comp`によって辞書順に並んでいる全ての順列の集合があると仮定すると、前の順列が発見される。
 
 
 ##戻り値
-
-前の順列が存在する場合はtrueを返し、そうでなければfalseを返す。
+前の順列が存在する場合は`true`を返し、そうでなければ`false`を返す。
 
 
 ##計算量
-
 高々`(last - first)/2`回の要素の交換
-
-
-
-##備考
-
 
 
 ##例
@@ -71,9 +59,9 @@ int main ()
 ```
 * prev_permutation[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 3 2 1 
 3 1 2 
 2 3 1 
@@ -82,8 +70,8 @@ int main ()
 1 2 3 
 ```
 
-##実装例
 
+##実装例
 ```cpp
 template <class BidirectionalIterator, class Compare>
 bool prev_permutation(BidirectionalIterator first, BidirectionalIterator last, Compare comp)

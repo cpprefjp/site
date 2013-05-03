@@ -10,34 +10,27 @@ namespace std {
 * pair[link /reference/utility/pair.md]
 
 ##概要
-
 与えられた範囲を条件によって 2 つのグループに分け、その結果を出力の範囲へコピーする。
 
 
 ##要件
-
-InputIterator の value type は Assignable で、out_true と out_false の OutputIterator へ書き込み可能で、Predicate の argument type へ変換可能でなければならない。
-input range は output range のどちらとも重なっていてはならない。
-
+`InputIterator` の value type は `Assignable` で、`out_true` と `out_false` の `OutputIterator` へ書き込み可能で、`Predicate` の argument type へ変換可能でなければならない。
+入力範囲は出力範囲のどちらとも重なっていてはならない。
 
 
 ##効果
-
-[first,last) 内にあるそれぞれのイテレータ i について、pred(*i) が true なら *i を out_true へコピーし、そうでない場合は out_false へコピーする。
+`[first,last)` 内にあるそれぞれのイテレータ `i` について、`pred(*i)` が `true` なら `*i` を `out_true` へコピーし、そうでない場合は `out_false` へコピーする。
 
 
 ##戻り値
-
-first には out_true の終端が、second には out_false の終端が格納された[`pair`](/reference/utility/pair.md)を返す。
+`first` には `out_true` の終端が、`second` には `out_false` の終端が格納された[`pair`](/reference/utility/pair.md)オブジェクトを返す。
 
 
 ##計算量
-
-正確に last - first 回述語が適用される。
+正確に `last - first` 回述語が適用される。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -76,21 +69,17 @@ int main()
 * partition_copy[color ff0000]
 
 ###出力
-
-```cpp
+```
 v : 1,2,3,4,5,
 evens : 2,4,
 odds : 1,3,5,
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -99,9 +88,8 @@ odds : 1,3,5,
 
 
 ##実装例
-
 ```cpp
 ```
 
 ##参照
-```
+

@@ -2,26 +2,23 @@
 
 ```cpp
 namespace std {
-
   template <class RandomAccessIterator, class UniformRandomNumberGenerator>
-
   void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRandomNumberGenerator&& g);
-
 }
 ```
 
 ###概要
+`[first,last)` のそれぞれの要素を同じ確率で並び替える。
 
-[first,last) のそれぞれの要素を同じ確率で並び替える。
 
 ###要件
+`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
+`UniformRandomNumberGenerator` は uniform random number generator の要件を満たさなければならなず、その戻り値の型は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
 
-RandomAccessIterator は ValueSwappable の要件を満たしている必要がある。
-UniformRandomNumberGenerator は uniform random number generator の要件を満たさなければならなず、その戻り値の型は iterator_traits<RandomAccessIterator>::difference_type へ変換可能でなければならない。
 
 ###計算量
+正確に `(last - first) - 1` 回 swap する。
 
-正確に (last - first) - 1 回 swap する。
 
 ###実装例
 ```cpp
@@ -40,8 +37,8 @@ void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRando
 }
 ```
 
-###使用例
 
+###使用例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -68,8 +65,10 @@ int main() {
 ```
 * shuffle[color ff0000]
 
+
 ###出力
-```cpp
+```
 before: 0123456789
  after: 5803429716
 ```
+

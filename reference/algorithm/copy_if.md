@@ -1,57 +1,48 @@
 #copy_if
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template <class InputIterator, class OutputIterator, class Predicate>
   OutputIterator copy_if(InputIterator first, InputIterator last,
                          OutputIterator result, Predicate pred);
-}</pre>
+}
 ```
 
 ###概要
-
 条件を満たす要素のみをコピーする。
 
 ###要件
-
-[first,last) の範囲と、[result,result + (last - first)) の範囲は重なっていてはならない。
+`[first,last)` の範囲と、`[result,result + (last - first))` の範囲は重なっていてはならない。
 
 ###効果
-
-[first,last) 内のイテレータ i について pred(*i) が true である要素を result へ順番にコピーする。
+`[first,last)` 内のイテレータ `i` について `pred(*i)` が `true` である要素を `result` へ順番にコピーする。
 
 ###戻り値
-
 コピー先の範囲の終端を返す。
 
 ###計算量
-
-正確に last - first 回述語を適用する。
+正確に `last - first` 回述語を適用する。
 
 ###注意
-
 このコピーは安定なコピーである。つまり、コピーによって要素の前後が入れ替わることは無い。
 
 ###言語のバージョン
-
 C++11 以降
 
 ###実装例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>template <class InputIterator, class OutputIterator, class Predicate>
+template <class InputIterator, class OutputIterator, class Predicate>
 OutputIterator copy_if(InputIterator first, InputIterator last,
                        OutputIterator result, Predicate pred) {
   for ( ; first != last; ++first)
     if (pred(*first))
       *result++ = *first;
   return result;
-}</pre>
+}
 ```
 
 ###使用例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <algorithm>
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include <iterator>
@@ -71,10 +62,11 @@ int main() {
   out = std::copy_if(v3.begin(), v3.end(), out, isOdd);
 
   std::copy(result.begin(), out, std::ostream_iterator<int>(std::cout, ","));
-}</pre>
+}
 ```
 
 ###出力
+```
+3,1,1,5,9,5,
+```
 
-```cpp
-`3,1,1,5,9,5,`

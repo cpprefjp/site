@@ -11,33 +11,23 @@ namespace std {
 ```
 
 ##概要
-
 範囲を部分的にソートし、先頭N個を並んだ状態にする
 
 
-
 ##要件
-
-RandomAccessIterator は ValueSwappable の要件を満たしている必要がある。*first の型は MoveConstructible と MoveAssignable の要件を満たしている必要がある。
+`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 ##効果
-
-[first,last) にある要素の中から、middle - first 個の要素をソート済みの状態で [first,middle) に配置する。残りの [middle,last) にある要素は unspecified order に配置される。
+`[first,last)` にある要素の中から、`middle - first` 個の要素をソート済みの状態で `[first,middle)` に配置する。残りの `[middle,last)` にある要素は unspecified order に配置される。
 
 
 ##戻り値
-
 なし
 
 
 ##計算量
-
-ほぼ (last - first) * log(middle - first) 回の比較を行う
-
-
-##備考
-
+ほぼ `(last - first) * log(middle - first)` 回の比較を行う
 
 
 ##例
@@ -61,9 +51,9 @@ int main()
 ```
 * partial_sort[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 1
 2
 4
@@ -72,9 +62,8 @@ int main()
 ```
 
 ##実装例
-
 ```cpp
 ```
 
 ##参照
-```
+

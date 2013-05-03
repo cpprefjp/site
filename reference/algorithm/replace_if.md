@@ -2,33 +2,29 @@
 
 ```cpp
 namespace std {
-
   template <class ForwardIterator, class Predicate, class T>
-
   void replace_if(ForwardIterator first, ForwardIterator last,
-
                   Predicate pred, const T& new_value);
-
 }
 ```
 
 ###概要
 条件を満たす要素を指定された値に置き換える。
 
-###要件
 
-*first = new_value という式が有効でなければならない。
+###要件
+`*first = new_value` という式が有効でなければならない。
+
 
 ###効果
+`[first,last)` 内のイテレータ `i` について、`pred(*i) != false` であるものは `*i = new_value` という式によってに置き換えられる。
 
-[first,last) 内のイテレータ i について、pref(*i) != false であるものは *i = new_value という式によってに置き換えられる。
 
 ###計算量
+正確に `last - first` 回の述語の適用を行う
 
-正確に last - first 回の述語の適用を行う
 
 ###実装例
-
 ```cpp
 template <class ForwardIterator, class Predicate, class T>
 void replace_if(ForwardIterator first, ForwardIterator last,
@@ -40,7 +36,6 @@ void replace_if(ForwardIterator first, ForwardIterator last,
 ```
 
 ###使用例
-
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -59,7 +54,9 @@ int main() {
 ```
 * replace_if[color ff0000]
 
+
 ###出力
-```cpp
+```
 10,10,2,10,2,
 ```
+

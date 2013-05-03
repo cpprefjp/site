@@ -2,38 +2,34 @@
 
 ```cpp
 namespace std {
-
   template <class ForwardIterator>
-
   ForwardIterator unique(ForwardIterator first, ForwardIterator last);
 
-
   template <class ForwardIterator, class BinaryPredicate>
-
   ForwardIterator unique(ForwardIterator first, ForwardIterator last, BinaryPredicate pred);
-
 }
 ```
 
 ###概要
 重複した要素を除ける。
 
-###効果
 
-[first,last) が空の範囲でない場合、[first + 1,last) 内のイテレータ i について、*(i - 1) == *i もしくは pred(*(i - 1), *i) != false による等値の比較によって連続したグループに分け、それぞれのグループの先頭以外を削除する。
+###効果
+`[first,last)` が空の範囲でない場合、`[first + 1,last)` 内のイテレータ `i` について、`*(i - 1) == *i` もしくは `pred(*(i - 1), *i) != false` による等値の比較によって連続したグループに分け、それぞれのグループの先頭以外を削除する。
+
 
 ###要件
-
 比較関数は equivalence relation でなければならない。
-*first は MoveAssignable の要求を満たす必要がある。
+`*first` は `MoveAssignable` の要求を満たす必要がある。
+
 
 ###戻り値
-
 結果の範囲の終端を返す
 
-###計算量
 
-[first,last) が空の範囲でない場合、正確に last - first - 1 回の比較または述語の適用を行う
+###計算量
+`[first,last)` が空の範囲でない場合、正確に `last - first - 1` 回の比較または述語の適用を行う
+
 
 ###実装例
 ```cpp
@@ -51,10 +47,7 @@ ForwardIterator unique(ForwardIterator first, ForwardIterator last) {
 
   return result;
 }
-```
 
-
-```cpp
 template <class ForwardIterator, class BinaryPredicate>
 ForwardIterator unique(ForwardIterator first, ForwardIterator last, BinaryPredicate pred) {
   if (first == last) return first;
@@ -105,19 +98,14 @@ int main() {
   v.erase(result2, v.end());
 }
 ```
-* result[color ff0000]
 * unique[color ff0000]
 * result[color ff0000]
-* result[color ff0000]
-* result[color ff0000]
-* result2[color ff0000]
-* unique[color ff0000]
-* result2[color ff0000]
 * result2[color ff0000]
 
 ###出力
-```cpp
+```
 unique: 2,5,3,1,2,4,2,1,4,3,
 sorted: 1,1,2,2,2,3,3,4,4,5,
 sorted unique: 1,2,3,4,5,
 ```
+

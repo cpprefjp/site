@@ -2,39 +2,35 @@
 
 ```cpp
 namespace std {
-
   template <class ForwardIterator, class T>
-
   ForwardIterator remove(ForwardIterator first, ForwardIterator last, const T& value);
-
 }
 ```
 
 ###概要
 指定された要素を除ける。
 
-###要件
 
-*first の型は MoveAssignable の要件を満たす必要がある
+###要件
+`*first` の型は `MoveAssignable` の要件を満たす必要がある
 
 ###効果
+`[first,last)` 内にあるイテレータ `i` について、`*i == value` である要素を取り除く
 
-[first,last) 内にあるイテレータ i について、*i == value である要素を取り除く
 
 ###戻り値
-
 実行結果の範囲の終端を返す
 
-###計算量
 
-正確に last - first 回の比較を行う
+###計算量
+正確に `last - first` 回の比較を行う
+
 
 ###注意
-
 安定。
 
-###実装例
 
+###実装例
 ```cpp
 template <class ForwardIterator, class T>
 ForwardIterator remove(ForwardIterator first, ForwardIterator last, const T& value) {
@@ -47,7 +43,6 @@ ForwardIterator remove(ForwardIterator first, ForwardIterator last, const T& val
 ```
 
 ###使用例
-
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -77,11 +72,11 @@ int main() {
 * result[color ff0000]
 * v.erase(result, v.end());[color ff0000]
 
+
 ###出力
-
-```cpp
-`2,3,2,`
-`size before: 5`
-`size after: 3`
-
+```
+2,3,2,
+size before: 5
+size after: 3
+```
 

@@ -2,11 +2,8 @@
 
 ```cpp
 namespace std {
-
   template <class ForwardIterator, class T>
-
   void fill(ForwardIterator first, ForwardIterator last, const T& value);
-
 }
 ```
 
@@ -14,19 +11,15 @@ namespace std {
 指定された値で出力の範囲に書き込む。
 
 ###要件
-
-value は output iterator へ書き込み可能でなければならない
+`value` は `output iterator` へ書き込み可能でなければならない
 
 ###効果
-
-[first,last) 内の全ての要素に value を代入する
+`[first,last)` 内の全ての要素に `value` を代入する
 
 ###計算量
-
-正確に last - first 回の代入を行う
+正確に `last - first` 回の代入を行う
 
 ###実装例
-
 ```cpp
 template <class ForwardIterator, class T>
 void fill(ForwardIterator first, ForwardIterator last, const T& value) {
@@ -36,7 +29,6 @@ void fill(ForwardIterator first, ForwardIterator last, const T& value) {
 ```
 
 ###使用例
-
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -54,6 +46,6 @@ int main() {
 * fill[color ff0000]
 
 ###出力
-```cpp
+```
 3,3,3,3,3,
 ```

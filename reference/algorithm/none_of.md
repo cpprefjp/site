@@ -1,58 +1,50 @@
 #none_of
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template <class InputIterator, class Predicate>
   bool none_of(InputIterator first, InputIterator last, Predicate pred);
-}</pre>
+}
 ```
 
 ###概要
-
 範囲の全ての要素が条件を満たさないかを判定する。
 
 
 ###戻り値
-
-[first,last) が空であったり、[first,last) 内の全てのイテレータ i について pred(*i) が false である場合は true を返し、そうでない場合は false を返す。
+`[first,last)` が空であったり、`[first,last)` 内の全てのイテレータ `i` について `pred(*i)` が `false` である場合は `true` を返し、そうでない場合は `false` を返す。
 
 
 ###計算量
-
-最大で last - first 回 pred を実行する。
+最大で `last - first` 回 `pred` を実行する。
 
 
 ###注意
-
 この関数は
-
 ```cpp
 all_of(first, last, not1(pred));
 ```
 * all_of[link /reference/algorithm/all_of.md]
 
-とほぼ同じであるが、全ての要素が条件を満たしていないということを明示したい場合は none_of を使う方が意図が伝わりやすい。
+とほぼ同じであるが、全ての要素が条件を満たしていないということを明示したい場合は `none_of()` を使う方が意図が伝わりやすい。
 
 
 ###言語のバージョン
-
 C++11 以降
 
 
 ###実装例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>template<class InputIterator, class Predicate>
+template<class InputIterator, class Predicate>
 bool none_of(InputIterator first, InputIterator last, Predicate pred) {
   for ( ; first != last; ++first)
     if (pred(*first)) return false;
   return true;
-}</pre>
+}
 ```
 
 ###使用例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <algorithm>
+#include <algorithm>
 #include <iostream>
 #include <vector>
 
@@ -68,13 +60,12 @@ int main() {
   // 全ての要素が 0 以外であるか
   bool result2 = std::none_of(v.begin(), v.end(), [](int x) { return x == 0; });
   std::cout << result2 << std::endl;
-}</pre>
+}
 ```
+* none_of[color ff0000]
 
 ###出力
-
-```cpp
+```
 false
-
 true
 ```

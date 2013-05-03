@@ -7,29 +7,23 @@ namespace std {
 ```
 
 ##概要
-
-<b>与えられた範囲がパーティションされているか判定する。</b>
+与えられた範囲がパーティションされているか判定する。
 
 
 ##要件
-
-InputIteratorのvalue typeは Predicate の引数型へ変換可能でなければならない。
-つまり pred(*first) という式が有効でなければならない。
+`InputIterator`のvalue typeは `Predicate` の引数型へ変換可能でなければならない。
+つまり `pred(*first)` という式が有効でなければならない。
 
 
 ##戻り値
-
-[first,last) が empty または [first,last) が pred によって partition されているなら true。
-つまり、pred を満たす全ての要素が、pred を満たさない全ての要素より前に出現するなら true を返す。
+`[first,last)` が空、 または `[first,last)` が `pred` によって partition されているなら `true` 、そうでなければ `false` を返す。
+つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現するなら `true` を返す。
 
 
 ##計算量
-
-線形時間。最大で last - first 回 pred が適用される。
-
+線形時間。最大で `last - first` 回 `pred` が適用される。
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -60,8 +54,7 @@ int main()
 * is_partitioned[color ff0000]
 
 ###出力
-
-```cpp
+```
 4
 2
 3
@@ -71,17 +64,11 @@ partitioned
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
 
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -89,9 +76,7 @@ partitioned
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##実装例
-
 ```cpp
 template <class InputIterator, class Predicate>
 bool is_partitioned(InputIterator first, InputIterator last, Predicate pred)

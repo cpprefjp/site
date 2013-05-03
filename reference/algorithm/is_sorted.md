@@ -10,11 +10,8 @@ namespace std {
 }
 ```
 
-
-
 ###戻り値
-
-`[is_sorted_until](/reference/algorithm/is_sorted_until.md)(first, last) == last`
+[`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last) == last`
 
 ```cpp
 namespace std {
@@ -24,8 +21,7 @@ namespace std {
 ```
 
 ###戻り値
-
-`[is_sorted_until](/reference/algorithm/is_sorted_until.md)(first, last, comp) == last`
+[`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last, comp) == last`
 
 ##例
 ```cpp
@@ -46,22 +42,18 @@ int main()
 }
 ```
 * is_sorted[color ff0000]
-* is_sorted[color ff0000]
 
 ###出力
-```cpp
+```
 before: is sorted? false
  after: is sorted? true
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0

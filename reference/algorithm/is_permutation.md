@@ -15,33 +15,23 @@ namespace std {
 ```
 
 ##概要
-
-<b>first2で始まる範囲が、[first1, last1)の範囲の順列か判定する。</b>
+`first2`で始まる範囲が、`[first1, last1)`の範囲の順列か判定する。
 
 
 ##要件
-
 `decltype(*first1)`と`decltype(*first2)`の型が同じであること。
-
 `BinaryPredicate`は等価関係を持っていること。
 
 
 ##戻り値
-
-`first2`で始まる範囲が、`[first1, last1)`の順列であれば`true`、そうでなければfalseを返す。
+`first2`で始まる範囲が、`[first1, last1)`の順列であれば`true`、そうでなければ`false`を返す。
 
 
 ##計算量
-
-[`equal`](/reference/algorithm/equal.md)(first1, last1, first2) == true`もしくは`[equal](/reference/algorithm/equal.md)(first1, last1, first2, pred) == true`の場合、`distance(first1, last1)回の述語適用で完了する。そうでなければ、`distance(first1, last1)`をNとした場合に最悪O(N^2)回の述語適用で完了する。
-
-
-##備考
-
+[`equal`](/reference/algorithm/equal.md)`(first1, last1, first2) == true`もしくは[`equal`](/reference/algorithm/equal.md)`(first1, last1, first2, pred) == true`の場合、[`distance`](/reference/iterator/distance.md)`(first1, last1)`回の述語適用で完了する。そうでなければ、[`distance`](/reference/iterator/distance.md)`(first1, last1)`をNとした場合に最悪O(N^2)回の述語適用で完了する。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -60,38 +50,27 @@ int main ()
 }
 ```
 * is_permutation[color ff0000]
-* is_permutation[color ff0000]
 
 ###出力
-
 ```cpp
 true
 false
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
 
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
-
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 ##実装例
-
 ```cpp
 template <class ForwardIterator1, class ForwardIterator2>
 bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1, ForwardIterator2 first2)

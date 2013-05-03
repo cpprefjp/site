@@ -12,26 +12,18 @@ namespace std {
 ```
 
 ##概要
-
 2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する
 
 
 ##戻り値
-
-[first2,last2) が empty であるか、[first2,last2) の全ての要素が [first1,last1) に含まれている場合は true、そうでない場合は falseを返す。
+`[first2,last2)` が `empty` であるか、`[first2,last2)` の全ての要素が `[first1,last1)` に含まれている場合は `true`、そうでない場合は `false` を返す。
 
 
 ##計算量
-
-最大で 2 * ((last1 - first1) + (last2 - first2)) - 1 回比較する
-
-
-##備考
-
+最大で `2 * ((last1 - first1) + (last2 - first2)) - 1` 回比較する
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <set>
@@ -50,19 +42,16 @@ int main()
 }
 ```
 * includes[color ff0000]
-* includes[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 false
 ```
 
 ##実装例
-
 ```cpp
 ```
 
 ##参照
-```
+

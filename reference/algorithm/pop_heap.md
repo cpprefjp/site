@@ -10,42 +10,28 @@ namespace std {
 ```
 
 ##概要
-
 ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す
 
 
-
 ##要件
-
-[first,last) は empty でない heap でなければならない。
-RandomAccessIterator は ValueSwappable の要件を満たしている必要がある。
-*first の型は MoveConstructible と MoveAssignable の要件を満たしている必要がある。
-
+`[first,last)` は空でない heap でなければならない。
+`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
+`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 ##効果
-
-first にある値を last - 1 と交換し、その後 [first,last - 1) が有効な heap となるように配置する。
+`first` にある値を `last - 1` と交換し、その後 `[first,last - 1)` が有効な heap となるように配置する。
 
 
 ##戻り値
-
 なし
 
 
-
 ##計算量
-
-最大で 2 * log(last - first) 回比較する
-
-
-
-##備考
-
+最大で `2 * log(last - first)` 回比較する
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -71,16 +57,14 @@ int main()
 * pop_heap[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 3
 ```
 
 ##実装例
-
 ```cpp
 ```
 
 ##参照
-```
+

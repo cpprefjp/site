@@ -12,32 +12,27 @@ namespace std {
 ```
 
 ##概要
-
-<b>与えられた範囲を条件によって 2 つのグループに分ける。</b>
+与えられた範囲を条件によって 2 つのグループに分ける。
 
 
 ##要件
-ForwardIterator は ValueSwappable の要件を満たしている必要がある。
+`ForwardIterator` は `ValueSwappable` の要件を満たしている必要がある。
 
 ##効果
-
-[first,last) 内にある pred を満たす全ての要素を、pred を満たさない全ての要素より前に移動させる。
+`[first,last)` 内にある `pred` を満たす全ての要素を、`pred` を満たさない全ての要素より前に移動させる。
 
 
 ##戻り値
-
-[first,i) 内にあるイテレータ j について pred(*j) != false を満たし、[i,last) 内にあるイテレータ k について pred(*k) == false を満たすような、イテレータ i を返す。つまり、partition された境界部分のイテレータを返す。
+`[first,i)` 内にあるイテレータ `j` について `pred(*j) != false` を満たし、`[i,last)` 内にあるイテレータ `k` について `pred(*k) == false` を満たすような、イテレータ `i` を返す。つまり、partition された境界部分のイテレータを返す。
 
 
 ##計算量
-
-ForwardIterator が BidirectionalIterator の要求を満たしている場合、最大で (last - first) / 2 回 swap される。
-そうでない場合、最大で last - first 回 swap される。
-正確に last - first 回述語が適用される。
+`ForwardIterator` が `BidirectionalIterator` の要求を満たしている場合、最大で `(last - first) / 2` 回 swap される。
+そうでない場合、最大で `last - first` 回 swap される。
+正確に `last - first` 回述語が適用される。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -58,8 +53,7 @@ int main()
 * partition[color ff0000]
 
 ###出力
-
-```cpp
+```
 4
 2
 3
@@ -68,7 +62,6 @@ int main()
 ```
 
 ##実装例
-
 ```cpp
 template <class ForwardIterator, class Predicate>
 ForwardIterator partition(ForwardIterator first, ForwardIterator last, Predicate pred)

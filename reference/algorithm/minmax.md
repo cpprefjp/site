@@ -18,92 +18,65 @@ namespace std {
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-
-<b>同じ型の2つの値、もしくは[`initializer_list`](/reference/initializer_list.md)によるN個の値のうち、最小値と最大値の組を取得する。</b>
-<b>最後の引数`comp`は、2項の述語関数オブジェクトであり、これを使用して比較演算をカスタマイズすることができる。</b>
-
+同じ型の2つの値、もしくは[`initializer_list`](/reference/initializer_list.md)によるN個の値のうち、最小値と最大値の組を取得する。
+最後の引数`comp`は、2項の述語関数オブジェクトであり、これを使用して比較演算をカスタマイズすることができる。
 
 
 ##要件
-
 型`T`が`operator<`による比較が可能であること。
-
 [`initializer_list`](/reference/initializer_list.md)バージョンはそれに加えて、要素数が1以上であり、`T`がコピーコンストラクト可能であること。
 
 
 ##戻り値
-
 `first`が最小値、`second`が最大値となる[`pair`](/reference/utility/pair.md)オブジェクト
 
 
-##例外
-
-
-
 ##計算量
-
 2値比較バージョンは1操作。
-
-`initializer_list`バージョンは高々(3/2) * `t.size()`回の述語適用。
-
-
-##備考
-
+`initializer_list`バージョンは高々`(3/2) * t.size()`回の述語適用。
 
 
 ##例
-
 ```cpp
 #include <cassert>
 #include <algorithm>
 #include <functional>
-```
 
 int main()
 {
-  std::pair<int, int> result1 = std::<color=ff0000>minmax</color>(2, 3);
+  std::pair<int, int> result1 = std::minmax(2, 3);
   assert(result1.first == 2 && result1.second == 3);
 
-  std::pair<int, int> result2 = std::<color=ff0000>minmax</color>(2, 3, std::greater<int>());
+  std::pair<int, int> result2 = std::minmax(2, 3, std::greater<int>());
   assert(result2.first == 3 && result2.second == 2);
 
-  std::pair<int, int> result3 = std::<color=ff0000>minmax</color>({1, 2, 3});
+  std::pair<int, int> result3 = std::minmax({1, 2, 3});
   assert(result3.first == 1 && result3.second == 3);
 
-  std::pair<int, int> result4 = std::<color=ff0000>minmax</color>({1, 2, 3}, std::greater<int>());
+  std::pair<int, int> result4 = std::minmax({1, 2, 3}, std::greater<int>());
   assert(result4.first == 3 && result4.second == 1);
 }
-
-
+```
 
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
 
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
-
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 ##実装例
-
 ```cpp
 template <class T>
 std::pair<const T&, const T&> minmax(const T& a, const T& b)

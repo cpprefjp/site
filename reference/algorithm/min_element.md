@@ -10,26 +10,18 @@ namespace std {
 ```
 
 ##概要
-
-[first, last)の範囲において、最小要素を指すイテレータを取得する。
+`[first, last)`の範囲において、最小要素を指すイテレータを取得する。
 
 
 ##戻り値
-
 `*i < *j`もしくは`comp(*i, *j)`の比較によって最小と判断された要素を指すイテレータ
 
 
 ##計算量
-
-[`max`](/reference/algorithm/max.md)((last - first) - 1, 0)回の比較を行う
-
-
-##備考
-
+[`max`](/reference/algorithm/max.md)`((last - first) - 1, 0)`回の比較を行う
 
 
 ##例
-
 ```cpp
 #include <cassert>
 #include <algorithm>
@@ -49,15 +41,12 @@ int main()
 }
 ```
 * min_element[color ff0000]
-* min_element[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##実装例
-
 ```cpp
 template <class ForwardIterator>
 ForwardIterator min_element(ForwardIterator first, ForwardIterator last)

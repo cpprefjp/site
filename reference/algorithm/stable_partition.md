@@ -9,37 +9,31 @@ namespace std {
 ```
 
 ##概要
-
 与えられた範囲を条件によって 2 つのグループに順序を保ったまま分ける。
 
 
 ##要件
-
-BidirectionalIterator は ValueSwappable の要件を満たしている必要がある。
-*first の型は MoveConstructible と MoveAssignable の要件を満たしている必要が有る。
+`BidirectionalIterator` は `ValueSwappable` の要件を満たしている必要がある。
+`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 
 ##効果
-
-[first,last) 内にある pred を満たす全ての要素を、pred を満たさない全ての要素より前に移動させる。
+`[first,last)` 内にある `pred` を満たす全ての要素を、`pred` を満たさない全ての要素より前に移動させる。
 
 
 ##戻り値
-
-[first,i) 内にあるイテレータ j について pred(*j) != false を満たし、[i,last) 内にあるイテレータ k について pred(*k) == false を満たすような、イテレータ i を返す。
+`[first,i)` 内にあるイテレータ `j` について `pred(*j) != false` を満たし、`[i,last)` 内にあるイテレータ `k` について `pred(*k) == false` を満たすような、イテレータ `i` を返す。
 つまり、partition された境界部分のイテレータを返す。
 両方のグループの順序は維持されている。
 
 
 ##計算量
-
-最大で (last - first) * log(last - first) 回 swap が行われるが、余分なメモリを使って構わないのであれば線形回数の swap になる。
-正確に last - first 回述語が適用される。
+最大で `(last - first) * log(last - first)` 回 swap が行われるが、余分なメモリを使って構わないのであれば線形回数の swap になる。
+正確に `last - first` 回述語が適用される。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -59,9 +53,9 @@ int main()
 ```
 * stable_partition[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 2
 4
 1
@@ -69,10 +63,11 @@ int main()
 5
 ```
 
-##実装例
 
+##実装例
 ```cpp
 ```
 
+
 ##参照
-```
+

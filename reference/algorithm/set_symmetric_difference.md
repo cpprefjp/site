@@ -14,44 +14,32 @@ namespace std {
 ```
 
 ##概要
-
 2つのソート済み範囲の互いに素な集合を得る
 
 
-
 ##要件
-
 結果の範囲は両方の入力の範囲と重なっていてはならない。
 
 
-
 ##効果
-
-[first1,last1) から [first2,last2) に存在していない要素と、[first2,last2) から [first2,last2) に存在していない要素を result へコピーする。構築された要素はソートされている。
+`[first1,last1)` から `[first2,last2)` に存在していない要素と、`[first2,last2)` から `[first2,last2)` に存在していない要素を `result` へコピーする。構築された要素はソートされている。
 
 
 ##戻り値
-
 構築された範囲の終端
 
 
 ##計算量
-
-最大で 2 * ((last1 - first1) + (last2 - first2)) - 1 回の比較を行う
-
+最大で `2 * ((last1 - first1) + (last2 - first2)) - 1` 回の比較を行う
 
 
 ##備考
-
-[first1,last1) が m 個、[first2,last2) が n 個の等価な要素を含んでいる場合、
-
-- m > n なら [first1,last1) から最後の m-n 個の要素を出力の範囲にコピーする。
-- n > m なら [first2,last2) から最後の n-m 個の要素を出力の範囲にコピーする。
-
+`[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、
+- `m > n` なら `[first1,last1)` から最後の `m-n` 個の要素を出力の範囲にコピーする。
+- `n > m` なら `[first2,last2)` から最後の `n-m` 個の要素を出力の範囲にコピーする。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <set>
@@ -76,9 +64,9 @@ int main()
 ```
 * set_symmetric_difference[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 1
 5
 6
@@ -86,10 +74,11 @@ int main()
 8
 ```
 
-##実装例
 
+##実装例
 ```cpp
 ```
 
+
 ##参照
-```
+

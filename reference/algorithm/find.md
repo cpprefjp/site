@@ -5,28 +5,23 @@ namespace std {  template<class InputIterator, class T>
 ```
 
 ###戻り値
-
-[first,last) 内のイテレータ i について、*i == value であるような最初のイテレータを返す。そのようなイテレータが見つからなかった場合は last を返す。
+`[first,last)` 内のイテレータ i について、`*i == value` であるような最初のイテレータを返す。そのようなイテレータが見つからなかった場合は `last` を返す。
 
 ###計算量
-
-最大で last - first 回比較を行う
+最大で `last - first` 回比較を行う
 
 ###実装例
-
-<pre>```cpp
+```cpp
 template<class InputIterator, class T>
 InputIterator find(InputIterator first, InputIterator last, const T& value) {
   for ( ; first != last; ++first)
     if (*first == value) return first;
   return last;
 }
-</pre>
 ```
 
 ###使用例
-
-<pre>```cpp
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -40,13 +35,10 @@ int main() {
     std::cout << "found: " << *result << std::endl;
   }
 }
-</pre>
 ```
 * find[color ff0000]
 
 ###出力
-
-<pre>```cpp
+```cpp
 found: 1
-</pre>
 ```

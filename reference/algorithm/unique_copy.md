@@ -2,44 +2,38 @@
 
 ```cpp
 namespace std {
-
   template <class InputIterator, class OutputIterator>
-
   OutputIterator unique_copy(InputIterator first, InputIterator last,
-
                              OutputIterator result);
 
-
   template <class InputIterator, class OutputIterator, class BinaryPredicate>
-
   OutputIterator unique_copy(InputIterator first, InputIterator last,
-
                              OutputIterator result, BinaryPredicate pred);
-
 }
 ```
 
 ###概要
 重複した要素を除け、その結果を出力の範囲へコピーする。
 
-###要件
 
+###要件
 比較関数は等価関係を持っていなければならない。
-[first,last) と [result,result + (last - first)) は重なっていてはならない。
-*result = *first は有効な式でなければならない。
-もし InputIterator と OutputIterator のどちらも forward iterator の要求を満たしていない場合、InputIterator の value type は CopyConstructible かつ CopyAssignable でなければならない。そうでない場合は CopyConstructible は要求されない。
+`[first,last)` と `[result,result + (last - first))` は重なっていてはならない。
+`*result = *first` は有効な式でなければならない。
+もし `InputIterator` と `OutputIterator` のどちらも forward iterator の要求を満たしていない場合、`InputIterator` の value type は `CopyConstructible` かつ `CopyAssignable` でなければならない。そうでない場合は `CopyConstructible` は要求されない。
+
 
 ###効果
+`[first,last)` 内のイテレータ `i` について、`*(i - 1) == *i` もしくは `pred(*(i - 1), *i) != false` による等値の比較によって連続したグループに分け、それぞれのグループの先頭を `result` へコピーする。
 
-[first,last) 内のイテレータ i について、*(i - 1) == *i もしくは pred(*(i - 1), *i) != false による等値の比較によって連続したグループに分け、それぞれのグループの先頭を result へコピーする。
 
 ###戻り値
-
 結果の範囲の終端を返す。
 
-###計算量
 
-[first,last) が空の範囲でない場合、正確に last - first - 1 回の比較または述語の適用を行う
+###計算量
+`[first,last)` が空の範囲でない場合、正確に `last - first - 1` 回の比較または述語の適用を行う
+
 
 ###実装例
 ```cpp
@@ -60,7 +54,6 @@ OutputIterator unique_copy(InputIterator first, InputIterator last,
   return result;
 }
 
-```cpp
 template <class InputIterator, class OutputIterator, class BinaryPredicate>
 OutputIterator unique_copy(InputIterator first, InputIterator last,
                            OutputIterator result, BinaryPredicate pred) {
@@ -99,9 +92,8 @@ int main() {
 * unique_copy[color ff0000]
 
 
-
-
 ###出力
-```cpp
+```
 2,5,3,1,2,4,2,1,4,3,
 ```
+

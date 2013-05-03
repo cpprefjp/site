@@ -12,37 +12,26 @@ namespace std {
 ```
 
 ##概要
-
 基準となる要素よりも小さい要素が前に来るよう並べ替える
 
 
-
 ##要件
-
-RandomAccessIterator は ValueSwappable の要件を満たしている必要がある。*first の型は MoveConstructible と MoveAssignable の要件を満たしている必要がある。
+`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 ##効果
-
-nth_element を呼び出した後、nth が指している位置の要素は、全ての範囲がソートされた場合の位置にある要素になる。そして、[first,nth) にあるイテレータ i と、[nth,last) にあるイテレータ j について、!(*i > *j) または comp(*j, *i) == false になる。
+`nth_element()` を呼び出した後、`nth` が指している位置の要素は、全ての範囲がソートされた場合の位置にある要素になる。そして、`[first,nth)` にあるイテレータ `i` と、`[nth,last)` にあるイテレータ `j` について、`!(*i > *j)` または `comp(*j, *i) == false` になる。
 
 
 ##戻り値
-
 なし
 
 
 ##計算量
-
-平均すると線形
-
-
-##備考
-
+平均で線形時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -63,8 +52,7 @@ int main()
 * nth_element[color ff0000]
 
 ###出力
-
-```cpp
+```
 2
 1
 4
@@ -77,9 +65,8 @@ int main()
 ```
 
 ##実装例
-
 ```cpp
 ```
 
 ##参照
-```
+

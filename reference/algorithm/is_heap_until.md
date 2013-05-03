@@ -10,28 +10,19 @@ namespace std {
 ```
 
 ##概要
-
 範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する
 
 
-
 ##戻り値
-
-distance(first, last) < 2 の場合は last を返す。そうでない場合、[first,last] 内のイテレータ i について、[first,i) が heap であるような最後の i を返す。
+[`distance`](/reference/iterator/distance.md)`(first, last) < 2` の場合は `last` を返す。そうでない場合、`[first,last]` 内のイテレータ `i` について、`[first,i)` が `heap` であるような最後の `i` を返す。
 
 
 
 ##計算量
-
 線形時間
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -52,27 +43,18 @@ int main()
 }
 ```
 * is_heap_until[color ff0000]
-* is_heap_until[color ff0000]
 
 ###出力
-
-```cpp
+```
 before: is heap? false
  after: is heap? true
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -80,11 +62,9 @@ before: is heap? false
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##実装例
-
 ```cpp
 ```
 
 ##参照
-```
+

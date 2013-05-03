@@ -10,39 +10,27 @@ namespace std {
 ```
 
 ##概要
-
 範囲をヒープ化する
 
 
 
 ##要件
-
-*first の型は MoveConstructible と MoveAssignable の要件を満たしている必要がある
-
+`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある
 
 
 ##効果
-
-[first,last) の範囲で heap を構築する
+`[first,last)` の範囲で heap を構築する
 
 
 ##戻り値
-
 なし
 
 
 ##計算量
-
-最大で 3 * (last - first) 回比較する
-
-
-
-##備考
-
+最大で `3 * (last - first)` 回比較する
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -63,17 +51,16 @@ int main()
 * make_heap[color ff0000]
 
 ###出力
-
-```cpp
+```
 4
 1
 3
 ```
 
-##実装例
 
+##実装例
 ```cpp
 ```
 
 ##参照
-```
+

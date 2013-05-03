@@ -2,11 +2,8 @@
 
 ```cpp
 namespace std {
-
   template <class BidirectionalIterator1, class BidirectionalIterator2>
-
   BidirectionalIterator2 copy_backward(BidirectionalIterator1 first, BidirectionalIterator1 last,
-
                                        BidirectionalIterator2 result);
 
 }
@@ -16,29 +13,23 @@ namespace std {
 指定された範囲の要素を後ろからコピーする。
 
 ###効果
-
-[first,last) 内にある要素を、それぞれ [result - (last-first),result) へコピーする。
-コピーは last - 1 から順番に行い、1 以上 last - first 以下であるそれぞれの n について、*(result - n) = *(last - n) を行う。
+`[first,last)` 内にある要素を、それぞれ `[result - (last-first),result)` へコピーする。
+コピーは `last - 1` から順番に行い、1 以上 `last - first` 以下であるそれぞれの `n` について、`*(result - n) = *(last - n)` を行う。
 
 
 ###要件
-
-result は (first,last] の範囲に入っていてはならない
+`result` は `(first,last]` の範囲に入っていてはならない
 
 ###戻り値
-
-result - (last - first)
+`result - (last - first)`
 
 ###計算量
-
-正確に last - first 回代入が行われる。
+正確に `last - first` 回代入が行われる。
 
 ###注意
-
-last が [result - (last-first),result) の範囲内にあるときには、copy の代わりに copy_backward を使うべきである。
+`last` が `[result - (last-first),result)` の範囲内にあるときには、`copy()` の代わりに `copy_backward()` を使うべきである。
 
 ###実装例
-
 ```cpp
 template<class BidirectionalIterator1, class BidirectionalIterator2>
 BidirectionalIterator2 copy_backward(BidirectionalIterator1 first, BidirectionalIterator1 last,
@@ -70,6 +61,7 @@ int main() {
 * copy_backward[color ff0000]
 
 ###出力
-```cpp
+```
 1,2,1,2,3,
 ```
+

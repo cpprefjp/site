@@ -2,39 +2,36 @@
 
 ```cpp
 namespace std {
-
   template <class ForwardIterator, class Predicate>
-
   ForwardIterator remove_if(ForwardIterator first, ForwardIterator last, Predicate pred);
-
 }
 ```
 
 ###概要
 条件を満たす要素を除ける。
 
-###要件
 
-*first の型は MoveAssignable の要件を満たす必要がある
+###要件
+`*first` の型は `MoveAssignable` の要件を満たす必要がある
+
 
 ###効果
+`[first,last)` 内にあるイテレータ `i` について、`pred(*i) != false` である要素を取り除く
 
-[first,last) 内にあるイテレータ i について、pred(*i) != false である要素を取り除く
 
 ###戻り値
-
 実行結果の範囲の終端を返す
 
-###計算量
 
-正確に last - first 回の述語の適用を行う
+###計算量
+正確に `last - first` 回の述語の適用を行う
+
 
 ###注意
-
 安定。
 
-###実装例
 
+###実装例
 ```cpp
 template <class ForwardIterator, class Predicate>
 ForwardIterator remove_if(ForwardIterator first, ForwardIterator last, Predicate pred) {
@@ -46,8 +43,8 @@ ForwardIterator remove_if(ForwardIterator first, ForwardIterator last, Predicate
 }
 ```
 
-###使用例
 
+###使用例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -78,9 +75,11 @@ int main() {
 * result[color ff0000]
 * v.erase(result, v.end());[color ff0000]
 
+
 ###出力
-```cpp
+```
 2,2,
 size before: 5
 size after: 2
 ```
+

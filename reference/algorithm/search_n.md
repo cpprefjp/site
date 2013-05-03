@@ -1,6 +1,6 @@
 #search_n
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template<class ForwardIterator, class Size, class T>
   ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
                            Size count, const T& value);
@@ -9,30 +9,28 @@
   ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
                            Size count, const T& value, BinaryPredicate pred);
 }
-</pre>
 ```
 
 ###概要
-
 あるシーケンスの中から、特定のサブシーケンスを探す。
 
-###要件
 
-Size は整数型に変換できる型である必要がある。
+###要件
+`Size`は整数型に変換できる型である必要がある。
+
 
 ###戻り値
+`[first,last-count)` 内のイテレータ `i` があるとき、0 以上 `count` 未満の整数 `n` について、それぞれ `*(i + n) == value` もしくは `pred(*(i + n),value) != false` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+そのようなイテレータが見つからない場合は `last` を返す。
 
-[first,last-count) 内のイテレータ i があるとき、0 以上 count 未満の整数 n について、それぞれ *(i + n) == value もしくは pred(*(i + n),value) != false であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
-そのようなイテレータが見つからない場合は last を返す。
 
 ###計算量
+最大で `last - first` 回の対応する比較もしくは述語が適用される。
 
-最大で last - first 回の対応する比較もしくは述語が適用される。
 
 ###実装例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>template <class ForwardIterator, class Size, class T>
+template <class ForwardIterator, class Size, class T>
 ForwardIterator search_n(ForwardIterator first, ForwardIterator last, Size count, T const& value)
 {
   if (first == last || count <= 0)
@@ -56,6 +54,7 @@ ForwardIterator search_n(ForwardIterator first, ForwardIterator last, Size count
   }
   return last;
 }
+
 template <class ForwardIterator, class Size, class T, class BinaryPredicate>
 ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
                          Size count, T const& value, BinaryPredicate pred)
@@ -80,23 +79,21 @@ ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
     ++first;
   }
   return last;
-}</pre>
+}
 ```
+
 
 ###使用例
-
 ```cpp
-<pre style='margin:0'>#include <algorithm>
+#include <algorithm>
 #include <iostream>
-#include <vector><code style='color:black'>
-</pre>
-```
+#include <vector>
 
-<pre style='margin:0'><code style='color:black'>int main() {
+int main() {
   std::vector<int> v = { 1,2,3,2,1,3,3,2,3,3,1 };
 
   // 3 が 2 つ連続している最初のシーケンスを探す
-  auto it1 = std::</code>`<color=ff0000>search_n</color>`<code style='color:black'>(v.cbegin(), v.cend(), 2, 3);
+  auto it1 = std::search_n(v.cbegin(), v.cend(), 2, 3);
   // v[5] の位置を指すイテレータが見つかる。
   if (it1 == v.cend()) {
     std::cout << "not found" << std::endl;
@@ -105,19 +102,21 @@ ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
   }
 
   // 3 未満が 2 つ連続している最初のシーケンスを探す
-  auto it2 = std::</code>`<color=ff0000>search_n</color>`<code style='color:black'>(v.cbegin(), v.cend(), 2, 3, [](int x, int y) { return x < y; });
+  auto it2 = std::search_n(v.cbegin(), v.cend(), 2, 3, [](int x, int y) { return x < y; });
   // v[0] の位置を指すイテレータが見つかる。
   if (it2 == v.cend()) {
     std::cout << "not found" << std::endl;
   } else {
     std::cout << "found: index==" << std::distance(v.cbegin(), it2) << std::endl;
   }
-}</code></pre>
+}
+```
+* search_n[color ff0000]
 
 
 ###出力
-
-<pre>```cpp
+```cpp
 found: index==5
 found: index==0
-</pre>
+```
+

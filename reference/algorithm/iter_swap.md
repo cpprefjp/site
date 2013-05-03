@@ -2,11 +2,8 @@
 
 ```cpp
 namespace std {
-
   template <class ForwardIterator1, class ForwardIterator2>
-
   void iter_swap(ForwardIterator1 a, ForwardIterator2 b);
-
 }
 ```
 
@@ -14,13 +11,11 @@ namespace std {
 2つのイテレータの要素を swap する。
 
 ###効果
-
-[`swap`](/reference/utility/swap.md)(*a, *b)
+[`swap`](/reference/utility/swap.md)`(*a, *b)`
 
 ###要件
-
-a と b は Dereferenceable でなければならない。
-*a は *b と Swappable でなければならない。
+`a` と `b` は `Dereferenceable` でなければならない。
+`*a` は `*b` と `Swappable` でなければならない。
 
 ###実装例
 ```cpp
@@ -55,7 +50,8 @@ int main() {
 * iter_swap[color ff0000]
 
 ###出力
-```cpp
+```
 v1: 3,5,4,
 v2: 4,2,1,
 ```
+
