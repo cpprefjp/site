@@ -5,21 +5,14 @@ bool is_lock_free() const noexcept;
 ```
 
 ##概要
-
-<b>オブジェクトに対する操作がロックフリーに振る舞えるかを判定する</b>
+オブジェクトに対する操作がロックフリーに振る舞えるかを判定する
 
 
 ##戻り値
-
 オブジェクトに対する操作がロックフリーに振る舞えるなら`true`、そうでなければ`false`を返す
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -38,24 +31,18 @@ int main()
 ```
 * is_lock_free[color ff0000]
 
-###出力例
 
-```cpp
+##出力例
+```
 atomic<int> is lock-free
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -63,8 +50,6 @@ atomic<int> is lock-free
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##参照
-
 [N2992 More Collected Issues with Atomics - Lock Free](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2992.htm#lockfree)
 

@@ -8,25 +8,22 @@ T operator=(T desired) noexcept;
 ```
 
 ##概要
-
-<b>値を書き込む</b>
+値を書き込む
 
 
 ##効果
+[`store`](/reference/atomic/atomic/store.md)`(desired)`
 
-[`store`](/reference/atomic/atomic/store.md)(desired)
 
 ##戻り値
-
 `desired`
 
-##例外
 
+##例外
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -42,30 +39,23 @@ int main()
 ```
 * x = 2[color ff0000]
 
-###出力
 
-```cpp
+##出力
+```
 2
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): ??
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照
