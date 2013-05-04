@@ -11,13 +11,11 @@ namespace std {
 ```
 
 ##概要
-
-<b>arrayクラスは、publicな配列メンバ変数を持ち、非自明なコンストラクタを提供しない。</b>
-<b>そのため、arrayは集成体の要件を満たす。これにより、arrayクラスは組み込み配列と同様の初期化構文を使用して初期化を行うことができる。</b>
+`array`クラスは、固定長配列のコンテナである。静的に決定される要素数を持ち、組み込み配列のラッパーとして実装される。
+`array`クラスは`public`な配列メンバ変数を持ち、非自明なコンストラクタを提供しない。そのため、`array`は集成体の要件を満たす。これにより、`array`クラスは組み込み配列と同様の初期化構文を使用して初期化を行うことができる。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <array>
@@ -34,33 +32,24 @@ int main()
 ```
 * {1, 2, 3}[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 1
 2
 3
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): 
 - [Visual C++](/implementation#visual_cpp.md) 9.0, 10.0
-
-
 
 ##参照
 

@@ -8,26 +8,22 @@ namespace std {
 * swap[link /reference/array/swap.md]
 
 ##概要
-
-<b>2つのarrayオブジェクトを入れ替える。</b>
+2つのarrayオブジェクトを入れ替える。
 
 
 ##効果
+`x.`[`swap`](./swap.md)`(y);`
 
-`x.[swap](/reference/array/swap.md)(y);`
 
 ##戻り値
-
 なし
 
 
 ##例外
-
-`x.[swap](/reference/array/swap.md)(y)`が例外を投げない場合、この関数は決して例外を投げない。
+`x.`[`swap`](./swap.md)`(y)`が例外を投げない場合、この関数は決して例外を投げない。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <array>
@@ -55,38 +51,25 @@ int main ()
 ```
 * swap[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 x : {1 2 3 }
 y : {4 5 6 }
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) ??
 
-
-
-##実装例
-
-```cpp
-```
 
 ##参照
-```
+

@@ -5,33 +5,23 @@ const_reverse_iterator rend() const noexcept;
 ```
 
 ##概要
-
-<b>先頭要素の前を指す逆イテレータを取得する。</b>
+先頭要素の前を指す逆イテレータを取得する。
 
 
 ##戻り値
-
 非`const`な文脈では`reverse_iterator`型で先頭要素の前を指す逆イテレータを返し、
 `const`な文脈では`const_reverse_iterator`型で 先頭要素の前を指す逆イテレータを返す。
 
 
-
 ##例外
-
 投げない
 
 
 ##計算量
-
 定数時間
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <array>
@@ -57,11 +47,10 @@ int main()
 }
 ```
 * rend[color ff0000]
-* rend[color ff0000]
+
 
 ###出力
-
-```cpp
+```
 3
 2
 1
@@ -71,30 +60,17 @@ int main()
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
 
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) ??
 
-
-
-##実装例
-
-```cpp
-```
 
 ##参照
-```
+

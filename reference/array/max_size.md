@@ -4,31 +4,22 @@ constexpr size_type max_size() noexcept;
 ```
 
 ##概要
-
-<b>確保可能な最大の要素数を取得する</b>
+確保可能な最大の要素数を取得する
 
 
 ##戻り値
-
 `array`クラスのテンプレートパラメータである`N`定数を返す。
 
 
 ##例外
-
 投げない
 
 
 ##計算量
-
 定数時間
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <array>
@@ -42,37 +33,24 @@ int main()
 ```
 * max_size[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 3
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) ??
 
-
-
-##実装例
-
-```cpp
-```
 
 ##参照
-```
+
