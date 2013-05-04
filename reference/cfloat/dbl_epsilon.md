@@ -5,7 +5,6 @@
 * implementation-defined[italic]
 
 ##概要
+`double` の機械イプシロンを表す。
 
-double の機械イプシロンを表す。
-
-std::[numeric_limits](/reference/limits/numeric_limits.md)<double>::[epsilon](/reference/limits/numeric_limits/epsilon.md)() と等しい。
+`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`epsilon`](/reference/limits/numeric_limits/epsilon.md)`()` と等しい。
