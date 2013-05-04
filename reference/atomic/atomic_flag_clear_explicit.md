@@ -1,47 +1,36 @@
 #atomic_flag_clear_explicit
 ```cpp
 namespace std {
-
   void atomic_flag_clear_explicit(volatile atomic_flag* object, memory_order order) noexcept;
   void atomic_flag_clear_explicit(atomic_flag* object, memory_order order) noexcept;
-
 }
 ```
-* atomic_flag[link /reference/atomic/atomic_flag.md]
-* memory_order[link /reference/atomic/memory_order.md]
-* memory_order [link /reference/atomic/memory_order.md]
+* atomic_flag[link ./atomic_flag.md]
+* memory_order[link ./memory_order.md]
 
 ##概要
-
-<b>アトミックにフラグをクリアする</b>
+アトミックにフラグをクリアする
 
 
 ##要件
-
 `order`が以下のメモリオーダーではないこと：
-
-- [`memory_order_acquire`](/reference/atomic/memory_order.md)
-- [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
+- [`memory_order_acquire`](./memory_order.md)
+- [`memory_order_acq_rel`](./memory_order.md)
 
 
 ##効果
-
 `order`で指定されたメモリオーダーにしたがって、アトミックに`false`値を書き込む。
 
 
-
 ##戻り値
-
 なし
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -69,31 +58,24 @@ int main()
 ```
 * atomic_flag_clear_explicit[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 false
 false
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

@@ -1,52 +1,40 @@
 #atomic_load_explicit
 ```cpp
 namespace std {
-
   template <class T>
   T atomic_load_explicit(const volatile atomic<T>* object, memory_order order) noexcept;
 
   template <class T>
   T atomic_load_explicit(const atomic<T>* object, memory_order order) noexcept;
-
 }
 ```
-* atomic[link /reference/atomic/atomic.md]
-* memory_order[link /reference/atomic/memory_order.md]
+* atomic[link ./atomic.md]
+* memory_order[link ./memory_order.md]
 
 ##概要
-
-<b>アトミックに値を読み込む</b>
+アトミックに値を読み込む
 
 
 ##要件
-
 `order`が以下のメモリオーダーではないこと：
-
-- [`memory_order_release`](/reference/atomic/memory_order.md)
-- [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
+- [`memory_order_release`](./memory_order.md)
+- [`memory_order_acq_rel`](./memory_order.md)
 
 
 ##効果
-
 `order`で指定されたメモリオーダーにしたがって、アトミックに値を読み込む
 
 
-
 ##戻り値
-
 アトミックに読み込まれた値
 
 
-
 ##例外
-
 投げない
 
 
 ##備考
-
-この関数は、特殊化された[`atomic`](/reference/atomic/atomic.md)型に対して定義される。
-
+この関数は、特殊化された[`atomic`](./atomic.md)型に対して定義される。
 
 
 ##例
@@ -67,30 +55,23 @@ int main()
 ```
 * atomic_load_explicit[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 3
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

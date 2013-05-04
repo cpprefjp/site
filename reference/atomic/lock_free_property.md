@@ -14,9 +14,7 @@
 * unspecified[italic]
 
 ##概要
-
-これらのマクロは、それぞれの型がatomic<T>でロックフリーに振る舞うかを調べるために使用できる。値は未規定。
-
+これらのマクロは、それぞれの型が`atomic<T>`でロックフリーに振る舞うかを調べるために使用できる。値は未規定。
 これらのマクロはそれぞれ以下の型を意味する。符号ありなしはまとめて扱われる。
 
 | | |
@@ -44,7 +42,6 @@
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -65,8 +62,7 @@ int main()
 ```
 
 ###出力例
-
-```cpp
+```
 bool      : 2
 char      : 2
 char16_t  : 2
@@ -79,15 +75,10 @@ long long : 2
 T*        : 2
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
-
-
 
 ###処理系
 
@@ -96,7 +87,6 @@ T*        : 2
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

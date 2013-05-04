@@ -1,84 +1,83 @@
 #atomic_thread_fence
 ```cpp
 namespace std {
-
   extern "C" void atomic_thread_fence(memory_order order) noexcept;
 }
 ```
-* memory_order[link /reference/atomic/memory_order.md]
+* memory_order[link ./memory_order.md]
 
 ##概要
-
-<b>atomic操作に対する、補完的なメモリフェンスを提供する。</b>
+アトミック操作に対する、補完的なメモリフェンスを提供する。
 
 
 ##効果
-
-この関数は、弱いmemory_orderが指定されたatomic操作の前後に指定することで、より強いmemory_orderを指定した場合と似たような振る舞いをさせる効果を持つ。
-たとえば、aをstd::atomic<int>型の変数とするとき、
+この関数は、弱い`memory_order`が指定されたアトミック操作の前後に指定することで、より強い`memory_order`を指定した場合と似たような振る舞いをさせる効果を持つ。
+たとえば、`a`を`std::atomic<int>`型の変数とするとき、
 ```cpp
-std::atomic_thread_fence(std::memory_order_release);a.store(42, std::memory_order_relaxed);
-
+std::atomic_thread_fence(std::memory_order_release);
+a.store(42, std::memory_order_relaxed);
+```
 は、
 ```cpp
 a.store(42, std::memory_order_release);
-
-とほぼ同等の振る舞いをする。ただし、後者のほうがより効率的な機械語命令へとコンパイルされる可能性が高い。より詳しい議論についてはN2176などを参照のこと。
+```
+とほぼ同等の振る舞いをする。ただし、後者のほうがより効率的な機械語命令へとコンパイルされる可能性が高い。より詳しい議論については[N2176](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2176.html#integrated)などを参照のこと。
 同様に、
 ```cpp
-int i = a.load(std::memory_order_relaxed);std::atomic_thread_fence(std::memory_order_acquire);
+int i = a.load(std::memory_order_relaxed);
+std::atomic_thread_fence(std::memory_order_acquire);
 ```
-* N2176[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2176.html#integrated]
-
 は、
 ```cpp
 int i = a.load(std::memory_order_acquire);
 ```
-
 とほぼ同等の振る舞いをする。
 
-memory_orderとして memory_order_seq_cst が指定された場合は、異なるatomic変数への操作間に順序一貫性を与える。
+`memory_order`として `memory_order_seq_cst` が指定された場合は、異なる`atomic`変数への操作間に順序一貫性を与える。
 以下に例を挙げる。
 ```cpp
-// 初期値std::atomic<int> a(0), b(0);
-
-| | |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-|// Thread 1:a.store(1, std::memory_order_relaxed);std::atomic_thread_fence(std::memory_order_seq_cst);b.store(1, std::memory_order_relaxed);int i = b.load(std::memory_order_relaxed); | // Thread 2:b.store(0, std::memory_order_relaxed);std::atomic_thread_fence(std::memory_order_seq_cst);int j = a.load(std::memory_order_relaxed); |
+// 初期値
+std::atomic<int> a(0), b(0);
+```
+```cpp
+// Thread 1:
+a.store(1, std::memory_order_relaxed);
+std::atomic_thread_fence(std::memory_order_seq_cst);
+b.store(1, std::memory_order_relaxed);
+int i = b.load(std::memory_order_relaxed);
+```
+```cpp
+// Thread 2:
+b.store(0, std::memory_order_relaxed);
+std::atomic_thread_fence(std::memory_order_seq_cst);
+int j = a.load(std::memory_order_relaxed);
+```
+```cpp
+// 結果
 assert(i == 1 || j == 1); // すなわち、i と j が共に0となることはない。
 ```
-
-この例では、Thread 1, 2 にあるseq_cstフェンスのいずれか一方でも欠けると (i == 0 && j == 0) という結果が起こりうる。そして、acquire, releaseやacq_relフェンスでは代用にはならない。
+この例では、Thread 1, 2 にある`seq_cst`フェンスのいずれか一方でも欠けると (`i == 0 && j == 0`) という結果が起こりうる。そして、`acquire`, `release`や`acq_rel`フェンスでは代用にはならない。
 
 それぞれのメモリオーダーは以下に示すフェンスとして機能する：
-
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | メモリオーダー | フェンス |
-| [`memory_order_relaxed`](/reference/atomic/memory_order.md) | 何も行わない |
-| [`memory_order_acquire`](/reference/atomic/memory_order.md) [`memory_order_consume`](/reference/atomic/memory_order.md) | acquireフェンス |
-| [`memory_order_release`](/reference/atomic/memory_order.md) | releaseフェンス |
-| [`memory_order_acq_rel`](/reference/atomic/memory_order.md) | acquireフェンスとreleaseフェンスの両方 |
-| [`memory_order_seq_cst`](/reference/atomic/memory_order.md) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
-
+| [`memory_order_relaxed`](./memory_order.md) | 何も行わない |
+| [`memory_order_acquire`](./memory_order.md)<br/>[`memory_order_consume`](/reference/atomic/memory_order.md) | acquireフェンス |
+| [`memory_order_release`](./memory_order.md) | releaseフェンス |
+| [`memory_order_acq_rel`](./memory_order.md) | acquireフェンスとreleaseフェンスの両方 |
+| [`memory_order_seq_cst`](./memory_order.md) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
 
 
 ##戻り値
-
 なし
 
 
 ##例外
-
 投げない
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -109,26 +108,17 @@ int main()
 }
 ```
 * atomic_thread_fence[color ff0000]
-* atomic_thread_fence[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -136,8 +126,6 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##参照
-
 [C++0x で Dekker のアルゴリズムを実装する](http://gameenginejp.blogspot.jp/2010/08/c0x-dekker.html)
 

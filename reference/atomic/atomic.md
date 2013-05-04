@@ -10,7 +10,6 @@ namespace std {
 * integral[italic]
 
 ##概要
-
 `atomic`クラスは、型`T`をアトミック操作するためのクラスである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラスを使用する場合、型`T`はtrivially copyable (TODO)である必要がある。特殊化された整数型および`bool`型にはそれぞれ`atomic_T`という名前の`typedef`が提供される。
 
 | | |
@@ -30,7 +29,7 @@ namespace std {
 |` atomic_char32_t` |` char32_t` |
 |` atomic_wchar_t` |` wchar_t` |
 |` atomic_bool` |` bool` |
-また、<inttypes.h>で定義される整数型に対する以下の`typedef`も提供される。
+また、`<cstdint>`で定義される整数型に対する以下の`typedef`も提供される。
 
 | | |
 |------------------------------------|--------------------------------------------|
@@ -59,8 +58,8 @@ namespace std {
 |` atomic_uintmax_t` |` uintmax_t` |
 `void*`に対する特殊化の`typedef`として、`atomic_address`型が提供される。
 
-###共通メンバ関数
 
+###共通メンバ関数
 | | |
 |-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | [`(constructor)`](./atomic/atomic.md) | コンストラクタ |
@@ -74,8 +73,8 @@ namespace std {
 | [`compare_exchange_weak`](./atomic/compare_exchange_weak.md) | 弱い比較で値を入れ替える |
 | [`compare_exchange_strong`](./atomic/compare_exchange_strong.md) | 強い比較で値を入れ替える |
 
-###atomic<integral>専用メンバ関数
 
+###atomic<integral>専用メンバ関数
 | | |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [`fetch_add`](./atomic/fetch_add.md) | 加算 |
@@ -91,8 +90,8 @@ namespace std {
 | <code>[operator&#x7C;=](./atomic/op_or_assign.md)</code> | OR演算 |
 | [`operator^=`](./atomic/op_xor_assign.md) | XOR演算 |
 
-###atomic<T*>専用メンバ関数
 
+###atomic<T*>専用メンバ関数
 | | |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [`fetch_add`](./atomic/fetch_add.md) | 加算 |
@@ -102,8 +101,8 @@ namespace std {
 | [`operator+=`](./atomic/op_plus_assign.md) | 加算 |
 | [`operator-=`](./atomic/op_minus_assign.md) | 減算 |
 
-###例
 
+###例
 ```cpp
 // スピンロックの実装
 // Boost Atomic Library - Usage Example
@@ -171,19 +170,18 @@ int main()
 * exchange[color ff0000]
 * store[color ff0000]
 
+
 ###出力例
-```cpp
+```
 21
 ```
 
+
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0(atomic_addressは未実装)

@@ -1,35 +1,29 @@
 #kill_dependency
 ```cpp
 namespace std {
-
   template <class T>
   T kill_dependency(T y) noexcept;
-
 }
 ```
 
 ##概要
-
-<b>データ依存性を切る。</b>
+データ依存性を切る。
 
 
 ##効果
-
 引数の依存性を戻り値に持ち運ばない
 
 
 ##戻り値
-
 `y`
 
-##例外
 
+##例外
 投げない
 
 
 ##備考
-
-この関数は、読み込んだ値に依存する式に対する順序を保証する[`memory_order_consume`](/reference/atomic/memory_order.md)メモリーオーダーにおいて、値の依存性を断ち切り、最適化を許可するために用意されている。
+この関数は、読み込んだ値に依存する式に対する順序を保証する[`memory_order_consume`](./memory_order.md)メモリーオーダーにおいて、値の依存性を断ち切り、最適化を許可するために用意されている。
 この関数とは逆に、依存性を持ち運ぶことをコンパイラに指示するための`[[carries_dependency]]`属性も用意されている。
 
 ##注意
@@ -38,7 +32,6 @@ namespace std {
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -46,7 +39,6 @@ namespace std {
  
 std::atomic<int> a(-1);
 int table[10];
-```
 
 void f()
 {
@@ -77,31 +69,23 @@ int main()
 
   t1.join();
 }
-
-
+```
 
 
 ###出力例
-
-```cpp
+```
 3
 5
 -1
 0
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -109,9 +93,7 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##実装例
-
 ```cpp
 template <class T>
 T kill_dependency(T y) noexcept
@@ -125,9 +107,7 @@ T kill_dependency(T y) noexcept
 ```
 
 ##参照
-
 [N2664 C++ Data-Dependency Ordering: Atomics and Memory Model](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2664.htm)
-
 [N2643 C++ Data-Dependency Ordering: Function Annotation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2643.html)
 [What does `std::kill_dependency` do, and why would I want to use it? - StackOverflow](http://stackoverflow.com/q/7150395/463412)
 [C++0xのメモリバリアをより深く解説してみる - yamasaのネタ帳](http://d.hatena.ne.jp/bsdhouse/20090929/1254237835)

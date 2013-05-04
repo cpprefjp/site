@@ -1,20 +1,19 @@
 #ATOMIC_FLAG_INIT
 ```cpp
 namespace std {
-
   #define ATOMIC_FLAG_INIT see below
 }
 ```
+* see below[italic]
+
 
 ##概要
+フラグを初期化する。
 
-<b>フラグを初期化する。</b>
-<b></b>
-<b>このマクロは、[atomic_flag](/reference/atomic/atomic_flag.md)オブジェクトの初期化に使用し、フラグをクリア状態にする。静的オブジェクトに対しては、その初期化は静的に行われなければならない。</b>
+このマクロは、[`atomic_flag`](./atomic_flag.md)オブジェクトの初期化に使用し、フラグをクリア状態にする。静的オブジェクトに対しては、その初期化は静的に行われなければならない。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -30,30 +29,23 @@ int main()
 ```
 * ATOMIC_FLAG_INIT[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 false
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

@@ -1,38 +1,29 @@
 #atomic_flag_clear
 ```cpp
 namespace std {
-
   void atomic_flag_clear(volatile atomic_flag* object) noexcept;
   void atomic_flag_clear(atomic_flag* object) noexcept;
-
 }
 ```
-* atomic_flag[link /reference/atomic/atomic_flag.md]
+* atomic_flag[link ./atomic_flag.md]
 
 ##概要
-
-<b>アトミックにフラグをクリアする</b>
+アトミックにフラグをクリアする
 
 
 ##効果
-
-[memory_order_seq_cst](/reference/atomic/memory_order.md)のメモリオーダーにしたがって、アトミックに`false`値を書き込む。
-
+[`memory_order_seq_cst`](./memory_order.md)のメモリオーダーにしたがって、アトミックに`false`値を書き込む。
 
 
 ##戻り値
-
 なし
 
 
-
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -60,31 +51,24 @@ int main()
 ```
 * atomic_flag_clear[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 false
 false
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照
