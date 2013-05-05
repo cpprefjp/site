@@ -16,23 +16,19 @@ namespace chrono {
 * duration[link /reference/chrono/duration.md]
 
 ##概要
-
-<b>durationの乗算を行う</b>
+durationの乗算を行う
 
 
 ##要件
-
 右辺の`Rep2`型は、`Rep1`に変換可能でなければならない。
-
 変換できない型の場合は、この関数はオーバーロードから除外される。
 
 
 ##戻り値
-
-`typedef [duration](/reference/chrono/duration.md)<typename common_type<Rep1, Rep2>::type, Period> cd;``cd(cd(d).[count](/reference/chrono/duration/count.md)() * s)`
+`typedef `[`duration`](/reference/chrono/duration.md)`<typename common_type<Rep1, Rep2>::type, Period> cd;`
+`cd(cd(d).`[`count`](/reference/chrono/duration/count.md)`() * s)`
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -60,14 +56,9 @@ int main()
   }
 }
 ```
-* *[color ff0000]
-* *[color ff0000]
-* *[color ff0000]
-* *[color ff0000]
 
 ###出力
-
-```cpp
+```
 6
 6
 6
@@ -75,16 +66,9 @@ int main()
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 

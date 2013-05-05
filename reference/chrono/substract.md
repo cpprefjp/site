@@ -22,20 +22,16 @@ namespace chrono {
 * time_point[link /reference/chrono/time_point.md]
 
 ##概要
-
-<b>duration, time_pointの減算を行う</b>
-<b></b>
+`duration`, `time_point`の減算を行う
 
 
 ##戻り値
-
-- `operator-(const duration<Rep1, Period1>& lhs, const duration<Rep2, Period2>& rhs)``typedef common_type<decltype(lhs), decltype(rhs)> cd;cd(cd(lhs).[count](/reference/chrono/duration/count.md)() - cd(rhs).[count](/reference/chrono/duration/count.md)())`
-- `operator-(const time_point<Clock, Duration1>& lhs, const duration<Rep2, Period2>& rhs)``lhs + (-rhs)`
-- `operator-(const time_point<Clock, Duration1>& lhs, const time_point<Clock, Duration2>& rhs)``lhs.[time_since_epoch](/reference/chrono/time_point/time_since_epoch.md)() - rhs.[time_since_epoch](/reference/chrono/time_point/time_since_epoch.md)()`
+- `operator-(const duration<Rep1, Period1>& lhs, const duration<Rep2, Period2>& rhs)`<br/>`typedef common_type<decltype(lhs), decltype(rhs)> cd;`<br/>`cd(cd(lhs).`[`count`](/reference/chrono/duration/count.md)`() - cd(rhs).`[`count`](/reference/chrono/duration/count.md)`())`
+- `operator-(const time_point<Clock, Duration1>& lhs, const duration<Rep2, Period2>& rhs)`<br/>`lhs + (-rhs)`
+- `operator-(const time_point<Clock, Duration1>& lhs, const time_point<Clock, Duration2>& rhs)`<br/>`lhs.`[`time_since_epoch`](/reference/chrono/time_point/time_since_epoch.md)`() - rhs.`[`time_since_epoch`](/reference/chrono/time_point/time_since_epoch.md)`()`
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -66,14 +62,9 @@ int main()
   }
 }
 ```
-* -[color ff0000]
-* -[color ff0000]
-* -[color ff0000]
-* -[color ff0000]
 
 ###出力例
-
-```cpp
+```
 1
 2998
 
@@ -82,16 +73,9 @@ int main()
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 

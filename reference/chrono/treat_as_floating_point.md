@@ -10,7 +10,7 @@ namespace chrono {
 
 ###概要
 `treat_as_floating_point`は、テンプレートパラメータ`Rep`が浮動小数点型かを判定するトレイトである。
-[duration](/reference/chrono/duration.md)クラスにおいて、他の[`duration`](/reference/chrono/duration.md)の型から変換可能な型かどうかを判定するために使用される。`treat_as_floating_point<Rep>::value == true`の場合に、変換可能である。
+[`duration`](/reference/chrono/duration.md)クラスにおいて、他の[`duration`](/reference/chrono/duration.md)の型から変換可能な型かどうかを判定するために使用される。`treat_as_floating_point<Rep>::value == true`の場合に、変換可能である。
 
 
 ##例
@@ -36,20 +36,16 @@ int main()
 }
 ```
 * treat_as_floating_point[color ff0000]
-* treat_as_floating_point[color ff0000]
 
 ###出力
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
 - C++11
 
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 
 

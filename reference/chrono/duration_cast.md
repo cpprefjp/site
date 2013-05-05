@@ -5,24 +5,19 @@ namespace std {
 namespace chrono {
   template <class ToDuration, class Rep, class Period>
   constexpr ToDuration duration_cast(const duration<Rep, Period>& d);
-
 }}
 ```
 * duration[link /reference/chrono/duration.md]
 
 ##概要
-
-<b>分解能が低い[duration](/reference/chrono/duration.md)への変換</b>
-<b></b>
+分解能が低い[`duration`](/reference/chrono/duration.md)への変換
 
 
 ##戻り値
-
 テンプレートパラメータ`ToDuration`で指定された型に変換された[`duration`](/reference/chrono/duration.md)。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -41,22 +36,14 @@ int main()
 * duration_cast[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 

@@ -12,21 +12,17 @@ namespace chrono {
 
 
 ###メンバ関数
-
 | | |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| [zero](./duration_values/zero.md) | Repの初期値を取得 |
-| [min](./duration_values/min.md) | Repの最小値を取得 |
-| [max](./duration_values/max.md) | Repの最大値を取得 |
-
+| [`zero`](./duration_values/zero.md) | Repの初期値を取得 |
+| [`min`](./duration_values/min.md) | Repの最小値を取得 |
+| [`max`](./duration_values/max.md) | Repの最大値を取得 |
 
 
 ###言語
-
 - C++11
 
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 
 

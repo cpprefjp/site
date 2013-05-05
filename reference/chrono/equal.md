@@ -15,18 +15,15 @@ namespace chrono {
 * time_point[link /reference/chrono/time_point.md]
 
 ##概要
-
-<b>等値比較を行う</b>
+等値比較を行う
 
 
 ##戻り値
-
-- `duration`の比較2つの[`duration`](/reference/chrono/duration.md)の単位を合わせた上で[`count()`](/reference/chrono/duration/count.md)の等値比較を行う。`typedef common_type<decltype(lhs), decltype(rhs)>::type ct;ct(lhs).[count](/reference/chrono/duration/count.md)() == ct(rhs).[count](/reference/chrono/duration/count.md)()`
-- `time_point`の比較`lhs.[time_since_epoch](/reference/chrono/time_point/time_since_epoch.md)() == rhs.[time_since_poch](/reference/chrono/time_point/time_since_epoch.md)()`
+- `duration`の比較2つの[`duration`](/reference/chrono/duration.md)の単位を合わせた上で[`count()`](/reference/chrono/duration/count.md)の等値比較を行う。<br/>`typedef common_type<decltype(lhs), decltype(rhs)>::type ct;`<br/>`ct(lhs).`[`count`](/reference/chrono/duration/count.md)`() == ct(rhs).`[`count`](/reference/chrono/duration/count.md)`()`
+- `time_point`の比較<br/>`lhs.`[`time_since_epoch`](/reference/chrono/time_point/time_since_epoch.md)`() == rhs.`[`time_since_poch`](/reference/chrono/time_point/time_since_epoch.md)`()`
 
 
 ##例
-
 ```cpp
 #include <cassert>
 #include <chrono>
@@ -54,23 +51,15 @@ int main()
 }
 ```
 * ==[color ff0000]
-* ==[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1<h4></h4>
 

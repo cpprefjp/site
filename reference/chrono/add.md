@@ -18,24 +18,20 @@ namespace chrono {
     operator+(const duration<Rep1, Period1>& lhs, const time_point<Clock, Duration2>& rhs);
 }}
 ```
-* duration[link /reference/chrono/duration.md]
-* time_point[link /reference/chrono/time_point.md]
+* duration[link ./duration.md]
+* time_point[link ./time_point.md]
 
 ##概要
-
-<b>duration, time_pointの加算を行う</b>
-<b></b>
+`duration`, `time_point`の加算を行う
 
 
 ##戻り値
-
-- `operator+(const duration<Rep1, Period1>& lhs, const duration<Rep2, Period2>& rhs)``typedef common_type<decltype(lhs), decltype(rhs)> cd;cd(cd(lhs).count() + cd(rhs).count())`
-- `operator+(const time_point<Clock, Duration1>& lhs, const duration<Rep2, Period2>& rhs)``typedef time_point<Clock, common_type<decltype(lhs), decltype(rhs)>> ct;ct(lhs) += rhs`
-- `operator+(const duration<Rep1, Period1>& lhs, const time_point<Clock, Duration2>& rhs)``rhs + lhs`
+- `operator+(const duration<Rep1, Period1>& lhs, const duration<Rep2, Period2>& rhs)`<br/>`typedef common_type<decltype(lhs), decltype(rhs)> cd;`<br/>`cd(cd(lhs).count() + cd(rhs).count())`
+- `operator+(const time_point<Clock, Duration1>& lhs, const duration<Rep2, Period2>& rhs)`<br/>`typedef time_point<Clock, common_type<decltype(lhs), decltype(rhs)>> ct;`<br/>`ct(lhs) += rhs`
+- `operator+(const duration<Rep1, Period1>& lhs, const time_point<Clock, Duration2>& rhs)`<br/>`rhs + lhs`
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -65,13 +61,9 @@ int main()
 }
 ```
 * +[color ff0000]
-* +[color ff0000]
-* +[color ff0000]
-* +[color ff0000]
 
 ###出力
-
-```cpp
+```
 5
 2003
 
@@ -80,16 +72,8 @@ int main()
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
-
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 

@@ -5,29 +5,25 @@ namespace chrono {
   template <class Rep1, class Period1, class Rep2, class Period2>
   constexpr bool operator!=(const duration<Rep1, Period1>& lhs,
                             const duration<Rep2, Period2>& rhs);
-```
-* duration[link /reference/chrono/duration.md]
 
   template <class Clock, class Duration1, class Duration2>
-  bool operator!=(const [time_point](/reference/chrono/time_point.md)<Clock, Duration1>& lhs,
-                  const [time_point](/reference/chrono/time_point.md)<Clock, Duration2>& rhs);
+  bool operator!=(const time_point<Clock, Duration1>& lhs,
+                  const time_point<Clock, Duration2>& rhs);
 }}
-
-
-
+```
+* duration[link /reference/chrono/duration.md]
+* time_point[link /reference/chrono/time_point.md]
 
 
 ##概要
-
-<b>非等値の判定を行う</b>
+非等値の判定を行う
 
 
 ##戻り値
-
 `!(lhs == rhs)`
 
-##例
 
+##例
 ```cpp
 #include <cassert>
 #include <chrono>
@@ -55,23 +51,15 @@ int main()
 }
 ```
 * !=[color ff0000]
-* !=[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1<h4></h4>
+- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 

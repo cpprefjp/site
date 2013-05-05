@@ -1,7 +1,6 @@
 #time_point_cast
 ```cpp
 namespace std {
-
 namespace chrono {
   template <class ToDuration, class Clock, class Duration>
   time_point<Clock, ToDuration> time_point_cast(const time_point<Clock, Duration>& t);
@@ -10,17 +9,13 @@ namespace chrono {
 * time_point[link /reference/chrono/time_point.md]
 
 ##概要
-
-<b>分解能の低い[duration](/reference/chrono/duration.md)型を内部表現として持つ[time_point](/reference/chrono/time_point.md)への変換</b>
-<b></b>
+分解能の低い[`duration`](/reference/chrono/duration.md)型を内部表現として持つ[`time_point`](/reference/chrono/time_point.md)への変換
 
 
 ##戻り値
-
-[`time_point`](/reference/chrono/time_point.md)<Clock, ToDuration>([duration_cast](/reference/chrono/duration_cast.md)<ToDuration>(t.[time_since_epoch](/reference/chrono/time_point/time_since_epoch.md)()))
+[`time_point`](/reference/chrono/time_point.md)`<Clock, ToDuration>(`[`duration_cast`](/reference/chrono/duration_cast.md)`<ToDuration>(t.`[`time_since_epoch`](/reference/chrono/time_point/time_since_epoch.md)`()))`
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -43,22 +38,14 @@ int main()
 * time_point_cast[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1<h4></h4>
+- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 

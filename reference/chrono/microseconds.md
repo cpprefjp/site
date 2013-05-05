@@ -8,12 +8,10 @@ namespace chrono {
 * duration[link /reference/chrono/duration.md]
 
 ##概要
-
-<b>マイクロ秒単位を表現するdurationの別名</b>
+マイクロ秒単位を表現する`duration`の別名
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -30,22 +28,14 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 50
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1<h4></h4>
+- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 
