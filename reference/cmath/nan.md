@@ -5,4 +5,4 @@
 * constant_expression[italic]
 
 ##概要
-NaN がサポートされる場合、float の quiet NaN の定数式に展開される。
+`NaN`(Not a Number, 非数) がサポートされる場合、`float` の `quiet NaN` の定数式に展開される。

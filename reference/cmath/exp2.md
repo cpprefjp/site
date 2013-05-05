@@ -1,61 +1,69 @@
 #exp2
 ```cpp
-namespace std {  float exp2(float x);  double exp2(double x);  long double exp2(long double x);  template<class Integral>  double exp2(Integral x);}
+namespace std {
+  float exp2(float x);
+
+  double exp2(double x);
+
+  long double exp2(long double x);
+
+  template<class Integral>
+  double exp2(Integral x);
+}
 ```
 
 ##概要
-
-<b>2 を底とする指数関数を求める。</b>
+2 を底とする指数関数を求める。
 
 
 ##戻り値
-
-2 の x 乗を返す。
-
-x が +∞ だった場合 +∞ を返す。
-
-x が -∞ だった場合 0 を返す。
+2 の `x` 乗を返す。
+`x` が `+∞` だった場合 `+∞` を返す。
+`x` が `-∞` だった場合 0 を返す。
 
 
 ##備考
-
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/exp2/exp2.png)
 
 
 
 ##例
-
 ```cpp
-#include <cmath>#include <limits>#include <iostream>int main() {  std::cout << std::fixed;  std::cout << "exp2(0.0) = " << std::exp2(0.0) << std::endl;  std::cout << "exp2(1.0) = " << std::exp2(1.0) << std::endl;  std::cout << "exp2(+∞) = " << std::exp2(std::numeric_limits<double>::infinity()) << std::endl;  std::cout << "exp2(-∞) = " << std::exp2(-std::numeric_limits<double>::infinity()) << std::endl;}
+#include <cmath>
+#include <limits>
+#include <iostream>
+
+int main() {
+  std::cout << std::fixed;
+  std::cout << "exp2(0.0) = " << std::exp2(0.0) << std::endl;
+  std::cout << "exp2(1.0) = " << std::exp2(1.0) << std::endl;
+  std::cout << "exp2(+∞) = " << std::exp2(std::numeric_limits<double>::infinity()) << std::endl;
+  std::cout << "exp2(-∞) = " << std::exp2(-std::numeric_limits<double>::infinity()) << std::endl;
+}
 ```
 
 ###出力
-
-```cpp
-exp2(0.0) = 1.000000exp2(1.0) = 2.000000exp2(+∞) = infexp2(-∞) = 0.000000
+```
+exp2(0.0) = 1.000000
+exp2(1.0) = 2.000000
+exp2(+∞) = inf
+exp2(-∞) = 0.000000
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): 2.9, 3.1
-- [GCC, C++0x mode](/implementation#gcc.md): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0<h4>備考</h4>
-特定の環境で constexpr 指定されている場合がある。（独自拡張）
+- [GCC, C++0x mode](/implementation#gcc.md): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
+
+####備考
+特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 - GCC 4.6.1 以上
 
 
-
 ##実装例
-
-exp があれば、以下のように変換することで求められる。
+`exp` があれば、以下のように変換することで求められる。
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/exp2/exp2_formula.png)
 
