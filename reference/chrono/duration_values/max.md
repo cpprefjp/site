@@ -4,19 +4,15 @@ static constexpr Rep max()
 ```
 
 ##概要
-
-<b>Repの最大値を取得する。</b>
-<b></b>
+`Rep`の最大値を取得する。
 
 
 ##戻り値
-
-[`numeric_limits`](/reference/limits/numeric_limits.md)<Rep>::[max](/reference/limits/numeric_limits/max.md)()
+[`numeric_limits`](/reference/limits/numeric_limits.md)`<Rep>::`[`max`](/reference/limits/numeric_limits/max.md)`()`
 ※戻り値は0より大きくなければならない。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -31,28 +27,20 @@ int main()
 }
 ```
 * max[color ff0000]
-* max[color ff0000]
-* max[color ff0000]
 
-###出力
 
-```cpp
+###出力例
+```
 9223372036854775807
 2147483647
 1.79769e+308
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 

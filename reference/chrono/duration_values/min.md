@@ -4,19 +4,15 @@ static constexpr Rep min();
 ```
 
 ##概要
-
-<b>Repの最小値を取得する。</b>
-<b></b>
+`Rep`の最小値を取得する。
 
 
 ##戻り値
-
-[`numeric_limits`](/reference/limits/numeric_limits.md)<Rep>::[lowest](/reference/limits/numeric_limits/lowest.md)()
+[`numeric_limits`](/reference/limits/numeric_limits.md)`<Rep>::`[`lowest`](/reference/limits/numeric_limits/lowest.md)`()`
 ※戻り値の値は0より小さくなければならない。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -31,28 +27,19 @@ int main()
 }
 ```
 * min[color ff0000]
-* min[color ff0000]
-* min[color ff0000]
+
 
 ###出力例
-
-```cpp
+```
 -9223372036854775808
 -2147483648
 2.22507e-308
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 

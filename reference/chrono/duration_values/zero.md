@@ -4,16 +4,14 @@ static constexpr Rep zero();
 ```
 
 ##概要
-
-<b>Rep型の初期値を取得する</b>
+`Rep`型の初期値を取得する
 
 
 ##戻り値
-
 `Rep(0)`
 
-##例
 
+##例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -27,23 +25,17 @@ int main()
 ```
 * zero[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 0
 ```
 
+
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1<h4></h4>
+- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 
