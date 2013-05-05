@@ -28,7 +28,7 @@
 | [`LDBL_DIG`](./cfloat/ldbl_dig.md) | `n`桁の10進数を`long double`に変換し、また元に戻した場合に値が変わらないような`n`のうち最大のもの |
 | [`LDBL_EPSILON`](./cfloat/ldbl_epsilon.md) | `long double`の機械イプシロン |
 | [`LDBL_MANT_DIG`](./cfloat/ldbl_mant_dig.md) | `long double`の仮数部の桁数 |
-| [LDBL_MAX](./cfloat/ldbl_max.md) | `long double`の最大の有限値 |
+| [`LDBL_MAX`](./cfloat/ldbl_max.md) | `long double`の最大の有限値 |
 | [`LDBL_MAX_10_EXP`](./cfloat/ldbl_max_10_exp.md) | 10の`n`乗が`long double`の正の正規化数であるようなnの最大値 |
 | `LDBL_MAX_EXP` |  |
 | [`LDBL_MIN`](./cfloat/ldbl_min.md) | `long double`の正の正規化数のうち最小のもの |
