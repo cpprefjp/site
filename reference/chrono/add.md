@@ -74,6 +74,7 @@ int main()
 ##バージョン
 ###言語
 - C++11
+
 ###処理系
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 
