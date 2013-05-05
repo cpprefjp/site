@@ -1,25 +1,20 @@
 #コンストラクタ
 ```cpp
 time_point();
-```
 
 explicit time_point(const duration& d);
 
 template <class Duration2>
 time_point(const time_point<clock, Duration2>& t);
-
-
-
+```
 
 ##time_pointの構築
-
-- `time_point()`デフォルトコンストラクタ。エポックのtime_point(duration::zero())を生成する。
-- `explicit time_point(const duration& d)`エポックからの経過時間からtime_pointを生成する。
-- `template <class Duration2>time_point(const time_point<clock, Duration2>& t)`他のテンプレートパラメータを持つtime_pointからの変換コンストラクタ。
+- `time_point()`<br/>デフォルトコンストラクタ。エポックの`time_point(duration::zero())`を生成する。
+- `explicit time_point(const duration& d)`<br/>エポックからの経過時間から`time_point`を生成する。
+- `template <class Duration2>`<br/>`time_point(const time_point<clock, Duration2>& t)`<br/>他のテンプレートパラメータを持つ`time_point`からの変換コンストラクタ。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -45,25 +40,16 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 0
 3000000
 5000
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-
 - GCC: 4.6.1
 

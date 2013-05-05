@@ -4,17 +4,14 @@ duration time_since_epoch() const;
 ```
 
 ##概要
-
-<b>エポックからの経過時間を取得する</b>
+エポックからの経過時間を取得する
 
 
 ##戻り値
-
 エポックからの経過時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -32,23 +29,14 @@ int main()
 * time_since_epoch()[color ff0000]
 
 ###出力例
-
-```cpp
+```
 1314322091
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-
 - GCC: 4.5.1, 4.6.1
 
