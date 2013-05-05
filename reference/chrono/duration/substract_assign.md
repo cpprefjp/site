@@ -4,13 +4,16 @@ duration& operator-=(const duration& d);
 ```
 
 ##概要
-現在の値から、他のdurationの値を引く
+現在の値から、他の`duration`の値を引く
+
 
 ##効果
-`rep_ -= d.[count](/reference/chrono/duration/count.md)()`
+`rep_ -= d.`[`count`](/reference/chrono/duration/count.md)`()`
+
 
 ##戻り値
 `*this`
+
 
 ##例
 ```cpp
@@ -30,20 +33,18 @@ int main()
   std::cout << d1.count() << std::endl;
 }
 ```
-* -=[color ff0000]
+
 
 ###出力
-```cpp
+```
 1
 ```
 
+
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - GCC: 4.5.1, 4.6.1
 

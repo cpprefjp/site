@@ -1,22 +1,19 @@
 #operator++
 ```cpp
 duration& operator++();
-
 duration operator++(int);
 ```
 
 ##概要
-
-durationの値をインクリメントする
+`duration`の値をインクリメントする
 
 ##戻り値
-
-- duration& opertor++() :++rep_; return *this;
-- duration operator++(int) :return duration(rep_++);※ rep_は内部で保持している値。メンバ変数名は説明用のもの。
+- `duration& opertor++()` : `++rep_; return *this;`
+- `duration operator++(int)` : `return duration(rep_++);`
+※ `rep_`は内部で保持している値。メンバ変数名は説明用のもの。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -44,12 +41,9 @@ int main()
   }
 }
 ```
-* ++[color ff0000]
-* ++[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 3
 
@@ -58,17 +52,9 @@ int main()
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-
 - GCC: 4.5.1, 4.6.1
 

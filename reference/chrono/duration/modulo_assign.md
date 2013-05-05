@@ -5,13 +5,11 @@ duration& operator%=(const duration& rhs);
 ```
 
 ##概要
-現在の値をrhsで割った余りを求める
+現在の値を`rhs`で割った余りを求める
 
 ##効果
-<code>
-- rep_ %= rhs
-- rep_ %= rhs.count()
-</code>
+- `rep_ %= rhs`
+- `rep_ %= rhs.count()`
 
 ##戻り値
 `*this`
@@ -41,22 +39,18 @@ int main()
   }
 }
 ```
-* %=[color ff0000]
-* %=[color ff0000]
+
 
 ###出力
-```cpp
+```
 1
 1
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - GCC: 4.5.1, 4.6.1
 

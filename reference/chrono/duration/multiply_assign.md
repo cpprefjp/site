@@ -4,13 +4,16 @@ duration& operator*=(const rep& rhs);
 ```
 
 ##概要
-現在の値にrhsを掛ける
+現在の値に`rhs`を掛ける
+
 
 ##効果
 `rep_ *= rhs`
 
+
 ##戻り値
 `*this`
+
 
 ##例
 ```cpp
@@ -29,20 +32,17 @@ int main()
   std::cout << d.count() << std::endl;
 }
 ```
-* *=[color ff0000]
+
 
 ###出力
-```cpp
+```
 9
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - GCC: 4.5.1, 4.6.1
 
