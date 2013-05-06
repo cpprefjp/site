@@ -108,11 +108,11 @@
 | [`UINT_FAST64_MAX`](./cstdint/uint_fast64_max.md) | `uint_fast64_t`の最大値 |
 | `UINT_LEAST8_MIN` | `uint_least8_t`の最小値 |
 | [`UINT_LEAST8_MAX`](./cstdint/uint_least8_max.md) | `uint_least8_t`の最大値 |
-| UINT_LEAST16_MIN | `uint_least16_t`の最小値 |
+| `UINT_LEAST16_MIN` | `uint_least16_t`の最小値 |
 | [`UINT_LEAST16_MAX`](./cstdint/uint_least16_max.md) | `uint_least16_t`の最大値 |
-| UINT_LEAST32_MIN | `uint_least32_t`の最小値 |
+| `UINT_LEAST32_MIN` | `uint_least32_t`の最小値 |
 | [`UINT_LEAST32_MAX`](./cstdint/uint_least32_max.md) | `uint_least32_t`の最大値 |
-| UINT_LEAST64_MIN | `uint_least64_t`の最小値 |
+| `UINT_LEAST64_MIN` | `uint_least64_t`の最小値 |
 | [`UINT_LEAST64_MAX`](./cstdint/uint_least64_max.md) | `uint_least64_t`の最大値 |
 | `UINT_MAX_MIN` | `uint_max_t`の最小値 |
 | [`UINT_MAX_MAX`](./cstdint/uintmax_max.md) | `uint_max_t`の最大値 |

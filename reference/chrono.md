@@ -5,7 +5,7 @@
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | [`duration`](./chrono/duration.md) | 時間の単位(class template) |
 | [`time_point`](./chrono/time_point.md) | 時間軸上の一点(class template) |
-| `[treat_as_floating_point](./chrono/treat_as_floating_point.md)` | `duration`内部表現の型が浮動小数点型かを判定するためのトレイト(class template) |
+| [`treat_as_floating_point`](./chrono/treat_as_floating_point.md) | `duration`内部表現の型が浮動小数点型かを判定するためのトレイト(class template) |
 | [`duration_values`](./chrono/duration_values.md) | `duration`内部表現の特別な値を取得するためのトレイト(class template) |
 | [`duration_cast`](./chrono/duration_cast.md) | 分解能の低いdurationへの変換 |
 | [`time_point_cast`](./chrono/time_point_cast.md) | 分解能の低い`duration`を内部表現に持つ`time_point`への変換 |
