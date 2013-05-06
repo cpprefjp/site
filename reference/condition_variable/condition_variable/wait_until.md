@@ -15,48 +15,51 @@ bool wait_until(unique_lock<mutex>& lock,
 * time_point[link /reference/chrono/time_point.md]
 
 ##概要
+絶対時間でタイムアウトを指定して、起床されるまで待機する。
 
-<b>絶対時間でタイムアウトを指定して、起床されるまで待機する。</b>
-<b></b>
-<b>この関数は、処理をするための準備ができたことをnotify_one()/notify_all()によって通知されるまでスレッドを待機するために使用する。</b>
-<b>述語を指定しない場合、notify_one()/notify_all()が呼び出された時点でこの関数のブロッキングが解除される。</b>
-<b>述語を指定する場合、述語呼び出しがtrueになるまで待機を続行する。</b>
+この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
+述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブロッキングが解除される。
+述語を指定する場合、述語呼び出しが`true`になるまで待機を続行する。
 
 
 
 ##要件
-
-- `lock.[owns_lock()](/reference/mutex/unique_lock/owns_lock.md) == true`であること
-- `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること<li>`*this`の`condition_variable`オブジェクトが他スレッドで待機していないか、もしくは並行に待機している全てのスレッドで`lock`パラメータが同じミューテックスオブジェクトを参照していること
-</li>
+- `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)` == true`であること
+- `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
+- `*this`の`condition_variable`オブジェクトが他スレッドで待機していないか、もしくは並行に待機している全てのスレッドで`lock`パラメータが同じミューテックスオブジェクトを参照していること
 
 
 ##効果
+<b>述語を指定しないバージョン</b>
+1. アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)する
+2. [`notify_one()`](./notify_one.md)/[`notify_all()`](./notify_all.md)による通知、`abs_time`によって指定された時間に到達したことによる期限切れ、もしくはなんらかの理由によって失敗するまでブロッキングする
+3. この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
+4. この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
 
-- 述語を指定しないバージョン<ol><li style='color:rgb(65,75,86);font-family:Arial,Verdana,sans-serif'>アトミックに`lock.[unlock()](/reference/mutex/unique_lock/unlock.md)`する
-- [notify_one()](/reference/condition_variable/condition_variable/notify_one.md)/[notify_all()](/reference/condition_variable/condition_variable/notify_all.md)による通知、`abs_time`によって指定された時間に到達したことによる期限切れ、もしくはなんらかの理由によって失敗するまでブロッキングする<li style='color:rgb(65,75,86);font-family:Arial,Verdana,sans-serif'>この関数を抜ける際に`lock.[lock()](/reference/mutex/unique_lock/lock.md)`する</li><li style='color:rgb(65,75,86);font-family:Arial,Verdana,sans-serif'>この関数が例外送出によって終了する場合、関数を抜ける前に`lock.[lock()](/reference/mutex/unique_lock/lock.md)`する</li></ol>戻り値：`abs_time`で指定された絶対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。 </li>
-- 述語を指定するバージョンwhile (!pred()) {  if (wait_until(lock, abs_time) == [cv_status::timeout](/reference/condition_variable/cv_status.md)) {   return pred();  }}return true;戻り値：`pred()`の結果が返る
+戻り値：`abs_time`で指定された絶対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。 
 
+
+<b>述語を指定するバージョン</b>
+`while (!pred()) {`
+`  if (wait_until(lock, abs_time) == `[`cv_status::timeout`](/reference/condition_variable/cv_status.md)`) {`
+`    return pred();`
+`  }`
+`}`
+`return true;`
+
+戻り値：`pred()`の結果が返る
 
 
 ##事後条件
-
-- `lock.[owns_lock()](/reference/mutex/unique_lock/owns_lock.md) == true`であること
+- `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)` == true`であること
 - `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
 
 
 ##例外
-
-この関数は、`lock.[lock()](/reference/mutex/unique_lock/lock.md)`および`lock.[unlock()](/reference/mutex/unique_lock/unlock.md)`によって送出されうる、あらゆる例外が送出される可能性がある。
-
-
-
-##備考
-
+この関数は、`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)および`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)によって送出されうる、あらゆる例外が送出される可能性がある。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -144,33 +147,23 @@ int main()
 }
 ```
 * wait_until[color ff0000]
-* wait_until[color ff0000]
 
 ###出力例
-
-```cpp
+```
 process data
 process data
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

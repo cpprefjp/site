@@ -8,45 +8,45 @@ void wait(Lock& lock, Predicate pred);
 ```
 
 ##概要
+起床されるまで待機する。
 
-<b>起床されるまで待機する。</b>
-<b></b>
-<b>この関数は、処理をするための準備ができたことをnotify_one()/notify_all()によって通知されるまでスレッドを待機するために使用する。</b>
-<b>述語を指定しない場合、notify_one()/notify_all()が呼び出された時点でこの関数のブロッキングが解除される。</b>
-<b>述語を指定する場合、述語呼び出しがtrueになるまで待機を続行する。</b>
+この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
+述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブロッキングが解除される。
+述語を指定する場合、述語呼び出しが`true`になるまで待機を続行する。
 
 
 
 ##効果
+`template <class Lock>`
+`void wait(Lock& lock);`
 
-- `template <class Lock>void wait(Lock& lock);`<ol><ol>
-- アトミックに`lock.[unlock()](/reference/mutex/unique_lock/unlock.md)`する
-- [`notify_one()`](/reference/condition_variable/condition_variable/notify_one.md)/[notify_all()](/reference/condition_variable/condition_variable/notify_all.md)もしくはそれ以外の理由で通知があるまでブロッキングする
-- この関数を抜ける際に`lock.[lock()](/reference/mutex/unique_lock/lock.md)`する
-- この関数が例外送出によって終了する場合、関数を抜ける前に`lock.[lock()](/reference/mutex/unique_lock/lock.md)`する</ol></ol>
-- `template <class Lock, class Predicate>``void wait(Lock& lock, Predicate pred);``while (!pred()) {``  wait(lock);``}`
+- アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)する
+- [`notify_one()`](./notify_one.md)/[`notify_all()`](./notify_all.md)もしくはそれ以外の理由で通知があるまでブロッキングする
+- この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
+- この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
 
+
+`template <class Lock, class Predicate>`
+`void wait(Lock& lock, Predicate pred);`
+
+`while (!pred()) {`
+`  wait(lock);`
+`}`
 
 
 ##事後条件
-
 `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
 
 
-
 ##戻り値
-
 なし
 
 
 ##例外
-
-この関数は、`lock.[lock()](/reference/mutex/unique_lock/lock.md)`および`lock.[unlock()](/reference/mutex/unique_lock/unlock.md)`によって送出されうる、あらゆる例外が送出される可能性がある。
-
+この関数は、`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)および`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)によって送出されうる、あらゆる例外が送出される可能性がある。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -118,34 +118,24 @@ int main()
   t3.join();
 }
 ```
-* wait(lk);[color ff0000]
 * wait[color ff0000]
 
 ###出力
-
-```cpp
+```
 process data
 process data
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照
