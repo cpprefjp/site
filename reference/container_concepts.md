@@ -4,7 +4,7 @@
 
 | |
 |-----------------------------------------------------------------------------------------------------------------|
-| [CopyInsertable](./container_concepts/copyinsertable.md) |
+| [`CopyInsertable`](./container_concepts/copyinsertable.md) |
 |  |
 |  |
 |  |
