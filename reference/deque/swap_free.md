@@ -7,21 +7,18 @@ namespace std {
 ```
 
 ##概要
-
-<b>2つのdequeオブジェクトを入れ替える</b>
+2つの`deque`オブジェクトを入れ替える
 
 
 ##効果
+`x.`[`swap`](./swap.md)`(y)`
 
-`x.[swap](/reference/deque/swap.md)(y)`
 
 ##戻り値
-
 なし
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -52,8 +49,7 @@ int main()
 * swap[color ff0000]
 
 ###出力
-
-```cpp
+```
 c1 : {4 5 6 }
 c2 : {1 2 3 }
 ```

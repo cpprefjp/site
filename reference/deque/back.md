@@ -5,27 +5,22 @@ const_reference back() const;
 ```
 
 ##概要
-
-<b>末尾要素への参照を取得する</b>
+末尾要素への参照を取得する
 
 
 ##戻り値
-
 末尾要素への参照
 
 
 ##計算量
-
 定数時間
 
 
 ##備考
-
 コンテナが空の状態でこの関数が呼ばれた場合、動作は未規定。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -42,18 +37,15 @@ int main()
 * back[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 ```
 
 ##参照
-
-
 | | |
 |-------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| [`front`](/reference/deque/front.md) | 先頭要素への参照を取得する |
-| [`push_back`](/reference/deque/push_back.md) | 末尾に要素を追加する |
-| [`pop_back`](/reference/deque/pop_back.md) | 末尾要素を削除する |
+| [`front`](./front.md) | 先頭要素への参照を取得する |
+| [`push_back`](./push_back.md) | 末尾に要素を追加する |
+| [`pop_back`](./pop_back.md) | 末尾要素を削除する |
 
 

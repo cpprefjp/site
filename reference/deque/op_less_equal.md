@@ -7,27 +7,22 @@ namespace std {
 ```
 
 ##概要
-
-<b>dequeにおいて、左辺が右辺以下かの判定を行う。</b>
+`deque`において、左辺が右辺以下かの判定を行う。
 
 
 ##要件
-
 型`T`が`<`比較可能であること。その`<`が全順序関係を持っていること。
 
 
 ##戻り値
-
-!(a [>](/reference/deque/op_greater.md) b)
+`!(a `[`>`](./op_greater.md)` b)`
 
 
 ##計算量
-
 線形時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -42,11 +37,9 @@ int main ()
   std::cout << (c1 <= c2) << std::endl;
 }
 ```
-* <=[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 ```
 

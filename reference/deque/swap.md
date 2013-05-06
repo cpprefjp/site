@@ -4,32 +4,26 @@ void swap(deque& other);
 ```
 
 ##概要
-
 他の`deque`オブジェクトとデータを入れ替える。
 
 
 ##効果
-
 `*this`と`other`のデータを交換する。
 
 
 ##戻り値
-
 なし
 
 
 ##計算量
-
 定数時間
 
 
 ##備考
-
 swapされるコンテナの要素を指す参照、ポインタ、イテレータを無効化しない。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -60,8 +54,7 @@ int main()
 * swap[color ff0000]
 
 ###出力
-
-```cpp
+```
 c1 : {4 5 6 }
 c2 : {1 2 3 }
 ```

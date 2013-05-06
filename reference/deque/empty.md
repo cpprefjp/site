@@ -4,27 +4,22 @@ bool empty() const noexcept;
 ```
 
 ##概要
-
-<b>コンテナが空かどうかを判定する</b>
+コンテナが空かどうかを判定する
 
 
 ##戻り値
-
 コンテナが空であれば`true`、そうでなければ`false`を返す。
 
 
 ##例外
-
 投げない
 
 
 ##計算量
-
 定数時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -46,22 +41,18 @@ int main()
 }
 ```
 * empty[color ff0000]
-* empty[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 false
 ```
 
 ##参照
-
-
 | | |
 |-----------------------------------------------------------------------------------------------|--------------------------------|
-| [`clear`](/reference/deque/clear.md) | 全ての要素を削除する |
-| [`erase`](/reference/deque/erase.md) | 要素を削除する |
-| [`size`](/reference/deque/size.md) | 要素数を取得する |
+| [`clear`](./clear.md) | 全ての要素を削除する |
+| [`erase`](./erase.md) | 要素を削除する |
+| [`size`](./size.md) | 要素数を取得する |
 
 

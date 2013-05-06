@@ -7,22 +7,18 @@ void push_back(T&& y);
 ```
 
 ##概要
-
 末尾に要素を追加する。
 
 
 ##戻り値
-
 なし
 
 
 ##計算量
-
 定数時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -45,22 +41,18 @@ int main()
 }
 ```
 * push_back[color ff0000]
-* push_back[color ff0000]
 
 ###出力
-
-```cpp
+```
 hello
 world
 ```
 
 ##参照
-
-
 | | |
 |-------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`emplace_back`](/reference/deque/emplace_back.md) | 末尾に要素を直接構築で追加する |
-| [`push_front`](/reference/deque/push_front.md) | 先頭に要素を追加する |
-| [`insert`](/reference/deque/insert.md) | 任意の位置に要素を挿入する |
+| [`emplace_back`](./emplace_back.md) | 末尾に要素を直接構築で追加する |
+| [`push_front`](./push_front.md) | 先頭に要素を追加する |
+| [`insert`](./insert.md) | 任意の位置に要素を挿入する |
 
 

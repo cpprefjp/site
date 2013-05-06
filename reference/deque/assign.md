@@ -11,16 +11,14 @@ void assign(initializer_list<T> init);
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-
 コンテナに値を代入する。
 
-- `template <class InputIterator>``void assign(InputIterator first, InputIterator last);``*this`の全ての要素が解放され、`[first, last)`の範囲の要素のコピーが*thisにコピーされる。
-- `void assign(size_type n, const T& t);``*this`の全ての要素が解放され、`t`オブジェクトの`n`個のコピーから`*this`を再構築する。
-- `void assign([initializer_list](/reference/initializer_list.md)<T> init);``*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+- `template <class InputIterator>`<br/>`void assign(InputIterator first, InputIterator last);`<br/>`*this`の全ての要素を解放し、`[first, last)`の範囲の要素のコピーを`*this`にコピーする。
+- `void assign(size_type n, const T& t);`<br/>`*this`の全ての要素が解放され、`t`オブジェクトの`n`個のコピーから`*this`を再構築する。
+- `void assign(`[`initializer_list`](/reference/initializer_list.md)`<T> init);`<br/>`*this`の全ての要素を解放し、`x`の全ての要素を`*this`にコピーする。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -57,12 +55,9 @@ int main ()
 }
 ```
 * assign[color ff0000]
-* assign[color ff0000]
-* assign[color ff0000]
 
 ###出力
-
-```cpp
+```
 c1 : {1 2 3 }
 c2 : {1 1 1 }
 c3 : {1 2 3 }

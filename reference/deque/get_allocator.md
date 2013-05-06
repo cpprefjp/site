@@ -4,29 +4,24 @@ allocator_type get_allocator() const noexcept;
 ```
 
 ##概要
-
-<b>deque オブジェクトの構築に使われるアロケータオブジェクトを取得する</b>
+deque オブジェクトの構築に使われるアロケータオブジェクトを取得する
 
 
 ##戻り値
-
 アロケータオブジェクト。
 
 メンバ型 `allocator_type` は、この `deque` クラスのインスタンス化に使われるテンプレートパラメータの 2 番目の型（アロケータの型）と同じであるよう定義される。
 
 
 ##例外
-
 投げない
 
 
 ##備考
-
 定数時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -45,11 +40,9 @@ int main ()
 }
 ```
 * get_allocator[color ff0000]
-* get_allocator[color ff0000]
 
 ###出力
-
-```cpp
+```
 42
 84
 ```

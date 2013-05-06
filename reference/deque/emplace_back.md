@@ -5,7 +5,6 @@ void emplace_back(Args&&... args);
 ```
 
 ##概要
-
 直接構築で新たな要素を末尾に追加する。
 この関数の引数`args...`は、要素型Tのコンストラクタ引数である。当関数の内部で要素型`T`のコンストラクタを呼び出し、追加する要素を構築する。
 
@@ -13,17 +12,14 @@ void emplace_back(Args&&... args);
 
 
 ##戻り値
-
 なし
 
 
 ##計算量
-
 定数時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -45,24 +41,16 @@ int main()
 * emplace_back[color ff0000]
 
 ###出力
-
-```cpp
+```
 3,hello
 1,world
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -70,12 +58,9 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##参照
-
-
 | | |
 |-------------------------------------------------------------------------------------------------------|--------------------------------|
-| [`push_back`](/reference/deque/push_back.md) | 末尾に要素を追加する |
+| [`push_back`](./push_back.md) | 末尾に要素を追加する |
 
 

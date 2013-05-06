@@ -5,32 +5,26 @@ const_reference at(size_type n) const;
 ```
 
 ##概要
-
 任意位置の要素への参照を取得する。
 
 この関数は、`deque`コンテナオブジェクト中の位置`n`にある要素への参照を返す。
-[`operator[]`](/reference/deque/op_at.md)メンバ関数は範囲外アクセスの動作が未規定だが、この関数は範囲外アクセスの場合に [`out_of_range`](/reference/stdexcept.md) 例外を送出する。
+[`operator[]`](./op_at.md)メンバ関数は範囲外アクセスの動作が未規定だが、この関数は範囲外アクセスの場合に [`out_of_range`](/reference/stdexcept.md) 例外を送出する。
 
 
 ##戻り値
-
 コンテナ内の指定された位置の要素。
 メンバ型 `reference`、`const_reference` は、コンテナ内の要素への参照型である。
 
 
-
 ##例外
-
-`n >= size()` である場合、[`out_or_range`](/reference/stdexcept.md) 例外を投げる。
+`n >= size()` である場合、[`out_of_range`](/reference/stdexcept.md) 例外を投げる。
 
 
 ##計算量
-
 定数時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -54,19 +48,15 @@ int main()
 }
 ```
 * at[color ff0000]
-* at[color ff0000]
 
 ###出力
-
-```cpp
+```
 42 42 42 0 0
 ```
 
 ##参照
-
-
 | | |
 |----------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`operator[]`](/reference/deque/op_at.md) | 任意位置の要素への参照を取得する |
+| [`operator[]`](./op_at.md) | 任意位置の要素への参照を取得する |
 
 

@@ -4,27 +4,22 @@ void pop_back();
 ```
 
 ##概要
-
-<b>末尾要素を削除する。</b>
+末尾要素を削除する。
 
 
 ##要件
-
-`[empty()](./pop_back.md) == false`であること。
+[`empty()`](./pop_back.md)` == false`であること。
 
 
 ##戻り値
-
 なし
 
 
 ##計算量
-
 定数時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -43,19 +38,16 @@ int main()
 * pop_back[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 2
 ```
 
 ##参照
-
-
 | | |
 |-------------------------------------------------------------------------------------------------------|-----------------------------------|
-| [`pop_front`](/reference/deque/pop_front.md) | 先頭要素を削除する |
-| [`push_back`](/reference/deque/push_back.md) | 末尾に要素を追加する |
-| [`erase`](/reference/deque/erase.md) | 指定した要素を削除する |
+| [`pop_front`](./pop_front.md) | 先頭要素を削除する |
+| [`push_back`](./push_back.md) | 末尾に要素を追加する |
+| [`erase`](./erase.md) | 指定した要素を削除する |
 
 

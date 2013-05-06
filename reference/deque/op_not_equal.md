@@ -7,27 +7,22 @@ namespace std {
 ```
 
 ##概要
-
-<b>dequeの非等値比較を行う。</b>
+`deque`の非等値比較を行う。
 
 
 ##要件
-
 型`T`が`operator==`で比較可能であること。
 
 
 ##戻り値
-
-!(x [==](/reference/deque/op_equal.md) y)
+`!(x `[`==`](./op_equal.md)` y)`
 
 
 ##計算量
-
-`x.[size()](/reference/deque/size.md)`に対して線形時間
+`x.`[`size()`](./size.md)に対して線形時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -47,12 +42,9 @@ int main ()
   std::cout << (c1 != c3) << std::endl;
 }
 ```
-* !=[color ff0000]
-* !=[color ff0000]
 
 ###出力
-
-```cpp
+```
 false
 true
 ```

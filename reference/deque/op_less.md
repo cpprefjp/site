@@ -7,27 +7,22 @@ namespace std {
 ```
 
 ##概要
-
-<b>dequeにおいて、左辺が右辺より小さいかの判定を行う。</b>
+`deque`において、左辺が右辺より小さいかの判定を行う。
 
 
 ##要件
-
 型`T`が`<`比較可能であること。その`<`が全順序関係を持っていること。
 
 
 ##戻り値
-
-[lexicographical_compare](/reference/algorithm/lexicographical_compare.md)(x.[begin](/reference/deque/begin.md)(), x.[end](/reference/deque/end.md)(), y.[begin](/reference/deque/begin.md)(), y.[end](/reference/deque/end.md)());
+[`lexicographical_compare`](/reference/algorithm/lexicographical_compare.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`(), y.`[`end`](./end.md)`());`
 
 
 ##計算量
-
 線形時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -42,11 +37,9 @@ int main ()
   std::cout << (c1 < c2) << std::endl;
 }
 ```
-* <[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 ```
 

@@ -7,22 +7,18 @@ namespace std {
 ```
 
 ##概要
-
-<b>dequeにおいて、左辺が右辺以上かを判定する。</b>
+`deque`において、左辺が右辺以上かを判定する。
 
 
 ##戻り値
-
-!(x [<](/reference/deque/op_less.md) y)
+`!(x `[`<`](./op_less.md)` y)`
 
 
 ##計算量
-
 線形時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -37,11 +33,9 @@ int main ()
   std::cout << (c1 >= c2) << std::endl;
 }
 ```
-* >=[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 ```
 

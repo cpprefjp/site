@@ -7,32 +7,26 @@ namespace std {
 ```
 
 ##概要
-
-<b>dequeオブジェクトの等値比較を行う。</b>
+`deque`オブジェクトの等値比較を行う。
 
 
 ##要件
-
 型`T`が`==`で比較可能であること。
 
 
 ##効果
-
-x.[size](/reference/deque/size.md)() == y.[size](/reference/deque/size.md)() && [equal](/reference/algorithm/equal.md)(x.[begin](/reference/deque/begin.md)(), x.[end](/reference/deque/end.md)(), y.[begin](/reference/deque/begin.md)());
+`x.`[`size`](./size.md)`() == y.`[`size`](./size.md)`() && `[`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`());`
 
 
 ##戻り値
-
 `x`と`y`の要素数および要素の値が等しければ`true`、そうでなければ`false`を返す。
 
 
 ##計算量
-
-`x.[size()](/reference/deque/size.md)`に対して線形時間
+`x.`[`size()`](./size.md)に対して線形時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <deque>
@@ -53,11 +47,9 @@ int main ()
 }
 ```
 * ==[color ff0000]
-* ==[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 false
 ```
