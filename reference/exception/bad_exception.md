@@ -55,7 +55,7 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 caught: bad_exception.
 ```
 

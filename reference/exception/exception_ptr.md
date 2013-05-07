@@ -1,26 +1,22 @@
 #exception_ptr
 ```cpp
 namespace std {
-
   typedef unspecified exception_ptr;
 }
 ```
 * unspecified[italic]
 
 ##概要
+例外オブジェクトを指すポインタ。
 
-<b>例外オブジェクトを指すポインタ。</b>
-<b></b>
-exception_ptrの具体的な型は未規定だが、ヌル値を格納可能で、あらゆる例外型のオブジェクトを指すことが可能なポインタである。
+`exception_ptr`の具体的な型は未規定だが、ヌル値を格納可能で、あらゆる例外型のオブジェクトを指すことが可能なポインタである。
 そのデフォルトコンストラクタはヌル値を指すよう初期化する。
 算術型、列挙型、ポインタ型への暗黙変換はできない。
 
-exception_ptrは通常、参照カウントスマートポインタとして実装されるだろう。
-<b></b>
+`exception_ptr`は通常、参照カウントスマートポインタとして実装されるだろう。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <exception>
@@ -50,7 +46,6 @@ int main()
   if (!ep1) {
     std::cout << "4. null" << std::endl;
   }
-```
 
   try {
     throw std::runtime_error("error!");
@@ -70,13 +65,11 @@ int main()
     std::cout << e.what() << std::endl;
   }
 }
-
-
+```
 
 
 ###出力
-
-```cpp
+```
 1. null
 2. null
 3. null
@@ -85,23 +78,15 @@ error!
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

@@ -6,8 +6,7 @@ namespace std {
 ```
 
 ##概要
-
-`nested_exception`クラスは、例外を階層構造として処理する場合に、元の例外を一時的に保持した状態で、別の例外として送出するための使用する。入れ子になった例外を補足した場合、`[rethrow_nested()](./nested_exception/rethrow_nested.md)メンバ関数`を呼び出すことで、元の例外を送出できる。
+`nested_exception`クラスは、例外を階層構造として処理する場合に、元の例外を一時的に保持した状態で、別の例外として送出するための使用する。入れ子になった例外を補足した場合、[`rethrow_nested()`](./nested_exception/rethrow_nested.md)メンバ関数を呼び出すことで、元の例外を送出できる。
 
 ###メンバ関数
 
@@ -51,22 +50,17 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 1st caught: 1
 2nd caught: my_exception(nested_exception).
 3rd caught: 1
 ```
 
-##
-
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0

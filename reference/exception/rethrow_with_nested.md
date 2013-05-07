@@ -1,31 +1,26 @@
 #rethrow_if_nested
 ```cpp
 namespace std {
-
   template <class E>
   void rethrow_if_nested(const E& e);
 }
 ```
 
 ##概要
-
 入れ子になった例外が存在する場合に、入れ子になった例外を送出する
 
 
 
 ##効果
-
 型`E`が[`nested_exception`](/reference/exception/nested_exception.md)を継承した型だった場合、
-`dynamic_cast<const [nested_exception](/reference/exception/nested_exception.md)&>(e).[rethrow_nested](/reference/exception/nested_exception/rethrow_nested.md)()`を行う。そうでなければ何もしない。
+`dynamic_cast<const `[`nested_exception`](/reference/exception/nested_exception.md)`&>(e).`[`rethrow_nested`](/reference/exception/nested_exception/rethrow_nested.md)`()`を行う。そうでなければ何もしない。
 
 
 ##戻り値
-
 なし
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <exception>
@@ -91,30 +86,21 @@ int main()
 * throw_with_nested[color ff0000]
 
 ###出力
-
-```cpp
+```
 outer
 inner
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

@@ -4,22 +4,18 @@
 ```
 
 ##概要
-
-<b>exception_ptrが指す例外オブジェクトを再スローする。</b>
+`exception_ptr`が指す例外オブジェクトを再スローする。
 
 
 ##要件
-
-pがヌルを指すexception_ptrではないこと。
+`p`がヌルを指す`exception_ptr`ではないこと。
 
 
 ##戻り値
-
 この関数は決して返らない。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <exception>
@@ -46,8 +42,7 @@ int main()
 * rethrow_exception[color ff0000]
 
 ###出力例
-
-```cpp
+```
 catch
 rethrow
 
@@ -58,23 +53,15 @@ terminate called after throwing an instance of 'std::runtime_error'
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

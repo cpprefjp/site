@@ -6,14 +6,13 @@ namespace std {
 ```
 
 ##概要
-
 `exception`クラスは、標準ライブラリが提供する全ての例外クラスの基本クラスである。標準ライブラリによって送出される例外オブジェクトのクラスは全て、このクラスから派生する。したがって、標準の例外は全てこのクラスで補足できる。
 
 ###メンバ関数
 
 | | |
 |----------------------------------------------------------------------------------------|-----------------------------------------------|
-| `exception() noexcept;` `exception(const exception&) noexcept;` | コンストラクタ |
+| `exception() noexcept;`<br/>`exception(const exception&) noexcept;` | コンストラクタ |
 | `virtual ~exception();` | デストラクタ |
 | `exception& operator=(const exception&) noexcept;` | 代入演算子 |
 | `virtual const char* what() const noexcept;` | 実装定義のエラー内容を取得する |
@@ -41,7 +40,7 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 error!
 ```
 

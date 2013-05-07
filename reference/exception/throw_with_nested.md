@@ -1,37 +1,24 @@
 #throw_with_nested
 ```cpp
 namespace std {
-
   [[noreturn]] template <class T>
   void throw_with_nested(T&& t);
 }
 ```
 
 ##概要
-
-<b>現在処理中の例外を入れ子にした例外を創出する</b>
+現在処理中の例外を入れ子にした例外を送出する
 
 
 ##要件
-
-Tがコピーコンストラクト可能であること。
-
-
-##効果
-
+型`T`がコピーコンストラクト可能であること。
 
 
 ##戻り値
-
 この関数は決して返らない
 
 
-##例外
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <exception>
@@ -92,26 +79,19 @@ int main()
   }
 }
 ```
-* nested_exception {};[color ff0000]
+* nested_exception[color ff0000]
 * rethrow_if_nested[color ff0000]
 * throw_with_nested[color ff0000]
 
 ###出力
-
-```cpp
+```
 outer
 inner
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
-
-
 
 ###処理系
 
@@ -120,7 +100,6 @@ inner
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

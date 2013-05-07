@@ -3,38 +3,28 @@
 namespace std {
   // C++03
   bool uncaught_exception() throw();
-```
 
   // C++11
   bool uncaught_exception() noexcept;
 }
-
-
-
-
+```
 
 ##概要
-
-<b>キャッチされていない例外があるかどうかを判定する。
-</b>
+キャッチされていない例外があるかどうかを判定する。
 
 
 ##戻り値
-
 例外オブジェクトが生成され、スローされてからキャッチするまでの間にtrueを返す。
-また、明示的に[`terminate`](/reference/exception/terminate.md)を呼び出し、実際に呼び出されるまでの間にtrueを返す。
+また、明示的に[`terminate()`](/reference/exception/terminate.md)を呼び出し、実際に呼び出されるまでの間に`true`を返す。
 
-具体的には、tryブロック中で作られたオブジェクトのデストラクタや、スタック巻き戻し(unwind)中のデストラクタ、[`terminate`](/reference/exception/terminate.md)の場合は生存している全てのオブジェクトのデストラクタでtrueになる。
-
+具体的には、tryブロック中で作られたオブジェクトのデストラクタや、スタック巻き戻し(unwind)中のデストラクタ、[`terminate()`](/reference/exception/terminate.md)の場合は生存している全てのオブジェクトのデストラクタで`true`になる。
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <exception>
@@ -61,13 +51,11 @@ int main()
 * uncaught_exception[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 catch
 ```
 
 ##参照
-
 [GotW #47 Uncaught Exceptions](http://www.gotw.ca/gotw/047.htm)
 

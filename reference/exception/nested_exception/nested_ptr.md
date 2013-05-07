@@ -5,22 +5,18 @@ exception_ptr nested_ptr() const noexcept;
 * exception_ptr[link /reference/exception/exception_ptr.md]
 
 ##概要
-
-<b>入れ子になった例外へのポインタを取得する</b>
+入れ子になった例外へのポインタを取得する
 
 
 ##戻り値
-
 メンバとして保持している、入れ子になった例外へのポインタを返す。
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <exception>
 #include <iostream>
@@ -53,31 +49,22 @@ int main()
 * nested_ptr[color ff0000]
 
 ###出力
-
-```cpp
+```
 1st caught: 1
 2nd caught: my_exception(nested_exception).
 3rd caught: 1
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

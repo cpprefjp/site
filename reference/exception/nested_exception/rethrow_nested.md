@@ -4,27 +4,22 @@
 ```
 
 ##概要
-
-<b>入れ子になった例外を送出する</b>
+入れ子になった例外を送出する
 
 
 ##効果
-
 [`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)メンバ関数`がヌルポインタを返した場合、`std::terminate()を呼び出してプログラムを終了させる。そうでなければ、[`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)によって返された例外を送出する。
 
 
 ##戻り値
-
 この関数は決して返らない
 
 
 ##例外
-
 入れ子になった例外を送出する
 
 
 ##例
-
 ```cpp
 #include <exception>
 #include <iostream>
@@ -57,31 +52,22 @@ int main()
 * rethrow_nested[color ff0000]
 
 ###出力
-
-```cpp
+```
 1st caught: 1
 2nd caught: my_exception(nested_exception).
 3rd caught: 1
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照
