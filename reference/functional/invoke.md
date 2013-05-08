@@ -1,0 +1,25 @@
+#INVOKE
+<b>用語定義</b>
+<ol>
+- <i>call-signature</i> とは、戻り値型に続けて丸括弧の中に0個以上の引数型を並べたものである。 <i>cf.</i> int ( std::string, int )
+- <i>callable-type</i> とは、関数呼び出し演算子を適用できる型 ( 関数、関数への参照、関数へのポインタ、operator () をオーバーロードした型もしくはそれを(直接または間接的に) public 継承した型 ) もしくはメンバへのポインタ型を指す。
+- <i>callable-object</i> は、 <i>callable-type</i> 型のオブジェクトである。
+- <i>call-wrapper-type</i> は、 <i>callable-object</i> を保持し、自身に対する関数呼び出し操作が行われたとき、保持しているオブジェクトに委譲する。
+- <i>call-wrapper</i> は、 <i>call-wrapper-type</i> 型のオブジェクトである。
+- <i>target-object</i> とは、 <i>callable-object</i> に保持されているオブジェクトのことである。</ol>
+<b>要件</b>
+<ol><li style='font-size:medium'>仮想操作 <i style='font-size:small'>INVOKE</i>(f, t1, t2, ..., tN) を次のように定義する。</li>
+- f が型 T のメンバ関数へのポインタであり、 t1 が T 型のオブジェクトあるいは T または T を継承した型への参照であるとき、 (t1.*f)(t2, ..., tN) と同じ効果を持つ。
+- f が型 T のメンバ関数へのポインタであり、 t1 が上記の条件に当てはまらない場合、((*t1).*f)(t2, ..., tN) と同じ効果を持つ。<li>N == 1 で、f が型 T のメンバオブジェクトへのポインタであり、
+t1 が T 型のオブジェクトあるいは T または T を継承した型への参照であるとき、 t1.*f と同じ効果を持つ。</li><li>N == 1 で、f が型 T のメンバオブジェクトへのポインタであり、
+t1 が上記の条件に当てはまらない場合、 (*t1).*f と同じ効果を持つ。</li>
+- 上記の条件のどれにも当てはまらない場合、 f(t1, t2, ..., tN) と同じ効果を持つ。
+- <i>INVOKE</i>(f, t1, t2, ..., tN, R) を、 <i>INVOKE</i>(f, t1, t2, ..., tN) の実行結果の戻り値が型 R に暗黙的に変換されること、と定義する。
+- <i>call-wrapper</i> が <i>weak-result-type</i> を用意している場合、メンバ型 result_type は<i>target-object</i> の型 T に応じて次のように定義される。
+- T が関数へのポインタ型であるとき、 result_type は T の戻り値型と等しい。
+- T がメンバ関数へのポインタ型であるとき、 result_type は T の戻り値型と等しい。
+- T が result_type という名前のメンバ型を持つとき、 result_type は T::result_type と等しい。
+- どの条件にも当てはまらない場合、 result_type は定義されない。
+- すべての<i> call-wrapper</i> は、<i>MoveAssignable</i> でなければならない。</ol><b>まとめ</b>
+
+[第1引数がメンバ関数へのポインタの場合でも非静的メンバデータへのポインタの場合でも，第2引数がクラスオブジェクトへの参照の場合でもポインタの場合でもポインタっぽいものの場合でも，なんか知らんけどそれっぽく上手くいく](http://twitter.com/Cryolite/status/216814363221303296) ように取り計らった操作のことである。
