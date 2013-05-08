@@ -12,11 +12,10 @@ namespace std {
 `<forward_list>`ヘッダでは、単方向リンクリストの実装である`forward_list`コンテナを提供する。`forward_list`は、標準ライブラリではシーケンスコンテナの一種として定義されるが、いくつかの点でシーケンスコンテナの要件を満たさない：
 
 - `size()`メンバ関数を提供しない。`size()`メンバ関数は全てのコンテナにO(1)計算量を要求するため、単方向リストの実装ではサイズのためのメンバ変数が必要になる。`forward_list`では、サイズメンバ変数を内部に持たないことを示すために`size()`メンバ関数は提供しない。要素数が必要な場合は[`distance()`](/reference/iterator/distance.md)を使用して取得する。
-- `insert()/emplace()/erase()`メンバ関数を提供しない。双方向リンクリストである`list`の`insert()/emplace()/erase()`はinsert-before方式をとっておりO(1)計算量だが、単方向リストの典型的なinsert-beforeの実装ではO(N)計算量になってしまう。`forward_list`では、単方向リンクリストでO(1)計算量であるinsert-after方式を使用することを示す[`insert_after()`](./forward_list/insert_after.md)/[emplace_after()](./forward_list/emplace_after.md)/[erase_after()](./forward_list/erase_after.md)メンバ関数を提供する。先頭に挿入するために[`before_begin()`](./forward_list/before_begin.md)メンバ関数を提供する。`forward_list`は、C言語で単方向リンクリストを実装する場合と比べ、空間的にもパフォーマンス的にもゼロオーバーヘッドであるよう設計されている。
+- `insert()/emplace()/erase()`メンバ関数を提供しない。双方向リンクリストである`list`の`insert()/emplace()/erase()`はinsert-before方式をとっておりO(1)計算量だが、単方向リストの典型的なinsert-beforeの実装ではO(N)計算量になってしまう。`forward_list`では、単方向リンクリストでO(1)計算量であるinsert-after方式を使用することを示す[`insert_after()`](./forward_list/insert_after.md)/[`emplace_after()`](./forward_list/emplace_after.md)/[`erase_after()`](./forward_list/erase_after.md)メンバ関数を提供する。先頭に挿入するために[`before_begin()`](./forward_list/before_begin.md)メンバ関数を提供する。`forward_list`は、C言語で単方向リンクリストを実装する場合と比べ、空間的にもパフォーマンス的にもゼロオーバーヘッドであるよう設計されている。
 また、`forward_list`はリンクリストの性質上、挿入・削除のような破壊的操作を行なってもイテレータは無効にならない。
 
 ##メンバ関数
-
 ###構築／コピー／破棄
 
 
@@ -132,18 +131,15 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 31
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -152,6 +148,5 @@ int main()
 
 
 ###参照
-
 [N2543 STL singly linked lists (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2543.htm) [[概要の日本語訳](http://d.hatena.ne.jp/faith_and_brave/20080905/1220611240)]
 

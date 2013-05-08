@@ -14,24 +14,18 @@ forward_list(initializer_list<T>, const Allocator& = Allocator());
 * initializer_list[link /reference/initializer_list.md]
 
 ##forward_listオブジェクトの構築
-
-<li>`explicit forward_list(const Allocator& = Allocator());`デフォルトコンストラクタ。アロケータを指定して空のコンテナを作る。計算量： 定数時間
-</li><li>`explicit forward_list(size_type n);``n`個の`T()`初期化された要素を保持した`forward_list`オブジェクトを構築する。計算量： `n`に対して線形時間
-
-</li><li>`forward_list(size_type n, const T& value, const Allocator& = Allocator());``value`のコピーを`n`個要素として保持した`forward_list`オブジェクトを構築する。計算量： `n`に対して線形時間
-</li><li>`template <class InputIterator>`
-`forward_list(InputIterator first, InputIterator last, const Allocator& = Allocator());`[`first, last)`の範囲を要素としてコピーした`forward_list`オブジェクトを構築する。計算量： `[distance`](/reference/iterator/distance.md)(first, last)に対して線形時間
-</li><li>`forward_list(const forward_list& x);` コピーコンストラクタ。`x`と同じ要素を保持した`forward_list`オブジェクトを構築する。
-</li><li>`forward_list(forward_list&& x);`ムーブコンストラクタ。`x`の指す先を自分の領域として`forward_list`オブジェクトを構築する。
-</li><li>`forward_list(const forward_list& x, const Allocator&);`アロケータを指定したコピーコンストラクタ
-</li><li>`forward_list(forward_list&& x, const Allocator&);`アロケータを指定したムーブコンストラクタ
-</li><li>`forward_list([initializer_list](/reference/initializer_list.md)<T>, const Allocator& = Allocator());`初期化子リストを受け取るコンストラクタ。
-</li>
-
+- `explicit forward_list(const Allocator& = Allocator());`<br/>デフォルトコンストラクタ。アロケータを指定して空のコンテナを作る。<br/>計算量： 定数時間
+- `explicit forward_list(size_type n);`<br/>`n`個の`T()`初期化された要素を保持した`forward_list`オブジェクトを構築する。<br/>計算量： `n`に対して線形時間
+- `forward_list(size_type n, const T& value, const Allocator& = Allocator());`<br/>`value`のコピーを`n`個要素として保持した`forward_list`オブジェクトを構築する。<br/>計算量： `n`に対して線形時間
+- `template <class InputIterator>`<br/>`forward_list(InputIterator first, InputIterator last, const Allocator& = Allocator());`<br/>`[first, last)`の範囲を要素としてコピーした`forward_list`オブジェクトを構築する。<br/>計算量： [`distance`](/reference/iterator/distance.md)`(first, last)`に対して線形時間
+- `forward_list(const forward_list& x);`<br/>コピーコンストラクタ。`x`と同じ要素を保持した`forward_list`オブジェクトを構築する。
+- `forward_list(forward_list&& x);`<br/>ムーブコンストラクタ。`x`の指す先を自分の領域として`forward_list`オブジェクトを構築する。
+- `forward_list(const forward_list& x, const Allocator&);`<br/>アロケータを指定したコピーコンストラクタ
+- `forward_list(forward_list&& x, const Allocator&);`<br/>アロケータを指定したムーブコンストラクタ
+- `forward_list(`[`initializer_list`](/reference/initializer_list.md)`<T>, const Allocator& = Allocator());`<br/>初期化子リストを受け取るコンストラクタ。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -81,8 +75,7 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 ls1 : 
 ls2 : 0 0 0 
 ls3 : 1 1 1 
@@ -93,23 +86,16 @@ ls7 : 1 2 3
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
 
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

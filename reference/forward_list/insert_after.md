@@ -12,40 +12,30 @@ iterator insert_after(const_iterator position, initializer_list<T> il);
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-
 任意の位置に新たな要素を挿入する。
 [`list`](/reference/list.md)の`insert()`は指定された要素の前に挿入するが、`forward_list`は指定された要素の後に挿入する。
 
-<li>`iterator insert_after(const_iterator position, const T& x);`
-</li><li>`iterator insert_after(const_iterator position, T&& x);`新たな要素をひとつ挿入する
-</li><li>`iterator insert_after(const_iterator position, size_type n, const T& x);`新たな要素`x`のコピーを`n`個挿入する
-</li><li>`iterator insert_after(const_iterator position, InputIterator first, InputIterator last);``[first, last)`の範囲の要素を挿入する
-</li><li>`iterator insert_after(const_iterator position, [initializer_list](/reference/initializer_list.md)<T> il);``initializer_list`の全て要素を挿入する
-</li>
+- `iterator insert_after(const_iterator position, const T& x);`
+- `iterator insert_after(const_iterator position, T&& x);`<br/>新たな要素をひとつ挿入する
+- `iterator insert_after(const_iterator position, size_type n, const T& x);`<br/>新たな要素`x`のコピーを`n`個挿入する
+- `iterator insert_after(const_iterator position, InputIterator first, InputIterator last);`<br/>`[first, last)`の範囲の要素を挿入する
+- `iterator insert_after(const_iterator position, `[`initializer_list`](/reference/initializer_list.md)`<T> il);`<br/>`initializer_list`の全て要素を挿入する
 
 
 ##要件
-
-第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/before_begin.md)もしくは`[[begin()](/reference/forward_list/begin.md), [end()](/reference/forward_list/end.md)]`の範囲の間接参照可能なイテレータであること。
-`first, last`は`*this`のイテレータではないこと。
+第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/before_begin.md)もしくは`[`[`begin()`](./begin.md)`, `[`end()`](/reference/forward_list/end.md)`]`の範囲の間接参照可能なイテレータであること。
+`first`、`last`は`*this`のイテレータではないこと。
 
 
 ##戻り値
-
 挿入された要素を指すイテレータ
 
 
 ##計算量
-
 定数時間
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -108,13 +98,9 @@ int main()
 }
 ```
 * insert_after[color ff0000]
-* insert_after[color ff0000]
-* insert_after[color ff0000]
-* insert_after[color ff0000]
 
 ###出力
-
-```cpp
+```
 insert one element : 0 1 2 3 4 
 insert n elements : 1 2 3 3 5 
 insert range : 1 2 3 4 5 6 
@@ -122,23 +108,15 @@ insert initializer_list : 1 2 3 4 5 6
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

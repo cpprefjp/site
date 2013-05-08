@@ -7,20 +7,16 @@ forward_list& operator=(initializer_list<T>);
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-<li>`forward_list& operator=(const forward_list& x);`コピー代入。同じテンプレートパラメータを持つ`forward_list`オブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
-</li><li>`forward_list& operator=(forward_list&& x);`ムーブ代入。
-同じテンプレートパラメータを持つ`forward_list`オブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。</li><li>`forward_list& operator=([initializer_list](/reference/initializer_list.md)<T>);`同じ要素型を持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
-</li>
+- `forward_list& operator=(const forward_list& x);`<br/>コピー代入。同じテンプレートパラメータを持つ`forward_list`オブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+- `forward_list& operator=(forward_list&& x);`<br/>ムーブ代入。同じテンプレートパラメータを持つ`forward_list`オブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
+- `forward_list& operator=(`[`initializer_list`](/reference/initializer_list.md)`<T>);`<br/>同じ要素型を持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
 
 
 ##戻り値
-
-*this
-
+`*this`
 
 
 ##例
-
 ```cpp
 #include <cassert>
 #include <forward_list>
@@ -64,27 +60,19 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

@@ -5,30 +5,26 @@ const_iterator before_begin() const noexcept;
 ```
 
 ##概要
-
-<b>先頭要素の前を指すイテレータを取得する。</b>
-<b>この関数は、insert_after()メンバ関数で先頭に要素を挿入するために使用できる。</b>
+先頭要素の前を指すイテレータを取得する。
+この関数は、`insert_after()`メンバ関数で先頭に要素を挿入するために使用できる。
 
 
 ##戻り値
-
 先頭要素の前を指すイテレータを返す。
+
 
 ##例外
 投げない
 
 
 ##備考
-
 この関数によって返されるイテレータは、以下の特徴を持つ：
-
 - 間接参照できない
-- インクリメントすると[`begin()`](/reference/forward_list/begin.md)と等値になる
-- [`end()`](/reference/forward_list/end.md)と等値にはならない
+- インクリメントすると[`begin()`](./begin.md)と等値になる
+- [`end()`](./end.md)と等値にはならない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -49,30 +45,21 @@ int main()
 * before_begin[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 3
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

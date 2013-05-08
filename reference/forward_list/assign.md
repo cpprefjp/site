@@ -10,21 +10,17 @@ void assign(initializer_list<T>);
 
 ##概要
 
-<b>コンテナの再代入</b><li>`template <class InputIterator>``void assign(InputIterator first, InputIterator last);`範囲を代入。効果：`[clear](/reference/forward_list/clear.md)();``[insert_after](/reference/forward_list/insert_after.md)([before_begin](/reference/forward_list/before_begin.md)(), first, last);`
-
-</li><li>`void assign(size_type n, const T& t);``n`個の値`t`を代入。効果：`[clear](/reference/forward_list/clear.md)();``[insert_after](/reference/forward_list/insert_after.md)([before_begin](/reference/forward_list/before_begin.md)(), n, t);`
-
-</li><li>`void assign([initializer_list](/reference/initializer_list.md)<T> init);`初期化子リストを代入。効果：`[clear](/reference/forward_list/clear.md)();``[insert_after](/reference/forward_list/insert_after.md)([before_begin](/reference/forward_list/before_begin.md)(), init.begin(), init.end());`
-</li>
+コンテナの再代入
+- `template <class InputIterator>`<br/>`void assign(InputIterator first, InputIterator last);`<br/>範囲を代入。効果：<br/>[`clear`](./clear.md)`();`<br/>[`insert_after`](./insert_after.md)`(`[`before_begin`](./before_begin.md)`(), first, last);`
+- `void assign(size_type n, const T& t);`<br/>`n`個の値`t`を代入。効果：<br/>[`clear`](./clear.md)`();`<br/>[`insert_after`](./insert_after.md)`(`[`before_begin`](./before_begin.md)`(), n, t);`
+- `void assign(`[`initializer_list`](/reference/initializer_list.md)`<T> init);`<br/>初期化子リストを代入。効果：<br/>[`clear`](./clear.md)`();`<br/>[`insert_after`](./insert_after.md)`(`[`before_begin`](./before_begin.md)`(), init.begin(), init.end());`
 
 
 ##戻り値
-
 なし
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -69,35 +65,24 @@ int main()
 }
 ```
 * assign[color ff0000]
-* assign[color ff0000]
-* assign[color ff0000]
 
 ###出力
-
-```cpp
+```
 ls1 : 1 2 3 
 ls2 : 1 1 1 
 ls3 : 1 2 3 
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照
