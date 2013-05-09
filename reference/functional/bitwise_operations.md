@@ -12,16 +12,17 @@ namespace std {
     T operator ()(const T &x, const T &y) const;
     typedef T first_argument_type, second_argument_type, result_type;
   };
+
   template <typename T>
   struct bit_xor {
     T operator ()(const T &x, const T &y) const;
     typedef T first_argument_type, second_argument_type, result_type;
   };
+
 }
 ```
 
 ##概要
-
 ビット演算を提供する関数オブジェクト群。これらは一切のメンバ変数を持たず、状態を保持しない。`bit_not`は用意されていない。
 
 ###メンバ関数
@@ -47,5 +48,7 @@ std::cout << "0x" << std::hex << std::bit_and<int>()(0xFA, 0x47) << std::endl;
 ```
 
 ###出力
-```cpp
+```
 0x42
+```
+

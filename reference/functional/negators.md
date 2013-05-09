@@ -27,12 +27,10 @@ namespace std {
 ```
 
 ##概要
-
 述語関数オブジェクトの結果を反転する関数オブジェクトアダプタ。`unary_negate` は1引数述語用、 `binary_negate` は2引数述語用。
 
 
-テンプレート引数 Pred に対する要求
-
+テンプレート引数 `Pred` に対する要求
 - `unary_negate`の場合
 - 型`Pred`に`argument_type`という nested typedef が存在すること
 - 型`Pred`への`const`参照`pred`に対して、式 `(bool)pred(x)` が有効であること。ただし `x` は `argument_type` への `const` 参照。
@@ -61,7 +59,6 @@ namespace std {
 | `not2(const Pred& pred)` | `binary_negate<Pred>(pred)` を構築して返す |
 
 ###例
-
 ```cpp
 #include <iostream>
 #include <functional>
@@ -70,9 +67,10 @@ int main()
 {
   std::cout << std::boolalpha << std::not2(std::less<int>())(3, 5) << std::endl;
 }
-
 ```
 
 ###出力
-```cpp
+```
 false
+```
+

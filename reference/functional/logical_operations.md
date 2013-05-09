@@ -1,18 +1,34 @@
 #論理演算関数オブジェクト
+```cpp
+namespace std {
+  template <typename T>
+  struct logical_and {
+    bool operator ()(const T& x, const T& y) const;
+    typedef T first_argument_type, second_argument_type;
+    typedef bool result_type;
+  };
 
-| |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|<br/><br/><br/>```cpp
-<br/>namespace std {<br/><br/>  template <typename T><br/><br/>  struct logical_and {<br/><br/>    bool operator ()(const T& x, const T& y) const;<br/><br/>    typedef T first_argument_type, second_argument_type;<br/><br/>    typedef bool result_type;<br/><br/>  };<br/><br/><br/><br/>  template <typename T><br/><br/>  struct logical_or {<br/><br/>    bool operator ()(const T& x, const T& y) const;<br/><br/>    typedef T first_argument_type, second_argument_type;<br/><br/>    typedef bool result_type;<br/><br/>  };<br/><br/><br/>  template <typename T><br/><br/>  struct logical_not {<br/><br/>    bool operator ()(const T& x) const;<br/><br/>    typedef T argument_type;<br/><br/>    typedef bool result_type;<br/><br/>  };<br/><br/>}<br/><br/><br/><br/><br/><br/> |
+  template <typename T>
+  struct logical_or {
+    bool operator ()(const T& x, const T& y) const;
+    typedef T first_argument_type, second_argument_type;
+    typedef bool result_type;
+  };
+
+  template <typename T>
+  struct logical_not {
+    bool operator ()(const T& x) const;
+    typedef T argument_type;
+    typedef bool result_type;
+  };
+}
 ```
 
 ##概要
-
 論理演算を提供する関数オブジェクト群。これらは一切のメンバ変数を持たず、状態を保持しない。
 
 
 ###メンバ関数
-
 
 | | |
 |------------------------------------------|----------------------------------------------------------------------|
@@ -20,9 +36,7 @@
 | `logical_or<T>::operator ()` | <code>x &#x7C;&#x7C; y</code> と等価 (ただし短絡評価はされない) |
 | `logical_not<T>::operator ()` | `!x` と等価 |
 
-<h3>
-メンバ型</h3>
-
+###メンバ型
 
 | | |
 |-------------------------------------------------|-------------------------------|
@@ -32,8 +46,6 @@
 
 
 ###例
-
-
 ```cpp
 #include <iostream>
 #include <functional>
@@ -45,7 +57,7 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 true
 ```
+

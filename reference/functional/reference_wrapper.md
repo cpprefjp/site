@@ -7,7 +7,6 @@ namespace std {
 ```
 
 ##概要
-
 `reference_wrapper`は、コピー・代入可能なオブジェクトとして持ちまわれる参照オブジェクトを提供する。コピー不可なクラス (例：`std::istream`) をポインタで保持する代わりに`reference_wrapper`で保持することができる。また、`reference_wrapper`クラスは、関数テンプレートに変数を参照として渡すためにも使用できる。
 
 ###メンバ関数
@@ -70,18 +69,15 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 4
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -90,6 +86,5 @@ int main()
 
 
 ###参照
-
 [参照を保持するコンテナ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20110519/1305789940)
 

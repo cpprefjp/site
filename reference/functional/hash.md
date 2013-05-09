@@ -34,7 +34,7 @@ namespace std {
 
 | | |
 |-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| `hash()` `hash(const hash&);` `hash(hash&&);` | デフォルトコンストラクタ、コピーコンストラクタ、ムーブコンストラクタを持つ |
+| `hash()`<br/>`hash(const hash&);`<br/>`hash(hash&&);` | デフォルトコンストラクタ、コピーコンストラクタ、ムーブコンストラクタを持つ |
 | `~hash();` | デストラクタを持つ |
 | `hash& operator=(const hash&);` `hash& operator=(hash&&);` | コピー代入演算子とムーブ代入演算子を持つ |
 | `size_t operator()(T key);` | 関数呼び出し演算子によって、キーに対応するハッシュ値を返す |
@@ -47,7 +47,6 @@ namespace std {
 | `argument_type` | 引数の型(キーの型) |
 
 ###例
-
 ```cpp
 #include <iostream>
 #include <functional>
@@ -64,24 +63,20 @@ int main()
 ```
 
 ###出力例
-```cpp
+```
 3
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 ###参照
 
