@@ -1,8 +1,6 @@
 #student_t_distribution
 ```cpp
 namespace std{
-```
-
   template<class RealType = double>
   class student_t_distribution
   {
@@ -25,25 +23,16 @@ namespace std{
     result_type min() const;
     result_type max() const;
   };
-
-
 }
-
-
-
-
+```
 
 ##概要
 
-<b>ステューデントのt分布を生成する。</b>
-<b></b>
-<b>![](https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t.png)
+ステューデントのt分布を生成する。
 
-</b>
-
+https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t.png
 
 ##メンバ関数
-
 
 | | |
 |-----------------------------|------------------------------------------------------------------------------------------------|
@@ -61,77 +50,39 @@ namespace std{
 
 ```cpp
 #include <iostream>
-
 #include <exception>
-
 #include <random>
-
 #include <algorithm>
-
 #include <functional>
-
 #include <array>
-
 #include <fstream>
-```
 
 main()try{
 
-
 }catch(const std::exception& e){
-
   std::cerr << e.what();
-
 }
-
-
-
-
+```
 
 ###出力
 
-このプログラムによってある時に得られた結果（;[student_t_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t_distribution.tsv.7z)）を図示する。
-
-
-
+このプログラムによってある時に得られた結果（[student_t_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t_distribution.tsv.7z)）を図示する。
 
 <a class='disabled' imageanchor='1' href='/system/errors/NodeNotFound?suri=wuid:gx:2bd42503572e5581.md'>
+</a>
+https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t_distribution.png
 
-
-</a>![](https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t_distribution.png)
-
-
-
-
-
-
-
-バージョン
-
+##バージョン
 
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-
 - [Clang](/implementation#clang.md): 
-
 - [GCC](/implementation#gcc.md): 
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
-
 - [ICC](/implementation#icc.md): 
-
 - [Visual C++](/implementation#visual_cpp.md): 
 
 ###参考
-
 - [t分布 - Wikipedia](http://ja.wikipedia.org/wiki/T%E5%88%86%E5%B8%83)
-
-
-
