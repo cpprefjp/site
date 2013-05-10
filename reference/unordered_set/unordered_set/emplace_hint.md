@@ -119,7 +119,6 @@ int main()
   std::copy(us.cbegin(), us.cend(), std::ostream_iterator<is>(std::cout, ", "));
   std::cout << std::endl;
 }
-</pre>
 ```
 * iostream[link /site/cpprefjp/reference/iostream]
 * unordered_set[link /reference/unordered_set.md]
