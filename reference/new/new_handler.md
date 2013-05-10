@@ -1,6 +1,8 @@
 #new_handler
 ```cpp
-namespace std {  typedef void (*new_handler)();}
+namespace std {
+  typedef void (*new_handler)();
+}
 ```
 
 ##概要
@@ -41,26 +43,19 @@ int main()
 ```
 
 ###出力例
-<pre style='background-color:rgb(239,239,239)'><span style='background-color:rgb(238,238,238);line-height:13px'>```cpp
+```
 メモリ確保に失敗した
 
 This application has requested the Runtime to terminate it in an unusual way.
 Please contact the application's support team for more information.
-</span></pre>
 ```
 
 ##バージョン
 
-
 ###言語
-
-
 - C++
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): 3.0
 - [GCC](/implementation#gcc.md): 4.6.2
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.2
