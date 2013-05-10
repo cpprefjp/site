@@ -1,7 +1,7 @@
 #emplace_hint
 ```cpp
-<pre style='margin:0'><code style='color:black'>template <class... Args>
-iterator emplace_hint(const_iterator position, Args&&... args);</pre>
+template <class... Args>
+iterator emplace_hint(const_iterator position, Args&&... args);
 ```
 
 ##概要
@@ -11,23 +11,26 @@ iterator emplace_hint(const_iterator position, Args&&... args);</pre>
 
 ##要件
 
-<li>
-このコンテナの要素型 <code style='color:black'>value_type</code> は、コンテナに対して引数 <code style='color:black'>args</code> から直接構築可能（EmplaceConstructible）でなければならない。
-ここで、コンテナに対して引数 <code style='color:black'>args</code> から直接構築可能とは、<code style='color:black'>m</code> をアロケータ型 <code style='color:black'>allocator_type</code> の lvalue、<code style='color:black'>p</code> を要素型 <code style='color:black'>value_type</code> へのポインタとすると、以下の式が適格（well-formed）であるということである。
+- このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。
+ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の lvalue、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
-<blockquote><code style='color:black'>std::[allocator_traits](/site/cpprefjp/reference/memory/allocator_traits)[construct](/site/cpprefjp/reference/memory/allocator_traits/construct)(m, p, std::[forward](/reference/utility/forward.md)<Args>(args)...);</code></blockquote>
-</li>
+    ```cpp
+    std::allocator_traits<allocator_type>::construct(m, p, std::forward<Args>(args)...);
+    ```
+    * allocator_traits[link /site/cpprefjp/reference/memory/allocator_traits]
+    * construct[link /site/cpprefjp/reference/memory/allocator_traits/construct]
+    * forward[link /reference/utility/forward]
 
 - 引数 <code style='color:black'>position</code> は、コンテナの有効な読み取り専用イテレータでなければならないが、間接参照可能（dereferenceable）である必要はない。（つまり、最終要素の次を指すイテレータでも良い）
 
 
 ##効果
 
-<code style='color:black'>std::[forward](/reference/utility/forward.md)<Args>(args)...</code> から構築された <code style='color:black'>value_type</code> のオブジェクトを <code style='color:black'>t</code> とすると、<code style='color:black'>t</code> と等価なキーがコンテナに既に存在していなければ、<code style='color:black'>t</code> をコンテナに挿入する。
+`std::[forward](/reference/utility/forward.md)<Args>(args)...` から構築された `value_type` のオブジェクトを `t` とすると、`t` と等価なキーがコンテナに既に存在していなければ、`t` をコンテナに挿入する。
 
-なお、オブジェクト <code style='color:black'>t</code> は、構築後にコンテナにコピー、あるいはムーブされるわけではなく、コンテナ内に直接構築される。
+なお、オブジェクト `t` は、構築後にコンテナにコピー、あるいはムーブされるわけではなく、コンテナ内に直接構築される。
 
-引数 <code style='color:black'>position</code> は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
+引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
 
 
 ##戻り値
@@ -42,41 +45,36 @@ iterator emplace_hint(const_iterator position, Args&&... args);</pre>
 
 ##計算量
 
-平均的なケースでは定数（O(<code style='color:black'>1</code>)）だが、最悪のケースではコンテナの要素数に比例（O(<code style='color:black'>[size](/reference/unordered_set/unordered_set/size.md)</code>())）。
+平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([size](/reference/unordered_set/unordered_set/size.md)())）。
 
 
 ##備考
 
-
 - この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。なお、標準に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
-<li>この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（<code style='color:black'>[bucket_count](/reference/unordered_set/unordered_set/bucket_count.md)()</code> の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
-それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。
-コンテナのバケット数が変わらない場合とは、
-<ol>
+- この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（`[bucket_count](/reference/unordered_set/unordered_set/bucket_count.md)()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
+    それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。
+    コンテナのバケット数が変わらない場合とは、
 
-- 追加しようとした要素と等価なキーの要素が既にコンテナに存在したため、要素が追加されなかった。
+    * 追加しようとした要素と等価なキーの要素が既にコンテナに存在したため、要素が追加されなかった。
+    * 要素追加後の要素数が、要素追加前のバケット数（<code style='color:black'>[bucket_count](/reference/unordered_set/unordered_set/bucket_count.md)()</code> の戻り値）×最大負荷率（`[max_load_factor](/reference/unordered_set/unordered_set/max_load_factor.md)()` の戻り値）よりも小さかった。
 
-- 要素追加後の要素数が、要素追加前のバケット数（<code style='color:black'>[bucket_count](/reference/unordered_set/unordered_set/bucket_count.md)()</code> の戻り値）×最大負荷率（<code style='color:black'>[max_load_factor](/reference/unordered_set/unordered_set/max_load_factor.md)()</code> の戻り値）よりも小さかった。
-</ol>
-のいずれかである。
-なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。<code style='color:black'>[reserve](/reference/unordered_set/unordered_set/reserve.md)</code> も参照。</li>
-<li>このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。
-<code style='color:black'>emplace</code> も含めた一覧を以下に示す。
+    のいずれかである。
+    なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。`[reserve](/reference/unordered_set/unordered_set/reserve.md)` も参照。
+- このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。
+    `emplace` も含めた一覧を以下に示す。
 
-| | |
-|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-|シーケンスコンテナ |<code style='color:black'>template <class... Args><br/>iterator emplace(const_iterator, Args&&...)</code> |
-|連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許さない場合） |<code style='color:black'>template <class... Args><br/>pair<iterator, bool> emplace(Args&&...)</code> |
-|連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合） |<code style='color:black'>template <class... Args><br/>iterator emplace(Args&&...)</code> |
-|連想コンテナ、非順序連想コンテナ |<code style='color:black'>template <class... Args><br/>iterator emplace_hint(const_iterator, Args&&...)</code> |
-
-</li>
+    | | |
+    |-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+    |シーケンスコンテナ |<code style='color:black'>template <class... Args><br/>iterator emplace(const_iterator, Args&&...)</code> |
+    |連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許さない場合） |<code style='color:black'>template <class... Args><br/>pair<iterator, bool> emplace(Args&&...)</code> |
+    |連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合） |<code style='color:black'>template <class... Args><br/>iterator emplace(Args&&...)</code> |
+    |連想コンテナ、非順序連想コンテナ |<code style='color:black'>template <class... Args><br/>iterator emplace_hint(const_iterator, Args&&...)</code> |
 
 
 ##例
 
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <iostream>
+#include <iostream>
 #include <unordered_set>
 #include <string>
 #include <utility>    // for std::pair
@@ -121,7 +119,6 @@ int main()
   std::copy(us.cbegin(), us.cend(), std::ostream_iterator<is>(std::cout, ", "));
   std::cout << std::endl;
 }
-</pre>
 ```
 * iostream[link /site/cpprefjp/reference/iostream]
 * unordered_set[link /reference/unordered_set.md]
@@ -140,68 +137,38 @@ int main()
 ###出力
 
 ```cpp
-<pre style='margin:0'><code style='color:black'>(3,3rd), (2,2nd), (1,1st),
+(3,3rd), (2,2nd), (1,1st),
 (4,4th)
 (5,5th)
 (1,1st)
-(4,4th), (3,3rd), (2,2nd), (5,5th), (1,1st),</pre>
+(4,4th), (3,3rd), (2,2nd), (5,5th), (1,1st),
 ```
 
-注：<code style='color:black'>[unordered_set](/reference/unordered_set/unordered_set.md)</code> は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：`[unordered_set](/reference/unordered_set/unordered_set.md)` は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
 
 
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): -
-
 - [Clang, C++0x mode](/implementation#clang.md): 3.1
-
 - [GCC](/implementation#gcc.md): -
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-
 - [ICC](/implementation#icc.md): ?
-
 - [Visual C++](/implementation#visual_cpp.md): ?
 
 ##参照
 
-<table style='border-collapse:collapse;border-color:rgb(136,136,136);border-width:1px' cellspacing='0' bordercolor='#888' border='1'>
-<tbody>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[emplace](/reference/unordered_set/unordered_set/emplace.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>コンテナ内への要素の直接構築</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[insert](/reference/unordered_set/unordered_set/insert.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>要素の追加</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[bucket_count](/reference/unordered_set/unordered_set/bucket_count.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>バケット数の取得</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[load_factor](/reference/unordered_set/unordered_set/load_factor.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>現在の負荷率（バケットあたりの要素数の平均）を取得</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[max_load_factor](/reference/unordered_set/unordered_set/max_load_factor.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>負荷率の最大値を取得、設定</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[rehash](/reference/unordered_set/unordered_set/rehash.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>最小バケット数指定によるバケット数の調整</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[reserve](/reference/unordered_set/unordered_set/reserve.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>最小要素数指定によるバケット数の調整</td>
-</tr>
-</tbody>
-</table>
+|ページ|概要|
+|------|----|
+|[emplace](/reference/unordered_set/unordered_set/emplace.md)|コンテナ内への要素の直接構築|
+|[insert](/reference/unordered_set/unordered_set/insert.md)|要素の追加|
+|[bucket_count](/reference/unordered_set/unordered_set/bucket_count.md)|バケット数の取得|
+|[load_factor](/reference/unordered_set/unordered_set/load_factor.md)|現在の負荷率（バケットあたりの要素数の平均）を取得|
+|[max_load_factor](/reference/unordered_set/unordered_set/max_load_factor.md)|負荷率の最大値を取得、設定|
+|[rehash](/reference/unordered_set/unordered_set/rehash.md)|最小バケット数指定によるバケット数の調整|
+|[reserve](/reference/unordered_set/unordered_set/reserve.md)|最小要素数指定によるバケット数の調整|
