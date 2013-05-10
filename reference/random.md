@@ -1,10 +1,9 @@
 #random
 <random> は擬似乱数を取り扱う為、乱数生成器 (Random Number Generator) や分布生成器 (Distribution) 及び関連する一連のクラス等を定義する C++11 で仕様化された乱数ライブラリである。
 
-乱数生成器
+##乱数生成器
 
 ※多くのユーザーにとって以下に挙げる生の乱数生成器テンプレートクラスそのものよりも、この次に挙げるパラメータ定義済みの乱数生成器クラスを使用すれば十分である。
-
 
 | | |
 |-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
@@ -15,13 +14,9 @@
 | independent_bits_engine | インデペンデントビッツエンジン |
 | shuffle_order_engine | シャッフルオーダーエンジン |
 
+##パラメータ定義済み乱数生成器
 
-パラメータ定義済み乱数生成器
-<span style='line-height:25px;font-size:medium'><span style='font-size:13px;line-height:normal'>
 ※先に挙げた乱数生成器に対し一般的なパラメータを定義し、使い易い様に用意された乱数生成器クラス。
-
-</span></span>
-<span style='line-height:25px;font-size:medium'><span style='font-size:13px;line-height:normal'>
 
 | | |
 |-----------------------|--|
@@ -36,10 +31,7 @@
 | knuth_b |  |
 | default_random_engine |  |
 
-</span></span>
-
-分布生成器及びその他のクラス
-
+##分布生成器及びその他のクラス
 
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -67,44 +59,52 @@
 | [piecewise_constant_distribution](./random/piecewise_constant_distribution.md) | 標本分布／区間ごとの重み付けを定数値とした分布生成器 |
 | [piecewise_linear_distribution](./random/piecewise_linear_distribution.md) | 標本分布／区間ごとの重み付けを線形に接続した分布生成器 |
 
-例
+##例
 
 以下に示す例では、C++11の標準ライブラリ<random>等を用いてランダムデバイスから初期化数列を取得してメルセンヌツイスタエンジンを初期化、単精度浮動少数型で[-1.0f - 1.0f]の一様分布及び1.0fを中心として標準偏差0.5fの正規分布に基づく擬似乱数を1メガ個生成し"random.tsv"にタブセパレート形式のファイルとして結果を保存する。
 ```cpp
-<code style='color:rgb(0,0,0)'>#include <iostream><code style='color:rgb(0,0,0)'>#include <exception>#include <random>#include <algorithm>#include <functional>#include <fstream><code style='color:rgb(0,0,0)'>main()try{  <code style='color:rgb(0,0,0)'>  static const size_t seed_size = 8;<code style='color:rgb(0,0,0)'>  typedef std::random_device device_type;<code style='color:rgb(0,0,0)'>  typedef std::mt19937_64 engine_type;<code style='color:rgb(0,0,0)'>  typedef std::uniform_real_distribution<float> distribution_type_1;<code style='color:rgb(0,0,0)'>  typedef std::normal_distribution<float> distribution_type_2;<code style='color:rgb(0,0,0)'>  auto s = [seed_size](){<code style='color:rgb(0,0,0)'>    device_type r;<code style='color:rgb(0,0,0)'>    std::vector<device_type::result_type> i(seed_size);<code style='color:rgb(0,0,0)'>    std::generate(i.begin(), i.end(), std::ref(r));<code style='color:rgb(0,0,0)'>    return std::seed_seq(i.begin(), i.end());<code style='color:rgb(0,0,0)'>  }();<code style='color:rgb(0,0,0)'>  engine_type e(s);<code style='color:rgb(0,0,0)'>  distribution_type_1 d1(-1.0f, 1.0f);<code style='color:rgb(0,0,0)'>  distribution_type_2 d2(1.0f, 0.5f);  <code style='color:rgb(0,0,0)'>  std::ofstream o("random.tsv");<code style='color:rgb(0,0,0)'>  for(size_t n = 1000*1000; n; --n)<code style='color:rgb(0,0,0)'>    o << d1(e) << "\t" << d2(e) << "\n";<code style='color:rgb(0,0,0)'>  o.close();<code style='color:rgb(0,0,0)'>}catch(const std::exception& e){<code style='color:rgb(0,0,0)'>  std::cerr << e.what();}
+#include <iostream>
+#include <exception>
+#include <random>
+#include <algorithm>
+#include <functional>
+#include <fstream>
 
-この例である時得られた random.tsv (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮) を元に、得られたデータの密度を図示すると、以下のような図が得られた。
+int main()try{
+  static const size_t seed_size = 8;
+  typedef std::random_device device_type;
+  typedef std::mt19937_64 engine_type;
+  typedef std::uniform_real_distribution<float> distribution_type_1;
+  typedef std::normal_distribution<float> distribution_type_2;
+  auto s = [seed_size](){
+    device_type r;
+    std::vector<device_type::result_type> i(seed_size);
+    std::generate(i.begin(), i.end(), std::ref(r));
+    return std::seed_seq(i.begin(), i.end());
+  }();
+  engine_type e(s);
+  distribution_type_1 d1(-1.0f, 1.0f);
+  distribution_type_2 d2(1.0f, 0.5f);
+  std::ofstream o("random.tsv");
+  for(size_t n = 1000*1000; n; --n)
+    o << d1(e) << "\t" << d2(e) << "\n";
+  o.close();
+}catch(const std::exception& e){
+  std::cerr << e.what();
+}
+```
+* random[color ff0000]
+* std::random_device[color ff0000]
+* std::mt19937_64[color ff0000]
+* std::uniform_real_distribution[color ff0000]
+* std::normal_distributio<[color ff0000]
+* std::seed_seq[color ff0000]
 
-!
+この例である時得られた [random.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/random.tsv.xz) (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮) を元に、得られたデータの密度を図示すると、以下のような図が得られた。
+
+![](https://github.com/cpprefjp/image/raw/master/reference/random/random.png)
 
 緑のラインは d1 (一様分布; min=-1.0f, max=1.0f) 、赤のラインは d2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
 
 参照：
-さまざまな確率分布 (probability distributions)
-```
-* random.tsv (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮)[link https://github.com/cpprefjp/image/raw/master/reference/random/random.tsv.xz]
-* [link https://github.com/cpprefjp/image/raw/master/reference/random/random.png]
-* さまざまな確率分布 (probability distributions)[link http://www.biwako.shiga-u.ac.jp/sensei/mnaka/ut/statdist.html]
-* random[color ff0000]
-* std::random_device[color ff0000]
-* std::mt19937_64[color ff0000]
-* std::uniform_real_distribution<[color ff0000]
-* >[color ff0000]
-* std::normal_distribution<[color ff0000]
-* >[color ff0000]
-* std::seed_seq([color ff0000]
-* )[color ff0000]
-* ([color ff0000]
-* )[color ff0000]
-* ([color ff0000]
-* )[color ff0000]
-* ([color ff0000]
-* )[color ff0000]
-* ([color ff0000]
-* )[color ff0000]
-* ([color ff0000]
-* )[color ff0000]
-
-
-
-
+[さまざまな確率分布 (probability distributions)](http://www.biwako.shiga-u.ac.jp/sensei/mnaka/ut/statdist.html)
