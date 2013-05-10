@@ -32,10 +32,6 @@ namespace std
   };
 }
 ```
-* // types[italic]
-* // engine characteristics[italic]
-* // constructors and seeding functions[italic]
-* // generating functions[italic]
 
 ##概要
 
