@@ -17,7 +17,6 @@ void operator delete(void* ptr, void*) noexcept;
 void operator delete[](void* ptr, void*) noexcept;
 ```
 * nothrow_t[link /reference/new/nothrow_t.md]
-* [link void* ptr, const std::[nothrow_t](/reference/new/nothrow_t.md]
 
 ##効果
 [`new`](/reference/new/new.md)演算子によって動的に確保した記憶域を解放する。
@@ -58,4 +57,5 @@ int main()
 ```
 
 ###出力
-```cpp
+```
+```
