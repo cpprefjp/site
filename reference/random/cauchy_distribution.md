@@ -1,7 +1,6 @@
 #cauchy_distribution
 ```cpp
 namespace std{
-```
 
   template<class RealType = double>
   class cauchy_distribution
@@ -25,33 +24,17 @@ namespace std{
     void param(const param_type& parm);
     result_type min() const;
     result_type max() const;
-};
-
-
-
+  };
 }
-
-
-
-
+```
 
 ##概要
 
-<b>コーシー分布を生成する。</b>
+コーシー分布を生成する。
 
-<b>
-</b>
-
-<b>
-
-![](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy.png)
-
-</b>
-
-
+https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy.png
 
 ##メンバ関数
-
 
 | | |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -65,125 +48,62 @@ namespace std{
 | max | 最大値を得る。 |
 
 
-
 ##例
 
 ```cpp
 #include <iostream>
-
 #include <exception>
-
 #include <random>
-
 #include <algorithm>
-
 #include <functional>
-
 #include <array>
-
 #include <fstream>
-```
 
-main()try{
-
-
-
+main() try{
   static const size_t seed_size = 8;
-
   typedef std::random_device device_type;
-
   typedef std::mt19937_64 engine_type;
-
-  typedef <color=ff0000>std::cauchy_distribution<></color> distribution_type;
-
+  typedef std::cauchy_distribution<> distribution_type;
 
   auto s = [seed_size](){
-
     device_type r;
-
     std::vector<device_type::result_type> i(seed_size);
-
     std::generate(i.begin(), i.end(), std::ref(r));
-
     return std::seed_seq(i.begin(), i.end());
-
   }();
-
   engine_type e(s);
 
-
-  distribution_type d<color=ff0000>(</color>-10.0,1.5<color=ff0000>)</color>;
-
-  
-
+  distribution_type d(-10.0,1.5);
   std::ofstream o("cauchy_distribution.tsv");
-
   for(size_t n = 256; n; --n)
-
-    o << d<color=ff0000>(</color>e<color=ff0000>)</color> << "\t" << "\n";
-
+    o << d(e) << "\t" << "\n";
   o.close();
-
-
-
 }catch(const std::exception& e){
-
   std::cerr << e.what();
-
 }
-
-
-
-
+```
 
 ###出力
 
 このプログラムによってある時に得られた結果（[cauchy_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.tsv.7z)）を図示する。
 
+https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.png
 
-
-
-<a class='disabled' imageanchor='1' href='/system/errors/NodeNotFound?suri=wuid:gx:2bd42503572e5581.md'>
-
-
-</a>
-![](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.png)
-
-
-
-
-
-
-バージョン
-
+##バージョン
 
 ###言語
 
-
 - C++11
-
-
 
 ###処理系
 
-
 - [Clang](/implementation#clang.md): 
-
 - [GCC](/implementation#gcc.md): 
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
-
 - [ICC](/implementation#icc.md): 
-
 - [Visual C++](/implementation#visual_cpp.md): 
-
 
 ###参考
 
-
 - [コーシー分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%82%B7%E3%83%BC%E5%88%86%E5%B8%83)
-
-
-
-
 
