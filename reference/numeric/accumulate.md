@@ -1,32 +1,20 @@
 #accumulate
 ```cpp
 namespace std{
-
   template <class InputIterator, class T>
-
   T accumulate(InputIterator first, InputIterator last, T init);
-```
 
   template <class InputIterator, class T, class BinaryOperation>
-
   T accumulate(InputIterator first, InputIterator last, T init,
-
                BinaryOperation binary_op);
-
 }
-
-
-
-
+```
 
 ##概要
 
-<b>1つのシーケンスの任意の範囲の値を足し合わせる。</b>
-
-<span style='font-size:13px;line-height:21px'>
+1つのシーケンスの任意の範囲の値を足し合わせる。
 
 ##パラメータ
-
 
 | | |
 |-----------|--------------------------|
@@ -35,16 +23,12 @@ namespace std{
 | init | 初期値 |
 | binary_op | アキュームレータ |
 
-
-</span>
-
 ##戻り値
 
 シーケンスの値の型。
 
 
 ##計算量
-
 Ο(n)
 
 
@@ -53,79 +37,47 @@ namespace std{
 
 ```cpp
 template <class InputIterator, class T>
-
 T accumulate(InputIterator first, InputIterator last, T init) {
-
   while (first != last)
-
     init = init + *first++;
-
   return init;
-
 }
-
-
 ```
-
 
 ```cpp
 template <class InputIterator, class T, class BinaryOperation>
-
 T accumulate(InputIterator first, InputIterator last, T init,
-
              BinaryOperation binary_op) {
-
   while (first != last)
-
     init = binary_op(init, *first++);
-
   return init;
-
 }
 ```
 
 ##例
-
 ```cpp
 #include <numeric>
-
 #include <iostream>
-
 #include <array>
-```
 
 int main(){
-
   typedef std::array<double, 5> t;
-
   typedef t::value_type u;
-
   const t a = {.0,0.2,0.4,0.6,0.8};
-
-  std::cout 
-
-    << <color=ff0000>std::accumulate</color>(a.begin(), a.end(), .0) << "\n"
-
-    << <color=ff0000>std::accumulate</color>(a.begin(), a.end(), 100.0
-
+  std::cout
+    << std::accumulate(a.begin(), a.end(), .0) << "\n"
+    << std::accumulate(a.begin(), a.end(), 100.0
       , [](const u& a, const u& b)->u{
-
         return a+b*b;
-
       })
-
     << std::endl;
-
 }
-
-
-
+```
+* std::accumulate[color ff0000]
 
 ###出力
-
-```cpp
+```
 2
-
 101.2
 ```
 
