@@ -5,16 +5,15 @@ shared_future& operator=(shared_future&& rhs) noexcept;
 ```
 
 ##概要
+- `shared_future& operator=(const shared_future& rhs);`<br/>コピー代入。効果： 共有状態を解放し、`rhs`の共有状態を含むコンテンツを`*this`にコピー代入する。`rhs`と`*this`が同じ共有状態を参照するようになる。<br/>事後条件： `valid() == rhs.valid()`
+- `shared_future& operator=(shared_future&& rhs) noexcept;`<br/>ムーブ代入。<br/>事後条件： `valid()`の戻り値が、この関数を呼び出す前の`rhs.valid()`と等価になること。`rhs.valid() == false`になること。<br/>戻り値： `*this例外： 投げない`
 
-- `shared_future& operator=(const shared_future& rhs);`コピー代入。効果： 共有状態を解放し、`rhs`の共有状態を含むコンテンツを`*this`にコピー代入する。`rhs`と`*this`が同じ共有状態を参照するようになる。事後条件： `valid() == rhs.valid()`
-- `shared_future& operator=(shared_future&& rhs) noexcept;`ムーブ代入。事後条件： `valid()`の戻り値が、この関数を呼び出す前の`rhs.valid()`と等価になること。`rhs.valid() == false`になること。戻り値： `*this例外： 投げない`
 
 ##戻り値
-
 `*this`
 
-##例
 
+##例
 ```cpp
 #include <cassert>
 #include <future>
@@ -55,31 +54,21 @@ int main()
   }
 }
 ```
-* = f1; // コピー[color ff0000]
-* =[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

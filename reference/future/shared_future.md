@@ -7,8 +7,7 @@ namespace std {
 ```
 
 ##概要
-
-`shared_future`は、[`future`](/reference/future/future.md)クラスオブジェクトから変換によって生成されるクラスである。[`future`](/reference/future/future.md)オブジェクトが[`promise`](/reference/future/promise.md)との共有状態を単一オブジェクトで待機するのに対し、`shared_future`オブジェクトは同じ共有状態を複数オブジェクトで待機することを可能にする。
+`shared_future`は、[`future`](./future.md)クラスオブジェクトから変換によって生成されるクラスである。[`future`](./future.md)オブジェクトが[`promise`](./promise.md)との共有状態を単一オブジェクトで待機するのに対し、`shared_future`オブジェクトは同じ共有状態を複数オブジェクトで待機することを可能にする。
 
 ###メンバ関数
 
@@ -17,17 +16,20 @@ namespace std {
 | [`(constructor)`](./shared_future/shared_future.md) | コンストラクタ |
 | [`(destructor)`](./shared_future/-shared_future.md) | デストラクタ |
 | [`operator=`](./shared_future/op_assign.md) | 代入演算子 |
-<h4 style='font-size:13px'>値の取得</h4>
+
+####値の取得
 
 | | |
 |----------------------------------------------------------------------------------------------------------|-----------------------|
 | [`get`](./shared_future/get.md) | 結果を取得する |
-<h4 style='font-size:13px'>関数の状態を確認する</h4>
+
+####関数の状態を確認する
 
 | | |
 |--------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
 | [`valid`](./shared_future/valid.md) | 共有状態を持っているかを確認する |
-<h4>待機</h4>
+
+####待機
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
@@ -76,26 +78,20 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 33
 ```
 
-##
-
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ###参照

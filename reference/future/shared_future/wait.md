@@ -4,17 +4,14 @@ void wait() const;
 ```
 
 ##概要
-
-<b>処理が完了するまで待機する</b>
+処理が完了するまで待機する
 
 
 ##効果
-
-共有状態が準備完了状態([`future_status::ready`](/reference/future/future_status.md))になるまでこの関数をブロックする。
+共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまでこの関数をブロックする。
 
 
 ##戻り値
-
 なし
 
 
@@ -50,29 +47,20 @@ int main()
 * wait[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

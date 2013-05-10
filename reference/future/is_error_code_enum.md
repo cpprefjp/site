@@ -1,7 +1,6 @@
 #is_error_code_enum
 ```cpp
 namespace std {
-
   template <>
   struct is_error_code_enum<future_errc> : public true_type { };
 }
@@ -11,14 +10,11 @@ namespace std {
 * true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 
 ##概要
-
-[`future_errc`](/reference/future/future_errc.md)に対する`is_error_code_enum`の特殊化。
-
-[`error_code`](/reference/system_error/error_code.md)のコンストラクタに[`future_errc`](/reference/future/future_errc.md)の列挙値を指定するために使用する。それによって`make_error_code()`の[`future_errc`](/reference/future/future_errc.md)に対するオーバーロードが呼び出され、[`future_category()`](/reference/future/future_category.md)の[`error_code`](/reference/system_error/error_code.md)オブジェクトが生成される。
+[`future_errc`](./future_errc.md)に対する`is_error_code_enum`の特殊化。
+[`error_code`](/reference/system_error/error_code.md)のコンストラクタに[`future_errc`](./future_errc.md)の列挙値を指定するために使用する。それによって`make_error_code()`の[`future_errc`](./future_errc.md)に対するオーバーロードが呼び出され、[`future_category()`](./future_category.md)の[`error_code`](/reference/system_error/error_code.md)オブジェクトが生成される。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <future>
@@ -33,29 +29,20 @@ int main()
 ```
 
 ###出力例
-
-```cpp
+```
 Broken promise
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

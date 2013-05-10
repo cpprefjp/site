@@ -6,36 +6,29 @@ void future<void>::get();
 ```
 
 ##概要
-
-<b>結果を取得する</b>
+結果を取得する
 
 
 ##効果
-
-共有状態が準備完了状態([`future_status::ready`](/reference/future/future_status.md))になるまで[`wait()`](/reference/future/future/wait.md)で待機し、共有状態に格納されている値を取得する。
+共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまで[`wait()`](./wait.md)で待機し、共有状態に格納されている値を取得する。
 
 
 ##戻り値
-
-- `future::get()` ： 共有状態に格納されている値を返す。値が`[is_move_assignable](/reference/type_traits/is_move_assignable.md)<R>::value == true`であれば値をムーブして返し、そうでなければコピーで返す。
+- `future::get()` ： 共有状態に格納されている値を返す。値が[`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<R>::value == true`であれば値をムーブして返し、そうでなければコピーで返す。
 - `future<R&>::get()` ： 共有状態に格納されている参照を返す。
 - `future<void>::get()` ： 何も返さない。
 
 
 ##例外
-
 共有状態に例外が格納されていた場合、格納されている例外を送出する。
 
 
 ##事後条件
-
-この関数呼び出し後は共有状態が破棄され、`[valid()](/reference/future/future/valid.md) == false`となること。
-
+この関数呼び出し後は共有状態が破棄され、[`valid()`](./valid.md)` == false`となること。
 つまりこの関数は1オブジェクトにつき1回しか呼び出せない。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <future>
@@ -69,12 +62,11 @@ int main()
 * get[color ff0000]
 
 ###出力
-
 ```cpp
 55
 ```
 
-##例：std::future<R&>
+##例：`std::future<R&>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -128,11 +120,11 @@ int main()
 * get[color ff0000]
 
 ###出力
-```cpp
+```
 55
 ```
 
-##例：std::future<void>
+##例：`std::future<void>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -188,28 +180,20 @@ int main()
 * get[color ff0000]
 
 ###出力
-```cpp
+```
 55
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

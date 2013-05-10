@@ -1,19 +1,15 @@
 #代入演算子
 ```cpp
 packaged_task& operator=(const packaged_task&) = delete;
-
 packaged_task& operator=(packaged_task&& rhs) noexcept;
 ```
 
 ##概要
-
-- `packaged_task& operator=(const packaged_task&) = delete;`コピー代入演算子。コピー不可。
-- `packaged_task& operator=(packaged_task&& rhs) noexcept;`ムーブ代入演算子。`*this`の共有状態を解放し、`packaged_task(std::[move](/reference/utility/move.md)(rhs)).swap(*this)`を行う。戻り値： `*this`例外： 投げない
-
+- `packaged_task& operator=(const packaged_task&) = delete;`<br/>コピー代入演算子。コピー不可。
+- `packaged_task& operator=(packaged_task&& rhs) noexcept;`<br/>ムーブ代入演算子。`*this`の共有状態を解放し、`packaged_task(std::`[`move`](/reference/utility/move.md)`(rhs)).swap(*this)`を行う。<br/>戻り値： `*this`<br/>例外： 投げない
 
 
 ##例
-
 ```cpp
 #include <future>
 
@@ -31,30 +27,21 @@ int main()
   // task1は共有状態を持たない
 }
 ```
-* =[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

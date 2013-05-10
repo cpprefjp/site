@@ -22,10 +22,7 @@
 | [`async`](./future/async.md) | 処理の非同期実行(function template) |
 
 
-
 ##バージョン
-
 ###言語
-
 - C++11
 

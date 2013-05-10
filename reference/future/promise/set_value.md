@@ -12,35 +12,28 @@ void promise<void>::set_value();
 ```
 
 ##概要
-
-<b>結果の値を設定する</b>
+結果の値を設定する
 
 
 ##効果
-
-値`r`をアトミックに共有状態に格納し、準備完了状態([`future_status::ready`](/reference/future/future_status.md))にする。
+値`r`をアトミックに共有状態に格納し、準備完了状態([`future_status::ready`](../future_status.md))にする。
 
 
 ##戻り値
-
 なし
 
 
 ##例外
-
-この関数は、以下のerror conditionを持つ[future_error](/reference/future/future_error.md)例外オブジェクトを送出する可能性がある：
-
-- [`promise_already_satisfied`](/reference/future/future_errc.md) ： すでに値もしくは例外が設定されている
-- `[no_state](/reference/future/future_errc.md) `： `*this`が共有状態を持っていない(`promise`オブジェクトがムーブされると起こりうる)
+この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
+- [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が設定されている
+- [`no_state`](../future_errc.md) ： `*this`が共有状態を持っていない(`promise`オブジェクトがムーブされると起こりうる)
 
 また、以下のバージョンにおいてその他の例外オブジェクトが送出される可能性がある：
-
 - `const R&`バージョン ： `R`のコピーコンストラクタが、あらゆる例外を送出する可能性がある
 - `R&&`バージョン ： `R`のムーブコンストラクタが、あらゆる例外を送出する可能性がある
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <future>
@@ -74,12 +67,11 @@ int main()
 * set_value[color ff0000]
 
 ###出力
-
-```cpp
+```
 55
 ```
 
-##例 : promise<R&>
+##例 : `promise<R&>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -133,13 +125,12 @@ int main()
 * set_value[color ff0000]
 
 ###出力
-```cpp
+```
 55
 ```
 
-##
-
-##例 : promise<void>
+##例 : `promise<void>`
+```cpp
 #include <iostream>
 #include <future>
 #include <thread>
@@ -190,33 +181,23 @@ int main()
  
   std::cout << result << std::endl;
 }
-
+```
 
 ###出力
-```cpp
+```
 55
 ```
 
-##
-
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

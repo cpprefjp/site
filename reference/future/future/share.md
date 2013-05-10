@@ -2,26 +2,24 @@
 ```cpp
 shared_future<R> share();
 ```
-* shared_future[link /reference/future/shared_future.md]
+* shared_future[link ../shared_future.md]
 
 ##概要
+`future`オブジェクトを共有する。
+`*this`の`future`オブジェクトと同じ共有状態を持つ`shared_future`オブジェクトを生成する。
 
-<b>futureオブジェクトを共有する。</b>
-<b>*thisのfutureオブジェクトと同じ共有状態を持つshared_futureオブジェクトを生成する。</b>
-<b></b>
-<b>この関数を呼び出したあと、*thisのfutureオブジェクトは無効となる。</b>
+この関数を呼び出したあと、`*this`の`future`オブジェクトは無効となる。
 
 
 ##事後条件
+[`valid()`](./valid.md)` == false`
 
-`[valid()](/reference/future/future/valid.md) == false`
 
 ##戻り値
+[`shared_future`](../shared_future.md)`<R>(std::`[`move`](/reference/utility/move.md)`(*this))`
 
-[`shared_future`](/reference/future/shared_future.md)<R>(std::[move](/reference/utility/move.md)(*this))
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <thread>
@@ -62,24 +60,16 @@ int main()
 * share[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 3
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -87,9 +77,7 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##参照
 
 [futureとshared_future - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120201/p1)
-
 [future::share()は何のためにあるのか - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20121029/1351494001)

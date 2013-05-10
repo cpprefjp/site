@@ -12,32 +12,25 @@ void promise<void>::set_value_at_thread_exit();
 ```
 
 ##概要
-
-<b>スレッド終了時に結果の値を設定する</b>
+スレッド終了時に結果の値を設定する
 
 
 ##効果
-
-値`r`を、すぐに準備完了状態([`future_status::ready`](/reference/future/future_status.md))にはせずに共有状態に格納する。現在のスレッドが終了し、スレッドローカル記憶域を持つ全てのオブジェクトを破棄したあと、準備完了状態にする。
+値`r`を、すぐに準備完了状態([`future_status::ready`](../future_status.md))にはせずに共有状態に格納する。現在のスレッドが終了し、スレッドローカル記憶域を持つ全てのオブジェクトを破棄したあと、準備完了状態にする。
 
 
 ##戻り値
-
 なし
 
 
 
 ##例外
-
-この関数は、以下のerror conditionを持つ[future_error](/reference/future/future_error.md)例外オブジェクトを送出する可能性がある：
-
-- [`promise_already_satisfied`](/reference/future/future_errc.md) ： すでに値もしくは例外が設定されている
-- `[no_state](/reference/future/future_errc.md) `： `*this`が共有状態を持っていない(`promise`オブジェクトがムーブされると起こりうる)
-
+この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
+- [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が設定されている
+- [`no_state`](../future_errc.md) ： `*this`が共有状態を持っていない(`promise`オブジェクトがムーブされると起こりうる)
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <future>
@@ -76,12 +69,11 @@ int main()
 * set_value_at_thread_exit[color ff0000]
 
 ###出力
-
-```cpp
+```
 55
 ```
 
-##例：promise<R&>
+##例：`promise<R&>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -140,11 +132,11 @@ int main()
 * set_value_at_thread_exit[color ff0000]
 
 ###出力
-```cpp
+```
 55
 ```
 
-##例：promise<void>
+##例：`promise<void>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -204,28 +196,20 @@ int main()
 * set_value_at_thread_exit[color ff0000]
 
 ###出力
-```cpp
+```
 55
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) 11.0
-
 
 
 ##参照

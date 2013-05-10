@@ -6,34 +6,24 @@ void shared_future<void>::get() const;
 ```
 
 ##概要
-
-<b>結果を取得する</b>
+結果を取得する
 
 
 ##効果
-
-共有状態が準備完了状態([`future_status::ready`](/reference/future/future_status.md))になるまで[`wait()`](/reference/future/shared_future/wait.md)で待機し、共有状態に格納されている値を取得する。
-
-
-##事後条件
-
+共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまで[`wait()`](./wait.md)で待機し、共有状態に格納されている値を取得する。
 
 
 ##戻り値
-
-- `future::get()` ： 共有状態に格納されている値への`const`左辺値参照を返す。
-- 備考：共有状態が破壊された後、その参照を介してのアクセスは未定義の振る舞いをする。`shared_future`オブジェクトの寿命よりも長いオブジェクトに参照を保持しないこと。
+- `future::get()` ： 共有状態に格納されている値への`const`左辺値参照を返す。<br/>備考：共有状態が破壊された後、その参照を介してのアクセスは未定義の振る舞いをする。`shared_future`オブジェクトの寿命よりも長いオブジェクトに参照を保持しないこと。
 - `future<R&>::get()` ： 共有状態に格納されている参照を返す。
 - `future<void>::get()` ： 何も返さない。
 
 
 ##例外
-
 共有状態に例外が格納されていた場合、格納されている例外を送出する。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <future>
@@ -66,12 +56,11 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 55
 ```
 
-##例：shared_future<void>
+##例：`shared_future<void>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -152,28 +141,20 @@ int main()
 * set_value[color ff0000]
 
 ###出力例
-```cpp
+```
 thread:0 sum:15thread:1 sum:40
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照
