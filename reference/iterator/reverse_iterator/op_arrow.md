@@ -4,17 +4,14 @@ pointer operator->() const;
 ```
 
 ##概要
-
-<b>イテレータを通してオブジェクトにアクセスする</b>
-
+イテレータを通してオブジェクトにアクセスする
 
 
 ##戻り値
-
 `&(operator*())`
 
-##例
 
+##例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -42,8 +39,7 @@ int main()
 * it->[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 ```
 

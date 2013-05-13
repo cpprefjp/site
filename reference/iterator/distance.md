@@ -8,35 +8,28 @@ namespace std {
 ```
 
 ##概要
-
-<b>イテレータ間の距離を求める。</b>
+イテレータ間の距離を求める。
 
 
 ##要件
-
 `InputIterator`がランダムアクセスイテレータの場合、`first`は`last`に到達可能、もしくは`last`から`first`に到達可能であること。
-
 それ以外のイテレータの場合には、`first`から`last`に到達可能であること。
 
 
 ##効果
-
 `InputIterator`がランダムアクセスイテレータの場合は、`last - first`が返る。
 それ以外のイテレータの場合は、`first`から`last`までイテレータをインクリメントしていき、距離をカウントする。
 
 
 ##戻り値
-
 `first`から`last`までの距離
 
 
 ##計算量
-
 `InputIterator`がランダムアクセスイテレータの場合はO(1)。それ以外のイテレータの場合はO(n)。
 
 
 ##例
-
 ```cpp
 #include <iterator>
 #include <iostream>
@@ -63,14 +56,12 @@ int main()
 * distance[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 5
 ```
 
 ##実装例
-
 ```cpp
 template <class InputIterator>
 typename std::iterator_traits<InputIterator>::difference_type

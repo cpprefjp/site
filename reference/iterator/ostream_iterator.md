@@ -10,8 +10,8 @@ namespace std {
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
-<p>`ostream_iterator`は出力イテレータであり、代入の際に外部から渡された`ostream`オブジェクトに`operator<<()`で値を出力するイテレータアダプタである。
-</p>
+`ostream_iterator`は出力イテレータであり、代入の際に外部から渡された`ostream`オブジェクトに`operator<<()`で値を出力するイテレータアダプタである。
+
 
 ###メンバ関数
 
@@ -22,6 +22,7 @@ namespace std {
 | [`operator=`](./ostream_iterator/op_assign.md) | 代入演算子 |
 | [`operator*`](./ostream_iterator/op_deref.md) | 間接参照 |
 | [`operator++`](./ostream_iterator/op_increment.md) | インクリメント |
+
 
 ###メンバ型
 
@@ -36,8 +37,8 @@ namespace std {
 | `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) |
 | `reference` | `void` |
 
-###例
 
+###例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -55,7 +56,7 @@ int main()
 * ostream_iterator[color ff0000]
 
 ###出力
-```cpp
+```
 1,2,3,
 ```
 

@@ -7,21 +7,19 @@ namespace std {
 ```
 
 ##概要
-
-<b>insert_iteratorのヘルパ関数</b>
+`insert_iterator`のヘルパ関数
 
 
 ##戻り値
-
 `insert_iterator<Container>(x, i)`
 
-##例
 
+##例
 ```cpp
 ```
 
 ###出力
-
-```cpp
-##参照
 ```
+```
+
+##参照

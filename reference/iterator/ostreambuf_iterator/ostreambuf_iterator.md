@@ -5,14 +5,11 @@ ostreambuf_iterator(streambuf_type* s) noexcept;
 ```
 
 ##ostreambuf_iteratorオブジェクトの構築
-
-- <b>ostreambuf_iterator(ostreamtype& s) noexcept</b>
-- <b>s.rdbuf()をメンバ変数として保持する。</b>
-- <b>ostreambuf_iterator(streambuf_type* s) noexceptsをメンバ変数として保持する</b>
+- `ostreambuf_iterator(ostreamtype& s) noexcept`<br/>`s.rdbuf()`をメンバ変数として保持する。
+- `ostreambuf_iterator(streambuf_type* s) noexcept`<br/>`s`をメンバ変数として保持する
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -35,8 +32,7 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 HelloHello
 ```
 

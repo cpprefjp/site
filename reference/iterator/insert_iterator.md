@@ -1,21 +1,20 @@
 #insert_iterator
+```cpp
+namespace std {
+  template <class Container>
+  class insert_iterator
+    : public iterator<output_iterator_tag, void, void, void, void>;
+}
 
-| |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|<br/><br/><br/>```cpp
-<br/><br/>namespace std {<br/><br/>  template <class Container><br/><br/>  class insert_iterator<br/><br/>    : public iterator<output_iterator_tag, void, void, void, void>;<br/><br/><br/><br/>}<br/><br/><br/><br/><br/><br/> |
 ```
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
-
-<p>`insert_iterator`は出力イテレータであり、代入の際にコンテナの`insert`メンバ関数を呼び出すイテレータアダプタである。
-</p>
+`insert_iterator`は出力イテレータであり、代入の際にコンテナの`insert()`メンバ関数を呼び出すイテレータアダプタである。
 
 
 ###メンバ関数
-
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
@@ -28,7 +27,6 @@
 
 ###protectedメンバ変数
 
-
 | | |
 |------------------------|----------------------------------|
 | 変数名 | 型 |
@@ -37,8 +35,6 @@
 
 
 ###メンバ型
-
-
 
 | | |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -66,43 +62,27 @@
 
 ```cpp
 #include <iostream>
-
 #include <set>
-
 #include <iterator>
-
 #include <algorithm> // copy
-```
 
 int main()
-
 {
-
   std::set<int> src = {1, 2, 3};
-
   std::set<int> dest;
 
-
   // srcの要素をdestに挿入しながらコピー
-
-  std::copy(src.begin(), src.end(), std::<color=ff0000>inserter</color>(dest, dest.end()));
-
+  std::copy(src.begin(), src.end(), std::inserter(dest, dest.end()));
 
   for (int x : dest) {
-
     std::cout << x << std::endl;
-
   }
-
 }
-
-
-
-
+```
+* inserter[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 2
 3

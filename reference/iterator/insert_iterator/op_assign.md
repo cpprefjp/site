@@ -8,37 +8,29 @@ insert_iterator<Container>&
 ```
 
 ##概要
-
-<b>値を出力する</b>
-
-
-
-##要件
-
+値を出力する
 
 
 ##効果
+`const`参照版：
+`iter = container->insert(iter, value);`
+`++iter;`
 
-const参照版`iter = container->insert(iter, value);`
-++iter;
-右辺値参照版iter = container->insert(iter, std::move(value));
-
-++iter;
+右辺値参照版：
+`iter = container->insert(iter, std::move(value));`
+`++iter;`
 
 
 ##戻り値
-
-*this
-
+`*this`
 
 
 ##例
-
 ```cpp
 ```
 
 ###出力
-
-```cpp
-##参照
 ```
+```
+
+##参照

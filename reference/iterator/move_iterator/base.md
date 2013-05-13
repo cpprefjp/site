@@ -4,17 +4,14 @@ Iterator base() const;
 ```
 
 ##概要
-
-<b>メンバ変数として保持している、元のイテレータを取得する。</b>
+メンバ変数として保持している、元のイテレータを取得する。
 
 
 ##戻り値
-
 元のイテレータオブジェクトのコピー
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -36,29 +33,20 @@ int main()
 * base[color ff0000]
 
 ###出力
-
-```cpp
+```
 0
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

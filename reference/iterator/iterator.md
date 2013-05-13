@@ -17,10 +17,8 @@ namespace std {
 ```
 
 ##概要
-
 `std::iterator`クラスは、イテレータを定義するための基本クラスである。
-イテレータ定義に必要ないくつかのtypedefを簡略化するために使用できる。
-
+イテレータ定義に必要ないくつかの`typedef`を簡略化するために使用できる。
 
 | | |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -33,7 +31,6 @@ namespace std {
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -93,11 +90,10 @@ int main()
   });
 }
 ```
-* iterator[color ff0000]
+* std::iterator[color ff0000]
 
 ###出力
-
-```cpp
+```
 0
 1
 2
@@ -111,6 +107,5 @@ int main()
 ```
 
 ##参照
-
-- std::iteratorは型定義のみを簡略化するが、これを発展させた[Boost Iterators Library](http://www.boost.org/doc/libs/release/libs/iterator/doc/index.html)は、演算子定義も簡略化する機能を提供している。
+- `std::iterator`は型定義のみを簡略化するが、これを発展させた[Boost Iterators Library](http://www.boost.org/doc/libs/release/libs/iterator/doc/index.html)は、演算子定義も簡略化する機能を提供している。
 

@@ -4,19 +4,16 @@ CharT operator*() const
 ```
 
 ##概要
-
-<b>イテレータを間接参照する。</b>
+イテレータを間接参照する。
 
 
 ##戻り値
-
 `sbuf_->sgetc()`で文字を読み込んで返す。
 
 ※`sbuf_`はメンバ変数として保持している`streambuf_type`オブジェクトへのポインタ
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -31,10 +28,8 @@ int main()
   std::cout << *it << std::endl;
 }
 ```
-* *it[color ff0000]
 
 ###出力
-
 ```cpp
 1
 ```

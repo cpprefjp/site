@@ -5,24 +5,20 @@ insert_iterator<Container>& operator++(int);
 ```
 
 ##概要
-
-<b>イテレータをインクリメントする。</b>
-<b>insert_iteratorでは何もしない。</b>
+イテレータをインクリメントする。
+`insert_iterator`では何もしない。
 
 
 ##戻り値
-
-*this
-
+`*this`
 
 
 ##例
-
 ```cpp
 ```
 
 ###出力
-
-```cpp
-##参照
 ```
+```
+
+##参照

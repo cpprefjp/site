@@ -5,16 +5,13 @@ unspecified operator[](typename reverse_iterator<Iterator>::difference_type n) c
 * unspecified[italic]
 
 ##概要
-
-<b>任意の位置にランダムアクセスする。</b>
+任意の位置にランダムアクセスする。
 
 
 ##戻り値
-
 `current[-n-1]`
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -34,8 +31,7 @@ int main()
 * it[1][color ff0000]
 
 ###出力
-
-```cpp
+```
 2
 ```
 

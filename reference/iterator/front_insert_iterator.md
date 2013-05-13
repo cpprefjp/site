@@ -11,8 +11,8 @@ namespace std {
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
-<p>`front_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_front`メンバ関数を呼び出すイテレータアダプタである。
-</p>
+`front_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_front()`メンバ関数を呼び出すイテレータアダプタである。
+
 
 ###メンバ関数
 
@@ -32,7 +32,6 @@ namespace std {
 | `container` | `Container*` |
 
 ###メンバ型
-
 
 | | |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -73,7 +72,7 @@ int main()
 * front_inserter[color ff0000]
 
 ###出力
-```cpp
+```
 321
 ```
 

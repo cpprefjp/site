@@ -3,17 +3,17 @@
 istreambuf_iterator<CharT, Traits>& operator++();
 proxy operator++(int);
 ```
+* proxy[italic]
 
 ##概要
-
-<b>イテレータを進める</b>
+イテレータを進める
 
 
 ##効果
-
 前置インクリメント：
+`sbuf_->sbumpc();`
+`return *this;`
 
-`sbuf_->sbumpc();``return *this;`
 後置インクリメント：
 `sbuf->sbumpc()`を行い、前の状態を`proxy`オブジェクトとして返す。
 `proxy`クラスは実装定義。
@@ -22,7 +22,6 @@ proxy operator++(int);
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -45,8 +44,7 @@ int main()
 * it++[color ff0000]
 
 ###出力
-
-```cpp
+```
 2
 2
 3

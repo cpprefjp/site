@@ -1,26 +1,22 @@
 #operator- (フリー関数版)
 ```cpp
 namespace std {
-
   template <class Iterator1, class Iterator2>
   auto operator-(const reverse_iterator<Iterator1>& x,
                  const reverse_iterator<Iterator2>& y)
     -> decltype(y.current - x.current);
-
 }
 ```
 
 ##概要
-
-<b>2つのreverse_iteratorの差を求める</b>
+2つの`reverse_iterator`の差を求める
 
 
 ##戻り値
-
 `y.current - x.current`
 
-##例
 
+##例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -40,8 +36,7 @@ int main()
 * it2 - it1[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 ```
 

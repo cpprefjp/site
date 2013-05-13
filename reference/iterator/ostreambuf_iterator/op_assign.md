@@ -4,28 +4,23 @@ ostreambuf_iterator& operator=(CharT c);
 ```
 
 ##概要
-
-<b>値を出力する</b>
+値を出力する
 
 
 ##効果
-
-`[failed()](/reference/iterator/ostreambuf_iterator/failed.md) == false`の場合に`sbuf_->sputc(c);`を行い、そうでなければ何もしない。
-
+[`failed()`](./failed.md)` == false`の場合に`sbuf_->sputc(c);`を行い、そうでなければ何もしない。
 ※ `sbuf_`はメンバ変数として保持している`streambuf_type`オブジェクトへのポインタ
 
 
 ##戻り値
-
 `*this`
 
 ##例
-
 ```cpp
 ```
 
 ###出力
-
-```cpp
-##参照
 ```
+```
+
+##参照

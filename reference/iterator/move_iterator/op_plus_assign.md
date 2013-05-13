@@ -4,21 +4,18 @@ move_iterator& operator+=(difference_type n);
 ```
 
 ##概要
-
-<b>イテレータ自身をN回進める。</b>
+イテレータ自身を`n`回進める。
 
 
 ##効果
-
-`current += n;`※currentは、メンバ変数として保持しているアダプト元のイテレータ変数
+`current += n;`
+※`current`は、メンバ変数として保持しているアダプト元のイテレータ変数
 
 
 ##戻り値
-
 `return *this;`
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -41,29 +38,20 @@ int main()
 * it += 2[color ff0000]
 
 ###出力
-
 ```cpp
 2
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

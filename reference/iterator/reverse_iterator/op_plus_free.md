@@ -1,26 +1,21 @@
 #operator+ (フリー関数版)
 ```cpp
 namespace std {
-
   template <class Iterator>
   reverse_iterator<Iterator> operator+(typename reverse_iterator<Iterator>::difference_type n,
                                        const reverse_iterator<Iterator>& x);
-
 }
 ```
 
 ##概要
-
-<b>イテレータをN回進める。</b>
-<b>reverse_iteratorなので逆方向に進める。</b>
+イテレータを`N`回進める。
+`reverse_iterator`なので逆方向に進める。
 
 
 ##戻り値
-
 `reverse_iterator<Iterator>(x.current - n)`
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -39,8 +34,7 @@ int main()
 * 1 + it1[color ff0000]
 
 ###出力
-
-```cpp
+```
 2
 ```
 

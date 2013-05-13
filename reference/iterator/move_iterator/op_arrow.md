@@ -4,16 +4,14 @@ pointer operator->() const;
 ```
 
 ##概要
-
-<b>イテレータを通してオブジェクトにアクセスする</b>
+イテレータを通してオブジェクトにアクセスする
 
 
 ##戻り値
+[`base`](/reference/iterator/move_iterator/base.md)`()`
 
-[`base`](/reference/iterator/move_iterator/base.md)()
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -32,32 +30,24 @@ int main()
   std::cout << x << std::endl;
 }
 ```
-* it->[color ff0000]
+
 
 ###出力
-
-```cpp
+```
 0
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
 
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

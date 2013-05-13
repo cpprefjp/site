@@ -8,27 +8,22 @@ namespace std {
 ```
 
 ##概要
-
-<b>範囲から、最後尾要素の次を指すイテレータを取得する。</b>
+範囲から、最後尾要素の次を指すイテレータを取得する。
 
 
 ##戻り値
-
 コンテナの場合：
 `return c.end();`
+
 組み込み配列の場合：
 `return array + N;`
 
 
-
 ##備考
-
-この関数は、範囲for文の実装に使用される。
-
+この関数は、範囲`for`文の実装に使用される。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -65,33 +60,23 @@ int main()
 }
 ```
 * end[color ff0000]
-* end[color ff0000]
 
 ###出力
-
-```cpp
+```
 1 2 3 
 4 5 6 
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

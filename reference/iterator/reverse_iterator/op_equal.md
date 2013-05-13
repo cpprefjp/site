@@ -8,10 +8,12 @@ namespace std {
 ```
 
 ##概要
-<b>2つのreverse_iteratorオブジェクトが同じ要素を指しているかを判定する。</b>
+2つの`reverse_iterator`オブジェクトが同じ要素を指しているかを判定する。
+
 
 ##戻り値
 `x.current == y.current`
+
 
 ##例
 ```cpp
@@ -36,8 +38,9 @@ int main()
 ```
 * it1 == it2[color ff0000]
 
+
 ###出力
-```cpp
+```
 equal
 ```
 

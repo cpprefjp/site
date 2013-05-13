@@ -1,28 +1,22 @@
 #operator- (フリー関数版)
 ```cpp
 namespace std {
-
   template <class Iterator1, class Iterator2>
   auto operator-(const move_iterator<Iterator1>& x,
                  const move_iterator<Iterator2>& y)
     -> decltype(x.base() - y.base());
-
 }
 ```
 * base[link /reference/iterator/move_iterator/base.md]
 
 ##概要
-
-<b>2つのイテレータの差を求める。</b>
-
+2つのイテレータの差を求める。
 
 
 ##戻り値
-
-`return x.[base](/reference/iterator/move_iterator/base.md)() - y.[base](/reference/iterator/move_iterator/base.md)();`
+`return x.`[`base`](./base.md)`() - y.`[`base`](./base.md)`();`
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -46,29 +40,20 @@ int main()
 * it2 - it1[color ff0000]
 
 ###出力
-
-```cpp
+```
 5
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

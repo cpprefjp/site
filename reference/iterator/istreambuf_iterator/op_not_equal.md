@@ -1,25 +1,21 @@
 #operator!=
 ```cpp
 namespace std {
-
   template <class CharT, class Traits>
   bool operator!=(const istreambuf_iterator<CharT, Traits>& a,
                   const istreambuf_iterator<CharT, Traits>& b);
-
 }
 ```
 
 ##概要
-
-<b>2つのistreambuf_iteratorオブジェクトを非等値比較する。</b>
+2つの`istreambuf_iterator`オブジェクトを非等値比較する。
 
 
 ##戻り値
-
 `!a.equal(b)`
 
-##例
 
+##例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -41,11 +37,9 @@ int main()
   }
 }
 ```
-* it1 != last[color ff0000]
 
 ###出力
-
-```cpp
+```
 not equal
 ```
 

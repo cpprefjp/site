@@ -11,8 +11,7 @@ namespace std {
 * unspecified[italic]
 
 ##概要
-
-`istreambuf_iterator`は、`operator++()`でイテレータを進めることにより、ストリームバッファのsbumpc()メンバ関数でストリームからデータを読み込む入力イテレータである。ストリームからの`sgetc()`メンバ関数による読み取りが`Traits::eof()を返した`場合に、イテレータは`end`イテレータと等しくなる。[`istream_iterator`](/reference/iterator/istream_iterator.md)とは異なり、スペースや改行が読み飛ばされることはない。いくつかのメンバ関数は、同じ`streambuf`オブジェクトを参照するためにプロキシオブジェクトを返す。
+`istreambuf_iterator`は、`operator++()`でイテレータを進めることにより、ストリームバッファの`sbumpc()`メンバ関数でストリームからデータを読み込む入力イテレータである。ストリームからの`sgetc()`メンバ関数による読み取りが`Traits::eof()を返した`場合に、イテレータは`end`イテレータと等しくなる。[`istream_iterator`](/reference/iterator/istream_iterator.md)とは異なり、スペースや改行が読み飛ばされることはない。いくつかのメンバ関数は、同じ`streambuf`オブジェクトを参照するためにプロキシオブジェクトを返す。
 
 ###メンバ関数
 
@@ -71,8 +70,9 @@ int main()
 ```
 
 ###出力
-```cpp
-1 2 34 5 6
+```
+1 2 3
+4 5 6
 ```
 
 ###参照

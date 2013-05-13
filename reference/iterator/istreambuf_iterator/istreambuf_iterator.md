@@ -8,15 +8,13 @@ istreambuf_iterator(const proxy& p) noexcept;
 ```
 
 ##istreambuf_iteratorオブジェクトの構築
-
-- <b>istreambuf_iterator()デフォルトコンストラクタメンバ変数として保持するstreambufオブジェクトへのポインタをヌル初期化する。</b>
-- <b>istreambuf_iterator(istreamtype& s) noexcepts.rdbuf()をメンバ変数として保持する。</b>
-- <b>istreambuf_iterator(streambuf_type* s) noexceptsをメンバ変数として保持する</b>
-- <b>istreambuf_iterator(const proxy& p) noexcept後置operator++が返すであろうproxyオブジェクトを受け取り、そのオブジェクトが指すstreambufオブジェクトへのポインタをメンバ変数として保持する</b>
+- `istreambuf_iterator()`<br/>デフォルトコンストラクタメンバ変数として保持する`streambuf`オブジェクトへのポインタをヌル初期化する。
+- `istreambuf_iterator(istreamtype& s) noexcept`<br/>`s.rdbuf()`をメンバ変数として保持する。
+- `istreambuf_iterator(streambuf_type* s) noexcept`<br/>`s`をメンバ変数として保持する
+- `istreambuf_iterator(const proxy& p) noexcept`<br/>後置`operator++()`が返すであろうproxyオブジェクトを受け取り、そのオブジェクトが指す`streambuf`オブジェクトへのポインタをメンバ変数として保持する。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -39,8 +37,7 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 1
 1
 ```

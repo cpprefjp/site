@@ -1,20 +1,19 @@
 #ostreambuf_iterator
-
-| |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|<br/><br/><br/>```cpp
-<br/>namespace std {<br/><br/>  template <class CharT, class Traits = char_traits<CharT> ><br/><br/>  class ostreambuf_iterator<br/><br/>    : public iterator<output_iterator_tag, void, void, void, void><br/><br/>}<br/><br/><br/><br/><br/><br/> |
+```
+namespace std {
+  template <class CharT, class Traits = char_traits<CharT> >
+  class ostreambuf_iterator
+    : public iterator<output_iterator_tag, void, void, void, void>
+}
 ```
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
-
 `ostreambuf_iterator`は出力イテレータであり、代入の際に外部から渡された`ostream`オブジェクトにストリームバッファの`sputc()`メンバ関数で値を出力するイテレータアダプタである。[`ostream_iterator`](/reference/iterator/ostream_iterator.md)がフォーマットされた出力を扱うのに対し、`osteambuf_iterator`はフォーマットなしの生の出力を扱う。
 
 
 ###メンバ関数
-
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
@@ -27,8 +26,6 @@
 
 
 ###メンバ型
-
-
 
 | | |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -43,13 +40,7 @@
 | `reference` | `void` |
 
 
-<b>
-</b>
-
-
 ##例
-
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -67,8 +58,7 @@ int main()
 * ostreambuf_iterator[color ff0000]
 
 ###出力
-
-```cpp
+```
 Hello
 ```
 

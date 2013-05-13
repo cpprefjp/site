@@ -9,31 +9,25 @@ front_insert_iterator<Container>&
 ```
 
 ##概要
-
-<b>値を出力する</b>
-
+値を出力する
 
 
 ##効果
-
-const参照版`container->push_front(value);`
-右辺値参照版container->push_front(std::move(value));
-
+`const`参照版：`container->push_front(value);`
+右辺値参照版： `container->push_front(std::move(value));`
 
 
 ##戻り値
-
-*this
+`*this`
 
 
 
 ##例
-
 ```cpp
 ```
 
 ###出力
-
-```cpp
-##参照
 ```
+```
+
+##参照

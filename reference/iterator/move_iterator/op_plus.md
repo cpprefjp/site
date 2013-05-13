@@ -4,16 +4,14 @@ move_iterator operator+(difference_type n) const;
 ```
 
 ##概要
-
-<b>イテレータをN回進める。</b>
+イテレータを`n`回進める。
 
 
 ##戻り値
+`return move_iterator(`[`base`](./base.md)`() + n);`
 
-`return move_iterator([base](/reference/iterator/move_iterator/base.md)() + n);`
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -35,30 +33,22 @@ int main()
 ```
 * it + 2[color ff0000]
 
-###出力
 
-```cpp
+###出力
+```
 2
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

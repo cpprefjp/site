@@ -1,35 +1,28 @@
 #prev
 ```cpp
 namespace std {
-
   template <class BidirectionalIterator>
   BidirectionalIterator prev(BidirectionalIterator x,
                              typename std::iterator_traits<BidirectionalIterator>::difference_type n = 1);
-
 }
 ```
 
 ##概要
-
-<b>n回逆に進めた</b><b>イテレータを返す</b><b>。</b>
-<b>[advance](/reference/iterator/advance.md)()と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、n回逆に進んだイテレータのコピーを返す。</b>
+`n`回逆に進めたイテレータを返す。
+[`advance`](/reference/iterator/advance.md)`()`と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回逆に進んだイテレータのコピーを返す。
 
 
 
 ##効果
-
-`[advance](/reference/iterator/advance.md)(x, -n);`<br style='color:rgb(0,0,0)'/>`return x;`
-
+[`advance`](/reference/iterator/advance.md)`(x, -n);`
+`return x;`
 
 
 ##戻り値
-
-引数として渡されたイテレータをn回逆に進めたイテレータのコピー
-
+引数として渡されたイテレータを`n`回逆に進めたイテレータのコピー
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -50,33 +43,23 @@ int main()
 }
 ```
 * prev[color ff0000]
-* prev[color ff0000]
 
 ###出力
-
-```cpp
+```
 2
 5
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

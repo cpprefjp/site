@@ -1,7 +1,6 @@
 #iterator_traits
 ```cpp
 namespace std {
-
   template <class Iterator>
   struct iterator_traits {
     typedef typename Iterator::difference_type difference_type;
@@ -14,7 +13,6 @@ namespace std {
   // ポインタに対する特殊化
   template <class T>
   struct iterator_traits<T*> {
-
     typedef ptrdiff_t difference_type;
     typedef T value_type;
     typedef T* pointer;
@@ -34,7 +32,6 @@ namespace std {
 ```
 
 ##概要
-
 イテレータに関する型情報を取得するクラス。
 イテレータが指す値型、分類を取得でき、ポインタに対しても一様に適用できる。
 
@@ -94,8 +91,7 @@ int main()
 * std::iterator_traits<Iterator>::value_type[color ff0000]
 
 ###出力
-
-```cpp
+```
 15
 15
 ```

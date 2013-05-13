@@ -1,26 +1,21 @@
 #operator==
 ```cpp
 namespace std {
-
   template <class T, class CharT, class Traits, class Distance>
   bool operator==(const istream_iterator<T, CharT, Traits, Distance>& x,
                   const istream_iterator<T, CharT, Traits, Distance>& y);
-
 }
 ```
 
 ##概要
-
-<b>2つのistream_iteratorオブジェクトを等値比較する</b>
+2つの`istream_iterator`オブジェクトを等値比較する
 
 
 ##戻り値
-
 `x`と`y`がどちらも同じ有効な入力ストリームオブジェクトを指す場合、もしくはどちらも無効な入力ストリームオブジェクトを指す場合は`true`を返し、そうでなければ`false`を返す。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -46,13 +41,9 @@ int main()
   std::cout << "it1 == last : " << (it1 == last) << std::endl;
 }
 ```
-* it1 == it2[color ff0000]
-* it1 == last[color ff0000]
-* it1 == last[color ff0000]
 
 ###出力
-
-```cpp
+```
 it1 == it2 : true
 it1 == last : false
 it1 == last : true

@@ -4,16 +4,14 @@ reference operator*() const;
 ```
 
 ##概要
-
-<b>イテレータを間接参照し、ムーブして返す。</b>
+イテレータを間接参照し、ムーブして返す。
 
 
 ##戻り値
-
 `std::move(*base())`
 
-##例
 
+##例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -32,32 +30,22 @@ int main()
   std::cout << *p << std::endl;
 }
 ```
-* *it[color ff0000]
 
 ###出力
-
-```cpp
+```
 0
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

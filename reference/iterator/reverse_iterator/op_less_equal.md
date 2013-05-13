@@ -1,26 +1,21 @@
 #operator<=
 ```cpp
 namespace std {
-
   template <class Iterator1, class Iterator2>
   bool operator<=(const reverse_iterator<Iterator1>& x,
                   const reverse_iterator<Iterator2>& y);
-
 }
 ```
 
 ##概要
-
-<b>2つのreverse_iteratorオブジェクトにおいて、左辺が右辺以下かを判定する。</b>
-
+2つの`reverse_iterator`オブジェクトにおいて、左辺が右辺以下かを判定する。
 
 
 ##戻り値
-
 `x.current >= y.current`
 
-##例
 
+##例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -44,8 +39,7 @@ int main()
 * it1 <= it2[color ff0000]
 
 ###出力
-
-```cpp
+```
 less
 ```
 

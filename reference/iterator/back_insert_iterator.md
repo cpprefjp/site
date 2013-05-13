@@ -11,8 +11,7 @@ namespace std {
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
-
-`back_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_back`メンバ関数を呼び出すイテレータアダプタである。
+`back_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_back()`メンバ関数を呼び出すイテレータアダプタである。
 
 ###メンバ関数
 
@@ -73,7 +72,7 @@ int main()
 * back_inserter[color ff0000]
 
 ###出力
-```cpp
+```
 123
 ```
 

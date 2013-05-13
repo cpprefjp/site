@@ -4,17 +4,14 @@ Iterator base() const;
 ```
 
 ##概要
-
-<b>メンバ変数として保持している、元のイテレータを取得する。</b>
-
+メンバ変数として保持している、元のイテレータを取得する。
 
 
 ##戻り値
-
 `current`
 
-##例
 
+##例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -33,8 +30,7 @@ int main()
 * base[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 ```
 

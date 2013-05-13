@@ -8,22 +8,20 @@ namespace std {
 ```
 
 ##概要
-
-<b>n回進めたイテレータを返す。</b>
-<b>[advance](/reference/iterator/advance.md)()と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、n回進んだイテレータのコピーを返す。</b>
+`n`回進めたイテレータを返す。
+[`advance`](/reference/iterator/advance.md)`()`と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回進んだイテレータのコピーを返す。
 
 
 ##効果
+[`advance`](/reference/iterator/advance.md)`(x, n);`
+`return x;`
 
-`[advance](/reference/iterator/advance.md)(x, n);``return x;`
 
 ##戻り値
-
-引数として渡されたイテレータをn回進めたイテレータのコピー
+引数として渡されたイテレータを`n`回進めたイテレータのコピー
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -44,27 +42,18 @@ int main()
 }
 ```
 * next[color ff0000]
-* next[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 4
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -72,9 +61,7 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##参照
-
 [boost::next() - Boost Utility Library](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#functions_next_prior)
 
 

@@ -4,18 +4,14 @@ const T* operator->() const;
 ```
 
 ##概要
-
-<b>イテレータを通してオブジェクトにアクセスする</b>
+イテレータを通してオブジェクトにアクセスする
 
 
 ##戻り値
-
-&(operator*())
-
+`&(operator*())`
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -39,8 +35,7 @@ int main()
 * it->c_str()[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 2
 3

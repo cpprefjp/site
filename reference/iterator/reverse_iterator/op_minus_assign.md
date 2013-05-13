@@ -5,24 +5,19 @@ reverse_iterator&
 ```
 
 ##概要
-
-<b>イテレータ自身をN回逆に進める。</b>
-<b>reverse_iteratorなので進める。</b>
+イテレータ自身を`n`回逆に進める。
+`reverse_iterator`なので進める。
 
 
 ##効果
-
-current += n
-
+`current += n`
 
 
 ##戻り値
-
-*this
+`*this`
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -42,8 +37,7 @@ int main()
 * it -= 1[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 ```
 

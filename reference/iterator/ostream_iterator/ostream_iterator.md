@@ -6,13 +6,11 @@ ostream_iterator(const ostream_iterator<T, CharT, Traits>& x) = default;
 ```
 
 ##ostream_iteratorオブジェクトの構築
-
-- <b>ostream_iterator(ostream_type& s)<b><b>出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列はヌルとなる。</b></b></b>
-- <b><b><b>ostream_iterator(ostream_type& s, const CharT* delimiter)<b><b><b>出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列を受け取り、メンバ変数に保持する。</b></b></b></b></b></b>
+- `ostream_iterator(ostream_type& s)`<br/>出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列はヌルとなる。
+- `ostream_iterator(ostream_type& s, const CharT* delimiter)`<br/>出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列を受け取り、メンバ変数に保持する。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -33,8 +31,7 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 123
 1,2,3,
 ```
