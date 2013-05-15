@@ -59,17 +59,14 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
 - C++11
 
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.4.0
 
 
