@@ -35,8 +35,8 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| `template <class E>` `const E* begin(initializer_list<E> il) noexcept;` | 先頭要素へのポインタを取得する |
-| `template <class E>` `const E* end(initializer_list<E> il) noexcept;` | 最後尾要素の次を指すポインタを取得する |
+| `template <class E>`<br/>`const E* begin(initializer_list<E> il) noexcept;` | 先頭要素へのポインタを取得する |
+| `template <class E>`<br/>`const E* end(initializer_list<E> il) noexcept;` | 最後尾要素の次を指すポインタを取得する |
 
 
 ##例
