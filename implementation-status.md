@@ -32,11 +32,11 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 | `auto` | 型推論 | 4.4 | 2.9 | 12.0 | 10.0 |
 | C99互換のプリプロセッサ | 可変引数マクロ等 | 4.3 | 2.9 | 11.1 | 8.0 (partial) 可変引数のみ `_Pragma`の代わりに`__pragma`が存在する。 |
 | `constexpr` | 定数式 | 4.6 | 3.1 | 13.0 (partial) | No |
-| `decltype` | 式の型を取得 | 4.3 | 2.9 |13.0 | 10.0 (partial)<br/> 11.0 |
+| `decltype` | 式の型を取得 | 4.3 | 2.9 | 13.0 | 10.0 (partial)<br/> 11.0 |
 | 関数の`default/delete`宣言 | 自動定義される特殊関数の制御 | 4.4 | 3.0 | 12.0 | No |
 | 移譲コンストラクタ | コンストラクタから他のコンストラクタに処理を移譲する | 4.7 | 3.0 | No | 11.0のupdate 2012 Nov |
 | `explicit operator T()` | 明示的型変換の演算子 | 4.5 | 3.0 | No | 11.0のupdate 2012 Nov |
-| 拡張`friend`宣言 | テンプレートパラメータや`typedef`名を`friend`宣言 | 4.7 | 2.9 | 11.1 (partial) <br /> 12.0 | No |
+| 拡張`friend`宣言 | テンプレートパラメータや`typedef`名を`friend`宣言 | 4.7 | 2.9 | 11.1 (partial) <br/> 12.0 | No |
 | `extern template` | テンプレートのインスタンス化抑止 | 3.3 | 2.9 | 11.1 | 6.0 |
 | `enum`の先行宣言 |  | 4.6 | 3.1 | 11.1 (partial) | 11.0 |
 | 継承コンストラクタ | 基本クラスのコンストラクタを継承 | 4.8 | 3.3 | No | No |
@@ -44,7 +44,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 | ローカルクラスと無名クラスを、テンプレート引数として使用する |  | 4.5 | 2.9 | 12.0 | 10.0 |
 | `long long`型 | `long`以上の大きさを持つ整数型 | 4.3 | 2.9 | 11.1 | 7.1 |
 | `inline namespace` | ネストした名前空間に、透過的にアクセスする | 4.4 | 2.9 | | No |
-| `char16_t`、`char32_t`型 | UTF-16とUTF-32の文字型 | 4.4 | 2.9 | 12.1 (Windows: partial) <br /> 12.1 (GNU/Linux, OS X) | No<br/> 10.0より同名のtypedefが存在する |
+| `char16_t`、`char32_t`型 | UTF-16とUTF-32の文字型 | 4.4 | 2.9 | 12.1 (Windows: partial) <br/> 12.1 (GNU/Linux, OS X) | No<br/> 10.0より同名のtypedefが存在する |
 | 戻り値の型を後置する関数宣言構文 | 以下のような形式での関数宣言<br/> `auto f(arg_types...) -> return_type` | 4.4 | 2.9 | 12.0 | 10.0 |
 | `nullptr` | ヌルポインタを表すポインタリテラル | 4.6 | 2.9 | 11.1 | 10.0 |
 | Unicode文字列リテラル | uプレフィックスでUTF-16 (`char16_t`)<br/> UプレフィックスでUTF-32 (`char32_t`)<br/> u8プレフィックスでUTF-8 (`char`) | 4.5 | 3.0 | No | No |
