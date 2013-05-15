@@ -9,20 +9,18 @@ void assign(initializer_list<T>);  // C++11
 ```
 
 ##概要
-<b>コンテナの再代入</b>
+コンテナの再代入
 
-- <b>template <class InputIterator>void assign(InputIterator first, InputIterator last);</b><b>範囲を代入。効果：</b><b>clear();insert(begin(), first, last);</b>
-- <b>void assign(size_type n, const T& t);n 個の値 t を代入。効果：clear();insert(begin(), n, t);</b>
-- <b>void assign(initializer_list<T> init);初期化子リストを代入。効果：clear();insert(begin(), init.begin(), init.end());</b>
+- `template <class InputIterator>`<br/>`void assign(InputIterator first, InputIterator last);`<br/>範囲を代入。<br/>効果：<br/>`clear();`<br/>`insert(begin(), first, last);`
+- `void assign(size_type n, const T& t);`<br/>`n` 個の値 `t` を代入。<br/>効果：<br/>`clear();`<br/>`insert(begin(), n, t);`
+- `void assign(initializer_list<T> init);`<br/>初期化子リストを代入。<br/>効果：<br/>`clear();`<br/>`insert(begin(), init.begin(), init.end());`
 
 
 ##戻り値
-
 なし
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <list>
@@ -67,12 +65,9 @@ int main()
 }
 ```
 * assign[color ff0000]
-* assign[color ff0000]
-* assign[color ff0000]
 
 ###出力
-
-```cpp
+```
 ls1 : 1 2 3 
 ls2 : 1 1 1 
 ls3 : 1 2 3 

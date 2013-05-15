@@ -15,20 +15,18 @@ list(initializer_list<T>, const Allocator& = Allocator());
 ```
 
 ##list オブジェクトの構築
-
-- <b>explicit list(const Allocator& = Allocator());デフォルトコンストラクタ。アロケータを指定して空のコンテナを作る。計算量： 定数時間</b>
-- <b>list(size_type n, const T& value, const Allocator& = Allocator());value のコピーを n 個要素として保持した list を構築する。計算量： n に対して線形時間</b>
-- <b>template <class InputIterator>list(InputIterator first, InputIterator last, const Allocator& = Allocator());[first, last) の範囲を要素としてコピーした list を構築する。計算量： distance(first, last) に対して線形時間</b>
-- <b>list(const list& x);コピーコンストラクタ。x と同じ要素を保持した list を構築する。</b>
-- <b>explicit list(size_type n);n 個の T() 初期化された要素を保持した list を構築する。計算量： n に対して線形時間</b>
-- <b>list(list&& x);ムーブコンストラクタ。x の指す先を自分の領域として list を構築する。</b>
-- <b>list(const list& x, const Allocator&);アロケータを指定したコピーコンストラクタ。</b>
-- <b>list(list&& x, const Allocator&);アロケータを指定したムーブコンストラクタ。</b>
-- <b>list(initializer_list<T>, const Allocator& = Allocator());初期化子リストを受け取るコンストラクタ。</b>
+- `explicit list(const Allocator& = Allocator());`<br/>デフォルトコンストラクタ。アロケータを指定して空のコンテナを作る。<br/>計算量： 定数時間
+- `list(size_type n, const T& value, const Allocator& = Allocator());`<br/>`value` のコピーを `n` 個要素として保持した `list` を構築する。<br/>計算量： `n` に対して線形時間
+- `template <class InputIterator>`<br/>`list(InputIterator first, InputIterator last, const Allocator& = Allocator());`<br/>`[first, last)` の範囲を要素としてコピーした `list` を構築する。<br/>計算量： `distance(first, last)` に対して線形時間
+- `list(const list& x);`<br/>コピーコンストラクタ。`x` と同じ要素を保持した `list` を構築する。
+- `explicit list(size_type n);`<br/>`n` 個の `T()` 初期化された要素を保持した `list` を構築する。<br/>計算量： `n` に対して線形時間
+- `list(list&& x);`<br/>ムーブコンストラクタ。`x` の指す先を自分の領域として `list` を構築する。
+- `list(const list& x, const Allocator&);`<br/>アロケータを指定したコピーコンストラクタ。
+- `list(list&& x, const Allocator&);`<br/>アロケータを指定したムーブコンストラクタ。
+- `list(initializer_list<T>, const Allocator& = Allocator());`<br/>初期化子リストを受け取るコンストラクタ。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <list>
@@ -78,8 +76,7 @@ int main ()
 ```
 
 ###出力
-
-```cpp
+```
 ls1 : 
 ls2 : 0 0 0 
 ls3 : 1 1 1 

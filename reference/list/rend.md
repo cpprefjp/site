@@ -1,27 +1,22 @@
 #rend
 ```cpp
 reverse_iterator rend() noexcept;
-
 const_reverse_iterator rend() const noexcept;
 ```
 
 ##概要
-
-<b>先頭要素の前を指す逆イテレータを取得する。</b>
+先頭要素の前を指す逆イテレータを取得する。
 
 
 ##戻り値
-
 先頭要素の前を指す逆イテレータ
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <list>
@@ -47,11 +42,9 @@ int main()
 }
 ```
 * rend[color ff0000]
-* rend[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 2
 1

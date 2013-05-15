@@ -1,27 +1,22 @@
 #end
 ```cpp
 iterator end() noexcept;
-
 const_iterator end() const noexcept;
 ```
 
 ##概要
-
-<b>末尾の次を指すイテレータを取得する。</b>
+末尾の次を指すイテレータを取得する。
 
 
 ##戻り値
-
 末尾の次を指すイテレータ
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <list>
@@ -47,11 +42,9 @@ int main()
 }
 ```
 * end[color ff0000]
-* end[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 2
 3
