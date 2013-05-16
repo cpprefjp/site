@@ -47,7 +47,7 @@ namespace std {
 | `static const category numeric = 0x80;` | 数値ファセット |
 | `static const category time = 0x100;` | 日時ファセット |
 | `static const category messages = 0x200;` | メッセージファセット |
-| `static const category all =   collate` <code>                            &#x7C; </code>`ctype` <code>                            &#x7C; monetary</code> <code>                            &#x7C; numeric</code> <code>                            &#x7C; time</code> <code>                            &#x7C; messages;</code> | 全てのファセット |
+| `static const category all =   collate`<br/> <code>                            &#x7C; </code>`ctype`<br/> <code>                            &#x7C; monetary</code><br/> <code>                            &#x7C; numeric</code><br/> <code>                            &#x7C; time</code><br/> <code>                            &#x7C; messages;</code> | 全てのファセット |
 
 
 ##例
@@ -55,6 +55,7 @@ namespace std {
 ```
 
 ###出力
-```cpp
-###参照
 ```
+```
+
+###参照

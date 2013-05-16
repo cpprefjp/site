@@ -31,7 +31,7 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------|--|
-| `static [locale::id](/reference/locale/locale/id.md) id;` |  |
+| `static `[`locale::id`](/reference/locale/locale/id.md)` id;` |  |
 
 ###protectedメンバ関数
 
@@ -53,11 +53,11 @@ namespace std {
 | `char_type` | 文字型 `charT` |
 
 ###例
-
 ```cpp
 ```
 
 ###出力
-```cpp
-###参照
 ```
+```
+
+###参照

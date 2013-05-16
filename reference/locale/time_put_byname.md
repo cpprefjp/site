@@ -9,7 +9,6 @@ namespace std {
 * time_put[link /reference/locale/time_put.md]
 
 ##概要
-
 (ここに、クラスの概要を記載する)
 
 ###publicメンバ関数
@@ -28,15 +27,15 @@ namespace std {
 
 | | |
 |-----------------------------------------------------------------------|----------------------------------------------------------|
-| char_type | 文字型 `charT` |
-| iter_type | 出力のイテレータ型 `OutputIterator` |
+| `char_type` | 文字型 `charT` |
+| `iter_type` | 出力のイテレータ型 `OutputIterator` |
 
 ###例
-
 ```cpp
 ```
 
 ###出力
-```cpp
-###参照
 ```
+```
+
+###参照

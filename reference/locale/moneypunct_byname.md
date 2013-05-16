@@ -26,15 +26,15 @@ namespace std {
 
 | | |
 |-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pattern` | 金額のフォーマット型 `[money_base](/reference/locale/money_base.md)::pattern` |
-| string_type | 文字列型 `[basic_string](/reference/string/basic_string.md)<charT>` |
+| `pattern` | 金額のフォーマット型 [`money_base`](/reference/locale/money_base.md)`::pattern` |
+| `string_type` | 文字列型 [`basic_string`](/reference/string/basic_string.md)`<charT>` |
 
 ###例
-
 ```cpp
 ```
 
 ###出力
-```cpp
-###参照
 ```
+```
+
+###参照

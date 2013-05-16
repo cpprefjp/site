@@ -27,23 +27,21 @@ namespace std {
 
 | | |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `byte_string` | バイト列型 `std::[basic_string](/reference/string/basic_string.md)<char, [char_traits](/reference/string/char_traits.md)<char>, Byte_alloc>` |
-| `wide_string` | ワイド文字列型 `std::[basic_string](/reference/string/basic_string.md)<Elem, [char_traits](/reference/string/char_traits.md)<Elem>, Wide_alloc>` |
+| `byte_string` | バイト列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<char, `[`char_traits`](/reference/string/char_traits.md)`<char>, Byte_alloc>` |
+| `wide_string` | ワイド文字列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<Elem, `[`char_traits`](/reference/string/char_traits.md)`<Elem>, Wide_alloc>` |
 | `state_type` | ストリームのマルチバイト文字の変換の状態を表す型 `Codecvt::state_type` |
 | `int_type` | 文字に対応する値を表す数値型 `wide_string::traits_type::int_type` |
 
 ###例
-
 ```cpp
 ```
 
 ###出力
-```cpp
-##バージョン
+```
 ```
 
+##バージョン
 ###言語
-
 - C++11:
 
 ###参照

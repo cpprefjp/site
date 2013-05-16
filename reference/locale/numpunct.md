@@ -25,7 +25,7 @@ namespace std {
 
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
-| static [locale::id](/reference/locale/locale/id.md) id; |  |
+| `static `[`locale::id`](/reference/locale/locale/id.md)` id;` |  |
 
 ###protectedメンバ関数
 
@@ -53,34 +53,34 @@ namespace std {
 
 void print_punct(std::locale&& loc)
 {
-    std::cout << loc.name() << std::endl;
+  std::cout << loc.name() << std::endl;
 
-    const std::numpunct<char>& punct = std::use_facet<std::numpunct<char> >(loc);
+  const std::numpunct<char>& punct = std::use_facet<std::numpunct<char> >(loc);
 
-    // 小数点文字
-    std::cout << punct.decimal_point() << std::endl;
+  // 小数点文字
+  std::cout << punct.decimal_point() << std::endl;
 
-    // 桁区切り文字
-    std::cout << punct.thousands_sep() << std::endl;
+  // 桁区切り文字
+  std::cout << punct.thousands_sep() << std::endl;
 
-    // 何桁で区切るかの、桁数のシーケンス
-    std::cout << static_cast<int>(punct.grouping()[0]) << std::endl;
+  // 何桁で区切るかの、桁数のシーケンス
+  std::cout << static_cast<int>(punct.grouping()[0]) << std::endl;
 
-    std::cout << std::endl;
+  std::cout << std::endl;
 }
 
 int main()
 {
-    // 日本語
-    print_punct(std::locale("Japanese"));
+  // 日本語
+  print_punct(std::locale("Japanese"));
 
-    // ドイツ語
-    print_punct(std::locale("German"));
+  // ドイツ語
+  print_punct(std::locale("German"));
 }
 ```
 
 ###出力例
-```cpp
+```
 Japanese_Japan.932
 .
 ,

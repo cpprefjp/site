@@ -26,15 +26,15 @@ namespace std {
 
 | | |
 |-------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| char_type | 文字型 `charT` |
-| string_type | 文字列型 `[basic_string](/reference/string/basic_string.md)<charT>` |
+| `char_type` | 文字型 `charT` |
+| `string_type` | 文字列型 [`basic_string`](/reference/string/basic_string.md)`<charT>` |
 
 ###例
-
 ```cpp
 ```
 
 ###出力
-```cpp
-###参照
 ```
+```
+
+###参照

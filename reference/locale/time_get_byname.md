@@ -27,15 +27,15 @@ namespace std {
 
 | | |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `dateorder` | 日付の表記順を表す列挙型 `[time_base](/reference/locale/time_base.md)::dateorder` |
+| `dateorder` | 日付の表記順を表す列挙型 [`time_base`](/reference/locale/time_base.md)`::dateorder` |
 | `iter_type` | 入力のイテレータ型 `InputIterator` |
 
 ###例
-
 ```cpp
 ```
 
 ###出力
-```cpp
-###参照
 ```
+```
+
+###参照

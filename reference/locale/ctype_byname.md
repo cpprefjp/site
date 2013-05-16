@@ -29,11 +29,11 @@ namespace std {
 | `mask` | ビットマスク型 `ctype<charT>::mask` |
 
 ###例
-
 ```cpp
 ```
 
 ###出力
-```cpp
-###参照
 ```
+```
+
+###参照

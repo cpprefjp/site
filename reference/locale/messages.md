@@ -9,7 +9,6 @@ namespace std {
 * messages_base[link /reference/locale/messages_base.md]
 
 ##概要
-
 (ここに、クラスの概要を記載する)
 
 ###publicメンバ関数
@@ -25,7 +24,7 @@ namespace std {
 
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
-| static [locale::id](/reference/locale/locale/id.md) id; |  |
+| `static `[`locale::id`](/reference/locale/locale/id.md)` id;` |  |
 
 ###protectedメンバ関数
 
@@ -40,15 +39,15 @@ namespace std {
 
 | | |
 |-------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| char_type | 文字型 `charT` |
-| string_type | 文字列型 `[basic_string](/reference/string/basic_string.md)<charT>` |
+| `char_type` | 文字型 `charT` |
+| `string_type` | 文字列型 [`basic_string`](/reference/string/basic_string.md)`<charT>` |
 
 ###例
-
 ```cpp
 ```
 
 ###出力
-```cpp
-###参照
 ```
+```
+
+###参照
