@@ -15,12 +15,10 @@ namespace std {
 * weak_ptr[link /reference/memory/weak_ptr.md]
 
 ##概要
-
 (ここに、クラスの概要を記載する)
 
 
 ##shared_ptr版
-
 ###メンバ関数
 
 | | |
@@ -32,11 +30,10 @@ namespace std {
 | | |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | `result_type` | 戻り値型`bool` |
-| `first_argument_type` | 第1引数型`[shared_ptr](/reference/memory/shared_ptr.md)<T>` |
-| `second_argument_type` | 第2引数型`[shared_ptr](/reference/memory/shared_ptr.md)<T>` |
+| `first_argument_type` | 第1引数型[`shared_ptr`](/reference/memory/shared_ptr.md)`<T>` |
+| `second_argument_type` | 第2引数型[`shared_ptr](/reference/memory/shared_ptr.md)`<T>` |
 
 ##weak_ptr版
-
 ###メンバ関数
 
 | | |
@@ -48,8 +45,8 @@ namespace std {
 | | |
 |-----------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | `result_type` | 戻り値型`bool` |
-| `first_argument_type` | 第1引数型`[weak_ptr](/reference/memory/weak_ptr.md)<T>` |
-| `second_argument_type` | 第2引数型`[weak_ptr](/reference/memory/weak_ptr.md)<T>` |
+| `first_argument_type` | 第1引数型[`weak_ptr`](/reference/memory/weak_ptr.md)`<T>` |
+| `second_argument_type` | 第2引数型[`weak_ptr`](/reference/memory/weak_ptr.md)`<T>` |
 
 
 ##例
@@ -57,12 +54,11 @@ namespace std {
 ```
 
 ###出力
-```cpp
-##バージョン
+```
 ```
 
+##バージョン
 ###言語
-
 - C++11:
 
 ###参照

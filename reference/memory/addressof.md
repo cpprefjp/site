@@ -7,26 +7,21 @@ namespace std {
 ```
 
 ##概要
+変数へのアドレスを必ず取得する。
 
-<b>変数へのアドレスを必ず取得する。</b>
-<b></b>
-<b>operator& をオーバーロードしたクラスなどであっても、正しくそのオブジェクトのアドレスが欲しいという要求がある。
-addressof()は、operator& がオーバーロードされていても、変数のアドレスを取得できる。
-</b>
+`operator&()` をオーバーロードしたクラスであっても、正しくそのオブジェクトのアドレスが欲しいという要求がある。
+`addressof()関数`は、`operator&()` がオーバーロードされていても、変数のアドレスを取得できる。
 
 
 ##戻り値
-
 変数`r`へのポインタを返す
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <memory>
 #include <iostream>
@@ -54,24 +49,16 @@ int main()
 }
 ```
 * addressof[color ff0000]
-* addressof[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -79,8 +66,6 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##参照
-
 [boost::addressof() - Boost C++ Libraries](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#addressof)
 

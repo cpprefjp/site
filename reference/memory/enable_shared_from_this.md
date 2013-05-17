@@ -25,6 +25,7 @@ namespace std {
 |-------------------------------|------------------------------------------------------------------------|
 | `shared_from_this` | `this`ポインタを`shared_ptr`に変換する |
 
+
 ###例
 ```cpp
 #include <memory>
@@ -63,18 +64,20 @@ int main() {
 ```
 
 ###出力例
-```cpp
-'good' use count = 2'bad'  use count = 1bad::~badbad::~bad*** glibc detected *** ./prog: double free or corruption (fasttop): 0x0000000 ***
+```
+'good' use count = 2
+'bad' use count = 1
+bad::~bad
+bad::~bad
+
+*** glibc detected *** ./prog: double free or corruption (fasttop): 0x0000000 ***
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.4.0

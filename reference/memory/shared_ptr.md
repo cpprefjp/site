@@ -1,38 +1,24 @@
 #shared_ptr
 ```cpp
 namespace std {
-
   template <class T>
-
   class shared_ptr;
-
 }
 ```
 
 ##概要
-
-
-`shared_ptr`はオブジェクトのライフタイムを管理するスマートポインタである。
-
-`shared_ptr`はコピーに対応しており、`shared_ptr`自身が一体いくつの変数から自身が管理するインスタンスを参照しているのかをカウントしている。
-
-このカウントが 0 になる、つまりどの変数からも参照されなくなった瞬間、`shared_ptr`は自身が管理していたインスタンスをデリータによって削除する。
-
-
-`shared_ptr`は非常に有用だが、循環参照が発生した場合、正しくインスタンスを削除することができなくなってしまう。
-
+`shared_ptr`はオブジェクトのライフタイムを管理するスマートポインタである。 
+`shared_ptr`はコピーに対応しており、`shared_ptr`自身が一体いくつの変数から自身が管理するインスタンスを参照しているのかをカウントしている。 
+このカウントが 0 になる、つまりどの変数からも参照されなくなった瞬間、`shared_ptr`は自身が管理していたインスタンスをデリータによって削除する。 
+`shared_ptr`は非常に有用だが、循環参照が発生した場合、正しくインスタンスを削除することができなくなってしまう。 
 これは `weak_ptr`クラスと併用することで解決できることがある。
-
-
 
 
 ###メンバ関数
 
-
-
 | | |
 |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `(constructor)` | 受け取ったポインタ ptr を参照カウンタを使用し管理する。<br/> 削除するためのデリータを引数に指定可能である。<br/> また`weak_ptr`、`unique_ptr`、`auto_ptr` から構築可能。 |
+| `(constructor)` | 受け取ったポインタ ptr を参照カウンタを使用し管理する。<br/> 削除するためのデリータを引数に指定可能である。<br/> また、`weak_ptr`、`unique_ptr`、`auto_ptr` から構築可能。 |
 | `(destructor)` | この時点で他のどこからも参照されていなかった場合、デストラクタはデリータに管理しているインスタンスを渡して削除する |
 | `operator=` | 代入された`shared_ptr`、`unique_ptr`、`auto_ptr`の管理するインスタンスを新しく管理する |
 | `reset` | 管理していたインスタンスを除外する。<br/> 新しいインスタンスが渡されていればそちらの管理を行う。 |
@@ -46,12 +32,12 @@ namespace std {
 | `owner_before` | `shared_ptr`で管理しているオブジェクトを連想コンテナで並べ替えるときに使用する |
 
 
-
 ###メンバ型
 
 | | |
 |---------------------------|----------------------------------------------------|
 | `element_type` | 管理するインスタンスの型`T` |
+
 
 ###非メンバ関数
 
@@ -71,16 +57,14 @@ namespace std {
 | `allocate_shared` | アロケータを指定して`shared_ptr`を構築するヘルパ関数 |
 
 
-
 ###アトミックアクセス(非メンバ関数)
-
 
 | | |
 |-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | `atomic_is_lock_free` | 指定されたオブジェクトがロックフリーに振る舞うことができるかを調べる |
 | `atomic_store` | 値を書き込む |
 | `atomic_store_explicit` | メモリオーダーを指定して値を書き込む |
-| atomic_load | 値を読み込む |
+| `atomic_load` | 値を読み込む |
 | `atomic_load_explicit` | メモリオーダーを指定して値を読み込む |
 | `atomic_exchange` | 値を入れ替える |
 | `atomic_exchange_explicit` | メモリオーダーを指定して値を入れ替える |
@@ -90,17 +74,18 @@ namespace std {
 | `atomic_compare_exchange_strong_explicit` | 強い比較でメモリオーダーを指定して値の入れ替えを行う |
 
 
-<b>例</b>
-
+###例
 ```cpp
 #include <memory>
 #include <iostream>
  
-std::unique_ptr<int> make_instance() {
+std::unique_ptr<int> make_instance()
+{
   return std::unique_ptr<int>(new int(42));
 }
  
-int main() {
+int main()
+{
   auto dp = make_instance();
  
   // unique_ptrから構築
@@ -122,26 +107,21 @@ int main() {
 }
 ```
 
-<b>出力例</b>
-
-
-```cpp
+###出力例
+```
 sp1 address : 0x8b85008
-
 sp2 address : 0x8b85008
-
 value = 42
 ```
 
-<b>言語のバージョン</b>
+##バージョン
+###言語
+- C++11
 
+###処理系
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.4(used boost::shared_ptr code)
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): 10.0
 
-C++11
-
-
-<b>開発環境</b>
-
-
-GCC 4.4 C++0x mode (used boost::shared_ptr code)
-
-Visual C++ 10.0

@@ -7,8 +7,8 @@ namespace std {
 ```
 
 ##概要
-
 `shared_ptr`自身を保有する必要はないが、`shared_ptr`が管理するインスタンスが破棄された後にも参照する場合がある。その場合、`shared_ptr`が破棄されているのかを確認する術が欲しい。`weak_ptr`は、対象となる`shared_ptr`を監視し、`weak_ptr`から監視対象の`shared_ptr`の取得や、`shared_ptr`が全て破棄されインスタンスが無効化されたことの確認などができる。
+
 
 ###メンバ関数
 
@@ -24,11 +24,13 @@ namespace std {
 | `lock` | 監視対象の`shared_ptr`オブジェクトを取得する |
 | `owner_before` | `shared_ptr`で管理しているオブジェクトを連想コンテナで並べ替えるときに使用する |
 
+
 ###メンバ型
 
 | | |
 |---------------------------|----------------------------------------------------|
 | `element_type` | 管理するインスタンスの型`T` |
+
 
 ###非メンバ関数
 
@@ -59,24 +61,21 @@ int main() {
 ```
 
 ###出力
-```cpp
-get weak_ptr value : 42shared_ptr managed object deleted.
+```
+get weak_ptr value : 42
+shared_ptr managed object deleted.
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.4
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) 10.0
-
 
 ###参照
 

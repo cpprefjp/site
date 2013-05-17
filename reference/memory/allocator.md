@@ -1,12 +1,12 @@
 #allocator
 ```cpp
-namespace std {  template<class T> class allocator;
+namespace std {
+  template<class T> class allocator;
   template<> class allocator<void>;
 }
 ```
 
 ##概要
-
 標準ライブラリ内では、主にコンテナがメモリの動的確保/解放を行っているが、メモリアロケータはプログラマが独自に実装しコンテナなどでアロケータとして使用できる。`allocator`クラスは、メモリアロケータの標準の実装を提供する。標準のコンテナやスマートポインタなどは、デフォルトで`allocator`クラスをメモリアロケータとして使用している。
 
 ###メンバ関数
@@ -23,6 +23,7 @@ namespace std {  template<class T> class allocator;
 | `construct` | 引数を元にインスタンスを構築 |
 | `destroy` | インスタンスの破棄 |
 
+
 ###メンバ型
 
 | | |
@@ -35,6 +36,7 @@ namespace std {  template<class T> class allocator;
 | `const_reference` | 読み取り専用の要素の参照型 `const T&` |
 | `value_type` | 要素の型 `T` |
 | `rebind<U>` | 型`U`を確保するように再束縛する |
+
 
 ###非メンバ関数
 
@@ -72,14 +74,9 @@ int main(int argc, char** argv) {
 ```
 
 ###出力
-```cpp
-0 1 2 3 4 5 6 7 8 9
 ```
-
-##バージョン
-
-- GCC: 4.4.6
-- Visual C++ : 10.0
+0 1 2 3 4 5 6 7 8 9 
+```
 
 ###参照
 

@@ -13,10 +13,10 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| `bad_weak_ptr() noexcept;` `bad_weak_ptr(const bad_weak_ptr&) noexcept;` | コンストラクタ |
-| virtual ~bad_weak_ptr() = default; | デストラクタ |
-| bad_weak_ptr& operator=(const bad_weak_ptr&) noexcept; | 代入演算子 |
-| virtual const char* what() const noexcept; | エラー内容を取得する。文字列`"bad_weak_ptr"`が返される |
+| `bad_weak_ptr() noexcept;`<br/>`bad_weak_ptr(const bad_weak_ptr&) noexcept;` | コンストラクタ |
+| `virtual ~bad_weak_ptr() = default;` | デストラクタ |
+| `bad_weak_ptr& operator=(const bad_weak_ptr&) noexcept;` | 代入演算子 |
+| `virtual const char* what() const noexcept;` | エラー内容を取得する。文字列`"bad_weak_ptr"`が返される |
 
 ###例
 ```cpp
@@ -37,24 +37,20 @@ int main() {
 ```
 
 ###出力(GCC 4.7での出力。規格上は"bad_weak_ptr"と出力されるのが正しい)
-```cpp
+```
 std::bad_weak_ptr
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.4, 4.7.2(what()が"std::bad_weak_ptr"を返すので規格違反。バグ報告済み。[#55847](http://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847))
+- [GCC, C++0x mode](/implementation#gcc.md): 4.4, 4.7.2(`what()`が`"std::bad_weak_ptr"`を返すので規格違反。バグ報告済み。[#55847](http://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847))
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) 10.0
-
 
 ###参照
 
