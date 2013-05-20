@@ -5,8 +5,8 @@ unique_lock& operator=(unique_lock&& u) noexcept;
 ```
 
 ##概要
-
-- `unique_lock& operator=(const unique_lock&) = delete;`コピー代入。コピー不可。<li>`unique_lock& operator=(unique_lock&& u) noexcept;`ムーブ代入。[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) == true`だった場合、`[unlock()](/reference/mutex/unique_lock/unlock.md)を呼び出す。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)の状態を`u`から移動し、その後`u`はミューテックスオブジェクトへの有効なポインタを指さず、`[owns_lock()](/reference/mutex/unique_lock/owns_lock.md) == false`となる。
+- `unique_lock& operator=(const unique_lock&) = delete;`<br/>コピー代入。コピー不可。
+- `unique_lock& operator=(unique_lock&& u) noexcept;`ムーブ代入。[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) == true`だった場合、`[unlock()](/reference/mutex/unique_lock/unlock.md)を呼び出す。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)の状態を`u`から移動し、その後`u`はミューテックスオブジェクトへの有効なポインタを指さず、`[owns_lock()](/reference/mutex/unique_lock/owns_lock.md) == false`となる。
 </li>
 
 ##備考

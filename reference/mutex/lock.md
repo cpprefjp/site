@@ -1,38 +1,29 @@
 #lock
 ```cpp
 namespace std {
-
   template <class L1, class L2, class... L3>
   void lock(L1&, L2&, L3&...);
 }
 ```
 
 ##概要
-
-<b>複数のミューテックスオブジェクトに対してlock操作を行う</b>
-
+複数のミューテックスオブジェクトに対してlock操作を行う
 
 
 ##要件
-
 テンプレートパラメータの型が`lock()`、`unlock()`、`try_lock()`メンバ関数をサポートしていること
 
 
-
 ##効果
-
-各ミューテックスオブジェクトに対して、`lock()`、`try_lock()`、あるいは`unlock()`メンバ関数を順次呼び出すことで、デッドロックを引き起こさずに全ミューテックスをロックする。
+各ミューテックスオブジェクトに対して、`lock()`、`try_lock()`、あるいは`unlock()`メンバ関数を順次呼び出すことで、デッドロックを引き起こさずに全ミューテックスをロックする。 
 いずれかの`lock()/``try_lock()`が例外を送出した場合、以降の`lock()/``try_lock()`呼び出しを行わず、それ以前にロック取得したミューテックスオブジェクトに対して`unlock()`メンバ関数を呼び出す。
 
 
-
 ##戻り値
-
 なし
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <cassert>
@@ -82,28 +73,18 @@ int main()
   }
 }
 ```
-* lock(mtx1, mtx2);[color ff0000]
-* lock[color ff0000]
-* lock[color ff0000]
+* std::lock[color ff0000]
 
 ###出力例
-
-```cpp
+```
 Resource deadlock avoided
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -111,10 +92,8 @@ Resource deadlock avoided
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
 ##参照
-
-[lock非メンバ関数の使いどころ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120919/p1)
-[Acquiring Multiple Locks Without Deadlock](http://www.justsoftwaresolutions.co.uk/threading/acquiring-multiple-locks-without-deadlock.html)
+- [lock非メンバ関数の使いどころ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120919/p1)
+- [Acquiring Multiple Locks Without Deadlock](http://www.justsoftwaresolutions.co.uk/threading/acquiring-multiple-locks-without-deadlock.html)
 
 

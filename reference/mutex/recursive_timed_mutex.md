@@ -6,8 +6,8 @@ namespace std {
 ```
 
 ##概要
-<p>`recursive_timed_mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスであり、再帰的なロックと、ロック取得のタイムアウト機能をサポートする。[`lock()`](./recursive_timed_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](./recursive_timed_mutex/unlock.md)メンバ関数でリソースのロックを手放す。このクラスのデストラクタは自動的に[`unlock()`](./recursive_timed_mutex/unlock.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)のようなクラスと併用する。
-</p>
+`recursive_timed_mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスであり、再帰的なロックと、ロック取得のタイムアウト機能をサポートする。[`lock()`](./recursive_timed_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](./recursive_timed_mutex/unlock.md)メンバ関数でリソースのロックを手放す。このクラスのデストラクタは自動的に[`unlock()`](./recursive_timed_mutex/unlock.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)のようなクラスと併用する。
+
 
 ###メンバ関数
 
@@ -23,14 +23,15 @@ namespace std {
 | [`unlock`](./recursive_timed_mutex/unlock.md) | ロックを手放す |
 | [`native_handle`](./recursive_timed_mutex/native_handle.md) | ミューテックスのハンドルを取得する |
 
+
 ###メンバ型
 
 | | |
 |---------------------------------|--------------------------------|
 | `native_handle_type` | 実装依存のハンドル型 |
 
-###例
 
+###例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -100,24 +101,21 @@ int main()
 ```
 
 ###出力例
-```cpp
-count == 1<br style='color:rgb(0,0,0);font-family:monospace'/>count == 2
+```
+count == 1
+count == 2
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 ###参照
 

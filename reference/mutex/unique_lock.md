@@ -6,11 +6,12 @@ namespace std {
 ```
 
 ##概要
-<p>`unique_lock`は、ミューテックスの`lock()/unlock()`処理をコンストラクタとデストラクタで確実に実行するためのクラスである。このクラスは通常、メンバ変数もしくはグローバル変数としてもつミューテックスオブジェクトに対し、関数内の先頭で`lock()`、関数を抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
-テンプレートパラメータ`Mutex`は、`lock()/unlock()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。 [`lock_guard`](/reference/mutex/lock_guard.md)クラスとの違いとして、以下の拡張機能を持つ：</p>
+`unique_lock`は、ミューテックスの`lock()/unlock()`処理をコンストラクタとデストラクタで確実に実行するためのクラスである。このクラスは通常、メンバ変数もしくはグローバル変数としてもつミューテックスオブジェクトに対し、関数内の先頭で`lock()`、関数を抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
+テンプレートパラメータ`Mutex`は、`lock()/unlock()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。 [`lock_guard`](./lock_guard.md)クラスとの違いとして、以下の拡張機能を持つ：
 - コンストラクタでロックを取得せず、あとからロックを取得できる
 - コンストラクタでのロック取得に、`lock()`ではなく`try_lock()`を使用できる
 - ムーブおよび`swap()`が可能
+
 
 ###メンバ関数
 
@@ -30,11 +31,13 @@ namespace std {
 | [`operator bool`](./unique_lock/op_bool.md) | ロックを取得しているかを判定する |
 | [`mutex`](./unique_lock/mutex.md) | 所有しているミューテックスオブジェクトを取得する |
 
+
 ###メンバ型
 
 | | |
 |-------------------------|--------------------|
 | `mutex_type` | `Mutex` |
+
 
 ###非メンバ関数
 
@@ -100,18 +103,15 @@ int main()
 ```
 
 ###出力例
-```cpp
+```
 21
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0

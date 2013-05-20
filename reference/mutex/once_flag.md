@@ -6,8 +6,8 @@ namespace std {
 ```
 
 ##概要
-
 `once_flag`は、一度だけ指定された処理を呼び出す[`call_once()`](/reference/mutex/call_once.md)関数で、呼び出したかどうかの状態として使用するクラスである。
+
 
 ###メンバ関数
 
@@ -16,6 +16,7 @@ namespace std {
 | [`(constructor)`](./once_flag/once_flag.md) | コンストラクタ |
 | `~once_flag() = default` | デストラクタ |
 | `operator=(const once_flag&) = delete` | 代入演算子 |
+
 
 ###例
 ```cpp
@@ -49,18 +50,15 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 initialize
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0

@@ -4,43 +4,31 @@ bool try_lock();
 ```
 
 ##概要
-
-<b>ロックの取得を試みる</b>
-
+ロックの取得を試みる
 
 
 ##要件
-
 この関数を呼び出したスレッドが、ミューテックスの所有権を保持していないこと
 
 
-
 ##効果
-
 ブロッキングせずにこの関数を呼び出したスレッドがミューテックスの所有権を取得する
 
 
-
 ##戻り値
-
 所有権が取得できなかった場合は何もせずに関数が`false`で返り、所有権を取得できた場合は`true`を返す。
 
 
-
 ##例外
-
 投げない
 
 
 
 ##備考
-
 この関数の実装が、ミューテックスの所有権を保持しているスレッドがひとつもない場合でも、所有権の取得に失敗する可能性がある。
 
 
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <thread>
@@ -79,27 +67,19 @@ int main()
 * try_lock[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

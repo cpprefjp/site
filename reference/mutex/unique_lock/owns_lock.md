@@ -4,22 +4,18 @@ bool owns_lock() const noexcept;
 ```
 
 ##概要
-
-<b>ロックを取得しているかを確認する</b>
+ロックを取得しているかを確認する
 
 
 ##戻り値
-
 ロックが取得済みであれば`true`、そうでなければ`false`を返す。
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <cassert>
 #include <mutex>
@@ -49,31 +45,21 @@ int main()
 }
 ```
 * owns_lock[color ff0000]
-* owns_lock[color ff0000]
-* owns_lock[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

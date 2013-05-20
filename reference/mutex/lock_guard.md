@@ -1,13 +1,14 @@
 #lock_guard
 ```cpp
 namespace std {
-  template <class Mutex>  class lock_guard;
+  template <class Mutex>
+  class lock_guard;
 }
 ```
 
 ##概要
-
 `lock_guard`は、ミューテックスの`lock()/unlock()`処理をコンストラクタとデストラクタで確実に実行するためのクラスである。このクラスは通常、メンバ変数もしくはグローバル変数としてもつミューテックスオブジェクトに対し、関数内の先頭で`lock()`、関数を抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。テンプレートパラメータ`Mutex`は、`lock()/unlock()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
+
 
 ###メンバ関数
 
@@ -17,14 +18,15 @@ namespace std {
 | [`(destructor)`](./lock_guard/-lock_guard.md) | デストラクタ |
 | `operator=(const lock_guard&) = delete` | 代入演算子 |
 
+
 ###メンバ型
 
 | | |
 |-------------------------|--------------------|
 | `mutex_type` | `Mutex` |
 
-###例
 
+###例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -74,18 +76,16 @@ int main()
 ```
 
 ###出力
-```cpp
-1<br style='color:rgb(0,0,0);font-family:monospace'/>2
+```
+1
+2
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0

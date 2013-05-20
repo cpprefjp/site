@@ -6,8 +6,8 @@ namespace std {
 ```
 
 ##概要
-<p>`timed_mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスであり、ロック取得のタイムアウト機能をサポートする。[`lock()`](./timed_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](./timed_mutex/unlock.md)メンバ関数でリソースのロックを手放す。このクラスのデストラクタは自動的に[`unlock()`](./timed_mutex/-timed_mutex.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)のようなクラスと併用する。
-</p>
+`timed_mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスであり、ロック取得のタイムアウト機能をサポートする。[`lock()`](./timed_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](./timed_mutex/unlock.md)メンバ関数でリソースのロックを手放す。このクラスのデストラクタは自動的に[`unlock()`](./timed_mutex/-timed_mutex.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)のようなクラスと併用する。
+
 
 ###メンバ関数
 
@@ -23,14 +23,15 @@ namespace std {
 | [`unlock`](./timed_mutex/unlock.md) | ロックを手放す |
 | [`native_handle`](./timed_mutex/native_handle.md) | ミューテックスのハンドルを取得する |
 
+
 ###メンバ型
 
 | | |
 |---------------------------------|--------------------------------|
 | `native_handle_type` | 実装依存のハンドル型 |
 
-###例
 
+###例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -82,27 +83,20 @@ int main()
 ```
 
 ###出力例
-```cpp
+```
 36
 ```
 
-##
-
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
 
-
 ###参照
-
-[N2528: Timed_mutex in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2528.html)
+- [N2528: Timed_mutex in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2528.html)

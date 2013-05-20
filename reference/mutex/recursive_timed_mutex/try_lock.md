@@ -4,35 +4,22 @@ bool try_lock();
 ```
 
 ##概要
-
-<b>ロックの取得を試みる</b>
-
+ロックの取得を試みる
 
 
 ##効果
-
 ブロッキングせずにこの関数を呼び出したスレッドがミューテックスの所有権を取得する
 
 
-
 ##戻り値
-
 所有権が取得できなかった場合は何もせずに関数が`false`で返り、所有権を取得できた場合は`true`を返す。
 
 
-
 ##例外
-
 投げない
 
 
-
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -92,33 +79,23 @@ int main()
 }
 ```
 * try_lock[color ff0000]
-* try_lock[color ff0000]
 
 ###出力例
-
-```cpp
+```
 count == 1
 count == 2
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

@@ -6,47 +6,34 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 * duration[link /reference/chrono/duration.md]
 
 ##概要
-
-<b>タイムアウトする相対時間を指定してロックの取得を試みる</b>
-
+タイムアウトする相対時間を指定してロックの取得を試みる
 
 
 ##要件
-
 `Period`がその環境ネイティブのperiod値に正しく変換できない場合、[`duration`](/reference/chrono/duration.md)はネイティブのperiod値に切り上げなければならない。
 
 
-
 ##効果
+`rel_time`パラメータで指定された相対時間の間、ミューテックスの所有権取得を試みる。 
+所有権が取得できるまで、もしくは`rel_time`時間が経過するまでこの関数はブロッキングする。 
 
-`rel_time`パラメータで指定された相対時間の間、ミューテックスの所有権取得を試みる。
-所有権が取得できるまで、もしくは`rel_time`時間が経過するまでこの関数はブロッキングする。
-
-`rel_time`が`rel_time.[zero()](/reference/chrono/duration/zero.md)`より小さい場合、この関数は[`try_lock()`](/reference/mutex/timed_mutex/try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
-
+`rel_time`が`rel_time.`[`zero()`](/reference/chrono/duration/zero.md)より小さい場合、この関数は[`try_lock()`](./try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
 
 
 ##戻り値
-
-所有権が取得できた場合は`true`を返す。
+所有権が取得できた場合は`true`を返す。 
 `rel_time`パラメータで指定された相対時間の間に所有権が取得できなかった場合はタイムアウトとなり、`false`を返す。
 
 
-
 ##例外
-
 投げない
 
 
-
 ##備考
-
 この関数の実装が、ミューテックスの所有権を保持しているスレッドがひとつもない場合でも、所有権の取得に失敗する可能性がある。
 
 
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <thread>
@@ -87,27 +74,19 @@ int main()
 * try_lock_for[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

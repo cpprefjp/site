@@ -4,30 +4,25 @@ mutex_type* release() noexcept;
 ```
 
 ##概要
+ミューテックスの所有権を放棄する。 
 
-<b>ミューテックスの所有権を放棄する。</b>
-<b></b>
-<b>この関数を実行することで、unique_lockオブジェクトはミューテックスのアンロック責任を放棄する。この関数を実行したユーザーは、自分でミューテックスをアンロックする必要がある。</b>
+この関数を実行することで、`unique_lock`オブジェクトはミューテックスのアンロック責任を放棄する。この関数を実行したユーザーは、自分でミューテックスをアンロックする必要がある。
 
 
 ##事後条件
-
-- 保持しているミューテックスオブジェクトへのポインタがNULLになること
-- `[owns_lock()](/reference/mutex/unique_lock/owns_lock.md) == false`になること
+- 保持しているミューテックスオブジェクトへのポインタが`NULL`になること
+- [`owns_lock()`](./owns_lock.md)` == false`になること
 
 
 ##戻り値
-
 保持しているミューテックスオブジェクトへのポインタを返す
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <thread>
@@ -70,29 +65,20 @@ int main()
 * release[color ff0000]
 
 ###出力
-
-```cpp
+```
 2
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

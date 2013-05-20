@@ -4,38 +4,27 @@ void unlock();
 ```
 
 ##概要
-
-<b>ロックを手放す</b>
-
+ロックを手放す
 
 
 ##要件
-
 この関数を実行するスレッドがミューテックスの所有権を持っていること
 
 
-
 ##効果
-
-この関数を呼び出したスレッドが持つミューテックスの所有権を手放す。
+この関数を呼び出したスレッドが持つミューテックスの所有権を手放す。 
 再帰的に所有権が取得されていた場合、最後のひとつが`unlock`された際に所有権を手放す。
 
 
-
 ##戻り値
-
 なし
 
 
-
 ##例外
-
 投げない
 
 
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -86,33 +75,23 @@ int main()
 }
 ```
 * unlock[color ff0000]
-* unlock[color ff0000]
 
 ###出力
-
-```cpp
+```
 count == 1
 count == 2
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照
