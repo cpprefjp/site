@@ -37,7 +37,8 @@
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | [random_device](./random/random_device.md) | 予測不能な真の乱数値を得る為のクラス |
 | [seed_seq](./random/seed_seq.md) | 疑似乱数エンジンの為のシード数列クラス |
-| [generate_canonical](./random/generate_canonical.md) |  |
+| [generate_canonical](./random/generate_canonical.md) | 実数区間\[0.0-1.0\)に展開（事実上正規化）された一様分布乱数を得る為のテンプレート関数
+ |
 | [uniform_int_distribution](./random/uniform_int_distribution.md) | 一様分布／一様整数分布生成器 |
 | [uniform_real_distribution](./random/uniform_real_distribution.md) | 一様分布／一様実数分布生成器 |
 | [bernoulli_distribution](./random/bernoulli_distribution.md) | ベルヌーイ分布／ベルヌーイ分布生成器 |
