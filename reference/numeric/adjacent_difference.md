@@ -1,7 +1,6 @@
 #adjacent_difference
 ```cpp
 namespace std{
-
   template <class InputIterator, class OutputIterator>
     OutputIterator adjacent_difference(
       InputIterator first, InputIterator last,
@@ -12,32 +11,30 @@ namespace std{
       InputIterator first, InputIterator last,
       OutputIterator result,
       BinaryOperation binary_op);
-```
-
 }
-
-
-
-
+```
 
 ##概要
 1つのシーケンスの任意の範囲の隣接する値間の差を計算する。
+
 
 ##パラメータ
 
 | | |
 |-----------|-----------------------------------------------------|
-| first | シーケンスの先頭 |
-| last | シーケンスの終端 |
-| result | 計算結果を出力するシーケンスの先頭 |
-| binary_op | 差を求める処理 |
+| `first` | シーケンスの先頭 |
+| `last` | シーケンスの終端 |
+| `result` | 計算結果を出力するシーケンスの先頭 |
+| `binary_op` | 差を求める処理 |
 
 
 ##戻り値
 シーケンスの型。
 
+
 ##計算量
 Ο(2n)
+
 
 ##例
 ```cpp
@@ -68,12 +65,10 @@ int main(){
 }
 ```
 * std::adjacent_difference[color ff0000]
-* std::adjacent_difference[color ff0000]
 
 ###出力
 ```cpp
 0 --> 0.2 --> 0.2 --> 0.2 --> 0.2 --> end
 0 --> 0.04 --> 0.12 --> 0.2 --> 0.28 --> end
-
-
 ```
+

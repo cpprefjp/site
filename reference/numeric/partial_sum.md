@@ -11,29 +11,30 @@ namespace std {
         InputIterator first, InputIterator last,
         OutputIterator result, BinaryOperation binary_op);
 }
-
-
 ```
 
 ##概要
 1つのシーケンスの任意の範囲の値の部分和を計算する。
-[accumulate](./partial_sum.md)()は最終結果のみを得るが、partial_sum()は計算の途中結果のシーケンスを得る。
+[`accumulate`](./accumulate.md)`()`は最終結果のみを得るが、`partial_sum()`は計算の途中結果のシーケンスを得る。
+
 
 ##パラメータ
 
 | | |
 |-----------|-----------------------------------------------------|
-| first | シーケンスの先頭 |
-| last | シーケンスの終端 |
-| result | 計算結果を出力するシーケンスの先頭 |
-| binary_op | 部分和を求める処理 |
+| `first` | シーケンスの先頭 |
+| `last` | シーケンスの終端 |
+| `result` | 計算結果を出力するシーケンスの先頭 |
+| `binary_op` | 部分和を求める処理 |
 
 
 ##戻り値
-result + (last - first)
+`result + (last - first)`
+
 
 ##計算量
 Ο(2n)
+
 
 ##例
 ```cpp
@@ -68,7 +69,6 @@ int main()
   }
 }
 ```
-* partial_sum(a.begin(), a.end(), result.begin());[color ff0000]
 * partial_sum[color ff0000]
 
 ###出力
@@ -76,3 +76,8 @@ int main()
 0 --> 0.2 --> 0.6 --> 1.2 --> 2 --> end
 0 --> -0.2 --> -0.8 --> -2.2 --> -5.2 --> end
 ```
+
+
+##備考
+この関数は、他の言語では`scan`という名前で提供されている。
+
