@@ -7,21 +7,21 @@ namespace std {
 * new_handler[link /reference/new/new_handler.md]
 
 ##概要
+`new`失敗時に呼ばれる関数を設定する。 
 
-`new`失敗時に呼ばれる関数を設定する。
+`new`失敗時にはデフォルトで[`bad_alloc`](./bad_alloc.md)例外が投げられるが、この関数を使用することで`new`失敗時の挙動を切り替えられる。
 
-`new`失敗時にはデフォルトで[`bad_alloc`](/reference/new/bad_alloc.md)例外が投げられるが、この関数を使用することで`new`失敗時の挙動を切り替えられる。
 
 ##効果
-`new_p`関数を、`new`失敗時に呼ばれる関数として設定する。
+`new_p`関数を、`new`失敗時に呼ばれる関数として設定する。 
 パラメータとしてヌルポインタが渡された場合、初期のハンドラが設定される。
+
 
 ##戻り値
 この関数が呼ばれる前に設定されていた関数を返す
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <new>
@@ -46,36 +46,10 @@ int main()
 * set_new_handler[color ff0000]
 
 ###出力例
-
-
-```cpp
-<span style='color:rgb(0,0,0);font-family:monospace;white-space:pre'>メモリ確保に失敗した
+```
+メモリ確保に失敗した
 
 This application has requested the Runtime to terminate it in an unusual way.
 Please contact the application's support team for more information.</span>
-
 ```
-
-##バージョン
-
-
-###言語
-
-
-- C++11
-
-
-
-###処理系
-
-- [Clang](/implementation#clang.md): 3.0
-
-- [GCC](/implementation#gcc.md): 4.6.2
-
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.2
-
-- [ICC](/implementation#icc.md): 
-
-- [Visual C++](/implementation#visual_cpp.md) 
-
 

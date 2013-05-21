@@ -5,44 +5,32 @@
 void* operator new(std::size_t size);
 
 // 単純な記憶域の確保（例外をスローしない）
-
 void* operator new(std::size_t size, const std::nothrow_t&) noexcept;
-```
-* nothrow_t[link /reference/new/nothrow_t.md]
 
 // 単純な配列の記憶域の確保
-
 void* operator new[](std::size_t size);
 
 // 単純な配列の記憶域の確保（例外をスローしない）
-
-
-void* operator new[](std::size_t size, const std::[nothrow_t](/reference/new/nothrow_t.md)&) noexcept;
-
+void* operator new[](std::size_t size, const std::nothrow_t&) noexcept;
 
 // 配置newによる記憶域の確保
-
 void* operator new(std::size_t size, void* ptr) noexcept;
 
 // 配置newによる配列の記憶域の確保
-
 void* operator new[](std::size_t size, void* ptr) noexcept;
-
-
+```
+* nothrow_t[link /reference/new/nothrow_t.md]
 
 
 ##効果
-
 プログラムが動的に記憶域を確保する。
 
 
 ##戻り値
-
 確保した記憶域の先頭アドレスを指すポインタ。
 
 
 ##備考
-
 一般にプログラム実行中の記憶域の動的確保は処理系がOSからヒープを割り当てるのに対し、placement-new では既にプログラムに割り当て済みの任意の記憶域を新たに確保を求められた際に便宜上割り当てる手法で、上手く使った場合は new / delete を大量に繰り返す必要のある処理を高速に実現しうる。
 
 
@@ -90,5 +78,6 @@ int main()
 ```
 
 ###出力
+```
+```
 
-```cpp

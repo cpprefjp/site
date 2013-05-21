@@ -6,19 +6,16 @@ namespace std {
 ```
 
 ##概要
-
-`new`失敗時に呼ばれる関数の型。[`set_new_handler`](/reference/new/set_new_handler.md)()、[`get_new_handler`](/reference/new/get_new_handler.md)()で使用する。
-`new`演算子は本来であれば失敗時に[`bad_alloc`](/reference/new/bad_alloc.md)例外を送出するが、これらを使用することで、new失敗時の動作を任意の関数で置き換えられる。
+`new`失敗時に呼ばれる関数の型。[`set_new_handler`](./set_new_handler.md)`()`、[`get_new_handler`](./get_new_handler.md)`()`で使用する。 
+`new`演算子は本来であれば失敗時に[`bad_alloc`](./bad_alloc.md)例外を送出するが、これらを使用することで、`new`失敗時の動作を任意の関数で置き換えられる。 
 
 ハンドラの内部では、以下のいずれかを行う必要がある：
-
 - 確保済みの領域を解放して`return`する
-- [`bad_alloc`](/reference/new/bad_alloc.md)またはその派生の例外を送出する
+- [`bad_alloc`](./bad_alloc.md)またはその派生の例外を送出する
 - `return`により処理を返すことなく、プログラムの実行を直ちに終了させる(`quick_exit()`、`exit()`、`abort()`などを使用する)
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <new>
@@ -50,15 +47,4 @@ This application has requested the Runtime to terminate it in an unusual way.
 Please contact the application's support team for more information.
 ```
 
-##バージョン
-
-###言語
-- C++
-
-###処理系
-- [Clang](/implementation#clang.md): 3.0
-- [GCC](/implementation#gcc.md): 4.6.2
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.2
-- [ICC](/implementation#icc.md): 
-- [Visual C++](/implementation#visual_cpp.md) 
 

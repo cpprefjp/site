@@ -7,12 +7,10 @@ namespace std {
 * new_handler[link /reference/new/new_handler.md]
 
 ##概要
-
 `new`失敗時に呼ばれる関数を取得する
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <new>
@@ -41,22 +39,15 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 メモリ確保に失敗した
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): 
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 
