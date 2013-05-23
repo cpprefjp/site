@@ -4,30 +4,22 @@ void swap(queue& q) noexcept(noexcept(swap(c, q.c)))
 ```
 
 ##概要
-
-<b>他のqueueオブジェクトと値を入れ替える。</b>
+他の`queue`オブジェクトと値を入れ替える。
 
 
 ##効果
-
 `swap(c, q.c)`
 
-##戻り値
 
+##戻り値
 なし
 
 
 ##例外
-
 `swap(c, q.c)` が例外を投げない場合、この関数は決して例外を投げない。
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <queue>
@@ -63,27 +55,21 @@ int main ()
 * swap[color ff0000]
 
 ###出力
-
-```cpp
+```
 4 5 6 
 1 2 3 
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): ??
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) <h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md)
 
 
 ##参照

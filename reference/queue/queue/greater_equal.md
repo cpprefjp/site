@@ -1,29 +1,20 @@
 #operator>=
 ```cpp
 namespace std {
-
   template <class T, class Container>
   bool operator>=(const queue<T, Container>& x, const queue<T, Container>& y);
-
 }
 ```
 
 ##概要
-
-<b>queueにおいて、左辺が右辺以上かを判定する。</b>
-
+`queue`において、左辺が右辺以上かを判定する。
 
 
 ##戻り値
-
 `x.c >= y.c`
-
-##備考
-
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <queue>
@@ -43,11 +34,10 @@ int main ()
   std::cout << std::boolalpha << (x >= y) << std::endl;
 }
 ```
-* >=[color ff0000]
+* x >= y[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 ```
 

@@ -4,26 +4,19 @@ const_reference top() const;
 ```
 
 ##概要
-
-<b>次に処理する要素を取得する。</b>
-<b>内部のコンテナのfront()メンバ関数を呼ぶ。</b>
+次に処理する要素を取得する。
+内部のコンテナの`front()`メンバ関数を呼ぶ。
 
 
 ##効果
-
 `return c.front();`
 
-##戻り値
 
+##戻り値
 次に処理する要素への参照
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <queue>
@@ -46,13 +39,10 @@ int main()
 * top[color ff0000]
 
 ###出力
-
-```cpp
+```
 4
 3
 1
 ```
-
-##参照
 
 

@@ -38,30 +38,25 @@ template <class Alloc> priority_queue(priority_queue&& que, const Alloc& alloc);
 ```
 
 ##概要
-
 C++03
-- `explicit priority_queue(const Compare& x = Compare(),`                        `const Container& other = Container());`効果： メンバ変数compをxで初期化する。メンバ変数cをotherで初期化する。make_heap(c.begin(), c.end(), comp)を呼び出す。
-- `template <class InputIterator>priority_queue(InputIterator first, InputIterator last,               const Compare& x = Compare(),               const Container& other = Container());`効果： メンバ変数cをotherで初期化する。メンバ変数compをxで初期化する。c.insert(c.end(), first, last)を呼び出す。最後にmake_heap(c.begin(), c.end(), comp)を呼び出す。
-C++11
+- `explicit priority_queue(const Compare& x = Compare(),`<br/>                        `const Container& other = Container());`<br/>効果： メンバ変数`comp`を`x`で初期化する。メンバ変数`c`を`other`で初期化する。[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- `template <class InputIterator>`<br/>`priority_queue(InputIterator first, InputIterator last,`<br/>`               const Compare& x = Compare(),`<br/>`               const Container& other = Container());`効果： メンバ変数`c`を`other`で初期化する。メンバ変数`comp`を`x`で初期化する。`c.insert(c.end(), first, last)`を呼び出す。最後に[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 
-- `priority_queue(const Compare& x, const Container& other);explicit priority_queue(const Compare& x = Compare(), Container&& other = Container());`効果： メンバ変数compをxで初期化する。メンバ変数cをotherで初期化する(otherが左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。make_heap(c.begin(), c.end(), comp)を呼び出す。<li>`template <class InputIterator>priority_queue(InputIterator first, InputIterator last,`               const Compare& x, const Container& other);template <class InputIterator>priority_queue(InputIterator first, InputIterator last,               const Compare& x = Compare(), Container&& other = Container());効果： メンバ変数compをxで初期化する。メンバ変数cをotherで初期化する(otherが左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。
-c.insert(c.end(), first, last)を呼び出す。最後にmake_heap(c.begin(), c.end(), comp)を呼び出す。</li>
-- `template <class Alloc> explicit priority_queue(const Alloc& alloc);`効果：メンバ変数cをallocで初期化する。メンバ変数compを値初期化する。
-- `template <class Alloc> priority_queue(const Compare& x, const Alloc& alloc);`効果：メンバ変数cをallocで初期化する。メンバ変数compをxで初期化する。
-- `template <class Alloc> priority_queue(const Compare& x,`                                      const Container& other, const Alloc& alloc);template <class Alloc> priority_queue(const Compare x&,                                      Container&& other, const Alloc& alloc);効果：メンバ変数cを第1引数other、第2引数allocで初期化する(otherが左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。 最後にmake_heap(c.begin(), c.end(), comp)を呼び出す。 
-- template <class Alloc> priority_queue(const priority_queue& que, const Alloc& alloc);template <class Alloc> priority_queue(priority_queue&& que, const Alloc& alloc);効果：メンバ変数cを第1引数que.c、第2引数allocで初期化する(queが左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。最後にmake_heap(c.begin(), c.end(), comp)を呼び出す。)
+
+C++11
+- `priority_queue(const Compare& x, const Container& other);`<br/>`explicit priority_queue(const Compare& x = Compare(), Container&& other = Container());`<br/>効果： メンバ変数`comp`を`x`で初期化する。メンバ変数`c`を`other`で初期化する(`other`が左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- `template <class InputIterator>`<br/>`priority_queue(InputIterator first, InputIterator last,`<br/>`               const Compare& x, const Container& other);`<br/>`template <class InputIterator>`<br/>`priority_queue(InputIterator first, InputIterator last,`<br/>`               const Compare& x = Compare(), Container&& other = Container());`<br/>効果： メンバ変数`comp`を`x`で初期化する。メンバ変数`c`を`other`で初期化する(`other`が左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。<br/>`c.insert(c.end(), first, last)`を呼び出す。最後に[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- `template <class Alloc> explicit priority_queue(const Alloc& alloc);`<br/>効果：メンバ変数`c`を`alloc`で初期化する。メンバ変数`comp`を値初期化する。
+- `template <class Alloc> priority_queue(const Compare& x, const Alloc& alloc);`<br/>効果：メンバ変数`c`を`alloc`で初期化する。メンバ変数`comp`を`x`で初期化する。
+- `template <class Alloc> priority_queue(const Compare& x,`<br/>`                                      const Container& other, const Alloc& alloc);`<br/>`template <class Alloc> priority_queue(const Compare x&,`<br/>`                                      Container&& other, const Alloc& alloc);`<br/>効果：メンバ変数`c`を第1引数`other`、第2引数`alloc`で初期化する(`other`が左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。 最後に[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。 
+- `template <class Alloc> priority_queue(const priority_queue& que, const Alloc& alloc);`<br/>`template <class Alloc> priority_queue(priority_queue&& que, const Alloc& alloc);`<br/>効果：メンバ変数`c`を第1引数`que.c`、第2引数`alloc`で初期化する(`que`が左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。最後に[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。)
+
 
 ##要件
-
 `Compare`型パラメータ`x`が、狭義の弱順序で定義されていること。
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <queue>
@@ -105,22 +100,18 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 que3 : 
 que4 : 4 3 1 
 que5 : 5 4 3 2 1 
 ```
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0(アロケータ付き初期化以外は使用可能)
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
-
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 ##参照

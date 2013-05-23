@@ -5,22 +5,21 @@ void push(value_type&& x); // C++11
 ```
 
 ##概要
+新しい要素を`queue`の末尾に追加し、そのインスタンスを`x`のコピー、もしくはムーブして初期化する。
 
-新しい要素をqueueの末尾に追加し、そのインスタンスをxのコピー、もしくはムーブして初期化する。
 
 ##引数
-x: 新しい要素としてコピー、もしくはムーブする値。
+`x`: 新しい要素としてコピー、もしくはムーブする値。
+
 
 ##効果
-const左辺値参照版： `c.push_back(x)`
-右辺値参照版： `c.push_back(std::[move](/reference/utility/move.md)(x))`
+`const`左辺値参照版： `c.push_back(x)`
+右辺値参照版： `c.push_back(std::`[`move`](/reference/utility/move.md)`(x))`
+
 
 ##戻り値
 なし
 
-##計算量
-
-##備考
 
 ##例
 ```cpp
