@@ -1,7 +1,6 @@
 #cauchy_distribution
 ```cpp
 namespace std{
-
   template<class RealType = double>
   class cauchy_distribution
   {
@@ -29,27 +28,25 @@ namespace std{
 ```
 
 ##概要
+コーシー分布を生成する。 
+![](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy.png)
 
-コーシー分布を生成する。
-
-https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy.png
 
 ##メンバ関数
 
 | | |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------|
-|（コンストラクタ）  | 実数値 a, b をパラメータとして与える事ができる。デフォルトは a = 0.0 、 b = 1.0 。 |
-| reset | 何もしない。 |
-| operator() | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
-| a | パラメータ a を取得する。 |
-| b | パラメータ b を取得する。 |
-| param | 分布のパラメータを取得／設定する。 |
-| mix | 最小値を得る。 |
-| max | 最大値を得る。 |
+| `(constructor)` | 実数値 `a`, `b` をパラメータとして与える事ができる。デフォルトは `a = 0.0`、`b = 1.0`。 |
+| `reset` | 何もしない。 |
+| `operator()` | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
+| `a` | パラメータ `a` を取得する。 |
+| `b` | パラメータ `b` を取得する。 |
+| `param` | 分布のパラメータを取得／設定する。 |
+| `mix` | 最小値を得る。 |
+| `max` | 最大値を得る。 |
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <exception>
@@ -84,19 +81,15 @@ main() try{
 ```
 
 ###出力
-
 このプログラムによってある時に得られた結果（[cauchy_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.tsv.7z)）を図示する。
 
-https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.png
+![](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.png)
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): 
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
@@ -104,6 +97,5 @@ https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distributio
 - [Visual C++](/implementation#visual_cpp.md): 
 
 ###参考
-
 - [コーシー分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%82%B7%E3%83%BC%E5%88%86%E5%B8%83)
 

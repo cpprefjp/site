@@ -1,5 +1,2 @@
 #exponential_distribution
 
-|
-|
-|

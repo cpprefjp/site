@@ -1,5 +1,2 @@
 #geometric_distribution
 
-|
-|
-|

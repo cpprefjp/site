@@ -28,27 +28,25 @@ namespace std{
 ```
 
 ##概要
+正規分布を生成する。 
 
-正規分布を生成する。
-
-https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal.png
+![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal.png)
 
 ##メンバ関数
 
 | | |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-|（コンストラクタ）  | 実数値 mean (平均), stddev (標準偏差) をパラメータとして与える事ができる。デフォルトは mean = 0.0 、 stddev = 1.0 。 |
-| reset | 何もしない。 |
-| operator() | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
-| mean | パラメータ mean を取得する。 |
-| stddev | パラメータ stddev を取得する。 |
-| param | 分布のパラメータを取得／設定する。 |
-| mix | 最小値を得る。 |
-| max | 最大値を得る。 |
+| `(constructor)` | 実数値 `mean` (平均), `stddev` (標準偏差) をパラメータとして与える事ができる。デフォルトは `mean = 0.0` 、 `stddev = 1.0` 。 |
+| `reset` | 何もしない。 |
+| `operator()` | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
+| `mean` | パラメータ mean を取得する。 |
+| `stddev` | パラメータ `stddev` を取得する。 |
+| `param` | 分布のパラメータを取得／設定する。 |
+| `mix` | 最小値を得る。 |
+| `max` | 最大値を得る。 |
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <exception>
@@ -84,16 +82,11 @@ main()try{
 ```
 
 ###出力
+このプログラムによってある時に得られた結果（[normal_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.tsv.7z)）を図示する。 
 
-このプログラムによってある時に得られた結果（[normal_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.tsv.7z)）を図示する。
-
-<a class='disabled' imageanchor='1' href='/system/errors/NodeNotFound?suri=wuid:gx:2bd42503572e5581.md'>
-</a>
-
-https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.png
+![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.png)
 
 ##バージョン
-
 ###言語
 - C++11
 
@@ -106,3 +99,4 @@ https://github.com/cpprefjp/image/raw/master/reference/random/normal_distributio
 
 ###参考
 - [正規分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
+

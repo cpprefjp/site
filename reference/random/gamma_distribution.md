@@ -1,5 +1,2 @@
 #gamma_distribution
 
-|
-|
-|

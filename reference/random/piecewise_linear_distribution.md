@@ -1,7 +1,6 @@
 #piecewise_linear_distribution
 ```cpp
-namespace std{
-
+namespace std {
   template<class RealType = double>
   class piecewise_linear_distribution
   {
@@ -31,35 +30,29 @@ namespace std{
     result_type min() const;
     result_type max() const;
   };
-```
-
 }
-
-
-
+```
 
 
 ##概要
-
-<b>区間ごとの重み付けを線形に接続した分布を生成する。</b>
+区間ごとの重み付けを線形に接続した分布を生成する。
 
 
 ##メンバ関数
 
 | | |
 |-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-|（コンストラクタ）  | 区間と重み付けをパラメータで与える事もできる。パラメータを与えない場合は[0 - 1]の一様分布となる。 |
-| reset | 何もしない。 |
-| operator() | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
-| intervals | 区間の数列を得る。 |
-| densities  | 重み付けの数列を得る。 |
-| param | 分布のパラメータを取得／設定する。 |
-| mix | 最小値を得る。 |
-| max | 最大値を得る。 |
+| `(constructor)` | 区間と重み付けをパラメータで与える事もできる。パラメータを与えない場合は\[0 - 1\]の一様分布となる。 |
+| `reset` | 何もしない。 |
+| `operator()` | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
+| `intervals` | 区間の数列を得る。 |
+| `densities` | 重み付けの数列を得る。 |
+| `param` | 分布のパラメータを取得／設定する。 |
+| `mix` | 最小値を得る。 |
+| `max` | 最大値を得る。 |
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <exception>
@@ -98,32 +91,21 @@ main()try{
   std::cerr << e.what();
 }
 ```
-* std::piecewise_linear_distribution<[color ff0000]
-* >[color ff0000]
-* ([color ff0000]
-* )[color ff0000]
-* ([color ff0000]
-* )[color ff0000]
+* std::piecewise_linear_distribution[color ff0000]
 
 ###出力
 このプログラムによってある時に得られた結果（;[piecewise_linear_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.tsv.7z)）を図示する。
-<a class='disabled' imageanchor='1' href='/system/errors/NodeNotFound?suri=wuid:gx:681769ceb8760901.md'>
-</a><a class='disabled' imageanchor='1' href='/system/errors/NodeNotFound?suri=wuid:gx:681769ceb8760901.md'/>![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.png)
+
+![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.png)
+
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution-hist.png)
 
 
-バージョン
-
-
+##バージョン
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): 
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1

@@ -1,5 +1,2 @@
 #bernoulli_distribution
 
-|
-|
-|

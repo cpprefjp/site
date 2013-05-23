@@ -1,5 +1,2 @@
 #poisson_distribution
 
-|
-|
-|

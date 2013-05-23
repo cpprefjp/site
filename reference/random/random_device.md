@@ -1,5 +1,2 @@
 #random_device
 
-|
-|
-|

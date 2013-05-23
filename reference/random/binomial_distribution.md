@@ -1,5 +1,2 @@
 #binomial_distribution
 
-|
-|
-|

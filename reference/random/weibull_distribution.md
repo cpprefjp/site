@@ -1,5 +1,2 @@
 #weibull_distribution
 
-|
-|
-|
