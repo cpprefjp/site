@@ -4,8 +4,6 @@
 ```cpp
 typedef basic_regex<char> regex;
 typedef basic_regex<wchar_t> wregex;
-
-
 ```
 
 ##basic_regexクラス
@@ -14,9 +12,9 @@ typedef basic_regex<wchar_t> wregex;
 
 | | |
 |------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| [(constructor)](./regex/constructor.md) | basic_regexコンストラクタ (publicメンバ関数) |
-| (destructor) | basic_regexデストラクタ (publicメンバ関数) |
-| operator= | データのコピー・ムーブ (publicメンバ関数) |
-| assign | データのコピー・ムーブ (publicメンバ関数) |
+| [`(constructor)`](./regex/constructor.md) | `basic_regex`コンストラクタ (publicメンバ関数) |
+| `(destructor)` | `basic_regex`デストラクタ (publicメンバ関数) |
+| `operator=` | データのコピー・ムーブ (publicメンバ関数) |
+| `assign` | データのコピー・ムーブ (publicメンバ関数) |
 
 
