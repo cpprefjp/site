@@ -27,41 +27,41 @@ set(initializer_list<value_type> init, const Compare& comp = Compare(), const Al
 
 ##setオブジェクトの構築
 - `explicit set(const Compare& comp = Compare(), const Allocator& alloc = Allocator());`
-- `explicit set(const Allocator& alloc);`
+- `explicit set(const Allocator& alloc);`<br/>
 デフォルトコンストラクタ。空のコンテナで構築する。 
 
-- `template <class InputIterator>`<br/>`set(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`
+- `template <class InputIterator>`<br/>`set(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`<br/>
 範囲 `[first, last)` のコンテンツで構築する。 
 
 - `set(const set<Key,Compare,Allocator>& x);`
-- `set(const set& x, const Allocator& alloc);`
+- `set(const set& x, const Allocator& alloc);`<br/>
 コピーコンストラクタ。`x`のコンテンツのコピーでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `std::allocator_traits<allocator_type>::select_on_copy_construction(x)` の呼び出しによって取得する。 
 
 - `set(set<Key,Compare,Allocator>&& y);`
-- `set(set&& y, const Allocator& alloc);`
+- `set(set&& y, const Allocator& alloc);`<br/>
 ムーブコンストラクタ。`y` のコンテンツをムーブすることでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `y` に属しているアロケータをムーブして取得する。 
 
-- `set(initializer_list<value_type> init, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`
+- `set(initializer_list<value_type> init, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`<br/>
 初期化リスト `init` のコンテンツでコンテナを構築する。
 
 
 ##パラメータ
-- `alloc`
+- `alloc`<br/>
 このコンテナの全てのメモリ確保を行うアロケータ。 
 
-- `comp`
+- `comp`<br/>
 キーの全ての比較を行う比較関数。 
 
-- `first`, `last`
+- `first`, `last`<br/>
 要素のコピー元となる範囲。 
 
-- `x`
+- `x`<br/>
 コンテナの要素の初期化のコピー元として使われる、ほかのコンテナ。 
 
-- `y`
+- `y`<br/>
 コンテナの要素の初期化のムーブ元として使われる、ほかのコンテナ。 
 
-- `init`
+- `init`<br/>
 コンテナの要素を初期化するために使われる初期化リスト。
 
 

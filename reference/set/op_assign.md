@@ -16,9 +16,14 @@ set& operator=(initializer_list<value_type> init);
 
 
 ##パラメータ
-- `x` : コンテンツのコピー元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。
-- `y` : コンテンツのムーブ元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。
-- `init` : メンバ型 `value_type` と同じ型の `initializer_list`。
+- `x`<br/>
+コンテンツのコピー元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。 
+
+- `y`<br/>
+コンテンツのムーブ元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。 
+
+- `init`<br/>
+メンバ型 `value_type` と同じ型の `initializer_list`。
 
 
 ##戻り値

@@ -9,7 +9,7 @@ void swap(set<Key,Compare,Allocator>& st);
 
 
 ##パラメータ
-- `st`
+- `st`<br/>
 `*this`とコンテンツを交換する、同じ型の `set` コンテナ。
 
 

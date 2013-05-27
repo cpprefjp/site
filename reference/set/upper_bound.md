@@ -11,7 +11,7 @@ const_iterator upper_bound(const key_type& x) const;
 
 
 ##パラメータ
-- `x`
+- `x`<br/>
 比較されるキー値。 
 `key_type` はメンバ型であり、`set` コンテナ内でテンプレートパラメータ `Key` の別名して定義される。
 
