@@ -1,41 +1,31 @@
 #rbegin, crbegin
 ```cpp
 reverse_iterator rbegin() noexcept;
-```
-
 const_reverse_iterator rbegin() const noexcept;
 
 // since C++11
 const_reverse_iterator crbegin() const noexcept;
-
-
+```
 
 
 ##概要
-
-　set コンテナ内の最後の要素を指す逆イテレータを返す。
-
-　内部的に、set コンテナは各要素を下位から上位へと並べており、従って rbegin は最上位のキーにあたる値を返す。
-
-　rbegin は [end](/reference/set/end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
+`set` コンテナ内の最後の要素を指す逆イテレータを返す。 
+内部的に、`set` コンテナは各要素を下位から上位へと並べており、従って `rbegin()` は最上位のキーにあたる値を返す。 
+`rbegin()` は [`end()`](./end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
 
 ##戻り値
-
-　反転したシーケンスの先頭を指す逆イテレータ。
-
-　reverse_iterator と const_reverse_iterator はともにメンバ型である。set クラステンプレートにおいて、これらは逆 bidirectional iterator であり、それぞれ reverse_iterator<iterator>, reverse_iterator<const_iterator> と定義される。
+反転したシーケンスの先頭を指す逆イテレータ。 
+`reverse_iterator` と `const_reverse_iterator` はともにメンバ型である。`set` クラステンプレートにおいて、これらは逆 双方向イテレータであり、それぞれ `reverse_iterator<iterator>`, `reverse_iterator<const_iterator>` と定義される。
 
 
 ##計算量
-
-　定数時間。
+定数時間。
 
 
 ##例
-
 ```cpp
-<pre style='margin-top:0px;margin-bottom:0px;padding-bottom:5px;padding-top:3px;padding-left:10px;line-height:normal;background-color:rgb(240,240,240)'>#include <iostream>
+#include <iostream>
 #include <set>
 using namespace std;
  
@@ -55,12 +45,11 @@ int main()
     cout << *i++ << " ";
   
   return 0;
-}</pre>
+}
 ```
 
 ###出力
-
-```cpp
+```
 9 5 4 2 1 0 
 ```
 
@@ -68,8 +57,8 @@ int main()
 
 | | |
 |---------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [set::rend, crend](/reference/set/rend.md) | 先頭を指す逆イテレータを取得する |
-| [set::begin, cbegin](/reference/set/begin.md) | 先頭を指すイテレータを取得する |
-| [set::end, cend](/reference/set/end.md) | 末尾を指すイテレータを取得する |
+| [`rend, crend`](./rend.md) | 先頭を指す逆イテレータを取得する |
+| [`begin, cbegin`](./begin.md) | 先頭を指すイテレータを取得する |
+| [`end, cend`](./end.md) | 末尾を指すイテレータを取得する |
 
 

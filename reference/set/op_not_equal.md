@@ -5,30 +5,25 @@ bool operator!=(const set<Key,Compare,Allocator>& x, const set<Key,Compare,Alloc
 ```
 
 ##概要
+`x` と `y` が等しくないかどうかの判定を行う。
 
-　x と y が等しくないかどうかの判定を行う。
 
-
-##引数
-
-　・x, y
-　　比較するコンテナ。
+##パラメータ
+- `x`, `y`
+比較するコンテナ。
 
 
 ##戻り値
-
-　二つのコンテナが等しくない場合に true, そうでない場合に false。
+二つのコンテナが等しくない場合に `true`, そうでない場合に `false`。
 
 
 ##計算量
-
-　[size](/reference/set/size.md) に対して線形時間。
+[`size()`](./size.md) に対して線形時間。
 
 
 ##例
-
 ```cpp
-<pre style='margin-top:0px;margin-bottom:0px;padding-bottom:5px;padding-top:3px;padding-left:10px;line-height:normal;background-color:rgb(240,240,240)'>#include <iostream>
+#include <iostream>
 #include <set>
 using namespace std;
  
@@ -47,14 +42,13 @@ int main()
   cout << (s1 != s2) << endl;
  
   return 0;
-}</pre>
+}
 ```
 
 ###出力
-
-```cpp
+```
 0
 1
 ```
 
-##
+

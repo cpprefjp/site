@@ -4,30 +4,22 @@ void swap(set<Key,Compare,Allocator>& st);
 ```
 
 ##概要
-
-　コンテナ内のコンテンツを、同じ型の要素を保持する他の set オブジェクトである <i>st</i> 内のコンテンツと交換する。サイズは異なる場合もある。
-
-　このメンバ関数の呼び出しの後、呼び出し前にコンテナ内にあった要素は <i>st</i> へ、<i>st</i> 内にあった要素は this へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。
-
-　グローバルなアルゴリズム関数 swap は同じ名前であり、同じ振舞いをする。
+コンテナ内のコンテンツを、同じ型の要素を保持する他の `set` オブジェクトである `st` 内のコンテンツと交換する。サイズは異なる場合もある。 
+このメンバ関数の呼び出しの後、呼び出し前にコンテナ内にあった要素は `st` へ、`st` 内にあった要素は `*this` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。 
 
 
-##引数
-
-　・st
-
-　　このコンテナとコンテンツを交換する、同じ型の set コンテナ。
+##パラメータ
+- `st`
+`*this`とコンテンツを交換する、同じ型の `set` コンテナ。
 
 
 ##計算量
-
-　定数時間
+定数時間
 
 
 ##例
-
 ```cpp
-<pre style='margin-top:0px;margin-bottom:0px;padding-bottom:5px;padding-top:3px;padding-left:10px;line-height:normal;background-color:rgb(240,240,240)'>#include <iostream>
+#include <iostream>
 #include <set>
 using namespace std;
  
@@ -50,13 +42,11 @@ int main()
   }
   
   return 0;
-}</pre>
+}
 ```
 
 ###出力
-
-```cpp
+```
 5,15,
 ```
 
-##
