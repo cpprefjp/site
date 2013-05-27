@@ -6,10 +6,7 @@
 | [`scoped_allocator_adaptor`](./scoped_allocator/scoped_allocator_adaptor.md) | 入れ子になったオブジェクトに同じアロケータを使用するためのアダプタ(class template) |
 
 
-
 ##バージョン
-
 ###言語
-
 - C++11
 
