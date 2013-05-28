@@ -4,18 +4,19 @@ void pop();
 ```
 
 ##概要
-<b>スタックトップ(コンテナの末尾側)の要素を削除する。内部でスタックを実装するコンテナオブジェクトのpop_back()メンバ関数が呼び出される。</b>
+スタックトップ(コンテナの末尾側)の要素を削除する。内部でスタックを実装するコンテナオブジェクトの`pop_back()`メンバ関数が呼び出される。
+
 
 ##戻り値
 なし。
 
 
 ##計算量
-Container::pop_backと同じ。
+`Container::pop_back()`と同じ。
 
 
 ##例
-<pre style='margin-top:0px;margin-bottom:0px'><dfn/>```cpp
+```cpp
 #include <iostream>
 #include <stack>
 
@@ -35,12 +36,11 @@ int main ()
 
   return 0;
 }
-</pre>
 ```
 
 ##出力
-```cpp
-<pre style='margin-top:0px;margin-bottom:0px;color:rgb(0,0,0);font-size:12px;line-height:normal'><samp>Popping out elements... 4 3 2 1 0</samp></pre>
+```
+Popping out elements... 4 3 2 1 0 
 ```
 
 ##実装例
@@ -49,5 +49,4 @@ void pop() { c.pop_back(); }
 ```
 
 ##参照
-
 TBD

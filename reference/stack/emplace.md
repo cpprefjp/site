@@ -1,22 +1,23 @@
 #emplace
 ```cpp
-template <class... Args>void emplace(Args&&... args);
+template <class... Args>
+void emplace(Args&&... args);
 ```
 
 ##概要
-<b>要素型Tのコンストラクタ引数をとり、直接構築でスタックに要素を追加する。</b>
+要素型`T`のコンストラクタ引数をとり、直接構築でスタックに要素を追加する。
 
 
 ##効果
-`c.emplace_back(std::[forward](/reference/utility/forward.md)<Args>(args)...);`
+`c.emplace_back(std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
+
 
 ##戻り値
 なし
 
-##
 
 ##例
-<pre style='margin-top:0px;margin-bottom:0px'><dfn/>```cpp
+```cpp
 #include <iostream>
 #include <stack>
 
@@ -48,13 +49,13 @@ int main ()
 
   return 0;
 }
-</pre>
 ```
+* emplace[color ff0000]
 
 ##出力
-```cpp
-<pre style='margin-top:0px;margin-bottom:0px;color:rgb(0,0,0);font-size:12px;line-height:normal'><samp>stack::push 0 copy 1 copy 2 copy 3 copy 4 copy
-stack::emplace 0 1 2 3 4</samp></pre>
+```
+stack::push 0 copy 1 copy 2 copy 3 copy 4 copy
+stack::emplace 0 1 2 3 4
 ```
 
 ##参照

@@ -1,45 +1,34 @@
 #empty
-
 ```cpp
 bool empty() const;
 ```
 
-##<b>概要</b>
-
-<b>stack が空か否か、つまり要素数が 0 か否かを返す。</b>
-<b>内部のコンテナの empty() メンバ関数を呼ぶ。</b>
-
+##概要
+`stack` が空か否か、つまり要素数が 0 か否かを返す。
+内部のコンテナの `empty()` メンバ関数を呼ぶ。
 
 
-
-##<b>戻り値</b>
-
-要素数が 0 の場合は true 、それ以外の場合は false 。
+##戻り値
+要素数が 0 の場合は `true `、それ以外の場合は `false` 。
 
 
-
-##<b>計算量</b>
-
+##計算量
 定数時間 O(1)。
 
 
-
-##<b>例</b>
+##例
 
 
 ```cpp
 #include <iostream>
-
 #include <stack>
-```
 
 int  main ()
-
 {
   std::stack<int>  st;
 
   // 空なら "empty", そうでなければ "not empty" と表示する
-  if (st.<color=ff0000>empty</color>()) {
+  if (st.empty()) {
     std::cout << "empty" << std::endl;
   } else {
     std::cout << "not empty" << std::endl;
@@ -49,23 +38,19 @@ int  main ()
   st.push(1);
 
   // 空なら "empty", そうでなければ "not empty" と表示する
-  if (st.<color=ff0000>empty</color>()) {
+  if (st.empty()) {
     std::cout << "empty" << std::endl;
   } else {
     std::cout << "not empty" << std::endl;
   }
-
 }
+```
+* empty[color ff0000]
 
 
-
-
-##<b>出力</b>
-
-
-```cpp
+##出力
+```
 empty
-
 not empty
 ```
 
@@ -79,5 +64,5 @@ bool empty() const { return c.empty(); }
 
 | | |
 |---------------------------------------------------------------------------------|-----------------------------------------------|
-| <br/>[size](/reference/stack/size.md) | <br/>要素数を返す (publicメンバ関数)  |
+| [`size`](./size.md) | 要素数を返す |
 

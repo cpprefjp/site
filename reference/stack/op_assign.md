@@ -1,42 +1,28 @@
 #operator=
 ```cpp
-stack<T, Container>& operator=(const stack<T, Container>& st);
+stack& operator=(const stack& st);
 
-stack<T, Container>& operator=(stack<T, Container>&& st);
+// C++11
+stack& operator=(stack&& st);
 ```
 
 ##概要
-
-<b>コピーまたはムーブを行う事で、他の stack から stack を構築する。</b>
-<b></b>
+コピーまたはムーブを行う事で、他の `stack` から `stack` を構築する。
 
 
-<b>引数</b>
-
-st: コピー・ムーブ元の stack オブジェクト
-
-
-
+##パラメータ
+`st`: コピー・ムーブ元の `stack` オブジェクト
 
 
 ##戻り値
-
-*this
-
+`*this`
 
 
 ##計算量
-
 線形 O(n)。
 
 
-
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <stack>
@@ -61,23 +47,15 @@ int main ()
   }
 }
 ```
-* =[color ff0000]
 
 ###出力
-
-```cpp
+```
 3 2 1 
 ```
 
-##実装例
-
-```cpp
-```
-
 ##参照
-```
 | | |
 |--------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| [(constructor)](/reference/stack/stack.md)  | <br/>stackコンストラクタ (publicメンバ関数) |
+| [`(constructor)`](./stack.md) | コンストラクタ |
 
 

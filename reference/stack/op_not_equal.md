@@ -1,37 +1,20 @@
 #operator!=
 ```cpp
 namespace std {
-
   template <class T, class Container>
   bool operator!=(const stack<T, Container>& x, const stack<T, Container>& y);
-
 }
 ```
 
 ##概要
-
-<b>stack の非等値比較を行う。</b>
-
+`stack` の非等値比較を行う。
 
 
 ##戻り値
-
 `x.c != y.c`
-
-##例外
-
-
-
-##計算量
-
-
-
-##備考
-
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <stack>
@@ -57,12 +40,9 @@ int main ()
 
 }
 ```
-* !=[color ff0000]
-* !=[color ff0000]
 
 ###出力
-
-```cpp
+```
 false
 true
 ```

@@ -7,29 +7,14 @@ namespace std {
 ```
 
 ##概要
-
-<b>stack の等値比較を行う。</b>
-<b></b>
+`stack` の等値比較を行う。
 
 
 ##戻り値
-
 `x.c == y.c`
-
-##例外
-
-
-
-##計算量
-
-
-
-##備考
-
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <stack>
@@ -51,8 +36,7 @@ int main ()
 ```
 
 ###出力
-
-```cpp
+```
 true
 ```
 

@@ -1,36 +1,20 @@
 #operator<
 ```cpp
 namespace std {
-
   template <class T, class Container>
   bool operator< (const stack<T, Container>& x, const stack<T, Container>& y);
-
 }
 ```
 
 ##概要
-
-<b>stack において、左辺が右辺より小さいかの判定を行う。</b>
+`stack` において、左辺が右辺より小さいかの判定を行う。
 
 
 ##戻り値
-
 `x.c < y.c`
-
-##例外
-
-
-
-##計算量
-
-
-
-##備考
-
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <stack>
@@ -51,11 +35,9 @@ int main ()
 
 }
 ```
-* <[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 ```
 
