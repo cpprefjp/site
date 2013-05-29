@@ -5,8 +5,6 @@
 このヘッダで提供される例外クラスは以下の表の通りである。以下のクラスは全て、`std`名前空間で提供される。
 
 
-
-
 | | |
 |-------------------------------|--------------------------------------------------------------------------------------------|
 | `logic_error` | プログラムの実行前に検出可能なエラーを示す |
@@ -23,18 +21,17 @@
 
 - [`exception`](/reference/exception/exception.md)
 - `logic_error`
-- `domain_error`
-- `invalid_argument`
-- `length_error`
-- `out_of_range`
+	- `domain_error`
+	- `invalid_argument`
+	- `length_error`
+	- `out_of_range`
 - `runtime_error`
-- `range_error`
-- `overflow_error`
-- `underflow_error`
-`exception`クラスを除く9つのクラスは、すべて同じ`public`メンバ関数をもつ。
+	- `range_error`
+	- `overflow_error`
+	- `underflow_error`
 
+`exception`クラスを除く9つのクラスは、すべて同じ`public`メンバ関数をもつ。 
 クラス名を`T`とすると、以下の`public`メンバ関数をもつ。
-
 
 ##メンバ関数
 
@@ -71,3 +68,4 @@ int main()
   }
 }
 ```
+
