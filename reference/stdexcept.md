@@ -20,15 +20,15 @@
 例外クラスには継承関係があり、以下の箇条書きの階層構造で示す。
 
 - [`exception`](/reference/exception/exception.md)
-- `logic_error`
-	- `domain_error`
-	- `invalid_argument`
-	- `length_error`
-	- `out_of_range`
-- `runtime_error`
-	- `range_error`
-	- `overflow_error`
-	- `underflow_error`
+	- `logic_error`
+		- `domain_error`
+		- `invalid_argument`
+		- `length_error`
+		- `out_of_range`
+	- `runtime_error`
+		- `range_error`
+		- `overflow_error`
+		- `underflow_error`
 
 `exception`クラスを除く9つのクラスは、すべて同じ`public`メンバ関数をもつ。 
 クラス名を`T`とすると、以下の`public`メンバ関数をもつ。
