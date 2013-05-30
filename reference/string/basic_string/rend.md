@@ -6,29 +6,15 @@ const_reverse_iterator crend() const noexcept;
 ```
 
 ##概要
-
-<b>逆方向イテレータの終了位置を返す。</b>
-
-
-##要件
-
-
-
-##効果
-
-
-
-##事後条件
-
+逆方向イテレータの終了位置を返す。
 
 
 ##戻り値
+`reverse_iterator(`[`begin()`](./begin.md)`)`
 
-`reverse_iterator([begin()](/reference/string/basic_string/begin.md))`
 
 ##例外
-
-例外不送出。
+投げない
 
 
 ##計算量
@@ -40,38 +26,11 @@ const_reverse_iterator crend() const noexcept;
 
 
 ##例
-
 ```cpp
 ```
 
 ###出力
-
-```cpp
-##バージョン
 ```
-
-###言語
-
-
-- C++11
-
-
-
-###処理系
-
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): ??
-- [GCC, C++0x mode](/implementation#gcc.md): ??
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
-
-
-
-##実装例
-
-```cpp
 ```
 
 ##参照
-```

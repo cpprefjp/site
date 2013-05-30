@@ -1,37 +1,28 @@
 #basic_string
+```cpp
+namespace std {
+  template <class charT,
+            class traits = char_traits<charT>,
+            class Allocator = allocator<charT> >
+  class basic_string;
 
-| |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|<br/><br/><br/>```cpp
-<br/>namespace std {<br/><br/>  template <class charT,<br/><br/>            class traits = char_traits<charT>,<br/><br/>            class Allocator = allocator<charT> ><br/><br/>  class basic_string;<br/><br/><br/><br/>  typedef basic_string<char>     string;<br/><br/>  typedef basic_string<char16_t> u16string;<br/><br/>  typedef basic_string<char32_t> u32string;<br/><br/>  typedef basic_string<wchar_t>  wstring;<br/><br/>}<br/><br/><br/><br/><br/><br/> |
+  typedef basic_string<char>     string;
+  typedef basic_string<char16_t> u16string;
+  typedef basic_string<char32_t> u32string;
+  typedef basic_string<wchar_t>  wstring;
+}
 ```
 * allocator[link /reference/memory/allocator.md]
 
 ##概要
-
-C++の文字列のライブラリは、basic_stringクラスを定義の元に使っている。このbasic_stringはどんな種類の文字型で構成される文字列でも扱えるようになっているクラステンプレートである。stringとwstringがある。stringはchar型を文字型として、wstringはwchar_t型を文字型としている。
-
-
-C++11よりu16string, u32stringが付加されている（？）。それぞれ、char16_t型とchar32_t型を要素に持つ。
+C++の文字列のライブラリは、`basic_string`クラスを定義の元に使っている。この`basic_string`はどんな種類の文字型で構成される文字列でも扱えるようになっているクラステンプレートである。`string`と`wstring`がある。`string`は`char`型を文字型として、`wstring`は`wchar_t`型を文字型としている。
 
 
-stringは文字型の集合を扱えるようにした特別なコンテナである。
+C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF-16エンコーディングの`char16_t`型と、UTF-32エンコーディングの`char32_t`型を要素に持つ。
 
 
- 単なる文字型のメモリ配列に過ぎない従来のC文字列とは異なり、C++の文字列はより直感的な操作ができ、かつ、C++で共通に使われる便利な特徴を多く組み込みで持っている「クラス」である。
-
-
-stringはbasic_stringクラスを実体化したものである。それは<string>で
-
-typedef basic_string<char> string;
-
-と定義されている。
-
-
-###メンバ関数
-
-<b>構築</b>
-
+##メンバ関数
+##構築
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------|-----------------------|
@@ -39,11 +30,7 @@ typedef basic_string<char> string;
 | `(destructor)` | デストラクタ |
 | [`operator=`](./basic_string/op_assign.md) | 代入演算子 |
 
-<b>
-</b>
-
-<b>イテレータ</b>
-
+###イテレータ
 
 | | |
 |----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
@@ -56,8 +43,7 @@ typedef basic_string<char> string;
 | [`crbegin`](./basic_string/rbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する(C++11) |
 | [`crend`](./basic_string/rend.md) | 先頭の前を指す読み取り専用逆イテレータを取得する(C++11) |
 
-<b>領域</b>
-
+###領域
 
 | | |
 |-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
@@ -72,8 +58,7 @@ typedef basic_string<char> string;
 | [`empty`](./basic_string/empty.md) | 文字列が空かどうかを判定する |
 
 
-<b>要素アクセス</b>
-
+###要素アクセス
 
 | | |
 |------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
@@ -83,8 +68,7 @@ typedef basic_string<char> string;
 | [`back`](./basic_string/back.md) | 末尾の文字を取得する |
 
 
-<b>文字列の変更</b>
-
+###文字列の変更
 
 | | |
 |-------------------------|---------------------------------------------------------------------------------|
@@ -98,8 +82,7 @@ typedef basic_string<char> string;
 | `swap` | 他の`basic_string`オブジェクトとデータを入れ替える |
 
 
-<b>文字列の操作</b>
-
+###文字列の操作
 
 | | |
 |--------------------------------|-----------------------------------------------------------------------|
@@ -117,18 +100,14 @@ typedef basic_string<char> string;
 | `compare` | 文字列比較 |
 
 
-
-
 ###メンバ定数
-
 
 | | |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `npos` | 無効な位置を表す。`find`や`substr`などで使われる。 `static const size_type npos = -1;` |
+| `npos` | 無効な位置を表す。`find`や`substr`などで使われる。<br/>`static const size_type npos = -1;` |
 
 
 ###メンバ型
-
 
 | | |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -143,12 +122,11 @@ typedef basic_string<char> string;
 | `const_pointer` | `const`ポインタ型 `allocator_traits<Allocator>::const_pointer` |
 | `iterator` | イテレータ |
 | `const_iterator` | 読み取り専用イテレータ |
-| `reverse_iterator` | 逆順イテレータ [reverse_iterator](/reference/iterator/reverse_iterator.md)<iterator> |
-| `const_reverse_iterator` | 読み取り専用逆イテレータ [reverse_iterator](/reference/iterator/reverse_iterator.md)<const_iterator> |
+| `reverse_iterator` | 逆順イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` |
+| `const_reverse_iterator` | 読み取り専用逆イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` |
 
 
 ###非メンバ関数
-
 
 | | |
 |-------------------------|----------------------------------------------------------------------|
@@ -163,16 +141,13 @@ typedef basic_string<char> string;
 | `getline` | 入力ストリームから1行読み込む |
 
 
-
-
 ##例
-
-
 ```cpp
 ```
 
 ###出力
-
-```cpp
-###参照
 ```
+```
+
+###参照
+

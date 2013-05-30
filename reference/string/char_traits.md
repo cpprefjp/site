@@ -41,55 +41,53 @@ namespace std {
 | `pos_type` | 位置を表す型 |
 | `state_type` | ストリームのマルチバイト文字の変換の状態を表す型 |
 
-<b>charによる特殊化のメンバ型定義</b>
+###charによる特殊化のメンバ型定義
 
 | | |
 |------------------------------------------------------------------------|------------------------|
-| char_type | `char` |
-| int_type | `int` |
-| off_type | `streamoff` |
-| pos_type | `streampos` |
-| state_type | `mbstate_t` |
+| `char_type` | `char` |
+| `int_type` | `int` |
+| `off_type` | `streamoff` |
+| `pos_type` | `streampos` |
+| `state_type` | `mbstate_t` |
 
-<b>char16_tによる特殊化のメンバ型定義(C++11)</b>
-
-| | |
-|------------------------------------------------------------------------|-----------------------------|
-| char_type | `char16_t` |
-| int_type | `uint_least16_t` |
-| off_type | `streamoff` |
-| pos_type | `u16streampos` |
-| state_type | `mbstate_t` |
-
-
-<b>char32_tによる特殊化のメンバ型定義(C++11)</b>
+###char16_tによる特殊化のメンバ型定義(C++11)
 
 | | |
 |------------------------------------------------------------------------|-----------------------------|
-| char_type | `char32_t` |
-| int_type | `uint_least32_t` |
-| off_type | `streamoff` |
-| pos_type | `u32streampos` |
-| state_type | `mbstate_t` |
+| `char_type` | `char16_t` |
+| `int_type` | `uint_least16_t` |
+| `off_type` | `streamoff` |
+| `pos_type` | `u16streampos` |
+| `state_type` | `mbstate_t` |
 
+###char32_tによる特殊化のメンバ型定義(C++11)
 
-<b>wchar_tによる特殊化のメンバ型定義</b>
+| | |
+|------------------------------------------------------------------------|-----------------------------|
+| `char_type` | `char32_t` |
+| `int_type` | `uint_least32_t` |
+| `off_type` | `streamoff` |
+| `pos_type` | `u32streampos` |
+| `state_type` | `mbstate_t` |
+
+###wchar_tによる特殊化のメンバ型定義
 
 | | |
 |------------------------------------------------------------------------|-------------------------|
-| char_type | `wchar_t` |
-| int_type | `wint_t` |
-| off_type | `streamoff` |
-| pos_type | `wstreampos` |
-| state_type | `mbstate_t` |
-
-
+| `char_type` | `wchar_t` |
+| `int_type` | `wint_t` |
+| `off_type` | `streamoff` |
+| `pos_type` | `wstreampos` |
+| `state_type` | `mbstate_t` |
 
 ##例
 ```cpp
 ```
 
 ###出力
-```cpp
-###参照
 ```
+```
+
+###参照
+

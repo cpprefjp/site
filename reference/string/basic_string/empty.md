@@ -4,8 +4,7 @@ bool empty() const noexcept;
 ```
 
 ##概要
-
-<b>文字列が空か判定する。</b>
+文字列が空か判定する。
 
 
 ##要件
@@ -21,13 +20,11 @@ bool empty() const noexcept;
 
 
 ##戻り値
-
-`[size()](/reference/string/basic_string/size.md) == 0` の評価結果。
+[`size()`](./size.md)` == 0` の評価結果。
 
 
 ##例外
-
-例外不送出。
+投げない
 
 
 ##計算量
@@ -39,38 +36,11 @@ bool empty() const noexcept;
 
 
 ##例
-
 ```cpp
 ```
 
 ###出力
-
-```cpp
-##バージョン
 ```
-
-###言語
-
-
-- C++11
-
-
-
-###処理系
-
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): ??
-- [GCC, C++0x mode](/implementation#gcc.md): ??
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
-
-
-
-##実装例
-
-```cpp
 ```
 
 ##参照
-```
