@@ -133,7 +133,6 @@ lang（言語）、contory_region（地域）、code_page（コードページ�
 | `SAN_IND`                | `Sanskrit_India`                             |
 | `SIN_LKA`                | `Sinhala_Sri Lanka`                          |
 | `SIN_PAK`                | `Sindhi_Pakistan`                            |
-| `SIN_PAK`                | `Sindhi_Pakistan`                            |
 | `SKY_SVK`                | `Slovak_Slovakia`                            |
 | `SLV_SVN`                | `Slovenian_Slovenia`                         |
 | `SMB_SWE`                | `Sami (Southern)_Sweden`                     |
