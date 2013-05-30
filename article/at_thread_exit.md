@@ -22,16 +22,16 @@ namespace std {
   };
 }
 ```
-* notify_all_at_thread_exit[link /reference/condition_variable/condition_variable/notify_all_at_thread_exit]
-* condition_variable[link /reference/condition_variable/condition_variable]
-* unique_lock[link /reference/mutex/unique_lock]
-* mutex[link /reference/mutex/mutex]
-* promise[link /reference/future/promise]
-* set_value_at_thread_exit[link /reference/future/promise/set_value_at_thread_exit]
-* set_exception_at_thread_exit[link /reference/future/promise/set_exception_at_thread_exit]
-* exception_ptr[link /reference/exception/exception_ptr]
-* packaged_task[link /reference/future/packaged_task]
-* make_ready_at_thread_exit[link /reference/future/packaged_task/make_ready_at_thread_exit]
+* notify_all_at_thread_exit[link /reference/condition_variable/condition_variable/notify_all_at_thread_exit.md]
+* condition_variable[link /reference/condition_variable/condition_variable.md]
+* unique_lock[link /reference/mutex/unique_lock.md]
+* mutex[link /reference/mutex/mutex.md]
+* promise[link /reference/future/promise.md]
+* set_value_at_thread_exit[link /reference/future/promise/set_value_at_thread_exit.md]
+* set_exception_at_thread_exit[link /reference/future/promise/set_exception_at_thread_exit.md]
+* exception_ptr[link /reference/exception/exception_ptr.md]
+* packaged_task[link /reference/future/packaged_task.md]
+* make_ready_at_thread_exit[link /reference/future/packaged_task/make_ready_at_thread_exit.md]
 
 これらの関数は、スレッドローカル記憶域が破棄された後に通知を行なったり、状態を変更する。 
 
