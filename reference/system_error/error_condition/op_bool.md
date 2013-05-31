@@ -4,20 +4,18 @@ explicit operator bool() const noexcept;
 ```
 
 ##概要
-
 `error_condition`オブジェクトがエラー状態であるかを判定する。`error_condition`クラスのデフォルトエラー値である`0`が正常と見なされる。`true`の場合はエラーであることを意味し、`false`の場合は正常を意味する。
 
-##戻り値
 
-`[value()](/reference/system_error/error_condition/value.md) != 0`
+##戻り値
+[`value()`](./value.md)` != 0`
+
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -46,37 +44,21 @@ int main()
 * if (ec)[color ff0000]
 
 ###出力
-
-```cpp
+```
 success
 error! : Invalid argument
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) 10.0<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) 10.0
 
-
-
-##実装例
-
-```cpp
-```
 
 ##参照
-```

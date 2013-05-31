@@ -2,30 +2,25 @@
 ```cpp
 void assign(int val, const error_category& cat) noexcept;
 ```
-* error_category[link /reference/system_error/error_category.md]
+* error_category[link ../error_category.md]
 
 ##概要
-
-<b>エラー値とエラーカテゴリを再設定する。</b>
+エラー値とエラーカテゴリを再設定する。
 
 
 ##効果
-
 パラメータ`val`をエラー値、`cat`をエラーカテゴリと見なして保持する。
 
 
 ##戻り値
-
 なし
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -50,38 +45,22 @@ int main()
 * assign[color ff0000]
 
 ###出力
-
-```cpp
+```
 error
 22
 generic
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) 10.0<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) 10.0
 
-
-
-##実装例
-
-```cpp
-```
 
 ##参照
-```

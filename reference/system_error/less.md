@@ -1,30 +1,26 @@
 #operator<
 ```cpp
 namespace std {
-
   bool operator<(const error_code& lhs, const error_code& rhs) noexcept;
   bool operator<(const error_condition& lhs, const error_condition& rhs) noexcept;
 }
 ```
-* error_code[link /reference/system_error/error_code.md]
-* error_condition[link /reference/system_error/error_condition.md]
+* error_code[link ./error_code.md]
+* error_condition[link ./error_condition.md]
 
 ##概要
-
-<b>error_code, error_conditionにおいて、左辺が右辺より小さいかの比較を行う。</b>
+`error_code`, `error_condition`において、左辺が右辺より小さいかの比較を行う。
 
 
 ##戻り値
-
 `lhs.category() < rhs.category() || lhs.category() == rhs.category() && lhs.value() < rhs.value()`
 
-##例外
 
+##例外
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -42,41 +38,22 @@ int main()
   std::cout << "error_condition < error_condition : " << (ed1 < ed2) << std::endl;
 }
 ```
-* <[color ff0000]
-* <[color ff0000]
 
 ###出力
-
-```cpp
+```
 error_code < error_code : false
 error_condition < error_condition : false
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) 10.0<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
-
-
-
-##実装例
-
-```cpp
-```
+- [Visual C++](/implementation#visual_cpp.md) 10.0
 
 ##参照
-```

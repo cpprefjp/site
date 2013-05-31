@@ -1,37 +1,31 @@
 #operator==
 ```cpp
 namespace std {
-
   bool operator==(const error_code& lhs, const error_code& rhs) noexcept;
   bool operator==(const error_code& lhs, const error_condition& rhs) noexcept;
   bool operator==(const error_condition& lhs, const error_code& rhs) noexcept;
   bool operator==(const error_condition& lhs, const error_condition& rhs) noexcept;
-
 }
 ```
 * error_code[link /reference/system_error/error_code.md]
 * error_condition[link /reference/system_error/error_condition.md]
 
 ##概要
-
-<b>error_code, error_conditionの等値比較を行う</b>
+`error_code`, `error_condition`の等値比較を行う
 
 
 ##要件
-
-- `error_code == error_code``lhs.[category()](/reference/system_error/error_code/category.md) == rhs.[category()](/reference/system_error/error_code/category.md) && lhs.[value()](/reference/system_error/error_code/value.md) == rhs.[value()](/reference/system_error/error_code/value.md)`
-- `error_code == error_condition``lhs.[category()](/reference/system_error/error_code/category.md).[equivalent](/reference/system_error/error_category/equivalent.md)(lhs.[value()](/reference/system_error/error_code/value.md), rhs) || rhs.[category()](/reference/system_error/error_condition/category.md).[equivalent](/reference/system_error/error_category/equivalent.md)(lhs, rhs.[value()](/reference/system_error/error_condition/value.md))`
-- `error_condition == error_code``rhs.[category()](/reference/system_error/error_condition/category.md).[equivalent](/reference/system_error/error_category/equivalent.md)(rhs.[value()](/reference/system_error/error_condition/value.md), lhs) || lhs.[category()](/reference/system_error/error_code/category.md).[equivalent](/reference/system_error/error_category/equivalent.md)(rhs, lhs.[value()](/reference/system_error/error_code/value.md))`
-- `error_condition == error_condition``lhs.[category()](/reference/system_error/error_condition/category.md) == rhs.[category()](/reference/system_error/error_condition/category.md) && lhs.[value()](/reference/system_error/error_condition/value.md) == rhs.[value()](/reference/system_error/error_condition/value.md)`
+- `error_code == error_code`<br/>`lhs.`[`category()`](./error_code/category.md)` == rhs.`[{category()`](./error_code/category.md)` && lhs.`[`value()`](./error_code/value.md)` == rhs.`[`value()`](./error_code/value.md)
+- `error_code == error_condition`<br/>`lhs.`[`category()`](./error_code/category.md)`.`[`equivalent`](./error_category/equivalent.md)`(lhs.`[`value()`](./error_code/value.md)`, rhs) || rhs.`[`category()`](./error_condition/category.md)`.`[`equivalent`](./error_category/equivalent.md)`(lhs, rhs.`[`value()`](./error_condition/value.md)`)`
+- `error_condition == error_code`<br/>`rhs.`[`category()`](./error_condition/category.md)`.`[`equivalent`](./error_category/equivalent.md)`(rhs.`[`value()`](./error_condition/value.md)`, lhs) || lhs.`[`category()`](./error_code/category.md)`.`[`equivalent`](./error_category/equivalent.md)`(rhs, lhs.`[`value()`](./error_code/value.md)`)`
+- `error_condition == error_condition`<br/>`lhs.`[`category()`](./error_condition/category.md)` == rhs.`[`category()`](./error_condition/category.md)` && lhs.`[`value()`](./error_condition/value.md)` == rhs.`[`value()`](./error_condition/value.md)
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -56,16 +50,9 @@ int main()
 
 }
 ```
-* ==[color ff0000]
-* ==[color ff0000]
-* ==[color ff0000]
-* ==[color ff0000]
-* ==[color ff0000]
-* ==[color ff0000]
 
 ###出力
-
-```cpp
+```
 error_code == error_code : true
 error_code == error_code : false
 error_code == error_condition : true
@@ -75,23 +62,15 @@ error_condition == error_condition : false
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) 10.0
-
 
 
 ##参照

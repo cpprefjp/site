@@ -1,33 +1,28 @@
 #operator!=
 ```cpp
 namespace std {
-
   bool operator!=(const error_code& lhs, const error_code& rhs) noexcept;
   bool operator!=(const error_code& lhs, const error_condition& rhs) noexcept;
   bool operator!=(const error_condition& lhs, const error_code& rhs) noexcept;
   bool operator!=(const error_condition& lhs, const error_condition& rhs) noexcept;
-
 }
 ```
-* error_code[link /reference/system_error/error_code.md]
-* error_condition[link /reference/system_error/error_condition.md]
+* error_code[link ./error_code.md]
+* error_condition[link ./error_condition.md]
 
 ##概要
-
-<b>error_code, error_conditionの非等値比較を行う</b>
+`error_code`, `error_condition`の非等値比較を行う
 
 
 ##戻り値
+`!(lhs `[`==`](./equal.md)` rhs)`
 
-`!(lhs [==](/reference/system_error/equal.md) rhs)`
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -52,16 +47,9 @@ int main()
 
 }
 ```
-* !=[color ff0000]
-* !=[color ff0000]
-* !=[color ff0000]
-* !=[color ff0000]
-* !=[color ff0000]
-* !=[color ff0000]
 
 ###出力
-
-```cpp
+```
 error_code != error_code : false
 error_code != error_code : true
 error_code != error_condition : false
@@ -71,17 +59,10 @@ error_condition != error_condition : true
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
@@ -89,9 +70,7 @@ error_condition != error_condition : true
 - [Visual C++](/implementation#visual_cpp.md) 10.0
 
 
-
 ##参照
-
-[operator==() - <system_error>](/reference/system_error/equal.md)
+[`operator==()`](/reference/system_error/equal.md)
 
 

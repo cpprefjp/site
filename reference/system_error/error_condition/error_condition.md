@@ -7,25 +7,27 @@ error_condition(int val, const error_category& cat) noexcept;
 template <class ErrorConditionEnum>
 error_condition(ErrorConditionEnum e) noexcept;
 ```
-* error_category[link /reference/system_error/error_category.md]
+* error_category[link ../error_category.md]
 
-##概要
+##error_conditionオブジェクトの構築
+- `error_condition() noexcept`
 
-<b>error_conditionクラスのオブジェクトを構築する。</b>
-<b></b>
+デフォルト構築する。エラー値は`0`、エラーカテゴリは[`generic_category()`](../generic_category.md)と見なされる。
 
-- `error_condition() noexcept`デフォルト構築する。エラー値は`0`、エラーカテゴリは[`generic_category()`](/reference/system_error/generic_category.md)と見なされる。
-- `error_condition(int val, const [error_category](/reference/system_error/error_category.md)& cat) noexcept`エラー値とエラーカテゴリを受け取って構築する。
-- `template <class ErrorConditionEnum>``error_condition(ErrorConditionEnum e) noexcept`[`is_error_condition_enum`](/reference/system_error/is_error_condition_enum.md)<ErrorCodeEnum>::value == true`となる型のエラー値を受け取って構築する。`[is_error_condition_enum](/reference/system_error/is_error_condition_enum.md)が`false`となる場合、この関数はオーバーロード解決から除外される。`*this = [make_error_condition](/reference/system_error/make_error_condition.md)(e);` となる。
+- `error_condition(int val, const `[`error_category`](../error_category.md)`& cat) noexcept`
+
+エラー値とエラーカテゴリを受け取って構築する。
+
+- `template <class ErrorConditionEnum>`<br/>`error_condition(ErrorConditionEnum e) noexcept`
+
+[`is_error_condition_enum`](../is_error_condition_enum.md)`<ErrorCodeEnum>::value == true`となる型のエラー値を受け取って構築する。[`is_error_condition_enum`](../is_error_condition_enum.md)が`false`となる場合、この関数はオーバーロード解決から除外される。`*this = `[`make_error_condition`](./make_error_condition.md)`(e);` となる。
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -84,8 +86,7 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 default ctor
 success
 0
@@ -103,23 +104,15 @@ generic
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) 10.0
-
 
 
 ##参照

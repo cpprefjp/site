@@ -6,10 +6,9 @@ namespace std {
 ```
 
 ##概要
-
 `error_category`クラスは、エラー情報を分類するための基本クラスである。エラーコードから対応するエラーメッセージを取得する処理が異なる場合などで、`error_category`クラスを派生して環境固有のエラー情報を取得するためのクラスを定義することができる。
 
-###メンバ関数
+##メンバ関数
 
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
@@ -24,7 +23,7 @@ namespace std {
 | [`operator!=`](./error_category/not_equal.md) | 非等値比較 |
 | [`operator<`](./error_category/less.md) | 小なり比較 |
 
-###例
+##例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -57,18 +56,15 @@ int main()
 ```
 
 ###出力
-```cpp
+```
 user defined error
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0

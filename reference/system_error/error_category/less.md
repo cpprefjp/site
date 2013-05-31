@@ -4,22 +4,19 @@ bool operator<(const error_category& rhs) const noexcept;
 ```
 
 ##概要
-
-<b>error_categoryオブジェクトのポインタの小なり比較を行う。</b>
-<b>自身のポインタがrhsオブジェクトへのポインタより小さい場合trueを返し、そうでなければfalseを返す。</b>
+`error_category`オブジェクトのポインタの小なり比較を行う。
+自身のポインタが`rhs`オブジェクトへのポインタより小さい場合`true`を返し、そうでなければ`false`を返す。
 
 
 ##戻り値
-
 `less<const error_category*>()(this, &rhs)`
 
-##例外
 
+##例外
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -36,41 +33,23 @@ int main()
   std::cout << (a < c) << std::endl;
 }
 ```
-* <[color ff0000]
-* <[color ff0000]
 
 ###出力例
-
-```cpp
+```
 false
 false
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) 10.0<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) 10.0
 
-
-
-##実装例
-
-```cpp
-```
 
 ##参照
-```

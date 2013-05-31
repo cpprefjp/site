@@ -4,16 +4,14 @@ string message() const;
 ```
 
 ##概要
-
-<b>エラーメッセージを取得する。</b>
+エラーメッセージを取得する。
 
 
 ##戻り値
+[`category()`](./category.md)`.`[`message`](../error_category/message.md)`(`[`value()`](./value.md)`)`
 
-[`category()`](/reference/system_error/error_code/category.md).[message](/reference/system_error/error_category/message.md)([value()](/reference/system_error/error_code/value.md))
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -30,30 +28,20 @@ int main()
 * message[color ff0000]
 
 ###出力
-
-```cpp
+```
 Invalid argument
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) 10.0
-
-
 
 ##参照
 

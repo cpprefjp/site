@@ -20,8 +20,8 @@
 | [`operator<<`](./system_error/output_stream.md) | `error_code`のストリーム出力(function) |
 | `hash` | `error_code`での特殊化(class template) |
 
-参考：
-[System error support in C++0x part1-5 - Thinking Asynchronously in C++](http://blog.think-async.com/search/label/system_error)
-[Boost System Library Documentation](http://www.boost.org/doc/libs/release/libs/system/doc/index.html)
+##参照
+- [System error support in C++0x part1-5 - Thinking Asynchronously in C++](http://blog.think-async.com/search/label/system_error)
+- [Boost System Library Documentation](http://www.boost.org/doc/libs/release/libs/system/doc/index.html)
 
 

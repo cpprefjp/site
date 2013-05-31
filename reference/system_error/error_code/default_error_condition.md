@@ -2,27 +2,25 @@
 ```cpp
 error_condition default_error_condition() const noexcept;
 ```
-* error_condition[link /reference/system_error/error_condition.md]
+* error_condition[link ./error_condition.md]
 
 ##概要
-
-<b>包含しているエラー値とエラーカテゴリに対応するerror_conditionを構築</b>
+包含しているエラー値とエラーカテゴリに対応する`error_condition`を構築
 
 
 ##戻り値
+[`category()`](./category.md)`.`[`default_error_condition`](../error_category/default_error_condition.md)`(`[`value()`](./value.md)`)`
 
-[`category()`](/reference/system_error/error_code/category.md).[default_error_condition](./default_error_condition.md)([value()](/reference/system_error/error_code/value.md))
 
 ##例外
 
 投げない
 
 ##備考
-構築される[`error_condition`](/reference/system_error/error_condition.md)オブジェクトの[`value()`](/reference/system_error/error_condition/value.md)および[`category()`](/reference/system_error/error_condition/category.md)は、`default_error_condition()`関数内において対応するエラー値、カテゴリに変換される可能性がある(VC10, GCC 4.6.1では同じエラー値、同じカテゴリとなる)。
+構築される[`error_condition`](../error_condition.md)オブジェクトの[`value()`](../error_condition/value.md)および[`category()`](../error_condition/category.md)は、`default_error_condition()`関数内において対応するエラー値、カテゴリに変換される可能性がある(VC10, GCC 4.6.1では同じエラー値、同じカテゴリとなる)。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -49,8 +47,7 @@ int main()
 * default_error_condition[color ff0000]
 
 ###出力例
-
-```cpp
+```
 22
 generic
 Invalid argument
@@ -61,30 +58,15 @@ Invalid argument
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) 10.0<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) 10.0
 
-
-
-##実装例
-
-```cpp
-```
 
 ##参照
-```
