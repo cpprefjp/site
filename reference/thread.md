@@ -1,32 +1,19 @@
 #thread
-
-`<thread>`ヘッダはマルチスレッド制御に関するクラス・関数を定義する。
+`<thread>`ヘッダはマルチスレッド制御に関するクラス・関数を定義する。 
 スレッドサポートはC++11にて導入された。
 
 
 | | |
 |-------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| [`thread`](./thread/thread.md)<br/> | スレッド クラス(class) |
-| [`thread::id`](./thread/thread/id.md)<br/> | スレッド識別子 クラス(class)<br/> |
-| [`this_thread`](./thread/this_thread.md)<br/> |現スレッドの制御機能を提供する名前空間 (namespace)<br/> |
-
+| [`thread`](./thread/thread.md) | スレッド クラス(class) |
+| [`thread::id`](./thread/thread/id.md) | スレッド識別子 クラス(class) |
+| [`this_thread`](./thread/this_thread.md) |現スレッドの制御機能を提供する名前空間 (namespace) |
 
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
-
-
 ###処理系
-
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.3, 4.7.0
-
-<h4>備考</h4>
-
-
 - GCC／pthread環境でスレッドサポートを有効化するには -pthread オプション指定が必要。（GCC 4.7.0で確認）
+
