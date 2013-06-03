@@ -76,7 +76,8 @@ int main()
   int x = 0, y = 0;
 
   std::thread thd([&]{ ++x; });
-  --y;  thd.join();
+  --y;
+  thd.join();
 
   assert(x == 1 && y == -1);
   return 0;
