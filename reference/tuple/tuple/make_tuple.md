@@ -1,25 +1,20 @@
 #make_tuple
 ```cpp
 namespace std {
-
   template <class... Types>
   tuple<VTypes ...> make_tuple(Types&&...);
 }
 ```
-* tuple[link /reference/tuple/tuple.md]
 
 ##概要
-
 渡された可変個パラメータのコピーから`tuple`型のオブジェクトを構築する。
 
 
 ##戻り値
-
 パラメータパックの値からなる`tuple`オブジェクト。
 
 
 ##例
-
 ```cpp
 #include <tuple>
 #include <string>
@@ -45,32 +40,21 @@ int main()
 }
 ```
 * make_tuple[color ff0000]
-* make_tuple[color ff0000]
-* make_tuple[color ff0000]
-* make_tuple[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ?
 - [GCC](/implementation#gcc.md): ?
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ?
 - [Visual C++](/implementation#visual_cpp.md) 9.0, 10.0
-
 
 
 ##参照

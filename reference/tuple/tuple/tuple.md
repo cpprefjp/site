@@ -53,28 +53,73 @@ template <class Alloc, class U1, class U2>
 * pair[link /reference/utility/pair.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
-##tupleの構築
+##tupleオブジェクトの構築
+- `constexpr tuple()`
 
-- `constexpr tuple()`すべての要素を初期化して構築
-- `explicit tuple(const Types&...)`可変テンプレートパラメータの型の値によるコピー構築
-- `template <class... UTypes>explicit tuple(UTypes&&...)`可変テンプレートパラメータの型に変換可能な値によるムーブ構築
-- `tuple(const tuple&) = default`コピーコンストラクタ
-- `tuple(tuple&&) = default`ムーブコンストラクタ
-- `template <class U1, class U2>tuple(const std::pair<U1, U2>&)`テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからコピー構築する
-- `template <class U1, class U2>tuple(std::pair<U1, U2>&&)`テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからムーブ構築する
-- `template <class Alloc>tuple(allocator_arg_t, const Alloc& a)`<li style='display:inline!important'>アロケータを指定して構築する</li>
-- `template <class Alloc>tuple(allocator_arg_t, const Alloc& a, const Types&...)`<li style='display:inline!important'>アロケータを指定して可変テンプレートパラメータの型の値によってコピー構築する</li>
-- `template <class Alloc, class... UTypes>``tuple(allocator_arg_t, const Alloc& a, UTypes&&...)`<li style='display:inline!important'>アロケータを指定して可変テンプレートパラメータの型の値によってムーブ構築する</li>
-- `template <class Alloc>``tuple(allocator_arg_t, const Alloc& a, const tuple&)`<li style='display:inline!important'>アロケータを指定してコピー構築</li>
-- `template <class Alloc>``tuple(allocator_arg_t, const Alloc& a, tuple&&)`<li style='display:inline!important'>アロケータを指定してムーブ構築</li>
-- `template <class Alloc, class... UTypes>``tuple(allocator_arg_t, const Alloc& a, const tuple<UTypes...>&)`<li style='display:inline!important'>アロケータを指定して変換可能な他の`tuple`オブジェクトからコピー構築</li>
-- `template <class Alloc, class... UTypes>``tuple(allocator_arg_t, const Alloc& a, tuple<UTypes...>&&)`<li style='display:inline!important'>アロケータを指定して変換可能な他の`tuple`オブジェクトからムーブ構築</li>
-- `template <class Alloc, class U1, class U2>``tuple(allocator_arg_t, const Alloc& a, const pair<U1, U2>&)`<li style='display:inline!important'>テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`オブジェクトからコピー構築する</li>
-- `template <class Alloc, class U1, class U2>``tuple(allocator_arg_t, const Alloc& a, pair<U1, U2>&&)`<li style='display:inline!important'>テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`からムーブ構築する</li>
+すべての要素を初期化して構築
+
+- `explicit tuple(const Types&...)`
+
+可変テンプレートパラメータの型の値によるコピー構築
+
+- `template <class... UTypes>explicit tuple(UTypes&&...)`
+
+可変テンプレートパラメータの型に変換可能な値によるムーブ構築
+
+- `tuple(const tuple&) = default`
+
+コピーコンストラクタ
+
+- `tuple(tuple&&) = default`
+
+ムーブコンストラクタ
+
+- `template <class U1, class U2>tuple(const std::pair<U1, U2>&)`
+
+テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからコピー構築する
+
+- `template <class U1, class U2>tuple(std::pair<U1, U2>&&)`
+
+テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからムーブ構築する
+
+- `template <class Alloc>tuple(allocator_arg_t, const Alloc& a)`
+
+アロケータを指定して構築する
+
+- `template <class Alloc>tuple(allocator_arg_t, const Alloc& a, const Types&...)`
+
+アロケータを指定して可変テンプレートパラメータの型の値によってコピー構築する
+
+- `template <class Alloc, class... UTypes>`<br/>`tuple(allocator_arg_t, const Alloc& a, UTypes&&...)`
+
+アロケータを指定して可変テンプレートパラメータの型の値によってムーブ構築する
+
+- `template <class Alloc>`<br/>`tuple(allocator_arg_t, const Alloc& a, const tuple&)`
+
+アロケータを指定してコピー構築
+
+- `template <class Alloc>`<br/>`tuple(allocator_arg_t, const Alloc& a, tuple&&)`
+
+アロケータを指定してムーブ構築
+
+- `template <class Alloc, class... UTypes>`<br/>`tuple(allocator_arg_t, const Alloc& a, const tuple<UTypes...>&)`
+
+アロケータを指定して変換可能な他の`tuple`オブジェクトからコピー構築
+
+- `template <class Alloc, class... UTypes>`<br/>`tuple(allocator_arg_t, const Alloc& a, tuple<UTypes...>&&)`
+
+アロケータを指定して変換可能な他の`tuple`オブジェクトからムーブ構築
+
+- `template <class Alloc, class U1, class U2>`<br/>`tuple(allocator_arg_t, const Alloc& a, const pair<U1, U2>&)`
+
+テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`オブジェクトからコピー構築する
+
+- `template <class Alloc, class U1, class U2>`<br/>`tuple(allocator_arg_t, const Alloc& a, pair<U1, U2>&&)`
+
+テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`からムーブ構築する
 
 
 ##例
-
 ```cpp
 #include <tuple>
 #include <string>
@@ -107,26 +152,18 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): 
-- [Visual C++](/implementation#visual_cpp.md) <h4>備考</h4>
-
+- [Visual C++](/implementation#visual_cpp.md)
 
 
 ##参照

@@ -1,16 +1,13 @@
 #forward_as_tuple
 ```cpp
 namespace {
-
   template <class... Types>
   tuple<Types&&...> forward_as_tuple(Types&&...) noexcept;
 }
 ```
-* tuple[link /reference/tuple/tuple.md]
 
 ##概要
-
-<b>パラメータの元の型からなる`tuple`を生成する。左辺値参照型は左辺値参照型として、右辺値は右辺値参照として転送される。</b>
+パラメータの元の型からなる`tuple`を生成する。左辺値参照型は左辺値参照型として、右辺値は右辺値参照として転送される。
 
 
 ##戻り値
@@ -19,12 +16,10 @@ namespace {
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <tuple>
@@ -43,24 +38,16 @@ int main()
 }
 ```
 * forward_as_tuple[color ff0000]
-* forward_as_tuple[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
@@ -68,10 +55,7 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md) 
 
 
-
 ##注意事項
-
-forward_as_tupleは、ドラフト段階でpack_argumentsという名前で一時期表記されていた。
-
+`forward_as_tuple`は、ドラフト仕様の段階で`pack_arguments`という名前で一時期表記されていた。 
 コンパイラのバージョンによっては、この名前での実装もありえる。
 

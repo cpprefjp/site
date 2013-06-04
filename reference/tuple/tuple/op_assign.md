@@ -19,15 +19,39 @@ template <class U1, class U2>
 
 ##概要
 
-- `tuple& operator=(const tuple&)`コピー代入を行う。要件： `tuple`の全ての要素型`i`が`[is_copy_assignable](/reference/type_traits/is_copy_assignable.md)<i>::value == true`であること
-- `tuple& operator=(tuple&&) noexcept( 下記参照 )`ムーブ代入を行う。要件： `tuple`の全ての要素型`i`が`[is_move_assignable](/reference/type_traits/is_move_assignable.md)<i>::value == true`であること。例外： `tuple`の全ての要素型`i`が`is_nothrow_move_assignable<i>::value == true`の場合、決して例外を投げない。
-- `template <class... UTypes>``tuple& operator=(const tuple<UTypes...>&)`変換可能な`tuple`からのコピー代入を行う。要件： パラメータの`tuple`の全ての要素型が、元の`tuple`の全ての要素型にコピー代入可能であり、要素数が同じであること。
-- `template <class... UTypes>tuple& operator=(tuple<UTypes...>&&)`変換可能な`tuple`からのムーブ代入を行う。要件： パラメータの`tuple`の全ての要素型が、元の`tuple`の全ての要素型にムーブ代入可能であり、要素数が同じであること。
-- `template <class U1, class U2>``tuple& operator=(const pair<U1, U2>&)`変換可能な`pair`からのコピー代入を行う。要件： 元の`tuple`の要素数が2であり、パラメータの`pair`の全ての要素型が元の`tuple`の全ての要素型にコピー代入可能であること。
-- `template <class U1, class U2>tuple& operator=(pair<U1, U2>&&)`変換可能な`pair`からのムーブ代入を行う要件： 元の`tuple`の要素型が2であり、パラメータの`pair`の全ての要素型が元の`tuple`の全ての要素型にムーブ代入可能であること。
+- `tuple& operator=(const tuple&)`
+
+コピー代入を行う。 
+要件： `tuple`の全ての要素型`i`が[`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<i>::value == true`であること
+
+- `tuple& operator=(tuple&&) noexcept(下記参照 )`
+
+ムーブ代入を行う。 
+要件： `tuple`の全ての要素型`i`が[`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<i>::value == true`であること。 
+例外： `tuple`の全ての要素型`i`が`is_nothrow_move_assignable<i>::value == true`の場合、決して例外を投げない。
+
+- `template <class... UTypes>`<br/>`tuple& operator=(const tuple<UTypes...>&)`
+
+変換可能な`tuple`からのコピー代入を行う。 
+要件： パラメータの`tuple`の全ての要素型が、元の`tuple`の全ての要素型にコピー代入可能であり、要素数が同じであること。
+
+- `template <class... UTypes>`<br/>`tuple& operator=(tuple<UTypes...>&&)`
+
+変換可能な`tuple`からのムーブ代入を行う。 
+要件： パラメータの`tuple`の全ての要素型が、元の`tuple`の全ての要素型にムーブ代入可能であり、要素数が同じであること。
+
+- `template <class U1, class U2>`<br/>`tuple& operator=(const pair<U1, U2>&)`
+
+変換可能な`pair`からのコピー代入を行う。 
+要件： 元の`tuple`の要素数が2であり、パラメータの`pair`の全ての要素型が元の`tuple`の全ての要素型にコピー代入可能であること。
+
+- `template <class U1, class U2>`<br/>`tuple& operator=(pair<U1, U2>&&)`
+
+変換可能な`pair`からのムーブ代入を行う。 
+要件： 元の`tuple`の要素型が2であり、パラメータの`pair`の全ての要素型が元の`tuple`の全ての要素型にムーブ代入可能であること。
+
 
 ##例
-
 ```cpp
 #include <string>
 #include <tuple>
@@ -70,26 +94,18 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): 
 - [Visual C++](/implementation#visual_cpp.md) 
-
 
 
 ##参照

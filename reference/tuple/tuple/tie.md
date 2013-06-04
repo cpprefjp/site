@@ -8,25 +8,21 @@ namespace std {
 * tuple[link /reference/tuple/tuple.md]
 
 ##概要
+パラメータの参照からなる[`tuple`](../tuple.md)を生成する。 
 
-<b>パラメータの参照からなる[tuple](/reference/tuple/tuple.md)を生成する。</b>
-<b></b>
-<b>本関数は、[tuple](/reference/tuple/tuple.md)のオブジェクトから要素をまとめて取り出すために使用することができる。</b>
-<b>その際、引数として[ignore](/reference/tuple/tuple/ignore.md)を使用することで、一部の要素を取り出さず、無視することができる。</b>
+本関数は、[`tuple`](../tuple.md)のオブジェクトから要素をまとめて取り出すために使用することができる。 
+その際、引数として[`ignore`](./ignore.md)を使用することで、一部の要素を取り出さず、無視することができる。
 
 
 ##戻り値
-
 パラメータの参照からなる`tuple`オブジェクト。
 
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <tuple>
@@ -70,13 +66,10 @@ int main()
   }
 }
 ```
-* tie(a, b, c);[color ff0000]
-* tie[color ff0000]
 * tie[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 a
 Hello
@@ -86,17 +79,10 @@ Hello
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
@@ -104,9 +90,7 @@ Hello
 - [Visual C++](/implementation#visual_cpp.md) 9.0, 10.0
 
 
-
 ##参照
-
-[std::ignore](/reference/tuple/tuple/ignore.md)
+- [`std::ignore`](./ignore.md)
 
 
