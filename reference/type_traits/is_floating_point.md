@@ -8,15 +8,13 @@ namespace std {
 ```
 
 ##概要
-<b>型Tが浮動小数点型かを調べる</b>
+型Tが浮動小数点型かを調べる
 
 ##効果
-
-`is_floating_point`は、型`T`が浮動小数点型(cv修飾を許容する)であれば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
+`is_floating_point`は、型`T`が浮動小数点型(cv修飾を許容する)であれば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
 
 
 ##例
-
 ```cpp
 #include <type_traits>
 
@@ -44,25 +42,17 @@ int main(){}
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-
-<h3>
-言語</h3>
-```
+###言語
 - C++11
 
-
-
 ###処理系
-
-
 - GCC, C++0x mode: 4.3.4, 4.5.3, 4.6.1, 4.7.2
+- Visual C++ 10.0
 
-- Visual C++ 10.0<h3><h4>備考</h4>
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [integral_constant](/reference/type_traits/integral_constant-true_type-false_type.md) が operator bool を持っていないためエラーになる。
-</h3>
+####備考
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](./integral_constant-true_type-false_type.md) が `operator bool()` を持っていないためエラーになる。
 

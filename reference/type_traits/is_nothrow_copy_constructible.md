@@ -7,25 +7,19 @@ namespace std {
 ```
 
 ##概要
-
-<b>型Tがコピー構築でき、かつそのコピーコンストラクタが例外を投げないか調べる</b>
+型`T`がコピー構築でき、かつそのコピーコンストラクタが例外を投げないか調べる
 
 
 ##要件
-
-型`T`は完全型であるか、`const/volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
-
+型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
 ##効果
-
-`is_nothrow_copy_constructible`は、型`T`が例外を投げない保証のもとにコピー構築可能であるならば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
-`[is_nothrow_constructible](/reference/type_traits/is_nothrow_constructible.md)<T, const T&>::value == true`の時に、コピー構築可能かつ例外を投げないと判断される。`[is_nothrow_constructible](/reference/type_traits/is_nothrow_constructible.md)<T, T&>::value`では判断できないので注意。
-
+`is_nothrow_copy_constructible`は、型`T`が例外を投げない保証のもとにコピー構築可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
+[`is_nothrow_constructible`](./is_nothrow_constructible.md)`<T, const T&>::value == true`の時に、コピー構築可能かつ例外を投げないと判断される。[`is_nothrow_constructible`](./is_nothrow_constructible.md)`<T, T&>::value`では判断できないので注意。
 
 
 ##例
-
 ```cpp
 #include <type_traits>
 
@@ -68,23 +62,15 @@ static_assert(std::is_nothrow_copy_constructible<void>::value == false, "void is
 
 int main(){}
 ```
-* is_nothrow_copy_constructible[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0, 4.8.0
 

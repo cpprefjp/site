@@ -7,22 +7,18 @@ namespace std {
 ```
 
 ##概要
-
-<b><b>型Tが右辺値参照型かを調べる</b></b>
+型`T`が右辺値参照型かを調べる
 
 
 ##効果
-
-`is_rvalue_reference`は、型`T`が右辺値参照型であるならば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
+`is_rvalue_reference`は、型`T`が右辺値参照型であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
 
 
 ##備考
-
 左辺値参照型は右辺値参照型ではない。
 
 
 ##例
-
 ```cpp
 #include <type_traits>
 
@@ -50,22 +46,16 @@ int main(){}
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-<h3>
 - GCC, C++0x mode: 4.3.4, 4.5.3, 4.6.1, 4.7.2
-- Visual C++ 10.0<h4>備考</h4>
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [integral_constant](/reference/type_traits/integral_constant-true_type-false_type.md) が operator bool を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラにバグがあるために関数への rvalue 参照型を is_rvalue_reference へ渡すと is_rvalue_reference は false_type から派生してしまいエラーになる。
-</h3>
+- Visual C++ 10.0
+
+####備考
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](./integral_constant-true_type-false_type.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラにバグがあるために関数への右辺値参照型を `is_rvalue_reference` へ渡すと `is_rvalue_reference` は `false_type` から派生してしまいエラーになる。

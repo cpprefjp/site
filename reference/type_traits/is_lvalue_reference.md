@@ -7,22 +7,18 @@ namespace std {
 ```
 
 ##概要
-
-<b>型Tが左辺値参照型かを調べる</b>
+型`T`が左辺値参照型かを調べる
 
 
 ##効果
-
-`is_lvalue_reference`は、型`T`が左辺値参照型であるならば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
+`is_lvalue_reference`は、型`T`が左辺値参照型であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
 
 
 ##備考
-
 右辺値参照型は左辺値参照型ではない。
 
 
 ##例
-
 ```cpp
 #include <type_traits>
 
@@ -50,25 +46,17 @@ int main(){}
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-<li style='list-style-position:outside;list-style-type:square'>GCC, C++0x mode: 4.3.4, 4.5.3, 4.6.1, 4.7.2</li>
+- GCC, C++0x mode: 4.3.4, 4.5.3, 4.6.1, 4.7.2
 - Visual C++ 10.0
 
-<h3><h4>備考</h4>
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [integral_constant](/reference/type_traits/integral_constant-true_type-false_type.md) が operator bool を持っていないためエラーになる。
-</h3>
+####備考
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](./integral_constant-true_type-false_type.md) が `operator bool()` を持っていないためエラーになる。
 

@@ -7,21 +7,19 @@ namespace std {
 ```
 
 ##概要
-
-<b>型Tがデフォルト構築可能か調べる</b>
+型`T`がデフォルト構築可能か調べる
 
 
 ##要件
-型`T`は完全型であるか、`const/volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
+型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
+
 
 ##効果
-
-`is_default_constructible`は、型`T`がデフォルトコンストラクト可能であるならば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
-`[is_constructible](/reference/type_traits/is_constructible.md)<T>::value == true`の時に、デフォルトコンストラクト可能であると判断される。
+`is_default_constructible`は、型`T`がデフォルトコンストラクト可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
+[`is_constructible`](./is_constructible.md)`<T>::value == true`の時に、デフォルト構築可能であると判断される。
 
 
 ##例
-
 ```cpp
 #include <type_traits>
 
@@ -56,22 +54,17 @@ int main(){}
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): 3.0
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0<h4>備考</h4>
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 
-上の例でコンパイラによってはエラーになる。Clang 3.0 は constexpr に対応していないためにエラーになる。operator bool は持っているので、実行時に用いることはできる。
+####備考
+上の例でコンパイラによってはエラーになる。Clang 3.0 は `constexpr` に対応していないためにエラーになる。`operator bool` は持っているので、実行時に用いることはできる。
+

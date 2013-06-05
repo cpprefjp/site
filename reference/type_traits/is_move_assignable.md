@@ -7,25 +7,19 @@ namespace std {
 ```
 
 ##概要
-
-<b>T はムーブ代入できるか。</b>
+型`T`がムーブ代入可能か調べる
 
 
 ##要件
-
-T は完全型であるか、const/volatile 修飾された(あるいはされていない)void か、要素数不明の配列型でなければならない。
-
+`T` は完全型であるか、`const`/`volatile` 修飾された(あるいはされていない)`void` か、要素数不明の配列型でなければならない。
 
 
 ##効果
-
-is_move_assignable は T がムーブ代入可能であるならば [true_type](/reference/type_traits/integral_constant-true_type-false_type.md) から派生し、そうでなければ [false_type](/reference/type_traits/integral_constant-true_type-false_type.md) から派生する。
-[`is_assignable`](/reference/type_traits/is_assignable.md)`<T&, T&&>::value == true` の時に、ムーブ代入可能であると判断される。
-
+`is_move_assignable` は `T` がムーブ代入可能であるならば [`true_type`](./integral_constant-true_type-false_type.md) から派生し、そうでなければ [`false_type`](./integral_constant-true_type-false_type.md) から派生する。 
+[`is_assignable`](./is_assignable.md)`<T&, T&&>::value == true` の時に、ムーブ代入可能であると判断される。
 
 
 ##例
-
 ```cpp
 #include <type_traits>
 #include <memory>
@@ -64,20 +58,13 @@ int main(){}
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.8.0
 

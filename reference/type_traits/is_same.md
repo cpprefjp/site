@@ -2,23 +2,19 @@
 ```cpp
 namespace std {
   template <class T, class U>
-
   struct is_same;
 }
 ```
 
 ##概要
+2つの型`T`と`U`が同じ型か調べる
 
-<b>2つの型TとUが同じ型か調べる</b>
 
 ##効果
-`is_same`は、CV修飾子が同じであることを含め型`T`と型`U`が同じ型であるならば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
+`is_same`は、CV修飾子が同じであることを含め型`T`と型`U`が同じ型であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
 
 
 ##例
-
-
-
 ```cpp
 #include <type_traits>
 
@@ -50,24 +46,15 @@ int main(){}
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-
-<h3>
-言語</h3>
-```
+###言語
 - C++11
 
-
-
 ###処理系
-
-
 - GCC, C++0x mode: 4.3.4, 4.6.1
-
 - Visual C++ 10.0
 
 

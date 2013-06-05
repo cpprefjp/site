@@ -1,30 +1,25 @@
 #is_assignable
 ```cpp
-<a href='/'/>namespace std {
+namespace std {
   template <class T, class U>
   struct is_assignable;
 }
 ```
 
 ##概要
-
-<b>型Tが型Uから代入可能か調べる</b>
+型`T`が型`U`から代入可能か調べる
 
 
 ##要件
-
 型`T`と型`U`は完全型であるか、`const/volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
-
 ##効果
-
-`is_assignable`は、型`T`が型`U`から代入可能であるならば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
-[`declval`](/reference/utility/declval.md)<T>() = [declval](/reference/utility/declval.md)<U>()という実際には評価されない式が適格ならば代入可能であると判断される。
+`is_assignable`は、型`T`が型`U`から代入可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
+[`declval`](/reference/utility/declval.md)`<T>() = `[`declval`](/reference/utility/declval.md)`<U>()`という実際には評価されない式が適格ならば代入可能であると判断される。
 
 
 ##例
-
 ```cpp
 #include <type_traits>
 
@@ -55,20 +50,13 @@ int main(){}
 ```
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 

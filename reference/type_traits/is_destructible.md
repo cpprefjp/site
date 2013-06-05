@@ -7,24 +7,20 @@ namespace std {
 ```
 
 ##概要
-
-<b>型Tが破棄可能か調べる</b>
+型`T`が破棄可能か調べる
 
 
 ##要件
-
-型`T`は完全型であるか、`const/volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
-
+型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
 ##効果
 
-`is_destructible`は、型`T`が破棄可能であるならば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
-型`T`が完全型で `template <class U> struct test { U u; };` があるときに `test<T>::˜test()` が`delete`宣言されていなければ、型`T`は破棄可能であると判断される。
+`is_destructible`型Tが破棄可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
+型Tが完全型で `template <class U> struct test { U u; };` があるときに `test<T>::~test()` が`delete`宣言されていなければ、型`T`は破棄可能であると判断される。
 
 
 ##例
-
 ```cpp
 #include <type_traits>
 #include <locale>
@@ -32,6 +28,7 @@ namespace std {
 struct s
 {
   ~s() = delete;
+
   // デストラクタは = delete されている。
   // そのためデストラクトできない。
 };
@@ -65,15 +62,9 @@ int main(){}
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.8.0
 
