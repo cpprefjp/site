@@ -4,17 +4,16 @@ size_t hash_code() const;
 ```
 
 ##概要
-
-<b>型のハッシュ値を返す。</b>
+型のハッシュ値を返す。
 
 
 ##戻り値
+`target->hash_code()`
 
-`target->hash_code()`※targetは、type_indexのメンバ変数として保持されているtype_infoへのポインタ(説明用)
+※`target`は、`type_index`のメンバ変数として保持されている`type_info`オブジェクトへのポインタ(説明用)
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <typeindex>
@@ -46,14 +45,10 @@ int main()
   }
 }
 ```
-* t1.hash_code()[color ff0000]
-* t2.hash_code()[color ff0000]
-* t3.hash_code()[color ff0000]
-* std::unordered_map<std::type_index, int>[color ff0000]
+* hash_code[color ff0000]
 
 ###出力例
-
-```cpp
+```
 3616029859
 3161387801
 3235490055
@@ -64,16 +59,9 @@ int main()
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1<h4></h4>
+- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 

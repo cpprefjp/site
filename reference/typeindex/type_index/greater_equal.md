@@ -4,13 +4,18 @@ bool operator>=(const type_index& rhs) const noexcept;
 ```
 
 ##概要
-<b>左辺が右辺以上かの判定を行う。</b>
+左辺が右辺以上かの判定を行う。
+
 
 ##戻り値
-`!target->before(*rhs.target)`※targetは、type_indexのメンバ変数として保持されているtype_infoへのポインタ(説明用)
+`!target->before(*rhs.target)`
+
+※`target`は、`type_index`のメンバ変数として保持されている`type_info`オブジェクトへのポインタ(説明用)
+
 
 ##例外
 投げない
+
 
 ##例
 ```cpp
@@ -44,20 +49,17 @@ int main()
 * std::greater_equal<std::type_index>[color ff0000]
 
 ###出力例
-```cpp
+```
 int
 double
 char
 ```
 
 ##バージョン
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 
 
