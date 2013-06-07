@@ -4,12 +4,10 @@ const char* name() const noexcept;
 ```
 
 ##概要
-
-<b>実装定義の型名を取得する</b>
+実装定義の型名を取得する
 
 
 ##戻り値
-
 実装定義の型名を返す。
 
 
@@ -19,14 +17,12 @@ const char* name() const noexcept;
 
 
 ##備考
-
 GCC(libstdc++)は、少なくても4.7時点まではマングリングされた名前を返す。完全な型名を取得するには、デマングルする必要がある。参照：
 
 [C++ のシンボルをデマングルする - bkブログ](http://0xcc.net/blog/archives/000095.html)
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <typeinfo>
@@ -38,11 +34,9 @@ int main()
 }
 ```
 * name[color ff0000]
-* name[color ff0000]
 
 ###出力
-
-```cpp
+```
 i
 c
 ```
