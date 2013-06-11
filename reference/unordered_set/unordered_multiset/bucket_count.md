@@ -1,32 +1,27 @@
 #bucket_count
 ```cpp
-<pre style='margin:0'><code style='color:black'>size_type bucket_count() const noexcept;</pre>
+size_type bucket_count() const noexcept;</pre>
 ```
 
 ##概要
-
 コンテナの現在のバケット数を返す。
 
 
 ##戻り値
-
 コンテナの現在のバケット数
 
 
 ##例外
-
 投げない。
 
 
 ##計算量
-
 定数。
 
 
 ##例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <iostream>
+#include <iostream>
 #include <unordered_set>
 
 int main()
@@ -34,70 +29,38 @@ int main()
   std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
 
   std::cout << "bucket count is " << um.bucket_count() << std::endl;
-}</pre>
+}
 ```
 * iostream[link /site/cpprefjp/reference/iostream]
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
 
 ###出力
-
-```cpp
-<pre style='margin:0'><code style='color:black'>bucket count is 11</pre>
+```
+bucket count is 11
 ```
 
 ##バージョン
-
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): -
-
 - [Clang, C++0x mode](/implementation#clang.md): 3.1
-
 - [GCC](/implementation#gcc.md): -
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-
 - [ICC](/implementation#icc.md): ?
-
 - [Visual C++](/implementation#visual_cpp.md): ?
 
 ##参照
 
-<table style='border-collapse:collapse;border-color:rgb(136,136,136);border-width:1px' cellspacing='0' bordercolor='#888' border='1'>
-<tbody>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[max_bucket_count](/reference/unordered_set/unordered_multiset/max_bucket_count.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>最大バケット数の取得</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[bucket_size](/reference/unordered_set/unordered_multiset/bucket_size.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>インデックス（添え字）で指定したバケット内の要素数を取得</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[bucket](/reference/unordered_set/unordered_multiset/bucket.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>キーで指定したバケットのインデックス（添え字）を取得</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[begin(size_type)](/reference/unordered_set/unordered_multiset/begin-size_type.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[end(size_type)](/reference/unordered_set/unordered_multiset/end-size_type.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[cbegin(size_type)](/reference/unordered_set/unordered_multiset/cbegin-size_type.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[cend(size_type)](/reference/unordered_set/unordered_multiset/cend-size_type.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得</td>
-</tr>
-</tbody>
-</table>
+| | |
+|----------------------------------------------|----------------------|
+| [`max_bucket_count`](./max_bucket_count.md)  | 最大バケット数の取得 |
+| [`bucket_size`](./bucket_size.md)            | インデックス（添え字）で指定したバケット内の要素数を取得 |
+| [`bucket`](./bucket.md)                      | キーで指定したバケットのインデックス（添え字）を取得 |
+| [`begin(size_type)`](./begin-size_type.md)   | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
+| [`end(size_type)`](./end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+| [`cbegin(size_type)`](./cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+| [`cend(size_type)`](./cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
+

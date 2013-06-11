@@ -1,27 +1,23 @@
 #count
 ```cpp
-<pre style='margin:0'><code style='color:black'>size_type count(const key_type& k) const;</pre>
+size_type count(const key_type& k) const;
 ```
 
 ##概要
-
 指定されたキーの要素数を数える。
 
 
 ##戻り値
-
-引数 <code style='color:black'>k</code> と等価なキーの要素数を返す。
+引数 `k` と等価なキーの要素数を返す。
 
 
 ##計算量
-
-平均的なケースでは定数（O(<code style='color:black'>1</code>)）だが、最悪のケースではコンテナの要素数 <code style='color:black'>[size](/reference/unordered_set/unordered_multiset/size.md)()</code> に比例（O(<code style='color:black'>[size](/reference/unordered_set/unordered_multiset/size.md)()</code>)）。
+平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数 [`size`](./size.md)`()` に比例（O([`size`](./size.md)`()`)）。
 
 
 ##例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <iostream>
+#include <iostream>
 #include <unordered_set>
 #include <algorithm>
 #include <iterator>
@@ -38,9 +34,9 @@ int main()
 
   auto c2 = um.count(8);
   std::cout << "count of 8:" << c2 << std::endl;
-}</pre>
+}
 ```
-* iostream[link /site/cpprefjp/reference/iostream]
+* iostream[link /reference/iostream]
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
@@ -50,45 +46,28 @@ int main()
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力
-
-```cpp
-<pre style='margin:0'><code style='color:black'>9, 9, 7, 7, 5, 5, 3, 3, 1, 1,
+```
+9, 9, 7, 7, 5, 5, 3, 3, 1, 1,
 count of 5:2
-count of 8:0</pre>
+count of 8:0
 ```
 
 ##バージョン
-
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): -
-
 - [Clang, C++0x mode](/implementation#clang.md): 3.1
-
 - [GCC](/implementation#gcc.md): -
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-
 - [ICC](/implementation#icc.md): ?
-
 - [Visual C++](/implementation#visual_cpp.md): ?
 
 ##参照
 
-<table style='border-collapse:collapse;border-color:rgb(136,136,136);border-width:1px' cellspacing='0' bordercolor='#888' border='1'>
-<tbody>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[find](/reference/unordered_set/unordered_multiset/find.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>指定したキーの位置を検索</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[equal_range](/reference/unordered_set/unordered_multiset/equal_range.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>指定したキーの範囲を取得</td>
-</tr>
-</tbody>
-</table>
+| | |
+|-----------------------------------|--------------------------|
+| [`find`](./find.md)               | 指定したキーの位置を検索 |
+| [`equal_range`](./equal_range.md) | 指定したキーの範囲を取得 |
+
