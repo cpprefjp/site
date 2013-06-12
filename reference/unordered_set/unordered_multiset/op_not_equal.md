@@ -1,49 +1,41 @@
 #operator!=
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template <class Key, class Hash, class Pred, class Allocator>
   bool operator!=(const unordered_multiset<Key, Hash, Pred, Allocator>& a,
                   const unordered_multiset<Key, Hash, Pred, Allocator>& b);
-}</pre>
+}
 ```
 
 ##概要
-
-<code style='color:black'>unordered_multiset</code> オブジェクトを非等値比較する。
+`unordered_multiset` オブジェクトを非等値比較する。
 
 
 ##要件
+- `a.`[`hash_function`](./hash_function.md)`()` と `b.`[`hash_function`](./hash_function.md)`()` は同じふるまいをすること。
 
+- `a.`[`key_eq`](./key_eq.md)`()` と `b.`[`key_eq`](./key_eq.md)`()` は同じふるまいをすること。
 
-- <code style='color:black'>a.[hash_function](/reference/unordered_set/unordered_multiset/hash_function.md)()</code> と <code style='color:black'>b.[hash_function](/reference/unordered_set/unordered_multiset/hash_function.md)()</code> は同じふるまいをすること。
-
-- <code style='color:black'>a.[key_eq](/reference/unordered_set/unordered_multiset/key_eq.md)()</code> と <code style='color:black'>b.[key_eq](/reference/unordered_set/unordered_multiset/key_eq.md)()</code> は同じふるまいをすること。
-
-- <code style='color:black'>key_type</code> の等値比較演算子（<code style='color:black'>operator==</code>）で等値と判定された 2 つのオブジェクトは、<code style='color:black'>[key_eq](/reference/unordered_set/unordered_multiset/key_eq.md)()</code> でも等値と判定されること。
+- `key_type` の等値比較演算子（`operator==`）で等値と判定された 2 つのオブジェクトは、[`key_eq`](./key_eq.md)`()` でも等値と判定されること。
 
 
 ##戻り値
-
-<code style='color:black'>!(a [==](/reference/unordered_set/unordered_multiset/op_equal.md) b)</code> と同等
+`!(a `[`==`](./op_equal.md)` b)` と同等
 
 
 ##計算量
-
-平均的には O(<code style='color:black'>Σ(E<sub>i</sub><sup>2</sup>)</code>) だが、最悪のケースでは O(<code style='color:black'>n<sup>2</sup></code>)。ここで、<code style='color:black'>E<sub>i</sub></code> は <code style='color:black'>a</code> の <code style='color:black'>i</code> 番目の同値キーのグループの大きさ、<code style='color:black'>n = a.[size](/reference/unordered_set/unordered_multiset/size.md)()</code>。
+平均的には O(Σ(E<sub>i</sub><sup>2</sup>)) だが、最悪のケースでは O(n<sup>2</sup>)。ここで、E<sub>i</sub> は `a` の `i` 番目の同値キーのグループの大きさ、`n = a.`[`size`](./size.md)`()`。
 
 
 ##備考
+- 本関数は、コンテナ内の要素の比較に [`key_eq`](./key_eq.md)`()` で返されるキー比較用関数オブジェクトを使用しないことに注意。
 
-
-- 本関数は、コンテナ内の要素の比較に <code style='color:black'>[key_eq](/reference/unordered_set/unordered_multiset/key_eq.md)()</code> で返されるキー比較用関数オブジェクトを使用しないことに注意。
-
-- 本関数は、標準コンテナの要件を満たさない。これは、標準コンテナの要件が <code style='color:black'>iterator</code> と <code style='color:black'>std::[equal](/reference/algorithm/equal.md)</code> を用いて定義されているためである。しかし、本関数の戻り値は、<code style='color:black'>!(a [==](/reference/unordered_set/unordered_multiset/op_equal.md) b)</code> という意味においては、標準コンテナと同様とも考えることができる。
+- 本関数は、標準コンテナの要件を満たさない。これは、標準コンテナの要件が `iterator` と `std::`[`equal`](/reference/algorithm/equal.md) を用いて定義されているためである。しかし、本関数の戻り値は、`!(a `[`==`](./op_equal.md)` b)` という意味においては、標準コンテナと同様とも考えることができる。
 
 
 ##例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <iostream>
+#include <iostream>
 #include <string>
 #include <unordered_set>
 #include <iterator>
@@ -71,9 +63,9 @@ int main()
 
   std::cout << "um1 != um2:" << (um1 != um2) << std::endl;
   std::cout << "um1 != um3:" << (um1 != um3) << std::endl;
-}</pre>
+}
 ```
-* iostream[link /site/cpprefjp/reference/iostream]
+* iostream[link /reference/iostream]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
 * iterator[link /reference/iterator.md]
@@ -83,61 +75,50 @@ int main()
 * begin[link /reference/iterator/begin.md]
 * end[link /reference/iterator/end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
+* unordered_multiset[link ./unordered_multiset.md]
 
 ###出力
-
-```cpp
-<pre style='margin:0'><code style='color:black'>um1:3, 3, 2, 2, 1, 1,
+```
+um1:3, 3, 2, 2, 1, 1,
 um2:6, 6, 5, 5, 4, 4,
 um3:3, 3, 2, 2, 1, 1,
 um1 != um2:true
-um1 != um3:false</pre>
+um1 != um3:false
 ```
 
-注：<code style='color:black'>[unordered_multiset](/reference/unordered_set/unordered_multiset.md)</code> は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
-
-
 ###言語
-
 - C++11
 
 ###処理系
-
-
 - [Clang](/implementation#clang.md): -
-
 - [Clang, C++0x mode](/implementation#clang.md): 3.0, 3.1
-
 - [GCC](/implementation#gcc.md): -
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.4.7, 4.5.3, 4.6.3, 4.7.0
-
 - [ICC](/implementation#icc.md): ?
-
 - [Visual C++](/implementation#visual_cpp.md): ?
 
 
 ##実装例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template <class Key, class Hash, class Pred, class Allocator>
   bool operator!=(const unordered_multiset<Key, Hash, Pred, Allocator>& a,
                   const unordered_multiset<Key, Hash, Pred, Allocator>& b)
   {
     return !(a == b);
   }
-}</pre>
+}
 ```
-* ==[link /reference/unordered_set/unordered_multiset/op_equal.md]
+* ==[link ./op_equal.md]
 
 ##参照
 
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-|<code style='color:black'>[operator==](/reference/unordered_set/unordered_multiset/op_equal.md)</code> |等値比較 |
+| [`operator==`](./op_equal.md) |等値比較 |
+

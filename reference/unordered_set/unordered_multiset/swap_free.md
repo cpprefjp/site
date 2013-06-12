@@ -1,31 +1,27 @@
 #swap(非メンバ関数)
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template <class Key, class Hash, class Pred, class Alloc>
   void swap(unordered_multiset<Key, Hash, Pred, Alloc>& x,
             unordered_multiset<Key, Hash, Pred, Alloc>& y);
-}</pre>
+}
 ```
 
 ##概要
-
-2 つの <code style='color:black'>unordered_multiset</code> オブジェクトの内容を入れ替える。
+2 つの `unordered_multiset` オブジェクトの内容を入れ替える。
 
 
 ##効果
-
-<code style='color:black'>x.[swap](/reference/unordered_set/unordered_multiset/swap.md)(y)</code> と同等。
+`x.`[`swap`](./swap.md)`(y)` と同等。
 
 
 ##戻り値
-
 なし
 
 
 ##例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <iostream>
+#include <iostream>
 #include <string>
 #include <unordered_set>
 #include <iterator>
@@ -49,9 +45,9 @@ int main()
   swap(um1, um2);
   print("um1 after", um1);
   print("um2 after", um2);
-}</pre>
+}
 ```
-* iostream[link /site/cpprefjp/reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
 * iterator[link /reference/iterator.md]
@@ -61,61 +57,51 @@ int main()
 * begin[link /reference/iterator/begin.md]
 * end[link /reference/iterator/end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
+* unordered_multiset[link ./unordered_multiset.md]
 
 ###出力
-
-```cpp
-<pre style='margin:0'><code style='color:black'>um1 before:3, 3, 2, 2, 1, 1,
+```
+um1 before:3, 3, 2, 2, 1, 1,
 um2 before:6, 6, 5, 5, 4, 4,
 um1 after:6, 6, 5, 5, 4, 4,
-um2 after:3, 3, 2, 2, 1, 1,</pre>
+um2 after:3, 3, 2, 2, 1, 1,
 ```
 
-注：<code style='color:black'>[unordered_multiset](/reference/unordered_set/unordered_multiset.md)</code> は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
-
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): -
-
 - [Clang, C++0x mode](/implementation#clang.md): 3.1
-
 - [GCC](/implementation#gcc.md): -
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-
 - [ICC](/implementation#icc.md): ?
-
 - [Visual C++](/implementation#visual_cpp.md) ?
 
 ##実装例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template <class Key, class Hash, class Pred, class Alloc>
   void swap(unordered_multiset<Key, Hash, Pred, Alloc>& x,
             unordered_multiset<Key, Hash, Pred, Alloc>& y)
   {
     x.swap(y);
   }
-}</pre>
+}
 ```
-* swap[link /reference/unordered_set/unordered_multiset/swap.md]
+* swap[link ./swap.md]
 
 ##参照
 
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
-|<code style='color:black'>[swap](/reference/unordered_set/unordered_multiset/swap.md)</code> |内容の交換（メンバ関数） |
-|<code style='color:black'>[operator=](/reference/unordered_set/unordered_multiset/op_assign.md)</code> |代入演算子 |
-|<code style='color:black'>[operator==](op_equal)</code> |等値比較 |
-|<code style='color:black'>[operator=!](op_not_equal)</code> |非等値比較 |
+| [`swap`](./swap.md) | 内容の交換（メンバ関数） |
+| [`operator=`](./op_assign.md) | 代入演算子 |
+| [`operator==`](.op_equal.md) | 等値比較 |
+| [`operator!=`](./op_not_equal.md) | 非等値比較 |
+

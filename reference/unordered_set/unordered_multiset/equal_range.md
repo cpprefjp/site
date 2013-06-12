@@ -6,22 +6,18 @@ std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 * pair[link /reference/utility/pair.md]
 
 ##概要
-
 指定したキーの範囲を取得する
 
 
 ##戻り値
-
-キー値が引数 `k` と等価な要素を全て含む範囲。そのような要素が無い場合には、`[make_pair](/reference/utility/pair/make_pair.md)([end](/reference/unordered_set/unordered_multiset/end.md)(), [end](/reference/unordered_set/unordered_multiset/end.md)())`。
+キー値が引数 `k` と等価な要素を全て含む範囲。そのような要素が無い場合には、[`make_pair`](/reference/utility/pair/make_pair.md)`(`[`end`](./end.md)`(), `[`end`](./end.md)`())`。
 
 
 ##計算量
-
-平均的なケースでは O(`[count](/reference/unordered_set/unordered_multiset/count.md)(k)`)。最悪のケースでは O(`[size](/reference/unordered_set/unordered_multiset/size.md)()`)。
+平均的なケースでは O([`count`](./count.md)`(k)`)。最悪のケースでは O([`size`](./size.md)`()`)。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <string>
@@ -49,7 +45,7 @@ int main()
   print_range("equal_range(8)", um.begin(), p2.first, p2.second);
 }
 ```
-* iostream[link /site/cpprefjp/reference/iostream]
+* iostream[link /reference/iostream]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
@@ -58,14 +54,13 @@ int main()
 * distance[link /reference/iterator/distance.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * copy[link /reference/algorithm/copy.md]
-* begin[link /reference/unordered_set/unordered_multiset/begin.md]
-* end[link /reference/unordered_set/unordered_multiset/end.md]
+* begin[link ./begin.md]
+* end[link ./end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator/ostream_iterator.md]
 * first[link /reference/utility/pair.md]
 * second[link /reference/utility/pair.md]
 
 ###出力
-
 ```
 9, 9, 7, 7, 5, 5, 1, 1, 3, 3,
 equal_range(5): [4, 6)
@@ -73,7 +68,6 @@ equal_range(8): [10, 10)
 ```
 
 ##バージョン
-
 ###言語
 - C++11
 
@@ -86,5 +80,6 @@ equal_range(8): [10, 10)
 - [Visual C++](/implementation#visual_cpp.md): ?
 
 ##参照
-- [find](/reference/unordered_set/unordered_multiset/find.md)
-- [count](/reference/unordered_set/unordered_multiset/count.md)
+- [`find`](./find.md)
+- [`count`](./count.md)
+
