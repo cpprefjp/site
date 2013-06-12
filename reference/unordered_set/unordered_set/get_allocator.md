@@ -1,33 +1,27 @@
 #get_allocator
 ```cpp
-<pre style='margin:0'><code style='color:black'>allocator_type get_allocator() const noexcept;
-</pre>
+allocator_type get_allocator() const noexcept;
 ```
 
 ##概要
-
 このコンテナで使用されているアロケータオブジェクトを返す。
 
 
 ##戻り値
-
 このコンテナで使用されているアロケータオブジェクト
 
 
 ##例外
-
 投げない
 
 
 ##計算量
-
 定数
 
 
 ##例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <iostream>
+#include <iostream>
 #include <memory>
 #include <unordered_set>
 #include <type_traits>
@@ -75,9 +69,9 @@ int main()
   // my_alloc は propagate_on_container_copy_assignment を true_type としていないので、
   // アロケータは copy されない。
   std::cout << us1.get_allocator().no << ',' << us2.get_allocator().no << std::endl;
-}</pre>
+}
 ```
-* iostream[link /site/cpprefjp/reference/iostream]
+* iostream[link /reference/iostream.md]
 * memory[link /reference/memory.md]
 * unordered_set[link /reference/unordered_set.md]
 * type_traits[link /reference/type_traits.md]
@@ -86,66 +80,39 @@ int main()
 * true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 * hash[link /reference/functional/hash.md]
 * equal_to[link /reference/functional/comparisons.md]
-* swap[link /reference/unordered_set/unordered_set/swap_free.md]
-* =[link /reference/unordered_set/unordered_set/op_assign.md]
+* swap[link ./swap_free.md]
+* =[link ./op_assign.md]
 
 ###出力
-
-```cpp
-<pre style='margin:0'><code style='color:black'>1,2
+```
+1,2
 2,1
-2,1</pre>
+2,1
 ```
 
 ##バージョン
-
-
 ###言語
-
 - C++11
 
 ###処理系
-
 - [Clang](/implementation#clang.md): -
-
 - [Clang, C++0x mode](/implementation#clang.md): 3.0, 3.1
-
 - [GCC](/implementation#gcc.md): -
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.4.7, 4.5.3, 4.6.3, 4.7.0
-
 - [ICC](/implementation#icc.md): ?
-
 - [Visual C++](/implementation#visual_cpp.md): ?
 
 ###備考
-
-libstdc++ の <code style='color:black'>unordered_set</code> では、アロケータの <code style='color:black'>select_on_container_copy_construction</code>、<code style='color:black'>propagate_on_container_copy_assignment</code>、<code style='color:black'>propagate_on_container_move_assignment</code>、および、<code style='color:black'>propagate_on_container_swap</code> を正しく扱っていないため、<code style='color:black'>get_allocator</code> で返されるアロケータオブジェクトは予期せぬものになる可能性がある。
+libstdc++ の `unordered_set` では、アロケータの `select_on_container_copy_construction`、`propagate_on_container_copy_assignment`、`propagate_on_container_move_assignment`、および、`propagate_on_container_swap` を正しく扱っていないため、`get_allocator` で返されるアロケータオブジェクトは予期せぬものになる可能性がある。
 
 
 ##参照
 
-<table style='border-collapse:collapse;border-color:rgb(136,136,136);border-width:1px' cellspacing='0' bordercolor='#888' border='1'>
-<tbody>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[(constructor)](/reference/unordered_set/unordered_set/unordered_set.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>コンストラクタ</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[operator=](/reference/unordered_set/unordered_set/op_assign.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>代入演算子</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[swap](/reference/unordered_set/unordered_set/op_assign.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>内容の交換（非メンバ関数）</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[allocator](/reference/memory/allocator.md)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>デフォルトのアロケータ</td>
-</tr>
-<tr style='height:17px'>
-<td style='padding:1px 0.5em;vertical-align:baseline'><code style='color:black'>[allocator_traits](/site/cpprefjp/reference/memory/allocator_traits)</code></td>
-<td style='padding:1px 0.5em;vertical-align:baseline'>アロケータのトレイツ</td>
-</tr>
-</tbody>
-</table>
+| | |
+|----------------------------------------------------------|----------------|
+| [`(constructor)`](./unordered_multiset.md)               | コンストラクタ |
+| [`operator=`](./op_assign.md)                            | 代入演算子     |
+| [`swap`](./op_assign.md)                                 | 内容の交換（非メンバ関数） |
+| [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ |
+| [`allocator_traits`](/reference/memory/allocator_traits) | アロケータのトレイツ |
+

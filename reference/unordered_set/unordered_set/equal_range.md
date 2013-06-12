@@ -10,18 +10,17 @@ std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 
 
 ##戻り値
-キー値が引数 <code style='color:black'>k</code> と等価な要素を全て含む範囲。そのような要素が無い場合には、<code style='color:black'>[make_pair](/reference/utility/pair/make_pair.md)([end](/reference/unordered_set/unordered_set/end.md)(), [end](/reference/unordered_set/unordered_set/end.md)())</code>。
+キー値が引数 `k` と等価な要素を全て含む範囲。そのような要素が無い場合には、[`make_pair`](/reference/utility/pair/make_pair.md)`(`[`end`](./end.md)`(), `[`end`](./end.md)`())`。
 
 
 ##計算量
-平均的なケースでは O(<code style='color:black'>[count](/reference/unordered_set/unordered_set/count.md)(k)</code>)。最悪のケースでは O(<code style='color:black'>[size](/reference/unordered_set/unordered_set/size.md)()</code>)。
+平均的なケースでは O([`count`](./count.md)`(k)`)。最悪のケースでは O([`size`](./size.md)`()`)。
 
 
 ##備考
-<code style='color:black'>[unordered_set](/reference/unordered_set/unordered_set.md)</code> の場合には、等価なキーはたかだか1つであるため、<code style='color:black'>[find](/reference/unordered_set/unordered_set/find.md)</code> ほど有用ではないと思われる。
+[`unordered_set`](/reference/unordered_set/unordered_set.md) の場合には、等価なキーはたかだか1つであるため、[`find`](./find.md) ほど有用ではないと思われる。
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <string>
@@ -49,7 +48,7 @@ int main()
   print_range("equal_range(8)", us.begin(), p2.first, p2.second);
 }
 ```
-* iostream[link /site/cpprefjp/reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
@@ -57,14 +56,13 @@ int main()
 * ostream[link /site/cpprefjp/reference/ostream]
 * distance[link /reference/iterator/distance.md]
 * copy[link /reference/algorithm/copy.md]
-* begin[link /reference/unordered_set/unordered_set/begin.md]
-* end[link /reference/unordered_set/unordered_set/end.md]
+* begin[link ./begin.md]
+* end[link ./end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator/ostream_iterator.md]
 * first[link /reference/utility/pair.md]
 * second[link /reference/utility/pair.md]
 
 ###出力
-
 ```
 9, 7, 5, 3, 1,
 equal_range(5): [2, 3)
@@ -72,7 +70,6 @@ equal_range(8): [5, 5)
 ```
 
 ##バージョン
-
 ###言語
 - C++11
 
@@ -87,5 +84,6 @@ equal_range(8): [5, 5)
 ##参照
 |ページ|概要|
 |------|----|
-|[find](/reference/unordered_set/unordered_set/find.md)|指定したキーの位置を検索|
-|[count](/reference/unordered_set/unordered_set/count.md)|指定したキーの要素数を取得|
+|[`find`](./find.md)|指定したキーの位置を検索|
+|[`count`](./count.md)|指定したキーの要素数を取得|
+

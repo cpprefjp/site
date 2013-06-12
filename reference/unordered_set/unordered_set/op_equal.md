@@ -1,54 +1,44 @@
 #operator==
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template <class Key, class Hash, class Pred, class Allocator>
   bool operator==(const unordered_set<Key, Hash, Pred, Allocator>& a,
                   const unordered_set<Key, Hash, Pred, Allocator>& b);
-}</pre>
+}
 ```
 
 ##概要
-
-<code style='color:black'>unordered_set</code> オブジェクトを等値比較する。
-
+`unordered_set` オブジェクトを等値比較する。
 
 ##要件
+- `a.`[`hash_function`](./hash_function.md)`()` と `b.`[`hash_function`](./hash_function.md)`()` は同じふるまいをすること。
 
+- `a.`[`key_eq`](./key_eq.md)`()` と `b.`[`key_eq`](./key_eq.md)`()` は同じふるまいをすること。
 
-- <code style='color:black'>a.[hash_function](/reference/unordered_set/unordered_set/hash_function.md)()</code> と <code style='color:black'>b.[hash_function](/reference/unordered_set/unordered_set/hash_function.md)()</code> は同じふるまいをすること。
-
-- <code style='color:black'>a.[key_eq](/reference/unordered_set/unordered_set/key_eq.md)()</code> と <code style='color:black'>b.[key_eq](/reference/unordered_set/unordered_set/key_eq.md)()</code> は同じふるまいをすること。
-
-- <code style='color:black'>key_type</code> の等値比較演算子（<code style='color:black'>operator==</code>）で等値と判定された 2 つのオブジェクトは、<code style='color:black'>[key_eq](/reference/unordered_set/unordered_set/key_eq.md)()</code> でも等値と判定されること。
+- `key_type` の等値比較演算子（`operator==`）で等値と判定された 2 つのオブジェクトは、[`key_eq`](./key_eq.md)`()` でも等値と判定されること。
 
 
 ##戻り値
-
-以下の両方を満たす場合 <code style='color:black'>true</code>、そうでない場合 <code style='color:black'>false</code>。
-
+以下の両方を満たす場合 `true`、そうでない場合 `false`。
   
-- <code style='color:black'>a.[size](/reference/unordered_set/unordered_set/size.md)() == b.[size](/reference/unordered_set/unordered_set/size.md)()</code> である。
+- `a.`[`size`](./size.md)`() == b.`[`size`](./size.md)`()` である。
   
-- 一方のコンテナの全ての要素が、他方のコンテナにも存在する。ここで、存在するとは、<code style='color:black'>key_type</code> の等値比較演算子（<code style='color:black'>operator==</code>）で等値と判定されるということである。
+- 一方のコンテナの全ての要素が、他方のコンテナにも存在する。ここで、存在するとは、`key_type` の等値比較演算子（`operator==`）で等値と判定されるということである。
 
 
 ##計算量
-
-平均的には O(<code style='color:black'>n</code>) だが、最悪のケースでは O(<code style='color:black'>n<sup>2</sup></code>)。ここで、<code style='color:black'>n = a.[size](/reference/unordered_set/unordered_set/size.md)()</code>。
+平均的には O(`n`) だが、最悪のケースでは O(`n`<sup>2</sup>)。ここで、`n = a.`[`size`](./size.md)`()`。
 
 
 ##備考
+- 本関数は、コンテナ内の要素の比較に [`key_eq`](./key_eq.md)`()` で返されるキー比較用関数オブジェクトを使用しないことに注意。
 
-
-- 本関数は、コンテナ内の要素の比較に <code style='color:black'>[key_eq](/reference/unordered_set/unordered_set/key_eq.md)()</code> で返されるキー比較用関数オブジェクトを使用しないことに注意。
-
-- 本関数は、標準コンテナの要件を満たさない。これは、標準コンテナの要件では <code style='color:black'>operator!=</code> が <code style='color:black'>iterator</code> と <code style='color:black'>std::[equal](/reference/algorithm/equal.md)</code> を用いて定義されているためである。しかし、本関数の戻り値は、両方のコンテナが同じ要素を保持しているという意味においては、標準コンテナと同様とも考えることができる。
+- 本関数は、標準コンテナの要件を満たさない。これは、標準コンテナの要件では `operator!=` が `iterator` と `std::`[`equal`](/reference/algorithm/equal.md) を用いて定義されているためである。しかし、本関数の戻り値は、両方のコンテナが同じ要素を保持しているという意味においては、標準コンテナと同様とも考えることができる。
 
 
 ##例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>#include <iostream>
+#include <iostream>
 #include <string>
 #include <unordered_set>
 #include <iterator>
@@ -76,9 +66,9 @@ int main()
 
   std::cout << "us1 == us2:" << (us1 == us2) << std::endl;
   std::cout << "us1 == us3:" << (us1 == us3) << std::endl;
-}</pre>
+}
 ```
-* iostream[link /site/cpprefjp/reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
 * iterator[link /reference/iterator.md]
@@ -90,45 +80,33 @@ int main()
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力
-
-```cpp
-<pre style='margin:0'><code style='color:black'>us1:3, 2, 1,
+```
+us1:3, 2, 1,
 us2:6, 5, 4,
 us3:3, 2, 1,
 us1 == us2:false
-us1 == us3:true</pre>
+us1 == us3:true
 ```
 
-注：<code style='color:black'>[unordered_set](/reference/unordered_set/unordered_set.md)</code> は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_set`](/reference/unordered_set/unordered_set.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
-
-
 ###言語
-
 - C++11
 
 ###処理系
-
-
 - [Clang](/implementation#clang.md): -
-
 - [Clang, C++0x mode](/implementation#clang.md): 3.0, 3.1
-
 - [GCC](/implementation#gcc.md): -
-
 - [GCC, C++0x mode](/implementation#gcc.md): 4.4.7, 4.5.3, 4.6.3, 4.7.0
-
 - [ICC](/implementation#icc.md): ?
-
 - [Visual C++](/implementation#visual_cpp.md): ?
 
 
 ##実装例
-
 ```cpp
-<pre style='margin:0'><code style='color:black'>namespace std {
+namespace std {
   template <class Key, class Hash, class Pred, class Allocator>
   bool operator==(const unordered_set<Key, Hash, Pred, Allocator>& a,
                   const unordered_set<Key, Hash, Pred, Allocator>& b)
@@ -144,17 +122,16 @@ us1 == us3:true</pre>
 
     return true;
   }
-}</pre>
+}
 ```
-* size[link /reference/unordered_set/unordered_set/size.md]
-* begin[link /reference/unordered_set/unordered_set/begin.md]
-* end[link /reference/unordered_set/unordered_set/end.md]
-* find[link /reference/unordered_set/unordered_set/find.md]
+* size[link ./size.md]
+* begin[link ./begin.md]
+* end[link ./end.md]
+* find[link ./find.md]
 
 ##参照
 
-
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-|<code style='color:black'>[operator!=](/reference/unordered_set/unordered_set/op_not_equal.md)</code> |非等値比較 |
+| [`operator!=`](./op_not_equal.md) | 非等値比較 |
 
