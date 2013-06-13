@@ -1,7 +1,6 @@
 #コンストラクタ
 ```cpp
 constexpr pair();
-```
 
 pair(const pair&) = default;
 pair(pair&&) = default;
@@ -15,26 +14,69 @@ template <class... Args1, class... Args2>
 pair(piecewise_construct_t,
      tuple<Args1...> first_args,
      tuple<Args2...> second_args);
-
-
-
-
+```
 
 ##pairの構築
 
-<li>`constexpr pair();``first`と`second`を初期化して構築要件： `first_type`と`second_type`が`[is_default_constructible](/reference/type_traits/is_default_constructible.md)<T>::value == true`であること
-</li><li>`pair(const pair&) = default;`コピーコンストラクタ
-</li><li>`pair(pair&&) = default;`ムーブコンストラクタ
-</li><li>`pair(const T1& x, const T2& y);``first`と`second`の初期値を受け取って構築要件： `first_type`と`second_type`が`[is_copy_constructible](/reference/type_traits/is_copy_constructible.md)<T>::value == true`であること
-</li><li>`template<class U, class V> pair(U&& x, V&& y);``first`と`second`に変換可能な型の値を受け取ってムーブ構築要件： `[is_constructible](/reference/type_traits/is_constructible.md)<first_type, U&&>::value && [is_constructible](/reference/type_traits/is_constructible.md)<second_type, V&&>::value`であること注記： `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
-</li><li>`template<class U, class V> pair(const pair<U, V>& p);``first`と`second`に変換可能な`pair`型の値を受け取って構築要件： `[is_constructible](/reference/type_traits/is_constructible.md)<first_type, const U&>::value && [is_constructible](/reference/type_traits/is_constructible.md)<second_type, const V&>::value`であること注記： `const U&`が`first_type`に暗黙変換可能でない場合、もしくは`const V&`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
-</li><li>`template<class U, class V> pair(pair<U, V>&& p);``first`と`second`に変換可能なpair型の右辺値を受け取って構築要件： `[is_constructible](/reference/type_traits/is_constructible.md)<first_type, U&&>::value && [is_constructible](/reference/type_traits/is_constructible.md)<second_type, V&&>::value`であること注記： `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
-</li><li>`template <class... Args1, class... Args2>``pair([pircewise_construct_t](/reference/utility/piecewise_construct.md),``     [tuple](/reference/tuple/tuple.md)<Args1...> first_args,``     [tuple](/reference/tuple/tuple.md)<Args2...> second_args);``first`と`second`のコンストラクタ引数を受け取り、`first_args`と`second_args`それぞれの要素から`first`と`second`をムーブ構築要件： `is_constructible<first_type, Args1&&...>::value && is_constructible<second_type, Args2&&...>::value`であること
-</li>
+- `constexpr pair();`
+
+`first`と`second`を初期化して構築
+
+要件： `first_type`と`second_type`が[`is_default_constructible`](/reference/type_traits/is_default_constructible.md)`<T>::value == true`であること
+
+
+- `pair(const pair&) = default;`
+
+コピーコンストラクタ
+
+
+- `pair(pair&&) = default;`
+
+ムーブコンストラクタ
+
+
+- `pair(const T1& x, const T2& y);`
+
+`first`と`second`の初期値を受け取って構築
+
+要件： `first_type`と`second_type`が[`is_copy_constructible`](/reference/type_traits/is_copy_constructible.md)`<T>::value == true`であること
+
+
+- `template<class U, class V> pair(U&& x, V&& y);`
+
+`first`と`second`に変換可能な型の値を受け取ってムーブ構築
+
+要件： [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value && `[`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
+
+注記： `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+
+
+- `template<class U, class V> pair(const pair<U, V>& p);`
+
+`first`と`second`に変換可能な`pair`型の値を受け取って構築
+
+要件： [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, const U&>::value && `[`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, const V&>::value`であること
+
+注記： `const U&`が`first_type`に暗黙変換可能でない場合、もしくは`const V&`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+
+
+- `template<class U, class V> pair(pair<U, V>&& p);`
+
+`first`と`second`に変換可能なpair型の右辺値を受け取って構築
+
+要件： [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value && `[`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
+
+注記： `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+
+
+- `template <class... Args1, class... Args2>`<br/>`pair(`[`pircewise_construct_t`](/reference/utility/piecewise_construct.md)`,`<br/>`     `[`tuple`](/reference/tuple/tuple.md)`<Args1...> first_args,`<br/>`     `[`tuple`](/reference/tuple/tuple.md)`<Args2...> second_args);`
+
+`first`と`second`のコンストラクタ引数を受け取り、`first_args`と`second_args`それぞれの要素から`first`と`second`をムーブ構築
+
+要件： `is_constructible<first_type, Args1&&...>::value && is_constructible<second_type, Args2&&...>::value`であること
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <utility>
@@ -132,8 +174,7 @@ int main()
 ```
 
 ###出力
-
-```cpp
+```
 p1 : (0,0)
 p2 : (1,abc)
 p3 : (1,abc)
@@ -145,30 +186,15 @@ p8 : (X(1 2 3),Y(4 5))
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11 : ムーブ構築とpiecewise構築
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
 
-##実装例
-
-```cpp
-```
-
-##参照
-```

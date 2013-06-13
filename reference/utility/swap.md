@@ -11,18 +11,15 @@ namespace std {
 * see below[italic]
 
 ##概要
-
-<b>2つの値を入れ替える。</b>
+2つの値を入れ替える。
 
 
 ##要件
-
 - 値版型`T`は`MoveConstructible`かつ`MoveAssignable`でなければならない。
 - 配列版範囲`[0, N)`内の全ての`i`において、`a[i]`と`b[i]`は`Swappable`でなければならない。
 
 
 ##効果
-
 値版の振る舞いは、以下のコードと等価である：
 
 ```cpp
@@ -45,8 +42,11 @@ void swap(T (&a)[N], T (&b)[N]) {
 ```
 
 つまり、範囲`[0, N)`内の全ての`i`について、 `swap(a[i], b[i]);` を呼び出す。
+
 この関数の内部における`swap()`呼び出しは、 `std::swap(a[i], b[i]);` という形ではなく、 `swap(a[i], b[i]); `という形で行われる。すなわち、`T`型に対して多重定義された`swap()`関数がある場合には、常にそちらが呼ばれる。
+
 そのため、`swap()`関数を呼び出す場合は、直接`std::swap(a, b);`と呼び出すのではなく、
+
 ```cpp
 using std::swap;
 swap(a, b);
@@ -56,18 +56,15 @@ swap(a, b);
 
 
 ##戻り値
-
 なし
 
 
 ##例外
-
-- 値版`noexcept`中の式は、以下と等価である：`is_nothrow_move_constructible<T>::value &&``is_nothrow_move_assignable<T>::value`
+- 値版`noexcept`中の式は、以下と等価である：`is_nothrow_move_constructible<T>::value && is_nothrow_move_assignable<T>::value`
 - 配列版配列の要素型`T`に対する`swap()`操作が例外を投げない場合、この関数もまた例外を投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <utility>
@@ -117,34 +114,24 @@ int main()
   }
 }
 ```
-* swap(a, b);[color ff0000]
 * swap[color ff0000]
 
 ###出力
-
-```cpp
+```
 2, 1
 [4,5,6], [1,2,3]
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

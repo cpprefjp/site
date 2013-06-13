@@ -7,16 +7,14 @@ namespace std {
 ```
 
 ##概要
-
-<b>2つの変数において、左辺が右辺より大きいかの判定を行う</b>
+2つの変数において、左辺が右辺より大きいかの判定を行う
 
 
 ##戻り値
-
 `y < x`
 
-##例
 
+##例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -32,41 +30,10 @@ int main()
   std::cout << (p2 > p1) << std::endl;
 }
 ```
-* >[color ff0000]
-* >[color ff0000]
 
 ###出力
-
-```cpp
+```
 false
 true
 ```
 
-##バージョン
-
-
-###言語
-
-
-- 
-
-
-
-###処理系
-
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): ??
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
-
-
-
-##実装例
-
-```cpp
-```
-
-##参照
-```

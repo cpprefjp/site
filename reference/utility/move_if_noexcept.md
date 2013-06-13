@@ -10,24 +10,22 @@ namespace std {
 ```
 
 ##概要
+例外を投げないオブジェクトをムーブする。
 
-<b>例外を投げないオブジェクトをムーブする。</b>
-<b></b>
-<b>この関数は、対象のオブジェクトが例外を投げないムーブコンストラクタを持っている場合に右辺値参照を返し、そうでなければconst左辺値参照を返す。</b>
-<b>この関数は、複数のオブジェクトをムーブする際に、例外安全の強い保証を得ることを目的として使用される。</b>
+この関数は、対象のオブジェクトが例外を投げないムーブコンストラクタを持っている場合に右辺値参照を返し、そうでなければconst左辺値参照を返す。
+
+この関数は、複数のオブジェクトをムーブする際に、例外安全の強い保証を得ることを目的として使用される。
 
 
 ##戻り値
+`std::`[`move`](/reference/utility/move.md)`(x)`
 
-`std::[move](/reference/utility/move.md)(x)`
 
 ##例外
-
 投げない
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <utility>
@@ -64,33 +62,23 @@ int main()
 }
 ```
 * move_if_noexcept[color ff0000]
-* move_if_noexcept[color ff0000]
 
 ###出力
-
-```cpp
+```
 move
 copy
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

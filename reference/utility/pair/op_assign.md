@@ -9,16 +9,53 @@ template<class U, class V> pair& operator=(pair<U, V>&& p);
 ```
 
 ##概要
+- `pair& operator=(const pair& p);`
 
-<li>`pair& operator=(const pair& p);`同じ型の`pair`をコピー代入する。要件： `[is_copy_assignable](/reference/type_traits/is_copy_assignable.md)<first_type>::value && [is_copy_assignable](/reference/type_traits/is_copy_assignable.md)<second_type>::value`であること効果： `p.first`を`this->first`に、`p.second`を`this->second`にコピー代入する戻り値： `*this`
-</li><li>`template<class U, class V> pair& operator=(const pair<U, V>& p);`変換可能な`pair`をコピー代入する。要件： `[is_assignable](/reference/type_traits/is_assignable.md)<first_type&, const U&>::value && [is_assignable](/reference/type_traits/is_assignable.md)<second_type&, const V&>::value`であること効果： `p.first`を`this->first`に、`p.second`を`this->second`にコピー代入する戻り値： `*this`
-</li><li>`pair& operator=(pair&& p) noexcept(下記参照);`同じ型の`pair`をムーブ代入する例外： `is_nothrow_move_assignable<first_type>::value && is_nothrow_move_assignable<second_type>::value`である場合、この関数は例外を決して投げない要件： `[is_move_assignable](/reference/type_traits/is_move_assignable.md)<first_type>::value && [is_move_assignable](/reference/type_traits/is_move_assignable.md)<second_type>::value`であること効果： `p.first`を`this->first`に、`p.second`を`this->second`にムーブ代入する戻り値： `*this`
-</li><li>`template<class U, class V> pair& operator=(pair<U, V>&& p);`変換可能な`pair`をムーブ代入する要件： `[is_assignable](/reference/type_traits/is_assignable.md)<first_type&, U&&>::value && [is_assignable](/reference/type_traits/is_assignable.md)<second_type&, V&&>::value`であること効果： `p.first`を`this->first`に、`p.second`を`this->second`にムーブ代入する戻り値： `*this`
-</li>
+同じ型の`pair`をコピー代入する。
+
+要件： [`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<first_type>::value && `[`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<second_type>::value`であること
+
+効果： `p.first`を`this->first`に、`p.second`を`this->second`にコピー代入する
+
+戻り値： `*this`
+
+
+- `template<class U, class V> pair& operator=(const pair<U, V>& p);`
+
+変換可能な`pair`をコピー代入する。
+
+要件： [`is_assignable`](/reference/type_traits/is_assignable.md)`<first_type&, const U&>::value && `[`is_assignable`](/reference/type_traits/is_assignable.md)`<second_type&, const V&>::value`であること
+
+効果： `p.first`を`this->first`に、`p.second`を`this->second`にコピー代入する
+
+戻り値： `*this`
+
+- `pair& operator=(pair&& p) noexcept(下記参照);`
+
+同じ型の`pair`をムーブ代入する
+
+例外： `is_nothrow_move_assignable<first_type>::value && is_nothrow_move_assignable<second_type>::value`である場合、この関数は例外を決して投げない
+
+要件： [`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<first_type>::value && `[`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<second_type>::value`であること
+
+効果： `p.first`を`this->first`に、`p.second`を`this->second`にムーブ代入する
+
+戻り値： `*this`
+
+
+- `template<class U, class V> pair& operator=(pair<U, V>&& p);`
+
+変換可能な`pair`をムーブ代入する
+
+要件： [`is_assignable`](/reference/type_traits/is_assignable.md)`<first_type&, U&&>::value && `[`is_assignable`](/reference/type_traits/is_assignable.md)`<second_type&, V&&>::value`であること
+
+効果： `p.first`を`this->first`に、`p.second`を`this->second`にムーブ代入する
+
+戻り値： `*this`
+
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <utility>
@@ -66,13 +103,9 @@ int main()
 
 }
 ```
-* =[color ff0000]
-* =[color ff0000]
-* =[color ff0000]
 
 ###出力
-
-```cpp
+```
 p1 : (1,abc)
 p2 : (1,abc)
 p3 : (1,abc)
@@ -80,30 +113,15 @@ p4 : (1,abc)
 ```
 
 ##バージョン
-
-
 ###言語
-
-
-- C++11 : operator=(pair&&), operator=(pair<U, V>&&)
-
-
+- C++11 : `operator=(pair&&)`, `operator=(pair<U, V>&&)`
 
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): ??
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) ??
 
-
-
-##実装例
-
-```cpp
-```
 
 ##参照
-```

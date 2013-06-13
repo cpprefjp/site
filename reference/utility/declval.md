@@ -8,32 +8,28 @@ namespace std {
 ```
 
 ##概要
+指定された型の値を得る。
 
-<b>指定された型の値を得る。</b>
-<b>この関数は、decltype(expr)やnoexcept(expr) といった、実際には評価されない式の内部において、特定の型を持った式を作るためのヘルパ関数である。</b>
+この関数は、`decltype(expr)`や`noexcept(expr)` といった、実際には評価されない式の内部において、特定の型を持った式を作るためのヘルパ関数である。
 
 
 ##戻り値
-
 この関数は呼び出されないので、値としては何も返さない。
 
 実際には評価されない文脈(`decltype`, `sizeof`, `noexcept`)で使用することで、指定された型に対する特定の演算が可能かどうかを調べるためだけの「型の値」が返る。
 
 
 ##例外
-
 投げない
 
 
 ##備考
-
 テンプレートパラメータ`T`は、不完全型であってもよい。
+
 この関数が実際に評価されうる場合、プログラムは不適格となる。
 
 
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <utility>
@@ -68,29 +64,20 @@ int main()
 * declval[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
 
 
 ##参照

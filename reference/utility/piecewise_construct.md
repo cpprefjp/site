@@ -7,13 +7,12 @@ namespace std {
 ```
 
 ##概要
+`piecewise_construct_t`クラスは、オーバーロードのための空クラスである。
 
-<b>piecewise_construct_tクラスは、オーバーロードのための空クラスである。</b>
-<b>pairの要素型のコンストラクタ引数を引数にとるコンストラクタを呼び出すためにある。</b>
+`pair`の要素型のコンストラクタ引数を引数にとるコンストラクタを呼び出すためにある。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <utility>
@@ -42,36 +41,20 @@ int main()
 * piecewise_construct[color ff0000]
 
 ###出力
-
-```cpp
+```
 (1,2), (3,4)
 ```
 
 ##バージョン
-
-
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) ??
 
-
-
-##実装例
-
-```cpp
-```
 
 ##参照
-```

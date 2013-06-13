@@ -1,24 +1,20 @@
 #operator==
 ```cpp
 namespace std {
-
   template <class T1, class T2>
   bool operator==(const pair<T1, T2>& x, const pair<T1, T2>& y);
-
 }
 ```
 
 ##概要
-
-<b>2つのpairの等値比較を行う</b>
+2つの`pair`の等値比較を行う
 
 
 ##戻り値
-
 `x.first == y.first && x.second == y.second`
 
-##例
 
+##例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -35,41 +31,11 @@ int main()
   std::cout << (p1 == p3) << std::endl;
 }
 ```
-* ==[color ff0000]
-* ==[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 false
 ```
 
-##バージョン
-
-
-###言語
-
-
-- 
-
-
-
-###処理系
-
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): ??
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
-
-
-
-##実装例
-
-```cpp
-```
-
 ##参照
-```
