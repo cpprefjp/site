@@ -48,7 +48,7 @@ int main()
     std::copy(us.begin(b), us.end(b), std::ostream_iterator<std::string>(std::cout, ", "));
     std::cout << "}" << std::endl;
   }
-}</pre>
+}
 ```
 * iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
