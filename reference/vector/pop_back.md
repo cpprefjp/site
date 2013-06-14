@@ -4,22 +4,18 @@ void pop_back();
 ```
 
 ##概要
-
-<b>末尾要素を削除する。</b>
+末尾要素を削除する。
 
 
 ##要件
-
-`[empty()](./pop_back.md) == false`であること。
+[`empty()`](./pop_back.md)` == false`であること。
 
 
 ##戻り値
-
 なし
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -39,8 +35,7 @@ int main()
 * pop_back[color ff0000]
 
 ###出力
-
-```cpp
+```
 1
 2
 ```

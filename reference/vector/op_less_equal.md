@@ -7,21 +7,18 @@ namespace std {
 ```
 
 ##概要
-
-<b>vectorにおいて、左辺が右辺以下かを判定する。</b>
+`vector`において、左辺が右辺以下かを判定する。
 
 
 ##戻り値
+`!(a `[`>`](./op_greater.md)` b)`
 
-!(a [>](/reference/vector/op_greater.md) b)
 
 ##計算量
-
 線形時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -36,11 +33,9 @@ int main ()
   std::cout << (v1 <= v2) << std::endl;
 }
 ```
-* <=[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 ```
 

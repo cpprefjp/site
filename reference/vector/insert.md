@@ -1,32 +1,34 @@
 #insert
 ```cpp
-iterator insert(const_iterator position, const T& x);iterator insert(const_iterator position, T&& x);iterator insert(const_iterator position, size_type n, const T& x);template <class InputIterator>iterator insert(const_iterator position, InputIterator first, InputIterator last);iterator insert(const_iterator position, initializer_list<T> il);
+iterator insert(const_iterator position, const T& x);
+
+iterator insert(const_iterator position, T&& x);
+
+iterator insert(const_iterator position, size_type n, const T& x);
+
+template <class InputIterator>
+iterator insert(const_iterator position, InputIterator first, InputIterator last);
+
+iterator insert(const_iterator position, initializer_list<T> il);
 ```
 
 ##概要
-
 任意の位置に新たな要素を挿入する
 
 
 ##戻り値
-
 挿入された要素を指すイテレータ
 
 
 ##計算量
-
-挿入される要素の数と挿入される要素の位置と[`end()`](/reference/vector/end.md)の間の要素数に対して線形時間の計算量が必要である。
+挿入される要素の数と挿入される要素の位置と[`end()`](./end.md)の間の要素数に対して線形時間の計算量が必要である。
 
 
 ##備考
-
-要素を追加した後の[`size()`](/reference/vector/size.md)が要素を追加する前の[`capacity()`](/reference/vector/capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じなかった場合には全てのイテレーターや参照は有効である。もし、例外が発生した場合には副作用が発生しない。（コピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入、および、InputIterator操作で例外が発生した場合を除く。）もし、非CopyInsertableな型Tのムーブコンストラクタで例外が発生した場合、副作用は未規定。
-
-
+要素を追加した後の[`size()`](./size.md)が要素を追加する前の[`capacity()`](./capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じなかった場合には全てのイテレーターや参照は有効である。もし、例外が発生した場合には副作用が発生しない。（コピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入、および、InputIterator操作で例外が発生した場合を除く。）もし、非CopyInsertableな型Tのムーブコンストラクタで例外が発生した場合、副作用は未規定。
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -65,13 +67,9 @@ int main()
 }
 ```
 * insert[color ff0000]
-* insert[color ff0000]
-* insert[color ff0000]
-* insert[color ff0000]
 
 ###出力
-
-```cpp
+```
 aaa
 hhh
 iii
@@ -84,21 +82,19 @@ ccc
 ```
 
 ##バージョン
-
 ###言語
-<li>C++11 :
-右辺参照バージョン</li>
+- C++11 :右辺参照バージョン
+	- [Clang](/implementation#clang.md): ??
+	- [GCC](/implementation#gcc.md): 
+	- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+	- [ICC](/implementation#icc.md): ??
+	- [Visual C++](/implementation#visual_cpp.md) 10.0
 
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) 10.0
-- C++11 : 初期化子リストバージョン<li>
-</li>
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) 
+- C++11 : 初期化子リストバージョン
+	- [Clang](/implementation#clang.md): ??
+	- [GCC](/implementation#gcc.md): 
+	- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+	- [ICC](/implementation#icc.md): ??
+	- [Visual C++](/implementation#visual_cpp.md) 
+
 

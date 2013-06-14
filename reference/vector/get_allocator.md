@@ -4,26 +4,18 @@ allocator_type get_allocator() const noexcept;
 ```
 
 ##概要
-
-<b>vectorが内包しているアロケータを取得する。</b>
+`vector`が内包しているアロケータを取得する。
 
 
 ##戻り値
-
-vectorが内包しているアロケータ
+`vector`が内包しているアロケータ
 
 
 ##例外
-
 投げない
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <cassert>
 #include <vector>
@@ -41,34 +33,18 @@ int main()
 * get_allocator[color ff0000]
 
 ###出力
-
-```cpp
+```
 ```
 
 ##バージョン
-```
 ###言語
-
-
 - C++11
 
-
-
 ###処理系
-
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??<h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 
-
-##実装例
-
-```cpp
-```
-
-##参照
-```

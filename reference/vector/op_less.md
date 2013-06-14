@@ -7,26 +7,22 @@ namespace std {
 ```
 
 ##概要
-
-<b>vectorにおいて、左辺が右辺より小さいかの判定を行う。</b>
+`vector`において、左辺が右辺より小さいかの判定を行う。
 
 
 ##要件
-
 型`T`が`<`比較可能であること。その`<`が全順序関係を持っていること。
 
 
 ##戻り値
+[`lexicographical_compare`](/reference/algorithm/lexicographical_compare.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`(), y.`[`end`](/reference/vector/end.md)`());`
 
-`[lexicographical_compare](/reference/algorithm/lexicographical_compare.md)(x.[begin](/reference/vector/begin.md)(), x.[end](/reference/vector/end.md)(), y.[begin](/reference/vector/begin.md)(), y.[end](/reference/vector/end.md)());`
 
 ##計算量
-
 線形時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -41,11 +37,9 @@ int main ()
   std::cout << (v1 < v2) << std::endl;
 }
 ```
-* <[color ff0000]
 
 ###出力
-
-```cpp
+```
 true
 ```
 

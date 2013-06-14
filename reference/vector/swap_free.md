@@ -7,26 +7,18 @@ namespace std {
 ```
 
 ##概要
-
-<b>2つのvectorオブジェクトを入れ替える</b>
+2つの`vector`オブジェクトを入れ替える
 
 
 ##効果
-
-`x.[swap](/reference/vector/swap.md)(y)`
+`x.`[`swap`](./swap.md)`(y)`
 
 
 ##戻り値
-
 なし
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -57,8 +49,7 @@ int main()
 * swap[color ff0000]
 
 ###出力
-
-```cpp
+```
 v1 : {1 2 3 }
 v2 : {4 5 6 }
 ```

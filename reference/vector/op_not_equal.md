@@ -7,27 +7,22 @@ namespace std {
 ```
 
 ##概要
-
-<b>vectorの非等値比較を行う。</b>
+`vector`の非等値比較を行う。
 
 
 ##要件
-
 型`T`が`operator==`で比較可能であること。
 
 
 ##戻り値
-
-`!(x [==](/reference/vector/op_equal.md) y)`
+`!(x `[`==`](./op_equal.md)` y)`
 
 
 ##計算量
-
 線形時間
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -47,12 +42,9 @@ int main ()
   std::cout << (v1 != v3) << std::endl;
 }
 ```
-* !=[color ff0000]
-* !=[color ff0000]
 
 ###出力
-
-```cpp
+```
 false
 true
 ```

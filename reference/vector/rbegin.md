@@ -5,33 +5,24 @@ const_reverse_iterator rbegin() const noexcept;
 ```
 
 ##概要
-
-<b>末尾要素を指す逆イテレータを取得する。</b>
+末尾要素を指す逆イテレータを取得する。
 
 
 ##戻り値
-
 非`const`な文脈では`reverse_iterator`型で末尾要素への逆イテレータを返し、
+
 `const`な文脈では`const_reverse_iterator`型で末尾要素への逆イテレータを返す。
 
 
-
 ##例外
-
 投げない
 
 
 ##計算量
-
 定数時間
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -49,11 +40,9 @@ int main()
 }
 ```
 * rbegin[color ff0000]
-* rbegin[color ff0000]
 
 ###出力
-
-```cpp
+```
 3
 3
 ```

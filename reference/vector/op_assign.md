@@ -1,35 +1,46 @@
 #代入演算子
 ```cpp
 vector& operator=(const vector& x);
-vector& operator=(vector&& x);
-vector& operator=(initializer_list<T>);
+vector& operator=(vector&& x);          // C++11から
+vector& operator=(initializer_list<T>); // C++11から
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
+- `vector& operator=(const vector& x);`
 
-<li style='font-weight:bold'><b>vector& operator=(const vector& x);要件：型Tがvectorに対して[CopyInsertable](/reference/container_concepts/copyinsertable.md)であること。効果：同じテンプレートパラメータを持つvectorクラスのオブジェクトをコピー代入する。*thisの全ての要素が解放され、xの全ての要素が*thisにコピーされる。事後条件：*this == x
-</b></li><li style='font-weight:bold'><b>vector& operator=(vector&& x);効果：同じテンプレートパラメータを持つvectorクラスのオブジェクトをムーブ代入する。*thisの全ての要素が解放され、xの全ての要素が*thisにムーブされる。事後条件：*thisは元々のxと等値となる
-</b></li><li><b>vector& operator=(initializer_list<T> x);</b>要件：<span style='font-weight:800'>型Tがvectorに対して<b>[CopyInsertable](/reference/container_concepts/copyinsertable.md)
-</b>であること。効果：</span>同じテンプレートパラメータを持つinitializer_listクラスのオブジェクトをコピー代入する。*thisの全ての要素が解放され、xの全ての要素が*thisにコピーされる。事後条件：
-*this == x</li>
+要件：型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること。
+
+効果：同じテンプレートパラメータを持つ`vector`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+
+事後条件：`*this == x`
+
+
+- `vector& operator=(vector&& x);`
+
+効果：同じテンプレートパラメータを持つ`vector`クラスのオブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
+
+事後条件：`*this`は元々の`x`と等値となる
+
+
+- `vector& operator=(initializer_list<T> x);`
+
+要件：型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること。
+
+効果：同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+
+事後条件：`*this == x`
 
 
 ##戻り値
-
 `*this`
 
-##計算量
 
+##計算量
 線形時間
 
 
-##備考
-
-
-
 ##例
-
 ```cpp
 #include <cassert>
 #include <vector>
@@ -74,37 +85,8 @@ int main()
 }
 
 
-
-
 ###出力
-
-```cpp
+```
 ```
 
-##バージョン
-```
-###言語
 
-
-- C++11
-
-
-
-###処理系
-
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) <h4>備考</h4>
-(処理系やライブラリのバグや不完全な実装などをここに書く。なければ備考欄を削除)
-
-
-
-##実装例
-
-```cpp
-```
-
-##参照
-```
