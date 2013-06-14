@@ -1,5 +1,3 @@
 #gslice_array
 
-|
-|
-|
+

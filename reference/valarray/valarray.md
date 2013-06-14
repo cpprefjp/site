@@ -1,42 +1,86 @@
 #valarray
-線形代数学的な数値例の計算に特化したテンプレートクラス。
+線形代数学的な数値例の計算に特化したクラステンプレート。
 
 
-メンバ関数
-
-
-
-
+##メンバ関数
 
 | | |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| （コンストラクタ） | size_t 、 valarray 、 slice_array 、 gslice_array 、 mask_array 、 indirect_array 、 initializer_list の何れかをパラメータとして valarray を生成する |
-| （デストラクタ） |（特記事項なし）  |
-| operator= | valarray 、 slice_array 、 gslice_array 、 mask_array 、 indirect_array 、 initializer_list の何れかを代入する   |
-| operator[] | size_t 、 slice 、 gslice 、 valarray<bool> 、 valarray<size_t> の何れかをパラメータとし、対応する要素、または要素の集合を生成して帰す<br/>（各パラメータ型を与えた場合の挙動は例2を参照）  |
-| operator+ (単項演算子) | 自身のコピーを帰す |
-| operator- (単項演算子) | 自身のコピーを帰す |
-| operator~ (単項演算子) | 自身のコピーを帰す |
-| operator*= | valarray の各要素を valarray または定数で乗算する |
-| operator/= | valarray の各要素を valarray または定数で除算する |
-| operator%= | valarray の各要素を valarray または定数で剰余算する |
-| operator+= | valarray の各要素を valarray または定数で加算する |
-| operator-= | valarray の各要素を valarray または定数で減算する  |
-| operator^= | valarray の各要素を valarray または定数でビットを排他的論理和する |
-| operator&= | valarray の各要素を valarray または定数でビットを論理積する |
-| operator&#x7C;= | valarray の各要素を valarray または定数でビットを論理和する |
-| operator<<= | valarray の各要素を valarray または定数で左シフト算する |
-| operator>>= | valarray の各要素を valarray または定数で右シフト算する |
-| swap | valarray の置換を行う <b>（C++11）</b> |
-| size | valarray の要素を数を帰す |
-| sum | valarray の各要素を operator+= で結合し帰す |
-| min | valarray の各要素を operator< で比較し最小の要素を帰す |
-| max | valarray の各要素を operator< で比較し最大の要素を帰す |
-| shift | valarray の各要素をシフトする |
-| cshift | valarray の各要素を循環シフトする |
-| apply | valarray の各要素に任意の関数オブジェクトを適用する |
+| `(constructor)`              | `size_t `、 `valarray` 、 `slice_array` 、 `gslice_array` 、 `mask_array` 、 `indirect_array` 、 `initializer_list` の何れかをパラメータとして `valarray` を生成する |
+| `(destructor)`               |（特記事項なし） |
+| `operator=`                  | `valarray` 、 `slice_array` 、 `gslice_array` 、 `mask_array` 、 `indirect_array` 、 `initializer_list` の何れかを代入する |
+| `operator[]`                 | `size_t` 、 `slice` 、 `gslice` 、 `valarray<bool>` 、 `valarray<size_t>` の何れかをパラメータとし、対応する要素、または要素の集合を生成して返す<br/>（各パラメータ型を与えた場合の挙動は例2を参照）  |
+| `operator+` (単項演算子)     | 自身のコピーを返す |
+| `operator-` (単項演算子)     | 自身のコピーを返す |
+| `operator~` (単項演算子)     | 自身のコピーを返す |
+| `operator*=`                 | 乗算 |
+| `operator/=`                 | 除算 |
+| `operator%=`                 | 剰余算 |
+| `operator+=`                 | 加算 |
+| `operator-=`                 | 減算  |
+| `operator^=`                 | 排他的論理和のビット演算 |
+| `operator&=`                 | 論理積のビット演算 |
+| <code>operator&#x7C;=</code> | 論理和のビット演算 |
+| `operator<<=`                | 左シフト |
+| `operator>>=`                | 右シフト |
+| `swap`                       | 他の`valarray`オブジェクトと値を入れ替える(C++11) |
+| `size`                       | 要素数を取得する |
+| `sum`                        | 合計値を求める |
+| `min`                        | 最小の要素を取得する |
+| `max`                        | 最大の要素を取得する |
+| `shift`                      | 各要素をシフトする |
+| `cshift`                     | 各要素を循環シフトする |
+| `apply`                      | 各要素に任意の関数オブジェクトを適用する |
 
-例１ valarray テンプレートクラスの基礎的な挙動
+##非メンバ関数
+### `valarray` のための演算子
+
+| | |
+|-----------------------------------|----------------------------------|
+| `operator*`                       | 乗算                             |
+| `operator/`                       | 除算                             |
+| `operator%`                       | 剰余算                           |
+| `operator+`                       | 加算                             |
+| `operator-`                       | 減算                             |
+| `operator^`                       | 排他的論理和のビット演算         |
+| `operator&`                       | 論理積のビット演算               |
+| <code>operator&#x7C;</code>       | 論理和のビット演算               |
+| `operator<<`                      | 左シフト                         |
+| `operator>>`                      | 右シフト                         |
+| `operator==`                      | 等値比較                         |
+| `operator!=`                      | 非等値比較                       |
+| `operator<`                       | 左辺が右辺より小さいかを判定する |
+| `operator<=`                      | 左辺が右辺以下かを判定する       |
+| `operator>`                       | 左辺が右辺より大きいかを判定する |
+| `operator>=`                      | 左辺が右辺以上かを判定する       |
+| `operator&&`                      | 論理積                           |
+| <code>operator&#x7C;&#x7C;</code> | 論理和                           |
+
+
+### `valarray` のための数学関数
+
+| | |
+|---------|--------------------------------------------------|
+| `sin`   | 正弦関数（サイン）                               |
+| `cos`   | 余弦関数（コサイン）                             |
+| `tan`   | 正接関数（タンジェント）                         |
+| `asin`  | 逆正弦関数（アークサイン）                       |
+| `acos`  | 逆余弦関数（アークコサイン）                     |
+| `atan`  | 逆正接関数（アークタンジェント）                 |
+| `atan2` | 対辺と隣辺からの逆正接関数（アークタンジェント） |
+| `sinh`  | 双曲線正弦関数（ハイパボリックサイン）           |
+| `cosh`  | 双曲線余弦関数（ハイパボリックコサイン）         |
+| `tanh`  | 双曲線正接関数（ハイパボリックタンジェント）     |
+| `exp`   | e (ネイピア数) を底とする指数関数                |
+| `log`   | e (ネイピア数) を底とする自然対数                |
+| `log10` | 10 を底とする常用対数                            |
+| `pow`   | 冪乗                                             |
+| `sqrt`  | 平方根                                           |
+| `abs`   | 絶対値                                           |
+
+
+
+##例１ `valarray` クラステンプレートの基礎的な挙動
 
 ```cpp
 #include <valarray>
@@ -65,20 +109,17 @@ int main(){
 }
 ```
 * std::valarray[color ff0000]
-* -[color ff0000]
 * apply[color ff0000]
-* +=[color ff0000]
 
-実行結果
-
-```cpp
+###出力
+```
 debug_print[0]: A B C D E F G H I
 debug_print[1]: > ? @ A B C D E F
 debug_print[2]: A G O Y L A Q J E
 debug_print[3]: B D F H J L N P R   
 ```
 
-例２ valarray テンプレートクラスの operator[] メンバ関数の挙動
+##例２ `valarray` クラステンプレートの `operator[]` メンバ関数の挙動
 
 ```cpp
 #include <valarray>
@@ -131,20 +172,9 @@ int main(){
 }
 ```
 * std::valarray[color ff0000]
-* [[color ff0000]
-* ][color ff0000]
-* [[color ff0000]
-* ][color ff0000]
-* [[color ff0000]
-* ][color ff0000]
-* [[color ff0000]
-* ][color ff0000]
-* [[color ff0000]
-* ][color ff0000]
 
-実行結果
-
-```cpp
+###出力
+```
 debug_print[0]: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
 *** operator[](size_t) ***
 ABCDEFGHI
@@ -159,3 +189,4 @@ debug_print[5]: C D F
 *** operator[](valarray<size_t>) ***
 debug_print[6]: T E A T I M E 
 ```
+

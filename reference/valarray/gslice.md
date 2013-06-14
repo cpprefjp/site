@@ -14,13 +14,17 @@ namespace std {
 ```
 
 ##概要
-[std::slice](/reference/valarray/slice.md) をより一般化したスライス指示用のヘルパークラス。
+[`std::slice`](/reference/valarray/slice.md) をより一般化したスライス指示用のヘルパークラス。
 
 
 | | |
 |------------------|-------------------------------------------------------------------------|
-| s | スライスを生成する初期位置 |
-| l | 生成するスライスの要素数列の std::valarray |
-| d | スライスを生成する間隔数列の std::valarray |
-参照
-使用例については [std::valarray](/reference/valarray/valarray.md) の例を参照。
+| `s` | スライスを生成する初期位置 |
+| `l` | 生成するスライスの要素数列の `valarray` |
+| `d` | スライスを生成する間隔数列の `valarray` |
+
+
+##参照
+使用例については [`std::valarray`](/reference/valarray/valarray.md) の例を参照。
+
+

@@ -1,5 +1,3 @@
 #indirect_array
 
-|
-|
-|
+
