@@ -18,7 +18,9 @@ namespace std {
 
 ##戻り値
 引数 `x` の逆双曲線余弦を `[0; +∞]` の範囲で返す。
+
 `x < 1` だった場合 `NaN` を返す。
+
 `x` が `+∞` だった場合 `+∞` を返す。
 
 
@@ -60,5 +62,6 @@ acosh(∞)  = inf
 
 ##実装例
 対数に変換して求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/acosh/acosh_log.png)
 

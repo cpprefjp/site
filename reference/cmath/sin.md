@@ -70,5 +70,6 @@ sin(pi)   = 0.000000
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/sin/sin_mac.png)
 

@@ -18,8 +18,11 @@ namespace std {
 
 ##戻り値
 引数 `x` の 10 を底とする常用対数を返す。
+
 `x` が 0 だった場合 `-∞` を返す。
+
 `x < 0` だった場合 `NaN` を返す。
+
 `x` が `+∞` だった場合 `+∞` を返す。
 
 
@@ -69,6 +72,7 @@ log10(-1.0) = nan
 
 
 ##実装例
-`log` があれば、以下のように変換することで求められる。
+[`log`](./log.md) があれば、以下のように変換することで求められる。
+
 ![](https://github.com/cpprefjp/image/raw/master/reference/cmath/log10/log10_formula.png)
 

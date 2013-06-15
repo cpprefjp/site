@@ -70,12 +70,18 @@ atan(∞)    = 1.570796
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan/atan_mac.png)
 
+
 `|x| >= 1` の範囲、および `|x| → 1` 近傍の精度低下する領域においては、以下の公式による変換で求めることができる。
+
 （特に `√2+1 < |x|` の場合）
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan/atan_formula_1.png)
 
+
 （特に `√2-1 < |x| <= √2+1` の場合）
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan/atan_formula_2.png)
 

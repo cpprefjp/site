@@ -63,5 +63,6 @@ cosh(1.0)  = 1.543081
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/cosh/cosh_mac.png)
 

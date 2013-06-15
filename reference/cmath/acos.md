@@ -18,12 +18,12 @@ namespace std {
 
 ##戻り値
 引数 `x` の逆余弦を `[0; π]` の範囲で返す。
+
 `x` が `[-1.0; 1.0]` の範囲外だった場合 `NaN` を返す。
 
 
 ##備考
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/acos/acos.png)
-
 
 
 ##例
@@ -72,8 +72,11 @@ acos(1.0)   = 0.000000
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/acos/acos_mac.png)
 
+
 上式は下記の公式に等しいため、`asin` から求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/acos/acos_formula.png)
 

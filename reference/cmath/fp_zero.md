@@ -5,5 +5,4 @@
 * integer_constant_expression[italic]
 
 ##概要
-
 浮動小数点数の（正または負の） 0 を表す整数定数式。

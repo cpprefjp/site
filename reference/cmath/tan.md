@@ -68,9 +68,11 @@ tan(pi/2) = 3530114321217157.500000
 
 ##実装例
 `tan` のマクローリン展開はベルヌーイ数が登場するため計算には向かない。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tan/tan_mac.png)
 
 以下の公式から求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tan/tan_formula.png)
 
 

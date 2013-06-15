@@ -62,8 +62,10 @@ tanh(1.0)  = 0.761594
 
 ##実装例
 `tanh` のマクローリン展開はベルヌーイ数が登場するため計算には向かない。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tanh/tanh_mac.png)
 
 以下の公式から求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tanh/tanh_formula.png)
 

@@ -18,7 +18,9 @@ namespace std {
 
 ##戻り値
 引数 `x` の逆双曲線正接を返す。
+
 `x` が `±1` だった場合 `±∞` を返す。
+
 `|x| > 1` だった場合 `NaN` を返す。
 
 
@@ -65,8 +67,11 @@ atanh(1.0)  = inf
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atanh/atanh_mac.png)
 
+
 または対数に変換して求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atanh/atanh_log.png)
 

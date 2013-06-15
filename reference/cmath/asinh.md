@@ -18,6 +18,7 @@ namespace std {
 
 ##戻り値
 引数 `x` の逆双曲線正弦を返す。
+
 `x` が `±∞` だった場合 `±∞` を返す。
 
 
@@ -61,8 +62,11 @@ asinh(1.0)  = 0.881374
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asinh/asinh_mac.png)
 
+
 または対数に変換して求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asinh/asinh_log.png)
 

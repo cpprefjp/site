@@ -18,8 +18,11 @@ namespace std {
 
 ##戻り値
 引数 `x` の `e` (ネイピア数) を底とする自然対数を返す。
+
 `x` が 0 だった場合 `-∞` を返す。
+
 `x < 0` だった場合 `NaN` を返す。
+
 `x` が `+∞` だった場合 `+∞` を返す。
 
 
@@ -70,5 +73,6 @@ log(-1.0) = nan
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://github.com/cpprefjp/image/raw/master/reference/cmath/log/log_mac.png)
 

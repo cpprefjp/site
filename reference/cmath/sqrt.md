@@ -76,6 +76,7 @@ sqrt(-1.0) = -nan
 
 ##実装例
 ニュートン法によって漸化式の反復から近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/sqrt/sqrt_formula.png)
 
 ただし `x` は引数、`a` の初期値は適当な値を選ぶものとする。

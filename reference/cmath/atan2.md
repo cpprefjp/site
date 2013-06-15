@@ -19,11 +19,13 @@ namespace std {
 
 ##戻り値
 `y / x` の逆正接を `[-π; π]` の範囲で返す。
+
 象限は引数の符号から適切に求められる。
 
 
 ##備考
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan2/atan2.png)
+
 引数の順番に注意されたし。
 
 
@@ -78,11 +80,16 @@ atan2(-1.0, 1.0)  = -0.785398
 `[-π/2; π/2]` の範囲を返す `atan` があれば、引数の符号に応じて以下のように変換することで求められる。
 
 （`0 <= x` の場合）
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan2/atan2_formula_1.png)
 
+
 （`x < 0, 0 <= y <` の場合）
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan2/atan2_formula_2.png)
 
+
 （`x < 0, y < 0` の場合）
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan2/atan2_formula_3.png)
 

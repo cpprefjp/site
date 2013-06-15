@@ -70,5 +70,6 @@ cos(pi)   = -1.000000
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/cos/cos_mac.png)
 

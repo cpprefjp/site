@@ -18,12 +18,12 @@ namespace std {
 
 ##戻り値
 引数 `x` と引数 `y` の平方和の平方根を返す。
+
 引数の一方が `±∞` だった場合（もう一方が `NaN` であっても） `+∞` を返す。
 
 
 ##備考
 ![](https://github.com/cpprefjp/image/raw/master/reference/cmath/hypot/hypot.png)
-
 
 
 ##例
@@ -37,7 +37,9 @@ int main() {
   std::cout << "hypot(0.0, 0.0)  = " << std::hypot(0.0, 0.0) << std::endl;
   std::cout << "hypot(1.0, 1.0)  = " << std::hypot(1.0, 1.0) << std::endl;
   std::cout << "hypot(3.0, 4.0)  = " << std::hypot(3.0, 4.0) << std::endl;
-  std::cout << "hypot(+∞, NaN)  = " << std::hypot(std::numeric_limits<double>::infinity(), std::numeric_limits<double>::quiet_NaN()) << std::endl;
+  std::cout << "hypot(+∞, NaN)  = " << std::hypot(std::numeric_limits<double>::infinity(),
+                                                   std::numeric_limits<double>::quiet_NaN())
+            << std::endl;
 }
 ```
 
@@ -64,5 +66,6 @@ hypot(+∞, NaN)  = inf
 
 ##実装例
 `sqrt` があれば、以下のように変換しても求められる。
+
 ![](https://github.com/cpprefjp/image/raw/master/reference/cmath/hypot/hypot_formula.png)
 

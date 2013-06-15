@@ -18,13 +18,14 @@ namespace std {
 
 ##戻り値
 2 の `x` 乗を返す。
+
 `x` が `+∞` だった場合 `+∞` を返す。
+
 `x` が `-∞` だった場合 0 を返す。
 
 
 ##備考
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/exp2/exp2.png)
-
 
 
 ##例
@@ -65,5 +66,6 @@ exp2(-∞) = 0.000000
 
 ##実装例
 `exp` があれば、以下のように変換することで求められる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/exp2/exp2_formula.png)
 

@@ -63,6 +63,7 @@ sinh(1.0)  = 1.175201
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/sinh/sinh_mac.png)
 
 

@@ -85,6 +85,7 @@ pow(2.0, -∞)  = 0.000000
 
 ##実装例
 `exp` および `log` があれば、以下のように変換することで求められる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/pow/pow_formula.png)
 
 ただし `x` が負数かつ `y` が整数に等しい場合などについては、別に計算する必要がある。

@@ -69,9 +69,12 @@ asin(1.0)   = 1.570796
 
 ##実装例
 マクローリン展開によって近似的に求めることができる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asin/asin_mac.png)
 
+
 `|x| → 1` 近傍の精度低下する領域（特に `1/√2 < |x| < 1` ）においては、以下の公式による変換で精度向上を図れる。
+
 ![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asin/asin_formula.png)
 
 
