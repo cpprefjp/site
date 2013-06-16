@@ -15,9 +15,10 @@ namespace std {
 
 
 `vector`は次の点で優れている。
-* 各要素への添字アクセス(定数時間)
-* 全要素の両方向の走査(線形時間)
-* 末尾への要素の追加・削除(償却定数時間)
+
+- 各要素への添字アクセス(定数時間)
+- 全要素の両方向の走査(線形時間)
+- 末尾への要素の追加・削除(償却定数時間)
 
 これらの挙動は配列と同じパフォーマンス特性を示し、加えてストレージサイズの変更が非常に簡単である。ただし、`vector`は実際の要素数より少し余分にメモリを確保する(これは拡張に備え、パフォーマンス特性を満足するための仕様である)。
 
@@ -29,8 +30,9 @@ namespace std {
 
 
 各テンプレートパラメータの意味は次の通りである。
-* `T`: 格納される要素の型
-* `Allocator`: メモリ確保に使用されるアロケータの型。無指定の場合は標準の`allocator`クラスが使用される。
+
+- `T`: 格納される要素の型
+- `Allocator`: メモリ確保に使用されるアロケータの型。無指定の場合は標準の`allocator`クラスが使用される。
 
 リファレンス中では、これらの名前をテンプレートパラメータとして扱う。
 
@@ -138,8 +140,9 @@ namespace std {
 
 ##参照
 `vector`のメモリ効率について
-* [２倍だけじゃない - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_2334100705)
-* [それでも２倍だ - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_1001100720)
+
+- [２倍だけじゃない - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_2334100705)
+- [それでも２倍だ - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_1001100720)
 
 
 ##`vector<bool>`特殊化
@@ -202,9 +205,10 @@ v[3] : 0
 
 
 ##参照
-* [N1211 - `vector<bool>`: More Problems, Better Solutions](http://www.gotw.ca/publications/N1211.pdf)
-* ビット配列に関しては、[`bitset`](/reference/bitset.md)(ビットを格納する固定長コンテナ)も参照。
-* 可変長のビット配列の実装としては、Boost C++ Librariesの[`dynamic_bitset`](http://www.boost.org/doc/libs/release/libs/dynamic_bitset/dynamic_bitset.html)がある。
+
+- [N1211 - `vector<bool>`: More Problems, Better Solutions](http://www.gotw.ca/publications/N1211.pdf)
+- ビット配列に関しては、[`bitset`](/reference/bitset.md)(ビットを格納する固定長コンテナ)も参照。
+- 可変長のビット配列の実装としては、Boost C++ Librariesの[`dynamic_bitset`](http://www.boost.org/doc/libs/release/libs/dynamic_bitset/dynamic_bitset.html)がある。
 
 
 
