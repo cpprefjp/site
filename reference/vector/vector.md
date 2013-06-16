@@ -18,35 +18,35 @@ vector(initializer_list<T> il, const Allocator& a = Allocator());
 ### 定義
 
 * `explicit vector(const Allocator& a = Allocator());`
-  * デフォルトコンストラクタ。`size() == 0`の要素を持たない空の`vector`を構築する。
+    * デフォルトコンストラクタ。`size() == 0`の要素を持たない空の`vector`を構築する。
 * `explicit vector(size_type n);`
-  * n個のT()初期化された要素を保持したvectorを構築する。
+    * n個のT()初期化された要素を保持したvectorを構築する。
 * `explicit vector(size_type n, const T& value, const Allocator& a = Allocator());`
-  * 繰り返しシーケンスコンストラクタ。`value`のコピーを`n`個要素として保持した`vector`を構築する。
+    * 繰り返しシーケンスコンストラクタ。`value`のコピーを`n`個要素として保持した`vector`を構築する。
 * `template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator());`
-  * イテレータ範囲コンストラクタ。`[first, last)`の範囲を要素としてコピーした`vector`を構築する。
+    * イテレータ範囲コンストラクタ。`[first, last)`の範囲を要素としてコピーした`vector`を構築する。
 * `vector(const vector& x);`
-  * コピーコンストラクタ。`x`と同じ要素を保持した`vector`を構築する。
+    * コピーコンストラクタ。`x`と同じ要素を保持した`vector`を構築する。
 * `vector(vector&& x);` (C++11から)
-  * ムーブコンストラクタ。`x`の指す先を自分の領域として`vector`を構築する。
+    * ムーブコンストラクタ。`x`の指す先を自分の領域として`vector`を構築する。
 * `vector(const vector& x, const Allocator& a);` (C++11から)
-  * アロケータを別で受け取り、`vector`をコピー構築する。
+    * アロケータを別で受け取り、`vector`をコピー構築する。
 * `vector(vector&& x, const Allocator& a);` (C++11から)
-  * アロケータを別で受け取り、`vector`をムーブ構築する。
+    * アロケータを別で受け取り、`vector`をムーブ構築する。
 * `vector(initializer_list<T> il, const Allocator& a = Allocator());` (C++11から)
-  * 初期化子リストを受け取るコンストラクタ。`vector(first, last, alloc)`と等価。
+    * 初期化子リストを受け取るコンストラクタ。`vector(first, last, alloc)`と等価。
 
 ### パラメータ
 * `n`
-  * `value`の繰り返し個数。`size_type`メンバ型は符号なし整数。
+    * `value`の繰り返し個数。`size_type`メンバ型は符号なし整数。
 * `value`
-  * コンテナの要素として`n`個繰り返される値。`T`は1番目のテンプレートパラメータ(要素の型)。
+    * コンテナの要素として`n`個繰り返される値。`T`は1番目のテンプレートパラメータ(要素の型)。
 * `first`, `last`
-  * 入力イテレータの組。`[first, last)`の範囲を全てコンテナの要素としてコピーする。
+    * 入力イテレータの組。`[first, last)`の範囲を全てコンテナの要素としてコピーする。
 * `x`
-  * コピー(ムーブ)元の同じテンプレートパラメータを持った`vector`オブジェクト。
+    * コピー(ムーブ)元の同じテンプレートパラメータを持った`vector`オブジェクト。
 * `a`
-  * 新しく生成する代わりに使用されるべき`Allocator`オブジェクト。標準の`std::allocator`を使う限り指定する意味は無い。
+    * 新しく生成する代わりに使用されるべき`Allocator`オブジェクト。標準の`std::allocator`を使う限り指定する意味は無い。
 
 
 ###計算量:
