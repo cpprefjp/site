@@ -1,24 +1,26 @@
 #cpprefjpを編集するには
 
-本cpprefjpサイトは、Google Sitesサービス上に構築されていますが、編集自体はGitHubリポジトリにあるMarkDown形式のプレーンテキストで行います。
+本cpprefjpサイトは、Google Sitesサービス上に構築されていますが、編集自体はGitHubリポジトリにあるMarkdown形式のプレーンテキストで行います。
 
 cpprefjpサイトのGitHubリポジトリは、以下になります：
+
 * [https://github.com/cpprefjp/site](https://github.com/cpprefjp/site)
 
 
 また、cpprefjpサイト上に掲載する画像ファイルのようなリソースも、GitHubリポジトリで管理しています。
+
 * [画像ファイルリポジトリ](https://github.com/cpprefjp/image)
 
 
 ##GitHubからcpprefjpサイトへの自動反映
-GitHub上で記述したMarkDown(.md)形式のリファレンスは、自動的にhtmlに変換されて、cpprefjpサイトに反映されます。
+GitHub上で記述したMarkdown(.md)形式のリファレンスは、自動的にhtmlに変換されて、cpprefjpサイトに反映されます。
 
 ###反映間隔
 反映間隔は、1日1回となります。何らかの理由で、すぐに反映させたい場合は、cpprefjp/siteリポジトリに、Issue報告としてご連絡ください。
 
 
 ###変換エラーの検出
-MarkDown形式からhtmlへの変換で、何らかのエラーが発生した場合、cpprefjp/siteリポジトリのIssueとして登録されます。Issueは、コミッタ全員に通知されますので、関連する編集者の方は対応お願いします。
+Markdown形式からhtmlへの変換で、何らかのエラーが発生した場合、cpprefjp/siteリポジトリのIssueとして登録されます。Issueは、コミッタ全員に通知されますので、関連する編集者の方は対応お願いします。
 
 問題を修正した場合、自動反映ツールが自動的にチケットをクローズしますので、編集者の方は自分でチケットをクローズしないようお願いします。
 
@@ -49,22 +51,22 @@ MarkDown形式からhtmlへの変換で、何らかのエラーが発生した�
 cpprefjpサイトの編集に慣れていない方は、pull requestからでもぜひ始めてみてください。これは、編集権限を得るための審査ではなく、編集の練習のためだと考えてください。pull requestを何回かいただければ、継続して活動していただけるものと判断し、編集権限をお渡しします。
 
 
-##MarkDown形式による編集方法
-cpprefjpサイトは、MarkDown(.md)形式でリファレンスを記述します。
+##Markdown形式による編集方法
+cpprefjpサイトは、Markdown(.md)形式でリファレンスを記述します。
 
-MarkDownは、GitHubサービス上でドキュメントを記述するフォーマットとして広く使用されている形式です。
+Markdownは、GitHubサービス上でドキュメントを記述するフォーマットとして広く使用されている形式です。
 
-MarkDownの記述方法をわかりやすく解説してくれているWebサイトは、すでに数多く存在しますので、詳細はそちらを参照してください。
+Markdownの記述方法をわかりやすく解説してくれているWebサイトは、すでに数多く存在しますので、詳細はそちらを参照してください。
 
 * [Markdown記法 チートシート](http://qiita.com/Qiita/items/c686397e4a0f4f11683d)
 * [文章作成やメモ書きにも便利、Markdown記法](http://kojika17.com/2013/01/starting-markdown.html)
 * [Markdown文法の全訳](http://blog.2310.net/archives/6)
 
 
-MarkDown形式では、htmlのタグも併用できますが、cpprefjpサイトでは積極的にはhtmlタグを使用しない方針です。できるだけ、MarkDown形式でできる範囲内で解決するようにしてください。
+Markdown形式では、htmlのタグも併用できますが、cpprefjpサイトでは積極的にはhtmlタグを使用しない方針です。できるだけ、Markdown形式でできる範囲内で解決するようにしてください。
 
 新規リファレンスを書くにあたって、雛形ページを用意していますので、そちらをベースにして編集作業を行ってください。
+
 * [ヘッダファイルトップページの雛形](./header_template_page.md)
 * [関数の雛形](./function_template_page.md)
 * [クラスの雛形](./class_template_page.md)
-
