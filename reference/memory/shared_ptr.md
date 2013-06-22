@@ -28,7 +28,7 @@ namespace std {
 | `operator->` | 管理しているインスタンスのメンバにアクセスする |
 | `use_count` | 同じインスタンスを所有している`shared_ptr`オブジェクトの数を取得する |
 | `unique` | 同じインスタンスを所有している`shared_ptr`が自身だけなら`true`、複数であれば`false`を返す。<br/> `use_count() == 1` |
-| `explicit ``operator bool` | インスタンスを所有しているかを判定する |
+| `explicit operator bool` | インスタンスを所有しているかを判定する |
 | `owner_before` | `shared_ptr`で管理しているオブジェクトを連想コンテナで並べ替えるときに使用する |
 
 

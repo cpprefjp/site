@@ -20,7 +20,7 @@
 | | |
 |-------------------------------------------------|------------------------|
 | マクロ | 型 |
-|` ``ATOMIC_BOOL_LOCK_FREE` |` bool` |
+|` ATOMIC_BOOL_LOCK_FREE` |` bool` |
 |` ATOMIC_CHAR_LOCK_FREE` |` char` |
 |` ATOMIC_CHAR16_T_LOCK_FREE` |` char16_t` |
 |` ATOMIC_CHAR32_T_LOCK_FREE` |` char32_t` |
