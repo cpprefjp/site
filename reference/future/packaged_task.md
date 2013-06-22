@@ -9,7 +9,7 @@ namespace std {
 ```
 
 ##概要
-`packaged_task`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`future`](./future.md)クラスと組み合わせて使用する。`packaged_taskに登録した非同期実行する関数の戻り値を`[`future`](./future.md)が読み取る。`packaged_task`と[`future`](./future.md)は内部的に同一の共有状態を参照する。テンプレートパラメータ：
+`packaged_task`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`future`](./future.md)クラスと組み合わせて使用する。`packaged_task`に登録した非同期実行する関数の戻り値を[`future`](./future.md)が読み取る。`packaged_task`と[`future`](./future.md)は内部的に同一の共有状態を参照する。テンプレートパラメータ：
 
 - `R(ArgTypes...)` ： 非同期実行する関数のシグニチャ。`R`が戻り値の型、`ArgTypes...`が引数の型
 
