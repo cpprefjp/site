@@ -60,7 +60,7 @@
 | [`<queue>`](/reference/queue.md)                 | FIFOキュー            | @lunatic_star<br/> @cpp_akira | <span style="background-color:rgb(0,255,0)">完了</span> |
 | [`<stack>`](/reference/stack.md)                 | LIFOスタック          | @mikiemon_h<br/> @nishiken | <span style="background-color:rgb(0,255,0)">完了</span> |
 | [`<vector>`](/reference/vector.md)               | ベクタ配列            | @coiledcoil<br/> @cpp_akira | <span style="background-color:rgb(0,255,0)">完了</span> |
-| `<map>`                                          | 連想配列              | 担当不在 | <span style="background-color:rgb(255,0,0)">未着手</span> |
+| `<map>`                                          | 連想配列              | @oniprog | <span style="background-color:rgb(255,153,0)">着手開始</span> |
 | [`<set>`](/reference/set.md)                     | 集合                  | @PG_kura | <span style="background-color:rgb(255,153,0)">5%</span> |
 | [`<unordered_map>`](/reference/unordered_map.md) | 非順序連想配列(C++11) | @kariya_mitsuru | <span style="background-color:rgb(255,153,0)">着手中</span> |
 | [`<unordered_set>`](/reference/unordered_set.md) | 非順序集合(C++11)     | @kariya_mitsuru | <span style="background-color:lime">一応完了</span>ツッコミ希望 |
