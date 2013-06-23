@@ -44,5 +44,5 @@ x86(IA32), x64(AMD64, x86-64)のマシン語命令を実行時に生成するC++
 
 - [MPIR](http://www.mpir.org/)
 
-巨大な数を扱うためのライブラリ。GMPより分岐したものであり，Visaul Studioで容易に使えるようになっていることが特徴である。boost::multiprecisionと組み合わせて使用できる。
+巨大な数を扱うためのライブラリ。GMPより分岐したものであり，Visaul C++で容易に使えるようになっていることが特徴である。boost::multiprecisionと組み合わせて使用できる。
 ライセンス：LGPL Version 3.0
