@@ -93,17 +93,21 @@ int main() {
 #include <thread>
 #include <iostream>
 
-template<class R>
-void task_executor(std::packaged_task<R> task) {
-  task.make_ready_at_thread_exit(); // operator() を呼び出す代わりに make_ready_at_thread_exit() を呼び出す。
-}
+struct task_executor
+{
+  template <class R>
+  void operator()( std::packaged_task<R> task )
+  {
+    task.make_ready_at_thread_exit(); // operator() を呼び出す代わりに make_ready_at_thread_exit() を呼び出す。
+  }
+};
 
 template<class F>
 std::future<typename std::result_of<F()>::type> spawn_task(F f) {
   typedef typename std::result_of<F()>::type result_type;
   std::packaged_task<result_type ()> task(std::move(f));
   std::future<result_type> future(task.get_future());
-  std::thread th(task_executor, std::move(task));
+  std::thread th(task_executor{}, std::move(task));
   th.detach();
   return future;
 }
