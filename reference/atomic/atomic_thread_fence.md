@@ -11,58 +11,61 @@ namespace std {
 
 
 ##効果
-この関数は、弱い`memory_order`が指定されたアトミック操作の前後に指定することで、より強い`memory_order`を指定した場合と似たような振る舞いをさせる効果を持つ。
-たとえば、`a`を`std::atomic<int>`型の変数とするとき、
+この関数は、弱い[`memory_order`](./memory_order.md)が指定されたアトミック操作の前後に指定することで、より強い`memory_order`を指定した場合と似たような振る舞いをさせる効果を持つ。
+たとえば、`a`を[`atomic`](./atomic.md)`<int>`型の変数とするとき、下記2種類の処理はほぼ同等の振る舞いをする。
+
 ```cpp
+// relaxed操作 + releaseフェンス
 std::atomic_thread_fence(std::memory_order_release);
 a.store(42, std::memory_order_relaxed);
-```
-は、
-```cpp
+
+// release操作
 a.store(42, std::memory_order_release);
 ```
-とほぼ同等の振る舞いをする。ただし、後者のほうがより効率的な機械語命令へとコンパイルされる可能性が高い。より詳しい議論については[N2176](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2176.html#integrated)などを参照のこと。
-同様に、
+* atomic_thread_fence[color ff0000]
+
+ただし、後者のほうがより効率的な機械語命令へとコンパイルされる可能性が高い。より詳しい議論については[N2176](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2176.html#integrated)などを参照のこと。
+同様に、下記2種類の処理はほぼ同等の振る舞いをする。
+
 ```cpp
+// relaxed操作 + acquireフェンス
 int i = a.load(std::memory_order_relaxed);
 std::atomic_thread_fence(std::memory_order_acquire);
-```
-は、
-```cpp
+
+// acquireフェンス
 int i = a.load(std::memory_order_acquire);
 ```
-とほぼ同等の振る舞いをする。
+* atomic_thread_fence[color ff0000]
 
-`memory_order`として `memory_order_seq_cst` が指定された場合は、異なる`atomic`変数への操作間に順序一貫性を与える。
+またメモリフェンスの`memory_order`として `memory_order_seq_cst` が指定された場合は、異なる`atomic`変数への操作間に順序一貫性を与える。
 以下に例を挙げる。
+
 ```cpp
 // 初期値
 std::atomic<int> a(0), b(0);
-```
-```cpp
+
 // Thread 1:
 a.store(1, std::memory_order_relaxed);
 std::atomic_thread_fence(std::memory_order_seq_cst);
 b.store(1, std::memory_order_relaxed);
 int i = b.load(std::memory_order_relaxed);
-```
-```cpp
+
 // Thread 2:
 b.store(0, std::memory_order_relaxed);
 std::atomic_thread_fence(std::memory_order_seq_cst);
 int j = a.load(std::memory_order_relaxed);
-```
-```cpp
+
 // 結果
 assert(i == 1 || j == 1); // すなわち、i と j が共に0となることはない。
 ```
-この例では、Thread 1, 2 にある`seq_cst`フェンスのいずれか一方でも欠けると (`i == 0 && j == 0`) という結果が起こりうる。そして、`acquire`, `release`や`acq_rel`フェンスでは代用にはならない。
+* atomic_thread_fence[color ff0000]
+
+この例では、Thread 1, 2 にある`seq_cst`フェンスのいずれか一方でも欠けると (`i == 0 && j == 0`) という結果が起こりうる。そして、`acquire`, `release`や`acq_rel`フェンスでは`seq_cst`フェンスの代用にはならない。
 
 それぞれのメモリオーダーは以下に示すフェンスとして機能する：
 
-| | |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | メモリオーダー | フェンス |
+|---------------------------------------------|------------------------------------------------------------------|
 | [`memory_order_relaxed`](./memory_order.md) | 何も行わない |
 | [`memory_order_acquire`](./memory_order.md)<br/>[`memory_order_consume`](/reference/atomic/memory_order.md) | acquireフェンス |
 | [`memory_order_release`](./memory_order.md) | releaseフェンス |
