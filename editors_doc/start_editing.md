@@ -76,8 +76,8 @@ Markdown形式では、htmlのタグも併用できますが、cpprefjpサイト
 
 ## 初めての人は見ておいたほうがよいページ
 
-- [処理系](./implementation.md) 処理系の正式な定義があります
-- [リファレンス](./reference.md) 進行状況が見れます
-- [スタイル](./working_style.md) 作業を行う上でのスタイルの定義と、訳語があります
+- [処理系](/implementation.md) 処理系の正式な定義があります
+- [リファレンス](/reference.md) 進行状況が見れます
+- [スタイル](/working_style.md) 作業を行う上でのスタイルの定義と、訳語があります
 
 
