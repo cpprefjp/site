@@ -16,7 +16,10 @@ void join();
 
 
 ##同期
-関連付けられたスレッドの完了は、`join()`メンバ関数の正常リターンと**同期する**。つまり、「`this`に関連付けられたスレッドT1上で行われる全処理の完了」は、「`join()`メンバ関数を呼び出したスレッドT0上での同メンバ関数からの正常リターン」よりも**前に発生する**。
+関連付けられたスレッドの完了は、`join()`メンバ関数の正常リターンと **同期する** 。
+
+つまり、「`this`に関連付けられたスレッドT1上で行われる全処理の完了」は、
+「`join()`メンバ関数を呼び出したスレッドT0上での同メンバ関数からの正常リターン」よりも **前に発生する** 。
 
 
 ##事後条件
@@ -49,9 +52,6 @@ int main()
 }
 ```
 * join[color ff0000]
-* // ここでxにアクセスするとdata raceにより未定義動作[color 0000ff]
-* // 別スレッド上で行われた全処理が完了している[color 0000ff]
-
 
 ###出力
 ```
@@ -69,6 +69,7 @@ int main()
 - [ICC](/implementation#icc.md):
 - [Visual C++](/implementation#visual_cpp.md): 11.0
     - 11.0現在はバグ有り [std::thread::join() hangs if called after main() exits when using VS2012 RC](http://connect.microsoft.com/VisualStudio/feedback/details/747145/)
+        - main 関数を抜けた後に join() を呼ぶとハングアップするというもの
 
 
 ##参照
