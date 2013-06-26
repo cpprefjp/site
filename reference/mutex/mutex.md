@@ -34,14 +34,6 @@ namespace std {
 #include <mutex>
 #include <vector>
 
-// std::coutへのアクセスを排他的にする
-std::mutex print_mtx_;
-void safe_print(int x)
-{
-  std::lock_guard<std::mutex> lock(print_mtx_);
-  std::cout << x << std::endl;
-}
-
 class X {
   std::mutex mtx_;
   std::vector<int> data_;
@@ -55,9 +47,8 @@ public:
 
   void print()
   {
-    std::lock_guard<std::mutex> lock(mtx_);
     for (int x : data_) {
-      safe_print(x);
+      std::cout << x << std::endl;
     }
   }
 };
@@ -78,7 +69,8 @@ int main()
 
 ###出力
 ```
-12
+1
+2
 ```
 
 ##バージョン
