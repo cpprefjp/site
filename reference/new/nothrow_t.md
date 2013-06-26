@@ -15,12 +15,36 @@ namespace std {
 #include <iostream>
 #include <new>
 
+struct ThrowObj
+{
+  ThrowObj()
+  {
+    throw std::logic_error("logic_error: ThrowObj::ThrowObj()");
+  }
+};
+
 int main()
 {
   // 長さ3の動的配列を作成する
   // 領域確保に失敗した場合、nullptrが返される
   int* p = new(std::nothrow) int[3];
+
+  // ただし、オブジェクトのコンストラクタが例外を投げる場合は
+  // 例外がスローされることに注意
+  try
+  {
+    ThrowObj* obj = new(std::nothrow) ThrowObj();
+    delete obj;
+  }
+  catch (std::logic_error& e)
+  {
+    // この場合でもnew(std::nothrow)で確保されたメモリは解放されている。
+    std::cout << e.what() << std::endl;
+  }
 }
 ```
-* std::nothrow[color ff0000]
 
+###出力
+```
+logic_error: ThrowObj::ThrowObj()
+```
