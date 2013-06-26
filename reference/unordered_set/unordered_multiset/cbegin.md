@@ -34,7 +34,7 @@ int main()
 
   copy(um.cbegin(), um.cend(), std::ostream_iterator<int>(std::cout, " "));
   std::cout << std::endl;
-}</pre>
+}
 ```
 * iostream[link /reference/iostream.md]
 * algorithm[link /reference/algorithm.md]

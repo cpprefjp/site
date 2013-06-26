@@ -125,7 +125,7 @@ after : 9 7 3 1
 (3) erase(const_iterator, const_iterator) before : 9 7 5 3 1
 arguments: 7, 3
 return value: 3
-after : 9 3 1</pre>
+after : 9 3 1
 ```
 
 注：[`unordered_set`](/reference/unordered_set/unordered_set.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意

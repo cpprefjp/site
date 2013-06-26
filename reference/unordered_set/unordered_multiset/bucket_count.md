@@ -1,6 +1,6 @@
 #bucket_count
 ```cpp
-size_type bucket_count() const noexcept;</pre>
+size_type bucket_count() const noexcept;
 ```
 
 ##概要

@@ -44,7 +44,7 @@ int main()
   std::cout << um.empty() << std::endl;
   um.clear();
   std::cout << um.empty() << std::endl;
-}</pre>
+}
 ```
 * iostream[link /reference/iostream]
 * unordered_set[link /reference/unordered_set.md]
@@ -54,7 +54,7 @@ int main()
 ###出力
 ```
 false
-true</pre>
+true
 ```
 
 ##バージョン

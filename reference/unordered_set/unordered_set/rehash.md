@@ -58,7 +58,7 @@ int main()
   // 現在の要素数 / max_load_factor() より小さい値を指定する。
   us.rehash(1);
   std::cout << "bucket_count is " << us.bucket_count() << std::endl;
-}</pre>
+}
 ```
 * iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]

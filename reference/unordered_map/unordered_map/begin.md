@@ -63,7 +63,7 @@ int main()
 ###出力
 ```
 {3rd,3}, {2nd,2}, {1st,1},
-{3rd,3}, {2nd,2}, {1st,1},</pre>
+{3rd,3}, {2nd,2}, {1st,1},
 ```
 
 注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意

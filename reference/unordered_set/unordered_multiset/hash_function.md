@@ -42,7 +42,7 @@ int main()
 
   std::cout << "hash(1) = " << hash(1) << std::endl;
   std::cout << "hash(2) = " << hash(2) << std::endl;
-}</pre>
+}
 ```
 * iostream[link /reference/iostream]
 * unordered_set[link /reference/unordered_set.md]
