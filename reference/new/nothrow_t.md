@@ -43,6 +43,7 @@ int main()
   }
 }
 ```
+* std::nothrow[color ff0000]
 
 ###出力
 ```
