@@ -10,10 +10,10 @@
 `<unordered_map>` ヘッダでは、キーの重複を許さない `std::`[`unordered_map`](./unordered_map/unordered_map.md) クラステンプレート、およびキーの重複を許す `std::`[`unordered_multimap`](./unordered_map/unordered_multimap.md) クラステンプレートを提供する。
 
 
-| | |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| [`unordered_map`](./unordered_map/unordered_map.md) | キーの重複を許さない非順序連想コンテナ(class template) |
-| [`unordered_multimap`](./unordered_map/unordered_multimap.md) | キーの重複を許す非順序連想コンテナ(class template) |
+| 名前 | 説明 |
+|---------------------------------------------------------------|--------------------------------------------------------|
+| [`unordered_map`](./unordered_map/unordered_map.md)           | キーの重複を許さない非順序連想コンテナ(class template) |
+| [`unordered_multimap`](./unordered_map/unordered_multimap.md) | キーの重複を許す非順序連想コンテナ(class template)     |
 
 
 ```cpp
