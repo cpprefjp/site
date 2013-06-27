@@ -4,32 +4,33 @@ void clear() noexcept;
 ```
 
 ##概要
-`set` コンテナ内の全ての要素を削除する。それぞれのデストラクタが呼ばれ、コンテナから削除される。[`size()`](./size.md) は 0 になる。
+`map` コンテナ内の全ての要素を削除する。それぞれのデストラクタが呼ばれ、コンテナから削除される。[`size()`](./size.md) は 0 になる。
 
 
 ##計算量
-定数時間
+線形時間
 
 
 ##例
 ```cpp
 #include <iostream>
-#include <set>
+#include <map>
+
 using namespace std;
- 
-int main ()
+
+int main() 
 {
-  set<int> c;
+  map<int, char> c;
+  c[3] = 'C';
+  c[4] = 'D';
+  c[1] = 'A';
+  c[2] = 'B';
   
-  c.insert(10);
-  c.insert(20);
-  c.insert(30);
- 
-  cout << c.size() << endl;
- 
+  std::cout << c.size() << endl;
+
   c.clear();
- 
-  cout << c.size() << endl;
+
+  std::cout << c.size() << endl;
   
   return 0;
 }
@@ -37,7 +38,7 @@ int main ()
 
 ###出力
 ```
-3
+4
 0
 ```
 

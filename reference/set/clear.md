@@ -8,7 +8,7 @@ void clear() noexcept;
 
 
 ##計算量
-定数時間
+線形時間
 
 
 ##例
