@@ -80,4 +80,12 @@ Markdown形式では、htmlのタグも併用できますが、cpprefjpサイト
 - [進行状況](https://github.com/cpprefjp/site/wiki/progress) リファレンス作成の進行状況が確認できます
 - [スタイル](/working_style.md) 作業を行う上でのスタイルの定義と、訳語があります
 
+## ソースのコンパイルの確認について
+### Mac(MacPort)
+
+以下のオプションにてコンパイルを確認しています。
+
+```
+clang++-mp-3.3 -stdlib=libc++ -std=c++ source.cpp
+```
 
