@@ -21,21 +21,64 @@ mutex(const mutex&) = delete;
 非自明なコンストラクタが定義されるため、ムーブコンストラクタは定義されない。 
 
 デフォルトコンストラクタに`constexpr`が付加されていることにより、`mutex`クラスのオブジェクトは他のスレッド開始よりも前に初期化されることが保証される。
-
+以下の例は`constexpr`が付加されていない場合にはおそらく動作しない。
 
 ##例
 ```cpp
+// file a.cpp
+#include <iostream>
 #include <mutex>
+
+std::mutex mutexA;
+extern std::mutex mutexB;
+
+class A {
+public:
+  A() {
+    // デフォルトコンストラクタがconstexprでない場合、
+    // 別のファイルで定義されているmutexBはこの時点では
+    // 初期化されていないかもしれない。
+    mutexB.lock();
+    std::cout << "A" << std::endl;
+    mutexB.unlock();
+  }
+} glbA;
 
 int main()
 {
-  // デフォルト構築 : ミューテックスの初期化
-  std::mutex mtx1;
 }
+```
+
+```cpp
+// file b.cpp
+#include <iostream>
+#include <mutex>
+
+std::mutex mutexB;
+extern std::mutex mutexA;
+
+class B {
+public:
+  B() {
+    // デフォルトコンストラクタがconstexprでない場合、
+    // 別のファイルで定義されているmutexAはこの時点では
+    // 初期化されていないかもしれない。
+    mutexA.lock();
+    std::cout << "B" << std::endl;
+    mutexA.unlock();
+  }
+} glbB;
 ```
 
 ###出力
 ```
+A
+B
+```
+
+```
+B
+A
 ```
 
 ##バージョン
@@ -47,7 +90,7 @@ int main()
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 未実装
 
 
 ##参照
