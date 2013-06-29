@@ -10,11 +10,10 @@ namespace std {
 * integral[italic]
 
 ##概要
-`atomic`クラスは、型`T`をアトミック操作するためのクラスである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラスを使用する場合、型`T`はtrivially copyable (TODO)である必要がある。特殊化された整数型および`bool`型にはそれぞれ`atomic_T`という名前の`typedef`が提供される。
+`atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラステンプレートを使用する場合、型`T`はtrivially copyable (TODO)である必要がある。特殊化された整数型および`bool`型には、それぞれ`atomic_T`という名前の`typedef`が提供される。
 
-| | |
-|--------------------------------|--------------------------------------------|
 | 名前付きアトミック型 | テンプレート引数となる整数型 |
+|--------------------------------|--------------------------------------------|
 |` atomic_char` |` char` |
 |` atomic_schar` |` signed char` |
 |` atomic_uchar` |` unsigned char` |
@@ -29,11 +28,11 @@ namespace std {
 |` atomic_char32_t` |` char32_t` |
 |` atomic_wchar_t` |` wchar_t` |
 |` atomic_bool` |` bool` |
+
 また、`<cstdint>`で定義される整数型に対する以下の`typedef`も提供される。
 
-| | |
-|------------------------------------|--------------------------------------------|
 | 名前付きアトミック型 | テンプレート引数となる整数型 |
+|------------------------------------|--------------------------------------------|
 |` atomic_int_least8_t` |` int_least8_t` |
 |` atomic_uint_least8_t` |` uint_least8_t` |
 |` atomic_int_least16_t` |` int_least16_t` |
@@ -56,11 +55,12 @@ namespace std {
 |` atomic_ptrdiff_t` |` ptrdiff_t` |
 |` atomic_intmax_t` |` intmax_t` |
 |` atomic_uintmax_t` |` uintmax_t` |
+
 `void*`に対する特殊化の`typedef`として、`atomic_address`型が提供される。
 
 
 ###共通メンバ関数
-| | |
+| 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | [`(constructor)`](./atomic/atomic.md) | コンストラクタ |
 | `~atomic() = default` | デストラクタ |
@@ -75,7 +75,7 @@ namespace std {
 
 
 ###atomic<integral>専用メンバ関数
-| | |
+| 名前 | 説明 |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [`fetch_add`](./atomic/fetch_add.md) | 加算 |
 | [`fetch_sub`](./atomic/fetch_sub.md) | 減算 |
@@ -92,7 +92,7 @@ namespace std {
 
 
 ###atomic<T*>専用メンバ関数
-| | |
+| 名前 | 説明 |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [`fetch_add`](./atomic/fetch_add.md) | 加算 |
 | [`fetch_sub`](./atomic/fetch_sub.md) | 減算 |
@@ -167,6 +167,7 @@ int main()
 }
 ```
 * http://www.boost.org/doc/libs/1_53_0/doc/html/atomic/usage_examples.html#boost_atomic.usage_examples.example_spinlock[link http://www.boost.org/doc/libs/1_53_0/doc/html/atomic/usage_examples.html#boost_atomic.usage_examples.example_spinlock]
+* std::atomic[color ff0000]
 * exchange[color ff0000]
 * store[color ff0000]
 
@@ -190,6 +191,6 @@ int main()
 
 
 ###参照
-[N2145 C++ Atomic Types and Operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2145.html)
-[アトミックオブジェクトを含むクラスのコピーとムーブ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20130110/1357808183)
+- [N2145 C++ Atomic Types and Operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2145.html)
+- [アトミックオブジェクトを含むクラスのコピーとムーブ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20130110/1357808183)
 
