@@ -50,7 +50,7 @@ int main()
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 3.3
+- [Clang](/implementation#clang.md): 3.2 3.3
 - [GCC](/implementation#gcc.md): ??
 - [GCC, C++11 mode](/implementation#gcc.md): ??
 - [ICC](/implementation#icc.md): ??

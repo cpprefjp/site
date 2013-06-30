@@ -1,18 +1,18 @@
-#begin
+#cbegin
 ```cpp
-iterator begin() noexcept;
-const_iterator begin() const noexcept;
+// since C++11
+const_iterator cbegin() const noexcept;
 ```
 
 
 ##概要
 `map` コンテナの先頭のキーと要素のpairを参照するイテレータを返す。 
-内部的に、`map`コンテナは要素を下位から上位へと並べており、従って `begin()`は `map` 内の最下位のキーにあたるpairのイテレータを返す。
+内部的に、`map`コンテナは要素を下位から上位へと並べており、従って `cbegin()` は `map` 内の最下位のキーにあたるpairのイテレータを返す。
 
 
 ##戻り値
 コンテナの先頭要素へのイテレータ。
-`iterator` と `const_iterator` はともにメンバ型である。`map` クラステンプレートにおいて、これらは双方向イテレータである。
+`const_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
 ##計算量
@@ -38,7 +38,7 @@ int main()
   c[2] = 'B';
   c[6] = 'F';
   
-  for( auto i = c.begin(); i != c.end() ; ++i ) {
+  for( auto i = c.cbegin(); i != c.cend() ; ++i ) {
 	cout << i->first << " " << i->second << "\n";
   }
   
@@ -59,10 +59,10 @@ int main()
 ```
 ##バージョン
 ###言語
-- C++03
+- C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 2.9, 3.0, 3.1, 3.2, 3.3
+- [Clang](/implementation#clang.md): 3.0 3.1, 3.2, 3.3
 - [GCC](/implementation#gcc.md): ??
 - [GCC, C++11 mode](/implementation#gcc.md): ??
 - [ICC](/implementation#icc.md): ??
@@ -74,7 +74,7 @@ int main()
 | 名前 | 説明 |
 |------------------------------------------------------------------------------------------------|--------------------------------------------------|
 | [`map::end`](/reference/map/end.md) | 末尾を指すイテレータを取得する |
-| [`map::cend`](/reference/map/cend.md) | 末尾を指すconstイテレータを取得する |
+| [`map::cend`](/reference/map/cend.md) | 末尾を指すイテレータを取得する |
 | [`map::rbegin, crbegin`](/reference/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
 | [`map::rend, crend`](/reference/map/rend.md) | 先頭を指す逆イテレータを取得する |
 

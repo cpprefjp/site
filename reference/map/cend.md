@@ -1,7 +1,7 @@
-#end
+#cend
 ```cpp
-iterator end() noexcept;
-const_iterator end() const noexcept;
+// since C++11
+const_iterator cend() const noexcept;
 ```
 
 ##概要
@@ -10,7 +10,7 @@ const_iterator end() const noexcept;
 
 ##戻り値
 コンテナの最後の要素の次を参照するイテレータ。 
-`iterator` と `const_iterator` はいずれもメンバ型である。`map` クラステンプレートにおいて、これらは双方向イテレータである。
+`const_iterator` はいずれもメンバ型である。`map` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
 ##計算量
@@ -41,8 +41,7 @@ int main()
   }
   
   return 0;
-}
-```
+}```
 
 ###出力
 ```
@@ -58,22 +57,21 @@ int main()
 
 ##バージョン
 ###言語
-- C++03
+- C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 2.9, 3.0, 3.1, 3.2, 3.3
+- [Clang](/implementation#clang.md): 3.0 3.1, 3.2, 3.3
 - [GCC](/implementation#gcc.md): ??
 - [GCC, C++11 mode](/implementation#gcc.md): ??
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md): ??
 
-
 ##参照
 
 | 名前 | 説明 |
 |------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`begin'](./begin.md) | 先頭を指すイテレータを取得する |
-| [`cbegin'](./cbegin.md) | 先頭を指すconstイテレータを取得する |
+| [`begin`](./begin.md) | 先頭を指すイテレータを取得する |
+| [`cbegin`](./cbegin.md) | 先頭を指すconstイテレータを取得する |
 | [`rbegin, crbegin`](./rbegin.md) | 末尾を指す逆イテレータを取得する |
 | [`rend, crend`](./rend.md) | 先頭を指す逆イテレータを取得する |
 
