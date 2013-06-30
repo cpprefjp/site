@@ -98,6 +98,7 @@ int main()
     std::rotate(seq.begin(), seq.begin() + 2, seq.end());
 }
 ```
+* rotate[color ff0000]
 
 ####実行結果
 
