@@ -71,6 +71,7 @@ class Elem
 public:
     Elem() : c_('\0') {}
     explicit Elem(char c) : c_(c) {}
+    Elem& operator=(const char c) { c_ = c; return *this; }
     operator char() const { return c_; }
 private:
     char c_;
@@ -93,8 +94,24 @@ void swap(Elem& lhs, Elem& rhs)
 int main()
 {
     std::string str("012345");
-    seq = std::move(std::vector<Elem>(str.begin(), str.end()));
+    seq.assign(str.begin(), str.end());
     std::rotate(seq.begin(), seq.begin() + 2, seq.end());
 }
+```
 
+####実行結果
+
+gcc-4.6.3 で確認。
+```
+swapping 0x1806040(0) <-> 0x1806042(2)
+210345
+
+swapping 0x1806041(1) <-> 0x1806043(3)
+230145
+
+swapping 0x1806042(0) <-> 0x1806044(4)
+234105
+
+swapping 0x1806043(1) <-> 0x1806045(5)
+234501
 ```
