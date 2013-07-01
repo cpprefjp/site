@@ -73,6 +73,7 @@ int main()
 
 | 名前 | 説明 |
 |------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| [`map::cbegin`](/reference/map/cbegin.md) | 先頭を指すconstイテレータを取得する |
 | [`map::end`](/reference/map/end.md) | 末尾を指すイテレータを取得する |
 | [`map::cend`](/reference/map/cend.md) | 末尾を指すconstイテレータを取得する |
 | [`map::rbegin, crbegin`](/reference/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
