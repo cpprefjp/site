@@ -40,102 +40,102 @@ namespace std {
 ##メンバ関数
 ###構築・破棄
 
-| 名前 | 説明 |
-|---------------------------------------|----------------|
-| [`(constructor)`](./vector/vector.md) | コンストラクタ |
-| [`(destructor)`](./vector/-vector.md) | デストラクタ   |
-| [`operator=`](./vector/op_assign.md)  | 代入演算子     |
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------|----------------|-------|
+| [`(constructor)`](./vector/vector.md) | コンストラクタ | |
+| [`(destructor)`](./vector/-vector.md) | デストラクタ   | |
+| [`operator=`](./vector/op_assign.md)  | 代入演算子     | |
 
 
 ###イテレータ
 
-| 名前 | 説明 |
-|----------------------------------|---------------------------------------|
-| [`begin`](./vector/begin.md)     | 先頭の要素を指すイテレータを取得する |
-| [`end`](./vector/end.md)         | 末尾の次を指すイテレータを取得する |
-| [`cbegin`](./vector/cbegin.md)   | 先頭の要素を指す読み取り専用イテレータを取得する(C++11) |
-| [`cend`](./vector/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する(C++11) |
-| [`rbegin`](./vector/rbegin.md)   | 末尾を指す逆イテレータを取得する |
-| [`rend`](./vector/rend.md)       | 先頭の前を指す逆イテレータを取得する |
-| [`crbegin`](./vector/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する(C++11) |
-| [`crend`](./vector/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する(C++11) |
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------|---------------------------------------|-------|
+| [`begin`](./vector/begin.md)     | 先頭の要素を指すイテレータを取得する | |
+| [`end`](./vector/end.md)         | 末尾の次を指すイテレータを取得する | |
+| [`cbegin`](./vector/cbegin.md)   | 先頭の要素を指す読み取り専用イテレータを取得する | C++11 |
+| [`cend`](./vector/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
+| [`rbegin`](./vector/rbegin.md)   | 末尾を指す逆イテレータを取得する | |
+| [`rend`](./vector/rend.md)       | 先頭の前を指す逆イテレータを取得する | |
+| [`crbegin`](./vector/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`crend`](./vector/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++11 |
 
 
 ###領域
 
-| 名前 | 説明 |
-|----------------------------------------------|------------------|
-| [`size`](./vector/size.md)                   | 要素数を取得する |
-| [`max_size`](./vector/max_size.md)           | 格納可能な最大の要素数を取得する |
-| [`resize`](./vector/resize.md)               | 要素数を変更する |
-| [`capacity`](./vector/capacity.md)           | メモリを再確保せずに格納できる最大の要素数を取得する |
-| [`empty`](./vector/empty.md)                 | コンテナが空かどうかを判定する |
-| [`reserve`](./vector/reserve.md)             | capacityを変更する |
-| [`shrink_to_fit`](./vector/shrink_to_fit.md) | capacityをsizeまで縮小する(C++11) |
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------|------------------|-------|
+| [`size`](./vector/size.md)                   | 要素数を取得する | |
+| [`max_size`](./vector/max_size.md)           | 格納可能な最大の要素数を取得する | |
+| [`resize`](./vector/resize.md)               | 要素数を変更する | |
+| [`capacity`](./vector/capacity.md)           | メモリを再確保せずに格納できる最大の要素数を取得する | |
+| [`empty`](./vector/empty.md)                 | コンテナが空かどうかを判定する | |
+| [`reserve`](./vector/reserve.md)             | capacityを変更する | |
+| [`shrink_to_fit`](./vector/shrink_to_fit.md) | capacityをsizeまで縮小する | C++11 |
 
 
 ###要素アクセス
 
-| 名前 | 説明 |
-|-----------------------------------|---------------|
-| [`operator[]`](./vector/op_at.md) | 要素アクセス |
-| [`at`](./vector/at.md)            | 要素アクセス |
-| [`data`](./vector/data.md)        | 配列の先頭へのポインタを取得する |
-| [`front`](./vector/front.md)      | 先頭要素への参照を取得する |
-| [`back`](./vector/back.md)        | 末尾要素への参照を取得する |
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------|---------------|-------|
+| [`operator[]`](./vector/op_at.md) | 要素アクセス | |
+| [`at`](./vector/at.md)            | 要素アクセス | |
+| [`data`](./vector/data.md)        | 配列の先頭へのポインタを取得する | |
+| [`front`](./vector/front.md)      | 先頭要素への参照を取得する | |
+| [`back`](./vector/back.md)        | 末尾要素への参照を取得する | |
 
 
 ###コンテナの変更
 
-| 名前 | 説明 |
-|--------------------------------------------|------------------|
-| [`assign`](./vector/assign.md)             | コンテナの再代入 |
-| [`push_back`](./vector/push_back.md)       | 末尾へ要素追加 |
-| [`emplace_back`](./vector/emplace_back.md) | 末尾へ直接構築(C++11) |
-| [`pop_back`](./vector/pop_back.md)         | 末尾から要素削除 |
-| [`insert`](./vector/insert.md)             | 要素の挿入 |
-| [`emplace`](./vector/emplace.md)           | 要素の直接構築(C++11) |
-| [`erase`](./vector/erase.md)               | 要素の削除 |
-| [`swap`](./vector/swap.md)                 | コンテナの交換 |
-| [`clear`](./vector/clear.md)               | 全要素削除 |
+| 名前 | 説明 | 対応バージョン |
+|--------------------------------------------|------------------|-------|
+| [`assign`](./vector/assign.md)             | コンテナの再代入 | |
+| [`push_back`](./vector/push_back.md)       | 末尾へ要素追加 | |
+| [`emplace_back`](./vector/emplace_back.md) | 末尾へ直接構築 | C++11 |
+| [`pop_back`](./vector/pop_back.md)         | 末尾から要素削除 | |
+| [`insert`](./vector/insert.md)             | 要素の挿入 | |
+| [`emplace`](./vector/emplace.md)           | 要素の直接構築による挿入 | C++11 |
+| [`erase`](./vector/erase.md)               | 要素の削除 | |
+| [`swap`](./vector/swap.md)                 | コンテナの交換 | |
+| [`clear`](./vector/clear.md)               | 全要素削除 | |
 
 
 ###アロケータ
 
-| 名前 | 説明 |
-|----------------------------------------------|------------------------------|
-| [`get_allocator`](./vector/get_allocator.md) | アロケータオブジェクトの取得 |
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------|------------------------------|-------|
+| [`get_allocator`](./vector/get_allocator.md) | アロケータオブジェクトの取得 | |
 
 
 ##メンバ型
 
-| 名前 | 説明 |
-|--------------------------|-----------------------------------------------------------------------|
-| `reference`              | `T&` |
-| `const_reference`        | `const T&` |
-| `iterator`               | ランダムアクセスイテレータ |
-| `const_iterator`         | 読み取り専用ランダムアクセスイテレータ |
-| `size_type`              | 符号なし整数型 (通常は[`size_t`](/reference/cstddef/size_t.md)) |
-| `difference_type`        | 符号付き整数型 (通常は[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) |
-| `value_type`             | 要素型 `T` |
-| `allocator_type`         | アロケータの型 `Allocator` |
-| `pointer`                | `Allocator::pointer` |
-| `const_pointer`          | `Allocator::const_pointer` |
-| `reverse_iterator`       | `reverse_iterator<iterator>` |
-| `const_reverse_iterator` | `reverse_iterator<const_iterator>` |
+| 名前 | 説明 | 対応バージョン |
+|--------------------------|-----------------------------------------------------------------------|-------|
+| `reference`              | `T&` | |
+| `const_reference`        | `const T&` | |
+| `iterator`               | ランダムアクセスイテレータ | |
+| `const_iterator`         | 読み取り専用ランダムアクセスイテレータ | |
+| `size_type`              | 符号なし整数型 (通常は[`size_t`](/reference/cstddef/size_t.md)) | |
+| `difference_type`        | 符号付き整数型 (通常は[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) | |
+| `value_type`             | 要素型 `T` | |
+| `allocator_type`         | アロケータの型 `Allocator` | |
+| `pointer`                | `Allocator::pointer` | |
+| `const_pointer`          | `Allocator::const_pointer` | |
+| `reverse_iterator`       | `reverse_iterator<iterator>` | |
+| `const_reverse_iterator` | `reverse_iterator<const_iterator>` | |
 
 
 ##非メンバ関数
 
-| 名前 | 説明 |
-|----------------------------------------------|------------------------------------|
-| [`operator==`](./vector/op_equal.md)         | 等値比較 |
-| [`operator!=`](./vector/op_not_equal.md)     | 非等値比較 |
-| [`operator<`](./vector/op_less.md)           | 左辺が右辺より小さいかの判定を行う |
-| [`operator<=`](./vector/op_less_equal.md)    | 左辺が右辺以下かの判定を行う |
-| [`operator>`](./vector/op_greater.md)        | 左辺が右辺より大きいかの判定を行う |
-| [`operator>=`](./vector/op_greater_equal.md) | 左辺が右辺以上かの判定を行う |
-| [`swap`](./vector/swap_free.md)              | 2つの`vector`オブジェクトを入れ替える |
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------|------------------------------------|-------|
+| [`operator==`](./vector/op_equal.md)         | 等値比較 | |
+| [`operator!=`](./vector/op_not_equal.md)     | 非等値比較 | |
+| [`operator<`](./vector/op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
+| [`operator<=`](./vector/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | |
+| [`operator>`](./vector/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
+| [`operator>=`](./vector/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | |
+| [`swap`](./vector/swap_free.md)              | 2つの`vector`オブジェクトを入れ替える | |
 
 
 ##参照
@@ -205,7 +205,6 @@ v[3] : 0
 
 
 ##参照
-
 - [N1211 - `vector<bool>`: More Problems, Better Solutions](http://www.gotw.ca/publications/N1211.pdf)
 - ビット配列に関しては、[`bitset`](/reference/bitset.md)(ビットを格納する固定長コンテナ)も参照。
 - 可変長のビット配列の実装としては、Boost C++ Librariesの[`dynamic_bitset`](http://www.boost.org/doc/libs/release/libs/dynamic_bitset/dynamic_bitset.html)がある。
