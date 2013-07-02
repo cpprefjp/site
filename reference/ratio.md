@@ -4,57 +4,57 @@
 
 ##`ratio`クラステンプレート
 
-| | |
-|--------------------|---------------------------------------------|
-| `ratio` | コンパイル時有理数(class template) |
+| 名前 | 説明 | 対応バージョン |
+|---------|------------------------------------|-------|
+| `ratio` | コンパイル時有理数(class template) | C++11 |
 
 
 ##四則演算
 
-| | |
-|------------------------------|------------------------|
-| `ratio_add` | 加算(alias template) |
-| `ratio_substract` | 減算(alias template) |
-| `ratio_multiply` | 乗算(alias template) |
-| `ratio_devide` | 除算(alias template) |
+| 名前 | 説明 | 対応バージョン |
+|-------------------|----------------------|-------|
+| `ratio_add`       | 加算(alias template) | C++11 |
+| `ratio_substract` | 減算(alias template) | C++11 |
+| `ratio_multiply`  | 乗算(alias template) | C++11 |
+| `ratio_devide`    | 除算(alias template) | C++11 |
 
 
 ##比較演算
 
-| | |
-|----------------------------------|------------------------------------------------------------|
-| `ratio_equal` | 等値比較(class template) |
-| `ratio_not_equal` | 非等値比較(class template) |
-| `ratio_less` | 左辺が右辺より小さいかの比較(class template) |
-| `ratio_less_equal` | 左辺が右辺以下かの比較(class template) |
-| `ratio_greater` | 左辺が右辺より大きいかの比較(class template) |
-| `ratio_greater_equal` | 左辺が右辺以上かの比較(class template) |
+| 名前 | 説明 | 対応バージョン |
+|-----------------------|----------------------------------------------|-------|
+| `ratio_equal`         | 等値比較(class template)                     | C++11 |
+| `ratio_not_equal`     | 非等値比較(class template)                   | C++11 |
+| `ratio_less`          | 左辺が右辺より小さいかの比較(class template) | C++11 |
+| `ratio_less_equal`    | 左辺が右辺以下かの比較(class template)       | C++11 |
+| `ratio_greater`       | 左辺が右辺より大きいかの比較(class template) | C++11 |
+| `ratio_greater_equal` | 左辺が右辺以上かの比較(class template)       | C++11 |
 
 
 ##SI単位の`typedef`
 
-| | |
-|--------------------|-----------------------|
-| `yocto` | ヨクト(typedef) |
-| `zepto` | ゼプト(typedef) |
-| `atto` | アト(typedef) |
-| `femto` | フェムト(typedef) |
-| `pico` | ピコ(typedef) |
-| `nano` | ナノ(typedef) |
-| `micro` | マイクロ(typedef) |
-| `milli` | ミリ(typedef) |
-| `centi` | センチ(typedef) |
-| `deci` | デシ(typedef) |
-| `deca` | デカ(typedef) |
-| `hecto` | ヘクト(typedef) |
-| `kilo` | キロ(typedef) |
-| `mega` | メガ(typedef) |
-| `giga` | ギガ(typedef) |
-| `tera` | テラ(typedef) |
-| `peta` | ペタ(typedef) |
-| `exa` | エクサ(typedef) |
-| `zetta` | ゼタ(typedef) |
-| `yotta` | ヨタ(typedef) |
+| 名前 | 説明 | 対応バージョン |
+|---------|-----------------|-------|
+| `yocto` | ヨクト(typedef) | C++11 |
+| `zepto` | ゼプト(typedef) | C++11 |
+| `atto`  | アト(typedef) | C++11 |
+| `femto` | フェムト(typedef) | C++11 |
+| `pico`  | ピコ(typedef) | C++11 |
+| `nano`  | ナノ(typedef) | C++11 |
+| `micro` | マイクロ(typedef) | C++11 |
+| `milli` | ミリ(typedef) | C++11 |
+| `centi` | センチ(typedef) | C++11 |
+| `deci`  | デシ(typedef) | C++11 |
+| `deca`  | デカ(typedef) | C++11 |
+| `hecto` | ヘクト(typedef) | C++11 |
+| `kilo`  | キロ(typedef) | C++11 |
+| `mega`  | メガ(typedef) | C++11 |
+| `giga`  | ギガ(typedef) | C++11 |
+| `tera`  | テラ(typedef) | C++11 |
+| `peta`  | ペタ(typedef) | C++11 |
+| `exa`   | エクサ(typedef) | C++11 |
+| `zetta` | ゼタ(typedef) | C++11 |
+| `yotta` | ヨタ(typedef) | C++11 |
 
 
 ##バージョン
