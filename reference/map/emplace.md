@@ -25,6 +25,7 @@ emplace(Args&&... args);
 #include <iostream>
 #include <map>
 #include <utility>
+#include <tuple>
 
 using namespace std;
 
@@ -54,7 +55,7 @@ int main()
 - [GCC](/implementation#gcc.md): ??
 - [GCC, C++11 mode](/implementation#gcc.md): ??
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??, 11.0
 
 ##参照
 

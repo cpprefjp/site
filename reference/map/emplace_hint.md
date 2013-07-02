@@ -1,76 +1,79 @@
-#page_title(ページのタイトルです)
+#emplace_hint
 ```cpp
-void definition(); // 関数・変数・定数の宣言を記述します。
+// since C++11
+template <class... Args>
+iterator emplace_hint(const_iterator hint, Args&&... args);
 ```
 
 ##概要
-(ここには、関数・変数・定数の概要を記述します。必須事項です。)
+要素が配置されるべき場所を示唆するパラメータ `hint` を使って、コンテナに新しい要素を挿入する。要素は直接構築される（コピーもムーブもされない）。要素のコンストラクタはこの関数に渡された引数と同じ引数で呼ばれる。
 
 
-##要件
-(ここには、関数を実行するための事前条件、型への要件などを記述します。とくになければ、項目を削除してください。)
-
-
-##効果
-(ここには、関数の内部で行われる効果:effect を記述します。戻り値しかないような関数の場合には、項目を削除してください。)
+##パラメータ
+- `hint` : 新しい要素をどこへ挿入するかを示唆するために使われるイテレータ
+- `args...` : 要素のコンストラクタへ転送される引数パック
 
 
 ##戻り値
-(ここには、関数の戻り値を記述します。戻り値の型が`void`の場合は、「なし」と記述してください。)
+挿入が行われたかどうかを示す `bool` と、挿入された要素へのイテレータからなる `pair` を返す。挿入されなかったときは、既存要素へのイテレータを返す。
 
 
 ##計算量
-(ここには、アルゴリズムの計算量を記述します。規格上とくに明記がなければ、項目を削除してください。)
-
-
-##備考
-(ここには、関数・変数・定数を説明するにあたっての、補足事項を記述します。とくになければ、項目を削除してください。)
+一般にコンテナのサイズについて対数時間だが、新しい要素が `hint` の前に挿入された場合は償却定数時間。
 
 
 ##例
 ```cpp
-// (ここには、関数・変数・定数を解説するための、サンプルコードを記述します。)
-// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。)
-
 #include <iostream>
+#include <map>
+#include <utility>
+#include <tuple>
 
-int main()
+using namespace std;
+
+int main() 
 {
-  int variable = 0;
-  std::cout << variable << std::endl;
+    map<int, char> c;
+
+    c.emplace( piecewise_construct, make_tuple(1), make_tuple('A') );
+    c.emplace_hint( c.end(), piecewise_construct, make_tuple(2), make_tuple('B') );
+    c.emplace_hint( c.end(), piecewise_construct, make_tuple(3), make_tuple('C') );
+    c.emplace_hint( c.end(), piecewise_construct, make_tuple(4), make_tuple('D') );
+
+    for( auto pr : c ) {
+        cout << get<0>( pr) << " " << get<1>( pr ) << endl;
+    }
+
+    return 0;
 }
 ```
-* variable[color ff0000]
-(コードブロック中の識別子に、文字色を付ける例です。)
 
 ###出力
 ```
-0
+1 A
+2 B
+3 C
+4 D
 ```
-(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)  
-(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)
 
-
-##実装例
-```cpp
-// (ここには、その関数・変数・定数の、実装例を記述します。)
-// (とくに必要がないと判断した場合、項目を削除してください。)
-```
 
 ##バージョン
 ###言語
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 1.9, 2.9, 3.0, 3.1, 3.2, 3.3
-- [GCC](/implementation#gcc.md): 3.4.6, 4.2.4, 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [ICC](/implementation#icc.md): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation#visual_cpp.md): 7.1, 8.0, 9.0, 10.0, 11.0
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): ??
+- [GCC, C++11 mode](/implementation#gcc.md): ??
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??, 11.0
 
-(ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)  
-(これらの項目を削除した場合、C++03のあらゆる環境で使用できることを意味します。)
 
 ##参照
-(ここには、その関数・変数・定数を理解するにあたっての参考資料や、関連する機能へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)
+
+| 名前 | 説明 |
+|-----------------------------------------------------------------------------------------|-----------------------------|
+| [`emplace`](./emplace.md) | 要素を直接構築する |
+| [`insert`](./insert.md) | 要素を挿入する |
+
 
