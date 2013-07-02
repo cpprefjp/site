@@ -1,4 +1,4 @@
-#nullptr_t
+#nullptr_t(C++11)
 ```cpp
 namespace std {
   typedef decltype(nullptr) nullptr_t;

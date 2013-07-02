@@ -1,4 +1,4 @@
-#operator+=
+#operator+=(C++11)
 ```cpp
 time_point& operator+=(const duration& d);
 ```

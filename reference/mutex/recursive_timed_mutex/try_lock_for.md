@@ -1,4 +1,4 @@
-#try_lock_for
+#try_lock_for(C++11)
 ```cpp
 template <class Rep, class Period>
 bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);

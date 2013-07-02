@@ -1,4 +1,4 @@
-#sort
+#sort(C++11)
 ```cpp
 void sort();
 template <class Compare> void sort(Compare comp);

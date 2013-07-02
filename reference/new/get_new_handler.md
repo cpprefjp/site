@@ -1,4 +1,4 @@
-#get_new_handler
+#get_new_handler(C++11)
 ```cpp
 namespace std {
   new_handler get_new_handler() noexcept;

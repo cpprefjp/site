@@ -1,4 +1,4 @@
-#INT_FAST32_MAX
+#INT_FAST32_MAX(C++11)
 ```cpp
 #define INT_FAST32_MAX implementation-defined
 ```

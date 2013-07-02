@@ -1,4 +1,4 @@
-#atomic_exchange
+#atomic_exchange(C++11)
 ```cpp
 namespace std {
   template <class T>

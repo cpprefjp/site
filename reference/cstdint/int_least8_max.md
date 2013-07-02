@@ -1,4 +1,4 @@
-#INT_LEAST8_MAX
+#INT_LEAST8_MAX(C++11)
 ```cpp
 #define INT_LEAST8_MAX implementation-defined
 ```

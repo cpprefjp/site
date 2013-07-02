@@ -1,4 +1,4 @@
-#codecvt_mode
+#codecvt_mode(C++11)
 ```cpp
 namespace std {
   enum codecvt_mode {

@@ -1,4 +1,4 @@
-#is_trivial
+#is_trivial(C++11)
 ```cpp
 namespace std {
   template <class T>

@@ -1,4 +1,4 @@
-#message
+#message(C++11)
 ```cpp
 virtual string message(int ev) const = 0;
 ```

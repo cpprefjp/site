@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 error_category() = default;
 error_category(const error_category&) = delete;

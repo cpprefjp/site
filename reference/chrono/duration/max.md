@@ -1,4 +1,4 @@
-#max
+#max(C++11)
 ```cpp
 static constexpr duration max();
 ```

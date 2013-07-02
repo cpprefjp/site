@@ -1,4 +1,4 @@
-#initializer_list
+#initializer_list(C++11)
 ```cpp
 namespace std {
   template<class E>

@@ -1,4 +1,4 @@
-#operator=
+#operator=(C++11)
 ```cpp
 template <class ErrorCodeEnum>
 error_code& operator=(ErrorCodeEnum e) noexcept;

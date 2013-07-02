@@ -1,4 +1,4 @@
-#is_lock_free
+#is_lock_free(C++11)
 ```cpp
 bool is_lock_free() const volatile noexcept;
 bool is_lock_free() const noexcept;

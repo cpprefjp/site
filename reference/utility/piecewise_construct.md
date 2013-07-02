@@ -1,4 +1,4 @@
-#piecewise_construct
+#piecewise_construct(C++11)
 ```cpp
 namespace std {
   struct piecewise_construct_t { };

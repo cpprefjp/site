@@ -1,4 +1,4 @@
-#rethrow_nested
+#rethrow_nested(C++11)
 ```cpp
 [[noreturn]] void rethrow_nested() const;
 ```

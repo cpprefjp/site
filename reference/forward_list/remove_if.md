@@ -1,4 +1,4 @@
-#remove_if
+#remove_if(C++11)
 ```cpp
 template <class Predicate>
 void remove_if(Predicate pred);

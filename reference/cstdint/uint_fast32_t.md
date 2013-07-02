@@ -1,4 +1,4 @@
-#uint_fast32_t
+#uint_fast32_t(C++11)
 ```cpp
 namespace std {
   typedef unsigned-integer-type uint_fast32_t;

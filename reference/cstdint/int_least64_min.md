@@ -1,4 +1,4 @@
-#INT_LEAST64_MIN
+#INT_LEAST64_MIN(C++11)
 ```cpp
 #define INT_LEAST64_MIN implementation-defined
 ```

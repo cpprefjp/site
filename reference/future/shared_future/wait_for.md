@@ -1,4 +1,4 @@
-#wait_for
+#wait_for(C++11)
 ```cpp
 template <class Rep, class Period>
 future_status wait_for(const chrono::duration<Rep, Period>& rel_time) const;

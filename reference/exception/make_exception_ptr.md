@@ -1,4 +1,4 @@
-#make_exception_ptr
+#make_exception_ptr(C++11)
 ```cpp
 namespace std {
   template <class E>

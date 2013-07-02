@@ -1,4 +1,4 @@
-#min
+#min(C++11)
 ```cpp
 static constexpr Rep min();
 ```

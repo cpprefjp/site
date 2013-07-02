@@ -1,4 +1,4 @@
-#int_fast8_t
+#int_fast8_t(C++11)
 ```cpp
 namespace std {
   typedef signed-integer-type int_fast8_t;

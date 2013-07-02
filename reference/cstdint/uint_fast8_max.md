@@ -1,4 +1,4 @@
-#UINT_FAST8_MAX
+#UINT_FAST8_MAX(C++11)
 ```cpp
 #define UINT_FAST8_MAX implementation-defined
 ```

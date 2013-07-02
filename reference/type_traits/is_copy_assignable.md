@@ -1,4 +1,4 @@
-#is_copy_assignable
+#is_copy_assignable(C++11)
 ```cpp
 namespace std {
   template <class T>

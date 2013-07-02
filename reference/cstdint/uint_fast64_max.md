@@ -1,4 +1,4 @@
-#UINT_FAST64_MAX
+#UINT_FAST64_MAX(C++11)
 ```cpp
 #define UINT_FAST64_MAX implementation-defined
 ```

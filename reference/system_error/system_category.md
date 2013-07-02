@@ -1,4 +1,4 @@
-#system_category
+#system_category(C++11)
 ```cpp
 namespace std {
   const error_category& system_category() noexcept;

@@ -1,4 +1,4 @@
-#atomic_fetch_add_explicit
+#atomic_fetch_add_explicit(C++11)
 ```cpp
 namespace std {
   template <class T>

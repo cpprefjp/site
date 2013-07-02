@@ -1,4 +1,4 @@
-#normal_distribution
+#normal_distribution(C++11)
 ```cpp
 namespace std{
   template<class RealType = double>

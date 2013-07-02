@@ -1,4 +1,4 @@
-#system_error
+#system_error(C++11)
 ```cpp
 namespace std {
   class system_error : public runtime_error;

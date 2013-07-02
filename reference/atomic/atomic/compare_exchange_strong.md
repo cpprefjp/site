@@ -1,4 +1,4 @@
-#compare_exchange_strong
+#compare_exchange_strong(C++11)
 ```cpp
 bool compare_exchange_strong(T& expected, T desired, memory_order success, memory_order failure) volatile noexcept;
 bool compare_exchange_strong(T& expected, T desired, memory_order success, memory_order failure) noexcept;

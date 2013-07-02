@@ -1,4 +1,4 @@
-#operator!=
+#operator!=(C++11)
 ```cpp
 namespace std {
   template <class Key, class Hash, class Pred, class Allocator>

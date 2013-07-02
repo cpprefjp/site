@@ -1,4 +1,4 @@
-#scoped_allocator
+#scoped_allocator(C++11)
 `<scoped_allocator>`ヘッダでは、`vector<string>`のような、要素とコンテナで両方にメモリ確保が必要になった場合、コンテナと要素で同じアロケータからメモリ確保する戦略をとるためのアロケータアダプタを提供する。
 
 | | |

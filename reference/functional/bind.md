@@ -1,4 +1,4 @@
-#bind
+#bind(C++11)
 ```cpp
 namespace std {
   template <class F, class... BoundArgs>

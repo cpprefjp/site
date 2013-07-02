@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 recursive_mutex();
 recursive_mutex(const recursive_mutex&) = delete;

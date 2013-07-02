@@ -1,4 +1,4 @@
-#zero
+#zero(C++11)
 ```cpp
 static constexpr duration zero();
 ```

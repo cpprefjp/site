@@ -1,4 +1,4 @@
-#recursive_mutex
+#recursive_mutex(C++11)
 ```cpp
 namespace std {
   class recursive_mutex;

@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 unique_lock() noexcept;
 explicit unique_lock(mutex_type& m);

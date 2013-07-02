@@ -1,4 +1,4 @@
-#duration
+#duration(C++11)
 
 ```cpp
 namespace std {

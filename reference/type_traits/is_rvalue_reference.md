@@ -1,4 +1,4 @@
-#is_rvalue_reference
+#is_rvalue_reference(C++11)
 ```cpp
 namespace std {
   template <class T>

@@ -1,4 +1,4 @@
-#nested_exception
+#nested_exception(C++11)
 ```cpp
 namespace std {
   class nested_exception;

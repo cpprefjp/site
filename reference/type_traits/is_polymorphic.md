@@ -1,4 +1,4 @@
-#is_polymorphic
+#is_polymorphic(C++11)
 ```cpp
 namespace std {
   template <class T>

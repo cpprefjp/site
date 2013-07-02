@@ -1,4 +1,4 @@
-#assign
+#assign(C++11)
 ```cpp
 void assign(int val, const error_category& cat) noexcept;
 ```

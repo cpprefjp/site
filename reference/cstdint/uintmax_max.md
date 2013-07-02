@@ -1,4 +1,4 @@
-#UINTMAX_MAX
+#UINTMAX_MAX(C++11)
 ```cpp
 #define UINTMAX_MAX implementation-defined
 ```

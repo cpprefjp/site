@@ -1,4 +1,4 @@
-#is_const
+#is_const(C++11)
 ```cpp
 namespace std {
   template <class T>

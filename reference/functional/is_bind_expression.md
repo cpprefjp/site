@@ -1,4 +1,4 @@
-#is_bind_expression
+#is_bind_expression(C++11)
 ```cpp
 namespace std {
   template <class T>

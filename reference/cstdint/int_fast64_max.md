@@ -1,4 +1,4 @@
-#INT_FAST64_MAX
+#INT_FAST64_MAX(C++11)
 ```cpp
 #define INT_FAST64_MAX implementation-defined
 ```

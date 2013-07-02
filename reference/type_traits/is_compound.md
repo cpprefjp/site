@@ -1,4 +1,4 @@
-#is_compound
+#is_compound(C++11)
 ```cpp
 namespace std {
   template <class T>

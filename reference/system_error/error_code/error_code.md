@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 error_code() noexcept;
 

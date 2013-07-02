@@ -1,4 +1,4 @@
-#mutex
+#mutex(C++11)
 ```cpp
 mutex_type* mutex() const noexcept;
 ```

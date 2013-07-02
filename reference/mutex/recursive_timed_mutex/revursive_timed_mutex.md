@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 recursive_timed_mutex();
 recursive_timed_mutex(const recursive_timed_mutex&) = delete;

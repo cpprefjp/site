@@ -1,4 +1,4 @@
-#get_terminate
+#get_terminate(C++11)
 ```cpp
 namespace std {
   typedef void (*terminate_handler)();

@@ -1,4 +1,4 @@
-#is_member_function_pointer
+#is_member_function_pointer(C++11)
 ```cpp
 namespace std {
   template <class T>

@@ -1,4 +1,4 @@
-#owner_less
+#owner_less(C++11)
 ```cpp
 namespace std {
   template <class T>

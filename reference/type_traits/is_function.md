@@ -1,4 +1,4 @@
-#is_function
+#is_function(C++11)
 ```cpp
 namespace std {
   template <class T>

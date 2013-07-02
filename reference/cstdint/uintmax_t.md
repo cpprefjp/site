@@ -1,4 +1,4 @@
-#uintmax_t
+#uintmax_t(C++11)
 ```cpp
 namespace std {
   typedef unsigned-integer-type uintmax_t;

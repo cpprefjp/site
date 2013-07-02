@@ -1,4 +1,4 @@
-#reserve
+#reserve(C++11)
 ```cpp
 void reserve(size_type n);
 ```

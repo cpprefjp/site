@@ -1,4 +1,4 @@
-#piecewise_linear_distribution
+#piecewise_linear_distribution(C++11)
 ```cpp
 namespace std {
   template<class RealType = double>

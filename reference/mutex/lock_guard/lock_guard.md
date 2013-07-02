@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 explicit lock_guard(mutex_type& m);
 lock_guard(mutex_type& m, adopt_lock_t);

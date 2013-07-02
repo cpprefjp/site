@@ -1,4 +1,4 @@
-#exchange
+#exchange(C++11)
 ```cpp
 T exchange(T desired, memory_order order = memory_order_seq_cst) volatile noexcept;
 T exchange(T desired, memory_order order = memory_order_seq_cst) noexcept;

@@ -1,4 +1,4 @@
-#is_array
+#is_array(C++11)
 ```cpp
 namespace std {
   template <class T>

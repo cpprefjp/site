@@ -1,4 +1,4 @@
-#is_fundamental
+#is_fundamental(C++11)
 ```cpp
 namespace std {
   template <class T>

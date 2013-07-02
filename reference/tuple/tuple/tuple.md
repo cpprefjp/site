@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 constexpr tuple();
 explicit tuple(const Types&...);

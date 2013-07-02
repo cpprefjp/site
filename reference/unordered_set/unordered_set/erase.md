@@ -1,4 +1,4 @@
-#erase
+#erase(C++11)
 ```cpp
 iterator erase(const_iterator position);                   // (1)
 size_type erase(const key_type& k);                        // (2)

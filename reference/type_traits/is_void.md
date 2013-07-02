@@ -1,4 +1,4 @@
-#is_void
+#is_void(C++11)
 ```cpp
 namespace std {
   template <class T> 

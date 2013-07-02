@@ -1,4 +1,4 @@
-#recursive_timed_mutex
+#recursive_timed_mutex(C++11)
 ```cpp
 namespace std {
   class recursive_timed_mutex;

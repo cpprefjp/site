@@ -1,4 +1,4 @@
-#default_delete
+#default_delete(C++11)
 ```cpp
 namespace std {
   // 単一オブジェクト版

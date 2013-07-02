@@ -1,4 +1,4 @@
-#load_factor
+#load_factor(C++11)
 ```cpp
 float load_factor() const noexcept;
 ```

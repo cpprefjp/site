@@ -1,4 +1,4 @@
-#unordered_multimap
+#unordered_multimap(C++11)
 ```cpp
 namespace std {
   class class_declaration;

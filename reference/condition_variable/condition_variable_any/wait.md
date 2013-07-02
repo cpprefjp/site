@@ -1,4 +1,4 @@
-#wait
+#wait(C++11)
 ```cpp
 template <class Lock>
 void wait(Lock& lock);

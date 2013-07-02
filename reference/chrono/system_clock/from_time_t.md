@@ -1,4 +1,4 @@
-#from_time_t
+#from_time_t(C++11)
 ```cpp
 static time_point from_time_t(time_t t) noexcept;
 ```

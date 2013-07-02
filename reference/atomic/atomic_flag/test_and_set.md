@@ -1,4 +1,4 @@
-#test_and_set
+#test_and_set(C++11)
 ```cpp
 bool test_and_set(memory_order order = memory_order_seq_cst) volatile noexcept;
 bool test_and_set(memory_order order = memory_order_seq_cst) noexcept;

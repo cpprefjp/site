@@ -1,4 +1,4 @@
-#erase_after
+#erase_after(C++11)
 ```cpp
 iterator erase_after(const_iterator position);
 iterator erase_after(const_iterator position, const_iterator last);

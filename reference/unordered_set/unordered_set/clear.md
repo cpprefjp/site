@@ -1,4 +1,4 @@
-#clear
+#clear(C++11)
 ```cpp
 void clear() noexcept;
 ```

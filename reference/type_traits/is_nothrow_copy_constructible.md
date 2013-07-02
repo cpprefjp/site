@@ -1,4 +1,4 @@
-#is_nothrow_copy_constructible
+#is_nothrow_copy_constructible(C++11)
 ```cpp
 namespace std {
   template <class T>

@@ -1,4 +1,4 @@
-#empty
+#empty(C++11)
 ```cpp
 bool empty() const noexcept;
 ```

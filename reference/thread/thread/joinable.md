@@ -1,4 +1,4 @@
-#joinable
+#joinable(C++11)
 ```cpp
 bool joinable() const noexcept;
 ```

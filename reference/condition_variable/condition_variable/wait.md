@@ -1,4 +1,4 @@
-#wait
+#wait(C++11)
 ```cpp
 void wait(unique_lock<mutex>& lock);
 

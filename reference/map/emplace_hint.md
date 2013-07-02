@@ -1,4 +1,4 @@
-#emplace_hint
+#emplace_hint(C++11)
 ```cpp
 // since C++11
 template <class... Args>

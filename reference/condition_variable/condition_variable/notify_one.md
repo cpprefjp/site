@@ -1,4 +1,4 @@
-#notify_one
+#notify_one(C++11)
 ```cpp
 void notify_one() noexcept;
 ```

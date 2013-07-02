@@ -1,4 +1,4 @@
-#INT_LEAST32_MAX
+#INT_LEAST32_MAX(C++11)
 ```cpp
 #define INT_LEAST32_MAX implementation-defined
 ```

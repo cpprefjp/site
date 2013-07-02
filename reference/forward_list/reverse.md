@@ -1,4 +1,4 @@
-#reverse
+#reverse(C++11)
 ```cpp
 void reverse() noexcept;
 ```

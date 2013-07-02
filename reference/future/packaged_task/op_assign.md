@@ -1,4 +1,4 @@
-#代入演算子
+#代入演算子(C++11)
 ```cpp
 packaged_task& operator=(const packaged_task&) = delete;
 packaged_task& operator=(packaged_task&& rhs) noexcept;

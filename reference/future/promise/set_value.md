@@ -1,4 +1,4 @@
-#set_value
+#set_value(C++11)
 ```cpp
 // テンプレートパラメータRが下記特殊ケースでない場合
 void promise::set_value(const R& r);

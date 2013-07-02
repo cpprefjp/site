@@ -1,4 +1,4 @@
-#is_placeholder
+#is_placeholder(C++11)
 ```cpp
 namespace std {
   template <class T>

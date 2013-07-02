@@ -1,4 +1,4 @@
-#bucket_count
+#bucket_count(C++11)
 ```cpp
 size_type bucket_count() const noexcept;
 ```

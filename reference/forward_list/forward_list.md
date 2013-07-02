@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 explicit forward_list(const Allocator& = Allocator());
 explicit forward_list(size_type n);

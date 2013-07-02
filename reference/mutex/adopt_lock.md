@@ -1,4 +1,4 @@
-#adopt_lock
+#adopt_lock(C++11)
 ```cpp
 namespace std {
   struct adopt_lock_t { };

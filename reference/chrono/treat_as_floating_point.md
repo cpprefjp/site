@@ -1,4 +1,4 @@
-#treat_as_floating_point
+#treat_as_floating_point(C++11)
 ```cpp
 namespace std {
 namespace chrono {

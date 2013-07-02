@@ -1,4 +1,4 @@
-#is_integral
+#is_integral(C++11)
 ```cpp
 namespace std {
   template <class T>

@@ -1,4 +1,4 @@
-#atomic_fetch_sub
+#atomic_fetch_sub(C++11)
 ```cpp
 namespace std {
   template <class T>

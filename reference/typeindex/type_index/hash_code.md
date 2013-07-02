@@ -1,4 +1,4 @@
-#hash_code
+#hash_code(C++11)
 ```cpp
 size_t hash_code() const;
 ```

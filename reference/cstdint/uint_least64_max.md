@@ -1,4 +1,4 @@
-#UINT_LEAST64_MAX
+#UINT_LEAST64_MAX(C++11)
 ```cpp
 #define UINT_LEAST64_MAX implementation-defined
 ```

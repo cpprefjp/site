@@ -1,4 +1,4 @@
-#set_value_at_thread_exit
+#set_value_at_thread_exit(C++11)
 ```cpp
 // テンプレートパラメータRが下記特殊ケースでない場合
 void promise::set_value_at_thread_exit(const R& r);

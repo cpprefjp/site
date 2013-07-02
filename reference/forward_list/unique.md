@@ -1,4 +1,4 @@
-#unique
+#unique(C++11)
 ```cpp
 void unique();
 

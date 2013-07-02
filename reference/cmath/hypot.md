@@ -1,4 +1,4 @@
-#hypot
+#hypot(C++11)
 ```cpp
 namespace std {
   float hypot(float x, float y);

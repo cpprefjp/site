@@ -1,4 +1,4 @@
-#is_destructible
+#is_destructible(C++11)
 ```cpp
 namespace std {
   template <class T>

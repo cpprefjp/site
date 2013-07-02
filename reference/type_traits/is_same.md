@@ -1,4 +1,4 @@
-#is_same
+#is_same(C++11)
 ```cpp
 namespace std {
   template <class T, class U>

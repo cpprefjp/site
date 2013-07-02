@@ -1,4 +1,4 @@
-#LLONG_MAX
+#LLONG_MAX(C++11)
 ```cpp
 #define LLONG_MAX implementation-defined
 ```

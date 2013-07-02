@@ -1,4 +1,4 @@
-#native_handle
+#native_handle(C++11)
 ```cpp
 native_handle_type native_handle();
 ```

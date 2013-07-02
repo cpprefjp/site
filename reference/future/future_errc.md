@@ -1,4 +1,4 @@
-#future_errc
+#future_errc(C++11)
 ```cpp
 namespace std {
   enum class future_errc {

@@ -1,4 +1,4 @@
-#operator<
+#operator<(C++11)
 ```cpp
 namespace std {
   bool operator<(const error_code& lhs, const error_code& rhs) noexcept;

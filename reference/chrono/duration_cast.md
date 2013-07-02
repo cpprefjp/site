@@ -1,4 +1,4 @@
-#duration_cast
+#duration_cast(C++11)
 ```cpp
 namespace std {
 

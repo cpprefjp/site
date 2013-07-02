@@ -1,4 +1,4 @@
-#partition_copy
+#partition_copy(C++11)
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator1, class OutputIterator2, class Predicate>

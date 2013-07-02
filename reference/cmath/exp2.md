@@ -1,4 +1,4 @@
-#exp2
+#exp2(C++11)
 ```cpp
 namespace std {
   float exp2(float x);

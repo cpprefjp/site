@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 atomic() noexcept = default;
 constexpr atomic(T desired) noexcept;

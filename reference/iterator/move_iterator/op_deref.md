@@ -1,4 +1,4 @@
-#operator*
+#operator*(C++11)
 ```cpp
 reference operator*() const;
 ```

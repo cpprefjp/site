@@ -1,4 +1,4 @@
-#future
+#future(C++11)
 ```cpp
 namespace std {
   template <class R>

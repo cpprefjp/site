@@ -1,4 +1,4 @@
-#int_least8_t
+#int_least8_t(C++11)
 ```cpp
 namespace std {
   typedef signed-integer-type int_least8_t;

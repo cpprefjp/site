@@ -1,4 +1,4 @@
-#get_unexpected
+#get_unexpected(C++11)
 ```cpp
 namespace std {
   typedef void (*unexpected_handler)();

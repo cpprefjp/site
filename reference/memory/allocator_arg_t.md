@@ -1,4 +1,4 @@
-#allocator_arg_t
+#allocator_arg_t(C++11)
 ```cpp
 namespace std {
   struct allocator_arg_t {};

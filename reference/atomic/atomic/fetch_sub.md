@@ -1,4 +1,4 @@
-#fetch_sub
+#fetch_sub(C++11)
 ```cpp
 T fetch_sub(T operand, memory_order order = memory_order_seq_cst) volatile noexcept;
 T fetch_sub(T operand, memory_order order = memory_order_seq_cst) noexcept;

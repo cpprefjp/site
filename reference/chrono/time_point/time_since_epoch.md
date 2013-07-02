@@ -1,4 +1,4 @@
-#time_since_epoch
+#time_since_epoch(C++11)
 ```cpp
 duration time_since_epoch() const;
 ```

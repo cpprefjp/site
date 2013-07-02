@@ -1,4 +1,4 @@
-#get_pointer_safety
+#get_pointer_safety(C++11)
 ```cpp
 namespace std {
   pointer_safety get_pointer_safety() noexcept;

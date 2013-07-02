@@ -1,4 +1,4 @@
-#atomic_is_lock_free
+#atomic_is_lock_free(C++11)
 ```cpp
 namespace std {
   template <class T>

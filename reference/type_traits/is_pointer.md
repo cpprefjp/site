@@ -1,4 +1,4 @@
-#is_pointer
+#is_pointer(C++11)
 ```cpp
 namespace std {
   template <class T>

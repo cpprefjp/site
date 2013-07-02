@@ -1,4 +1,4 @@
-#key_eq
+#key_eq(C++11)
 ```cpp
 key_equal key_eq() const;
 ```

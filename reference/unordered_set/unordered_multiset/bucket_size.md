@@ -1,4 +1,4 @@
-#bucket_size
+#bucket_size(C++11)
 ```cpp
 size_type bucket_size(size_type n) const;
 ```

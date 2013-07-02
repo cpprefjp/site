@@ -1,4 +1,4 @@
-#is_object
+#is_object(C++11)
 ```cpp
 namespace std {
   template <class T>

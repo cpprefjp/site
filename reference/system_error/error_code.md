@@ -1,4 +1,4 @@
-#error_code
+#error_code(C++11)
 ```cpp
 namespace std {
   class error_code;

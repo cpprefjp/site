@@ -1,4 +1,4 @@
-#lock
+#lock(C++11)
 ```cpp
 void lock();
 ```

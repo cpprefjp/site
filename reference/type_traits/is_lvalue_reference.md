@@ -1,4 +1,4 @@
-#is_lvalue_reference
+#is_lvalue_reference(C++11)
 ```cpp
 namespace std {
   template <class T>

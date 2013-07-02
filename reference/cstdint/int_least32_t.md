@@ -1,4 +1,4 @@
-#int_least32_t
+#int_least32_t(C++11)
 ```cpp
 namespace std {
   typedef signed-integer-type int_least32_t;

@@ -1,4 +1,4 @@
-#get_future
+#get_future(C++11)
 ```cpp
 future<R> get_future();
 ```

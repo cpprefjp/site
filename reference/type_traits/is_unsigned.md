@@ -1,4 +1,4 @@
-#is_unsigned
+#is_unsigned(C++11)
 ```cpp
 namespace std {
   template <class T>

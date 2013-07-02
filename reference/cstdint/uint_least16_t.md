@@ -1,4 +1,4 @@
-#uint_least16_t
+#uint_least16_t(C++11)
 ```cpp
 namespace std {
   typedef unsigned-integer-type uint_least16_t;

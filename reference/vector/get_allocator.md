@@ -1,4 +1,4 @@
-#get_allocator
+#get_allocator(C++11)
 ```cpp
 allocator_type get_allocator() const noexcept;
 ```

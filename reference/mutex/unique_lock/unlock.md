@@ -1,4 +1,4 @@
-#unlock
+#unlock(C++11)
 ```cpp
 void unlock();
 ```

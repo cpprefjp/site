@@ -1,4 +1,4 @@
-#assign
+#assign(C++11)
 ```cpp
 template <class InputIterator>
 void assign(InputIterator first, InputIterator last);

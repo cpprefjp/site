@@ -1,4 +1,4 @@
-#thread::id
+#thread::id(C++11)
 ```cpp
 namespace std {
   class thread::id {

@@ -1,4 +1,4 @@
-#fetch_or
+#fetch_or(C++11)
 ```cpp
 T fetch_or(T operand, memory_order order = memory_order_seq_cst) volatile noexcept;
 T fetch_or(T operand, memory_order order = memory_order_seq_cst) noexcept;

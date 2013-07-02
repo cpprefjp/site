@@ -1,4 +1,4 @@
-#cv_status
+#cv_status(C++11)
 ```cpp
 namespace std {
   enum class cv_status {

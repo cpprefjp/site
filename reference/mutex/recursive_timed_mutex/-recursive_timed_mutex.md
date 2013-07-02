@@ -1,4 +1,4 @@
-#デストラクタ
+#デストラクタ(C++11)
 ```cpp
 ~recursive_timed_mutex();
 ```

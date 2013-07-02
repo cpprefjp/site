@@ -1,4 +1,4 @@
-#コンストラクタ
+#コンストラクタ(C++11)
 ```cpp
 type_index(const type_info& rhs) noexcept;
 ```

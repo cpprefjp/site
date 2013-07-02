@@ -1,4 +1,4 @@
-#sleep_for
+#sleep_for(C++11)
 ```cpp
 namespace std {
 namespace this_thread {

@@ -1,4 +1,4 @@
-#defer_lock
+#defer_lock(C++11)
 ```cpp
 namespace std {
   struct defer_lock_t { };

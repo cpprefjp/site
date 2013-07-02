@@ -1,4 +1,4 @@
-#owns_lock
+#owns_lock(C++11)
 ```cpp
 bool owns_lock() const noexcept;
 ```

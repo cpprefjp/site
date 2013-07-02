@@ -1,4 +1,4 @@
-#is_floating_point
+#is_floating_point(C++11)
 ```cpp
 namespace std {
   template <class T>

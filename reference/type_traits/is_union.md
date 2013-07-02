@@ -1,4 +1,4 @@
-#is_union
+#is_union(C++11)
 ```cpp
 namespace std {
   template <class T>

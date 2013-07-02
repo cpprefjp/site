@@ -1,4 +1,4 @@
-#wait_for
+#wait_for(C++11)
 ```cpp
 template <class Lock, class Rep, class Period>
 cv_status wait_for(Lock& lock, const chrono::duration<Rep, Period>& rel_time);

@@ -1,4 +1,4 @@
-#代入演算子
+#代入演算子(C++11)
 ```cpp
 tuple& operator=(const tuple&);
 tuple& operator=(tuple&&) noexcept(下記参照);

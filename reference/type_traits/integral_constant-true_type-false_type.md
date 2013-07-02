@@ -1,4 +1,4 @@
-#integral_constant、true_type、false_type
+#integral_constant、true_type、false_type(C++11)
 ```cpp
 namespace std {
   template <class T, T v>

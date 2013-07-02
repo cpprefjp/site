@@ -1,4 +1,4 @@
-#category
+#category(C++11)
 ```cpp
 const error_category& category() const noexcept;
 ```

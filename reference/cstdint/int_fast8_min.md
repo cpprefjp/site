@@ -1,4 +1,4 @@
-#INT_FAST8_MIN
+#INT_FAST8_MIN(C++11)
 ```cpp
 #define INT_FAST8_MIN implementation-defined
 ```

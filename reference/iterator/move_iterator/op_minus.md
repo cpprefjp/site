@@ -1,4 +1,4 @@
-#operator-
+#operator-(C++11)
 ```cpp
 move_iterator operator-(difference_type n) const;
 ```

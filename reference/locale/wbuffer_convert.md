@@ -1,4 +1,4 @@
-#wbuffer_convert
+#wbuffer_convert(C++11)
 ```cpp
 namespace std {
   template <class Codecvt,

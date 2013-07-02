@@ -1,4 +1,4 @@
-#wait_until
+#wait_until(C++11)
 ```cpp
 template <class Lock, class Clock, class Duration>
 cv_status wait_until(Lock& lock, const chrono::time_point<Clock, Duration>& abs_time);

@@ -1,4 +1,4 @@
-#初期化
+#初期化(C++11)
 ```cpp
 namespace std {
   template <class T, size_t N >

@@ -1,4 +1,4 @@
-#cend(size_type)
+#cend(size_type)(C++11)
 ```cpp
 const_local_iterator cend(size_type n) const;
 ```

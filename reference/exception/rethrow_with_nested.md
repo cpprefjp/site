@@ -1,4 +1,4 @@
-#rethrow_if_nested
+#rethrow_if_nested(C++11)
 ```cpp
 namespace std {
   template <class E>

@@ -1,4 +1,4 @@
-#UINT_LEAST8_MAX
+#UINT_LEAST8_MAX(C++11)
 ```cpp
 #define UINT_LEAST8_MAX implementation-defined
 ```

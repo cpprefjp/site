@@ -1,4 +1,4 @@
-#operator bool
+#operator bool(C++11)
 ```cpp
 explicit operator bool() const noexcept;
 ```

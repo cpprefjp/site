@@ -1,4 +1,4 @@
-#int_fast64_t
+#int_fast64_t(C++11)
 ```cpp
 namespace std {
   typedef signed-integer-type int_fast64_t;

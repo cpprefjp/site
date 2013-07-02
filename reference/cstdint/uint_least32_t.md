@@ -1,4 +1,4 @@
-#uint_least32_t
+#uint_least32_t(C++11)
 ```cpp
 namespace std {
   typedef unsigned-integer-type uint_least32_t;

@@ -1,4 +1,4 @@
-#swap
+#swap(C++11)
 ```cpp
 void swap(queue& q) noexcept(noexcept(swap(c, q.c)))
 ```

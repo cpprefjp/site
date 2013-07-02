@@ -1,4 +1,4 @@
-#is_enum
+#is_enum(C++11)
 ```cpp
 namespace std {
   template <class T>
