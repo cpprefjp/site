@@ -1,7 +1,7 @@
 #unordered_map(C++11)
 `<unordered_map>` ヘッダは、キーと値のペアが要素である非順序連想コンテナを提供する。
 
-`<`[map](/site/cpprefjp/reference/map)`>` と異なり、各要素はキーの順序ではなくキーのハッシュ値に基づいて格納されるため、イテレータを用いたコンテナの走査の順序は（名前の通り）有意ではない。
+[`<map>`](/site/cpprefjp/reference/map) と異なり、各要素はキーの順序ではなくキーのハッシュ値に基づいて格納されるため、イテレータを用いたコンテナの走査の順序は（名前の通り）有意ではない。
 
 `<unordered_map>` ヘッダで提供されるコンテナは、`operator==` と `operator!=` を除いてコンテナとしての要件を満たす。
 
@@ -10,10 +10,10 @@
 `<unordered_map>` ヘッダでは、キーの重複を許さない `std::`[`unordered_map`](./unordered_map/unordered_map.md) クラステンプレート、およびキーの重複を許す `std::`[`unordered_multimap`](./unordered_map/unordered_multimap.md) クラステンプレートを提供する。
 
 
-| 名前 | 説明 |
-|---------------------------------------------------------------|--------------------------------------------------------|
-| [`unordered_map`](./unordered_map/unordered_map.md)           | キーの重複を許さない非順序連想コンテナ(class template) |
-| [`unordered_multimap`](./unordered_map/unordered_multimap.md) | キーの重複を許す非順序連想コンテナ(class template)     |
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------------------------|--------------------------------------------------------|-------|
+| [`unordered_map`](./unordered_map/unordered_map.md)           | キーの重複を許さない非順序連想コンテナ(class template) | C++11 |
+| [`unordered_multimap`](./unordered_map/unordered_multimap.md) | キーの重複を許す非順序連想コンテナ(class template)     | C++11 |
 
 
 ```cpp
