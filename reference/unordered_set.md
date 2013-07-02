@@ -1,7 +1,7 @@
 #unordered_set(C++11)
 `<unordered_set>` ヘッダは、キーが要素である非順序連想コンテナを提供する。
 
-`<`[`set`](/reference/set.md)`>` と異なり、各要素はキーの順序ではなくキーのハッシュ値に基づいて格納されるため、イテレータを用いたコンテナの走査の順序は（名前の通り）有意ではない。
+[`<set>`](/reference/set.md) と異なり、各要素はキーの順序ではなくキーのハッシュ値に基づいて格納されるため、イテレータを用いたコンテナの走査の順序は（名前の通り）有意ではない。
 
 `<unordered_set>` ヘッダで提供されるコンテナは、`operator==` と `operator!=` を除いてコンテナとしての要件を満たす。
 
@@ -10,10 +10,10 @@
 `<unordered_set>` ヘッダでは、キーの重複を許さない `std::`[`unordered_set`](./unordered_set/unordered_set.md) クラステンプレート、およびキーの重複を許す `std::`[`unordered_multiset`](./unordered_set/unordered_multiset.md) クラステンプレートを提供する。
 
 
-| 名前 | 説明 |
-|---------------------------------------------------------------|--------------------------------------------------------|
-| [`unordered_set`](./unordered_set/unordered_set.md)           | キーの重複を許さない非順序連想コンテナ(class template) |
-| [`unordered_multiset`](./unordered_set/unordered_multiset.md) | キーの重複を許す非順序連想コンテナ(class template)     |
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------------------------|--------------------------------------------------------|-------|
+| [`unordered_set`](./unordered_set/unordered_set.md)           | キーの重複を許さない非順序連想コンテナ(class template) | C++11 |
+| [`unordered_multiset`](./unordered_set/unordered_multiset.md) | キーの重複を許す非順序連想コンテナ(class template)     | C++11 |
 
 
 ```cpp
