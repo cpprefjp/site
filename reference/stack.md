@@ -23,51 +23,51 @@ namespace std {
 - `Container`: 要素へのアクセス・保存に用いる内部実装のコンテナクラス
 
 
-###メンバ関数
+##メンバ関数
 
-| | |
-|-------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| [`(constructor)`](./stack/stack.md) | コンストラクタ |
-| [`(destructor)`](./stack/stack-1.md) | デストラクタ |
-| [`operator=`](./stack/op_assign.md) | 代入 |
-| [`top`](./stack/top.md) | 次の要素へアクセスする |
-| [`empty`](./stack/empty.md) | 要素が空であるかを確認する |
-| [`size`](./stack/size.md) | 要素数を取得する |
-| [`push`](./stack/push.md) | 要素を追加する |
-| [`emplace`](./stack/emplace.md) | 直接構築で要素を追加する(C++11) |
-| [`pop`](./stack/pop.md) | 次の要素を削除する |
-| [`swap`](./stack/swap.md) | 他の `stack` オブジェクトと値を入れ替える(C++11) |
-
-###protectedメンバ変数
-
-| | |
-|------------------------|------------------------|
-| 変数名 | 型 |
-| `c` | `Container` |
+| 名前 | 説明 | 対応バージョン |
+|--------------------------------------|----------------------------|-------|
+| [`(constructor)`](./stack/stack.md)  | コンストラクタ             | |
+| [`(destructor)`](./stack/stack-1.md) | デストラクタ               | |
+| [`operator=`](./stack/op_assign.md)  | 代入                       | |
+| [`top`](./stack/top.md)              | 次の要素へアクセスする     | |
+| [`empty`](./stack/empty.md)          | 要素が空であるかを確認する | |
+| [`size`](./stack/size.md)            | 要素数を取得する           | |
+| [`push`](./stack/push.md)            | 要素を追加する             | |
+| [`emplace`](./stack/emplace.md)      | 直接構築で要素を追加する   | C++11 |
+| [`pop`](./stack/pop.md)              | 次の要素を削除する         | |
+| [`swap`](./stack/swap.md)            | 他の `stack` オブジェクトと値を入れ替える | C++11 |
 
 
-###メンバ型
+##protectedメンバ変数
 
-| | |
-|-----------------|----------------------------|
-| `container_type` | `Container` |
-| `value_type` | `Container::value_type` |
-| `size_type` | `Container::size_type` |
-| `reference` | `Container::reference` |
-| `const_reference` | `Container::const_reference` |
+| 変数名 | 型 | 対応バージョン |
+|--------|-------------|-------|
+| `c`    | `Container` | |
 
 
-###非メンバ関数
+##メンバ型
 
-| | |
-|---------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
-| [`operator==`](./stack/op_equal.md) | 等値比較 |
-| [`operator!=`](./stack/op_not_equal.md) | 非等値比較 |
-| [`operator<`](./stack/op_less.md) | 左辺が右辺より小さいかの判定を行う |
-| [`operator<=`](./stack/op_less_equal.md) | 左辺が右辺以下かの判定を行う |
-| [`operator>`](./stack/op_greater.md) | 左辺が右辺より大きいかの判定を行う |
-| [`operator>=`](./stack/op_greater_equal.md) | 左辺が右辺以上かの判定を行う |
-| [`swap`](./stack/swap_free.md) | 2つの`stack`オブジェクトを入れ替える(C++11) |
+| 名前 | 説明 | 対応バージョン |
+|-------------------|---------------------|-------|
+| `container_type`  | `Container` | |
+| `value_type`      | `Container::value_type` | |
+| `size_type`       | `Container::size_type` | |
+| `reference`       | `Container::reference` | |
+| `const_reference` | `Container::const_reference` | |
+
+
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|--------------------------------------|-------|
+| [`operator==`](./stack/op_equal.md)         | 等値比較                             | |
+| [`operator!=`](./stack/op_not_equal.md)     | 非等値比較                           | |
+| [`operator<`](./stack/op_less.md)           | 左辺が右辺より小さいかの判定を行う   | |
+| [`operator<=`](./stack/op_less_equal.md)    | 左辺が右辺以下かの判定を行う         | |
+| [`operator>`](./stack/op_greater.md)        | 左辺が右辺より大きいかの判定を行う   | |
+| [`operator>=`](./stack/op_greater_equal.md) | 左辺が右辺以上かの判定を行う         | |
+| [`swap`](./stack/swap_free.md)              | 2つの`stack`オブジェクトを入れ替える | C++11 |
 
 
 ##例
