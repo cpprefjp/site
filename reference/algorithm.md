@@ -144,8 +144,8 @@ ordering relationship を処理する関数の説明において、この節で�
 | [`stable_sort`](./algorithm/stable_sort.md)             | 範囲を安定ソートで並べ替える | |
 | [`partial_sort`](./algorithm/partial_sort.md)           | 範囲を部分的にソートし、先頭N個を並んだ状態にする | |
 | [`partial_sort_copy`](./algorithm/partial_sort_copy.md) | 範囲を部分的にソートした結果を他の範囲にコピーする | |
-| [`is_sorted`](./algorithm/is_sorted.md)                 | ソート済みか判定する | |
-| [`is_sorted_until`](./algorithm/is_sorted_until.md)     | ソート済みか判定し、ソートされていない位置のイテレータを取得する | |
+| [`is_sorted`](./algorithm/is_sorted.md)                 | ソート済みか判定する | C++11 |
+| [`is_sorted_until`](./algorithm/is_sorted_until.md)     | ソート済みか判定し、ソートされていない位置のイテレータを取得する | C++11 |
 
 
 ###N 番目の要素
