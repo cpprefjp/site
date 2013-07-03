@@ -1,9 +1,5 @@
-#lowest
+#lowest(C++11)
 ```cpp
-// C++03
-static T lowest() throw();
-
-// C++11
 static constexpr T lowest() noexcept;
 ```
 
