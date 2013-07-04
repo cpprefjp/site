@@ -10,14 +10,14 @@ namespace std {
 `bad_cast`クラスは、 `dynamic_cast`による実行時型チェックに失敗して投げられる例外の型である。オブジェクトが不完全の場合、実行時チェックは失敗する。標準ライブラリのいくつかは、型キャストのエラーを示すために、この例外を投げるかもしれない。
 
 
-###メンバ関数
+##メンバ関数
 
-| | |
-|------------------------------------------------------------------|--------------------------------|
-| `bad_cast() noexcept;`<br/>`bad_cast(const bad_cast&) noexcept;` | コンストラクタ |
-| `virtual ~bad_cast() = default;`                                 | デストラクタ |
-| `bad_cast& operator=(const bad_cast&) noexcept;`                 | 代入演算子 |
-| `virtual const char* what() const noexcept;`                     | 実装定義のエラー内容を取得する |
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------------------|--------------------------------| |
+| `bad_cast() noexcept;`<br/>`bad_cast(const bad_cast&) noexcept;` | コンストラクタ | |
+| `virtual ~bad_cast() = default;`                                 | デストラクタ | |
+| `bad_cast& operator=(const bad_cast&) noexcept;`                 | 代入演算子 | |
+| `virtual const char* what() const noexcept;`                     | 実装定義のエラー内容を取得する | |
 
 
 ###例

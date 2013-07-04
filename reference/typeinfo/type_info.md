@@ -9,21 +9,21 @@ namespace std {
 `type_info`は、`typeid`演算子によって返される、型の情報が格納された型である。ユーザーは、この型を使用して、型名の検索や比較を行うことができる。`typeid`に型を渡すと、その型の`type_info`オブジェクトが返され、`typeid`にオブジェクトを渡すと、そのオブジェクトの型の`type_info`オブジェクトが返される。`typeid`に、多相的な型のオブジェクトへの間接参照されたポインタに適用される場合、その型は実行時に決定する。これは、RTTI(実行時型情報)が利用可能であることを要求する。`typeid`に、間接参照されたヌルポインタが渡された場合、[`bad_typeid`](/reference/typeinfo/bad_typeid.md)例外が投げられる。
 
 
-###メンバ関数
+##メンバ関数
 
-| | |
-|---------------------------------------------|---------------------------------|
-| [`(constructor)`](./type_info/type_info.md) | コンストラクタ                  |
-| [`(destructor)`](./type_info/-type_info.md) | デストラクタ                    |
-| `operator=(const type_info&) = delete`      | 代入演算子                      |
-| [`before`](./type_info/before.md)           | 2つの型の照合順序を比較する     |
-| [`hash_code`](./type_info/hash_code.md)     | 型のハッシュ値を取得する(C++11) |
-| [`name`](./type_info/name.md)               | 実装定義の型名を取得する        |
-| [`operator==`](./type_info/op_equal.md)     | 2つの型が同じかを判定する       |
-| [`operator!=`](./type_info/op_not_equal.md) | 2つの型が異なるかを判定する     |
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|-----------------------------|-------|
+| [`(constructor)`](./type_info/type_info.md) | コンストラクタ              | |
+| [`(destructor)`](./type_info/-type_info.md) | デストラクタ                | |
+| `operator=(const type_info&) = delete`      | 代入演算子                  | |
+| [`before`](./type_info/before.md)           | 2つの型の照合順序を比較する | |
+| [`hash_code`](./type_info/hash_code.md)     | 型のハッシュ値を取得する    | C++11 |
+| [`name`](./type_info/name.md)               | 実装定義の型名を取得する    | |
+| [`operator==`](./type_info/op_equal.md)     | 2つの型が同じかを判定する   | |
+| [`operator!=`](./type_info/op_not_equal.md) | 2つの型が異なるかを判定する | |
 
 
-###例
+##例
 ```cpp
 #include <iostream>
 #include <typeinfo>
