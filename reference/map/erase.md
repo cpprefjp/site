@@ -1,76 +1,96 @@
-#page_title(ページのタイトルです)(C++11)
+#erase
 ```cpp
-void definition(); // 関数・変数・定数の宣言を記述します。
+// until C++11
+void erase(iterator position);
+
+// since C++11
+iterator erase(const_iterator position);
+
+// until C++11
+void erase(const_iterator first, const_iterator last);
+
+// since C++11
+iterator erase(const_iterator first, const_iterator last);
+
+size_type erase(const key_type& x);
 ```
 
+
 ##概要
-(ここには、関数・変数・定数の概要を記述します。必須事項です。)
+単一要素または要素範囲（`[first, last)`）を `map` コンテナから削除する。 
+これは削除された要素の数だけコンテナの `size` を減らし、それぞれの要素のデストラクタを呼び出す。
 
 
-##要件
-(ここには、関数を実行するための事前条件、型への要件などを記述します。とくになければ、項目を削除してください。)
-
-
-##効果
-(ここには、関数の内部で行われる効果:effect を記述します。戻り値しかないような関数の場合には、項目を削除してください。)
+##パラメータ
+- `position` : `map` から削除する単一要素を指すイテレータ。`iterator` はメンバ型であり、双方向イテレータとして定義される。
+- `x` : `map` から削除される値のキー。`key_type` はメンバ型であり、`map` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータであり、コンテナに格納される要素のキーの型である。
+- `first, last` : `map` コンテナ内の、削除される範囲 `[first, last)` を指定するイテレータ。ここでいう範囲は `first` と `last` の間の全ての要素を含み、`first` が指す要素を含むが `last` が指す要素は含まない。
 
 
 ##戻り値
-(ここには、関数の戻り値を記述します。戻り値の型が`void`の場合は、「なし」と記述してください。)
+`iterator` を返すタイプのバージョンは、削除された要素の次を指すイテレータを返す。 
+`size_type` を返すタイプのバージョンは、削除された要素の数を返す。　
 
 
 ##計算量
-(ここには、アルゴリズムの計算量を記述します。規格上とくに明記がなければ、項目を削除してください。)
-
-
-##備考
-(ここには、関数・変数・定数を説明するにあたっての、補足事項を記述します。とくになければ、項目を削除してください。)
+引数に `position` をとるバージョンは定数時間。 
+引数に `first` 、`last` をとるバージョンはコンテナの [`size()`](./size.md) についての対数時間、プラス `first` と `last` の間の距離に対する線形時間。 
+引数に `x` をとるバージョンはコンテナの [`size()`](./size.md) について対数時間。
 
 
 ##例
 ```cpp
-// (ここには、関数・変数・定数を解説するための、サンプルコードを記述します。)
-// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。)
-
 #include <iostream>
+#include <map>
+using namespace std;
 
 int main()
 {
-  int variable = 0;
-  std::cout << variable << std::endl;
+    map<int, char> c;
+
+    c.insert(std::make_pair(1,'A'));
+    c.insert(std::make_pair(2,'B'));
+    c.insert(std::make_pair(3,'C'));
+    cout << c.size() << endl;
+
+    c.erase(1);
+    cout << c.size() << endl;
+
+    c.erase(5);
+    cout << c.size() << endl;
+
+    c.erase(c.begin(), c.end());
+    cout << c.size() << endl;
+
+    return 0;
 }
 ```
-* variable[color ff0000]
-(コードブロック中の識別子に、文字色を付ける例です。)
 
 ###出力
 ```
+3
+2
+2
 0
 ```
-(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)  
-(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)
-
-
-##実装例
-```cpp
-// (ここには、その関数・変数・定数の、実装例を記述します。)
-// (とくに必要がないと判断した場合、項目を削除してください。)
-```
-
 ##バージョン
 ###言語
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 1.9, 2.9, 3.0, 3.1, 3.2, 3.3
-- [GCC](/implementation#gcc.md): 3.4.6, 4.2.4, 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [ICC](/implementation#icc.md): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation#visual_cpp.md): 7.1, 8.0, 9.0, 10.0, 11.0
-
-(ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)  
-(これらの項目を削除した場合、C++03のあらゆる環境で使用できることを意味します。)
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): ??
+- [GCC, C++11 mode](/implementation#gcc.md): ??
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??, 11.0
 
 ##参照
-(ここには、その関数・変数・定数を理解するにあたっての参考資料や、関連する機能へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)
+
+| 名前 | 説明|
+|---------------------------------------------------------------------------------------|--------------------------------------|
+| [`clear`](./clear.md) | 全ての要素を削除する |
+| [`insert`](./insert.md) | 要素を挿入する |
+| [`find`](./find.md) | 指定したキーで要素を探す |
+
+
 
