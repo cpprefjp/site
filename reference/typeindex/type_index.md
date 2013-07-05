@@ -1,4 +1,4 @@
-#type_index
+#type_index(C++11)
 ```cpp
 namespace std {
   class type_index;
@@ -11,17 +11,17 @@ namespace std {
 
 ###メンバ関数
 
-| | |
-|-----------------------------------------------|------------------------------------|
-| [`(constructor)`](./type_index/type_index.md) | コンストラクタ                     |
-| [`operator==`](./type_index/equal.md)         | 等値判定を行う                     |
-| [`operator!=`](./type_index/not_equal.md)     | 非等値判定を行う                   |
-| [`operator<`](./type_index/less.md)           | 左辺が右辺より小さいかの判定を行う |
-| [`operator<=`](./type_index/less_equal.md)    | 左辺が右辺以下かの判定を行う       |
-| [`operator>`](./type_index/greater.md)        | 左辺が右辺より大きいかの判定を行う |
-| [`operator>=`](./type_index/greater_equal.md) | 左辺が右辺以上かの判定を行う       |
-| [`hash_code`](./type_index/hash_code.md)      | ハッシュ値を取得する               |
-| [`name`](./type_index/name.md)                | 型名を取得する                     |
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------------|------------------------------------|-------|
+| [`(constructor)`](./type_index/type_index.md) | コンストラクタ                     | C++11 |
+| [`operator==`](./type_index/equal.md)         | 等値判定を行う                     | C++11 |
+| [`operator!=`](./type_index/not_equal.md)     | 非等値判定を行う                   | C++11 |
+| [`operator<`](./type_index/less.md)           | 左辺が右辺より小さいかの判定を行う | C++11 |
+| [`operator<=`](./type_index/less_equal.md)    | 左辺が右辺以下かの判定を行う       | C++11 |
+| [`operator>`](./type_index/greater.md)        | 左辺が右辺より大きいかの判定を行う | C++11 |
+| [`operator>=`](./type_index/greater_equal.md) | 左辺が右辺以上かの判定を行う       | C++11 |
+| [`hash_code`](./type_index/hash_code.md)      | ハッシュ値を取得する               | C++11 |
+| [`name`](./type_index/name.md)                | 型名を取得する                     | C++11 |
 
 
 ###例
