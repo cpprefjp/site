@@ -7,8 +7,8 @@ namespace std {
   class basic_string;
 
   typedef basic_string<char>     string;
-  typedef basic_string<char16_t> u16string;
-  typedef basic_string<char32_t> u32string;
+  typedef basic_string<char16_t> u16string;  // C++11から
+  typedef basic_string<char32_t> u32string;  // C++11から
   typedef basic_string<wchar_t>  wstring;
 }
 ```
@@ -63,11 +63,11 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 ###要素アクセス
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------------------|----------------|------|
-| [`operator[]`](./basic_string/op_at.md) | 任意の位置の文字を取得する | |
-| [`at`](./basic_string/at.md) | 任意の位置の文字を取得する | |
-| [`front`](./basic_string/front.md) | 先頭の文字を取得する | |
-| [`back`](./basic_string/back.md) | 末尾の文字を取得する | |
+|-----------------------------------------|----------------------------|-------|
+| [`operator[]`](./basic_string/op_at.md) | 任意の位置の文字を取得する |       |
+| [`at`](./basic_string/at.md)            | 任意の位置の文字を取得する |       |
+| [`front`](./basic_string/front.md)      | 先頭の文字を取得する       | C++11 |
+| [`back`](./basic_string/back.md)        | 末尾の文字を取得する       | C++11 |
 
 
 ###文字列の変更

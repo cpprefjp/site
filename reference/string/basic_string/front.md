@@ -1,4 +1,4 @@
-#front
+#front(C++11)
 ```cpp
 const charT& front() const noexcept;
 charT& front() noexcept;
