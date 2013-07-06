@@ -50,17 +50,27 @@ namespace chrono {
 ```cpp
 #include <iostream>
 #include <chrono>
+#include <ctime>
 
-using namespace std::chrono;
+using std::chrono::system_clock;
 
 int main()
 {
-  // 現在日時を取得
-  system_clock::time_point p = system_clock::now();
+    // 現在日時を取得
+    system_clock::time_point p = system_clock::now();
 
-  // 出力
-  std::time_t t = system_clock::to_time_t(p);
-  std::cout << std::ctime(&t);
+    // 出力
+    std::time_t t = system_clock::to_time_t(p);
+    char buf[26];  // 最低26バイトが必要
+#ifdef _MSC_VER
+    // Visual Studioではctime_sが推奨されている。
+    (void)ctime_s(buf, 26, &t);
+#else
+    // ctimeのリエントラント版
+    (void) ctime_r(&t, buf);
+#endif
+    // 出力された文字列には改行が含まれていることに注意
+    std::cout << buf;
 }
 ```
 
