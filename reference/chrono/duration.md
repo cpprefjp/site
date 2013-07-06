@@ -13,6 +13,7 @@ namespace chrono {
 `duration`のテンプレートパラメータである`ratio`の値によって、時間のためのあらゆる単位(ナノ秒、ミリ秒、秒, etc...)を表現することができる。
 
 標準では、以下の`typedef`が提供される：
+
 | | |
 |--------------------------------------------------------------------------------------------------------------|-----------------|
 | `typedef名` | 説明 |
@@ -70,25 +71,36 @@ namespace chrono {
 ```cpp
 #include <iostream>
 #include <chrono>
+#include <ctime>
 
-using namespace std::chrono;
+using std::chrono::system_clock;
+using std::chrono::seconds;
 
 void print(const system_clock::time_point& p)
 {
-  std::time_t t = system_clock::to_time_t(p);
-  std::cout << std::ctime(&t);
+    std::time_t t = system_clock::to_time_t(p);
+    char buf[26];  // 最低26バイトが必要
+#ifdef _MSC_VER
+    // Visual Studioではctime_sが推奨されている。
+    (void)ctime_s(buf, 26, &t);
+#else
+    // ctimeのリエントラント版
+    (void)ctime_r(&t, buf);
+#endif
+    // 出力された文字列には改行が含まれていることに注意
+    std::cout << buf;
 }
 
 int main()
 {
-  // 現在日時を取得
-  system_clock::time_point now = system_clock::now();
+    // 現在日時を取得
+    system_clock::time_point now = system_clock::now();
 
-  // 3秒後の日時を取得
-  system_clock::time_point p = now + seconds(3);
+    // 3秒後の日時を取得
+    system_clock::time_point p = now + seconds(3);
 
-  print(now);
-  print(p);
+    print(now);
+    print(p);
 }
 ```
 
