@@ -12,13 +12,16 @@ namespace std {
 
 `stack` は、所定のメンバ関数を持つコンテナのオブジェクトを内部実装として用いており、標準のコンテナ、もしくは独自に実装したコンテナを指定することができる。 
 このコンテナに必要な要件は、以下のメンバ関数を持つことである。
+
 - `back()`
 - `push_back()`
 - `pop_back()`
 - `emplace_back()` (C++11)
+
 この要件を満たすものとしては `vector` 、`deque` 、`list` があり、デフォルトでは `deque` が使用される。 
 
 `stack` は2つのテンプレートパラメータを持つ。各テンプレートパラメータの意味は以下の通りである。
+
 - `T`: 格納される要素の型
 - `Container`: 要素へのアクセス・保存に用いる内部実装のコンテナクラス
 
@@ -53,8 +56,8 @@ namespace std {
 | `container_type`  | `Container` | |
 | `value_type`      | `Container::value_type` | |
 | `size_type`       | `Container::size_type` | |
-| `reference`       | `Container::reference` | |
-| `const_reference` | `Container::const_reference` | |
+| `reference`       | `Container::reference` | C++11 |
+| `const_reference` | `Container::const_reference` | C++11 |
 
 
 ##非メンバ関数
