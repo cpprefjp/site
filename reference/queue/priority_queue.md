@@ -19,11 +19,13 @@ namespace std {
 - `push_back()`
 - `pop_back()`
 - `emplace_back()` (C++11)
+
 この要件を満たすものとしては[`vector`](/reference/vector.md)と[`deque`](/reference/deque.md)があり、デフォルトでは[`vector`](/reference/vector.md)が使用される。
 
 queueは2つのテンプレート引数を持つ。
 
 各テンプレートパラメータの意味は以下の通りである。
+
 - `T`: 要素の型
 - `Container`: 内部実装のコンテナクラス
 - `Compare`: 優先順に並べ替えるための比較用述語型。デフォルトでは降順比較の[`less`](/reference/functional/comparisons.md)が使用される。
@@ -33,42 +35,41 @@ queueは2つのテンプレート引数を持つ。
 
 ###メンバ関数
 
-| | |
-|--------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| [`(constructor)`](./priority_queue/priority_queue.md) | コンストラクタ |
-| `~priority_queue() = default` | デストラクタ |
-| `operator=(const priority_queue&) = default`<br/> `operator=(priority_queue&&) = default` | 代入演算子 |
-| [`empty`](./priority_queue/empty.md) | 要素が空かどうかを判定する |
-| [`size`](./priority_queue/size.md) | 要素数を取得する |
-| [`top`](./priority_queue/top.md) | 次の要素にアクセスする |
-| [`push`](./priority_queue/push.md) | 要素を追加する |
-| [`emplace`](./priority_queue/emplace.md) | 直接構築で要素を追加する(C++11) |
-| [`pop`](./priority_queue/pop.md) | 次の要素を削除する |
-| [`swap`](./priority_queue/swap.md) | 他のpriority_queueオブジェクトと値を入れ替える(C++11) |
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------|------------------------------------------------|-------|
+| [`(constructor)`](./priority_queue/priority_queue.md) | コンストラクタ | |
+| `~priority_queue() = default`            | デストラクタ | |
+| `operator=(const priority_queue&) = default`<br/> `operator=(priority_queue&&) = default` | 代入演算子 | |
+| [`empty`](./priority_queue/empty.md)     | 要素が空かどうかを判定する | |
+| [`size`](./priority_queue/size.md)       | 要素数を取得する | |
+| [`top`](./priority_queue/top.md)         | 次の要素にアクセスする | |
+| [`push`](./priority_queue/push.md)       | 要素を追加する | |
+| [`emplace`](./priority_queue/emplace.md) | 直接構築で要素を追加する | C++11 |
+| [`pop`](./priority_queue/pop.md)         | 次の要素を削除する | |
+| [`swap`](./priority_queue/swap.md)       | 他のpriority_queueオブジェクトと値を入れ替える | C++11 |
 
 ###protectedメンバ変数
 
-| | |
-|------------------------|------------------------|
-| 変数名 | 型 |
-| `c` | `Container` |
-| `comp` | `Compare` |
+| 変数名 | 型 | 対応バージョン |
+|--------|-------------|-------|
+| `c`    | `Container` | |
+| `comp` | `Compare`   | |
 
 ###メンバ型
 
-| | |
-|------------------------------|------------------------------------------------|
-| `value_type` | `Container::value_type` |
-| `reference` | `Container::reference`(C++11) |
-| `const_reference` | `Container::const_reference`(C++11) |
-| `size_type` | `Container::size_type` |
-| `container_type` | `Container` |
+| 名前 | 説明 | 対応バージョン |
+|-------------------|------------------------------|-------|
+| `value_type`      | `Container::value_type`      | |
+| `reference`       | `Container::reference`       | C++11 |
+| `const_reference` | `Container::const_reference` | C++11 |
+| `size_type`       | `Container::size_type`       | |
+| `container_type`  | `Container`                  | |
 
 ###非メンバ関数
 
-| | |
-|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| [`swap`](./priority_queue/swap_free.md) | 2つの`priority_queue`オブジェクトを入れ替える(C++11) |
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------|-----------------------------------------------|-------|
+| [`swap`](./priority_queue/swap_free.md) | 2つの`priority_queue`オブジェクトを入れ替える | C++11 |
 
 
 ##例
@@ -93,6 +94,7 @@ int main()
   }
 }
 ```
+* std::priority_queue[color ff0000]
 
 ###出力
 ```

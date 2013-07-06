@@ -18,9 +18,11 @@ namespace std {
 - `push_back()`
 - `pop_front()`
 - `emplace_back()` (C++11)
+
 この要件を満たすものとしては [`deque`](/reference/deque.md) と [`list`](/reference/list.md) があり、デフォルトでは[`deque`](/reference/deque.md)が使用される。 
 
 `queue`は2つのテンプレート引数を持つ。各テンプレートパラメータの意味は以下の通りである。
+
 - `T`: 要素の型
 - `Container`: 内部実装のコンテナクラス
 
@@ -29,49 +31,48 @@ namespace std {
 
 ###メンバ関数
 
-| | |
-|-------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| [`(constructor)`](./queue/queue.md) | コンストラクタ |
-| [`empty`](./queue/empty.md) | 要素が空であるかを確認する |
-| [`size`](./queue/size.md) | 要素数を取得する |
-| [`front`](./queue/front.md) | 次の要素にアクセスする |
-| [`back`](./queue/back.md) | 最後の要素にアクセスする |
-| [`push`](./queue/push.md) | 要素を追加する |
-| [`emplace`](./queue/emplace.md) | 直接構築で要素を追加する(C++11) |
-| [`pop`](./queue/pop.md) | 次の要素を削除する |
-| [`swap`](./queue/swap.md) | 他の`queue`オブジェクトと値を入れ替える(C++11) |
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------|-----------------------------------------|-------|
+| [`(constructor)`](./queue/queue.md) | コンストラクタ | |
+| [`empty`](./queue/empty.md)         | 要素が空であるかを確認する | |
+| [`size`](./queue/size.md)           | 要素数を取得する | |
+| [`front`](./queue/front.md)         | 次の要素にアクセスする | |
+| [`back`](./queue/back.md)           | 最後の要素にアクセスする | |
+| [`push`](./queue/push.md)           | 要素を追加する | |
+| [`emplace`](./queue/emplace.md)     | 直接構築で要素を追加する | C++11 |
+| [`pop`](./queue/pop.md)             | 次の要素を削除する | |
+| [`swap`](./queue/swap.md)           | 他の`queue`オブジェクトと値を入れ替える | C++11 |
 
 
 ###protectedメンバ変数
 
-| | |
-|------------------------|------------------------|
-| `変数名` | `型` |
-| `c` | `Container` |
+| 変数名 | 型 | 対応バージョン |
+|-----|-------------|-------|
+| `c` | `Container` | |
 
 
 ###メンバ型
 
-| | |
-|------------------------------|-----------------------------------------|
-| `value_type` | `Container::value_type` |
-| `reference` | `Container::reference` |
-| `const_reference` | `Container::const_reference` |
-| `size_type` | `Container::size_type` |
-| `container_type` | `Container` |
+| 名前 | 説明 |　対応バージョン |
+|-------------------|------------------------------|-------|
+| `value_type`      | `Container::value_type`      | |
+| `reference`       | `Container::reference`       | C++11 |
+| `const_reference` | `Container::const_reference` | C++11 |
+| `size_type`       | `Container::size_type`       | |
+| `container_type`  | `Container`                  | |
 
 
 ###非メンバ関数
 
-| | |
-|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
-| [`operator==`](./queue/equal.md) | 等値比較 |
-| [`operator!=`](./queue/not_equal.md) | 非等値比較 |
-| [`operator<`](./queue/less.md) | 左辺が右辺より小さいかの判定を行う |
-| [`operator<=`](./queue/less_equal.md) | 左辺が右辺以下かの判定を行う |
-| [`operator>`](./queue/greater.md) | 左辺が右辺より大きいかの判定を行う |
-| [`operator>=`](./queue/greater_equal.md) | 左辺が右辺以上かの判定を行う |
-| [`swap`](./queue/swap_free.md) | 2つの`queue`オブジェクトを入れ替える(C++11) |
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------|--------------------------------------|-------|
+| [`operator==`](./queue/equal.md)         | 等値比較 | |
+| [`operator!=`](./queue/not_equal.md)     | 非等値比較 | |
+| [`operator<`](./queue/less.md)           | 左辺が右辺より小さいかの判定を行う | |
+| [`operator<=`](./queue/less_equal.md)    | 左辺が右辺以下かの判定を行う | |
+| [`operator>`](./queue/greater.md)        | 左辺が右辺より大きいかの判定を行う | |
+| [`operator>=`](./queue/greater_equal.md) | 左辺が右辺以上かの判定を行う | |
+| [`swap`](./queue/swap_free.md)           | 2つの`queue`オブジェクトを入れ替える | C++11 |
 
 
 ##例
@@ -94,6 +95,7 @@ int main()
   }
 }
 ```
+* std::queue[color ff0000]
 
 ###出力
 ```
