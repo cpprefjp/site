@@ -1,90 +1,90 @@
 #discrete_distribution(C++11)
 ```cpp
 namespace std{
-  template<class IntType = int>
-  class discrete_distribution
-  {
-  public:
-    typedef IntType result_type;
-    typedef unspecified param_type;
-
-    discrete_distribution();
-    template<class InputIterator>
-    discrete_distribution(InputIterator firstW, InputIterator lastW);
-    discrete_distribution(initializer_list<double> wl);
-    template<class UnaryOperation>
-    discrete_distribution(size_t nw, double xmin, double xmax, UnaryOperation fw);
-    explicit discrete_distribution(const param_type& parm);
-    void reset();
-
-    template<class URNG>
-    result_type operator()(URNG& g);
-    template<class URNG>
-    result_type operator()(URNG& g, const param_type& parm);
-
-    vector<double> probabilities() const;
-    param_type param() const;
-    void param(const param_type& parm);
-    result_type min() const;
-    result_type max() const;
-  };
-}
+  template <class IntType = int>
+  class discrete_distribution;
 ```
 
 ##概要
 整数のインデックスごとに離散した確率分布を生成する。
 
+この分布クラスは、コンストラクタで指定された確率列に基いて値を分布させる。その結果として、確率列から選択された、0から始まるインデックスを返す。
+
+テンプレートパラメータは、以下を意味する。
+
+* `IntType` : 分布結果として返される、0から始まるインデックス値の整数型。負の値が返されることはないため、符号なし整数型を指定してもよい。
+
 
 ##メンバ関数
+###構築・リセット
 
-| | |
-|-----------------------------|-----------------------------------------------------------------------------------------------|
-| `(constructor)` | インデックスに対応する確率をパラメータとして与える事もできる。 |
-| `reset` | 何もしない。 |
-| `operator()` | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
-| `probabilities` | インデックスに対応する確率の数列を得る。 |
-| `param` | 分布のパラメータを取得／設定する。 |
-| `mix` | 最小値を得る。 |
-| `max` | 最大値を得る。 |
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------|------------------------------|-------|
+| `(constructor)`                       | コンストラクタ               | C++11 |
+| `~discrete_distribution() = default;` | デストラクタ                 | C++11 |
+| `reset`                               | 分布のパラメータを設定し直す | C++11 |
 
+
+###生成
+
+| 名前 | 説明 | 対応バージョン |
+|--------------|----------------------|-------|
+| `operator()` | 擬似乱数を生成する。 | C++11 |
+
+
+###プロパティ
+
+| 名前 | 説明 | 対応バージョン |
+|-----------------|--------------------------------------------|-------|
+| `probabilities` | インデックスに対応する確率の数列を取得する | C++11 |
+| `param`         | 分布のパラメータを取得／設定する           | C++11 |
+| `mix`           | 最小値を取得する                           | C++11 |
+| `max`           | 最大値を取得する                           | C++11 |
+
+##メンバ型
+
+| 型 | 説明 | 対応バージョン |
+|---------------|-------------------|-------|
+| `result_type` | 擬似乱数生成結果の型 `IntType`。0から始まるインデックス値が入る整数型である。符号なし整数型でもよい。 | C++11 |
+| `param_type`  | 分布パラメータの型。未規定。 | C++11 |
 
 
 ##例
 ```cpp
-#include <iostream>
-#include <exception>
 #include <random>
-#include <algorithm>
-#include <functional>
-#include <array>
+#include <vector>
 #include <fstream>
 
-main()try{
-  
-  static const size_t seed_size = 8;
-  typedef std::random_device device_type;
-  typedef std::mt19937_64 engine_type;
-  typedef std::discrete_distribution<size_t> distribution_type;
+int main()
+{
+  std::random_device seed_gen;
+  std::mt19937 engine(seed_gen());
 
-  auto s = [seed_size](){
-    device_type r;
-    std::vector<device_type::result_type> i(seed_size);
-    std::generate(i.begin(), i.end(), std::ref(r));
-    return std::seed_seq(i.begin(), i.end());
-  }();
-  engine_type e(s);
+  // 確率列を定義
+  // 浮動小数点数の範囲として定義する。合計値が1.0や10.0のような切りの良い数値である必要はない。
+  std::vector<double> probabilities = {
+    0.0, 0.1, 0.2,
+    0.3, 0.4, 0.5,
+    1.0, 0.9, 0.8,
+    0.7, 0.6
+  };
 
-  std::array<double, 11>
-    values{.0, .1, .2, .3, .4, .5, 1., .9, .8, .7, .6};
-  distribution_type d( values.begin() , values.end() );
-  
-  std::ofstream o("discrete_distribution.tsv");
-  for(size_t n = 1000; n; --n)
-    o << d(e) << "\t" << "\n";
-  o.close();
+  // 分布オブジェクトを生成。
+  // コンストラクタには、確率列のイテレータ範囲を指定する。
+  std::discrete_distribution<std::size_t> dist(
+    probabilities.begin(),
+    probabilities.end()
+  );
 
-}catch(const std::exception& e){
-  std::cerr << e.what();
+  std::ofstream result_file("discrete_distribution.tsv");
+  for (size_t n = 0; n < 1000; ++n) {
+    // 確率列に基いて、ランダムなインデックスを生成する。
+    // 確率0.1のものが選択された場合は1が返され、
+    // 確率0.6が選択された場合は10が返される。
+    std::size_t result = dist(engine);
+
+    result_file << result << "\t\n";
+  }
 }
 ```
 
