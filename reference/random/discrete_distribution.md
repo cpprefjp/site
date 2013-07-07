@@ -1,8 +1,9 @@
 #discrete_distribution(C++11)
 ```cpp
-namespace std{
+namespace std {
   template <class IntType = int>
   class discrete_distribution;
+}
 ```
 
 ##概要
