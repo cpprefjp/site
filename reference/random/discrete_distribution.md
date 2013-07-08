@@ -23,7 +23,7 @@ namespace std {
 |----------------------------------------------------------------------|------------------------------|-------|
 | [`(constructor)`](./discrete_distribution/discrete_distribution.md)  | コンストラクタ               | C++11 |
 | `~discrete_distribution() = default;`                                | デストラクタ                 | C++11 |
-| `reset`                                                              | 分布のパラメータを設定し直す | C++11 |
+| [`reset`](./discrete_distribution/reset.md)                          | 状態をリセットする           | C++11 |
 
 
 ###生成
