@@ -12,6 +12,7 @@ discrete_distribution(size_t nw, double xmin, double xmax, UnaryOperation fw);
 
 explicit discrete_distribution(const param_type& parm);
 ```
+* initializer_list[link /reference/initializer_list.md]
 
 ##discrete_distributionオブジェクトの構築
 - `discrete_distribution();`
