@@ -26,15 +26,16 @@ explicit discrete_distribution(const param_type& parm);
 確率列の範囲を受け取るコンストラクタ。受け取った範囲を、乱数生成のパラメータとして保持する。  
 `firstW == lastW`の場合(要素数0の場合)、確率列の要素数1、0番目の確率を1で初期化し、乱数生成が常に0を返すようになる。  
 
-要件： `InputIterator`の要素型が、double型に変換可能であること。
-
+要件： `InputIterator`の要素型が、double型に変換可能であること。 
+ 
+ 
 
 - `discrete_distribution(initializer_list<double> wl);`
 
 確率列の初期化子リストを受け取るコンストラクタ。受け取ったリストの範囲を、乱数生成のパラメータとして保持する。  
-`discrete_distribution(wl.begin(), wl.end())` と同じ効果を持つ。
-
-
+`discrete_distribution(wl.begin(), wl.end())` と同じ効果を持つ。 
+ 
+ 
 - `template<class UnaryOperation>`<br/>`discrete_distribution(size_t nw, double xmin, double xmax, UnaryOperation fw);`
 
 確率値の範囲を受け取るコンストラクタ。  
@@ -43,12 +44,12 @@ explicit discrete_distribution(const param_type& parm);
 以下の公式で確率列を構築する。δの値を`0 < δ = (xmax−xmin)/n`として、`k番目の確率 = fw(xmin + k・δ + δ/2)`。  
 `nw`が0だった場合、確率列の要素数を1、0番目の確率を1で初期化する。
 
-計算量：`fw`関数オブジェクトの呼び出しが、要素数nを超えないものとする。
-
-
+計算量：`fw`関数オブジェクトの呼び出しが、要素数nを超えないものとする。 
+ 
+ 
 - `explicit discrete_distribution(const param_type& parm);`
 
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
+パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。 
 
 ##例
 ```cpp
