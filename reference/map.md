@@ -110,6 +110,6 @@ namespace std {
 | [`operator<=`](./map/op_greater_equal.md) | 左辺が右辺より小さいか等しいかの判定を行う | |
 | [`operator>`](./map/op_greater_than.md)   | 左辺が右辺より大きいかの判定を行う         | |
 | [`operator>=`](./map/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
-| [`swap`](./map/swap.md)                   | 2つの`map`オブジェクトを入れ替える         | |
+| [`swap`](./map/swap_free.md)              | 2つの`map`オブジェクトを入れ替える         | |
 
 

@@ -1,15 +1,23 @@
-#swap
+#swap(フリー関数版)
 ```cpp
-void swap(map<Key,T, Compare,Allocator>& st);
+namespace std {
+  template <class Key, class T, class Compare, class Allocator>
+  void swap(map<Key,T,Compare,Allocator>& x,
+            map<Key,T,Compare,Allocator>& y);
+}
 ```
 
 ##概要
-コンテナ内のコンテンツを、同じ型の要素を保持する他の `map` オブジェクトである `st` 内のコンテンツと交換する。サイズは異なる場合もある。 
-このメンバ関数の呼び出しの後、呼び出し前にコンテナ内にあった要素は `st` へ、`st` 内にあった要素は `*this` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。 
+2つの `map` オブジェクトである `x` と 'y'が保持するコンテンツを交換する。サイズは異なる場合もある。 
+このメンバ関数の呼び出しの後、呼び出し前に 'x' にあった要素は `y` へ、`y` 内にあった要素は `x` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。 
 
 
-##パラメータ
-- `st`  `*this`とコンテンツを交換する、同じ型の `map` コンテナ。
+##効果
+`x.`[`swap`](./swap.md)`(y);`
+
+
+##戻り値
+なし
 
 
 ##計算量
@@ -45,7 +53,7 @@ int main()
   };
 
   // c1とc2を入れ替える
-  c1.swap(c2);
+  std::swap(c1, c2);
 
   print("c1", c1);
   print("c2", c2);
