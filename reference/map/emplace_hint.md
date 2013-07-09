@@ -33,18 +33,18 @@ using namespace std;
 
 int main() 
 {
-    map<int, char> c;
+  map<int, char> c;
 
-    c.emplace( piecewise_construct, make_tuple(1), make_tuple('A') );
-    c.emplace_hint( c.end(), piecewise_construct, make_tuple(2), make_tuple('B') );
-    c.emplace_hint( c.end(), piecewise_construct, make_tuple(3), make_tuple('C') );
-    c.emplace_hint( c.end(), piecewise_construct, make_tuple(4), make_tuple('D') );
+  c.emplace( piecewise_construct, make_tuple(1), make_tuple('A') );
+  c.emplace_hint( c.end(), piecewise_construct, make_tuple(2), make_tuple('B') );
+  c.emplace_hint( c.end(), piecewise_construct, make_tuple(3), make_tuple('C') );
+  c.emplace_hint( c.end(), piecewise_construct, make_tuple(4), make_tuple('D') );
 
-    for( auto pr : c ) {
-        cout << get<0>( pr) << " " << get<1>( pr ) << endl;
-    }
+  for( const auto& pr : c ) {
+      cout << get<0>( pr) << " " << get<1>( pr ) << endl;
+  }
 
-    return 0;
+  return 0;
 }
 ```
 

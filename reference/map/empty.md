@@ -26,15 +26,15 @@ using namespace std;
 
 int main ()
 {
-    map<int, char> c;
+  map<int, char> c;
 
-    cout << c.empty() << endl;
+  cout << c.empty() << endl;
 
-    c.insert(std::make_pair(42,'a'));
+  c.insert(std::make_pair(42,'a'));
 
-    cout << c.empty() << endl;
+  cout << c.empty() << endl;
 
-    return 0;
+  return 0;
 }
 ```
 

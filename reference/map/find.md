@@ -28,13 +28,13 @@ using namespace std;
 
 int main()
 {
-    map<int, char> c;
+  map<int, char> c;
 
-    c.insert(std::make_pair(1,'a'));
+  c.insert(std::make_pair(1,'a'));
 
-    cout << (c.find(1) == c.end()) << endl;
-    cout << (c.find(2) == c.end()) << endl;
-    return 0;
+  cout << (c.find(1) == c.end()) << endl;
+  cout << (c.find(2) == c.end()) << endl;
+  return 0;
 }
 ```
 

@@ -46,23 +46,23 @@ using namespace std;
 
 int main()
 {
-    map<int, char> c;
+  map<int, char> c;
 
-    c.insert(std::make_pair(1,'A'));
-    c.insert(std::make_pair(2,'B'));
-    c.insert(std::make_pair(3,'C'));
-    cout << c.size() << endl;
+  c.insert(std::make_pair(1,'A'));
+  c.insert(std::make_pair(2,'B'));
+  c.insert(std::make_pair(3,'C'));
+  cout << c.size() << endl;
 
-    c.erase(1);
-    cout << c.size() << endl;
+  c.erase(1);
+  cout << c.size() << endl;
 
-    c.erase(5);
-    cout << c.size() << endl;
+  c.erase(5);
+  cout << c.size() << endl;
 
-    c.erase(c.begin(), c.end());
-    cout << c.size() << endl;
+  c.erase(c.begin(), c.end());
+  cout << c.size() << endl;
 
-    return 0;
+  return 0;
 }
 ```
 
