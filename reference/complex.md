@@ -10,17 +10,17 @@ namespace std {
 
 ###メンバ関数
 
-| | |
-|---------------|--------------------------------------------------------|
-| `(constructor)` | コンストラクタ |
-| `(destructor)` | デストラクタ |
-| `real` | 複素数値の実部を取得／設定する |
-| `imag` | 複素数値の虚部を取得／設定する |
-| `operator=` | 複素数値のコピー |
-| `operator+=` | 複素数値の加算 |
-| `operator-=` | 複素数値の減算 |
-| `operator*=` | 複素数値の乗算 |
-| `operator/=` | 複素数値の除算 |
+| 名前 | 説明 | 対応バージョン |
+|---------------|------------------------|-------|
+| `(constructor)` | コンストラクタ | |
+| `(destructor)` | デストラクタ | |
+| `real` | 複素数値の実部を取得／設定する | |
+| `imag` | 複素数値の虚部を取得／設定する | |
+| `operator=` | 複素数値のコピー | |
+| `operator+=` | 複素数値の加算 | |
+| `operator-=` | 複素数値の減算 | |
+| `operator*=` | 複素数値の乗算 | |
+| `operator/=` | 複素数値の除算 | |
 
 
 ###例
@@ -63,38 +63,38 @@ int main() try{
 
 ###関数
 
-| | |
-|------------|----------------------------------------------------------------------------------|
-| `acos` | `complex` の逆余弦を求める  |
-| `asin` | `complex` の逆正弦を求める |
-| `atan` | `complex` の逆正接を求める |
-| `acosh` | `complex` の双曲線逆余弦を求める |
-| `asinh` | `complex` の双曲線逆正弦を求める  |
-| `atanh` | `complex` の双曲線逆正接を求める |
-| `cos` | `complex` の余弦を求める |
-| `cosh` | `complex` の双曲線余弦を求める |
-| `exp` | `complex` の指数関数を求める |
-| `log` | `complex` の自然対数を求める |
-| `log10` | `complex` の常用対数を求める |
-| `pow` | `complex` の累乗を求める |
-| `sin` | `complex` の正弦を求める |
-| `sinh` | `complex` の双曲線正弦を求める |
-| `sqrt` | `complex` の平方根を求める |
-| `tan` | `complex` の正接を求める |
-| `tanh` | `complex` の双曲線正接を求める |
-| `operator+` | 左辺の `complex` に 右辺の `complex` を加算する |
-| `operator-` | 左辺の `complex` に 右辺の `complex` を減算する |
-| `operator*` | 左辺の `complex` に 右辺の `complex` を乗算する |
-| `operator/` | 左辺の `complex` に 右辺の `complex` を除算する |
-| `operator==` | 左辺の `complex` と 右辺の `complex` の値が等しいか比較する |
-| `operator!=` | 左辺の `complex` と 右辺の `complex` の値が等しくないか比較する |
-| `real` | `complex` の実部を得る |
-| `imag` | `complex` の虚部を得る |
-| `abs` | `complex` の大きさ(マグニチュード)を得る |
-| `norm` | `complex` のノルム(マグニチュードの自乗)を得る |
-| `conj` | `complex` の共役複素数を得る |
-| `proj` | `complex` の複素射影直線(リーマン球面への射影)を得る |
-| `polar` | `complex` を大きさ `ρ` と位相 `Θ` の表現に変換する |
+| 名前 | 説明 | 対応バージョン |
+|------------|----------------------------------------------------------------------------------|-------|
+| `acos` | `complex` の逆余弦を求める | C++11 |
+| `asin` | `complex` の逆正弦を求める | C++11 |
+| `atan` | `complex` の逆正接を求める | C++11 |
+| `acosh` | `complex` の双曲線逆余弦を求める | C++11 |
+| `asinh` | `complex` の双曲線逆正弦を求める | C++11 |
+| `atanh` | `complex` の双曲線逆正接を求める | C++11 |
+| `cos` | `complex` の余弦を求める | |
+| `cosh` | `complex` の双曲線余弦を求める | |
+| `exp` | `complex` の指数関数を求める | |
+| `log` | `complex` の自然対数を求める | |
+| `log10` | `complex` の常用対数を求める | |
+| `pow` | `complex` の累乗を求める | |
+| `sin` | `complex` の正弦を求める | |
+| `sinh` | `complex` の双曲線正弦を求める | |
+| `sqrt` | `complex` の平方根を求める | |
+| `tan` | `complex` の正接を求める | |
+| `tanh` | `complex` の双曲線正接を求める | |
+| `operator+` | 左辺の `complex` に 右辺の `complex` を加算する | |
+| `operator-` | 左辺の `complex` に 右辺の `complex` を減算する | |
+| `operator*` | 左辺の `complex` に 右辺の `complex` を乗算する | |
+| `operator/` | 左辺の `complex` に 右辺の `complex` を除算する | |
+| `operator==` | 左辺の `complex` と 右辺の `complex` の値が等しいか比較する | |
+| `operator!=` | 左辺の `complex` と 右辺の `complex` の値が等しくないか比較する | |
+| `real` | `complex` の実部を得る | |
+| `imag` | `complex` の虚部を得る | |
+| `abs` | `complex` の大きさ(マグニチュード)を得る | |
+| `norm` | `complex` のノルム(マグニチュードの自乗)を得る | |
+| `conj` | `complex` の共役複素数を得る | |
+| `proj` | `complex` の複素射影直線(リーマン球面への射影)を得る | C++11 |
+| `polar` | `complex` を大きさ `ρ` と位相 `Θ` の表現に変換する | |
 
 ###例
 ```cpp
