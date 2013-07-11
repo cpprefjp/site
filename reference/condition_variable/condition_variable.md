@@ -11,29 +11,29 @@ namespace std {
 
 ###メンバ関数
 
-| | |
-|----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`(constructor)`](./condition_variable/condition_variable.md) | コンストラクタ |
-| [`(destructor)`](./condition_variable/-condition_variable.md) | デストラクタ |
-| `operator=(const condition_variable&) = delete;` | 代入演算子 |
-| [`notify_one`](./condition_variable/notify_one.md) | 待機しているスレッドをひとつ起床させる |
-| [`notify_all`](./condition_variable/notify_all.md) | 待機している全てのスレッドを起床させる |
-| [`wait`](./condition_variable/wait.md) | 起床されるまで待機する |
-| [`wait_for`](./condition_variable/wait_for.md) | 相対時間のタイムアウトを指定して、起床されるまで待機する |
-| [`wait_until`](./condition_variable/wait_until.md) | 絶対時間のタイムアウトを指定して、起床されるまで待機する |
-| [`native_handle`](./condition_variable/native_handle.md) | 条件変数のハンドルを取得する |
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------------------------|----------------------------------------------------------|-------|
+| [`(constructor)`](./condition_variable/condition_variable.md) | コンストラクタ | C++11 |
+| [`(destructor)`](./condition_variable/-condition_variable.md) | デストラクタ | C++11 |
+| `operator=(const condition_variable&) = delete;`              | 代入演算子 | C++11 |
+| [`notify_one`](./condition_variable/notify_one.md)            | 待機しているスレッドをひとつ起床させる | C++11 |
+| [`notify_all`](./condition_variable/notify_all.md)            | 待機している全てのスレッドを起床させる | C++11 |
+| [`wait`](./condition_variable/wait.md)                        | 起床されるまで待機する | C++11 |
+| [`wait_for`](./condition_variable/wait_for.md)                | 相対時間のタイムアウトを指定して、起床されるまで待機する | C++11 |
+| [`wait_until`](./condition_variable/wait_until.md)            | 絶対時間のタイムアウトを指定して、起床されるまで待機する | C++11 |
+| [`native_handle`](./condition_variable/native_handle.md)      | 条件変数のハンドルを取得する | C++11 |
 
 ###メンバ型
 
-| | |
-|--------------------------------------------------------------------------------|--------------------------------|
-| native_handle_type | 実装依存のハンドル型 |
+| 名前 | 説明 | 対応バージョン |
+|----------------------|----------------------|-------|
+| `native_handle_type` | 実装依存のハンドル型 | C++11 |
 
 ###非メンバ関数
 
-| | |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| [`notify_all_at_thread_exit`](./condition_variable/notify_all_at_thread_exit.md) | 現在のスレッド終了時に、条件変数が待っている全てのスレッドを起床させる |
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------------------------------------------|------------------------------------------------------------------------|-------|
+| [`notify_all_at_thread_exit`](./condition_variable/notify_all_at_thread_exit.md) | 現在のスレッド終了時に、条件変数が待っている全てのスレッドを起床させる | C++11 |
 
 
 ###例
