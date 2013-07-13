@@ -28,23 +28,24 @@ namespace std {
 
 ##概要
 
-クラステンプレート`hash`は、非順序連想コンテナのキーとなる型のためのハッシュ値を計算するための関数オブジェクトである。このクラスはそのものに定義はなく、ユーザーが任意の型で特殊化する際の要件を定義する。`hash`クラステンプレートを特殊化する場合、以下の機能を持たせる必要がある：
+クラステンプレート`hash`は、非順序連想コンテナ（[`unordered_map`](/reference/unordered_map/unordered_map.md)/[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md)/[`unordered_set`](/reference/unordered_set/unordered_set.md)/[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md)）のキーとなる型のためのハッシュ値を計算する関数オブジェクトである。
+このクラスはそのものにデフォルトの定義は存在せず、ユーザーが任意の型で特殊化する際の要件を定義する。`hash`クラステンプレートを特殊化する場合、以下の機能を持たせる必要がある：
 
 ###メンバ関数
 
-| | |
+| 名前 | 説明 |
 |-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| `hash()`<br/>`hash(const hash&);`<br/>`hash(hash&&);` | デフォルトコンストラクタ、コピーコンストラクタ、ムーブコンストラクタを持つ |
-| `~hash();` | デストラクタを持つ |
-| `hash& operator=(const hash&);` `hash& operator=(hash&&);` | コピー代入演算子とムーブ代入演算子を持つ |
-| `size_t operator()(T key);` | 関数呼び出し演算子によって、キーに対応するハッシュ値を返す |
+| `hash()`<br/>`hash(const hash&)`<br/>`hash(hash&&)` | デフォルトコンストラクタ、コピーコンストラクタ、ムーブコンストラクタを持つ |
+| `~hash()` | デストラクタを持つ |
+| `hash& operator=(const hash&)`<br/>`hash& operator=(hash&&)` | コピー代入演算子とムーブ代入演算子を持つ |
+| `size_t operator()(T key)` | 関数呼び出し演算子によって、キーに対応するハッシュ値を返す |
 
 ###メンバ型
 
-| | |
-|----------------------------|--------------------------------------------------------------------------------------------------------------------|
-| `result_type` | 戻り値の型([`size_t`](/reference/cstddef/size_t.md)) |
-| `argument_type` | 引数の型(キーの型) |
+| 名前 | 説明 |
+|-----------------|------------------------------------------------------|
+| `result_type`   | 戻り値の型([`size_t`](/reference/cstddef/size_t.md)) |
+| `argument_type` | 引数の型(キーの型`T`) |
 
 ###例
 ```cpp
@@ -57,7 +58,7 @@ int main()
  
   // char型の値'C'に対するハッシュ値を求める
   std::cout << std::hash<char>()('C') << std::endl;
-  // int型の値3に対するハッシュ値を求める
+  // int型の値100に対するハッシュ値を求める
   std::cout << std::hash<int>()(100) << std::endl;
   // double型の値3.14に対するハッシュ値を求める
   std::cout << std::hash<double>()(3.14) << std::endl;
