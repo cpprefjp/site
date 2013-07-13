@@ -6,16 +6,16 @@ namespace std {
 ```
 
 ##概要
-`once_flag`は、一度だけ指定された処理を呼び出す[`call_once()`](/reference/mutex/call_once.md)関数で、呼び出したかどうかの状態として使用するクラスである。
+`once_flag`は、一度だけ指定された処理を呼び出す[`call_once()`](/reference/mutex/call_once.md)関数で、呼び出し済みかどうかの状態フラグとして使用するクラスである。
 
 
 ###メンバ関数
 
-| | |
-|---------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`(constructor)`](./once_flag/once_flag.md) | コンストラクタ |
-| `~once_flag() = default` | デストラクタ |
-| `operator=(const once_flag&) = delete` | 代入演算子 |
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|----------------|-------|
+| [`(constructor)`](./once_flag/once_flag.md) | コンストラクタ | C++11 |
+| `~once_flag() = default`                    | デストラクタ   | C++11 |
+| `operator=(const once_flag&) = delete`      | 代入演算子     | C++11 |
 
 
 ###例
@@ -48,6 +48,7 @@ int main()
   t3.join();
 }
 ```
+* std::once_flag[color ff0000]
 
 ###出力
 ```

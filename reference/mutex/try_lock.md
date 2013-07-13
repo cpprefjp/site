@@ -75,7 +75,7 @@ int main()
   }
 }
 ```
-* try_lock[color ff0000]
+* std::try_lock[color ff0000]
 
 ###出力
 ```

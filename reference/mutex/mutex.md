@@ -6,25 +6,26 @@ namespace std {
 ```
 
 ##概要
-`mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスである。[`lock()`](./mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](./mutex/unlock.md)メンバ関数でリソースのロックを手放す。このクラスのデストラクタは自動的に[`unlock()`](./mutex/unlock.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](./lock_guard.md)のようなクラスと併用する。
+`mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスである。[`lock()`](./mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](./mutex/unlock.md)メンバ関数でリソースのロックを手放す。
+このクラスのデストラクタは自動的に[`unlock()`](./mutex/unlock.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)や[`unique_lock`](/reference/mutex/unique_lock.md)といったロック管理クラスと併用する。
 
 ###メンバ関数
 
-| | |
-|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| [`(constructor)`](./mutex/mutex.md) | コンストラクタ |
-| [`(destructor)`](./mutex/-mutex.md) | デストラクタ |
-| `operator=(const mutex&) = delete;` | 代入演算子 |
-| [`lock`](./mutex/lock.md) | ロックを取得する |
-| [`try_lock`](./mutex/try_lock.md) | ロックの取得を試みる |
-| [`unlock`](./mutex/unlock.md) | ロックを手放す |
-| [`native_handle`](./mutex/native_handle.md) | ミューテックスのハンドルを取得する |
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------|--------------------------------------------|-------|
+| [`(constructor)`](./mutex/mutex.md) | コンストラクタ | C++11 |
+| [`(destructor)`](./mutex/-mutex.md) | デストラクタ | C++11 |
+| `operator=(const mutex&) = delete;` | 代入演算子 | C++11 |
+| [`lock`](./mutex/lock.md)           | ロックを取得する | C++11 |
+| [`try_lock`](./mutex/try_lock.md)   | ロックの取得を試みる | C++11 |
+| [`unlock`](./mutex/unlock.md)       | ロックを手放す | C++11 |
+| [`native_handle`](./mutex/native_handle.md) | ミューテックスのハンドルを取得する | C++11 |
 
 ###メンバ型
 
-| | |
-|---------------------------------|--------------------------------|
-| `native_handle_type` | 実装依存のハンドル型 |
+| 名前 | 説明 | 対応バージョン |
+|----------------------|----------------------|-------|
+| `native_handle_type` | 実装依存のハンドル型 | C++11 |
 
 
 ###例
@@ -66,6 +67,7 @@ int main()
   x.print();
 }
 ```
+* std::mutex[color ff0000]
 
 ###出力
 ```

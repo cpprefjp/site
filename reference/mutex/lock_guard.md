@@ -7,23 +7,24 @@ namespace std {
 ```
 
 ##概要
-`lock_guard`は、ミューテックスの`lock()/unlock()`処理をコンストラクタとデストラクタで確実に実行するためのクラスである。このクラスは通常、メンバ変数もしくはグローバル変数としてもつミューテックスオブジェクトに対し、関数内の先頭で`lock()`、関数を抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。テンプレートパラメータ`Mutex`は、`lock()/unlock()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
+`lock_guard`は、ミューテックスの`lock()/unlock()`処理をコンストラクタとデストラクタで確実に実行するためのクラスである。このクラスは通常、メンバ変数もしくはグローバル変数としてもつミューテックスオブジェクトに対し、関数内の先頭で`lock()`、関数を抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
+テンプレートパラメータ`Mutex`は、`lock()/unlock()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
 
 
 ###メンバ関数
 
-| | |
-|-----------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`(constructor)`](./lock_guard/lock_guard.md) | コンストラクタ |
-| [`(destructor)`](./lock_guard/-lock_guard.md) | デストラクタ |
-| `operator=(const lock_guard&) = delete` | 代入演算子 |
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------------|----------------|-------|
+| [`(constructor)`](./lock_guard/lock_guard.md) | コンストラクタ | C++11 |
+| [`(destructor)`](./lock_guard/-lock_guard.md) | デストラクタ   | C++11 |
+| `operator=(const lock_guard&) = delete`       | 代入演算子     | C++11 |
 
 
 ###メンバ型
 
-| | |
-|-------------------------|--------------------|
-| `mutex_type` | `Mutex` |
+| 名前 | 説明 | 対応バージョン |
+|--------------|-------------------------|-------|
+| `mutex_type` | ミューテックス型`Mutex` | C++11 |
 
 
 ###例
@@ -74,6 +75,7 @@ int main()
   x.print();
 }
 ```
+* std::lock_guard[color ff0000]
 
 ###出力
 ```
