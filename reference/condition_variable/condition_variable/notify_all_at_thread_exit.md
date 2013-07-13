@@ -99,8 +99,8 @@ int main()
 
 ###出力
 ```
-process data
-process data
+data is ready: true
+data is ready: true
 ```
 
 ##バージョン
