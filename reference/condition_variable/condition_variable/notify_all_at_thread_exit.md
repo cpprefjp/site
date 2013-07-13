@@ -17,11 +17,14 @@ namespace std {
 
 
 ##効果
-`lk`のロック所有権を（スレッドライブラリの）内部ストレージへと移し、`cond`に対して現在のスレッド終了時に通知するようスケジュールする。通知は以下のように行う：
+`lk`のロック所有権を（スレッドライブラリの）内部ストレージへと移し、スレッド終了時、スレッドローカルなデータを解放した後、`cond`を使って通知する。通知は以下のように行う：
 
-`lk.unlock();`
-`cond.`[`notify_all`](/reference/condition_variable/condition_variable/notify_all.md)`();`
-
+```cpp
+// ここでスレッドローカルストレージを解放
+lk.unlock();
+cond.notify_all();
+```
+* notify_all[link /reference/condition_variable/condition_variable/notify_all.md]
 
 ##戻り値
 なし
@@ -74,7 +77,7 @@ private:
   void process_data()
   {
     // ...データを処理する...
-    std::cout << "process data" << std::endl;
+    std::cout << std::boolalpha << "data is ready: " << data_ready_ << std::endl;
   }
 };
 
