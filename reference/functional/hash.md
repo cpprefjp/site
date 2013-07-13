@@ -50,21 +50,28 @@ namespace std {
 ```cpp
 #include <iostream>
 #include <functional>
-
+ 
 int main()
 {
-  int value = 3;
-
-  // int値3に対するハッシュ値を求める
-  int hash_value = std::hash<int>()(value);
-
-  std::cout << hash_value << std::endl;
+  int x;
+ 
+  // char型の値'C'に対するハッシュ値を求める
+  std::cout << std::hash<char>()('C') << std::endl;
+  // int型の値3に対するハッシュ値を求める
+  std::cout << std::hash<int>()(100) << std::endl;
+  // double型の値3.14に対するハッシュ値を求める
+  std::cout << std::hash<double>()(3.14) << std::endl;
+  // int*型のアドレス値(&x)に対するハッシュ値を求める
+  std::cout << std::hash<int*>()(&x) << std::endl;
 }
 ```
 
 ###出力例
 ```
-3
+67
+100
+1427109137
+3219530756
 ```
 
 ##バージョン
