@@ -10,6 +10,19 @@ type_info(const type_info& rhs) = delete;
 
 ##例
 ```cpp
+#include <typeinfo>
+ 
+int main()
+{
+  // デフォルト構築は不可能
+  // std::type_info t0;
+
+  // コピー(ムーブ)も不可能
+  // std::type_info t1 = typeid(int);
+
+  // const参照ならOK
+  const std::type_info& rt = typeid(int);
+}
 ```
 
 ###出力
