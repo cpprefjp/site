@@ -116,6 +116,6 @@ data is ready: true
 
 
 ##参照
-[_at_thread_exit系の関数が存在している理由](/article/at_thread_exit.md)
-[N3070 - Handling Detached Threads and thread_local Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3070.html)
+- [_at_thread_exit系の関数が存在している理由](/article/at_thread_exit.md)
+- [N3070 - Handling Detached Threads and thread_local Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3070.html)
 
