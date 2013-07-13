@@ -31,7 +31,7 @@ namespace std {
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | `result_type` | 戻り値型`bool` |
 | `first_argument_type` | 第1引数型[`shared_ptr`](/reference/memory/shared_ptr.md)`<T>` |
-| `second_argument_type` | 第2引数型[`shared_ptr](/reference/memory/shared_ptr.md)`<T>` |
+| `second_argument_type` | 第2引数型[`shared_ptr`](/reference/memory/shared_ptr.md)`<T>` |
 
 ##weak_ptr版
 ###メンバ関数
