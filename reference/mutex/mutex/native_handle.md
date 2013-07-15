@@ -9,7 +9,7 @@ native_handle_type native_handle();
 
 ##効果
 この関数は、実装依存のミューテックスハンドルを返す。 
-ハンドル型の意味は実装が決定し、libstdc++環境であればpthreadライブラリのミューテックス型`pthread_mutexatt_t*`を表す。 
+ハンドル型の意味は実装が決定し、libstdc++/POSIX環境ではpthreadライブラリのミューテックス型`pthread_mutex_t*`を表す。
 ハンドル型に対する操作は汎用的ではないため、環境依存のプログラミングが必要な場合に使用する。
 
 
@@ -19,7 +19,7 @@ native_handle_type native_handle();
 
 ##例
 ```cpp
-// libstdc++(pthread)環境での、ミューテックスの優先順位取得
+// libstdc++(pthread)環境での、ミューテックスの優先順位上限取得
 #include <iostream>
 #include <mutex>
 #include <pthread.h>
@@ -28,7 +28,7 @@ int main()
 {
   std::mutex mtx;
 
-  // ミューテックスの優先順位を取得する
+  // ミューテックスの優先順位上限を取得する
   int prioceiling = 0;
   pthread_mutex_getprioceiling(mtx.native_handle(), &prioceiling);
 
