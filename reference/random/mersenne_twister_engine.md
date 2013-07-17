@@ -134,4 +134,5 @@ int main()
 
 ##参照
 * [Mersenne Twister Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html)
+* [メルセンヌ・ツイスタ - Wikipedia](http://ja.wikipedia.org/wiki/メルセンヌ・ツイスタ)
 
