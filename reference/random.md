@@ -9,7 +9,7 @@
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------|------------------------------|-------|
 | [`linear_congruential_engine `](./random/linear_congruential_engine.md) | 線形合同法エンジン | C++11 |
-| `mersenne_twister_engine` | メルセンヌツイスターエンジン | C++11 |
+| [`mersenne_twister_engine`](./random/mersenne_twister_engine.md)        | メルセンヌツイスターエンジン | C++11 |
 | `subtract_with_carry_engine` | キャリー付き減算エンジン | C++11 |
 | `discard_block_engine` | ディスカードブロックエンジン | C++11 |
 | `independent_bits_engine` | インデペンデントビッツエンジン | C++11 |
