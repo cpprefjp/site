@@ -1,18 +1,17 @@
-#rbegin
+#crbegin(C++11)
 ```cpp
-reverse_iterator rbegin() noexcept;
-const_reverse_iterator rbegin() const noexcept;
+const_reverse_iterator crbegin() const noexcept;
 ```
 
 ##概要
 `map` コンテナ内の最後の要素を指す逆イテレータを返す。 
-内部的に、`map` コンテナは各要素をキーの値に従って下位から上位へと並べており、従って `rbegin()` は最上位のキーにあたる値を返す。 
-`rbegin()` は [`end()`](./end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
+内部的に、`map` コンテナは各要素をキーの値に従って下位から上位へと並べており、従って `crbegin()` は最上位のキーにあたる値を返す。 
+`crbegin()` は [`end()`](./end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
 
 ##戻り値
 反転したシーケンスの先頭を指す逆イテレータ。 
-`reverse_iterator` と `const_reverse_iterator` はともにメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、それぞれ `reverse_iterator<iterator>`, `reverse_iterator<const_iterator>` と定義される。
+`const_reverse_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、`reverse_iterator<const_iterator>` と定義される。
 
 
 ##計算量
@@ -34,8 +33,8 @@ int main()
   c.insert(std::make_pair(1, 'a'));
   c.insert(std::make_pair(1, 'a'));
 
-  map<int,char>::reverse_iterator i = c.rbegin();
-  for( ; i != c.rend() ; ++i )
+  map<int,char>::const_reverse_iterator i = c.crbegin();
+  for( ; i != c.crend() ; ++i )
     cout << i->first << " " << i->second << endl;
 
   return 0;
