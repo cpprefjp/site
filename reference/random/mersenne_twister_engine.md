@@ -38,7 +38,7 @@ namespace std {
 |-------------------------------------------------------------------------|------------------|-------|
 | [`(constructor)`](./mersenne_twister_engine/mersenne_twister_engine.md) | コンストラクタ   | C++11 |
 | `~mersenne_twister_engine() = default;`                                 | デストラクタ     | C++11 |
-| [`seed`](./mersenne_twister_engine/seed.m  d)                           | シードを設定する | C++11 |
+| [`seed`](./mersenne_twister_engine/seed.md)                             | シードを設定する | C++11 |
 
 
 ###生成
