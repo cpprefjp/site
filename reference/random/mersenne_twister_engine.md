@@ -85,6 +85,15 @@ namespace std {
 | `result_type default_seed`              | デフォルトのシード値。`5489u` | C++11 |
 
 
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------------------------|--------------------|-------|
+| [`operator==`](./mersenne_twister_engine/op_equal.md)     | 等値比較           | C++11 |
+| [`operator!=`](./mersenne_twister_engine/op_not_equal.md) | 非等値比較         | C++11 |
+| [`operator<<`](./mersenne_twister_engine/op_ostream.md)   | ストリームへの出力 | C++11 |
+
+
 ##例
 ```cpp
 #include <iostream>
