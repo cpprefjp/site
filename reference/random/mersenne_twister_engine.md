@@ -6,8 +6,13 @@ namespace std {
             UIntType b, size_t t,
             UIntType c, size_t l, UIntType f>
   class mersenne_twister_engine;
+
+  typedef … mt19937;
+  typedef … mt19937_64;
 }
 ```
+* mt19937[link ./mt19937.md]
+* mt19937_64[link ./mt19937_64.md]
 
 ##概要
 `mersenne_twister_engine`クラスは、メルセンヌ・ツイスター法による擬似乱数生成エンジンである。  
