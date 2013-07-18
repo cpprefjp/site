@@ -76,7 +76,7 @@ Thu Jul 18 13:46:26 2013
 - C++11
 
 ###処理系
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- Clang: 3.0, 3.1, 3.2, 3.3
 
 ##参照
 
