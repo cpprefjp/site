@@ -24,15 +24,46 @@ detach操作に失敗した場合、[`system_error`](/reference/system_error/sys
 
 
 ##備考
-detachされたスレッドは、他のスレッドから直接アクセスすることが出来なくなる。ただし、mutexオブジェクトなどを介して間接的に同期することは可能。
+detachされたスレッドは、他のスレッドから直接アクセスすることが出来なくなる。ただし、[`mutex`](/reference/mutex/mutex.md)や[`future`](/reference/future/future.md)オブジェクトなどを介して間接的に同期することは可能。
 
 
 ##例
 ```cpp
+#include <iostream>
+#include <thread>
+#include <future>
+
+std::future<int> start_async(int x, int y)
+{
+  std::packaged_task<int()> task([x,y]{
+    // 非同期実行されるタスク...
+    return x + y;
+  });
+  auto ftr = task.get_future();
+
+  // 新しいスレッド作成後にdetach操作
+  std::thread th(std::move(task));
+  th.detach();
+
+  return ftr;
+  // 変数thにはスレッドが紐付いていないため破棄可能
+}
+
+int main()
+{
+  auto result = start_async(1, 2);
+  //...
+
+  std::cout << result.get() << std::endl;
+}
 ```
+* detach[color ff0000]
+* future[link /reference/future/future.md]
+* packaged_task[link /reference/future/packaged_task.md]
 
 ###出力
 ```
+3
 ```
 
 ##バージョン
