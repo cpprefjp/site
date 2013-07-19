@@ -1,4 +1,4 @@
-#operator<<(C++11)
+#operator>>(C++11)
 ```cpp
 namespace std {
   template <class CharT, class Traits,
@@ -6,39 +6,58 @@ namespace std {
             UIntType a, size_t u, UIntType d, size_t s,
             UIntType b, size_t t,
             UIntType c, size_t l, UIntType f>
-  basic_ostream<CharT, Traits>& operator<<(
-    basic_ostream<CharT, Traits>& os
-    const mersenne_twister_engine<UIntType, w, n, m, r, a, u, d, s, b, t, c, l, f>& x);
+  basic_istream<CharT, Traits>& operator>>(
+    basic_istream<CharT, Traits>& os
+    mersenne_twister_engine<UIntType, w, n, m, r, a, u, d, s, b, t, c, l, f>& x);
 }
 ```
-* basic_ostream[link /reference/iostream/basic_ostream.md]
+* basic_istream[link /reference/iostream/basic_istream.md]
 
 ##概要
-ストリームへの出力を行う。
+ストリームからの入力を行う。
 
 
 ##効果
-`os`に対してフォーマットフラグ`ios_base::dec | ios_base::left`を設定する。  
-フォーマットを設定した`os`に対して、エンジン`x`の現在状態を出力する。
+`is`に対してフォーマットフラグ`ios_base::dec`を設定する。  
+フォーマットを設定した`is`から、`mersenne_twister_engine`の状態シーケンスを読み取り、オブジェクト`x`に格納する。  
+不正な入力だった場合、`is.setstate(ios::failbit)`を呼び出し、ストリームを失敗状態にする。
 
 
 ##事後条件
-`os`のフォーマットフラグが、この関数を呼び出す前の状態に戻ること。
+`is`のフォーマットフラグが、この関数を呼び出す前の状態に戻ること。
 
 
 ##戻り値
-`os`
+`is`
 
 
 ##例
 ```cpp
 #include <iostream>
+#include <sstream>
+#include <cassert>
 #include <random>
 
 int main()
 {
-  std::mt19937 engine;
-  std::cout << engine << std::endl;
+  std::stringstream ss;
+
+  // ストリームへ出力
+  {
+    std::mt19937 engine;
+    ss << engine;
+  }
+
+  // 出力結果を確認
+  std::cout << ss.str() << std::endl;
+
+  // 出力したストリームから読み込む
+  {
+    std::mt19937 engine;
+    ss >> engine;
+
+    assert(ss);
+  }
 }
 ```
 
