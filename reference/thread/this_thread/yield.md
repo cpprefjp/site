@@ -28,10 +28,36 @@ C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched
 
 ##例
 ```cpp
+#include <thread>
+#include <atomic>
+
+std::atomic<bool> done = false;
+int result;
+
+int main()
+{
+  std::thread th([]{
+    // 別スレッド上での処理...
+    result = 42;
+    done = true;
+  });
+
+  // ビジーループによる待機
+  while (!done) {
+    // yield()呼出により待機側スレッドのCPUリソース占有を避ける
+    std::this_thread::yield();
+  }
+
+  std::cout << "result=" << result << std::endl;
+
+  th.join();
+}
 ```
+* std::this_thread::yield[color ff0000]
 
 ###出力
 ```
+result=42
 ```
 
 ##バージョン

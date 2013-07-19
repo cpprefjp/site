@@ -17,10 +17,10 @@ void sleep_for(const chrono::duration<Rep, Period>& rel_time);
 }}
 ```
 
-| | |
-|------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| [`get_id`](./this_thread/get_id.md) | 現スレッドのスレッド識別子を取得する (function) |
-| [`yield`](./this_thread/yield.md) | 処理系に再スケジュールの機会を与える (function) |
-| [`sleep_until`](./this_thread/sleep_until.md) | 指定した絶対時刻を過ぎるまで現スレッドをブロックする (function template) |
-| [`sleep_for`](./this_thread/sleep_for.md) | 指定した相対時間だけ現スレッドをブロックする (function template) |
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------------|--------------------------------------------------------------------------|-------|
+| [`get_id`](./this_thread/get_id.md)           | 現スレッドのスレッド識別子を取得する (function)                          | C++11 |
+| [`yield`](./this_thread/yield.md)             | 処理系に再スケジュールの機会を与える (function)                          | C++11 |
+| [`sleep_until`](./this_thread/sleep_until.md) | 指定した絶対時刻を過ぎるまで現スレッドをブロックする (function template) | C++11 |
+| [`sleep_for`](./this_thread/sleep_for.md)     | 指定した相対時間だけ現スレッドをブロックする (function template)         | C++11 |
 

@@ -37,6 +37,7 @@ int main()
   return 0;
 }
 ```
+* std::this_thread::sleep_for[color ff0000]
 
 ###出力
 ```
