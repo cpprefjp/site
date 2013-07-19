@@ -51,6 +51,16 @@ namespace std {
 | `param_type`  | 分布パラメータの型。未規定。 | C++11 |
 
 
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------------------------------|----------------------|-------|
+| [`operator==`](./uniform_real_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](./uniform_real_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](./uniform_real_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](./uniform_real_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+
+
 ##例
 ```cpp
 #include <random>
