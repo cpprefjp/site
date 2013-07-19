@@ -36,17 +36,17 @@ int main()
   e1(); // e1 == e2にならないよう、e1の状態を進める
 
   if (e1 != e2) {
-    std::cout << "equal" << std::endl;
+    std::cout << "not equal" << std::endl;
   }
   else {
-    std::cout << "not equal" << std::endl;
+    std::cout << "equal" << std::endl;
   }
 }
 ```
 
 ###出力
 ```
-equal
+not equal
 ```
 
 ##バージョン
