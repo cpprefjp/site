@@ -28,6 +28,7 @@ namespace std {
 ```
 
 `std::numeric_limits`クラスは以下の特徴を持つ：
+
 * 実装の提供する算術型の性質を提供する
 * 浮動小数点型、整数型、`bool`型について特殊化が提供され、`is_specialized=true`になる
 * このクラスのメンバは全て `static constexpr` として定義されているため、定数式として使いやすい(C++11)
