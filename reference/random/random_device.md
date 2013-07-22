@@ -8,7 +8,7 @@ namespace std {
 ##概要
 `random_device`クラスは、非決定的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。
 
-`random_device`の実装は処理系定義だが、Windows環境では`CryptGenRandom()`関数のラッパーとして、UNIX系環境では`dev/random`や`dev/urandom`から値を読み取る形で定義される場合がある。
+`random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](http://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)関数のラッパーとして、UNIX系環境では`dev/random`や`dev/urandom`から値を読み取る形で定義される場合がある。
 
 予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといったものから乱数を生成する。
 
@@ -98,4 +98,6 @@ int main()
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md): ??
 
+##参照
+* [dev/random - Wikipedia](http://ja.wikipedia.org/wiki//dev/random)
 
