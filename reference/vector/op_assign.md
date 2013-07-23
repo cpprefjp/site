@@ -45,7 +45,6 @@ vector& operator=(initializer_list<T>); // C++11から
 #include <cassert>
 #include <vector>
 #include <algorithm> // std::equal
-```
 
 int main()
 {
@@ -54,7 +53,7 @@ int main()
     std::vector<int> v1 = {1, 2, 3};
     std::vector<int> v2;
 
-    v2 <color=ff0000>=</color> v1;
+    v2 = v1;
 
     assert(v1 == v2);
   }
@@ -64,7 +63,7 @@ int main()
     std::vector<int> v1 = {1, 2, 3};
     std::vector<int> v2;
 
-    v2 <color=ff0000>=</color> std::vector<int>(v1);
+    v2 = std::vector<int>(v1);
 
     assert(v1 == v2);
   }
@@ -72,18 +71,18 @@ int main()
   // 初期化子リストからのコピー代入
   {
     std::vector<int> v1;
-    v1 <color=ff0000>=</color> {1, 2, 3};
+    v1 = {1, 2, 3};
 
     // 事後条件の検証:
     std::initializer_list<int> init = {1, 2, 3};
     std::vector<int> v2;
-    v2 <color=ff0000>=</color> init;
+    v2 = init;
 
     assert(v2.size() == init.size());
     assert(std::equal(v2.begin(), v2.end(), init.begin()));
   }
 }
-
+```
 
 ###出力
 ```

@@ -37,17 +37,14 @@ OutputIterator copy_n(InputIterator first, Size n, OutputIterator result) {
 #include <algorithm>
 #include <iostream>
 #include <iterator>
+#include <vector>
  
 int main() {
-  std::copy_n(std::istream_iterator<int>(std::cin), 5, std::ostream_iterator<int>(std::cout, "\n"));
+  std::vector<int> v = { 3, 1, 5, 2, 4 };
+  std::copy_n(v.begin(), 5, std::ostream_iterator<int>(std::cout, "\n"));
 }
 ```
 * copy_n[color ff0000]
-
-###入力
-```
-3 1 5 2 4
-```
 
 ###出力
 ```

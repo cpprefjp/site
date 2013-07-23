@@ -37,7 +37,7 @@ InputIterator find_if_not(InputIterator first, InputIterator last, Predicate pre
 int main() {
   std::vector<int> v = { 3, 1, 4 };
   // 3ではない最初の要素を検索する
-  auto result = std::find_if_not<code style='color:black'>(v.begin(), v.end(), [](int x) { return x == 3; });
+  auto result = std::find_if_not(v.begin(), v.end(), [](int x) { return x == 3; });
   if (result == v.end()) {
     std::cout << "not found" << std::endl;
   } else {

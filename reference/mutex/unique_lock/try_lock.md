@@ -73,6 +73,8 @@ int main()
 
 ###出力
 ```
+terminate called after throwing an instance of 'std::system_error'
+  what():  Device or resource busy
 ```
 
 ##バージョン

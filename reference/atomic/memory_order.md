@@ -41,6 +41,11 @@ int main()
 * memory_order_acquire[color ff0000]
 * memory_order_release[color ff0000]
 
+###出力
+```
+3
+```
+
 [`atomic<bool>`](./atomic.md)型の変数`ready`への読み書きに注目すると、`main()`では変数`ready`に `true` を"release"操作として書き込み、`f()`では"acquire"操作としての読み込みを `true` が返されるまで繰り返している。よって、`f()`の`while`ループを抜けた時点で、`main()`の`ready.store()`と`f()`の`ready.load()`の間に順序付け(happens before関係)が成立している。
 ここでさらに変数`data`への読み書き(1), (2)に注目すると、(1)は`ready.store()`より前、(2)は`ready.load()`より後にあるので、以下のようなスレッド間の順序付け(happens before関係)が成立することになる。
    (1) → `ready.store()` → `ready.load()` → (2)

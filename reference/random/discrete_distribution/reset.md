@@ -31,8 +31,8 @@ int main()
   std::discrete_distribution<> dist = {0.1, 0.2, 0.3};
 
   for (int i = 0; i < 5; ++i) {
-	dist.reset(); // 前回生成までの状態をリセット
-	std::cout << dist(engine) << std::endl;
+    dist.reset(); // 前回生成までの状態をリセット
+    std::cout << dist(engine) << std::endl;
   }
 }
 ```

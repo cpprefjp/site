@@ -20,6 +20,7 @@ id get_id() const noexcept;
 ##例
 ```cpp
 #include <thread>
+#include <cassert>
 
 int main()
 {

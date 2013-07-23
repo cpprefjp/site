@@ -34,12 +34,12 @@ int main()
   // 空
   std::cout << um.empty() << std::endl;
 
-  um.[emplace](emplace)("1st", 1);
+  um.emplace("1st", 1);
 
   // 空ではない
   std::cout << um.empty() << std::endl;
 
-  um.[clear](clear)();
+  um.clear();
 
   // 空
   std::cout << um.empty() << std::endl;
@@ -49,6 +49,8 @@ int main()
 * iostream[link /reference/iostream]
 * string[link /reference/string.md]
 * unordered_map[link /reference/unordered_map.md]
+* emplace[link emplace.md]
+* clear[link clear.md]
 
 ###出力
 ```

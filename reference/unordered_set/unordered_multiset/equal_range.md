@@ -28,7 +28,7 @@ std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 template <class Iter>
 void print_range(const std::string& label, Iter begin, Iter it1, Iter it2, std::ostream& os = std::cout)
 {
-  os << label << ": " << std::distance(begin, it1) << ", "  << std::distance(begin, it2) << ")" << std::endl;
+  os << label << ": " << "[" << std::distance(begin, it1) << ", "  << std::distance(begin, it2) << ")" << std::endl;
 }
 
 int main()

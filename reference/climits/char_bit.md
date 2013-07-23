@@ -15,7 +15,7 @@
 
 int main()
 {
-  std::cout << CHA_BIT << '\n';
+  std::cout << CHAR_BIT << '\n';
 }
 ```
 

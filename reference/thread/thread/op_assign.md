@@ -28,6 +28,7 @@ thread& operator=(thread&& x) noexcept;
 ##例
 ```cpp
 #include <thread>
+#include <cassert>
 
 int main()
 {
@@ -40,7 +41,6 @@ int main()
   assert(!th1.joinable() && th2.joinable());
 
   th2.join();
-  return;
 }
 ```
 * th2 = std::move(th1);[color ff0000]

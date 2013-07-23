@@ -32,8 +32,8 @@ int main()
 
   c.insert(10);
 
-  cout << (c.find(10) == c.end()) << endl;
-  cout << (c.find(42) == c.end()) << endl;
+  cout << (c.find(10) != c.end()) << endl;
+  cout << (c.find(42) != c.end()) << endl;
   return 0;
 }
 ```

@@ -15,19 +15,19 @@ namespace std {
 
 int main()
 {
-  std::cout << "sieof(nullptr_t): " << sizeof(std::nullptr_t) << std::endl; // equals to sizeof(void*)
-	
+  std::cout << "sizeof(nullptr_t): " << sizeof(std::nullptr_t) << std::endl; // equals to sizeof(void*)
+
   std::cout << "is_object<nullptr_t>: " << std::is_object<std::nullptr_t>::value << std::endl;
-	 std::cout << "is_scalar<nullptr_t>: " << std::is_scalar<std::nullptr_t>::value << std::endl; // 0 on VS2012
-	 std::cout << "is_union<nullptr_t>: " << std::is_union<std::nullptr_t>::value << std::endl;
-	 std::cout << "is_array<nullptr_t>: " << std::is_array<std::nullptr_t>::value << std::endl;
-	 std::cout << "is_class<nullptr_t>: " << std::is_class<std::nullptr_t>::value << std::endl;
+  std::cout << "is_scalar<nullptr_t>: " << std::is_scalar<std::nullptr_t>::value << std::endl; // 0 on VS2012
+  std::cout << "is_union<nullptr_t>: " << std::is_union<std::nullptr_t>::value << std::endl;
+  std::cout << "is_array<nullptr_t>: " << std::is_array<std::nullptr_t>::value << std::endl;
+  std::cout << "is_class<nullptr_t>: " << std::is_class<std::nullptr_t>::value << std::endl;
 }
 ```
 
 ###出力
 ```
-sieof(nullptr_t): 4
+sizeof(nullptr_t): 4
 is_object<nullptr_t>: 1
 is_scalar<nullptr_t>: 1
 is_union<nullptr_t>: 0

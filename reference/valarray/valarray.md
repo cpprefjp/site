@@ -91,10 +91,10 @@ int main(){
   
   auto debug_print = [](const a_type& a){
     static size_t counter = 0;
-    std::cerr << "debug_print[" << counter << "]: ";
+    std::cout << "debug_print[" << counter << "]: ";
     for(auto v: a)
-      std::cerr << v << " ";
-    std::cerr << "\n";
+      std::cout << v << " ";
+    std::cout << "\n";
     ++counter;
   };
 
@@ -113,10 +113,10 @@ int main(){
 
 ###出力
 ```
-debug_print[0]: A B C D E F G H I
-debug_print[1]: > ? @ A B C D E F
-debug_print[2]: A G O Y L A Q J E
-debug_print[3]: B D F H J L N P R   
+debug_print[0]: A B C D E F G H I 
+debug_print[1]: > ? @ A B C D E F 
+debug_print[2]: A G O Y L A Q J E 
+debug_print[3]: B D F H J L N P R 
 ```
 
 ##例２ `valarray` クラステンプレートの `operator[]` メンバ関数の挙動
@@ -130,10 +130,10 @@ int main(){
   
   auto debug_print = [](const a_type& a){
     static size_t counter = 0;
-    std::cerr << "debug_print[" << counter << "]: ";
+    std::cout << "debug_print[" << counter << "]: ";
     for(auto v: a)
-      std::cerr << v << " ";
-    std::cerr << "\n";
+      std::cout << v << " ";
+    std::cout << "\n";
     ++counter;
   };
 
@@ -142,12 +142,12 @@ int main(){
   std::iota(&a[0], &a[a_length], 'A');
   debug_print(a);
   
-  std::cerr << "*** operator[](size_t) ***\n";
+  std::cout << "*** operator[](size_t) ***\n";
   for(size_t v: {0,1,2,3,4,5,6,7,8})
-    std::cerr << a[v];
-  std::cerr << "\n";
+    std::cout << a[v];
+  std::cout << "\n";
 
-  std::cerr << "*** operator[](slice) ***\n";
+  std::cout << "*** operator[](slice) ***\n";
   debug_print( a[std::slice(0,2,3)] );
   {
     auto b = a;
@@ -157,17 +157,17 @@ int main(){
     debug_print(b);
   }
 
-  std::cerr << "*** operator[](gslice) ***\n";
+  std::cout << "*** operator[](gslice) ***\n";
   debug_print( a[std::gslice(
     2,
     std::valarray<size_t>({2,3,1}),
     std::valarray<size_t>({13,3,1})
   )] );
 
-  std::cerr << "*** operator[](valarray<bool>) ***\n";
+  std::cout << "*** operator[](valarray<bool>) ***\n";
   debug_print( a[std::valarray<bool>({false,false,true,true,false,true})] );
 
-  std::cerr << "*** operator[](valarray<size_t>) ***\n";
+  std::cout << "*** operator[](valarray<size_t>) ***\n";
   debug_print( a[std::valarray<size_t>({19,4,0,19,8,12,4})] );
 }
 ```

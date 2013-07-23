@@ -43,7 +43,7 @@ void reserve(size_type n);
 
 int main()
 {
-  std::[unordered_set](unordered_multiset)<int> us{ 1, 2, 3, 4, 5, 6, };
+  std::unordered_set<int> us{ 1, 2, 3, 4, 5, 6, };
 
   std::cout << "size is " << us.size() << ", max_load_factor is " << us.max_load_factor() << std::endl;
 
@@ -62,6 +62,7 @@ int main()
   std::cout << "bucket_count is " << us.bucket_count() << std::endl;
 }
 ```
+* unordered_set[link /reference/unordered_set/unordered_set.md]
 * iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * size[link ./size.md]

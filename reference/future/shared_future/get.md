@@ -142,7 +142,8 @@ int main()
 
 ###出力例
 ```
-thread:0 sum:15thread:1 sum:40
+thread:0 sum:15
+thread:1 sum:40
 ```
 
 ##バージョン

@@ -47,7 +47,7 @@ void print(const C& c)
   std::cout << "size is " << c.size() <<
     ", bucket_count is " << c.bucket_count() <<
     ", load_factor is " << c.load_factor() <<
-    ", bucket_count * max_load_factor is " << static_cast<float>(c.bucket_count()) * c.<code style='color:red'>max_load_factor() << '\n' << std::endl;
+    ", bucket_count * max_load_factor is " << static_cast<float>(c.bucket_count()) * c.max_load_factor() << '\n' << std::endl;
 }
 
 int main()
@@ -81,15 +81,16 @@ int main()
   // bucket_count が変わった直後の状態を出力。
   print(us);
 
-  us.<code style='color:red'>max_load_factor(us.load_factor() / 2.0f); // (2) の形式。max_load_factor を現在の値の 1/2 を引数にして呼び出し。
+  us.max_load_factor(us.load_factor() / 2.0f); // (2) の形式。max_load_factor を現在の値の 1/2 を引数にして呼び出し。
 
-  z = us.<code style='color:red'>max_load_factor(); // (1) の形式。上記で設定した値。
+  z = us.max_load_factor(); // (1) の形式。上記で設定した値。
   std::cout << "max_load_factor is " << z << "\n\n";
 
   // 最終的な状態を出力。
   print(us);
 }
 ```
+* max_load_factor[color ff0000]
 * iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * size[link ./size.md]

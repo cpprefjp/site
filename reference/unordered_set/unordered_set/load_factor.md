@@ -58,7 +58,7 @@ int main()
 
 ###出力
 ```
-<pre style='margin:0'>`9, 7, 5, 3, 1,
+9, 7, 5, 3, 1,
 size is 5, bucket_count is 5, load_factor is 1
 
 10, 8, 6, 4, 2, 9, 7, 5, 3, 1,

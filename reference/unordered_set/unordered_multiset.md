@@ -212,9 +212,9 @@ int main()
 
 ###出力
 ```
-3rd element, 1st element, 2nd element,
-4th element, 3rd element, 1st element, 2nd element, 2nd element,
-4th element, 3rd element, 1st element,
+3rd element, 1st element, 2nd element, 
+4th element, 3rd element, 1st element, 2nd element, 2nd element, 
+4th element, 3rd element, 1st element, 
 ```
 
 ##バージョン
