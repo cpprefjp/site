@@ -16,8 +16,8 @@ namespace std {
 
 ###メンバ関数
 
-| | |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| 名前 | 説明 |
+|----------------------------------------------------|-----------------------------------------------|
 | [`(constructor)`](./istream_iterator/istream_iterator.md) | コンストラクタ |
 | `~istream_iterator() = default` | デストラクタ |
 | `operator=(const istream_iterator&) = default<br/> operator=(istream_iterator&&) = default` | 代入演算子 |
@@ -28,22 +28,23 @@ namespace std {
 
 ###メンバ型
 
-| | |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| `char_type` | `CharT (デフォルトはchar)` |
-| `traits_type` | `Traits (デフォルトはchar_traits<CharT>)` |
-| `difference_type` | `Distance (デフォルトはptrdiff_t)` |
-| `pointer` | `const T*` |
-| `value_type` | `T` |
+| 型 | 説明 |
+|---------------------|------------------------------------------------------------------------------------------|
+| `char_type`         | `CharT (デフォルトはchar)` |
+| `traits_type`       | `Traits (デフォルトはchar_traits<CharT>)` |
+| `istream_type`      | 入力ストリーム型 [`basic_istream`](/reference/istream/basic_istream.md)`<CharT, Traits>` |
+| `difference_type`   | `Distance (デフォルトはptrdiff_t)` |
+| `pointer`           | `const T*` |
+| `value_type`        | `T` |
 | `iterator_category` | [`input_iterator_tag`](/reference/iterator/iterator_tag.md) |
-| `reference` | `const T&` |
+| `reference`         | `const T&` |
 
 
 ###非メンバ関数
 
-| | |
-|-------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [`operator==`](./istream_iterator/op_equal.md) | 等値比較 |
+| 名前 | 説明 |
+|----------------------------------------------------|------------|
+| [`operator==`](./istream_iterator/op_equal.md)     | 等値比較   |
 | [`operator!=`](./istream_iterator/op_not_equal.md) | 非等値比較 |
 
 
