@@ -15,6 +15,7 @@ ostream_iterator(const ostream_iterator<T, CharT, Traits>& x) = default;
 #include <iostream>
 #include <iterator>
 #include <algorithm> // copy
+#include <vector>
 
 int main()
 {

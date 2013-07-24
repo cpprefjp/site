@@ -26,7 +26,7 @@ struct MyObj
   MyObj(int i) { std::cout << i << " "; }
   MyObj(const MyObj&) { std::cout << "copy "; }
   MyObj(const MyObj&&) { std::cout << "move "; }
-  MyObj& operator=(const MyObj&) { std::cout << "assign "; }
+  MyObj& operator=(const MyObj&) { std::cout << "assign "; return *this; }
 };
 
 int main ()

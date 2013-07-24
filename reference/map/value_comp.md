@@ -27,7 +27,7 @@ using namespace std;
 int main()
 {
   map<int,char> c;
-  map<int,char>::value_compare comp = c.key_comp();
+  map<int,char>::key_compare comp = c.key_comp();
 
   auto p1 = std::make_pair(1,'a');
   auto p2 = std::make_pair(2,'b');

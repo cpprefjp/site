@@ -27,7 +27,7 @@ namespace std {
 #include <type_traits>
 
 struct abstract_class {
-  virtual member() = 0;             // 純粋仮想関数を持つ
+  virtual void member() = 0;             // 純粋仮想関数を持つ
 };
 class non_abstract_class{};
 

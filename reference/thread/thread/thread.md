@@ -68,7 +68,9 @@ int func(int v, int& ri, std::shared_ptr<int> sp, std::unique_ptr<int> up)
 
 int main()
 {
-  int i1, i2 = 0;  std::shared_ptr<int> sp0 = std::make_shared<int>(5);
+  int i1 = 0;
+  int i2;
+  std::shared_ptr<int> sp0 = std::make_shared<int>(5);
   std::unique_ptr<int> up0(new int(2));
 
   std::thread thd( func, i1,  std::ref(i2), sp0, std::move(up0) );

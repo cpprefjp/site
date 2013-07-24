@@ -51,6 +51,7 @@ namespace std {
 #include <memory>
 #include <iostream>
 #include <algorithm>
+#include <numeric>
 
 int main(int argc, char** argv) {
   auto alc = std::allocator<int>();

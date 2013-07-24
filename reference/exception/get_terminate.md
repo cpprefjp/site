@@ -32,7 +32,7 @@ int main()
     std::cout << "null handler" << std::endl;
   }
 
-  std::set_terminate(on_terminate());
+  std::set_terminate(on_terminate);
   std::terminate_handler handler2 = std::get_terminate();
   if (handler2) {
     handler2();
@@ -40,8 +40,9 @@ int main()
 }
 ```
 
-###出力(実行環境がないため未記載)
+###出力
 ```
+on terminate
 ```
 
 ##バージョン
@@ -51,7 +52,7 @@ int main()
 ###処理系
 - [Clang](/implementation#clang.md): ??
 - [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.9.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
 

@@ -30,8 +30,9 @@ C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched
 ```cpp
 #include <thread>
 #include <atomic>
+#include <iostream>
 
-std::atomic<bool> done = false;
+std::atomic<bool> done(false);
 int result;
 
 int main()

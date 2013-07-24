@@ -85,6 +85,7 @@
 ```cpp
 #include <valarray>
 #include <iostream>
+
 int main(){
   typedef char v_type;
   typedef std::valarray<v_type> a_type;
@@ -124,6 +125,8 @@ debug_print[3]: B D F H J L N P R
 ```cpp
 #include <valarray>
 #include <iostream>
+#include <numeric>
+
 int main(){
   typedef char v_type;
   typedef std::valarray<v_type> a_type;

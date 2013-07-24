@@ -42,6 +42,7 @@ iterator insert_after(const_iterator position, initializer_list<T> il);
 #include <string>
 #include <iterator>
 #include <algorithm>
+#include <vector>
 
 template <class T>
 void print(const std::string& name, const std::forward_list<T>& ls)

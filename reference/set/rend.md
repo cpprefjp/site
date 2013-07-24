@@ -35,7 +35,7 @@ int main()
   c.insert(0);
   c.insert(9);
  
-  set<int>::iterator i = c.rbegin();
+  set<int>::reverse_iterator i = c.rbegin();
   while (i != c.rend())
     cout << *i++ << " ";
   
