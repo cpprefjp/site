@@ -75,7 +75,7 @@ int main()
     std::forward_list<int> xs = {1, 5, 6};
     std::forward_list<int> ys = {2, 3, 4};
 
-    xs.splice_after(xs.begin(), std::move(ys), ys.before_begin(), std::next(ys.begin(), 1));
+    xs.splice_after(xs.begin(), std::move(ys), ys.before_begin(), std::next(ys.begin(), 2));
 
     print(xs);
   }

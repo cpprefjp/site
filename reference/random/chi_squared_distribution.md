@@ -59,7 +59,7 @@ main()try{
   static const size_t seed_size = 8;
   typedef std::random_device device_type;
   typedef std::mt19937_64 engine_type;
-  typedef std::chi_square_distribution<> distribution_type;
+  typedef std::chi_squared_distribution<> distribution_type;
 
   auto s = [seed_size](){
     device_type r;
@@ -70,7 +70,7 @@ main()try{
   engine_type e(s);
 
   distribution_type d(1.7320504);
-  std::ofstream o("chi_square_distribution.tsv");
+  std::ofstream o("chi_squared_distribution.tsv");
   for(size_t n = 1024; n; --n)
     o << d(e) << "\t" << "\n";
   o.close();
@@ -80,7 +80,7 @@ main()try{
 ```
 
 ###出力
-このプログラムによってある時に得られた結果（[chi_square_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.tsv.7z)）を図示する。
+このプログラムによってある時に得られた結果（[chi_squared_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.tsv.7z)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.png)
 
