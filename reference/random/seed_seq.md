@@ -105,4 +105,7 @@ int main()
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md): ??
 
+##参照
+* [Does std::mt19937 require warmup? - StackOverflow](http://stackoverflow.com/questions/15509270/does-stdmt19937-require-warmup)
+* [Mersenne twister warm up vs. reproducibility](http://stackoverflow.com/questions/16078794/mersenne-twister-warm-up-vs-reproducibility)
 
