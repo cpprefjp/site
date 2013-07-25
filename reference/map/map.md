@@ -1,76 +1,118 @@
-#page_title(ページのタイトルです)(C++11)
+#コンストラクタ
 ```cpp
-void definition(); // 関数・変数・定数の宣言を記述します。
+explicit map(const Compare& comp = Compare(), const Allocator& alloc = Allocator());
+
+// since C++11
+explicit map(const Allocator&);
+
+template <class InputIterator>
+map(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& alloc = Allocator());
+
+map(const map<Key,T, Compare,Allocator>& x);
+
+// since C++11
+map(const map& x, const Allocator& alloc);
+
+// since C++11
+map(map<Key,T, Compare,Allocator>&& y);
+
+// since C++11
+map(map&& y, const Allocator& alloc);
+
+// since C++11
+map(initializer_list<value_type> init, const Compare& comp = Compare(), const Allocator& alloc = Allocator());
 ```
 
-##概要
-(ここには、関数・変数・定数の概要を記述します。必須事項です。)
+##setオブジェクトの構築
+- `explicit map(const Compare& comp = Compare(), const Allocator& alloc = Allocator());`
+- `explicit map(const Allocator& alloc);`<br/>
+デフォルトコンストラクタ。空のコンテナで構築する。 
+
+- `template <class InputIterator>`<br/>`map(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`<br/>
+範囲 `[first, last)` のコンテンツで構築する。 
+
+- `map(const map<Key,T, Compare,Allocator>& x);`
+- `map(const map& x, const Allocator& alloc);`<br/>
+コピーコンストラクタ。`x`のコンテンツのコピーでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `std::allocator_traits<allocator_type>::select_on_copy_construction(x)` の呼び出しによって取得する。 
+
+- `map(map<Key,T,Compare,Allocator>&& y);`
+- `map(map&& y, const Allocator& alloc);`<br/>
+ムーブコンストラクタ。`y` のコンテンツをムーブすることでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `y` に属しているアロケータをムーブして取得する。 
+
+- `map(initializer_list<value_type> init, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`<br/>
+初期化リスト `init` のコンテンツでコンテナを構築する。
 
 
-##要件
-(ここには、関数を実行するための事前条件、型への要件などを記述します。とくになければ、項目を削除してください。)
+##パラメータ
+- `alloc`<br/>
+このコンテナの全てのメモリ確保を行うアロケータ。 
 
+- `comp`<br/>
+キーの全ての比較を行う比較関数。 
 
-##効果
-(ここには、関数の内部で行われる効果:effect を記述します。戻り値しかないような関数の場合には、項目を削除してください。)
+- `first`, `last`<br/>
+要素のコピー元となる範囲。 
 
+- `x`<br/>
+コンテナの要素の初期化のコピー元として使われる、ほかのコンテナ。 
 
-##戻り値
-(ここには、関数の戻り値を記述します。戻り値の型が`void`の場合は、「なし」と記述してください。)
+- `y`<br/>
+コンテナの要素の初期化のムーブ元として使われる、ほかのコンテナ。 
+
+- `init`<br/>
+コンテナの要素を初期化するために使われる初期化リスト。
 
 
 ##計算量
-(ここには、アルゴリズムの計算量を記述します。規格上とくに明記がなければ、項目を削除してください。)
 
+デフォルトコンストラクタは定数時間。
 
-##備考
-(ここには、関数・変数・定数を説明するにあたっての、補足事項を記述します。とくになければ、項目を削除してください。)
+イテレータコンストラクタは、`comp` によって既にソート済みである場合は、イテレータ間の距離（コピーコンストラクト）。未ソートのシーケンスの場合は、それらの距離について N * logN （ソート、コピーコンストラクト）。 
+
+コピーコンストラクタは、`x` の `size` に対して線形時間（コピーコンストラクト）。 
+
+ムーブコンストラクタは定数時間。但し、`alloc` が与えられてかつ `alloc != y.`[`get_allocator`](./get_allocator.md)`()` の場合は線形時間。
+
+初期化リストを使ったコンストラクタは `init` のサイズに対して線形時間。
 
 
 ##例
 ```cpp
-// (ここには、関数・変数・定数を解説するための、サンプルコードを記述します。)
-// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。)
-
 #include <iostream>
+#include <map>
+using namespace std;
 
 int main()
 {
-  int variable = 0;
-  std::cout << variable << std::endl;
+  std::pair<int,char> values[] = { std::make_pair(1,'a'), std::make_pair(2,'b'), std::make_pair(2,'b') };
+  map<int,char> c1(values, values + 3);
+  map<int,char> c2(c1);
+
+  cout << "Size of c1: " << c1.size() << endl;
+  cout << "Size of c2: " << c2.size() << endl;
+
+  return 0;
 }
 ```
-* variable[color ff0000]
-(コードブロック中の識別子に、文字色を付ける例です。)
 
 ###出力
 ```
-0
+Size of c1: 2
+Size of c2: 2
 ```
-(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)  
-(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)
-
-
-##実装例
-```cpp
-// (ここには、その関数・変数・定数の、実装例を記述します。)
-// (とくに必要がないと判断した場合、項目を削除してください。)
-```
-
-##バージョン
-###言語
-- C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 1.9, 2.9, 3.0, 3.1, 3.2, 3.3
-- [GCC](/implementation#gcc.md): 3.4.6, 4.2.4, 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [ICC](/implementation#icc.md): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation#visual_cpp.md): 7.1, 8.0, 9.0, 10.0, 11.0
-
-(ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)  
-(これらの項目を削除した場合、C++03のあらゆる環境で使用できることを意味します。)
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): ??
+- [GCC, C++11 mode](/implementation#gcc.md): ??
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??, 11.0
 
 ##参照
-(ここには、その関数・変数・定数を理解するにあたっての参考資料や、関連する機能へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)
+
+| 名前 | 説明 |
+|---------------------------------------------------------------------------------------------|-----------------------|
+| [`operator=`](./op_assign.md) | 代入演算子 |
+| [`insert`](./insert.md) | 要素を挿入する |
+
 
