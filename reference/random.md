@@ -31,7 +31,7 @@
 | `ranlux24`      |  | C++11 |
 | `ranlux48`      |  | C++11 |
 | `knuth_b`       |  | C++11 |
-| `default_random_engine` |  | C++11 |
+| [`default_random_engine`](./random/default_random_engine.md) | 非専門用途でデフォルト使用するエンジン | C++11 |
 
 
 ##非決定的な乱数生成器
