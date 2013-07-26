@@ -44,7 +44,7 @@ for (size_t k = 0; k < m; ++k) {
 
 // 二度目の分布用変数を定義
 auto r3 = 1566083941 * T(begin[k] + begin[k+p] + begin[k-1]);
-r4 = r3 - k % n;
+auto r4 = r3 - k % n;
 
 // 二度目の分布
 for (size_t k = m; k < m + n; ++k) {
