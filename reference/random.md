@@ -121,7 +121,7 @@ int main()try{
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/random.png)
 
-緑のラインは d1 (一様分布; min=-1.0f, max=1.0f) 、赤のラインは d2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
+台形状のラインは d1 (一様分布; min=-1.0f, max=1.0f) 、三角形状のラインは d2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
 
 ##バージョン
 ###言語
