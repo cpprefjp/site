@@ -1,0 +1,57 @@
+#unitbuf
+```cpp
+namespace std {
+  ios_base& unitbuf(ios_base& str);
+}
+```
+
+##概要
+出力操作の都度バッファを吐き出すことを指示するマニピュレータ。
+
+##効果
+`str.setf(std::ios_base::unitbuf)`を実行する。
+
+##戻り値
+実引数のstrオブジェクト。
+
+##備考
+[`std::cerr`](../iostream/cerr.md)と[`std::wcerr`](../iostream/wcerr.md)オブジェクトは、
+初期状態として`std::ios_base::unitbuf`が設定されている。
+
+##例
+```cpp
+#include <iostream>
+
+int main()
+{
+  std::ios_base::sync_with_stdio(false);
+  std::clog.tie(nullptr);
+
+  std::cout << std::unitbuf;
+
+  std::cout << '1';
+  std::clog << 'A';
+  std::cout << '2';
+  std::clog << 'B';
+  std::cout << '3';
+  std::clog << 'C';
+
+  std::cout << std::endl;
+  std::clog << std::endl;
+}
+```
+
+###出力例
+標準出力と標準エラー出力が同一主力先であることを前提とする。
+```
+123
+ABC
+```
+'1'、'2'、'3'はすぐに出力され、"ABC"は`std::clog << std::endl;`が行われた際に出力されることを表現している。
+
+##バージョン
+###言語
+- C++03
+
+##参照
+- [`nounitbuf`](./nounitbuf.md)

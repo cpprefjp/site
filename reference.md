@@ -96,7 +96,7 @@
 |----------------------------------------|------------------------------|----------------|
 | `<iosfwd>`                             | 先行宣言                     |                |
 | [`<iostream>`](/reference/iostream.md) | 標準`iostream`オブジェクト   |                |
-| `<ios>`                                | `iostream`基本クラス         |                |
+| [`<ios>`](/reference/ios.md)           | `iostream`基底クラス         |                |
 | `<streambuf>`                          | ストリームバッファ           |                |
 | `<istream>`                            | 入力ストリーム               |                |
 | `<ostream>`                            | 出力ストリーム               |                |
