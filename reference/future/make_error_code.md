@@ -23,6 +23,7 @@ namespace std {
 ```cpp
 #include <iostream>
 #include <future>
+#include <string>
 
 int main()
 {

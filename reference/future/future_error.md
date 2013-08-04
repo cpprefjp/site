@@ -54,7 +54,7 @@ int main()
 ###出力例
 ```
 3
-value:2
+value:3
 what:Promise already satisfied
 ```
 
