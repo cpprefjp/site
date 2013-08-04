@@ -81,7 +81,7 @@ invalid argument!
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) 11.0
+- [Visual C++](/implementation#visual_cpp.md): 11.0
 
 
 ##参照
