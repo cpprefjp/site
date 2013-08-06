@@ -1,6 +1,5 @@
 #cbegin(C++11)
 ```cpp
-// since C++11
 const_iterator cbegin() const noexcept;
 ```
 
@@ -57,12 +56,9 @@ int main()
 7 G
 8 H
 ```
-##バージョン
-###言語
-- C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 3.0 3.1, 3.2, 3.3
+- [Clang](/implementation#clang.md): 3.0, 3.1, 3.2, 3.3
 - [GCC](/implementation#gcc.md): ??
 - [GCC, C++11 mode](/implementation#gcc.md): ??
 - [ICC](/implementation#icc.md): ??
@@ -75,8 +71,8 @@ int main()
 |------------------------------------------------------------------------------------------------|--------------------------------------------------|
 | [`map::begin`](/reference/map/begin.md) | 先頭をイテレータを取得する |
 | [`map::end`](/reference/map/end.md) | 末尾を指すイテレータを取得する |
-| [`map::cend`](/reference/map/cend.md) | 末尾を指すイテレータを取得する |
-| [`map::rbegin, crbegin`](/reference/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`map::rend, crend`](/reference/map/rend.md) | 先頭を指す逆イテレータを取得する |
+| [`map::cend`](/reference/map/cend.md) | 末尾を指すイテレータを取得する(C++11) |
+| [`map::rbegin, crbegin`](/reference/map/rbegin.md) | 末尾を指す逆イテレータを取得する(C++11) |
+| [`map::rend, crend`](/reference/map/rend.md) | 先頭を指す逆イテレータを取得する(C++11) |
 
 
