@@ -196,6 +196,11 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
+###備考
+※ VC++11.0段階の`std::thread`クラスは、コンストラクタに引数をムーブで渡すことができない。そのため、`promise`オブジェクトはスレッド間の共有オブジェクトにする必要がある。(所有権が曖昧になるため、スタイルとしてはよくない)  
+[#737812 - std::thread does not accept std::move](http://connect.microsoft.com/VisualStudio/feedback/details/737812)
+
+
 ##参照
 
 
