@@ -42,7 +42,7 @@ int main()
   // 結果が書き込まれるまで待機する
   // 3秒でタイムアウト
   std::future_status result = f.wait_for(std::chrono::seconds(3));
-  if (result == std::future_status::ready) {
+  if (result != std::future_status::timeout) {
     // 結果を取り出す(準備完了しているため、すぐに値を取り出せる)
     std::cout << f.get() << std::endl;
   }

@@ -45,7 +45,7 @@ int main()
   chrono::steady_clock::time_point tp = chrono::steady_clock::now();
 
   std::future_status result = f.wait_until(tp + chrono::seconds(3));
-  if (result == std::future_status::ready) {
+  if (result != std::future_status::timeout) {
     // 結果を取り出す(準備完了しているため、すぐに値を取り出せる)
     std::cout << f.get() << std::endl;
   }
