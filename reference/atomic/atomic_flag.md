@@ -10,13 +10,13 @@ namespace std {
 
 
 ###メンバ関数
-| | |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| [`(constructor)`](./atomic_flag/atomic_flag.md) | コンストラクタ |
-| `~atomic_flag() = default` | デストラクタ |
-| `operator=(const atomic_flag&) = delete operator=(const atomic_flag&) volatile = delete` | 代入演算子 |
-| [`test_and_set`](./atomic_flag/test_and_set.md) | テストしてフラグを立てる |
-| [`clear`](./atomic_flag/clear.md) | フラグをクリアする |
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------------------|--------------------------|-------|
+| [`(constructor)`](./atomic_flag/atomic_flag.md) | コンストラクタ           | C++11 |
+| `~atomic_flag() = default`                      | デストラクタ             | C++11 |
+| `operator=(const atomic_flag&) = delete`<br/>`operator=(const atomic_flag&) volatile = delete` | 代入演算子 | C++11 |
+| [`test_and_set`](./atomic_flag/test_and_set.md) | テストしてフラグを立てる | C++11 |
+| [`clear`](./atomic_flag/clear.md)               | フラグをクリアする       | C++11 |
 
 
 ###例
