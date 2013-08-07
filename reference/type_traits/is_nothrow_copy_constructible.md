@@ -31,12 +31,12 @@ struct s {
 
 struct t {
   t(const t&) = delete;
-  t(t&) = default;
+  t(t&&) = default;
 };
 
 struct u {
   u(const u&) = default;
-  u(u&) = delete;
+  u(u&&) = delete;
 };
 
 static_assert(std::is_nothrow_copy_constructible<int>::value == true, "value == true, int is nothrow copy constructible");
