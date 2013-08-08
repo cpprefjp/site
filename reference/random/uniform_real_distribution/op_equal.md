@@ -27,8 +27,8 @@ namespace std {
 
 int main()
 {
-  std::uniform_int_distribution<> a(0, 3);
-  std::uniform_int_distribution<> b(0, 3);
+  std::uniform_real_distribution<> a(0.0, 1.0);
+  std::uniform_real_distribution<> b(0.0, 1.0);
 
   if (a == b) {
     std::cout << "equal" << std::endl;
