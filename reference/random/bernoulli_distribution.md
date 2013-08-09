@@ -12,6 +12,12 @@ namespace std {
 コンストラクタで設定された確率`p`で`true`が生成され、確率`1.0 - p`で`false`が生成される。
 
 
+以下のような用途に使用できる：
+
+* コイントス。コインの表が出るか裏が出るか
+* 成功か失敗か
+
+
 ##メンバ関数
 ###構築・リセット
 
@@ -97,4 +103,8 @@ int main()
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md): ??
 
+
+##参照
+- [ベルヌーイ分布 - Wikipedia](http://ja.wikipedia.org/wiki/ベルヌーイ分布)
+- [ベルヌーイ分布(Bernoulli distribution) - NtRand](http://www.ntrand.com/jp/bernoulli-distribution/)
 
