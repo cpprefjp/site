@@ -52,7 +52,21 @@ int main(){}
 ###処理系
 - [GCC, C++0x mode](/implementation#gcc.md): 4.5.3, 4.6.1, 4.7.0
 - [Visual C++](/implementation#visual_cpp.md) 10.0
+- [Clang](/implementation#clang.md) 3.1, 3.2, 3.3
 
 ####備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](./integral_constant-true_type-false_type.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラのバグのために関数への右辺値参照を用いるとエラーになる。
 
+Clang 3.1 - 3.3 では以下のような警告が出るが、これは[Clangのバグ](http://llvm.org/bugs/show_bug.cgi?id=16654)である。
+```
+prog.cc:15:32: warning: qualifier on function type 'f' (aka 'void ()') has unspecified behavior
+static_assert(std::is_function<const f>::value == true, "const f is function");
+                               ^~~~~~~
+prog.cc:16:32: warning: qualifier on function type 'f' (aka 'void ()') has unspecified behavior
+static_assert(std::is_function<volatile f>::value == true, "volatile f is function");
+                               ^~~~~~~~~~
+prog.cc:17:32: warning: qualifier on function type 'f' (aka 'void ()') has unspecified behavior
+static_assert(std::is_function<const volatile f>::value == true, "const volatile f is function");
+                               ^~~~~~~~~~~~~~~~
+3 warnings generated.
+```
