@@ -21,25 +21,31 @@
 いくつかのアルゴリズムは `_copy` というサフィックスが付いている。これは `_copy` サフィックスの付いていないアルゴリズムと違い、処理の結果を別のイテレータへ出力するアルゴリズムである。コピーバージョンを含めるかどうかの判断は、通常バージョンの計算量を考慮する。操作を行うコストがコピーのコストを大きく上回る場合、コピーバージョンは含めないようになっている。例えば `sort_copy` は存在しない。なぜなら、ソートのコストは大きいし、そのような場合、ユーザは `copy` してから `sort` するからだ。
 
 テンプレートパラメータ名が `Predicate` となっている場合、`Predicate` の値 `pred` と、引数として渡すイテレータ `i` について以下の要件を満たす必要がある
+
 - `pred(*i)` が `bool` として評価できなければならない。
 - `pred(*i)` 内で `*i` を書き変えてはならない。
 
 テンプレートパラメータ名が `BinaryPredicate` となっている場合、`BinaryPredicate` の値 `binary_pred` と、引数として渡すイテレータ `i1`, `i2` について以下の要件を満たす必要がある
+
 - `binary_pred(*i1, *i2)` が `bool` として評価できなければならない。
 - `binary_pred(*i1, *i2)` 内で `*i1` や `*i2` を書き変えてはならない。
 
 関数オブジェクトを引数に取る `for_each` 以外のアルゴリズムは、その関数オブジェクトを自由にコピーしても構わない。そのため、アルゴリズムの利用者はそのことに注意する必要がある。コピーされてしまうことが問題である場合、`reference_wrapper<T>` や同様の解決手段を使ってオブジェクトの中身をコピーしないようなラッパークラスを使うといった対策を行う必要がある。
 
 アルゴリズムの説明で `+` や `-` を使っているが、random-access iterator 以外のイテレータはそれを定義していない。そういった場合、 `a+n` というのは
+
 ```cpp
 X tmp = a;
 advance(tmp, n);
 return tmp;
 ```
+
 を意味する。また、`b-a` は
+
 ```cpp
 return distance(a, b);
 ```
+
 を意味する。
 
 
@@ -120,10 +126,12 @@ return distance(a, b);
 25.4.3（BinarySearch）以外のアルゴリズムでは、`comp` は strict weak ordering でなければならない。  
 
 term strict は irreflexive relation (全ての `x` について `!comp(x,x)` である）の要件と term weak の要件を refer している。term weak の要件は、total ordering ほど strong ではない要求であるが、partial ordering よりは strong である。`!comp(a, b) && !comp(b, a)` として `equiv(a, b)` を定義する場合、term weak の要件は `comp` と `equiv` の両方が以下のように transitive relations となることである。  
+
 - `comp(a, b) && comp(b, c)` は `comp(a, c)` を意味する
 - `equiv(a, b) && equiv(b, c)` は `equiv(a, c)` を意味する
 
 Note: 以下の条件から、それが明らかになる
+
 - `equiv` は equivalence relation である
 - `comp` は `equiv` によって確定した equivalence クラスである well-defined な relation を induce する
 - その induce された relation は strict total ordering である
@@ -194,6 +202,7 @@ ordering relationship を処理する関数の説明において、この節で�
 ###ヒープ
 
 ２つのランダムアクセスイテレータ `[a,b)` の範囲を特定の構造で構築したものをヒープ(heap)と呼ぶ。ヒープには２つの特性がある。
+
 - `*a` より大きい要素は無い
 - `*a` は、`pop_heap()` で削除したり、`push_heap()` で要素を追加する操作が O(log(N)) でできる
 
