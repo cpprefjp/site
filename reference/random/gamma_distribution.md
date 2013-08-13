@@ -67,3 +67,45 @@ namespace std {
 | [`operator<<`](./gamma_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](./gamma_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
+
+##例
+```cpp
+#include <random>
+#include <fstream>
+
+int main()
+{
+  std::random_device seed_gen;
+  std::default_random_engine engine(seed_gen());
+
+  // 形状母数1.0、尺度母数1.0で分布させる
+  std::gamma_distribution<> dist(1.0, 1.0);
+
+  std::ofstream file("gamma_distribution.tsv");
+  for (std::size_t n = 0; n < 1000; ++n) {
+    // ガンマ分布で乱数を生成する
+    double result = dist(engine);
+    file << result << "\t\n";
+  }
+}
+```
+
+###出力
+このプログラムによってある時に得られた結果（[gamma_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/gamma_distribution/gamma_distribution.tsv)）を図示する。 
+
+![](https://github.com/cpprefjp/image/raw/master/reference/random/gamma_distribution/gamma_distribution.png)
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation#clang.md): 
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.2
+- [ICC](/implementation#icc.md): 
+- [Visual C++](/implementation#visual_cpp.md): 
+
+###参考
+- [ガンマ分布 - Wikipedia](http://ja.wikipedia.org/wiki/ガンマ分布)
+
