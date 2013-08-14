@@ -92,4 +92,5 @@ GCCとClangでは、-std=c++1yコンパイルオプションを付けること�
 各処理系のC++14/C++1y実装状況ページ：
 - GCC: [C++1y/C++14 Support in GCC](http://gcc.gnu.org/projects/cxx1y.html)
 - Clang: [C++98, C++11, and C++14 Support in Clang](http://clang.llvm.org/cxx_status.html)
+- libc++: [libc++ C++1Y Status](http://libcxx.llvm.org/cxx1y_status.html)
 
