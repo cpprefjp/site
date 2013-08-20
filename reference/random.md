@@ -48,31 +48,62 @@
 | [`seed_seq`](./random/seed_seq.md) | 疑似乱数エンジンの為のシード数列(class) | C++11 |
 
 
-##分布生成器及びその他のクラス
+##分布生成器
+###一様分布
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`generate_canonical`](./random/generate_canonical.md)               | 実数区間\[0.0-1.0\)に展開（事実上正規化）された一様分布乱数を得る(function template) | C++11 |
-| [`uniform_int_distribution`](./random/uniform_int_distribution.md)   | 一様分布／一様整数分布生成器 | C++11 |
-| [`uniform_real_distribution`](./random/uniform_real_distribution.md) | 一様分布／一様実数分布生成器 | C++11 |
-| [`bernoulli_distribution`](./random/bernoulli_distribution.md)       | ベルヌーイ分布／ベルヌーイ分布生成器 | C++11 |
-| [`binomial_distribution`](./random/binomial_distribution.md)         | ベルヌーイ分布／二項分布生成器 | C++11 |
-| [`geometric_distribution`](./random/geometric_distribution.md)       | ベルヌーイ分布／幾何分布生成器 | C++11 |
-| [`negative_binomial_distribution`](./random/negative_binomial_distribution.md) | ベルヌーイ分布／負の二項分布生成器 | C++11 |
-| [`poisson_distribution`](./random/poisson_distribution.md)           | ポワソン分布／ポワソン分布生成器 | C++11 |
-| [`exponential_distribution`](./random/exponential_distribution.md)   | ポワソン分布／指数分布生成器 | C++11 |
-| [`gamma_distribution`](./random/gamma_distribution.md)               | ポワソン分布／ガンマ分布生成器 | C++11 |
-| [`weibull_distribution`](./random/weibull_distribution.md)           | ポワソン分布／ワイブル分布生成器 | C++11 |
-| [`extreme_value_distribution`](./random/extreme_value_distribution.md) | ポワソン分布／極値分布生成器 | C++11 |
-| [`normal_distribution`](./random/normal_distribution.md)             | 正規分布／正規分布生成器 | C++11 |
-| [`lognormal_distribution`](./random/lognormal_distribution.md)       | 正規分布／対数正規分布生成器 | C++11 |
-| [`chi_squared_distribution`](./random/chi_squared_distribution.md)   | 正規分布／χ二乗分布生成器 | C++11 |
-| [`cauchy_distribution`](./random/cauchy_distribution.md)             | 正規分布／コーシー分布生成器 | C++11 |
-| [`fisher_f_distribution`](./random/fisher_f_distribution.md)         | 正規分布／フィッシャーの基準分布生成器 | C++11 |
-| [`student_t_distribution`](./random/student_t_distribution.md)       | 正規分布／ステューデントのt分布生成器 | C++11 |
-| [`discrete_distribution`](./random/discrete_distribution.md)         | 標本分布／整数のインデックスごとに離散した確率分布生成器 | C++11 |
-| [`piecewise_constant_distribution`](./random/piecewise_constant_distribution.md) | 標本分布／区間ごとの重み付けを定数値とした分布生成器 | C++11 |
-| [`piecewise_linear_distribution`](./random/piecewise_linear_distribution.md) | 標本分布／区間ごとの重み付けを線形に接続した分布生成器 | C++11 |
+| [`uniform_int_distribution`](./random/uniform_int_distribution.md)   | 一様整数分布生成器 | C++11 |
+| [`uniform_real_distribution`](./random/uniform_real_distribution.md) | 一様実数分布生成器 | C++11 |
+
+
+###ベルヌーイ分布(Bernoulli Distribution)
+
+| 名前 | 説明 | 対応バージョン |
+|----------------|------------------------------|-------|
+| [`bernoulli_distribution`](./random/bernoulli_distribution.md)       | ベルヌーイ分布生成器 | C++11 |
+| [`binomial_distribution`](./random/binomial_distribution.md)         | 二項分布生成器 | C++11 |
+| [`geometric_distribution`](./random/geometric_distribution.md)       | 幾何分布生成器 | C++11 |
+| [`negative_binomial_distribution`](./random/negative_binomial_distribution.md) | 負の二項分布生成器 | C++11 |
+
+
+###ポワソン分布(Poisson Distribution)
+
+| 名前 | 説明 | 対応バージョン |
+|----------------|------------------------------|-------|
+| [`poisson_distribution`](./random/poisson_distribution.md)             | ポワソン分布生成器 | C++11 |
+| [`exponential_distribution`](./random/exponential_distribution.md)     | 指数分布生成器 | C++11 |
+| [`gamma_distribution`](./random/gamma_distribution.md)                 | ガンマ分布生成器 | C++11 |
+| [`weibull_distribution`](./random/weibull_distribution.md)             | ワイブル分布生成器 | C++11 |
+| [`extreme_value_distribution`](./random/extreme_value_distribution.md) | 極値分布生成器 | C++11 |
+
+
+###正規分布(Normal Distribution)
+
+| 名前 | 説明 | 対応バージョン |
+|----------------|------------------------------|-------|
+| [`normal_distribution`](./random/normal_distribution.md)           | 正規分布生成器 | C++11 |
+| [`lognormal_distribution`](./random/lognormal_distribution.md)     | 対数正規分布生成器 | C++11 |
+| [`chi_squared_distribution`](./random/chi_squared_distribution.md) | χ二乗分布生成器 | C++11 |
+| [`cauchy_distribution`](./random/cauchy_distribution.md)           | コーシー分布生成器 | C++11 |
+| [`fisher_f_distribution`](./random/fisher_f_distribution.md)       | フィッシャーの基準分布生成器 | C++11 |
+| [`student_t_distribution`](./random/student_t_distribution.md)     | ステューデントのt分布生成器 | C++11 |
+
+
+###標本分布(Sampling Distribution)
+
+| 名前 | 説明 | 対応バージョン |
+|----------------|------------------------------|-------|
+| [`discrete_distribution`](./random/discrete_distribution.md) | 整数のインデックスごとに離散した確率分布生成器 | C++11 |
+| [`piecewise_constant_distribution`](./random/piecewise_constant_distribution.md) | 区間ごとの重み付けを定数値とした分布生成器 | C++11 |
+| [`piecewise_linear_distribution`](./random/piecewise_linear_distribution.md) | 区間ごとの重み付けを線形に接続した分布生成器 | C++11 |
+
+
+###ユーティリティ
+
+| 名前 | 説明 | 対応バージョン |
+|----------------|------------------------------|-------|
+| [`generate_canonical`](./random/generate_canonical.md) | 実数区間\[0.0-1.0\)に展開（事実上正規化）された一様分布乱数を得る(function template) | C++11 |
 
 
 ##例
