@@ -27,6 +27,7 @@ namespace std {
 
 ###備考
 `search()` と [`find_end()`](/reference/algorithm/find_end.md) は共にサブシーケンスを検索する関数だが、以下の点が異なる。
+
 * `search()` は見つかった最初のサブシーケンスを返すが [`find_end()`](/reference/algorithm/find_end.md) は見つかった最後のサブシーケンスを返す
 * `[first2,last2)` が空であるときに `search()` は `first1` を返すが、[`find_end()`](/reference/algorithm/find_end.md) は `last1` を返す
 
