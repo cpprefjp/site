@@ -21,7 +21,8 @@ namespace std {  template<class ForwardIterator1, class ForwardIterator2>
 最大で `(last2 - first2) * (last1 - first1 - (last2 - first2) + 1)` 回の、対応する比較もしくは述語が適用される
 
 ###備考
-`search()` と `find_end()` は共にサブシーケンスを検索する関数だが、以下の点が異なる。
+[`search()`](search.md) と `find_end()` は共にサブシーケンスを検索する関数だが、以下の点が異なる。
+
 * `search()` は見つかった最初のサブシーケンスを返すが `find_end()` は見つかった最後のサブシーケンスを返す
 * `[first2,last2)` が空であるときに `search()` は `first1` を返すが、`find_end()` は `last1` を返す
 
