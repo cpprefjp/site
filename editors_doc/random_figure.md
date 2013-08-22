@@ -108,3 +108,7 @@ rscript random_stats.R
 * [とりあえずプロットする方法](http://cse.naro.affrc.go.jp/takezawa/r-tips/r/48.html)
 * [ヒストグラムをプロットする方法](http://cse.naro.affrc.go.jp/takezawa/r-tips/r/61.html)
 
+
+##数式エディタ
+[Online Latex Equation Editor - Sciweavers](http://www.sciweavers.org/free-online-latex-equation-editor)
+
