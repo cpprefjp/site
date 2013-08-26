@@ -43,8 +43,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|----------------------------------|-------|
-| [`alpha`](./gamma_distribution/mean.md)  | 形状母数を取得する   | C++11 |
-| [`beta`](./gamma_distribution/stddev.md) | 尺度母数を取得する | C++11 |
+| [`alpha`](./gamma_distribution/alpha.md) | 形状母数を取得する   | C++11 |
+| [`beta`](./gamma_distribution/beta.md)   | 尺度母数を取得する | C++11 |
 | [`param`](./gamma_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
 | [`min`](./gamma_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
 | [`max`](./gamma_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
