@@ -111,48 +111,40 @@
 以下に示す例では、C++11の標準の乱数ライブラリを用いてランダムデバイスから初期化数列を取得してメルセンヌツイスタエンジンを初期化、単精度浮動少数型で\[-1.0f - 1.0f\]の一様分布及び`1.0f`を中心として標準偏差`0.5f`の正規分布に基づく擬似乱数を1メガ個生成し"random.tsv"にタブ区切り形式のファイルとして結果を保存する。
 
 ```cpp
-#include <iostream>
-#include <exception>
-#include <random>
-#include <algorithm>
-#include <functional>
 #include <fstream>
+#include <random>
 
-int main()try{
-  static const size_t seed_size = 8;
-  typedef std::random_device device_type;
-  typedef std::mt19937_64 engine_type;
-  typedef std::uniform_real_distribution<float> distribution_type_1;
-  typedef std::normal_distribution<float> distribution_type_2;
-  auto s = [seed_size](){
-    device_type r;
-    std::vector<device_type::result_type> i(seed_size);
-    std::generate(i.begin(), i.end(), std::ref(r));
-    return std::seed_seq(i.begin(), i.end());
-  }();
-  engine_type e(s);
-  distribution_type_1 d1(-1.0f, 1.0f);
-  distribution_type_2 d2(1.0f, 0.5f);
-  std::ofstream o("random.tsv");
-  for(size_t n = 1000*1000; n; --n)
-    o << d1(e) << "\t" << d2(e) << "\n";
-  o.close();
-}catch(const std::exception& e){
-  std::cerr << e.what();
+int main()
+{
+  // メルセンヌ・ツイスター法による擬似乱数生成器を、
+  // ハードウェア乱数をシードにして初期化
+  std::random_device seed_gen;
+  std::mt19937 engine(seed_gen());
+
+  // 一様実数分布
+  // [-1.0, 1.0)の値の範囲で、等確率に実数を生成する
+  std::uniform_real_distribution<> dist1(-1.0, 1.0);
+
+  // 正規分布
+  // 平均1.0、標準偏差0.5で分布させる
+  std::normal_distribution<> dist2(1.0, 0.5);
+
+  std::ofstream file("random.tsv");
+  for (size_t i = 0; i < 1000*1000; ++i) {
+    // 各分布法に基いて乱数を生成
+    double r1 = dist1(engine);
+    double r2 = dist2(engine);
+ 
+    file << r1 << "\t" << r2 << "\n";
+  }
 }
 ```
-* random[color ff0000]
-* std::random_device[color ff0000]
-* std::mt19937_64[color ff0000]
-* std::uniform_real_distribution[color ff0000]
-* std::normal_distributio<[color ff0000]
-* std::seed_seq[color ff0000]
 
 この例である時得られた [random.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/random.tsv.xz) (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮) を元に、得られたデータの密度を図示すると、以下のような図が得られた。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/random.png)
 
-破線は d1 (一様分布; min=-1.0f, max=1.0f) 、実線は d2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
+破線は dist1 (一様分布; min=-1.0f, max=1.0f) 、実線は dist2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
 
 ##バージョン
 ###言語
