@@ -3,8 +3,8 @@
 namespace std {
   template <class RealType>
   bool operator!=(
-    const poisson_distribution<RealType>& a,
-    const poisson_distribution<RealType>& b);
+    const weibull_distribution<RealType>& a,
+    const weibull_distribution<RealType>& b);
 }
 ```
 
