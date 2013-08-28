@@ -35,7 +35,7 @@ int main()
     std::weibull_distribution<> dist(1.0, 1.0);
 
     for (int i = 0; i < 5; ++i) {
-      int result = dist(engine);
+      double result = dist(engine);
       std::cout << result << std::endl;
     }
   }
@@ -48,7 +48,7 @@ int main()
 
     for (int i = 0; i < 5; ++i) {
       dist_type::param_type param(1.0, 1.0);
-      int result = dist(engine, param);
+      double result = dist(engine, param);
       std::cout << result << std::endl;
     }
   }
@@ -58,17 +58,17 @@ int main()
 
 ###出力例
 ```
-1
-0
-0
-2
-2
+4.54084
+0.437302
+0.564798
+0.316922
+2.35899
 
-0
-0
-0
-1
-0
+0.762778
+0.7511
+2.63546
+0.288603
+0.265658
 ```
 
 ##バージョン
