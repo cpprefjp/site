@@ -46,6 +46,7 @@
 | [`unique_ptr`](./memory/unique_ptr.md) | 専有方式スマートポインタ(class template) | C++11 |
 | [`default_delete`](./memory/default_delete.md) | `unique_ptr`のデフォルトの削除子(class template) | C++11 |
 | `auto_ptr` | 古い専有方式スマートポインタ(class template)(C++11から非推奨) | |
+| [`make_shared`](./memory/make_shared.md) | `shared_ptr`オブジェクトを作成し返却する(function template) | C++11 |
 
 
 ##ガベージコレクション支援
