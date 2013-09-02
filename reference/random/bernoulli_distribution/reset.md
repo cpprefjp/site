@@ -34,7 +34,7 @@ int main()
 
   for (int i = 0; i < 5; ++i) {
     dist.reset(); // 前回生成までの状態をリセット
-    std::cout << dist(engine) << std::endl;
+    std::cout << std::boolalpha << dist(engine) << std::endl;
   }
 }
 ```
@@ -42,11 +42,11 @@ int main()
 
 ###出力例
 ```
-1
-1
-1
-0
-1
+false
+true
+false
+true
+true
 ```
 
 ##バージョン
