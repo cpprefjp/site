@@ -1,0 +1,79 @@
+#コンストラクタ(C++11)
+```cpp
+explicit binomial_distribution(IntType t = 1, double p = 0.5);
+explicit binomial_distribution(const param_type& parm);
+```
+
+##`binomial_distribution`オブジェクトの構築
+- `explicit binomial_distribution(IntType t = 1, double p = 0.5);`
+
+成功確率`p`および試行回数`t`を受け取るコンストラクタ。
+
+
+要件： `p >= 0.0 && p <= 1.0`かつ`t >= 0`であること。
+
+
+- `explicit binomial_distribution(const param_type& parm);`
+
+パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。 
+
+
+##例
+```cpp
+#include <iostream>
+#include <random>
+
+int main() 
+{
+  std::random_device seed_gen;
+  std::default_random_engine engine(seed_gen());
+
+  std::cout << std::boolalpha;
+
+  // パラメータを個別に指定する
+  {
+    // 確率0.5で成功する事象を、3回施行する
+    std::binomial_distribution<> dist(3, 0.5);
+
+    // 成功回数を取得
+    int result = dist(engine);
+    std::cout << result << std::endl;
+  }
+
+  // パラメータを通して範囲指定する
+  {
+    typedef std::binomial_distribution<> dist_type;
+
+    // 確率0.5で成功する事象を、3回施行する
+    dist_type::param_type param(3, 0.5);
+    dist_type dist(param);
+
+    // 成功回数を取得
+    int result = dist(engine);
+    std::cout << result << std::endl;
+  }
+}
+```
+
+
+###出力例
+```
+1
+2
+```
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.2
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
+
+
+##参照
+
+
