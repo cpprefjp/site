@@ -1,9 +1,10 @@
 #operator!=(C++11)
 ```cpp
 namespace std {
+  template <class IntType>
   bool operator!=(
-    const binomial_distribution<>& a,
-    const binomial_distribution<>& b);
+    const binomial_distribution<IntType>& a,
+    const binomial_distribution<IntType>& b);
 }
 ```
 

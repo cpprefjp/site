@@ -4,7 +4,7 @@ namespace std {
   template <class CharT, class Traits, class IntType>
   basic_istream<CharT, Traits>& operator>>(
     basic_istream<CharT, Traits>& os
-    binomial_distribution<>& x);
+    binomial_distribution<IntType>& x);
 }
 ```
 * basic_istream[link /reference/iostream/basic_istream.md]
