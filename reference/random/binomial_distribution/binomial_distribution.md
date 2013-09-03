@@ -28,8 +28,6 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  std::cout << std::boolalpha;
-
   // パラメータを個別に指定する
   {
     // 確率0.5で成功する事象を、3回施行する
