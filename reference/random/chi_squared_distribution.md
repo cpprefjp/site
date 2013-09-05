@@ -85,13 +85,12 @@ int main()
   std::chi_squared_distribution<> dist(1.0);
 
   std::ofstream file("chi_squared_distribution.tsv");
-  for(size_t n = 0; n < 1024; ++n) {
+  for (size_t n = 0; n < 1024; ++n) {
     // カイ二乗分布で乱数を生成する
     double result = dist(engine);
     file << result << "\n";
   }
 }
-
 ```
 
 ###出力
