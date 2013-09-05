@@ -84,7 +84,7 @@
 |----------------|------------------------------|-------|
 | [`normal_distribution`](./random/normal_distribution.md)           | 正規分布生成器 | C++11 |
 | [`lognormal_distribution`](./random/lognormal_distribution.md)     | 対数正規分布生成器 | C++11 |
-| [`chi_squared_distribution`](./random/chi_squared_distribution.md) | χ二乗分布生成器 | C++11 |
+| [`chi_squared_distribution`](./random/chi_squared_distribution.md) | カイ二乗分布生成器 | C++11 |
 | [`cauchy_distribution`](./random/cauchy_distribution.md)           | コーシー分布生成器 | C++11 |
 | [`fisher_f_distribution`](./random/fisher_f_distribution.md)       | フィッシャーの基準分布生成器 | C++11 |
 | [`student_t_distribution`](./random/student_t_distribution.md)     | ステューデントのt分布生成器 | C++11 |

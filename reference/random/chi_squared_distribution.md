@@ -1,86 +1,101 @@
 #chi_squared_distribution(C++11)
 ```cpp
-namespace std{
-  template<class RealType = double>
-  class chi_squared_distribution
-  {
-  public:
-
-    typedef RealType result_type;
-    typedef unspecified param_type;
-
-    explicit chi_squared_distribution(RealType n = 1);
-    explicit chi_squared_distribution(const param_type& parm);
-    void reset();
-
-    template<class URNG>
-    result_type operator()(URNG& g);
-    template<class URNG>
-    result_type operator()(URNG& g, const param_type& parm);
-
-    RealType n() const;
-    param_type param() const;
-    void param(const param_type& parm);
-    result_type min() const;
-    result_type max() const;
-  };
+namespace std {
+  template <class RealType = double>
+  class chi_squared_distribution;
 }
 ```
 
-
 ##概要
-χ二乗分布（カイにじょうぶんぷ）を生成する。 
+`chi_squared_distribution`は、乱数をカイ二乗分布(χ二乗分布)させるクラスである。以下の密度関数に基いて、浮動小数点数の乱数を生成する。  
+
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_square.png)
+
+この密度関数において、nは自由度(degrees of freedom)を意味する。  
+
+
+以下のような用途で使用できる：
+
+* 赤玉20個、白玉20個が混ざった箱から、20個の玉を取り出す。その際の、期待値(赤玉10個、白玉10個)からのずれの度合いを判定する。
+
+上記の例では、自由度は1となる(玉の種類(2) - 1)。玉の種類が3の場合は自由度2になる。
+
+
+テンプレートパラメータは、以下を意味する：
+
+* `RealType` : 生成する実数の型。
 
 
 ##メンバ関数
-| | |
-|-----------------------------|------------------------------------------------------------------------------------------------|
-| `(constructor)` | 実数値 `n` をパラメータとして与える事ができる。デフォルトは `n = 1` 。 |
-| `reset` | 何もしない。 |
-| `operator()` | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
-| `n` | パラメータ `n` を取得する。 |
-| `param` | 分布のパラメータを取得／設定する。 |
-| `mix` | 最小値を得る。 |
-| `max` | 最大値を得る。 |
+###構築・リセット
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------------------------------------|--------------------|-------|
+| [`(constructor)`](./chi_squared_distribution/chi_squared_distribution.md) | コンストラクタ     | C++11 |
+| `~chi_squared_distribution() = default;`                                  | デストラクタ       | C++11 |
+| [`reset`](./chi_squared_distribution/reset.md)                            | 状態をリセットする | C++11 |
+
+
+###生成
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------------------------|----------------|-------|
+| [`operator()`](./chi_squared_distribution/op_call.md) | 乱数を生成する | C++11 |
+
+
+###プロパティ
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------|----------------------------------|-------|
+| [`n`](./chi_squared_distribution/n.md)         | 自由度を取得する                 | C++11 |
+| [`param`](./chi_squared_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](./chi_squared_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](./chi_squared_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+
+
+##メンバ型
+
+| 型 | 説明 | 対応バージョン |
+|---------------|-------------------|-------|
+| `result_type` | 乱数生成結果の実数型 `RealType`。 | C++11 |
+| `param_type`  | 分布パラメータの型。未規定。 | C++11 |
+
+
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------------------|----------------------|-------|
+| [`operator==`](./chi_squared_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](./chi_squared_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](./chi_squared_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](./chi_squared_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例
 ```cpp
-#include <iostream>
-#include <exception>
-#include <random>
-#include <algorithm>
-#include <functional>
-#include <array>
 #include <fstream>
+#include <random>
 
-main()try{
-  static const size_t seed_size = 8;
-  typedef std::random_device device_type;
-  typedef std::mt19937_64 engine_type;
-  typedef std::chi_squared_distribution<> distribution_type;
+int main()
+{
+  std::random_device seed_gen;
+  std::default_random_engine engine(seed_gen());
 
-  auto s = [seed_size](){
-    device_type r;
-    std::vector<device_type::result_type> i(seed_size);
-    std::generate(i.begin(), i.end(), std::ref(r));
-    return std::seed_seq(i.begin(), i.end());
-  }();
-  engine_type e(s);
+  // 自由度1で分布させる
+  std::chi_squared_distribution<> dist(1.0);
 
-  distribution_type d(1.7320504);
-  std::ofstream o("chi_squared_distribution.tsv");
-  for(size_t n = 1024; n; --n)
-    o << d(e) << "\t" << "\n";
-  o.close();
-}catch(const std::exception& e){
-  std::cerr << e.what();
+  std::ofstream file("chi_squared_distribution.tsv");
+  for(size_t n = 0; n < 1024; ++n) {
+    // カイ二乗分布で乱数を生成する
+    double result = dist(engine);
+    file << result << "\n";
+  }
 }
+
 ```
 
 ###出力
-このプログラムによってある時に得られた結果（[chi_squared_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.tsv.7z)）を図示する。
+このプログラムによってある時に得られた結果（[chi_squared_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.png)
 
@@ -97,4 +112,6 @@ main()try{
 
 ###参考
 - [カイ二乗分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83)
+- [χ2（カイ２乗）分布](http://staff.aist.go.jp/t.ihara/chi2.html)
+- [カイ２乗分布とは](http://ogawas.cerp.u-toyama.ac.jp/e-stat/kai.html)
 
