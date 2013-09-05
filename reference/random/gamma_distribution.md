@@ -14,7 +14,8 @@ namespace std {
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/gamma_distribution/gamma.png)
 
 
-この数式におけるα(alpha)は形状母数(shape parameter)を意味し、β(beta)は尺度母数(scale parameter)を意味する。
+この数式におけるα(alpha)は形状母数(shape parameter)を意味し、β(beta)は尺度母数(scale parameter)を意味する。  
+形状母数に正の整数を与えれば、アーラン分布(Erlang distribution)としても使用できる。  
 
 
 テンプレートパラメータは、以下を意味する：
