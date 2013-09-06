@@ -150,11 +150,11 @@ int main()
 ###言語
 - C++11
 
-##参照：
+##参照
 * [さまざまな確率分布 (probability distributions)](http://www.biwako.shiga-u.ac.jp/sensei/mnaka/ut/statdist.html)
 * [確率変数－種々の分布の特徴](https://sites.google.com/site/techdmba/distribution)
 * [N3551 Random Number Generation in C++11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)
 
-##編集者向けの参照：
+##編集者向けの参照
 * [乱数分布の図を作る方法](/editors_doc/random_figure.md)
 
