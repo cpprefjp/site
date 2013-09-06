@@ -1,87 +1,102 @@
 #cauchy_distribution(C++11)
 ```cpp
-namespace std{
-  template<class RealType = double>
-  class cauchy_distribution
-  {
-  public:
-    typedef RealType result_type;
-    typedef unspecified param_type;
-
-    explicit cauchy_distribution(RealType a = 0.0, RealType b = 1.0);
-    explicit cauchy_distribution(const param_type& parm);
-    void reset();
-
-    template<class URNG>
-    result_type operator()(URNG& g);
-    template<class URNG>
-    result_type operator()(URNG& g, const param_type& parm);
-
-    RealType a() const;
-    RealType b() const;
-    param_type param() const;
-    void param(const param_type& parm);
-    result_type min() const;
-    result_type max() const;
-  };
+namespace std {
+  template <class RealType = double>
+  class cauchy_distribution;
 }
 ```
 
 ##概要
-コーシー分布を生成する。 
+`cauchy_distribution`は、連絡確率分布の一種であるコーシー分布(ローレンツ分布とも呼ばれる)を生成するクラスである。  
+正規分布([`normal_distribution`](./normal_distribution.md))と違い、平均も分散も定義されない、という特徴を持つ。  
+以下の密度関数に基いて、浮動小数点数の乱数を生成する：  
+
+
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy.png)
 
 
-##メンバ関数
+この密度関数において、aは分布の最頻値を与える位置母数(location parameter)、bは半値半幅を与える尺度母数(scale parameter)を意味する。  
 
-| | |
-|-----------------------------|-----------------------------------------------------------------------------------------------------------------|
-| `(constructor)` | 実数値 `a`, `b` をパラメータとして与える事ができる。デフォルトは `a = 0.0`、`b = 1.0`。 |
-| `reset` | 何もしない。 |
-| `operator()` | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
-| `a` | パラメータ `a` を取得する。 |
-| `b` | パラメータ `b` を取得する。 |
-| `param` | 分布のパラメータを取得／設定する。 |
-| `mix` | 最小値を得る。 |
-| `max` | 最大値を得る。 |
+以下のような用途に使用できる：
+
+* 正規分布に比べて外れ値(outliers)が非常に多い場合の分布のモデルに、使われることがある
+
+
+テンプレートパラメータは、以下を意味する：
+
+- `RealType` : 成功する実数の型。
+
+
+##メンバ関数
+###構築・リセット
+
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------------------------------|--------------------|-------|
+| [`(constructor)`](./cauchy_distribution/cauchy_distribution.md) | コンストラクタ     | C++11 |
+| `~cauchy_distribution() = default;`                             | デストラクタ       | C++11 |
+| [`reset`](./cauchy_distribution/reset.md)                       | 状態をリセットする | C++11 |
+
+
+###生成
+
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------------------|----------------|-------|
+| [`operator()`](./cauchy_distribution/op_call.md) | 乱数を生成する | C++11 |
+
+
+###プロパティ
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------------|----------------------------------|-------|
+| [`a`](./cauchy_distribution/a.md)         | 位置母数を取得する               | C++11 |
+| [`b`](./cauchy_distribution/b.md)         | 尺度母数を取得する               | C++11 |
+| [`param`](./cauchy_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](./cauchy_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](./cauchy_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+
+
+##メンバ型
+
+| 型 | 説明 | 対応バージョン |
+|---------------|---------------------------------|-------|
+| `result_type` | 乱数生成結果の整数型。`IntType` | C++11 |
+| `param_type`  | 分布パラメータの型。未規定。    | C++11 |
+
+
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------------------------|----------------------|-------|
+| [`operator==`](./cauchy_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](./cauchy_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](./cauchy_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](./cauchy_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例
 ```cpp
-#include <iostream>
-#include <exception>
-#include <random>
-#include <algorithm>
-#include <functional>
-#include <array>
 #include <fstream>
+#include <random>
 
-main() try{
-  static const size_t seed_size = 8;
-  typedef std::random_device device_type;
-  typedef std::mt19937_64 engine_type;
-  typedef std::cauchy_distribution<> distribution_type;
+int main()
+{
+  std::random_device seed_gen;
+  std::default_random_engine engine(seed_gen());
 
-  auto s = [seed_size](){
-    device_type r;
-    std::vector<device_type::result_type> i(seed_size);
-    std::generate(i.begin(), i.end(), std::ref(r));
-    return std::seed_seq(i.begin(), i.end());
-  }();
-  engine_type e(s);
+  // 位置母数0.0、尺度母数1.0で分布させる
+  std::cauchy_distribution<> dist(0.0, 1.0);
 
-  distribution_type d(-10.0,1.5);
-  std::ofstream o("cauchy_distribution.tsv");
-  for(size_t n = 256; n; --n)
-    o << d(e) << "\t" << "\n";
-  o.close();
-}catch(const std::exception& e){
-  std::cerr << e.what();
+  std::ofstream file("cauchy_distribution.tsv");
+  for (size_t n = 0; n < 1000; ++n) {
+    // コーシー分布で乱数を生成する
+    double result = dist(engine);
+    file << result << "\n";
+  }
 }
 ```
 
 ###出力
-このプログラムによってある時に得られた結果（[cauchy_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.tsv.7z)）を図示する。
+このプログラムによってある時に得られた結果（[cauchy_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.png)
 
@@ -98,4 +113,5 @@ main() try{
 
 ###参考
 - [コーシー分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%82%B7%E3%83%BC%E5%88%86%E5%B8%83)
+- [コーシー分布 - NtRand](http://www.ntrand.com/jp/cauchy-distribution/)
 
