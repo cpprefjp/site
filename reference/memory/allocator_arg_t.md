@@ -20,7 +20,7 @@ namespace std {
 - ICC: ?
 - [Visual C++](/implementation#visual_cpp.md): 11.0
 
-###参照
+##参照
 - [`std::tuple`](/reference/tuple/tuple.md)クラス
 - [`std::promise`](/reference/future/promise.md)クラス
 - [`std::function`](/reference/functional/function.md)クラス
