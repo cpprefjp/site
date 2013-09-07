@@ -2,7 +2,7 @@
 ```cpp
 namespace std {
   template<class T, class... Args>
-  shared_ptr<T> make_shared(Args...&& args);
+  shared_ptr<T> make_shared(Args&&... args);
 }
 ```
 
