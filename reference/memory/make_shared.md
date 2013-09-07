@@ -15,6 +15,8 @@ namespace std {
 
 また、コピー不可能なクラスもムーブによって引数リストへ渡すことが可能である。
 
+メモリの確保にユーザー定義のアロケータを使用したい場合には、 [`allocate_shared`](/reference/memory/allocate_shared.md) を使用する。
+
 ##例
 ```cpp
 #include <memory>
@@ -38,11 +40,14 @@ int main() {
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
+- [Clang](/implementation#clang.md): 3.2, 3.3
 - [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.4
+- [GCC, C++0x mode](/implementation#gcc.md): 4.4, 4.7.3, 4.8.2
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md): 10.0
 
 ##備考
 VIsual C++ 10.0 でも使用可能だが、Variadic Templates に対応していないため、オーバーロードにより、最大10個の引数を受け取れる形で実装されている。
+
+###参照
+- [`std::allocate_shared`](/reference/memory/allocate_shared.md)
