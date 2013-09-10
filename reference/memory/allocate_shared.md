@@ -1,8 +1,8 @@
-#make_shared(C++11)
+#allocate_shared(C++11)
 ```cpp
 namespace std {
   template<class T, class A, class... Args>
-  shared_ptr<T> make_shared(const A& a, Args&&... args);
+  shared_ptr<T> allocate_shared(const A& a, Args&&... args);
 }
 ```
 
@@ -47,4 +47,4 @@ int main() {
 - [Visual C++](/implementation#visual_cpp.md): ??
 
 ##参照
-- [`std::make_shared`](/reference/memory/make_shared.md)s
+- [`std::make_shared`](/reference/memory/make_shared.md)
