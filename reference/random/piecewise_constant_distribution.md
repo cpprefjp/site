@@ -68,9 +68,8 @@ int main()
 
   // [0.0, 5.0)の値は、0.3の確率で出現する。
   // [5.0, 10.0)の値は、0.5の確率で出現する。
-  std::array<double, 3>
-    intervals = {0.0, 5.0, 10.0},
-    densities = {0.3, 0.5};
+  std::array<double, 3> intervals = {0.0, 5.0, 10.0},
+  std::array<double, 2> densities = {0.3, 0.5};
 
   std::piecewise_constant_distribution<> dist(
     intervals.begin(),
