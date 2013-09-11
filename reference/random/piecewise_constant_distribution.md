@@ -1,104 +1,96 @@
 #piecewise_constant_distribution(C++11)
 ```cpp
-namespace std{
-  template<class RealType = double>
-  class piecewise_constant_distribution
-  {
-  public:
-    typedef RealType result_type;
-    typedef unspecified param_type;
-
-    piecewise_constant_distribution();
-    template<class InputIteratorB, class InputIteratorW>
-    piecewise_constant_distribution(InputIteratorB firstB, InputIteratorB lastB, InputIteratorW firstW);
-    template<class UnaryOperation>
-    piecewise_constant_distribution(initializer_list<RealType> bl, UnaryOperation fw);
-    template<class UnaryOperation>
-    piecewise_constant_distribution(size_t nw, RealType xmin, RealType xmax, UnaryOperation fw);
-    explicit piecewise_constant_distribution(const param_type& parm);
-
-    void reset();
-
-    template<class URNG>
-    result_type operator()(URNG& g);
-    template<class URNG>
-    result_type operator()(URNG& g, const param_type& parm);
-    vector<result_type> intervals() const;
-    vector<result_type> densities() const;
-    param_type param() const;
-    void param(const param_type& parm);
-    result_type min() const;
-    result_type max() const;
-  };
+namespace std {
+  template <class RealType = double>
+  class piecewise_constant_distribution;
 }
 ```
 
-
 ##概要
-区間ごとの重み付けを定数値とした分布を生成する。
+`piecewise_constant_distribution`は、区間ごとの重み付けを定数値とした分布を生成するクラスである。  
+このクラスはコンストラクタに、値の区間を表す数列と、区間ごとに線形に変化する重みの数列を設定する。重み数列の要素数は、区間数列の要素数 - 1個である。  
+
+
+パラメータを、区間 `{0.0, 1.0, 2.0}`、重み `{0.3, 0.5}`のように設定した場合、区間`[0.0, 1.0)`の値が出現する確率は`0.3`、区間`[1.0, 2.0)`の値が出現する確率は`0.5`となる。  
+
+
+テンプレートパラメータは、以下を意味する。
+
+* `RealType` : 生成される実数の型。
 
 
 ##メンバ関数
+###構築・リセット
 
-| | |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| `(constructor)` | 区間と重み付けをパラメータで与える事もできる。パラメータを与えない場合は\[0 - 1\]の一様分布となる。 |
-| `reset` | 何もしない。 |
-| `operator()` | 乱数生成器をパラメータとして分布に従った擬似乱数を生成する。 |
-| `intervals` | 区間の数列を得る。 |
-| `densities` | 重み付けの数列を得る。 |
-| `param` | 分布のパラメータを取得／設定する。 |
-| `mix` | 最小値を得る。 |
-| `max` | 最大値を得る。 |
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------------------------------|------------------------------|-------|
+| [`(constructor)`](./piecewise_constant_distribution/piecewise_constant_distribution.md) | コンストラクタ | C++11 |
+| `~piecewise_constant_distribution() = default;`                             | デストラクタ               | C++11 |
+| [`reset`](./piecewise_constant_distribution/reset.md)                       | 状態をリセットする         | C++11 |
+
+
+###生成
+
+| 名前 | 説明 | 対応バージョン |
+|--------------------------------------------------------------|----------------|-------|
+| [`operator()`](./piecewise_constant_distribution/op_call.md) | 乱数を生成する | C++11 |
+
+
+###プロパティ
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------------------------|----------------------------------|-------|
+| [`intervals`](./piecewise_constant_distribution/intervals.md) | 区間の数列を取得する             | C++11 |
+| [`densities`](./piecewise_constant_distribution/densities.md) | 重み付けの数列を取得する         | C++11 |
+| [`param`](./piecewise_constant_distribution/param.md)         | 分布のパラメータを取得／設定する | C++11 |
+| [`mix`](./piecewise_constant_distribution/min.md)             | 最小値を取得する                 | C++11 |
+| [`max`](./piecewise_constant_distribution/max.md)             | 最大値を取得する                 | C++11 |
+
+
+##メンバ型
+
+| 型 | 説明 | 対応バージョン |
+|---------------|-------------------------------|-------|
+| `result_type` | 乱数生成結果の型 `RealType`。 | C++11 |
+| `param_type`  | 分布パラメータの型。未規定。  | C++11 |
 
 
 ##例
 ```cpp
-#include <iostream>
-#include <exception>
-#include <random>
-#include <algorithm>
-#include <functional>
-#include <array>
 #include <fstream>
+#include <random>
+#include <array>
 
-main()try{
-  
-  static const size_t seed_size = 8;
-  typedef std::random_device device_type;
-  typedef std::mt19937_64 engine_type;
-  typedef std::piecewise_constant_distribution<float> distribution_type;
+int main()
+{
+  std::random_device seed_gen;
+  std::default_random_engine engine(seed_gen());
 
-  auto s = [seed_size](){
-    device_type r;
-    std::vector<device_type::result_type> i(seed_size);
-    std::generate(i.begin(), i.end(), std::ref(r));
-    return std::seed_seq(i.begin(), i.end());
-  }();
-  engine_type e(s);
+  // [0.0, 5.0)の値は、0.3の確率で出現する。
+  // [5.0, 10.0)の値は、0.5の確率で出現する。
+  std::array<double, 3>
+    intervals = {0.0, 5.0, 10.0},
+    densities = {0.3, 0.5};
 
-  std::array<distribution_type::result_type, 7>
-    intervals = {.0f, .1f, .2f, .3f, .5f, .7f, 1.f},
-    densities = {.3f, .2f, .1f, .0f, 1.f, .2f, 5.f};
-  distribution_type d(intervals.begin(), intervals.end(), densities.begin());
-  
-  std::ofstream o("piecewise_constant_distribution.tsv");
-  for(size_t n = 1000; n; --n)
-    o << d(e) << "\t" << "\n";
-  o.close();
+  std::piecewise_constant_distribution<> dist(
+    intervals.begin(),
+    intervals.end(),
+    densities.begin()
+  );
 
-}catch(const std::exception& e){
-  std::cerr << e.what();
+  std::ofstream file("piecewise_constant_distribution.tsv");
+  for (int i = 0; i < 1000; ++i) {
+    double result = dist(engine);
+    file << result << "\n";
+  }
 }
 ```
 
 
 ###出力
-このプログラムによってある時に得られた結果（;[piecewise_constant_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.tsv.7z)）を図示する。
+このプログラムによってある時に得られた結果（;[piecewise_constant_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.png)
-
-![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution-hist.png)
 
 
 ##バージョン
