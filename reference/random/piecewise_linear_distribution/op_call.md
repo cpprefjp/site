@@ -30,9 +30,9 @@ result_type operator()(URNG& g, const param_type& parm);
 int main()
 {
   std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
+  std::default_random_engine engine(seed_gen());
 
-  // [0.0, 0.5)の値は、出現確率が0.0から0.5まで線形に上昇する。
+  // [0.0, 5.0)の値は、出現確率が0.0から0.5まで線形に上昇する。
   // [5.0, 10.0)の値は、出現確率が0.5から0.1まで線形に減少する。
   std::array<double, 3> intervals = {0.0, 5.0, 10.0};
   std::array<double, 3> densities = {0.0, 0.5,  0.1};
