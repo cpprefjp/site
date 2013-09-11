@@ -43,7 +43,7 @@ explicit piecewise_linear_distribution(const param_type& parm);
 - `template <class UnaryOperation>`<br/>`piecewise_linear_distribution(size_t nw, RealType xmin, RealType xmax, UnaryOperation fw);`
 
 区間値の範囲を受け取るコンストラクタ。  
-`nw`は区間列の要素数、`xmin`は区間の最小値、`xmax`は区間の最大値、`fw`は区間列それぞれのインデックスに対する重み値を求めるための単項関数オブジェクトである。`UnaryOperation`関数オブジェクトは、`double`型に変換可能な確率値を受け取り、新たな確率値を返す。  
+`nw`は区間列の要素数、`xmin`は区間の最小値、`xmax`は区間の最大値、`fw`は区間列それぞれのインデックスに対する重み値を求めるための単項関数オブジェクトである。`UnaryOperation`関数オブジェクトは、`double`型に変換可能な区間値を受け取り、その区間に対する確率値を返す。  
   
 以下の公式で確率列を構築する。δの値を`0 < δ = (xmax−xmin)/n`として、`k番目の確率 = fw(xmin + k)`。  
 `nw`が1以下だった場合、区間数列を`{0.0, 1.0}`、重み数列を`{1.0, 1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。  
