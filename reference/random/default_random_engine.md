@@ -12,6 +12,16 @@ namespace std {
 `default_random_engine`は、非専門用途で十分な品質の擬似乱数生成エンジンを`typedef`したものである。
 
 
+##備考
+以下、確認できた環境ごとのエンジンである。バージョンによって変更される可能性があるため参考までに。
+
+| ライブラリ         | エンジン                            |
+|--------------------|-------------------------------------|
+| Visual C++ 2012    | [`mt19937`](./mt19937.md)           |
+| GCC 4.8(libstdc++) | [`minstd_rand0`](./minstd_rand0.md) |
+| Clang 3.4(libc++)  | [`minstd_rand`](./minstd_rand.md)   |
+
+
 ##例
 ```cpp
 #include <iostream>
