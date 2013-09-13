@@ -22,8 +22,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`minstd_rand0`](./random/minstd_rand0.md) | 最小標準MINSTD | C++11 |
-| [`minstd_rand`](./random/minstd_rand.md)   | 最小標準MINSTDのパラメータ改良版 | C++11 |
+| [`minstd_rand0`](./random/minstd_rand0.md) | 線形合同法／最小標準MINSTD | C++11 |
+| [`minstd_rand`](./random/minstd_rand.md)   | 線形合同法／最小標準MINSTDのパラメータ改良版 | C++11 |
 | [`mt19937`](./random/mt19937.md)           | メルセンヌ・ツイスター(32ビット版) | C++11 |
 | [`mt19937_64`](./random/mt19937_64.md)     | メルセンヌ・ツイスター(64ビット版) | C++11 |
 | `ranlux24_base` |  | C++11 |
