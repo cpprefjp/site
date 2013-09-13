@@ -1,96 +1,128 @@
-#linear_congruential_engine
+#linear_congruential_engine(C++11)
 ```cpp
-namespace std
-{
-  template<class UIntType, UIntType a, UIntType c, UIntType m>
-  class linear_congruential_engine
-  {
-  public:
-    // types
-    typedef UIntType result_type;
-    // engine characteristics
-    static constexpr result_type
-    multiplier = a;
-    static constexpr result_type
-    increment = c;
-    static constexpr result_type
-    modulus = m;
-    static constexpr result_type
-    min() { return c == 0u ? 1u : 0u };
-    static constexpr result_type
-    max() { return m - 1u };
-    static constexpr result_type
-    default_seed = 1u;
-    // constructors and seeding functions
-    explicit linear_congruential_engine ( result_type s = default_seed );
-    template<class Sseq> explicit linear_congruential_engine ( Sseq& q );
-    void seed ( result_type s = default_seed );
-    template<class Sseq> void seed ( Sseq& q );
-    // generating functions
-    result_type operator() ();
-    void discard ( unsigned long long z );
-  };
+namespace std {
+  template <class UIntType, UIntType a, UIntType c, UIntType m>
+  class linear_congruential_engine;
+
+  typedef … minstd_rand0;
+  typedef … minstd_rand;
 }
 ```
+* minstd_rand[link ./minstd_rand.md]
+* minstd_rand0[link ./minstd_rand0.md]
 
 ##概要
-やや古い言語で標準的に用いられている事が多い単純な擬似乱数生成エンジンである。この擬似乱数生成エンジンは内部状態として前の擬似乱数と定数A、定数B、定数Mを保持し以下の漸化式により次の擬似乱数を生成する。 
+`linear_congruential_engine`クラスは、線形合同法による擬似乱数生成エンジンである。  
+前の擬似乱数と定数A、定数B、定数Mを保持し、以下の漸化式により次の擬似乱数を生成する。 
 
-<img src='http://www.texify.com/img/%5CLARGE%5C%21x_%7Bn%2B1%7D%3D%5Cleft%28%20A%5Ctimes%20X_%7Bn%7D%2BB%29%20mod%20M.gif' border='0' alt='x_{n+1}=\left( A\times X_{n}+B) mod M'></img>
 
-単純なだけあって<b>少メモリで高速</b>な擬似乱数生成エンジンだが、<b>線形関数は予測が容易</b>であり、また<b>単純な剰余により多次元に均等分布しない</b>、<b>下位ビットのランダム性が低い</b>、<b>周期が短い</b>などの擬似乱数として用途によっては深刻な問題の原因（バグ、予想外の欠陥的仕様）となりかねない。 
+![](https://raw.github.com/cpprefjp/image/master/reference/random/linear_congruential_engine/linear_congruential.png)
 
-C++11発行現在、一般的なPC向けの擬似乱数生成エンジンとしては非標準となりつつあり、余程非力な実行環境に於いて高速かつ短周期で構わない擬似乱数を使用したい場合を除き<b>積極的にこの擬似乱数生成エンジンを用いるべきではない</b>。（通常はC++11標準ライブラリにも含まれるメルセンヌツイスター、或いは余程擬似乱数生成エンジンの速度が要求される場合はXORSHIFTを用いると良い。） 
 
-なお、本クラスの諸テンプレートパラメーターを定義済みの `minstd_rand0` 、 `minstd_rand` も用意されており、それらで十分な場合にはより簡単に使用する事もできる。また、直接的には関係しないが、C言語の `rand()` 、 `srand()` により運用される擬似乱数も同様のアルゴリズムによるものである。
+線形合同法は、以下の特徴を持つ：
+
+* 少メモリで高速
+* 単純な剰余演算のため、均等分布しない
+* 下位ビットのランダム性が低い
+* 短い周期(2<sup>31</sup>-2)
+
+少メモリで高速という点から、多くの言語で、標準の乱数生成法として使用されている。  
+C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/reference/cstdlib/rand.md)の乱数生成法は実装定義だが、多くの実装で線形合同法が使用されている。
+
+
+しかし、メモリ使用量がそれほど問題にならないのであれば、メルセンヌ・ツイスター([`mt19937`](./mt19937.md))の使用を検討した方がいいだろう。
+標準にはないが、メモリ使用量が少なく、高速で、値の周期も長い(メルセンヌ・ツイスターほどではない)、xorshiftという乱数生成法も存在する。
+
+
+##メンバ関数
+###構築・シード
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------------------------------------------------|------------------|-------|
+| [`(constructor)`](./linear_congruential_engine/linear_congruential_engine.md) | コンストラクタ   | C++11 |
+| `~linear_congruential_engine() = default;`                                    | デストラクタ     | C++11 |
+| [`seed`](./linear_congruential_engine/seed.md)                                | シードを設定する | C++11 |
+
+
+###生成
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------------------|--------------------|-------|
+| [`operator()`](./linear_congruential_engine/op_call.md) | 擬似乱数を生成する | C++11 |
+| [`discard`](./linear_congruential_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
+
+
+##静的メンバ関数
+###エンジンの特性
+
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------|--------------------------------|-------|
+| [`min`](./linear_congruential_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
+| [`max`](./linear_congruential_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+
+
+##メンバ型
+
+| 型 | 説明 | 対応バージョン |
+|---------------|-------------------|-------|
+| `result_type` | 擬似乱数生成結果の符号なし整数型 `UIntType`。 | C++11 |
+
+
+##メンバ定数
+
+| 定数 | 説明 | 対応バージョン |
+|---------------|-------------------|-------|
+| `static constexpr result_type multiplier` | 乗項A。テンプレートパラメータ`a`。 | C++11 |
+| `static constexpr result_type increment`  | 増分項C。状態シーケンスの要素数。テンプレートパラメータ`c`。 | C++11 |
+| `static constexpr result_type modulus`    | 剰余項M。テンプレートパラメータ`m`。 | C++11 |
+| `result_type default_seed`                | デフォルトのシード値。`1u` | C++11 |
+
+
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|--------------------------------------------------------------|----------------------|-------|
+| [`operator==`](./linear_congruential_engine/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](./linear_congruential_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](./linear_congruential_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](./linear_congruential_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例
-次の例は線形合同法エンジンにより非常に質の悪い擬似乱数列を生成してしまう例である。出力からは人間が一見しただけでも擬似乱数として多くの場合に問題となり得る単純性に気がつくだろう。
-
 ```cpp
-#include <random>
 #include <iostream>
-#include <limits>
+#include <random>
 
-int main(){
-  std::linear_congruential_engine<uint64_t, 13579, 24680, 9876543210> rne(123456789);
-  size_t n;
-  std::cout
-    << "how many generate?\n"
-    << "(you don't input negative value or charactor if you are not understood)\n"
-    << " input [0-" << std::numeric_limits<size_t>::max() << "] > ";
-  std::cin >> n;
-  while(n--)
-    std::cout << rne() << std::endl;
+int main()
+{
+  std::random_device seed_gen;
+
+  // linear_congruential_engineのパラメータ設定済みtypedefであるminstd_randを使用する。
+  // ランダムなシードを使用して初期化
+  std::minstd_rand engine(seed_gen());
+
+  for (int i = 0; i < 10; ++i) {
+    // 乱数を生成
+    std::uint32_t result = engine();
+
+    std::cout << result << std::endl;
+  }
 }
 ```
 
 ###出力
 ```
-/tmp% ./bad_random       
-how many generate?
-(you don't input negative value or charactor if you are not understood)
- input [0-18446744073709551615] > 16
-7283960021
-5189444899
-8213048061
-8930260889
-9691647241
-7816180179
-2577340661
-5116267369
-2189689191
-5394487169
-7296847171
-2406276969
-3230048051
-8970656809
-5141425161
-8004877619
+822915164
+932862885
+1787211539
+1775131785
+641394788
+496072749
+1485002929
+1719732546
+81869534
+554365234
 ```
-* /tmp%[color ff0000]
-* .bad_random[color 0000ff]
 
 ## バージョン
 ###言語
@@ -99,6 +131,6 @@ how many generate?
 ###処理系
 - [Clang](/implementation#clang.md): 
 - [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.2
 - [ICC](/implementation#icc.md): 
 - [Visual C++](/implementation#visual_cpp.md): 
