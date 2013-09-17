@@ -35,7 +35,7 @@
 | [`ranlux48_base`](./random/ranlux48_base.md) | RANLUX法のranlux48を定義するための型 | C++11 |
 | [`ranlux24`](./random/ranlux24.md)           | RANLUX法(レベル3) | C++11 |
 | [`ranlux48`](./random/ranlux48.md)           | RANLUX法(レベル4) | C++11 |
-| `knuth_b`       |  | C++11 |
+| [`knuth_b`](./random/knuth_b.md)             | KnuthのリオーダーアルゴリズムB | C++11 |
 | [`default_random_engine`](./random/default_random_engine.md) | 非専門用途でデフォルト使用するエンジン | C++11 |
 
 
