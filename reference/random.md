@@ -27,14 +27,14 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`minstd_rand0`](./random/minstd_rand0.md) | 線形合同法／最小標準MINSTD | C++11 |
-| [`minstd_rand`](./random/minstd_rand.md)   | 線形合同法／最小標準MINSTDのパラメータ改良版 | C++11 |
-| [`mt19937`](./random/mt19937.md)           | メルセンヌ・ツイスター(32ビット版) | C++11 |
-| [`mt19937_64`](./random/mt19937_64.md)     | メルセンヌ・ツイスター(64ビット版) | C++11 |
-| `ranlux24_base` |  | C++11 |
-| `ranlux48_base` |  | C++11 |
-| `ranlux24`      |  | C++11 |
-| `ranlux48`      |  | C++11 |
+| [`minstd_rand0`](./random/minstd_rand0.md)   | 線形合同法／最小標準MINSTD | C++11 |
+| [`minstd_rand`](./random/minstd_rand.md)     | 線形合同法／最小標準MINSTDのパラメータ改良版 | C++11 |
+| [`mt19937`](./random/mt19937.md)             | メルセンヌ・ツイスター(32ビット版) | C++11 |
+| [`mt19937_64`](./random/mt19937_64.md)       | メルセンヌ・ツイスター(64ビット版) | C++11 |
+| [`ranlux24_base`](./random/ranlux24_base.md) | RANLUX法のranlux24を定義するための型 | C++11 |
+| [`ranlux48_base`](./random/ranlux48_base,md) | RANLUX法のranlux48を定義するための型 | C++11 |
+| [`ranlux24`](./random/ranlux24.md)           | RANLUX法(レベル3) | C++11 |
+| [`ranlux48`](./random/ranlux48.md)           | RANLUX法(レベル4) | C++11 |
 | `knuth_b`       |  | C++11 |
 | [`default_random_engine`](./random/default_random_engine.md) | 非専門用途でデフォルト使用するエンジン | C++11 |
 
@@ -158,6 +158,7 @@ int main()
 ##参照
 * [さまざまな確率分布 (probability distributions)](http://www.biwako.shiga-u.ac.jp/sensei/mnaka/ut/statdist.html)
 * [確率変数－種々の分布の特徴](https://sites.google.com/site/techdmba/distribution)
+* [N1398 A Proposal to Add an Extensible Random Number Facility to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1398.html)
 * [N3551 Random Number Generation in C++11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)
 
 ##編集者向けの参照
