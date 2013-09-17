@@ -32,7 +32,7 @@
 | [`mt19937`](./random/mt19937.md)             | メルセンヌ・ツイスター(32ビット版) | C++11 |
 | [`mt19937_64`](./random/mt19937_64.md)       | メルセンヌ・ツイスター(64ビット版) | C++11 |
 | [`ranlux24_base`](./random/ranlux24_base.md) | RANLUX法のranlux24を定義するための型 | C++11 |
-| [`ranlux48_base`](./random/ranlux48_base,md) | RANLUX法のranlux48を定義するための型 | C++11 |
+| [`ranlux48_base`](./random/ranlux48_base.md) | RANLUX法のranlux48を定義するための型 | C++11 |
 | [`ranlux24`](./random/ranlux24.md)           | RANLUX法(レベル3) | C++11 |
 | [`ranlux48`](./random/ranlux48.md)           | RANLUX法(レベル4) | C++11 |
 | `knuth_b`       |  | C++11 |
