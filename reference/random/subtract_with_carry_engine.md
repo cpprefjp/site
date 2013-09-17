@@ -24,7 +24,7 @@ namespace std {
 * [メルセンヌ・ツイスター](./mersenne_twister_engine.md)より周期が短い(10<sup>171</sup>)が軽量。
 
 
-この生成法は、RANLUX法の実装にも使われる。RANLUX法は、重複のない独立した乱数を生成することで知られている。
+この生成法は、RANLUX(LUXury RANdom numbers)法の実装にも使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
 
 
 ##メンバ関数
