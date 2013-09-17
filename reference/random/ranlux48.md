@@ -6,7 +6,7 @@ namespace std {
   ranlux48;
 }
 ```
-* ranlux48_base[link /reference/cstdint/ranlux48_base.md]
+* ranlux48_base[link ./ranlux48_base.md]
 * discard_block_engine[link ./discard_block_engine.md]
 
 ##概要
