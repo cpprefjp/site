@@ -90,9 +90,9 @@ int main()
 {
   std::random_device seed_gen;
 
-  // subtract_with_carry_engineのパラメータ設定済みtypedefであるranlux24を使用する。
+  // subtract_with_carry_engineのパラメータ設定済みtypedefであるranlux24_baseを使用する。
   // ランダムなシードを使用して初期化
-  std::ranlux24 engine(seed_gen());
+  std::ranlux24_base engine(seed_gen());
 
   for (int i = 0; i < 10; ++i) {
     // 乱数を生成
@@ -105,16 +105,16 @@ int main()
 
 ###出力
 ```
-4656583
-16286972
-13143708
-15674163
-4818792
-586964
-16383317
-6610048
-2976326
-11442436
+5880757
+13095533
+1545433
+15249896
+3512432
+2193500
+7368389
+13589182
+9374747
+13701319
 ```
 
 ## バージョン
