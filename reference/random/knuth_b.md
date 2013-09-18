@@ -20,7 +20,7 @@ Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volu
 `knuth_b`型オブジェクトをデフォルト構築した場合、10000番目に生成される擬似乱数の値は`1112339016`であること。
 
 
-##値の周期
+##乱数列の周期
 不明(Boost.Randomのドキュメントより)
 
 
