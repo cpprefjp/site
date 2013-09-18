@@ -8,10 +8,10 @@
 多くのユーザーにとっては、以下に挙げる生の乱数生成器テンプレートクラスそのものよりも、後述するパラメータ定義済みの乱数生成器クラスを使用すれば十分である。
 
 | 名前 | 説明 | 対応バージョン |
-|-------------------------------------------------------------------------|------------------------------|-------|
-| [`linear_congruential_engine `](./random/linear_congruential_engine.md) | 線形合同法エンジン           | C++11 |
-| [`mersenne_twister_engine`](./random/mersenne_twister_engine.md)        | メルセンヌツイスターエンジン | C++11 |
-| [`subtract_with_carry_engine`](./random/subtract_with_carry_engine.md)  | キャリー付き減算エンジン     | C++11 |
+|-------------------------------------------------------------------------|-------------------------------|-------|
+| [`linear_congruential_engine `](./random/linear_congruential_engine.md) | 線形合同法(class template)             | C++11 |
+| [`mersenne_twister_engine`](./random/mersenne_twister_engine.md)        | メルセンヌツイスター法(class template) | C++11 |
+| [`subtract_with_carry_engine`](./random/subtract_with_carry_engine.md)  | キャリー付き減算法(class template)     | C++11 |
 
 
 ##生成器アダプタ
@@ -20,9 +20,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|------------------------------|-------|
-| [`discard_block_engine`](./random/discard_block_engine.md) | 部分的に乱数列を破棄する | C++11 |
-| `independent_bits_engine`                                  | インデペンデントビッツエンジン | C++11 |
-| `shuffle_order_engine`                                     | シャッフルオーダーエンジン | C++11 |
+| [`discard_block_engine`](./random/discard_block_engine.md) | 部分的に乱数列を破棄する(class template) | C++11 |
+| `independent_bits_engine`                                  | インデペンデントビッツエンジン(class template) | C++11 |
+| `shuffle_order_engine`                                     | シャッフルオーダーエンジン(class template) | C++11 |
 
 
 ##パラメータ定義済み擬似乱数生成器
@@ -31,16 +31,16 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`minstd_rand0`](./random/minstd_rand0.md)   | 線形合同法／最小標準MINSTD | C++11 |
-| [`minstd_rand`](./random/minstd_rand.md)     | 線形合同法／最小標準MINSTDのパラメータ改良版 | C++11 |
-| [`mt19937`](./random/mt19937.md)             | メルセンヌ・ツイスター(32ビット版) | C++11 |
-| [`mt19937_64`](./random/mt19937_64.md)       | メルセンヌ・ツイスター(64ビット版) | C++11 |
-| [`ranlux24_base`](./random/ranlux24_base.md) | RANLUX法のranlux24を定義するための型 | C++11 |
-| [`ranlux48_base`](./random/ranlux48_base.md) | RANLUX法のranlux48を定義するための型 | C++11 |
-| [`ranlux24`](./random/ranlux24.md)           | RANLUX法(レベル3) | C++11 |
-| [`ranlux48`](./random/ranlux48.md)           | RANLUX法(レベル4) | C++11 |
-| [`knuth_b`](./random/knuth_b.md)             | KnuthのリオーダーアルゴリズムB | C++11 |
-| [`default_random_engine`](./random/default_random_engine.md) | 非専門用途でデフォルト使用するエンジン | C++11 |
+| [`minstd_rand0`](./random/minstd_rand0.md)   | 線形合同法／最小標準MINSTD(typedef)                   | C++11 |
+| [`minstd_rand`](./random/minstd_rand.md)     | 線形合同法／最小標準MINSTDのパラメータ改良版(typedef) | C++11 |
+| [`mt19937`](./random/mt19937.md)             | メルセンヌツイスターの32ビット版(typedef)             | C++11 |
+| [`mt19937_64`](./random/mt19937_64.md)       | メルセンヌツイスターの64ビット版(typedef)             | C++11 |
+| [`ranlux24_base`](./random/ranlux24_base.md) | RANLUX法の`ranlux24`を定義するための型(typedef)       | C++11 |
+| [`ranlux48_base`](./random/ranlux48_base.md) | RANLUX法の`ranlux48`を定義するための型(typedef)       | C++11 |
+| [`ranlux24`](./random/ranlux24.md)           | RANLUX法のレベル3(typedef)                            | C++11 |
+| [`ranlux48`](./random/ranlux48.md)           | RANLUX法のレベル4(typedef)                            | C++11 |
+| [`knuth_b`](./random/knuth_b.md)             | KnuthのリオーダーアルゴリズムB(typedef)               | C++11 |
+| [`default_random_engine`](./random/default_random_engine.md) | 非専門用途でデフォルト使用する擬似乱数生成器(typedef) | C++11 |
 
 
 ##非決定的な乱数生成器
@@ -62,50 +62,50 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`uniform_int_distribution`](./random/uniform_int_distribution.md)   | 一様整数分布生成器 | C++11 |
-| [`uniform_real_distribution`](./random/uniform_real_distribution.md) | 一様実数分布生成器 | C++11 |
+| [`uniform_int_distribution`](./random/uniform_int_distribution.md)   | 一様整数分布(class template) | C++11 |
+| [`uniform_real_distribution`](./random/uniform_real_distribution.md) | 一様実数分布(class template) | C++11 |
 
 
 ###ベルヌーイ分布(Bernoulli Distribution)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`bernoulli_distribution`](./random/bernoulli_distribution.md)       | ベルヌーイ分布生成器 | C++11 |
-| [`binomial_distribution`](./random/binomial_distribution.md)         | 二項分布生成器 | C++11 |
-| [`geometric_distribution`](./random/geometric_distribution.md)       | 幾何分布生成器 | C++11 |
-| [`negative_binomial_distribution`](./random/negative_binomial_distribution.md) | 負の二項分布生成器 | C++11 |
+| [`bernoulli_distribution`](./random/bernoulli_distribution.md)       | ベルヌーイ分布(class) | C++11 |
+| [`binomial_distribution`](./random/binomial_distribution.md)         | 二項分布(class template)) | C++11 |
+| [`geometric_distribution`](./random/geometric_distribution.md)       | 幾何分布(class template) | C++11 |
+| [`negative_binomial_distribution`](./random/negative_binomial_distribution.md) | 負の二項分布(class template) | C++11 |
 
 
 ###ポワソン分布(Poisson Distribution)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`poisson_distribution`](./random/poisson_distribution.md)             | ポワソン分布生成器 | C++11 |
-| [`exponential_distribution`](./random/exponential_distribution.md)     | 指数分布生成器 | C++11 |
-| [`gamma_distribution`](./random/gamma_distribution.md)                 | ガンマ分布生成器 | C++11 |
-| [`weibull_distribution`](./random/weibull_distribution.md)             | ワイブル分布生成器 | C++11 |
-| [`extreme_value_distribution`](./random/extreme_value_distribution.md) | 極値分布生成器 | C++11 |
+| [`poisson_distribution`](./random/poisson_distribution.md)             | ポワソン分布(class template) | C++11 |
+| [`exponential_distribution`](./random/exponential_distribution.md)     | 指数分布(class template)     | C++11 |
+| [`gamma_distribution`](./random/gamma_distribution.md)                 | ガンマ分布(class template)   | C++11 |
+| [`weibull_distribution`](./random/weibull_distribution.md)             | ワイブル分布(class template) | C++11 |
+| [`extreme_value_distribution`](./random/extreme_value_distribution.md) | 極値分布(class template)     | C++11 |
 
 
 ###正規分布(Normal Distribution)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`normal_distribution`](./random/normal_distribution.md)           | 正規分布生成器 | C++11 |
-| [`lognormal_distribution`](./random/lognormal_distribution.md)     | 対数正規分布生成器 | C++11 |
-| [`chi_squared_distribution`](./random/chi_squared_distribution.md) | カイ二乗分布生成器 | C++11 |
-| [`cauchy_distribution`](./random/cauchy_distribution.md)           | コーシー分布生成器 | C++11 |
-| [`fisher_f_distribution`](./random/fisher_f_distribution.md)       | フィッシャーのF分布生成器 | C++11 |
-| [`student_t_distribution`](./random/student_t_distribution.md)     | ステューデントのt分布生成器 | C++11 |
+| [`normal_distribution`](./random/normal_distribution.md)           | 正規分布(class template)              | C++11 |
+| [`lognormal_distribution`](./random/lognormal_distribution.md)     | 対数正規分布(class template)          | C++11 |
+| [`chi_squared_distribution`](./random/chi_squared_distribution.md) | カイ二乗分布(class template)          | C++11 |
+| [`cauchy_distribution`](./random/cauchy_distribution.md)           | コーシー分布(class template)          | C++11 |
+| [`fisher_f_distribution`](./random/fisher_f_distribution.md)       | フィッシャーのF分布(class template)   | C++11 |
+| [`student_t_distribution`](./random/student_t_distribution.md)     | ステューデントのt分布(class template) | C++11 |
 
 
 ###標本分布(Sampling Distribution)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`discrete_distribution`](./random/discrete_distribution.md) | 整数のインデックスごとに離散した確率分布生成器 | C++11 |
-| [`piecewise_constant_distribution`](./random/piecewise_constant_distribution.md) | 区間ごとの重み付けを定数値とした分布生成器 | C++11 |
-| [`piecewise_linear_distribution`](./random/piecewise_linear_distribution.md) | 区間ごとの重み付けを線形に接続した分布生成器 | C++11 |
+| [`discrete_distribution`](./random/discrete_distribution.md) | 整数のインデックスごとに離散した確率分布生成器(class template) | C++11 |
+| [`piecewise_constant_distribution`](./random/piecewise_constant_distribution.md) | 区間ごとの重み付けを定数値とした分布生成器(class template) | C++11 |
+| [`piecewise_linear_distribution`](./random/piecewise_linear_distribution.md) | 区間ごとの重み付けを線形に接続した分布生成器(class template) | C++11 |
 
 
 ###ユーティリティ
