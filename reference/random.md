@@ -71,7 +71,7 @@
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
 | [`bernoulli_distribution`](./random/bernoulli_distribution.md)       | ベルヌーイ分布(class) | C++11 |
-| [`binomial_distribution`](./random/binomial_distribution.md)         | 二項分布(class template)) | C++11 |
+| [`binomial_distribution`](./random/binomial_distribution.md)         | 二項分布(class template) | C++11 |
 | [`geometric_distribution`](./random/geometric_distribution.md)       | 幾何分布(class template) | C++11 |
 | [`negative_binomial_distribution`](./random/negative_binomial_distribution.md) | 負の二項分布(class template) | C++11 |
 
