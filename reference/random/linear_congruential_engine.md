@@ -71,11 +71,11 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 ##メンバ定数
 
 | 定数 | 説明 | 対応バージョン |
-|---------------|-------------------|-------|
-| `static constexpr result_type multiplier` | 乗項A。テンプレートパラメータ`a`。 | C++11 |
-| `static constexpr result_type increment`  | 増分項C。状態シーケンスの要素数。テンプレートパラメータ`c`。 | C++11 |
-| `static constexpr result_type modulus`    | 剰余項M。テンプレートパラメータ`m`。 | C++11 |
-| `result_type default_seed`                | デフォルトのシード値。`1u` | C++11 |
+|---------------|-------------------|---------|
+| `static constexpr result_type multiplier`   | 乗項A。テンプレートパラメータ`a`。 | C++11 |
+| `static constexpr result_type increment`    | 増分項C。状態シーケンスの要素数。テンプレートパラメータ`c`。 | C++11 |
+| `static constexpr result_type modulus`      | 剰余項M。テンプレートパラメータ`m`。 | C++11 |
+| `static constexpr result_type default_seed` | デフォルトのシード値。`1u` | C++11 |
 
 
 ##非メンバ関数
