@@ -1,10 +1,10 @@
 #operator==(C++11)
 ```cpp
 namespace std {
-  template <class UIntType, UIntType a, UIntType c, UIntType m>
+  template <class UIntType, UIntType A, UIntType C, UIntType M>
   bool operator==(
-    const linear_congruential_engine<UIntType, a, c, m>& x,
-    const linear_congruential_engine<UIntType, a, c, m>& y);
+    const linear_congruential_engine<UIntType, A, C, M>& x,
+    const linear_congruential_engine<UIntType, A, C, M>& y);
 }
 ```
 

@@ -2,10 +2,10 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits,
-            class UIntType, UIntType a, UIntType c, UIntType m>
+            class UIntType, UIntType A, UIntType C, UIntType M>
   basic_istream<CharT, Traits>& operator>>(
     basic_istream<CharT, Traits>& os
-    linear_congruential_engine<UIntType, a, c, m>& x);
+    linear_congruential_engine<UIntType, A, C, M>& x);
 }
 ```
 * basic_istream[link /reference/iostream/basic_istream.md]

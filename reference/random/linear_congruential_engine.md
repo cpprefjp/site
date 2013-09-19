@@ -1,7 +1,7 @@
 #linear_congruential_engine(C++11)
 ```cpp
 namespace std {
-  template <class UIntType, UIntType a, UIntType c, UIntType m>
+  template <class UIntType, UIntType A, UIntType C, UIntType M>
   class linear_congruential_engine;
 
   typedef … minstd_rand0;
@@ -72,9 +72,9 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 
 | 定数 | 説明 | 対応バージョン |
 |---------------|-------------------|---------|
-| `static constexpr result_type multiplier`   | 乗項A。テンプレートパラメータ`a`。 | C++11 |
-| `static constexpr result_type increment`    | 増分項C。状態シーケンスの要素数。テンプレートパラメータ`c`。 | C++11 |
-| `static constexpr result_type modulus`      | 剰余項M。テンプレートパラメータ`m`。 | C++11 |
+| `static constexpr result_type multiplier`   | 乗項A。テンプレートパラメータ`A`。 | C++11 |
+| `static constexpr result_type increment`    | 増分項C。状態シーケンスの要素数。テンプレートパラメータ`C`。 | C++11 |
+| `static constexpr result_type modulus`      | 剰余項M。テンプレートパラメータ`M`。 | C++11 |
 | `static constexpr result_type default_seed` | デフォルトのシード値。`1u` | C++11 |
 
 

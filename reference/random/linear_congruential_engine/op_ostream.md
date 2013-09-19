@@ -2,10 +2,10 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits,
-            class UIntType, UIntType a, UIntType c, UIntType m>
+            class UIntType, UIntType A, UIntType C, UIntType M>
   basic_ostream<CharT, Traits>& operator<<(
     basic_ostream<CharT, Traits>& os
-    const linear_congruential_engine<UIntType, a, c, m>& x);
+    const linear_congruential_engine<UIntType, A, C, M>& x);
 }
 ```
 * basic_ostream[link /reference/iostream/basic_ostream.md]
