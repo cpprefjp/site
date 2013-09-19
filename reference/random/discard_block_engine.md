@@ -36,8 +36,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|--------------------|-------|
-| [`operator()`](./discard_block_engine/op_call.md) | 擬似乱数を生成する | C++11 |
-| [`discard`](./discard_block_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
+| [`operator()`](./discard_block_engine/op_call.md) | 乱数を生成する | C++11 |
+| [`discard`](./discard_block_engine/discard.md)    | 指定した回数だけ乱数を生成し、内部状態を進める | C++11 |
 
 
 ###エンジンの特性
