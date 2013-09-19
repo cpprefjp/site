@@ -1,6 +1,6 @@
 #min(C++11)
 ```cpp
-static constexpr result_type min() { return c == 0u ? 1u: 0u; }
+static constexpr result_type min() { return C == 0u ? 1u: 0u; }
 ```
 
 ##概要
@@ -8,7 +8,7 @@ static constexpr result_type min() { return c == 0u ? 1u: 0u; }
 
 
 ##戻り値
-テンプレートパラメータ`c`が`0`であれば`1`、そうでなければ`0`を返す。
+テンプレートパラメータ`C`が`0`であれば`1`、そうでなければ`0`を返す。
 
 
 ##計算量
