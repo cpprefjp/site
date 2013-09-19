@@ -68,7 +68,7 @@ namespace std {
 | `static constexpr size_t word_size` | ワードサイズ。状態シーケンス内での各ワードのビット数。テンプレートパラメータ`w`。 | C++11 |
 | `static constexpr size_t short_lag` | 短いラグ。進める要素数。テンプレートパラメータ`s`。 | C++11 |
 | `static constexpr size_t long_lag`  | 長いラグ。オペランドの値間の距離。テンプレートパラメータ`r`。 | C++11 |
-| `result_type default_seed`          | デフォルトのシード値。`19780503u` | C++11 |
+| `static constexpr result_type default_seed` | デフォルトのシード値。`19780503u` | C++11 |
 
 
 ##非メンバ関数

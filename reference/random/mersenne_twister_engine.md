@@ -87,8 +87,8 @@ namespace std {
 | `static constexpr size_t tempering_t`   | 調律シフトのパラメータ。生成アルゴリズムによって使用される、ごちゃ混ぜ処理のシフト値。テンプレートパラメータ`t`。 | C++11 |
 | `static constexpr UIntType tempering_c` | 調律ビットマスクのパラメータ。生成アルゴリズムによって使用される、ごちゃ混ぜ処理のビットマスク値。テンプレートパラメータ`c`。 | C++11 |
 | `static constexpr size_t tempering_l`   | 調律シフトのパラメータ。生成アルゴリズムによって使用される、ごちゃ混ぜ処理のシフト値。テンプレートパラメータ`l`。 | C++11 |
-| `UIntType initialization_multiplier`    | 初期化の乗数。ひとつの値をシードとする際の、状態シーケンスのシードとして使用する初期化乗数。テンプレートパラメータ`f`。 | C++11 |
-| `result_type default_seed`              | デフォルトのシード値。`5489u` | C++11 |
+| `static constexpr UIntType initialization_multiplier` | 初期化の乗数。ひとつの値をシードとする際の、状態シーケンスのシードとして使用する初期化乗数。テンプレートパラメータ`f`。 | C++11 |
+| `static constexpr result_type default_seed` | デフォルトのシード値。`5489u` | C++11 |
 
 
 ##非メンバ関数
