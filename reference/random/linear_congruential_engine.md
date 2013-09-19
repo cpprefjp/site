@@ -8,8 +8,8 @@ namespace std {
   typedef … minstd_rand;
 }
 ```
-* minstd_rand[link ./minstd_rand.md]
 * minstd_rand0[link ./minstd_rand0.md]
+* minstd_rand[link ./minstd_rand.md]
 
 ##概要
 `linear_congruential_engine`クラスは、線形合同法による擬似乱数生成エンジンである。  
