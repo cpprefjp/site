@@ -22,7 +22,7 @@
 |------------------------------------------------------------|------------------------------|-------|
 | [`discard_block_engine`](./random/discard_block_engine.md) | 部分的に乱数列を破棄する(class template) | C++11 |
 | `independent_bits_engine`                                  | インデペンデントビッツエンジン(class template) | C++11 |
-| `shuffle_order_engine`                                     | シャッフルオーダーエンジン(class template) | C++11 |
+| [`shuffle_order_engine`](./random/shuffle_order_engine.md) | 乱数の生成順をシャッフルする(class template) | C++11 |
 
 
 ##パラメータ定義済み擬似乱数生成器
