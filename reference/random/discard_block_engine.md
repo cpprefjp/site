@@ -15,7 +15,7 @@ namespace std {
 `discard_block_engine`クラスは、乱数生成エンジンが生成する乱数を調整し、捨てるブロックと使用するブロックに分ける生成器アダプタである。  
 テンプレートパラメータ`p`はブロックの全体サイズ、`r`は使用するブロックサイズである。`p - r`が破棄するブロックサイズとなる。  
 
-この生成器アダプタは、標準内においては[`subtract_with_carry_engine`](./subtract_with_carry.md)クラスと組み合わせて、RANLUX(LUXury RANdom numbers)法を実装するために使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
+この生成器アダプタは、標準内においては[`subtract_with_carry_engine`](./subtract_with_carry_engine.md)クラスと組み合わせて、RANLUX(LUXury RANdom numbers)法を実装するために使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
 
 
 ##要件
