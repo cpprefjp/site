@@ -1,7 +1,7 @@
 #independent_bits_engine(C++11)
 ```cpp
 namespace std {
-  template <class Engine, size_t w, class UIntType>
+  template <class Engine, size_t W, class UIntType>
   class independent_bits_engine;
 }
 ```
@@ -13,12 +13,12 @@ namespace std {
 
 テンプレートパラメータは、以下を意味する：
 
-- `w` : 生成させる整数のビット数
+- `W` : 生成させる整数のビット数
 - `UIntType` : 生成させる符号なし整数型
 
 
 ##要件
-`w > 0`かつ`w <= `[`numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)であること。
+`W > 0`かつ`W <= `[`numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)であること。
 
 
 ##メンバ関数
