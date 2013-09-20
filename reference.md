@@ -60,7 +60,7 @@
 | [`<queue>`](/reference/queue.md)                 | FIFOキュー            |                |
 | [`<stack>`](/reference/stack.md)                 | LIFOスタック          |                |
 | [`<vector>`](/reference/vector.md)               | ベクタ配列            |                |
-| `<map>`                                          | 連想配列              |                |
+| [`<map>`](/reference/map.md)                     | 連想配列              |                |
 | [`<set>`](/reference/set.md)                     | 集合                  |                |
 | [`<unordered_map>`](/reference/unordered_map.md) | 非順序連想配列        | C++11          |
 | [`<unordered_set>`](/reference/unordered_set.md) | 非順序集合            | C++11          |
