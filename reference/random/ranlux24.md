@@ -10,7 +10,7 @@ namespace std {
 * discard_block_engine[link ./discard_block_engine.md]
 
 ##概要
-`ranlux24`は。贅沢さレベル3のRANLUX(LUXury RANdom numbers)法エンジンである。  
+`ranlux24`は、贅沢さレベル3のRANLUX(LUXury RANdom numbers)法エンジンである。  
 RANLUX法は、以下の特徴を持つ：
 
 - 低速だが、高品質な乱数を生成する

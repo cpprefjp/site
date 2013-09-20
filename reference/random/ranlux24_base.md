@@ -11,7 +11,7 @@ namespace std {
 
 ##概要
 パラメータ設定済みの[`subtract_with_carry_engine`](./subtract_with_carry_engine.md)。  
-`ranlux24_base`は。贅沢さレベル4のRANLUX法エンジンである[`ranlux24`](./ranlux24.md)を定義するために使用する型である。  
+`ranlux24_base`は、贅沢さレベル4のRANLUX法エンジンである[`ranlux24`](./ranlux24.md)を定義するために使用する型である。  
   
 ##要件
 `ranlux24_base`型オブジェクトをデフォルト構築した場合、10000番目に生成される擬似乱数の値は`7937952`であること。
