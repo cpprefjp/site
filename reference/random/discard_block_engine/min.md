@@ -26,6 +26,7 @@ int main()
   std::cout << min_value << std::endl;
 }
 ```
+* ranlux24[link /reference/random/ranlux24.md]
 
 ###出力
 ```
