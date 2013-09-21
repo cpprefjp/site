@@ -1,4 +1,4 @@
-#future_errc (C++11)
+#io_errc (C++11)
 ```cpp
 namespace std {
   enum class io_errc {

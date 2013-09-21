@@ -5,9 +5,11 @@ namespace std {
   class basic_ios : public ios_base { …… };
 }
 ```
+* ios_base[link ./ios_base.md]
+* char_traits[link ../string/char_traits.md]
 
 ##概要
-basic_iosは入出力に対する共通機能を提供するクラスである。
+`basic_ios`は入出力に対する共通機能を提供するクラスである。
 ストリームバッファや状態ビットの管理などの機能を有する。
 
 ##メンバ関数
@@ -76,4 +78,5 @@ C++03までは、`explicit operator bool`関数の代わりに同じ機能を持
 | `off_type`    | `Traits::off_type`         |                |
 | `tarits_type` | テンプレート仮引数`Traits` |                |
 
-
+##参照
+- [`ios_base`](./ios_base.md)

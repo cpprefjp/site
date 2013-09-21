@@ -44,4 +44,4 @@ int main()
 - C++03
 
 ##参照
-- [`noskipws`](./noskipws.md)
+- [`skipws`](./skipws.md)

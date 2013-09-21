@@ -15,6 +15,7 @@ namespace std {
 この関数を呼び出すことによって返されるオブジェクトは、同じオブジェクトを指す。
 
 この関数によって返されるオブジェクトのクラスは以下の特徴を持つ：
+
 - [`name()`](/reference/system_error/error_category/name.md)関数によって返される文字列は`"iostream"`
 - [`default_error_condition()`](/reference/system_error/error_category/default_error_condition.md)仮想関数および[`equivalent()`](/reference/system_error/error_category/equivalent.md)仮想関数の挙動は、基本クラスである[`error_category`](/reference/system_error/error_category.md)と同じである
 
