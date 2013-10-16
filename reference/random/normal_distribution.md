@@ -12,6 +12,9 @@ namespace std {
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal.png)
 
+  
+たまに外れ値(平均 ± 標準偏差より離れた値)が生成されるので、その際は値を採用するか捨てるかを、ユーザーが選択する必要がある(捨てる際は、採用可能な値が生成されるまで再度乱数を生成する)。  
+
 
 テンプレートパラメータは、以下を意味する：
 
