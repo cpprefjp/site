@@ -84,7 +84,7 @@
 | `is_nothrow_copy_assignable` | 型がコピー代入でき、かつそのコピー代入演算子が例外を投げないか調べる (class template) | C++11 |
 | `is_nothrow_move_assignable` | 型がムーブ代入でき、かつそのムーブ代入演算子が例外を投げないか調べる (class template) | C++11 |
 | `is_nothrow_destructible` | 型が破棄でき、かつそのデストラクタが例外を投げないか調べる (class template) | C++11 |
-| `has_virtual_destructor` | 型が仮想デストラクタを持っているか調べる (class template) | C++11 |
+| [`has_virtual_destructor`](./type_traits/has_virtual_destructor.md) | 型が仮想デストラクタを持っているか調べる (class template) | C++11 |
 
 
 ##型の特性についての問い合わせ
