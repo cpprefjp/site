@@ -91,7 +91,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|---------------------------------------------|-------|
-| `alignment_of` | 型のアライメントを取得する (class template) | C++11 |
+| `alignment_of` | 型のアラインメントを取得する (class template) | C++11 |
 | `rank`         | 配列型の次元数を取得する (class template)   | C++11 |
 | `extent`       | 配列型の`i`番目の次元の要素数を取得する (class template) | C++11 |
 
@@ -154,8 +154,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
-| `aligned_storage` | アライメント調整された領域を作る (class template) | C++11 |
-| `aligned_union` | アライメント調整された共用体領域を作る (class template) | C++11 |
+| `aligned_storage` | アラインメント調整された領域を作る (class template) | C++11 |
+| `aligned_union` | アラインメント調整された共用体領域を作る (class template) | C++11 |
 | `decay` | 関数テンプレートと同じ規則で推論された型を取得する (class template) | C++11 |
 | `enable_if` | コンパイル時条件式が真の場合のみ有効な型 (class template) | C++11 |
 | `conditional` | コンパイル時条件式 (class template) | C++11 |
