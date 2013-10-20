@@ -139,13 +139,14 @@ namespace std {
 
 ##メンバ型
 
+| | |
+|------------------|------------------------------------------|
 | `key_type`       | キーの型。テンプレートパラメータ `Key`。 |
 | `value_type`     | 要素の型。テンプレートパラメータ `Key`。 |
 | `hasher`         | キーのハッシュ関数の型。テンプレートパラメータ `Hash`。 |
 | `key_equal`      | キーが等値か否かを判断するための二項述語の型。テンプレートパラメータ `Pred`。 |
 | `allocator_type` | アロケータの型。テンプレートパラメータ `Allocator`。 |
-| `pointer`        | 要素 `value_type`（`= Key`） へのポインタ。スマートポインタも可であるが、通常は `value_type*`。
-規格書上は、`allocator_type::pointer`。<br/>しかし、本来は `allocator_traits<Allocator>::pointer` が正しいと思われる。<br/>（さもないと、必須である `allocator_type::value_type` のみを定義したユーザ定義のアロケータを使用することができないため） |
+| `pointer`        | 要素 `value_type`（`= Key`） へのポインタ。スマートポインタも可であるが、通常は `value_type*`。規格書上は、`allocator_type::pointer`。<br/>しかし、本来は `allocator_traits<Allocator>::pointer` が正しいと思われる。<br/>（さもないと、必須である `allocator_type::value_type` のみを定義したユーザ定義のアロケータを使用することができないため） |
 | `const_pointer`  | 要素 `value_type`（`= Key`） へのコンストポインタ。スマートポインタも可であるが、通常は `const value_type*`。<br/>規格書上は、`allocator_type::const_pointer`。<br/>しかし、本来は `allocator_traits<Allocator>::const_pointer` が正しいと思われる。<br/>（さもないと、必須である `allocator_type::value_type` のみを定義したユーザ定義のアロケータを使用することができないため） |
 | `reference`      | 要素 `value_type`（`= Key`） への参照。<br/>規格書上は、`allocator_type::reference`。<br/>しかし、本来は `value_type&` が正しいと思われる。<br/>（さもないと、必須である `allocator_type::value_type` のみを定義したユーザ定義のアロケータを使用することができないため） |
 | `const_reference` | 要素 `value_type`（`= Key`） への`const`参照。<br/>規格書上は、`allocator_type::const_reference`。<br/>しかし、本来は `const value_type&` が正しいと思われる。<br/>（さもないと、必須である `allocator_type::value_type` のみを定義したユーザ定義のアロケータを使用することができないため） |
