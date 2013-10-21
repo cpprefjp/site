@@ -17,15 +17,16 @@ unordered_set& operator=(initializer_list<value_type> il); // (3)
 
 
 ##効果
-- (1)	`v` の全ての要素がコピー代入される。ハッシュ関数オブジェクト、キー比較用関数オブジェクト、[`max_load_factor()`](./max_load_factor.md) の値もコピーされる。アロケータオブジェクトは、`std::allocator_traits<allocator_type>::propagate_on_container_copy_assignment::value` が `true` の場合に限りコピーされる。
+- (1)	`v` の全ての要素がコピー代入される。ハッシュ関数オブジェクト、キー比較用関数オブジェクト、[`max_load_factor`](./max_load_factor.md)`()` の値もコピーされる。アロケータオブジェクトは、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_copy_assignment::value` が `true` の場合に限りコピーされる。
 
-- (2)	ハッシュ関数オブジェクト、キー比較用関数オブジェクトの値はムーブされる。[`max_load_factor()`](./max_load_factor.md) の値はコピーされる。アロケータオブジェクトは、`std::allocator_traits<allocator_type>::propagate_on_container_move_assignment::value` が `true` の場合に限りムーブされる。コンテナ内に元々存在していた要素は、代入されるか、破棄される（デストラクタが呼び出される）。
+- (2)	ハッシュ関数オブジェクト、キー比較用関数オブジェクトの値はムーブされる。[`max_load_factor`](./max_load_factor.md)`()` の値はコピーされる。アロケータオブジェクトは、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `true` の場合に限りムーブされる。コンテナ内に元々存在していた要素は、代入されるか、破棄される（デストラクタが呼び出される）。
 
 - (3)	範囲 `[il.begin(), il.end())` がコピー代入される。コンテナ内に元々存在していた要素は、代入されるか、破棄される（デストラクタが呼び出される）。
 
 
 ##事後条件
 以下では構築されたオブジェクトを `u` とする。
+
 - (1) `u == v`。
 - (2) `u == 代入前の rv`。
 - (3) －
@@ -42,9 +43,9 @@ unordered_set& operator=(initializer_list<value_type> il); // (3)
 
 
 ##備考
-- (2) の形式の場合、標準では上記の通り計算量が線形時間となっているが、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`::`[`get_allocator`](./get_allocator.md)`() != rv.`[`get_allocator`](./get_allocator.md)`()` の場合、最悪のケースでは O(n<sup>2</sup>) であるものと思われる。ここで、`n = rv.`[`size`](./size.md)`()`。
+- (2) の形式の場合、標準では上記の通り計算量が線形時間となっているが、[`get_allocator`](./get_allocator.md)`() != rv.`[`get_allocator`](./get_allocator.md)`()` の場合、最悪のケースでは O(n^2) であるものと思われる。ここで、`n = rv.`[`size`](./size.md)`()`。
 
-- (3) の形式の場合、計算量は `a = X(il)` と同様となっているが、効果が `a = X(il)` と同様なわけではない。（ハッシュ関数オブジェクト、キー比較用関数オブジェクト、アロケータオブジェクト、`[max_load_factor](./max_load_factor.md)()` 等が異なる）
+- (3) の形式の場合、計算量は `a = X(il)` と同様となっているが、効果が `a = X(il)` と同様なわけではない。（ハッシュ関数オブジェクト、キー比較用関数オブジェクト、アロケータオブジェクト、[`max_load_factor`](./max_load_factor.md)`()` 等が異なる）
 
 
 ##バージョン
@@ -62,8 +63,8 @@ unordered_set& operator=(initializer_list<value_type> il); // (3)
 
 ##参照
 
-| | |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
+|                                       |                |
+|---------------------------------------|----------------|
 | [`(constructor)`](./unordered_set.md) | コンストラクタ |
-| [`(destructor)`](./-unordered_set.md) | デストラクタ |
+| [`(destructor)`](./-unordered_set.md) | デストラクタ   |
 
