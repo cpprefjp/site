@@ -7,14 +7,9 @@ namespace std {
 ```
 
 ##概要
-`normal_distribution`は、乱数を正規分布させるクラスである。  
-指定された平均値の付近の値を分布させる。  
+`normal_distribution`は、平均μ、標準偏差σの正規分布にしたがった乱数を生成するクラスである。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal.png)
-
-  
-たまに外れ値(平均 ± 標準偏差より離れた値)が生成されるので、その際は値を採用するか捨てるかを、ユーザーが選択する必要がある(捨てる際は、採用可能な値が生成されるまで再度乱数を生成する)。  
-
 
 テンプレートパラメータは、以下を意味する：
 
@@ -47,8 +42,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------|-------|
-| [`mean`](./normal_distribution/mean.md)     | 生成する範囲の平均値を取得する   | C++11 |
-| [`stddev`](./normal_distribution/stddev.md) | 生成する範囲の標準偏差を取得する | C++11 |
+| [`mean`](./normal_distribution/mean.md)     | コンストラクタで指定された平均を取得する   | C++11 |
+| [`stddev`](./normal_distribution/stddev.md) | コンストラクタで指定された標準偏差を取得する | C++11 |
 | [`param`](./normal_distribution/param.md)   | 分布のパラメータを取得／設定する | C++11 |
 | [`min`](./normal_distribution/min.md)       | 生成する範囲の最小値を取得する   | C++11 |
 | [`max`](./normal_distribution/max.md)       | 生成する範囲の最大値を取得する   | C++11 |
@@ -95,7 +90,7 @@ int main()
 ```
 
 ###出力
-このプログラムによってある時に得られた結果（[normal_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.tsv.7z)）を図示する。 
+このプログラムによってある時に得られた結果（[normal_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.tsv.7z)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.png)
 
@@ -104,11 +99,11 @@ int main()
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 
-- [GCC](/implementation#gcc.md): 
+- [Clang](/implementation#clang.md):
+- [GCC](/implementation#gcc.md):
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
-- [ICC](/implementation#icc.md): 
-- [Visual C++](/implementation#visual_cpp.md): 
+- [ICC](/implementation#icc.md):
+- [Visual C++](/implementation#visual_cpp.md):
 
 ###参考
 - [正規分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
