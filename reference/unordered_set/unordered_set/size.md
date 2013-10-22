@@ -40,6 +40,7 @@ int main()
 * distance[link /reference/iterator/distance.md]
 * begin[link ./begin.md]
 * end[link ./end.md]
+* size[color ff0000]
 
 ###出力
 ```

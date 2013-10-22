@@ -37,13 +37,13 @@ unordered_set& operator=(initializer_list<value_type> il); // (3)
 
 
 ##計算量
-- (1)	平均的には O(n)、ここで、`n = v.`[`size()`](./size.md)。最悪のケースでは O(n^2)
+- (1)	平均的には O(n)、ここで、`n = v.`[`size`](./size.md)`()`。最悪のケースでは O(n<sup>2</sup>)
 - (2)	線形時間。（但し、備考参照）
 - (3)	代入対象を `a`、`a` の型を `X` とすると、`a = X(il)` と同様。（備考参照）
 
 
 ##備考
-- (2) の形式の場合、標準では上記の通り計算量が線形時間となっているが、[`get_allocator`](./get_allocator.md)`() != rv.`[`get_allocator`](./get_allocator.md)`()` の場合、最悪のケースでは O(n^2) であるものと思われる。ここで、`n = rv.`[`size`](./size.md)`()`。
+- (2) の形式の場合、標準では上記の通り計算量が線形時間となっているが、[`get_allocator`](./get_allocator.md)`() != rv.`[`get_allocator`](./get_allocator.md)`()` の場合、最悪のケースでは O(n<sup>2</sup>) であるものと思われる。ここで、`n = rv.`[`size`](./size.md)`()`。
 
 - (3) の形式の場合、計算量は `a = X(il)` と同様となっているが、効果が `a = X(il)` と同様なわけではない。（ハッシュ関数オブジェクト、キー比較用関数オブジェクト、アロケータオブジェクト、[`max_load_factor`](./max_load_factor.md)`()` 等が異なる）
 

@@ -81,7 +81,7 @@ int main()
 * hash[link /reference/functional/hash.md]
 * equal_to[link /reference/functional/comparisons.md]
 * swap[link ./swap_free.md]
-* =[link ./op_assign.md]
+* get_allocator[color ff0000]
 
 ###出力
 ```
@@ -108,11 +108,11 @@ libstdc++ の `unordered_set` では、アロケータの `select_on_container_c
 
 ##参照
 
-| | |
-|----------------------------------------------------------|----------------|
-| [`(constructor)`](./unordered_multiset.md)               | コンストラクタ |
-| [`operator=`](./op_assign.md)                            | 代入演算子     |
-| [`swap`](./op_assign.md)                                 | 内容の交換（非メンバ関数） |
-| [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ |
-| [`allocator_traits`](/reference/memory/allocator_traits) | アロケータのトレイツ |
+|                                                          |                            |
+|----------------------------------------------------------|----------------------------|
+| [`(constructor)`](./unordered_set.md)                    | コンストラクタ             |
+| [`operator=`](./op_assign.md)                            | 代入演算子                 |
+| [`swap`](./swap_free.md)                                 | 内容の交換（非メンバ関数） |
+| [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ     |
+| [`allocator_traits`](/reference/memory/allocator_traits) | アロケータのトレイツ       |
 

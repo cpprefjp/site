@@ -39,10 +39,10 @@ int main()
   std::unordered_set<int> us{ 1, 2, 3, };
   const std::unordered_set<int> cus{us};
 
-  copy(us.begin(), us.end(), std::ostream_iterator<int>(std::cout, " "));
+  std::copy(us.begin(), us.end(), std::ostream_iterator<int>(std::cout, ", "));
   std::cout << std::endl;
 
-  copy(cus.begin(), cus.end(), std::ostream_iterator<int>(std::cout, " "));
+  std::copy(cus.begin(), cus.end(), std::ostream_iterator<int>(std::cout, ", "));
   std::cout << std::endl;
 }
 ```
@@ -53,11 +53,12 @@ int main()
 * copy[link /reference/algorithm/copy.md]
 * end[link ./end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* begin[color ff0000]
 
 ###出力
 ```
-3 2 1
-1 2 3
+3, 2, 1, 
+1, 2, 3, 
 ```
 
 注：[`unordered_set`](/reference/unordered_set/unordered_set.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意

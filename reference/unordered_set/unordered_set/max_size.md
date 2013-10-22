@@ -34,6 +34,7 @@ int main()
 ```
 * iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
+* max_size[color ff0000]
 
 ###出力例
 ```
@@ -53,14 +54,14 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md): ?
 
 ###備考
-libstdc++ では、コンテナのアロケータ `allocator_type` にメンバ関数 `max_size` が無いとコンパイル時エラーが発生する。
+C++11 ではアロケータにメンバ関数 `max_size` は必須ではないが、libstdc++ では、コンテナのアロケータ `allocator_type` にメンバ関数 `max_size` が無いとコンパイル時エラーが発生する。
 
 （`allocator_type::max_size()` を `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`::`[`max_size`](/reference/memory/allocator_traits/max_size.md) 経由ではなく直接使用しているため。）
 
 
 ##参照
 
-| | |
+|                       |                            |
 |-----------------------|----------------------------|
 | [`empty`](./empty.md) | コンテナが空かどうかを判定 |
 | [`size`](./size.md)   | 要素数の取得               |

@@ -43,6 +43,7 @@ int main()
 * copy[link /reference/algorithm/copy.md]
 * cend[link ./cend.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* cbegin[color ff0000]
 
 ###出力例
 ```

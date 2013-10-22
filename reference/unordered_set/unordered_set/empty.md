@@ -48,6 +48,7 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * insert[link ./insert.md]
 * clear[link ./clear.md]
+* empty[color ff0000]
 
 ###出力
 ```
@@ -81,7 +82,7 @@ inline bool unordered_set<Key, Hash, Pred, Allocator>::empty() const noexcept {
 
 ##参照
 
-| | |
+|                             |                              |
 |-----------------------------|------------------------------|
 | [`size`](./size.md)         | 要素数の取得                 |
 | [`max_size`](./max_size.md) | 格納可能な最大の要素数の取得 |

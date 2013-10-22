@@ -4,17 +4,24 @@ explicit unordered_set(size_type n = 実装依存の既定値,
                        const hasher& hf = hasher(),
                        const key_equal& eql = key_equal(),
                        const allocator_type& a = allocator_type()); // (1)
+
 template <class InputIterator>
 unordered_set(InputIterator first, InputIterator last,
               size_type n = 実装依存の既定値,
               const hasher& hf = hasher(),
               const key_equal& eql = key_equal(),
               const allocator_type& a = allocator_type());          // (2)
+
 unordered_set(const unordered_set& v);                              // (3)
+
 unordered_set(unordered_set&& rv);                                  // (4)
+
 explicit unordered_set(const allocator_type& a);                    // (5)
+
 unordered_set(const unordered_set& v, const allocator_type& a);     // (6)
+
 unordered_set(unordered_set&& rv, const allocator_type& a);         // (7)
+
 unordered_set(initializer_list<value_type> il,
               size_type n = 実装依存の既定値,
               const hasher& hf = hasher(),
@@ -49,15 +56,15 @@ unordered_set(initializer_list<value_type> il,
 
 - (2)	(1)と同様に `unordered_set` が構築された後、`[first, last)` の範囲の要素が挿入される。
 
-- (3)	コピーコンストラクタ。`v` の全ての要素をコピーした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor()`](./max_load_factor.md) の値も `v` からコピーされる。アロケータオブジェクトは、`std::allocator_traits::`[`get_allocator`](./get_allocator.md)`())` の戻り値が使用される。
+- (3)	コピーコンストラクタ。`v` の全ての要素をコピーした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](./max_load_factor.md)`()` の値も `v` からコピーされる。アロケータオブジェクトは、`std::allocator_traits::`[`get_allocator`](./get_allocator.md)`()` の戻り値が使用される。
 
-- (4)	ムーブコンストラクタ。`rv` の全ての要素をムーブした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、アロケータオブジェクトも `v` からムーブされる。[`max_load_factor()`](./max_load_factor.md) の値は `rv` からコピーされる。なお、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされる。
+- (4)	ムーブコンストラクタ。`rv` の全ての要素をムーブした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、アロケータオブジェクトも `v` からムーブされる。[`max_load_factor`](./max_load_factor.md)`()` の値は `rv` からコピーされる。なお、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされる。
 
-- (5)	ハッシュ関数オブジェクト `hasher()`、キー比較用関数オブジェクト `key_equal()`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。構築された `unordered_set` のバケット数、および、[`max_load_factor()`](./max_load_factor.md) は実装依存である。
+- (5)	ハッシュ関数オブジェクト `hasher()`、キー比較用関数オブジェクト `key_equal()`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。構築された `unordered_set` のバケット数、および、[`max_load_factor`](./max_load_factor.md)`()` は実装依存である。
 
-- (6)	`v` の全ての要素をコピーした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor()`](./max_load_factor.md) の値も `v` からコピーされるが、アロケータオブジェクトは引数 `a` が使用される。
+- (6)	`v` の全ての要素をコピーした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](./max_load_factor.md)`()` の値も `v` からコピーされるが、アロケータオブジェクトは引数 `a` が使用される。
 
-- (7)	`rv` のすべての要素をムーブした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクトの値も `rv` からムーブされるが、アロケータオブジェクトは引数 `a` が使用される。[`max_load_factor()`](./max_load_factor.md) の値は `rv` からコピーされる。なお、`a == rv.`[`get_allocator()`](./get_allocator.md) の場合、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされるが、そうでない場合は要素ごとにムーブされる。
+- (7)	`rv` のすべての要素をムーブした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクトの値も `rv` からムーブされるが、アロケータオブジェクトは引数 `a` が使用される。[`max_load_factor`](./max_load_factor.md)`()` の値は `rv` からコピーされる。なお、`a == rv.`[`get_allocator`](./get_allocator.md)`()` の場合、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされるが、そうでない場合は要素ごとにムーブされる。
 
 - (8)	(2) の形式を `unordered_set(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と同等である。
 
@@ -84,12 +91,12 @@ unordered_set(initializer_list<value_type> il,
 
 ##計算量
 - (1)	定数
-- (2)	平均的には O(n)、ここで、n は `std::`[`distance`](/reference/iterator/distance.md)`(first, last)`。最悪のケースでは O(n^2)
-- (3)	平均的には O(n)、ここで、n は `v.`[`size()`](./size.md)。最悪のケースでは O(n^2)
+- (2)	平均的には O(n)、ここで、n は `std::`[`distance`](/reference/iterator/distance.md)`(first, last)`。最悪のケースでは O(n<sup>2</sup>)
+- (3)	平均的には O(n)、ここで、n は `v.`[`size`](./size.md)`()`。最悪のケースでは O(n<sup>2</sup>)
 - (4)	定数
 - (5)	定数
-- (6)	O(`v.`[`size()`](./size.md))
-- (7)	`a == rv.`[`get_allocator()`](./get_allocator.md) の場合、定数。そうでない場合、O(`rv.`[`size()`](./size.md))。
+- (6)	O(`v.`[`size`](./size.md)`()`)
+- (7)	`a == rv.`[`get_allocator`](./get_allocator.md)`()` の場合、定数。そうでない場合、O(`rv.`[`size`](./size.md)`()`)。
 - (8)	(2)の形式を `unordered_set(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と同等。
 
 
@@ -115,8 +122,8 @@ libstdc++ には 4.7.2 現在、(5)、(6)、(7)の形式はない。
 
 ##参照
 
-| | |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
-| [`(destructor)`](./-unordered_multiset.md) | デストラクタ |
-| [`operator=`](./op_assign.md) | 代入演算子 |
+|                                       |              |
+|---------------------------------------|--------------|
+| [`(destructor)`](./-unordered_set.md) | デストラクタ |
+| [`operator=`](./op_assign.md)         | 代入演算子   |
 
