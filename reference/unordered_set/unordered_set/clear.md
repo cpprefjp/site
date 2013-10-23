@@ -28,7 +28,7 @@ void clear() noexcept;
 
 
 ##計算量
-線形
+本関数呼び出し前のコンテナの要素数（[`size`](./size.md)`()`）に比例
 
 
 ##例
@@ -49,6 +49,7 @@ int main()
 * iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * empty[link ./empty.md]
+* clear[color ff0000]
 
 ###出力
 ```
@@ -70,12 +71,12 @@ true
 
 ##参照
 
-| | |
-|-------------------------------------|----------------------------|
-| [`empty`](./empty.md)               | コンテナが空かどうかを判定 |
-| [`emplace`](./emplace.md)           | コンテナ内への要素の直接構築 |
+|                                     |                                                        |
+|-------------------------------------|--------------------------------------------------------|
+| [`empty`](./empty.md)               | コンテナが空かどうかを判定                             |
+| [`emplace`](./emplace.md)           | コンテナ内への要素の直接構築                           |
 | [`emplace_hint`](./emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
-| [`insert`](./insert.md)             | 要素の追加 |
-| [`erase`](./erase.md)               | 要素の削除 |
-| [`swap`](./swap.md)                 | 内容の交換 |
+| [`insert`](./insert.md)             | 要素の追加                                             |
+| [`erase`](./erase.md)               | 要素の削除                                             |
+| [`swap`](./swap.md)                 | 内容の交換                                             |
 
