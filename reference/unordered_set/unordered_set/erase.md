@@ -1,7 +1,9 @@
 #erase(C++11)
 ```cpp
 iterator erase(const_iterator position);                   // (1)
+
 size_type erase(const key_type& k);                        // (2)
+
 iterator erase(const_iterator first, const_iterator last); // (3)
 ```
 
@@ -12,7 +14,8 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 ##要件
 - `position` は、有効で、かつ、間接参照可能な（dereferenceable、つまり [`cend`](./cend.md)`()` ではない）当該コンテナを指す読み取り専用イテレータでなければならない。
 - `k` は `key_type` 型の値でなければならない。
-- `first` と `last` は `[first, last)` が当該コンテナの有効な範囲である読み取り専用イテレータでなければならない。<br/>なお、標準では `first` は間接参照可能である必要があることになっているが、他の種類のコンテナの要件と照らし合わせると、間接参照可能である必要はない（つまり、`first` と `last` が共に [`cend`](./cend.md)`()` でも良い）ものと思われる。
+- `first` と `last` は `[first, last)` が当該コンテナの有効な範囲である読み取り専用イテレータでなければならない。  
+	なお、標準では `first` は間接参照可能である必要があることになっているが、他の種類のコンテナの要件と照らし合わせると、間接参照可能である必要はない（つまり、`first` と `last` が共に [`cend`](./cend.md)`()` でも良い）ものと思われる。
 
 
 ##効果
@@ -22,9 +25,12 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ##戻り値
-- (1)	「削除前に、削除された要素の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`std::`[`next`](/reference/iterator/next.md)`(position)` と同じ位置を指す `iterator` である。なお、`position` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。
+- (1)	「削除前に、削除された要素の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`std::`[`next`](/reference/iterator/next.md)`(position)` と同じ位置を指す `iterator` である。  
+	なお、`position` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。
 - (2)	削除した要素数。つまり、`k` と等価なキーの要素があれば 1、無ければ 0。
-- (3)	 「削除前に、削除された要素の範囲の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`last` と同じ位置を指す `iterator` である。なお、`first` 及び `last` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。また、要件に示したように `first` が間接参照可能である必要がなかった場合にも、他の種類のコンテナの戻り値と照らし合わせると、`last` と同じ位置を指す `iterator` を返すのが適切であるものと思われる。
+- (3)	 「削除前に、削除された要素の範囲の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`last` と同じ位置を指す `iterator` である。  
+	なお、`first` 及び `last` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。  
+	また、要件に示したように `first` が間接参照可能である必要がなかった場合にも、他の種類のコンテナの戻り値と照らし合わせると、`last` と同じ位置を指す `iterator` を返すのが適切であるものと思われる。
 
 
 ##例外
@@ -34,9 +40,9 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ##計算量
-- (1)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数に比例（O(N)）
-- (2)	平均的なケースでは削除された要素数に比例（O(`count(k)`)）だが、最悪のケースではコンテナの要素数に比例（O(`size()`)）
-- (3)	平均的なケースでは指定された範囲の要素数に比例（O(`std::distance(first, last)`)）だが、最悪のケースではコンテナの要素数に比例（O(`size()`)）
+- (1)	平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](./size.md)`()`)）
+- (2)	平均的なケースでは削除された要素数に比例（O([`count`](./count.md)`(k)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](./size.md)`()`)）
+- (3)	平均的なケースでは指定された範囲の要素数に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](./size.md)`()`)）
 
 
 ##備考
@@ -104,13 +110,14 @@ int main()
 * iterator[link /reference/iterator.md]
 * algorithm[link /reference/algorithm.md]
 * string[link /reference/string.md]
-* ostream[link /site/cpprefjp/reference/iostream/ostream]
+* ostream[link /reference/ostream/ostream.md]
 * copy[link /reference/algorithm/copy.md]
 * begin[link ./begin.md]
 * end[link ./end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * next[link /reference/iterator/next.md]
 * cbegin[link ./cbegin.md]
+* erase[color ff0000]
 
 ###出力
 ```
@@ -145,13 +152,11 @@ after : 9 3 1
 
 ##参照
 
-| | |
-|-------------------------------------------|--------------------------------------------------------|
-| [`emplace_hint`](./emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
-| [`insert`](./insert.md)                   | 要素の追加 |
-| [`bucket_count`](./bucket_count.md)       | バケット数の取得 |
-| [`load_factor`](./load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定 |
-| [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
-| [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整 |
+|                                     |                                                        |
+|-------------------------------------|--------------------------------------------------------|
+| [`emplace`](./emplace.md)           | コンテナ内への要素の直接構築                           |
+| [`emplace_hint`](./emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
+| [`insert`](./insert.md)             | 要素の追加                                             |
+| [`clear`](./clear.md)               | 全要素の削除                                           |
+| [`swap`](./swap.md)                 | 内容の交換                                             |
 
