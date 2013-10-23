@@ -19,34 +19,42 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 
 ##要件
-- `v` を引数にとる形式（(1)、(2)の上側）では、`value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。<br/>コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の lvalue、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+- `v` を引数にとる形式（(1)、(2)の上側）では、`value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
+	コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
-`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
+	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
 
-- `rv` を引数にとる形式（(1)、(2)の下側）では、`value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。<br/>コンテナに対してムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+- `rv` を引数にとる形式（(1)、(2)の下側）では、`value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。  
+	コンテナに対してムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
-`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
+	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
 
-- 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。<br/>なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
-- 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。<br/>また、引数 `first`、および、`last` を引数にとる形式（(3)）では、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。<br/>ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+- 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。  
+	なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
+- 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。  
+	また、引数 `first`、および、`last` を引数にとる形式（(3)）では、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。  
+	ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
-`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, *first);`
+	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, *first);`
 
-なお、`first`、および、`last`は、標準では `value_type` を参照しなければならない（つまり、コンテナの `value_type` と `std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<decltype(first)>::value_type` が同一の型でなければならない）ことになっているが、実際にはその必要はなく、上記の直接構築可能の要件を満たすだけで良いものと思われる。
+	なお、`first`、および、`last`は、標準では `value_type` を参照しなければならない（つまり、コンテナの `value_type` と `std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<decltype(first)>::value_type` が同一の型でなければならない）ことになっているが、実際にはその必要はなく、上記の直接構築可能の要件を満たすだけで良いものと思われる。
 
 - (4)の形式では、`value_type` はコンテナに対してコピー挿入可能でなければならない。
 
 
 ##効果
 - (1)	引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
-- (2)	引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
+- (2)	引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
+	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
 - (3)	範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と同等である。
 - (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
 
 
 ##戻り値
-- (1)	[`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。[`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。 
-- (2)	新たな要素が追加された場合、その追加された要素を指すイテレータ。新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
+- (1)	[`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。  
+	[`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
+- (2)	新たな要素が追加された場合、その追加された要素を指すイテレータ。  
+	新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
 - (3)	なし
 - (4)	なし
 
@@ -56,18 +64,24 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 
 ##計算量
-- (1)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size()`](./size.md) に比例（O(N)）。
-- (2)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size()`](./size.md) に比例（O(N)）。
-- (3)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](./size.md) に 1 加えたものの積に比例（O(N^2)）。
+- (1)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](./size.md)`()` に比例（O(N)）。
+- (2)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](./size.md)`()` に比例（O(N)）。
+- (3)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](./size.md) に 1 加えたものの積に比例（O(N<sup>2</sup>)）。
 - (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
 
 
 ##備考
-- これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。なお、標準に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
-- これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。<br/>それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。<br/>コンテナのバケット数が変わらない場合とは、
-	- 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
-	- 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった。
-のいずれかである。<br/>なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
+- これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。
+	なお、標準に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+- これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。  
+	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
+	コンテナのバケット数が変わらない場合とは、
+
+	* 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
+	* 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった。
+
+	のいずれかである。  
+	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
 
 
 ##例
@@ -145,6 +159,7 @@ int main()
 * first[link /reference/utility/pair.md]
 * cbegin[link /reference/forward_list/cbegin.md]
 * cend[link /reference/forward_list/cend.md]
+* insert[color ff0000]
 
 ###出力
 ```
@@ -208,13 +223,16 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 
 ##参照
 
-| | |
-|-------------------------------------------|------------------------------|
-| [`emplace`](./emplace.md)                 | コンテナ内への要素の直接構築 |
+|                                           |                                                        |
+|-------------------------------------------|--------------------------------------------------------|
+| [`emplace`](./emplace.md)                 | コンテナ内への要素の直接構築                           |
 | [`emplace_hint`](./emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
-| [`bucket_count`](./bucket_count.md)       | バケット数の取得 |
-| [`load_factor`](./load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定 |
-| [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
-| [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整 |
+| [`erase`](./erase.md)                     | 要素の削除                                             |
+| [`clear`](./clear.md)                     | 全要素の削除                                           |
+| [`swap`](./swap.md)                       | 内容の交換                                             |
+| [`bucket_count`](./bucket_count.md)       | バケット数の取得                                       |
+| [`load_factor`](./load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
+| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定                             |
+| [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
+| [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 
