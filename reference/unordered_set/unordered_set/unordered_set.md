@@ -52,19 +52,30 @@ unordered_set(initializer_list<value_type> il,
 
 ##効果
 
-- (1)	バケット数最低 `n`、ハッシュ関数オブジェクト `hf`、キー比較用関数オブジェクト `eql`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。引数 `n` のデフォルト値は実装依存である。
+- (1)	バケット数最低 `n`、ハッシュ関数オブジェクト `hf`、キー比較用関数オブジェクト `eql`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。
+	引数 `n` のデフォルト値は実装依存である。
 
 - (2)	(1)と同様に `unordered_set` が構築された後、`[first, last)` の範囲の要素が挿入される。
 
-- (3)	コピーコンストラクタ。`v` の全ての要素をコピーした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](./max_load_factor.md)`()` の値も `v` からコピーされる。アロケータオブジェクトは、`std::allocator_traits::`[`get_allocator`](./get_allocator.md)`()` の戻り値が使用される。
+- (3)	コピーコンストラクタ。`v` の全ての要素をコピーした、`unordered_set` を構築する。
+	ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](./max_load_factor.md)`()` の値も `v` からコピーされる。
+	アロケータオブジェクトは、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](/reference/memory/allocator_traits/select_on_container_copy_construction.md)`(`[`get_allocator`](./get_allocator.md)`())` の戻り値が使用される。
 
-- (4)	ムーブコンストラクタ。`rv` の全ての要素をムーブした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、アロケータオブジェクトも `v` からムーブされる。[`max_load_factor`](./max_load_factor.md)`()` の値は `rv` からコピーされる。なお、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされる。
+- (4)	ムーブコンストラクタ。`rv` の全ての要素をムーブした、`unordered_set` を構築する。
+	ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、アロケータオブジェクトも `v` からムーブされる。
+	[`max_load_factor`](./max_load_factor.md)`()` の値は `rv` からコピーされる。
+	なお、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされる。
 
-- (5)	ハッシュ関数オブジェクト `hasher()`、キー比較用関数オブジェクト `key_equal()`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。構築された `unordered_set` のバケット数、および、[`max_load_factor`](./max_load_factor.md)`()` は実装依存である。
+- (5)	ハッシュ関数オブジェクト `hasher()`、キー比較用関数オブジェクト `key_equal()`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。
+	構築された `unordered_set` のバケット数、および、[`max_load_factor`](./max_load_factor.md)`()` は実装依存である。
 
-- (6)	`v` の全ての要素をコピーした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](./max_load_factor.md)`()` の値も `v` からコピーされるが、アロケータオブジェクトは引数 `a` が使用される。
+- (6)	`v` の全ての要素をコピーした、`unordered_set` を構築する。
+	ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](./max_load_factor.md)`()` の値も `v` からコピーされるが、アロケータオブジェクトは引数 `a` が使用される。
 
-- (7)	`rv` のすべての要素をムーブした、`unordered_set` を構築する。ハッシュ関数オブジェクトとキー比較関数オブジェクトの値も `rv` からムーブされるが、アロケータオブジェクトは引数 `a` が使用される。[`max_load_factor`](./max_load_factor.md)`()` の値は `rv` からコピーされる。なお、`a == rv.`[`get_allocator`](./get_allocator.md)`()` の場合、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされるが、そうでない場合は要素ごとにムーブされる。
+- (7)	`rv` のすべての要素をムーブした、`unordered_set` を構築する。
+	ハッシュ関数オブジェクトとキー比較関数オブジェクトの値も `rv` からムーブされるが、アロケータオブジェクトは引数 `a` が使用される。
+	[`max_load_factor`](./max_load_factor.md)`()` の値は `rv` からコピーされる。
+	なお、`a == rv.`[`get_allocator`](./get_allocator.md)`()` の場合、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされるが、そうでない場合は要素ごとにムーブされる。
 
 - (8)	(2) の形式を `unordered_set(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と同等である。
 
@@ -72,36 +83,54 @@ unordered_set(initializer_list<value_type> il,
 ##事後条件
 以下では構築されたオブジェクトを `u` とする。
 
-- (1) `u.`[`empty`](./empty.md)`() == true`。`u.`[`get_allocator`](./get_allocator.md)`() == a`。`u.`[`max_load_factor`](./max_load_factor.md)`() == 1.0`。`u.`[`bucket_count`](./bucket_count.md)`() >= n`。
+- (1) `u.`[`empty`](./empty.md)`() == true`。
+	`u.`[`get_allocator`](./get_allocator.md)`() == a`。
+	`u.`[`max_load_factor`](./max_load_factor.md)`() == 1.0`。
+	`u.`[`bucket_count`](./bucket_count.md)`() >= n`。
 
-- (2) `u.`[`get_allocator`](./get_allocator.md)`() == a`。`u.`[`max_load_factor`](./max_load_factor.md)`() == 1.0`。`u.`[`bucket_count`](./bucket_count.md)`() >= n`。
+- (2) `u.`[`get_allocator`](./get_allocator.md)`() == a`。
+	`u.`[`max_load_factor`](./max_load_factor.md)`() == 1.0`。
+	`u.`[`bucket_count`](./bucket_count.md)`() >= n`。
 
-- (3) `u.`[`max_load_factor`](./max_load_factor.md)`() == v.`[`max_load_factor`](./max_load_factor.md)`()`。`u == v`。
+- (3) `u.`[`max_load_factor`](./max_load_factor.md)`() == v.`[`max_load_factor`](./max_load_factor.md)`()`。
+	`u == v`。
 
-- (4) `u.`[`get_allocator`](./get_allocator.md)`() == `構築前の `rv.`[`get_allocator`](./get_allocator.md)`()`。`u.`[`max_load_factor`](./max_load_factor.md)`() == `構築前の `rv.`[`max_load_factor`](./max_load_factor.md)`()`。`u == `構築前の `rv`。
+- (4) `u.`[`get_allocator`](./get_allocator.md)`() == `構築前の `rv.`[`get_allocator`](./get_allocator.md)`()`。
+	`u.`[`max_load_factor`](./max_load_factor.md)`() == `構築前の `rv.`[`max_load_factor`](./max_load_factor.md)`()`。
+	`u == `構築前の `rv`。
 
-- (5) `u.`[`empty`](./empty.md)`() == true`。`u.`[`get_allocator`](./get_allocator.md)`() == a`。
+- (5) `u.`[`empty`](./empty.md)`() == true`。
+	`u.`[`get_allocator`](./get_allocator.md)`() == a`。
 
-- (6) `u.`[`max_load_factor`](./max_load_factor.md)`() == v.`[`max_load_factor`](./max_load_factor.md)`()`。`u == v`。`u.`[`get_allocator`](./get_allocator.md)`() == a`。
+- (6) `u.`[`max_load_factor`](./max_load_factor.md)`() == v.`[`max_load_factor`](./max_load_factor.md)`()`。
+	`u == v`。
+	`u.`[`get_allocator`](./get_allocator.md)`() == a`。
 
-- (7) `u.`[`max_load_factor`](./max_load_factor.md)`() == `構築前の `rv.`[`max_load_factor`](./max_load_factor.md)`()`。`u == `構築前の `rv`。`u.`[`get_allocator`](./get_allocator.md)`() == a`。
+- (7) `u.`[`max_load_factor`](./max_load_factor.md)`() == `構築前の `rv.`[`max_load_factor`](./max_load_factor.md)`()`。
+	`u == `構築前の `rv`。
+	`u.`[`get_allocator`](./get_allocator.md)`() == a`。
 
-- (8) `u.`[`get_allocator`](./get_allocator.md)`() == a`。`u.`[`max_load_factor`](./max_load_factor.md)`() == 1.0`。`u.`[`bucket_count`](./bucket_count.md)`() >= n`。
+- (8) `u.`[`get_allocator`](./get_allocator.md)`() == a`。
+	`u.`[`max_load_factor`](./max_load_factor.md)`() == 1.0`。
+	`u.`[`bucket_count`](./bucket_count.md)`() >= n`。
 
 
 ##計算量
 - (1)	定数
-- (2)	平均的には O(n)、ここで、n は `std::`[`distance`](/reference/iterator/distance.md)`(first, last)`。最悪のケースでは O(n<sup>2</sup>)
-- (3)	平均的には O(n)、ここで、n は `v.`[`size`](./size.md)`()`。最悪のケースでは O(n<sup>2</sup>)
+- (2)	平均的には O(n)、ここで、n は `std::`[`distance`](/reference/iterator/distance.md)`(first, last)`。
+	最悪のケースでは O(n<sup>2</sup>)
+- (3)	平均的には O(n)、ここで、n は `v.`[`size`](./size.md)`()`。
+	最悪のケースでは O(n<sup>2</sup>)
 - (4)	定数
 - (5)	定数
 - (6)	O(`v.`[`size`](./size.md)`()`)
-- (7)	`a == rv.`[`get_allocator`](./get_allocator.md)`()` の場合、定数。そうでない場合、O(`rv.`[`size`](./size.md)`()`)。
+- (7)	`a == rv.`[`get_allocator`](./get_allocator.md)`()` の場合、定数。
+	そうでない場合、O(`rv.`[`size`](./size.md)`()`)。
 - (8)	(2)の形式を `unordered_set(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と同等。
 
 
 ##備考
-- (7) の形式の場合、MoveInsertable が要件となっているが、`v.`[`get_allocator`](./get_allocator.md)`() == a` の場合にはムーブコンストラクタと同様の挙動となるため、MoveInsertable ではなくても良いと思われる。
+- (7) の形式の場合、MoveInsertable が要件となっているが、`rv.`[`get_allocator`](./get_allocator.md)`() == a` の場合にはムーブコンストラクタと同様の挙動となるため、MoveInsertable ではなくても良いと思われる。
 
 
 ##バージョン
