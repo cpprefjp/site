@@ -109,11 +109,11 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|--------------------------------------------|-------|
-| [`remove_const`](./type_traits/remove_const.md) | 型の`const`修飾を除去する (class template) | C++11 |
+| [`remove_const`](./type_traits/remove_const.md)       | 型の`const`修飾を除去する (class template) | C++11 |
 | [`remove_volatile`](./type_traits/remove_volatile.md) | 型の`volatile`修飾を除去する (class template) | C++11 |
-| [`remove_cv`](./type_traits/remove_cv.md) | 型の`const-volatile`修飾を除去する (class template) | C++11 |
-| [`add_const`](./type_traits/add_const.md) | 型を`const`修飾する (class template) | C++11 |
-| `add_volatile` | 型を`volatile`修飾する (class template) | C++11 |
+| [`remove_cv`](./type_traits/remove_cv.md)             | 型の`const-volatile`修飾を除去する (class template) | C++11 |
+| [`add_const`](./type_traits/add_const.md)             | 型を`const`修飾する (class template) | C++11 |
+| [`add_volatile`](./type_traits/add_volatile.md)       | 型を`volatile`修飾する (class template) | C++11 |
 | `add_cv` | 型を`const-volatile`修飾する (class template) | C++11 |
 
 
