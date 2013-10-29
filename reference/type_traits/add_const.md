@@ -22,7 +22,7 @@ namespace std {
 static_assert(std::is_same<std::add_const<int>::type, const int>::value, "transform int to const int");
 static_assert(std::is_same<std::add_const<int&>::type, int&>::value, "transform int& to int&");
 static_assert(std::is_same<std::add_const<int*>::type, int* const>::value, "transform int* to int* const");
-static_assert(std::is_same<std::add_const<const int>::type, const int>::value, "transform const to const int");
+static_assert(std::is_same<std::add_const<const int>::type, const int>::value, "transform const int to const int");
 
 int main() {}
 ```

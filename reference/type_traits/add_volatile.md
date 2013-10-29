@@ -22,7 +22,7 @@ namespace std {
 static_assert(std::is_same<std::add_volatile<int>::type, volatile int>::value, "transform int to volatile int");
 static_assert(std::is_same<std::add_volatile<int&>::type, int&>::value, "transform int& to int&");
 static_assert(std::is_same<std::add_volatile<int*>::type, int* volatile>::value, "transform int* to int* volatile");
-static_assert(std::is_same<std::add_volatile<volatile int>::type, volatile int>::value, "transform volatile to volatile int");
+static_assert(std::is_same<std::add_volatile<volatile int>::type, volatile int>::value, "transform volatile int to volatile int");
 
 int main() {}
 ```
