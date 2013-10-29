@@ -114,7 +114,7 @@
 | [`remove_cv`](./type_traits/remove_cv.md)             | 型の`const-volatile`修飾を除去する (class template) | C++11 |
 | [`add_const`](./type_traits/add_const.md)             | 型を`const`修飾する (class template) | C++11 |
 | [`add_volatile`](./type_traits/add_volatile.md)       | 型を`volatile`修飾する (class template) | C++11 |
-| `add_cv` | 型を`const-volatile`修飾する (class template) | C++11 |
+| [`add_cv`](./type_traits/add_cv.md)                   | 型を`const-volatile`修飾する (class template) | C++11 |
 
 
 ##参照の変更
