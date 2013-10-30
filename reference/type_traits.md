@@ -121,7 +121,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
-| `remove_reference`     | 型から参照を除去する(class template)      | C++11 |
+| [`remove_reference`](./type_traits/remove_reference.md)     | 型から参照を除去する(class template)      | C++11 |
 | `add_lvalue_reference` | 型に左辺値参照を追加する (class template) | C++11 |
 | `add_rvalue_reference` | 型に右辺値参照を追加する (class template) | C++11 |
 
