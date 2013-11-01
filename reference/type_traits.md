@@ -130,8 +130,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
-| `make_signed` | 算術型を符号付きにする (class template) | C++11 |
-| `make_unsigned` | 算術型を符号なしにする (class template) | C++11 |
+| [`make_signed`](./type_traits/make_signed.md)     | 整数型を符号付きにする (class template) | C++11 |
+| [`make_unsigned`](./type_traits/make_unsigned.md) | 整数型を符号なしにする (class template) | C++11 |
 
 
 ##配列の変更
