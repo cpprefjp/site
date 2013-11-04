@@ -27,7 +27,7 @@ int main()
   s >> std::noskipws >> a >> b >> c;
   std::cout << a << b << c << std::endl;
 
-  s.seekg(std::ios_base::beg, 0);
+  s.seekg(0, std::ios_base::beg);
   s >> std::skipws >> a >> b;
   std::cout << a << b << std::endl;
 }

@@ -28,7 +28,7 @@ int main()
   std::cout << std::setw(15) << "scientific" << ' ';
   std::cout << std::setw(15) << "hexfloat" << std::endl;
   for (double i = 1e-6; i < 1e10; i *= 20) {
-    std::cout << std::setw(12) << std::tr1::defaultfloat << i << ' ';
+    std::cout << std::setw(12) << std::defaultfloat << i << ' ';
     std::cout << std::setw(17) << std::fixed << i << ' ';
     std::cout << std::setw(15) << std::scientific << i << ' ';
     std::cout << std::setw(15) << std::hexfloat << i << std::endl;
@@ -70,7 +70,7 @@ namespace std {
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
+- [Clang](/implementation#clang.md): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC](/implementation#gcc.md):
 - [GCC, C++0x mode](/implementation#gcc.md): ??
 - [ICC](/implementation#icc.md): ??
