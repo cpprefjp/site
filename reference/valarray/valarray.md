@@ -154,7 +154,7 @@ int main(){
   debug_print( a[std::slice(0,2,3)] );
   {
     auto b = a;
-    b[std::slice(0,2,3)] = {'x','y'};
+    b[std::slice(0,2,3)] = a_type({'x','y'});
     debug_print(b);
     b[std::slice(1,3,3)] = '!';
     debug_print(b);
