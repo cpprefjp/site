@@ -138,8 +138,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
-| `remove_extent` | 配列型から次元を除去する (class template) | C++11 |
-| `remove_all_extents` | 配列型から全ての次元を除去する (class template) | C++11 |
+| [`remove_extent`](./type_traits/remove_extent.md)           | 配列型から次元を除去する (class template) | C++11 |
+| [`remove_all_extents`](./type_traits/remove_all_extents.md) | 配列型から全ての次元を除去する (class template) | C++11 |
 
 
 ##ポインタの変更
