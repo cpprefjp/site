@@ -95,8 +95,8 @@ public:
   sequence_generator(result_type = 0) {}
   void seed(result_type) {}
 
-  static result_type min() { return 0; }
-  static result_type max() { return 65537; }
+  constexpr static result_type min() { return 0; }
+  constexpr static result_type max() { return 65537; }
 
   result_type operator()()
   {
