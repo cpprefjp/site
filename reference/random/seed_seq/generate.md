@@ -20,37 +20,35 @@ void generate(RandomAccessIterator begin, RandomAccessIterator end);
 
 ```cpp
 // ループ用変数を定義
-auto n = end - begin;
-auto s = v.size(); // vは、メンバ変数として保持される、`vector<result_type>`型のシード列オブジェクト
+size_t n = end - begin;
+size_t s = v.size();
 auto m = max(s + 1, n);
 
 // 分布用変数を定義
-auto t = (n >= 623) ? 11 : (n >= 68) ? 7 : (n >= 39) ? 5 : (n >= 7) ? 3 : (n - 1) / 2;
+auto t = (n >= 623) ? 11 : (n >= 68) ? 7 : (n >= 39) ? 5 : (n >= 7)  ? 3 : (n - 1) / 2;
 auto p = (n - t) / 2;
 auto q = p + t;
-auto r1 = 1664525 * T(begin[k] ^ begin[k+p] ^ begin[k−1]);
-T x = x ^ (x >> 27);
-
-auto r2 = k == 0              ? r1 + s :
-          (0 < k) && (k <= s) ? r1 + k % n + v[k-1] :
-		  /*k > s ?*/           r1 + k % n;
 
 // 一度目の分布
-for (size_t k = 0; k < m; ++k) {
-  begin[k+p] += r1;
-  begin[k+q] += r2;
-  begin[k] = r2;
+for (size_t k = s + 1; k < m; ++k) {
+  auto r1 = 1664525 * T(begin[k%n] ^ begin[(k+p)%n] ^ begin[(k-1)%n]);
+  auto r2 = r1 +
+    ( k == 0              ? s
+    : (0 < k) && (k <= s) ? (k%n + v[k-1])
+    : /*k > s ?*/           k%n
+    );
+  begin[(k+p)%n] += r1;
+  begin[(k+q)%n] += r2;
+  begin[k%n] = r2;
 }
-
-// 二度目の分布用変数を定義
-auto r3 = 1566083941 * T(begin[k] + begin[k+p] + begin[k-1]);
-auto r4 = r3 - k % n;
 
 // 二度目の分布
 for (size_t k = m; k < m + n; ++k) {
-  begin[k+p] ^= r3;
-  begin[k+q] ^= r4;
-  begin[k] = r4;
+  auto r3 = 1566083941 * T(begin[k%n] + begin[(k+p)%n] + begin[(k-1)%n]);
+  auto r4 = r3 - k%n;
+  begin[(k+p)%n] ^= r3;
+  begin[(k+q)%n] ^= r4;
+  begin[k%n] = r4;
 }
 ```
 
