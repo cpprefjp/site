@@ -21,7 +21,7 @@ void generate(RandomAccessIterator begin, RandomAccessIterator end);
 ```cpp
 // ループ用変数を定義
 size_t n = end - begin;
-size_t s = v.size();
+size_t s = v.size(); // vは、メンバ変数として保持される、`vector<result_type>`型のシード列オブジェクト
 auto m = max(s + 1, n);
 
 // 分布用変数を定義
@@ -30,7 +30,7 @@ auto p = (n - t) / 2;
 auto q = p + t;
 
 // 一度目の分布
-for (size_t k = s + 1; k < m; ++k) {
+for (size_t k = 0; k < m; ++k) {
   auto r1 = 1664525 * T(begin[k%n] ^ begin[(k+p)%n] ^ begin[(k-1)%n]);
   auto r2 = r1 +
     ( k == 0              ? s
