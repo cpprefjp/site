@@ -146,8 +146,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
-| `add_pointer` | 型にポインタを追加する (class template) | C++11 |
-| `remove_pointer` | 型からポインタを除去する (class template) | C++11 |
+| [`add_pointer`](./type_traits/add_pointer.md)       | 型にポインタを追加する (class template)   | C++11 |
+| [`remove_pointer`](./type_traits/remove_pointer.md) | 型からポインタを除去する (class template) | C++11 |
 
 
 ##その他の変換
