@@ -13,7 +13,7 @@ pair<iterator, bool> emplace(Args&&... args);
 
 ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
-`std::`[`allocator_traits`](/reference/memory/allocator_traits)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
+`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
 
 
 ##効果
@@ -42,20 +42,21 @@ pair<iterator, bool> emplace(Args&&... args);
 - この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
 	コンテナのバケット数が変わらない場合とは、
-	- 追加しようとした要素と等価なキーの要素が既にコンテナに存在したため、要素が追加されなかった（つまり、戻り値の `pair` の `bool` 部分が、`false` だった）。
-	- 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった。
+
+	* 追加しようとした要素と等価なキーの要素が既にコンテナに存在したため、要素が追加されなかった（つまり、戻り値の `pair` の `bool` 部分が、`false` だった）。
+	* 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった。
 
 	のいずれかである。  
 	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
 - このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace_hint` も含めた一覧を以下に示す。
 
-| | |
-|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| シーケンスコンテナ | `template <class... Args>`<br/> `iterator emplace(const_iterator, Args&&...)` |
-| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)` |
-| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合） | `template <class... Args>`<br/> `iterator emplace(Args&&...)` |
-| 連想コンテナ、非順序連想コンテナ | `template <class... Args>`<br/> `iterator emplace_hint(const_iterator, Args&&...)` |
+	|                                                                       |                                                                                    |
+	|-----------------------------------------------------------------------|------------------------------------------------------------------------------------|
+	| シーケンスコンテナ                                                    | `template <class... Args>`<br/> `iterator emplace(const_iterator, Args&&...)`      |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
+	| 連想コンテナ、非順序連想コンテナ                                      | `template <class... Args>`<br/> `iterator emplace_hint(const_iterator, Args&&...)` |
 
 
 ##例
@@ -118,6 +119,7 @@ int main()
 * iterator[link /reference/iterator.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * hash[link /reference/functional/hash.md]
+* ostream[link /reference/ostream/ostream.md]
 * insert[link ./insert.md]
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
