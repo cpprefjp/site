@@ -13,11 +13,11 @@ pair<iterator, bool> emplace(Args&&... args);
 
 ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
-`std::`[`allocator_traits`](/reference/memory/allocator_traits)`::`[`construct`](/reference/memory/allocator_traits/construct)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
+`std::`[`allocator_traits`](/reference/memory/allocator_traits)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
 
 
 ##効果
-`std::[forward](/reference/utility/forward.md)<Args>(args)...` から構築された `value_type` のオブジェクトを `t` とすると、`t` と等価なキーがコンテナに既に存在していなければ、`t` をコンテナに挿入する。
+`std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...` から構築された `value_type` のオブジェクトを `t` とすると、`t` と等価なキーがコンテナに既に存在していなければ、`t` をコンテナに挿入する。
 
 なお、オブジェクト `t` は、構築後にコンテナにコピー、あるいはムーブされるわけではなく、コンテナ内に直接構築される。
 
@@ -37,18 +37,18 @@ pair<iterator, bool> emplace(Args&&... args);
 
 
 ##備考
-- この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。なお、標準に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
-- この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。<br/>それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。<br/>コンテナのバケット数が変わらない場合とは、
+- この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。  
+	なお、標準に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+- この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
+	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
+	コンテナのバケット数が変わらない場合とは、
 	- 追加しようとした要素と等価なキーの要素が既にコンテナに存在したため、要素が追加されなかった（つまり、戻り値の `pair` の `bool` 部分が、`false` だった）。
 	- 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった。
 
-のいずれかである。
-
-なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
-
-このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。
-
-`emplace_hint` も含めた一覧を以下に示す。
+	のいずれかである。  
+	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
+- このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
+	`emplace_hint` も含めた一覧を以下に示す。
 
 | | |
 |-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -121,16 +121,17 @@ int main()
 * insert[link ./insert.md]
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
+* emplace[color ff0000]
 
 ###出力
 ```
 (1,1st) true
 (2,2nd) true
 (1,1st) false
-(2,2nd), (1,1st),
+(2,2nd), (1,1st), 
 ```
 
-注：[`unordered_set`](/reference/unordered_set/unordered_set.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_set`](/reference/unordered_set/unordered_set.md) は非順序連想コンテナであるため、出力の最終行の出力順序は無意味であることに注意
 
 
 ##バージョン
@@ -148,13 +149,16 @@ int main()
 
 ##参照
 
-| | |
+|                                           |                                                        |
 |-------------------------------------------|--------------------------------------------------------|
 | [`emplace_hint`](./emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
-| [`insert`](./insert.md)                   | 要素の追加 |
-| [`bucket_count`](./bucket_count.md)       | バケット数の取得 |
-| [`load_factor`](./load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定 |
-| [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
-| [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整 |
+| [`insert`](./insert.md)                   | 要素の追加                                             |
+| [`erase`](./erase.md)                     | 要素の削除                                             |
+| [`clear`](./clear.md)                     | 全要素の削除                                           |
+| [`swap`](./swap.md)                       | 内容の交換                                             |
+| [`bucket_count`](./bucket_count.md)       | バケット数の取得                                       |
+| [`load_factor`](./load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
+| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定                             |
+| [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
+| [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 
