@@ -18,7 +18,7 @@ void swap(unordered_set& v);
 
 また、コンテナの `key_equal` と `hasher` のオブジェクト（それぞれ [`key_eq`](./key_eq.md)`()` と [`hash_function`](./hash_function.md)`()` が返すオブジェクト）も非メンバ関数 [`swap`](/reference/utility/swap.md) を非修飾で（つまり `std::` を付けずに）呼び出すことで交換される。（したがって、[`swap`](/reference/utility/swap.md) の呼び出しには ADL が働く。）
 
-もし、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`::`[`get_allocator`](./get_allocator.md)`()` が返すオブジェクト）も非メンバ関数 [`swap`](/reference/utility/swap.md) を非修飾で呼び出すことで交換される。そうでなければアロケータオブジェクトは交換されず、その場合、当該コンテナと引数 `v` がそれぞれ [`get_allocator`](./get_allocator.md)`()` で返すオブジェクトが等価でない（`operator==` が `true` を返さない）場合、振る舞いは未定義（undefined）である。
+もし、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_swap::value` が `true` であれば、アロケータオブジェクト（[`get_allocator`](./get_allocator.md)`()` が返すオブジェクト）も非メンバ関数 [`swap`](/reference/utility/swap.md) を非修飾で呼び出すことで交換される。そうでなければアロケータオブジェクトは交換されず、その場合、当該コンテナと引数 `v` がそれぞれ [`get_allocator`](./get_allocator.md)`()` で返すオブジェクトが等価でない（`operator==` が `true` を返さない）場合、振る舞いは未定義（undefined）である。
 
 
 ##戻り値
@@ -34,7 +34,7 @@ void swap(unordered_set& v);
 
 
 ##備考
-交換されたコンテナの要素を指す参照、ポインタ、および、イテレータはいずれも無効とはならない。なお、[`end`](./end.md)`()` は要素を指さないため、無効になるかもしれない。
+交換されたコンテナの要素を指す参照、ポインタ、および、イテレータはいずれも無効とはならずに、元の要素を指し続けるない（つまり、それらの指すコンテナは入れ替わる）。なお、[`end`](./end.md)`()` は要素を指さないため、無効になるかもしれない。
 
 
 ##例
@@ -78,14 +78,15 @@ int main()
 * begin[link ./begin.md]
 * end[link ./end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* swap[color ff0000]
 
 ###出力
 ```
-us1 before : 9 7 5 3 1
-us2 before : 8 6 4 2 0
+us1 before : 9 7 5 3 1 
+us2 before : 8 6 4 2 0 
 
-us1 after : 8 6 4 2 0
-us2 after : 9 7 5 3 1
+us1 after : 8 6 4 2 0 
+us2 after : 9 7 5 3 1 
 ```
 
 注：[`unordered_set`](/reference/unordered_set/unordered_set.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
