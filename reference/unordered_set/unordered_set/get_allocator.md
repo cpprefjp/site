@@ -108,11 +108,11 @@ libstdc++ の `unordered_set` では、アロケータの `select_on_container_c
 
 ##参照
 
-|                                                          |                            |
-|----------------------------------------------------------|----------------------------|
-| [`(constructor)`](./unordered_set.md)                    | コンストラクタ             |
-| [`operator=`](./op_assign.md)                            | 代入演算子                 |
-| [`swap`](./swap_free.md)                                 | 内容の交換（非メンバ関数） |
-| [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ     |
-| [`allocator_traits`](/reference/memory/allocator_traits) | アロケータのトレイツ       |
+|                                                             |                            |
+|-------------------------------------------------------------|----------------------------|
+| [`(constructor)`](./unordered_set.md)                       | コンストラクタ             |
+| [`operator=`](./op_assign.md)                               | 代入演算子                 |
+| [`swap`](./swap_free.md)                                    | 内容の交換（非メンバ関数） |
+| [`allocator`](/reference/memory/allocator.md)               | デフォルトのアロケータ     |
+| [`allocator_traits`](/reference/memory/allocator_traits.md) | アロケータのトレイツ       |
 
