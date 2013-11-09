@@ -22,15 +22,15 @@
 ##数値との変換
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------|-------------------------------------------------|-------|
-| `stoi`       | 文字列から`int`型への変換(function)                | C++11 |
-| `stol`       | 文字列から`long`型への変換(function)               | C++11 |
-| `soul`       | 文字列から`unsigned long`型への変換(function)      | C++11 |
-| `stoll`      | 文字列から`long long`型への変換(function)          | C++11 |
-| `stoull`     | 文字列から`unsigned long long`型への変換(function) | C++11 |
-| `stof`       | 文字列から`float`型への変換(function)              | C++11 |
-| `stod`       | 文字列から`double`型への変換(function)             | C++11 |
-| `stold`      | 文字列から`long double`型への変換(function)        | C++11 |
+|----------------------------------------|----------------------------------------------------|-------|
+| [`stoi`](./string/stoi.md)             | 文字列から`int`型への変換(function)                | C++11 |
+| [`stol`](./string/stol.md)             | 文字列から`long`型への変換(function)               | C++11 |
+| [`stoul`](./string/stoul.md)           | 文字列から`unsigned long`型への変換(function)      | C++11 |
+| [`stoll`](./string/stoll.md)           | 文字列から`long long`型への変換(function)          | C++11 |
+| [`stoull`](./string/stoull.md)         | 文字列から`unsigned long long`型への変換(function) | C++11 |
+| [`stof`](./string/stof.md)             | 文字列から`float`型への変換(function)              | C++11 |
+| [`stod`](./string/stod.md)             | 文字列から`double`型への変換(function)             | C++11 |
+| [`stold`](./string/stold.md)           | 文字列から`long double`型への変換(function)        | C++11 |
 | `to_string`  | 数値から`string`への変換(function)                 | C++11 |
 | `to_wstring` | 数値から`wstring`への変換(function)                | C++11 |
 
