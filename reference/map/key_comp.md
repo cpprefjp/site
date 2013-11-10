@@ -51,10 +51,10 @@ int main()
 
 | 名前 | 説明|
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`value_comp`](./value_comp.md) | 値を比較した結果を返す |
-| [`find`](./find.md) | 指定したキーで要素を探す |
-| [`count`](./count.md) | 指定したキーにマッチする要素の数を返す |
-| [`lower_bound`](./lower_bound.md) | 与えられた値より小さく無い最初の要素へのイテレータを返す |
-| [`upper_bound`](./upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
+| [`value_comp`](/reference/map/value_comp.md) | 値を比較した結果を返す |
+| [`find`](/reference/map/find.md) | 指定したキーで要素を探す |
+| [`count`](/reference/map/count.md) | 指定したキーにマッチする要素の数を返す |
+| [`lower_bound`](/reference/map/lower_bound.md) | 与えられた値より小さく無い最初の要素へのイテレータを返す |
+| [`upper_bound`](/reference/map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
 
 

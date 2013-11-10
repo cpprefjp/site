@@ -72,10 +72,10 @@ int main()
 
 | 名前 | 説明 |
 |------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`begin`](./begin.md) | 先頭を指すイテレータを取得する |
-| [`cbegin`](./cbegin.md) | 先頭を指すconstイテレータを取得する |
-| [`cend`](./cend.md) | 末尾を指すconstイテレータを取得する |
-| [`rbegin, crbegin`](./rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`rend, crend`](./rend.md) | 先頭を指す逆イテレータを取得する |
-
-
+| [`map::begin`](/reference/map/begin.md) | 先頭を指すイテレータを取得する |
+| [`map::cbegin`](/reference/map/cbegin.md) | 先頭を指すconstイテレータを取得する |
+| [`map::cend`](/reference/map/cend.md) | 末尾を指すconstイテレータを取得する |
+| [`map::rbegin`](/reference/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
+| [`map::rend`](/reference/map/rend.md) | 先頭を指す逆イテレータを取得する |
+| [`map::crbegin`](/reference/map/rbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`map::crend`](/reference/map/rend.md) | 先頭を指す逆constイテレータを取得する |

@@ -17,7 +17,7 @@ size_type count(const key_type& x) const;
 
 
 ##計算量
-[`size()`](./size.md) について対数時間
+[`size()`](/reference/map/size.md) について対数時間
 
 
 ##例
@@ -60,9 +60,9 @@ int main()
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`find`](./find.md) | 指定したキーで要素を探す |
-| [`size`](./size.md) | 要素数を取得する |
-| [`lower_bound`](./lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
-| [`upper_bound`](./upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
+| [`map::find`](/reference/map/find.md) | 指定したキーで要素を探す |
+| [`map::size`](/reference/map/size.md) | 要素数を取得する |
+| [`map::lower_bound`](/reference/map/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
+| [`map::upper_bound`](/reference/map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
 
 

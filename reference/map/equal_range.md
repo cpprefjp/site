@@ -7,7 +7,7 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 ##概要
 コンテナ内の、`x` と等しい全てのキー要素を含む範囲の境界を返す。`map` コンテナではキーの重複は無いため、この範囲は最大一つの要素を含む。 
 
-もし `x` がコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは `x` より大きく最も近い値を指す。そうでない場合、`x` がコンテナ内の全ての要素よりも大きい場合は [`end`](./end.md) を指す。
+もし `x` がコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは `x` より大きく最も近い値を指す。そうでない場合、`x` がコンテナ内の全ての要素よりも大きい場合は [`end`](/reference/map/end.md) を指す。
 
 
 ##パラメータ
@@ -15,11 +15,11 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 
 
 ##戻り値
-この関数は `pair` を返す。ここで `pair::first` は [`lower_bound`](./lower_bound.md)`(x)` が返すであろう値と同じ値で範囲の下境界にあたり、`pair::second` は [`upper_bound`](./upper_bound.md)`(x)` が返すであろう値と同じ値で範囲の上境界にあたる。`iterator` はメンバ型であり `map` において双方向イテレータとして定義される。
+この関数は `pair` を返す。ここで `pair::first` は [`lower_bound`](./lower_bound.md)`(x)` が返すであろう値と同じ値で範囲の下境界にあたり、`pair::second` は [`upper_bound`](/reference/map/upper_bound.md)`(x)` が返すであろう値と同じ値で範囲の上境界にあたる。`iterator` はメンバ型であり `map` において双方向イテレータとして定義される。
 
 
 ##計算量
-[`size`](./size.md) について対数時間。
+[`size`](/reference/map/size.md) について対数時間。
 
 
 ##例
@@ -66,9 +66,9 @@ up: 4 d
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`count`](./count.md) | 指定したキーにマッチする要素の数を返す |
-| [`lower_bound`](./lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
-| [`upper_bound`](./upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
-| [`find`](./find.md) | 指定したキーで要素を探す |
+| [`map::count`](/reference/map/count.md) | 指定したキーにマッチする要素の数を返す |
+| [`map::lower_bound`](/reference/map/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
+| [`map::upper_bound`](/reference/map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
+| [`map::find`](/reference/map/find.md) | 指定したキーで要素を探す |
 
 

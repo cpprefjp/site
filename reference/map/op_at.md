@@ -60,7 +60,7 @@ exception std::out_of_ranget
 
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------------|-----------------------|
-| [`operator=`](./op_assign.md) | 代入演算子 |
-| [`insert`](./insert.md) | 要素を挿入する |
+| [`operator=`](/reference/map/op_assign.md) | 代入演算子 |
+| [`insert`](/reference/map/insert.md) | 要素を挿入する |
 
 

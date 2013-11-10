@@ -13,7 +13,7 @@ namespace std {
 
 
 ##効果
-`x.`[`swap`](./swap.md)`(y);`
+`x.`[`swap`](/reference/map/swap.md)`(y);`
 
 
 ##戻り値

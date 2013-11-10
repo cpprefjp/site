@@ -7,7 +7,7 @@ const_reverse_iterator rbegin() const noexcept;
 ##概要
 `map` コンテナ内の最後の要素を指す逆イテレータを返す。 
 内部的に、`map` コンテナは各要素をキーの値に従って下位から上位へと並べており、従って `rbegin()` は最上位のキーにあたる値を返す。 
-`rbegin()` は [`end()`](./end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
+`rbegin()` は [`end()`](/reference/map/end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
 
 ##戻り値
@@ -61,8 +61,11 @@ int main()
 ##参照
 | 名前 | 説明 |
 ---------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`rend, crend`](./rend.md) | 先頭を指す逆イテレータを取得する |
-| [`begin, cbegin`](./begin.md) | 先頭を指すイテレータを取得する |
-| [`end, cend`](./end.md) | 末尾を指すイテレータを取得する |
-
+| [`map::begin`](/reference/map/begin.md) | 先頭を指すイテレータを取得する |
+| [`map::end`](/reference/map/end.md) | 末尾を指すイテレータを取得する |
+| [`map::cbegin`](/reference/map/cbegin.md) | 先頭を指すconstイテレータを取得する |
+| [`map::cend`](/reference/map/cend.md) | 末尾を指すconstイテレータを取得する |
+| [`map::rend`](/reference/map/rend.md) | 先頭を指す逆イテレータを取得する |
+| [`map::crbegin`](/reference/map/rbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`map::crend`](/reference/map/rend.md) | 先頭を指す逆constイテレータを取得する |
 

@@ -1,21 +1,17 @@
-#crbegin(C++11)
+#crend(C++11)
 ```cpp
-const_reverse_iterator crbegin() const noexcept;
+const_reverse_iterator crend() const noexcept;
 ```
 
+
 ##概要
-`map` コンテナ内の最後の要素を指す逆イテレータを返す。 
-内部的に、`map` コンテナは各要素をキーの値に従って下位から上位へと並べており、従って `crbegin()` は最上位のキーにあたる値を返す。 
-`crbegin()` は [`end()`](/reference/map/end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
+`map` コンテナの先頭要素の前（これは反転シーケンスの末尾にあたる）を指す逆イテレータを返す。 
+`crend()` は [`begin()`](/reference/map/begin.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
 
 ##戻り値
-反転したシーケンスの先頭を指す逆イテレータ。 
-`const_reverse_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、`reverse_iterator<const_iterator>` と定義される。
-
-
-##計算量
-定数時間。
+反転シーケンスの終端を指す逆イテレータ。 
+`reverse_iterator` と `const_reverse_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、それぞれ `reverse_iterator<iterator>`, `reverse_iterator<const_iterator>` と定義される。
 
 
 ##例
@@ -41,6 +37,7 @@ int main()
 }
 ```
 
+
 ###出力
 ```
 5 e
@@ -57,13 +54,15 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md): ??, 11.0
 
 
+
 ##参照
+
 | 名前 | 説明 |
----------------------------------------------------------------------------------------------|--------------------------------------------------|
+|------------------------------------------------------------------------------------------------|--------------------------------------------|
 | [`map::begin`](/reference/map/begin.md) | 先頭を指すイテレータを取得する |
 | [`map::end`](/reference/map/end.md) | 末尾を指すイテレータを取得する |
 | [`map::cbegin`](/reference/map/cbegin.md) | 先頭を指すconstイテレータを取得する |
 | [`map::cend`](/reference/map/cend.md) | 末尾を指すconstイテレータを取得する |
 | [`map::rbegin`](/reference/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
 | [`map::rend`](/reference/map/rend.md) | 先頭を指す逆イテレータを取得する |
-| [`map::crend`](/reference/map/rend.md) | 先頭を指す逆constイテレータを取得する |
+| [`map::crbegin`](/reference/map/rbegin.md) | 末尾を指す逆constイテレータを取得する |

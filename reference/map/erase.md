@@ -34,8 +34,8 @@ size_type erase(const key_type& x);
 
 ##計算量
 引数に `position` をとるバージョンは定数時間。 
-引数に `first` 、`last` をとるバージョンはコンテナの [`size()`](./size.md) についての対数時間、プラス `first` と `last` の間の距離に対する線形時間。 
-引数に `x` をとるバージョンはコンテナの [`size()`](./size.md) について対数時間。
+引数に `first` 、`last` をとるバージョンはコンテナの [`size()`](/reference/map/size.md) についての対数時間、プラス `first` と `last` の間の距離に対する線形時間。 
+引数に `x` をとるバージョンはコンテナの [`size()`](/reference/map/size.md) について対数時間。
 
 
 ##例
@@ -88,9 +88,9 @@ int main()
 
 | 名前 | 説明|
 |---------------------------------------------------------------------------------------|--------------------------------------|
-| [`clear`](./clear.md) | 全ての要素を削除する |
-| [`insert`](./insert.md) | 要素を挿入する |
-| [`find`](./find.md) | 指定したキーで要素を探す |
+| [`map::clear`](/reference/map/clear.md) | 全ての要素を削除する |
+| [`map::insert`](/reference/map/insert.md) | 要素を挿入する |
+| [`map::find`](/reference/map/find.md) | 指定したキーで要素を探す |
 
 
 

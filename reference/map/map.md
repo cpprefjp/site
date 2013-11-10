@@ -71,7 +71,7 @@ map(initializer_list<value_type> init, const Compare& comp = Compare(), const Al
 
 コピーコンストラクタは、`x` の `size` に対して線形時間（コピーコンストラクト）。 
 
-ムーブコンストラクタは定数時間。但し、`alloc` が与えられてかつ `alloc != y.`[`get_allocator`](./get_allocator.md)`()` の場合は線形時間。
+ムーブコンストラクタは定数時間。但し、`alloc` が与えられてかつ `alloc != y.`[`get_allocator`](/reference/map/get_allocator.md)`()` の場合は線形時間。
 
 初期化リストを使ったコンストラクタは `init` のサイズに対して線形時間。
 
@@ -112,7 +112,7 @@ Size of c2: 2
 
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------------|-----------------------|
-| [`operator=`](./op_assign.md) | 代入演算子 |
-| [`insert`](./insert.md) | 要素を挿入する |
+| [`operator=`](/reference/map/op_assign.md) | 代入演算子 |
+| [`insert`](/reference/map/insert.md) | 要素を挿入する |
 
 

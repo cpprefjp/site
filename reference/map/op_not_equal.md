@@ -18,7 +18,7 @@ bool operator!=(const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,A
 
 
 ##計算量
-[`size()`](./size.md) に対して線形時間。
+[`size()`](/reference/map/size.md) に対して線形時間。
 
 
 ##例

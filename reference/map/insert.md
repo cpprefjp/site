@@ -1,76 +1,103 @@
-#page_title(ページのタイトルです)(C++11)
+#insert
 ```cpp
-void definition(); // 関数・変数・定数の宣言を記述します。
+pair<iterator,bool> insert(const value_type& x);
+
+// since C++11
+template<class P>
+pair<iterator,bool> insert(P&& &);
+
+// until C++11
+iterator insert(iterator position, const value_type& x);
+
+// since C++11
+iterator insert(const_iterator position, const value_type& x);
+
+// since C++11
+template<class P>
+iterator insert(const_iterator position, P&& y);
+
+template <class InputIterator>
+void insert(InputIterator first, InputIterator last);
+
+// since C++11
+void insert(initializer_list<value_type> init);
 ```
 
 ##概要
-(ここには、関数・変数・定数の概要を記述します。必須事項です。)
+　新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入することにより、 `map` コンテナを拡張する。 
+これは、挿入された要素の数だけコンテナの [`size()`](/reference/map/size.md) を増やす。 
+ `map` コンテナは重複したキーを持つ要素を許さないため、挿入操作はそれぞれの要素が他のコンテナ内の既存要素と同じキーかどうかをチェックする。もし同じであれば要素は挿入されず、戻り値を持つ関数の場合はそれへのイテレータを返す。 
+重複した値を許す、類似したコンテナについては `multimap` を参照。 
+内部的に `map` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。 
+この操作は、適切な位置パラメータを提供することで効率を飛躍的に改善することができる。
 
 
-##要件
-(ここには、関数を実行するための事前条件、型への要件などを記述します。とくになければ、項目を削除してください。)
-
-
-##効果
-(ここには、関数の内部で行われる効果:effect を記述します。戻り値しかないような関数の場合には、項目を削除してください。)
+##パラメータ
+- `x` : 挿入される要素の初期値に使われる値。
+- `y` : ムーブして挿入される値。
+- `first, last` : 要素の範囲を指定するイテレータ。範囲 `[first, last)` にある要素のコピーが `map` に挿入される。この範囲は、`first` と `last` の間の全ての要素を含み、`first` が指す要素を含む一方で `last` が指す要素は含まないことに注意。テンプレートタイプは任意の入力イテレータである。
+- `init` : 挿入される値のリスト。
 
 
 ##戻り値
-(ここには、関数の戻り値を記述します。戻り値の型が`void`の場合は、「なし」と記述してください。)
+`pair` を返すバージョンは、`first` に新しく挿入された要素またはすでに `map` に格納されていた同じ値の要素を指すイテレータをセットする。`second` には、要素が挿入されたときに `true` が、同じ値の要素が存在したときに `false` がセットされる。 
+`iterator` を返すバージョンは、新しく挿入された要素またはすでに `set` に格納されていた同じ値の要素を指すイテレータである。
+`iterator` はメンバ型であり、双方向イテレータとして定義される。
 
 
 ##計算量
-(ここには、アルゴリズムの計算量を記述します。規格上とくに明記がなければ、項目を削除してください。)
+`x` または `y` のみを引数にとるバージョンは対数時間。 
+`x` または `y` と `position` を引数にとるバージョンは一般に対数時間だが、`x` または `y` が `position` が指す要素の後に挿入された場合は償却定数時間。 
+入力イテレータを引数にとるバージョンは一般に N log(size + N)※ だが、`first` と `last` の間がコンテナで使われているものと同じ順序基準に従ってソート済みである場合は線形時間。 
 
-
-##備考
-(ここには、関数・変数・定数を説明するにあたっての、補足事項を記述します。とくになければ、項目を削除してください。)
+※ ここで `N` は `first` と `last` の間の距離であり `size` は挿入前のコンテナの [`size()`](/reference/map/size.md)
 
 
 ##例
 ```cpp
-// (ここには、関数・変数・定数を解説するための、サンプルコードを記述します。)
-// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。)
-
 #include <iostream>
+#include <map>
+using namespace std;
 
-int main()
+int main ()
 {
-  int variable = 0;
-  std::cout << variable << std::endl;
+  map<char,int> c1;
+  map<char,int> c2;
+
+  c1.insert(std::make_pair('a', 10));
+  c1.insert(std::make_pair('b', 20));
+  c1.insert(std::make_pair('c', 30));
+
+  cout << c1.size() << endl;
+
+  c2.insert(c1.begin(), c1.end());
+  c2.insert(std::make_pair('d', 40));
+
+  cout << c2.size() << endl;
+
+  return 0;
 }
 ```
-* variable[color ff0000]
-(コードブロック中の識別子に、文字色を付ける例です。)
 
 ###出力
 ```
-0
+3
+4
 ```
-(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)  
-(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)
-
-
-##実装例
-```cpp
-// (ここには、その関数・変数・定数の、実装例を記述します。)
-// (とくに必要がないと判断した場合、項目を削除してください。)
-```
-
-##バージョン
-###言語
-- C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 1.9, 2.9, 3.0, 3.1, 3.2, 3.3
-- [GCC](/implementation#gcc.md): 3.4.6, 4.2.4, 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [ICC](/implementation#icc.md): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation#visual_cpp.md): 7.1, 8.0, 9.0, 10.0, 11.0
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): ??
+- [GCC, C++11 mode](/implementation#gcc.md): ??
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??, 11.0
 
-(ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)  
-(これらの項目を削除した場合、C++03のあらゆる環境で使用できることを意味します。)
 
 ##参照
-(ここには、その関数・変数・定数を理解するにあたっての参考資料や、関連する機能へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)
+
+| 名前 | 説明　|
+|-------------------------------------------------------------------------------------|--------------------------------------|
+| [`map::erase`](/reference/map/erase.md) | 要素を削除する |
+| [`map::find`](/reference/map/find.md) | 指定したキーで要素を探す |
+
 

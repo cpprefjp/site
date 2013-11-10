@@ -1,76 +1,65 @@
-#page_title(ページのタイトルです)(C++11)
+#rend
 ```cpp
-void definition(); // 関数・変数・定数の宣言を記述します。
+reverse_iterator rend() noexcept;
+const_reverse_iterator rend() const noexcept;
 ```
 
 ##概要
-(ここには、関数・変数・定数の概要を記述します。必須事項です。)
-
-
-##要件
-(ここには、関数を実行するための事前条件、型への要件などを記述します。とくになければ、項目を削除してください。)
-
-
-##効果
-(ここには、関数の内部で行われる効果:effect を記述します。戻り値しかないような関数の場合には、項目を削除してください。)
-
+`map` コンテナの先頭要素の前（これは反転シーケンスの末尾にあたる）を指す逆イテレータを返す。 
+`rend()` は [`begin()`](/reference/map/begin.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
 ##戻り値
-(ここには、関数の戻り値を記述します。戻り値の型が`void`の場合は、「なし」と記述してください。)
-
-
-##計算量
-(ここには、アルゴリズムの計算量を記述します。規格上とくに明記がなければ、項目を削除してください。)
-
-
-##備考
-(ここには、関数・変数・定数を説明するにあたっての、補足事項を記述します。とくになければ、項目を削除してください。)
-
+反転シーケンスの終端を指す逆イテレータ。 
+`reverse_iterator` と `const_reverse_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、それぞれ `reverse_iterator<iterator>`, `reverse_iterator<const_iterator>` と定義される。
 
 ##例
 ```cpp
-// (ここには、関数・変数・定数を解説するための、サンプルコードを記述します。)
-// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。)
-
 #include <iostream>
+#include <map>
+using namespace std;
 
 int main()
 {
-  int variable = 0;
-  std::cout << variable << std::endl;
+  map<int, char> c;
+  c.insert(std::make_pair(5, 'e'));
+  c.insert(std::make_pair(2, 'b'));
+  c.insert(std::make_pair(4, 'd'));
+  c.insert(std::make_pair(1, 'a'));
+  c.insert(std::make_pair(1, 'a'));
+
+  map<int,char>::reverse_iterator i = c.rbegin();
+  for( ; i != c.rend() ; ++i )
+    cout << i->first << " " << i->second << endl;
+
+  return 0;
 }
 ```
-* variable[color ff0000]
-(コードブロック中の識別子に、文字色を付ける例です。)
 
 ###出力
 ```
-0
+5 e
+4 d
+2 b
+1 a
 ```
-(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)  
-(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)
-
-
-##実装例
-```cpp
-// (ここには、その関数・変数・定数の、実装例を記述します。)
-// (とくに必要がないと判断した場合、項目を削除してください。)
-```
-
-##バージョン
-###言語
-- C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 1.9, 2.9, 3.0, 3.1, 3.2, 3.3
-- [GCC](/implementation#gcc.md): 3.4.6, 4.2.4, 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [ICC](/implementation#icc.md): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation#visual_cpp.md): 7.1, 8.0, 9.0, 10.0, 11.0
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): ??
+- [GCC, C++11 mode](/implementation#gcc.md): ??
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??, 11.0
 
-(ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)  
-(これらの項目を削除した場合、C++03のあらゆる環境で使用できることを意味します。)
 
 ##参照
-(ここには、その関数・変数・定数を理解するにあたっての参考資料や、関連する機能へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)
+
+| 名前 | 説明　|
+|------------------------------------------------------------------------------------------------|--------------------------------------------|
+| [`map::begin`](/reference/map/begin.md) | 先頭を指すイテレータを取得する |
+| [`map::end`](/reference/map/end.md) | 末尾を指すイテレータを取得する |
+| [`map::cbegin`](/reference/map/cbegin.md) | 先頭を指すconstイテレータを取得する |
+| [`map::cend`](/reference/map/cend.md) | 末尾を指すconstイテレータを取得する |
+| [`map::rbegin`](/reference/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
+| [`map::crbegin`](/reference/map/rbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`map::crend`](/reference/map/rend.md) | 先頭を指す逆constイテレータを取得する |
 
