@@ -1,4 +1,4 @@
-#stol
+#stol (C++11)
 ```cpp
 namespace std {
   long stol(const string& str, size_t* idx = nullptr, long base = 10);

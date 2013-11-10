@@ -1,4 +1,4 @@
-#stoi
+#stoi (C++11)
 ```cpp
 namespace std {
   int stoi(const string& str, size_t* idx = nullptr, int base = 10);

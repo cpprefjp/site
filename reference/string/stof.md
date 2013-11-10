@@ -1,4 +1,4 @@
-#stof
+#stof (C++11)
 ```cpp
 namespace std {
   float stof(const string& str, size_t* idx = nullptr);
@@ -149,6 +149,8 @@ float stof(const wstring& str, size_t* idx = nullptr) {
 - [ICC](/implementation#icc.md): ?
 - [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
+ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
+
 ##参照
 ### C標準ライブラリに由来する関数
 - `atof`: `stold`は`atof`を`std::string`および`std::wsting`に対応させ、戻り値の型を`float`に変更したものと見なせる。
@@ -162,4 +164,4 @@ float stof(const wstring& str, size_t* idx = nullptr) {
 - [`stoull`](./stoull.md): 戻り値の型が`unsgined long long`となったもの。
 - (`stof`: この関数自身)
 - [`stod`](./stod.md): 戻り値の型が`double`となったもの。
-- [`stofd`](./stofd.md): 戻り値の型が`long double`となったもの。
+- [`stold`](./stold.md): 戻り値の型が`long double`となったもの。

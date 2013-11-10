@@ -1,4 +1,4 @@
-#stod
+#stold (C++11)
 ```cpp
 namespace std {
   double stold(const string& str, size_t* idx = nullptr);
@@ -148,6 +148,8 @@ long double stold(const wstring& str, size_t* idx = nullptr) {
 - [GCC, C++11 mode](/implementation#gcc.md): ?
 - [ICC](/implementation#icc.md): ?
 - [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
+
+ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
 
 ##参照
 ### C標準ライブラリに由来する関数

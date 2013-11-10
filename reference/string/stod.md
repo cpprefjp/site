@@ -1,4 +1,4 @@
-#stod
+#stod (C++11)
 ```cpp
 namespace std {
   double stod(const string& str, size_t* idx = nullptr);
@@ -149,6 +149,8 @@ double stod(const wstring& str, size_t* idx = nullptr) {
 - [ICC](/implementation#icc.md): ?
 - [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
+ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
+
 ##参照
 ### C標準ライブラリに由来する関数
 - `atof`: `stod`は`atof`を`std::string`および`std::wsting`に対応させたものと見なせる。
@@ -162,4 +164,4 @@ double stod(const wstring& str, size_t* idx = nullptr) {
 - [`stoull`](./stoull.md): 戻り値の型が`unsgined long long`となったもの。
 - [`stof`](./stof.md): 戻り値の型が`float`となったもの。
 - (`stod`: この関数自身)
-- [`stodd`](./stodd.md): 戻り値の型が`double double`となったもの。
+- [`stold`](./stold.md): 戻り値の型が`long double`となったもの。

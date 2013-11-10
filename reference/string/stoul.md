@@ -1,4 +1,4 @@
-#stoul
+#stoul (C++11)
 ```cpp
 namespace std {
   unsigned long stoul(const string& str, size_t* idx = nullptr, unsigned long base = 10);
