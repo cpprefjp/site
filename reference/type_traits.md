@@ -51,7 +51,7 @@
 | [`is_const`](./type_traits/is_const.md)       | 型が`const`修飾型か調べる (class template) | C++11 |
 | [`is_volatile`](./type_traits/is_volatile.md) | 型が`volatile`修飾型か調べる (class template) | C++11 |
 | [`is_trivial`](./type_traits/is_trivial.md)   | 型がトリビアル型か調べる (class template) | C++11 |
-| `is_trivially_copyable`                       | 型がトリビアルコピー可能か調べる (class template) | C++11 |
+| [`is_trivially_copyable`](./type_traits/is_trivially_copyable.md) | 型がトリビアルコピー可能か調べる (class template) | C++11 |
 | `is_standard_layout`                          | 型がスタンダードレイアウト型か調べる (class template) | C++11 |
 | [`is_pod`](./type_traits/is_pod.md)           | 型がPOD型か調べる (class template) | C++11 |
 | `is_literal_type`                             | 型がリテラル型か調べる (class template) | C++11 |
