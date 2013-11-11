@@ -21,13 +21,13 @@ const_reference back() const;
 ##例
 ```cpp
 #include <iostream>
-#include <vector>
+#include <list>
 
 int main()
 {
-  std::vector<int> v = {3, 1, 4};
+  std::list<int> ls = {3, 1, 4};
 
-  int& x = v.back();
+  int& x = ls.back();
   std::cout << x << std::endl;
 }
 ```

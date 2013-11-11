@@ -1,11 +1,15 @@
-#resize(C++11)
+#resize
 ```cpp
+// C++03
+void resize(size_type sz, T c = T());
+
+// C++11
 void resize(size_type sz);
 void resize(size_type sz, const value_type& c);
 ```
 
 ##概要
-要素数を変更する
+要素数を変更する。
 
 
 ##要件
@@ -24,14 +28,14 @@ void resize(size_type sz, const value_type& c);
 ##例
 ```cpp
 #include <iostream>
-#include <forward_list>
+#include <list>
 #include <algorithm>
 
 int main()
 {
   // 増加
   {
-    std::forward_list<int> ls = {3, 1, 4};
+    std::list<int> ls = {3, 1, 4};
     ls.resize(5);
 
     std::for_each(ls.begin(), ls.end(), [](int x) { std::cout << x << std::endl; });
@@ -40,7 +44,7 @@ int main()
 
   // 減少
   {
-    std::forward_list<int> ls = {3, 1, 4};
+    std::list<int> ls = {3, 1, 4};
     ls.resize(1);
 
     std::for_each(ls.begin(), ls.end(), [](int x) { std::cout << x << std::endl; });
@@ -60,18 +64,5 @@ int main()
 
 3
 ```
-
-##バージョン
-###言語
-- C++11
-
-###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
-
-##参照
 
 
