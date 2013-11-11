@@ -20,21 +20,20 @@ void emplace_front(Args&&... args);
 ##例
 ```cpp
 #include <iostream>
-#include <forward_list>
+#include <list>
 #include <utility>
 #include <string>
-#include <algorithm>
 
 int main()
 {
-  std::forward_list<std::pair<int, std::string>> ls;
+  std::list<std::pair<int, std::string>> ls;
 
   ls.emplace_front(1, std::string("world"));
   ls.push_front(std::make_pair(3, std::string("hello")));
 
-  std::for_each(ls.begin(), ls.end(), [](decltype(ls)::const_reference x) {
+  for (const auto& x : ls) {
     std::cout << x.first << ',' << x.second << std::endl;
-  });
+  };
 }
 ```
 * emplace_front[color ff0000]
@@ -50,9 +49,9 @@ int main()
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
+- [Clang](/implementation#clang.md): 3.0
 - [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [GCC, C++0x mode](/implementation#gcc.md): 4.6.4
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
 

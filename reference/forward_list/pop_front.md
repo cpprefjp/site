@@ -8,7 +8,7 @@ void pop_front();
 
 
 ##要件
-[`empty()`](/reference/forward_list/push_front.md)` == false`であること。
+[`empty()`](./empty.md)` == false`であること。
 
 
 ##戻り値
