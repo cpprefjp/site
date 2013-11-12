@@ -66,9 +66,9 @@ namespace std {
 | [`pop_back`](./list/pop_back.md)           | 末尾から要素を削除             | |
 | [`emplace`](./list/emplace.md)             | 要素の直接構築による挿入       | C++11 |
 | [`insert`](./list/insert.md)               | 要素の挿入                     | |
-| `erase`         | 要素の削除 | |
-| `swap`          | コンテナの交換 | |
-| `clear`         | 全要素削除 | |
+| [`erase`](./list/erase.md)                 | 要素の削除                     | |
+| [`swap`](./list/swap.md)                   | コンテナの交換                 | |
+| [`clear`](./list/clear.md)                 | 全要素削除                     | |
 
 
 ###リスト操作

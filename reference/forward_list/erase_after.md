@@ -13,7 +13,7 @@ iterator erase_after(const_iterator position, const_iterator last);
 
 
 ##効果
-1引数版は、`position`が指す次の要素が削除される。
+1引数版は、`position`が指す次の要素が削除される。  
 2引数版は、`(position, last)`で示される範囲の要素が削除される。
 
 
