@@ -1,4 +1,4 @@
-#remove(C++11)
+#remove
 ```cpp
 void remove(const T& value);
 ```
@@ -27,11 +27,11 @@ void remove(const T& value);
 ##例
 ```cpp
 #include <iostream>
-#include <forward_list>
+#include <list>
 
 int main()
 {
-  std::forward_list<int> ls = {3, 1, 4, 1};
+  std::list<int> ls = {3, 1, 4, 1};
 
   ls.remove(1); // 値1の要素を全て削除
 
@@ -47,19 +47,5 @@ int main()
 3
 4
 ```
-
-##バージョン
-###言語
-- C++11
-
-###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
-
-
-##参照
 
 

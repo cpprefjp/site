@@ -1,13 +1,13 @@
-#merge(C++11)
+#merge
 ```cpp
-void merge(forward_list& x);
-void merge(forward_list&& x);
-template <class Compare> void merge(forward_list& x, Compare comp);
-template <class Compare> void merge(forward_list&& x, Compare comp);
+void merge(list& x);
+void merge(list&& x); // C++11
+template <class Compare> void merge(list& x, Compare comp);
+template <class Compare> void merge(list&& x, Compare comp); // C++11
 ```
 
 ##概要
-2つの`forward_list`オブジェクトを併合する。
+2つの`list`オブジェクトを併合する。
 
 
 ##要件
@@ -15,7 +15,7 @@ template <class Compare> void merge(forward_list&& x, Compare comp);
 
 
 ##効果
-`x`を`*this`にマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。  
+`x`を`*this`にマージする。2つの`list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。  
 マージ後、`x`の要素に対するイテレータおよび参照は無効にならない。
 
 
@@ -38,12 +38,12 @@ template <class Compare> void merge(forward_list&& x, Compare comp);
 ##例
 ```cpp
 #include <iostream>
-#include <forward_list>
+#include <list>
 
 int main()
 {
-  std::forward_list<int> a = {1, 3, 4};
-  std::forward_list<int> b = {2, 5, 6};
+  std::list<int> a = {1, 3, 4};
+  std::list<int> b = {2, 5, 6};
 
   a.merge(std::move(b));
 
@@ -63,18 +63,5 @@ int main()
 5
 6
 ```
-
-##バージョン
-###言語
-- C++11
-
-###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0(&&バージョンのみ実装されている)
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
-
-##参照
 
 

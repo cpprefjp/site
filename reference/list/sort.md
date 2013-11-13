@@ -1,4 +1,4 @@
-#sort(C++11)
+#sort
 ```cpp
 void sort();
 template <class Compare> void sort(Compare comp);
@@ -24,17 +24,17 @@ template <class Compare> void sort(Compare comp);
 
 
 ##計算量
-[`distance`](/reference/iterator/distance.md)([`begin`](/reference/forward_list/begin.md)`(), `[`end`](/reference/forward_list/end.md)`())`を`N`として、約`N logN`回の比較
+[`distance`](/reference/iterator/distance.md)([`begin`](./begin.md)`(), `[`end`](./end.md)`())`を`N`として、約`N logN`回の比較
 
 
 ##例
 ```cpp
 #include <iostream>
-#include <forward_list>
+#include <list>
 
 int main()
 {
-  std::forward_list<int> ls = {2, 1, 3};
+  std::list<int> ls = {2, 1, 3};
 
   ls.sort();
 
@@ -51,19 +51,5 @@ int main()
 2
 3
 ```
-
-##バージョン
-###言語
-- C++11
-
-###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
-
-
-##参照
 
 

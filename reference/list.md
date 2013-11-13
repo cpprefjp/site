@@ -74,38 +74,38 @@ namespace std {
 ###リスト操作
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------|--------------------------------|-------|
-| `splice` | 2つのコンテナを併合する | |
-| `remove` | コンテナから指定された値の要素を削除する | |
-| `remove_if` | コンテナの条件に合った要素を削除する | |
-| `unique` | 重複した要素をコンテナから削除する | |
-| `merge` | 2つのコンテナを併合する | |
-| `sort` | コンテナを並べ替える | |
-| `reverse` | コンテナを反転する | |
+|------------------------------------|------------------------------------------|-------|
+| [`splice`](./list/splice.md)       | 2つのコンテナを併合する                  | |
+| [`remove`](./list/remove.md)       | コンテナから指定された値の要素を削除する | |
+| [`remove_if`](./list/remove_if.md) | コンテナの条件に合った要素を削除する     | |
+| [`unique`](./list/unique.md)       | 重複した要素をコンテナから削除する       | |
+| [`merge`](./list/merge.md)         | 2つのコンテナを併合する                  | |
+| [`sort`](./list/sort.md)           | コンテナを並べ替える                     | |
+| [`reverse`](./list/reverse.md)     | コンテナを反転する                       | |
 
 
 ###アロケータ
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------|------------------------------|-------|
-| `get_allocator` | アロケータオブジェクトの取得 | |
+|--------------------------------------------|------------------------------|-------|
+| [`get_allocator`](./list/get_allocator.md) | アロケータオブジェクトの取得 | |
 
 
 ##メンバ型
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------|------------------------------|-------|
-| `reference` | `value_type&` | |
-| `const_reference` | `const value_type&` | |
-| `iterator` | 双方向イテレータ | |
-| `const_iterator` | 読み取り専用双方向イテレータ | |
-| `size_type` | 符号なし整数型(通常は`size_t`) | |
-| `difference_type` | 符号あり整数型(通常は`ptrdiff_t`) | |
-| `value_type` | `T` | |
-| `allocator_type` | `Allocator` | |
-| `pointer` | `allocator_traits<Allocator>::pointer` | |
-| `const_pointer` | `allocator_traits<Allocator>::const_pointer` | |
-| `reverse_iterator` | `std::reverse_iterator<iterator>` | |
+|--------------------------|------------------------------|-------|
+| `reference`              | `value_type&` | |
+| `const_reference`        | `const value_type&` | |
+| `iterator`               | 双方向イテレータ | |
+| `const_iterator`         | 読み取り専用双方向イテレータ | |
+| `size_type`              | 符号なし整数型(通常は`size_t`) | |
+| `difference_type`        | 符号あり整数型(通常は`ptrdiff_t`) | |
+| `value_type`             | `T` | |
+| `allocator_type`         | `Allocator` | |
+| `pointer`                | `allocator_traits<Allocator>::pointer` | |
+| `const_pointer`          | `allocator_traits<Allocator>::const_pointer` | |
+| `reverse_iterator`       | `std::reverse_iterator<iterator>` | |
 | `const_reverse_iterator` | `std::reverse_iterator<const_iterator>` | |
 
 
