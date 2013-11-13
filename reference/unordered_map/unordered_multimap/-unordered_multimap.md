@@ -1,10 +1,10 @@
 #デストラクタ(C++11)
 ```cpp
-~unordered_multiset();
+~unordered_multimap();
 ```
 
 ##概要
-`unordered_multiset` が保持している全ての要素に対してデストラクタを実行し、メモリを解放する。
+`unordered_multimap` が保持している全ての要素に対してデストラクタを実行し、メモリを解放する。
 
 
 ##例外
@@ -31,6 +31,6 @@
 
 |                                            |                |
 |--------------------------------------------|----------------|
-| [`(constructor)`](./unordered_multiset.md) | コンストラクタ |
+| [`(constructor)`](./unordered_multimap.md) | コンストラクタ |
 | [`operator=`](./op_assign.md)              | 代入演算子     |
 

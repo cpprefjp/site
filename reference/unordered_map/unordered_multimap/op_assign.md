@@ -1,17 +1,17 @@
 #代入演算子(C++11)
 ```cpp
-unordered_multiset& operator=(const unordered_multiset& v);     // (1)
-unordered_multiset& operator=(unordered_multiset&& rv);         // (2)
-unordered_multiset& operator=(initializer_list<value_type> il); // (3)
+unordered_multimap& operator=(const unordered_multimap& v);     // (1)
+unordered_multimap& operator=(unordered_multimap&& rv);         // (2)
+unordered_multimap& operator=(initializer_list<value_type> il); // (3)
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-`unordered_multiset` オブジェクトを代入する
+`unordered_multimap` オブジェクトを代入する
 
 
 ##要件
-- (1)、および、(3) の形式の場合、`value_type` はこの `unordered_multiset` に対して CopyInsertable かつ CopyAssignable であること。
+- (1)、および、(3) の形式の場合、`value_type` はこの `unordered_multimap` に対して CopyInsertable かつ CopyAssignable であること。
 
 - (2) の形式の場合、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `false` であれば、`value_type` はこのコンテナに対して MoveInsertable かつ MoveAssignable であること。
 
@@ -48,6 +48,8 @@ unordered_multiset& operator=(initializer_list<value_type> il); // (3)
 
 ##備考
 - (3) の形式の場合、計算量は `a = X(il)` と同様となっているが、効果が `a = X(il)` と同様なわけではない。（ハッシュ関数オブジェクト、キー比較用関数オブジェクト、アロケータオブジェクト、[`max_load_factor`](./max_load_factor.md)`()` 等が異なる）
+- 要件に、`value_type` はこの `unordered_multimap` に対して CopyAssignable、あるいは、MoveAssignable であること、というものがあるが、`value_type` は `std::`[`pair`](/reference/utility/pair.md) の `first` 部分が `const` であるため、当該要件を満たすことができない。
+	おそらく規格書の記述上の問題で、`key_type`、および、`mapped_type` がコピー可能、あるいはムーブ可能であれば良いものと思われる。
 
 
 ##バージョン
@@ -67,6 +69,6 @@ unordered_multiset& operator=(initializer_list<value_type> il); // (3)
 
 |                                            |                |
 |--------------------------------------------|----------------|
-| [`(constructor)`](./unordered_multiset.md) | コンストラクタ |
-| [`(destructor)`](./-unordered_multiset.md) | デストラクタ   |
+| [`(constructor)`](./unordered_multimap.md) | コンストラクタ |
+| [`(destructor)`](./-unordered_multimap.md) | デストラクタ   |
 
