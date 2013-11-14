@@ -34,7 +34,7 @@ void print(const std::string& name, const std::forward_list<T>& ls)
   std::cout << "}" << std::endl;
 }
 
-int main ()
+int main()
 {
   std::forward_list<int> ls1 = {4, 5, 6};
   std::forward_list<int> ls2 = {1, 2, 3};
