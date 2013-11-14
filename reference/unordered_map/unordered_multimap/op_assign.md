@@ -11,9 +11,9 @@ unordered_multimap& operator=(initializer_list<value_type> il); // (3)
 
 
 ##要件
-- (1)、および、(3) の形式の場合、`value_type` はこの `unordered_multimap` に対して CopyInsertable かつ CopyAssignable であること。
+- (1)、および、(3) の形式の場合、`value_type` はこの `unordered_multimap` に対して CopyInsertable かつ CopyAssignable であること。（但し、備考参照）
 
-- (2) の形式の場合、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `false` であれば、`value_type` はこのコンテナに対して MoveInsertable かつ MoveAssignable であること。
+- (2) の形式の場合、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `false` であれば、`value_type` はこのコンテナに対して MoveInsertable かつ MoveAssignable であること。（但し、備考参照）
 
 
 ##効果
@@ -49,7 +49,7 @@ unordered_multimap& operator=(initializer_list<value_type> il); // (3)
 ##備考
 - (3) の形式の場合、計算量は `a = X(il)` と同様となっているが、効果が `a = X(il)` と同様なわけではない。（ハッシュ関数オブジェクト、キー比較用関数オブジェクト、アロケータオブジェクト、[`max_load_factor`](./max_load_factor.md)`()` 等が異なる）
 - 要件に、`value_type` はこの `unordered_multimap` に対して CopyAssignable、あるいは、MoveAssignable であること、というものがあるが、`value_type` は `std::`[`pair`](/reference/utility/pair.md) の `first` 部分が `const` であるため、当該要件を満たすことができない。
-	おそらく規格書の記述上の問題で、`key_type`、および、`mapped_type` がコピー可能、あるいはムーブ可能であれば良いものと思われる。
+	これはおそらく規格書の記述上の問題で、`key_type`、および、`mapped_type` がコピー代入可能、あるいは、ムーブ代入可能であれば良いものと思われる。
 
 
 ##バージョン
