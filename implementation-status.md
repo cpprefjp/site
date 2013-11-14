@@ -64,7 +64,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 | ブロックスコープな`static`変数初期化のスレッドセーフ化 |  | 4.0 | 2.9 | ? | No [[link](http://thread.gmane.org/gmane.comp.lib.boost.devel/238201/focus=238214)] |
 | 初期化子リスト                   | 波括弧による初期化。`vector<int> v = {1, 2, 3};`など。 | 4.4 | 3.1 | 14.0 | 12.0 |
 | `noexcept`                       | 関数の例外指定、例外を投げる可能性のある式かbool値を返す演算子 | 4.6 | 3.0 | 13.0(partial)<br/>14.0 | No |
-| 任意の式によるSFINAE             | | 4.4 | 2.0 | 12.0 | No |
+| 任意の式によるSFINAE             | | 4.4 | 2.9 | 12.0 | No |
 
 
 各処理系のC++11実装状況ページ：
