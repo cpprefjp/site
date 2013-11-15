@@ -14,7 +14,7 @@ const T& at(const key_type & x) const;
 オブジェクトが存在しないときは、out_of_range例外を投げる。
 
 ##計算量
-平均： 定数時間
+平均： 定数時間  
 最悪： [`size`](/reference/unordered_map/size.md) について線形時間。
 
 

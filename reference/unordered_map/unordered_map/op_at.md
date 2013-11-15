@@ -16,8 +16,8 @@ T& operator[](const key_type&& x);
 
 
 ##計算量
-平均： 定数時間
-最悪： [`size`](/reference/unordered_map/size.md) について線形時間。
+平均： 定数時間  
+最悪： [`size`](/reference/unordered_map/size.md) について線形時間。  
 
 
 ##例
