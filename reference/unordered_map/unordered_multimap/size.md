@@ -8,7 +8,7 @@ size_type size() const noexcept;
 
 
 ##戻り値
-現在 `unordered_map` オブジェクトに格納されている要素の数
+現在 `unordered_multimap` オブジェクトに格納されている要素の数
 
 
 ##例外
@@ -27,7 +27,7 @@ size_type size() const noexcept;
 
 int main()
 {
-  std::unordered_map<std::string, int> um{ { "1st", 3 }, { "2nd", 1 }, { "3rd", 4 }, { "4th", 5 }, { "5th", 2 }, };
+  std::unordered_multimap<std::string, int> um{ { "1st", 3 }, { "2nd", 1 }, { "3rd", 4 }, { "4th", 5 }, { "5th", 2 }, };
 
   // 要素数を出力
   std::cout << um.size() << std::endl;
@@ -39,9 +39,10 @@ int main()
 * iostream[link /reference/iostream]
 * string[link /reference/string.md]
 * unordered_map[link /reference/unordered_map.md]
+* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * distance[link /reference/iterator/distance.md]
-* begin[link /reference/unordered_map/unordered_map/begin.md]
-* end[link /reference/unordered_map/unordered_map/end.md]
+* begin[link ./begin.md]
+* end[link ./end.md]
 
 ###出力
 ```
@@ -55,7 +56,7 @@ int main()
 
 ###処理系
 - [Clang](/implementation#clang.md): -
-- [Clang, C++0x mode](/implementation#clang.md): 3.0, 3.1
+- [Clang, C++0x mode](/implementation#clang.md): 3.1
 - [GCC](/implementation#gcc.md): -
 - [GCC, C++0x mode](/implementation#gcc.md): 4.4.7, 4.5.3, 4.6.3, 4.7.0
 - [ICC](/implementation#icc.md): ?
