@@ -108,6 +108,7 @@ int main()
 double stod(const string& str, size_t* idx = nullptr) {
   const char* p = str.c_str();
   char* end;
+  errno = 0;
   double x = strtod(p, &end);
   if (p == end) {
     throw invalid_argument("stod");
@@ -124,6 +125,7 @@ double stod(const string& str, size_t* idx = nullptr) {
 double stod(const wstring& str, size_t* idx = nullptr) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
+  errno = 0;
   double x = wcstod(p, &end);
   if (p == end) {
     throw invalid_argument("stod");

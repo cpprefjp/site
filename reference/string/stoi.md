@@ -135,6 +135,7 @@ int main()
 int stoi(const string& str, size_t* idx = nullptr, int base = 10) {
   const char* p = str.c_str();
   char* end;
+  errno = 0;
   long x = strtol(p, &end, base);
   if (p == end) {
     throw invalid_argument("stoi");
@@ -151,6 +152,7 @@ int stoi(const string& str, size_t* idx = nullptr, int base = 10) {
 int stoi(const wstring& str, size_t* idx = nullptr, int base = 10) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
+  errno = 0;
   long x = wcstol(p, &end, base);
   if (p == end) {
     throw invalid_argument("stoi");

@@ -135,6 +135,7 @@ int main()
 long long stoll(const string& str, size_t* idx = nullptr, long long base = 10) {
   const char* p = str.c_str();
   char* end;
+  errno = 0;
   long long x = strtoll(p, &end, base);
   if (p == end) {
     throw invalid_argument("stoll");
@@ -151,6 +152,7 @@ long long stoll(const string& str, size_t* idx = nullptr, long long base = 10) {
 long long stoll(const wstring& str, size_t* idx = nullptr, long long base = 10) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
+  errno = 0;
   long long x = wcstoll(p, &end, base);
   if (p == end) {
     throw invalid_argument("stoll");

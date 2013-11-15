@@ -108,6 +108,7 @@ int main()
 long double stold(const string& str, size_t* idx = nullptr) {
   const char* p = str.c_str();
   char* end;
+  errno = 0;
   long double x = strtold(p, &end);
   if (p == end) {
     throw invalid_argument("stold");
@@ -124,6 +125,7 @@ long double stold(const string& str, size_t* idx = nullptr) {
 long double stold(const wstring& str, size_t* idx = nullptr) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
+  errno = 0;
   long double x = wcstold(p, &end);
   if (p == end) {
     throw invalid_argument("stold");

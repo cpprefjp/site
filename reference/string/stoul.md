@@ -133,6 +133,7 @@ int main()
 unsigned long stoul(const string& str, size_t* idx = nullptr, unsigned long base = 10) {
   const char* p = str.c_str();
   char* end;
+  errno = 0;
   unsigned long x = strtoul(p, &end, base);
   if (p == end) {
     throw invalid_argument("stoul");
@@ -153,6 +154,7 @@ unsigned long stoul(const wstring& str, size_t* idx = nullptr, unsigned long bas
   if (p == end) {
     throw invalid_argument("stoul");
   }
+  errno = 0;
   if (errno == ERANGE) {
     throw out_of_range("stoul");
   }

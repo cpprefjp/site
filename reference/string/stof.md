@@ -108,6 +108,7 @@ int main()
 float stof(const string& str, size_t* idx = nullptr) {
   const char* p = str.c_str();
   char* end;
+  errno = 0;
   double x = strtod(p, &end);
   if (p == end) {
     throw invalid_argument("stof");
@@ -124,6 +125,7 @@ float stof(const string& str, size_t* idx = nullptr) {
 float stof(const wstring& str, size_t* idx = nullptr) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
+  errno = 0;
   double x = wcstof(p, &end);
   if (p == end) {
     throw invalid_argument("stof");

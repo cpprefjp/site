@@ -135,6 +135,7 @@ int main()
 long stol(const string& str, size_t* idx = nullptr, long base = 10) {
   const char* p = str.c_str();
   char* end;
+  errno = 0;
   long x = strtol(p, &end, base);
   if (p == end) {
     throw invalid_argument("stol");
@@ -151,6 +152,7 @@ long stol(const string& str, size_t* idx = nullptr, long base = 10) {
 long stol(const wstring& str, size_t* idx = nullptr, long base = 10) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
+  errno = 0;
   long x = wcstol(p, &end, base);
   if (p == end) {
     throw invalid_argument("stol");
@@ -178,7 +180,7 @@ long stol(const wstring& str, size_t* idx = nullptr, long base = 10) {
 
 ##参照
 ### C標準ライブラリに由来する関数
-- `atoil`: `stol`は`atol`を`std::string`および`std::wsting`に対応させたものと見なせる。
+- `atol`: `stol`は`atol`を`std::string`および`std::wsting`に対応させたものと見なせる。
 - `strtol`, `wcstol`: `stol`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
 
 ### ファミリー
