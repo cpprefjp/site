@@ -1,4 +1,4 @@
-#count
+#count(C++11)
 ```cpp
 size_type count(const key_type& x) const;
 ```
