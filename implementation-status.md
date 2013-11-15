@@ -68,6 +68,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 
 
 各処理系のC++11実装状況ページ：
+
 - 全体的な対応状況： [C++0xCompilerSupport](http://wiki.apache.org/stdcxx/C++0xCompilerSupport)
 - GCC： [C++0x/C++11 Support in GCC](http://gcc.gnu.org/projects/cxx0x.html)
 - Clang： [C++98 and C++11 Support in Clang](http://clang.llvm.org/cxx_status.html)
