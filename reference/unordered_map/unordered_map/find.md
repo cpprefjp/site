@@ -5,7 +5,7 @@ const_iterator find(const key_type& x) const;
 ```
 
 ##概要
-コンテナ内でキーが `x` である要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end()`](/reference/unordered_map/end.md) （コンテナの最後の要素の次）を指すイテレータを返す。
+コンテナ内でキーが `x` である要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end`](/reference/unordered_map/end.md) （コンテナの最後の要素の次）を指すイテレータを返す。
 
 
 ##パラメータ
@@ -13,7 +13,7 @@ const_iterator find(const key_type& x) const;
 
 
 ##戻り値
-指定した値が見つかった場合はその要素へのイテレータ、そうでない場合は [`end()`](/reference/unordered_map/end.md) へのイテレータ。
+指定した値が見つかった場合はその要素へのイテレータ、そうでない場合は [`end`](/reference/unordered_map/end.md) へのイテレータ。
 
 
 ##例外
@@ -21,7 +21,8 @@ const_iterator find(const key_type& x) const;
 
 
 ##計算量
-定数
+平均： 定数時間
+最悪： [`size`](/reference/unordered_map/size.md) について線形時間。
 
 
 ##例
