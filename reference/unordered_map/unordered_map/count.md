@@ -65,7 +65,7 @@ int main()
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`map::find`](/reference/unordered_map/find.md) | 指定したキーで要素を探す |
-| [`map::size`](/reference/unordered_map/size.md) | 要素数を取得する |
+| [`find`](/reference/unordered_map/find.md) | 指定したキーで要素を探す |
+| [`size`](/reference/unordered_map/size.md) | 要素数を取得する |
 
 

@@ -82,7 +82,7 @@ up:1
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`unordered_map::count`](/reference/unordered_map/count.md) | 指定したキーにマッチする要素の数を返す |
-| [`unordered_map::find`](/reference/unordered_map/find.md) | 指定したキーで要素を探す |
+| [`count`](/reference/unordered_map/count.md) | 指定したキーにマッチする要素の数を返す |
+| [`find`](/reference/unordered_map/find.md) | 指定したキーで要素を探す |
 
 

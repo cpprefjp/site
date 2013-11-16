@@ -68,7 +68,7 @@ int main()
 
 | 名前 | 説明|
 |-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| [`unordered_multimap::count`](/reference/unordered_multimap/count.md) | 指定したキーにマッチする要素の数を返す |
-| [`unordered_multimap::equal_range`](/reference/unordered_multimap/equal_range.md) | 指定したキーにマッチする要素の範囲を返す |
+| [`count`](/reference/unordered_multimap/count.md) | 指定したキーにマッチする要素の数を返す |
+| [`equal_range`](/reference/unordered_multimap/equal_range.md) | 指定したキーにマッチする要素の範囲を返す |
 
 

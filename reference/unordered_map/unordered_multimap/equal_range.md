@@ -92,7 +92,7 @@ second:1
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`unordered_multimap::count`](/reference/unordered_multimap/count.md) | 指定したキーにマッチする要素の数を返す |
-| [`unordered_multimap::find`](/reference/unordered_multimap/find.md) | 指定したキーで要素を探す |
+| [`count`](/reference/unordered_multimap/count.md) | 指定したキーにマッチする要素の数を返す |
+| [`find`](/reference/unordered_multimap/find.md) | 指定したキーで要素を探す |
 
 

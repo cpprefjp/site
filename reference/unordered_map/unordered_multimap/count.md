@@ -66,7 +66,7 @@ int main()
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`unordered_multimap::find`](/reference/unordered_multimap/find.md) | 指定したキーで要素を探す |
-| [`unordered_multimap::size`](/reference/unordered_multimap/size.md) | 要素数を取得する |
+| [`find`](/reference/unordered_multimap/find.md) | 指定したキーで要素を探す |
+| [`size`](/reference/unordered_multimap/size.md) | 要素数を取得する |
 
 
