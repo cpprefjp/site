@@ -47,17 +47,17 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 
 ###領域
 
-| 名前 | 説明 | 対応バージョン |
-|------------------------------------------|----------------|------|
-| [`size`](./basic_string/size.md)         | 文字列の長さを取得する | |
-| [`length`](./basic_string/size.md)       | 文字列の長さを取得する | |
-| [`max_size`](./basic_string/max_size.md) | 格納可能な最大の文字列長を取得する | |
-| [`resize`](./basic_string/resize.md)     | 文字列の長さを変更する | |
-| [`capacity`](./basic_string/capacity.md) | メモリを再確保せずに格納できる最大の要素数を取得する | |
-| [`reserve`](./basic_string/reserve.md)   | `capacity`を変更する | |
-| `shrink_to_fit`                          | `capacity`を`size`まで縮小する | C++11 |
-| [`clear`](./basic_string/clear.md)       | 文字列をクリアする | |
-| [`empty`](./basic_string/empty.md)       | 文字列が空かどうかを判定する | |
+| 名前                                               | 説明                                                 | 対応バージョン |
+|----------------------------------------------------|------------------------------------------------------|------|
+| [`size`](./basic_string/size.md)                   | 文字列の長さを取得する                               | |
+| [`length`](./basic_string/size.md)                 | 文字列の長さを取得する                               | |
+| [`max_size`](./basic_string/max_size.md)           | 格納可能な最大の文字列長を取得する                   | |
+| [`resize`](./basic_string/resize.md)               | 文字列の長さを変更する                               | |
+| [`capacity`](./basic_string/capacity.md)           | メモリを再確保せずに格納できる最大の要素数を取得する | |
+| [`reserve`](./basic_string/reserve.md)             | `capacity`を変更する                                 | |
+| [`shrink_to_fit`](./basic_string/shrink_to_fit.md) | `capacity`を`size`まで縮小する                       | C++11 |
+| [`clear`](./basic_string/clear.md)                 | 文字列をクリアする                                   | |
+| [`empty`](./basic_string/empty.md)                 | 文字列が空かどうかを判定する                         | |
 
 
 ###要素アクセス
@@ -140,6 +140,8 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 | `operator<=` | 左辺が右辺以下かの判定を行う | |
 | `operator>`  | 左辺が右辺より大きいかの判定を行う | |
 | `operator>=` | 左辺が右辺以上かの判定を行う | |
+| `operator<<` | ストリームへの出力 | |
+| `operator>>` | ストリームからの入力 | |
 | `swap`       | 2つの`basic_string`オブジェクトを入れ替える | |
 | `getline`    | 入力ストリームから1行読み込む | |
 

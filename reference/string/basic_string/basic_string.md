@@ -22,7 +22,7 @@ basic_string(basic_string&&, const Allocator&);
 
 デフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
 
-- `basic_string(const basic_string& str);
+- `basic_string(const basic_string& str);`
 
 `コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
 
