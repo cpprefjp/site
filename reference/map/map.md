@@ -1,118 +1,120 @@
-#コンストラクタ
+#map
 ```cpp
-explicit map(const Compare& comp = Compare(), const Allocator& alloc = Allocator());
-
-// since C++11
-explicit map(const Allocator&);
-
-template <class InputIterator>
-map(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& alloc = Allocator());
-
-map(const map<Key,T, Compare,Allocator>& x);
-
-// since C++11
-map(const map& x, const Allocator& alloc);
-
-// since C++11
-map(map<Key,T, Compare,Allocator>&& y);
-
-// since C++11
-map(map&& y, const Allocator& alloc);
-
-// since C++11
-map(initializer_list<value_type> init, const Compare& comp = Compare(), const Allocator& alloc = Allocator());
-```
-
-##setオブジェクトの構築
-- `explicit map(const Compare& comp = Compare(), const Allocator& alloc = Allocator());`
-- `explicit map(const Allocator& alloc);`<br/>
-デフォルトコンストラクタ。空のコンテナで構築する。 
-
-- `template <class InputIterator>`<br/>`map(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`<br/>
-範囲 `[first, last)` のコンテンツで構築する。 
-
-- `map(const map<Key,T, Compare,Allocator>& x);`
-- `map(const map& x, const Allocator& alloc);`<br/>
-コピーコンストラクタ。`x`のコンテンツのコピーでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `std::allocator_traits<allocator_type>::select_on_copy_construction(x)` の呼び出しによって取得する。 
-
-- `map(map<Key,T,Compare,Allocator>&& y);`
-- `map(map&& y, const Allocator& alloc);`<br/>
-ムーブコンストラクタ。`y` のコンテンツをムーブすることでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `y` に属しているアロケータをムーブして取得する。 
-
-- `map(initializer_list<value_type> init, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`<br/>
-初期化リスト `init` のコンテンツでコンテナを構築する。
-
-
-##パラメータ
-- `alloc`<br/>
-このコンテナの全てのメモリ確保を行うアロケータ。 
-
-- `comp`<br/>
-キーの全ての比較を行う比較関数。 
-
-- `first`, `last`<br/>
-要素のコピー元となる範囲。 
-
-- `x`<br/>
-コンテナの要素の初期化のコピー元として使われる、ほかのコンテナ。 
-
-- `y`<br/>
-コンテナの要素の初期化のムーブ元として使われる、ほかのコンテナ。 
-
-- `init`<br/>
-コンテナの要素を初期化するために使われる初期化リスト。
-
-
-##計算量
-
-デフォルトコンストラクタは定数時間。
-
-イテレータコンストラクタは、`comp` によって既にソート済みである場合は、イテレータ間の距離（コピーコンストラクト）。未ソートのシーケンスの場合は、それらの距離について N * logN （ソート、コピーコンストラクト）。 
-
-コピーコンストラクタは、`x` の `size` に対して線形時間（コピーコンストラクト）。 
-
-ムーブコンストラクタは定数時間。但し、`alloc` が与えられてかつ `alloc != y.`[`get_allocator`](/reference/map/get_allocator.md)`()` の場合は線形時間。
-
-初期化リストを使ったコンストラクタは `init` のサイズに対して線形時間。
-
-
-##例
-```cpp
-#include <iostream>
-#include <map>
-using namespace std;
-
-int main()
-{
-  std::pair<int,char> values[] = { std::make_pair(1,'a'), std::make_pair(2,'b'), std::make_pair(2,'b') };
-  map<int,char> c1(values, values + 3);
-  map<int,char> c2(c1);
-
-  cout << "Size of c1: " << c1.size() << endl;
-  cout << "Size of c2: " << c2.size() << endl;
-
-  return 0;
+namespace std {
+  template <
+		class Key, 
+		class T, 
+		class Compare = less<Key>, 
+		class Allocator = allocator<pair<const Key, T> > 
+  >
+  class map;
 }
 ```
 
-###出力
-```
-Size of c1: 2
-Size of c2: 2
-```
+* [less](./functional/comparisons.md)
+* [allocator](./memory/allocator.md)
 
-###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): ??
-- [GCC, C++11 mode](/implementation#gcc.md): ??
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): ??, 11.0
+ C++ 標準テンプレートライブラリの実装において、map コンテナは 4 つのテンプレートパラメータを取る。
 
-##参照
+各テンプレートパラメータは以下のような意味である。
 
-| 名前 | 説明 |
-|---------------------------------------------------------------------------------------------|-----------------------|
-| [`operator=`](/reference/map/op_assign.md) | 代入演算子 |
-| [`insert`](/reference/map/insert.md) | 要素を挿入する |
+- `Key`: キーの型。キーの値の大小に従って自動的に並び替えられる。
+- `T`: 値の型。
+- `pair<const Key,T>`: 要素の型。
+- `Compare`: 比較クラス。このクラスは 2 つの引数（同じ型）をとり `bool` 値を返す。狭義の弱順序において `a` が `b` よりも前の場所に位置づけられる場合に `true` である。これはクラスが関数呼び出しオブジェクトを実装したクラスであっても良いし関数ポインタであっても良い（例は コンストラクタ を参照）。これは、`operator<()` を適用( `a < b` )したときと同じ値を返す `less<Key>` がデフォルトである。
+- `Allocator`: ストレージアロケーションモデルを決定づける、アロケータオブジェクトの型である。デフォルトでは、`Key` への `allocator` クラステンプレート（これは値に依存しないシンプルなメモリ確保モデルを定義する）が使われる。
+
+##概要
+`map` はユニークな要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。 
+連想コンテナは特にそれらキーによる要素アクセスが効率的になるようよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。 
+内部的には、`map` 内の要素は、コンテナの構築時に設定された狭義の弱順序基準に従って小さいものから大きいものへとソートされる。 
+
+`map` は一般的に、二分木として実装される。従って、連想コンテナである `map` の主な特性は以下の通りである。
+
+- ユニークな要素のキー：互いに等しい二つのキーを持つ要素が `map` に格納されることは無い。複数の等しいキーを許す同様の連想コンテナは `multimap` を参照のこと。
+- 要素の値はキーと値のpair型である。
+- 要素は常に厳密で弱い順序付けに従う。
+- insertとemplaceはイテレータや要素の参照に影響を与えない。
+
+このコンテナクラスは、双方向イテレータをサポートする。
+
+
+##メンバ関数
+###構築・破棄
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------|----------------|-------|
+| [`(constructor)`](./map/map.md) | コンストラクタ | |
+| [`(destructor)`](./map/-map.md) | デストラクタ | |
+| [`operator=`](./map/op_assign.md) | 代入演算子 | |
+| [`get_allocator`](./map/get_allocator.md) | アロケータオブジェクトを取得する | |
+
+
+###イテレータ
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------|----------------------------------------------|-------|
+| [`begin`](./map/begin.md)    | 先頭を指すイテレータを取得する               | |
+| [`cbegin`](./map/cbegin.md)  | 先頭を指す読み取り専用イテレータを取得する   | C++11 |
+| [`end`](./map/end.md)        | 末尾を指すイテレータを取得する               | |
+| [`cend`](./map/cend.md)      | 末尾を指す読み取り専用イテレータを取得する   | C++11 |
+| [`rbegin`](./map/rbegin.md)  | 末尾を指す逆イテレータを取得する             | |
+| [`crbegin`](./map/rbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`rend`](./map/rend.md)      | 先頭を指す逆イテレータを取得する             | |
+| [`crend`](./map/rend.md)     | 先頭を指す読み取り専用逆イテレータを取得する | C++11 |
+
+
+##領域
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------|------------------------------------|-------|
+| [`empty`](./map/empty.md)       | コンテナが空であるかどうかを調べる | |
+| [`size`](./map/size.md)         | 要素数を取得する                   | |
+| [`max_size`](./map/max_size.md) | 格納可能な最大の要素数を取得する   | |
+
+
+##コンテナの変更
+
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------|----------------------------------|-------|
+| [`clear`](./map/clear.md)               | 全ての要素を削除する             | |
+| [`insert`](./map/insert.md)             | 要素を挿入する                   | |
+| [`emplace`](./map/emplace.md)           | 要素を直接構築する               | C++11 |
+| [`emplace_hint`](./map/emplace_hint.md) | ヒントを使って要素を直接構築する | C++11 |
+| [`erase`](./map/erase.md)               | 要素を削除する |                 | |
+| [`swap`](./map/swap.md)                 | コンテンツを交換する             | |
+
+
+##要素アクセス
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------|--------------------------------------------|-------|
+| [`operator[]`](./map/op_at.md)        | 指定したキーを持つ要素を取得する           | |
+| `at`                                  | 指定したキーを持つ要素を取得する           | C++11 |
+| [`count`](./map/count.md)             | 指定したキーにマッチする要素の数を取得する | |
+| [`find`](./map/find.md)               | 指定したキーで要素を探す                   | |
+| [`equal_range`](./map/equal_range.md) | 指定したキーにマッチする要素範囲を取得する | |
+| [`lower_bound`](./map/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを取得する | |
+| [`upper_bound`](./map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを取得する       | |
+
+##オブザーバー
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------|--------------------------|-------|
+| [`key_comp`](./map/key_comp.md)     | キーを比較した結果を取得する | |
+| [`value_comp`](./map/value_comp.md) | 値を比較した結果を取得する   | |
+
+
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------------|--------------------------------------------|-------|
+| [`operator==`](./map/op_equal.md)         | 左辺と右辺が等しいかの判定を行う           | |
+| [`operator!=`](./map/op_not_equal.md)     | 左辺と右辺が等しくないかの判定を行う       | |
+| [`operator<`](./map/op_less_than.md)      | 左辺が右辺より小さいかの判定を行う         | |
+| [`operator<=`](./map/op_greater_equal.md) | 左辺が右辺より小さいか等しいかの判定を行う | |
+| [`operator>`](./map/op_greater_than.md)   | 左辺が右辺より大きいかの判定を行う         | |
+| [`operator>=`](./map/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
+| [`swap`](./map/swap_free.md)              | 2つの`map`オブジェクトを入れ替える         | |
 
 
