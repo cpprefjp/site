@@ -1,4 +1,4 @@
-#get_allocator(C++11)
+#get_allocator
 ```cpp
 allocator_type get_allocator() const noexcept;
 ```
@@ -13,6 +13,10 @@ allocator_type get_allocator() const noexcept;
 
 ##例外
 投げない
+
+
+##備考
+noexcept修飾はC++11で追加された。
 
 
 ##例
@@ -42,7 +46,7 @@ int main()
 
 ###処理系
 - [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
+- [GCC](/implementation#gcc.md):
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
