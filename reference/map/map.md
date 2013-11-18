@@ -10,11 +10,11 @@ namespace std {
   class map;
 }
 ```
+* less[link ./functional/comparisons.md]
+* allocator[link ./memory/allocator.md]
+* pair[link /reference/utility/pair.md]
 
-* [less](./functional/comparisons.md)
-* [allocator](./memory/allocator.md)
-
- C++ 標準テンプレートライブラリの実装において、map コンテナは 4 つのテンプレートパラメータを取る。
+`map` コンテナは 4 つのテンプレートパラメータを取る。
 
 各テンプレートパラメータは以下のような意味である。
 
@@ -34,7 +34,7 @@ namespace std {
 - ユニークな要素のキー：互いに等しい二つのキーを持つ要素が `map` に格納されることは無い。複数の等しいキーを許す同様の連想コンテナは `multimap` を参照のこと。
 - 要素の値はキーと値のpair型である。
 - 要素は常に厳密で弱い順序付けに従う。
-- insertとemplaceはイテレータや要素の参照に影響を与えない。
+- 挿入操作はイテレータや要素の参照に影響を与えない。
 
 このコンテナクラスは、双方向イテレータをサポートする。
 
@@ -105,6 +105,27 @@ namespace std {
 | [`value_comp`](./map/value_comp.md) | 値を比較した結果を取得する   | |
 
 
+##メンバ型
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------|--------------------------|-------|
+| `key_type`        | キーの型。テンプレートパラメータ `Key`。                                | |
+| `value_type`      | 要素の型。`std::`[`pair`](/reference/utility/pair.md)`<const Key, T>`。 | |
+| `mapped_type`     | 値の型。テンプレートパラメータ `T`。 | |
+| `key_compare`     | キーが等値か大小関係を判定する二項述語の型。テンプレートパラメータ `Compare`。 | |
+| `allocator_type`  | アロケータの型。テンプレートパラメータ `Allocator`。 | |
+| `reference`       | 要素`value_type`への参照型。`value_type&`。 | |
+| `const_reference` | 要素`value_type`への`const`参照型。`const value_type&`。 | |
+| `iterator`        | 双方向イテレータ。 | |
+| `const_iterator`  | 読み取り専用双方向イテレータ。 | |
+| `size_type`       | 要素数を表す符号なし整数型。`difference_type` で表現可能な非負整数（0以上の整数）を表すことが可能。(通常は [`size_t`](/reference/cstddef/size_t.md)) | |
+| `difference_type` | 同一のコンテナを指す `iterator` の差を表す符号付き整数型(通常は [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) <br/>`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<iterator>::difference_type`、および、`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<const_iterator>::difference_type` と同じ。 | |
+| `pointer`         | 要素 `value_type`へのポインタ。<br/> C++03 : `typename Allocator::pointer`。<br/> C++11以降 : `typename `[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer`。 | |
+| `const pointer`         | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename `[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。 | |
+| `reverse_iterator` | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。 | |
+| `const_reverse_iterator` | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。 | |
+
+
 ##非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -117,4 +138,30 @@ namespace std {
 | [`operator>=`](./map/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
 | [`swap`](./map/swap_free.md)              | 2つの`map`オブジェクトを入れ替える         | |
 
+
+##例
+```cpp
+#include <iostream>
+#include <map>
+
+int main()
+{
+  // charをキー、intを値として扱う連想配列
+  std::map<char, int> m;
+
+  // 挿入
+  m.insert(std::make_pair('c', 30));
+  m.insert(std::make_pair('a', 10));
+  m.insert(std::make_pair('b', 20));
+
+  // 検索 : キー(char)を指定し、値(int)を得る
+  int value = m.at('a');
+  std::cout << value << std::endl;
+}
+```
+
+###出力
+```
+10
+```
 
