@@ -7,7 +7,7 @@ const_iterator begin() const noexcept;
 ##概要
 先頭の要素を指すイテレータを取得する。
 
-`unordered_map` は非順序連想コンテナであるため「先頭」に特に意味はないが、`begin()` で得られたイテレータを [`end`](./end.md)`()` まで `operator++()` でイテレートすることで当該コンテナの要素を漏れなくダブりなく走査できる。
+`unordered_multimap` は非順序連想コンテナであるため「先頭」に特に意味はないが、`begin()` で得られたイテレータを [`end`](./end.md)`()` まで `operator++()` でイテレートすることで当該コンテナの要素を漏れなく走査できる。
 
 
 ##戻り値
@@ -39,15 +39,17 @@ const_iterator begin() const noexcept;
 
 int main()
 {
-  typedef std::unordered_map<std::string, int> mymap;
+  typedef std::unordered_multimap<std::string, int> mymap;
 
   mymap um{ { "1st", 1 }, { "2nd", 2 }, { "3rd", 3 }, };
   const mymap cum{um};
 
-  std::for_each(um.begin(), um.end(), [](mymap::value_type p) { std::cout << '{' << p.first << ',' << p.second << "}, "; });
+  std::for_each(um.begin(), um.end(), [](mymap::value_type p)
+    { std::cout << '{' << p.first << ',' << p.second << "}, "; });
   std::cout << std::endl;
 
-  std::for_each(cum.begin(), cum.end(), [](mymap::value_type p) { std::cout << '{' << p.first << ',' << p.second << "}, "; });
+  std::for_each(cum.begin(), cum.end(), [](mymap::value_type p)
+    { std::cout << '{' << p.first << ',' << p.second << "}, "; });
   std::cout << std::endl;
 }
 ```
@@ -57,16 +59,16 @@ int main()
 * utility[link /reference/utility.md]
 * unordered_map[link /reference/unordered_map.md]
 * for_each[link /reference/algorithm/for_each.md]
-* end[link /reference/unordered_map/unordered_map/end.md]
+* end[link ./end.md]
 
 
 ###出力例
 ```
-{3rd,3}, {2nd,2}, {1st,1},
-{3rd,3}, {2nd,2}, {1st,1},
+{3rd,3}, {1st,1}, {2nd,2}, 
+{3rd,3}, {1st,1}, {2nd,2}, 
 ```
 
-注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
@@ -74,10 +76,8 @@ int main()
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): -
-- [Clang, C++0x mode](/implementation#clang.md): 3.0, 3.1
-- [GCC](/implementation#gcc.md): -
-- [GCC, C++0x mode](/implementation#gcc.md): 4.4.7, 4.5.3, 4.6.3, 4.7.0
+- [Clang, C++0x mode](/implementation#clang.md): 3.1
+- [GCC, C++0x mode](/implementation#gcc.md): 4.6.4
 - [ICC](/implementation#icc.md): ?
 - [Visual C++](/implementation#visual_cpp.md): ?
 
