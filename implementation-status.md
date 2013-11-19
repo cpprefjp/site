@@ -74,6 +74,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 - Clang： [C++98 and C++11 Support in Clang](http://clang.llvm.org/cxx_status.html)
 - ICC : [C++11 Features Supported by Intel&#174; C++ Compiler](http://software.intel.com/en-us/articles/c0x-features-supported-by-intel-c-compiler)
 - VC++： [C++11 Features (Modern C++)](http://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.120%29.aspx)
+- VC++ November 2013 CTP: [Visual C++ Compiler November 2013 CTP](http://herbsutter.com/2013/11/18/visual-c-compiler-november-2013-ctp/)
 
 
 ##C++14/C++1yの実装状況
