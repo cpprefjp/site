@@ -21,9 +21,9 @@ allocator_type get_allocator() const noexcept;
 
 int main()
 {
-  std::unordered_multimap<char, int> m;
+  std::unordered_multimap<char, int> um;
 
-  std::allocator<std::pair<const char, int>> result = m.get_allocator();
+  std::allocator<std::pair<const char, int>> result = um.get_allocator();
 }
 ```
 * get_allocator[color ff0000]
