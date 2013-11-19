@@ -17,17 +17,13 @@ allocator_type get_allocator() const noexcept;
 
 ##例
 ```cpp
-#include <cassert>
-#include <forward_list>
+#include <unordered_map>
 
 int main()
 {
-  std::allocator<int> alloc;
-  std::forward_list<int> ls(alloc);
+  std::unordered_multimap<char, int> m;
 
-  std::allocator<int> result = ls.get_allocator();
-
-  assert(result == alloc);
+  std::allocator<std::pair<const char, int>> result = m.get_allocator();
 }
 ```
 * get_allocator[color ff0000]
@@ -41,13 +37,9 @@ int main()
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [Clang, C++0x mode](/implementation#clang.md): 3.0
+- [GCC, C++0x mode](/implementation#gcc.md): 4.3.6
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
-
-##参照
 
 
