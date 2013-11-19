@@ -11,7 +11,7 @@ iterator emplace(Args&&... args);
 ##要件
 このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。
 
-ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の lvalue、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
 
@@ -41,7 +41,6 @@ iterator emplace(Args&&... args);
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
 	コンテナのバケット数が変わらない場合とは、要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった場合である。
 	なお、条件が「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md)`()` も参照。
-
 - このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace_hint` も含めた一覧を以下に示す。
 
@@ -56,28 +55,15 @@ iterator emplace(Args&&... args);
 ##例
 ```cpp
 #include <iostream>
-#include <unordered_set>
+#include <unordered_map>
 #include <string>
 #include <utility>    // for std::pair
-#include <algorithm>  // for std::copy
-#include <iterator>   // for std::ostream_iterator
+#include <algorithm>  // for std::for_each
 
-// サンプル用クラス
-struct is : std::pair<int, std::string> {
-  is(int i, const char* s) : std::pair<int, std::string>(i, s) {}
-  is(const is&) = delete; // emplace はコピーコンストラクタが無くても大丈夫
-  is(is&&) = delete;      // もちろんムーブコンストラクタが無くても大丈夫
-};
+// サンプル用typedef
+typedef std::pair<const int, std::string> is;
 
-// サンプル用クラスのために std::hash を特殊化
-namespace std {
-  template <>
-  struct hash<is> : private hash<int>, private hash<string> {
-    size_t operator()(const is& v) const { return hash<int>::operator()(v.first) ^ hash<string>::operator()(v.second); }
-  };
-}
-
-// サンプル用クラスのための挿入演算子
+// サンプル用typedefのための挿入演算子
 std::ostream& operator<<(std::ostream& os, const is& p)
 {
   return os << '(' << p.first << ',' << p.second << ')';
@@ -85,25 +71,23 @@ std::ostream& operator<<(std::ostream& os, const is& p)
 
 int main()
 {
-  std::unordered_multiset<is> um;
+  std::unordered_multimap<int, std::string> um;
 
   auto it1 = um.emplace(1, "1st");
   std::cout << *it1 << '\n';
   auto it2 = um.emplace(2, "2nd");
   std::cout << *it2 << '\n';
-  auto it3 = um.emplace(1, "1st");
+  auto it3 = um.emplace(1, "3rd");
   std::cout << *it3 << '\n';
 
-  //以下はコピー&ムーブコンストラクタが無いのでエラーになる
-  //auto it4 = um.insert(is(3, "3rd"));
-  //std::cout << *it4 << '\n';
-
-  std::copy(um.cbegin(), um.cend(), std::ostream_iterator<is>(std::cout, ", "));
+  std::for_each(um.cbegin(), um.cend(), [](const is& p) {
+    std::cout << p << ", ";
+  });
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
+* iostream[link /reference/iostream]
+* unordered_map[link /reference/unordered_map.md]
 * string[link /reference/string.md]
 * utility[link /reference/utility.md]
 * pair[link /reference/utility/pair.md]
@@ -111,10 +95,7 @@ int main()
 * copy[link /reference/algorithm/copy.md]
 * iterator[link /reference/iterator.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* hash[link /reference/functional/hash.md]
-* ostream[link /reference/ostream/ostream.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
-* insert[link ./insert.md]
+* unordered_multimap[link /reference/unordered_set/unordered_multimap/unordered_multimap.md]
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
 * emplace[color ff0000]
@@ -123,11 +104,11 @@ int main()
 ```
 (1,1st)
 (2,2nd)
-(1,1st)
-(2,2nd), (1,1st), (1,1st),
+(1,3rd)
+(2,2nd), (1,1st), (1,3rd), 
 ```
 
-注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_multimap`](/reference/unordered_set/unordered_multimap.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
@@ -135,6 +116,7 @@ int main()
 - C++11
 
 ###処理系
+
 - [Clang](/implementation#clang.md): -
 - [Clang, C++0x mode](/implementation#clang.md): 3.1
 - [GCC](/implementation#gcc.md): -
