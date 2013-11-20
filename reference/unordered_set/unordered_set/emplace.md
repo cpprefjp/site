@@ -39,6 +39,7 @@ pair<iterator, bool> emplace(Args&&... args);
 ##備考
 - この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。  
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+
 - この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
 	コンテナのバケット数が変わらない場合とは、
@@ -48,6 +49,7 @@ pair<iterator, bool> emplace(Args&&... args);
 
 	のいずれかである。  
 	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
+
 - このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace_hint` も含めた一覧を以下に示す。
 
@@ -96,8 +98,10 @@ int main()
 
   auto p1 = us.emplace(1, "1st");
   std::cout << *p1.first << ' ' << p1.second << '\n';
+
   auto p2 = us.emplace(2, "2nd");
   std::cout << *p2.first << ' ' << p2.second << '\n';
+
   auto p3 = us.emplace(1, "1st");
   std::cout << *p3.first << ' ' << p3.second << '\n';
 
@@ -105,6 +109,7 @@ int main()
   //auto p4 = us.insert(is(3, "3rd"));
   //std::cout << *p4.first << ' ' << p4.second << '\n';
 
+  // 追加結果の出力
   std::copy(us.cbegin(), us.cend(), std::ostream_iterator<is>(std::cout, ", "));
   std::cout << std::endl;
 }

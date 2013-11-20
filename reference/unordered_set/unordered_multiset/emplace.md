@@ -37,10 +37,11 @@ iterator emplace(Args&&... args);
 ##備考
 - この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。  
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+
 - この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
-	コンテナのバケット数が変わらない場合とは、要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった場合である。
-	なお、条件が「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md)`()` も参照。
+	コンテナのバケット数が変わらない場合とは、要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった場合である。  
+	なお、条件が「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
 
 - このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace_hint` も含めた一覧を以下に示す。
@@ -98,6 +99,7 @@ int main()
   //auto it4 = um.insert(is(3, "3rd"));
   //std::cout << *it4 << '\n';
 
+  // 追加結果の出力
   std::copy(um.cbegin(), um.cend(), std::ostream_iterator<is>(std::cout, ", "));
   std::cout << std::endl;
 }
@@ -135,6 +137,7 @@ int main()
 - C++11
 
 ###処理系
+
 - [Clang](/implementation#clang.md): -
 - [Clang, C++0x mode](/implementation#clang.md): 3.1
 - [GCC](/implementation#gcc.md): -

@@ -11,7 +11,7 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 ##要件
 
 - このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。  
-	ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の lvalue、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+	ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
 
@@ -40,7 +40,8 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 ##備考
 - この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。  
-	なお、標準に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+
 - この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
 	コンテナのバケット数が変わらない場合とは、
@@ -50,7 +51,8 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 	のいずれかである。  
 	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
-- このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。
+
+- このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace` も含めた一覧を以下に示す。
 
 	|                                                                       |                                                                                    |
@@ -60,6 +62,9 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
 	| 連想コンテナ、非順序連想コンテナ                                      | `template <class... Args>`<br/> `iterator emplace_hint(const_iterator, Args&&...)` |
 
+- `unordered_set` では、キーのハッシュ値に基づいて要素を格納するバケットを決定するため、`position` を有効に使用することはできないものと思われる。
+	実際、libstdc++、および、libc++ では `position` は単に無視される。  
+	通常は、[`emplace`](./emplace.md) を使用した方が良いだろう。
 
 ##例
 ```cpp
@@ -99,8 +104,10 @@ int main()
 
   auto it1 = us.emplace_hint(us.cend(), 4, "4th");
   std::cout << *it1 << '\n';
+
   auto it2 = us.emplace_hint(us.cbegin(), 5, "5th");
   std::cout << *it2 << '\n';
+
   auto it3 = us.emplace_hint(us.cbegin(), 1, "1st");
   std::cout << *it3 << '\n';
 
@@ -141,6 +148,7 @@ int main()
 - C++11
 
 ###処理系
+
 - [Clang](/implementation#clang.md): -
 - [Clang, C++0x mode](/implementation#clang.md): 3.1
 - [GCC](/implementation#gcc.md): -
