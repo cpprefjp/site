@@ -34,7 +34,7 @@ int main()
 * iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 
-###出力
+###出力例
 ```
 bucket count is 5
 ```

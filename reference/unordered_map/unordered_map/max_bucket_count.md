@@ -22,22 +22,22 @@ size_type max_bucket_count() const noexcept;
 ##例
 ```cpp
 #include <iostream>
-#include <unordered_set>
+#include <string>
+#include <unordered_map>
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
+  std::unordered_map<std::string, int> um;
 
   std::cout << "max bucket count is " << um.max_bucket_count() << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link ./unordered_multiset.md]
+* iostream[link /reference/iostream.md]
+* unordered_map[link /reference/unordered_map.md]
 
 ###出力例
 ```
-max bucket count is 2305843009213693951
+max bucket count is 576460752303423487
 ```
 
 ##バージョン
@@ -46,9 +46,9 @@ max bucket count is 2305843009213693951
 
 ###処理系
 - [Clang](/implementation#clang.md): -
-- [Clang, C++0x mode](/implementation#clang.md): 3.1
+- [Clang, C++0x mode](/implementation#clang.md): 3.0
 - [GCC](/implementation#gcc.md): -
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [GCC, C++0x mode](/implementation#gcc.md): 4.3.6
 - [ICC](/implementation#icc.md): ?
 - [Visual C++](/implementation#visual_cpp.md): ?
 

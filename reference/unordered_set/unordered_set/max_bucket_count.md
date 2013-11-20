@@ -34,7 +34,7 @@ int main()
 * iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 
-###出力
+###出力例
 ```
 max bucket count is 2305843009213693951
 ```

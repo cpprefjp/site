@@ -35,7 +35,7 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
 
-###出力
+###出力例
 ```
 bucket count is 11
 ```
