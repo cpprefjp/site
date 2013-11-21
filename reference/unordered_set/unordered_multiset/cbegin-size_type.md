@@ -5,6 +5,7 @@ const_local_iterator cbegin(size_type n) const;
 
 ##概要
 インデックス（添え字）で指定したバケット内の先頭の要素を指す読み取り専用イテレータを取得する。
+
 `unordered_multiset` は非順序連想コンテナであるため「先頭」に特に意味はないが、`cbegin(size_type)` で得られたイテレータを [`cend(size_type)`](./cend-size_type.md) まで `operator++()` でイテレートすることで当該バケットの要素を漏れなくダブりなく走査することができる。
 
 
