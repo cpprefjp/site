@@ -28,45 +28,50 @@ size_type bucket(const key_type& k) const;
 ##例
 ```cpp
 #include <iostream>
-#include <string>
-#include <unordered_set>
+#include <unordered_map>
 
 int main()
 {
-  std::unordered_set<std::string> us{ "A", "B", "C", "D", "E", };
+  std::unordered_map<char, int> um = {
+    {'A', 1},
+    {'B', 2},
+    {'C', 3},
+    {'D', 4},
+    {'E', 5}
+  };
 
-  decltype(us)::size_type c = us.bucket_count();
+  decltype(um)::size_type c = um.bucket_count();
   std::cout << "bucket_count() = " << c << std::endl;
 
   // 全てのキーに対するバケットのインデックスとそのバケットの要素数を取得
-  for (decltype(us)::key_type k : us) {
-    decltype(us)::size_type b = us.bucket(k);
-    decltype(us)::size_type s = us.bucket_size(b);
+  for (decltype(um)::const_reference x : um) {
+    decltype(um)::key_type k = x.first;
+    decltype(um)::size_type b = um.bucket(k);
+    decltype(um)::size_type s = um.bucket_size(b);
     std::cout << "key = " << k << ", bucket = " << b << ", bucket_size = " << s << std::endl;
   }
 
   // 存在しないキーに対するバケットのインデックスとそのバケットの要素数を取得
-  decltype(us)::key_type k = "H";
-  decltype(us)::size_type b = us.bucket(k);
-  decltype(us)::size_type s = us.bucket_size(b);
+  decltype(um)::key_type k = 'H';
+  decltype(um)::size_type b = um.bucket(k);
+  decltype(um)::size_type s = um.bucket_size(b);
   std::cout << "key = " << k << ", bucket = " << b << ", bucket_size = " << s << std::endl;
 }
 ```
 * iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
+* unordered_map[link /reference/unordered_map.md]
 * bucket_count[link ./bucket_count.md]
 * bucket_size[link ./bucket_size.md]
 
 ###出力
 ```
-bucket_count() = 5
-key = E, bucket = 0, bucket_size = 1
-key = D, bucket = 1, bucket_size = 1
-key = C, bucket = 4, bucket_size = 2
-key = B, bucket = 4, bucket_size = 2
-key = A, bucket = 3, bucket_size = 1
-key = H, bucket = 2, bucket_size = 0
+bucket_count() = 11
+key = E, bucket = 3, bucket_size = 1
+key = A, bucket = 10, bucket_size = 1
+key = B, bucket = 0, bucket_size = 1
+key = C, bucket = 1, bucket_size = 1
+key = D, bucket = 2, bucket_size = 1
+key = H, bucket = 6, bucket_size = 0
 ```
 
 ##バージョン
@@ -83,8 +88,7 @@ key = H, bucket = 2, bucket_size = 0
 
 ##参照
 
-
-| | |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| 名前 | 説明 |
+|---------------------------------------------|----------------------|
 | [`max_bucket_count`](./max_bucket_count.md) | 最大バケット数の取得 |
 

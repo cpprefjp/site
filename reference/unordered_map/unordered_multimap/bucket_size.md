@@ -22,52 +22,57 @@ O(`bucket_size(n)`)
 ##例
 ```cpp
 #include <iostream>
-#include <string>
-#include <unordered_set>
+#include <unordered_map>
 #include <algorithm>
-#include <iterator>
 
 int main()
 {
-  std::unordered_multiset<std::string> um{ "A", "B", "C", "D", "E", "A", "B", "C", "D", "E", };
+  std::unordered_multimap<char, int> um = {
+    {'A', 1},
+    {'B', 2},
+    {'C', 3},
+    {'D', 4},
+    {'E', 5}
+  };
 
   decltype(um)::size_type c = um.bucket_count();
   std::cout << "bucket_count() = " << c << std::endl;
 
   for (decltype(um)::size_type b = 0; b < c; ++b) {
+    // 各バケットのサイズを取得
     decltype(um)::size_type s = um.bucket_size(b);
     std::cout << "bucket = " << b << ", bucket_size = " << s << ", keys = { ";
-    std::copy(um.cbegin(b), um.cend(b), std::ostream_iterator<std::string>(std::cout, ", "));
+
+    // 各バケットの要素を出力
+    std::for_each(um.cbegin(b), um.cend(b), [](decltype(um)::const_reference x) {
+      std::cout << x.first << ", ";
+    });
     std::cout << "}" << std::endl;
   }
 }
 ```
-* iostream[link /reference/iostream]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
+* iostream[link /reference/iostream.md]
+* unordered_map[link /reference/unordered_map.md]
 * algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
-* bucket_count[link /reference/unordered_set/unordered_multiset/bucket_count.md]
-* copy[link /reference/algorithm/copy.md]
-* cbegin[link /reference/unordered_set/unordered_multiset/cbegin-size_type.md]
-* cend[link /reference/unordered_set/unordered_multiset/cend-size_type.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* bucket_count[link ./bucket_count.md]
+* for_each[link /reference/algorithm/for_each.md]
+* cbegin[link ./cbegin-size_type.md]
+* cend[link ./cend-size_type.md]
 
 ###出力
 ```
 bucket_count() = 11
-bucket = 0, bucket_size = 0, keys = { }
-bucket = 1, bucket_size = 0, keys = { }
-bucket = 2, bucket_size = 0, keys = { }
-bucket = 3, bucket_size = 0, keys = { }
+bucket = 0, bucket_size = 1, keys = { B, }
+bucket = 1, bucket_size = 1, keys = { C, }
+bucket = 2, bucket_size = 1, keys = { D, }
+bucket = 3, bucket_size = 1, keys = { E, }
 bucket = 4, bucket_size = 0, keys = { }
-bucket = 5, bucket_size = 6, keys = { A, A, C, C, D, D, }
-bucket = 6, bucket_size = 2, keys = { E, E, }
-bucket = 7, bucket_size = 2, keys = { B, B, }
+bucket = 5, bucket_size = 0, keys = { }
+bucket = 6, bucket_size = 0, keys = { }
+bucket = 7, bucket_size = 0, keys = { }
 bucket = 8, bucket_size = 0, keys = { }
 bucket = 9, bucket_size = 0, keys = { }
-bucket = 10, bucket_size = 0, keys = { }
+bucket = 10, bucket_size = 1, keys = { A, }
 ```
 
 ##バージョン
