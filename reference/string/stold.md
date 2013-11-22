@@ -10,9 +10,9 @@ namespace std {
 文字列`str`を数値として読み取って、`long double`型の値に変換する。
 
 ##効果
-それぞれ`std::strtod(str.c_str(), &end)`および`std::wcstold(str.c_str(), &end)`を呼び出して、その戻り値を返す。
+パラメータ`str`が`string`型であれば`std::strtod(str.c_str(), &end)`、`wstring`型であれば`std::wcstold(str.c_str(), &end)`を呼び出して、その戻り値を返す。
 
-idxが非nullptrの場合、変換に使用されなかった要素のインデックス（`end - str.c_str()`）が格納される。
+`idx`が非`nullptr`の場合、変換に使用されなかった要素のインデックス（`end - str.c_str()`）が格納される。
 
 ##戻り値
 変換して得られた数値が返される。
@@ -27,10 +27,10 @@ idxが非nullptrの場合、変換に使用されなかった要素のインデ�
 - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
 
 ### グローバルロケールの影響
-この関数は、`setlocale`関数により挙動が変化する。
+この関数は、`setlocale()`関数により挙動が変化する。
 
-- `strtold`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace`関数が使用される。
-- 小数点記号はLC_NUMERICで指定されたものが使用される。
+- `strtold()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用される。
+- 小数点記号は`LC_NUMERIC`で指定されたものが使用される。
 
 ##例
 ```cpp
