@@ -99,26 +99,32 @@ std::ostream& operator<<(std::ostream& os, const is& p)
   return os << '(' << p.first << ',' << p.second << ')';
 }
 
+// 出力関数
+template <class Iterator>
+void print(const char* label, Iterator begin, Iterator end, std::ostream& os = std::cout)
+{
+  os << label << " : ";
+  std::copy(begin, end, std::ostream_iterator<is>(os, ", "));
+  os << '\n';
+}
+
 int main()
 {
   std::unordered_multiset<is> um{ {1, "1st"}, {1, "2nd"}, {2, "3rd"}, };
 
   // 初期状態の出力
-  std::copy(um.cbegin(), um.cend(), std::ostream_iterator<is>(std::cout, ", "));
-  std::cout << std::endl;
+  print("before", um.cbegin(), um.cend());
 
   // 追加するデータと等価な範囲を取得
   auto p = um.equal_range(is(1, "4th"));
-  std::copy(p.first, p.second, std::ostream_iterator<is>(std::cout, ", "));
-  std::cout << std::endl;
+  print("equal_range", p.first, p.second);
 
-  // データの追加
+  // 等価な要素の間に emplace_hint でデータを追加
   auto it = um.emplace_hint(std::next(p.first), 1, "4th");
-  std::cout << *it << '\n';
+  std::cout << "emplace_hint : " << *it << '\n';
 
   // 追加結果の出力
-  std::copy(um.cbegin(), um.cend(), std::ostream_iterator<is>(std::cout, ", "));
-  std::cout << std::endl;
+  print("after", um.cbegin(), um.cend());
 }
 ```
 * iostream[link /reference/iostream.md]
@@ -140,26 +146,25 @@ int main()
 * emplace_hint[color ff0000]
 
 ###出力
-libstdc++ の出力例（4.7.2 現在）
-- 追加した要素 (1,4th) はヒントを無視して (1,2nd) と (1,1st) よりも前に追加されている。
+- libstdc++ の出力例（4.7.3 現在）  
+	追加した要素 (1,4th) はヒントを無視して (1,2nd) と (1,1st) よりも前に追加されている。
 
-```
-(2,3rd), (1,2nd), (1,1st),
-(1,2nd), (1,1st),
-(1,4th)
-(2,3rd), (1,4th), (1,2nd), (1,1st),
-```
+	```
+	before : (2,3rd), (1,2nd), (1,1st), 
+	equal_range : (1,2nd), (1,1st), 
+	emplace_hint : (1,4th)
+	after : (2,3rd), (1,4th), (1,2nd), (1,1st), 
+	```
 
-libc++ の出力例（2012/12/19 現在）
+- libc++ の出力例（2013/11/22 現在）  
+	追加した要素 (1,4th) がヒントで指定した通り (1,1st) と (1,2nd) の間に追加されている。
 
-
-- 追加した要素 (1,4th) がヒントで指定した通り (1,1st) と (1,2nd) の間に追加されている。
-```
-(2,3rd), (1,1st), (1,2nd),
-(1,1st), (1,2nd),
-(1,4th)
-(2,3rd), (1,1st), (1,4th), (1,2nd),
-```
+	```
+	before : (2,3rd), (1,1st), (1,2nd), 
+	equal_range : (1,1st), (1,2nd), 
+	emplace_hint : (1,4th)
+	after : (2,3rd), (1,1st), (1,4th), (1,2nd), 
+	```
 
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
