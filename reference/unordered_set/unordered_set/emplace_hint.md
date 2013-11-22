@@ -167,7 +167,7 @@ int main()
 | [`swap`](./swap.md)                       | 内容の交換                                         |
 | [`bucket_count`](./bucket_count.md)       | バケット数の取得                                   |
 | [`load_factor`](./load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定                         |
+| [`max_load_factor`](./max_load_factor.md) | 最大負荷率を取得、設定                             |
 | [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整           |
 | [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整               |
 
