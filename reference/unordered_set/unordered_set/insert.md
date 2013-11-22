@@ -31,6 +31,7 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 - 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。  
 	なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
+
 - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。  
 	また、引数 `first`、および、`last` を引数にとる形式（(3)）では、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。  
 	ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
@@ -66,7 +67,7 @@ void insert(initializer_list<value_type> il);                  // (4)
 ##計算量
 - (1)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](./size.md)`()` に比例（O(N)）。
 - (2)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](./size.md)`()` に比例（O(N)）。
-- (3)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](./size.md) に 1 加えたものの積に比例（O(N<sup>2</sup>)）。
+- (3)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](./size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](./size.md)`() + 1)`)）。
 - (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
 
 
@@ -187,7 +188,7 @@ insert initializer_list : 7 8 6 5 4 3 2 1 0
 - [Visual C++](/implementation#visual_cpp.md): ?
 
 ##実装例
-(2)以降の形式は、(1)の形式を使って実装できる。
+(2)以降の形式は、(1)の形式を使って実装することができる。
 
 ```cpp
 template <class Key, class Hash, class Pred, class Allocator>
@@ -218,8 +219,7 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 ```
 * move[link /reference/utility/move.md]
 * initializer_list[link /reference/initializer_list.md]
-* begin[link /reference/initializer_list/begin]
-* end[link /reference/initializer_list/end]
+* insert[color ff0000]
 
 ##参照
 
