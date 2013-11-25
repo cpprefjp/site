@@ -31,7 +31,7 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------|--|
-| `static `[`locale::id`](/reference/locale/locale/id.md)` id;` |  |
+| `static` [`locale::id`](/reference/locale/locale/id.md) `id;` |  |
 
 ###protectedメンバ関数
 
