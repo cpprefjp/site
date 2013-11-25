@@ -69,7 +69,7 @@ void print(const char* label, const C& c, std::ostream& os = std::cout)
 {
   os << label << " : ";
   std::for_each(c.cbegin(), c.cend(), [&os](const si& p) { os << p << ", "; });
-  os << std::endl;
+  os << '\n';
 }
 
 int main()
@@ -80,10 +80,11 @@ int main()
     print("(1) erase(const_iterator) before", um);
 
     auto it1 = std::next(um.cbegin(), 3);
-    std::cout << "argument: " << *it1 << std::endl;
+    std::cout << "argument: " << *it1 << '\n';
     auto it2 = um.erase(it1);
-    std::cout << "return value: " << *it2 << std::endl;
+    std::cout << "return value: " << *it2 << '\n';
     print("after", um);
+    std::cout << std::endl;
   }
 
   // 指定したキーと等価な要素を削除（(2)の形式）
@@ -93,9 +94,10 @@ int main()
 
     auto count1 = um.erase("5th");
     auto count2 = um.erase("8th");
-    std::cout << "argument: 5, 8" << std::endl;
-    std::cout << "return value: " << count1 << ", " << count2 << std::endl;
+    std::cout << "argument: 5th, 8th" << '\n';
+    std::cout << "return value: " << count1 << ", " << count2 << '\n';
     print("after", um);
+    std::cout << std::endl;
   }
 
   // 指定した位置にある要素を削除（(3)の形式）
@@ -105,10 +107,11 @@ int main()
 
     auto it1 = std::next(um.cbegin());
     auto it2 = std::next(it1, 2);
-    std::cout << "arguments: " << *it1 << ", " << *it2 << std::endl;
+    std::cout << "arguments: " << *it1 << ", " << *it2 << '\n';
     auto it3 = um.erase(it1, it2);
-    std::cout << "return value: " << *it3 << std::endl;
+    std::cout << "return value: " << *it3 << '\n';
     print("after", um);
+    std::cout << std::endl;
   }
 }
 ```
