@@ -34,21 +34,21 @@ void clear() noexcept;
 ##例
 ```cpp
 #include <iostream>
-#include <unordered_set>
+#include <unordered_map>
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, };
+  std::unordered_multimap<std::string, int> us{ {"1st", 1}, {"2nd", 2}, {"3rd", 3}, {"4th", 4}, {"5th", 5}, {"3rd", 33}, };
 
   std::cout << std::boolalpha;
-  std::cout << um.empty() << std::endl;
-  um.clear();
-  std::cout << um.empty() << std::endl;
+  std::cout << us.empty() << std::endl;
+  us.clear();
+  std::cout << us.empty() << std::endl;
 }
 ```
 * iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
+* unordered_map[link /reference/unordered_map.md]
+* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * empty[link ./empty.md]
 * clear[color ff0000]
 
