@@ -51,16 +51,19 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 ##例
 ```cpp
 #include <iostream>
-#include <unordered_set>
+#include <unordered_map>
 #include <iterator>
 #include <algorithm>
 #include <string>
+#include <utility>
+
+typedef std::pair<const std::string, int> si;
 
 template <class C>
-void print(const std::string& label, const C& c, std::ostream& os = std::cout)
+void print(const char* label, const C& c, std::ostream& os = std::cout)
 {
   os << label << " : ";
-  std::copy(c.begin(), c.end(), std::ostream_iterator<typename C::value_type>(os, " "));
+  std::for_each(c.cbegin(), c.cend(), [&os](const si& p) { os << p << ", "; });
   os << std::endl;
 }
 
@@ -68,54 +71,52 @@ int main()
 {
   // 指定した位置にある要素を削除（(1)の形式）
   {
-    std::unordered_set<int> us{ 1, 3, 5, 7, 9, };
-    print("(1) erase(const_iterator) before", us);
+    std::unordered_map<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, };
+    print("(1) erase(const_iterator) before", um);
 
-    auto it1 = std::next(us.cbegin(), 3);
+    auto it1 = std::next(um.cbegin(), 3);
     std::cout << "argument: " << *it1 << std::endl;
-    auto it2 = us.erase(it1);
+    auto it2 = um.erase(it1);
     std::cout << "return value: " << *it2 << std::endl;
-    print("after", us);
+    print("after", um);
   }
 
   // 指定したキーと等価な要素を削除（(2)の形式）
   {
-    std::unordered_set<int> us{ 1, 3, 5, 7, 9, };
-    print("(2) erase(const value_type&) before", us);
+    std::unordered_map<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, };
+    print("(2) erase(const value_type&) before", um);
 
-    auto count1 = us.erase(5);
-    auto count2 = us.erase(8);
+    auto count1 = um.erase("5th");
+    auto count2 = um.erase("8th");
     std::cout << "argument: 5, 8" << std::endl;
     std::cout << "return value: " << count1 << ", " << count2 << std::endl;
-    print("after", us);
+    print("after", um);
   }
 
   // 指定した位置にある要素を削除（(3)の形式）
   {
-    std::unordered_set<int> us{ 1, 3, 5, 7, 9, };
-    print("(3) erase(const_iterator, const_iterator) before", us);
+    std::unordered_map<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, };
+    print("(3) erase(const_iterator, const_iterator) before", um);
 
-    auto it1 = std::next(us.cbegin());
+    auto it1 = std::next(um.cbegin());
     auto it2 = std::next(it1, 2);
     std::cout << "arguments: " << *it1 << ", " << *it2 << std::endl;
-    auto it3 = us.erase(it1, it2);
+    auto it3 = um.erase(it1, it2);
     std::cout << "return value: " << *it3 << std::endl;
-    print("after", us);
+    print("after", um);
   }
 }
 ```
 * iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
+* unordered_map[link /reference/unordered_map.md]
 * iterator[link /reference/iterator.md]
 * algorithm[link /reference/algorithm.md]
 * string[link /reference/string.md]
 * ostream[link /reference/ostream/ostream.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* for_each[link /reference/algorithm/for_each.md]
 * next[link /reference/iterator/next.md]
 * cbegin[link ./cbegin.md]
+* cend[link ./cend.md]
 * erase[color ff0000]
 
 ###出力
@@ -134,7 +135,7 @@ return value: 3
 after : 9 3 1
 ```
 
-注：[`unordered_set`](/reference/unordered_set/unordered_set.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
