@@ -43,14 +43,13 @@ void swap(unordered_set& v);
 #include <unordered_set>
 #include <iterator>
 #include <algorithm>
-#include <string>
 
 template <class C>
-void print(const std::string& label, const C& c, std::ostream& os = std::cout)
+void print(const char* label, const C& c, std::ostream& os = std::cout)
 {
   os << label << " : ";
-  std::copy(c.begin(), c.end(), std::ostream_iterator<typename C::value_type>(os, " "));
-  os << std::endl;
+  std::copy(c.cbegin(), c.cend(), std::ostream_iterator<typename C::value_type>(os, " "));
+  os << '\n';
 }
 
 int main()
@@ -72,11 +71,10 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * iterator[link /reference/iterator.md]
 * algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* ostream[link /site/cpprefjp/reference/ostream]
+* ostream[link /reference/ostream.md]
 * copy[link /reference/algorithm/copy.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
+* cbegin[link ./cbegin.md]
+* cend[link ./cend.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * swap[color ff0000]
 
@@ -106,12 +104,12 @@ us2 after : 9 7 5 3 1
 
 ##参照
 
-| | |
-|--------------------------|----------------------------|
-| [`swap`](./swap_free.md) | 内容の交換（非メンバ関数） |
-| [`emplace`](./emplace.md) | コンテナ内への要素の直接構築 |
+|                                     |                                                        |
+|-------------------------------------|--------------------------------------------------------|
+| [`swap`](./swap_free.md)            | 内容の交換（非メンバ関数）                             |
+| [`emplace`](./emplace.md)           | コンテナ内への要素の直接構築                           |
 | [`emplace_hint`](./emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
-| [`insert`](./insert.md) | 要素の追加 |
-| [`erase`](./erase.md) | 要素の削除 |
-| [`clear`](./clear.md) | 全要素の削除 |
+| [`insert`](./insert.md)             | 要素の追加                                             |
+| [`erase`](./erase.md)               | 要素の削除                                             |
+| [`clear`](./clear.md)               | 全要素の削除                                           |
 

@@ -1,6 +1,6 @@
 #swap(C++11)
 ```cpp
-void swap(unordered_multiset& v);
+void swap(unordered_map& v);
 ```
 
 ##概要
@@ -40,22 +40,23 @@ void swap(unordered_multiset& v);
 ##例
 ```cpp
 #include <iostream>
-#include <unordered_set>
-#include <iterator>
+#include <unordered_map>
 #include <algorithm>
+#include <string>
+#include <utility>
 
 template <class C>
 void print(const char* label, const C& c, std::ostream& os = std::cout)
 {
   os << label << " : ";
-  std::copy(c.cbegin(), c.cend(), std::ostream_iterator<typename C::value_type>(os, " "));
+  std::for_each(c.cbegin(), c.cend(), [&os](const typename C::value_type& v) { os << '(' << v.first << ", " << v.second << "), "; });
   os << '\n';
 }
 
 int main()
 {
-  std::unordered_multiset<int> um1{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
-  std::unordered_multiset<int> um2{ 0, 2, 4, 6, 8, 0, 2, 4, 6, 8, };
+  std::unordered_map<std::string, int> um1{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, };
+  std::unordered_map<std::string, int> um2{ {"0th", 0}, {"2nd", 2}, {"4th", 4}, {"6th", 6}, {"8th", 8}, };
 
   print("um1 before", um1);
   print("um2 before", um2);
@@ -68,27 +69,26 @@ int main()
 }
 ```
 * iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
+* unordered_map[link /reference/unordered_map.md]
 * iterator[link /reference/iterator.md]
 * algorithm[link /reference/algorithm.md]
+* string[link /reference/string.md]
 * ostream[link /reference/ostream.md]
-* copy[link /reference/algorithm/copy.md]
+* for_each[link /reference/algorithm/for_each.md]
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * swap[color ff0000]
 
 ###出力
 ```
-um1 before : 9 9 7 7 5 5 1 1 3 3
-um2 before : 8 8 6 6 4 4 0 0 2 2
+um1 before : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
+um2 before : (8th, 8), (4th, 4), (6th, 6), (2nd, 2), (0th, 0), 
 
-um1 after : 8 8 6 6 4 4 0 0 2 2
-um2 after : 9 9 7 7 5 5 1 1 3 3
+um1 after : (8th, 8), (4th, 4), (6th, 6), (2nd, 2), (0th, 0), 
+um2 after : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
 ```
 
-注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
