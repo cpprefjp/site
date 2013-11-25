@@ -1,108 +1,162 @@
-#コンストラクタ
+#set
 ```cpp
-explicit set(const Compare& comp = Compare(), const Allocator& alloc = Allocator());
-
-// since C++11
-explicit set(const Allocator& alloc);
-
-template <class InputIterator>
-set(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& alloc = Allocator());
-
-set(const set<Key,Compare,Allocator>& x);
-
-// since C++11
-set(const set& x, const Allocator& alloc);
-
-
-// since C++11
-set(set<Key,Compare,Allocator>&& y);
-
-// since C++11
-set(set&& y, const Allocator& alloc);
-
-// since C++11
-set(initializer_list<value_type> init, const Compare& comp = Compare(), const Allocator& alloc = Allocator());
+namespace std {
+  template <class Key, class Compare = less<Key>, class Allocator = allocator<Key>>
+  class set;
+}
 ```
+* less[link /reference/functional/comparisons.md]
+* allocator[link /reference/memory/allocator.md]
 
 
-##setオブジェクトの構築
-- `explicit set(const Compare& comp = Compare(), const Allocator& alloc = Allocator());`
-- `explicit set(const Allocator& alloc);`<br/>
-デフォルトコンストラクタ。空のコンテナで構築する。 
+`set` はユニークな要素を格納する連想コンテナの一種であり、要素自身がキーとなる。 
+連想コンテナは特にそれらキーによる要素アクセスが効率的になるようよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。 
+内部的には、`set` 内の要素は、コンテナの構築時に設定された狭義の弱順序基準に従って小さいものから大きいものへとソートされる。 
 
-- `template <class InputIterator>`<br/>`set(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`<br/>
-範囲 `[first, last)` のコンテンツで構築する。 
+`set` は一般的に、二分木として実装される。従って、連想コンテナである `set` の主な特性は以下の通りである。
 
-- `set(const set<Key,Compare,Allocator>& x);`
-- `set(const set& x, const Allocator& alloc);`<br/>
-コピーコンストラクタ。`x`のコンテンツのコピーでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `std::allocator_traits<allocator_type>::select_on_copy_construction(x)` の呼び出しによって取得する。 
+- ユニークな要素の値：互いに等しい二つの要素が `set` に格納されることは無い。複数の等しい値を許す同様の連想コンテナは `multiset` を参照のこと。
+- 要素の値はキーそのものである。キーを使って要素にアクセスするがキーとは異なる値へマップする同様の連想コンテナは `map` を参照のこと。
+- 要素は常に厳密で弱い型付けに従う。
 
-- `set(set<Key,Compare,Allocator>&& y);`
-- `set(set&& y, const Allocator& alloc);`<br/>
-ムーブコンストラクタ。`y` のコンテンツをムーブすることでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `y` に属しているアロケータをムーブして取得する。 
+このコンテナクラスは、双方向イテレータをサポートする。
 
-- `set(initializer_list<value_type> init, const Compare& comp = Compare(), const Allocator& alloc = Allocator());`<br/>
-初期化リスト `init` のコンテンツでコンテナを構築する。
+各テンプレートパラメータは以下のような意味である。
 
-
-##パラメータ
-- `alloc`<br/>
-このコンテナの全てのメモリ確保を行うアロケータ。 
-
-- `comp`<br/>
-キーの全ての比較を行う比較関数。 
-
-- `first`, `last`<br/>
-要素のコピー元となる範囲。 
-
-- `x`<br/>
-コンテナの要素の初期化のコピー元として使われる、ほかのコンテナ。 
-
-- `y`<br/>
-コンテナの要素の初期化のムーブ元として使われる、ほかのコンテナ。 
-
-- `init`<br/>
-コンテナの要素を初期化するために使われる初期化リスト。
+- `Key`: キーの型。このコンテナに格納されれる要素の型。`set` に格納される要素はそれぞれはキーでもある。
+- `Compare`: 比較クラス。このクラスは 2 つの引数（同じ型であり、コンテナの要素型でもある）をとり `bool` 値を返す。狭義の弱順序において `a` が `b` よりも前の場所に位置づけられる場合に `true` である。これはクラスが関数呼び出しオブジェクトを実装したクラスであっても良いし関数ポインタであっても良い（例は コンストラクタ を参照）。これは、`operator<()` を適用( `a < b` )したときと同じ値を返す `less<Key>` がデフォルトである。
+- `Allocator`: ストレージアロケーションモデルを決定づける、アロケータオブジェクトの型である。デフォルトでは、`Key` への `allocator` クラステンプレート（これは値に依存しないシンプルなメモリ確保モデルを定義する）が使われる。
 
 
-##計算量
-デフォルトコンストラクタは定数時間。
-イテレータコンストラクタは、`comp` によって既にソート済みである場合は、イテレータ間の距離（コピーコンストラクト）。未ソートのシーケンスの場合は、それらの距離について N * logN （ソート、コピーコンストラクト）。 
-コピーコンストラクタは、`x` の `size` に対して線形時間（コピーコンストラクト）。 
-ムーブコンストラクタは定数時間。但し、`alloc` が与えられてかつ `alloc != y.`[`get_allocator`](./get_allocator.md)`()` の場合は線形時間。
-初期化リストを使ったコンストラクタは `init` のサイズに対して線形時間。
+##メンバ関数
+###構築・破棄
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------|----------------|-------|
+| [`(constructor)`](./set/set.md) | コンストラクタ | |
+| [`(destructor)`](./set/-set.md) | デストラクタ | |
+| [`operator=`](./set/op_assign.md) | 代入演算子 | |
+| [`get_allocator`](./set/get_allocator.md) | アロケータオブジェクトを取得する | |
+
+
+###イテレータ
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------|----------------------------------------------|-------|
+| [`begin`](./set/begin.md)    | 先頭を指すイテレータを取得する               | |
+| [`cbegin`](./set/begin.md)   | 先頭を指す読み取り専用イテレータを取得する   | C++11 |
+| [`end`](./set/end.md)        | 末尾を指すイテレータを取得する               | |
+| [`cend`](./set/end.md)       | 末尾を指す読み取り専用イテレータを取得する   | C++11 |
+| [`rbegin`](./set/rbegin.md)  | 末尾を指す逆イテレータを取得する             | |
+| [`crbegin`](./set/rbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`rend`](./set/rend.md)      | 先頭を指す逆イテレータを取得する             | |
+| [`crend`](./set/rend.md)     | 先頭を指す読み取り専用逆イテレータを取得する | C++11 |
+
+
+###領域
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------|----------------------------------------------|-------|
+| [`empty`](./set/empty.md)       | コンテナが空であるかどうかを調べる | |
+| [`size`](./set/size.md)         | 要素数を取得する | |
+| [`max_size`](./set/max_size.md) | 格納可能な最大の要素数を取得する | |
+
+
+###コンテナの変更
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------|------------------------------------------|-------|
+| [`clear`](./set/clear.md)               | 全ての要素を削除する             | |
+| [`insert`](./set/insert.md)             | 要素を挿入する                   | |
+| [`emplace`](./set/emplace.md)           | 要素を直接構築する               | C++11 |
+| [`emplace_hint`](./set/emplace_hint.md) | ヒントを使って要素を直接構築する | C++11 |
+| [`erase`](./set/erase.md)               | 要素を削除する                   |
+| [`swap`](./set/swap.md)                 | コンテンツを交換する             |
+
+
+###要素アクセス
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------|----------------------------------------|-------|
+| [`count`](./set/count.md)             | 指定したキーにマッチする要素の数を返す | |
+| [`find`](./set/find.md)               | 指定したキーで要素を探す | |
+| [`equal_range`](./set/equal_range.md) | 指定したキーにマッチする要素範囲を返す | |
+| [`lower_bound`](./set/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す | |
+| [`upper_bound`](./set/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す | |
+
+
+###オブザーバー
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------|--------------------------|-------|
+| [`key_comp`](./set/key_comp.md)     | キーを比較した結果を返す | |
+| [`value_comp`](./set/value_comp.md) | 値を比較した結果を返す   | |
+
+
+##メンバ型
+
+| 名前 | 説明 | 対応バージョン |
+|--------------------------|--------------------------------------------|-------|
+| `key_type`               | キーの型。テンプレートパラメータ `Key`。 | |
+| `value_type`             | 要素の型。テンプレートパラメータ `Key`。 | |
+| `key_compare`            | キーの大小関係を判定する二項述語の型。テンプレートパラメータ `Compare`。 | |
+| `value_compare`          | 要素の大小関係を判定する二項述語の型。テンプレートパラメータ `Compare`。 | |
+| `allocator_type`         | アロケータの型。テンプレートパラメータ `Allocator`。 | |
+| `reference`              | 要素`value_type`への参照型。`value_type&`。 | |
+| `const_reference`        | 要素`value_type`への`const`参照型。`const value_type&`。 | |
+| `iterator`               | 双方向イテレータ | |
+| `const_iterator`         | 読み取り専用双方向イテレータ。 | |
+| `size_type`              | 要素数を表す符号なし整数型。`difference_type` で表現可能な非負整数（0以上の整数）を表すことが可能。(通常は [`size_t`](/reference/cstddef/size_t.md)) | |
+| `difference_type`        | 同一のコンテナを指す `iterator` の差を表す符号付き整数型(通常は [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) <br/>`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<iterator>::difference_type`、および、`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<const_iterator>::difference_type` と同じ。 | |
+| `pointer`                | 要素 `value_type`へのポインタ。<br/> C++03 : `typename Allocator::pointer`。<br/> C++11以降 : `typename `[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer`。 | |
+| `const pointer`          | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename `[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。 | |
+| `reverse_iterator` | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。 | |
+| `const_reverse_iterator` | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。 | |
+
+
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------------|--------------------------------------------|-------|
+| [`operator==`](./set/op_eaual.md)         | 左辺と右辺が等しいかの判定を行う | |
+| [`operator!=`](./set/op_not_equal.md)     | 左辺と右辺が等しくないかの判定を行う | |
+| [`operator<`](./set/op_less_than.md)      | 左辺が右辺より小さいかの判定を行う | |
+| [`operator<=`](./set/op_greater_equal.md) | 左辺が右辺より小さいか等しいかの判定を行う | |
+| [`operator>`](./set/op_greater_than.md)   | 左辺が右辺より大きいかの判定を行う | |
+| [`operator>=`](./set/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
+| `swap`                                    | 2つの`set`オブジェクトを入れ替える | |
 
 
 ##例
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main()
 {
-  int values[] = { 5, 2, 4, 1, 0, 0, 9 };
-  set<int> c1(values, values + 7);
-  set<int> c2(c1);
- 
-  cout << "Size of c1: " << c1.size() << endl;
-  cout << "Size of c2: " << c2.size() << endl;
-  
-  return 0;
+  // intをキーとして扱う集合
+  std::set<int> s;
+
+  // 挿入
+  s.insert(3);
+  s.insert(1);
+  s.insert(4);
+
+  // 検索 : キー(int)を指定し、対応する値を得る
+  decltype(s)::iterator it = s.find(1);
+  if (it != s.end()) {
+    // 発見した
+    int value = *it;
+    std::cout << value << std::endl;
+  }
+  else {
+    std::cout << "not found" << std::endl;
+  }
 }
 ```
 
 ###出力
 ```
-Size of c1: 6
-Size of c2: 6
+1
 ```
-
-##参照
-
-| | |
-|---------------------------------------------------------------------------------------------|-----------------------|
-| [`operator=`](./op_assign.md) | 代入演算子 |
-| [`insert`](./insert.md) | 要素を挿入する |
-
 
