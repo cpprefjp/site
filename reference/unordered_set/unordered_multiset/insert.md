@@ -71,10 +71,14 @@ void insert(initializer_list<value_type> il);                  // (4)
 ##備考
 - これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+
 - これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。  
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
 	コンテナのバケット数が変わらない場合とは、要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった場合である。
 	なお、条件が「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
+
+- `position` を引数にとる形式（(2)）の場合、本関数呼び出しで構築されるオブジェクト `t` と等価なキーの要素が既に存在する場合、`position` に応じて既存の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は存在しない。
+	従って、そのような期待はすべきではない。[`emplace_hint`](./emplace_hint.md)も参照。
 
 
 ##例
@@ -90,7 +94,7 @@ template <class C>
 void print(const std::string& label, const C& c)
 {
   std::cout << label << " : ";
-  std::copy(c.begin(), c.end(), std::ostream_iterator<typename C::value_type>(std::cout, " "));
+  std::copy(c.cbegin(), c.cend(), std::ostream_iterator<typename C::value_type>(std::cout, " "));
   std::cout << std::endl;
 }
 
@@ -111,9 +115,9 @@ int main()
   {
     std::unordered_multiset<int> um{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
 
-    auto it1 = um.insert(um.begin(), 6); // 重複のないケース
+    auto it1 = um.insert(um.cbegin(), 6); // 重複のないケース
     std::cout << *it1 << ' ';
-    auto it2 = um.insert(um.begin(), 2); // 重複のあるケース
+    auto it2 = um.insert(um.cbegin(), 2); // 重複のあるケース
     std::cout << *it2 << std::endl;
     print("insert one element with hint", um);
   }
@@ -143,22 +147,20 @@ int main()
 * algorithm[link /reference/algorithm.md]
 * string[link /reference/string.md]
 * copy[link /reference/algorithm/copy.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
+* cbegin[link ./cbegin.md]
+* cend[link ./cend.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link ./unordered_multiset.md]
-* cbegin[link /reference/forward_list/cbegin.md]
-* cend[link /reference/forward_list/cend.md]
+* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * insert[color ff0000]
 
 ###出力
 ```
 6 2
-insert one element : 6 5 5 4 4 3 3 2 2 2 1 1 0 0
+insert one element : 6 5 5 4 4 3 3 2 2 2 1 1 0 0 
 6 2
-insert one element with hint : 6 5 5 4 4 3 3 2 2 2 1 1 0 0
-insert range : 7 8 6 5 5 5 4 4 3 3 2 2 1 1 0 0 0
-insert initializer_list : 7 8 6 5 5 5 4 4 3 3 2 2 1 1 0 0 0
+insert one element with hint : 6 5 5 4 4 3 3 2 2 2 1 1 0 0 
+insert range : 7 8 6 5 5 5 4 4 3 3 2 2 1 1 0 0 0 
+insert initializer_list : 7 8 6 5 5 5 4 4 3 3 2 2 1 1 0 0 0 
 ```
 
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意

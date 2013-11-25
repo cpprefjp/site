@@ -1,9 +1,9 @@
 #insert(C++11)
 ```cpp
-pair<iterator, bool> insert(const value_type& v);              // (1)
+iterator insert(const value_type& v);                          // (1)
 
 template <class P>
-pair<iterator, bool> insert(P&& obj);                          // (2)
+iterator insert(P&& obj);                                      // (2)
 
 iterator insert(const_iterator position, const value_type& v); // (3)
 
@@ -15,7 +15,6 @@ void insert(InputIterator first, InputIterator last);          // (5)
 
 void insert(initializer_list<value_type> il);                  // (6)
 ```
-* pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
@@ -48,21 +47,18 @@ void insert(initializer_list<value_type> il);                  // (6)
 
 
 ##効果
-- (1)	`v.first` と等価なキーがコンテナに存在していなければ、当該要素を追加する。
-- (2)	引数 `obj` から構築されたオブジェクトを `v` とすると、`v.first` と等価なキーがコンテナに存在していなければ、当該要素を追加する。
-- (3)	`v.first` と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
+- (1)	引数 `v` で指定した値の要素を追加する。
+- (2)	引数 `obj` から構築されたオブジェクト `v` を追加する。
+- (3)	引数 `v` で指定した値の要素を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-- (4)	引数 `obj` から構築されたオブジェクトを `v` とすると、`v.first` と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
+- (4)	引数 `obj` から構築されたオブジェクト `v` を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
 - (5)	範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と同等である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）。
 - (6)	(5)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
 
 
 ##戻り値
-- (1)、(2)	[`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。  
-	[`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
-- (3)、(4)	新たな要素が追加された場合、その追加された要素を指すイテレータ。  
-	新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
+- (1)から(4)	追加された要素を指すイテレータ。
 - (5)、(6)	なし
 
 
@@ -82,17 +78,15 @@ void insert(initializer_list<value_type> il);                  // (6)
 
 - これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。  
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
-	コンテナのバケット数が変わらない場合とは、
-
-	* 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
-	* 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった。
-
-	のいずれかである。  
-	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
+	コンテナのバケット数が変わらない場合とは、要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった場合である。  
+	なお、条件が「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
 
 - (2)、および、(4) の形式は、`P` が `value_type` に暗黙変換可能でなければオーバーロード解決の対象にはならない。  
 	但し、この条件は規格書が当初意図した条件よりも厳しい（※）ため、C++14 では「`std::is_constructible<value_type, P&&>::value` が `true` であること」に修正される予定である。  
 	※ `key_type` がムーブのみ可能（コピー不可能）の場合、`std::`[`pair`](/reference/utility/pair.md)`<key_type, mapped_type>` から `std::`[`pair`](/reference/utility/pair.md)`<const key_type, mapped_type>` へ暗黙変換可能ではない
+
+- `position` を引数にとる形式（(3)、(4)）の場合、本関数呼び出しで構築されるオブジェクトを `t` とすると、`t.first` と等価なキーの要素が既に存在する場合、`position` に応じて既存の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は存在しない。
+	従って、そのような期待はすべきではない。[`emplace_hint`](./emplace_hint.md)も参照。
 
 
 ##例
@@ -123,55 +117,53 @@ void print(const char* label, const C& c, std::ostream& os = std::cout)
 
 int main()
 {
-  std::cout << std::boolalpha;
-
   // 一つの要素を挿入（(1)の形式）
   {
-    std::unordered_map<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
+    std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
-    auto p1 = um.insert(cis{6, "6th"}); // 追加されるケース
-    std::cout << p1.second << ' ' << *p1.first << ' ';
-    auto p2 = um.insert(cis{2, "2nd"}); // 追加されないケース
-    std::cout << p2.second << ' ' << *p2.first << std::endl;
+    auto it1 = um.insert(cis{6, "6th"}); // 重複のないケース
+    std::cout << *it1 << ' ';
+    auto it2 = um.insert(cis{2, "2nd"}); // 重複のあるケース
+    std::cout << *it2 << std::endl;
     print("insert one element", um);
   }
 
   // 一つの要素を挿入（(2)の形式）
   {
-    std::unordered_map<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
+    std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
-    auto p1 = um.insert(is{6, "6th"}); // 追加されるケース
-    std::cout << p1.second << ' ' << *p1.first << ' ';
-    auto p2 = um.insert(is{2, "2nd"}); // 追加されないケース
-    std::cout << p2.second << ' ' << *p2.first << std::endl;
+    auto it1 = um.insert(is{6, "6th"}); // 重複のないケース
+    std::cout << *it1 << ' ';
+    auto it2 = um.insert(is{2, "2nd"}); // 重複のあるケース
+    std::cout << *it2 << std::endl;
     print("insert one element", um);
   }
 
   // 一つの要素を挿入（(3)の形式）
   {
-    std::unordered_map<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
+    std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
-    auto it1 = um.insert(um.cbegin(), cis{6, "6th"}); // 追加されるケース
+    auto it1 = um.insert(um.cbegin(), cis{6, "6th"}); // 重複のないケース
     std::cout << *it1 << ' ';
-    auto it2 = um.insert(um.cbegin(), cis{2, "2nd"}); // 追加されないケース
+    auto it2 = um.insert(um.cbegin(), cis{2, "2nd"}); // 重複のあるケース
     std::cout << *it2 << std::endl;
     print("insert one element with hint", um);
   }
 
   // 一つの要素を挿入（(4)の形式）
   {
-    std::unordered_map<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
+    std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
-    auto it1 = um.insert(um.cbegin(), is{6, "6th"}); // 追加されるケース
+    auto it1 = um.insert(um.cbegin(), is{6, "6th"}); // 重複のないケース
     std::cout << *it1 << ' ';
-    auto it2 = um.insert(um.cbegin(), is{2, "2nd"}); // 追加されないケース
+    auto it2 = um.insert(um.cbegin(), is{2, "2nd"}); // 重複のあるケース
     std::cout << *it2 << std::endl;
     print("insert one element with hint", um);
   }
 
   // 複数の要素を挿入（(5)の形式）
   {
-    std::unordered_map<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
+    std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
     std::forward_list<std::pair<short, const char*>> fl{ {5, "5th"}, {6, "6th"}, {0, "0th"}, {8, "8th"}, {7, "7th"}, };
     um.insert(fl.cbegin(), fl.cend()); // forward_list の要素を全部
@@ -180,7 +172,7 @@ int main()
 
   // 複数の要素を挿入（(6)の形式）
   {
-    std::unordered_map<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
+    std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
     um.insert({ {5, "5th"}, {6, "6th"}, {0, "0th"}, {8, "8th"}, {7, "7th"}, });
     print("insert initializer_list", um);
@@ -195,26 +187,24 @@ int main()
 * for_each[link /reference/algorithm/for_each.md]
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* second[link /reference/utility/pair.md]
-* first[link /reference/utility/pair.md]
+* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * insert[color ff0000]
 
 ###出力
 ```
-true (6,6th) false (2,two)
-insert one element : (6,6th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,zero), 
-true (6,6th) false (2,two)
-insert one element : (6,6th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,zero), 
-(6,6th) (2,two)
-insert one element with hint : (6,6th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,zero), 
-(6,6th) (2,two)
-insert one element with hint : (6,6th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,zero), 
-insert range : (7,7th), (8,8th), (6,6th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,zero), 
-insert initializer_list : (7,7th), (8,8th), (6,6th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,zero), 
+(6,6th) (2,2nd)
+insert one element : (6,6th), (5,five), (4,four), (3,three), (2,2nd), (2,two), (1,one), (0,zero), 
+(6,6th) (2,2nd)
+insert one element : (6,6th), (5,five), (4,four), (3,three), (2,2nd), (2,two), (1,one), (0,zero), 
+(6,6th) (2,2nd)
+insert one element with hint : (6,6th), (5,five), (4,four), (3,three), (2,2nd), (2,two), (1,one), (0,zero), 
+(6,6th) (2,2nd)
+insert one element with hint : (6,6th), (5,five), (4,four), (3,three), (2,2nd), (2,two), (1,one), (0,zero), 
+insert range : (7,7th), (8,8th), (6,6th), (5,5th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,0th), (0,zero), 
+insert initializer_list : (7,7th), (8,8th), (6,6th), (5,5th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,0th), (0,zero), 
 ```
 
-注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
@@ -234,28 +224,28 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,five), (4,four), (3,thre
 
 ```cpp
 template <class Key, class Hash, class Pred, class Allocator>
-inline iterator unordered_map<Key, Hash, Pred, Allocator>::insert(const_iterator, const value_type& v)
+inline iterator unordered_multimap<Key, Hash, Pred, Allocator>::insert(const_iterator, const value_type& v)
 {
-  return insert(v).first;
+  return insert(v);
 }
 
 template <class Key, class Hash, class Pred, class Allocator>
 template <class P>
-inline iterator unordered_map<Key, Hash, Pred, Allocator>::insert(const_iterator, P&& obj)
+inline iterator unordered_multimap<Key, Hash, Pred, Allocator>::insert(const_iterator, P&& obj)
 {
-  return insert(std::forward<P>(obj)).first;
+  return insert(std::forward<P>(obj));
 }
 
 template <class Key, class Hash, class Pred, class Allocator>
 template <class InputIterator>
-inline void unordered_map<Key, Hash, Pred, Allocator>::insert(InputIterator first, InputIterator last);
+inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(InputIterator first, InputIterator last);
 {
   for (; first != last; ++first)
     insert(*first);
 }
 
 template <class Key, class Hash, class Pred, class Allocator>
-inline void unordered_map<Key, Hash, Pred, Allocator>::insert(initializer_list<Key> il);
+inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(initializer_list<Key> il);
 {
   insert(il.begin(), il.end());
 }
