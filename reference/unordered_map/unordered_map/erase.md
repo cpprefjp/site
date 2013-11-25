@@ -59,6 +59,11 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 typedef std::pair<const std::string, int> si;
 
+std::ostream& operator<<(std::ostream& os, const si& p)
+{
+  return os << '(' << p.first << ", " << p.second << ')';
+}
+
 template <class C>
 void print(const char* label, const C& c, std::ostream& os = std::cout)
 {
@@ -121,18 +126,18 @@ int main()
 
 ###出力
 ```
-(1) erase(const_iterator) before : 9 7 5 3 1
-argument: 3
-return value: 1
-after : 9 7 5 1
-(2) erase(const value_type&) before : 9 7 5 3 1
+(1) erase(const_iterator) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
+argument: (3rd, 3)
+return value: (1st, 1)
+after : (9th, 9), (7th, 7), (5th, 5), (1st, 1), 
+(2) erase(const value_type&) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
 argument: 5, 8
 return value: 1, 0
-after : 9 7 3 1
-(3) erase(const_iterator, const_iterator) before : 9 7 5 3 1
-arguments: 7, 3
-return value: 3
-after : 9 3 1
+after : (9th, 9), (7th, 7), (3rd, 3), (1st, 1), 
+(3) erase(const_iterator, const_iterator) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
+arguments: (7th, 7), (3rd, 3)
+return value: (3rd, 3)
+after : (9th, 9), (3rd, 3), (1st, 1), 
 ```
 
 注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
