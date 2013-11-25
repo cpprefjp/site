@@ -18,7 +18,7 @@ namespace std {
 
 
 ##要件
-`W > 0`かつ`W <= `[`numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)であること。
+`W > 0`かつ`W <=` [`numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)であること。
 
 
 ##メンバ関数
