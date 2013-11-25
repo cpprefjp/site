@@ -133,10 +133,12 @@ int main()
 argument: (3rd, 3)
 return value: (1st, 1)
 after : (9th, 9), (7th, 7), (5th, 5), (1st, 1), 
+
 (2) erase(const value_type&) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
 argument: 5, 8
 return value: 1, 0
 after : (9th, 9), (7th, 7), (3rd, 3), (1st, 1), 
+
 (3) erase(const_iterator, const_iterator) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
 arguments: (7th, 7), (3rd, 3)
 return value: (3rd, 3)
