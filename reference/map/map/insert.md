@@ -4,7 +4,7 @@ pair<iterator,bool> insert(const value_type& x);
 
 // since C++11
 template<class P>
-pair<iterator,bool> insert(P&& &);
+pair<iterator,bool> insert(P&& y);
 
 // until C++11
 iterator insert(iterator position, const value_type& x);
