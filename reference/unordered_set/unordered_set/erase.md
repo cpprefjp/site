@@ -57,11 +57,11 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 #include <string>
 
 template <class C>
-void print(const std::string& label, const C& c, std::ostream& os = std::cout)
+void print(const char* label, const C& c, std::ostream& os = std::cout)
 {
   os << label << " : ";
-  std::copy(c.begin(), c.end(), std::ostream_iterator<typename C::value_type>(os, " "));
-  os << std::endl;
+  std::copy(c.cbegin(), c.cend(), std::ostream_iterator<typename C::value_type>(os, " "));
+  os << '\n';
 }
 
 int main()
@@ -72,10 +72,11 @@ int main()
     print("(1) erase(const_iterator) before", us);
 
     auto it1 = std::next(us.cbegin(), 3);
-    std::cout << "argument: " << *it1 << std::endl;
+    std::cout << "argument: " << *it1 << '\n';
     auto it2 = us.erase(it1);
-    std::cout << "return value: " << *it2 << std::endl;
+    std::cout << "return value: " << *it2 << '\n';
     print("after", us);
+    std::cout << std::endl;
   }
 
   // 指定したキーと等価な要素を削除（(2)の形式）
@@ -85,9 +86,10 @@ int main()
 
     auto count1 = us.erase(5);
     auto count2 = us.erase(8);
-    std::cout << "argument: 5, 8" << std::endl;
-    std::cout << "return value: " << count1 << ", " << count2 << std::endl;
+    std::cout << "argument: 5, 8" << '\n';
+    std::cout << "return value: " << count1 << ", " << count2 << '\n';
     print("after", us);
+    std::cout << std::endl;
   }
 
   // 指定した位置にある要素を削除（(3)の形式）
@@ -97,10 +99,11 @@ int main()
 
     auto it1 = std::next(us.cbegin());
     auto it2 = std::next(it1, 2);
-    std::cout << "arguments: " << *it1 << ", " << *it2 << std::endl;
+    std::cout << "arguments: " << *it1 << ", " << *it2 << '\n';
     auto it3 = us.erase(it1, it2);
-    std::cout << "return value: " << *it3 << std::endl;
+    std::cout << "return value: " << *it3 << '\n';
     print("after", us);
+    std::cout << std::endl;
   }
 }
 ```
@@ -124,10 +127,12 @@ int main()
 argument: 3
 return value: 1
 after : 9 7 5 1
+
 (2) erase(const value_type&) before : 9 7 5 3 1
 argument: 5, 8
 return value: 1, 0
 after : 9 7 3 1
+
 (3) erase(const_iterator, const_iterator) before : 9 7 5 3 1
 arguments: 7, 3
 return value: 3

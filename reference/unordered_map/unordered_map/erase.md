@@ -135,7 +135,7 @@ return value: (1st, 1)
 after : (9th, 9), (7th, 7), (5th, 5), (1st, 1), 
 
 (2) erase(const value_type&) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
-argument: 5, 8
+argument: 5th, 8th
 return value: 1, 0
 after : (9th, 9), (7th, 7), (3rd, 3), (1st, 1), 
 

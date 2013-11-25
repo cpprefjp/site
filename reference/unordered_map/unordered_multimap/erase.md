@@ -51,16 +51,24 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 ##例
 ```cpp
 #include <iostream>
-#include <unordered_set>
+#include <unordered_map>
 #include <iterator>
 #include <algorithm>
 #include <string>
+#include <utility>
+
+typedef std::pair<const std::string, int> si;
+
+std::ostream& operator<<(std::ostream& os, const si& p)
+{
+  return os << '(' << p.first << ", " << p.second << ')';
+}
 
 template <class C>
 void print(const char* label, const C& c, std::ostream& os = std::cout)
 {
   os << label << " : ";
-  std::copy(c.cbegin(), c.cend(), std::ostream_iterator<typename C::value_type>(os, " "));
+  std::for_each(c.cbegin(), c.cend(), [&os](const si& p) { os << p << ", "; });
   os << '\n';
 }
 
@@ -68,10 +76,10 @@ int main()
 {
   // 指定した位置にある要素を削除（(1)の形式）
   {
-    std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 3, };
+    std::unordered_multimap<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, {"3rd", 33}, };
     print("(1) erase(const_iterator) before", um);
 
-    auto it1 = std::next(um.cbegin(), 3);
+    auto it1 = um.find("3rd");
     std::cout << "argument: " << *it1 << '\n';
     auto it2 = um.erase(it1);
     std::cout << "return value: " << *it2 << '\n';
@@ -81,21 +89,21 @@ int main()
 
   // 指定したキーと等価な要素を削除（(2)の形式）
   {
-    std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 3, };
+    std::unordered_multimap<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, {"3rd", 33}, };
     print("(2) erase(const value_type&) before", um);
 
-    auto count1 = um.erase(5);
-    auto count2 = um.erase(8);
-    auto count3 = um.erase(3);
-    std::cout << "argument: 5, 8, 3" << '\n';
-    std::cout << "return value: " << count1 << ", " << count2 << ", " << count3 << std::endl;
+    auto count1 = um.erase("5th");
+    auto count2 = um.erase("8th");
+    auto count3 = um.erase("3rd");
+    std::cout << "argument: 5th, 8th, 3rd" << '\n';
+    std::cout << "return value: " << count1 << ", " << count2 << ", " << count3 << '\n';
     print("after", um);
     std::cout << std::endl;
   }
 
   // 指定した位置にある要素を削除（(3)の形式）
   {
-    std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 3, };
+    std::unordered_multimap<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, {"3rd", 33}, };
     print("(3) erase(const_iterator, const_iterator) before", um);
 
     auto it1 = std::next(um.cbegin());
@@ -109,38 +117,36 @@ int main()
 }
 ```
 * iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
+* unordered_map[link /reference/unordered_map.md]
 * iterator[link /reference/iterator.md]
 * algorithm[link /reference/algorithm.md]
 * string[link /reference/string.md]
 * ostream[link /reference/ostream/ostream.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link ./unordered_multiset.md]
+* for_each[link /reference/algorithm/for_each.md]
 * next[link /reference/iterator/next.md]
 * cbegin[link ./cbegin.md]
+* cend[link ./cend.md]
+* erase[color ff0000]
 
 ###出力
 ```
-(1) erase(const_iterator) before : 9 7 5 1 3 3
-argument: 1
-return value: 3
-after : 9 7 5 3 3
+(1) erase(const_iterator) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 33), (3rd, 3), (1st, 1), 
+argument: (3rd, 33)
+return value: (3rd, 3)
+after : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
 
-(2) erase(const value_type&) before : 9 7 5 1 3 3
-argument: 5, 8, 3
+(2) erase(const value_type&) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 33), (3rd, 3), (1st, 1), 
+argument: 5th, 8th, 3rd
 return value: 1, 0, 2
-after : 9 7 1
+after : (9th, 9), (7th, 7), (1st, 1), 
 
-(3) erase(const_iterator, const_iterator) before : 9 7 5 1 3 3
-arguments: 7, 1
-return value: 1
-after : 9 1 3 3
+(3) erase(const_iterator, const_iterator) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 33), (3rd, 3), (1st, 1), 
+arguments: (7th, 7), (3rd, 33)
+return value: (3rd, 33)
+after : (9th, 9), (3rd, 33), (3rd, 3), (1st, 1), 
 ```
 
-注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン
