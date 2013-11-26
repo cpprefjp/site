@@ -4,6 +4,7 @@ explicit unordered_multiset(size_type n = 実装依存の既定値,
                             const hasher& hf = hasher(),
                             const key_equal& eql = key_equal(),
                             const allocator_type& a = allocator_type());  // (1)
+
 template <class InputIterator>
 unordered_multiset(InputIterator first, InputIterator last,
                    size_type n = 実装依存の既定値,
