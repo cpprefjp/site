@@ -64,6 +64,7 @@ int main()
   std::cout << std::boolalpha << (s.find_first_of('\0') == std::string::npos) << std::endl;
 }
 ```
+* find_first_of[color ff0000]
 
 ###出力
 ```cpp
