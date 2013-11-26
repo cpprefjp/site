@@ -1,9 +1,9 @@
 #find_last_of
 ```cpp
-size_type find_last_of(const basic_string& str, size_type pos = 0) const noexcept; // (1)
-size_type find_last_of(const charT* s, size_type pos, size_type n) const;          // (2)
-size_type find_last_of(const charT* s, size_type pos = 0) const;                   // (3)
-size_type find_last_of(charT c, size_type pos = 0) const noexcept;                 // (4)
+size_type find_last_of(const basic_string& str, size_type pos = npos) const noexcept; // (1)
+size_type find_last_of(const charT* s, size_type pos, size_type n) const;             // (2)
+size_type find_last_of(const charT* s, size_type pos = npos) const;                   // (3)
+size_type find_last_of(charT c, size_type pos = npos) const noexcept;                 // (4)
 ```
 
 ##概要
@@ -85,14 +85,14 @@ size_type basic_string<charT, traits, Allocator>::find_last_of(const charT* s, s
 
 // (3)
 template <class charT, class traits, class Allocator>
-size_type basic_string<charT, traits, Allocator>::find_last_of(const charT* s, size_type pos = 0) const
+size_type basic_string<charT, traits, Allocator>::find_last_of(const charT* s, size_type pos = npos) const
 {
   return find_last_of(std::basic_string(s), pos);
 }
 
 // (4)
 template <class charT, class traits, class Allocator>
-size_type basic_string<charT, traits, Allocator>::find_last_of(charT c, size_type pos = 0) const noexcept
+size_type basic_string<charT, traits, Allocator>::find_last_of(charT c, size_type pos = npos) const noexcept
 {
   return find_last_of(std::basic_string(1, c), pos);
 }
