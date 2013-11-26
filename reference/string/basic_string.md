@@ -87,20 +87,20 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 
 ###文字列の操作
 
-| 名前 | 説明 | 対応バージョン |
-|---------------------|----------------|------|
-| `c_str`             | C言語の文字列を取得する | |
-| `data`              | C言語の文字列を取得する | |
-| [`get_allocator`](./basic_string/get_allocator.md) | アロケータを取得する | |
-| `copy`              | 他の文字列にコピーする | |
-| `find`              | 指定文字列を検索する | |
-| `rfind`             | 最後に現れる指定文字列を検索する | |
-| `find_first_of`     | 最初に現れる指定文字を検索する | |
-| `find_last_of`      | 最後に現れる指定文字を検索する | |
-| `find_first_not_of` | 先頭から、指定文字が見つからない位置を検索する | |
-| `find_last_nof_of`  | 末尾から、指定文字が見つからない位置を検索する | |
-| `substr`            | 部分文字列を取得する | |
-| `compare`           | 文字列比較 | |
+| 名前                                                       | 説明                                           | 対応バージョン |
+|------------------------------------------------------------|------------------------------------------------|----------------|
+| `c_str`                                                    | C言語の文字列を取得する                        |                |
+| `data`                                                     | C言語の文字列を取得する                        |                |
+| [`get_allocator`](./basic_string/get_allocator.md)         | アロケータを取得する                           |                |
+| `copy`                                                     | 他の文字列にコピーする                         |                |
+| [`find`](./basic_string/find.md)                           | 指定文字列を検索する                           |                |
+| [`rfind`](./basic_string/rfind.md)                         | 最後に現れる指定文字列を検索する               |                |
+| [`find_first_of`](./basic_string/find_first_of.md)         | 最初に現れる指定文字を検索する                 |                |
+| [`find_last_of`](./basic_string/find_last_of.md)           | 最後に現れる指定文字を検索する                 |                |
+| [`find_first_not_of`](./basic_string/find_first_not_of.md) | 先頭から、指定文字が見つからない位置を検索する |                |
+| [`find_last_nof_of`](./basic_string/find_last_not_of.md)   | 末尾から、指定文字が見つからない位置を検索する |                |
+| `substr`                                                   | 部分文字列を取得する                           |                |
+| `compare`                                                  | 文字列比較                                     |                |
 
 
 ###メンバ定数
