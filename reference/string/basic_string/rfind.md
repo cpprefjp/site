@@ -26,7 +26,10 @@ size_type rfind(charT c, size_type pos = npos) const noexcept;                 /
 
 
 ##例外
-投げない
+- (1) 投げない
+- (2) -
+- (3) -
+- (4) 投げない（但し、備考参照）
 
 
 ##備考
@@ -39,6 +42,10 @@ size_type rfind(charT c, size_type pos = npos) const noexcept;                 /
 - C++03 では、例外指定は無い。
 - C++11 では、(4) の形式には `noexcept` が付いているが、下記の実装例のような実装を許すために C++14 では削除されるかもしれない。  
 	（そのような実装では新たな `std::basic_string` が割り当てられるため、メモリのアロケーションが行われる）
+- コンテナに対して同様の検索を行う関数は [`algorithm`](/reference/algorithm.md) ヘッダの [`find_end`](/reference/algorithm/find_end.md)であるが、これらがイテレータベースであるのに対して、本メンバ関数は添字ベースであることに注意。  
+	なお、[`algorithm`](/reference/algorithm.md) には検索対象が単一の値の場合の関数は存在しない。
+
+
 
 
 ##例
@@ -61,6 +68,7 @@ int main()
   std::cout << s.rfind('W', 29) << std::endl;
 }
 ```
+* rfind[color ff0000]
 
 ###出力
 ```cpp
@@ -94,3 +102,10 @@ size_type basic_string<charT, traits, Allocator>::rfind(charT c, size_type pos =
   return rfind(std::basic_string(1, c), pos);
 }
 ```
+
+
+##参照
+
+|                                                |                                          |
+|------------------------------------------------|------------------------------------------|
+| [`find_end`](/reference/algorithm/find_end.md) | 指定された最後のサブシーケンスを検索する |
