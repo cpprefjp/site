@@ -11,9 +11,15 @@ unordered_set& operator=(initializer_list<value_type> il); // (3)
 
 
 ##要件
-- (1)、および、(3) の形式の場合、`value_type` はこの `unordered_set` に対して CopyInsertable かつ CopyAssignable であること。
+- (1)、および、(3) の形式の場合、以下の条件を満たすこと。
 
-- (2) の形式の場合、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `false` であれば、`value_type` はこのコンテナに対して MoveInsertable かつ MoveAssignable であること。
+	* `value_type` はこのコンテナに対してコピー挿入可能（CopyInsertable）であること。
+	* `value_type` はコピー代入可能（CopyAssignable）であること。
+
+- (2) の形式の場合、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `false` であれば、以下の条件を満たすこと。
+
+	* `value_type` はこのコンテナに対してムーブ挿入可能（MoveInsertable）であること。
+	* `value_type` はムーブ代入可能（MoveAssignable）であること。
 
 
 ##効果

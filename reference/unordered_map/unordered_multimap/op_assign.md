@@ -11,9 +11,15 @@ unordered_multimap& operator=(initializer_list<value_type> il); // (3)
 
 
 ##要件
-- (1)、および、(3) の形式の場合、`value_type` はこの `unordered_multimap` に対して CopyInsertable かつ CopyAssignable であること。（但し、備考参照）
+- (1)、および、(3) の形式の場合、以下の条件を満たすこと。
 
-- (2) の形式の場合、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `false` であれば、`value_type` はこのコンテナに対して MoveInsertable かつ MoveAssignable であること。（但し、備考参照）
+	* `value_type` はこのコンテナに対してコピー挿入可能（CopyInsertable）であること。
+	* `key_type`、および、`mapped_type` はコピー代入可能（CopyAssignable）であること。（`value_type` は `std::`[`pair`](/reference/utility/pair.md)`<const key_type, mapped_type>` であるため、コピー代入可能ではない）
+
+- (2) の形式の場合、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `false` であれば、以下の条件を満たすこと。
+
+	* `value_type` はこのコンテナに対してムーブ挿入可能（MoveInsertable）であること。（但し、備考参照）
+	* `key_type`、および、`mapped_type` はムーブ代入可能（MoveAssignable）であること。（`value_type` は `std::`[`pair`](/reference/utility/pair.md)`<const key_type, mapped_type>` であるため、ムーブ代入可能ではない）
 
 
 ##効果
@@ -48,8 +54,11 @@ unordered_multimap& operator=(initializer_list<value_type> il); // (3)
 
 ##備考
 - (3) の形式の場合、計算量は `a = X(il)` と同様となっているが、効果が `a = X(il)` と同様なわけではない。（ハッシュ関数オブジェクト、キー比較用関数オブジェクト、アロケータオブジェクト、[`max_load_factor`](./max_load_factor.md)`()` 等が異なる）
-- 要件に、`value_type` はこの `unordered_multimap` に対して CopyAssignable、あるいは、MoveAssignable であること、というものがあるが、`value_type` は `std::`[`pair`](/reference/utility/pair.md) の `first` 部分が `const` であるため、当該要件を満たすことができない。
-	これはおそらく規格書の記述上の問題で、`key_type`、および、`mapped_type` がコピー代入可能、あるいは、ムーブ代入可能であれば良いものと思われる。
+
+- (2) の形式の要件に、「`value_type` はこのコンテナに対してムーブ挿入可能であること」というものがあるが、`value_type` は `std::`[`pair`](/reference/utility/pair.md)`<const key_type, mapped_type>` であるため、通常のムーブ挿入可能の条件に合わせると `key_type` にコピーコンストラクタが必要となってしまう。
+	従って、規格書に明確な記載はないものの、この場合のムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタ、`krv` をキーの型 `key_type` の右辺値、`mrv` を値の型 `mapped_type` の右辺値とすると、以下の式が適格（well-formed）であるということであるものと思われる。
+
+	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, krv, mrv)`
 
 
 ##バージョン
