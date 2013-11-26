@@ -26,7 +26,10 @@ size_type find(charT c, size_type pos = 0) const noexcept;                 // (4
 
 
 ##例外
-投げない
+- (1) 投げない
+- (2) -
+- (3) -
+- (4) 投げない（但し、備考参照）
 
 
 ##備考
@@ -38,6 +41,7 @@ size_type find(charT c, size_type pos = 0) const noexcept;                 // (4
 - C++03 では、例外指定は無い。
 - C++11 では、(4) の形式には `noexcept` が付いているが、下記の実装例のような実装を許すために C++14 では削除されるかもしれない。  
 	（そのような実装では新たな `std::basic_string` が割り当てられるため、メモリのアロケーションが行われる）
+- コンテナに対して同様の検索を行う関数は [`algorithm`](/reference/algorithm.md) ヘッダの [`search`](/reference/algorithm/search.md)（検索対象がシーケンスの場合）、あるいは [`find`](/reference/algorithm/find.md)（検索対象が単一の値の場合）であるが、これらがイテレータベースであるのに対して、本メンバ関数は添字ベースであることに注意。
 
 
 ##例
@@ -56,6 +60,7 @@ int main()
   }
 }
 ```
+* find[color ff0000]
 
 ###出力
 ```cpp
@@ -88,3 +93,11 @@ size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 
   return find(std::basic_string(1, c), pos);
 }
 ```
+
+
+##参照
+
+|                                            |                                          |
+|--------------------------------------------|------------------------------------------|
+| [`search`](/reference/algorithm/search.md) | 指定された最初のサブシーケンスを検索する |
+| [`find`](/reference/algorithm/find.md)     | 指定された値を検索する                   |
