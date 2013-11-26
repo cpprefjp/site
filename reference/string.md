@@ -31,8 +31,8 @@
 | [`stof`](./string/stof.md)             | 文字列から`float`型への変換(function)              | C++11 |
 | [`stod`](./string/stod.md)             | 文字列から`double`型への変換(function)             | C++11 |
 | [`stold`](./string/stold.md)           | 文字列から`long double`型への変換(function)        | C++11 |
-| `to_string`  | 数値から`string`への変換(function)                 | C++11 |
-| `to_wstring` | 数値から`wstring`への変換(function)                | C++11 |
+| [`to_string`](./to_string.md)          | 数値から`string`への変換(function)                 | C++11 |
+| [`to_wstring`](./to_wstring.md)        | 数値から`wstring`への変換(function)                | C++11 |
 
 
 ##ハッシュサポート
