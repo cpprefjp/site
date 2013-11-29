@@ -56,6 +56,92 @@ int main()
 3.140000
 ```
 
+##実装例
+```cpp
+#include <cstdio>
+#include <string>
+#include <limits>
+
+std::wstring to_wstring(int val)
+{
+  const std::size_t size = std::numeric_limits<int>::digits10 + 2; // '-' + NULL
+  wchar_t buffer[size];
+  std::swprintf(buffer, size, L"%d", val);
+  return buffer;
+}
+
+std::wstring to_wstring(unsigned int val)
+{
+  const std::size_t size = std::numeric_limits<unsigned int>::digits10 + 1;
+  wchar_t buffer[size];
+  std::swprintf(buffer, size, L"%u", val);
+  return buffer;
+}
+
+std::wstring to_wstring(long val)
+{
+  const std::size_t size = std::numeric_limits<long>::digits10 + 2; // '-' + NULL
+  wchar_t buffer[size];
+  std::swprintf(buffer, size, L"%ld", val);
+  return buffer;
+}
+
+std::wstring to_wstring(unsigned long val)
+{
+  const std::size_t size = std::numeric_limits<unsigned long>::digits10 + 1;
+  wchar_t buffer[size];
+  std::swprintf(buffer, size, L"%lu", val);
+  return buffer;
+}
+
+std::wstring to_wstring(long long int val)
+{
+  const std::size_t size = std::numeric_limits<long long int>::digits10 + 2; // '-' + NULL;
+  wchar_t buffer[size];
+  std::swprintf(buffer, size, L"%lld", val);
+  return buffer;
+}
+
+std::wstring to_wstring(unsigned long long int val)
+{
+  const std::size_t size = std::numeric_limits<unsigned long long int>::digits10 + 1;
+  wchar_t buffer[size];
+  std::swprintf(buffer, size, L"%llu", val);
+  return buffer;
+}
+
+std::wstring to_wstring(float val)
+{
+  const std::size_t size = std::numeric_limits<float>::max_exponent10
+                           + 6  // fixed precision (printf's default)
+                           + 3; // '-' + '.' + NULL
+  wchar_t buff[size];
+  std::swprintf(buff, size, L"%f", val);
+  return buff;
+}
+
+std::wstring to_wstring(double val)
+{
+  const std::size_t size = std::numeric_limits<double>::max_exponent10
+                           + 6  // fixed precision (printf's default)
+                           + 3; // '-' + '.' + NULL
+
+  wchar_t buff[size];
+  std::swprintf(buff, size, L"%f", val);
+  return buff;
+}
+
+std::wstring to_wstring(long double val)
+{
+  const std::size_t size = std::numeric_limits<long double>::max_exponent10
+                           + 6  // fixed precision (printf's default)
+                           + 3; // '-' + '.' + NULL
+  wchar_t buff[size];
+  std::swprintf(buff, size, L"%Lf", val);
+  return buff;
+}
+```
+
 ##バージョン
 ###言語
 - C++11
