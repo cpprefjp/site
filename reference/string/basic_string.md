@@ -148,10 +148,33 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 
 ##例
 ```cpp
+#include <iostream>
+#include <cstdio>
+#include <string>
+
+int main()
+{
+  // C文字列からstringオブジェクトを構築
+  std::string s = "hello";
+
+  // 文字列を追加(始点:0、始点からの文字数:5)
+  s += " world";
+
+  // 部分文字列を取得
+  std::string hello = s.substr(0, 5);
+
+  // ostreamへの出力
+  std::cout << hello << std::endl;
+
+  // C文字列を取得し、const char*を要求するAPIに渡す
+  std::printf("%s", s.c_str());
+}
 ```
 
 ###出力
 ```
+hello
+hello world
 ```
 
 ###参照
