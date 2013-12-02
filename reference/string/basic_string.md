@@ -82,7 +82,7 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 | `erase`      | 文字を削除する | |
 | `pop_back`   | 末尾の1文字を削除する | C++11 |
 | `replace`    | 文字列の一部を置換する | |
-| `swap`       | 他の`basic_string`オブジェクトとデータを入れ替える | |
+| [`swap`](./basic_string/swap.md)       | 他の`basic_string`オブジェクトとデータを入れ替える | |
 
 
 ###文字列の操作
@@ -142,7 +142,7 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 | `operator>=` | 左辺が右辺以上かの判定を行う | |
 | `operator<<` | ストリームへの出力 | |
 | `operator>>` | ストリームからの入力 | |
-| `swap`       | 2つの`basic_string`オブジェクトを入れ替える | |
+| [`swap`](./basic_string/swap_free.md)       | 2つの`basic_string`オブジェクトを入れ替える | |
 | `getline`    | 入力ストリームから1行読み込む | |
 
 
