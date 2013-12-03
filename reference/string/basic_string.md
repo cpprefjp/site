@@ -57,41 +57,41 @@ namespace std {
 ###領域
 
 | 名前                                               | 説明                                                 | 対応バージョン |
-|----------------------------------------------------|------------------------------------------------------|------|
-| [`size`](./basic_string/size.md)                   | 文字列の長さを取得する                               | |
-| [`length`](./basic_string/length.md)               | 文字列の長さを取得する                               | |
-| [`max_size`](./basic_string/max_size.md)           | 格納可能な最大の文字列長を取得する                   | |
-| [`resize`](./basic_string/resize.md)               | 文字列の長さを変更する                               | |
-| [`capacity`](./basic_string/capacity.md)           | メモリを再確保せずに格納できる最大の要素数を取得する | |
-| [`reserve`](./basic_string/reserve.md)             | `capacity`を変更する                                 | |
-| [`shrink_to_fit`](./basic_string/shrink_to_fit.md) | `capacity`を`size`まで縮小する                       | C++11 |
-| [`clear`](./basic_string/clear.md)                 | 文字列をクリアする                                   | |
-| [`empty`](./basic_string/empty.md)                 | 文字列が空かどうかを判定する                         | |
+|----------------------------------------------------|------------------------------------------------------|----------------|
+| [`size`](./basic_string/size.md)                   | 文字列の長さを取得する                               |                |
+| [`length`](./basic_string/length.md)               | 文字列の長さを取得する                               |                |
+| [`max_size`](./basic_string/max_size.md)           | 格納可能な最大の文字列長を取得する                   |                |
+| [`resize`](./basic_string/resize.md)               | 文字列の長さを変更する                               |                |
+| [`capacity`](./basic_string/capacity.md)           | メモリを再確保せずに格納できる最大の要素数を取得する |                |
+| [`reserve`](./basic_string/reserve.md)             | `capacity`を変更する                                 |                |
+| [`shrink_to_fit`](./basic_string/shrink_to_fit.md) | `capacity`を`size`まで縮小する                       | C++11          |
+| [`clear`](./basic_string/clear.md)                 | 文字列をクリアする                                   |                |
+| [`empty`](./basic_string/empty.md)                 | 文字列が空かどうかを判定する                         |                |
 
 
 ###要素アクセス
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------------------------|----------------------------|-------|
-| [`operator[]`](./basic_string/op_at.md) | 任意の位置の要素を取得する |       |
-| [`at`](./basic_string/at.md)            | 任意の位置の要素を取得する |       |
-| [`front`](./basic_string/front.md)      | 先頭要素を取得する         | C++11 |
-| [`back`](./basic_string/back.md)        | 末尾要素を取得する         | C++11 |
+| 名前                                    | 説明                       | 対応バージョン |
+|-----------------------------------------|----------------------------|----------------|
+| [`operator[]`](./basic_string/op_at.md) | 任意の位置の要素を取得する |                |
+| [`at`](./basic_string/at.md)            | 任意の位置の要素を取得する |                |
+| [`front`](./basic_string/front.md)      | 先頭要素を取得する         | C++11          |
+| [`back`](./basic_string/back.md)        | 末尾要素を取得する         | C++11          |
 
 
 ###文字列の変更
 
-| 名前 | 説明 | 対応バージョン |
-|--------------|----------------|------|
-| `operator+=` | 文字／文字列を追加する | |
-| `append`     | 文字／文字列を追加する | |
-| [`push_back`](./basic_string/push_back.md)  | 末尾に要素を追加する | |
-| [`assign`](./basic_string/assign.md)        | 文字列の再代入 | |
-| [`insert`](./basic_string/insert.md)        | 文字／文字列を挿入する | |
-| [`erase`](./basic_string/erase.md)          | 要素を削除する | |
-| [`pop_back`](./basic_string/pop_back.md)    | 末尾の1要素を削除する | C++11 |
-| [`replace`](./basic_string/replace.md)      | 文字列の一部を置換する | |
-| [`swap`](./basic_string/swap.md)       | 他の`basic_string`オブジェクトとデータを入れ替える | |
+| 名前                                            | 説明                                               | 対応バージョン |
+|-------------------------------------------------|----------------------------------------------------|----------------|
+| [`operator+=`](basic_string/op_plus_assign.md)  | 文字／文字列を追加する                             |                |
+| [`append`](basic_string/append.md)              | 文字／文字列を追加する                             |                |
+| [`push_back`](./basic_string/push_back.md)      | 末尾に要素を追加する                               |                |
+| [`assign`](./basic_string/assign.md)            | 文字列の再代入                                     |                |
+| [`insert`](./basic_string/insert.md)            | 文字／文字列を挿入する                             |                |
+| [`erase`](./basic_string/erase.md)              | 要素を削除する                                     |                |
+| [`pop_back`](./basic_string/pop_back.md)        | 末尾の1要素を削除する                              | C++11          |
+| [`replace`](./basic_string/replace.md)          | 文字列の一部を置換する                             |                |
+| [`swap`](./basic_string/swap.md)                | 他の`basic_string`オブジェクトとデータを入れ替える |                |
 
 
 ###文字列の操作
@@ -140,19 +140,19 @@ namespace std {
 
 ##非メンバ関数
 
-| 名前 | 説明 | 対応バージョン |
-|---------------------|----------------|------|
-| `operator+`  | 文字列の連結 | |
-| [`operator==`](./op_equal.md)         | 等値比較   | |
-| [`operator!=`](./op_not_equal.md)     | 非等値比較 | |
-| [`operator<`](./op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
-| [`operator<=`](./op_less_equal.md)    | 左辺が右辺以下かの判定を行う | |
-| [`operator>`](./op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
-| [`operator>=`](./op_greater_equal.md) | 左辺が右辺以上かの判定を行う | |
-| `operator<<` | ストリームへの出力 | |
-| `operator>>` | ストリームからの入力 | |
-| [`swap`](./basic_string/swap_free.md) | 2つの`basic_string`オブジェクトを入れ替える | |
-| `getline`    | 入力ストリームから1行読み込む | |
+| 名前                                             | 説明                                        | 対応バージョン |
+|--------------------------------------------------|---------------------------------------------|----------------|
+| [`operator+`](basic_string/op_plus.md)           | 文字列の連結                                |                |
+| [`operator==`](basic_string/op_equal.md)         | 等値比較                                    |                |
+| [`operator!=`](basic_string/op_not_equal.md)     | 非等値比較                                  |                |
+| [`operator<`](basic_string/op_less.md)           | 左辺が右辺より小さいかの判定を行う          |                |
+| [`operator<=`](basic_string/op_less_equal.md)    | 左辺が右辺以下かの判定を行う                |                |
+| [`operator>`](basic_string/op_greater.md)        | 左辺が右辺より大きいかの判定を行う          |                |
+| [`operator>=`](basic_string/op_greater_equal.md) | 左辺が右辺以上かの判定を行う                |                |
+| `operator<<`                                     | ストリームへの出力                          |                |
+| `operator>>`                                     | ストリームからの入力                        |                |
+| [`swap`](./basic_string/swap_free.md)            | 2つの`basic_string`オブジェクトを入れ替える |                |
+| `getline`                                        | 入力ストリームから1行読み込む               |                |
 
 
 ##例

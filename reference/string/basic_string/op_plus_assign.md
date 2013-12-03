@@ -47,6 +47,10 @@ basic_string& operator+=(initializer_list<charT> il);	// (4) C++11 から
 - (4) [`size`](./size.md)`() + il.size() >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
 
 
+##備考
+本メンバ関数の呼び出しによって、対象オブジェクトの要素への参照、ポインタ、および、イテレータは無効になる可能性がある。
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -91,3 +95,4 @@ Hello, world! :)
 | [`append`](./append.md)       | 文字／文字列を追加する |
 | [`push_back`](./push_back.md) | 文字を追加する         |
 | [`insert`](./insert.md)       | 文字／文字列を挿入する |
+| [`oeprator+`](./op_plus.md)   | 文字列を連結する       |
