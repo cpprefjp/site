@@ -100,7 +100,7 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 | [`find_first_not_of`](./basic_string/find_first_not_of.md) | 先頭から、指定文字が見つからない位置を検索する |                |
 | [`find_last_nof_of`](./basic_string/find_last_not_of.md)   | 末尾から、指定文字が見つからない位置を検索する |                |
 | `substr`                                                   | 部分文字列を取得する                           |                |
-| `compare`                                                  | 文字列比較                                     |                |
+| [`compare`](./basic_string/compare.md)                     | 他の文字列との比較を行う                       |                |
 
 
 ###メンバ定数
@@ -134,8 +134,8 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 | 名前 | 説明 | 対応バージョン |
 |---------------------|----------------|------|
 | `operator+`  | 文字列の連結 | |
-| `operator==` | 等値比較 | |
-| `operator!=` | 非等値比較 | |
+| [`operator==`](./op_equal.md)     | 等値比較   | |
+| [`operator!=`](./op_not_equal.md) | 非等値比較 | |
 | `operator<`  | 左辺が右辺より小さいかの判定を行う | |
 | `operator<=` | 左辺が右辺以下かの判定を行う | |
 | `operator>`  | 左辺が右辺より大きいかの判定を行う | |
