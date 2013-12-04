@@ -3,21 +3,20 @@
 
 MSDNライブラリの[setlocale、_wsetlocale](http://msdn.microsoft.com/ja-jp/library/x99tb11d%28v=vs.100%29.aspx)では、以下の形式の文字列が指定できると記述されている。`[]`で囲っている部分は省略可能であることを意味する。
 
-- "lang[_country_region[.code_page]]"
-- ".code_page"
-- ""
-- NULL
+- `"lang[_country_region[.code_page]]"`
+- `".code_page"`
+- `""`
+- `NULL`
 
-lang（言語）、contory_region（地域）、code_page（コードページ）の3要素として指定できる項目を明確にすることが本記事の目的である。
+`lang`（言語）、`contory_region`（地域）、`code_page`（コードページ）の3要素として指定できる項目を明確にすることが本記事の目的である。
 
 （以下、制作中につき、構成が変化する可能性があります）
 
 
 ##Windows 8 / Visual C++ 2012 Update 1 無印
 
-| | |
-|--------------------------------|-----------------------------------------|
 | 3文字表記（言語`_`地域） | 長い表記（言語`_`地域）                      |
+|--------------------------|----------------------------------------------|
 | `AFK_ZAF`                | `Afrikaans_South Africa`                     |
 | `AMH_ETH`                | `Amharic_Ethiopia`                           |
 | `ARA_SAU`                | `Arabic_Saudi Arabia`                        |
