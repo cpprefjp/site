@@ -134,15 +134,15 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 | 名前 | 説明 | 対応バージョン |
 |---------------------|----------------|------|
 | `operator+`  | 文字列の連結 | |
-| [`operator==`](./op_equal.md)     | 等値比較   | |
-| [`operator!=`](./op_not_equal.md) | 非等値比較 | |
-| `operator<`  | 左辺が右辺より小さいかの判定を行う | |
-| `operator<=` | 左辺が右辺以下かの判定を行う | |
-| `operator>`  | 左辺が右辺より大きいかの判定を行う | |
-| `operator>=` | 左辺が右辺以上かの判定を行う | |
+| [`operator==`](./op_equal.md)         | 等値比較   | |
+| [`operator!=`](./op_not_equal.md)     | 非等値比較 | |
+| [`operator<`](./op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
+| [`operator<=`](./op_less_equal.md)    | 左辺が右辺以下かの判定を行う | |
+| [`operator>`](./op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
+| [`operator>=`](./op_greater_equal.md) | 左辺が右辺以上かの判定を行う | |
 | `operator<<` | ストリームへの出力 | |
 | `operator>>` | ストリームからの入力 | |
-| [`swap`](./basic_string/swap_free.md)       | 2つの`basic_string`オブジェクトを入れ替える | |
+| [`swap`](./basic_string/swap_free.md) | 2つの`basic_string`オブジェクトを入れ替える | |
 | `getline`    | 入力ストリームから1行読み込む | |
 
 
