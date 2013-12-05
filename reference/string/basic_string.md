@@ -27,7 +27,7 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|----------------|------|
 | [`(constructor)`](./basic_string/basic_string.md) | コンストラクタ | |
-| `(destructor)`                                    | デストラクタ   | |
+| [`(destructor)`](./basic_string/-basic_string.md) | デストラクタ   | |
 | [`operator=`](./basic_string/op_assign.md)        | 代入演算子     | |
 
 
