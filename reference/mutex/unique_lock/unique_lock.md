@@ -27,7 +27,7 @@ unique_lock(unique_lock&& u) noexcept;
 - `unique_lock() noexcept;`<br/>空の`unique_lock`オブジェクトを構築する。ミューテックスオブジェクトへのポインタを保持せず、[`owns_lock()`](./owns_lock.md)` == false`となる。
 - `explicit unique_lock(mutex_type& m);`<br/>ミューテックスオブジェクトへの参照を受け取り、`m.lock()`を呼び出す。ミューテックスオブジェクトへのポインタを保持し、[`owns_lock()`](./owns_lock.md)` == true`となる。
 - `unique_lock(mutex_type& m, `[`defer_lock_t`](/reference/mutex/defer_lock.md)`) noexcept;`<br/>ミューテックスオブジェクトへの参照を受け取り、ロック取得操作をここでは呼び出さない。ミューテックスオブジェクトへのポインタを保持し、
-[`owns_lock()`](./owns_lock.md)` == true`となる。 
+[`owns_lock()`](./owns_lock.md)` == false`となる。 
 - `unique_lock(mutex_type& m, `[`try_to_lock_t`](/reference/mutex/try_to_lock.md)`);`<br/>ミューテックスオブジェクトへの参照を受け取り、`m.try_lock()`を呼び出す。ミューテックスオブジェクトへのポインタを保持し、[`owns_lock()`](./owns_lock.md)` == m.try_lock()`となる。
 - `unique_lock(mutex_type& m, `[`adopt_lock_t`](/reference/mutex/adopt_lock.md)`);`<br/>ロック取得済みのミューテックスオブジェクトへの参照を受け取り、ロック取得操作を呼び出さない。ミューテックスオブジェクトへのポインタを保持し、[`owns_lock()`](./owns_lock.md)` == true`となる。
 - `template <class Clock, class Duration>`<br/>`unique_lock(mutex_type& m, const chrono::`[time_point`](/reference/chrono/time_point.md)`<Clock, Duration>& abs_time);`<br/>ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_until(abs_time)`を呼び出す。ミューテックスオブジェクトへのポインタを保持し、[`owns_lock()`](./owns_lock.md)` == m.try_lock_until(abs_time)`となる。
