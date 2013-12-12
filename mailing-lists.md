@@ -39,6 +39,9 @@ Study Group 11は、データベース関連のライブラリインタフェー
 - [SG12 - UB(Undefined Behavior)](http://www.open-std.org/mailman/listinfo/ub)<br/>
 Study Group 12は、C++言語における未定義の振る舞いについて議論する場所です。 
 
+- [SG13 – Graphics](http://groups.google.com/a/isocpp.org/forum/?fromgroups#!forum/graphics)<br/>
+Study Group 13は、C++用のシンプルな「軽量2D」グラフィックライブラリを研究する場所です。
+
 - [cpp-threads -- C++ threads standardisation](http://www.decadent.org.uk/cgi-bin/mailman/listinfo/cpp-threads)<br/>
 C++標準の言語とライブラリに、並行プログラミングの提案を行うための議論場所です。 
 アーカイブは公開されていますが、参加は制限されています。 
