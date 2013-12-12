@@ -157,10 +157,10 @@ int main()
   // C文字列からstringオブジェクトを構築
   std::string s = "hello";
 
-  // 文字列を追加(始点:0、始点からの文字数:5)
+  // 末尾に文字列を追加
   s += " world";
 
-  // 部分文字列を取得
+  // 部分文字列を取得(始点:0、始点からの文字数:5)
   std::string hello = s.substr(0, 5);
 
   // ostreamへの出力
