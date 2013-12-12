@@ -1,15 +1,14 @@
-#end
+#cend(C++11)
 ```cpp
-iterator end() noexcept;
-const_iterator end() const noexcept;
+const_iterator cend() const noexcept;
 ```
 
 ##概要
-末尾の次を指すイテレータを取得する。
+末尾の次を指す読み取り専用イテレータを取得する。
 
 
 ##戻り値
-末尾の次を指すイテレータ
+末尾の次を指す読み取り専用イテレータ
 
 
 ##例外
@@ -32,7 +31,7 @@ int main()
   s.insert(s.begin() + 2, '\0');
 
   // 文字列オブジェクトsに含まれる、ヌル文字を除く全ての要素を出力
-  std::for_each(s.begin(), s.end(), [](char c) {
+  std::for_each(s.cbegin(), s.cend(), [](char c) {
     if (c != '\0')
       std::cout << c << std::endl;
   });

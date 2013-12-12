@@ -1,15 +1,14 @@
-#begin
+#cbegin(C++11)
 ```cpp
-iterator begin() noexcept;
-const_iterator begin() const noexcept;
+const_iterator cbegin() const noexcept;
 ```
 
 ##概要
-文字列の先頭を指すイテレータを取得する。
+文字列の先頭を指す読み取り専用イテレータを取得する。
 
 
 ##戻り値
-先頭を指すイテレータ。
+先頭を指す読み取り専用イテレータ。
 
 
 ##例外
@@ -26,10 +25,10 @@ int main()
   std::string s = "hello";
 
   // 先頭へのイテレータを取得
-  decltype(s)::iterator it = s.begin();
+  decltype(s)::const_iterator it = s.cbegin();
 
   // イテレータが指している要素を参照
-  char& c = *it;
+  const char& c = *it;
   std::cout << c << std::endl;
 }
 ```

@@ -37,8 +37,8 @@ C++11より`u16string`, `u32string`が追加されている。それぞれ、UTF
 |---------------------------------------|----------------|------|
 | [`begin`](./basic_string/begin.md)    | 先頭の要素を指すイテレータを取得する | |
 | [`end`](./basic_string/end.md)        | 末尾の次を指すイテレータを取得する | |
-| [`cbegin`](./basic_string/begin.md)   | 先頭の要素を指す読み取り専用イテレータを取得する | C++11 |
-| [`cend`](./basic_string/end.md)       | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
+| [`cbegin`](./basic_string/cbegin.md)  | 先頭の要素を指す読み取り専用イテレータを取得する | C++11 |
+| [`cend`](./basic_string/cend.md)      | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
 | [`rbegin`](./basic_string/rbegin.md)  | 末尾を指す逆イテレータを取得する | |
 | [`rend`](./basic_string/rend.md)      | 先頭の前を指す逆イテレータを取得する | |
 | [`crbegin`](./basic_string/rbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
