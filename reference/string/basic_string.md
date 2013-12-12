@@ -12,6 +12,7 @@ namespace std {
   typedef basic_string<wchar_t>  wstring;
 }
 ```
+* char_traits[link ./char_traits.md]
 * allocator[link /reference/memory/allocator.md]
 
 ##概要
