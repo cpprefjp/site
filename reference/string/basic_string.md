@@ -43,15 +43,15 @@ namespace std {
 ###イテレータ
 
 | 名前 | 説明 | 対応バージョン |
-|---------------------------------------|----------------|------|
-| [`begin`](./basic_string/begin.md)    | 先頭の要素を指すイテレータを取得する | |
-| [`end`](./basic_string/end.md)        | 末尾の次を指すイテレータを取得する | |
-| [`cbegin`](./basic_string/cbegin.md)  | 先頭の要素を指す読み取り専用イテレータを取得する | C++11 |
-| [`cend`](./basic_string/cend.md)      | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
-| [`rbegin`](./basic_string/rbegin.md)  | 末尾を指す逆イテレータを取得する | |
-| [`rend`](./basic_string/rend.md)      | 先頭の前を指す逆イテレータを取得する | |
-| [`crbegin`](./basic_string/rbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
-| [`crend`](./basic_string/rend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++11 |
+|----------------------------------------|----------------|------|
+| [`begin`](./basic_string/begin.md)     | 先頭の要素を指すイテレータを取得する | |
+| [`end`](./basic_string/end.md)         | 末尾の次を指すイテレータを取得する | |
+| [`cbegin`](./basic_string/cbegin.md)   | 先頭の要素を指す読み取り専用イテレータを取得する | C++11 |
+| [`cend`](./basic_string/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
+| [`rbegin`](./basic_string/rbegin.md)   | 末尾を指す逆イテレータを取得する | |
+| [`rend`](./basic_string/rend.md)       | 先頭の前を指す逆イテレータを取得する | |
+| [`crbegin`](./basic_string/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`crend`](./basic_string/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++11 |
 
 
 ###領域

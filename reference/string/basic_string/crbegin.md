@@ -1,11 +1,10 @@
-#rbegin
+#crbegin
 ```cpp
-reverse_iterator rbegin() noexcept;
-const_reverse_iterator rbegin() const noexcept;
+const_reverse_iterator crbegin() const noexcept;
 ```
 
 ##概要
-末尾を指す逆イテレータを取得する
+末尾を指す読み取り専用逆イテレータを取得する
 
 
 ##戻り値
@@ -26,10 +25,10 @@ int main()
   std::string s = "hello";
 
   // 末尾への逆イテレータを取得
-  decltype(s)::reverse_iterator it = s.rbegin();
+  decltype(s)::const_reverse_iterator it = s.crbegin();
 
   // イテレータが指している要素を参照
-  char& c = *it;
+  const char& c = *it;
   std::cout << c << std::endl;
 }
 ```
