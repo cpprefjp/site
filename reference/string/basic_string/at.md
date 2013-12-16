@@ -5,7 +5,7 @@ reference at(size_type pos);
 ```
 
 ##概要
-`pos` 番目の文字への参照を返す。
+`pos` 番目の文字への参照を取得する。
 
 
 ##要件
@@ -22,10 +22,30 @@ reference at(size_type pos);
 
 ##例
 ```cpp
+#include <iostream>
+#include <string>
+#include <stdexcept>
+
+int main()
+{
+  std::string s = "hello";
+
+  char& c = s.at(1);
+  std::cout << c << std::endl;
+
+  try {
+	s.at(5);
+  }
+  catch (std::out_of_range&) {
+	std::cout << "access error" << std::endl;
+  }
+}
 ```
 
 ###出力
 ```
+e
+access error
 ```
 
 ##参照

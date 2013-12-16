@@ -5,7 +5,7 @@ reference operator[](size_type pos) noexcept;
 ```
 
 ##概要
-`pos` 文字目の文字への参照を返す。
+`pos` 文字目の文字への参照を取得する。
 
 
 ##要件
@@ -13,6 +13,12 @@ reference operator[](size_type pos) noexcept;
 
 
 ##戻り値
+- C++03
+`pos <` [`size()`](./size.md) の場合、`*(`[`begin()`](./begin.md)` + pos)` を返す。 
+`pos ==` [`size()`](./size.md)の場合、`charT()` の値を持ったオブジェクトへの参照を返す。 
+それ以外の場合は、未定義動作。
+
+- C++11以降
 `pos < `[`size()`](./size.md) の場合、`*(`[`begin()`](./begin.md)` + pos)` を返す。 
 そうでない場合は、`charT()` の値を持ったオブジェクトへの参照を返す。 
 後者の場合、参照を変更するべきではない。
@@ -28,10 +34,21 @@ reference operator[](size_type pos) noexcept;
 
 ##例
 ```cpp
+#include <iostream>
+#include <string>
+
+int main()
+{
+  std::string s = "hello";
+  char& c = s[1];
+
+  std::cout << c << std::endl;
+}
 ```
 
 ###出力
 ```
+e
 ```
 
 ##参照
