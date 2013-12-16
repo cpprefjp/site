@@ -5,7 +5,7 @@ reference at(size_type pos);
 ```
 
 ##概要
-`pos` 番目の文字への参照を取得する。
+`pos` 番目の要素への参照を取得する。
 
 
 ##要件

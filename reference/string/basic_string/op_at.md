@@ -5,7 +5,7 @@ reference operator[](size_type pos) noexcept;
 ```
 
 ##概要
-`pos` 文字目の文字への参照を取得する。
+`pos` 番目目の要素への参照を取得する。
 
 
 ##要件

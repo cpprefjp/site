@@ -1,11 +1,11 @@
 #front(C++11)
 ```cpp
-const charT& front() const noexcept;
-charT& front() noexcept;
+const charT& front() const;
+charT& front();
 ```
 
 ##概要
-先頭文字への参照を返す。
+先頭要素への参照を返す。
 
 
 ##要件
@@ -13,19 +13,26 @@ charT& front() noexcept;
 
 
 ##戻り値
-`operator[](0)` の結果。
-
-
-##例外
-投げない
+`operator[](0)` の結果を返す。
 
 
 ##例
 ```cpp
+#include <iostream>
+#include <string>
+
+int main()
+{
+  std::string s = "hello";
+  
+  char& c = s.front();
+  std::cout << c << std::endl;
+}
 ```
 
 ###出力
 ```
+h
 ```
 
 ##参照

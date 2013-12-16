@@ -73,10 +73,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|----------------------------|-------|
-| [`operator[]`](./basic_string/op_at.md) | 任意の位置の文字を取得する |       |
-| [`at`](./basic_string/at.md)            | 任意の位置の文字を取得する |       |
-| [`front`](./basic_string/front.md)      | 先頭の文字を取得する       | C++11 |
-| [`back`](./basic_string/back.md)        | 末尾の文字を取得する       | C++11 |
+| [`operator[]`](./basic_string/op_at.md) | 任意の位置の要素を取得する |       |
+| [`at`](./basic_string/at.md)            | 任意の位置の要素を取得する |       |
+| [`front`](./basic_string/front.md)      | 先頭要素を取得する         | C++11 |
+| [`back`](./basic_string/back.md)        | 末尾要素を取得する         | C++11 |
 
 
 ###文字列の変更
