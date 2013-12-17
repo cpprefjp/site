@@ -1,6 +1,6 @@
 #operator*
 ```cpp
-ostream_iterator<T, CharT, Traits>& operator*();
+ostream_iterator& operator*();
 ```
 
 ##概要

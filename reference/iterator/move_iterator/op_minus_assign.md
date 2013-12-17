@@ -9,6 +9,7 @@ move_iterator& operator-=(difference_type n);
 
 ##効果
 `current -= n;`
+
 ※`current`は、メンバ変数として保持しているアダプト元のイテレータ変数
 
 

@@ -7,7 +7,11 @@ reverse_iterator& operator=(const reverse_iterator<U>& u);
 ```
 
 ##概要
-- `reverse_iterator& operator=(const reverse_iterator<U>& u);`<br/>`u.base()`をメンバ変数`current`に保持する。<br/>要件： `U`が`Iterator`に変換可能であること
+- `reverse_iterator& operator=(const reverse_iterator<U>& u);`
+
+`u.base()`をメンバ変数`current`に保持する。
+
+要件： `U`が`Iterator`に変換可能であること
 
 
 ##戻り値

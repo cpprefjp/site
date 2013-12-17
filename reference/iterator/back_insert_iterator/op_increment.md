@@ -1,11 +1,12 @@
 #operator++
 ```cpp
-back_insert_iterator<Container>& operator++();
-back_insert_iterator<Container> operator++(int);
+back_insert_iterator& operator++();
+back_insert_iterator operator++(int);
 ```
 
 ##概要
 イテレータをインクリメントする。
+
 `back_insert_iterator`では何もしない。
 
 ##戻り値

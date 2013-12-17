@@ -10,9 +10,19 @@ move_iterator(move_iterator&&) noexcept = default;
 ##move_iteratorの構築
 `move_iterator`オブジェクトを、次に示す通りの要素で初期化する。
 
-- `move_iterator()`<br/>デフォルトコンストラクタ。内容する元となるイテレータの値を、`Iterator`の初期化された値を使用して初期化する。
-- `explicit move_iterator(Iterator i)`<br/>元となるイテレータを受け取り、メンバ変数に保持する。
-- `move_iterator(const move_iterator<U>& u)`<br/>`u.base()`をメンバ変数に保持する。<br/>要件： `U`が`Iterator`に変換可能であること
+- `move_iterator()`
+
+デフォルトコンストラクタ。内容する元となるイテレータの値を、`Iterator`の初期化された値を使用して初期化する。
+
+- `explicit move_iterator(Iterator i)`
+
+元となるイテレータを受け取り、メンバ変数に保持する。
+
+- `move_iterator(const move_iterator<U>& u)`
+
+`u.base()`をメンバ変数に保持する。
+
+要件： `U`が`Iterator`に変換可能であること
 
 
 ##例

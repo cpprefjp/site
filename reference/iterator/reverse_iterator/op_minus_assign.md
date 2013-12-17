@@ -6,7 +6,8 @@ reverse_iterator&
 
 ##概要
 イテレータ自身を`n`回逆に進める。
-`reverse_iterator`なので進める。
+
+`reverse_iterator`は進める。
 
 
 ##効果

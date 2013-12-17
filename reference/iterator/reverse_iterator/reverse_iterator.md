@@ -7,9 +7,19 @@ template <class U> reverse_iterator(const reverse_iterator<U>& u);
 
 ##reverse_iteratorの構築
 `reverse_iterator`オブジェクトを、次に示す通りの要素で初期化する。
-- `reverse_iterator()`<br/>デフォルトコンストラクタ。内容する元となるイテレータである`current`メンバ変数を、`Iterator`の初期化された値を使用して初期化する。
-- `explicit reverse_iterator(Iterator x)`<br/>元となるイテレータ`x`を受け取り、メンバ変数`current`に保持する。
-- `reverse_iterator(const reverse_iterator<U>& u)`<br/>`u.current`をメンバ変数`current`に保持する。<br/>要件： `U`が`Iterator`に変換可能であること
+- `reverse_iterator()`
+
+デフォルトコンストラクタ。内容する元となるイテレータである`current`メンバ変数を、`Iterator`の初期化された値を使用して初期化する。
+
+- `explicit reverse_iterator(Iterator x)`
+
+元となるイテレータ`x`を受け取り、メンバ変数`current`に保持する。
+
+- `reverse_iterator(const reverse_iterator<U>& u)`
+
+`u.current`をメンバ変数`current`に保持する。
+
+要件： `U`が`Iterator`に変換可能であること
 
 
 ##例

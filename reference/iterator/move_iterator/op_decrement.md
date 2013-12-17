@@ -10,14 +10,22 @@ move_iterator operator--(int);
 
 ##効果
 
-前置デクリメント `operator--()`：
-`--`[`base`](./base.md)`();`
-`return *this;`
+- 前置デクリメント `operator--()`：
 
-後置デクリメント `operator--(int)`：
-`move_iterator tmp = *this;`
-`--`[`base`](./base.md)`();`
-`return tmp;`
+```cpp
+--base();
+return *this;
+```
+* base[link ./base.md]
+
+- 後置デクリメント `operator--(int)`：
+
+```cpp
+move_iterator tmp = *this;
+--base();
+return tmp;
+```
+* base[link ./base.md]
 
 
 ##例

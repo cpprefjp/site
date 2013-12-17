@@ -6,7 +6,11 @@ move_iterator& operator=(move_iterator&&) = default;
 ```
 
 ##概要
-- `move_iterator& operator=(const move_iterator<U>& u)`<br/>`u.base()`をメンバ変数に保持する。<br/>要件： `U`が`Iterator`に変換可能であること
+- `move_iterator& operator=(const move_iterator<U>& u)`
+
+`u.base()`をメンバ変数に保持する。
+
+要件： `U`が`Iterator`に変換可能であること
 
 
 ##例

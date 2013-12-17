@@ -5,8 +5,13 @@ ostreambuf_iterator(streambuf_type* s) noexcept;
 ```
 
 ##ostreambuf_iteratorオブジェクトの構築
-- `ostreambuf_iterator(ostreamtype& s) noexcept`<br/>`s.rdbuf()`をメンバ変数として保持する。
-- `ostreambuf_iterator(streambuf_type* s) noexcept`<br/>`s`をメンバ変数として保持する
+- `ostreambuf_iterator(ostreamtype& s) noexcept`
+
+`s.rdbuf()`をメンバ変数として保持する。
+
+- `ostreambuf_iterator(streambuf_type* s) noexcept`
+
+`s`をメンバ変数として保持する
 
 
 ##例

@@ -6,18 +6,25 @@ reverse_iterator operator--(int);
 
 ##概要
 イテレータをデクリメントする。
-`reverse_iterator`なので元となるイテレータを進める。
+
+`reverse_iterator`は元となるイテレータを進める。
 
 
 ##効果
-前置デクリメント `operator--()`：
-`++current;`
-`return *this;`
+- 前置デクリメント `operator--()`：
 
-後置デクリメント `operator--(int)`：
-`reverse_iterator tmp = *this;`
-`++current;`
-`return tmp;`
+```cpp
+++current;
+return *this;
+```
+
+- 後置デクリメント `operator--(int)`：
+
+```cpp
+reverse_iterator tmp = *this;
+++current;
+return tmp;
+```
 
 
 ##例

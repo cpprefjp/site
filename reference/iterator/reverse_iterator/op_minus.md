@@ -6,6 +6,7 @@ reverse_iterator
 
 ##概要
 イテレータを`n`回逆に進める。
+
 `reverse_iterator`なので元のイテレータを進める。
 
 

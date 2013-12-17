@@ -6,6 +6,7 @@ ostream_iterator& operator++(int);
 
 ##概要
 イテレータをインクリメントする。
+
 `ostream_iterator`では何もしない。
 
 

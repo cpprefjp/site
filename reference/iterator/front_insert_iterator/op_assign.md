@@ -1,10 +1,10 @@
 #代入演算子
 ```cpp
-front_insert_iterator<Container>&
+front_insert_iterator&
   operator=(const typename Container::value_type& value);
 
 // C++11から
-front_insert_iterator<Container>&
+front_insert_iterator&
   operator=(typename Container::value_type&& value);
 ```
 
@@ -13,8 +13,8 @@ front_insert_iterator<Container>&
 
 
 ##効果
-`const`参照版：`container->push_front(value);`
-右辺値参照版： `container->push_front(std::move(value));`
+- `const`参照版：`container->push_front(value);`
+- 右辺値参照版： `container->push_front(`[`std::move`](/reference/utility/move.md)`(value));`
 
 
 ##戻り値

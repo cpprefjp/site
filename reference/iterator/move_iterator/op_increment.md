@@ -9,14 +9,22 @@ move_iterator operator++(int);
 
 
 ##効果
-前置インクリメント `operator++()`：
-`++`[`base`](./base.md)`();`
-`return *this;`
+- 前置インクリメント `operator++()`：
 
-後置インクリメント `operator++(int)`：
-`move_iterator tmp = *this;`
-`++`[`base`](./base.md)`();`
-`return tmp;`
+```cpp
+++base();
+return *this;
+```
+* base[link ./base.md]
+
+- 後置インクリメント `operator++(int)`：
+
+```cpp
+move_iterator tmp = *this;
+++base();
+return tmp;
+```
+* base[link ./base.md]
 
 
 ##例

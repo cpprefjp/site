@@ -8,9 +8,12 @@ reference operator*() const;
 
 
 ##効果
-`deref_tmp = current;`
-`--deref_tmp;`
-`return *deref_tmp;`
+```cpp
+deref_tmp = current;
+--deref_tmp;
+return *deref_tmp;
+```
+
 ※`deref_tmp`は、ぶら下がり参照を避けるために関数内のローカル変数ではなく、メンバ変数として保持される。
 
 

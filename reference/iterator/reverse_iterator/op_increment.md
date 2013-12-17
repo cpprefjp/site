@@ -11,14 +11,20 @@ reverse_iterator operator++(int);
 
 ##効果
 
-前置インクリメント `operator++()`：
-`--current;`
-`return *this;`
+- 前置インクリメント `operator++()`：
 
-後置インクリメント `operator++(int)`：
-`reverse_iterator tmp = *this;`
-`--current;`
-`return tmp;`
+```cpp
+--current;
+return *this;
+```
+
+- 後置インクリメント `operator++(int)`：
+
+```cpp
+reverse_iterator tmp = *this;
+--current;
+return tmp;
+```
 
 
 ##例

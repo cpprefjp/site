@@ -1,6 +1,6 @@
 #operator*
 ```cpp
-insert_iterator<Container>& operator*();
+insert_iterator& operator*();
 ```
 
 ##概要
