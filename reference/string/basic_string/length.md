@@ -1,6 +1,6 @@
-#size
+#length
 ```cpp
-size_type size() const noexcept;
+size_type length() const noexcept;
 ```
 
 ##概要
@@ -21,10 +21,6 @@ size_type size() const noexcept;
 定数時間
 
 
-##備考
-この関数は、[`length()`](./length.md)メンバ関数と同じ効果を持つ。`size()`はコンテナインタフェースのために用意されているものだが、どちらを使用してもよい。
-
-
 ##例
 ```cpp
 #include <iostream>
@@ -34,7 +30,7 @@ int main()
 {
   std::string s = "hello";
 
-  std::size_t n = s.size();
+  std::size_t n = s.length();
   std::cout << n << std::endl;
 }
 ```

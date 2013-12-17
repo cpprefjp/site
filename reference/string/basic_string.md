@@ -59,7 +59,7 @@ namespace std {
 | 名前                                               | 説明                                                 | 対応バージョン |
 |----------------------------------------------------|------------------------------------------------------|------|
 | [`size`](./basic_string/size.md)                   | 文字列の長さを取得する                               | |
-| [`length`](./basic_string/size.md)                 | 文字列の長さを取得する                               | |
+| [`length`](./basic_string/length.md)               | 文字列の長さを取得する                               | |
 | [`max_size`](./basic_string/max_size.md)           | 格納可能な最大の文字列長を取得する                   | |
 | [`resize`](./basic_string/resize.md)               | 文字列の長さを変更する                               | |
 | [`capacity`](./basic_string/capacity.md)           | メモリを再確保せずに格納できる最大の要素数を取得する | |

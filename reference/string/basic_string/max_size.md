@@ -4,23 +4,11 @@ size_type max_size() const noexcept;
 ```
 
 ##概要
-オブジェクト内に格納できる最大文字数を返す。
-
-
-##要件
-
-
-
-##効果
-
-
-
-##事後条件
-
+格納可能な最大の文字列長を取得する。
 
 
 ##戻り値
-
+格納可能な最大の文字列長。
 
 
 ##例外
@@ -31,16 +19,24 @@ size_type max_size() const noexcept;
 定数時間
 
 
-##備考
-
-
-
 ##例
 ```cpp
+#include <iostream>
+#include <string>
+
+int main()
+{
+  std::string s;
+  std::size_t n = s.max_size();
+
+  std::cout << n << std::endl;
+}
 ```
+* max_size[color ff0000]
 
 ###出力
 ```
+4611686018427387897
 ```
 
 ##参照
