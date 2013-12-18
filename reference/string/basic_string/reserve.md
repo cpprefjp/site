@@ -22,10 +22,29 @@ void reserve(size_type res_arg = 0);
 
 ##例
 ```cpp
+#include <iostream>
+#include <string>
+
+int main()
+{
+  std::string s;
+  s.reserve(3);
+
+  // 確保したサイズを確認
+  std::size_t cap = s.capacity();
+  std::cout << cap << std::endl;
+
+  // reserveしたサイズを越えない限り、
+  // push_backのたびにメモリの再確保が起こらない
+  s.push_back('a');
+  s.push_back('b');
+  s.push_back('c');
+}
 ```
 
-###出力
+###出力例
 ```
+3
 ```
 
 ##参照

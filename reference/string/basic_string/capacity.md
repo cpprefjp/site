@@ -4,44 +4,36 @@ size_type capacity() const noexcept;
 ```
 
 ##概要
-確保済みのバッファサイズを返す。
-
-
-##要件
-
-
-
-##効果
-
-
-
-##事後条件
-
+メモリを再確保せずに格納できる最大の要素数を取得する。
 
 
 ##戻り値
-確保済みのバッファサイズ
+メモリを再確保せずに格納できる最大の要素数
 
 
 ##例外
 投げない
 
 
-##計算量
-
-
-
-##備考
-
-
-
 ##例
-
 ```cpp
+#include <iostream>
+#include <string>
+
+int main()
+{
+  std::string s;
+  s.reserve(3);
+
+  // 確保したサイズを確認
+  std::size_t cap = s.capacity();
+  std::cout << cap << std::endl;
+}
 ```
 
-###出力
+###出力例
 ```
+3
 ```
 
 ##参照

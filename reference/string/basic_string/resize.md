@@ -28,10 +28,23 @@ void resize(size_type n);
 
 ##例
 ```cpp
+#include <iostream>
+#include <string>
+
+int main()
+{
+  std::string s = "hello";
+
+  // sの長さを10に変更。大きくなった場所には'x'を埋める。
+  s.resize(10, 'x');
+
+  std::cout << s << std::endl;
+}
 ```
 
 ###出力
 ```
+helloxxxxx
 ```
 
 ##参照
