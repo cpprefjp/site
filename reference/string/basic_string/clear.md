@@ -4,19 +4,11 @@ void clear() noexcept;
 ```
 
 ##概要
-`erase(begin(), end());`と同じ。
-
-
-##要件
-
+全ての要素を削除する。
 
 
 ##効果
-
-
-
-##事後条件
-
+[`erase`](./erase.md)`(`[`begin()`](./begin.md)`, `[`end()`](./end.md)`);`と同じ。
 
 
 ##戻り値
@@ -26,16 +18,21 @@ void clear() noexcept;
 ##例外
 投げない
 
-##計算量
-
-
-
-##備考
-
-
 
 ##例
 ```cpp
+#include <cassert>
+#include <string>
+
+int main()
+{
+  std::string s = "hello";
+
+  // 文字列を空にする
+  s.clear();
+
+  assert(s.empty());
+}
 ```
 
 ###出力

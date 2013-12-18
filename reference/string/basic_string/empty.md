@@ -7,36 +7,30 @@ bool empty() const noexcept;
 文字列が空か判定する。
 
 
-##要件
-
-
-
-##効果
-
-
-
-##事後条件
-
-
-
 ##戻り値
-[`size()`](./size.md)` == 0` の評価結果。
+[`size()`](./size.md) `== 0` の評価結果。
 
 
 ##例外
 投げない
 
 
-##計算量
-
-
-
-##備考
-
-
-
 ##例
 ```cpp
+#include <cassert>
+#include <string>
+
+int main()
+{
+  std::string s = "hello";
+  assert(!s.empty());
+
+  s.clear();
+  assert(s.empty());
+
+  s = "";
+  assert(s.empty());
+}
 ```
 
 ###出力
