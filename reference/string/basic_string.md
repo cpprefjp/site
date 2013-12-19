@@ -101,14 +101,14 @@ namespace std {
 | [`c_str`](./basic_string/c_str.md)                         | C言語の文字列表現を取得する                    |                |
 | [`data`](./basic_string/data.md)                           | 文字配列表現を取得する                         |                |
 | [`get_allocator`](./basic_string/get_allocator.md)         | アロケータを取得する                           |                |
-| `copy`                                                     | 他の文字列にコピーする                         |                |
+| [`copy`](./basic_string/copy.md)                           | 他の文字列にコピーする                         |                |
 | [`find`](./basic_string/find.md)                           | 指定文字列を検索する                           |                |
 | [`rfind`](./basic_string/rfind.md)                         | 最後に現れる指定文字列を検索する               |                |
 | [`find_first_of`](./basic_string/find_first_of.md)         | 最初に現れる指定文字を検索する                 |                |
 | [`find_last_of`](./basic_string/find_last_of.md)           | 最後に現れる指定文字を検索する                 |                |
 | [`find_first_not_of`](./basic_string/find_first_not_of.md) | 先頭から、指定文字が見つからない位置を検索する |                |
 | [`find_last_nof_of`](./basic_string/find_last_not_of.md)   | 末尾から、指定文字が見つからない位置を検索する |                |
-| `substr`                                                   | 部分文字列を取得する                           |                |
+| [`substr`](./basic_string/substr.md)                       | 部分文字列を取得する                           |                |
 | [`compare`](./basic_string/compare.md)                     | 他の文字列との比較を行う                       |                |
 
 
