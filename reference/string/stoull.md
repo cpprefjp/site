@@ -5,6 +5,7 @@ namespace std {
   unsigned long long stoull(const wstring& str, size_t* idx = nullptr, unsigned long long base = 10);
 }
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 文字列`str`を数値として読み取って、`unsigned long long`型の値に変換する。

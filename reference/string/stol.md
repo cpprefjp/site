@@ -5,6 +5,7 @@ namespace std {
   long stol(const wstring& str, size_t* idx = nullptr, long base = 10);
 }
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 文字列`str`を数値として読み取って、`long`型の値に変換する。
