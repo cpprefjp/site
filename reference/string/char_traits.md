@@ -27,7 +27,7 @@ namespace std {
 | [`eq`](./char_traits/eq.md)               | 等値比較 | |
 | [`lt`](./char_traits/lt.md)               | 小なり比較 | |
 | [`compare`](./char_traits/compare.md)     | 比較 | |
-| `length`       | 文字列長を取得する | |
+| [`length`](./char_traits/length.md)       | 文字列長を取得する | |
 | `move`         | 文字列を他のシーケンスにコピーする | |
 | `copy`         | 文字列を他のシーケンスにコピーする。 | |
 | `not_eof`      | 文字がファイル終端文字(EOF)じゃないかをテストする | |
