@@ -23,19 +23,19 @@ namespace std {
 
 | 名前           | 説明 | 対応バージョン |
 |----------------|---------------------------------------------------|-----|
-| [`assign`](./char_traits/assign.md)       | 代入 | |
-| [`eq`](./char_traits/eq.md)               | 等値比較 | |
-| [`lt`](./char_traits/lt.md)               | 小なり比較 | |
-| [`compare`](./char_traits/compare.md)     | 比較 | |
-| [`length`](./char_traits/length.md)       | 文字列長を取得する | |
-| [`find`](./char_traits/find.md)           | 文字列中から特定の値を検索する | |
-| [`move`](./char_traits/move.md)           | 文字列を他のシーケンスにコピーする | |
-| [`copy`](./char_traits/copy.md)           | 文字列を他のシーケンスにコピーする | |
-| [`not_eof`](./char_traits/not_eof.md)     | 文字がファイル終端文字(EOF)じゃないかを判定する | |
-| `to_char_type` | 数値を文字に変換する | |
-| `to_int_type`  | 文字を数値に変換する | |
-| `eq_int_type`  | 数値の等値比較 | |
-| [`eof`](./char_traits/eof.md)             | ファイル終端文字(EOF)を表す数値を取得する | |
+| [`assign`](./char_traits/assign.md)             | 代入 | |
+| [`eq`](./char_traits/eq.md)                     | 等値比較 | |
+| [`lt`](./char_traits/lt.md)                     | 小なり比較 | |
+| [`compare`](./char_traits/compare.md)           | 比較 | |
+| [`length`](./char_traits/length.md)             | 文字列長を取得する | |
+| [`find`](./char_traits/find.md)                 | 文字列中から特定の値を検索する | |
+| [`move`](./char_traits/move.md)                 | 文字列を他のシーケンスにコピーする | |
+| [`copy`](./char_traits/copy.md)                 | 文字列を他のシーケンスにコピーする | |
+| [`not_eof`](./char_traits/not_eof.md)           | 文字がファイル終端文字(EOF)じゃないかを判定する | |
+| [`to_char_type`](./char_traits/to_char_type.md) | 数値を文字に変換する | |
+| [`to_int_type`](./char_traits/to_int_type.md)   | 文字を数値に変換する | |
+| [`eq_int_type`](./char_traits/eq_int_type.md)   | 数値の等値比較 | |
+| [`eof`](./char_traits/eof.md)                   | ファイル終端文字(EOF)を表す数値を取得する | |
 
 ###メンバ型
 
