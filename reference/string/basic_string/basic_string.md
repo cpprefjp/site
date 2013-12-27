@@ -24,7 +24,7 @@ basic_string(basic_string&&, const Allocator&);
 
 - `basic_string(const basic_string& str);`
 
-`コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
+コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
 
 - `basic_string(basic_string&& str) noexcept;`
 
@@ -32,7 +32,7 @@ basic_string(basic_string&&, const Allocator&);
 
 - `basic_string(const basic_string& str, size_type pos, size_type n = npos, const Allocator& a = Allocator());`
 
-`str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字を部分文字列がコピーされる。
+`str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
 
 - `basic_string(const charT* s, size_type n, const Allocator& a = Allocator());`
 

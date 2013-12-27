@@ -86,8 +86,8 @@ namespace std {
 | `operator+=` | 文字／文字列を追加する | |
 | `append`     | 文字／文字列を追加する | |
 | [`push_back`](./basic_string/push_back.md)  | 末尾に要素を追加する | |
-| `assign`     | 文字列の再代入 | |
-| `insert`     | 文字／文字列を挿入する | |
+| [`assign`](./basic_string/assign.md)        | 文字列の再代入 | |
+| [`insert`](./basic_string/insert.md)        | 文字／文字列を挿入する | |
 | `erase`      | 文字を削除する | |
 | [`pop_back`](./basic_string/pop_back.md)   | 末尾の1要素を削除する | C++11 |
 | `replace`    | 文字列の一部を置換する | |
