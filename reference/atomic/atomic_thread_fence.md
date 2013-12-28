@@ -131,5 +131,5 @@ int main()
 
 
 ##参照
-[C++0x で Dekker のアルゴリズムを実装する](http://gameenginejp.blogspot.jp/2010/08/c0x-dekker.html)
+- [Implementing Dekker's algorithm with Fences](http://www.justsoftwaresolutions.co.uk/threading/implementing_dekkers_algorithm_with_fences.html)
 
