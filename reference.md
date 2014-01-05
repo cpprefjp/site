@@ -98,7 +98,7 @@
 | [`<iostream>`](/reference/iostream.md) | 標準`iostream`オブジェクト   |                |
 | [`<ios>`](/reference/ios.md)           | `iostream`基底クラス         |                |
 | `<streambuf>`                          | ストリームバッファ           |                |
-| `<istream>`                            | 入力ストリーム               |                |
+| [`<istream>`](/reference/istream.md)   | 入力ストリーム               |                |
 | `<ostream>`                            | 出力ストリーム               |                |
 | `<iomanip>`                            | フォーマットとマニピュレータ |                |
 | `<sstream>`                            | 文字列ストリーム             |                |

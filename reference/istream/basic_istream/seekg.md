@@ -11,12 +11,12 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 
 ##効果
 
--# （`pos_type`を引数に取るもののみ）初めにeofbitを消去する。
--# `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
--# 与えられた実引数により、以下のいずれかを実行する。
+1. （`pos_type`を引数に取るもののみ）初めにeofbitを消去する。
+1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
+1. 与えられた実引数により、以下のいずれかを実行する。
  - `rdbuf()->pubseekpos(pos, ios_base::in)`
  - `rdbuf()->pubseekoff(off, dir, ios_base::in)`
--# 失敗した場合、`setstate(failbit)`を呼び出す。
+1. 失敗した場合、`setstate(failbit)`を呼び出す。
 
 ##戻り値
 `*this`

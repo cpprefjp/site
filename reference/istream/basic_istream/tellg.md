@@ -10,8 +10,8 @@ pos_type tellg();
 
 ##効果
 
--# `sentry`オブジェクトを構築する。
--# 成功した場合、`rdbuf()->pubseekoff(0, cur, in)`を呼び出して戻り値とする。
+1. `sentry`オブジェクトを構築する。
+1. 成功した場合、`rdbuf()->pubseekoff(0, cur, in)`を呼び出して戻り値とする。
 
 ##戻り値
 

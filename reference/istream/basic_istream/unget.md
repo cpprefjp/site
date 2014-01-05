@@ -10,9 +10,9 @@ basic_istream<CharT, Traits>& unget();
 
 ##効果
 
--# `sentry`オブジェクトを構築する。
--# `!good()`なら`setstate(failbit)`して終わる。
--# `rdbuf()->sungetc()`を呼び出す。
+1. `sentry`オブジェクトを構築する。
+1. `!good()`なら`setstate(failbit)`して終わる。
+1. `rdbuf()->sungetc()`を呼び出す。
  - `rdbuf()`がヌルポインタであるか、`sungetc()`が`Traits::eof()`を返した場合、`setstate(badbit)`を呼び出す。
 
 ##戻り値
