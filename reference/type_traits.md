@@ -80,9 +80,9 @@
 | [`is_nothrow_default_constructible`](./type_traits/is_nothrow_default_constructible.md) | 型がデフォルト構築でき、かつそのデフォルトコンストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_copy_constructible`](./type_traits/is_nothrow_copy_constructible.md) | 型がコピー構築でき、かつそのコピーコンストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_move_constructible`](./is_nothrow_move_constructible.md) | 型がムーブ構築でき、かつそのムーブコンストラクタが例外を投げないか調べる (class template) | C++11 |
-| `is_nothrow_assignable` | 型の代入演算子呼び出しが適格であり、かつその代入演算子が例外を投げないか調べる (class template) | C++11 |
-| `is_nothrow_copy_assignable` | 型がコピー代入でき、かつそのコピー代入演算子が例外を投げないか調べる (class template) | C++11 |
-| `is_nothrow_move_assignable` | 型がムーブ代入でき、かつそのムーブ代入演算子が例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_assignable`](./is_nothrow_assignable.md) | 型の代入演算子呼び出しが適格であり、かつその代入演算子が例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_copy_assignable`](./is_nothrow_copy_assignable.md) | 型がコピー代入でき、かつそのコピー代入演算子が例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_move_assignable`](./is_nothrow_move_assignable.md) | 型がムーブ代入でき、かつそのムーブ代入演算子が例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_destructible`](./type_traits/is_nothrow_destructible.md) | 型が破棄でき、かつそのデストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`has_virtual_destructor`](./type_traits/has_virtual_destructor.md) | 型が仮想デストラクタを持っているか調べる (class template) | C++11 |
 
