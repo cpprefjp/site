@@ -91,7 +91,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|---------------------------------------------|-------|
-| `alignment_of` | 型のアラインメントを取得する (class template) | C++11 |
+| [`alignment_of`](./alignment_of.md) | 型のアラインメントを取得する (class template) | C++11 |
 | [`rank`](./type_traits/rank.md)     | 配列型の次元数を取得する (class template)   | C++11 |
 | [`extent`](./type_traits/extent.md) | 配列型の`i`番目の次元の要素数を取得する (class template) | C++11 |
 
