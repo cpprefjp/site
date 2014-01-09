@@ -18,6 +18,7 @@ void set_exception(exception_ptr p);
 
 ##例外
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
+
 - [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が設定されている
 - [`no_state`](../future_errc.md) ： `*this`が共有状態を持っていない(`promise`オブジェクトがムーブされると起こりうる)
 
