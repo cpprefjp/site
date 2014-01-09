@@ -41,9 +41,9 @@ thread(thread&&) noexcept;
 
 
 ##事後条件
-- デフォルトコンストラクタ： [`get_id()`](./get_id.md)` == `[`id()`](./id.md)。
-- explicitコンストラクタ： [`get_id()`](./get_id.md)` != `[`id()`](./id.md)。`*this`は新しいスレッドと関連付けられる。
-- ムーブコンストラクタ：ムーブ前の`x.`[`get_id()`](./get_id.md)` == `[`get_id()`](./get_id.md) かつ ムーブ後の`x.`[`get_id()`](./get_id.md)` == `[`id()`](./id.md)
+- デフォルトコンストラクタ： [`get_id()`](./get_id.md) `==` [`id()`](./id.md)。
+- explicitコンストラクタ： [`get_id()`](./get_id.md) `!=` [`id()`](./id.md)。`*this`は新しいスレッドと関連付けられる。
+- ムーブコンストラクタ：ムーブ前の`x.`[`get_id()`](./get_id.md) `==` [`get_id()`](./get_id.md) かつ ムーブ後の`x.`[`get_id()`](./get_id.md) `==` [`id()`](./id.md)
 
 
 ##例外（explicitコンストラクタのみ）
