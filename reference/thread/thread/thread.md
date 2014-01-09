@@ -47,7 +47,9 @@ thread(thread&&) noexcept;
 
 
 ##例外（explicitコンストラクタのみ）
-新しいスレッドの作成に失敗した場合、[`system_error`](/reference/system_error/system_error.md)例外を投げる。
+新しいスレッドの作成に失敗した場合、[`system_error`](/reference/system_error/system_error.md)例外を投げる。その例外オブジェクトには、以下のエラー状態が設定されうる：
+
+- `resource_unavailable_try_again` : 新たなスレッドを作るためのリソースが不足している。もしくはシステムやプロセスが規定するスレッド数の上限を超過した。
 
 
 ##例
