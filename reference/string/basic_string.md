@@ -16,7 +16,7 @@ namespace std {
 * allocator[link /reference/memory/allocator.md]
 
 ##概要
-`basic_string`クラスは、あらゆる文字型を使用できる文字列クラスである。
+`basic_string`クラスは、あらゆる文字型を使用できる文字列クラスである。  
 テンプレートパラメータとして文字型を受け取るようになっており、使用を容易にするため、以下のパラメータ設定済みエイリアスが定義されている。
 
 | エイリアス  | 説明 | 対応バージョン |
@@ -26,7 +26,7 @@ namespace std {
 | `u16string` | `char16_t`型文字列。UTF-16の文字列として使用する。 | C++11 |
 | `u32string` | `char32_t`型文字列。UTF-32の文字列として使用する。 | C++11 |
 
-`basic_string`文字列オブジェクトに含まれる各要素は、必ずしも1文字を表すわけではないことに注意が必要である。
+`basic_string`文字列オブジェクトに含まれる各要素は、必ずしも1文字を表すわけではないことに注意が必要である。  
 このクラスが表すのは、文字型`charT`の動的配列であり、文字の動的配列ではない。
 したがって、文字列中に以下のようなものが含まれている場合、`basic_string`クラスにおいては複数の要素と見なされる。
 - マルチバイト文字（`charT`が`char`などの場合）
@@ -154,7 +154,7 @@ namespace std {
 | [`operator<=`](basic_string/op_less_equal.md)    | 左辺が右辺以下かの判定を行う                |                |
 | [`operator>`](basic_string/op_greater.md)        | 左辺が右辺より大きいかの判定を行う          |                |
 | [`operator>=`](basic_string/op_greater_equal.md) | 左辺が右辺以上かの判定を行う                |                |
-| `operator<<`                                     | ストリームへの出力                          |                |
+| [`operator<<`](basic_string/op_ostream.md)       | ストリームへの出力                          |                |
 | [`operator>>`](basic_string/op_istream.md)       | ストリームからの入力                        |                |
 | [`swap`](./basic_string/swap_free.md)            | 2つの`basic_string`オブジェクトを入れ替える |                |
 | `getline`                                        | 入力ストリームから1行読み込む               |                |
