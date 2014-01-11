@@ -1,4 +1,4 @@
-#data
+#data (C++11)
 ```cpp
 T* data() noexcept;
 const T* data() const noexcept;
@@ -12,8 +12,6 @@ const T* data() const noexcept;
 `[data(), data() + size())` が適正な範囲になるようなポインタ。
 
 空ではない`vector`に対しては`data() == &front()`となる。
-
-`vector` が空の場合は明記されていない。参考程度に、これを書いた時点では空の場合、libstdc++ では不正な操作になる実装となっており、libc++ では空でも問題無い実装となっている。
 
 ##計算量
 定数時間
@@ -44,6 +42,13 @@ int main()
 1
 ```
 
-##言語
+##バージョン
+###言語
 - C++11
 
+###処理系
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): ??
+- [GCC, C++0x mode](/implementation#gcc.md): ??
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
