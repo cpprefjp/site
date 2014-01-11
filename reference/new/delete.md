@@ -8,8 +8,7 @@ void operator delete(void* ptr, const std::nothrow_t&) noexcept;
 // 単純な配列の記憶域の解放
 void operator delete[](void* ptr) noexcept;
 // 単純な配列の記憶域の解放（例外をスローしない）
-
-void operator delete&) noexcept;
+void operator delete(void* ptr, const std::nothrow_t&) noexcept;
 
 // replacement-new に対応する記憶域の解放
 void operator delete(void* ptr, void*) noexcept;
@@ -19,7 +18,7 @@ void operator delete[](void* ptr, void*) noexcept;
 * nothrow_t[link /reference/new/nothrow_t.md]
 
 ##効果
-[`new`](./new.md)演算子によって動的に確保した記憶域を解放する。 
+[`new`](./new.md)演算子によって動的に確保した記憶域を解放する。
 
 `nothrow`版の`delete`演算子は、`nothrow`版の[`new`](./new.md)演算子によって生成されたオブジェクトのコンストラクタが例外を送出した場合に呼び出される。
 
