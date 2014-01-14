@@ -11,15 +11,15 @@ basic_istream<CharT, Traits>& putback(char_type c);
 ##効果
 
 1. `sentry`オブジェクトを構築する。
-1. `!good()`なら`setstate(failbit)`して終わる。
+1. `!good()`なら`setstate(failbit)`を呼び出して終わる。
 1. `rdbuf()->sputbackc()`を呼び出す。
- - `rdbuf()`がヌルポインタであるか、`sputbackc()`が`Traits::eof()`を返した場合、`setstate(badbit)`を呼び出す。
+    - `rdbuf()`がヌルポインタであるか、`sputbackc()`が`Traits::eof()`を返した場合、`setstate(badbit)`を呼び出す。
 
 ##戻り値
 `*this`。
 
 ##備考
-この関数は1文字も入力を行わないため、この後の`gcount()`は`0`を返す。
+この関数は1文字も入力を行わないため、この後の`gcount()`は常に`0`を返す。
 
 ##例
 TBD

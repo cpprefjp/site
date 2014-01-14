@@ -3,11 +3,11 @@
 
 ## 型と関数
 
-| 名前                                          | 説明                                                  | 対応バージョン |
-|-----------------------------------------------|-------------------------------------------------------|----------------|
-| [`basic_istream`](istream/basic_istream.md)   | 入力ストリーム (class template)                       |                |
-| `basic_iostream`                              | 入出力ストリーム (class template)                     |                |
-| `ws`                                          | ストリーム上の位置を表現する型 (maniplator, function) |                |
+| 名前                                          | 説明                                             | 対応バージョン |
+|-----------------------------------------------|--------------------------------------------------|----------------|
+| [`basic_istream`](istream/basic_istream.md)   | 入力ストリーム (class template)                  |                |
+| `basic_iostream`                              | 入出力ストリーム (class template)                |                |
+| [`ws`](istream/ws.md)                         | 空白を読み飛ばす (maniplator, function template) |                |
 
 ##バージョン
 ###言語

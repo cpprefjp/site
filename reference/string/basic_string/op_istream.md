@@ -7,10 +7,10 @@ basic_string operator>>(basic_istream<CharT, Traits>& is, basic_string<CharT, Tr
 ##概要
 文字列を入力する。空白文字が現れるまで、あるいは`setw`マニピュレータで指定された数までの文字を入力する。
 
-この関数は、書式化入力関数（[basic_istream](../../istream/basic_istream.md)を参照）として作用する。
+この関数は、書式化入力関数（[`basic_istream`](../../istream/basic_istream.md)を参照）として作用する。
 
 ## 効果
-1. `basic_istream<>::sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
+1. [`basic_istream<>::sentry`](../../istream/basic_istream/sentry.md)オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. `str.erase()`を呼び出す。
 1. 以下のいずれかを満たすまで、文字を入力して`str.append(1, c)`と等価な方法で文字列に追加する。なお、`c`は入力した文字を表す。
     - 最大文字数まで書き込んだ場合。最大文字数は次のいずれかである。

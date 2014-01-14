@@ -49,7 +49,5 @@ basic_istream<CharT, Traits>& seekg(pos_type pos) {
 ##参照
 
 - [`basic_istream::seekg`](./seekg.md)
-- `basic_streambuf::pubseekpos`
 - `basic_streambuf::pubseekoff`
-- `basic_streambuf::seekpos`
 - `basic_streambuf::seekoff`
