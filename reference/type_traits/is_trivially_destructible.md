@@ -24,14 +24,14 @@ namespace std {
 #include <type_traits>
 
 struct C1 {
-  // トリビアルなデストラクタを持っていない
+  // トリビアルなデストラクタを持っている
 
   // 特殊関数ではないメンバ関数は持っている
   int f(int x) const { return x; }
 };
 
 struct C2 {
-  // トリビアルなデストラクタを持っている
+  // 非トリビアルなデストラクタを持っている
   ~C2() {}
 };
 
