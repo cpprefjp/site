@@ -17,11 +17,6 @@ const T* data() const noexcept;
 定数時間
 
 
-##備考
-gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が空の場合に `data()` を呼び出すと未定義動作になる。
-
-http://gcc.gnu.org/bugzilla/show_bug.cgi?id=59829
-
 ##例
 ```cpp
 #include <iostream>
@@ -57,3 +52,10 @@ int main()
 - [GCC, C++0x mode](/implementation#gcc.md): ??
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
+
+
+###備考
+gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が空の場合に `data()` を呼び出すと未定義動作になる。
+
+http://gcc.gnu.org/bugzilla/show_bug.cgi?id=59829
+
