@@ -74,7 +74,7 @@
 | `is_trivially_move_constructible` | 型がトリビアルにムーブ構築可能か調べる (class template) | C++11 |
 | [`is_trivially_assignable`](./is_trivially_assignable.md) | 型がトリビアルに代入可能か調べる (class template) | C++11 |
 | [`is_trivially_copy_assignable`](./is_trivially_copy_assignable.md) | 型がトリビアルにコピー代入可能か調べる (class template) | C++11 |
-| `is_trivially_move_assignable` | 型がトリビアルにムーブ代入可能か調べる (class template) | C++11 |
+| [`is_trivially_move_assignable`](./is_trivially_move_assignable.md) | 型がトリビアルにムーブ代入可能か調べる (class template) | C++11 |
 | [`is_trivially_destructible`](./type_traits/is_trivially_destructible.md) | 型がトリビアルに破棄可能か調べる (class template) | C++11 |
 | [`is_nothrow_constructible`](./type_traits/is_nothrow_constructible.md) | 型のコンストラクタ呼出しが適格であり、かつそのコンストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_default_constructible`](./type_traits/is_nothrow_default_constructible.md) | 型がデフォルト構築でき、かつそのデフォルトコンストラクタが例外を投げないか調べる (class template) | C++11 |
