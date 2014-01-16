@@ -13,6 +13,19 @@ namespace std {
 ##効果
 `is_integral`は、型`T`が整数型(cv修飾も許容される)であれば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
 
+以下のような型が、整数型として判定される：
+
+- `bool`
+- `char`
+- `char16_t`
+- `char32_t`
+- `wchar_t`
+- `short`
+- `int`
+- `long`
+- `long long`
+
+`enum`は整数型とは判定されない。
 
 ##例
 ```cpp
