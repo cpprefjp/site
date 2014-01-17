@@ -8,6 +8,9 @@ namespace std {
 ##概要
 `nullptr`の型。
 
+##備考
+Visual C++ 2010, 2012では[`is_scalar`](../type_traits/is_scalar.md)`<nullptr_t>`が`false_type`（からの派生クラス）となっているバグがある。
+
 ##例
 ```cpp
 #include <iostream>
@@ -18,7 +21,7 @@ int main()
   std::cout << "sizeof(nullptr_t): " << sizeof(std::nullptr_t) << std::endl; // equals to sizeof(void*)
 
   std::cout << "is_object<nullptr_t>: " << std::is_object<std::nullptr_t>::value << std::endl;
-  std::cout << "is_scalar<nullptr_t>: " << std::is_scalar<std::nullptr_t>::value << std::endl; // 0 on VS2012
+  std::cout << "is_scalar<nullptr_t>: " << std::is_scalar<std::nullptr_t>::value << std::endl; // 0 on VS 2010～2012
   std::cout << "is_union<nullptr_t>: " << std::is_union<std::nullptr_t>::value << std::endl;
   std::cout << "is_array<nullptr_t>: " << std::is_array<std::nullptr_t>::value << std::endl;
   std::cout << "is_class<nullptr_t>: " << std::is_class<std::nullptr_t>::value << std::endl;
@@ -44,5 +47,5 @@ is_class<nullptr_t>: 0
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
