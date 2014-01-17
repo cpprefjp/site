@@ -68,7 +68,7 @@
 | [`is_copy_assignable`](./type_traits/is_copy_assignable.md) | 型がコピー代入可能か調べる (class template) | C++11 |
 | [`is_move_assignable`](./type_traits/is_move_assignable.md) | 型がムーブ代入可能か調べる (class template) | C++11 |
 | [`is_destructible`](./type_traits/is_destructible.md) | 型が破棄可能か調べる (class template) | C++11 |
-| `is_trivially_constructible` | 型がトリビアルに構築可能か調べる (class template) | C++11 |
+| [`is_trivially_constructible`](./is_trivially_constructible.md) | 型がトリビアルに構築可能か調べる (class template) | C++11 |
 | `is_trivially_default_constructible` | 型がトリビアルにデフォルト構築可能かを調べる (class template) | C++11 |
 | `is_trivially_copy_constructible` | 型がトリビアルにコピー構築可能か調べる (class template) | C++11 |
 | `is_trivially_move_constructible` | 型がトリビアルにムーブ構築可能か調べる (class template) | C++11 |
