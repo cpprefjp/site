@@ -54,7 +54,8 @@ int main()
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
+    - 10.0にも`emplace_front`は存在するが、`push_front`相当の機能しかない。
 
 
 ##参照

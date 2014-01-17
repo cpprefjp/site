@@ -25,7 +25,7 @@ void shrink_to_fit();
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
 
 ##参照
