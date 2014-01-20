@@ -155,7 +155,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
 | [`aligned_storage`](./type_traits/aligned_storage.md) | アラインメント調整された領域を作る (class template) | C++11 |
-| `aligned_union` | アラインメント調整された共用体領域を作る (class template) | C++11 |
+| [`aligned_union`](./type_traits/aligned_union.md) | アラインメント調整された共用体領域を作る (class template) | C++11 |
 | [`decay`](./type_traits/decay.md) | 関数テンプレートと同じ規則で推論された型を取得する (class template) | C++11 |
 | `enable_if` | コンパイル時条件式が真の場合のみ有効な型 (class template) | C++11 |
 | [`conditional`](./type_traits/conditional.md) | コンパイル時条件式 (class template) | C++11 |
