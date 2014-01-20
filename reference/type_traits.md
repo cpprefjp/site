@@ -52,7 +52,7 @@
 | [`is_volatile`](./type_traits/is_volatile.md) | 型が`volatile`修飾型か調べる (class template) | C++11 |
 | [`is_trivial`](./type_traits/is_trivial.md)   | 型がトリビアル型か調べる (class template) | C++11 |
 | [`is_trivially_copyable`](./type_traits/is_trivially_copyable.md) | 型がトリビアルコピー可能か調べる (class template) | C++11 |
-| [`is_standard_layout`](./is_standard_layout.md) | 型がスタンダードレイアウト型か調べる (class template) | C++11 |
+| [`is_standard_layout`](./type_traits/is_standard_layout.md) | 型がスタンダードレイアウト型か調べる (class template) | C++11 |
 | [`is_pod`](./type_traits/is_pod.md)           | 型がPOD型か調べる (class template) | C++11 |
 | `is_literal_type`                             | 型がリテラル型か調べる (class template) | C++11 |
 | [`is_empty`](./type_traits/is_empty.md)       | 型が空のクラスか調べる (class template) | C++11 |
@@ -68,21 +68,21 @@
 | [`is_copy_assignable`](./type_traits/is_copy_assignable.md) | 型がコピー代入可能か調べる (class template) | C++11 |
 | [`is_move_assignable`](./type_traits/is_move_assignable.md) | 型がムーブ代入可能か調べる (class template) | C++11 |
 | [`is_destructible`](./type_traits/is_destructible.md) | 型が破棄可能か調べる (class template) | C++11 |
-| [`is_trivially_constructible`](./is_trivially_constructible.md) | 型がトリビアルに構築可能か調べる (class template) | C++11 |
-| [`is_trivially_default_constructible`](./is_trivially_default_constructible.md) | 型がトリビアルにデフォルト構築可能かを調べる (class template) | C++11 |
-| [`is_trivially_copy_constructible`](./is_trivially_copy_constructible.md) | 型がトリビアルにコピー構築可能か調べる (class template) | C++11 |
-| [`is_trivially_move_constructible`](./is_trivially_move_constructible.md) | 型がトリビアルにムーブ構築可能か調べる (class template) | C++11 |
-| [`is_trivially_assignable`](./is_trivially_assignable.md) | 型がトリビアルに代入可能か調べる (class template) | C++11 |
-| [`is_trivially_copy_assignable`](./is_trivially_copy_assignable.md) | 型がトリビアルにコピー代入可能か調べる (class template) | C++11 |
-| [`is_trivially_move_assignable`](./is_trivially_move_assignable.md) | 型がトリビアルにムーブ代入可能か調べる (class template) | C++11 |
+| [`is_trivially_constructible`](./type_traits/is_trivially_constructible.md) | 型がトリビアルに構築可能か調べる (class template) | C++11 |
+| [`is_trivially_default_constructible`](./type_traits/is_trivially_default_constructible.md) | 型がトリビアルにデフォルト構築可能かを調べる (class template) | C++11 |
+| [`is_trivially_copy_constructible`](./type_traits/is_trivially_copy_constructible.md) | 型がトリビアルにコピー構築可能か調べる (class template) | C++11 |
+| [`is_trivially_move_constructible`](./type_traits/is_trivially_move_constructible.md) | 型がトリビアルにムーブ構築可能か調べる (class template) | C++11 |
+| [`is_trivially_assignable`](./type_traits/is_trivially_assignable.md) | 型がトリビアルに代入可能か調べる (class template) | C++11 |
+| [`is_trivially_copy_assignable`](./type_traits/is_trivially_copy_assignable.md) | 型がトリビアルにコピー代入可能か調べる (class template) | C++11 |
+| [`is_trivially_move_assignable`](./type_traits/is_trivially_move_assignable.md) | 型がトリビアルにムーブ代入可能か調べる (class template) | C++11 |
 | [`is_trivially_destructible`](./type_traits/is_trivially_destructible.md) | 型がトリビアルに破棄可能か調べる (class template) | C++11 |
 | [`is_nothrow_constructible`](./type_traits/is_nothrow_constructible.md) | 型のコンストラクタ呼出しが適格であり、かつそのコンストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_default_constructible`](./type_traits/is_nothrow_default_constructible.md) | 型がデフォルト構築でき、かつそのデフォルトコンストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_copy_constructible`](./type_traits/is_nothrow_copy_constructible.md) | 型がコピー構築でき、かつそのコピーコンストラクタが例外を投げないか調べる (class template) | C++11 |
-| [`is_nothrow_move_constructible`](./is_nothrow_move_constructible.md) | 型がムーブ構築でき、かつそのムーブコンストラクタが例外を投げないか調べる (class template) | C++11 |
-| [`is_nothrow_assignable`](./is_nothrow_assignable.md) | 型の代入演算子呼び出しが適格であり、かつその代入演算子が例外を投げないか調べる (class template) | C++11 |
-| [`is_nothrow_copy_assignable`](./is_nothrow_copy_assignable.md) | 型がコピー代入でき、かつそのコピー代入演算子が例外を投げないか調べる (class template) | C++11 |
-| [`is_nothrow_move_assignable`](./is_nothrow_move_assignable.md) | 型がムーブ代入でき、かつそのムーブ代入演算子が例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_move_constructible`](./type_traits/is_nothrow_move_constructible.md) | 型がムーブ構築でき、かつそのムーブコンストラクタが例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_assignable`](./type_traits/is_nothrow_assignable.md) | 型の代入演算子呼び出しが適格であり、かつその代入演算子が例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_copy_assignable`](./type_traits/is_nothrow_copy_assignable.md) | 型がコピー代入でき、かつそのコピー代入演算子が例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_move_assignable`](./type_traits/is_nothrow_move_assignable.md) | 型がムーブ代入でき、かつそのムーブ代入演算子が例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_destructible`](./type_traits/is_nothrow_destructible.md) | 型が破棄でき、かつそのデストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`has_virtual_destructor`](./type_traits/has_virtual_destructor.md) | 型が仮想デストラクタを持っているか調べる (class template) | C++11 |
 
@@ -91,7 +91,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|---------------------------------------------|-------|
-| [`alignment_of`](./alignment_of.md) | 型のアラインメントを取得する (class template) | C++11 |
+| [`alignment_of`](./type_traits/alignment_of.md) | 型のアラインメントを取得する (class template) | C++11 |
 | [`rank`](./type_traits/rank.md)     | 配列型の次元数を取得する (class template)   | C++11 |
 | [`extent`](./type_traits/extent.md) | 配列型の`i`番目の次元の要素数を取得する (class template) | C++11 |
 
