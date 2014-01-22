@@ -119,3 +119,8 @@ Hello World
 - [Visual C++](/implementation#visual_cpp.md): ??
 
 
+##参照
+- [N1437 A uniform method for computing function object return types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1437.html)
+- [N1454 A uniform method for computing function object return types (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1454.html)
+- [Bringing result_of near to INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3123.html)
+
