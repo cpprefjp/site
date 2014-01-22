@@ -2,7 +2,9 @@
 ```cpp
 namespace std {
   template <class T>
-  struct make_signed;
+  struct make_signed {
+    typedef … type;
+  };
 }
 ```
 

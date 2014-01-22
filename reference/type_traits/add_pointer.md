@@ -2,7 +2,9 @@
 ```cpp
 namespace std {
   template <class T>
-  struct add_pointer;
+  struct add_pointer {
+    typedef … type;
+  };
 }
 ```
 

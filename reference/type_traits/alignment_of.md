@@ -2,7 +2,9 @@
 ```cpp
 namespace std {
   template <class T>
-  struct alignment_of;
+  struct alignment_of {
+    static constexpr std::size_t value = …;
+  };
 }
 ```
 

@@ -2,7 +2,9 @@
 ```cpp
 namespace std {
   template <class T>
-  struct remove_reference;
+  struct remove_reference {
+    typedef … type;
+  };
 }
 ```
 

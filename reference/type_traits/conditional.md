@@ -2,7 +2,9 @@
 ```cpp
 namespace std {
   template <bool B, class T, class F>
-  struct conditional;
+  struct conditional {
+    typedef … type;
+  };
 }
 ```
 

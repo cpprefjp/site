@@ -2,7 +2,9 @@
 ```cpp
 namespace std {
   template <class T, unsigned int I = 0>
-  struct extent;
+  struct extent {
+    static constexpr std::size_t value = …;
+  };
 }
 ```
 

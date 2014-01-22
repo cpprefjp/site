@@ -2,7 +2,9 @@
 ```cpp
 namespace std {
   template <class T>
-  struct rank;
+  struct rank {
+    typedef … type;
+  };
 }
 ```
 
