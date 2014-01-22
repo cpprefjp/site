@@ -1,26 +1,26 @@
 #INVOKE
 ##用語定義
-- <i>call-signature</i> とは、戻り値型に続けて丸括弧の中に0個以上の引数型を並べたものである。 <i>cf.</i> `int ( std::string, int )`
-- <i>callable-type</i> とは、関数呼び出し演算子を適用できる型 ( 関数、関数への参照、関数へのポインタ、`operator ()` をオーバーロードした型もしくはそれを(直接または間接的に) `public` 継承した型 ) もしくはメンバへのポインタ型を指す。
-- <i>callable-object</i> は、 <i>callable-type</i> 型のオブジェクトである。
-- <i>call-wrapper-type</i> は、 <i>callable-object</i> を保持し、自身に対する関数呼び出し操作が行われたとき、保持しているオブジェクトに委譲する。
-- <i>call-wrapper</i> は、 <i>call-wrapper-type</i> 型のオブジェクトである。
-- <i>target-object</i> とは、 <i>callable-object</i> に保持されているオブジェクトのことである。</ol>
+- *call-signature* とは、戻り値型に続けて丸括弧の中に0個以上の引数型を並べたものである。 *cf.* `int ( std::string, int )`
+- *callable-type* とは、関数呼び出し演算子を適用できる型 ( 関数、関数への参照、関数へのポインタ、`operator ()` をオーバーロードした型もしくはそれを(直接または間接的に) `public` 継承した型 ) もしくはメンバへのポインタ型を指す。
+- *callable-object* は、 *callable-type* 型のオブジェクトである。
+- *call-wrapper-type* は、 *callable-object* を保持し、自身に対する関数呼び出し操作が行われたとき、保持しているオブジェクトに委譲する。
+- *call-wrapper* は、 *call-wrapper-type* 型のオブジェクトである。
+- *target-object* とは、 *callable-object* に保持されているオブジェクトのことである。
 
 ##要件
-1. 仮想操作 <i>`INVOKE`</i>`(f, t1, t2, ..., tN)` を次のように定義する。
+1. 仮想操作 *INVOKE*`(f, t1, t2, ..., tN)` を次のように定義する。
 	- `f` が型 `T` のメンバ関数へのポインタであり、 `t1` が T 型のオブジェクトあるいは `T` または `T` を継承した型への参照であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `f` が型 `T` のメンバ関数へのポインタであり、 `t1` が上記の条件に当てはまらない場合、`((*t1).*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、`t1` が `T` 型のオブジェクトあるいは `T` または `T` を継承した型への参照であるとき、 `t1.*f` と同じ効果を持つ。
 	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、`t1` が上記の条件に当てはまらない場合、 `(*t1).*f` と同じ効果を持つ。
 	- 上記の条件のどれにも当てはまらない場合、 `f(t1, t2, ..., tN)` と同じ効果を持つ。
-2. <i>`INVOKE`</i>`(f, t1, t2, ..., tN, R)` を、 <i>`INVOKE`</i>`(f, t1, t2, ..., tN)` の実行結果の戻り値が型 `R` に暗黙的に変換されること、と定義する。
-3. <i>call-wrapper</i> が <i>weak-result-type</i> を用意している場合、メンバ型 `result_type` は<i>target-object</i> の型 `T` に応じて次のように定義される。
+2. *INVOKE*`(f, t1, t2, ..., tN, R)` を、 *INVOKE*`(f, t1, t2, ..., tN)` の実行結果の戻り値が型 `R` に暗黙的に変換されること、と定義する。
+3. *call-wrapper* が *weak-result-type* を用意している場合、メンバ型 `result_type` は*target-object* の型 `T` に応じて次のように定義される。
 	- `T` が関数へのポインタ型であるとき、 `result_type` は `T` の戻り値型と等しい。
 	- `T` がメンバ関数へのポインタ型であるとき、 `result_type` は `T` の戻り値型と等しい。
 	- `T` が `result_type` という名前のメンバ型を持つとき、 `result_type` は `T::result_type` と等しい。
 	- どの条件にも当てはまらない場合、 `result_type` は定義されない。
-4. すべての<i> call-wrapper</i> は、<i>MoveAssignable</i> でなければならない。<
+4. すべての* call-wrapper* は、*MoveAssignable* でなければならない。
 
 ##まとめ
 [第1引数がメンバ関数へのポインタの場合でも非静的メンバデータへのポインタの場合でも，第2引数がクラスオブジェクトへの参照の場合でもポインタの場合でもポインタっぽいものの場合でも，なんか知らんけどそれっぽく上手くいく](http://twitter.com/Cryolite/status/216814363221303296) ように取り計らった操作のことである。
