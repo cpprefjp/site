@@ -22,20 +22,41 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 `*this`
 
 ##例
-TBD
+以下は、`off_type`と`seekdir`を使用する例。`pos_type`のみを引数に取る多重定義の例は、[`tellg`](tellg.md)を参照。
+
+```cpp
+#include <iostream>
+#include <sstream>
+
+int main() {
+  std::istringstream is("ABC");
+  char x;
+
+  is >> x;
+  std::cout << x << std::endl;
+
+  is.seekg(0, std::ios_base::beg);
+  is >> x;
+  std::cout << x << std::endl;
+}
+```
 
 ##出力
-TBD
+```
+A
+A
+```
 
 ##実装例
 ```cpp
 basic_istream<CharT, Traits>& seekg(pos_type pos) {
+  iostate state = goodbit;
   try {
     clear(rdstate() & ~eofbit);
     sentry s(*this, true);
     if (s) {
       if (rdbuf()->pubseekpos(pos, ios_base::in) == -1) {
-        setstate(failbit);
+        state |= failbit;
       }
     }
   } catch (...) {
@@ -44,15 +65,17 @@ basic_istream<CharT, Traits>& seekg(pos_type pos) {
       throw;
     }
   }
+  setstate(state);
   return *this;
 }
 
 basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
+  iostate state = goodbit;
   try {
     sentry s(*this, true);
     if (s) {
       if (rdbuf()->pubseekoff(off, dir, ios_base::in) == -1) {
-        setstate(failbit);
+        state |= failbit;
       }
     }
   } catch (...) {
@@ -61,6 +84,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
       throw;
     }
   }
+  setstate(state);
   return *this;
 }
 ```
@@ -71,7 +95,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
 
 ##参照
 
-- [`basic_istream::tellg`](./tellg.md)
+- [`basic_istream::tellg`](tellg.md)
 - `basic_streambuf::pubseekpos`
 - `basic_streambuf::pubseekoff`
 - `basic_streambuf::seekpos`

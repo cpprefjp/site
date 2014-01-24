@@ -19,10 +19,33 @@ pos_type tellg();
 - `fail() == true`であれば、`pos_type(-1)`。
 
 ##例
-TBD
+```cpp
+#include <iostream>
+#include <sstream>
+
+int main() {
+  std::istringstream is("103 201");
+  int x;
+
+  is >> x;
+  std::cout << x << std::endl;
+
+  auto pos = is.tellg(); // 現在位置をposに保存。
+  is >> x;
+  std::cout << x << std::endl;
+
+  is.seekg(pos); // 保存した位置を復元。
+  is >> x;
+  std::cout << x << std::endl;
+}
+```
 
 ##出力
-TBD
+```
+103
+201
+201
+```
 
 ##実装例
 ```cpp
@@ -48,6 +71,6 @@ basic_istream<CharT, Traits>& seekg(pos_type pos) {
 
 ##参照
 
-- [`basic_istream::seekg`](./seekg.md)
+- [`basic_istream::seekg`](seekg.md)
 - `basic_streambuf::pubseekoff`
 - `basic_streambuf::seekoff`

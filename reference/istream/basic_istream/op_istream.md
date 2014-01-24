@@ -4,6 +4,7 @@ namespace std {
   template<class CharT, class Traits = char_traits<CharT>>
   class basic_istream : virtual public basic_ios<CharT, Traits> {
     // マニピュレータ
+    // 3つとも関数へのポインタを引数に取る。
     basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& (*pf)(basic_istream<CharT, Traits>&));
     basic_istream<CharT, Traits>& operator>>(basic_ios<CharT, Traits>& (*pf)(basic_ios<CharT, Traits>&));
     basic_istream<CharT, Traits>& operator>>(ios_base& (*pf)(ios_base&));
@@ -64,11 +65,11 @@ namespace std {
 
 ### 文字列入力における注意
 
-ここで説明する多重定義（`CharT*`、`unsigned char*`、`signed char*`）で文字列への入力を行う場合、必ずマニピュレータ`setw`で配列の要素数を指定すること。
+ここで説明する多重定義（`CharT*`、`unsigned char*`、`signed char*`）で文字列への入力を行う場合、必ずマニピュレータ`setw`で配列の要素数を指定すること（この記事の下方にある例（文字列）を参照）。
 さもなくば、バッファオーバーフローの可能性があり、大変危険である。
 
 あるいは、これらの代わりに`basic_string` (`std::string`、`std::wstring`など)に対して`>>`演算子を使用することでも、この危険を回避できる。
-参考: [`>>`演算子 (`basic_string`)](../../basic_string/op_istream.md)。
+参考: [`>>`演算子 (`basic_string`)](../../string/basic_string/op_istream.md)。
 
 ##効果
 
@@ -183,5 +184,5 @@ TBD
 
 ##参照
 
-- [`basic_istream::get`](./get.md)
-- `basic_streambuf::sgetc`
+- このほかの`>>`演算子関数
+    - [`std::basic_string`に対するもの](../../string/basic_string/op_istream.md)

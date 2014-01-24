@@ -16,20 +16,61 @@ basic_istream<CharT, Traits>& read(char_type* s, streamsize n);
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. `good()`メンバ関数を呼び出して`false`であったら、`setstate(failbit)`を呼び出して終了する。
 1. 以下のいずれかを満たすまで、文字を入力して書き込む。
-    - 実引数で指定された`n`文字まで入力した場合。
-    - EOFに達した場合。この場合、`setstate(failbit | eofbit)`を呼び出す。
+    - 実引数で指定された`n`文字まで入力した。
+    - EOFに達した。この場合、`setstate(failbit | eofbit)`を呼び出す。
 
 ##戻り値
 `*this`
 
 ##例
-TBD
+```cpp
+#include <iostream>
+
+int main() {
+  char s[8];
+  std::cin.read(s, sizeof s);
+  auto size = std::cin.gcount();
+  std::cout.write(s, size);
+  std::cout << std::endl;
+}
+```
 
 ##出力
-TBD
+```
+（ShinjukuNishiguchi）と入力
+Shinjuku
+```
 
 ##実装例
-TBD
+```cpp
+basic_istream<CharT, Traits>& read(char_type* s, streamsize n) {
+  iostate state = goodbit;
+  try {
+    sentry s(*this, true);
+    if (s) {
+      if (good()) {
+        for (streamsize i = 0; i < n; ++i) {
+          auto c = rdbuf()->sbumpc();
+          if (c == Traits::eof()) {
+            state |= failbit | eofbit;
+            break;
+          }
+          s[i] = Traits::to_char_type(c);
+        }
+      } else {
+        state |= failbit;
+      }
+    }
+  } catch (...) {
+    例外を投げずにbadbitを設定する;
+    if ((exceptions() & badbit) != 0) {
+      throw;
+    }
+  }
+  setstate(state);
+  return *this;
+}
+```
 
 ##バージョン
 ###言語

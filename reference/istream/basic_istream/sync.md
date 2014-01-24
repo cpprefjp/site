@@ -9,7 +9,7 @@ int sync();
 ##効果
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. `rdbuf()->pubsync()`を呼び出す。ただし、`rdbuf()`がヌルポインタなら何もしない。
-1. `pubsync()`が`-1`を返した場合、`setstate(bad_bit)`を呼び出す。
+1. `rdbuf()->pubsync()`が`-1`を返した場合、`setstate(bad_bit)`を呼び出す。
 
 ##戻り値
 - 成功した場合`0`。
