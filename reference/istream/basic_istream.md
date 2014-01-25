@@ -77,6 +77,7 @@ namespace std {
 |---------------------------------------------------|----------------|----------------|
 | [`(constructor)`](basic_istream/basic_istream.md) | コンストラクタ |                |
 | `(destructor)`                                    | デストラクタ   |                |
+| `operator=`                                       | ムーブ代入     |                |
 | `swap`                                            | 値の交換       |                |
 
 - コピーコンストラクタとコピー代入演算子はdelete定義されている。
@@ -128,6 +129,6 @@ syncは非書式化入力関数である。
 - 基底クラス
     - [`ios_base`](../ios/ios_base.md)
     - [`basic_ios`](../ios/basic_ios.md)
-- オブジェクト
+- `basic_istream<>`型のオブジェクト
     - [`cin`](../iostream/cin.md)
     - [`wcin`](../iostream/wcin.md)

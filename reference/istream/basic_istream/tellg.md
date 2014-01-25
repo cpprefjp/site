@@ -49,15 +49,15 @@ int main() {
 
 ##実装例
 ```cpp
-basic_istream<CharT, Traits>& seekg(pos_type pos) {
+pos_type tellg(pos_type pos) {
   try {
     sentry s(*this, true);
     if (s) {
-      return rdbuf()->pubseekoff(0, cur, ios_base::in);
+      return this->rdbuf()->pubseekoff(0, cur, ios_base::in);
     }
   } catch (...) {
     例外を投げずにbadbitを設定する;
-    if ((exceptions() & badbit) != 0) {
+    if ((this->exceptions() & badbit) != 0) {
       throw;
     }
   }

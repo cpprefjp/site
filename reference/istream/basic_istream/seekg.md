@@ -22,7 +22,8 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 `*this`
 
 ##例
-以下は、`off_type`と`seekdir`を使用する例。`pos_type`のみを引数に取る多重定義の例は、[`tellg`](tellg.md)を参照。
+以下は、`off_type`と`seekdir`を使用する例。
+`pos_type`のみを引数に取る多重定義の例は、[`tellg`](tellg.md)を参照。
 
 ```cpp
 #include <iostream>
@@ -52,20 +53,20 @@ A
 basic_istream<CharT, Traits>& seekg(pos_type pos) {
   iostate state = goodbit;
   try {
-    clear(rdstate() & ~eofbit);
+    this->clear(this->rdstate() & ~eofbit);
     sentry s(*this, true);
     if (s) {
-      if (rdbuf()->pubseekpos(pos, ios_base::in) == -1) {
+      if (this->rdbuf()->pubseekpos(pos, ios_base::in) == -1) {
         state |= failbit;
       }
     }
   } catch (...) {
     例外を投げずにbadbitを設定する;
-    if ((exceptions() & badbit) != 0) {
+    if ((this->exceptions() & badbit) != 0) {
       throw;
     }
   }
-  setstate(state);
+  this->setstate(state);
   return *this;
 }
 
@@ -74,17 +75,17 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
   try {
     sentry s(*this, true);
     if (s) {
-      if (rdbuf()->pubseekoff(off, dir, ios_base::in) == -1) {
+      if (this->rdbuf()->pubseekoff(off, dir, ios_base::in) == -1) {
         state |= failbit;
       }
     }
   } catch (...) {
     例外を投げずにbadbitを設定する;
-    if ((exceptions() & badbit) != 0) {
+    if ((this->exceptions() & badbit) != 0) {
       throw;
     }
   }
-  setstate(state);
+  this->setstate(state);
   return *this;
 }
 ```

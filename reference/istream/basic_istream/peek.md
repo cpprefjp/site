@@ -15,10 +15,38 @@ int_type peek();
 - `good() == false`なら、`Traits::eof()`。
 
 ##例
-TBD
+```cpp
+#include <iostream>
+#include <locale>
+
+bool try_read_int(std::istream& is, unsigned & x) {
+  is >> std::ws;
+  if (std::isdigit(is.peek(), is.getloc())) {
+    return is >> x
+      ? true
+      : false;
+  } else {
+    return false;
+  }
+}
+
+int main() {
+  std::cout << "0以上の整数を入力してください: " << std::flush;
+  unsigned x;
+  if (try_read_int(std::cin, x)) {
+    std::cout << "入力された値: " << x << std::endl;
+  } else {
+    std::cout << "数値を入力してください。" << std::endl;
+  }
+}
+```
 
 ##出力
-TBD
+```
+（200を入力）
+0以上の整数を入力してください: 200
+入力された値: 200
+```
 
 ##実装例
 ```cpp

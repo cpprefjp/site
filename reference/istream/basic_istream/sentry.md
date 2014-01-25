@@ -25,6 +25,13 @@ namespace std {
 
 なお、C++標準規格では、規格で要求している処理のほかに、追加の処理を行っても良いとされている。
 
+##メンバ
+| 名前                                | 説明           | 対応バージョン |
+|-------------------------------------|----------------|----------------|
+| [`(constructor)`](sentry/sentry.md) | コンストラクタ |                |
+| [`(destructor)`](sentry/-sentry.md) | デストラクタ   |                |
+
 ##参照
 
 - [`basic_istream`](../basic_istream.md)
+- [`basic_ostream<>::sentry`](../../ostream/basic_ostream/sentry.md)

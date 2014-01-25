@@ -41,8 +41,7 @@ std::string get_word(std::istream& is) {
   return s;
 }
 
-int main()
-{
+int main() {
   std::cout << get_word(std::cin) << std::endl;
 }
 ```

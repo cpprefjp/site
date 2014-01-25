@@ -17,12 +17,6 @@ int sync();
     - `rdbuf()`がヌルポインタの場合。
     - `rdbuf()->pubsync()`が`-1`を返した場合。
 
-##例
-TBD
-
-##出力
-TBD
-
 ##実装例
 ```cpp
 int sync() {

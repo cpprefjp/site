@@ -1,11 +1,11 @@
 #operator>>
 ```cpp
 template <class CharT, class Traits, class Allocator>
-basic_string operator>>(basic_istream<CharT, Traits>& is, basic_string<CharT, Traits, Allocator>& str);
+basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, basic_string<CharT, Traits, Allocator>& str);
 ```
 
 ##概要
-文字列を入力する。空白文字が現れるまで、あるいは`setw`マニピュレータで指定された数までの文字を入力する。
+文字列を入力する。空白文字が現れるまで、あるいは`setw`マニピュレータで指定された数までの文字列を入力する。
 
 この関数は、書式化入力関数（[`basic_istream`](../../istream/basic_istream.md)を参照）として作用する。
 
@@ -31,12 +31,12 @@ basic_string operator>>(basic_istream<CharT, Traits>& is, basic_string<CharT, Tr
 #include <iostream>
 #include <string>
 
-int main()
-{
+int main() {
   std::string a, b;
-  std::cin >> a >> b;
-  std::cout << a << std::endl;
-  std::cout << b << std::endl;
+  if (std::cin >> a >> b) {
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+  }
 }
 ```
 

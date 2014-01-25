@@ -17,7 +17,7 @@ namespace std {
     - EOFに達した場合、`setstate(eofbit)`を呼び出す。
 
 ##戻り値
-`*this`
+`is`
 
 ##例
 TBD
