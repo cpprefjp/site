@@ -3,12 +3,14 @@
 
 このヘッダは、以下のヘッダをインクルードすることが規定されている。
 
-- `<ios>`
+- [`<ios>`](ios.md)
 - `<streambuf>`
-- `<istream>`
-- `<ostream>`
+- [`<istream>`](istream.md)
+- [`<ostream>`](ostream.md)
 
 このため、入出力機能に関する基本的な型や関数（`endl`など主要なマニピュレータを含む）を使用する目的で、このヘッダをインクルードしても良いだろう。
+
+なお、[`basic_iostream`、`iostream`、`wiostream`](istream/basic_istream.md)は[`<istream>`](istream.md)で定義されている。
 
 ##標準入出力オブジェクト
 
