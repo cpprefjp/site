@@ -5,7 +5,7 @@ basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, basic
 ```
 
 ##概要
-文字列を入力する。空白文字が現れるまで、あるいは`setw`マニピュレータで指定された数までの文字列を入力する。
+文字列をストリームから入力する。空白文字が現れるまで、あるいは`setw`マニピュレータで指定された数までの文字列を入力する。
 
 この関数は、書式化入力関数（[`basic_istream`](../../istream/basic_istream.md)を参照）として作用する。
 
@@ -52,3 +52,6 @@ Banana
 ```
 
 ##参照
+- [`getline`](getline.md): このほかの`basic_string`に対する入力関数。
+- このほかの`>>`演算子関数
+    - [`<istream>`ヘッダで定義されているもの](../../istream/basic_istream/op_istream.md)
