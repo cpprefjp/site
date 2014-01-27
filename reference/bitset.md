@@ -32,7 +32,7 @@ namespace std {
 | `set` | 任意の位置のビットを1にする | |
 | `reset` | 任意の位置のビットを0にする | |
 | [`operator~`](./bitset/op_flip.md)                      | ビットを反転させる | |
-| `flip` | ビットを反転させる | |
+| [`flip`](./bitset/flip.md)                              | ビットを反転させる | |
 
 
 ###要素アクセス
