@@ -29,7 +29,7 @@ namespace std {
 | [`operator^=`](./bitset/op_xor_equal.md)                | 排他的論理和の複合演算 | |
 | `operator<<=` | 左シフトの複合演算 | |
 | `operator>>=` | 右シフトの複合演算 | |
-| `set` | 任意の位置のビットを1にする | |
+| [`set`](./bitset/set.md)                                | 任意の位置のビットを設定する | |
 | `reset` | 任意の位置のビットを0にする | |
 | [`operator~`](./bitset/op_flip.md)                      | ビットを反転させる | |
 | [`flip`](./bitset/flip.md)                              | ビットを反転させる | |
