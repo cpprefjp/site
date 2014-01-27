@@ -16,8 +16,12 @@ reference at(size_type n);
 定数時間
 
 
+##例外
+`n >= a.size()`の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+
+
 ##備考
-`a.at(n)` は `*(a.begin() + n)` と同じ結果になる。`at()`の場合ははコンテナの要素数に対して境界チェックを行う。もし、`n >= a.size()`だった場合には`out_of_range`例外を投げる。
+`a.at(n)` は `*(a.begin() + n)` と同じ結果になる。`at()`の場合はコンテナの要素数に対して境界チェックを行う。
 
 
 ##例
