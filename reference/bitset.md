@@ -27,7 +27,7 @@ namespace std {
 | [`operator&=`](./bitset/op_and_assign.md)                | 論理積の複合演算 | |
 | [<code>operator&#x7C;=</code>](./bitset/op_or_assign.md) | 論理和の複合演算 | |
 | [`operator^=`](./bitset/op_xor_assign.md)                | 排他的論理和の複合演算 | |
-| `operator<<=` | 左シフトの複合演算 | |
+| [`operator<<=`](./bitset/op_left_shift_assign.md)        | 左シフトの複合演算 | |
 | `operator>>=` | 右シフトの複合演算 | |
 | [`set`](./bitset/set.md)                                | 任意の位置のビットを設定する | |
 | [`reset`](./bitset/reset.md)                            | 任意の位置のビットを0にする | |
@@ -51,7 +51,7 @@ namespace std {
 | `to_string` | 文字列に変換する | |
 | `operator==` | 等値比較 | |
 | `operator!=` | 非等値比較 | |
-| `operator<<` | 左シフト | |
+| [`operator<<`](./bitset/op_left_shift.md) | 左シフト | |
 | `operator>>` | 右シフト | |
 
 
