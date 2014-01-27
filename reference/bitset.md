@@ -64,7 +64,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------|-------------|-------|
-| `operator&` | 論理積 | |
+| [`operator&`](./bitset/op_and.md) | 論理積 | |
 | <code>operator&#x7C;</code> | OR演算 | |
 | `operator^` | XOR演算 | |
 | `operator>>` | ストリームから入力 | |
