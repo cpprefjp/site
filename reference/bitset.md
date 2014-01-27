@@ -26,7 +26,7 @@ namespace std {
 |----------------------------|----------------------------------------------------------|-------|
 | [`operator&=`](./bitset/op_and_equal.md)                | 論理積の複合演算 | |
 | [<code>operator&#x7C;=</code>](./bitset/op_or_equal.md) | 論理和の複合演算 | |
-| `operator^=` | XORの複合演算 | |
+| [`operator^=`](./bitset/op_xor_equal.md)                | 排他的論理和の複合演算 | |
 | `operator<<=` | 左シフトの複合演算 | |
 | `operator>>=` | 右シフトの複合演算 | |
 | `set` | 任意の位置のビットを1にする | |
@@ -66,7 +66,7 @@ namespace std {
 |-------------------------|-------------|-------|
 | [`operator&`](./bitset/op_and.md)                | 論理積 | |
 | [<code>operator&#x7C;</code>](./bitset/op_or.md) | OR演算 | |
-| `operator^` | XOR演算 | |
+| [`operator^`](./bitset/op_xor.md)                | XOR演算 | |
 | `operator>>` | ストリームから入力 | |
 | `operator<<` | ストリームに出力 | |
 
