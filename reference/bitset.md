@@ -40,17 +40,17 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |----------------------------|----------------------------------------------------------|-------|
 | `operator[]` | 任意の位置のビットにアクセスする | |
-| `to_ulong` | unsigned long型に変換する | |
-| `to_ullong` | unsigned long long型に変換する | C++11 |
-| `to_string` | 文字列に変換する | |
 | `count` | ONになっているビットの数を取得する | |
 | `size` | ビット数を取得する | |
-| `operator==` | 等値比較 | |
-| `operator!=` | 非等値比較 | |
 | [`test`](./bitset/test.md) | 任意の位置のビットがONになっているかを判定する | |
 | [`all`](./bitset/all.md)   | 全てのビットがONになっているかを判定する       | C++11 |
 | [`any`](./bitset/any.md)   | いずれかのビットがONになっているかを判定する   | |
 | [`none`](./bitset/none.md) | 全てのビットがOFFになっているかを判定する      | |
+| `to_ulong` | unsigned long型に変換する | |
+| `to_ullong` | unsigned long long型に変換する | C++11 |
+| `to_string` | 文字列に変換する | |
+| `operator==` | 等値比較 | |
+| `operator!=` | 非等値比較 | |
 | `operator<<` | 左シフト | |
 | `operator>>` | 右シフト | |
 
