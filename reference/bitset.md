@@ -48,7 +48,7 @@ namespace std {
 | [`none`](./bitset/none.md)        | 全てのビットが0になっているかを判定する       | |
 | `to_ulong` | unsigned long型に変換する | |
 | `to_ullong` | unsigned long long型に変換する | C++11 |
-| `to_string` | 文字列に変換する | |
+| [`to_string`](./bitset/to_string.md)       | 文字列に変換する | |
 | [`operator==`](./bitset/op_equal.md)       | 等値比較 | |
 | [`operator!=`](./bitset/op_not_equal.md)   | 非等値比較 | |
 | [`operator<<`](./bitset/op_left_shift.md)  | 左シフト | |
