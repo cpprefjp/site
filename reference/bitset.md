@@ -49,8 +49,8 @@ namespace std {
 | `to_ulong` | unsigned long型に変換する | |
 | `to_ullong` | unsigned long long型に変換する | C++11 |
 | `to_string` | 文字列に変換する | |
-| `operator==` | 等値比較 | |
-| `operator!=` | 非等値比較 | |
+| [`operator==`](./bitset/op_equal.md)       | 等値比較 | |
+| [`operator!=`](./bitset/op_not_equal.md)   | 非等値比較 | |
 | [`operator<<`](./bitset/op_left_shift.md)  | 左シフト | |
 | [`operator>>`](./bitset/op_right_shift.md) | 右シフト | |
 
