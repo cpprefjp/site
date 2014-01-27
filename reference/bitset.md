@@ -30,7 +30,7 @@ namespace std {
 | `operator<<=` | 左シフトの複合演算 | |
 | `operator>>=` | 右シフトの複合演算 | |
 | [`set`](./bitset/set.md)                                | 任意の位置のビットを設定する | |
-| `reset` | 任意の位置のビットを0にする | |
+| [`reset`](./bitset/reset.md)                            | 任意の位置のビットを0にする | |
 | [`operator~`](./bitset/op_flip.md)                      | ビットを反転させる | |
 | [`flip`](./bitset/flip.md)                              | ビットを反転させる | |
 
