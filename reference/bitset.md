@@ -24,7 +24,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------|----------------------------------------------------------|-------|
-| `operator&=` | ANDの複合演算 | |
+| [`operator&=`](./bitset/op_and_equal.md) | 論理積の複合演算 | |
 | <code>operator&#x7C;=</code> | ORの複合演算 | |
 | `operator^=` | XORの複合演算 | |
 | `operator<<=` | 左シフトの複合演算 | |
@@ -64,7 +64,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------|-------------|-------|
-| `operator&` | AND演算 | |
+| `operator&` | 論理積 | |
 | <code>operator&#x7C;</code> | OR演算 | |
 | `operator^` | XOR演算 | |
 | `operator>>` | ストリームから入力 | |
