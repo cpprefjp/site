@@ -1,0 +1,44 @@
+#test
+```cpp
+bool test(size_t pos) const;
+```
+
+##概要
+任意の位置のビットがONになっているかを判定する。
+
+
+##要件
+`pos <` [`size()`](./size.md)であること。
+
+
+##戻り値
+`pos`番目のビットがONになっていれば`true`、そうでなければ`false`を返す。
+
+
+##例外
+`pos >=` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+
+
+##例
+```cpp
+#include <cassert>
+#include <bitset>
+
+int main()
+{
+  std::bitset<4> bs("1010");
+
+  bool result1 = bs.test(1);
+  assert(result1);
+
+  bool result2 = bs.test(3);
+  assert(result2);
+}
+```
+
+###出力
+```
+```
+
+##参照
+
