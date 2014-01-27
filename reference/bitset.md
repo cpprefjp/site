@@ -24,9 +24,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------|----------------------------------------------------------|-------|
-| [`operator&=`](./bitset/op_and_equal.md)                | 論理積の複合演算 | |
-| [<code>operator&#x7C;=</code>](./bitset/op_or_equal.md) | 論理和の複合演算 | |
-| [`operator^=`](./bitset/op_xor_equal.md)                | 排他的論理和の複合演算 | |
+| [`operator&=`](./bitset/op_and_assign.md)                | 論理積の複合演算 | |
+| [<code>operator&#x7C;=</code>](./bitset/op_or_assign.md) | 論理和の複合演算 | |
+| [`operator^=`](./bitset/op_xor_assign.md)                | 排他的論理和の複合演算 | |
 | `operator<<=` | 左シフトの複合演算 | |
 | `operator>>=` | 右シフトの複合演算 | |
 | [`set`](./bitset/set.md)                                | 任意の位置のビットを設定する | |
