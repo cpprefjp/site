@@ -1,6 +1,7 @@
 #operator&=
 ```cpp
-bitset<N>& operator&=(const bitset<N>& rhs) noexcept;
+bitset<N>& operator&=(const bitset<N>& rhs);          // C++03
+bitset<N>& operator&=(const bitset<N>& rhs) noexcept; // C++11
 ```
 
 ##概要
