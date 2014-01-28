@@ -65,12 +65,12 @@ namespace std {
 ###非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|-------------------------|-------------|-------|
-| [`operator&`](./bitset/op_and.md)                | 論理積 | |
-| [<code>operator&#x7C;</code>](./bitset/op_or.md) | 論理和 | |
-| [`operator^`](./bitset/op_xor.md)                | 排他的論理和 | |
-| `operator>>` | ストリームから入力 | |
-| `operator<<` | ストリームに出力 | |
+|--------------------------------------------------|--------------------|-------|
+| [`operator&`](./bitset/op_and.md)                | 論理積             | |
+| [<code>operator&#x7C;</code>](./bitset/op_or.md) | 論理和             | |
+| [`operator^`](./bitset/op_xor.md)                | 排他的論理和       | |
+| [`operator>>`](./bitset/op_istream.md)           | ストリームから入力 | |
+| [`operator<<`](./bitset/op_ostream.md)           | ストリームに出力   | |
 
 
 ##例
