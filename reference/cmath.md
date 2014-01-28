@@ -65,6 +65,7 @@
 | [`sqrt`](./cmath/sqrt.md)   | 平方根         | |
 | [`cbrt`](./cmath/cbrt.md)   | 立方根         | C++11 |
 | [`hypot`](./cmath/hypot.md) | 平方和の平方根 | C++11 |
+| [`abs`](./cmath/abs.md)     | 絶対値         | |
 | [`fabs`](./cmath/fabs.md)   | 絶対値         | |
 
 
