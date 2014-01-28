@@ -14,25 +14,25 @@ namespace std {
 ###構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------|----------------------------------------------------------|-------|
-| `(constructor)` | コンストラクタ | |
-| `(destructor)` | デストラクタ | |
-| `bitset& operator=(const bitset&) = default` | 代入演算子 | |
+|----------------------------------------------|----------------|-------|
+| [`(constructor)`](./bitset/bitset.md)        | コンストラクタ | |
+| `~bitset() = default`                        | デストラクタ   | |
+| `bitset& operator=(const bitset&) = default` | 代入演算子     | |
 
 
 ###集合演算
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------|----------------------------------------------------------|-------|
-| [`operator&=`](./bitset/op_and_assign.md)                | 論理積の複合演算 | |
-| [<code>operator&#x7C;=</code>](./bitset/op_or_assign.md) | 論理和の複合演算 | |
-| [`operator^=`](./bitset/op_xor_assign.md)                | 排他的論理和の複合演算 | |
-| [`operator<<=`](./bitset/op_left_shift_assign.md)        | 左シフトの複合演算 | |
-| [`operator>>=`](./bitset/op_right_shift_assign.md)       | 右シフトの複合演算 | |
+|----------------------------------------------------------|------------------------------|-------|
+| [`operator&=`](./bitset/op_and_assign.md)                | 論理積の複合演算             | |
+| [<code>operator&#x7C;=</code>](./bitset/op_or_assign.md) | 論理和の複合演算             | |
+| [`operator^=`](./bitset/op_xor_assign.md)                | 排他的論理和の複合演算       | |
+| [`operator<<=`](./bitset/op_left_shift_assign.md)        | 左シフトの複合演算           | |
+| [`operator>>=`](./bitset/op_right_shift_assign.md)       | 右シフトの複合演算           | |
 | [`set`](./bitset/set.md)                                 | 任意の位置のビットを設定する | |
-| [`reset`](./bitset/reset.md)                             | 任意の位置のビットを0にする | |
-| [`operator~`](./bitset/op_flip.md)                       | ビットを反転させる | |
-| [`flip`](./bitset/flip.md)                               | ビットを反転させる | |
+| [`reset`](./bitset/reset.md)                             | 任意の位置のビットを0にする  | |
+| [`operator~`](./bitset/op_flip.md)                       | ビットを反転させる           | |
+| [`flip`](./bitset/flip.md)                               | ビットを反転させる           | |
 
 
 ###要素アクセス
@@ -58,7 +58,7 @@ namespace std {
 ###メンバ型
 
 | 名前 | 説明 | 対応バージョン |
-|-------------|----------------------------------------------|-------|
+|--------------------------------------|----------------------------------------------|-------|
 | [`reference`](./bitset/reference.md) | 任意の位置のビットを参照するためのプロキシ型 | |
 
 
