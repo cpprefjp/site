@@ -21,14 +21,14 @@
 
 ##比較演算
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------|----------------------------------------------|-------|
-| `ratio_equal`         | 等値比較(class template)                     | C++11 |
-| `ratio_not_equal`     | 非等値比較(class template)                   | C++11 |
-| `ratio_less`          | 左辺が右辺より小さいかの比較(class template) | C++11 |
-| `ratio_less_equal`    | 左辺が右辺以下かの比較(class template)       | C++11 |
-| `ratio_greater`       | 左辺が右辺より大きいかの比較(class template) | C++11 |
-| `ratio_greater_equal` | 左辺が右辺以上かの比較(class template)       | C++11 |
+| 名前                                                    | 説明                                         | 対応バージョン |
+|---------------------------------------------------------|----------------------------------------------|-------|
+| [`ratio_equal`](./ratio/ratio_equal.md)                 | 等値比較(class template)                     | C++11 |
+| [`ratio_not_equal`](./ratio/ratio_not_equal.md)         | 非等値比較(class template)                   | C++11 |
+| [`ratio_less`](./ratio/ratio_less.md)                   | 左辺が右辺より小さいかの比較(class template) | C++11 |
+| [`ratio_less_equal`](./ratio/ratio_less_equal.md)       | 左辺が右辺以下かの比較(class template)       | C++11 |
+| [`ratio_greater`](./ratio/ratio_greater.md)             | 左辺が右辺より大きいかの比較(class template) | C++11 |
+| [`ratio_greater_equal`](./ratio/ratio_greater_equal.md) | 左辺が右辺以上かの比較(class template)       | C++11 |
 
 
 ##SI単位の`typedef`
