@@ -11,12 +11,12 @@
 
 ##四則演算
 
-| 名前 | 説明 | 対応バージョン |
-|-------------------|----------------------|-------|
-| `ratio_add`       | 加算(alias template) | C++11 |
-| `ratio_substract` | 減算(alias template) | C++11 |
-| `ratio_multiply`  | 乗算(alias template) | C++11 |
-| `ratio_devide`    | 除算(alias template) | C++11 |
+| 名前                                           | 説明                 | 対応バージョン |
+|------------------------------------------------|----------------------|-------|
+| [`ratio_add`](./ratio/ratio_add.md)            | 加算(alias template) | C++11 |
+| [`ratio_substract`](./ratio/ratio_subtract.md) | 減算(alias template) | C++11 |
+| [`ratio_multiply`](./ratio/ratio_multiplt.md)  | 乗算(alias template) | C++11 |
+| [`ratio_divide`](./ratio/ratio_divide.md)      | 除算(alias template) | C++11 |
 
 
 ##比較演算
