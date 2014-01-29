@@ -30,7 +30,7 @@ int main()
   using r = std::ratio<3, 12>;
 
   static_assert(r::num == 1, "num is 1");
-  static_assert(r::den == 4, "num is 4");
+  static_assert(r::den == 4, "den is 4");
 }
 ```
 
