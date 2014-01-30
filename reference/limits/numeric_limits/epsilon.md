@@ -51,6 +51,6 @@ equal
 ```
 
 ##参照
-* [C++ FAQ - Why doesn't my floating-point comparison work?](http://www.parashift.com/c++-faq-lite/floating-point-arith.html)
-
+- [C++ FAQ - Why doesn't my floating-point comparison work?](http://www.parashift.com/c++-faq-lite/floating-point-arith.html)
+- [Comparing Floating Point Numbers, 2012 Edition](http://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/)
 
