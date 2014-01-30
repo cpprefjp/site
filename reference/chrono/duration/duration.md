@@ -11,10 +11,25 @@ duration(const duration&) = default;
 ###durationの構築
 `duration`オブジェクトを次に示す通りの要素で初期化する。
 
-- `constexpr duration() = default;`<br/>デフォルトコンストラクタ。
-- `template <class Rep2>`<br/>`constexpr explicit duration(const Rep2& r);`<br/>`rep`型に変換可能な型の値から`duration`を構築する。<br/>[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`もしくは[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<Rep2>::value == false`の場合にオーバーロード解決される。
-- `template <class Rep2, class Preriod2>`<br/>`constexpr duration(const duration<Rep2, Period2>& d);`<br/>他のテンプレートパラメータを持つ`duration`から`duration`を構築する。
-- `duration(const duration&) = default;`<br/>コピーコンストラクタ
+- `constexpr duration() = default;`
+
+デフォルトコンストラクタ。
+
+- `template <class Rep2>`<br/>`constexpr explicit duration(const Rep2& r);`
+
+`rep`型に変換可能な型の値から`duration`を構築する。
+
+[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`もしくは[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<Rep2>::value == false`の場合にオーバーロード解決される。
+
+- `template <class Rep2, class Preriod2>`<br/>`constexpr duration(const duration<Rep2, Period2>& d);`
+
+他のテンプレートパラメータを持つ`duration`から`duration`を構築する。
+
+[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`であるか、[`ratio_divide`](/reference/ratio/ratio_divide.md)`<Period2, period>::type::den == 1`である場合にオーバーロード解決される。（この要求は整数ベースの`duration`型間での変換の際に、暗黙に切り捨て誤差が起きるのを防ぐ。浮動小数点数型ベースの場合には、精度が下がれば小数点以下の数値になるだけなので問題ない。）
+
+- `duration(const duration&) = default;`
+
+コピーコンストラクタ
 
 
 ###例
@@ -47,10 +62,13 @@ int main()
 3000
 ```
 
+##バージョン
 ###言語
 - C++11
 
 ###処理系
-- GCC, C++0x mode: 4.5.1, 4.6
+- [Clang, C++11 mode](/implementation#clang.md): 3.0
+- [GCC, C++11 mode](/implementation#gcc.md): 4.4.7
+- [Visual C++](/implementation#visual_cpp.md): ??
 
 
