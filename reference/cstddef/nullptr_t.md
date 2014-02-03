@@ -8,9 +8,6 @@ namespace std {
 ##概要
 `nullptr`の型。
 
-##備考
-Visual C++ 2010, 2012では[`is_scalar`](../type_traits/is_scalar.md)`<nullptr_t>`が`false_type`（からの派生クラス）となっているバグがある。
-
 ##例
 ```cpp
 #include <iostream>
@@ -49,3 +46,6 @@ is_class<nullptr_t>: 0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
+####備考
+
+Visual C++ 2010, 2012では[`is_scalar`](../type_traits/is_scalar.md)`<nullptr_t>`が`false_type`（からの派生クラス）となっているバグがある。

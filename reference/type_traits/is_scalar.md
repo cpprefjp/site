@@ -14,10 +14,6 @@ namespace std {
 `is_scalar`は、型`T`がスカラ型であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
 
 
-##備考
-Visual C++ 2010, 2012では`is_scalar<`[`nullptr_t`](../cstddef/nullptr_t.md)`>`が`false_type`からの派生クラスとなっているバグがある。
-
-
 ##例
 ```cpp
 #include <type_traits>
@@ -71,3 +67,4 @@ int main(){}
 ####備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
 
+Visual C++ 2010, 2012では`is_scalar<`[`nullptr_t`](../cstddef/nullptr_t.md)`>`が`false_type`からの派生クラスとなっているバグがある。
