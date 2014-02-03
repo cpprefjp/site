@@ -32,7 +32,7 @@ struct doubler {
 | [`bind`](./functional/bind.md) | 関数の引数を部分適用する(function template) | C++11 |
 | [`is_bind_expression`](./functional/is_bind_expression.md) | 型を`bind`の式と見なすか判定する(class template) | C++11 |
 | [`is_placeholder`](./functional/is_placeholder.md) | 型がプレースホルダーかどうかを判定する(class template) | C++11 |
-| `placeholders` | 部分適用のためのプレースホルダー(namespace) | C++11 |
+| [`placeholders`](./functional/placeholders.md) | 部分適用のためのプレースホルダー(namespace) | C++11 |
 | [`mem_fn`](./functional/mem_fn.md) | メンバ関数アダプタ(function template) | C++11 |
 
 
