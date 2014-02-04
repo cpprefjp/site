@@ -20,7 +20,7 @@ namespace std {
 | `operator=`              | 代入演算子 |
 | `swap`                   | 他の`function`オブジェクトと中身を入れ替える |
 | `assign`                 | 関数オブジェクトとアロケータの再代入 |
-| `explicit operator bool` | 空かどうかを判定する |
+| [`operator bool`](./function/op_bool.md) | 関数呼び出しが可能か調べる |
 | `operator()`             | 関数呼び出し |
 | `target_type`            | 元となる関数の型情報を取得する |
 | `target`                 | 元となる関数を取得する |
