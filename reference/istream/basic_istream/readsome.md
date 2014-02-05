@@ -1,4 +1,4 @@
-#get
+#readsome
 ```cpp
 streamsize readsome(char_type* s, streamsize n);
 ```
@@ -39,6 +39,7 @@ int main() {
 ```cpp
 （0123456789と入力）
 12345678
+```
 
 ##実装例
 TBD
