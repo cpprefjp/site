@@ -24,7 +24,7 @@ namespace std {
 | [`operator bool`](./function/op_bool.md) | 関数呼び出しが可能か調べる   | C++11 |
 | `operator()`             | 関数呼び出し                                 | C++11 |
 | [`target_type`](./function/target_type.md)  | 元となる関数の型情報を取得する | C++11 |
-| `target`                 | 元となる関数を取得する                       | C++11 |
+| [`target`](./function/target.md)            | 元となる関数を取得する         | C++11 |
 
 
 ###メンバ型
