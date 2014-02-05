@@ -21,10 +21,10 @@ namespace std {
 | `operator=`              | 代入演算子                                   | C++11 |
 | `swap`                   | 他の`function`オブジェクトと中身を入れ替える | C++11 |
 | `assign`                 | 関数オブジェクトとアロケータの再代入         | C++11 |
-| [`operator bool`](./function/op_bool.md) | 関数呼び出しが可能か調べる   | C++11 |
-| `operator()`             | 関数呼び出し                                 | C++11 |
-| [`target_type`](./function/target_type.md)  | 元となる関数の型情報を取得する | C++11 |
-| [`target`](./function/target.md)            | 元となる関数を取得する         | C++11 |
+| [`operator bool`](./function/op_bool.md)   | 関数呼び出しが可能か調べる     | C++11 |
+| [`operator()`](./function/op_call.md)      | 関数呼び出し                   | C++11 |
+| [`target_type`](./function/target_type.md) | 元となる関数の型情報を取得する | C++11 |
+| [`target`](./function/target.md)           | 元となる関数を取得する         | C++11 |
 
 
 ###メンバ型
