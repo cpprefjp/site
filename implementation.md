@@ -55,6 +55,7 @@ Visual C++ 2010 ではなく Visual C++ 10.0 と表記する。
 
 | 製品名               | バージョン      |
 |----------------------|-----------------|
+| Visual C++ 2013      | Visual C++ 12.0 |
 | Visual C++ 2012      | Visual C++ 11.0 |
 | Visual C++ 2010      | Visual C++ 10.0 |
 | Visual C++ 2008      | Visual C++ 9.0  |
