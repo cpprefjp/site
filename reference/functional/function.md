@@ -71,10 +71,28 @@ int result = f(1); // result == 2
 
 ##例
 ```cpp
+#include <iostream>
+#include <functional>
+
+int add(int x) { return x + 1; }
+
+int main()
+{
+  // 関数を代入
+  std::function<int(int)> f = add;
+
+  // 関数オブジェクトを代入
+  f = [](int x) { return x + 1; };
+
+  // 保持している関数を呼び出す
+  int result = f(1);
+  std::cout << result << std::endl;
+}
 ```
 
 ###出力
 ```
+2
 ```
 
 ##バージョン
