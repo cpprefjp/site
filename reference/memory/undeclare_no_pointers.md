@@ -40,6 +40,6 @@ int main()
 
 ###処理系
 - GCC: ?
-- Clang: ?
+- Clang(libc++): 3.4 relaxed実装
 - Intel: ?
-- Visual C++: ?
+- Visual C++: 2013 relaxed実装

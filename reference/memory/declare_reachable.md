@@ -64,9 +64,9 @@ int main()
 
 ###処理系
 - GCC: ?
-- Clang: ?
+- Clang(libc++): 3.4 relaxed実装
 - Intel: ?
-- Visual C++: ?
+- Visual C++: 2013 relaxed実装
 
 ##参照
 * [C++0x ガベージコレクションと到達可能性ベースリーク検知の最小支援 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081117/1226913980)
