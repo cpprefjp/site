@@ -19,7 +19,7 @@ namespace std {
 | [`(constructor)`](./function/function.md)  | コンストラクタ                 | C++11 |
 | [`(destructor)`](./function/-function.md)  | デストラクタ                   | C++11 |
 | [`operator=`](./function/op_assign.md)     | 代入演算子                     | C++11 |
-| `swap`                   | 他の`function`オブジェクトと中身を入れ替える | C++11 |
+| [`swap`](./function/swap.md)               | 他の`function`オブジェクトと中身を入れ替える | C++11 |
 | `assign`                 | 関数オブジェクトとアロケータの再代入         | C++11 |
 | [`operator bool`](./function/op_bool.md)   | 関数呼び出しが可能か調べる     | C++11 |
 | [`operator()`](./function/op_call.md)      | 関数呼び出し                   | C++11 |
