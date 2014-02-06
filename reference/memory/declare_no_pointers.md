@@ -86,7 +86,7 @@ int main()
 - C++11
 
 ###処理系
-- GCC: ?
-- Clang(libc++): 3.4 relaxed実装
-- Intel: ?
-- Visual C++: 2013 relaxed実装
+- [GCC](/implementation#gcc.md): ?
+- [Clang libc++, C++11 mode](/implementation#clang.md): 3.4 relaxed実装
+- [ICC](/implementation#icc.md): ?
+- [Visual C++](/implementation#visual_cpp.md): 12.0 relaxed実装
