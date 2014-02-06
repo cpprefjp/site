@@ -1,4 +1,4 @@
-#undeclare_no_pointers
+#undeclare_no_pointers(C++11)
 ```cpp
 namespace std {
   void undeclare_no_pointers(char* p, size_t n);

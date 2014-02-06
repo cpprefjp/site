@@ -1,4 +1,4 @@
-#undeclare_reachable
+#undeclare_reachable(C++11)
 ```cpp
 namespace std {
   template<class T>

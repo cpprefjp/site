@@ -1,4 +1,4 @@
-#declare_reachable
+#declare_reachable(C++11)
 ```cpp
 namespace std {
   void declare_reachable(void* p);
