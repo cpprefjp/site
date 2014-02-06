@@ -23,6 +23,8 @@ function(allocator_arg_t, const Alloc& alloc, function&& f);       // (9)
 template <class F, class Alloc>
 function(allocator_arg_t, const Alloc& alloc, F f);                // (10)
 ```
+* nullptr_t[link /reference/cstddef/nullptr_t.md]
+* allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 ##要件
 - (5), (10) : `F`はコピー構築可能であること。`F`は、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること。また、そのコピーコンストラクタとデストラクタは、例外を投げるべきではない。
