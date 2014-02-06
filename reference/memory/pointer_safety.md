@@ -12,6 +12,7 @@ namespace std {
 ##概要
 `pointer_safety`は、ポインタ安全性について、その挙動／規則について確認するための列挙型である。
 
+
 ##Safety-Derived なポインタ
 "Safety-Derived なポインタ" とは、とても簡単に言うと, `::operator new` で確保されたオブジェクトを指しているポインタのことである。これは、トリッキーな実装により得られたポインタと区別するために用いられる。ガベージコレクション ABI では、Safety-Derived なポインタであるかどうかを基準として動作する。
 
@@ -19,11 +20,11 @@ namespace std {
 
 各列挙値の説明を以下に示す.
 
-| | |
-|------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| `relaxed` | Safety-Derived なポインタもそうでないポインタも同様に扱われる。 (C++03 以前と同じ) |
-| `preferred` | `relaxed`と同様。ただしリークに関するレポート(ヒント)を実装することを許可する。 |
-| `strict` | この環境では厳密な実装が行われており、Safety-Derived と 非Safety-Derived は区別される。 |
+| 列挙値 | 説明 | 対応バージョン |
+|-------------|-----------------------------------------------------------------------------------------|-------|
+| `relaxed`   | Safety-Derived なポインタもそうでないポインタも同様に扱われる。 (C++03 以前と同じ)      | C++11 |
+| `preferred` | `relaxed`と同様。ただしリークに関するレポート(ヒント)を実装することを許可する。         | C++11 |
+| `strict`    | この環境では厳密な実装が行われており、Safety-Derived と 非Safety-Derived は区別される。 | C++11 |
 
 
 ##バージョン
@@ -37,4 +38,6 @@ namespace std {
 - Visual C++: ?
 
 ###参照
-
+* [C++0x ガベージコレクションと到達可能性ベースリーク検知の最小支援 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081117/1226913980)
+* [N2670: Minimal Support for Garbage Collection and Reachability-Based Leak Detection (revised)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2670.htm)
+* [Garbage Collection ABI - C++ FAQ - www.stroustrup.com](http://www.stroustrup.com/C++11FAQ.html#gc-abi)
