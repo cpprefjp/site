@@ -8,18 +8,24 @@ namespace std {
 ##概要
 特定の領域に追跡可能なポインタが存在しないことの宣言を取り消す。
 
+
 ##要件
-同じ領域が既に`declare_no_pointers()`で宣言されている。
+同じ領域が既に[`declare_no_pointers()`](./declare_no_pointers.md)で宣言されている。
+
 
 ##効果
-`declare_no_pointers()`で登録された領域の登録を取り消す。
+[`declare_no_pointers()`](./declare_no_pointers.md)で登録された領域の登録を取り消す。
+
 この関数は、指定された範囲のオブジェクトが寿命を終える前に呼ばれなければならない。
+
 
 ##戻り値
 なし
 
+
 ##例外
-なし
+投げない
+
 
 ##例
 ```cpp
