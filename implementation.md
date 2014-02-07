@@ -14,7 +14,7 @@
 - clang++
 
 
-##GNU Compiler Collection
+##<a name="gcc"> GNU Compiler Collection
 このサイトでは GCC と呼ぶ
 
 - [GCC, the GNU Compiler Collection - GNU Project - Free Software Foundation (FSF)](http://gcc.gnu.org/)
@@ -28,7 +28,7 @@ C++0x (C++11)の機能をオンにしている GCC を GCC, C++0x mode と呼ぶ
 -std=c++0x オブションまたは-std=c++11 オプション（GCC 4.7より）をつけて，コンパイラを実行することを意味する。 
 
 
-##Intel C++ Compiler
+##<a name="icc"> Intel C++ Compiler
 このサイトでは ICC と呼ぶ。
 
 - [XLsoft エクセルソフト : インテル C++ Composer XE Linux 版/インテル C++ コンパイラー XE Linux 版 製品紹介](http://www.xlsoft.com/jp/products/intel/compilers/ccl/index.html?tab=0) 
@@ -39,7 +39,7 @@ C++0x (C++11)の機能をオンにしている GCC を GCC, C++0x mode と呼ぶ
 - ICC
 - ICL
 
-##Microsoft Visual C++
+##<a name="visual_cpp"> Microsoft Visual C++
 このサイトでは Visual C++ と呼ぶ。
 
 - [Microsoft Visual Studio Express](http://www.microsoft.com/japan/msdn/vstudio/express/)
