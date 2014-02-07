@@ -4,7 +4,7 @@
 - [Intel C++ Compiler](#icc)
 - [Microsoft Visual C++](#visual_cpp)
 
-##Clang
+##<a name="clang"> Clang
 このサイトでは Clang と呼ぶ。「クラン(グ)」と読む。
 
 - ["clang" C Language Family Frontend for LLVM](http://clang.llvm.org/)
