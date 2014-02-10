@@ -22,7 +22,6 @@ const_pointer address(const_reference x) const noexcept;
 ```cpp
 #include <iostream>
 #include <memory>
-#include <utility>
 
 int main()
 {
@@ -38,7 +37,7 @@ int main()
 }
 ```
 
-###出力
+###出力例
 ```
 0x7fff54064a7c
 3
