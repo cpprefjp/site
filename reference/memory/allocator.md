@@ -24,12 +24,12 @@ std::vector<int, MyAllocator<int>> v2; // 自分が用意したアロケータ�
 | `(constructor)` | コンストラクタ | |
 | `(destructor)` | デストラクタ | |
 | `operator=` | 代入演算子 | |
-| [`address`](./allocator/address.md)       | 変数のアドレスを取得する | |
-| [`allocate`](./allocator/allocate.md)     | メモリを確保する | |
-| [`deallocate`](./allocator/deallocate.md) | メモリを解放する | |
-| `max_size` | 一度に確保可能なメモリの最大サイズを取得 | |
-| [`construct`](./allocator/construct.md)   | 引数を元にインスタンスを構築する | |
-| [`destroy`](./allocator/destroy.md)       | インスタンスを破棄する           | |
+| [`address`](./allocator/address.md)       | 変数のアドレスを取得する                     | |
+| [`allocate`](./allocator/allocate.md)     | メモリを確保する                             | |
+| [`deallocate`](./allocator/deallocate.md) | メモリを解放する                             | |
+| [`max_size`](./allocator/max_size.md)     | 一度に確保可能なメモリの最大サイズを取得する | |
+| [`construct`](./allocator/construct.md)   | 引数を元にインスタンスを構築する             | |
+| [`destroy`](./allocator/destroy.md)       | インスタンスを破棄する                       | |
 
 
 ###メンバ型
