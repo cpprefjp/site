@@ -28,8 +28,8 @@ std::vector<int, MyAllocator<int>> v2; // 自分が用意したアロケータ�
 | [`allocate`](./allocator/allocate.md)     | メモリを確保する | |
 | [`deallocate`](./allocator/deallocate.md) | メモリを解放する | |
 | `max_size` | 一度に確保可能なメモリの最大サイズを取得 | |
-| `construct` | 引数を元にインスタンスを構築 | |
-| `destroy` | インスタンスの破棄 | |
+| [`construct`](./allocator/construct.md)   | 引数を元にインスタンスを構築する | |
+| [`destroy`](./allocator/destroy.md)       | インスタンスを破棄する           | |
 
 
 ###メンバ型
