@@ -1,8 +1,16 @@
 #allocator
 ```cpp
 namespace std {
-  template<class T> class allocator;
-  template<> class allocator<void>;
+  template<class T>
+  class allocator;
+
+  template<>
+  class allocator<void> {
+    typedef void* pointer;
+    typedef const void* const_pointer;
+    typedef void value_type;
+    template <class U> struct rebind { typedef allocator<U> other; };
+  };
 }
 ```
 
@@ -15,6 +23,12 @@ namespace std {
 std::vector<int> v1;                   // std::allocatorクラスでメモリアロケートされる。
 std::vector<int, MyAllocator<int>> v2; // 自分が用意したアロケータを使用する。
 ```
+
+
+###備考
+C++11から：
+
+デストラクタを除く、`allocator`クラスのメンバ関数は、データ競合を引き起こさない。そのため、複数スレッドから同時に`allocator`クラスのメンバ関数が呼ばれたとしても、正しくメモリ確保・解放される。
 
 
 ###メンバ関数
