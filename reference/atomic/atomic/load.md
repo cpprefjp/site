@@ -12,6 +12,7 @@ T load(memory_order order = memory_order_seq_cst) const noexcept;
 
 ##要件
 `order`が以下のメモリオーダーではないこと：
+
 - [`memory_order_release`](/reference/atomic/memory_order.md)
 - [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
 
