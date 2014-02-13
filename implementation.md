@@ -4,7 +4,7 @@
 - [Intel C++ Compiler](#icc)
 - [Microsoft Visual C++](#visual_cpp)
 
-<h2><a name="clang" href="#clang">Clang</a></h2>
+## <a name="clang" href="#clang">Clang</a>
 このサイトでは Clang と呼ぶ。「クラン(グ)」と読む。
 
 - ["clang" C Language Family Frontend for LLVM](http://clang.llvm.org/)
@@ -14,7 +14,7 @@
 - clang++
 
 
-<h2><a name="gcc" href="#gcc">GNU Compiler Collection</a></h2>
+## <a name="gcc" href="#gcc">GNU Compiler Collection</a>
 このサイトでは GCC と呼ぶ
 
 - [GCC, the GNU Compiler Collection - GNU Project - Free Software Foundation (FSF)](http://gcc.gnu.org/)
@@ -28,7 +28,7 @@ C++0x (C++11)の機能をオンにしている GCC を GCC, C++0x mode と呼ぶ
 -std=c++0x オブションまたは-std=c++11 オプション（GCC 4.7より）をつけて，コンパイラを実行することを意味する。 
 
 
-<h2><a name="icc" href="#icc">Intel C++ Compiler</a></h2>
+## <a name="icc" href="#icc">Intel C++ Compiler</a>
 このサイトでは ICC と呼ぶ。
 
 - [XLsoft エクセルソフト : インテル C++ Composer XE Linux 版/インテル C++ コンパイラー XE Linux 版 製品紹介](http://www.xlsoft.com/jp/products/intel/compilers/ccl/index.html?tab=0) 
@@ -39,7 +39,7 @@ C++0x (C++11)の機能をオンにしている GCC を GCC, C++0x mode と呼ぶ
 - ICC
 - ICL
 
-<h2><a name="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a></h2>
+## <a name="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a>
 このサイトでは Visual C++ と呼ぶ。
 
 - [Microsoft Visual Studio Express](http://www.microsoft.com/japan/msdn/vstudio/express/)
