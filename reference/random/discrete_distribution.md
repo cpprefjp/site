@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-`discrete_distribution`は整数のインデックスごとに離散した確率分布を生成するクラスである。
+`discrete_distribution`は整数のインデックスごとに離散した確率分布を生成するクラスである。アルゴリズムとしては、Walkerの別名法(Walker's alias method, 二者択一法ともいう)で実装されることが多い。
 
 この分布クラスは、コンストラクタで指定された確率列に基いて値を分布させる。その結果として、確率列から選択された、0から始まるインデックスを返す。
 
@@ -119,4 +119,8 @@ int main()
 - [ICC](/implementation#icc.md): 
 - [Visual C++](/implementation#visual_cpp.md): 
 
+
+##参照
+- [Alias Method - Wikipedia](http://en.wikipedia.org/wiki/Alias_method)
+- [一般の離散分布の従う乱数の発生させる方法 - arupaka-_-arupakaの日記](http://d.hatena.ne.jp/arupaka-_-arupaka/20100508/1273319666)
 
