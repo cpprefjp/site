@@ -7,7 +7,7 @@
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|--------------------------------------------|-------|
 | [`allocator`](./memory/allocator.md)             | メモリアロケータの標準実装(class template) | |
-| `allocator_traits`                               | アロケータの型特性(class template)         | C++11 |
+| [`allocator_traits`](./memory/allocator_traits.md) | アロケータクラスへの間接的なアクセス(class template) | C++11 |
 | [`allocator_arg_t`](./memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(class) | C++11 |
 | [`allocator_arg`](./memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(constant value) | C++11 |
 | `uses_allocator` | 型`T`がアロケート可能か調べる | C++11 |
