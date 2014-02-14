@@ -25,6 +25,7 @@ namespace std {
 | [`max_size`](./allocator_traits/max_size.md)     | 一度に確保可能なメモリの最大サイズを取得する | C++11 |
 | [`construct`](./allocator_traits/construct.md)   | 引数を元にインスタンスを構築する             | C++11 |
 | [`destroy`](./allocator_traits/destroy.md)       | インスタンスを破棄する                       | C++11 |
+| [`select_on_container_copy_construction`](./allocator_traits/select_on_container_copy_construction.md) | コンテナのコピー構築に使用するアロケータオブジェクトを取得する | C++11 |
 
 
 ###メンバ型
