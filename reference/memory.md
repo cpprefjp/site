@@ -19,7 +19,7 @@
 |--------------------------------------------------|--------------------------------------------|-------|
 | [`raw_storage_iterator`](./memory/raw_storage_iterator.md) | 未初期化領域に書き込むための出力イテレータ(class template) | |
 | [`uninitialized_copy`](./memory/uninitialized_copy.md) | 未初期化領域の範囲を配置`new`で初期化して出力する(function template) | |
-| `uninitialized_copy_n` | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化して出力する(function template) | C++11 |
+| [`uninitialized_copy_n`](./memory/uninitialized_copy_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化して出力する(function template) | C++11 |
 | `uninitialized_fill` | 未初期化領域の範囲を、指定された値で配置newする(function template) | |
 | `uninitialized_fill_n` | 未初期化領域の範囲のうち、先頭`N`個の要素を指定された値で配置newする(function template) | |
 | `get_temporary_buffer` | 型`T`を`N`個格納するのに十分な領域を確保する(function template) | |
