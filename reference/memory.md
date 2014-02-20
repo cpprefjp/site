@@ -22,8 +22,8 @@
 | [`uninitialized_copy_n`](./memory/uninitialized_copy_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化して出力する(function template) | C++11 |
 | [`uninitialized_fill`](./memory/uninitialized_fill.md) | 未初期化領域の範囲を、指定された値で配置`new`する(function template) | |
 | [`uninitialized_fill_n`](./memory/uninitialized_fill_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を指定された値で配置`new`する(function template) | |
-| `get_temporary_buffer` | 型`T`を`N`個格納するのに十分な領域を確保する(function template) | |
-| `return_temporary_buffer` | `get_temporary_buffer()`で確保された領域を解放する(function) | |
+| [`get_temporary_buffer`](./memory/get_temporary_buffer.md) | 短期的なメモリ領域を確保する(function template) | |
+| [`return_temporary_buffer`](./memory/return_temporary_buffer.md) | `get_temporary_buffer()`で確保された領域を解放する(function) | |
 
 
 ##スマートポインタ
