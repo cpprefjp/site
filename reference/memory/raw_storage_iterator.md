@@ -1,4 +1,4 @@
-#raw_storage_iterator(C++11)
+#raw_storage_iterator
 ```cpp
 namespace std {
   template <class OutputIterator, class T>
@@ -42,10 +42,6 @@ namespace std {
 ###出力
 ```
 ```
-
-##バージョン
-###言語
-- C++11:
 
 ###参照
 
