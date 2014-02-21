@@ -58,6 +58,7 @@ C++11から：
 | `const_reference` | 読み取り専用の要素の参照型 `const T&`        | |
 | `value_type`      | 要素の型 `T`                                 | |
 | `rebind<U>`       | 型`U`を確保するように再束縛する              | |
+| `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータの状態を伝搬するか。 [`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md) | C++14 |
 
 
 ###非メンバ関数
@@ -101,5 +102,13 @@ int main(int argc, char** argv) {
 0 1 2 3 4 5 6 7 8 9 
 ```
 
+###処理系
+- `propagate_on_container_move_assignment`
+    - [Clang, C++1y mode](/implementation#clang.md): 3.4
+    - [GCC, C++1y mode](/implementation#gcc.md): 
+    - [Visual C++](/implementation#visual_cpp.md): ??
+
 ###参照
+- [LWG #2103 - std::allocator_traits<std::allocator<T>>::propagate_on_container_move_assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2103)
+
 
