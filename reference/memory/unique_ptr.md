@@ -27,7 +27,7 @@ namespace std {
 | `swap` | 他の`unique_ptr`オブジェクトとデータを入れ替える | C++11 |
 | [`get`](./unique_ptr/get.md) | リソースを取得する | C++11 |
 | `get_deleter` | デリータを取得する | C++11 |
-| `operator bool` | 有効なリソースを所有しているかを判定する | C++11 |
+| [`operator bool`](./unique_ptr/op_bool.md) | 有効なリソースを所有しているかを判定する | C++11 |
 
 
 ###単一オブジェクト版(unique_ptr<T>)固有のメンバ関数
