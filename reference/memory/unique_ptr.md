@@ -26,7 +26,7 @@ namespace std {
 | `reset` | リソースを解放し、新しい値が渡されていれば再設定する | C++11 |
 | `swap` | 他の`unique_ptr`オブジェクトとデータを入れ替える | C++11 |
 | [`get`](./unique_ptr/get.md) | リソースを取得する | C++11 |
-| `get_deleter` | デリータを取得する | C++11 |
+| [`get_deleter`](./unique_ptr/get_deleter.md) | デリータを取得する | C++11 |
 | [`operator bool`](./unique_ptr/op_bool.md) | 有効なリソースを所有しているかを判定する | C++11 |
 
 
