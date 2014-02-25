@@ -22,12 +22,12 @@ namespace std {
 | `(constructor)` | 他の`unique_ptr`からリソースの所有権を受け取る。 また、デリータを渡すことも可能である。 C++11から非推奨となった`auto_ptr`にも対応しているため、`auto_ptr`の持つ所有権を`unique_ptr`に渡すことも可能である | C++11 |
 | `(destructor)` | 所有権を持つ場合、所有しているリソースを解放する。つまり、`get()` が `nullptr` でなければ `get_deleter()(get())` を呼び出す。 | C++11 |
 | `operator=` | 代入演算子 | C++11 |
-| [`release`](./unique_ptr/release.md) | リソースの所有権を放棄する | C++11 |
-| [`reset`](./unique_ptr/reset.md) | リソースを再初期化する。 | C++11 |
-| `swap` | 他の`unique_ptr`オブジェクトとデータを入れ替える | C++11 |
-| [`get`](./unique_ptr/get.md) | リソースを取得する | C++11 |
+| [`release`](./unique_ptr/release.md)         | リソースの所有権を放棄する | C++11 |
+| [`reset`](./unique_ptr/reset.md)             | リソースを再初期化する。 | C++11 |
+| [`swap`](./unique_ptr/swap.md)               | 他の`unique_ptr`オブジェクトとデータを入れ替える | C++11 |
+| [`get`](./unique_ptr/get.md)                 | リソースを取得する | C++11 |
 | [`get_deleter`](./unique_ptr/get_deleter.md) | デリータを取得する | C++11 |
-| [`operator bool`](./unique_ptr/op_bool.md) | 有効なリソースを所有しているかを判定する | C++11 |
+| [`operator bool`](./unique_ptr/op_bool.md)   | 有効なリソースを所有しているかを判定する | C++11 |
 
 
 ###単一オブジェクト版(unique_ptr<T>)固有のメンバ関数
