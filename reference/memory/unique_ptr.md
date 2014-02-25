@@ -2,7 +2,7 @@
 ```cpp
 namespace std {
   // 単一オブジェクト版
-  template <class T, class Deleter = std::default_delete<T>>
+  template <class T, class D = std::default_delete<T>>
   class unique_ptr;
 
   // 配列版
