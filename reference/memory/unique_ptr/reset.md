@@ -1,6 +1,10 @@
 #reset(C++11)
 ```cpp
-void reset(pointer p = pointer()) noexcept;
+void reset(pointer p = pointer()) noexcept; // (1)
+
+// 配列版のみ
+void reset(nullptr_t p) noexcept;           // (2)
+template <class U> void reset(U) = delete;  // (3)
 ```
 
 ##概要
@@ -8,9 +12,9 @@ void reset(pointer p = pointer()) noexcept;
 
 
 ##効果
-保持しているポインタ変数に`p`を代入する。デフォルト引数を使用する場合、この関数を呼び出したあと`*this`はリソースを保持していない状態になる。
+- (1), (2) :  保持しているポインタ変数に`p`を代入する。デフォルト引数を使用する場合、この関数を呼び出したあと`*this`はリソースを保持していない状態になる。<br/>代入前に保持していたポインタ変数を`old_p`とし、それが`nullptr`でなければ、[`get_deleter()`](./get_deleter.md)`(old_p)`によって、以前保持していたポインタを解放する。
 
-代入前に保持していたポインタ変数を`old_p`とし、それが`nullptr`でなければ、[`get_deleter()`](./get_deleter.md)`(old_p)`によって、以前保持していたポインタを解放する。
+- (3) : 他のポインタ型から`pointer`型への変換を禁止する。
 
 
 ##戻り値
