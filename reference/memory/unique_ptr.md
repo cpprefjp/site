@@ -18,16 +18,16 @@ namespace std {
 ##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|--------------------------|-------------------------------------------|-------|
-| [`(constructor)`](./unique_ptr/unique_ptr.md) | コンストラクタ | C++11 |
-| [`(destructor)`](./unique_ptr/-unique_ptr.md) | デストラクタ | C++11 |
-| `operator=` | 代入演算子 | C++11 |
-| [`release`](./unique_ptr/release.md)         | リソースの所有権を放棄する | C++11 |
-| [`reset`](./unique_ptr/reset.md)             | リソースを再初期化する。 | C++11 |
-| [`swap`](./unique_ptr/swap.md)               | 他の`unique_ptr`オブジェクトとデータを入れ替える | C++11 |
-| [`get`](./unique_ptr/get.md)                 | リソースを取得する | C++11 |
-| [`get_deleter`](./unique_ptr/get_deleter.md) | デリータを取得する | C++11 |
-| [`operator bool`](./unique_ptr/op_bool.md)   | 有効なリソースを所有しているかを判定する | C++11 |
+|-----------------------------------------------|--------------------------------------------------|-------|
+| [`(constructor)`](./unique_ptr/unique_ptr.md) | コンストラクタ                                   | C++11 |
+| [`(destructor)`](./unique_ptr/-unique_ptr.md) | デストラクタ                                     | C++11 |
+| [`operator=`](./unique_ptr/op_assign.md)      | 代入演算子                                       | C++11 |
+| [`release`](./unique_ptr/release.md)          | リソースの所有権を放棄する                       | C++11 |
+| [`reset`](./unique_ptr/reset.md)              | リソースを再初期化する。                         | C++11 |
+| [`swap`](./unique_ptr/swap.md)                | 他の`unique_ptr`オブジェクトとデータを入れ替える | C++11 |
+| [`get`](./unique_ptr/get.md)                  | リソースを取得する                               | C++11 |
+| [`get_deleter`](./unique_ptr/get_deleter.md)  | デリータを取得する                               | C++11 |
+| [`operator bool`](./unique_ptr/op_bool.md)    | 有効なリソースを所有しているかを判定する         | C++11 |
 
 
 ###単一オブジェクト版(unique_ptr<T>)固有のメンバ関数
