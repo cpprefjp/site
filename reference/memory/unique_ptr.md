@@ -20,7 +20,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |--------------------------|-------------------------------------------|-------|
 | [`(constructor)`](./unique_ptr/unique_ptr.md) | コンストラクタ | C++11 |
-| `(destructor)` | 所有権を持つ場合、所有しているリソースを解放する。つまり、`get()` が `nullptr` でなければ `get_deleter()(get())` を呼び出す。 | C++11 |
+| [`(destructor)`](./unique_ptr/-unique_ptr.md) | デストラクタ | C++11 |
 | `operator=` | 代入演算子 | C++11 |
 | [`release`](./unique_ptr/release.md)         | リソースの所有権を放棄する | C++11 |
 | [`reset`](./unique_ptr/reset.md)             | リソースを再初期化する。 | C++11 |
