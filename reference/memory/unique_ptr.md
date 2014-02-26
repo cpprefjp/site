@@ -19,7 +19,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------|-------------------------------------------|-------|
-| `(constructor)` | 他の`unique_ptr`からリソースの所有権を受け取る。 また、デリータを渡すことも可能である。 C++11から非推奨となった`auto_ptr`にも対応しているため、`auto_ptr`の持つ所有権を`unique_ptr`に渡すことも可能である | C++11 |
+| [`(constructor)`](./unique_ptr/unique_ptr.md) | コンストラクタ | C++11 |
 | `(destructor)` | 所有権を持つ場合、所有しているリソースを解放する。つまり、`get()` が `nullptr` でなければ `get_deleter()(get())` を呼び出す。 | C++11 |
 | `operator=` | 代入演算子 | C++11 |
 | [`release`](./unique_ptr/release.md)         | リソースの所有権を放棄する | C++11 |
