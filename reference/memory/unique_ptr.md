@@ -64,7 +64,7 @@ namespace std {
 | `operator<=` | 左辺が右辺以下かを判定する | C++11 |
 | `operator>` | 左辺が右辺より大きいかを判定する | C++11 |
 | `operator>=` | 左辺が右辺以上かを判定する | C++11 |
-| `swap` | 2つの`unique_ptr`オブジェクトを入れ替える | C++11 |
+| [`swap`](./unique_ptr/swap_free.md) | 2つの`unique_ptr`オブジェクトを入れ替える | C++11 |
 
 
 ##例
