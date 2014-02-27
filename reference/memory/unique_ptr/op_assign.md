@@ -6,6 +6,8 @@ template <class U, class E>
 unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept; // (2) 単一オブジェクト
 
 unique_ptr& operator=(nullptr_t) noexcept;            // (3) 単一オブジェクト、配列
+
+unique_ptr& operator=(const unique_ptr&) = delete;    // (4) 単一オブジェクト、配列
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
@@ -13,6 +15,7 @@ unique_ptr& operator=(nullptr_t) noexcept;            // (3) 単一オブジェ�
 - (1) : 自身が保持しているリソースを解放し、`u`から`*this`に所有権を譲渡する。
 - (2) : 自身が保持しているリソースを解放し、変換可能な`u`から`*this`に所有権を譲渡する
 - (3) : 自身が保持しているリソースを解放する。
+- (4) : コピー代入禁止。
 
 
 ##要件

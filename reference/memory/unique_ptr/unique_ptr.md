@@ -12,6 +12,8 @@ unique_ptr(unique_ptr<U, E>&& u) noexcept;   // (7) 単一オブジェクト
 
 template <class U>
 unique_ptr(auto_ptr<U>&& u) noexcept;        // (8) 単一オブジェクト
+
+unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、配列
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
@@ -24,6 +26,7 @@ unique_ptr(auto_ptr<U>&& u) noexcept;        // (8) 単一オブジェクト
 - (6) : デフォルトコンストラクタと同じく、所有権を持たない、空の`unique_ptr`オブジェクトを構築する。
 - (7) : 変換可能なポインタ型を持つ`unique_ptr`オブジェクトからの変換。
 - (8) : 変換可能なポインタ型を持つ`auto_ptr`オブジェクトからの変換。
+- (9) : コピー構築禁止。
 
 
 ##要件
