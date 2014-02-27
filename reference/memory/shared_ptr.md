@@ -23,12 +23,12 @@ namespace std {
 | `operator=` | 代入された`shared_ptr`、`unique_ptr`、`auto_ptr`の管理するインスタンスを新しく管理する | C++11 |
 | `reset` | 管理していたインスタンスを除外する。<br/> 新しいインスタンスが渡されていればそちらの管理を行う。 | C++11 |
 | `swap` | 他の`shared_ptr`オブジェクトとデータを入れ替える  | C++11 |
-| `get` | 管理しているインスタンスへのポインタを取得する | C++11 |
+| [`get`](./shared_ptr/get.md)               | リソースを取得する                         | C++11 |
 | `operator*` | 管理しているインスタンスへの参照を取得する | C++11 |
 | `operator->` | 管理しているインスタンスのメンバにアクセスする | C++11 |
-| `use_count` | 同じインスタンスを所有している`shared_ptr`オブジェクトの数を取得する | C++11 |
-| `unique` | 同じインスタンスを所有している`shared_ptr`が自身だけなら`true`、複数であれば`false`を返す。<br/> `use_count() == 1` | C++11 |
-| `explicit operator bool` | インスタンスを所有しているかを判定する | C++11 |
+| [`use_count`](./shared_ptr/use_count.md)   | 所有権を持つユーザー数を取得する           | C++11 |
+| [`unique`](./shared_ptr/unique.md)         | 所有権を持つユーザーが一人だけかを判定する | C++11 |
+| [`operator bool`](./shared_ptr/op_bool.md) | 有効なリソースを所有しているかを判定する   | C++11 |
 | `owner_before` | `shared_ptr`で管理しているオブジェクトを連想コンテナで並べ替えるときに使用する | C++11 |
 
 
