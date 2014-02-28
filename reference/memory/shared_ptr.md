@@ -21,7 +21,7 @@ namespace std {
 | `(constructor)` | 受け取ったポインタ ptr を参照カウンタを使用し管理する。<br/> 削除するためのデリータを引数に指定可能である。<br/> また、`weak_ptr`、`unique_ptr`、`auto_ptr` から構築可能。 | C++11 |
 | `(destructor)` | この時点で他のどこからも参照されていなかった場合、デストラクタはデリータに管理しているインスタンスを渡して削除する | C++11 |
 | `operator=` | 代入された`shared_ptr`、`unique_ptr`、`auto_ptr`の管理するインスタンスを新しく管理する | C++11 |
-| `reset` | 管理していたインスタンスを除外する。<br/> 新しいインスタンスが渡されていればそちらの管理を行う。 | C++11 |
+| [`reset`](./shared_ptr/reset.md)           | リソースの所有権を放棄し、新たなリソースの所有権を設定する | C++11 |
 | [`swap`](./shared_ptr/swap.md)             | 他の`shared_ptr`オブジェクトとデータを入れ替える  | C++11 |
 | [`get`](./shared_ptr/get.md)               | リソースを取得する                         | C++11 |
 | [`operator*`](./shared_ptr/op_deref.md)    | 間接参照                                   | C++11 |
