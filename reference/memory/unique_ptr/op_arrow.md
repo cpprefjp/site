@@ -2,7 +2,6 @@
 ```cpp
 pointer operator->() const noexcept;
 ```
-* add_lvalue_reference[link /reference/type_traits/add_lvalue_reference.md]
 
 ##概要
 ポインタを通してオブジェクトにアクセスする。
