@@ -22,10 +22,10 @@ namespace std {
 | `(destructor)` | この時点で他のどこからも参照されていなかった場合、デストラクタはデリータに管理しているインスタンスを渡して削除する | C++11 |
 | `operator=` | 代入された`shared_ptr`、`unique_ptr`、`auto_ptr`の管理するインスタンスを新しく管理する | C++11 |
 | `reset` | 管理していたインスタンスを除外する。<br/> 新しいインスタンスが渡されていればそちらの管理を行う。 | C++11 |
-| `swap` | 他の`shared_ptr`オブジェクトとデータを入れ替える  | C++11 |
+| [`swap`](./shared_ptr/swap.md)             | 他の`shared_ptr`オブジェクトとデータを入れ替える  | C++11 |
 | [`get`](./shared_ptr/get.md)               | リソースを取得する                         | C++11 |
-| `operator*` | 管理しているインスタンスへの参照を取得する | C++11 |
-| `operator->` | 管理しているインスタンスのメンバにアクセスする | C++11 |
+| [`operator*`](./shared_ptr/op_deref.md)    | 間接参照                                   | C++11 |
+| [`operator->`](./shared_ptr/op_arrow.md)   | メンバアクセス                             | C++11 |
 | [`use_count`](./shared_ptr/use_count.md)   | 所有権を持つユーザー数を取得する           | C++11 |
 | [`unique`](./shared_ptr/unique.md)         | 所有権を持つユーザーが一人だけかを判定する | C++11 |
 | [`operator bool`](./shared_ptr/op_bool.md) | 有効なリソースを所有しているかを判定する   | C++11 |
