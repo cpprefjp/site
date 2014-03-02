@@ -92,17 +92,17 @@
 
 ##入出力ライブラリ(Input/output library)
 
-| ヘッダ                                 | 説明                         | 対応バージョン |
-|----------------------------------------|------------------------------|----------------|
-| `<iosfwd>`                             | 先行宣言                     |                |
-| [`<iostream>`](/reference/iostream.md) | 標準`iostream`オブジェクト   |                |
-| [`<ios>`](/reference/ios.md)           | `iostream`基底クラス         |                |
-| `<streambuf>`                          | ストリームバッファ           |                |
-| [`<istream>`](/reference/istream.md)   | 入力ストリーム               |                |
-| `<ostream>`                            | 出力ストリーム               |                |
-| `<iomanip>`                            | フォーマットとマニピュレータ |                |
-| `<sstream>`                            | 文字列ストリーム             |                |
-| `<fstream>`                            | ファイルストリーム           |                |
+| ヘッダ                                   | 説明                         | 対応バージョン |
+|------------------------------------------|------------------------------|----------------|
+| `<iosfwd>`                               | 先行宣言                     |                |
+| [`<iostream>`](/reference/iostream.md)   | 標準`iostream`オブジェクト   |                |
+| [`<ios>`](/reference/ios.md)             | `iostream`基底クラス         |                |
+| [`<streambuf>`](/reference/streambuf.md) | ストリームバッファ           |                |
+| [`<istream>`](/reference/istream.md)     | 入力ストリーム               |                |
+| [`<ostream>`](/reference/ostream.md)     | 出力ストリーム               |                |
+| `<iomanip>`                              | フォーマットとマニピュレータ |                |
+| `<sstream>`                              | 文字列ストリーム             |                |
+| `<fstream>`                              | ファイルストリーム           |                |
 
 
 ##正規表現ライブラリ(Regular expressions library)

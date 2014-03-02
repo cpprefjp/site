@@ -186,3 +186,5 @@ TBD
 
 - このほかの`>>`演算子関数
     - [`std::basic_string`に対するもの](../../string/basic_string/op_istream.md)
+- 入力対象の型
+    - [`basic_streambuf`](../../streambuf/basic_streambuf.md)

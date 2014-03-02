@@ -10,7 +10,7 @@ namespace std {
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
-`ostreambuf_iterator`は出力イテレータであり、代入の際に外部から渡された`ostream`オブジェクトにストリームバッファの`sputc()`メンバ関数で値を出力するイテレータアダプタである。[`ostream_iterator`](/reference/iterator/ostream_iterator.md)がフォーマットされた出力を扱うのに対し、`osteambuf_iterator`はフォーマットなしの生の出力を扱う。
+`ostreambuf_iterator`は出力イテレータであり、代入の際に外部から渡された`streambuf`オブジェクトにストリームバッファの`sputc()`メンバ関数で値を出力するイテレータアダプタである。[`ostream_iterator`](/reference/iterator/ostream_iterator.md)がフォーマットされた出力を扱うのに対し、`osteambuf_iterator`はフォーマットなしの生の出力を扱う。
 
 
 ###メンバ関数
@@ -31,8 +31,8 @@ namespace std {
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | `char_type` | `CharT (デフォルトはchar)` |
 | `traits_type` | `Traits (デフォルトはchar_traits<CharT>)` |
-| `streambuf_type` | `basic_streambuf<CharT, Traits>` |
-| `ostream_type` | `basic_ostream<CharT, Traits>` |
+| `streambuf_type` | [`basic_streambuf<CharT, Traits>`](../streambuf/basic_streambuf.md) |
+| `ostream_type` | [`basic_ostream<CharT, Traits>`](../ostream/basic_ostream.md) |
 | `difference_type` | `void` |
 | `pointer` | `void` |
 | `value_type` | `void` |
@@ -63,5 +63,4 @@ Hello
 ```
 
 ###参照
-
-
+- [`basic_streambuf`](../streambuf/basic_streambuf.md)

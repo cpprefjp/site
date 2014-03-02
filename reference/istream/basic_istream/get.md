@@ -92,3 +92,4 @@ TBD
 - C++98
 
 ##参照
+- [`basic_streambuf`](../../streambuf/basic_streambuf.md)

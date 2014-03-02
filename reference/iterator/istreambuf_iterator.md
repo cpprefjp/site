@@ -31,8 +31,8 @@ namespace std {
 | `char_type` | `CharT` |
 | `traits_type` | `Traits (デフォルトはchar_traits<CharT>)` |
 | `int_type` | `Traits::int_type` |
-| `streambuf_type` | `basic_streambuf<CharT, Traits>` |
-| `istream_type` | `basic_istream<CharT, Traits>` |
+| `streambuf_type` | [`basic_streambuf<CharT, Traits>`](../streambuf/basic_streambuf.md) |
+| `istream_type` | [`basic_istream<CharT, Traits>`](../istream/basic_istream.md) |
 | `difference_type` | `Traits::off_type` |
 | `pointer` | 未規定 |
 | `value_type` | `CharT` |
@@ -76,4 +76,4 @@ int main()
 ```
 
 ###参照
-
+- [`basic_streambuf`](../streambuf/basic_streambuf.md)

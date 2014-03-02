@@ -30,7 +30,7 @@ namespace std {
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | `char_type` | `CharT (デフォルトはchar)` |
 | `traits_type` | `Traits (デフォルトはchar_traits<CharT>)` |
-| `ostream_type` | `basic_ostream<CharT, Traits>` |
+| `ostream_type` | [`basic_ostream<CharT, Traits>`](../ostream/basic_ostream.md) |
 | `difference_type` | `void` |
 | `pointer` | `void` |
 | `value_type` | `void` |

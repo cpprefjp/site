@@ -8,6 +8,7 @@ namespace std {
 }
 ```
 * char_traits[link /reference/string/char_traits.md]
+* basic_streambuf[link ../streambuf/basic_streambuf.md]
 
 ##概要
 (ここに、クラスの概要を記載する)

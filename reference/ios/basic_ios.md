@@ -76,7 +76,7 @@ C++03までは、`explicit operator bool`関数の代わりに同じ機能を持
 | `int_type`    | `Traits::int_type`         |                |
 | `pos_type`    | `Traits::pos_type`         |                |
 | `off_type`    | `Traits::off_type`         |                |
-| `tarits_type` | テンプレート仮引数`Traits` |                |
+| `traits_type` | テンプレート仮引数`Traits` |                |
 
 ##参照
 - [`ios_base`](./ios_base.md)
