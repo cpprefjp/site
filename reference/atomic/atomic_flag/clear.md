@@ -12,6 +12,7 @@ void clear(memory_order order = memory_order_seq_cst) noexcept;
 
 ##要件
 `order`が以下のメモリオーダーではないこと：
+
 - [`memory_order_acquire`](/reference/atomic/memory_order.md)
 - [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
 
