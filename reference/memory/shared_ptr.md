@@ -18,7 +18,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------|---------------------------------------------------------|-------|
-| `(constructor)` | 受け取ったポインタ ptr を参照カウンタを使用し管理する。<br/> 削除するためのデリータを引数に指定可能である。<br/> また、`weak_ptr`、`unique_ptr`、`auto_ptr` から構築可能。 | C++11 |
+| [`(constructor)`](./shared_ptr/shared_ptr.md) | コンストラクタ | C++11 |
 | [`(destructor)`](./shared_ptr/-shared_ptr.md) | デストラクタ | C++11 |
 | `operator=` | 代入された`shared_ptr`、`unique_ptr`、`auto_ptr`の管理するインスタンスを新しく管理する | C++11 |
 | [`reset`](./shared_ptr/reset.md)           | リソースの所有権を放棄し、新たなリソースの所有権を設定する | C++11 |
