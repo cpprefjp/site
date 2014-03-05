@@ -109,6 +109,111 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 
 ##例
 ```cpp
+#include <cassert>
+#include <memory>
+
+struct X {
+  int i;
+
+  X(int i = 0)
+    : i(i) {}
+};
+
+int main()
+{
+  // (1)
+  // デフォルト構築。
+  // 空のshared_ptrオブジェクトを構築する
+  std::shared_ptr<int> p1;
+  assert(p1.get() == nullptr);
+  assert(p1.use_count() == 0);
+
+  // (2)
+  // ポインタの所有権を受け取る。
+  std::shared_ptr<int> p2(new int(3));
+  assert(*p2.get() == 3);
+  assert(p2.use_count() == 1);
+
+  // (3)
+  // ポインタの所有権と、デリータを受け取る。
+  // リソース解放時に、delete pの代わりにデリータが呼ばれる。
+  std::shared_ptr<int> p3(new int(3), std::default_delete<int>());
+  assert(*p3.get() == 3);
+  assert(p3.use_count() == 1);
+
+  // (4)
+  // ポインタの所有権、デリータ、アロケータを受け取る。
+  // アロケータは内部的にrebindされるので、要素型はなんでもいい。
+  std::shared_ptr<int> p4(new int(3),
+                          std::default_delete<int>(),
+                          std::allocator<void>());
+  assert(*p4.get() == 3);
+  assert(p4.use_count() == 1);
+
+  // (5)
+  // デリータを受け取り、
+  // ヌルポインタを所有するshared_ptrオブジェクトを構築する。
+  std::shared_ptr<int> p5(nullptr, std::default_delete<int>());
+  assert(p5.get() == nullptr);
+  assert(p5.use_count() == 1);
+
+  // (6)
+  // デリータとアロケータを受け取り、
+  // ヌルポインタを所有するshared_ptrオブジェクトを構築する。
+  std::shared_ptr<int> p6(nullptr,
+                          std::default_delete<int>(),
+                          std::allocator<void>());
+  assert(p6.get() == nullptr);
+  assert(p6.use_count() == 1);
+
+  // (7)
+  // 要素型のメンバへのポインタを共有する。
+  std::shared_ptr<X> p7_org(new X(3));
+  std::shared_ptr<int> p7(p7_org, &(p7_org->i));
+  assert(*p7.get() == 3); // p7はiへのポインタを所有する
+  assert(p7.use_count() == p7_org.use_count()); // 所有権はコピー元のshared_ptrと共有する
+
+  // (8)
+  // 他のshared_ptrとリソースを共有する
+  std::shared_ptr<int> p8_org(new int(3));
+  std::shared_ptr<int> p8 = p8_org;
+  assert(p8.get() == p8_org.get()); // p8_orgとo8はリソースを共有する
+  assert(p8.use_count() == 2); // 所有者は2人
+
+  // (10)
+  // 他のshared_ptrからリソースを移動する
+  std::shared_ptr<int> p10_org(new int(3));
+  std::shared_ptr<int> p10 = std::move(p10_org);
+  assert(*p10.get() == 3);
+  assert(p10.use_count() == 1);
+  assert(p10_org.use_count() == 0);
+
+  // (12)
+  // weak_ptrから構築
+  std::shared_ptr<int> p12_org(new int(3));
+  std::weak_ptr<int> w12(p12_org);
+  if (std::shared_ptr<int> p12 = w12.lock()) {
+    assert(*p12.get() == 3);
+    assert(p12.use_count() == 2);
+  }
+  else {
+    assert(false);
+  }
+
+  // (14)
+  // unique_ptrからリソースを移動する
+  std::unique_ptr<int> p14_org(new int(3));
+  std::shared_ptr<int> p14 = std::move(p14_org);
+  assert(*p14.get() == 3);
+  assert(p14.use_count() == 1);
+  assert(p14_org.get() == nullptr);
+
+  // (15)
+  // 空のshared_ptrを構築する
+  std::shared_ptr<int> p15 = nullptr;
+  assert(p15.get() == nullptr);
+  assert(p15.use_count() == 0);
+}
 ```
 
 ###出力
@@ -120,9 +225,8 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): ??
+- [Clang, C++11 mode](/implementation#clang.md): 3.0
+- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6 (unique_ptr, nullptr以外), 4.4.7 (nullptr以外), 4.6.4
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md): ??
 
