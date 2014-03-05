@@ -36,8 +36,8 @@ explicit shared_ptr(const weak_ptr<Y>& r);         // (12)
 template <class Y>
 shared_ptr(auto_ptr<Y>&& r);                       // (13)
 
-template <class Y, class D>
-shared_ptr(unique_ptr<Y, D>&& r);                  // (14)
+template <class Y, class Deleter>
+shared_ptr(unique_ptr<Y, Deleter>&& r);            // (14)
 
 constexpr shared_ptr(nullptr_t);                   // (15)
 ```
@@ -61,8 +61,50 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 - (15) : (1)と同じく、所有権を持たない、空の`shared_ptr`オブジェクトを構築する。
 
 
+##要件
+- (2) : `p`が`T*`に変換可能であること。`Y`が完全型であり、式`delete p`が妥当であること。
+- (3), (4), (5), (6) : `p`が`T*`に変換可能であること。`Deleter`がコピー構築可能な型であり、そのコピーコンストラクタとデストラクタが例外を投げないこと。`d(p)`という式が妥当であること。
+- (9) : `Y*`が`T*`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される。
+- (11) : `Y*`が`T*`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される。
+- (12) : `Y*`が`T*`に変換可能であること。
+- (13) : `r.release()`によって返されるポインタ値が、`T*`に変換可能であること。`Y`が完全型であり、式`delete r.release()`が妥当であること。
+
+
 ##効果
-TBD
+- (1) : 空の`shared_ptr`オブジェクトを構築する。
+- (2) : ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。
+- (3) : リソースを破棄する際に使用する関数オブジェクト`d`を受け取り、ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。
+- (4) : リソースを破棄する際に使用する関数オブジェクト`d`を受け取り、ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。アロケータオブジェクト`a`のコピーを、内部のメモリ確保に使用する。
+- (5) : リソースを破棄する際に使用する関数オブジェクト`d`を受け取り、ヌルポインタを所有する`shared_ptr`オブジェクトを構築する。
+- (6) : リソースを破棄する際に使用する関数オブジェクト`d`を受け取り、ヌルポインタを所有する`shared_ptr`オブジェクトを構築する。アロケータオブジェクト`a`のコピーを、内部のメモリ確保に使用する。
+- (7) : `r`の所有権を持ち、ポインタとしては`p`を保持する`shared_ptr`オブジェクトを構築する。
+- (8), (9) : `r`が空の場合、空の`shared_ptr`オブジェクトを構築する。そうでなければ、`r`とリソースを共有する`shared_ptr`オブジェクトを構築する。
+- (10), (11) : `r`が持つ所有権を、`*this`に移動する。
+- (12) : `r`が持つポインタのコピーを共有する`shared_ptr`オブジェクトを構築する。
+- (13) : `r`が持つ所有権を、`*this`に移動する。
+- (14) : 以下のように、(3)のコンストラクタに移譲する。`Deleter`が参照型でなければ`shared_ptr(r.`[`release()`](/reference/memory/unique_ptr/release.md)`, r.`[`get_deleter()`](/reference/memory/unique_ptr/get_deleter.md)`)`を呼び出し、そうでなければ`shared_ptr(r.`[`release()`](/reference/memory/unique_ptr/release.md)`,` [`ref`](/reference/functional/reference_wrapper/ref.md)`(r.`[`get_deleter()`](/reference/memory/unique_ptr/get_deleter.md)`))`
+- (15) : 空の`shared_ptr`オブジェクトを構築する。
+
+
+##事後条件
+- (1) : [`use_count()`](./use_count.md) `== 0 &&` [`get()`](./get.md) ` == nullptr`
+- (2), (3), (4) : [`use_count()`](./use_count.md) `== 1 &&` [`get()`](./get.md) ` == p`
+- (5), (6) : [`use_count()`](./use_count.md) `== 1 &&` [`get()`](./get.md) ` == nullptr`
+- (7) : [`get()`](./get.md) `== p &&` [`use_count()`](./use_count.md) `== r.`[`use_count()`](./use_count.md)
+- (8), (9) : [`get()`](./get.md) `==` [`get()`](./get.md) `&&` [`use_count()`](./use_count.md) `== r.`[`use_count()`](./use_count.md)
+- (10) : `*this`は`r`がこれまで持っていた値を持ち、`r`は空の状態になる。
+- (12) : [`use_count()`](./use_count.md) `== r.`[`use_count()`](./use_count.md)
+- (13) : [`use_count()`](./use_count.md) `== 1 &&` `r.`[`get()`](./get.md) `== nullptr`
+
+
+##例外
+- (3), (4), (5), (6) : メモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)例外を送出する。例外送出時には`d(p)`を呼び出すことが保証される。
+- (12) : `r.`[`expired()`](/reference/memory/weak_ptr/expired.md) `== true`の場合、[`bad_weak_ptr`](/reference/memory/bad_weak_ptr.md)例外を送出する。
+- (13) : メモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)もしくはその他実装定義の例外を送出する。
+
+
+##備考
+アロケータは、参照カウンタのメモリ確保に使用される。
 
 
 ##例
