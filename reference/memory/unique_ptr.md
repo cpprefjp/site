@@ -67,6 +67,14 @@ namespace std {
 | [`swap`](./unique_ptr/swap_free.md)              | 2つの`unique_ptr`オブジェクトを入れ替える | C++11 |
 
 
+##ハッシュサポート
+
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------------------------|------------------------------------------|-------|
+| `template <class T> struct hash;`                         | `hash`クラスの先行宣言                   | C++11 |
+| `template <class T, class D> struct hash<unique_ptr<N>>;` | `hash`クラスの`unique_ptr`に対する特殊化 | C++11 |
+
+
 ##例
 ```cpp
 #include <memory>
