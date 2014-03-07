@@ -25,7 +25,7 @@ shared_ptr<T> b = ...;
 if (a.get() < b.get()) {}
 ```
 
-このような、`shared_ptr`が保持するポインタの比較を、「値ベース(value-based)」な比較と言う。
+このような、`shared_ptr`が保持するポインタの比較を、「値ベース(value-based)な比較」と言う。
 
 この比較に依存して`shared_ptr`を[`std::set`](/reference/set/set.md)や[`std::map`](/reference/map/map.md)の要素型とすると、問題が起こることがある。`shared_ptr`には、別名コンストラクタ(aliasing constructor)と呼ばれる、以下のオーバーロードがある：
 
@@ -36,7 +36,7 @@ shared_ptr(const shared_ptr<Y>& r, T* p) noexcept;
 
 このコンストラクタを使用すると、所有するリソースは`r`だが、保持するポインタは`p`という状況が発生する。そのため、`std::set<std::shared_ptr<T>>`を使用する場合に、同じリソースが重複登録されることがある。
 
-`owner_before()`は、たとえ別名コンストラクタが使われたとしても、所有するリソースのポインタ比較を行う。
+`owner_before()`は、たとえ別名コンストラクタが使われたとしても、所有するリソースのポインタ比較を行う。この比較方法を、「所有権ベース(ownership-based)な比較」と言う。
 
 技術的には、`shared_ptr`が内部でメモリ確保している、参照カウンタオブジェクトのポインタ比較を行う。
 
