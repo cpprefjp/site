@@ -43,10 +43,6 @@ shared_ptr(const shared_ptr<Y>& r, T* p) noexcept;
 
 ##例
 ```cpp
-```
-
-###出力
-```
 #include <iostream>
 #include <memory>
 
@@ -69,6 +65,12 @@ int main()
   std::cout << value_based_result << std::endl;
   std::cout << ownership_based_result << std::endl;
 }
+```
+
+###出力
+```
+true
+false
 ```
 
 ##バージョン
