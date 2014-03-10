@@ -63,9 +63,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------------------------|-------|
-| [`atomic_is_lock_free`](./shared_ptr/atomic_is_lock_free.md) | 指定されたオブジェクトがロックフリーに振る舞うことができるかを調べる | C++11 |
-| [`atomic_store`](./shared_ptr/atomic_store.md)               | 値を書き込む | C++11 |
-| `atomic_store_explicit`                   | メモリオーダーを指定して値を書き込む | C++11 |
+| [`atomic_is_lock_free`][is_lock_free]     | 指定されたオブジェクトがロックフリーに振る舞うことができるかを調べる | C++11 |
+| [`atomic_store`][store]                   | 値を書き込む | C++11 |
+| [`atomic_store_explicit`][store_ex]       | メモリオーダーを指定して値を書き込む | C++11 |
 | `atomic_load`                             | 値を読み込む | C++11 |
 | `atomic_load_explicit`                    | メモリオーダーを指定して値を読み込む | C++11 |
 | `atomic_exchange`                         | 値を入れ替える | C++11 |
@@ -74,6 +74,10 @@ namespace std {
 | `atomic_compare_exchange_strong`          | 強い比較で値の入れ替えを行う | C++11 |
 | `atomic_compare_exchange_weak_explicit`   | 弱い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
 | `atomic_compare_exchange_strong_explicit` | 強い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
+
+[is_lock_free]: ./shared_ptr/atomic_is_lock_free.md
+[store]: ./shared_ptr/atomic_store.md
+[store_ex]: ./shared_ptr/atomic_store_explicit.md
 
 
 ##ハッシュサポート
