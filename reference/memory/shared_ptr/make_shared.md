@@ -1,21 +1,29 @@
 #make_shared(C++11)
 ```cpp
 namespace std {
-  template<class T, class... Args>
+  template <class T, class... Args>
   shared_ptr<T> make_shared(Args&&... args);
 }
 ```
 
 ##概要
-`class T` に対する `shared_ptr<T>`オブジェクト を作成し返却する。
-このとき、`args...` で受け取った引数リストを型 `T` の作成時コンストラクタへ渡して作成する。
+`shared_ptr`オブジェクトを構築する。
 
-`shared_ptr<T>(new T(args...));` という方法でも構築できるが、これは作成時のメモリ確保が2回行われることからオーバーヘッドが大きくなるという欠点がある。
-`make_shared()` はそこを制御し、1つの大きなブロックとして `shared_ptr` 構築に必要なメモリを確保する。
 
-また、コピー不可能なクラスもムーブによって引数リストへ渡すことが可能である。
+##戻り値
+型`T`に対する `shared_ptr<T>`オブジェクト を作成し返却する。  
+このとき、`args...` で受け取った引数リストを型 `T` の作成時コンストラクタへ渡して作成する。  
 
-メモリの確保にユーザー定義のアロケータを使用したい場合には、 [`allocate_shared`](/reference/memory/allocate_shared.md) を使用する。
+
+##備考
+`shared_ptr<T>(new T(args...));` というように、コンストラクタを呼び出す方法でも`shared_ptr`オブジェクトを構築できる。しかしこの方法では、以下の2つのメモリ確保が必要になり、効率がよくない：
+
+- ユーザーによるオブジェクトの生成
+- 内部的な参照カウンタの生成
+
+`make_shared()` 内部的にオブジェクトを生成するため、オブジェクトの生成と参照カウンタの生成を、1つの大きなブロックとしてメモリを確保するため、より効率的になる。
+
+メモリの確保にユーザー定義のアロケータを使用したい場合には、 [`allocate_shared()`](./allocate_shared.md) を使用する。
 
 ##例
 ```cpp
@@ -47,7 +55,10 @@ int main() {
 - [Visual C++](/implementation#visual_cpp.md): 10.0
 
 ##備考
-VIsual C++ 10.0 でも使用可能だが、Variadic Templates に対応していないため、オーバーロードにより、最大10個の引数を受け取れる形で実装されている。
+Visual C++ 10.0 でも使用可能だが、コンパイラが可変引数テンプレートに対応していないため、最大10個の引数を受け取れる形で実装されている。
+
 
 ###参照
-- [`std::allocate_shared`](/reference/memory/allocate_shared.md)
+- [`std::allocate_shared()`](./allocate_shared.md)
+- [std::make_shared から private コンストラクタを呼び出す - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20131211/1386771626)
+
