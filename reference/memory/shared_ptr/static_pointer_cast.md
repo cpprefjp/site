@@ -11,8 +11,8 @@ namespace std {
 
 
 ##戻り値
-`r` が空であった場合、この関数は空の `shared_ptr<T>` を返却する。 
-空ではない場合、この関数は `static_cast<T*>` を行い `shared_ptr<T>` を返却する。 
+`r` が空であった場合、この関数は空の `shared_ptr<T>` を返却する。  
+空ではない場合、この関数は `static_cast<T*>` を行い `shared_ptr<T>` を返却する。  
 この際、`shared_ptr<U>` の参照カウンタをそのまま使用する。(`shared_ptr<U>.use_count() == shared_ptr<T>.use_count()`)
 
 
