@@ -107,42 +107,37 @@ namespace std {
 
 ##例
 ```cpp
-#include <memory>
 #include <iostream>
- 
-std::unique_ptr<int> make_instance()
-{
-  return std::unique_ptr<int>(new int(42));
-}
- 
+#include <memory>
+
 int main()
 {
-  auto dp = make_instance();
- 
-  // unique_ptrから構築
-  std::shared_ptr<int> sp1(std::move(dp));
- 
-  if(sp1) {
-    std::cout << "sp1 address : " << sp1 << std::endl;
-  }
- 
-  std::shared_ptr<int> sp2(sp1);
-  if(sp2 && !sp2.unique()) {
-    std::cout << "sp2 address : " << sp2 << std::endl;
-  }
- 
-  sp1.reset();
-  if(sp2) {
-    std::cout << "value = " << *sp2 << std::endl;
-  }
-}
+  // newしたポインタをshared_ptrオブジェクトに管理させる
+  // 所有者は1人。
+  std::shared_ptr<int> p1(new int(3));
+
+  {
+    // shared_ptrオブジェクトをコピーすることで、
+    // 複数のオブジェクトが一つのリソースを共有できる。
+    // 所有者が2人になる。
+    std::shared_ptr<int> p2 = p1;
+
+    // 共有しているリソースにアクセスする
+    std::cout << *p2 << std::endl;
+  } // p2のデストラクタが実行される。
+    // リソースの所有者が1人になる。
+    // ここではまだ、リソースは解放されない。
+
+  std::cout << *p1 << std::endl;
+} // p1のデストラクタが実行される。
+  // リソースの所有者が0人になる。
+  // 誰もリソースを参照しなくなったので、リソースが解放される。
 ```
 
 ###出力例
 ```
-sp1 address : 0x8b85008
-sp2 address : 0x8b85008
-value = 42
+3
+3
 ```
 
 ##バージョン
@@ -150,9 +145,8 @@ value = 42
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.4(used boost::shared_ptr code)
+- [Clang, C++11 mode](/implementation#clang.md): 3.0
+- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md): 10.0
 
