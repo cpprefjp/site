@@ -42,15 +42,15 @@ namespace std {
 ##非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------------------------------------|------------------|-------|
-| `operator==` | 等値比較 | C++11 |
-| `operator!=` | 非等値比較 | C++11 |
-| `operator<` | 左辺が右辺より小さいかを判定する | C++11 |
-| `operator<=` | 左辺が右辺以下かを判定する | C++11 |
-| `operator>` | 左辺が右辺より大きいかを判定する | C++11 |
-| `operator>=` | 左辺が右辺以上かを判定する | C++11 |
-| `swap` | 2つの`shared_ptr`オブジェクトを入れ替える | C++11 |
-| [`static_pointer_cast`](.shared_ptr/static_pointer_cast.md) | `shared_ptr`の静的キャスト | C++11 |
+|-------------------------------------------------------------|-------------------------------------------|-------|
+| [`operator==`](./shared_ptr/op_equal.md)                    | 等値比較                                  | C++11 |
+| [`operator!=`](./shared_ptr/op_not_equal.md)                | 非等値比較                                | C++11 |
+| [`operator<`](./shared_ptr/op_less.md)                      | 左辺が右辺より小さいかを判定する          | C++11 |
+| [`operator<=`](./shared_ptr/op_less_equal.md)               | 左辺が右辺以下かを判定する                | C++11 |
+| [`operator>`](./shared_ptr/op_greater.md)                   | 左辺が右辺より大きいかを判定する          | C++11 |
+| [`operator>=`](./shared_ptr/op_greater_equal.md)            | 左辺が右辺以上かを判定する                | C++11 |
+| [`swap`](./shared_ptr/swap_free.md)                         | 2つの`shared_ptr`オブジェクトを入れ替える | C++11 |
+| [`static_pointer_cast`](.shared_ptr/static_pointer_cast.md) | `shared_ptr`の静的キャスト                | C++11 |
 | `dynamic_pointer_cast` | `shared_ptr`の動的キャスト | C++11 |
 | `const_pointer_cast` | `shared_ptr`の`const`修飾キャスト | C++11 |
 | [`make_shared`](./shared_ptr/make_shared.md) | `shared_ptr`を構築するヘルパ関数 | C++11 |
