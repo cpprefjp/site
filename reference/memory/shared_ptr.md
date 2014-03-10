@@ -80,7 +80,8 @@ namespace std {
 [store_ex]: ./shared_ptr/atomic_store_explicit.md
 [load]: ./shared_ptr/atomic_load.md
 [load_ex]: ./shared_ptr/atomic_load_explicit.md
-[exchange] ./shared_ptr/atomic_exchange.md
+[exchange]: ./shared_ptr/atomic_exchange.md
+[exchange_ex]: ./shared_ptr/atomic_exchange_explicit.md
 
 
 ##ハッシュサポート
