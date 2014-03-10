@@ -68,8 +68,8 @@ namespace std {
 | [`atomic_store_explicit`][store_ex]       | メモリオーダーを指定して値を書き込む | C++11 |
 | [`atomic_load`][load]                     | 値を読み込む | C++11 |
 | [`atomic_load_explicit`][load_ex]         | メモリオーダーを指定して値を読み込む | C++11 |
-| `atomic_exchange`                         | 値を入れ替える | C++11 |
-| `atomic_exchange_explicit`                | メモリオーダーを指定して値を入れ替える | C++11 |
+| [`atomic_exchange`][exchange]             | 値を入れ替える | C++11 |
+| [`atomic_exchange_explicit`][exchange_ex] | メモリオーダーを指定して値を入れ替える | C++11 |
 | `atomic_compare_exchange_weak`            | 弱い比較で値の入れ替えを行う | C++11 |
 | `atomic_compare_exchange_strong`          | 強い比較で値の入れ替えを行う | C++11 |
 | `atomic_compare_exchange_weak_explicit`   | 弱い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
@@ -80,6 +80,7 @@ namespace std {
 [store_ex]: ./shared_ptr/atomic_store_explicit.md
 [load]: ./shared_ptr/atomic_load.md
 [load_ex]: ./shared_ptr/atomic_load_explicit.md
+[exchange] ./shared_ptr/atomic_exchange.md
 
 
 ##ハッシュサポート
