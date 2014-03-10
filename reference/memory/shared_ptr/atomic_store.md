@@ -1,0 +1,73 @@
+#atomic_store(C++11)
+```cpp
+namespace std {
+  template <class T>
+  void atomic_store(shared_ptr<T>* p, shared_ptr<T> r);
+}
+```
+
+##概要
+`shared_ptr`オブジェクトに、アトミックに値を書き込む。
+
+
+##要件
+`p != nullptr`であること。
+
+
+##効果
+```cpp
+atomic_store_explicit(p, r, memory_order_seq_cst)
+```
+* atomic_store_explicit[link ./atomic_store_explicit.md]
+* memory_order_seq_cst[link /reference/atomic/memory_order.md]
+
+
+##戻り値
+なし
+
+
+##例外
+投げない
+
+
+##例
+```cpp
+#include <iostream>
+#include <memory>
+
+int main()
+{
+  std::shared_ptr<int> p;
+
+  // pにxをアトミックに書き込む
+  std::shared_ptr<int> x(new int(3));
+  std::atomic_store(&p, x);
+
+  // pが指すshared_ptrオブジェクトを、アトミックに読み込む
+  std::shared_ptr<int> result = std::atomic_load(&p);
+  std::cout << *result << std::endl;
+}
+```
+* atomic_store[color ff0000]
+
+
+###出力
+```
+3
+```
+
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation#clang.md): 3.3
+- [GCC, C++11 mode](/implementation#gcc.md): (4.8.2時点で未実装)
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
+
+
+##参照
+
+
