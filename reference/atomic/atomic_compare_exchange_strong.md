@@ -16,7 +16,7 @@ namespace std {
 
 
 ##効果
-[`memory_order_seq_cst`](./memory_order.md)のメモリオーダーにしたがって現在の値と`expected`をバイトレベルで等値比較を行う、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
+[`memory_order_seq_cst`](./memory_order.md)のメモリオーダーにしたがって現在の値`object`と`expected`をバイトレベルで等値比較を行う、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値`object`で置き換える。
 
 
 ##戻り値
@@ -29,10 +29,13 @@ namespace std {
 
 ##備考
 この関数は、値が交換可能な場合はCAS操作が常に成功する。
+
 [`atomic_compare_exchange_weak()`](/reference/atomic/atomic_compare_exchange_weak.md)はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。
 
 通常、CAS操作は、CASが成功するまでループさせる。
+
 しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、`atomic_compare_exchange_strong()`を使うことで効率良くCASを行うことができる。
+
 逆に言えば、そのような状況でないなら常にループで[`atomic_compare_exchange_weak()`](./atomic_compare_exchange_weak.md)を利用すれば良い。
 
 

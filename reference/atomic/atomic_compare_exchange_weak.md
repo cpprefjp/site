@@ -15,7 +15,7 @@ namespace std {
 
 
 ##効果
-[memory_order_seq_cst](./memory_order.md)のメモリオーダーにしたがって現在の値と`expected`をバイトレベルで等値比較を行い、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
+[memory_order_seq_cst](./memory_order.md)のメモリオーダーにしたがって現在の値`object`と`expected`をバイトレベルで等値比較を行い、`true`である場合は現在の値`object`を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
 
 
 ##戻り値
@@ -28,12 +28,17 @@ namespace std {
 
 ##備考
 この関数は、値が交換可能な場合でもCAS操作が失敗する可能性がある(Spurious Failure)。
+
 [`atomic_compare_exchange_strong()`](/reference/atomic/atomic_compare_exchange_strong.md)はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
+
 
 アーキテクチャによっては、この関数は[`atomic_compare_exchange_strong()`](./atomic_compare_exchange_strong.md)と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](http://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](http://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
 
+
 通常、CAS操作は、CASが成功するまでループさせる。
+
 しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、[`atomic_compare_exchange_strong()`](./atomic_compare_exchange_strong.md)を使うことで効率良くCASを行うことができる。
+
 逆に言えば、そのような状況でないなら常にループで`atomic_compare_exchange_weak()`を利用すれば良い。
 
 

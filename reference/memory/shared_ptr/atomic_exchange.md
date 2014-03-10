@@ -1,7 +1,7 @@
 #atomic_exchange(C++11)
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   shared_ptr<T> atomic_exchange(shared_ptr<T>* p, shared_ptr<T> r);
 }
 ```

@@ -70,9 +70,9 @@ namespace std {
 | [`atomic_load_explicit`][load_ex]         | メモリオーダーを指定して値を読み込む | C++11 |
 | [`atomic_exchange`][exchange]             | 値を入れ替える | C++11 |
 | [`atomic_exchange_explicit`][exchange_ex] | メモリオーダーを指定して値を入れ替える | C++11 |
-| `atomic_compare_exchange_weak`            | 弱い比較で値の入れ替えを行う | C++11 |
+| [`atomic_compare_exchange_weak`][exchange_weak] | 弱い比較で値の入れ替えを行う | C++11 |
 | `atomic_compare_exchange_strong`          | 強い比較で値の入れ替えを行う | C++11 |
-| `atomic_compare_exchange_weak_explicit`   | 弱い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
+| [`atomic_compare_exchange_weak_explicit`][exchange_weak_ex] | 弱い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
 | `atomic_compare_exchange_strong_explicit` | 強い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
 
 [is_lock_free]: ./shared_ptr/atomic_is_lock_free.md

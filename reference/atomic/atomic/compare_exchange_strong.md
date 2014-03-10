@@ -15,11 +15,13 @@ bool compare_exchange_strong(T& expected, T desired, memory_order order = memory
 
 ##要件
 `failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと。
+
 `failure`が`success`よりも強くないこと。
 
 
 ##効果
 現在の値と`expected`をバイトレベルで等値比較を行う、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
+
 バイト等値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる。メモリーダーが一つだけ指定された場合、`order`メモリーダーが使用される。
 
 
@@ -33,10 +35,13 @@ bool compare_exchange_strong(T& expected, T desired, memory_order order = memory
 
 ##備考
 この関数は、値が交換可能な場合はCAS操作が常に成功する。
+
 [`compare_exchange_weak`](./compare_exchange_weak.md)()はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。
 
 通常、CAS操作は、CASが成功するまでループさせる。
+
 しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、`compare_exchange_strong()`を使うことで効率良くCASを行うことができる。
+
 逆に言えば、そのような状況でないなら常にループで[`compare_exchange_weak()`](/reference/atomic/atomic/compare_exchange_weak.md)を利用すれば良い。
 
 
