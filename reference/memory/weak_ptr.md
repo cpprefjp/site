@@ -21,7 +21,7 @@ namespace std {
 | `reset` | 再初期化する | C++11 |
 | [`use_count`](./weak_ptr/use_count.md) | 監視している`shared_ptr`オブジェクトの所有者数を取得する       | C++11 |
 | [`expired`](./weak_ptr/expired.md)     | 監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する | C++11 |
-| `lock` | 監視対象の`shared_ptr`オブジェクトを取得する | C++11 |
+| [`lock`](./weak_ptr/lock.md)           | 監視している`shared_ptr`オブジェクトを取得する | C++11 |
 | `owner_before` | `shared_ptr`で管理しているオブジェクトを連想コンテナで並べ替えるときに使用する | C++11 |
 
 
