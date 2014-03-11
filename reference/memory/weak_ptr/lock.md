@@ -20,6 +20,27 @@ expired() ? shared_ptr<T>() : shared_ptr<T>(*this)
 監視している[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトが寿命切れ状態なら、空の[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを作って返す。
 
 
+##備考
+(この関数が`shared_ptr`オブジェクトではなく生ポインタを返す設計になっていない理由を解説する。以下のコードを考えてみよう：
+
+```cpp
+std::shared_ptr<int> sp(new int(3));
+std::weak_ptr<int> wp = sp;
+
+// …この間に、spの寿命が切れるかもしれない…
+
+if (int* r = wp.lock()) {
+  std::cout << *r << std::endl;
+}
+```
+* shared_ptr[link /reference/memory/shared_ptr.md]
+
+このコードの場合、ロックを取得した`if`文内で、`shared_ptr`オブジェクト`sp`に対して[`reset()`](/reference/memory/shared_ptr/reset.md)が呼ばれると、ポインタ`p`がダングリングポインタ(dangling pointer : 不正な領域を指すポインタ)になってしまう。
+
+この関数が[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを返す設計になっていることで、ロック取得したポインタがダングリングポインタになってしまう問題を回避できる。
+
+
+
 ##例外
 投げない
 
