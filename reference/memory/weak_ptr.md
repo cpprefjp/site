@@ -19,8 +19,8 @@ namespace std {
 | `operator=` | `weak_ptr`に新しい監視対象のオブジェクトを渡す。`weak_ptr`が渡された場合はその`shared_ptr`が監視する`shared_ptr`を監視する | C++11 |
 | `swap` | 他の`weak_ptr`オブジェクトと、データを入れ替える | C++11 |
 | `reset` | 再初期化する | C++11 |
-| `use_count` | 監視している`shared_ptr`オブジェクトの`use_count()`値を返す | C++11 |
-| [`expired`](./weak_ptr/expired.md) | 監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する | C++11 |
+| [`use_count`](./weak_ptr/use_count.md) | 監視している`shared_ptr`オブジェクトの所有者数を取得する       | C++11 |
+| [`expired`](./weak_ptr/expired.md)     | 監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する | C++11 |
 | `lock` | 監視対象の`shared_ptr`オブジェクトを取得する | C++11 |
 | `owner_before` | `shared_ptr`で管理しているオブジェクトを連想コンテナで並べ替えるときに使用する | C++11 |
 
