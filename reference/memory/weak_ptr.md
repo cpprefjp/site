@@ -7,7 +7,21 @@ namespace std {
 ```
 
 ##概要
-`shared_ptr`自身を保有する必要はないが、`shared_ptr`が管理するインスタンスが破棄された後にも参照する場合がある。その場合、`shared_ptr`が破棄されているのかを確認する術が欲しい。`weak_ptr`は、対象となる`shared_ptr`を監視し、`weak_ptr`から監視対象の`shared_ptr`の取得や、`shared_ptr`が全て破棄されインスタンスが無効化されたことの確認などができる。
+`weak_ptr`は、[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトが持つリソースへの弱参照を保持するクラスである。
+
+このクラスは、[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトのリソースに対する所有権は保持せず、そのリソースを監視し、覗き見する。
+
+
+###循環参照の解決に使用する
+[`shared_ptr`](/reference/memory/shared_ptr.md)は、所有権を参照カウントで管理し、所有者がいなくなったらリソースを解放するクラスである。
+
+しかし、参照カウントという機構には、循環参照を解決できないという問題がある。`A`が`B`への[`shared_ptr`](/reference/memory/shared_ptr.md)を保持し、`B`もまた`A`への[`shared_ptr`](/reference/memory/shared_ptr.md)を保持する、ということをした場合、参照カウントが永遠に`0`にならず、リソースリークが発生する。
+
+このような構造がどうしても必要な場合、一方は[`shared_ptr`](/reference/memory/shared_ptr.md)を保持し、一方はその[`shared_ptr`](/reference/memory/shared_ptr.md)への`weak_ptr`を保持する、というようにすることで、循環参照を解決できる。
+
+`weak_ptr`は、監視対象の[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトの参照カウントを、加算も減算もしない。
+
+[`shared_ptr`](/reference/memory/shared_ptr.md)は、リソースを使用している間は解放されないという保証があるということも特徴の一つではあるので、`weak_ptr`にする対象が、リソースが参照できなくなっても問題ないか、ということを確認した上で使用すること。
 
 
 ###メンバ関数
