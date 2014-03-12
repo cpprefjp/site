@@ -91,7 +91,7 @@ shared_ptr managed object deleted.
 
 ###処理系
 - [Clang, C++11 mode](/implementation#clang.md): 3.0
-- [GCC, C++11 mode](/implementation#gcc.md): 4.4.6
+- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) 10.0
 
