@@ -1,10 +1,10 @@
 #owner_before(C++11)
 ```cpp
 template <class U>
-bool owner_before(shared_ptr<U> const& b) const; // (1)
+bool owner_before(const shared_ptr<U>& b) const; // (1)
 
 template <class U>
-bool owner_before(weak_ptr<U> const& b) const;   // (2)
+bool owner_before(const weak_ptr<U>& b) const;   // (2)
 ```
 * weak_ptr[link /reference/memory/weak_ptr.md]
 

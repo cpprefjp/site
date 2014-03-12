@@ -22,7 +22,7 @@ namespace std {
 | [`use_count`](./weak_ptr/use_count.md)    | 監視している`shared_ptr`オブジェクトの所有者数を取得する       | C++11 |
 | [`expired`](./weak_ptr/expired.md)        | 監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する | C++11 |
 | [`lock`](./weak_ptr/lock.md)              | 監視している`shared_ptr`オブジェクトを取得する                 | C++11 |
-| `owner_before` | `shared_ptr`で管理しているオブジェクトを連想コンテナで並べ替えるときに使用する | C++11 |
+| [`owner_before`](./weak_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                            | C++11 |
 
 
 ###メンバ型
