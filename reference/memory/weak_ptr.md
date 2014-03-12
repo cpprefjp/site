@@ -58,17 +58,22 @@ namespace std {
 #include <memory>
 #include <iostream>
  
-int main() {
-  auto sp1 = std::make_shared<int>(42);
+int main()
+{
+  // weak_ptrオブジェクトwpは、
+  // shared_ptrオブジェクトspを監視する
+  std::shared_ptr<int> sp(new int(42));
+  std::weak_ptr<int> wp = sp;
  
-  std::weak_ptr<int> wp = sp1;
- 
-  if(auto i = wp.lock()) {
-    std::cout << "get weak_ptr value : " << *i << std::endl;
+  // wpの監視対象であるspが、有効なリソースを保持している状態なら処理する。
+  if (std::shared_ptr<int> r = wp.lock()) {
+    std::cout << "get weak_ptr value : " << *r << std::endl;
   }
  
-  sp1.reset();
-  if(wp.expired()) {
+  sp.reset();
+
+  // shared_ptrオブジェクトが無効になったことを検知する
+  if (wp.expired()) {
     std::cout << "shared_ptr managed object deleted." << std::endl;
   }
 }
@@ -85,9 +90,8 @@ shared_ptr managed object deleted.
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.4
+- [Clang, C++11 mode](/implementation#clang.md): 3.0
+- [GCC, C++11 mode](/implementation#gcc.md): 4.4.6
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) 10.0
 
