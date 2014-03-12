@@ -14,7 +14,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------|---------------------------------------|-------|
-| `(constructor)` | `weak_ptr`オブジェクトを構築する。デフォルトコンストラクタおよび空のオブジェクトが渡された場合は、空の`weak_ptr`を構築する。それ以外の場合は渡されたオブジェクトを監視する。`weak_ptr`が渡された場合はその`shared_ptr`が監視する`shared_ptr`を監視する。 | C++11 |
+| [`(constructor)`](./weak_ptr/weak_ptr.md) | コンストラクタ | C++11 |
 | `(destructor)` | 監視している`shared_ptr`オブジェクトに特に影響を与えずに`weak_ptr`オブジェクトを破棄する | C++11 |
 | `operator=` | `weak_ptr`に新しい監視対象のオブジェクトを渡す。`weak_ptr`が渡された場合はその`shared_ptr`が監視する`shared_ptr`を監視する | C++11 |
 | [`swap`](./weak_ptr/swap.md)           | 他の`weak_ptr`オブジェクトとデータを入れ替える                 | C++11 |
