@@ -17,8 +17,8 @@ namespace std {
 | `(constructor)` | `weak_ptr`オブジェクトを構築する。デフォルトコンストラクタおよび空のオブジェクトが渡された場合は、空の`weak_ptr`を構築する。それ以外の場合は渡されたオブジェクトを監視する。`weak_ptr`が渡された場合はその`shared_ptr`が監視する`shared_ptr`を監視する。 | C++11 |
 | `(destructor)` | 監視している`shared_ptr`オブジェクトに特に影響を与えずに`weak_ptr`オブジェクトを破棄する | C++11 |
 | `operator=` | `weak_ptr`に新しい監視対象のオブジェクトを渡す。`weak_ptr`が渡された場合はその`shared_ptr`が監視する`shared_ptr`を監視する | C++11 |
-| `swap` | 他の`weak_ptr`オブジェクトと、データを入れ替える | C++11 |
-| [`reset`](./weak_ptr/reset.md)         | 監視対象をクリアする。                                         | C++11 |
+| [`swap`](./weak_ptr/swap.md)           | 他の`weak_ptr`オブジェクトとデータを入れ替える                 | C++11 |
+| [`reset`](./weak_ptr/reset.md)         | 監視対象をクリアする                                           | C++11 |
 | [`use_count`](./weak_ptr/use_count.md) | 監視している`shared_ptr`オブジェクトの所有者数を取得する       | C++11 |
 | [`expired`](./weak_ptr/expired.md)     | 監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する | C++11 |
 | [`lock`](./weak_ptr/lock.md)           | 監視している`shared_ptr`オブジェクトを取得する | C++11 |
@@ -35,8 +35,8 @@ namespace std {
 ###非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|-------------------|-------------------------------------------|-------|
-| `swap` | 2つの`weak_ptr`オブジェクトを入れ替える | C++11 |
+|-----------------------------------|-----------------------------------------|-------|
+| [`swap`](./weak_ptr/swap_free.md) | 2つの`weak_ptr`オブジェクトを入れ替える | C++11 |
 
 
 ##例
