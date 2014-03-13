@@ -12,6 +12,7 @@ namespace std {
 `enable_shared_from_this`クラステンプレートは、そのような場合において`this`ポインタを安全に`shared_ptr`へ変換するための`public`メンバ関数を提供する。
 対象とするクラス`T`に対して、public基底クラス`enable_shared_from_this<T>`という形で使用する。
 
+
 ###protectedメンバ関数
 
 | 名前 | 説明 |
@@ -20,11 +21,12 @@ namespace std {
 | `(destructor)`  | デストラクタ |
 | `operator=`     | 代入演算子 |
 
+
 ###publicメンバ関数
 
-| 名前 | 説明 |
-|--------------------|----------------------------------------|
-| `shared_from_this` | `this`ポインタを`shared_ptr`に変換する |
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------------------------------|----------------------------------------|-------|
+| [`shared_from_this`](./enable_shared_from_this/shared_from_this.md) | `this`ポインタを`shared_ptr`に変換する | C++11 |
 
 
 ###例
