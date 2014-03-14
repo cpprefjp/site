@@ -7,10 +7,13 @@ namespace std {
 ```
 
 ##概要
-`shared_ptr`で管理しているクラスで、`this`ポインタを他の関数へ渡したりする場合がある。このような場面では`this`ポインタを直接渡すことは避けたい。できれば`shared_ptr`にして渡したい。
-しかし、`this`ポインタを単純に `shared_ptr<T>(this);` などとしてしまうと、参照カウントが増えず、`delete`が2重に呼ばれてしまいバグを引き起こす。この詳細はサンプルコードを見ていただきたい。
-`enable_shared_from_this`クラステンプレートは、そのような場合において`this`ポインタを安全に`shared_ptr`へ変換するための`public`メンバ関数を提供する。
-対象とするクラス`T`に対して、public基底クラス`enable_shared_from_this<T>`という形で使用する。
+`enable_shared_from_this`は、[`shared_ptr`](/reference/memory/shared_ptr.md)で関しているオブジェクトの`this`ポインタを、[`shared_ptr`](/reference/memory/shared_ptr.md)として扱うことを可能にするためのクラスである。
+
+`this`ポインタを単純に`shared_ptr<T>(this)`としてしまうと、参照カウントが増えず、`delete`が2重に呼ばれてしまいバグを引き起こすことになるため、そうならないようにこのクラスを使用して`this`を扱う。
+
+このクラスは、[`shared_ptr`](/reference/memory/shared_ptr.md)として管理するクラスの基本クラスとして使用する。このクラスから派生したクラスでpublicメンバ関数[`shared_from_this()`](./enable_shared_from_this/shared_from_this.md)を使用することで、`this`を指す[`shared_ptr`](reference/memory/shared_ptr.md)オブジェクトを取得できる。
+
+このクラスを継承する際には、このクラスのテンプレート引数として、派生クラス(このクラスを継承するクラス自身)を指定すること。(このようにテンプレート引数を指定する方法を、[CRTP:Curiously Recurring Template Pattern](http://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/奇妙に再帰したテンプレートパターン(Curiously_Recurring_Template_Pattern))と言う)
 
 
 ###protectedメンバ関数
