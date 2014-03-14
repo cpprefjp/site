@@ -11,9 +11,32 @@ namespace std {
 
 `this`ポインタを単純に`shared_ptr<T>(this)`としてしまうと、参照カウントが増えず、`delete`が2重に呼ばれてしまいバグを引き起こすことになるため、そうならないようにこのクラスを使用して`this`を扱う。
 
-このクラスは、[`shared_ptr`](/reference/memory/shared_ptr.md)として管理するクラスの基本クラスとして使用する。このクラスから派生したクラスでpublicメンバ関数[`shared_from_this()`](./enable_shared_from_this/shared_from_this.md)を使用することで、`this`を指す[`shared_ptr`](reference/memory/shared_ptr.md)オブジェクトを取得できる。
+このクラスは、[`shared_ptr`](/reference/memory/shared_ptr.md)として管理するクラスの基本クラスとして使用する。このクラスをpublic継承したクラスでpublicメンバ関数[`shared_from_this()`](./enable_shared_from_this/shared_from_this.md)を使用することで、`this`を指す[`shared_ptr`](reference/memory/shared_ptr.md)オブジェクトを取得できる。
 
 このクラスを継承する際には、このクラスのテンプレート引数として、派生クラス(このクラスを継承するクラス自身)を指定すること。(このようにテンプレート引数を指定する方法を、[CRTP:Curiously Recurring Template Pattern](http://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/奇妙に再帰したテンプレートパターン(Curiously_Recurring_Template_Pattern))と言う)
+
+
+###正しい使い方と、誤った使い方
+`enable_shared_from_this`クラスの正しい使い方は、
+
+1. [`shared_ptr`](/reference/memory/shared_ptr.md)で管理するクラスが
+2. このクラスをpublic継承して、
+3. [`shared_from_this()`](./enable_shared_from_this/shared_from_this.md)メンバ関数を使用して、`this`を指す[`shared_ptr`](reference/memory/shared_ptr.md)オブジェクトを取得する。
+
+というものだが、これに反して誤った使い方をしてしまう場合がある。以下は、誤った使い方なので、正しい使い方を確認すること。
+
+- [`shared_ptr`](/reference/memory/shared_ptr.md)で管理していないクラスオブジェクトに、このクラスを使用するのは間違い。
+
+```cpp
+struct X : public std::enable_shared_from_this<X> {
+  void func() {
+    auto self = shared_from_this();  // (2) NG : thisがshared_ptrで管理されていない
+  }
+};
+
+auto ptr = new X(/*...*/);  // (1) shared_ptr管理でない場合...
+ptr->func();
+```
 
 
 ###protectedメンバ関数
@@ -34,52 +57,29 @@ namespace std {
 
 ###例
 ```cpp
+#include <cassert>
 #include <memory>
-#include <iostream>
 
-struct good : std::enable_shared_from_this<good> {
-  ~good() {
-    std::cout << "good::~good" << std::endl;
-  }
- 
-  std::shared_ptr<good> get_ptr() {
-    // GOOD: shared_from_thisメンバ関数にてshared_ptrを取得
+struct X : public std::enable_shard_from_this<X> {
+  std::shared_ptr<X> f()
+  {
+    // thisを指すshared_ptrオブジェクトを作る
     return shared_from_this();
   }
 };
 
-struct bad {
-  ~bad() {
-    std::cout << "bad::~bad" << std::endl;
-  }
- 
-  std::shared_ptr<bad> get_ptr() {
-    // BAD: thisポインタからshared_ptrを直接構築
-    return std::shared_ptr<bad>(this);
-  }
-};
- 
-int main() {
-  std::shared_ptr<good> gp0(new good());
-  auto gp1(gp0->get_ptr());
- 
-  std::shared_ptr<bad> bp0(new bad());
-  auto bp1(bp0->get_ptr());
- 
-  std::cout << "\'good\' use count = " << gp0.use_count() << std::endl;
-  std::cout << "\'bad\'  use count = " << bp0.use_count() << std::endl;
-} // glibc detected! double free corruption
+int main()
+{
+  std::shared_ptr<X> p(new X());
+  std::shared_ptr<X> q = p->f();
+
+  assert(p == q);
+}
 ```
 * std::enable_shared_from_this[color ff0000]
 
-###出力例
+###出力
 ```
-'good' use count = 2
-'bad' use count = 1
-bad::~bad
-bad::~bad
-
-*** glibc detected *** ./prog: double free or corruption (fasttop): 0x0000000 ***
 ```
 
 ##バージョン
@@ -87,12 +87,13 @@ bad::~bad
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
+- [Clang, C++11 mode](/implementation#clang.md): 3.0
 - [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.4.0
+- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) 10.0
 
 
 ###参照
+- [enable_shared_from_thisクラステンプレート - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120314/p1)
 
