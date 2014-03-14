@@ -51,10 +51,10 @@ int main()
 
   std::shared_ptr<int> ps = p;
   std::shared_ptr<int> q(new int(3));
-  while (std::atomic_compare_exchange_weak_explicit(
-          &p, &ps, std::move(q),
-          std::memory_order_acquire,
-          std::memory_order_acquire)) {}
+  while (!std::atomic_compare_exchange_weak_explicit(
+          &p, &ps, q,
+          std::memory_order_acq_rel,
+          std::memory_order_relaxed)) {}
 
   std::shared_ptr<int> result = std::atomic_load(&p);
   std::cout << *result << std::endl;

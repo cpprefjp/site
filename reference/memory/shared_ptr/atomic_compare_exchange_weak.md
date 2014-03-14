@@ -43,7 +43,7 @@ int main()
 
   std::shared_ptr<int> ps = p;
   std::shared_ptr<int> q(new int(3));
-  while (std::atomic_compare_exchange_weak(&p, &ps, std::move(q))) {}
+  while (!std::atomic_compare_exchange_weak(&p, &ps, q)) {}
 
   std::shared_ptr<int> result = std::atomic_load(&p);
   std::cout << *result << std::endl;
