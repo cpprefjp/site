@@ -15,11 +15,11 @@ namespace std {
 
 ###protectedメンバ関数
 
-| 名前 | 説明 |
-|-----------------|----------------|
-| `(constructor)` | コンストラクタ |
-| `(destructor)`  | デストラクタ |
-| `operator=`     | 代入演算子 |
+| 名前 | 説明 | 対応バージョン |
+|-------------------------------------------------------------------------|----------------|-------|
+| [`(constructor)`](./enable_shared_from_this/enable_shared_from_this.md) | コンストラクタ | C++11 |
+| [`(destructor)`](./enable_shared_from_this/-enable_shared_from_this.md) | デストラクタ   | C++11 |
+| [`operator=`](./enable_shared_from_this/op_assign.md)                   | 代入演算子     | C++11 |
 
 
 ###publicメンバ関数
