@@ -102,7 +102,7 @@
 | [`<ostream>`](/reference/ostream.md)     | 出力ストリーム               |                |
 | `<iomanip>`                              | フォーマットとマニピュレータ |                |
 | `<sstream>`                              | 文字列ストリーム             |                |
-| `<fstream>`                              | ファイルストリーム           |                |
+| [`<fstream>`](/reference/fstream.md)     | ファイルストリーム           |                |
 
 
 ##正規表現ライブラリ(Regular expressions library)

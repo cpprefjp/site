@@ -101,7 +101,7 @@ namespace std {
 |------|------|----------------|
 | `sputbackc` | 任意の1文字を入力列に戻す。 | |
 | `sungetc` | 直前に読み取った1文字を入力列に戻す。 | |
-| `pbackfail` |  | |
+| `pbackfail` | 1文字を入力列に戻す (protected virtual) | |
 
 ### 入力部分列の操作
 
