@@ -17,8 +17,8 @@ namespace std {
     basic_istream<CharT, Traits>& operator>>(unsigned int& n);
     basic_istream<CharT, Traits>& operator>>(long& n);
     basic_istream<CharT, Traits>& operator>>(unsigned long& n);
-    basic_istream<CharT, Traits>& operator>>(long long& n);
-    basic_istream<CharT, Traits>& operator>>(unsigned long long& n);
+    basic_istream<CharT, Traits>& operator>>(long long& n); // C++11
+    basic_istream<CharT, Traits>& operator>>(unsigned long long& n); // C++11
     basic_istream<CharT, Traits>& operator>>(float& f);
     basic_istream<CharT, Traits>& operator>>(double& f);
     basic_istream<CharT, Traits>& operator>>(long double& f);

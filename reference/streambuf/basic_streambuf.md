@@ -57,8 +57,8 @@ namespace std {
 |-------------------------------------------------------|----------------------------|----------------|
 | `(constructor)`                                       | コンストラクタ (protected) |                |
 | `(destructor)`                                        | デストラクタ (virtual)     |                |
-| `operator=`                                           | コピー代入 (protected)     |                |
-| `swap`                                                | 値の交換 (protected)       |                |
+| `operator=`                                           | コピー代入 (protected)     | C++11          |
+| `swap`                                                | 値の交換 (protected)       | C++11          |
 
 ###ロケール
 

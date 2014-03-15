@@ -17,8 +17,8 @@ namespace std {
     basic_ostream<CharT, Traits>& operator<<(unsigned int n);
     basic_ostream<CharT, Traits>& operator<<(long n);
     basic_ostream<CharT, Traits>& operator<<(unsigned long n);
-    basic_ostream<CharT, Traits>& operator<<(long long n);
-    basic_ostream<CharT, Traits>& operator<<(unsigned long long n);
+    basic_ostream<CharT, Traits>& operator<<(long long n); // C++11
+    basic_ostream<CharT, Traits>& operator<<(unsigned long long n); // C++11
     basic_ostream<CharT, Traits>& operator<<(float f);
     basic_ostream<CharT, Traits>& operator<<(double f);
     basic_ostream<CharT, Traits>& operator<<(long double f);
