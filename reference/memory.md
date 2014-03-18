@@ -37,7 +37,7 @@
 | [`owner_less`](./memory/owner_less.md) | 所有権ベースの小なり比較(class template) | C++11 |
 | [`unique_ptr`](./memory/unique_ptr.md) | 専有方式スマートポインタ(class template) | C++11 |
 | [`default_delete`](./memory/default_delete.md) | `unique_ptr`のデフォルトの削除子(class template) | C++11 |
-| `auto_ptr` | 古い専有方式スマートポインタ(class template)(C++11から非推奨) | |
+| `auto_ptr` | 古い専有方式スマートポインタ(class template) | C++11から非推奨 |
 
 
 ##ガベージコレクション支援
