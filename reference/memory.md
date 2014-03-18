@@ -58,7 +58,7 @@
 |------------------------------------------------|-------------------------------------------------|-------|
 | [`pointer_traits`](./memory/pointer_traits.md) | ポインタの型特性(class template)                | C++11 |
 | [`addressof`](./memory/addressof.md)           | 変数のアドレスを必ず取得する(function template) | C++11 |
-| `align` | アライメント調整された領域を得る(function) | C++11 |
+| [`align`](./memory/align.md)                   | アラインメント調整された領域を得る(function)    | C++11 |
 
 
 
