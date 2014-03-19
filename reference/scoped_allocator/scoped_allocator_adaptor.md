@@ -7,14 +7,22 @@ namespace std {
 ```
 
 ##概要
+`scoped_allocator_adaptor`は、[`vector`](/reference/vector.md)`<`[`string`](/reference/string/basic_string.md)`>`のように、メモリ確保を行う型が入れ子になっているような場合に、外側と内側でアロケータオブジェクトを共有するための、アロケータクラスのアダプタである。
 
-(ここに、クラスの概要を記載する)
+以下は、このアダプタクラスを使用することによって変化する、コンテナのメモリイメージである。
+
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_01.png)
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
+
+
+テンプレートパラメータは、以下を意味する：
+
+- `OuterAlloc` : 外側のアロケータ。(たとえばコンテナのアロケータ)
+- `InnerAlloc...` : 内側のアロケータ。(たとえばコンテナの要素に対するアロケータ)
 
 
 ##メンバ関数
