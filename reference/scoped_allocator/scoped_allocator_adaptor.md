@@ -10,6 +10,12 @@ namespace std {
 
 (ここに、クラスの概要を記載する)
 
+![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_01.png)
+
+![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
+
+![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
+
 
 ##メンバ関数
 
@@ -106,4 +112,5 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md): ??
 
 ###参照
+- [N2554 The Scoped Allocator Model (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2554.pdf)
 
