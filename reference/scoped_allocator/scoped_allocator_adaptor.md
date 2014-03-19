@@ -56,6 +56,39 @@ namespace std {
 
 ##例
 ```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+#include <scoped_allocator>
+#include <boost/container/scoped_allocator.hpp>
+
+template <class T>
+using alloc = std::allocator<T>;
+
+template <class T>
+using scoped_alloc = std::scoped_allocator_adaptor<alloc<T>>;
+
+// コンテナの要素(Inner)
+using string = std::basic_string<
+  char,
+  std::char_traits<char>,
+  alloc<char>
+>;
+
+// コンテナ(Outer)
+template <class T>
+using vector = std::vector<T, scoped_alloc<T>>;
+
+int main()
+{
+    // stringで使用するアロケータオブジェクトを、
+    // vectorでも使用する
+    vector<string> v = {
+        "Hello",
+        "World"
+    };
+}
 ```
 
 ###出力
@@ -65,6 +98,12 @@ namespace std {
 ##バージョン
 ###言語
 - C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation#clang.md): 3.0
+- [GCC, C++11 mode](/implementation#gcc.md): (4.8時点でサポートされてるはずだが、サンプルが動かない)
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??
 
 ###参照
 
