@@ -71,6 +71,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 
 - 全体的な対応状況： [C++0xCompilerSupport](http://wiki.apache.org/stdcxx/C++0xCompilerSupport)
 - GCC： [C++0x/C++11 Support in GCC](http://gcc.gnu.org/projects/cxx0x.html)
+- libstdc++ : [C++ 2011](http://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2011)
 - Clang： [C++98 and C++11 Support in Clang](http://clang.llvm.org/cxx_status.html)
 - ICC : [C++11 Features Supported by Intel&#174; C++ Compiler](http://software.intel.com/en-us/articles/c0x-features-supported-by-intel-c-compiler)
 - VC++： [C++11 Features (Modern C++)](http://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.120%29.aspx)
@@ -98,6 +99,7 @@ GCCとClangでは、-std=c++1yコンパイルオプションを付けること�
 各処理系のC++14/C++1y実装状況ページ：
 
 - GCC: [C++1y/C++14 Support in GCC](http://gcc.gnu.org/projects/cxx1y.html)
+- libstdc++: [C++ 2014](http://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2014)
 - Clang: [C++98, C++11, and C++14 Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libc++: [libc++ C++1Y Status](http://libcxx.llvm.org/cxx1y_status.html)
 
