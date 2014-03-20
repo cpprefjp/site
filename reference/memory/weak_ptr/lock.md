@@ -20,6 +20,11 @@ expired() ? shared_ptr<T>() : shared_ptr<T>(*this)
 監視している[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトが寿命切れ状態なら、空の[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを作って返す。
 
 
+- C++14
+
+C++14以降では、上記に相当することをアトミックに実行する。
+
+
 ##備考
 (この関数が`shared_ptr`オブジェクトではなく生ポインタを返す設計になっていない理由を解説する。以下のコードを考えてみよう：
 
@@ -83,3 +88,7 @@ int main()
 - [Clang libc++, C++11 mode](/implementation#clang.md): 3.0
 - [ICC](/implementation#icc.md): ?
 - [Visual C++](/implementation#visual_cpp.md): ?
+
+##参照
+- [LWG 2316 - weak_ptr::lock() should be atomic](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2316)
+
