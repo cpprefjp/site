@@ -75,13 +75,29 @@ namespace std {
 #include <string>
 
 #include <scoped_allocator>
-#include <boost/container/scoped_allocator.hpp>
+
+// std::allocatorに状態変数を持たせただけのクラス
+template <class T>
+class MyAlloc : public std::allocator<T> {
+  int state_; // 状態
+
+  using BaseType = std::allocator<T>;
+  template <class> friend class MyAlloc;
+public:
+  using BaseType::BaseType;
+
+  MyAlloc(int state = 0)
+    : state_(state) {}
+
+  template <class U>
+  MyAlloc(const MyAlloc<U>& alloc)
+    : state_(alloc.state_) {}
+
+  int getState() const { return state_; }
+};
 
 template <class T>
-using alloc = std::allocator<T>;
-
-template <class T>
-using scoped_alloc = std::scoped_allocator_adaptor<alloc<T>>;
+using alloc = MyAlloc<T>;
 
 // コンテナの要素(Inner)
 using string = std::basic_string<
@@ -92,21 +108,33 @@ using string = std::basic_string<
 
 // コンテナ(Outer)
 template <class T>
-using vector = std::vector<T, scoped_alloc<T>>;
+using vector = std::vector<
+  T,
+  std::scoped_allocator_adaptor<alloc<T>>
+>;
 
 int main()
 {
-    // stringで使用するアロケータオブジェクトを、
-    // vectorでも使用する
-    vector<string> v = {
-        "Hello",
-        "World"
-    };
+  // stringで使用するアロケータオブジェクトを、
+  // vectorでも使用する
+  int state = 5;
+  MyAlloc<string> alloc(state);
+  vector<string> v(alloc);
+
+  v.push_back("hello");
+  v.push_back("world");
+
+  // 同じアロケータオブジェクトが使われていることを確認する。
+  // getState()の値が、どちらも5になる。
+  std::cout << v.get_allocator().getState() << std::endl;
+  std::cout << v.front().get_allocator().getState() << std::endl;
 }
 ```
 
 ###出力
 ```
+5
+5
 ```
 
 ##バージョン
@@ -121,4 +149,5 @@ int main()
 
 ###参照
 - [N2554 The Scoped Allocator Model (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2554.pdf)
+- [スコープ付きアロケータ - C++11 FAQ](http://www32.ocn.ne.jp/~ons/text/CPP0xFAQ.html.ja#scoped-allocator)
 
