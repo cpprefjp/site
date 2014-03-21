@@ -55,7 +55,7 @@ namespace std {
 
 | 名前                                                  | 説明                       | 対応バージョン |
 |-------------------------------------------------------|----------------------------|----------------|
-| `(constructor)`                                       | コンストラクタ (protected) |                |
+| [`(constructor)`](basic_streambuf/basic_streambuf.md) | コンストラクタ (protected) |                |
 | `(destructor)`                                        | デストラクタ (virtual)     |                |
 | `operator=`                                           | コピー代入 (protected)     | C++11          |
 | `swap`                                                | 値の交換 (protected)       | C++11          |
