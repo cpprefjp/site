@@ -11,7 +11,7 @@ namespace std {
   T* end(T (&array)[N]);                     // (3) C++11
 
   template <class T, size_t N>
-  constexpr T* end(T (&array)[N]);           // (3) C++14
+  constexpr T* end(T (&array)[N]) noexcept;  // (3) C++14
 }
 ```
 
