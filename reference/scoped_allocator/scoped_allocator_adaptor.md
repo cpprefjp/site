@@ -104,6 +104,14 @@ public:
   int getState() const { return state_; }
 };
 
+template <class T, class U>
+bool operator==(const MyAlloc<T>&, const MyAlloc<U>&)
+{ return true; }
+
+template <class T, class U>
+bool operator!=(const MyAlloc<T>&, const MyAlloc<U>&)
+{ return false; }
+
 template <class T>
 using alloc = MyAlloc<T>;
 
@@ -172,6 +180,14 @@ public:
 
   int getState() const { return state_; }
 };
+
+template <class T, class U>
+bool operator==(const MyAlloc<T>&, const MyAlloc<U>&)
+{ return true; }
+
+template <class T, class U>
+bool operator!=(const MyAlloc<T>&, const MyAlloc<U>&)
+{ return false; }
 
 template <class T>
 using alloc_t = MyAlloc<T>;
