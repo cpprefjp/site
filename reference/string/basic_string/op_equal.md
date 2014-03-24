@@ -2,7 +2,11 @@
 ```cpp
 template <class CharT, class Traits, class Allocator>
 bool operator==(const basic_string<CharT, Traits, Allocator>& a,
-                const basic_string<CharT, Traits, Allocator>& b); // (1)
+                const basic_string<CharT, Traits, Allocator>& b); // (1) C++11
+
+template <class CharT, class Traits, class Allocator>
+bool operator==(const basic_string<CharT, Traits, Allocator>& a,
+                const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++14
 
 template <class CharT, class Traits, class Allocator>
 bool operator==(const charT* a,
@@ -52,3 +56,4 @@ equal
 ```
 
 ##参照
+- [LWG2064 - More noexcept issues in basic_string](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2064)

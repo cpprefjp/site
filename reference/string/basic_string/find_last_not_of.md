@@ -3,7 +3,8 @@
 size_type find_last_not_of(const basic_string& str, size_type pos = npos) const noexcept; // (1)
 size_type find_last_not_of(const charT* s, size_type pos, size_type n) const;             // (2)
 size_type find_last_not_of(const charT* s, size_type pos = npos) const;                   // (3)
-size_type find_last_not_of(charT c, size_type pos = npos) const noexcept;                 // (4)
+size_type find_last_not_of(charT c, size_type pos = npos) const noexcept;                 // (4) C++11
+size_type find_last_not_of(charT c, size_type pos = npos) const;                          // (4) C++14
 ```
 
 ##概要
@@ -97,3 +98,7 @@ size_type basic_string<charT, traits, Allocator>::find_last_not_of(charT c, size
   return find_last_not_of(std::basic_string(1, c), pos);
 }
 ```
+
+##参照
+- [LWG2064 - More noexcept issues in basic_string](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2064)
+

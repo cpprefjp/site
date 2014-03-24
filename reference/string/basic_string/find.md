@@ -3,7 +3,8 @@
 size_type find(const basic_string& str, size_type pos = 0) const noexcept; // (1)
 size_type find(const charT* s, size_type pos, size_type n) const;          // (2)
 size_type find(const charT* s, size_type pos = 0) const;                   // (3)
-size_type find(charT c, size_type pos = 0) const noexcept;                 // (4)
+size_type find(charT c, size_type pos = 0) const;                          // (4) C++11
+size_type find(charT c, size_type pos = 0) const noexcept;                 // (4) C++14
 ```
 
 ##概要
@@ -97,7 +98,11 @@ size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 
 
 ##参照
 
-|                                            |                                          |
+| 名前                                       | 説明                                     |
 |--------------------------------------------|------------------------------------------|
 | [`search`](/reference/algorithm/search.md) | 指定された最初のサブシーケンスを検索する |
 | [`find`](/reference/algorithm/find.md)     | 指定された値を検索する                   |
+
+- [LWG2064 - More noexcept issues in basic_string](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2064)
+
+
