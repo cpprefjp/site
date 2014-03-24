@@ -39,8 +39,8 @@ namespace std {
 |----------------------------------------------------|-------------------------------------|-------|
 | `(constructor)` | コンストラクタ | C++11 |
 | `(destructor)` | デストラクタ | C++11 |
-| `inner_allocator` | 内側のアロケータを取得する | C++11 |
-| `outer_allocator` | 外側のアロケータを取得する | C++11 |
+| [`inner_allocator`](./scoped_allocator_adaptor/inner_allocator.md) | 内側のアロケータを取得する | C++11 |
+| [`outer_allocator`](./scoped_allocator_adaptor/outer_allocator.md) | 外側のアロケータを取得する | C++11 |
 | `allocate` | メモリを確保する | C++11 |
 | `deallocate` | メモリを解放する | C++11 |
 | `max_size` | 一度に確保可能なメモリの最大サイズを取得する | C++11 |

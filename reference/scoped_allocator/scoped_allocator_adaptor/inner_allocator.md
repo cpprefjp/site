@@ -1,0 +1,98 @@
+#inner_allocator (C++11)
+```cpp
+inner_allocator_type& inner_allocator() noexcept;             // (1)
+const inner_allocator_type& inner_allocator() const noexcept; // (2)
+```
+
+##概要
+内側のアロケータを取得する。
+
+
+##戻り値
+内側のアロケータオブジェクトを返す。
+
+このクラスのテンプレートパラメータ`InnerAlloc...`が空の場合は、外側と同じアロケータを内側でも使用するものと見なし、`*this`を返す。
+
+
+##例
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+#include <scoped_allocator>
+
+// std::allocatorに状態変数を持たせただけのクラス
+template <class T>
+class MyAlloc : public std::allocator<T> {
+  int state_; // 状態
+
+  using BaseType = std::allocator<T>;
+  template <class> friend class MyAlloc;
+public:
+  using BaseType::BaseType;
+
+  MyAlloc(int state = 0)
+    : state_(state) {}
+
+  template <class U>
+  MyAlloc(const MyAlloc<U>& alloc)
+    : state_(alloc.state_) {}
+
+  int getState() const { return state_; }
+};
+
+template <class T, class U>
+bool operator==(const MyAlloc<T>&, const MyAlloc<U>&)
+{ return true; }
+
+template <class T, class U>
+bool operator!=(const MyAlloc<T>&, const MyAlloc<U>&)
+{ return false; }
+
+template <class T>
+using alloc_t = MyAlloc<T>;
+
+// コンテナの要素(Inner)
+using string = std::basic_string<
+  char,
+  std::char_traits<char>,
+  alloc_t<char>
+>;
+
+// コンテナ(Outer)
+template <class T>
+using vector = std::vector<
+  T,
+  std::scoped_allocator_adaptor<alloc_t<T>, alloc_t<typename T::value_type>>
+>;
+
+int main()
+{
+  int outer_state = 5;
+  int inner_state = 2;
+  vector<string>::allocator_type alloc {
+    alloc_t<string>(outer_state), // vector自体のアロケータオブジェクト
+    alloc_t<char>(inner_state)    // vectorの全ての要素に使用するアロケータオブジェクト
+  };
+
+  // 内側(vectorの全ての要素)のアロケータオブジェクトを取得
+  alloc_t<char> inner_alloc = alloc.inner_allocator();
+  std::cout << inner_alloc.getState() << std::endl;
+}
+```
+
+###出力
+```
+2
+```
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation#clang.md): 3.0
+- [GCC, C++11 mode](/implementation#gcc.md): 4.7.3
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
