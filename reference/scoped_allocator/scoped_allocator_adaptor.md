@@ -14,9 +14,17 @@ namespace std {
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_01.png)
 
-![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
+図1 コンテナ、および各要素がそれぞれに別個のアロケータオブジェクトを持つ
+
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
+
+図2 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる(例1)
+
+![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
+
+図3 全ての要素にアロケータオブジェクトの状態を伝搬させる(例2)
+
 
 
 テンプレートパラメータは、以下を意味する：
@@ -68,7 +76,7 @@ namespace std {
 | `operator!=` | 非等値比較 | C++11 |
 
 
-##例
+##例1 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる
 ```cpp
 #include <iostream>
 #include <vector>
@@ -135,6 +143,83 @@ int main()
 ```
 5
 5
+```
+
+##例2 全ての要素にアロケータオブジェクトの状態を伝搬させる
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+#include <scoped_allocator>
+
+// std::allocatorに状態変数を持たせただけのクラス
+template <class T>
+class MyAlloc : public std::allocator<T> {
+  int state_; // 状態
+
+  using BaseType = std::allocator<T>;
+  template <class> friend class MyAlloc;
+public:
+  using BaseType::BaseType;
+
+  MyAlloc(int state = 0)
+    : state_(state) {}
+
+  template <class U>
+  MyAlloc(const MyAlloc<U>& alloc)
+    : state_(alloc.state_) {}
+
+  int getState() const { return state_; }
+};
+
+template <class T>
+using alloc_t = MyAlloc<T>;
+
+// コンテナの要素(Inner)
+using string = std::basic_string<
+  char,
+  std::char_traits<char>,
+  alloc_t<char>
+>;
+
+// コンテナ(Outer)
+template <class T>
+using vector = std::vector<
+  T,
+  std::scoped_allocator_adaptor<alloc_t<T>, alloc_t<typename T::value_type>>
+>;
+
+int main()
+{
+  int outer_state = 5;
+  int inner_state = 2;
+  vector<string>::allocator_type alloc {
+    alloc_t<string>(outer_state), // vector自体のアロケータオブジェクト
+    alloc_t<char>(inner_state)    // vectorの全ての要素に使用するアロケータオブジェクト
+  };
+  vector<string> v(alloc);
+
+  v.push_back("hello");
+  v.push_back("world");
+
+  // コンテナに使用されるアロケータの状態を確認
+  // 5になる(outer_state)
+  std::cout << "container allocator : " << v.get_allocator().getState() << std::endl;
+
+  // 要素に使用されるアロケータの状態を確認
+  // 全ての要素に、アロケータの状態が伝搬される
+  for (const string& x : v) {
+    std::cout << "element allocator : " << x.get_allocator().getState() << std::endl;
+  }
+}
+```
+
+###出力
+```
+container allocator : 5
+element allocator : 2
+element allocator : 2
 ```
 
 ##バージョン
