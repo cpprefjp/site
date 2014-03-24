@@ -1,9 +1,17 @@
 #end(C++11)
 ```cpp
 namespace std {
-  template <class C> auto end(C& c) -> decltype(c.end());
-  template <class C> auto end(const C& c) -> decltype(c.end());
-  template <class T, size_t N> T* end(T (&array)[N]);
+  template <class C>
+  auto end(C& c) -> decltype(c.end());       // (1)
+
+  template <class C>
+  auto end(const C& c) -> decltype(c.end()); // (2)
+
+  template <class T, size_t N>
+  T* end(T (&array)[N]);                     // (3) C++11
+
+  template <class T, size_t N>
+  constexpr T* end(T (&array)[N]);           // (3) C++14
 }
 ```
 
@@ -12,11 +20,9 @@ namespace std {
 
 
 ##戻り値
-コンテナの場合：
-`return c.end();`
-
-組み込み配列の場合：
-`return array + N;`
+- (1) : `return c.end();`
+- (2) : `return c.end();`
+- (3) : `return array + N;`
 
 
 ##備考
@@ -80,5 +86,5 @@ int main()
 
 
 ##参照
-
+- [LWG2280 - begin/end for arrays should be constexpr and noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2280)
 
