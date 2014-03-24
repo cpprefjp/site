@@ -2,7 +2,10 @@
 ```cpp
 namespace {
   template <class... Types>
-  tuple<Types&&...> forward_as_tuple(Types&&...) noexcept;
+  tuple<Types&&...> forward_as_tuple(Types&&...) noexcept;           // C++11
+
+  template <class... Types>
+  constexpr tuple<Types&&...> forward_as_tuple(Types&&...) noexcept; // C++14
 }
 ```
 
@@ -59,3 +62,5 @@ int main()
 `forward_as_tuple`は、ドラフト仕様の段階で`pack_arguments`という名前で一時期表記されていた。 
 コンパイラのバージョンによっては、この名前での実装もありえる。
 
+##参照
+- [LWG2275 - Why is forward_as_tuple not constexpr?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2275)
