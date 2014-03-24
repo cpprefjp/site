@@ -1,8 +1,11 @@
 #tie(C++11)
 ```cpp
 namespace std {
-  template<class... Types>
-  tuple<Types&...> tie(Types&...) noexcept;
+  template <class... Types>
+  tuple<Types&...> tie(Types&...) noexcept;           // C++11
+
+  template <class... Types>
+  constexpr tuple<Types&...> tie(Types&...) noexcept; // C++14
 }
 ```
 * tuple[link /reference/tuple/tuple.md]
@@ -92,5 +95,5 @@ Hello
 
 ##参照
 - [`std::ignore`](./ignore.md)
-
+- [LWG2301 Why is std::tie not constexpr?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2301)
 
