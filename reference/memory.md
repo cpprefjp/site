@@ -10,7 +10,7 @@
 | [`allocator_traits`](./memory/allocator_traits.md) | アロケータクラスへの間接的なアクセス(class template) | C++11 |
 | [`allocator_arg_t`](./memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(class) | C++11 |
 | [`allocator_arg`](./memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(constant value) | C++11 |
-| `uses_allocator` | 型`T`がアロケート可能か調べる | C++11 |
+| [`uses_allocator`](./memory/uses_allocator.md) | 型`T`がアロケータを使用するか調べる | C++11 |
 
 
 ##未初期化領域に対する操作
