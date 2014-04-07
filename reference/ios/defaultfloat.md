@@ -1,4 +1,4 @@
-#defaultfloat
+#defaultfloat (C++11)
 ```cpp
 namespace std {
   ios_base& defaultfloat(ios_base& str);
@@ -7,13 +7,14 @@ namespace std {
 
 ##概要
 浮動小数点数を初期状態の書式で出力することを指示するマニピュレータ。
-この書式は、出力値や出力すべき精度により小数点数表記と指数表記が切り替わるものである（`printf`関数の%g/%G相当）。
+
+この書式は、出力値や出力すべき精度により小数点数表記と指数表記が切り替わるものである（`printf`関数の`%g`／`%G`相当）。
 
 ##効果
 `str.unsetf(ios_base::floatfield)`を実行する。
 
 ##戻り値
-実引数のstrオブジェクト。
+実引数の`str`オブジェクト。
 
 ##例
 ```cpp
@@ -80,3 +81,5 @@ namespace std {
 - [`fixed`](./fixed.md)
 - [`scientific`](./scientific.md)
 - [`hexfloat`](./hexfloat.md)
+- [N1842 A Proposal to add two iostream manipulators to the C++ Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1842.pdf)
+- [N1991 Proposed Text for defaultfloat (N1842)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1991.htm)
