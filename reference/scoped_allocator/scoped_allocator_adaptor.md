@@ -44,7 +44,7 @@ namespace std {
 | [`allocate`][allocate]               | メモリを確保する                             | C++11 |
 | [`deallocate`][deallocate]           | メモリを解放する                             | C++11 |
 | [`max_size`][max_size]               | 一度に確保可能なメモリの最大サイズを取得する | C++11 |
-| `construct` | オブジェクトを構築する | C++11 |
+| [`construct`][construct]             | オブジェクトを構築する | C++11 |
 | `destroy` | オブジェクトを破棄する | C++11 |
 | `select_on_container_copy_construction` | コンテナのコピー構築に必要なアロケータを取得する | C++11 |
 
@@ -53,6 +53,7 @@ namespace std {
 [allocate]: ./scoped_allocator_adaptor/allocate.md
 [deallocate]: ./scoped_allocator_adaptor/deallocate.md
 [max_size]: ./scoped_allocator_adaptor/max_size.md
+[construct]: ./scoped_allocator_adaptor/construct.md
 
 
 ##メンバ型
