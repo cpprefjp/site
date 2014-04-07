@@ -8,6 +8,8 @@ namespace std {
 ##概要
 浮動小数点数を十六進法で出力することを指示するマニピュレータ。
 
+[`printf()`](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/printf.3.html)関数の`%a`／`%A`相当。
+
 ##効果
 `str.setf(ios_base::fixed | ios_base::scientific, ios_base::floatfield)`を実行する。
 
