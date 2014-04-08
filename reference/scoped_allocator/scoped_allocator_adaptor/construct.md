@@ -30,6 +30,10 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 	- `T(Args&&... args)`
 	- `T(allocator_arg_t, Allocator alloc, Args&&... args)`
 	- `T(Args&&... args, Allocator alloc)`
+- (2) : [`pair`](/reference/utility/pair.md)型の各要素型のコンストラクタ引数を元に、[`pair`](/reference/utility/pair.md)型のオブジェクトを生成する。以下のいずれかの形式のコンストラクタを呼び出す：
+	- `pair<T1, T2>(piecewise_construct_t, tuple<Args1...> x, tuple<Args2...> y)`
+	- `pair<T1, T2>(piecewise_construct_t, tuple<allocator_arg_t, Allocator, Args1...> xprime, tuple<allocator_arg_t, Allocator, Args2...> yprime)`
+	- `pair<T1, T2>(piecewise_construct_t, tuple<Args1..., Allocator> xprime, tuple<Args2..., Allocator> yprime)`
 
 
 ##効果
