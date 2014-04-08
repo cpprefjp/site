@@ -8,66 +8,71 @@ namespace chrono {
 }}
 ```
 
-###概要
+##概要
 `duration`は、2つの時間の経過時間を表現するための型である。
 `duration`のテンプレートパラメータである`ratio`の値によって、時間のためのあらゆる単位(ナノ秒、ミリ秒、秒, etc...)を表現することができる。
 
 標準では、以下の`typedef`が提供される：
 
-| | |
-|--------------------------------------------------------------------------------------------------------------|-----------------|
-| `typedef名` | 説明 |
-| [`nanoseconds`](/reference/chrono/nanoseconds.md) | ナノ秒 |
-| [`microseconds`](/reference/chrono/microseconds.md) | マイクロ秒 |
-| [`milliseconds`](/reference/chrono/milliseconds.md) | ミリ秒 |
-| [`seconds`](/reference/chrono/seconds.md) | 秒 |
-| [`minites`](/reference/chrono/minutes.md) | 分 |
-| [`hour`](/reference/chrono/hours.md) | 時 |
+| `typedef名`                                         | 説明       | 対応バージョン |
+|-----------------------------------------------------|------------|----------------|
+| [`nanoseconds`](/reference/chrono/nanoseconds.md)   | ナノ秒     | C++11          |
+| [`microseconds`](/reference/chrono/microseconds.md) | マイクロ秒 | C++11          |
+| [`milliseconds`](/reference/chrono/milliseconds.md) | ミリ秒     | C++11          |
+| [`seconds`](/reference/chrono/seconds.md)           | 秒         | C++11          |
+| [`minites`](/reference/chrono/minutes.md)           | 分         | C++11          |
+| [`hour`](/reference/chrono/hours.md)                | 時         | C++11          |
 
 
-###メンバ関数
-####構築／コピー／破棄
-| | |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`(constructor)`](./duration/duration.md) | コンストラクタ |
-| `~duration() = default;` | デストラクタ |
-| `operator=(const duration&) = default;` | 代入演算子 |
+##メンバ関数
+###構築／コピー／破棄
 
-####観測
-| | |
-|------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| [`count`](./duration/count.md) | 値を取得する |
+| 名前                                      | 説明                  | 対応バージョン |
+|-------------------------------------------|-----------------------|----------------|
+| [`(constructor)`](./duration/duration.md) | コンストラクタ        | C++11          |
+| `~duration() = default;`                  | デストラクタ          | C++11          |
+| `operator=(const duration&) = default;`   | 代入演算子            | C++11          |
 
+###観測
 
-####算術演算
-| | |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
-| [`operator+`](./duration/unary_add.md) | 正の`duration`を生成する |
-| [`operator-`](./duration/unary_substract.md) | 負の`duration`を生成する |
-| [`operator++`](./duration/increment.md) | 値をインクリメントする |
-| [`operator--`](./duration/decrement.md) | 値をデクリメントする |
-| [`operator+=`](./duration/add_assign.md) | `+`の複合代入 |
-| [`operator-=`](./duration/substract_assign.md) | `-`の複合代入 |
-| [`operator*=`](./duration/multiply_assign.md) | `*`の複合代入 |
-| [`operator/=`](./duration/divide_assign.md) | `/`の複合代入 |
-| [`operator%=`](./duration/modulo_assign.md) | `%`の複合代入 |
+| 名前                           | 説明         | 対応バージョン |
+|--------------------------------|--------------|----------------|
+| [`count`](./duration/count.md) | 値を取得する | C++11          |
 
 
-####特別な値
-| | |
-|----------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| [`zero`](./duration/zero.md) | 初期値を取得 |
-| [`min`](./duration/min.md) | 最小値を取得 |
-| [`max`](./duration/max.md) | 最大値を取得 |
+###算術演算
 
-###メンバ型
-| | |
-|---------------------------------------------------|----------------------------------|
-| `rep` | 値の数値型 `Rep` |
-| `period` | 単位型 `Period` |
+| 名前                                           | 説明                     | 対応バージョン |
+|------------------------------------------------|--------------------------|----------------|
+| [`operator+`](./duration/unary_add.md)         | 正の`duration`を生成する | C++11          |
+| [`operator-`](./duration/unary_substract.md)   | 負の`duration`を生成する | C++11          |
+| [`operator++`](./duration/increment.md)        | 値をインクリメントする   | C++11          |
+| [`operator--`](./duration/decrement.md)        | 値をデクリメントする     | C++11          |
+| [`operator+=`](./duration/add_assign.md)       | `+`の複合代入            | C++11          |
+| [`operator-=`](./duration/substract_assign.md) | `-`の複合代入            | C++11          |
+| [`operator*=`](./duration/multiply_assign.md)  | `*`の複合代入            | C++11          |
+| [`operator/=`](./duration/divide_assign.md)    | `/`の複合代入            | C++11          |
+| [`operator%=`](./duration/modulo_assign.md)    | `%`の複合代入            | C++11          |
 
 
-###例
+###特別な値
+
+| 名前                         | 説明         | 対応バージョン |
+|------------------------------|--------------|----------------|
+| [`zero`](./duration/zero.md) | 初期値を取得 | C++11          |
+| [`min`](./duration/min.md)   | 最小値を取得 | C++11          |
+| [`max`](./duration/max.md)   | 最大値を取得 | C++11          |
+
+
+##メンバ型
+
+| 名前     | 説明             | 対応バージョン |
+|----------|------------------|----------------|
+| `rep`    | 値の数値型 `Rep` | C++11          |
+| `period` | 単位型 `Period`  | C++11          |
+
+
+##例
 ```cpp
 #include <iostream>
 #include <chrono>
