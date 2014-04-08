@@ -1,7 +1,7 @@
 #construct (C++11)
 ```cpp
 template <class T, class... Args>
-void construct(T* p, Args&& args);                            // (1)
+void construct(T* p, Args&&... args);                         // (1)
 
 template <class T1, class T2, class... Args1, class... Args2>
 void construct(pair<T1, T2>* p, piecewise_construct_t,
@@ -25,6 +25,11 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 
 ##概要
 引数を元にインスタンスを構築する。
+
+- (1) : 型`T`のコンストラクタ引数`args...`を元に、型`T`のオブジェクトを生成する。以下のいずれかの形式のコンストラクタを呼び出す：
+	- `T(Args&&... args)`
+	- `T(allocator_arg_t, Allocator alloc, Args&&... args)`
+	- `T(Args&&... args, Allocator alloc)`
 
 
 ##効果
