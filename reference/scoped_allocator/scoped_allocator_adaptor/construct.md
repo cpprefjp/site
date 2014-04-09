@@ -55,11 +55,11 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 	- [`uses_allocator`](/reference/memory/uses_allocator)`<T1, inner_allocator_type>::value == true`かつ[`is_constructible`](/reference/memory/is_constructible.md)`<T1, Args1..., inner_allocator_type>::value == true`の場合[`tuple_cat`](/reference/tuple/tuple/tuple_cat.md)`(x,` [`tuple`](/reference/tuple/tuple.md)`<inner_allocator_type&>(inner_allocator_type()))`を`xprime`とする。
 	- それ以外の場合、プログラムは不適格となる。
 
-同様の定義を`T2`型に対しても行い、`Args2...`から`yprime`を定義する。
+	同様の定義を`T2`型に対しても行い、`Args2...`から`yprime`を定義する。
 
-ここで定義した`xprime`と`yprime`を使用し、以下の呼び出しを行う：
+	ここで定義した`xprime`と`yprime`を使用し、以下の呼び出しを行う：
 
-`OUTERMOST_ALLOC_TRAITS(*this)::`[`construct`](/reference/memory/allocator_traits/construct.md)`(OUTERMOST(*this), p,` [`piecewise_construct`](/reference/utility/piecewise_construct.md)`, xprime, yprime)`
+	`OUTERMOST_ALLOC_TRAITS(*this)::`[`construct`](/reference/memory/allocator_traits/construct.md)`(OUTERMOST(*this), p,` [`piecewise_construct`](/reference/utility/piecewise_construct.md)`, xprime, yprime)`
 
 - (3) :
 - (4) :
