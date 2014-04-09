@@ -49,6 +49,23 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 	- それ以外の場合、プログラムは不適格となる。
 
 - (2) :
+
+`T1`を構築するための説明用の変数`xprime`を、`Args1...`を以下のように元に定義する。
+
+	- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T1, inner_allocator_type>::value == false`かつ[`is_constructible`](/reference/type_traits/is_constructible.md)`<T1, Args1...>::value == true`の場合、`x`を`xprime`とする。
+
+	- [`uses_allocator`](/reference/memory/uses_allocator)`<T1, inner_allocator_type>::value == true`かつ[`is_constructible`](/reference/memory/is_constructible.md)`<T1,` [`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type, Args1...>::value == true`の場合、[`tuple_cat`](/reference/tuple/tuple/tuple_cat.md)`(`[`tuple`](/reference/tuple/tuple.md)`<`[`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type&>(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type()), x)`を`xprime`とする。
+
+	- [`uses_allocator`](/reference/memory/uses_allocator)`<T1, inner_allocator_type>::value == true`かつ[`is_constructible`](/reference/memory/is_constructible.md)`<T1, Args1..., inner_allocator_type>::value == true`の場合[`tuple_cat`](/reference/tuple/tuple/tuple_cat.md)`(x,` [`tuple`](/reference/tuple/tuple.md)`<inner_allocator_type&>(inner_allocator_type()))`を`xprime`とする。
+
+	- それ以外の場合、プログラムは不適格となる。
+
+同様の定義を`T2`型に対しても行い、`Args2...`から`yprime`を定義する。
+
+ここで定義した`xprime`と`yprime`を使用し、以下の呼び出しを行う：
+
+`OUTERMOST_ALLOC_TRAITS(*this)::`[`construct`](/reference/memory/allocator_traits/construct.md)`(OUTERMOST(*this), p,` [`piecewise_construct`](/reference/utility/piecewise_construct.md)`, xprime, yprime)`
+
 - (3) :
 - (4) :
 - (5) :
