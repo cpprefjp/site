@@ -36,6 +36,8 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 	- `pair<T1, T2>(piecewise_construct_t, tuple<Args1..., Allocator> xprime, tuple<Args2..., Allocator> yprime)`
 - (3) : [`pair`](/reference/utility/pair.md)型の各要素をデフォルト構築する。以下の形式のコンストラクタを呼び出す：
 	- `pair<T1, T2>(piecewise_construct_t, tuple<>, tuple<>)`
+- (4) : [`pair`](/reference/utility/pair.md)型の各要素のコンストラクタ引数を一つずつとって構築する。以下の公式のコンストラクタを呼び出す：
+	- `pair<T1, T2>(piecewise_construct_t, tuple<U>, tuple<V>)`
 
 
 ##効果
@@ -65,7 +67,8 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 
 - (3) : 以下と同等の動作を行う。 `construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`tuple`](/reference/tuple/tuple.md)`<>(),` [`tuple`](/reference/tuple/tuple.md)`<>())`
 
-- (4) :
+- (4) : 以下と同等の動作を行う。 `construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`<U>(x)),` [`forward_as_tuple`](/reference/tuple/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`<V>(y)))`
+
 - (5) :
 - (6) :
 
