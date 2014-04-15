@@ -46,7 +46,7 @@ namespace std {
 | [`max_size`][max_size]               | 一度に確保可能なメモリの最大サイズを取得する | C++11 |
 | [`construct`][construct]             | オブジェクトを構築する                       | C++11 |
 | [`destroy`][destroy]                 | オブジェクトを破棄する                       | C++11 |
-| `select_on_container_copy_construction` | コンテナのコピー構築に必要なアロケータを取得する | C++11 |
+| [`select_on_container_copy_construction`][select] | コンテナのコピー構築に必要なアロケータを取得する | C++11 |
 
 [inner_allocator]: ./scoped_allocator_adaptor/inner_allocator.md
 [outer_allocator]: ./scoped_allocator_adaptor/outer_allocator.md
@@ -55,6 +55,7 @@ namespace std {
 [max_size]: ./scoped_allocator_adaptor/max_size.md
 [construct]: ./scoped_allocator_adaptor/construct.md
 [destroy]: ./scoped_allocator_adaptor/destroy.md
+[select]: ./scoped_allocator_adaptor/select_on_container_copy_construction.md
 
 
 ##メンバ型
