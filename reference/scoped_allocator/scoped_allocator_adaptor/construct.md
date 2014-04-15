@@ -38,9 +38,9 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 	- `pair<T1, T2>(piecewise_construct_t, tuple<>, tuple<>)`
 - (4) : [`pair`](/reference/utility/pair.md)型の各要素のコンストラクタ引数を一つずつとって構築する。以下の形式のコンストラクタを呼び出す：
 	- `pair<T1, T2>(piecewise_construct_t, tuple<U>&&, tuple<V>&&)`
-- (5) : [`pair`](/reference/utility/pair.md)型の各要素のコンストラクタ引数をそれぞれタプルとしてとって構築する。以下の形式のコンストラクタを呼び出す：
+- (5) : [`pair`](/reference/utility/pair.md)型の各要素のコンストラクタ引数をそれぞれひとつずつ、まとめて[`pair`](/reference/utility/pair.md)としてとって構築する。以下の形式のコンストラクタを呼び出す：
 	- `pair<T1, T2>(piecewise_construct_t, const tuple<U>&, const tuple<V>&)`
-- (6) : [`pair`](/reference/utility/pair.md)型の各要素のコンストラクタ引数をそれぞれタプルとしてとって構築する。以下の形式のコンストラクタを呼び出す：
+- (6) : [`pair`](/reference/utility/pair.md)型の各要素のコンストラクタ引数をそれぞれひとつずつ、まとめて[`pair`](/reference/utility/pair.md)としてとって構築する。以下の形式のコンストラクタを呼び出す：
 	- `pair<T1, T2>(piecewise_construct_t, tuple<U>&&, tuple<V>&&)`
 
 
@@ -78,6 +78,108 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 
 ##例
 ```cpp
+#include <cassert>
+#include <vector>
+#include <string>
+
+#include <scoped_allocator>
+
+template <class T>
+using alloc_t = std::allocator<T>;
+
+// コンテナの要素(Inner)
+using string = std::basic_string<
+  char,
+  std::char_traits<char>,
+  alloc_t<char>
+>;
+
+// コンテナ(Outer)
+template <class T>
+using vector = std::vector<
+  T,
+  std::scoped_allocator_adaptor<alloc_t<T>, alloc_t<typename T::value_type>>
+>;
+
+template <class T>
+using pair_of_vector = std::vector<
+  T,
+  std::scoped_allocator_adaptor<alloc_t<T>>
+>;
+
+// (1)
+void construct_propagate_alloc()
+{
+  vector<string>::allocator_type alloc {
+    alloc_t<string>(), // vector自体のアロケータオブジェクト
+    alloc_t<char>()    // vectorの全ての要素に使用するアロケータオブジェクト
+  };
+
+  // 外側のアロケータを使用し、stringが1要素入るメモリを確保
+  const std::size_t n = 1;
+  string* p = alloc.allocate(n);
+
+  // (1) 以下のコンストラクタを呼び出し、アロケータオブジェクトを伝搬させる
+  // basic_string(const char*, Allocator)
+  alloc.construct(p, "hello");
+
+  // メモリを解放
+  alloc.deallocate(p, n);
+}
+
+void construct_pair()
+{
+  pair_of_vector<std::pair<string, string>>::allocator_type alloc;
+
+  const std::size_t n = 5;
+  std::pair<string, string>* p = alloc.allocate(n);
+
+  // (2)
+  // pairの各要素に対して以下のコンストラクタを呼び出し、
+  // アロケータオブジェクトを伝搬させる。
+  // basic_string(const char*, Allocator)
+  std::pair<string, string>* pair_p = p;
+  alloc.construct(p, std::piecewise_construct,
+                  std::forward_as_tuple("hello"),
+                  std::forward_as_tuple("world"));
+  assert(pair_p->first == "hello");
+  assert(pair_p->second == "world");
+
+  // (3)
+  // pairの要素をデフォルト構築する。
+  pair_p = std::next(pair_p);
+  alloc.construct(pair_p);
+  assert(pair_p->first == "");
+  assert(pair_p->second == "");
+
+  // (4)
+  // pairの各要素のコンストラクタ引数をひとつずつ受け取って構築
+  pair_p = std::next(pair_p);
+  alloc.construct(pair_p, "hello", "world");
+  assert(pair_p->first == "hello");
+  assert(pair_p->second == "world");
+
+  // (5)
+  // pairの各要素のコンストラクタ引数をひとつずつ、
+  // まとめてpairとして受け取り、それぞれをtupleに分解して構築
+  pair_p = std::next(pair_p);
+  std::pair<const char*, const char*> fifth_args("hello", "world");
+  alloc.construct(pair_p, fifth_args);
+
+  // (6)
+  // pairの各要素のコンストラクタ引数をひとつずつ、
+  // まとめてpairとして受け取り、それぞれをtupleに分解して転送して構築
+  pair_p = std::next(pair_p);
+  alloc.construct(pair_p, std::make_pair("hello", "world"));
+
+  alloc.deallocate(p, n);
+}
+
+int main()
+{
+  construct_propagate_alloc();
+  construct_pair();
+}
 ```
 
 ###出力
