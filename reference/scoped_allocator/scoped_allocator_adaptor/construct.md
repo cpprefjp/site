@@ -123,6 +123,9 @@ void construct_propagate_alloc()
   // basic_string(const char*, Allocator)
   alloc.construct(p, "hello");
 
+  // オブジェクトを破棄
+  alloc.destroy(p);
+
   // メモリを解放
   alloc.deallocate(p, n);
 }
@@ -171,6 +174,10 @@ void construct_pair()
   // まとめてpairとして受け取り、それぞれをtupleに分解して転送して構築
   pair_p = std::next(pair_p);
   alloc.construct(pair_p, std::make_pair("hello", "world"));
+
+  for (std::size_t i = 0; i < n; ++i) {
+    alloc.destroy(p + i);
+  }
 
   alloc.deallocate(p, n);
 }
