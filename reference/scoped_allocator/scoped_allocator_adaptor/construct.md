@@ -198,7 +198,7 @@ int main()
 - C++11
 
 ###処理系
-- [Clang, C++11 mode](/implementation#clang.md): ??
-- [GCC, C++11 mode](/implementation#gcc.md): ??
+- [Clang, C++11 mode](/implementation#clang.md): 3.3 (`forward_as_tuple()`まで含めた完全な実装)
+- [GCC, C++11 mode](/implementation#gcc.md): 4.7.3
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
