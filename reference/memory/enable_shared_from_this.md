@@ -60,7 +60,7 @@ ptr->func();
 #include <cassert>
 #include <memory>
 
-struct X : public std::enable_shard_from_this<X> {
+struct X : public std::enable_shared_from_this<X> {
   std::shared_ptr<X> f()
   {
     // thisを指すshared_ptrオブジェクトを作る
