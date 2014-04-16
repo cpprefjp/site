@@ -36,18 +36,19 @@ namespace std {
 ##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------------------------------|-------------------------------------|-------|
-| `(constructor)` | コンストラクタ | C++11 |
-| `(destructor)` | デストラクタ | C++11 |
-| [`inner_allocator`][inner_allocator] | 内側のアロケータを取得する                   | C++11 |
-| [`outer_allocator`][outer_allocator] | 外側のアロケータを取得する                   | C++11 |
-| [`allocate`][allocate]               | メモリを確保する                             | C++11 |
-| [`deallocate`][deallocate]           | メモリを解放する                             | C++11 |
-| [`max_size`][max_size]               | 一度に確保可能なメモリの最大サイズを取得する | C++11 |
-| [`construct`][construct]             | オブジェクトを構築する                       | C++11 |
-| [`destroy`][destroy]                 | オブジェクトを破棄する                       | C++11 |
+|-----------------------------------------|----------------------------------------------|-------|
+| [`(constructor)`][constructor]          | コンストラクタ                               | C++11 |
+| `~scoped_allocator_adaptor() = default` | デストラクタ                                 | C++11 |
+| [`inner_allocator`][inner_allocator]    | 内側のアロケータを取得する                   | C++11 |
+| [`outer_allocator`][outer_allocator]    | 外側のアロケータを取得する                   | C++11 |
+| [`allocate`][allocate]                  | メモリを確保する                             | C++11 |
+| [`deallocate`][deallocate]              | メモリを解放する                             | C++11 |
+| [`max_size`][max_size]                  | 一度に確保可能なメモリの最大サイズを取得する | C++11 |
+| [`construct`][construct]                | オブジェクトを構築する                       | C++11 |
+| [`destroy`][destroy]                    | オブジェクトを破棄する                       | C++11 |
 | [`select_on_container_copy_construction`][select] | コンテナのコピー構築に必要なアロケータを取得する | C++11 |
 
+[constructor]: ./scoped_allocator_adaptor/scoped_allocator_adaptor.md
 [inner_allocator]: ./scoped_allocator_adaptor/inner_allocator.md
 [outer_allocator]: ./scoped_allocator_adaptor/outer_allocator.md
 [allocate]: ./scoped_allocator_adaptor/allocate.md
