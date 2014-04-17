@@ -47,6 +47,51 @@ scoped_allocator_adaptor(
 
 ##例
 ```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+#include <scoped_allocator>
+
+template <class T>
+using alloc_t = std::allocator<T>;
+
+// コンテナの要素(Inner)
+using string = std::basic_string<
+  char,
+  std::char_traits<char>,
+  alloc_t<char>
+>;
+
+// コンテナ(Outer)
+template <class T>
+using vector = std::vector<
+  T,
+  std::scoped_allocator_adaptor<alloc_t<T>, alloc_t<typename T::value_type>>
+>;
+
+int main()
+{
+  // (1)
+  // デフォルト構築。
+  // 各アロケータを値初期化する。
+  vector<string>::allocator_type alloc1;
+
+  // (2)
+  // 外側のアロケータと内側のアロケータ、それぞれを渡す
+  vector<string>::allocator_type alloc2 {
+    alloc_t<string>(), // vector自体のアロケータオブジェクト
+    alloc_t<char>()    // vectorの全ての要素に使用するアロケータオブジェクト
+  };
+
+  // (3)
+  // コピー構築。対応するアロケータオブジェクトにコピーする。
+  vector<string>::allocator_type alloc3 = alloc2;
+
+  // (4)
+  // ムーブ構築。対応するアロケータオブジェクトにムーブする。
+  vector<string>::allocator_type alloc4 = std::move(alloc3);
+}
 ```
 
 ###出力
