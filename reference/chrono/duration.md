@@ -55,6 +55,7 @@ namespace chrono {
 | [`operator%=`](./duration/op_modulo_assign.md)    | `%`の複合代入            | C++11          |
 
 
+##静的メンバ関数
 ###特別な値
 
 | 名前                         | 説明         | 対応バージョン |
