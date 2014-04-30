@@ -157,7 +157,7 @@ namespace std {
 | [`operator<<`](basic_string/op_ostream.md)       | ストリームへの出力                          |                |
 | [`operator>>`](basic_string/op_istream.md)       | ストリームからの入力                        |                |
 | [`swap`](./basic_string/swap_free.md)            | 2つの`basic_string`オブジェクトを入れ替える |                |
-| `getline`                                        | 入力ストリームから1行読み込む               |                |
+| [`getline`](./basic_string/getline.md)           | 入力ストリームから1行読み込む               |                |
 
 
 ##例
