@@ -20,6 +20,7 @@ basic_istream<CharT, Traits>&
   getline(basic_istream<CharT, Traits>&& is,
           basic_string<CharT, Traits, Allocator>& str, CharT delim); // (4) C++11から
 ```
+* basic_istream[link ../../istream/basic_istream.md]
 
 ##概要
 ストリームから改行文字が現れるまで（1行すべて）あるいは仮引数`delim`で指定された文字までの文字列を入力する。
@@ -28,6 +29,7 @@ basic_istream<CharT, Traits>&
 
 ## 効果
 仮引数`delim`がない多重定義では、`std::getline(is, str, is.widen('\n'))`を呼び出す。
+
 仮引数`delim`を持つものは以下の通り。
 
 1. [`basic_istream<>::sentry`](../../istream/basic_istream/sentry.md)オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
