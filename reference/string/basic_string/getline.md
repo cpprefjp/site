@@ -1,13 +1,24 @@
 #getline
 ```cpp
 template <class CharT, class Traits, class Allocator>
-basic_string operator>>(basic_istream<CharT, Traits>& is, basic_string<CharT, Traits, Allocator>& str);
+basic_istream<CharT, Traits>&
+  getline(basic_istream<CharT, Traits>& is,
+          basic_string<CharT, Traits, Allocator>& str);              // (1)
+
 template <class CharT, class Traits, class Allocator>
-basic_string operator>>(basic_istream<CharT, Traits>&& is, basic_string<CharT, Traits, Allocator>& str);
+basic_istream<CharT, Traits>&
+  getline(basic_istream<CharT, Traits>&& is,
+          basic_string<CharT, Traits, Allocator>& str);              // (2) C++11から
+
 template <class CharT, class Traits, class Allocator>
-basic_string operator>>(basic_istream<CharT, Traits>& is, basic_string<CharT, Traits, Allocator>& str, CharT delim);
+basic_istream<CharT, Traits>&
+  getline(basic_istream<CharT, Traits>& is,
+          basic_string<CharT, Traits, Allocator>& str, CharT delim); // (3)
+
 template <class CharT, class Traits, class Allocator>
-basic_string operator>>(basic_istream<CharT, Traits>&& is, basic_string<CharT, Traits, Allocator>& str, CharT delim);
+basic_istream<CharT, Traits>&
+  getline(basic_istream<CharT, Traits>&& is,
+          basic_string<CharT, Traits, Allocator>& str, CharT delim); // (4) C++11から
 ```
 
 ##概要
