@@ -1,4 +1,4 @@
-#swap(C++11)
+#swap (C++11)
 ```cpp
 void swap(array& other) noexcept(noexcept(swap(declval<T&>(), declval<T&>())));
 ```

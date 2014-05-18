@@ -1,4 +1,4 @@
-#find_if_not(C++11)
+#find_if_not (C++11)
 ```cpp
 namespace std {
   template<class InputIterator, class Predicate>

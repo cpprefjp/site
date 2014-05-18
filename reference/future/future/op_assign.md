@@ -1,4 +1,4 @@
-#代入演算子(C++11)
+#代入演算子 (C++11)
 ```cpp
 future& operator=(const future& rhs) = delete;
 future& operator=(future&& rhs) noexcept;

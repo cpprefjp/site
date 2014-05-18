@@ -1,4 +1,4 @@
-#underlying_type(C++11)
+#underlying_type (C++11)
 ```cpp
 namespace std {
   template <class T>

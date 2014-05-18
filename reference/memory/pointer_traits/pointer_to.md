@@ -1,4 +1,4 @@
-#pointer_to(C++11)
+#pointer_to (C++11)
 ```cpp
 static pointer pointer_traits::pointer_to(element_type& r);              // (1)
 static pointer pointer_traits<T*>::pointer_to(element_type& r) noexcept; // (2)

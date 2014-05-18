@@ -1,4 +1,4 @@
-#get_id(C++11)
+#get_id (C++11)
 ```cpp
 namespace std {
 namespace this_thread {

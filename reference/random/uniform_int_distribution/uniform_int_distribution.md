@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 explicit uniform_int_distribution(IntType a = 0, IntType b = numeric_limits<IntType>::max());
 explicit uniform_int_distribution(const param_type& parm);

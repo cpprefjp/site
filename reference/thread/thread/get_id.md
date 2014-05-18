@@ -1,4 +1,4 @@
-#get_id(C++11)
+#get_id (C++11)
 ```cpp
 id get_id() const noexcept;
 ```

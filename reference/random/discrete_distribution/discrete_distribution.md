@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 discrete_distribution();
 

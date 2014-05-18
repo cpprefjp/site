@@ -1,4 +1,4 @@
-#is_arithmetic(C++11)
+#is_arithmetic (C++11)
 ```cpp
 namespace std {
   template <class T>

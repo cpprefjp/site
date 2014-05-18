@@ -1,4 +1,4 @@
-#probabilities(C++11)
+#probabilities (C++11)
 ```cpp
 vector<double> probabilities() const;
 ```

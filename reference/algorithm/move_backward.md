@@ -1,4 +1,4 @@
-#move_backward(C++11)
+#move_backward (C++11)
 ```cpp
 namespace std {
   template<class BidirectionalIterator1, class BidirectionalIterator2>

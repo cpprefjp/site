@@ -1,4 +1,4 @@
-#seed_seq(C++11)
+#seed_seq (C++11)
 ```cpp
 namespace std {
   class seed_seq;

@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 explicit gamma_distribution(RealType alpha = 1.0, RealType beta = 1.0);
 explicit gamma_distribution(const param_type& parm);

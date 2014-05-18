@@ -1,4 +1,4 @@
-#deallocate(C++11)
+#deallocate (C++11)
 ```cpp
 static void deallocate(Alloc& a, pointer p, size_type n);
 ```

@@ -1,4 +1,4 @@
-#代入演算子(C++11)
+#代入演算子 (C++11)
 ```cpp
 function& operator=(const function& f);               // (1)
 function& operator=(function&& f);                    // (2)

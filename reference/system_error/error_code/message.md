@@ -1,4 +1,4 @@
-#message(C++11)
+#message (C++11)
 ```cpp
 string message() const;
 ```

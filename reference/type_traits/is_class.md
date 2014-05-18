@@ -1,4 +1,4 @@
-#is_class(C++11)
+#is_class (C++11)
 ```cpp
 namespace std {
   template <class T>

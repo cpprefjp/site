@@ -1,4 +1,4 @@
-#max(C++11)
+#max (C++11)
 ```cpp
 static constexpr result_type max() { return M - 1u; }
 ```

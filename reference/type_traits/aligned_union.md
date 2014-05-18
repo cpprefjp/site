@@ -1,4 +1,4 @@
-#aligned_union(C++11)
+#aligned_union (C++11)
 ```cpp
 namespace std {
   template <std::size_t Len,

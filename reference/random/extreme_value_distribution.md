@@ -1,4 +1,4 @@
-#extreme_value_distribution(C++11)
+#extreme_value_distribution (C++11)
 ```cpp
 namespace std {
   template <class RealType = double>

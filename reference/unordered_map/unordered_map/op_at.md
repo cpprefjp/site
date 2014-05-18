@@ -1,4 +1,4 @@
-#operator[](C++11)
+#operator[] (C++11)
 ```cpp
 T& operator[](const key_type& x);
 T& operator[](const key_type&& x);

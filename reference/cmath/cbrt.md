@@ -1,4 +1,4 @@
-#cbrt(C++11)
+#cbrt (C++11)
 ```cpp
 namespace std {
   float cbrt(float x);

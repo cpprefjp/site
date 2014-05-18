@@ -1,4 +1,4 @@
-#operator*(C++11)
+#operator* (C++11)
 ```cpp
 typename add_lvalue_reference<T>::type operator*() const;
 ```

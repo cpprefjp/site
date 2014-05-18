@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 explicit lognormal_distribution(RealType m = 0.0, RealType s = 1.0);
 explicit lognormal_distribution(const param_type& param);

@@ -1,4 +1,4 @@
-#alignment_of(C++11)
+#alignment_of (C++11)
 ```cpp
 namespace std {
   template <class T>

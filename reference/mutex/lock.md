@@ -1,4 +1,4 @@
-#lock(C++11)
+#lock (C++11)
 ```cpp
 namespace std {
   template <class L1, class L2, class... L3>

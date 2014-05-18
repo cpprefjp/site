@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 function() noexcept;          // (1)
 function(nullptr_t) noexcept; // (2)

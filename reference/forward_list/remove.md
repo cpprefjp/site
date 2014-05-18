@@ -1,4 +1,4 @@
-#remove(C++11)
+#remove (C++11)
 ```cpp
 void remove(const T& value);
 ```

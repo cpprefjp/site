@@ -1,4 +1,4 @@
-#result_of(C++11)
+#result_of (C++11)
 ```cpp
 namespace std {
   template <class> class result_of; // 宣言のみ

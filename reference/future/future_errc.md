@@ -1,4 +1,4 @@
-#future_errc(C++11)
+#future_errc (C++11)
 ```cpp
 namespace std {
   // C++11

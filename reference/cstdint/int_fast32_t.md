@@ -1,4 +1,4 @@
-#int_fast32_t(C++11)
+#int_fast32_t (C++11)
 ```cpp
 namespace std {
   typedef signed-integer-type int_fast32_t;

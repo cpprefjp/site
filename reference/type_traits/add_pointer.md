@@ -1,4 +1,4 @@
-#add_pointer(C++11)
+#add_pointer (C++11)
 ```cpp
 namespace std {
   template <class T>

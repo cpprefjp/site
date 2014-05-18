@@ -1,4 +1,4 @@
-#end(C++11)
+#end (C++11)
 ```cpp
 namespace std {
   template <class C>

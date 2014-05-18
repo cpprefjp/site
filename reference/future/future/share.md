@@ -1,4 +1,4 @@
-#share(C++11)
+#share (C++11)
 ```cpp
 shared_future<R> share();
 ```

@@ -1,4 +1,4 @@
-#construct(C++11)
+#construct (C++11)
 ```cpp
 template <class T, class... Args>
 static void construct(Alloc& a, T* p, Args&&... args);

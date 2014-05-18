@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 constexpr mutex() noexcept;
 mutex(const mutex&) = delete;

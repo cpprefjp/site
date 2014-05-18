@@ -1,4 +1,4 @@
-#front(C++11)
+#front (C++11)
 ```cpp
 const charT& front() const;
 charT& front();

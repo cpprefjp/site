@@ -1,4 +1,4 @@
-#PTRDIFF_MAX(C++11)
+#PTRDIFF_MAX (C++11)
 ```cpp
 #define PTRDIFF_MAX implementation-defined
 ```

@@ -1,4 +1,4 @@
-#get(C++11)
+#get (C++11)
 ```cpp
 T* get() const noexcept;
 ```

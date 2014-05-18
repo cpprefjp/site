@@ -1,4 +1,4 @@
-#addressof(C++11)
+#addressof (C++11)
 ```cpp
 namespace std {
   template <class T>

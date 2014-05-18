@@ -1,4 +1,4 @@
-#knuth_b(C++11)
+#knuth_b (C++11)
 ```cpp
 namespace std {
   typedef

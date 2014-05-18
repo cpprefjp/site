@@ -1,4 +1,4 @@
-#fisher_f_distribution(C++11)
+#fisher_f_distribution (C++11)
 ```cpp
 namespace std {
   template <class RealType = double>

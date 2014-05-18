@@ -1,4 +1,4 @@
-#PTRDIFF_MIN(C++11)
+#PTRDIFF_MIN (C++11)
 ```cpp
 #define PTRDIFF_MIN implementation-defined
 ```

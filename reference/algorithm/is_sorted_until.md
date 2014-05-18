@@ -1,4 +1,4 @@
-#is_sorted_until(C++11)
+#is_sorted_until (C++11)
 ```cpp
 namespace std {
   template <class ForwardIterator>

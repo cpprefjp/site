@@ -1,4 +1,4 @@
-#is_member_object_pointer(C++11)
+#is_member_object_pointer (C++11)
 ```cpp
 namespace std {
   template <class T>

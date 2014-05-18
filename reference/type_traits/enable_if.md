@@ -1,4 +1,4 @@
-#enable_if(C++11)
+#enable_if (C++11)
 ```cpp
 namespace std {
   template <bool Condition, class T = void>

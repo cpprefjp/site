@@ -1,4 +1,4 @@
-#thread(C++11)
+#thread (C++11)
 ```cpp
 namespace std {
   class thread;

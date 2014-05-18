@@ -1,4 +1,4 @@
-#seed(C++11)
+#seed (C++11)
 ```cpp
 void seed();
 void seed(result_type s);

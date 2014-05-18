@@ -1,4 +1,4 @@
-#代入演算子(C++11)
+#代入演算子 (C++11)
 ```cpp
 promise& operator=(promise&& rhs) noexcept;
 promise& operator=(const promise& rhs) = delete;

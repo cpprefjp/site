@@ -1,4 +1,4 @@
-#hardware_concurrency(C++11)
+#hardware_concurrency (C++11)
 ```cpp
 static unsigned int hardware_concurrency() noexcept;
 ```

@@ -1,4 +1,4 @@
-#steady_clock(C++11)
+#steady_clock (C++11)
 ```cpp
 namespace std {
 namespace chrono {

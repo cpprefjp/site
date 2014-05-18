@@ -1,4 +1,4 @@
-#ratio(C++11)
+#ratio (C++11)
 ```cpp
 namespace std {
   template <intmax_t N, intmax_t D = 1>

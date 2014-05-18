@@ -1,4 +1,4 @@
-#copy_if(C++11)
+#copy_if (C++11)
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator, class Predicate>

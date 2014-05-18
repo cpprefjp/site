@@ -1,4 +1,4 @@
-#tuple(C++11)
+#tuple (C++11)
 ```cpp
 namespace std {
   template <class... Args>

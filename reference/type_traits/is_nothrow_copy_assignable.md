@@ -1,4 +1,4 @@
-#is_nothrow_copy_assignable(C++11)
+#is_nothrow_copy_assignable (C++11)
 ```cpp
 namespace std {
   template <class T>

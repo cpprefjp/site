@@ -1,4 +1,4 @@
-#rank(C++11)
+#rank (C++11)
 ```cpp
 namespace std {
   template <class T>

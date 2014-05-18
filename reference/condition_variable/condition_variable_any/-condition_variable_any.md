@@ -1,4 +1,4 @@
-#デストラクタ(C++11)
+#デストラクタ (C++11)
 ```cpp
 ~condition_variable_any();
 ```

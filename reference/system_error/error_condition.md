@@ -1,4 +1,4 @@
-#error_condition(C++11)
+#error_condition (C++11)
 ```cpp
 namespace std {
   class error_condition;

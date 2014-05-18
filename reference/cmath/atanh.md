@@ -1,4 +1,4 @@
-#atanh(C++11)
+#atanh (C++11)
 ```cpp
 namespace std {
   float atanh(float x);

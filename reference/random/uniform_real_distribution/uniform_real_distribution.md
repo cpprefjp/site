@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 explicit uniform_real_distribution(RealType a = 0.0, RealType b = 1.0);
 explicit uniform_real_distribution(const param_type& parm);

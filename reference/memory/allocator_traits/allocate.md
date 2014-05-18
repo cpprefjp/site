@@ -1,4 +1,4 @@
-#allocate(C++11)
+#allocate (C++11)
 ```cpp
 static pointer allocate(Alloc& a, size_type n);   // (1)
 static pointer allocate(Alloc& a, size_type n,

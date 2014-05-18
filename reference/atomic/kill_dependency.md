@@ -1,4 +1,4 @@
-#kill_dependency(C++11)
+#kill_dependency (C++11)
 ```cpp
 namespace std {
   template <class T>

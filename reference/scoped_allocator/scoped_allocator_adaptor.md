@@ -1,4 +1,4 @@
-#scoped_allocator_adaptor(C++11)
+#scoped_allocator_adaptor (C++11)
 ```cpp
 namespace std {
   template <class OuterAlloc, class... InnerAllocs>

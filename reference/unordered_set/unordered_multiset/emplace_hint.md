@@ -1,4 +1,4 @@
-#emplace_hint(C++11)
+#emplace_hint (C++11)
 ```cpp
 template <class... Args>
 iterator emplace_hint(const_iterator position, Args&&... args);

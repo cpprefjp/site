@@ -1,4 +1,4 @@
-#condition_variable(C++11)
+#condition_variable (C++11)
 ```cpp
 namespace std {
   class condition_variable;

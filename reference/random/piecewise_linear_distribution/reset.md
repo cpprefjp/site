@@ -1,4 +1,4 @@
-#reset(C++11)
+#reset (C++11)
 ```cpp
 void reset();
 ```

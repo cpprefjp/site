@@ -1,4 +1,4 @@
-#chi_squared_distribution(C++11)
+#chi_squared_distribution (C++11)
 ```cpp
 namespace std {
   template <class RealType = double>

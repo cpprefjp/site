@@ -1,4 +1,4 @@
-#operator!=(C++11)
+#operator!= (C++11)
 ```cpp
 namespace std {
   template <class Engine, size_t K>

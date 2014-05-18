@@ -1,4 +1,4 @@
-#minstd_rand0(C++11)
+#minstd_rand0 (C++11)
 ```cpp
 namespace std {
   typedef

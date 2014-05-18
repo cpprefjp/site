@@ -1,4 +1,4 @@
-#minmax(C++11)
+#minmax (C++11)
 ```cpp
 namespace std {
   template <class T>

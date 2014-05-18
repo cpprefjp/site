@@ -1,4 +1,4 @@
-#min(C++11)
+#min (C++11)
 ```cpp
 result_type min() const;
 ```

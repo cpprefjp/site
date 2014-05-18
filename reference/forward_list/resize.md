@@ -1,4 +1,4 @@
-#resize(C++11)
+#resize (C++11)
 ```cpp
 void resize(size_type sz);
 void resize(size_type sz, const value_type& c);

@@ -1,4 +1,4 @@
-#front(C++11)
+#front (C++11)
 ```cpp
 reference front();
 const_reference front() const;

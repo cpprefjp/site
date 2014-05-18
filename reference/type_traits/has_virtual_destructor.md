@@ -1,4 +1,4 @@
-#has_virtual_destructor(C++11)
+#has_virtual_destructor (C++11)
 ```cpp
 namespace std {
   template <class T>

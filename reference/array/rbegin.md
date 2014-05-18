@@ -1,4 +1,4 @@
-#rbegin(C++11)
+#rbegin (C++11)
 ```cpp
 reverse_iterator rbegin() noexcept;
 const_reverse_iterator rbegin() const noexcept;

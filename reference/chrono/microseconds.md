@@ -1,4 +1,4 @@
-#microseconds(C++11)
+#microseconds (C++11)
 ```cpp
 namespace std {
 namespace chrono {

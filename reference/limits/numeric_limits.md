@@ -31,7 +31,7 @@ namespace std {
 
 * 実装の提供する算術型の性質を提供する
 * 浮動小数点型、整数型、`bool`型について特殊化が提供され、`is_specialized=true`になる
-* このクラスのメンバは全て `static constexpr` として定義されているため、定数式として使いやすい(C++11)
+* このクラスのメンバは全て `static constexpr` として定義されているため、定数式として使いやすい (C++11)
 * [`std::complex`](/reference/complex.md)のような非算術型については特殊化は提供されない
 
 | 静的メンバ                                                   | 性質 | 対応バージョン |

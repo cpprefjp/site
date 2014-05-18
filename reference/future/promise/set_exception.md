@@ -1,4 +1,4 @@
-#set_exception(C++11)
+#set_exception (C++11)
 ```cpp
 void set_exception(exception_ptr p);
 ```

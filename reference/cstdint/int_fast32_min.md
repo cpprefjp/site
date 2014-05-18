@@ -1,4 +1,4 @@
-#INT_FAST32_MIN(C++11)
+#INT_FAST32_MIN (C++11)
 ```cpp
 #define INT_FAST32_MIN implementation-defined
 ```

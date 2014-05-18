@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 explicit fisher_f_distribution(RealType m = 1, RealType n = 1);
 explicit fisher_f_distribution(const param_type& parm);

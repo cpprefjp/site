@@ -1,4 +1,4 @@
-#equivalent(C++11)
+#equivalent (C++11)
 ```cpp
 virtual bool equivalent(int code, const error_condition& condition) const noexcept;
 virtual bool equivalent(const error_code& code, int condition) const noexcept;

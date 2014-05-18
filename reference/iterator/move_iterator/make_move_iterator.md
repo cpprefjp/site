@@ -1,4 +1,4 @@
-#make_move_iterator(C++11)
+#make_move_iterator (C++11)
 ```cpp
 namespace std {
   template <class Iterator>

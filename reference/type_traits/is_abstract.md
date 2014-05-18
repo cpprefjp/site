@@ -1,4 +1,4 @@
-#is_abstract(C++11)
+#is_abstract (C++11)
 ```cpp
 namespace std {
   template <class T>

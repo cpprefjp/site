@@ -1,4 +1,4 @@
-#a(C++11)
+#a (C++11)
 ```cpp
 result_type a() const;
 ```

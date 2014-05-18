@@ -1,4 +1,4 @@
-#intervals(C++11)
+#intervals (C++11)
 ```cpp
 vector<result_type> intervals() const;
 ```

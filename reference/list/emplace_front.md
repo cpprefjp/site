@@ -1,4 +1,4 @@
-#emplace_front(C++11)
+#emplace_front (C++11)
 ```cpp
 template <class... Args>
 void emplace_front(Args&&... args);

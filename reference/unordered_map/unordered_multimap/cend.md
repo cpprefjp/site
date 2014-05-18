@@ -1,4 +1,4 @@
-#cend(C++11)
+#cend (C++11)
 ```cpp
 const_iterator cend() const noexcept;
 ```

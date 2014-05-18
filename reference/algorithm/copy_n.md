@@ -1,4 +1,4 @@
-#copy_n(C++11)
+#copy_n (C++11)
 
 ```cpp
 namespace std {

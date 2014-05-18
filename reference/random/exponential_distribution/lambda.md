@@ -1,4 +1,4 @@
-#lambda(C++11)
+#lambda (C++11)
 ```cpp
 result_type lambda() const;
 ```

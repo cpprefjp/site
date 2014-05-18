@@ -1,4 +1,4 @@
-#conditional(C++11)
+#conditional (C++11)
 ```cpp
 namespace std {
   template <bool B, class T, class F>

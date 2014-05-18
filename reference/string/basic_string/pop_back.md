@@ -1,4 +1,4 @@
-#pop_back(C++11)
+#pop_back (C++11)
 ```cpp
 void pop_back();
 ```

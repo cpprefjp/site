@@ -1,4 +1,4 @@
-#is_move_constructible(C++11)
+#is_move_constructible (C++11)
 ```cpp
 namespace std {
   template <class T>

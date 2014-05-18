@@ -1,4 +1,4 @@
-#gamma_distribution(C++11)
+#gamma_distribution (C++11)
 ```cpp
 namespace std {
   template <class RealType = double>

@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 constexpr enable_shared_from_this() noexcept;                     // (1)
 enable_shared_from_this(const enable_shared_from_this&) noexcept; // (2)

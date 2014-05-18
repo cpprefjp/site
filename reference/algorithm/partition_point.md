@@ -1,4 +1,4 @@
-#partition_point(C++11)
+#partition_point (C++11)
 ```cpp
 namespace std {
   template <class ForwardIterator, class Predicate>

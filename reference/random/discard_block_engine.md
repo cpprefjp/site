@@ -1,4 +1,4 @@
-#discard_block_engine(C++11)
+#discard_block_engine (C++11)
 ```cpp
 namespace std {
   template <class Engine, size_t p, size_t r>

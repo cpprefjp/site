@@ -1,4 +1,4 @@
-#get(C++11)
+#get (C++11)
 ```cpp
 pointer get() const noexcept;
 ```

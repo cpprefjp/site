@@ -1,4 +1,4 @@
-#geometric_distribution(C++11)
+#geometric_distribution (C++11)
 ```cpp
 namespace std {
   template <class IntType = int>

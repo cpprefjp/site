@@ -1,4 +1,4 @@
-#future_status(C++11)
+#future_status (C++11)
 ```cpp
 namespace std {
   enum class future_status {

@@ -1,4 +1,4 @@
-#tie(C++11)
+#tie (C++11)
 ```cpp
 namespace std {
   template <class... Types>

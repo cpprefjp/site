@@ -1,4 +1,4 @@
-#operator+=(C++11)
+#operator+= (C++11)
 ```cpp
 T operator+=(T operand) volatile noexcept;
 T operator+=(T operand) noexcept;

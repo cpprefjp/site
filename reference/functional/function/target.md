@@ -1,4 +1,4 @@
-#target(C++11)
+#target (C++11)
 ```cpp
 template <class T>
 T* target() noexcept;

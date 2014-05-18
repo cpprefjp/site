@@ -1,4 +1,4 @@
-#count(C++11)
+#count (C++11)
 ```cpp
 constexpr rep count() const;
 ```

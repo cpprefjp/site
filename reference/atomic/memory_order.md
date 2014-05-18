@@ -1,4 +1,4 @@
-#memory_order(C++11)
+#memory_order (C++11)
 ```cpp
 namespace std {
   typedef enum memory_order {

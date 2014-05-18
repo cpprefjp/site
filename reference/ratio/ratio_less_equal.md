@@ -1,4 +1,4 @@
-#ratio_less_equal(C++11)
+#ratio_less_equal (C++11)
 ```cpp
 namespace std {
   template <class R1, class R2>

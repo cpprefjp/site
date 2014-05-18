@@ -1,4 +1,4 @@
-#launch(C++11)
+#launch (C++11)
 ```cpp
 namespace std {
   enum class launch : unspecified {

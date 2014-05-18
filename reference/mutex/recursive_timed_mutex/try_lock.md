@@ -1,4 +1,4 @@
-#try_lock(C++11)
+#try_lock (C++11)
 ```cpp
 bool try_lock();
 ```

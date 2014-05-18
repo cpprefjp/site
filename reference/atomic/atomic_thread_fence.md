@@ -1,4 +1,4 @@
-#atomic_thread_fence(C++11)
+#atomic_thread_fence (C++11)
 ```cpp
 namespace std {
   extern "C" void atomic_thread_fence(memory_order order) noexcept;

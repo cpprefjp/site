@@ -1,4 +1,4 @@
-#reference_wrapper(C++11)
+#reference_wrapper (C++11)
 ```cpp
 namespace std {
   template <class T>

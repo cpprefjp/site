@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 shuffle_order_engine();
 explicit shuffle_order_engine(const Engine& e);

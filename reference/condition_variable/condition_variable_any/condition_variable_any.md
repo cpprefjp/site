@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 condition_variable_any();
 condition_variable_any(const condition_variable_any&) = delete;

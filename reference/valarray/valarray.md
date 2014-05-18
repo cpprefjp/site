@@ -23,7 +23,7 @@
 | <code>operator&#x7C;=</code> | 論理和のビット演算 |
 | `operator<<=`                | 左シフト |
 | `operator>>=`                | 右シフト |
-| `swap`                       | 他の`valarray`オブジェクトと値を入れ替える(C++11) |
+| `swap`                       | 他の`valarray`オブジェクトと値を入れ替える (C++11) |
 | `size`                       | 要素数を取得する |
 | `sum`                        | 合計値を求める |
 | `min`                        | 最小の要素を取得する |

@@ -1,4 +1,4 @@
-#enable_shared_from_this(C++11)
+#enable_shared_from_this (C++11)
 ```cpp
 namespace std {
   template <class T>

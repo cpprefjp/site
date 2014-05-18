@@ -1,4 +1,4 @@
-#make_ready_at_thread_exit(C++11)
+#make_ready_at_thread_exit (C++11)
 ```cpp
 void make_ready_at_thread_exit(ArgTypes... args);
 ```

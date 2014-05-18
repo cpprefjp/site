@@ -1,4 +1,4 @@
-#bernoulli_distribution(C++11)
+#bernoulli_distribution (C++11)
 ```cpp
 namespace std {
   class bernoulli_distribution;

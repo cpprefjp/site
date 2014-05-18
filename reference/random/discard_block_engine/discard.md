@@ -1,4 +1,4 @@
-#discard(C++11)
+#discard (C++11)
 ```cpp
 void discard(unsigned long long z);
 ```

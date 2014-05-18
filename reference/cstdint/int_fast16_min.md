@@ -1,4 +1,4 @@
-#INT_FAST16_MIN(C++11)
+#INT_FAST16_MIN (C++11)
 ```cpp
 #define INT_FAST16_MIN implementation-defined
 ```

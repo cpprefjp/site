@@ -1,4 +1,4 @@
-#log2(C++11)
+#log2 (C++11)
 ```cpp
 namespace std {
   float log2(float x);

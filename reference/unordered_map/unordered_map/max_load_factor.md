@@ -1,4 +1,4 @@
-#max_load_factor(C++11)
+#max_load_factor (C++11)
 ```cpp
 float max_load_factor() const noexcept; // (1)
 void max_load_factor(float z);          // (2)

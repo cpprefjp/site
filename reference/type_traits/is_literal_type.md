@@ -1,4 +1,4 @@
-#is_literal_type(C++11)
+#is_literal_type (C++11)
 ```cpp
 namespace std {
   template <class T>

@@ -1,4 +1,4 @@
-#placeholders(C++11)
+#placeholders (C++11)
 ```cpp
 namespace std {
 namespace placeholders {

@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 shared_future() noexcept;
 shared_future(const shared_future& rhs);

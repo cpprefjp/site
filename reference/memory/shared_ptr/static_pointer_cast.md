@@ -1,4 +1,4 @@
-#static_pointer_cast(C++11)
+#static_pointer_cast (C++11)
 ```cpp
 namespace std {
   template<class T, class U>

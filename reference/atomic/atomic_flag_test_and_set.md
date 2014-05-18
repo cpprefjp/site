@@ -1,4 +1,4 @@
-#atomic_flag_test_and_set(C++11)
+#atomic_flag_test_and_set (C++11)
 ```cpp
 namespace std {
   bool atomic_flag_test_and_set(volatile atomic_flag* object) noexcept;

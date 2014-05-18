@@ -1,4 +1,4 @@
-#rethrow_exception(C++11)
+#rethrow_exception (C++11)
 ```cpp
 [[noreturn]] void rethrow_exception(exception_ptr p);
 ```

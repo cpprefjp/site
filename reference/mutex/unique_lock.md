@@ -1,4 +1,4 @@
-#unique_lock(C++11)
+#unique_lock (C++11)
 ```cpp
 namespace std {
   template <class Mutex>  class unique_lock;

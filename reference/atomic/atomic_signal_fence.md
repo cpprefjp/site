@@ -1,4 +1,4 @@
-#atomic_signal_fence(C++11)
+#atomic_signal_fence (C++11)
 ```cpp
 namespace std {
   extern "C" void atomic_signal_fence(memory_order order) noexcept;

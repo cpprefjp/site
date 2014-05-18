@@ -1,4 +1,4 @@
-#next(C++11)
+#next (C++11)
 ```cpp
 namespace std {
   template <class ForwardIterator>

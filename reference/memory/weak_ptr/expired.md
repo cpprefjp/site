@@ -1,4 +1,4 @@
-#expired(C++11)
+#expired (C++11)
 ```cpp
 bool expired() const noexcept;
 ```

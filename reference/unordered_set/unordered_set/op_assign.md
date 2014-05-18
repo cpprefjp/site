@@ -1,4 +1,4 @@
-#代入演算子(C++11)
+#代入演算子 (C++11)
 ```cpp
 unordered_set& operator=(const unordered_set& v);          // (1)
 unordered_set& operator=(unordered_set&& rv);              // (2)

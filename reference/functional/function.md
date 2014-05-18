@@ -1,4 +1,4 @@
-#function(C++11)
+#function (C++11)
 ```cpp
 namespace std {
   template <class> class function; // 宣言のみ

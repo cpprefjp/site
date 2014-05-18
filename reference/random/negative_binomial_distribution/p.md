@@ -1,4 +1,4 @@
-#p(C++11)
+#p (C++11)
 ```cpp
 double p() const;
 ```

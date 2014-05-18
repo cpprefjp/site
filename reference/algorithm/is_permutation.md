@@ -1,4 +1,4 @@
-#is_permutation(C++11)
+#is_permutation (C++11)
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>

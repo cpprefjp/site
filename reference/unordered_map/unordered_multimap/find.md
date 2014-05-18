@@ -1,4 +1,4 @@
-#find(C++11)
+#find (C++11)
 ```cpp
 iterator find ( const key_type& k );
 const_iterator find ( const key_type& k ) const;

@@ -1,4 +1,4 @@
-#seed(C++11)
+#seed (C++11)
 ```cpp
 void seed(result_type value = default_seed);
 template<class Sseq> void seed(Sseq& q);

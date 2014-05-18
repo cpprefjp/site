@@ -1,4 +1,4 @@
-#nested_ptr(C++11)
+#nested_ptr (C++11)
 ```cpp
 exception_ptr nested_ptr() const noexcept;
 ```

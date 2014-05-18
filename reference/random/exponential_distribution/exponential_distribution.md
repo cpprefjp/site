@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 explicit exponential_distribution(RealType lambda = 1.0);
 explicit exponential_distribution(const param_type& parm);

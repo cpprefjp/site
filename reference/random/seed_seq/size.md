@@ -1,4 +1,4 @@
-#size(C++11)
+#size (C++11)
 ```cpp
 size_t size() const;
 ```

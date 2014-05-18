@@ -1,4 +1,4 @@
-#get_deleter(C++11)
+#get_deleter (C++11)
 ```cpp
 namespace std {
   template <class D, class T>

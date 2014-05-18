@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 discard_block_engine();
 explicit discard_block_engine(const Engine& e);

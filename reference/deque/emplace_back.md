@@ -1,4 +1,4 @@
-#emplace_back(C++11)
+#emplace_back (C++11)
 ```cpp
 template <class... Args>
 void emplace_back(Args&&... args);
