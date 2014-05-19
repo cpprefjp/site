@@ -63,16 +63,18 @@ namespace std {
 
 ###演算子
 
-| 名前                                    | 説明                                   | 対応バージョン |
-|-----------------------------------------|----------------------------------------|----------------|
-| [`operator+`](complex/op_plus.md)       | `complex` オブジェクトを加算する       |                |
-| [`operator-`](complex/op_minus.md)      | `complex` オブジェクトを減算する       |                |
-| [`operator*`](complex/op_multiply.md)   | `complex` オブジェクトを乗算する       |                |
-| [`operator/`](complex/op_divide.md)     | `complex` オブジェクトを除算する       |                |
-| [`operator==`](complex/op_equal.md)     | `complex` オブジェクトを等値比較する   |                |
-| [`operator!=`](complex/op_not_equal.md) | `complex` オブジェクトを非等値比較する |                |
-| `operator<<`                            | ストリームへの出力                     |                |
-| `operator>>`                            | ストリームからの入力                   |                |
+| 名前                                            | 説明                                          | 対応バージョン |
+|-------------------------------------------------|-----------------------------------------------|----------------|
+| [`operator+` (単項)](complex/op_unary_plus.md)  | 単項 `+` 演算（引数をそのまま返す）           |                |
+| [`operator-` (単項)](complex/op_unary_minus.md) | 単項 `-` 演算（符号を反転した複素数値を得る） |                |
+| [`operator+`](complex/op_plus.md)               | `complex` オブジェクトを加算する              |                |
+| [`operator-`](complex/op_minus.md)              | `complex` オブジェクトを減算する              |                |
+| [`operator*`](complex/op_multiply.md)           | `complex` オブジェクトを乗算する              |                |
+| [`operator/`](complex/op_divide.md)             | `complex` オブジェクトを除算する              |                |
+| [`operator==`](complex/op_equal.md)             | `complex` オブジェクトを等値比較する          |                |
+| [`operator!=`](complex/op_not_equal.md)         | `complex` オブジェクトを非等値比較する        |                |
+| `operator<<`                                    | ストリームへの出力                            |                |
+| `operator>>`                                    | ストリームからの入力                          |                |
 
 
 ###リテラル
