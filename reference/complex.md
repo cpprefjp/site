@@ -27,17 +27,17 @@ namespace std {
 
 ##メンバ関数
 
-| 名前                              | 説明                           | 対応バージョン |
-|-----------------------------------|--------------------------------|----------------|
-| `(constructor)`                   | コンストラクタ                 |                |
-| `(destructor)`                    | デストラクタ                   |                |
-| [`real`](complex/complex/imag.md) | 複素数値の実部を取得／設定する |                |
-| [`imag`](complex/complex/imag.md) | 複素数値の虚部を取得／設定する |                |
-| `operator=`                       | 複素数値のコピー               |                |
-| `operator+=`                      | 複素数値の加算                 |                |
-| `operator-=`                      | 複素数値の減算                 |                |
-| `operator*=`                      | 複素数値の乗算                 |                |
-| `operator/=`                      | 複素数値の除算                 |                |
+| 名前                                                  | 説明                           | 対応バージョン |
+|-------------------------------------------------------|--------------------------------|----------------|
+| `(constructor)`                                       | コンストラクタ                 |                |
+| `(destructor)`                                        | デストラクタ                   |                |
+| [`real`](complex/complex/imag.md)                     | 複素数値の実部を取得／設定する |                |
+| [`imag`](complex/complex/imag.md)                     | 複素数値の虚部を取得／設定する |                |
+| [`operator=`](complex/complex/op_assign.md)           | 複素数値のコピー               |                |
+| [`operator+=`](complex/complex/op_plus_assign.md)     | 複素数値の加算                 |                |
+| [`operator-=`](complex/complex/op_minus_assign.md)    | 複素数値の減算                 |                |
+| [`operator*=`](complex/complex/op_multiply_assign.md) | 複素数値の乗算                 |                |
+| [`operator/=`](complex/complex/op_divide_assign.md)   | 複素数値の除算                 |                |
 
 
 ##メンバ型
@@ -63,16 +63,16 @@ namespace std {
 
 ###演算子
 
-| 名前                                    | 説明                                  | 対応バージョン |
-|-----------------------------------------|---------------------------------------|----------------|
-| `operator+`                             | `complex`オブジェクトを加算する       |                |
-| `operator-`                             | `complex`オブジェクトを減算する       |                |
-| `operator*`                             | `complex`オブジェクトを乗算する       |                |
-| `operator/`                             | `complex`オブジェクトを除算する       |                |
-| [`operator==`](complex/op_equal.md)     | `complex`オブジェクトを等値比較する   |                |
-| [`operator!=`](complex/op_not_equal.md) | `complex`オブジェクトを非等値比較する |                |
-| `operator<<`                            | ストリームへの出力                    |                |
-| `operator>>`                            | ストリームからの入力                  |                |
+| 名前                                    | 説明                                   | 対応バージョン |
+|-----------------------------------------|----------------------------------------|----------------|
+| [`operator+`](complex/op_plus.md)       | `complex` オブジェクトを加算する       |                |
+| [`operator-`](complex/op_minus.md)      | `complex` オブジェクトを減算する       |                |
+| [`operator*`](complex/op_multiply.md)   | `complex` オブジェクトを乗算する       |                |
+| [`operator/`](complex/op_divide.md)     | `complex` オブジェクトを除算する       |                |
+| [`operator==`](complex/op_equal.md)     | `complex` オブジェクトを等値比較する   |                |
+| [`operator!=`](complex/op_not_equal.md) | `complex` オブジェクトを非等値比較する |                |
+| `operator<<`                            | ストリームへの出力                     |                |
+| `operator>>`                            | ストリームからの入力                   |                |
 
 
 ###リテラル
