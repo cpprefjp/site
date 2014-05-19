@@ -7,7 +7,7 @@ constexpr duration operator-() const;
 負の`duration`を生成する
 
 ##戻り値
-`duration(rep_)`
+`duration(-rep_)`
 ※ `rep_`は内部で保持している値。メンバ変数名は説明用のもの
 
 
