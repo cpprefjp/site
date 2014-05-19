@@ -1,6 +1,6 @@
 #operator+=
 ```cpp
-complex<T>& operator+=(const T& rhs);		    // (1)
+complex<T>& operator+=(const T& rhs);			// (1)
 complex<T>& operator+=(const complex<T>& rhs);	// (2)
 ```
 
@@ -15,6 +15,11 @@ complex<T>& operator+=(const complex<T>& rhs);	// (2)
 
 ##戻り値
 `*this`
+
+
+##備考
+(2) の形式の場合、`rhs` の型は `*this` と同じでなければならない。（`complex<double>` に `complex<float>` を加えるといった事はできない。）  
+なお、(1) の形式の場合には（少なくとも `T` が規格でサポートが明示されている `float`、`double`、`long double` の場合には）各種の暗黙の標準変換が効くため、`complex<double>` に `int` を加えるといったこともできる。
 
 
 ##例
