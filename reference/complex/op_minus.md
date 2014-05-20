@@ -18,8 +18,8 @@ complex<T> operator-(const T& lhs, const complex<T>& rhs);
 
 
 ##備考
-`lhs` と `rhs` に現れる型 `T` は（残念ながら）同じ型でなければならない。（`complex<double>` と `complex<float>` の減算などを行うことはできない。）  
-特に、`rhs` の型が `const T&` の場合でも、[`operator-=`](complex/op_minus_assign.md) の場合と異なり、`complex<double>` と `float` の減算などを行うことはできないので注意。
+`lhs` と `rhs` の両辺に現れる型 `T` は（残念ながら）同じ型でなければならない。（`complex<double>` と `complex<float>` の減算や、`complex<double>` と `float` の減算などを行うことはできない。）  
+特に、これらの演算子は関数テンプレートであるため、[`operator-=`](complex/op_minus_assign.md) の場合と異なり、暗黙の型変換は行われないことに注意。
 
 
 ##例

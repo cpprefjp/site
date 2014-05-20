@@ -1,7 +1,8 @@
 #operator+=
 ```cpp
 complex<T>& operator+=(const T& rhs);			// (1)
-complex<T>& operator+=(const complex<T>& rhs);	// (2)
+template<class X>
+complex<T>& operator+=(const complex<X>& rhs);	// (2)
 ```
 
 ##概要
@@ -18,8 +19,10 @@ complex<T>& operator+=(const complex<T>& rhs);	// (2)
 
 
 ##備考
-(2) の形式の場合、`rhs` の型は `*this` と同じでなければならない。（`complex<double>` に `complex<float>` を加えるといった事はできない。）  
-なお、(1) の形式の場合には（少なくとも `T` が規格でサポートが明示されている `float`、`double`、`long double` の場合には）各種の暗黙の標準変換が効くため、`complex<double>` に `int` を加えるといったこともできる。
+- (1) の形式の場合、引数の型は `const T&` なので、引数（演算子の右オペランド）の型が `T` ではない場合には暗黙の型変換が適用される。  
+例えば、`T` が規格でサポートが明示されている `float`、`double`、`long double` の場合、各種の暗黙の標準変換が（縮小変換も含めて）効くため、`complex<float>` に `long double` を加えるといったこともできる。
+- (2) の形式の場合、`rhs` の型はクラステンプレートなので、引数そのものに暗黙の型変換が適用されることはない。  
+しかし、（規格書内に明確な規定は無いが）`*this` に `rhs` を加える際には各コンポーネント間の演算となるため、やはり暗黙の型変換が適用されると考えて良いと思われる。
 
 
 ##例
@@ -30,7 +33,7 @@ complex<T>& operator+=(const complex<T>& rhs);	// (2)
 int main()
 {
   std::complex<double> c(1.0, 2.0);
-  std::complex<double> d(2.0, 3.0);
+  std::complex<long double> d(2.0, 3.0);
   std::cout << "c = " << c << ", d = " << d << std::endl;
   c += d;
   std::cout << "c = " << c << ", d = " << d << std::endl;
