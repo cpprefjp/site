@@ -1,4 +1,4 @@
-#declval(C++11)
+#declval (C++11)
 ```cpp
 namespace std {
   template <class T>

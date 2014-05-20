@@ -1,4 +1,4 @@
-#operator[](C++11)
+#operator[] (C++11)
 ```cpp
 unspecified operator[](difference_type n) const;
 ```

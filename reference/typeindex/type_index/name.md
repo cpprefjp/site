@@ -1,4 +1,4 @@
-#name(C++11)
+#name (C++11)
 ```cpp
 const char* name() const;
 ```

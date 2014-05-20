@@ -1,4 +1,4 @@
-#add_volatile(C++11)
+#add_volatile (C++11)
 ```cpp
 namespace std {
   template <class T>

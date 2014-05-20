@@ -1,4 +1,4 @@
-#select_on_container_copy_construction(C++11)
+#select_on_container_copy_construction (C++11)
 ```cpp
 static Alloc select_on_container_copy_construction(const Alloc& a);
 ```

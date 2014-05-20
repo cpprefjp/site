@@ -1,4 +1,4 @@
-#wait_until(C++11)
+#wait_until (C++11)
 ```cpp
 template <class Clock, class Duration>
 cv_status wait_until(unique_lock<mutex>& lock,

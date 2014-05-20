@@ -1,4 +1,4 @@
-#none_of(C++11)
+#none_of (C++11)
 ```cpp
 namespace std {
   template <class InputIterator, class Predicate>

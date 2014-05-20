@@ -1,4 +1,4 @@
-#dynamic_pointer_cast(C++11)
+#dynamic_pointer_cast (C++11)
 ```cpp
 namespace std {
   template <class T, class U>

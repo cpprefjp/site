@@ -1,4 +1,4 @@
-#call_once(C++11)
+#call_once (C++11)
 ```cpp
 namespace std {
   template <class Callable, class ...Args>

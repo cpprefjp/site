@@ -1,4 +1,4 @@
-#beta(C++11)
+#beta (C++11)
 ```cpp
 result_type beta() const;
 ```

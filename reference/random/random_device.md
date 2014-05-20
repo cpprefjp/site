@@ -1,4 +1,4 @@
-#random_device(C++11)
+#random_device (C++11)
 ```cpp
 namespace std {
   class random_device;

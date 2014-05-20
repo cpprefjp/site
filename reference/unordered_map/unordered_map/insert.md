@@ -1,4 +1,4 @@
-#insert(C++11)
+#insert (C++11)
 ```cpp
 pair<iterator, bool> insert(const value_type& v);              // (1)
 

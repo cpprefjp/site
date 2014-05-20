@@ -1,4 +1,4 @@
-#intmax_t(C++11)
+#intmax_t (C++11)
 ```cpp
 namespace std {
   typedef signed-integer-type intmax_t;

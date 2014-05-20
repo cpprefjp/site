@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 explicit subtract_with_carry_engine(result_type value = default_seed);
 template<class Sseq> explicit subtract_with_carry_engine(Sseq& q);

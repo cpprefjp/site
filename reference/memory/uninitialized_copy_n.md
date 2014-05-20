@@ -1,4 +1,4 @@
-#uninitialized_copy_n(C++11)
+#uninitialized_copy_n (C++11)
 ```cpp
 namespace std {
   template <class InputIterator, class Size, class ForwardIterator>

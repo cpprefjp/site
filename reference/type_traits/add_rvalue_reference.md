@@ -1,4 +1,4 @@
-#add_rvalue_reference(C++11)
+#add_rvalue_reference (C++11)
 ```cpp
 namespace std {
   template <class T>

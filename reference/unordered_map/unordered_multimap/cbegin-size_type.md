@@ -1,4 +1,4 @@
-#cbegin(size_type)(C++11)
+#cbegin(size_type) (C++11)
 ```cpp
 const_local_iterator cbegin(size_type n) const;
 ```

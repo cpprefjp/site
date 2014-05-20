@@ -1,4 +1,4 @@
-#cbegin(C++11)
+#cbegin (C++11)
 ```cpp
 const_iterator cbegin() const noexcept;
 ```

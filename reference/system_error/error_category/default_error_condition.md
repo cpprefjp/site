@@ -1,4 +1,4 @@
-#default_error_condition(C++11)
+#default_error_condition (C++11)
 ```cpp
 virtual error_condition default_error_condition(int ev) const noexcept;
 ```

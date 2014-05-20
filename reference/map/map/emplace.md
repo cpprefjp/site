@@ -1,4 +1,4 @@
-#emplace(C++11)
+#emplace (C++11)
 ```cpp
 // since C++11
 template <class... Args> pair<iterator, bool>

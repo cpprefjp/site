@@ -1,4 +1,4 @@
-#target_type(C++11)
+#target_type (C++11)
 ```cpp
 const std::type_info& target_type() const noexcept;
 ```

@@ -1,4 +1,4 @@
-#nanoseconds(C++11)
+#nanoseconds (C++11)
 ```cpp
 namespace std {
 

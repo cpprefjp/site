@@ -1,4 +1,4 @@
-#n(C++11)
+#n (C++11)
 ```cpp
 result_type n() const;
 ```

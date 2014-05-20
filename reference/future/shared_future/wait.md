@@ -1,4 +1,4 @@
-#wait(C++11)
+#wait (C++11)
 ```cpp
 void wait() const;
 ```

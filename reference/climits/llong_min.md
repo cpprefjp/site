@@ -1,4 +1,4 @@
-#LLONG_MIN(C++11)
+#LLONG_MIN (C++11)
 ```cpp
 #define LLONG_MIN implementation-defined
 ```

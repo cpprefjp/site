@@ -1,4 +1,4 @@
-#mem_fn(C++11)
+#mem_fn (C++11)
 ```cpp
 namespace std {
   template <class R, class T>

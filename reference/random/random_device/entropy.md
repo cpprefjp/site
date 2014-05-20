@@ -1,4 +1,4 @@
-#entropy(C++11)
+#entropy (C++11)
 ```cpp
 double entropy() const noexcept;
 ```

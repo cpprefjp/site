@@ -1,4 +1,4 @@
-#is_base_of(C++11)
+#is_base_of (C++11)
 ```cpp
 namespace std {
   template <class Base, class Derived>

@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 explicit linear_congruential_engine(result_type s = default_seed);
 template<class Sseq> explicit linear_congruential_engine(Sseq& q);

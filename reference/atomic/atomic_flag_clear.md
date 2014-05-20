@@ -1,4 +1,4 @@
-#atomic_flag_clear(C++11)
+#atomic_flag_clear (C++11)
 ```cpp
 namespace std {
   void atomic_flag_clear(volatile atomic_flag* object) noexcept;

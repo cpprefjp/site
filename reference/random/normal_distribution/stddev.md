@@ -1,4 +1,4 @@
-#stddev(C++11)
+#stddev (C++11)
 ```cpp
 result_type stddev() const;
 ```

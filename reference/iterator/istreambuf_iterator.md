@@ -20,7 +20,7 @@ namespace std {
 | [`(constructor)`](./istreambuf_iterator/istreambuf_iterator.md) | コンストラクタ |
 | `~istreambuf_iterator() = default` | デストラクタ |
 | [`operator*`](./istreambuf_iterator/op_deref.md) | 間接参照 |
-| [`operator->`](./istreambuf_iterator/op_arrow.md) | メンバアクセス(C++11) |
+| [`operator->`](./istreambuf_iterator/op_arrow.md) | メンバアクセス (C++11) |
 | [`operator++`](./istreambuf_iterator/op_increment.md) | イテレータをインクリメントする |
 | [`equal`](./istreambuf_iterator/equal.md) | `istreambuf_iterator`オブジェクトの等値比較 |
 

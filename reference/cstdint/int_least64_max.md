@@ -1,4 +1,4 @@
-#INT_LEAST64_MAX(C++11)
+#INT_LEAST64_MAX (C++11)
 ```cpp
 #define INT_LEAST64_MAX implementation-defined
 ```

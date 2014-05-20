@@ -1,4 +1,4 @@
-#operator()(C++11)
+#operator() (C++11)
 ```cpp
 template <class URNG>
 result_type operator()(URNG& g);

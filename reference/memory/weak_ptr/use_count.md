@@ -1,4 +1,4 @@
-#use_count(C++11)
+#use_count (C++11)
 ```cpp
 long use_count() const noexcept;
 ```

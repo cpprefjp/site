@@ -1,4 +1,4 @@
-#wstring_convert(C++11)
+#wstring_convert (C++11)
 ```cpp
 namespace std {
   template <class Codecvt, class Elem = wchar_t,

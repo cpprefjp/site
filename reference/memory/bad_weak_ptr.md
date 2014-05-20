@@ -1,4 +1,4 @@
-#bad_weak_ptr(C++11)
+#bad_weak_ptr (C++11)
 ```cpp
 namespace std {
   class bad_weak_ptr : public exception;

@@ -1,4 +1,4 @@
-#poisson_distribution(C++11)
+#poisson_distribution (C++11)
 ```cpp
 namespace std {
   template <class IntType = int>

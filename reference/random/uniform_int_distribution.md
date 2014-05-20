@@ -1,4 +1,4 @@
-#uniform_int_distribution(C++11)
+#uniform_int_distribution (C++11)
 ```cpp
 namespace std {
   template <class IntType = int>

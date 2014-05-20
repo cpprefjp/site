@@ -1,4 +1,4 @@
-#move_if_noexcept(C++11)
+#move_if_noexcept (C++11)
 ```cpp
 namespace std {
   template <class T>

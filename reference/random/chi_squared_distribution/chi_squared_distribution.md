@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 explicit chi_squared_distribution(RealType n = 1);
 explicit chi_squared_distribution(const param_type& parm);

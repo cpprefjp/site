@@ -1,4 +1,4 @@
-#detach(C++11)
+#detach (C++11)
 ```cpp
 void detach();
 ```

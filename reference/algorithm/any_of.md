@@ -1,4 +1,4 @@
-#any_of(C++11)
+#any_of (C++11)
 ```cpp
 namespace std {
   template <class InputIterator, class Predicate>

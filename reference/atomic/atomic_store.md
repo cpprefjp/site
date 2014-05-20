@@ -1,4 +1,4 @@
-#atomic_store(C++11)
+#atomic_store (C++11)
 ```cpp
 namespace std {
   template <class T>

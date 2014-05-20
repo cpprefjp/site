@@ -1,4 +1,4 @@
-#size(C++11)
+#size (C++11)
 ```cpp
 size_type size() const noexcept;
 ```

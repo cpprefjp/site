@@ -1,4 +1,4 @@
-#shuffle_order_engine(C++11)
+#shuffle_order_engine (C++11)
 ```cpp
 namespace std {
   template<class Engine, size_t K>

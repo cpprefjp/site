@@ -1,4 +1,4 @@
-#yield(C++11)
+#yield (C++11)
 ```cpp
 namespace std {
 namespace this_thread {

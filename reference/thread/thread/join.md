@@ -1,4 +1,4 @@
-#join(C++11)
+#join (C++11)
 ```cpp
 void join();
 ```

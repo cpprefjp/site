@@ -1,4 +1,4 @@
-#discrete_distribution(C++11)
+#discrete_distribution (C++11)
 ```cpp
 namespace std {
   template <class IntType = int>

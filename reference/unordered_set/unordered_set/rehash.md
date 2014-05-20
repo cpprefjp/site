@@ -1,4 +1,4 @@
-#rehash(C++11)
+#rehash (C++11)
 ```cpp
 void rehash(size_type n);
 ```

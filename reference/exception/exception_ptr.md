@@ -1,4 +1,4 @@
-#exception_ptr(C++11)
+#exception_ptr (C++11)
 ```cpp
 namespace std {
   typedef unspecified exception_ptr;

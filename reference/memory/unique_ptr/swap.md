@@ -1,4 +1,4 @@
-#swap(C++11)
+#swap (C++11)
 ```cpp
 void swap(unique_ptr& x) noexcept;
 ```

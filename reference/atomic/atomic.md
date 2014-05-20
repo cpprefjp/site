@@ -1,4 +1,4 @@
-#atomic(C++11)
+#atomic (C++11)
 ```cpp
 namespace std {
   template<class T> struct atomic;

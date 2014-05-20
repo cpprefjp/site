@@ -1,4 +1,4 @@
-#get(C++11)
+#get (C++11)
 ```cpp
 namespace std {
   template<size_t I, class T1, class T2>

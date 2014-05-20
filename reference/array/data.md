@@ -1,4 +1,4 @@
-#data(C++11)
+#data (C++11)
 ```cpp
 T* data() noexcept;
 const T* data() const noexcept;

@@ -1,4 +1,4 @@
-#uint_fast8_t(C++11)
+#uint_fast8_t (C++11)
 ```cpp
 namespace std {
   typedef unsigned-integer-type uint_fast8_t;

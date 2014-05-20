@@ -1,4 +1,4 @@
-#pop_front(C++11)
+#pop_front (C++11)
 ```cpp
 void pop_front();
 ```

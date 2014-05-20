@@ -1,4 +1,4 @@
-#merge(C++11)
+#merge (C++11)
 ```cpp
 void merge(forward_list& x);
 void merge(forward_list&& x);

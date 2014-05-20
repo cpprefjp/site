@@ -1,4 +1,4 @@
-#packaged_task(C++11)
+#packaged_task (C++11)
 ```cpp
 namespace std {
   template <class> class packaged_task; // 宣言のみで定義なし

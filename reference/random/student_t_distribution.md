@@ -1,4 +1,4 @@
-#student_t_distribution(C++11)
+#student_t_distribution (C++11)
 ```cpp
 namespace std {
   template <class RealType = double>

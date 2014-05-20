@@ -1,4 +1,4 @@
-#insert(C++11)
+#insert (C++11)
 ```cpp
 iterator insert(const value_type& v);
 iterator insert(value_type&& rv);                              // (1)

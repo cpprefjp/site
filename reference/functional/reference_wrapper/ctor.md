@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 reference_wrapper(T& t) noexcept;
 reference_wrapper(T&&) = delete;

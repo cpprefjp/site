@@ -1,4 +1,4 @@
-#k(C++11)
+#k (C++11)
 ```cpp
 IntType k() const;
 ```

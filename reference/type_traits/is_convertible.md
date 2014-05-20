@@ -1,4 +1,4 @@
-#is_convertible(C++11)
+#is_convertible (C++11)
 ```cpp
 namespace std {
   template <class From, class To>

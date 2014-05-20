@@ -1,4 +1,4 @@
-#once_flag(C++11)
+#once_flag (C++11)
 ```cpp
 namespace std {
   struct once_flag;

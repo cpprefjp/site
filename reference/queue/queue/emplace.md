@@ -1,4 +1,4 @@
-#emplace(C++11)
+#emplace (C++11)
 ```cpp
 template <class... Args>
 void emplace(Args&&... args)

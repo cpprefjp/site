@@ -1,4 +1,4 @@
-#int_least16_t(C++11)
+#int_least16_t (C++11)
 ```cpp
 namespace std {
   typedef signed-integer-type int_least16_t;

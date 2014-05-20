@@ -1,4 +1,4 @@
-#begin(C++11)
+#begin (C++11)
 ```cpp
 iterator begin() noexcept;
 const_iterator begin() const noexcept;

@@ -1,4 +1,4 @@
-#move(C++11)
+#move (C++11)
 
 ```cpp
 namespace std {

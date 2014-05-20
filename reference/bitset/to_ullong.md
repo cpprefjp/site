@@ -1,4 +1,4 @@
-#to_ullong(C++11)
+#to_ullong (C++11)
 ```cpp
 unsigned long long to_ullong() const;
 ```

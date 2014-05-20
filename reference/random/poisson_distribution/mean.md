@@ -1,4 +1,4 @@
-#mean(C++11)
+#mean (C++11)
 ```cpp
 double mean() const;
 ```

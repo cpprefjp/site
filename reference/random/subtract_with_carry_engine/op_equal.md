@@ -1,4 +1,4 @@
-#operator==(C++11)
+#operator== (C++11)
 ```cpp
 namespace std {
   template <class UIntType, size_t w, size_t s, size_t r>

@@ -1,4 +1,4 @@
-#代入演算子(C++11)
+#代入演算子 (C++11)
 ```cpp
 shared_ptr& operator=(const shared_ptr& r) noexcept;    // (1)
 

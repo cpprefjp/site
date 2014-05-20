@@ -1,4 +1,4 @@
-#pointer_safety(C++11)
+#pointer_safety (C++11)
 ```cpp
 namespace std {
   enum class pointer_safety {

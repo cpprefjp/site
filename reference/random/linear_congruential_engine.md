@@ -1,4 +1,4 @@
-#linear_congruential_engine(C++11)
+#linear_congruential_engine (C++11)
 ```cpp
 namespace std {
   template <class UIntType, UIntType A, UIntType C, UIntType M>

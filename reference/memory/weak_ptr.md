@@ -1,4 +1,4 @@
-#weak_ptr(C++11)
+#weak_ptr (C++11)
 ```cpp
 namespace std {
   template <class T>

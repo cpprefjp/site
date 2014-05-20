@@ -1,4 +1,4 @@
-#lock_guard(C++11)
+#lock_guard (C++11)
 ```cpp
 namespace std {
   template <class Mutex>

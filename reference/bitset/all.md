@@ -1,4 +1,4 @@
-#all(C++11)
+#all (C++11)
 ```cpp
 bool all() const noexcept;
 ```

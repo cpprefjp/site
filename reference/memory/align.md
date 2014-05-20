@@ -1,4 +1,4 @@
-#align(C++11)
+#align (C++11)
 ```cpp
 namespace std {
   void* align(std::size_t alignment, std::size_t size,

@@ -1,4 +1,4 @@
-#tuple_size(C++11)
+#tuple_size (C++11)
 ```cpp
 namespace std {
   template <class T> class tuple_size; // 先行宣言

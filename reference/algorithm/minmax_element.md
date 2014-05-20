@@ -1,4 +1,4 @@
-#minmax_element(C++11)
+#minmax_element (C++11)
 ```cpp
 namespace std {
 

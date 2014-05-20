@@ -1,4 +1,4 @@
-#UINT_LEAST16_MAX(C++11)
+#UINT_LEAST16_MAX (C++11)
 ```cpp
 #define UINT_LEAST16_MAX implementation-defined
 ```

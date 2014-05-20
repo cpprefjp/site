@@ -1,4 +1,4 @@
-#operator>(C++11)
+#operator> (C++11)
 ```cpp
 bool operator>(const type_index& rhs) const noexcept;
 ```

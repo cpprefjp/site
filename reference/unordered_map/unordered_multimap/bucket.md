@@ -1,4 +1,4 @@
-#bucket(C++11)
+#bucket (C++11)
 ```cpp
 size_type bucket(const key_type& k) const;
 ```

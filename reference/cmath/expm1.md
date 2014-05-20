@@ -1,4 +1,4 @@
-#expm1(C++11)
+#expm1 (C++11)
 ```cpp
 namespace std {
   float expm1(float x);

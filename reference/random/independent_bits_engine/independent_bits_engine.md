@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 independent_bits_engine();
 explicit independent_bits_engine(const Engine& e);

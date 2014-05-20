@@ -1,4 +1,4 @@
-#remove_reference(C++11)
+#remove_reference (C++11)
 ```cpp
 namespace std {
   template <class T>

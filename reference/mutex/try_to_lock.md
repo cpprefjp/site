@@ -1,4 +1,4 @@
-#try_to_lock(C++11)
+#try_to_lock (C++11)
 ```cpp
 namespace std {
   struct try_to_lock_t { };

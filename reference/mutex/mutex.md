@@ -1,4 +1,4 @@
-#mutex(C++11)
+#mutex (C++11)
 ```cpp
 namespace std {
   class mutex;

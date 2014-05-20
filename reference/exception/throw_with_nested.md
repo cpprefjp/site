@@ -1,4 +1,4 @@
-#throw_with_nested(C++11)
+#throw_with_nested (C++11)
 ```cpp
 namespace std {
   [[noreturn]] template <class T>

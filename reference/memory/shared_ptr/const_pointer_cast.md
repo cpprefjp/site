@@ -1,4 +1,4 @@
-#const_pointer_cast(C++11)
+#const_pointer_cast (C++11)
 ```cpp
 namespace std {
   template <class T, class U>

@@ -1,4 +1,4 @@
-#wait_for(C++11)
+#wait_for (C++11)
 ```cpp
 template <class Rep, class Period>
 cv_status wait_for(unique_lock<mutex>& lock,

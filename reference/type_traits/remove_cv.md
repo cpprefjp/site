@@ -1,4 +1,4 @@
-#remove_cv(C++11)
+#remove_cv (C++11)
 ```cpp
 namespace std {
   template <class T>

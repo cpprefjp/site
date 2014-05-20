@@ -1,4 +1,4 @@
-#error_category(C++11)
+#error_category (C++11)
 ```cpp
 namespace std {
   class error_category;

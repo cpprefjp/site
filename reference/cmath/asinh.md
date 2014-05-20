@@ -1,4 +1,4 @@
-#asinh(C++11)
+#asinh (C++11)
 ```cpp
 namespace std {
   float asinh(float x);

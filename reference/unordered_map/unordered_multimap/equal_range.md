@@ -1,4 +1,4 @@
-#equal_range(C++11)
+#equal_range (C++11)
 ```cpp
 pair<iterator,iterator> equal_range(const key_type& x);
 pair<const_iterator,const_iterator> equal_range(const key_type& x) const;

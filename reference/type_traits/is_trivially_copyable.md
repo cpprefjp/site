@@ -1,4 +1,4 @@
-#is_trivially_copyable(C++11)
+#is_trivially_copyable (C++11)
 ```cpp
 namespace std {
   template <class T>

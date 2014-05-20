@@ -1,4 +1,4 @@
-#ignore(C++11)
+#ignore (C++11)
 ```cpp
 namespace std {
   const unspecified ignore;

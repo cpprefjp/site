@@ -1,4 +1,4 @@
-#allocate_shared(C++11)
+#allocate_shared (C++11)
 ```cpp
 namespace std {
   template <class T, class Alloc, class... Args>

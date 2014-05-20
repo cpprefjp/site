@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 timed_mutex();
 timed_mutex(const timed_mutex&) = delete;

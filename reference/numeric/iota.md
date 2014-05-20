@@ -1,4 +1,4 @@
-#iota(C++11)
+#iota (C++11)
 ```cpp
 namespace std{
   template <class ForwardIterator, class T>

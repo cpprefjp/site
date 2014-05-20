@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 constexpr shared_ptr() noexcept;                   // (1)
 

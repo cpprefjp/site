@@ -1,4 +1,4 @@
-#operator()(C++11)
+#operator() (C++11)
 ```cpp
 R operator()(ArgTypes... args) const;
 ```

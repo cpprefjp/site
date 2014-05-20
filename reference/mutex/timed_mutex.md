@@ -1,4 +1,4 @@
-#timed_mutex(C++11)
+#timed_mutex (C++11)
 ```cpp
 namespace std {
   class timed_mutex;

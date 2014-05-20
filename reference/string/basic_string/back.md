@@ -1,4 +1,4 @@
-#back(C++11)
+#back (C++11)
 ```cpp
 const charT& back() const;
 charT& back();

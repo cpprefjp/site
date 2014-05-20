@@ -1,4 +1,4 @@
-#remove_all_extents(C++11)
+#remove_all_extents (C++11)
 ```cpp
 namespace std {
   template <class T>

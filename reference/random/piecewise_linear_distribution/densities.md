@@ -1,4 +1,4 @@
-#densities(C++11)
+#densities (C++11)
 ```cpp
 vector<result_type> densities() const;
 ```

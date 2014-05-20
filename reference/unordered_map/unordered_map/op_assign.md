@@ -1,4 +1,4 @@
-#代入演算子(C++11)
+#代入演算子 (C++11)
 ```cpp
 unordered_map& operator=(const unordered_map& v);          // (1)
 unordered_map& operator=(unordered_map&& rv);              // (2)

@@ -1,4 +1,4 @@
-#binomial_distribution(C++11)
+#binomial_distribution (C++11)
 ```cpp
 namespace std {
   template <class IntType = int>

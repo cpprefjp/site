@@ -1,4 +1,4 @@
-#pointer_traits(C++11)
+#pointer_traits (C++11)
 ```cpp
 namespace std {
   template <class Ptr> struct pointer_traits;

@@ -1,4 +1,4 @@
-#hash(C++11)
+#hash (C++11)
 ```cpp
 namespace std {
   template <class T> struct hash;

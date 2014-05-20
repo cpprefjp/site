@@ -1,4 +1,4 @@
-#destroy(C++11)
+#destroy (C++11)
 ```cpp
 template <class T>
 static void destroy(Alloc& a, T* p);

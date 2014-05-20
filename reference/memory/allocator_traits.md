@@ -1,4 +1,4 @@
-#allocator_traits(C++11)
+#allocator_traits (C++11)
 ```cpp
 namespace std {
   template <class Alloc>

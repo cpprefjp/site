@@ -1,4 +1,4 @@
-#get(C++11)
+#get (C++11)
 ```cpp
 R future::get();
 R& future<R&>::get();

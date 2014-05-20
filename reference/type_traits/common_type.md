@@ -1,4 +1,4 @@
-#common_type(C++11)
+#common_type (C++11)
 ```cpp
 namespace std {
   template <class... Types>

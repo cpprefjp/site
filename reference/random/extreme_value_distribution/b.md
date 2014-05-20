@@ -1,4 +1,4 @@
-#b(C++11)
+#b (C++11)
 ```cpp
 RealType b() const;
 ```

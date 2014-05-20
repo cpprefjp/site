@@ -1,4 +1,4 @@
-#extent(C++11)
+#extent (C++11)
 ```cpp
 namespace std {
   template <class T, unsigned int I = 0>

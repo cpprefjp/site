@@ -1,4 +1,4 @@
-#release(C++11)
+#release (C++11)
 ```cpp
 mutex_type* release() noexcept;
 ```

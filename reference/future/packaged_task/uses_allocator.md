@@ -1,4 +1,4 @@
-#uses_allocator(C++11)
+#uses_allocator (C++11)
 ```cpp
 namespace std {
   template <class R, class Alloc>

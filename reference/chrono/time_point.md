@@ -1,4 +1,4 @@
-#time_point(C++11)
+#time_point (C++11)
 ```cpp
 namespace std {
 namespace chrono {

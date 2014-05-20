@@ -1,4 +1,4 @@
-#hash_function(C++11)
+#hash_function (C++11)
 ```cpp
 hasher hash_function() const;
 ```

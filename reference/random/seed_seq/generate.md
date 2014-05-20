@@ -1,4 +1,4 @@
-#generate(C++11)
+#generate (C++11)
 ```cpp
 template <class RandomAccessIterator>
 void generate(RandomAccessIterator begin, RandomAccessIterator end);

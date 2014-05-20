@@ -1,4 +1,4 @@
-#owner_before(C++11)
+#owner_before (C++11)
 ```cpp
 template <class U>
 bool owner_before(const shared_ptr<U>& b) const; // (1)

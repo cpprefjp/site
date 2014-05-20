@@ -1,4 +1,4 @@
-#is_error_condition_enum(C++11)
+#is_error_condition_enum (C++11)
 ```cpp
 namespace std {
   template <class T>

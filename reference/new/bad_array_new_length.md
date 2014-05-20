@@ -1,4 +1,4 @@
-#bad_array_new_length(C++11)
+#bad_array_new_length (C++11)
 ```cpp
 namespace std {
   class bad_array_new_length : public bad_alloc {

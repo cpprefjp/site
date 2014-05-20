@@ -1,4 +1,4 @@
-#SI単位(C++11)
+#SI単位 (C++11)
 ```cpp
 namespace std {
   typedef ratio<1, 1000000000000000000000000> yocto;

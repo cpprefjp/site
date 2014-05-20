@@ -1,4 +1,4 @@
-#type_index(C++11)
+#type_index (C++11)
 ```cpp
 namespace std {
   class type_index;

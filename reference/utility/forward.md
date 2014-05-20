@@ -1,4 +1,4 @@
-#forward(C++11)
+#forward (C++11)
 ```cpp
 namespace std {
   template <class T>

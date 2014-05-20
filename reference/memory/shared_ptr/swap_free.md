@@ -1,4 +1,4 @@
-#swap(フリー関数)(C++11)
+#swap (フリー関数)(C++11)
 ```cpp
 namespace std {
   template <class T>

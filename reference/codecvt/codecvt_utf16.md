@@ -1,4 +1,4 @@
-#codecvt_utf16(C++11)
+#codecvt_utf16 (C++11)
 ```cpp
 namespace std {
   template <class Elem, unsigned long Maxcode = 0x10ffff,

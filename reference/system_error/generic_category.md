@@ -1,4 +1,4 @@
-#generic_category(C++11)
+#generic_category (C++11)
 ```cpp
 namespace std {
   const error_category& generic_category() noexcept;

@@ -1,4 +1,4 @@
-#代入演算子(C++11)
+#代入演算子 (C++11)
 ```cpp
 forward_list& operator=(const forward_list& x);
 forward_list& operator=(forward_list&& x);

@@ -1,4 +1,4 @@
-#is_pod(C++11)
+#is_pod (C++11)
 ```cpp
 namespace std {
   template <class T>

@@ -1,4 +1,4 @@
-#is_partitioned(C++11)
+#is_partitioned (C++11)
 ```cpp
 namespace std {
   template <class InputIterator, class Predicate>

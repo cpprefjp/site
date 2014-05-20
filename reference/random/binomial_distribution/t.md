@@ -1,4 +1,4 @@
-#t(C++11)
+#t (C++11)
 ```cpp
 IntType t() const;
 ```

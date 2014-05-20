@@ -1,4 +1,4 @@
-#ranlux24_base(C++11)
+#ranlux24_base (C++11)
 ```cpp
 namespace std {
   typedef

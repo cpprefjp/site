@@ -1,4 +1,4 @@
-#代入演算子(C++11)
+#代入演算子 (C++11)
 ```cpp
 template <class U> move_iterator& operator=(const move_iterator<U>& u);
 move_iterator& operator=(const move_iterator&) = default;

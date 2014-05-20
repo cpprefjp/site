@@ -1,4 +1,4 @@
-#independent_bits_engine(C++11)
+#independent_bits_engine (C++11)
 ```cpp
 namespace std {
   template <class Engine, size_t W, class UIntType>

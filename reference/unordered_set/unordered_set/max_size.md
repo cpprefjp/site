@@ -1,4 +1,4 @@
-#max_size(C++11)
+#max_size (C++11)
 ```cpp
 size_type max_size() const noexcept;
 ```

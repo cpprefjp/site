@@ -1,4 +1,4 @@
-#to_string(C++11)
+#to_string (C++11)
 ```cpp
 namespace std {
   string to_string(int val);

@@ -1,4 +1,4 @@
-#is_heap(C++11)
+#is_heap (C++11)
 ```cpp
 namespace std {
   template <class RandomAccessIterator>

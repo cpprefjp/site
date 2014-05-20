@@ -1,4 +1,4 @@
-#valid(C++11)
+#valid (C++11)
 ```cpp
 bool valid() const noexcept;
 ```

@@ -1,4 +1,4 @@
-#acosh(C++11)
+#acosh (C++11)
 ```cpp
 namespace std {
   float acosh(float x);

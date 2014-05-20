@@ -1,4 +1,4 @@
-#to_wstring(C++11)
+#to_wstring (C++11)
 ```cpp
 namespace std {
   string to_wstring(int val);

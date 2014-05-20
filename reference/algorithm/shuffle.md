@@ -1,4 +1,4 @@
-#shuffle(C++11)
+#shuffle (C++11)
 
 ```cpp
 namespace std {

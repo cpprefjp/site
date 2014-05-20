@@ -1,4 +1,4 @@
-#lowest(C++11)
+#lowest (C++11)
 ```cpp
 static constexpr T lowest() noexcept;
 ```

@@ -1,4 +1,4 @@
-#generate_canonical(C++11)
+#generate_canonical (C++11)
 ```cpp
 namespace std {
   template<class RealType, size_t bits, class URNG>

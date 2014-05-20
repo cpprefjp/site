@@ -1,4 +1,4 @@
-#ranlux48(C++11)
+#ranlux48 (C++11)
 ```cpp
 namespace std {
   typedef

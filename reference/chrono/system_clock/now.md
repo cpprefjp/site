@@ -1,4 +1,4 @@
-#now(C++11)
+#now (C++11)
 ```cpp
 static time_point now() noexcept;
 ```

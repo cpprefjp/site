@@ -1,4 +1,4 @@
-#min(C++11)
+#min (C++11)
 ```cpp
 static constexpr result_type min() { return C == 0u ? 1u: 0u; }
 ```

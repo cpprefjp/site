@@ -1,4 +1,4 @@
-#high_resolution_clock(C++11)
+#high_resolution_clock (C++11)
 ```cpp
 namespace std {
 namespace chrono {

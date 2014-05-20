@@ -1,4 +1,4 @@
-#assign(C++11)
+#assign (C++11)
 ```cpp
 template <class F, class Alloc>
 void assign(F&& f, const Alloc& alloc);

@@ -1,4 +1,4 @@
-#tuple_cat(C++11)
+#tuple_cat (C++11)
 ```cpp
 namespace std {
   template <class... Tuples>

@@ -1,4 +1,4 @@
-#back(C++11)
+#back (C++11)
 ```cpp
 reference back();
 const_reference back() const;

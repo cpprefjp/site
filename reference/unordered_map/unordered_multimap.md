@@ -1,4 +1,4 @@
-#unordered_multimap(C++11)
+#unordered_multimap (C++11)
 ```cpp
 namespace std {
   template <class Key,

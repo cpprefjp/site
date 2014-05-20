@@ -1,4 +1,4 @@
-#atomic_load_explicit(C++11)
+#atomic_load_explicit (C++11)
 ```cpp
 namespace std {
   template <class T>

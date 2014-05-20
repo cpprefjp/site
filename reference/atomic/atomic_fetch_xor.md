@@ -1,4 +1,4 @@
-#atomic_fetch_xor(C++11)
+#atomic_fetch_xor (C++11)
 ```cpp
 namespace std {
   template <class T>

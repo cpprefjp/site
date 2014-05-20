@@ -1,4 +1,4 @@
-#value(C++11)
+#value (C++11)
 ```cpp
 int value() const noexcept;
 ```

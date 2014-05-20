@@ -1,4 +1,4 @@
-#コンストラクタ(C++11)
+#コンストラクタ (C++11)
 ```cpp
 nested_exception() noexcept;
 nested_exception(const nested_exception&) noexcept = default;
