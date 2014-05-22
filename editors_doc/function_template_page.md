@@ -1,4 +1,4 @@
-#page_title(ページのタイトルです)
+#page_title (ページのタイトルです)
 ```cpp
 void definition(); // 関数・変数・定数の宣言を記述します。
 ```

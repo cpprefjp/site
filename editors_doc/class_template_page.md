@@ -1,4 +1,4 @@
-#page_title(ページのタイトルです)
+#page_title (ページのタイトルです)
 ```cpp
 namespace std {
   class definition; // クラスの宣言を記述します。
