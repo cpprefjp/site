@@ -58,7 +58,7 @@ namespace std {
 | `norm`                     | ノルム(マグニチュードの自乗)を取得する               |                |
 | `conj`                     | 共役複素数を取得する                                 |                |
 | `proj`                     | 複素射影直線(リーマン球面への射影)を取得する         | C++11          |
-| `polar`                    | `complex` を大きさ `ρ` と位相 `Θ` の表現に変換する   |                |
+| `polar`                    | 極座標に対応する複素数を作る                         |                |
 
 
 ###演算子
@@ -112,73 +112,58 @@ namespace std {
 ##例
 ```cpp
 #include <iostream>
-#include <exception>
 #include <complex>
 
-int main() try{
-  typedef std::complex<float> t;
-  auto a = t(12.34f,56.78f);
-  for(const t& v:{
-    a,
-    a += t(-1.0f,-10.0f),
-    a -= t(34.12f, 78.56f),
-    a *= 2.0f,
-    a /= -3.0f,
-  })
-    std::cout << v << std::endl; 
-  a.real(10.0f);
-  a.imag(20.0f);
-  std::cout << a << std::endl;
-}catch(const std::exception& e){
-  std::cerr << e.what();
+float pi()
+{
+  return 3.141593f;
+}
+
+int main()
+{
+  // 実部1.0f、虚部2.0fの複素数オブジェクトを作る
+  std::complex<float> c(1.0f, 2.0f);
+
+  // ストリーム出力
+  std::cout << "output : " << c << std::endl;
+
+  // 各要素の取得
+  float real = c.real(); // 実部
+  float imag = c.imag(); // 虚部
+  std::cout << "real : " << real << std::endl;
+  std::cout << "imag : " << imag << std::endl;
+
+  // 演算
+  std::complex<float> a(1.0f, 2.0f);
+  std::complex<float> b(2.0f, 3.0f);
+  std::cout << "a + b : " << a + b << std::endl;
+  std::cout << "a - b : " << a - b << std::endl;
+  std::cout << "a * b : " << a * b << std::endl;
+  std::cout << "a / b : " << a / b << std::endl;
+
+  // 各複素数の値を取得する
+  std::cout << "abs : " << std::abs(c) << std::endl;   // 絶対値
+  std::cout << "norm : " << std::norm(c) << std::endl; // ノルム
+  std::cout << "conj : " << std::conj(c) << std::endl; // 共役複素数
+  std::cout << "proj : " << std::proj(c) << std::endl; // 複素射影直線
+  std::cout << "polar : " << std::polar(1.0f, pi() / 2.0f); // 極座標(絶対値：1.0、偏角：円周率÷2.0)から複素数を作る
 }
 ```
 
 ###出力
 ```
-(12.34,56.78)
-(11.34,46.78)
-(-22.78,-31.78)
-(-45.56,-63.56)
-(15.1867,21.1867)
-(10,20)
-```
-
-##例
-```cpp
-#include <iostream>
-#include <exception>
-#include <complex>
-
-int main() try{
-  typedef std::complex<float> t; 
-  auto a = t(12.34f,56.78f);
-#define m(f)\
-  std::cout << f(a) << std::endl;
-  m(acos);
-  m(asinh);
-  m(exp);
-  m(log);
-  m(sqrt);
-  m(real);
-  m(imag);
-  m(norm);
-#undef m
-}catch(const std::exception& e){
-  std::cerr << e.what();
-}
-```
-
-###出力
-```
-(1.35691,-4.75602)
-(4.75534,1.35676)
-(222571,52426.1)
-(4.06226,1.35679)
-(5.93487,4.78359)
-12.34
-56.78
-3376.24
+output : (1,2)
+real : 1
+imag : 2
+a + b : (3,5)
+a - b : (-1,-1)
+a * b : (-4,7)
+a / b : (0.615385,0.0769231)
+abs : 2.23607
+norm : 5
+conj : (1,-2)
+proj : (1,2)
+polar : (-1.62921e-07,1)
 ```
 
 
