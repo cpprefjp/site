@@ -31,7 +31,7 @@ namespace std {
 |-------------------------------------------------------|--------------------------------|----------------|
 | `(constructor)`                                       | コンストラクタ                 |                |
 | `(destructor)`                                        | デストラクタ                   |                |
-| [`real`](complex/complex/imag.md)                     | 複素数値の実部を取得／設定する |                |
+| [`real`](complex/complex/real.md)                     | 複素数値の実部を取得／設定する |                |
 | [`imag`](complex/complex/imag.md)                     | 複素数値の虚部を取得／設定する |                |
 | [`operator=`](complex/complex/op_assign.md)           | 複素数値のコピー               |                |
 | [`operator+=`](complex/complex/op_plus_assign.md)     | 複素数値の加算                 |                |
