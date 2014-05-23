@@ -29,8 +29,8 @@ namespace std {
 
 | 名前                                                  | 説明                           | 対応バージョン |
 |-------------------------------------------------------|--------------------------------|----------------|
-| `(constructor)`                                       | コンストラクタ                 |                |
-| `(destructor)`                                        | デストラクタ                   |                |
+| [`(constructor)`](complex/complex/complex.md)         | コンストラクタ                 |                |
+| `~complex() = default;`                               | デストラクタ                   |                |
 | [`real`](complex/complex/real.md)                     | 複素数値の実部を取得／設定する |                |
 | [`imag`](complex/complex/imag.md)                     | 複素数値の虚部を取得／設定する |                |
 | [`operator=`](complex/complex/op_assign.md)           | 複素数値のコピー               |                |
