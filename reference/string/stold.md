@@ -163,8 +163,8 @@ long double stold(const wstring& str, size_t* idx = nullptr) {
 - [`stoi`](./stoi.md): 戻り値の型が`int`となったもの。
 - [`stol`](./stol.md): 戻り値の型が`long`となったもの。
 - [`stoll`](./stoll.md): 戻り値の型が`long long`となったもの。
-- [`stoul`](./stoul.md): 戻り値の型が`unsgined long`となったもの。
-- [`stoull`](./stoull.md): 戻り値の型が`unsgined long long`となったもの。
+- [`stoul`](./stoul.md): 戻り値の型が`unsigned long`となったもの。
+- [`stoull`](./stoull.md): 戻り値の型が`unsigned long long`となったもの。
 - [`stof`](./stof.md): 戻り値の型が`float`となったもの。
 - [`stod`](./stod.md): 戻り値の型が`double`となったもの。
 - (`stold`: この関数自身)
