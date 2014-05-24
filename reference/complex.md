@@ -73,7 +73,7 @@ namespace std {
 | [`operator/`](complex/op_divide.md)             | `complex` オブジェクトを除算する              |                |
 | [`operator==`](complex/op_equal.md)             | `complex` オブジェクトを等値比較する          |                |
 | [`operator!=`](complex/op_not_equal.md)         | `complex` オブジェクトを非等値比較する        |                |
-| `operator<<`                                    | ストリームへの出力                            |                |
+| [`operator<<`](complex/op_ostream.md)           | ストリームへの出力                            |                |
 | `operator>>`                                    | ストリームからの入力                          |                |
 
 
