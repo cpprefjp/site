@@ -195,7 +195,7 @@ unsigned long long stoull(const wstring& str, size_t* idx = nullptr, unsigned lo
 - [`stoi`](./stoi.md): 戻り値の型が`int`となったもの。
 - [`stol`](./stol.md): 戻り値の型が`long`となったもの。
 - [`stoll`](./stoll.md): 戻り値の型が`long long`となったもの。
-- [`stoul`](./stoul.md): 戻り値の型が`unsgined long`となったもの。
+- [`stoul`](./stoul.md): 戻り値の型が`unsigned long`となったもの。
 - (`stoull`: この関数自身)
 - [`stof`](./stof.md): 戻り値の型が`float`となったもの。
 - [`stod`](./stod.md): 戻り値の型が`double`となったもの。
