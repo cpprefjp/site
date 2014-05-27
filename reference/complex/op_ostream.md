@@ -1,8 +1,10 @@
 #operator<<
 ```cpp
-template <class T, class CharT, class Traits>
-basic_ostream<CharT, Traits>&
-  operator<<(basic_ostream<CharT, Traits>& os, const complex<T>& x);
+namespace std {
+  template <class T, class CharT, class Traits>
+  basic_ostream<CharT, Traits>&
+    operator<<(basic_ostream<CharT, Traits>& os, const complex<T>& x);
+}
 ```
 * basic_ostream[link /reference/ostream/basic_ostream.md]
 

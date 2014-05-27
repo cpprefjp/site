@@ -1,11 +1,13 @@
 #operator==
 ```cpp
-template<typename T>
-bool operator==(const complex<T>& lhs, const complex<T>& rhs);
-template<typename T>
-bool operator==(const complex<T>& lhs, const T& rhs);
-template<typename T>
-bool operator==(const T& lhs, const complex<T>& rhs);
+namespace std {
+  template<typename T>
+  bool operator==(const complex<T>& lhs, const complex<T>& rhs);
+  template<typename T>
+  bool operator==(const complex<T>& lhs, const T& rhs);
+  template<typename T>
+  bool operator==(const T& lhs, const complex<T>& rhs);
+}
 ```
 
 ##概要
@@ -37,6 +39,8 @@ int main()
 }
 ```
 * ==[color ff0000]
+* iostream[link /reference/iostream.md]
+* complex[link /reference/complex.md]
 
 ###出力
 ```

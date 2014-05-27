@@ -1,8 +1,10 @@
 #operator>>
 ```cpp
-template <class T, class CharT, class Traits>
-basic_istream<CharT, Traits>&
-  operator>>(basic_istream<CharT, Traits>& is, complex<T>& x);
+namespace std {
+  template <class T, class CharT, class Traits>
+  basic_istream<CharT, Traits>&
+    operator>>(basic_istream<CharT, Traits>& is, complex<T>& x);
+}
 ```
 * basic_istream[link /reference/istream/basic_istream.md]
 

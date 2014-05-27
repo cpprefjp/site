@@ -1,11 +1,13 @@
 #operator*
 ```cpp
-template<class T>
-complex<T> operator*(const complex<T>& lhs, const complex<T>& rhs);
-template<class T>
-complex<T> operator*(const complex<T>& lhs, const T& rhs);
-template<class T>
-complex<T> operator*(const T& lhs, const complex<T>& rhs);
+namespace std {
+  template<class T>
+  complex<T> operator*(const complex<T>& lhs, const complex<T>& rhs);
+  template<class T>
+  complex<T> operator*(const complex<T>& lhs, const T& rhs);
+  template<class T>
+  complex<T> operator*(const T& lhs, const complex<T>& rhs);
+}
 ```
 
 ##概要
@@ -36,7 +38,7 @@ int main()
   std::cout << 5.0F << " * " << d << " = " << (5.0F * d) << std::endl;
 }
 ```
-* +[color ff0000]
+* *[color ff0000]
 * iostream[link /reference/iostream.md]
 * complex[link /reference/complex.md]
 

@@ -1,7 +1,9 @@
 #operator- (単項)
 ```cpp
-template<class T>
-complex<T> operator-(const complex<T>& lhs);
+namespace std {
+  template<class T>
+  complex<T> operator-(const complex<T>& lhs);
+}
 ```
 
 ##概要
