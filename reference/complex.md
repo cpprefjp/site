@@ -74,7 +74,7 @@ namespace std {
 | [`operator==`](complex/op_equal.md)             | `complex` オブジェクトを等値比較する          |                |
 | [`operator!=`](complex/op_not_equal.md)         | `complex` オブジェクトを非等値比較する        |                |
 | [`operator<<`](complex/op_ostream.md)           | ストリームへの出力                            |                |
-| `operator>>`                                    | ストリームからの入力                          |                |
+| [`operator>>`](complex/op_istream.md)           | ストリームからの入力                          |                |
 
 
 ###リテラル
