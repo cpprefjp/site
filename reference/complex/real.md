@@ -1,7 +1,9 @@
 #real
 ```cpp
-template<typename T>
-constexpr T real(const complex<T>& x);
+namespace std {
+  template<typename T>
+  constexpr T real(const complex<T>& x);
+}
 ```
 
 ##概要
@@ -9,7 +11,7 @@ constexpr T real(const complex<T>& x);
 
 
 ##戻り値
-引数に指定した複素数 `x` の実部（`x.`[`real`](complex/real.md)`()`)
+引数に指定した複素数 `x` の実部（`x.`[`real`](complex/real.md)`()`）
 
 
 ##備考
@@ -28,6 +30,8 @@ int main()
 }
 ```
 * real[color ff0000]
+* iostream[link /reference/iostream.md]
+* complex[link /reference/complex.md]
 
 ###出力
 ```
@@ -36,8 +40,14 @@ int main()
 
 
 ##参照
-|                         |                                                |
-|-------------------------|------------------------------------------------|
-|[`imag`](imag.md)        | 虚部を取得する。                               |
-|[`real`](complex/real.md)| 実部を取得、あるいは、設定する。（メンバ関数） |
-|[`imag`](complex/imag.md)| 虚部を取得、あるいは、設定する。（メンバ関数） |
+|                                    |                                                |
+|------------------------------------|------------------------------------------------|
+| [`real`](complex/real.md)          | 実部を取得、あるいは、設定する。（メンバ関数） |
+| [`imag`](complex/imag.md)          | 虚部を取得、あるいは、設定する。（メンバ関数） |
+| [`imag`](imag.md)                  | 虚部を取得する。                               |
+| [`abs`](abs.md)                    | 複素数の絶対値を得る。                         |
+| [`arg`](arg.md)                    | 複素数の偏角を得る。                           |
+| [`norm`](norm.md)                  | 複素数体のノルムを得る。                       |
+| [`conj`](conj.md)                  | 共役複素数を得る。                             |
+| [`proj`](proj.md)                  | リーマン球面への射影を得る。                   |
+| [`polar`](polar.md)                | 指定した絶対値と偏角の複素数値を得る。         |
