@@ -79,11 +79,11 @@ namespace std {
 
 ###リテラル
 
-| 名前 | 説明                             | 対応バージョン |
-|------|----------------------------------|----------------|
-| `i`  | `complex<double>`のリテラル      | C++14          |
-| `if` | `complex<float>`のリテラル       | C++14          |
-| `il` | `complex<long double>`のリテラル | C++14          |
+| 名前                     | 説明                             | 対応バージョン |
+|--------------------------|----------------------------------|----------------|
+| [`i`](complex/op_i.md)   | `complex<double>`のリテラル      | C++14          |
+| [`if`](complex/op_if.md) | `complex<float>`のリテラル       | C++14          |
+| [`il`](complex/op_il.md) | `complex<long double>`のリテラル | C++14          |
 
 
 ###数学関数の`complex`に対するオーバーロード
