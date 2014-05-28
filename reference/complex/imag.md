@@ -3,11 +3,21 @@
 namespace std {
   template<typename T>
   constexpr T imag(const complex<T>& x);
+
+  FloatingPointType imag(ArithmeticType x);	// 追加のオーバーロード：C++11 から
 }
 ```
 
 ##概要
 複素数の虚部を取得する。
+
+なお、C++11 で追加されたオーバーロードは、以下のように規定されている。
+
+- 実引数の型が `long double` の場合、`complex<long double>` にキャストされているかのように振る舞う。
+- そうでなくて、実引数の型が `double` か整数型の場合、`complex<double>` にキャストされているかのように振る舞う。
+- そうでなくて、実引数の型が `float` の場合、`complex<float>` にキャストされているかのように振る舞う。
+
+また、これらの追加のオーバーロードが関数テンプレートなのか否か、あるいは、引数が参照型なのか否かなどについては、規格では何も言及されていない。
 
 
 ##戻り値
@@ -37,6 +47,18 @@ int main()
 ```
 (1,2), imag part = 2
 ```
+
+
+##バージョン
+###言語
+- C++98（追加のオーバーロードは C++11 から）
+
+###処理系
+- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4（追加のオーバーロード含む）
+- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード以外）
+- [GCC, C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード含む）
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ##参照
