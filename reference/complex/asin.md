@@ -33,7 +33,7 @@ int main()
   std::cout << result << std::endl;
 }
 ```
-* acos[color ff0000]
+* asin[color ff0000]
 * iostream[link /reference/iostream.md]
 * complex[link /reference/complex.md]
 
