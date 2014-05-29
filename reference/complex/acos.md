@@ -16,7 +16,7 @@ namespace std {
 
 ##備考
 - 規格には、本関数に関する具体的な規定・説明は無い。  
-なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `cacos`、`cacos`、`cacos`の 3 つ。それぞれ C++ の `acos<double>`、`acos<float>`、`acos<long double>` に相当）では、以下の規定がある：
+なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `cacos`、`cacosf`、`cacosl`の 3 つ。それぞれ C++ の `acos<double>`、`acos<float>`、`acos<long double>` に相当）では、以下の規定がある：
 	- 本関数は実軸の区間`[-1, +1]`の外側を分岐截断とすること、および戻り値は虚軸を無限の区間、実軸を`[0, π]`の区間とすること。
 	- `acos(conj(x)) = conj(acos(x))`
 	- `acos(complex(±0, 0))`は`complex(π/2, -0.0f)`を返す。
