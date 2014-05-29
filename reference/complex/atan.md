@@ -11,13 +11,33 @@ namespace std {
 
 
 ##戻り値
-虚軸(imaginary axis)は無限の区間、実軸(real axis)は`[-π/2, +π/2]`の区間を値域として、複素数の逆正接を計算して返す。
-
-この関数は、区間`[-i, +i]`の外側に、虚軸に沿って分岐切断線(branch cut)をもつ。
+複素数の逆正接を計算して返す。
 
 
 ##備考
-この関数の挙動は、C言語標準ライブラリの`catan()`関数と同じである。
+- 規格には、本関数に関する具体的な規定・説明は無い。  
+なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `catan`、`catanf`、`catanl`の 3 つ。それぞれ C++ の `atan<double>`、`atan<float>`、`atan<long double>` に相当）では、以下の規定がある：
+	- 本関数は実軸の区間`[-i, +i]`の外側を分岐截断とすること、および戻り値は虚軸を無限の区間、実軸を`[-π/2, +π/2]`の区間とすること。
+	- `atan(x) = complex(0, -1) * atanh(x)`
+- 逆正弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
+
+	| 引数の型                                | 関数                                     | ヘッダ                               | 備考       |
+	|-----------------------------------------|------------------------------------------|--------------------------------------|------------|
+	| `float`                                 | [`atan`](/reference/cmath/atan.md)       | [`cmath`](/reference/cmath.md)       |            |
+	|                                         | [`fatan`](/reference/cmath/fatan.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                | [`atan`](/reference/cmath/atan.md)       | [`cmath`](/reference/cmath.md)       |            |
+	|                                         | [`fatan`](/reference/cmath/fatan.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                           | [`atan`](/reference/cmath/atan.md)       | [`cmath`](/reference/cmath.md)       |            |
+	|                                         | [`fatan`](/reference/cmath/fatan.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                            | [`atan`](/reference/cmath/atan.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
+	|                                         | [`fatan`](/reference/cmath/fatan.md)     | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| `int`                                   | [`atan`](/reference/cstdlib/atan.md)     | [`cstdlib`](/reference/cstdlib.md)   |            |
+	| `long int`                              | [`latan`](/reference/cstdlib/latan.md)   | [`cstdlib`](/reference/cstdlib.md)   |            |
+	|                                         | [`atan`](/reference/cstdlib/atan.md)     | [`cstdlib`](/reference/cstdlib.md)   |            |
+	| `long long int`                         | [`llatan`](/reference/cstdlib/llatan.md) | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
+	|                                         | [`atan`](/reference/cstdlib/atan.md)     | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
+	| [`valarray<T>`](/reference/valarray.md) | [`atan`](/reference/valarray/atan.md)    | [`valarray`](/reference/valarray.md) |            |
+
 
 
 ##例
@@ -30,7 +50,7 @@ int main()
   std::complex<double> c(1.0, 2.0);
 
   std::complex<double> result = std::atan(c);
-  std::cout << result << std::endl;
+  std::cout << "atan( " << c << " ) = " << result << std::endl;
 }
 ```
 * atan[color ff0000]
@@ -39,7 +59,7 @@ int main()
 
 ###出力
 ```
-(1.33897,0.402359)
+atan( (1,2) ) = (1.33897,0.402359)
 ```
 
 
