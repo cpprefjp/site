@@ -11,13 +11,32 @@ namespace std {
 
 
 ##戻り値
-虚軸(imaginary axis)は無限の区間、実軸(real axis)は`[-π/2, +π/2]`の区間を値域として、複素数の逆正弦を計算して返す。
-
-この関数は、区間`[-1, +1]`の外側に、実軸に沿って分岐切断線(branch cut)をもつ。
+複素数の逆正弦を計算して返す。
 
 
 ##備考
-この関数の挙動は、C言語標準ライブラリの`casin()`関数と同じである。
+- 規格には、本関数に関する具体的な規定・説明は無い。  
+なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `casin`、`casin`、`casin`の 3 つ。それぞれ C++ の `asin<double>`、`asin<float>`、`asin<long double>` に相当）では、以下の規定がある：
+	- 本関数は実軸の区間`[-1, +1]`の外側を分岐截断とすること、および戻り値は虚軸を無限の区間、実軸を`[-π/2, +π/2]`の区間とすること。
+	- `asin(x) = complex(0, -1) * casinh(x)`
+- 逆正弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
+
+	| 引数の型                                | 関数                                     | ヘッダ                               | 備考       |
+	|-----------------------------------------|------------------------------------------|--------------------------------------|------------|
+	| `float`                                 | [`asin`](/reference/cmath/asin.md)       | [`cmath`](/reference/cmath.md)       |            |
+	|                                         | [`fasin`](/reference/cmath/fasin.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                | [`asin`](/reference/cmath/asin.md)       | [`cmath`](/reference/cmath.md)       |            |
+	|                                         | [`fasin`](/reference/cmath/fasin.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                           | [`asin`](/reference/cmath/asin.md)       | [`cmath`](/reference/cmath.md)       |            |
+	|                                         | [`fasin`](/reference/cmath/fasin.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                            | [`asin`](/reference/cmath/asin.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
+	|                                         | [`fasin`](/reference/cmath/fasin.md)     | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| `int`                                   | [`asin`](/reference/cstdlib/asin.md)     | [`cstdlib`](/reference/cstdlib.md)   |            |
+	| `long int`                              | [`lasin`](/reference/cstdlib/lasin.md)   | [`cstdlib`](/reference/cstdlib.md)   |            |
+	|                                         | [`asin`](/reference/cstdlib/asin.md)     | [`cstdlib`](/reference/cstdlib.md)   |            |
+	| `long long int`                         | [`llasin`](/reference/cstdlib/llasin.md) | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
+	|                                         | [`asin`](/reference/cstdlib/asin.md)     | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
+	| [`valarray<T>`](/reference/valarray.md) | [`asin`](/reference/valarray/asin.md)    | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例
@@ -30,7 +49,7 @@ int main()
   std::complex<double> c(1.0, 2.0);
 
   std::complex<double> result = std::asin(c);
-  std::cout << result << std::endl;
+  std::cout << "asin( " << c << " ) = " << result << std::endl;
 }
 ```
 * asin[color ff0000]
@@ -39,7 +58,7 @@ int main()
 
 ###出力
 ```
-(0.427079,1.52857)
+asin( (1,2) ) = (0.427079,1.52857)
 ```
 
 
