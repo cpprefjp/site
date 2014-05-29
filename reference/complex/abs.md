@@ -37,8 +37,8 @@ namespace std {
 	|                                         | [`abs`](/reference/cstdlib/abs.md)     | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
 	| [`valarray<T>`](/reference/valarray.md) | [`abs`](/reference/valarray/abs.md)    | [`valarray`](/reference/valarray.md) |            |
 
-	なお、上記のうち、任意の整数型に対する [`abs`](/reference/cmath/abs.md) については C++11 で追加されたが、ある種の問題を引き起こすことから C++14 で削除されるかもしれない。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。  
-	また、浮動小数点版、および、整数版の `abs` については、C++14 では全て [`cmath`](/reference/cmath.md) [`cstdlib`](/reference/cstdlib.md) 両方のヘッダで利用できるようになるかもしれない。[\<cstdlib\> should declare abs(double)](http://wg21.cmeerw.net/lwg/issue2294) 参照。
+	なお、上記のうち、任意の整数型に対する [`abs`](/reference/cmath/abs.md) については C++11 で追加されたが、ある種の問題を引き起こすことから、今後削除される可能性がある。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。  
+	また、浮動小数点版、および、整数版の `abs` については今後、全て [`cmath`](/reference/cmath.md) [`cstdlib`](/reference/cstdlib.md) 両方のヘッダで利用できるようになるかもしれない。[\<cstdlib\> should declare abs(double)](http://wg21.cmeerw.net/lwg/issue2294) 参照。
 
 
 ##例
