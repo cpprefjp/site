@@ -20,22 +20,22 @@ namespace std {
 処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している（マクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている）場合、`cabs(x + iy) = hypot(x, y)` と規定されている。
 - 絶対値の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。  
 
-	| 引数の型                                | 関数                                   | ヘッダ                               | 備考       |
-	|-----------------------------------------|----------------------------------------|--------------------------------------|------------|
-	| `float`                                 | [`abs`](/reference/cmath/abs.md)       | [`cmath`](/reference/cmath.md)       |            |
-	|                                         | [`fabs`](/reference/cmath/fabs.md)     | [`cmath`](/reference/cmath.md)       |            |
-	| `double`                                | [`abs`](/reference/cmath/abs.md)       | [`cmath`](/reference/cmath.md)       |            |
-	|                                         | [`fabs`](/reference/cmath/fabs.md)     | [`cmath`](/reference/cmath.md)       |            |
-	| `long double`                           | [`abs`](/reference/cmath/abs.md)       | [`cmath`](/reference/cmath.md)       |            |
-	|                                         | [`fabs`](/reference/cmath/fabs.md)     | [`cmath`](/reference/cmath.md)       |            |
-	| 任意の整数型                            | [`abs`](/reference/cmath/abs.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
-	|                                         | [`fabs`](/reference/cmath/fabs.md)     | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| `int`                                   | [`abs`](/reference/cstdlib/abs.md)     | [`cstdlib`](/reference/cstdlib.md)   |            |
-	| `long int`                              | [`labs`](/reference/cstdlib/labs.md)   | [`cstdlib`](/reference/cstdlib.md)   |            |
-	|                                         | [`abs`](/reference/cstdlib/abs.md)     | [`cstdlib`](/reference/cstdlib.md)   |            |
-	| `long long int`                         | [`llabs`](/reference/cstdlib/llabs.md) | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
-	|                                         | [`abs`](/reference/cstdlib/abs.md)     | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
-	| [`valarray<T>`](/reference/valarray.md) | [`abs`](/reference/valarray/abs.md)    | [`valarray`](/reference/valarray.md) |            |
+	| 引数の型                                           | 関数                                   | ヘッダ                               | 備考       |
+	|----------------------------------------------------|----------------------------------------|--------------------------------------|------------|
+	| `float`                                            | [`abs`](/reference/cmath/abs.md)       | [`cmath`](/reference/cmath.md)       |            |
+	|                                                    | [`fabs`](/reference/cmath/fabs.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                           | [`abs`](/reference/cmath/abs.md)       | [`cmath`](/reference/cmath.md)       |            |
+	|                                                    | [`fabs`](/reference/cmath/fabs.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                                      | [`abs`](/reference/cmath/abs.md)       | [`cmath`](/reference/cmath.md)       |            |
+	|                                                    | [`fabs`](/reference/cmath/fabs.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                                       | [`abs`](/reference/cmath/abs.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
+	|                                                    | [`fabs`](/reference/cmath/fabs.md)     | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| `int`                                              | [`abs`](/reference/cstdlib/abs.md)     | [`cstdlib`](/reference/cstdlib.md)   |            |
+	| `long int`                                         | [`labs`](/reference/cstdlib/labs.md)   | [`cstdlib`](/reference/cstdlib.md)   |            |
+	|                                                    | [`abs`](/reference/cstdlib/abs.md)     | [`cstdlib`](/reference/cstdlib.md)   |            |
+	| `long long int`                                    | [`llabs`](/reference/cstdlib/llabs.md) | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
+	|                                                    | [`abs`](/reference/cstdlib/abs.md)     | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
+	| [`valarray`](/reference/valarray/valarray.md)`<T>` | [`abs`](/reference/valarray/abs.md)    | [`valarray`](/reference/valarray.md) |            |
 
 	なお、上記のうち、任意の整数型に対する [`abs`](/reference/cmath/abs.md) については C++11 で追加されたが、ある種の問題を引き起こすことから、今後削除される可能性がある。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。  
 	また、浮動小数点版、および、整数版の `abs` については今後、全て [`cmath`](/reference/cmath.md) [`cstdlib`](/reference/cstdlib.md) 両方のヘッダで利用できるようになるかもしれない。[\<cstdlib\> should declare abs(double)](http://wg21.cmeerw.net/lwg/issue2294) 参照。
