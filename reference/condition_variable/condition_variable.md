@@ -9,6 +9,10 @@ namespace std {
 
 `condition_variable`は、特定のイベントもしくは条件を満たすまでスレッドの実行を待機するためのクラスである。[`wait()`](./condition_variable/wait.md)/[`wait_for()`](./condition_variable/wait_for.md)/[`wait_until()`](./condition_variable/wait_until.md)を使用してスレッドを待機させ、[`notify_one()`](./condition_variable/notify_one.md)/[`notify_all()`](./condition_variable/notify_all.md)によって待機しているスレッドを起床させる。`condition_variable`は[`condition_variable_any`](/reference/condition_variable/condition_variable_any.md)と違い、ロック型として[`unique_lock`](/reference/mutex/unique_lock.md)`<`[`mutex`](/reference/mutex/mutex.md)`>`のみをサポートしている。これは、処理系に`condition_variable`クラスに最も効率の良い実装を許可するためである。（例：POSIXスレッド環境においては`condition_variable`が`pthread_cond_t`の、[`mutex`](/reference/mutex/mutex.md)が`pthread_mutex_t`の単純なラッパクラスとして実装されうる）
 
+
+`condition_variable`の適切な利用については、[条件変数の利用方法](/article/how_to_use_cv.md)も参照のこと。
+
+
 ###メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
