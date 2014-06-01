@@ -1,5 +1,4 @@
 #SCHAR_MIN
-
 ```cpp
 #define SCHAR_MIN implementation-defined
 ```
@@ -7,7 +6,8 @@
 
 ##概要
 `signed char` の最小値。
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<signed char>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しい。
+値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<signed char>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しいが、型が異なり、また `SCHAR_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。  
+具体的な値は実装依存であるが、-127（-(2<sup>7</sup> - 1)）以下であることが規格で定められている。また、型は `int` である。
 
 
 ##例
@@ -34,7 +34,8 @@ int main()
 
 
 ###処理系
-- [GCC](/implementation#gcc.md): 4.5.3
-- [GCC, C++0x mode](/implementation#gcc.md): 4.5.3
-- [Visual C++](/implementation#visual_cpp.md): 7.1, 8.0, 9.0, 10.0
-
+- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
+- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.3, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
+- [GCC, C++0x mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.3, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 7.1, 8.0, 9.0, 10.0
