@@ -6,11 +6,11 @@
 
 
 ## 利用の目的
-条件変数オブジェクトのみを単体で利用するのではなく、必ずミューテックス（排他制御）オブジェクトと、同ミューテックスで保護されるデータ状態を表す変数群（以下、"スーテト"と呼ぶ）という3つの組で利用すること。
+条件変数オブジェクトのみを単体で利用するのではなく、必ずミューテックス（排他制御）オブジェクトと、同ミューテックスで保護されるデータ状態を表す変数群（以下、"ステート"と呼ぶ）という3つの組で利用すること。
 条件変数オブジェクトとは、複数スレッドがこの共有"ステート"を更新／参照する場合に、"ステート"の更新を他スレッドに通知／"ステート"が指定条件を満たすまで待機する処理を、効率的に記述するための同期機構である。
 
 理論的には条件変数を利用しなくても、ミューテックス保護＋"ステート"参照をループする処理でも条件待機は実現できる。
-ただし、このような実装（ポーリング方式）では参照側スレッドが常に動作し続けるため、一般的には計算機リソース浪費による実行効率の著しい劣化をもたらす。
+ただし、このような実装（ポーリング方式）では参照側スレッドが常に動作し続けるため、一般的には計算機リソース浪費による実行効率の著しい低下をもたらす。
 （対象処理系や特殊ユースケースでは、ポーリング方式の方が望ましい状況も否定しない。）
 
 
@@ -19,20 +19,24 @@
 
 ```cpp
 #include <mutex>
-#incldue <condition_variable>
+#include <condition_variable>
 
 // "ステート"変数＋ミューテックスmtx＋条件変数cv
 int state;  // 注: 変数型やその個数は目的による
 std::mutex mtx;
 std::condition_variable cv;
+```
 
+```cpp
 // 共有"ステート"変数の更新と通知
 {
   std::lock_guard<std::mutex> lk(mtx);
   // "ステート"変数の更新処理
   cv.notify_all();
 }
+```
 
+```cpp
 // 指定条件を満たすまで待機
 {
   std::unique_lock<std::mutex> lk(mtx);
@@ -43,24 +47,24 @@ std::condition_variable cv;
 }
 ```
 
-通知処理の実装では、通知関数として[`notify_all`](/reference/condition_variable/condition_variable/notify_all.md)を利用している。
-通知関数としてはもう1種類[`notify_one`](/reference/condition_variable/condition_variable/notify_one.md)が提供されるが、`notifu_one`で論理的に十分であると判断できないならば、まずは`notify_all`利用を推奨する。
-（`notify_all`が待機中の全スレッドに通知を行うのに対し、`notify_one`は待機中の任意の1スレッドにのみ通知を行うため、後者は実行時オーバーヘッドの観点で有利である。
-一方、待機処理における指定条件によっては、`notify_one`利用ではライブロック(live lock)に陥るケースも存在する。
-なお、`nofity_all`の動作セマンティクスは`notify_one`を完全に包含するため、`notify_one`で正しく動作する並行処理は`notify_all`利用でも正しく動作する。）
+通知処理の実装では、通知関数として[`notify_all()`](/reference/condition_variable/condition_variable/notify_all.md)を利用している。
+通知関数としてはもう1種類[`notify_one()`](/reference/condition_variable/condition_variable/notify_one.md)が提供されるが、`notify_one()`で論理的に十分であると判断できないならば、まずは`notify_all()`利用を推奨する。
+（`notify_all()`が待機中の全スレッドに通知を行うのに対し、`notify_one()`は待機中の任意の1スレッドにのみ通知を行うため、後者は実行時オーバーヘッドの観点で有利である。
+一方、待機処理における指定条件によっては、`notify_one()`利用ではライブロック(live lock)に陥るケースも存在する。
+なお、`nofity_all()`の動作セマンティクスは`notify_one()`を完全に包含するため、`notify_one()`で正しく動作する並行処理は`notify_all()`利用でも正しく動作する。）
 
-待機処理の実装では、第2引数に述語をとる[`wait`](/reference/condition_variable/condition_variable/wait.md)を利用することで、条件変数のSpurious Wakeupと呼ばれる現象を考慮しなくとも正しい処理を記述できる。
-`wait`メンバ関数はロック型のみを引数にとる1引数オーバーロードも提供するが、特殊なケースを除いて上記の2引数オーバーロード利用を推奨する。
-待機関数によるブロッキング期間以外では、そのスレッド自身がロック`lk`保持中であると保証されるため、述語処理（前掲実装ではラムダ式）や`wait`呼出より後に"ステート"変数へと安全にアクセスできる。
+待機処理の実装では、第2引数に述語をとる[`wait()`](/reference/condition_variable/condition_variable/wait.md)を利用することで、条件変数のSpurious Wakeupと呼ばれる現象を考慮しなくとも正しい処理を記述できる。
+`wait()`メンバ関数はロック型のみを引数にとる1引数オーバーロードも提供するが、特殊なケースを除いて上記の2引数オーバーロード利用を推奨する。
+待機関数によるブロッキング期間以外では、そのスレッド自身がロック`lk`保持中であると保証されるため、述語処理（前掲実装ではラムダ式）や`wait()`呼出より後に"ステート"変数へと安全にアクセスできる。
 
 
 ## 条件変数と状態
 条件変数オブジェクトはスレッド間通知／待機機能を提供するだけであり、オブジェクトそれ自身は永続的な状態管理を行わない。
-このため条件変数オブジェクトに対する通知関数`notify_one`/`notify_all`は、その通知時点で同オブジェクトの待機関数`wait`/`wait_for`/`wait_until`にてブロックされているスレッド群にしか影響しない。
+このため条件変数オブジェクトに対する通知関数`notify_one()`/`notify_all()`は、その通知時点で同オブジェクトの待機関数`wait()`/`wait_for()`/`wait_until()`にてブロックされているスレッド群にしか影響しない。
 
 この条件変数オブジェクトの動作は、概念的には「待機／実行可能スレッドのキュー」と解釈する事ができる。
-待機関数`wait`系は呼出スレッドをブロック状態へ遷移してから待機キューに追加する動作、通知関数`notify_one`は待機キューからいずれか1つ／`notify_all`は待機キュー内の全スレッドを実行可能キューへ移動させる動作に相当する。
-待機関数`wait`でブロック中のスレッドは、自スレッドを実行可能キュー内でみつけたら、実行状態へ遷移したのち待機関数の呼出元に制御を戻す。
+待機関数`wait()`系は呼出スレッドをブロック状態へ遷移してから待機キューに追加する動作、通知関数`notify_one()`は待機キューからいずれか1つ／`notify_all()`は待機キュー内の全スレッドを実行可能キューへ移動させる動作に相当する。
+待機関数`wait()`でブロック中のスレッドは、自スレッドを実行可能キュー内でみつけたら、実行状態へ遷移したのち待機関数の呼出元に制御を戻す。
 
 下記コードでは条件変数を誤用した例を示す。なお、通知処理と待機処理は異なるスレッド上で並行実行されるものとする。
 
@@ -68,14 +72,18 @@ std::condition_variable cv;
 // 条件変数を誤用した同期処理
 std::mutex mtx;
 std::condition_varialbe cv;
+```
 
+```cpp
 // 誤った通知処理
 {
   std::lock_guard<std::mutex> lk(mtx);
   // 共有データの更新
   cv.notify_all();
 }
+```
 
+```cpp
 // 誤った待機処理
 {
   std::unique_lock<std::mutex> lk(mtx);
@@ -97,7 +105,9 @@ std::condition_varialbe cv;
 bool notify = false;
 std::mutex mtx;
 std::condition_varialbe cv;
+```
 
+```cpp
 // 修正された通知処理
 {
   std::lock_guard<std::mutex> lk(mtx);
@@ -105,7 +115,9 @@ std::condition_varialbe cv;
   notify = true;
   cv.notify_all();
 }
+```
 
+```cpp
 // 修正された待機処理
 {
   std::unique_lock<std::mutex> lk(mtx);
@@ -138,7 +150,7 @@ public:
   void push(T val) {
     std::unique_lock<std::mutex> lk(guard_);
     not_full_.wait(lk, [this]{
-      return queue_.size() + 1 < N;
+      return queue_.size() < N;
     });
     queue_.push(std::move(val));
     not_empty_.notify_all();
