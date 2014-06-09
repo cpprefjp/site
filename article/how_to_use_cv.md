@@ -108,7 +108,7 @@ std::condition_varialbe cv;
 ```
 
 ```cpp
-// 修正された通知処理
+// 修正した通知処理
 {
   std::lock_guard<std::mutex> lk(mtx);
   // 共有データの更新
@@ -118,7 +118,7 @@ std::condition_varialbe cv;
 ```
 
 ```cpp
-// 修正された待機処理
+// 修正した待機処理
 {
   std::unique_lock<std::mutex> lk(mtx);
   cv.wait(lk, [&]{ return notify; });
