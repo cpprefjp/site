@@ -1,23 +1,18 @@
 #erase
 ```cpp
-// until C++11
-void erase(iterator position);
+void erase(iterator position);                             // (1) C++03
+iterator erase(const_iterator position);                   // (1) C++11
 
-// since C++11
-iterator erase(const_iterator position);
+size_type erase(const key_type& x);                        // (2)
 
-// until C++11
-void erase(const_iterator first, const_iterator last);
-
-// since C++11
-iterator erase(const_iterator first, const_iterator last);
-
-size_type erase(const key_type& x);
+void erase(iterator first, iterator last);                 // (3) C++03
+iterator erase(const_iterator first, const_iterator last); // (3) C++11
 ```
 
 
 ##概要
-単一要素または要素範囲（`[first, last)`）を `multimap` コンテナから削除する。 
+単一要素または要素範囲（`[first, last)`）を `multimap` コンテナから削除する。
+
 これは削除された要素の数だけコンテナの `size` を減らし、それぞれの要素のデストラクタを呼び出す。
 
 
@@ -28,14 +23,16 @@ size_type erase(const key_type& x);
 
 
 ##戻り値
-`iterator` を返すタイプのバージョンは、削除された要素の次を指すイテレータを返す。 
-`size_type` を返すタイプのバージョンは、削除された要素の数を返す。　
+- (1), (3)
+	- C++03 : 戻り値なし
+	- C++11 : 削除された要素の次を指すイテレータを返す。
+- (2) 削除された要素の数を返す。　
 
 
 ##計算量
-引数に `position` をとるバージョンは定数時間。 
-引数に `first` 、`last` をとるバージョンはコンテナの [`size()`](/reference/map/multimap/size.md) についての対数時間、プラス `first` と `last` の間の距離に対する線形時間。 
-引数に `x` をとるバージョンはコンテナの [`size()`](/reference/map/multimap/size.md) について対数時間。
+- (1) 定数時間。
+- (2) コンテナの [`size()`](/reference/map/map/size.md) について対数時間。
+- (3) コンテナの [`size()`](/reference/map/map/size.md) について対数時間、それに加えて `first` と `last` の間の距離に対する線形時間。
 
 
 ##例
