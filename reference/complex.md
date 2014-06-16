@@ -89,25 +89,25 @@ namespace std {
 
 ###数学関数の`complex`に対するオーバーロード
 
-| 名前    | 説明                 | 対応バージョン |
-|---------|----------------------|----------------|
-| [`acos`](complex/acos.md)     | 逆余弦を求める       | C++11 |
-| [`asin`](complex/asin.md)     | 逆正弦を求める       | C++11 |
-| [`atan`](complex/atan.md)     | 逆正接を求める       | C++11 |
-| [`acosh`](complex/acosh.md)   | 双曲線逆余弦を求める | C++11 |
-| [`asinh`](complex/asinh.md)   | 双曲線逆正弦を求める | C++11 |
-| [`atanh`](complex/atanh.md)   | 双曲線逆正接を求める | C++11 |
-| `cos`   | 余弦を求める         | |
-| `cosh`  | 双曲線余弦を求める   | |
-| `exp`   | 指数関数を求める     | |
-| `log`   | 自然対数を求める     | |
-| `log10` | 常用対数を求める     | |
-| `pow`   | 累乗を求める         | |
-| `sin`   | 正弦を求める         | |
-| `sinh`  | 双曲線正弦を求める   | |
-| `sqrt`  | 平方根を求める       | |
-| `tan`   | 正接を求める         | |
-| `tanh`  | 双曲線正接を求める   | |
+| 名前                        | 説明                                      | 対応バージョン |
+|-----------------------------|-------------------------------------------|----------------|
+| [`acos`](complex/acos.md)   | 複素数の逆余弦を求める                    | C++11          |
+| [`asin`](complex/asin.md)   | 複素数の逆正弦を求める                    | C++11          |
+| [`atan`](complex/atan.md)   | 複素数の逆正接を求める                    | C++11          |
+| [`acosh`](complex/acosh.md) | 複素数の双曲線逆余弦を求める              | C++11          |
+| [`asinh`](complex/asinh.md) | 複素数の双曲線逆正弦を求める              | C++11          |
+| [`atanh`](complex/atanh.md) | 複素数の双曲線逆正接を求める              | C++11          |
+| [`cos`](complex/cos.md)     | 複素数の余弦を求める                      |                |
+| [`cosh`](complex/cosh.md)   | 複素数の双曲線余弦を求める                |                |
+| [`exp`](complex/exp.md)     | 自然対数の底 e の累乗（複素数）を求める。 |                |
+| [`log`](complex/log.md)     | 複素数の自然対数を求める                  |                |
+| [`log10`](complex/log10.md) | 複素数の常用対数を求める                  |                |
+| [`pow`](complex/pow.md)     | 複素数の累乗を求める                      |                |
+| [`sin`](complex/sin.md)     | 複素数の正弦を求める                      |                |
+| [`sinh`](complex/sinh.md)   | 複素数の双曲線正弦を求める                |                |
+| [`sqrt`](complex/sqrt.md)   | 複素数の平方根を求める                    |                |
+| [`tan`](complex/tan.md)     | 複素数の正接を求める                      |                |
+| [`tanh`](complex/tanh.md)   | 複素数の双曲線正接を求める                |                |
 
 
 ##例
