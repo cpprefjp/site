@@ -20,7 +20,7 @@ namespace std {
 	- 本関数は実軸の区間`[-1, +1]`の外側を分岐截断とすること、および戻り値は虚軸を無限の区間、実軸を`[0, π]`の区間とすること。
 	- `acosh(conj(x)) = conj(acosh(x))`
 	- `acosh(complex(±0, +0))`は`complex(+0, π/2)`を返す。
-	- 有限の実部`x`について、`acosh(complex(x, +∞))`は`complex(+∞, π/2)`
+	- 有限の実部`x`について、`acosh(complex(x, +∞))`は`complex(+∞, π/2)`を返す。
 	- 有限の実部`x`について、`acosh(complex(x, NaN))`は`complex(NaN, NaN)`を返すとともに、`feraiseexcept(FE_INVALID)`を呼び出す可能性がある。
 	- 有限で正の値を持つ虚部`y`について、`acosh(-∞, y)`は`complex(+∞, π)`を返す。
 	- 有限で正の値を持つ虚部`y`について、`acosh(+∞, y)`は`complex(+∞, +0)`を返す。
