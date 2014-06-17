@@ -95,7 +95,7 @@ namespace std {
 | [`asin`](complex/asin.md)     | 逆正弦を求める       | C++11 |
 | [`atan`](complex/atan.md)     | 逆正接を求める       | C++11 |
 | [`acosh`](complex/acosh.md)   | 双曲線逆余弦を求める | C++11 |
-| `asinh` | 双曲線逆正弦を求める | C++11 |
+| [`asinh`](complex/asinh.md)   | 双曲線逆正弦を求める | C++11 |
 | `atanh` | 双曲線逆正接を求める | C++11 |
 | `cos`   | 余弦を求める         | |
 | `cosh`  | 双曲線余弦を求める   | |
