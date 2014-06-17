@@ -91,10 +91,10 @@ namespace std {
 
 | 名前    | 説明                 | 対応バージョン |
 |---------|----------------------|----------------|
-| [`acos`](complex/acos.md)  | 逆余弦を求める       | C++11 |
-| [`asin`](complex/asin.md)  | 逆正弦を求める       | C++11 |
-| [`atan`](complex/atan.md)  | 逆正接を求める       | C++11 |
-| [`acosh`](complex/acosh)   | 双曲線逆余弦を求める | C++11 |
+| [`acos`](complex/acos.md)     | 逆余弦を求める       | C++11 |
+| [`asin`](complex/asin.md)     | 逆正弦を求める       | C++11 |
+| [`atan`](complex/atan.md)     | 逆正接を求める       | C++11 |
+| [`acosh`](complex/acosh.md)   | 双曲線逆余弦を求める | C++11 |
 | `asinh` | 双曲線逆正弦を求める | C++11 |
 | `atanh` | 双曲線逆正接を求める | C++11 |
 | `cos`   | 余弦を求める         | |
