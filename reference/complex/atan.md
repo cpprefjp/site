@@ -18,7 +18,7 @@ namespace std {
 - 規格には、本関数に関する具体的な規定・説明は無い。  
 なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `catan`、`catanf`、`catanl`の 3 つ。それぞれ C++ の `atan<double>`、`atan<float>`、`atan<long double>` に相当）では、以下の規定がある：
 	- 本関数は実軸の区間`[-i, +i]`の外側を分岐截断とすること、および戻り値は虚軸を無限の区間、実軸を`[-π/2, +π/2]`の区間とすること。
-	- `atan(x) = complex(0, -1) * atanh(x)`
+	- `atan(x) = complex(+0, -1) * atanh(x)`
 - 逆正弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
 
 	| 引数の型                                | 関数                                     | ヘッダ                               | 備考       |

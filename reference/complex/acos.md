@@ -19,12 +19,12 @@ namespace std {
 なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `cacos`、`cacosf`、`cacosl`の 3 つ。それぞれ C++ の `acos<double>`、`acos<float>`、`acos<long double>` に相当）では、以下の規定がある：
 	- 本関数は実軸の区間`[-1, +1]`の外側を分岐截断とすること、および戻り値は虚軸を無限の区間、実軸を`[0, π]`の区間とすること。
 	- `acos(conj(x)) = conj(acos(x))`
-	- `acos(complex(±0, 0))`は`complex(π/2, -0.0f)`を返す。
+	- `acos(complex(±0, +0))`は`complex(π/2, -0)`を返す。
 	- `acos(complex(±0, NaN))`は`complex(π/2, NaN)`を返す。
 	- 有限の実部`x`について、`acos(complex(x, +∞))`は`complex(π/2, -∞)`を返す。
 	- 有限で非ゼロな実部`x`について、`acos(x, NaN)`は`complex(NaN, NaN)`を返すとともに、`feraiseexcept(FE_INVALID)`を呼び出す可能性がある。
 	- 有限で正の値を持つ虚部`y`について、`acos(-∞, y)`は`complex(π, -∞)`を返す。
-	- 有限で正の値を持つ虚部`y`について、`acos(+∞, y)`は`complex(+0.0, -∞)`を返す。
+	- 有限で正の値を持つ虚部`y`について、`acos(+∞, y)`は`complex(+0, -∞)`を返す。
 	- `acos(-∞, +∞)`は`complex(3π/4, -∞)`を返す。
 	- `acos(+∞, +∞)`は`complex(π/4, -∞)`を返す。
 	- `acos(+∞, NaN)`は`complex(NaN, ±∞)`を返す(結果値の虚部の符号は未規定)。
