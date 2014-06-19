@@ -18,7 +18,7 @@ namespace std {
 - 規格には、本関数に関する具体的な規定・説明は無い。  
 なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `casinh`、`casinhf`、`casinhl`の 3 つ。それぞれ C++ の `asinh<double>`、`asinh<float>`、`asinh<long double>` に相当）では、以下の規定がある：
 	- 本関数は実軸の区間`[-i, +i]`の外側を分岐截断とすること、および戻り値は虚軸を無限の区間、実軸を`[-π/2, +π/2]`の区間とすること。
-	- `asinh(conj(x)) = cobj(asinh(x))`であり、`asinh`は奇数となる。
+	- `asinh(conj(x)) = cobj(asinh(x))`で、また、`asinh`は奇関数（つまり、`asinh(-x) = -asinh(x)`）。
 	- `asinh(complex(+0, +0))`は`complex(+0, +0)`を返す。
 	- 有限の実部`x`について、`asinh(complex(x, +∞))`は`complex(+∞, π/2)`を返す。
 	- 有限の実部`x`について、`asinh(complex(x, NaN))`は`complex(NaN, NaN)`を返すとともに、`feraiseexcept(FE_INVALID)`を呼び出す可能性がある。
