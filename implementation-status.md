@@ -17,7 +17,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 | 10.0 | Visual Studio 2010 |
 | 11.0 | Visual Studio 2012 |
 | 12.0 | Visual Studio 2013 |
-| 12.0 CTP | Visual C++ November 2013 CTP |
+| 12.0 CTP | Visual Studio “14” CTP |
 
 
 
@@ -41,7 +41,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 | ラムダ式                         | 関数オブジェクトをその場に書く | 4.5 | 3.1 | 12.0 | 10.0 (partial)<br/> 11.0 |
 | ローカルクラスと無名クラスを、テンプレート実引数として使用する |  | 4.5 | 2.9 | 12.0 | 10.0 |
 | `long long`型                    | `long`以上の大きさを持つ整数型 | 4.3 | 2.9 | 11.1 | 7.1 |
-| `inline namespace`               | ネストした名前空間に、透過的にアクセスする | 4.4 | 2.9 | 14.0 | No |
+| `inline namespace`               | ネストした名前空間に、透過的にアクセスする | 4.4 | 2.9 | 14.0 | 12.0 CTP |
 | `char16_t`、`char32_t`型         | UTF-16とUTF-32の文字型 | 4.4 | 2.9 | 12.1 (Windows: partial) <br/> 12.1 (GNU/Linux, OS X)<br/> 14.0 | No<br/> 10.0より同名のtypedefが存在する |
 | 戻り値の型を後置する関数宣言構文 | 以下のような形式での関数宣言<br/> `auto f(arg_types...) -> return_type` | 4.4 | 2.9 | 12.0 | 10.0 |
 | `nullptr`                        | ヌルポインタを表すポインタリテラル | 4.6 | 2.9 | 11.1 | 10.0 |
@@ -54,7 +54,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 | `enum class`                     | 強い型付けを持つ列挙型 | 4.4 | 2.9 | 11.1 (partial)<br/> 14.0 | 11.0 |
 | エイリアステンプレート           | テンプレートによる型の別名付け | 4.7 | 3.0 | 12.1 | 12.0 |
 | `thread_local`                   | スレッドローカルストレージ | 4.8 | 3.3 | 11.1 (partial) | 10.0<br/> `__declspec(thread)`属性での部分サポート |
-| `union`の制限解除                | 共用体のメンバ変数として、クラスオブジェクトを持つ | 4.6 | 3.0 | 14.0(Linux系OSおよびMacのみ。Windowsは非対応) | No |
+| `union`の制限解除                | 共用体のメンバ変数として、クラスオブジェクトを持つ | 4.6 | 3.0 | 14.0(Linux系OSおよびMacのみ。Windowsは非対応) | 12.0 CTP |
 | 可変引数テンプレート             |  | 4.3 (partial)<br/> 4.4 | 2.9 | 12.1 | 12.0 |
 | 範囲for文                        |  | 4.6 | 3.0 | 13.0 | 11.0 |
 | `override`と`final`              | メンバ関数のオーバーライド指定、および派生クラスでのオーバーロードを禁止する指定 | 4.7 | 2.9 | 14.0 | 8.0 (partial): `override`のみ。`final`の代わりにsealedが存在する。ただし両者ともデストラクタには指定できない。<br/> 11.0 |
@@ -77,6 +77,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 - ICC : [C++11 Features Supported by Intel&#174; C++ Compiler](http://software.intel.com/en-us/articles/c0x-features-supported-by-intel-c-compiler)
 - VC++： [C++11 Features (Modern C++)](http://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.120%29.aspx)
 - VC++ November 2013 CTP: [Visual C++ Compiler November 2013 CTP](http://herbsutter.com/2013/11/18/visual-c-compiler-november-2013-ctp/)
+- Visual Studio “14” CTP: [Visual Studio “14” CTP - Visual C++ Team Blog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/vcblog/archive/2014/06/03/visual-studio-14-ctp.aspx)
 
 
 ##C++14/C++1yの実装状況
@@ -86,7 +87,7 @@ C++14は、C++11のバグフィックス + マイナーアップデートが予�
 |------------------------------|------|-----|-------|-----|------|
 | 2進数リテラル                | 2進数を表す`0b` or `0B`プレフィックスを付けた数値リテラルの記述を可能とする | 4.3(GNU)<br/> 4.9 | 3.2 | No | No |
 | 通常関数の戻り値型推論       | 関数の戻り値型を`auto`にすることで、`return`文から戻り値の型を推論させる | 4.8(partial)<br/>4.9 | 3.3(partial)<br/> 3.4 | No | 12.0 CTP |
-| 一般化されたラムダキャプチャ | キャプチャに代入構文を導入し、一つの変数に複数のキャプチャ方法を指定可能にする | 4.9 | 3.4 | No | No |
+| 一般化されたラムダキャプチャ | キャプチャに代入構文を導入し、一つの変数に複数のキャプチャ方法を指定可能にする | 4.9 | 3.4 | No | 12.0 CTP |
 | ジェネリックラムダ           | ラムダ式のパラメータを`auto`にすることで、ジェネリックな関数呼び出し演算子を持つ関数オブジェクトを生成する | 4.9 | 3.4 | No | 12.0 CTP |
 | 変数テンプレート             | 変数定義時のテンプレート指定を可能にする。 | No | 3.4 | No | No |
 | `constexpr`の制限緩和        | `if`文、`switch`文による条件分岐の許可。<br/>`for`文、`while`文、`do-while`文によるループの許可。<br/>`void`戻り値型の許可<br/>初期化を伴う変数宣言の許可。<br/>変数書き換えの許可。 | No | 3.3(partial) | No | No |
