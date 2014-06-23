@@ -1,7 +1,7 @@
 #norm
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   T norm(const complex<T>& x);
 
   FloatingPointType norm(ArithmeticType x);	// 追加のオーバーロード：C++11 から

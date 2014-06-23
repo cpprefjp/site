@@ -1,7 +1,7 @@
 #log
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> log(const complex<T>& x);
 }
 ```

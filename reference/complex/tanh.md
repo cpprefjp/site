@@ -1,7 +1,7 @@
 #tanh
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> tanh(const complex<T>& x);
 }
 ```

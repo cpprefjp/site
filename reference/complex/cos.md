@@ -1,7 +1,7 @@
 #cos
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> cos(const complex<T>& x);
 }
 ```

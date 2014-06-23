@@ -1,6 +1,7 @@
 #imag
 ```cpp
 constexpr T imag() const;		// (1)
+
 void imag(T val);				// (2) C++11 から
 ```
 

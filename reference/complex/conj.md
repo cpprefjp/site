@@ -1,7 +1,7 @@
 #conj
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> conj(const complex<T>& x);
 
   ComplexType conj(ArithmeticType x);	// 追加のオーバーロード：C++11 から

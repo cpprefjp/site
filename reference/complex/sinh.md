@@ -1,7 +1,7 @@
 #sinh
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> sinh(const complex<T>& x);
 }
 ```

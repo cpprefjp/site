@@ -1,7 +1,7 @@
 #proj (C++11)
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> proj(const complex<T>& x);
 
   ComplexType proj(ArithmeticType x);	// 追加のオーバーロード：C++11 から
@@ -36,7 +36,7 @@ namespace std {
 #include <complex>
 #include <limits>
 
-template<typename T>
+template <class T>
 void print_proj(const std::complex<T>& c)
 {
   std::cout << "proj( " << c << " ) = " << std::proj(c) << std::endl;

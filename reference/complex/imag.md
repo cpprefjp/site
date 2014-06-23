@@ -1,7 +1,7 @@
 #imag
 ```cpp
 namespace std {
-  template<typename T>
+  template <class T>
   constexpr T imag(const complex<T>& x);
 
   FloatingPointType imag(ArithmeticType x);	// 追加のオーバーロード：C++11 から

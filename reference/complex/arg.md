@@ -1,7 +1,7 @@
 #arg
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   T arg(const complex<T>& x);
 
   FloatingPointType arg(ArithmeticType x);	// 追加のオーバーロード：C++11 から

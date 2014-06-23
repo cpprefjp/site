@@ -1,7 +1,7 @@
 #sqrt
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> sqrt(const complex<T>& x);
 }
 ```

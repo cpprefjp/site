@@ -1,7 +1,7 @@
 #real
 ```cpp
 namespace std {
-  template<typename T>
+  template <class T>
   constexpr T real(const complex<T>& x);
 
   FloatingPointType real(ArithmeticType x);	// 追加のオーバーロード：C++11 から

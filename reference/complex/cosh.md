@@ -1,7 +1,7 @@
 #cosh
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> cosh(const complex<T>& x);
 }
 ```

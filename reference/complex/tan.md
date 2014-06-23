@@ -1,7 +1,7 @@
 #tan
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> tan(const complex<T>& x);
 }
 ```

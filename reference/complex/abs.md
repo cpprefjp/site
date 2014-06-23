@@ -1,7 +1,7 @@
 #abs
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   T abs(const complex<T>& x);
 }
 ```

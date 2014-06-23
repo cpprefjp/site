@@ -1,6 +1,7 @@
 #real
 ```cpp
 constexpr T real() const;		// (1)
+
 void real(T val);				// (2) C++11 から
 ```
 

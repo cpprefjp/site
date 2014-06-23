@@ -1,7 +1,8 @@
 #operator-=
 ```cpp
 complex<T>& operator-=(const T& rhs);			// (1)
-template<class X>
+
+template <class X>
 complex<T>& operator-=(const complex<X>& rhs);	// (2)
 ```
 

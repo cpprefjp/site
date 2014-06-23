@@ -1,11 +1,13 @@
 #operator!=
 ```cpp
 namespace std {
-  template<typename T>
+  template <class T>
   bool operator!=(const complex<T>& lhs, const complex<T>& rhs);
-  template<typename T>
+
+  template <class T>
   bool operator!=(const complex<T>& lhs, const T& rhs);
-  template<typename T>
+
+  template <class T>
   bool operator==(const T& lhs, const complex<T>& rhs);
 }
 ```

@@ -1,7 +1,7 @@
 #polar
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> polar(const T& rho, const T& theta = 0);
 }
 ```

@@ -1,7 +1,7 @@
 #exp
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> exp(const complex<T>& x);
 }
 ```

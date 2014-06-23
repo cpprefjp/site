@@ -1,6 +1,7 @@
 #operator=
 ```cpp
 complex<T>& operator=(const T& rhs);          // (1)
+
 complex<T>& operator=(const complex<T>& rhs); // (2)
 ```
 

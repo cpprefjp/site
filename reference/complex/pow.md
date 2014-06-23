@@ -1,13 +1,13 @@
 #pow
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> pow(const complex<T>& x, const complex<T>& y);
 
-  template<class T>
+  template <class T>
   complex<T> pow(const complex<T>& x, const T& y);
 
-  template<class T>
+  template <class T>
   complex<T> pow(const T& x, const complex<T>T& y);
 
   ComplexType pow(ArithmeticType1 x, ArithmeticType2 y);	// 追加のオーバーロード：C++11 から

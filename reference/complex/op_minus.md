@@ -1,11 +1,13 @@
 #operator-
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> operator-(const complex<T>& lhs, const complex<T>& rhs);
-  template<class T>
+
+  template <class T>
   complex<T> operator-(const complex<T>& lhs, const T& rhs);
-  template<class T>
+
+  template <class T>
   complex<T> operator-(const T& lhs, const complex<T>& rhs);
 }
 ```

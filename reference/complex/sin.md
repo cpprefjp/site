@@ -1,7 +1,7 @@
 #sin
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   complex<T> sin(const complex<T>& x);
 }
 ```
