@@ -7,29 +7,40 @@ namespace std {
 ```
 
 ##概要
-複素数`x`の逆双曲線余弦（アークハイパボリックコサイン、arc hyperbolic cosine）を求める。
+複素数値の逆双曲線余弦（エリアハイパボリックコサイン、area hyperbolic cosine（備考参照））を得る。
 
 
 ##戻り値
-複素数の逆双曲線余弦を計算して返す。
+引数 `x` の逆双曲線余弦。本関数の値域は、実軸方向は非負の全域で、虚軸方向は `[-`*i* `π, +`*i* `π]` の区間である。
 
 
 ##備考
-- 規格には、本関数に関する具体的な規定・説明は無い。  
-なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `cacosh`、`cacoshf`、`cacoshl`の 3 つ。それぞれ C++ の `acosh<double>`、`acosh<float>`、`acosh<long double>` に相当）では、以下の規定がある：
-	- 本関数は実軸の区間`[-1, +1]`の外側を分岐截断とすること、および戻り値は虚軸を無限の区間、実軸を`[0, π]`の区間とすること。
-	- `acosh(conj(x)) = conj(acosh(x))`
-	- `acosh(complex(±0, +0))`は`complex(+0, π/2)`を返す。
-	- 有限の実部`x`について、`acosh(complex(x, +∞))`は`complex(+∞, π/2)`を返す。
-	- 有限の実部`x`について、`acosh(complex(x, NaN))`は`complex(NaN, NaN)`を返すとともに、`feraiseexcept(FE_INVALID)`を呼び出す可能性がある。
-	- 有限で正の値を持つ虚部`y`について、`acosh(-∞, y)`は`complex(+∞, π)`を返す。
-	- 有限で正の値を持つ虚部`y`について、`acosh(+∞, y)`は`complex(+∞, +0)`を返す。
-	- `acosh(complex(-∞, +∞))`は`complex(+∞, 3π/4)`を返す。
-	- `acosh(complex(+∞, +∞))`は`complex(+∞, π/4)`を返す。
-	- `acosh(complex(±∞, NaN))`は`complex(+∞, NaN)`を返す。
-	- 有限の虚部`y`について、`acosh(complex(NaN, y))`は`complex(NaN, NaN)`を返すとともに、`feraiseexcept(FE_INVALID)`を呼び出す可能性がある。
-	- `acosh(complex(NaN, +∞))`は`complex(+∞, NaN)`を返す。
-	- `acosh(complex(NaN, NaN))`は`complex(NaN, NaN)`を返す。
+- 本関数は実軸の `1` 未満の領域を分岐截断とする。
+- 本関数は、C99 の規格にある `cacosh`（より正確には `complex.h` ヘッダの `cacosh`、`cacoshf`、`cacoshl`の 3 つ。それぞれ C++ の `acosh<double>`、`acosh<float>`、`acosh<long double>` に相当）と同等である。
+C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
+	- `acosh(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(acosh(x))`
+	- `acosh(complex(±0, +0))` は `complex(+0, π/2)` を返す。
+	- 有限の実部 `x` について、`acosh(complex(x, +∞))` は `complex(+∞, π/2)` を返す。
+	- 有限の実部 `x` について、`acosh(complex(x, NaN))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- 有限で正の符号を持つ（`+0` を含む）虚部 `y` について、`acosh(complex(-∞, y))` は `complex(+∞, π)` を返す。
+	- 有限で正の符号を持つ（`+0` を含む）虚部 `y` について、`acosh(complex(+∞, y))` は `complex(+∞, +0)` を返す。
+	- `acosh(complex(-∞, +∞))` は `complex(+∞, 3π/4)` を返す。
+	- `acosh(complex(+∞, +∞))` は `complex(+∞, π/4)` を返す。
+	- `acosh(complex(±∞, NaN))` は `complex(+∞, NaN)` を返す。
+	- 有限の虚部 `y` について、`acosh(complex(NaN, y))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- `acosh(complex(NaN, +∞))` は `complex(+∞, NaN)` を返す。
+	- `acosh(complex(NaN, NaN))` は `complex(NaN, NaN)` を返す。
+- 逆双曲線余弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。  
+
+	| 引数の型                                | 関数                                     | ヘッダ                               |
+	|-----------------------------------------|------------------------------------------|--------------------------------------|
+	| `float`                                 | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |
+	| `double`                                | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |
+	| `long double`                           | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |
+	| 任意の整数型                            | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |
+	| [`valarray<T>`](/reference/valarray.md) | [`acosh`](/reference/valarray/acosh.md)  | [`valarray`](/reference/valarray.md) |
+
+- 規格書では arc hyperbolic cosine となっているが、逆双曲線関数で求めるのは「弧（arc）」ではなく「面積（area）」であるため、（広く誤用されてはいるものの）適切な表現ではない。（[逆双曲線関数 - Wikipedia](http://ja.wikipedia.org/wiki/逆双曲線関数)）
 
 
 ##例
@@ -60,8 +71,32 @@ acosh( (1,2) ) = (1.52857,1.14372)
 - C++11
 
 ###処理系
-- [Clang, C++1y mode](/implementation#clang.md): 3.0
-- [GCC, C++1y mode](/implementation#gcc.md): 4.3.6
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): ??
+- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
+- [GCC C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
+###備考
+- libstdc++ では（規格通りに）C++11 以降のモードでなければ本関数は使用できないが、libc++ では C++98 モードでも使用することができる。（上記の [Clang](/implementation.md#clang) が C++11 モードになっていないのはそのため）
+
+
+##参照
+|                                      |                                           |
+|--------------------------------------|-------------------------------------------|
+| [`acos`](acos.md)                    | 複素数の逆余弦を求める。                  |
+| [`asin`](asin.md)                    | 複素数の逆正弦を求める。                  |
+| [`atan`](atan.md)                    | 複素数の逆正接を求める。                  |
+| [`asinh`](asinh.md)                  | 複素数の逆双曲線正弦を求める。            |
+| [`atanh`](atanh.md)                  | 複素数の逆双曲線正接を求める。            |
+| [`cos`](cos.md)                      | 複素数の余弦を求める。                    |
+| [`cosh`](cosh.md)                    | 複素数の双曲線余弦を求める。              |
+| [`exp`](exp.md)                      | 自然対数の底 e の累乗（複素数）を求める。 |
+| [`log`](log.md)                      | 複素数の自然対数を求める。                |
+| [`log10`](log10.md)                  | 複素数の常用対数を求める。                |
+| [`pow`](pow.md)                      | 複素数の累乗を求める。                    |
+| [`sin`](sin.md)                      | 複素数の正弦を求める。                    |
+| [`sinh`](sinh.md)                    | 複素数の双曲線正弦を求める。              |
+| [`sqrt`](sqrt.md)                    | 複素数の平方根を求める。                  |
+| [`tan`](tan.md)                      | 複素数の正接を求める。                    |
+| [`tanh`](tanh.md)                    | 複素数の双曲線正接を求める。              |
+| [`acosh`](/reference/cmath/acosh.md) | 実数の逆双曲線余弦を求める。              |
