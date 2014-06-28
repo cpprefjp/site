@@ -32,13 +32,13 @@ C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠して�
 	- `acosh(complex(NaN, NaN))` は `complex(NaN, NaN)` を返す。
 - 逆双曲線余弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。  
 
-	| 引数の型                                | 関数                                     | ヘッダ                               |
-	|-----------------------------------------|------------------------------------------|--------------------------------------|
-	| `float`                                 | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |
-	| `double`                                | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |
-	| `long double`                           | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |
-	| 任意の整数型                            | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |
-	| [`valarray<T>`](/reference/valarray.md) | [`acosh`](/reference/valarray/acosh.md)  | [`valarray`](/reference/valarray.md) |
+	| 引数の型                                | 関数                                     | ヘッダ                               | 備考       |
+	|-----------------------------------------|------------------------------------------|--------------------------------------|------------|
+	| `float`                                 | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                           | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                            | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray<T>`](/reference/valarray.md) | [`acosh`](/reference/valarray/acosh.md)  | [`valarray`](/reference/valarray.md) |            |
 
 - 規格書では arc hyperbolic cosine となっているが、逆双曲線関数で求めるのは「弧（arc）」ではなく「面積（area）」であるため、（広く誤用されてはいるものの）適切な表現ではない。（[逆双曲線関数 - Wikipedia](http://ja.wikipedia.org/wiki/逆双曲線関数)）
 

@@ -32,13 +32,13 @@ namespace std {
 	- `acos(NaN, NaN)` は `complex(NaN, NaN)` を返す。
 - 逆余弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。  
 
-	| 引数の型                                | 関数                                     | ヘッダ                               |
-	|-----------------------------------------|------------------------------------------|--------------------------------------|
-	| `float`                                 | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |
-	| `double`                                | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |
-	| `long double`                           | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |
-	| 任意の整数型                            | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |
-	| [`valarray<T>`](/reference/valarray.md) | [`acos`](/reference/valarray/acos.md)    | [`valarray`](/reference/valarray.md) |
+	| 引数の型                                | 関数                                     | ヘッダ                               | 備考       |
+	|-----------------------------------------|------------------------------------------|--------------------------------------|------------|
+	| `float`                                 | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                           | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                            | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray<T>`](/reference/valarray.md) | [`acos`](/reference/valarray/acos.md)    | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例
