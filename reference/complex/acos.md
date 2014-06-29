@@ -16,7 +16,8 @@ namespace std {
 
 ##備考
 - 本関数は実軸の区間 `[-1, +1]` の外側を分岐截断とする。
-- 本関数は、C99 の規格にある `cacos`（より正確には `complex.h` ヘッダの `cacos`、`cacosf`、`cacosl`の 3 つ。それぞれ C++ の `acos<double>`、`acos<float>`、`acos<long double>` に相当）と同等である。C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
+- 本関数は、C99 の規格にある `cacos`（より正確には `complex.h` ヘッダの `cacos`、`cacosf`、`cacosl` の 3 つ。それぞれ C++ の `acos<double>`、`acos<float>`、`acos<long double>` に相当）と同等である。
+	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
 	- `acos(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(acos(x))`
 	- `acos(complex(±0, +0))` は `complex(π/2, -0)` を返す。
 	- `acos(complex(±0, NaN))` は `complex(π/2, NaN)` を返す。

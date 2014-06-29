@@ -16,7 +16,7 @@ namespace std {
 
 ##備考
 - 本関数は実軸の `1` 未満の領域を分岐截断とする。
-- 本関数は、C99 の規格にある `cacosh`（より正確には `complex.h` ヘッダの `cacosh`、`cacoshf`、`cacoshl`の 3 つ。それぞれ C++ の `acosh<double>`、`acosh<float>`、`acosh<long double>` に相当）と同等である。
+- 本関数は、C99 の規格にある `cacosh`（より正確には `complex.h` ヘッダの `cacosh`、`cacoshf`、`cacoshl` の 3 つ。それぞれ C++ の `acosh<double>`、`acosh<float>`、`acosh<long double>` に相当）と同等である。
 C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
 	- `acosh(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(acosh(x))`
 	- `acosh(complex(±0, +0))` は `complex(+0, π/2)` を返す。

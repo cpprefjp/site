@@ -16,7 +16,7 @@ namespace std {
 
 ##備考
 - 本関数は実軸の区間 `[-1, +1]` の外側を分岐截断とする。
-- 本関数は、C99 の規格にある `casin`（より正確には `complex.h` ヘッダの `casin`、`casinf`、`casinl`の 3 つ。それぞれ C++ の `asin<double>`、`asin<float>`、`asin<long double>` に相当）と同等である。
+- 本関数は、C99 の規格にある `casin`（より正確には `complex.h` ヘッダの `casin`、`casinf`、`casinl` の 3 つ。それぞれ C++ の `asin<double>`、`asin<float>`、`asin<long double>` に相当）と同等である。
 	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`casin(x) = -`*i* `casinh(`*i* `x)` と規定されている。
 - 逆正弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
 
