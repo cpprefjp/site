@@ -27,9 +27,35 @@ namespace std {
 ```
 
 ##概要
-
 クラステンプレート`hash`は、非順序連想コンテナ（[`unordered_map`](/reference/unordered_map/unordered_map.md)/[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md)/[`unordered_set`](/reference/unordered_set/unordered_set.md)/[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md)）のキーとなる型のためのハッシュ値を計算する関数オブジェクトである。
-このクラスはそのものにデフォルトの定義は存在せず、ユーザーが任意の型で特殊化する際の要件を定義する。`hash`クラステンプレートを特殊化する場合、以下の機能を持たせる必要がある：
+
+このクラスはそのものにデフォルトの定義は存在せず、ユーザーが任意の型で特殊化する際の要件を定義する。`hash`クラステンプレートを特殊化する場合、以下に記述するメンバ関数を持たせる必要がある。
+
+なお、標準ライブラリでは、以下の特殊化を提供する：
+
+| 型                   | 対応バージョン |
+|----------------------|----------------|
+| `bool`               | C++11          |
+| `char`               | C++11          |
+| `signed char`        | C++11          |
+| `unsigned char`      | C++11          |
+| `char16_t`           | C++11          |
+| `char32_t`           | C++11          |
+| `wchar_t`            | C++11          |
+| `short`              | C++11          |
+| `unsigned short`     | C++11          |
+| `int`                | C++11          |
+| `unsigned int`       | C++11          |
+| `long`               | C++11          |
+| `long long`          | C++11          |
+| `unsigned long`      | C++11          |
+| `unsigned long long` | C++11          |
+| `float`              | C++11          |
+| `double`             | C++11          |
+| `long double`        | C++11          |
+| 全ての型へのポインタ | C++11          |
+| 全ての列挙型         | C++14          |
+
 
 ###メンバ関数
 
@@ -87,4 +113,6 @@ int main()
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 ###参照
+- [ハッシュ関数 - Wikipedia](http://ja.wikipedia.org/wiki/ハッシュ関数)
+- [LWG 2148 - Hashing enums should be supported directly by std::hash](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2148)
 
