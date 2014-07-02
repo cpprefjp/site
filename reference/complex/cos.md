@@ -16,10 +16,19 @@ namespace std {
 
 ##備考
 - 規格には、上記の戻り値に記載されている以上の規定・説明は無い。  
-なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `ccos`、`ccosf`、`ccosl`の 3 つ。それぞれ C++ の `cos<double>`、`cos<float>`、`cos<long double>` に相当）では、
-処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`cos(x) = `*i*[`cosh`](cosh.md)`(`*i*`x)` であると規定されている。（ここで、*i* は虚数単位）
+	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `ccos`、`ccosf`、`ccosl` の 3 つ。それぞれ C++ の `cos<double>`、`cos<float>`、`cos<long double>` に相当）では、
+	処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`cos(x) = ` *i*[`cosh`](cosh.md)`(`*i*`x)` であると規定されている。（ここで、*i* は虚数単位）
 - 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、
-C++ の規格書には該当する記載を見つける事ができなかった。
+	C++ の規格書には該当する記載を見つける事ができなかった。
+- 余弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
+
+	| 引数の型                                | 関数                                   | ヘッダ                               | 備考       |
+	|-----------------------------------------|----------------------------------------|--------------------------------------|------------|
+	| `float`                                 | [`cos`](/reference/cmath/cos.md)       | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                | [`cos`](/reference/cmath/cos.md)       | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                           | [`cos`](/reference/cmath/cos.md)       | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                            | [`cos`](/reference/cmath/cos.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray<T>`](/reference/valarray.md) | [`cos`](/reference/valarray/cos.md)    | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例
@@ -29,8 +38,10 @@ C++ の規格書には該当する記載を見つける事ができなかった�
 
 int main()
 {
-  std::complex<float> c(1.0, 2.0);
-  std::cout << "cos( " << c << " ) = " << std::cos(c) << std::endl;
+  std::complex<double> c(1.0, 2.0);
+
+  std::complex<double> result = std::cos(c);
+  std::cout << "cos( " << c << " ) = " << result << std::endl;
 }
 ```
 * cos[color ff0000]
@@ -60,9 +71,9 @@ cos( (1,2) ) = (2.03272,-3.0519)
 | [`acos`](acos.md)                  | 複素数の逆余弦を求める。                  |
 | [`asin`](asin.md)                  | 複素数の逆正弦を求める。                  |
 | [`atan`](atan.md)                  | 複素数の逆正接を求める。                  |
-| [`acosh`](acosh.md)                | 複素数の双曲線逆余弦を求める。            |
-| [`asinh`](asinh.md)                | 複素数の双曲線逆正弦を求める。            |
-| [`atanh`](atanh.md)                | 複素数の双曲線逆正接を求める。            |
+| [`acosh`](acosh.md)                | 複素数の逆双曲線余弦を求める。            |
+| [`asinh`](asinh.md)                | 複素数の逆双曲線正弦を求める。            |
+| [`atanh`](atanh.md)                | 複素数の逆双曲線正接を求める。            |
 | [`cosh`](cosh.md)                  | 複素数の双曲線余弦を求める。              |
 | [`exp`](exp.md)                    | 自然対数の底 e の累乗（複素数）を求める。 |
 | [`log`](log.md)                    | 複素数の自然対数を求める。                |
@@ -73,4 +84,4 @@ cos( (1,2) ) = (2.03272,-3.0519)
 | [`sqrt`](sqrt.md)                  | 複素数の平方根を求める。                  |
 | [`tan`](tan.md)                    | 複素数の正接を求める。                    |
 | [`tanh`](tanh.md)                  | 複素数の双曲線正接を求める。              |
-| [`cos`](/reference/cmath/cos.md)   | 実数の正弦を求める。                      |
+| [`cos`](/reference/cmath/cos.md)   | 実数の余弦を求める。                      |
