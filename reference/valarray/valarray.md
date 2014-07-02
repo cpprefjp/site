@@ -1,5 +1,41 @@
 #valarray
-線形代数学的な数値例の計算に特化したクラステンプレート。
+```cpp
+namespace std {
+  template <class T>
+  class valarray;
+}
+```
+
+##概要
+`valarray`は、数値演算に特化した一次元配列クラスである。
+
+配列の全ての要素に対して同じ操作を効率的に適用できる。たとえば、生配列で以下のように行う演算は、
+
+```cpp
+int a[N];
+int b[N];
+int c[N];
+
+for (size_t i = 0; i < N; ++i) {
+  c[i] = a[i] + b[i];
+}
+```
+
+`valarray`では以下のように書ける：
+
+```cpp
+valarray<int> a(N);
+valarray<int> b(N);
+
+valarray<int> c = a + b;
+```
+
+処理系によっては、このような演算を、CPUのSIMD命令によって並列に計算するよう最適化される。
+
+
+テンプレートパラメータは、以下を意味する：
+
+- `T` : 配列の要素型
 
 
 ##メンバ関数
