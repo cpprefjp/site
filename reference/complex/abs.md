@@ -18,6 +18,8 @@ namespace std {
 - 規格には、本関数に関する具体的な規定・説明は無い。  
 なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `cabs`、`cabsf`、`cabsl`の 3 つ。それぞれ C++ の `abs<double>`、`abs<float>`、`abs<long double>` に相当）では、
 処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している（マクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている）場合、`cabs(x + iy) = hypot(x, y)` と規定されている。
+- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、
+C++ の規格書には該当する記載を見つける事ができなかった。
 - 絶対値の算出については、一部の算術型、および、[`valarray`](/reference/valarray/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。  
 
 	| 引数の型                                           | 関数                                   | ヘッダ                               | 備考       |
