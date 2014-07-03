@@ -2,7 +2,7 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> tan(const valarray<T>&);
+  valarray<T> tan(const valarray<T>& v);
 }
 ```
 
@@ -14,7 +14,7 @@ namespace std {
 以下のコードと同等のことを行う：
 
 ```cpp
-apply(static_cast<T(*)(T)>(std::tan))
+return v.apply(static_cast<T(*)(T)>(std::tan));
 ```
 * apply[link ./apply.md]
 * sin[link /reference/cmath/tan.md]
