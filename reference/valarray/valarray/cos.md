@@ -17,7 +17,7 @@ namespace std {
 return v.apply(static_cast<T(*)(T)>(std::cos));
 ```
 * apply[link ./apply.md]
-* sin[link /reference/cmath/cos.md]
+* cos[link /reference/cmath/cos.md]
 
 
 ##例
