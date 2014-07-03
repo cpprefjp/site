@@ -202,7 +202,7 @@ int main()
   // 数学関数
   // 全ての要素に同じ関数を適用する
   {
-    std::valarray<float> a = {0.1, 0.2, 0.3};
+    std::valarray<float> a = {0.1f, 0.2f, 0.3f};
 
     std::valarray<float> sin = std::sin(a);
     print("sin", sin);
