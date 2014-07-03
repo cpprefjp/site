@@ -17,7 +17,7 @@ namespace std {
 return v.apply(static_cast<T(*)(T)>(std::tan));
 ```
 * apply[link ./apply.md]
-* sin[link /reference/cmath/tan.md]
+* tan[link /reference/cmath/tan.md]
 
 
 ##例
