@@ -1,7 +1,9 @@
 #sin
 ```cpp
-valarray<T> apply(T func(T)) const;
-valarray<T> apply(T func(const T&)) const;
+namespace std {
+  template <class T>
+  valarray<T> sin(const valarray<T>&);
+}
 ```
 
 ##概要
