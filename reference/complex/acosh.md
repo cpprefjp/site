@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-複素数値の逆双曲線余弦（エリアハイパボリックコサイン、area hyperbolic cosine（備考参照））を得る。
+複素数値の逆双曲線余弦（エリアハイパボリックコサイン：area hyperbolic cosine（備考参照））を得る。
 
 
 ##戻り値

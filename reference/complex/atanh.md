@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-複素数値の逆双曲線正接（エリアハイパボリック、area hyperbolic tangent（備考参照））を得る。
+複素数値の逆双曲線正接（エリアハイパボリック：area hyperbolic tangent（備考参照））を得る。
 
 
 ##戻り値

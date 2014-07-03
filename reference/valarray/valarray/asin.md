@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-逆正弦（アークサイン、arc sine）を得る。
+逆正弦（アークサイン：arc sine）を得る。
 
 
 ##戻り値

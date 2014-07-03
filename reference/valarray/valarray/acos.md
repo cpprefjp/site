@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-逆余弦（アークコサイン、arc cosine）を得る。
+逆余弦（アークコサイン：arc cosine）を得る。
 
 
 ##戻り値

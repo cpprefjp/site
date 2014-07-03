@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-複素数値の逆双曲線正弦（エリアハイパボリックサイン、area hyperbolic sine（備考参照））を得る。
+複素数値の逆双曲線正弦（エリアハイパボリックサイン：area hyperbolic sine（備考参照））を得る。
 
 
 ##戻り値

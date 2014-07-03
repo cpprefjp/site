@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-逆正接（アークタンジェント、arc tangent）を得る。
+逆正接（アークタンジェント：arc tangent）を得る。
 
 
 ##戻り値
