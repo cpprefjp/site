@@ -150,116 +150,97 @@ valarray<int> c = a + b;
 
 
 
-##例１ `valarray` クラステンプレートの基礎的な挙動
-
+##例
 ```cpp
-#include <valarray>
 #include <iostream>
-
-int main(){
-  typedef char v_type;
-  typedef std::valarray<v_type> a_type;
-  
-  auto debug_print = [](const a_type& a){
-    static size_t counter = 0;
-    std::cout << "debug_print[" << counter << "]: ";
-    for(auto v: a)
-      std::cout << v << " ";
-    std::cout << "\n";
-    ++counter;
-  };
-
-  a_type a = {'A','B','C','D','E','F','G','H','I'};
-  debug_print(a);
-  
-  debug_print( a - v_type(3) );
-  debug_print( a.apply([](const v_type& v)->v_type{ return v * v % ('Z' - 'A') + 'A';}) ); 
-
-  a += a_type({1,2,3,4,5,6,7,8,9});
-  debug_print(a);
-}
-```
-* std::valarray[color ff0000]
-* apply[color ff0000]
-
-###出力
-```
-debug_print[0]: A B C D E F G H I 
-debug_print[1]: > ? @ A B C D E F 
-debug_print[2]: A G O Y L A Q J E 
-debug_print[3]: B D F H J L N P R 
-```
-
-##例２ `valarray` クラステンプレートの `operator[]` メンバ関数の挙動
-
-```cpp
 #include <valarray>
-#include <iostream>
-#include <numeric>
 
-int main(){
-  typedef char v_type;
-  typedef std::valarray<v_type> a_type;
-  
-  auto debug_print = [](const a_type& a){
-    static size_t counter = 0;
-    std::cout << "debug_print[" << counter << "]: ";
-    for(auto v: a)
-      std::cout << v << " ";
-    std::cout << "\n";
-    ++counter;
-  };
+template <class T>
+void print(const char* name, const std::valarray<T>& v)
+{
+  std::cout << name << " : {";
+  bool first = true;
 
-  const size_t a_length = 'Z' - 'A' + 1;
-  a_type a(a_length);
-  std::iota(&a[0], &a[a_length], 'A');
-  debug_print(a);
-  
-  std::cout << "*** operator[](size_t) ***\n";
-  for(size_t v: {0,1,2,3,4,5,6,7,8})
-    std::cout << a[v];
-  std::cout << "\n";
-
-  std::cout << "*** operator[](slice) ***\n";
-  debug_print( a[std::slice(0,2,3)] );
-  {
-    auto b = a;
-    b[std::slice(0,2,3)] = a_type({'x','y'});
-    debug_print(b);
-    b[std::slice(1,3,3)] = '!';
-    debug_print(b);
+  // 範囲for文で全要素を走査する
+  for (const T& x : v) {
+    if (first) {
+      first = false;
+    }
+    else {
+      std::cout << ',';
+    }
+    std::cout << x;
   }
+  std::cout << "}" << std::endl;
+}
 
-  std::cout << "*** operator[](gslice) ***\n";
-  debug_print( a[std::gslice(
-    2,
-    std::valarray<size_t>({2,3,1}),
-    std::valarray<size_t>({13,3,1})
-  )] );
+int main()
+{
+  // 四則演算
+  // 全ての要素同士に同じ演算子を適用する
+  {
+    std::valarray<int> a = {3, 6, 9};
+    std::valarray<int> b = {4, 5, 6};
+    
+    std::valarray<int> plus = a + b;
+    print("add", plus);
+    
+    std::valarray<int> minus = a - b;
+    print("minus", minus);
+    
+    std::valarray<int> multiply = a * b;
+    print("multiply", multiply);
+    
+    std::valarray<int> divide = a / b;
+    print("divide", divide);
+    
+    std::valarray<int> modulo = a % b;
+    print("modulo", modulo);
+  }
+  std::cout << std::endl;
 
-  std::cout << "*** operator[](valarray<bool>) ***\n";
-  debug_print( a[std::valarray<bool>({false,false,true,true,false,true})] );
+  // 数学関数
+  // 全ての要素に同じ関数を適用する
+  {
+    std::valarray<float> a = {0.1, 0.2, 0.3};
 
-  std::cout << "*** operator[](valarray<size_t>) ***\n";
-  debug_print( a[std::valarray<size_t>({19,4,0,19,8,12,4})] );
+    std::valarray<float> sin = std::sin(a);
+    print("sin", sin);
+
+    std::valarray<float> cos = std::cos(a);
+    print("cos", cos);
+  }
+  std::cout << std::endl;
+
+  // 配列の一部に対して操作を行う
+  {
+    std::valarray<int> a = {1, 2, 3, 4, 5, 6};
+
+    const std::size_t start = 1u;  // 開始位置
+    const std::size_t length = 3u; // 要素数
+    const std::size_t stride = 2u; // 何個置きに処理するか
+
+    // {2, 4, 6}を抽出し、その全要素を* 2する
+    a[std::slice(start, length, stride)] *= std::valarray<int> {2, 2, 2};
+
+    print("slice + multiply", a);
+  }
 }
 ```
 * std::valarray[color ff0000]
 
 ###出力
 ```
-debug_print[0]: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
-*** operator[](size_t) ***
-ABCDEFGHI
-*** operator[](slice) ***
-debug_print[1]: A D 
-debug_print[2]: x B C y E F G H I J K L M N O P Q R S T U V W X Y Z 
-debug_print[3]: x ! C y ! F G ! I J K L M N O P Q R S T U V W X Y Z 
-*** operator[](gslice) ***
-debug_print[4]: C F I P S V 
-*** operator[](valarray<bool>) ***
-debug_print[5]: C D F 
-*** operator[](valarray<size_t>) ***
-debug_print[6]: T E A T I M E 
+add : {7,11,15}
+minus : {-1,1,3}
+multiply : {12,30,54}
+divide : {0,1,1}
+modulo : {3,1,3}
+
+sin : {0.0998334,0.198669,0.29552}
+cos : {0.995004,0.980067,0.955337}
+
+slice + multiply : {1,4,3,8,5,12}
 ```
+
 
