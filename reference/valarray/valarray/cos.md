@@ -27,7 +27,7 @@ return v.apply(static_cast<T(*)(T)>(std::cos));
 
 int main()
 {
-  const std::valarray<float> v = {0.1, 0.2, 0.3};
+  const std::valarray<float> v = {0.1f, 0.2f, 0.3f};
 
   std::valarray<float> result = std::cos(v);
   for (float x : result) {
