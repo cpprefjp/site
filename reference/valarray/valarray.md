@@ -130,13 +130,13 @@ valarray<int> c = a + b;
 ###数学関数
 
 | 名前 | 説明 | 対応バージョン |
-|---------|--------------------------------------------------|-------|
-| [`sin`](./valarray/sin.md)   | 正弦を求める                                     | |
-| [`cos`](./valarray/cos.md)   | 余弦を求める                                     | |
-| [`tan`](./valarray/tan.md)   | 正接を求める                                     | |
-| [`asin`](./valarray/asin.md)  | 逆正弦を求める                       | |
-| [`acos`](./valarray/acos.md)  | 逆余弦を求める                     | |
-| `atan`  | 逆正接関数（アークタンジェント）                 | |
+|--------------------------------|------------------------------|-------|
+| [`sin`](./valarray/sin.md)     | 正弦を求める                 | |
+| [`cos`](./valarray/cos.md)     | 余弦を求める                 | |
+| [`tan`](./valarray/tan.md)     | 正接を求める                 | |
+| [`asin`](./valarray/asin.md)   | 逆正弦を求める               | |
+| [`acos`](./valarray/acos.md)   | 逆余弦を求める               | |
+| [`atan`](./valarray/atan.md)   | 逆正接を求める               | |
 | [`atan2`](./valarray/atan2.md) | 対辺と隣辺から逆正接を求める | |
 | `sinh`  | 双曲線正弦関数（ハイパボリックサイン）           | |
 | `cosh`  | 双曲線余弦関数（ハイパボリックコサイン）         | |
