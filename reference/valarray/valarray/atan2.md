@@ -53,6 +53,10 @@ return result;
 * atan2[link /reference/cmath/atan2.md]
 
 
+##備考
+2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
+
+
 ##例
 ```cpp
 #include <iostream>
