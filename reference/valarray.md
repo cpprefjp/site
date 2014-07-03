@@ -8,7 +8,7 @@
 
 | クラス                               | 説明                          | 対応バージョン |
 |--------------------------------------|-------------------------------|----------------|
-| [`valarray`](./valarray/valarray.md) | `valarray` クラステンプレート | |
+| [`valarray`](./valarray/valarray.md) | 数値演算に特化した配列クラス | |
 | [`slice`](./valarray/slice.md)       | `valarray` のためのスライス指示用のヘルパークラス | |
 | [`gslice`](./valarray/gslice.md)     | `slice`をより一般化したスライス指示用のヘルパークラス | |
 | `slice_array`                        | `valarray` のヘルパーオペレータ `[]` が `slice` に対して生成する要素参照スライス用のクラス | |
