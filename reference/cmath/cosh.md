@@ -7,10 +7,10 @@ namespace std {
 
   long double cosh(long double x);
 
-  template<class Integral>
   double cosh(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の双曲線余弦（ハイパボリックコサイン）を求める。

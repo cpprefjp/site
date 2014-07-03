@@ -7,11 +7,12 @@ namespace std {
 
   long double atan2(long double y, long double x);
 
-  template<class Arithmetic1, class Arithmetic2>
   Promoted atan2(Arithmetic1 y, Arithmetic2 x);   // C++11
 }
 ```
 * Promoted[italic]
+* Arithmetic1[italic]
+* Arithmetic2[italic]
 
 ##概要
 算術型の逆正接（アークタンジェント）を対辺と隣辺から求める。

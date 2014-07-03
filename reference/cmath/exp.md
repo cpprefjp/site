@@ -7,10 +7,10 @@ namespace std {
 
   long double exp(long double x);
 
-  template<class Integral>
   double exp(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 `e` (ネイピア数) を底とする指数関数を求める。

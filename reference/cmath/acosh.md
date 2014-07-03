@@ -7,10 +7,10 @@ namespace std {
 
   long double acosh(long double x);
 
-  template<class Integral>
   double acosh(Integral x);
 }
-```
+```* Integral[italic]
+
 
 ##概要
 算術型の逆双曲線余弦（アークハイパボリックコサイン、arc hyperbolic cosine）を求める。

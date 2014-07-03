@@ -7,10 +7,10 @@ namespace std {
 
   long double sinh(long double x);
 
-  template<class Integral>
   double sinh(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の双曲線正弦（ハイパボリックサイン）を求める。

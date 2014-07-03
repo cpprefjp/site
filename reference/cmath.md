@@ -9,9 +9,9 @@
 
 ここでは、上記のオーバーロード関数をコードで示す際には、引数や返値の型を斜体で示す。
 ```cpp		
-　　Integral      // 任意の整数型
-　　Arithmetic    // 任意の算術型
-　　Promoted      // 決定された返値型
+  Integral      // 任意の整数型
+  Arithmetic    // 任意の算術型
+  Promoted      // 決定された返値型
 ```
 * Integral[italic]
 * Arithmetic[italic]

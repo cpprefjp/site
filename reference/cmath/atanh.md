@@ -7,10 +7,10 @@ namespace std {
 
   long double atanh(long double x);
 
-  template<class Integral>
   double atanh(Integral x);
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の逆双曲線正接（アークハイパボリックタンジェント）を求める。

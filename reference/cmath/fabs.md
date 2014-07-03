@@ -7,10 +7,10 @@ namespace std {
 
   long double fabs(long double x);
 
-  template<class Integral>
   double fabs(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の絶対値を求める。

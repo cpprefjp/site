@@ -7,10 +7,10 @@ namespace std {
 
   long double atan(long double x);
 
-  template<class Integral>
   double atan(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の逆正接（アークタンジェント、arc tangent）を求める。

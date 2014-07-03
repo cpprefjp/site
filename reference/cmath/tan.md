@@ -7,10 +7,10 @@ namespace std {
 
   long double tan(long double x);
 
-  template<class Integral>
   double tan(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の正接（タンジェント）を求める。

@@ -7,10 +7,12 @@ namespace std {
 
   long double hypot(long double x, long double y);
 
-  template<class Arithmetic1, class Arithmetic2>
   Promoted hypot(Arithmetic1 x, Arithmetic2 y);
 }
 ```
+* Promoted[italic]
+* Arithmetic1[italic]
+* Arithmetic2[italic]
 
 ##概要
 算術型の平方和の平方根を求める。hypot は hypotenuse（（直角三角形の）斜辺）の略。

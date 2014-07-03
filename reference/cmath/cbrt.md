@@ -7,10 +7,10 @@ namespace std {
 
   long double cbrt(long double x);
 
-  template<class Integral>
   double cbrt(Integral x);
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の立方根を求める。

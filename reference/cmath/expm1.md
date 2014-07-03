@@ -7,10 +7,10 @@ namespace std {
 
   long double expm1(long double x);
 
-  template<class Integral>
   double expm1(Integral x);
 }
 ```
+* Integral[italic]
 
 ##概要
 `e` (ネイピア数) を底とする指数関数から 1 を引いた値を求める。

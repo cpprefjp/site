@@ -7,10 +7,10 @@ namespace std {
 
   long double log2(long double x);
 
-  template<class Integral>
   double log2(Integral x);
 }
 ```
+* Integral[italic]
 
 ##概要
 2 を底とする二進対数を求める。

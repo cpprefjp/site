@@ -7,10 +7,10 @@ namespace std {
 
   long double asinh(long double x);
 
-  template<class Integral>
   double asinh(Integral x);
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の逆双曲線正弦（アークハイパボリックサイン）を求める。

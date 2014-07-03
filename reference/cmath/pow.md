@@ -16,6 +16,8 @@ namespace std {
 }
 ```
 * Promoted[italic]
+* Arithmetic1[italic]
+* Arithmetic2[italic]
 
 ##概要
 `x` の `y` 乗を求める。

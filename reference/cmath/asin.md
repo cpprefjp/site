@@ -7,10 +7,10 @@ namespace std {
 
   long double asin(long double x);
 
-  template<class Integral>
   double asin(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の逆正弦（アークサイン、arc sine）を求める。

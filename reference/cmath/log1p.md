@@ -7,10 +7,10 @@ namespace std {
 
   long double log1p(long double x);
 
-  template<class Integral>
   double log1p(Integral x);
 }
 ```
+* Integral[italic]
 
 ##概要
 引数に 1 を足した値の、`e` (ネイピア数) を底とする自然対数を求める。

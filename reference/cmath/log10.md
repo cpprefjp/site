@@ -7,10 +7,10 @@ namespace std {
 
   long double log10(long double x);
 
-  template<class Integral>
   double log10(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 10 を底とする常用対数を求める。

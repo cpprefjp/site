@@ -7,10 +7,10 @@ namespace std {
 
   long double log(long double x);
 
-  template<class Integral>
   double log(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 `e` (ネイピア数) を底とする自然対数を求める。

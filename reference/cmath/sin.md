@@ -7,10 +7,10 @@ namespace std {
 
   long double sin(long double x);
 
-  template<class Integral>
   double sin(Integral x);   // C++11
 }
 ```
+* Integral[italic]
 
 ##概要
 算術型の正弦（サイン）を求める。
