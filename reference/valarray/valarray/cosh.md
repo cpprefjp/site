@@ -1,23 +1,23 @@
-#cos
+#cosh
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> cos(const valarray<T>& v);
+  valarray<T> cosh(const valarray<T>& v);
 }
 ```
 
 ##概要
-余弦（コサイン：cosine）を得る。
+双曲線余弦（ハイパボリックコサイン：hyperbolic cosine）を得る。
 
 
 ##戻り値
 以下のコードと同等のことを行う：
 
 ```cpp
-return v.apply(static_cast<T(*)(T)>(std::cos));
+return v.apply(static_cast<T(*)(T)>(std::cosh));
 ```
 * apply[link ./apply.md]
-* cos[link /reference/cmath/cos.md]
+* cosh[link /reference/cmath/cosh.md]
 
 
 ##例
@@ -29,19 +29,19 @@ int main()
 {
   const std::valarray<float> v = {0.1f, 0.2f, 0.3f};
 
-  std::valarray<float> result = std::cos(v);
+  std::valarray<float> result = std::cosh(v);
   for (float x : result) {
     std::cout << x << std::endl;
   }
 }
 ```
-* cos[color ff0000]
+* cosh[color ff0000]
 
 ###出力
 ```
-0.995004
-0.980067
-0.955337
+1.005
+1.02007
+1.04534
 ```
 
 

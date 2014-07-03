@@ -138,9 +138,9 @@ valarray<int> c = a + b;
 | [`acos`](./valarray/acos.md)   | 逆余弦を求める               | |
 | [`atan`](./valarray/atan.md)   | 逆正接を求める               | |
 | [`atan2`](./valarray/atan2.md) | 対辺と隣辺から逆正接を求める | |
-| `sinh`  | 双曲線正弦関数（ハイパボリックサイン）           | |
-| `cosh`  | 双曲線余弦関数（ハイパボリックコサイン）         | |
-| `tanh`  | 双曲線正接関数（ハイパボリックタンジェント）     | |
+| [`sinh`](./valarray/sinh.md)   | 双曲線正弦を求める           | |
+| [`cosh`](./valarray/cosh.md)   | 双曲線余弦を求める           | |
+| [`tanh`](./valarray/tanh.md)   | 双曲線正接を求める           | |
 | `exp`   | e (ネイピア数) を底とする指数関数                | |
 | `log`   | e (ネイピア数) を底とする自然対数                | |
 | `log10` | 10 を底とする常用対数                            | |
