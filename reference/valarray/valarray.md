@@ -134,7 +134,7 @@ valarray<int> c = a + b;
 | [`sin`](./valarray/sin.md)   | 正弦を求める                                     | |
 | [`cos`](./valarray/cos.md)   | 余弦を求める                                     | |
 | [`tan`](./valarray/tan.md)   | 正接を求める                                     | |
-| `asin`  | 逆正弦関数（アークサイン）                       | |
+| [`asin`](./valarray/asin.md)  | 逆正弦を求める                       | |
 | `acos`  | 逆余弦関数（アークコサイン）                     | |
 | `atan`  | 逆正接関数（アークタンジェント）                 | |
 | [`atan2`](./valarray/atan2.md) | 対辺と隣辺から逆正接を求める | |
