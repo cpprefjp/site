@@ -140,7 +140,7 @@ valarray<int> c = a + b;
 | [`atan2`](./valarray/atan2.md) | 対辺と隣辺から逆正接を求める | |
 | [`sinh`](./valarray/sinh.md)   | 双曲線正弦を求める           | |
 | [`cosh`](./valarray/cosh.md)   | 双曲線余弦を求める           | |
-| `tanh`  | 双曲線正接関数（ハイパボリックタンジェント）     | |
+| [`tanh`](./valarray/tanh.md)   | 双曲線正接を求める           | |
 | `exp`   | e (ネイピア数) を底とする指数関数                | |
 | `log`   | e (ネイピア数) を底とする自然対数                | |
 | `log10` | 10 を底とする常用対数                            | |
