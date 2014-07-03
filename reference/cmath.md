@@ -3,9 +3,31 @@
 
 - `double` を引数にとる関数に、`float`, `long double`, および任意の整数型をとるオーバーロードが追加されている。
 - 2 以上の引数をとる関数に、任意の異なる算術型をとるオーバーロードが追加されている。返値型は以下のように決定される。
-- 引数のいずれかあるいは全てが `long double` である場合 → `long double`
-- 引数のいずれかあるいは全てが `double` または整数型である場合 → `double`
-- それ以外（引数の全てが `float` である場合） → `float`
+1. 引数のいずれかあるいは全てが `long double` である場合 → `long double`
+2. 引数のいずれかあるいは全てが `double` または整数型である場合 → `double`
+3. それ以外（引数の全てが `float` である場合） → `float`
+
+ここでは、上記のオーバーロード関数をコードで示す際には、引数や返値の型を斜体で示す。
+```cpp		
+　　Integral      // 任意の整数型
+　　Arithmetic    // 任意の算術型
+　　Promoted      // 決定された返値型
+```
+* Integral[italic]
+* Arithmetic[italic]
+* Promoted[italic]
+
+複数の引数がある場合には、数字のサフィックスで区別する。
+例を以下に示す。
+```cpp
+  double atan(Integral x);
+
+  Promoted atan2(Arithmetic1 y, Arithmetic2 x);
+```
+* Integral[italic]
+* Arithmetic1[italic]
+* Arithmetic2[italic]
+* Promoted[italic]
 
 
 ##三角関数
