@@ -8,7 +8,7 @@ namespace std {
   valarray<T> atan2(const valarray<T>& ys, const T& x);            // (2)
 
   template <class T>
-  valarray<T> atan2(const T& ys, const valarray<T>& xs);           // (3)
+  valarray<T> atan2(const T& y, const valarray<T>& xs);            // (3)
 }
 ```
 
