@@ -146,7 +146,7 @@ valarray<int> c = a + b;
 | [`log10`](./valarray/log10.md) | 常用対数を求める              | |
 | [`pow`](./valarray/pow.md)     | 累乗を求める                  | |
 | [`sqrt`](./valarray/sqrt.md)   | 平方根を求める                | |
-| `abs`   | 絶対値                                           | |
+| [`abs`](./valarray/abs.md)     | 絶対値を求める                | |
 
 
 
