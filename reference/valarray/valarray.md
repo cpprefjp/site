@@ -142,7 +142,7 @@ valarray<int> c = a + b;
 | [`cosh`](./valarray/cosh.md)   | 双曲線余弦を求める            | |
 | [`tanh`](./valarray/tanh.md)   | 双曲線正接を求める            | |
 | [`exp`](./valarray/exp.md)     | 自然対数の底 e の累乗を求める | |
-| `log`   | e (ネイピア数) を底とする自然対数                | |
+| [`log`](./valarray/log.md)     | 自然対数を求める              | |
 | `log10` | 10 を底とする常用対数                            | |
 | `pow`   | 冪乗                                             | |
 | `sqrt`  | 平方根                                           | |
