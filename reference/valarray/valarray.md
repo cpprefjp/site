@@ -130,18 +130,18 @@ valarray<int> c = a + b;
 ###数学関数
 
 | 名前 | 説明 | 対応バージョン |
-|--------------------------------|------------------------------|-------|
-| [`sin`](./valarray/sin.md)     | 正弦を求める                 | |
-| [`cos`](./valarray/cos.md)     | 余弦を求める                 | |
-| [`tan`](./valarray/tan.md)     | 正接を求める                 | |
-| [`asin`](./valarray/asin.md)   | 逆正弦を求める               | |
-| [`acos`](./valarray/acos.md)   | 逆余弦を求める               | |
-| [`atan`](./valarray/atan.md)   | 逆正接を求める               | |
-| [`atan2`](./valarray/atan2.md) | 対辺と隣辺から逆正接を求める | |
-| [`sinh`](./valarray/sinh.md)   | 双曲線正弦を求める           | |
-| [`cosh`](./valarray/cosh.md)   | 双曲線余弦を求める           | |
-| [`tanh`](./valarray/tanh.md)   | 双曲線正接を求める           | |
-| `exp`   | e (ネイピア数) を底とする指数関数                | |
+|--------------------------------|-------------------------------|-------|
+| [`sin`](./valarray/sin.md)     | 正弦を求める                  | |
+| [`cos`](./valarray/cos.md)     | 余弦を求める                  | |
+| [`tan`](./valarray/tan.md)     | 正接を求める                  | |
+| [`asin`](./valarray/asin.md)   | 逆正弦を求める                | |
+| [`acos`](./valarray/acos.md)   | 逆余弦を求める                | |
+| [`atan`](./valarray/atan.md)   | 逆正接を求める                | |
+| [`atan2`](./valarray/atan2.md) | 対辺と隣辺から逆正接を求める  | |
+| [`sinh`](./valarray/sinh.md)   | 双曲線正弦を求める            | |
+| [`cosh`](./valarray/cosh.md)   | 双曲線余弦を求める            | |
+| [`tanh`](./valarray/tanh.md)   | 双曲線正接を求める            | |
+| [`exp`](./valarray/exp.md)     | 自然対数の底 e の累乗を求める | |
 | `log`   | e (ネイピア数) を底とする自然対数                | |
 | `log10` | 10 を底とする常用対数                            | |
 | `pow`   | 冪乗                                             | |
