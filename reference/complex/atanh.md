@@ -11,27 +11,26 @@ namespace std {
 
 
 ##戻り値
-引数 `x` の双曲線逆正接。本関数の値域は、実軸方向は全域、虚軸方向は `[-`*i* `π/2, +`*i* `π/2]` の区間である。
+引数 `x` の双曲線逆正接。本関数の値域は、実軸方向は全域、虚軸方向は `[-`*i* `π/2, +`*i* `π/2]` の区間である（*i* は虚数単位）。
 
 
 ##備考
 - 本関数は実軸の区間 `[-1, +1]` の外側を分岐截断とする。
-- 本関数は、C99 の規格にある `catanh`（より正確には `complex.h` ヘッダの `catanh`、`catanhf`、`catanhl`の 3 つ。それぞれ C++ の `atanh<double>`、`atanh<float>`、`atanh<long double>` に相当）と同等である。
+- 本関数は、C99 の規格にある `catanh`（より正確には `complex.h` ヘッダの `catanh`、`catanhf`、`catanhl` の 3 つ。それぞれ C++ の `atanh<double>`、`atanh<float>`、`atanh<long double>` に相当）と同等である。  
 	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
-	- `atanh(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(atanh(x))`で、また、`atanh` は奇関数（つまり、`atanh(-x) = -atanh(x)`）。
+	- `atanh(`[`conj`](conj.md)`(x)) = ` [`conj`](conj.md)`(atanh(x))`で、また、`atanh` は奇関数（つまり、`atanh(-x) = -atanh(x)`）。
 	- `atanh(complex(+0, +0))` は `complex(+0, +0)` を返す。
 	- `atanh(complex(+0, NaN))` は `complex(+0, NaN)` を返す。
 	- `atanh(complex(+1, +0))` は `complex(+∞, +0)` を返すとともに、ゼロ除算の浮動小数点例外（`FE_DIVBYZERO`）を引き起こす。
-	- 有限で正の符号を持つ（`+0` を含む）実部 `x` について、`atanh(complex(x, +∞))` は `complex(+0, π/2)` を返す。
-	- 有限で非ゼロな値を持つ実部 `x` について、`atanh(complex(x, NaN))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
-	- 有限で正の符号を持つ（`+0` を含む）虚部 `y` について、`atanh(complex(+∞, y))` は `complex(+0, π/2)`を返す。
+	- 有限で正の符号を持つ（`+0` を含む）`x` について、`atanh(complex(x, +∞))` は `complex(+0, π/2)` を返す。
+	- 有限で非ゼロの値を持つ `x` について、`atanh(complex(x, NaN))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- 有限で正の符号を持つ（`+0` を含む）`y` について、`atanh(complex(+∞, y))` は `complex(+0, π/2)`を返す。
 	- `atanh(complex(+∞, +∞))` は `complex(+0, π/2)` を返す。
 	- `atanh(complex(+∞, NaN))` は `complex(+0, NaN)` を返す。
-	- 有限の虚部 `y` について、`atanh(complex(NaN, y))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- 有限の `y` について、`atanh(complex(NaN, y))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
 	- `atanh(complex(NaN, +∞))` は `complex(±0, π/2)` を返す（結果値の実部の符号は未規定）。
 	- `atanh(complex(NaN, NaN))` は `complex(NaN, NaN)` を返す。
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、
-C++ の規格書には該当する記載を見つける事ができなかった。
+- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
 - 逆正接の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
 
 	| 引数の型                                | 関数                                       | ヘッダ                               | 備考       |
@@ -80,13 +79,13 @@ atanh( (1,2) ) = (0.173287,1.1781)
 
 ###備考
 - libstdc++ では（規格通りに）C++11 以降のモードでなければ本関数は使用できないが、libc++ では C++98 モードでも使用することができる。（上記の [Clang](/implementation.md#clang) が C++11 モードになっていないのはそのため）
-- libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。
-	しかし、libstdc++ が glibc を使用しない場合、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
+- libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。  
+	しかし、glibc を使用していない libstdc++、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
 
 
 ##参照
 |                                      |                                           |
-|------------------------------------  |-------------------------------------------|
+|--------------------------------------|-------------------------------------------|
 | [`acos`](acos.md)                    | 複素数の逆余弦を求める。                  |
 | [`asin`](asin.md)                    | 複素数の逆正弦を求める。                  |
 | [`atan`](atan.md)                    | 複素数の逆正接を求める。                  |

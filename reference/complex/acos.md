@@ -16,32 +16,31 @@ namespace std {
 
 ##備考
 - 本関数は実軸の区間 `[-1, +1]` の外側を分岐截断とする。
-- 本関数は、C99 の規格にある `cacos`（より正確には `complex.h` ヘッダの `cacos`、`cacosf`、`cacosl` の 3 つ。それぞれ C++ の `acos<double>`、`acos<float>`、`acos<long double>` に相当）と同等である。
+- 本関数は、C99 の規格にある `cacos`（より正確には `complex.h` ヘッダの `cacos`、`cacosf`、`cacosl` の 3 つ。それぞれ C++ の `acos<double>`、`acos<float>`、`acos<long double>` に相当）と同等である。  
 	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
-	- `acos(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(acos(x))`
+	- `acos(`[`conj`](conj.md)`(x)) = ` [`conj`](conj.md)`(acos(x))`
 	- `acos(complex(±0, +0))` は `complex(π/2, -0)` を返す。
 	- `acos(complex(±0, NaN))` は `complex(π/2, NaN)` を返す。
-	- 有限の実部 `x` について、`acos(complex(x, +∞))` は `complex(π/2, -∞)` を返す。
-	- 有限で非ゼロな実部 `x` について、`acos(x, NaN)` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
-	- 有限で正の符号を持つ（`+0` を含む）虚部 `y` について、`acos(-∞, y)` は `complex(π, -∞)` を返す。
-	- 有限で正の符号を持つ（`+0` を含む）虚部 `y` について、`acos(+∞, y)` は `complex(+0, -∞)` を返す。
+	- 有限の `x` について、`acos(complex(x, +∞))` は `complex(π/2, -∞)` を返す。
+	- 有限で非ゼロの `x` について、`acos(x, NaN)` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- 有限で正の符号を持つ（`+0` を含む）`y` について、`acos(-∞, y)` は `complex(π, -∞)` を返す。
+	- 有限で正の符号を持つ（`+0` を含む）`y` について、`acos(+∞, y)` は `complex(+0, -∞)` を返す。
 	- `acos(-∞, +∞)` は `complex(3π/4, -∞)` を返す。
 	- `acos(+∞, +∞)` は `complex(π/4, -∞)` を返す。
 	- `acos(±∞, NaN)` は `complex(NaN, ±∞)` を返す（結果の虚部の符号は未規定）。
-	- 有限の虚部 `y` について、`acos(NaN, y)` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- 有限の `y` について、`acos(NaN, y)` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
 	- `acos(NaN, +∞)` は `complex(NaN, -∞)` を返す。
 	- `acos(NaN, NaN)` は `complex(NaN, NaN)` を返す。
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、
-C++ の規格書には該当する記載を見つける事ができなかった。
+- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
 - 逆余弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。  
 
-	| 引数の型                                | 関数                                     | ヘッダ                               | 備考       |
-	|-----------------------------------------|------------------------------------------|--------------------------------------|------------|
-	| `float`                                 | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |            |
-	| `double`                                | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |            |
-	| `long double`                           | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       |            |
-	| 任意の整数型                            | [`acos`](/reference/cmath/acos.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| [`valarray<T>`](/reference/valarray.md) | [`acos`](/reference/valarray/acos.md)    | [`valarray`](/reference/valarray.md) |            |
+	| 引数の型                                  | 関数                                           | ヘッダ                               | 備考       |
+	|-------------------------------------------|------------------------------------------------|--------------------------------------|------------|
+	| `float`                                   | [`acos`](/reference/cmath/acos.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                  | [`acos`](/reference/cmath/acos.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                             | [`acos`](/reference/cmath/acos.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                              | [`acos`](/reference/cmath/acos.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray`](/reference/valarray.md)`<T>` | [`acos`](/reference/valarray/valarray/acos.md) | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例
@@ -84,8 +83,8 @@ acos( (1,2) ) = (1.14372,-1.52857)
 
 ###備考
 - libstdc++ では（規格通りに）C++11 以降のモードでなければ本関数は使用できないが、libc++ では C++98 モードでも使用することができる。（上記の [Clang](/implementation.md#clang) が C++11 モードになっていないのはそのため）
-- libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。
-	しかし、libstdc++ が glibc を使用しない場合、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
+- libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。  
+	しかし、glibc を使用していない libstdc++、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
 
 
 ##参照

@@ -16,20 +16,27 @@ namespace std {
 
 ##備考
 - 規格には、上記の戻り値に記載されている以上の規定・説明は無い。  
-なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `ctan`、`ctanf`、`ctanl`の 3 つ。それぞれ C++ の `tan<double>`、`tan<float>`、`tan<long double>` に相当）では、
-処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`tan(x) = -`*i*[`tanh`](tanh.md)`(`*i*`x)` であると規定されている。（ここで、*i* は虚数単位）
+	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `ctan`、`ctanf`、`ctanl` の 3 つ。それぞれ C++ の `tan<double>`、`tan<float>`、`tan<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
 	- `tanh(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(tanh(x))` で、また、`tanh` は奇関数（つまり、`tanh(-x) = -tanh(x)`）。
 	- `tanh(complex(+0, +0))` は `complex(+0, +0)` を返す。
 	- 有限の `x` に対して、`tanh(complex(x, +∞))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす。
 	- 有限の `x` に対して、`tanh(complex(x, NaN))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
-	- 有限で正の `y` に対して、`tanh(complex(+∞, y))` は `complex(1, +0 * `[`sin`](/reference/cmath/sin.md)`(2 * y))` を返す。
+	- 有限で正の符号を持つ（`+0` を含む）`y` に対して、`tanh(complex(+∞, y))` は `complex(1, +0 * `[`sin`](/reference/cmath/sin.md)`(2 * y))` を返す。
 	- `tanh(complex(+∞, +∞))` は `complex(1, ±0)` を返す（結果の虚部の符号は未規定）。
 	- `tanh(complex(+∞, NaN))` は `complex(1, ±0)` を返す（結果の虚部の符号は未規定）。
-	- `tanh(complex(NaN, 0))` は `complex(NaN, 0)` を返す。
-	- あらゆる非零の `y` に対して、`tanh(complex(NaN, y))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- `tanh(complex(NaN, +0))` は `complex(NaN, +0)` を返す。
+	- あらゆる非ゼロの `y` に対して、`tanh(complex(NaN, y))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
 	- `tanh(complex(NaN, NaN))` は `complex(NaN, NaN)` を返す。
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、
-C++ の規格書には該当する記載を見つける事ができなかった。
+- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
+- 双曲線正接の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
+
+	| 引数の型                                  | 関数                                           | ヘッダ                               | 備考       |
+	|-------------------------------------------|------------------------------------------------|--------------------------------------|------------|
+	| `float`                                   | [`tanh`](/reference/cmath/tanh.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                  | [`tanh`](/reference/cmath/tanh.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                             | [`tanh`](/reference/cmath/tanh.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                              | [`tanh`](/reference/cmath/tanh.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray`](/reference/valarray.md`<T>`) | [`tanh`](/reference/valarray/valarray/tanh.md) | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例
@@ -39,8 +46,10 @@ C++ の規格書には該当する記載を見つける事ができなかった�
 
 int main()
 {
-  std::complex<float> c(1.0, 2.0);
-  std::cout << "tanh( " << c << " ) = " << std::tanh(c) << std::endl;
+  std::complex<double> c(1.0, 2.0);
+
+  std::complex<double> result = std::atanh(c);
+  std::cout << "tanh( " << c << " ) = " << result << std::endl;
 }
 ```
 * tanh[color ff0000]
@@ -64,8 +73,9 @@ tanh( (1,2) ) = (1.16674,-0.243458)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ###備考
-- [Wandbox](http://melpon.org/wandbox/) で確認した限りでは、GCC の C++11 モードは上記の備考に記載した C99 の ISO IEC 60559 準拠要件にある無効演算の浮動小数点例外も引き起こしたが、Clang は C+11 モードでも無効演算の浮動小数点例外を引き起こさないようである。
-- 同じく、[Wandbox](http://melpon.org/wandbox/) で確認した限りでは、GCC、Clang 共に、有限で正の `y` に対する `tanh(complex(+∞, y))` の虚部の符号が上記の備考に記載した C99 の ISO IEC 60559 準拠要件と異なるようである。
+- libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす（ただし、次項参照）。  
+	しかし、glibc を使用していない libstdc++、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
+- glibc 2.19 時点では、有限で正の符号を持つ `y` に対する `tanh(complex(+∞, y))` の虚部の符号が上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たしていない。
 
 
 ##参照

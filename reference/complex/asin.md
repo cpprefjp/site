@@ -16,19 +16,18 @@ namespace std {
 
 ##備考
 - 本関数は実軸の区間 `[-1, +1]` の外側を分岐截断とする。
-- 本関数は、C99 の規格にある `casin`（より正確には `complex.h` ヘッダの `casin`、`casinf`、`casinl` の 3 つ。それぞれ C++ の `asin<double>`、`asin<float>`、`asin<long double>` に相当）と同等である。
-	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`casin(x) = -`*i* `casinh(`*i* `x)` と規定されている。
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、
-C++ の規格書には該当する記載を見つける事ができなかった。
+- 本関数は、C99 の規格にある `casin`（より正確には `complex.h` ヘッダの `casin`、`casinf`、`casinl` の 3 つ。それぞれ C++ の `asin<double>`、`asin<float>`、`asin<long double>` に相当）と同等である。  
+	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`casin(x) = -`*i* `casinh(`*i* `x)` と規定されている（*i* は虚数単位）。
+- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
 - 逆正弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
 
-	| 引数の型                                | 関数                                     | ヘッダ                               | 備考       |
-	|-----------------------------------------|------------------------------------------|--------------------------------------|------------|
-	| `float`                                 | [`asin`](/reference/cmath/asin.md)       | [`cmath`](/reference/cmath.md)       |            |
-	| `double`                                | [`asin`](/reference/cmath/asin.md)       | [`cmath`](/reference/cmath.md)       |            |
-	| `long double`                           | [`asin`](/reference/cmath/asin.md)       | [`cmath`](/reference/cmath.md)       |            |
-	| 任意の整数型                            | [`asin`](/reference/cmath/asin.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| [`valarray<T>`](/reference/valarray.md) | [`asin`](/reference/valarray/asin.md)    | [`valarray`](/reference/valarray.md) |            |
+	| 引数の型                                  | 関数                                           | ヘッダ                               | 備考       |
+	|-------------------------------------------|------------------------------------------------|--------------------------------------|------------|
+	| `float`                                   | [`asin`](/reference/cmath/asin.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                  | [`asin`](/reference/cmath/asin.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                             | [`asin`](/reference/cmath/asin.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                              | [`asin`](/reference/cmath/asin.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray`](/reference/valarray.md)`<T>` | [`asin`](/reference/valarray/valarray/asin.md) | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例

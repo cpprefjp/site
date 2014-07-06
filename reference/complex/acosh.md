@@ -16,31 +16,30 @@ namespace std {
 
 ##備考
 - 本関数は実軸の `1` 未満の領域を分岐截断とする。
-- 本関数は、C99 の規格にある `cacosh`（より正確には `complex.h` ヘッダの `cacosh`、`cacoshf`、`cacoshl` の 3 つ。それぞれ C++ の `acosh<double>`、`acosh<float>`、`acosh<long double>` に相当）と同等である。
+- 本関数は、C99 の規格にある `cacosh`（より正確には `complex.h` ヘッダの `cacosh`、`cacoshf`、`cacoshl` の 3 つ。それぞれ C++ の `acosh<double>`、`acosh<float>`、`acosh<long double>` に相当）と同等である。  
 	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
-	- `acosh(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(acosh(x))`
+	- `acosh(`[`conj`](conj.md)`(x)) = ` [`conj`](conj.md)`(acosh(x))`
 	- `acosh(complex(±0, +0))` は `complex(+0, π/2)` を返す。
-	- 有限の実部 `x` について、`acosh(complex(x, +∞))` は `complex(+∞, π/2)` を返す。
-	- 有限の実部 `x` について、`acosh(complex(x, NaN))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
-	- 有限で正の符号を持つ（`+0` を含む）虚部 `y` について、`acosh(complex(-∞, y))` は `complex(+∞, π)` を返す。
-	- 有限で正の符号を持つ（`+0` を含む）虚部 `y` について、`acosh(complex(+∞, y))` は `complex(+∞, +0)` を返す。
+	- 有限の `x` について、`acosh(complex(x, +∞))` は `complex(+∞, π/2)` を返す。
+	- 有限の `x` について、`acosh(complex(x, NaN))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- 有限で正の符号を持つ（`+0` を含む）`y` について、`acosh(complex(-∞, y))` は `complex(+∞, π)` を返す。
+	- 有限で正の符号を持つ（`+0` を含む）`y` について、`acosh(complex(+∞, y))` は `complex(+∞, +0)` を返す。
 	- `acosh(complex(-∞, +∞))` は `complex(+∞, 3π/4)` を返す。
 	- `acosh(complex(+∞, +∞))` は `complex(+∞, π/4)` を返す。
 	- `acosh(complex(±∞, NaN))` は `complex(+∞, NaN)` を返す。
-	- 有限の虚部 `y` について、`acosh(complex(NaN, y))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- 有限の `y` について、`acosh(complex(NaN, y))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
 	- `acosh(complex(NaN, +∞))` は `complex(+∞, NaN)` を返す。
 	- `acosh(complex(NaN, NaN))` は `complex(NaN, NaN)` を返す。
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、
-C++ の規格書には該当する記載を見つける事ができなかった。
+- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
 - 逆双曲線余弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。  
 
-	| 引数の型                                | 関数                                     | ヘッダ                               | 備考       |
-	|-----------------------------------------|------------------------------------------|--------------------------------------|------------|
-	| `float`                                 | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |            |
-	| `double`                                | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |            |
-	| `long double`                           | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       |            |
-	| 任意の整数型                            | [`acosh`](/reference/cmath/acosh.md)     | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| [`valarray<T>`](/reference/valarray.md) | [`acosh`](/reference/valarray/acosh.md)  | [`valarray`](/reference/valarray.md) |            |
+	| 引数の型                                  | 関数                                             | ヘッダ                               | 備考       |
+	|-------------------------------------------|--------------------------------------------------|--------------------------------------|------------|
+	| `float`                                   | [`acosh`](/reference/cmath/acosh.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                  | [`acosh`](/reference/cmath/acosh.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                             | [`acosh`](/reference/cmath/acosh.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                              | [`acosh`](/reference/cmath/acosh.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray`](/reference/valarray.md)`<T>` | [`acosh`](/reference/valarray/valarray/acosh.md) | [`valarray`](/reference/valarray.md) |            |
 
 - 規格書では arc hyperbolic cosine となっているが、逆双曲線関数で求めるのは「弧（arc）」ではなく「面積（area）」であるため、（広く誤用されてはいるものの）適切な表現ではない。（[逆双曲線関数 - Wikipedia](http://ja.wikipedia.org/wiki/逆双曲線関数)）
 
@@ -80,8 +79,8 @@ acosh( (1,2) ) = (1.52857,1.14372)
 
 ###備考
 - libstdc++ では（規格通りに）C++11 以降のモードでなければ本関数は使用できないが、libc++ では C++98 モードでも使用することができる。（上記の [Clang](/implementation.md#clang) が C++11 モードになっていないのはそのため）
-- libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。
-	しかし、libstdc++ が glibc を使用しない場合、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
+- libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。  
+	しかし、glibc を使用していない libstdc++、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
 
 
 ##参照
