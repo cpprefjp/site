@@ -53,7 +53,7 @@ valarray<int> c = a + b;
 | [`operator-=`](./valarray/op_minus_assign.md)    | 減算                                       | |
 | [`operator*=`](./valarray/op_multiply_assign.md) | 乗算                                       | |
 | [`operator/=`](./valarray/op_divide_assign.md)   | 除算                                       | |
-| `operator%=`                 | 剰余算                                     | |
+| [`operator%=`](./valarray/op_modulo_assign.md)   | 剰余算                                     | |
 | `operator^=`                 | 排他的論理和のビット演算                   | |
 | `operator&=`                 | 論理積のビット演算                         | |
 | <code>operator&#x7C;=</code> | 論理和のビット演算                         | |
@@ -94,12 +94,12 @@ valarray<int> c = a + b;
 ###四則演算
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------------------------|----------------------------------|-------|
-| [`operator+`](./valarray/op_plus.md)     | 加算                             | |
-| [`operator-`](./valarray/op_minus.md)    | 減算                             | |
-| [`operator*`](./valarray/op_multiply.md) | 乗算                             | |
-| [`operator/`](./valarray/op_divide.md)   | 除算                             | |
-| `operator%`                       | 剰余算                           | |
+|------------------------------------------|--------|-------|
+| [`operator+`](./valarray/op_plus.md)     | 加算   | |
+| [`operator-`](./valarray/op_minus.md)    | 減算   | |
+| [`operator*`](./valarray/op_multiply.md) | 乗算   | |
+| [`operator/`](./valarray/op_divide.md)   | 除算   | |
+| [`operator%`](./valarray/op_modulo.md)   | 剰余算 | |
 
 
 ###ビット演算
