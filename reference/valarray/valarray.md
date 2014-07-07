@@ -49,8 +49,8 @@ valarray<int> c = a + b;
 | `operator+` (単項演算子)     | 自身のコピーを返す                         | |
 | `operator-` (単項演算子)     | 自身のコピーを返す                         | |
 | `operator~` (単項演算子)     | 自身のコピーを返す                         | |
-| [`operator+=`](./valarray/op_plus_assign.md) | 加算                                       | |
-| `operator-=`                 | 減算                                       | |
+| [`operator+=`](./valarray/op_plus_assign.md)  | 加算                                       | |
+| [`operator-=`](./valarray/op_minus_assign.md) | 減算                                       | |
 | `operator*=`                 | 乗算                                       | |
 | `operator/=`                 | 除算                                       | |
 | `operator%=`                 | 剰余算                                     | |
@@ -95,8 +95,8 @@ valarray<int> c = a + b;
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------|----------------------------------|-------|
-| [`operator+`](./valarray/op_plus.md) | 加算                             | |
-| `operator-`                       | 減算                             | |
+| [`operator+`](./valarray/op_plus.md)  | 加算                             | |
+| [`operator-`](./valarray/op_minus.md) | 減算                             | |
 | `operator*`                       | 乗算                             | |
 | `operator/`                       | 除算                             | |
 | `operator%`                       | 剰余算                           | |
