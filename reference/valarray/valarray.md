@@ -61,11 +61,11 @@ valarray<int> c = a + b;
 |----------------------------------------------------|------------------------------------------|-------|
 | [`operator+` (単項)](./valarray/op_unary_plus.md)  | 単項 `+` 演算（符号そのままの要素を得る）| |
 | [`operator-` (単項)](./valarray/op_unary_minus.md) | 単項 `-` 演算（符号を反転した要素を得る）| |
-| [`operator+=`](./valarray/op_plus_assign.md)       | 加算                   | |
-| [`operator-=`](./valarray/op_minus_assign.md)      | 減算                   | |
-| [`operator*=`](./valarray/op_multiply_assign.md)   | 乗算                   | |
-| [`operator/=`](./valarray/op_divide_assign.md)     | 除算                   | |
-| [`operator%=`](./valarray/op_modulo_assign.md)     | 剰余算                 | |
+| [`operator+=`](./valarray/op_plus_assign.md)       | 加算の複合代入                           | |
+| [`operator-=`](./valarray/op_minus_assign.md)      | 減算の複合代入                           | |
+| [`operator*=`](./valarray/op_multiply_assign.md)   | 乗算の複合代入                           | |
+| [`operator/=`](./valarray/op_divide_assign.md)     | 除算の複合代入                           | |
+| [`operator%=`](./valarray/op_modulo_assign.md)     | 剰余算の複合代入                         | |
 
 
 ###ビット演算
