@@ -58,14 +58,14 @@ valarray<int> c = a + b;
 ###四則演算
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------|--------------------------------------------|-------|
-| `operator+` (単項)           | 単項 `+` 演算（引数をそのまま返す）        | |
-| `operator-` (単項)           | 単項 `-` 演算（符号を反転した要素を得る）  | |
-| [`operator+=`](./valarray/op_plus_assign.md)     | 加算                   | |
-| [`operator-=`](./valarray/op_minus_assign.md)    | 減算                   | |
-| [`operator*=`](./valarray/op_multiply_assign.md) | 乗算                   | |
-| [`operator/=`](./valarray/op_divide_assign.md)   | 除算                   | |
-| [`operator%=`](./valarray/op_modulo_assign.md)   | 剰余算                 | |
+|----------------------------------------------------|------------------------------------------|-------|
+| [`operator+` (単項)](./valarray/op_unary_plus.md)  | 単項 `+` 演算（符号そのままの要素を得る）| |
+| [`operator-` (単項)](./valarray/op_unary_minus.md) | 単項 `-` 演算（符号を反転した要素を得る）| |
+| [`operator+=`](./valarray/op_plus_assign.md)       | 加算                   | |
+| [`operator-=`](./valarray/op_minus_assign.md)      | 減算                   | |
+| [`operator*=`](./valarray/op_multiply_assign.md)   | 乗算                   | |
+| [`operator/=`](./valarray/op_divide_assign.md)     | 除算                   | |
+| [`operator%=`](./valarray/op_modulo_assign.md)     | 剰余算                 | |
 
 
 ###ビット演算
