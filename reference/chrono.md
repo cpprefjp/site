@@ -17,8 +17,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------|-------|
-| [`operator+`](./chrono/op_add.md)            | 加算(function template) | C++11 |
-| [`operator-`](./chrono/op_substract.md)      | 減算(function template) | C++11 |
+| [`operator+`](./chrono/op_plus.md)           | 加算(function template) | C++11 |
+| [`operator-`](./chrono/op_minus.md)          | 減算(function template) | C++11 |
 | [`operator*`](./chrono/op_multiply.md)       | 乗算(function template) | C++11 |
 | [`operator/`](./chrono/op_divide.md)         | 除算(function template) | C++11 |
 | [`operator%`](./chrono/op_modulo.md)         | 剰余算(function template) | C++11 |

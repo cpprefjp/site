@@ -42,17 +42,17 @@ namespace chrono {
 
 ###算術演算
 
-| 名前                                              | 説明                     | 対応バージョン |
-|---------------------------------------------------|--------------------------|----------------|
-| [`operator+`](./duration/op_unary_add.md)         | 正の`duration`を生成する | C++11          |
-| [`operator-`](./duration/op_unary_substract.md)   | 負の`duration`を生成する | C++11          |
-| [`operator++`](./duration/op_increment.md)        | 値をインクリメントする   | C++11          |
-| [`operator--`](./duration/op_decrement.md)        | 値をデクリメントする     | C++11          |
-| [`operator+=`](./duration/op_add_assign.md)       | `+`の複合代入            | C++11          |
-| [`operator-=`](./duration/op_substract_assign.md) | `-`の複合代入            | C++11          |
-| [`operator*=`](./duration/op_multiply_assign.md)  | `*`の複合代入            | C++11          |
-| [`operator/=`](./duration/op_divide_assign.md)    | `/`の複合代入            | C++11          |
-| [`operator%=`](./duration/op_modulo_assign.md)    | `%`の複合代入            | C++11          |
+| 名前                                             | 説明                     | 対応バージョン |
+|--------------------------------------------------|--------------------------|----------------|
+| [`operator+`](./duration/op_unary_plus.md)       | 正の`duration`を生成する | C++11          |
+| [`operator-`](./duration/op_unary_minus.md)      | 負の`duration`を生成する | C++11          |
+| [`operator++`](./duration/op_increment.md)       | 値をインクリメントする   | C++11          |
+| [`operator--`](./duration/op_decrement.md)       | 値をデクリメントする     | C++11          |
+| [`operator+=`](./duration/op_plus_assign.md)     | `+`の複合代入            | C++11          |
+| [`operator-=`](./duration/op_minus_assign.md)    | `-`の複合代入            | C++11          |
+| [`operator*=`](./duration/op_multiply_assign.md) | `*`の複合代入            | C++11          |
+| [`operator/=`](./duration/op_divide_assign.md)   | `/`の複合代入            | C++11          |
+| [`operator%=`](./duration/op_modulo_assign.md)   | `%`の複合代入            | C++11          |
 
 
 ##静的メンバ関数
