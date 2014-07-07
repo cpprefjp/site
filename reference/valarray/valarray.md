@@ -49,11 +49,11 @@ valarray<int> c = a + b;
 | `operator+` (単項演算子)     | 自身のコピーを返す                         | |
 | `operator-` (単項演算子)     | 自身のコピーを返す                         | |
 | `operator~` (単項演算子)     | 自身のコピーを返す                         | |
+| [`operator+=`](./valarray/op_plus_assign.md) | 加算                                       | |
+| `operator-=`                 | 減算                                       | |
 | `operator*=`                 | 乗算                                       | |
 | `operator/=`                 | 除算                                       | |
 | `operator%=`                 | 剰余算                                     | |
-| `operator+=`                 | 加算                                       | |
-| `operator-=`                 | 減算                                       | |
 | `operator^=`                 | 排他的論理和のビット演算                   | |
 | `operator&=`                 | 論理積のビット演算                         | |
 | <code>operator&#x7C;=</code> | 論理和のビット演算                         | |
@@ -95,11 +95,11 @@ valarray<int> c = a + b;
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------|----------------------------------|-------|
+| [`operator+`](./valarray/op_plus.md) | 加算                             | |
+| `operator-`                       | 減算                             | |
 | `operator*`                       | 乗算                             | |
 | `operator/`                       | 除算                             | |
 | `operator%`                       | 剰余算                           | |
-| `operator+`                       | 加算                             | |
-| `operator-`                       | 減算                             | |
 
 
 ###ビット演算
