@@ -46,14 +46,14 @@ valarray<int> c = a + b;
 | `(destructor)`               | デストラクタ                               | |
 | `operator=`                  | 代入演算子                                 | |
 | `operator[]`                 | 一部の要素を抽出する                       | |
-| `operator+` (単項演算子)     | 自身のコピーを返す                         | |
-| `operator-` (単項演算子)     | 自身のコピーを返す                         | |
-| `operator~` (単項演算子)     | 自身のコピーを返す                         | |
-| [`operator+=`](./valarray/op_plus_assign.md)     | 加算                                       | |
-| [`operator-=`](./valarray/op_minus_assign.md)    | 減算                                       | |
-| [`operator*=`](./valarray/op_multiply_assign.md) | 乗算                                       | |
-| [`operator/=`](./valarray/op_divide_assign.md)   | 除算                                       | |
-| [`operator%=`](./valarray/op_modulo_assign.md)   | 剰余算                                     | |
+| `operator+` (単項)           | 単項 `+` 演算（引数をそのまま返す）        | |
+| `operator-` (単項)           | 単項 `-` 演算（符号を反転した要素を得る）  | |
+| [`operator+=`](./valarray/op_plus_assign.md)     | 加算                   | |
+| [`operator-=`](./valarray/op_minus_assign.md)    | 減算                   | |
+| [`operator*=`](./valarray/op_multiply_assign.md) | 乗算                   | |
+| [`operator/=`](./valarray/op_divide_assign.md)   | 除算                   | |
+| [`operator%=`](./valarray/op_modulo_assign.md)   | 剰余算                 | |
+| `operator~` (単項)           | 単項 `~` 演算（ビット反転した要素を得る）  | |
 | `operator^=`                 | 排他的論理和のビット演算                   | |
 | `operator&=`                 | 論理積のビット演算                         | |
 | <code>operator&#x7C;=</code> | 論理和のビット演算                         | |
