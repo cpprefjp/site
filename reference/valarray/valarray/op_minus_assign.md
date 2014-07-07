@@ -4,7 +4,7 @@ valarray<T>& operator-=(const valarray<T>& x);
 ```
 
 ##概要
-`*this`に`x`を加算する。
+`*this`から`x`を減算する。
 
 
 ##効果
