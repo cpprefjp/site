@@ -77,7 +77,6 @@ int main()
   result2 <<= 4;
   assert((equal_valarray(result2, expected)));
 }
-
 ```
 
 ###出力
