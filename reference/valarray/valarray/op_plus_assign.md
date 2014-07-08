@@ -1,7 +1,7 @@
 #operator+=
 ```cpp
 valarray<T>& operator+=(const valarray<T>& xs); // (1)
-valarray<T>& operator+= (const T& x);           // (2)
+valarray<T>& operator+=(const T& x);            // (2)
 ```
 
 ##概要
