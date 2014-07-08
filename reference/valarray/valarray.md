@@ -77,7 +77,7 @@ valarray<int> c = a + b;
 | [<code>operator&#x7C;=</code>](./valarray/op_or_assign.md) | 論理和の複合代入                         | |
 | [`operator^=`](./valarray/op_xor_assign.md)                | 排他的論理和の複合代入                   | |
 | [`operator<<=`](./valarray/op_left_shift_assign.md)        | 左シフトの複合代入                       | |
-| `operator>>=`                | 右シフトの複合代入                       | |
+| [`operator>>=`](./valarray/op_right_shift_assign.md)       | 右シフトの複合代入                       | |
 
 
 ###その他メンバ関数
@@ -135,7 +135,7 @@ valarray<int> c = a + b;
 | [<code>operator&#x7C;</code>](./valarray/op_or.md) | 論理和       | |
 | [`operator^`](./valarray/op_xor.md)                | 排他的論理和 | |
 | [`operator<<`](./valarray/op_left_shift.md)        | 左シフト     | |
-| `operator>>`                                       | 右シフト     | |
+| [`operator>>`](./valarray/op_right_shift.md)       | 右シフト     | |
 
 
 ###比較演算
