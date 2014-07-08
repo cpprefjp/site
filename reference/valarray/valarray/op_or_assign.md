@@ -54,9 +54,9 @@ bool equal_valarray(const std::valarray<T>& a, const std::valarray<T>& b)
 int main()
 {
   const std::valarray<std::uint8_t> a = {
-    0b0000101,
-    0b0001010,
-    0b0010101
+    0b00000101,
+    0b00001010,
+    0b00010101
   };
   const std::valarray<std::uint8_t> b = {
     0b00000011,
