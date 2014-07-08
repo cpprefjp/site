@@ -136,8 +136,6 @@ valarray<int> c = a + b;
 | `operator^`                         | 排他的論理和 | |
 | `operator<<`                        | 左シフト     | |
 | `operator>>`                        | 右シフト     | |
-| `operator&&`                        | 論理積       | |
-| <code>operator&#x7C;&#x7C;</code>   | 論理和       | |
 
 
 ###比較演算
@@ -150,6 +148,8 @@ valarray<int> c = a + b;
 | `operator<=`                      | 左辺が右辺以下かを判定する       | |
 | `operator>`                       | 左辺が右辺より大きいかを判定する | |
 | `operator>=`                      | 左辺が右辺以上かを判定する       | |
+| `operator&&`                      | 条件式の論理積                   | |
+| <code>operator&#x7C;&#x7C;</code> | 条件式の論理和                   | |
 
 
 ###数学関数
