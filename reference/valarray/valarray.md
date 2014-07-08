@@ -72,8 +72,8 @@ valarray<int> c = a + b;
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------|--------------------------------------------|-------|
-| [`operator~` (単項)](./valarray/op_flip.md)           | 単項 `~` 演算（ビット反転した要素を得る）  | |
-| `operator&=`                 | 論理積の複合代入                         | |
+| [`operator~` (単項)](./valarray/op_flip.md)           | 単項 `~` 演算（ビット反転した要素を得る）| |
+| [`operator&=`](./valarray/op_and_assign.md)           | 論理積の複合代入                         | |
 | <code>operator&#x7C;=</code> | 論理和の複合代入                         | |
 | `operator^=`                 | 排他的論理和の複合代入                   | |
 | `operator<<=`                | 左シフトの複合代入                       | |
@@ -130,14 +130,14 @@ valarray<int> c = a + b;
 ###ビット演算
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------------------------|----------------------------------|-------|
-| `operator&`                       | 論理積のビット演算               | |
-| <code>operator&#x7C;</code>       | 論理和のビット演算               | |
-| `operator^`                       | 排他的論理和のビット演算         | |
-| `operator<<`                      | 左シフト                         | |
-| `operator>>`                      | 右シフト                         | |
-| `operator&&`                      | 論理積                           | |
-| <code>operator&#x7C;&#x7C;</code> | 論理和                           | |
+|-------------------------------------|--------------|-------|
+| [`operator&`](./valarray/op_and.md) | 論理積       | |
+| <code>operator&#x7C;</code>         | 論理和       | |
+| `operator^`                         | 排他的論理和 | |
+| `operator<<`                        | 左シフト     | |
+| `operator>>`                        | 右シフト     | |
+| `operator&&`                        | 論理積       | |
+| <code>operator&#x7C;&#x7C;</code>   | 論理和       | |
 
 
 ###比較演算
