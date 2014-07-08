@@ -2,21 +2,54 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> operator*(const valarray<T>& a, const valarray<T>& b);
+  valarray<T> operator*(const valarray<T>& xs, const valarray<T>& ys); // (1)
+
+  template <class T>
+  valarray<T> operator*(const valarray<T>& xs, const T& y);            // (2)
+
+  template <class T>
+  valarray<T> operator*(const T& x, const valarray<T>& ys);            // (3)
 }
 ```
 
 ##概要
 `valarray`において、左辺と右辺を乗算する。
 
+- (1) : `xs`の各要素に、`ys`の各要素を乗算する。
+- (2) : `xs`の各要素に、`y`を乗算する。
+- (3) : `ys`の各要素に、`x`を乗算する。
+
 
 ##戻り値
 以下のコードと同等のことを行う：
 
+- (1) : 以下のコードと同等のことを行う：
+
 ```cpp
-valarray<T> c = a;
-c *= b;
-return c;
+valarray<T> result = xs;
+result *= ys;
+return result;
+```
+* *=[link ./op_multiply_assign.md]
+
+
+- (2) : 以下のコードと同等のことを行う：
+
+```cpp
+valarray<T> result = xs;
+result *= y;
+return result;
+```
+* *=[link ./op_multiply_assign.md]
+
+
+
+- (3) : 以下のコードと同等のことを行う：
+
+```cpp
+valarray<T> result = ys;
+result *= x;
+return result;
 ```
 * *=[link ./op_multiply_assign.md]
 
@@ -30,24 +63,45 @@ return c;
 #include <iostream>
 #include <valarray>
 
+template <class T>
+void print(const char* name, const std::valarray<T>& v)
+{
+  std::cout << name << " : {";
+  bool first = true;
+
+  for (const T& x : v) {
+    if (first) {
+      first = false;
+    }
+    else {
+      std::cout << ',';
+    }
+    std::cout << x;
+  }
+  std::cout << "}" << std::endl;
+}
+
 int main()
 {
   const std::valarray<int> a = {4, 5, 6};
   const std::valarray<int> b = {1, 2, 3};
 
-  std::valarray<int> result = a * b;
-  for (int x : result) {
-    std::cout << x << std::endl;
-  }
+  std::valarray<int> result1 = a * b;
+  print("valarray*valarray", result1);
+
+  std::valarray<int> result2 = a * 2;
+  print("valarray*int", result2);
+
+  std::valarray<int> result3 = 2 * a;
+  print("int*valarray", result3);
 }
 ```
-* a * b[color ff0000]
 
 ###出力
 ```
-4
-10
-18
+valarray*valarray : {4,10,18}
+valarray*int : {8,10,12}
+int*valarray : {8,10,12}
 ```
 
 
