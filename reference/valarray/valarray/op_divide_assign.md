@@ -1,18 +1,30 @@
 #operator/=
 ```cpp
-valarray<T>& operator/=(const valarray<T>& x);
+valarray<T>& operator/=(const valarray<T>& xs); // (1)
+valarray<T>& operator/=(const T& x);            // (2)
 ```
 
 ##概要
-`*this`を`x`で除算する。
+除算の複合代入を行う。
+
+- (1) : `*this`の各要素と、`xs`の各要素を除算する。
+- (2) : `*this`の各要素と、`x`を除算する。
 
 
 ##効果
-以下のコードと同等のことを行う：
+- (1) : 以下のコードと同等のことを行う：
 
 ```cpp
 for (size_t i = 0; i < size(); ++i) {
-  (*this)[i] /= x[i];
+  (*this)[i] /= xs[i];
+}
+```
+
+- (2) : 以下のコードと同等のことを行う：
+
+```cpp
+for (size_t i = 0; i < size(); ++i) {
+  (*this)[i] /= x;
 }
 ```
 
@@ -30,24 +42,43 @@ for (size_t i = 0; i < size(); ++i) {
 #include <iostream>
 #include <valarray>
 
+template <class T>
+void print(const char* name, const std::valarray<T>& v)
+{
+  std::cout << name << " : {";
+  bool first = true;
+
+  for (const T& x : v) {
+    if (first) {
+      first = false;
+    }
+    else {
+      std::cout << ',';
+    }
+    std::cout << x;
+  }
+  std::cout << "}" << std::endl;
+}
+
 int main()
 {
-  std::valarray<int> a = {4, 5, 6};
-  std::valarray<int> b = {1, 2, 3};
+  const std::valarray<int> a = {4, 5, 6};
+  const std::valarray<int> b = {1, 2, 3};
 
-  a /= b;
-  for (int x : a) {
-    std::cout << x << std::endl;
-  }
+  std::valarray<int> result1 = a;
+  result1 /= b;
+  print("valarray/=valarray", result1);
+
+  std::valarray<int> result2 = a;
+  result2 /= 2;
+  print("valarray/=int", result2);
 }
 ```
-* a /= b[color ff0000]
 
 ###出力
 ```
-4
-2
-2
+valarray/=valarray : {4,2,2}
+valarray/=int : {2,2,3}
 ```
 
 
