@@ -90,7 +90,7 @@ valarray<int> c = a + b;
 | [`min`](./valarray/min.md)       | 最小の要素を取得する                       | |
 | [`max`](./valarray/max.md)       | 最大の要素を取得する                       | |
 | [`shift`](./valarray/shift.md)   | 要素の位置をシフトする                     | |
-| `cshift`                         | 要素の位置を循環シフトする                 | |
+| [`cshift`](./valarray/cshift.md) | 要素の位置を循環シフトする                 | |
 | [`apply`](./valarray/apply.md)   | 各要素に任意の関数を適用する               | |
 | [`operator!`](./valarray/op_not) | 各要素の論理NOTをとる                      | |
 
