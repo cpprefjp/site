@@ -87,7 +87,7 @@ valarray<int> c = a + b;
 | `swap`                       | 他の`valarray`オブジェクトと値を入れ替える | C++11 |
 | [`size`](./valarray/size.md) | 要素数を取得する                           | |
 | [`sum`](./valarray/sum.md)   | 合計値を求める                             | |
-| `min`                        | 最小の要素を取得する                       | |
+| [`min`](./valarray/min.md)   | 最小の要素を取得する                       | |
 | `max`                        | 最大の要素を取得する                       | |
 | `shift`                      | 各要素をシフトする                         | |
 | `cshift`                     | 各要素を循環シフトする                     | |
