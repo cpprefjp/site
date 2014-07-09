@@ -2,11 +2,18 @@
 ```cpp
 namespace std {
   template <class T>
-  constexpr T imag(const complex<T>& x);
+  T imag(const complex<T>& x);				// C++11 まで
 
-  FloatingPointType imag(ArithmeticType x);	// 追加のオーバーロード：C++11 から
+  template <class T>
+  constexpr T imag(const complex<T>& x);	// C++14 から
+
+  Promoted imag(Arithmetic x);				// 追加のオーバーロード：C++11
+
+  constexpr Promoted imag(Arithmetic x);	// 追加のオーバーロード：C++14 から
 }
 ```
+* Promoted[italic]
+* Arithmetic[italic]
 
 ##概要
 複素数の虚部を取得する。
@@ -25,7 +32,8 @@ namespace std {
 
 
 ##備考
-同名のメンバ関数 [`imag`](complex/imag.md) も存在する。
+- 同名のメンバ関数 [`imag`](complex/imag.md) も存在する。
+- C++14 から `constexpr` 関数になっている。
 
 
 ##例
@@ -36,7 +44,9 @@ namespace std {
 int main()
 {
   std::complex<double> c(1.0, 2.0);
-  std::cout << c << ", imag part = " << std::imag(c) << std::endl;
+
+  double result = std::imag(c);
+  std::cout << c << ", imag part = " << result << std::endl;
 }
 ```
 * imag[color ff0000]
@@ -59,6 +69,11 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード含む）
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+###備考
+- libc++（[Clang](/implementation.md#clang)）は C++11 モード以降でなくても追加のオーバーロードを使用可能だが、constexpr になるのは C++14 モードだけである。  
+	一方、libstdc++（[GCC](/implementation.md#gcc)）は C++11 モード以降でないと追加のオーバーロードは使用不可能だが、C++11 モードでも追加のオーバーロード以外は constexpr である。  
+	なお、libstdc++ では追加のオーバーロードが constexpr になっていないが、これはバグであるものと思われる。
 
 
 ##参照

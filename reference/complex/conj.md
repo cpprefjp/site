@@ -4,9 +4,11 @@ namespace std {
   template <class T>
   complex<T> conj(const complex<T>& x);
 
-  ComplexType conj(ArithmeticType x);	// 追加のオーバーロード：C++11 から
+  std::complex<Promoted> conj(Arithmetic x);	// 追加のオーバーロード：C++11 から
 }
 ```
+* Promoted[italic]
+* Arithmetic[italic]
 
 ##概要
 共役複素数を得る。conj は conjugate（共役）の略。
@@ -31,8 +33,10 @@ namespace std {
 
 int main()
 {
-  std::complex<float> c(1.0, 2.0);
-  std::cout << "conj( " << c << " ) = " << std::conj(c) << std::endl;
+  std::complex<double> c(1.0, 2.0);
+
+  std::complex<double> result = std::conj(c);
+  std::cout << "conj( " << c << " ) = " << result << std::endl;
 }
 ```
 * conj[color ff0000]
@@ -43,6 +47,18 @@ int main()
 ```
 conj( (1,2) ) = (1,-2)
 ```
+
+
+##バージョン
+###言語
+- C++98（追加のオーバーロードは C++11 から）
+
+###処理系
+- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4（追加のオーバーロード含む）
+- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード以外）
+- [GCC, C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード含む）
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ##参照

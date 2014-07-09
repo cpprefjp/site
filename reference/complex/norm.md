@@ -4,9 +4,11 @@ namespace std {
   template <class T>
   T norm(const complex<T>& x);
 
-  FloatingPointType norm(ArithmeticType x);	// 追加のオーバーロード：C++11 から
+  Promoted norm(Arithmetic x);	// 追加のオーバーロード：C++11 から
 }
 ```
+* Promoted[italic]
+* Arithmetic[italic]
 
 ##概要
 複素数体のノルム（field norm。絶対値の 2 乗）を得る。
@@ -26,7 +28,7 @@ namespace std {
 
 ##備考
 - ここで言う「ノルム」は複素数を体として実数体の拡大体と見た際のノルム（`x * `[`conj`](conj.md)`(x)`）である。  
-複素数を複素平面上の点と見たときの原点との距離（絶対値：[`abs`](abs.md)）ではないことに注意。
+	複素数を複素平面上の点と見たときの原点との距離（絶対値：[`abs`](abs.md)）ではないことに注意。
 
 
 ##例
@@ -36,8 +38,10 @@ namespace std {
 
 int main()
 {
-  std::complex<float> c(1.0, 2.0);
-  std::cout << "norm( " << c << " ) = " << std::norm(c) << std::endl;
+  std::complex<double> c(1.0, 2.0);
+
+  double result = std::norm(c);
+  std::cout << "norm( " << c << " ) = " << result << std::endl;
 }
 ```
 * norm[color ff0000]
@@ -48,6 +52,18 @@ int main()
 ```
 norm( (1,2) ) = 5
 ```
+
+
+##バージョン
+###言語
+- C++98（追加のオーバーロードは C++11 から）
+
+###処理系
+- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4（追加のオーバーロード含む）
+- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード以外）
+- [GCC, C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード含む）
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ##参照

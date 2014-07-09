@@ -1,6 +1,8 @@
 #real
 ```cpp
-constexpr T real() const;		// (1)
+T real() const;					// (1) C++11 まで
+
+constexpr T real() const;		// (1) C++14 から
 
 void real(T val);				// (2) C++11 から
 ```
@@ -21,7 +23,8 @@ void real(T val);				// (2) C++11 から
 
 ##備考
 - 実部の取得は、同名の非メンバ関数 [`real`](../real.md) も存在する。
-- 実部の設定は、C++11 から。
+- 実部の所得は、C++14 から `constexpr` 関数になっている。
+- 実部の設定は、C++11 から追加された。
 
 
 ##例

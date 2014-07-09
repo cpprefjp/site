@@ -1,6 +1,8 @@
 #imag
 ```cpp
-constexpr T imag() const;		// (1)
+T imag() const;					// (1) C++11 まで
+
+constexpr T imag() const;		// (1) C++14 から
 
 void imag(T val);				// (2) C++11 から
 ```
@@ -21,7 +23,8 @@ void imag(T val);				// (2) C++11 から
 
 ##備考
 - 虚部の取得は、同名の非メンバ関数 [`imag`](../imag.md) も存在する。
-- 虚部の設定は、C++11 から。
+- 虚部の所得は、C++14 から `constexpr` 関数になっている。
+- 虚部の設定は、C++11 から追加された。
 
 
 ##例

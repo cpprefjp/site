@@ -16,16 +16,15 @@ namespace std {
 
 ##備考
 - 規格には、偏角 `theta` の単位については何も記載がない。しかし、この引数の単位がラジアンであることは異論をはさむ余地はないだろう。  
-    実際、本関数の逆関数（の片割れ）とも言える [`arg`](arg.md) の戻り値はラジアンである。
+	実際、本関数の逆関数（の片割れ）とも言える [`arg`](arg.md) の戻り値はラジアンである。
 - コンストラクタのデフォルト引数を踏まえると、偏角 `theta` のデフォルト引数が `T()` ではなく `0` であるのは、規格の誤りであるように思われる。
 - `rho` と `theta` に現れる型 `T` は（残念ながら）同じ型でなければならない。（`int` と `double` を渡すなどといったことはできない）  
-    [`atan2`](/reference/cmath/atan2.md) など [`cmath`](/reference/cmath.md) の関数群はできるので、単なる規格の考慮漏れかもしれない。
+	同じ [`complex`](/reference/complex.md) ヘッダの [`pow`](pow.md) や、[`cmath`](/reference/cmath.md) ヘッダの [`atan2`](/reference/cmath/atan2.md) などの関数群は、引数の型が異なっていても簡単に呼び出せるように C++11 でオーバーロードが追加されているため、単なる規格の考慮漏れかもしれない。
 
 
 ##例
 ```cpp
 #include <iostream>
-#include <iomanip>
 #include <complex>
 #include <cmath>
 
@@ -33,7 +32,8 @@ static const double pi = std::acos(-1.0); // お手軽に π を得る。
 
 int main()
 {
-  std::cout << std::setprecision(16) << "polar(1.0, pi / 4.0) = " << std::polar(1.0, pi / 4.0) << std::endl;
+  std::complex<double> result = std::polar(1.0, pi / 4.0);
+  std::cout << "polar(1.0, pi / 4.0) = " << result << std::endl;
 }
 ```
 * polar[color ff0000]
@@ -44,8 +44,19 @@ int main()
 
 ###出力
 ```
-polar(1.0, pi / 4.0) = (0.7071067811865476,0.7071067811865475)
+polar(1.0, pi / 4.0) = (0.707107,0.707107)
 ```
+
+
+##バージョン
+###言語
+- C++98
+
+###処理系
+- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
+- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ##参照

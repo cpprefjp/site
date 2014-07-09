@@ -4,9 +4,11 @@ namespace std {
   template <class T>
   complex<T> proj(const complex<T>& x);
 
-  ComplexType proj(ArithmeticType x);	// 追加のオーバーロード：C++11 から
+  complex<Promoted> proj(Arithmetic x);	// 追加のオーバーロード：C++11 から
 }
 ```
+* Promoted[italic]
+* Arithmetic[italic]
 
 ##概要
 リーマン球面への射影（備考参照）を得る。proj は projection（射影、投射）の略。
@@ -24,10 +26,9 @@ namespace std {
 
 
 ##備考
-`x` が無限大ではない場合、`x` そのものを返す。ここで「無限大ではない」とは、
-`!`[`isinf`](/reference/cmath/isinf.md)`(`[`real`](real.md)`(x)) && !`[`isinf`](/reference/cmath/isinf.md)`(`[`imag`](imag.md)`(x))`
-である。  
-`x` が無限大の場合、[`complex`](complex/complex.md)`<T>(`[`numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`infinity`](/reference/limits/numeric_limits/infinity.md)`(), `[`copysign`](/reference/cmath/copysign.md)`(T(), `[`imag`](imag.md)`(x)))` を返す。
+- 本関数は、C99 の規格にある `cproj`（より正確には `complex.h` ヘッダの `cproj`、`cprojf`、`cprojl` の 3 つ。それぞれ C++ の `proj<double>`、`proj<float>`、`proj<long double>` に相当）と同等である。  
+- 本関数は、`x` が無限大ではない場合、`x` そのものを返す。ここで「無限大ではない」とは、`!`[`isinf`](/reference/cmath/isinf.md)`(`[`real`](real.md)`(x)) && !`[`isinf`](/reference/cmath/isinf.md)`(`[`imag`](imag.md)`(x))` である。  
+	`x` が無限大の場合、[`complex`](complex/complex.md)`<T>(`[`numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`infinity`](/reference/limits/numeric_limits/infinity.md)`(), `[`copysign`](/reference/cmath/copysign.md)`(T(), `[`imag`](imag.md)`(x)))` を返す。
 
 
 ##例
@@ -39,16 +40,18 @@ namespace std {
 template <class T>
 void print_proj(const std::complex<T>& c)
 {
-  std::cout << "proj( " << c << " ) = " << std::proj(c) << std::endl;
+  std::complex<T> result = std::proj(c);
+
+  std::cout << "proj( " << c << " ) = " << result << std::endl;
 }
 
 int main()
 {
-  print_proj(std::complex<float>(1.0, 2.0));
-  print_proj(std::complex<float>(std::numeric_limits<float>::infinity(), 0.0));
-  print_proj(std::complex<float>(std::numeric_limits<float>::infinity(), -0.0));
-  print_proj(std::complex<float>(std::numeric_limits<float>::quiet_NaN(), std::numeric_limits<float>::infinity()));
-  print_proj(std::complex<float>(std::numeric_limits<float>::quiet_NaN(), -std::numeric_limits<float>::infinity()));
+  print_proj(std::complex<double>(1.0, 2.0));
+  print_proj(std::complex<double>(std::numeric_limits<double>::infinity(), 0.0));
+  print_proj(std::complex<double>(std::numeric_limits<double>::infinity(), -0.0));
+  print_proj(std::complex<double>(std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::infinity()));
+  print_proj(std::complex<double>(std::numeric_limits<double>::quiet_NaN(), -std::numeric_limits<double>::infinity()));
 }
 ```
 * proj[color ff0000]
@@ -68,12 +71,23 @@ proj( (nan,inf) ) = (inf,0)
 proj( (nan,-inf) ) = (inf,-0)
 ```
 無限大や NaN の出力は異なる可能性がある。  
-また、[`numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`is_iec559`](/reference/limits/numeric_limits/is_iec559.md)`()` が `true` でない場合、結果が異なる可能性がある。
+また、[`numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`is_iec559`](/reference/limits/numeric_limits/is_iec559.md)`()` が `true` でない場合、結果が異なる可能性がある。
 
 
 ##バージョン
 ##言語
 - C++11
+
+###処理系
+- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
+- [GCC C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+###備考
+- libstdc++ では（規格通りに）C++11 以降のモードでなければ本関数は使用できないが、libc++ では C++98 モードでも使用することができる。（上記の [Clang](/implementation.md#clang) が C++11 モードになっていないのはそのため）
+- libstdc++ では、通常 glibc の対応する関数を呼び出すが、glibc 2.18 以前のバージョンには NAN の取り扱いに、更に、2.11.\* 以前のバージョンには通常の値の取り扱いにもバグがある。
+	また、glibc を使用していない libstdc++ も 4.9.0 現在、glibc 2.11.\* 以前のバージョンと同様のバグがある。
 
 
 ##参照
