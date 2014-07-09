@@ -144,7 +144,7 @@ valarray<int> c = a + b;
 |-----------------------------------|----------------------------------|-------|
 | [`operator==`](./valarray/op_equal.md)                      | 等値比較                         | |
 | [`operator!=`](./valarray/op_not_equal.md)                  | 非等値比較                       | |
-| `operator<`                       | 左辺が右辺より小さいかを判定する | |
+| [`operator<`](./valarray/op_less.md)                        | 左辺が右辺より小さいかを判定する | |
 | `operator<=`                      | 左辺が右辺以下かを判定する       | |
 | `operator>`                       | 左辺が右辺より大きいかを判定する | |
 | `operator>=`                      | 左辺が右辺以上かを判定する       | |
