@@ -95,7 +95,7 @@ int main()
   print("float-valarray", result3);
 }
 ```
-* tan[color ff0000]
+* atan2[color ff0000]
 
 ###出力
 ```
