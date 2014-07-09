@@ -88,7 +88,7 @@ valarray<int> c = a + b;
 | [`size`](./valarray/size.md) | 要素数を取得する                           | |
 | [`sum`](./valarray/sum.md)   | 合計値を求める                             | |
 | [`min`](./valarray/min.md)   | 最小の要素を取得する                       | |
-| `max`                        | 最大の要素を取得する                       | |
+| [`max`](./valarray/max.md)   | 最大の要素を取得する                       | |
 | `shift`                      | 各要素をシフトする                         | |
 | `cshift`                     | 各要素を循環シフトする                     | |
 | [`apply`](./valarray/apply.md) | 各要素に任意の関数を適用する               | |
