@@ -141,15 +141,15 @@ valarray<int> c = a + b;
 ###比較演算
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------------------------|----------------------------------|-------|
-| [`operator==`](./valarray/op_equal.md)                      | 等値比較                         | |
-| [`operator!=`](./valarray/op_not_equal.md)                  | 非等値比較                       | |
-| [`operator<`](./valarray/op_less.md)                        | 左辺が右辺より小さいかを判定する | |
-| [`operator<=`](./valarray/op_less_equal.md)                 | 左辺が右辺以下かを判定する       | |
-| [`operator>`](./valarray/op_greater.md)                     | 左辺が右辺より大きいかを判定する | |
-| [`operator>=`](./valarray/op_greater_equal.md)              | 左辺が右辺以上かを判定する       | |
-| [`operator&&`](./valarray/op_logical_and.md)                | 条件式の論理積                   | |
-| <code>operator&#x7C;&#x7C;</code> | 条件式の論理和                   | |
+|------------------------------------------------------------------|----------------------------------|-------|
+| [`operator==`](./valarray/op_equal.md)                           | 等値比較                         | |
+| [`operator!=`](./valarray/op_not_equal.md)                       | 非等値比較                       | |
+| [`operator<`](./valarray/op_less.md)                             | 左辺が右辺より小さいかを判定する | |
+| [`operator<=`](./valarray/op_less_equal.md)                      | 左辺が右辺以下かを判定する       | |
+| [`operator>`](./valarray/op_greater.md)                          | 左辺が右辺より大きいかを判定する | |
+| [`operator>=`](./valarray/op_greater_equal.md)                   | 左辺が右辺以上かを判定する       | |
+| [`operator&&`](./valarray/op_logical_and.md)                     | 条件式の論理積                   | |
+| [<code>operator&#x7C;&#x7C;</code>](./valarray/op_logical_or.md) | 条件式の論理和                   | |
 
 
 ###数学関数
