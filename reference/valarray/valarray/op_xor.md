@@ -98,7 +98,6 @@ int main()
   std::valarray<std::uint8_t> result3 = 0b00000011 ^ a;
   assert((equal_valarray(result3, expected)));
 }
-
 ```
 
 ###出力
