@@ -7,8 +7,7 @@ namespace std {
 ```
 
 ##概要
-2つの`forward_list`オブジェクトを入れ替える
-
+2つの`forward_list`オブジェクトを入れ替える。
 
 
 ##効果
