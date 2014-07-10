@@ -43,7 +43,7 @@ valarray<int> c = a + b;
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------|--------------------------------------------|-------|
-| `(constructor)`              | コンストラクタ                             | |
+| [`(constructor)`](./valarray/valarray.md) | コンストラクタ                             | |
 | `(destructor)`               | デストラクタ                               | |
 | `operator=`                  | 代入演算子                                 | |
 
@@ -215,7 +215,7 @@ int main()
     print("minus", minus);
     
     std::valarray<int> multiply = a * b;
-    print("multiply", multiply);
+print("multiply", multiply);
     
     std::valarray<int> divide = a / b;
     print("divide", divide);
