@@ -82,4 +82,5 @@ int main()
 - [C++0xのメモリバリアをより深く解説してみる - yamasaのネタ帳](http://d.hatena.ne.jp/bsdhouse/20090929/1254237835)
 - [C/C++11 mappings to processors](http://www.cl.cam.ac.uk/~pes20/cpp/cpp0xmappings.html)
 - [N1525: Memory-Order Rationale](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1525.htm)
+- [The Purpose of memory_order_consume in C++11](http://preshing.com/20140709/the-purpose-of-memory_order_consume-in-cpp11/)
 
