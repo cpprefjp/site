@@ -215,7 +215,7 @@ int main()
     print("minus", minus);
     
     std::valarray<int> multiply = a * b;
-print("multiply", multiply);
+    print("multiply", multiply);
     
     std::valarray<int> divide = a / b;
     print("divide", divide);
