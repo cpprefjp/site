@@ -20,7 +20,7 @@ vector(initializer_list<T> il, const Allocator& a = Allocator());
 * `explicit vector(const Allocator& a = Allocator());`
     * デフォルトコンストラクタ。`size() == 0`の要素を持たない空の`vector`オブジェクトを構築する。
 * `explicit vector(size_type n);`
-    * n個のT()初期化された要素を保持したvectorを構築する。
+    * `n`個の`T()`初期化された要素を保持した`vector`オブジェクトを構築する。
 * `explicit vector(size_type n, const T& value, const Allocator& a = Allocator());`
     * 繰り返しシーケンスコンストラクタ。`value`のコピーを`n`個要素として保持した`vector`オブジェクトを構築する。
 * `template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator());`
