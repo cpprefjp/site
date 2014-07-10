@@ -43,8 +43,8 @@ valarray<int> c = a + b;
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------|--------------------------------------------|-------|
-| [`(constructor)`](./valarray/valarray.md) | コンストラクタ                             | |
-| `(destructor)`               | デストラクタ                               | |
+| [`(constructor)`](./valarray/valarray.md) | コンストラクタ                | |
+| [`(destructor)`](./valarray/-valarray.md) | デストラクタ                  | |
 | `operator=`                  | 代入演算子                                 | |
 
 
