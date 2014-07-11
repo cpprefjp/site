@@ -58,7 +58,6 @@ void print(const char* name, const std::valarray<T>& v)
   std::cout << name << " : {";
   bool first = true;
 
-  // 範囲for文で全要素を走査する
   for (const T& x : v) {
     if (first) {
       first = false;
