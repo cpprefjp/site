@@ -2,10 +2,15 @@
 ```cpp
 namespace std {
   float abs(float x);
+
   double abs(double x);
+
   long double abs(long double x);
+
+  double abs(Integral x);   // C++11
 }
 ```
+* Integral[Italic]
 
 ##概要
 浮動小数点数型の絶対値を求める。absはabsolute(「絶対的な」を意味する)の略。
@@ -18,7 +23,8 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/fabs/fabs.png)
+- ![](https://github.com/cpprefjp/image/raw/master/reference/cmath/fabs/fabs.png)
+- 任意の整数型に対するオーバーロードが C++11 で追加されたが、ある種の問題を引き起こすことから、今後削除される可能性がある。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。
 
 
 ##例

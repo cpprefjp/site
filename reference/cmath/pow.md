@@ -7,7 +7,6 @@ namespace std {
 
   long double pow(long double x, long double y);
 
-  template<class Arithmetic1, class Arithmetic2>
   Promoted pow(Arithmetic1 x, Arithmetic2 y);   // C++11
 
   float pow(float x, int y);                    // C++03 only

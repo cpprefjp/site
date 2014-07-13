@@ -7,7 +7,7 @@ namespace std {
 
   long double exp2(long double x);
 
-  double exp2(Integral x);
+  double exp2(Integral x);   // C++11
 }
 ```
 * Integral[italic]

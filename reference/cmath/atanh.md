@@ -7,7 +7,7 @@ namespace std {
 
   long double atanh(long double x);
 
-  double atanh(Integral x);
+  double atanh(Integral x);   // C++11
 }
 ```
 * Integral[italic]
