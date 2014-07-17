@@ -11,26 +11,33 @@ namespace std {
 
 
 ##戻り値
-引数 `x` の平方根のうち、（複素平面の）右半平面の範囲の複素数値（つまり、実部は0以上）。もし、引数が負の実数の場合、戻り値は虚軸の正の範囲。
+引数 `x` の平方根のうち、（複素平面の）右半平面の範囲の複素数値（つまり、実部は 0 以上）。もし、引数が負の実数の場合、戻り値は虚軸の正の範囲。
 
 
 ##備考
 - 分岐截断は負の実軸に沿っている。
 - 規格には、上記の戻り値の記載、および、分岐截断以外の規定・説明は無い。  
-なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `csqrt`、`csqrtf`、`csqrtl`の 3 つ。それぞれ C++ の `sqrt<double>`、`sqrt<float>`、`sqrt<long double>` に相当）では、
-処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
-	- `sqrt(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(sqrt(x))` 。
+	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `csqrt`、`csqrtf`、`csqrtl` の 3 つ。それぞれ C++ の `sqrt<double>`、`sqrt<float>`、`sqrt<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
+	- `sqrt(`[`conj`](conj.md)`(x)) =` [`conj`](conj.md)`(sqrt(x))` 。
 	- `sqrt(complex(±0, +0))` は `complex(+0, +0)` を返す。
 	- （`NaN` も含む）あらゆる `x` に対して、`sqrt(complex(x, +∞))` は `complex(+∞, +∞)` を返す。
 	- 有限の `x` に対して、`sqrt(complex(x, NaN))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
-	- 有限で正の `y` に対して、`sqrt(complex(-∞, y))` は `complex(+0, +∞)` を返す。
-	- 有限で正の `y` に対して、`sqrt(complex(+∞, y))` は `complex(+∞, +0)` を返す。
+	- 有限で正の符号を持つ（`+0` を含む）`y` に対して、`sqrt(complex(-∞, y))` は `complex(+0, +∞)` を返す。
+	- 有限で正の符号を持つ（`+0` を含む）`y` に対して、`sqrt(complex(+∞, y))` は `complex(+∞, +0)` を返す。
 	- `sqrt(complex(-∞, NaN))` は `complex(NaN, ±∞)` を返す（結果の虚部の符号は未規定）。
 	- `sqrt(complex(+∞, NaN))` は `complex(+∞, NaN)` を返す。
 	- 有限の `y` に対して、`sqrt(complex(NaN, y))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
 	- `sqrt(complex(NaN, NaN))` は `complex(NaN, NaN)` を返す。
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、
-C++ の規格書には該当する記載を見つける事ができなかった。
+- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
+- 平方根の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
+
+	| 引数の型                                  | 関数                                           | ヘッダ                               | 備考       |
+	|-------------------------------------------|------------------------------------------------|--------------------------------------|------------|
+	| `float`                                   | [`sqrt`](/reference/cmath/sqrt.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                  | [`sqrt`](/reference/cmath/sqrt.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                             | [`sqrt`](/reference/cmath/sqrt.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                              | [`sqrt`](/reference/cmath/sqrt.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray`](/reference/valarray.md)`<T>` | [`sqrt`](/reference/valarray/valarray/sqrt.md) | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例
@@ -40,8 +47,10 @@ C++ の規格書には該当する記載を見つける事ができなかった�
 
 int main()
 {
-  std::complex<float> c(1.0, 2.0);
-  std::cout << "sqrt( " << c << " ) = " << std::sqrt(c) << std::endl;
+  std::complex<double> c(1.0, 2.0);
+
+  std::complex<double> result = std::sqrt(c);
+  std::cout << "sqrt( " << c << " ) = " << result << std::endl;
 }
 ```
 * sqrt[color ff0000]
@@ -65,7 +74,8 @@ sqrt( (1,2) ) = (1.27202,0.786151)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ###備考
-- [Wandbox](http://melpon.org/wandbox/) で確認した限りでは、GCC の C++11 モードは上記の備考に記載した C99 の ISO IEC 60559 準拠要件にある無効演算の浮動小数点例外も引き起こしたが、Clang は C+11 モードでも無効演算の浮動小数点例外を引き起こさないようである。
+- libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。  
+	しかし、glibc を使用していない libstdc++、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
 
 
 ##参照

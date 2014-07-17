@@ -16,7 +16,16 @@ namespace std {
 
 ##備考
 - 分岐截断は負の実軸に沿っている。
-- C99 の規格では、本関数と同等と思われる関数名群 `clog10`、`clog10f`、`clog10l` が future library directions として予約されているが、これらの関数の挙動については（名前から明らかであるものの）一切記載はない。
+- C99 の規格（および C11 の規格）では、本関数と同等と思われる関数名群 `clog10`、`clog10f`、`clog10l` が future library directions として予約されているが、これらの関数の挙動については（名前から明らかであるものの）一切記載はない。
+- 常用対数の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
+
+	| 引数の型                                  | 関数                                             | ヘッダ                               | 備考       |
+	|-------------------------------------------|--------------------------------------------------|--------------------------------------|------------|
+	| `float`                                   | [`log10`](/reference/cmath/log10.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                  | [`log10`](/reference/cmath/log10.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                             | [`log10`](/reference/cmath/log10.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                              | [`log10`](/reference/cmath/log10.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray`](/reference/valarray.md)`<T>` | [`log10`](/reference/valarray/valarray/log10.md) | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例
@@ -26,8 +35,10 @@ namespace std {
 
 int main()
 {
-  std::complex<float> c(1.0, 2.0);
-  std::cout << "log10( " << c << " ) = " << std::log10(c) << std::endl;
+  std::complex<double> c(1.0, 2.0);
+
+  std::complex<double> result = std::log10(c);
+  std::cout << "log10( " << c << " ) = " << result << std::endl;
 }
 ```
 * log10[color ff0000]

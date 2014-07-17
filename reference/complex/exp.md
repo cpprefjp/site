@@ -16,24 +16,31 @@ namespace std {
 
 ##備考
 - 規格には、上記の戻り値に記載されている以上の規定・説明は無い。  
-なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `cexp`、`cexpf`、`cexpl`の 3 つ。それぞれ C++ の `exp<double>`、`exp<float>`、`exp<long double>` に相当）では、
-処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
-	- `exp(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(exp(x))`。
+	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `cexp`、`cexpf`、`cexpl`の 3 つ。それぞれ C++ の `exp<double>`、`exp<float>`、`exp<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
+	- `exp(`[`conj`](conj.md)`(x)) =` [`conj`](conj.md)`(exp(x))`。
 	- `exp(complex(±0, +0))` は `complex(+1, +0)` を返す。
 	- 有限の `x` に対して、`exp(complex(x, +∞))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす。
 	- 有限の `x` に対して、`exp(complex(x, NaN))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
 	- `exp(complex(+∞, +0))` は `complex(+∞, +0)` を返す。
-	- 有限の `y` に対して、`exp(complex(-∞, y))` は `+0 * complex(`[`cos`](/reference/cmath/cos.md)`(y), `[`sin`](/reference/cmath/sin.md)`(y))` を返す。
-	- 有限で非零の `y` に対して、`exp(complex(+∞, y))` は `+∞ * complex(`[`cos`](/reference/cmath/cos.md)`(y), `[`sin`](/reference/cmath/sin.md)`(y))` を返す。
+	- 有限の `y` に対して、`exp(complex(-∞, y))` は `+0 * complex(`[`cos`](/reference/cmath/cos.md)`(y),` [`sin`](/reference/cmath/sin.md)`(y))` を返す。
+	- 有限で非ゼロの `y` に対して、`exp(complex(+∞, y))` は `+∞ * complex(`[`cos`](/reference/cmath/cos.md)`(y),` [`sin`](/reference/cmath/sin.md)`(y))` を返す。
 	- `exp(complex(-∞, +∞))` は `complex(±0, ±0)` を返す（結果の実部、および、虚部の符号は未規定）。
 	- `exp(complex(+∞, +∞))` は `complex(±∞, NaN)` を返し（結果の実部の符号は未規定）、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす。
 	- `exp(complex(-∞, NaN))` は `complex(±0, ±0)` を返す（結果の実部、および、虚部の符号は未規定）。
 	- `exp(complex(+∞, NaN))` は `complex(±∞, NaN)` を返す（結果の実部の符号は未規定）。
 	- `exp(complex(NaN, +0))` は `complex(NaN, +0)` を返す。
-	- あらゆる非零の `y` に対して、`exp(complex(NaN, y))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
+	- あらゆる非ゼロの `y` に対して、`exp(complex(NaN, y))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
 	- `exp(complex(NaN, NaN))` は `complex(NaN, NaN)` を返す。
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、
-C++ の規格書には該当する記載を見つける事ができなかった。
+- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
+- 自然対数の底 e（ネイピア数）の累乗の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
+
+	| 引数の型                                  | 関数                                         | ヘッダ                               | 備考       |
+	|-------------------------------------------|----------------------------------------------|--------------------------------------|------------|
+	| `float`                                   | [`exp`](/reference/cmath/exp.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                  | [`exp`](/reference/cmath/exp.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                             | [`exp`](/reference/cmath/exp.md)             | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                              | [`exp`](/reference/cmath/exp.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| [`valarray`](/reference/valarray.md)`<T>` | [`exp`](/reference/valarray/valarray/exp.md) | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例
@@ -43,8 +50,10 @@ C++ の規格書には該当する記載を見つける事ができなかった�
 
 int main()
 {
-  std::complex<float> c(1.0, 2.0);
-  std::cout << "exp( " << c << " ) = " << std::exp(c) << std::endl;
+  std::complex<double> c(1.0, 2.0);
+
+  std::complex<double> result = std::exp(c);
+  std::cout << "exp( " << c << " ) = " << result << std::endl;
 }
 ```
 * exp[color ff0000]
@@ -68,8 +77,9 @@ exp( (1,2) ) = (-1.1312,2.47173)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ###備考
-- [Wandbox](http://melpon.org/wandbox/) で確認した限りでは、GCC の C++11 モードは上記の備考に記載した C99 の ISO IEC 60559 準拠要件にある無効演算の浮動小数点例外も引き起こしたが、Clang は C++11 モードでも無効演算の浮動小数点例外を引き起こさないことがあるようである。
-- GCC は `exp` の計算に通常 glibc の複素数ライブラリを使用する。このため、使用している glibc のバージョンが 2.19 より前の場合には `exp(complex(NaN, +0))` に対して `complex(NaN, NaN)` を返す。これは glibc のバグで 2.19 以降は直っている。
+- libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。  
+	しかし、glibc を使用していない libstdc++、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
+- libstdc++ で glibc を使用している場合、使用している glibc のバージョンが 2.19 より前の場合には `exp(complex(NaN, +0))` に対して `complex(NaN, NaN)` を返す。これは glibc のバグで 2.19 以降は直っている。
 
 
 ##参照
