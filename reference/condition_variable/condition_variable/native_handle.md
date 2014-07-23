@@ -9,7 +9,9 @@ native_handle_type native_handle();
 
 ##効果
 この関数は、実装依存の条件変数ハンドルを返す。
-ハンドル型の意味は実装が決定し、libstdc++環境であればpthreadライブラリの条件変数型`pthread_cond_t*`を表す。
+ハンドル型の意味は実装が決定する。
+- libstdc++環境であればpthreadライブラリの条件変数型`pthread_cond_t*`を表す。
+- Visual C++では、内部的なデータ構造への不透明なポインタ型（定義のない構造体へのポインタ型）を表す。
 ハンドル型に対する操作は汎用的ではないため、環境依存のプログラミングが必要な場合に使用する。
 
 
@@ -45,7 +47,7 @@ int main()
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
 
 ##参照
 

@@ -37,7 +37,8 @@ namespace std {
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 11.0 (partial), 12.0
+	- Visual C++ 11.0までは、スコープ付き列挙体(`enum class`)に対応していないため、代わりに名前空間`std::cv_status`に`enum cv_status`を定義する形になっている。
 
 
 ##参照
