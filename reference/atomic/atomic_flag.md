@@ -26,14 +26,14 @@ namespace std {
 #include <atomic>
 #include <thread>
 #include <mutex>
- 
+
 class spinlock {
 private:
   std::atomic_flag state_;
 
 public:
   spinlock() : state_(ATOMIC_FLAG_INIT) {}
-  
+
   void lock()
   {
     // 現在の状態をロック状態にする
@@ -100,7 +100,8 @@ int main()
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
+	- Visual C++ 11.0はコピーコンストラクタと代入演算子のdelete宣言が存在しない。
 
 
 ###参照

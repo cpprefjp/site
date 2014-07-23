@@ -112,7 +112,7 @@ namespace std {
 #include <atomic>
 #include <thread>
 #include <mutex>
- 
+
 class spinlock {
 private:
   typedef enum {Locked, Unlocked} LockState;
@@ -120,7 +120,7 @@ private:
 
 public:
   spinlock() : state_(Unlocked) {}
-  
+
   void lock()
   {
     // 現在の状態をLockedと入れ替える
@@ -188,7 +188,7 @@ int main()
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0(atomic_addressは未実装)
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
 
 
 ###参照

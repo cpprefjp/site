@@ -36,7 +36,7 @@ namespace std {
 #include <iostream>
 #include <atomic>
 #include <thread>
- 
+
 std::atomic<int> a(-1);
 int table[10];
 
@@ -46,7 +46,7 @@ void f()
   table[5] = -1;
   a.store(3, std::memory_order_release);
 }
- 
+
 int main()
 {
   std::thread t1(f);
@@ -90,7 +90,7 @@ int main()
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
 
 
 ##実装例

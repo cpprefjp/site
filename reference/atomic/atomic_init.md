@@ -33,10 +33,21 @@ namespace std {
 
 ##例
 ```cpp
+#include <iostream>
+#include <atomic>
+
+int main()
+{
+  std::atomic<int> x;
+  std::atomic_init(&x, 1);
+
+  std::cout << x.load() << std::endl;
+}
 ```
 
 ###出力
 ```
+1
 ```
 
 
@@ -50,10 +61,9 @@ namespace std {
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
 
 ####備考
-この関数は、GCC 4.7およびClang 3.1では実装が存在しなかった。動作する環境がないため、サンプルコードは記載していない。
 
 
 ##参照
