@@ -21,4 +21,4 @@ enable_shared_from_this(const enable_shared_from_this&) noexcept; // (2)
 - [GCC, C++11 mode](/implementation#gcc.md): 4.3.6
 - [Clang libc++, C++11 mode](/implementation#clang.md): 3.0
 - [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): ?
+- [Visual C++](/implementation#visual_cpp.md): 9.0 (TR1), 10.0, 11.0, 12.0

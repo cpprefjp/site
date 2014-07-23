@@ -29,7 +29,7 @@ namespace std {
 ```cpp
 #include <memory>
 #include <iostream>
- 
+
 int main() {
   std::shared_ptr<int> sp = std::make_shared<int>(42);
   if(sp) {
@@ -52,10 +52,10 @@ int main() {
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.4, 4.7.3, 4.8.2
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): 10.0
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
 ##備考
-Visual C++ 10.0 でも使用可能だが、コンパイラが可変引数テンプレートに対応していないため、最大10個の引数を受け取れる形で実装されている。
+Visual C++ 10.0～11.0 でも使用可能だが、コンパイラが可変引数テンプレートに対応していないため、最大10個の引数を受け取れる形で実装されている。
 
 
 ###参照

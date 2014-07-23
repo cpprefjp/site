@@ -18,7 +18,7 @@ namespace std {
 - Clang: ?
 - GCC (c++11 or c++0x mode): 4.7.0
 - ICC: ?
-- [Visual C++](/implementation#visual_cpp.md): 11.0
+- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
 
 ##参照
 - [`std::tuple`](/reference/tuple/tuple.md)クラス

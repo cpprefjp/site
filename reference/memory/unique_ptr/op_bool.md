@@ -46,4 +46,5 @@ p has resource
 - [GCC](/implementation#gcc.md): 4.4.7
 - [Clang libc++, C++11 mode](/implementation#clang.md): 3.0
 - [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): ?
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
+	- Visual C++ 11.0までは、コンパイラが`explicit operator bool`に対応していないため、不透明な型へのポインタ型への変換演算子関数として実装されている。

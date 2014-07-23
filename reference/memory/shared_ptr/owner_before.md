@@ -81,7 +81,7 @@ false
 - [GCC](/implementation#gcc.md): 4.4.7
 - [Clang libc++, C++11 mode](/implementation#clang.md): 3.0
 - [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): ?
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
 ##参照
 - [`owner_less`](/reference/memory/owner_less.md)

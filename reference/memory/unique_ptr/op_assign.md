@@ -89,4 +89,6 @@ int main()
 - [GCC](/implementation#gcc.md): 4.4.7 (nullptr_tのオーバーロード以外), 4.6.4
 - [Clang libc++, C++11 mode](/implementation#clang.md): 3.0
 - [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): ?
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
+	- Visual C++ 10.0にはnullptr_tのオーバーロードがない。
+	- Visual C++ 11.0までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。

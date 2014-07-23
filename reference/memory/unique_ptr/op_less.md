@@ -63,6 +63,7 @@ true
 
 ###処理系
 - [GCC](/implementation#gcc.md): 4.4.7 (`nullptr`バージョン以外), 4.7.4
-- [Clang libc++, C++11 mode](/implementation#clang.md): 3.0
+- [Clang libc++, C++11 mode](/implementation#clang.md): 3.0 (`nullptr`バージョン以外), 3.3
 - [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): 3.0 (`nullptr`バージョン以外), 3.3
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
+	- Visual C++ 11.0までは`nullptr`バージョンがない。

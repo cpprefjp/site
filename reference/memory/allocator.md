@@ -106,7 +106,7 @@ int main(int argc, char** argv) {
 - `propagate_on_container_move_assignment`
     - [Clang, C++1y mode](/implementation#clang.md): 3.4
     - [GCC, C++1y mode](/implementation#gcc.md): 
-    - [Visual C++](/implementation#visual_cpp.md): ??
+    - [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
 
 ###参照
 - [LWG #2103 - std::allocator_traits<std::allocator<T>>::propagate_on_container_move_assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2103)

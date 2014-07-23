@@ -23,6 +23,6 @@ namespace std {
 - [Clang](/implementation#clang.md):
 - [GCC](/implementation#gcc.md):
 - [ICC](/implementation#icc.md):
-- [Visual C++](/implementation#visual_cpp.md):
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
 

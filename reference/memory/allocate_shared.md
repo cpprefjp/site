@@ -44,7 +44,8 @@ int main() {
 - [GCC](/implementation#gcc.md): 
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.3, 4.8.2
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): ??
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
+	- Visual C++ 11.0までは、可変引数テンプレートに対応していないため、不完全な実装である。
 
 ##参照
 - [`std::make_shared`](/reference/memory/make_shared.md)

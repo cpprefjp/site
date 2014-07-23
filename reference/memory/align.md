@@ -55,7 +55,8 @@ int main()
 - [Clang, C++11 mode](/implementation#clang.md): 3.0
 - [GCC, C++11 mode](/implementation#gcc.md): (4.8.2時点で未実装)
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
+	- Visual C++ 11.0はマニュアル（MSDNライブラリ）に記載がないものの、実装されている。
 
 
 ##参照

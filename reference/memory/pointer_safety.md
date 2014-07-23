@@ -32,10 +32,10 @@ namespace std {
 - C++11
 
 ###環境
-- GCC: ?
-- Clang: ?
-- Intel: ?
-- Visual C++: ?
+- [Clang](/implementation#clang.md): ?
+- [GCC](/implementation#gcc.md): ?
+- [ICC](/implementation#icc.md): ?
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
 ###参照
 * [C++0x ガベージコレクションと到達可能性ベースリーク検知の最小支援 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081117/1226913980)

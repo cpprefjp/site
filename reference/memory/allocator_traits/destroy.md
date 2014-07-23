@@ -9,7 +9,7 @@ static void destroy(Alloc& a, T* p);
 
 
 ##効果
-`a.destroy(p)`という式が有効ならそれを呼び出し、そうでなければデフォルト実装として`p->˜T()`を呼び出す。
+`a.destroy(p)`という式が有効ならそれを呼び出し、そうでなければデフォルト実装として`p->~T()`を呼び出す。
 
 
 ##戻り値
@@ -56,4 +56,4 @@ int main()
 - [Clang, C++11 mode](/implementation#clang.md): 3.0
 - [GCC, C++11 mode](/implementation#gcc.md): 4.7.3
 - [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
