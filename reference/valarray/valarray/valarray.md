@@ -125,10 +125,17 @@ int main()
   std::valarray<int> v9 = v9_org[v9_mask];
   print("v9", v9);
 
-  // (1)
-  // 初期化子リストから構築
-  std::valarray<int> v10 = {1, 2, 3};
+  // (10)
+  // インデックス列の指定によってマスクされたvalarrayオブジェクトから構築
+  std::valarray<int> v10_org = {1, 2, 3, 4, 5};
+  std::valarray<std::size_t> v10_indices = {0, 2, 4};
+  std::valarray<int> v10 = v10_org[v10_indices];
   print("v10", v10);
+
+  // (11)
+  // 初期化子リストから構築
+  std::valarray<int> v11 = {1, 2, 3};
+  print("v11", v11);
 }
 ```
 
@@ -143,7 +150,8 @@ v6 : {1,2,3}
 v7 : {1,2,3}
 v8 : {1,2,4,5}
 v9 : {1,3,5}
-v10 : {1,2,3}
+v10 : {1,3,5}
+v11 : {1,2,3}
 ```
 
 
