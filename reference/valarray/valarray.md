@@ -42,10 +42,10 @@ valarray<int> c = a + b;
 ###構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------|--------------------------------------------|-------|
-| [`(constructor)`](./valarray/valarray.md) | コンストラクタ                | |
-| [`(destructor)`](./valarray/-valarray.md) | デストラクタ                  | |
-| `operator=`                  | 代入演算子                                 | |
+|------------------------------|-----------------------------|-------|
+| [`(constructor)`](./valarray/valarray.md) | コンストラクタ | |
+| [`(destructor)`](./valarray/-valarray.md) | デストラクタ   | |
+| [`operator=`](./valarray/op_assign.md)    | 代入演算子     | |
 
 
 ###部分演算
