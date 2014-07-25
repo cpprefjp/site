@@ -1,6 +1,7 @@
 # size
-
-`valarray<size_t> size() const;`
+```cpp
+valarray<size_t> size() const;
+```
 
 ## 概要
 

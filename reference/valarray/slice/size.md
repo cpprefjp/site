@@ -1,6 +1,7 @@
 # size
-
-`size_t size() const;`
+```cpp
+size_t size() const;
+```
 
 ## 概要
 

@@ -1,6 +1,7 @@
 # stride
-
-`size_t stride() const;`
+```cpp
+size_t stride() const;
+```
 
 ## 概要
 

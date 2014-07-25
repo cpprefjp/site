@@ -1,6 +1,7 @@
 # start
-
-`size_t start() const;`
+```cpp
+size_t start() const;
+```
 
 ## 概要
 

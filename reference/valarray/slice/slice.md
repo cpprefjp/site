@@ -1,6 +1,5 @@
-# コンストラクター
-
-```
+# コンストラクタ
+```cpp
 slice();
 slice(size_t start, size_t length, size_t stride);
 slice(const slice&);

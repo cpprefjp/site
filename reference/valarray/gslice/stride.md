@@ -1,6 +1,7 @@
 # stride
-
-`valarray<size_t> stride() const;`
+```cpp
+valarray<size_t> stride() const;
+```
 
 ## 概要
 
