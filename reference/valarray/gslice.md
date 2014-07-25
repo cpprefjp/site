@@ -31,8 +31,8 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------|-----------------------------------------|------|
 | [`start`](./gslice/start.md)  | スライスを生成する初期位置              |      |
-| [`size`](.gslice/size.md)     | 生成するスライスの要素数群の `valarray` |      |
-| [`stride`](.gslice/stride.md) | スライスを生成する間隔数群の `valarray` |      |
+| [`size`](./gslice/size.md)     | 生成するスライスの要素数群の `valarray` |      |
+| [`stride`](./gslice/stride.md) | スライスを生成する間隔数群の `valarray` |      |
 
 ## 例
 
