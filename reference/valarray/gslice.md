@@ -1,41 +1,34 @@
-# gslice
-
+#gslice
 ```cpp
 namespace std {
-  class gslice {
-  public:
-    gslice();
-    gslice(size_t s, const valarray<size_t>& l, const valarray<size_t>& d);
-    gslice(const gslice&);
-    size_t           start()  const;
-    valarray<size_t> size()   const;
-    valarray<size_t> stride() const;
-  };
+  class gslice;
 }
 ```
 
 ##概要
-
 [`std::slice`](/reference/valarray/slice.md) をより一般化したスライス指示用のヘルパークラス。
 
-## メンバ関数
+[`std::valarray`](./valarray.md) テンプレートクラスの [`operator[]`](./valarray/op_at.md) メンバ関数にスライスの指示を与えるために使用する。
 
-### 構築・破棄
+
+##メンバ関数
+###構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------|----------------------------|------|
 | [`(constructor)`](./slice/slice.md)| コンストラクタ             |      |
 
-### その他メンバ関数
+
+###その他メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|----------------------------------------------------------------|------|
 | [`start`](./gslice/start.md)   | スライスを生成する初期位置を取得する                           |      |
 | [`size`](./gslice/size.md)     | 生成するスライスの要素数群の `valarray` オブジェクトを取得する |      |
-| [`stride`](./gslice/stride.md) | スライスを生成する間隔数群の `valarray` を取得する |           |
+| [`stride`](./gslice/stride.md) | スライスを生成する間隔数群の `valarray` を取得する             |      |
 
-## 例
 
+##例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -69,7 +62,6 @@ auto main()
 ```
 
 ### 出力
-
 ```
 19
 22

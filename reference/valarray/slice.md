@@ -1,32 +1,23 @@
-# slice
-
+#slice
 ```cpp
 namespace std {
-  class slice {
-  public:
-    slice();
-    slice(size_t start, size_t length, size_t stride);
-    slice(const slice&);
-    size_t start() const;
-    size_t size() const;
-    size_t stride() const;
-  };
+  class slice;
 }
 ```
 
-## 概要
+##概要
+[`std::valarray`](./valarray.md) テンプレートクラスの [`operator[]`](./valarray/op_at.md) メンバ関数にスライスの指示を与えるためのヘルパークラス。
 
-`std::valarray` テンプレートクラスの `operator[]` メンバ関数にスライスの指示を与える為のヘルパークラス。
 
-## メンバ関数
-
-### 構築・破棄
+##メンバ関数
+###構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------------|----------------------------|------|
-| [`(constructor)`](./slice/slice.md)| コンストラクタ             |      |
+|-------------------------------------|----------------------------|------|
+| [`(constructor)`](./slice/slice.md) | コンストラクタ             |      |
 
-### その他メンバ関数
+
+###その他メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------|--------------------------------------|------|
@@ -34,8 +25,8 @@ namespace std {
 | [`size`](./slice/size.md)     | 生成するスライスの要素数を取得する   |      |
 | [`stride`](./slice/stride.md) | スライスを生成する間隔を取得する     |      |
 
-## 例
 
+##例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -62,8 +53,7 @@ auto main()
 }
 ```
 
-### 出力
-
+###出力
 ```
 19
 26
