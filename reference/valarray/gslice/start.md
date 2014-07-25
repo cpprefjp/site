@@ -1,18 +1,17 @@
-# start
+#start
 ```cpp
 size_t start() const;
 ```
 
-## 概要
-
+##概要
 スライスを生成する初期位置を取得する。
 
-## 戻り値
 
+##戻り値
 スライスを生成する初期位置。
 
-## 例
 
+##例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -30,8 +29,8 @@ auto main()
 }
 ```
 
-### 出力
-
+###出力
 ```
 3
 ```
+

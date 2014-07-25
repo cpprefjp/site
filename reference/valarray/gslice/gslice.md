@@ -5,7 +5,7 @@ gslice(size_t s, valarray<size_t> l, valarray<size_t> d);
 gslice(const slice&);
 ```
 
-## `gslice`の構築
+##`gslice`オブジェクトの構築
 
 `gslice`オブジェクトを次に示す通りの要素で初期化する。
 
@@ -17,8 +17,8 @@ gslice(const slice&);
 - `gslice(const gslice&);`
     - コピーコンストラクタ。コピー元の`gslice`オブジェクトと同じ初期位置、要素数群、間隔数群でスライスする`gslice`オブジェクトを構築する。
 
-## パラメータ
 
+##パラメータ
 - `s`
     - スライスする初期位置。
 - `l`
@@ -26,8 +26,8 @@ gslice(const slice&);
 - `d`
     - スライスする間隔数群。
 
-## 例
 
+##例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -73,8 +73,7 @@ auto main()
 }
 ```
 
-### 出力
-
+###出力
 ```
 [0x7fff4fe25758]:
 start : 0

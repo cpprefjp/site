@@ -3,16 +3,14 @@
 valarray<size_t> size() const;
 ```
 
-## 概要
-
+##概要
 スライスを生成する要素数群を取得する。
 
-## 戻り値
 
+##戻り値
 スライスを生成する要素数群。
 
-## 例
-
+##例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -32,8 +30,7 @@ auto main()
 }
 ```
 
-### 出力
-
+###出力
 ```
 3
 4

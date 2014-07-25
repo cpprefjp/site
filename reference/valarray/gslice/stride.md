@@ -1,18 +1,17 @@
-# stride
+#stride
 ```cpp
 valarray<size_t> stride() const;
 ```
 
-## 概要
-
+##概要
 スライスを生成する間隔数群を取得する。
 
-## 戻り値
 
+##戻り値
 スライスを生成する間隔数群。
 
-## 例
 
+##例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -32,9 +31,9 @@ auto main()
 }
 ```
 
-### 出力
-
+###出力
 ```
 10
 3
 ```
+

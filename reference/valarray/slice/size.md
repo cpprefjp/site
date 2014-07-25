@@ -1,18 +1,16 @@
-# size
+#size
 ```cpp
 size_t size() const;
 ```
 
-## 概要
-
+##概要
 スライスを生成する要素数を取得する。
 
-## 戻り値
-
+##戻り値
 スライスを生成する要素数。
 
-## 例
 
+##例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -30,8 +28,7 @@ auto main()
 }
 ```
 
-### 出力
-
+###出力
 ```
 5
 ```
