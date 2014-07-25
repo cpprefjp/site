@@ -4,6 +4,7 @@ slice();
 slice(size_t start, size_t length, size_t stride);
 slice(const slice&);
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##`slice`オブジェクトの構築
 

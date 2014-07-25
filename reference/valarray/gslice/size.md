@@ -2,6 +2,8 @@
 ```cpp
 valarray<size_t> size() const;
 ```
+* size_t[link /reference/cstddef/size_t.md]
+* valarray[link /reference/valarray/valarray.md]
 
 ##概要
 スライスを生成する要素数群を取得する。

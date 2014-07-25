@@ -4,6 +4,8 @@ gslice();
 gslice(size_t s, valarray<size_t> l, valarray<size_t> d);
 gslice(const slice&);
 ```
+* size_t[link /reference/cstddef/size_t.md]
+* valarray[link /reference/valarray/valarray.md]
 
 ##`gslice`オブジェクトの構築
 
