@@ -28,16 +28,16 @@ namespace std {
 ###メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|---------------------------------------|--------------------------------------------------------------------|-------|
-| [`(constructor)`](./thread/thread.md) | コンストラクタ | C++11 |
-| [`(destructor)`](./thread/-thread.md) | デストラクタ | C++11 |
-| [`operator=`](./thread/op_assign.md)  | 代入演算子 | C++11 |
-| [`swap`](./thread/swap.md)            | 別の`thread`と交換する | C++11 |
-| [`joinable`](./thread/joinable.md)    | スレッドに関連付けられているか否かを取得する | C++11 |
-| [`join`](./thread/join.md)            | スレッドが終了するまで待機する | C++11 |
-| [`detach`](./thread/detach.md)        | スレッドの管理を手放す | C++11 |
-| [`get_id`](./thread/get_id.md)        | 関連付けられているスレッドのスレッド識別子を取得する | C++11 |
-| `native_handle`                       | スレッドに関連付けられたネイティブハンドルを取得する［処理系定義］ | C++11 |
+|----------------------------------------------|--------------------------------------------------------------------|-------|
+| [`(constructor)`](./thread/thread.md)        | コンストラクタ | C++11 |
+| [`(destructor)`](./thread/-thread.md)        | デストラクタ | C++11 |
+| [`operator=`](./thread/op_assign.md)         | 代入演算子 | C++11 |
+| [`swap`](./thread/swap.md)                   | 別の`thread`と交換する | C++11 |
+| [`joinable`](./thread/joinable.md)           | スレッドに関連付けられているか否かを取得する | C++11 |
+| [`join`](./thread/join.md)                   | スレッドが終了するまで待機する | C++11 |
+| [`detach`](./thread/detach.md)               | スレッドの管理を手放す | C++11 |
+| [`get_id`](./thread/get_id.md)               | 関連付けられているスレッドのスレッド識別子を取得する | C++11 |
+| [`native_handle`](./thread/native_handle.md) | スレッドに関連付けられたネイティブハンドルを取得する［処理系定義］ | C++11 |
 
 
 ###静的メンバ関数
