@@ -9,8 +9,10 @@ native_handle_type native_handle();
 
 ##効果
 この関数は、実装依存のミューテックスハンドルを返す。
+
 - Unix系環境におけるlibstdc++とlibc++では、pthreadライブラリのミューテックス型`pthread_mutex_t*`を表す。
 - Visual C++では、付属ライブラリの同時実行ランタイムの型`concurrency::critical_section*`を表す。ただし、`native_handle`の戻り値はそれを`void*`にキャストした値であり、`native_handle_type`は`void*`である。
+
 ハンドル型に対する操作は汎用的ではないため、環境依存のプログラミングが必要な場合に使用する。
 
 

@@ -9,8 +9,10 @@ native_handle_type native_handle();
 
 ##効果
 この関数は、実装依存のスレッドのハンドルを返す。
+
 - Unix系環境におけるlibstdc++とlibc++では、`pthread_t`を表す。
 - Visual C++では、Windowsのスレッドハンドル`HANDLE`を表す。
+
 ハンドル型に対する操作は汎用的ではないため、環境依存のプログラミングが必要な場合に使用する。
 
 
