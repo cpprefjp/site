@@ -122,7 +122,7 @@ return distance(a, b);
 
 `Compare` を取るアルゴリズムには全て、代わりに `operator<` を使うバージョンもある。  
 つまり、`comp(*i, *j) != false` はデフォルトで `*i < *j != false` である。  
-25.4.3（BinarySearch）以外のアルゴリズムでは、`comp` は厳密で弱い順序付け (strict weak ordering) を示さなければならない。  
+25.4.3（BinarySearch）以外のアルゴリズムでは、`comp` は「厳密で弱い順序付け (strict weak ordering) 」を示さなければならない。  
 
 ここでの用語「厳密 (strict) 」 は非反射関係 (irreflexive relation) (全ての `x` について `!comp(x,x)` である）の要求を示し、用語「弱い (weak) 」は全順序 (total ordering) ほど強くはないが半順序 (partial ordering) よりは強い要求を示す。`!comp(a, b) && !comp(b, a)` として `equiv(a, b)` を定義する場合、用語「弱い」の要求は `comp` と `equiv` の両方が以下のように推移的関係 (transitive relations) となることである。  
 
