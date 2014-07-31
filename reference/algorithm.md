@@ -113,35 +113,34 @@ return distance(a, b);
 
 ##ソートや、それに関連した操作
 
-####以下の文章はドラフト
 25.4 の全ての操作は２つのバージョンがある。一つは `Compare` 型の関数オブジェクトを取る関数、もう一つは `operator<` を使用する関数である。
 
 `Compare` は関数オブジェクト型である。  
-`Compare` 型のオブジェクトを適用した戻り値が `bool` へ contextually convert できるときは、第一引数が第二引数より小さい場合は `true` を、そうでない場合は `false` を返す。  
-`Compare` 型の `comp` は、アルゴリズム全体で ordering relation があると仮定する。  
-また、`comp` は間接参照したイテレータを使って非 `const` な関数を呼び出していないと仮定する。  
+`Compare` 型のオブジェクトに適用した関数呼び出しの戻り値は、 `bool` へ文脈依存の変換をされたとき、第一引数が第二引数より小さい場合は `true` を、そうでない場合は `false` を返す。  
+何らかの順序関係 (ordering relation) を前提とするアルゴリズム全般に対して `Compare` 型の `comp` を使用する。  
+`comp` は間接参照したイテレータを通して非 `const` な関数を適用しないものとする。  
 
 `Compare` を取るアルゴリズムには全て、代わりに `operator<` を使うバージョンもある。  
 つまり、`comp(*i, *j) != false` はデフォルトで `*i < *j != false` である。  
-25.4.3（BinarySearch）以外のアルゴリズムでは、`comp` は strict weak ordering でなければならない。  
+25.4.3（BinarySearch）以外のアルゴリズムでは、`comp` は厳密で弱い順序付け (strict weak ordering) を示さなければならない。  
 
-term strict は irreflexive relation (全ての `x` について `!comp(x,x)` である）の要件と term weak の要件を refer している。term weak の要件は、total ordering ほど strong ではない要求であるが、partial ordering よりは strong である。`!comp(a, b) && !comp(b, a)` として `equiv(a, b)` を定義する場合、term weak の要件は `comp` と `equiv` の両方が以下のように transitive relations となることである。  
+ここでの用語「厳密 (strict) 」 は非反射関係 (irreflexive relation) (全ての `x` について `!comp(x,x)` である）の要求を示し、用語「弱い (weak) 」は全順序 (total ordering) ほど強くはないが半順序 (partial ordering) よりは強い要求を示す。`!comp(a, b) && !comp(b, a)` として `equiv(a, b)` を定義する場合、用語「弱い」の要求は `comp` と `equiv` の両方が以下のように推移関係 (transitive relations) となることである。  
 
 - `comp(a, b) && comp(b, c)` は `comp(a, c)` を意味する
 - `equiv(a, b) && equiv(b, c)` は `equiv(a, c)` を意味する
 
-Note: 以下の条件から、それが明らかになる
+Note: これらの前提のもと、以下を示すことができる。
 
-- `equiv` は equivalence relation である
-- `comp` は `equiv` によって確定した equivalence クラスである well-defined な relation を induce する
-- その induce された relation は strict total ordering である
+- `equiv` は等価関係 (equivalence relation) である
+- `comp` は `equiv` によって決まる同値類の間での well-defined な関係を示す
+- その示される関係は厳密な全順序 (strict total ordering) である
 
-シーケンスを指す任意のイテレータ `i` と、`i + n` がシーケンス上の要素を指す有効なイテレータである任意の整数 `n` について、`comp(*(i + n), *i) == false` であれば、シーケンスは comparator comp によってソートされている。  
+あるシーケンスを指す任意のイテレータ `i` と、`i + n` がそのシーケンス上の要素を指す有効なイテレータであるような任意の非負整数 `n` について、`comp(*(i + n), *i) == false` であれば、そのシーケンスは比較関数 (comparator) comp によってソートされている。  
 
-シーケンス `[start,finish)` と関数 `f` があるとき、`0 <= i < `[`distance`](/reference/iterator/distance.md)`(start, finish)` 内の全ての整数 `n` について、`i < n` かつその時に限り `f(*(start + i))` が `true` であれば、シーケンス `[start,finish)` は式 `f(e)` によってパーティションされている。  
+あるシーケンス `[start,finish)` があり、`0 <= i < `[`distance`](/reference/iterator/distance.md)`(start, finish)` 内の全ての整数 `i` について、`i < n` の時かつその時に限り `f(*(start + i))` が `true` となるような整数 `n` が存在するなら、そのシーケンス `[start,finish)` は式 `f(e)` によってパーティションされている。  
 
-ordering relationship を処理する関数の説明において、この節では stability のようなコンセプトを説明するために equivalence の概念を頻繁に使う。  
-この節で refer する equivalence は必ずしも `operator==` が必要というわけではないが、equivalence relation は strict weak ordering によって induce する。つまりそれは、２つの要素 `a`, `b` は `!(a < b) && !(b < a)` かつその時に限り equivalent が考慮されるということである。  
+順序関係を扱う関数の説明において、この節では安定性 (stability) のようなコンセプトを説明するために等価性 (equivalence) の概念を頻繁に使う。  
+この節で参照する等価性は必ずしも `operator==` ではなく、厳密で弱い順序付けによって示される等価関係である。つまりそれは、２つの要素 `a` と `b` は `!(a < b) && !(b < a)` の時かつその時に限り等価とみなされるということである。  
 
 
 ###ソート
