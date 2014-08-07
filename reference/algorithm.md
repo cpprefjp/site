@@ -106,7 +106,7 @@ return distance(a, b);
 | [`shuffle`](./algorithm/shuffle.md)                 | それぞれの要素をランダムな位置に移動させる | C++11 |
 | [`is_partitioned`](./algorithm/is_partitioned.md)   | 与えられた範囲が条件によって区分化されているか判定する | C++11 |
 | [`partition`](./algorithm/partition.md)             | 与えられた範囲を条件によって区分化する | |
-| [`stable_partition`](./algorithm/stable_partition.md) | 与えられた範囲を順序を保ったまま条件によって区分化する | |
+| [`stable_partition`](./algorithm/stable_partition.md) | 与えられた範囲を相対順序を保ちながら条件によって区分化する | |
 | [`partition_copy`](./algorithm/partition_copy.md)   | 与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする | C++11 |
 | [`partition_point`](./algorithm/partition_point.md) | 与えられた範囲から条件によって区分化されている位置を得る | C++11 |
 
