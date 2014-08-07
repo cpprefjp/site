@@ -50,6 +50,9 @@ indirect_array<T> operator[](const valarray<size_t>& mask); // (10)
 - (10) : `*this`に含まれる、`mask`に含まれるインデックス値の要素のみを抽出する。このオーバーロードでは、条件一致した要素への参照を管理する[`indirect_array`](/reference/valarray/indirect_array.md)オブジェクトを返す。
 
 
+##備考
+- (7), (8) : [`size()`](./size.md) `!= mask.`[`size()`](./size.md)の場合、その挙動は未定義。
+
 ##例
 ```cpp
 #include <cassert>
@@ -169,6 +172,76 @@ int main()
     assert(v[12] == 12);
     assert(v[13] == 13);
     assert(v[14] == 99);
+  }
+
+  // (7)
+  // 同じ要素数のbool配列を指定して、
+  // bool配列のうち、trueの要素に対応する位置の要素をコピー抽出
+  {
+    const std::valarray<int> v = {1, 2, 3, 4, 5};
+    const std::valarray<bool> mask = {true, false, true, false, true};
+
+    std::valarray<int> result = v[mask];
+
+    assert(result.size() == 3);
+    assert(result[0] == 1);
+    assert(result[1] == 3);
+    assert(result[2] == 5);
+  }
+
+  // (8)
+  // 同じ要素数のbool配列を指定して、
+  // bool配列のうち、trueの要素に対応する位置の要素への参照を抽出
+  {
+    std::valarray<int> v = {1, 2, 3, 4, 5};
+    const std::valarray<bool> mask = {true, false, true, false, true};
+
+    std::mask_array<int> result = v[mask];
+
+    // 抽出した要素を99で埋める
+    result = 99;
+
+    // 参照元が書き換わっていることを確認する
+    assert(v[0] == 99);
+    assert(v[1] == 2);
+    assert(v[2] == 99);
+    assert(v[3] == 4);
+    assert(v[0] == 99);
+  }
+
+  // (9)
+  // 抽出する要素のインデックス値からなる配列を指定して、
+  // 対応する位置の要素をコピー抽出
+  {
+    const std::valarray<int> v = {1, 2, 3, 4, 5};
+    const std::valarray<std::size_t> mask = {0, 2, 4};
+
+    std::valarray<int> result = v[mask];
+
+    assert(result.size() == 3);
+    assert(result[0] == 1);
+    assert(result[1] == 3);
+    assert(result[2] == 5);
+  }
+
+  // (10)
+  // 抽出する要素のインデックス値からなる配列を指定して、
+  // 対応する位置の要素をコピー抽出
+  {
+    std::valarray<int> v = {1, 2, 3, 4, 5};
+    const std::valarray<std::size_t> mask = {0, 2, 4};
+
+    std::indirect_array<int> result = v[mask];
+
+    // 抽出した要素を99で埋める
+    result = 99;
+
+    // 参照元が書き換わっていることを確認する
+    assert(v[0] == 99);
+    assert(v[1] == 2);
+    assert(v[2] == 99);
+    assert(v[3] == 4);
+    assert(v[0] == 99);
   }
 }
 ```
