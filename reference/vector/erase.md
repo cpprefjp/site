@@ -5,7 +5,8 @@ iterator erase(iterator position);
 iterator erase(iterator first, iterator last);
 
 // C++11から
-iterator erase(const_iterator position);iterator erase(const_iterator first, const_iterator last);
+iterator erase(const_iterator position);
+iterator erase(const_iterator first, const_iterator last);
 ```
 
 ##概要
