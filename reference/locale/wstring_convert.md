@@ -42,7 +42,14 @@ namespace std {
 
 ##バージョン
 ###言語
-- C++11:
+- C++11
+
+###処理系
+- [Clang](/implementation#clang.md): 3.0, 3.1, 3.2, 3.3, 3.4
+- [GCC](/implementation#gcc.md):
+- [GCC, C++0x mode](/implementation#gcc.md):
+- [ICC](/implementation#icc.md):
+- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
 
 ###参照
 
