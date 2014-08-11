@@ -85,3 +85,7 @@ assign value : {1,55,3,55,5,55}
 ```
 
 
+###備考
+- Clang 3.3 + libc++で、(1)の実装に`return`文がなかった([Bug 20614](http://llvm.org/bugs/show_bug.cgi?id=20614))
+
+
