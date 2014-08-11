@@ -24,7 +24,7 @@ namespace std {
 |-----------------|----------------|----------------|
 | `(constructor)` | コンストラクタ | |
 | `(destructor)`  | デストラクタ   | |
-| `operator=`     | 代入演算子     | |
+| [`operator=`](./slice_array/op_assign.md)     | 代入演算子     | |
 
 
 ###四則演算
