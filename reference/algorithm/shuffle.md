@@ -7,38 +7,29 @@ namespace std {
 }
 ```
 
-###概要
+##概要
 `[first,last)` のそれぞれの要素を同じ確率で並び替える。
 
 
-###要件
+##要件
 `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
+
 `UniformRandomNumberGenerator` は uniform random number generator の要件を満たさなければならなず、その戻り値の型は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
 
 
-###計算量
+##計算量
 正確に `(last - first) - 1` 回 swap する。
 
 
-###実装例
-```cpp
-template <class RandomAccessIterator, class UniformRandomNumberGenerator>
-void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRandomNumberGenerator&& g) {
-  if (first == last) return;
+##備考
+以下の実装では、[Fisher-Yates Shuffle](http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)アルゴリズムが使用されている：
 
-  typedef typename iterator_traits<RandomAccessIterator>::difference_type distance_type;
-  typedef typename make_unsigned<distance_type>::type                     unsigned_type;
-  typedef typename uniform_int_distribution<unsigned_type>                distribute_type;
-  typedef typename distribute_type::param_type                            param_type;
-
-  distribute_type d;
-  for (auto it = first + 1; it != last; ++it)
-    iter_swap(it, first + d(g, param_type(0, it - first)));
-}
-```
+- GCC 4.9 (libstdc++)
+- Clang 3.4 (libc++)
+- Visual C++ 12.0
 
 
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -70,5 +61,22 @@ int main() {
 ```
 before: 0123456789
  after: 5803429716
+```
+
+##実装例
+```cpp
+template <class RandomAccessIterator, class UniformRandomNumberGenerator>
+void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRandomNumberGenerator&& g) {
+  if (first == last) return;
+
+  typedef typename iterator_traits<RandomAccessIterator>::difference_type distance_type;
+  typedef typename make_unsigned<distance_type>::type                     unsigned_type;
+  typedef typename uniform_int_distribution<unsigned_type>                distribute_type;
+  typedef typename distribute_type::param_type                            param_type;
+
+  distribute_type d;
+  for (auto it = first + 1; it != last; ++it)
+    iter_swap(it, first + d(g, param_type(0, it - first)));
+}
 ```
 
