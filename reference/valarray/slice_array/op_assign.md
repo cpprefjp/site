@@ -1,8 +1,12 @@
 #operator=
 ```cpp
-const slice_array& operator=(const slice_array& ar) const; // (1) C++11
-void operator=(const valarray<T>& ar) const;               // (2)
-void operator=(const T& value) const;                      // (3)
+private:
+  slice_array& operator=(const slice_array&); // (1) C++03 宣言のみ
+
+public:
+  const slice_array& operator=(const slice_array& ar) const; // (1) C++11
+  void operator=(const valarray<T>& ar) const;               // (2)
+  void operator=(const T& value) const;                      // (3)
 ```
 
 ##概要
@@ -21,7 +25,7 @@ void operator=(const T& value) const;                      // (3)
 
 
 ##備考
-- (1) : C++03まで、このオーバーロードは`private`宣言となっていた(つまり使用不可)。
+- (1) : C++03まで、このオーバーロードは使用できなかった。
 - (2) : `valarray`から抽出した要素数と`ar`の要素数が異なる場合、その挙動は未定義。
 
 
