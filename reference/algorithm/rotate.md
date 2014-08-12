@@ -1,43 +1,40 @@
 #rotate
-
 ```cpp
 namespace std {
   template <class ForwardIterator>
-  ForwardIterator rotate(ForwardIterator first, ForwardIterator middle, ForwardIterator last);
+  ForwardIterator rotate(ForwardIterator first,
+                         ForwardIterator middle,
+                         ForwardIterator last);
 }
 ```
 
-###概要
+##概要
 要素の並びを回転させる。
 
 
-###効果
+##要件
+- `[first,middle)` と `[middle,last)` は有効な範囲である必要がある。
+- `ForwardIterator` は `ValueSwappable` の要件を満たしている必要がある。
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+
+
+##効果
 0 以上 `last - first` 未満の整数 `i` について、`first + i` の要素を `first + (i + (last - middle)) % (last - first)` の位置へ移動させる。
 
 
-###戻り値
+##戻り値
 `first + (last - middle)`
 
 
-###注意
-これは left rotate である
+##備考
+これは左への回転である
 
 
-###要件
-`[first,middle)` と `[middle,last)` は有効な範囲である必要がある。
-`ForwardIterator` は `ValueSwappable` の要件を満たしている必要がある。
-`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
-
-
-###計算量
+##計算量
 最大で `last - first` 回 swap する。
 
 
-###実装例
-[std::rotate を読んでみた](http://www.kmonos.net/wlog/115.html#_0007101223)
-
-
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -69,12 +66,12 @@ tatero
 class Elem
 {
 public:
-    Elem() : c_('\0') {}
-    explicit Elem(char c) : c_(c) {}
-    Elem& operator=(const char c) { c_ = c; return *this; }
-    operator char() const { return c_; }
+  Elem() : c_('\0') {}
+  explicit Elem(char c) : c_(c) {}
+  Elem& operator=(const char c) { c_ = c; return *this; }
+  operator char() const { return c_; }
 private:
-    char c_;
+  char c_;
 };
 
 std::vector<Elem> seq;
@@ -100,9 +97,7 @@ int main()
 ```
 * rotate[color ff0000]
 
-####実行結果
-
-gcc-4.6.3 で確認。
+####出力例
 ```
 swapping 0x1806040(0) <-> 0x1806042(2)
 210345
@@ -116,3 +111,7 @@ swapping 0x1806042(0) <-> 0x1806044(4)
 swapping 0x1806043(1) <-> 0x1806045(5)
 234501
 ```
+
+##実装例
+[std::rotate を読んでみた](http://www.kmonos.net/wlog/115.html#_0007101223)
+

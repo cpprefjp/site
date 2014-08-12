@@ -1,17 +1,19 @@
 #random_shuffle
-
 ```cpp
 namespace std {
   template <class RandomAccessIterator>
-  void random_shuffle(RandomAccessIterator first, RandomAccessIterator last);
+  void random_shuffle(RandomAccessIterator first,
+                      RandomAccessIterator last);    // (1)
 
-  // C++03 の場合
   template <class RandomAccessIterator, class RandomNumberGenerator>
-  void random_shuffle(RandomAccessIterator first, RandomAccessIterator last, RandomNumberGenerator& rand);
+  void random_shuffle(RandomAccessIterator first,
+                      RandomAccessIterator last,
+                      RandomNumberGenerator& rand);  // (2) C++03
 
-  // C++11 の場合
   template <class RandomAccessIterator, class RandomNumberGenerator>
-  void random_shuffle(RandomAccessIterator first, RandomAccessIterator last, RandomNumberGenerator&& rand);
+  void random_shuffle(RandomAccessIterator first,
+                      RandomAccessIterator last,
+                      RandomNumberGenerator&& rand); // (2) C++11
 }
 ```
 
@@ -23,16 +25,16 @@ namespace std {
 
 
 ##要件
-`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
-乱数生成関数オブジェクトである `rand` の戻り値は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
-0 より大きい [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` 型の `n` について、`rand(n)` という呼び出しは `[0,n)` の範囲から無作為に選ばれた値を返す必要がある。
+- `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
+- 乱数生成関数オブジェクトである `rand` の戻り値は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
+- 0 より大きい [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` 型の `n` について、`rand(n)` という呼び出しは `[0,n)` の範囲から無作為に選ばれた値を返す必要がある。
 
 
 ##計算量
 正確に `(last - first) - 1` 回 swap する。
 
 
-##注意
+##備考
 最初の形式がC互換ライブラリの `std::rand()`関数を使うかどうかは実装依存である。
 
 
@@ -52,7 +54,7 @@ C++14では、C互換ライブラリの乱数生成関数である`std::rand()`�
 `std::rand()`と`std::srand()`の代わりに、[`<random>`](/reference/random.md)ヘッダで定義される乱数生成器と分布を使用すること。`std::random_shuffle()`関数の代わりに、[`std::shuffle()`](./shuffle.md)関数を使用すること。
 
 
-##使用例
+##例
 ```cpp
 #include <iostream>
 #include <vector>
