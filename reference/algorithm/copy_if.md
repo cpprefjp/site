@@ -7,40 +7,31 @@ namespace std {
 }
 ```
 
-###概要
+##概要
 条件を満たす要素のみをコピーする。
 
-###要件
+
+##要件
 `[first,last)` の範囲と、`[result,result + (last - first))` の範囲は重なっていてはならない。
 
-###効果
+
+##効果
 `[first,last)` 内のイテレータ `i` について `pred(*i)` が `true` である要素を `result` へ順番にコピーする。
 
-###戻り値
+
+##戻り値
 コピー先の範囲の終端を返す。
 
-###計算量
+
+##計算量
 正確に `last - first` 回述語を適用する。
 
-###注意
+
+##備考
 このコピーは安定なコピーである。つまり、コピーによって要素の前後が入れ替わることは無い。
 
-###言語のバージョン
-C++11 以降
 
-###実装例
-```cpp
-template <class InputIterator, class OutputIterator, class Predicate>
-OutputIterator copy_if(InputIterator first, InputIterator last,
-                       OutputIterator result, Predicate pred) {
-  for ( ; first != last; ++first)
-    if (pred(*first))
-      *result++ = *first;
-  return result;
-}
-```
-
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -69,4 +60,31 @@ int main() {
 ```
 3,1,1,5,9,5,
 ```
+
+
+##実装例
+```cpp
+template <class InputIterator, class OutputIterator, class Predicate>
+OutputIterator copy_if(InputIterator first, InputIterator last,
+                       OutputIterator result, Predicate pred) {
+  for ( ; first != last; ++first)
+    if (pred(*first))
+      *result++ = *first;
+  return result;
+}
+```
+
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation#clang.md): 3.0
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.4.7
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??
+
+
 

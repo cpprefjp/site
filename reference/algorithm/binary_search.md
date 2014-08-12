@@ -1,20 +1,26 @@
 #binary_search
 ```cpp
 namespace std {
-  template<class ForwardIterator, class T>
-  bool binary_search(ForwardIterator first, ForwardIterator last, const T& value);
+  template <class ForwardIterator, class T>
+  bool binary_search(ForwardIterator first,
+                     ForwardIterator last,
+                     const T& value);
 
-  template<class ForwardIterator, class T, class Compare>
-  bool binary_search(ForwardIterator first, ForwardIterator last, const T& value, Compare comp);
+  template <class ForwardIterator, class T, class Compare>
+  bool binary_search(ForwardIterator first,
+                     ForwardIterator last,
+                     const T& value,
+                     Compare comp);
 }
 ```
 
 ##概要
-二分探索法による検索を行う
+二分探索法による検索を行う。
 
 
 ##要件
 `[first,last)` の要素 `e` は `e < value && !(value < e)` または `comp(e, value) && !comp(value, e)` によってパーティションされていなければならない。
+
 また、`[first, last)` の要素 `e` は全て暗黙に、`e < value` が `!(value < e)` または `comp(e, value)` が `!comp(value, e)` を意味している必要がある。
 
 
@@ -53,9 +59,4 @@ int main()
 found
 ```
 
-##実装例
-```cpp
-```
-
-##参照
 

@@ -7,32 +7,23 @@ namespace std {
 }
 ```
 
-###概要
-指定された数の要素をコピーする
+##概要
+指定された数の要素をコピーする。
 
-###効果
+
+##効果
 0 以上 `n` 未満であるそれぞれの `i` について、`*(result + i) = *(first + i)` を行う。
 
-###戻り値
+
+##戻り値
 `result + n`
 
-###計算量
+
+##計算量
 正確に `n` 回代入が行われる。
 
-###言語のバージョン
-C++11 以降
 
-###実装例
-```cpp
-template<class InputIterator, class Size, class OutputIterator>
-OutputIterator copy_n(InputIterator first, Size n, OutputIterator result) {
-  for (Size i = 0; i < n; i++)
-    *result++ = *first++;
-  return result;
-}
-```
-
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -54,4 +45,27 @@ int main() {
 2
 4
 ```
+
+
+##実装例
+```cpp
+template<class InputIterator, class Size, class OutputIterator>
+OutputIterator copy_n(InputIterator first, Size n, OutputIterator result) {
+  for (Size i = 0; i < n; i++)
+    *result++ = *first++;
+  return result;
+}
+```
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation#clang.md): 3.0
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.4.7
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??
+
 
