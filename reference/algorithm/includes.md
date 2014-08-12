@@ -1,18 +1,19 @@
 #includes
 ```cpp
 namespace std {
-  template<class InputIterator1, class InputIterator2>
+  template <class InputIterator1, class InputIterator2>
   bool includes(InputIterator1 first1, InputIterator1 last1,
                 InputIterator2 first2, InputIterator2 last2);
 
-  template<class InputIterator1, class InputIterator2, class Compare>
+  template <class InputIterator1, class InputIterator2, class Compare>
   bool includes(InputIterator1 first1, InputIterator1 last1,
-                InputIterator2 first2, InputIterator2 last2, Compare comp);
+                InputIterator2 first2, InputIterator2 last2,
+                Compare comp);
 }
 ```
 
 ##概要
-2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する
+2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する。
 
 
 ##戻り値
@@ -49,9 +50,4 @@ true
 false
 ```
 
-##実装例
-```cpp
-```
-
-##参照
 

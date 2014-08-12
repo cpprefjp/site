@@ -1,44 +1,41 @@
 #for_each
-
 ```cpp
 namespace std {
-  template<class InputIterator, class Function>
-  Function for_each(InputIterator first, InputIterator last, Function f);
+  template <class InputIterator, class Function>
+  Function for_each(InputIterator first,
+                    InputIterator last,
+                    Function f);
 }
 ```
 
-###概要
-
+##概要
 範囲の全ての要素に、指定された関数を適用する。
-###要件
+
+
+##要件
 `Function` は `MoveConstructible` の要件を満たす必要があるが、`CopyConstructible` の要件を満たす必要はない。（C++11のみ）
 
-###効果
+
+##効果
 `[first,last)` 内の全てのイテレータ `i` に `f(*i)` という操作を行う。`first` から順番に処理し、`last - 1` まで行う。
+
 このアルゴリズムはその他のアルゴリズムと違い、`Function` の内部で `*i` の値を書き換えても構わない（もちろんイテレータの型が `mutable iterator` の要件を満たしている場合に限る）。
 
-###戻り値
+
+##戻り値
 * C++03 の場合 : `f`
 * C++11 の場合 : `std::move(f)`
 
 
-###計算量
+##計算量
 正確に `f` を `last - first` 回適用する
 
-###備考
+
+##備考
 `f` に戻り値がある場合、それは単に無視される。
 
-###実装例
-```cpp
-template<class InputIterator, class Function>
-Function for_each(InputIterator first, InputIterator last, Function f) {
-  for ( ; first != last; ++first)
-    f(*first);
-  return move(f);
-}
-```
 
-###使用例(C++03バージョン)
+##例(C++03バージョン)
 ```cpp
 #include <iostream>
 #include <vector>
@@ -76,7 +73,7 @@ int main() {
 * for_each[color ff0000]
 
 
-###使用例(C++11バージョン)
+##例(C++11バージョン)
 ```cpp
 #include <iostream>
 #include <vector>
@@ -108,5 +105,16 @@ int main() {
 3
 2
 6
+```
+
+
+##実装例
+```cpp
+template <class InputIterator, class Function>
+Function for_each(InputIterator first, InputIterator last, Function f) {
+  for ( ; first != last; ++first)
+    f(*first);
+  return move(f);
+}
 ```
 
