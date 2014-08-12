@@ -6,33 +6,20 @@ namespace std {
 }
 ```
 
-###概要
+##概要
 範囲のいずれかの要素が条件を満たすかを判定する。
 
 
-###戻り値
+##戻り値
 `[first,last)` 内のイテレータ `i` について `pred(*i)` が `true` になるような要素があれば`true`を返し、そうでなければ`false`を返す。
 `[first,last)`の範囲が空の場合は`false`を返す。
 
-###計算量
+
+##計算量
 最大で `last - first` 回 `pred` を実行する。
 
 
-###言語のバージョン
-C++11 以降
-
-
-###実装例
-```
-template<class InputIterator, class Predicate>
-bool any_of(InputIterator first, InputIterator last, Predicate pred) {
-  for ( ; first != last; ++first)
-    if (pred(*first)) return true;
-  return false;
-}
-```
-
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -59,4 +46,31 @@ int main() {
 false
 true
 ```
+
+
+##実装例
+```
+template <class InputIterator, class Predicate>
+bool any_of(InputIterator first, InputIterator last, Predicate pred) {
+  for ( ; first != last; ++first)
+    if (pred(*first)) return true;
+  return false;
+}
+```
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation#clang.md): 3.0
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.4.7
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??
+
+
+##参照
+- [`all_of`](/reference/algorithm/all_of.md)
+- [`none_of`](/reference/algorithm/none_of.md)
 

@@ -6,20 +6,21 @@ namespace std {
 }
 ```
 
-###概要
+##概要
 範囲の全ての要素が条件を満たさないかを判定する。
 
 
-###戻り値
+##戻り値
 `[first,last)` が空であったり、`[first,last)` 内の全てのイテレータ `i` について `pred(*i)` が `false` である場合は `true` を返し、そうでない場合は `false` を返す。
 
 
-###計算量
+##計算量
 最大で `last - first` 回 `pred` を実行する。
 
 
 ###注意
 この関数は
+
 ```cpp
 all_of(first, last, not1(pred));
 ```
@@ -28,21 +29,7 @@ all_of(first, last, not1(pred));
 とほぼ同じであるが、全ての要素が条件を満たしていないということを明示したい場合は `none_of()` を使う方が意図が伝わりやすい。
 
 
-###言語のバージョン
-C++11 以降
-
-
-###実装例
-```cpp
-template<class InputIterator, class Predicate>
-bool none_of(InputIterator first, InputIterator last, Predicate pred) {
-  for ( ; first != last; ++first)
-    if (pred(*first)) return false;
-  return true;
-}
-```
-
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -69,3 +56,29 @@ int main() {
 false
 true
 ```
+
+##実装例
+```cpp
+template <class InputIterator, class Predicate>
+bool none_of(InputIterator first, InputIterator last, Predicate pred) {
+  for ( ; first != last; ++first)
+    if (pred(*first)) return false;
+  return true;
+}
+```
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation#clang.md): 3.0
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.4.7
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md): ??
+
+##参照
+- [`all_of`](/reference/algorithm/all_of.md)
+- [`any_of`](/reference/algorithm/any_of.md)
+
