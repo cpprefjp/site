@@ -11,24 +11,63 @@ namespace std {
 }
 ```
 
-###概要
+##概要
 あるシーケンスの中から、特定のサブシーケンスを探す。
 
 
-###要件
+##要件
 `Size`は整数型に変換できる型である必要がある。
 
 
-###戻り値
+##戻り値
 `[first,last-count)` 内のイテレータ `i` があるとき、0 以上 `count` 未満の整数 `n` について、それぞれ `*(i + n) == value` もしくは `pred(*(i + n),value) != false` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+
 そのようなイテレータが見つからない場合は `last` を返す。
 
 
-###計算量
+##計算量
 最大で `last - first` 回の対応する比較もしくは述語が適用される。
 
 
-###実装例
+##例
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v = { 1,2,3,2,1,3,3,2,3,3,1 };
+
+  // 3 が 2 つ連続している最初のシーケンスを探す
+  auto it1 = std::search_n(v.cbegin(), v.cend(), 2, 3);
+  // v[5] の位置を指すイテレータが見つかる。
+  if (it1 == v.cend()) {
+    std::cout << "not found" << std::endl;
+  } else {
+    std::cout << "found: index==" << std::distance(v.cbegin(), it1) << std::endl;
+  }
+
+  // 3 未満が 2 つ連続している最初のシーケンスを探す
+  auto it2 = std::search_n(v.cbegin(), v.cend(), 2, 3, [](int x, int y) { return x < y; });
+  // v[0] の位置を指すイテレータが見つかる。
+  if (it2 == v.cend()) {
+    std::cout << "not found" << std::endl;
+  } else {
+    std::cout << "found: index==" << std::distance(v.cbegin(), it2) << std::endl;
+  }
+}
+```
+* search_n[color ff0000]
+
+
+###出力
+```cpp
+found: index==5
+found: index==0
+```
+
+
+##実装例
 ```cpp
 template <class ForwardIterator, class Size, class T>
 ForwardIterator search_n(ForwardIterator first, ForwardIterator last, Size count, T const& value)
@@ -80,43 +119,5 @@ ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
   }
   return last;
 }
-```
-
-
-###使用例
-```cpp
-#include <algorithm>
-#include <iostream>
-#include <vector>
-
-int main() {
-  std::vector<int> v = { 1,2,3,2,1,3,3,2,3,3,1 };
-
-  // 3 が 2 つ連続している最初のシーケンスを探す
-  auto it1 = std::search_n(v.cbegin(), v.cend(), 2, 3);
-  // v[5] の位置を指すイテレータが見つかる。
-  if (it1 == v.cend()) {
-    std::cout << "not found" << std::endl;
-  } else {
-    std::cout << "found: index==" << std::distance(v.cbegin(), it1) << std::endl;
-  }
-
-  // 3 未満が 2 つ連続している最初のシーケンスを探す
-  auto it2 = std::search_n(v.cbegin(), v.cend(), 2, 3, [](int x, int y) { return x < y; });
-  // v[0] の位置を指すイテレータが見つかる。
-  if (it2 == v.cend()) {
-    std::cout << "not found" << std::endl;
-  } else {
-    std::cout << "found: index==" << std::distance(v.cbegin(), it2) << std::endl;
-  }
-}
-```
-* search_n[color ff0000]
-
-
-###出力
-```cpp
-found: index==5
-found: index==0
 ```
 

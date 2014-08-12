@@ -1,11 +1,12 @@
 #set_intersection
 ```cpp
 namespace std {
-  template<class InputIterator1, class InputIterator2, class OutputIterator>
+  template <class InputIterator1, class InputIterator2, class OutputIterator>
   OutputIterator set_intersection(InputIterator1 first1, InputIterator1 last1,
                                 InputIterator2 first2, InputIterator2 last2,
                                 OutputIterator result);
-  template<class InputIterator1, class InputIterator2, class OutputIterator, class Compare>
+  template <class InputIterator1, class InputIterator2, class OutputIterator,
+            class Compare>
   OutputIterator set_intersection(InputIterator1 first1, InputIterator1 last1,
                                   InputIterator2 first2, InputIterator2 last2,
                                   OutputIterator result, Compare comp);
@@ -68,11 +69,4 @@ int main()
 4
 ```
 
-
-##実装例
-```cpp
-```
-
-
-##参照
 

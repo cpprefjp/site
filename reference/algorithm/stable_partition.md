@@ -13,9 +13,8 @@ namespace std {
 
 
 ##要件
-`BidirectionalIterator` は `ValueSwappable` の要件を満たしている必要がある。
-`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
-
+- `BidirectionalIterator` は `ValueSwappable` の要件を満たしている必要がある。
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 ##効果
@@ -24,12 +23,15 @@ namespace std {
 
 ##戻り値
 `[first,i)` 内にあるイテレータ `j` について `pred(*j) != false` を満たし、`[i,last)` 内にあるイテレータ `k` について `pred(*k) == false` を満たすような、イテレータ `i` を返す。
+
 つまり、partition された境界部分のイテレータを返す。
-両方のグループの順序は維持されている。
+
+両方のグループの順序は維持される。
 
 
 ##計算量
 最大で `(last - first) * log(last - first)` 回 swap が行われるが、余分なメモリを使って構わないのであれば線形回数の swap になる。
+
 正確に `last - first` 回述語が適用される。
 
 

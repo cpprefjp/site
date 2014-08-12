@@ -1,53 +1,53 @@
 #transform
-
-###概要
-全ての要素に関数を適用する。
-
-###transform 4 引数バージョン
-
 ```cpp
 namespace std {
-  template<class InputIterator, class OutputIterator, class UnaryOperation>
+  template <class InputIterator, class OutputIterator, class UnaryOperation>
   OutputIterator transform(InputIterator first, InputIterator last,
-                           OutputIterator result, UnaryOperation op);
+                           OutputIterator result, UnaryOperation op); // (1)
 
+  template <class InputIterator1, class InputIterator2,
+            class OutputIterator, class BinaryOperation>
+  OutputIterator transform(InputIterator1 first1,
+                           InputIterator1 last1,
+                           InputIterator2 first2,
+                           OutputIterator result,
+						   BinaryOperation binary_op);                // (2)
 }
 ```
 
-###効果
-`[result,result + (last - first))` 内のイテレータ `i` の要素に、それぞれ `op(*(first + (i - result)))` を代入する
+
+##概要
+全ての要素に関数を適用する。
 
 
-###要件
-`op` は、`[first,last]`, `[result,result + (last - first)]` 内のイテレータや subrange を無効にしたり、要素を書き換えてはならない。
+##要件
+- (1) : `op` は、`[first,last]`, `[result,result + (last - first)]` 内のイテレータや subrange を無効にしたり、要素を書き換えてはならない。
+- (2) : `binary_op` は、`[first1,last1]`, `[first2,first2 + (last1 - first1)]`, `[result,result + (last1 - first1)]` 内のイテレータや subrange を無効にしたり、要素を書き換えてはならない。
+
 ※ 閉区間で表しているのは意図的なもの
 
 
-###戻り値
-`result + (last - first)`
+##効果
+- (1) : `[result,result + (last - first))` 内のイテレータ `i` の要素に、それぞれ `op(*(first + (i - result)))` を代入する
+- (2) : `[result,result + (last1 - first1))` 内のイテレータ `i` の要素に、それぞれ `binary_op(*(first1 + (i - result)), *(first2 + (i - result)))` を代入する。
 
 
-###計算量
-正確に `last - first` 回の `op` の適用が行われる。
+##戻り値
+- (1) : `result + (last - first)`
+- (2) : `result + (last1 - first1)`
 
 
-###備考
-`result` は `first` と同じであっても構わない。
+##計算量
+- (1) : 正確に `last - first` 回の `op` の適用が行われる。
+- (2) : 正確に `last - first` 回の `binary_op` の適用が行われる。
 
 
-###実装例
-```cpp
-template<class InputIterator, class OutputIterator, class UnaryOperation>
-OutputIterator transform(InputIterator first, InputIterator last,
-                         OutputIterator result, UnaryOperation op) {
-  while (first != last)
-    *result++ = op(*first++);
-  return result;
-}
-```
+##備考
+- (1) : `result` は `first` と同じであっても構わない。
+- (2) : `result` は `first1` や `first2` と同じであっても構わない。
 
 
-###使用例
+##(1)の例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -78,49 +78,7 @@ int main() {
 ```
 
 
-###transform 5 引数バージョン
-```cpp
-namespace std {
-  template<class InputIterator1, class InputIterator2, class OutputIterator, class BinaryOperation>
-  OutputIterator transform(InputIterator1 first1, InputIterator1 last1, InputIterator2 first2,
-                           OutputIterator result, BinaryOperation binary_op);
-}
-```
-
-###効果
-`[result,result + (last1 - first1))` 内のイテレータ `i` の要素に、それぞれ `binary_op(*(first1 + (i - result)), *(first2 + (i - result)))` を代入する。
-
-
-###要件
-`binary_op` は、`[first1,last1]`, `[first2,first2 + (last1 - first1)]`, `[result,result + (last1 - first1)]` 内のイテレータや subrange を無効にしたり、要素を書き換えてはならない。
-※ 閉区間で表しているのは意図的なもの
-
-
-###戻り値
-`result + (last1 - first1)`
-
-
-###計算量
-正確に `last - first` 回の `binary_op` の適用が行われる。
-
-
-###備考
-`result` は `first1` や `first2` と同じであっても構わない。
-
-
-###実装例
-```cpp
-template<class InputIterator1, class InputIterator2, class OutputIterator, class BinaryOperation>
-OutputIterator transform(InputIterator1 first1, InputIterator1 last1, InputIterator2 first2,
-                         OutputIterator result, BinaryOperation binary_op) {
-  while (first1 != last1)
-    *result++ = binary_op(*first1++, *first2++);
-  return result;
-}
-```
-
-
-###使用例
+##(2)の例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -150,4 +108,27 @@ b
 cccc
 ```
 
+
+##実装例
+```cpp
+template <class InputIterator, class OutputIterator, class UnaryOperation>
+OutputIterator transform(InputIterator first, InputIterator last,
+                         OutputIterator result, UnaryOperation op) {
+  while (first != last)
+    *result++ = op(*first++);
+  return result;
+}
+
+template <class InputIterator1, class InputIterator2,
+          class OutputIterator, class BinaryOperation>
+OutputIterator transform(InputIterator1 first1,
+                         InputIterator1 last1,
+						 InputIterator2 first2,
+                         OutputIterator result,
+						 BinaryOperation binary_op) {
+  while (first1 != last1)
+    *result++ = binary_op(*first1++, *first2++);
+  return result;
+}
+```
 

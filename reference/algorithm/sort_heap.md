@@ -5,7 +5,8 @@ namespace std {
   void sort_heap(RandomAccessIterator first, RandomAccessIterator last);
 
   template <class RandomAccessIterator, class Compare>
-  void sort_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+  void sort_heap(RandomAccessIterator first, RandomAccessIterator last,
+                 Compare comp);
 }
 ```
 
@@ -14,9 +15,9 @@ namespace std {
 
 
 ##要件
-`[first,last)` は有効なヒープである必要がある。
-`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
-`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+- `[first,last)` は有効なヒープである必要がある。
+- `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 ##効果
@@ -60,11 +61,4 @@ int main()
 4
 ```
 
-
-##実装例
-```cpp
-```
-
-
-##参照
 

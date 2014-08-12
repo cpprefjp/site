@@ -5,7 +5,8 @@ namespace std {
   void sort(RandomAccessIterator first, RandomAccessIterator last);
 
   template <class RandomAccessIterator, class Compare>
-  void sort(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+  void sort(RandomAccessIterator first, RandomAccessIterator last,
+            Compare comp);
 }
 ```
 
@@ -26,15 +27,13 @@ namespace std {
 
 
 ##計算量
-C++03:
-平均して約N log N (N == `last - first`) 回の比較
-
-C++11以降:
-N log N (N == `last - first`) 回の比較
+- C++03: 平均して約N log N (N == `last - first`) 回の比較
+- C++11以降: N log N (N == `last - first`) 回の比較
 
 
 ##備考
 実装のアルゴリズムとしては、クイックソートもしくはその改良版であるイントロソートが使われることが多い。
+
 (※特定のアルゴリズムで実装すべきという規定はない)
 
 
@@ -68,10 +67,4 @@ int main()
 5
 ```
 
-
-##実装例
-```cpp
-```
-
-##参照
 

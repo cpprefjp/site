@@ -1,15 +1,19 @@
 #set_symmetric_difference
 ```cpp
 namespace std {
-  template<class InputIterator1, class InputIterator2, class OutputIterator>
-  OutputIterator set_symmetric_difference(InputIterator1 first1, InputIterator1 last1,
-                                          InputIterator2 first2, InputIterator2 last2,
-                                          OutputIterator result);
+  template <class InputIterator1, class InputIterator2,
+            class OutputIterator>
+  OutputIterator
+    set_symmetric_difference(InputIterator1 first1, InputIterator1 last1,
+                             InputIterator2 first2, InputIterator2 last2,
+                             OutputIterator result);
 
-  template<class InputIterator1, class InputIterator2, class OutputIterator, class Compare>
-  OutputIterator set_symmetric_difference(InputIterator1 first1, InputIterator1 last1,
-                                          InputIterator2 first2, InputIterator2 last2,
-                                          OutputIterator result, Compare comp);
+  template <class InputIterator1, class InputIterator2,
+            class OutputIterator, class Compare>
+  OutputIterator
+    set_symmetric_difference(InputIterator1 first1, InputIterator1 last1,
+                             InputIterator2 first2, InputIterator2 last2,
+                             OutputIterator result, Compare comp);
 }
 ```
 
@@ -35,6 +39,7 @@ namespace std {
 
 ##備考
 `[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、
+
 - `m > n` なら `[first1,last1)` から最後の `m-n` 個の要素を出力の範囲にコピーする。
 - `n > m` なら `[first2,last2)` から最後の `n-m` 個の要素を出力の範囲にコピーする。
 
@@ -74,11 +79,4 @@ int main()
 8
 ```
 
-
-##実装例
-```cpp
-```
-
-
-##参照
 

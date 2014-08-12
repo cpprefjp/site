@@ -5,7 +5,8 @@ namespace std {
   void stable_sort(RandomAccessIterator first, RandomAccessIterator last);
 
   template <class RandomAccessIterator, class Compare>
-  void stable_sort(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+  void stable_sort(RandomAccessIterator first, RandomAccessIterator last,
+                   Compare comp);
 }
 ```
 
@@ -35,7 +36,6 @@ namespace std {
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -63,10 +63,4 @@ int main()
 4
 5
 ```
-
-##実装例
-```cpp
-```
-
-##参照
 

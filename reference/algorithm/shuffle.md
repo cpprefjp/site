@@ -3,7 +3,8 @@
 ```cpp
 namespace std {
   template <class RandomAccessIterator, class UniformRandomNumberGenerator>
-  void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRandomNumberGenerator&& g);
+  void shuffle(RandomAccessIterator first, RandomAccessIterator last,
+               UniformRandomNumberGenerator&& g);
 }
 ```
 
@@ -12,9 +13,8 @@ namespace std {
 
 
 ##要件
-`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
-
-`UniformRandomNumberGenerator` は uniform random number generator の要件を満たさなければならなず、その戻り値の型は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
+- `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
+- `UniformRandomNumberGenerator` は uniform random number generator の要件を満たさなければならず、その戻り値の型は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
 
 
 ##計算量
