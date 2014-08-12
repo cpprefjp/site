@@ -71,21 +71,6 @@ int main()
 ```
 ```
 
-##initializer_listバージョンの使用可能状況
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md)
-
-###備考
-Windows環境においては、`<windows.h>`をインクルードすると`max`という名前の関数マクロが定義され、`std::max()`と衝突してしまうという問題がある。
-
-この解決策として以下の2つの方法がある：
-
-- `<windows.h>`をインクルードするまでに`#define NOMINMAX`を行う。これで`max`マクロがdefineされなくなる。
-- `std::max()`を呼び出す際に、`(std::max)(a, b);`のように関数名をカッコで囲んで使用する。これで、名前解決において`std::max()`関数が必ず使用される。
-
 
 ##実装例
 ```cpp
@@ -113,6 +98,23 @@ T max(std::initializer_list<T> t, Compare comp)
   return *std::max_element(t.begin(), t.end(), comp);
 }
 ```
+
+
+##initializer_listバージョンの使用可能状況
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md)
+
+###備考
+Windows環境においては、`<windows.h>`をインクルードすると`max`という名前の関数マクロが定義され、`std::max()`と衝突してしまうという問題がある。
+
+この解決策として以下の2つの方法がある：
+
+- `<windows.h>`をインクルードするまでに`#define NOMINMAX`を行う。これで`max`マクロがdefineされなくなる。
+- `std::max()`を呼び出す際に、`(std::max)(a, b);`のように関数名をカッコで囲んで使用する。これで、名前解決において`std::max()`関数が必ず使用される。
+
 
 ##参照
 - [LWG2350 - min, max, and minmax should be constexpr](http://cplusplus.github.io/LWG/lwg-defects.html#2350)

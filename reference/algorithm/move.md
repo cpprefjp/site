@@ -1,49 +1,35 @@
 #move (C++11)
-
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator>
-  OutputIterator move(InputIterator first, InputIterator last, OutputIterator result);
+  OutputIterator move(InputIterator first, InputIterator last,
+                      OutputIterator result);
 }
 ```
 
-###概要
+##概要
 指定された範囲の要素をムーブする。
 
 
-###効果
+##要件
+`result` は `[first,last)` の範囲に含まれてはならない。
+
+
+##効果
 `[first,last)` 内の要素を、それぞれ `[result,result + (last - first))` へムーブする。
+
 ムーブは `first` から順番に行い、0 以上 `last - first` 未満であるそれぞれの `n` について、`*(result + n) = std::move(*(first + n))` を行う。
 
 
-###戻り値
+##戻り値
 `result + (last - first)`
 
 
-###要件
-`result` は `[first,last)` の範囲に含まれていてはいけない。
-
-
-###計算量
+##計算量
 正確に `last - first` 回ムーブ代入が行われる。
 
 
-###言語のバージョン
-C++11 以降
-
-
-###実装例
-```cpp
-template <class InputIterator, class OutputIterator>
-OutputIterator move(InputIterator first, InputIterator last, OutputIterator result) {
-  while (first != last)
-    *result++ = move(*first++);
-  return result;
-}
-```
-
-
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -73,4 +59,29 @@ int main() {
 3
 4
 ```
+
+
+##実装例
+```cpp
+template <class InputIterator, class OutputIterator>
+OutputIterator move(InputIterator first, InputIterator last, OutputIterator result) {
+  while (first != last)
+    *result++ = move(*first++);
+  return result;
+}
+```
+
+
+##バージョン
+###言語
+- C++11
+
+
+###処理系
+- [Clang](/implementation#clang.md): 3.0
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.3.6
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
+
 

@@ -14,39 +14,20 @@ namespace std {
 * pair[link /reference/utility/pair.md]
 
 
-###概要
-２つのシーケンスが一致していない場所を検索する。
+##概要
+2つのシーケンスが一致していない場所を検索する。
 
 
-###戻り値
+##戻り値
 `[first1,last1)` 内にあるイテレータ `i` と、`j == first2 + (i - first1)` であるイテレータ `j` について、`!(*i == *j)` もしくは `pred(*i, *j) == false` であるような最初のイテレータのペアを返す。
 そのようなイテレータが見つからなかった場合は `last1` と `first2 + (last1 - first1)` のペアを返す。
 
-###計算量
+
+##計算量
 最大で `last1 - first1` 回の対応する比較もしくは述語が適用される。
 
-###実装例
-```cpp
-template <class InputIterator1, class InputIterator2>
-pair<InputIterator1, InputIterator2> mismatch(
-  InputIterator1 first1, InputIterator1 last1, InputIterator2 first2) {
-  for ( ; first1 != last1; ++first1, ++first2)
-    if (!bool(*first1 == *first2))
-      return make_pair(first1, first2);
-  return make_pair(first1, first2);
-}
 
-template <class InputIterator1, class InputIterator2, class BinaryPredicate>
-pair<InputIterator1, InputIterator2> mismatch(
-  InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, BinaryPredicate pred) {
-  for ( ; first1 != last1; ++first1, ++first2)
-    if (!bool(pred(*first1, *first2)))
-      return make_pair(first1, first2);
-  return make_pair(first1, first2);
-}
-```
-
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -91,5 +72,27 @@ mismatch value: (3,4)
 
 mismatch index: 5
 mismatch value: (end,2)
+```
+
+
+##実装例
+```cpp
+template <class InputIterator1, class InputIterator2>
+pair<InputIterator1, InputIterator2> mismatch(
+  InputIterator1 first1, InputIterator1 last1, InputIterator2 first2) {
+  for ( ; first1 != last1; ++first1, ++first2)
+    if (!bool(*first1 == *first2))
+      return make_pair(first1, first2);
+  return make_pair(first1, first2);
+}
+
+template <class InputIterator1, class InputIterator2, class BinaryPredicate>
+pair<InputIterator1, InputIterator2> mismatch(
+  InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, BinaryPredicate pred) {
+  for ( ; first1 != last1; ++first1, ++first2)
+    if (!bool(pred(*first1, *first2)))
+      return make_pair(first1, first2);
+  return make_pair(first1, first2);
+}
 ```
 

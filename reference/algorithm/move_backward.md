@@ -1,54 +1,40 @@
 #move_backward (C++11)
 ```cpp
 namespace std {
-  template<class BidirectionalIterator1, class BidirectionalIterator2>
-  BidirectionalIterator2 move_backward(BidirectionalIterator1 first, BidirectionalIterator1 last,
+  template <class BidirectionalIterator1, class BidirectionalIterator2>
+  BidirectionalIterator2 move_backward(BidirectionalIterator1 first,
+                                       BidirectionalIterator1 last,
                                        BidirectionalIterator2 result);
 }
 ```
 
-###概要
+##概要
 指定された範囲の要素を後ろからムーブする。
 
 
-###効果
+##要件
+`result` は `(first,last]` の範囲に含まれてはならない。
+
+
+##効果
 `[first,last)` 内にある要素を、それぞれ `[result - (last-first),result)` へムーブする。
+
 ムーブは `last - 1` から順番に行い、1 以上 `last - first` 以下であるそれぞれの `n` について、`*(result - n) = std::move(*(last - n))` を行う。
 
 
-###要件
-`result` は `(first,last]` の範囲に入っていてはならない
-
-
-###戻り値
+##戻り値
 `result - (last - first)`
 
 
-###計算量
+##計算量
 正確に `last - first` 回ムーブ代入が行われる。
 
 
-###注意
+##備考
 `last` が `[result - (last-first),result)` の範囲内にあるときには、[`move()`](/reference/algorithm/move) の代わりに `move_backward()` を使うべきである。
 
 
-###言語のバージョン
-C++11 以降
-
-
-###実装例
-```cpp
-template<class BidirectionalIterator1, class BidirectionalIterator2>
-BidirectionalIterator2 move_backward(BidirectionalIterator1 first, BidirectionalIterator1 last,
-                                     BidirectionalIterator2 result) {
-  while (first != last)
-    *--result = move(*--last);
-  return result;
-}
-```
-
-
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -86,3 +72,27 @@ int main() {
 2
 ```
 
+
+##実装例
+```cpp
+template<class BidirectionalIterator1, class BidirectionalIterator2>
+BidirectionalIterator2 move_backward(BidirectionalIterator1 first, BidirectionalIterator1 last,
+                                     BidirectionalIterator2 result) {
+  while (first != last)
+    *--result = move(*--last);
+  return result;
+}
+```
+
+
+##バージョン
+###言語
+- C++11
+
+
+###処理系
+- [Clang](/implementation#clang.md): 3.0
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.3.6
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??

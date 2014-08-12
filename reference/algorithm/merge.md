@@ -6,7 +6,8 @@ namespace std {
                        InputIterator2 first2, InputIterator2 last2,
                        OutputIterator result);
 
-  template <class InputIterator1, class InputIterator2, class OutputIterator, class Compare>
+  template <class InputIterator1, class InputIterator2, class OutputIterator,
+            class Compare>
   OutputIterator merge(InputIterator1 first1, InputIterator1 last1,
                        InputIterator2 first2, InputIterator2 last2,
                        OutputIterator result, Compare comp);
@@ -14,12 +15,12 @@ namespace std {
 ```
 
 ##概要
-2つのソート済み範囲をマージする
+2つのソート済み範囲をマージする。
 
 
 ##要件
-`[first1,last1)` と `[first2,last2)` は `operator<` または `comp` でソートされている必要がある。
-結果の範囲と入力の範囲は重なっていてはならない。
+- `[first1,last1)` と `[first2,last2)` は `operator<` または `comp` でソートされていること。
+- 結果の範囲と入力の範囲は重なっていてはならない。
 
 
 ##効果
@@ -73,9 +74,4 @@ int main()
 6
 ```
 
-##実装例
-```cpp
-```
-
-##参照
 

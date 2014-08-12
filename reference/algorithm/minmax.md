@@ -76,18 +76,6 @@ int main()
 ```
 ```
 
-##バージョン
-###言語
-- C++11
-
-
-###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
-
 
 ##実装例
 ```cpp
@@ -121,6 +109,20 @@ std::pair<T, T> minmax(std::initializer_list<T> init, Compare comp)
   return std::make_pair(*p.first, *p.second);
 }
 ```
+
+
+##バージョン
+###言語
+- C++11
+
+
+###処理系
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
+
 
 ##参照
 - [LWG2350 - min, max, and minmax should be constexpr](http://cplusplus.github.io/LWG/lwg-defects.html#2350)

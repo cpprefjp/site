@@ -1,7 +1,6 @@
 #minmax_element (C++11)
 ```cpp
 namespace std {
-
   template<class ForwardIterator>
   pair<ForwardIterator, ForwardIterator>
     minmax_element(ForwardIterator first, ForwardIterator last);
@@ -9,7 +8,6 @@ namespace std {
   template<class ForwardIterator, class Compare>
   pair<ForwardIterator, ForwardIterator>
     minmax_element(ForwardIterator first, ForwardIterator last, Compare comp);
-
 }
 ```
 * pair[link /reference/utility/pair.md]
@@ -20,7 +18,9 @@ namespace std {
 
 ##戻り値
 `*i < *j`もしくは`comp(*i, *j)`の比較によって最小と判断された要素を指すイテレータを`first`、
-`*j < *i`もしくは`comp(*j, *i)`の比較によって最大と判断された要素を指すイテレータを`second`に持つ[`pair`](/reference/utility/pair.md)オブジェクト。
+
+`*j < *i`もしくは`comp(*j, *i)`の比較によって最大と判断された要素を指すイテレータを`second`に持つ[`pair`](/reference/utility/pair.md)オブジェクトを返す。
+
 `first == last`の場合、[`make_pair`](/reference/utility/pair/make_pair.md)`(first, first)`を返す。
 
 
@@ -56,6 +56,10 @@ int main()
 ```
 
 
+##実装例
+[http://www.boost.org/doc/libs/release/boost/algorithm/minmax_element.hpp](http://www.boost.org/doc/libs/release/boost/algorithm/minmax_element.hpp)
+
+
 ##バージョン
 ###言語
 - C++11
@@ -66,12 +70,5 @@ int main()
 - [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
-
-
-##実装例
-[http://www.boost.org/doc/libs/release/boost/algorithm/minmax_element.hpp](http://www.boost.org/doc/libs/release/boost/algorithm/minmax_element.hpp)
-
-
-##参照
 
 

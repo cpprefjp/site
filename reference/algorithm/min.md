@@ -72,22 +72,6 @@ int main()
 ```
 
 
-##initializer_listバージョンの使用可能状況
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0(initializer_listバージョンが使用可能)
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md)
-
-###備考
-Windows環境においては、`<windows.h>`をインクルードすると`min`という名前の関数マクロが定義され、`std::min()`と衝突してしまうという問題がある。
-
-この解決策として以下の2つの方法がある：
-
-- `<windows.h>`をインクルードするまでに`#define NOMINMAX`を行う。これで`min`マクロがdefineされなくなる。
-- `std::min()`を呼び出す際に、`(std::min)(a, b);`のように関数名をカッコで囲んで使用する。これで、名前解決において`std::min()`関数が必ず使用される。
-
-
 ##実装例
 ```cpp
 template <class T>
@@ -114,6 +98,23 @@ T min(std::initializer_list<T> t, Compare comp)
   return *std::min_element(t.begin(), t.end(), comp);
 }
 ```
+
+
+##initializer_listバージョンの使用可能状況
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0(initializer_listバージョンが使用可能)
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md)
+
+###備考
+Windows環境においては、`<windows.h>`をインクルードすると`min`という名前の関数マクロが定義され、`std::min()`と衝突してしまうという問題がある。
+
+この解決策として以下の2つの方法がある：
+
+- `<windows.h>`をインクルードするまでに`#define NOMINMAX`を行う。これで`min`マクロがdefineされなくなる。
+- `std::min()`を呼び出す際に、`(std::min)(a, b);`のように関数名をカッコで囲んで使用する。これで、名前解決において`std::min()`関数が必ず使用される。
+
 
 ##参照
 - [LWG2350 - min, max, and minmax should be constexpr](http://cplusplus.github.io/LWG/lwg-defects.html#2350)

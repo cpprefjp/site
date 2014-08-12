@@ -1,13 +1,12 @@
 #max_element
 ```cpp
 namespace std {
-
   template<class ForwardIterator>
   ForwardIterator max_element(ForwardIterator first, ForwardIterator last);
 
   template<class ForwardIterator, class Compare>
-  ForwardIterator max_element(ForwardIterator first, ForwardIterator last, Compare comp);
-
+  ForwardIterator max_element(ForwardIterator first, ForwardIterator last,
+                              Compare comp);
 }
 ```
 
@@ -82,7 +81,4 @@ ForwardIterator max_element(ForwardIterator first, ForwardIterator last, Compare
   return result;
 }
 ```
-
-##参照
-
 

@@ -5,7 +5,8 @@ namespace std {
   ForwardIterator min_element(ForwardIterator first, ForwardIterator last);
 
   template<class ForwardIterator, class Compare>
-  ForwardIterator min_element(ForwardIterator first, ForwardIterator last, Compare comp);
+  ForwardIterator min_element(ForwardIterator first, ForwardIterator last,
+                              Compare comp);
 }
 ```
 
@@ -78,7 +79,5 @@ ForwardIterator min_element(ForwardIterator first, ForwardIterator last, Compare
   return result;
 }
 ```
-
-##参照
 
 
