@@ -2,20 +2,22 @@
 ```cpp
 namespace std {
   template <class RandomAccessIterator>
-  RandomAccessIterator is_heap_until(RandomAccessIterator first, RandomAccessIterator last);
+  RandomAccessIterator is_heap_until(RandomAccessIterator first,
+                                     RandomAccessIterator last);
 
   template <class RandomAccessIterator, class Compare>
-  RandomAccessIterator is_heap_until(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+  RandomAccessIterator is_heap_until(RandomAccessIterator first,
+                                     RandomAccessIterator last,
+                                     Compare comp);
 }
 ```
 
 ##概要
-範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する
+範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する。
 
 
 ##戻り値
 [`distance`](/reference/iterator/distance.md)`(first, last) < 2` の場合は `last` を返す。そうでない場合、`[first,last]` 内のイテレータ `i` について、`[first,i)` が `heap` であるような最後の `i` を返す。
-
 
 
 ##計算量
@@ -62,9 +64,4 @@ before: is heap? false
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-##実装例
-```cpp
-```
-
-##参照
 

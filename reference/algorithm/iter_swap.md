@@ -1,5 +1,4 @@
 #iter_swap
-
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>
@@ -7,25 +6,20 @@ namespace std {
 }
 ```
 
-###概要
-2つのイテレータの要素を swap する。
+##概要
+2つのイテレータの要素を入れ替える。
 
-###効果
-[`swap`](/reference/utility/swap.md)`(*a, *b)`
 
 ###要件
-`a` と `b` は `Dereferenceable` でなければならない。
-`*a` は `*b` と `Swappable` でなければならない。
+- `a` と `b` は `Dereferenceable` でなければならない。
+- `*a` は `*b` と `Swappable` でなければならない。
 
-###実装例
-```cpp
-template <class ForwardIterator1, class ForwardIterator2>
-void iter_swap(ForwardIterator1 a, ForwardIterator2 b) {
-  swap(*a, *b);
-}
-```
 
-###使用例
+##効果
+[`swap`](/reference/utility/swap.md)`(*a, *b)`
+
+
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -53,5 +47,14 @@ int main() {
 ```
 v1: 3,5,4,
 v2: 4,2,1,
+```
+
+
+##実装例
+```cpp
+template <class ForwardIterator1, class ForwardIterator2>
+void iter_swap(ForwardIterator1 a, ForwardIterator2 b) {
+  swap(*a, *b);
+}
 ```
 

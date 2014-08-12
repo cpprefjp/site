@@ -1,27 +1,22 @@
 #is_sorted (C++11)
+```cpp
+namespace std {
+  template <class ForwardIterator>
+  bool is_sorted(ForwardIterator first, ForwardIterator last); // (1)
+
+  template<class ForwardIterator, class Compare>
+  bool is_sorted(ForwardIterator first, ForwardIterator last,
+                 Compare comp);                                // (2)
+}
+```
 
 ##概要
 与えられた範囲がソート済みか判定する。
 
-```cpp
-namespace std {
-  template <class ForwardIterator>
-  bool is_sorted(ForwardIterator first, ForwardIterator last);
-}
-```
-
 ###戻り値
-[`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last) == last`
+- (1) : [`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last) == last`
+- (2) : [`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last, comp) == last`
 
-```cpp
-namespace std {
-  template<class ForwardIterator, class Compare>
-  bool is_sorted(ForwardIterator first, ForwardIterator last, Compare comp);
-}
-```
-
-###戻り値
-[`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last, comp) == last`
 
 ##例
 ```cpp

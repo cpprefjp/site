@@ -2,10 +2,13 @@
 ```cpp
 namespace std {
   template <class ForwardIterator>
-  ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last);
+  ForwardIterator is_sorted_until(ForwardIterator first,
+                                  ForwardIterator last);
 
   template <class ForwardIterator, class Compare>
-  ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last, Compare comp);
+  ForwardIterator is_sorted_until(ForwardIterator first,
+                                  ForwardIterator last,
+                                  Compare comp);
 }
 ```
 
@@ -49,18 +52,6 @@ before: is sorted? false
  after: is sorted? true
 ```
 
-##バージョン
-###言語
-- C++11
-
-
-###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
-
 
 ##実装例
 ```cpp
@@ -76,6 +67,17 @@ ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last)
 }
 ```
 
-##参照
+
+##バージョン
+###言語
+- C++11
+
+
+###処理系
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 

@@ -1,7 +1,6 @@
 #lexicographical_compare
 ```cpp
 namespace std {
-
   template <class InputIterator1, class InputIterator2>
   bool lexicographical_compare(InputIterator1 first1, InputIterator1 last1,
                                InputIterator2 first2, InputIterator2 last2);
@@ -38,6 +37,7 @@ return first1 == last1 && first2 != last2;
 
 ##備考
 空のシーケンスは、空じゃないシーケンスより小さいと判断されるが、空のシーケンスに対しては小さくないと判断される。
+
 どちらかのシーケンスの横断が先に終わる場合(つまり、範囲の長さが合わない場合)、先に終わった方が小さいと判断される。
 
 
@@ -132,7 +132,5 @@ bool lexicographical_compare(InputIterator1 first1, InputIterator1 last1,
   return first1 == last1 && first2 != last2;
 }
 ```
-
-##参照
 
 

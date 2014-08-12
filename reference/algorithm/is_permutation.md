@@ -19,8 +19,8 @@ namespace std {
 
 
 ##要件
-`decltype(*first1)`と`decltype(*first2)`の型が同じであること。
-`BinaryPredicate`は等価関係を持っていること。
+- `decltype(*first1)`と`decltype(*first2)`の型が同じであること。
+- `BinaryPredicate`は等価関係を持っていること。
 
 
 ##戻り値
@@ -57,18 +57,6 @@ true
 false
 ```
 
-##バージョン
-###言語
-- C++11
-
-
-###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
-
 
 ##実装例
 ```cpp
@@ -88,6 +76,17 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1, ForwardIter
 }
 ```
 
-##参照
+
+##バージョン
+###言語
+- C++11
+
+
+###処理系
+- [Clang](/implementation#clang.md): ??
+- [GCC](/implementation#gcc.md): 
+- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
+- [ICC](/implementation#icc.md): ??
+- [Visual C++](/implementation#visual_cpp.md) ??
 
 

@@ -2,21 +2,23 @@
 ```cpp
 namespace std {
   template <class RandomAccessIterator>
-  bool is_heap(RandomAccessIterator first, RandomAccessIterator last);
+  bool is_heap(RandomAccessIterator first,
+               RandomAccessIterator last); // (1)
 
   template <class RandomAccessIterator, class Compare>
-  bool is_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+  bool is_heap(RandomAccessIterator first,
+               RandomAccessIterator last,
+               Compare comp);              // (2)
 }
 ```
 
 ##概要
-範囲がヒープ化されているか判定する
-
+範囲がヒープ化されているか判定する。
 
 
 ##戻り値
-[`is_heap_until`](/reference/algorithm/is_heap_until.md)`(first, last) == last`または
-[`is_heap_until`](/reference/algorithm/is_heap_until.md)`(first, last, comp) == last`
+- (1) : [`is_heap_until`](/reference/algorithm/is_heap_until.md)`(first, last) == last`
+- (2) : [`is_heap_until`](/reference/algorithm/is_heap_until.md)`(first, last, comp) == last`
 
 
 ##例
@@ -58,10 +60,4 @@ before: is heap? false
 - [ICC](/implementation#icc.md): ??
 - [Visual C++](/implementation#visual_cpp.md) ??
 
-
-##実装例
-```cpp
-```
-
-##参照
 

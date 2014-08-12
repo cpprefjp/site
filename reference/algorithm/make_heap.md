@@ -10,12 +10,11 @@ namespace std {
 ```
 
 ##概要
-範囲をヒープ化する
-
+範囲をヒープ化する。
 
 
 ##要件
-`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある
+`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
 
 
 ##効果
@@ -57,10 +56,4 @@ int main()
 3
 ```
 
-
-##実装例
-```cpp
-```
-
-##参照
 
