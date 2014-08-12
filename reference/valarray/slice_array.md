@@ -22,9 +22,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------|----------------|----------------|
-| `(constructor)` | コンストラクタ | |
+| [`(constructor)`](./slice_array/slice_array.md) | コンストラクタ | |
 | `(destructor)`  | デストラクタ   | |
-| [`operator=`](./slice_array/op_assign.md)     | 代入演算子     | |
+| [`operator=`](./slice_array/op_assign.md)       | 代入演算子     | |
 
 
 ###四則演算
