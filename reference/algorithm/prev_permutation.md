@@ -22,6 +22,7 @@ namespace std {
 
 ##効果
 `[first, last)`の範囲を前の順列に変換する。
+
 `operator<`または`comp`によって辞書順に並んでいる全ての順列の集合があると仮定すると、前の順列が発見される。
 
 
@@ -34,7 +35,6 @@ namespace std {
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -116,7 +116,4 @@ bool prev_permutation(BidirectionalIterator first, BidirectionalIterator last)
   return prev_permutation(first, last, std::less<value_type>());
 }
 ```
-
-##参照
-
 

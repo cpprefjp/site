@@ -1,10 +1,16 @@
 #partition_copy (C++11)
 ```cpp
 namespace std {
-  template <class InputIterator, class OutputIterator1, class OutputIterator2, class Predicate>
+  template <class InputIterator,
+            class OutputIterator1,
+			class OutputIterator2,
+			class Predicate>
   pair<OutputIterator1, OutputIterator2>
-    partition_copy(InputIterator first, InputIterator last,
-                   OutputIterator1 out_true, OutputIterator2 out_false, Predicate pred);
+    partition_copy(InputIterator first,
+	               InputIterator last,
+                   OutputIterator1 out_true,
+				   OutputIterator2 out_false,
+				   Predicate pred);
 }
 ```
 * pair[link /reference/utility/pair.md]
@@ -14,8 +20,8 @@ namespace std {
 
 
 ##要件
-`InputIterator` の value type は `Assignable` で、`out_true` と `out_false` の `OutputIterator` へ書き込み可能で、`Predicate` の argument type へ変換可能でなければならない。
-入力範囲は出力範囲のどちらとも重なっていてはならない。
+- `InputIterator` の value type は `Assignable` で、`out_true` と `out_false` の `OutputIterator` へ書き込み可能で、`Predicate` の argument type へ変換可能でなければならない。
+- 入力範囲は出力範囲のどちらとも重なっていてはならない。
 
 
 ##効果
@@ -87,9 +93,4 @@ odds : 1,3,5,
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-##実装例
-```cpp
-```
-
-##参照
 

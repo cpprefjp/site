@@ -1,13 +1,17 @@
 #partition
 ```cpp
 namespace std {
-  // C++03 バージョン : 双方向イテレータを要求する
   template <class BidirectionalIterator, class Predicate>
-  BidirectionalIterator partition(BidirectionalIterator first, BidirectionalIterator last, Predicate pred);
+  BidirectionalIterator
+    partition(BidirectionalIterator first,
+	          BidirectionalIterator last,
+			  Predicate pred);                            // C++03
 
-  // C++11 バージョン : 単方向イテレータを要求する
   template <class ForwardIterator, class Predicate>
-  ForwardIterator partition(ForwardIterator first, ForwardIterator last, Predicate pred);
+  ForwardIterator
+    partition(ForwardIterator first,
+	          ForwardIterator last,
+			  Predicate pred);                            // C++11
 }
 ```
 
@@ -16,7 +20,8 @@ namespace std {
 
 
 ##要件
-`ForwardIterator` は `ValueSwappable` の要件を満たしている必要がある。
+- C++03 : `BidirectionalIterator` は `ValueSwappable` の要件を満たしている必要がある。
+- C++11 : `ForwardIterator` は `ValueSwappable` の要件を満たしている必要がある。
 
 ##効果
 `[first,last)` 内にある `pred` を満たす全ての要素を、`pred` を満たさない全ての要素より前に移動させる。
@@ -28,7 +33,9 @@ namespace std {
 
 ##計算量
 `ForwardIterator` が `BidirectionalIterator` の要求を満たしている場合、最大で `(last - first) / 2` 回 swap される。
+
 そうでない場合、最大で `last - first` 回 swap される。
+
 正確に `last - first` 回述語が適用される。
 
 
@@ -76,7 +83,5 @@ ForwardIterator partition(ForwardIterator first, ForwardIterator last, Predicate
   return first;
 }
 ```
-
-##参照
 
 

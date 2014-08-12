@@ -5,7 +5,8 @@ namespace std {
   void push_heap(RandomAccessIterator first, RandomAccessIterator last);
 
   template <class RandomAccessIterator, class Compare>
-  void push_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+  void push_heap(RandomAccessIterator first, RandomAccessIterator last,
+                 Compare comp);
 }
 ```
 
@@ -14,8 +15,8 @@ namespace std {
 
 
 ##要件
-`[first,last - 1)` は有効な heap である必要がある。
-`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+- `[first,last - 1)` は有効な heap である必要がある。
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 ##効果
@@ -63,9 +64,4 @@ int main()
 4
 ```
 
-##実装例
-```cpp
-```
-
-##参照
 

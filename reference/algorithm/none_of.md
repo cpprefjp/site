@@ -18,7 +18,7 @@ namespace std {
 最大で `last - first` 回 `pred` を実行する。
 
 
-###注意
+###備考
 この関数は
 
 ```cpp

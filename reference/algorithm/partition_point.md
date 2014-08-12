@@ -2,7 +2,9 @@
 ```cpp
 namespace std {
   template <class ForwardIterator, class Predicate>
-  ForwardIterator partition_point(ForwardIterator first, ForwardIterator last, Predicate pred);
+  ForwardIterator partition_point(ForwardIterator first,
+                                  ForwardIterator last,
+                                  Predicate pred);
 }
 ```
 
@@ -11,8 +13,8 @@ namespace std {
 
 
 ##要件
-`ForwardIterator` の value type は `Predicate` の argument type へ変換可能でなければならない。
-`[first,last)` は `pred` によって partition されていなければならない。つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現してなければならない。
+- `ForwardIterator` の value type は `Predicate` の argument type へ変換可能でなければならない。
+- `[first,last)` は `pred` によって partition されていなければならない。つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現してなければならない。
 
 
 ##戻り値
@@ -76,9 +78,4 @@ v : 4,2,3,1,5,
 - [Visual C++](/implementation#visual_cpp.md) ??
 
 
-##実装例
-```cpp
-```
-
-##参照
 

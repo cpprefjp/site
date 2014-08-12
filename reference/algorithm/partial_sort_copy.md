@@ -1,14 +1,20 @@
 #partial_sort_copy
 ```cpp
 namespace std {
-  template<class InputIterator, class RandomAccessIterator>
-  RandomAccessIterator partial_sort_copy(InputIterator first, InputIterator last,
-                                         RandomAccessIterator result_first, RandomAccessIterator result_last);
+  template <class InputIterator, class RandomAccessIterator>
+  RandomAccessIterator
+    partial_sort_copy(InputIterator first,
+                      InputIterator last,
+                      RandomAccessIterator result_first,
+                      RandomAccessIterator result_last);
 
-  template<class InputIterator, class RandomAccessIterator, class Compare>
-  RandomAccessIterator partial_sort_copy(InputIterator first, InputIterator last,
-                                         RandomAccessIterator result_first, RandomAccessIterator result_last,
-                                         Compare comp);
+  template <class InputIterator, class RandomAccessIterator, class Compare>
+  RandomAccessIterator
+    partial_sort_copy(InputIterator first,
+                      InputIterator last,
+                      RandomAccessIterator result_first,
+                      RandomAccessIterator result_last,
+                      Compare comp);
 }
 ```
 
@@ -59,9 +65,4 @@ int main()
 2
 ```
 
-##実装例
-```cpp
-```
-
-##参照
 
