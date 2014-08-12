@@ -1,34 +1,26 @@
 #find_if_not (C++11)
 ```cpp
 namespace std {
-  template<class InputIterator, class Predicate>
-  InputIterator find_if_not(InputIterator first, InputIterator last, Predicate pred);
+  template <class InputIterator, class Predicate>
+  InputIterator find_if_not(InputIterator first,
+                            InputIterator last,
+                            Predicate pred);
 }
 ```
 
-###概要
+##概要
 範囲の中から、指定された条件を満たさない最初の要素を検索する。
 
-###戻り値
+
+##戻り値
 `[first,last)` 内のイテレータ `i` について、`pred(*i) == false` である最初のイテレータを返す。そのようなイテレータが見つからなかった場合は `last` を返す。
 
-###計算量
+
+##計算量
 最大で `last - first` 回述語による比較を行う
 
-###言語のバージョン
-C++11 以降
 
-###実装例
-```cpp
-template<class InputIterator, class Predicate>
-InputIterator find_if_not(InputIterator first, InputIterator last, Predicate pred) {
-  for ( ; first != last; ++first)
-    if (!bool(pred(*first))) return first;
-  return last;
-}
-```
-
-###使用例
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -50,5 +42,16 @@ int main() {
 ###出力
 ```
 found: 1
+```
+
+
+##実装例
+```cpp
+template <class InputIterator, class Predicate>
+InputIterator find_if_not(InputIterator first, InputIterator last, Predicate pred) {
+  for ( ; first != last; ++first)
+    if (!bool(pred(*first))) return first;
+  return last;
+}
 ```
 

@@ -1,30 +1,26 @@
 #find_if
 ```cpp
-namespace std {  template <class InputIterator, class Predicate>
-  InputIterator find_if(InputIterator first, InputIterator last, Predicate pred);}
-```
-
-###概要
-範囲の中から、指定された条件を満たす最初の要素を検索する。
-
-###戻り値
-`[first,last)` 内のイテレータ `i` について、`pred(*i) != false` である最初のイテレータを返す。そのようなイテレータが見つからなかった場合は `last` を返す。
-
-###計算量
-
-最大で `last - first` 回述語による比較を行う
-
-###実装例
-```cpp
-template <class InputIterator, class Predicate>
-InputIterator find_if(InputIterator first, InputIterator last, Predicate pred) {
-  for ( ; first != last; ++first)
-    if (pred(*first)) return first;
-  return last;
+namespace std {
+  template <class InputIterator, class Predicate>
+  InputIterator find_if(InputIterator first,
+                        InputIterator last,
+						Predicate pred);
 }
 ```
 
-###使用例
+##概要
+範囲の中から、指定された条件を満たす最初の要素を検索する。
+
+
+##戻り値
+`[first,last)` 内のイテレータ `i` について、`pred(*i) != false` である最初のイテレータを返す。そのようなイテレータが見つからなかった場合は `last` を返す。
+
+
+##計算量
+最大で `last - first` 回述語による比較を行う
+
+
+##例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -46,5 +42,16 @@ int main() {
 ###出力
 ```cpp
 found: 1
+```
+
+
+##実装例
+```cpp
+template <class InputIterator, class Predicate>
+InputIterator find_if(InputIterator first, InputIterator last, Predicate pred) {
+  for ( ; first != last; ++first)
+    if (pred(*first)) return first;
+  return last;
+}
 ```
 
