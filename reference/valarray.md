@@ -12,7 +12,7 @@
 | [`slice`](./valarray/slice.md)       | `valarray` のためのスライス指示用のヘルパークラス | |
 | [`gslice`](./valarray/gslice.md)     | `slice`をより一般化したスライス指示用のヘルパークラス | |
 | [`slice_array`](./valarray/slice_array.md) | `valarray` の `operator[]` が `slice` に対して生成する要素参照スライス用のクラス | |
-| `gslice_array`                       | `valarray` の `operator[]` が `gslice` に対して生成する要素参照スライス用のクラス | |
+| [`gslice_array`](./valarray/gslice_array.md) | `valarray` の `operator[]` が `gslice` に対して生成する要素参照スライス用のクラス | |
 | `mask_array`                         | `valarray` の `operator[]` が `valarray<bool>` に対して生成する要素参照スライス用のクラス | |
 | `indirect_array`                     | `valarray` の `operator[]` が `valarray<size_t>` に対して生成する要素参照スライス用のクラス | |
 
