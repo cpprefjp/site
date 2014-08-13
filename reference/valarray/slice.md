@@ -6,7 +6,7 @@ namespace std {
 ```
 
 ##概要
-[`std::valarray`](./valarray.md) テンプレートクラスの [`operator[]`](./valarray/op_at.md) メンバ関数にスライスの指示を与えるためのヘルパークラス。
+`slice`は、[`std::valarray`](./valarray.md) クラスの [`operator[]`](./valarray/op_at.md) メンバ関数にスライスの指示を与えるためのヘルパークラスである。
 
 
 ##メンバ関数
