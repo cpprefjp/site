@@ -145,33 +145,33 @@ int main()
   // 条件一致した要素への参照を抽出
   {
     std::valarray<int> v(15);
-    std::iota(std::begin(v), std::end(v), 0);
-
+    std::iota(std::begin(v), std::end(v), 0); // 0からの連番にする
+   
     const std::size_t start = 1u;
     const std::valarray<std::size_t> lengths = {3u, 2u};
-    const std::valarray<std::size_t> strides = {5u, 3u};
-
+    const std::valarray<std::size_t> strides = {5u, 1u};
+   
     std::gslice_array<int> result = v[std::gslice(start, lengths, strides)];
-
+   
     // 抽出した要素を99で埋める
     result = 99;
 
     // 参照元が書き換わっていることを確認する
     assert(v[0] == 0);
     assert(v[1] == 99);
-    assert(v[2] == 2);
+    assert(v[2] == 99);
     assert(v[3] == 3);
-    assert(v[4] == 99);
+    assert(v[4] == 4);
     assert(v[5] == 5);
     assert(v[6] == 99);
-    assert(v[7] == 7);
+    assert(v[7] == 99);
     assert(v[8] == 8);
-    assert(v[9] == 99);
+    assert(v[9] == 9);
     assert(v[10] == 10);
     assert(v[11] == 99);
-    assert(v[12] == 12);
+    assert(v[12] == 99);
     assert(v[13] == 13);
-    assert(v[14] == 99);
+    assert(v[14] == 14);
   }
 
   // (7)

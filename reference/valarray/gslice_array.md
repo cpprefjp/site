@@ -69,11 +69,10 @@ int main()
 
   const std::size_t start = 1u;
   const std::valarray<std::size_t> lengths = {3u, 2u};
-  const std::valarray<std::size_t> strides = {5u, 3u};
+  const std::valarray<std::size_t> strides = {5u, 1u};
 
   std::gslice_array<int> result = v[std::gslice(start, lengths, strides)];
 
-  // 抽出した要素を99で埋める
   result = 99;
 
   for (int x : v) {
@@ -84,20 +83,21 @@ int main()
 
 ###出力
 ```
-1
-2
+0
+99
+99
 3
+4
+5
 99
 99
-6
-7
 8
-99
+9
 10
 99
-12
-13
 99
+13
+14
 ```
 
 
