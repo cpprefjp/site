@@ -6,9 +6,12 @@ namespace std {
 ```
 
 ##概要
-[`std::slice`](/reference/valarray/slice.md) をより一般化したスライス指示用のヘルパークラス。
+`gslice`は、[`std::slice`](/reference/valarray/slice.md) をより一般化したスライス指示用のヘルパークラスである。
 
-[`std::valarray`](./valarray.md) テンプレートクラスの [`operator[]`](./valarray/op_at.md) メンバ関数にスライスの指示を与えるために使用する。
+このクラスは、[`std::valarray`](./valarray.md) クラスの [`operator[]`](./valarray/op_at.md) メンバ関数にスライスの指示を与えるために使用する。
+
+
+「`gslice`」は、「generalized slice (汎用スライス)」の略。
 
 
 ##メンバ関数
