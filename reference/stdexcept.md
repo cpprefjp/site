@@ -30,14 +30,15 @@
 		- `overflow_error`
 		- `underflow_error`
 
-`exception`クラスを除く9つのクラスは、すべて同じ`public`メンバ関数をもつ。 
+[`exception`](/reference/exception/exception.md)クラスを除く9つのクラスは、すべて同じ`public`メンバ関数をもつ。 
+
 クラス名を`T`とすると、以下の`public`メンバ関数をもつ。
 
 ##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------|--------------------------------------------|-------|
-| `explicit T(const string& what_arg);` | 指定したメッセージを持つ例外オブジェクトを生成する | |
+| `explicit T(const` [`string`](/reference/string/basic_string.md)`& what_arg);` | 指定したメッセージを持つ例外オブジェクトを生成する | |
 | `explicit T(const char* what_arg);` | 指定したメッセージを持つ例外オブジェクトを生成する | C++11 |
 | `virtual const char* what() const noexcept;` | メッセージを取得する | |
 
