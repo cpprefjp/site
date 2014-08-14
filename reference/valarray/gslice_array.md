@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-`gslice_array`クラスは、非`const`な[`valarray`](./valarray.md)オブジェクトから[`gslice`](./slice.md)によって抽出した要素を、参照するためのクラスである。
+`gslice_array`クラスは、非`const`な[`valarray`](./valarray.md)オブジェクトから[`gslice`](./gslice.md)によって抽出した要素を、参照するためのクラスである。`gslice`は、`valarray`オブジェクトを行列指定で抽出する機能と見なせる。
 
 このクラスのオブジェクトは、[`valarray`](./valarray.md)クラスの[`operator[]`](./valarray/op_at.md)によって返される。
 
@@ -59,45 +59,49 @@ namespace std {
 ##例
 ```cpp
 #include <iostream>
+#include <iomanip> // setw
 #include <valarray>
 #include <numeric> // iota
 
+const std::size_t x_size = 4;
+const std::size_t y_size = 4;
+
+std::size_t make_position(std::size_t x, std::size_t y)
+{
+  return x_size * y + x;
+}
+
 int main()
 {
-  std::valarray<int> v(15);
+  // 4x4の行列
+  std::valarray<int> v(x_size * y_size);
   std::iota(std::begin(v), std::end(v), 0); // 0からの連番にする
 
-  const std::size_t start = 1u;
+  // (1,1)の位置から、横に3要素、縦に2要素を抽出する
+  const std::size_t start = make_position(1, 1);
   const std::valarray<std::size_t> lengths = {3u, 2u};
-  const std::valarray<std::size_t> strides = {5u, 1u};
+  const std::valarray<std::size_t> strides = {x_size, 1u};
 
-  std::gslice_array<int> result = v[std::gslice(start, lengths, strides)];
+  // 抽出した要素を99で埋める
+  // v[std::gslice(...)]で返されるオブジェクトがgslice_array
+  v[std::gslice(start, lengths, strides)] = 99;
 
-  result = 99;
-
-  for (int x : v) {
-    std::cout << x << std::endl;
+  // 行列を出力
+  for (std::size_t i = 0; i < v.size(); ++i) {
+    std::cout << std::setw(2) << v[i] << ' ';
+    const std::size_t x = i % x_size;
+    if (x == x_size - 1)
+      std::cout << std::endl;
   }
 }
 ```
 
 ###出力
 ```
-0
-99
-99
-3
-4
-5
-99
-99
-8
-9
-10
-99
-99
-13
-14
+ 0  1  2  3 
+ 4 99 99  7 
+ 8 99 99 11 
+12 99 99 15 
 ```
 
 
