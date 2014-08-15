@@ -113,7 +113,7 @@ return distance(a, b);
 
 ##ソートや、それに関連した操作
 
-25.4 の全ての操作は２つのバージョンがある。一つは `Compare` 型の関数オブジェクトを取る関数、もう一つは `operator<` を使用する関数である。
+ここで挙げる操作には全て２つのバージョンがある。一つは `Compare` 型の関数オブジェクトを取る関数、もう一つは `operator<` を使用する関数である。
 
 `Compare` は関数オブジェクト型である。  
 `Compare` 型のオブジェクトに適用した関数呼び出しの戻り値は、 `bool` へ文脈依存の変換をされたとき、第一引数が第二引数より小さい場合は `true` を、そうでない場合は `false` を返す。  
@@ -122,7 +122,7 @@ return distance(a, b);
 
 `Compare` を取るアルゴリズムには全て、代わりに `operator<` を使うバージョンもある。  
 つまり、`comp(*i, *j) != false` はデフォルトで `*i < *j != false` である。  
-25.4.3（BinarySearch）以外のアルゴリズムでは、`comp` は「狭義の弱順序 (strict weak ordering) 」を示さなければならない。  
+<a href="#alg.binary.search">二分探索</a>以外のアルゴリズムでは、`comp` は「狭義の弱順序 (strict weak ordering) 」を示さなければならない。  
 
 ここでの用語「狭義 (strict) 」 は非反射関係 (irreflexive relation) (全ての `x` について `!comp(x,x)` である）の要求を示し、用語「弱 (weak) 」は全順序 (total ordering) ほど強くはないが半順序 (partial ordering) よりは強い要求を示す。`!comp(a, b) && !comp(b, a)` として `equiv(a, b)` を定義する場合、用語「弱」の要求は `comp` と `equiv` の両方が以下のように推移的関係 (transitive relations) となることである。  
 
@@ -162,7 +162,7 @@ return distance(a, b);
 | [`nth_element`](./algorithm/nth_element.md) | 基準となる要素よりも小さい要素が、前に来るよう並べ替える | |
 
 
-###二分探索
+###<a name="alg.binary.search"></a>二分探索
 
 これらのアルゴリズムは全て二分探索を行う。これらは探索されたシーケンスが暗黙的または明示的に渡された比較関数でソートされていると仮定している。  
 これらはランダムアクセスイテレータでない場合でも最小の比較回数で動作する。  
