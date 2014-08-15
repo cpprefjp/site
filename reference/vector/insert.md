@@ -84,17 +84,17 @@ ccc
 ##バージョン
 ###言語
 - C++11 :右辺参照バージョン
-	- [Clang](/implementation#clang.md): ??
-	- [GCC](/implementation#gcc.md): 
-	- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-	- [ICC](/implementation#icc.md): ??
-	- [Visual C++](/implementation#visual_cpp.md) 10.0
+	- [Clang](/implementation.md#clang): ??
+	- [GCC](/implementation.md#gcc): 
+	- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
+	- [ICC](/implementation.md#icc): ??
+	- [Visual C++](/implementation.md#visual_cpp) 10.0
 
 - C++11 : 初期化子リストバージョン
-	- [Clang](/implementation#clang.md): ??
-	- [GCC](/implementation#gcc.md): 
-	- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-	- [ICC](/implementation#icc.md): ??
-	- [Visual C++](/implementation#visual_cpp.md) 
+	- [Clang](/implementation.md#clang): ??
+	- [GCC](/implementation.md#gcc): 
+	- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
+	- [ICC](/implementation.md#icc): ??
+	- [Visual C++](/implementation.md#visual_cpp) 
 
 

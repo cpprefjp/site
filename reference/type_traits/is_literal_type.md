@@ -58,9 +58,9 @@ int main() {}
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 3.1
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.4
-- [Visual C++](/implementation#visual_cpp.md): ??
+- [Clang](/implementation.md#clang): 3.1
+- [GCC, C++0x mode](/implementation.md#gcc): 4.6.4
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ###備考
 Clang 3.0では、上記サンプルにおける`X`型が、リテラル型と見なされない。この問題は、Clang 3.1で修正されている。

@@ -212,12 +212,12 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,5th), (5,five), (4,four)
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): -
-- [Clang, C++0x mode](/implementation#clang.md): 3.1
-- [GCC](/implementation#gcc.md): -
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0
-- [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): ?
+- [Clang](/implementation.md#clang): -
+- [Clang, C++0x mode](/implementation.md#clang): 3.1
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): ?
 
 ##実装例
 (3)以降の形式は、(1)、および、(2)の形式を使って実装することができる。

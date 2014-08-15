@@ -253,10 +253,10 @@ element allocator : 2
 - C++11
 
 ###処理系
-- [Clang, C++11 mode](/implementation#clang.md): 3.0
-- [GCC, C++11 mode](/implementation#gcc.md): (4.8時点でサポートされてるはずだが、サンプルが動かない)
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): ??
+- [Clang, C++11 mode](/implementation.md#clang): 3.0
+- [GCC, C++11 mode](/implementation.md#gcc): (4.8時点でサポートされてるはずだが、サンプルが動かない)
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ###参照
 - [N2554 The Scoped Allocator Model (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2554.pdf)

@@ -50,10 +50,10 @@ int main()
 - C++14
 
 ###処理系
-- [Clang, C++1y mode](/implementation#clang.md): 3.4
-- [GCC, C++1y mode](/implementation#gcc.md): 4.9.0
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): 
+- [Clang, C++1y mode](/implementation.md#clang): 3.4
+- [GCC, C++1y mode](/implementation.md#gcc): 4.9.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 
 
 ##参照
 

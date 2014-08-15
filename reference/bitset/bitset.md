@@ -109,9 +109,9 @@ int main()
 
 ###処理系
 - (4)のコンストラクタ
-	- [Clang, C++11 mode](/implementation#clang.md): 3.0
-	- [GCC, C++11 mode](/implementation#gcc.md): 4.5.4
-	- [Visual C++](/implementation#visual_cpp.md): ??
+	- [Clang, C++11 mode](/implementation.md#clang): 3.0
+	- [GCC, C++11 mode](/implementation.md#gcc): 4.5.4
+	- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ##参照

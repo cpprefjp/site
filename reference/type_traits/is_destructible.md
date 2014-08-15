@@ -66,8 +66,8 @@ int main(){}
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md) 3.1, 3.2, 3.3, 3.4(revision 188080)
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.3, 4.8.0, 4.8.1
+- [Clang](/implementation.md#clang) 3.1, 3.2, 3.3, 3.4(revision 188080)
+- [GCC, C++0x mode](/implementation.md#gcc): 4.7.3, 4.8.0, 4.8.1
 
 ####備考
 Clang 3.1 - 3.3 では以下のようなエラーが出るが、これは[Clang付属のlibc++のバグ](http://llvm.org/bugs/show_bug.cgi?id=16839)である。

@@ -190,11 +190,11 @@ p8 : (X(1 2 3),Y(4 5))
 - C++11 : ムーブ構築とpiecewise構築
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) ??
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp) ??
 
 
 

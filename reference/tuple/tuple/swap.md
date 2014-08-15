@@ -51,10 +51,10 @@ int main()
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
-- [ICC](/implementation#icc.md): 
-- [Visual C++](/implementation#visual_cpp.md) 
+- [Clang](/implementation.md#clang): 
+- [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
+- [ICC](/implementation.md#icc): 
+- [Visual C++](/implementation.md#visual_cpp) 
 
 
 ##参照

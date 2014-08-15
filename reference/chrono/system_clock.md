@@ -66,6 +66,6 @@ Tue Oct 16 15:00:08 2012
 - C++11
 
 ###処理系
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.1
+- [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
 
 

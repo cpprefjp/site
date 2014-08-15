@@ -138,12 +138,12 @@ unordered_multiset(initializer_list<value_type> il,
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): -
-- [Clang, C++0x mode](/implementation#clang.md): 3.0, 3.1
-- [GCC](/implementation#gcc.md): -
-- [GCC, C++0x mode](/implementation#gcc.md): 4.4.7, 4.5.3, 4.6.3, 4.7.0
-- [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): ?
+- [Clang](/implementation.md#clang): -
+- [Clang, C++0x mode](/implementation.md#clang): 3.0, 3.1
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++0x mode](/implementation.md#gcc): 4.4.7, 4.5.3, 4.6.3, 4.7.0
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): ?
 
 ####備考
 libstdc++ には 4.8.2 現在、(5)、(6)、(7)の形式はない。

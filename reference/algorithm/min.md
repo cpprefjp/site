@@ -101,11 +101,11 @@ T min(std::initializer_list<T> t, Compare comp)
 
 
 ##initializer_listバージョンの使用可能状況
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.0(initializer_listバージョンが使用可能)
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md)
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0(initializer_listバージョンが使用可能)
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp)
 
 ###備考
 Windows環境においては、`<windows.h>`をインクルードすると`min`という名前の関数マクロが定義され、`std::min()`と衝突してしまうという問題がある。

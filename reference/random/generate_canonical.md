@@ -69,11 +69,11 @@ generate_canonical<float, std::numeric_limits<float>::digits> [std::numeric_limi
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 
-- [ICC](/implementation#icc.md): 
-- [Visual C++](/implementation#visual_cpp.md): 
+- [Clang](/implementation.md#clang): 
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++0x mode](/implementation.md#gcc): 
+- [ICC](/implementation.md#icc): 
+- [Visual C++](/implementation.md#visual_cpp): 
 
 ###参考
 - N3337 p.909 §26.5.7.2

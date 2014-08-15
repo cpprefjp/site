@@ -40,11 +40,11 @@ inf
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 3.0
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.2
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): ??
+- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++0x mode](/implementation.md#gcc): 4.7.2
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ##参照

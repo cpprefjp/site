@@ -63,6 +63,6 @@ int main() {}
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 3.0
+- [Clang](/implementation.md#clang): 3.0
 
 

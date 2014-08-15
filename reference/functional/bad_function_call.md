@@ -39,11 +39,11 @@ bad function call
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.4, 4.7.2(what()が"std::bad_weak_ptr"を返すので規格違反。バグ報告済み。[#55847](http://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847))
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md) 10.0
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++0x mode](/implementation.md#gcc): 4.4, 4.7.2(what()が"std::bad_weak_ptr"を返すので規格違反。バグ報告済み。[#55847](http://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847))
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
 ###参照
