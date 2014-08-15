@@ -16,7 +16,7 @@ namespace std {
 
 
 ##要件
-`[first,last)` の要素 `e` は `e < value` または `comp(e, value)` によってパーティションされていなければならない。
+`[first,last)` の要素 `e` は `e < value` または `comp(e, value)` によって区分化されていなければならない。
 
 
 ##戻り値
