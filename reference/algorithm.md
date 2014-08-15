@@ -132,7 +132,7 @@ return distance(a, b);
   これらの前提のもと、以下を示すことができる。
 
   - `equiv` は等価関係 (equivalence relation) である
-  - `comp` は `equiv` によって決まる同値類の間での well-defined な関係を示す
+  - `comp` は `equiv` によって決まる同値類の間での明確な関係を示す
   - その示される関係は厳密な全順序 (strict total ordering) である
 
 あるシーケンスを指す任意のイテレータ `i` と、`i + n` がそのシーケンス上の要素を指す有効なイテレータであるような任意の非負整数 `n` について、`comp(*(i + n), *i) == false` であれば、そのシーケンスは比較関数 (comparator) comp によってソートされている。  
