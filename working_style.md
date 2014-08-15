@@ -68,7 +68,7 @@ C++11以降対応についてはC++11と明記します。バージョン表記�
 | compound type                      | 複合型                       |
 | literal type                       | リテラル型                   |
 | aggregate                          | 集成体型                     |
-| strict weak order                  | 狭義の弱順序                 |
+| strict weak ordering               | 狭義の弱順序                 |
 | move                               | (std::move 的な意味で)ムーブ |
 | move constructor                   | ムーブコンストラクタ         |
 | move assignment                    | ムーブ代入                   |

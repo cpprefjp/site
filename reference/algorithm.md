@@ -122,9 +122,9 @@ return distance(a, b);
 
 `Compare` を取るアルゴリズムには全て、代わりに `operator<` を使うバージョンもある。  
 つまり、`comp(*i, *j) != false` はデフォルトで `*i < *j != false` である。  
-25.4.3（BinarySearch）以外のアルゴリズムでは、`comp` は「厳密で弱い順序付け (strict weak ordering) 」を示さなければならない。  
+25.4.3（BinarySearch）以外のアルゴリズムでは、`comp` は「狭義の弱順序 (strict weak ordering) 」を示さなければならない。  
 
-ここでの用語「厳密 (strict) 」 は非反射関係 (irreflexive relation) (全ての `x` について `!comp(x,x)` である）の要求を示し、用語「弱い (weak) 」は全順序 (total ordering) ほど強くはないが半順序 (partial ordering) よりは強い要求を示す。`!comp(a, b) && !comp(b, a)` として `equiv(a, b)` を定義する場合、用語「弱い」の要求は `comp` と `equiv` の両方が以下のように推移的関係 (transitive relations) となることである。  
+ここでの用語「狭義 (strict) 」 は非反射関係 (irreflexive relation) (全ての `x` について `!comp(x,x)` である）の要求を示し、用語「弱 (weak) 」は全順序 (total ordering) ほど強くはないが半順序 (partial ordering) よりは強い要求を示す。`!comp(a, b) && !comp(b, a)` として `equiv(a, b)` を定義する場合、用語「弱」の要求は `comp` と `equiv` の両方が以下のように推移的関係 (transitive relations) となることである。  
 
 - `comp(a, b) && comp(b, c)` は `comp(a, c)` を意味する
 - `equiv(a, b) && equiv(b, c)` は `equiv(a, c)` を意味する
@@ -133,14 +133,14 @@ return distance(a, b);
 
   - `equiv` は等価関係 (equivalence relation) である
   - `comp` は `equiv` によって決まる同値類の間での明確な関係を示す
-  - その示される関係は厳密な全順序 (strict total ordering) である
+  - その示される関係は狭義の全順序 (strict total ordering) である
 
 あるシーケンスを指す任意のイテレータ `i` と、`i + n` がそのシーケンス上の要素を指す有効なイテレータであるような任意の非負整数 `n` について、`comp(*(i + n), *i) == false` であれば、そのシーケンスは比較関数 (comparator) comp によってソートされている。  
 
 あるシーケンス `[start,finish)` があり、`0 <= i < `[`distance`](/reference/iterator/distance.md)`(start, finish)` 内の全ての整数 `i` について、`i < n` の時かつその時に限り `f(*(start + i))` が `true` となるような整数 `n` が存在するなら、そのシーケンス `[start,finish)` は式 `f(e)` によってパーティションされている。  
 
 順序関係を扱う関数の説明において、この節では安定性 (stability) のようなコンセプトを説明するために等価性 (equivalence) の概念を頻繁に使う。  
-この節で参照する等価性は必ずしも `operator==` ではなく、厳密で弱い順序付けによって示される等価関係である。つまりそれは、２つの要素 `a` と `b` は `!(a < b) && !(b < a)` の時かつその時に限り等価とみなされるということである。  
+この節で参照する等価性は必ずしも `operator==` ではなく、狭義の弱順序によって示される等価関係である。つまりそれは、２つの要素 `a` と `b` は `!(a < b) && !(b < a)` の時かつその時に限り等価とみなされるということである。  
 
 
 ###ソート
