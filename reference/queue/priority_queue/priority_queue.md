@@ -53,7 +53,7 @@ C++11
 
 
 ##要件
-`Compare`型パラメータ`x`が、狭義の弱順序で定義されていること。
+`Compare`型パラメータ`x`が、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)で定義されていること。
 
 
 ##例

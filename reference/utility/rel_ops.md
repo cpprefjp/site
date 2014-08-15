@@ -35,7 +35,7 @@ namespace rel_ops {
 
 `operator>()`、`operator<=()`、`operator>=()`に対し、型`T`は`LessThanComparable`である必要がある。
 
-すなわち、型`T`は`operator<()`による比較が可能であり、その比較は狭義の弱順序でなければならない。
+すなわち、型`T`は`operator<()`による比較が可能であり、その比較は[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)でなければならない。
 
 
 

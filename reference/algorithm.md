@@ -122,6 +122,7 @@ return distance(a, b);
 
 `Compare` を取るアルゴリズムには全て、代わりに `operator<` を使うバージョンもある。  
 つまり、`comp(*i, *j) != false` はデフォルトで `*i < *j != false` である。  
+<a name="strict-weak-ordering"></a>
 <a href="#alg.binary.search">二分探索</a>以外のアルゴリズムでは、`comp` は「狭義の弱順序 (strict weak ordering) 」を示さなければならない。  
 
 ここでの用語「狭義 (strict) 」 は非反射関係 (irreflexive relation) (全ての `x` について `!comp(x,x)` である）の要求を示し、用語「弱 (weak) 」は全順序 (total ordering) ほど強くはないが半順序 (partial ordering) よりは強い要求を示す。`!comp(a, b) && !comp(b, a)` として `equiv(a, b)` を定義する場合、用語「弱」の要求は `comp` と `equiv` の両方が以下のように推移的関係 (transitive relations) となることである。  
@@ -140,7 +141,7 @@ return distance(a, b);
 あるシーケンス `[start,finish)` があり、`0 <= i < (finish - start)` 内の全ての整数 `i` について、`i < n` の時かつその時に限り `f(*(start + i))` が `true` となるような整数 `n` が存在するなら、そのシーケンス `[start,finish)` は式 `f(e)` によって区分化されているという。  
 
 順序関係を扱う関数の説明において、この節では安定性 (stability) のようなコンセプトを説明するために等価性 (equivalence) の概念を頻繁に使う。  
-この節で参照する等価性は必ずしも `operator==` ではなく、狭義の弱順序によって示される等価関係である。つまりそれは、２つの要素 `a` と `b` は `!(a < b) && !(b < a)` の時かつその時に限り等価とみなされるということである。  
+この節で参照する等価性は必ずしも `operator==` ではなく、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)によって示される等価関係である。つまりそれは、２つの要素 `a` と `b` は `!(a < b) && !(b < a)` の時かつその時に限り等価とみなされるということである。  
 
 
 ###ソート

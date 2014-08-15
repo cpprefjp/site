@@ -11,7 +11,7 @@ template <class Compare> void merge(forward_list&& x, Compare comp);
 
 
 ##要件
-`comp`が狭義の弱順序として定義されていること。`*this`と`x`がその順序でソートされていること。
+`comp`が[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)として定義されていること。`*this`と`x`がその順序でソートされていること。
 
 
 ##効果
