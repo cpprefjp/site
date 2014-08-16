@@ -29,7 +29,7 @@ namespace std {
 | [`(constructor)`](./reverse_iterator/reverse_iterator.md) | コンストラクタ |
 | `~reverse_iterator() = default` | デストラクタ |
 | [`operator=`](./reverse_iterator/op_assign.md) | 代入演算子 |
-| [`base`](/site/cpprefjp/) | 元となったイテレータを取得する |
+| [`base`](./reverse_iterator/base.md) | 元となったイテレータを取得する |
 | [`operator*`](./reverse_iterator/op_deref.md) | 間接参照演算子 |
 | [`operator->`](./reverse_iterator/op_arrow.md) | メンバアクセス演算子 |
 | [`operator++`](./reverse_iterator/op_increment.md) | イテレータをインクリメントする |
