@@ -73,10 +73,10 @@ int main()
 - C++11
 
 ###処理系
-- [Clang, C++0x mode](/implementation#clang.md): 3.1
-- [GCC, C++0x mode](/implementation#gcc.md): 4.6.4
-- [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): ?
+- [Clang, C++0x mode](/implementation.md#clang): 3.1
+- [GCC, C++0x mode](/implementation.md#gcc): 4.6.4
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): ?
 
 ##参照
 

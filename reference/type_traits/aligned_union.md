@@ -62,9 +62,9 @@ hello
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 3.3
-- [GCC, C++0x mode](/implementation#gcc.md): 
-- [Visual C++](/implementation#visual_cpp.md): ??
+- [Clang](/implementation.md#clang): 3.3
+- [GCC, C++0x mode](/implementation.md#gcc): 
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ##参照

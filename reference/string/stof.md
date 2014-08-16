@@ -146,11 +146,11 @@ float stof(const wstring& str, size_t* idx = nullptr) {
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ?
-- [GCC](/implementation#gcc.md): ?
-- [GCC, C++11 mode](/implementation#gcc.md): ?
-- [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
+- [Clang](/implementation.md#clang): ?
+- [GCC](/implementation.md#gcc): ?
+- [GCC, C++11 mode](/implementation.md#gcc): ?
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
 

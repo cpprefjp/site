@@ -48,11 +48,11 @@ int main() {
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 3.2, 3.3
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.4, 4.7.3, 4.8.2
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0
+- [Clang](/implementation.md#clang): 3.2, 3.3
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++0x mode](/implementation.md#gcc): 4.4, 4.7.3, 4.8.2
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 ##備考
 Visual C++ 10.0～11.0 でも使用可能だが、コンパイラが可変引数テンプレートに対応していないため、最大10個の引数を受け取れる形で実装されている。

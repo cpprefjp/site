@@ -73,8 +73,8 @@ int main() {}
 - C++11
 
 ###処理系
-- [Clang, C++11 mode](/implementation#clang.md): 3.0
-- [GCC, C++11 mode](/implementation#gcc.md): 
+- [Clang, C++11 mode](/implementation.md#clang): 3.0
+- [GCC, C++11 mode](/implementation.md#gcc): 
 
 ####備考
 

@@ -58,8 +58,8 @@ cbrt(-1.0) = -1.000000
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md):  2.9, 3.1
-- [GCC, C++0x mode](/implementation#gcc.md): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
+- [Clang](/implementation.md#clang):  2.9, 3.1
+- [GCC, C++0x mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 
 ####備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）

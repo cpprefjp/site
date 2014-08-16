@@ -55,6 +55,6 @@ int main() {}
 - C++11
 
 ###処理系
-- [Clang, C++11 mode](/implementation#clang.md): 3.0
-- [GCC, C++11 mode](/implementation#gcc.md): 4.7.3
+- [Clang, C++11 mode](/implementation.md#clang): 3.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 

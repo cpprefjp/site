@@ -142,11 +142,11 @@ int main()
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ??
-- [GCC](/implementation#gcc.md): 
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.2
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): ??
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++0x mode](/implementation.md#gcc): 4.7.2
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ##参照
 * [Mersenne Twister Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html)

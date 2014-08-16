@@ -85,9 +85,9 @@ hello
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): ?
-- [GCC, C++0x mode](/implementation#gcc.md): 4.3.4, 4.4.4, 4.5.2, 4.6.1
-- [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): 9.0, 10.0
+- [Clang](/implementation.md#clang): ?
+- [GCC, C++0x mode](/implementation.md#gcc): 4.3.4, 4.4.4, 4.5.2, 4.6.1
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 9.0, 10.0
 
 

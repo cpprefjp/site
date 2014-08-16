@@ -225,10 +225,10 @@ int main()
 - C++11
 
 ###処理系
-- [Clang, C++11 mode](/implementation#clang.md): 3.0
-- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6 (unique_ptr, nullptr以外), 4.4.7 (nullptr以外), 4.6.4
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): 9.0 (TR1), 10.0, 11.0, 12.0
+- [Clang, C++11 mode](/implementation.md#clang): 3.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.3.6 (unique_ptr, nullptr以外), 4.4.7 (nullptr以外), 4.6.4
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
 	- Visual C++ 9.0は(1), (2), (3), (4), (8), (9), (12), (13)のみ
 	- Visual C++ 9.0, 1.0の(13)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
 

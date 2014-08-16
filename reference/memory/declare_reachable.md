@@ -68,10 +68,10 @@ int main()
 - C++11
 
 ###処理系
-- [GCC](/implementation#gcc.md): ?
-- [Clang libc++, C++11 mode](/implementation#clang.md): 3.4 relaxed実装
-- [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): 10.0, 11.0, 12.0 relaxed実装
+- [GCC](/implementation.md#gcc): ?
+- [Clang libc++, C++11 mode](/implementation.md#clang): 3.4 relaxed実装
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0 relaxed実装
 
 ##参照
 * [C++0x ガベージコレクションと到達可能性ベースリーク検知の最小支援 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081117/1226913980)

@@ -50,9 +50,9 @@ int main(){}
 - C++11
 
 ###処理系
-- [GCC, C++0x mode](/implementation#gcc.md): 4.5.3, 4.6.1, 4.7.0
-- [Visual C++](/implementation#visual_cpp.md) 10.0
-- [Clang](/implementation#clang.md) 3.1, 3.2, 3.3
+- [GCC, C++0x mode](/implementation.md#gcc): 4.5.3, 4.6.1, 4.7.0
+- [Visual C++](/implementation.md#visual_cpp) 10.0
+- [Clang](/implementation.md#clang) 3.1, 3.2, 3.3
 
 ####備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](./integral_constant-true_type-false_type.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラのバグのために関数への右辺値参照を用いるとエラーになる。

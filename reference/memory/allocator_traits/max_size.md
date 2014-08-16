@@ -37,10 +37,10 @@ int main()
 - C++11
 
 ###処理系
-- [Clang](/implementation#clang.md): 3.0
-- [GCC, C++0x mode](/implementation#gcc.md): 4.7.3
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
+- [Clang](/implementation.md#clang): 3.0
+- [GCC, C++0x mode](/implementation.md#gcc): 4.7.3
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 ##参照
 - [LWG2162 - allocator_traits::max_size missing noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2162)

@@ -54,10 +54,10 @@ exception std::out_of_ranget
 ```
 
 ###処理系
-- [Clang, C++11 mode](/implementation#clang.md): 3.0
-- [GCC, C++11 mode](/implementation#gcc.md): 4.3.6
-- [ICC](/implementation#icc.md): ??
-- [Visual C++](/implementation#visual_cpp.md): ??, 11.0
+- [Clang, C++11 mode](/implementation.md#clang): 3.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
 ##参照
 

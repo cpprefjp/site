@@ -101,10 +101,10 @@ int main()
 - C++11
 
 ###処理系
-- [GCC, C++11 mode](/implementation#gcc.md): 4.7.3
-- [Clang libc++, C++11 mode](/implementation#clang.md): 3.0
-- [ICC](/implementation#icc.md): ?
-- [Visual C++](/implementation#visual_cpp.md): 11.0, 12.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
+- [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 ###参照
 - [Allocators@C++11 - Cryolite](http://www.slideshare.net/Cryolite/allocator11final)
