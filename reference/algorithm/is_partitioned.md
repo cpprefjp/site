@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-与えられた範囲が条件によって区分化されているか判定する。
+与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する。
 
 
 ##要件
@@ -17,7 +17,7 @@ namespace std {
 
 
 ##戻り値
-`[first,last)` が空、 または `[first,last)` が `pred` によって区分化されているなら `true` 、そうでなければ `false` を返す。
+`[first,last)` が空、 または `[first,last)` が `pred` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているなら `true` 、そうでなければ `false` を返す。
 
 つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現するなら `true` を返す。
 

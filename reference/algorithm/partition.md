@@ -16,7 +16,7 @@ namespace std {
 ```
 
 ##概要
-与えられた範囲を条件によって区分化する。
+与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
 
 
 ##要件
@@ -28,7 +28,7 @@ namespace std {
 
 
 ##戻り値
-`[first,i)` 内にあるイテレータ `j` について `pred(*j) != false` を満たし、`[i,last)` 内にあるイテレータ `k` について `pred(*k) == false` を満たすような、イテレータ `i` を返す。つまり、区分化された境界を指すイテレータを返す。
+`[first,i)` 内にあるイテレータ `j` について `pred(*j) != false` を満たし、`[i,last)` 内にあるイテレータ `k` について `pred(*k) == false` を満たすような、イテレータ `i` を返す。つまり、[区分化](/reference/algorithm.md#sequence-is-partitioned)された境界を指すイテレータを返す。
 
 
 ##計算量

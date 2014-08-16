@@ -9,7 +9,7 @@ namespace std {
 ```
 
 ##概要
-与えられた範囲を相対順序を保ちながら条件によって区分化する。
+与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
 
 
 ##要件
@@ -24,7 +24,7 @@ namespace std {
 ##戻り値
 `[first,i)` 内にあるイテレータ `j` について `pred(*j) != false` を満たし、`[i,last)` 内にあるイテレータ `k` について `pred(*k) == false` を満たすような、イテレータ `i` を返す。
 
-つまり、区分化された境界を指すイテレータを返す。
+つまり、[区分化](/reference/algorithm.md#sequence-is-partitioned)された境界を指すイテレータを返す。
 
 条件を満たす・満たさない両グループ内での要素間の相対順序は保たれる。
 

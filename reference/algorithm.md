@@ -104,11 +104,11 @@ return distance(a, b);
 | [`rotate_copy`](./algorithm/rotate_copy.md)         | 要素の並びを回転させ、その結果を出力の範囲へコピーする | |
 | [`random_shuffle`](./algorithm/random_shuffle.md)   | それぞれの要素をランダムな位置に移動させる | |
 | [`shuffle`](./algorithm/shuffle.md)                 | それぞれの要素をランダムな位置に移動させる | C++11 |
-| [`is_partitioned`](./algorithm/is_partitioned.md)   | 与えられた範囲が条件によって区分化されているか判定する | C++11 |
-| [`partition`](./algorithm/partition.md)             | 与えられた範囲を条件によって区分化する | |
-| [`stable_partition`](./algorithm/stable_partition.md) | 与えられた範囲を相対順序を保ちながら条件によって区分化する | |
+| [`is_partitioned`](./algorithm/is_partitioned.md)   | 与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する | C++11 |
+| [`partition`](./algorithm/partition.md)             | 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する | |
+| [`stable_partition`](./algorithm/stable_partition.md) | 与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する | |
 | [`partition_copy`](./algorithm/partition_copy.md)   | 与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする | C++11 |
-| [`partition_point`](./algorithm/partition_point.md) | 与えられた範囲から条件によって区分化されている位置を得る | C++11 |
+| [`partition_point`](./algorithm/partition_point.md) | 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る | C++11 |
 
 
 ##ソートや、それに関連した操作
@@ -138,6 +138,7 @@ return distance(a, b);
 
 あるシーケンスを指す任意のイテレータ `i` と、`i + n` がそのシーケンス上の要素を指す有効なイテレータであるような任意の非負整数 `n` について、`comp(*(i + n), *i) == false` であれば、そのシーケンスは比較関数 (comparator) comp によってソートされている。  
 
+<a name="sequence-is-partitioned"></a>
 あるシーケンス `[start,finish)` があり、`0 <= i < (finish - start)` 内の全ての整数 `i` について、`i < n` の時かつその時に限り `f(*(start + i))` が `true` となるような整数 `n` が存在するなら、そのシーケンス `[start,finish)` は式 `f(e)` によって区分化されているという。  
 
 順序関係を扱う関数の説明において、この節では安定性 (stability) のようなコンセプトを説明するために等価性 (equivalence) の概念を頻繁に使う。  

@@ -16,7 +16,7 @@ namespace std {
 
 
 ##要件
-`[first,last)` の要素 `e` は `e < value` または `comp(e, value)` によって区分化されていなければならない。
+`[first,last)` の要素 `e` は `e < value` または `comp(e, value)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。
 
 
 ##戻り値
