@@ -136,7 +136,8 @@ return distance(a, b);
   - `comp` は `equiv` によって決まる同値類の間での明確な関係を示す
   - その示される関係は狭義の全順序 (strict total ordering) である
 
-あるシーケンスを指す任意のイテレータ `i` と、`i + n` がそのシーケンス上の要素を指す有効なイテレータであるような任意の非負整数 `n` について、`comp(*(i + n), *i) == false` であれば、そのシーケンスは比較関数 (comparator) comp によってソートされている。  
+<a name="sequence-is-sorted"></a>
+あるシーケンスを指す任意のイテレータ `i` と、`i + n` がそのシーケンス上の要素を指す有効なイテレータであるような任意の非負整数 `n` について、`comp(*(i + n), *i) == false` であれば、そのシーケンスは比較関数 (comparator) `comp` によってソートされているという。  
 
 <a name="sequence-is-partitioned"></a>
 あるシーケンス `[start,finish)` があり、`0 <= i < (finish - start)` 内の全ての整数 `i` について、`i < n` の時かつその時に限り `f(*(start + i))` が `true` となるような整数 `n` が存在するなら、そのシーケンス `[start,finish)` は式 `f(e)` によって区分化されているという。  
