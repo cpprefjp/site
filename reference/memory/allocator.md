@@ -109,6 +109,7 @@ int main(int argc, char** argv) {
     - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 ###参照
+- [A visitor’s guide to C++ allocators](https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html)
 - [LWG #2103 - std::allocator_traits<std::allocator<T>>::propagate_on_container_move_assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2103)
 
 
