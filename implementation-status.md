@@ -80,8 +80,8 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 - Visual Studio “14” CTP: [Visual Studio “14” CTP - Visual C++ Team Blog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/vcblog/archive/2014/06/03/visual-studio-14-ctp.aspx)
 
 
-##C++14/C++1yの実装状況
-C++14は、C++11のバグフィックス + マイナーアップデートが予定されているバージョンである。C++1yは、C++17を目指して進められている、C++14の次バージョンである。C++14がまだどこまで含まれるかが決定的ではないため、本記事執筆段階(2013/05/10)では、いくつかのコンパイラはC++1yとして開発を進めている。
+##C++14
+C++14は、C++11のバグフィックス + マイナーアップデートが予定されているバージョンである。
 
 | 言語機能                     | 説明 | GCC | Clang | ICC | MSVC |
 |------------------------------|------|-----|-------|-----|------|
@@ -98,7 +98,7 @@ C++14は、C++11のバグフィックス + マイナーアップデートが予�
 
 GCCとClangでは、-std=c++1yコンパイルオプションを付けることで、これらの機能を使用できる。
 
-各処理系のC++14/C++1y実装状況ページ：
+各処理系のC++14実装状況ページ：
 
 - GCC: [C++1y/C++14 Support in GCC](http://gcc.gnu.org/projects/cxx1y.html)
 - libstdc++: [C++ 2014](http://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2014)
