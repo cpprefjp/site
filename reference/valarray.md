@@ -1,20 +1,32 @@
 #valarray
-`<valarray>`ヘッダは、線形代数学的な数値例の計算に特化したテンプレートクラスと基礎的な数学的処理を行うためのオーバーロードを定義したライブラリである。
+`<valarray>`ヘッダは、数値計算に特化した配列クラスである`valarray`と、基礎的な数学的処理を行うための関数オーバーロードを定義したライブラリである。
 
-なお、`slice_array`、 `gslice_array`、 `mask_array`、 `indirect_array` はそれぞれ要素を元の `valarray` への参照として保持し、valarray同様にvalarrayに対する各種のオペレータを適用可能なヘルパークラスであり、通常ライブラリのエンドユーザーがこれらのクラスについて特殊化されたユーザーコードを記述する必要は無い。
-
-例については`valarray`クラスの例にまとめてあるのでそちらを参照されたい。
-
+##配列クラス
 
 | クラス                               | 説明                          | 対応バージョン |
 |--------------------------------------|-------------------------------|----------------|
-| [`valarray`](./valarray/valarray.md) | 数値演算に特化した配列クラス | |
-| [`slice`](./valarray/slice.md)       | `valarray` のためのスライス指示用のヘルパークラス | |
-| [`gslice`](./valarray/gslice.md)     | `slice`をより一般化したスライス指示用のヘルパークラス | |
-| [`slice_array`](./valarray/slice_array.md) | `valarray` の `operator[]` が `slice` に対して生成する要素参照スライス用のクラス | |
-| [`gslice_array`](./valarray/gslice_array.md) | `valarray` の `operator[]` が `gslice` に対して生成する要素参照スライス用のクラス | |
-| `mask_array`                         | `valarray` の `operator[]` が `valarray<bool>` に対して生成する要素参照スライス用のクラス | |
-| `indirect_array`                     | `valarray` の `operator[]` が `valarray<size_t>` に対して生成する要素参照スライス用のクラス | |
+| [`valarray`](./valarray/valarray.md) | 数値演算に特化した配列クラス  | |
 
+
+##スライス指示
+
+以下は、`valarray`クラスの配列から条件一致した要素を抽出するための、ヘルパークラスである。
+
+| クラス                               | 説明                          | 対応バージョン |
+|--------------------------------------|-------------------------------|----------------|
+| [`slice`](./valarray/slice.md)       | スライス指示用のヘルパークラス | |
+| [`gslice`](./valarray/gslice.md)     | `slice`をより一般化したスライス指示用のヘルパークラス | |
+
+
+##スライス結果の配列クラス
+
+以下は、`valarray`クラスの[`operator[]`](/reference/valarray/valarray/op_at.md)メンバ関数によって返される、スライス結果の配列クラスである。これらのクラスは、配列のコピーは保持せず、元となる`valarray`オブジェクトの要素を参照する。
+
+| クラス                               | 説明                          | 対応バージョン |
+|--------------------------------------|-------------------------------|----------------|
+| [`slice_array`](./valarray/slice_array.md)   | `valarray`から`slice`によって要素抽出した結果となる配列クラス | |
+| [`gslice_array`](./valarray/gslice_array.md) | `valarray`から`gslice`によって要素抽出した結果となる配列クラス | |
+| `mask_array`                                 | `valarray`から`valarray<bool>`を指定して要素抽出した結果となる配列クラス | |
+| `indirect_array`                             | `valarray`から`valarray<size_t>`を指定して要素抽出した結果となる配列クラス | |
 
 
