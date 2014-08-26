@@ -26,7 +26,7 @@
 |--------------------------------------|-------------------------------|----------------|
 | [`slice_array`](./valarray/slice_array.md)   | `valarray`から`slice`によって要素抽出した結果となる配列クラス | |
 | [`gslice_array`](./valarray/gslice_array.md) | `valarray`から`gslice`によって要素抽出した結果となる配列クラス | |
-| `mask_array`                                 | `valarray`から`valarray<bool>`を指定して要素抽出した結果となる配列クラス | |
+| [`mask_array`](./valarray/mask_array.md)     | `valarray`から`valarray<bool>`を指定して要素抽出した結果となる配列クラス | |
 | `indirect_array`                             | `valarray`から`valarray<size_t>`を指定して要素抽出した結果となる配列クラス | |
 
 
