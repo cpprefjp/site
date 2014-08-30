@@ -11,7 +11,7 @@ native_handle_type native_handle();
 この関数は、実装依存のスレッドのハンドルを返す。
 
 - Unix系環境におけるlibstdc++とlibc++では、`pthread_t`を表す。
-- Visual C++では、Windowsのスレッドハンドル`HANDLE`を表す。
+- Visual C++では、Windowsのスレッドハンドル`HANDLE`を表す。ただし、`native_handle_type`は`void*`の`typedef`である。`HANDLE`も`void*`の`typedef`であり、別途`<windows.h>`または`<wtypes.h>`をインクルードすると型`HANDLE`が使用できる。
 
 ハンドル型に対する操作は汎用的ではないため、環境依存のプログラミングが必要な場合に使用する。
 
