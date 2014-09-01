@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-`slice_array`クラスは、非`const`な[`valarray`](./valarray.md)オブジェクトから`valarray<bool>`によって抽出した要素を、参照するためのクラスである。抽出条件となる`valarray<bool>`は、抽出元の`valarray<T>`と同じ長さを持つ配列であり、その各要素は、`true`なら対応する要素を抽出し、`false`なら対応する要素を抽出しないことを表す。
+`mask_array`クラスは、非`const`な[`valarray`](./valarray.md)オブジェクトから`valarray<bool>`によって抽出した要素を、参照するためのクラスである。抽出条件となる`valarray<bool>`は、抽出元の`valarray<T>`と同じ長さを持つ配列であり、その各要素は、`true`なら対応する要素を抽出し、`false`なら対応する要素を抽出しないことを表す。
 
 このクラスのオブジェクトは、[`valarray`](./valarray.md)クラスの[`operator[]`](./valarray/op_at.md)によって返される。
 
