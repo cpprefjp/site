@@ -70,7 +70,7 @@ int main()
   std::indirect_array<int> result = v[mask];
 
   // 抽出した要素を書き換える
-  result *= std::valarray<int>(2, 3);
+  result *= std::valarray<int>(2, mask.size());
 
   for (int x : v) {
     std::cout << x << std::endl;
