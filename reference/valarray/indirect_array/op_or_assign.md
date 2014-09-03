@@ -38,7 +38,7 @@ int main()
   std::indirect_array<int> result = v[mask];
 
   // 抽出した要素に0b11を論理和する
-  result |= std::valarray<int>(0b00000011, 3);
+  result |= std::valarray<int>(0b00000011, mask.size());
 
   for (int x : v) {
     std::cout << std::bitset<8>(x).to_string() << std::endl;
