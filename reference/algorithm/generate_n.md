@@ -40,7 +40,7 @@ namespace std {
 #include <iterator>
  
 int main() {
-  // 2 のべき乗の値を生成して出力する
+  // 2 の累乗の値を生成して出力する
   int n = 1;
   std::generate_n(std::ostream_iterator<int>(std::cout, ","),
     10, [&n]{ auto t = n; n *= 2; return t; });

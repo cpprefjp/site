@@ -31,7 +31,7 @@ namespace std {
 int main() {
   std::vector<int> v(10);
 
-  // 2 のべき乗の値を生成する
+  // 2 の累乗の値を生成する
   int n = 1;
   std::generate(v.begin(), v.end(), [&n]() { auto t = n; n *= 2; return t; });
 
