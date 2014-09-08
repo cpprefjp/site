@@ -107,4 +107,7 @@ int main()
 
 ###参考
 - [正規分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
+- [Marsaglia polar method - Wikipedia](http://en.wikipedia.org/wiki/Marsaglia_polar_method)
+	- GCC 4.9時点においてlibstdc++で使用されているアルゴリズム
+
 
