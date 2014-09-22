@@ -14,7 +14,7 @@ namespace std {
 ##概要
 
 `basic_regex`クラステンプレートは、`charT`型の文字列から構築する正規表現を表す。
-`charT`はcharのような型(`char`型, `wchar_t`型など)である。
+`charT`は`char`のような型(`char`型, `wchar_t`型など)である。
 `traits`は正規表現の文字・変換に関する特性である。
 利便性のために、`charT`を`char`特殊化した`regex`と、`charT`を`wchar_t`特殊化した`wregex`が用意されている。
 
