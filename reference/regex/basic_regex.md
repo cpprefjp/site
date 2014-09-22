@@ -29,35 +29,35 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 | ---- | ---- | -------------- |
-| (constructor) | コンストラクタ | C++11 |
-| (destructor) | デストラクタ | C++11 |
-| operator= | 正規表現を代入する | C++11 |
+| `(constructor)` | コンストラクタ | C++11 |
+| `(destructor)` | デストラクタ | C++11 |
+| `operator=` | 正規表現を代入する | C++11 |
 
 ###代入
 
 | 名前 | 説明 | 対応バージョン |
 | ---- | ---- | -------------- |
-| assign | 正規表現を代入する | C++11 |
+| `assign` | 正規表現を代入する | C++11 |
 
 ###定数操作
 
 | 名前 | 説明 | 対応バージョン |
 | ---- | ---- | -------------- |
-| mark_count | 正規表現中のマークされた部分式の数を返す | C++11 |
-| flags | 最後にセットされた正規表現フラグを返す | C++11 |
+| `mark_count` | 正規表現中のマークされた部分式の数を返す | C++11 |
+| `flags` | 最後にセットされた正規表現フラグを返す | C++11 |
 
 ###ロケール
 
 | 名前 | 説明 | 対応バージョン |
 | ---- | ---- | -------------- |
-| imbue | ロケールを設定する | C++11 |
-| getloc | 現在のロケールを得る | C++11 |
+| `imbue` | ロケールを設定する | C++11 |
+| `getloc` | 現在のロケールを得る | C++11 |
 
 ###交換
 
 | 名前 | 説明 | 対応バージョン |
 | ---- | ---- | -------------- |
-| swap | 正規表現オブジェクトを交換する | C++11 |
+| `swap` | 正規表現オブジェクトを交換する | C++11 |
 
 ##メンバ定数
 
@@ -65,16 +65,16 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 | ---- | ---- | -------------- |
-| icase      | `static constexpr regex_constants::syntax_option_type icase      = regex_constants::icase;`      | C++11 |
-| nosubs     | `static constexpr regex_constants::syntax_option_type nosubs     = regex_constants::nosubs;`     | C++11 |
-| optimize   | `static constexpr regex_constants::syntax_option_type optimize   = regex_constants::optimize;`   | C++11 |
-| collate    | `static constexpr regex_constants::syntax_option_type collate    = regex_constants::collate;`    | C++11 |
-| ECMAScript | `static constexpr regex_constants::syntax_option_type ECMAScript = regex_constants::ECMAScript;` | C++11 |
-| basic      | `static constexpr regex_constants::syntax_option_type basic      = regex_constants::basic;`      | C++11 |
-| extended   | `static constexpr regex_constants::syntax_option_type extended   = regex_constants::extended;`   | C++11 |
-| awk        | `static constexpr regex_constants::syntax_option_type awk        = regex_constants::awk;`        | C++11 |
-| grep       | `static constexpr regex_constants::syntax_option_type grep       = regex_constants::grep;`       | C++11 |
-| egrep      | `static constexpr regex_constants::syntax_option_type egrep      = regex_constants::egrep;`      | C++11 |
+| `icase`      | `static constexpr regex_constants::syntax_option_type icase      = regex_constants::icase;`      | C++11 |
+| `nosubs`     | `static constexpr regex_constants::syntax_option_type nosubs     = regex_constants::nosubs;`     | C++11 |
+| `optimize`   | `static constexpr regex_constants::syntax_option_type optimize   = regex_constants::optimize;`   | C++11 |
+| `collate`    | `static constexpr regex_constants::syntax_option_type collate    = regex_constants::collate;`    | C++11 |
+| `ECMAScript` | `static constexpr regex_constants::syntax_option_type ECMAScript = regex_constants::ECMAScript;` | C++11 |
+| `basic`      | `static constexpr regex_constants::syntax_option_type basic      = regex_constants::basic;`      | C++11 |
+| `extended`   | `static constexpr regex_constants::syntax_option_type extended   = regex_constants::extended;`   | C++11 |
+| `awk`        | `static constexpr regex_constants::syntax_option_type awk        = regex_constants::awk;`        | C++11 |
+| `grep`       | `static constexpr regex_constants::syntax_option_type grep       = regex_constants::grep;`       | C++11 |
+| `egrep`      | `static constexpr regex_constants::syntax_option_type egrep      = regex_constants::egrep;`      | C++11 |
 
 ##メンバ型
 
@@ -92,4 +92,4 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 | ---- | ---- | -------------- |
-| swap | 二つの正規表現オブジェクトを交換する | C++11 |
+| `swap` | 二つの正規表現オブジェクトを交換する | C++11 |
