@@ -1,5 +1,5 @@
 #queue
-```
+```cpp
 namespace std {
   template <class T, class Container = deque<T>>
   class queue;
