@@ -8,6 +8,9 @@ namespace std {
   >::type move_if_noexcept(T& x) noexcept;
 }
 ```
+* conditional[link /reference/type_traits/conditional.md]
+* is_nothrow_move_constructible[link /reference/type_traits/is_nothrow_move_constructible.md]
+* is_copy_constructible[link /reference/type_traits/is_copy_constructible.md]
 
 ##概要
 例外を投げないオブジェクトをムーブする。
