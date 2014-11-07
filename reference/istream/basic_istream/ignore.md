@@ -1,4 +1,4 @@
-#get
+#ignore
 ```cpp
 basic_istream<CharT, Traits>& ignore(streamsize n = 1, int_type delim = Traits::eof());
 ```
@@ -33,32 +33,24 @@ basic_istream<CharT, Traits>& ignore(streamsize n = 1, int_type delim = Traits::
 #include <limits>
 
 int main() {
-  std::cout << "好きなアルファベット1文字を入力してください: ";
-  int c = std::cin.get();
-  if (c == EOF) {
-    return 1;
-  }
-  std::cout << c << "が入力されました。" << std::endl;
-
-  // 改行文字までを捨てる。
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  // Cが入力されるまで捨てる。
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), 'C');
 
   int x;
-  std::cout << "好きな数値を入力してください: ";
+  // 好きな数値を入力してください
   if (std::cin >> x) {
     std::cout << x << "が入力されました。" << std::endl;
   }
 }
 ```
 
-```std::cin```が行バッファリング（端末で利用者が改行を打鍵しないとOSから入力ストリームバッファに入力が到達しない）であることを前提としている。
-
-##出力
-
+###入力
 ```
-好きなアルファベット1文字を入力してください: (A[Enter]を打鍵)
-Aが入力されました。
-好きな数値を入力してください: (200[Enter]を打鍵)
+ABC200
+```
+
+###出力
+```
 200が入力されました。
 ```
 

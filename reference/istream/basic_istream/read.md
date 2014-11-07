@@ -1,4 +1,4 @@
-#get
+#read
 ```cpp
 basic_istream<CharT, Traits>& read(char_type* s, streamsize n);
 ```
@@ -35,9 +35,13 @@ int main() {
 }
 ```
 
-##出力
+###入力
 ```
-（ShinjukuNishiguchi）と入力
+ShinjukuNishiguchi
+```
+
+###出力
+```
 Shinjuku
 ```
 
