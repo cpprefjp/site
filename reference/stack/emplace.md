@@ -52,7 +52,7 @@ int main ()
 ```
 * emplace[color ff0000]
 
-##出力
+###出力
 ```
 stack::push 0 move 1 move 2 move 3 move 4 move 
 stack::emplace 0 1 2 3 4 

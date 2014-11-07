@@ -34,7 +34,7 @@ int main()
 * is_lock_free[color ff0000]
 
 
-##出力例
+###出力例
 ```
 atomic<int> is lock-free
 ```

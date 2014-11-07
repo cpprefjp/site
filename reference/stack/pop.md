@@ -38,7 +38,7 @@ int main ()
 }
 ```
 
-##出力
+###出力
 ```
 Popping out elements... 4 3 2 1 0 
 ```

@@ -35,7 +35,7 @@ int main() {
 }
 ```
 
-##出力
+###出力
 ```
 ABCdef
 ABCDEF

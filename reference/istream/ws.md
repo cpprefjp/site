@@ -22,7 +22,7 @@ namespace std {
 ##例
 TBD
 
-##出力
+###出力
 TBD
 
 ##実装例
