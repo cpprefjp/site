@@ -13,6 +13,8 @@
 - clang
 - clang++
 
+C++11の機能を有効にするには、-std=c++11オプションを使用する。
+
 
 ## <a name="gcc" href="#gcc">GNU Compiler Collection</a>
 このサイトでは GCC と呼ぶ
