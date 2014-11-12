@@ -48,7 +48,7 @@ int  main ()
 * empty[color ff0000]
 
 
-##出力
+###出力
 ```
 empty
 not empty

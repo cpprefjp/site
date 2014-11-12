@@ -22,22 +22,23 @@ streamsize readsome(char_type* s, streamsize n);
 ##例
 ```cpp
 #include <iostream>
+#include <string>
+#include <sstream>
+
+std::string get_word(std::istream& is) {
+  char s[8];
+  auto size = is.readsome(s, sizeof s);
+  return std::string(s, size);
+}
 
 int main() {
-  int c = std::cin.get();
-  char s[8];
-  auto size = std::cin.readsome(s, sizeof s);
-  std::cout.write(s, size);
-  std::cout << std::endl;
+  std::istringstream is("123456789");
+  std::cout << get_word(is) << std::endl;
 }
 ```
 
-初めの`std::cin.get()`を削除すると、`std::cin.readsome(s, 8)`での読み込みは行われなくなる。
-`std::cin`のバッファが空の状態で`readsome`関数を呼び出す状態になるためである。
-
-##出力
+###出力
 ```
-（0123456789と入力）
 12345678
 ```
 

@@ -18,10 +18,13 @@ int_type peek();
 ```cpp
 #include <iostream>
 #include <locale>
+#include <string>
 
 bool try_read_int(std::istream& is, unsigned & x) {
   is >> std::ws;
-  if (std::isdigit(is.peek(), is.getloc())) {
+  int n = is.peek();
+  char c = std::char_traits<char>::to_char_type(n);
+  if (std::isdigit(c, is.getloc())) {
     return is >> x
       ? true
       : false;
@@ -31,7 +34,7 @@ bool try_read_int(std::istream& is, unsigned & x) {
 }
 
 int main() {
-  std::cout << "0以上の整数を入力してください: " << std::flush;
+  // 0以上の整数を入力してください
   unsigned x;
   if (try_read_int(std::cin, x)) {
     std::cout << "入力された値: " << x << std::endl;
@@ -41,10 +44,13 @@ int main() {
 }
 ```
 
-##出力
+###入力
 ```
-（200を入力）
-0以上の整数を入力してください: 200
+200
+```
+
+###出力
+```
 入力された値: 200
 ```
 
