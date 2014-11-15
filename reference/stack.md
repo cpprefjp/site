@@ -31,7 +31,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|----------------------------|-------|
 | [`(constructor)`](./stack/stack.md)  | コンストラクタ             | |
-| [`(destructor)`](./stack/stack-1.md) | デストラクタ               | |
+| [`(destructor)`](./stack/-stack.md)  | デストラクタ               | |
 | [`operator=`](./stack/op_assign.md)  | 代入                       | |
 | [`top`](./stack/top.md)              | 次の要素へアクセスする     | |
 | [`empty`](./stack/empty.md)          | 要素が空であるかを確認する | |
