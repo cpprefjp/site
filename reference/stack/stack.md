@@ -1,4 +1,4 @@
-#stack
+#コンストラクタ
 ```cpp
 explicit stack(const Container& cont = Container());
 stack(const stack& st);
