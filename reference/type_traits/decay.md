@@ -83,3 +83,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+##参照
+- [What is std::decay and when it should be used? - StackOverflow](http://stackoverflow.com/questions/25732386/what-is-stddecay-and-when-it-should-be-used)
+
