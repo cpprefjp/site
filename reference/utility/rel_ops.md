@@ -104,5 +104,5 @@ int main()
 ##参照
 このライブラリを使う場合、 Boost Operators Libraryの使用も検討すべきである。
 - [Boost Operators Library](http://www.boost.org/doc/libs/release/libs/utility/operators.htm)
-- [演算子を自動定義する - Boost逆引きリファレンス](https://sites.google.com/site/boostjp/tips/operators)
+- [演算子を自動定義する - Boost逆引きリファレンス](http://boostjp.github.io/tips/operators.html)
 
