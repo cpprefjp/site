@@ -1,4 +1,4 @@
-#operator- (フリー関数版)(C++11)
+#operator- (非メンバ関数) (C++11)
 ```cpp
 namespace std {
   template <class Iterator1, class Iterator2>

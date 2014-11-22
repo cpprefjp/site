@@ -1,4 +1,4 @@
-#swap(非メンバ関数) (C++11)
+#swap (非メンバ関数) (C++11)
 ```cpp
 namespace std {
   template <class T, size_t N>

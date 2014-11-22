@@ -1,4 +1,4 @@
-#swap(非メンバ関数)
+#swap (非メンバ関数)
 ```cpp
 namespace std {
   template <class T, class Allocator>

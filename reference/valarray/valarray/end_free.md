@@ -1,4 +1,4 @@
-#end(非メンバ関数) (C++11)
+#end (非メンバ関数) (C++11)
 ```cpp
 namespace std {
   template <class T>

@@ -1,4 +1,4 @@
-#swap (フリー関数版)
+#swap (非メンバ関数)
 ```cpp
 namespace std {
   template <class Key, class T, class Compare, class Allocator>

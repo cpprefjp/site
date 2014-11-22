@@ -1,4 +1,4 @@
-#swap (フリー関数版、C++11)
+#swap (非メンバ関数) (C++11)
 ```cpp
 namespace std {
   template <class Key, class T, class Hash, class Pred, class Alloc>
