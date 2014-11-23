@@ -1,9 +1,12 @@
 #コンストラクタ
 ```cpp
+// C++03 まで
 explicit stack(const Container& cont = Container());
 stack(const stack& st);
 
-// C++11から追加されたコンストラクタ
+// C++11 から
+explicit stack(const Container& cont);
+stack(const stack& st);
 explicit stack(Container&& cont = Container());
 stack(stack&& st);
 template <class Allocator> explicit stack(const Allocator& alloc);
@@ -20,18 +23,12 @@ template <class Allocator> stack(stack&& st, const Allocator& alloc);
 
 
 ##パラメータ
-- `cont`
-
-初期化に用いるコンテナオブジェクト
-
-
-- `alloc`
-
-内部のコンテナで使用するアロケータオブジェクト
-
-- `st`
-
-コピー・ムーブ元の `stack` オブジェクト
+- `cont`  
+	初期化に用いるコンテナオブジェクト
+- `alloc`  
+	内部のコンテナで使用するアロケータオブジェクト
+- `st`  
+	コピー・ムーブ元の `stack` オブジェクト
 
 
 ##計算量
