@@ -40,11 +40,11 @@ namespace std {
 
 int main()
 {
-  std::vector<int> v = {3, 1, 4, 2, 5};
+  std::vector<int> v = {3, 1, 4, 6, 5};
 
   std::sort(v.begin(), v.end());
 
-  if (std::binary_search(v.begin(), v.end(), 3)) {
+  if (std::binary_search(v.begin(), v.end(), 4)) {
     std::cout << "found" << std::endl;
   }
   else {
