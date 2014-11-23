@@ -48,11 +48,19 @@ namespace std {
 int main()
 {
   std::vector<int> v = {1, 2, 3, 4, 5};
+  typedef std::vector<int>::iterator VI;
 
   // 偶数グループと奇数グループに分ける
-  std::partition(v.begin(), v.end(), [](int x) { return x % 2 == 0; });
+  VI pos = std::partition(v.begin(), v.end(), [](int x) { return x % 2 == 0; });
 
-  std::for_each(v.begin(), v.end(), [](int x) {
+  // 条件x % 2 == 0を満たす要素
+  std::for_each(v.begin(), pos, [](int x) {
+   std::cout << x << std::endl;
+  });
+
+  // それ以外の要素
+  std::cout << "----" << std::endl;
+  std::for_each(pos, v.end(), [](int x) {
    std::cout << x << std::endl;
   });
 }
@@ -63,6 +71,7 @@ int main()
 ```
 4
 2
+----
 3
 1
 5
