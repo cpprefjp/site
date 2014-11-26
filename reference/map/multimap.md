@@ -138,9 +138,40 @@ namespace std {
 
 
 ##例
+###C++03版
 ```cpp
 #include <iostream>
 #include <map>
+#include <utility>
+
+int main()
+{
+  // charをキー、intを値として扱う連想配列
+  typedef std::multimap<char, int> MCI; // C++03 では型名を何度も書く必要があるので typedef しておく
+  MCI m;
+
+  // 挿入
+  m.insert(MCI::value_type('c', 30));
+  m.insert(MCI::value_type('a', 10));
+  m.insert(MCI::value_type('b', 20));
+  m.insert(MCI::value_type('a', 40)); // キー'a'に対応する値が2つ
+
+  // 同じキーを持つ値の数を取得する
+  MCI::size_type count = m.count('a'); // count == 2
+  std::cout << "count = " << count << std::endl;
+
+  // キー`a`を持つ値を列挙する
+  std::pair<MCI::iterator, MCI::iterator> p = m.equal_range('a');
+  for (MCI::iterator it = p.first; it != p.second; ++it) {
+    std::cout << it->second << std::endl;
+  }
+}
+```
+###C++11版
+```cpp
+#include <iostream>
+#include <map>
+#include <utility>
 
 int main()
 {
@@ -148,25 +179,26 @@ int main()
   std::multimap<char, int> m;
 
   // 挿入
-  m.insert(std::make_pair('c', 30));
-  m.insert(std::make_pair('a', 10));
-  m.insert(std::make_pair('b', 20));
-  m.insert(std::make_pair('a', 40)); // キー'a'に対応する値が2つ
+  m.emplace('c', 30);
+  m.emplace('a', 10);
+  m.emplace('b', 20);
+  m.emplace('a', 40); // キー'a'に対応する値が2つ
 
   // 同じキーを持つ値の数を取得する
-  int count = m.count('a'); // count == 2
+  auto count = m.count('a'); // count == 2
+  std::cout << "count = " << count << std::endl;
 
   // キー`a`を持つ値を列挙する
-  decltype(m)::iterator it = m.find('a');
-  for (int i = 0; i < count; ++i) {
+  auto p = m.equal_range('a');
+  for (auto it = p.first; it != p.second; ++it) {
     std::cout << it->second << std::endl;
-    ++it;
   }
 }
 ```
 
-###出力
+###出力(C++03版、C++11版共通)
 ```
+count = 2
 10
 40
 ```
