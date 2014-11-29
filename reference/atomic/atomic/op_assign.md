@@ -1,4 +1,4 @@
-#operator=
+#operator= (C++11)
 ```cpp
 atomic& operator=(const atomic&) = delete;
 atomic& operator=(const atomic&) volatile = delete;
