@@ -1,4 +1,4 @@
-#T&への変換演算子 (C++11)
+#operator T& (C++11)
 ```cpp
 operator T& () const noexcept;
 ```
