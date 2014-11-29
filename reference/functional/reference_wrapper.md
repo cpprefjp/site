@@ -18,7 +18,7 @@ namespace std {
 | [`operator=`](./reference_wrapper/op_assign.md) | 代入演算子 |
 | [`get`](./reference_wrapper/get.md) | 生参照の取得 |
 | [`operator T&()`](./reference_wrapper/op_cast_ref_t.md) | 生参照への変換 |
-| [`operator()`](./reference_wrapper/op_apply.md) | 関数オブジェクト呼び出し |
+| [`operator()`](./reference_wrapper/op_call.md) | 関数オブジェクト呼び出し |
 
 ###メンバ型
 
