@@ -1,4 +1,4 @@
-#代入演算子
+#operator=
 ```cpp
 ostream_iterator<T, CharT, Traits>& operator=(const T& value);
 ```

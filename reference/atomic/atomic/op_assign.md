@@ -1,4 +1,4 @@
-#代入演算子 (C++11)
+#operator=
 ```cpp
 atomic& operator=(const atomic&) = delete;
 atomic& operator=(const atomic&) volatile = delete;

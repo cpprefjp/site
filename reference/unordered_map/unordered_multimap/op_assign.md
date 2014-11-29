@@ -1,4 +1,4 @@
-#代入演算子 (C++11)
+#operator= (C++11)
 ```cpp
 unordered_multimap& operator=(const unordered_multimap& v);     // (1)
 unordered_multimap& operator=(unordered_multimap&& rv);         // (2)

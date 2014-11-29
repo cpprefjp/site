@@ -1,4 +1,4 @@
-#代入演算子
+#operator=
 ```cpp
 back_insert_iterator&
   operator=(const typename Container::value_type& value);

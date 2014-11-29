@@ -1,4 +1,4 @@
-#代入演算子 (C++11)
+#operator= (C++11)
 ```cpp
 enable_shared_from_this& operator=(const enable_shared_from_this&) noexcept;
 ```

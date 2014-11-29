@@ -1,4 +1,4 @@
-#代入演算子 (C++11)
+#operator= (C++11)
 ```cpp
 unordered_multiset& operator=(const unordered_multiset& v);     // (1)
 unordered_multiset& operator=(unordered_multiset&& rv);         // (2)

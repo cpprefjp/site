@@ -1,4 +1,4 @@
-#代入演算子 (C++11)
+#operator= (C++11)
 ```cpp
 unique_ptr& operator=(unique_ptr&& u) noexcept;       // (1) 単一オブジェクト、配列
 

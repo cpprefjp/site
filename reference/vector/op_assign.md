@@ -1,4 +1,4 @@
-#代入演算子
+#operator=
 ```cpp
 vector& operator=(const vector& x);
 vector& operator=(vector&& x);          // C++11から

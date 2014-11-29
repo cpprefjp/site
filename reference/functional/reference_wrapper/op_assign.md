@@ -1,4 +1,4 @@
-#代入演算子 (C++11)
+#operator= (C++11)
 ```cpp
 reference_wrapper& operator=(const reference_wrapper<T>& x) noexcept;
 ```

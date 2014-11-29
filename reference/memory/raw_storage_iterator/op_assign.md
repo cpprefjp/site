@@ -1,4 +1,4 @@
-#代入演算子
+#operator=
 ```cpp
 raw_storage_iterator& operator=(const T& element);
 ```

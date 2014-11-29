@@ -1,4 +1,4 @@
-#代入演算子 (C++11)
+#operator= (C++11)
 ```cpp
 shared_future& operator=(const shared_future& rhs);
 shared_future& operator=(shared_future&& rhs) noexcept;

@@ -1,4 +1,4 @@
-#代入演算子
+#operator=
 ```cpp
 valarray& operator=(const valarray<T>& x);       // (1)
 valarray& operator=(valarray<T>&& x) noexcept;   // (2) C++11

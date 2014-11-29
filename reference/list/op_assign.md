@@ -1,4 +1,4 @@
-#代入演算子
+#operator=
 ```cpp
 list& operator=(const list& x);
 
