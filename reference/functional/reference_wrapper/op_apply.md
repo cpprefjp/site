@@ -1,4 +1,4 @@
-#関数呼び出し演算子 (C++11)
+#operator() (C++11)
 ```cpp
 template <class... ArgTypes>
 typename result_of<T&(ArgTypes&&...)>::type operator ()(ArgTypes&&... args) const;

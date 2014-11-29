@@ -1,4 +1,4 @@
-#関数呼び出し演算子 (C++11)
+#operator() (C++11)
 ```cpp
 // shared_ptr版
 bool operator()(const shared_ptr<T>& a, const shared_ptr<T>& b) const;
