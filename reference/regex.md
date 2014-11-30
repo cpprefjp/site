@@ -42,18 +42,18 @@
 
 ##イテレータアダプタ
 
-| 名前              | 説明                                                                   | 対応バージョン |
-|-------------------|------------------------------------------------------------------------|-------|
-| `regex_iterator`  | 正規表現のマッチ結果を走査するためのイテレータ (class template)        | C++11 |
-| `cregex_iterator` | `regex_iterator`クラスの`const char*`バージョン (typedef)              | C++11 |
-| `wcregex_iterator` | `regex_iterator`クラスの`const wchar_t*`バージョン (typedef)          | C++11 |
-| `sregex_iterator`  | `regex_iterator`クラスの[`string`](/reference/string/basic_string.md)`::const_iterator`バージョン (typedef) | C++11 |
-| `wsregex_iterator`  | `regex_iterator`クラスの[`wstring`](/reference/string/basic_string.md)`::const_iterator`バージョン (typedef) | C++11 |
-| `regex_token_iterator`   | 正規表現の部分マッチ結果を走査するためのイテレータ (class template) | C++11 |
-| `cregex_token_iterator`  | `regex_token_iterator`クラスの`const char*`バージョン (typedef)     | C++11 |
-| `wcregex_token_iterator` | `regex_token_iterator`クラスの`const wchar_t*`バージョン (typedef)  | C++11 |
-| `scregex_token_iterator` | `regex_token_iterator`クラスの[`string`](/reference/string/basic_string.md)`::const_iterator`バージョン  | C++11 |
-| `wscregex_token_iterator` | `regex_token_iterator`クラスの[`wstring`](/reference/string/basic_string.md)`::const_iterator`バージョン  | C++11 |
+| 名前                                          | 説明                                                                                                         | 対応バージョン |
+|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------|----------------|
+| [`regex_iterator`](regex/regex_iterator.md)   | 正規表現のマッチ結果を走査するためのイテレータ (class template)                                              | C++11          |
+| [`cregex_iterator`](regex/regex_iterator.md)  | `regex_iterator`クラスの`const char*`バージョン (typedef)                                                    | C++11          |
+| [`wcregex_iterator`](regex/regex_iterator.md) | `regex_iterator`クラスの`const wchar_t*`バージョン (typedef)                                                 | C++11          |
+| [`sregex_iterator`](regex/regex_iterator.md)  | `regex_iterator`クラスの[`string`](/reference/string/basic_string.md)`::const_iterator`バージョン (typedef)  | C++11          |
+| [`wsregex_iterator`](regex/regex_iterator.md) | `regex_iterator`クラスの[`wstring`](/reference/string/basic_string.md)`::const_iterator`バージョン (typedef) | C++11          |
+| `regex_token_iterator`                        | 正規表現の部分マッチ結果を走査するためのイテレータ (class template)                                          | C++11          |
+| `cregex_token_iterator`                       | `regex_token_iterator`クラスの`const char*`バージョン (typedef)                                              | C++11          |
+| `wcregex_token_iterator`                      | `regex_token_iterator`クラスの`const wchar_t*`バージョン (typedef)                                           | C++11          |
+| `scregex_token_iterator`                      | `regex_token_iterator`クラスの[`string`](/reference/string/basic_string.md)`::const_iterator`バージョン      | C++11          |
+| `wscregex_token_iterator`                     | `regex_token_iterator`クラスの[`wstring`](/reference/string/basic_string.md)`::const_iterator`バージョン     | C++11          |
 
 
 ##バージョン

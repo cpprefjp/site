@@ -1,0 +1,125 @@
+#regex_iterator (C++11)
+```cpp
+namespace std {
+  template <class BidirectionalIterator,
+			class charT = typename iterator_traits<BidirectionalIterator>::value_type,
+			class traits = regex_traits<charT> >
+  class regex_iterator;
+
+  typedef regex_iterator<const char*> cregex_iterator;
+  typedef regex_iterator<const wchar_t*> wcregex_iterator;
+  typedef regex_iterator<string::const_iterator> sregex_iterator;
+  typedef regex_iterator<wstring::const_iterator> wsregex_iterator;
+}
+```
+
+##概要
+`regex_iterator` は、ある文字列に対して、指定した正規表現で検索した結果を順番に列挙する読み取り専用の前方向イテレータである。
+
+`regex_iterator` オブジェクトを構築した時、および、[`operator++`](regex_iterator/op_increment.md) を呼び出す毎に、当該イテレータは [`regex_search`](regex_search.md) を呼び出して検索し、マッチ結果オブジェクト（[`match_results`](match_results.md)）を内部に保存する（ただし、[`operator++`](regex_iterator/op_increment.md) も参照）。
+イテレータが終端まで来たとき（つまり、[`regex_search`](regex_search.md) が `false` を返したとき）、当該イテレータはシーケンスの終端を示す特別な値となる。
+この、シーケンスの終端を示す特別な値は、`regex_iterator` オブジェクトをデフォルトコンストラクタにより構築した場合にも生成されるため、この値と比較することによってシーケンスの終端であるか否か（つまり、マッチしなかったか否か）が判別できる。
+
+シーケンス終端のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用は未定義である。その他のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用の結果は `const `[`match_results`](match_results.md)`<BidirectionalIterator>&` である。  
+同様に、シーケンス終端のイテレータに対する [`operator->`](regex_iterator/op_arrow.md) 演算子適用は未定義である。その他のイテレータに対する [`operator->`](regex_iterator/op_arrow.md) 演算子適用の結果は `const `[`match_results`](match_results.md)`<BidirectionalIterator>*` である。
+
+2 つのシーケンス終端のイテレータは常に等しい。シーケンス終端のイテレータとシーケンス終端以外のイテレータは等しくない。規格書によれば、2 つのシーケンス終端以外のイテレータは、同じ引数から構築されたもの同士であれば等しいが、実際にはオブジェクト構築後の [`operator++`](regex_iterator/op_increment.md) の呼び出し回数も等しくなければならないものと思われる。
+
+`regex_iterator` 内には、以下の情報が保持されている。
+
+- 検索対象文字列の開始イテレータと終了イテレータ（`BidirectionalIterator` 型）
+- 検索する正規表現へのポインタ（`const `[`basic_regex`](basic_regex.md)`<charT, traits>*` 型。正規表現のコピーではないことに注意）
+- 検索フラグ（[`regex_constants`](regex_constants.md)`::match_flag_type` 型）
+- 最後の検索のマッチ結果オブジェクト（[`match_results`](match_results.md)`<BidirectionalIterator` 型）
+
+
+##メンバ関数
+###構築・破棄
+
+| 名前                                                | 説明           | 対応バージョン |
+|-----------------------------------------------------|----------------|----------------|
+| [`(constructor)`](regex_iterator/regex_iterator.md) | コンストラクタ | C++11          |
+| [`(destructor)`](regex_iterator/-regex_iterator.md) | デストラクタ   | C++11          |
+| [`operator=`](regex_iterator/op_assign.md)          | 代入演算子     | C++11          |
+
+###比較
+
+| 名前                                          | 説明       | 対応バージョン |
+|-----------------------------------------------|------------|----------------|
+|[`operator==`](regex_iterator/op_equal.md)     | 等値比較   | C++11          |
+|[`operator!=`](regex_iterator/op_not_equal.md) | 非等値比較 | C++11          |
+
+###間接
+
+| 名前                                      | 説明           | 対応バージョン |
+|-------------------------------------------|----------------|----------------|
+|[`operator*`](regex_iterator/op_deref.md)  | 間接参照       | C++11          |
+|[`operator->`](regex_iterator/op_arrow.md) | メンバアクセス | C++11          |
+
+###インクリメント
+
+| 名前                                          | 説明           | 対応バージョン |
+|-----------------------------------------------|----------------|----------------|
+|[`operator++`](regex_iterator/op_increment.md) | インクリメント | C++11          |
+
+##メンバ型
+
+| 名前                | 説明                                                                                                            | 対応バージョン |
+|---------------------|-----------------------------------------------------------------------------------------------------------------|----------------|
+| `regex_type`        | マッチに使用している正規表現型。[`basic_regex`](basic_regex.md)`<charT, traits>` の typedef                     | C++11          |
+| `value_type`        | マッチ結果の型（間接参照で返される型）。[`match_results`](match_results.md)`<BidirectionalIterator>` の typedef | C++11          |
+| `difference_type`   | 2 つのイテレータの差を表すための型。`ptrdiff_t` の typedef                                                      | C++11          |
+| `pointer`           | `const value_type` へのポインタ                                                                                 | C++11          |
+| `reference`         | `const value_type` への参照                                                                                     | C++11          |
+| `iterator_category` | このイテレータのカテゴリを表すタグ。前方向イテレータ（`forward_iterator_tag`）                                  | C++11          |
+
+##非メンバ型(typedef)
+
+| 名前               | 説明                                                 | 対応バージョン |
+|--------------------|------------------------------------------------------|----------------|
+| `cregex_iterator`  | `regex_iterator<const char*>` の typedef             | C++11          |
+| `wcregex_iterator` | `regex_iterator<const wchar_t*>` の typedef          | C++11          |
+| `sregex_iterator`  | `regex_iterator<string::const_iterator>` の typedef  | C++11          |
+| `wsregex_iterator` | `regex_iterator<wstring::const_iterator>` の typedef | C++11          |
+
+##例
+```cpp
+#include <iostream>
+#include <iterator>
+#include <regex>
+#include <string>
+
+int main()
+{
+    std::string s("a01da123456da999d");
+    std::regex re("\\d+");
+
+    for (auto it = std::sregex_iterator(std::begin(s), std::end(s), re), end = std::sregex_iterator(); it != end; ++it) {
+        auto&& m = *it;
+        std::cout << "position = " << m.position() << ", length = " << m.length() << ", str = '" << m.str(0) << '\'' << std::endl;
+    }
+}
+```
+* sregex_iterator[color ff0000]
+
+###出力
+```
+position = 1, length = 2, str = '01'
+position = 5, length = 6, str = '123456'
+position = 13, length = 3, str = '999'
+```
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): ?
+
+ただし、Clang と GCC の 4.9.1 までのバージョンには、長さ 0 の文字列にマッチした時の挙動に問題があるため、注意が必要。
+（特に、Clang は長さ 0 の文字列にマッチするとそこから先に進まなくなってしまう）
