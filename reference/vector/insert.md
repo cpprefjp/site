@@ -1,5 +1,9 @@
-#insert (C++11)
+#insert
 ```cpp
+// C++03
+iterator insert<iterator position, const T& x);
+
+// C++11
 iterator insert(const_iterator position, const T& x);
 
 iterator insert(const_iterator position, T&& x);
