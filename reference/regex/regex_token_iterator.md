@@ -135,25 +135,25 @@ int main()
 
 ###出力
 ```
-match range = (9, 13), str = 'key1'
-match range = (24, 28), str = 'key2'
-match range = (39, 43), str = 'key3'
+match range = (9, 20), str = 'enumerator1'
+match range = (31, 42), str = 'enumerator2'
+match range = (53, 64), str = 'enumerator3'
 
-match range = (16, 22), str = 'value1'
-match range = (31, 37), str = 'value2'
-match range = (46, 52), str = 'value3'
+match range = (23, 29), str = 'value1'
+match range = (45, 51), str = 'value2'
+match range = (67, 73), str = 'value3'
 
 match range = (0, 9), str = 'enum E { '
-match range = (22, 24), str = ', '
-match range = (37, 39), str = ', '
-match range = (52, 56), str = ', };'
+match range = (29, 31), str = ', '
+match range = (51, 53), str = ', '
+match range = (73, 77), str = ', };'
 
-match range = (9, 13), str = 'key1'
-match range = (16, 22), str = 'value1'
-match range = (24, 28), str = 'key2'
-match range = (31, 37), str = 'value2'
-match range = (39, 43), str = 'key3'
-match range = (46, 52), str = 'value3'
+match range = (9, 20), str = 'enumerator1'
+match range = (23, 29), str = 'value1'
+match range = (31, 42), str = 'enumerator2'
+match range = (45, 51), str = 'value2'
+match range = (53, 64), str = 'enumerator3'
+match range = (67, 73), str = 'value3'
 ```
 
 ##バージョン
