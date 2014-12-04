@@ -1,0 +1,82 @@
+#コンストラクタ (C++11)
+```cpp
+regex_iterator();                                                                                  // (1)
+
+regex_iterator(BidirectionalIterator first, BidirectionalIterator last,
+               const regex_type& re,
+               regex_constants::match_flag_type flags = regex_constants::match_default);           // (2)
+
+regex_iterator(BidirectionalIterator first, BidirectionalIterator last,
+               const regex_type&& re,
+               regex_constants::match_flag_type flags = regex_constants::match_default) = delete;  // (3) C++14 から
+
+regex_iterator(const regex_iterator&);                                                             // (4)
+```
+
+##概要
+`regex_iterator` オブジェクトを構築する
+
+
+##効果
+- (1) デフォルトコンストラクタ。シーケンスの終端を示す特別なイテレータを構築する。
+- (2) 検索対象の文字列シーケンスを `[first, last)`、検索する正規表現を `re`、検索フラグを `flags` として、`regex_iterator` を構築する。
+	当コンストラクタでは、[`regex_search`](../regex_search.md) を呼び出し、検索に成功したら（`true` が返されたら）、マッチ結果（[`match_results`](../match_results.md)）を保持して間接参照可能なイテレータとなる。
+	検索に成功しなかった場合、デフォルトコンストラクタで構築した場合と同様、直ちにシーケンスの終端を示す特別なイテレータとなる。
+- (3) deleted コンストラクタであるため、使用するとコンパイルエラーとなる。
+- (4) コピーコンストラクタ。
+
+
+##備考
+`regex_iterator` は指定された正規表現 `re` のコピーではなく、`re` へのポインタをオブジェクト内に保持するため、引数に渡した正規表現オブジェクトは当該イテレータを使用し終わるまで破棄されないようにする必要がある。  
+従って、(2) の形式のコンストラクタに渡す引数 `re` に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。  
+(3) の形式のコンストラクタが C++14 で追加された理由は、この事態をコンパイル時に検出するためである。  
+しかし、この追加のため、C++11 では合法となりうる以下のようなコードは C++14 ではコンパイルエラーになる。
+```cpp
+void f(std::sregex_iterator&&);
+
+f(std::sregex_iterator(s.begin(), s.end(), std::regex("\\d+")));
+```
+
+
+##例
+```cpp
+#include <iostream>
+#include <iterator>
+#include <regex>
+#include <string>
+
+int main()
+{
+  std::regex re("\\d+");
+  std::string s("This compiler supports the C++11 standard.");
+  auto&& it = std::sregex_iterator(std::begin(s), std::end(s), re);
+  if (it != std::sregex_iterator()) {
+    std::cout << "match:" << it->str() << std::endl;
+  } else {
+    std::cout << "not match" << std::endl;
+  }
+}
+```
+* sregex_iterator[color ff0000]
+
+###出力
+```
+match:11
+```
+
+
+##バージョン
+###言語
+- C++11（一部 C++14）
+
+###処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+###備考
+- libstdc++ には 5.0.0 rev.218373 現在、(3) の形式のコンストラクタは存在しない。
+- libc++ には、3.4 までは (3) の形式のコンストラクタは存在しない。
