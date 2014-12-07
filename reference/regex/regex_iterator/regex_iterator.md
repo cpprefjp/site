@@ -1,16 +1,16 @@
 #コンストラクタ (C++11)
 ```cpp
-regex_iterator();                                                                                  // (1)
+regex_iterator();                                                                              // (1)
 
-regex_iterator(BidirectionalIterator first, BidirectionalIterator last,
+regex_iterator(BidirectionalIterator a, BidirectionalIterator b,
                const regex_type& re,
-               regex_constants::match_flag_type flags = regex_constants::match_default);           // (2)
+               regex_constants::match_flag_type m = regex_constants::match_default);           // (2)
 
-regex_iterator(BidirectionalIterator first, BidirectionalIterator last,
+regex_iterator(BidirectionalIterator a, BidirectionalIterator b,
                const regex_type&& re,
-               regex_constants::match_flag_type flags = regex_constants::match_default) = delete;  // (3) C++14 から
+               regex_constants::match_flag_type m = regex_constants::match_default) = delete;  // (3) C++14 から
 
-regex_iterator(const regex_iterator&);                                                             // (4)
+regex_iterator(const regex_iterator&);                                                         // (4)
 ```
 
 ##概要
@@ -19,23 +19,23 @@ regex_iterator(const regex_iterator&);                                          
 
 ##効果
 - (1) デフォルトコンストラクタ。シーケンスの終端を示す特別なイテレータを構築する。
-- (2) 検索対象の文字列シーケンスを `[first, last)`、検索する正規表現を `re`、検索フラグを `flags` として、`regex_iterator` を構築する。
-	当コンストラクタでは、[`regex_search`](../regex_search.md) を呼び出し、検索に成功したら（`true` が返されたら）、マッチ結果（[`match_results`](../match_results.md)）を保持して間接参照可能なイテレータとなる。
-	検索に成功しなかった場合、デフォルトコンストラクタで構築した場合と同様、直ちにシーケンスの終端を示す特別なイテレータとなる。
+- (2) メンバ変数 `begin`、`end`、`pregex`、`flags` をそれぞれ `a`、`b`、`&re`、`m` で初期化して、[`regex_search`](../regex_search.md)`(begin, end, match, *pregex, flags)` を呼び出す。
+	検索に成功しなかった場合（`false` が返された場合）、デフォルトコンストラクタで構築した場合と同様、直ちにシーケンスの終端を示す特別なイテレータとなる。
 - (3) deleted コンストラクタであるため、使用するとコンパイルエラーとなる。
 - (4) コピーコンストラクタ。
 
 
 ##備考
-`regex_iterator` は指定された正規表現 `re` のコピーではなく、`re` へのポインタをオブジェクト内に保持するため、引数に渡した正規表現オブジェクトは当該イテレータを使用し終わるまで破棄されないようにする必要がある。  
-従って、(2) の形式のコンストラクタに渡す引数 `re` に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。  
-(3) の形式のコンストラクタが C++14 で追加された理由は、この事態をコンパイル時に検出するためである。  
-しかし、この追加のため、C++11 では合法となりうる以下のようなコードは C++14 ではコンパイルエラーになる。
-```cpp
-void f(std::sregex_iterator&&);
+- メンバ変数 `begin`、`end`、`pregex`、`flags`、`match` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
+- `regex_iterator` は指定された正規表現 `re` のコピーではなく、`re` へのポインタをオブジェクト内に保持するため、引数に渡した正規表現オブジェクトは当該イテレータを使用し終わるまで破棄されないようにする必要がある。  
+	従って、(2) の形式のコンストラクタに渡す引数 `re` に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。  
+	(3) の形式のコンストラクタが C++14 で追加された理由は、この事態をコンパイル時に検出するためである。  
+	しかし、この追加のため、C++11 では合法となりうる以下のようなコードは C++14 ではコンパイルエラーになる。
+	```cpp
+	void f(std::sregex_iterator&&);
 
-f(std::sregex_iterator(s.begin(), s.end(), std::regex("\\d+")));
-```
+	f(std::sregex_iterator(s.begin(), s.end(), std::regex("\\d+")));
+	```
 
 
 ##例
