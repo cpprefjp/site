@@ -16,6 +16,8 @@ const value_type& operator*() const;
 
 
 ##備考
+- `value_type` は `regex_iterator` のメンバ型で、[`match_results`](../match_results.md)`<BidirectionalIterator>` である。
+- 戻り値の型は `const` への参照であるため、この参照を通した変更はできない。
 - メンバ変数 `match` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
 
 
@@ -33,15 +35,15 @@ int main()
   for (auto&& it = std::sregex_iterator(std::begin(s), std::end(s), re), end = std::sregex_iterator();
        it != end; ++it) {
     auto&& match = *it;
-    std::cout << "prefix = '" << match.prefix() << "', match[0] = '" << match[0] << "', suffix = '" << match.suffix() << '\'' << std::endl;
+    std::cout << "prefix = '" << match.prefix() << "', str = '" << match.str() << "', suffix = '" << match.suffix() << '\'' << std::endl;
   }
 }
 ```
 
 ###出力
 ```
-prefix = 'abc', match[0] = '123', suffix = 'def456ghi'
-prefix = 'def', match[0] = '456', suffix = 'ghi'
+prefix = 'abc', str = '123', suffix = 'def456ghi'
+prefix = 'def', str = '456', suffix = 'ghi'
 ```
 
 
@@ -59,7 +61,7 @@ prefix = 'def', match[0] = '456', suffix = 'ghi'
 
 
 ##参照
-|                                      |                |                |
+| 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`operator->`](op_arrow.md)          | メンバアクセス | C++11          |
 | [`(constructor)`](regex_iterator.md) | コンストラクタ | C++11          |
