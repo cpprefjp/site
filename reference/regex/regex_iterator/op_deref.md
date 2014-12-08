@@ -12,7 +12,7 @@ const value_type& operator*() const;
 
 
 ##戻り値
-メンバ変数 `match` を返す。（最後に[`regex_search`](../regex_search.md) を呼び出した際の値を保持している）
+メンバ変数 `match` への `const` 参照を返す。（最後に[`regex_search`](../regex_search.md) を呼び出した際の値を保持している）
 
 
 ##備考
