@@ -45,7 +45,6 @@ namespace std {
 | 名前                                                | 説明           | 対応バージョン |
 |-----------------------------------------------------|----------------|----------------|
 | [`(constructor)`](regex_iterator/regex_iterator.md) | コンストラクタ | C++11          |
-| [`(destructor)`](regex_iterator/-regex_iterator.md) | デストラクタ   | C++11          |
 | [`operator=`](regex_iterator/op_assign.md)          | 代入演算子     | C++11          |
 
 ###比較
