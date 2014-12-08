@@ -58,7 +58,7 @@ int main()
   std::string s("aaabbbccc");
   for (auto&& it = std::sregex_iterator(std::begin(s), std::end(s), re), end = std::sregex_iterator();
        it != end; ++it) {
-      std::cout << "position = " << it->position() << ", length = " << it->length() << ", str = '" << it->str() << "', prefix = '" << it->prefix() << '\'' << std::endl;
+    std::cout << "position = " << it->position() << ", length = " << it->length() << ", str = '" << it->str() << "', prefix = '" << it->prefix() << '\'' << std::endl;
   }
 }
 ```
