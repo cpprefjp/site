@@ -2,8 +2,8 @@
 ```cpp
 namespace std {
   template <class BidirectionalIterator,
-			class charT = typename iterator_traits<BidirectionalIterator>::value_type,
-			class traits = regex_traits<charT> >
+            class charT = typename iterator_traits<BidirectionalIterator>::value_type,
+            class traits = regex_traits<charT> >
   class regex_token_iterator;
 
   typedef regex_token_iterator<const char*> cregex_token_iterator;
@@ -75,14 +75,14 @@ namespace std {
 
 ##メンバ型
 
-| 名前                | 説明                                                                                                            | 対応バージョン |
+| 名前                | 説明                                                                                                    | 対応バージョン |
 |---------------------|---------------------------------------------------------------------------------------------------------|----------------|
 | `regex_type`        | マッチに使用している正規表現型。[`basic_regex`](basic_regex.md)`<charT, traits>` の typedef             | C++11          |
 | `value_type`        | サブマッチの型（間接参照で返される型）。[`sub_match`](sub_match.md)`<BidirectionalIterator>` の typedef | C++11          |
 | `difference_type`   | 2 つのイテレータの差を表すための型。`ptrdiff_t` の typedef                                              | C++11          |
 | `pointer`           | `const value_type` へのポインタ                                                                         | C++11          |
 | `reference`         | `const value_type` への参照                                                                             | C++11          |
-| `iterator_category` | このイテレータのカテゴリを表すタグ。前方向イテレータ（`forward_iterator_tag`）                                  | C++11          |
+| `iterator_category` | このイテレータのカテゴリを表すタグ。前方向イテレータ（`forward_iterator_tag`）                          | C++11          |
 
 ##非メンバ型(typedef)
 
@@ -104,31 +104,31 @@ namespace std {
 template<typename T>
 void f(T submatch)
 {
-    static const std::string s("enum E { enumerator1 = value1, enumerator2 = value2, enumerator3 = value3, };");
-    static const std::regex re(R"((\w+)\s*=\s*(\w+))");
+  static const std::string s("enum E { enumerator1 = value1, enumerator2 = value2, enumerator3 = value3, };");
+  static const std::regex re(R"((\w+)\s*=\s*(\w+))");
 
-    for (auto it = std::sregex_token_iterator(std::begin(s), std::end(s), re, submatch), end = std::sregex_token_iterator();
-         it != end; ++it) {
-        auto&& m = *it;
-        std::cout << "match range = (" << m.first - std::begin(s) << ", " << m.second - std::begin(s) << "), "
-            "str = '" << m.str() << '\'' << std::endl;
-    }
-    std::cout << std::endl;
+  for (auto it = std::sregex_token_iterator(std::begin(s), std::end(s), re, submatch), end = std::sregex_token_iterator();
+       it != end; ++it) {
+    auto&& m = *it;
+    std::cout << "match range = (" << m.first - std::begin(s) << ", " << m.second - std::begin(s) << "), "
+        "str = '" << m.str() << '\'' << std::endl;
+  }
+  std::cout << std::endl;
 }
 
 int main()
 {
-    // 列挙子のみ抽出
-    f(1);
-    
-    // 値のみ抽出
-    f(2);
-    
-    // マッチしない部分のみ抽出
-    f(-1);
-    
-    // 列挙子と値の両方を抽出
-    f(std::initializer_list<int>{ 1, 2 });
+  // 列挙子のみ抽出
+  f(1);
+
+  // 値のみ抽出
+  f(2);
+
+  // マッチしない部分のみ抽出
+  f(-1);
+
+  // 列挙子と値の両方を抽出
+  f(std::initializer_list<int>{ 1, 2 });
 }
 ```
 * sregex_token_iterator[color ff0000]
