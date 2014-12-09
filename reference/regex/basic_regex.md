@@ -1,4 +1,4 @@
-#basic_regex
+#basic_regex (C++11)
 
 ```cpp
 namespace std {
