@@ -18,30 +18,34 @@ namespace std {
 [`regex_iterator`](regex_iterator.md) と違い、マッチ結果（[`match_results`](match_results.md)）ではなくサブマッチ（[`sub_match`](sub_match.md)）を返す。
 
 返されるサブマッチはオブジェクトの構築時に複数指定することができる。
-指定は、マッチ結果 [`match_results`](match_results.md) からサブマッチ [`sub_match`](sub_match.md) を取得する場合と同様、0（マッチ全体を表す）、および、正規表現内の各グループを表す正の整数で指定することができる。
+返されるサブマッチは、マッチ結果 [`match_results`](match_results.md) からサブマッチ [`sub_match`](sub_match.md) を取得する場合と同様、0（マッチ全体を表す）、および、正規表現内の各グループを表す正の整数で指定する。
 加えて、-1 を指定することで、指定した正規表現にマッチしなかった文字列を返すことも可能である。
 
-`regex_token_iterator` オブジェクトを構築した時、当該オブジェクトはその内部に [`regex_iterator`](regex_iterator.md)`<BidirectionalIterator>` オブジェクト（以降、説明のために当該オブジェクトを `position` とする）を構築し、構築時に指定された返すべきサブマッチのリストを保持する（以降、当該リストを `subs` とする）。
-また、返すべきサブマッチを識別するカウンタ（以降 `N` とする）を `0` に設定する。  
+`regex_token_iterator` オブジェクトを構築した時、当該オブジェクトは [`regex_iterator`](regex_iterator.md)`<BidirectionalIterator>` 型のメンバ変数 `position` を構築する。
+また、構築時に指定された返すべきサブマッチのリストをメンバ変数 `subs` に保持し、現在返すべきサブマッチを識別するカウンタ用のメンバ変数 `N` を `0` に設定する。  
 そして、[`operator++`](regex_token_iterator/op_increment.md) が呼び出される毎に、当該イテレータは `N` をインクリメントし、`N` が `subs` のサイズ以上になると、`position` をインクリメントして `N` を再び `0` にリセットする。  
-`position` が終端まで来た時（つまり、`position` がシーケンス終端イテレータとなった時）、`subs` に `-1` が含まれていて、かつ、`position` が直前にマッチした文字列の後ろに文字列が残っている場合には、当該文字列を最後のサブマッチとして扱う。この状態になったイテレータを接尾辞イテレータと呼ぶ。  
+`position` が終端まで来た時（つまり、`position` がシーケンス終端イテレータとなった時）、`subs` に `-1` が含まれていて、かつ、`position` が直前にマッチした文字列の後ろに文字列が残っている場合（つまり、`position.`[`suffix`](match_results/suffix.md)`()` が空文字では無い場合）には、当該文字列を最後のサブマッチとして扱う。この状態になったイテレータを接尾辞イテレータと呼ぶ。  
 `position` が終端まで来た時に、`subs` に `-1` が含まれていない、または、`position` が直前にマッチした文字列の後ろに文字列が残っていない場合、および、接尾辞イテレータがインクリメントされた場合、当該オブジェクトは、シーケンスの終端を示す特別な値となる。  
 この、シーケンスの終端を示す特別な値は、`regex_token_iterator` オブジェクトをデフォルトコンストラクタにより構築した場合にも生成されるため、この値と比較することによってシーケンスの終端であるか否か（つまり、マッチしなかったか否か）が判別できる。
 
 シーケンス終端のイテレータに対する [`operator*`](regex_token_iterator/op_deref.md) 演算子適用は未定義である。その他のイテレータに対する [`operator*`](regex_token_iterator/op_deref.md) 演算子適用の結果は `const `[`sub_match`](sub_match.md)`<BidirectionalIterator>&` である。  
 同様に、シーケンス終端のイテレータに対する [`operator->`](regex_token_iterator/op_arrow.md) 演算子適用は未定義である。その他のイテレータに対する [`operator->`](regex_token_iterator/op_arrow.md) 演算子適用の結果は `const `[`sub_match`](sub_match.md)`<BidirectionalIterator>*` である。
 
-2 つのシーケンス終端のイテレータは常に等しい。シーケンス終端のイテレータとシーケンス終端以外のイテレータは等しくない。2 つのシーケンス終端以外のイテレータは、同じ引数から構築され、かつ、オブジェクト構築後の [`operator++`](regex_token_iterator/op_increment.md) の呼び出し回数も等しい場合に等しい。
 
-`regex_token_iterator` 内には、以下の情報が保持されている。
+なお、本サイトの `regex_token_iterator` の各説明（上記も含む）では、規格にならって以下のプライベートなメンバ変数が存在する前提で記載している。
 
-- コンストラクタで指定した引数から構築された `regex_iterator`（上記説明の `position` に相当。[`regex_iterator`](regex_iterator.md)`<BidirectionalIterator, charT, traits>` 型）
-- 現在のサブマッチへのポインタ（`const `[`sub_match`](submatch.md)`<BidirectionalIterator>*` 型）
-- 接尾辞イテレータとなった際に保持するサブマッチ（[`sub_match`](sub_match.md)`<BidirectionalIterator>` 型）
-- 現在のサブマッチを識別する整数値（上記説明の `N` に相当。`size_t` 型）
-- 返すべきサブマッチのリスト（上記説明の `subs` に相当。[`vector`](/reference/vector.md)`<int>` 型）
+- コンストラクタで指定した引数から構築された `regex_iterator` の `position`（[`regex_iterator`](regex_iterator.md)`<BidirectionalIterator, charT, traits>` 型）
+- 現在のサブマッチへのポインタ `result`（`const `[`sub_match`](submatch.md)`<BidirectionalIterator>*` 型）
+- 接尾辞イテレータとなった際に保持するサブマッチ `suffix`（[`sub_match`](sub_match.md)`<BidirectionalIterator>` 型）
+- 現在のサブマッチを識別する整数値 `N`（`size_t` 型）
+- 返すべきサブマッチのリスト `subs`（[`vector`](/reference/vector.md)`<int>` 型）
 
-ただし、実装は必ずしもこれらの情報を保持する必要はなく、外部から見た振る舞いが規格の動作を満たしてさえいればよい。
+しかし、規格上これらのメンバ変数は説明のためだけに導入されているため、実際の各実装でこれらのメンバ変数が存在するとは限らない事に注意すること。
+
+`regex_token_iterator` は `iterator_category` を `forward_iterator_tag` に定義しているため、基本的には前方向イテレータであると考えられるが、実際には前方向イテレータの要件のうち以下の要件を満たしていない。
+
+- 2 つの間接参照可能な `regex_token_iterator` オブジェクト `a` と `b` がある時、`a == b` の場合でも、`++a == ++b` とは限らない。
+- 2 つの間接参照可能な `regex_token_iterator` オブジェクト `a` と `b` がある時、`a == b` の場合でも、`*a` と `*b` が同じオブジェクトとは限らない。
 
 
 ##メンバ関数
@@ -50,7 +54,6 @@ namespace std {
 | 名前                                                            | 説明           | 対応バージョン |
 |-----------------------------------------------------------------|----------------|----------------|
 | [`(constructor)`](regex_token_iterator/regex_token_iterator.md) | コンストラクタ | C++11          |
-| [`(destructor)`](regex_token_iterator/-regex_token_iterator.md) | デストラクタ   | C++11          |
 | [`operator=`](regex_token_iterator/op_assign.md)                | 代入演算子     | C++11          |
 
 ###比較
@@ -84,7 +87,17 @@ namespace std {
 | `reference`         | `const value_type` への参照                                                                             | C++11          |
 | `iterator_category` | このイテレータのカテゴリを表すタグ。前方向イテレータ（`forward_iterator_tag`）                          | C++11          |
 
-##非メンバ型(typedef)
+##説明用プライベートメンバ変数
+
+| 名前       | 説明                                                                                                                  | 対応バージョン |
+|------------|-----------------------------------------------------------------------------------------------------------------------|----------------|
+| `position` | 現在のマッチを指す `regex_iterator`。[`regex_iterator`](regex_iterator.md)`<BidirectionalIterator, charT, traits>` 型 | C++11          |
+| `result`   | 現在のサブマッチへのポインタ。`const `[`sub_match`](submatch.md)`<BidirectionalIterator>*` 型                         | C++11          |
+| `suffix`   | 接尾辞イテレータとなった際に保持するサブマッチ。[`sub_match`](sub_match.md)`<BidirectionalIterator>` 型               | C++11          |
+| `N`        | 現在のサブマッチを識別する整数値。`size_t` 型                                                                         | C++11          |
+| `subs`     | 返すべきサブマッチを表す整数のリスト。[`vector`](/reference/vector.md)`<int>` 型                                      | C++11          |
+
+##非メンバ型
 
 | 名前                     | 説明                                                       | 対応バージョン |
 |--------------------------|------------------------------------------------------------|----------------|
