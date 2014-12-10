@@ -37,8 +37,8 @@ int main()
   std::string s("+1-1+1-");
 
   // 2 つのイテレータを同一引数で生成する
-  auto&& it1 = std::sregex_iterator(std::begin(s), std::end(s), re);
-  auto&& it2 = std::sregex_iterator(std::begin(s), std::end(s), re);
+  std::sregex_iterator it1(std::begin(s), std::end(s), re);
+  std::sregex_iterator it2(std::begin(s), std::end(s), re);
 
   // 一方は 2 つ、もう一方は 1 つ進める
   ++it1; ++it1;

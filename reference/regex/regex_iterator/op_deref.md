@@ -32,8 +32,8 @@ int main()
 {
   std::regex re("\\d+");
   std::string s("abc123def456ghi");
-  for (auto&& it = std::sregex_iterator(std::begin(s), std::end(s), re), end = std::sregex_iterator();
-       it != end; ++it) {
+
+  for (std::sregex_iterator it(std::begin(s), std::end(s), re), end; it != end; ++it) {
     auto&& match = *it;
     std::cout << "prefix = '" << match.prefix() << "', str = '" << match.str() << "', suffix = '" << match.suffix() << '\'' << std::endl;
   }
