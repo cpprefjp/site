@@ -80,3 +80,4 @@ match:11
 ###備考
 - libstdc++ には 5.0.0 rev.218373 現在、(3) の形式のコンストラクタは存在しない。
 - libc++ には、3.4 までは (3) の形式のコンストラクタは存在しない。
+- libstdc++ では 5.0.0 rev.218373 現在、コピーコンストラクタで構築したオブジェクトの `match.`[`position`](../match_results/position.md)`(i)` が補正されずに誤っている。（補正については [`operator++`](op_increment.md) の「効果」を参照）
