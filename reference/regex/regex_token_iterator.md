@@ -35,7 +35,7 @@ namespace std {
 なお、本サイトの `regex_token_iterator` の各説明（上記も含む）では、規格にならって以下のプライベートなメンバ変数が存在する前提で記載している。
 
 - コンストラクタで指定した引数から構築された `regex_iterator` の `position`（[`regex_iterator`](regex_iterator.md)`<BidirectionalIterator, charT, traits>` 型）
-- 現在のサブマッチへのポインタ `result`（`const `[`sub_match`](submatch.md)`<BidirectionalIterator>*` 型）
+- 現在のサブマッチへのポインタ `result`（`const `[`sub_match`](sub_match.md)`<BidirectionalIterator>*` 型）
 - 接尾辞イテレータとなった際に保持するサブマッチ `suffix`（[`sub_match`](sub_match.md)`<BidirectionalIterator>` 型）
 - 現在のサブマッチを識別する整数値 `N`（`size_t` 型）
 - 返すべきサブマッチのリスト `subs`（[`vector`](/reference/vector.md)`<int>` 型）
@@ -92,7 +92,7 @@ namespace std {
 | 名前       | 説明                                                                                                                  | 対応バージョン |
 |------------|-----------------------------------------------------------------------------------------------------------------------|----------------|
 | `position` | 現在のマッチを指す `regex_iterator`。[`regex_iterator`](regex_iterator.md)`<BidirectionalIterator, charT, traits>` 型 | C++11          |
-| `result`   | 現在のサブマッチへのポインタ。`const `[`sub_match`](submatch.md)`<BidirectionalIterator>*` 型                         | C++11          |
+| `result`   | 現在のサブマッチへのポインタ。`const `[`sub_match`](sub_match.md)`<BidirectionalIterator>*` 型                        | C++11          |
 | `suffix`   | 接尾辞イテレータとなった際に保持するサブマッチ。[`sub_match`](sub_match.md)`<BidirectionalIterator>` 型               | C++11          |
 | `N`        | 現在のサブマッチを識別する整数値。`size_t` 型                                                                         | C++11          |
 | `subs`     | 返すべきサブマッチを表す整数のリスト。[`vector`](/reference/vector.md)`<int>` 型                                      | C++11          |
