@@ -109,8 +109,7 @@ int main()
   std::string s("a01da123456da999d");
   std::regex re("\\d+");
 
-  for (auto it = std::sregex_iterator(std::begin(s), std::end(s), re), end = std::sregex_iterator();
-       it != end; ++it) {
+  for (std::sregex_iterator it(std::begin(s), std::end(s), re), end; it != end; ++it) {
     auto&& m = *it;
     std::cout << "position = " << m.position() << ", length = " << m.length() << ", str = '" << m.str() << '\'' << std::endl;
   }
