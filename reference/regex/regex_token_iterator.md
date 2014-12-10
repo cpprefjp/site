@@ -21,7 +21,7 @@ namespace std {
 返されるサブマッチは、マッチ結果 [`match_results`](match_results.md) からサブマッチ [`sub_match`](sub_match.md) を取得する場合と同様、0（マッチ全体を表す）、および、正規表現内の各グループを表す正の整数で指定する。
 加えて、-1 を指定することで、指定した正規表現にマッチしなかった文字列を返すことも可能である。
 
-`regex_token_iterator` オブジェクトを構築した時、当該オブジェクトは [`regex_iterator`](regex_iterator.md)`<BidirectionalIterator>` 型のメンバ変数 `position` を構築する。
+`regex_token_iterator` オブジェクトを構築した時、当該オブジェクトは [`regex_iterator`](regex_iterator.md)`<BidirectionalIterator, charT, traits>` 型のメンバ変数 `position` を構築する。
 また、構築時に指定された返すべきサブマッチのリストをメンバ変数 `subs` に保持し、現在返すべきサブマッチを識別するカウンタ用のメンバ変数 `N` を `0` に設定する。  
 そして、[`operator++`](regex_token_iterator/op_increment.md) が呼び出される毎に、当該イテレータは `N` をインクリメントし、`N` が `subs` のサイズ以上になると、`position` をインクリメントして `N` を再び `0` にリセットする。  
 `position` が終端まで来た時（つまり、`position` がシーケンス終端イテレータとなった時）、`subs` に `-1` が含まれていて、かつ、`position` が直前にマッチした文字列の後ろに文字列が残っている場合（つまり、`position.`[`suffix`](match_results/suffix.md)`()` が空文字では無い場合）には、当該文字列を最後のサブマッチとして扱う。この状態になったイテレータを接尾辞イテレータと呼ぶ。  
