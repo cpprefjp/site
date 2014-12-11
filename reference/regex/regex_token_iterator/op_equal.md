@@ -44,7 +44,7 @@ int main()
   std::advance(it1, 2); // 2 つ進める（1 番目の enumerator2 を指す）
   std::advance(it2, 4); // 4 つ進める（2 番目の enumerator2 を指す）
 
-  // operator= で比較する
+  // operator== で比較する
   std::cout << std::boolalpha << (it1 == it2) << std::endl;
 
   // 参考のため、各サブマッチの詳細を出力する
