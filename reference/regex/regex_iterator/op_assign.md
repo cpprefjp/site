@@ -31,9 +31,8 @@ int main()
   std::regex re("\\d+");
   std::string s("+++111---222+++333---");
 
-  auto it1 = std::sregex_iterator();
-  for (auto it2 = std::sregex_iterator(std::begin(s), std::end(s), re), end = std::sregex_iterator();
-       it2 != end; ++it2) {
+  std::sregex_iterator it1;
+  for (std::sregex_iterator it2(std::begin(s), std::end(s), re), end; it2 != end; ++it2) {
     if (it2->str() == "222") {
       it1 = it2;
     }
@@ -41,7 +40,7 @@ int main()
   }
   std::cout << std::endl;
 
-  for (auto end = std::sregex_iterator(); it1 != end; ++it1) {
+  for (std::sregex_iterator end; it1 != end; ++it1) {
     std::cout << "position = " << it1->position() << ", length = " << it1->length() << ", str = '" << it1->str() << "', prefix = '" << it1->prefix() << "', suffix = '" << it1->suffix() << '\'' << std::endl;
   }
 }
