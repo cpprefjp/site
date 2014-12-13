@@ -120,11 +120,10 @@ void f(T submatch)
   static const std::string s("enum E { enumerator1 = value1, enumerator2 = value2, enumerator3 = value3, };");
   static const std::regex re(R"((\w+)\s*=\s*(\w+))");
 
-  for (auto it = std::sregex_token_iterator(std::begin(s), std::end(s), re, submatch), end = std::sregex_token_iterator();
-       it != end; ++it) {
+  for (std::sregex_token_iterator it(std::begin(s), std::end(s), re, submatch), end; it != end; ++it) {
     auto&& m = *it;
     std::cout << "match range = (" << m.first - std::begin(s) << ", " << m.second - std::begin(s) << "), "
-        "str = '" << m.str() << '\'' << std::endl;
+                 "str = '" << m.str() << '\'' << std::endl;
   }
   std::cout << std::endl;
 }
