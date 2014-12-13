@@ -88,8 +88,7 @@ void f(const T& submatch)
   static const std::regex re(R"((\w+)\s*=\s*(\w+))");
 
   // 引数で指定されたサブマッチを列挙する。ループ終了条件には (1) の形式で構築されたシーケンス終端イテレータとの比較を行う。
-  for (auto it = std::sregex_token_iterator(std::begin(s), std::end(s), re, submatch), end = std::sregex_token_iterator();
-       it != end; ++it) {
+  for (std::sregex_token_iterator it(std::begin(s), std::end(s), re, submatch), end; it != end; ++it) {
     std::cout << "match range = (" << it->first - std::begin(s) << ", " << it->second - std::begin(s) << "), "
                  "str = '" << it->str() << "'\n";
   }
