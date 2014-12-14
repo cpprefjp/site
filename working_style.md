@@ -1,16 +1,19 @@
 #スタイル
 本サイトで作業を行う上でのスタイルです。
+
 - 「である」調
 - 句読点は「、」「。」
 
 
 型修飾のスタイル：
+
 - A) const T &v
 - B) const T& v
 - C) const T & v
 - D) T const &v
 - E) T const& v
 - F) T const & v
+
 本サイトでは、Bのスタイルで型修飾を行います。
 
 
