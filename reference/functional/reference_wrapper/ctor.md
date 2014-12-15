@@ -30,7 +30,7 @@ int main()
 
   // 参照ラッパーrが指すxへの参照を保持する
   std::reference_wrapper<int> r2(r);
-  r.get() += 1;
+  r2.get() += 1;
   std::cout << x << std::endl;
 }
 ```
