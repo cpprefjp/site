@@ -1,6 +1,6 @@
 #cpprefjpを編集するには
 
-本cpprefjpサイトは、Google Sitesサービス上に構築されていますが、編集自体はGitHubリポジトリにあるMarkdown形式のプレーンテキストで行います。
+本cpprefjpサイトは、GitHub Pagesのサービス上に構築されていますが、編集自体はGitHubリポジトリにあるMarkdown形式のプレーンテキストで行います。
 
 cpprefjpサイトのGitHubリポジトリは、以下になります：
 
@@ -17,21 +17,15 @@ GitHub上で記述したMarkdown(.md)形式のリファレンスは、自動的�
 
 
 ###反映間隔
-反映間隔は、1日1回となります。何らかの理由で、すぐに反映させたい場合は、cpprefjp/siteリポジトリに、Issue報告としてご連絡ください。
-
+cpprefjp/site へ push すると、すぐに反映されます。
 
 
 ###変換エラーの検出
-Markdown形式からhtmlへの変換で、何らかのエラーが発生した場合、cpprefjp/siteリポジトリのIssueとして登録されます。Issueは、コミッタ全員に通知されますので、関連する編集者の方は対応お願いします。
-
-問題を修正した場合、自動反映ツールが自動的にチケットをクローズしますので、編集者の方は自分でチケットをクローズしないようお願いします。
-
-
 
 ###自動反映ツール
 自動反映ツールも、GitHub上で開発が進められています。
 
-* [andare - github にある Markdown 形式のファイルを取得して html に変換して返すサーバ](https://github.com/cpprefjp/andare)
+* [site_generator](https://github.com/cpprefjp/site_generator)
 
 機能要望やpull request等がありましたら、こちらにお願いします。
 
