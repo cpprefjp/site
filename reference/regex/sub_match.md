@@ -27,6 +27,8 @@ namespace std {
 | [`str`](sub_match/str.md)                             | マッチした文字列を `string_type` 型で返す。キャストと同じ。 | C++11          |
 | [`compare`](sub_match/compare.md)                     | マッチした文字列を比較する。                                | C++11          |
 
+注：上記の他、オブジェクトの内容を交換するメンバ関数 [`swap`](../utility/pair/swap.md) もあるが、[`pair`](../utility/pair.md) から継承したものであるため、メンバ変数 `matched` の内容は交換しないため注意が必要。
+
 ##メンバ変数
 
 | 名前      | 型                      | 説明                                                                             | 対応バージョン |
@@ -57,6 +59,8 @@ namespace std {
 | [`operator>`](sub_match/op_greater.md)        | 左辺が右辺より大きいか判定を行う   | C++11          |
 | [`operator>=`](sub_match/op_greater_equal.md) | 左辺が右辺以上か判定を行う         | C++11          |
 | [`operator<<`](sub_match/op_ostream.md)       | ストリームへの出力を行う           | C++11          |
+
+注：非メンバ関数版の [`swap`](../utility/swap.md) は `sub_match` 用にオーバーロードされていないため、[`pair`](../utility/pair.md) から継承したメンバ関数 [`swap`](../utility/pair/swap.md) は呼び出さずに汎用版の動作となる（一時変数を利用したムーブでオブジェクトの内容を交換する）。従って、こちらはメンバ変数 `matched` も交換される。
 
 ##非メンバ型
 
