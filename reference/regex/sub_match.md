@@ -43,6 +43,8 @@ namespace std {
 | `difference_type` | 2 つのイテレータの差を表すための型。[`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::difference_type` の typedef | C++11          |
 | `iterator`        | 検索対象の文字を指すイテレータの型。`BidirectionalIterator` の typedef                                                                       | C++11          |
 | `string_type`     | 検索対象の文字の型に対応する文字列型。[`basic_string`](../string/basic_string.md)`<value_type>` の typedef                                   | C++11          |
+| `first_type`      | メンバ変数 `first` の型。[`pair`](../utility/pair.md) から継承。`BidirectionalIterator` の typedef                                           | C++11          |
+| `second_type`     | メンバ変数 `second` の型。[`pair`](../utility/pair.md) から継承。`BidirectionalIterator` の typedef                                          | C++11          |
 
 ##非メンバ関数
 
