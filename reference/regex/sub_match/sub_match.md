@@ -8,7 +8,7 @@ constexpr sub_match();
 
 
 ##要件
-[`is_default_constructible`](../../type_traits/is_default_constructible.md)`<first_type>::value == true`、かつ、[`is_default_constructible`](../../type_traits/is_default_constructible.md)`<second_type>::value == true`であること。
+[`is_default_constructible`](../../type_traits/is_default_constructible.md)`<iterator>::value == true` であること。
 
 
 ##効果
