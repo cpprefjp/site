@@ -24,11 +24,11 @@ int compare(size_type pos1, size_type n1,
 ##戻り値
 - (1) 比較結果が非`0`を返した場合は、比較結果をそのまま返す。そうでなければ、以下の条件に従って戻り値を返す：
 
-| 条件                                                   | 戻り値                |
-|--------------------------------------------------------|-----------------------|
-| [`size()`](./size.md) `<` `str.`[`size()`](./size.md)  | `0`未満の値を返す     |
-| [`size()`](./size.md) `==` `str.`[`size()`](./size.md) | `0`を返す             |
-| [`size()`](./size.md) `>` `str.`[`size()`](./size.md)  | `0`より大きい値を返す |
+	| 条件                                                   | 戻り値                |
+	|--------------------------------------------------------|-----------------------|
+	| [`size()`](./size.md) `<` `str.`[`size()`](./size.md)  | `0`未満の値を返す     |
+	| [`size()`](./size.md) `==` `str.`[`size()`](./size.md) | `0`を返す             |
+	| [`size()`](./size.md) `>` `str.`[`size()`](./size.md)  | `0`より大きい値を返す |
 
 - (2) `basic_string(*this, pos1, n1).compare(str)`
 - (3) `basic_string(*this, pos1, n1).compare(basic_string(str, pos2, n2))`
