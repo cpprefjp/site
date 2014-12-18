@@ -1,4 +1,4 @@
-#endl
+#flush
 ```cpp
 namespace std {
   template<class CharT, class Traits>
