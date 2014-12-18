@@ -2,35 +2,35 @@
 ```cpp
 namespace std {
   template <class BiIter>
-    bool operator==(const sub_match<BiIter>& lhs, const sub_match<BiIter>& rhs);        // (1)
+    bool operator<(const sub_match<BiIter>& lhs, const sub_match<BiIter>& rhs);        // (1)
 
   template <class BiIter, class ST, class SA>
-    bool operator==(
+    bool operator<(
       const basic_string<typename iterator_traits<BiIter>::value_type, ST, SA>& lhs,
       const sub_match<BiIter>& rhs);                                                    // (2)
 
   template <class BiIter, class ST, class SA>
-    bool operator==(
+    bool operator<(
       const sub_match<BiIter>& lhs,
       const basic_string<typename iterator_traits<BiIter>::value_type, ST, SA>& rhs)    // (3)
 
   template <class BiIter>
-    bool operator==(
+    bool operator<(
       const typename iterator_traits<BiIter>::value_type* lhs,
       const sub_match<BiIter>& rhs);                                                    // (4)
 
   template <class BiIter>
-    bool operator==(
+    bool operator<(
       const sub_match<BiIter>& lhs,
       const typename iterator_traits<BiIter>::value_type* rhs);                         // (5)
 
   template <class BiIter>
-    bool operator==(
+    bool operator<(
       const typename iterator_traits<BiIter>::value_type& lhs,
       const sub_match<BiIter>& rhs);                                                    // (6)
 
   template <class BiIter>
-    bool operator==(
+    bool operator<(
       const sub_match<BiIter>& lhs,
       const typename iterator_traits<BiIter>::value_type& rhs);                         // (7)
 }
