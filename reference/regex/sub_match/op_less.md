@@ -2,7 +2,7 @@
 ```cpp
 namespace std {
   template <class BiIter>
-    bool operator<(const sub_match<BiIter>& lhs, const sub_match<BiIter>& rhs);        // (1)
+    bool operator<(const sub_match<BiIter>& lhs, const sub_match<BiIter>& rhs);         // (1)
 
   template <class BiIter, class ST, class SA>
     bool operator<(
