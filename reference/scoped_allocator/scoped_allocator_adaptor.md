@@ -90,7 +90,7 @@ namespace std {
 ```cpp
 #include <iostream>
 #include <vector>
-#include <string>
+#include <forward_list>
 
 #include <scoped_allocator>
 
@@ -99,10 +99,8 @@ template <class T>
 class MyAlloc : public std::allocator<T> {
   int state_; // 状態
 
-  using BaseType = std::allocator<T>;
   template <class> friend class MyAlloc;
 public:
-  using BaseType::BaseType;
   template <class U>
   struct rebind { typedef MyAlloc<U> other; };
 
@@ -117,28 +115,24 @@ public:
 };
 
 template <class T, class U>
-bool operator==(const MyAlloc<T>&, const MyAlloc<U>&)
-{ return true; }
+bool operator==(const MyAlloc<T>& lhs, const MyAlloc<U>& rhs)
+{ return lhs.getState() == rhs.getState(); }
 
 template <class T, class U>
-bool operator!=(const MyAlloc<T>&, const MyAlloc<U>&)
-{ return false; }
-
-template <class T>
-using alloc = MyAlloc<T>;
+bool operator!=(const MyAlloc<T>& lhs, const MyAlloc<U>& rhs)
+{ return lhs.getState() != rhs.getState(); }
 
 // コンテナの要素(Inner)
-using string = std::basic_string<
-  char,
-  std::char_traits<char>,
-  alloc<char>
+using forward_list = std::forward_list<
+  int,
+  MyAlloc<int>
 >;
 
 // コンテナ(Outer)
 template <class T>
 using vector = std::vector<
   T,
-  std::scoped_allocator_adaptor<alloc<T>>
+  std::scoped_allocator_adaptor<MyAlloc<T>>
 >;
 
 int main()
@@ -146,11 +140,11 @@ int main()
   // stringで使用するアロケータオブジェクトを、
   // vectorでも使用する
   int state = 5;
-  MyAlloc<string> alloc(state);
-  vector<string> v(alloc);
+  MyAlloc<forward_list> alloc(state);
+  vector<forward_list> v(alloc);
 
-  v.push_back("hello");
-  v.push_back("world");
+  v.push_back(forward_list{100});
+  v.push_back(forward_list{200});
 
   // 同じアロケータオブジェクトが使われていることを確認する。
   // getState()の値が、どちらも5になる。
@@ -169,7 +163,7 @@ int main()
 ```cpp
 #include <iostream>
 #include <vector>
-#include <string>
+#include <forward_list>
 
 #include <scoped_allocator>
 
@@ -178,10 +172,8 @@ template <class T>
 class MyAlloc : public std::allocator<T> {
   int state_; // 状態
 
-  using BaseType = std::allocator<T>;
   template <class> friend class MyAlloc;
 public:
-  using BaseType::BaseType;
   template <class U>
   struct rebind { typedef MyAlloc<U> other; };
 
@@ -196,42 +188,38 @@ public:
 };
 
 template <class T, class U>
-bool operator==(const MyAlloc<T>&, const MyAlloc<U>&)
-{ return true; }
+bool operator==(const MyAlloc<T>& lhs, const MyAlloc<U>& rhs)
+{ return lhs.getState() == rhs.getState(); }
 
 template <class T, class U>
-bool operator!=(const MyAlloc<T>&, const MyAlloc<U>&)
-{ return false; }
-
-template <class T>
-using alloc_t = MyAlloc<T>;
+bool operator!=(const MyAlloc<T>& lhs, const MyAlloc<U>& rhs)
+{ return lhs.getState() != rhs.getState(); }
 
 // コンテナの要素(Inner)
-using string = std::basic_string<
-  char,
-  std::char_traits<char>,
-  alloc_t<char>
+using forward_list = std::forward_list<
+  int,
+  MyAlloc<int>
 >;
 
 // コンテナ(Outer)
 template <class T>
 using vector = std::vector<
   T,
-  std::scoped_allocator_adaptor<alloc_t<T>, alloc_t<typename T::value_type>>
+  std::scoped_allocator_adaptor<MyAlloc<T>, MyAlloc<typename T::value_type>>
 >;
 
 int main()
 {
   int outer_state = 5;
   int inner_state = 2;
-  vector<string>::allocator_type alloc {
-    alloc_t<string>(outer_state), // vector自体のアロケータオブジェクト
-    alloc_t<char>(inner_state)    // vectorの全ての要素に使用するアロケータオブジェクト
+  vector<forward_list>::allocator_type alloc {
+    (MyAlloc<forward_list>(outer_state)), // vector自体のアロケータオブジェクト
+    (MyAlloc<int>(inner_state))    // vectorの全ての要素に使用するアロケータオブジェクト
   };
-  vector<string> v(alloc);
+  vector<forward_list> v(alloc);
 
-  v.push_back("hello");
-  v.push_back("world");
+  v.push_back(forward_list{100});
+  v.push_back(forward_list{200});
 
   // コンテナに使用されるアロケータの状態を確認
   // 5になる(outer_state)
@@ -239,7 +227,7 @@ int main()
 
   // 要素に使用されるアロケータの状態を確認
   // 全ての要素に、アロケータの状態が伝搬される
-  for (const string& x : v) {
+  for (const forward_list& x : v) {
     std::cout << "element allocator : " << x.get_allocator().getState() << std::endl;
   }
 }
@@ -257,8 +245,10 @@ element allocator : 2
 - C++11
 
 ###処理系
-- [Clang, C++11 mode](/implementation.md#clang): 3.0
-- [GCC, C++11 mode](/implementation.md#gcc): (4.8時点でサポートされてるはずだが、サンプルが動かない)
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 5.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
