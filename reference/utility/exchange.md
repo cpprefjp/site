@@ -105,4 +105,6 @@ int main()
 ##参照
 - [N3511 exchange() utility function](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3511.html)
 - [N3608 exchange() utility function, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3608.html)
+- [N3668 exchange() utility function, revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3668.html)
+
 
