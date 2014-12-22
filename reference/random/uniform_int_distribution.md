@@ -85,6 +85,9 @@ int main()
 ```
 
 ###出力
+```
+```
+
 このプログラムによってある時に得られた結果（[uniform_int_distribution.tsv](https://github.com/cpprefjp/image/blob/master/reference/random/uniform_int_distribution/uniform_int_distribution.tsv)）を図示する。
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/random/uniform_int_distribution/uniform_int_distribution.png)

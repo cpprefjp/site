@@ -36,6 +36,10 @@ int main()
 ```
 * get_allocator[color ff0000]
 
+###出力
+```
+```
+
 ##バージョン
 ###言語
 - C++11

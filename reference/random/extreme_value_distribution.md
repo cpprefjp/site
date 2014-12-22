@@ -98,6 +98,9 @@ int main()
 ```
 
 ###出力
+```
+```
+
 このプログラムによってある時に得られた結果（[extreme_value_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/extreme_value_distribution/extreme_value_distribution.tsv)）を図示する。 
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/extreme_value_distribution/extreme_value_distribution.png)

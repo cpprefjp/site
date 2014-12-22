@@ -94,6 +94,9 @@ int main()
 ```
 
 ###出力
+```
+```
+
 このプログラムによってある時に得られた結果（[chi_squared_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.png)

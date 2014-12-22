@@ -90,6 +90,9 @@ int main()
 ```
 
 ###出力
+```
+```
+
 このプログラムによってある時に得られた結果（[normal_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.tsv.7z)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.png)

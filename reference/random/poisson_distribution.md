@@ -97,6 +97,9 @@ int main()
 ```
 
 ###出力
+```
+```
+
 このプログラムによってある時に得られた結果（[poisson_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/poisson_distribution/poisson_distribution.tsv)）を図示する。 
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/poisson_distribution/poisson_distribution.png)

@@ -87,6 +87,9 @@ int main()
 ```
 
 ###出力
+```
+```
+
 このプログラムによってある時に得られた結果（[piecewise_linear_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.png)

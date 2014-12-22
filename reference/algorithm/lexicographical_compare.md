@@ -91,7 +91,7 @@ int main()
 ```
 * lexicographical_compare[color ff0000]
 
-###
+###出力
 ```cpp
 same length string compare:
 x less than y
