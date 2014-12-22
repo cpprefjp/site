@@ -70,6 +70,7 @@ proj( (inf,-0) ) = (inf,-0)
 proj( (nan,inf) ) = (inf,0)
 proj( (nan,-inf) ) = (inf,-0)
 ```
+
 無限大や NaN の出力は異なる可能性がある。  
 また、[`numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`is_iec559`](/reference/limits/numeric_limits/is_iec559.md)`()` が `true` でない場合、結果が異なる可能性がある。
 
