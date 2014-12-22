@@ -32,7 +32,7 @@ public:
 int main()
 {
   std::valarray<int> v = {1, 2, 3, 4, 5, 6};
-  std::valarray<bool> mask = {false, true, false, true, false};
+  std::valarray<bool> mask = {false, true, false, true, false, true};
   std::mask_array<int> result = v[mask];
 
   // (2)
