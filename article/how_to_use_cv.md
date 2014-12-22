@@ -144,7 +144,7 @@ class bounded_queue {
   std::queue<T> queue_;
   std::mutex guard_;
   std::condition_variable not_empty_;
-  std::condttion_variable not_full_;
+  std::condition_variable not_full_;
 public:
   // 値の挿入
   void push(T val) {
