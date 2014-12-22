@@ -25,7 +25,7 @@ auto main()
   
   std::slice s( start, length, stride );
   
-  std::cout << s.length();
+  std::cout << s.size();
 }
 ```
 
