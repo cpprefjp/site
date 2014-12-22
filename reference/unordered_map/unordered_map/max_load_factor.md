@@ -63,7 +63,7 @@ int main()
   cout << "current max_load_factor: " << m.max_load_factor() << endl;   // (1) 
   cout << "current size: " << m.size() << endl;
   cout << "current bucket_count: " << m.bucket_count() << endl;
-　cout << "current load_factor: " << m.load_factor() << endl;
+  cout << "current load_factor: " << m.load_factor() << endl;
   cout  << endl;
 
   // 初期化
