@@ -111,6 +111,9 @@ int main()
 ###参考
 - [正規分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
 - [Marsaglia polar method - Wikipedia](http://en.wikipedia.org/wiki/Marsaglia_polar_method)
-	- GCC 4.9時点においてlibstdc++で使用されているアルゴリズム
-
+    - GCC 4.9時点においてlibstdc++で使用されているアルゴリズム
+- [ボックス＝ミュラー法 - Wikipedia](http://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%EF%BC%9D%E3%83%9F%E3%83%A5%E3%83%A9%E3%83%BC%E6%B3%95)
+    - Boost 1.55.0以前まで、Boost.Randomの`normal_distribution`の実装に使われていたアルゴリズム。
+- [Ziggurat sampling - Wikipedia](http://en.wikipedia.org/wiki/Ziggurat_algorithm)
+    - Boost 1.56.0以降で、Boost.Randomの`normal_distribution`の実装に使われているアルゴリズム。
 
