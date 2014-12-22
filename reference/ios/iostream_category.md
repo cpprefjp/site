@@ -1,7 +1,8 @@
 #iostream_category (C++11)
 ```cpp
 namespace std {
-  const error_category& iostream_category() noexcept;
+  const error_category& iostream_category();          // C++11
+  const error_category& iostream_category() noexcept; // C++14
 }
 ```
 * error_category[link /reference/system_error/error_category.md]
@@ -58,5 +59,5 @@ iostream stream error
 
 
 ##参照
-
+- [LWG Issue 2087. iostream_category() and noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2087)
 

@@ -1,7 +1,8 @@
 #make_error_condition (C++11)
 ```cpp
 namespace std {
-  error_condition make_error_condition(io_errc e) noexcept;
+  error_condition make_error_condition(io_errc e);          // C++11
+  error_condition make_error_condition(io_errc e) noexcept; // C++14
 }
 ```
 * error_condition[link /reference/system_error/error_condition.md]
@@ -55,5 +56,5 @@ message : iostream stream error
 
 
 ##参照
-
+- [LWG Issue 2087. iostream_category() and noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2087)
 
