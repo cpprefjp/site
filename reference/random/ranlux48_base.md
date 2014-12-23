@@ -21,6 +21,10 @@ namespace std {
 10<sup>171</sup>
 
 
+##シード、および生成される値の型
+[`uint_fast64_t`](/reference/cstdint/uint_fast64_t.md)
+
+
 ##バージョン
 ###言語
 - C++11

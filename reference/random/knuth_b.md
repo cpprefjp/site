@@ -25,6 +25,10 @@ Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volu
 不明(Boost.Randomのドキュメントより)
 
 
+##シード、および生成される値の型
+[`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md)
+
+
 ##例
 ```cpp
 #include <iostream>

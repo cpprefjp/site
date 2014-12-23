@@ -21,6 +21,10 @@ namespace std {
 10<sup>171</sup>
 
 
+##シード、および生成される値の型
+[`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md)
+
+
 ##バージョン
 ###言語
 - C++11
