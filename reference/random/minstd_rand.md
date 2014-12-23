@@ -10,11 +10,20 @@ namespace std {
 * uint_fast32_t[link /reference/cstdint/uint_fast32_t.md]
 
 ##概要
-パラメータ設定済みの[`linear_congruential_engine`](./linear_congruential_engine.md)。  
-"最小標準"MINSTD乱数生成器。  
-  
+最小標準MINSTD乱数生成器。  
+
+これは線形合同法に、より良いパラメータを設定したものである。
+
 オリジナルのMINSTDパラメータは、[`std::minstd_rand0`](./minstd_rand0.md)の方で、1988年にStephen K. ParkとKeith W. Millerによって考案された。この`minstd_rand`はパラメータ改良版で、1993年にStephen K. Park、Keith W. Miller、Paul K. Stockmeyerによって推奨された。
 
+
+##備考
+C言語標準ライブラリの`rand()`関数は、実装によっては問題のある[線形合同法](./linear_congruential_engine.md)のパラメータが設定されていた。たとえば、実装によっては以下のような問題が発生していた。
+
+- 生成される値の最下位ビットは、`0`と`1`が交互に生成されていた。これにより、生成される値は偶数と奇数が交互になっていた。
+- 生成される値の最大値が非常に小さく、`RAND_MAX`の値が`32767`となっていた。
+
+MINSTDでは、このような問題は発生しない。
 
 ##要件
 `minstd_rand`型オブジェクトをデフォルト構築した場合、10000番目に生成される擬似乱数の値は`399268537`であること。

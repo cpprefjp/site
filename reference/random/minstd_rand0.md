@@ -10,11 +10,22 @@ namespace std {
 * uint_fast32_t[link /reference/cstdint/uint_fast32_t.md]
 
 ##概要
-パラメータ設定済みの[`linear_congruential_engine`](./linear_congruential_engine.md)。  
-"最小標準"MINSTD乱数生成器。  
-  
-`minstd_rand0`は、オリジナルのMINSTDパラメータであり、1988年にStephen K. ParkとKeith W. Millerによって考案された。  
+最小標準MINSTD乱数生成器。
+
+これは線形合同法に、より良いパラメータを設定したものである。
+ 
+`minstd_rand0`は、オリジナルのMINSTDパラメータであり、1988年にStephen K. ParkとKeith W. Millerによって考案された。
+
 1993年にStephen K. Park、Keith W. Miller、Paul K. Stockmeyerによって推奨された、パラメータ改良版である[`minstd_rand`](./minstd_rand.md)もまた定義されている。
+
+
+##備考
+C言語標準ライブラリの`rand()`関数は、実装によっては問題のある[線形合同法](./linear_congruential_engine.md)のパラメータが設定されていた。たとえば、実装によっては以下のような問題が発生していた。
+
+- 生成される値の最下位ビットは、`0`と`1`が交互に生成されていた。これにより、生成される値は偶数と奇数が交互になっていた。
+- 生成される値の最大値が非常に小さく、`RAND_MAX`の値が`32767`となっていた。
+
+MINSTDでは、このような問題は発生しない。
 
 
 ##要件
@@ -70,6 +81,7 @@ int main()
 
 ##参照
 - [Lehmer random number generator - Wikipedia](http://en.wikipedia.org/wiki/Lehmer_random_number_generator)
+- [Stephen K. Park and Keith W. Miller (1988). "Random Number Generators: Good Ones Are Hard To Find". Communications of the ACM 31 (10): 1192–1201. doi:10.1145/63039.63042.](http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf)
 - [MINSTD - Classical LSGs](http://random.mat.sbg.ac.at/results/karl/server/node4.html#SECTION00042000000000000000)
 - A pseudo-random number generator for the System/360, P.A. Lewis, A.S. Goodman, J.M. Miller, IBM Systems Journal, Vol. 8, No. 2, 1969, pp. 136-146
 
