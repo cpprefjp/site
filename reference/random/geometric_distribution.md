@@ -11,15 +11,15 @@ namespace std {
 このクラスは、ベルヌーイ分布([`bernoulli_distribution`](./bernoulli_distribution.md))を施行し、初めて成功するまでに何回失敗したかを取得する。これは、[`negative_binomial_distribution`](./negative_binomial_distribution.md)`<IntType>(1, p)`と同じである。
 
 
-テンプレートパラメータは、以下を意味する：
-
-- `IntType` : 成功回を表す整数型。
-
-
 幾何分布は、以下のような用途で使用できる：
 
 - くじ引きを当たるまで施行し、当たりが出るまでに失敗した数を求める
 - 信頼性の低い部品を製造するために失敗した個数を求める
+
+
+テンプレートパラメータは、以下を意味する：
+
+- `IntType` : 成功回を表す整数型。
 
 
 ##メンバ関数

@@ -10,15 +10,16 @@ namespace std {
 `uniform_int_distribution`は、指定された範囲の値が等確率で発生するよう離散分布するクラスである。 
 このクラスは、離散一様分布(Discrete Uniform Distribution)の整数に特化したバージョンである。実数が必要な場合は、[`uniform_real_distribution`](./uniform_real_distribution.md)クラスを使用する。
 
-テンプレートパラメータは、以下を意味する：
-
-* `IntType` : 生成する整数の型。
-
 
 一様性数分布は、以下のような用途で使用できる：
 
 - サイコロを振る
 - カードデッキから1枚を選ぶ
+
+
+テンプレートパラメータは、以下を意味する：
+
+- `IntType` : 生成する整数の型。
 
 
 ##メンバ関数

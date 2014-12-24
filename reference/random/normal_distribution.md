@@ -11,14 +11,15 @@ namespace std {
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal.png)
 
-テンプレートパラメータは、以下を意味する：
-
-* `RealType` : 生成する実数の型。
-
 
 正規分布は、以下のような用途に使用できる：
 
 - 平均身長170cm、標準偏差5cmというパラメータから、平均付近の身長データを作成する
+
+
+テンプレートパラメータは、以下を意味する：
+
+- `RealType` : 生成する実数の型。
 
 
 ##メンバ関数
