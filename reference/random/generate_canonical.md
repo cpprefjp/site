@@ -7,8 +7,8 @@ namespace std {
 ```
 
 ##概要
-実数区間\[0.0-1.0\)に展開（事実上正規化）された一様分布乱数を得る為のテンプレート関数。 
-テンプレート引数に与える `RealType` について、 `bits` だけの分解能を持つ仮数部を `URNG g`を必要な回数だけ繰り返し呼び出して生成する。
+実数区間\[0.0,1.0\)に展開（事実上正規化）された一様分布乱数を得るための関数テンプレート。 
+テンプレート引数に与える `RealType` 型について、 `bits` だけの分解能を持つ仮数部を `URNG g`を必要な回数だけ繰り返し呼び出して生成する。
 
 
 ##テンプレートパラメータ
@@ -51,7 +51,6 @@ int main()
       ;
 }
 ```
-- [http://ideone.com/e1AAjD](http://ideone.com/e1AAjD)
 
 
 ###出力
@@ -69,11 +68,10 @@ generate_canonical<float, std::numeric_limits<float>::digits> [std::numeric_limi
 - C++11
 
 ###処理系
-- [Clang](/implementation.md#clang): 
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++0x mode](/implementation.md#gcc): 
-- [ICC](/implementation.md#icc): 
-- [Visual C++](/implementation.md#visual_cpp): 
+- [Clang, C++11 mode](/implementation.md#clang): 3.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.4
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ###参考
 - N3337 p.909 §26.5.7.2

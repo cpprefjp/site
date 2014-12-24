@@ -112,7 +112,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`generate_canonical`](./random/generate_canonical.md) | 実数区間\[0.0-1.0\)に展開（事実上正規化）された一様分布乱数を得る(function template) | C++11 |
+| [`generate_canonical`](./random/generate_canonical.md) | 実数区間\[0.0,1.0\)に展開（事実上正規化）された一様分布乱数を得る(function template) | C++11 |
 
 
 ##例
