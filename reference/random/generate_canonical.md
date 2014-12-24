@@ -73,6 +73,10 @@ generate_canonical<float, std::numeric_limits<float>::digits> [std::numeric_limi
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+###備考
+- GCC 4.9時点において、`float`型を指定した場合に、値`1.0`が生成されることがあるバグがある([Bug 63176](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63176))
+- Clang 3.3時点において、`uniform_real_distribution`のバグで、値`1.0`が生成されることがある([Bug 18767](http://llvm.org/bugs/show_bug.cgi?id=18767))
+
 ###参考
 - N3337 p.909 §26.5.7.2
 
