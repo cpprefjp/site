@@ -41,6 +41,9 @@ int main()
 5
 ```
 
+###備考
+- GCC(libstdc++, C++11)は、5.0から定数時間。
+
 ##参照
 - [C++0x 標準コンテナのsize()の計算量を規定 - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20090902/1251879571)
 
