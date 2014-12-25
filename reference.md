@@ -100,7 +100,7 @@
 | [`<streambuf>`](/reference/streambuf.md) | ストリームバッファ           |                |
 | [`<istream>`](/reference/istream.md)     | 入力ストリーム               |                |
 | [`<ostream>`](/reference/ostream.md)     | 出力ストリーム               |                |
-| `<iomanip>`                              | フォーマットとマニピュレータ |                |
+| [`<iomanip>`](/reference/iomanip.md)     | フォーマットとマニピュレータ |                |
 | `<sstream>`                              | 文字列ストリーム             |                |
 | [`<fstream>`](/reference/fstream.md)     | ファイルストリーム           |                |
 
