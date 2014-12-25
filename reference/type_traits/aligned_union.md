@@ -63,7 +63,7 @@ hello
 
 ###処理系
 - [Clang](/implementation.md#clang): 3.3
-- [GCC, C++0x mode](/implementation.md#gcc): 
+- [GCC, C++0x mode](/implementation.md#gcc): 5.0
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
