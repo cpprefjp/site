@@ -11,6 +11,10 @@ namespace std {
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal.png)
 
+正規分布は、釣り鐘型の分布で、平均値を中心に、左右(マイナスとプラス)に値が分散する。平均値付近が最も出現確率が高く、標準偏差の値を基準として、左右に離れるほど出現確率が低くなる。
+
+標準偏差は、値が分布する広がり方(ばらつき)の尺度である。「平均 ± 標準偏差」を超える値も、低確率ながら出現する。
+
 
 正規分布は、以下のような用途に使用できる：
 
