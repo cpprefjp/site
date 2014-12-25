@@ -57,7 +57,7 @@ shared_ptr<int> isn't lock-free
 
 ###処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.3
-- [GCC, C++11 mode](/implementation.md#gcc): (4.8.2時点で未実装)
+- [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
