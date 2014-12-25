@@ -78,11 +78,11 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  // 平均100、標準偏差20で分布させる
-  std::normal_distribution<> dist(100.0, 20.0);
+  // 平均0.0、標準偏差1.0で分布させる
+  std::normal_distribution<> dist(0.0, 1.0);
 
   std::ofstream file("normal_distribution.tsv");
-  for (std::size_t n = 0; n < 256; ++n) {
+  for (std::size_t n = 0; n < 1000 * 1000; ++n) {
     // 正規分布で乱数を生成する
     double result = dist(engine);
     file << result << "\t\n";
@@ -94,7 +94,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[normal_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.tsv.7z)）を図示する。
+このプログラムによってある時に得られた結果（[normal_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.png)
 
