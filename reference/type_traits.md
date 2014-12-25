@@ -58,7 +58,7 @@
 | [`is_empty`](./type_traits/is_empty.md)       | 型が空のクラスか調べる (class template) | C++11 |
 | [`is_polymorphic`](./type_traits/is_polymorphic.md) | 型が多相的クラスか調べる (class template) | C++11 |
 | [`is_abstract`](./type_traits/is_abstract.md) | 型が抽象クラスか調べる (class template) | C++11 |
-| [`is_final`](./type_traits/is_final.md)       | 型に`final`属性が付いているかを調べる (class template) | C++14 |
+| [`is_final`](./type_traits/is_final.md)       | 型に`final`が付いているかを調べる (class template) | C++14 |
 | [`is_signed`](./type_traits/is_signed.md)     | 型が符号付き算術型か調べる (class template) | C++11 |
 | [`is_unsigned`](./type_traits/is_unsigned.md) | 型が符号無し算術型か調べる (class template) | C++11 |
 | [`is_constructible`](./type_traits/is_constructible.md) | 型のコンストラクタ呼出しが適格か調べる (class template) | C++11 |
