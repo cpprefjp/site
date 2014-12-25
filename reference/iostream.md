@@ -4,7 +4,7 @@
 このヘッダは、以下のヘッダをインクルードすることが規定されている。
 
 - [`<ios>`](ios.md)
-- `<streambuf>`
+- [`<streambuf>`](streambuf.md)
 - [`<istream>`](istream.md)
 - [`<ostream>`](ostream.md)
 
