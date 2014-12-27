@@ -78,6 +78,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 - VC++： [C++11 Features (Modern C++)](http://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.120%29.aspx)
 - VC++ November 2013 CTP: [Visual C++ Compiler November 2013 CTP](http://herbsutter.com/2013/11/18/visual-c-compiler-november-2013-ctp/)
 - Visual Studio “14” CTP: [Visual Studio “14” CTP - Visual C++ Team Blog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/vcblog/archive/2014/06/03/visual-studio-14-ctp.aspx)
+- [C++11/14/17 Features In VS 2015 Preview - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2014/11/17/c-11-14-17-features-in-vs-2015-preview.aspx)
 
 
 ##C++14
@@ -105,6 +106,7 @@ GCCとClangでは、-std=c++1yコンパイルオプションを付けること�
 - Clang: [C++98, C++11, and C++14 Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libc++: [libc++ C++1Y Status](http://libcxx.llvm.org/cxx1y_status.html)
 - Visual C++: [C++11/14 Feature Tables For Visual Studio 14 CTP1 - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2014/06/11/c-11-14-feature-tables-for-visual-studio-14-ctp1.aspx)
+- [C++11/14/17 Features In VS 2015 Preview - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2014/11/17/c-11-14-17-features-in-vs-2015-preview.aspx)
 
 
 ##Technical Specificationの実装状況
