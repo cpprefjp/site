@@ -58,7 +58,7 @@ int main() {
 Visual C++ 10.0～11.0 でも使用可能だが、コンパイラが可変引数テンプレートに対応していないため、最大10個の引数を受け取れる形で実装されている。
 
 
-###参照
+##参照
 - [`std::allocate_shared()`](./allocate_shared.md)
 - [std::make_shared から private コンストラクタを呼び出す - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20131211/1386771626)
 
