@@ -7,17 +7,17 @@
 MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付けは以下のようになっている：
 
 
-| MSVCのバージョン | 製品のバージョン | 定数`_MSC_VER`の値 |
-|------------------|------------------|--------------------|
-| 6.0 | Visual Studio 6.0 | 1200 |
-| 7.0 | Visual Studio .NET 2002 | 1300 |
-| 7.1 | Visual Studio .NET 2003 | 1310 |
-| 8.0 | Visual Studio 2005 | 1400 |
-| 9.0 | Visual Studio 2008 | 1500 |
-| 10.0 | Visual Studio 2010 | 1600 |
-| 11.0 | Visual Studio 2012 | 1700 |
-| 12.0 | Visual Studio 2013 | 1800 |
-| 14.0 | Visual Studio 2015 | 1900 |
+| MSVCのバージョン | 製品のバージョン |
+|------------------|------------------|
+| 6.0 | Visual Studio 6.0 |
+| 7.0 | Visual Studio .NET 2002 |
+| 7.1 | Visual Studio .NET 2003 |
+| 8.0 | Visual Studio 2005 |
+| 9.0 | Visual Studio 2008 |
+| 10.0 | Visual Studio 2010 |
+| 11.0 | Visual Studio 2012 |
+| 12.0 | Visual Studio 2013 |
+| 14.0 | Visual Studio 2015 |
 
 
 
