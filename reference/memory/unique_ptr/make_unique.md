@@ -65,7 +65,7 @@ int main()
 
 ##バージョン
 ###言語
-- C++11
+- C++14
 
 ###処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
