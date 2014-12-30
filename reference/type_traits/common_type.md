@@ -5,6 +5,9 @@ namespace std {
   struct common_type {
     typedef … type;
   };
+
+  template <class... T>
+  using common_type_t = typename common_type<T...>::type; // C++14
 }
 ```
 
@@ -85,4 +88,8 @@ struct common_type<T, U, V...> {
 - [GCC, C++0x mode](/implementation.md#gcc): 4.4.7
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+##参照
+- [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
+- [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 

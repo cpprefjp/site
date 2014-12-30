@@ -5,6 +5,9 @@ namespace std {
   struct decay {
     typedef … type;
   };
+
+  template <class T>
+  using decay_t = typename decay<T>::type; // C++14
 }
 ```
 
@@ -85,4 +88,6 @@ int main()
 
 ##参照
 - [What is std::decay and when it should be used? - StackOverflow](http://stackoverflow.com/questions/25732386/what-is-stddecay-and-when-it-should-be-used)
+- [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
+- [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 

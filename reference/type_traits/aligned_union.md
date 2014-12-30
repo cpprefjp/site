@@ -7,6 +7,9 @@ namespace std {
     typedef … type;
 	static constexpr std::size_t alignment_value = …;
   };
+
+  template <std::size_t Len, class... Types>
+  using aligned_union_t = typename aligned_union<Len,Types...>::type; // C++14
 }
 ```
 
@@ -69,4 +72,6 @@ hello
 
 ##参照
 - [N1877 Adding Alignment Support to the C++ Programming Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1877.pdf)
+- [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
+- [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 

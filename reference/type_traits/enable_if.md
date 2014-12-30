@@ -3,6 +3,9 @@
 namespace std {
   template <bool Condition, class T = void>
   struct enable_if;
+
+  template <bool Condition, class T = void>
+  using enable_if_t = typename enable_if<Condition,T>::type; // C++14
 }
 ```
 
@@ -56,4 +59,8 @@ Tは整数型以外
 - [GCC, C++0x mode](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+##参照
+- [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
+- [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 

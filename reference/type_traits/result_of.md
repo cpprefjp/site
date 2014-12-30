@@ -7,6 +7,9 @@ namespace std {
   class result_of<F(ArgTypes...)> {
     typedef … type;
   };
+
+  template <class T>
+  using result_of_t = typename result_of<T>::type;
 }
 ```
 
@@ -123,4 +126,6 @@ Hello World
 - [N1437 A uniform method for computing function object return types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1437.html)
 - [N1454 A uniform method for computing function object return types (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1454.html)
 - [Bringing result_of near to INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3123.html)
+- [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
+- [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 

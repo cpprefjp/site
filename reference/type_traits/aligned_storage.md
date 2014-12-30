@@ -6,6 +6,10 @@ namespace std {
   struct aligned_storage {
     typedef … type;
   };
+
+  template <std::size_t Len,
+            std::size_t Align = default-alignment>
+  using aligned_storage_t = typename aligned_storage<Len,Align>::type; // C++14
 }
 ```
 * default-alignment[italic]
@@ -90,4 +94,8 @@ int main()
 - [GCC, C++0x mode](/implementation.md#gcc): 4.5.4
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+##参照
+- [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
+- [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 
