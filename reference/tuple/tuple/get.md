@@ -2,17 +2,34 @@
 ```cpp
 namespace std {
   template <size_t I, class... Types>
-  typename tuple_element<I, tuple<Types...> >::type& get(tuple<Types...>& t) noexcept;
-
-  template <size_t I, class... types>
-  typename tuple_element<I, tuple<Types...> >::type&& get(tuple<Types...>&& t) noexcept;
+  typename tuple_element<I, tuple<Types...> >::type&
+    get(tuple<Types...>& t) noexcept;                      // (1) C++11
 
   template <size_t I, class... Types>
-  typename tuple_element<I, tuple<Types...> >::type const& get(const tuple<Types...>& t) noexcept;
+  constexpr tuple_element_t<I, tuple<Types...>>&
+    get(tuple<Types...>&) noexcept;                        // (1) C++14
+
+  template <size_t I, class... types>
+  typename tuple_element<I, tuple<Types...> >::type&&
+    get(tuple<Types...>&& t) noexcept;                     // (2) C++11
+
+  template <size_t I, class... Types>
+  constexpr tuple_element_t<I, tuple<Types...>>&&
+    get(tuple<Types...>&&) noexcept;                       // (2) C++14
+
+  template <size_t I, class... Types>
+  typename tuple_element<I, tuple<Types...> >::type const&
+    get(const tuple<Types...>& t) noexcept;                // (3) C++11
+
+  template <size_t I, class... Types>
+  constexpr const tuple_element_t<I, tuple<Types...>>&
+    get(const tuple<Types...>&) noexcept;                  // (3) C++14
 }
 ```
 * tuple_element[link ../tuple_element.md]
+* tuple_element_t[link ../tuple_element.md]
 * tuple[link ../tuple.md]
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 `tuple`オブジェクトから指定した位置の要素を取得する。
@@ -72,3 +89,5 @@ hello
 
 
 ##参照
+- [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
+

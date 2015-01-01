@@ -1,21 +1,35 @@
 #get (C++11)
 ```cpp
 namespace std {
-  template<size_t I, class T1, class T2>
+  template <size_t I, class T1, class T2>
   typename tuple_element<I, pair<T1, T2>>::type&
-      get(pair<T1, T2>& x) noexcept;
+    get(pair<T1, T2>& x) noexcept;                     // (1) C++11
 
-  template<size_t I, class T1, class T2>
+  template <size_t I, class T1, class T2>
+  constexpr tuple_element_t<I, pair<T1, T2>>&
+    get(pair<T1, T2>&) noexcept;                       // (1) C++14
+
+  template <size_t I, class T1, class T2>
   typename tuple_element<I, pair<T1, T2>>::type&&
-      get(pair<T1, T2>&& x) noexcept;
+    get(pair<T1, T2>&& x) noexcept;                    // (2) C++11
 
-  template<size_t I, class T1, class T2>
+  template <size_t I, class T1, class T2>
+  constexpr tuple_element_t<I, pair<T1, T2>>&&
+    get(pair<T1, T2>&&) noexcept;                      // (2) C++14
+
+  template <size_t I, class T1, class T2>
   const typename tuple_element<I, pair<T1, T2>>::type&
-      get(const pair<T1, T2>& x) noexcept;
+    get(const pair<T1, T2>& x) noexcept;               // (3) C++11
+
+  template <size_t I, class T1, class T2>
+  constexpr const tuple_element_t<I, pair<T1, T2>>&
+    get(const pair<T1, T2>&) noexcept;                 // (3) C++14
 }
 ```
 * tuple_element[link /reference/utility/tuple_element.md]
+* tuple_element_t[link /reference/utility/tuple_element.md]
 * pair[link /reference/utility/pair.md]
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 タプルと見なせる型から指定した位置の要素を取得する。
@@ -76,5 +90,5 @@ a
 
 ##参照
 - [`get - <tuple>`](/reference/tuple/tuple/get.md)
-
+- [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
 
