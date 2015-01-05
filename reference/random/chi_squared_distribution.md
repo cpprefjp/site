@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-`chi_squared_distribution`は、乱数をカイ二乗分布(χ二乗分布)させるクラスである。以下の密度関数に基いて、浮動小数点数の乱数を生成する。  
+`chi_squared_distribution`は、乱数をカイ二乗分布(χ二乗分布、χ²分布)させるクラスである。以下の密度関数に基いて、浮動小数点数の乱数を生成する。  
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_square.png)
 
@@ -17,6 +17,8 @@ namespace std {
 カイ二乗分布は、以下のような用途に使用できる：
 
 - 赤玉20個、白玉20個が混ざった箱から、20個の玉を取り出す。その際の、期待値(赤玉10個、白玉10個)からのずれの度合いを判定する。
+- 異なる世代で、1ヶ月に利用する携帯電話の利用時間に差が出るか判定する。
+- これらの用途を一般化すると、χ²検定(chi-square test)やフリードマン検定(Friedman test)といった科学的検定に分類される。
 
 上記の例では、自由度は1となる(玉の種類(2) - 1)。玉の種類が3の場合は自由度2になる。
 
