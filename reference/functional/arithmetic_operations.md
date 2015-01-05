@@ -49,26 +49,27 @@ namespace std {
 算術演算を提供する関数オブジェクト群。これらは一切のメンバ変数を持たず、状態を保持しない。
 
 
-###メンバ関数
+##メンバ関数
 
-| | |
-|----------------------------------------|--------------------------------|
-| `plus<T>::operator()` | `x + y` と等価 |
-| `minus<T>::operator()` | `x - y` と等価 |
+| 名前 | 説明 |
+|-----------------------------|----------------|
+| `plus<T>::operator()`       | `x + y` と等価 |
+| `minus<T>::operator()`      | `x - y` と等価 |
 | `multiplies<T>::operator()` | `x * y` と等価 |
-| `divides<T>::operator()` | `x / y` と等価 |
-| `modulus<T>::operator()` | `x % y` と等価  |
-| `negate<T>::operator()` | `-x` と等価  |
+| `divides<T>::operator()`    | `x / y` と等価 |
+| `modulus<T>::operator()`    | `x % y` と等価 |
+| `negate<T>::operator()`     | `-x` と等価  |
 
-###メンバ型
+##メンバ型
 
-| | |
-|-------------------------------------------------|-------------------------|
+| 名前  | 説明 |
+|--------------------------------------|-------------------------|
 | `first_argument_type, argument_type` | `T`と等価 |
-| `second_argument_type` | `T`と等価 |
-| `result_type` | `T`と等価 |
+| `second_argument_type`               | `T`と等価 |
+| `result_type`                        | `T`と等価 |
 
-###例
+
+##例
 ```cpp
 #include <iostream>
 #include <functional>

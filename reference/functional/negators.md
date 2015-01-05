@@ -53,27 +53,34 @@ namespace std {
 - 型`Pred`に`first_argument_type`、`second_argument_type`という nested typedef が存在すること
 - 型`Pred`への`const`参照`pred`に対して、式 `(bool)pred(x, y)` が有効であること。ただし `x` と `y` は、それぞれ `first_argument_type` と `second_argument_type` への `const` 参照。メンバ関数
 
-| | |
-|----------------------------------------------|------------------------------------|
-| `unary_negate<Pred>::operator()` | `!pred(x)` と等価 |
+
+##メンバ関数
+
+| 名前 | 説明 |
+|-----------------------------------|------------------------------------|
+| `unary_negate<Pred>::operator()`  | `!pred(x)` と等価 |
 | `binary_negate<Pred>::operator()` | `!pred(x, y)` と等価 |
 
-###メンバ型
 
-| | |
-|-----------------------------------|------------------------------------------------------------------------------------------------|
-| `argument_type` | (`unary_negate`のみ) `typename Pred::argument_type` と等価 |
-| `first_argument_type` | (`binary_negate`のみ) `typename Pred::first_argument_type` と等価 |
-| `second_argument_type` | (`binary_negate`のみ) `typename Pred::second_argument_type` と等価<br/> |
-| `result_type` | `bool` |
-フリー関数 
+##メンバ型
 
-| | |
-|-------------------------------------|--------------------------------------------------------------|
-| `not1(const Pred& pred)` | `unary_negate<Pred>(pred)` を構築して返す |
+| 名前 | 説明 |
+|------------------------|-------------------------------------------------------------------------|
+| `argument_type`        | (`unary_negate`のみ) `typename Pred::argument_type` と等価 |
+| `first_argument_type`  | (`binary_negate`のみ) `typename Pred::first_argument_type` と等価 |
+| `second_argument_type` | (`binary_negate`のみ) `typename Pred::second_argument_type` と等価 |
+| `result_type`          | `bool` |
+
+
+##非メンバ関数
+
+| 名前 | 説明 |
+|--------------------------|--------------------------------------------|
+| `not1(const Pred& pred)` | `unary_negate<Pred>(pred)` を構築して返す  |
 | `not2(const Pred& pred)` | `binary_negate<Pred>(pred)` を構築して返す |
 
-###例
+
+##例
 ```cpp
 #include <iostream>
 #include <functional>
