@@ -3,43 +3,43 @@
 namespace std {
   template <typename T>
   struct plus {
-    T operator ()(const T &x, const T &y) const;           // C++98
-    constexpr T operator ()(const T &x, const T &y) const; // C++14
+    T operator ()(const T& x, const T& y) const;           // C++98
+    constexpr T operator ()(const T& x, const T& y) const; // C++14
     typedef T first_argument_type, second_argument_type, result_type;
   };
 
   template <typename T>
   struct minus {
-    T operator ()(const T &x, const T &y) const;           // C++98
-    constexpr T operator ()(const T &x, const T &y) const; // C++14
+    T operator ()(const T& x, const T& y) const;           // C++98
+    constexpr T operator ()(const T& x, const T& y) const; // C++14
     typedef T first_argument_type, second_argument_type, result_type;
   };
 
   template <typename T>
   struct multiplies {
-    T operator ()(const T &x, const T &y) const;           // C++98
-    constexpr T operator ()(const T &x, const T &y) const; // C++14
+    T operator ()(const T& x, const T& y) const;           // C++98
+    constexpr T operator ()(const T& x, const T& y) const; // C++14
     typedef T first_argument_type, second_argument_type, result_type;
   };
 
   template <typename T>
   struct divides {
-    T operator ()(const T &x, const T &y) const;           // C++98
-    constexpr T operator ()(const T &x, const T &y) const; // C++14
+    T operator ()(const T& x, const T& y) const;           // C++98
+    constexpr T operator ()(const T& x, const T& y) const; // C++14
     typedef T first_argument_type, second_argument_type, result_type;
   };
 
   template <typename T>
   struct modulus {
-    T operator ()(const T &x, const T &y) const;           // C++98
-    constexpr T operator ()(const T &x, const T &y) const; // C++14
+    T operator ()(const T& x, const T& y) const;           // C++98
+    constexpr T operator ()(const T& x, const T& y) const; // C++14
     typedef T first_argument_type, second_argument_type, result_type;
   };
 
   template <typename T>
   struct negate {
-    T operator ()(const T &x) const;           // C++98
-    constexpr T operator ()(const T &x) const; // C++14
+    T operator ()(const T& x) const;           // C++98
+    constexpr T operator ()(const T& x) const; // C++14
     typedef T argument_type, result_type;
   };
 }
@@ -79,6 +79,9 @@ int main()
   std::cout << std::plus<int>()(3, 5) << std::endl;
 }
 ```
+* iostream[link ../iostream.md]
+* functional[link ../functional.md]
+* plus[color ff0000]
 
 ###出力
 ```
