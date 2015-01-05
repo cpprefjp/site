@@ -11,7 +11,7 @@
 
 
 ##プラットフォーム
-- [Microsoft Visual C++で使用できるロケール文字列](./article/platform/locales.md)
+- [使用できるロケール文字列](./article/platform/locales.md)
 
 
 ##方針
