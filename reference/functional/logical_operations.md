@@ -3,21 +3,24 @@
 namespace std {
   template <typename T>
   struct logical_and {
-    bool operator ()(const T& x, const T& y) const;
+    bool operator ()(const T& x, const T& y) const;           // C++98
+    constexpr bool operator ()(const T& x, const T& y) const; // C++14
     typedef T first_argument_type, second_argument_type;
     typedef bool result_type;
   };
 
   template <typename T>
   struct logical_or {
-    bool operator ()(const T& x, const T& y) const;
+    bool operator ()(const T& x, const T& y) const;           // C++98
+    constexpr bool operator ()(const T& x, const T& y) const; // C++14
     typedef T first_argument_type, second_argument_type;
     typedef bool result_type;
   };
 
   template <typename T>
   struct logical_not {
-    bool operator ()(const T& x) const;
+    bool operator ()(const T& x) const;           // C++98
+    constexpr bool operator ()(const T& x) const; // C++14
     typedef T argument_type;
     typedef bool result_type;
   };
@@ -60,4 +63,7 @@ int main()
 ```
 true
 ```
+
+##参照
+- [N3789 Constexpr Library Additions: functional](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3789.htm)
 

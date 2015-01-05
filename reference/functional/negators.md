@@ -3,26 +3,41 @@
 namespace std {
   template <typename Pred>
   struct unary_negate {
-    explicit unary_negate(const Pred &pred);
-    bool operator()(const typename Pred::argument_type &x) const;
+    explicit unary_negate(const Pred &pred);           // C++98
+    explicit constexpr unary_negate(const Pred &pred); // C++14
+    bool operator()(const typename Pred::argument_type &x) const;           // C++98
+    constexpr bool operator()(const typename Pred::argument_type &x) const; // C++14
     typedef typename Pred::argument_type argument_type;
     typedef bool result_type;
   };
 
   template <typename Pred>
-  unary_negate<Pred> not1(const Pred &pred);
+  unary_negate<Pred> not1(const Pred &pred);           // C++98
+
+  template <typename Pred>
+  constexpr unary_negate<Pred> not1(const Pred &pred); // C++14
 
   template <typename Pred>
   struct binary_negate {
-    explicit binary_negate(const Pred &pred);
-    bool operator()(const typename Pred::first_argument_type &x, const typename Pred::second_argument_type &y) const;
+    explicit binary_negate(const Pred &pred);           // C++98
+    explicit constexpr binary_negate(const Pred &pred); // C++14
+    bool operator()(
+             const typename Pred::first_argument_type &x,
+             const typename Pred::second_argument_type &y) const; // C++98
+    constexpr bool operator()(
+             const typename Pred::first_argument_type &x,
+             const typename Pred::second_argument_type &y) const; // C++14
+
     typedef typename Pred::first_argument_type first_argument_type;
     typedef typename Pred::second_argument_type second_argument_type;
     typedef bool result_type;
   };
 
   template <typename Pred>
-  binary_negate<Pred> not2(const Pred &pred);
+  binary_negate<Pred> not2(const Pred &pred); // C++98
+
+  template <typename Pred>
+  binary_negate<Pred> not2(const Pred &pred); // C++14
 }
 ```
 
@@ -73,4 +88,7 @@ int main()
 ```
 false
 ```
+
+##参照
+- [N3789 Constexpr Library Additions: functional](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3789.htm)
 

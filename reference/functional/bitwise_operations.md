@@ -3,19 +3,22 @@
 namespace std {
   template <typename T>
   struct bit_and {
-    T operator ()(const T &x, const T &y) const;
+    T operator ()(const T &x, const T &y) const;           // C++98
+    constexpr T operator ()(const T &x, const T &y) const; // C++14
     typedef T first_argument_type, second_argument_type, result_type;
   };
 
   template <typename T>
   struct bit_or {
-    T operator ()(const T &x, const T &y) const;
+    T operator ()(const T &x, const T &y) const;           // C++98
+    constexpr T operator ()(const T &x, const T &y) const; // C++14
     typedef T first_argument_type, second_argument_type, result_type;
   };
 
   template <typename T>
   struct bit_xor {
-    T operator ()(const T &x, const T &y) const;
+    T operator ()(const T &x, const T &y) const;           // C++98
+    constexpr T operator ()(const T &x, const T &y) const; // C++14
     typedef T first_argument_type, second_argument_type, result_type;
   };
 
@@ -51,4 +54,7 @@ std::cout << "0x" << std::hex << std::bit_and<int>()(0xFA, 0x47) << std::endl;
 ```
 0x42
 ```
+
+##参照
+- [N3789 Constexpr Library Additions: functional](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3789.htm)
 
