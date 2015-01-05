@@ -4,7 +4,7 @@ namespace std {
   template <class F, class... BoundArgs>
   unspecified bind(F&& f, BoundArgs&&... bound_args);
 
-  template <class R, class F, class ...BoundArgs>
+  template <class R, class F, class... BoundArgs>
   unspecified bind(F&& f, BoundArgs&&... bound_args);
 }
 ```
@@ -23,7 +23,7 @@ namespace std {
 struct bound_function_type {
   typedef unspecified result_type;
   template <class... UnBoundArgs>
-  unspecified operator ()(UnBoundArgs &&... unbound_args) const;
+  unspecified operator ()(UnBoundArgs&&... unbound_args) const;
 };
 ```
 * bound_function_type [italic]
@@ -61,7 +61,11 @@ int main()
   std::cout << result << std::endl;
 }
 ```
+* iostream[link ../iostream.md]
+* functional[link ../functional.md]
 * bind[color ff0000]
+* function[link function.md]
+* placeholders[link placeholders.md]
 
 ###出力
 ```
