@@ -4,7 +4,7 @@
 
 - [言語サポートライブラリ](#language-support)
 - [診断ライブラリ](#diagnostics)
-- [一般的なユーティリティライブラリ](#general-utils)
+- [汎用的なユーティリティライブラリ](#general-utils)
 - [文字列ライブラリ](#strings)
 - [ローカライズライブラリ](#localization)
 - [コンテナライブラリ](#container)
@@ -36,7 +36,7 @@
 | [`<system_error>`](/reference/system_error.md) | システムエラーサポート        | C++11          |
 
 
-## <a name="general-utils" href="#general-utils">一般的なユーティリティライブラリ</a>
+## <a name="general-utils" href="#general-utils">汎用的なユーティリティライブラリ</a>
 
 | ヘッダ                                       | 説明                         | 対応バージョン |
 |----------------------------------------------|------------------------------|----------------|
