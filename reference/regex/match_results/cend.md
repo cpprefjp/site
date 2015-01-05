@@ -64,3 +64,6 @@ str() = 'defgh', range = [10, 15), matched = true
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+###備考
+GCC(libstdc++) のバージョン 4.9.1 までは、`cend` が誤ったイテレータを返す。これは 4.9.2 以降で修正される予定である。
