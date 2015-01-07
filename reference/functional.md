@@ -61,7 +61,7 @@ struct doubler {
 | [`multiplies`](./functional/multiplies.md) | 乗算(class template) | |
 | [`divides`](./functional/divides.md)       | 除算(class template) | |
 | [`modulus`](./functional/modulus.md)       | 剰余算(class template) | |
-| [`negate`](./functional/nagate.md)         | 符号反転(class template) | |
+| [`negate`](./functional/negate.md)         | 符号反転(class template) | |
 
 
 ##比較演算関数オブジェクト
