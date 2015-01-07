@@ -47,7 +47,6 @@ namespace std {
 |------------------------|--------------------------------|----------------|
 | `first_argument_type`  | `operator()` の最初の引数の型。`T` と等価（`T` が `void` 以外の場合のみ）  | C++11 |
 | `second_argument_type` | `operator()` の２番目の引数の型。`T` と等価（`T` が `void` 以外の場合のみ）| C++11 |
-| `argument_type`        | `operator()` の引数の型。`T` と等価（`T` が `void` 以外の場合のみ          | C++14 |
 | `result_type`          | `operator()` の戻り値の型。`T` と等価（`T` が `void` 以外の場合のみ）      | C++11 |
 | `is_transparent`       | `operator()` が関数テンプレートである事を示すタグ型。<br/>実装依存の型であるがあくまでタグ型であり、型そのものには意味はない。（`T` が `void` の場合のみ） | C++14          |
 
