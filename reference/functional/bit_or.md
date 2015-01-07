@@ -20,7 +20,7 @@ namespace std {
   struct bit_or<void> {
     template <typename T, typename U>
     constexpr auto operator()(const T& t, const U& u) const
-      -> decltype(forward<T>(t) & forward<U>(u));
+      -> decltype(forward<T>(t) | forward<U>(u));
     typedef unspecified is_transparent;
   };
 }
