@@ -55,13 +55,13 @@ struct doubler {
 ##算術演算関数オブジェクト
 
 | 名前 | 説明 | 対応バージョン |
-|-------------------------------------------------------|----------------------|-------|
-| [`plus`](./functional/arithmetic_operations.md)       | 加算(class template) | |
-| [`minus`](./functional/arithmetic_operations.md)      | 減算(class template) | |
-| [`multiplies`](./functional/arithmetic_operations.md) | 乗算(class template) | |
-| [`divides`](./functional/arithmetic_operations.md)    | 除算(class template) | |
-| [`modulus`](./functional/arithmetic_operations.md)    | 剰余算(class template) | |
-| [`negate`](./functional/arithmetic_operations.md)     | 符号反転(class template) | |
+|--------------------------------------------|----------------------|-------|
+| [`plus`](./functional/plus.md)             | 加算(class template) | |
+| [`minus`](./functional/minus.md)           | 減算(class template) | |
+| [`multiplies`](./functional/multiplies.md) | 乗算(class template) | |
+| [`divides`](./functional/divides.md)       | 除算(class template) | |
+| [`modulus`](./functional/modulus.md)       | 剰余算(class template) | |
+| [`negate`](./functional/nagate.md)         | 符号反転(class template) | |
 
 
 ##比較演算関数オブジェクト
