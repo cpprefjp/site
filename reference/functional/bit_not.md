@@ -4,7 +4,8 @@ namespace std {
   template <typename T = void>
   struct bit_not {
     constexpr T operator()(const T& x) const;
-    typedef T argument_type, result_type;
+    typedef T argument_type;
+	typedef T result_type;
   };
 
   template <>

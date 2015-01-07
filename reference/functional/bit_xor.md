@@ -5,14 +5,18 @@ namespace std {
   template <typename T>
   struct bit_xor {
     T operator()(const T& x, const T& y) const;
-    typedef T first_argument_type, second_argument_type, result_type;
+    typedef T first_argument_type;
+	typedef T second_argument_type;
+	typedef T result_type;
   };
 
   // C++14 から（operator() が constexpr、テンプレート引数にデフォルトが指定された）
   template <typename T = void>
   struct bit_xor {
     constexpr T operator()(const T& x, const T& y) const;
-    typedef T first_argument_type, second_argument_type, result_type;
+    typedef T first_argument_type;
+	typedef T second_argument_type;
+	typedef T result_type;
   };
 
   // テンプレート引数が void（デフォルト）の場合の特殊化（operator() が関数テンプレート）
