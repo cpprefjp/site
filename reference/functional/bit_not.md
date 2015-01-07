@@ -49,10 +49,10 @@ namespace std {
 
 int main()
 {
-  // テンプレート引数で operator() の引数の型を指定した書き方（C++11 でも使用可能）
+  // テンプレート引数で operator() の引数の型を指定した書き方
   std::cout << "0x" << std::hex << std::bit_not<int>()(0xFA) << std::endl;
 
-  // テンプレート引数で operator() の引数の型を指定しない書き方（C++14 以降で使用可能）
+  // テンプレート引数で operator() の引数の型を指定しない書き方
   std::cout << "0x" << std::hex << std::bit_not<>()(0xFA) << std::endl;
 }
 ```
