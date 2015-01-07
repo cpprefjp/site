@@ -87,12 +87,12 @@ struct doubler {
 
 ##ビット演算関数オブジェクト
 
-| 名前                                            | 説明                                           | 対応バージョン |
-|-------------------------------------------------|------------------------------------------------|----------------|
-| [`bit_and`](./functional/bitwise_operations.md) | ビットごとの論理積(AND) (class template)       | C++11          |
-| [`bit_or`](./functional/bitwise_operations.md)  | ビットごとの論理和(OR) (class template)        | C++11          |
-| [`bit_xor`](./functional/bitwise_operations.md) | ビットごとの排他的論理和(XOR) (class template) | C++11          |
-| [`bit_not`](./functional/bitwise_operations.md) | ビットごとの論理否定(NOT) (class template)     | C++14          |
+| 名前                                            | 説明                                | 対応バージョン |
+|-------------------------------------------------|-------------------------------------|----------------|
+| [`bit_and`](./functional/bit_and.md) | ビットごとの論理積(AND) (class template)       | C++11          |
+| [`bit_or`](./functional/bit_or.md)   | ビットごとの論理和(OR) (class template)        | C++11          |
+| [`bit_xor`](./functional/bit_xor.md) | ビットごとの排他的論理和(XOR) (class template) | C++11          |
+| [`bit_not`](./functional/bit_not.md) | ビットごとの論理否定(NOT) (class template)     | C++14          |
 
 
 ##論理反転関数オブジェクト
