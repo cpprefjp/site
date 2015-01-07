@@ -67,6 +67,17 @@ int main()
 0xffffff05
 ```
 
+##バージョン
+###言語
+- C++14
+
+###処理系
+- [Clang, C++14 mode](/implementation.md#clang): 3.4
+- [GCC, C++14 mode](/implementation.md#gcc): 4.9
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp) ??
+
+
 ##参照
 - [N3421 Making Operator Functors greater<>](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3421.htm)
 - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
