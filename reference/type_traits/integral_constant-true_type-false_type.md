@@ -8,7 +8,8 @@ namespace std {
     typedef T value_type;
     typedef integral_constant<T,v> type;
 
-    constexpr operator value_type() { return value; }
+    constexpr operator value_type()          { return value; } // C++11
+    constexpr operator value_type() noexcept { return value; } // C++14
 
     constexpr value_type operator()() const noexcept { return value; } // C++14
   };
@@ -64,4 +65,6 @@ int main(){}
 
 
 ##参照
-- [N3545 An Incremental Improvement to integral_constant](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3545.pdf)
+- [N3545 An Incremental Improvement to `integral_constant`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3545.pdf)
+- [LWG defects 2346. `integral_constant`'s member functions should be marked `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2346)
+
