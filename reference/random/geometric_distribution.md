@@ -10,6 +10,8 @@ namespace std {
 `geometric_distribution`は、離散確率分布の一種である幾何分布を表すクラスである。  
 このクラスは、ベルヌーイ分布([`bernoulli_distribution`](./bernoulli_distribution.md))を施行し、初めて成功するまでに何回失敗したかを取得する。これは、[`negative_binomial_distribution`](./negative_binomial_distribution.md)`<IntType>(1, p)`と同じである。
 
+幾何分布は、無記憶性(memoryless)という性質を持つ。これにより、施行の結果が次の結果(確率)に影響せず、それぞれが独立した結果となる。
+
 
 幾何分布は、以下のような用途で使用できる：
 
