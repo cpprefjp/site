@@ -1,6 +1,7 @@
 #size (C++11)
 ```cpp
-constexpr size_type size() noexcept;
+constexpr size_type size() noexcept;       // C++11
+constexpr size_type size() const noexcept; // C++14
 ```
 
 ##概要
@@ -53,4 +54,5 @@ int main()
 
 
 ##参照
+- [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
 

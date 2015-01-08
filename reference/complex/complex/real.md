@@ -50,8 +50,14 @@ int main()
 
 
 ##参照
-|                    |                                  |
+- [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
+
+
+##関連項目
+
+| 名前               | 説明                             |
 |--------------------|----------------------------------|
 |[`imag`](imag.md)   | 虚部を取得、あるいは、設定する。 |
 |[`real`](../real.md)| 実部を取得する。（非メンバ関数） |
 |[`imag`](../imag.md)| 虚部を取得する。（非メンバ関数） |
+

@@ -1,6 +1,7 @@
 #empty (C++11)
 ```cpp
-constexpr bool empty() noexcept;
+constexpr bool empty() noexcept;       // C++11
+constexpr bool empty() const noexcept; // C++14
 ```
 
 ##概要
@@ -57,5 +58,5 @@ empty_array : true
 
 
 ##参照
-
+- [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
 

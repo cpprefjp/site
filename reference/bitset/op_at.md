@@ -1,7 +1,8 @@
 #operator[]
 ```cpp
 bool operator[](size_t pos) const;           // (1) C++03
-constexpr bool operator[](size_t pos) const; // (1) C++11
+constexpr bool operator[](size_t pos);       // (1) C++11
+constexpr bool operator[](size_t pos) const; // (1) C++14
 
 reference operator[](size_t pos);            // (2)
 ```
@@ -51,4 +52,5 @@ false
 
 
 ##参照
+- [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
 
