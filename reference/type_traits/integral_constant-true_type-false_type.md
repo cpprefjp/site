@@ -9,6 +9,8 @@ namespace std {
     typedef integral_constant<T,v> type;
 
     constexpr operator value_type() { return value; }
+
+    constexpr value_type operator()() const noexcept { return value; } // C++14
   };
 
   typedef integral_constant<bool, true> true_type;
@@ -60,3 +62,6 @@ int main(){}
 ####備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](./integral_constant-true_type-false_type.md) が `operator value_type()` を持っていないためエラーになる。
 
+
+##参照
+- [N3545 An Incremental Improvement to integral_constant](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3545.pdf)
