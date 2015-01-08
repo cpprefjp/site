@@ -67,13 +67,13 @@ struct doubler {
 ##比較演算関数オブジェクト
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------------------------|--------------------------|-------|
-| [`equal_to`](./functional/comparisons.md)      | 等値比較(class template) | |
-| [`not_equal_to`](./functional/comparisons.md)  | 非等値比較(class template) | |
-| [`less`](./functional/comparisons.md)          | 左辺が右辺より小さいかの比較(class template) | |
-| [`less_equal`](./functional/comparisons.md)    | 左辺が右辺以下かの比較(class template) | |
-| [`greater`](./functional/comparisons.md)       | 左辺が右辺より大きいかの比較(class template) | |
-| [`greater_equal`](./functional/comparisons.md) | 左辺が右辺以上かの比較(class template) | |
+|--------------------------------------------------|--------------------------|-------|
+| [`equal_to`](./functional/equal_to.md)           | 等値比較(class template) | |
+| [`not_equal_to`](./functional/not_equal_to.md)   | 非等値比較(class template) | |
+| [`less`](./functional/less.md)                   | 左辺が右辺より小さいかの比較(class template) | |
+| [`less_equal`](./functional/less_equal.md)       | 左辺が右辺以下かの比較(class template) | |
+| [`greater`](./functional/greater.md)             | 左辺が右辺より大きいかの比較(class template) | |
+| [`greater_equal`](./functional/greater_equal.md) | 左辺が右辺以上かの比較(class template) | |
 
 
 ##論理演算関数オブジェクト
