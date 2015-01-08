@@ -79,10 +79,10 @@ struct doubler {
 ##論理演算関数オブジェクト
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------------------------------------------|--------------------------|-------|
-| [`logical_and`](./functional/logical_operations.md) | 論理積(AND) (class template) | |
-| [`logical_or`](./functional/logical_operations.md)  | 論理和(OR) (class template) | |
-| [`logical_not`](./functional/logical_operations.md) | 論理否定 (class template) | |
+|----------------------------------------------|--------------------------|-------|
+| [`logical_and`](./functional/logical_and.md) | 論理積(AND) (class template) | |
+| [`logical_or`](./functional/logical_or.md)   | 論理和(OR) (class template) | |
+| [`logical_not`](./functional/logical_not.md) | 論理否定 (class template) | |
 
 
 ##ビット演算関数オブジェクト
