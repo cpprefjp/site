@@ -2,13 +2,28 @@
 ```cpp
 namespace std {
   template <class T>
-  bool operator==(const complex<T>& lhs, const complex<T>& rhs);
+  bool operator==(const complex<T>& lhs,
+                  const complex<T>& rhs);           // (1) C++03
 
   template <class T>
-  bool operator==(const complex<T>& lhs, const T& rhs);
+  constexpr bool operator==(const complex<T>& lhs,
+                            const complex<T>& rhs); // (1) C++14
 
   template <class T>
-  bool operator==(const T& lhs, const complex<T>& rhs);
+  bool operator==(const complex<T>& lhs,
+                  const T& rhs);                    // (2) C++03
+
+  template <class T>
+  constexpr bool operator==(const complex<T>& lhs,
+                            const T& rhs);          // (2) C++14
+
+  template <class T>
+  bool operator==(const T& lhs,
+                  const complex<T>& rhs);           // (3) C++03
+
+  template <class T>
+  constexpr bool operator==(const T& lhs,
+                            const complex<T>& rhs); // (3) C++14
 }
 ```
 
@@ -52,10 +67,15 @@ int main()
 4 == (1,4):false
 ```
 
-
 ##参照
-|                                 |                                                |
+- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
+
+
+##関連項目
+
+| 名前                            | 説明                                           |
 |---------------------------------|------------------------------------------------|
 | [`operator!=`](op_not_equal.md) | 非等値比較を行う。                             |
 | [`real`](complex/real.md)       | 実部を取得、あるいは、設定する。（メンバ関数） |
 | [`imag`](complex/imag.md)       | 虚部を取得、あるいは、設定する。（メンバ関数） |
+

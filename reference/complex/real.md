@@ -77,7 +77,12 @@ int main()
 
 
 ##参照
-|                                    |                                                |
+- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
+
+
+##関連項目
+
+| 名前                               | 説明                                           |
 |------------------------------------|------------------------------------------------|
 | [`real`](complex/real.md)          | 実部を取得、あるいは、設定する。（メンバ関数） |
 | [`imag`](complex/imag.md)          | 虚部を取得、あるいは、設定する。（メンバ関数） |

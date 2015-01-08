@@ -1,52 +1,52 @@
 #コンストラクタ
 ```cpp
 complex(const T& re = T(), const T& im = T());            // (1) C++03
-constexpr complex(const T& re = T(), const T& im = T());  // (1) C++11
+constexpr complex(const T& re = T(), const T& im = T());  // (1) C++14
 
 complex(const complex& other);                            // (2) C++03
-constexpr complex(const complex& other);                  // (2) C++11
+constexpr complex(const complex& other);                  // (2) C++14
 
 template <class X>
 complex(const complex<X>& other);                         // (3) C++03
 
 template <class X>
-constexpr complex(const complex<X>& other);               // (3) C++11
+constexpr complex(const complex<X>& other);               // (3) C++14
 ```
 
 ###float 特殊化
 ```cpp
 complex(const float& re = 0.0f, const float& im = 0.0f);			// (1) C++03
-constexpr complex(const float& re = 0.0f, const float& im = 0.0f);	// (1) C++11
+constexpr complex(const float& re = 0.0f, const float& im = 0.0f);	// (1) C++14
 
 explicit complex(const complex<double>& other);						// (3)' C++03
-explicit constexpr complex(const complex<double>& other);			// (3)' C++11
+explicit constexpr complex(const complex<double>& other);			// (3)' C++14
 
 explicit complex(const complex<long double>& other);				// (3)' C++03
-explicit constexpr complex(const complex<long double>& other);		// (3)' C++11
+explicit constexpr complex(const complex<long double>& other);		// (3)' C++14
 ```
 
 ###double 特殊化
 ```cpp
 complex(const double& re = 0.0, const double& im = 0.0);			// (1) C++03
-constexpr complex(const double& re = 0.0, const double& im = 0.0);	// (1) C++11
+constexpr complex(const double& re = 0.0, const double& im = 0.0);	// (1) C++14
 
 complex(const complex<float>& other);								// (3)' C++03
-constexpr complex(const complex<float>& other);						// (3)' C++11
+constexpr complex(const complex<float>& other);						// (3)' C++14
 
 explicit complex(const complex<long double>& other);				// (3)' C++03
-explicit constexpr complex(const complex<long double>& other);		// (3)' C++11
+explicit constexpr complex(const complex<long double>& other);		// (3)' C++14
 ```
 
 ###long double 特殊化
 ```cpp
 complex(const long double& re = 0.0L, const long double& im = 0.0L);			// (1) C++03
-constexpr complex(const long double& re = 0.0L, const long double& im = 0.0L);	// (1) C++11
+constexpr complex(const long double& re = 0.0L, const long double& im = 0.0L);	// (1) C++14
 
 complex(const complex<float>& other);											// (3)' C++03
-constexpr complex(const complex<float>& other);									// (3)' C++11
+constexpr complex(const complex<float>& other);									// (3)' C++14
 
 complex(const complex<double>& other);											// (3)' C++03
-constexpr complex(const complex<double>& other);								// (3)' C++11
+constexpr complex(const complex<double>& other);								// (3)' C++14
 ```
 
 ##complexオブジェクトの構築
@@ -109,6 +109,10 @@ c4 : (1,2)
 
 
 ##参照
+- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
+
+
+##関連項目
 
 | 名前             | 説明                             |
 |------------------|----------------------------------|
