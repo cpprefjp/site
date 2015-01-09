@@ -22,12 +22,18 @@ durationの乗算を行う
 
 ##要件
 右辺の`Rep2`型は、`Rep1`に変換可能でなければならない。
+
 変換できない型の場合は、この関数はオーバーロードから除外される。
 
 
 ##戻り値
-`typedef `[`duration`](/reference/chrono/duration.md)`<typename common_type<Rep1, Rep2>::type, Period> cd;`
-`cd(cd(d).`[`count`](/reference/chrono/duration/count.md)`() * s)`
+```cpp
+typedef duration<typename common_type<Rep1, Rep2>::type, Period> cd;
+return cd(cd(d).count() * s);
+```
+* duration[link /reference/chrono/duration.md]
+* common_type[link /reference/type_traits/common_type.md]
+* count[link /reference/chrono/duration/count.md]
 
 ##例
 ```cpp
