@@ -35,7 +35,8 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------|--------------------------------------------------------|-------|
-| `is_steady` | 逆行しないクロックかどうかを表す`bool`値。値は未規定。 | C++11 |
+| `static const bool is_steady`     | 逆行しないクロックかどうかを表す`bool`値。値は未規定。 | C++11まで |
+| `static constexpr bool is_steady` | 逆行しないクロックかどうかを表す`bool`値。値は未規定。 | C++14から |
 
 
 ##例
@@ -68,4 +69,7 @@ Tue Oct 16 15:00:08 2012
 ###処理系
 - [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
 
+
+##参照
+- [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 
