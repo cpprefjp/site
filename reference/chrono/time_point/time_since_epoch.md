@@ -1,6 +1,7 @@
 #time_since_epoch (C++11)
 ```cpp
-duration time_since_epoch() const;
+duration time_since_epoch() const;           // C++11
+constexpr duration time_since_epoch() const; // C++14
 ```
 
 ##概要
@@ -39,4 +40,8 @@ int main()
 
 ###処理系
 - GCC: 4.5.1, 4.6.1
+
+
+##参照
+- [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 

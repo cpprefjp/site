@@ -1,17 +1,22 @@
 #コンストラクタ (C++11)
 ```cpp
-time_point();
+time_point();           // (1) C++11
+constexpr time_point(); // (1) C++14
 
-explicit time_point(const duration& d);
+explicit time_point(const duration& d);           // (2) C++11
+constexpr explicit time_point(const duration& d); // (2) C++14
 
 template <class Duration2>
-time_point(const time_point<clock, Duration2>& t);
+time_point(const time_point<clock, Duration2>& t);           // (3) C++14
+
+template <class Duration2>
+constexpr time_point(const time_point<clock, Duration2>& t); // (3) C++14
 ```
 
 ##time_pointの構築
-- `time_point()`<br/>デフォルトコンストラクタ。エポックの`time_point(duration::zero())`を生成する。
-- `explicit time_point(const duration& d)`<br/>エポックからの経過時間から`time_point`を生成する。
-- `template <class Duration2>`<br/>`time_point(const time_point<clock, Duration2>& t)`<br/>他のテンプレートパラメータを持つ`time_point`からの変換コンストラクタ。
+- (1) : デフォルトコンストラクタ。エポックの`time_point(duration::zero())`を生成する。
+- (2) : エポックからの経過時間から`time_point`を生成する。
+- (3) : 他のテンプレートパラメータを持つ`time_point`からの変換コンストラクタ。
 
 
 ##例
@@ -52,4 +57,8 @@ int main()
 
 ###処理系
 - GCC: 4.6.1
+
+
+##参照
+- [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 
