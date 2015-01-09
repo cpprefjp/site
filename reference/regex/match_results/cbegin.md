@@ -68,4 +68,4 @@ str() = 'defgh', range = [10, 15), matched = true
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ###備考
-GCC(libstdc++) のバージョン 4.9.1 までは、`cbegin` が誤ったイテレータを返す。これは 4.9.2 以降で修正される予定である。
+GCC(libstdc++) のバージョン 4.9.2 までは、`cbegin` が誤ったイテレータを返す。これは 4.9.3 以降で修正される予定である。
