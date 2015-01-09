@@ -4,11 +4,15 @@ namespace std {
 namespace chrono {
   template <class Rep1, class Period1, class Rep2, class Period2>
   constexpr bool operator!=(const duration<Rep1, Period1>& lhs,
-                            const duration<Rep2, Period2>& rhs);
+                            const duration<Rep2, Period2>& rhs);      // (1)
 
   template <class Clock, class Duration1, class Duration2>
   bool operator!=(const time_point<Clock, Duration1>& lhs,
-                  const time_point<Clock, Duration2>& rhs);
+                  const time_point<Clock, Duration2>& rhs);           // (2) C++11
+
+  template <class Clock, class Duration1, class Duration2>
+  constexpr bool operator!=(const time_point<Clock, Duration1>& lhs,
+                            const time_point<Clock, Duration2>& rhs); // (2) C++14
 }}
 ```
 * duration[link /reference/chrono/duration.md]
@@ -62,4 +66,8 @@ int main()
 
 ###処理系
 - [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
+
+
+##参照
+- [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 

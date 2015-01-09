@@ -3,7 +3,12 @@
 namespace std {
 namespace chrono {
   template <class ToDuration, class Clock, class Duration>
-  time_point<Clock, ToDuration> time_point_cast(const time_point<Clock, Duration>& t);
+  time_point<Clock, ToDuration>
+    time_point_cast(const time_point<Clock, Duration>& t); // C++11
+
+  template <class ToDuration, class Clock, class Duration>
+  time_point<Clock, ToDuration>
+    time_point_cast(const time_point<Clock, Duration>& t); // C++14
 }}
 ```
 * time_point[link /reference/chrono/time_point.md]
@@ -13,7 +18,12 @@ namespace chrono {
 
 
 ##戻り値
-[`time_point`](/reference/chrono/time_point.md)`<Clock, ToDuration>(`[`duration_cast`](/reference/chrono/duration_cast.md)`<ToDuration>(t.`[`time_since_epoch`](/reference/chrono/time_point/time_since_epoch.md)`()))`
+```cpp
+time_point<Clock, ToDuration>(duration_cast<ToDuration>(t.time_since_epoch()));
+```
+* time_point[link /reference/chrono/time_point.md]
+* duration_cast[link /reference/chrono/duration_cast.md]
+* time_since_epoch[link /reference/chrono/time_point/time_since_epoch.md]
 
 ##例
 ```cpp
@@ -48,4 +58,8 @@ int main()
 
 ###処理系
 - [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
+
+
+##参照
+- [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 
