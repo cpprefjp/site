@@ -13,6 +13,7 @@ namespace std {
 }
 ```
 * duration[link /reference/chrono/duration.md]
+* common_type[link /reference/type_traits/common_type.md]
 
 ##概要
 durationの剰余演算を行う

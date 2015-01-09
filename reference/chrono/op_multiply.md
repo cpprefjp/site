@@ -14,6 +14,7 @@ namespace chrono {
 }}
 ```
 * duration[link /reference/chrono/duration.md]
+* common_type[link /reference/type_traits/common_type.md]
 
 ##概要
 durationの乗算を行う
