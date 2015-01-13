@@ -34,6 +34,37 @@ int main()
 ```
 ```
 
+##乗算で大きいduration型を定義する例
+```cpp
+#include <iostream>
+#include <ratio>
+#include <chrono>
+
+int main()
+{
+    // 「86400秒」という直値で「日」を定義する代わりに、
+//  using days = std::chrono::duration<long, std::ratio<86400>>;
+
+    // 「時」を24倍して「日」を定義する
+    using days = std::chrono::duration<
+        long,
+        std::ratio_multiply<
+            std::chrono::hours::period,
+            std::ratio<24>
+        >
+    >;
+
+    days three(3);
+
+    std::cout << three.count() << std::endl;
+}
+```
+
+###出力
+```
+3
+```
+
 ##バージョン
 ###言語
 - C++11
@@ -43,4 +74,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+##参照
+- [What is the best way to form custom std::chrono::durations and std::ratios? - StackOverflow](http://stackoverflow.com/questions/27880393/what-is-the-best-way-to-form-custom-stdchronodurations-and-stdratios)
 
