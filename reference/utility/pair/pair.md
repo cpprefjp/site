@@ -13,7 +13,7 @@ template <class U, class V>
 pair(U&& x, V&& y);                       // (5) C++11
 
 template <class U, class V>
-constexpr pair(U&& x, V&& y);             // (5) C++11
+constexpr pair(U&& x, V&& y);             // (5) C++14
 
 template <class U, class V>
 pair(const pair<U, V>& p);                // (6) C++03
