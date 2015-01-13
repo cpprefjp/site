@@ -1,26 +1,36 @@
 #コンストラクタ
 ```cpp
-pair();                            // (1) C++03
-constexpr pair();                  // (1) C++11
+pair();                                   // (1) C++03
+constexpr pair();                         // (1) C++11
 
-pair(const pair&) = default;       // (2)
-pair(pair&&) = default;            // (3) C++11
+pair(const pair&) = default;              // (2)
+pair(pair&&) = default;                   // (3) C++11
 
-pair(const T1& x, const T2& y);    // (4)
-
-template <class U, class V>
-pair(U&& x, V&& y);                // (5) C++11
+pair(const T1& x, const T2& y);           // (4) C++03
+constexpr pair(const T1& x, const T2& y); // (4) C++14
 
 template <class U, class V>
-pair(const pair<U, V>& p);         // (6)
+pair(U&& x, V&& y);                       // (5) C++11
 
 template <class U, class V>
-pair(pair<U, V>&& p);              // (7) C++11
+constexpr pair(U&& x, V&& y);             // (5) C++11
+
+template <class U, class V>
+pair(const pair<U, V>& p);                // (6) C++03
+
+template <class U, class V>
+constexpr pair(const pair<U, V>& p);      // (6) C++14
+
+template <class U, class V>
+pair(pair<U, V>&& p);                     // (7) C++11
+
+template <class U, class V>
+constexpr pair(pair<U, V>&& p);           // (7) C++14
 
 template <class... Args1, class... Args2>
 pair(piecewise_construct_t,
      tuple<Args1...> first_args,
-     tuple<Args2...> second_args); // (8) C++11
+     tuple<Args2...> second_args);        // (8) C++11
 ```
 
 ##pairの構築
@@ -170,3 +180,5 @@ p8 : (X(1 2 3),Y(4 5))
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
+##参照
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
