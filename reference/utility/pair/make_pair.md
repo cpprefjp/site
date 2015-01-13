@@ -2,7 +2,10 @@
 ```cpp
 namespace std {
   template <class T1, class T2>
-  pair<V1, V2> make_pair(T1&& x, T2&& y);
+  pair<V1, V2> make_pair(T1&& x, T2&& y);           // C++03
+
+  template <class T1, class T2>
+  constexpr pair<V1, V2> make_pair(T1&& x, T2&& y); // C++14
 }
 ```
 * pair[link /reference/utility/pair.md]
@@ -52,3 +55,4 @@ int main()
 ```
 
 ##参照
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
