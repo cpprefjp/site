@@ -2,10 +2,16 @@
 ```cpp
 namespace std {
   template <class T>
-  T&& forward(typename remove_reference<T>::type& t) noexcept;
+  T&& forward(typename remove_reference<T>::type& t) noexcept;            // (1) C++11
 
   template <class T>
-  T&& forward(typename remove_reference<T>::type&& t) noexcept;
+  constexpr T&& forward(typename remove_reference<T>::type& t) noexcept;  // (1) C++14
+
+  template <class T>
+  T&& forward(typename remove_reference<T>::type&& t) noexcept;           // (2) C++11
+
+  template <class T>
+  constexpr T&& forward(typename remove_reference<T>::type&& t) noexcept; // (2) C++14
 }
 ```
 
@@ -95,5 +101,6 @@ int main()
 
 
 ##参照
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 
 

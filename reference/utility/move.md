@@ -2,7 +2,10 @@
 ```cpp
 namespace std {
   template <class T>
-  typename remove_reference<T>::type && move(T&& t) noexcept;
+  typename remove_reference<T>::type&& move(T&& t) noexcept; // C++11
+
+  template <class T>
+  typename remove_reference<T>::type&& move(T&& t) noexcept; // C++14
 }
 ```
 
@@ -72,5 +75,5 @@ move
 
 
 ##参照
-
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 

@@ -5,7 +5,13 @@ namespace std {
   typename conditional<
     !is_nothrow_move_constructible<T>::value && is_copy_constructible<T>::value,
     const T&, T&&
-  >::type move_if_noexcept(T& x) noexcept;
+  >::type move_if_noexcept(T& x) noexcept; // C++11
+
+  template <class T>
+  constexpr typename conditional<
+    !is_nothrow_move_constructible<T>::value && is_copy_constructible<T>::value,
+    const T&, T&&
+  >::type move_if_noexcept(T& x) noexcept; // C++14
 }
 ```
 * conditional[link /reference/type_traits/conditional.md]
@@ -85,5 +91,6 @@ copy
 
 
 ##参照
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 
 
