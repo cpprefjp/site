@@ -1,11 +1,13 @@
-#operator= (C++11)
+#operator=
 ```cpp
 pair& operator=(const pair& p);
 
-template<class U, class V> pair& operator=(const pair<U, V>& p);
+template <class U, class V>
+pair& operator=(const pair<U, V>& p);
 
-pair& operator=(pair&& p) noexcept(下記参照);
-template<class U, class V> pair& operator=(pair<U, V>&& p);
+pair& operator=(pair&& p) noexcept(下記参照); // C++11
+template <class U, class V>
+pair& operator=(pair<U, V>&& p);              // C++11
 ```
 
 ##概要
