@@ -2,7 +2,10 @@
 ```cpp
 namespace std {
   template <class T1, class T2>
-  bool operator>(const pair<T1, T2>& x, const pair<T1, T2>& y);
+  bool operator>(const pair<T1, T2>& x, const pair<T1, T2>& y);           // C++03
+
+  template <class T1, class T2>
+  constexpr bool operator>(const pair<T1, T2>& x, const pair<T1, T2>& y); // C++14
 }
 ```
 
@@ -37,3 +40,6 @@ false
 true
 ```
 
+
+##参照
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
