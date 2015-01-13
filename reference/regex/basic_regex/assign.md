@@ -18,7 +18,8 @@ template <class InputIterator>
 basic_regex& assign(InputIterator first, InputIterator last,
                     flag_type f = regex_constants::ECMAScript);	// (6)
 
-basic_regex& assign(initializer_list<charT> il);				// (7)
+basic_regex& assign(initializer_list<charT> il,
+                    flag_type f = regex_constants::ECMAScript);	// (7)
 ```
 * basic_regex[link ../basic_regex.md]
 * regex_constants[link ../regex_constants.md]
@@ -61,7 +62,7 @@ basic_regex& assign(initializer_list<charT> il);				// (7)
 
 
 ##備考
-- `charT` は `basic_regex` の 1 番目のテンプレートパラメータで、文字型ある。
+- `charT` は `basic_regex` の 1 番目のテンプレートパラメータで、文字型である。
 - `string_type` は `traits_type::string_type` の typedef で、デフォルトは [`basic_string`](../../string/basic_string.md)`<charT>` である。
 - `traits_type` は `basic_regex` の 2 番目のテンプレートパラメータで、デフォルトは [`regex_traits`](../regex_traits.md)`<charT>` である。
 - `flag_type` は [`regex_constants`](../regex_constants.md)`::syntax_option_type` の typedef である。
