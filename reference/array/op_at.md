@@ -1,7 +1,8 @@
 #operator[] (C++11)
 ```cpp
-reference operator[](size_type n);
-const_reference operator[](size_type n) const;
+reference operator[](size_type n);                       // (1)
+const_reference operator[](size_type n) const;           // (2) C++11
+constexpr const_reference operator[](size_type n) const; // (2) C++14
 ```
 
 ##概要
@@ -61,5 +62,5 @@ int main()
 
 
 ##参照
-
+- [N3470 Constexpr Library Additions: containers, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3470.html)
 

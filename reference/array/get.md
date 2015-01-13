@@ -2,13 +2,22 @@
 ```cpp
 namespace std {
   template <size_t I, class T, size_t N>
-  T& get(array<T, N>& x) noexcept;
+  T& get(array<T, N>& x) noexcept;                       // (1) C++11
 
   template <size_t I, class T, size_t N>
-  T&& get(array<T, N>&& x) noexcept;
+  constexpr T& get(array<T, N>& x) noexcept;             // (1) C++14
 
   template <size_t I, class T, size_t N>
-  const T& get(const array<T, N>& x) noexcept;
+  T&& get(array<T, N>&& x) noexcept;                     // (2) C++11
+
+  template <size_t I, class T, size_t N>
+  T&& get(array<T, N>&& x) noexcept;                     // (2) C++14
+
+  template <size_t I, class T, size_t N>
+  const T& get(const array<T, N>& x) noexcept;           // (3) C++11
+
+  template <size_t I, class T, size_t N>
+  constexpr const T& get(const array<T, N>& x) noexcept; // (3) C++14
 }
 ```
 
@@ -94,4 +103,5 @@ GCC 4.7の`std::get()`は、`I`の境界チェックがない。
 
 
 ##参照
+- [N3470 Constexpr Library Additions: containers, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3470.html)
 
