@@ -97,7 +97,7 @@ p4 : (1,abc)
 
 ##バージョン
 ###言語
-- C++11 : `operator=(pair&&)`, `operator=(pair<U, V>&&)`
+- C++11 : (3), (4)
 
 ###処理系
 - [Clang](/implementation.md#clang): ??
