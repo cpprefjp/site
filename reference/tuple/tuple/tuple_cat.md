@@ -2,7 +2,10 @@
 ```cpp
 namespace std {
   template <class... Tuples>
-  tuple<Ctypes ...> tuple_cat(Tuples&&...);
+  tuple<Ctypes ...> tuple_cat(Tuples&&...);           // C++11
+
+  template <class... Tuples>
+  constexpr tuple<Ctypes ...> tuple_cat(Tuples&&...); // C++14
 }
 ```
 
@@ -70,5 +73,5 @@ World
 
 
 ##参照
-
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 

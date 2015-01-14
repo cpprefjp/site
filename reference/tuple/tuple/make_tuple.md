@@ -2,7 +2,10 @@
 ```cpp
 namespace std {
   template <class... Types>
-  tuple<VTypes ...> make_tuple(Types&&...);
+  tuple<VTypes ...> make_tuple(Types&&...);           // C++11
+
+  template <class... Types>
+  constexpr tuple<VTypes ...> make_tuple(Types&&...); // C++14
 }
 ```
 
@@ -58,5 +61,5 @@ int main()
 
 
 ##参照
-
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 
