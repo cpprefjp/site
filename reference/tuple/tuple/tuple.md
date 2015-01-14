@@ -1,61 +1,77 @@
 #コンストラクタ (C++11)
 ```cpp
-constexpr tuple();                      // (1) C++11
-explicit tuple(const Types&...);        // (2) C++11
+constexpr tuple();                         // (1) C++11
+explicit tuple(const Types&...);           // (2) C++11
+constexpr explicit tuple(const Types&...); // (2) C++14
 
 template <class... UTypes>
-explicit tuple(UTypes&&...);            // (3) C++11
-
-tuple(const tuple&) = default;          // (4) C++11
-tuple(tuple&&) = default;               // (5) C++11
+explicit tuple(UTypes&&...);               // (3) C++11
 
 template <class... UTypes>
-tuple(const tuple<UTypes...>&);         // (6) C++11
+constexpr explicit tuple(UTypes&&...);     // (3) C++14
+
+tuple(const tuple&) = default;             // (4) C++11
+tuple(tuple&&) = default;                  // (5) C++11
 
 template <class... UTypes>
-tuple(tuple<UTypes...>&&);              // (7) C++11
+tuple(const tuple<UTypes...>&);            // (6) C++11
+
+template <class... UTypes>
+constexpr tuple(const tuple<UTypes...>&);  // (6) C++14
+
+template <class... UTypes>
+tuple(tuple<UTypes...>&&);                 // (7) C++11
+
+template <class... UTypes>
+constexpr tuple(tuple<UTypes...>&&);       // (7) C++14
 
 template <class U1, class U2>
-tuple(const pair<U1, U2>&);             // (8) C++11
+tuple(const pair<U1, U2>&);                // (8) C++11
 
 template <class U1, class U2>
-tuple(pair<U1, U2>&&);                  // (9) C++11
+constexpr tuple(const pair<U1, U2>&);      // (8) C++14
+
+template <class U1, class U2>
+tuple(pair<U1, U2>&&);                     // (9) C++11
+
+template <class U1, class U2>
+constexpr tuple(pair<U1, U2>&&);           // (9) C++14
 
 // アロケータによる構築
 template <class Alloc>
-tuple(allocator_arg_t, const Alloc& a); // (10) C++11
+tuple(allocator_arg_t, const Alloc& a);    // (10) C++11
 
 template <class Alloc>
 tuple(allocator_arg_t, const Alloc& a,
-      const Types&...);                 // (11) C++11
+      const Types&...);                    // (11) C++11
 
 template <class Alloc, class... UTypes>
 tuple(allocator_arg_t, const Alloc& a,
-      UTypes&&...);                     // (12) C++11
+      UTypes&&...);                        // (12) C++11
 
 template <class Alloc>
 tuple(allocator_arg_t, const Alloc& a,
-      const tuple&);                    // (13) C++11
+      const tuple&);                       // (13) C++11
 
 template <class Alloc>
 tuple(allocator_arg_t, const Alloc& a,
-      tuple&&);                         // (14) C++11
+      tuple&&);                            // (14) C++11
 
 template <class Alloc, class... UTypes>
 tuple(allocator_arg_t, const Alloc& a,
-      const tuple<UTypes...>&);         // (15) C++11
+      const tuple<UTypes...>&);            // (15) C++11
 
 template <class Alloc, class... UTypes>
 tuple(allocator_arg_t, const Alloc& a,
-      tuple<UTypes...>&&);              // (16) C++11
+      tuple<UTypes...>&&);                 // (16) C++11
 
 template <class Alloc, class U1, class U2>
 tuple(allocator_arg_t, const Alloc& a,
-      const pair<U1, U2>&);             // (17) C++11
+      const pair<U1, U2>&);                // (17) C++11
 
 template <class Alloc, class U1, class U2>
 tuple(allocator_arg_t, const Alloc& a,
-     pair<U1, U2>&&);                   // (18) C++11
+     pair<U1, U2>&&);                      // (18) C++11
 ```
 * pair[link /reference/utility/pair.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
@@ -129,5 +145,6 @@ int main()
 
 
 ##参照
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 
 
