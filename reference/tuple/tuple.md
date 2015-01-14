@@ -42,13 +42,13 @@ namespace std {
 ###関係演算子
 
 | 名前 | 説明 |
-|------------------------------------------|------------------------------------|
-| [`operator==`](./tuple/equal.md)         | 等値判定を行う |
-| [`operator!=`](./tuple/not_equal.md)     | 非等値判定を行う |
-| [`operator<`](./tuple/less.md)           | 左辺が右辺よりも小さいか判定を行う |
-| [`operator<=`](./tuple/less_equal.md)    | 左辺が右辺以下か判定を行う |
-| [`operator>`](./tuple/greater.md)        | 左辺が右辺より大きいか判定を行う |
-| [`operator>=`](./tuple/greater_equal.md) | 左辺が右辺以上か判定を行う |
+|---------------------------------------------|------------------------------------|
+| [`operator==`](./tuple/op_equal.md)         | 等値判定を行う |
+| [`operator!=`](./tuple/op_not_equal.md)     | 非等値判定を行う |
+| [`operator<`](./tuple/op_less.md)           | 左辺が右辺よりも小さいか判定を行う |
+| [`operator<=`](./tuple/op_less_equal.md)    | 左辺が右辺以下か判定を行う |
+| [`operator>`](./tuple/op_greater.md)        | 左辺が右辺より大きいか判定を行う |
+| [`operator>=`](./tuple/op_greater_equal.md) | 左辺が右辺以上か判定を行う |
 
 
 ###例
