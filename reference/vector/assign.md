@@ -35,33 +35,32 @@ void assign(initializer_list<T>);
 #include <vector>
 #include <iostream>
 
-using namespace std;
-
 int main()
 {
-  cout << "Constructor with initializer-list example:" << endl;
-  vector<int> a = {1, 2, 3, 4};
+  std::cout << "Constructor with initializer-list example:" << std::endl;
+  std::vector<int> a = {1, 2, 3, 4};
   for (int i : a)
-    cout << i << endl;
-  cout << endl;
+    std::cout << i << std::endl;
+  std::cout << std::endl;
 
-  cout << "a.assign(first, last) example:" << endl;
-  const array<int, 4> data = {4, 3, 2, 1};
+  std::cout << "a.assign(first, last) example:" << std::endl;
+  const std::array<int, 4> data = {4, 3, 2, 1};
   a.assign(data.begin(), data.end());
   for (int i : a)
-    cout << i << endl;
-  cout << endl;
+    std::cout << i << std::endl;
+  std::cout << std::endl;
 
-  cout << "a.assign(il) example:" << endl;
+  std::cout << "a.assign(il) example:" << std::endl;
   a.assign({2,4,6,8});
   for (int i : a)
-    cout << i << endl;
-  cout << endl;
+    std::cout << i << std::endl;
+  std::cout << std::endl;
 
   return 0;
 }
-
 ```
+* assign[color ff0000]
+
 
 ###出力
 ```
