@@ -2,7 +2,12 @@
 ```cpp
 namespace std {
   template<class... TTypes, class... UTypes>
-  bool operator==(const tuple<TTypes...>& t, const tuple<UTypes...>& u);
+  bool operator==(const tuple<TTypes...>& t,
+                  const tuple<UTypes...>& u);           // C++11
+
+  template<class... TTypes, class... UTypes>
+  constexpr bool operator==(const tuple<TTypes...>& t,
+                            const tuple<UTypes...>& u); // C++14
 }
 ```
 * tuple[link ../tuple.md]
@@ -66,3 +71,4 @@ false
 
 
 ##参照
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)

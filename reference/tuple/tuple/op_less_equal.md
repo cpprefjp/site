@@ -2,7 +2,12 @@
 ```cpp
 namespace std {
   template<class... TTypes, class... UTypes>
-  bool operator<=(const tuple<TTypes...>&, const tuple<UTypes...>&);
+  bool operator<=(const tuple<TTypes...>&,
+                  const tuple<UTypes...>&);           // C++11
+
+  template<class... TTypes, class... UTypes>
+  constexpr bool operator<=(const tuple<TTypes...>&,
+                            const tuple<UTypes...>&); // C++14
 }
 ```
 
@@ -66,5 +71,9 @@ true
 
 
 ##参照
+- [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
+
+
+##関連項目
 - [`operator<`](./less.md)
 
