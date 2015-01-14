@@ -28,6 +28,7 @@ struct bound_function_type {
 ```
 * bound_function_type [italic]
 * unspecified[italic]
+
 型名 `result_type` は、`bind()` 呼び出し時のテンプレートパラメータ `R` そのもの(明示的に指定した場合)か、`F` の戻り値型(`F` が関数へのポインタまたはメンバ関数へのポインタである場合)か、`F::result_type` (`F` が型名 `result_type` の定義を持つ場合)である。いずれの条件も満たさない場合、`result_type` は定義されない
 <i>`bound_function_type`</i>`::operator ()()`を呼び出すと、`bound_args` と `unbound_args` が次のように使われ、最終的に `f` の呼出しに到達する。(説明用に、 `BoundArgs` のそれぞれの `decay` された型を `TiD` 、値を `ti` 、`UnBoundArgs` のそれぞれの値を `uj` とおく)。
 1. 型`Ti` が `std::`[`reference_wrapper`](./reference_wrapper.md)`<X>` である場合、`ti.`[`get()`](./reference_wrapper/get.md) が `ti` の代わりに使用される。
