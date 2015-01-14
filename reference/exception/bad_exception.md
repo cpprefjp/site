@@ -25,34 +25,34 @@ namespace std {
 #include <stdexcept>
 #include <iostream>
 
-using namespace std;
-
 void user_unexpected()
 {
   throw;
 }
 
-void not_runtime_error_throw() throw(runtime_error, bad_exception)
+void not_runtime_error_throw() throw(std::runtime_error, std::bad_exception)
 {
-  throw invalid_argument( "throw invalid_argument." );
+  throw std::invalid_argument( "throw invalid_argument." );
 }
 
 int main()
 {
-  set_unexpected(user_unexpected);
+  std::set_unexpected(user_unexpected);
 
-  // runtime_error以外を送出
+  // std::runtime_error以外を送出
   try {
     not_runtime_error_throw();
   }
-  catch (runtime_error& ex) {
-    cout << "caught: " << ex.what() << endl;
+  catch (std::runtime_error& ex) {
+    std::cout << "caught: " << ex.what() << std::endl;
   }
-  catch (bad_exception ex) {
-    cout << "caught: bad_exception." << endl;
+  catch (std::bad_exception& ex) {
+    std::cout << "caught: bad_exception." << std::endl;
   }
 }
 ```
+* bad_exception[color ff0000]
+
 
 ###出力
 ```
