@@ -1,17 +1,19 @@
-#operator-
+#operator- (非メンバ関数)
 ```cpp
-reverse_iterator
-  operator-(typename reverse_iterator<Iterator>::difference_type n) const;
+namespace std {
+  template <class Iterator1, class Iterator2>
+  auto operator-(const reverse_iterator<Iterator1>& x,
+                 const reverse_iterator<Iterator2>& y)
+    -> decltype(y.current - x.current);
+}
 ```
 
 ##概要
-イテレータを`n`回逆に進める。
-
-`reverse_iterator`なので元のイテレータを進める。
+2つの`reverse_iterator`の差を求める
 
 
 ##戻り値
-`reverse_iterator(current+n)`
+`y.current - x.current`
 
 
 ##例
@@ -24,17 +26,18 @@ int main()
 {
   std::vector<int> v = {1, 2, 3};
 
-  std::reverse_iterator<decltype(v)::iterator> it1(v.begin());
-  std::reverse_iterator<decltype(v)::iterator> it2 = it1 - 1; // イテレータを1回逆に進める
+  std::reverse_iterator<decltype(v)::iterator> it1(v.end());
+  std::reverse_iterator<decltype(v)::iterator> it2(v.begin());
 
-  std::cout << *it2 << std::endl;
+  std::ptrdiff_t result = it2 - it1;
+  std::cout << result << std::endl;
 }
 ```
-* it1 - 1[color ff0000]
+* it2 - it1[color ff0000]
 
 ###出力
 ```
-1
+3
 ```
 
 ##参照

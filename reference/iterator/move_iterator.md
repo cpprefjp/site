@@ -23,9 +23,9 @@ namespace std {
 | [`operator->`](./move_iterator/op_arrow.md) | メンバアクセス演算子 |
 | [`operator++`](./move_iterator/op_increment.md) | イテレータをインクリメントする |
 | [`operator--`](./move_iterator/op_decrement.md) | イテレータをデクリメントする |
-| [`operator+`](./move_iterator/op_plus.md) | イテレータを進める |
+| [`operator+`](./move_iterator/op_unary_plus.md) | イテレータを進める |
 | [`operator+=`](./move_iterator/op_plus_assign.md) | イテレータ自身を進める |
-| [`operator-`](./move_iterator/op_minus.md) | イテレータを逆に進める |
+| [`operator-`](./move_iterator/op_unary_minus.md) | イテレータを逆に進める |
 | [`operator-=`](./move_iterator/op_minus_assign.md) | イテレータ自身を逆に進める |
 | [`operator[]`](./move_iterator/op_at.md) | 任意の位置にランダムアクセスする |
 
@@ -50,8 +50,8 @@ namespace std {
 | [`operator<=`](./move_iterator/op_less_equal.md) | 左辺が右辺以下かの判定を行う |
 | [`operator>`](./move_iterator/op_greater.md) | 左辺が右辺より大きいかの判定を行う |
 | [`operator>=`](./move_iterator/op_greater_equal.md) | 左辺が右辺以上かの判定を行う |
-| [`operator-`](./move_iterator/op_minus_free.md) | 2つの`move_iterator`の差を求める |
-| [`operator+`](./move_iterator/op_plus_free.md) | イテレータを進める |
+| [`operator-`](./move_iterator/op_minus.md) | 2つの`move_iterator`の差を求める |
+| [`operator+`](./move_iterator/op_plus.md) | イテレータを進める |
 | [`make_move_iterator`](./move_iterator/make_move_iterator.md) | `move_iterator`のヘルパ関数 |
 
 

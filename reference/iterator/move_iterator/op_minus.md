@@ -1,14 +1,20 @@
-#operator- (C++11)
+#operator- (非メンバ関数) (C++11)
 ```cpp
-move_iterator operator-(difference_type n) const;
+namespace std {
+  template <class Iterator1, class Iterator2>
+  auto operator-(const move_iterator<Iterator1>& x,
+                 const move_iterator<Iterator2>& y)
+    -> decltype(x.base() - y.base());
+}
 ```
+* base[link /reference/iterator/move_iterator/base.md]
 
 ##概要
-イテレータを`n`回逆に進める。
+2つのイテレータの差を求める。
 
 
 ##戻り値
-`return move_iterator(`[`base`](./base.md)`() - n);`
+`return x.`[`base`](./base.md)`() - y.`[`base`](./base.md)`();`
 
 
 ##例
@@ -16,6 +22,7 @@ move_iterator operator-(difference_type n) const;
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <algorithm>
 #include <iterator>
 
 int main()
@@ -24,18 +31,18 @@ int main()
   for (int i = 0; i < 5; ++i)
     v.emplace_back(new int(i));
 
-  auto it = std::make_move_iterator(v.end());
-  auto it2 = it - 2;
-  std::unique_ptr<int> p = *it2;
+  auto it1 = std::make_move_iterator(v.begin());
+  auto it2 = std::make_move_iterator(v.end());
 
-  std::cout << *p << std::endl;
+  std::ptrdiff_t result = it2 - it1;
+  std::cout << result << std::endl;
 }
 ```
-* it - 2[color ff0000]
+* it2 - it1[color ff0000]
 
 ###出力
 ```
-3
+5
 ```
 
 ##バージョン
@@ -45,7 +52,7 @@ int main()
 ###処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
-- [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
+- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 

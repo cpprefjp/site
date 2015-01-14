@@ -1,10 +1,6 @@
-#operator+ (非メンバ関数) (C++11)
+#operator+ (C++11)
 ```cpp
-namespace std {
-  template <class Iterator>
-  move_iterator<Iterator> operator+(typename move_iterator<Iterator>::difference_type n,
-                                    const move_iterator<Iterator>& x);
-}
+move_iterator operator+(difference_type n) const;
 ```
 
 ##概要
@@ -12,7 +8,7 @@ namespace std {
 
 
 ##戻り値
-`return x + n;`
+`return move_iterator(`[`base`](./base.md)`() + n);`
 
 
 ##例
@@ -29,13 +25,14 @@ int main()
     v.emplace_back(new int(i));
 
   auto it = std::make_move_iterator(v.begin());
-  auto it2 = 2 + it;
+  auto it2 = it + 2;
   std::unique_ptr<int> p = *it2;
 
   std::cout << *p << std::endl;
 }
 ```
-* 2 + it[color ff0000]
+* it + 2[color ff0000]
+
 
 ###出力
 ```
@@ -49,7 +46,7 @@ int main()
 ###処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
-- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
+- [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 
