@@ -112,7 +112,7 @@ int main()
 * iterator[link /reference/iterator.md]
 * algorithm[link /reference/algorithm.md]
 * string[link /reference/string.md]
-* ostream[link /reference/ostream/ostream.md]
+* ostream[link /reference/ostream/basic_ostream.md]
 * copy[link /reference/algorithm/copy.md]
 * begin[link ./begin.md]
 * end[link ./end.md]

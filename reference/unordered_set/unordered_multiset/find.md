@@ -54,7 +54,7 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
-* unordered_multiset[link ./unordered_multiset.md]
+* unordered_multiset[link ../unordered_multiset.md]
 * begin[link ./begin.md]
 * end[link ./end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]

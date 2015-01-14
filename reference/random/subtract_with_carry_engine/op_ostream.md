@@ -8,7 +8,7 @@ namespace std {
     const subtract_with_carry_engine<UIntType, w, s, t>& x);
 }
 ```
-* basic_ostream[link /reference/iostream/basic_ostream.md]
+* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ##概要
 ストリームへの出力を行う。

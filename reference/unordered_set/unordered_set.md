@@ -9,7 +9,7 @@ namespace std {
 }
 ```
 * hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/comparisons.md]
+* equal_to[link /reference/functional/equal_to.md]
 * allocator[link /reference/memory/allocator.md]
 
 ##概要
@@ -44,11 +44,11 @@ namespace std {
 ##メンバ関数
 ###構築／コピー／破棄
 
-|                                                     |                |
-|-----------------------------------------------------|----------------|
-| [`(constructor)`](./unordered_set/unordered_set.md) | コンストラクタ |
-| [`(destructor)`](./unordered_set/-unordered_set.md) | デストラクタ   |
-| [`operator=`](./unordered_set/op_assign.md)         | 代入演算子     |
+|                                                      |                |
+|------------------------------------------------------|----------------|
+| [`(constructor)`](./unordered_set/op_constructor.md) | コンストラクタ |
+| [`(destructor)`](./unordered_set/op_destructor.md)   | デストラクタ   |
+| [`operator=`](./unordered_set/op_assign.md)          | 代入演算子     |
 
 
 ###領域

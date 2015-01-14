@@ -20,7 +20,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------------|-------|
-| [`(constructor)`](./random_device/random_device.md)   | コンストラクタ       | C++11 |
+| [`(constructor)`](./random_device/op_constructor.md)  | コンストラクタ       | C++11 |
 | `~random_device() = default;`                         | デストラクタ         | C++11 |
 | `void operator()(const random_device&) = delete;`     | 代入演算子。代入不可 | C++11 |
 

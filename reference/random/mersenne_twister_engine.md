@@ -42,7 +42,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./mersenne_twister_engine/mersenne_twister_engine.md) | コンストラクタ   | C++11 |
+| [`(constructor)`](./mersenne_twister_engine/op_constructor.md)          | コンストラクタ   | C++11 |
 | `~mersenne_twister_engine() = default;`                                 | デストラクタ     | C++11 |
 | [`seed`](./mersenne_twister_engine/seed.md)                             | シードを設定する | C++11 |
 

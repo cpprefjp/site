@@ -8,7 +8,7 @@ namespace std {
     subtract_with_carry_engine<UIntType, w, s, r>& x);
 }
 ```
-* basic_istream[link /reference/iostream/basic_istream.md]
+* basic_istream[link /reference/istream/basic_istream.md]
 
 ##概要
 ストリームからの入力を行う。

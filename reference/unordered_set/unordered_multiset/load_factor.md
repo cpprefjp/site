@@ -54,7 +54,7 @@ int main()
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * size[link ./size.md]
 * bucket_count[link ./bucket_count.md]
-* unordered_multiset[link ./unordered_multiset.md]
+* unordered_multiset[link ../unordered_multiset.md]
 * insert[link ./insert.md]
 
 ###出力

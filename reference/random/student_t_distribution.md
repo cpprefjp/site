@@ -31,7 +31,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./student_t_distribution/student_t_distribution.md) | コンストラクタ     | C++11 |
+| [`(constructor)`](./student_t_distribution/op_constructor.md) | コンストラクタ     | C++11 |
 | `~student_t_distribution() = default;`                                | デストラクタ       | C++11 |
 | [`reset`](./student_t_distribution/reset.md)                          | 状態をリセットする | C++11 |
 
@@ -47,7 +47,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
-| [`t`](./student_t_distribution/t.md)         | 自由度を取得する                 | C++11 |
+| [`n`](./student_t_distribution/n.md)         | 自由度を取得する                 | C++11 |
 | [`param`](./student_t_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
 | [`min`](./student_t_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
 | [`max`](./student_t_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |

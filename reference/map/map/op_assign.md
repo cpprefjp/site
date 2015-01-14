@@ -88,6 +88,6 @@ Size of c2: 5
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------|-----------------------|
 | [`insert`](/reference/map/map/insert.md) | 要素を挿入する |
-| [`map`](/reference/map/map/map.md) | コンストラクタ |
+| [`map`](/reference/map/map/op_constructor.md) | コンストラクタ |
 
 

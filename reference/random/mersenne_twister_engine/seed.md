@@ -14,7 +14,7 @@ template<class Sseq> void seed(Sseq& q);
 ```cpp
 *this = mersenne_twister_engine(arg);
 ```
-* mersenne_twister_engine[link ./mersenne_twister_engine.md]
+* mersenne_twister_engine[link ./op_constructor.md]
 
 と同じ効果を持つ。  
 指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。

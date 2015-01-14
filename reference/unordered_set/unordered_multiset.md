@@ -9,7 +9,7 @@ namespace std {
 }
 ```
 * hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/comparisons.md]
+* equal_to[link /reference/functional/equal_to.md]
 * allocator[link /reference/memory/allocator.md]
 
 ##概要
@@ -47,8 +47,8 @@ namespace std {
 
 |                                                               |                |
 |---------------------------------------------------------------|----------------|
-| [`(constructor)`](./unordered_multiset/unordered_multiset.md) | コンストラクタ |
-| [`(destructor)`](./unordered_multiset/-unordered_multiset.md) | デストラクタ   |
+| [`(constructor)`](./unordered_multiset/op_constructor.md)     | コンストラクタ |
+| [`(destructor)`](./unordered_multiset/op_destructor.md)       | デストラクタ   |
 | [`operator=`](./unordered_multiset/op_assign.md)              | 代入演算子     |
 
 

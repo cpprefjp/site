@@ -7,7 +7,7 @@ namespace std {
     const discrete_distribution<IntType>& x);
 }
 ```
-* basic_ostream[link /reference/iostream/basic_ostream.md]
+* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ##概要
 ストリームへの出力を行う。

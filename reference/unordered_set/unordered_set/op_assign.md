@@ -71,8 +71,8 @@ unordered_set& operator=(initializer_list<value_type> il); // (3)
 
 ##参照
 
-|                                       |                |
-|---------------------------------------|----------------|
-| [`(constructor)`](./unordered_set.md) | コンストラクタ |
-| [`(destructor)`](./-unordered_set.md) | デストラクタ   |
+|                                        |                |
+|----------------------------------------|----------------|
+| [`(constructor)`](./op_constructor.md) | コンストラクタ |
+| [`(destructor)`](./op_destructor.md)   | デストラクタ   |
 

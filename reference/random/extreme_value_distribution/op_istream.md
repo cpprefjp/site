@@ -7,7 +7,7 @@ namespace std {
     extreme_value_distribution<RealType>& x);
 }
 ```
-* basic_istream[link /reference/iostream/basic_istream.md]
+* basic_istream[link /reference/istream/basic_istream.md]
 
 ##概要
 ストリームからの入力を行う。

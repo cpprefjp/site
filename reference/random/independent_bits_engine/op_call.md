@@ -13,7 +13,7 @@ result_type operator()();
 
 ##戻り値
 ランダムな値を生成して返す。  
-値の範囲は`[`[`min()`](./min.md), [`max()`](.max.md)`]`である。つまり、最小値と最大値両方を含む。
+値の範囲は`[`[`min()`](./min.md), [`max()`](./max.md)`]`である。つまり、最小値と最大値両方を含む。
 
 
 ##計算量
@@ -39,7 +39,7 @@ int main()
 }
 ```
 * mt19937[link /reference/random/mt19937.md]
-* uint64_t[link /reference/random/uint64_t.md]
+* uint64_t[link /reference/cstdint/uint64_t.md]
 
 
 ###出力例

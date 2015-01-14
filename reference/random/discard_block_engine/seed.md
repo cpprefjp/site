@@ -15,7 +15,7 @@ template<class Sseq> void seed(Sseq& q);
 ```cpp
 *this = discard_block_engine(arg);
 ```
-* discard_block_engine[link ./discard_block_engine.md]
+* discard_block_engine[link ./op_constructor.md]
 
 と同じ効果を持つ。  
 指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。  

@@ -8,7 +8,7 @@ namespace std {
     independent_bits_engine<Engine, W, UIntType>& x);
 }
 ```
-* basic_istream[link /reference/iostream/basic_istream.md]
+* basic_istream[link /reference/istream/basic_istream.md]
 
 ##概要
 ストリームからの入力を行う。
@@ -63,7 +63,7 @@ int main()
 }
 ```
 * mt19937[link /reference/random/mt19937.md]
-* uint64_t[link /reference/random/uint64_t.md]
+* uint64_t[link /reference/cstdint/uint64_t.md]
 
 ###出力例
 ```

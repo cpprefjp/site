@@ -40,7 +40,7 @@ int main()
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
 * unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
+* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * cend[link /reference/unordered_set/unordered_multiset/cend.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 

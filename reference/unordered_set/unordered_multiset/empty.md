@@ -46,7 +46,7 @@ int main()
 ```
 * iostream[link /reference/iostream]
 * unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
+* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * insert[link /reference/unordered_set/unordered_multiset/insert.md]
 * clear[link /reference/unordered_set/unordered_multiset/clear.md]
 

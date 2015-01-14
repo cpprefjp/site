@@ -31,7 +31,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./normal_distribution/normal_distribution.md) | コンストラクタ     | C++11 |
+| [`(constructor)`](./normal_distribution/op_constructor.md)      | コンストラクタ     | C++11 |
 | `~normal_distribution() = default;`                             | デストラクタ       | C++11 |
 | [`reset`](./normal_distribution/reset.md)                       | 状態をリセットする | C++11 |
 

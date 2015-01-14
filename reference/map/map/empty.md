@@ -60,6 +60,6 @@ int main ()
 | 名前 | 説明|
 |---------------------------------------------------------------------------------------|-----------------------|
 | [`map::insert`](/reference/map/map/insert.md) | 要素を挿入する |
-| [`map::(constructor)`](/reference/map/map/map.md) | コンストラクタ |
+| [`map::(constructor)`](/reference/map/map/op_constructor.md) | コンストラクタ |
 
 

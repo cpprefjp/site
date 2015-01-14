@@ -22,7 +22,7 @@ key_equal key_eq() const;
 
 キー比較用関数オブジェクトは、名前の通りキーを比較するためのオブジェクトで、与えられた二つのキーが等しいときには `true`、等しくないときには `false` を返すメンバ関数 `bool operator()(key_type, key_type)`を持つ必要がある。
 
-テンプレートパラメータを省略した場合、`key_equal` はデフォルト値 `std::`[`equal_to`](/reference/functional/comparisons.md)`<key_type>` となる。
+テンプレートパラメータを省略した場合、`key_equal` はデフォルト値 `std::`[`equal_to`](/reference/functional/equal_to.md)`<key_type>` となる。
 
 
 ##例
@@ -67,6 +67,6 @@ eq(1, 1) = true
 
 | | |
 |----------------------------------------------------|----------------------------------------------|
-| [`equal_to`](/reference/functional/comparisons.md) | 等値比較演算関数オブジェクト(class template) |
+| [`equal_to`](/reference/functional/equal_to.md)    | 等値比較演算関数オブジェクト(class template) |
 | [`hash_function`](./hash_function.md)              | ハッシュ関数オブジェクトの取得 |
 

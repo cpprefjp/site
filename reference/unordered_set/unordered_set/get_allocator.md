@@ -79,7 +79,7 @@ int main()
 * operator delete[link /reference/new/delete.md]
 * true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 * hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/comparisons.md]
+* equal_to[link /reference/functional/equal_to.md]
 * swap[link ./swap_free.md]
 * get_allocator[color ff0000]
 
@@ -110,7 +110,7 @@ libstdc++ の `unordered_set` では、アロケータの `select_on_container_c
 
 |                                                             |                            |
 |-------------------------------------------------------------|----------------------------|
-| [`(constructor)`](./unordered_set.md)                       | コンストラクタ             |
+| [`(constructor)`](./op_constructor.md)                      | コンストラクタ             |
 | [`operator=`](./op_assign.md)                               | 代入演算子                 |
 | [`swap`](./swap_free.md)                                    | 内容の交換（非メンバ関数） |
 | [`allocator`](/reference/memory/allocator.md)               | デフォルトのアロケータ     |

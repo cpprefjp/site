@@ -8,7 +8,7 @@ namespace std {
     const independent_bits_engine<Engine, W, UIntType>& x);
 }
 ```
-* basic_ostream[link /reference/iostream/basic_ostream.md]
+* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ##概要
 ストリームへの出力を行う。

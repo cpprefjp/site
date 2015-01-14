@@ -56,7 +56,7 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
+* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * bucket_count[link /reference/unordered_set/unordered_multiset/bucket_count.md]
 * bucket_size[link /reference/unordered_set/unordered_multiset/bucket_size.md]
 * copy[link /reference/algorithm/copy.md]

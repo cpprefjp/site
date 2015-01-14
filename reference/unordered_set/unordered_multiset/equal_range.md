@@ -56,7 +56,7 @@ int main()
 * copy[link /reference/algorithm/copy.md]
 * begin[link ./begin.md]
 * end[link ./end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator/ostream_iterator.md]
+* ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * first[link /reference/utility/pair.md]
 * second[link /reference/utility/pair.md]
 

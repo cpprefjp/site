@@ -8,7 +8,7 @@ namespace std {
     const linear_congruential_engine<UIntType, A, C, M>& x);
 }
 ```
-* basic_ostream[link /reference/iostream/basic_ostream.md]
+* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ##概要
 ストリームへの出力を行う。

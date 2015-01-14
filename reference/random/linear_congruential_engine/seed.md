@@ -14,7 +14,7 @@ template<class Sseq> void seed(Sseq& q);
 ```cpp
 *this = linear_congruential_engine(arg);
 ```
-* linear_congruential_engine[link ./linear_congruential_engine.md]
+* linear_congruential_engine[link ./op_constructor.md]
 
 と同じ効果を持つ。  
 指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。

@@ -33,7 +33,7 @@ int main()
 ```
 * iostream[link /site/cpprefjp/reference/iostream]
 * unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
+* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 
 ###出力例
 ```

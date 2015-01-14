@@ -8,7 +8,7 @@ namespace std {
 }
 ```
 * vector[link /reference/vector.md]
-* less[link /reference/functional/comparisons.md]
+* less[link /reference/functional/less.md]
 
 ##概要
 `priority_queue`はコンテナアダプタであり、優先順位付きキューを実現する目的で設計されている。要素を`push()`で追加し、取り出す際に`top()`を呼び出すことで、`Compare`述語によって優先順に要素が取り出される。
@@ -28,7 +28,7 @@ queueは2つのテンプレート引数を持つ。
 
 - `T`: 要素の型
 - `Container`: 内部実装のコンテナクラス
-- `Compare`: 優先順に並べ替えるための比較用述語型。デフォルトでは降順比較の[`less`](/reference/functional/comparisons.md)が使用される。
+- `Compare`: 優先順に並べ替えるための比較用述語型。デフォルトでは降順比較の[`less`](/reference/functional/less.md)が使用される。
 
 以下のリファレンス中では、テンプレート引数として同じ名前を用いる。
 
@@ -37,7 +37,7 @@ queueは2つのテンプレート引数を持つ。
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|------------------------------------------------|-------|
-| [`(constructor)`](./priority_queue/priority_queue.md) | コンストラクタ | |
+| [`(constructor)`](./priority_queue/op_constructor.md) | コンストラクタ | |
 | `~priority_queue() = default`            | デストラクタ | |
 | `operator=(const priority_queue&) = default`<br/> `operator=(priority_queue&&) = default` | 代入演算子 | |
 | [`empty`](./priority_queue/empty.md)     | 要素が空かどうかを判定する | |

@@ -75,7 +75,7 @@ int main()
 * begin[link /reference/iterator/begin.md]
 * end[link /reference/iterator/end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link ./unordered_multiset.md]
+* unordered_multiset[link ../unordered_multiset.md]
 
 ###出力
 ```

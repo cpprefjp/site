@@ -6,7 +6,7 @@ namespace std {
 }
 ```
 * error_condition[link /reference/system_error/error_condition.md]
-* io_errc[link ./future_errc.md]
+* io_errc[link ./io_errc.md]
 
 ##概要
 `io_errc`から`error_condition`を生成する

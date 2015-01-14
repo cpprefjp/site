@@ -57,7 +57,7 @@ int main()
 * begin[link /reference/iterator/begin.md]
 * end[link /reference/iterator/end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link ./unordered_multiset.md]
+* unordered_multiset[link ../unordered_multiset.md]
 
 ###出力
 ```
@@ -102,6 +102,6 @@ namespace std {
 |----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
 | [`swap`](./swap.md) | 内容の交換（メンバ関数） |
 | [`operator=`](./op_assign.md) | 代入演算子 |
-| [`operator==`](.op_equal.md) | 等値比較 |
+| [`operator==`](./op_equal.md) | 等値比較 |
 | [`operator!=`](./op_not_equal.md) | 非等値比較 |
 

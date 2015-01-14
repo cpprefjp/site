@@ -34,7 +34,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./exponential_distribution/exponential_distribution.md) | コンストラクタ     | C++11 |
+| [`(constructor)`](./exponential_distribution/op_constructor.md)           | コンストラクタ     | C++11 |
 | `~exponential_distribution() = default;`                                  | デストラクタ       | C++11 |
 | [`reset`](./exponential_distribution/reset.md)                            | 状態をリセットする | C++11 |
 
@@ -50,7 +50,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------------|-------|
-| [`lambda`](./exponential_distribution/mean.md) | 母数を取得する                   | C++11 |
+| [`lambda`](./exponential_distribution/lambda.md) | 母数を取得する                   | C++11 |
 | [`param`](./exponential_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
 | [`min`](./exponential_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
 | [`max`](./exponential_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |

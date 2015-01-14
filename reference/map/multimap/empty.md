@@ -60,6 +60,6 @@ int main ()
 | 名前 | 説明|
 |---------------------------------------------------------------------------------------|-----------------------|
 | [`multimap::insert`](/reference/map/multimap/insert.md) | 要素を挿入する |
-| [`multimap::(constructor)`](/reference/map/multimap/multimap.md) | コンストラクタ |
+| [`multimap::(constructor)`](/reference/map/multimap/op_constructor.md) | コンストラクタ |
 
 

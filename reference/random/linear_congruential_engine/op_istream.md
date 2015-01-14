@@ -8,7 +8,7 @@ namespace std {
     linear_congruential_engine<UIntType, A, C, M>& x);
 }
 ```
-* basic_istream[link /reference/iostream/basic_istream.md]
+* basic_istream[link /reference/istream/basic_istream.md]
 
 ##概要
 ストリームからの入力を行う。

@@ -124,13 +124,13 @@ int main()
 * iterator[link /reference/iterator.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * hash[link /reference/functional/hash.md]
-* ostream[link /reference/ostream/ostream.md]
+* ostream[link /reference/ostream/basic_ostream.md]
 * insert[link ./insert.md]
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
 * emplace[color ff0000]
 
-###出力
+###出力例
 ```
 (1,1st) true
 (2,2nd) true

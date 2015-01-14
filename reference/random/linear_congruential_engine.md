@@ -38,7 +38,7 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./linear_congruential_engine/linear_congruential_engine.md) | コンストラクタ   | C++11 |
+| [`(constructor)`](./linear_congruential_engine/op_constructor.md)             | コンストラクタ   | C++11 |
 | `~linear_congruential_engine() = default;`                                    | デストラクタ     | C++11 |
 | [`seed`](./linear_congruential_engine/seed.md)                                | シードを設定する | C++11 |
 

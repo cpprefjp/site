@@ -10,8 +10,8 @@ namespace std {
   class map;
 }
 ```
-* less[link ./functional/comparisons.md]
-* allocator[link ./memory/allocator.md]
+* less[link ../functional/less.md]
+* allocator[link ../memory/allocator.md]
 * pair[link /reference/utility/pair.md]
 
 `map` コンテナは 4 つのテンプレートパラメータを取る。
@@ -44,8 +44,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|----------------|-------|
-| [`(constructor)`](./map/map.md) | コンストラクタ | |
-| [`(destructor)`](./map/-map.md) | デストラクタ | |
+| [`(constructor)`](./map/op_constructor.md) | コンストラクタ | |
+| [`(destructor)`](./map/op_destructor.md) | デストラクタ | |
 | [`operator=`](./map/op_assign.md) | 代入演算子 | |
 | [`get_allocator`](./map/get_allocator.md) | アロケータオブジェクトを取得する | |
 

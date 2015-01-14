@@ -88,6 +88,6 @@ Size of c2: 6
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------|-----------------------|
 | [`insert`](/reference/map/multimap/insert.md) | 要素を挿入する |
-| [`multimap`](/reference/map/multimap/multimap.md) | コンストラクタ |
+| [`multimap`](/reference/map/multimap/op_constructor.md) | コンストラクタ |
 
 

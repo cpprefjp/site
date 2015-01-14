@@ -46,7 +46,7 @@ int main()
 ```
 * iostream[link /reference/iostream]
 * unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link ./unordered_multiset.md]
+* unordered_multiset[link ../unordered_multiset.md]
 
 ###出力
 ```

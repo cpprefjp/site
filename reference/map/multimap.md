@@ -10,7 +10,7 @@ namespace std {
   class multimap;
 }
 ```
-* less[link /reference/functional/comparisons.md]
+* less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
 * pair[link /reference/utility/pair.md]
 
@@ -43,8 +43,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|----------------|-------|
-| [`(constructor)`](./multimap/multimap.md) | コンストラクタ | |
-| [`(destructor)`](./multimap/-multimap.md) | デストラクタ | |
+| [`(constructor)`](./multimap/op_constructor.md) | コンストラクタ | |
+| [`(destructor)`](./multimap/op_destructor.md) | デストラクタ | |
 | [`operator=`](./multimap/op_assign.md) | 代入演算子 | |
 | [`get_allocator`](./multimap/get_allocator.md) | アロケータオブジェクトを取得する | |
 

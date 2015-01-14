@@ -97,7 +97,7 @@ int main()
 * size[link ./size.md]
 * bucket_count[link ./bucket_count.md]
 * load_factor[link ./load_factor.md]
-* unordered_multiset[link ./unordered_multiset.md]
+* unordered_multiset[link ../unordered_multiset.md]
 * emplace[link ./emplace.md]
 
 ###出力

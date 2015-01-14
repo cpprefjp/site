@@ -14,7 +14,7 @@ template<class Sseq> void seed(Sseq& q);
 ```cpp
 *this = subtract_with_carry_engine(arg);
 ```
-* subtract_with_carry_engine[link ./subtract_with_carry_engine.md]
+* subtract_with_carry_engine[link ./op_constructor.md]
 
 と同じ効果を持つ。  
 指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。

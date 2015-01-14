@@ -80,7 +80,7 @@ int main()
 * true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/comparisons.md]
+* equal_to[link /reference/functional/equal_to.md]
 * swap[link ./swap_free.md]
 * =[link ./op_assign.md]
 
@@ -112,7 +112,7 @@ libstdc++ の `unordered_multiset` では、アロケータの `select_on_contai
 
 | | |
 |----------------------------------------------------------|----------------|
-| [`(constructor)`](./unordered_multiset.md)               | コンストラクタ |
+| [`(constructor)`](./op_constructor.md)                   | コンストラクタ |
 | [`operator=`](./op_assign.md)                            | 代入演算子     |
 | [`swap`](./op_assign.md)                                 | 内容の交換（非メンバ関数） |
 | [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ |
