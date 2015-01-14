@@ -1,122 +1,84 @@
 #コンストラクタ (C++11)
 ```cpp
-constexpr tuple();
-explicit tuple(const Types&...);
+constexpr tuple();                      // (1) C++11
+explicit tuple(const Types&...);        // (2) C++11
 
 template <class... UTypes>
-  explicit tuple(UTypes&&...);
+explicit tuple(UTypes&&...);            // (3) C++11
 
-tuple(const tuple&) = default;
-tuple(tuple&&) = default;
-
-template <class... UTypes>
-  tuple(const tuple<UTypes...>&);
+tuple(const tuple&) = default;          // (4) C++11
+tuple(tuple&&) = default;               // (5) C++11
 
 template <class... UTypes>
-  tuple(tuple<UTypes...>&&);
+tuple(const tuple<UTypes...>&);         // (6) C++11
+
+template <class... UTypes>
+tuple(tuple<UTypes...>&&);              // (7) C++11
 
 template <class U1, class U2>
-  tuple(const pair<U1, U2>&);
+tuple(const pair<U1, U2>&);             // (8) C++11
 
 template <class U1, class U2>
-  tuple(pair<U1, U2>&&);
+tuple(pair<U1, U2>&&);                  // (9) C++11
 
 // アロケータによる構築
 template <class Alloc>
-  tuple(allocator_arg_t, const Alloc& a);
+tuple(allocator_arg_t, const Alloc& a); // (10) C++11
 
 template <class Alloc>
-  tuple(allocator_arg_t, const Alloc& a, const Types&...);
+tuple(allocator_arg_t, const Alloc& a,
+      const Types&...);                 // (11) C++11
 
 template <class Alloc, class... UTypes>
-  tuple(allocator_arg_t, const Alloc& a, UTypes&&...);
+tuple(allocator_arg_t, const Alloc& a,
+      UTypes&&...);                     // (12) C++11
 
 template <class Alloc>
-  tuple(allocator_arg_t, const Alloc& a, const tuple&);
+tuple(allocator_arg_t, const Alloc& a,
+      const tuple&);                    // (13) C++11
 
 template <class Alloc>
-  tuple(allocator_arg_t, const Alloc& a, tuple&&);
+tuple(allocator_arg_t, const Alloc& a,
+      tuple&&);                         // (14) C++11
 
 template <class Alloc, class... UTypes>
-  tuple(allocator_arg_t, const Alloc& a, const tuple<UTypes...>&);
+tuple(allocator_arg_t, const Alloc& a,
+      const tuple<UTypes...>&);         // (15) C++11
 
 template <class Alloc, class... UTypes>
-  tuple(allocator_arg_t, const Alloc& a, tuple<UTypes...>&&);
+tuple(allocator_arg_t, const Alloc& a,
+      tuple<UTypes...>&&);              // (16) C++11
 
 template <class Alloc, class U1, class U2>
-  tuple(allocator_arg_t, const Alloc& a, const pair<U1, U2>&);
+tuple(allocator_arg_t, const Alloc& a,
+      const pair<U1, U2>&);             // (17) C++11
 
 template <class Alloc, class U1, class U2>
-
-  tuple(allocator_arg_t, const Alloc& a, pair<U1, U2>&&);
+tuple(allocator_arg_t, const Alloc& a,
+     pair<U1, U2>&&);                   // (18) C++11
 ```
 * pair[link /reference/utility/pair.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 ##tupleオブジェクトの構築
-- `constexpr tuple()`
-
-すべての要素を初期化して構築
-
-- `explicit tuple(const Types&...)`
-
-可変テンプレートパラメータの型の値によるコピー構築
-
-- `template <class... UTypes>explicit tuple(UTypes&&...)`
-
-可変テンプレートパラメータの型に変換可能な値によるムーブ構築
-
-- `tuple(const tuple&) = default`
-
-コピーコンストラクタ
-
-- `tuple(tuple&&) = default`
-
-ムーブコンストラクタ
-
-- `template <class U1, class U2>tuple(const std::pair<U1, U2>&)`
-
-テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからコピー構築する
-
-- `template <class U1, class U2>tuple(std::pair<U1, U2>&&)`
-
-テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからムーブ構築する
-
-- `template <class Alloc>tuple(allocator_arg_t, const Alloc& a)`
-
-アロケータを指定して構築する
-
-- `template <class Alloc>tuple(allocator_arg_t, const Alloc& a, const Types&...)`
-
-アロケータを指定して可変テンプレートパラメータの型の値によってコピー構築する
-
-- `template <class Alloc, class... UTypes>`<br/>`tuple(allocator_arg_t, const Alloc& a, UTypes&&...)`
-
-アロケータを指定して可変テンプレートパラメータの型の値によってムーブ構築する
-
-- `template <class Alloc>`<br/>`tuple(allocator_arg_t, const Alloc& a, const tuple&)`
-
-アロケータを指定してコピー構築
-
-- `template <class Alloc>`<br/>`tuple(allocator_arg_t, const Alloc& a, tuple&&)`
-
-アロケータを指定してムーブ構築
-
-- `template <class Alloc, class... UTypes>`<br/>`tuple(allocator_arg_t, const Alloc& a, const tuple<UTypes...>&)`
-
-アロケータを指定して変換可能な他の`tuple`オブジェクトからコピー構築
-
-- `template <class Alloc, class... UTypes>`<br/>`tuple(allocator_arg_t, const Alloc& a, tuple<UTypes...>&&)`
-
-アロケータを指定して変換可能な他の`tuple`オブジェクトからムーブ構築
-
-- `template <class Alloc, class U1, class U2>`<br/>`tuple(allocator_arg_t, const Alloc& a, const pair<U1, U2>&)`
-
-テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`オブジェクトからコピー構築する
-
-- `template <class Alloc, class U1, class U2>`<br/>`tuple(allocator_arg_t, const Alloc& a, pair<U1, U2>&&)`
-
-テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`からムーブ構築する
+- (1) : すべての要素を初期化して構築
+- (2) : 可変テンプレートパラメータの型の値によるコピー構築
+- (3) : 可変テンプレートパラメータの型に変換可能な値によるムーブ構築
+- (4) : コピーコンストラクタ
+- (5) : ムーブコンストラクタ
+- (6) : 変換可能な型からのコピーコンストラクタ
+- (7) : 変換可能な型からのムーブコンストラクタ
+- (8) : テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからコピー構築する
+- (9) : テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからムーブ構築する
+- (10) : アロケータを指定してデフォルト構築する
+- (11) : アロケータを指定して可変テンプレートパラメータの型の値によってコピー構築する
+- (12) : アロケータを指定して可変テンプレートパラメータの型の値によってムーブ構築する
+- (13) : アロケータを指定してコピー構築
+- (14) : アロケータを指定してムーブ構築
+- (15) : アロケータを指定して変換可能な他の`tuple`オブジェクトからコピー構築
+- (16) : アロケータを指定して変換可能な他の`tuple`オブジェクトからムーブ構築
+- (17) : テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`オブジェクトからコピー構築する
+- (18) : テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`オブジェクトからムーブ構築する
 
 
 ##例
