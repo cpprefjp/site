@@ -71,5 +71,5 @@ true
 
 
 ##関連項目
-- [`operator==`](./equal.md)
+- [`operator==`](./op_equal.md)
 

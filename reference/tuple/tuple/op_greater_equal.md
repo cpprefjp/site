@@ -75,5 +75,5 @@ true
 
 
 ##関連項目
-- [`operator<`](./less.md)
+- [`operator<`](./op_less.md)
 
