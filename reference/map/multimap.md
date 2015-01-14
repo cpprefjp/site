@@ -130,9 +130,9 @@ namespace std {
 |-------------------------------------------|--------------------------------------------|-------|
 | [`operator==`](./multimap/op_equal.md)         | 左辺と右辺が等しいかの判定を行う           | |
 | [`operator!=`](./multimap/op_not_equal.md)     | 左辺と右辺が等しくないかの判定を行う       | |
-| [`operator<`](./multimap/op_less_than.md)      | 左辺が右辺より小さいかの判定を行う         | |
+| [`operator<`](./multimap/op_less.md)           | 左辺が右辺より小さいかの判定を行う         | |
 | [`operator<=`](./multimap/op_greater_equal.md) | 左辺が右辺より小さいか等しいかの判定を行う | |
-| [`operator>`](./multimap/op_greater_than.md)   | 左辺が右辺より大きいかの判定を行う         | |
+| [`operator>`](./multimap/op_greater.md)        | 左辺が右辺より大きいかの判定を行う         | |
 | [`operator>=`](./multimap/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
 | [`swap`](./multimap/swap_free.md)              | 2つの`map`オブジェクトを入れ替える         | |
 
