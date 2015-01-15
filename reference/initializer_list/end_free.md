@@ -53,3 +53,6 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 
 
+##参照
+- [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
+
