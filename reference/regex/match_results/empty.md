@@ -55,7 +55,7 @@ int main()
 * regex_search[link ../regex_search.md]
 * ready[link ready.md]
 * empty[color ff0000]
-* boolalpha[link ../ios/boolalpha.md]
+* boolalpha[link ../../ios/boolalpha.md]
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 

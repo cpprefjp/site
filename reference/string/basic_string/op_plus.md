@@ -66,7 +66,7 @@ basic_string<charT, traits, Allocator>
 
 
 ##戻り値
-- (1) [`basic_string`](basic_string.md)`<charT, traits, Allocator>(lhs).`[`append`](append.md)`(rhs)`
+- (1) [`basic_string`](op_constructor.md)`<charT, traits, Allocator>(lhs).`[`append`](append.md)`(rhs)`
 
 - (2) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(rhs))`
 
@@ -75,19 +75,19 @@ basic_string<charT, traits, Allocator>
 - (4) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(rhs))`  
 	(`std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, lhs))` とも同等)
 
-- (5) [`basic_string`](basic_string.md)`<charT, traits, Allocator>(lhs) + rhs`  
+- (5) [`basic_string`](op_constructor.md)`<charT, traits, Allocator>(lhs) + rhs`  
 
 - (6) `std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, lhs))`  
 
-- (7) [`basic_string`](basic_string.md)`<charT, traits, Allocator>(1, lhs) + rhs`
+- (7) [`basic_string`](op_constructor.md)`<charT, traits, Allocator>(1, lhs) + rhs`
 
 - (8) `std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, 1, lhs))`
 
-- (9) `lhs + `[`basic_string`](basic_string.md)`<charT, traits, Allocator>(rhs)`  
+- (9) `lhs + `[`basic_string`](op_constructor.md)`<charT, traits, Allocator>(rhs)`  
 
 - (10) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(rhs))`  
 
-- (11) `lhs + `[`basic_string`](basic_string.md)`<charT, traits, Allocator>(1, rhs)`
+- (11) `lhs + `[`basic_string`](op_constructor.md)`<charT, traits, Allocator>(1, rhs)`
 
 - (12) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(1, rhs))`
 

@@ -12,7 +12,7 @@ static constexpr bool eq_int_type(int_type c1, int_type c2) noexcept;
 
 
 ##戻り値
-全ての文字`c`と`d`に対しては、[`eq`](./eq.md)`(c, d)`と`eq_int_type(`[`to_int_type`](./to_int_type.md)`(c),` [`to_int_type`](./to_ind_type.md)`(d))`は等価となる。
+全ての文字`c`と`d`に対しては、[`eq`](./eq.md)`(c, d)`と`eq_int_type(`[`to_int_type`](./to_int_type.md)`(c),` [`to_int_type`](./to_int_type.md)`(d))`は等価となる。
 
 文字以外として、`c1`と`c2`がどちらも[`eof`](./eof.md)であるなら`true`、それ以外は`false`を返す。
 

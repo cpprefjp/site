@@ -42,18 +42,18 @@ basic_string& append(initializer_list<charT> il);							// (7) C++11 から
 	* C++11 から：`append(str.`[`data`](./data.md)`() + pos, rlen)` と同一。
 
 - (3) 対象オブジェクトの末尾に `s` が指す長さ `n` の文字列が追加（コピー）される。
-	* C++03 まで：`append(`[`basic_string`](/reference/basic_string/basic_string.md)`<value_type, traits_type, allocator_type>(s, n))` と同一。
+	* C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s, n))` と同一。
 	* C++11 から：対象オブジェクトの末尾に `s` からの `n` 文字を追加（コピー）する。
 
 - (4) 対象オブジェクトの末尾に `s` が指す NULL 終端された文字列が追加（コピー）される。
-	* C++03 まで：`append(`[`basic_string`](/reference/basic_string/basic_string.md)`<value_type, traits_type, allocator_type>(s))` と同一。
+	* C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s))` と同一。
 	* C++11 から：`append(s, traits_type::length(s))` と同一。
 
 - (5) 対象オブジェクトの末尾に、文字 `c` が `n` 文字が追加（コピー）される。  
-	`append(`[`basic_string`](/reference/basic_string/basic_string.md)`<value_type, traits_type, allocator_type>(n, c))` と同一。
+	`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と同一。
 
 - (6) 対象オブジェクトの末尾に、範囲 `[first, last)` の文字列が追加（コピー）される。  
-	`append(`[`basic_string`](/reference/basic_string/basic_string.md)`<value_type, traits_type, allocator_type>(first, last))` と同一。
+	`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と同一。
 
 - (7) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。  
 	`append(il.begin(), il.end())` と同一。

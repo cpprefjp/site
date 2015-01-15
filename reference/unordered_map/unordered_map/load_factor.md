@@ -53,7 +53,7 @@ current load_factor: 0.5
 ```
 
 ###検証
-[`load_factor`](./load_factor.md) = [`size`](/reference/unordered_map/size.md) / [`bucket_count](./bucket_count.md)   を満たしている。
+[`load_factor`](./load_factor.md) = [`size`](./size.md) / [`bucket_count](./bucket_count.md)   を満たしている。
 
 
 ##バージョン

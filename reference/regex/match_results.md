@@ -26,7 +26,7 @@ namespace std {
 なお、[`regex_iterator`](regex_iterator.md) を間接参照した際の `match_results` オブジェクトは常にマッチ結果を格納している（[`ready`](match_results/ready.md)`() == true`）。
 
 マッチ結果を格納した `match_results` オブジェクトは、マッチが成功した場合には 1 つ以上の要素を格納しているため、[`empty`](match_results/empty.md)`() == false` となる。  
-マッチに成功し [`empty`](match_results/empty.md)`() == false` となった `match_results` オブジェクトに格納されている各要素（サブマッチ：[`sub_match`](sub_match.md)）には、標準シーケンスコンテナの [`vector`](vector.md) 等と同様に [`operator[]`](match_results/op_at.md) で直接アクセスすることができるだけでなく、
+マッチに成功し [`empty`](match_results/empty.md)`() == false` となった `match_results` オブジェクトに格納されている各要素（サブマッチ：[`sub_match`](sub_match.md)）には、標準シーケンスコンテナの [`vector`](../vector.md) 等と同様に [`operator[]`](match_results/op_at.md) で直接アクセスすることができるだけでなく、
 [`str`](match_results/str.md)、[`position`](match_results/position.md)、[`length`](match_results/length.md) といったメンバ関数で各要素の内容にアクセスすることもできる。  
 最初の要素には、マッチした文字列全体を表すサブマッチが格納され、以降に各キャプチャグループ（正規表現内の括弧で囲まれた部分に対応する）が続く。  
 また、マッチした文字列だけでなく、マッチした文字列の前（[`prefix`](match_results/prefix.md)）、および、後（[`suffix`](match_results/suffix.md)）を指すサブマッチも保持している。

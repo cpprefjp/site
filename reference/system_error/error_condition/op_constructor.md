@@ -20,7 +20,7 @@ error_condition(ErrorConditionEnum e) noexcept;
 
 - `template <class ErrorConditionEnum>`<br/>`error_condition(ErrorConditionEnum e) noexcept`
 
-[`is_error_condition_enum`](../is_error_condition_enum.md)`<ErrorCodeEnum>::value == true`となる型のエラー値を受け取って構築する。[`is_error_condition_enum`](../is_error_condition_enum.md)が`false`となる場合、この関数はオーバーロード解決から除外される。`*this = `[`make_error_condition`](./make_error_condition.md)`(e);` となる。
+[`is_error_condition_enum`](../is_error_condition_enum.md)`<ErrorCodeEnum>::value == true`となる型のエラー値を受け取って構築する。[`is_error_condition_enum`](../is_error_condition_enum.md)が`false`となる場合、この関数はオーバーロード解決から除外される。`*this = `[`make_error_condition`](../make_error_condition.md)`(e);` となる。
 
 
 ##例外

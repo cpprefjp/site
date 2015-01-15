@@ -42,8 +42,8 @@ match_results& operator=(match_results&& m) noexcept;	// (2)
 ##備考
 規格では明確ではないものの、以下の事後条件を満たすべきであると思われる。
 
-- (1) [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::`[`propagate_on_container_copy_assignment`](../../memory/allocator_traits/propagate_on_container_copy_assignment.md)`::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
-- (2) [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::`[`propagate_on_container_move_assignment`](../../memory/allocator_traits/propagate_on_container_move_assignment.md)`::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
+- (1) [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::propagate_on_container_copy_assignment::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
+- (2) [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
 
 
 ##例

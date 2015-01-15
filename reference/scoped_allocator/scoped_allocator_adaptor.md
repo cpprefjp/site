@@ -48,7 +48,7 @@ namespace std {
 | [`destroy`][destroy]                    | オブジェクトを破棄する                       | C++11 |
 | [`select_on_container_copy_construction`][select] | コンテナのコピー構築に必要なアロケータを取得する | C++11 |
 
-[constructor]: ./scoped_allocator_adaptor/scoped_allocator_adaptor.md
+[constructor]: ./scoped_allocator_adaptor/op_constructor.md
 [inner_allocator]: ./scoped_allocator_adaptor/inner_allocator.md
 [outer_allocator]: ./scoped_allocator_adaptor/outer_allocator.md
 [allocate]: ./scoped_allocator_adaptor/allocate.md

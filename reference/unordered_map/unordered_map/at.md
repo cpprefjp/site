@@ -15,7 +15,7 @@ const T& at(const key_type & x) const;
 
 ##計算量
 平均： 定数時間  
-最悪： [`size`](/reference/unordered_map/size.md) について線形時間。
+最悪： [`size`](size.md) について線形時間。
 
 
 ##例
@@ -67,9 +67,7 @@ exception std::out_of_ranget
 
 ##参照
 
-| 名前 | 説明 |
-|---------------------------------------------------------------------------------------------|-----------------------|
-| [`operator=`](/reference/unordered_map/op_assign.md) | 代入演算子 |
-| [`insert`](/reference/unordered_map/insert.md) | 要素を挿入する |
-
-
+| 名前                        | 説明           |
+|-----------------------------|----------------|
+| [`operator=`](op_assign.md) | 代入演算子     |
+| [`insert`](insert.md)       | 要素を挿入する |

@@ -5,7 +5,7 @@ namespace std {
   class set;
 }
 ```
-* less[link /reference/functional/comparisons.md]
+* less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
 
 

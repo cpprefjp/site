@@ -14,7 +14,7 @@ error_code& operator=(ErrorCodeEnum e) noexcept;
 
 
 ##効果
-`*this = `[`make_error_code`](./make_error_code.md)`(e)`
+`*this = `[`make_error_code`](../make_error_code.md)`(e)`
 
 
 ##戻り値

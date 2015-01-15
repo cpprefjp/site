@@ -59,7 +59,7 @@ int main()
 * regex_search[link ../regex_search.md]
 * ready[link ready.md]
 * size[color ff0000]
-* boolalpha[link ../ios/boolalpha.md]
+* boolalpha[link ../../ios/boolalpha.md]
 * mark_count[link ../basic_regex/mark_count.md]
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]

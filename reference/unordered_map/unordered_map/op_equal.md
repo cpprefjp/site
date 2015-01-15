@@ -22,8 +22,8 @@ bool operator== (const unordered_map<Key,T,Hash,Pred,Alloc>& x,
 
 
 ##計算量
-平均: [`size()`](/reference/unordered_map/size.md) に対して線形時間
-最悪: [`size()`](/reference/unordered_map/size.md) に対して二乗時間
+平均: [`size()`](size.md) に対して線形時間  
+最悪: [`size()`](size.md) に対して二乗時間
 
 
 ##例

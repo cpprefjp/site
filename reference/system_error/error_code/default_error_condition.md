@@ -2,7 +2,7 @@
 ```cpp
 error_condition default_error_condition() const noexcept;
 ```
-* error_condition[link ./error_condition.md]
+* error_condition[link ../error_condition.md]
 
 ##概要
 包含しているエラー値とエラーカテゴリに対応する`error_condition`を構築
