@@ -14,11 +14,11 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|----------------|-------|
-| `initializer_list() noexcept;` | コンストラクタ | C++11 |
-| `~initializer_list() = default;` | デストラクタ | C++11 |
-| `size_t size() const noexcept;` | 要素数を取得する | C++11 |
-| `const E* begin() const noexcept;` | 先頭要素へのポインタを取得する | C++11 |
-| `const E* end() const noexcept;` | 最後尾要素の次を指すポインタを取得する | C++11 |
+| [`constructor`](./initializer_list/op_constructor.md) | コンストラクタ | C++11 |
+| `~initializer_list() = default;`                      | デストラクタ | C++11 |
+| [`size`](./initializer_list/size.md)                  | 要素数を取得する | C++11 |
+| [`begin`](./initializer_list/begin.md)                | 先頭要素へのポインタを取得する | C++11 |
+| [`end`](./initializer_list/end.md)                    | 最後尾要素の次を指すポインタを取得する | C++11 |
 
 
 ##メンバ型
@@ -37,8 +37,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|------------|-------|
-| `template <class E>`<br/>`const E* begin(initializer_list<E> il) noexcept;` | 先頭要素へのポインタを取得する | C++11 |
-| `template <class E>`<br/>`const E* end(initializer_list<E> il) noexcept;` | 最後尾要素の次を指すポインタを取得する | C++11 |
+| [`begin`](./initializer_list/begin_free.md) | 先頭要素へのポインタを取得する | C++11 |
+| [`end`](./initializer_list/end_free.md)     | 最後尾要素の次を指すポインタを取得する | C++11 |
 
 
 ##例
