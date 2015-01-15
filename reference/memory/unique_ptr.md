@@ -19,8 +19,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------|--------------------------------------------------|-------|
-| [(constructor)](./unique_ptr//op_constructor.md) | コンストラクタ                                   | C++11 |
-| [(destructor)](./unique_ptr//op_destructor.md) | デストラクタ                                     | C++11 |
+| [`(constructor)`](./unique_ptr/op_constructor.md) | コンストラクタ                                   | C++11 |
+| [`(destructor)`](./unique_ptr/op_destructor.md) | デストラクタ                                     | C++11 |
 | [`operator=`](./unique_ptr/op_assign.md)      | 代入演算子                                       | C++11 |
 | [`release`](./unique_ptr/release.md)          | リソースの所有権を放棄する                       | C++11 |
 | [`reset`](./unique_ptr/reset.md)              | リソースの所有権を放棄し、新たなリソースの所有権を設定する | C++11 |

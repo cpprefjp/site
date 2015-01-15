@@ -18,7 +18,7 @@ namespace std {
 
 | 名前 | 説明 |
 |----------------------------------------------------|-----------------------------------------------|
-| [(constructor)](./istream_iterator//op_constructor.md) | コンストラクタ |
+| [`(constructor)`](./istream_iterator/op_constructor.md) | コンストラクタ |
 | `~istream_iterator() = default` | デストラクタ |
 | `operator=(const istream_iterator&) = default<br/> operator=(istream_iterator&&) = default` | 代入演算子 |
 | [`operator*`](./istream_iterator/op_deref.md) | 間接参照 |

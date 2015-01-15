@@ -33,7 +33,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------------|--------------------|-------|
-| [(constructor)](./chi_squared_distribution//op_constructor.md)           | コンストラクタ     | C++11 |
+| [`(constructor)`](./chi_squared_distribution/op_constructor.md)           | コンストラクタ     | C++11 |
 | `~chi_squared_distribution() = default;`                                  | デストラクタ       | C++11 |
 | [`reset`](./chi_squared_distribution/reset.md)                            | 状態をリセットする | C++11 |
 

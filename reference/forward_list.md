@@ -24,8 +24,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|----------------|-------|
-| [(constructor)](./forward_list//op_constructor.md) | コンストラクタ | C++11 |
-| [(destructor)](./forward_list//op_destructor.md) | デストラクタ | C++11 |
+| [`(constructor)`](./forward_list/op_constructor.md) | コンストラクタ | C++11 |
+| [`(destructor)`](./forward_list/op_destructor.md) | デストラクタ | C++11 |
 | [`operator=`](./forward_list/op_assign.md) | 代入演算子 | C++11 |
 | [`assign`](./forward_list/assign.md) | コンテナの再代入 | C++11 |
 

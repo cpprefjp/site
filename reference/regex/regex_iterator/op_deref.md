@@ -64,6 +64,6 @@ prefix = 'def', str = '456', suffix = 'ghi'
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`operator->`](op_arrow.md)          | メンバアクセス | C++11          |
-| [(constructor)](op_constructor.md) | コンストラクタ | C++11          |
+| [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator++`](op_increment.md)      | インクリメント | C++11          |
 | [`operator==`](op_equal.md)          | 等値比較       | C++11          |

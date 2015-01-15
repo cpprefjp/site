@@ -33,8 +33,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|----------------|-------|
-| [(constructor)](./set//op_constructor.md) | コンストラクタ | |
-| [(destructor)](./set//op_destructor.md) | デストラクタ | |
+| [`(constructor)`](./set/op_constructor.md) | コンストラクタ | |
+| [`(destructor)`](./set/op_destructor.md) | デストラクタ | |
 | [`operator=`](./set/op_assign.md) | 代入演算子 | |
 | [`get_allocator`](./set/get_allocator.md) | アロケータオブジェクトを取得する | |
 

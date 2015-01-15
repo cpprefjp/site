@@ -29,7 +29,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|--------------------|-------|
-| [(constructor)](./geometric_distribution//op_constructor.md)         | コンストラクタ     | C++11 |
+| [`(constructor)`](./geometric_distribution/op_constructor.md)         | コンストラクタ     | C++11 |
 | `~geometric_distribution() = default;`                                | デストラクタ       | C++11 |
 | [`reset`](./geometric_distribution/reset.md)                          | 状態をリセットする | C++11 |
 

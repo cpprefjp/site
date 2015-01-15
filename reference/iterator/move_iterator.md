@@ -15,7 +15,7 @@ namespace std {
 
 | | |
 |-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [(constructor)](./move_iterator//op_constructor.md) | コンストラクタ |
+| [`(constructor)`](./move_iterator/op_constructor.md) | コンストラクタ |
 | `~move_iterator() = default` | デストラクタ |
 | [`operator=`](./move_iterator/op_assign.md) | 代入演算子 |
 | [`base`](./move_iterator/base.md) | 元のイテレータを取得する |

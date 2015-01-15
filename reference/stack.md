@@ -30,8 +30,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|----------------------------|-------|
-| [(constructor)](./stack//op_constructor.md)  | コンストラクタ             | |
-| [(destructor)](./stack//op_destructor.md)  | デストラクタ               | |
+| [`(constructor)`](./stack/op_constructor.md)  | コンストラクタ             | |
+| [`(destructor)`](./stack/op_destructor.md)  | デストラクタ               | |
 | [`operator=`](./stack/op_assign.md)  | 代入                       | |
 | [`top`](./stack/top.md)              | 次の要素へアクセスする     | |
 | [`empty`](./stack/empty.md)          | 要素が空であるかを確認する | |

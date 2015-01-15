@@ -16,8 +16,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------|----------------|-------|
-| [(constructor)](./lock_guard//op_constructor.md) | コンストラクタ | C++11 |
-| [(destructor)](./lock_guard//op_destructor.md) | デストラクタ   | C++11 |
+| [`(constructor)`](./lock_guard/op_constructor.md) | コンストラクタ | C++11 |
+| [`(destructor)`](./lock_guard/op_destructor.md) | デストラクタ   | C++11 |
 | `operator=(const lock_guard&) = delete`       | 代入演算子     | C++11 |
 
 

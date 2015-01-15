@@ -34,7 +34,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------|--------------------|-------|
-| [(constructor)](./poisson_distribution//op_constructor.md)       | コンストラクタ     | C++11 |
+| [`(constructor)`](./poisson_distribution/op_constructor.md)       | コンストラクタ     | C++11 |
 | `~poisson_distribution() = default;`                              | デストラクタ       | C++11 |
 | [`reset`](./poisson_distribution/reset.md)                        | 状態をリセットする | C++11 |
 

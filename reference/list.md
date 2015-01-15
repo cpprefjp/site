@@ -16,8 +16,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------|----------------|-------|
-| [(constructor)](./list//op_constructor.md) | コンストラクタ | |
-| [(destructor)](./list//op_destructor.md) | デストラクタ | |
+| [`(constructor)`](./list/op_constructor.md) | コンストラクタ | |
+| [`(destructor)`](./list/op_destructor.md) | デストラクタ | |
 | [`operator=`](./list/op_assign.md) | 代入演算子 | |
 | [`assign`](./list/assign.md) | コンテナの再代入 | |
 

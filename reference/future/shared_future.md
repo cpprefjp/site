@@ -13,8 +13,8 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [(constructor)](./shared_future//op_constructor.md) | コンストラクタ |
-| [(destructor)](./shared_future//op_destructor.md) | デストラクタ |
+| [`(constructor)`](./shared_future/op_constructor.md) | コンストラクタ |
+| [`(destructor)`](./shared_future/op_destructor.md) | デストラクタ |
 | [`operator=`](./shared_future/op_assign.md) | 代入演算子 |
 
 ####値の取得

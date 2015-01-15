@@ -29,7 +29,7 @@ namespace chrono {
 
 | 名前                                      | 説明                  | 対応バージョン |
 |-------------------------------------------|-----------------------|----------------|
-| [(constructor)](./duration//op_constructor.md) | コンストラクタ        | C++11          |
+| [`(constructor)`](./duration/op_constructor.md) | コンストラクタ        | C++11          |
 | `~duration() = default;`                  | デストラクタ          | C++11          |
 | `operator=(const duration&) = default;`   | 代入演算子            | C++11          |
 

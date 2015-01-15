@@ -31,7 +31,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|--------------------|-------|
-| [(constructor)](./fisher_f_distribution//op_constructor.md)        | コンストラクタ     | C++11 |
+| [`(constructor)`](./fisher_f_distribution/op_constructor.md)        | コンストラクタ     | C++11 |
 | `~fisher_f_distribution() = default;`                               | デストラクタ       | C++11 |
 | [`reset`](./fisher_f_distribution/reset.md)                         | 状態をリセットする | C++11 |
 

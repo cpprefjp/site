@@ -37,7 +37,7 @@ queueは2つのテンプレート引数を持つ。
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|------------------------------------------------|-------|
-| [(constructor)](./priority_queue//op_constructor.md) | コンストラクタ | |
+| [`(constructor)`](./priority_queue/op_constructor.md) | コンストラクタ | |
 | `~priority_queue() = default`            | デストラクタ | |
 | `operator=(const priority_queue&) = default`<br/> `operator=(priority_queue&&) = default` | 代入演算子 | |
 | [`empty`](./priority_queue/empty.md)     | 要素が空かどうかを判定する | |

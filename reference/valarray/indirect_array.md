@@ -21,7 +21,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------|----------------|
-| [(constructor)](./indirect_array//op_constructor.md) | コンストラクタ | |
+| [`(constructor)`](./indirect_array/op_constructor.md) | コンストラクタ | |
 | `~indirect_array() = default;`                        | デストラクタ   | |
 | [`operator=`](./indirect_array/op_assign.md)          | 代入演算子     | |
 

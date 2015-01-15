@@ -12,7 +12,7 @@ namespace std {
 
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| [(constructor)](./nested_exception//op_constructor.md) | コンストラクタ |
+| [`(constructor)`](./nested_exception/op_constructor.md) | コンストラクタ |
 | `~virtual nested_exception() = default;` | デストラクタ |
 | `nested_exception& operator=(const nested_exception&) = default;` | 代入演算子 |
 | [`rethrow_nested`](./nested_exception/rethrow_nested.md) | 入れ子になった例外を送出する |

@@ -14,7 +14,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|----------------------------|------|
-| [(constructor)](./slice//op_constructor.md) | コンストラクタ             |      |
+| [`(constructor)`](./slice/op_constructor.md) | コンストラクタ             |      |
 
 
 ###その他メンバ関数

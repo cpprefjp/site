@@ -46,8 +46,8 @@ namespace std {
 
 |                                                      |                |
 |------------------------------------------------------|----------------|
-| [(constructor)](./unordered_set//op_constructor.md) | コンストラクタ |
-| [(destructor)](./unordered_set//op_destructor.md)   | デストラクタ   |
+| [`(constructor)`](./unordered_set/op_constructor.md) | コンストラクタ |
+| [`(destructor)`](./unordered_set/op_destructor.md)   | デストラクタ   |
 | [`operator=`](./unordered_set/op_assign.md)          | 代入演算子     |
 
 

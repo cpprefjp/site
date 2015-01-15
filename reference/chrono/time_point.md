@@ -18,7 +18,7 @@ namespace chrono {
 
 | 名前                                          | 説明           | 対応バージョン |
 |-----------------------------------------------|----------------|----------------|
-| [(constructor)](./time_point//op_constructor.md) | コンストラクタ | C++11          |
+| [`(constructor)`](./time_point/op_constructor.md) | コンストラクタ | C++11          |
 
 
 ###観測

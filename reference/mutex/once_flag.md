@@ -13,7 +13,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------|-------|
-| [(constructor)](./once_flag//op_constructor.md) | コンストラクタ | C++11 |
+| [`(constructor)`](./once_flag/op_constructor.md) | コンストラクタ | C++11 |
 | `~once_flag() = default`                    | デストラクタ   | C++11 |
 | `operator=(const once_flag&) = delete`      | 代入演算子     | C++11 |
 

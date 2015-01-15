@@ -14,8 +14,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|----------------------------------------------------------|-------|
-| [(constructor)](./condition_variable_any//op_constructor.md) | コンストラクタ | C++11 |
-| [(destructor)](./condition_variable_any//op_destructor.md) | デストラクタ | C++11 |
+| [`(constructor)`](./condition_variable_any/op_constructor.md) | コンストラクタ | C++11 |
+| [`(destructor)`](./condition_variable_any/op_destructor.md) | デストラクタ | C++11 |
 | `operator=(const conditon_variable_any&) = delete;`                   | 代入演算子 | C++11 |
 | [`notify_one`](./condition_variable_any/notify_one.md)                | 待機しているスレッドをひとつ起床させる | C++11 |
 | [`notify_all`](./condition_variable_any/notify_all.md)                | 待機している全てのスレッドを起床させる | C++11 |

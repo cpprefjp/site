@@ -75,7 +75,7 @@ namespace std {
 
 | 名前                                              | 説明           | 対応バージョン |
 |---------------------------------------------------|----------------|----------------|
-| [(constructor)](basic_istream//op_constructor.md) | コンストラクタ |                |
+| [`(constructor)`](basic_istream/op_constructor.md) | コンストラクタ |                |
 | `(destructor)`                                    | デストラクタ   |                |
 | `operator=`                                       | ムーブ代入     | C++11          |
 | `swap`                                            | 値の交換       | C++11          |

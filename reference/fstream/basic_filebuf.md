@@ -40,8 +40,8 @@ Cの`FILE*`に対する入出力関数を使って実装される。
 
 | 名前                                              | 説明           | 対応バージョン |
 |---------------------------------------------------|----------------|----------------|
-| [(constructor)](basic_filebuf/op_constructor.md)  | コンストラクタ |                |
-| [(destructor)](basic_filebuf/op_destructor.md)    | デストラクタ   |                |
+| [`(constructor)`](basic_filebuf/op_constructor.md)  | コンストラクタ |                |
+| [`(destructor)`](basic_filebuf/op_destructor.md)    | デストラクタ   |                |
 | `operator=`                                       | ムーブ代入     | C++11          |
 | `swap`                                            | 値の交換       | C++11          |
 

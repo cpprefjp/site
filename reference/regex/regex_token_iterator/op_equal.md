@@ -82,6 +82,6 @@ match range = (53, 64), str = 'enumerator2'
 |--------------------------------------------|----------------|----------------|
 | [`operator*`](op_deref.md)                 | 間接参照       | C++11          |
 | [`operator->`](op_arrow.md)                | メンバアクセス | C++11          |
-| [(constructor)](op_constructor.md) | コンストラクタ | C++11          |
+| [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator++`](op_increment.md)            | インクリメント | C++11          |
 | [`operator!=`](op_not_equal.md)            | 非等値比較     | C++11          |

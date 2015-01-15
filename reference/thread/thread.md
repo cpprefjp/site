@@ -29,8 +29,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------------------------------------------|-------|
-| [(constructor)](./thread//op_constructor.md)        | コンストラクタ | C++11 |
-| [(destructor)](./thread//op_destructor.md)        | デストラクタ | C++11 |
+| [`(constructor)`](./thread/op_constructor.md)        | コンストラクタ | C++11 |
+| [`(destructor)`](./thread/op_destructor.md)        | デストラクタ | C++11 |
 | [`operator=`](./thread/op_assign.md)         | 代入演算子 | C++11 |
 | [`swap`](./thread/swap.md)                   | 別の`thread`と交換する | C++11 |
 | [`joinable`](./thread/joinable.md)           | スレッドに関連付けられているか否かを取得する | C++11 |

@@ -29,7 +29,7 @@ namespace std {
 
 | 名前                                                  | 説明                           | 対応バージョン |
 |-------------------------------------------------------|--------------------------------|----------------|
-| [(constructor)](complex/complex//op_constructor.md)         | コンストラクタ                 |                |
+| [`(constructor)`](complex/complex/op_constructor.md)         | コンストラクタ                 |                |
 | `~complex() = default;`                               | デストラクタ                   |                |
 | [`real`](complex/complex/real.md)                     | 複素数値の実部を取得／設定する |                |
 | [`imag`](complex/complex/imag.md)                     | 複素数値の虚部を取得／設定する |                |

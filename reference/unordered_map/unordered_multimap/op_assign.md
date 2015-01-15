@@ -78,6 +78,6 @@ unordered_multimap& operator=(initializer_list<value_type> il); // (3)
 
 |                                            |                |
 |--------------------------------------------|----------------|
-| [(constructor)](.//op_constructor.md) | コンストラクタ |
-| [(destructor)](.//op_destructor.md) | デストラクタ   |
+| [`(constructor)`](./op_constructor.md) | コンストラクタ |
+| [`(destructor)`](./op_destructor.md) | デストラクタ   |
 

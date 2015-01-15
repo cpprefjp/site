@@ -110,7 +110,7 @@ libstdc++ の `unordered_set` では、アロケータの `select_on_container_c
 
 |                                                             |                            |
 |-------------------------------------------------------------|----------------------------|
-| [(constructor)](.//op_constructor.md)                      | コンストラクタ             |
+| [`(constructor)`](./op_constructor.md)                      | コンストラクタ             |
 | [`operator=`](./op_assign.md)                               | 代入演算子                 |
 | [`swap`](./swap_free.md)                                    | 内容の交換（非メンバ関数） |
 | [`allocator`](/reference/memory/allocator.md)               | デフォルトのアロケータ     |

@@ -48,8 +48,8 @@ namespace std {
 
 |                                                               |                |
 |---------------------------------------------------------------|----------------|
-| [(constructor)](./unordered_multimap//op_constructor.md) | コンストラクタ |
-| [(destructor)](./unordered_multimap//op_destructor.md) | デストラクタ   |
+| [`(constructor)`](./unordered_multimap/op_constructor.md) | コンストラクタ |
+| [`(destructor)`](./unordered_multimap/op_destructor.md) | デストラクタ   |
 | [`operator=`](./unordered_multimap/op_assign.md)              | 代入演算子     |
 
 

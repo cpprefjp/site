@@ -23,8 +23,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|--------------------------------------------------------|-------|
-| [(constructor)](./unique_lock//op_constructor.md)     | コンストラクタ | C++11 |
-| [(destructor)](./unique_lock//op_destructor.md)     | デストラクタ | C++11 |
+| [`(constructor)`](./unique_lock/op_constructor.md)     | コンストラクタ | C++11 |
+| [`(destructor)`](./unique_lock/op_destructor.md)     | デストラクタ | C++11 |
 | [`operator=`](./unique_lock/op_assign.md)           | 代入演算子 | C++11 |
 | [`lock`](./unique_lock/lock.md)                     | ロックを取得する | C++11 |
 | [`try_lock`](./unique_lock/try_lock.md)             | ロックの取得を試みる | C++11 |
