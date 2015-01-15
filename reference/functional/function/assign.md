@@ -9,7 +9,7 @@ void assign(F&& f, const Alloc& alloc);
 
 
 ##効果
-[`function`](./function.md)`(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`, a,` [`std::forward`](/reference/utility/forward.md)`<F>(f)).`[`swap`](./swap.md)`(*this)`
+[`function`](./op_constructor.md)`(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`, a,` [`std::forward`](/reference/utility/forward.md)`<F>(f)).`[`swap`](./swap.md)`(*this)`
 
 
 ##戻り値

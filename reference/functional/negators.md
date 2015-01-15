@@ -93,7 +93,7 @@ int main()
 ```
 * iostream[link ../iostream.md]
 * functional[link ../functional.md]
-* less[link comparisons.md]
+* less[link less.md]
 * not2[color ff0000]
 * boolalpha[link ../ios/boolalpha.md]
 

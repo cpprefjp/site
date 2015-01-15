@@ -34,7 +34,7 @@ namespace std {
 - [`ios_base`](../ios/ios_base.md)
 - [`basic_ios`](../ios/basic_ios.md)
 - [`basic_istream`](basic_istream.md)
-- [`basic_ostream`](basic_ostream.md)
+- [`basic_ostream`](../ostream/basic_ostream.md)
 
 ###型
 

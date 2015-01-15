@@ -78,5 +78,5 @@ int main()
 
 
 ##参照
-[_at_thread_exit系の関数が存在している理由](/article/at_thread_exit.md)
+[_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
 

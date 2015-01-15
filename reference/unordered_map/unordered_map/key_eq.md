@@ -72,7 +72,6 @@ eq("1st", "2nd") = true
 ##参照
 
 | | |
-|----------------------------------------------------|----------------------------------------------|
-| [`equal_to`](/reference/functional/keual_to.md)    | 等値比較演算関数オブジェクト(class template) |
-| [`hash_function`](./hash_function.md)              | ハッシュ関数オブジェクトの取得 |
-
+|-------------------------------------------------|----------------------------------------------|
+| [`equal_to`](/reference/functional/equal_to.md) | 等値比較演算関数オブジェクト(class template) |
+| [`hash_function`](./hash_function.md)           | ハッシュ関数オブジェクトの取得               |

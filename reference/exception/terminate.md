@@ -25,7 +25,7 @@ namespace std {
 	- [`set_unexpected()`](set_unexpected.md)で登録したハンドラで以下すべてを満たす場合
 		- 発端となった例外指定に含まれない例外がハンドラから送出された
 		- 発端となった例外指定に[`bad_exception`](bad_exception.md)が含まれない
-	- スレッドの開始関数（[`thread`のコンストラクタ](../thread/thread/thread.md)で渡した関数）
+	- スレッドの開始関数（[`thread`のコンストラクタ](../thread/thread/op_constructor.md)で渡した関数）
 - 例外処理中でないのに式を持たない`throw`式を実行しようとした
 - デフォルトの予想外の例外のハンドラ（`set_unexpected()`が呼び出されていない状況でのハンドラ）が呼び出された
 - [`nested_exception::rethrow_nested()`](nested_exception/rethrow_nested)が例外を捕捉していない状況で呼び出された
@@ -73,7 +73,7 @@ terminate called without an active exception
 
 ##参照
 - 関係する関数
-	- [`get_terminated`](get_terminated.md)
-	- [`set_terminated`](set_terminated.md)
+	- [`get_terminate`](get_terminate.md)
+	- [`set_terminate`](set_terminate.md)
 - `terminate`が呼び出される状況
 	- N3337 15.5.1 The `std::terminate()` function `[except.terminal]`

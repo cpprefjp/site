@@ -28,7 +28,7 @@ namespace std {
 ##備考
 - 本関数は、C99 の規格にある `cproj`（より正確には `complex.h` ヘッダの `cproj`、`cprojf`、`cprojl` の 3 つ。それぞれ C++ の `proj<double>`、`proj<float>`、`proj<long double>` に相当）と同等である。  
 - 本関数は、`x` が無限大ではない場合、`x` そのものを返す。ここで「無限大ではない」とは、`!`[`isinf`](/reference/cmath/isinf.md)`(`[`real`](real.md)`(x)) && !`[`isinf`](/reference/cmath/isinf.md)`(`[`imag`](imag.md)`(x))` である。  
-	`x` が無限大の場合、[`complex`](complex/complex.md)`<T>(`[`numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`infinity`](/reference/limits/numeric_limits/infinity.md)`(), `[`copysign`](/reference/cmath/copysign.md)`(T(), `[`imag`](imag.md)`(x)))` を返す。
+	`x` が無限大の場合、[`complex`](complex/op_constructor.md)`<T>(`[`numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`infinity`](/reference/limits/numeric_limits/infinity.md)`(), `[`copysign`](/reference/cmath/copysign.md)`(T(), `[`imag`](imag.md)`(x)))` を返す。
 
 
 ##例

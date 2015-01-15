@@ -13,10 +13,10 @@ future<R> get_future();
 
 
 ##例外
-この関数は、以下のerror conditionを持つ[`future_error`](./future_error.md)例外オブジェクトを送出する可能性がある：
+この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
-- [`future_already_retrieved`](./future_errc.md) ： すでにこの関数によって共有状態が作られている
-- [`no_state`](./future_errc.md)： `*this`が共有状態を持っていない(デフォルト構築された`packaged_task`、ムーブされたあとなどに起こりうる)
+- [`future_already_retrieved`](../future_errc.md) ： すでにこの関数によって共有状態が作られている
+- [`no_state`](../future_errc.md)： `*this`が共有状態を持っていない(デフォルト構築された`packaged_task`、ムーブされたあとなどに起こりうる)
 
 
 ##例

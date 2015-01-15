@@ -12,11 +12,11 @@ function& operator=(reference_wrapper<F> f) noexcept; // (5)
 ```
 
 ##効果
-- (1) : [`function`](./function.md)`(f).`[`swap`](./swap.md)`(*this)`
+- (1) : [`function`](./op_constructor.md)`(f).`[`swap`](./swap.md)`(*this)`
 - (2) : `*this`が持つ関数を、`f`のそれで置き換える。
 - (3) : `*this`が有効な関数ポインタ、メンバポインタ、もしくは関数オブジェクトを持っている場合、それを解放する。
-- (4) : [`function`](./function.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f)).`[`swap`](./swap.md)`(*this)`
-- (5) : [`function`](./function.md)`(f).`[`swap`](./swap.md)`(*this)`
+- (4) : [`function`](./op_constructor.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f)).`[`swap`](./swap.md)`(*this)`
+- (5) : [`function`](./op_constructor.md)`(f).`[`swap`](./swap.md)`(*this)`
 
 
 ##戻り値

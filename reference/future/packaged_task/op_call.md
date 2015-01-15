@@ -20,7 +20,7 @@ void operator()(ArgTypes... args);
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`promise_already_satisfied`](../future_errc.md) ： 格納されたタスクがすでに実行された
-- [`no_state`](./future_errc.md)： `*this`が共有状態を持っていない(`packaged_task`オブジェクトがムーブされると起こりうる)
+- [`no_state`](../future_errc.md)： `*this`が共有状態を持っていない(`packaged_task`オブジェクトがムーブされると起こりうる)
 
 
 ##例
