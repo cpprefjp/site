@@ -39,7 +39,6 @@ namespace std {
 	| `double`                                  | [`acosh`](/reference/cmath/acosh.md)             | [`cmath`](/reference/cmath.md)       |            |
 	| `long double`                             | [`acosh`](/reference/cmath/acosh.md)             | [`cmath`](/reference/cmath.md)       |            |
 	| 任意の整数型                              | [`acosh`](/reference/cmath/acosh.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| [`valarray`](/reference/valarray.md)`<T>` | [`acosh`](/reference/valarray/valarray/acosh.md) | [`valarray`](/reference/valarray.md) |            |
 
 - 規格書では arc hyperbolic cosine となっているが、逆双曲線関数で求めるのは「弧（arc）」ではなく「面積（area）」であるため、（広く誤用されてはいるものの）適切な表現ではない。（[逆双曲線関数 - Wikipedia](http://ja.wikipedia.org/wiki/逆双曲線関数)）
 

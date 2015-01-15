@@ -39,7 +39,6 @@ namespace std {
 	| `double`                                | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       |            |
 	| `long double`                           | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       |            |
 	| 任意の整数型                            | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| [`valarray<T>`](/reference/valarray.md) | [`atanh`](/reference/valarray/atanh.md)    | [`valarray`](/reference/valarray.md) |            |
 
 - 規格書では arc hyperbolic tangent となっているが、逆双曲線関数で求めるのは「弧（arc）」ではなく「面積（area）」であるため、（広く誤用されてはいるものの）適切な表現ではない。（[逆双曲線関数 - Wikipedia](http://ja.wikipedia.org/wiki/逆双曲線関数)）
 
