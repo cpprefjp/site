@@ -9,10 +9,10 @@ weak_ptr(const weak_ptr<Y>& r) noexcept;   // (3)
 template <class Y>
 weak_ptr(const shared_ptr<Y>& r) noexcept; // (4)
 
-weak_ptr(weak_ptr&& r) noexcept;           // (5)
+weak_ptr(weak_ptr&& r) noexcept;           // (5) C++14
 
 template <class Y>
-weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6)
+weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++14
 ```
 * shared_ptr[link /reference/memory/shared_ptr.md]
 
