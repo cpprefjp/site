@@ -14,7 +14,7 @@ namespace std {
 内部的には、`multiset` 内の要素は、コンテナの構築時に設定された[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)基準に従って小さいものから大きいものへとソートされる。 
 
 [`set`](./set.md)が重複キーを許可しないのに対し、`multiset`は重複キーを許可する。  
-`set`とは違い、[`find()`](./multiset/find.md)メンバ関数は、キーに合致した最初の要素へのイテレータを返し、[`count()`](./multiset/count.md)メンバ関数はキーに合致する要素数を返す。  
+`set`とは違い、[`find()`](./multiset/find.md.nolink)メンバ関数は、キーに合致した最初の要素へのイテレータを返し、[`count()`](./multiset/count.md.nolink)メンバ関数はキーに合致する要素数を返す。  
 
 
 このコンテナクラスは、双方向イテレータをサポートする。  

@@ -35,9 +35,9 @@ int main()
   std::cout << std::distance(um.begin(), um.end()) << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /site/cpprefjp./unordered_multisest]
+* unordered_multiset[link ../unordered_multiset.md]
 * distance[link /reference/iterator/distance.md]
 * begin[link ./begin.md]
 * end[link ./end.md]

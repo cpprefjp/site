@@ -14,11 +14,11 @@ static constexpr int min_exponent10;
 
 対応するマクロを次の表に挙げる。
 
-| 型            | 対応するマクロ                                         |
-|---------------|--------------------------------------------------------|
-| `float`       | [`FLT_MIN_10_EXP`](/reference/cfloat/flt_min_10_exp)   |
-| `double`      | [`DBL_MIN_10_EXP`](/reference/cfloat/dbl_min_10_exp)   |
-| `long double` | [`LDBL_MIN_10_EXP`](/reference/cfloat/ldbl_min_10_exp) |
+| 型            | 対応するマクロ                                            |
+|---------------|-----------------------------------------------------------|
+| `float`       | [`FLT_MIN_10_EXP`](/reference/cfloat/flt_min_10_exp.md)   |
+| `double`      | [`DBL_MIN_10_EXP`](/reference/cfloat/dbl_min_10_exp.md)   |
+| `long double` | [`LDBL_MIN_10_EXP`](/reference/cfloat/ldbl_min_10_exp.md) |
 
 
 ##例

@@ -44,7 +44,7 @@ int main()
   std::cout << "hash(2) = " << hash(2) << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link ../unordered_multiset.md]
 

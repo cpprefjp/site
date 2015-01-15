@@ -11,7 +11,7 @@ namespace std {
 
 
 ##効果
-`ratio_less_equal`は、[`ratio_less`](./ratio_less.md)`<R2, R1>::value == false`であれば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`ratio_less_equal`は、[`ratio_less`](./ratio_less.md)`<R2, R1>::value == false`であれば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
 
 
 ##例

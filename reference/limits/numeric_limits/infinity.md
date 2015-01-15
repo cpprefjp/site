@@ -10,7 +10,7 @@ static constexpr T infinity() noexcept;
 ##概要
 浮動小数点数型における、正の無限表現を取得する。  
 
-`numeric_limits<float>::`[`has_infinity`](./has_infinity)が`true`のとき、`numeric_limits<float>::infinity()`は`INFINITY`マクロの値と等しい。
+`numeric_limits<float>::`[`has_infinity`](./has_infinity.md)が`true`のとき、`numeric_limits<float>::infinity()`は`INFINITY`マクロの値と等しい。
 
 
 ##要件

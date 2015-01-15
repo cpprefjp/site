@@ -56,7 +56,7 @@ namespace std {
 
 | 名前                                              | 説明           | 対応バージョン |
 |---------------------------------------------------|----------------|----------------|
-| [`(constructor)`](basic_ostream/op_constructor.md) | コンストラクタ |                |
+| [`(constructor)`](basic_ostream/op_constructor.md.nolink) | コンストラクタ |                |
 | `(destructor)`                                    | デストラクタ   |                |
 | `operator=`                                       | ムーブ代入     | C++11          |
 | `swap`                                            | 値の交換       | C++11          |
@@ -71,7 +71,7 @@ namespace std {
 | [`operator<<`](basic_ostream/op_ostream.md) | 書式化出力・マニピュレータの実行 |                |
 | [`put`](basic_ostream/put.md)               | 文字の出力                       |                |
 | [`write`](basic_ostream/write.md)           | 文字列・バイト列の出力           |                |
-| [`flush`](basic_ostream/flush.md)           | ストリームバッファのフラッシュ   |                |
+| [`flush`](basic_ostream/flush.md.nolink)           | ストリームバッファのフラッシュ   |                |
 
 `<<`演算子のほとんどは書式化出力関数である。
 その他のメンバ関数は非書式化出力関数である。
@@ -89,8 +89,8 @@ namespace std {
     - [`basic_ios`](../ios/basic_ios.md)
 - `basic_ostream<>`型のオブジェクト
     - [`cout`](../iostream/cout.md)
-    - [`wcout`](../iostream/wcout.md)
+    - [`wcout`](../iostream/wcout.md.nolink)
     - [`clog`](../iostream/clog.md)
-    - [`wclog`](../iostream/wclog.md)
+    - [`wclog`](../iostream/wclog.md.nolink)
     - [`cerr`](../iostream/cerr.md)
-    - [`wcerr`](../iostream/wcerr.md)
+    - [`wcerr`](../iostream/wcerr.md.nolink)

@@ -21,7 +21,7 @@ locale_type imbue(locale_type loc);
 - 効果に記載されている通り、本メンバ関数呼び出し後、`*this` はいかなる文字列にもマッチしない。  
 	従って、`*this` を使用するためには、[`operator=`](op_assign.md) か [`assign`](assign.md) を用いて正規表現を代入しなければならない。
 - `locale_type` は、ロケールに関する型であり、`traits_type::locale_type` の typedef である。
-- `traits_type` は、クラステンプレート [`basic_regex`](../basic_regex.md) の 2 番目のテンプレート引数で、デフォルトでは [`regex_traits`](../regex_traits.md)`<char_type>` である。  
+- `traits_type` は、クラステンプレート [`basic_regex`](../basic_regex.md) の 2 番目のテンプレート引数で、デフォルトでは [`regex_traits`](../regex_traits.md.nolink)`<char_type>` である。  
 	その場合、`locale_type` は [`locale`](../../locale/locale.md) である。
 
 
@@ -53,7 +53,7 @@ int main()
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 * boolalpha[link ../../ios/boolalpha.md]
-* regex_search[link ../regex_search.md]
+* regex_search[link ../regex_search.md.nolink]
 
 ###出力
 ```

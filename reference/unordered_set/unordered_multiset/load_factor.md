@@ -44,7 +44,7 @@ int main()
   print(um);
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]

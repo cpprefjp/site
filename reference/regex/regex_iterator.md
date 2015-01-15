@@ -17,8 +17,8 @@ namespace std {
 ##概要
 `regex_iterator` は、ある文字列に対して、指定した正規表現で検索した結果を順番に列挙する読み取り専用の前方向イテレータである。
 
-`regex_iterator` オブジェクトを構築した時、および、[`operator++`](regex_iterator/op_increment.md) を呼び出す毎に、当該イテレータは [`regex_search`](regex_search.md) を呼び出して検索し、マッチ結果オブジェクト（[`match_results`](match_results.md)）を内部に保存する（ただし、[`operator++`](regex_iterator/op_increment.md) も参照）。
-イテレータが終端まで来たとき（つまり、[`regex_search`](regex_search.md) が `false` を返したとき）、当該イテレータはシーケンスの終端を示す特別な値となる。
+`regex_iterator` オブジェクトを構築した時、および、[`operator++`](regex_iterator/op_increment.md) を呼び出す毎に、当該イテレータは [`regex_search`](regex_search.md.nolink) を呼び出して検索し、マッチ結果オブジェクト（[`match_results`](match_results.md)）を内部に保存する（ただし、[`operator++`](regex_iterator/op_increment.md) も参照）。
+イテレータが終端まで来たとき（つまり、[`regex_search`](regex_search.md.nolink) が `false` を返したとき）、当該イテレータはシーケンスの終端を示す特別な値となる。
 この、シーケンスの終端を示す特別な値は、`regex_iterator` オブジェクトをデフォルトコンストラクタにより構築した場合にも生成されるため、この値と比較することによってシーケンスの終端であるか否か（つまり、マッチしなかったか否か）が判別できる。
 
 シーケンス終端のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用は未定義である。その他のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用の結果は `const `[`match_results`](match_results.md)`<BidirectionalIterator>&` である。  
@@ -29,7 +29,7 @@ namespace std {
 - 検索対象文字列の開始位置を示すイテレータ `begin`（`BidirectionalIterator` 型）
 - 検索対象文字列の終了位置を示すイテレータ `end`（`BidirectionalIterator` 型）
 - 検索する正規表現へのポインタ `pregex`（`const `[`basic_regex`](basic_regex.md)`<charT, traits>*` 型。正規表現のコピーではないことに注意）
-- 検索フラグ `flags`（[`regex_constants`](regex_constants.md)`::match_flag_type` 型）
+- 検索フラグ `flags`（[`regex_constants`](regex_constants.md.nolink)`::match_flag_type` 型）
 - 最後の検索のマッチ結果オブジェクト `match`（[`match_results`](match_results.md)`<BidirectionalIterator` 型）
 
 しかし、規格上これらのメンバ変数は説明のためだけに導入されているため、実際の各実装でこれらのメンバ変数が存在するとは限らない事に注意すること。
@@ -85,7 +85,7 @@ namespace std {
 | `begin`  | 検索対象文字列の開始位置を示すイテレータ。`BidirectionalIterator` 型                                                           | C++11          |
 | `end`    | 検索対象文字列の終了位置を示すイテレータ。`BidirectionalIterator` 型                                                           | C++11          |
 | `pregex` | 検索する正規表現へのポインタ。正規表現のコピーではないことに注意。`const `[`basic_regex`](basic_regex.md)`<charT, traits>*` 型 | C++11          |
-| `flags`  | 検索フラグ。[`regex_constants`](regex_constants.md)`::match_flag_type` 型                                                      | C++11          |
+| `flags`  | 検索フラグ。[`regex_constants`](regex_constants.md.nolink)`::match_flag_type` 型                                                      | C++11          |
 | `match`  | 最後の検索のマッチ結果オブジェクト。[`match_results`](match_results.md)`<BidirectionalIterator` 型                             | C++11          |
 
 ##非メンバ型

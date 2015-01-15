@@ -52,7 +52,7 @@ int main()
   std::cout << "key = " << k << ", bucket = " << b << ", bucket_size = " << s << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]

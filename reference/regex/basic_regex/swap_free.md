@@ -61,7 +61,7 @@ int main()
 * endl[link ../../ostream/endl.md]
 * boolalpha[link ../../ios/boolalpha.md]
 * cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
+* regex_search[link ../regex_search.md.nolink]
 * prefix[link ../match_results/prefix.md]
 * suffix[link ../match_results/suffix.md]
 * str[link ../match_results/str.md]

@@ -86,7 +86,7 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * unordered_map[link /reference/unordered_map.md]
 * string[link /reference/string.md]
 * utility[link /reference/utility.md]

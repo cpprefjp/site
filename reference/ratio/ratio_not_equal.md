@@ -11,7 +11,7 @@ namespace std {
 
 
 ##効果
-`ratio_not_equal`は、[`ratio_equal`](./ratio_equal.md)`<R1, R2>::value == false`であれば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`ratio_not_equal`は、[`ratio_equal`](./ratio_equal.md)`<R1, R2>::value == false`であれば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
 
 
 ##例

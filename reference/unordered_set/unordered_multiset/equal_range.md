@@ -45,12 +45,12 @@ int main()
   print_range("equal_range(8)", um.begin(), p2.first, p2.second);
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
-* ostream[link /site/cpprefjp/reference/ostream]
+* ostream[link /reference/ostream.md]
 * distance[link /reference/iterator/distance.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * copy[link /reference/algorithm/copy.md]

@@ -49,7 +49,7 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * algorithm[link /reference/algorithm.md]
 * utility[link /reference/utility.md]

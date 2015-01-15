@@ -71,7 +71,7 @@ int main()
   std::cout << um1.get_allocator().no << ',' << um2.get_allocator().no << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * memory[link /reference/memory.md]
 * unordered_set[link /reference/unordered_set.md]
 * type_traits[link /reference/type_traits.md]
@@ -116,5 +116,5 @@ libstdc++ の `unordered_multiset` では、アロケータの `select_on_contai
 | [`operator=`](./op_assign.md)                            | 代入演算子     |
 | [`swap`](./op_assign.md)                                 | 内容の交換（非メンバ関数） |
 | [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ |
-| [`allocator_traits`](/reference/memory/allocator_traits) | アロケータのトレイツ |
+| [`allocator_traits`](/reference/memory/allocator_traits.md) | アロケータのトレイツ |
 

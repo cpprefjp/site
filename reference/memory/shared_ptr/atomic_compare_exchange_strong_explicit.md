@@ -16,7 +16,7 @@ namespace std {
 ##要件
 `p != nullptr`であること。
 
-`failure`が[`memory_order_release`](./memory_order.md), [`memory_order_acq_rel`](./memory_order.md)ではないこと。
+`failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと。
 
 `failure`が`success`よりも強くないこと。
 

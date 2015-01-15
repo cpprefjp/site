@@ -30,5 +30,5 @@ int main()
 - C++98
 
 ##参照
-- [`wcin`](./wcin.md)
+- [`wcin`](./wcin.md.nolink)
 

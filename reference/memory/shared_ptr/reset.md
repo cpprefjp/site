@@ -17,10 +17,10 @@ void reset(Y* p, Deleter d, Allocator a);           // (4)
 
 
 ##効果
-- (1) : [`shared_ptr`](./shared_ptr.md)`().`[`swap`](./swap.md)`(*this)`
-- (2) : [`shared_ptr`](./shared_ptr.md)`(p).`[`swap`](./swap.md)`(*this)`
-- (3) : [`shared_ptr`](./shared_ptr.md)`(p, d).`[`swap`](./swap.md)`(*this)`
-- (4) : [`shared_ptr`](./shared_ptr.md)`(p, d, a).`[`swap`](./swap.md)`(*this)`
+- (1) : [`shared_ptr`](./op_constructor.md)`().`[`swap`](./swap.md)`(*this)`
+- (2) : [`shared_ptr`](./op_constructor.md)`(p).`[`swap`](./swap.md)`(*this)`
+- (3) : [`shared_ptr`](./op_constructor.md)`(p, d).`[`swap`](./swap.md)`(*this)`
+- (4) : [`shared_ptr`](./op_constructor.md)`(p, d, a).`[`swap`](./swap.md)`(*this)`
 
 
 ##戻り値

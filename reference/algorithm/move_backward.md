@@ -31,7 +31,7 @@ namespace std {
 
 
 ##備考
-`last` が `[result - (last-first),result)` の範囲内にあるときには、[`move()`](/reference/algorithm/move) の代わりに `move_backward()` を使うべきである。
+`last` が `[result - (last-first),result)` の範囲内にあるときには、[`move()`](/reference/algorithm/move.md) の代わりに `move_backward()` を使うべきである。
 
 
 ##例

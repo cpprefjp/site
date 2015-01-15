@@ -36,7 +36,7 @@ namespace std {
 	| `double`                                  | [`tanh`](/reference/cmath/tanh.md)             | [`cmath`](/reference/cmath.md)       |            |
 	| `long double`                             | [`tanh`](/reference/cmath/tanh.md)             | [`cmath`](/reference/cmath.md)       |            |
 	| 任意の整数型                              | [`tanh`](/reference/cmath/tanh.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| [`valarray`](/reference/valarray.md`<T>`) | [`tanh`](/reference/valarray/valarray/tanh.md) | [`valarray`](/reference/valarray.md) |            |
+	| [`valarray<T>`](/reference/valarray.md) | [`tanh`](/reference/valarray/valarray/tanh.md) | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例

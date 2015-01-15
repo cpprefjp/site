@@ -73,7 +73,7 @@ int main()
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 * boolalpha[link ../../ios/boolalpha.md]
-* regex_search[link ../regex_search.md]
+* regex_search[link ../regex_search.md.nolink]
 
 ###出力
 ```

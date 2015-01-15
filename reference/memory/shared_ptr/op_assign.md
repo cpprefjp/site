@@ -24,10 +24,10 @@ shared_ptr& operator=(unique_ptr<Y, D>&& r);            // (6)
 
 
 ##効果
-- (1), (2) : [`shared_ptr`](./shared_ptr.md)`(r).`[`swap`](./swap.md)`(*this)`
-- (3), (4) : [`shared_ptr`](./shared_ptr.md)`(std::`[`move`](/reference/utility/move.md)`(r)).`[`swap`](./swap.md)`(*this)`
-- (5) : [`shared_ptr`](./shared_ptr.md)`(r).`[`swap`](./swap.md)`(*this)`
-- (6) : [`shared_ptr`](./shared_ptr.md)`(std::`[`move`](/reference/utility/move.md)`(r)).`[`swap`](./swap.md)`(*this)`
+- (1), (2) : [`shared_ptr`](./op_constructor.md)`(r).`[`swap`](./swap.md)`(*this)`
+- (3), (4) : [`shared_ptr`](./op_constructor.md)`(std::`[`move`](/reference/utility/move.md)`(r)).`[`swap`](./swap.md)`(*this)`
+- (5) : [`shared_ptr`](./op_constructor.md)`(r).`[`swap`](./swap.md)`(*this)`
+- (6) : [`shared_ptr`](./op_constructor.md)`(std::`[`move`](/reference/utility/move.md)`(r)).`[`swap`](./swap.md)`(*this)`
 
 
 ##戻り値

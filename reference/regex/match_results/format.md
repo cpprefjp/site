@@ -20,7 +20,7 @@ format(const char_type* fmt,
        regex_constants::match_flag_type flags = regex_constants::format_default) const;	// (4)
 ```
 * basic_string[link ../../string/basic_string.md]
-* regex_constants[link ../regex_constants.md]
+* regex_constants[link ../regex_constants.md.nolink]
 
 
 ##概要
@@ -49,7 +49,7 @@ format(const char_type* fmt,
 
 
 ##備考
-`flags` に指定可能な（指定して意味のある） [`regex_constants`](../regex_constants.md)`::`[`match_flag_type`](../regex_constants.md) のフラグは、以下のいずれかのみである。
+`flags` に指定可能な（指定して意味のある） [`regex_constants`](../regex_constants.md.nolink)`::`[`match_flag_type`](../regex_constants.md.nolink) のフラグは、以下のいずれかのみである。
 
 - `format_default`
 - `format_sed`
@@ -75,7 +75,7 @@ int main()
 * iostream[link ../../iostream.md]
 * regex[link ../../regex.md]
 * cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
+* regex_search[link ../regex_search.md.nolink]
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 * format[color ff0000]

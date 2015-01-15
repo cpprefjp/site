@@ -39,7 +39,7 @@ int main()
 * iostream[link ../../iostream.md]
 * regex[link ../../regex.md]
 * cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
+* regex_search[link ../regex_search.md.nolink]
 * size[link size.md]
 * str[color ff0000]
 * length[link length.md]

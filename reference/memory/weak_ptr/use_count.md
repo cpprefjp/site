@@ -10,7 +10,7 @@ long use_count() const noexcept;
 ##戻り値
 `*this`が[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを監視していない空の状態なら、`0`を返す。
 
-そうでなければ、[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトの所有者数([`shared_ptr`](/reference/memory/shared_ptr)`::`[`use_count()`](/reference/memory/shared_ptr/use_count.md))を返す。
+そうでなければ、[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトの所有者数([`shared_ptr`](/reference/memory/shared_ptr.md)`::`[`use_count()`](/reference/memory/shared_ptr/use_count.md))を返す。
 
 
 ##例

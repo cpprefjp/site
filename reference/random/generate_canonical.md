@@ -13,7 +13,7 @@ namespace std {
 
 ##テンプレートパラメータ
 - `class RealType` : 生成する実数の型。
-- `size_t bits` : 生成する実数における仮数部への分解能の最低要求。最大値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<RealType>::`[`digits`](/reference/limits/numeric_limits/digits) 。
+- `size_t bits` : 生成する実数における仮数部への分解能の最低要求。最大値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<RealType>::`[`digits`](/reference/limits/numeric_limits/digits.md) 。
 - `class URNG` : 一様乱数生成器の型。
 
 ##関数パラメータ

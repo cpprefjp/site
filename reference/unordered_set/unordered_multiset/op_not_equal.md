@@ -65,12 +65,12 @@ int main()
   std::cout << "um1 != um3:" << (um1 != um3) << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
 * iterator[link /reference/iterator.md]
 * algorithm[link /reference/algorithm.md]
-* ostream[link /site/cpprefjp/reference/iostream/ostream]
+* ostream[link /reference/ostream.md]
 * copy[link /reference/algorithm/copy.md]
 * begin[link /reference/iterator/begin.md]
 * end[link /reference/iterator/end.md]

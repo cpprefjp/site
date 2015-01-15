@@ -106,7 +106,7 @@ int main()
 * iterator[link ../iterator.md]
 * regex[link ../regex.md]
 * string[link ../string.md]
-* regex_search[link regex_search.md]
+* regex_search[link regex_search.md.nolink]
 * smatch[link match_results.md]
 
 ###出力

@@ -31,7 +31,7 @@ int main()
   std::cout << "bucket count is " << um.bucket_count() << std::endl;
 }
 ```
-* iostream[link /site/cpprefjp/reference/iostream]
+* iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 

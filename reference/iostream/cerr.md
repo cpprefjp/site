@@ -43,5 +43,5 @@ int main()
 
 ##参照
 - [`clog`](./clog.md)
-- [`wcerr`](./wcerr.md)
-- [`wclog`](./wclog.md)
+- [`wcerr`](./wcerr.md.nolink)
+- [`wclog`](./wclog.md.nolink)

@@ -20,11 +20,11 @@ namespace std {
 
 
 ##戻り値
-- (1) : [`std::common_type`](/reference/type_traits/common_type.md)`<T*, U*>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/comparisons.md)`<CT>(a.`[`get()`](./get.md), b.`[`get()`](./get.md)`)`で比較した結果を返す。
+- (1) : [`std::common_type`](/reference/type_traits/common_type.md)`<T*, U*>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/less.md)`<CT>(a.`[`get()`](./get.md), b.`[`get()`](./get.md)`)`で比較した結果を返す。
 
-- (2) : [`std::less`](/reference/functional/comparisons.md)`<T*>()(x.`[`get()`](./get.md)`, nullptr)`で比較した結果を返す。
+- (2) : [`std::less`](/reference/functional/less.md)`<T*>()(x.`[`get()`](./get.md)`, nullptr)`で比較した結果を返す。
 
-- (3) : [`std::less`](/reference/functional/comparisons.md)`<T*>()(nullptr, x.`[`get()`](./get.md)`)`で比較した結果を返す。
+- (3) : [`std::less`](/reference/functional/less.md)`<T*>()(nullptr, x.`[`get()`](./get.md)`)`で比較した結果を返す。
 
 
 ##例

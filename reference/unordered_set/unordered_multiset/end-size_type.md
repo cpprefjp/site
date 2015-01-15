@@ -51,7 +51,7 @@ int main()
   }
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]

@@ -131,4 +131,4 @@ syncは非書式化入力関数である。
     - [`basic_ios`](../ios/basic_ios.md)
 - `basic_istream<>`型のオブジェクト
     - [`cin`](../iostream/cin.md)
-    - [`wcin`](../iostream/wcin.md)
+    - [`wcin`](../iostream/wcin.md.nolink)

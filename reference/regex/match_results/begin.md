@@ -41,7 +41,7 @@ int main()
 * iostream[link ../../iostream.md]
 * regex[link ../../regex.md]
 * cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
+* regex_search[link ../regex_search.md.nolink]
 * begin[color ff0000]
 * end[link end.md]
 * str[link str.md]

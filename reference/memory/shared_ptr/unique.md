@@ -16,7 +16,7 @@ use_count() == 1
 
 
 ##備考
-この関数は、[`use_count()`](./unique_count.md)を使用するよりも高速である可能性がある。
+この関数は、[`use_count()`](./use_count.md)を使用するよりも高速である可能性がある。
 
 
 ##例

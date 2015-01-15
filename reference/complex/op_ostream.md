@@ -21,14 +21,14 @@ s.precision(os.precision());
 s << '(' << x.real() << "," << x.imag() << ')';
 return os << s.str();
 ```
-* basic_ostringstream[link /reference/sstream/basic_ostringstream.md]
-* flags[link /reference/ios/ios_base/flags.md]
-* imbue[link /reference/ios/ios_base/imbue.md]
-* getloc[link /reference/ios/ios_base/getloc.md]
-* precision[link /reference/ios/ios_base/precision.md]
+* basic_ostringstream[link /reference/sstream/basic_ostringstream.md.nolink]
+* flags[link /reference/ios/ios_base/flags.md.nolink]
+* imbue[link /reference/ios/ios_base/imbue.md.nolink]
+* getloc[link /reference/ios/ios_base/getloc.md.nolink]
+* precision[link /reference/ios/ios_base/precision.md.nolink]
 * real[link ./real.md]
 * imag[link ./imag.md]
-* str[link /reference/sstream/basic_ostringstream/str.md]
+* str[link /reference/sstream/basic_ostringstream/str.md.nolink]
 
 
 ##例

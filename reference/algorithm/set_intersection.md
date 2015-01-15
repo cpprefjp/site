@@ -34,7 +34,7 @@ namespace std {
 
 
 ##備考
-`[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、`[first1,last1)` から最初の [`min`](/reference/algorithm/min)`(m, n)` 要素が出力の範囲へ順番にコピーされる。
+`[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、`[first1,last1)` から最初の [`min`](/reference/algorithm/min.md)`(m, n)` 要素が出力の範囲へ順番にコピーされる。
 
 
 ##例

@@ -28,8 +28,8 @@ namespace std {
 	- スレッドの開始関数（[`thread`のコンストラクタ](../thread/thread/op_constructor.md)で渡した関数）
 - 例外処理中でないのに式を持たない`throw`式を実行しようとした
 - デフォルトの予想外の例外のハンドラ（`set_unexpected()`が呼び出されていない状況でのハンドラ）が呼び出された
-- [`nested_exception::rethrow_nested()`](nested_exception/rethrow_nested)が例外を捕捉していない状況で呼び出された
-- join可能な`thread`（[`thread::joinable()`](../thread/thread/joinable)が`true`であるもの）に対して、デストラクタまたは代入演算子が実行された
+- [`nested_exception::rethrow_nested()`](nested_exception/rethrow_nested.md)が例外を捕捉していない状況で呼び出された
+- join可能な`thread`（[`thread::joinable()`](../thread/thread/joinable.md)が`true`であるもの）に対して、デストラクタまたは代入演算子が実行された
 
 
 ##効果

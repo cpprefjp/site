@@ -92,7 +92,7 @@ int main()
 }
 ```
 * max_load_factor[color ff0000]
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * size[link ./size.md]
 * bucket_count[link ./bucket_count.md]

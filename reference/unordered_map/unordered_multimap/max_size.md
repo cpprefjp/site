@@ -33,7 +33,7 @@ int main()
   std::cout << s << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_map[link /reference/unordered_map.md]
 * unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
@@ -57,7 +57,7 @@ int main()
 
 ###備考
 libstdc++ では、コンテナのアロケータ `allocator_type` にメンバ関数 `max_size` が無いとコンパイル時エラーが発生する。
-（`allocator_type::max_size()` を `std::`[`allocator_traits`](/reference/memory/allocator_traits)`::`[`max_size`](/reference/memory/allocator_traits/max_size) 経由ではなく直接使用しているため。）
+（`allocator_type::max_size()` を `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`::`[`max_size`](/reference/memory/allocator_traits/max_size.md) 経由ではなく直接使用しているため。）
 
 
 ##参照

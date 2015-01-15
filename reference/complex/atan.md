@@ -27,7 +27,7 @@ namespace std {
 	| `double`                                  | [`atan`](/reference/cmath/atan.md)             | [`cmath`](/reference/cmath.md)       |            |
 	| `long double`                             | [`atan`](/reference/cmath/atan.md)             | [`cmath`](/reference/cmath.md)       |            |
 	| 任意の整数型                              | [`atan`](/reference/cmath/atan.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| [`valarray`](/reference/valarray.md`<T>`) | [`atan`](/reference/valarray/valarray/atan.md) | [`valarray`](/reference/valarray.md) |            |
+	| [`valarray<T>`](/reference/valarray.md) | [`atan`](/reference/valarray/valarray/atan.md) | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例

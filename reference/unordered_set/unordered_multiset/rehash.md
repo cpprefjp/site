@@ -60,7 +60,7 @@ int main()
   std::cout << "bucket_count is " << um.bucket_count() << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link ../unordered_multiset.md]
 * size[link ./size.md]

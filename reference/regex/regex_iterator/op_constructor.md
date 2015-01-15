@@ -19,7 +19,7 @@ regex_iterator(const regex_iterator&);                                          
 
 ##効果
 - (1) デフォルトコンストラクタ。シーケンスの終端を示す特別なイテレータを構築する。
-- (2) メンバ変数 `begin`、`end`、`pregex`、`flags` をそれぞれ `a`、`b`、`&re`、`m` で初期化して、[`regex_search`](../regex_search.md)`(begin, end, match, *pregex, flags)` を呼び出す。
+- (2) メンバ変数 `begin`、`end`、`pregex`、`flags` をそれぞれ `a`、`b`、`&re`、`m` で初期化して、[`regex_search`](../regex_search.md.nolink)`(begin, end, match, *pregex, flags)` を呼び出す。
 	検索に成功しなかった場合（`false` が返された場合）、デフォルトコンストラクタで構築した場合と同様、直ちにシーケンスの終端を示す特別なイテレータとなる。
 - (3) deleted コンストラクタであるため、使用するとコンパイルエラーとなる。
 - (4) コピーコンストラクタ。

@@ -30,15 +30,15 @@ namespace std {
 	|                                                    | [`fabs`](/reference/cmath/fabs.md)           | [`cmath`](/reference/cmath.md)       |            |
 	| 任意の整数型                                       | [`abs`](/reference/cmath/abs.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
 	|                                                    | [`fabs`](/reference/cmath/fabs.md)           | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| `int`                                              | [`abs`](/reference/cstdlib/abs.md)           | [`cstdlib`](/reference/cstdlib.md)   |            |
-	| `long int`                                         | [`labs`](/reference/cstdlib/labs.md)         | [`cstdlib`](/reference/cstdlib.md)   |            |
-	|                                                    | [`abs`](/reference/cstdlib/abs.md)           | [`cstdlib`](/reference/cstdlib.md)   |            |
-	| `long long int`                                    | [`llabs`](/reference/cstdlib/llabs.md)       | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
-	|                                                    | [`abs`](/reference/cstdlib/abs.md)           | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
+	| `int`                                              | [`abs`](/reference/cstdlib/abs.md.nolink)           | [`cstdlib`](/reference/cstdlib.md.nolink)   |            |
+	| `long int`                                         | [`labs`](/reference/cstdlib/labs.md.nolink)         | [`cstdlib`](/reference/cstdlib.md.nolink)   |            |
+	|                                                    | [`abs`](/reference/cstdlib/abs.md.nolink)           | [`cstdlib`](/reference/cstdlib.md.nolink)   |            |
+	| `long long int`                                    | [`llabs`](/reference/cstdlib/llabs.md.nolink)       | [`cstdlib`](/reference/cstdlib.md.nolink)   | C++11 から |
+	|                                                    | [`abs`](/reference/cstdlib/abs.md.nolink)           | [`cstdlib`](/reference/cstdlib.md.nolink)   | C++11 から |
 	| [`valarray`](/reference/valarray/valarray.md)`<T>` | [`abs`](/reference/valarray/valarray/abs.md) | [`valarray`](/reference/valarray.md) |            |
 
 	なお、上記のうち、任意の整数型に対する [`abs`](/reference/cmath/abs.md) については C++11 で追加されたが、ある種の問題を引き起こすことから、今後削除される可能性がある。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。  
-	また、浮動小数点版、および、整数版の `abs` については今後、全て [`cmath`](/reference/cmath.md) [`cstdlib`](/reference/cstdlib.md) 両方のヘッダで利用できるようになるかもしれない。[\<cstdlib\> should declare abs(double)](http://wg21.cmeerw.net/lwg/issue2294) 参照。
+	また、浮動小数点版、および、整数版の `abs` については今後、全て [`cmath`](/reference/cmath.md) [`cstdlib`](/reference/cstdlib.md.nolink) 両方のヘッダで利用できるようになるかもしれない。[\<cstdlib\> should declare abs(double)](http://wg21.cmeerw.net/lwg/issue2294) 参照。
 
 
 ##例
@@ -87,4 +87,4 @@ abs( (1,2) ) = 2.23607
 | [`polar`](polar.md)                | 指定した絶対値と偏角の複素数値を得る。 |
 | [`abs`](/reference/cmath/abs.md)   | 絶対値を得る。（浮動小数点版）         |
 | [`fabs`](/reference/cmath/fabs.md) | 絶対値を得る。（浮動小数点版）         |
-| [`abs`](/reference/cstdlib/abs.md) | 絶対値を得る。（整数版）               |
+| [`abs`](/reference/cstdlib/abs.md.nolink) | 絶対値を得る。（整数版）               |

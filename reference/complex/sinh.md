@@ -39,7 +39,7 @@ namespace std {
 	| `double`                                  | [`sinh`](/reference/cmath/sinh.md)             | [`cmath`](/reference/cmath.md)       |            |
 	| `long double`                             | [`sinh`](/reference/cmath/sinh.md)             | [`cmath`](/reference/cmath.md)       |            |
 	| 任意の整数型                              | [`sinh`](/reference/cmath/sinh.md)             | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| [`valarray`](/reference/valarray.md`<T>`) | [`sinh`](/reference/valarray/valarray/sinh.md) | [`valarray`](/reference/valarray.md) |            |
+	| [`valarray<T>`](/reference/valarray.md) | [`sinh`](/reference/valarray/valarray/sinh.md) | [`valarray`](/reference/valarray.md) |            |
 
 
 ##例

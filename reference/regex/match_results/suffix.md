@@ -15,10 +15,10 @@ const_reference suffix() const;
 マッチした文字列の後の文字列を指すサブマッチ。ただし、マッチが失敗した場合は未規定。  
 具体的なサブマッチの各メンバ変数の設定内容は以下の通り。
 
-- [`regex_match`](../regex_match.md) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.suffix().first` と `m.suffix().second` は共に検索対象文字列の末尾となる。  
+- [`regex_match`](../regex_match.md.nolink) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.suffix().first` と `m.suffix().second` は共に検索対象文字列の末尾となる。  
 	また、`m.suffix().matched` は `false` となる。  
 	戻り値が `false` の場合は未規定である。
-- [`regex_search`](../regex_search.md) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.suffix().first` は `m[0].second`（つまり、マッチした文字列の末尾）と等しくなり、`m.suffix().second` は検索対象文字列の末尾と等しくなる。  
+- [`regex_search`](../regex_search.md.nolink) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.suffix().first` は `m[0].second`（つまり、マッチした文字列の末尾）と等しくなり、`m.suffix().second` は検索対象文字列の末尾と等しくなる。  
 	また、`m.suffix().matched` は `m.suffix().first != m.suffix().second` の結果となる（つまり、`m.suffix()` が空文字であれば `false`、そうでなければ `true`）。  
 	戻り値が `false` の場合は未規定である。
 - [`regex_iterator`](../regex_iterator.md) を間接参照したオブジェクトの場合、当該オブジェクトを `m` とすると、`m.suffix().first` は `m[0].second`（つまり、マッチした文字列の末尾）と等しくなり、`m.suffix().second` は検索対象文字列の末尾と等しくなる。  
@@ -93,8 +93,8 @@ int main()
 * regex[link ../../regex.md]
 * string[link ../../string.md]
 * smatch[link ../match_results.md]
-* regex_match[link ../regex_match.md]
-* regex_search[link ../regex_search.md]
+* regex_match[link ../regex_match.md.nolink]
+* regex_search[link ../regex_search.md.nolink]
 * regex_iterator[link ../regex_iterator.md]
 * sregex_iterator[link ../regex_iterator.md]
 * str[link str.md]

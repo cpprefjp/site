@@ -22,7 +22,7 @@ basic_regex& assign(initializer_list<charT> il,
                     flag_type f = regex_constants::ECMAScript);	// (7)
 ```
 * basic_regex[link ../basic_regex.md]
-* regex_constants[link ../regex_constants.md]
+* regex_constants[link ../regex_constants.md.nolink]
 * initializer_list[link ../../initializer_list.md]
 * basic_string[link ../../string/basic_string.md]
 
@@ -40,7 +40,7 @@ basic_regex& assign(initializer_list<charT> il,
 - (2) `that` を `*this` にムーブ代入する。
 - (3) `assign(string_type(ptr), f)` と同等。
 - (4) `assign(string_type(ptr, len), f)` と同等。
-- (5) 引数 `f` で指定されたフラグに従って、文字列 `p` で指定された正規表現を `*this` に代入する。文字列 `p` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md) を投げる。  
+- (5) 引数 `f` で指定されたフラグに従って、文字列 `p` で指定された正規表現を `*this` に代入する。文字列 `p` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md.nolink) を投げる。  
 	例外が投げられた場合、`*this` は変更されない。
 - (6) `assign(string_type(first, last), f)` と同等。
 - (7) `assign(il.begin(), il.end(), f)` と同等。
@@ -64,8 +64,8 @@ basic_regex& assign(initializer_list<charT> il,
 ##備考
 - `charT` は `basic_regex` の 1 番目のテンプレートパラメータで、文字型である。
 - `string_type` は `traits_type::string_type` の typedef で、デフォルトは [`basic_string`](../../string/basic_string.md)`<charT>` である。
-- `traits_type` は `basic_regex` の 2 番目のテンプレートパラメータで、デフォルトは [`regex_traits`](../regex_traits.md)`<charT>` である。
-- `flag_type` は [`regex_constants`](../regex_constants.md)`::syntax_option_type` の typedef である。
+- `traits_type` は `basic_regex` の 2 番目のテンプレートパラメータで、デフォルトは [`regex_traits`](../regex_traits.md.nolink)`<charT>` である。
+- `flag_type` は [`regex_constants`](../regex_constants.md.nolink)`::syntax_option_type` の typedef である。
 
 
 ##例
@@ -105,7 +105,7 @@ int main()
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 * boolalpha[link ../../ios/boolalpha.md]
-* regex_search[link ../regex_search.md]
+* regex_search[link ../regex_search.md.nolink]
 
 ###出力
 ```

@@ -42,7 +42,7 @@ int main()
   std::cout << "eq(1, 1) = " << eq(1, 1) << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link ../unordered_multiset.md]
 * boolalpha[link ../../ios/boolalpha.md]

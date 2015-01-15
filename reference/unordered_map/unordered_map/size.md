@@ -36,7 +36,7 @@ int main()
   std::cout << std::distance(um.begin(), um.end()) << std::endl;
 }
 ```
-* iostream[link /reference/iostream]
+* iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_map[link /reference/unordered_map.md]
 * distance[link /reference/iterator/distance.md]

@@ -53,7 +53,7 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
-* ostream[link /site/cpprefjp/reference/ostream]
+* ostream[link /reference/ostream.md]
 * distance[link /reference/iterator/distance.md]
 * copy[link /reference/algorithm/copy.md]
 * begin[link ./begin.md]
