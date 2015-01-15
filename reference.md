@@ -13,6 +13,8 @@
 - [数値ライブラリ](#numerics)
 - [入出力ライブラリ](#io)
 - [正規表現ライブラリ](#regular-expressions)
+- [アトミック操作ライブラリ](#atomic-operations)
+- [スレッドサポートライブラリ](#thread-support)
 - [C言語互換ライブラリ](#clib-facilities)
 
 ***
