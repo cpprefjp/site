@@ -15,7 +15,7 @@ namespace std {
 
 
 ##効果
-`x.`[`size`](./size.md)`() == y.`[`size`](./size.md)`() && `[`equal`](./equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`());`
+`x.`[`size`](./size.md)`() == y.`[`size`](./size.md)`() && `[`equal`](../algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`());`
 
 
 ##戻り値

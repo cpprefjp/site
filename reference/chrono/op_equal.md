@@ -29,8 +29,8 @@ namespace chrono {
 typedef common_type<decltype(lhs), decltype(rhs)>::type ct;
 return ct(lhs).count() == ct(rhs).count();
 ```
-* common_type[link (/reference/type_traits/common_type.md]
-* count()[link (/reference/chrono/duration/count.md]
+* common_type[link /reference/type_traits/common_type.md]
+* count()[link /reference/chrono/duration/count.md]
 
 - (2) : `time_point`の比較
 

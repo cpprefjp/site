@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 * hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/comparisons.md]
+* equal_to[link /reference/functional/equal_to.md]
 * allocator[link /reference/memory/allocator.md]
 * pair[link /reference/utility/pair.md]
 

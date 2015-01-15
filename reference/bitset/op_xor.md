@@ -20,7 +20,7 @@ namespace std {
 ```cpp
 return bitset<N>(lhs) ^= rhs;
 ```
-* ^=[link ./op_xor_equal.md]
+* ^=[link ./op_xor_assign.md]
 
 
 ##例外

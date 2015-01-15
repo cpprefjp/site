@@ -95,7 +95,7 @@ int main()
 * copy[link /reference/algorithm/copy.md]
 * iterator[link /reference/iterator.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multimap[link /reference/unordered_set/unordered_multimap/unordered_multimap.md]
+* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
 * emplace[color ff0000]
@@ -108,7 +108,7 @@ int main()
 (2,2nd), (1,1st), (1,3rd), 
 ```
 
-注：[`unordered_multimap`](/reference/unordered_set/unordered_multimap.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ##バージョン

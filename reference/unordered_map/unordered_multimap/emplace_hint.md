@@ -107,7 +107,7 @@ int main()
 }
 ```
 * iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
+* unordered_map[link /reference/unordered_map.md]
 * string[link /reference/string.md]
 * utility[link /reference/utility.md]
 * pair[link /reference/utility/pair.md]
@@ -116,8 +116,8 @@ int main()
 * iterator[link /reference/iterator.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * hash[link /reference/functional/hash.md]
-* ostream[link /reference/ostream/ostream.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset/unordered_multiset.md]
+* ostream[link /reference/ostream/basic_ostream.md]
+* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
 * equal_range[link /reference/unordered_set/unordered_multiset/equal_range.md]

@@ -121,7 +121,7 @@ int main()
 * iterator[link /reference/iterator.md]
 * algorithm[link /reference/algorithm.md]
 * string[link /reference/string.md]
-* ostream[link /reference/ostream/ostream.md]
+* ostream[link /reference/ostream/basic_ostream.md]
 * for_each[link /reference/algorithm/for_each.md]
 * next[link /reference/iterator/next.md]
 * cbegin[link ./cbegin.md]
