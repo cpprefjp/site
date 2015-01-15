@@ -13,8 +13,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------|--------------------------------|-------|
-| [`(constructor)`](./future/future.md) | コンストラクタ                 | C++11 |
-| [`(destructor)`](./future/-future.md) | デストラクタ                   | C++11 |
+| [(constructor)](./future//op_constructor.md) | コンストラクタ                 | C++11 |
+| [(destructor)](./future//op_destructor.md) | デストラクタ                   | C++11 |
 | [`operator=`](./future/op_assign.md)  | 代入演算子                     | C++11 |
 | [`share`](./future/share.md)          | `future`オブジェクトを共有する | C++11 |
 

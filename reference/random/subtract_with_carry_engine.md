@@ -32,7 +32,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./subtract_with_carry_engine/op_constructor.md)             | コンストラクタ   | C++11 |
+| [(constructor)](./subtract_with_carry_engine//op_constructor.md)             | コンストラクタ   | C++11 |
 | `~subtract_with_carry_engine() = default;`                                    | デストラクタ     | C++11 |
 | [`seed`](./subtract_with_carry_engine/seed.md)                                | シードを設定する | C++11 |
 

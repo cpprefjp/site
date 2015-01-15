@@ -24,7 +24,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------------|------------------------------|-------|
-| [`(constructor)`](./piecewise_constant_distribution/op_constructor.md) | コンストラクタ | C++11 |
+| [(constructor)](./piecewise_constant_distribution//op_constructor.md) | コンストラクタ | C++11 |
 | `~piecewise_constant_distribution() = default;`                             | デストラクタ               | C++11 |
 | [`reset`](./piecewise_constant_distribution/reset.md)                       | 状態をリセットする         | C++11 |
 

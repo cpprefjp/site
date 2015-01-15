@@ -21,7 +21,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------|----------------|----------------|
-| [`(constructor)`](./mask_array/mask_array.md) | コンストラクタ | |
+| [(constructor)](./mask_array//op_constructor.md) | コンストラクタ | |
 | `~mask_array() = default;`                    | デストラクタ   | |
 | [`operator=`](./mask_array/op_assign.md)      | 代入演算子     | |
 

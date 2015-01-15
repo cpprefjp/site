@@ -42,8 +42,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------|----------------|-------|
-| [`(constructor)`](./vector/vector.md) | コンストラクタ | |
-| [`(destructor)`](./vector/-vector.md) | デストラクタ   | |
+| [(constructor)](./vector//op_constructor.md) | コンストラクタ | |
+| [(destructor)](./vector//op_destructor.md) | デストラクタ   | |
 | [`operator=`](./vector/op_assign.md)  | 代入演算子     | |
 
 

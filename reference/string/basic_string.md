@@ -40,8 +40,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|----------------|------|
-| [`(constructor)`](./basic_string/basic_string.md) | コンストラクタ | |
-| [`(destructor)`](./basic_string/-basic_string.md) | デストラクタ   | |
+| [(constructor)](./basic_string//op_constructor.md) | コンストラクタ | |
+| [(destructor)](./basic_string//op_destructor.md) | デストラクタ   | |
 | [`operator=`](./basic_string/op_assign.md)        | 代入演算子     | |
 
 

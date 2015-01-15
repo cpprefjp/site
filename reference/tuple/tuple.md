@@ -15,7 +15,7 @@ namespace std {
 
 | 名前 | 説明 |
 |-------------------------------------|-------------------------------------------|
-| [`(constructor)`](./tuple/tuple.md) | コンストラクタ |
+| [(constructor)](./tuple//op_constructor.md) | コンストラクタ |
 | [`operator=`](./tuple/op_assign.md) | 代入演算子 |
 | [`swap`](./tuple/swap.md)           | 異なる`tuple`オブジェクトと値を入れ替える |
 

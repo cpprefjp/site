@@ -12,7 +12,7 @@ namespace std {
 ###メンバ関数
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|--------------------------|-------|
-| [`(constructor)`](./atomic_flag/atomic_flag.md) | コンストラクタ           | C++11 |
+| [(constructor)](./atomic_flag//op_constructor.md) | コンストラクタ           | C++11 |
 | `~atomic_flag() = default`                      | デストラクタ             | C++11 |
 | `operator=(const atomic_flag&) = delete`<br/>`operator=(const atomic_flag&) volatile = delete` | 代入演算子 | C++11 |
 | [`test_and_set`](./atomic_flag/test_and_set.md) | テストしてフラグを立てる | C++11 |

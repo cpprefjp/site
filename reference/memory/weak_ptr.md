@@ -28,8 +28,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|----------------------------------------------------------------|-------|
-| [`(constructor)`](./weak_ptr/weak_ptr.md) | コンストラクタ                                                 | C++11 |
-| [`(destructor)`](./weak_ptr/-weak_ptr.md) | デストラクタ                                                   | C++11 |
+| [(constructor)](./weak_ptr//op_constructor.md) | コンストラクタ                                                 | C++11 |
+| [(destructor)](./weak_ptr//op_destructor.md) | デストラクタ                                                   | C++11 |
 | [`operator=`](./weak_ptr/op_assign.md)    | 代入演算子                                                     | C++11 |
 | [`swap`](./weak_ptr/swap.md)              | 他の`weak_ptr`オブジェクトとデータを入れ替える                 | C++11 |
 | [`reset`](./weak_ptr/reset.md)            | 監視対象をクリアする                                           | C++11 |

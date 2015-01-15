@@ -17,7 +17,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------|-------|
-| [`(constructor)`](./seed_seq/op_constructor.md) | コンストラクタ       | C++11 |
+| [(constructor)](./seed_seq//op_constructor.md) | コンストラクタ       | C++11 |
 | `~seed_seq() = default;`                     | デストラクタ         | C++11 |
 | `void operator()(const seed_seq&) = delete;` | 代入演算子。代入不可 | C++11 |
 

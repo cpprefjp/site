@@ -33,7 +33,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|-----------------------------------------|-------|
-| [`(constructor)`](./queue/op_constructor.md) | コンストラクタ | |
+| [(constructor)](./queue//op_constructor.md) | コンストラクタ | |
 | [`empty`](./queue/empty.md)         | 要素が空であるかを確認する | |
 | [`size`](./queue/size.md)           | 要素数を取得する | |
 | [`front`](./queue/front.md)         | 次の要素にアクセスする | |

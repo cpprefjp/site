@@ -17,7 +17,7 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`(constructor)`](./ostream_iterator/ostream_iterator.md) | コンストラクタ |
+| [(constructor)](./ostream_iterator//op_constructor.md) | コンストラクタ |
 | `~ostream_iterator() = default` | デストラクタ |
 | [`operator=`](./ostream_iterator/op_assign.md) | 代入演算子 |
 | [`operator*`](./ostream_iterator/op_deref.md) | 間接参照 |

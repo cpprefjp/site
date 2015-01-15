@@ -21,7 +21,7 @@ namespace std {
 
 | 名前                                                  | 説明                                                        | 対応バージョン |
 |-------------------------------------------------------|-------------------------------------------------------------|----------------|
-| [`(constructor)`](sub_match/sub_match.md)             | コンストラクタ                                              | C++11          |
+| [(constructor)](sub_match//op_constructor.md)             | コンストラクタ                                              | C++11          |
 | [`length`](sub_match/length.md)                       | マッチした文字列の長さを返す。                              | C++11          |
 | [`operator string_type`](sub_match/op_string_type.md) | マッチした文字列を `string_type` 型にキャストする。         | C++11          |
 | [`str`](sub_match/str.md)                             | マッチした文字列を `string_type` 型で返す。キャストと同じ。 | C++11          |

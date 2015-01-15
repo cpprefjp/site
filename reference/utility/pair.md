@@ -22,7 +22,7 @@ namespace std {
 
 | | |
 |------------------------------------|----------------------------------------|
-| [`(constructor)`](./pair/pair.md)  | コンストラクタ |
+| [(constructor)](./pair//op_constructor.md)  | コンストラクタ |
 | [`operator=`](./pair/op_assign.md) | 代入演算子 |
 | [`swap`](./pair/swap.md)           | 他の`pair`オブジェクトと値を入れ替える |
 

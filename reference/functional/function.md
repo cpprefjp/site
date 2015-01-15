@@ -32,8 +32,8 @@ int result = f(1); // result == 2
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------------------------------------|-------|
-| [`(constructor)`](./function/function.md)  | コンストラクタ                               | C++11 |
-| [`(destructor)`](./function/-function.md)  | デストラクタ                                 | C++11 |
+| [(constructor)](./function//op_constructor.md)  | コンストラクタ                               | C++11 |
+| [(destructor)](./function//op_destructor.md)  | デストラクタ                                 | C++11 |
 | [`operator=`](./function/op_assign.md)     | 代入演算子                                   | C++11 |
 | [`swap`](./function/swap.md)               | 他の`function`オブジェクトと中身を入れ替える | C++11 |
 | [`assign`](./function/assign.md)           | 関数オブジェクトとアロケータを再代入する     | C++11 |

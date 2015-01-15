@@ -35,7 +35,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./shuffle_order_engine/op_constructor.md)       | コンストラクタ   | C++11 |
+| [(constructor)](./shuffle_order_engine//op_constructor.md)       | コンストラクタ   | C++11 |
 | `~shuffle_order_engine() = default;`                              | デストラクタ     | C++11 |
 | [`seed`](./shuffle_order_engine/seed.md)                          | シードを設定する | C++11 |
 

@@ -31,7 +31,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./student_t_distribution/op_constructor.md) | コンストラクタ     | C++11 |
+| [(constructor)](./student_t_distribution//op_constructor.md) | コンストラクタ     | C++11 |
 | `~student_t_distribution() = default;`                                | デストラクタ       | C++11 |
 | [`reset`](./student_t_distribution/reset.md)                          | 状態をリセットする | C++11 |
 

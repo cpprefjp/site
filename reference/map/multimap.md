@@ -43,8 +43,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|----------------|-------|
-| [`(constructor)`](./multimap/op_constructor.md) | コンストラクタ | |
-| [`(destructor)`](./multimap/op_destructor.md) | デストラクタ | |
+| [(constructor)](./multimap//op_constructor.md) | コンストラクタ | |
+| [(destructor)](./multimap//op_destructor.md) | デストラクタ | |
 | [`operator=`](./multimap/op_assign.md) | 代入演算子 | |
 | [`get_allocator`](./multimap/get_allocator.md) | アロケータオブジェクトを取得する | |
 

@@ -13,8 +13,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|--------------------------------------------|-------|
-| [`(constructor)`](./mutex/mutex.md) | コンストラクタ | C++11 |
-| [`(destructor)`](./mutex/-mutex.md) | デストラクタ | C++11 |
+| [(constructor)](./mutex//op_constructor.md) | コンストラクタ | C++11 |
+| [(destructor)](./mutex//op_destructor.md) | デストラクタ | C++11 |
 | `operator=(const mutex&) = delete;` | 代入演算子 | C++11 |
 | [`lock`](./mutex/lock.md)           | ロックを取得する | C++11 |
 | [`try_lock`](./mutex/try_lock.md)   | ロックの取得を試みる | C++11 |

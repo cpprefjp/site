@@ -21,7 +21,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------------|------------------------------|-------|
-| [`(constructor)`](./discrete_distribution/op_constructor.md)         | コンストラクタ               | C++11 |
+| [(constructor)](./discrete_distribution//op_constructor.md)         | コンストラクタ               | C++11 |
 | `~discrete_distribution() = default;`                                | デストラクタ                 | C++11 |
 | [`reset`](./discrete_distribution/reset.md)                          | 状態をリセットする           | C++11 |
 

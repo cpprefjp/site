@@ -73,6 +73,6 @@ match range = (31, 42), str = 'enumerator1'
 |--------------------------------------------|----------------|----------------|
 | [`operator*`](op_deref.md)                 | 間接参照       | C++11          |
 | [`operator->`](op_arrow.md)                | メンバアクセス | C++11          |
-| [`(constructor)`](regex_token_iterator.md) | コンストラクタ | C++11          |
+| [(constructor)](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator++`](op_increment.md)            | インクリメント | C++11          |
 | [`operator==`](op_equal.md)                | 等値比較       | C++11          |

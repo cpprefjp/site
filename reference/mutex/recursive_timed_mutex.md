@@ -14,8 +14,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|--------------------------------------------------------|-------|
-| [`(constructor)`](./recursive_timed_mutex/revursive_timed_mutex.md) | コンストラクタ | C++11 |
-| [`(destructor)`](./recursive_timed_mutex/-recursive_timed_mutex.md) | デストラクタ | C++11 |
+| [(constructor)](./recursive_timed_mutex//op_constructor.md) | コンストラクタ | C++11 |
+| [(destructor)](./recursive_timed_mutex//op_destructor.md) | デストラクタ | C++11 |
 | `operator=(const recursive_timed_mutex&) = delete`                  | 代入演算子 | C++11 |
 | [`lock`](./recursive_timed_mutex/lock.md)                           | ロックを取得する | C++11 |
 | [`try_lock`](./recursive_timed_mutex/try_lock.md)                   | ロックの取得を試みる | C++11 |

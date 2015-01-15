@@ -77,6 +77,6 @@ GCC & libstdc++ では、コピー後のオブジェクトの `match.`[`position
 ##参照
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
-| [`(constructor)`](regex_iterator.md) | コンストラクタ | C++11          |
+| [(constructor)](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator==`](op_equal.md)          | 等値比較       | C++11          |
 | [`operator++`](op_increment.md)      | インクリメント | C++11          |

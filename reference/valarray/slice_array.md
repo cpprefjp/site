@@ -22,7 +22,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|----------------|----------------|
-| [`(constructor)`](./slice_array/slice_array.md) | コンストラクタ | |
+| [(constructor)](./slice_array//op_constructor.md) | コンストラクタ | |
 | `~slice_array() = default;`                     | デストラクタ   | |
 | [`operator=`](./slice_array/op_assign.md)       | 代入演算子     | |
 

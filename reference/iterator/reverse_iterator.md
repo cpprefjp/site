@@ -26,7 +26,7 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`(constructor)`](./reverse_iterator/reverse_iterator.md) | コンストラクタ |
+| [(constructor)](./reverse_iterator//op_constructor.md) | コンストラクタ |
 | `~reverse_iterator() = default` | デストラクタ |
 | [`operator=`](./reverse_iterator/op_assign.md) | 代入演算子 |
 | [`base`](./reverse_iterator/base.md) | 元となったイテレータを取得する |

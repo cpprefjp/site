@@ -41,8 +41,8 @@ namespace std {
 
 | 名前                                              | 説明           | 対応バージョン |
 |---------------------------------------------------|----------------|----------------|
-| [`(constructor)`](match_results/match_results.md) | コンストラクタ | C++11          |
-| [`(destructor)`](match_results/-match_results.md) | デストラクタ   | C++11          |
+| [(constructor)](match_results//op_constructor.md) | コンストラクタ | C++11          |
+| [(destructor)](match_results//op_destructor.md) | デストラクタ   | C++11          |
 | [`operator=`](match_results/op_assign.md)         | 代入演算子     | C++11          |
 
 ###状態

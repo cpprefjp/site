@@ -27,8 +27,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|--------------------------------------------------|-------|
-| [`(constructor)`](./shared_ptr/shared_ptr.md)  | コンストラクタ                                   | C++11 |
-| [`(destructor)`](./shared_ptr/-shared_ptr.md)  | デストラクタ                                     | C++11 |
+| [(constructor)](./shared_ptr//op_constructor.md)  | コンストラクタ                                   | C++11 |
+| [(destructor)](./shared_ptr//op_destructor.md)  | デストラクタ                                     | C++11 |
 | [`operator=`](./shared_ptr/op_assign.md)       | 代入演算子                                       | C++11 |
 | [`reset`](./shared_ptr/reset.md)               | 所有権を放棄し、新たな所有権を設定する           | C++11 |
 | [`swap`](./shared_ptr/swap.md)                 | 他の`shared_ptr`オブジェクトとデータを入れ替える | C++11 |

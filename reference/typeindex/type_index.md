@@ -13,7 +13,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------|------------------------------------|-------|
-| [`(constructor)`](./type_index/type_index.md) | コンストラクタ                     | C++11 |
+| [(constructor)](./type_index//op_constructor.md) | コンストラクタ                     | C++11 |
 | [`operator==`](./type_index/equal.md)         | 等値判定を行う                     | C++11 |
 | [`operator!=`](./type_index/not_equal.md)     | 非等値判定を行う                   | C++11 |
 | [`operator<`](./type_index/less.md)           | 左辺が右辺より小さいかの判定を行う | C++11 |

@@ -48,8 +48,8 @@ namespace std {
 
 |                                                     |                |
 |-----------------------------------------------------|----------------|
-| [`(constructor)`](./unordered_map/unordered_map.md) | コンストラクタ |
-| [`(destructor)`](./unordered_map/-unordered_map.md) | デストラクタ   |
+| [(constructor)](./unordered_map//op_constructor.md) | コンストラクタ |
+| [(destructor)](./unordered_map//op_destructor.md) | デストラクタ   |
 | [`operator=`](./unordered_map/op_assign.md)         | 代入演算子     |
 
 

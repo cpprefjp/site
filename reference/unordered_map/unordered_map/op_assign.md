@@ -78,6 +78,6 @@ unordered_map& operator=(initializer_list<value_type> il); // (3)
 
 |                                       |                |
 |---------------------------------------|----------------|
-| [`(constructor)`](./unordered_map.md) | コンストラクタ |
-| [`(destructor)`](./-unordered_map.md) | デストラクタ   |
+| [(constructor)](.//op_constructor.md) | コンストラクタ |
+| [(destructor)](.//op_destructor.md) | デストラクタ   |
 

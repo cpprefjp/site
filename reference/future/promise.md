@@ -17,8 +17,8 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| [`(constructor)`](./promise/promise.md) | コンストラクタ |
-| [`(destructor)`](./promise/-promise.md) | デストラクタ |
+| [(constructor)](./promise//op_constructor.md) | コンストラクタ |
+| [(destructor)](./promise//op_destructor.md) | デストラクタ |
 | [`operator=`](./promise/op_assign.md) | 代入演算子 |
 | [`swap`](./promise/swap.md) | 他の`promise`オブジェクトと値を入れ替える |
 

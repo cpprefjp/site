@@ -13,7 +13,7 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| [`(constructor)`](./reference_wrapper/ctor.md) | コンストラクタ |
+| [(constructor)](./reference_wrapper//op_constructor.md) | コンストラクタ |
 | `~reference_wrapper() = default;` | デストラクタ |
 | [`operator=`](./reference_wrapper/op_assign.md) | 代入演算子 |
 | [`get`](./reference_wrapper/get.md) | 生参照の取得 |

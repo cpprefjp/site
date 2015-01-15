@@ -34,7 +34,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./gamma_distribution/op_constructor.md)     | コンストラクタ     | C++11 |
+| [(constructor)](./gamma_distribution//op_constructor.md)     | コンストラクタ     | C++11 |
 | `~gamma_distribution() = default;`                            | デストラクタ       | C++11 |
 | [`reset`](./gamma_distribution/reset.md)                      | 状態をリセットする | C++11 |
 

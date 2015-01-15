@@ -28,8 +28,8 @@ namespace std {
 ##メンバ
 | 名前                                | 説明           | 対応バージョン |
 |-------------------------------------|----------------|----------------|
-| [`(constructor)`](sentry/sentry.md) | コンストラクタ |                |
-| [`(destructor)`](sentry/-sentry.md) | デストラクタ   |                |
+| [(constructor)](sentry//op_constructor.md) | コンストラクタ |                |
+| [(destructor)](sentry//op_destructor.md) | デストラクタ   |                |
 
 ##参照
 

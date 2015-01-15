@@ -18,7 +18,7 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./insert_iterator/insert_iterator.md) | コンストラクタ |
+| [(constructor)](./insert_iterator//op_constructor.md) | コンストラクタ |
 | `~insert_iterator() = default` | デストラクタ |
 | [`operator=`](./insert_iterator/op_assign.md) | 代入演算子 |
 | [`operator*`](./insert_iterator/op_deref.md) | 間接参照演算子 |

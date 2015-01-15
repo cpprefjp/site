@@ -17,7 +17,7 @@ namespace std {
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| [`(constructor)`](./istreambuf_iterator/istreambuf_iterator.md) | コンストラクタ |
+| [(constructor)](./istreambuf_iterator//op_constructor.md) | コンストラクタ |
 | `~istreambuf_iterator() = default` | デストラクタ |
 | [`operator*`](./istreambuf_iterator/op_deref.md) | 間接参照 |
 | [`operator->`](./istreambuf_iterator/op_arrow.md) | メンバアクセス (C++11) |

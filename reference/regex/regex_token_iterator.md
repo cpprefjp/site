@@ -54,7 +54,7 @@ namespace std {
 
 | 名前                                                            | 説明           | 対応バージョン |
 |-----------------------------------------------------------------|----------------|----------------|
-| [`(constructor)`](regex_token_iterator/regex_token_iterator.md) | コンストラクタ | C++11          |
+| [(constructor)](regex_token_iterator//op_constructor.md) | コンストラクタ | C++11          |
 | [`operator=`](regex_token_iterator/op_assign.md)                | 代入演算子     | C++11          |
 
 ###比較

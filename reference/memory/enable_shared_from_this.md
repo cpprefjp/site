@@ -43,8 +43,8 @@ ptr->func();
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------|----------------|-------|
-| [`(constructor)`](./enable_shared_from_this/enable_shared_from_this.md) | コンストラクタ | C++11 |
-| [`(destructor)`](./enable_shared_from_this/-enable_shared_from_this.md) | デストラクタ   | C++11 |
+| [(constructor)](./enable_shared_from_this//op_constructor.md) | コンストラクタ | C++11 |
+| [(destructor)](./enable_shared_from_this//op_destructor.md) | デストラクタ   | C++11 |
 | [`operator=`](./enable_shared_from_this/op_assign.md)                   | 代入演算子     | C++11 |
 
 

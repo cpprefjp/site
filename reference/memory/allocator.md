@@ -35,8 +35,8 @@ C++11から：
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------|-------|
-| [`(constructor)`](./allocator/allocator.md) | コンストラクタ                               | |
-| [`(destructor)`](./allocator/-allocator.md) | デストラクタ                                 | |
+| [(constructor)](./allocator//op_constructor.md) | コンストラクタ                               | |
+| [(destructor)](./allocator//op_destructor.md) | デストラクタ                                 | |
 | `operator=(const allocator&) = default`     | 代入演算子                                   | |
 | [`address`](./allocator/address.md)         | 変数のアドレスを取得する                     | |
 | [`allocate`](./allocator/allocate.md)       | メモリを確保する                             | |

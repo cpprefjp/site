@@ -22,7 +22,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------|-------|
-| [`(constructor)`](./bitset/bitset.md)        | コンストラクタ | |
+| [(constructor)](./bitset//op_constructor.md)        | コンストラクタ | |
 | `~bitset() = default`                        | デストラクタ   | |
 | `bitset& operator=(const bitset&) = default` | 代入演算子     | |
 

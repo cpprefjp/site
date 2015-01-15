@@ -20,7 +20,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./uniform_real_distribution/op_constructor.md)            | コンストラクタ     | C++11 |
+| [(constructor)](./uniform_real_distribution//op_constructor.md)            | コンストラクタ     | C++11 |
 | `~uniform_real_distribution() = default;`                                   | デストラクタ       | C++11 |
 | [`reset`](./uniform_real_distribution/reset.md)                             | 状態をリセットする | C++11 |
 

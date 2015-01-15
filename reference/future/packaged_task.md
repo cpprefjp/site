@@ -22,8 +22,8 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| [`(constructor)`](./packaged_task/packaged_task.md) | コンストラクタ |
-| [`(destructor)`](./packaged_task/-packaged_task.md) | デストラクタ |
+| [(constructor)](./packaged_task//op_constructor.md) | コンストラクタ |
+| [(destructor)](./packaged_task//op_destructor.md) | デストラクタ |
 | [`operator=`](./packaged_task/op_assign.md) | 代入演算子 |
 | [`swap`](./packaged_task/swap.md) | 他の`packaged_task`オブジェクトと値を入れ替える |
 | [`valid`](./packaged_task/valid.md) | 共有状態を持っているかを確認する |

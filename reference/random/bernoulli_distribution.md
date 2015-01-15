@@ -23,7 +23,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./bernoulli_distribution/op_constructor.md)         | コンストラクタ     | C++11 |
+| [(constructor)](./bernoulli_distribution//op_constructor.md)         | コンストラクタ     | C++11 |
 | `~bernoulli_distribution() = default;`                                | デストラクタ       | C++11 |
 | [`reset`](./bernoulli_distribution/reset.md)                          | 状態をリセットする | C++11 |
 

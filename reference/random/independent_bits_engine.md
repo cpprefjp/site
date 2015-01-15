@@ -26,7 +26,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./independent_bits_engine/op_constructor.md)          | コンストラクタ   | C++11 |
+| [(constructor)](./independent_bits_engine//op_constructor.md)          | コンストラクタ   | C++11 |
 | `~independent_bits_engine() = default;`                                 | デストラクタ     | C++11 |
 | [`seed`](./independent_bits_engine/seed.md)                             | シードを設定する | C++11 |
 

@@ -19,7 +19,7 @@ VC10、GCC 4.6.1では[`generic_category()`](./generic_category.md)と[`system_c
 
 | | |
 |-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| [`(constructor)`](./error_condition/error_condition.md) | コンストラクタ |
+| [(constructor)](./error_condition//op_constructor.md) | コンストラクタ |
 | `~error_condition() = default` | デストラクタ |
 | [`operator=`](./error_condition/op_assign.md) | 代入演算子 |
 | [`assign`](./error_condition/assign.md) | 値の再設定 |
