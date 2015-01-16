@@ -7,6 +7,7 @@ namespace std {
 
 ##概要
 `timed_mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスであり、ロック取得のタイムアウト機能をサポートする。[`lock()`](./timed_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](./timed_mutex/unlock.md)メンバ関数でリソースのロックを手放す。
+
 このクラスのデストラクタは自動的に[`unlock()`](./timed_mutex/op_destructor.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)や[`unique_lock`](/reference/mutex/unique_lock.md)といったロック管理クラスと併用する。
 
 

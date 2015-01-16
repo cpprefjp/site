@@ -6,7 +6,10 @@ namespace std {
 ```
 
 ##概要
-`recursive_mutex`クラスは、スレッド間で使用する共有リソースを排他制御するためのクラスである。[`lock()`](./recursive_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](./recursive_mutex/unlock.md)メンバ関数でリソースのロックを手放す。[`mutex`](/reference/mutex/mutex.md)クラスとは異なり、同一スレッドからの再帰的なロック取得を許可する。ミューテックスは内部的に所有権カウントを保持しており、これにより再帰的なロックを管理する。（ここでの所有権カウントは説明用の概念にすぎず、外部から直接観測する事はできない。）
+`recursive_mutex`クラスは、スレッド間で使用する共有リソースを排他制御するためのクラスである。[`lock()`](./recursive_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](./recursive_mutex/unlock.md)メンバ関数でリソースのロックを手放す。
+
+[`mutex`](/reference/mutex/mutex.md)クラスとは異なり、同一スレッドからの再帰的なロック取得を許可する。ミューテックスは内部的に所有権カウントを保持しており、これにより再帰的なロックを管理する。（ここでの所有権カウントは説明用の概念にすぎず、外部から直接観測する事はできない。）
+
 このクラスのデストラクタは自動的に[`unlock()`](./recursive_mutex/unlock.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)や[`unique_lock`](/reference/mutex/unique_lock.md)といったロック管理クラスと併用する。
 
 
