@@ -21,7 +21,7 @@ namespace std {
 | [`message`](./error_category/message.md) | エラーコードに対応するメッセージを取得 |
 | [`operator==`](./error_category/op_equal.md) | 等値比較 |
 | [`operator!=`](./error_category/op_not_equal.md) | 非等値比較 |
-| [`operator<`](./error_category/less.md) | 小なり比較 |
+| [`operator<`](./error_category/op_less.md) | 小なり比較 |
 
 ##例
 ```cpp
