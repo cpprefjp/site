@@ -66,8 +66,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|--------------------------------------|-------|
-| [`operator==`](./queue/equal.md)         | 等値比較 | |
-| [`operator!=`](./queue/not_equal.md)     | 非等値比較 | |
+| [`operator==`](./queue/op_equal.md)      | 等値比較 | |
+| [`operator!=`](./queue/op_not_equal.md)  | 非等値比較 | |
 | [`operator<`](./queue/less.md)           | 左辺が右辺より小さいかの判定を行う | |
 | [`operator<=`](./queue/less_equal.md)    | 左辺が右辺以下かの判定を行う | |
 | [`operator>`](./queue/greater.md)        | 左辺が右辺より大きいかの判定を行う | |

@@ -15,7 +15,7 @@ namespace std {
 
 
 ##戻り値
-`!(lhs `[`==`](./equal.md)` rhs)`
+`!(lhs `[`==`](./op_equal.md)` rhs)`
 
 
 ##例外
@@ -71,6 +71,4 @@ error_condition != error_condition : true
 
 
 ##参照
-[`operator==()`](/reference/system_error/equal.md)
-
-
+[`operator==()`](./op_equal.md)

@@ -85,7 +85,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|--------------------------------------|-------|
 | [`operator==`](./array/op_equal.md)      | 等値比較                             | C++11 |
-| [`operator!=`](./array/not_equal.md)     | 非等値比較                           | C++11 |
+| [`operator!=`](./array/op_not_equal.md)  | 非等値比較                           | C++11 |
 | [`operator<`](./array/less.md)           | 左辺が右辺より小さいかの判定を行う   | C++11 |
 | [`operator<=`](./array/less_equal.md)    | 左辺が右辺以下かの判定を行う         | C++11 |
 | [`operator>`](./array/greater.md)        | 左辺が右辺より大きいかの判定を行う   | C++11 |

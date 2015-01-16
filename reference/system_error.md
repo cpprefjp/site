@@ -14,8 +14,8 @@
 | [`errc`](./system_error/errc.md) | エラー値を表す列挙型(enum class) | C++11 |
 | [`make_error_code`](./system_error/make_error_code.md) | `errc`から`error_code`オブジェクトを生成する(function) | C++11 |
 | [`make_error_condition`](./system_error/make_error_condition.md) | `errc`から`error_condition`オブジェクトを生成する(function) | C++11 |
-| [`operator==`](./system_error/equal.md) | `error_code`、`error_condition`の等値比較(function) | C++11 |
-| [`operator!=`](./system_error/not_equal.md) | `error_code`、`error_condition`の非等値比較(function) | C++11 |
+| [`operator==`](./system_error/op_equal.md) | `error_code`、`error_condition`の等値比較(function) | C++11 |
+| [`operator!=`](./system_error/op_not_equal.md) | `error_code`、`error_condition`の非等値比較(function) | C++11 |
 | [`operator<`](./system_error/less.md) | `error_code`、`error_condition`の小なり比較(function) | C++11 |
 | [`operator<<`](./system_error/output_stream.md) | `error_code`のストリーム出力(function) | C++11 |
 | `hash` | `error_code`での特殊化(class template) | C++11 |

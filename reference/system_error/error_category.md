@@ -19,8 +19,8 @@ namespace std {
 | [`default_error_condition`](./error_category/default_error_condition.md) | エラー値と自身のカテゴリから`error_condition`を生成 |
 | [`equivalent`](./error_category/equivalent.md) | エラーコードとエラー状態の等値比較 |
 | [`message`](./error_category/message.md) | エラーコードに対応するメッセージを取得 |
-| [`operator==`](./error_category/equal.md) | 等値比較 |
-| [`operator!=`](./error_category/not_equal.md) | 非等値比較 |
+| [`operator==`](./error_category/op_equal.md) | 等値比較 |
+| [`operator!=`](./error_category/op_not_equal.md) | 非等値比較 |
 | [`operator<`](./error_category/less.md) | 小なり比較 |
 
 ##例

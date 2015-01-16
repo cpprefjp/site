@@ -15,7 +15,7 @@ namespace std {
 
 
 ##要件
-- `error_code == error_code`<br/>`lhs.`[`category()`](./error_code/category.md)` == rhs.`[{category()`](./error_code/category.md)` && lhs.`[`value()`](./error_code/value.md)` == rhs.`[`value()`](./error_code/value.md)
+- `error_code == error_code`<br/>`lhs.`[`category()`](./error_code/category.md)` == rhs.`[`category()`](./error_code/category.md)` && lhs.`[`value()`](./error_code/value.md)` == rhs.`[`value()`](./error_code/value.md)
 - `error_code == error_condition`<br/>`lhs.`[`category()`](./error_code/category.md)`.`[`equivalent`](./error_category/equivalent.md)`(lhs.`[`value()`](./error_code/value.md)`, rhs) || rhs.`[`category()`](./error_condition/category.md)`.`[`equivalent`](./error_category/equivalent.md)`(lhs, rhs.`[`value()`](./error_condition/value.md)`)`
 - `error_condition == error_code`<br/>`rhs.`[`category()`](./error_condition/category.md)`.`[`equivalent`](./error_category/equivalent.md)`(rhs.`[`value()`](./error_condition/value.md)`, lhs) || lhs.`[`category()`](./error_code/category.md)`.`[`equivalent`](./error_category/equivalent.md)`(rhs, lhs.`[`value()`](./error_code/value.md)`)`
 - `error_condition == error_condition`<br/>`lhs.`[`category()`](./error_condition/category.md)` == rhs.`[`category()`](./error_condition/category.md)` && lhs.`[`value()`](./error_condition/value.md)` == rhs.`[`value()`](./error_condition/value.md)
