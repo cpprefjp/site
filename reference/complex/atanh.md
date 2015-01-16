@@ -31,14 +31,17 @@ namespace std {
 	- `atanh(complex(NaN, +∞))` は `complex(±0, π/2)` を返す（結果値の実部の符号は未規定）。
 	- `atanh(complex(NaN, NaN))` は `complex(NaN, NaN)` を返す。
 - 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
-- 逆正接の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
+- 逆双曲線正接の算出については、一部の算術型に対しても、他のヘッダで定義されている。
 
 	| 引数の型                                | 関数                                       | ヘッダ                               | 備考       |
 	|-----------------------------------------|--------------------------------------------|--------------------------------------|------------|
-	| `float`                                 | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       |            |
-	| `double`                                | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       |            |
-	| `long double`                           | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       |            |
+	| `float`                                 | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| `double`                                | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| `long double`                           | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
 	| 任意の整数型                            | [`atanh`](/reference/cmath/atanh.md)       | [`cmath`](/reference/cmath.md)       | C++11 から |
+
+	なお、残念ながら [`valarray`](/reference/valarray.md) クラステンプレートには逆双曲線正接の算出は定義されていない。
+	逆双曲線関数は C++11 で追加された関数であるため、その際の追加漏れかもしれない。
 
 - 規格書では arc hyperbolic tangent となっているが、逆双曲線関数で求めるのは「弧（arc）」ではなく「面積（area）」であるため、（広く誤用されてはいるものの）適切な表現ではない。（[逆双曲線関数 - Wikipedia](http://ja.wikipedia.org/wiki/逆双曲線関数)）
 
