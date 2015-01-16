@@ -92,6 +92,7 @@ valarray<int> c = a + b;
 | [`shift`](./valarray/shift.md)   | 要素の位置をシフトする                     | |
 | [`cshift`](./valarray/cshift.md) | 要素の位置を循環シフトする                 | |
 | [`apply`](./valarray/apply.md)   | 各要素に任意の関数を適用する               | |
+| [`resize`](./valarray/resize.md) | 要素数を変更する                           | |
 | [`operator!`](./valarray/op_not.md) | 各要素の論理NOTをとる                      | |
 
 
