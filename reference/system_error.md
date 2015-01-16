@@ -17,7 +17,7 @@
 | [`operator==`](./system_error/op_equal.md) | `error_code`、`error_condition`の等値比較(function) | C++11 |
 | [`operator!=`](./system_error/op_not_equal.md) | `error_code`、`error_condition`の非等値比較(function) | C++11 |
 | [`operator<`](./system_error/op_less.md) | `error_code`、`error_condition`の小なり比較(function) | C++11 |
-| [`operator<<`](./system_error/output_stream.md) | `error_code`のストリーム出力(function) | C++11 |
+| [`operator<<`](./system_error/op_ostream.md) | `error_code`のストリーム出力(function) | C++11 |
 | `hash` | `error_code`での特殊化(class template) | C++11 |
 
 
