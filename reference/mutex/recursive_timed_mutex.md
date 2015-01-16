@@ -11,7 +11,7 @@ namespace std {
 このクラスのデストラクタは自動的に[`unlock()`](./recursive_timed_mutex/unlock.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)や[`unique_lock`](/reference/mutex/unique_lock.md)といったロック管理クラスと併用する。
 
 
-###メンバ関数
+##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|--------------------------------------------------------|-------|
@@ -26,14 +26,14 @@ namespace std {
 | [`native_handle`](./recursive_timed_mutex/native_handle.md)         | ミューテックスのハンドルを取得する | C++11 |
 
 
-###メンバ型
+##メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------|----------------------|-------|
 | `native_handle_type` | 実装依存のハンドル型 | C++11 |
 
 
-###例
+##例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -120,5 +120,5 @@ count == 2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 
-###参照
+##参照
 
