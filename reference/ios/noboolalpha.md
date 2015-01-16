@@ -1,7 +1,7 @@
-#boolalpha
+#noboolalpha
 ```cpp
 namespace std {
-  ios_base& boolalpha(ios_base& str);
+  ios_base& noboolalpha(ios_base& str);
 }
 ```
 
@@ -24,6 +24,8 @@ int main()
   std::cout << std::noboolalpha << false << std::endl;
 }
 ```
+* boolalpha[link ./boolalpha.md]
+* noboolalpha[color ff0000]
 
 ###出力
 ```

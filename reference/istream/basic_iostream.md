@@ -1,4 +1,4 @@
-#basic_istream
+#basic_iostream
 ```cpp
 namespace std {
   template<class CharT, class Traits = char_traits<CharT>>

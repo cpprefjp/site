@@ -1,4 +1,4 @@
-#hexfloat
+#fixed
 ```cpp
 namespace std {
   ios_base& fixed(ios_base& str);

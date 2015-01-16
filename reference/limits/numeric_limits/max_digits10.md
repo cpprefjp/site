@@ -1,4 +1,4 @@
-#max_digits10(C++11)
+#max_digits10 (C++11)
 ```cpp
 static constexpr int max_digits10;
 ```

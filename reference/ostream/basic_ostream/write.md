@@ -1,4 +1,4 @@
-#put
+#write
 ```cpp
 basic_ostream<CharT, Traits>& write(const char_type* s, streamsize n);
 ```
@@ -24,6 +24,7 @@ int main() {
   std::cout.write(s, static_cast<std::streamsize>(std::strlen(s)));
 }
 ```
+* write[color ff0000]
 
 ###出力
 ```

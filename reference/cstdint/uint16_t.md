@@ -1,13 +1,13 @@
-#uint8_t (C++11)
+#uint16_t (C++11)
 ```cpp
 namespace std {
-  typedef unsigned-integer-type uint8_t;
+  typedef unsigned-integer-type uint16_t;
 }
 ```
 * unsigned-integer-type[italic]
 
 ##概要
-8ビットの符号なし整数型。
+16ビットの符号なし整数型。
 
 この型を実装するかどうかは処理系定義。
 

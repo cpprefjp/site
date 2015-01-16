@@ -1,4 +1,4 @@
-# size
+#size
 ```cpp
 valarray<size_t> size() const;
 ```

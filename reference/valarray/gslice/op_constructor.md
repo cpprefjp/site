@@ -1,4 +1,4 @@
-# コンストラクタ
+#コンストラクタ
 ```cpp
 gslice();
 gslice(size_t s, valarray<size_t> l, valarray<size_t> d);
