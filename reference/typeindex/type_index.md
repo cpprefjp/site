@@ -11,17 +11,17 @@ namespace std {
 
 ###メンバ関数
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------------------------------|------------------------------------|-------|
-| [`(constructor)`](./type_index/op_constructor.md) | コンストラクタ                     | C++11 |
-| [`operator==`](./type_index/op_equal.md)      | 等値判定を行う                     | C++11 |
-| [`operator!=`](./type_index/op_not_equal.md)  | 非等値判定を行う                   | C++11 |
-| [`operator<`](./type_index/op_less.md)        | 左辺が右辺より小さいかの判定を行う | C++11 |
-| [`operator<=`](./type_index/op_less_equal.md) | 左辺が右辺以下かの判定を行う       | C++11 |
-| [`operator>`](./type_index/greater.md)        | 左辺が右辺より大きいかの判定を行う | C++11 |
-| [`operator>=`](./type_index/greater_equal.md) | 左辺が右辺以上かの判定を行う       | C++11 |
-| [`hash_code`](./type_index/hash_code.md)      | ハッシュ値を取得する               | C++11 |
-| [`name`](./type_index/name.md)                | 型名を取得する                     | C++11 |
+| 名前                                              | 説明                               | 対応バージョン |
+|---------------------------------------------------|------------------------------------|----------------|
+| [`(constructor)`](./type_index/op_constructor.md) | コンストラクタ                     | C++11          |
+| [`operator==`](./type_index/op_equal.md)          | 等値判定を行う                     | C++11          |
+| [`operator!=`](./type_index/op_not_equal.md)      | 非等値判定を行う                   | C++11          |
+| [`operator<`](./type_index/op_less.md)            | 左辺が右辺より小さいかの判定を行う | C++11          |
+| [`operator<=`](./type_index/op_less_equal.md)     | 左辺が右辺以下かの判定を行う       | C++11          |
+| [`operator>`](./type_index/op_greater.md)         | 左辺が右辺より大きいかの判定を行う | C++11          |
+| [`operator>=`](./type_index/op_greater_equal.md)  | 左辺が右辺以上かの判定を行う       | C++11          |
+| [`hash_code`](./type_index/hash_code.md)          | ハッシュ値を取得する               | C++11          |
+| [`name`](./type_index/name.md)                    | 型名を取得する                     | C++11          |
 
 
 ###例

@@ -64,15 +64,15 @@ namespace std {
 
 ###非メンバ関数
 
-| 名前 | 説明 | 対応バージョン |
-|------------------------------------------|--------------------------------------|-------|
-| [`operator==`](./queue/op_equal.md)      | 等値比較 | |
-| [`operator!=`](./queue/op_not_equal.md)  | 非等値比較 | |
-| [`operator<`](./queue/op_less.md)        | 左辺が右辺より小さいかの判定を行う | |
-| [`operator<=`](./queue/op_less_equal.md) | 左辺が右辺以下かの判定を行う | |
-| [`operator>`](./queue/greater.md)        | 左辺が右辺より大きいかの判定を行う | |
-| [`operator>=`](./queue/greater_equal.md) | 左辺が右辺以上かの判定を行う | |
-| [`swap`](./queue/swap_free.md)           | 2つの`queue`オブジェクトを入れ替える | C++11 |
+| 名前                                        | 説明                                 | 対応バージョン |
+|---------------------------------------------|--------------------------------------|----------------|
+| [`operator==`](./queue/op_equal.md)         | 等値比較                             |                |
+| [`operator!=`](./queue/op_not_equal.md)     | 非等値比較                           |                |
+| [`operator<`](./queue/op_less.md)           | 左辺が右辺より小さいかの判定を行う   |                |
+| [`operator<=`](./queue/op_less_equal.md)    | 左辺が右辺以下かの判定を行う         |                |
+| [`operator>`](./queue/op_greater.md)        | 左辺が右辺より大きいかの判定を行う   |                |
+| [`operator>=`](./queue/op_greater_equal.md) | 左辺が右辺以上かの判定を行う         |                |
+| [`swap`](./queue/swap_free.md)              | 2つの`queue`オブジェクトを入れ替える | C++11          |
 
 
 ##例

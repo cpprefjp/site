@@ -82,15 +82,15 @@ namespace std {
 
 ##非メンバ関数
 
-| 名前 | 説明 | 対応バージョン |
-|------------------------------------------|--------------------------------------|-------|
-| [`operator==`](./array/op_equal.md)      | 等値比較                             | C++11 |
-| [`operator!=`](./array/op_not_equal.md)  | 非等値比較                           | C++11 |
-| [`operator<`](./array/op_less.md)        | 左辺が右辺より小さいかの判定を行う   | C++11 |
-| [`operator<=`](./array/op_less_equal.md) | 左辺が右辺以下かの判定を行う         | C++11 |
-| [`operator>`](./array/greater.md)        | 左辺が右辺より大きいかの判定を行う   | C++11 |
-| [`operator>=`](./array/greater_equal.md) | 左辺が右辺以上かの判定を行う         | C++11 |
-| [`swap`](./array/swap_free.md)           | 2つの`array`オブジェクトを入れ替える | C++11 |
+| 名前                                        | 説明                                   | 対応バージョン |
+|---------------------------------------------|----------------------------------------|----------------|
+| [`operator==`](./array/op_equal.md)         | 等値比較                               | C++11          |
+| [`operator!=`](./array/op_not_equal.md)     | 非等値比較                             | C++11          |
+| [`operator<`](./array/op_less.md)           | 左辺が右辺より小さいかの判定を行う     | C++11          |
+| [`operator<=`](./array/op_less_equal.md)    | 左辺が右辺以下かの判定を行う           | C++11          |
+| [`operator>`](./array/op_greater.md)        | 左辺が右辺より大きいかの判定を行う     | C++11          |
+| [`operator>=`](./array/op_greater_equal.md) | 左辺が右辺以上かの判定を行う           | C++11          |
+| [`swap`](./array/swap_free.md)              | 2つの `array` オブジェクトを入れ替える | C++11          |
 
 
 ##タプルインタフェース
