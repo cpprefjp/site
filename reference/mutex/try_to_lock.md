@@ -8,6 +8,7 @@ namespace std {
 
 ##概要
 `try_to_lock_t`型とその値`try_to_lock`は、遅延ロックのためのタグである。
+
 `lock()/unlock()`の呼び出しをRAIIで自動化する[`unique_lock`](./unique_lock.md)クラスのコンストラクタで`lock()`の代わりに`try_lock()`を呼び出すために使用する。
 
 

@@ -8,6 +8,7 @@ namespace std {
 
 ##概要
 `adopt_lock_t`型とその値`adopt_lock`は、ロック済みミューテックスを受け取るためのタグである。
+
 `lock()/unlock()`の呼び出しをRAIIで自動化する[`unique_lock`](./unique_lock.md)クラスおよび[`lock_guard`](./lock_guard.md)クラスのコンストラクタで`lock()`を呼び出さず、ロックの所有権を移譲するために使用する。
 
 [`defer_lock`](./defer_lock.md)との違いは、`unique_lock::`[`owns_lock()`](./unique_lock/owns_lock.md)` == true`になることである。
