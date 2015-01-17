@@ -3,6 +3,9 @@
 namespace std {
   template <class T>
   T atomic_fetch_add_explicit(volatile atomic<T>* object, T operand, memory_order order) noexcept;
+
+  template <class T>
+  T atomic_fetch_add_explicit(atomic<T>* object, T operand, memory_order order) noexcept;
 }
 ```
 * atomic[link ./atomic.md]
