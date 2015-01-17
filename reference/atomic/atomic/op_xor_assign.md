@@ -9,7 +9,7 @@ XOR演算を行う
 
 
 ##戻り値
-[`fetch_xor`](./fetch_or.md)`(operand) | operand`
+[`fetch_xor`](./fetch_xor.md)`(operand) ^ operand`
 
 
 ##例外
