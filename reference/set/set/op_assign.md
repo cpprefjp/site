@@ -1,29 +1,37 @@
 #operator=
 ```cpp
-set<Key,Compare,Allocator>& operator=(const set<Key,Compare,Allocator>& x);
+set& operator=(const set& x);
 
 // since C++11
-set<Key,Compare,Allocator>& operator=(set<Key,Compare,Allocator>&& y);
+set& operator=(set&& y);
 
 // since C++11
 set& operator=(initializer_list<value_type> init);
 ```
+*initializer_list[link ../../initializer_list.md]
 
 ##概要
-- `set<Key,Compare,Allocator>& operator=(const set<Key,Compare,Allocator>& x)`<br/>`x`に格納されている要素のコピーをコンテナの新しい要素とする。<br/>この呼び出しの前に格納されていた要素は取り除かれ、`x` に格納されている要素のそれぞれのコピーによって置き換えられる。<br/>このメンバ関数の呼び出しの後、`set` オブジェクトと `x` は同じサイズになり、比較すると互いに等しくなる。
-- `set<Key,Compare,Allocator>& operator=(set<Key,Compare,Allocator>&& y)`<br/>`y` に格納されている要素をムーブしてコンテナの新しい要素とする。<br/>この呼び出しの前に格納されていた要素は取り除かれ、`y` に格納されていた要素がムーブされることで置き換えられる。
-- `set& operator=(initializer_list<value_type> init)`<br/>`init` で指定した要素をコンテナの新しい要素とする。<br/>この呼び出しの前に格納されていた要素は取り除かれ、`init` で指定した要素によって置き換える
+- `set& operator=(const set& x)`  
+	`x`に格納されている要素のコピーをコンテナの新しい要素とする。  
+	この呼び出しの前に格納されていた要素は取り除かれ、`x` に格納されている要素のそれぞれのコピーによって置き換えられる。  
+	このメンバ関数の呼び出しの後、`set` オブジェクトと `x` は同じサイズになり、比較すると互いに等しくなる。
+- `set& operator=(set&& y)`  
+	`y` に格納されている要素をムーブしてコンテナの新しい要素とする。  
+	この呼び出しの前に格納されていた要素は取り除かれ、`y` に格納されていた要素がムーブされることで置き換えられる。
+- `set& operator=(initializer_list<value_type> init)`  
+	`init` で指定した要素をコンテナの新しい要素とする。  
+	この呼び出しの前に格納されていた要素は取り除かれ、`init` で指定した要素によって置き換える。
 
 
 ##パラメータ
-- `x`<br/>
-コンテンツのコピー元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。 
+- `x`  
+	コンテンツのコピー元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。
 
-- `y`<br/>
-コンテンツのムーブ元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。 
+- `y`  
+	コンテンツのムーブ元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。
 
-- `init`<br/>
-メンバ型 `value_type` と同じ型の `initializer_list`。
+- `init`  
+	メンバ型 `value_type` と同じ型の `initializer_list`。
 
 
 ##戻り値
@@ -31,12 +39,7 @@ set& operator=(initializer_list<value_type> init);
 
 
 ##計算量
-- `set<Key,Compare,Allocator>& operator=(const set<Key,Compare,Allocator>& x)`
-- `set& operator=(initializer_list<value_type> init)`
-`x` または `init` の要素数に対して線形時間。 
-
-- `set<Key,Compare,Allocator>& operator=(set<Key,Compare,Allocator>&& y)`
-定数時間。
+線形時間。
 
 
 ##例
@@ -55,10 +58,14 @@ int main()
 
   std::cout << "Size of c1: " << c1.size() << std::endl;
   std::cout << "Size of c2: " << c2.size() << std::endl;
-
-  return 0;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* size[link size.md]
+* =[color ff0000]
 
 ###出力
 ```
@@ -68,7 +75,7 @@ Size of c2: 6
 
 ##参照
 
-| | |
+| 名前                         | 説明           |
 |------------------------------|----------------|
 | [`insert`](./insert.md)      | 要素を挿入する |
 | [`set`](./op_constructor.md) | コンストラクタ |
