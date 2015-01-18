@@ -35,12 +35,15 @@ int main()
   c.insert(20);
   c.insert(30);
 
-  std::cout << *c.lower_bound(20);
-
-  return 0;
+  std::cout << *c.lower_bound(20) << std::endl;
 }
-
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* cout[link ../../iostream/cout.md]
+* lower_bound[color ff0000]
+* endl[link ../../ostream/endl.md]
 
 ###出力
 ```
@@ -49,11 +52,9 @@ int main()
 
 ##参照
 
-| | |
-|-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| 名前                              | 説明                                               |
+|-----------------------------------|----------------------------------------------------|
 | [`upper_bound`](./upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
-| [`equal_range`](./equal_range.md) | 指定したキーにマッチする要素範囲を返す |
-| [`find`](./find.md) | 指定したキーで要素を探す |
-| [`count`](./count.md) | 指定したキーにマッチする要素の数を返す |
-
-
+| [`equal_range`](./equal_range.md) | 指定したキーにマッチする要素範囲を返す             |
+| [`find`](./find.md)               | 指定したキーで要素を探す                           |
+| [`count`](./count.md)             | 指定したキーにマッチする要素の数を返す             |
