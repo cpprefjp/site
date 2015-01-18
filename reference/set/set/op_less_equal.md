@@ -34,19 +34,22 @@ int main()
   s1.insert(30);
   s2 = s1;
 
-  std::cout << (s1 >= s2) << std::endl;
+  std::cout << (s1 <= s2) << std::endl;
 
-  s2.insert(40);
+  s1.insert(40);
 
-  std::cout << (s1 >= s2) << std::endl;
-
-  return 0;
+  std::cout << (s1 <= s2) << std::endl;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* <=[color ff0000]
 
 ###出力
 ```
 1
 0
 ```
-

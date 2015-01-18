@@ -18,7 +18,7 @@ bool operator> (const set<Key,Compare,Allocator>& x, const set<Key,Compare,Alloc
 
 
 ##計算量
-[`size`](./size.md) に対して線形時間。
+[`size`](./size.md)`()` に対して線形時間。
 
 
 ##例
@@ -39,14 +39,17 @@ int main()
   s1.insert(40);
 
   std::cout << (s1 > s2) << std::endl;
-
-  return 0;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* >[color ff0000]
 
 ###出力
 ```
 0
 1
 ```
-
