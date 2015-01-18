@@ -32,10 +32,14 @@ int main ()
   c.insert(42);
 
   std::cout << c.empty() << std::endl;
-
-  return 0;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* cout[link ../../iostream/cout.md]
+* empty[color ff0000]
+* endl[link ../../ostream/endl.md]
+* insert[link insert.md]
 
 ###出力
 ```
@@ -45,9 +49,7 @@ int main ()
 
 ##参照
 
-| | |
-|---------------------------------------------------------------------------------------|-----------------------|
-| [`insert`](./insert.md) | 要素を挿入する |
+| 名前                                   | 説明           |
+|----------------------------------------|----------------|
+| [`insert`](./insert.md)                | 要素を挿入する |
 | [`(constructor)`](./op_constructor.md) | コンストラクタ |
-
-
