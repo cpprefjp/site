@@ -9,8 +9,8 @@ bool operator==(const set<Key,Compare,Allocator>& x, const set<Key,Compare,Alloc
 
 
 ##パラメータ
-- `x`, `y`<br/>
-比較するコンテナ
+- `x`, `y`  
+	比較するコンテナ
 
 
 ##戻り値
@@ -39,14 +39,17 @@ int main()
   s2.insert(40);
 
   std::cout << (s1 == s2) << std::endl;
-
-  return 0;
 }
 ```
+* ==[color ff0000]
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
 
 ###出力
 ```
 1
 0
 ```
-
