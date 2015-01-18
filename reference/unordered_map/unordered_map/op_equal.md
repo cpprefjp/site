@@ -30,26 +30,25 @@ bool operator== (const unordered_map<Key,T,Hash,Pred,Alloc>& x,
 ```cpp
 #include <iostream>
 #include <unordered_map>
-using namespace std;
 
 int main()
 {
-  unordered_map<int,char> c1;
+  std::unordered_map<int,char> c1;
   c1.insert(std::make_pair(10,'a'));
   c1.insert(std::make_pair(20,'b'));
   c1.insert(std::make_pair(30,'c'));
 
 
-  unordered_map<int,char> c2;
+  std::unordered_map<int,char> c2;
   c2.insert(std::make_pair(30,'c'));
   c2.insert(std::make_pair(10,'a'));
   c2.insert(std::make_pair(20,'b'));
 
-  cout << (c1 == c2) << endl;
+  std::cout << (c1 == c2) << std::endl;
 
   c2.insert(std::make_pair(40,'d'));
 
-  cout << (c1 == c2) << endl;
+  std::cout << (c1 == c2) << std::endl;
 
   return 0;
 }

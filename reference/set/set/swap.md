@@ -21,26 +21,25 @@ void swap(set<Key,Compare,Allocator>& st);
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main()
 {
-  set<int> c1, c2;
- 
+  std::set<int> c1, c2;
+
   c1.insert(10);
   c1.insert(20);
   c1.insert(30);
- 
+
   c2.insert(5);
   c2.insert(15);
- 
+
   c1.swap(c2);
- 
-  set<int>::iterator i = c1.begin();
+
+  std::set<int>::iterator i = c1.begin();
   while(i != c1.end()) {
-    cout << *(i++) << ",";
+    std::cout << *(i++) << ",";
   }
-  
+
   return 0;
 }
 ```

@@ -22,19 +22,18 @@ value_compare value_comp() const;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  multimap<int,char> c;
-  const multimap<int,char>::value_compare& comp = c.value_comp();
+  std::multimap<int,char> c;
+  const std::multimap<int,char>::value_compare& comp = c.value_comp();
 
   auto p1 = std::make_pair(1,'a');
   auto p2 = std::make_pair(2,'b');
   auto p3 = std::make_pair(3,'c');
 
-  cout << comp(p1, p2) << endl;
-  cout << comp(p3, p2) << endl;
+  std::cout << comp(p1, p2) << std::endl;
+  std::cout << comp(p3, p2) << std::endl;
 
   return 0;
 }

@@ -23,22 +23,20 @@ float load_factor() const noexcept;
 #include <iostream>
 #include <unordered_map>
 
-using namespace std;
-
 int main()
 {
-  unordered_multimap<int,int> m;
+  std::unordered_multimap<int,int> m;
 
   m.emplace( 1, 1 );
-  m.emplace( 1, 1 );   
+  m.emplace( 1, 1 );
   m.emplace( 2, 2 );
   m.emplace( 3, 3 );
-    
-  cout << "current max_load_factor: " << m.max_load_factor() << endl;
-  cout << "current size: " << m.size() << endl;
-  cout << "current bucket_count: " << m.bucket_count() << endl;
-  cout << "current load_factor: " << m.load_factor() << endl;       // (size / bucket_count)
-  cout << endl;
+
+  std::cout << "current max_load_factor: " << m.max_load_factor() << std::endl;
+  std::cout << "current size: " << m.size() << std::endl;
+  std::cout << "current bucket_count: " << m.bucket_count() << std::endl;
+  std::cout << "current load_factor: " << m.load_factor() << std::endl;       // (size / bucket_count)
+  std::cout << std::endl;
 
   return 0;
 }

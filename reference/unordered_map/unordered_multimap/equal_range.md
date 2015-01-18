@@ -31,33 +31,31 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 #include <iostream>
 #include <unordered_map>
 #include <algorithm>
-using namespace std;
 
+typedef std::unordered_multimap<int,char>::iterator it_t;
 
-typedef unordered_multimap<int,char>::iterator it_t;
-
-void disp( pair<const int,char>& p) {
+void disp( std::pair<const int,char>& p) {
   std::cout << p.second << std::endl;
 }
 
 int main()
 {
- unordered_multimap<int,char> c;
+  std::unordered_multimap<int,char> c;
 
   c.insert(std::make_pair(1,'a'));
   c.insert(std::make_pair(1,'b'));
   c.insert(std::make_pair(1,'c'));
 
-  pair<it_t, it_t> ret = c.equal_range(1);
+  std::pair<it_t, it_t> ret = c.equal_range(1);
 
   std::cout << "--- ret" << std::endl;
   std::for_each(ret.first, ret.second, disp);
 
 
-  pair<it_t, it_t> ret2 = c.equal_range(0);
+  std::pair<it_t, it_t> ret2 = c.equal_range(0);
   std::cout << "--- ret2" << std::endl;
-  cout << "first:" << ( ret2.first == c.end() )  << endl;
-  cout << "second:" << ( ret2.second == c.end() )  << endl;
+  std::cout << "first:" << ( ret2.first == c.end() )  << std::endl;
+  std::cout << "second:" << ( ret2.second == c.end() )  << std::endl;
  
   return(0);
 }

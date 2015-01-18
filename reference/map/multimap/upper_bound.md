@@ -29,18 +29,17 @@ const_iterator upper_bound(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  multimap<int,char> c;
+  std::multimap<int,char> c;
 
   c.insert(std::make_pair(10,'a'));
   c.insert(std::make_pair(20,'b'));
   c.insert(std::make_pair(30,'c'));
 
   auto ii = c.upper_bound(20);
-  cout << ii->first << "," << ii->second << endl;
+  std::cout << ii->first << "," << ii->second << std::endl;
 
   return 0;
 }

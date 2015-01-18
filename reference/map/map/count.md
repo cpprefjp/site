@@ -25,15 +25,13 @@ size_type count(const key_type& x) const;
 #include <iostream>
 #include <map>
 
-using namespace std;
-
-int main() 
+int main()
 {
-  map<int, char> c;
+  std::map<int, char> c;
   c[4] = 'D';
 
-  cout << c.count(0) << endl;
-  cout << c.count(4) << endl;
+  std::cout << c.count(0) << std::endl;
+  std::cout << c.count(4) << std::endl;
 
   return 0;
 }

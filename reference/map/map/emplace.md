@@ -27,16 +27,14 @@ emplace(Args&&... args);
 #include <utility>
 #include <tuple>
 
-using namespace std;
-
-int main() 
+int main()
 {
-  map<int, char> c;
-  
-  c.emplace( piecewise_construct, make_tuple(1), make_tuple('A') );
-  
-  cout << get<0>( *c.begin() ) << " " << get<1>( *c.begin() ) << endl;
-  
+  std::map<int, char> c;
+
+  c.emplace( std::piecewise_construct, std::make_tuple(1), std::make_tuple('A') );
+
+  std::cout << std::get<0>( *c.begin() ) << " " << std::get<1>( *c.begin() ) << std::endl;
+
   return 0;
 }
 ```

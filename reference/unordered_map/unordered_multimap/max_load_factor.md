@@ -44,11 +44,9 @@ void max_load_factor(float z);          // (2)
 #include <iostream>
 #include <unordered_map>
 
-using namespace std;
-
 int main()
 {
-  unordered_multimap<int,int> m;
+  std::unordered_multimap<int,int> m;
 
   // バケット数+1個の要素生成。 load_factor > 1.0f になる。
   int c = m.bucket_count();
@@ -57,12 +55,12 @@ int main()
   {
     m.emplace( n, n );
   }
-    
-  cout << "current max_load_factor: " << m.max_load_factor() << endl;   // (1) 
-  cout << "current size: " << m.size() << endl;
-  cout << "current bucket_count: " << m.bucket_count() << endl;
-  cout << "current load_factor: " << m.load_factor() << endl;
-  cout << endl;
+
+  std::cout << "current max_load_factor: " << m.max_load_factor() << std::endl;   // (1)
+  std::cout << "current size: " << m.size() << std::endl;
+  std::cout << "current bucket_count: " << m.bucket_count() << std::endl;
+  std::cout << "current load_factor: " << m.load_factor() << std::endl;
+  std::cout << std::endl;
 
   // 初期化
   m.clear();
@@ -75,10 +73,10 @@ int main()
     m.emplace( n, n );
   }
 
-  cout << "new max_load_factor: " << m.max_load_factor() << endl; 
-  cout << "new size: " << m.size() << endl;
-  cout << "new bucket_count: " << m.bucket_count() << endl;
-  cout << "new load_factor: " << m.load_factor() << endl;
+  std::cout << "new max_load_factor: " << m.max_load_factor() << std::endl;
+  std::cout << "new size: " << m.size() << std::endl;
+  std::cout << "new bucket_count: " << m.bucket_count() << std::endl;
+  std::cout << "new load_factor: " << m.load_factor() << std::endl;
 
   return 0;
 }

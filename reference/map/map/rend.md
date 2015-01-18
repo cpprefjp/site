@@ -16,20 +16,19 @@ const_reverse_iterator rend() const noexcept;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  map<int, char> c;
+  std::map<int, char> c;
   c.insert(std::make_pair(5, 'e'));
   c.insert(std::make_pair(2, 'b'));
   c.insert(std::make_pair(4, 'd'));
   c.insert(std::make_pair(1, 'a'));
   c.insert(std::make_pair(1, 'a'));
 
-  map<int,char>::reverse_iterator i = c.rbegin();
+  std::map<int,char>::reverse_iterator i = c.rbegin();
   for( ; i != c.rend() ; ++i )
-    cout << i->first << " " << i->second << endl;
+    std::cout << i->first << " " << i->second << std::endl;
 
   return 0;
 }

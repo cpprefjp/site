@@ -25,16 +25,14 @@ size_type count(const key_type& x) const;
 #include <iostream>
 #include <map>
 
-using namespace std;
-
-int main() 
+int main()
 {
-  multimap<int, char> c;
+  std::multimap<int, char> c;
   c.insert( std::make_pair(4, 'D'));
   c.insert( std::make_pair(4, 'E'));
 
-  cout << c.count(0) << endl;
-  cout << c.count(4) << endl;
+  std::cout << c.count(0) << std::endl;
+  std::cout << c.count(4) << std::endl;
 
   return 0;
 }

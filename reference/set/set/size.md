@@ -20,21 +20,20 @@ size_type size() const noexcept;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main ()
 {
-  set<int> c;
- 
-  cout << c.size() << endl;
-  
+  std::set<int> c;
+
+  std::cout << c.size() << std::endl;
+
   c.insert(1);
   c.insert(2);
   c.insert(3);
   c.insert(1);
-  
-  cout << c.size() << endl;
-  
+
+  std::cout << c.size() << std::endl;
+
   return 0;
 }
 ```

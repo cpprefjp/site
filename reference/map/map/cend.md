@@ -22,11 +22,9 @@ const_iterator cend() const noexcept;
 #include <iostream>
 #include <map>
 
-using namespace std;
-
-int main() 
+int main()
 {
-  map<int, char> c;
+  std::map<int, char> c;
   c[3] = 'C';
   c[7] = 'G';
   c[8] = 'H';
@@ -35,11 +33,11 @@ int main()
   c[1] = 'A';
   c[2] = 'B';
   c[6] = 'F';
-  
+
   for( auto i = c.begin(); i != c.end() ; ++i ) {
-	cout << i->first << " " << i->second << "\n";
+	  std::cout << i->first << " " << i->second << "\n";
   }
-  
+
   return 0;
 }
 ```

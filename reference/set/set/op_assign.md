@@ -43,20 +43,19 @@ set& operator=(initializer_list<value_type> init);
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main()
 {
   int values[] = { 5, 2, 4, 1, 0, 0, 9 };
-  set<int> c1(values, values + 7);
-  set<int> c2;
- 
+  std::set<int> c1(values, values + 7);
+  std::set<int> c2;
+
   c2 = c1;
-  c1 = set<int>();
- 
-  cout << "Size of c1: " << c1.size() << endl;
-  cout << "Size of c2: " << c2.size() << endl;
-  
+  c1 = std::set<int>();
+
+  std::cout << "Size of c1: " << c1.size() << std::endl;
+  std::cout << "Size of c2: " << c2.size() << std::endl;
+
   return 0;
 }
 ```

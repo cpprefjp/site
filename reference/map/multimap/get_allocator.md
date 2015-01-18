@@ -24,25 +24,23 @@ allocator_type get_allocator() const noexcept;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  multimap<int,char> c;
-  pair<const int,char> * p;
+  std::multimap<int,char> c;
+  std::pair<const int,char> * p;
 
   p = c.get_allocator().allocate(2);
 
   p[0].second = 'a';
   p[1].second = 'b';
 
-  std::cout << p[0].second << endl;
-  std::cout << p[1].second << endl;
+  std::cout << p[0].second << std::endl;
+  std::cout << p[1].second << std::endl;
 
   c.get_allocator().deallocate(p, 2);
 
-  return 0;
-}
+  return 
 ```
 
 ###出力

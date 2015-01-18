@@ -25,25 +25,23 @@ bool operator!=(const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,A
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  map<int,char> s1, s2;
+  std::map<int,char> s1, s2;
   s1.insert(std::make_pair(1,'a'));
   s1.insert(std::make_pair(2,'b'));
   s1.insert(std::make_pair(3,'c'));
   s2 = s1;
 
-  cout << (s1 != s2) << endl;
+  std::cout << (s1 != s2) << std::endl;
 
   s2.insert(std::make_pair(4,'d'));
 
-  cout << (s1 != s2) << endl;
+  std::cout << (s1 != s2) << std::endl;
 
   return 0;
 }
-
 ```
 
 ###出力

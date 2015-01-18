@@ -26,18 +26,17 @@ const_iterator lower_bound(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  map<int,char> c;
+  std::map<int,char> c;
 
   c.insert(std::make_pair(10,'a'));
   c.insert(std::make_pair(20,'b'));
   c.insert(std::make_pair(30,'c'));
 
   auto ii = c.lower_bound(20);
-  cout << ii->first << "," << ii->second << endl;
+  std::cout << ii->first << "," << ii->second << std::endl;
 
   return 0;
 }

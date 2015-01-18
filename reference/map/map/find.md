@@ -24,16 +24,15 @@ const_iterator find(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  map<int, char> c;
+  std::map<int, char> c;
 
   c.insert(std::make_pair(1,'a'));
 
-  cout << (c.find(1) != c.end()) << endl;
-  cout << (c.find(2) != c.end()) << endl;
+  std::cout << (c.find(1) != c.end()) << std::endl;
+  std::cout << (c.find(2) != c.end()) << std::endl;
   return 0;
 }
 ```

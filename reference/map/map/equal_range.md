@@ -26,11 +26,10 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  map<int,char> c;
+  std::map<int,char> c;
 
   c.insert(std::make_pair(1,'a'));
   c.insert(std::make_pair(2,'b'));
@@ -38,11 +37,11 @@ int main()
   c.insert(std::make_pair(4,'d'));
   c.insert(std::make_pair(5,'e'));
 
-  typedef map<int,char>::iterator it_t;
-  pair<it_t, it_t> ret = c.equal_range(3);
+  typedef std::map<int,char>::iterator it_t;
+  std::pair<it_t, it_t> ret = c.equal_range(3);
 
-  cout << "low: " << ret.first->first << " " << ret.first->second << endl;
-  cout << "up: " << ret.second->first << " " << ret.second->second << endl;
+  std::cout << "low: " << ret.first->first << " " << ret.first->second << std::endl;
+  std::cout << "up: " << ret.second->first << " " << ret.second->second << std::endl;
 }
 ```
 

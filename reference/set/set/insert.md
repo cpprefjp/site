@@ -55,24 +55,23 @@ void insert(initializer_list<value_type> init);
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main ()
 {
-  set<int> c1;
-  set<int> c2;
-  
+  std::set<int> c1;
+  std::set<int> c2;
+
   c1.insert(10);
   c1.insert(20);
   c1.insert(30);
- 
-  cout << c1.size() << endl;
- 
+
+  std::cout << c1.size() << std::endl;
+
   c2.insert(c1.begin(), c1.end());
   c2.insert(40);
- 
-  cout << c2.size() << endl;
-  
+
+  std::cout << c2.size() << std::endl;
+
   return 0;
 }
 ```

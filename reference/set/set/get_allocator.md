@@ -23,22 +23,21 @@ allocator_type get_allocator() const noexcept;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main()
 {
-  set<int> c;
+  std::set<int> c;
   int * p;
- 
+
   p = c.get_allocator().allocate(2);
- 
+
   p[0] = 42;
   p[1] = 43;
- 
-  cout << p[0] << " " << p[1];
- 
+
+  std::cout << p[0] << " " << p[1];
+
   c.get_allocator().deallocate(p, 2);
-  
+
   return 0;
 }
 ```

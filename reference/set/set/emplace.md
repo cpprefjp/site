@@ -25,8 +25,7 @@ emplace(Args&&... args);
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 struct s
 {
   s(int a): a_(a) {}
@@ -36,15 +35,15 @@ bool operator<(const s& lhs, const s& rhs)
 {
   return lhs.a_ < rhs.a_;
 }
- 
+
 int main()
 {
-  set<s> c;
- 
+  std::set<s> c;
+
   c.emplace(42);
- 
-  cout << (*c.begin()).a_;
-  
+
+  std::cout << (*c.begin()).a_;
+
   return 0;
 }
 ```

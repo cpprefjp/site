@@ -30,28 +30,27 @@ bool operator== (const unordered_multimap<Key,T,Hash,Pred,Alloc>& x,
 ```cpp
 #include <iostream>
 #include <unordered_map>
-using namespace std;
 
 int main()
 {
-  unordered_multimap<int,char> c1;
+  std::unordered_multimap<int,char> c1;
   c1.insert(std::make_pair(10,'a'));
   c1.insert(std::make_pair(20,'b'));
   c1.insert(std::make_pair(30,'c'));
   c1.insert(std::make_pair(30,'d'));
 
 
-  unordered_multimap<int,char> c2;
+  std::unordered_multimap<int,char> c2;
   c2.insert(std::make_pair(30,'c'));
   c2.insert(std::make_pair(10,'a'));
   c2.insert(std::make_pair(30,'d'));
   c2.insert(std::make_pair(20,'b'));
 
-  cout << (c1 == c2) << endl;
+  std::cout << (c1 == c2) << std::endl;
 
   c2.insert(std::make_pair(30,'e'));
 
-  cout << (c1 == c2) << endl;
+  std::cout << (c1 == c2) << std::endl;
 
   return 0;
 }

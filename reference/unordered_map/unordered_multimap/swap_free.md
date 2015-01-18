@@ -32,33 +32,31 @@ namespace std {
 #include <iostream>
 #include <unordered_map>
 
-using namespace std;
-
 template <class Map>
 void print(const char* name, const Map& m)
 {
-  cout << name << " : {";
+  std::cout << name << " : {";
   for (const auto& x : m) {
-    cout << "[" << x.first << "," << x.second << "], ";
+    std::cout << "[" << x.first << "," << x.second << "], ";
   }
-  cout << "}" << std::endl;
+  std::cout << "}" << std::endl;
 }
 
 int main()
 {
-  unordered_multimap<int, char> c1;
+  std::unordered_multimap<int, char> c1;
   c1.insert(std::make_pair(10,'a'));
   c1.insert(std::make_pair(20,'b'));
   c1.insert(std::make_pair(30,'c'));
   c1.insert(std::make_pair(30,'d'));
   c1.insert(std::make_pair(30,'e'));
 
-  unordered_multimap<int, char> c2;
+  std::unordered_multimap<int, char> c2;
   c2.insert(std::make_pair(5,'d'));
   c2.insert(std::make_pair(15,'e'));
 
   // c1とc2を入れ替える
-  swap(c1, c2);
+  std::swap(c1, c2);
 
   print("c1", c1);
   print("c2", c2);

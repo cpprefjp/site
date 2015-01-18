@@ -20,20 +20,19 @@ size_type size() const noexcept;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main ()
 {
-  map<int,char> c;
+  std::map<int,char> c;
 
-  cout << c.size() << endl;
+  std::cout << c.size() << std::endl;
 
   c.insert( std::make_pair(1, 'a') );
   c.insert( std::make_pair(2, 'b') );
   c.insert( std::make_pair(3, 'c') );
   c.insert( std::make_pair(1, 'a') );
 
-  cout << c.size() << endl;
+  std::cout << c.size() << std::endl;
 
   return 0;
 }

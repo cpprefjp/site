@@ -22,22 +22,21 @@ const T& at(const key_type & x) const;
 ```cpp
 #include <iostream>
 #include <unordered_map>
-using namespace std;
 
 template<class Container, class T>
 void at_wrap(Container &c, T v) {
 
   try{
-    cout << c.at(v) << endl;
+    std::cout << c.at(v) << std::endl;
   }
-  catch(out_of_range&) {
-    cout << "exception std::out_of_ranget" << endl;
+  catch(std::out_of_range&) {
+    std::cout << "exception std::out_of_ranget" << std::endl;
   }
 }
 
 int main()
 {
-  unordered_map<int,char> s1;
+  std::unordered_map<int,char> s1;
   s1.insert(std::make_pair(1,'a'));
 
   at_wrap(s1, 1);

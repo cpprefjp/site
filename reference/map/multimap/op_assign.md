@@ -43,30 +43,28 @@ multimap& operator=(initializer_list<value_type> init);
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  std::pair<int,char> values[] = { 
-    std::make_pair(5,'e'), 
-    std::make_pair(2,'b'), 
-    std::make_pair(4,'d'), 
+  std::pair<int,char> values[] = {
+    std::make_pair(5,'e'),
+    std::make_pair(2,'b'),
+    std::make_pair(4,'d'),
     std::make_pair(1,'a'),
     std::make_pair(1,'a'),
     std::make_pair(3,'c')
   };
-  multimap<int, char> c1(values, values + 6);
-  multimap<int, char> c2;
+  std::multimap<int, char> c1(values, values + 6);
+  std::multimap<int, char> c2;
 
   c2 = c1;
-  c1 = multimap<int,char>();
+  c1 = std::multimap<int,char>();
 
-  cout << "Size of c1: " << c1.size() << endl;
-  cout << "Size of c2: " << c2.size() << endl;
+  std::cout << "Size of c1: " << c1.size() << std::endl;
+  std::cout << "Size of c2: " << c2.size() << std::endl;
 
   return 0;
 }
-
 ```
 
 ###出力

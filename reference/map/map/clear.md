@@ -16,22 +16,20 @@ void clear() noexcept;
 #include <iostream>
 #include <map>
 
-using namespace std;
-
 int main() 
 {
-  map<int, char> c;
+  std::map<int, char> c;
   c[3] = 'C';
   c[4] = 'D';
   c[1] = 'A';
   c[2] = 'B';
-  
-  std::cout << c.size() << endl;
+
+  std::cout << c.size() << std::endl;
 
   c.clear();
 
-  std::cout << c.size() << endl;
-  
+  std::cout << c.size() << std::endl;
+
   return 0;
 }
 ```

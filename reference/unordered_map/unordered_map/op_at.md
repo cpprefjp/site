@@ -24,32 +24,27 @@ T& operator[](const key_type&& x);
 ```cpp
 #include <iostream>
 #include <unordered_map>
-using namespace std;
 
 template<class Container, class T>
 void at_wrap(Container &c, T v) {
 
-  cout << "{" << c[v] << "}" << endl;
+  std::cout << "{" << c[v] << "}" << std::endl;
 }
 
 int main()
 {
-  unordered_map<int,char> s1;
+  std::unordered_map<int,char> s1;
   s1.insert(std::make_pair(1,'a'));
-  
-  cout << "size=" << s1.size() << endl;
+
+  std::cout << "size=" << s1.size() << std::endl;
 
   at_wrap(s1, 1);
   at_wrap(s1, 2);
 
-  cout << "size=" << s1.size() << endl;
+  std::cout << "size=" << s1.size() << std::endl;
 
   return 0;
 }
-
-
-
-
 ```
 
 ###出力

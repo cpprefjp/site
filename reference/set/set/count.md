@@ -26,19 +26,17 @@ size_type count(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
 
 int main()
 {
-  set<int> c;
+  std::set<int> c;
 
   c.insert(10);
 
-  cout << c.count(10) << endl;
-  cout << c.count(42) << endl;
+  std::cout << c.count(10) << std::endl;
+  std::cout << c.count(42) << std::endl;
   return 0;
-}
-```
+}```
 
 ###出力
 ```

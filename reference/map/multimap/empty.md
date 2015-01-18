@@ -22,17 +22,16 @@ bool empty() const noexcept;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main ()
 {
-  multimap<int, char> c;
+  std::multimap<int, char> c;
 
-  cout << c.empty() << endl;
+  std::cout << c.empty() << std::endl;
 
   c.insert(std::make_pair(42,'a'));
 
-  cout << c.empty() << endl;
+  std::cout << c.empty() << std::endl;
 
   return 0;
 }

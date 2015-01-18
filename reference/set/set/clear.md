@@ -15,22 +15,21 @@ void clear() noexcept;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main ()
 {
-  set<int> c;
-  
+  std::set<int> c;
+
   c.insert(10);
   c.insert(20);
   c.insert(30);
- 
-  cout << c.size() << endl;
- 
+
+  std::cout << c.size() << std::endl;
+
   c.clear();
- 
-  cout << c.size() << endl;
-  
+
+  std::cout << c.size() << std::endl;
+
   return 0;
 }
 ```

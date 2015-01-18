@@ -30,11 +30,10 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <unordered_map>
-using namespace std;
 
 int main()
 {
-  unordered_map<int,char> c;
+  std::unordered_map<int,char> c;
 
   c.insert(std::make_pair(1,'a'));
   c.insert(std::make_pair(2,'b'));
@@ -42,15 +41,15 @@ int main()
   c.insert(std::make_pair(4,'d'));
   c.insert(std::make_pair(5,'e'));
 
-  typedef unordered_map<int,char>::iterator it_t;
-  pair<it_t, it_t> ret = c.equal_range(3);
+  typedef std::unordered_map<int,char>::iterator it_t;
+  std::pair<it_t, it_t> ret = c.equal_range(3);
 
-  cout << "low: " << ret.first->first << " " << ret.first->second << endl;
-  cout << "up: " << ret.second->first << " " << ret.second->second << endl;
+  std::cout << "low: " << ret.first->first << " " << ret.first->second << std::endl;
+  std::cout << "up: " << ret.second->first << " " << ret.second->second << std::endl;
 
-  pair<it_t, it_t> ret2 = c.equal_range(0);
-  cout << "low:" << ( ret2.first == c.end() )  << endl;
-  cout << "up:" << ( ret2.second == c.end() )  << endl;
+  std::pair<it_t, it_t> ret2 = c.equal_range(0);
+  std::cout << "low:" << ( ret2.first == c.end() )  << std::endl;
+  std::cout << "up:" << ( ret2.second == c.end() )  << std::endl;
 
   return(0);
 }

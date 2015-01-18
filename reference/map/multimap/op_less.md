@@ -25,21 +25,20 @@ bool operator< (const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  multimap<char,int> s1, s2;
+  std::multimap<char,int> s1, s2;
   s1.insert(std::make_pair('a',10));
   s1.insert(std::make_pair('b',20));
   s1.insert(std::make_pair('c',30));
   s2 = s1;
 
-  cout << (s1 < s2) << endl;
+  std::cout << (s1 < s2) << std::endl;
 
   s2.insert(std::make_pair('d',40));
 
-  cout << (s1 < s2) << endl;
+  std::cout << (s1 < s2) << std::endl;
 
   return 0;
 }

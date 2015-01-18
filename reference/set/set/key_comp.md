@@ -21,16 +21,15 @@ key_compare key_comp() const;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main()
 {
-  set<int> c;
-  set<int>::key_compare comp = c.key_comp();
- 
-  cout << comp(1, 2) << endl;
-  cout << comp(5, 3) << endl;
- 
+  std::set<int> c;
+  std::set<int>::key_compare comp = c.key_comp();
+
+  std::cout << comp(1, 2) << std::endl;
+  std::cout << comp(5, 3) << std::endl;
+
   return 0;
 }
 ```

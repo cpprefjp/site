@@ -21,14 +21,13 @@ size_type max_size() const noexcept;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
- 
+
 int main ()
 {
-  map<char, int> c;
-  
-  cout << c.max_size();
-  
+  std::map<char, int> c;
+
+  std::cout << c.max_size();
+
   return 0;
 }
 ```

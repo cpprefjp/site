@@ -21,14 +21,13 @@ size_type max_size() const noexcept;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main ()
 {
-  set<int> c;
-  
-  cout << c.max_size();
-  
+  std::set<int> c;
+
+  std::cout << c.max_size();
+
   return 0;
 }
 ```

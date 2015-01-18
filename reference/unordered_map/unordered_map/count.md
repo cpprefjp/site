@@ -28,15 +28,13 @@ size_type count(const key_type& x) const;
 #include <iostream>
 #include <unordered_map>
 
-using namespace std;
-
-int main() 
+int main()
 {
-  unordered_map<int, char> c;
+  std::unordered_map<int, char> c;
   c[4] = 'D';
 
-  cout << c.count(0) << endl;
-  cout << c.count(4) << endl;
+  std::cout << c.count(0) << std::endl;
+  std::cout << c.count(4) << std::endl;
 
   return 0;
 }

@@ -35,13 +35,9 @@ void rehash(size_type n);
 
 
 ##例
-```cp
+```cpp
 #include <iostream>
 #include <unordered_map>
-
-using namespace std;
-
-
 
 int main()
 {
@@ -51,23 +47,23 @@ int main()
   m.emplace( 1, 1 );
   m.emplace( 2, 2 );
   m.emplace( 3, 3 );
-        
+
   m.max_load_factor( 2.0f );
-  
-  cout << "current max_load_factor: " << m.max_load_factor() << endl;
-  cout << "current size: " << m.size() << endl;
-  cout << "current bucket_count: " << m.bucket_count() << endl;
-  cout << "current load_factor: " << m.load_factor() << endl;
-  cout << endl;
+
+  std::cout << "current max_load_factor: " << m.max_load_factor() << std::endl;
+  std::cout << "current size: " << m.size() << std::endl;
+  std::cout << "current bucket_count: " << m.bucket_count() << std::endl;
+  std::cout << "current load_factor: " << m.load_factor() << std::endl;
+  std::cout << std::endl;
 
   m.rehash(20);
-  cout << "m.rehash(20)" << endl;
-  cout << endl;
+  std::cout << "m.rehash(20)" << std::endl;
+  std::cout << std::endl;
 
-  cout << "new max_load_factor: " << m.max_load_factor() << endl; 
-  cout << "new size: " << m.size() << endl;
-  cout << "new bucket_count: " << m.bucket_count() << endl;
-  cout << "new load_factor: " << m.load_factor() << endl;
+  std::cout << "new max_load_factor: " << m.max_load_factor() << std::endl; 
+  std::cout << "new size: " << m.size() << std::endl;
+  std::cout << "new bucket_count: " << m.bucket_count() << std::endl;
+  std::cout << "new load_factor: " << m.load_factor() << std::endl;
 
   return 0;
 }

@@ -26,30 +26,29 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 struct s
 {
   s(int a): a_(a) {}
   int a_;
 };
- 
+
 bool operator<(const s& lhs, const s& rhs)
 {
   return lhs.a_ < rhs.a_;
 }
- 
+
 int main()
 {
-  set<s> c;
- 
+  std::set<s> c;
+
   c.insert(s(10));
   c.insert(s(20));
   c.insert(s(30));
- 
+
   c.emplace_hint(c.find(s(20)), 15);
-  cout << c.size() << endl;
-  
+  std::cout << c.size() << std::endl;
+
   return 0;
 }
 ```

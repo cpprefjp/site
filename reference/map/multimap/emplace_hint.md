@@ -29,19 +29,17 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 #include <utility>
 #include <tuple>
 
-using namespace std;
-
-int main() 
+int main()
 {
-  multimap<int, char> c;
+  std::multimap<int, char> c;
 
-  c.emplace( piecewise_construct, make_tuple(1), make_tuple('A') );
-  c.emplace_hint( c.end(), piecewise_construct, make_tuple(2), make_tuple('B') );
-  c.emplace_hint( c.end(), piecewise_construct, make_tuple(3), make_tuple('C') );
-  c.emplace_hint( c.end(), piecewise_construct, make_tuple(4), make_tuple('D') );
+  c.emplace( std::piecewise_construct, std::make_tuple(1), std::make_tuple('A') );
+  c.emplace_hint( c.end(), std::piecewise_construct, std::make_tuple(2), std::make_tuple('B') );
+  c.emplace_hint( c.end(), std::piecewise_construct, std::make_tuple(3), std::make_tuple('C') );
+  c.emplace_hint( c.end(), std::piecewise_construct, std::make_tuple(4), std::make_tuple('D') );
 
   for( const auto& pr : c ) {
-    cout << get<0>( pr) << " " << get<1>( pr ) << endl;
+    std::cout << std::get<0>( pr) << " " << std::get<1>( pr ) << std::endl;
   }
 
   return 0;

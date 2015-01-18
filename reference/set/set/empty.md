@@ -22,18 +22,17 @@ bool empty() const noexcept;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main ()
 {
-  set<int> c;
- 
-  cout << c.empty() << endl;
-  
+  std::set<int> c;
+
+  std::cout << c.empty() << std::endl;
+
   c.insert(42);
-  
-  cout << c.empty() << endl;
-  
+
+  std::cout << c.empty() << std::endl;
+
   return 0;
 }
 ```

@@ -16,21 +16,19 @@ void clear() noexcept;
 #include <iostream>
 #include <map>
 
-using namespace std;
-
-int main() 
+int main()
 {
-  multimap<int, char> c;
+  std::multimap<int, char> c;
   c.insert( std::make_pair(3,'C'));
   c.insert( std::make_pair(4,'D'));
   c.insert( std::make_pair(1,'A'));
   c.insert( std::make_pair(2,'B'));
 
-  std::cout << c.size() << endl;
+  std::cout << c.size() << std::endl;
 
   c.clear();
 
-  std::cout << c.size() << endl;
+  std::cout << c.size() << std::endl;
 
   return 0;
 }

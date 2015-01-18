@@ -38,25 +38,24 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  map<int, char> c;
+  std::map<int, char> c;
 
   c.insert(std::make_pair(1,'A'));
   c.insert(std::make_pair(2,'B'));
   c.insert(std::make_pair(3,'C'));
-  cout << c.size() << endl;
+  std::cout << c.size() << std::endl;
 
   c.erase(1);
-  cout << c.size() << endl;
+  std::cout << c.size() << std::endl;
 
   c.erase(5);
-  cout << c.size() << endl;
+  std::cout << c.size() << std::endl;
 
   c.erase(c.begin(), c.end());
-  cout << c.size() << endl;
+  std::cout << c.size() << std::endl;
 
   return 0;
 }

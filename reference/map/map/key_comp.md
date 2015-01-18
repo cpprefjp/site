@@ -20,15 +20,14 @@ key_compare key_comp() const;
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  map<int,char> c;
-  map<int,char>::key_compare comp = c.key_comp();
+  std::map<int,char> c;
+  std::map<int,char>::key_compare comp = c.key_comp();
 
-  cout << comp(1, 2) << endl;
-  cout << comp(3, 2) << endl;
+  std::cout << comp(1, 2) << std::endl;
+  std::cout << comp(3, 2) << std::endl;
 
   return 0;
 }

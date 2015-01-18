@@ -27,18 +27,17 @@ size_type count(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <unordered_map>
-using namespace std;
 
 int main()
 {
-  unordered_multimap<int,char> c;
+  std::unordered_multimap<int,char> c;
 
   c.insert(std::make_pair(1,'a'));
   c.insert(std::make_pair(1,'b'));
 
-  cout << c.count(1) << endl;
-  cout << c.count(2) << endl;
- 
+  std::cout << c.count(1) << std::endl;
+  std::cout << c.count(2) << std::endl;
+
   return(0);
 }
 ```

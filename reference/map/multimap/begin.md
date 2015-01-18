@@ -24,11 +24,9 @@ const_iterator begin() const noexcept;
 #include <iostream>
 #include <map>
 
-using namespace std;
-
 int main() 
 {
-  multimap<int, char> c;
+  std::multimap<int, char> c;
   c.insert( std::make_pair(3,'C'));
   c.insert( std::make_pair(3,'D'));
   c.insert( std::make_pair(7,'G'));
@@ -40,7 +38,7 @@ int main()
   c.insert( std::make_pair(6,'F'));
 
   for( auto i = c.begin(); i != c.end() ; ++i ) {
-    cout << i->first << " " << i->second << "\n";
+    std::cout << i->first << " " << i->second << "\n";
   }
 
   return 0;

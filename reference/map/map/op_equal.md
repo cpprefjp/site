@@ -25,20 +25,19 @@ bool operator==(const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,A
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  map<int,char> c1;
+  std::map<int,char> c1;
   c1[0] = 'a';
 
   auto c2 = c1;
 
-  cout << (c1 == c2) << endl;
+  std::cout << (c1 == c2) << std::endl;
 
   c2[0] = 'b';
 
-  cout << (c1 == c2) << endl;
+  std::cout << (c1 == c2) << std::endl;
 
   return 0;
 }

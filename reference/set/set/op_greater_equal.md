@@ -25,22 +25,21 @@ bool operator>=(const set<Key,Compare,Allocator>& x, const set<Key,Compare,Alloc
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main()
 {
-  set<int> s1, s2;
+  std::set<int> s1, s2;
   s1.insert(10);
   s1.insert(20);
   s1.insert(30);
   s2 = s1;
-  
-  cout << (s1 >= s2) << endl;
- 
+
+  std::cout << (s1 >= s2) << std::endl;
+
   s2.insert(40);
- 
-  cout << (s1 >= s2) << endl;
- 
+
+  std::cout << (s1 >= s2) << std::endl;
+
   return 0;
 }
 ```

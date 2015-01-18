@@ -24,16 +24,15 @@ const_iterator find(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
 
 int main()
 {
-  set<int> c;
+  std::set<int> c;
 
   c.insert(10);
 
-  cout << (c.find(10) != c.end()) << endl;
-  cout << (c.find(42) != c.end()) << endl;
+  std::cout << (c.find(10) != c.end()) << std::endl;
+  std::cout << (c.find(42) != c.end()) << std::endl;
   return 0;
 }
 ```

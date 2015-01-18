@@ -24,11 +24,10 @@ const_iterator cend() const noexcept;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main()
 {
-  set<int> c;
+  std::set<int> c;
   c.insert(5);
   c.insert(2);
   c.insert(4);
@@ -36,11 +35,11 @@ int main()
   c.insert(0);
   c.insert(0);
   c.insert(9);
- 
-  set<int>::iterator i = c.begin();
+
+  std::set<int>::iterator i = c.begin();
   while (i != c.end())
-    cout << *i++ << " ";
-  
+    std::cout << *i++ << " ";
+
   return 0;
 }
 ```

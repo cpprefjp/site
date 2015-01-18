@@ -30,16 +30,14 @@ const_iterator find(const key_type& x) const;
 #include <iostream>
 #include <unordered_map>
 
-using namespace std;
-
-int main() 
+int main()
 {
-  unordered_map<int, char> c;
+  std::unordered_map<int, char> c;
 
   c.insert(std::make_pair(1,'a'));
 
-  cout << (c.find(1) != c.end()) << endl;
-  cout << (c.find(2) != c.end()) << endl;
+  std::cout << (c.find(1) != c.end()) << std::endl;
+  std::cout << (c.find(2) != c.end()) << std::endl;
 
   return 0;
 }

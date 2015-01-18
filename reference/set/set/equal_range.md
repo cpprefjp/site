@@ -26,23 +26,22 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main()
 {
-  set<int> c;
- 
+  std::set<int> c;
+
   c.insert(10);
   c.insert(20);
   c.insert(30);
   c.insert(40);
   c.insert(50);
- 
-  typedef set<int>::iterator it_t;
-  pair<it_t, it_t> ret = c.equal_range(30);
- 
-  cout << "low: " << *ret.first << endl;
-  cout << "up: " << *ret.second << endl;
+
+  typedef std::set<int>::iterator it_t;
+  std::pair<it_t, it_t> ret = c.equal_range(30);
+
+  std::cout << "low: " << *ret.first << std::endl;
+  std::cout << "up: " << *ret.second << std::endl;
 }
 ```
 

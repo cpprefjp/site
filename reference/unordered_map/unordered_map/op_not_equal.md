@@ -27,20 +27,19 @@ bool operator!= (const unordered_map<Key,T,Hash,Pred,Alloc>& x,
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
-  map<int,char> c1;
+  std::map<int,char> c1;
   c1[0] = 'a';
 
   auto c2 = c1;
 
-  cout << (c1 != c2) << endl;
+  std::cout << (c1 != c2) << std::endl;
 
   c2[0] = 'b';
 
-  cout << (c1 != c2) << endl;
+  std::cout << (c1 != c2) << std::endl;
 
   return 0;
 }

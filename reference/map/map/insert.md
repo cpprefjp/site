@@ -63,23 +63,22 @@ void insert(initializer_list<value_type> init);
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main ()
 {
-  map<char,int> c1;
-  map<char,int> c2;
+  std::map<char,int> c1;
+  std::map<char,int> c2;
 
   c1.insert(std::make_pair('a', 10));
   c1.insert(std::make_pair('b', 20));
   c1.insert(std::make_pair('c', 30));
 
-  cout << c1.size() << endl;
+  std::cout << c1.size() << std::endl;
 
   c2.insert(c1.begin(), c1.end());
   c2.insert(std::make_pair('d', 40));
 
-  cout << c2.size() << endl;
+  std::cout << c2.size() << std::endl;
 
   return 0;
 }

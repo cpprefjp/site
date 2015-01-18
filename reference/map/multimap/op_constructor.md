@@ -80,16 +80,15 @@ multimap(initializer_list<value_type> init, const Compare& comp = Compare(), con
 ```cpp
 #include <iostream>
 #include <map>
-using namespace std;
 
 int main()
 {
   std::pair<int,char> values[] = { std::make_pair(1,'a'), std::make_pair(2,'b'), std::make_pair(2,'b') };
-  multimap<int,char> c1(values, values + 3);
-  multimap<int,char> c2(c1);
+  std::multimap<int,char> c1(values, values + 3);
+  std::multimap<int,char> c2(c1);
 
-  cout << "Size of c1: " << c1.size() << endl;
-  cout << "Size of c2: " << c2.size() << endl;
+  std::cout << "Size of c1: " << c1.size() << std::endl;
+  std::cout << "Size of c2: " << c2.size() << std::endl;
 
   return 0;
 }

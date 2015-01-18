@@ -26,20 +26,20 @@ const_iterator lower_bound(const key_type& x) const;
 ```cpp
 #include <iostream>
 #include <set>
-using namespace std;
- 
+
 int main()
 {
-  set<int> c;
- 
+  std::set<int> c;
+
   c.insert(10);
   c.insert(20);
   c.insert(30);
- 
-  cout << *c.lower_bound(20);
- 
+
+  std::cout << *c.lower_bound(20);
+
   return 0;
 }
+
 ```
 
 ###出力
