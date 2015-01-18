@@ -18,7 +18,7 @@ size_type erase(const key_type& x);
 
 ##概要
 単一要素または要素範囲（`[first, last)`）を `set` コンテナから削除する。 
-これは削除された要素の数だけコンテナの `size` を減らし、それぞれの要素のデストラクタを呼び出す。
+これは削除された要素の数だけコンテナの [`size`](size.md)`()` を減らし、それぞれの要素のデストラクタを呼び出す。
 
 
 ##パラメータ
@@ -60,10 +60,17 @@ int main()
 
   c.erase(c.begin(), c.end());
   std::cout << c.size() << std::endl;
-
-  return 0;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* erase[color ff0000]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* size[link size.md]
+* begin[link begin.md]
+* end[link end.md]
 
 ###出力
 ```
@@ -75,11 +82,8 @@ int main()
 
 ##参照
 
-| | |
-|---------------------------------------------------------------------------------------|--------------------------------------|
-| [`clear`](./clear.md) | 全ての要素を削除する |
-| [`insert`](./insert.md) | 要素を挿入する |
-| [`find`](./find.md) | 指定したキーで要素を探す |
-
-
-
+| 名前                    | 説明                     |
+|-------------------------|--------------------------|
+| [`clear`](./clear.md)   | 全ての要素を削除する     |
+| [`insert`](./insert.md) | 要素を挿入する           |
+| [`find`](./find.md)     | 指定したキーで要素を探す |

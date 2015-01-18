@@ -29,10 +29,15 @@ int main ()
   c.clear();
 
   std::cout << c.size() << std::endl;
-
-  return 0;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* cout[link ../../iostream/cout.md]
+* size[link size.md]
+* endl[link ../../ostream/endl.md]
+* clear[color ff0000]
 
 ###出力
 ```
@@ -42,11 +47,8 @@ int main ()
 
 ##参照
 
-| | |
-|-------------------------------------------------------------------------------------|-----------------------------------------------------|
-| [`erase`](./erase.md) | 要素を削除する |
-| [`size`](./size.md) | 要素数を取得する |
+| 名前                  | 説明                               |
+|-----------------------|------------------------------------|
+| [`erase`](./erase.md) | 要素を削除する                     |
+| [`size`](./size.md)   | 要素数を取得する                   |
 | [`empty`](./empty.md) | コンテナが空であるかどうかを調べる |
-
-
-

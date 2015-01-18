@@ -26,11 +26,14 @@ int main ()
 {
   std::set<int> c;
 
-  std::cout << c.max_size();
-
-  return 0;
+  std::cout << c.max_size() << std::endl;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* cout[link ../../iostream/cout.md]
+* max_size[color ff0000]
+* endl[link ../../ostream/endl.md]
 
 ###出力例
 ```
@@ -39,8 +42,6 @@ int main ()
 
 ##参照
 
-| | |
-|-----------------------------------------------------------------------------------|--------------------------|
+| 名前                | 説明             |
+|---------------------|------------------|
 | [`size`](./size.md) | 要素数を取得する |
-
-
