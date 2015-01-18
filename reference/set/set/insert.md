@@ -20,6 +20,7 @@ void insert(InputIterator first, InputIterator last);
 // since C++11
 void insert(initializer_list<value_type> init);
 ```
+* pair[link ../../utility/pair.md]
 
 ##概要
 　新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入することにより、 `set` コンテナを拡張する。 
@@ -38,7 +39,7 @@ void insert(initializer_list<value_type> init);
 
 
 ##戻り値
-`pair` を返すバージョンは、`first` に新しく挿入された要素またはすでに `set` に格納されていた同じ値の要素を指すイテレータをセットする。`second` には、要素が挿入されたときに `true` が、同じ値の要素が存在したときに `false` がセットされる。 
+[`pair`](../../utility/pair.md) を返すバージョンは、`first` に新しく挿入された要素またはすでに `set` に格納されていた同じ値の要素を指すイテレータをセットする。`second` には、要素が挿入されたときに `true` が、同じ値の要素が存在したときに `false` がセットされる。
 `iterator` を返すバージョンは、新しく挿入された要素またはすでに `set` に格納されていた同じ値の要素を指すイテレータである。
 `iterator` はメンバ型であり、双方向イテレータとして定義される。
 
@@ -71,10 +72,16 @@ int main ()
   c2.insert(40);
 
   std::cout << c2.size() << std::endl;
-
-  return 0;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[color ff0000]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* size[link size.md]
+* begin[link begin.md]
+* end[link end.md]
 
 ###出力
 ```
@@ -84,9 +91,7 @@ int main ()
 
 ##参照
 
-| | |
-|-------------------------------------------------------------------------------------|--------------------------------------|
-| [`erase`](./erase.md) | 要素を削除する |
-| [`find`](./find.md) | 指定したキーで要素を探す |
-
-
+| 名前                  | 説明                     |
+|-----------------------|--------------------------|
+| [`erase`](./erase.md) | 要素を削除する           |
+| [`find`](./find.md)   | 指定したキーで要素を探す |
