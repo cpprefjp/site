@@ -27,23 +27,27 @@ allocator_type get_allocator() const noexcept;
 int main()
 {
   std::set<int> c;
-  int * p;
+  int* p;
 
   p = c.get_allocator().allocate(2);
 
   p[0] = 42;
   p[1] = 43;
 
-  std::cout << p[0] << " " << p[1];
+  std::cout << p[0] << " " << p[1] << std::endl;
 
   c.get_allocator().deallocate(p, 2);
-
-  return 0;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* get_allocator[color ff0000]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* allocate[link ../../memory/allocator/allocate.md]
+* deallocate[link ../../memory/allocator/deallocate.md]
 
 ###出力
 ```
 42 43
 ```
-
