@@ -17,7 +17,7 @@ const_iterator find(const key_type& x) const;
 
 
 ##計算量
-[`size`](./size.md) について対数時間。
+[`size`](./size.md)`()` について対数時間。
 
 
 ##例
@@ -33,9 +33,15 @@ int main()
 
   std::cout << (c.find(10) != c.end()) << std::endl;
   std::cout << (c.find(42) != c.end()) << std::endl;
-  return 0;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* find[color ff0000]
+* end[link end.md]
 
 ###出力
 ```
@@ -45,10 +51,8 @@ int main()
 
 ##参照
 
-| | |
-|-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| [`count`](./count.md) | 指定したキーにマッチする要素の数を返す |
+| 名前                              | 説明                                               |
+|-----------------------------------|----------------------------------------------------|
+| [`count`](./count.md)             | 指定したキーにマッチする要素の数を返す             |
 | [`lower_bound`](./lower_bound.md) | 与えられた値より小さくない要素へのイテレータを返す |
 | [`upper_bound`](./upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
-
-
