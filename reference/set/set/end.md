@@ -39,10 +39,16 @@ int main()
   std::set<int>::iterator i = c.begin();
   while (i != c.end())
     std::cout << *i++ << " ";
-
-  return 0;
+  std::cout << std::endl;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* begin[link begin.md]
+* end[color ff0000]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
 
 ###出力
 ```
@@ -51,10 +57,8 @@ int main()
 
 ##参照
 
-| | |
-|------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`begin, cbegin`](./begin.md) | 先頭を指すイテレータを取得する |
+| 名前                             | 説明                             |
+|----------------------------------|----------------------------------|
+| [`begin, cbegin`](./begin.md)    | 先頭を指すイテレータを取得する   |
 | [`rbegin, crbegin`](./rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`rend, crend`](./rend.md) | 先頭を指す逆イテレータを取得する |
-
-
+| [`rend, crend`](./rend.md)       | 先頭を指す逆イテレータを取得する |

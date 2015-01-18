@@ -42,10 +42,16 @@ int main()
   std::set<int>::reverse_iterator i = c.rbegin();
   while (i != c.rend())
     std::cout << *i++ << " ";
-
-  return 0;
+  std::cout << std::endl;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* rbegin[color ff0000]
+* rend[link rend.md]
 
 ###出力
 ```
@@ -54,10 +60,8 @@ int main()
 
 ##参照
 
-| | |
-|---------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`rend, crend`](./rend.md) | 先頭を指す逆イテレータを取得する |
-| [`begin, cbegin`](./begin.md) | 先頭を指すイテレータを取得する |
-| [`end, cend`](./end.md) | 末尾を指すイテレータを取得する |
-
-
+| 名前                          | 説明                             |
+|-------------------------------|----------------------------------|
+| [`rend, crend`](./rend.md)    | 先頭を指す逆イテレータを取得する |
+| [`begin, cbegin`](./begin.md) | 先頭を指すイテレータを取得する   |
+| [`end, cend`](./end.md)       | 末尾を指すイテレータを取得する   |
