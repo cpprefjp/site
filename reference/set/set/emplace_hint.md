@@ -15,7 +15,8 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 
 
 ##戻り値
-挿入が行われたかどうかを示す `bool` と、挿入された要素へのイテレータからなる `pair` を返す。
+新しく挿入された要素またはすでに `set` に格納されていた同じキー値の要素を指すイテレータを返す。
+`iterator` はメンバ型であり、双方向イテレータとして定義される。
 
 
 ##計算量
@@ -48,10 +49,16 @@ int main()
 
   c.emplace_hint(c.find(s(20)), 15);
   std::cout << c.size() << std::endl;
-
-  return 0;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* emplace_hint[color ff0000]
+* find[link find.md]
+* cout[link ../../iostream/cout.md]
+* size[link size.md]
+* endl[link ../../ostream/endl.md]
 
 ###出力
 ```
@@ -60,9 +67,7 @@ int main()
 
 ##参照
 
-| | |
-|-----------------------------------------------------------------------------------------|-----------------------------|
+| 名前                      | 説明               |
+|---------------------------|--------------------|
 | [`emplace`](./emplace.md) | 要素を直接構築する |
-| [`insert`](./insert.md) | 要素を挿入する |
-
-
+| [`insert`](./insert.md)   | 要素を挿入する     |
