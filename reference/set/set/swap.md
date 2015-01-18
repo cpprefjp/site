@@ -1,6 +1,6 @@
 #swap
 ```cpp
-void swap(set<Key,Compare,Allocator>& st);
+void swap(set& st);
 ```
 
 ##概要
@@ -9,8 +9,8 @@ void swap(set<Key,Compare,Allocator>& st);
 
 
 ##パラメータ
-- `st`<br/>
-`*this`とコンテンツを交換する、同じ型の `set` コンテナ。
+- `st`  
+	`*this`とコンテンツを交換する、同じ型の `set` コンテナ。
 
 
 ##計算量
@@ -36,16 +36,22 @@ int main()
   c1.swap(c2);
 
   std::set<int>::iterator i = c1.begin();
-  while(i != c1.end()) {
+  while (i != c1.end()) {
     std::cout << *(i++) << ",";
   }
-
-  return 0;
+  std::cout << std::endl;
 }
 ```
+* iostream[link ../../iostream.md]
+* set[link ../../set.md]
+* insert[link insert.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* swap[color ff0000]
+* begin[link begin.md]
+* end[link end.md]
 
 ###出力
 ```
 5,15,
 ```
-
