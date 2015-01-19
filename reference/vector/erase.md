@@ -65,3 +65,7 @@ int main ()
 myvector contains: 4 5 7 8 9 10 
 ```
 
+
+##参照
+- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
+

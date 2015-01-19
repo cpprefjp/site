@@ -114,3 +114,4 @@ int main()
 ##参照
 - [LWG Issue 250. splicing invalidates iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#250)
 - [LWG Issue 1133. Does N2844 break current specification of `list::splice`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#250)
+- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
