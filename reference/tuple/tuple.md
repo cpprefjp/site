@@ -26,11 +26,11 @@ namespace std {
 
 | 名前 | 説明 |
 |---------------------------------------------------|---------------------------------------------------|
-| [`ignore`](./tuple/ignore.md)                     | 無視する要素のプレースホルダー(constant variable) |
-| [`make_tuple`](./tuple/make_tuple.md)             | 引数のコピーからタプルを生成する |
-| [`forward_as_tuple`](./tuple/forward_as_tuple.md) | 引数の完全な型からタプルを生成する |
-| [`tie`](./tuple/tie.md)                           | 引数への参照からタプルを生成する |
-| [`tuple_cat`](./tuple/tuple_cat.md)               | 複数のタプルから1つのタプルを生成する |
+| [`ignore`](./ignore.md)                     | 無視する要素のプレースホルダー(constant variable) |
+| [`make_tuple`](./make_tuple.md)             | 引数のコピーからタプルを生成する |
+| [`forward_as_tuple`](./forward_as_tuple.md) | 引数の完全な型からタプルを生成する |
+| [`tie`](./tie.md)                           | 引数への参照からタプルを生成する |
+| [`tuple_cat`](./tuple_cat.md)               | 複数のタプルから1つのタプルを生成する |
 
 
 ###要素アクセス

@@ -8,6 +8,17 @@
 | [`tuple`](./tuple/tuple.md) | タプル型(class template) | C++11 |
 
 
+###タプル生成関数
+
+| 名前 | 説明 |
+|---------------------------------------------------|---------------------------------------------------|-------|
+| [`ignore`](./tuple/ignore.md)                     | 無視する要素のプレースホルダー(constant variable) | C++11 |
+| [`make_tuple`](./tuple/make_tuple.md)             | 引数のコピーからタプルを生成する | C++11 |
+| [`forward_as_tuple`](./tuple/forward_as_tuple.md) | 引数の完全な型からタプルを生成する | C++11 |
+| [`tie`](./tuple/tie.md)                           | 引数への参照からタプルを生成する | C++11 |
+| [`tuple_cat`](./tuple/tuple_cat.md)               | 複数のタプルから1つのタプルを生成する | C++11 |
+
+
 ##タプルヘルパクラス
 
 | 名前 | 説明 | 対応バージョン |
