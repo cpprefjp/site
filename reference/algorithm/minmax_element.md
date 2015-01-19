@@ -21,7 +21,7 @@ namespace std {
 
 `*j < *i`もしくは`comp(*j, *i)`の比較によって最大と判断された要素を指すイテレータを`second`に持つ[`pair`](/reference/utility/pair.md)オブジェクトを返す。
 
-`first == last`の場合、[`make_pair`](/reference/utility/pair/make_pair.md)`(first, first)`を返す。
+`first == last`の場合、[`make_pair`](/reference/utility/make_pair.md)`(first, first)`を返す。
 
 
 ##計算量

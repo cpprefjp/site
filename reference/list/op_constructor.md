@@ -22,7 +22,7 @@ list(list&& x, const Allocator&);              // (9) C++11
 list(initializer_list<T>,
      const Allocator& = Allocator());          // (10) C++11
 ```
-* initializer_list[link reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list.md]
 
 ##list オブジェクトの構築
 - (1) : デフォルトコンストラクタ。アロケータをデフォルト構築して、空のコンテナを作る。

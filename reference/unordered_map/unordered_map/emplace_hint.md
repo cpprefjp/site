@@ -113,7 +113,7 @@ int main()
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
 * piecewise_construct[link /reference/utility/piecewise_construct.md]
-* forward_as_tuple[link /reference/tuple/tuple/forward_as_tuple.md]
+* forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * emplace_hint[color ff0000]
 
 ###出力

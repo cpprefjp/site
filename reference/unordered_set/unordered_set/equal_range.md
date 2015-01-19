@@ -10,7 +10,7 @@ std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 
 
 ##戻り値
-キー値が引数 `k` と等価な要素を全て含む範囲。そのような要素が無い場合には、[`make_pair`](/reference/utility/pair/make_pair.md)`(`[`end`](./end.md)`(), `[`end`](./end.md)`())`。
+キー値が引数 `k` と等価な要素を全て含む範囲。そのような要素が無い場合には、[`make_pair`](/reference/utility/make_pair.md)`(`[`end`](./end.md)`(), `[`end`](./end.md)`())`。
 
 
 ##計算量

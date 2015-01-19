@@ -4,7 +4,7 @@ list& operator=(const list& x);         // (1)
 list& operator=(list&& x);              // (2) C++11
 list& operator=(initializer_list<T> x); // (3) C++11
 ```
-* initializer_list[link reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list.md]
 
 ##概要
 - (1) : コピー代入。

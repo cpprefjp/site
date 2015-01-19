@@ -109,7 +109,7 @@ int main()
 * algorithm[link /reference/algorithm.md]
 * for_each[link /reference/algorithm/for_each.md]
 * piecewise_construct[link /reference/utility/piecewise_construct.md]
-* forward_as_tuple[link /reference/tuple/tuple/forward_as_tuple.md]
+* forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * cbegin[link ./cbegin.md]
 * cend[link ./cend.md]
 * emplace[color ff0000]

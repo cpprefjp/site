@@ -26,8 +26,8 @@ namespace std {
     get(const pair<T1, T2>&) noexcept;                 // (3) C++14
 }
 ```
-* tuple_element[link /reference/utility/tuple_element.md]
-* tuple_element_t[link /reference/utility/tuple_element.md]
+* tuple_element[link tuple_element.md]
+* tuple_element_t[link tuple_element.md]
 * pair[link /reference/utility/pair.md]
 * size_t[link /reference/cstddef/size_t.md]
 

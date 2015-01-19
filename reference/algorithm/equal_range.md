@@ -25,8 +25,8 @@ namespace std {
 
 
 ##戻り値
-- (1) : [`make_pair`](/reference/utility/pair/make_pair.md)([`lower_bound`](/reference/algorithm/lower_bound.md)`(first, last, value), `[`upper_bound`](/reference/algorithm/upper_bound.md)`(first, last, value))`
-- (2) : [`make_pair`](/reference/utility/pair/make_pair.md)([`lower_bound`](/reference/algorithm/lower_bound.md)`(first, last, value, comp), `[`upper_bound`](/reference/algorithm/upper_bound.md)`(first, last, value, comp))`
+- (1) : [`make_pair`](/reference/utility/make_pair.md)([`lower_bound`](/reference/algorithm/lower_bound.md)`(first, last, value), `[`upper_bound`](/reference/algorithm/upper_bound.md)`(first, last, value))`
+- (2) : [`make_pair`](/reference/utility/make_pair.md)([`lower_bound`](/reference/algorithm/lower_bound.md)`(first, last, value, comp), `[`upper_bound`](/reference/algorithm/upper_bound.md)`(first, last, value, comp))`
 
 
 ##計算量

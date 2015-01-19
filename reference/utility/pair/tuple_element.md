@@ -4,7 +4,7 @@ namespace std {
   template <size_t I, class T> class tuple_element;
 
   template <class T1, class T2>
-  struct tuple_element<0, std::pair<T1, T2>> {
+  struct tuple_element<0, pair<T1, T2>> {
     typedef T1 type;
   };
 
@@ -14,13 +14,13 @@ namespace std {
   };
 }
 ```
-* pair[link ./pair.md]
+* pair[link ../pair.md]
 
 
 ##概要
 `tuple_element`は、タプルとして見なせる型から、`I`番目の要素型を取得するためのクラスである。
 
-`<utility>`ヘッダでは、`pair`に関する特殊化を定義する。
+`<utility>`ヘッダでは、[`pair`](../pair.md)に関する特殊化を定義する。
 
 
 ##例

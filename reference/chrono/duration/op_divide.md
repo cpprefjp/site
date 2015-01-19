@@ -15,7 +15,7 @@ namespace chrono {
               const duration<Rep2, Period2>& rhs); // (2)
 }}
 ```
-* duration[link ./duration.md]
+* duration[link ../duration.md]
 * common_type[link /reference/type_traits/common_type.md]
 
 ##概要
