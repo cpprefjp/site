@@ -2,20 +2,15 @@
 ```cpp
 namespace std {
 namespace chrono {
-  template <class Rep1, class Period1, class Rep2, class Period2>
-  constexpr bool operator!=(const duration<Rep1, Period1>& lhs,
-                            const duration<Rep2, Period2>& rhs);      // (1)
-
   template <class Clock, class Duration1, class Duration2>
   bool operator!=(const time_point<Clock, Duration1>& lhs,
-                  const time_point<Clock, Duration2>& rhs);           // (2) C++11
+                  const time_point<Clock, Duration2>& rhs);           // C++11
 
   template <class Clock, class Duration1, class Duration2>
   constexpr bool operator!=(const time_point<Clock, Duration1>& lhs,
-                            const time_point<Clock, Duration2>& rhs); // (2) C++14
+                            const time_point<Clock, Duration2>& rhs); // C++14
 }}
 ```
-* duration[link /reference/chrono/duration.md]
 * time_point[link /reference/chrono/time_point.md]
 
 
@@ -36,25 +31,14 @@ using namespace std::chrono;
 
 int main()
 {
-  // duration同士の比較
-  {
-    const bool result = seconds(3) != seconds(3);
-    assert(!result);
-  }
+  time_point<system_clock> p1(seconds(2));
+  time_point<system_clock> p2(seconds(3));
 
-  // time_point同士の比較
-  {
-    seconds s(3);
-
-    time_point<system_clock> p1(s);
-    time_point<system_clock> p2(s);
-
-    const bool result = p1 != p2;
-    assert(!result);
-  }
+  const bool result = p1 != p2;
+  assert(result);
 }
 ```
-* !=[color ff0000]
+* p1 != p2[color ff0000]
 
 ###出力
 ```

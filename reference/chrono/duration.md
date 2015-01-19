@@ -73,6 +73,22 @@ namespace chrono {
 | `period` | 単位型 `Period`  | C++11          |
 
 
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------|----------------------------|-------|
+| [`operator+`](../op_plus.md)                   | 加算(function template) | C++11 |
+| [`operator-`](../op_minus.md)                  | 減算(function template) | C++11 |
+| [`operator*`](./duration/op_multiply.md)       | 乗算(function template) | C++11 |
+| [`operator/`](./duration/op_divide.md)         | 除算(function template) | C++11 |
+| [`operator%`](./duration//op_modulo.md)        | 剰余算(function template) | C++11 |
+| [`operator==`](./duration/op_equal.md)         | 等値判定を行う(function template) | C++11 |
+| [`operator!=`](./duration/op_not_equal.md)     | 非等値判定を行う(function template) | C++11 |
+| [`operator<`](./duration/op_less.md)           | 左辺が右辺より小さいか判定を行う(function template) | C++11 |
+| [`operator<=`](./duration/op_less_equal.md)    | 左辺が右辺以下かの判定を行う(function template) | C++11 |
+| [`operator>`](./duration/op_greater.md)        | 左辺が右辺より大きいか判定を行う(function template) | C++11 |
+| [`operator>=`](./duration/op_greater_equal.md) | 左辺が右辺以上かの判定を行う(function template) | C++11 |
+
 ##例
 ```cpp
 #include <iostream>

@@ -13,23 +13,6 @@
 | [`time_point_cast`](./chrono/time_point_cast.md) | 分解能の低い`duration`を内部表現に持つ`time_point`への変換 | C++11 |
 
 
-##`time_point`と`duration`の算術演算
-
-| 名前 | 説明 | 対応バージョン |
-|----------------------------------------------|----------------------------|-------|
-| [`operator+`](./chrono/op_plus.md)           | 加算(function template) | C++11 |
-| [`operator-`](./chrono/op_minus.md)          | 減算(function template) | C++11 |
-| [`operator*`](./chrono/op_multiply.md)       | 乗算(function template) | C++11 |
-| [`operator/`](./chrono/op_divide.md)         | 除算(function template) | C++11 |
-| [`operator%`](./chrono/op_modulo.md)         | 剰余算(function template) | C++11 |
-| [`operator==`](./chrono/op_equal.md)         | 等値判定を行う(function template) | C++11 |
-| [`operator!=`](./chrono/op_not_equal.md)     | 非等値判定を行う(function template) | C++11 |
-| [`operator<`](./chrono/op_less.md)           | 左辺が右辺より小さいか判定を行う(function template) | C++11 |
-| [`operator<=`](./chrono/op_less_equal.md)    | 左辺が右辺以下かの判定を行う(function template) | C++11 |
-| [`operator>`](./chrono/op_greater.md)        | 左辺が右辺より大きいか判定を行う(function template) | C++11 |
-| [`operator>=`](./chrono/op_greater_equal.md) | 左辺が右辺以上かの判定を行う(function template) | C++11 |
-
-
 ##時間の単位を表す型
 
 | 名前 | 説明 | 対応バージョン |
