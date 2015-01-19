@@ -1,10 +1,10 @@
 #splice
 ```cpp
 // C++03
-void splice(iterator position, list<T,Allocator>& x);
-void splice(iterator position, list<T,Allocator>& x, iterator i);
-void splice(iterator position, list<T,Allocator>& x, iterator first,
-            iterator last);
+void splice(iterator position, list& x);
+void splice(iterator position, list& x, iterator i);
+void splice(iterator position, list& x,
+            iterator first, iterator last);
 
 // C++11
 void splice(const_iterator position, list& x);
