@@ -41,7 +41,7 @@ void splice(const_iterator position, list&& x,
 
 ##計算量
 - (1), (2) : `x`の要素数に対して線形時間
-- (3), (4) : 計算量： 定数時間
+- (3), (4) : 定数時間
 - (5), (6) : `(first, last)`の要素数に対して線形時間
 
 
