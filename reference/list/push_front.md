@@ -1,7 +1,7 @@
 #push_front
 ```cpp
-void push_front(const T& x);
-void push_front(T&& x); // C++11
+void push_front(const T& x); // (1)
+void push_front(T&& x);      // (2) C++11
 ```
 
 ##概要

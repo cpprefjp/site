@@ -1,16 +1,21 @@
 #operator=
 ```cpp
-list& operator=(const list& x);
-
-// C++11から追加された代入演算子
-list& operator=(list&& x);
-list& operator=(initializer_list<T> x);
+list& operator=(const list& x);         // (1)
+list& operator=(list&& x);              // (2) C++11
+list& operator=(initializer_list<T> x); // (3) C++11
 ```
+* initializer_list[link reference/initializer_list.md]
 
 ##概要
-- `list& operator=(const list& x);`<br/>コピー代入。同じテンプレートパラメータを持つ `list` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
-- `list& operator=(list&& x);`<br/>ムーブ代入。同じテンプレートパラメータを持つ `list` クラスのオブジェクトをムーブ代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にムーブされる。
-- `list& operator=(initializer_list<T> x);`<br/>同じテンプレートパラメータを持つ `initializer_list` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
+- (1) : コピー代入。
+- (2) : ムーブ代入。
+- (3) : 初期化子リストを代入。
+
+
+##効果
+- (1) : 同じテンプレートパラメータを持つ `list` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
+- (2) : 同じテンプレートパラメータを持つ `list` クラスのオブジェクトをムーブ代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にムーブされる。
+- (3) : 同じテンプレートパラメータを持つ `initializer_list` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
 
 
 ##戻り値

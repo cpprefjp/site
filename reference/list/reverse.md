@@ -1,6 +1,7 @@
 #reverse
 ```cpp
-void reverse() noexcept;
+void reverse();          // C++03
+void reverse() noexcept; // C++11
 ```
 
 ##概要

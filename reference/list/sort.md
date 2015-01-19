@@ -1,7 +1,9 @@
 #sort
 ```cpp
-void sort();
-template <class Compare> void sort(Compare comp);
+void sort();             // (1)
+
+template <class Compare>
+void sort(Compare comp); // (2)
 ```
 
 ##概要

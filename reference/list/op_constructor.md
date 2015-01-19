@@ -1,29 +1,46 @@
 #コンストラクタ
 ```cpp
-explicit list(const Allocator& = Allocator());
-list(size_type n, const T& value, const Allocator& = Allocator());
+list();                                        // (1) C++11
+list(const Allocator&);                        // (2) C++11
+explicit list(const Allocator& = Allocator()); // (1), (2) C++03。C++11で削除
+
+explicit list(size_type n,
+              const Allocator& = Allocator()); // (3)
+
+list(size_type n, const T& value,
+     const Allocator& = Allocator());          // (4)
+
 template <class InputIterator>
-list(InputIterator first, InputIterator last, const Allocator& = Allocator());
-list(const list& x);
+list(InputIterator first, InputIterator last,
+     const Allocator& = Allocator());          // (5)
 
-// C++11から追加されたコンストラクタexplicit list(size_type n);
+list(const list& x);                           // (6)
+list(list&& x);                                // (7) C++11
+list(const list& x, const Allocator&);         // (8) C++11
+list(list&& x, const Allocator&);              // (9) C++11
 
-list(list&& x);
-list(const list& x, const Allocator&);
-list(list&& x, const Allocator&);
-list(initializer_list<T>, const Allocator& = Allocator());
+list(initializer_list<T>,
+     const Allocator& = Allocator());          // (10) C++11
 ```
+* initializer_list[link reference/initializer_list.md]
 
 ##list オブジェクトの構築
-- `explicit list(const Allocator& = Allocator());`<br/>デフォルトコンストラクタ。アロケータを指定して空のコンテナを作る。<br/>計算量： 定数時間
-- `list(size_type n, const T& value, const Allocator& = Allocator());`<br/>`value` のコピーを `n` 個要素として保持した `list` を構築する。<br/>計算量： `n` に対して線形時間
-- `template <class InputIterator>`<br/>`list(InputIterator first, InputIterator last, const Allocator& = Allocator());`<br/>`[first, last)` の範囲を要素としてコピーした `list` を構築する。<br/>計算量： `distance(first, last)` に対して線形時間
-- `list(const list& x);`<br/>コピーコンストラクタ。`x` と同じ要素を保持した `list` を構築する。
-- `explicit list(size_type n);`<br/>`n` 個の `T()` 初期化された要素を保持した `list` を構築する。<br/>計算量： `n` に対して線形時間
-- `list(list&& x);`<br/>ムーブコンストラクタ。`x` の指す先を自分の領域として `list` を構築する。
-- `list(const list& x, const Allocator&);`<br/>アロケータを指定したコピーコンストラクタ。
-- `list(list&& x, const Allocator&);`<br/>アロケータを指定したムーブコンストラクタ。
-- `list(initializer_list<T>, const Allocator& = Allocator());`<br/>初期化子リストを受け取るコンストラクタ。
+- (1) : デフォルトコンストラクタ。アロケータをデフォルト構築して、空のコンテナを作る。
+- (2) : アロケータを指定して空のコンテナを作る。
+- (3) : `n` 個の `T()` 初期化された要素を保持した `list` を構築する。
+- (4) : `value` のコピーを `n` 個要素として保持した `list` を構築する。
+- (5) : `[first, last)` の範囲を要素としてコピーした `list` を構築する。
+- (6) : コピーコンストラクタ。`x` と同じ要素を保持した `list` を構築する。
+- (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `list` を構築する。
+- (8) : アロケータを指定したコピーコンストラクタ。
+- (9) : アロケータを指定したムーブコンストラクタ。
+- (10) : 初期化子リストを受け取るコンストラクタ。
+
+
+##計算量
+- (1), (2) : 定数時間
+- (3), (4) : `n` に対して線形時間
+- (5) : [`distance`](/reference/iterator/distance.md)`(first, last)` に対して線形時間
 
 
 ##例

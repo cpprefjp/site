@@ -1,12 +1,11 @@
 #erase
 ```cpp
-// C++03
-iterator erase(iterator position);
-iterator erase(iterator position, iterator last);
-
-// C++11
-iterator erase(const_iterator position);
-iterator erase(const_iterator position, const_iterator last);
+iterator erase(iterator position);       // (1) C++03
+iterator erase(const_iterator position); // (1) C++11
+iterator erase(iterator position,
+               iterator last);           // (2) C++03
+iterator erase(const_iterator position,
+               const_iterator last);     // (2) C++11
 ```
 
 ##概要
@@ -18,8 +17,8 @@ iterator erase(const_iterator position, const_iterator last);
 
 
 ##効果
-1引数版は、`position`が指す要素が削除される。  
-2引数版は、`[position, last)`で示される範囲の要素が削除される。
+- (1) : `position`が指す要素が削除される。
+- (2) : `[position, last)`で示される範囲の要素が削除される。
 
 
 ##戻り値

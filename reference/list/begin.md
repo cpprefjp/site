@@ -1,7 +1,9 @@
 #begin
 ```cpp
-iterator begin() noexcept;
-const_iterator begin() const noexcept;
+iterator begin();                      // (1) C++03
+iterator begin() noexcept;             // (1) C++11
+const_iterator begin() const;          // (2) C++03
+const_iterator begin() const noexcept; // (2) C++11
 ```
 
 ##概要

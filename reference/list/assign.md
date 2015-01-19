@@ -1,19 +1,55 @@
 #assign
 ```cpp
 template <class InputIterator>
+void assign(InputIterator first, InputIterator last); // (1)
 
-void assign(InputIterator first, InputIterator last);
-
-void assign(size_type n, const T& t);
-void assign(initializer_list<T>);  // C++11
+void assign(size_type n, const T& t);  // (2)
+void assign(initializer_list<T> init); // (3) C++11
 ```
+* initializer_list[link /reference/initializer_list.md]
 
 ##概要
 コンテナの再代入
 
-- `template <class InputIterator>`<br/>`void assign(InputIterator first, InputIterator last);`<br/>範囲を代入。<br/>効果：<br/>`clear();`<br/>`insert(begin(), first, last);`
-- `void assign(size_type n, const T& t);`<br/>`n` 個の値 `t` を代入。<br/>効果：<br/>`clear();`<br/>`insert(begin(), n, t);`
-- `void assign(initializer_list<T> init);`<br/>初期化子リストを代入。<br/>効果：<br/>`clear();`<br/>`insert(begin(), init.begin(), init.end());`
+- (1) : 範囲を代入。
+- (2) : `n` 個の値 `t` を代入。
+- (3) : 初期化子リストを代入。
+
+
+##効果
+- (1) :
+
+```cpp
+clear();
+insert(begin(), first, last);
+```
+* clear[link ./clear.md]
+* insert[link ./insert.md]
+* begin[link ./begin.md]
+
+
+- (2) :
+
+```cpp
+clear();
+insert(begin(), n, t);
+```
+* clear[link ./clear.md]
+* insert[link ./insert.md]
+* begin[link ./begin.md]
+
+
+- (3) :
+
+```cpp
+clear();
+insert(begin(), init.begin(), init.end());
+```
+* clear[link ./clear.md]
+* insert[link ./insert.md]
+* begin[link ./begin.md]
+* init.begin[link /reference/initializer_list/begin.md]
+* init.end[link /reference/initializer_list/end.md]
 
 
 ##戻り値

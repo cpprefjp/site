@@ -1,7 +1,9 @@
 #rbegin
 ```cpp
-reverse_iterator rbegin() noexcept;
-const_reverse_iterator rbegin() const noexcept;
+reverse_iterator rbegin();                      // (1) C++03
+reverse_iterator rbegin() noexcept;             // (1) C++11
+const_reverse_iterator rbegin() const;          // (2) C++03
+const_reverse_iterator rbegin() const noexcept; // (2) C++11
 ```
 
 ##概要

@@ -1,11 +1,8 @@
 #resize
 ```cpp
-// C++03
-void resize(size_type sz, T c = T());
-
-// C++11
-void resize(size_type sz);
-void resize(size_type sz, const value_type& c);
+void resize(size_type sz);                      // (1) C++11
+void resize(size_type sz, const value_type& c); // (2) C++11
+void resize(size_type sz, T c = T());           // (1), (2) C++03。C++11で削除
 ```
 
 ##概要

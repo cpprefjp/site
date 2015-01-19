@@ -1,7 +1,7 @@
 #push_back
 ```cpp
-void push_back(const T& x);
-void push_back(T&& x); // C++11
+void push_back(const T& x); // (1)
+void push_back(T&& x);      // (2) C++11
 ```
 
 ##概要

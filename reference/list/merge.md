@@ -1,9 +1,9 @@
 #merge
 ```cpp
-void merge(list& x);
-void merge(list&& x); // C++11
-template <class Compare> void merge(list& x, Compare comp);
-template <class Compare> void merge(list&& x, Compare comp); // C++11
+void merge(list& x);  // (1)
+void merge(list&& x); // (2) C++11
+template <class Compare> void merge(list& x, Compare comp);  // (3)
+template <class Compare> void merge(list&& x, Compare comp); // (4) C++11
 ```
 
 ##概要

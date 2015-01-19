@@ -1,45 +1,38 @@
 #insert
 ```cpp
 // C++03
-iterator insert(iterator position, const T& x);
-void insert(iterator position, size_type n, const T& x);
-template <class InputIterator>
-void insert(iterator position, InputIterator first,
-            InputIterator last);
+iterator insert(iterator position, const T& x);       // (1) C++03
+iterator insert(const_iterator position, const T& x); // (1) C++11
+iterator insert(const_iterator position, T&& x);      // (2) C++11
 
-// C++11
-iterator insert(const_iterator position, const T& x);
-iterator insert(const_iterator position, T&& x);
-iterator insert(const_iterator position, size_type n, const T& x);
+void     insert(iterator position,
+                size_type n, const T& x);             // (3) C++03
+iterator insert(const_iterator position,
+                size_type n, const T& x);             // (3) C++11
+
 template <class InputIterator>
-iterator insert(const_iterator position, InputIterator first,
-                InputIterator last);
-iterator insert(const_iterator position, initializer_list<T> il);
+void     insert(iterator position,
+                InputIterator first,
+                InputIterator last);                  // (4) C++03
+template <class InputIterator>
+iterator insert(const_iterator position,
+                InputIterator first,
+                InputIterator last);                  // (4) C++11
+
+iterator insert(const_iterator position,
+                initializer_list<T> il);              // (5) C++11
 ```
+* initializer_list[link reference/initializer_list.md]
 
 ##概要
-任意の位置に新たな要素を挿入する。  
+任意の位置に新たな要素を挿入する。
+
 この関数は、指定されたイテレータが指す要素の前に、新たな要素を挿入する。  
 
-- `iterator insert(const_iterator position, const T& x);`
-- `iterator insert(const_iterator position, T&& x);`
-
-新たな要素をひとつ挿入する  
-
-
-- `iterator insert(const_iterator position, size_type n, const T& x);`
-
-新たな要素`x`のコピーを`n`個挿入する  
-
-
-- `iterator insert(const_iterator position, InputIterator first, InputIterator last);`
-
-`[first, last)`の範囲の要素を挿入する  
-
-
-- `iterator insert(const_iterator position, `[`initializer_list`](/reference/initializer_list.md)`<T> il);`
-
-`initializer_list`の全て要素を挿入する  
+- (1), (2) : 新たな要素をひとつ挿入する
+- (3) : 新たな要素`x`のコピーを`n`個挿入する
+- (4) : `[first, last)`の範囲の要素を挿入する
+- (5) : `initializer_list`の全て要素を挿入する
 
 
 ##要件
@@ -47,12 +40,16 @@ iterator insert(const_iterator position, initializer_list<T> il);
 
 
 ##戻り値
-挿入された要素を指すイテレータ
+- (1), (2) : 挿入された要素を指すイテレータ
+- (3), (4) :
+	- C++03 : なし
+	- C++11 : 挿入された要素の先頭を指すイテレータ
+- (5) : 挿入された要素の先頭を指すイテレータ
 
 
 ##計算量
-単一要素の追加の場合は定数時間。  
-複数要素を追加する場合は、追加する要素数に比例して定数時間。
+- (1), (2) : 定数時間
+- (3), (4), (5) : 追加する要素数に比例して線形時間
 
 
 ##例

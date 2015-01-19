@@ -1,7 +1,7 @@
 #back
 ```cpp
-reference back();
-const_reference back() const;
+reference back();             // (1)
+const_reference back() const; // (2)
 ```
 
 ##概要

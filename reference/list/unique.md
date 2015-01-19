@@ -1,9 +1,9 @@
 #unique
 ```cpp
-void unique();
+void unique();                     // (1)
 
 template <class BinaryPredicate>
-void unique(BinaryPredicate pred);
+void unique(BinaryPredicate pred); // (2)
 ```
 
 ##概要
@@ -15,12 +15,11 @@ void unique(BinaryPredicate pred);
 
 
 ##効果
-範囲`[first + 1, last)`の全てのイテレータ`i`について、
+範囲`[first + 1, last)`の全てのイテレータ`i`について、オーバーロードごとに、以下の条件が`true`となる要素を削除する。
 
-- `*i == *(i - 1)` ： 比較関数を指定しないバージョン
-- `pred(*i, *(i - 1))` ： 比較関数を指定するバージョン
+- (1) : `*i == *(i - 1)`
+- (2) : `pred(*i, *(i - 1))`
 
-が`true`となる要素を削除する。  
 削除された要素に対するイテレータおよび参照は無効となる。
 
 
