@@ -14,7 +14,7 @@ namespace chrono {
 
 
 ##戻り値
-`duration`の比較2つの[`duration`](/reference/chrono/duration.md)の単位を合わせた上で、[`count()`](/reference/chrono/duration/count.md)の等値比較を行う。
+2つの[`duration`](/reference/chrono/duration.md)の単位を合わせた上で、[`count()`](/reference/chrono/duration/count.md)の等値比較を行う。
 
 ```cpp
 typedef common_type<decltype(lhs), decltype(rhs)>::type ct;
