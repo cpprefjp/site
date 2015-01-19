@@ -12,41 +12,40 @@ namespace std {
 
 ##メンバ変数
 
-| | |
+| 名前 | 説明 | 対応バージョン
 |-------------------------|------------------|
-| `T1 first;` | 1つめの要素 |
-| `T2 second;` | 2つめの要素 |
+| `T1 first;` | 1つめの要素 | |
+| `T2 second;` | 2つめの要素 | |
 
 
 ##メンバ関数
 
-| | |
-|------------------------------------|----------------------------------------|
-| [`(constructor)`](./pair/op_constructor.md)  | コンストラクタ |
-| [`operator=`](./pair/op_assign.md) | 代入演算子 |
-| [`swap`](./pair/swap.md)           | 他の`pair`オブジェクトと値を入れ替える |
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|----------------------------------------|-------|
+| [`(constructor)`](./pair/op_constructor.md) | コンストラクタ | |
+| [`operator=`](./pair/op_assign.md)          | 代入演算子 | |
+| [`swap`](./pair/swap.md)                    | 他の`pair`オブジェクトと値を入れ替える | |
 
 
 ##メンバ型
 
-| | |
-|---------------|------|
-| `first_type`  | `T1` |
-| `second_type` | `T2` |
+| 名前 | 説明 | 対応バージョン |
+|---------------|------|-------|
+| `first_type`  | `T1` | |
+| `second_type` | `T2` | |
 
 
 ##非メンバ関数
 
-| | |
-|--------------------------------------------|----------------------------|
-| [`make_pair`](./pair/make_pair.md)         | `pair`を構築するヘルパ関数 |
-| [`operator==`](./pair/op_equal.md)         | 等値比較を行う |
-| [`operator!=`](./pair/op_not_equal.md)     | 非等値比較を行う |
-| [`operator<`](./pair/op_less.md)           | 左辺が右辺よりも小さいか判定を行う |
-| [`operator<=`](./pair/op_less_equal.md)    | 左辺が右辺以下か判定を行う |
-| [`operator>`](./pair/op_greater.md)        | 左辺が右辺より大きいか判定を行う |
-| [`operator>=`](./pair/op_greater_equal.md) | 左辺が右辺以上か判定を行う |
-
+| 名前 | 説明 | 対応バージョン |
+|--------------------------------------------|----------------------------|-------|
+| [`make_pair`](./pair/make_pair.md)         | `pair`を構築するヘルパ関数 | |
+| [`operator==`](./pair/op_equal.md)         | 等値比較を行う | |
+| [`operator!=`](./pair/op_not_equal.md)     | 非等値比較を行う | |
+| [`operator<`](./pair/op_less.md)           | 左辺が右辺よりも小さいか判定を行う | |
+| [`operator<=`](./pair/op_less_equal.md)    | 左辺が右辺以下か判定を行う | |
+| [`operator>`](./pair/op_greater.md)        | 左辺が右辺より大きいか判定を行う | |
+| [`operator>=`](./pair/op_greater_equal.md) | 左辺が右辺以上か判定を行う | |
 
 ##例
 ```cpp
