@@ -58,8 +58,8 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
-| [`operator+`](../op_plus.md)                     | 加算(function template) | C++11 |
-| [`operator-`](../op_minus.md)                    | 減算(function template) | C++11 |
+| [`operator+`](./op_plus.md)                      | 加算(function template) | C++11 |
+| [`operator-`](./op_minus.md)                     | 減算(function template) | C++11 |
 | [`operator==`](./time_point/op_equal.md)         | 等値判定を行う(function template) | C++11 |
 | [`operator!=`](./time_point/op_not_equal.md)     | 非等値判定を行う(function template) | C++11 |
 | [`operator<`](./time_point/op_less.md)           | 左辺が右辺より小さいか判定を行う(function template) | C++11 |
