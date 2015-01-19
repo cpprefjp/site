@@ -9,7 +9,7 @@ iterator erase_after(const_iterator position, const_iterator last);
 
 
 ##要件
-第1引数`positionの次`が間接参照可能なイテレータであること
+第1引数`position`の次が間接参照可能なイテレータであること
 
 
 ##効果
@@ -57,9 +57,18 @@ int main()
 
     for (int x : ls) { std::cout << x << ' '; }
   }
+  std::cout << std::endl;
 }
 ```
 * erase_after[color ff0000]
+* iostream[link ../iostream.md]
+* iterator[link ../iterator.md]
+* forward_list[link ../forward_list.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
+* before_begin[link before_begin.md]
+* end[link end.md]
+* next[link ../iterator/next.md]
 
 ###出力
 ```

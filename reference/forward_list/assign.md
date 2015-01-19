@@ -4,16 +4,30 @@ template <class InputIterator>
 void assign(InputIterator first, InputIterator last);
 
 void assign(size_type n, const T& t);
-void assign(initializer_list<T>);
+
+void assign(initializer_list<T> init);
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
 
 コンテナの再代入
-- `template <class InputIterator>`<br/>`void assign(InputIterator first, InputIterator last);`<br/>範囲を代入。効果：<br/>[`clear`](./clear.md)`();`<br/>[`insert_after`](./insert_after.md)`(`[`before_begin`](./before_begin.md)`(), first, last);`
-- `void assign(size_type n, const T& t);`<br/>`n`個の値`t`を代入。効果：<br/>[`clear`](./clear.md)`();`<br/>[`insert_after`](./insert_after.md)`(`[`before_begin`](./before_begin.md)`(), n, t);`
-- `void assign(`[`initializer_list`](/reference/initializer_list.md)`<T> init);`<br/>初期化子リストを代入。効果：<br/>[`clear`](./clear.md)`();`<br/>[`insert_after`](./insert_after.md)`(`[`before_begin`](./before_begin.md)`(), init.begin(), init.end());`
+
+- `template <class InputIterator>`  
+	`void assign(InputIterator first, InputIterator last);`  
+	範囲を代入。  
+	効果：  
+	[`clear`](./clear.md)`();`  
+	[`insert_after`](./insert_after.md)`(`[`before_begin`](./before_begin.md)`(), first, last);`
+- `void assign(size_type n, const T& t);`  
+	`n`個の値`t`を代入。  
+	効果：  
+	[`clear`](./clear.md)`();`  
+	[`insert_after`](./insert_after.md)`(`[`before_begin`](./before_begin.md)`(), n, t);`
+- `void assign(`[`initializer_list`](/reference/initializer_list.md)`<T> init);`  
+	初期化子リストを代入。  
+	効果：  
+	`assign(init.`[`begin`](../initializer_list/begin.md)`(), init.`[`end`](../initializer_list/end.md)`())` と同等。
 
 
 ##戻り値
@@ -65,6 +79,13 @@ int main()
 }
 ```
 * assign[color ff0000]
+* iostream[link ../iostream.md]
+* string[link ../string.md]
+* forward_list[link ../forward_list.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
+* begin[link begin.md]
+* end[link end.md]
 
 ###出力
 ```
