@@ -2,7 +2,10 @@
 ```cpp
 namespace std {
   template <class T1, class T2>
-  pair<V1, V2> make_pair(T1&& x, T2&& y);           // C++03
+  pair<V1, V2> make_pair(T1, T2);                   // C++03
+
+  template <class T1, class T2>
+  pair<V1, V2> make_pair(T1&& x, T2&& y);           // C++11
 
   template <class T1, class T2>
   constexpr pair<V1, V2> make_pair(T1&& x, T2&& y); // C++14
