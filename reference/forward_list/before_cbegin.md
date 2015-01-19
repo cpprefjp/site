@@ -5,7 +5,7 @@ const_iterator cbefore_begin() const noexcept;
 
 ##概要
 先頭要素の前を指す読み取り専用イテレータを取得する。
-この関数は、`insert_after()`メンバ関数で先頭に要素を挿入するために使用できる。
+この関数は、[`insert_after()`](insert_after.md)メンバ関数で先頭に要素を挿入するために使用できる。
 
 
 ##戻り値
@@ -18,6 +18,7 @@ const_iterator cbefore_begin() const noexcept;
 
 ##備考
 この関数によって返されるイテレータは、以下の特徴を持つ：
+
 - 間接参照できない
 - インクリメントすると[`cbegin()`](./cbegin.md)と等値になる
 - [`cend()`](./cend.md)と等値にはならない
@@ -42,6 +43,16 @@ int main()
 }
 ```
 * cbefore_begin[color ff0000]
+* iostream[link ../iostream.md]
+* forward_list[link ../forward_list.md]
+* algorithm[link ../algorithm.md]
+* push_front[link push_front.md]
+* insert_after[link insert_after.md]
+* for_each[link ../algorithm/for_each.md]
+* cbegin[link cbegin.md]
+* cend[link cend.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 
 ###出力
