@@ -50,6 +50,12 @@ void splice(const_iterator position, list&& x,
 - (3), (4) : 投げない
 
 
+##備考
+- (1), (2) : C++03の場合、移動元の`list`オブジェクト`x`は、全てのイテレータと参照が無効になる。C++11以降は、無効にならない。
+- (3), (4) : C++03の場合、移動元の要素を指すイテレータ`i`は、そのイテレータおよび参照が無効になる。C++11以降は、無効にならない。
+- (5), (6) : C++03の場合、移動元のイテレータ範囲`[first, last)`は、その範囲のイテレータおよび参照が無効になる。C++11以降は、無効にならない。
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -103,4 +109,6 @@ int main()
 1 2 4 5 6 
 ```
 
-
+##参照
+- [LWG Issue 250. splicing invalidates iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#250)
+- [LWG Issue 1133. Does N2844 break current specification of `list::splice`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#250)
