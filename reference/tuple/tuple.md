@@ -8,6 +8,7 @@ namespace std {
 
 ###概要
 `tuple`型は、複数の型の値を保持する「タプル」を表現するためのクラスである。
+
 [`pair`](/reference/utility/pair.md)型は2つの型の値を保持する「組」を表現することができるが、`tuple`ではN個の型の値を扱うことができる。
 
 
