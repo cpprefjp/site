@@ -2,7 +2,7 @@
 ```cpp
 namespace std {
   class shared_timed_mutex;
-};
+}
 ```
 
 ##概要
