@@ -1,7 +1,8 @@
 #erase_after (C++11)
 ```cpp
-iterator erase_after(const_iterator position);
-iterator erase_after(const_iterator position, const_iterator last);
+iterator erase_after(const_iterator position); // (1)
+iterator erase_after(const_iterator position,
+                     const_iterator last);     // (2)
 ```
 
 ##概要
@@ -13,8 +14,8 @@ iterator erase_after(const_iterator position, const_iterator last);
 
 
 ##効果
-1引数版は、`position`が指す次の要素が削除される。  
-2引数版は、`(position, last)`で示される範囲の要素が削除される。
+- (1) : `position`が指す次の要素が削除される。  
+- (2) : `(position, last)`で示される範囲の要素が削除される。
 
 
 ##戻り値

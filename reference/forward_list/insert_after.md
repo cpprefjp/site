@@ -1,29 +1,34 @@
 #insert_after (C++11)
 ```cpp
-iterator insert_after(const_iterator position, const T& x);
-iterator insert_after(const_iterator position, T&& x);
-iterator insert_after(const_iterator position, size_type n, const T& x);
+iterator insert_after(const_iterator position, const T& x); // (1)
+iterator insert_after(const_iterator position, T&& x);      // (2)
+iterator insert_after(const_iterator position, size_type n,
+                      const T& x);                          // (3)
 
 template <class InputIterator>
-iterator insert_after(const_iterator position, InputIterator first, InputIterator last);
+iterator insert_after(const_iterator position,
+                      InputIterator first,
+                      InputIterator last);                  // (4)
 
-iterator insert_after(const_iterator position, initializer_list<T> il);
+iterator insert_after(const_iterator position,
+                      initializer_list<T> il);              // (5)
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
 任意の位置に新たな要素を挿入する。
+
 [`list`](/reference/list.md)の`insert()`は指定された要素の前に挿入するが、`forward_list`は指定された要素の後に挿入する。
 
-- `iterator insert_after(const_iterator position, const T& x);`
-- `iterator insert_after(const_iterator position, T&& x);`<br/>新たな要素をひとつ挿入する
-- `iterator insert_after(const_iterator position, size_type n, const T& x);`<br/>新たな要素`x`のコピーを`n`個挿入する
-- `iterator insert_after(const_iterator position, InputIterator first, InputIterator last);`<br/>`[first, last)`の範囲の要素を挿入する
-- `iterator insert_after(const_iterator position, `[`initializer_list`](/reference/initializer_list.md)`<T> il);`<br/>`initializer_list`の全て要素を挿入する
+- (1), (2) : 新たな要素をひとつ挿入する
+- (3) : 新たな要素`x`のコピーを`n`個挿入する
+- (4) : `[first, last)`の範囲の要素を挿入する
+- (5) : `initializer_list`の全て要素を挿入する
 
 
 ##要件
 第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/before_begin.md)もしくは`[`[`begin()`](./begin.md)`, `[`end()`](/reference/forward_list/end.md)`]`の範囲の間接参照可能なイテレータであること。
+
 `first`、`last`は`*this`のイテレータではないこと。
 
 
