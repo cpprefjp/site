@@ -13,7 +13,7 @@ namespace std {
 このミューテックスクラスのロック取得方法は2種類ある。
 
 - `lock()`／`unlock()`メンバ関数：書き込み用のロックを取得する
-- `lock_shared()`／`unlock_shared()`メンバ関数：読み込み用のロックを取得する
+- [`lock_shared()`](./shared_timed_mutex/lock_shared.md)／[`unlock_shared()`](./shared_timed_mutex/unlock_shared.md)メンバ関数：読み込み用のロックを取得する
 
 
 このクラスは、デストラクタで自動的にロックを手放すことはしない。そのため、以下の補助クラスを使用して、デストラクタで自動的にロックを手放す。
