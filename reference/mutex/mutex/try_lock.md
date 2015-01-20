@@ -29,10 +29,8 @@ bool try_lock();
 
 ##例
 ```cpp
-#include <iostream>
 #include <thread>
 #include <mutex>
-#include <vector>
 #include <system_error>
 
 class X {

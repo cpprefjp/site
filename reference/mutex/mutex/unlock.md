@@ -25,10 +25,8 @@ void unlock();
 
 ##例
 ```cpp
-#include <iostream>
 #include <thread>
 #include <mutex>
-#include <vector>
 
 class X {
   std::mutex mtx_;
