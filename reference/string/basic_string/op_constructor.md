@@ -1,19 +1,34 @@
 #コンストラクタ
 ```cpp
-explicit basic_string(const Allocator& a = Allocator());
-basic_string(const basic_string& str);
-basic_string(basic_string&& str) noexcept;
-basic_string(const basic_string& str, size_type pos, size_type n = npos, const Allocator& a = Allocator());
-basic_string(const charT* s, size_type n, const Allocator& a = Allocator());
-basic_string(const charT* s, const Allocator& a = Allocator());
-basic_string(size_type n, charT c, const Allocator& a = Allocator());
+explicit basic_string(const Allocator& a = Allocator()); // (1)
+basic_string(const basic_string& str);                   // (2)
+basic_string(basic_string&& str) noexcept;               // (3) C++11
+
+basic_string(const basic_string& str,
+             size_type pos,
+             size_type n = npos,
+             const Allocator& a = Allocator());          // (4)
+
+basic_string(const charT* s,
+             size_type n,
+             const Allocator& a = Allocator());          // (5)
+
+basic_string(const charT* s,
+             const Allocator& a = Allocator());          // (6)
+
+basic_string(size_type n,
+             charT c,
+             const Allocator& a = Allocator());          // (7)
 
 template <class InputIterator>
-basic_string(InputIterator begin, InputIterator end, const Allocator& a = Allocator());
+basic_string(InputIterator begin, InputIterator end,
+             const Allocator& a = Allocator());          // (8)
 
-basic_string(initializer_list<charT>, const Allocator& = Allocator());
-basic_string(const basic_string&, const Allocator&);
-basic_string(basic_string&&, const Allocator&);
+basic_string(initializer_list<charT> init,
+             const Allocator& = Allocator());            // (9) C++11
+
+basic_string(const basic_string& str, const Allocator&); // (10) C++11
+basic_string(basic_string&& str, const Allocator&);      // (11) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
