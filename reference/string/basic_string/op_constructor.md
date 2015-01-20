@@ -33,49 +33,17 @@ basic_string(basic_string&& str, const Allocator&);      // (11) C++11
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-- `explicit basic_string(const Allocator& a = Allocator());`
-
-デフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
-
-- `basic_string(const basic_string& str);`
-
-コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
-
-- `basic_string(basic_string&& str) noexcept;`
-
-ムーブコンストラクタ。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
-
-- `basic_string(const basic_string& str, size_type pos, size_type n = npos, const Allocator& a = Allocator());`
-
-`str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
-
-- `basic_string(const charT* s, size_type n, const Allocator& a = Allocator());`
-
-文字配列`s`の先頭`n`文字からなる部分文字列のコピーから`basic_string`オブジェクトを構築する。
-
-- `basic_string(const charT* s, const Allocator& a = Allocator());`
-
-文字配列`s`のコピーから`basic_string`オブジェクトを構築する。
-
-- `basic_string(size_type n, charT c, const Allocator& a = Allocator());`
-
-文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
-
-- `template <class InputIterator>`<br/>`basic_string(InputIterator begin, InputIterator end, const Allocator& a = Allocator());`
-
-文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
-
-- `basic_string(`[`initializer_list`](/reference/initializer_list.md)`<charT>, const Allocator& = Allocator());`
-
-文字の初期化子リストから`basic_string`オブジェクトを構築する。
-
-- `basic_string(const basic_string& str, const Allocator& a);`
-
-アロケータを受け取るコピーコンストラクタ。
-
-- `basic_string(basic_string&& str, const Allocator& a);`
-
-アロケータを受け取るムーブコンストラクタ。
+- (1) : デフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
+- (2) : コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
+- (3) : ムーブコンストラクタ。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
+- (4) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
+- (5) : 文字配列`s`の先頭`n`文字からなる部分文字列のコピーから`basic_string`オブジェクトを構築する。
+- (6) : 文字配列`s`のコピーから`basic_string`オブジェクトを構築する。
+- (7) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
+- (8) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
+- (9) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
+- (10) : アロケータを受け取るコピーコンストラクタ。
+- (11) : アロケータを受け取るムーブコンストラクタ。
 
 
 ##例
