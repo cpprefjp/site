@@ -32,5 +32,7 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 | [`ostreambuf_iterator`](./iterator/ostreambuf_iterator.md) | 出力ストリームバッファイテレータ(class template) | |
 | [`begin`](./iterator/begin.md) | 範囲の先頭を指すイテレータを取得する(function template) | C++11 |
 | [`end`](./iterator/end.md) | 範囲の末尾の次を指すイテレータを取得する(function template) | C++11 |
+| [`cbegin`](./iterator/cbegin.md) | 範囲の先頭を指す読み取り専用イテレータを取得する(function template) | C++14 |
+| [`cend`](./iterator/cend.md) | 範囲の末尾の次を指す読み取り専用イテレータを取得する(function template) | C++14 |
 
 
