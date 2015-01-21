@@ -33,6 +33,29 @@ size_type erase(const key_type& x);                        // (3)
 - (2) : コンテナの [`size()`](./size.md) についての対数時間と、それに加えて `first` と `last` の間の距離に対する線形時間。 
 - (3) : コンテナの [`size()`](./size.md) について対数時間。
 
+
+##備考
+ループ中で`set`の要素を削除するために、以下のようなコードを書くことになる。
+
+```cpp
+while(it != set_object.end()) {
+  if (条件) {
+    set_object.erase(it++);
+  }
+  else {
+    ++it;
+  }
+}
+```
+
+削除したイテレータ自身が無効になるため`it++`を行っている。
+
+C++03とC++11以降で、この部分のコーディングスタイルが異なる。
+
+- C++03では、前述した「`set_object.erase(it++);`」というスタイル。
+- C++11では、「`it = set_object.erase(it);`」というスタイルで書く。
+
+
 ##例
 ```cpp
 #include <iostream>
