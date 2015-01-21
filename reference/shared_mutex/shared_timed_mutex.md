@@ -48,7 +48,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|--------------------------------------------|-------|
 | [`lock_shared`](./shared_timed_mutex/lock_shared.md)           | 共有ロックを取得する | C++14 |
-| [`try_lock_shared`](./shared_timed_mutex/try_lock_shared.md.nolink)   | 共有ロックの取得を試みる | C++14 |
+| [`try_lock_shared`](./shared_timed_mutex/try_lock_shared.md)   | 共有ロックの取得を試みる | C++14 |
 | [`try_lock_shared_for`](./shared_timed_mutex/try_lock_shared_for.md.nolink) | タイムアウトする相対時間を指定して共有ロックの取得を試みる | C++14 |
 | [`try_lock_shared_until`](./shared_timed_mutex/try_lock_shared_until.md.nolink) | タイムアウトする絶対時間を指定して共有ロックの取得を試みる | C++14 |
 | [`unlock_shared`](./shared_timed_mutex/unlock_shared.md)       | 共有ロックを手放す | C++14 |
