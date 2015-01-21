@@ -1,18 +1,12 @@
 #erase
 ```cpp
-// until C++11
-void erase(iterator position);
+void erase(iterator position);                             // (1) C++03
+iterator erase(const_iterator position);                   // (1) C++11
 
-// since C++11
-iterator erase(const_iterator position);
+void erase(const_iterator first, const_iterator last);     // (2) C++03
+iterator erase(const_iterator first, const_iterator last); // (2) C++11
 
-// until C++11
-void erase(const_iterator first, const_iterator last);
-
-// since C++11
-iterator erase(const_iterator first, const_iterator last);
-
-size_type erase(const key_type& x);
+size_type erase(const key_type& x);                        // (3)
 ```
 
 
@@ -28,15 +22,16 @@ size_type erase(const key_type& x);
 
 
 ##戻り値
-`iterator` を返すタイプのバージョンは、削除された要素の次を指すイテレータを返す。 
-`size_type` を返すタイプのバージョンは、削除された要素の数を返す。　
+- (1), (2) :
+    - C++03 : なし
+    - C++11 : 削除された要素の次を指すイテレータを返す。
+- (3) : 削除された要素の数を返す。　
 
 
 ##計算量
-引数に `position` をとるバージョンは定数時間。 
-引数に `first` 、`last` をとるバージョンはコンテナの [`size()`](./size.md) についての対数時間、プラス `first` と `last` の間の距離に対する線形時間。 
-引数に `x` をとるバージョンはコンテナの [`size()`](./size.md) について対数時間。
-
+- (1) : 定数時間
+- (2) : コンテナの [`size()`](./size.md) についての対数時間と、それに加えて `first` と `last` の間の距離に対する線形時間。 
+- (3) : コンテナの [`size()`](./size.md) について対数時間。
 
 ##例
 ```cpp
