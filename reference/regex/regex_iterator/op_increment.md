@@ -17,11 +17,11 @@ regex_iterator operator++(int); // (2) 後置形式
 - (1) の形式（前置形式）は、以下のように振る舞う。
 	- `BidirectionalIterator` 型のローカル変数 `start` を構築し、値 `match[0].second` で初期化する。
 	- イテレータが長さゼロのマッチの場合（`match[0].matched == true` かつ `match[0].first == match[0].second` の場合）で、かつ、`start == end` の場合、`*this` をシーケンス終端イテレータにして `*this` を返す。
-	- そうではなくて、イテレータが長さゼロのマッチの場合、[`regex_search`](../regex_search.md.nolink)`(start, end, match, *pregex, flags | regex_constants::match_not_null | regex_constants::match_continuous)` を呼び出す。  
+	- そうではなくて、イテレータが長さゼロのマッチの場合、[`regex_search`](../regex_search.md)`(start, end, match, *pregex, flags | regex_constants::match_not_null | regex_constants::match_continuous)` を呼び出す。  
 		もしマッチしたら（`true` が返されたら）、`*this` を返す。マッチしなかったら、`start` をインクリメントし、イテレータが長さゼロのマッチで無いかのように、以下の処理を続ける。
-	- イテレータが長さゼロのマッチでない場合、`flags` を `flags | regex_constants ::match_prev_avail` に更新し、[`regex_search`](../regex_search.md.nolink)`(start, end, match, *pregex, flags)` を呼び出す。  
+	- イテレータが長さゼロのマッチでない場合、`flags` を `flags | regex_constants ::match_prev_avail` に更新し、[`regex_search`](../regex_search.md)`(start, end, match, *pregex, flags)` を呼び出す。  
 		もしマッチしなかったら、`*this` をシーケンス終端イテレータにする。その後、`*this` を返す。
-	- 上記のうち、[`regex_search`](../regex_search.md.nolink) が `true` を返した全てのケースでは、以下の補正が行われる。
+	- 上記のうち、[`regex_search`](../regex_search.md) が `true` を返した全てのケースでは、以下の補正が行われる。
 		- `match.prefix().first` を直前の `match[0].second` に設定する。
 		- 半開区間 `[0, match.size())` の全てのインデックス `i` について、`match[i].matched` が `true` であれば、`match.position(i)` が `distance(begin, match[i].first)` を返すように設定する。
 - (2) の形式（後置形式）は、以下のように振る舞う。
@@ -40,10 +40,10 @@ regex_iterator operator++(int); // (2) 後置形式
 
 ##備考
 - メンバ変数 `begin`、`end`、`pregex`、`flags`、`match` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
-- 「効果」にあるように、`match` には検索後に補正が行われるため、`regex_iterator` を間接参照した結果は、[`regex_search`](../regex_search.md.nolink) を順に呼び出した結果とは異なる。  
+- 「効果」にあるように、`match` には検索後に補正が行われるため、`regex_iterator` を間接参照した結果は、[`regex_search`](../regex_search.md) を順に呼び出した結果とは異なる。  
 	また、これらの補正が実装でどのように行われるかについては、規格では規定されていない。
-- 「効果」では [`regex_search`](../regex_search.md.nolink) が呼ばれるものとして記載されているが、実際に [`regex_search`](../regex_search.md.nolink) が呼ばれるかどうかについては、規格では規定されていない。  
-	したがって、[`regex_search`](../regex_search.md.nolink) にユーザ定義の特殊化バージョンを提供しても、呼ばれないかもしれない。
+- 「効果」では [`regex_search`](../regex_search.md) が呼ばれるものとして記載されているが、実際に [`regex_search`](../regex_search.md) が呼ばれるかどうかについては、規格では規定されていない。  
+	したがって、[`regex_search`](../regex_search.md) にユーザ定義の特殊化バージョンを提供しても、呼ばれないかもしれない。
 
 
 ##例

@@ -75,7 +75,7 @@ int main()
 * iostream[link ../../iostream.md]
 * regex[link ../../regex.md]
 * cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md.nolink]
+* regex_search[link ../regex_search.md]
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 * format[color ff0000]

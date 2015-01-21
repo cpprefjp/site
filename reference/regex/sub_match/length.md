@@ -41,7 +41,7 @@ int main()
 * regex[link ../../regex.md]
 * string[link ../../string.md]
 * smatch[link ../match_results.md]
-* regex_search[link ../regex_search.md.nolink]
+* regex_search[link ../regex_search.md]
 * ssub_match[link ../sub_match.md]
 
 ###出力

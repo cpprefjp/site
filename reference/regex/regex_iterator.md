@@ -17,8 +17,8 @@ namespace std {
 ##概要
 `regex_iterator` は、ある文字列に対して、指定した正規表現で検索した結果を順番に列挙する読み取り専用の前方向イテレータである。
 
-`regex_iterator` オブジェクトを構築した時、および、[`operator++`](regex_iterator/op_increment.md) を呼び出す毎に、当該イテレータは [`regex_search`](regex_search.md.nolink) を呼び出して検索し、マッチ結果オブジェクト（[`match_results`](match_results.md)）を内部に保存する（ただし、[`operator++`](regex_iterator/op_increment.md) も参照）。
-イテレータが終端まで来たとき（つまり、[`regex_search`](regex_search.md.nolink) が `false` を返したとき）、当該イテレータはシーケンスの終端を示す特別な値となる。
+`regex_iterator` オブジェクトを構築した時、および、[`operator++`](regex_iterator/op_increment.md) を呼び出す毎に、当該イテレータは [`regex_search`](regex_search.md) を呼び出して検索し、マッチ結果オブジェクト（[`match_results`](match_results.md)）を内部に保存する（ただし、[`operator++`](regex_iterator/op_increment.md) も参照）。
+イテレータが終端まで来たとき（つまり、[`regex_search`](regex_search.md) が `false` を返したとき）、当該イテレータはシーケンスの終端を示す特別な値となる。
 この、シーケンスの終端を示す特別な値は、`regex_iterator` オブジェクトをデフォルトコンストラクタにより構築した場合にも生成されるため、この値と比較することによってシーケンスの終端であるか否か（つまり、マッチしなかったか否か）が判別できる。
 
 シーケンス終端のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用は未定義である。その他のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用の結果は `const `[`match_results`](match_results.md)`<BidirectionalIterator>&` である。  

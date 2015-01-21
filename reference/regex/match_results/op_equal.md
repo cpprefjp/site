@@ -56,7 +56,7 @@ int main()
 ```
 * iostream[link ../../iostream.md]
 * regex[link ../../regex.md]
-* regex_search[link ../regex_search.md.nolink]
+* regex_search[link ../regex_search.md]
 * cmatch[link ../match_results.md]
 * cout[link ../../iostream/cout.md]
 * boolalpha[link ../../ios/boolalpha.md]

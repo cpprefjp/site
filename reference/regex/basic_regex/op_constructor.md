@@ -112,7 +112,7 @@ int main()
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 * boolalpha[link ../../ios/boolalpha.md]
-* regex_search[link ../regex_search.md.nolink]
+* regex_search[link ../regex_search.md]
 * move[link ../../utility/move.md]
 * regex_constants[link ../regex_constants.md.nolink]
 
