@@ -14,7 +14,10 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 
 
 ##効果
-`pm->try_lock_until(abs_time)` 
+```cpp
+pm->try_lock_until(abs_time);
+```
+
 ※`pm`はメンバ変数として保持している、ミューテックスオブジェクトへのポインタ
 
 
@@ -30,6 +33,7 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 この関数は、`pm->try_lock_for()` 関数内で投げられうるあらゆる例外を投げる可能性がある。 
 
 そのほかに、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
+
 - [`operation_not_permitted`](/reference/system_error/errc.md) ： `pm`が`NULL`
 - [`resource_deadlock_would_occur`](/reference/system_error/errc.md) ： [`owns_lock()`](./owns_lock.md)` == true`の状態でこの関数が呼び出された
 
