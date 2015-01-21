@@ -3,7 +3,7 @@
 void erase(iterator position);                             // (1) C++03
 iterator erase(const_iterator position);                   // (1) C++11
 
-void erase(const_iterator first, const_iterator last);     // (2) C++03
+void erase(iterator first, iterator last);                 // (2) C++03
 iterator erase(const_iterator first, const_iterator last); // (2) C++11
 
 size_type erase(const key_type& x);                        // (3)
