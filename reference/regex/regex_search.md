@@ -90,9 +90,13 @@ namespace std {
 	| `m.[n].matched`                                     | `0 < n < m.`[`size`](match_results/size.md)`()` となるすべての整数 `n` について、正規表現内の `n` 番目のキャプチャグループがマッチに参加していれば `true`。<br />もし、`n` 番目のキャプチャグループがマッチに参加していない場合には、`false`。                   |
 
 
-
 ##戻り値
 指定した文字列中に、正規表現にマッチする部分が存在した場合、`true`。存在しなかった場合は `false`。
+
+
+##例外
+本関数は [`regex_error`](regex_error.md.nolink) を送出する可能性がある。  
+もしそのような例外 `e` が送出された場合、 `e.`[`code`](regex_error/code.md.nolink)`()` は [`regex_constants`](regex_constants.md.nolink)`::error_complexity` か [`regex_constants`](regex_constants.md.nolink)`::error_stack` のいずれかである。
 
 
 ##備考
