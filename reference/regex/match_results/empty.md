@@ -12,10 +12,10 @@ bool empty() const;
 
 
 ##備考
-- [`regex_match`](../regex_match.md.nolink)、および、[`regex_search`](../regex_search.md) の引数に渡した [`match_results`](../match_results.md) オブジェクトは、マッチが成功すると `empty() != true` となる。  
+- [`regex_match`](../regex_match.md)、および、[`regex_search`](../regex_search.md) の引数に渡した [`match_results`](../match_results.md) オブジェクトは、マッチが成功すると `empty() != true` となる。  
 	[`match_results`](../match_results.md) オブジェクトの結果が利用可能か否かを確認する場合には [`ready`](ready.md) を使用すると良い。
 - [`regex_iterator`](../regex_iterator.md) を間接参照して得られる [`match_results`](../match_results.md) オブジェクトは、必ず `empty() != true` となる。
-- `empty() == true` の場合、[`match_results`](../match_results.md) のメンバ関数には結果が未規定であるものがあるので、注意が必要である（[`regex_match`](../regex_match.md.nolink)、および、[`regex_search`](../regex_search.md) を参照）。
+- `empty() == true` の場合、[`match_results`](../match_results.md) のメンバ関数には結果が未規定であるものがあるので、注意が必要である（[`regex_match`](../regex_match.md)、および、[`regex_search`](../regex_search.md) を参照）。
 - 本メンバ関数は [`ready`](ready.md)`() == false` でも呼び出すことが可能である（その場合、`true` が返される）。
 
 

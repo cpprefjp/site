@@ -12,8 +12,8 @@ bool ready() const;
 
 
 ##備考
-- [`regex_match`](../regex_match.md.nolink)、および、[`regex_search`](../regex_search.md) の引数に渡した [`match_results`](../match_results.md) オブジェクトは、マッチが成功しなくても `ready() == true` となる。  
-	[`match_results`](../match_results.md) オブジェクトでマッチが成功したか否かを確認する場合には、[`regex_match`](../regex_match.md.nolink)、および、[`regex_search`](../regex_search.md) の戻り値を使用するか、[`empty`](empty.md) を使用すると良い。
+- [`regex_match`](../regex_match.md)、および、[`regex_search`](../regex_search.md) の引数に渡した [`match_results`](../match_results.md) オブジェクトは、マッチが成功しなくても `ready() == true` となる。  
+	[`match_results`](../match_results.md) オブジェクトでマッチが成功したか否かを確認する場合には、[`regex_match`](../regex_match.md)、および、[`regex_search`](../regex_search.md) の戻り値を使用するか、[`empty`](empty.md) を使用すると良い。
 - [`regex_iterator`](../regex_iterator.md) を間接参照して得られる [`match_results`](../match_results.md) オブジェクトは、必ず `ready() == true` となる。
 - `ready() != true` の場合、[`match_results`](../match_results.md) のほとんどのメンバ関数は使用できないため、注意が必要である（各メンバ関数の「要件」を参照）。
 

@@ -49,7 +49,7 @@ namespace std {
 ##概要
 指定された文字列中に、正規表現がマッチする部分が存在するか否かの判定を行う。  
 引数に [`match_results`](match_results.md) がある場合、当該オブジェクトにマッチの結果を格納する。  
-なお、同様の関数である [`regex_match`](regex_match.md.nolink) と異なり、正規表現が文字列全体にマッチする必要はない。
+なお、同様の関数である [`regex_match`](regex_match.md) と異なり、正規表現が文字列全体にマッチする必要はない。
 
 
 ##要件

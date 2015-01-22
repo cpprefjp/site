@@ -18,11 +18,11 @@ namespace std {
 
 ##概要
 `match_results` は正規表現によるマッチ結果を格納するコンテナである。コンテナの要素はマッチ結果を表すサブマッチ（[`sub_match`](sub_match.md)）である。  
-コンテナとは言っても [`regex_match`](regex_match.md.nolink) や [`regex_search`](regex_search.md) のマッチ結果を格納することを目的としているため、
+コンテナとは言っても [`regex_match`](regex_match.md) や [`regex_search`](regex_search.md) のマッチ結果を格納することを目的としているため、
 一般的なコンテナのように通常の操作でコンテナに要素を格納したり変更したりすることはできない。
 
 構築直後の `match_results` オブジェクトは結果を格納していない（[`ready`](match_results/ready.md)`() == false`）ため、ほとんどのメンバ関数は使用することができない。  
-[`regex_match`](regex_match.md.nolink) や [`regex_search`](regex_search.md) に引数として渡されると、マッチが成功したか否かにかかわらずその結果を格納する（[`ready`](match_results/ready.md)`() == true`）。  
+[`regex_match`](regex_match.md) や [`regex_search`](regex_search.md) に引数として渡されると、マッチが成功したか否かにかかわらずその結果を格納する（[`ready`](match_results/ready.md)`() == true`）。  
 なお、[`regex_iterator`](regex_iterator.md) を間接参照した際の `match_results` オブジェクトは常にマッチ結果を格納している（[`ready`](match_results/ready.md)`() == true`）。
 
 マッチ結果を格納した `match_results` オブジェクトは、マッチが成功した場合には 1 つ以上の要素を格納しているため、[`empty`](match_results/empty.md)`() == false` となる。  

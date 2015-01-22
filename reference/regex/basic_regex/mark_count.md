@@ -14,7 +14,7 @@ unsigned int mark_count() const;
 ##備考
 キャプチャグループとは、正規表現内の丸括弧で囲まれた部分の事である。  
 キャプチャグループは、その正規表現内の後方や、[`regex_replace`](../regex_replace.md.nolink) による置換時などに使用することができる。  
-また、[`match_results`](../match_results.md) オブジェクトを使用することによって、[`regex_match`](../regex_match.md.nolink) や [`regex_search`](../regex_search.md) 等の結果として受け取ることもできる。  
+また、[`match_results`](../match_results.md) オブジェクトを使用することによって、[`regex_match`](../regex_match.md) や [`regex_search`](../regex_search.md) 等の結果として受け取ることもできる。  
 その場合、キャプチャグループに対応する部分は [`match_results`](../match_results.md) オブジェクトのメンバ関数で [`sub_match`](../sub_match.md) オブジェクトとして（[`operator[]`](../match_results/op_at.md)）、あるいは文字列として（[`str`](../match_results/str.md)）アクセス可能である。
 
 
