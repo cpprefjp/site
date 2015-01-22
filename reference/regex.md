@@ -1,13 +1,13 @@
 #regex (C++11)
-`<regex>`ヘッダは、文字列に対する正規表現を行うためのクラス・関数を定義する。
+`<regex>`ヘッダは、正規表現に関するクラス・関数を定義する。
 
 ##正規表現クラス
 
 | 名前                                    | 説明                                  | 対応バージョン |
-|-----------------------------------------|---------------------------------------|-------|
-| [`basic_regex`](./regex/basic_regex.md) | 正規表現クラス (class template)       | C++11 |
-| [`regex`](./regex/basic_regex.md)       | `char`版の正規表現クラス (typedef)    | C++11 |
-| [`wregex`](./regex/basic_regex.md)      | `wchar_t`版の正規表現クラス (typedef) | C++11 |
+|-----------------------------------------|---------------------------------------|----------------|
+| [`basic_regex`](./regex/basic_regex.md) | 正規表現クラス (class template)       | C++11          |
+| [`regex`](./regex/basic_regex.md)       | `char`版の正規表現クラス (typedef)    | C++11          |
+| [`wregex`](./regex/basic_regex.md)      | `wchar_t`版の正規表現クラス (typedef) | C++11          |
 
 
 ##オプション・定数
@@ -40,6 +40,16 @@
 | [`smatch`](regex/match_results.md)        | [`match_results`](regex/match_results.md) クラスの [`string`](/reference/string/basic_string.md)`::const_iterator` バージョン (typedef)  | C++11          |
 | [`wsmatch`](regex/match_results.md)       | [`match_results`](regex/match_results.md) クラスの [`wstring`](/reference/string/basic_string.md)`::const_iterator` バージョン (typedef) | C++11          |
 
+
+##アルゴリズム
+
+| 名前                                      | 説明                                                                               | 対応バージョン |
+|-------------------------------------------|------------------------------------------------------------------------------------|----------------|
+| [`regex_match`](regex/regex_match.md)     | 文字列全体が正規表現にマッチするか否かの判定を行う (function template)             | C++11          |
+| [`regex_search`](regex/regex_search.md)   | 文字列内に正規表現にマッチする部分が存在するか否かの判定を行う (function template) | C++11          |
+| [`regex_replace`](regex/regex_replace.md) | 文字列内の正規表現にマッチする部分を置換する (function template)                   | C++11          |
+
+
 ##イテレータアダプタ
 
 | 名前                                                       | 説明                                                                                                                                   | 対応バージョン |
@@ -59,4 +69,3 @@
 ##バージョン
 ###言語
 - C++11
-
