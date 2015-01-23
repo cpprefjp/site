@@ -1,4 +1,4 @@
-#try_lock_shared_for (C++11)
+#try_lock_shared_for (C++14)
 ```cpp
 template <class Rep, class Period>
 bool try_lock_shared_for(const chrono::duration<Rep, Period>& rel_time);
