@@ -7,7 +7,7 @@ namespace std {
 
   long double fma(long double x, long double y, long double z);
 
-  Promoted pow(Arithmetic1 x, Arithmetic2 y, Arithmetic3 z);   // C++11
+  Promoted fma(Arithmetic1 x, Arithmetic2 y, Arithmetic3 z);   // C++11
 }
 ```
 * Promoted[italic]
