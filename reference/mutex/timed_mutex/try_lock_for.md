@@ -10,19 +10,22 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 
 
 ##要件
-`Period`がその環境ネイティブのperiod値に正しく変換できない場合、[`duration`](/reference/chrono/duration.md)はネイティブのperiod値に切り上げなければならない。 
+`Period`がその環境ネイティブのperiod値に正しく変換できない場合、[`duration`](/reference/chrono/duration.md)はネイティブのperiod値に切り上げなければならない。
+
 この関数を呼び出したスレッドが、ミューテックスの所有権を保持していないこと。
 
 
 ##効果
-`rel_time`パラメータで指定された相対時間の間、ミューテックスの所有権取得を試みる。 
-所有権が取得できるまで、もしくは`rel_time`時間が経過するまでこの関数はブロッキングする。 
+`rel_time`パラメータで指定された相対時間の間、ミューテックスの所有権取得を試みる。
+
+所有権が取得できるまで、もしくは`rel_time`時間が経過するまでこの関数はブロッキングする。
 
 `rel_time`が`rel_time.`[`zero()`](/reference/chrono/duration/zero.md)より小さい場合、この関数は[`try_lock()`](/reference/mutex/timed_mutex/try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
 
 
 ##戻り値
-所有権が取得できた場合は`true`を返す。 
+所有権が取得できた場合は`true`を返す。
+
 `rel_time`パラメータで指定された相対時間の間に所有権が取得できなかった場合はタイムアウトとなり、`false`を返す。
 
 
