@@ -10,8 +10,6 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 
 
 ##要件
-`Period`がその環境ネイティブのperiod値に正しく変換できない場合、[`duration`](/reference/chrono/duration.md)はネイティブのperiod値に切り上げなければならない。
-
 この関数を呼び出したスレッドが、ミューテックスの所有権を保持していないこと。
 
 
@@ -94,5 +92,5 @@ int main()
 
 
 ##参照
-
+- [LWG Issue 2091. Misplaced effect in `m.try_lock_for()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2091)
 

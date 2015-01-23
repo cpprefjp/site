@@ -9,10 +9,6 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 タイムアウトする相対時間を指定してロックの取得を試みる
 
 
-##要件
-`Period`がその環境ネイティブのperiod値に正しく変換できない場合、[`duration`](/reference/chrono/duration.md)はネイティブのperiod値に切り上げなければならない。
-
-
 ##効果
 `rel_time`パラメータで指定された相対時間の間、ミューテックスの所有権取得を試みる。
 
@@ -92,5 +88,6 @@ int main()
 
 
 ##参照
+- [LWG Issue 2091. Misplaced effect in `m.try_lock_for()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2091)
 
 
