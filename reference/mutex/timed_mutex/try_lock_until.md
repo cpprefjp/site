@@ -28,7 +28,8 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 
 
 ##例外
-投げない
+- C++11 : 投げない
+- C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
 
 
 ##備考
@@ -96,5 +97,6 @@ int main()
 
 
 ##参照
+- [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 
 

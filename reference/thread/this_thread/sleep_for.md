@@ -22,7 +22,8 @@ namespace this_thread {
 
 
 ##例外
-[`chrono::duration<Rep, Period>`](/reference/chrono/duration.md)オブジェクトから例外送出しない限りは、この関数は例外送出しない。
+- C++11 : [`chrono::duration<Rep, Period>`](/reference/chrono/duration.md)オブジェクトから例外送出しない限りは、この関数は例外送出しない。
+- C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
 
 
 ##例
@@ -56,3 +57,4 @@ int main()
 
 
 ##参照
+- [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
