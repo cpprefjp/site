@@ -13,7 +13,7 @@ namespace std {
 `condition_variable`の適切な利用については、[条件変数の利用方法](/article/lib/how_to_use_cv.md)も参照のこと。
 
 
-###メンバ関数
+##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|----------------------------------------------------------|-------|
@@ -27,20 +27,22 @@ namespace std {
 | [`wait_until`](./condition_variable/wait_until.md)            | 絶対時間のタイムアウトを指定して、起床されるまで待機する | C++11 |
 | [`native_handle`](./condition_variable/native_handle.md)      | 条件変数のハンドルを取得する | C++11 |
 
-###メンバ型
+
+##メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------|----------------------|-------|
 | `native_handle_type` | 実装依存のハンドル型 | C++11 |
 
-###非メンバ関数
+
+##非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------------------------|------------------------------------------------------------------------|-------|
 | [`notify_all_at_thread_exit`](./condition_variable/notify_all_at_thread_exit.md) | 現在のスレッド終了時に、条件変数が待っている全てのスレッドを起床させる | C++11 |
 
 
-###例
+##例
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -114,6 +116,6 @@ process data
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-###参照
+##参照
 - [Condition Variables - Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf)
 

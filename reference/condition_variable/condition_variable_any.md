@@ -10,7 +10,7 @@ namespace std {
 
 `condition_variable_any`の適切な利用については、[条件変数の利用方法](/article/lib/how_to_use_cv.md)も参照のこと。
 
-###メンバ関数
+##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|----------------------------------------------------------|-------|
@@ -23,7 +23,7 @@ namespace std {
 | [`wait_for`](./condition_variable_any/wait_for.md)                    | 相対時間のタイムアウトを指定して、起床されるまで待機する | C++11 |
 | [`wait_until`](./condition_variable_any/wait_until.md)                | 絶対時間のタイムアウトを指定して、起床されるまで待機する | C++11 |
 
-###例
+##例
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -97,5 +97,5 @@ process data
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-###参照
+##参照
 
