@@ -2,12 +2,12 @@
 ```cpp
 template <class Rep, class Period>
 cv_status wait_for(unique_lock<mutex>& lock,
-                   const chrono::duration<Rep, Period>& rel_time);
+                   const chrono::duration<Rep, Period>& rel_time); // (1)
 
 template <class Rep, class Period, class Predicate>
 bool wait_for(unique_lock<mutex>& lock,
               const chrono::duration<Rep, Period>& rel_time,
-              Predicate pred);
+              Predicate pred);                                     // (2)
 ```
 * cv_status[link /reference/condition_variable/cv_status.md]
 * unique_lock[link /reference/mutex/unique_lock.md]
@@ -18,7 +18,9 @@ bool wait_for(unique_lock<mutex>& lock,
 相対時間でタイムアウトを指定して、起床されるまで待機する。
 
 この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
+
 述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブロッキングが解除される。
+
 述語を指定する場合、述語呼び出しが`true`になるまで待機を続行する。
 
 
@@ -29,9 +31,29 @@ bool wait_for(unique_lock<mutex>& lock,
 - `*this`の`condition_variable`オブジェクトが他スレッドで待機していないか、もしくは並行に待機している全てのスレッドで`lock`パラメータが同じミューテックスオブジェクトを参照していること
 
 
-##効果
-- 述語を指定しないバージョン<br/>`return `[`wait_until`](/reference/condition_variable/condition_variable/wait_until.md)`(lock, chrono::`[`steady_clock`](/reference/chrono/steady_clock.md)`::`[`now`](/reference/chrono/steady_clock/now.md)`() + rel_time);`<br/>戻り値：`rel_time`で指定された相対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。 
-- 述語を指定するバージョン<br/>`return `[`wait_until`](/reference/condition_variable/condition_variable/wait_until.md)`(lock, chrono::`[`steady_clock`](/reference/chrono/steady_clock.md)`::`[`now`](/reference/chrono/steady_clock/now.md)`() + rel_time, std::`[`move`](/reference/utility/move.md)`(pred));`<br/>戻り値：`pred()`の結果が返る備考：`pred()`が最初から`true`の場合、またはすでに期限が過ぎている場合、この関数はブロッキングしない
+##戻り値
+- (1) :
+
+```cpp
+return wait_until(lock, chrono::steady_clock::now() + rel_time);
+```
+* wait_until[link ./wait_until.md]
+* steady_clock[link /reference/chrono/steady_clock.md]
+* now[link /reference/chrono/steady_clock/now.md]
+
+`rel_time`で指定された相対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。
+
+- (2) :
+
+```cpp
+return wait_until(lock, chrono::steady_clock::now() + rel_time, std::move(pred));
+```
+* wait_until[link ./wait_until.md]
+* steady_clock[link /reference/chrono/steady_clock.md]
+* now[link /reference/chrono/steady_clock/now.md]
+* move[link /reference/utility/move.md]
+
+`pred()`が最初から`true`の場合、またはすでに期限が過ぎている場合、この関数はブロッキングしない
 
 
 ##事後条件

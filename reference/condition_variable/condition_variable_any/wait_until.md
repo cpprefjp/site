@@ -1,10 +1,13 @@
 #wait_until (C++11)
 ```cpp
 template <class Lock, class Clock, class Duration>
-cv_status wait_until(Lock& lock, const chrono::time_point<Clock, Duration>& abs_time);
+cv_status wait_until(Lock& lock,
+                     const chrono::time_point<Clock, Duration>& abs_time); // (1)
 
 template <class Lock, class Clock, class Duration, class Predicate>
-bool wait_until(Lock& lock, const chrono::time_point<Clock, Duration>& abs_time, Predicate pred);
+bool wait_until(Lock& lock,
+                const chrono::time_point<Clock, Duration>& abs_time,
+                Predicate pred);                                           // (2)
 ```
 * cv_status[link /reference/condition_variable/cv_status.md]
 * time_point[link /reference/chrono/time_point.md]
@@ -13,27 +16,35 @@ bool wait_until(Lock& lock, const chrono::time_point<Clock, Duration>& abs_time,
 絶対時間でタイムアウトを指定して、起床されるまで待機する。
 
 この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
+
 述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブロッキングが解除される。
+
 述語を指定する場合、述語呼び出しが`true`になるまで待機を続行する。
 
 
 ##効果
-述語を指定しないバージョン：
-- アトミックに`lock.[unlock()](/reference/mutex/unique_lock/unlock.md)`する
-- [`notify_one()`](./notify_one.md)/[`notify_all()`](./notify_all.md)による通知、`abs_time`によって指定された時間に到達したことによる期限切れ、もしくはなんらかの理由によって失敗するまでブロッキングする
-- この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
-- この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
-- 戻り値：`abs_time`で指定された絶対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。 
+- (1) :
+    - アトミックに`lock.[unlock()](/reference/mutex/unique_lock/unlock.md)`する
+    - [`notify_one()`](./notify_one.md)/[`notify_all()`](./notify_all.md)による通知、`abs_time`によって指定された時間に到達したことによる期限切れ、もしくはなんらかの理由によって失敗するまでブロッキングする
+    - この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
+    - この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
+
+- (2) : 以下と同等の処理を行う
+
+```cpp
+while (!pred()) {
+  if (wait_until(lock, abs_time) == cv_status::timeout) {
+    return pred();
+  }
+}
+return true;
+```
+* cv_status::timeout[link /reference/condition_variable/cv_status.md]
 
 
-述語を指定するバージョン：
-`while (!pred()) {`
-`  if (wait_until(lock, abs_time) == `[`cv_status::timeout`](/reference/condition_variable/cv_status.md)`) {`
-`    return pred();`
-`  }`
-`}`
-`return true;`
-戻り値：`pred()`の結果が返る
+##戻り値
+- (1) : `abs_time`で指定された絶対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。
+- (2) : 戻り値：`pred()`の結果が返る
 
 
 ##事後条件

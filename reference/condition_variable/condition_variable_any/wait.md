@@ -1,37 +1,38 @@
 #wait (C++11)
 ```cpp
 template <class Lock>
-void wait(Lock& lock);
+void wait(Lock& lock);                 // (1)
 
 template <class Lock, class Predicate>
-void wait(Lock& lock, Predicate pred);
+void wait(Lock& lock, Predicate pred); // (2)
 ```
 
 ##概要
 起床されるまで待機する。
 
 この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
+
 述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブロッキングが解除される。
+
 述語を指定する場合、述語呼び出しが`true`になるまで待機を続行する。
 
 
 
 ##効果
-`template <class Lock>`
-`void wait(Lock& lock);`
-
-- アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)する
-- [`notify_one()`](./notify_one.md)/[`notify_all()`](./notify_all.md)もしくはそれ以外の理由で通知があるまでブロッキングする
-- この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
-- この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
+- (1) :
+    - アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)する
+    - [`notify_one()`](./notify_one.md)/[`notify_all()`](./notify_all.md)もしくはそれ以外の理由で通知があるまでブロッキングする
+    - この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
+    - この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
 
 
-`template <class Lock, class Predicate>`
-`void wait(Lock& lock, Predicate pred);`
+- (2) : 以下と同等の処理を行う
 
-`while (!pred()) {`
-`  wait(lock);`
-`}`
+```cpp
+while (!pred()) {
+  wait(lock);
+}
+```
 
 
 ##事後条件
