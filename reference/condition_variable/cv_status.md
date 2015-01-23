@@ -10,6 +10,7 @@ namespace std {
 
 ##概要
 条件変数の待機結果値。
+
 `cv_status`列挙型は、[`condition_variable`](/reference/condition_variable/condition_variable.md)/[`condition_variable_any`](/reference/condition_variable/condition_variable_any.md)クラスにおけるタイムアウト時間を指定する待機関数`wait_for()`/`wait_until()`での実行結果として使用する。
 
 各値は以下の意味を持つ：
