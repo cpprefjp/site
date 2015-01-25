@@ -1,46 +1,95 @@
 #コンストラクタ
 ```cpp
-list();                                        // (1) C++11
-list(const Allocator&);                        // (2) C++11
-explicit list(const Allocator& = Allocator()); // (1), (2) C++03。C++11で削除
+list();                                          // (1) C++14 から
+list(const Allocator& a);                        // (2) C++14 から
+explicit list(const Allocator& a = Allocator()); // (1), (2) C++11 まで。C++14 で削除
 
-explicit list(size_type n,
-              const Allocator& = Allocator()); // (3)
-
+list(size_type n, const T& value = T(),
+     const Allocator& a = Allocator());          // (3) C++03 まで。C++11 で削除
 list(size_type n, const T& value,
-     const Allocator& = Allocator());          // (4)
+     const Allocator& a = Allocator());          // (3) C++11 から
+
+explicit list(size_type n);                      // (4) C++11。C++14 で削除
+explicit list(size_type n,
+              const Allocator& a = Allocator()); // (4) C++14 から
 
 template <class InputIterator>
 list(InputIterator first, InputIterator last,
-     const Allocator& = Allocator());          // (5)
+     const Allocator& a = Allocator());          // (5)
 
-list(const list& x);                           // (6)
-list(list&& x);                                // (7) C++11
-list(const list& x, const Allocator&);         // (8) C++11
-list(list&& x, const Allocator&);              // (9) C++11
+list(const list& x);                             // (6)
+list(list&& x);                                  // (7) C++11 から
+list(const list& x, const Allocator& a);         // (8) C++11 から
+list(list&& x, const Allocator& a);              // (9) C++11 から
 
-list(initializer_list<T>,
-     const Allocator& = Allocator());          // (10) C++11
+list(initializer_list<T> il,
+     const Allocator& a = Allocator());          // (10) C++11 から
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##list オブジェクトの構築
+
+##概要
+list オブジェクトの構築
+
+
+##効果
 - (1) : デフォルトコンストラクタ。アロケータをデフォルト構築して、空のコンテナを作る。
 - (2) : アロケータを指定して空のコンテナを作る。
-- (3) : `n` 個の `T()` 初期化された要素を保持した `list` を構築する。
-- (4) : `value` のコピーを `n` 個要素として保持した `list` を構築する。
+- (3) : `value` のコピーを `n` 個要素として保持した `list` を構築する。
+- (4) : `n` 個の `T()` 初期化された要素を保持した `list` を構築する。
 - (5) : `[first, last)` の範囲を要素としてコピーした `list` を構築する。
 - (6) : コピーコンストラクタ。`x` と同じ要素を保持した `list` を構築する。
 - (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `list` を構築する。
 - (8) : アロケータを指定したコピーコンストラクタ。
 - (9) : アロケータを指定したムーブコンストラクタ。
-- (10) : 初期化子リストを受け取るコンストラクタ。
+- (10) : 初期化子リストを受け取るコンストラクタ。`list(il.`[`begin`](../initializer_list/begin.md)`(), il.`[`end`](../initializer_list/end.md)`(), a)` と同等。
 
 
 ##計算量
 - (1), (2) : 定数時間
 - (3), (4) : `n` に対して線形時間
 - (5) : [`distance`](/reference/iterator/distance.md)`(first, last)` に対して線形時間
+- (6), (8) : `x.`[`size`](size.md)`()` に対して線形時間
+- (7) : 定数時間
+- (9) : `a == x.`[`get_allocator`](get_allocator.md)`()` であれば定数時間。そうでなければ `x.`[`size`](size.md)`()` に対して線形時間
+
+
+##備考
+- (5) の形式は、C++03 までは `InputIterator` が整数型の場合には `list(static_cast<typename list::size_type>(first), static_cast<typename list::value_type>(last), a)` と同等とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- C++11 では、(3) の形式の引数 `value` に関するデフォルト引数が削除され、新たに (4) の形式が追加された。  
+	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`list` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `list` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
+
+- C++14 では、(1) の形式と (2) の形式がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
+	これは、デフォルトコンストラクタに `explicit` が付いていると、
+
+	```cpp
+std::list<int> v = {};
+```
+
+	のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
+
+- C++14 では、(4) の形式に引数が追加された。  
+	これは、変更されないと `n` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
+	具体的には、C++11 では以下のようなコードがエラーになってしまう。
+
+	```cpp
+#include <list>
+#include <vector>
+#include <scoped_allocator>
+
+int main()
+{
+	using li = std::list<int>;
+	std::vector<li, std::scoped_allocator_adaptor<std::allocator<li>>> v;
+	v.emplace_back(10u);
+}
+```
+* list[link ../list.md]
+* vector[link ../vector.md]
+* scoped_allocator[link ../scoped_allocator.md]
+* scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
+* allocator[link ../memory/allocator.md]
+* emplace_back[link emplace_back.md]
 
 
 ##例
@@ -91,6 +140,15 @@ int main ()
   print("ls7", ls7);
 }
 ```
+* iostream[link ../iostream.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
+* list[link ../list.md]
+* string[link ../string.md]
+* utility[link ../utility.md]
+* move[link ../utility/move.md]
+* begin[link begin.md]
+* end[link end.md]
 
 ###出力
 ```
@@ -103,6 +161,10 @@ ls6 : 1 1 1
 ls7 : 1 2 3 
 ```
 
+
 ##参照
-
-
+* [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
+	`explicit list(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
+* [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
+	`explicit list(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
+	なお、Discussion の例はアロケータの型が誤っているので注意
