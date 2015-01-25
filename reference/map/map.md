@@ -99,31 +99,32 @@ namespace std {
 
 ##オブザーバー
 
-| 名前 | 説明 | 対応バージョン |
-|-------------------------------------|--------------------------|-------|
-| [`key_comp`](./map/key_comp.md)     | キーを比較した結果を取得する | |
-| [`value_comp`](./map/value_comp.md) | 値を比較した結果を取得する   | |
+| 名前                                | 説明                                   | 対応バージョン |
+|-------------------------------------|----------------------------------------|----------------|
+| [`key_comp`](./map/key_comp.md)     | キー比較用の関数オブジェクトを取得する |                |
+| [`value_comp`](./map/value_comp.md) | 要素比較用の関数オブジェクトを取得する |                |
 
 
 ##メンバ型
 
-| 名前 | 説明 | 対応バージョン |
-|-------------------------------------|--------------------------|-------|
-| `key_type`        | キーの型。テンプレートパラメータ `Key`。                                | |
-| `value_type`      | 要素の型。`std::`[`pair`](/reference/utility/pair.md)`<const Key, T>`。 | |
-| `mapped_type`     | 値の型。テンプレートパラメータ `T`。 | |
-| `key_compare`     | キーが等値か大小関係を判定する二項述語の型。テンプレートパラメータ `Compare`。 | |
-| `allocator_type`  | アロケータの型。テンプレートパラメータ `Allocator`。 | |
-| `reference`       | 要素`value_type`への参照型。`value_type&`。 | |
-| `const_reference` | 要素`value_type`への`const`参照型。`const value_type&`。 | |
-| `iterator`        | 双方向イテレータ。 | |
-| `const_iterator`  | 読み取り専用双方向イテレータ。 | |
-| `size_type`       | 要素数を表す符号なし整数型。`difference_type` で表現可能な非負整数（0以上の整数）を表すことが可能。(通常は [`size_t`](/reference/cstddef/size_t.md)) | |
-| `difference_type` | 同一のコンテナを指す `iterator` の差を表す符号付き整数型(通常は [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) <br/>`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<iterator>::difference_type`、および、`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<const_iterator>::difference_type` と同じ。 | |
-| `pointer`         | 要素 `value_type`へのポインタ。<br/> C++03 : `typename Allocator::pointer`。<br/> C++11以降 : `typename `[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer`。 | |
-| `const pointer`         | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename `[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。 | |
-| `reverse_iterator` | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。 | |
-| `const_reverse_iterator` | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。 | |
+| 名前                                    | 説明                                                                                                                                                                                                                                                                                                                                         | 対応バージョン |
+|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
+| `key_type`                              | キーの型。テンプレートパラメータ `Key`。                                                                                                                                                                                                                                                                                                     |                |
+| `value_type`                            | 要素の型。`std::`[`pair`](/reference/utility/pair.md)`<const Key, T>`。                                                                                                                                                                                                                                                                      |                |
+| `mapped_type`                           | 値の型。テンプレートパラメータ `T`。                                                                                                                                                                                                                                                                                                         |                |
+| `key_compare`                           | キー値の大小関係を判定する二項述語の型。テンプレートパラメータ `Compare`。                                                                                                                                                                                                                                                                   |                |
+| [`value_compare`](map/value_compare.md) | 要素値のキー部分で大小関係を判定する二項述語の型。入れ子クラス                                                                                                                                                                                                                                                                               |                |
+| `allocator_type`                        | アロケータの型。テンプレートパラメータ `Allocator`。                                                                                                                                                                                                                                                                                         |                |
+| `reference`                             | 要素`value_type`への参照型。`value_type&`。                                                                                                                                                                                                                                                                                                  |                |
+| `const_reference`                       | 要素`value_type`への`const`参照型。`const value_type&`。                                                                                                                                                                                                                                                                                     |                |
+| `iterator`                              | 双方向イテレータ。                                                                                                                                                                                                                                                                                                                           |                |
+| `const_iterator`                        | 読み取り専用双方向イテレータ。                                                                                                                                                                                                                                                                                                               |                |
+| `size_type`                             | 要素数を表す符号なし整数型。`difference_type` で表現可能な非負整数（0以上の整数）を表すことが可能。(通常は [`size_t`](/reference/cstddef/size_t.md))                                                                                                                                                                                         |                |
+| `difference_type`                       | 同一のコンテナを指す `iterator` の差を表す符号付き整数型(通常は [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) <br/>`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<iterator>::difference_type`、および、`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<const_iterator>::difference_type` と同じ。 |                |
+| `pointer`                               | 要素 `value_type`へのポインタ。<br/> C++03 : `typename Allocator::pointer`。<br/> C++11以降 : `typename `[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer`。                                                                                                                                                 |                |
+| `const pointer`                         | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename `[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。                                                                                                                              |                |
+| `reverse_iterator`                      | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。                                                                                                                                                                                                                                     |                |
+| `const_reverse_iterator`                | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。                                                                                                                                                                                                                   |                |
 
 
 ##非メンバ関数

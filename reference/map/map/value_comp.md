@@ -4,14 +4,14 @@ value_compare value_comp() const;
 ```
 
 ##概要
-コンテナに関連づけられた比較オブジェクトを返す。これはコンテナ内の二つの要素のキー部分を比較するために利用できる。 
-この比較オブジェクトはオブジェクトの構築時にセットされ、関数ポインタであっても関数オブジェクトであっても良い。いずれにせよこれは同じ型の 2 つの引数をとり、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)に従って一つ目の引数が二つ目の引数の前になる場合に `true`、そうでない場合に `false` を返す。 
+コンテナに関連づけられた要素比較用の関数オブジェクトを返す。これはコンテナ内の二つの要素のキー部分を比較するために利用できる。
+これは同じ型の 2 つの引数をとり、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)に従って一つ目の引数が二つ目の引数の前になる場合に `true`、そうでない場合に `false` を返す。
 
 
 
 ##戻り値
-比較オブジェクト。 
-`value_compare` はメンバ型であり、テンプレートパラメータ `Compare` の別名として定義される。
+要素比較用の関数オブジェクト。
+[`value_compare`](value_compare.md) はメンバ型である。`key_compare` とは異なり、単なる typedef ではなく入れ子クラスである。
 
 
 ##計算量
@@ -34,10 +34,15 @@ int main()
 
   std::cout << comp(p1, p2) << std::endl;
   std::cout << comp(p3, p2) << std::endl;
-
-  return 0;
 }
 ```
+* make_pair[link ../../utility/make_pair.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
+* iostream[link ../../iostream.md]
+* map[link ../map.md]
+* value_compare[link value_compare.md]
+* value_comp[color ff0000]
 
 ###出力
 ```
@@ -54,12 +59,10 @@ int main()
 
 ##参照
 
-| 名前 | 説明|
-|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`key_comp`](/reference/map/map/key_comp.md) | キーを比較した結果を返す |
-| [`find`](/reference/map/map/find.md) | 指定したキーで要素を探す |
-| [`count`](/reference/map/map/count.md) | 指定したキーにマッチする要素の数を返す |
+| 名前                                               | 説明                                                     |
+|----------------------------------------------------|----------------------------------------------------------|
+| [`key_comp`](/reference/map/map/key_comp.md)       | キー比較用の関数オブジェクトを返す                       |
+| [`find`](/reference/map/map/find.md)               | 指定したキーで要素を探す                                 |
+| [`count`](/reference/map/map/count.md)             | 指定したキーにマッチする要素の数を返す                   |
 | [`lower_bound`](/reference/map/map/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
-| [`upper_bound`](/reference/map/map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
-
-
+| [`upper_bound`](/reference/map/map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
