@@ -82,7 +82,7 @@ int main()
 }
 ```
 * try_lock_shared_until[color ff0000]
-* lock()[link ./lock.md.nolink]
+* lock()[link ./lock.md]
 * unlock()[link ./unlock.md.nolink]
 * unlock_shared()[link ./unlock_shared.md]
 * std::thread[link /reference/thread/thread.md]

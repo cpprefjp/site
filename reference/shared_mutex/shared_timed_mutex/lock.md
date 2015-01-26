@@ -1,18 +1,18 @@
-#unlock_shared (C++14)
+#lock (C++14)
 ```cpp
-void unlock_shared();
+void lock();
 ```
 
 ##概要
-共有ロックを手放す。
+排他ロックを取得する。
 
 
 ##要件
-この関数を実行するスレッドがミューテックスの共有所有権を持っていること。
+この関数を呼び出したスレッドが、ミューテックスの所有権を保持していないこと。
 
 
 ##効果
-この関数を呼び出したスレッドが持つミューテックスの共有所有権を手放す。
+この関数を呼び出したスレッドがミューテックスの排他所有権を取得できるまでブロックする。
 
 
 ##戻り値
@@ -20,7 +20,11 @@ void unlock_shared();
 
 
 ##例外
-投げない
+この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
+
+- [`operation_not_permitted`](/reference/system_error/errc.md) : スレッドにこの操作を行う権限がない
+- [`resource_deadlock_would_occur`](/reference/system_error/errc.md) : デッドロックが発生することを検出した(実装依存)
+- [`device_or_resource_busy`](/reference/system_error/errc.md) : ミューテックスがすでにロックされていて、ブロッキングできない
 
 
 ##例
@@ -62,10 +66,10 @@ int main()
   t2.join();
 }
 ```
-* unlock_shared()[color ff0000]
-* lock()[link ./lock.md]
+* lock()[color ff0000]
 * unlock()[link ./unlock.md.nolink]
 * lock_shared()[link ./lock_shared.md]
+* unlock_shared()[link ./unlock_shared.md]
 * std::thread[link /reference/thread/thread.md]
 * join()[link /reference/thread/thread/join.md]
 

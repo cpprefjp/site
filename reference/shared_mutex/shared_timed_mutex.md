@@ -12,7 +12,7 @@ namespace std {
 
 このミューテックスクラスのロック取得方法は2種類ある。
 
-- `lock()`／`unlock()`メンバ関数：書き込み用のロックを取得する
+- [`lock()`](./shared_timed_mutex/lock.md)／`unlock()`メンバ関数：書き込み用のロックを取得する
 - [`lock_shared()`](./shared_timed_mutex/lock_shared.md)／[`unlock_shared()`](./shared_timed_mutex/unlock_shared.md)メンバ関数：読み込み用のロックを取得する
 
 
@@ -36,7 +36,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|--------------------------------------------|-------|
-| [`lock`](./shared_timed_mutex/lock.md.nolink)           | 排他ロックを取得する | C++14 |
+| [`lock`](./shared_timed_mutex/lock.md)           | 排他ロックを取得する | C++14 |
 | [`try_lock`](./shared_timed_mutex/try_lock.md.nolink)   | 排他ロックの取得を試みる | C++14 |
 | [`try_lock_for`](./shared_timed_mutex/try_lock_for.md.nolink)     | タイムアウトする相対時間を指定して排他ロックの取得を試みる | C++14 |
 | [`try_lock_until`](./shared_timed_mutex/try_lock_until.md.nolink) | タイムアウトする絶対時間を指定して排他ロックの取得を試みる | C++14 |
