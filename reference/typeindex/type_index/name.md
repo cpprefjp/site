@@ -1,6 +1,7 @@
 #name (C++11)
 ```cpp
-const char* name() const;
+const char* name() const;          // C++11
+const char* name() const noexcept; // C++14
 ```
 
 ##概要
@@ -44,4 +45,8 @@ c
 
 ###処理系
 - [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
+
+
+##参照
+- [LWG Issue 2144. Missing `noexcept` specification in `type_index`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2144)
 

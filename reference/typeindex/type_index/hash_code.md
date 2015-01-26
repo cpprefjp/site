@@ -1,6 +1,7 @@
 #hash_code (C++11)
 ```cpp
-size_t hash_code() const;
+size_t hash_code() const;          // C++11
+size_t hash_code() const noexcept; // C++14
 ```
 
 ##概要
@@ -64,4 +65,8 @@ int main()
 
 ###処理系
 - [GCC, C++0x mode](/implementation.md#gcc): 4.6.1
+
+
+##参照
+- [LWG Issue 2144. Missing `noexcept` specification in `type_index`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2144)
 
