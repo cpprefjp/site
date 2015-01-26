@@ -9,11 +9,12 @@ namespace std {
     explicit operator bool() const;
 
     sentry(const sentry&) = delete;
-    sentry& operator=(const setnry&) = delete;
+    sentry& operator=(const sentry&) = delete;
   };
 }
 ```
 * basic_istream[link ../basic_istream.md]
+* char_traits[link ../../string/char_traits.md]
 
 ##概要
 `basic_istream<>::sentry`は、入力処理共通の前処理・後処理を実行するためのクラスである。
