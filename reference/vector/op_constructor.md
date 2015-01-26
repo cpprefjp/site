@@ -4,7 +4,7 @@ explicit vector(const Allocator& a = Allocator());														// C++11 まで
 vector();																								// C++14 から
 explicit vector(const Allocator& a);																	// C++14 から
 explicit vector(size_type n, const T& value = T(), const Allocator& a = Allocator());					// C++03 まで
-explicit vector(size_type n, const T& value, const Allocator& a = Allocator());							// C++11 から
+vector(size_type n, const T& value, const Allocator& a = Allocator());									// C++11 から
 explicit vector(size_type n);																			// C++11
 explicit vector(size_type n, const Allocator& a = Allocator());											// C++14 から
 template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator());
@@ -29,7 +29,7 @@ vector(initializer_list<T> il, const Allocator& a = Allocator());										// C+
     アロケータを別で受け取り、`size() == 0` の要素を持たない空の `vector` オブジェクトを構築する。（C++14 から）
 * `explicit vector(size_type n, const T& value = T(), const Allocator& a = Allocator()); // C++03 まで`  
     繰り返しシーケンスコンストラクタ。アロケータ `a` を使用して、`value` のコピーを `n` 個要素として保持した `vector` オブジェクトを構築する。（C++03 まで）
-* `explicit vector(size_type n, const T& value, const Allocator& a = Allocator()); // C++11 から`  
+* `vector(size_type n, const T& value, const Allocator& a = Allocator()); // C++11 から`  
     繰り返しシーケンスコンストラクタ。アロケータ `a` を使用して、`value` のコピーを `n` 個要素として保持した `vector` オブジェクトを構築する。（C++11 から）
 * `explicit vector(size_type n); // C++11`  
     `n` 個の `T()` で初期化された要素を保持した `vector` オブジェクトを構築する。（C++11）
@@ -108,7 +108,7 @@ int main()
 * scoped_allocator[link ../scoped_allocator.md]
 * scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
 * allocator[link ../memory/allocator.md]
-* emplace_back[link emplace_back.md]
+* emplace_back[link ../list/emplace_back.md]
 
 
 ##例
