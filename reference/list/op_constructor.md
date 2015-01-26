@@ -4,7 +4,7 @@ list();                                          // (1) C++14 から
 list(const Allocator& a);                        // (2) C++14 から
 explicit list(const Allocator& a = Allocator()); // (1), (2) C++11 まで。C++14 で削除
 
-list(size_type n, const T& value = T(),
+explicit list(size_type n, const T& value = T(),
      const Allocator& a = Allocator());          // (3) C++03 まで。C++11 で削除
 list(size_type n, const T& value,
      const Allocator& a = Allocator());          // (3) C++11 から
@@ -63,7 +63,7 @@ list オブジェクトの構築
 	これは、デフォルトコンストラクタに `explicit` が付いていると、
 
 	```cpp
-std::list<int> v = {};
+std::list<int> l = {};
 ```
 
 	のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
@@ -89,7 +89,7 @@ int main()
 * scoped_allocator[link ../scoped_allocator.md]
 * scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
 * allocator[link ../memory/allocator.md]
-* emplace_back[link emplace_back.md]
+* emplace_back[link ../vector/emplace_back.md]
 
 
 ##例
