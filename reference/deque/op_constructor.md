@@ -103,9 +103,9 @@ std::deque<int> d = {};
 
 int main()
 {
-	using di = std::deque<int>;
-	std::list<di, std::scoped_allocator_adaptor<std::allocator<di>>> l;
-	l.emplace_back(10u);
+  using di = std::deque<int>;
+  std::list<di, std::scoped_allocator_adaptor<std::allocator<di>>> l;
+  l.emplace_back(10u);
 }
 ```
 * list[link ../list.md]
