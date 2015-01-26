@@ -18,7 +18,7 @@
 | [`int_least32_t`](./cstdint/int_least32_t.md) | 少なくても32ビット幅を持つ、最小の符号あり整数 | C++11 |
 | [`int_least64_t`](./cstdint/int_least64_t.md) | 少なくても64ビット幅を持つ、最小の符号あり整数 | C++11 |
 | [`intmax_t`](./cstdint/intmax_t.md)           | 最も大きい符号あり整数型 | C++11 |
-| `intptr_t`                                    | ポインタサイズの符号あり整数型(実装するかどうかは処理系定義) | C++11 |
+| [`intptr_t`](./cstdint/intptr_t.md)           | ポインタサイズの符号あり整数型(実装するかどうかは処理系定義) | C++11 |
 
 ##符号なし整数型
 
@@ -37,7 +37,7 @@
 | [`uint_least32_t`](./cstdint/uint_least32_t.md) | 少なくても32ビット幅を持つ、最小の符号なし整数 | C++11 |
 | [`uint_least64_t`](./cstdint/uint_least64_t.md) | 少なくても64ビット幅を持つ、最小の符号なし整数 | C++11 |
 | [`uintmax_t`](./cstdint/uintmax_t.md)           | 最も大きい符号なし整数型 | C++11 |
-| `uintptr_t`                                     | ポインタサイズの符号なし整数型(実装するかどうかは処理系定義) | C++11 |
+| [`uintptr_t`](./cstdint/uintptr_t.md)           | ポインタサイズの符号なし整数型(実装するかどうかは処理系定義) | C++11 |
 
 
 以下のマクロは、整数型の限界値を表す。これらのマクロは、`__STDC_LIMIT_MACROS`マクロが定義されている場合のみ定義される。
