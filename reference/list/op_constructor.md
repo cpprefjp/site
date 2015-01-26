@@ -79,9 +79,9 @@ std::list<int> v = {};
 
 int main()
 {
-	using li = std::list<int>;
-	std::vector<li, std::scoped_allocator_adaptor<std::allocator<li>>> v;
-	v.emplace_back(10u);
+  using li = std::list<int>;
+  std::vector<li, std::scoped_allocator_adaptor<std::allocator<li>>> v;
+  v.emplace_back(10u);
 }
 ```
 * list[link ../list.md]
