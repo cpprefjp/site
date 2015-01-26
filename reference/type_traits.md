@@ -170,6 +170,7 @@
 - C++11
 
 ##参照
+- [N1345 A Proposal to add Type Traits to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1345.html)
 - [N1424 A Proposal to add Type Traits to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1424.htm)
 - [Boost Type Traits Library](http://www.boost.org/doc/libs/release/libs/type_traits/doc/html/index.html)
 - [型特性 - Boost逆引きリファレンス](http://boostjp.github.io/tips/type_traits.html)
