@@ -6,7 +6,7 @@ deque();                                                                        
 
 explicit deque(const Allocator& a);                                                     // C++14 から
 
-deque(size_type n, const T& value = T(), const Allocator& a = Allocator());             // C++03 まで
+explicit deque(size_type n, const T& value = T(), const Allocator& a = Allocator());    // C++03 まで
 
 deque(size_type n, const T& value, const Allocator& a = Allocator());                   // C++11 から
 
@@ -46,16 +46,16 @@ deque(initializer_list<T> il, const Allocator& a = Allocator());                
 - `explicit deque(const Allocator& a); // C++14 から`  
 	アロケータに `a` を使用して、サイズがゼロで要素を持たない空の `deque` を構築する。  
 	計算量： 定数時間
-- `deque(size_type n, const T& value = T(), const Allocator& a = Allocator()); // C++03 まで`  
+- `explicit deque(size_type n, const T& value = T(), const Allocator& a = Allocator()); // C++03 まで`  
 	繰り返しシーケンスコンストラクタ。アロケータに `a` を使用して、`value` のコピーを `n` 個要素として保持した `deque` を構築する。  
 	計算量： `n`に対して線形時間
 - `deque(size_type n, const T& value, const Allocator& a = Allocator()); // C++11 から`  
 	繰り返しシーケンスコンストラクタ。アロケータに `a` を使用して、`value` のコピーを `n` 個要素として保持した `deque` を構築する。  
 	計算量： `n` に対して線形時間
-- `deque(size_type n); // C++11`  
+- `explicit deque(size_type n); // C++11`  
 	繰り返しシーケンスコンストラクタ。値初期化されたオブジェクトを `n` 個要素として保持した `deque` を構築する。  
 	計算量： `n` に対して線形時間
-- `deque(size_type n, const Allocator& a = Allocator()); // C++14 から`  
+- `explicit deque(size_type n, const Allocator& a = Allocator()); // C++14 から`  
 	繰り返しシーケンスコンストラクタ。アロケータに `a` を使用して、値初期化されたオブジェクトを `n` 個要素として保持した `deque` を構築する。  
 	計算量： `n` に対して線形時間
 - `template <class InputIterator>`  
@@ -79,7 +79,7 @@ deque(initializer_list<T> il, const Allocator& a = Allocator());                
 
 
 ##備考
-- イテレータ範囲コンストラクタ `template <class InputIter> deque(InputIter first, InputIter last, const Allocator& a = Allocator())` は、C++03 までは `InputIter` が整数型の場合には `deque(static_cast<typename deque::size_type>(first), static_cast<typename deque::value_type>(last), a)` と同等とされていたが、C++11 では `InputIter` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- イテレータ範囲コンストラクタ `template <class InputIterator> deque(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、C++03 までは `InputIterator` が整数型の場合には `deque(static_cast<typename deque::size_type>(first), static_cast<typename deque::value_type>(last), a)` と同等とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、`explicit deque(size_type n, const T& value = T(), const Allocator& a = Allocator())` の引数 `value` に関するデフォルト引数が削除され、新たなコンストラクタ `explicit deque(size_type n)` が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`deque` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `deque` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
 
@@ -113,7 +113,7 @@ int main()
 * scoped_allocator[link ../scoped_allocator.md]
 * scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
 * allocator[link ../memory/allocator.md]
-* emplace_back[link emplace_back.md]
+* emplace_back[link ../list/emplace_back.md]
 
 
 ##例
