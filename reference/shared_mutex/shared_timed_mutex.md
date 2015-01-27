@@ -37,7 +37,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|--------------------------------------------|-------|
 | [`lock`](./shared_timed_mutex/lock.md)           | 排他ロックを取得する | C++14 |
-| [`try_lock`](./shared_timed_mutex/try_lock.md.nolink)   | 排他ロックの取得を試みる | C++14 |
+| [`try_lock`](./shared_timed_mutex/try_lock.md)   | 排他ロックの取得を試みる | C++14 |
 | [`try_lock_for`](./shared_timed_mutex/try_lock_for.md)     | タイムアウトする相対時間を指定して排他ロックの取得を試みる | C++14 |
 | [`try_lock_until`](./shared_timed_mutex/try_lock_until.md) | タイムアウトする絶対時間を指定して排他ロックの取得を試みる | C++14 |
 | [`unlock`](./shared_timed_mutex/unlock.md)       | 排他ロックを手放す | C++14 |
