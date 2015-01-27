@@ -1,12 +1,12 @@
 #コンストラクタ (C++11)
 ```cpp
-timed_mutex();
-timed_mutex(const timed_mutex&) = delete;
+timed_mutex();                            // (1)
+timed_mutex(const timed_mutex&) = delete; // (2)
 ```
 
 ##timed_mutexオブジェクトの構築
-- `timed_mutex();`<br/>デフォルトコンストラクタ。`timed_mutex`オブジェクトの初期化を行う。
-- `timed_mutex(const timed_mutex&) = delete;`<br/>コピーコンストラクタ。コピー不可。
+- (1) : デフォルトコンストラクタ。`timed_mutex`オブジェクトの初期化を行う。
+- (2) : コピーコンストラクタ。コピー不可。
 
 
 ##例外

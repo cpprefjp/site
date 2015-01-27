@@ -1,12 +1,12 @@
 #コンストラクタ (C++11)
 ```cpp
-recursive_mutex();
-recursive_mutex(const recursive_mutex&) = delete;
+recursive_mutex();                                // (1)
+recursive_mutex(const recursive_mutex&) = delete; // (2)
 ```
 
 ##recursive_mutexオブジェクトの構築
-- `recursive_mutex();`<br/>デフォルトコンストラクタ。`recursive_mutex`オブジェクトの初期化を行う。
-- `recursive_mutex(const recursive_mutex&) = delete;`<br/>コピーコンストラクタ。コピー不可。
+- (1) : デフォルトコンストラクタ。`recursive_mutex`オブジェクトの初期化を行う。
+- (2) : コピーコンストラクタ。コピー不可。
 
 
 ##例外

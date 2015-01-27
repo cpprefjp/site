@@ -1,12 +1,12 @@
 #コンストラクタ (C++11)
 ```cpp
-recursive_timed_mutex();
-recursive_timed_mutex(const recursive_timed_mutex&) = delete;
+recursive_timed_mutex();                                      // (1)
+recursive_timed_mutex(const recursive_timed_mutex&) = delete; // (2)
 ```
 
 ##recursive_timed_mutexオブジェクトの構築
-- `recursive_timed_mutex();`<br/>デフォルトコンストラクタ。`recursive_timed_mutex`オブジェクトの初期化を行う。
-- `recursive_timed_mutex(const recursive_timed_mutex&) = delete;`<br/>コピーコンストラクタ。コピー不可。
+- (1) : デフォルトコンストラクタ。`recursive_timed_mutex`オブジェクトの初期化を行う。
+- (2) : コピーコンストラクタ。コピー不可。
 
 
 ##例外

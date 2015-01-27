@@ -1,12 +1,12 @@
 #コンストラクタ (C++11)
 ```cpp
-constexpr mutex() noexcept;
-mutex(const mutex&) = delete;
+constexpr mutex() noexcept;   // (1)
+mutex(const mutex&) = delete; // (2)
 ```
 
 ##mutexオブジェクトの構築
-- `constexpr mutex() noexcept`<br/>デフォルトコンストラクタ。`mutex`オブジェクトの初期化を行う。
-- `mutex(const mutex&) = delete`<br/>コピーコンストラクタ。コピー不可。
+- (1) : デフォルトコンストラクタ。`mutex`オブジェクトの初期化を行う。
+- (2) : コピーコンストラクタ。コピー不可。
 
 
 ##例外
