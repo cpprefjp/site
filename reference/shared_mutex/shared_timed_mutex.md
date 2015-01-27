@@ -27,9 +27,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|--------------------------------------------|-------|
-| [`(constructor)`](./shared_timed_mutex/op_constructor.md.nolink) | コンストラクタ | C++14 |
-| [`(destructor)`](./shared_timed_mutex/op_destructor.md.nolink)   | デストラクタ | C++14 |
-| `operator=(const shared_timed_mutex&) = delete;`                 | 代入演算子 | C++14 |
+| [`(constructor)`](./shared_timed_mutex/op_constructor.md) | コンストラクタ | C++14 |
+| [`(destructor)`](./shared_timed_mutex/op_destructor.md)   | デストラクタ | C++14 |
+| `operator=(const shared_timed_mutex&) = delete;`          | 代入演算子 | C++14 |
 
 
 ###排他の所有権
