@@ -10,7 +10,7 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 
 
 ##要件
-この関数を呼び出したスレッドが、ミューテックスの所有権を保持していないこと。
+この関数を呼び出したスレッドが、ミューテックスの排他所有権と共有所有権のいずれもを保持していないこと。
 
 
 ##効果
