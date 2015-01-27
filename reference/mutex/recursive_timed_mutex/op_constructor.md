@@ -11,6 +11,7 @@ recursive_timed_mutex(const recursive_timed_mutex&) = delete; // (2)
 
 ##例外
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
+
 - [`resource_unavailable_try_again`](/reference/system_error/errc.md) : native handle型の計算ができない
 - [`operation_not_permitted`](/reference/system_error/errc.md) : スレッドにこの操作を行う権限がない
 - [`device_or_resource_busy`](/reference/system_error/errc.md) : native handle型の計算がロックされている
