@@ -51,7 +51,7 @@ public:
 
     chrono::steady_clock::time_point tp = chrono::steady_clock::now();
 
-    // ロックの取得を試みる(3秒後にタイムアウト)
+    // 排他ロックの取得を試みる(3秒後にタイムアウト)
     if (!mtx_.try_lock_until(tp + std::chrono::seconds(3))) {
       // 排他ロックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
