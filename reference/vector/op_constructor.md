@@ -98,9 +98,9 @@ std::vector<int> v = {};
 
 int main()
 {
-	using vi = std::vector<int>;
-	std::list<vi, std::scoped_allocator_adaptor<std::allocator<vi>>> l;
-	l.emplace_back(10u);
+  using vi = std::vector<int>;
+  std::list<vi, std::scoped_allocator_adaptor<std::allocator<vi>>> l;
+  l.emplace_back(10u);
 }
 ```
 * list[link ../list.md]
