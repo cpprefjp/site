@@ -19,7 +19,7 @@ namespace std {
 このクラスは、デストラクタで自動的にロックを手放すことはしない。そのため、以下の補助クラスを使用して、デストラクタで自動的にロックを手放す。
 
 - [`lock_guard`](/reference/mutex/lock_guard.md)クラス／[`unique_lock`](/reference/mutex/unique_lock.md)クラス：書き込み用のロックを自動的に手放す
-- [`shared_lock`](/reference/mutex/shared_lock.md)：読み込み用のロックを自動的に手放す
+- [`shared_lock`](/reference/shared_mutex/shared_lock.md)：読み込み用のロックを自動的に手放す
 
 
 ##メンバ関数

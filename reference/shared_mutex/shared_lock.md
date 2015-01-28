@@ -9,9 +9,9 @@ namespace std {
 ##概要
 `shared_lock`は、共有ミューテックスの`lock_shared()`／`unlock_shared()`処理を、コンストラクタとデストラクタで確実に実行するためのクラスである。
 
-このクラスは、排他ロックを自動的に手放す[`lock_guard`](/reference/mutexm/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスと組み合わせて使用する。
+このクラスは、排他ロックを自動的に手放す[`lock_guard`](/reference/mutex/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスと組み合わせて使用する。
 
-- 排他ロック(書き込みロック、`lock()`／`unlock()`)を自動的に手放すために[`lock_guard`](/reference/mutexm/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスを使用する。
+- 排他ロック(書き込みロック、`lock()`／`unlock()`)を自動的に手放すために[`lock_guard`](/reference/mutex/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスを使用する。
 - 共有ロック(読み込みロック、`lock_shared()`／`unlock_shared()`)を自動的に手放すために、このクラスを使用する。
 
 このクラスは、メンバ変数で保持しているミューテックスオブジェクトを、メンバ関数のスコープでロック取得し、手放すというようにして使用する。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
