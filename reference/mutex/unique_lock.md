@@ -7,7 +7,7 @@ namespace std {
 ```
 
 ##概要
-`unique_lock`は、ミューテックスの`lock()`／`unlock()`処理をコンストラクタとデストラクタで確実に実行するためのクラスである。
+`unique_lock`は、ミューテックスの`lock()`／`unlock()`処理を、コンストラクタとデストラクタで確実に実行するためのクラスである。
 
 このクラスは通常、メンバ変数もしくはグローバル変数としてもつミューテックスオブジェクトに対し、関数内の先頭で`lock()`、関数を抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
 
