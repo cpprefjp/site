@@ -1,80 +1,67 @@
 #コンストラクタ
 ```cpp
-explicit vector(const Allocator& a = Allocator());														// C++11 まで
-vector();																								// C++14 から
-explicit vector(const Allocator& a);																	// C++14 から
-explicit vector(size_type n, const T& value = T(), const Allocator& a = Allocator());					// C++03 まで
-vector(size_type n, const T& value, const Allocator& a = Allocator());									// C++11 から
-explicit vector(size_type n);																			// C++11
-explicit vector(size_type n, const Allocator& a = Allocator());											// C++14 から
-template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator());
-vector(const vector& x);
-vector(vector&& x);																						// C++11 から
-vector(const vector& x, const Allocator& a);															// C++11 から
-vector(vector&& x, const Allocator& a);																	// C++11 から
-vector(initializer_list<T> il, const Allocator& a = Allocator());										// C++11 から
+vector();                                            // (1) C++14
+explicit vector(const Allocator& a);                 // (2) C++14
+explicit vector(const Allocator& a = Allocator());   // (1) + (2) C++03
+
+explicit vector(size_type n);                        // (3) C++11
+explicit vector(size_type n,
+                const Allocator& a = Allocator());   // (3) C++14
+
+vector(size_type n, const T& value,
+       const Allocator& a = Allocator());            // (4) C++11
+
+explicit vector(size_type n, const T& value = T(),
+                const Allocator& a = Allocator());   // (3) + (4) C++03
+
+template <class InputIter>
+vector(InputIter first, InputIter last,
+      const Allocator& a = Allocator());             // (5) C++03
+
+vector(const vector& x);                             // (6) C++03
+vector(vector&& x);                                  // (7) C++11
+vector(const vector& x, const Allocator& a);         // (8) C++11
+vector(vector&& x, const Allocator& a);              // (9) C++11
+vector(initializer_list<T> il,
+       const Allocator& a = Allocator());            // (10) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
 `vector`オブジェクトを次に示す通りの要素で初期化する。
 
+
 ##効果
 
-* `explicit vector(const Allocator& a = Allocator()); // C++11 まで`  
-    デフォルトコンストラクタ。`size() == 0` の要素を持たない空の `vector` オブジェクトを構築する。（C++11 まで）
-* `vector(); // C++14 から`  
-    デフォルトコンストラクタ。`size() == 0` の要素を持たない空の `vector` オブジェクトを構築する。（C++14 から）
-* `explicit vector(const Allocator& a); // C++14 から`  
-    アロケータを別で受け取り、`size() == 0` の要素を持たない空の `vector` オブジェクトを構築する。（C++14 から）
-* `explicit vector(size_type n, const T& value = T(), const Allocator& a = Allocator()); // C++03 まで`  
-    繰り返しシーケンスコンストラクタ。アロケータ `a` を使用して、`value` のコピーを `n` 個要素として保持した `vector` オブジェクトを構築する。（C++03 まで）
-* `vector(size_type n, const T& value, const Allocator& a = Allocator()); // C++11 から`  
-    繰り返しシーケンスコンストラクタ。アロケータ `a` を使用して、`value` のコピーを `n` 個要素として保持した `vector` オブジェクトを構築する。（C++11 から）
-* `explicit vector(size_type n); // C++11`  
-    `n` 個の `T()` で初期化された要素を保持した `vector` オブジェクトを構築する。（C++11）
-* `explicit vector(size_type n, const Allocator& a = Allocator()); // C++14 から`  
-    アロケータ `a` を使用して、`n` 個の `T()` で初期化された要素を保持した `vector` オブジェクトを構築する。（C++14 から）
-* `template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator());`  
-    イテレータ範囲コンストラクタ。アロケータ `a` を使用して、`[first, last)` の範囲を要素としてコピーした `vector` オブジェクトを構築する。
-* `vector(const vector& x);`  
-    コピーコンストラクタ。`x` と同じ要素を保持した `vector` オブジェクトを構築する。
-* `vector(vector&& x); // C++11 から`  
-    ムーブコンストラクタ。`x` の指す先を自分の領域として `vector` オブジェクトを構築する。（C++11 から）
-* `vector(const vector& x, const Allocator& a); // C++11 から`  
-    アロケータを別で受け取り、`vector` オブジェクトをコピー構築する。（C++11 から）
-* `vector(vector&& x, const Allocator& a); // C++11 から`  
-    アロケータを別で受け取り、`vector` オブジェクトをムーブ構築する。（C++11 から）
-* `vector(initializer_list<T> il, const Allocator& a = Allocator()); // C++11 から`  
-    初期化子リストを受け取るコンストラクタ。`vector(il.`[`begin`](../initializer_list/begin.md)`(), li.`[`end`](../initializer_list/end.md)`(), a)` と等価。（C++11 から）
-
-##パラメータ
-* `n`  
-    `value`の繰り返し個数。`size_type`メンバ型は符号なし整数。
-* `value`  
-    コンテナの要素として`n`個繰り返される値。`T`は1番目のテンプレートパラメータ(要素の型)。
-* `first`, `last`  
-    入力イテレータの組。`[first, last)`の範囲を全てコンテナの要素としてコピーする。
-* `x`  
-    コピー(ムーブ)元の同じテンプレートパラメータを持った`vector`オブジェクト。
-* `a`  
-    新しく生成する代わりに使用されるべき `Allocator` オブジェクト。標準の `std::`[`allocator`](../memory/allocator.md)を使う限り指定する意味は無い。
+- (1) : デフォルトコンストラクタ。`size() == 0` の要素を持たない空の `vector` オブジェクトを構築する。
+- (2) : アロケータを別で受け取り、`size() == 0` の要素を持たない空の `vector` オブジェクトを構築する。
+- (1) + (2) : デフォルトコンストラクタ。`size() == 0` の要素を持たない空の `vector` オブジェクトを構築する。
+- (3) :
+	- C++11 : `n` 個の `T()` で初期化された要素を保持した `vector` オブジェクトを構築する。
+	- C++14 : アロケータ `a` を使用して、`n` 個の `T()` で初期化された要素を保持した `vector` オブジェクトを構築する。
+- (4) : 繰り返しシーケンスコンストラクタ。アロケータ `a` を使用して、`value` のコピーを `n` 個要素として保持した `vector` オブジェクトを構築する。
+- (3) + (4) : 繰り返しシーケンスコンストラクタ。アロケータ `a` を使用して、`value` のコピーを `n` 個要素として保持した `vector` オブジェクトを構築する。
+- (5) : イテレータ範囲コンストラクタ。アロケータ `a` を使用して、`[first, last)` の範囲を要素としてコピーした `vector` オブジェクトを構築する。
+- (6) : コピーコンストラクタ。`x` と同じ要素を保持した `vector` オブジェクトを構築する。
+- (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `vector` オブジェクトを構築する。
+- (8) : アロケータを別で受け取り、`vector` オブジェクトをコピー構築する。
+- (9) : アロケータを別で受け取り、`vector` オブジェクトをムーブ構築する。
+- (10) : 初期化子リストを受け取るコンストラクタ。`vector(il.`[`begin`](../initializer_list/begin.md)`(), li.`[`end`](../initializer_list/end.md)`(), a)` と等価。
 
 
 ##計算量
-デフォルトコンストラクタは定数時間。
-
-繰り返しシーケンスコンストラクタは `n` に対して線形時間。
-
-イテレータ範囲コンストラクタは [`distance`](../iterator/distance.md)`(first, last)` に対して線形時間。`InputIter` が前方向イテレータの要件を満たさない場合はあらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。
-
-コピーコンストラクタは `x.`[`size`](size.md)`()` に対して線形時間。
-
-ムーブコンストラクタは定数時間。ただし、アロケータ `a` を引数に取る場合、`a == x.`[`get_allocator`](get_allocator.md)`()` でなければ `x.`[`size`](size.md)`()` に対して線形時間。
+- (1), (2) : 定数時間
+- (3), (4) : `n` に対して線形時間
+- (5) : [`distance`](../iterator/distance.md)`(first, last)` に対して線形時間。`InputIter` が前方向イテレータの要件を満たさない場合はあらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。
+- (6) : `x.`[`size`](size.md)`()` に対して線形時間
+- (7) : 定数時間
+- (8) : `x.`[`size`](size.md)`()` に対して線形時間
+- (9) : 定数時間。ただし、`a == x.`[`get_allocator`](get_allocator.md)`()` でなければ `x.`[`size`](size.md)`()` に対して線形時間。
+- (10) : `il.`[`size`](../initializer_list/size.md)`()` に対して線形時間
 
 
 ##備考
-- イテレータ範囲コンストラクタ `template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator())` は、C++03 までは `InputIter` が整数型の場合には `vector(static_cast<typename vector::size_type>(first), static_cast<typename vector::value_type>(last), a)` と同等とされていたが、C++11 では `InputIter` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- イテレータ範囲コンストラクタ(5) `template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator())` は、C++03 までは `InputIter` が整数型の場合には `vector(static_cast<typename vector::size_type>(first), static_cast<typename vector::value_type>(last), a)` と同等とされていたが、C++11 では `InputIter` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、`explicit vector(size_type n, const T& value = T(), const Allocator& a = Allocator())` の引数 `value` に関するデフォルト引数が削除され、新たなコンストラクタ `explicit vector(size_type n)` が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`vector` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `vector` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
 
