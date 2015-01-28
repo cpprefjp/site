@@ -131,5 +131,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+##関連項目
+- [`shared_lock`](/reference/shared_mutex/shared_lock.md) : 共有ミューテックスを自動的に手放す
 

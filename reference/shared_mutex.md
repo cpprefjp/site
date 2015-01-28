@@ -4,8 +4,8 @@
 
 | 名前                 | 説明                                   | 対応バージョン |
 |----------------------|----------------------------------------|----------------|
-| [`shared_timed_mutex`](./shared_mutex/shared_timed_mutex.md) | 共有ミューテックス(class)              | C++14 |
-| `shared_lock`        | 読み込み用のロック取得(class template) | C++14 |
+| [`shared_timed_mutex`](./shared_mutex/shared_timed_mutex.md) | 共有ミューテックス(class)                  | C++14 |
+| [`shared_lock`](./shared_mutex/shared_lock.md)               | 共有ロックを自動的に手放す(class template) | C++14 |
 
 
 ##バージョン
