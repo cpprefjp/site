@@ -46,6 +46,10 @@ basic_string(basic_string&& str, const Allocator&);      // (11) C++11
 - (11) : アロケータを受け取るムーブコンストラクタ。
 
 
+##例外
+- (10), (11) : `alloc == str.`[get_allocator()`](./get_allocator.md)の場合、例外を投げない。
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -107,5 +111,5 @@ s9 : hello
 ```
 
 ##参照
-
+- [LWG Issue 2069. Inconsistent exception spec for `basic_string` move constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2069)
 
