@@ -8,8 +8,8 @@ pointer operator->() const;
 
 
 ##戻り値
-`&(operator*())`
-
+- C++03 : `&(operator*())`
+- C++14 : [`addressof`](/reference/memory/addressof.md)`(operator*())`
 
 ##例
 ```cpp
@@ -44,5 +44,5 @@ int main()
 ```
 
 ##参照
-
+- [LWG Issue 2188. Reverse iterator does not fully support targets that overload `operator&`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2188)
 
