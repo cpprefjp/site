@@ -1,7 +1,9 @@
 #make_reverse_iterator (C++14)
 ```cpp
-template <class Iterator>
-reverse_iterator<Iterator> make_reverse_iterator(Iterator i);
+namespace std {
+  template <class Iterator>
+  reverse_iterator<Iterator> make_reverse_iterator(Iterator i);
+}
 ```
 * reverse_iterator[link ./reverse_iterator.md]
 
