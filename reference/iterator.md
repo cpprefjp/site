@@ -22,6 +22,7 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 | [`next`](./iterator/next.md) | イテレータを進める(function template)       | C++11 |
 | [`prev`](./iterator/prev.md) | イテレータを後方に進める(function template) | C++11 |
 | [`reverse_iterator`](./iterator/reverse_iterator.md) | 逆方向に進むイテレータアダプタ(class template) | |
+| [`make_reverse_iterator`](./iterator/make_reverse_iterator.md) | `reverse_iterator`オブジェクトを作るヘルパ関数(function template) | C++14 |
 | [`back_insert_iterator`](./iterator/back_insert_iterator.md) | 末尾に要素を挿入する出力イテレータアダプタ(class template) | |
 | [`front_insert_iterator`](./iterator/front_insert_iterator.md) | 先頭に要素を挿入する出力イテレータアダプタ(class template) | |
 | [`insert_iterator`](./iterator/insert_iterator.md) | 任意の位置に要素を挿入する出力イテレータアダプタ(class template) | |
