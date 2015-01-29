@@ -47,7 +47,7 @@ basic_string(basic_string&& str, const Allocator&);      // (11) C++11
 
 
 ##例外
-- (10), (11) : `alloc == str.`[get_allocator()`](./get_allocator.md)の場合、例外を投げない。
+- (11) : `alloc == str.`[get_allocator()`](./get_allocator.md)の場合、例外を投げない。
 
 
 ##例
