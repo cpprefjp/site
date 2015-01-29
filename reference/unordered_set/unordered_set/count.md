@@ -14,7 +14,8 @@ size_type count(const key_type& k) const;
 
 
 ##計算量
-平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数 [`size`](./size.md)`()` に比例（O([`size`](./size.md)`()`)）。
+平均： O(`count(k)`)  
+最悪： [`size`](size.md) について線形時間
 
 
 ##例
@@ -65,7 +66,12 @@ count of 8:0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
+
 ##参照
+- [LWG Issue 2304. Complexity of `count` in unordered associative containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2304)
+
+
+##関連項目
 
 | | |
 |-----------------------------------|--------------------------|
