@@ -1,13 +1,21 @@
 #コンストラクタ (C++11)
 ```cpp
-atomic_flag() noexcept = default;
-atomic_flag(const atomic_flag&) = delete;
+atomic_flag() noexcept = default;         // (1)
+atomic_flag(const atomic_flag&) = delete; // (2)
+atomic_flag(FOR_ATOMIC_FLAG_INIT);        // (3)
 ```
 
-##atomic_flagオブジェクトの構築
+##概要
+- (1) : デフォルトコンストラクタ。未初期化状態にする。
+- (2) : コピーコンストラクタ。コピー禁止。これにより、ムーブコンストラクタも禁止される。
+- (3) : `ATOMIC_FLAG_INIT`マクロのための特別なコンストラクタ。フラグをクリアする。
 `atomic_flag`クラスのデフォルトコンストラクタはデフォルト定義されるため、デフォルト構築では未初期化状態となる。
 
-通常は、これらのコンストラクタの他に`ATOMIC_FLAG_INIT`マクロのためのコンストラクタが定義される。このマクロを使用することで、フラグがクリアされた状態となる。
+
+##効果
+- (1) : フラグを未初期化状態にする。
+- (3) : `ATOMIC_FLAG_INIT`マクロを使用することで、フラグがクリアされた状態となる。
+	- このマクロを、静的な有効期間を持つ`atomic_flag`オブジェクトに使用した場合、その初期化は静的に行われる。
 
 
 ##例
