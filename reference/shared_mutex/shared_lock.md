@@ -34,7 +34,7 @@ namespace std {
 | [`swap`](./shared_lock/swap.md.nolink)                     | 他の`shared_lock`オブジェクトと値を入れ替える | C++14 |
 | [`release`](./shared_lock/release.md.nolink)               | ミューテックスの所有権を放棄する | C++14 |
 | [`owns_lock`](./shared_lock/owns_lock.md)           | ロックを取得しているかを判定する | C++14 |
-| [`operator bool`](./shared_lock/op_bool.md.nolink)         | 排他ロックを取得しているかを判定する | C++14 |
+| [`operator bool`](./shared_lock/op_bool.md)         | ロックを取得しているかを判定する | C++14 |
 | [`mutex`](./shared_lock/mutex.md.nolink)                   | 所有しているミューテックスオブジェクトを取得する | C++14 |
 
 
