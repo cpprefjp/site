@@ -30,7 +30,7 @@ unique_ptr& operator=(const unique_ptr&) = delete;    // (4) 単一オブジェ�
 
 ```cpp
 reset(u.release());
-d_ = std::forward<D>(u.get_deleter());
+d_ = std::forward<E>(u.get_deleter());
 ```
 * reset[link ./reset.md]
 * release[link ./release.md]
@@ -92,3 +92,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 	- Visual C++ 10.0にはnullptr_tのオーバーロードがない。
 	- Visual C++ 11.0までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
+
+##参照
+- [LWG Issue 2047. Incorrect "mixed" move-assignment semantics of `unique_ptr`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2047)
+
