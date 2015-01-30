@@ -21,6 +21,10 @@ void clear() noexcept; // C++11
 投げない
 
 
+##計算量
+- C++14 : 線形時間。全ての要素に対してデストラクタを呼び出す。
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -58,5 +62,5 @@ int main()
 
 
 ##参照
-
+- [LWG Issue 2231. DR 704 removes complexity guarantee for `clear()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2231)
 
