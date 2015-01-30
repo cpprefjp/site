@@ -42,12 +42,16 @@ int main()
     // 排他ロック取得後なので、
     // owns_lock() == true
     assert(lock.owns_lock());
+
+    lock.unlock();
   }
 }
 ```
 * owns_lock[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
+* lock()[link /reference/shared_mutex/shared_timed_mutex/lock.md]
+* unlock()[link /reference/shared_mutex/shared_timed_mutex/unlock.md]
 
 ###出力
 ```

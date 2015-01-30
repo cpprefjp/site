@@ -58,6 +58,8 @@ int main()
     else {
       assert(false);
     }
+
+    lock.unlock();
   }
 }
 ```
@@ -65,6 +67,8 @@ int main()
 * if (!lock)[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
+* lock()[link /reference/shared_mutex/shared_timed_mutex/lock.md]
+* unlock()[link /reference/shared_mutex/shared_timed_mutex/unlock.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
