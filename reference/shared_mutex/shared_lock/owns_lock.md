@@ -4,11 +4,11 @@ bool owns_lock() const noexcept;
 ```
 
 ##概要
-ロックを取得しているかを確認する。
+共有ロックを取得しているかを確認する。
 
 
 ##戻り値
-排他ロックか共有ロック、いずれかが取得済みであれば`true`、そうでなければ`false`を返す。
+共有ロックを取得済みであれば`true`、そうでなければ`false`を返す。
 
 
 ##例外
@@ -29,7 +29,8 @@ int main()
     // コンストラクタで共有ロックが取得されるので、
     // owns_lock() == true
     assert(lock.owns_lock());
-  }
+  } // 共有ロックを手放す(shared_lockのデストラクタ)
+  
   {
     std::shared_lock<std::shared_timed_mutex> lock(mtx, std::defer_lock);
     
@@ -39,12 +40,10 @@ int main()
 
     lock.lock();
 
-    // 排他ロック取得後なので、
+    // 共有ロック取得後なので、
     // owns_lock() == true
     assert(lock.owns_lock());
-
-    lock.unlock();
-  }
+  } // 共有ロックを手放す(shared_lockのデストラクタ)
 }
 ```
 * owns_lock[color ff0000]

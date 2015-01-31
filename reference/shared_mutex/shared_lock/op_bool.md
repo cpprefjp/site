@@ -4,12 +4,11 @@ explicit operator bool() const noexcept;
 ```
 
 ##概要
-ロックを取得しているかを確認する
+共有ロックを取得しているかを確認する
 
 
 ##戻り値
-排他ロックか共有ロック、いずれかが取得済みであれば`true`、そうでなければ`false`を返す。
-
+共有ロックを取得済みであれば`true`、そうでなければ`false`を返す。
 
 ##例外
 投げない
@@ -35,7 +34,8 @@ int main()
     else {
       assert(false);
     }
-  }
+  } // 共有ロックを手放す(shared_lockのデストラクタ)
+
   {
     std::shared_lock<std::shared_timed_mutex> lock(mtx, std::defer_lock);
     
@@ -50,7 +50,7 @@ int main()
 
     lock.lock();
 
-    // 排他ロック取得後なので、
+    // 共有ロック取得後なので、
     // boolへの変換はtrueとなる
     if (lock) {
       std::cout << "locked" << std::endl;
@@ -58,9 +58,7 @@ int main()
     else {
       assert(false);
     }
-
-    lock.unlock();
-  }
+  } // 共有ロックを手放す(shared_lockのデストラクタ)
 }
 ```
 * if (lock)[color ff0000]
