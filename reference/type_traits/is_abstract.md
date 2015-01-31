@@ -19,7 +19,9 @@ namespace std {
 
 
 ##備考
-抽象クラスは、少なくとも一つの純粋仮想関数を持つクラスである。
+抽象クラスとは、少なくとも一つの純粋仮想関数を持つクラスである。
+
+抽象クラスそれ自体はインスタンス化できず、そのクラス派生して純粋仮想関数をオーバーライドし、その派生したクラスをインスタンス化しなければならない。
 
 
 ##例
@@ -27,7 +29,7 @@ namespace std {
 #include <type_traits>
 
 struct abstract_class {
-  virtual void member() = 0;             // 純粋仮想関数を持つ
+  virtual void member() = 0; // 純粋仮想関数を持つ
 };
 class non_abstract_class{};
 
