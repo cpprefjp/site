@@ -30,18 +30,18 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 
 | 名前                     | 説明                                       | 対応バージョン |
 |--------------------------|--------------------------------------------|----------------|
-| `rdstate`                | 状態ビットを読み取る                       |                |
-| `clear`                  | 状態ビットの初期化                         |                |
-| `setstate`               | 状態ビットの設定                           |                |
-| `good`                   | 正常状態であるか否かの判定                 |                |
-| `eof`                    | eof状態であるか否かの判定                  |                |
-| `fail`                   | fail状態であるか否かの判定                 |                |
-| `bad`                    | bad状態であるか否かの判定                  |                |
-| `explicit operator bool` | 正常状態であるか否かの判定                 | C++11          |
-| `operator!`              | 異常状態であるか否かの判定                 |                |
+| [`rdstate`](basic_ios/rdstate.md)                | 状態ビットを読み取る                       |                |
+| [`clear`](basic_ios/clear.md)                    | 状態ビットの初期化                         |                |
+| [`setstate`](basic_ios/setstate.md)              | 状態ビットの設定                           |                |
+| [`good`](basic_ios/good.md)                      | 正常状態であるか否かの判定                 |                |
+| [`eof`](basic_ios/eof.md)                        | eof状態であるか否かの判定                  |                |
+| [`fail`](basic_ios/fail.md)                      | fail状態であるか否かの判定                 |                |
+| [`bad`](basic_ios/bad.md)                        | bad状態であるか否かの判定                  |                |
+| [`explicit operator bool`](basic_ios/op_bool.md) | 正常状態であるか否かの判定                 | C++11          |
+| [`operator!`](basic_ios/op_not.md)               | 異常状態であるか否かの判定                 |                |
 | `exceptions`             | 特定の状態時に例外を投げる指定の設定・取得 |                |
 
-C++03までは、`explicit operator bool`関数の代わりに同じ機能を持つ`operator void*`関数が存在した。
+C++03までは、`explicit operator bool`関数の代わりに、同じ機能を持つ`operator void*`関数が存在した。
 
 ###ストリームバッファ
 
