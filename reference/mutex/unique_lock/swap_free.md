@@ -11,7 +11,10 @@ namespace std {
 
 
 ##効果
-`x.`[`swap`](./swap.md)`(y);`
+```cpp
+x.swap(y);
+```
+* swap[link ./swap.md]
 
 
 ##戻り値

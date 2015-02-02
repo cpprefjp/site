@@ -8,9 +8,13 @@
 
 
 ##効果
-`if (`[`owns_lock()`](./owns_lock.md)`) {` 
-`  pm->unlock();` 
-`}` 
+```
+if (owns_lock()) {
+  pm->unlock();
+}
+```
+* owns_lock()[link ./owns_lock.md]
+
 ※`pm`はメンバ変数として保持している、ミューテックスオブジェクトへのポインタ
 
 
