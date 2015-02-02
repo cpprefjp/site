@@ -25,7 +25,7 @@ namespace std {
 
 `u`は実部の値、`v`は虚部の値である。
 
-読み込みに失敗した場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md.nolink)`(`[`ios_base`](/reference/ios/ios_base.md)`::failbit)`が呼び出される。
+読み込みに失敗した場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base`](/reference/ios/ios_base.md)`::failbit)`が呼び出される。
 
 
 ##例

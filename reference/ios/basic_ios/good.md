@@ -34,6 +34,6 @@ bool good() const {
     - [`rdstate`](rdstate.md)
     - `good`（この関数）
     - [`eof`](eof.md)
-    - [`fail`](faild.md)
+    - [`fail`](fail.md)
     - [`bad`](bad.md)
     - [`explicit operator bool`](op_bool.md)

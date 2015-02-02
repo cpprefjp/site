@@ -19,7 +19,7 @@ namespace std {
 	- 次に読み込む文字が`is.widen('0')`と`is.widen('1')`のどちらでもなかった。
 2. 読み込んだ文字列`str`を`bitset`のコンストラクタに渡して構築し、`x`に代入する：`x = bitset<N>(str);`
 
-`str`に1文字も入力が行われなかった場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md.nolink)`(`[`ios_base`](/reference/ios/ios_base.md)`::failbit)`が呼び出される。
+`str`に1文字も入力が行われなかった場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base`](/reference/ios/ios_base.md)`::failbit)`が呼び出される。
 
 ##戻り値
 `is`
