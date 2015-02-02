@@ -55,6 +55,15 @@ int main()
 }
 ```
 * is_partitioned[color ff0000]
+* iostream[link ../iostream.md]
+* vector[link ../vector.md]
+* algorithm[link ../algorithm.md]
+* partition[link partition.md]
+* for_each[link for_each.md]
+* begin[link ../vector/begin.md]
+* end[link ../vector/end.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 ###出力
 ```
@@ -72,9 +81,12 @@ partitioned
 template <class InputIterator, class Predicate>
 bool is_partitioned(InputIterator first, InputIterator last, Predicate pred)
 {
-  return std::none_of(std::find_if_not(first, last, pred), last, pred);
+  first = std::find_if_not(first, last, pred);
+  return (first == last) || std::none_of(++first, last, pred);
 }
 ```
+* none_of[link none_of.md]
+* find_if_not[link find_if_not.md]
 
 
 ##バージョン
@@ -88,8 +100,3 @@ bool is_partitioned(InputIterator first, InputIterator last, Predicate pred)
 - [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
-
-
-##参照
-
-
