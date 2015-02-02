@@ -64,10 +64,6 @@ namespace std {
 ###言語
 - C++14
 
-##バージョン
-###言語
-- C++14
-
 ###処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
