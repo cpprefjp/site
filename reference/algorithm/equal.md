@@ -11,11 +11,11 @@ namespace std {
 
   template <class InputIterator1, class InputIterator2>
   bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2, InputIterator2 last2);							// C++14 から
+             InputIterator2 first2, InputIterator2 last2);                          // C++14 から
 
   template <class InputIterator1, class InputIterator2, class BinaryPredicate>
   bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2, InputIterator2 last2, BinaryPredicate pred);	// C++14 から
+             InputIterator2 first2, InputIterator2 last2, BinaryPredicate pred);    // C++14 から
 }
 ```
 
@@ -135,3 +135,9 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1,
 ```
 * equal_to[link ../functional/equal_to.md]
 * iterator_traits[link ../iterator/iterator_traits.md]
+
+
+##参照
+- [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
+    - C++14から追加された、`last2`を受け取るオーバーロードの提案文書
+
