@@ -43,6 +43,14 @@ int main()
 }
 ```
 * includes[color ff0000]
+* iostream[link ../iostream.md]
+* set[link ../set.md]
+* algorithm[link ../algorithm.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
+* boolalpha[link ../ios/boolalpha.md]
+* begin[link ../set/set/begin.md]
+* end[link ../set/set/end.md]
 
 ###出力
 ```
@@ -51,3 +59,30 @@ false
 ```
 
 
+##実装例
+```cpp
+template <class InputIterator1, class InputIterator2>
+bool includes(InputIterator1 first1, InputIterator1 last1,
+              InputIterator2 first2, InputIterator2 last2)
+{
+  for (; first2 != last2; ++first1)
+    if (first1 == last1 || *first2 < *first1)
+      return false;
+    else if (!(*first1 < *first2))
+      ++first2;
+  return true;
+}
+
+template <class InputIterator1, class InputIterator2, class Compare>
+bool includes(InputIterator1 first1, InputIterator1 last1,
+              InputIterator2 first2, InputIterator2 last2,
+              Compare comp)
+{
+  for (; first2 != last2; ++first1)
+    if (first1 == last1 || *first2 < *first1)
+      return false;
+    else if (!bool(comp(*first1 < *first2)))
+      ++first2;
+  return true;
+}
+```
