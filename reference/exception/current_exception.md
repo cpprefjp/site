@@ -19,6 +19,12 @@ namespace std {
 投げない
 
 
+##備考
+この関数は、`catch`節で使用すれば、処理中の例外オブジェクトへの例外ポインタを取得できる。
+
+ただし、例外送出によるスタック巻き戻し中は、取得できないので注意。(スタック巻き戻し中とは、`try`ブロック中で定義されたオブジェクトのデストラクタのこと)
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -69,5 +75,5 @@ terminate called after throwing an instance of 'std::runtime_error'
 
 
 ##参照
-
+- [Can I use `std::current_exception` during stack unwinding? - StackOverflow](http://stackoverflow.com/questions/28267484/can-i-use-stdcurrent-exception-during-stack-unwinding)
 
