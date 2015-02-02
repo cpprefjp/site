@@ -95,32 +95,16 @@ bool equal(InputIterator1 first1, InputIterator1 last1,
   return true;
 }
 
-template<class RandomAccessIterator1, class RandomAccessIterator2>
-bool equal_impl(RandomAccessIterator1 first1, RandomAccessIterator1 last1,
-                RandomAccessIterator2 first2, RandomAccessIterator2 last2,
-                random_accesss_iterator_tag, random_accesss_iterator_tag) {
-  if (last1 - first1 != last2 - first2)
-    return false;
-  return equal(first1, last, first2);
-}
+#if __cplusplus >= 201402L
 
 template<class RandomAccessIterator1, class RandomAccessIterator2, class BinaryPredicate>
-bool equal_impl(RandomAccessIterator1 first1, RandomAccessIterator1 last1,
-                RandomAccessIterator2 first2, RandomAccessIterator2 last2, BinaryPredicate pred,
-                random_accesss_iterator_tag, random_accesss_iterator_tag) {
+inline bool equal_impl(RandomAccessIterator1 first1, RandomAccessIterator1 last1,
+                       RandomAccessIterator2 first2, RandomAccessIterator2 last2,
+                       BinaryPredicate pred,
+                       random_access_iterator_tag, random_access_iterator_tag) {
   if (last1 - first1 != last2 - first2)
     return false;
-  return equal(first1, last1, first2, pred);
-}
-
-template<class InputIterator1, class InputIterator2>
-bool equal_impl(InputIterator1 first1, InputIterator1 last1,
-                InputIterator2 first2, InputIterator2 last2,
-                input_iterator_tag, input_iterator_tag) {
-  for ( ; first1 != last1 && first2 != last2; ++first1, ++first2)
-    if (!bool(*first1 == *first2))
-      return false;
-  return first1 == last1 && first2 == last2;
+  return std::equal(first1, last1, first2, pred);
 }
 
 template<class InputIterator1, class InputIterator2, class BinaryPredicate>
@@ -133,20 +117,21 @@ bool equal_impl(InputIterator1 first1, InputIterator1 last1,
   return first1 == last1 && first2 == last2;
 }
 
-template<class InputIterator1, class InputIterator2>
-bool equal(InputIterator1 first1, InputIterator1 last1,
-           InputIterator2 first2, InputIterator2 last2) {
-  return equal_impl(first1, last1, first2, last2,
-                    iterator_traits<InputIterator1>::iterator_category(),
-                    iterator_traits<InputIterator2>::iterator_category());
+template<class InputIterator1, class InputIterator2, class BinaryPredicate>
+inline bool equal(InputIterator1 first1, InputIterator1 last1,
+                  InputIterator2 first2, InputIterator2 last2, BinaryPredicate pred) {
+  return equal_impl(first1, last1, first2, last2, pred,
+                    typename iterator_traits<InputIterator1>::iterator_category(),
+                    typename iterator_traits<InputIterator2>::iterator_category());
 }
 
-template<class InputIterator1, class InputIterator2, class BinaryPredicate>
-bool equal(InputIterator1 first1, InputIterator1 last1,
-           InputIterator2 first2, InputIterator2 last2, BinaryPredicate pred) {
-  return equal_impl(first1, last1, first2, last2, pred,
-                    iterator_traits<InputIterator1>::iterator_category(),
-                    iterator_traits<InputIterator2>::iterator_category());
+template<class InputIterator1, class InputIterator2>
+inline bool equal(InputIterator1 first1, InputIterator1 last1,
+                  InputIterator2 first2, InputIterator2 last2) {
+  return std::equal(first1, last1, first2, last2, equal_to<>());
 }
+
+#endif
 ```
+* equal_to[link ../functional/equal_to.md]
 * iterator_traits[link ../iterator/iterator_traits.md]
