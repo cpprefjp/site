@@ -8,7 +8,7 @@
 
 
 ##効果
-```
+```cpp
 if (owns_lock()) {
   pm->unlock();
 }

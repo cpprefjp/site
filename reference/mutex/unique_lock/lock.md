@@ -8,7 +8,7 @@ void lock();
 
 
 ##効果
-```
+```cpp
 pm->lock();
 ```
 
