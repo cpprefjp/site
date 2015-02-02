@@ -11,6 +11,7 @@ namespace std {
 
 ##戻り値
 現在処理中の例外オブジェクトを指す`exception_ptr`を返す。
+
 処理中の例外オブジェクトがない場合は、ヌルを指す`exception_ptr`を返す。
 
 
