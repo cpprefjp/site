@@ -1,39 +1,36 @@
 #operator=
 ```cpp
-vector& operator=(const vector& x);
-vector& operator=(vector&& x);          // C++11から
-vector& operator=(initializer_list<T>); // C++11から
+vector& operator=(const vector& x);     // (1) C++03
+vector& operator=(vector&& x);          // (2) C++11
+vector& operator=(initializer_list<T>); // (3) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-- `vector& operator=(const vector& x);`
-
-要件：型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること。
-
-効果：同じテンプレートパラメータを持つ`vector`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
-
-事後条件：`*this == x`
+- (1) : コピー代入
+- (2) : ムーブ代入
+- (3) : 初期化子リストの代入
 
 
-- `vector& operator=(vector&& x);`
-
-効果：同じテンプレートパラメータを持つ`vector`クラスのオブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
-
-事後条件：`*this`は元々の`x`と等値となる
+##要件
+- (1) : 要件：型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること。
+- (3) : 型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること。
 
 
-- `vector& operator=(initializer_list<T> x);`
-
-要件：型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること。
-
-効果：同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
-
-事後条件：`*this == x`
+##効果
+- (1) : 同じテンプレートパラメータを持つ`vector`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+- (2) : 同じテンプレートパラメータを持つ`vector`クラスのオブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
+- (3) : 同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
 
 
 ##戻り値
 `*this`
+
+
+##事後条件
+- (1) : `*this == x`
+- (2) : `*this`は元々の`x`と等値となる
+- (3) : `*this == x`
 
 
 ##計算量
