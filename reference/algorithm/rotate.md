@@ -2,9 +2,14 @@
 ```cpp
 namespace std {
   template <class ForwardIterator>
+  void rotate(ForwardIterator first,
+              ForwardIterator middle,
+              ForwardIterator last);				// C++03 まで
+
+  template <class ForwardIterator>
   ForwardIterator rotate(ForwardIterator first,
                          ForwardIterator middle,
-                         ForwardIterator last);
+                         ForwardIterator last);		// C++11 から
 }
 ```
 
@@ -23,7 +28,10 @@ namespace std {
 
 
 ##戻り値
-`first + (last - middle)`
+- C++03 まで  
+	無し
+- C++11 から  
+	`first + (last - middle)`
 
 
 ##備考
@@ -49,6 +57,13 @@ int main() {
 }
 ```
 * rotate[color ff0000]
+* algorithm[link ../algorithm.md]
+* iostream[link ../iostream.md]
+* string[link ../string.md]
+* begin[link ../string/basic_string/begin.md]
+* end[link ../string/basic_string/end.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 ###出力
 ```
@@ -90,12 +105,25 @@ void swap(Elem& lhs, Elem& rhs)
 
 int main()
 {
-    std::string str("012345");
-    seq.assign(str.begin(), str.end());
+    char str[] = "012345";
+    seq.assign(str, str + sizeof(str) - 1);
     std::rotate(seq.begin(), seq.begin() + 2, seq.end());
 }
 ```
 * rotate[color ff0000]
+* algorithm[link ../algorithm.md]
+* iostream[link ../iostream.md]
+* vector[link ../vector.md]
+* iterator[link ../iterator.md]
+* utility[link ../utility.md]
+* begin[link ../vector/begin.md]
+* end[link ../vector/end.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
+* ostream_iterator[link ../iterator/ostream_iterator.md]
+* copy[link copy.md]
+* assign[link ../vector/assign.md]
+* swap[link ../utility/swap.md]
 
 ####出力例
 ```
@@ -115,3 +143,7 @@ swapping 0x1806043(1) <-> 0x1806045(5)
 ##実装例
 [std::rotate を読んでみた](http://www.kmonos.net/wlog/115.html#_0007101223)
 
+
+##参照
+- [LWG DR488. rotate throws away useful information](http://cplusplus.github.io/LWG/lwg-defects.html#488)  
+	戻り値が追加されるきっかけとなったレポート
