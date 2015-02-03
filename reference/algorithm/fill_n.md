@@ -2,7 +2,10 @@
 ```cpp
 namespace std {
   template <class OutputIterator, class Size, class T>
-  OutputIterator fill_n(OutputIterator first, Size n, const T& value);
+  void fill_n(OutputIterator first, Size n, const T& value);			// C++03 まで
+
+  template <class OutputIterator, class Size, class T>
+  OutputIterator fill_n(OutputIterator first, Size n, const T& value);	// C++11 から
 }
 ```
 
@@ -20,7 +23,10 @@ namespace std {
 
 
 ##戻り値
-`n` が 1 以上の場合は `first + n`、そうでない場合は `first` を返す。
+- C++03 まで  
+	無し
+- C++11 から  
+	`n` が 1 以上の場合は `first + n`、そうでない場合は `first` を返す。
 
 
 ##計算量
@@ -39,6 +45,11 @@ int main() {
 }
 ```
 * fill_n[color ff0000]
+* algorithm[link ../algorithm.md]
+* iostream[link ../iostream.md]
+* iterator[link ../iterator.md]
+* ostream_iterator[link ../iterator/ostream_iterator.md]
+* cout[link ../iostream/cout.md]
 
 ###出力
 ```
@@ -49,10 +60,21 @@ int main() {
 ##実装例
 ```cpp
 template <class OutputIterator, class Size, class T>
-OutputIterator fill_n(OutputIterator first, Size n, const T& value) {
+#if __cplusplus >= 201103L
+OutputIterator
+#else
+void
+#endif
+fill_n(OutputIterator first, Size n, const T& value) {
   while (n-- > 0)
     *first++ = value;
+#if __cplusplus >= 201103L
   return first;
+#endif
 }
 ```
 
+
+##参照
+- [LWG DR865. More algorithms that throw away information](http://cplusplus.github.io/LWG/lwg-defects.html#865)  
+	戻り値が追加されるきっかけとなったレポート

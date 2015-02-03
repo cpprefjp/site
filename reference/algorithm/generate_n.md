@@ -2,7 +2,10 @@
 ```cpp
 namespace std {
   template <class OutputIterator, class Size, class Generator>
-  OutputIterator generate_n(OutputIterator first, Size n, Generator gen);
+  void generate_n(OutputIterator first, Size n, Generator gen);				// C++03 まで
+
+  template <class OutputIterator, class Size, class Generator>
+  OutputIterator generate_n(OutputIterator first, Size n, Generator gen);	// C++11 から
 }
 ```
 
@@ -22,9 +25,11 @@ namespace std {
 
 
 ##戻り値
-`n` が 1 以上の場合、`first + n` が返される。
-
-そうでない場合、`first` が返される。
+- C++03 まで  
+	無し
+- C++11 から  
+	`n` が 1 以上の場合、`first + n` が返される。  
+	そうでない場合、`first` が返される。
 
 
 ##計算量
@@ -47,6 +52,11 @@ int main() {
 }
 ```
 * generate_n[color ff0000]
+* algorithm[link ../algorithm.md]
+* iostream[link ../iostream.md]
+* iterator[link ../iterator.md]
+* ostream_iterator[link ../iterator/ostream_iterator.md]
+* cout[link ../iostream/cout.md]
 
 ###出力
 ```
@@ -57,9 +67,21 @@ int main() {
 ##実装例
 ```cpp
 template <class OutputIterator, class Size, class Generator>
-OutputIterator generate_n(OutputIterator first, Size n, Generator gen) {
+#if __cplusplus >= 201103L
+OutputIterator
+#else
+void
+#endif
+generate_n(OutputIterator first, Size n, Generator gen) {
   while (n-- > 0)
     *first++ = gen();
+#if __cplusplus >= 201103L
+  return first;
+#endif
 }
 ```
 
+
+##参照
+- [LWG DR865. More algorithms that throw away information](http://cplusplus.github.io/LWG/lwg-defects.html#865)  
+	戻り値が追加されるきっかけとなったレポート
