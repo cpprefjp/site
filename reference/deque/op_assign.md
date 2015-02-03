@@ -1,17 +1,21 @@
 #operator=
 ```cpp
-deque& operator=(const deque& x);
-
-// C++11から
-deque& operator=(deque&& y);
-deque& operator=(initializer_list<T> init);
+deque& operator=(const deque& x);           // (1) C++03
+deque& operator=(deque&& y);                // (2) C++11
+deque& operator=(initializer_list<T> init); // (3) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-- `deque& operator=(const deque& x);`<br/>同じテンプレートパラメータを持つ`deque`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
-- `deque& operator=(deque&& y);`<br/>同じテンプレートパラメータを持つ`deque`クラスのオブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
-- `deque& operator=(`[`initializer_list`](/reference/initializer_list.md)`<T> init);`<br/>同じ要素型を持つ[`initializer_list`](/reference/initializer_list.md)クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+- (1) : コピー代入
+- (2) : ムーブ代入
+- (3) : 初期化子リストの代入
+
+
+##効果
+- (1) : 同じテンプレートパラメータを持つ`deque`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+- (2) : 同じテンプレートパラメータを持つ`deque`クラスのオブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
+- (3) : 同じ要素型を持つ[`initializer_list`](/reference/initializer_list.md)クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
 
 
 ##戻り値
