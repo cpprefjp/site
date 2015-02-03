@@ -49,7 +49,7 @@ true
 
 
 ##実装例
-```
+```cpp
 template <class InputIterator, class Predicate>
 bool any_of(InputIterator first, InputIterator last, Predicate pred) {
   for ( ; first != last; ++first)
