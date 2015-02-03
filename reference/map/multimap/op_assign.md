@@ -1,42 +1,35 @@
 #operator=
 ```cpp
-multimap<Key,T,Compare,Allocator>& operator=(const multimap<Key,T,Compare,Allocator>& x);
-
-// since C++11
-multimap<Key,T,Compare,Allocator>& operator=(multimap<Key,T,Compare,Allocator>&& y);
-
-// since C++11
-multimap& operator=(initializer_list<value_type> init);
+multimap& operator=(const multimap& x);                 // (1) C++03
+multimap& operator=(multimap&& y);                      // (2) C++11
+multimap& operator=(initializer_list<value_type> init); // (3) C++11
 ```
 
 ##概要
-- `multimap<Key,T,Compare,Allocator>& operator=(const multimap<Key,T,Compare,Allocator>& x)`<br/>`x`に格納されている要素のコピーをコンテナの新しい要素とする。<br/>この呼び出しの前に格納されていた要素は取り除かれ、`x` に格納されている要素のそれぞれのコピーによって置き換えられる。<br/>このメンバ関数の呼び出しの後、`multimap` オブジェクトと `x` は同じサイズになり、比較すると互いに等しくなる。
-- `multimap<Key,T,Compare,Allocator>& operator=(multimap<Key,T,Compare,Allocator>&& y)`<br/>`y` に格納されている要素をムーブしてコンテナの新しい要素とする。<br/>この呼び出しの前に格納されていた要素は取り除かれ、`y` に格納されていた要素がムーブされることで置き換えられる。
-- `multimap& operator=(initializer_list<value_type> init)`<br/>`init` で指定した要素をコンテナの新しい要素とする。<br/>この呼び出しの前に格納されていた要素は取り除かれ、`init` で指定した要素によって置き換える
+- (1) : コピー代入
+- (2) : ムーブ代入
+- (3) : 初期化子リストの代入
 
 
-##パラメータ
-- `x`<br/>
-コンテンツのコピー元となる、テンプレートパラメータ(`Key, T, Compare, Allocator`)が同じ `multimap` オブジェクト。 
-
-- `y`<br/>
-コンテンツのムーブ元となる、テンプレートパラメータ(`Key, T, Compare, Allocator`)が同じ `multimap` オブジェクト。 
-
-- `init`<br/>
-メンバ型 `value_type` と同じ型の `initializer_list`。
+##効果
+- (1) : 同じテンプレートパラメータを持つ`multimap`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+- (2) : 同じテンプレートパラメータを持つ`multimap`クラスのオブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
+- (3) : 同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
 
 
 ##戻り値
 `*this`
 
 
-##計算量
-- `multimap<Key,T,Compare,Allocator>& operator=(const multimap<Key,T,Compare,Allocator>& x)`
-- `multimap& operator=(initializer_list<value_type> init)`
-`x` または `init` の要素数に対して線形時間。 
+##事後条件
+- (1) : `*this == x`
+- (2) : `*this`は元々の`x`と等値となる
+- (3) : `*this == x`
 
-- `multimap<Key,T,Compare,Allocator>& operator=(multimap<Key,T,Compare,Allocator>&& y)`
-定数時間。
+
+##計算量
+- (1), (3) : `x` または `init` の要素数に対して線形時間。 
+- (2) : 定数時間。
 
 
 ##例

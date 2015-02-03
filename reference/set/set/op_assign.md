@@ -1,41 +1,31 @@
 #operator=
 ```cpp
-set& operator=(const set& x);
-
-// since C++11
-set& operator=(set&& y);
-
-// since C++11
-set& operator=(initializer_list<value_type> init);
+set& operator=(const set& x);                      // (1) C++03
+set& operator=(set&& x);                           // (2) C++11
+set& operator=(initializer_list<value_type> init); // (3) C++11
 ```
 *initializer_list[link ../../initializer_list.md]
 
 ##概要
-- `set& operator=(const set& x)`  
-	`x`に格納されている要素のコピーをコンテナの新しい要素とする。  
-	この呼び出しの前に格納されていた要素は取り除かれ、`x` に格納されている要素のそれぞれのコピーによって置き換えられる。  
-	このメンバ関数の呼び出しの後、`set` オブジェクトと `x` は同じサイズになり、比較すると互いに等しくなる。
-- `set& operator=(set&& y)`  
-	`y` に格納されている要素をムーブしてコンテナの新しい要素とする。  
-	この呼び出しの前に格納されていた要素は取り除かれ、`y` に格納されていた要素がムーブされることで置き換えられる。
-- `set& operator=(initializer_list<value_type> init)`  
-	`init` で指定した要素をコンテナの新しい要素とする。  
-	この呼び出しの前に格納されていた要素は取り除かれ、`init` で指定した要素によって置き換える。
+- (1) : コピー代入
+- (2) : ムーブ代入
+- (3) : 初期化子リストの代入
 
 
-##パラメータ
-- `x`  
-	コンテンツのコピー元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。
-
-- `y`  
-	コンテンツのムーブ元となる、テンプレートパラメータ(`Key, Compare, Allocator`)が同じ `set` オブジェクト。
-
-- `init`  
-	メンバ型 `value_type` と同じ型の `initializer_list`。
+##効果
+- (1) : 同じテンプレートパラメータを持つ `set` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
+- (2) : 同じテンプレートパラメータを持つ `set` クラスのオブジェクトをムーブ代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にムーブされる。
+- (3) : 同じテンプレートパラメータを持つ `initializer_list` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
 
 
 ##戻り値
 `*this`
+
+
+##事後条件
+- (1) : `*this == x`
+- (2) : `*this`は元々の`x`と等値となる
+- (3) : `*this == x`
 
 
 ##計算量
