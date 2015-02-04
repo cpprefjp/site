@@ -45,7 +45,7 @@ unique_lock(unique_lock&& u) noexcept;                            // (9)
 - (5) : ロック取得済みのミューテックスオブジェクトへの参照を受け取り、ロック取得操作を呼び出さない。ミューテックスオブジェクトへのポインタを保持する。
 - (6) : ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_until(abs_time)`を呼び出す。ミューテックスオブジェクトへのポインタを保持する。
 - (7) : ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_for(rel_time)`を呼び出す。ミューテックスオブジェクトへのポインタを保持する。
-- (8) : ムーブコンストラクタ。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](./owns_lock.md)の状態を`u`から移動する。
+- (9) : ムーブコンストラクタ。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](./owns_lock.md)の状態を`u`から移動する。
 
 
 ##事後条件
@@ -56,7 +56,7 @@ unique_lock(unique_lock&& u) noexcept;                            // (9)
 - (5) : [`owns_lock()`](./owns_lock.md)` == true`
 - (6) : [`owns_lock()`](./owns_lock.md)` == m.try_lock_until(abs_time)`
 - (7) : [`owns_lock()`](./owns_lock.md)` == m.try_lock_for(rel_time)`
-- (8) : `u`はミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](./owns_lock.md)` == false`となる。
+- (9) : `u`はミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](./owns_lock.md)` == false`となる。
 
 
 ##例
