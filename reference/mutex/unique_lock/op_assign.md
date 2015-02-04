@@ -2,7 +2,7 @@
 ```cpp
 unique_lock& operator=(const unique_lock&) = delete; // (1) C++11
 unique_lock& operator=(unique_lock&& u) noexcept;    // (2) C++11
-unique_lock& operator=(unique_lock&& u);             // (3) C++14
+unique_lock& operator=(unique_lock&& u);             // (2) C++14
 ```
 
 ##概要
