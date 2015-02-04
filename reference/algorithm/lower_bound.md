@@ -73,38 +73,38 @@ template<class ForwardIterator, class T>
 ForwardIterator
 lower_bound(ForwardIterator first, ForwardIterator last, const T& value)
 {
-    typedef typename std::iterator_traits<ForwardIterator>::difference_type diff;
-    for (diff len = std::distance(first, last); len != 0; ) {
-        diff half = len / 2;
-        ForwardIterator mid = first;
-        std::advance(mid, half);
-        if (*mid < value) {
-            len -= half + 1;
-            first = ++mid;
-        } else {
-            len = half;
-        }
+  typedef typename std::iterator_traits<ForwardIterator>::difference_type diff;
+  for (diff len = std::distance(first, last); len != 0; ) {
+    diff half = len / 2;
+    ForwardIterator mid = first;
+    std::advance(mid, half);
+    if (*mid < value) {
+      len -= half + 1;
+      first = ++mid;
+    } else {
+      len = half;
     }
-    return first;
+  }
+  return first;
 }
 
 template<class ForwardIterator, class T, class Compare>
 ForwardIterator
 lower_bound(ForwardIterator first, ForwardIterator last, const T& value, Compare comp)
 {
-    typedef typename std::iterator_traits<ForwardIterator>::difference_type diff;
-    for (diff len = std::distance(first, last); len != 0; ) {
-        diff half = len / 2;
-        ForwardIterator mid = first;
-        std::advance(mid, half);
-        if (comp(*mid, value)) {
-            len -= half + 1;
-            first = ++mid;
-        } else {
-            len = half;
-        }
+  typedef typename std::iterator_traits<ForwardIterator>::difference_type diff;
+  for (diff len = std::distance(first, last); len != 0; ) {
+    diff half = len / 2;
+    ForwardIterator mid = first;
+    std::advance(mid, half);
+    if (comp(*mid, value)) {
+      len -= half + 1;
+      first = ++mid;
+    } else {
+      len = half;
     }
-    return first;
+  }
+  return first;
 }
 ```
 * distance[link ../iterator/distance.md]
