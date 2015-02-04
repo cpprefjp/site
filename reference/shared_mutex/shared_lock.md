@@ -32,7 +32,7 @@ namespace std {
 | [`try_lock_until`](./shared_lock/try_lock_until.md) | タイムアウトする絶対時間を指定して共有ロックの取得を試みる | C++14 |
 | [`unlock`](./shared_lock/unlock.md)                 | 共有ロックを手放す | C++14 |
 | [`swap`](./shared_lock/swap.md.nolink)                     | 他の`shared_lock`オブジェクトと値を入れ替える | C++14 |
-| [`release`](./shared_lock/release.md.nolink)               | ミューテックスの所有権を放棄する | C++14 |
+| [`release`](./shared_lock/release.md)               | ミューテックスの所有権を放棄する | C++14 |
 | [`owns_lock`](./shared_lock/owns_lock.md)           | ロックを取得しているかを判定する | C++14 |
 | [`operator bool`](./shared_lock/op_bool.md)         | ロックを取得しているかを判定する | C++14 |
 | [`mutex`](./shared_lock/mutex.md)                   | 所有しているミューテックスオブジェクトを取得する | C++14 |
