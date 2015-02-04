@@ -30,9 +30,8 @@ O(log(`last - first`)) のオーダーで `pred` が適用される。
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-void print(const std::string& name, const std::vector<int>& v)
+void print(const char* name, const std::vector<int>& v)
 {
   std::cout << name << " : ";
   std::for_each(v.begin(), v.end(), [](int x) {
@@ -57,6 +56,15 @@ int main()
 }
 ```
 * partition_point[color ff0000]
+* vector[link ../vector.md]
+* iostream[link ../iostream.md]
+* algorithm[link ../algorithm.md]
+* for_each[link for_each.md]
+* begin[link ../vector/begin.md]
+* end[link ../vector/end.md]
+* partition[link partition.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 
 ###出力
@@ -64,6 +72,29 @@ int main()
 v : 4,2,3,1,5,
 3
 ```
+
+##実装例
+```cpp
+template<class ForwardIterator, class Predicate>
+ForwardIterator
+partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
+{
+    for (auto len = std::distance(first, last); len != 0; ) {
+        auto half = len / 2;
+        auto mid = std::next(first, half);
+        if (pred(*mid)) {
+            len -= half + 1;
+            first = std::next(mid);
+        } else {
+            len = half;
+        }
+    }
+    return first;
+}
+```
+* distance[link ../iterator/distance.md]
+* next[link ../iterator/next.md]
+
 
 ##バージョン
 ###言語
@@ -76,6 +107,3 @@ v : 4,2,3,1,5,
 - [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
-
-
-
