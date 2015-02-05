@@ -38,6 +38,9 @@ int main()
   } // lk1はunlock()せず、lk2がunlock()する
 }
 ```
+* lk2 = std::move(lk1);[color ff0000]
+* std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```
