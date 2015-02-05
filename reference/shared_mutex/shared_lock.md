@@ -23,7 +23,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|--------------------------------------------------------|-------|
-| [`(constructor)`](./shared_lock/op_constructor.md.nolink)     | コンストラクタ | C++14 |
+| [`(constructor)`](./shared_lock/op_constructor.md)  | コンストラクタ | C++14 |
 | [`(destructor)`](./shared_lock/op_destructor.md.nolink)     | デストラクタ | C++14 |
 | [`operator=`](./shared_lock/op_assign.md.nolink)           | 代入演算子 | C++14 |
 | [`lock`](./shared_lock/lock.md)                     | 共有ロックを取得する | C++14 |
