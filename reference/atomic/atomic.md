@@ -115,7 +115,7 @@ namespace std {
 
 class spinlock {
 private:
-  typedef enum {Locked, Unlocked} LockState;
+  enum LockState {Locked, Unlocked};
   std::atomic<LockState> state_;
 
 public:
