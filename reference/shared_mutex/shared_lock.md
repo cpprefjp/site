@@ -25,7 +25,7 @@ namespace std {
 |-----------------------------------------------------|--------------------------------------------------------|-------|
 | [`(constructor)`](./shared_lock/op_constructor.md)  | コンストラクタ | C++14 |
 | [`(destructor)`](./shared_lock/op_destructor.md)    | デストラクタ | C++14 |
-| [`operator=`](./shared_lock/op_assign.md.nolink)           | 代入演算子 | C++14 |
+| [`operator=`](./shared_lock/op_assign.md)           | 代入演算子 | C++14 |
 | [`lock`](./shared_lock/lock.md)                     | 共有ロックを取得する | C++14 |
 | [`try_lock`](./shared_lock/try_lock.md)             | 共有ロックの取得を試みる | C++14 |
 | [`try_lock_for`](./shared_lock/try_lock_for.md)     | タイムアウトする相対時間を指定して共有ロックの取得を試みる | C++14 |
