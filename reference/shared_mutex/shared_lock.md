@@ -54,10 +54,36 @@ namespace std {
 
 ##例
 ```cpp
+#include <iostream>
+#include <shared_mutex>
+
+class X {
+  mutable std::shared_timed_mutex mutex_;
+  int value_ = 0;
+public:
+  int read_access() const
+  {
+    // lockのコンストラクタで、自動的にmutex_.lock_shared()を呼び出す
+    std::shared_lock<std::shared_timed_mutex> lock(mutex_);
+    return value_;
+  } // lockのデストラクタで、自動的にmutex_.unlock_shared()を呼び出す
+};
+
+int main()
+{
+  X x;
+  int value = x.read_access();
+
+  std::cout << value << std::endl;
+}
 ```
+* std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
+0
 ```
 
 ##バージョン
