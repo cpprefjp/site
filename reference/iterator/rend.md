@@ -1,36 +1,36 @@
-#rbegin (C++14)
+#rend (C++14)
 ```cpp
 namespace std {
   template <class C>
-  auto rbegin(C& c) -> decltype(c.rbegin());                 // (1)
+  auto rend(C& c) -> decltype(c.rend());                   // (1)
 
   template <class C>
-  auto rbegin(const C& c) -> decltype(c.rbegin());           // (2)
+  auto rend(const C& c) -> decltype(c.rend());             // (2)
 
   template <class T, size_t N>
-  reverse_iterator<T*> rbegin(T (&array)[N]);                // (3)
+  reverse_iterator<T*> rend(T (&array)[N]);                // (3)
 
   template <class E>
-  reverse_iterator<const E*> rbegin(initializer_list<E> il); // (4)
+  reverse_iterator<const E*> rend(initializer_list<E> il); // (4)
 }
 ```
 * reverse_iterator[link ./reverse_iterator.md]
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-範囲の末尾を指す逆イテレータを取得する。
+範囲の先頭の前を指す逆イテレータを取得する。
 
-- (1) : コンテナの`rbegin()`メンバ関数で、範囲の末尾を指す、逆イテレータを返す。
-- (2) : コンテナの`rbegin()`メンバ関数で、範囲の末尾を指す、読み取り専用逆イテレータを返す。
-- (3) : 組み込み配列の末尾を指す、逆イテレータを返す。
-- (4) : `initializer_list`オブジェクトの末尾を指す、読み取り専用逆イテレータを返す。
+- (1) : コンテナの`rend()`メンバ関数で、範囲の先頭の前を指す、逆イテレータを返す。
+- (2) : コンテナの`rend()`メンバ関数で、範囲の先頭の前を指す、読み取り専用逆イテレータを返す。
+- (3) : 組み込み配列の先頭の前を指す、逆イテレータを返す。
+- (4) : `initializer_list`オブジェクトの先頭の前を指す、読み取り専用逆イテレータを返す。
 
 
 ##戻り値
-- (1) : `c.rbegin();`
-- (2) : `c.rbegin();`
-- (3) : [`reverse_iterator`](./reverse_iterator.md)`<T*>(array + N)`
-- (4) : [`reverse_iterator`](./reverse_iterator.md)`<const E*>(`[`il.end()`](/reference/initializer_list/end.md)`)`
+- (1) : `c.rend();`
+- (2) : `c.rend();`
+- (3) : [`reverse_iterator`](./reverse_iterator.md)`<T*>(array)`
+- (4) : [`reverse_iterator`](./reverse_iterator.md)`<const E*>(`[`il.begin()`](/reference/initializer_list/begin.md)`)`
 
 
 ##例
@@ -80,8 +80,8 @@ int main()
   }
 }
 ```
-* rbegin[color ff0000]
-* rend[link ./rend.md]
+* rend[color ff0000]
+* rbegin[link ./rbegin.md]
 * std::reverse_iterator[link ./reverse_iterator.md]
 * std::vector[link /reference/vector.md]
 * std::for_each[link /reference/algorithm/for_each.md]
