@@ -1,21 +1,21 @@
-#crbegin (C++14)
+#crend (C++14)
 ```cpp
 namespace std {
   template <class C>
-  auto crbegin(const C& c) -> decltype(std::rbegin(c));
+  auto crend(const C& c) -> decltype(std::rend(c));
 }
 ```
-* std::rbegin[link ./rbegin.md]
+* std::rend[link ./rend.md]
 
 ##概要
-範囲の末尾を指す読み取り専用逆イテレータを取得する。
+範囲の先頭の前を指す、読み取り専用逆イテレータを取得する。
 
 
 ##戻り値
 ```cpp
-std::rbegin(c);
+std::rend(c);
 ```
-* std::rbegin[link ./rbegin.md]
+* std::rend[link ./rend.md]
 
 
 ##例
@@ -65,8 +65,8 @@ int main()
   }
 }
 ```
-* crbegin[color ff0000]
-* crend[link ./crend.md]
+* crend[color ff0000]
+* crbegin[link ./crbegin.md]
 * std::reverse_iterator[link ./reverse_iterator.md]
 * std::vector[link /reference/vector.md]
 * std::for_each[link /reference/algorithm/for_each.md]
