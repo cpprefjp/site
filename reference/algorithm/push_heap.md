@@ -87,7 +87,7 @@ void push_heap(RandomAccessIterator first, RandomAccessIterator last)
   value_type v = std::move(first[c]);
   while (c > 0) {
     difference_type p = (c - 1) / 2;
-    if (!bool(v < first[p]))
+    if (!bool(first[p] < v))
       break;
     first[c] = std::move(first[p]);
     c = p;
@@ -105,7 +105,7 @@ void push_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
   value_type v = std::move(first[c]);
   while (c > 0) {
     difference_type p = (c - 1) / 2;
-    if (!bool(comp(v, first[p])))
+    if (!bool(comp(first[p], v)))
       break;
     first[c] = std::move(first[p]);
     c = p;
