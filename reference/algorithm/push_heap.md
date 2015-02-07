@@ -55,6 +55,17 @@ int main()
 }
 ```
 * push_heap[color ff0000]
+* iostream[link ../iostream.md]
+* vector[link ../vector.md]
+* algorithm[link ../algorithm.md]
+* make_heap[link make_heap.md]
+* push_back[link ../vector/push_back.md]
+* sort_heap[link sort_heap.md]
+* for_each[link for_each.md]
+* begin[link ../vector/begin.md]
+* end[link ../vector/end.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 ###出力
 ```
@@ -65,3 +76,42 @@ int main()
 ```
 
 
+##実装例
+```cpp
+template <class RandomAccessIterator>
+void push_heap(RandomAccessIterator first, RandomAccessIterator last)
+{
+  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
+  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+  difference_type c = last - first - 1;
+  value_type v = std::move(first[c]);
+  while (c > 0) {
+    difference_type p = (c - 1) / 2;
+    if (!bool(v < first[p]))
+      break;
+    first[c] = std::move(first[p]);
+    c = p;
+  }
+  first[c] = std::move(v);
+}
+
+template <class RandomAccessIterator, class Compare>
+void push_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp)
+{
+  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
+  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+
+  difference_type c = last - first - 1;
+  value_type v = std::move(first[c]);
+  while (c > 0) {
+    difference_type p = (c - 1) / 2;
+    if (!bool(comp(v, first[p])))
+      break;
+    first[c] = std::move(first[p]);
+    c = p;
+  }
+  first[c] = std::move(v);
+}
+```
+* move[link ../utility/move.md]
+* iterator_traits[link ../iterator/iterator_traits.md]
