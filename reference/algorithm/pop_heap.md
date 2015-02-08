@@ -56,6 +56,17 @@ int main()
 }
 ```
 * pop_heap[color ff0000]
+* iostream[link ../iostream.md]
+* vector[link ../vector.md]
+* algorithm[link ../algorithm.md]
+* make_heap[link make_heap.md]
+* begin[link ../vector/begin.md]
+* end[link ../vector/end.md]
+* pop_back[link ../vector/pop_back.md]
+* sort_heap[link sort_heap.md]
+* for_each[link for_each.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 ###出力
 ```
@@ -64,3 +75,53 @@ int main()
 ```
 
 
+##実装例
+```cpp
+template <class RandomAccessIterator>
+void pop_heap(RandomAccessIterator first, RandomAccessIterator last)
+{
+  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
+  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+  --last;
+  difference_type len = last - first;
+  if (len > 0) {
+    value_type v = std::move(*last);
+    *last = std::move(*first);
+    difference_type p = 0;
+    for (difference_type c = 1; c < len; c = p * 2 + 1) {
+      if (c + 1 < len && first[c] < first[c + 1])
+        ++c;
+      if (!bool(v < first[c]))
+        break;
+      first[p] = std::move(first[c]);
+      p = c;
+    }
+    first[p] = std::move(v);
+  }
+}
+
+template <class RandomAccessIterator, class Compare>
+void pop_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp)
+{
+  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
+  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+  --last;
+  difference_type len = last - first;
+  if (len > 0) {
+    value_type v = std::move(*last);
+    *last = std::move(*first);
+    difference_type p = 0;
+    for (difference_type c = 1; c < len; c = p * 2 + 1) {
+      if (c + 1 < len && comp(first[c], first[c + 1]))
+        ++c;
+      if (!bool(comp(v, first[c])))
+        break;
+      first[p] = std::move(first[c]);
+      p = c;
+    }
+    first[p] = std::move(v);
+  }
+}
+```
+* iterator_traits[link ../iterator/iterator_traits.md]
+* move[link ../utility/move.md]
