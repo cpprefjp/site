@@ -48,6 +48,14 @@ int main()
 }
 ```
 * make_heap[color ff0000]
+* iostream[link ../iostream.md]
+* vector[link ../vector.md]
+* algorithm[link ../algorithm.md]
+* for_each[link for_each.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
+* begin[link ../vector/begin.md]
+* end[link ../vector/end.md]
 
 ###出力
 ```
@@ -57,3 +65,71 @@ int main()
 ```
 
 
+##実装例
+```cpp
+template <class RandomAccessIterator>
+void make_heap(RandomAccessIterator first, RandomAccessIterator last)
+{
+  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
+  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+
+  const difference_type len = last - first;
+  for (difference_type top = len / 2 - 1; top >= 0; --top) {
+    value_type v = std::move(first[top]);
+    difference_type p = top;
+    for (c = p * 2 + 1; c < len; c = p * 2 + 1) {
+      if (c + 1 < len && first[c] < first[c + 1])
+        ++c;
+      if (!bool(v < first[c]))
+        break;
+      first[p] = std::move(first[c]);
+      p = c;
+    }
+    first[p] = std::move(v);
+  }
+}
+
+template <class RandomAccessIterator, class Compare>
+void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp)
+{
+  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
+  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+
+  const difference_type len = last - first;
+  for (difference_type top = len / 2 - 1; top >= 0; --top) {
+    value_type v = std::move(first[top]);
+    difference_type p = top;
+    for (c = p * 2 + 1; c < len; c = p * 2 + 1) {
+      if (c + 1 < len && comp(first[c], first[c + 1]))
+        ++c;
+      if (!bool(comp(v, first[c])))
+        break;
+      first[p] = std::move(first[c]);
+      p = c;
+    }
+    first[p] = std::move(v);
+  }
+}
+```
+* iterator_traits[link ../iterator/iterator_traits.md]
+* move[link ../utility/move.md]
+
+なお、[`push_heap`](push_heap.md) を使用すると以下のように実装できるが、一般的に上記の実装方法の方が効率が良いようである。
+```cpp
+template <class RandomAccessIterator>
+void make_heap(RandomAccessIterator first, RandomAccessIterator last)
+{
+  for (RandomAccessIterator current = first + 1; current < last; ) {
+    std::push_heap(first, ++current);
+  }
+}
+
+template <class RandomAccessIterator, class Compare>
+void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp)
+{
+  for (RandomAccessIterator current = first + 1; current < last; ) {
+    std::push_heap(first, ++current, comp);
+  }
+}
+```
+* push_heap[link push_heap.md]
