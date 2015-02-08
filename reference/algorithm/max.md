@@ -43,6 +43,11 @@ namespace std {
 最大値
 
 
+##備考
+- 等値な要素が 2 つ以上あった場合には、最も左の要素を返す。
+- 型 `T` が `operator<` による比較が可能であることが要件になっているが、(2) と (4) の形式では当該要件を満たさなくても問題ないものと思われる。
+
+
 ##例
 ```cpp
 #include <cassert>
@@ -65,6 +70,11 @@ int main()
 }
 ```
 * max[color ff0000]
+* greater[link ../functional/greater.md]
+* algorithm[link ../algorithm.md]
+* functional[link ../functional.md]
+* cassert[link ../cassert.md.nolink]
+* assert[link ../cassert/assert.md.nolink]
 
 
 ###出力
@@ -98,6 +108,8 @@ T max(std::initializer_list<T> t, Compare comp)
   return *std::max_element(t.begin(), t.end(), comp);
 }
 ```
+* initializer_list[link ../initializer_list.md]
+* max_element[link max_element.md]
 
 
 ##initializer_listバージョンの使用可能状況
@@ -118,4 +130,3 @@ Windows環境においては、`<windows.h>`をインクルードすると`max`�
 
 ##参照
 - [LWG2350 - min, max, and minmax should be constexpr](http://cplusplus.github.io/LWG/lwg-defects.html#2350)
-
