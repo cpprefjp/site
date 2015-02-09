@@ -23,8 +23,8 @@ inline namespace chrono_literals {
 
 
 ##戻り値
-- `chrono::minutes(x)`
-- `chrono::duration<unspecified, ratio<60,1>>(x)`
+- (1) : `chrono::minutes(x)`
+- (2) : `chrono::duration<unspecified, ratio<60,1>>(x)`
 
 
 ##例
