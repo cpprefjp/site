@@ -53,6 +53,14 @@ int main()
 }
 ```
 * binary_search[color ff0000]
+* iostream[link ../iostream.md]
+* vector[link ../vector.md]
+* algorithm[link ../algorithm.md]
+* sort[link sort.md]
+* begin[link ../vector/begin.md]
+* end[link ../vector/end.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 ###出力
 ```
@@ -60,3 +68,22 @@ found
 ```
 
 
+##実装例
+```cpp
+template <class ForwardIterator, class T>
+bool binary_search(ForwardIterator first, ForwardIterator last,
+                   const T& value)
+{
+  first = std::lower_bound(first, last, value);
+  return first != last && !bool(value < *first);
+}
+
+template <class ForwardIterator, class T, class Compare>
+bool binary_search(ForwardIterator first, ForwardIterator last,
+                   const T& value, Compare comp)
+{
+  first = std::lower_bound(first, last, value, comp);
+  return first != last && !bool(comp(value, *first));
+}
+```
+* lower_bound[link lower_bound.md]
