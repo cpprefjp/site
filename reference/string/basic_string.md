@@ -160,6 +160,13 @@ namespace std {
 | [`getline`](./basic_string/getline.md)           | 入力ストリームから1行読み込む               |                |
 
 
+###リテラル
+
+| 名前                          | 説明                     | 対応バージョン |
+|-------------------------------|--------------------------|----------------|
+| [`s`](./basic_string/op_s.md) | `basic_string`のリテラル | C++14 |
+
+
 ##例
 ```cpp
 #include <iostream>
