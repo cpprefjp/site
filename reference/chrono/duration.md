@@ -90,6 +90,19 @@ namespace chrono {
 | [`operator>`](./duration/op_greater.md)        | 左辺が右辺より大きいか判定を行う(function template) | C++11 |
 | [`operator>=`](./duration/op_greater_equal.md) | 左辺が右辺以上かの判定を行う(function template) | C++11 |
 
+
+###リテラル
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| `ns`  | ナノ秒リテラル     | C++14 |
+| `us`  | マイクロ秒リテラル | C++14 |
+| `ms`  | ミリ秒リテラル     | C++14 |
+| `s`   | 秒リテラル         | C++14 |
+| [`min`](./duration/op_min.md) | 分リテラル         | C++14 |
+| `h`   | 時リテラル         | C++14 |
+
+
 ##例
 ```cpp
 #include <iostream>
