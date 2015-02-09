@@ -45,8 +45,6 @@ int main()
   // 必ずしもソートされている必要はない。
   std::vector<int> v = {3, 1, 4, 6, 5};
 
-  std::sort(v.begin(), v.end());
-
   if (std::binary_search(v.begin(), v.end(), 4)) {
     std::cout << "found" << std::endl;
   }
@@ -59,7 +57,6 @@ int main()
 * iostream[link ../iostream.md]
 * vector[link ../vector.md]
 * algorithm[link ../algorithm.md]
-* sort[link sort.md]
 * begin[link ../vector/begin.md]
 * end[link ../vector/end.md]
 * cout[link ../iostream/cout.md]
