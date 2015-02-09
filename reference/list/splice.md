@@ -23,7 +23,7 @@ void splice(const_iterator position, list&& x,
 ```
 
 ##概要
-2つの`list`オブジェクトを併合する。
+他の`list`オブジェクトから、要素を移動する。
 
 - (1), (2) : `position`の次の要素の前に、`x`の全ての要素を移動する。  
 - (3), (4) : `position`の次の要素の前に、`x`の要素のうち`i`の次の要素を移動する。  
