@@ -19,7 +19,7 @@ namespace std {
 
 
 ##要件
-`[first,last)` の要素 `e` は `e < value && !(value < e)` または `comp(e, value) && !comp(value, e)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。
+`[first,last)` の要素 `e` は `e < value` および `!(value < e)`、または `comp(e, value)` および `!comp(value, e)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。
 
 また、`[first, last)` の全ての要素 `e` は、`e < value` であれば `!(value < e)` である、または `comp(e, value)` であれば `!comp(value, e)` である必要がある。
 
@@ -40,6 +40,9 @@ namespace std {
 
 int main()
 {
+  // binary_search で 4 を検索する場合、
+  // 4 より小さい物、4 と等しい物、4 より大きい物がその順に並んでいれば、
+  // 必ずしもソートされている必要はない。
   std::vector<int> v = {3, 1, 4, 6, 5};
 
   std::sort(v.begin(), v.end());
