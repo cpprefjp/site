@@ -17,8 +17,8 @@ namespace std {
 
 
 ##戻り値
-`operator<` もしくは `comp` の比較によって、最小の要素を指すイテレータを `first`、最大の要素を指すイテレータを `second` に持つ [`pair`](/reference/utility/pair.md) オブジェクトを返す。  
-`first == last` の場合、[`make_pair`](/reference/utility/make_pair.md)`(first, first)` を返す。
+`operator<` もしくは `comp` を比較基準とした際の、最小の要素を指すイテレータを `first`、最大の要素を指すイテレータを `second` に持つ [`pair`](/reference/utility/pair.md) オブジェクト  
+ただし、`first == last` の場合には、[`make_pair`](/reference/utility/make_pair.md)`(first, first)`
 
 
 ##計算量
@@ -26,6 +26,7 @@ namespace std {
 
 
 ##備考
+- `comp` は 2 引数の関数オブジェクトで、1 番目の引数が 2 番目の引数「より小さい」場合に `true` を、そうでない場合に `false` を返すものとして扱われる。
 - 最小の要素が複数ある場合、[`min_element`](min_element.md) と同様、最も左側（`first` に近い方）にある要素を指すイテレータを返す。  
 	一方、最大の要素が複数ある場合、[`max_element`](max_element.md) と**異なり**、最も右側（`last` に近い方）にあるイテレータを返す。
 - 最小の要素と最大の要素の両方が必要な場合には、[`min_element`](min_element.md) と [`max_element`](max_element.md) をそれぞれ呼び出すよりも本関数を呼び出した方が、計算量の点で効率的である。  
@@ -112,7 +113,7 @@ minmax_element(ForwardIterator first, ForwardIterator last, Compare comp)
 // operator< 用の関数オブジェクト（std::less は特殊化されているかもしれないので）
 struct less_inner {
   template <class T>
-  bool operator()(const T& lhs, const T& rhs) const { return lhs < rhs; }
+  bool operator()(const T& lhs, const T& rhs) const { return bool(lhs < rhs); }
 };
 
 template <class ForwardIterator>
@@ -135,5 +136,3 @@ minmax_element(ForwardIterator first, ForwardIterator last)
 - [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
-
-
