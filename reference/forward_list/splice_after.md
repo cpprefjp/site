@@ -18,7 +18,7 @@ void splice_after(const_iterator position, forward_list&& x,
 ```
 
 ##概要
-2つの`forward_list`オブジェクトを併合する。
+他のコンテナから要素を移動する。
 
 - `void splice_after(const_iterator position, forward_list& x);`
 - `void splice_after(const_iterator position, forward_list&& x);`<br/>`position`の次の要素の後ろに`x`の全ての要素を移動する。<br/>例外： 投げない<br/>計算量： `x`の要素数に対して線形時間

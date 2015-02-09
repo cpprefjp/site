@@ -76,7 +76,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|-------------------------|-------|
-| [`splice_after`](./forward_list/splice_after.md) | 2つのコンテナを併合する | C++11 |
+| [`splice_after`](./forward_list/splice_after.md) | 他のコンテナから要素を移動する | C++11 |
 | [`remove`](./forward_list/remove.md) | コンテナから指定された値の要素を削除する | C++11 |
 | [`remove_if`](./forward_list/remove_if.md) | コンテナから条件に合った要素を削除する | C++11 |
 | [`unique`](./forward_list/unique.md) | 重複した要素をコンテナから削除する | C++11 |
