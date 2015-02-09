@@ -32,6 +32,10 @@ namespace std {
 最大で log2(`last - first`) + O(1) 回の比較を行う
 
 
+##備考
+- `comp` は 2 引数の関数オブジェクトで、1 番目の引数が 2 番目の引数「より小さい」場合に `true` を、そうでない場合に `false` を返すものとして扱われる。
+
+
 ##例
 ```cpp
 #include <iostream>
