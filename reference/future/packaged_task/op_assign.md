@@ -1,12 +1,24 @@
 #operator= (C++11)
 ```cpp
-packaged_task& operator=(const packaged_task&) = delete;
-packaged_task& operator=(packaged_task&& rhs) noexcept;
+packaged_task& operator=(const packaged_task&) = delete; // (1)
+packaged_task& operator=(packaged_task&& rhs) noexcept;  // (2)
 ```
 
 ##概要
-- `packaged_task& operator=(const packaged_task&) = delete;`<br/>コピー代入演算子。コピー不可。
-- `packaged_task& operator=(packaged_task&& rhs) noexcept;`<br/>ムーブ代入演算子。`*this`の共有状態を解放し、`packaged_task(std::`[`move`](/reference/utility/move.md)`(rhs)).swap(*this)`を行う。<br/>戻り値： `*this`<br/>例外： 投げない
+- (1) : コピー代入演算子。コピー不可。
+- (2) : ムーブ代入演算子。
+
+
+##効果
+- (2) : `*this`の共有状態を解放し、`packaged_task(`[`std::move`](/reference/utility/move.md)`(rhs)).swap(*this)`を行う。
+
+
+##戻り値
+- (2) : `*this`
+
+
+##例外
+- (2) : 投げない
 
 
 ##例

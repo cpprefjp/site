@@ -1,22 +1,42 @@
 #コンストラクタ (C++11)
 ```cpp
-packaged_task() noexcept;
+packaged_task() noexcept;                          // (1)
+
 template <class F>
-explicit packaged_task(F&& f);
+explicit packaged_task(F&& f);                     // (2)
+
 template <class F, class Allocator>
-explicit packaged_task(allocator_arg_t, const Allocator& a, F&& f);
-packaged_task(packaged_task&) = delete;
-packaged_task(packaged_task&& rhs) noexcept;
+explicit packaged_task(allocator_arg_t,
+                       const Allocator& a, F&& f); // (3)
+
+packaged_task(packaged_task&) = delete;            // (4)
+packaged_task(packaged_task&& rhs) noexcept;       // (5)
 ```
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
-##packaged_taskオブジェクトの構築
+##概要
 
-- `packaged_task() noexcept;`<br/>デフォルトコンストラクタ。共有状態なし、タスクの保持なしでオブジェクトを構築する。
-- `template <class F>`<br/>`explicit packaged_task(F&& f);`<br/>関数オブジェクトを受け取るコンストラクタ。共有状態を初期化し、`f`を非同期実行するタスクとして`std::`[`forward`](/reference/utility/forward.md)`<F>(f)`でメンバ変数に保持する。<br/>例外： `F`のコピーコンストラクタもしくはムーブコンストラクタによって送出されうる、あらゆる例外が投げられる可能性がある。
-- `template <class F, class Allocator>`<br/>`explicit packaged_task(allocator_arg_t, const Allocator& a, F&& f);`<br/>関数オブジェクトおよびカスタムアロケータを受け取るコンストラクタ。共有状態を初期化し、`f`を非同期実行するタスクとして`std::`[`forward`](/reference/utility/forward.md)`<F>(f)`でメンバ変数に保持する。アロケータ`a`は、共有状態を構築する際に、その内部構造でメモリ確保が必要な場合に使用される。<br/>例外： `F`のコピーコンストラクタもしくはムーブコンストラクタによって送出されうる、あらゆる例外が投げられる可能性がある。内部構造のメモリ確保に失敗した場合、`std::`[`bad_alloc`](/reference/new/bad_alloc.md)が投げられる。
-- `packaged_task(const packaged_task&) = delete;`<br/>コピーコンストラクタ。コピー不可。
-- `packaged_task(packaged_task&& rhs) noexcept;`<br/>ムーブコンストラクタ。`rhs`の共有状態の所有権、および非同期タスクの関数オブジェクトを`*this`に移動する。<br/>事後条件： `rhs`は共有状態を持たない
+- (1) : デフォルトコンストラクタ。
+- (2) : 関数オブジェクトを受け取るコンストラクタ。
+- (3) : 関数オブジェクトおよびカスタムアロケータを受け取るコンストラクタ。
+- (4) : コピーコンストラクタ。コピー不可。
+- (5) : ムーブコンストラクタ。
+
+
+##効果
+- (1) : 共有状態なし、タスクの保持なしでオブジェクトを構築する。
+- (2) : 共有状態を初期化し、`f`を非同期実行するタスクとして[`std::forward`](/reference/utility/forward.md)`<F>(f)`でメンバ変数に保持する。
+- (3) : 共有状態を初期化し、`f`を非同期実行するタスクとして[`std::forward`](/reference/utility/forward.md)`<F>(f)`でメンバ変数に保持する。アロケータ`a`は、共有状態を構築する際に、その内部構造でメモリ確保が必要な場合に使用される。
+- (5) : `rhs`の共有状態の所有権、および非同期タスクの関数オブジェクトを`*this`に移動する。
+
+
+##例外
+- (2) : `F`のコピーコンストラクタもしくはムーブコンストラクタによって送出されうる、あらゆる例外が投げられる可能性がある。
+- (3) : `F`のコピーコンストラクタもしくはムーブコンストラクタによって送出されうる、あらゆる例外が投げられる可能性がある。内部構造のメモリ確保に失敗した場合、[`std::bad_alloc`](/reference/new/bad_alloc.md)が投げられる。
+
+
+##事後条件
+- (5) : `rhs`は共有状態を持たない
 
 
 ##例
