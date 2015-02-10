@@ -10,7 +10,7 @@ inline namespace chrono_literals {
     operator "" s(long double x);         // (2)
 }}}
 ```
-* chrono::minutes[link /reference/chrono/minutes.md]
+* chrono::seconds[link /reference/chrono/seconds.md]
 * chrono::duration[link /reference/chrono/duration.md]
 * ratio[link /reference/ratio/ratio.md]
 * unspecified[italic]
