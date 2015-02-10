@@ -1,6 +1,8 @@
 #operator= (C++11)
 ```cpp
-packaged_task& operator=(const packaged_task&) = delete; // (1)
+packaged_task& operator=(packaged_task&) = delete;       // (1) C++11
+packaged_task& operator=(const packaged_task&) = delete; // (1) C++14
+
 packaged_task& operator=(packaged_task&& rhs) noexcept;  // (2)
 ```
 
@@ -57,5 +59,6 @@ int main()
 
 
 ##参照
+- [LWG Issue 2067. `packaged_task` should have deleted copy c'tor with const parameter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2067)
 
 

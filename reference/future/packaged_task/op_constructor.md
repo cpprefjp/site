@@ -9,7 +9,9 @@ template <class F, class Allocator>
 explicit packaged_task(allocator_arg_t,
                        const Allocator& a, F&& f); // (3)
 
-packaged_task(packaged_task&) = delete;            // (4)
+packaged_task(packaged_task&) = delete;            // (4) C++11
+packaged_task(const packaged_task&) = delete;      // (4) C++14
+
 packaged_task(packaged_task&& rhs) noexcept;       // (5)
 ```
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
@@ -98,5 +100,5 @@ int main()
 
 
 ##参照
-
+- [LWG Issue 2067. `packaged_task` should have deleted copy c'tor with const parameter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2067)
 
