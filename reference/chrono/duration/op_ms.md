@@ -13,7 +13,6 @@ inline namespace chrono_literals {
 * chrono::milliseconds[link /reference/chrono/milliseconds.md]
 * chrono::duration[link /reference/chrono/duration.md]
 * milli[link /reference/ratio/si_unit.md]
-* ratio[link /reference/ratio/ratio.md]
 * unspecified[italic]
 
 ##概要
