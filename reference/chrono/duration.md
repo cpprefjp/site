@@ -100,7 +100,7 @@ namespace chrono {
 | `ms`  | ミリ秒リテラル     | C++14 |
 | [`s`](./duration/op_s.md)     | 秒リテラル         | C++14 |
 | [`min`](./duration/op_min.md) | 分リテラル         | C++14 |
-| `h`   | 時リテラル         | C++14 |
+| [`h`](./duration/op_h.md)     | 時リテラル         | C++14 |
 
 
 ##例
