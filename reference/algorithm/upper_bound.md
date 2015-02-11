@@ -85,25 +85,6 @@ int main()
 
 ##実装例
 ```cpp
-template<class ForwardIterator, class T>
-ForwardIterator
-upper_bound(ForwardIterator first, ForwardIterator last, const T& value)
-{
-  typedef typename std::iterator_traits<ForwardIterator>::difference_type diff;
-  for (diff len = std::distance(first, last); len != 0; ) {
-    diff half = len / 2;
-    ForwardIterator mid = first;
-    std::advance(mid, half);
-    if (!bool(value < *mid)) {
-      len -= half + 1;
-      first = ++mid;
-    } else {
-      len = half;
-    }
-  }
-  return first;
-}
-
 template<class ForwardIterator, class T, class Compare>
 ForwardIterator
 upper_bound(ForwardIterator first, ForwardIterator last, const T& value, Compare comp)
@@ -121,6 +102,19 @@ upper_bound(ForwardIterator first, ForwardIterator last, const T& value, Compare
     }
   }
   return first;
+}
+
+// operator< 用の関数オブジェクト
+struct less_inner {
+  template <class T, class U>
+  bool operator()(const T& lhs, const U& rhs) { return bool(lhs < rhs); }
+};
+
+template<class ForwardIterator, class T>
+ForwardIterator
+upper_bound(ForwardIterator first, ForwardIterator last, const T& value)
+{
+  return std::upper_bound(first, last, value, less_inner());
 }
 ```
 * distance[link ../iterator/distance.md]
