@@ -56,9 +56,10 @@ namespace std {
 
 int main()
 {
-  std::vector<int> v = {3, 1, 4, 2, 5};
-
-  std::sort(v.begin(), v.end());
+  // upper_bound で 3 より大きい要素の位置を検索する場合、
+  // 3 以下の物と 3 より大きい物がその順に並んでいれば、
+  // 必ずしもソートされている必要はない。
+  std::vector<int> v = {3, 1, 4, 6, 5};
 
   // 3より大きい要素を二分探索で検索
   decltype(v)::iterator it = std::upper_bound(v.begin(), v.end(), 3);
@@ -70,7 +71,6 @@ int main()
 * iostream[link ../iostream.md]
 * vector[link ../vector.md]
 * algorithm[link ../algorithm.md]
-* sort[link sort.md]
 * begin[link ../vector/begin.md]
 * end[link ../vector/end.md]
 * cout[link ../iostream/cout.md]
