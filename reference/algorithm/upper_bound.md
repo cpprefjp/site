@@ -30,7 +30,11 @@ namespace std {
 
 
 ##戻り値
-`[first,last]` 内のイテレータ `i` について、`[first,i)` 内の全てのイテレータ `j` が `!(value < *j)` または `comp(value, *j) == false` であるような、最も `first` から離れているイテレータ `i` を返す。
+`[first, last]` 内のイテレータ `i` のうち、以下の条件を満た、最も右側（`first` から遠い方）のもの
+
+- `[first, i)` 内の全てのイテレータ `j` が `!(value < *j)` または `comp(value, *j) == false` である
+
+（つまり、`value` より大きい要素のうち最初のものを指すイテレータ。`value` より大きい要素が無ければ `last`）
 
 
 ##計算量
