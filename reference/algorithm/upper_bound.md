@@ -42,8 +42,10 @@ namespace std {
 
 
 ##備考
-本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と同一である。  
-具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return !bool(value < e); })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return !bool(comp(value, e)); })` とすることで同一の結果が得られる。
+- 本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と同一である。  
+	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return !bool(value < e); })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return !bool(comp(value, e)); })` とすることで同一の結果が得られる。
+- 本関数の要件は、上記の通り C++03 までの方が C++11 よりも厳しい。  
+	しかし、本アルゴリズムの特性上、処理系が C++03 までにしか準拠していない場合でも、昇順に並んでいなくても正常に動作する可能性は高いものと思われる。
 
 
 ##例
