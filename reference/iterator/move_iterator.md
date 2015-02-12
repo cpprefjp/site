@@ -52,7 +52,7 @@ namespace std {
 | [`operator>=`](./move_iterator/op_greater_equal.md) | 左辺が右辺以上かの判定を行う |
 | [`operator-`](./move_iterator/op_minus.md) | 2つの`move_iterator`の差を求める |
 | [`operator+`](./move_iterator/op_plus.md) | イテレータを進める |
-| [`make_move_iterator`](./move_iterator/make_move_iterator.md) | `move_iterator`のヘルパ関数 |
+| [`make_move_iterator`](./make_move_iterator.md) | `move_iterator`のヘルパ関数 |
 
 
 ##例
