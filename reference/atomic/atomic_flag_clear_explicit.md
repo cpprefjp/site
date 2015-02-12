@@ -15,6 +15,7 @@ namespace std {
 ##要件
 `order`が以下のメモリオーダーではないこと：
 
+- [`memory_order_consume`](./memory_order.md) (C++14)
 - [`memory_order_acquire`](./memory_order.md)
 - [`memory_order_acq_rel`](./memory_order.md)
 
@@ -80,5 +81,5 @@ false
 
 
 ##参照
-
+- [LWG Issue 2138. `atomic_flag::clear` should not accept `memory_order_consume`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2138)
 
