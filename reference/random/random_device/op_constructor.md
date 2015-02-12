@@ -11,7 +11,7 @@ random_device(const random_device&) = delete;
 - `explicit random_device(const string& token = implementation-defined);`
 
 トークンを受け取って乱数生成器を構築する。デフォルトのトークンパラメータは実装定義である。  
-※実装は、このトークンパラメータによって、ことなるランダムのソースを使用してもよい。  
+※実装は、このトークンパラメータによって、異なるランダムのソースを使用してもよい。  
   
 例外 : 乱数生成器を初期化できなかった場合、[`exception`](/reference/exception/exception.md)から派生した実装定義の例外オブジェクトを送出する。
 
