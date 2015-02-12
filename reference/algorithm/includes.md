@@ -66,9 +66,9 @@ bool includes(InputIterator1 first1, InputIterator1 last1,
               InputIterator2 first2, InputIterator2 last2)
 {
   for (; first2 != last2; ++first1)
-    if (first1 == last1 || *first2 < *first1)
+    if (bool(first1 == last1) || bool(*first2 < *first1))
       return false;
-    else if (!(*first1 < *first2))
+    else if (!bool(*first1 < *first2))
       ++first2;
   return true;
 }
@@ -79,9 +79,9 @@ bool includes(InputIterator1 first1, InputIterator1 last1,
               Compare comp)
 {
   for (; first2 != last2; ++first1)
-    if (first1 == last1 || *first2 < *first1)
+    if (bool(first1 == last1) || bool(comp(*first2, *first1)))
       return false;
-    else if (!bool(comp(*first1 < *first2)))
+    else if (!bool(comp(*first1, *first2)))
       ++first2;
   return true;
 }
