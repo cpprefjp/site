@@ -56,16 +56,29 @@ int main()
   std::vector<int> result;
 
   // aとbの和集合を作る
-  std::set_union(a.begin(), a.end(),
-                 b.begin(), b.end(),
-                 std::inserter(result, result.end()));
+  std::set_union(std::begin(a), std::end(a),
+                 std::begin(b), std::end(b),
+                 std::inserter(result, std::end(result)));
 
-  std::for_each(result.begin(), result.end(), [](int x) {
+  std::for_each(std::begin(result), std::end(result), [](int x) {
     std::cout << x << std::endl;
   });
 }
 ```
 * set_union[color ff0000]
+* iostream[link ../iostream.md]
+* set[link ../set.md]
+* list[link ../list.md]
+* vector[link ../vector.md]
+* algorithm[link ../algorithm.md]
+* iterator[link ../iterator.md]
+* multiset[link ../set/multiset.md]
+* begin[link ../iterator/begin.md]
+* end[link ../iterator/end.md]
+* insert[link ../iterator/insert_iterator/inserter.md]
+* for_each[link for_each.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 
 ###出力
@@ -79,3 +92,41 @@ int main()
 ```
 
 
+##実装例
+```cpp
+template <class InputIterator1, class InputIterator2, class OutputIterator,
+          class Compare>
+OutputIterator set_union(InputIterator1 first1, InputIterator1 last1,
+                         InputIterator2 first2, InputIterator2 last2,
+                         OutputIterator result, Compare comp)
+{
+  for (; first1 != last1; ++result) {
+    if (first2 == last2)
+      return std::copy(first1, last1, result);
+    if (comp(*first2, *first1)) {
+      *result = *first2;
+      ++first2;
+    } else {
+      if (!bool(comp(*first1, *first2)))
+        ++first2;
+      *result = *first1;
+      ++first1;
+    }
+  }
+  return std::copy(first2, last2, result);
+}
+
+struct less_inner {
+  template <class T, class U>
+  bool operator()(const T& lhs, const U& rhs) const { return bool(lhs < rhs); }
+};
+
+template <class InputIterator1, class InputIterator2, class OutputIterator>
+OutputIterator set_union(InputIterator1 first1, InputIterator1 last1,
+                         InputIterator2 first2, InputIterator2 last2,
+                         OutputIterator result)
+{
+  return std::set_union(first1, last1, first2, last2, result, less_inner());
+}
+```
+* copy[link copy.md]
