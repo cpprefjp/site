@@ -2,7 +2,10 @@
 ```cpp
 namespace std {
   template <class Iterator>
-  move_iterator<Iterator> make_move_iterator(const Iterator& i);
+  move_iterator<Iterator> make_move_iterator(const Iterator& i); // C++11
+
+  template <class Iterator>
+  move_iterator<Iterator> make_move_iterator(Iterator i);        // C++14
 }
 ```
 
@@ -53,5 +56,6 @@ int main()
 
 
 ##参照
-
+- [LWG Issue 2061. `make_move_iterator` and arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2061)
+    - C++11ではパラメータが`const Iterator&`だったが、C++14では`Iterator`に変更された。これは、組み込み配列を渡された際に、ポインタに型推論(decay)させるため。
 
