@@ -27,6 +27,7 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 | [`front_insert_iterator`](./iterator/front_insert_iterator.md) | 先頭に要素を挿入する出力イテレータアダプタ(class template) | |
 | [`insert_iterator`](./iterator/insert_iterator.md) | 任意の位置に要素を挿入する出力イテレータアダプタ(class template) | |
 | [`move_iterator`](./iterator/move_iterator.md) | 間接参照時にムーブするイテレータアダプタ(class template) | C++11 |
+| [`make_move_iterator`](./iterator/make_move_iterator.md) | `move_iterator`オブジェクトを作るヘルパ関数(function template) | C++11 |
 | [`istream_iterator`](./iterator/istream_iterator.md) | 入力ストリームイテレータ(class template) | |
 | [`ostream_iterator`](./iterator/ostream_iterator.md) | 出力ストリームイテレータ(class template) | |
 | [`istreambuf_iterator`](./iterator/istreambuf_iterator.md) | 入力ストリームバッファイテレータ(class template) | |
