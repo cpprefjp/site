@@ -10,17 +10,23 @@ namespace std {
 ##概要
 文字列`str`を数値として読み取って、`double`型の値に変換する。
 
+
 ##効果
 パラメータ`str`が`string`型であれば`std::strtod(str.c_str(), &end)`、`wstring`であれば`std::wcstod(str.c_str(), &end)`を呼び出して、その戻り値を返す。
 
 パラメータ`idx`が非`nullptr`の場合、変換に使用されなかった要素のインデックス（`end - str.c_str()`）が格納される。
 
+
 ##戻り値
 変換して得られた数値が返される。
 
+
 ##例外
 - 数値への変換が行われなかった場合、[`std::invalid_argument`](/reference/stdexcept.md)が送出される。
-- 結果が範囲外の値になった場合（`errno`が`ERANGE`となった場合）、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
+- 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
+    - `std::strtoull()`関数が`std::errno`変数に`ERANGE`を設定した場合
+    - 結果が範囲外の値になった場合 (C++14)
+
 
 ##備考
 ### errnoの扱い
@@ -32,6 +38,7 @@ namespace std {
 
 - `strtod()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用される。
 - 小数点記号は`LC_NUMERIC`で指定されたものが使用される。
+
 
 ##例
 ```cpp
@@ -155,6 +162,8 @@ double stod(const wstring& str, size_t* idx = nullptr) {
 ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
 
 ##参照
+- [LWG Issue 2009. Reporting out-of-bound values on numeric string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009)
+
 ### C標準ライブラリに由来する関数
 - `atof`: `stod`は`atof`を`std::string`および`std::wsting`に対応させたものと見なせる。
 - `strtod`, `wcstod`: `stod`は`strtod`および`wcstod`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。

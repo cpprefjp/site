@@ -10,6 +10,7 @@ namespace std {
 ##概要
 文字列`str`を数値として読み取って、`long`型の値に変換する。
 
+
 ##効果
 パラメータ`str`が`string`型であれば`std::strtol(str.c_str(), &end, base)`、`wstring`型であれば`std::wcstol(str.c_str(), &end, base)`を呼び出して、その戻り値を返す。
 
@@ -24,9 +25,13 @@ namespace std {
 ##戻り値
 変換して得られた数値が返される。
 
+
 ##例外
 - 数値への変換が行われなかった場合、[`std::invalid_argument`](/reference/stdexcept.md)が送出される。
-- 結果が範囲外の値になった場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
+- 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
+    - `std::strtol()`関数が`std::errno`変数に`ERANGE`を設定した場合 (C++14)
+    - 結果が範囲外の値になった場合
+
 
 ##備考
 ### errnoの扱い
@@ -37,6 +42,7 @@ namespace std {
 この関数は、`setlocale()`関数により挙動が変化する。
 
 `strtol()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用されるためである。
+
 
 ##例
 ```cpp
@@ -187,6 +193,8 @@ long stol(const wstring& str, size_t* idx = nullptr, long base = 10) {
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 ##参照
+- [LWG Issue 2009. Reporting out-of-bound values on numeric string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009)
+
 ### C標準ライブラリに由来する関数
 - `atol`: `stol`は`atol`を`std::string`および`std::wsting`に対応させたものと見なせる。
 - `strtol`, `wcstol`: `stol`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
