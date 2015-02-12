@@ -23,7 +23,7 @@ void resize(size_type sz, const T& c = T()); // (1) + (2) : C++03
 ##効果
 - (1) :
     - もし`sz`が現在のコンテナの[`size()`](./size.md)より小さい場合、以下の動作をする：
-        - [`erase`](./erase)`(`[`begin()`](./begin.md) `+ sz,` [`end()`](./end.md)`);` (C++11まで)
+        - [`erase`](./erase.md)`(`[`begin()`](./begin.md) `+ sz,` [`end()`](./end.md)`);` (C++11まで)
         - [`pop_back()`](./pop_back.md)関数を[`size()`](./size.md) `- sz`回呼ぶ (C++14以降)
     - もし`sz`が現在のコンテナの[`size()`](./size.md)より大きい場合、`sz - `[`size()`](./size.md)個だけ値初期化された`T`型オブジェクトのコピーを追加する。
 
