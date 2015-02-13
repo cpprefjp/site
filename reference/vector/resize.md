@@ -46,7 +46,6 @@ else if (sz < size())
     - C++14以降
         - もし`sz`が現在のコンテナの[`size()`](./size.md)より小さい場合、[`pop_back()`](./pop_back.md)関数を[`size()`](./size.md) `- sz`回呼ぶ
         - もし`sz`が現在のコンテナの[`size()`](./size.md)より大きい場合、`sz - `[`size()`](./size.md)個だけオブジェクト`c`のコピーを追加する。
-```
 
 
 ##戻り値
