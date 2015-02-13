@@ -1,11 +1,8 @@
 #resize
 ```cpp
-// C++03まで
-void resize(size_type sz, T c = T());
-
-// C++11から
-void resize(size_type sz);
-void resize(size_type sz, const T& c);
+void resize(size_type sz);             // (1) C++11
+void resize(size_type sz, const T& c); // (2) C++11
+void resize(size_type sz, T c = T());  // (1) + (2) C++03
 ```
 
 ##要件
@@ -13,29 +10,51 @@ void resize(size_type sz, const T& c);
 
 
 ##要件
-1引数の形式の場合、`T`は`*this`に対してCopyInsertableでなければならない。2引数の形式の場合、例外発生時に非CopyInsertableな`T`のムーブコンストラクターによる場合を除いて、副作用を持ってはいけない。
+- (1) :
+    - 型`T`がデフォルト構築可能であること (C++14)
+    - 型`T`が`*this`に対してコピー挿入可能であること (C++11まで)
+    - 型`T`が`*this`に対してムーブ挿入可能であること (C++14)
+
+- (2) :
+    - 型`T`が`*this`に対してコピー挿入可能であること (C++14)
+    - 型`T`が`*this`に対してムーブ挿入可能であること (C++14)
 
 
 ##効果
-- 1引数の形式の場合：
+- (1) :
+    - もし`sz`が現在のコンテナの[`size()`](./size.md)より小さい場合、以下の動作をする：
+        - [`erase`](./erase.md)`(`[`begin()`](./begin.md) `+ sz,` [`end()`](./end.md)`);` (C++11まで)
+        - [`pop_back()`](./pop_back.md)関数を[`size()`](./size.md) `- sz`回呼ぶ (C++14以降)
+    - もし`sz`が現在のコンテナの[`size()`](./size.md)より大きい場合、`sz - `[`size()`](./size.md)個だけ値初期化された`T`型オブジェクトのコピーを追加する。
 
-もし、`sz < `[`size()`](./size.md) ならば、[`erase`](./erase.md)`(`[`begin()`](./begin.md)` + sz, `[`end()`](./end.md)`);` と同じである。もし、[`size()`](./size.md)` < sz` ならば、`sz - `[`size()`](./size.md) 個の初期化済みの要素がシーケンスに追加される。
 
+- (2) :
+    - C++11まで
 
-- 2引数の形式の場合：
-
-以下の擬似コードと同じ動作をする。
-```cpp
+    ```cpp
 if (sz > size())
-  insert(end(), sz-size(), c);
+  insert(end(), sz - size(), c);
 else if (sz < size())
-  erase(begin()+sz, end());
-else
-  ; // do nothing
+  erase(begin() + sz, end());
 ```
+* size()[link ./size.md]
+* insert[link ./insert.md]
+* end()[link ./end.md]
+* erase[link ./erase.md]
+* begin()[link ./begin.md]
+
+    - C++14以降
+        - もし`sz`が現在のコンテナの[`size()`](./size.md)より小さい場合、[`pop_back()`](./pop_back.md)関数を[`size()`](./size.md) `- sz`回呼ぶ
+        - もし`sz`が現在のコンテナの[`size()`](./size.md)より大きい場合、`sz - `[`size()`](./size.md)個だけオブジェクト`c`のコピーを追加する。
+```
+
 
 ##戻り値
 なし
+
+
+##備考
+- (2) : 非コピー挿入可能な型`T`のムーブコンストラクタが例外を送出した場合、この関数は何もしない。
 
 
 ##例
@@ -76,4 +95,8 @@ int main()
 
 3
 ```
+
+
+##参照
+- [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
 
