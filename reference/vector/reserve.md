@@ -31,6 +31,42 @@ capacityを変更する
 再確保された場合にはシーケンス中の要素を指す全ての参照、ポインタ、イテレータが無効になる。`reserve()`が呼ばれた後は、挿入によって`vector`の要素数が`capacity()`の値よりも大きくなるまでは、挿入によって再確保が行われないことが保証されている。
 
 
+##例
+```cpp
+#include <iostream>
+#include <cassert>
+#include <vector>
+
+int main()
+{
+  std::vector<int> v;
+
+  v.reserve(5); // 5要素(以上)の領域を事前に確保しておく
+  assert(v.capacity() >= 5);
+
+  // 5要素を超えない限り、要素の追加時にメモリ確保が行われない
+  v.push_back(1);
+  v.push_back(2);
+  v.push_back(3);
+
+  for (int x : v) {
+    std::cout << x << std::endl;
+  }
+}
+```
+* capacity()[link ./capacity.md]
+* assert[link /reference/cassert/assert.md.nolink]
+* push_back[link ./push_back.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+##出力
+```
+1
+2
+3
+```
+
 ##参照
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
 
