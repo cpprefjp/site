@@ -82,5 +82,5 @@ int main()
 
 
 ##参照
-
+- [what are the use cases for `std::unique_lock::release`? - StackOverflow](http://stackoverflow.com/questions/28491075/what-are-the-use-cases-for-stdunique-lockrelease)
 
