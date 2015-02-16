@@ -93,5 +93,4 @@ namespace std {
 
 ###参照
 - [Man page of ERRNO](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/errno.3.html)
-- [Unix系errno一覧](http://pinka99.ddo.jp/nanao/work/errno.html)
 
