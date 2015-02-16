@@ -13,7 +13,7 @@ namespace std {
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
 | [`(constructor)`](./error_category/op_constructor.md) | コンストラクタ |
-| `virtual ~error_category() noexcept` | デストラクタ |
+| [`(destructor)`](./error_category/op_destructor.md) | デストラクタ |
 | `operator=(const error_category&) = delete` | 代入演算子(使用不可) |
 | [`name`](./error_category/name.md) | カテゴリ名を取得(pure virtual function) |
 | [`default_error_condition`](./error_category/default_error_condition.md) | エラー値と自身のカテゴリから`error_condition`を生成 |
