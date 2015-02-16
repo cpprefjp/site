@@ -14,7 +14,7 @@ void future<void>::get();
 
 
 ##戻り値
-- `future::get()` ： 共有状態に格納されている値を返す。値が[`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<R>::value == true`であれば値をムーブして返し、そうでなければコピーで返す。
+- `future::get()` ： 共有状態に格納されている値`v`を[`std::move`](/reference/utility/move.md)`(v)`で返す。
 - `future<R&>::get()` ： 共有状態に格納されている参照を返す。
 - `future<void>::get()` ： 何も返さない。
 
@@ -203,5 +203,6 @@ int main()
 
 
 ##参照
-
+- [LWG Issue 2096. Incorrect constraints of `future::get` in regard to `MoveAssignable`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2096)
+    - C++14から、`future::get()`の戻り値が変更された。C++11では「ムーブ代入可能ならムーブで返し、そうでなければコピーで返す」となっていたが、これは現実的ではない制約だった。
 
