@@ -17,11 +17,11 @@ namespace std {
 
 
 ##効果
-`[first,last)` 内にあるイテレータ `i` について、`*i == value` である要素を取り除く
+`[first,last)` 内にあるイテレータ `i` について、`*i == value` である要素を取り除き、有効な要素を範囲の前に寄せる。
 
 
 ##戻り値
-実行結果の範囲の終端を返す
+有効な要素の末尾の次を指すイテレータを返す。
 
 
 ##計算量
@@ -30,6 +30,12 @@ namespace std {
 
 ##注意
 安定。
+
+
+##備考
+有効な要素を範囲の前方に集める処理には、ムーブを使用する。
+
+取り除いた要素の先頭を指すイテレータを`ret`とし、範囲`[ret, last)`の各要素には、有効な要素からムーブされた値が設定される。それらの値は、「有効だが未規定な値」となる。
 
 
 ##例
@@ -82,4 +88,9 @@ ForwardIterator remove(ForwardIterator first, ForwardIterator last, const T& val
   return result;
 }
 ```
+
+
+##参照
+- [LWG Issue 2110. `remove` can't swap but note says it might](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2110)
+    - C++11までのこのアルゴリズムは、要素の移動にswap操作が行われるかもしれない、と書いていた。だが、このアルゴリズムの要件は`MoveAssignable`のみであるため、swapはできない。そのため、C++14からは、ムーブのみで要素の移動が行われるようになった。
 
