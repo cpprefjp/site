@@ -20,6 +20,10 @@ future_status wait_for(const chrono::duration<Rep, Period>& rel_time) const;
 - [`future_status::timeout`](../future_status.md) ： `rel_time`で指定された相対時間内に準備完了にならず、タイムアウトになった
 
 
+##例外
+- C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -72,5 +76,6 @@ int main()
 
 
 ##参照
+- [LWG Issue 2185. Missing throws clause for `future`/`shared_future::wait_for`/`wait_until`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2185)
 
 
