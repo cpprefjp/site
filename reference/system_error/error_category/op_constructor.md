@@ -1,12 +1,12 @@
 #コンストラクタ (C++11)
 ```cpp
-error_category() = default;
-error_category(const error_category&) = delete;
+constexpr error_category() noexcept;            // (1) C++14
+error_category(const error_category&) = delete; // (2)
 ```
 
 ##概要
-`error_category`クラスは、暗黙的に定義されるデフォルトコンストラクタを持ち、
-コピーコンストラクタは削除定義される。
+- (1) : デフォルトコンストラクタ。`error_category`クラスのオブジェクトを構築する。
+- (2) : コピーコンストラクタ。コピー不可。これによって、ムーブコンストラクタも禁止される。
 
 
 ##例
@@ -59,3 +59,5 @@ user defined error
 
 
 ##参照
+- [LWG Issue 2145. `error_category` default constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2145)
+
