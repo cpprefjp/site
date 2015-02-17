@@ -1,35 +1,27 @@
 #コンストラクタ
 ```cpp
-constexpr duration() = default;
+constexpr duration() = default;                       // (1)
+
 template <class Rep2>
-constexpr explicit duration(const Rep2& r);
+constexpr explicit duration(const Rep2& r);           // (2)
+
 template <class Rep2, class Period2>
-constexpr duration(const duration<Rep2, Period2>& d);
-duration(const duration&) = default;
+constexpr duration(const duration<Rep2, Period2>& d); // (3)
+
+duration(const duration&) = default;                  // (4)
 ```
 
-###durationの構築
-`duration`オブジェクトを次に示す通りの要素で初期化する。
+##概要
+- (1) : デフォルトコンストラクタ。
+- (2) : `rep`型に変換可能な型の値から`duration`を構築する。
+- (3) : 他のテンプレートパラメータを持つ`duration`から`duration`を構築する。
+- (4) : コピーコンストラクタ
 
-- `constexpr duration() = default;`
 
-デフォルトコンストラクタ。
-
-- `template <class Rep2>`<br/>`constexpr explicit duration(const Rep2& r);`
-
-`rep`型に変換可能な型の値から`duration`を構築する。
-
-[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`もしくは[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<Rep2>::value == false`の場合にオーバーロード解決される。
-
-- `template <class Rep2, class Preriod2>`<br/>`constexpr duration(const duration<Rep2, Period2>& d);`
-
-他のテンプレートパラメータを持つ`duration`から`duration`を構築する。
-
-[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`であるか、[`ratio_divide`](/reference/ratio/ratio_divide.md)`<Period2, period>::type::den == 1`である場合にオーバーロード解決される。（この要求は整数ベースの`duration`型間での変換の際に、暗黙に切り捨て誤差が起きるのを防ぐ。浮動小数点数型ベースの場合には、精度が下がれば小数点以下の数値になるだけなので問題ない。）
-
-- `duration(const duration&) = default;`
-
-コピーコンストラクタ
+##備考
+- (2) : [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`もしくは[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<Rep2>::value == false`の場合にオーバーロード解決される。
+- (3) : [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`であるか、[`ratio_divide`](/reference/ratio/ratio_divide.md)`<Period2, period>::type::den == 1`である場合にオーバーロード解決される。
+	- この要求は整数ベースの`duration`型間での変換の際に、暗黙に切り捨て誤差が起きるのを防ぐ。浮動小数点数型ベースの場合には、精度が下がれば小数点以下の数値になるだけなので問題ない。
 
 
 ###例
