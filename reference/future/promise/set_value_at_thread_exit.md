@@ -30,6 +30,13 @@ void promise<void>::set_value_at_thread_exit();
 - [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が設定されている
 - [`no_state`](../future_errc.md) ： `*this`が共有状態を持っていない(`promise`オブジェクトがムーブされると起こりうる)
 
+また、以下のバージョンにおいてその他の例外オブジェクトが送出される可能性がある：
+
+- `const R&`バージョン ：
+    - C++14 : `R`型のオブジェクトをコピーするために選択されたコンストラクタが、あらゆる例外を送出する可能性がある
+- `R&&`バージョン ：
+    - C++14 : `R`型のオブジェクトをムーブするために選択されたコンストラクタが、あらゆる例外を送出する可能性がある
+
 
 ##例
 ```cpp
@@ -213,6 +220,7 @@ int main()
 
 
 ##参照
-[_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
+- [_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
+- [LWG Issue 2098. Minor Inconsistency between `promise::set_value` and `promise::set_value_at_thread_exit`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2098)
 
 
