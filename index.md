@@ -1,4 +1,4 @@
-#cpprefjp - C++ Reference Site
+#cpprefjp - C++日本語リファレンス
 
 本サイトcpprefjpは、プログラミング言語C++のリファレンスを提供するWebサイトです。
 
