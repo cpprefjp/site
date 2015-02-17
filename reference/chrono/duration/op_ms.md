@@ -1,6 +1,7 @@
 #msリテラル (C++14)
 ```cpp
 namespace std {
+
 inline namespace literals {
 inline namespace chrono_literals {
   constexpr chrono::milliseconds
@@ -8,7 +9,13 @@ inline namespace chrono_literals {
 
   constexpr chrono::duration<unspecified, milli>
     operator "" ms(long double x);               // (2)
-}}}
+}}
+
+namespace chrono {
+using namespace literals::chrono_literals;
+} // namespace chrono
+
+}  // namespace std
 ```
 * chrono::milliseconds[link /reference/chrono/milliseconds.md]
 * chrono::duration[link /reference/chrono/duration.md]
@@ -66,5 +73,6 @@ int main()
 
 ##参照
 - [N3642 User-defined Literals for Standard Library Types (part 1 - version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3642.pdf)
+- [LWG Issue 2278. User-defined literals for Standard Library types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2278)
 
 
