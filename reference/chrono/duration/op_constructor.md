@@ -20,8 +20,11 @@ duration(const duration&) = default;                  // (4)
 
 ##備考
 - (2) : [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`もしくは[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<Rep2>::value == false`の場合にオーバーロード解決される。
-- (3) : [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`であるか、[`ratio_divide`](/reference/ratio/ratio_divide.md)`<Period2, period>::type::den == 1`である場合にオーバーロード解決される。
-	- この要求は整数ベースの`duration`型間での変換の際に、暗黙に切り捨て誤差が起きるのを防ぐ。浮動小数点数型ベースの場合には、精度が下がれば小数点以下の数値になるだけなので問題ない。
+- (3) : この関数は、以下の条件を満たす場合にオーバーロード解決される。
+    - C++11 : [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`
+    - C++14 : 単位変換の結果としてオーバーフローせず、[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`
+    - もしくは、[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == false`かつ[`ratio_divide`](/reference/ratio/ratio_divide.md)`<Period2, period>::type::den == 1`
+    - これらの要求は、整数ベースの`duration`型間での変換の際に、暗黙に切り捨て誤差が起きるのを防ぐ。浮動小数点数型ベースの場合には、精度が下がれば小数点以下の数値になるだけなので問題ない。
 
 
 ###例
@@ -63,4 +66,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+##参照
+- [LWG Issue 2094. `duration` conversion overflow shouldn't participate in overload resolution](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2094)
 
