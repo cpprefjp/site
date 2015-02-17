@@ -8,10 +8,6 @@ reference at(size_type pos);
 `pos` 番目の要素への参照を取得する。
 
 
-##要件
-`pos < `[`size()`](./size.md)
-
-
 ##戻り値
 [`operator[]`](./op_at.md)`(pos)` の結果。
 
@@ -34,10 +30,10 @@ int main()
   std::cout << c << std::endl;
 
   try {
-	s.at(5);
+    s.at(5);
   }
   catch (std::out_of_range&) {
-	std::cout << "access error" << std::endl;
+    std::cout << "access error" << std::endl;
   }
 }
 ```
@@ -49,4 +45,6 @@ access error
 ```
 
 ##参照
+- [LWG Issue 2207. `basic_string::at` should not have a Requires clause](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2207)
+    - C++11まで、この関数を呼び出す要件として「`pos < size()`」があったが、例外節があるため要件節は不要。C++14で要件節が削除された。
 
