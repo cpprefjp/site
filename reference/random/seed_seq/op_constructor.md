@@ -1,41 +1,46 @@
 #コンストラクタ (C++11)
 ```cpp
-seed_seq();
+seed_seq();                                       // (1)
 
 template<class T>
-seed_seq(initializer_list<T> il);
+seed_seq(initializer_list<T> il);                 // (2)
 
 template<class InputIterator>
-seed_seq(InputIterator begin, InputIterator end);
+seed_seq(InputIterator begin, InputIterator end); // (3)
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##`seed_seq`オブジェクトの構築
-- `seed_seq();`
-
-デフォルトコンストラクタ。空のシード列を構築する。
-
-
-- `template<class T>`<br/>`seed_seq(initializer_list<T> il);`
-
-`seed_seq(il.begin(), il.end())`と同じ。  
-  
-要件：型`T`は整数型であること。
+##概要
+- (1) : デフォルトコンストラクタ。空のシード列を構築する。
+- (2) : `seed_seq(il.begin(), il.end())`と同じ。  
 
 
-- `template<class InputIterator>`<br/>`seed_seq(InputIterator begin, InputIterator end);`
+##要件
+- (2) : 型`T`は整数型であること。
+- (3) : `InputIterator`が指す値型が整数型であること。
 
-以下のアルゴリズムで、シード列を構築する。
 
-```cpp
+##効果
+- (1) : 空のシード列を構築する。
+- (2) : (3)のオーバーロードに転送する。
+
+    ```cpp
+seed_seq(il.begin(), il.end());
+```
+* il.begin()[link /reference/initializer_list/begin.md]
+* il.end()[link /reference/initializer_list/end.md]
+
+
+- (3) : 以下のアルゴリズムで、シード列を構築する。
+
+    ```cpp
 for (InputIterator s = begin; s != end; ++s) {
   v.push_back((*s) % pow(2, 32)); // 32ビット整数の範囲に収める
 }
+
+// ※ `v`は、メンバ変数として保持される、`vector<result_type>`型のシード列オブジェクトである。
 ```
 
-※ `v`は、メンバ変数として保持される、`vector<result_type>`型のシード列オブジェクトである。  
-  
-要件：`InputIterator`が指す値型が整数型であること。
 
 
 ##例
@@ -98,7 +103,6 @@ int main()
 
 ###出力例
 ```
-
 1, 2, 3, 
 1, 2, 4294967295, 
 ```
