@@ -20,9 +20,7 @@ expired() ? shared_ptr<T>() : shared_ptr<T>(*this)
 監視している[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトが寿命切れ状態なら、空の[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを作って返す。
 
 
-- C++14
-
-C++14以降では、上記に相当することをアトミックに実行する。
+- C++14 : 上記に相当することをアトミックに実行する。
 
 
 ##備考
