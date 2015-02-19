@@ -17,14 +17,16 @@ namespace std {
 関数を非同期実行する。
 
 この関数は、指定された関数を非同期実行し、結果値を取得するための`future`オブジェクトを返す。
+
 返された`future`オブジェクトの`get()`もしくは`wait()`を呼び出すことにより、非同期実行の完了を待機する。
 
 ##要件
-関数オブジェクト`F`および`Args...`の各型が、[`is_move_construcitble`](/reference/type_traits/is_move_constructible.md)`<T>::value == true`であること。
-[`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)`が可能であること。
+- 関数オブジェクト`F`および`Args...`の各型が、[`is_move_construcitble`](/reference/type_traits/is_move_constructible.md)`<T>::value == true`であること。
+- [`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)`が可能であること。
 
 ##効果
 この関数は、パラメータ`policy`で指定された実行ポリシーの値によって振る舞いを変える。
+
 `policy`を指定しない場合は[`launch::async`](./launch.md)` | `[`launch::deferred`](./launch.md)となり、どちらの実行ポリシーが選択されるかは実装定義となる。
 
 各実行ポリシーの振る舞いは以下のようになる：
@@ -33,16 +35,15 @@ namespace std {
 - `policy & launch::deferred`が`0`じゃない場合関数オブジェクト`f`をその場では実行せず、遅延状態にする(`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f))`と`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...`を[`future`](./future.md)オブジェクトとの共有状態に格納する)。この関数の戻り値である[`future`](./future.md)オブジェクトの[`get()`](./future/get.md)もしくは[`wait()`](./future/wait.md)が呼び出されるタイミングで関数オブジェクト`f`に`args...`を渡して実行する。
 - 有効な実行ポリシーが指定されていない場合(整数値を`launch`型にキャストするような状況)、その動作は未定義(C++14)。
 
+
 ##戻り値
 非同期実行される関数オブジェクト`f`の結果値取得のための`future`オブジェクトを返す。
+
 
 ##例外
 この関数は、以下のerror conditionを持つ[`future_error`](./future_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`resource_unavailable_try_again`](./future_errc.md) ： [`launch::async`](./launch.md)が指定され、新たなスレッドをを起動しようとしたができなかった
-
-
-##備考
 
 
 ##例
