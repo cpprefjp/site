@@ -31,8 +31,13 @@ namespace std {
 
 各実行ポリシーの振る舞いは以下のようになる：
 
-- `policy & launch::async`が`0`じゃない場合新たなスレッドで関数オブジェクト`f`に`args...`を渡して実行する( [`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)` )。関数オブジェクト`f`の戻り値が、この関数の戻り値である[`future`](./future.md)オブジェクトとの共有状態に書き込まれる。関数オブジェクト`f`の内部で例外が投げられた場合は、共有状態に投げられた例外が設定される。
-- `policy & launch::deferred`が`0`じゃない場合関数オブジェクト`f`をその場では実行せず、遅延状態にする(`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f))`と`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...`を[`future`](./future.md)オブジェクトとの共有状態に格納する)。この関数の戻り値である[`future`](./future.md)オブジェクトの[`get()`](./future/get.md)もしくは[`wait()`](./future/wait.md)が呼び出されるタイミングで関数オブジェクト`f`に`args...`を渡して実行する。
+- `policy & launch::async`が`0`じゃない場合、新たなスレッドで関数オブジェクト`f`に`args...`を渡して実行する
+    - ( [`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)` )
+    - 関数オブジェクト`f`の戻り値が、この関数の戻り値である[`future`](./future.md)オブジェクトとの共有状態に書き込まれる。
+    - 関数オブジェクト`f`の内部で例外が投げられた場合は、共有状態に投げられた例外が設定される。
+- `policy & launch::deferred`が`0`じゃない場合、関数オブジェクト`f`をその場では実行せず、遅延状態にする
+    - (`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f))`と`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...`を[`future`](./future.md)オブジェクトとの共有状態に格納する)。
+    - この関数の戻り値である[`future`](./future.md)オブジェクトの[`get()`](./future/get.md)もしくは[`wait()`](./future/wait.md)が呼び出されるタイミングで、関数オブジェクト`f`に`args...`を渡して実行する。
 - 有効な実行ポリシーが指定されていない場合(整数値を`launch`型にキャストするような状況)、その動作は未定義(C++14)。
 
 
