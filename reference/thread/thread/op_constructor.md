@@ -23,10 +23,10 @@ thread(thread&&) noexcept;              // (4)
 
 ##効果
 - (2) : 新しいスレッドを生成し、[`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`を実行する。ただし`DECAY_COPY`は同コンストラクタを呼び出したスレッド上にて評価される。また`f`のコピーの戻り値は無視される。
-	- `DECAY_COPY(x)`は `template <class T> typename std::decay<T>::type decay_copy(T&& v) { return `[`std::forward`](/reference/utility/forward.md)`<T>(v); }` と定義される。おおよそ、`x`が配列型なら先頭要素へのポインタ、`x`が関数型ならその関数ポインタ、`x`がコピーコンストラクト可能な型なら`x`からコピーされたオブジェクト、`x`がムーブコンストラクト可能な型なら`x`からムーブされたオブジェクトとなる。
+    - `DECAY_COPY(x)`は `template <class T> typename std::decay<T>::type decay_copy(T&& v) { return `[`std::forward`](/reference/utility/forward.md)`<T>(v); }` と定義される。おおよそ、`x`が配列型なら先頭要素へのポインタ、`x`が関数型ならその関数ポインタ、`x`がコピーコンストラクト可能な型なら`x`からコピーされたオブジェクト、`x`がムーブコンストラクト可能な型なら`x`からムーブされたオブジェクトとなる。
 
-	- `INVOKE(f, arg...)`は`f`が関数オブジェクトならば `f(arg...)` 形式の関数呼び出しとなる。詳細は[`INVOKE`](/reference/functional/invoke.md)の定義参照。
-	もし`INVOKE(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`呼び出しからcatchされない例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)が呼び出されてプログラムは異常終了する。
+    - `INVOKE(f, arg...)`は`f`が関数オブジェクトならば `f(arg...)` 形式の関数呼び出しとなる。詳細は[`INVOKE`](/reference/functional/invoke.md)の定義参照。
+    もし`INVOKE(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`呼び出しからcatchされない例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)が呼び出されてプログラムは異常終了する。
 
 
 ##同期
@@ -42,7 +42,12 @@ thread(thread&&) noexcept;              // (4)
 ##例外
 - (2) : 新しいスレッドの作成に失敗した場合、[`system_error`](/reference/system_error/system_error.md)例外を投げる。その例外オブジェクトには、以下のエラー状態が設定されうる：
 
-	- `resource_unavailable_try_again` : 新たなスレッドを作るためのリソースが不足している。もしくはシステムやプロセスが規定するスレッド数の上限を超過した。
+    - `resource_unavailable_try_again` : 新たなスレッドを作るためのリソースが不足している。もしくはシステムやプロセスが規定するスレッド数の上限を超過した。
+
+
+##備考
+- (2) :
+    - C++14 : [`std::decay`](/reference/type_traits/decay.md)`<F>::type`が`std::thread`型である場合、この関数はオーバーロード解決に参加しない。
 
 
 ##例
@@ -98,3 +103,5 @@ int main()
 
 
 ##参照
+- [LWG Issue 2097. `packaged_task` constructors should be constrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2097)
+
