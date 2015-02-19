@@ -41,6 +41,11 @@ packaged_task(packaged_task&& rhs) noexcept;       // (5)
 - (5) : `rhs`は共有状態を持たない
 
 
+##備考
+- (2), (3) :
+    - C++14 : [`std::decay`](/reference/type_traits/decay.md)`<F>::type`が`std::thread`型である場合、この関数はオーバーロード解決に参加しない。
+
+
 ##例
 ```cpp
 #include <memory>
@@ -101,4 +106,5 @@ int main()
 
 ##参照
 - [LWG Issue 2067. `packaged_task` should have deleted copy c'tor with const parameter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2067)
+- [LWG Issue 2097. `packaged_task` constructors should be constrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2097)
 
