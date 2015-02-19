@@ -46,4 +46,5 @@ future操作に関するエラー値。
 
 ##参照
 - [LWG2056 - future_errc enums start with value 0 (invalid value for broken_promise)](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2056)
+    - C++11の`future_errc`は、開始値が0だった。[`error_code`](/reference/system_error/error_code.md)クラスの[`operator bool()`](/reference/system_error/error_code/op_bool.md)が0を正常値と見なしてしまうため、C++14では`future_errc`の値を実装定義とした。
 
