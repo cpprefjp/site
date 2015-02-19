@@ -1,55 +1,48 @@
 #コンストラクタ (C++11)
 ```cpp
-// デフォルト
-thread() noexcept;
+thread() noexcept;                      // (1)
 
-// explicitテンプレート
-template <class F, class ...Args> explicit thread(F&& f, Args&&... args);
+template <class F, class ...Args>
+explicit thread(F&& f, Args&&... args); // (2)
 
-// コピー
-thread(const thread&) = delete;
-
-// ムーブ
-thread(thread&&) noexcept;
+thread(const thread&) = delete;         // (3)
+thread(thread&&) noexcept;              // (4)
 ```
-* デフォルト[italic]
-* explicitテンプレート[italic]
-* コピー[italic]
-* ムーブ[italic]
 
 
 ##概要
-新しいスレッドを生成し、そのスレッド上で引数`args...`を渡して関数オブジェクトfを呼び出す。
-デフォルトコンストラクタでは新しいスレッドを生成しない。また`thread`オブジェクトはムーブコンストラクト可能／コピーコンストラクト不可。
+- (1) : デフォルトコンストラクタ。新しいスレッドを生成せず、空の状態にする。
+- (2) : 新しいスレッドを生成し、そのスレッド上で引数`args...`を渡して、関数オブジェクト`f`を呼び出す。
+- (3) : コピーコンストラクタ。コピー不可。
+- (4) : ムーブコンストラクタ。スレッドの所有権を移動する。
 
 
-##要件（explicitコンストラクタのみ）
-型`F`および`Args`に含まれるすべての型`Ti`はムーブコンストラクト可能な型でなければならない。また、[`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`が有効な式でなければならない。
+##要件
+- (2) : 型`F`および`Args`に含まれるすべての型`Ti`はムーブコンストラクト可能な型でなければならない。また、[`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`が有効な式でなければならない。
 
 
-##効果（explicitコンストラクタのみ）
-新しいスレッドを生成し、[`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`を実行する。ただし`DECAY_COPY`は同コンストラクタを呼び出したスレッド上にて評価される。また`f`のコピーの戻り値は無視される。
+##効果
+- (2) : 新しいスレッドを生成し、[`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`を実行する。ただし`DECAY_COPY`は同コンストラクタを呼び出したスレッド上にて評価される。また`f`のコピーの戻り値は無視される。
+	- `DECAY_COPY(x)`は `template <class T> typename std::decay<T>::type decay_copy(T&& v) { return `[`std::forward`](/reference/utility/forward.md)`<T>(v); }` と定義される。おおよそ、`x`が配列型なら先頭要素へのポインタ、`x`が関数型ならその関数ポインタ、`x`がコピーコンストラクト可能な型なら`x`からコピーされたオブジェクト、`x`がムーブコンストラクト可能な型なら`x`からムーブされたオブジェクトとなる。
 
-- `DECAY_COPY(x)`は `template <class T> typename std::decay<T>::type decay_copy(T&& v) { return `[`std::forward`](/reference/utility/forward.md)`<T>(v); }` と定義される。おおよそ、`x`が配列型なら先頭要素へのポインタ、`x`が関数型ならその関数ポインタ、`x`がコピーコンストラクト可能な型なら`x`からコピーされたオブジェクト、`x`がムーブコンストラクト可能な型なら`x`からムーブされたオブジェクトとなる。
-
-- `INVOKE(f, arg...)`は`f`が関数オブジェクトならば `f(arg...)` 形式の関数呼び出しとなる。詳細は[`INVOKE`](/reference/functional/invoke.md)の定義参照。
-もし`INVOKE(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`呼び出しからcatchされない例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)が呼び出されてプログラムは異常終了する。
+	- `INVOKE(f, arg...)`は`f`が関数オブジェクトならば `f(arg...)` 形式の関数呼び出しとなる。詳細は[`INVOKE`](/reference/functional/invoke.md)の定義参照。
+	もし`INVOKE(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`呼び出しからcatchされない例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)が呼び出されてプログラムは異常終了する。
 
 
-##同期（explicitコンストラクタのみ）
-同コンストラクタの呼び出し完了は、fのコピーの呼び出し開始と**同期する**。つまり、「コンストラクタ呼び出し側スレッドT0でのコンストラクタ呼び出し完了」は、「新しいスレッド`T1`上での`f`のコピーの呼び出し開始」よりも**前に発生する**。
+##同期
+- (2) : 同コンストラクタの呼び出し完了は、fのコピーの呼び出し開始と**同期する**。つまり、「コンストラクタ呼び出し側スレッドT0でのコンストラクタ呼び出し完了」は、「新しいスレッド`T1`上での`f`のコピーの呼び出し開始」よりも**前に発生する**。
 
 
 ##事後条件
-- デフォルトコンストラクタ： [`get_id()`](./get_id.md) `==` [`id()`](./id.md)。
-- explicitコンストラクタ： [`get_id()`](./get_id.md) `!=` [`id()`](./id.md)。`*this`は新しいスレッドと関連付けられる。
-- ムーブコンストラクタ：ムーブ前の`x.`[`get_id()`](./get_id.md) `==` [`get_id()`](./get_id.md) かつ ムーブ後の`x.`[`get_id()`](./get_id.md) `==` [`id()`](./id.md)
+- (1) : [`get_id()`](./get_id.md) `==` [`id()`](./id.md)。
+- (2) : [`get_id()`](./get_id.md) `!=` [`id()`](./id.md)。`*this`は新しいスレッドと関連付けられる。
+- (4) : ムーブ前の`x.`[`get_id()`](./get_id.md) `==` [`get_id()`](./get_id.md) かつ ムーブ後の`x.`[`get_id()`](./get_id.md) `==` [`id()`](./id.md)
 
 
-##例外（explicitコンストラクタのみ）
-新しいスレッドの作成に失敗した場合、[`system_error`](/reference/system_error/system_error.md)例外を投げる。その例外オブジェクトには、以下のエラー状態が設定されうる：
+##例外
+- (2) : 新しいスレッドの作成に失敗した場合、[`system_error`](/reference/system_error/system_error.md)例外を投げる。その例外オブジェクトには、以下のエラー状態が設定されうる：
 
-- `resource_unavailable_try_again` : 新たなスレッドを作るためのリソースが不足している。もしくはシステムやプロセスが規定するスレッド数の上限を超過した。
+	- `resource_unavailable_try_again` : 新たなスレッドを作るためのリソースが不足している。もしくはシステムやプロセスが規定するスレッド数の上限を超過した。
 
 
 ##例
