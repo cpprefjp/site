@@ -25,11 +25,8 @@ namespace std {
 
 
 ##例外
-この関数は、`func`関数オブジェクトの呼び出しによって送出される、あらゆる例外が送出される可能性がある。
-
-そのほかに、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
-
-- [`invalid_argument`](/reference/system_error/errc.md) ： `flag`が無効状態
+- システムのAPIで何らかのエラーが発生した場合、[`system_error`](/reference/system_error/system_error.md)例外が送出される。
+- `func`関数オブジェクトの呼び出しによって送出される、あらゆる例外が送出される可能性がある。
 
 
 ##備考
@@ -87,5 +84,6 @@ initialize
 
 
 ##参照
-
+- [LWG Issue 2080. Specify when `once_flag` becomes invalid](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2080)
+    - C++11では、`once_flag`が無効(invalid)な場合に`system_error`が送出される仕様になっていた。実際には、`once_flag`が無効になる状況はないため、C++14でこの例外仕様が削除された。
 
