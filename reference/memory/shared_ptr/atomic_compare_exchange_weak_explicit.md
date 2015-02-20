@@ -14,11 +14,10 @@ namespace std {
 
 
 ##要件
-`p != nullptr`であること。
-
-`failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと。
-
-`failure`が`success`よりも強くないこと。
+- `p != nullptr`であること。
+- `expected != nullptr`であること。
+- `failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと。
+- `failure`が`success`よりも強くないこと。
 
 
 ##効果
@@ -86,5 +85,6 @@ int main()
 - [`atomic_compare_exchange_strong_explicit() - <atomic>`](/reference/atomic/atomic_compare_exchange_strong_explicit.md)
 - [N2674 Shared_ptr atomic access, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2674.htm)
 - [C++0x Shared_ptr atomic access - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081015/1224066366)
+- [LWG Issue 2172. Does `atomic_compare_exchange_*` accept `v == nullptr` arguments?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2172)
 
 

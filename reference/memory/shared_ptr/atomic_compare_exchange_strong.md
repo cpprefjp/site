@@ -12,7 +12,8 @@ namespace std {
 
 
 ##要件
-`p != nullptr`であること。
+- `p != nullptr`であること。
+- `expected != nullptr`であること。
 
 
 ##戻り値
@@ -73,5 +74,6 @@ int main()
 - [`atomic_compare_exchange_strong() - <atomic>`](/reference/atomic/atomic_compare_exchange_strong.md)
 - [N2674 Shared_ptr atomic access, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2674.htm)
 - [C++0x Shared_ptr atomic access - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081015/1224066366)
+- [LWG Issue 2172. Does `atomic_compare_exchange_*` accept `v == nullptr` arguments?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2172)
 
 
