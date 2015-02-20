@@ -54,7 +54,7 @@ int main()
 2
 ```
 
-##実装例
+##定義(C++11)
 ```cpp
 template <class ...T>
 struct common_type;
@@ -66,18 +66,42 @@ struct common_type<T> {
 
 template <class T, class U>
 struct common_type<T, U> {
-private:
-  static T&& t();
-  static U&& u();
-public:
-  typedef decltype(true ? t() : u()) type;
+  typedef decltype(true ? declval<T>() : declval<U>()) type;
 };
 
-template <class T, class U, class ...V>
+template <class T, class U, class... V>
 struct common_type<T, U, V...> {
   typedef typename common_type<typename common_type<T, U>::type, V...>::type type;
 };
 ```
+* declval[link /reference/utility/declval.md]
+
+
+##定義(C++14)
+```cpp
+template <class ...T>
+struct common_type;
+
+template <class... T>
+using common_type_t = typename common_type<T...>::type;
+
+template <class T>
+struct common_type<T> {
+  typedef decay_t<T> type;
+};
+
+template <class T, class U>
+struct common_type<T, U> {
+  typedef decay_t<decltype(true ? declval<T>() : declval<U>())> type;
+};
+
+template <class T, class U, class... V>
+struct common_type<T, U, V...> {
+  typedef common_type_t<common_type_t<T, U>, V...> type;
+};
+```
+* decay_t[link ./decay.md]
+* declval[link /reference/utility/declval.md]
 
 ##バージョン
 ###言語
@@ -92,4 +116,6 @@ struct common_type<T, U, V...> {
 ##参照
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
+- [LWG Issue 2141. `common_type` trait produces reference types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2141)
+    - C++11では、`common_type`の結果が参照型になる場合があった。C++14で`decay_t`を通すことにしたことにより、参照型が返されることがなくなった。
 
