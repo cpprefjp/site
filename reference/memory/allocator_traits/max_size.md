@@ -1,7 +1,7 @@
 #max_size (C++11)
 ```cpp
-static size_type max_size(Alloc& a);          // C++11
-static size_type max_size(Alloc& a) noexcept; // C++14
+static size_type max_size(Alloc& a);                // C++11
+static size_type max_size(const Alloc& a) noexcept; // C++14
 ```
 
 ##概要
@@ -43,4 +43,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 ##参照
-- [LWG2162 - allocator_traits::max_size missing noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2162)
+- [LWG Issue 2162. `allocator_traits::max_size` missing `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2162)
+- [LWG Issue 2284. Inconsistency in `allocator_traits::max_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2284)
+
