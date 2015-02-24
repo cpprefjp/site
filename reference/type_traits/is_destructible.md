@@ -15,9 +15,13 @@ namespace std {
 
 
 ##効果
+`is_destructible`は、型`T`が破棄可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
 
-`is_destructible`は、型`T`が破棄可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
-型`T`が完全型で `template <class U> struct test { U u; };` があるときに `test<T>::~test()` が`delete`宣言されていなければ、型`T`は破棄可能であると判断される。
+- C++11 : 型`T`が完全型で `template <class U> struct test { U u; };` があるときに `test<T>::~test()` が`delete`宣言されていなければ、型`T`は破棄可能であると判断される。
+- C++14 : 実行時に評価されない文脈で、オブジェクト型`T`に対する式[`std::declval`](/reference/utility/declval.md)`<T&>().~T()`が有効であれば破棄可能、そうでなければ破棄できないと判断される。以下、オブジェクト型に含まれない型の場合の判断について記載する：
+    - `T`が`void`の場合は破棄できない
+    - `T`が参照型の場合は破棄可能
+    - `T`が関数型の場合は破棄できない
 
 
 ##例
@@ -77,3 +81,8 @@ static_assert(std::is_destructible<int[]>::value == false, "int[] is not destruc
 1 error generated.
 ```
 revision 188080以降のClang 3.4ならばエラーが出ない。
+
+
+##参照
+- [LWG Issue 2049. `is_destructible` is underspecified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2049)
+
