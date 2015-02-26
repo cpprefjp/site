@@ -5,31 +5,32 @@
 * function[meta id-type]
 
 ```cpp
-error_code() noexcept;
+error_code() noexcept;                                   // (1)
 
-error_code(int val, const error_category& cat) noexcept;
+error_code(int val, const error_category& cat) noexcept; // (2)
 
 template <class ErrorCodeEnum>
-error_code(ErrorCodeEnum e) noexcept;
+error_code(ErrorCodeEnum e) noexcept;                    // (3)
 ```
 * error_category[link ../error_category.md]
 
 ##error_codeオブジェクトの構築
-- `error_code() noexcept`
+- (1) : デフォルトコンストラクタ。
+- (2) : エラー値とエラーカテゴリを受け取って構築する。
+- (3) : [`is_error_code_enum`](../is_error_code_enum.md)`<ErrorCodeEnum>::value == true`となる型のエラー値を受け取って構築する。
 
-デフォルト構築する。エラー値は`0`、エラーカテゴリは[`system_category()`](../system_category.md)と見なされる。
 
-- `error_code(int val, const `[`error_category`](../error_category.md)`& cat) noexcept`
-
-エラー値とエラーカテゴリを受け取って構築する。
-
-- `template <class ErrorCodeEnum>`<br/>`error_code(ErrorCodeEnum e) noexcept`
-
-[`is_error_code_enum`](../is_error_code_enum.md)`<ErrorCodeEnum>::value == true`となる型のエラー値を受け取って構築する。[`is_error_code_enum`](../is_error_code_enum.md)が`false`となる場合、この関数はオーバーロード解決から除外される。`*this = `[`make_error_code`](../make_error_code.md)`(e);` となる。
+##効果
+- (1) : 値`0`(正常値)で構築する。エラーカテゴリは[`system_category()`](../system_category.md)と見なされる。
+- (3) : `*this = `[`make_error_code`](../make_error_code.md)`(e);` となる。
 
 
 ##例外
 投げない
+
+
+##備考
+- (3) : [`is_error_code_enum`](../is_error_code_enum.md)が`false`となる場合、この関数はオーバーロード解決から除外される。
 
 
 ##例
