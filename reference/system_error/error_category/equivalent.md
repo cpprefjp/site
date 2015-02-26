@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-virtual bool equivalent(int code, const error_condition& condition) const noexcept;
-virtual bool equivalent(const error_code& code, int condition) const noexcept;
+virtual bool equivalent(int code, const error_condition& condition) const noexcept; // (1)
+virtual bool equivalent(const error_code& code, int condition) const noexcept;      // (2)
 ```
 * error_condition[link ../error_condition.md]
 * error_code[link ../error_code.md]
@@ -15,13 +15,9 @@ virtual bool equivalent(const error_code& code, int condition) const noexcept;
 エラーコードとエラー状態の等値比較を行う。
 
 
-- `equivalent(int code, const error_condition& condition)`
-
-`return default_error_condition(code) == condition;`
-
-- `equivalent(const error_code& code, int condition)`
-
-`return *this == code.category() && code.value() == condition;`
+##戻り値
+- (1) : `return default_error_condition(code) == condition;`
+- (2) : `return *this == code.category() && code.value() == condition;`
 
 
 ##例外
