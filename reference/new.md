@@ -21,7 +21,7 @@
 |-----------------------------------------------|-------------------------------------|-------|
 | [`get_new_handler`](./new/get_new_handler.md) | `new`失敗時に呼ばれる関数を取得する(function) | C++11 |
 | [`set_new_handler`](./new/set_new_handler.md) | `new`失敗時に呼ばれる関数を設定する(function) | |
-| [`new`](./new/new.md) | 動的に記憶域を確保する(function) | |
-| [`delete`](./new/delete.md) | 動的に確保した記憶域を解放する(function) | |
+| [`new`](./new/op_new.md) | 動的に記憶域を確保する(function) | |
+| [`delete`](./new/op_delete.md) | 動的に確保した記憶域を解放する(function) | |
 
 
