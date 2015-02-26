@@ -1,6 +1,7 @@
 #find (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_multiset[meta class]
 
 ```cpp
 iterator find(const key_type& k);

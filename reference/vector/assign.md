@@ -1,6 +1,7 @@
 #assign
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 template <class InputIterator>

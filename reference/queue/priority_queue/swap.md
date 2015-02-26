@@ -1,6 +1,7 @@
 #swap (C++11)
 * queue[meta header]
 * std[meta namespace]
+* priority_queue[meta class]
 
 ```cpp
 void swap(priority_queue& q)

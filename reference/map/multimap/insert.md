@@ -1,6 +1,7 @@
 #insert
 * map[meta header]
 * std[meta namespace]
+* multimap[meta class]
 
 ```cpp
 iterator insert(const value_type& x);

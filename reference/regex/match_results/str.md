@@ -1,6 +1,7 @@
 #str (C++11)
 * regex[meta header]
 * std[meta namespace]
+* match_results[meta class]
 
 ```cpp
 string_type str(size_type sub = 0) const;

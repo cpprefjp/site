@@ -1,6 +1,7 @@
 #rbegin
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 reverse_iterator rbegin() noexcept;

@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* seed_seq[meta class]
 
 ```cpp
 seed_seq();                                       // (1)

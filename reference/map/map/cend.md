@@ -1,6 +1,7 @@
 #cend (C++11)
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 // since C++11

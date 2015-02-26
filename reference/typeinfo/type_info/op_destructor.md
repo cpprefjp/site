@@ -1,6 +1,7 @@
 #デストラクタ
 * typeinfo[meta header]
 * std[meta namespace]
+* type_info[meta class]
 
 ```cpp
 virtual ~type_info();

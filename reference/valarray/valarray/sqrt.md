@@ -1,6 +1,7 @@
 #sqrt
 * valarray[meta header]
 * std[meta namespace]
+* valarray[meta class]
 
 ```cpp
 namespace std {

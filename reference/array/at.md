@@ -1,6 +1,7 @@
 #at (C++11)
 * array[meta header]
 * std[meta namespace]
+* array[meta class]
 
 ```cpp
 reference at(size_type n);                       // (1)

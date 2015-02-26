@@ -1,6 +1,7 @@
 #begin (非メンバ関数) (C++11)
 * valarray[meta header]
 * std[meta namespace]
+* valarray[meta class]
 
 ```cpp
 namespace std {

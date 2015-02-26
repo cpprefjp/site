@@ -1,6 +1,7 @@
 #front
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 reference front();             // (1)

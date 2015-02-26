@@ -1,6 +1,7 @@
 #equivalent (C++11)
 * system_error[meta header]
 * std[meta namespace]
+* error_category[meta class]
 
 ```cpp
 virtual bool equivalent(int code, const error_condition& condition) const noexcept;

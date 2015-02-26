@@ -1,6 +1,7 @@
 #id
 * locale[meta header]
 * std[meta namespace]
+* locale[meta class]
 
 ```cpp
 namespace std {

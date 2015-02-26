@@ -1,6 +1,7 @@
 #empty
 * queue[meta header]
 * std[meta namespace]
+* queue[meta class]
 
 ```cpp
 bool empty() const;

@@ -1,6 +1,7 @@
 #end
 * deque[meta header]
 * std[meta namespace]
+* deque[meta class]
 
 ```cpp
 iterator end() noexcept;

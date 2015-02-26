@@ -1,6 +1,7 @@
 #swap (C++11)
 * memory[meta header]
 * std[meta namespace]
+* weak_ptr[meta class]
 
 ```cpp
 void swap(weak_ptr& r) noexcept;

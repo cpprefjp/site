@@ -1,6 +1,7 @@
 #operator<< (C++11)
 * random[meta header]
 * std[meta namespace]
+* gamma_distribution[meta class]
 
 ```cpp
 namespace std {

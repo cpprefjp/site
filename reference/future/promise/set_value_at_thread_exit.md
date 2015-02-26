@@ -1,6 +1,7 @@
 #set_value_at_thread_exit (C++11)
 * future[meta header]
 * std[meta namespace]
+* promise[meta class]
 
 ```cpp
 // テンプレートパラメータRが下記特殊ケースでない場合

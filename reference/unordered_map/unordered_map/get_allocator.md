@@ -1,6 +1,7 @@
 #get_allocator (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* unordered_map[meta class]
 
 ```cpp
 allocator_type get_allocator() const noexcept;

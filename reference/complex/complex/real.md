@@ -1,6 +1,7 @@
 #real
 * complex[meta header]
 * std[meta namespace]
+* complex[meta class]
 
 ```cpp
 T real() const;					// (1) C++11 まで

@@ -1,6 +1,7 @@
 #generate (C++11)
 * random[meta header]
 * std[meta namespace]
+* seed_seq[meta class]
 
 ```cpp
 template <class RandomAccessIterator>

@@ -1,6 +1,7 @@
 #pop_front
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 void pop_front();

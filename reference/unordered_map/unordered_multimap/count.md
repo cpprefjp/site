@@ -1,6 +1,7 @@
 #count (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* unordered_multimap[meta class]
 
 ```cpp
 size_type count(const key_type& x) const;

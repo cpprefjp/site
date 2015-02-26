@@ -1,6 +1,7 @@
 #operator= (C++11)
 * iterator[meta header]
 * std[meta namespace]
+* move_iterator[meta class]
 
 ```cpp
 template <class U> move_iterator& operator=(const move_iterator<U>& u);

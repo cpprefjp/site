@@ -1,6 +1,7 @@
 #operator bool (C++14)
 * shared_mutex[meta header]
 * std[meta namespace]
+* shared_lock[meta class]
 
 ```cpp
 explicit operator bool() const noexcept;

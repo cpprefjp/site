@@ -1,6 +1,7 @@
 #swap
 * deque[meta header]
 * std[meta namespace]
+* deque[meta class]
 
 ```cpp
 void swap(deque& other);

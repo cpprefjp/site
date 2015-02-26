@@ -1,6 +1,7 @@
 #wait_until (C++11)
 * condition_variable[meta header]
 * std[meta namespace]
+* condition_variable[meta class]
 
 ```cpp
 template <class Clock, class Duration>

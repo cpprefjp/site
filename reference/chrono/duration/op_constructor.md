@@ -1,6 +1,7 @@
 #コンストラクタ
 * chrono[meta header]
 * std::chrono[meta namespace]
+* duration[meta class]
 
 ```cpp
 constexpr duration() = default;                       // (1)

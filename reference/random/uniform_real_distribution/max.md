@@ -1,6 +1,7 @@
 #max (C++11)
 * random[meta header]
 * std[meta namespace]
+* uniform_real_distribution[meta class]
 
 ```cpp
 result_type max() const;

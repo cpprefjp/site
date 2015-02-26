@@ -1,6 +1,7 @@
 #operator>=
 * stack[meta header]
 * std[meta namespace]
+* stack[meta class]
 
 ```cpp
 namespace std {

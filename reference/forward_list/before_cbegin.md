@@ -1,6 +1,7 @@
 #before_cbegin (C++11)
 * forward_list[meta header]
 * std[meta namespace]
+* forward_list[meta class]
 
 ```cpp
 const_iterator cbefore_begin() const noexcept;

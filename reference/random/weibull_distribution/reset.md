@@ -1,6 +1,7 @@
 #reset (C++11)
 * random[meta header]
 * std[meta namespace]
+* weibull_distribution[meta class]
 
 ```cpp
 void reset();

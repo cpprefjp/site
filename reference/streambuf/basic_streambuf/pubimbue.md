@@ -1,6 +1,7 @@
 #pubimbue
 * streambuf[meta header]
 * std[meta namespace]
+* basic_streambuf[meta class]
 
 ```cpp
 namespace std {

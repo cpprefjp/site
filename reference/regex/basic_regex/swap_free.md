@@ -1,6 +1,7 @@
 #swap (非メンバ関数) (C++11)
 * regex[meta header]
 * std[meta namespace]
+* basic_regex[meta class]
 
 ```cpp
 template <class charT, class traits>

@@ -1,6 +1,7 @@
 #test
 * bitset[meta header]
 * std[meta namespace]
+* bitset[meta class]
 
 ```cpp
 bool test(size_t pos) const;

@@ -1,6 +1,7 @@
 #try_lock (C++14)
 * shared_mutex[meta header]
 * std[meta namespace]
+* shared_timed_mutex[meta class]
 
 ```cpp
 bool try_lock();

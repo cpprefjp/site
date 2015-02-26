@@ -1,6 +1,7 @@
 #max_size (C++11)
 * forward_list[meta header]
 * std[meta namespace]
+* forward_list[meta class]
 
 ```cpp
 size_type max_size() const noexcept;

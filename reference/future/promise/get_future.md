@@ -1,6 +1,7 @@
 #get_future (C++11)
 * future[meta header]
 * std[meta namespace]
+* promise[meta class]
 
 ```cpp
 future<R> get_future();

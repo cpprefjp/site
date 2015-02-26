@@ -1,6 +1,7 @@
 #reserve (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* unordered_multimap[meta class]
 
 ```cpp
 void reserve(size_type n);

@@ -1,6 +1,7 @@
 #max (C++11)
 * random[meta header]
 * std[meta namespace]
+* discard_block_engine[meta class]
 
 ```cpp
 static constexpr result_type max() { return Engine::max(); }

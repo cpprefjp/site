@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_multiset[meta class]
 
 ```cpp
 explicit unordered_multiset(size_type n = 実装依存の既定値,

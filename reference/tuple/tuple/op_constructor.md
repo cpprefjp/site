@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * tuple[meta header]
 * std[meta namespace]
+* tuple[meta class]
 
 ```cpp
 constexpr tuple();                         // (1) C++11

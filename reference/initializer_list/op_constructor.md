@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * initializer_list[meta header]
 * std[meta namespace]
+* initializer_list[meta class]
 
 ```cpp
 initializer_list() noexcept;           // C++11

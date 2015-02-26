@@ -1,6 +1,7 @@
 #name (C++11)
 * typeindex[meta header]
 * std[meta namespace]
+* type_index[meta class]
 
 ```cpp
 const char* name() const;          // C++11

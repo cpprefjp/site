@@ -1,6 +1,7 @@
 #key_eq (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* unordered_map[meta class]
 
 ```cpp
 key_equal key_eq() const;

@@ -1,6 +1,7 @@
 #load_factor (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* unordered_multimap[meta class]
 
 ```cpp
 float load_factor() const noexcept;

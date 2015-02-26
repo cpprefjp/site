@@ -1,6 +1,7 @@
 #デストラクタ
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 ~list();

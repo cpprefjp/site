@@ -1,6 +1,7 @@
 #operator==
 * map[meta header]
 * std[meta namespace]
+* multimap[meta class]
 
 ```cpp
 template <class Key, class T, class Compare, class Allocator>

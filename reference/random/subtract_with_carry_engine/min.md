@@ -1,6 +1,7 @@
 #min (C++11)
 * random[meta header]
 * std[meta namespace]
+* subtract_with_carry_engine[meta class]
 
 ```cpp
 static constexpr result_type min() { return 0; }

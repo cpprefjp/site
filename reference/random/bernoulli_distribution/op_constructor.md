@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* bernoulli_distribution[meta class]
 
 ```cpp
 explicit bernoulli_distribution(double p = 0.5);

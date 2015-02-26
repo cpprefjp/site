@@ -1,6 +1,7 @@
 #コンストラクタ
 * queue[meta header]
 * std[meta namespace]
+* priority_queue[meta class]
 
 ```cpp
 // C++03

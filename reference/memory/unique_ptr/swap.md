@@ -1,6 +1,7 @@
 #swap (C++11)
 * memory[meta header]
 * std[meta namespace]
+* unique_ptr[meta class]
 
 ```cpp
 void swap(unique_ptr& x) noexcept;

@@ -1,6 +1,7 @@
 #size
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 size_type size() const;          // C++03

@@ -1,6 +1,7 @@
 #min (C++11)
 * random[meta header]
 * std[meta namespace]
+* shuffle_order_engine[meta class]
 
 ```cpp
 static constexpr result_type min() { return Engine::min(); }

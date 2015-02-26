@@ -1,6 +1,7 @@
 #suffix (C++11)
 * regex[meta header]
 * std[meta namespace]
+* match_results[meta class]
 
 ```cpp
 const_reference suffix() const;

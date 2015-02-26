@@ -1,6 +1,7 @@
 #pop_front
 * deque[meta header]
 * std[meta namespace]
+* deque[meta class]
 
 ```cpp
 void pop_front();

@@ -1,6 +1,7 @@
 #zero (C++11)
 * chrono[meta header]
 * std::chrono[meta namespace]
+* duration_values[meta class]
 
 ```cpp
 static constexpr Rep zero();

@@ -1,6 +1,7 @@
 #コンストラクタ
 * queue[meta header]
 * std[meta namespace]
+* queue[meta class]
 
 ```cpp
 explicit queue(const Container& other = Container());

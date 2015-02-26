@@ -1,6 +1,7 @@
 #insert
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 // C++03

@@ -1,6 +1,7 @@
 #operator= (C++11)
 * memory[meta header]
 * std[meta namespace]
+* unique_ptr[meta class]
 
 ```cpp
 unique_ptr& operator=(unique_ptr&& u) noexcept;       // (1) 単一オブジェクト、配列

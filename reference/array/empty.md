@@ -1,6 +1,7 @@
 #empty (C++11)
 * array[meta header]
 * std[meta namespace]
+* array[meta class]
 
 ```cpp
 constexpr bool empty() noexcept;       // C++11

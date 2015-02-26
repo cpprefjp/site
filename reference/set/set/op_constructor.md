@@ -1,6 +1,7 @@
 #コンストラクタ
 * set[meta header]
 * std[meta namespace]
+* set[meta class]
 
 ```cpp
 explicit set(const Compare& comp = Compare(), const Allocator& alloc = Allocator());

@@ -1,6 +1,7 @@
 #data (C++11)
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 T* data() noexcept;

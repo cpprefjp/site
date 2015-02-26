@@ -1,6 +1,7 @@
 #at
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 const_reference at(size_type pos) const;

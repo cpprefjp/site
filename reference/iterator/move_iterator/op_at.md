@@ -1,6 +1,7 @@
 #operator[] (C++11)
 * iterator[meta header]
 * std[meta namespace]
+* move_iterator[meta class]
 
 ```cpp
 unspecified operator[](difference_type n) const;

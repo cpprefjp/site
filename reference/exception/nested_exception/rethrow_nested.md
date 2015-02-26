@@ -1,6 +1,7 @@
 #rethrow_nested (C++11)
 * exception[meta header]
 * std[meta namespace]
+* nested_exception[meta class]
 
 ```cpp
 [[noreturn]] void rethrow_nested() const;

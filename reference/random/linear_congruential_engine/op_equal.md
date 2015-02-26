@@ -1,6 +1,7 @@
 #operator== (C++11)
 * random[meta header]
 * std[meta namespace]
+* linear_congruential_engine[meta class]
 
 ```cpp
 namespace std {

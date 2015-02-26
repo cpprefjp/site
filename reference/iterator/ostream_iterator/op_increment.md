@@ -1,6 +1,7 @@
 #operator++
 * iterator[meta header]
 * std[meta namespace]
+* ostream_iterator[meta class]
 
 ```cpp
 ostream_iterator& operator++();

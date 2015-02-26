@@ -1,6 +1,7 @@
 #operator== (C++11)
 * typeindex[meta header]
 * std[meta namespace]
+* type_index[meta class]
 
 ```cpp
 bool operator==(const type_index& rhs) const noexcept;

@@ -1,6 +1,7 @@
 #コンストラクタ
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 vector();                                            // (1) C++14

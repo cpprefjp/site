@@ -1,6 +1,7 @@
 #shrink_to_fit (C++11)
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 void shrink_to_fit();

@@ -1,6 +1,7 @@
 #rend (C++11)
 * array[meta header]
 * std[meta namespace]
+* array[meta class]
 
 ```cpp
 reverse_iterator rend() noexcept;

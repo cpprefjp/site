@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* random_device[meta class]
 
 ```cpp
 explicit random_device(const string& token = implementation-defined);

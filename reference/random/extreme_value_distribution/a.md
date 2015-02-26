@@ -1,6 +1,7 @@
 #a (C++11)
 * random[meta header]
 * std[meta namespace]
+* extreme_value_distribution[meta class]
 
 ```cpp
 RealType a() const;

@@ -1,6 +1,7 @@
 #upper_bound
 * map[meta header]
 * std[meta namespace]
+* multimap[meta class]
 
 ```cpp
 iterator upper_bound(const key_type& x);

@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* piecewise_constant_distribution[meta class]
 
 ```cpp
 piecewise_constant_distribution();

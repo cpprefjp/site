@@ -1,6 +1,7 @@
 #cbegin (C++11)
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 const_iterator cbegin() const noexcept;

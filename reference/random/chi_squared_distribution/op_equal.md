@@ -1,6 +1,7 @@
 #operator== (C++11)
 * random[meta header]
 * std[meta namespace]
+* chi_squared_distribution[meta class]
 
 ```cpp
 namespace std {

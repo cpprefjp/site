@@ -1,6 +1,7 @@
 #operator() (C++11)
 * memory[meta header]
 * std[meta namespace]
+* owner_less[meta class]
 
 ```cpp
 // shared_ptr版

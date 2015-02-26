@@ -1,6 +1,7 @@
 #try_lock_for (C++14)
 * shared_mutex[meta header]
 * std[meta namespace]
+* shared_lock[meta class]
 
 ```cpp
 template <class Rep, class Period>

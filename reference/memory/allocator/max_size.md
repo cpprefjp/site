@@ -1,6 +1,7 @@
 #max_size
 * memory[meta header]
 * std[meta namespace]
+* allocator[meta class]
 
 ```cpp
 size_type max_size() const throw();  // C++03

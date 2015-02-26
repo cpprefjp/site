@@ -1,6 +1,7 @@
 #min (C++11)
 * random[meta header]
 * std[meta namespace]
+* independent_bits_engine[meta class]
 
 ```cpp
 static constexpr result_type min() { return 0; }

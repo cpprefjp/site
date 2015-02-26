@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * regex[meta header]
 * std[meta namespace]
+* basic_regex[meta class]
 
 ```cpp
 basic_regex();																// (1)

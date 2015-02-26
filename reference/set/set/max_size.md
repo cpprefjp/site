@@ -1,6 +1,7 @@
 #max_size
 * set[meta header]
 * std[meta namespace]
+* set[meta class]
 
 ```cpp
 size_type max_size() const noexcept;

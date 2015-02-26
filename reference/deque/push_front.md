@@ -1,6 +1,7 @@
 #push_front
 * deque[meta header]
 * std[meta namespace]
+* deque[meta class]
 
 ```cpp
 void push_front(const T& x);

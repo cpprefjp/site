@@ -1,6 +1,7 @@
 #clear
 * set[meta header]
 * std[meta namespace]
+* set[meta class]
 
 ```cpp
 void clear() noexcept;

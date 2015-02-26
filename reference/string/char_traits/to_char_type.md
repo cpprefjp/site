@@ -1,6 +1,7 @@
 #to_char_type
 * string[meta header]
 * std[meta namespace]
+* char_traits[meta class]
 
 ```cpp
 // C++03

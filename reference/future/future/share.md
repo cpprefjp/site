@@ -1,6 +1,7 @@
 #share (C++11)
 * future[meta header]
 * std[meta namespace]
+* function[meta class]
 
 ```cpp
 shared_future<R> share();

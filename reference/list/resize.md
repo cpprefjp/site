@@ -1,6 +1,7 @@
 #resize
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 void resize(size_type sz);                      // (1) C++11

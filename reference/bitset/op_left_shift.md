@@ -1,6 +1,7 @@
 #operator<<
 * bitset[meta header]
 * std[meta namespace]
+* bitset[meta class]
 
 ```cpp
 bitset<N> operator<<(size_t pos) const noexcept;

@@ -1,6 +1,7 @@
 #operator string_type (C++11)
 * regex[meta header]
 * std[meta namespace]
+* sub_match[meta class]
 
 ```cpp
 operator string_type() const;

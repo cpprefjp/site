@@ -1,6 +1,7 @@
 #operator>
 * queue[meta header]
 * std[meta namespace]
+* queue[meta class]
 
 ```cpp
 namespace std {

@@ -1,6 +1,7 @@
 #construct (C++11)
 * memory[meta header]
 * std[meta namespace]
+* allocator_traits[meta class]
 
 ```cpp
 template <class T, class... Args>

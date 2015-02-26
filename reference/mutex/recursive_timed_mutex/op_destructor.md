@@ -1,6 +1,7 @@
 #デストラクタ (C++11)
 * mutex[meta header]
 * std[meta namespace]
+* recursive_timed_mutex[meta class]
 
 ```cpp
 ~recursive_timed_mutex();

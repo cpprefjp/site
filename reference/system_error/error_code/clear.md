@@ -1,6 +1,7 @@
 #clear (C++11)
 * system_error[meta header]
 * std[meta namespace]
+* error_code[meta class]
 
 ```cpp
 void clear() noexcept;

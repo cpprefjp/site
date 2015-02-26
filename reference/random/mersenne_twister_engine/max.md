@@ -1,6 +1,7 @@
 #max (C++11)
 * random[meta header]
 * std[meta namespace]
+* mersenne_twister_engine[meta class]
 
 ```cpp
 static constexpr result_type max();

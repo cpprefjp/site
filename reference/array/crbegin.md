@@ -1,6 +1,7 @@
 #crbegin (C++11)
 * array[meta header]
 * std[meta namespace]
+* array[meta class]
 
 ```cpp
 const_reverse_iterator crbegin() const noexcept;

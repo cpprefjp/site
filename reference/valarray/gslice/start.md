@@ -1,6 +1,7 @@
 #start
 * valarray[meta header]
 * std[meta namespace]
+* gslice[meta class]
 
 ```cpp
 size_t start() const;

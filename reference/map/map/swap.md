@@ -1,6 +1,7 @@
 #swap
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 void swap(map<Key,T, Compare,Allocator>& st);

@@ -1,6 +1,7 @@
 #to_string
 * bitset[meta header]
 * std[meta namespace]
+* bitset[meta class]
 
 ```cpp
 // C++03

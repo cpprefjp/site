@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* poisson_distribution[meta class]
 
 ```cpp
 explicit poisson_distribution(double mean = 1.0);

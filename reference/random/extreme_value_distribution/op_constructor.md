@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* extreme_value_distribution[meta class]
 
 ```cpp
 explicit extreme_value_distribution(RealType a = 0.0, RealType b = 1.0);

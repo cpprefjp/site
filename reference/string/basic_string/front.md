@@ -1,6 +1,7 @@
 #front (C++11)
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 const charT& front() const;

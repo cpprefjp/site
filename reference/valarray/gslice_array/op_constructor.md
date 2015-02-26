@@ -1,6 +1,7 @@
 #コンストラクタ
 * valarray[meta header]
 * std[meta namespace]
+* gslice_array[meta class]
 
 ```cpp
 private:

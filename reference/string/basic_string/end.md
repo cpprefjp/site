@@ -1,6 +1,7 @@
 #end
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 iterator end() noexcept;

@@ -1,6 +1,7 @@
 #top
 * stack[meta header]
 * std[meta namespace]
+* stack[meta class]
 
 ```cpp
 reference top();

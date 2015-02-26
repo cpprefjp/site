@@ -1,6 +1,7 @@
 #unique (C++11)
 * memory[meta header]
 * std[meta namespace]
+* shared_ptr[meta class]
 
 ```cpp
 bool unique() const noexcept;

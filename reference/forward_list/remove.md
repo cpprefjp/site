@@ -1,6 +1,7 @@
 #remove (C++11)
 * forward_list[meta header]
 * std[meta namespace]
+* forward_list[meta class]
 
 ```cpp
 void remove(const T& value);

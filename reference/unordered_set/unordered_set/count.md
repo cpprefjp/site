@@ -1,6 +1,7 @@
 #count (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_set[meta class]
 
 ```cpp
 size_type count(const key_type& k) const;

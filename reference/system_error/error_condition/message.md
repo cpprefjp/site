@@ -1,6 +1,7 @@
 #message (C++11)
 * system_error[meta header]
 * std[meta namespace]
+* error_condition[meta class]
 
 ```cpp
 string message() const;

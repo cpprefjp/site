@@ -1,6 +1,7 @@
 #nsリテラル (C++14)
 * chrono[meta header]
 * std::chrono_literals[meta namespace]
+* duration[meta class]
 
 ```cpp
 namespace std {

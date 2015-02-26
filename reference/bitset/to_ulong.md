@@ -1,6 +1,7 @@
 #to_ulong
 * bitset[meta header]
 * std[meta namespace]
+* bitset[meta class]
 
 ```cpp
 unsigned long to_ulong() const;

@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* mersenne_twister_engine[meta class]
 
 ```cpp
 explicit mersenne_twister_engine(result_type value = default_seed);

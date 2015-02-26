@@ -1,6 +1,7 @@
 #atan (C++11)
 * complex[meta header]
 * std[meta namespace]
+* complex[meta class]
 
 ```cpp
 namespace std {

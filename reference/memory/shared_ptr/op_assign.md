@@ -1,6 +1,7 @@
 #operator= (C++11)
 * memory[meta header]
 * std[meta namespace]
+* shared_ptr[meta class]
 
 ```cpp
 shared_ptr& operator=(const shared_ptr& r) noexcept;    // (1)

@@ -1,6 +1,7 @@
 #swap (非メンバ関数) (C++11)
 * memory[meta header]
 * std[meta namespace]
+* weak_ptr[meta class]
 
 ```cpp
 namespace std {

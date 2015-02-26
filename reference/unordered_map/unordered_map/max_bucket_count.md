@@ -1,6 +1,7 @@
 #max_bucket_count (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* unordered_map[meta class]
 
 ```cpp
 size_type max_bucket_count() const noexcept;

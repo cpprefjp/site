@@ -1,6 +1,7 @@
 #empty (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_multiset[meta class]
 
 ```cpp
 bool empty() const noexcept;

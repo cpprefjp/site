@@ -1,6 +1,7 @@
 #reserve
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 void reserve(size_type res_arg = 0);

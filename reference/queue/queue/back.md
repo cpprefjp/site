@@ -1,6 +1,7 @@
 #back
 * queue[meta header]
 * std[meta namespace]
+* queue[meta class]
 
 ```cpp
 value_type& back();

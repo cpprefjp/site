@@ -1,6 +1,7 @@
 #デストラクタ (C++11)
 * condition_variable[meta header]
 * std[meta namespace]
+* condition_variable[meta class]
 
 ```cpp
 ~condition_variable();

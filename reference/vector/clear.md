@@ -1,6 +1,7 @@
 #clear
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 void clear();

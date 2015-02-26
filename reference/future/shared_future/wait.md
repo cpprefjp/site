@@ -1,6 +1,7 @@
 #wait (C++11)
 * future[meta header]
 * std[meta namespace]
+* shared_future[meta class]
 
 ```cpp
 void wait() const;

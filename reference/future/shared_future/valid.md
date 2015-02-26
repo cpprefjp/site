@@ -1,6 +1,7 @@
 #valid (C++11)
 * future[meta header]
 * std[meta namespace]
+* shared_future[meta class]
 
 ```cpp
 bool valid() const noexcept;

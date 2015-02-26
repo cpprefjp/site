@@ -1,6 +1,7 @@
 #max (C++11)
 * random[meta header]
 * std[meta namespace]
+* linear_congruential_engine[meta class]
 
 ```cpp
 static constexpr result_type max() { return M - 1u; }

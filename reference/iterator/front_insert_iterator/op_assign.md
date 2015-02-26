@@ -1,6 +1,7 @@
 #operator=
 * iterator[meta header]
 * std[meta namespace]
+* front_insert_iterator[meta class]
 
 ```cpp
 front_insert_iterator&

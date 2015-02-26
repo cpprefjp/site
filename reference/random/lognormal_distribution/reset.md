@@ -1,6 +1,7 @@
 #reset (C++11)
 * random[meta header]
 * std[meta namespace]
+* lognormal_distribution[meta class]
 
 ```cpp
 void reset();

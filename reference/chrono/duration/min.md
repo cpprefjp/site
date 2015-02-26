@@ -1,6 +1,7 @@
 #min (C++11)
 * chrono[meta header]
 * std::chrono[meta namespace]
+* duration[meta class]
 
 ```cpp
 static constexpr duration min();

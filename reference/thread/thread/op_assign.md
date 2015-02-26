@@ -1,6 +1,7 @@
 #operator= (C++11)
 * thread[meta header]
 * std[meta namespace]
+* thread[meta class]
 
 ```cpp
 // コピー

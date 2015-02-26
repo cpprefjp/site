@@ -1,6 +1,7 @@
 #operator[]
 * bitset[meta header]
 * std[meta namespace]
+* bitset[meta class]
 
 ```cpp
 bool operator[](size_t pos) const;           // (1) C++03

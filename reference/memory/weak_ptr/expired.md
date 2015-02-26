@@ -1,6 +1,7 @@
 #expired (C++11)
 * memory[meta header]
 * std[meta namespace]
+* weak_ptr[meta class]
 
 ```cpp
 bool expired() const noexcept;

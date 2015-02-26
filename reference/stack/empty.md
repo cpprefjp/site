@@ -1,6 +1,7 @@
 #empty
 * stack[meta header]
 * std[meta namespace]
+* stack[meta class]
 
 ```cpp
 bool empty() const;

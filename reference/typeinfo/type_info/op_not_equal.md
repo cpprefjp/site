@@ -1,6 +1,7 @@
 #operator!=
 * typeinfo[meta header]
 * std[meta namespace]
+* type_info[meta class]
 
 ```cpp
 bool operator!=(const type_info& rhs) const noexcept;

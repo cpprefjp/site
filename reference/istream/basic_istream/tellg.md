@@ -1,6 +1,7 @@
 #tellg
 * istream[meta header]
 * std[meta namespace]
+* basic_istream[meta class]
 
 ```cpp
 pos_type tellg();

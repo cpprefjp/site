@@ -1,6 +1,7 @@
 #inserter
 * iterator[meta header]
 * std[meta namespace]
+* insert_iterator[meta class]
 
 ```cpp
 namespace std {

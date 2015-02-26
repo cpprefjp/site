@@ -1,6 +1,7 @@
 #size
 * queue[meta header]
 * std[meta namespace]
+* priority_queue[meta class]
 
 ```cpp
 size_type size() const;

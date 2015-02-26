@@ -1,6 +1,7 @@
 #lambda (C++11)
 * random[meta header]
 * std[meta namespace]
+* exponential_distribution[meta class]
 
 ```cpp
 result_type lambda() const;

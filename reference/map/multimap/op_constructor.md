@@ -1,6 +1,7 @@
 #コンストラクタ
 * map[meta header]
 * std[meta namespace]
+* multimap[meta class]
 
 ```cpp
 multimap();																					// (1) C++14 から

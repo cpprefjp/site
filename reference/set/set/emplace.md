@@ -1,6 +1,7 @@
 #emplace (C++11)
 * set[meta header]
 * std[meta namespace]
+* set[meta class]
 
 ```cpp
 // since C++11

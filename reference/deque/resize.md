@@ -1,6 +1,7 @@
 #resize
 * deque[meta header]
 * std[meta namespace]
+* deque[meta class]
 
 ```cpp
 void resize(size_type sz);                   // (1) : C++11

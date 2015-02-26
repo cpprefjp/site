@@ -1,6 +1,7 @@
 #erase
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 // C++03まで

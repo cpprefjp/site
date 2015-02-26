@@ -1,6 +1,7 @@
 #b (C++11)
 * random[meta header]
 * std[meta namespace]
+* cauchy_distribution[meta class]
 
 ```cpp
 result_type b() const;

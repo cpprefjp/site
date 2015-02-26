@@ -1,6 +1,7 @@
 #デストラクタ
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 ~map();

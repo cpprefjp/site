@@ -1,6 +1,7 @@
 #inner_allocator (C++11)
 * scoped_allocator[meta header]
 * std[meta namespace]
+* scoped_allocator_adaptor[meta class]
 
 ```cpp
 inner_allocator_type& inner_allocator() noexcept;             // (1)

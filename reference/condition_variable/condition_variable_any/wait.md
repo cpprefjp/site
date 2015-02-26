@@ -1,6 +1,7 @@
 #wait (C++11)
 * condition_variable[meta header]
 * std[meta namespace]
+* condition_variable_any[meta class]
 
 ```cpp
 template <class Lock>

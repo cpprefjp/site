@@ -1,6 +1,7 @@
 #back
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 reference back();             // (1)

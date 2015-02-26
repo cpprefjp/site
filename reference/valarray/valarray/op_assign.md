@@ -1,6 +1,7 @@
 #operator=
 * valarray[meta header]
 * std[meta namespace]
+* valarray[meta class]
 
 ```cpp
 valarray& operator=(const valarray<T>& x);       // (1)

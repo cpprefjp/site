@@ -1,6 +1,7 @@
 #swap
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 void swap(basic_string& str);

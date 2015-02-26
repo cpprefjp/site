@@ -1,6 +1,7 @@
 #resize
 * valarray[meta header]
 * std[meta namespace]
+* valarray[meta class]
 
 ```cpp
 void resize(size_t sz, T c = T());

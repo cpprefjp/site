@@ -1,6 +1,7 @@
 #lock (C++14)
 * shared_mutex[meta header]
 * std[meta namespace]
+* shared_timed_mutex[meta class]
 
 ```cpp
 void lock();

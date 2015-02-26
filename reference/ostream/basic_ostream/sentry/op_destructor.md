@@ -1,6 +1,7 @@
 #デストラクタ
 * ostream[meta header]
 * std[meta namespace]
+* basic_ostream::sentry[meta class]
 
 ```cpp
 namespace std {

@@ -1,6 +1,7 @@
 #operator- (単項)
 * valarray[meta header]
 * std[meta namespace]
+* valarray[meta class]
 
 ```cpp
 valarray<T> operator-() const;

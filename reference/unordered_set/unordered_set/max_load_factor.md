@@ -1,6 +1,7 @@
 #max_load_factor (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_set[meta class]
 
 ```cpp
 float max_load_factor() const noexcept; // (1)

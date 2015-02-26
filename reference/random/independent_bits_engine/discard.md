@@ -1,6 +1,7 @@
 #discard (C++11)
 * random[meta header]
 * std[meta namespace]
+* independent_bits_engine[meta class]
 
 ```cpp
 void discard(unsigned long long z);

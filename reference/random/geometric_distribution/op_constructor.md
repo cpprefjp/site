@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* geometric_distribution[meta class]
 
 ```cpp
 explicit geometric_distribution(double p = 0.5);

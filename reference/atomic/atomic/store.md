@@ -1,6 +1,7 @@
 #store (C++11)
 * atomic[meta header]
 * std[meta namespace]
+* atomic[meta class]
 
 ```cpp
 void store(T desired, memory_order order = memory_order_seq_cst) volatile noexcept;

@@ -1,6 +1,7 @@
 #push_back
 * deque[meta header]
 * std[meta namespace]
+* deque[meta class]
 
 ```cpp
 void push_back(const T& x);

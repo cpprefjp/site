@@ -1,6 +1,7 @@
 #merge
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 void merge(list& x);  // (1)

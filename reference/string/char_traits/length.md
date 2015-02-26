@@ -1,6 +1,7 @@
 #length
 * string[meta header]
 * std[meta namespace]
+* char_traits[meta class]
 
 ```cpp
 static size_t length(const char_type* s);

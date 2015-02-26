@@ -1,6 +1,7 @@
 #コンストラクタ
 * valarray[meta header]
 * std[meta namespace]
+* mask_array[meta class]
 
 ```cpp
 private:

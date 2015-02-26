@@ -1,6 +1,7 @@
 #clear (C++11)
 * atomic[meta header]
 * std[meta namespace]
+* atomic_flag[meta class]
 
 ```cpp
 void clear(memory_order order = memory_order_seq_cst) volatile noexcept;

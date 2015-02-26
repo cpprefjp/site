@@ -1,6 +1,7 @@
 #try_lock (C++11)
 * mutex[meta header]
 * std[meta namespace]
+* recursive_mutex[meta class]
 
 ```cpp
 bool try_lock();

@@ -1,6 +1,7 @@
 #empty
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 bool empty() const noexcept;

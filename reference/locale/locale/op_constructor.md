@@ -1,6 +1,7 @@
 #コンストラクタ
 * locale[meta header]
 * std[meta namespace]
+* locale[meta class]
 
 ```cpp
 locale() noexcept;

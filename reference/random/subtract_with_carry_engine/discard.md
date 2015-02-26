@@ -1,6 +1,7 @@
 #discard (C++11)
 * random[meta header]
 * std[meta namespace]
+* subtract_with_carry_engine[meta class]
 
 ```cpp
 void discard(unsigned long long z);

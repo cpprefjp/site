@@ -1,6 +1,7 @@
 #iリテラル (C++14)
 * complex[meta header]
 * std::complex_literals[meta namespace]
+* complex[meta class]
 
 ```cpp
 namespace std {

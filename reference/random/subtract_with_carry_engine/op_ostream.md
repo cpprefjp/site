@@ -1,6 +1,7 @@
 #operator<< (C++11)
 * random[meta header]
 * std[meta namespace]
+* subtract_with_carry_engine[meta class]
 
 ```cpp
 namespace std {

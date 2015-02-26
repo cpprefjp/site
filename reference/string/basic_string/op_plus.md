@@ -1,6 +1,7 @@
 #operator+
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 template <class charT, class traits, class Allocator>

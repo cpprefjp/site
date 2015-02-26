@@ -1,6 +1,7 @@
 #operator*
 * iterator[meta header]
 * std[meta namespace]
+* back_insert_iterator[meta class]
 
 ```cpp
 back_insert_iterator& operator*();

@@ -1,6 +1,7 @@
 #mean (C++11)
 * random[meta header]
 * std[meta namespace]
+* poisson_distribution[meta class]
 
 ```cpp
 double mean() const;

@@ -1,6 +1,7 @@
 #upper_bound
 * set[meta header]
 * std[meta namespace]
+* set[meta class]
 
 ```cpp
 iterator upper_bound(const key_type& x);

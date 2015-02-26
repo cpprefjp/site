@@ -1,6 +1,7 @@
 #emplace_back (C++11)
 * deque[meta header]
 * std[meta namespace]
+* deque[meta class]
 
 ```cpp
 template <class... Args>

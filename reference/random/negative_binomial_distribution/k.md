@@ -1,6 +1,7 @@
 #k (C++11)
 * random[meta header]
 * std[meta namespace]
+* negative_binomial_distribution[meta class]
 
 ```cpp
 IntType k() const;

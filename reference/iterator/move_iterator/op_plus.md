@@ -1,6 +1,7 @@
 #operator+ (非メンバ関数) (C++11)
 * iterator[meta header]
 * std[meta namespace]
+* move_iterator[meta class]
 
 ```cpp
 namespace std {

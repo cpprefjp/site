@@ -1,6 +1,7 @@
 #const_pointer_cast (C++11)
 * memory[meta header]
 * std[meta namespace]
+* shared_ptr[meta class]
 
 ```cpp
 namespace std {

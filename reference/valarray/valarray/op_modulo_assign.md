@@ -1,6 +1,7 @@
 #operator%=
 * valarray[meta header]
 * std[meta namespace]
+* valarray[meta class]
 
 ```cpp
 valarray<T>& operator%=(const valarray<T>& xs); // (1)

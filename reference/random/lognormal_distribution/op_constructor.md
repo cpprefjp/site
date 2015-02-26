@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* lognormal_distribution[meta class]
 
 ```cpp
 explicit lognormal_distribution(RealType m = 0.0, RealType s = 1.0);

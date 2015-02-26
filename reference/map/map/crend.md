@@ -1,6 +1,7 @@
 #crend (C++11)
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 const_reverse_iterator crend() const noexcept;

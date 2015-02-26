@@ -1,6 +1,7 @@
 #swap (非メンバ関数) (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_set[meta class]
 
 ```cpp
 namespace std {

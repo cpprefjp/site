@@ -1,6 +1,7 @@
 #back_inserter
 * iterator[meta header]
 * std[meta namespace]
+* back_insert_iterator[meta class]
 
 ```cpp
 namespace std {

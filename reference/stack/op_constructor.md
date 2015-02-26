@@ -1,6 +1,7 @@
 #コンストラクタ
 * stack[meta header]
 * std[meta namespace]
+* stack[meta class]
 
 ```cpp
 // C++03 まで

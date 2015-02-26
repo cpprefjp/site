@@ -1,6 +1,7 @@
 #basic_ostream<>::sentry
 * ostream[meta header]
 * std[meta namespace]
+* basic_ostream[meta class]
 
 ```cpp
 namespace std {

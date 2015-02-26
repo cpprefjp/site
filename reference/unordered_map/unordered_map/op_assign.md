@@ -1,6 +1,7 @@
 #operator= (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* unordered_map[meta class]
 
 ```cpp
 unordered_map& operator=(const unordered_map& v);          // (1)

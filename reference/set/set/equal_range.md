@@ -1,6 +1,7 @@
 #equal_range
 * set[meta header]
 * std[meta namespace]
+* set[meta class]
 
 ```cpp
 pair<iterator,iterator> equal_range(const key_type& x);

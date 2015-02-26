@@ -1,6 +1,7 @@
 #p (C++11)
 * random[meta header]
 * std[meta namespace]
+* bernoulli_distribution[meta class]
 
 ```cpp
 double p() const;

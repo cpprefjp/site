@@ -1,6 +1,7 @@
 #remove_if
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 template <class Predicate>

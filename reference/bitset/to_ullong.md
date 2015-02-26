@@ -1,6 +1,7 @@
 #to_ullong (C++11)
 * bitset[meta header]
 * std[meta namespace]
+* bitset[meta class]
 
 ```cpp
 unsigned long long to_ullong() const;

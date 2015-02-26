@@ -1,6 +1,7 @@
 #hash_function (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* unordered_multimap[meta class]
 
 ```cpp
 hasher hash_function() const;

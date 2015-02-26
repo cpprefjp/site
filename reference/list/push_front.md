@@ -1,6 +1,7 @@
 #push_front
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 void push_front(const T& x); // (1)

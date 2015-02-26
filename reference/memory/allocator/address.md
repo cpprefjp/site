@@ -1,6 +1,7 @@
 #address
 * memory[meta header]
 * std[meta namespace]
+* allocator[meta class]
 
 ```cpp
 // C++03

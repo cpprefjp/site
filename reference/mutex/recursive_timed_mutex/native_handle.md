@@ -1,6 +1,7 @@
 #native_handle (C++11)
 * mutex[meta header]
 * std[meta namespace]
+* recursive_timed_mutex[meta class]
 
 ```cpp
 native_handle_type native_handle();

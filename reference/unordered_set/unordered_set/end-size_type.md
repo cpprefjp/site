@@ -1,6 +1,7 @@
 #end(size_type) (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_set[meta class]
 
 ```cpp
 local_iterator end(size_type n);

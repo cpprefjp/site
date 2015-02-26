@@ -1,6 +1,7 @@
 #get_allocator
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 allocator_type get_allocator() const;          // C++03

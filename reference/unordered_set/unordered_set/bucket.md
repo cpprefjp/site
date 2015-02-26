@@ -1,6 +1,7 @@
 #bucket (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_set[meta class]
 
 ```cpp
 size_type bucket(const key_type& k) const;

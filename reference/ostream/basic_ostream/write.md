@@ -1,6 +1,7 @@
 #write
 * ostream[meta header]
 * std[meta namespace]
+* basic_ostream[meta class]
 
 ```cpp
 basic_ostream<CharT, Traits>& write(const char_type* s, streamsize n);

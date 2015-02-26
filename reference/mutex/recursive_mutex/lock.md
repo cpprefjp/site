@@ -1,6 +1,7 @@
 #lock (C++11)
 * mutex[meta header]
 * std[meta namespace]
+* recursive_mutex[meta class]
 
 ```cpp
 void lock();

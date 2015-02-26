@@ -1,6 +1,7 @@
 #at (C++11)
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 T& at(const key_type& x);

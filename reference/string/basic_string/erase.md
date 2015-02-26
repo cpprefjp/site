@@ -1,6 +1,7 @@
 #erase
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 basic_string& erase(size_type pos = 0, size_type n = npos); // (1)

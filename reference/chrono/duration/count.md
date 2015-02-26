@@ -1,6 +1,7 @@
 #count (C++11)
 * chrono[meta header]
 * std::chrono[meta namespace]
+* duration[meta class]
 
 ```cpp
 constexpr rep count() const;

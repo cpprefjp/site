@@ -1,6 +1,7 @@
 #empty
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 bool empty() const noexcept;

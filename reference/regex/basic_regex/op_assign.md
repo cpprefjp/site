@@ -1,6 +1,7 @@
 #operator= (C++11)
 * regex[meta header]
 * std[meta namespace]
+* basic_regex[meta class]
 
 ```cpp
 basic_regex& operator=(const basic_regex& e);					// (1)

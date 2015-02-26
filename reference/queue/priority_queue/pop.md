@@ -1,6 +1,7 @@
 #pop
 * queue[meta header]
 * std[meta namespace]
+* priority_queue[meta class]
 
 ```cpp
 void pop();

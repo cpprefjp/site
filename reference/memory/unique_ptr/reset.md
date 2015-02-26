@@ -1,6 +1,7 @@
 #reset (C++11)
 * memory[meta header]
 * std[meta namespace]
+* unique_ptr[meta class]
 
 ```cpp
 void reset(pointer p = pointer()) noexcept; // (1)

@@ -1,6 +1,7 @@
 #get (C++11)
 * memory[meta header]
 * std[meta namespace]
+* unique_ptr[meta class]
 
 ```cpp
 pointer get() const noexcept;

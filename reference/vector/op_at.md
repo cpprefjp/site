@@ -1,6 +1,7 @@
 #operator[]
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 reference operator[](size_type n);

@@ -1,6 +1,7 @@
 #swap (非メンバ関数)
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 namespace std {

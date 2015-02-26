@@ -1,6 +1,7 @@
 #operator>
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 namespace std {

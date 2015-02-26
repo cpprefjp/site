@@ -1,6 +1,7 @@
 #get_allocator (C++11)
 * regex[meta header]
 * std[meta namespace]
+* match_results[meta class]
 
 ```cpp
 allocator_type get_allocator() const;

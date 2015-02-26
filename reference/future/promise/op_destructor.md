@@ -1,6 +1,7 @@
 #デストラクタ (C++11)
 * future[meta header]
 * std[meta namespace]
+* promise[meta class]
 
 ```cpp
 ~promise();

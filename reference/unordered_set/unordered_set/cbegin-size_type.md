@@ -1,6 +1,7 @@
 #cbegin(size_type) (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_set[meta class]
 
 ```cpp
 const_local_iterator cbegin(size_type n) const;

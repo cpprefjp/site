@@ -1,6 +1,7 @@
 #any
 * bitset[meta header]
 * std[meta namespace]
+* bitset[meta class]
 
 ```cpp
 bool any() const;          // C++03

@@ -1,6 +1,7 @@
 #operator<
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 template <class Key, class T, class Compare, class Allocator>

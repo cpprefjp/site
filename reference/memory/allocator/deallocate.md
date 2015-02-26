@@ -1,6 +1,7 @@
 #deallocate
 * memory[meta header]
 * std[meta namespace]
+* allocator[meta class]
 
 ```cpp
 void deallocate(pointer p, size_type n);

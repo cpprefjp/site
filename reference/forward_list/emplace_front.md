@@ -1,6 +1,7 @@
 #emplace_front (C++11)
 * forward_list[meta header]
 * std[meta namespace]
+* forward_list[meta class]
 
 ```cpp
 template <class... Args>

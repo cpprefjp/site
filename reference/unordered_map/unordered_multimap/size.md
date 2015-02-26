@@ -1,6 +1,7 @@
 #size (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* unordered_multimap[meta class]
 
 ```cpp
 size_type size() const noexcept;

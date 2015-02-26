@@ -1,6 +1,7 @@
 #rend
 * map[meta header]
 * std[meta namespace]
+* multimap[meta class]
 
 ```cpp
 reverse_iterator rend() noexcept;

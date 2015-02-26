@@ -1,6 +1,7 @@
 #swap (非メンバ関数) (C++11)
 * queue[meta header]
 * std[meta namespace]
+* priority_queue[meta class]
 
 ```cpp
 namespace std {

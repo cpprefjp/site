@@ -1,6 +1,7 @@
 #pointer_to (C++11)
 * memory[meta header]
 * std[meta namespace]
+* pointer_traits[meta class]
 
 ```cpp
 static pointer pointer_traits::pointer_to(element_type& r);              // (1)

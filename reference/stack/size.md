@@ -1,6 +1,7 @@
 #size
 * stack[meta header]
 * std[meta namespace]
+* stack[meta class]
 
 ```cpp
 size_type size() const;

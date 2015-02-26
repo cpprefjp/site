@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * mutex[meta header]
 * std[meta namespace]
+* lock_guard[meta class]
 
 ```cpp
 explicit lock_guard(mutex_type& m);

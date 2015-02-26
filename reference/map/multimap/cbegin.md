@@ -1,6 +1,7 @@
 #cbegin (C++11)
 * map[meta header]
 * std[meta namespace]
+* multimap[meta class]
 
 ```cpp
 const_iterator cbegin() const noexcept;

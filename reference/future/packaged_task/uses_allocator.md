@@ -1,6 +1,7 @@
 #uses_allocator (C++11)
 * future[meta header]
 * std[meta namespace]
+* packaged_task[meta class]
 
 ```cpp
 namespace std {

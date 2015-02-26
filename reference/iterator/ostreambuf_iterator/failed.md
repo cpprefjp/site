@@ -1,6 +1,7 @@
 #failed
 * iterator[meta header]
 * std[meta namespace]
+* ostreambuf_iterator[meta class]
 
 ```cpp
 bool failed() const noexcept;

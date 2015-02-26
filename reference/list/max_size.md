@@ -1,6 +1,7 @@
 #max_size
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 size_type max_size() const;          // C++03

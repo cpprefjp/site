@@ -1,6 +1,7 @@
 #sリテラル (C++14)
 * string[meta header]
 * std::string_literals[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 namespace std {

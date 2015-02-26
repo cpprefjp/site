@@ -1,6 +1,7 @@
 #operator=
 * memory[meta header]
 * std[meta namespace]
+* raw_storage_iterator[meta class]
 
 ```cpp
 raw_storage_iterator& operator=(const T& element);

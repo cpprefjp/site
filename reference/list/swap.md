@@ -1,6 +1,7 @@
 #swap
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 void swap(list& x);

@@ -1,6 +1,7 @@
 #コンストラクタ
 * deque[meta header]
 * std[meta namespace]
+* deque[meta class]
 
 ```cpp
 explicit deque(const Allocator& a = Allocator());                                       // C++11 まで

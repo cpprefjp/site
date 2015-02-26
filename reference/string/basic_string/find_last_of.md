@@ -1,6 +1,7 @@
 #find_last_of
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 size_type find_last_of(const basic_string& str, size_type pos = npos) const noexcept; // (1)

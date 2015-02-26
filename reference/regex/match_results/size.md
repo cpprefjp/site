@@ -1,6 +1,7 @@
 #size (C++11)
 * regex[meta header]
 * std[meta namespace]
+* match_results[meta class]
 
 ```cpp
 size_type size() const;

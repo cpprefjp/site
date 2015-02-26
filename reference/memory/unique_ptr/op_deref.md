@@ -1,6 +1,7 @@
 #operator* (C++11)
 * memory[meta header]
 * std[meta namespace]
+* unique_ptr[meta class]
 
 ```cpp
 typename add_lvalue_reference<T>::type operator*() const;

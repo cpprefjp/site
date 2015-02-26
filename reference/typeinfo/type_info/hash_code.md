@@ -1,6 +1,7 @@
 #hash_code (C++11)
 * typeinfo[meta header]
 * std[meta namespace]
+* type_info[meta class]
 
 ```cpp
 size_t hash_code() const noexcept;

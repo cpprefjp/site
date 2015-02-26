@@ -1,6 +1,7 @@
 #push_back
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 void push_back(const T& x); // (1)

@@ -1,6 +1,7 @@
 #reserve (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_multiset[meta class]
 
 ```cpp
 void reserve(size_type n);

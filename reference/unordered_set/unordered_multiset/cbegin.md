@@ -1,6 +1,7 @@
 #cbegin (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
+* unordered_multiset[meta class]
 
 ```cpp
 const_iterator cbegin() const noexcept;

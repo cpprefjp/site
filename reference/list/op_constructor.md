@@ -1,6 +1,7 @@
 #コンストラクタ
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 list();                                          // (1) C++14 から

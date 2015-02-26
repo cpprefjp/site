@@ -1,6 +1,7 @@
 #swap
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 void swap(vector& x);

@@ -1,6 +1,7 @@
 #size
 * bitset[meta header]
 * std[meta namespace]
+* bitset[meta class]
 
 ```cpp
 size_t size() const;                    // C++03

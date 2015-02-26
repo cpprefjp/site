@@ -1,6 +1,7 @@
 #デストラクタ (C++11)
 * system_error[meta header]
 * std[meta namespace]
+* error_category[meta class]
 
 ```cpp
 virtual ~error_category() noexcept; // C++11

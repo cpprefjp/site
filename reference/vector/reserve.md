@@ -1,6 +1,7 @@
 #reserve
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 void reserve(size_type n);

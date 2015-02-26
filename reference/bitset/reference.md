@@ -1,6 +1,7 @@
 #bitset::reference
 * bitset[meta header]
 * std[meta namespace]
+* bitset[meta class]
 
 ```cpp
 namespace std {

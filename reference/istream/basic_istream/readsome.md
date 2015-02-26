@@ -1,6 +1,7 @@
 #readsome
 * istream[meta header]
 * std[meta namespace]
+* basic_istream[meta class]
 
 ```cpp
 streamsize readsome(char_type* s, streamsize n);

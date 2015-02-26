@@ -1,6 +1,7 @@
 #remove
 * list[meta header]
 * std[meta namespace]
+* list[meta class]
 
 ```cpp
 void remove(const T& value);

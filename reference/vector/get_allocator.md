@@ -1,6 +1,7 @@
 #get_allocator
 * vector[meta header]
 * std[meta namespace]
+* vector[meta class]
 
 ```cpp
 allocator_type get_allocator() const noexcept;

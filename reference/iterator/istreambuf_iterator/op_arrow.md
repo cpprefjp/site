@@ -1,6 +1,7 @@
 #operator-> (C++11)
 * iterator[meta header]
 * std[meta namespace]
+* istreambuf_iterator[meta class]
 
 ```cpp
 pointer operator->() const;

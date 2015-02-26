@@ -1,6 +1,7 @@
 #operator=
 * valarray[meta header]
 * std[meta namespace]
+* indirect_array[meta class]
 
 ```cpp
 private:

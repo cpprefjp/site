@@ -1,6 +1,7 @@
 #コンストラクタ
 * iterator[meta header]
 * std[meta namespace]
+* ostream_iterator[meta class]
 
 ```cpp
 ostream_iterator(ostream_type& s);

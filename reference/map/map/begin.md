@@ -1,6 +1,7 @@
 #begin
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 iterator begin() noexcept;

@@ -1,6 +1,7 @@
 #push
 * queue[meta header]
 * std[meta namespace]
+* queue[meta class]
 
 ```cpp
 void push(const value_type& x);

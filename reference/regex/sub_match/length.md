@@ -1,6 +1,7 @@
 #length (C++11)
 * regex[meta header]
 * std[meta namespace]
+* sub_match[meta class]
 
 ```cpp
 difference_type length() const;

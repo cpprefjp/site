@@ -1,6 +1,7 @@
 #replace
 * string[meta header]
 * std[meta namespace]
+* basic_string[meta class]
 
 ```cpp
 basic_string& replace(size_type pos1, size_type n1,

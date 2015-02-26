@@ -1,6 +1,7 @@
 #map::value_compare
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 namespace std {

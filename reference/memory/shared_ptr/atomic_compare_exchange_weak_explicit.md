@@ -1,6 +1,7 @@
 #atomic_compare_exchange_weak_explicit (C++11)
 * memory[meta header]
 * std[meta namespace]
+* shared_ptr[meta class]
 
 ```cpp
 namespace std {

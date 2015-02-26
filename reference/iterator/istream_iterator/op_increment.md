@@ -1,6 +1,7 @@
 #operator++
 * iterator[meta header]
 * std[meta namespace]
+* istream_iterator[meta class]
 
 ```cpp
 istream_iterator<T, CharT, Traits, Distance>& operator++();

@@ -1,6 +1,7 @@
 #fill (C++11)
 * array[meta header]
 * std[meta namespace]
+* array[meta class]
 
 ```cpp
 void fill(const T& u);

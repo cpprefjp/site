@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * random[meta header]
 * std[meta namespace]
+* cauchy_distribution[meta class]
 
 ```cpp
 explicit cauchy_distribution(RealType a = 0.0, RealType b = 1.0);

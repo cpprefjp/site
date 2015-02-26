@@ -1,6 +1,7 @@
 #value_comp
 * map[meta header]
 * std[meta namespace]
+* map[meta class]
 
 ```cpp
 value_compare value_comp() const;

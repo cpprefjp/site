@@ -1,6 +1,7 @@
 #operator==
 * utility[meta header]
 * std[meta namespace]
+* pair[meta class]
 
 ```cpp
 namespace std {

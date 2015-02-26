@@ -1,6 +1,7 @@
 #base
 * iterator[meta header]
 * std[meta namespace]
+* reverse_iterator[meta class]
 
 ```cpp
 Iterator base() const;

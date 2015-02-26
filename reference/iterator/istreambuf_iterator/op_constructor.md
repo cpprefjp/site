@@ -1,6 +1,7 @@
 #コンストラクタ
 * iterator[meta header]
 * std[meta namespace]
+* istreambuf_iterator[meta class]
 
 ```cpp
 constexpr istreambuf_iterator() noexcept;

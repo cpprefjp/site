@@ -1,6 +1,7 @@
 #コンストラクタ
 * iterator[meta header]
 * std[meta namespace]
+* back_insert_iterator[meta class]
 
 ```cpp
 explicit back_insert_iterator(Container& x);

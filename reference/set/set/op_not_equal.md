@@ -1,6 +1,7 @@
 #operator!=
 * set[meta header]
 * std[meta namespace]
+* set[meta class]
 
 ```cpp
 template <class Key, class Compare, class Allocator>

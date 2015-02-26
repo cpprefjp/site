@@ -1,6 +1,7 @@
 #erase
 * map[meta header]
 * std[meta namespace]
+* multimap[meta class]
 
 ```cpp
 void erase(iterator position);                             // (1) C++03

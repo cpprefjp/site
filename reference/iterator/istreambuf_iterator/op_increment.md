@@ -1,6 +1,7 @@
 #operator++
 * iterator[meta header]
 * std[meta namespace]
+* istreambuf_iterator[meta class]
 
 ```cpp
 istreambuf_iterator<CharT, Traits>& operator++();

@@ -1,6 +1,7 @@
 #try_lock (C++11)
 * mutex[meta header]
 * std[meta namespace]
+* timed_mutex[meta class]
 
 ```cpp
 bool try_lock();

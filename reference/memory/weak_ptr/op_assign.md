@@ -1,6 +1,7 @@
 #operator= (C++11)
 * memory[meta header]
 * std[meta namespace]
+* weak_ptr[meta class]
 
 ```cpp
 weak_ptr& operator=(const weak_ptr& r) noexcept;      // (1)

@@ -1,6 +1,7 @@
 #traps
 * limits[meta header]
 * std[meta namespace]
+* numeric_limits[meta class]
 
 ```cpp
 // C++03

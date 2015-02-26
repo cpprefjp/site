@@ -1,6 +1,7 @@
 #owns_lock (C++14)
 * shared_mutex[meta header]
 * std[meta namespace]
+* shared_lock[meta class]
 
 ```cpp
 bool owns_lock() const noexcept;

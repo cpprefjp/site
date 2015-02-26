@@ -1,6 +1,7 @@
 #コンストラクタ (C++11)
 * atomic[meta header]
 * std[meta namespace]
+* atomic[meta class]
 
 ```cpp
 atomic() noexcept = default;

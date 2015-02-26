@@ -1,6 +1,7 @@
 #try_lock_for (C++11)
 * mutex[meta header]
 * std[meta namespace]
+* timed_mutex[meta class]
 
 ```cpp
 template <class Rep, class Period>

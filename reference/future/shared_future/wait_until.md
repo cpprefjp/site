@@ -1,6 +1,7 @@
 #wait_until (C++11)
 * future[meta header]
 * std[meta namespace]
+* shared_future[meta class]
 
 ```cpp
 template <class Clock, class Duration>

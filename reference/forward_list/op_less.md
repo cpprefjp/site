@@ -1,6 +1,7 @@
 #operator< (C++11)
 * forward_list[meta header]
 * std[meta namespace]
+* forward_list[meta class]
 
 ```cpp
 namespace std {
