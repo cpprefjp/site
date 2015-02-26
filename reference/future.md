@@ -1,5 +1,6 @@
 #future (C++11)
 * future[meta header]
+* std[meta namespace]
 
 `<future>`ヘッダでは、並行プログラミングのためのデザインパターンのひとつであるFutureパターンに関するクラス・関数を提供する。
 

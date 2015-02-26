@@ -1,5 +1,6 @@
 #iota (C++11)
 * numeric[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std{

@@ -1,5 +1,6 @@
 #emplace_hint (C++11)
 * map[meta header]
+* std[meta namespace]
 
 ```cpp
 // since C++11

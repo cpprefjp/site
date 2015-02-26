@@ -1,5 +1,6 @@
 #set_value (C++11)
 * future[meta header]
+* std[meta namespace]
 
 ```cpp
 // テンプレートパラメータRが下記特殊ケースでない場合

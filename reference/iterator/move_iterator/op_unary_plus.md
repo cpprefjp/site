@@ -1,5 +1,6 @@
 #operator+ (C++11)
 * iterator[meta header]
+* std[meta namespace]
 
 ```cpp
 move_iterator operator+(difference_type n) const;

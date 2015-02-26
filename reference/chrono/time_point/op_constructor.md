@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * chrono[meta header]
+* std::chrono[meta namespace]
 
 ```cpp
 time_point();           // (1) C++11

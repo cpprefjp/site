@@ -1,5 +1,6 @@
 #is_final (C++14)
 * type_traits[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

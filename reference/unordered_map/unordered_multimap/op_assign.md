@@ -1,5 +1,6 @@
 #operator= (C++11)
 * unordered_map[meta header]
+* std[meta namespace]
 
 ```cpp
 unordered_multimap& operator=(const unordered_multimap& v);     // (1)

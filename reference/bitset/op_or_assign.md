@@ -1,5 +1,6 @@
 #operator|=
 * bitset[meta header]
+* std[meta namespace]
 
 ```cpp
 bitset<N>& operator|=(const bitset<N>& rhs);          // C++03

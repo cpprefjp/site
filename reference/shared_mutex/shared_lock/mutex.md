@@ -1,5 +1,6 @@
 #mutex (C++14)
 * shared_mutex[meta header]
+* std[meta namespace]
 
 ```cpp
 mutex_type* mutex() const noexcept;

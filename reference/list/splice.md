@@ -1,5 +1,6 @@
 #splice
 * list[meta header]
+* std[meta namespace]
 
 ```cpp
 void splice(iterator position, list& x);                // (1) C++03

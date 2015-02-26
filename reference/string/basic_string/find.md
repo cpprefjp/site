@@ -1,5 +1,6 @@
 #find
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 size_type find(const basic_string& str, size_type pos = 0) const noexcept; // (1)

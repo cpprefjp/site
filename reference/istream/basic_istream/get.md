@@ -1,5 +1,6 @@
 #get
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 // 1文字

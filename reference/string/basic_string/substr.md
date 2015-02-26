@@ -1,5 +1,6 @@
 #substr
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_string substr(size_type pos = 0, size_type n = npos) const;

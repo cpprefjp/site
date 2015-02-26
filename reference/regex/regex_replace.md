@@ -1,5 +1,6 @@
 #regex_replace (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

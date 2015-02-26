@@ -1,5 +1,6 @@
 #lexicographical_compare
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

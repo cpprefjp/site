@@ -1,5 +1,6 @@
 #swap
 * utility[meta header]
+* std[meta namespace]
 
 ```cpp
 void swap(pair& p) noexcept(下記参照);

@@ -1,5 +1,6 @@
 #ptrdiff_t
 * cstddef[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

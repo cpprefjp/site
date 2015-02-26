@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 explicit binomial_distribution(IntType t = 1, double p = 0.5);

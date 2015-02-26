@@ -1,5 +1,6 @@
 #is_error_code_enum (C++11)
 * system_error[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

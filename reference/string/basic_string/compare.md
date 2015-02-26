@@ -1,5 +1,6 @@
 #compare
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 int compare(const basic_string& str) const noexcept; // (1)

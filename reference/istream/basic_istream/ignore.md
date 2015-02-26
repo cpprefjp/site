@@ -1,5 +1,6 @@
 #ignore
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_istream<CharT, Traits>& ignore(streamsize n = 1, int_type delim = Traits::eof());

@@ -1,5 +1,6 @@
 #putback
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_istream<CharT, Traits>& putback(char_type c);

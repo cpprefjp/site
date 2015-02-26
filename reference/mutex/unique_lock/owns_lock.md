@@ -1,5 +1,6 @@
 #owns_lock (C++11)
 * mutex[meta header]
+* std[meta namespace]
 
 ```cpp
 bool owns_lock() const noexcept;

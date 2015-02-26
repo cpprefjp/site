@@ -1,5 +1,6 @@
 #utility
 * utility[meta header]
+* std[meta namespace]
 
 `<utility>`ヘッダでは、その他のライブラリの至る所で使用される、幾つかの基本的な関数やクラステンプレートを定義する。
 

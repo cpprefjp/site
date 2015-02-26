@@ -1,5 +1,6 @@
 #make_ready_at_thread_exit (C++11)
 * future[meta header]
+* std[meta namespace]
 
 ```cpp
 void make_ready_at_thread_exit(ArgTypes... args);

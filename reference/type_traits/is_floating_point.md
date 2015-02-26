@@ -1,5 +1,6 @@
 #is_floating_point (C++11)
 * type_traits[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

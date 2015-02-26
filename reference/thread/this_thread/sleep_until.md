@@ -1,5 +1,6 @@
 #sleep_until (C++11)
 * thread[meta header]
+* std::this_thread[meta namespace]
 
 ```cpp
 namespace std {

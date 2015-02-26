@@ -1,5 +1,6 @@
 #find
 * set[meta header]
+* std[meta namespace]
 
 ```cpp
 iterator find(const key_type& x);

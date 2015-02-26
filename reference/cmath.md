@@ -1,5 +1,6 @@
 #cmath
 * cmath[meta header]
+* std[meta namespace]
 
 `<cmath>`ヘッダでは、一般的な数学関数および各種マクロを提供する。標準Cライブラリの `<math.h>` からはいくつかの変更点がある。
 

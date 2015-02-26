@@ -1,5 +1,6 @@
 #uninitialized_copy
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

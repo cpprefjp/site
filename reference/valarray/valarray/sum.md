@@ -1,5 +1,6 @@
 #sum
 * valarray[meta header]
+* std[meta namespace]
 
 ```cpp
 T sum() const;

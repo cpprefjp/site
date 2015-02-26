@@ -1,5 +1,6 @@
 #placeholders (C++11)
 * functional[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

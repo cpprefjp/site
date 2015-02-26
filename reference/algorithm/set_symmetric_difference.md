@@ -1,5 +1,6 @@
 #set_symmetric_difference
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

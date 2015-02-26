@@ -1,5 +1,6 @@
 #find_first_of
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

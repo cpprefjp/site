@@ -1,5 +1,6 @@
 #ready (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 bool ready() const;

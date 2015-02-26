@@ -1,5 +1,6 @@
 #allocate (C++11)
 * scoped_allocator[meta header]
+* std[meta namespace]
 
 ```cpp
 pointer allocate(size_type n);                          // (1)

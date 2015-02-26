@@ -1,5 +1,6 @@
 #compare_exchange_strong (C++11)
 * atomic[meta header]
+* std[meta namespace]
 
 ```cpp
 bool compare_exchange_strong(T& expected, T desired, memory_order success, memory_order failure) volatile noexcept;

@@ -1,5 +1,6 @@
 #size
 * valarray[meta header]
+* std[meta namespace]
 
 ```cpp
 valarray<size_t> size() const;

@@ -1,5 +1,6 @@
 #apply
 * valarray[meta header]
+* std[meta namespace]
 
 ```cpp
 valarray<T> apply(T func(T)) const;

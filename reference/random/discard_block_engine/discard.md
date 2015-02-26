@@ -1,5 +1,6 @@
 #discard (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 void discard(unsigned long long z);

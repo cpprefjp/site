@@ -1,5 +1,6 @@
 #clear
 * map[meta header]
+* std[meta namespace]
 
 ```cpp
 void clear() noexcept;

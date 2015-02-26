@@ -1,5 +1,6 @@
 #FP_NORMAL
 * cmath[meta header]
+* std[meta namespace]
 
 ```cpp
 #define FP_NORMAL integer_constant_expression

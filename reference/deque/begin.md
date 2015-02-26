@@ -1,5 +1,6 @@
 #begin
 * deque[meta header]
+* std[meta namespace]
 
 ```cpp
 iterator begin() noexcept;

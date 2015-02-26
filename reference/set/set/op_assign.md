@@ -1,5 +1,6 @@
 #operator=
 * set[meta header]
+* std[meta namespace]
 
 ```cpp
 set& operator=(const set& x);                      // (1) C++03

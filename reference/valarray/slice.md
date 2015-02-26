@@ -1,5 +1,6 @@
 #slice
 * valarray[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

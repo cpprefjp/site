@@ -1,5 +1,6 @@
 #デストラクタ
 * deque[meta header]
+* std[meta namespace]
 
 ```cpp
 ~deque();

@@ -1,5 +1,6 @@
 #min_element
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

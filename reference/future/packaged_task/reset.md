@@ -1,5 +1,6 @@
 #reset (C++11)
 * future[meta header]
+* std[meta namespace]
 
 ```cpp
 void reset();

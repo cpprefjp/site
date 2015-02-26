@@ -1,5 +1,6 @@
 #extreme_value_distribution (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

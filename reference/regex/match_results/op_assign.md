@@ -1,5 +1,6 @@
 #operator= (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 match_results& operator=(const match_results& m);		// (1)

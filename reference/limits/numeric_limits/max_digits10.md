@@ -1,5 +1,6 @@
 #max_digits10 (C++11)
 * limits[meta header]
+* std[meta namespace]
 
 ```cpp
 static constexpr int max_digits10;

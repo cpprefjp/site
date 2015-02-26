@@ -1,5 +1,6 @@
 #position (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 difference_type position(size_type sub = 0) const;

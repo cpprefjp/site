@@ -1,5 +1,6 @@
 #map
 * map[meta header]
+* std[meta namespace]
 
 `map`と`multimap`はユニークな要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。 
 `map`はキーの重複を許さず、`multimap`はキーの重複を許す。

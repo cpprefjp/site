@@ -1,5 +1,6 @@
 #operator=
 * iterator[meta header]
+* std[meta namespace]
 
 ```cpp
 reverse_iterator& operator=(const reverse_iterator& u) = default;

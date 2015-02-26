@@ -1,5 +1,6 @@
 #int_least8_t (C++11)
 * cstdint[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

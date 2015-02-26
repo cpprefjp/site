@@ -1,5 +1,6 @@
 #back (C++11)
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 const charT& back() const;

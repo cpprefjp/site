@@ -1,5 +1,6 @@
 #wait (C++11)
 * condition_variable[meta header]
+* std[meta namespace]
 
 ```cpp
 void wait(unique_lock<mutex>& lock);                 // (1)

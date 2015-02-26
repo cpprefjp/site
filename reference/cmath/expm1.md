@@ -1,5 +1,6 @@
 #expm1 (C++11)
 * cmath[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

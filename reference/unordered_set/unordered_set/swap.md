@@ -1,5 +1,6 @@
 #swap (C++11)
 * unordered_set[meta header]
+* std[meta namespace]
 
 ```cpp
 void swap(unordered_set& v);

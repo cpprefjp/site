@@ -1,5 +1,6 @@
 #デストラクタ
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 ~basic_string()

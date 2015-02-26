@@ -1,5 +1,6 @@
 #size
 * deque[meta header]
+* std[meta namespace]
 
 ```cpp
 size_type size() const noexcept;

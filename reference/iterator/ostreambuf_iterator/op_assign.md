@@ -1,5 +1,6 @@
 #operator=
 * iterator[meta header]
+* std[meta namespace]
 
 ```cpp
 ostreambuf_iterator& operator=(CharT c);

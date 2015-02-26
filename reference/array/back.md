@@ -1,5 +1,6 @@
 #back (C++11)
 * array[meta header]
+* std[meta namespace]
 
 ```cpp
 reference back();                       // (1)

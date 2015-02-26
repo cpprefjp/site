@@ -1,5 +1,6 @@
 #exception
 * exception[meta header]
+* std[meta namespace]
 
 `<exception>`ヘッダでは、C++プログラムでの例外の扱いに関連した、いくつかのクラスと関数を定義する。
 

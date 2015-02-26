@@ -1,5 +1,6 @@
 #operator<=
 * deque[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

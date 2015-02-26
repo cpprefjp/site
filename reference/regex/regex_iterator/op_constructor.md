@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 regex_iterator();                                                                              // (1)

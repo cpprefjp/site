@@ -1,5 +1,6 @@
 #declare_no_pointers (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 namepsace std {

@@ -1,5 +1,6 @@
 #compare
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 static int compare(const char_type* s1, const char_type* s2, size_t n);

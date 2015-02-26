@@ -1,5 +1,6 @@
 #base (C++11)
 * iterator[meta header]
+* std[meta namespace]
 
 ```cpp
 Iterator base() const;

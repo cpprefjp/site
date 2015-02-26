@@ -1,5 +1,6 @@
 #ratio (C++11)
 * ratio[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

@@ -1,5 +1,6 @@
 #seed (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 void seed(result_type value = default_seed);

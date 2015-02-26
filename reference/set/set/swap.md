@@ -1,5 +1,6 @@
 #swap
 * set[meta header]
+* std[meta namespace]
 
 ```cpp
 void swap(set& st);

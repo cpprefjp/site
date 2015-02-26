@@ -1,5 +1,6 @@
 #begin (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 const_iterator begin() const;

@@ -1,5 +1,6 @@
 #コンストラクタ
 * complex[meta header]
+* std[meta namespace]
 
 ```cpp
 complex(const T& re = T(), const T& im = T());            // (1) C++03

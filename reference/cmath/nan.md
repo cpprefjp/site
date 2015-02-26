@@ -1,5 +1,6 @@
 #NAN
 * cmath[meta header]
+* std[meta namespace]
 
 ```cpp
 #define NAN constant_expression

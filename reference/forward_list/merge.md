@@ -1,5 +1,6 @@
 #merge (C++11)
 * forward_list[meta header]
+* std[meta namespace]
 
 ```cpp
 void merge(forward_list& x);

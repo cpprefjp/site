@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * typeindex[meta header]
+* std[meta namespace]
 
 ```cpp
 type_index(const type_info& rhs) noexcept;

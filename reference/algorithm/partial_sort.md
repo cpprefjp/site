@@ -1,5 +1,6 @@
 #partial_sort
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

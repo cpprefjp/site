@@ -1,5 +1,6 @@
 #eq_int_type
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 // C++03

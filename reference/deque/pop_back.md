@@ -1,5 +1,6 @@
 #pop_back
 * deque[meta header]
+* std[meta namespace]
 
 ```cpp
 void pop_back();

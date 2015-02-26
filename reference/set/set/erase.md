@@ -1,5 +1,6 @@
 #erase
 * set[meta header]
+* std[meta namespace]
 
 ```cpp
 void erase(iterator position);                             // (1) C++03

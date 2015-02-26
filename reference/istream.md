@@ -1,5 +1,6 @@
 #istream
 * istream[meta header]
+* std[meta namespace]
 
 `<istream>`ヘッダでは、入力・入出力処理に関するクラスやマニピュレータ（の実体である関数）などが定義されている。
 

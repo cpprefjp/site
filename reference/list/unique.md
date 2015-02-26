@@ -1,5 +1,6 @@
 #unique
 * list[meta header]
+* std[meta namespace]
 
 ```cpp
 void unique();                     // (1)

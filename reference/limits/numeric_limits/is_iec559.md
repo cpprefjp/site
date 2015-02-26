@@ -1,5 +1,6 @@
 #is_iec559
 * limits[meta header]
+* std[meta namespace]
 
 ```cpp
 // C++03

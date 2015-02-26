@@ -1,5 +1,6 @@
 #atomic_thread_fence (C++11)
 * atomic[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

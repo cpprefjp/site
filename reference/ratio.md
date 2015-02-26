@@ -1,5 +1,6 @@
 #ratio (C++11)
 * ratio[meta header]
+* std[meta namespace]
 
 `<ratio>`ヘッダでは、コンパイル時有理数演算のための、いくつかのクラスを定義する。
 

@@ -1,5 +1,6 @@
 #コンストラクタ
 * valarray[meta header]
+* std[meta namespace]
 
 ```cpp
 private:

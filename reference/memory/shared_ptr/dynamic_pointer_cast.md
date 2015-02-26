@@ -1,5 +1,6 @@
 #dynamic_pointer_cast (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

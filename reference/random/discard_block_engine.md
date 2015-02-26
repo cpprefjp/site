@@ -1,5 +1,6 @@
 #discard_block_engine (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

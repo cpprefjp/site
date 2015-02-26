@@ -1,5 +1,6 @@
 #logical_and
 * functional[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

@@ -1,5 +1,6 @@
 #push_back
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 void push_back(charT c);

@@ -1,5 +1,6 @@
 #begin (C++11)
 * unordered_map[meta header]
+* std[meta namespace]
 
 ```cpp
 iterator begin() noexcept;

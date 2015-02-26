@@ -1,5 +1,6 @@
 #operator<<
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

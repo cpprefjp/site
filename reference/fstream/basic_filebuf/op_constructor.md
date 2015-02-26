@@ -1,5 +1,6 @@
 #コンストラクタ
 * fstream[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_filebuf(); // (1)

@@ -1,5 +1,6 @@
 #delete
 * new[meta header]
+* std[meta namespace]
 
 ```cpp
 // 単純な記憶域の解放

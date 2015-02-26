@@ -1,5 +1,6 @@
 #hash_code (C++11)
 * typeindex[meta header]
+* std[meta namespace]
 
 ```cpp
 size_t hash_code() const;          // C++11

@@ -1,5 +1,6 @@
 #clear
 * list[meta header]
+* std[meta namespace]
 
 ```cpp
 void clear();          // C++03

@@ -1,5 +1,6 @@
 #swap (C++11)
 * mutex[meta header]
+* std[meta namespace]
 
 ```cpp
 void swap(unique_lock& u) noexcept;

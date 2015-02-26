@@ -1,5 +1,6 @@
 #partial_sum
 * numeric[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

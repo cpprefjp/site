@@ -1,5 +1,6 @@
 #count
 * map[meta header]
+* std[meta namespace]
 
 ```cpp
 size_type count(const key_type& x) const;

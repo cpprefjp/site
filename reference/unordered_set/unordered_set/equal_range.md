@@ -1,5 +1,6 @@
 #equal_range (C++11)
 * unordered_set[meta header]
+* std[meta namespace]
 
 ```cpp
 std::pair<iterator, iterator> equal_range(const key_type& k);

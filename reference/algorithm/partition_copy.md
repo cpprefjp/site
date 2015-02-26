@@ -1,5 +1,6 @@
 #partition_copy (C++11)
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

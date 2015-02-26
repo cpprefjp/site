@@ -1,5 +1,6 @@
 #duration_values
 * chrono[meta header]
+* std::chrono[meta namespace]
 
 ```cpp
 namespace std {

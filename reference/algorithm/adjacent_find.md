@@ -1,5 +1,6 @@
 #adjacent_find
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

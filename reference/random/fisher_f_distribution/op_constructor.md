@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 explicit fisher_f_distribution(RealType m = 1, RealType n = 1);

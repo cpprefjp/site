@@ -1,5 +1,6 @@
 #typeinfo
 * typeinfo[meta header]
+* std[meta namespace]
 
 `<typeinfo>`ヘッダは、`typeid`演算子および`dynamic_cast`演算子と共に使用する型を定義する。
 

@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 match_results(const Allocator& a = Allocator());	// (1)

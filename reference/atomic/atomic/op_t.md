@@ -1,5 +1,6 @@
 #operator T (C++11)
 * atomic[meta header]
+* std[meta namespace]
 
 ```cpp
 operator T() const volatile noexcept;

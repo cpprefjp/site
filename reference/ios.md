@@ -1,5 +1,6 @@
 #ios
 * ios[meta header]
+* std[meta namespace]
 
 `<ios>`ヘッダでは、入出力処理共通の基底クラスやマニピュレータ（の実体である関数）などが定義されている。
 

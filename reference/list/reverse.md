@@ -1,5 +1,6 @@
 #reverse
 * list[meta header]
+* std[meta namespace]
 
 ```cpp
 void reverse();          // C++03

@@ -1,5 +1,6 @@
 #ATOMIC_FLAG_INIT (C++11)
 * atomic[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

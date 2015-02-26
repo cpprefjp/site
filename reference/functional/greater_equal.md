@@ -1,5 +1,6 @@
 #greater_equal
 * functional[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

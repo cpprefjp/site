@@ -1,5 +1,6 @@
 #cend (C++11)
 * deque[meta header]
+* std[meta namespace]
 
 ```cpp
 const_iterator cend() const noexcept;

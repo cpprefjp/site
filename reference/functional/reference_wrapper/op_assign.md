@@ -1,5 +1,6 @@
 #operator= (C++11)
 * functional[meta header]
+* std[meta namespace]
 
 ```cpp
 reference_wrapper& operator=(const reference_wrapper<T>& x) noexcept;

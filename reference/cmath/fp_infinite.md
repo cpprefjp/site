@@ -1,5 +1,6 @@
 #FP_INFINITE
 * cmath[meta header]
+* std[meta namespace]
 
 ```cpp
 #define FP_INFINITE integer_constant_expression

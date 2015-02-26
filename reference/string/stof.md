@@ -1,5 +1,6 @@
 #stof (C++11)
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

@@ -1,5 +1,6 @@
 #コンストラクタ
 * iterator[meta header]
+* std[meta namespace]
 
 ```cpp
 ostreambuf_iterator(ostream_type& s) noexcept;

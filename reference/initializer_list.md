@@ -1,5 +1,6 @@
 #initializer_list (C++11)
 * initializer_list[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

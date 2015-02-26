@@ -1,5 +1,6 @@
 #name
 * typeinfo[meta header]
+* std[meta namespace]
 
 ```cpp
 const char* name() const noexcept;

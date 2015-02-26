@@ -1,5 +1,6 @@
 #swap (C++11)
 * queue[meta header]
+* std[meta namespace]
 
 ```cpp
 void swap(queue& q) noexcept(noexcept(swap(c, q.c)))

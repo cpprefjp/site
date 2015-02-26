@@ -1,5 +1,6 @@
 #operator<< (非メンバ関数) (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

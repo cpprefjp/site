@@ -1,5 +1,6 @@
 #thread (C++11)
 * thread[meta header]
+* std[meta namespace]
 
 `<thread>`ヘッダはマルチスレッド制御に関するクラス・関数を定義する。 
 スレッドサポートはC++11にて導入された。

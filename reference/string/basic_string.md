@@ -1,5 +1,6 @@
 #basic_string
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

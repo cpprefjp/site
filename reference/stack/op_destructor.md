@@ -1,5 +1,6 @@
 #デストラクタ
 * stack[meta header]
+* std[meta namespace]
 
 ```cpp
 ~stack();

@@ -1,5 +1,6 @@
 #operator=
 * map[meta header]
+* std[meta namespace]
 
 ```cpp
 map& operator=(const map& x);                      // (1) C++03

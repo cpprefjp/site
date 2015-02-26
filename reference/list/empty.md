@@ -1,5 +1,6 @@
 #empty
 * list[meta header]
+* std[meta namespace]
 
 ```cpp
 bool empty() const;          // C++03

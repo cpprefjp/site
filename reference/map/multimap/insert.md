@@ -1,5 +1,6 @@
 #insert
 * map[meta header]
+* std[meta namespace]
 
 ```cpp
 iterator insert(const value_type& x);

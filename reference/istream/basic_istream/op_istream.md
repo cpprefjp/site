@@ -1,5 +1,6 @@
 #operator>>
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

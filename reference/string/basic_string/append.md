@@ -1,5 +1,6 @@
 #append
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_string& append(const basic_string& str);								// (1)

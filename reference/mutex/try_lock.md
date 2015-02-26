@@ -1,5 +1,6 @@
 #try_lock (C++11)
 * mutex[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

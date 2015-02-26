@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 constexpr enable_shared_from_this() noexcept;                     // (1)

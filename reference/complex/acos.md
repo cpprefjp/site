@@ -1,5 +1,6 @@
 #acos (C++11)
 * complex[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

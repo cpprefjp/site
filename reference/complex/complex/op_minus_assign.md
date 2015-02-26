@@ -1,5 +1,6 @@
 #operator-=
 * complex[meta header]
+* std[meta namespace]
 
 ```cpp
 complex<T>& operator-=(const T& rhs);			// (1)

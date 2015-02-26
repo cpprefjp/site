@@ -1,5 +1,6 @@
 #remove_if
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

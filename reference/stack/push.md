@@ -1,5 +1,6 @@
 #push
 * stack[meta header]
+* std[meta namespace]
 
 ```cpp
 void push(const value_type& x);

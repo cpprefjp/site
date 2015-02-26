@@ -1,5 +1,6 @@
 #operator bool (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 explicit operator bool() const noexcept;

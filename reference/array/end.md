@@ -1,5 +1,6 @@
 #end (C++11)
 * array[meta header]
+* std[meta namespace]
 
 ```cpp
 iterator end() noexcept;

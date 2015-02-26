@@ -1,5 +1,6 @@
 #move
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 static char_type* move(char_type* s1, const char_type* s2, size_t n);

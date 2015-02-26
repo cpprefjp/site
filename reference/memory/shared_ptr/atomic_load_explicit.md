@@ -1,5 +1,6 @@
 #atomic_load_explicit (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

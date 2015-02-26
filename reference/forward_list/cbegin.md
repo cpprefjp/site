@@ -1,5 +1,6 @@
 #cbegin (C++11)
 * forward_list[meta header]
+* std[meta namespace]
 
 ```cpp
 const_iterator cbegin() const noexcept;

@@ -1,5 +1,6 @@
 #front
 * queue[meta header]
+* std[meta namespace]
 
 ```cpp
 value_type& front();

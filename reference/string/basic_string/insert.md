@@ -1,5 +1,6 @@
 #insert
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_string& insert(size_type pos1, const basic_string& str);    // (1)

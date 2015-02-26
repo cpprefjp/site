@@ -1,5 +1,6 @@
 #has_signaling_NaN
 * limits[meta header]
+* std[meta namespace]
 
 ```cpp
 // C++03

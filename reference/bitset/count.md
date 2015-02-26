@@ -1,5 +1,6 @@
 #count
 * bitset[meta header]
+* std[meta namespace]
 
 ```cpp
 size_t count() const;          // C++03

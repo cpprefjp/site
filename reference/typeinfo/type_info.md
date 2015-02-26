@@ -1,5 +1,6 @@
 #type_info
 * typeinfo[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

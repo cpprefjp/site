@@ -1,5 +1,6 @@
 #notify_all_at_thread_exit (C++11)
 * condition_variable[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

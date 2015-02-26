@@ -1,5 +1,6 @@
 #deallocate (C++11)
 * scoped_allocator[meta header]
+* std[meta namespace]
 
 ```cpp
 void deallocate(pointer p, size_type n);

@@ -1,5 +1,6 @@
 #max_size (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 size_type max_size() const;

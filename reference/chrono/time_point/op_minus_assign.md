@@ -1,5 +1,6 @@
 #operator-= (C++11)
 * chrono[meta header]
+* std::chrono[meta namespace]
 
 ```cpp
 time_point& operator-=(const duration& d);

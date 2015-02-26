@@ -1,5 +1,6 @@
 #end
 * list[meta header]
+* std[meta namespace]
 
 ```cpp
 iterator end();                      // (1) C++03

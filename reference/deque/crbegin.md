@@ -1,5 +1,6 @@
 #crbegin (C++11)
 * deque[meta header]
+* std[meta namespace]
 
 ```cpp
 const_reverse_iterator crbegin() const noexcept;

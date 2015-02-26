@@ -1,5 +1,6 @@
 #release (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 pointer release() noexcept;

@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * unordered_map[meta header]
+* std[meta namespace]
 
 ```cpp
 explicit unordered_multimap(size_type n = 実装依存の既定値,

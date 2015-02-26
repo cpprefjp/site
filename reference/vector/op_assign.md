@@ -1,5 +1,6 @@
 #operator=
 * vector[meta header]
+* std[meta namespace]
 
 ```cpp
 vector& operator=(const vector& x);     // (1) C++03

@@ -1,5 +1,6 @@
 #flush
 * ostream[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

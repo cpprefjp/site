@@ -1,5 +1,6 @@
 #copy_n (C++11)
 * algorithm[meta header]
+* std[meta namespace]
 
 
 ```cpp

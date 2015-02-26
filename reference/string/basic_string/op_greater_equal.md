@@ -1,5 +1,6 @@
 #operator>=
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 template <class CharT, class Traits, class Allocator>

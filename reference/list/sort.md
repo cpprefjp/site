@@ -1,5 +1,6 @@
 #sort
 * list[meta header]
+* std[meta namespace]
 
 ```cpp
 void sort();             // (1)

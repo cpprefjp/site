@@ -1,5 +1,6 @@
 #min (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 static constexpr result_type min() { return C == 0u ? 1u: 0u; }

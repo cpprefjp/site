@@ -1,5 +1,6 @@
 #tellg
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 pos_type tellg();

@@ -1,5 +1,6 @@
 #コンストラクタ
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

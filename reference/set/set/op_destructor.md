@@ -1,5 +1,6 @@
 #デストラクタ
 * set[meta header]
+* std[meta namespace]
 
 ```cpp
 ~set();

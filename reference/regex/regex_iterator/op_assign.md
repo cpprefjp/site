@@ -1,5 +1,6 @@
 #operator= (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 regex_iterator& operator=(const regex_iterator& rhs);

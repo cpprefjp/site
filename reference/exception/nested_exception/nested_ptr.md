@@ -1,5 +1,6 @@
 #nested_ptr (C++11)
 * exception[meta header]
+* std[meta namespace]
 
 ```cpp
 exception_ptr nested_ptr() const noexcept;

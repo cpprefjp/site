@@ -1,5 +1,6 @@
 #name (C++11)
 * typeindex[meta header]
+* std[meta namespace]
 
 ```cpp
 const char* name() const;          // C++11

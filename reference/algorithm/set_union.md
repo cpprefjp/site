@@ -1,5 +1,6 @@
 #set_union
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

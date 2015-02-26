@@ -1,5 +1,6 @@
 #FP_FAST_FMAF
 * cmath[meta header]
+* std[meta namespace]
 
 ```cpp
 #define FP_FAST_FMAF implementation_defined

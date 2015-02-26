@@ -1,5 +1,6 @@
 #operator!= (C++11)
 * unordered_map[meta header]
+* std[meta namespace]
 
 ```cpp
 template <class Key, class T, class Hash, class Pred, class Alloc>

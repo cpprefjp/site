@@ -1,5 +1,6 @@
 #not_eof
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 // C++03

@@ -1,5 +1,6 @@
 #size (C++11)
 * unordered_set[meta header]
+* std[meta namespace]
 
 ```cpp
 size_type size() const noexcept;

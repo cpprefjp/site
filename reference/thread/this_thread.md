@@ -1,5 +1,6 @@
 #this_thread
 * thread[meta header]
+* std[meta namespace]
 
 名前空間 `std::this_thread` では現在のスレッドに対する制御関数を提供する。
 

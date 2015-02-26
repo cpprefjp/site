@@ -1,5 +1,6 @@
 #unlock (C++14)
 * shared_mutex[meta header]
+* std[meta namespace]
 
 ```cpp
 void unlock();

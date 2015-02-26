@@ -1,5 +1,6 @@
 #find
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 static const char_type* find(const char_type* s, size_t n,

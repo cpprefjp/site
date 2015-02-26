@@ -1,5 +1,6 @@
 #length
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 static size_t length(const char_type* s);

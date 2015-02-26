@@ -1,5 +1,6 @@
 #operator^= (C++11)
 * atomic[meta header]
+* std[meta namespace]
 
 ```cpp
 T operator^=(T operand) volatile noexcept;

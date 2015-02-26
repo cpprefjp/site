@@ -1,5 +1,6 @@
 #FP_NAN
 * cmath[meta header]
+* std[meta namespace]
 
 ```cpp
 #define FP_NAN integer_constant_expression

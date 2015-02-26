@@ -1,5 +1,6 @@
 #log
 * cmath[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

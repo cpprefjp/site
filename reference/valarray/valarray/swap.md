@@ -1,5 +1,6 @@
 #swap (C++11)
 * valarray[meta header]
+* std[meta namespace]
 
 ```cpp
 void swap(valarray& v) noexcept;

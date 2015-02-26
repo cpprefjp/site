@@ -1,5 +1,6 @@
 #reset
 * bitset[meta header]
+* std[meta namespace]
 
 ```cpp
 bitset<N>& reset();           // (1) C++03

@@ -1,5 +1,6 @@
 #assign (C++11)
 * system_error[meta header]
+* std[meta namespace]
 
 ```cpp
 void assign(int val, const error_category& cat) noexcept;

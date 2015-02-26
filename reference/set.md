@@ -1,5 +1,6 @@
 #set
 * set[meta header]
+* std[meta namespace]
 
 `<set>`ヘッダは、集合を表す連想コンテナ、`set`と`multiset`を定義する。  
 `set`はキーの重複を許可しないが、`multiset`はキーの重複を許可する。  

@@ -1,5 +1,6 @@
 #flip
 * bitset[meta header]
+* std[meta namespace]
 
 ```cpp
 bitset<N>& flip();           // (1) C++03

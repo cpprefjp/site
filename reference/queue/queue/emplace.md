@@ -1,5 +1,6 @@
 #emplace (C++11)
 * queue[meta header]
+* std[meta namespace]
 
 ```cpp
 template <class... Args>

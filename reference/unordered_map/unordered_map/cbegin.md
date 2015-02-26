@@ -1,5 +1,6 @@
 #cbegin (C++11)
 * unordered_map[meta header]
+* std[meta namespace]
 
 ```cpp
 const_iterator cbegin() const noexcept;

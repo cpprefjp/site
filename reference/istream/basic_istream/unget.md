@@ -1,5 +1,6 @@
 #unget
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_istream<CharT, Traits>& unget();

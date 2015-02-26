@@ -1,5 +1,6 @@
 #prev_permutation
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

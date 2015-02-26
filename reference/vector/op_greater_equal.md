@@ -1,5 +1,6 @@
 #operator>=
 * vector[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

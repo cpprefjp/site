@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 explicit uniform_int_distribution(IntType a = 0, IntType b = numeric_limits<IntType>::max());

@@ -1,5 +1,6 @@
 #value (C++11)
 * system_error[meta header]
+* std[meta namespace]
 
 ```cpp
 int value() const noexcept;

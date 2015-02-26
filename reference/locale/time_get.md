@@ -1,5 +1,6 @@
 #time_get
 * locale[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

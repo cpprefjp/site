@@ -1,5 +1,6 @@
 #min
 * valarray[meta header]
+* std[meta namespace]
 
 ```cpp
 T min() const;

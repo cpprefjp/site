@@ -1,5 +1,6 @@
 #コンストラクタ
 * regex[meta header]
+* std[meta namespace]
 
 
 | | |

@@ -1,5 +1,6 @@
 #FP_ILOGB0
 * cmath[meta header]
+* std[meta namespace]
 
 ```cpp
 #define FP_ILOGB0 implementation_defined

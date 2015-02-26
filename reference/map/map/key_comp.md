@@ -1,5 +1,6 @@
 #key_comp
 * map[meta header]
+* std[meta namespace]
 
 ```cpp
 key_compare key_comp() const;

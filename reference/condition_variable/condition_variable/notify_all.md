@@ -1,5 +1,6 @@
 #notify_all (C++11)
 * condition_variable[meta header]
+* std[meta namespace]
 
 ```cpp
 void notify_all() noexcept;

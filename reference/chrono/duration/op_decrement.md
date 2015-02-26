@@ -1,5 +1,6 @@
 #operator-- (C++11)
 * chrono[meta header]
+* std::chrono[meta namespace]
 
 ```cpp
 duration& operator--();

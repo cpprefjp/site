@@ -1,5 +1,6 @@
 #コンストラクタ
 * bitset[meta header]
+* std[meta namespace]
 
 ```cpp
 bitset();                                          // (1) C++03

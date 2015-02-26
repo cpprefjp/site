@@ -1,5 +1,6 @@
 #gcount
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 streamsize gcount();

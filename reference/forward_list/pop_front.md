@@ -1,5 +1,6 @@
 #pop_front (C++11)
 * forward_list[meta header]
+* std[meta namespace]
 
 ```cpp
 void pop_front();

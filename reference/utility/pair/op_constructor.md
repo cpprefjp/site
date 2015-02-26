@@ -1,5 +1,6 @@
 #コンストラクタ
 * utility[meta header]
+* std[meta namespace]
 
 ```cpp
 pair();                                   // (1) C++03

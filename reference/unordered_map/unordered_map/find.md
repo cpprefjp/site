@@ -1,5 +1,6 @@
 #find (C++11)
 * unordered_map[meta header]
+* std[meta namespace]
 
 ```cpp
 iterator find(const key_type& x);

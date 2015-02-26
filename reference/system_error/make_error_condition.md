@@ -1,5 +1,6 @@
 #make_error_condition (C++11)
 * system_error[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

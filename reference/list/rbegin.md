@@ -1,5 +1,6 @@
 #rbegin
 * list[meta header]
+* std[meta namespace]
 
 ```cpp
 reverse_iterator rbegin();                      // (1) C++03

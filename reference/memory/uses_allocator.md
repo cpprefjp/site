@@ -1,5 +1,6 @@
 #uses_allocator (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

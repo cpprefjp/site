@@ -1,5 +1,6 @@
 #for_each
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

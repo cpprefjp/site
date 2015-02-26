@@ -1,5 +1,6 @@
 #resize
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 void resize(size_type n, charT c);

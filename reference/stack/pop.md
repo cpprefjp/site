@@ -1,5 +1,6 @@
 #pop
 * stack[meta header]
+* std[meta namespace]
 
 ```cpp
 void pop();

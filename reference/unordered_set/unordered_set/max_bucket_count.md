@@ -1,5 +1,6 @@
 #max_bucket_count (C++11)
 * unordered_set[meta header]
+* std[meta namespace]
 
 ```cpp
 size_type max_bucket_count() const noexcept;

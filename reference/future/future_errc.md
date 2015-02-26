@@ -1,5 +1,6 @@
 #future_errc (C++11)
 * future[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

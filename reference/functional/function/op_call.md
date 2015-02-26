@@ -1,5 +1,6 @@
 #operator() (C++11)
 * functional[meta header]
+* std[meta namespace]
 
 ```cpp
 R operator()(ArgTypes... args) const;

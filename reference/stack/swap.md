@@ -1,5 +1,6 @@
 #swap (C++11)
 * stack[meta header]
+* std[meta namespace]
 
 ```cpp
 void swap(stack& s) noexcept(noexcept(swap(c, s.c)));

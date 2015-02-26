@@ -1,5 +1,6 @@
 #adjacent_difference
 * numeric[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std{

@@ -1,5 +1,6 @@
 #デストラクタ
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 // C++03

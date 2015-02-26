@@ -1,5 +1,6 @@
 #operator[]
 * map[meta header]
+* std[meta namespace]
 
 ```cpp
 T& operator[](const key_type& x);

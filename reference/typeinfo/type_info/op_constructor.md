@@ -1,5 +1,6 @@
 #コンストラクタ
 * typeinfo[meta header]
+* std[meta namespace]
 
 ```cpp
 type_info(const type_info& rhs) = delete;

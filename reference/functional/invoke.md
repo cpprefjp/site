@@ -1,5 +1,6 @@
 #INVOKE
 * functional[meta header]
+* std[meta namespace]
 
 ##用語定義
 - *call-signature* とは、戻り値型に続けて丸括弧の中に0個以上の引数型を並べたものである。 *cf.* `int ( std::string, int )`

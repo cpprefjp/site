@@ -1,5 +1,6 @@
 #begin (非メンバ関数) (C++11)
 * initializer_list[meta header]
+* std[meta namespace]
 
 ```cpp
 template <class E>

@@ -1,5 +1,6 @@
 #basic_streambuf
 * streambuf[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

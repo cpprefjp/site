@@ -1,5 +1,6 @@
 #atomic_is_lock_free (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

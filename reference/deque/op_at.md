@@ -1,5 +1,6 @@
 #operator[]
 * deque[meta header]
+* std[meta namespace]
 
 ```cpp
 reference operator[](size_type n);

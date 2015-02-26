@@ -1,5 +1,6 @@
 #end(size_type) (C++11)
 * unordered_map[meta header]
+* std[meta namespace]
 
 ```cpp
 local_iterator end(size_type n);

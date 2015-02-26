@@ -1,5 +1,6 @@
 #デストラクタ
 * valarray[meta header]
+* std[meta namespace]
 
 ```cpp
 ~valarray();

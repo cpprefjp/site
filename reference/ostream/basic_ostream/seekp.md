@@ -1,5 +1,6 @@
 #seekp
 * ostream[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_ostream<CharT, Traits>& seekp(pos_type pos);

@@ -1,5 +1,6 @@
 #operator+ (非メンバ関数)
 * iterator[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

@@ -1,5 +1,6 @@
 #enable_shared_from_this (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

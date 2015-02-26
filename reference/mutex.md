@@ -1,5 +1,6 @@
 #mutex (C++11)
 * mutex[meta header]
+* std[meta namespace]
 
 `<mutex>`ヘッダは、排他制御（ミューテックス）、ロック、およびcall onceに関するクラス・関数を定義する。
 

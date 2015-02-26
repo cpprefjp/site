@@ -1,5 +1,6 @@
 #swap (C++11)
 * tuple[meta header]
+* std[meta namespace]
 
 ```cpp
 void swap(tuple& rhs) noexcept(下記参照);

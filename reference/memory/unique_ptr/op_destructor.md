@@ -1,5 +1,6 @@
 #デストラクタ (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 ~unique_ptr();

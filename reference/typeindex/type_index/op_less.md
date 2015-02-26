@@ -1,5 +1,6 @@
 #operator< (C++11)
 * typeindex[meta header]
+* std[meta namespace]
 
 ```cpp
 bool operator<(const type_index& rhs) const noexcept;

@@ -1,5 +1,6 @@
 #knuth_b (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

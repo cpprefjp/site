@@ -1,5 +1,6 @@
 #rend
 * vector[meta header]
+* std[meta namespace]
 
 ```cpp
 reverse_iterator rend() noexcept;

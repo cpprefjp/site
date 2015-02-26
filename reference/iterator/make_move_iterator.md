@@ -1,5 +1,6 @@
 #make_move_iterator (C++11)
 * iterator[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

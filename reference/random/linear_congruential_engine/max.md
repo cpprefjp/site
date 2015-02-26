@@ -1,5 +1,6 @@
 #max (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 static constexpr result_type max() { return M - 1u; }

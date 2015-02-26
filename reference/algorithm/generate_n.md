@@ -1,5 +1,6 @@
 #generate_n
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

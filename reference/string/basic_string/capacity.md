@@ -1,5 +1,6 @@
 #capacity
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 size_type capacity() const noexcept;

@@ -1,5 +1,6 @@
 #swap (非メンバ関数)
 * deque[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

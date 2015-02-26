@@ -1,5 +1,6 @@
 #コンストラクタ (C++14)
 * shared_mutex[meta header]
+* std[meta namespace]
 
 ```cpp
 shared_timed_mutex();                                   // (1)

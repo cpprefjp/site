@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 explicit gamma_distribution(RealType alpha = 1.0, RealType beta = 1.0);

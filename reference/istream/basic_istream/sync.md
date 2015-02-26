@@ -1,5 +1,6 @@
 #sync
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 int sync();

@@ -1,5 +1,6 @@
 #remove_copy
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

@@ -1,5 +1,6 @@
 #param (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 template <class OutputIterator>

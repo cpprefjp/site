@@ -1,5 +1,6 @@
 #basic_ostream
 * ostream[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

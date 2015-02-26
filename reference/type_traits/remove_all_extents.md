@@ -1,5 +1,6 @@
 #remove_all_extents (C++11)
 * type_traits[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

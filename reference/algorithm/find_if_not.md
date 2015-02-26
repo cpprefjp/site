@@ -1,5 +1,6 @@
 #find_if_not (C++11)
 * algorithm[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

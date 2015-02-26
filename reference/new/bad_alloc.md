@@ -1,5 +1,6 @@
 #bad_alloc
 * new[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

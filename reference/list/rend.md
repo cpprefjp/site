@@ -1,5 +1,6 @@
 #rend
 * list[meta header]
+* std[meta namespace]
 
 ```cpp
 reverse_iterator rend();                      // (1) C++03

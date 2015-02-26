@@ -1,5 +1,6 @@
 #swap (C++11)
 * unordered_map[meta header]
+* std[meta namespace]
 
 ```cpp
 void swap(unordered_map& v);

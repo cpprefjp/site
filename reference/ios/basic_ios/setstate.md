@@ -1,5 +1,6 @@
 #setstate: set state
 * ios[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

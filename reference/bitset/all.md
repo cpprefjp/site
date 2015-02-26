@@ -1,5 +1,6 @@
 #all (C++11)
 * bitset[meta header]
+* std[meta namespace]
 
 ```cpp
 bool all() const noexcept;

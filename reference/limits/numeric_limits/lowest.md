@@ -1,5 +1,6 @@
 #lowest (C++11)
 * limits[meta header]
+* std[meta namespace]
 
 ```cpp
 static constexpr T lowest() noexcept;

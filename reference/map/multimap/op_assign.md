@@ -1,5 +1,6 @@
 #operator=
 * map[meta header]
+* std[meta namespace]
 
 ```cpp
 multimap& operator=(const multimap& x);                 // (1) C++03

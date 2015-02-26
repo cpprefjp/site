@@ -1,5 +1,6 @@
 #seekg
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_istream<CharT, Traits>& seekg(pos_type pos);

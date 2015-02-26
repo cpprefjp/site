@@ -1,5 +1,6 @@
 #outer_allocator (C++11)
 * scoped_allocator[meta header]
+* std[meta namespace]
 
 ```cpp
 outer_allocator_type& outer_allocator() noexcept;             // (1)

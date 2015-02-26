@@ -1,5 +1,6 @@
 #operator=
 * stack[meta header]
+* std[meta namespace]
 
 ```cpp
 stack& operator=(const stack& st);

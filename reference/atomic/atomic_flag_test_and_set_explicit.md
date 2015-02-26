@@ -1,5 +1,6 @@
 #atomic_flag_test_and_set_explicit (C++11)
 * atomic[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

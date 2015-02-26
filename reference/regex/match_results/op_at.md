@@ -1,5 +1,6 @@
 #operator[] (C++11)
 * regex[meta header]
+* std[meta namespace]
 
 ```cpp
 const_reference operator[](size_type n) const;

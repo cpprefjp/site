@@ -1,5 +1,6 @@
 #nothrow_t
 * new[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

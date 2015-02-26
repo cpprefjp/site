@@ -1,5 +1,6 @@
 #splice_after (C++11)
 * forward_list[meta header]
+* std[meta namespace]
 
 ```cpp
 void splice_after(const_iterator position, forward_list& x);

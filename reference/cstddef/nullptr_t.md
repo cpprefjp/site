@@ -1,5 +1,6 @@
 #nullptr_t (C++11)
 * cstddef[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

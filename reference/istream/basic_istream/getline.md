@@ -1,5 +1,6 @@
 #getline
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_istream<CharT, Traits>& getline(char_type* s, streamsize n);

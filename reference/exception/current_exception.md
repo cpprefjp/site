@@ -1,5 +1,6 @@
 #current_exception (C++11)
 * exception[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

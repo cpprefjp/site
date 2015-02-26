@@ -1,5 +1,6 @@
 #set_exception (C++11)
 * future[meta header]
+* std[meta namespace]
 
 ```cpp
 void set_exception(exception_ptr p);

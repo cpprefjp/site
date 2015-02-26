@@ -1,5 +1,6 @@
 #min_exponent10
 * limits[meta header]
+* std[meta namespace]
 
 ```cpp
 // C++03

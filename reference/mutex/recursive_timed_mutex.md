@@ -1,5 +1,6 @@
 #recursive_timed_mutex (C++11)
 * mutex[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

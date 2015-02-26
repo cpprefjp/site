@@ -1,5 +1,6 @@
 #scoped_allocator_adaptor (C++11)
 * scoped_allocator[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

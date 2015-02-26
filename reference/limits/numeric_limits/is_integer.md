@@ -1,5 +1,6 @@
 #is_integer
 * limits[meta header]
+* std[meta namespace]
 
 ```cpp
 // C++03

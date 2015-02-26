@@ -1,5 +1,6 @@
 #operator==
 * bitset[meta header]
+* std[meta namespace]
 
 ```cpp
 bool operator==(const bitset<N>& rhs) const;          // C++03

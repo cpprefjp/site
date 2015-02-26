@@ -1,5 +1,6 @@
 #HUGE_VALL
 * cmath[meta header]
+* std[meta namespace]
 
 ```cpp
 #define HUGE_VALL implementation-defined

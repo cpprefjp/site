@@ -1,5 +1,6 @@
 #operator== (C++11)
 * system_error[meta header]
+* std[meta namespace]
 
 ```cpp
 bool operator==(const error_category& rhs) const noexcept;

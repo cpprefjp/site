@@ -1,5 +1,6 @@
 #pop_back
 * vector[meta header]
+* std[meta namespace]
 
 ```cpp
 void pop_back();

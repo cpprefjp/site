@@ -1,5 +1,6 @@
 #get (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 T* get() const noexcept;

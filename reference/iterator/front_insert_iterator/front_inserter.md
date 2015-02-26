@@ -1,5 +1,6 @@
 #front_inserter
 * iterator[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

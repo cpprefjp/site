@@ -1,5 +1,6 @@
 #assign
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_string& assign(const basic_string& str);

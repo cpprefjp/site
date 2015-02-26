@@ -1,5 +1,6 @@
 #copy
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 size_type copy(charT* s, size_type n, size_type pos = 0) const;

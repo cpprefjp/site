@@ -1,5 +1,6 @@
 #read
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 basic_istream<CharT, Traits>& read(char_type* s, streamsize n);

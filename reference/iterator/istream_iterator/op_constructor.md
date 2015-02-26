@@ -1,5 +1,6 @@
 #コンストラクタ
 * iterator[meta header]
+* std[meta namespace]
 
 ```cpp
 istream_iterator();

@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * random[meta header]
+* std[meta namespace]
 
 ```cpp
 explicit negative_binomial_distribution(IntType k = 1, double p = 0.5);

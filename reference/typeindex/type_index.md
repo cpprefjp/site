@@ -1,5 +1,6 @@
 #type_index (C++11)
 * typeindex[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

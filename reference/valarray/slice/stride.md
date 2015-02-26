@@ -1,5 +1,6 @@
 #stride
 * valarray[meta header]
+* std[meta namespace]
 
 ```cpp
 size_t stride() const;

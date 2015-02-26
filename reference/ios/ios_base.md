@@ -1,5 +1,6 @@
 #ios_base
 * ios[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

@@ -1,5 +1,6 @@
 #get_temporary_buffer
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 // C++03

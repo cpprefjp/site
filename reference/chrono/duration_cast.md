@@ -1,5 +1,6 @@
 #duration_cast (C++11)
 * chrono[meta header]
+* std::chrono[meta namespace]
 
 ```cpp
 namespace std {

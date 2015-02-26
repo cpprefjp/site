@@ -1,5 +1,6 @@
 #data
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 const charT* data() const;				// C++03 まで

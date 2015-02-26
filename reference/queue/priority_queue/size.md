@@ -1,5 +1,6 @@
 #size
 * queue[meta header]
+* std[meta namespace]
 
 ```cpp
 size_type size() const;

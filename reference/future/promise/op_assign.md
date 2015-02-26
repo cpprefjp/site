@@ -1,5 +1,6 @@
 #operator= (C++11)
 * future[meta header]
+* std[meta namespace]
 
 ```cpp
 promise& operator=(promise&& rhs) noexcept;

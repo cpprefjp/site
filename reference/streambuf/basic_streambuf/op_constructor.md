@@ -1,5 +1,6 @@
 #コンストラクタ
 * streambuf[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

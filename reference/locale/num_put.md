@@ -1,5 +1,6 @@
 #num_put
 * locale[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

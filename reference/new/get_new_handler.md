@@ -1,5 +1,6 @@
 #get_new_handler (C++11)
 * new[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

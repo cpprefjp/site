@@ -1,5 +1,6 @@
 #basic_istream
 * istream[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

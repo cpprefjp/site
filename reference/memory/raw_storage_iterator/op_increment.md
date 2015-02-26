@@ -1,5 +1,6 @@
 #operator++
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 raw_storage_iterator& operator++();   // (1)

@@ -1,5 +1,6 @@
 #declare_reachable (C++11)
 * memory[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

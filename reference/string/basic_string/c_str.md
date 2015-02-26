@@ -1,5 +1,6 @@
 #c_str
 * string[meta header]
+* std[meta namespace]
 
 ```cpp
 const charT* c_str() const;				// C++03 まで

@@ -1,5 +1,6 @@
 #コンストラクタ (C++11)
 * scoped_allocator[meta header]
+* std[meta namespace]
 
 ```cpp
 scoped_allocator_adaptor();                                                 // (1)

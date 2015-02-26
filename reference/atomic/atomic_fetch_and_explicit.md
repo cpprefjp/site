@@ -1,5 +1,6 @@
 #atomic_fetch_and_explicit (C++11)
 * atomic[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {

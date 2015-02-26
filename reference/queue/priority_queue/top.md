@@ -1,5 +1,6 @@
 #top
 * queue[meta header]
+* std[meta namespace]
 
 ```cpp
 const_reference top() const;

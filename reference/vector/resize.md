@@ -1,5 +1,6 @@
 #resize
 * vector[meta header]
+* std[meta namespace]
 
 ```cpp
 void resize(size_type sz);             // (1) C++11

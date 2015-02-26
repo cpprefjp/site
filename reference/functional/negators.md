@@ -1,5 +1,6 @@
 #論理反転関数オブジェクト
 * functional[meta header]
+* std[meta namespace]
 
 ```cpp
 namespace std {
