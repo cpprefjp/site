@@ -12,7 +12,11 @@ namespace std {
 * false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 
 ##概要
-[`error_code`](./error_code.md)のエラー値として見なせる列挙型かどうかを判定する。`is_error_code_enum`はデフォルトでは[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承し、`is_error_code_enum<T>::value`は`false`となる。`is_error_code_enum<T>::value == true`であることを要求する関数にユーザー定義の列挙型を渡したい場合は、`is_error_code_enum`クラスを特殊化し、[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承するよう特殊化する必要がある。標準では`is_error_code_enum<T>::value == true`となるような特殊化は提供しない。
+[`error_code`](./error_code.md)のエラー値として見なせる列挙型かどうかを判定する。
+
+`is_error_code_enum`はデフォルトでは[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承し、`is_error_code_enum<T>::value`は`false`となる。
+
+`is_error_code_enum<T>::value == true`であることを要求する関数にユーザー定義の列挙型を渡したい場合は、`is_error_code_enum`クラスを特殊化し、[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承するよう特殊化する必要がある。標準では`is_error_code_enum<T>::value == true`となるような特殊化は提供しない。
 
 
 ##例

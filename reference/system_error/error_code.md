@@ -10,7 +10,6 @@ namespace std {
 ```
 
 ##概要
-
 `error_code`は、OSのAPIで発生するエラー値およびそのエラーメッセージを扱うクラスである。このクラス主に、[`system_error`](./system_error.md)例外クラスに付加する情報として使用する。
 
 ##メンバ関数

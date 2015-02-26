@@ -10,6 +10,7 @@ namespace std {
 ```
 * runtime_error[link /reference/stdexcept.md]
 
+##概要
 `system_error`クラスは、OSのエラーを表現する`error_code`クラスのオブジェクトを包含した例外クラスである。
 
 
