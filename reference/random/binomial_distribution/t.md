@@ -1,4 +1,6 @@
 #t (C++11)
+* random[meta header]
+
 ```cpp
 IntType t() const;
 ```

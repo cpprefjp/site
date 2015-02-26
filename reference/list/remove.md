@@ -1,4 +1,6 @@
 #remove
+* list[meta header]
+
 ```cpp
 void remove(const T& value);
 ```

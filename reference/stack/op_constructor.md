@@ -1,4 +1,6 @@
 #コンストラクタ
+* stack[meta header]
+
 ```cpp
 // C++03 まで
 explicit stack(const Container& cont = Container());

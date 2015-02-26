@@ -1,4 +1,6 @@
 #terminate
+* exception[meta header]
+
 ```cpp
 namespace std {
   [[noreturn]] void terminate() noexcept;

@@ -1,4 +1,6 @@
 #compare
+* string[meta header]
+
 ```cpp
 static int compare(const char_type* s1, const char_type* s2, size_t n);
 ```

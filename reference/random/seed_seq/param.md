@@ -1,4 +1,6 @@
 #param (C++11)
+* random[meta header]
+
 ```cpp
 template <class OutputIterator>
 void param(OutputIterator dest) const;

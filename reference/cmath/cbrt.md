@@ -1,4 +1,6 @@
 #cbrt (C++11)
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float cbrt(float x);

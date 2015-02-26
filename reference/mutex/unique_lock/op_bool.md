@@ -1,4 +1,6 @@
 #operator bool (C++11)
+* mutex[meta header]
+
 ```cpp
 explicit operator bool() const noexcept;
 ```

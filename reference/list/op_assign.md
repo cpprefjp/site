@@ -1,4 +1,6 @@
 #operator=
+* list[meta header]
+
 ```cpp
 list& operator=(const list& x);         // (1)
 list& operator=(list&& x);              // (2) C++11

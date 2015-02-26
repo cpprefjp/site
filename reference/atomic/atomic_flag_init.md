@@ -1,4 +1,6 @@
 #ATOMIC_FLAG_INIT (C++11)
+* atomic[meta header]
+
 ```cpp
 namespace std {
   #define ATOMIC_FLAG_INIT see below

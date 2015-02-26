@@ -1,4 +1,6 @@
 #operator= (C++11)
+* thread[meta header]
+
 ```cpp
 // コピー
 thread& operator=(const thread&) = delete;

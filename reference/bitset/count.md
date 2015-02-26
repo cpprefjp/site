@@ -1,4 +1,6 @@
 #count
+* bitset[meta header]
+
 ```cpp
 size_t count() const;          // C++03
 size_t count() const noexcept; // C++11

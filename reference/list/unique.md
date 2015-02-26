@@ -1,4 +1,6 @@
 #unique
+* list[meta header]
+
 ```cpp
 void unique();                     // (1)
 

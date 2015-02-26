@@ -1,4 +1,6 @@
 #join (C++11)
+* thread[meta header]
+
 ```cpp
 void join();
 ```

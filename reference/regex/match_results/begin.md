@@ -1,4 +1,6 @@
 #begin (C++11)
+* regex[meta header]
+
 ```cpp
 const_iterator begin() const;
 ```

@@ -1,4 +1,6 @@
 #operator= (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 shared_lock& operator=(const shared_lock&) = delete; // (1)
 shared_lock& operator=(shared_lock&& u) noexcept;    // (2)

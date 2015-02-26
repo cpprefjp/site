@@ -1,4 +1,6 @@
 #fill_n
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class OutputIterator, class Size, class T>

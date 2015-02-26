@@ -1,4 +1,6 @@
 #sリテラル (C++14)
+* string[meta header]
+
 ```cpp
 namespace std {
 inline namespace literals {

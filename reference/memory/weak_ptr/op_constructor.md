@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* memory[meta header]
+
 ```cpp
 constexpr weak_ptr() noexcept;             // (1)
 weak_ptr(const weak_ptr& r) noexcept;      // (2)

@@ -1,4 +1,6 @@
 #assign (C++11)
+* forward_list[meta header]
+
 ```cpp
 template <class InputIterator>
 void assign(InputIterator first, InputIterator last); // (1)

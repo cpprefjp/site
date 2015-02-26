@@ -1,4 +1,6 @@
 #istream_iterator
+* iterator[meta header]
+
 ```
 namespace std {
   template <class T, class CharT = char,

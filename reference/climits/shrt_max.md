@@ -1,4 +1,6 @@
 #SHRT_MAX
+* climits[meta header]
+
 ```cpp
 #define SHRT_MAX implementation-defined
 ```

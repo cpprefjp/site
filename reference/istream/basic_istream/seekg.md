@@ -1,4 +1,6 @@
 #seekg
+* istream[meta header]
+
 ```cpp
 basic_istream<CharT, Traits>& seekg(pos_type pos);
 basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);

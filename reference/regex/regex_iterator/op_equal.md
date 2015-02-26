@@ -1,4 +1,6 @@
 #operator== (C++11)
+* regex[meta header]
+
 ```cpp
 bool operator==(const regex_iterator& right) const;
 ```

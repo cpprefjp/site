@@ -1,4 +1,6 @@
 #random_device (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   class random_device;

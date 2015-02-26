@@ -1,4 +1,6 @@
 #new_handler
+* new[meta header]
+
 ```cpp
 namespace std {
   typedef void (*new_handler)();

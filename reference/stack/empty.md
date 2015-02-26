@@ -1,4 +1,6 @@
 #empty
+* stack[meta header]
+
 ```cpp
 bool empty() const;
 ```

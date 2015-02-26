@@ -1,4 +1,6 @@
 #operator* (C++11)
+* memory[meta header]
+
 ```cpp
 T& operator*() const noexcept;
 ```

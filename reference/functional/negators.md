@@ -1,4 +1,6 @@
 #論理反転関数オブジェクト
+* functional[meta header]
+
 ```cpp
 namespace std {
   template <typename Pred>

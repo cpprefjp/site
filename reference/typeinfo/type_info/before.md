@@ -1,4 +1,6 @@
 #before
+* typeinfo[meta header]
+
 ```cpp
 bool before(const type_info& rhs) const noexcept;
 ```

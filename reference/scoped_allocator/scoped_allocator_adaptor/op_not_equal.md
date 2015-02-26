@@ -1,4 +1,6 @@
 #operator!= (C++11)
+* scoped_allocator[meta header]
+
 ```cpp
 namespace std {
   template <class OuterA1, class OuterA2, class... InnerAllocs>

@@ -1,4 +1,6 @@
 #uncaught_exception
+* exception[meta header]
+
 ```cpp
 namespace std {
   // C++03

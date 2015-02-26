@@ -1,4 +1,6 @@
 #emplace
+* stack[meta header]
+
 ```cpp
 template <class... Args>
 void emplace(Args&&... args);

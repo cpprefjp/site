@@ -1,4 +1,6 @@
 #stable_partition
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template<class BidirectionalIterator, class Predicate>

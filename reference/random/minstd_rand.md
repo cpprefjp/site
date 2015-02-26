@@ -1,4 +1,6 @@
 #minstd_rand (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   typedef

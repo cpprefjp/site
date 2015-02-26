@@ -1,4 +1,6 @@
 #slice
+* valarray[meta header]
+
 ```cpp
 namespace std {
   class slice;

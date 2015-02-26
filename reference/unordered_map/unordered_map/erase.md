@@ -1,4 +1,6 @@
 #erase (C++11)
+* unordered_map[meta header]
+
 ```cpp
 iterator erase(const_iterator position);                   // (1)
 

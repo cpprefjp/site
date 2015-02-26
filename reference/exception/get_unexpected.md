@@ -1,4 +1,6 @@
 #get_unexpected (C++11)
+* exception[meta header]
+
 ```cpp
 namespace std {
   typedef void (*unexpected_handler)();

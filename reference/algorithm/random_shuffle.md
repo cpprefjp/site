@@ -1,4 +1,6 @@
 #random_shuffle
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class RandomAccessIterator>

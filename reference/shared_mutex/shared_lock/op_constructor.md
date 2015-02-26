@@ -1,4 +1,6 @@
 #コンストラクタ (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 shared_lock() noexcept;                                           // (1)
 explicit shared_lock(mutex_type& m);                              // (2)

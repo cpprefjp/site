@@ -1,4 +1,6 @@
 #コンストラクタ
+* bitset[meta header]
+
 ```cpp
 bitset();                                          // (1) C++03
 constexpr bitset() noexcept;                       // (1) C++11

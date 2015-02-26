@@ -1,4 +1,6 @@
 #operator= (C++11)
+* functional[meta header]
+
 ```cpp
 function& operator=(const function& f);               // (1)
 function& operator=(function&& f);                    // (2)

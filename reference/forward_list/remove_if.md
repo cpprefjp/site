@@ -1,4 +1,6 @@
 #remove_if (C++11)
+* forward_list[meta header]
+
 ```cpp
 template <class Predicate>
 void remove_if(Predicate pred);

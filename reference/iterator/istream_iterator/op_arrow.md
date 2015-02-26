@@ -1,4 +1,6 @@
 #operator->
+* iterator[meta header]
+
 ```cpp
 const T* operator->() const;
 ```

@@ -1,4 +1,6 @@
 #コンストラクタ
+* valarray[meta header]
+
 ```cpp
 private:
   slice_array();                   // (1) C++03

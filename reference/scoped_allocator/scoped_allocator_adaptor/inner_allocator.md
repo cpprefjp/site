@@ -1,4 +1,6 @@
 #inner_allocator (C++11)
+* scoped_allocator[meta header]
+
 ```cpp
 inner_allocator_type& inner_allocator() noexcept;             // (1)
 const inner_allocator_type& inner_allocator() const noexcept; // (2)

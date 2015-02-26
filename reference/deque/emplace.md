@@ -1,4 +1,6 @@
 #emplace (C++11)
+* deque[meta header]
+
 ```cpp
 template <class... Args>
 iterator emplace(const_iterator position, Args&&... args);

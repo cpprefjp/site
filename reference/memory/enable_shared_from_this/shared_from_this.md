@@ -1,4 +1,6 @@
 #shared_from_this (C++11)
+* memory[meta header]
+
 ```cpp
 shared_ptr<T> shared_from_this();
 shared_ptr<const T> shared_from_this() const;

@@ -1,4 +1,6 @@
 #getline
+* istream[meta header]
+
 ```cpp
 basic_istream<CharT, Traits>& getline(char_type* s, streamsize n);
 basic_istream<CharT, Traits>& getline(char_type* s, streamsize n, char_type delim);

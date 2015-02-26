@@ -1,4 +1,6 @@
 #mean (C++11)
+* random[meta header]
+
 ```cpp
 double mean() const;
 ```

@@ -1,4 +1,6 @@
 #adjacent_difference
+* numeric[meta header]
+
 ```cpp
 namespace std{
   template <class InputIterator, class OutputIterator>

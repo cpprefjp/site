@@ -1,4 +1,6 @@
 #yield (C++11)
+* thread[meta header]
+
 ```cpp
 namespace std {
 namespace this_thread {

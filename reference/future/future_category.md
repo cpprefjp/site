@@ -1,4 +1,6 @@
 #future_category (C++11)
+* future[meta header]
+
 ```cpp
 namespace std {
   const error_category& future_category() noexcept;

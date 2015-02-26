@@ -1,4 +1,6 @@
 #eof
+* string[meta header]
+
 ```cpp
 // C++03
 static int_type eof();

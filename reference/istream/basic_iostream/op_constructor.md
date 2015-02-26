@@ -1,4 +1,6 @@
 #コンストラクタ
+* istream[meta header]
+
 ```cpp
 explicit basic_iostream(basic_streambuf<CharT, Traits>* sb);
 basic_iostream(basic_iostream&& rhs);

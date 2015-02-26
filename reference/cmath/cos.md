@@ -1,4 +1,6 @@
 #cos
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float cos(float x);

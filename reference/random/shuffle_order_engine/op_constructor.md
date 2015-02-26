@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* random[meta header]
+
 ```cpp
 shuffle_order_engine();
 explicit shuffle_order_engine(const Engine& e);

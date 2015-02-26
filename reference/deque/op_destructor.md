@@ -1,4 +1,6 @@
 #デストラクタ
+* deque[meta header]
+
 ```cpp
 ~deque();
 ```

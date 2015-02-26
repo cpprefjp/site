@@ -1,4 +1,6 @@
 #operator!=
+* bitset[meta header]
+
 ```cpp
 bool operator!=(const bitset<N>& rhs) const;          // C++03
 bool operator!=(const bitset<N>& rhs) const noexcept; // C++11

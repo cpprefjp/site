@@ -1,4 +1,6 @@
 #notify_all_at_thread_exit (C++11)
+* condition_variable[meta header]
+
 ```cpp
 namespace std {
   void notify_all_at_thread_exit(condition_variable& cond, unique_lock<mutex> lk);

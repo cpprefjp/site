@@ -1,4 +1,6 @@
 #operator() (C++11)
+* random[meta header]
+
 ```cpp
 template <class URNG>
 result_type operator()(URNG& g);

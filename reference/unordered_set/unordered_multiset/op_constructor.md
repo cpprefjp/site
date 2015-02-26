@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* unordered_set[meta header]
+
 ```cpp
 explicit unordered_multiset(size_type n = 実装依存の既定値,
                             const hasher& hf = hasher(),

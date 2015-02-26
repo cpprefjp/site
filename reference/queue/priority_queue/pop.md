@@ -1,4 +1,6 @@
 #pop
+* queue[meta header]
+
 ```cpp
 void pop();
 ```

@@ -1,4 +1,6 @@
 #operator=
+* iterator[meta header]
+
 ```cpp
 back_insert_iterator&
   operator=(const typename Container::value_type& value);

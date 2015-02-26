@@ -1,4 +1,6 @@
 #remove_if
+* list[meta header]
+
 ```cpp
 template <class Predicate>
 void remove_if(Predicate pred);

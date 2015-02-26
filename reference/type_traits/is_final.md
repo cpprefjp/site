@@ -1,4 +1,6 @@
 #is_final (C++14)
+* type_traits[meta header]
+
 ```cpp
 namespace std {
   template <class T>

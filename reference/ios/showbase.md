@@ -1,4 +1,6 @@
 #showbase
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& showbase(ios_base& str);

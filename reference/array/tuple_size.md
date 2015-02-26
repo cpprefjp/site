@@ -1,4 +1,6 @@
 #tuple_size (C++11)
+* array[meta header]
+
 ```cpp
 namespace std {
   template <class T> class tuple_size; // 先行宣言

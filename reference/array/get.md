@@ -1,4 +1,6 @@
 #get (C++11)
+* array[meta header]
+
 ```cpp
 namespace std {
   template <size_t I, class T, size_t N>

@@ -1,4 +1,6 @@
 #c_str
+* string[meta header]
+
 ```cpp
 const charT* c_str() const;				// C++03 まで
 

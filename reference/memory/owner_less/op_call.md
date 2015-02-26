@@ -1,4 +1,6 @@
 #operator() (C++11)
+* memory[meta header]
+
 ```cpp
 // shared_ptr版
 bool operator()(const shared_ptr<T>& a, const shared_ptr<T>& b) const;

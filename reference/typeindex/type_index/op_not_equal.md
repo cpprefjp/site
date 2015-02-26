@@ -1,4 +1,6 @@
 #operator!= (C++11)
+* typeindex[meta header]
+
 ```cpp
 bool operator!=(const type_index& rhs) const noexcept;
 ```

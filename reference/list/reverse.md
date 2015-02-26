@@ -1,4 +1,6 @@
 #reverse
+* list[meta header]
+
 ```cpp
 void reverse();          // C++03
 void reverse() noexcept; // C++11

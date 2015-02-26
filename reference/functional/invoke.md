@@ -1,4 +1,6 @@
 #INVOKE
+* functional[meta header]
+
 ##用語定義
 - *call-signature* とは、戻り値型に続けて丸括弧の中に0個以上の引数型を並べたものである。 *cf.* `int ( std::string, int )`
 - *callable-type* とは、関数呼び出し演算子を適用できる型 ( 関数、関数への参照、関数へのポインタ、`operator ()` をオーバーロードした型もしくはそれを(直接または間接的に) `public` 継承した型 ) もしくはメンバへのポインタ型を指す。

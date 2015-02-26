@@ -1,4 +1,6 @@
 #native_handle (C++11)
+* thread[meta header]
+
 ```cpp
 native_handle_type native_handle();
 ```

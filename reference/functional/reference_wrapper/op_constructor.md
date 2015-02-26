@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* functional[meta header]
+
 ```cpp
 reference_wrapper(T& t) noexcept;
 reference_wrapper(T&&) = delete;

@@ -1,4 +1,6 @@
 #emplace_front (C++11)
+* deque[meta header]
+
 ```cpp
 template <class... Args>
 void emplace_front(Args&&... args);

@@ -1,4 +1,6 @@
 #joinable (C++11)
+* thread[meta header]
+
 ```cpp
 bool joinable() const noexcept;
 ```

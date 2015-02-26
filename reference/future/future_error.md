@@ -1,4 +1,6 @@
 #future_error (C++11)
+* future[meta header]
+
 ```cpp
 namespace std {
   class future_error : public logic_error;

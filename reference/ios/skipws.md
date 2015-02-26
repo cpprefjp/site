@@ -1,4 +1,6 @@
 #skipws
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& skipws(ios_base& str);

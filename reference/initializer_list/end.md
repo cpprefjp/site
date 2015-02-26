@@ -1,4 +1,6 @@
 #end (C++11)
+* initializer_list[meta header]
+
 ```cpp
 const E* end() const noexcept;           // C++11
 constexpr const E* end() const noexcept; // C++14

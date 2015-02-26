@@ -1,4 +1,6 @@
 #get_deleter (C++11)
+* memory[meta header]
+
 ```cpp
 deleter_type& get_deleter() noexcept;
 const deleter_type& get_deleter() const noexcept;

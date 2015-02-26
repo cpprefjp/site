@@ -1,4 +1,6 @@
 #uppercase
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& uppercase(ios_base& str);

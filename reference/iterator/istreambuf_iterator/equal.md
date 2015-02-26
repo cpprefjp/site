@@ -1,4 +1,6 @@
 #equal
+* iterator[meta header]
+
 ```cpp
 bool equal(const istreambuf_iterator& b) const;
 ```

@@ -1,4 +1,6 @@
 #owner_before (C++11)
+* memory[meta header]
+
 ```cpp
 template <class U>
 bool owner_before(const shared_ptr<U>& b) const; // (1)

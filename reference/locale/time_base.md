@@ -1,4 +1,6 @@
 #time_base
+* locale[meta header]
+
 ```cpp
 namespace std {
   class time_base;

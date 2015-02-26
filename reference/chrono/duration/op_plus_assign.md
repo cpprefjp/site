@@ -1,4 +1,6 @@
 #operator+= (C++11)
+* chrono[meta header]
+
 ```cpp
 duration& operator+=(const duration& d);
 ```

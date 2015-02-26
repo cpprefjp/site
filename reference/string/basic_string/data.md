@@ -1,4 +1,6 @@
 #data
+* string[meta header]
+
 ```cpp
 const charT* data() const;				// C++03 まで
 

@@ -1,4 +1,6 @@
 #make_error_code (C++11)
+* future[meta header]
+
 ```cpp
 namespace std {
   error_code make_error_code(future_errc e) noexcept;

@@ -1,4 +1,6 @@
 #size (C++11)
+* unordered_map[meta header]
+
 ```cpp
 size_type size() const noexcept;
 ```

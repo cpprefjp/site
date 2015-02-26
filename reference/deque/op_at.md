@@ -1,4 +1,6 @@
 #operator[]
+* deque[meta header]
+
 ```cpp
 reference operator[](size_type n);
 const_reference operator[](size_type n) const;

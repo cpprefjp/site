@@ -1,4 +1,6 @@
 #flip
+* bitset[meta header]
+
 ```cpp
 bitset<N>& flip();           // (1) C++03
 bitset<N>& flip() noexcept;  // (1) C++11

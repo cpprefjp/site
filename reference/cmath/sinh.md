@@ -1,4 +1,6 @@
 #sinh
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float sinh(float x);

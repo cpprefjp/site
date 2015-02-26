@@ -1,4 +1,6 @@
 #async
+* future[meta header]
+
 ```cpp
 namespace std {
   template <class F, class... Args>

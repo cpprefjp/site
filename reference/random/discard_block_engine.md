@@ -1,4 +1,6 @@
 #discard_block_engine (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   template <class Engine, size_t p, size_t r>

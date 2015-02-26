@@ -1,4 +1,6 @@
 #get (C++11)
+* future[meta header]
+
 ```cpp
 R future::get();
 R& future<R&>::get();

@@ -1,4 +1,6 @@
 #begin (非メンバ関数) (C++11)
+* initializer_list[meta header]
+
 ```cpp
 template <class E>
 const E* begin(initializer_list<E> il) noexcept;           // C++11

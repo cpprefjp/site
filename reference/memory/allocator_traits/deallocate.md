@@ -1,4 +1,6 @@
 #deallocate (C++11)
+* memory[meta header]
+
 ```cpp
 static void deallocate(Alloc& a, pointer p, size_type n);
 ```

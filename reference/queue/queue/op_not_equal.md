@@ -1,4 +1,6 @@
 #operator!=
+* queue[meta header]
+
 ```cpp
 namespace std {
   template <class T, class Container>

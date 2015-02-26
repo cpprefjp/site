@@ -1,4 +1,6 @@
 #operator= (C++11)
+* memory[meta header]
+
 ```cpp
 enable_shared_from_this& operator=(const enable_shared_from_this&) noexcept;
 ```

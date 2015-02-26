@@ -1,4 +1,6 @@
 #デストラクタ
+* memory[meta header]
+
 ```cpp
 // C++03
 ~allocator() throw();

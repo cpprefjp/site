@@ -1,4 +1,6 @@
 #declare_reachable (C++11)
+* memory[meta header]
+
 ```cpp
 namespace std {
   void declare_reachable(void* p);

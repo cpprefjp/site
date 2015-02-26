@@ -1,4 +1,6 @@
 #resize
+* valarray[meta header]
+
 ```cpp
 void resize(size_t sz, T c = T());
 ```

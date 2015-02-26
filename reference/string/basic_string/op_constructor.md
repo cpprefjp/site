@@ -1,4 +1,6 @@
 #コンストラクタ
+* string[meta header]
+
 ```cpp
 explicit basic_string(const Allocator& a = Allocator()); // (1)
 basic_string(const basic_string& str);                   // (2)

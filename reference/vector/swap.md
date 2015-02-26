@@ -1,4 +1,6 @@
 #swap
+* vector[meta header]
+
 ```cpp
 void swap(vector& x);
 ```

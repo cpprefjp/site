@@ -1,4 +1,6 @@
 #error_code (C++11)
+* system_error[meta header]
+
 ```cpp
 namespace std {
   class error_code;

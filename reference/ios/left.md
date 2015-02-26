@@ -1,4 +1,6 @@
 #left
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& left(ios_base& str);

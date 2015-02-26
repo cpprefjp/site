@@ -1,4 +1,6 @@
 #hex
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& hex(ios_base& str);

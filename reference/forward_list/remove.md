@@ -1,4 +1,6 @@
 #remove (C++11)
+* forward_list[meta header]
+
 ```cpp
 void remove(const T& value);
 ```

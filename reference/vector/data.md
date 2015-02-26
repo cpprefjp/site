@@ -1,4 +1,6 @@
 #data (C++11)
+* vector[meta header]
+
 ```cpp
 T* data() noexcept;
 const T* data() const noexcept;

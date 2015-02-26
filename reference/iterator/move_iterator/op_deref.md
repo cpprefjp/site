@@ -1,4 +1,6 @@
 #operator* (C++11)
+* iterator[meta header]
+
 ```cpp
 reference operator*() const;
 ```

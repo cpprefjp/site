@@ -1,4 +1,6 @@
 #internal
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& internal(ios_base& str);

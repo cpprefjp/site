@@ -1,4 +1,6 @@
 #allocate (C++11)
+* memory[meta header]
+
 ```cpp
 static pointer allocate(Alloc& a, size_type n);   // (1)
 static pointer allocate(Alloc& a, size_type n,

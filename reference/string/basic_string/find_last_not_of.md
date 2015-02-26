@@ -1,4 +1,6 @@
 #find_last_not_of
+* string[meta header]
+
 ```cpp
 size_type find_last_not_of(const basic_string& str, size_type pos = npos) const noexcept; // (1)
 size_type find_last_not_of(const charT* s, size_type pos, size_type n) const;             // (2)

@@ -1,4 +1,6 @@
 #set_value (C++11)
+* future[meta header]
+
 ```cpp
 // テンプレートパラメータRが下記特殊ケースでない場合
 void promise::set_value(const R& r);

@@ -1,4 +1,6 @@
 #CHAR_MAX
+* climits[meta header]
+
 ```cpp
 #define CHAR_MAX implementation-defined
 ```

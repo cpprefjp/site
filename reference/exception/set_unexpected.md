@@ -1,4 +1,6 @@
 #set_unexpected
+* exception[meta header]
+
 ```cpp
 namespace std {
   typedef void (*unexpected_handler)();

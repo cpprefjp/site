@@ -1,4 +1,6 @@
 #streamoff
+* ios[meta header]
+
 ```cpp
 namespace std {
   typedef implementation-defined streamoff;

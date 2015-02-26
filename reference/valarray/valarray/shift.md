@@ -1,4 +1,6 @@
 #shift
+* valarray[meta header]
+
 ```cpp
 valarray<T> shift(int n) const;
 ```

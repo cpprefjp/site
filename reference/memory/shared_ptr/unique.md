@@ -1,4 +1,6 @@
 #unique (C++11)
+* memory[meta header]
+
 ```cpp
 bool unique() const noexcept;
 ```

@@ -1,4 +1,6 @@
 #exception
+* exception[meta header]
+
 ```cpp
 namespace std {
   class exception;

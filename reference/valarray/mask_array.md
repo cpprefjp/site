@@ -1,4 +1,6 @@
 #mask_array
+* valarray[meta header]
+
 ```cpp
 namespace std {
   template <class T>

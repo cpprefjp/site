@@ -1,4 +1,6 @@
 #operator^=
+* valarray[meta header]
+
 ```cpp
 void operator^=(const valarray<T>& xs) const;
 ```

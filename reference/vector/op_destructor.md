@@ -1,4 +1,6 @@
 #デストラクタ
+* vector[meta header]
+
 ```cpp
 ~vector()
 ```

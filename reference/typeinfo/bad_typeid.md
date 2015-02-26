@@ -1,4 +1,6 @@
 #bad_typeid
+* typeinfo[meta header]
+
 ```cpp
 namespace std {
   class bad_typeid : public exception;

@@ -1,4 +1,6 @@
 #デストラクタ
+* valarray[meta header]
+
 ```cpp
 ~valarray();
 ```

@@ -1,4 +1,6 @@
 #swap (非メンバ関数) (C++11)
+* queue[meta header]
+
 ```cpp
 namespace std {
   template <class T, class Container, class Compare>

@@ -1,4 +1,6 @@
 #swap (非メンバ関数) (C++11)
+* regex[meta header]
+
 ```cpp
 template <class charT, class traits>
 void swap(basic_regex<charT, traits>& lhs, basic_regex<charT, traits>& rhs);

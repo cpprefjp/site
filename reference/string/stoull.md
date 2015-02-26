@@ -1,4 +1,6 @@
 #stoull (C++11)
+* string[meta header]
+
 ```cpp
 namespace std {
   unsigned long long stoull(const string& str, size_t* idx = nullptr, unsigned long long base = 10);

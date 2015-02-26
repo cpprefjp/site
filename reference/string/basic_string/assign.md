@@ -1,4 +1,6 @@
 #assign
+* string[meta header]
+
 ```cpp
 basic_string& assign(const basic_string& str);
 basic_string& assign(basic_string&& str) noexcept; // C++11から

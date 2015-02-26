@@ -1,4 +1,6 @@
 #probabilities (C++11)
+* random[meta header]
+
 ```cpp
 vector<double> probabilities() const;
 ```

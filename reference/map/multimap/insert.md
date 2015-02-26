@@ -1,4 +1,6 @@
 #insert
+* map[meta header]
+
 ```cpp
 iterator insert(const value_type& x);
 

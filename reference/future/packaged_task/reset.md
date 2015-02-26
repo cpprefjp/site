@@ -1,4 +1,6 @@
 #reset (C++11)
+* future[meta header]
+
 ```cpp
 void reset();
 ```

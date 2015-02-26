@@ -1,4 +1,6 @@
 #quiet_NaN
+* limits[meta header]
+
 ```cpp
 // C++03
 static T quiet_NaN() throw();

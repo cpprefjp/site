@@ -1,4 +1,6 @@
 #default_random_engine
+* random[meta header]
+
 ```cpp
 namespace std {
   typedef implementation-defined default_random_engine;

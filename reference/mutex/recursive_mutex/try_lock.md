@@ -1,4 +1,6 @@
 #try_lock (C++11)
+* mutex[meta header]
+
 ```cpp
 bool try_lock();
 ```

@@ -1,4 +1,6 @@
 #merge
+* list[meta header]
+
 ```cpp
 void merge(list& x);  // (1)
 void merge(list&& x); // (2) C++11

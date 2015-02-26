@@ -1,4 +1,6 @@
 #adjacent_find
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class ForwardIterator>

@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* random[meta header]
+
 ```cpp
 explicit normal_distribution(RealType mean = 0.0, RealType stddev = 1.0);
 explicit normal_distribution(const param_type& parm);

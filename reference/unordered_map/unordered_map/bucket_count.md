@@ -1,4 +1,6 @@
 #bucket_count (C++11)
+* unordered_map[meta header]
+
 ```cpp
 size_type bucket_count() const noexcept;
 ```

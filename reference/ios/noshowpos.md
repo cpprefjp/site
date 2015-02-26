@@ -1,4 +1,6 @@
 #noshowpos
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& noshowpos(ios_base& str);

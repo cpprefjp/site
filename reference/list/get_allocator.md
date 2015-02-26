@@ -1,4 +1,6 @@
 #get_allocator
+* list[meta header]
+
 ```cpp
 allocator_type get_allocator() const;          // C++03
 allocator_type get_allocator() const noexcept; // C++11

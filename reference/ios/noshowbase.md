@@ -1,4 +1,6 @@
 #noshowbase
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& noshowbase(ios_base& str);

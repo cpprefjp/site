@@ -1,4 +1,6 @@
 #max_element
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template<class ForwardIterator>

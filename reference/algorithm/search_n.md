@@ -1,4 +1,6 @@
 #search_n
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template<class ForwardIterator, class Size, class T>

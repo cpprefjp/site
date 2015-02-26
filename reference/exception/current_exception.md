@@ -1,4 +1,6 @@
 #current_exception (C++11)
+* exception[meta header]
+
 ```cpp
 namespace std {
   exception_ptr current_exception() noexcept;

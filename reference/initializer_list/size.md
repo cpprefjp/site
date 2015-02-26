@@ -1,4 +1,6 @@
 #size (C++11)
+* initializer_list[meta header]
+
 ```cpp
 size_t size() const noexcept;           // C++11
 constexpr size_t size() const noexcept; // C++14

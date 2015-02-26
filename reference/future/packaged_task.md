@@ -1,4 +1,6 @@
 #packaged_task (C++11)
+* future[meta header]
+
 ```cpp
 namespace std {
   template <class> class packaged_task; // 宣言のみで定義なし

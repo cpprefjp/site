@@ -1,4 +1,6 @@
 #default_delete (C++11)
+* memory[meta header]
+
 ```cpp
 namespace std {
   // 単一オブジェクト版

@@ -1,4 +1,6 @@
 #capacity
+* vector[meta header]
+
 ```cpp
 size_type capacity() const;
 ```

@@ -1,4 +1,6 @@
 #functional
+* functional[meta header]
+
 `<functional>`ヘッダは、関数オブジェクトに関する機能を提供する。
 
 関数オブジェクトとは、通常の関数と同じシンタックスで扱えるクラスである。  

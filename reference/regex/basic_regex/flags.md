@@ -1,4 +1,6 @@
 #flags (C++11)
+* regex[meta header]
+
 ```cpp
 flag_type flags() const;
 ```

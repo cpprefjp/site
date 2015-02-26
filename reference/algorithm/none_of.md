@@ -1,4 +1,6 @@
 #none_of (C++11)
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator, class Predicate>

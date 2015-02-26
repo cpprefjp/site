@@ -1,4 +1,6 @@
 #emplace_hint (C++11)
+* map[meta header]
+
 ```cpp
 // since C++11
 template <class... Args>

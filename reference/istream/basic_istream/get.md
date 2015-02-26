@@ -1,4 +1,6 @@
 #get
+* istream[meta header]
+
 ```cpp
 // 1文字
 int_type get();

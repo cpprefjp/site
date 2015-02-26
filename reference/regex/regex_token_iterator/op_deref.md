@@ -1,4 +1,6 @@
 #operator* (C++11)
+* regex[meta header]
+
 ```cpp
 const value_type& operator*() const;
 ```

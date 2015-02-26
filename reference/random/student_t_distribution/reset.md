@@ -1,4 +1,6 @@
 #reset (C++11)
+* random[meta header]
+
 ```cpp
 void reset();
 ```

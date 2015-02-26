@@ -1,4 +1,6 @@
 #swap (非メンバ関数)
+* deque[meta header]
+
 ```cpp
 namespace std {
   template <class T, class Allocator>

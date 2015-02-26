@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* thread[meta header]
+
 ```cpp
 thread() noexcept;                      // (1)
 

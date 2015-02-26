@@ -1,4 +1,6 @@
 #コンストラクタ
+* valarray[meta header]
+
 ```cpp
 valarray();                           // (1)
 explicit valarray(size_t n);          // (2)

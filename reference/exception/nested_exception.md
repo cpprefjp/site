@@ -1,4 +1,6 @@
 #nested_exception (C++11)
+* exception[meta header]
+
 ```cpp
 namespace std {
   class nested_exception;

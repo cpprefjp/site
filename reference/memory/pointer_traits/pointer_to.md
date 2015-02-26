@@ -1,4 +1,6 @@
 #pointer_to (C++11)
+* memory[meta header]
+
 ```cpp
 static pointer pointer_traits::pointer_to(element_type& r);              // (1)
 static pointer pointer_traits<T*>::pointer_to(element_type& r) noexcept; // (2)

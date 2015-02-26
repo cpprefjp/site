@@ -1,4 +1,6 @@
 #make_error_code (C++11)
+* system_error[meta header]
+
 ```cpp
 namespace std {
   error_code make_error_code(errc e) noexcept;

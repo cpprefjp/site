@@ -1,4 +1,6 @@
 #max
+* valarray[meta header]
+
 ```cpp
 T max() const;
 ```

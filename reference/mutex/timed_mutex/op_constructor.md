@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* mutex[meta header]
+
 ```cpp
 timed_mutex();                            // (1)
 timed_mutex(const timed_mutex&) = delete; // (2)

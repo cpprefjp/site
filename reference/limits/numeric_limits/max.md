@@ -1,4 +1,6 @@
 #max
+* limits[meta header]
+
 ```cpp
 // C++03
 static T max() throw();

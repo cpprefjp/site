@@ -1,4 +1,6 @@
 #size
+* bitset[meta header]
+
 ```cpp
 size_t size() const;                    // C++03
 constexpr size_t size() noexcept;       // C++11

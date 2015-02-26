@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* mutex[meta header]
+
 ```cpp
 constexpr mutex() noexcept;   // (1)
 mutex(const mutex&) = delete; // (2)

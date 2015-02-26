@@ -1,4 +1,6 @@
 #operator>
+* map[meta header]
+
 ```cpp
 template <class Key, class T, class Compare, class Allocator>
 bool operator> (const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,Allocator>& y);

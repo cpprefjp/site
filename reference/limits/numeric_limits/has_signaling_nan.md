@@ -1,4 +1,6 @@
 #has_signaling_NaN
+* limits[meta header]
+
 ```cpp
 // C++03
 static const bool has_signaling_NaN;

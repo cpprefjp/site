@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* mutex[meta header]
+
 ```cpp
 unique_lock() noexcept;                                           // (1)
 explicit unique_lock(mutex_type& m);                              // (2)

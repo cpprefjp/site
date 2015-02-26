@@ -1,4 +1,6 @@
 #swap (C++11)
+* thread[meta header]
+
 ```cpp
 void swap(thread& x) noexcept;
 ```

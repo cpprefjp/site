@@ -1,4 +1,6 @@
 #resize
+* list[meta header]
+
 ```cpp
 void resize(size_type sz);                      // (1) C++11
 void resize(size_type sz, const value_type& c); // (2) C++11

@@ -1,4 +1,6 @@
 #log
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float log(float x);

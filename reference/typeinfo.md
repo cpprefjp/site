@@ -1,4 +1,6 @@
 #typeinfo
+* typeinfo[meta header]
+
 `<typeinfo>`ヘッダは、`typeid`演算子および`dynamic_cast`演算子と共に使用する型を定義する。
 
 | 名前 | 説明 | 対応バージョン |

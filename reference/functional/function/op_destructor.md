@@ -1,4 +1,6 @@
 #デストラクタ (C++11)
+* functional[meta header]
+
 ```cpp
 ~function();
 ```

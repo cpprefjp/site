@@ -1,4 +1,6 @@
 #gslice
+* valarray[meta header]
+
 ```cpp
 namespace std {
   class gslice;

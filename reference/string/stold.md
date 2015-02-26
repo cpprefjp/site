@@ -1,4 +1,6 @@
 #stold (C++11)
+* string[meta header]
+
 ```cpp
 namespace std {
   double stold(const string& str, size_t* idx = nullptr);

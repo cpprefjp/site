@@ -1,4 +1,6 @@
 #to_char_type
+* string[meta header]
+
 ```cpp
 // C++03
 static char_type to_char_type(const int_type& c);

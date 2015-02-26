@@ -1,4 +1,6 @@
 #swap (C++11)
+* regex[meta header]
+
 ```cpp
 void swap(basic_regex& e);
 ```

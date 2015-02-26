@@ -1,4 +1,6 @@
 #operator=
+* map[meta header]
+
 ```cpp
 multimap& operator=(const multimap& x);                 // (1) C++03
 multimap& operator=(multimap&& y);                      // (2) C++11

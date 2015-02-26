@@ -1,4 +1,6 @@
 #cerr
+* iostream[meta header]
+
 ```cpp
 namespace std {
   ostream cerr;

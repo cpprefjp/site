@@ -1,4 +1,6 @@
 #swap (非メンバ関数) (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 namespace std {
   template <class Mutex>

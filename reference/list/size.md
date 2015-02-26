@@ -1,4 +1,6 @@
 #size
+* list[meta header]
+
 ```cpp
 size_type size() const;          // C++03
 size_type size() const noexcept; // C++11

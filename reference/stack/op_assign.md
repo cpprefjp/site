@@ -1,4 +1,6 @@
 #operator=
+* stack[meta header]
+
 ```cpp
 stack& operator=(const stack& st);
 

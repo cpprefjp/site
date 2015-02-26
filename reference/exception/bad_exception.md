@@ -1,4 +1,6 @@
 #bad_exception
+* exception[meta header]
+
 ```cpp
 namespace std {
   class bad_exception : public exception;

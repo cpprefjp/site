@@ -1,4 +1,6 @@
 #wait (C++11)
+* condition_variable[meta header]
+
 ```cpp
 template <class Lock>
 void wait(Lock& lock);                 // (1)

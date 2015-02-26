@@ -1,4 +1,6 @@
 #empty (C++11)
+* unordered_map[meta header]
+
 ```cpp
 bool empty() const noexcept;
 ```

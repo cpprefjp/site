@@ -1,4 +1,6 @@
 #size (C++11)
+* random[meta header]
+
 ```cpp
 size_t size() const;
 ```

@@ -1,4 +1,6 @@
 #valarray
+* valarray[meta header]
+
 `<valarray>`ヘッダは、数値計算に特化した配列クラスである`valarray`と、基礎的な数学的処理を行うための関数オーバーロードを定義したライブラリである。
 
 ##配列クラス

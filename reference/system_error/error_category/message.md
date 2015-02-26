@@ -1,4 +1,6 @@
 #message (C++11)
+* system_error[meta header]
+
 ```cpp
 virtual string message(int ev) const = 0;
 ```

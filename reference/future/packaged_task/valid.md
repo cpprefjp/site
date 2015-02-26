@@ -1,4 +1,6 @@
 #valid (C++11)
+* future[meta header]
+
 ```cpp
 bool valid() const noexcept;
 ```

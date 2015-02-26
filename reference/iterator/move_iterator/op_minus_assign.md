@@ -1,4 +1,6 @@
 #operator-= (C++11)
+* iterator[meta header]
+
 ```cpp
 move_iterator& operator-=(difference_type n);
 ```

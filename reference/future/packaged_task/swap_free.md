@@ -1,4 +1,6 @@
 #swap (非メンバ関数) (C++11)
+* future[meta header]
+
 ```cpp
 namespace std {
   template <class R, class... ArgTypes>

@@ -1,4 +1,6 @@
 #bad_alloc
+* new[meta header]
+
 ```cpp
 namespace std {
   class bad_alloc : public exception {

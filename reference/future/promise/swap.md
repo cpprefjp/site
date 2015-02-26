@@ -1,4 +1,6 @@
 #swap (C++11)
+* future[meta header]
+
 ```cpp
 void swap(promise& other) noexcept;
 ```

@@ -1,4 +1,6 @@
 #operator() (C++11)
+* functional[meta header]
+
 ```cpp
 template <class... ArgTypes>
 typename result_of<T&(ArgTypes&&...)>::type operator ()(ArgTypes&&... args) const;

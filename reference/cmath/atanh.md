@@ -1,4 +1,6 @@
 #atanh (C++11)
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float atanh(float x);

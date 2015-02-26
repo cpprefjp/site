@@ -1,4 +1,6 @@
 #distance
+* iterator[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator>

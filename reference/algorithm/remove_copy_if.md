@@ -1,4 +1,6 @@
 #remove_copy_if
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator, class Predicate>

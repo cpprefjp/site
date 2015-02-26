@@ -1,4 +1,6 @@
 #inplace_merge
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class BidirectionalIterator>

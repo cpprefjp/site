@@ -1,4 +1,6 @@
 #time_get_byname
+* locale[meta header]
+
 ```cpp
 namespace std {
   template <class charT, class InputIterator = istreambuf_iterator<charT> >

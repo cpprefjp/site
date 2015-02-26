@@ -1,4 +1,6 @@
 #put
+* ostream[meta header]
+
 ```cpp
 basic_ostream<CharT, Traits>& write(const char_type* s, streamsize n);
 ```

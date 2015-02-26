@@ -1,4 +1,6 @@
 #release (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 mutex_type* release() noexcept;
 ```

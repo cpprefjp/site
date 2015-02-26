@@ -1,4 +1,6 @@
 #infinity
+* limits[meta header]
+
 ```cpp
 // C++03
 static T infinity() throw();

@@ -1,4 +1,6 @@
 #back (C++11)
+* array[meta header]
+
 ```cpp
 reference back();                       // (1)
 const_reference back() const;           // (2) C++11

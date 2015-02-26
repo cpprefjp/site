@@ -1,4 +1,6 @@
 #max_size (C++11)
+* array[meta header]
+
 ```cpp
 constexpr size_type max_size() noexcept;       // C++11
 constexpr size_type max_size() const noexcept; // C++14

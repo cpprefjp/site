@@ -1,4 +1,6 @@
 #erase
+* list[meta header]
+
 ```cpp
 iterator erase(iterator position);       // (1) C++03
 iterator erase(const_iterator position); // (1) C++11

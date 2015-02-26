@@ -1,4 +1,6 @@
 #lower_bound
+* set[meta header]
+
 ```cpp
 iterator lower_bound(const key_type& x);
 const_iterator lower_bound(const key_type& x) const;

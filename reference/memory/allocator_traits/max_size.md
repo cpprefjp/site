@@ -1,4 +1,6 @@
 #max_size (C++11)
+* memory[meta header]
+
 ```cpp
 static size_type max_size(Alloc& a);                // C++11
 static size_type max_size(const Alloc& a) noexcept; // C++14

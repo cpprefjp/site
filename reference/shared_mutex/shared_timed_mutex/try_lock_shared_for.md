@@ -1,4 +1,6 @@
 #try_lock_shared_for (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 template <class Rep, class Period>
 bool try_lock_shared_for(const chrono::duration<Rep, Period>& rel_time);

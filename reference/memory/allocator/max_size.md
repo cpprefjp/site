@@ -1,4 +1,6 @@
 #max_size
+* memory[meta header]
+
 ```cpp
 size_type max_size() const throw();  // C++03
 size_type max_size() const noexcept; // C++11

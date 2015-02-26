@@ -1,4 +1,6 @@
 #コンストラクタ
+* queue[meta header]
+
 ```cpp
 // C++03
 priority_queue();

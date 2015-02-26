@@ -1,4 +1,6 @@
 #operator=
+* valarray[meta header]
+
 ```cpp
 private:
   slice_array& operator=(const slice_array&); // (1) C++03 宣言のみ

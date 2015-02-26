@@ -1,4 +1,6 @@
 #set
+* bitset[meta header]
+
 ```cpp
 bitset<N>& set();                            // (1) C++03
 bitset<N>& set() noexcept;                   // (1) C++11

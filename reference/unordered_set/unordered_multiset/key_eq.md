@@ -1,4 +1,6 @@
 #key_eq (C++11)
+* unordered_set[meta header]
+
 ```cpp
 key_equal key_eq() const;
 ```

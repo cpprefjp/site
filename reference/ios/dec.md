@@ -1,4 +1,6 @@
 #dec
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& dec(ios_base& str);

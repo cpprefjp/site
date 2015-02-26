@@ -1,4 +1,6 @@
 #デストラクタ
+* string[meta header]
+
 ```cpp
 ~basic_string()
 ```

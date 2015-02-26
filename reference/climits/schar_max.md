@@ -1,4 +1,6 @@
 #SCHAR_MAX
+* climits[meta header]
+
 ```cpp
 #define SCHAR_MAX implementation-defined
 ```

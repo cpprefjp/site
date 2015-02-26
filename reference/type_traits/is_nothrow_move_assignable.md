@@ -1,4 +1,6 @@
 #is_nothrow_move_assignable (C++11)
+* type_traits[meta header]
+
 ```cpp
 namespace std {
   template <class T>

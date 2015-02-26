@@ -1,4 +1,6 @@
 #swap (C++11)
+* queue[meta header]
+
 ```cpp
 void swap(priority_queue& q)
           noexcept(noexcept(swap(c, q.c)) && noexcept(swap(comp, q.comp)))

@@ -1,4 +1,6 @@
 #thread::id (C++11)
+* thread[meta header]
+
 ```cpp
 namespace std {
   class thread::id {

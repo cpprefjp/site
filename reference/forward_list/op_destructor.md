@@ -1,4 +1,6 @@
 #デストラクタ (C++11)
+* forward_list[meta header]
+
 ```cpp
 ~forward_list();
 ```

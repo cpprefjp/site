@@ -1,4 +1,6 @@
 #operator!= (C++11)
+* regex[meta header]
+
 ```cpp
 namespace std {
   template <class BidirectinalIterator, class Allocator>

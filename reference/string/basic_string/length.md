@@ -1,4 +1,6 @@
 #length
+* string[meta header]
+
 ```cpp
 size_type length() const noexcept;
 ```

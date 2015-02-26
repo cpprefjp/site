@@ -1,4 +1,6 @@
 #logical_or
+* functional[meta header]
+
 ```cpp
 namespace std {
   // C++03

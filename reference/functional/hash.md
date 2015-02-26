@@ -1,4 +1,6 @@
 #hash (C++11)
+* functional[meta header]
+
 ```cpp
 namespace std {
   template <class T> struct hash;

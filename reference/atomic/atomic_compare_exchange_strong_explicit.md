@@ -1,4 +1,6 @@
 #atomic_compare_exchange_strong_explicit (C++11)
+* atomic[meta header]
+
 ```cpp
 namespace std {
   template <class T>

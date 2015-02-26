@@ -1,4 +1,6 @@
 #param (C++11)
+* random[meta header]
+
 ```cpp
 param_type param() const;
 void param(const param_type& parm);

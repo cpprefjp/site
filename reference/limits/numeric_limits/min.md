@@ -1,4 +1,6 @@
 #min
+* limits[meta header]
+
 ```cpp
 // C++03
 static T min() throw();

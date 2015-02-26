@@ -1,4 +1,6 @@
 #climits
+* climits[meta header]
+
 `<climits>`ヘッダでは、整数型に関するマクロが定義されている。これは、C言語の標準ライブラリ`<limits.h>`と同じである。
 
 

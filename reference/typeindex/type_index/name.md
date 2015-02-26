@@ -1,4 +1,6 @@
 #name (C++11)
+* typeindex[meta header]
+
 ```cpp
 const char* name() const;          // C++11
 const char* name() const noexcept; // C++14

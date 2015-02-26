@@ -1,4 +1,6 @@
 #insert
+* string[meta header]
+
 ```cpp
 basic_string& insert(size_type pos1, const basic_string& str);    // (1)
 basic_string& insert(size_type pos1, const basic_string& str,

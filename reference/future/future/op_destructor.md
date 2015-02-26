@@ -1,4 +1,6 @@
 #デストラクタ (C++11)
+* future[meta header]
+
 ```cpp
 ~future();
 ```

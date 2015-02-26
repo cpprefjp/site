@@ -1,4 +1,6 @@
 #デストラクタ
+* map[meta header]
+
 ```cpp
 ~multimap();
 ```

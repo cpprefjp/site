@@ -1,4 +1,6 @@
 #apply
+* valarray[meta header]
+
 ```cpp
 valarray<T> apply(T func(T)) const;
 valarray<T> apply(T func(const T&)) const;

@@ -1,4 +1,6 @@
 #end
+* string[meta header]
+
 ```cpp
 iterator end() noexcept;
 const_iterator end() const noexcept;

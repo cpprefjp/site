@@ -1,4 +1,6 @@
 #operator+
+* string[meta header]
+
 ```cpp
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>

@@ -1,4 +1,6 @@
 #getline
+* string[meta header]
+
 ```cpp
 template <class CharT, class Traits, class Allocator>
 basic_istream<CharT, Traits>&

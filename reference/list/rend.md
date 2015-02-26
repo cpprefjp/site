@@ -1,4 +1,6 @@
 #rend
+* list[meta header]
+
 ```cpp
 reverse_iterator rend();                      // (1) C++03
 reverse_iterator rend() noexcept;             // (1) C++11

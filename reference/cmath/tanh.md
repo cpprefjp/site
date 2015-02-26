@@ -1,4 +1,6 @@
 #tanh
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float tanh(float x);

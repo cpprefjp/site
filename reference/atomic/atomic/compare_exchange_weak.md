@@ -1,4 +1,6 @@
 #compare_exchange_weak (C++11)
+* atomic[meta header]
+
 ```cpp
 bool compare_exchange_weak(T& expected, T desired, memory_order success, memory_order failure) volatile noexcept;
 bool compare_exchange_weak(T& expected, T desired, memory_order success, memory_order failure) noexcept;

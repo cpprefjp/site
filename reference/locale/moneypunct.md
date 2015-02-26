@@ -1,4 +1,6 @@
 #moneypunct
+* locale[meta header]
+
 ```cpp
 namespace std {
   template <class charT, bool International = false>

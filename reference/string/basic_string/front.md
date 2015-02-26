@@ -1,4 +1,6 @@
 #front (C++11)
+* string[meta header]
+
 ```cpp
 const charT& front() const;
 charT& front();

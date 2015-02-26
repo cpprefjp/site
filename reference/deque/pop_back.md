@@ -1,4 +1,6 @@
 #pop_back
+* deque[meta header]
+
 ```cpp
 void pop_back();
 ```

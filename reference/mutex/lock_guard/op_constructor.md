@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* mutex[meta header]
+
 ```cpp
 explicit lock_guard(mutex_type& m);
 lock_guard(mutex_type& m, adopt_lock_t);

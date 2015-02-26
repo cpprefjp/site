@@ -1,4 +1,6 @@
 #get_temporary_buffer
+* memory[meta header]
+
 ```cpp
 // C++03
 template <class T>

@@ -1,4 +1,6 @@
 #operator<< (C++11)
+* system_error[meta header]
+
 ```cpp
 namespace std {
   template <class charT, class traits>

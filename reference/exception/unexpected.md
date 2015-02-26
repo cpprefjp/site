@@ -1,4 +1,6 @@
 #unexpected
+* exception[meta header]
+
 ```cpp
 namespace std {
   void unexpected();

@@ -1,4 +1,6 @@
 #clear
+* map[meta header]
+
 ```cpp
 void clear() noexcept;
 ```

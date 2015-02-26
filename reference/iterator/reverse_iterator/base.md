@@ -1,4 +1,6 @@
 #base
+* iterator[meta header]
+
 ```cpp
 Iterator base() const;
 ```

@@ -1,4 +1,6 @@
 #operator= (C++11)
+* atomic[meta header]
+
 ```cpp
 atomic& operator=(const atomic&) = delete;
 atomic& operator=(const atomic&) volatile = delete;

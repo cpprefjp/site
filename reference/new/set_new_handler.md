@@ -1,4 +1,6 @@
 #set_new_handler
+* new[meta header]
+
 ```cpp
 namespace std {
   new_handler set_new_handler(new_handler new_p) noexcept;

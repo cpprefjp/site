@@ -1,4 +1,6 @@
 #asinh (C++11)
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float asinh(float x);

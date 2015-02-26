@@ -1,4 +1,6 @@
 #scientific
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& scientific(ios_base& str);

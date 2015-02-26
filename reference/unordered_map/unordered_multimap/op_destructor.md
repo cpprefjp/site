@@ -1,4 +1,6 @@
 #デストラクタ (C++11)
+* unordered_map[meta header]
+
 ```cpp
 ~unordered_multimap();
 ```

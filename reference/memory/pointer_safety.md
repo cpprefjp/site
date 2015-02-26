@@ -1,4 +1,6 @@
 #pointer_safety (C++11)
+* memory[meta header]
+
 ```cpp
 namespace std {
   enum class pointer_safety {

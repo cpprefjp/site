@@ -1,4 +1,6 @@
 #hash_function (C++11)
+* unordered_set[meta header]
+
 ```cpp
 hasher hash_function() const;
 ```

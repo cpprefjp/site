@@ -1,4 +1,6 @@
 #count
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator, class T>

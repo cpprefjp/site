@@ -1,4 +1,6 @@
 #コンストラクタ
+* valarray[meta header]
+
 ```cpp
 slice();
 slice(size_t start, size_t length, size_t stride);

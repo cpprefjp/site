@@ -1,4 +1,6 @@
 #reset (C++11)
+* memory[meta header]
+
 ```cpp
 void reset(pointer p = pointer()) noexcept; // (1)
 

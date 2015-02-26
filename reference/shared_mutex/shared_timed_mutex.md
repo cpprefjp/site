@@ -1,4 +1,6 @@
 #shared_timed_mutex (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 namespace std {
   class shared_timed_mutex;

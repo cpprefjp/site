@@ -1,4 +1,6 @@
 #empty
+* deque[meta header]
+
 ```cpp
 bool empty() const noexcept;
 ```

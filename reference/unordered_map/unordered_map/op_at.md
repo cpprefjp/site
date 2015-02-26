@@ -1,4 +1,6 @@
 #operator[] (C++11)
+* unordered_map[meta header]
+
 ```cpp
 T& operator[](const key_type& x);
 T& operator[](const key_type&& x);

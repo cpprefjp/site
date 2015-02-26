@@ -1,4 +1,6 @@
 #operator[] (C++11)
+* array[meta header]
+
 ```cpp
 reference operator[](size_type n);                       // (1)
 const_reference operator[](size_type n) const;           // (2) C++11

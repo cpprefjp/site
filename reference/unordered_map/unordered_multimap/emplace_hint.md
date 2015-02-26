@@ -1,4 +1,6 @@
 #emplace_hint (C++11)
+* unordered_map[meta header]
+
 ```cpp
 template <class... Args>
 iterator emplace_hint(const_iterator position, Args&&... args);

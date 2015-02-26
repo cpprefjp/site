@@ -1,4 +1,6 @@
 #empty
+* list[meta header]
+
 ```cpp
 bool empty() const;          // C++03
 bool empty() const noexcept; // C++11

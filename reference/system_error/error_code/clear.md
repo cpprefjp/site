@@ -1,4 +1,6 @@
 #clear (C++11)
+* system_error[meta header]
+
 ```cpp
 void clear() noexcept;
 ```

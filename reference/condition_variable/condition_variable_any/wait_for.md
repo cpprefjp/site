@@ -1,4 +1,6 @@
 #wait_for (C++11)
+* condition_variable[meta header]
+
 ```cpp
 template <class Lock, class Rep, class Period>
 cv_status wait_for(Lock& lock,

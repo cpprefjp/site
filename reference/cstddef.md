@@ -1,4 +1,6 @@
 #cstddef
+* cstddef[meta header]
+
 `<cstddef>`ヘッダでは基本的な型、値、マクロを定義する。
 
 ##型

@@ -1,4 +1,6 @@
 #コンストラクタ (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 shared_timed_mutex();                                   // (1)
 shared_timed_mutex(const shared_timed_mutex&) = delete; // (2)

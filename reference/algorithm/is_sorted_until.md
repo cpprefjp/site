@@ -1,4 +1,6 @@
 #is_sorted_until (C++11)
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class ForwardIterator>

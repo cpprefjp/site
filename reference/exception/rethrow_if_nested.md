@@ -1,4 +1,6 @@
 #rethrow_if_nested (C++11)
+* exception[meta header]
+
 ```cpp
 namespace std {
   template <class E>

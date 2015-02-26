@@ -1,4 +1,6 @@
 #pop_back (C++11)
+* string[meta header]
+
 ```cpp
 void pop_back();
 ```

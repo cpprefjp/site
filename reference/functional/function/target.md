@@ -1,4 +1,6 @@
 #target (C++11)
+* functional[meta header]
+
 ```cpp
 template <class T>
 T* target() noexcept;

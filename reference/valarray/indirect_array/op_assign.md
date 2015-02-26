@@ -1,4 +1,6 @@
 #operator=
+* valarray[meta header]
+
 ```cpp
 private:
   indirect_array& operator=(const indirect_array&); // (1) C++03 宣言のみ

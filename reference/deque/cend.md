@@ -1,4 +1,6 @@
 #cend (C++11)
+* deque[meta header]
+
 ```cpp
 const_iterator cend() const noexcept;
 ```

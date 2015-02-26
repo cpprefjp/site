@@ -1,4 +1,6 @@
 #errc
+* system_error[meta header]
+
 ```cpp
 namespace std {
   enum class errc;

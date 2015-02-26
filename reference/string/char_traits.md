@@ -1,4 +1,6 @@
 #char_traits
+* string[meta header]
+
 ```cpp
 namespace std {
   template<class charT> struct char_traits;

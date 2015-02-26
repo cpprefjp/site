@@ -1,4 +1,6 @@
 #hypot (C++11)
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float hypot(float x, float y);

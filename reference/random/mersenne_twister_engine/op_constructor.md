@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* random[meta header]
+
 ```cpp
 explicit mersenne_twister_engine(result_type value = default_seed);
 template<class Sseq> explicit mersenne_twister_engine(Sseq& q);

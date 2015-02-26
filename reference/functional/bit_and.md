@@ -1,4 +1,6 @@
 #bit_and (C++11)
+* functional[meta header]
+
 ```cpp
 namespace std {
   // C++11

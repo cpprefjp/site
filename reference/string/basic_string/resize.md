@@ -1,4 +1,6 @@
 #resize
+* string[meta header]
+
 ```cpp
 void resize(size_type n, charT c);
 void resize(size_type n);

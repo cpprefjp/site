@@ -1,4 +1,6 @@
 #pubimbue
+* streambuf[meta header]
+
 ```cpp
 namespace std {
   template<class CharT, class Traits = char_traits<CharT>>

@@ -1,4 +1,6 @@
 #defer_lock (C++11)
+* mutex[meta header]
+
 ```cpp
 namespace std {
   struct defer_lock_t { };

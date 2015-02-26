@@ -1,4 +1,6 @@
 #clear
+* list[meta header]
+
 ```cpp
 void clear();          // C++03
 void clear() noexcept; // C++11

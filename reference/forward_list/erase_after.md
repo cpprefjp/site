@@ -1,4 +1,6 @@
 #erase_after (C++11)
+* forward_list[meta header]
+
 ```cpp
 iterator erase_after(const_iterator position); // (1)
 iterator erase_after(const_iterator position,

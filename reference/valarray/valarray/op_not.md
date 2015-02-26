@@ -1,4 +1,6 @@
 #operator!
+* valarray[meta header]
+
 ```cpp
 valarray<bool> operator!() const;
 ```

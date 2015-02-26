@@ -1,4 +1,6 @@
 #messages_base
+* locale[meta header]
+
 ```cpp
 namespace std {
   class messages_base;

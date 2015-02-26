@@ -1,4 +1,6 @@
 #emplace (C++11)
+* queue[meta header]
+
 ```cpp
 template <class... Args>
 void emplace(Args&&... args)

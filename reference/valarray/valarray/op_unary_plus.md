@@ -1,4 +1,6 @@
 #operator+ (単項)
+* valarray[meta header]
+
 ```cpp
 valarray<T> operator+() const;
 ```

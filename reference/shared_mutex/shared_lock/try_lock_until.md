@@ -1,4 +1,6 @@
 #try_lock_until (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 template <class Clock, class Duration>
 bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);

@@ -1,4 +1,6 @@
 #rehash (C++11)
+* unordered_map[meta header]
+
 ```cpp
 void rehash(size_type n);
 ```

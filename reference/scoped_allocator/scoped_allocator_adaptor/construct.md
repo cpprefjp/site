@@ -1,4 +1,6 @@
 #construct (C++11)
+* scoped_allocator[meta header]
+
 ```cpp
 template <class T, class... Args>
 void construct(T* p, Args&&... args);                         // (1)

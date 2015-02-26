@@ -1,4 +1,6 @@
 #a (C++11)
+* random[meta header]
+
 ```cpp
 RealType a() const;
 ```

@@ -1,4 +1,6 @@
 #swap
+* string[meta header]
+
 ```cpp
 void swap(basic_string& str);
 ```

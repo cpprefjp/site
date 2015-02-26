@@ -1,4 +1,6 @@
 #rethrow_nested (C++11)
+* exception[meta header]
+
 ```cpp
 [[noreturn]] void rethrow_nested() const;
 ```

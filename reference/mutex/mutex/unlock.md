@@ -1,4 +1,6 @@
 #unlock (C++11)
+* mutex[meta header]
+
 ```cpp
 void unlock();
 ```

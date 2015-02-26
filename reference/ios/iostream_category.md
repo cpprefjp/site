@@ -1,4 +1,6 @@
 #iostream_category (C++11)
+* ios[meta header]
+
 ```cpp
 namespace std {
   const error_category& iostream_category();          // C++11

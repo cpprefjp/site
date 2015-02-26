@@ -1,4 +1,6 @@
 #numeric
+* numeric[meta header]
+
 
 `<numeric>` ヘッダは数値のシーケンスの処理に特化したアルゴリズムを定義する。
 

@@ -1,4 +1,6 @@
 #pow
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float pow(float x, float y);

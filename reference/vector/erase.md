@@ -1,4 +1,6 @@
 #erase
+* vector[meta header]
+
 ```cpp
 // C++03まで
 iterator erase(iterator position);

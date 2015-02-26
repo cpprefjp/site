@@ -1,4 +1,6 @@
 #sin
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float sin(float x);

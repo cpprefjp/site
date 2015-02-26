@@ -1,4 +1,6 @@
 #operator T& (C++11)
+* functional[meta header]
+
 ```cpp
 operator T& () const noexcept;
 ```

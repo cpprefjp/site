@@ -1,4 +1,6 @@
 #has_infinity
+* limits[meta header]
+
 ```cpp
 // C++03
 static const bool has_infinity;

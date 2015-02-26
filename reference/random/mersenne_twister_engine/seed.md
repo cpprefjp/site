@@ -1,4 +1,6 @@
 #seed (C++11)
+* random[meta header]
+
 ```cpp
 void seed(result_type value = default_seed);
 template<class Sseq> void seed(Sseq& q);

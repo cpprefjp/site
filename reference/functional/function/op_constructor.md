@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* functional[meta header]
+
 ```cpp
 function() noexcept;          // (1)
 function(nullptr_t) noexcept; // (2)

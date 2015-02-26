@@ -1,4 +1,6 @@
 #name (C++11)
+* system_error[meta header]
+
 ```cpp
 const char* name() const noexcept;
 ```

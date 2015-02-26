@@ -1,4 +1,6 @@
 #initializer_list (C++11)
+* initializer_list[meta header]
+
 ```cpp
 namespace std {
   template<class E>

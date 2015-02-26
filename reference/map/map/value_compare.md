@@ -1,4 +1,6 @@
 #map::value_compare
+* map[meta header]
+
 ```cpp
 namespace std {
   class map::value_compare;

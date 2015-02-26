@@ -1,4 +1,6 @@
 #new
+* new[meta header]
+
 ```cpp
 // 単純な記憶域の確保
 

@@ -1,4 +1,6 @@
 #UINT_MAX
+* climits[meta header]
+
 ```cpp
 #define UINT_MAX implementation-defined
 ```

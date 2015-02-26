@@ -1,4 +1,6 @@
 #デストラクタ
+* set[meta header]
+
 ```cpp
 ~set();
 ```

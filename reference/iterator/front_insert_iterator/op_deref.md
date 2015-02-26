@@ -1,4 +1,6 @@
 #operator*
+* iterator[meta header]
+
 ```cpp
 front_insert_iterator& operator*();
 ```

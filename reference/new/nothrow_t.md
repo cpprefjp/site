@@ -1,4 +1,6 @@
 #nothrow_t
+* new[meta header]
+
 ```cpp
 namespace std {
   struct nothrow_t {};

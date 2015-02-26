@@ -1,4 +1,6 @@
 #operator=
+* utility[meta header]
+
 ```cpp
 pair& operator=(const pair& p);               // (1)
 

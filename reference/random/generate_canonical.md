@@ -1,4 +1,6 @@
 #generate_canonical (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   template<class RealType, size_t bits, class URNG>

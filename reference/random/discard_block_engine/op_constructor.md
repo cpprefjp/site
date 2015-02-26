@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* random[meta header]
+
 ```cpp
 discard_block_engine();
 explicit discard_block_engine(const Engine& e);

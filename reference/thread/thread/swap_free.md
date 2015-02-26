@@ -1,4 +1,6 @@
 #swap (非メンバ関数) (C++11)
+* thread[meta header]
+
 ```cpp
 namespace std {
   void swap(thread& x, thread& y) noexcept;

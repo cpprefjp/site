@@ -1,4 +1,6 @@
 #back
+* queue[meta header]
+
 ```cpp
 value_type& back();
 const value_type& back() const;

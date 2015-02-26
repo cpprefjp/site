@@ -1,4 +1,6 @@
 #rfind
+* string[meta header]
+
 ```cpp
 size_type rfind(const basic_string& str, size_type pos = npos) const noexcept; // (1)
 size_type rfind(const charT* s, size_type pos, size_type n) const;             // (2)

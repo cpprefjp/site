@@ -1,4 +1,6 @@
 #noskipws
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& noskipws(ios_base& str);

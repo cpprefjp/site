@@ -1,4 +1,6 @@
 #densities (C++11)
+* random[meta header]
+
 ```cpp
 vector<result_type> densities() const;
 ```

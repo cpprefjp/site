@@ -1,4 +1,6 @@
 #size_t
+* cstddef[meta header]
+
 ```cpp
 namespace std {
   typedef implementation-defined size_t;

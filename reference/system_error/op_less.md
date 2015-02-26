@@ -1,4 +1,6 @@
 #operator< (C++11)
+* system_error[meta header]
+
 ```cpp
 namespace std {
   bool operator<(const error_code& lhs, const error_code& rhs) noexcept;

@@ -1,4 +1,6 @@
 #before_begin (C++11)
+* forward_list[meta header]
+
 ```cpp
 iterator before_begin() noexcept;
 const_iterator before_begin() const noexcept;

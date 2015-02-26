@@ -1,4 +1,6 @@
 #unlock (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 void unlock();
 ```

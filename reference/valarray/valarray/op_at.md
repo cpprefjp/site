@@ -1,4 +1,6 @@
 #operator[]
+* valarray[meta header]
+
 ```cpp
 const T& operator[](size_t n) const;                        // (1)
 T& operator[](size_t n);                                    // (2)

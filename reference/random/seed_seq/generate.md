@@ -1,4 +1,6 @@
 #generate (C++11)
+* random[meta header]
+
 ```cpp
 template <class RandomAccessIterator>
 void generate(RandomAccessIterator begin, RandomAccessIterator end);

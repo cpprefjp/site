@@ -1,4 +1,6 @@
 #emplace_back (C++11)
+* list[meta header]
+
 ```cpp
 template <class... Args>
 void emplace_back(Args&&... args);

@@ -1,4 +1,6 @@
 #is_base_of (C++11)
+* type_traits[meta header]
+
 ```cpp
 namespace std {
   template <class Base, class Derived>

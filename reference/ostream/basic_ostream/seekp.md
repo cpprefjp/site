@@ -1,4 +1,6 @@
 #seekp
+* ostream[meta header]
+
 ```cpp
 basic_ostream<CharT, Traits>& seekp(pos_type pos);
 basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir);

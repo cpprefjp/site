@@ -1,4 +1,6 @@
 #コンストラクタ
+* list[meta header]
+
 ```cpp
 list();                                          // (1) C++14 から
 list(const Allocator& a);                        // (2) C++14 から

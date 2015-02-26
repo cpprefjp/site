@@ -1,4 +1,6 @@
 #stoll (C++11)
+* string[meta header]
+
 ```cpp
 namespace std {
   long long stoll(const string& str, size_t* idx = nullptr, long long base = 10);

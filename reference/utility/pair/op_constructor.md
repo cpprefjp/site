@@ -1,4 +1,6 @@
 #コンストラクタ
+* utility[meta header]
+
 ```cpp
 pair();                                   // (1) C++03
 constexpr pair();                         // (1) C++11

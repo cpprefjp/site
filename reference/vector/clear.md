@@ -1,4 +1,6 @@
 #clear
+* vector[meta header]
+
 ```cpp
 void clear();
 ```

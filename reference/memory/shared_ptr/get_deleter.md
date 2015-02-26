@@ -1,4 +1,6 @@
 #get_deleter (C++11)
+* memory[meta header]
+
 ```cpp
 namespace std {
   template <class D, class T>

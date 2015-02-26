@@ -1,4 +1,6 @@
 #nearbyint (C++11)
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float nearbyint(float x);

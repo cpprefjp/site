@@ -1,4 +1,6 @@
 #operator=
+* complex[meta header]
+
 ```cpp
 complex<T>& operator=(const T& rhs);          // (1)
 

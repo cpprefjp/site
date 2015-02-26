@@ -1,4 +1,6 @@
 #operator[]
+* string[meta header]
+
 ```cpp
 const_reference operator[](size_type pos) const noexcept;
 reference operator[](size_type pos) noexcept;

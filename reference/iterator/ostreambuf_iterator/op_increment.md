@@ -1,4 +1,6 @@
 #operator++
+* iterator[meta header]
+
 ```cpp
 ostreambuf_iterator& operator++();
 ostreambuf_iterator& operator++(int);

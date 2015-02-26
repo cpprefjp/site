@@ -1,4 +1,6 @@
 #insert
+* deque[meta header]
+
 ```cpp
 // C++03まで
 iterator insert(iterator position, const T& x);

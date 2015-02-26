@@ -1,4 +1,6 @@
 #デストラクタ (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 ~shared_timed_mutex();
 ```

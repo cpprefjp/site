@@ -1,4 +1,6 @@
 #min
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class T>

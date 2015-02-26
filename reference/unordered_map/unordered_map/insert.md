@@ -1,4 +1,6 @@
 #insert (C++11)
+* unordered_map[meta header]
+
 ```cpp
 pair<iterator, bool> insert(const value_type& v);              // (1)
 

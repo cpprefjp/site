@@ -1,4 +1,6 @@
 #swap
+* list[meta header]
+
 ```cpp
 void swap(list& x);
 ```

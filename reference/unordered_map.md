@@ -1,4 +1,6 @@
 #unordered_map (C++11)
+* unordered_map[meta header]
+
 `<unordered_map>` ヘッダは、キーと値のペアが要素である非順序連想コンテナを提供する。
 
 [`<map>`](/reference/map.md) と異なり、各要素はキーの順序ではなくキーのハッシュ値に基づいて格納されるため、イテレータを用いたコンテナの走査の順序は（名前の通り）有意ではない。

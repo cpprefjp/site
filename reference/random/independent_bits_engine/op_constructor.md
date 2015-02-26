@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* random[meta header]
+
 ```cpp
 independent_bits_engine();
 explicit independent_bits_engine(const Engine& e);

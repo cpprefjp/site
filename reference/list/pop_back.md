@@ -1,4 +1,6 @@
 #pop_back
+* list[meta header]
+
 ```cpp
 void pop_back();
 ```

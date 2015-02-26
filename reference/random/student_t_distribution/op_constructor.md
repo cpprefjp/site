@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* random[meta header]
+
 ```cpp
 explicit student_t_distribution(RealType n = 1);
 explicit student_t_distribution(const param_type& parm);

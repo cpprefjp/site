@@ -1,4 +1,6 @@
 #adopt_lock (C++11)
+* mutex[meta header]
+
 ```cpp
 namespace std {
   struct adopt_lock_t { };

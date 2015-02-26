@@ -1,4 +1,6 @@
 #negative_binomial_distribution (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   template <class IntType = int>

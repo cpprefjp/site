@@ -1,4 +1,6 @@
 #container_concepts
+* container_concepts[meta header]
+
 ここでは、コンテナに関する要件をまとめる。
 ライブラリとして提供されている機能ではない。
 

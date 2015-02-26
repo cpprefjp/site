@@ -1,4 +1,6 @@
 #partial_sum
+* numeric[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator>

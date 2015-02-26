@@ -1,4 +1,6 @@
 #ATOMIC_VAR_INIT (C++11)
+* atomic[meta header]
+
 ```cpp
 #define ATOMIC_VAR_INIT(value) see below
 ```

@@ -1,4 +1,6 @@
 #wait_until (C++11)
+* future[meta header]
+
 ```cpp
 template <class Clock, class Duration>
 future_status wait_until(const chrono::time_point<Clock, Duration>& abs_time) const;

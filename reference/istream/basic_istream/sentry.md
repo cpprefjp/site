@@ -1,4 +1,6 @@
 #basic_istream<>::sentry
+* istream[meta header]
+
 ```cpp
 namespace std {
   template<class CharT, class Traits = char_traits<CharT>>

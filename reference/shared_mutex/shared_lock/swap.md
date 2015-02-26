@@ -1,4 +1,6 @@
 #swap (C++14)
+* shared_mutex[meta header]
+
 ```cpp
 void swap(shared_lock& u) noexcept;
 ```

@@ -1,4 +1,6 @@
 #clear
+* set[meta header]
+
 ```cpp
 void clear() noexcept;
 ```

@@ -1,4 +1,6 @@
 #デストラクタ
+* typeinfo[meta header]
+
 ```cpp
 virtual ~type_info();
 ```

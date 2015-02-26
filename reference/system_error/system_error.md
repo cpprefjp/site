@@ -1,4 +1,6 @@
 #system_error (C++11)
+* system_error[meta header]
+
 ```cpp
 namespace std {
   class system_error : public runtime_error;

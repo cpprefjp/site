@@ -1,4 +1,6 @@
 #exp2 (C++11)
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float exp2(float x);

@@ -1,4 +1,6 @@
 #linear_congruential_engine (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   template <class UIntType, UIntType A, UIntType C, UIntType M>

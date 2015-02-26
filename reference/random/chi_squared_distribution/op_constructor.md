@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* random[meta header]
+
 ```cpp
 explicit chi_squared_distribution(RealType n = 1);
 explicit chi_squared_distribution(const param_type& parm);

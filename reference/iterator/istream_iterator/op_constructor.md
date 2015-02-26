@@ -1,4 +1,6 @@
 #コンストラクタ
+* iterator[meta header]
+
 ```cpp
 istream_iterator();
 istream_iterator(istream_type& s);

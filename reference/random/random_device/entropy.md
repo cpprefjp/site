@@ -1,4 +1,6 @@
 #entropy (C++11)
+* random[meta header]
+
 ```cpp
 double entropy() const noexcept;
 ```

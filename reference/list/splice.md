@@ -1,4 +1,6 @@
 #splice
+* list[meta header]
+
 ```cpp
 void splice(iterator position, list& x);                // (1) C++03
 void splice(const_iterator position, list& x);          // (1) C++11

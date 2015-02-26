@@ -1,4 +1,6 @@
 #bucket_size (C++11)
+* unordered_map[meta header]
+
 ```cpp
 size_type bucket_size(size_type n) const;
 ```

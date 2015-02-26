@@ -1,4 +1,6 @@
 #compare
+* string[meta header]
+
 ```cpp
 int compare(const basic_string& str) const noexcept; // (1)
 int compare(size_type pos1, size_type n1,

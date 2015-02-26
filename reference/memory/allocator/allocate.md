@@ -1,4 +1,6 @@
 #allocate
+* memory[meta header]
+
 ```cpp
 pointer allocate(size_type n, allocator<void>::const_pointer hint = 0);
 ```

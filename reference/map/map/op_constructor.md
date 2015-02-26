@@ -1,4 +1,6 @@
 #コンストラクタ
+* map[meta header]
+
 ```cpp
 map();																					// (1) C++14 から
 

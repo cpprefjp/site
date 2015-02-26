@@ -1,4 +1,6 @@
 #stof (C++11)
+* string[meta header]
+
 ```cpp
 namespace std {
   float stof(const string& str, size_t* idx = nullptr);

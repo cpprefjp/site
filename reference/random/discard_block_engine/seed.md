@@ -1,4 +1,6 @@
 #seed (C++11)
+* random[meta header]
+
 ```cpp
 void seed();
 void seed(result_type s);

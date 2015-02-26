@@ -1,4 +1,6 @@
 #facet
+* locale[meta header]
+
 ```cpp
 namespace std {
   class locale::facet;

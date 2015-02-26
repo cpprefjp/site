@@ -1,4 +1,6 @@
 #reverse
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class BidirectionalIterator>

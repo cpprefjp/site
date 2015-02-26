@@ -1,4 +1,6 @@
 #uses_allocator (C++11)
+* future[meta header]
+
 ```cpp
 namespace std {
   template <class R, class Alloc>

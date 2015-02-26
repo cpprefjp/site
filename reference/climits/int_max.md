@@ -1,4 +1,6 @@
 #INT_MAX
+* climits[meta header]
+
 ```cpp
 #define INT_MAX implementation-defined
 ```

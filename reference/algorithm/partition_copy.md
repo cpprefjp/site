@@ -1,4 +1,6 @@
 #partition_copy (C++11)
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator,

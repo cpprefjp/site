@@ -1,4 +1,6 @@
 #swap
+* map[meta header]
+
 ```cpp
 void swap(map<Key,T, Compare,Allocator>& st);
 ```

@@ -1,4 +1,6 @@
 #append
+* string[meta header]
+
 ```cpp
 basic_string& append(const basic_string& str);								// (1)
 

@@ -1,4 +1,6 @@
 #s (C++11)
+* random[meta header]
+
 ```cpp
 result_type s() const;
 ```

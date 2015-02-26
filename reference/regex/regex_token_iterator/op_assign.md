@@ -1,4 +1,6 @@
 #operator= (C++11)
+* regex[meta header]
+
 ```cpp
 regex_token_iterator& operator=(const regex_token_iterator& rhs);
 ```

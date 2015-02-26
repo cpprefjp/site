@@ -1,4 +1,6 @@
 #ready (C++11)
+* regex[meta header]
+
 ```cpp
 bool ready() const;
 ```

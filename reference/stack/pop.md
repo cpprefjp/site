@@ -1,4 +1,6 @@
 #pop
+* stack[meta header]
+
 ```cpp
 void pop();
 ```

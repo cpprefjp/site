@@ -1,4 +1,6 @@
 #bitset
+* bitset[meta header]
+
 ```cpp
 namespace std {
   template <size_t N>

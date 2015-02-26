@@ -1,4 +1,6 @@
 #operator= (C++11)
+* future[meta header]
+
 ```cpp
 shared_future& operator=(const shared_future& rhs);
 shared_future& operator=(shared_future&& rhs) noexcept;

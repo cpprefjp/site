@@ -1,4 +1,6 @@
 #imbue (C++11)
+* regex[meta header]
+
 ```cpp
 locale_type imbue(locale_type loc);
 ```

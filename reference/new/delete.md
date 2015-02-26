@@ -1,4 +1,6 @@
 #delete
+* new[meta header]
+
 ```cpp
 // 単純な記憶域の解放
 void operator delete(void* ptr) noexcept;

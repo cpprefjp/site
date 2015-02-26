@@ -1,4 +1,6 @@
 #operator= (C++11)
+* iterator[meta header]
+
 ```cpp
 template <class U> move_iterator& operator=(const move_iterator<U>& u);
 move_iterator& operator=(const move_iterator&) = default;

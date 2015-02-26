@@ -1,4 +1,6 @@
 #operator>>
+* string[meta header]
+
 ```cpp
 template <class CharT, class Traits, class Allocator>
 basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, basic_string<CharT, Traits, Allocator>& str);

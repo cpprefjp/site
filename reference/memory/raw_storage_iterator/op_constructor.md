@@ -1,4 +1,6 @@
 #コンストラクタ
+* memory[meta header]
+
 ```cpp
 explicit raw_storage_iterator(OutputIterator x);
 ```

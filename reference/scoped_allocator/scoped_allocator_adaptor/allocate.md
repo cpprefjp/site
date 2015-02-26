@@ -1,4 +1,6 @@
 #allocate (C++11)
+* scoped_allocator[meta header]
+
 ```cpp
 pointer allocate(size_type n);                          // (1)
 pointer allocate(size_type n, const_void_pointer hint); // (2)

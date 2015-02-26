@@ -1,4 +1,6 @@
 #cbegin (C++11)
+* string[meta header]
+
 ```cpp
 const_iterator cbegin() const noexcept;
 ```

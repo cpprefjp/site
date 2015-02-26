@@ -1,4 +1,6 @@
 #destroy (C++11)
+* memory[meta header]
+
 ```cpp
 template <class T>
 static void destroy(Alloc& a, T* p);

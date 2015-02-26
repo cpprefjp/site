@@ -1,4 +1,6 @@
 #iota (C++11)
+* numeric[meta header]
+
 ```cpp
 namespace std{
   template <class ForwardIterator, class T>

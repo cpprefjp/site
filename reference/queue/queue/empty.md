@@ -1,4 +1,6 @@
 #empty
+* queue[meta header]
+
 ```cpp
 bool empty() const;
 ```

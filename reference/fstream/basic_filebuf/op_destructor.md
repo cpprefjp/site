@@ -1,4 +1,6 @@
 #デストラクタ
+* fstream[meta header]
+
 ```cpp
 ~basic_filebuf() override;
 ```

@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* mutex[meta header]
+
 ```cpp
 recursive_mutex();                                // (1)
 recursive_mutex(const recursive_mutex&) = delete; // (2)

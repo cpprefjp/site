@@ -1,4 +1,6 @@
 #デストラクタ (C++11)
+* mutex[meta header]
+
 ```cpp
 ~lock_guard();
 ```

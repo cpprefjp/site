@@ -1,4 +1,6 @@
 #eq_int_type
+* string[meta header]
+
 ```cpp
 // C++03
 static bool eq_int_type(const int_type& c1, const int_type& c2);

@@ -1,4 +1,6 @@
 #noshowpoint
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& noshowpoint(ios_base& str);

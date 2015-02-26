@@ -1,4 +1,6 @@
 #swap (非メンバ関数) (C++11)
+* unordered_map[meta header]
+
 ```cpp
 namespace std {
   template <class Key, class T, class Hash, class Pred, class Alloc>

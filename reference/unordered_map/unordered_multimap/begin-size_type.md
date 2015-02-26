@@ -1,4 +1,6 @@
 #begin(size_type) (C++11)
+* unordered_map[meta header]
+
 ```cpp
 local_iterator begin(size_type n);
 const_local_iterator begin(size_type n) const;

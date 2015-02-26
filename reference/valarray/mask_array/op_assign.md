@@ -1,4 +1,6 @@
 #operator=
+* valarray[meta header]
+
 ```cpp
 private:
   mask_array& operator=(const mask_array&); // (1) C++03 宣言のみ

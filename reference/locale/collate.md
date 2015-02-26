@@ -1,4 +1,6 @@
 #collate
+* locale[meta header]
+
 ```cpp
 namespace std {
   template <class charT>

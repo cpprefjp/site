@@ -1,4 +1,6 @@
 #get_pointer_safety (C++11)
+* memory[meta header]
+
 ```cpp
 namespace std {
   pointer_safety get_pointer_safety() noexcept;

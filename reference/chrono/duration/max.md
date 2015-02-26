@@ -1,4 +1,6 @@
 #max (C++11)
+* chrono[meta header]
+
 ```cpp
 static constexpr duration max();
 ```

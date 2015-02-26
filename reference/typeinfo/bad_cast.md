@@ -1,4 +1,6 @@
 #bad_cast
+* typeinfo[meta header]
+
 ```cpp
 namespace std {
   class bad_cast : public exception;

@@ -1,4 +1,6 @@
 #operator>=
+* string[meta header]
+
 ```cpp
 template <class CharT, class Traits, class Allocator>
 bool operator>=(const basic_string<CharT, Traits, Allocator>& a,

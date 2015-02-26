@@ -1,4 +1,6 @@
 #get_id (C++11)
+* thread[meta header]
+
 ```cpp
 id get_id() const noexcept;
 ```

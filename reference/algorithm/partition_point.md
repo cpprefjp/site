@@ -1,4 +1,6 @@
 #partition_point (C++11)
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class ForwardIterator, class Predicate>

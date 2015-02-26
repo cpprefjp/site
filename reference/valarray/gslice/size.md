@@ -1,4 +1,6 @@
 #size
+* valarray[meta header]
+
 ```cpp
 valarray<size_t> size() const;
 ```

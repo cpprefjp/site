@@ -1,4 +1,6 @@
 #category (C++11)
+* system_error[meta header]
+
 ```cpp
 const error_category& category() const noexcept;
 ```

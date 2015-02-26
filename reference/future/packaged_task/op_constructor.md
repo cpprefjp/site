@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* future[meta header]
+
 ```cpp
 packaged_task() noexcept;                          // (1)
 

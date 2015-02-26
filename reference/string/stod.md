@@ -1,4 +1,6 @@
 #stod (C++11)
+* string[meta header]
+
 ```cpp
 namespace std {
   double stod(const string& str, size_t* idx = nullptr);

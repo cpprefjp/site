@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* unordered_map[meta header]
+
 ```cpp
 explicit unordered_map(size_type n = 実装依存の既定値,
                        const hasher& hf = hasher(),

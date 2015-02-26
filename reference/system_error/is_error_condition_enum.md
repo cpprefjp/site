@@ -1,4 +1,6 @@
 #is_error_condition_enum (C++11)
+* system_error[meta header]
+
 ```cpp
 namespace std {
   template <class T>

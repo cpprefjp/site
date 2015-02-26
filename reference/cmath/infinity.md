@@ -1,4 +1,6 @@
 #INFINITY
+* cmath[meta header]
+
 ```cpp
 #define INFINITY some_expression
 ```

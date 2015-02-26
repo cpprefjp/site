@@ -1,4 +1,6 @@
 #priority_queue
+* queue[meta header]
+
 ```cpp
 namespace std {
   template <class T,

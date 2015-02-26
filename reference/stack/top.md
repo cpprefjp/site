@@ -1,4 +1,6 @@
 #top
+* stack[meta header]
+
 ```cpp
 reference top();
 const_reference top() const;

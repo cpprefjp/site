@@ -1,4 +1,6 @@
 #get_allocator (C++11)
+* regex[meta header]
+
 ```cpp
 allocator_type get_allocator() const;
 ```

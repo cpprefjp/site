@@ -1,4 +1,6 @@
 #emplace (C++11)
+* unordered_map[meta header]
+
 ```cpp
 template <class... Args>
 iterator emplace(Args&&... args);

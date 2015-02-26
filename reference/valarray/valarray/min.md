@@ -1,4 +1,6 @@
 #min
+* valarray[meta header]
+
 ```cpp
 T min() const;
 ```

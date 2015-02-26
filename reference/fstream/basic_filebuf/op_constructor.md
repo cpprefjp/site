@@ -1,4 +1,6 @@
 #コンストラクタ
+* fstream[meta header]
+
 ```cpp
 basic_filebuf(); // (1)
 basic_filebuf(basic_filebuf&& rhs); // (2) C++11

@@ -1,4 +1,6 @@
 #operator++
+* iterator[meta header]
+
 ```cpp
 istream_iterator<T, CharT, Traits, Distance>& operator++();
 istream_iterator<T, CharT, Traits, Distance> operator++(int);

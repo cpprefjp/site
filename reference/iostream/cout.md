@@ -1,4 +1,6 @@
 #cout
+* iostream[meta header]
+
 ```cpp
 namespace std {
   ostream cout;

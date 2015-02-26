@@ -1,4 +1,6 @@
 #デストラクタ (C++11)
+* memory[meta header]
+
 ```cpp
 ~weak_ptr();
 ```

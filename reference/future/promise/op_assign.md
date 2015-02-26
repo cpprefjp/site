@@ -1,4 +1,6 @@
 #operator= (C++11)
+* future[meta header]
+
 ```cpp
 promise& operator=(promise&& rhs) noexcept;
 promise& operator=(const promise& rhs) = delete;

@@ -1,4 +1,6 @@
 #operator=
+* deque[meta header]
+
 ```cpp
 deque& operator=(const deque& x);           // (1) C++03
 deque& operator=(deque&& y);                // (2) C++11

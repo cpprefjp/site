@@ -1,4 +1,6 @@
 #begin
+* list[meta header]
+
 ```cpp
 iterator begin();                      // (1) C++03
 iterator begin() noexcept;             // (1) C++11

@@ -1,4 +1,6 @@
 #insert (C++11)
+* unordered_set[meta header]
+
 ```cpp
 pair<iterator, bool> insert(const value_type& v);
 pair<iterator, bool> insert(value_type&& rv);                  // (1)

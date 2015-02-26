@@ -1,4 +1,6 @@
 #limits
+* limits[meta header]
+
 
 `<limits>`ヘッダでは、算術型の実装プロパティを取得するための機能を提供する。
 

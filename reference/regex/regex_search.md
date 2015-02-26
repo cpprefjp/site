@@ -1,4 +1,6 @@
 #regex_search (C++11)
+* regex[meta header]
+
 ```cpp
 namespace std {
   template <class BidirectionalIterator, class Allocator, class charT, class traits>

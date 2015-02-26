@@ -1,4 +1,6 @@
 #replace
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class ForwardIterator, class T>

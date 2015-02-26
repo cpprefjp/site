@@ -1,4 +1,6 @@
 #peek
+* istream[meta header]
+
 ```cpp
 int_type peek();
 ```

@@ -1,4 +1,6 @@
 #ctype_base
+* locale[meta header]
+
 ```cpp
 namespace std {
   class ctype_base;

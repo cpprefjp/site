@@ -1,4 +1,6 @@
 #float_t
+* cmath[meta header]
+
 ```cpp
 namespace std {
   typedef implementation-defined float_t;

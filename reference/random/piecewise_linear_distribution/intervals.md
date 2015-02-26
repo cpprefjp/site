@@ -1,4 +1,6 @@
 #intervals (C++11)
+* random[meta header]
+
 ```cpp
 vector<result_type> intervals() const;
 ```

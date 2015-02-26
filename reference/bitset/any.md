@@ -1,4 +1,6 @@
 #any
+* bitset[meta header]
+
 ```cpp
 bool any() const;          // C++03
 bool any() const noexcept; // C++11

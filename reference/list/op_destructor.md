@@ -1,4 +1,6 @@
 #デストラクタ
+* list[meta header]
+
 ```cpp
 ~list();
 ```

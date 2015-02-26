@@ -1,4 +1,6 @@
 #money_base
+* locale[meta header]
+
 ```cpp
 namespace std {
   class money_base {

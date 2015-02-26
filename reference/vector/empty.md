@@ -1,4 +1,6 @@
 #empty
+* vector[meta header]
+
 ```cpp
 bool empty() const noexcept;
 ```

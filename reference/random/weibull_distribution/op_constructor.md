@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* random[meta header]
+
 ```cpp
 explicit weibull_distribution(RealType a = 1.0, RealType b = 1.0);
 explicit weibull_distribution(const param_type& parm);

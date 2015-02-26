@@ -1,4 +1,6 @@
 #get (C++11)
+* future[meta header]
+
 ```cpp
 const R& shared_future::get() const;
 R& shared_future<R&>::get() const;

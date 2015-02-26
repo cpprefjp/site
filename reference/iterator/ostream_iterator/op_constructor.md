@@ -1,4 +1,6 @@
 #コンストラクタ
+* iterator[meta header]
+
 ```cpp
 ostream_iterator(ostream_type& s);
 ostream_iterator(ostream_type& s, const CharT* delimiter);

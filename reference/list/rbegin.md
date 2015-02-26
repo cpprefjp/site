@@ -1,4 +1,6 @@
 #rbegin
+* list[meta header]
+
 ```cpp
 reverse_iterator rbegin();                      // (1) C++03
 reverse_iterator rbegin() noexcept;             // (1) C++11

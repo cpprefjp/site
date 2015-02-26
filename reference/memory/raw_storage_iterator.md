@@ -1,4 +1,6 @@
 #raw_storage_iterator
+* memory[meta header]
+
 ```cpp
 namespace std {
   template <class OutputIterator, class T>

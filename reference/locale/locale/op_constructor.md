@@ -1,4 +1,6 @@
 #コンストラクタ
+* locale[meta header]
+
 ```cpp
 locale() noexcept;
 locale(const locale&) noexcept;

@@ -1,4 +1,6 @@
 #put_time (C++11)
+* iomanip[meta header]
+
 ```cpp
 template <class CharT>
 unspecified put_time(const struct tm* tmb, const CharT* fmt);

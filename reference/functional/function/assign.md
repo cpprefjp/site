@@ -1,4 +1,6 @@
 #assign (C++11)
+* functional[meta header]
+
 ```cpp
 template <class F, class Alloc>
 void assign(F&& f, const Alloc& alloc);

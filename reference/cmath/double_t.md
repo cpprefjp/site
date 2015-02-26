@@ -1,4 +1,6 @@
 #double_t
+* cmath[meta header]
+
 ```cpp
 namespace std {
   typedef implementation-defined double_t;

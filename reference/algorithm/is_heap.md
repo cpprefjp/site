@@ -1,4 +1,6 @@
 #is_heap (C++11)
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class RandomAccessIterator>

@@ -1,4 +1,6 @@
 #partial_sort
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class RandomAccessIterator>

@@ -1,4 +1,6 @@
 #failed
+* iterator[meta header]
+
 ```cpp
 bool failed() const noexcept;
 ```

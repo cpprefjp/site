@@ -1,4 +1,6 @@
 #コンストラクタ
+* iterator[meta header]
+
 ```cpp
 insert_iterator(Container& x, typename Container::iterator i);
 ```

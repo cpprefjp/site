@@ -1,4 +1,6 @@
 #operator!= (C++11)
+* unordered_map[meta header]
+
 ```cpp
 template <class Key, class T, class Hash, class Pred, class Alloc>
 bool operator!= (const unordered_map<Key,T,Hash,Pred,Alloc>& x,

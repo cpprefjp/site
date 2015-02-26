@@ -1,4 +1,6 @@
 #result_of (C++11)
+* type_traits[meta header]
+
 ```cpp
 namespace std {
   template <class> class result_of; // 宣言のみ

@@ -1,4 +1,6 @@
 #hash_code (C++11)
+* typeindex[meta header]
+
 ```cpp
 size_t hash_code() const;          // C++11
 size_t hash_code() const noexcept; // C++14

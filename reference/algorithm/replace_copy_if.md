@@ -1,4 +1,6 @@
 #replace_copy_if
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator,

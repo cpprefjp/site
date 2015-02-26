@@ -1,4 +1,6 @@
 #tellp
+* ostream[meta header]
+
 ```cpp
 pos_type tellp();
 ```

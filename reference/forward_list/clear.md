@@ -1,4 +1,6 @@
 #clear (C++11)
+* forward_list[meta header]
+
 ```cpp
 void clear() noexcept;
 ```

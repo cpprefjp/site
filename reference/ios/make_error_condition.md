@@ -1,4 +1,6 @@
 #make_error_condition (C++11)
+* ios[meta header]
+
 ```cpp
 namespace std {
   error_condition make_error_condition(io_errc e);          // C++11

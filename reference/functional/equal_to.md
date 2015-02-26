@@ -1,4 +1,6 @@
 #equal_to
+* functional[meta header]
+
 ```cpp
 namespace std {
   // C++03

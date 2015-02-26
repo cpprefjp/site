@@ -1,4 +1,6 @@
 #launch (C++11)
+* future[meta header]
+
 ```cpp
 namespace std {
   enum class launch : unspecified {

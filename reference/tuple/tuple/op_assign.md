@@ -1,4 +1,6 @@
 #operator= (C++11)
+* tuple[meta header]
+
 ```cpp
 tuple& operator=(const tuple&);
 tuple& operator=(tuple&&) noexcept(下記参照);

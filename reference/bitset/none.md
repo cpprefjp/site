@@ -1,4 +1,6 @@
 #none
+* bitset[meta header]
+
 ```cpp
 bool none() const noexcept;
 ```

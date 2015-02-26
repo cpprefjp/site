@@ -1,4 +1,6 @@
 #make_exception_ptr (C++11)
+* exception[meta header]
+
 ```cpp
 namespace std {
   template <class E>

@@ -1,4 +1,6 @@
 #p (C++11)
+* random[meta header]
+
 ```cpp
 double p() const;
 ```

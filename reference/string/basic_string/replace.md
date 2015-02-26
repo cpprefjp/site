@@ -1,4 +1,6 @@
 #replace
+* string[meta header]
+
 ```cpp
 basic_string& replace(size_type pos1, size_type n1,
                       const basic_string& str);                     // (1)

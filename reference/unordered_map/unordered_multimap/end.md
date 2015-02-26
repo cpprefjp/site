@@ -1,4 +1,6 @@
 #end (C++11)
+* unordered_map[meta header]
+
 ```cpp
 iterator end() noexcept;
 const_iterator end() const noexcept;

@@ -1,4 +1,6 @@
 #デストラクタ (C++11)
+* thread[meta header]
+
 ```cpp
 ~thread();
 ```

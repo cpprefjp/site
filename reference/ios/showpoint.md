@@ -1,4 +1,6 @@
 #showpoint
+* ios[meta header]
+
 ```cpp
 namespace std {
   ios_base& showpoint(ios_base& str);

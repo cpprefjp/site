@@ -1,4 +1,6 @@
 #rethrow_exception (C++11)
+* exception[meta header]
+
 ```cpp
 [[noreturn]] void rethrow_exception(exception_ptr p);
 ```

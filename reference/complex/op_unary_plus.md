@@ -1,4 +1,6 @@
 #operator+ (単項)
+* complex[meta header]
+
 ```cpp
 namespace std {
   template <class T>

@@ -1,4 +1,6 @@
 #array (C++11)
+* array[meta header]
+
 ```cpp
 namespace std {
   template <class T, size_t N>

@@ -1,4 +1,6 @@
 #accumulate
+* numeric[meta header]
+
 ```cpp
 namespace std{
   template <class InputIterator, class T>

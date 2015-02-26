@@ -1,4 +1,6 @@
 #operator!=
+* iterator[meta header]
+
 ```cpp
 namespace std {
   template <class Iterator1, class Iterator2>

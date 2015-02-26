@@ -1,4 +1,6 @@
 #log1p (C++11)
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float log1p(float x);

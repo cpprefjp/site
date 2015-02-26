@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* mutex[meta header]
+
 ```cpp
 constexpr once_flag() noexcept;
 once_flag(const once_flag&) = delete;

@@ -1,4 +1,6 @@
 #signaling_NaN
+* limits[meta header]
+
 ```cpp
 // C++03
 static const T signaling_NaN() noexcept;

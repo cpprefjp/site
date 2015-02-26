@@ -1,4 +1,6 @@
 #time_put
+* locale[meta header]
+
 ```cpp
 namespace std {
   template <class charT, class OutputIterator = ostreambuf_iterator<charT> >

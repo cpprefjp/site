@@ -1,4 +1,6 @@
 #insert (C++11)
+* unordered_set[meta header]
+
 ```cpp
 iterator insert(const value_type& v);
 iterator insert(value_type&& rv);                              // (1)

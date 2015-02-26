@@ -1,4 +1,6 @@
 #atomic_flag (C++11)
+* atomic[meta header]
+
 ```cpp
 namespace std {
   struct atomic_flag;

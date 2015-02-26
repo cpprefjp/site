@@ -1,4 +1,6 @@
 #chi_squared_distribution (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   template <class RealType = double>

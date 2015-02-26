@@ -1,4 +1,6 @@
 #operator>> (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   template <class CharT, class Traits>

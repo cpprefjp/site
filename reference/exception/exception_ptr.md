@@ -1,4 +1,6 @@
 #exception_ptr (C++11)
+* exception[meta header]
+
 ```cpp
 namespace std {
   typedef unspecified exception_ptr;

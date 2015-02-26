@@ -1,4 +1,6 @@
 #detach (C++11)
+* thread[meta header]
+
 ```cpp
 void detach();
 ```

@@ -1,4 +1,6 @@
 #int_fast16_t (C++11)
+* cstdint[meta header]
+
 ```cpp
 namespace std {
   typedef signed-integer-type int_fast16_t;

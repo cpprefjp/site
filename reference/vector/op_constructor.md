@@ -1,4 +1,6 @@
 #コンストラクタ
+* vector[meta header]
+
 ```cpp
 vector();                                            // (1) C++14
 explicit vector(const Allocator& a);                 // (2) C++14

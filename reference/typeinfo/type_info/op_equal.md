@@ -1,4 +1,6 @@
 #operator==
+* typeinfo[meta header]
+
 ```cpp
 bool operator==(const type_info& rhs) const noexcept;
 ```

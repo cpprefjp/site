@@ -1,4 +1,6 @@
 #fstream
+* fstream[meta header]
+
 `<fstream>`ヘッダでは、ファイルに対する入出力に関するクラスを提供する。
 
 ## 型と関数

@@ -1,4 +1,6 @@
 #wait (C++11)
+* future[meta header]
+
 ```cpp
 void wait() const;
 ```

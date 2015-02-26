@@ -1,4 +1,6 @@
 #unique
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class ForwardIterator>

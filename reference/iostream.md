@@ -1,4 +1,6 @@
 #iostream
+* iostream[meta header]
+
 `<iostream>`ヘッダは、標準入出力オブジェクトを提供する。
 
 このヘッダは、以下のヘッダをインクルードすることが規定されている。

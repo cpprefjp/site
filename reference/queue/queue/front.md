@@ -1,4 +1,6 @@
 #front
+* queue[meta header]
+
 ```cpp
 value_type& front();
 const value_type& front() const;

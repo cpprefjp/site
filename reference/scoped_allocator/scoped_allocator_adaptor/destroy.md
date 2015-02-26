@@ -1,4 +1,6 @@
 #destroy (C++11)
+* scoped_allocator[meta header]
+
 ```cpp
 template <class T>
 void destroy(T* p);

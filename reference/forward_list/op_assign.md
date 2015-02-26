@@ -1,4 +1,6 @@
 #operator= (C++11)
+* forward_list[meta header]
+
 ```cpp
 forward_list& operator=(const forward_list& x); // (1)
 forward_list& operator=(forward_list&& x);      // (2)

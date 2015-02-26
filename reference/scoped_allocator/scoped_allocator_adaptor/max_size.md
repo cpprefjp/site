@@ -1,4 +1,6 @@
 #max_size (C++11)
+* scoped_allocator[meta header]
+
 ```cpp
 size_type max_size() const;
 ```

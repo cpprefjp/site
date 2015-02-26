@@ -1,4 +1,6 @@
 #operator=
+* map[meta header]
+
 ```cpp
 map& operator=(const map& x);                      // (1) C++03
 map& operator=(map&& y);                           // (2) C++11

@@ -1,4 +1,6 @@
 #future (C++11)
+* future[meta header]
+
 `<future>`ヘッダでは、並行プログラミングのためのデザインパターンのひとつであるFutureパターンに関するクラス・関数を提供する。
 
 [`future`](./future/future.md)はデータの準備ができるまで待機してからデータを読み取る。  

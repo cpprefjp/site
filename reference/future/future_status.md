@@ -1,4 +1,6 @@
 #future_status (C++11)
+* future[meta header]
+
 ```cpp
 namespace std {
   enum class future_status {

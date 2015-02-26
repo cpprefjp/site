@@ -1,4 +1,6 @@
 #max (C++11)
+* random[meta header]
+
 ```cpp
 static constexpr result_type max();
 ```

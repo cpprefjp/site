@@ -1,4 +1,6 @@
 #resize (C++11)
+* forward_list[meta header]
+
 ```cpp
 void resize(size_type sz);
 void resize(size_type sz, const value_type& c);

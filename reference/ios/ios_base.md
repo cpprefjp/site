@@ -1,4 +1,6 @@
 #ios_base
+* ios[meta header]
+
 ```cpp
 namespace std {
   class ios_base;

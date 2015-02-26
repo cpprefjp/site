@@ -1,4 +1,6 @@
 #atan
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float atan(float x);

@@ -1,4 +1,6 @@
 #swap (C++11)
+* memory[meta header]
+
 ```cpp
 void swap(unique_ptr& x) noexcept;
 ```

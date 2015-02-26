@@ -1,4 +1,6 @@
 #basic_string
+* string[meta header]
+
 ```cpp
 namespace std {
   template <class charT,

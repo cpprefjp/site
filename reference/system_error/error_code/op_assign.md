@@ -1,4 +1,6 @@
 #operator= (C++11)
+* system_error[meta header]
+
 ```cpp
 template <class ErrorCodeEnum>
 error_code& operator=(ErrorCodeEnum e) noexcept;

@@ -1,4 +1,6 @@
 #コンストラクタ
+* typeinfo[meta header]
+
 ```cpp
 type_info(const type_info& rhs) = delete;
 ```

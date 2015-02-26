@@ -1,4 +1,6 @@
 #destroy
+* memory[meta header]
+
 ```cpp
 // C++03
 void destroy(pointer p);

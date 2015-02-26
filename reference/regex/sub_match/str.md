@@ -1,4 +1,6 @@
 #str (C++11)
+* regex[meta header]
+
 ```cpp
 string_type str() const;
 ```

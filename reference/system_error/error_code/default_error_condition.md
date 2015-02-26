@@ -1,4 +1,6 @@
 #default_error_condition (C++11)
+* system_error[meta header]
+
 ```cpp
 error_condition default_error_condition() const noexcept;
 ```

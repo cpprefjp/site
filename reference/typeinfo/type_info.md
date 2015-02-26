@@ -1,4 +1,6 @@
 #type_info
+* typeinfo[meta header]
+
 ```cpp
 namespace std {
   class type_info;

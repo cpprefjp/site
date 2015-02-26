@@ -1,4 +1,6 @@
 #length
+* string[meta header]
+
 ```cpp
 static size_t length(const char_type* s);
 ```

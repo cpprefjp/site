@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* system_error[meta header]
+
 ```cpp
 constexpr error_category() noexcept;            // (1) C++14
 error_category(const error_category&) = delete; // (2)

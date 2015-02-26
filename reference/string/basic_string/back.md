@@ -1,4 +1,6 @@
 #back (C++11)
+* string[meta header]
+
 ```cpp
 const charT& back() const;
 charT& back();

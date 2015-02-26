@@ -1,4 +1,6 @@
 #ostreambuf_iterator
+* iterator[meta header]
+
 ```
 namespace std {
   template <class CharT, class Traits = char_traits<CharT> >

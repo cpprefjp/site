@@ -1,4 +1,6 @@
 #insert
+* vector[meta header]
+
 ```cpp
 // C++03
 iterator insert(iterator position, const T& x);

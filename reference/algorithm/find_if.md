@@ -1,4 +1,6 @@
 #find_if
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator, class Predicate>

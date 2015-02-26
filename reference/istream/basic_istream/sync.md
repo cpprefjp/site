@@ -1,4 +1,6 @@
 #sync
+* istream[meta header]
+
 ```cpp
 int sync();
 ```

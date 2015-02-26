@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* atomic[meta header]
+
 ```cpp
 atomic_flag() noexcept = default;         // (1)
 atomic_flag(const atomic_flag&) = delete; // (2)

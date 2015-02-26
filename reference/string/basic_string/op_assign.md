@@ -1,4 +1,6 @@
 #operator=
+* string[meta header]
+
 ```cpp
 basic_string& operator=(const basic_string& str);
 basic_string& operator=(basic_string&& str) noexcept; // C++11から

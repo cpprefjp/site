@@ -1,4 +1,6 @@
 #cosh
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float cosh(float x);

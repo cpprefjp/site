@@ -1,4 +1,6 @@
 #bernoulli_distribution (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   class bernoulli_distribution;

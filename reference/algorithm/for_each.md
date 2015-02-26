@@ -1,4 +1,6 @@
 #for_each
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator, class Function>

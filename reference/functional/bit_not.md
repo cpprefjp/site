@@ -1,4 +1,6 @@
 #bit_not (C++14)
+* functional[meta header]
+
 ```cpp
 namespace std {
   template <typename T = void>

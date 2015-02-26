@@ -1,4 +1,6 @@
 #not_eof
+* string[meta header]
+
 ```cpp
 // C++03
 static int_type not_eof(const int_type& c);

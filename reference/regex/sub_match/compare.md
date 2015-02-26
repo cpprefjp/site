@@ -1,4 +1,6 @@
 #compare (C++11)
+* regex[meta header]
+
 ```cpp
 int compare(const sub_match& s) const;   // (1)
 

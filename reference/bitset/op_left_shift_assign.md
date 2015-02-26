@@ -1,4 +1,6 @@
 #operator<<=
+* bitset[meta header]
+
 ```cpp
 bitset<N>& operator<<=(size_t pos) noexcept;
 ```

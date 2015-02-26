@@ -1,4 +1,6 @@
 #swap (C++11)
+* unordered_map[meta header]
+
 ```cpp
 void swap(unordered_map& v);
 ```

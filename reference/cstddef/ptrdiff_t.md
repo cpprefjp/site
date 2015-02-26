@@ -1,4 +1,6 @@
 #ptrdiff_t
+* cstddef[meta header]
+
 ```cpp
 namespace std {
   typedef implementation-defined ptrdiff_t;

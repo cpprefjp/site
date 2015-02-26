@@ -1,4 +1,6 @@
 #to_string
+* bitset[meta header]
+
 ```cpp
 // C++03
 template <class CharT, class Traits, class Allocator>

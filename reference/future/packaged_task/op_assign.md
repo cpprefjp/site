@@ -1,4 +1,6 @@
 #operator= (C++11)
+* future[meta header]
+
 ```cpp
 packaged_task& operator=(packaged_task&) = delete;       // (1) C++11
 packaged_task& operator=(const packaged_task&) = delete; // (1) C++14

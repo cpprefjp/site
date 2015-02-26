@@ -1,4 +1,6 @@
 #operator== (C++11)
+* regex[meta header]
+
 ```cpp
 bool operator==(const regex_token_iterator& right) const;
 ```

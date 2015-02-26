@@ -1,4 +1,6 @@
 #empty (C++11)
+* array[meta header]
+
 ```cpp
 constexpr bool empty() noexcept;       // C++11
 constexpr bool empty() const noexcept; // C++14

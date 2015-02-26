@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* memory[meta header]
+
 ```cpp
 constexpr unique_ptr() noexcept;             // (1) 単一オブジェクト、配列
 explicit unique_ptr(pointer p) noexcept;     // (2) 単一オブジェクト、配列

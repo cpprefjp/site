@@ -1,4 +1,6 @@
 #construct (C++11)
+* memory[meta header]
+
 ```cpp
 template <class T, class... Args>
 static void construct(Alloc& a, T* p, Args&&... args);

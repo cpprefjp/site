@@ -1,4 +1,6 @@
 #size (C++11)
+* array[meta header]
+
 ```cpp
 constexpr size_type size() noexcept;       // C++11
 constexpr size_type size() const noexcept; // C++14

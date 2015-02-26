@@ -1,4 +1,6 @@
 #insert
+* set[meta header]
+
 ```cpp
 pair<iterator,bool> insert(const value_type& x);
 

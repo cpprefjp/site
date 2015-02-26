@@ -1,4 +1,6 @@
 #コンストラクタ (C++11)
+* chrono[meta header]
+
 ```cpp
 time_point();           // (1) C++11
 constexpr time_point(); // (1) C++14

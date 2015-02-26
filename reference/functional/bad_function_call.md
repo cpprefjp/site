@@ -1,4 +1,6 @@
 #bad_function_call (C++11)
+* functional[meta header]
+
 ```cpp
 namespace std {
   class bad_function_call : public exception;

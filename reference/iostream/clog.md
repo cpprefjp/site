@@ -1,4 +1,6 @@
 #clog
+* iostream[meta header]
+
 ```cpp
 namespace std {
   ostream clog;

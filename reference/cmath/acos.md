@@ -1,4 +1,6 @@
 #acos
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float acos(float x);

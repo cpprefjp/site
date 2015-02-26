@@ -1,4 +1,6 @@
 #acosh (C++11)
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float acosh(float x);

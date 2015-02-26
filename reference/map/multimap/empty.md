@@ -1,4 +1,6 @@
 #empty
+* map[meta header]
+
 ```cpp
 bool empty() const noexcept;
 ```

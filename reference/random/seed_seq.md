@@ -1,4 +1,6 @@
 #seed_seq (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   class seed_seq;

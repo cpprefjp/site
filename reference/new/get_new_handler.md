@@ -1,4 +1,6 @@
 #get_new_handler (C++11)
+* new[meta header]
+
 ```cpp
 namespace std {
   new_handler get_new_handler() noexcept;

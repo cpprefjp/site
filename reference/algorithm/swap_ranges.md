@@ -1,4 +1,6 @@
 #swap_ranges
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>

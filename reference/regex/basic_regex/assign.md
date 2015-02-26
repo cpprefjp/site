@@ -1,4 +1,6 @@
 #assign (C++11)
+* regex[meta header]
+
 ```cpp
 basic_regex& assign(const basic_regex& that);					// (1)
 

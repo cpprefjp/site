@@ -1,4 +1,6 @@
 #operator~
+* bitset[meta header]
+
 ```cpp
 bitset<N> operator~() const;          // C++03
 bitset<N> operator~() const noexcept; // C++11

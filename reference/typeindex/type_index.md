@@ -1,4 +1,6 @@
 #type_index (C++11)
+* typeindex[meta header]
+
 ```cpp
 namespace std {
   class type_index;

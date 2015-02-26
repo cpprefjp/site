@@ -1,4 +1,6 @@
 #デストラクタ
+* stack[meta header]
+
 ```cpp
 ~stack();
 ```

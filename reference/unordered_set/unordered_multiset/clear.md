@@ -1,4 +1,6 @@
 #clear (C++11)
+* unordered_set[meta header]
+
 ```cpp
 void clear() noexcept;
 ```

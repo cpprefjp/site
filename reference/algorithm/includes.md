@@ -1,4 +1,6 @@
 #includes
+* algorithm[meta header]
+
 ```cpp
 namespace std {
   template <class InputIterator1, class InputIterator2>

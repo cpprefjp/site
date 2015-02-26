@@ -1,4 +1,6 @@
 #assign
+* string[meta header]
+
 ```cpp
 // C++03まで
 static void assign(char_type& c1, const char_type& c2);        // (1)

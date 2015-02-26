@@ -1,4 +1,6 @@
 #begin (非メンバ関数) (C++11)
+* valarray[meta header]
+
 ```cpp
 namespace std {
   template <class T>

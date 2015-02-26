@@ -1,4 +1,6 @@
 #cin
+* iostream[meta header]
+
 ```cpp
 namespace std {
   istream cin;

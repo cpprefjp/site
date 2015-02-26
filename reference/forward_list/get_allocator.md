@@ -1,4 +1,6 @@
 #get_allocator (C++11)
+* forward_list[meta header]
+
 ```cpp
 allocator_type get_allocator() const noexcept;
 ```

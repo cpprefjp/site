@@ -1,4 +1,6 @@
 #rint (C++11)
+* cmath[meta header]
+
 ```cpp
 namespace std {
   float rint(float x);

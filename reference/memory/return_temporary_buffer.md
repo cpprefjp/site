@@ -1,4 +1,6 @@
 #return_temporary_buffer
+* memory[meta header]
+
 ```cpp
 template <class T>
 void return_temporary_buffer(T* p);

@@ -1,4 +1,6 @@
 #deque
+* deque[meta header]
+
 ```cpp
 namespace std {
   template <class T, class Allocator = allocator<T>>

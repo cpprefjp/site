@@ -1,4 +1,6 @@
 #imag
+* complex[meta header]
+
 ```cpp
 T imag() const;					// (1) C++11 まで
 

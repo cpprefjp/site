@@ -1,4 +1,6 @@
 #operator= (C++11)
+* unordered_set[meta header]
+
 ```cpp
 unordered_set& operator=(const unordered_set& v);          // (1)
 unordered_set& operator=(unordered_set&& rv);              // (2)

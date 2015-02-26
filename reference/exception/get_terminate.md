@@ -1,4 +1,6 @@
 #get_terminate (C++11)
+* exception[meta header]
+
 ```cpp
 namespace std {
   typedef void (*terminate_handler)();

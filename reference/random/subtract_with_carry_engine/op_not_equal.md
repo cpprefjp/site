@@ -1,4 +1,6 @@
 #operator!= (C++11)
+* random[meta header]
+
 ```cpp
 namespace std {
   template <class UIntType, size_t w, size_t s, size_t r>
