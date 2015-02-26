@@ -2,6 +2,7 @@
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable[meta class]
+* function[meta id-type]
 
 ```cpp
 void notify_one() noexcept;

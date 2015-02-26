@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
+* function[meta id-type]
 
 ```cpp
 typename add_lvalue_reference<T>::type operator*() const;

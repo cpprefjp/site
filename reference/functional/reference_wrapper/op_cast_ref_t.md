@@ -1,7 +1,8 @@
 #operator T& (C++11)
 * functional[meta header]
 * std[meta namespace]
-* function[meta class]
+* reference_wrapper[meta class]
+* function[meta id-type]
 
 ```cpp
 operator T& () const noexcept;

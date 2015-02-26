@@ -2,6 +2,7 @@
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
+* variable[meta id-type]
 
 ```cpp
 // C++03

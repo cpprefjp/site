@@ -2,6 +2,7 @@
 * typeinfo[meta header]
 * std[meta namespace]
 * type_info[meta class]
+* function[meta id-type]
 
 ```cpp
 const char* name() const noexcept;

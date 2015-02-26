@@ -1,6 +1,7 @@
 #aligned_union (C++11)
 * type_traits[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

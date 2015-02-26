@@ -2,6 +2,7 @@
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
+* function[meta id-type]
 
 ```cpp
 float max_load_factor() const noexcept; // (1)

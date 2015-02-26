@@ -1,5 +1,6 @@
 #CHAR_MIN
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define CHAR_MIN implementation-defined

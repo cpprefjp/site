@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
+* function[meta id-type]
 
 ```cpp
 void swap(shared_ptr& x) noexcept;

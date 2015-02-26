@@ -1,6 +1,7 @@
 #float_round_style
 * limits[meta header]
 * std[meta namespace]
+* enum[meta id-type]
 
 ```cpp
 namespace std {

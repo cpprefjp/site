@@ -1,6 +1,7 @@
 #tanh
 * cmath[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace std {

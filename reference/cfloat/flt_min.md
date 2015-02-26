@@ -1,6 +1,7 @@
 #FLT_MIN
 * cfloat[meta header]
 
+* macro[meta id-type]
 ```cpp
 #define FLT_MIN implementation-defined
 ```

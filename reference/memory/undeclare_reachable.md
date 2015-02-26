@@ -1,6 +1,7 @@
 #undeclare_reachable (C++11)
 * memory[meta header]
 * std[meta namespace]
+* function template[meta id-type]
 
 ```cpp
 namespace std {

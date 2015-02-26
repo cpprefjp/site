@@ -1,6 +1,7 @@
 #DBL_MAX_10_EXP
 * cfloat[meta header]
 
+* macro[meta id-type]
 
 ```cpp
 #define DBL_MAX_10_EXP implementation-defined

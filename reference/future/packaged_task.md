@@ -1,6 +1,7 @@
 #packaged_task (C++11)
 * future[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

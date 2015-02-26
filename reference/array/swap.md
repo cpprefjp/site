@@ -2,6 +2,7 @@
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
+* function[meta id-type]
 
 ```cpp
 void swap(array& other) noexcept(noexcept(swap(declval<T&>(), declval<T&>())));

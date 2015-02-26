@@ -2,6 +2,7 @@
 * system_error[meta header]
 * std[meta namespace]
 * error_category[meta class]
+* function[meta id-type]
 
 ```cpp
 virtual bool equivalent(int code, const error_condition& condition) const noexcept;

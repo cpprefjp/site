@@ -1,6 +1,7 @@
 #LDBL_MAX
 * cfloat[meta header]
 
+* macro[meta id-type]
 
 ```cpp
 #define LDBL_MAX implementation-defined

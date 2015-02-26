@@ -1,6 +1,7 @@
 #make_error_code (C++11)
 * system_error[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace std {

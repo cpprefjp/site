@@ -2,6 +2,7 @@
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
+* function[meta id-type]
 
 ```cpp
 constexpr size_type size() noexcept;       // C++11

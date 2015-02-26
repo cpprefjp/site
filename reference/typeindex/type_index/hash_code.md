@@ -2,6 +2,7 @@
 * typeindex[meta header]
 * std[meta namespace]
 * type_index[meta class]
+* class template[meta id-type]
 
 ```cpp
 size_t hash_code() const;          // C++11

@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * independent_bits_engine[meta class]
+* function[meta id-type]
 
 ```cpp
 namespace std {

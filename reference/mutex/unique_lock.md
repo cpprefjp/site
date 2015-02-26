@@ -1,6 +1,7 @@
 #unique_lock (C++11)
 * mutex[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

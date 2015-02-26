@@ -1,6 +1,7 @@
 #FP_SUBNORMAL
 * cmath[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 #define FP_SUBNORMAL integer_constant_expression

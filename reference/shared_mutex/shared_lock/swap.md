@@ -2,6 +2,7 @@
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_lock[meta class]
+* function[meta id-type]
 
 ```cpp
 void swap(shared_lock& u) noexcept;

@@ -1,6 +1,7 @@
 #back_insert_iterator
 * iterator[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
+* function[meta id-type]
 
 ```cpp
 constexpr unique_ptr() noexcept;             // (1) 単一オブジェクト、配列

@@ -2,6 +2,7 @@
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
+* function[meta id-type]
 
 ```cpp
 void reset();

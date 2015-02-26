@@ -2,6 +2,7 @@
 * queue[meta header]
 * std[meta namespace]
 * queue[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit queue(const Container& other = Container());

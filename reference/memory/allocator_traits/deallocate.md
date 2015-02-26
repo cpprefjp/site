@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
+* function[meta id-type]
 
 ```cpp
 static void deallocate(Alloc& a, pointer p, size_type n);

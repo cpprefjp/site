@@ -1,6 +1,7 @@
 #basic_filebuf
 * fstream[meta header]
 * std[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {

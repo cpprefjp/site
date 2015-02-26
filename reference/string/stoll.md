@@ -1,6 +1,7 @@
 #stoll (C++11)
 * string[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * utility[meta header]
 * std[meta namespace]
 * pair[meta class]
+* function[meta id-type]
 
 ```cpp
 namespace std {

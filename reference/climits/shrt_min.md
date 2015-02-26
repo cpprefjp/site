@@ -1,5 +1,6 @@
 #SHRT_MIN
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define SHRT_MIN implementation-defined

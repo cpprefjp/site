@@ -2,6 +2,7 @@
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
+* function[meta id-type]
 
 ```cpp
 list();                                          // (1) C++14 から

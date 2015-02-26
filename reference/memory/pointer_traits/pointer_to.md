@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * pointer_traits[meta class]
+* function[meta id-type]
 
 ```cpp
 static pointer pointer_traits::pointer_to(element_type& r);              // (1)

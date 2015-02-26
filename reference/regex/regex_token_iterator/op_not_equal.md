@@ -2,6 +2,7 @@
 * regex[meta header]
 * std[meta namespace]
 * regex_token_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 bool operator!=(const regex_token_iterator& right) const;

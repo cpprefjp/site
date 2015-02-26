@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * uniform_real_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 result_type a() const;

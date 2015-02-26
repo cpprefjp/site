@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * binomial_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit binomial_distribution(IntType t = 1, double p = 0.5);

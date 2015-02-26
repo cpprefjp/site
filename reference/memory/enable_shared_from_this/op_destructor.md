@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * enable_shared_from_this[meta class]
+* function[meta id-type]
 
 ```cpp
 ~enable_shared_from_this();

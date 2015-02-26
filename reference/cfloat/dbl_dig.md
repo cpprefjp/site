@@ -1,6 +1,7 @@
 #DBL_DIG
 * cfloat[meta header]
 
+* macro[meta id-type]
 ```cpp
 #define DBL_DIG implementation-defined
 ```

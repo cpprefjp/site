@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * discrete_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 void reset();

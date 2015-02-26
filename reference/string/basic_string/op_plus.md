@@ -2,6 +2,7 @@
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
+* function[meta id-type]
 
 ```cpp
 template <class charT, class traits, class Allocator>

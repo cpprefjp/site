@@ -1,6 +1,7 @@
 #recursive_mutex (C++11)
 * mutex[meta header]
 * std[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {

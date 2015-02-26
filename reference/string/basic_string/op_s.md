@@ -2,6 +2,7 @@
 * string[meta header]
 * std::string_literals[meta namespace]
 * basic_string[meta class]
+* function[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * chi_squared_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 result_type min() const;

@@ -1,6 +1,7 @@
 #delete
 * new[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 // 単純な記憶域の解放

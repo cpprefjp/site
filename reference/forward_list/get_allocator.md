@@ -2,6 +2,7 @@
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
+* function[meta id-type]
 
 ```cpp
 allocator_type get_allocator() const noexcept;

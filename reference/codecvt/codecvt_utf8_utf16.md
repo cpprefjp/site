@@ -1,6 +1,7 @@
 #codecvt_utf8_utf16
 * codecvt[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

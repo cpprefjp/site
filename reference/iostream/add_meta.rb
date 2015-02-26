@@ -7,9 +7,9 @@ def enumerateRecursiveDir(path)
       f = path + '/' + f
     end
     if FileTest::directory?(f)
-      enumerateRecursiveDir(f) {|nested_file|
-        yield nested_file
-      }
+#      enumerateRecursiveDir(f) {|nested_file|
+#        yield nested_file
+#      }
     else
       yield f
     end
@@ -24,9 +24,15 @@ def add_meta(filename)
     }
   }
 
-  dirs = File.dirname(File.absolute_path(filename)).split('/')
-  back_dir = dirs[dirs.size() - 1]
-  data[3, 0] = "* #{back_dir}[meta class]\n"
+  i = data[2].index("[meta") == nil ? 2 :
+	  data[3].index("[meta") == nil ? 3 :
+	  data[4].index("[meta") == nil ? 4 : 5
+
+#  if data[0][1] == data[0][1].upcase && data[0][1].match(/^[[:alpha:]]+$/)
+#    data[i, 0] = "* macro[meta id-type]\n"
+#  else
+    data[i, 0] = "* variable[meta id-type]\n"
+#  end
 
   output = data.join("")
 

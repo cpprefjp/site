@@ -1,6 +1,7 @@
 #duration_cast (C++11)
 * chrono[meta header]
 * std::chrono[meta namespace]
+* function template[meta id-type]
 
 ```cpp
 namespace std {

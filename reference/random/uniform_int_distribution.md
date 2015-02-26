@@ -1,6 +1,7 @@
 #uniform_int_distribution (C++11)
 * random[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
+* function[meta id-type]
 
 ```cpp
 const std::type_info& target_type() const noexcept;

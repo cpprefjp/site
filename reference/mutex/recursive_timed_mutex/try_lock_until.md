@@ -2,6 +2,7 @@
 * mutex[meta header]
 * std[meta namespace]
 * recursive_timed_mutex[meta class]
+* function[meta id-type]
 
 ```cpp
 template <class Clock, class Duration>

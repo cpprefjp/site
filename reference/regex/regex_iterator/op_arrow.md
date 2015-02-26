@@ -2,6 +2,7 @@
 * regex[meta header]
 * std[meta namespace]
 * regex_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 const value_type* operator->() const;

@@ -2,6 +2,7 @@
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
+* function[meta id-type]
 
 ```cpp
 unsigned long to_ulong() const;

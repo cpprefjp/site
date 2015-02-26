@@ -1,6 +1,7 @@
 #atomic_fetch_sub (C++11)
 * atomic[meta header]
 * std[meta namespace]
+* function template[meta id-type]
 
 ```cpp
 namespace std {

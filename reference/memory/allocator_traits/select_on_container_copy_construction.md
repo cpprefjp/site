@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
+* function[meta id-type]
 
 ```cpp
 static Alloc select_on_container_copy_construction(const Alloc& a);

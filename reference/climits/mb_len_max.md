@@ -1,5 +1,6 @@
 #MB_LEN_MAX
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define MB_LEN_MAX implementation-defined

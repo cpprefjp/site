@@ -2,6 +2,7 @@
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit basic_istream(basic_streambuf<CharT, Traits>* sb);

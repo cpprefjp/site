@@ -1,5 +1,6 @@
 #INT_LEAST32_MIN (C++11)
 * cstdint[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define INT_LEAST32_MIN implementation-defined

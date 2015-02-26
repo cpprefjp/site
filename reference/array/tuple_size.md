@@ -2,6 +2,7 @@
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

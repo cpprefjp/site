@@ -1,6 +1,7 @@
 #nested_exception (C++11)
 * exception[meta header]
 * std[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
+* function[meta id-type]
 
 ```cpp
 const_reference at(size_type n) const;

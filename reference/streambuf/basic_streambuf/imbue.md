@@ -2,6 +2,7 @@
 * streambuf[meta header]
 * std[meta namespace]
 * basic_streambuf[meta class]
+* function[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * allocator[meta class]
+* function[meta id-type]
 
 ```cpp
 void deallocate(pointer p, size_type n);

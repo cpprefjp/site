@@ -2,6 +2,7 @@
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
+* function[meta id-type]
 
 ```cpp
 template <class F, class Alloc>

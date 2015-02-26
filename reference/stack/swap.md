@@ -2,6 +2,7 @@
 * stack[meta header]
 * std[meta namespace]
 * stack[meta class]
+* function[meta id-type]
 
 ```cpp
 void swap(stack& s) noexcept(noexcept(swap(c, s.c)));

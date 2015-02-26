@@ -2,6 +2,7 @@
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
+* function[meta id-type]
 
 ```cpp
 template <class charT, class traits>

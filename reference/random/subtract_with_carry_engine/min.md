@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * subtract_with_carry_engine[meta class]
+* function[meta id-type]
 
 ```cpp
 static constexpr result_type min() { return 0; }

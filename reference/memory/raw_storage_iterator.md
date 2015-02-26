@@ -1,6 +1,7 @@
 #raw_storage_iterator
 * memory[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

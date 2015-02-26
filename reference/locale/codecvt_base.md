@@ -1,6 +1,7 @@
 #codecvt_base
 * locale[meta header]
 * std[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {

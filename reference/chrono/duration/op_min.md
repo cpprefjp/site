@@ -2,6 +2,7 @@
 * chrono[meta header]
 * std::chrono_literals[meta namespace]
 * duration[meta class]
+* function[meta id-type]
 
 ```cpp
 namespace std {

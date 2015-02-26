@@ -1,6 +1,7 @@
 #bad_exception
 * exception[meta header]
 * std[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {

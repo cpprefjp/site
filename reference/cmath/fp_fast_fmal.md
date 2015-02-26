@@ -1,6 +1,7 @@
 #FP_FAST_FMAL
 * cmath[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 #define FP_FAST_FMAL implementation_defined

@@ -2,6 +2,7 @@
 * regex[meta header]
 * std[meta namespace]
 * sub_match[meta class]
+* function[meta id-type]
 
 ```cpp
 operator string_type() const;

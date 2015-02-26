@@ -2,6 +2,7 @@
 * map[meta header]
 * std[meta namespace]
 * multimap[meta class]
+* function[meta id-type]
 
 ```cpp
 multimap& operator=(const multimap& x);                 // (1) C++03

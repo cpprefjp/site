@@ -2,6 +2,7 @@
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
+* function[meta id-type]
 
 ```cpp
 local_iterator end(size_type n);

@@ -1,6 +1,7 @@
 #treat_as_floating_point (C++11)
 * chrono[meta header]
 * std::chrono[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * string[meta header]
 * std[meta namespace]
 * char_traits[meta class]
+* function[meta id-type]
 
 ```cpp
 static int compare(const char_type* s1, const char_type* s2, size_t n);

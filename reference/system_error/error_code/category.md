@@ -2,6 +2,7 @@
 * system_error[meta header]
 * std[meta namespace]
 * error_code[meta class]
+* function[meta id-type]
 
 ```cpp
 const error_category& category() const noexcept;

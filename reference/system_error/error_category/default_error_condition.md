@@ -2,6 +2,7 @@
 * system_error[meta header]
 * std[meta namespace]
 * error_category[meta class]
+* function[meta id-type]
 
 ```cpp
 virtual error_condition default_error_condition(int ev) const noexcept;

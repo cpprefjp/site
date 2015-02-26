@@ -1,6 +1,7 @@
 #forward_as_tuple (C++11)
 * tuple[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace {

@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * discard_block_engine[meta class]
+* function[meta id-type]
 
 ```cpp
 discard_block_engine();

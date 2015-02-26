@@ -2,6 +2,7 @@
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
+* function[meta id-type]
 
 ```cpp
 string_type str(size_type sub = 0) const;

@@ -2,6 +2,7 @@
 * future[meta header]
 * std[meta namespace]
 * shared_future[meta class]
+* function[meta id-type]
 
 ```cpp
 void wait() const;

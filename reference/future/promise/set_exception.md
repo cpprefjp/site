@@ -2,6 +2,7 @@
 * future[meta header]
 * std[meta namespace]
 * promise[meta class]
+* function[meta id-type]
 
 ```cpp
 void set_exception(exception_ptr p);

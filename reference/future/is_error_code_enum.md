@@ -1,6 +1,7 @@
 #is_error_code_enum (C++11)
 * future[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

@@ -1,7 +1,8 @@
 #wait_for (C++11)
 * future[meta header]
 * std[meta namespace]
-* function[meta class]
+* future[meta class]
+* function[meta id-type]
 
 ```cpp
 template <class Rep, class Period>

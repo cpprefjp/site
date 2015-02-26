@@ -1,6 +1,7 @@
 #not_equal_to
 * functional[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

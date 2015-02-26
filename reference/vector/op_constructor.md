@@ -2,6 +2,7 @@
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
+* function[meta id-type]
 
 ```cpp
 vector();                                            // (1) C++14

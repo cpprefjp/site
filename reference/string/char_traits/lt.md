@@ -2,6 +2,7 @@
 * string[meta header]
 * std[meta namespace]
 * char_traits[meta class]
+* function[meta id-type]
 
 ```cpp
 // C++03まで

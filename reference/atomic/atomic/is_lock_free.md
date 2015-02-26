@@ -2,6 +2,7 @@
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
+* function[meta id-type]
 
 ```cpp
 bool is_lock_free() const volatile noexcept;

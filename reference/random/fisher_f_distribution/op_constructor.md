@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * fisher_f_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit fisher_f_distribution(RealType m = 1, RealType n = 1);

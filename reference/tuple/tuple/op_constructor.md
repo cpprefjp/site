@@ -2,6 +2,7 @@
 * tuple[meta header]
 * std[meta namespace]
 * tuple[meta class]
+* function[meta id-type]
 
 ```cpp
 constexpr tuple();                         // (1) C++11

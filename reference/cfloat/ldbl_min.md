@@ -1,6 +1,7 @@
 #LDBL_MIN
 * cfloat[meta header]
 
+* macro[meta id-type]
 ```cpp
 #define LDBL_MIN implementation-defined
 ```

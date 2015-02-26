@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * mersenne_twister_engine[meta class]
+* function[meta id-type]
 
 ```cpp
 void discard(unsigned long long z);

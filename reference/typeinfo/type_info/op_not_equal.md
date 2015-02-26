@@ -2,6 +2,7 @@
 * typeinfo[meta header]
 * std[meta namespace]
 * type_info[meta class]
+* function[meta id-type]
 
 ```cpp
 bool operator!=(const type_info& rhs) const noexcept;

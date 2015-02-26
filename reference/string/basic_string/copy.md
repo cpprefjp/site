@@ -2,6 +2,7 @@
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
+* function[meta id-type]
 
 ```cpp
 size_type copy(charT* s, size_type n, size_type pos = 0) const;

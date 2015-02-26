@@ -1,6 +1,7 @@
 #future_category (C++11)
 * future[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace std {

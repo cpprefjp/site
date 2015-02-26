@@ -1,6 +1,7 @@
 #piecewise_construct (C++11)
 * utility[meta header]
 * std[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {

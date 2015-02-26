@@ -2,6 +2,7 @@
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
+* function[meta id-type]
 
 ```cpp
 const_iterator cbegin() const noexcept;

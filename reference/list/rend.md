@@ -2,6 +2,7 @@
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
+* function[meta id-type]
 
 ```cpp
 reverse_iterator rend();                      // (1) C++03

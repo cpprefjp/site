@@ -2,6 +2,7 @@
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
+* function[meta id-type]
 
 ```cpp
 scoped_allocator_adaptor();                                                 // (1)

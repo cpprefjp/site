@@ -2,6 +2,7 @@
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
+* function[meta id-type]
 
 ```cpp
 bitset<N>& set();                            // (1) C++03

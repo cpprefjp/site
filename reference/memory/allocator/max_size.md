@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * allocator[meta class]
+* function[meta id-type]
 
 ```cpp
 size_type max_size() const throw();  // C++03

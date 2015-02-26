@@ -1,5 +1,6 @@
 #UINT_LEAST64_MAX (C++11)
 * cstdint[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define UINT_LEAST64_MAX implementation-defined

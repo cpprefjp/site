@@ -2,6 +2,7 @@
 * regex[meta header]
 * std[meta namespace]
 * sub_match[meta class]
+* function[meta id-type]
 
 ```cpp
 int compare(const sub_match& s) const;   // (1)

@@ -2,6 +2,7 @@
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
+* function[meta id-type]
 
 ```cpp
 basic_string& assign(const basic_string& str);

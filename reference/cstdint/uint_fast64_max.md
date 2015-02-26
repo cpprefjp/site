@@ -1,5 +1,6 @@
 #UINT_FAST64_MAX (C++11)
 * cstdint[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define UINT_FAST64_MAX implementation-defined

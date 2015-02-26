@@ -2,6 +2,7 @@
 * map[meta header]
 * std[meta namespace]
 * map[meta class]
+* function[meta id-type]
 
 ```cpp
 T& at(const key_type& x);

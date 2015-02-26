@@ -1,6 +1,7 @@
 #bind (C++11)
 * functional[meta header]
 * std[meta namespace]
+* function template[meta id-type]
 
 ```cpp
 namespace std {

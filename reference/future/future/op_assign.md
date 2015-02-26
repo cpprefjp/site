@@ -1,7 +1,8 @@
 #operator= (C++11)
 * future[meta header]
 * std[meta namespace]
-* function[meta class]
+* future[meta class]
+* function[meta id-type]
 
 ```cpp
 future& operator=(const future& rhs) = delete;

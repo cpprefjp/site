@@ -1,6 +1,7 @@
 #put_time (C++11)
 * iomanip[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 template <class CharT>

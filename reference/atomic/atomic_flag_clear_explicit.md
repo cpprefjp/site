@@ -1,6 +1,7 @@
 #atomic_flag_clear_explicit (C++11)
 * atomic[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace std {

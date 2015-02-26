@@ -2,6 +2,7 @@
 * ostream[meta header]
 * std[meta namespace]
 * basic_ostream[meta class]
+* function[meta id-type]
 
 ```cpp
 pos_type tellp();

@@ -2,6 +2,7 @@
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
+* function[meta id-type]
 
 ```cpp
 void push_back(const T& x);

@@ -1,6 +1,7 @@
 #make_exception_ptr (C++11)
 * exception[meta header]
 * std[meta namespace]
+* function template[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
+* function[meta id-type]
 
 ```cpp
 reference operator[](size_type n);

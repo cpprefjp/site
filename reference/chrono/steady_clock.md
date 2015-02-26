@@ -1,6 +1,7 @@
 #steady_clock (C++11)
 * chrono[meta header]
 * std::chrono[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {

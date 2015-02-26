@@ -2,6 +2,7 @@
 * regex[meta header]
 * std[meta namespace]
 * regex_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 regex_iterator& operator++();   // (1) 前置形式

@@ -1,6 +1,7 @@
 #DBL_MAX
 * cfloat[meta header]
 
+* macro[meta id-type]
 
 ```cpp
 #define DBL_MAX implementation-defined

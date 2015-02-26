@@ -2,6 +2,7 @@
 * atomic[meta header]
 * std[meta namespace]
 * atomic_flag[meta class]
+* function[meta id-type]
 
 ```cpp
 atomic_flag() noexcept = default;         // (1)

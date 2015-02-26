@@ -2,6 +2,7 @@
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
+* function[meta id-type]
 
 ```cpp
 reference operator[](size_type n);                       // (1)

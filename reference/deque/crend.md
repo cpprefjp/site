@@ -2,6 +2,7 @@
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
+* function[meta id-type]
 
 ```cpp
 const_reverse_iterator crend() const noexcept;

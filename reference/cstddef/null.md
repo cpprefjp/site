@@ -1,5 +1,6 @@
 #NULL
 * cstddef[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define NULL implementation-defined

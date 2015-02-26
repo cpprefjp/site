@@ -1,6 +1,7 @@
 #wstring_convert (C++11)
 * locale[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

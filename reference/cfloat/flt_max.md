@@ -1,6 +1,7 @@
 #FLT_MAX
 * cfloat[meta header]
 
+* macro[meta id-type]
 ```cpp
 #define FLT_MAX implementation-defined
 ```

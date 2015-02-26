@@ -2,6 +2,7 @@
 * valarray[meta header]
 * std[meta namespace]
 * gslice_array[meta class]
+* function[meta id-type]
 
 ```cpp
 void operator%=(const valarray<T>& xs) const;

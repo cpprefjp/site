@@ -1,6 +1,7 @@
 #unique_ptr (C++11)
 * memory[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * system_error[meta header]
 * std[meta namespace]
 * error_code[meta class]
+* function[meta id-type]
 
 ```cpp
 void assign(int val, const error_category& cat) noexcept;

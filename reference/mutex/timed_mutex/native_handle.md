@@ -2,6 +2,7 @@
 * mutex[meta header]
 * std[meta namespace]
 * timed_mutex[meta class]
+* function[meta id-type]
 
 ```cpp
 native_handle_type native_handle();

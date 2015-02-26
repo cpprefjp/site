@@ -1,6 +1,7 @@
 #current_exception (C++11)
 * exception[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace std {

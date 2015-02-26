@@ -2,6 +2,7 @@
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
+* function[meta id-type]
 
 ```cpp
 local_iterator end(size_type n);

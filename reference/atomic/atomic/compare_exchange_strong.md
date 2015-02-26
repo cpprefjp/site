@@ -2,6 +2,7 @@
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
+* function[meta id-type]
 
 ```cpp
 bool compare_exchange_strong(T& expected, T desired, memory_order success, memory_order failure) volatile noexcept;

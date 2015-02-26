@@ -2,6 +2,7 @@
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
+* function[meta id-type]
 
 ```cpp
 const T& operator[](size_t n) const;                        // (1)

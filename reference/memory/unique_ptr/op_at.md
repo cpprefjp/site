@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
+* function[meta id-type]
 
 ```cpp
 T& operator[](size_t i) const;

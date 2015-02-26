@@ -2,6 +2,7 @@
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
+* function[meta id-type]
 
 ```cpp
 outer_allocator_type& outer_allocator() noexcept;             // (1)

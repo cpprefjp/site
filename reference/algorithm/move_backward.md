@@ -1,6 +1,7 @@
 #move_backward (C++11)
 * algorithm[meta header]
 * std[meta namespace]
+* function template[meta id-type]
 
 ```cpp
 namespace std {

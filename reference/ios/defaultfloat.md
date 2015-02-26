@@ -1,6 +1,7 @@
 #defaultfloat (C++11)
 * ios[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace std {

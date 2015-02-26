@@ -2,6 +2,7 @@
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
+* function[meta id-type]
 
 ```cpp
 size_type count(const key_type& k) const;

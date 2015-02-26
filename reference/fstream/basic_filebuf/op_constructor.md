@@ -2,6 +2,7 @@
 * fstream[meta header]
 * std[meta namespace]
 * basic_filebuf[meta class]
+* function[meta id-type]
 
 ```cpp
 basic_filebuf(); // (1)

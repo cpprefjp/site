@@ -2,6 +2,7 @@
 * tuple[meta header]
 * std[meta namespace]
 * tuple[meta class]
+* function[meta id-type]
 
 ```cpp
 tuple& operator=(const tuple&);

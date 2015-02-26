@@ -1,5 +1,6 @@
 #SCHAR_MIN
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define SCHAR_MIN implementation-defined

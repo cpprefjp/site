@@ -1,6 +1,7 @@
 #pointer_safety (C++11)
 * memory[meta header]
 * std[meta namespace]
+* enum[meta id-type]
 
 ```cpp
 namespace std {

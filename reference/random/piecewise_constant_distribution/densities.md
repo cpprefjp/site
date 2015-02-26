@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * piecewise_constant_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 vector<result_type> densities() const;

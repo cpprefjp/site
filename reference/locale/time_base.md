@@ -1,6 +1,7 @@
 #time_base
 * locale[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

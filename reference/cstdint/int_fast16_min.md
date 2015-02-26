@@ -1,5 +1,6 @@
 #INT_FAST16_MIN (C++11)
 * cstdint[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define INT_FAST16_MIN implementation-defined

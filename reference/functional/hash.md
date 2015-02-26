@@ -1,6 +1,7 @@
 #hash (C++11)
 * functional[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

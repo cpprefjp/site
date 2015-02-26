@@ -2,6 +2,7 @@
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
+* function[meta id-type]
 
 ```cpp
 packaged_task& operator=(packaged_task&) = delete;       // (1) C++11

@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * binomial_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 double p() const;

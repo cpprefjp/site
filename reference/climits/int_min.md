@@ -1,5 +1,6 @@
 #INT_MIN
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define INT_MIN implementation-defined

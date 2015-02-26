@@ -2,6 +2,7 @@
 * complex[meta header]
 * std[meta namespace]
 * complex[meta class]
+* function[meta id-type]
 
 ```cpp
 complex(const T& re = T(), const T& im = T());            // (1) C++03

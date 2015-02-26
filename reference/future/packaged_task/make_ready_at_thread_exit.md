@@ -2,6 +2,7 @@
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
+* function[meta id-type]
 
 ```cpp
 void make_ready_at_thread_exit(ArgTypes... args);

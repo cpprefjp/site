@@ -2,6 +2,7 @@
 * typeindex[meta header]
 * std[meta namespace]
 * type_index[meta class]
+* class template[meta id-type]
 
 ```cpp
 const char* name() const;          // C++11

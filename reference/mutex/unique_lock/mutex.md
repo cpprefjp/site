@@ -2,6 +2,7 @@
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
+* function[meta id-type]
 
 ```cpp
 mutex_type* mutex() const noexcept;

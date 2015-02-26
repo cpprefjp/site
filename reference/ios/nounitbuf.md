@@ -1,6 +1,7 @@
 #nounitbuf
 * ios[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace std {

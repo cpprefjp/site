@@ -1,6 +1,7 @@
 #shared_lock (C++14)
 * shared_mutex[meta header]
 * std[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {

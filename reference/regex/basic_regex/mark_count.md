@@ -2,6 +2,7 @@
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
+* function[meta id-type]
 
 ```cpp
 unsigned int mark_count() const;

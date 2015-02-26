@@ -2,6 +2,7 @@
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
+* function[meta id-type]
 
 ```cpp
 pair<iterator, bool> insert(const value_type& v);

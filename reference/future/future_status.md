@@ -1,6 +1,7 @@
 #future_status (C++11)
 * future[meta header]
 * std[meta namespace]
+* enum[meta id-type]
 
 ```cpp
 namespace std {

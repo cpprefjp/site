@@ -2,6 +2,7 @@
 * tuple[meta header]
 * std[meta namespace]
 * tuple[meta class]
+* function[meta id-type]
 
 ```cpp
 void swap(tuple& rhs) noexcept(下記参照);

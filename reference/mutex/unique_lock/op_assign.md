@@ -2,6 +2,7 @@
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
+* function[meta id-type]
 
 ```cpp
 unique_lock& operator=(const unique_lock&) = delete; // (1) C++11

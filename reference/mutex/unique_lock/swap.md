@@ -2,6 +2,7 @@
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
+* function[meta id-type]
 
 ```cpp
 void swap(unique_lock& u) noexcept;

@@ -2,6 +2,7 @@
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit unordered_multiset(size_type n = 実装依存の既定値,

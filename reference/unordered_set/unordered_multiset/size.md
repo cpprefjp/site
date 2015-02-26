@@ -2,6 +2,7 @@
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
+* function[meta id-type]
 
 ```cpp
 size_type size() const noexcept;

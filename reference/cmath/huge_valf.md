@@ -1,6 +1,7 @@
 #HUGE_VALF
 * cmath[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 #define HUGE_VALF implementation-defined

@@ -1,6 +1,7 @@
 #ratio_greater_equal (C++11)
 * ratio[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

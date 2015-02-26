@@ -2,6 +2,7 @@
 * chrono[meta header]
 * std::chrono[meta namespace]
 * system_clock[meta class]
+* function[meta id-type]
 
 ```cpp
 static time_point from_time_t(time_t t) noexcept;

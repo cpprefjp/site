@@ -2,6 +2,7 @@
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
+* function[meta id-type]
 
 ```cpp
 atomic& operator=(const atomic&) = delete;

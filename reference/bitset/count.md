@@ -2,6 +2,7 @@
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
+* function[meta id-type]
 
 ```cpp
 size_t count() const;          // C++03

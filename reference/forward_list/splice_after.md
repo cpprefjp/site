@@ -2,6 +2,7 @@
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
+* function[meta id-type]
 
 ```cpp
 void splice_after(const_iterator position, forward_list& x);

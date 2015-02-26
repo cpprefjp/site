@@ -1,6 +1,7 @@
 #LDBL_EPSILON
 * cfloat[meta header]
 
+* macro[meta id-type]
 ```cpp
 #define LDBL_EPSILON implementation-defined
 ```

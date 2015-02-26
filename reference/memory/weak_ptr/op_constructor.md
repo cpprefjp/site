@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
+* function[meta id-type]
 
 ```cpp
 constexpr weak_ptr() noexcept;             // (1)

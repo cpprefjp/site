@@ -2,6 +2,7 @@
 * valarray[meta header]
 * std[meta namespace]
 * slice[meta class]
+* function[meta id-type]
 
 ```cpp
 size_t stride() const;

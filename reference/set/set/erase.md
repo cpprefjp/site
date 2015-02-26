@@ -2,6 +2,7 @@
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
+* function[meta id-type]
 
 ```cpp
 void erase(iterator position);                             // (1) C++03

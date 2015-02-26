@@ -2,6 +2,7 @@
 * valarray[meta header]
 * std[meta namespace]
 * gslice[meta class]
+* function[meta id-type]
 
 ```cpp
 size_t start() const;

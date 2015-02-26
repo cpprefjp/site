@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * raw_storage_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit raw_storage_iterator(OutputIterator x);

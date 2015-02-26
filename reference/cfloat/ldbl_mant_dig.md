@@ -1,6 +1,7 @@
 #LDBL_MANT_DIG
 * cfloat[meta header]
 
+* macro[meta id-type]
 ```cpp
 #define LDBL_MANT_DIG implementation-defined
 ```

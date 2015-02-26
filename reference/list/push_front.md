@@ -2,6 +2,7 @@
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
+* function[meta id-type]
 
 ```cpp
 void push_front(const T& x); // (1)

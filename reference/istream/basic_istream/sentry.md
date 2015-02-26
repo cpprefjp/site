@@ -2,6 +2,7 @@
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
+* class[meta id-type]
 
 ```cpp
 namespace std {

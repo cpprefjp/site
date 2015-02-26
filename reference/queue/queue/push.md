@@ -2,6 +2,7 @@
 * queue[meta header]
 * std[meta namespace]
 * queue[meta class]
+* function[meta id-type]
 
 ```cpp
 void push(const value_type& x);

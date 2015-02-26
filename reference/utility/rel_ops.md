@@ -1,6 +1,7 @@
 #rel_ops
 * utility[meta header]
-* std[meta namespace]
+* std::rel_ops[meta namespace]
+* function template[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
+* function[meta id-type]
 
 ```cpp
 void swap(weak_ptr& r) noexcept;

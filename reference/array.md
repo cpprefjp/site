@@ -1,6 +1,7 @@
 #array (C++11)
 * array[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

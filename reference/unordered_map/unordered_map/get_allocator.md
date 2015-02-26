@@ -2,6 +2,7 @@
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
+* function[meta id-type]
 
 ```cpp
 allocator_type get_allocator() const noexcept;

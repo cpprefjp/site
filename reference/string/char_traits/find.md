@@ -2,6 +2,7 @@
 * string[meta header]
 * std[meta namespace]
 * char_traits[meta class]
+* function[meta id-type]
 
 ```cpp
 static const char_type* find(const char_type* s, size_t n,

@@ -2,6 +2,7 @@
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
+* function[meta id-type]
 
 ```cpp
 pair<iterator,bool> insert(const value_type& x);

@@ -1,6 +1,7 @@
 #bad_array_new_length (C++11)
 * new[meta header]
 * std[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {

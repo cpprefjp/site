@@ -1,6 +1,7 @@
 #return_temporary_buffer
 * memory[meta header]
 * std[meta namespace]
+* function template[meta id-type]
 
 ```cpp
 template <class T>

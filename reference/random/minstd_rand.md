@@ -1,6 +1,7 @@
 #minstd_rand (C++11)
 * random[meta header]
 * std[meta namespace]
+* typedef[meta id-type]
 
 ```cpp
 namespace std {

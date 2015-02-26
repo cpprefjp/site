@@ -1,6 +1,7 @@
 #LDBL_MAX_10_EXP
 * cfloat[meta header]
 
+* macro[meta id-type]
 
 ```cpp
 #define LDBL_MAX_10_EXP implementation-defined

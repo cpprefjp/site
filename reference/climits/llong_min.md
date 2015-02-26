@@ -1,5 +1,6 @@
 #LLONG_MIN (C++11)
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define LLONG_MIN implementation-defined

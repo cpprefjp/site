@@ -2,6 +2,7 @@
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit unordered_map(size_type n = 実装依存の既定値,

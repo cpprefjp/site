@@ -2,6 +2,7 @@
 * mutex[meta header]
 * std[meta namespace]
 * recursive_mutex[meta class]
+* function[meta id-type]
 
 ```cpp
 native_handle_type native_handle();

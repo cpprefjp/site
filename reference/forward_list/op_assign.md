@@ -2,6 +2,7 @@
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
+* function[meta id-type]
 
 ```cpp
 forward_list& operator=(const forward_list& x); // (1)

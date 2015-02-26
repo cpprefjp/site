@@ -1,6 +1,7 @@
 #unordered_map (C++11)
 * unordered_map[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * mutex[meta header]
 * std[meta namespace]
 * once_flag[meta class]
+* function[meta id-type]
 
 ```cpp
 constexpr once_flag() noexcept;

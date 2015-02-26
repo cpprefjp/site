@@ -1,6 +1,7 @@
 #io_errc (C++11)
 * ios[meta header]
 * std[meta namespace]
+* enum[meta id-type]
 
 ```cpp
 namespace std {

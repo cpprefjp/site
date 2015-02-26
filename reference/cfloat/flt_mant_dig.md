@@ -1,6 +1,7 @@
 #FLT_MANT_DIG
 * cfloat[meta header]
 
+* macro[meta id-type]
 ```cpp
 #define FLT_MANT_DIG implementation-defined
 ```

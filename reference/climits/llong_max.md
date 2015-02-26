@@ -1,5 +1,6 @@
 #LLONG_MAX (C++11)
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define LLONG_MAX implementation-defined

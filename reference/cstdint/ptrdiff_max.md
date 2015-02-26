@@ -1,5 +1,6 @@
 #PTRDIFF_MAX (C++11)
 * cstdint[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define PTRDIFF_MAX implementation-defined

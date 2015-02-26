@@ -2,6 +2,7 @@
 * chrono[meta header]
 * std::chrono[meta namespace]
 * steady_clock[meta class]
+* function[meta id-type]
 
 ```cpp
 static time_point now() noexcept;

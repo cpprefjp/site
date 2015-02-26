@@ -2,6 +2,7 @@
 * system_error[meta header]
 * std[meta namespace]
 * error_category[meta class]
+* function[meta id-type]
 
 ```cpp
 bool operator!=(const error_category& rhs) const noexcept;

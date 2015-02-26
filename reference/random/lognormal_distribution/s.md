@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * lognormal_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 result_type s() const;

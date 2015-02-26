@@ -2,6 +2,7 @@
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
+* function[meta id-type]
 
 ```cpp
 template <class Rep, class Period>

@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * fisher_f_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 template <class URNG>

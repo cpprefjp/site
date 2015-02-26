@@ -1,5 +1,6 @@
 #INT_MAX
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define INT_MAX implementation-defined

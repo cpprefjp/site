@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * bernoulli_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 result_type min() const;

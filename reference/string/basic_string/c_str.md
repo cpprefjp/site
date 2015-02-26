@@ -2,6 +2,7 @@
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
+* function[meta id-type]
 
 ```cpp
 const charT* c_str() const;				// C++03 まで

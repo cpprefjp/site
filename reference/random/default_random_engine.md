@@ -1,6 +1,7 @@
 #default_random_engine
 * random[meta header]
 * std[meta namespace]
+* typedef[meta id-type]
 
 ```cpp
 namespace std {

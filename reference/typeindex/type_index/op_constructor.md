@@ -2,6 +2,7 @@
 * typeindex[meta header]
 * std[meta namespace]
 * type_index[meta class]
+* class template[meta id-type]
 
 ```cpp
 type_index(const type_info& rhs) noexcept;

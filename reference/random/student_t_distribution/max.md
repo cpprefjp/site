@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * student_t_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 result_type max() const;

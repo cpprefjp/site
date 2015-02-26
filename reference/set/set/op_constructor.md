@@ -2,6 +2,7 @@
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit set(const Compare& comp = Compare(), const Allocator& alloc = Allocator());

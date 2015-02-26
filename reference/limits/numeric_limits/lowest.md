@@ -2,6 +2,7 @@
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
+* function[meta id-type]
 
 ```cpp
 static constexpr T lowest() noexcept;

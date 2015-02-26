@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * weibull_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit weibull_distribution(RealType a = 1.0, RealType b = 1.0);

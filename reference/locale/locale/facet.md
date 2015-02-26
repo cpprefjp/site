@@ -2,6 +2,7 @@
 * locale[meta header]
 * std[meta namespace]
 * locale[meta class]
+* class[meta id-type]
 
 ```cpp
 namespace std {

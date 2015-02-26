@@ -2,6 +2,7 @@
 * mutex[meta header]
 * std[meta namespace]
 * lock_guard[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit lock_guard(mutex_type& m);

@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
+* function[meta id-type]
 
 ```cpp
 bool unique() const noexcept;

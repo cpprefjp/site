@@ -1,5 +1,6 @@
 #ULONG_MAX
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define ULONG_MAX implementation-defined

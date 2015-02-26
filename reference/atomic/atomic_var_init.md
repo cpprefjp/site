@@ -1,6 +1,7 @@
 #ATOMIC_VAR_INIT (C++11)
 * atomic[meta header]
 * std[meta namespace]
+* macro[meta id-type]
 
 ```cpp
 #define ATOMIC_VAR_INIT(value) see below

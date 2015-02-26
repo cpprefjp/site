@@ -1,6 +1,7 @@
 #shuffle_order_engine (C++11)
 * random[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

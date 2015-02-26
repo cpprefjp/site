@@ -1,6 +1,7 @@
 #inner_product
 * numeric[meta header]
 * std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
+* function[meta id-type]
 
 ```cpp
 match_results(const Allocator& a = Allocator());	// (1)

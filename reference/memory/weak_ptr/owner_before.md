@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
+* function[meta id-type]
 
 ```cpp
 template <class U>

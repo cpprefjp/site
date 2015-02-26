@@ -2,6 +2,7 @@
 * map[meta header]
 * std[meta namespace]
 * multimap[meta class]
+* function[meta id-type]
 
 ```cpp
 key_compare key_comp() const;

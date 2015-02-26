@@ -1,5 +1,6 @@
 #CHAR_BIT
 * climits[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define CHAR_BIT implementation-defined

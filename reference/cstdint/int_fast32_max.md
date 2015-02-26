@@ -1,5 +1,6 @@
 #INT_FAST32_MAX (C++11)
 * cstdint[meta header]
+* macro[meta id-type]
 
 ```cpp
 #define INT_FAST32_MAX implementation-defined

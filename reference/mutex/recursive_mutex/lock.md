@@ -2,6 +2,7 @@
 * mutex[meta header]
 * std[meta namespace]
 * recursive_mutex[meta class]
+* function[meta id-type]
 
 ```cpp
 void lock();

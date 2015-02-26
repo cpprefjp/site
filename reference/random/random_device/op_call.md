@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * random_device[meta class]
+* function[meta id-type]
 
 ```cpp
 result_type operator()();

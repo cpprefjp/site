@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * negative_binomial_distribution[meta class]
+* function[meta id-type]
 
 ```cpp
 explicit negative_binomial_distribution(IntType k = 1, double p = 0.5);

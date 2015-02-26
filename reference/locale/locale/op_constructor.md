@@ -2,6 +2,7 @@
 * locale[meta header]
 * std[meta namespace]
 * locale[meta class]
+* function[meta id-type]
 
 ```cpp
 locale() noexcept;

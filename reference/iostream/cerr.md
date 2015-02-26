@@ -1,6 +1,7 @@
 #cerr
 * iostream[meta header]
 * std[meta namespace]
+* variable[meta id-type]
 
 ```cpp
 namespace std {

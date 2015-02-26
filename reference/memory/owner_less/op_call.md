@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * owner_less[meta class]
+* function[meta id-type]
 
 ```cpp
 // shared_ptr版

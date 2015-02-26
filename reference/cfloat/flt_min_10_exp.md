@@ -1,6 +1,7 @@
 #FLT_MIN_10_EXP
 * cfloat[meta header]
 
+* macro[meta id-type]
 ```cpp
 #define FLT_MIN_10_EXP implementation-defined
 ```

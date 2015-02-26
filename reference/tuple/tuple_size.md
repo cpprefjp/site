@@ -1,6 +1,7 @@
 #tuple_size (C++11)
 * tuple[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

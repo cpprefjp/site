@@ -1,6 +1,7 @@
 #atomic (C++11)
 * atomic[meta header]
 * std[meta namespace]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

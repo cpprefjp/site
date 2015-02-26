@@ -1,6 +1,7 @@
 #thread (C++11)
 * thread[meta header]
 * std[meta namespace]
+* class[meta id-type]
 
 ```cpp
 namespace std {
