@@ -10,6 +10,7 @@ bool operator==(const error_category& rhs) const noexcept;
 
 ##概要
 `error_category`が同じオブジェクトかどうかを判定する。
+
 同じオブジェクトであれば`true`、そうでなければ`false`を返す。
 
 

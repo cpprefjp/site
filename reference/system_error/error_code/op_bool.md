@@ -9,7 +9,8 @@ explicit operator bool() const noexcept;
 ```
 
 ##概要
-`error_code`オブジェクトがエラー状態であるかを判定する。 
+`error_code`オブジェクトがエラー状態であるかを判定する。
+
 `error_code`クラスのデフォルトエラー値である`0`が正常と見なされ、それ以外の場合はエラーと見なされる。 
 
 `true`の場合はエラーであることを意味し、`false`の場合は正常を意味する。

@@ -10,6 +10,7 @@ bool operator<(const error_category& rhs) const noexcept;
 
 ##概要
 `error_category`オブジェクトのポインタの小なり比較を行う。
+
 自身のポインタが`rhs`オブジェクトへのポインタより小さい場合`true`を返し、そうでなければ`false`を返す。
 
 

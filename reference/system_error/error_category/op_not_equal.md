@@ -9,7 +9,8 @@ bool operator!=(const error_category& rhs) const noexcept;
 ```
 
 ##概要
-`error_category`が異なるオブジェクトかどうかを判定する。 
+`error_category`が異なるオブジェクトかどうかを判定する。
+
 異なるオブジェクトであれば`true`、そうでなければ`false`を返す。
 
 
