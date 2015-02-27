@@ -14,6 +14,10 @@ namespace std {
 型`Base`が型`Derived`の基底クラスか調べる。
 
 
+##要件
+`Base`と`Derived`が非共用体のクラスであり、異なる型である場合(cv修飾は無視される)、`Derived`は完全型でなければならない。
+
+
 ##効果
 `is_base_of`は、型`Base`が型`Derived`の基底クラス (cv修飾は無視される) である、もしくは2つが同じクラス型ならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
 
@@ -58,4 +62,7 @@ int main() {}
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
+##参照
+- [LWG Issue 2015. Incorrect pre-conditions for some type traits]
+    - C++11では要件が「`Base`と`Derived`がクラスであり、異なる型である場合(cv修飾は無視される)、`Derived`は完全型でなければならない。」であったが、共用体を意図せず許容していたため、C++14で「`Base`と`Derived`が**非共用体**のクラスであり、異なる型である場合(cv修飾は無視される)、`Derived`は完全型でなければならない。」に変更した。
 
