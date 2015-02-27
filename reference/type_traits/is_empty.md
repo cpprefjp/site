@@ -15,7 +15,7 @@ namespace std {
 
 
 ##要件
-型`T`は完全型でなければならない。
+型`T`が非共用体のクラスである場合、その型は完全型でなければならない。
 
 
 ##効果
@@ -72,4 +72,8 @@ int main(){}
 ####備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
 
+
+##参照
+- [LWG Issue 2015. Incorrect pre-conditions for some type traits](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2015)
+    - C++11では要件が「型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。」だったが、これは間違いであるため、C++14で「型`T`が非共用体のクラスである場合、その型は完全型でなければならない。」に変更された。
 
