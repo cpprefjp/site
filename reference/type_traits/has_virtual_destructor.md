@@ -15,7 +15,7 @@ namespace std {
 
 
 ##要件
-型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
+型`T`が非共用体のクラスである場合、その型は完全型でなければならない。
 
 
 ##効果
@@ -58,5 +58,8 @@ int main() {}
 - [Clang](/implementation.md#clang): 3.1
 - [GCC, C++0x mode](/implementation.md#gcc): 4.7.3
 
-####備考
+
+##参照
+- [LWG Issue 2015. Incorrect pre-conditions for some type traits](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2015)
+    - C++11では要件が「型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。」だったが、これは間違いであるため、C++14で「型`T`が非共用体のクラスである場合、その型は完全型でなければならない。」に変更された。
 
