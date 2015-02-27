@@ -87,7 +87,10 @@ ForwardIterator remove_if(ForwardIterator first, ForwardIterator last, Predicate
   auto result = first;
   for ( ; first != last; ++first)
     if (!pred(*first))
-      *result++ = move(*first);
+      if (first == result)
+        ++result;
+      else
+        *result++ = move(*first);
   return result;
 }
 ```
