@@ -44,8 +44,8 @@ struct doubler {
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------------------------|-------|
 | [`reference_wrapper`](./functional/reference_wrapper.md) | テンプレートで参照を渡すためのラッパー(class template)  | C++11 |
-| [`ref`](./functional/reference_wrapper/ref.md) | オブジェクトへの参照を構築する(function template) | C++11 |
-| [`cref`](./functional/reference_wrapper/cref.md) | オブジェクトへのconst左辺値参照を構築する(function template) | C++11 |
+| [`ref`](./functional/ref.md) | オブジェクトへの参照を構築する(function template) | C++11 |
+| [`cref`](./functional/cref.md) | オブジェクトへのconst左辺値参照を構築する(function template) | C++11 |
 
 
 ##ハッシュ関数

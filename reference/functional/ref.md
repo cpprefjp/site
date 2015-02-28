@@ -1,4 +1,4 @@
-#cref (C++11)
+#ref (C++11)
 * functional[meta header]
 * std[meta namespace]
 * reference_wrapper[meta class]
@@ -6,18 +6,21 @@
 
 ```cpp
 namespace std {
-  template <class T> reference_wrapper<const T> cref(const T& t) noexcept;
-  template <class T> reference_wrapper<const T> cref(reference_wrapper<T> t) noexcept;
-  template <class T> void cref(const T&&) = delete;
+  template <typename T> reference_wrapper<T> ref(T& t) noexcept;
+  template <typename T> reference_wrapper<T> ref(reference_wrapper<T> t) noexcept;
+
+  template <class T> void ref(const T&&) = delete;
 }
 ```
+* reference_wrapper[link ./reference_wrapper.md]
 
 ##概要
-変数への`const`参照`t`を保持する`reference_wrapper`オブジェクトを生成する
+変数への参照tを保持する`reference_wrapper`オブジェクトを生成する
 
 
 ##戻り値
-`t`を参照する`reference_wrapper<const T>`オブジェクトを返す。
+`t`を参照する`reference_wrapper<T>`オブジェクトを返す。
+
 ただし、`t`の型が`reference_wrapper`である場合はそのまま返す。
 
 
@@ -34,16 +37,14 @@ int main()
 {
   int x = 3;
 
-  // 参照ラッパーrは、変数xへのconst参照を保持する
-  std::reference_wrapper<const int> r = std::cref(x);
-
+  // 参照ラッパーrは、変数xへの参照を保持する
+  std::reference_wrapper<int> r = std::ref(x);
   ++x;
 
-  const int& rx = r.get();
-  std::cout << rx << std::endl;
+  std::cout << r.get() << std::endl;
 }
 ```
-* cref[color ff0000]
+* ref[color ff0000]
 
 ###出力
 ```
