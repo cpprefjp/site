@@ -76,4 +76,5 @@ int main()
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
+	- 8.0, 9.0では、`<stdlib.h>`にグローバル名前空間で定義されている。
