@@ -16,7 +16,7 @@ condition_variable_any(const condition_variable_any&) = delete;
 
 ##例外
 この関数は、[`bad_alloc`](/reference/new/bad_alloc.md)例外オブジェクト、もしくは以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
-- `resource_unavailable_try_again` : native handle型の計算ができない
+- `resource_unavailable_try_again` : 制限により、非メモリリソースの初期化ができなかった
 - `operation_not_permitted` : スレッドがこの操作を実行する権限を持っていない
 
 
@@ -44,9 +44,10 @@ int main()
 - [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
-	- Visual C++ 11.0までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
+    - Visual C++ 11.0までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
 ##参照
-
+- [LWG Issue 2092. Vague Wording for `condition_variable_any`]
+    - C++11では`resource_unavailable_try_again`エラーの理由が「native handleの計算ができなかった」というものだった。しかし、このクラスはnative handleを持っていることがpublicインタフェースになっていないため、C++14で「制限により、非メモリリソースの初期化ができなかった」という表現に修正。
 
