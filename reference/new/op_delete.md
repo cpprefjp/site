@@ -22,9 +22,9 @@ void operator delete[](void* ptr, void*) noexcept;
 * nothrow_t[link /reference/new/nothrow_t.md]
 
 ##効果
-[`new`](./new.md)演算子によって動的に確保した記憶域を解放する。
+[`new`](./op_new.md)演算子によって動的に確保した記憶域を解放する。
 
-`nothrow`版の`delete`演算子は、`nothrow`版の[`new`](./new.md)演算子によって生成されたオブジェクトのコンストラクタが例外を送出した場合に呼び出される。
+`nothrow`版の`delete`演算子は、`nothrow`版の[`new`](./op_new.md)演算子によって生成されたオブジェクトのコンストラクタが例外を送出した場合に呼び出される。
 
 ##例
 ```cpp

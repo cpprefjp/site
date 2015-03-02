@@ -19,7 +19,7 @@ void deallocate(pointer p, size_type n);
 ##効果
 `p`が指すストレージを解放する。
 
-解放には[`::operator delete(void*)`](/reference/new/delete.md)を使用するが、この関数がいつ呼び出されるかは未規定。
+解放には[`::operator delete(void*)`](/reference/new/op_delete.md)を使用するが、この関数がいつ呼び出されるかは未規定。
 
 
 ##例
