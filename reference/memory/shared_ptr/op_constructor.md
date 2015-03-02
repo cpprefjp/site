@@ -87,7 +87,7 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 - (10), (11) : `r`が持つ所有権を、`*this`に移動する。
 - (12) : `r`が持つポインタのコピーを共有する`shared_ptr`オブジェクトを構築する。
 - (13) : `r`が持つ所有権を、`*this`に移動する。
-- (14) : 以下のように、(3)のコンストラクタに移譲する。`Deleter`が参照型でなければ`shared_ptr(r.`[`release()`](/reference/memory/unique_ptr/release.md)`, r.`[`get_deleter()`](/reference/memory/unique_ptr/get_deleter.md)`)`を呼び出し、そうでなければ`shared_ptr(r.`[`release()`](/reference/memory/unique_ptr/release.md)`,` [`ref`](/reference/functional/reference_wrapper/ref.md)`(r.`[`get_deleter()`](/reference/memory/unique_ptr/get_deleter.md)`))`
+- (14) : 以下のように、(3)のコンストラクタに移譲する。`Deleter`が参照型でなければ`shared_ptr(r.`[`release()`](/reference/memory/unique_ptr/release.md)`, r.`[`get_deleter()`](/reference/memory/unique_ptr/get_deleter.md)`)`を呼び出し、そうでなければ`shared_ptr(r.`[`release()`](/reference/memory/unique_ptr/release.md)`,` [`ref`](/reference/functional/ref.md)`(r.`[`get_deleter()`](/reference/memory/unique_ptr/get_deleter.md)`))`
 - (15) : 空の`shared_ptr`オブジェクトを構築する。
 
 

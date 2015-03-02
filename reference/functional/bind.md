@@ -42,7 +42,7 @@ struct bound_function_type {
 4. その他の場合、`ti` がそのまま使用される。
 上記の置換を行った後、 `f(ti...)` を呼び出した結果が <i>`bound_function_type`</i>`::operator ()()` の呼出し結果として返される。
 
-注意： `bound_args` は明示的に [`std::ref()`](./reference_wrapper/ref.md) または [`std::cref()`](./reference_wrapper/cref.md) で包まない限り、内部でコピーして保持される。他方、`unbound_args` は通常の [perfect forwarding](/reference/utility/forward.md) が行われるため、`move` で渡したあるいは一時オブジェクトを直接渡した `unbound_args` を複数回プレースホルダ経由で使用すると予期しない結果になることがある。
+注意： `bound_args` は明示的に [`std::ref()`](ref.md) または [`std::cref()`](cref.md) で包まない限り、内部でコピーして保持される。他方、`unbound_args` は通常の [perfect forwarding](/reference/utility/forward.md) が行われるため、`move` で渡したあるいは一時オブジェクトを直接渡した `unbound_args` を複数回プレースホルダ経由で使用すると予期しない結果になることがある。
 
 
 ##例
