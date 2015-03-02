@@ -1,10 +1,9 @@
-#new
+#operator new
 * new[meta header]
 * function[meta id-type]
 
 ```cpp
 // 単純な記憶域の確保
-
 void* operator new(std::size_t size);
 
 // 単純な記憶域の確保（例外をスローしない）
@@ -83,4 +82,3 @@ int main()
 ###出力
 ```
 ```
-

@@ -1,4 +1,4 @@
-#delete
+#operator delete
 * new[meta header]
 * function[meta id-type]
 
@@ -61,4 +61,3 @@ int main()
 ###出力
 ```
 ```
-
