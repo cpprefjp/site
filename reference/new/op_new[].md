@@ -1,16 +1,16 @@
-#operator new
+#operator new[]
 * new[meta header]
 * function[meta id-type]
 
 ```cpp
-// 単純な記憶域の確保
-void* operator new(std::size_t size);
+// 単純な配列の記憶域の確保
+void* operator new[](std::size_t size);
 
-// 単純な記憶域の確保（例外をスローしない）
-void* operator new(std::size_t size, const std::nothrow_t&) noexcept;
+// 単純な配列の記憶域の確保（例外をスローしない）
+void* operator new[](std::size_t size, const std::nothrow_t&) noexcept;
 
-// 配置newによる記憶域の確保
-void* operator new(std::size_t size, void* ptr) noexcept;
+// 配置newによる配列の記憶域の確保
+void* operator new[](std::size_t size, void* ptr) noexcept;
 ```
 * nothrow_t[link /reference/new/nothrow_t.md]
 
@@ -35,19 +35,19 @@ void* operator new(std::size_t size, void* ptr) noexcept;
 int main()
 {
   try {
-    // int型変数を動的に作成
+    // 3要素のint型配列を動的に作成
     // 確保失敗時にbad_alloc例外が送出される
-    int* p1 = new int();
-    delete p1;
+    int* p3 = new int[3];
+    delete[] p3;
 
-    // int型変数を動的に作成
+    // 3要素のint型配列を動的に作成
     // 確保失敗時にヌルポインタが返される
-    int* p2 = new (std::nothrow) int();
-    delete p2;
+    int* p4 = new (std::nothrow) int[3];
+    delete[] p4;
 
-    // char配列のスタック領域に、int型変数を動的に作成
-    char one_field[sizeof(int)] = {};
-    int* p5 = new(one_field) int();
+    // char配列のスタック領域に、3要素のint型配列を動的に作成
+    char array_field[sizeof(int) * 3] = {};
+    int* p6 = new(array_field) int[3];
   }
   catch (std::bad_alloc& e) {
     std::cout << e.what() << std::endl;

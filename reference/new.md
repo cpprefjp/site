@@ -17,11 +17,11 @@
 
 ##関数
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------------------------------|-------------------------------------|-------|
-| [`get_new_handler`](./new/get_new_handler.md) | `new`失敗時に呼ばれる関数を取得する(function) | C++11 |
-| [`set_new_handler`](./new/set_new_handler.md) | `new`失敗時に呼ばれる関数を設定する(function) | |
-| [`new`](./new/op_new.md) | 動的に記憶域を確保する(function) | |
-| [`delete`](./new/op_delete.md) | 動的に確保した記憶域を解放する(function) | |
-
-
+| 名前                                          | 説明                                           | 対応バージョン |
+|-----------------------------------------------|------------------------------------------------|----------------|
+| [`get_new_handler`](./new/get_new_handler.md) | `new`失敗時に呼ばれる関数を取得する(function)  | C++11          |
+| [`set_new_handler`](./new/set_new_handler.md) | `new`失敗時に呼ばれる関数を設定する(function)  |                |
+| [`operator new`](./new/op_new.md)             | 動的に記憶域を確保する(function)               |                |
+| [`operator new[]`](./new/op_new[].md)         | 動的に配列の記憶域を確保する(function)         |                |
+| [`operator delete`](./new/op_delete.md)       | 動的に確保した記憶域を解放する(function)       |                |
+| [`operator delete[]`](./new/op_delete[].md)   | 動的に確保した配列の記憶域を解放する(function) |                |
