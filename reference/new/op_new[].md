@@ -4,13 +4,16 @@
 
 ```cpp
 // 単純な配列の記憶域の確保
-void* operator new[](std::size_t size);
+void* operator new[](std::size_t size) throw(std::bad_alloc);					// C++03 まで
+void* operator new[](std::size_t size);											// C++11 から
 
 // 単純な配列の記憶域の確保（例外をスローしない）
-void* operator new[](std::size_t size, const std::nothrow_t&) noexcept;
+void* operator new[](std::size_t size, const std::nothrow_t&) throw();			// C++03 まで
+void* operator new[](std::size_t size, const std::nothrow_t&) noexcept;			// C++11 から
 
 // 配置newによる配列の記憶域の確保
-void* operator new[](std::size_t size, void* ptr) noexcept;
+void* operator new[](std::size_t size, void* ptr) throw();						// C++03 まで
+void* operator new[](std::size_t size, void* ptr) noexcept;						// C++11 から
 ```
 * nothrow_t[link /reference/new/nothrow_t.md]
 

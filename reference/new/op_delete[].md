@@ -4,13 +4,18 @@
 
 ```cpp
 // 単純な配列の記憶域の解放
-void operator delete[](void* ptr) noexcept;
+void operator delete[](void* ptr) throw();												// C++03 まで
+void operator delete[](void* ptr) noexcept;												// C++11 から
+void operator delete[](void* ptr, std::size_t size) noexcept;							// C++14 から
 
 // 単純な配列の記憶域の解放（例外をスローしない）
-void operator delete[](void* ptr, const std::nothrow_t&) noexcept;
+void operator delete[](void* ptr, const std::nothrow_t&) throw();						// C++03 まで
+void operator delete[](void* ptr, const std::nothrow_t&) noexcept;						// C++11 から
+void operator delete[](void* ptr, std::size_t size, const std::nothrow_t&) noexcept;	// C++14 から
 
 // replacement-new による配列の記憶域の確保
-void operator delete[](void* ptr, void*) noexcept;
+void operator delete[](void* ptr, void*) throw();										// C++03 まで
+void operator delete[](void* ptr, void*) noexcept;										// C++11 から
 ```
 * nothrow_t[link /reference/new/nothrow_t.md]
 
