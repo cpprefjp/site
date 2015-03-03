@@ -116,3 +116,32 @@ Technical Specificationは、C++14に追加で導入する言語機能、およ�
 | 実行時サイズの配列           | 組み込み配列を、実行時の要素数で構築することを可能にする | 4.9 | No | No | No |
 
 
+##C++1z
+C++1zは、2017年に策定予定の、C++14に対するメジャーバージョンアップである。
+
+| 言語機能 | 説明 | GCC | Clang | ICC | MSVC |
+|----------|------|-----|-------|-----|------|
+| [メッセージなしの`static_assert`][n3928] | デフォルトの表明メッセージを使用する | No | 3.5 | No | No |
+| [トライグラフを削除][n4086] | | No | 3.5 | No | No |
+| [テンプレートテンプレートパラメータに`typename`を許可][n4051] | `class`キーワードしか使用できなかった部分に、`typename`を許可 | No | 3.5 | No | No |
+| [単一要素初期化子リストを`auto`で受け取った場合の型を変更][n3922] | `initializer_list<T>`だったのを`T`に変更 | No | No | No | No |
+| [畳み込み式][n4295] | パラメータパックに対する2項演算の集積処理 | No | 3.6 | No | No |
+| [UTF-8文字リテラル][n4267] | 文字列リテラルだけでなく、文字リテラルにもUTF-8指定できるようにする | No | 3.6 | No | No |
+| [入れ子名前空間の定義][n4230] | `namespace A::B {}`のように、入れ子の名前空間を簡単に定義できるようにする | No | 3.6 | No | No |
+| [名前空間と列挙子に属性の付加を許可][n4266] | 名前空間の定義と、列挙型の各要素の定義に、属性を付けられるようにする | No | 3.6 | No | No |
+| [非型テンプレートパラメータの定数式を評価する][n4268] | `nullptr`から任意の型のポインタへの変換等をテンプレート引数の指定時に行う | No | 3.6 | No | No |
+
+[n3928]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3928.pdf
+[n4086]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4086.html
+[n4051]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4051.html
+[n3922]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3922.html
+[n4295]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4295.html
+[n4267]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4267.html
+[n4230]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4230.html
+[n4266]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4266.html
+[n4268]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4268.html
+
+各処理系のC++1z実装状況ページ：
+
+- Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
+
