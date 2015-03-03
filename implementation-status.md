@@ -69,14 +69,14 @@ C++14は、C++11のバグフィックス + マイナーアップデートが予�
 
 | 言語機能                     | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |------------------------------|------|-----|-------|-----|------|
-| 2進数リテラル                | 2進数を表す`0b` or `0B`プレフィックスを付けた数値リテラルの記述を可能とする | 4.3(GNU)<br/> 4.9 | 3.2 | No | 14.0 |
-| 通常関数の戻り値型推論       | 関数の戻り値型を`auto`にすることで、`return`文から戻り値の型を推論させる | 4.8(partial)<br/>4.9 | 3.3(partial)<br/> 3.4 | No | 14.0 |
-| 汎用ラムダキャプチャ | キャプチャに代入構文を導入し、一つの変数に複数のキャプチャ方法を指定可能にする | 4.9 | 3.4 | No | 14.0 |
+| 2進数リテラル                | 2進数を表す`0b` or `0B`プレフィックスを付けた数値リテラルの記述を可能とする | 4.3(GNU)<br/> 4.9 | 3.2 | 11.0 | 14.0 |
+| 通常関数の戻り値型推論       | 関数の戻り値型を`auto`にすることで、`return`文から戻り値の型を推論させる | 4.8(partial)<br/>4.9 | 3.3(partial)<br/> 3.4 | 15.0 | 14.0 |
+| 汎用ラムダキャプチャ | キャプチャに代入構文を導入し、一つの変数に複数のキャプチャ方法を指定可能にする | 4.9 | 3.4 | 15.0 | 14.0 |
 | ジェネリックラムダ           | ラムダ式のパラメータを`auto`にすることで、ジェネリックな関数呼び出し演算子を持つ関数オブジェクトを生成する | 4.9 | 3.4 | No | 14.0 |
 | 変数テンプレート             | 変数定義時のテンプレート指定を可能にする。 | 5.0 | 3.4 | No | No |
 | `constexpr`の制限緩和        | `if`文、`switch`文による条件分岐の許可。<br/>`for`文、`while`文、`do-while`文によるループの許可。<br/>`void`戻り値型の許可<br/>初期化を伴う変数宣言の許可。<br/>変数書き換えの許可。 | 5.0 | 3.3(partial) | No | No |
 | 宣言時のメンバ初期化を持つ型の集成体初期化を許可 | | 5.0 | 3.3 | No | No |
-| `[[deprecated]]`属性         | 非推奨の機能であることを示す属性。 | 4.9 | 3.4 | No | No<br/>`__declspec(deprecated)` |
+| `[[deprecated]]`属性         | 非推奨の機能であることを示す属性。 | 4.9 | 3.4 | 15.0<br/> (Linux/Mac OS) | No<br/>`__declspec(deprecated)` |
 | 数値リテラルの桁区切り文字   | シングルクォーテーションで数値リテラルを桁区切りする。 | 4.9 | 3.4 | No | 14.0 |
 | サイズ付きデアロケーション   | サイズをとる`delete`演算子のオーバーロードを許可する。 | 5.0 | 3.4 | No | 14.(partial) |
 
@@ -89,6 +89,7 @@ C++14は、C++11のバグフィックス + マイナーアップデートが予�
 - libc++: [libc++ C++1Y Status](http://libcxx.llvm.org/cxx1y_status.html)
 - Visual C++: [C++11/14 Feature Tables For Visual Studio 14 CTP1 - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2014/06/11/c-11-14-feature-tables-for-visual-studio-14-ctp1.aspx)
 - [C++11/14/17 Features In VS 2015 Preview - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2014/11/17/c-11-14-17-features-in-vs-2015-preview.aspx)
+- ICC: [C++14 Features Supported by Intel C++ Compiler](https://software.intel.com/en-us/articles/c14-features-supported-by-intel-c-compiler)
 
 
 ##Technical Specificationの実装状況
