@@ -4,26 +4,9 @@
 ライブラリ機能については、本サイトのリファレンスで各機能を参照してもらいたい。
 
 
-MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付けは以下のようになっている：
-
-
-| MSVCのバージョン | 製品のバージョン |
-|------------------|------------------|
-| 6.0 | Visual Studio 6.0 |
-| 7.0 | Visual Studio .NET 2002 |
-| 7.1 | Visual Studio .NET 2003 |
-| 8.0 | Visual Studio 2005 |
-| 9.0 | Visual Studio 2008 |
-| 10.0 | Visual Studio 2010 |
-| 11.0 | Visual Studio 2012 |
-| 12.0 | Visual Studio 2013 |
-| 14.0 | Visual Studio 2015 |
-
-
-
 ##C++11言語機能の実装状況
 
-| 言語機能                         | 説明 | GCC | Clang | ICC | MSVC |
+| 言語機能                         | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------------------------------|------|-----|-------|-----|------|
 | `alignas`                        | アラインメント指定 | 4.8 | 3.0 | | 14.0<br/>7.1あるいはそれ以前からある`__declspec(align(x))`構文で代替可能。 |
 | `alignof`                        | アラインメント取得 | 4.5 | 3.3 | | 14.0<br/>7.1あるいはそれ以前よりある`__alignof`で代替可能。 |
@@ -84,7 +67,7 @@ MSVC(Microsoft Visual C++)のバージョン表記の、製品との対応付け
 ##C++14
 C++14は、C++11のバグフィックス + マイナーアップデートが予定されているバージョンである。
 
-| 言語機能                     | 説明 | GCC | Clang | ICC | MSVC |
+| 言語機能                     | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |------------------------------|------|-----|-------|-----|------|
 | 2進数リテラル                | 2進数を表す`0b` or `0B`プレフィックスを付けた数値リテラルの記述を可能とする | 4.3(GNU)<br/> 4.9 | 3.2 | No | 14.0 |
 | 通常関数の戻り値型推論       | 関数の戻り値型を`auto`にすることで、`return`文から戻り値の型を推論させる | 4.8(partial)<br/>4.9 | 3.3(partial)<br/> 3.4 | No | 14.0 |
@@ -111,7 +94,7 @@ C++14は、C++11のバグフィックス + マイナーアップデートが予�
 ##Technical Specificationの実装状況
 Technical Specificationは、C++14に追加で導入する言語機能、およびライブラリである。
 
-| 言語機能                     | 説明 | GCC | Clang | ICC | MSVC |
+| 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |------------------------------|------|-----|-------|-----|------|
 | 実行時サイズの配列           | 組み込み配列を、実行時の要素数で構築することを可能にする | 4.9 | No | No | No |
 
@@ -119,7 +102,7 @@ Technical Specificationは、C++14に追加で導入する言語機能、およ�
 ##C++1z
 C++1zは、2017年に策定予定の、C++14に対するメジャーバージョンアップである。
 
-| 言語機能 | 説明 | GCC | Clang | ICC | MSVC |
+| 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|
 | [メッセージなしの`static_assert`][n3928] | デフォルトの表明メッセージを使用する | No | 3.5 | No | No |
 | [トライグラフを削除][n4086] | | No | 3.5 | No | No |
@@ -144,4 +127,10 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 各処理系のC++1z実装状況ページ：
 
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
+
+
+[gcc]: ./implementation.md#gcc
+[clang]: ./implementation.md#clang
+[icc]: ./implementation.md#icc
+[msvc]: ./implementation.md#visual_cpp
 

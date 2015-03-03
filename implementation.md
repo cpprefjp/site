@@ -82,15 +82,15 @@ Visual C++ 2010 ではなく Visual C++ 10.0 と表記する。
 
 | 製品名               | バージョン      | 定数`_MSC_VER`の値 |
 |----------------------|-----------------|--------------------|
-| Visual C++ 2015      | Visual C++ 14.0 | 1900 |
-| Visual C++ 2013      | Visual C++ 12.0 | 1800 |
-| Visual C++ 2012      | Visual C++ 11.0 | 1700 |
-| Visual C++ 2010      | Visual C++ 10.0 | 1600 |
-| Visual C++ 2008      | Visual C++ 9.0  | 1500 |
-| Visual C++ 2005      | Visual C++ 8.0  | 1400 |
-| Visual C++ .NET 2003 | Visual C++ 7.1  | 1310 |
-| Visual C++ .NET 2002 | Visual C++ 7.0  | 1300 |
-| Visual C++ 6.0       | Visual C++ 6.0  | 1200 |
+| Visual C++ 2015      | 14.0 | 1900 |
+| Visual C++ 2013      | 12.0 | 1800 |
+| Visual C++ 2012      | 11.0 | 1700 |
+| Visual C++ 2010      | 10.0 | 1600 |
+| Visual C++ 2008      | 9.0  | 1500 |
+| Visual C++ 2005      | 8.0  | 1400 |
+| Visual C++ .NET 2003 | 7.1  | 1310 |
+| Visual C++ .NET 2002 | 7.0  | 1300 |
+| Visual C++ 6.0       | 6.0  | 1200 |
 
 
 
