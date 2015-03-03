@@ -1,4 +1,6 @@
 #stdexcept
+* stdexcept[meta header]
+
 `<stdexcept>`ヘッダは、標準的な例外クラスを提供する。  
 これらの例外クラスは、標準ライブラリ内でも使用されている。
 
