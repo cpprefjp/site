@@ -1,6 +1,5 @@
 #queue
 * queue[meta header]
-* std[meta namespace]
 
 `<queue>`ヘッダでは、FIFOキューのための`std::queue`クラス、および優先順位付きキューである`std::priority_queue`クラスを提供する。
 

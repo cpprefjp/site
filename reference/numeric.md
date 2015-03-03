@@ -1,7 +1,5 @@
 #numeric
 * numeric[meta header]
-* std[meta namespace]
-
 
 `<numeric>` ヘッダは数値のシーケンスの処理に特化したアルゴリズムを定義する。
 

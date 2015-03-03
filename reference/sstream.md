@@ -1,6 +1,5 @@
 #sstream
 * sstream[meta header]
-* std[meta namespace]
 
 `<sstream>`ヘッダでは、文字列オブジェクトを出力先・入力元とするストリームクラスを定義する。
 

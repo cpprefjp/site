@@ -1,6 +1,5 @@
 #cstddef
 * cstddef[meta header]
-* std[meta namespace]
 
 `<cstddef>`ヘッダでは基本的な型、値、マクロを定義する。
 

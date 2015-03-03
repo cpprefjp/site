@@ -1,6 +1,5 @@
 #functional
 * functional[meta header]
-* std[meta namespace]
 
 `<functional>`ヘッダは、関数オブジェクトに関する機能を提供する。
 

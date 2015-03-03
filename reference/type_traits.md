@@ -1,6 +1,5 @@
 #type_traits (C++11)
 * type_traits[meta header]
-* std[meta namespace]
 
 `<type_traits>`ヘッダでは、型の特性を判定、操作するためのクラスを定義する。
 このライブラリに含まれるクラステンプレートは、メタ関数(meta function)と呼ばれている。

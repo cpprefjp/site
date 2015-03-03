@@ -1,6 +1,5 @@
 #fstream
 * fstream[meta header]
-* std[meta namespace]
 
 `<fstream>`ヘッダでは、ファイルに対する入出力に関するクラスを提供する。
 

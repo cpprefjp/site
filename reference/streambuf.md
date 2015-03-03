@@ -1,6 +1,5 @@
 #streambuf
 * streambuf[meta header]
-* std[meta namespace]
 
 `<streambuf>`ヘッダでは、ストリームバッファを表すクラスを提供する。
 標準ライブラリにおいて、ストリームバッファはファイル・メモリなどへのアクセスを提供する層である。

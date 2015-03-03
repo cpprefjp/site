@@ -1,6 +1,5 @@
 #iostream
 * iostream[meta header]
-* std[meta namespace]
 
 `<iostream>`ヘッダは、標準入出力オブジェクトを提供する。
 

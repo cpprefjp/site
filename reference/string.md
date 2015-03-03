@@ -1,6 +1,5 @@
 #string
 * string[meta header]
-* std[meta namespace]
 
 `<string>`ヘッダでは、文字列に関するクラス、関数、文字特性を定義する。
 

@@ -1,6 +1,5 @@
 #atomic (C++11)
 * atomic[meta header]
-* std[meta namespace]
 
 `<atomic>`ヘッダでは、アトミック操作(atomic operation ： 不可分操作とも呼ばれる)のライブラリを提供する。
 

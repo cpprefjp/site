@@ -1,6 +1,5 @@
 #typeindex (C++11)
 * typeindex[meta header]
-* std[meta namespace]
 
 `<typeindex>`ヘッダでは、[`type_info`](/reference/typeinfo/type_info.md)を連想コンテナのインデックスで使用するための`type_index`クラスを定義する。
 

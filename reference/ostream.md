@@ -1,6 +1,5 @@
 #ostream
 * ostream[meta header]
-* std[meta namespace]
 
 `<ostream>`ヘッダでは、出力処理に関するクラスやマニピュレータ（の実体である関数）などが定義されている。
 

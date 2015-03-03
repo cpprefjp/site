@@ -1,6 +1,5 @@
 #locale
 * locale[meta header]
-* std[meta namespace]
 
 `<locale>`ヘッダでは、ローカライゼーション（地域化）に関するクラス・関数を定義する。このヘッダに含まれるクラス・関数は`std`名前空間で定義される。
 

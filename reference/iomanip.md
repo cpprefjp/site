@@ -1,6 +1,5 @@
 #iomanip
 * iomanip[meta header]
-* std[meta namespace]
 
 `<iomanip>`ヘッダでは、入出力に使用するフォーマットとマニピュレータの機能を定義する。
 

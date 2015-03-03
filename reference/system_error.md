@@ -1,6 +1,5 @@
 #system_error (C++11)
 * system_error[meta header]
-* std[meta namespace]
 
 `<system_error>`ヘッダでは、OSが出力するエラーを扱う機能を提供する。
 
