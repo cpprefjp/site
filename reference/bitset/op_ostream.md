@@ -1,7 +1,6 @@
 #operator<<
 * bitset[meta header]
 * std[meta namespace]
-* bitset[meta class]
 * function[meta id-type]
 
 ```cpp
