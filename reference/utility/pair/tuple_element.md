@@ -1,8 +1,7 @@
 #tuple_element (C++11)
 * utility[meta header]
 * std[meta namespace]
-* pair[meta class]
-* function[meta id-type]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

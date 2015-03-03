@@ -1,7 +1,6 @@
 #end (非メンバ関数) (C++11)
 * initializer_list[meta header]
 * std[meta namespace]
-* initializer_list[meta class]
 * function[meta id-type]
 
 ```cpp

@@ -1,7 +1,6 @@
 #operator== (C++11)
 * unordered_set[meta header]
 * std[meta namespace]
-* unordered_multiset[meta class]
 * function[meta id-type]
 
 ```cpp

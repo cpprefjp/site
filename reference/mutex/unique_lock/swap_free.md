@@ -1,7 +1,6 @@
 #swap (非メンバ関数) (C++11)
 * mutex[meta header]
 * std[meta namespace]
-* unique_lock[meta class]
 * function[meta id-type]
 
 ```cpp

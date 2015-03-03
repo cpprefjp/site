@@ -1,7 +1,6 @@
 #operator<<
 * valarray[meta header]
 * std[meta namespace]
-* valarray[meta class]
 * function[meta id-type]
 
 ```cpp

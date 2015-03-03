@@ -1,8 +1,7 @@
 #uses_allocator (C++11)
 * future[meta header]
 * std[meta namespace]
-* promise[meta class]
-* function[meta id-type]
+* class template[meta id-type]
 
 ```cpp
 namespace std {

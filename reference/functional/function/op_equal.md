@@ -1,7 +1,6 @@
 #operator== (C++11)
 * functional[meta header]
 * std[meta namespace]
-* function[meta class]
 * function[meta id-type]
 
 ```cpp

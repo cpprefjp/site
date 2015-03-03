@@ -1,7 +1,6 @@
 #operator<= (C++11)
 * tuple[meta header]
 * std[meta namespace]
-* tuple[meta class]
 * function[meta id-type]
 
 ```cpp

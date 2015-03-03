@@ -1,7 +1,6 @@
 #swap (非メンバ関数)
 * map[meta header]
 * std[meta namespace]
-* multimap[meta class]
 * function[meta id-type]
 
 ```cpp

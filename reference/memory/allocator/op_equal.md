@@ -1,7 +1,6 @@
 #operator==
 * memory[meta header]
 * std[meta namespace]
-* allocator[meta class]
 * function[meta id-type]
 
 ```cpp

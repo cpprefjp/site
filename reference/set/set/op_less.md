@@ -1,7 +1,6 @@
 #operator<
 * set[meta header]
 * std[meta namespace]
-* set[meta class]
 * function[meta id-type]
 
 ```cpp

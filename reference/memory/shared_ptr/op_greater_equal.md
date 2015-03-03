@@ -1,7 +1,6 @@
 #operator>= (C++11)
 * memory[meta header]
 * std[meta namespace]
-* shared_ptr[meta class]
 * function[meta id-type]
 
 ```cpp

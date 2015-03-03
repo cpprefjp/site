@@ -1,7 +1,6 @@
 #acos (C++11)
 * complex[meta header]
 * std[meta namespace]
-* complex[meta class]
 * function template[meta id-type]
 
 ```cpp

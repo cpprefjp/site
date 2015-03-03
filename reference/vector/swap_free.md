@@ -1,7 +1,6 @@
 #swap (非メンバ関数)
 * vector[meta header]
 * std[meta namespace]
-* vector[meta class]
 * function[meta id-type]
 
 ```cpp

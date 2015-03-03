@@ -1,7 +1,6 @@
 #operator< (非メンバ関数) (C++11)
 * regex[meta header]
 * std[meta namespace]
-* sub_match[meta class]
 * function[meta id-type]
 
 ```cpp

@@ -1,7 +1,6 @@
 #operator>> (C++11)
 * random[meta header]
 * std[meta namespace]
-* normal_distribution[meta class]
 * function[meta id-type]
 
 ```cpp

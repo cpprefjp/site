@@ -1,7 +1,6 @@
 #ifリテラル (C++14)
 * complex[meta header]
 * std::complex_literals[meta namespace]
-* complex[meta class]
 * function[meta id-type]
 
 ```cpp

@@ -1,7 +1,6 @@
 #get (C++11)
 * utility[meta header]
 * std[meta namespace]
-* pair[meta class]
 * function[meta id-type]
 
 ```cpp

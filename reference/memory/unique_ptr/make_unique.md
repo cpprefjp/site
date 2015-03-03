@@ -1,7 +1,6 @@
 #make_unique (C++14)
 * memory[meta header]
 * std[meta namespace]
-* unique_ptr[meta class]
 * function[meta id-type]
 
 ```cpp

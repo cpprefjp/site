@@ -1,7 +1,6 @@
 #swap (非メンバ関数) (C++11)
 * future[meta header]
 * std[meta namespace]
-* promise[meta class]
 * function[meta id-type]
 
 ```cpp

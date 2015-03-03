@@ -1,7 +1,6 @@
 #operator!=
 * stack[meta header]
 * std[meta namespace]
-* stack[meta class]
 * function[meta id-type]
 
 ```cpp
