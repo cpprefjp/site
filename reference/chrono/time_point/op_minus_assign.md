@@ -1,6 +1,7 @@
 #operator-= (C++11)
 * chrono[meta header]
 * std::chrono[meta namespace]
+* time_point[meta class]
 * function[meta id-type]
 
 ```cpp
