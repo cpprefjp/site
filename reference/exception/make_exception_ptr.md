@@ -9,6 +9,7 @@ namespace std {
   exception_ptr make_exception_ptr(E e) noexcept;
 }
 ```
+* exception_ptr[link ./exception_ptr.md]
 
 ##概要
 引数の例外オブジェクトを元に`exception_ptr`を生成する。
@@ -26,7 +27,7 @@ try {
 
 
 ##戻り値
-例外オブジェクト`e`を指す`exception_ptr`
+例外オブジェクト`e`を指す[`exception_ptr`](./exception_ptr.md)
 
 
 ##例外
