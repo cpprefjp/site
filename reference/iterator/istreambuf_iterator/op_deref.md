@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * istreambuf_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 CharT operator*() const

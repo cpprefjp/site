@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * istreambuf_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 bool equal(const istreambuf_iterator& b) const;

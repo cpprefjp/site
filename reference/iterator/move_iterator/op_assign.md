@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * move_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 template <class U> move_iterator& operator=(const move_iterator<U>& u);

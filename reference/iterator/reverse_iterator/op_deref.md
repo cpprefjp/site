@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * reverse_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 reference operator*() const;

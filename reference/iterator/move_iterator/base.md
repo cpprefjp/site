@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * move_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 Iterator base() const;

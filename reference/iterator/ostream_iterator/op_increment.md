@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * ostream_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 ostream_iterator& operator++();

@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * istream_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 const T& operator*() const;

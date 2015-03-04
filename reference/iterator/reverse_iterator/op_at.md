@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * reverse_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 unspecified operator[](typename reverse_iterator<Iterator>::difference_type n) const;

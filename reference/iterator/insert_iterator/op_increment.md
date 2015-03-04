@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * insert_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 insert_iterator& operator++();

@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * back_insert_iterator[meta class]
+* function[meta id-type]
 
 ```cpp
 namespace std {
