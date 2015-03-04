@@ -41,7 +41,7 @@ namespace std {
   binary_negate<Pred> not2(const Pred& pred); // C++98
 
   template <typename Pred>
-  binary_negate<Pred> not2(const Pred& pred); // C++14
+  constexpr binary_negate<Pred> not2(const Pred& pred); // C++14
 }
 ```
 
