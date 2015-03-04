@@ -15,11 +15,14 @@ namespace std {
 
 
 ##効果
-`try {`
-`  throw e;`
-`} catch(...) {`
-`  return current_exception();`
-`}`
+```cpp
+try {
+  throw e;
+} catch(...) {
+  return current_exception();
+}
+```
+* current_exception[link ./current_exception.md]
 
 
 ##戻り値
