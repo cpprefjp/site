@@ -76,23 +76,28 @@ void* operator new(std::size_t size, void* ptr) noexcept;				// (3) C++11 から
 ```cpp
 #include <iostream>
 #include <new>
+#include <complex>
 
 int main()
 {
+  using cl = std::complex<long double>;
+
   try {
-    // int型変数を動的に作成
-    // 確保失敗時にbad_alloc例外が送出される
-    int* p1 = new int();
+    // (1) cl 型変数を動的に作成
+    // 確保失敗時に bad_alloc 例外が送出される
+    cl* p1 = new cl();
     delete p1;
 
-    // int型変数を動的に作成
+    // (2) cl 型変数を動的に作成
     // 確保失敗時にヌルポインタが返される
-    int* p2 = new (std::nothrow) int();
+    cl* p2 = new (std::nothrow) cl();
     delete p2;
 
-    // char配列のスタック領域に、int型変数を動的に作成
-    char one_field[sizeof(int)] = {};
-    int* p5 = new(one_field) int();
+    // (3) char 配列のスタック領域に、cl 型変数を動的に作成
+    // 領域のアラインメントに注意
+    alignas(cl) char one_field[sizeof(cl)] = {};
+    int* p3 = new(one_field) cl();
+    p3->~cl();	// delete は使えないため、デストラクタを直接呼び出す
   }
   catch (std::bad_alloc& e) {
     std::cout << e.what() << std::endl;
@@ -100,6 +105,13 @@ int main()
   }
 }
 ```
+* iostream[link ../iostream.md]
+* new[link ../new.md]
+* complex[link ../complex.md]
+* nothrow[link nothrow_t.md]
+* bad_alloc[link bad_alloc.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 ###出力
 ```
