@@ -14,12 +14,12 @@ namespace std {
                   const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++14
   
   template <class CharT, class Traits, class Allocator>
-  bool operator!=(const charT* a,
+  bool operator!=(const CharT* a,
                   const basic_string<CharT, Traits, Allocator>& b); // (2)
   
   template <class CharT, class Traits, class Allocator>
   bool operator!=(const basic_string<CharT, Traits, Allocator>& a,
-                  const charT* b);                                  // (3)
+                  const CharT* b);                                  // (3)
 }
 ```
 
