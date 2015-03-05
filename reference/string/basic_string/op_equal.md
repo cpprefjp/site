@@ -4,21 +4,23 @@
 * function[meta id-type]
 
 ```cpp
-template <class CharT, class Traits, class Allocator>
-bool operator==(const basic_string<CharT, Traits, Allocator>& a,
-                const basic_string<CharT, Traits, Allocator>& b); // (1) C++11
-
-template <class CharT, class Traits, class Allocator>
-bool operator==(const basic_string<CharT, Traits, Allocator>& a,
-                const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++14
-
-template <class CharT, class Traits, class Allocator>
-bool operator==(const charT* a,
-                const basic_string<CharT, Traits, Allocator>& b); // (2)
-
-template <class CharT, class Traits, class Allocator>
-bool operator==(const basic_string<CharT, Traits, Allocator>& a,
-                const charT* b);                                  // (3)
+namespace std {
+  template <class CharT, class Traits, class Allocator>
+  bool operator==(const basic_string<CharT, Traits, Allocator>& a,
+                  const basic_string<CharT, Traits, Allocator>& b); // (1) C++11
+  
+  template <class CharT, class Traits, class Allocator>
+  bool operator==(const basic_string<CharT, Traits, Allocator>& a,
+                  const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++14
+  
+  template <class CharT, class Traits, class Allocator>
+  bool operator==(const charT* a,
+                  const basic_string<CharT, Traits, Allocator>& b); // (2)
+  
+  template <class CharT, class Traits, class Allocator>
+  bool operator==(const basic_string<CharT, Traits, Allocator>& a,
+                  const charT* b);                                  // (3)
+}
 ```
 
 ##概要

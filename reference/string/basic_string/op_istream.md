@@ -4,8 +4,12 @@
 * function[meta id-type]
 
 ```cpp
-template <class CharT, class Traits, class Allocator>
-basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, basic_string<CharT, Traits, Allocator>& str);
+namespace std {
+  template <class CharT, class Traits, class Allocator>
+  basic_istream<CharT, Traits>&
+    operator>>(basic_istream<CharT, Traits>& is,
+               basic_string<CharT, Traits, Allocator>& str);
+}
 ```
 
 ##概要

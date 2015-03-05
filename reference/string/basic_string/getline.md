@@ -1,29 +1,30 @@
 #getline
 * string[meta header]
 * std[meta namespace]
-* basic_string[meta class]
 * function[meta id-type]
 
 ```cpp
-template <class CharT, class Traits, class Allocator>
-basic_istream<CharT, Traits>&
-  getline(basic_istream<CharT, Traits>& is,
-          basic_string<CharT, Traits, Allocator>& str);              // (1)
-
-template <class CharT, class Traits, class Allocator>
-basic_istream<CharT, Traits>&
-  getline(basic_istream<CharT, Traits>&& is,
-          basic_string<CharT, Traits, Allocator>& str);              // (2) C++11から
-
-template <class CharT, class Traits, class Allocator>
-basic_istream<CharT, Traits>&
-  getline(basic_istream<CharT, Traits>& is,
-          basic_string<CharT, Traits, Allocator>& str, CharT delim); // (3)
-
-template <class CharT, class Traits, class Allocator>
-basic_istream<CharT, Traits>&
-  getline(basic_istream<CharT, Traits>&& is,
-          basic_string<CharT, Traits, Allocator>& str, CharT delim); // (4) C++11から
+namespace std {
+  template <class CharT, class Traits, class Allocator>
+  basic_istream<CharT, Traits>&
+    getline(basic_istream<CharT, Traits>& is,
+            basic_string<CharT, Traits, Allocator>& str);              // (1)
+  
+  template <class CharT, class Traits, class Allocator>
+  basic_istream<CharT, Traits>&
+    getline(basic_istream<CharT, Traits>&& is,
+            basic_string<CharT, Traits, Allocator>& str);              // (2) C++11から
+  
+  template <class CharT, class Traits, class Allocator>
+  basic_istream<CharT, Traits>&
+    getline(basic_istream<CharT, Traits>& is,
+            basic_string<CharT, Traits, Allocator>& str, CharT delim); // (3)
+  
+  template <class CharT, class Traits, class Allocator>
+  basic_istream<CharT, Traits>&
+    getline(basic_istream<CharT, Traits>&& is,
+            basic_string<CharT, Traits, Allocator>& str, CharT delim); // (4) C++11から
+}
 ```
 * basic_istream[link ../../istream/basic_istream.md]
 
