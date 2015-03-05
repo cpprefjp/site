@@ -4,18 +4,19 @@
 
 ```cpp
 // 単純な配列の記憶域の確保
-void* operator new[](std::size_t size) throw(std::bad_alloc);					// C++03 まで
-void* operator new[](std::size_t size);											// C++11 から
+void* operator new[](std::size_t size) throw(std::bad_alloc);					// (1) C++03 まで
+void* operator new[](std::size_t size);											// (1) C++11 から
 
 // 単純な配列の記憶域の確保（例外をスローしない）
-void* operator new[](std::size_t size, const std::nothrow_t&) throw();			// C++03 まで
-void* operator new[](std::size_t size, const std::nothrow_t&) noexcept;			// C++11 から
+void* operator new[](std::size_t size, const std::nothrow_t&) throw();			// (2) C++03 まで
+void* operator new[](std::size_t size, const std::nothrow_t&) noexcept;			// (2) C++11 から
 
 // 配置newによる配列の記憶域の確保
-void* operator new[](std::size_t size, void* ptr) throw();						// C++03 まで
-void* operator new[](std::size_t size, void* ptr) noexcept;						// C++11 から
+void* operator new[](std::size_t size, void* ptr) throw();						// (3) C++03 まで
+void* operator new[](std::size_t size, void* ptr) noexcept;						// (3) C++11 から
 ```
-* nothrow_t[link /reference/new/nothrow_t.md]
+* bad_alloc[link bad_alloc.md]
+* nothrow_t[link nothrow_t.md]
 
 
 ##概要
@@ -23,11 +24,19 @@ void* operator new[](std::size_t size, void* ptr) noexcept;						// C++11 から
 
 
 ##効果
-プログラムが動的に記憶域を確保する。
+- (1) [`operator new`](op_new.md)`(size)` を呼び出す。
+- (2) C++03 までと C++11 からで異なる。  
+	- C++03 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` を呼び出す。  
+	- C++11 から：(1) の形式を `operator new[](size)` で呼び出す。ただし、記憶域の確保に失敗しても例外をスローしない。
+- (3) 何もしない。
 
 
 ##戻り値
-確保した記憶域の先頭アドレスを指すポインタ。
+- (1) 確保した記憶域の先頭アドレスを指すポインタ（[`operator new`](op_new.md)`(size)` の戻り値）。
+- (2) 記憶域を確保できた場合、確保した記憶域の先頭アドレスを指すポインタ。確保できなかった場合、ヌルポインタ。
+	- C++03 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` の戻り値
+	- C++11 から：`operator new[](size)` の戻り値。ただし、`std::`[`bad_alloc`](bad_alloc.md) 例外がスローされた場合には、ヌルポインタ。
+- (3) 引数 `ptr`
 
 
 ##備考
