@@ -128,7 +128,7 @@ namespace std {
 | [`operator<=`](./set/op_greater_equal.md) | 左辺が右辺より小さいか等しいかの判定を行う | |
 | [`operator>`](./set/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
 | [`operator>=`](./set/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
-| `swap`                                    | 2つの`set`オブジェクトを入れ替える | |
+| [`swap`](./set/swap_free.md)              | 2つの`set`オブジェクトを入れ替える | |
 
 
 ##例
