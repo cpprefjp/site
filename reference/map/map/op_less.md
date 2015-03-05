@@ -4,8 +4,10 @@
 * function[meta id-type]
 
 ```cpp
-template <class Key, class T, class Compare, class Allocator>
-bool operator< (const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,Allocator>& y);
+namespace std {
+  template <class Key, class T, class Compare, class Allocator>
+  bool operator< (const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,Allocator>& y);
+}
 ```
 
 ##概要
