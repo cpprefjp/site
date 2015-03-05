@@ -18,6 +18,10 @@ void* operator new(std::size_t size, void* ptr) noexcept;				// C++11 から
 * nothrow_t[link /reference/new/nothrow_t.md]
 
 
+##概要
+単一オブジェクトのために動的に記憶域を確保する。
+
+
 ##効果
 プログラムが動的に記憶域を確保する。
 
