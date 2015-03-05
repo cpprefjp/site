@@ -4,9 +4,11 @@
 * function[meta id-type]
 
 ```cpp
-template <class Key, class T, class Hash, class Pred, class Alloc>
-bool operator!= (const unordered_multimap<Key,T,Hash,Pred,Alloc>& x,
-                 const unordered_multimap<Key,T,Hash,Pred,Alloc>& y );
+namespace std {
+  template <class Key, class T, class Hash, class Pred, class Alloc>
+  bool operator!= (const unordered_multimap<Key,T,Hash,Pred,Alloc>& x,
+                   const unordered_multimap<Key,T,Hash,Pred,Alloc>& y );
+}
 ```
 
 ##概要
