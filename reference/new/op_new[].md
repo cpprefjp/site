@@ -72,23 +72,43 @@ void* operator new[](std::size_t size, void* ptr) noexcept;						// (3) C++11 �
 ```cpp
 #include <iostream>
 #include <new>
+#include <complex>
 
 int main()
 {
+  using cl = std::complex<long double>;
+
   try {
-    // 3要素のint型配列を動的に作成
-    // 確保失敗時にbad_alloc例外が送出される
-    int* p3 = new int[3];
-    delete[] p3;
+    // (1) 3 要素の cl 型配列を動的に作成
+    // 確保失敗時に bad_alloc 例外が送出される
+    cl* p1 = new cl[3];
+    delete[] p1;
 
-    // 3要素のint型配列を動的に作成
+    // (2) 3 要素の cl 型配列を動的に作成
     // 確保失敗時にヌルポインタが返される
-    int* p4 = new (std::nothrow) int[3];
-    delete[] p4;
+    cl* p2 = new (std::nothrow) cl[3];
+    delete[] p2;	// 配置 delete と言うものはないので、通常の delete 式で記憶域を解放する
 
-    // char配列のスタック領域に、3要素のint型配列を動的に作成
-    char array_field[sizeof(int) * 3] = {};
-    int* p6 = new(array_field) int[3];
+    // (3) char 配列のスタック領域に、3 要素の cl 型配列を動的に作成
+    // ただし、危険なため、使用してはいけない
+    //alignas(cl[3]) char array_field[sizeof(cl) * 3] = {};
+    //cl* p3 = new(array_field) cl[3];
+    //for (std::size_t i = 3; i > 0; ) {	// ループでデストラクタを呼び出す
+    //  --i;
+    //  p3[i].~cl();
+    //}
+
+    // 参考 char 配列のスタック領域に、3 要素の cl 型配列を動的に作成
+    // (3) の形式ではなく、ループでオブジェクトを構築
+    alignas(cl[3]) char array_field[sizeof(cl) * 3] = {};
+    cl* p3 = reinterpret_cast<cl*>(array_field);
+    for (std::size_t i = 0; i < 3; ++i) {	// ループで配置 new を呼び出す
+      new(p3 + i) cl();
+    }
+    for (std::size_t i = 3; i > 0; ) {	// ループでデストラクタを呼び出す
+      --i;
+      p3[i].~cl();
+    }
   }
   catch (std::bad_alloc& e) {
     std::cout << e.what() << std::endl;
@@ -96,6 +116,13 @@ int main()
   }
 }
 ```
+* iostream[link ../iostream.md]
+* new[link ../new.md]
+* complex[link ../complex.md]
+* nothrow[link nothrow_t.md]
+* bad_alloc[link bad_alloc.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
 
 ###出力
 ```
