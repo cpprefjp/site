@@ -14,10 +14,10 @@ namespace std {
   double abs(Integral x);   // C++11
 }
 ```
-* Integral[Italic]
+* Integral[italic]
 
 ##概要
-浮動小数点数型の絶対値を求める。absはabsolute(「絶対的な」を意味する)の略。
+浮動小数点数型の絶対値を求める。abs は absolute value（絶対値）の略。
 
 
 ##戻り値
