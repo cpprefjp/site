@@ -1,7 +1,6 @@
 #HUGE_VAL
 * cmath[meta header]
-* std[meta namespace]
-* function[meta id-type]
+* macro[meta id-type]
 
 ```cpp
 #define HUGE_VAL implementation-defined

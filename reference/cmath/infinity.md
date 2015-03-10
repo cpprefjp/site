@@ -1,7 +1,6 @@
 #INFINITY
 * cmath[meta header]
-* std[meta namespace]
-* function[meta id-type]
+* macro[meta id-type]
 
 ```cpp
 #define INFINITY some_expression
