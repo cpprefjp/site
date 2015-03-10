@@ -8,7 +8,39 @@
 * integer_constant_expression[italic]
 
 ##概要
-浮動小数点数の非正規化数を表す整数定数式。
+浮動小数点数が非正規化数であることを表す整数定数式。
 
-非正規化数は、正規化数として表現するには小さすぎる値をいう。
+非正規化数とは、正規化数として表現するには小さすぎる値をいう。
 
+
+##備考
+このマクロの値は、[`fpclassify`](fpclassify.md) において、引数が非正規化数である場合に、戻り値として使用される。
+
+
+##例
+```cpp
+#include <iostream>
+#include <limits>
+#include <cmath>
+
+int main()
+{
+  std::cout << std::boolalpha;
+  std::cout << (std::fpclassify(std::numeric_limits<double>::denorm_min()) == FP_SUBNORMAL) << std::endl;
+}
+```
+* FP_SUBNORMAL[color ff0000]
+* iostream[link ../iostream.md]
+* limits[link ../limits.md]
+* cmath[link ../cmath.md]
+* cout[link ../iostream/cout.md]
+* endl[link ../ostream/endl.md]
+* boolalpha[link ../ios/boolalpha.md]
+* numeric_limits[link ../limits/numeric_limits.md]
+* denorm_min[link ../limits/numeric_limits/denorm_min.md]
+* fpclassify[link fpclassify.md]
+
+###出力例
+```
+true
+```
