@@ -20,9 +20,9 @@ namespace std {
   Promoted pow(ArithmeticOrComplex1 x, ArithmeticOrComplex2 y);	// (5) 追加のオーバーロード：C++11 から
 }
 ```
-* Promoted[Italic]
-* ArithmeticOrComplex1[Italic]
-* ArithmeticOrComplex2[Italic]
+* Promoted[italic]
+* ArithmeticOrComplex1[italic]
+* ArithmeticOrComplex2[italic]
 
 ##概要
 複素数値の累乗を得る。pow は power（累乗、指数）の略。
