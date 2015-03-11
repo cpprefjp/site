@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -19,9 +20,7 @@ namespace std {
 `linear_congruential_engine`クラスは、線形合同法による擬似乱数生成エンジンである。  
 前の擬似乱数と定数A、定数B、定数Mを保持し、以下の漸化式により次の擬似乱数を生成する。 
 
-
-![](https://raw.github.com/cpprefjp/image/master/reference/random/linear_congruential_engine/linear_congruential.png)
-
+$$X_{n+1}= (A \times X_n + C) mod M$$
 
 線形合同法は、以下の特徴を持つ：
 
