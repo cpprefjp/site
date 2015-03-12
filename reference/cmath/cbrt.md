@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -27,7 +28,7 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/cbrt/cbrt.png)
+$$ f(x) = \sqrt[3] x $$
 
 
 ##例

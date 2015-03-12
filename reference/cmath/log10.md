@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -32,7 +33,7 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/log10/log10.png)
+$$ f(x) = \log_{10} x $$
 
 
 ##例
@@ -78,5 +79,5 @@ log10(-1.0) = nan
 ##実装例
 [`log`](./log.md) があれば、以下のように変換することで求められる。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/log10/log10_formula.png)
+$$ \log_{10} x = \frac{\log_e x}{\log_e 10} \quad \mathrm{for} \; |x| < 1 $$
 

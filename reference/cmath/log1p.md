@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -33,7 +34,7 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/log1p/log1p.png)
+$$ f(x) = \log_e (1 + x) $$
 
 
 ##例
@@ -76,5 +77,3 @@ log1p(-2.0) = -nan
 ####備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 - GCC 4.6.1 以上
-
-

@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -29,7 +30,7 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/hypot/hypot.png)
+$$ f(x, y) = \sqrt{x^2 + y^2} $$
 
 
 ##例
@@ -73,5 +74,4 @@ hypot(+∞, NaN)  = inf
 ##実装例
 `sqrt` があれば、以下のように変換しても求められる。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/hypot/hypot_formula.png)
-
+$$ \sqrt{x^2 + y^2} = u \sqrt{1 + \left(\frac{v}{u}\right)^2} \quad \mathrm{for~all} \; (x, y), \; u = \max(x, y), \; v = \min(x, y) $$

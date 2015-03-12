@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -25,7 +26,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tanh/tanh.png)
+$$ f(x) = \tanh x $$
 
 
 ##例
@@ -67,9 +68,8 @@ tanh(1.0)  = 0.761594
 ##実装例
 `tanh` のマクローリン展開はベルヌーイ数が登場するため計算には向かない。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tanh/tanh_mac.png)
+$$ \tanh x = \sum_{n = 1}^{\infty} \frac{B_{2n}4^n(4^n - 1)}{(2n)!} x^{2n - 1} \quad \mathrm{for} \; |x| < \frac{\pi}{2} $$
 
 以下の公式から求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tanh/tanh_formula.png)
-
+$$ \tanh x = \frac{\sinh x}{\cosh x} $$

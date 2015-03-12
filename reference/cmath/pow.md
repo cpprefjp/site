@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -31,7 +32,7 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/pow/pow.png)
+$$ f(x, y) = x^y $$
 
 
 ##例
@@ -91,7 +92,7 @@ pow(2.0, -∞)  = 0.000000
 ##実装例
 `exp` および `log` があれば、以下のように変換することで求められる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/pow/pow_formula.png)
+$$ x^y = e^{y \log_e x} $$
 
 ただし `x` が負数かつ `y` が整数に等しい場合などについては、別に計算する必要がある。
 

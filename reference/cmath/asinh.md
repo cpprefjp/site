@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -27,7 +28,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asinh/asinh.png)
+$$ f(x) = \sinh^{-1} x $$
 
 
 ##例
@@ -67,10 +68,9 @@ asinh(1.0)  = 0.881374
 ##実装例
 マクローリン展開によって近似的に求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asinh/asinh_mac.png)
+$$ \sinh^{-1} x = \sum_{n = 0}^{\infty} \frac{(-1)^n (2n)!}{4^n (n!)^2 (2n + 1)} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 または対数に変換して求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asinh/asinh_log.png)
-
+$$ \sinh^{-1} x = \log_e \left(x + \sqrt{x^2+1}\right) \quad \mathrm{for~all} \; x $$

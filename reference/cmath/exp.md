@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -29,7 +30,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/exp/exp.png)
+$$ f(x) = e^x $$
 
 
 ##例
@@ -75,5 +76,4 @@ exp(-∞) = 0.000000
 ##実装例
 マクローリン展開によって近似的に求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/exp/exp_mac.png)
-
+$$ e^x = \sum_{n = 0}^{\infty} \frac{x^n}{n!} \quad \mathrm{for~all} \; x $$

@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -31,7 +32,7 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/log/log.png)
+$$ f(x) = \log_e x $$
 
 
 ##例
@@ -78,5 +79,4 @@ log(-1.0) = nan
 ##実装例
 マクローリン展開によって近似的に求めることができる。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/log/log_mac.png)
-
+$$ \log_e (1 + x) = \sum_{n = 1}^{\infty} \frac{(-1)^{n + 1}}{n} \quad \mathrm{for} \; | x | < 1 $$

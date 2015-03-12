@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -29,7 +30,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/acosh/acosh.png)
+$$ f(x) = \cosh^{-1} x $$
 
 
 ##例
@@ -67,5 +68,4 @@ acosh(∞)  = inf
 ##実装例
 対数に変換して求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/acosh/acosh_log.png)
-
+$$ \cosh^{-1} x = \log_e \left(x + \sqrt{x^2-1}\right) \quad \mathrm{for} \; 1 < x $$

@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -25,7 +26,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan/atan.png)
+$$ f(x) = \tan^{-1} x $$
 
 
 ##例
@@ -46,7 +47,7 @@ int main() {
 ```
 
 ###出力
-```cpp
+```
 atan(0.0)   = 0.000000
 atan(0.5)   = 0.463648
 atan(1/√2) = 0.615480
@@ -75,17 +76,16 @@ atan(∞)    = 1.570796
 ##実装例
 マクローリン展開によって近似的に求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan/atan_mac.png)
+$$ \tan^{-1} x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
-`|x| >= 1` の範囲、および `|x| → 1` 近傍の精度低下する領域においては、以下の公式による変換で求めることができる。
+$ |x| \ge 1 $ の範囲、および $ |x| \rightarrow 1 $ 近傍の精度低下する領域においては、以下の公式による変換で求めることができる。
 
-（特に `√2+1 < |x|` の場合）
+（特に $ \sqrt{2} + 1 < |x| $ の場合）
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan/atan_formula_1.png)
+$$ \tan^{-1} x = \frac{\pi}{2} - \tan^{-1} \frac{1}{x} \quad \mathrm{for~all} \; x $$
 
 
-（特に `√2-1 < |x| <= √2+1` の場合）
+（特に $ \sqrt{2} - 1 < |x| \le \sqrt{2} + 1 $ の場合）
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan/atan_formula_2.png)
-
+$$ \tan^{-1} x = \frac{\pi}{4} + \tan^{-1} \frac{x - 1}{x + 1} \quad \mathrm{for~all} \; x $$

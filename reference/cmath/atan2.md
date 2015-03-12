@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -29,7 +30,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan2/atan2.png)
+$$ f(y, x) = \tan^{-1} \frac{y}{x} $$
 
 引数の順番に注意されたし。
 
@@ -84,17 +85,11 @@ atan2(-1.0, 1.0)  = -0.785398
 ##実装例
 `[-π/2; π/2]` の範囲を返す `atan` があれば、引数の符号に応じて以下のように変換することで求められる。
 
-（`0 <= x` の場合）
-
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan2/atan2_formula_1.png)
-
-
-（`x < 0, 0 <= y <` の場合）
-
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan2/atan2_formula_2.png)
-
-
-（`x < 0, y < 0` の場合）
-
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atan2/atan2_formula_3.png)
-
+$$
+\tan^{-1} \frac{y}{x} =
+\begin{cases}
+\displaystyle \tan^{-1} \frac{y}{x}       & \quad \mathrm{for} \; 0 \le x \\[2ex]
+\displaystyle \tan^{-1} \frac{y}{x} + \pi & \quad \mathrm{for} \; x < 0, \; 0 \le y \\[2ex]
+\displaystyle \tan^{-1} \frac{y}{x} - \pi & \quad \mathrm{for} \; x < 0, \; y < 0
+\end{cases}
+$$

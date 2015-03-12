@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -29,7 +30,7 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/expm1/expm1.png)
+$$ f(x) = e^x - 1 $$
 
 
 ##例
@@ -65,8 +66,6 @@ expm1(-∞)  = -1.000000
 - [Clang](/implementation.md#clang): 2.9, 3.1
 - [GCC, C++0x mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 
-####備考
+	####備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 - GCC 4.6.1 以上
-
-

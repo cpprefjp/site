@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -27,7 +28,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/acos/acos.png)
+$$ f(x) = \cos^{-1} x $$
 
 
 ##例
@@ -77,10 +78,9 @@ acos(1.0)   = 0.000000
 ##実装例
 マクローリン展開によって近似的に求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/acos/acos_mac.png)
+$$ \cos^{-1} x = \frac{\pi}{2} - \sum_{n = 0}^{\infty}\frac{\left(2n\right)!}{4^n\left(n!\right)^2\left(2n + 1\right)}x^{2n+1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 上式は下記の公式に等しいため、`asin` から求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/acos/acos_formula.png)
-
+$$ \cos^{-1} x = \frac{\pi}{2} - \sin^{-1} x \quad \mathrm{for} \; |x| < 1 $$

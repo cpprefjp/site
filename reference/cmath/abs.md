@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -27,7 +28,7 @@ namespace std {
 
 
 ##備考
-- ![](https://github.com/cpprefjp/image/raw/master/reference/cmath/fabs/fabs.png)
+- $$ f(x) = | x | $$
 - 任意の整数型に対するオーバーロードが C++11 で追加されたが、ある種の問題を引き起こすことから、今後削除される可能性がある。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。
 
 

@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -29,7 +30,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/exp2/exp2.png)
+$$ f(x) = 2^x $$
 
 
 ##例
@@ -71,5 +72,4 @@ exp2(-∞) = 0.000000
 ##実装例
 `exp` があれば、以下のように変換することで求められる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/exp2/exp2_formula.png)
-
+$$ 2^x = e^{x \log_e 2} \quad \mathrm{for~all} \; x $$

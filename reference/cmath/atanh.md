@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -29,7 +30,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atanh/atanh.png)
+$$ f(x) = \tanh^{-1} x $$
 
 
 ##例
@@ -72,10 +73,9 @@ atanh(1.0)  = inf
 ##実装例
 マクローリン展開によって近似的に求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atanh/atanh_mac.png)
+$$ \tanh^{-1} x = \sum_{n = 0}^{\infty} \frac{1}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 または対数に変換して求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/atanh/atanh_log.png)
-
+$$ \tanh^{-1} x = \frac{1}{2} \log_e \frac{1 + x}{1 - x} \quad \mathrm{for} \; |x| < 1 $$

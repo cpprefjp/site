@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -27,7 +28,7 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/sqrt/sqrt.png)
+$$ f(x) = \sqrt{x} $$
 
 
 ##例
@@ -81,7 +82,6 @@ sqrt(-1.0) = -nan
 ##実装例
 ニュートン法によって漸化式の反復から近似的に求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/sqrt/sqrt_formula.png)
+$$ a_{n + 1} = \frac{\frac{x}{a_n} + a_n}{2} \quad \mathrm{for} \; x \geq 0 $$
 
 ただし `x` は引数、`a` の初期値は適当な値を選ぶものとする。
-

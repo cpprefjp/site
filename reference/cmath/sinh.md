@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -25,7 +26,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/sinh/sinh.png)
+$$ f(x) = \sinh x $$
 
 
 ##例
@@ -68,6 +69,4 @@ sinh(1.0)  = 1.175201
 ##実装例
 マクローリン展開によって近似的に求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/sinh/sinh_mac.png)
-
-
+$$ \sinh x = \sum_{n = 0}^{\infty} \frac{1}{(2n + 1)!} x^{2n + 1} \quad \mathrm{for~all} \; x $$

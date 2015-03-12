@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -25,7 +26,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tan/tan.png)
+$$ f(x) = \tan x $$
 
 
 ##例
@@ -73,10 +74,8 @@ tan(pi/2) = 3530114321217157.500000
 ##実装例
 `tan` のマクローリン展開はベルヌーイ数が登場するため計算には向かない。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tan/tan_mac.png)
+$$ \tan x = \sum_{n = 1}^{\infty} \frac{B_{2n}(-4)^n(1-4^n)}{(2n)!} x^{2n - 1} \quad \mathrm{for} \; |x| < \frac{\pi}{2} $$
 
 以下の公式から求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/tan/tan_formula.png)
-
-
+$$ \tan x = \frac{\sin x}{\cos x} $$

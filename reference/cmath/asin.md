@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -25,8 +26,7 @@ namespace std {
 
 
 ##備考
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asin/asin.png)
-
+$$ f(x) = \sin^{-1} x $$
 
 
 ##例
@@ -74,11 +74,9 @@ asin(1.0)   = 1.570796
 ##実装例
 マクローリン展開によって近似的に求めることができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asin/asin_mac.png)
+$$ \sin^{-1} x = \sum_{n = 0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
-`|x| → 1` 近傍の精度低下する領域（特に `1/√2 < |x| < 1` ）においては、以下の公式による変換で精度向上を図れる。
+$|x| \rightarrow 1$ 近傍の精度低下する領域（特に $1 / \sqrt{2} < |x| < 1$）においては、以下の公式による変換で精度向上を図れる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/cmath/asin/asin_formula.png)
-
-
+$$ \sin^{-1} x = \frac{\pi}{2} - \sin^{-1}\sqrt{1 - x^2} \quad \mathrm{for} \; |x| < 1 $$

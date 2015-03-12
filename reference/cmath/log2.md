@@ -2,6 +2,7 @@
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -31,7 +32,7 @@ namespace std {
 
 
 ##備考
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/log2/log2.png)
+$$ f(x) = \log_2 x $$
 
 
 ##例
@@ -73,5 +74,4 @@ log2(-1.0) = nan
 ##実装例
 [`log`](./log.md) があれば、以下のように変換することで求められる。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/cmath/log2/log2_formula.png)
-
+$$ \log_2 x = \frac{\log_e x}{\log_e 2} \quad \mathrm{for} \; |x| < 1 $$
