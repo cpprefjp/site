@@ -16,7 +16,7 @@ namespace std {
 正規分布([`normal_distribution`](./normal_distribution.md))と違い、平均も分散も定義されない、という特徴を持つ。  
 以下の密度関数に基いて、浮動小数点数の乱数を生成する：  
 
-$p(x|a,b) =  \big( \pi b \big(1+ \big( \frac{x-a}{b} \big) ^{2}  \big) \big) ^{-1}$
+$$ p(x|a,b) =  \big( \pi b \big(1+ \big( \frac{x-a}{b} \big) ^{2}  \big) \big) ^{-1} $$
 
 この密度関数において、aは分布の最頻値を与える位置母数(location parameter)、bは半値半幅を与える尺度母数(scale parameter)を意味する。  
 
