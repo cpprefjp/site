@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -15,9 +16,7 @@ namespace std {
 
 以下の確率密度関数に基いて、浮動小数点数の値`x`を生成する：
 
-
-![](https://github.com/cpprefjp/image/raw/master/reference/random/exponential_distribution/exponential.png)
-
+$$ p(x| \lambda ) = \lambda e^{^\lambda x} $$
 
 この数式におけるλ(lambda)は、ある事象が起こってから次にまた発生するまでの間隔を表す。
 
