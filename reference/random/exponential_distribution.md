@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ##概要
-`exponential_distribution`は、連続確率分布の一種である指数分布を表すクラスである。指数分布は、ガンマ分布([`exponential_distribution`](./exponential_distribution.md))の形状母数(scale parameter)を1.0とした特殊ケースとして定義される。  
+`exponential_distribution`は、連続確率分布の一種である指数分布を表すクラスである。指数分布は、ガンマ分布([`gamma_distribution`](./gamma_distribution.md))の形状母数(scale parameter)を1.0とした特殊ケースとして定義される。  
 
 以下の確率密度関数に基いて、浮動小数点数の値`x`を生成する：
 
