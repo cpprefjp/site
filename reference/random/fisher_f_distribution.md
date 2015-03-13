@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -13,9 +14,7 @@ namespace std {
 ##概要
 `fisher_f_distribution`は、連続確率分布の一種である、フィッシャーのF分布を生成するクラスである。以下の密度関数に基いて、浮動小数点数の乱数を生成する：  
 
-
-![](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/fisher_f.png)
-
+$$ p(x|m,n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \bullet \big(\frac{m}{n} \big) ^{m/2} \bullet x^{(m/2)-1} \bullet \big( 1 + \frac{mx}{n} \big) ^{-(m+n)/2} $$
 
 この密度関数におけるmとnは、自由度(degrees of freedom)を意味し、2つの独立したカイ二乗分布を除算したものを結果として生成する。
 
