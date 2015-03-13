@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
