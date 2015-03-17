@@ -14,7 +14,7 @@ namespace std {
 ##概要
 `normal_distribution`は、平均μ、標準偏差σの正規分布にしたがった乱数を生成するクラスである。
 
-$$ p(x| \mu , \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \bullet exp \big( - \frac{(x - \mu)^{2}}{2 \sigma ^{2}} \big) $$
+$$ p(x| \mu , \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \cdot exp \big( - \frac{(x - \mu)^{2}}{2 \sigma ^{2}} \big) $$
 
 正規分布は、釣り鐘型の分布で、平均値を中心に、左右(マイナスとプラス)に値が分散する。平均値付近が最も出現確率が高く、標準偏差の値を基準として、左右に離れるほど出現確率が低くなる。
 

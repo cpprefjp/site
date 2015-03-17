@@ -15,7 +15,7 @@ namespace std {
 `gamma_distribution`は、連続確率分布の一種であるガンマ分布を表すクラスである。  
 以下の密度関数に基いて、浮動小数点数の値`x`を生成する：
 
-$$ p(x|\alpha,\beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \bullet \Gamma(\alpha) } \bullet x^{\alpha -1} $$
+$$ p(x|\alpha,\beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\alpha) } \cdot x^{\alpha -1} $$
 
 この数式におけるα(alpha)は形状母数(shape parameter)を意味し、β(beta)は尺度母数(scale parameter)を意味する。  
 形状母数に正の整数を与えれば、アーラン分布(Erlang distribution)としても使用できる。  

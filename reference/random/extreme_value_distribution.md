@@ -15,7 +15,7 @@ namespace std {
 `extreme_value_distribution`は、連続確率分布の一種である極値分布を表すクラスである。  
 以下の密度関数に基いて、浮動小数点数の値を生成する：  
 
-$$ p(x|a,b) =  \frac{1}{b}  \bullet  \big(\frac{a-x}{b} - exp  \big(\frac{a-x}{b}\big) \big) $$
+$$ p(x|a,b) =  \frac{1}{b}  \cdot  \big(\frac{a-x}{b} - exp  \big(\frac{a-x}{b}\big) \big) $$
 
 この数式におけるaは位置パラメータ(location parameter)、bは尺度パラメータ(scale parameter)を表す。
 

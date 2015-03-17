@@ -14,7 +14,7 @@ namespace std {
 ##概要
 `student_t_distribution`は、連続確率分布の一種である、ステューデントのt分布を生成する。以下の密度関数に基いて、浮動小数点数の乱数を生成する：
 
-$$ p(x|n) = \frac{1}{\sqrt{n\pi}} \bullet \frac{\Gamma((n+1)/2)}{\Gamma(n/2)} \bullet \big( 1 + \frac{x^{2}}{n} \big) ^ {-(n+1)/2} $$
+$$ p(x|n) = \frac{1}{\sqrt{n\pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)} \cdot \big( 1 + \frac{x^{2}}{n} \big) ^ {-(n+1)/2} $$
 
 この密度関数において、nは自由度を意味する。
 

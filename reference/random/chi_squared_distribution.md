@@ -14,7 +14,7 @@ namespace std {
 ##概要
 `chi_squared_distribution`は、乱数をカイ二乗分布(χ二乗分布、χ²分布)させるクラスである。以下の密度関数に基いて、浮動小数点数の乱数を生成する。  
 
-$$ p(x|n) =  \frac{x^{(n/1)-1} \bullet e^{-x/2}}{ \Gamma (n/2) \bullet 2^{n/2}} $$
+$$ p(x|n) =  \frac{x^{(n/1)-1} \cdot e^{-x/2}}{ \Gamma (n/2) \cdot 2^{n/2}} $$
 
 この密度関数において、nは自由度(degrees of freedom)を意味する。  
 
