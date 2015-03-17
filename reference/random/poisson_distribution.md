@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -14,8 +15,7 @@ namespace std {
 `poisson_distribution`は、離散確率分布の一種であるポワソン分布を表すクラスである。  
 以下の密度関数に基いて、ランダムな整数を生成する：
 
-
-![](https://github.com/cpprefjp/image/raw/master/reference/random/poisson_distribution/poisson.png)
+$$ p(x| \mu ) = \frac{e^{- \mu} \mu ^{i} }{i!} $$
 
 
 この数式におけるμ(mu)は、平均値(mean)を意味する。
