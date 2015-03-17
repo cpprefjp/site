@@ -2,6 +2,7 @@
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -15,9 +16,7 @@ namespace std {
 ワイブル分布は、物体の劣化、寿命、強度、破壊といったものを記述するために考案された分布法である。  
 ワイブル分布は、以下の密度関数に基いて、浮動小数点数の値を生成する：
 
-
-![](https://github.com/cpprefjp/image/raw/master/reference/random/weibull_distribution/weibull.png)
-
+$$ p(x|a,b) = \frac{a}{b} \bullet \big( \frac{x}{b}^{a-1} \big) \bullet exp \big( - \big( \frac{x}{b}^{a} \big) \big) $$
 
 この数式におけるaはワイブル係数(形状パラメータ : shape parameter)を意味し、bは尺度パラメータ(scale parameter)を意味する。
 
