@@ -8,13 +8,12 @@ namespace std {
   template <class T> class tuple_size; // 先行宣言
 
   // C++11
-  class tuple_size<pair<T1, T2>> {
-  public:
+  struct tuple_size<pair<T1, T2>> {
     static constexpr size_t value = 2;
   };
 
   // C++14
-  class tuple_size<pair<T1, T2>>
+  struct tuple_size<pair<T1, T2>>
     : public integral_constant<size_t, 2> {};
 }
 ```
