@@ -20,7 +20,8 @@ namespace std {
 * integral_constant[link /reference/type_traits/integral_constant-true_type-false_type.md]
 
 ##概要
-`tuple_size`は、タプルとして見なせる型の要素数を取得するためのクラスである。 
+`tuple_size`は、タプルとして見なせる型の要素数を取得するためのクラスである。
+
 要素数は、[`integral_constant`](/reference/type_traits/integral_constant-true_type-false_type.md)の機能を利用してコンパイル時の定数値として取得できる。
 
 - `template <class T> class tuple_size;`
