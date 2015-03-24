@@ -7,6 +7,12 @@
 namespace std {
   template <class T> class tuple_size; // 先行宣言
 
+  // C++11
+  class tuple_size<pair<T1, T2>> {
+    static constexpr size_t value = 2;
+  };
+
+  // C++14
   class tuple_size<pair<T1, T2>>
     : public integral_constant<size_t, 2> {};
 }
@@ -51,5 +57,5 @@ int main()
 
 
 ##参照
-
+- [LWG Issue 2313. `tuple_size` should always derive from `integral_constant<size_t, N>`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2313)
 
