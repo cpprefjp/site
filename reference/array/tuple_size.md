@@ -7,6 +7,13 @@
 namespace std {
   template <class T> class tuple_size; // 先行宣言
 
+  // C++11
+  template <class T, size_t N>
+  struct tuple_size<array<T, N>> {
+    static constexpr size_t value = N;
+  };
+
+  // C++14
   template <class T, size_t N>
   struct tuple_size<array<T, N>>
     : integral_constant<size_t, N> {};
@@ -16,6 +23,7 @@ namespace std {
 
 ##概要
 `tuple_size`は、タプルとして見なせる型の要素数を取得するためのクラスである。
+
 要素数は、[`integral_constant`](/reference/type_traits/integral_constant-true_type-false_type.md)の機能を利用してコンパイル時の定数値として取得できる。
 
 `<array>`ヘッダでは、[`array`](/reference/array.md)クラスに関する特殊化を定義する。
@@ -51,4 +59,5 @@ int main()
 
 
 ##参照
+- [LWG Issue 2313. `tuple_size` should always derive from `integral_constant<size_t, N>`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2313)
 
