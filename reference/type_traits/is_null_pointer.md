@@ -1,4 +1,4 @@
-#is_null_pointer (C++11)
+#is_null_pointer (C++14)
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
