@@ -19,6 +19,7 @@
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|---------------------------------------------------------|-------|
 | [`is_void`](./type_traits/is_void.md)                         | 型が`void`型か調べる (class template) | C++11 |
+| [`is_null_pointer`](./type_traits/is_null_pointer.md)         | 型が`nullptr_t`型か調べる (class template) | C++14 |
 | [`is_integral`](./type_traits/is_integral.md)                 | 型が整数型か調べる (class template) | C++11 |
 | [`is_floating_point`](./type_traits/is_floating_point.md)     | 型が浮動小数点型か調べる (class template) | C++11 |
 | [`is_array`](./type_traits/is_array.md)                       | 型が配列型か調べる (class template) | C++11 |
