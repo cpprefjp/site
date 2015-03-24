@@ -9,6 +9,7 @@ namespace std {
 
   // C++11
   class tuple_size<pair<T1, T2>> {
+  public:
     static constexpr size_t value = 2;
   };
 
