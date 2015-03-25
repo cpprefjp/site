@@ -5,15 +5,21 @@
 * function[meta id-type]
 
 ```cpp
-atomic() noexcept = default;
-constexpr atomic(T desired) noexcept;
+atomic() noexcept = default;          // (1)
+constexpr atomic(T desired) noexcept; // (2)
 
-atomic(const atomic&) = delete;
+atomic(const atomic&) = delete;       // (3)
 ```
 
-##atomicオブジェクトの構築
-- `atomic() noexcept`<br/>デフォルトコンストラクタ。`atomic`オブジェクトを未初期化状態にする(C言語との互換性のため)
-- `constexpr atomic(T desired)`<br/>`desired`でオブジェクトを初期化する。この初期化はアトミック操作ではない。
+##概要
+- (1) : デフォルトコンストラクタ。
+- (2) : `desired`でオブジェクトを初期化する。
+- (3) : コピーコンストラクタ。コピー不可。これによって、ムーブ構築も不可となる。
+
+
+##効果
+- (1) : `atomic`オブジェクトを未初期化状態にする(C言語との互換性のため)
+- (2) : パラメータ`desired`の値を、メンバ変数として保持する。この初期化はアトミック操作ではないことに注意。
 
 
 ##例外
