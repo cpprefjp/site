@@ -7,35 +7,6 @@
 namespace std {
   template <class R, class T>
   unspecified mem_fn(R T::* pm);
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...));
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) const);
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) volatile);
-
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) const volatile);
-
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) &);
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) const &);
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) volatile &);
-
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) const volatile &);
-
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) &&);
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) const &&);
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) volatile &&);
-
-  template <class R, class T, class... Args>
-  unspecified mem_fn(R (T::* pm)(Args...) const volatile &&);
 }
 ```
 * unspecified[italic]
@@ -96,4 +67,9 @@ true
 - [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+##参照
+- [LWG Issue 2048. Unnecessary `mem_fn` overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2048)
+    - 不必要なオーバーロードを、C++14で削除
 
