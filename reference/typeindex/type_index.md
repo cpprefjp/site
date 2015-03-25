@@ -28,6 +28,14 @@ namespace std {
 | [`name`](./type_index/name.md)                    | 型名を取得する                     | C++11          |
 
 
+##ハッシュサポート
+
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------|------------------------------------------|-------|
+| `template <class T> struct hash;`      | `hash`クラスの先行宣言                   | C++11 |
+| `template <> struct hash<type_index>;` | `hash`クラスの`type_index`に対する特殊化 | C++11 |
+
+
 ###例
 ```cpp
 #include <iostream>

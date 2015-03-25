@@ -169,6 +169,14 @@ public:
 }
 ```
 
+###ハッシュサポート
+
+| 名前 | 説明 | 対応バージョン |
+|--------------------------------------------------------------------|------------------------------------------|-------|
+| `template <class T> struct hash;`                                  | `hash`クラスの先行宣言                   | C++11 |
+| `template <class Allocator> struct hash<vector<bool, Allocator>>;` | `hash`クラスの`vector<bool>`に対する特殊化 | C++11 |
+
+
 ###`vector<bool>`の基本操作：
 ```cpp
 #include <iostream>
