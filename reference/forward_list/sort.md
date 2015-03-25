@@ -18,10 +18,9 @@ template <class Compare> void sort(Compare comp);
 
 
 ##効果
-型`T`の`operator<`もしくは`comp`に基いてコンテナの要素を並べ替える。  
-  
-この操作は安定である。同値要素の順序は保持される。  
-この操作は、イテレータと参照の有効性に影響しない。  
+型`T`の`operator<`もしくは`comp`に基いてコンテナの要素を並べ替える。
+
+この操作は、イテレータと参照の有効性に影響しない。
 
 
 ##戻り値
@@ -30,6 +29,10 @@ template <class Compare> void sort(Compare comp);
 
 ##計算量
 [`distance`](/reference/iterator/distance.md)([`begin`](/reference/forward_list/begin.md)`(), `[`end`](/reference/forward_list/end.md)`())`を`N`として、約`N logN`回の比較
+
+
+##備考
+この操作は安定である。同値要素の順序は保持される。
 
 
 ##例
@@ -70,5 +73,6 @@ int main()
 
 
 ##参照
+- [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
 
 

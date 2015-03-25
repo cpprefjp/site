@@ -20,7 +20,8 @@ template <class Compare> void merge(forward_list&& x, Compare comp);
 
 
 ##効果
-`x`を`*this`にマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。  
+2つのソート済み範囲`[begin(), end())`と`[x.begin(), x.end())`をマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。
+
 マージ後、`x`の要素に対するイテレータおよび参照は無効にならない。
 
 
@@ -81,5 +82,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 ##参照
-
+- [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
 
