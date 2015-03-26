@@ -124,3 +124,6 @@ lower_bound(ForwardIterator first, ForwardIterator last, const T& value)
 * distance[link ../iterator/distance.md]
 * advance[link ../iterator/advance.md]
 * iterator_traits[link ../iterator/iterator_traits.md]
+
+##参照
+- [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)

@@ -101,3 +101,6 @@ ForwardIterator1 search(ForwardIterator1 first1, ForwardIterator1 last1,
 }
 ```
 
+
+##参照
+- [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
