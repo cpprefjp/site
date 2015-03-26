@@ -48,7 +48,7 @@ packaged_task(packaged_task&& rhs) noexcept;       // (5)
 
 ##備考
 - (2), (3) :
-    - C++14 : [`std::decay`](/reference/type_traits/decay.md)`<F>::type`が`std::thread`型である場合、この関数はオーバーロード解決に参加しない。
+    - C++14 : [`std::decay`](/reference/type_traits/decay.md)`<F>::type`が`std::packaged_task<R(ArgTypes...)>`型である場合、この関数はオーバーロード解決に参加しない。
 
 
 ##例
