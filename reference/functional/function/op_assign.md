@@ -32,6 +32,11 @@ function& operator=(reference_wrapper<F> f) noexcept; // (5)
 - (5) : 投げない
 
 
+##備考
+- (4) :
+    - C++14 : `typename` [`decay`](/reference/type_traits/decay.md)`<F>::type`型の関数オブジェクトが、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返さない場合、この関数はオーバーロード解決から除外される。
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -69,4 +74,6 @@ int main()
 
 
 ##参照
+- [LWG Issue 2132. `std::function` ambiguity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132)
+    - C++14から、(4)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。
 
