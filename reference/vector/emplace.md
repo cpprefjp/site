@@ -7,6 +7,9 @@
 ```cpp
 template <class... Args>
 iterator emplace(const_iterator position, Args&&... args);
+
+template <class... Args>
+iterator vector<bool>::emplace(const_iterator position, Args&&... args); // C++14
 ```
 
 ##概要
@@ -76,3 +79,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 12.0
 
 
+##参照
+- [LWG Issue 2187. `vector<bool>` is missing emplace and `emplace_back` member functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2187)

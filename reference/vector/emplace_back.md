@@ -7,6 +7,9 @@
 ```cpp
 template <class... Args>
 void emplace_back(Args&&... args);
+
+template <class... Args>
+void vector<bool>::emplace_back(Args&&... args); // C++14
 ```
 
 ##概要
@@ -65,4 +68,8 @@ int main()
 - [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 12.0
+
+
+##参照
+- [LWG Issue 2187. `vector<bool>` is missing emplace and `emplace_back` member functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2187)
 
