@@ -22,7 +22,6 @@ void resize(size_type sz, T c = T());  // (1) + (2) C++03
 
 - (2) :
     - 型`T`が`*this`に対してコピー挿入可能であること (C++14)
-    - 型`T`が`*this`に対してムーブ挿入可能であること (C++14)
 
 
 ##効果
@@ -103,4 +102,5 @@ int main()
 
 ##参照
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
+- [LWG Issue 2323. `vector::resize(n, t)`'s specification should be simplified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2323)
 
