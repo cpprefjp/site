@@ -24,6 +24,7 @@
 | `FLT_MAX_EXP`                                    | | |
 | [`FLT_MIN`](./cfloat/flt_min.md)                 | `float`の正の正規化数のうち最小のもの | |
 | [`FLT_MIN_10_EXP`](./cfloat/flt_min_10_exp.md)   | 10の`n`乗が`float`の正の正規化数の最小値以上であるような`n`の最小値 | |
+| `FLT_MIN_EXP`                                    | | |
 | `FLT_RADIX`                                      | | |
 | `FLT_ROUNDS`                                     | | |
 | [`LDBL_DIG`](./cfloat/ldbl_dig.md)               | `n`桁の10進数を`long double`に変換し、また元に戻した場合に値が変わらないような`n`のうち最大のもの | |
@@ -35,5 +36,3 @@
 | [`LDBL_MIN`](./cfloat/ldbl_min.md)               | `long double`の正の正規化数のうち最小のもの | |
 | [`LDBL_MIN_10_EXP`](./cfloat/ldbl_min_10_exp.md) | 10の`n`乗が`long double`の正の正規化数の最小値以上であるような`n`の最小値 | |
 | `LDBL_MIN_EXP`                                   | | |
-
-
