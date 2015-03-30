@@ -19,7 +19,8 @@ namespace std {
 
 
 ##効果
-[`distance`](/reference/iterator/distance.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`()) == `[`distance`](/reference/iterator/distance.md)`(y.`[`begin`](./begin.md)`(), y.`[`end`](./end.md)`()) && `[`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`());`
+- C++03 : [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`()) == `[`distance`](/reference/iterator/distance.md)`(y.`[`begin`](./begin.md)`(), y.`[`end`](./end.md)`()) && `[`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`());`
+- C++14 : [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`());`
 
 
 ##戻り値
@@ -58,4 +59,8 @@ true
 false
 ```
 
+
+##参照
+- [LWG Issue 2257. Simplify container requirements with the new algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2257)
+    - C++14から、2つ目の範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
 
