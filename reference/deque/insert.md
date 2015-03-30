@@ -47,7 +47,7 @@ iterator insert(const_iterator position, initializer_list<T> init);
 
 
 ##計算量
-挿入する要素の数に対して線形時間（コンストラクタ）。加えて、`position`と`deque`終端との間の要素の数に対して、ライブラリの実装依存で線形時間で増加する。
+挿入する要素の数に対して線形時間（コピー・ムーブコンストラクタの呼び出し）。加えて、`position`と`deque`終端との間の要素の数に対して、ライブラリの実装依存で線形時間で増加する。
 
 
 ##例
