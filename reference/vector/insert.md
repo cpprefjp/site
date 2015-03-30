@@ -10,14 +10,14 @@ iterator insert(const_iterator position, const T& x);             // (1) C++11
 
 iterator insert(const_iterator position, T&& x);                  // (2) C++11
 
-iterator insert(iterator position,
-                size_type n, const T& x);                         // (3) C++03
+void insert(iterator position,
+            size_type n, const T& x);                             // (3) C++03
 iterator insert(const_iterator position,
                 size_type n, const T& x);                         // (3) C++11
 
 template <class InputIterator>
-iterator insert(iterator position,
-                InputIterator first, InputIterator last);         // (4) C++03
+void insert(iterator position,
+            InputIterator first, InputIterator last);             // (4) C++03
 template <class InputIterator>
 iterator insert(const_iterator position,
                 InputIterator first, InputIterator last);         // (4) C++11
