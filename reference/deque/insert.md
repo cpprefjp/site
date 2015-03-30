@@ -5,19 +5,24 @@
 * function[meta id-type]
 
 ```cpp
-// C++03まで
-iterator insert(iterator position, const T& x);
-void insert(iterator position, size_type n, const T& x);
-template <class InputIterator>
-void insert(iterator position, InputIterator first, InputIterator last);
+iterator insert(iterator position, const T& x);                     // (1) C++03
+iterator insert(const_iterator position, const T& x);               // (1) C++11
 
-// C++11以降
-iterator insert(const_iterator position, const T& x);
-iterator insert(const_iterator position, T&& y);
-iterator insert(const_iterator position, size_type n, const T& x);
+iterator insert(const_iterator position, T&& y);                    // (2) C++11
+
+void insert(iterator position,
+            size_type n, const T& x);                               // (3) C++03
+iterator insert(const_iterator position,
+                size_type n, const T& x);                           // (3) C++11
+
 template <class InputIterator>
-iterator insert(const_iterator position, InputIterator first, InputIterator last);
-iterator insert(const_iterator position, initializer_list<T> init);
+void insert(iterator position,
+            InputIterator first, InputIterator last);               // (4) C++11
+template <class InputIterator>
+iterator insert(const_iterator position,
+                InputIterator first, InputIterator last);           // (4) C++11
+
+iterator insert(const_iterator position, initializer_list<T> init); // (5) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
