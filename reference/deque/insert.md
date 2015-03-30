@@ -50,6 +50,10 @@ iterator insert(const_iterator position, initializer_list<T> init);
 挿入する要素の数に対して線形時間（コピー・ムーブコンストラクタの呼び出し）。加えて、`position`と`deque`終端との間の要素の数に対して、ライブラリの実装依存で線形時間で増加する。
 
 
+##備考
+- もし、例外が発生した場合には、挿入操作中の単一要素については副作用が発生しない。（コピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入、および、InputIterator操作で例外が発生した場合を除く。）もし、非CopyInsertableな型Tのムーブコンストラクタで例外が発生した場合、副作用は未規定。
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -79,6 +83,8 @@ int main()
 
 ##参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
+- [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
+    - C++11までは「もし、例外が発生した場合には、副作用が発生しない。」という保証があったが、これは全要素の挿入を巻き戻すという強すぎる保証であるため、C++14で「もし、例外が発生した場合には、 **挿入操作中の単一要素については** 副作用が発生しない。」と修正。
 
 
 ##関連項目

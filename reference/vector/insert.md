@@ -38,7 +38,8 @@ iterator insert(const_iterator position, initializer_list<T> il); // (5) C++11
 
 
 ##備考
-要素を追加した後の[`size()`](./size.md)が要素を追加する前の[`capacity()`](./capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じなかった場合には全てのイテレーターや参照は有効である。もし、例外が発生した場合には副作用が発生しない。（コピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入、および、InputIterator操作で例外が発生した場合を除く。）もし、非CopyInsertableな型Tのムーブコンストラクタで例外が発生した場合、副作用は未規定。
+- 要素を追加した後の[`size()`](./size.md)が要素を追加する前の[`capacity()`](./capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じなかった場合には全てのイテレーターや参照は有効である。
+- もし、例外が発生した場合には、挿入操作中の単一要素については副作用が発生しない。（コピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入、および、InputIterator操作で例外が発生した場合を除く。）もし、非CopyInsertableな型Tのムーブコンストラクタで例外が発生した場合、副作用は未規定。
 
 
 ##例
@@ -112,4 +113,6 @@ ccc
 
 ##参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
+- [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
+    - C++11までは「もし、例外が発生した場合には、副作用が発生しない。」という保証があったが、これは全要素の挿入を巻き戻すという強すぎる保証であるため、C++14で「もし、例外が発生した場合には、 **挿入操作中の単一要素については** 副作用が発生しない。」と修正。
 
