@@ -1,4 +1,14 @@
 #page_title (ページのタイトルです)
+* header_name[meta header] // 所属ヘッダ(リファレンスページ以外では省略可)
+* class[meta id-type]
+* std[meta namespace]
+* class_name[meta class]
+
+<!-- `[meta header]`は、所属ヘッダを表すメタ情報 -->
+<!-- `[meta id-type]`は、識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, typedef, macro -->
+<!-- `[meta namespace]`は、所属する名前空間を表すメタ情報。マクロを考慮して省略可。名前空間の区切りは`::` -->
+<!-- `[meta class]`は、所属するクラスを表すメタ情報。クラスページでは省略する。structとは書けない -->
+
 ```cpp
 void definition(); // 関数・変数・定数の宣言を記述します。
 ```
