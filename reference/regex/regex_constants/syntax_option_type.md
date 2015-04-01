@@ -1,0 +1,53 @@
+#syntax_option_type (C++11)
+* regex[meta header]
+* std::regex_constants[meta namespace]
+* typedef[meta id-type]
+
+```cpp
+namespace std {
+namespace regex_constants {
+  typedef implementation-defined syntax_option_type;
+  constexpr syntax_option_type icase = unspecified;
+  constexpr syntax_option_type nosubs = unspecified;
+  constexpr syntax_option_type optimize = unspecified;
+  constexpr syntax_option_type collate = unspecified;
+  constexpr syntax_option_type ECMAScript = unspecified;
+  constexpr syntax_option_type basic = unspecified;
+  constexpr syntax_option_type extended = unspecified;
+  constexpr syntax_option_type awk = unspecified;
+  constexpr syntax_option_type grep = unspecified;
+  constexpr syntax_option_type egrep = unspecified;
+}}
+```
+* implementation-defined[italic]
+* unspecified[italic]
+
+##概要
+構文オプションを表す実装定義のビットマスク型。
+
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `icase`      | 正規表現のマッチで大文字小文字を区別しないことを指定する。 | C++11 |
+| `nosubs`     | 正規表現のマッチ成功時に、渡された[`match_results`](/reference/regex/match_results.md)オブジェクトへの参照に、部分式のマッチ情報を格納しないことを指定する | C++11 |
+| `optimize`   | 正規表現エンジンに、正規表現オブジェクトの構築速度よりもマッチ速度に注意を払うべきであることを指定する。 | C++11 |
+| `collate`    | \[a-b\]形式の文字範囲がロケールを考慮することを指定する | C++11 |
+| `ECMAScript` | ECMA-262仕様のECMAScript言語と同じ構文を使用する | C++11 |
+| `basic`      | POSIX基本正規表現と同じ構文を使用する | C++11 |
+| `extended`   | POSIX拡張正規表現と同じ構文を使用する | C++11 |
+| `awk`        | POSIXユーティリティのawkと同じ構文を使用する | C++11 |
+| `grep`       | POSIXユーティリティのgrepと同じ構文を使用する | C++11 |
+| `egrep`      | POSIXユーティリティのgrepに`-E`オプションを指定した場合と同じ構文を使用する | C++11 |
+
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+
