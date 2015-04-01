@@ -1,7 +1,7 @@
 #error_type (C++11)
 * regex[meta header]
 * std::regex_constants[meta namespace]
-* typedef[meta enum]
+* enum[meta id-type]
 
 ```cpp
 namespace std {
