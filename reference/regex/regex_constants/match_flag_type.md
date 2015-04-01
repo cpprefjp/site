@@ -57,3 +57,7 @@ namespace regex_constants{
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+##参照
+- [LWG Issue 1450. Contradiction in `regex_constants`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#1450)
+    - `match_default`と`format_default`の2つがデフォルト値`0`を持っているが、同じ値を持つビットマスク値が複数含まれていることはビットマスク型の要件と矛盾しているため、ビットマスク型の要件を見なおした。
+
