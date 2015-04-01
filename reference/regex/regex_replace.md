@@ -53,7 +53,7 @@ namespace std {
 }
 ```
 * basic_regex[link basic_regex.md]
-* regex_constants[link regex_constants.md.nolink]
+* regex_constants::match_default[link regex_constants/match_flag_type.md]
 * basic_string[link ../string/basic_string.md]
 
 ##概要
@@ -65,9 +65,9 @@ namespace std {
 ##効果
 - (1)、(2) `[first, last)` で指定された文字列内に出現する、正規表現 `e` にマッチする部分を、置換文字列 `fmt` で置換した結果を出力イテレータ `out` に出力する。  
 	置換文字列 `fmt` には通常の文字の他、マッチした文字列全体やキャプチャグループを表すシーケンスを使用することができる。  
-	指定可能なシーケンスは、デフォルトでは ECMAScript の置換文字列と同等であるが、`flags` に [`regex_constants`](regex_constants.md.nolink)`::format_sed` が指定されていた場合には POSIX にて規定されている sed の置換文字列と同等となる。  
-	なお、デフォルトでは全てのマッチする部分が `fmt` で置換されるが、`flags` に [`regex_constants`](regex_constants.md.nolink)`::format_first_only` が指定されていた場合には最初にマッチする部分のみが置換される。  
-	また、デフォルトではマッチしない部分はそのまま `out` に出力されるが、`flags` に [`regex_constants`](regex_constants.md.nolink)`::format_no_copy` が指定されていた場合には、マッチしない部分は `out` には出力されない。
+	指定可能なシーケンスは、デフォルトでは ECMAScript の置換文字列と同等であるが、`flags` に [`regex_constants::format_sed`](regex_constants/match_flag_type.md) が指定されていた場合には POSIX にて規定されている sed の置換文字列と同等となる。  
+	なお、デフォルトでは全てのマッチする部分が `fmt` で置換されるが、`flags` に [`regex_constants::format_first_only`](regex_constants/match_flag_type.md) が指定されていた場合には最初にマッチする部分のみが置換される。  
+	また、デフォルトではマッチしない部分はそのまま `out` に出力されるが、`flags` に [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が指定されていた場合には、マッチしない部分は `out` には出力されない。
 - (3)、(4) 置換対象文字列が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列として返される点を除いて、(1)、(2) と同様である。
 - (5)、(6) 置換対象文字列が `const charT*` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT>` 型の文字列として返される点を除いて、(1)、(2) と同様である。
 
@@ -79,7 +79,7 @@ namespace std {
 
 ##例外
 本関数は [`regex_error`](regex_error.md.nolink) を送出する可能性がある。  
-もしそのような例外 `e` が送出された場合、 `e.`[`code`](regex_error/code.md.nolink)`()` は [`regex_constants`](regex_constants.md.nolink)`::error_complexity` か [`regex_constants`](regex_constants.md.nolink)`::error_stack` のいずれかである。
+もしそのような例外 `e` が送出された場合、 `e.`[`code`](regex_error/code.md.nolink)`()` は [`regex_constants::error_complexity`](regex_constants/error_type.md) か [`regex_constants::error_stack`](regex_constants/error_type.md) のいずれかである。
 
 
 ##備考
@@ -95,7 +95,7 @@ regex_iterator<BidirectionalIterator, charT, traits> i(first, last, e, flags)
 	として構築する。  
 
 	- `i` がシーケンス終端イテレータの場合（すなわち、マッチが 1 つも存在しない場合）  
-		`flags & `[`regex_constants`](regex_constants.md.nolink)`::format_no_copy` が `0` であれば、
+		`flags & `[`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
 
 		```cpp
 out = copy(first, last, out)
@@ -107,9 +107,9 @@ out = copy(first, last, out)
 
 	- `i` がシーケンス終端イテレータでは無い場合（すなわち、マッチが 1 つ以上存在した場合）  
 		`i` を用いて `[first, last)` で指定された文字列中のすべてのマッチを [`match_results`](match_results.md)`<BidirectionalIterator>` 型のオブジェクト `m` として列挙して以下を繰り返す。  
-		ただし、`flags & `[`regex_constants`](regex_constants.md.nolink)`::format_first_only` が `0` でなければ、最初のマッチのみを処理する。  
+		ただし、`flags & `[`regex_constants::format_first_only`](regex_constants/match_flag_type.md) が `0` でなければ、最初のマッチのみを処理する。  
 
-		- `flags & `[`regex_constants`](regex_constants.md.nolink)`::format_no_copy` が `0` であれば、
+		- `flags & `[`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
 			```cpp
 out = copy(m.prefix().first, m.prefix().second, out)
 ```
@@ -136,7 +136,7 @@ out = m.format(out, fmt, fmt + char_traits<charT>::length(fmt), flags)
 
 			を呼び出す。
 
-		最後に、`flags & `[`regex_constants`](regex_constants.md.nolink)`::format_no_copy` が `0` であれば、最後のマッチの `m` のコピーを `last_m` として
+		最後に、`flags & `[`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、最後のマッチの `m` のコピーを `last_m` として
 
 		```cpp
 out = copy(last_m.suffix().first, last_m.suffix().second, out)
@@ -221,7 +221,10 @@ int main()
 * cout[link ../iostream/cout.md]
 * endl[link ../ostream/endl.md]
 * regex_replace[color ff0000]
-* regex_constants[link regex_constants.md.nolink]
+* regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
+* regex_constants::format_no_copy[link /reference/regex/regex_constants/match_flag_type.md]
+* regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
+* regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
 * begin[link ../iterator/begin.md]
 * end[link ../iterator/end.md]
 * ostream_iterator[link ../iterator/ostream_iterator.md]

@@ -17,6 +17,7 @@ regex_iterator(BidirectionalIterator a, BidirectionalIterator b,
 
 regex_iterator(const regex_iterator&);                                                         // (4)
 ```
+* regex_constants::match_default[link /reference/regex/regex_constants/match_flag_type.md]
 
 ##概要
 `regex_iterator` オブジェクトを構築する

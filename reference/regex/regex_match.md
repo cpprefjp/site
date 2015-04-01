@@ -47,7 +47,7 @@ namespace std {
 ```
 * match_results[link match_results.md]
 * basic_regex[link basic_regex.md]
-* regex_constants[link regex_constants.md.nolink]
+* regex_constants::match_default[link regex_constants/match_flag_type.md]
 * basic_string[link ../string/basic_string.md]
 
 ##概要
@@ -100,7 +100,7 @@ namespace std {
 
 ##例外
 本関数は [`regex_error`](regex_error.md.nolink) を送出する可能性がある。  
-もしそのような例外 `e` が送出された場合、 `e.`[`code`](regex_error/code.md.nolink)`()` は [`regex_constants`](regex_constants.md.nolink)`::error_complexity` か [`regex_constants`](regex_constants.md.nolink)`::error_stack` のいずれかである。
+もしそのような例外 `e` が送出された場合、 `e.`[`code`](regex_error/code.md.nolink)`()` は [`regex_constants::error_complexity`](regex_constants/error_type.md) か [`regex_constants::error_stack`](regex_constants/error_type.md) のいずれかである。
 
 
 ##備考

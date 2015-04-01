@@ -17,7 +17,7 @@ flag_type flags() const;
 
 
 ##備考
-`flag_type` は [`regex_constants`](../regex_constants.md.nolink)`::syntax_option_type` の typedef である。
+`flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の typedef である。
 
 
 ##例
@@ -49,7 +49,9 @@ int main()
 ```
 * iostream[link ../../iostream.md]
 * regex[link ../../regex.md]
-* regex_constants[link ../regex_constants.md.nolink]
+* std::regex_constants::syntax_option_type[link ../regex_constants/syntax_option_type.md]
+* std::regex_constants::icase[link ../regex_constants/syntax_option_type.md]
+* std::regex_constants::optimize[link ../regex_constants/syntax_option_type.md]
 * flags[color ff0000]
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]

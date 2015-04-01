@@ -33,7 +33,7 @@ namespace std {
 - 検索対象文字列の開始位置を示すイテレータ `begin`（`BidirectionalIterator` 型）
 - 検索対象文字列の終了位置を示すイテレータ `end`（`BidirectionalIterator` 型）
 - 検索する正規表現へのポインタ `pregex`（`const `[`basic_regex`](basic_regex.md)`<charT, traits>*` 型。正規表現のコピーではないことに注意）
-- 検索フラグ `flags`（[`regex_constants`](regex_constants.md.nolink)`::match_flag_type` 型）
+- 検索フラグ `flags`（[`regex_constants::match_flag_type`](regex_constants/match_flag_type.md) 型）
 - 最後の検索のマッチ結果オブジェクト `match`（[`match_results`](match_results.md)`<BidirectionalIterator` 型）
 
 しかし、規格上これらのメンバ変数は説明のためだけに導入されているため、実際の各実装でこれらのメンバ変数が存在するとは限らない事に注意すること。
@@ -89,7 +89,7 @@ namespace std {
 | `begin`  | 検索対象文字列の開始位置を示すイテレータ。`BidirectionalIterator` 型                                                           | C++11          |
 | `end`    | 検索対象文字列の終了位置を示すイテレータ。`BidirectionalIterator` 型                                                           | C++11          |
 | `pregex` | 検索する正規表現へのポインタ。正規表現のコピーではないことに注意。`const `[`basic_regex`](basic_regex.md)`<charT, traits>*` 型 | C++11          |
-| `flags`  | 検索フラグ。[`regex_constants`](regex_constants.md.nolink)`::match_flag_type` 型                                                      | C++11          |
+| `flags`  | 検索フラグ。[`regex_constants::match_flag_type`](regex_constants/match_flag_type.md) 型                                        | C++11          |
 | `match`  | 最後の検索のマッチ結果オブジェクト。[`match_results`](match_results.md)`<BidirectionalIterator` 型                             | C++11          |
 
 ##非メンバ型

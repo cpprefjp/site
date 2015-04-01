@@ -21,7 +21,7 @@ unsigned int mark_count() const;
 キャプチャグループは、その正規表現内の後方や、[`regex_replace`](../regex_replace.md) による置換時などに使用することができる。  
 また、[`match_results`](../match_results.md) オブジェクトを使用することによって、[`regex_match`](../regex_match.md) や [`regex_search`](../regex_search.md) 等の結果として受け取ることもできる。  
 その場合、キャプチャグループに対応する部分は [`match_results`](../match_results.md) オブジェクトのメンバ関数で [`sub_match`](../sub_match.md) オブジェクトとして（[`operator[]`](../match_results/op_at.md)）、あるいは文字列として（[`str`](../match_results/str.md)）アクセス可能である。  
-なお、`this->`[`flags`](flags.md)`()` に [`regex_constants`](../regex_constants.md.nolink)`::nosubs` が含まれている場合は、キャプチャグループは無効となるため、本関数の戻り値は `0` となる。
+なお、`this->`[`flags`](flags.md)`()` に [`regex_constants::nosubs`](../regex_constants/syntax_option_type.md) が含まれている場合は、キャプチャグループは無効となるため、本関数の戻り値は `0` となる。
 
 
 ##例

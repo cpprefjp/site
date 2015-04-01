@@ -27,7 +27,7 @@ basic_regex(ForwardIterator first, ForwardIterator last,
 basic_regex(initializer_list<charT> il,
             flag_type f = regex_constants::ECMAScript);						// (8)
 ```
-* regex_constants[link ../regex_constants.md.nolink]
+* regex_constants::ECMAScript[link ../regex_constants/syntax_option_type.md]
 * basic_string[link ../../string/basic_string.md]
 * initializer_list[link ../../initializer_list.md]
 
@@ -70,7 +70,7 @@ basic_regex(initializer_list<charT> il,
 
 ##備考
 - `charT` は `basic_regex` の 1 番目のテンプレートパラメータで、文字型である。
-- `flag_type` は [`regex_constants`](../regex_constants.md.nolink)`::syntax_option_type` の typedef である。
+- `flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の typedef である。
 
 
 ##例
@@ -119,7 +119,7 @@ int main()
 * boolalpha[link ../../ios/boolalpha.md]
 * regex_search[link ../regex_search.md]
 * move[link ../../utility/move.md]
-* regex_constants[link ../regex_constants.md.nolink]
+* regex_constants::icase[link ../regex_constants/syntax_option_type.md]
 
 ###出力
 ```

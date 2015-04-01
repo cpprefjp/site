@@ -43,6 +43,8 @@ regex_token_iterator(BidirectionalIterator a, BidirectionalIterator b,
 
 regex_token_iterator(const regex_token_iterator&);                                                  // (10)
 ```
+* regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
+* regex_constants::match_default[link /reference/regex/regex_constants/match_flag_type.md]
 
 ##概要
 `regex_token_iterator` オブジェクトを構築する

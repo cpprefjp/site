@@ -27,7 +27,7 @@ basic_regex& assign(initializer_list<charT> il,
                     flag_type f = regex_constants::ECMAScript);	// (7)
 ```
 * basic_regex[link ../basic_regex.md]
-* regex_constants[link ../regex_constants.md.nolink]
+* regex_constants::ECMAScript[link ../regex_constants/syntax_option_type.md]
 * initializer_list[link ../../initializer_list.md]
 * basic_string[link ../../string/basic_string.md]
 
@@ -70,7 +70,7 @@ basic_regex& assign(initializer_list<charT> il,
 - `charT` は `basic_regex` の 1 番目のテンプレートパラメータで、文字型である。
 - `string_type` は `traits_type::string_type` の typedef で、デフォルトは [`basic_string`](../../string/basic_string.md)`<charT>` である。
 - `traits_type` は `basic_regex` の 2 番目のテンプレートパラメータで、デフォルトは [`regex_traits`](../regex_traits.md.nolink)`<charT>` である。
-- `flag_type` は [`regex_constants`](../regex_constants.md.nolink)`::syntax_option_type` の typedef である。
+- `flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の typedef である。
 
 
 ##例
