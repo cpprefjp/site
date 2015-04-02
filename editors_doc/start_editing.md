@@ -66,6 +66,7 @@ Markdown形式では、htmlのタグも併用できますが、cpprefjpサイト
 * [ヘッダファイルトップページの雛形](./header_template_page.md)
 * [関数の雛形](./function_template_page.md)
 * [クラスの雛形](./class_template_page.md)
+* [型の別名の雛形](./type-type_template_page.md)
 
 ## 初めての人は見ておいたほうがよいページ
 
