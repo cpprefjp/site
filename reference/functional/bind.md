@@ -14,14 +14,14 @@ namespace std {
 ```
 * unspecified[italic]
 
-###概要
+##概要
 [<i>Callable</i>](./callable.md) オブジェクトに対し、引数を部分的に束縛(bind)する。
 
-###引数
+##引数
 - `f` -- 束縛先となる [<i>Callable</i>](./callable.md) オブジェクト
 - `bound_args` -- 束縛対象の値やプレースホルダ(`_1`, `_2`, ...)、別の `bind()` 呼び出し
 
-###戻り値
+##戻り値
 引数を部分束縛された [<i>Callable</i>](./callable.md) オブジェクト。このオブジェクトは、次のような関数オブジェクトとして扱うことができる：
 ```cpp
 struct bound_function_type {
