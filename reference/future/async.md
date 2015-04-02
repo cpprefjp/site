@@ -7,15 +7,31 @@
 namespace std {
   template <class F, class... Args>
   future<typename result_of<F(Args...)>::type>
-    async(F&& f, Args&&... args);
+    async(F&& f, Args&&... args);                // (1) C++11
+
+  template <class F, class... Args>
+  future<
+    typename result_of<
+      typename decay<F>::type(typename decay<Args>::type...)
+    >::type
+  > async(F&& f, Args&&... args);                // (1) C++14
 
   template <class F, class... Args>
   future<typename result_of<F(Args...)>::type>
-    async(launch policy, F&& f, Args&&... args);
+    async(launch policy, F&& f, Args&&... args); // (2) C++11
+
+  template <class F, class... Args>
+  future<
+    typename result_of<
+      typename decay<F>::type(typename decay<Args>::type...)
+    >::type
+  > async(launch policy, F&& f, Args&&... args); // (2) C++14
 }
 ```
 * future[link ./future.md]
 * launch[link ./launch.md]
+* result_of[link /reference/type_traits/result_of.md]
+* decay[link /reference/type_traits/decay.md]
 
 ##概要
 関数を非同期実行する。
@@ -123,4 +139,6 @@ foo() = 3
 
 ##参照
 - [LWG Issue 2120. What should `async` do if neither `async` nor `deferred` is set in policy?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2120)
+- [LWG Issue 2021. Further incorrect usages of `result_of`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2021)
+    - C++14で、戻り値型の計算に`decay`を適用するようにした。
 
