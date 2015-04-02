@@ -92,6 +92,6 @@ int main()
 
 
 ##参照
-
+- [LWG Issue 2021. Further incorrect usages of `result_of`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2021)
 
 
