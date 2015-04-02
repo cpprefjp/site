@@ -1,4 +1,4 @@
-#FP_ILOGBNAN
+#FP_ILOGBNAN (C++11)
 * cmath[meta header]
 * macro[meta id-type]
 
@@ -11,3 +11,8 @@
 `FP_ILOGBNAN` は、[`ilogb`](./ilogb.md)`()` に `NaN` を渡したときの返り値を表す整数定数式である。
 
 [`INT_MIN`](/reference/climits/int_min.md) と [`INT_MAX`](/reference/climits/int_max.md) いずれかと等しい値でなければならない。
+
+
+##バージョン
+###言語
+- C++11

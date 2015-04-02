@@ -1,4 +1,4 @@
-#NAN
+#NAN (C++11)
 * cmath[meta header]
 * macro[meta id-type]
 
@@ -10,3 +10,7 @@
 ##概要
 `NaN`(Not a Number, 非数) がサポートされる場合、`float` の `quiet NaN` の定数式に展開される。
 
+
+##バージョン
+###言語
+- C++11

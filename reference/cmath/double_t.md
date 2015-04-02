@@ -1,7 +1,7 @@
-#double_t
+#double_t (C++11)
 * cmath[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* typedef[meta id-type]
 
 ```cpp
 namespace std {
@@ -16,3 +16,6 @@ namespace std {
 [`FLT_EVAL_METHOD`](/reference/cfloat/flt_eval_method.md) が 0 または 1 のとき `double`, 2 のとき `long double`, それ以外の場合は実装依存。
 
 
+##バージョン
+###言語
+- C++11

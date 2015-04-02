@@ -1,4 +1,4 @@
-#HUGE_VALF
+#HUGE_VALF (C++11)
 * cmath[meta header]
 * macro[meta id-type]
 
@@ -12,3 +12,7 @@
 
 `float` が無限大をサポートする場合、処理系によっては正の無限大となる。
 
+
+##バージョン
+###言語
+- C++11

@@ -11,7 +11,7 @@ namespace std {
 
   long double ceil(long double x);
 
-  double ceil(Integral x)			// C++11 から
+  double ceil(Integral x);			// C++11 から
 }
 ```
 * Integral[italic]

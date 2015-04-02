@@ -1,4 +1,4 @@
-#FP_NORMAL
+#FP_NORMAL (C++11)
 * cmath[meta header]
 * macro[meta id-type]
 
@@ -40,3 +40,8 @@ int main()
 ```
 true
 ```
+
+
+##バージョン
+###言語
+- C++11

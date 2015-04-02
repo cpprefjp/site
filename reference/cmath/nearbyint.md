@@ -11,7 +11,7 @@ namespace std {
 
   long double nearbyint(long double x);
 
-  double nearbyint(Integral x)
+  double nearbyint(Integral x);
 }
 ```
 * Integral[italic]

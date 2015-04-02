@@ -1,4 +1,4 @@
-#FP_ZERO
+#FP_ZERO (C++11)
 * cmath[meta header]
 * macro[meta id-type]
 
@@ -38,3 +38,8 @@ int main()
 ```
 true
 ```
+
+
+##バージョン
+###言語
+- C++11

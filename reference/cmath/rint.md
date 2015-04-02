@@ -11,7 +11,7 @@ namespace std {
 
   long double rint(long double x);
 
-  double rint(Integral x)
+  double rint(Integral x);
 }
 ```
 * Integral[italic]

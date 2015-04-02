@@ -1,4 +1,4 @@
-#INFINITY
+#INFINITY (C++11)
 * cmath[meta header]
 * macro[meta id-type]
 
@@ -11,3 +11,7 @@
 
 無限大がサポートされない場合、オーバーフローする `float` 型の式である。
 
+
+##バージョン
+###言語
+- C++11
