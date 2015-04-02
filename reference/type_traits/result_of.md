@@ -22,7 +22,9 @@ namespace std {
 
 
 ##要件
-型`F`は、関数または関数オブジェクトであること。もしくは、型`F`は、関数または関数オブジェクトへの参照であること。
+- C++11まで : 型`F`は、関数または関数オブジェクトであること。もしくは、型`F`は、関数または関数オブジェクトへの参照であること。`INVOKE(declval<Fn>(), declval<ArgTypes>()...)`が有効な式であること。
+- C++14から : 型`F`および`ArgsTypes...`パラメータパックの全ての型が、完全型であること。もしくは`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型であること。
+    - このバージョンでは要件が緩和され、関数呼び出しが可能であることが要件から外れた。これにより、有効でない関数オブジェクト、引数を指定した場合に、`static_assert`でコンパイルエラーにならず、テンプレートの置き換え失敗によりSFINAEが働くようになった。
 
 
 ##効果
@@ -35,6 +37,8 @@ decltype(INVOKE(declval<Fn>(), declval<ArgTypes>()...))
 ```
 * declval[link /reference/utility/declval.md]
 * INVOKE[link /reference/functional/invoke.md]
+
+C++14以降では、上記メンバ型`type`の型定義が有効な式でない場合、メンバ型`type`は定義されない。
 
 
 ##例
@@ -130,6 +134,8 @@ Hello World
 - [N1437 A uniform method for computing function object return types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1437.html)
 - [N1454 A uniform method for computing function object return types (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1454.html)
 - [Bringing result_of near to INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3123.html)
+- [N3462 `std::result_of` and SFINAE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3462.html)
+    - C++11では、テンプレートパラメータが有効な関数の式にならない場合に`static_assert`でコンパイルエラーにしていたが、C++14ではその時点でコンパイルエラーにせず、SFINAEを働かせるようにした。
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 
