@@ -1,5 +1,5 @@
 #page_title (ページのタイトルです)
-* header_name[meta header] // 所属ヘッダ(リファレンスページ以外では省略可)
+* header_name[meta header]
 * class[meta id-type]
 * std[meta namespace]
 * class_name[meta class]
