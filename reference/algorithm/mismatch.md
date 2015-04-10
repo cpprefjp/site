@@ -7,12 +7,26 @@
 namespace std {
   template <class InputIterator1, class InputIterator2>
   pair<InputIterator1, InputIterator2>
-    mismatch(InputIterator1 first1, InputIterator1 last1, InputIterator2 first2);
+    mismatch(InputIterator1 first1, InputIterator1 last1,
+	         InputIterator2 first2);                      // (1)
 
-  template <class InputIterator1, class InputIterator2, class BinaryPredicate>
+  template <class InputIterator1, class InputIterator2,
+            class BinaryPredicate>
   pair<InputIterator1, InputIterator2>
   mismatch(InputIterator1 first1, InputIterator1 last1,
-           InputIterator2 first2, BinaryPredicate pred);
+           InputIterator2 first2, BinaryPredicate pred);  // (2)
+
+  template <class InputIterator1, class InputIterator2>
+  pair<InputIterator1, InputIterator2>
+  mismatch(InputIterator1 first1, InputIterator1 last1,
+           InputIterator2 first2, InputIterator2 last2);  // (3) C++14
+						 
+  template <class InputIterator1, class InputIterator2,
+            class BinaryPredicate>
+  pair<InputIterator1, InputIterator2>
+  mismatch(InputIterator1 first1, InputIterator1 last1,
+           InputIterator2 first2, InputIterator2 last2,
+           BinaryPredicate pred);                         // (4) C++14
 }
 ```
 * pair[link /reference/utility/pair.md]
@@ -23,7 +37,14 @@ namespace std {
 
 
 ##戻り値
-`[first1,last1)` 内にあるイテレータ `i` と、`j == first2 + (i - first1)` であるイテレータ `j` について、`!(*i == *j)` もしくは `pred(*i, *j) == false` であるような最初のイテレータのペアを返す。
+`last2`が渡されなかった場合は、`last2 = first2 + (last1 - first1)`とする。
+
+`[first1,last1)` 内にあるイテレータ `i` と、`j == first2 + (i - first1)` であるイテレータ `j` について、
+
+- `j`が範囲`[first2, last2)`に含まれており、
+- `!(*i == *j)` もしくは
+- `pred(*i, *j) == false` であるような、最初のイテレータのペアを返す。
+
 そのようなイテレータが見つからなかった場合は `last1` と `first2 + (last1 - first1)` のペアを返す。
 
 
@@ -99,4 +120,8 @@ pair<InputIterator1, InputIterator2> mismatch(
   return make_pair(first1, first2);
 }
 ```
+
+##参照
+- [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
+    - C++14から、`last2`を受け取るオーバーロードを追加。
 
