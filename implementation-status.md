@@ -4,7 +4,7 @@
 ライブラリ機能については、本サイトのリファレンスで各機能を参照してもらいたい。
 
 
-##C++11言語機能の実装状況
+## <a name="cpp11" href="#cpp11">C++11言語機能の実装状況</a>
 
 | 言語機能                         | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------------------------------|------|-----|-------|-----|------|
@@ -64,7 +64,7 @@
 - [C++11/14/17 Features In VS 2015 Preview - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2014/11/17/c-11-14-17-features-in-vs-2015-preview.aspx)
 
 
-##C++14
+## <a name="cpp14" href="#cpp14">C++14言語機能の実装状況</a>
 C++14は、C++11のバグフィックス + マイナーアップデートが予定されているバージョンである。
 
 | 言語機能                     | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
@@ -101,7 +101,7 @@ Technical Specificationは、C++14に追加で導入する言語機能、およ�
 | 実行時サイズの配列           | 組み込み配列を、実行時の要素数で構築することを可能にする | 4.9 | No | No | No |
 
 
-##C++1z
+## <a name="cpp1z" href="#cpp1z">C++1z言語機能の実装状況</a>
 C++1zは、2017年に策定予定の、C++14に対するメジャーバージョンアップである。
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
