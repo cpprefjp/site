@@ -50,7 +50,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `integer_sequence`      | 任意の整数型のシーケンス(class template) | C++14 |
+| [`integer_sequence`](./utility/integer_sequence.md)      | 任意の整数型のシーケンス(class template) | C++14 |
 | `make_integer_sequence` | 要素数を指定して、0から始まる整数シーケンスを生成する(typedef) | C++14 |
 | `index_sequence`        | `size_t`型の整数シーケンス(class template) | C++14 |
 | `make_index_sequence`   | 要素数を指定して、0から始まる`size_t`型整数シーケンスを生成する(typedef) | C++14 |
