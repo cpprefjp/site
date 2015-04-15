@@ -66,6 +66,15 @@ C++0x (C++11)の機能をオンにしている GCC を GCC, C++0x mode と呼ぶ
 - ICC
 - ICL
 
+
+###C++11の機能を有効にする
+- Windowsでは`/Qstd:c++11`、Linux/OS Xでは`-std=c++11`オプションを使用する。
+
+
+###C++14の機能を有効にする
+- ICC 16.0からは、Windowsでは`/Qstd:c++14`オプション、Linux/OS Xでは`-std=c++14`オプションを使用する。
+
+
 ## <a name="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a>
 このサイトでは Visual C++ と呼ぶ。
 
