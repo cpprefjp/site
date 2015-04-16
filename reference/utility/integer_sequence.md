@@ -41,6 +41,8 @@ int main()
   f(std::integer_sequence<int, 0, 1, 2>());
 }
 ```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ##出力
 ```
