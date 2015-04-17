@@ -49,6 +49,16 @@ int main()
 0, 1, 2
 ```
 
+##バージョン
+###言語
+- C++14
+
+###処理系
+- [Clang, C++14 mode](/implementation.md#clang): 3.4
+- [GCC, C++14 mode](/implementation.md#gcc): 4.9.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp) ??
+
 ##参照
 - [N3658 Compile-time integer sequences](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3658.html)
 
