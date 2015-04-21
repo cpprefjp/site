@@ -53,6 +53,6 @@
 | [`integer_sequence`](./utility/integer_sequence.md) | 任意の整数型のシーケンス(class template) | C++14 |
 | [`make_integer_sequence`](./utility/make_integer_sequence.md) | 要素数を指定して、0から始まる整数シーケンスを生成する(typedef) | C++14 |
 | [`index_sequence`](./utility/index_sequence.md) | `size_t`型の整数シーケンス(class template) | C++14 |
-| `make_index_sequence`   | 要素数を指定して、0から始まる`size_t`型整数シーケンスを生成する(typedef) | C++14 |
+| [`make_index_sequence`](./utility/make_index_sequence.md) | 要素数を指定して、0から始まる`size_t`型整数シーケンスを生成する(typedef) | C++14 |
 | `index_sequence_for`    | 型のシーケンスを、0から始まる`size_t`型整数シーケンスに変換する(typedef) | C++14 |
 
