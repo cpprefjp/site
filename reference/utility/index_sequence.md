@@ -27,8 +27,8 @@ void g(std::size_t a, std::size_t b, std::size_t c)
 }
 
 template <class T, T... Seq>
-void f(std::integer_sequence<Seq...>) // g++のバグに対する回避策
-                                      // 本来はindex_sequenceで受け取れるはず
+void f(std::integer_sequence<T, Seq...>) // g++のバグに対する回避策
+                                         // 本来はindex_sequenceで受け取れるはず
 {
   // 定数のシーケンス{0, 1, 2}を取り出して、関数g()の引数として転送
   g(Seq...);
