@@ -14,7 +14,7 @@ namespace std {
 
 
 ##概要
-`make_index_sequence`は、要素数を指定して、0から始まる[`size_t`](/reference/cstddef/size_t.md)型シーケンスを生成する、[`make_integer_sequence`](./make_integer_sequence.md)の別名である。
+`make_index_sequence`は、要素数を指定して、0から始まる[`size_t`](/reference/cstddef/size_t.md)型整数シーケンスを生成する、[`make_integer_sequence`](./make_integer_sequence.md)の別名である。
 
 テンプレートパラメータは、以下を意味する：
 
