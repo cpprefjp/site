@@ -87,16 +87,16 @@ int main()
 4
 ```
 
-##参照
-- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
-- [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
-    - C++11までは「もし、例外が発生した場合には、副作用が発生しない。」という保証があったが、これは全要素の挿入を巻き戻すという強すぎる保証であるため、C++14で「もし、例外が発生した場合には、 **挿入操作中の単一要素については** 副作用が発生しない。」と修正。
-
-
 ##関連項目
 
 | | |
 |---------------------------------------------------------------------------------------------------|--------------------------------------------------------|
 | [`emplace`](./emplace.md) | 任意の位置に要素を直接構築で挿入する |
 
+
+##参照
+- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
+##参照
+- [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
+    - 経緯の説明は、[`vector::push_back()`](/reference/vector/push_back.md)ページを参照。
 

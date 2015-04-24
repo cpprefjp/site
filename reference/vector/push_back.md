@@ -59,3 +59,19 @@ hello
 world
 ```
 
+
+##参照
+- [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
+	- C++03では、「`vector`の`push_back()`、`deque`の`push_back()`と`push_front()`で例外が発生した場合、副作用が発生しない」という強い保証があった。
+	- C++11では、`noexcept`を考慮して文面が見直されたが、その際に、以下のような仕様となった：
+		- 「(挿入操作において、)要素型 T のコピーコンストラクタ、ムーブコンストラクタ、コピー代入演算子、ムーブ代入演算子、あるいはInputIteratorの操作以外で例外が発生した場合、副作用が発生しない。**列挙された操作で例外が発生した場合の動作は未規定**。」
+		- この最後の一文が追加されたことにより、要素型`T`のコピー操作やムーブ操作で例外が発生した場合に未規定の動作となってしまい、仕様が壊れていた。
+	- C++14では、上記文面を見直し、「要素型`T`のコピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入、InputIteratorへの操作以外で例外が発生した場合、副作用は発生しない。」とした。
+	- それに加えて、C++14ではこの仕様の対象となる関数を、以下のように拡大した：
+		- `vector`の`push_back()` (C++03から)
+		- `vector`の[`emplace_back()`](./emplace_back.md) (C++14から)
+		- `vector`の末尾へ単一要素を挿入する[`insert()`](./insert.md)と[`emplace()`](./emplace.md) (C++14から)
+		- `deque`の[`push_back()`](/reference/deque/push_back.md)と[`push_front()`](/reference/deque/push_front.md) (C++03から)
+		- `deque`の[`emplace_back()`](/reference/deque/emplace_back.md)と[`emplace_front()`](/reference/deque/emplace_front.md) (C++14から)
+		- `deque`の両端へ単一要素を挿入する[`insert()`](/reference/deque/insert.md)と[`emplace()`](/reference/deque/emplace.md) (C++14)
+

@@ -57,11 +57,15 @@ hello
 world
 ```
 
-##参照
+##関連項目
 | | |
 |-------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 | [`emplace_back`](./emplace_back.md) | 末尾に要素を直接構築で追加する |
 | [`push_front`](./push_front.md) | 先頭に要素を追加する |
 | [`insert`](./insert.md) | 任意の位置に要素を挿入する |
 
+
+##参照
+- [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
+    - 経緯の説明は、[`vector::push_back()`](/reference/vector/push_back.md)ページを参照。
 

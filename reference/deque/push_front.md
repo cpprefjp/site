@@ -57,11 +57,15 @@ hello
 world
 ```
 
-##参照
+##関連項目
 | | |
 |-------------------------------------------------------------------------------------------------------|-----------------------------------------|
 | [`push_back`](./push_back.md) | 末尾に要素を追加する |
 | [`pop_front`](./pop_front.md) | 先頭要素を削除する |
 | [`insert`](./insert.md) | 任意の位置に要素を挿入する |
 
+
+##参照
+- [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
+    - 経緯の説明は、[`vector::push_back()`](/reference/vector/push_back.md)ページを参照。
 

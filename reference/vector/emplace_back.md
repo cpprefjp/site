@@ -73,4 +73,6 @@ int main()
 
 ##参照
 - [LWG Issue 2187. `vector<bool>` is missing emplace and `emplace_back` member functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2187)
+- [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
+    - 経緯の説明は、[`vector::push_back()`](/reference/vector/push_back.md)ページを参照。
 
