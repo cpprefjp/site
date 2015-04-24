@@ -24,6 +24,10 @@ void emplace_back(Args&&... args);
 定数時間
 
 
+##備考
+- C++14 : 例外が発生した場合、副作用は発生しない。（コピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入で例外が発生した場合を除く。）もし、非CopyInsertableな型`T`のムーブコンストラクタで例外が発生した場合、副作用は未規定。
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -64,9 +68,12 @@ int main()
     - 10.0にも`emplace_back`は存在するが、`push_back`相当の機能しかない。
 
 
-##参照
+##関連項目
 | | |
 |-------------------------------------------------------------------------------------------------------|--------------------------------|
 | [`push_back`](./push_back.md) | 末尾に要素を追加する |
 
+
+##参照
+- [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
 
