@@ -144,7 +144,7 @@
 | `UINTMAX_C(n)` | 最も大きい符号なし整数型の定数値 | C++11 |
 
 ##備考
-###`__STDC_LIMIT_MACROS`, `__STDC_CONSTANT_MACROS` マクロについて
+###<a name="stdc-macros"></a>`__STDC_LIMIT_MACROS`, `__STDC_CONSTANT_MACROS` マクロについて
 C99 の 7.18.3 `<stdint.h>` についての脚注で、同ヘッダを C++ でコンパイルする場合に限界値マクロ、定数値マクロを得るためにはこれらのマクロを事前に定義する必要があるものとされていた。
 > Footnote 219, 220: C++ implementations should define these macros only when `__STDC_LIMIT_MACROS` is defined before `<stdint.h>` is included.
 
