@@ -5,57 +5,86 @@
 * function[meta id-type]
 
 ```cpp
-iterator find(const key_type& x);
-const_iterator find(const key_type& x) const;
+iterator find(const key_type& x);             // (1)
+const_iterator find(const key_type& x) const; // (2)
+
+template <class K>
+iterator find(const K& x);                    // (3) C++14
+
+template <class K>
+const_iterator find(const K& x) const;        // (4) C++14
 ```
 
 ##概要
-コンテナ内でキーが `x` である要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end()`](/reference/map/map/end.md) （コンテナの最後の要素の次）を指すイテレータを返す。
+コンテナ内に`x`と等値なキーの要素を検索する。
 
-
-##パラメータ
-- `x` : 検索するキー。`key_type` は `map` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータである。
+- (1), (2) : クラスのテンプレートパラメータ`key_type`型のキーを受け取って検索する。
+- (3), (4) : `key_type`と比較可能な`K`型のキーを受け取って検索する。
 
 
 ##戻り値
-指定した値が見つかった場合はその要素へのイテレータ、そうでない場合は [`end()`](/reference/map/map/end.md) へのイテレータ。`iterator` はメンバ型であり、`map` においては双方向イテレータとして定義される。
+- (1), (2) : `x`と等値なキーの要素が見つかった場合は、見つかった最初の要素へのイテレータを返す。そうでない場合は、 [`end()`](/reference/map/map/end.md) へのイテレータを返す。
+- (3), (4) : `key_compare`型の関数オブジェクトを`c`、コンテナ内の各要素が持つキーを`k`として、キーが等値か判定する式`!c(k, x) && !(k, x)`が`true`となる最初の要素へのイテレータを返す。そのような要素がない場合は、[`end()`](/reference/map/map/end.md) へのイテレータを返す。
 
 
 ##計算量
 [`size`](/reference/map/map/size.md) について対数時間。
 
 
+##備考
+- (3), (4) : `key_compare::is_transparent`が妥当な式である場合のみ、この関数はオーバーロード解決に参加する。
+    - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
+    - これらのオーバーロードは、`map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
+
+
 ##例
 ```cpp
 #include <iostream>
 #include <map>
+#include <string>
 
 int main()
 {
-  std::map<int, char> c;
+  // (1)
+  {
+    std::map<std::string, int> m = {
+      {"Alice", 3},
+      {"Bob",   1},
+      {"Carol", 4}
+    };
+  
+    decltype(m)::iterator it = m.find("Bob");
+    if (it != m.end()) { // 見つかった
+      std::cout << it->second << std::endl;
+    }
+  }
 
-  c.insert(std::make_pair(1,'a'));
+  // (3)
+  {
+    std::map<std::string, int, std::less<>> m = {
+      {"Alice", 3},
+      {"Bob",   1},
+      {"Carol", 4}
+    };
 
-  std::cout << (c.find(1) != c.end()) << std::endl;
-  std::cout << (c.find(2) != c.end()) << std::endl;
-  return 0;
+    // std::lessのvoidに対する特殊化を使用することで、
+    // 文字列リテラルをfind()関数の引数として渡した際に、
+    // std::string型の一時オブジェクトが生成されない。
+    decltype(m)::iterator it = m.find("Bob");
+    if (it != m.end()) { // 見つかった
+      std::cout << it->second << std::endl;
+    }
+  }
 }
 ```
 
 ###出力
 ```
 1
-0
+1
 ```
 
-###処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [GCC, C++11 mode](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??, 11.0
-
-##参照
+##関連項目
 
 | 名前 | 説明|
 |-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
@@ -63,4 +92,7 @@ int main()
 | [`map::lower_bound`](/reference/map/map/lower_bound.md) | 与えられた値より小さくない要素へのイテレータを返す |
 | [`map::upper_bound`](/reference/map/map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
 
+
+##参照
+- [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
 
