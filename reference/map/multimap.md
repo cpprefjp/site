@@ -114,7 +114,7 @@ namespace std {
 | `key_type`        | キーの型。テンプレートパラメータ `Key`。                                | |
 | `value_type`      | 要素の型。`std::`[`pair`](/reference/utility/pair.md)`<const Key, T>`。 | |
 | `mapped_type`     | 値の型。テンプレートパラメータ `T`。 | |
-| `key_compare`     | キーが等値か大小関係を判定する二項述語の型。テンプレートパラメータ `Compare`。 | |
+| `key_compare`     | キー値の大小関係を判定する二項述語の型。テンプレートパラメータ `Compare`。 | |
 | `allocator_type`  | アロケータの型。テンプレートパラメータ `Allocator`。 | |
 | `reference`       | 要素`value_type`への参照型。`value_type&`。 | |
 | `const_reference` | 要素`value_type`への`const`参照型。`const value_type&`。 | |
