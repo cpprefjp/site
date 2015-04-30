@@ -30,7 +30,7 @@ iterator emplace(const_iterator position, Args&&... args);
 
 
 ##備考
-- C++14 : 要素型`T`のコピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入、InputIteratorへの操作以外で例外が発生した場合、両端への挿入であれば副作用は発生しない。非CopyInsertableな型Tのムーブコンストラクタで例外が発生した場合、副作用は未規定。
+例外発生時に副作用が発生しない保証は[`insert()`](./insert.md)と同様。
 
 
 ##例
