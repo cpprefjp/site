@@ -50,36 +50,47 @@ int main()
   // (1)
   {
     std::map<std::string, int> m = {
-      {"Alice", 3},
-      {"Bob",   1},
-      {"Carol", 4}
+      {"A", 3},
+      {"B", 1},
+      {"C", 4},
+      {"D", 5}
     };
 
-    decltype(m)::iterator it = m.lower_bound("Bob");
-    if (it != m.end()) { // 見つかった
-      std::cout << it->first << "," << it->second << std::endl;
+    // B以上D以下の範囲を取得
+    decltype(m)::iterator it = m.lower_bound("B");
+    decltype(m)::iterator last = m.upper_bound("D");
+      
+    while (it != last) {
+      std::cout << it->first << ',' << it->second << std::endl;
+      ++it;
     }
+    std::cout << std::endl;
   }
     
   // (2)
   {
     std::map<std::string, int, std::less<>> m = {
-      {"Alice", 3},
-      {"Bob",   1},
-      {"Carol", 4}
+      {"A", 3},
+      {"B", 1},
+      {"C", 4},
+      {"D", 5}
     };
 
     // std::lessのvoidに対する特殊化を使用することで、
     // 文字列リテラルをlower_bound()関数の引数として渡した際に、
     // std::string型の一時オブジェクトが生成されない。
-    decltype(m)::iterator it = m.lower_bound("Bob");
-    if (it != m.end()) { // 見つかった
+    decltype(m)::iterator it = m.lower_bound("B");
+    decltype(m)::iterator last = m.upper_bound("D");
+
+    while (it != last) {
       std::cout << it->first << "," << it->second << std::endl;
+      ++it;
     }
   }
 }
 ```
 * lower_bound[color ff0000]
+* upper_bound[link ./upper_bound.md]
 * std::string[link /reference/string/basic_string.md]
 * std::less[link /reference/functional/less.md]
 * std::cout[link /reference/iostream/cout.md]
@@ -87,8 +98,13 @@ int main()
 
 ###出力
 ```
-Bob,1
-Bob,1
+B,1
+C,4
+D,5
+
+B,1
+C,4
+D,5
 ```
 
 ##関連項目
