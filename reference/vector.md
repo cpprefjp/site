@@ -84,7 +84,7 @@ namespace std {
 |-----------------------------------|---------------|-------|
 | [`operator[]`](./vector/op_at.md) | 要素アクセス | |
 | [`at`](./vector/at.md)            | 要素アクセス | |
-| [`data`](./vector/data.md)        | 配列の先頭へのポインタを取得する | |
+| [`data`](./vector/data.md)        | 配列の先頭へのポインタを取得する | C++11 |
 | [`front`](./vector/front.md)      | 先頭要素への参照を取得する | |
 | [`back`](./vector/back.md)        | 末尾要素への参照を取得する | |
 
