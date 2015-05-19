@@ -43,6 +43,7 @@ const_iterator lower_bound(const K& x) const;        // (4) C++14
 ##例
 ```cpp
 #include <iostream>
+#include <string>
 #include <map>
 
 int main()
