@@ -36,6 +36,10 @@ const_iterator lower_bound(const K& x) const;        // (4) C++14
 [`size()`](/reference/map/multimap/size.md) について対数時間。
 
 
+##備考
+- (2), (4) : この関数がオーバーロード解決に参加する条件は、[`find()`](./find.md)メンバ関数の備考欄を参照。
+
+
 ##例
 ```cpp
 #include <iostream>
