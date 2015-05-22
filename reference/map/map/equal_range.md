@@ -17,7 +17,7 @@ template <class K>
 pair<const_iterator, const_iterator>
   equal_range(const K& x) const;                         // (4) C++14
 ```
-* std::pair[link /reference/utility/pair.md]
+* pair[link /reference/utility/pair.md]
 
 ##概要
 コンテナ内の、`x` と等しいキー要素を全て含む範囲の境界を返す。`map` コンテナではキーの重複は無いため、この範囲は最大一つの要素を含む。 
