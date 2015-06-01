@@ -5,19 +5,27 @@
 * function[meta id-type]
 
 ```cpp
-pair<iterator,iterator> equal_range(const key_type& x);
-pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
+pair<iterator, iterator> equal_range(const key_type& x); // (1)
+
+template <class K>
+pair<iterator, iterator> equal_range(const K& x);        // (2) C++14
+
+pair<const_iterator, const_iterator>
+  equal_range(const key_type& x) const;                  // (3)
+
+template <class K>
+pair<const_iterator, const_iterator>
+  equal_range(const K& x) const;                         // (4) C++14
 ```
-* pair[link ../../utility/pair.md]
+* pair[link /reference/utility/pair.md]
 
 ##概要
 コンテナ内の、`x` と等しい全てのキー要素を含む範囲の境界を返す。`set` コンテナではキーの重複は無いため、この範囲は最大一つの要素を含む。 
 
 もし `x` がコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは `x` より大きく最も近い値を指す。そうでない場合、`x` がコンテナ内の全ての要素よりも大きい場合は [`end`](./end.md)`()` を指す。
 
-
-##パラメータ
-- `x` : 比較されるキー値。`key_type` はメンバ型であり、`set` コンテナ内で `Key` の別名として定義される。ここで `Key` は最初のテンプレートパラメータでありコンテナに格納される要素の型である。
+- (1), (3) : `key_type`型のキーを受け取り、そのキーと等価なキー要素を全て含むイテレータ範囲を取得する。
+- (2), (4) : `key_type`と比較可能な`K`型のキーを受け取り、そのキーと等価なキー要素を全て含むイテレータ範囲を取得する。
 
 
 ##戻り値
@@ -28,45 +36,41 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 [`size`](./size.md)`()` について対数時間。
 
 
+##備考
+- (2), (4) : この関数がオーバーロード解決に参加する条件は、[`find()`](./find.md)メンバ関数の備考欄を参照。
+
+
 ##例
 ```cpp
 #include <iostream>
+#include <string>
 #include <set>
-#include <utility>
 
 int main()
 {
-  std::set<int> c;
+  std::multiset<std::string> s = { "A", "B", "B", "C", "D" };
 
-  c.insert(10);
-  c.insert(20);
-  c.insert(30);
-  c.insert(40);
-  c.insert(50);
+  using iterator = decltype(s)::iterator;
+  std::pair<iterator, iterator> ret = s.equal_range("B");
 
-  typedef std::set<int>::iterator it_t;
-  std::pair<it_t, it_t> ret = c.equal_range(30);
-
-  std::cout << "low: " << *ret.first << std::endl;
-  std::cout << "up: " << *ret.second << std::endl;
+  for (iterator it = ret.first; it != ret.second; ++it) {
+    std::cout << *it << std::endl;
+  }
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* utility[link ../../utility.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
 * equal_range[color ff0000]
-* insert[link insert.md]
-* pair[link ../../utility/pair.md]
+* std::string[link /reference/string/basic_string.md]
+* std::pair[link /reference/utility/pair.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
-low: 30
-up: 40
+B
+B
 ```
 
-##参照
+##関連項目
 
 | 名前                              | 説明                                                     |
 |-----------------------------------|----------------------------------------------------------|
@@ -74,3 +78,8 @@ up: 40
 | [`lower_bound`](./lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
 | [`upper_bound`](./upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
 | [`find`](./find.md)               | 指定したキーで要素を探す                                 |
+
+
+##参照
+- [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
+
