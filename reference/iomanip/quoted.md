@@ -6,15 +6,19 @@
 ```cpp
 namespace std {
   template <class CharT>
-  unspecified quoted(const CharT* s, CharT delim=CharT('"'), CharT escape=CharT('\\'));
+  unspecified quoted(const CharT* s,
+                     CharT delim=CharT('"'),
+                     CharT escape=CharT('\\'));                       // (1)
 
   template <class CharT, class Traits, class Allocator>
   unspecified quoted(const basic_string<CharT, Traits, Allocator>& s,
-                     CharT delim=CharT('"'), CharT escape=CharT('\\'));
+                     CharT delim=CharT('"'),
+					 CharT escape=CharT('\\'));                       // (2)
 
   template <class CharT, class Traits, class Allocator>
   unspecified quoted(basic_string<CharT, Traits, Allocator>& s,
-                     CharT delim=CharT('"'), CharT escape=CharT('\\'));
+                     CharT delim=CharT('"'),
+					 CharT escape=CharT('\\'));                       // (3)
 }
 ```
 * unspecified[italic]
@@ -26,6 +30,10 @@ namespace std {
 このマニピュレータを使用して`cout << quoted("hello");`とすると、「`"hello"`」のように、引用符で囲まれた文字列が出力される。逆に、引用符で囲まれた文字列を`cin >> quoted(s);`のように入力すると、引用符が外された文字列を取得できる。
 
 このような囲み文字を指定しての入出力は、たとえばXMLの属性や、CSVのフィールドで使用する。
+
+- (1) : 出力用のオーバーロード。文字配列を、囲み文字で修飾する。
+- (2) : 出力用のオーバーロード。`basic_string`型の文字列を、囲み文字で修飾する。
+- (3) : 入力用のオーバーロード。囲み文字で修飾された入力から、囲まれている文字列を抽出する。
 
 
 ##例
