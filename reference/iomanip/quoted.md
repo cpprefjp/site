@@ -40,9 +40,10 @@ namespace std {
 - (1), (2) : この関数で返された結果を出力ストリームに渡すと、以下のように出力される。
     1. `delim`を出力する。
     2. `s`の各要素を出力する。それら要素が`delim`もしくは`escape`と等しい場合、要素の前に`escape`を出力する。
+        - 文字の等値比較には、[`std::char_traits<CharT>::eq()`](/reference/string/char_traits/eq.md)を使用する。
     3. `delim`を出力する。
 - (3) : この関数で返された結果を入力ストリームに渡すと、以下のように入力される。
-    - 開始が`delim`である場合、
+    - 開始の文字が、[`std::char_traits<CharT>::eq()`](/reference/string/char_traits/eq.md)関数で比較して`delim`と等価である場合、
         1. `skipws`フラグをオフにする。
         2. [`s.clear()`](/reference/string/basic_string/clear.md)を呼び出す。
         3. エスケープされない`delim`が読み込まれるか、ストリームが終端に達するまで、`s`に1文字ずつ読み込まれ追加される(`escape`文字以外)。
