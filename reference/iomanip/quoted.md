@@ -73,6 +73,11 @@ int main()
   std::cout << input << std::endl;
 }
 ```
+* std::quoted[color ff0000]
+* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::string[link /reference/string/basic_string.md]
 
 ##出力
 ```
