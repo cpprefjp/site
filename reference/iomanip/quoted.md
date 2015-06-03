@@ -54,10 +54,29 @@ namespace std {
 
 ##例
 ```cpp
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+
+int main()
+{
+  std::stringstream ss;
+    
+  // (1), (2) : ダブルクォーテーションで文字列を囲んで出力する
+  ss << std::quoted("hello");
+  std::cout << ss.str() << std::endl;
+    
+  // (3) : ダブルクォーテーションで囲まれた文字列を抽出する
+  std::string input;
+  ss >> std::quoted(input);
+  std::cout << input << std::endl;
+}
 ```
 
 ##出力
 ```
+"hello"
+hello
 ```
 
 
@@ -66,8 +85,8 @@ namespace std {
 - C++14
 
 ###処理系
-- [Clang, C++14 mode](/implementation.md#clang): ??
-- [GCC, C++14 mode](/implementation.md#gcc): ??
+- [Clang, C++14 mode](/implementation.md#clang): 3.4
+- [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
