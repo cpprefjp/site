@@ -13,12 +13,12 @@ namespace std {
   template <class CharT, class Traits, class Allocator>
   unspecified quoted(const basic_string<CharT, Traits, Allocator>& s,
                      CharT delim=CharT('"'),
-					 CharT escape=CharT('\\'));                       // (2)
+                     CharT escape=CharT('\\'));                       // (2)
 
   template <class CharT, class Traits, class Allocator>
   unspecified quoted(basic_string<CharT, Traits, Allocator>& s,
                      CharT delim=CharT('"'),
-					 CharT escape=CharT('\\'));                       // (3)
+                     CharT escape=CharT('\\'));                       // (3)
 }
 ```
 * unspecified[italic]
