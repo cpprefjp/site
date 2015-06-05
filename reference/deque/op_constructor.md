@@ -5,32 +5,35 @@
 * function[meta id-type]
 
 ```cpp
-explicit deque(const Allocator& a = Allocator());                                       // C++11 まで
+deque();                                          // C++14 から
+explicit deque(const Allocator& a);               // C++14 から
+explicit deque(const Allocator& a = Allocator()); // C++11 まで
 
-deque();                                                                                // C++14 から
+explicit deque(size_type n, const T& value = T(),
+               const Allocator& a = Allocator()); // C++03 まで
 
-explicit deque(const Allocator& a);                                                     // C++14 から
+deque(size_type n, const T& value,
+      const Allocator& a = Allocator());          // C++11 から
 
-explicit deque(size_type n, const T& value = T(), const Allocator& a = Allocator());    // C++03 まで
+explicit deque(size_type n);                      // C++11
 
-deque(size_type n, const T& value, const Allocator& a = Allocator());                   // C++11 から
-
-explicit deque(size_type n);                                                            // C++11
-
-explicit deque(size_type n, const Allocator& a = Allocator());                          // C++14 から
+explicit deque(size_type n,
+               const Allocator& a = Allocator()); // C++14 から
 
 template <class InputIterator>
-deque(InputIterator first, InputIterator last, const Allocator& a = Allocator());
+deque(InputIterator first, InputIterator last,
+      const Allocator& a = Allocator());
 
 deque(const deque& x);
 
-deque(deque&& y);                                                                       // C++11 から
+deque(deque&& y);                                 // C++11 から
 
-deque(const deque& x, const Allocator& a);                                              // C++11 から
+deque(const deque& x, const Allocator& a);        // C++11 から
 
-deque(deque&& y, const Allocator& a);                                                   // C++11 から
+deque(deque&& y, const Allocator& a);             // C++11 から
 
-deque(initializer_list<T> il, const Allocator& a = Allocator());                        // C++11 から
+deque(initializer_list<T> il,
+      const Allocator& a = Allocator());          // C++11 から
 ```
 * initializer_list[link /reference/initializer_list.md]
 
