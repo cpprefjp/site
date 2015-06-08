@@ -15,7 +15,7 @@
 
 | 名前                                | 説明                                                  | 対応バージョン |
 |-------------------------------------|-------------------------------------------------------|----------------|
-| [`swap`](./utility/swap.md)         | 二つのオブジェクトの値を交換する(function template)   | |
+| [`swap`](./utility/swap.md)         | 二つのオブジェクトの値を交換する(function template)   | C++11 |
 | [`exchange`](./utility/exchange.md) | 値を書き換え、書き換え前の値を返す(function template) | C++14 |
 
 
