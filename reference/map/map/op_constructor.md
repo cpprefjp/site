@@ -5,33 +5,41 @@
 * function[meta id-type]
 
 ```cpp
-map();																					// (1) C++14 から
+map();                                                 // (1) C++14 から
 
-explicit map(const Compare& comp, const Allocator& alloc = Allocator());				// (2) C++14 から
+explicit map(const Compare& comp,
+             const Allocator& alloc = Allocator());    // (2) C++14 から
 
-explicit map(const Compare& comp = Compare(), const Allocator& alloc = Allocator());	// (1) + (2) C++11 まで
+explicit map(const Compare& comp = Compare(),
+             const Allocator& alloc = Allocator());    // (1) + (2) C++11 まで
 
-explicit map(const Allocator& alloc);													// (3) C++11 から
-
-template <class InputIterator>
-map(InputIterator first, InputIterator last,
-    const Compare& comp = Compare(), const Allocator& alloc = Allocator());				// (4)
+explicit map(const Allocator& alloc);                  // (3) C++11 から
 
 template <class InputIterator>
-map(InputIterator first, InputIterator last, const Allocator& alloc);					// (5) C++14 から
+map(InputIterator first,
+    InputIterator last,
+    const Compare& comp = Compare(),
+    const Allocator& alloc = Allocator());             // (4)
 
-map(const map& x);																		// (6)
+template <class InputIterator>
+map(InputIterator first,
+    InputIterator last,
+    const Allocator& alloc);                           // (5) C++14 から
 
-map(const map& x, const Allocator& alloc);												// (7) C++11 から
+map(const map& x);                                     // (6)
 
-map(map&& y);																			// (8) C++11 から
+map(const map& x, const Allocator& alloc);             // (7) C++11 から
 
-map(map&& y, const Allocator& alloc);													// (9) C++11 から
+map(map&& y);                                          // (8) C++11 から
+
+map(map&& y, const Allocator& alloc);                  // (9) C++11 から
 
 map(initializer_list<value_type> init,
-    const Compare& comp = Compare(), const Allocator& alloc = Allocator());				// (10) C++11 から
+    const Compare& comp = Compare(),
+    const Allocator& alloc = Allocator());             // (10) C++11 から
 
-map(initializer_list<value_type> init, const Allocator& alloc);							// (11) C++14 から
+map(initializer_list<value_type> init,
+    const Allocator& alloc);                           // (11) C++14 から
 ```
 * initializer_list[link ../../initializer_list.md]
 
@@ -65,19 +73,19 @@ map(initializer_list<value_type> init, const Allocator& alloc);							// (11) C+
 
 ##備考
 - C++14 では、デフォルトコンストラクタを (1) + (2) の形式から (1) の形式に分離して残りを (2) の形式（`comp` のデフォルト引数を削除）にした。
-	これは、デフォルトコンストラクタに `explicit` が付いていると、
+    これは、デフォルトコンストラクタに `explicit` が付いていると、
 
-	```cpp
+    ```cpp
 std::map<int, char> m = {};
 ```
 
-	のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
+    のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
 - C++14 では、(5) に形式が新たに追加された。
-	これは、イテレータ範囲 `[first, last)` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
-	具体的には、C++11 では以下のようなコードがエラーになってしまう。
+    これは、イテレータ範囲 `[first, last)` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
+    具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
-	```cpp
+    ```cpp
 #include <list>
 #include <map>
 #include <scoped_allocator>
@@ -104,8 +112,8 @@ int main()
 * emplace_back[link ../../list/emplace_back.md]
 * pair[link ../../utility/pair.md]
 
-	なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
-	（`map(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `map` が構築され、`alloc` と共に (9) の形式に引き渡される）
+    なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
+    （`map(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `map` が構築され、`alloc` と共に (9) の形式に引き渡される）
 
 ##例
 ```cpp
@@ -153,7 +161,7 @@ Size of c2: 2
 | [`insert`](/reference/map/map/insert.md) | 要素を挿入する |
 
 * [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
-	(1) + (2) を 2 つのオーバーロードに分割するきっかけとなったレポート
+    (1) + (2) を 2 つのオーバーロードに分割するきっかけとなったレポート
 * [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-	(5)、(11) を追加するきっかけとなったレポート  
-	なお、Discussion の例はアロケータの型が誤っているので注意
+    (5)、(11) を追加するきっかけとなったレポート  
+    なお、Discussion の例はアロケータの型が誤っているので注意
