@@ -5,77 +5,83 @@
 * function[meta id-type]
 
 ```cpp
-explicit forward_list(const Allocator& a = Allocator());									// C++11 のみ
-forward_list();																				// C++14 から
-explicit forward_list(const Allocator& a);													// C++14 から
-forward_list(size_type n, const T& value, const Allocator& a = Allocator());
-explicit forward_list(size_type n);															// C++11 のみ
-explicit forward_list(size_type n, const Allocator& a = Allocator());						// C++14 から
+forward_list();                                          // (1) C++14
+explicit forward_list(const Allocator& a);               // (2) C++14
+
+explicit forward_list(const Allocator& a = Allocator()); // (1) + (2) C++11
+
+forward_list(size_type n,
+             const T& value,
+             const Allocator& a = Allocator());          // (3) C++11
+
+explicit forward_list(size_type n);                      // (4) C++11
+explicit forward_list(size_type n,
+                      const Allocator& a = Allocator()); // (4) C++14
+
 template <class InputIterator>
-forward_list(InputIterator first, InputIterator last, const Allocator& a = Allocator());
-forward_list(const forward_list& x);
-forward_list(forward_list&& x);
-forward_list(const forward_list& x, const Allocator& a);
-forward_list(forward_list&& x, const Allocator& a);
-forward_list(initializer_list<T> il, const Allocator& a = Allocator());
+forward_list(InputIterator first,
+             InputIterator last,
+             const Allocator& a = Allocator());          // (5) C++11
+
+forward_list(const forward_list& x);                     // (6) C++11
+forward_list(forward_list&& x);                          // (7) C++11
+
+forward_list(const forward_list& x, const Allocator& a); // (8) C++11
+forward_list(forward_list&& x, const Allocator& a);      // (9) C++11
+
+forward_list(initializer_list<T> il,
+             const Allocator& a = Allocator());          // (10) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##forward_listオブジェクトの構築
-- `explicit forward_list(const Allocator& a = Allocator()); // C++11 のみ`  
-	デフォルトコンストラクタ。アロケータを指定して空のコンテナを作る。  
-	計算量：定数時間
-- `forward_list(); // C++14 から`  
-	デフォルトコンストラクタ。空のコンテナを作る。  
-	計算量：定数時間
-- `forward_list(const Allocator& a); // C++14 から`  
-	アロケータを指定して空のコンテナを作る。  
-	計算量：定数時間
-- `forward_list(size_type n, const T& value, const Allocator& a = Allocator());`  
-	`value` のコピーを `n` 個要素として保持した `forward_list` オブジェクトを構築する。  
-	計算量：`n` に対して線形時間
-- `explicit forward_list(size_type n); // C++11 のみ`  
-	`n` 個の `T()` で初期化された要素を保持した `forward_list` オブジェクトを構築する。  
-	計算量：`n` に対して線形時間
-- `explicit forward_list(size_type n, const Allocator& a = Allocator()); // C++14 から`  
-	アロケータを指定して `n` 個の `T()` で初期化された要素を保持した `forward_list` オブジェクトを構築する。  
-	計算量：`n` に対して線形時間
-- `template <class InputIterator>`  
-	`forward_list(InputIterator first, InputIterator last, const Allocator& a = Allocator());`  
-	`[first, last)` の範囲を要素としてコピーした `forward_list` オブジェクトを構築する。  
-	計算量：[`distance`](/reference/iterator/distance.md)`(first, last)`に対して線形時間
-- `forward_list(const forward_list& x);`  
-	コピーコンストラクタ。`x` と同じ要素を保持した `forward_list` オブジェクトを構築する。  
-	計算量：`x` の要素数に対して線形時間
-- `forward_list(forward_list&& x);`  
-	ムーブコンストラクタ。`x` の指す先を自分の領域として `forward_list` オブジェクトを構築する。  
-	計算量：定数時間
-- `forward_list(const forward_list& x, const Allocator& a);`  
-	アロケータを指定したコピーコンストラクタ  
-	計算量：`x` の要素数に対して線形時間
-- `forward_list(forward_list&& x, const Allocator& a);`  
-	アロケータを指定したムーブコンストラクタ  
-	計算量：`x.`[`get_allocator`](get_allocator.md)`() == a` であれば、定数時間。そうでなければ `x` の要素数に対して線形時間
-- `forward_list(`[`initializer_list`](/reference/initializer_list.md)`<T> il, const Allocator& a = Allocator());`  
-	初期化子リストを受け取るコンストラクタ。`forward_list(il.`[`begin`](../initializer_list/begin.md)`(), il.`[`end`](../initializer_list/end.md)`(), a)` と同等。
+##概要
+`forward_list`オブジェクトを、以下に示す通りの要素で初期化する。
+
+
+##効果
+- (1) : デフォルトコンストラクタ。空のコンテナを作る。
+- (2) : アロケータを指定して空のコンテナを作る。
+- (1) + (2) : デフォルトコンストラクタ。アロケータを指定して空のコンテナを作る。
+- (3) : `value` のコピーを `n` 個要素として保持した `forward_list` オブジェクトを構築する。
+- (4)
+    - C++11 : `n` 個の `T()` で初期化された要素を保持した `forward_list` オブジェクトを構築する。
+    - C++14 : アロケータを指定して `n` 個の `T()` で初期化された要素を保持した `forward_list` オブジェクトを構築する。
+- (5) : `[first, last)` の範囲を要素としてコピーした `forward_list` オブジェクトを構築する。
+- (6) : コピーコンストラクタ。`x` と同じ要素を保持した `forward_list` オブジェクトを構築する。
+- (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `forward_list` オブジェクトを構築する。
+- (8) : アロケータを指定したコピーコンストラクタ  
+- (9) : アロケータを指定したムーブコンストラクタ  
+- (10) : 初期化子リストを受け取るコンストラクタ。`forward_list(il.`[`begin`](../initializer_list/begin.md)`(), il.`[`end`](../initializer_list/end.md)`(), a)` と同等。
+
+
+##計算量
+- (1), (2) : 定数時間
+- (3) : `n` に対して線形時間
+- (4) : `n` に対して線形時間
+- (5) : [`distance`](/reference/iterator/distance.md)`(first, last)`に対して線形時間
+- (6) : `x` の要素数に対して線形時間
+- (7) : 定数時間
+- (8) : `x` の要素数に対して線形時間
+- (9) : `x.`[`get_allocator`](get_allocator.md)`() == a` であれば、定数時間。そうでなければ `x` の要素数に対して線形時間
+- (10) : `il` の要素数に対して線形時間
 
 
 ##備考
 - イテレータ範囲コンストラクタ `template <class InputIterator> forward_list(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、`InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しない。
 - C++14 では、`explicit forward_list(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
-	これは、デフォルトコンストラクタに `explicit` が付いていると、
+    これは、デフォルトコンストラクタに `explicit` が付いていると、
 
-	```cpp
+    ```cpp
 std::forward_list<int> fl = {};
 ```
 
-	のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
+    のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
 - C++14 では、`explicit forward_list(size_type n)` に引数が追加され、`explicit forward_list(size_type n, const Allocator& a = Allocator())` に変更された。  
-	これは、変更されないと `n` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
-	具体的には、C++11 では以下のようなコードがエラーになってしまう。
+    これは、変更されないと `n` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
+    具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
-	```cpp
+    ```cpp
 #include <list>
 #include <forward_list>
 #include <scoped_allocator>
@@ -113,31 +119,31 @@ void print(const char* name, const std::forward_list<T>& ls)
 
 int main()
 {
-  // デフォルト構築
+  // (1) デフォルト構築
   std::forward_list<int> ls1;
   print("ls1", ls1);
 
-  // n個の要素を持つリストを作成
+  // (4) n個の要素を持つリストを作成
   std::forward_list<int> ls2(3);
   print("ls2", ls2);
 
-  // n個の指定された値を要素を持つリストを作成
+  // (3) n個の指定された値を要素を持つリストを作成
   std::forward_list<int> ls3(3, 1);
   print("ls3", ls3);
 
-  // 範囲から構築
+  // (5) 範囲から構築
   std::forward_list<int> ls4(ls3.begin(), ls3.end());
   print("ls4", ls4);
 
-  // コピー構築
+  // (6) コピー構築
   std::forward_list<int> ls5 = ls4;
   print("ls5", ls5);
 
-  // ムーブ構築
+  // (7) ムーブ構築
   std::forward_list<int> ls6 = std::move(ls5);
   print("ls6", ls6);
 
-  // 初期化子リストで構築
+  // (10) 初期化子リストで構築
   std::forward_list<int> ls7 = {1, 2, 3};
   print("ls7", ls7);
 }
@@ -177,7 +183,7 @@ ls7 : 1 2 3
 
 ##参照
 * [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
-	`explicit forward_list(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
+    `explicit forward_list(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
 * [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-	`explicit forward_list(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
-	なお、Discussion の例はアロケータの型が誤っているので注意
+    `explicit forward_list(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
+    なお、Discussion の例はアロケータの型が誤っているので注意
