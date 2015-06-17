@@ -5,54 +5,69 @@
 * function[meta id-type]
 
 ```cpp
-explicit basic_string(const Allocator& a = Allocator()); // (1)
-basic_string(const basic_string& str);                   // (2)
-basic_string(basic_string&& str) noexcept;               // (3) C++11
+basic_string();                                          // (1) C++14
+explicit basic_string(const Allocator&);                 // (2) C++14
+explicit basic_string(const Allocator& a = Allocator()); // (1) + (2) C++03
+
+basic_string(const basic_string& str);                   // (3)
+basic_string(basic_string&& str) noexcept;               // (4) C++11
 
 basic_string(const basic_string& str,
              size_type pos,
              size_type n = npos,
-             const Allocator& a = Allocator());          // (4)
-
-basic_string(const charT* s,
-             size_type n,
              const Allocator& a = Allocator());          // (5)
 
 basic_string(const charT* s,
+             size_type n,
              const Allocator& a = Allocator());          // (6)
+
+basic_string(const charT* s,
+             const Allocator& a = Allocator());          // (7)
 
 basic_string(size_type n,
              charT c,
-             const Allocator& a = Allocator());          // (7)
+             const Allocator& a = Allocator());          // (8)
 
 template <class InputIterator>
 basic_string(InputIterator begin, InputIterator end,
-             const Allocator& a = Allocator());          // (8)
+             const Allocator& a = Allocator());          // (9)
 
 basic_string(initializer_list<charT> init,
-             const Allocator& = Allocator());            // (9) C++11
+             const Allocator& = Allocator());            // (10) C++11
 
-basic_string(const basic_string& str, const Allocator&); // (10) C++11
-basic_string(basic_string&& str, const Allocator&);      // (11) C++11
+basic_string(const basic_string& str, const Allocator&); // (11) C++11
+basic_string(basic_string&& str, const Allocator&);      // (12) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
 - (1) : デフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
-- (2) : コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
-- (3) : ムーブコンストラクタ。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
-- (4) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
-- (5) : 文字配列`s`の先頭`n`文字からなる部分文字列のコピーから`basic_string`オブジェクトを構築する。
-- (6) : 文字配列`s`のコピーから`basic_string`オブジェクトを構築する。
-- (7) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
-- (8) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
-- (9) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
-- (10) : アロケータを受け取るコピーコンストラクタ。
-- (11) : アロケータを受け取るムーブコンストラクタ。
+- (2) : アロケータを受け取るデフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
+- (3) : コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
+- (4) : ムーブコンストラクタ。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
+- (5) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
+- (6) : 文字配列`s`の先頭`n`文字からなる部分文字列のコピーから`basic_string`オブジェクトを構築する。
+- (7) : 文字配列`s`のコピーから`basic_string`オブジェクトを構築する。
+- (8) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
+- (9) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
+- (10) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
+- (11) : アロケータを受け取るコピーコンストラクタ。
+- (12) : アロケータを受け取るムーブコンストラクタ。
 
 
 ##例外
-- (11) : `alloc == str.`[get_allocator()`](./get_allocator.md)の場合、例外を投げない。
+- (12) : `alloc == str.`[get_allocator()`](./get_allocator.md)の場合、例外を投げない。
+
+
+##備考
+- C++14 では、`explicit basic_string(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
+    これは、デフォルトコンストラクタに `explicit` が付いていると、
+
+    ```cpp
+std::basic_string<char> s = {};
+```
+
+    のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
 
 ##例
@@ -117,4 +132,7 @@ s9 : hello
 
 ##参照
 - [LWG Issue 2069. Inconsistent exception spec for `basic_string` move constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2069)
+- [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
+    `explicit basic_string(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
+
 
