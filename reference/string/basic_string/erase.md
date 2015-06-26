@@ -42,6 +42,8 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11から
 
 ##例外
 - (1) : `pos >` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (2) : 投げない (C++14から)
+- (3) : 投げない (C++14から)
 
 
 ##例
@@ -92,3 +94,6 @@ int main()
 
 ##参照
 - [LWG Issue 180. Container member iterator arguments constness has unintended consequences](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#180)
+- [LWG Issue 2003. String exception inconsistency in erase.](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2003)
+    - C++14から(2)と(3)に、「例外を投げない」という保証が追加された経緯のレポート
+
