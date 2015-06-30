@@ -54,8 +54,10 @@ int main()
 
 ###出力
 ```
-a
-exception std::out_of_ranget
+size=1
+{a}
+{}
+size=2
 ```
 
 ##バージョン
