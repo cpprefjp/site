@@ -40,6 +40,34 @@ unordered_multiset(initializer_list<value_type> il,
                    const hasher& hf = hasher(),
                    const key_equal& eql = key_equal(),
                    const allocator_type& a = allocator_type());           // (9)
+
+unordered_multiset(size_type n, const allocator_type& a);                 // (10) C++14
+
+unordered_multiset(size_type n,
+                   const hasher& hf,
+                   const allocator_type& a);                              // (11) C++14
+
+template <class InputIterator>
+unordered_multiset(InputIterator f,
+                   InputIterator l,
+                   size_type n,
+                   const allocator_type& a);                              // (12) C++14
+
+template <class InputIterator>
+unordered_multiset(InputIterator f,
+                   InputIterator l,
+                   size_type n,
+                   const hasher& hf, 
+                   const allocator_type& a);                              // (13) C++14
+
+unordered_multiset(initializer_list<value_type> il,
+                   size_type n,
+                   const allocator_type& a);                              // (14) C++14
+
+unordered_multiset(initializer_list<value_type> il,
+                   size_type n,
+                   const hasher& hf, 
+                   const allocator_type& a);                              // (15) C++14
 ```
 * initializer_list[link /reference/initializer_list.md]
 
@@ -96,6 +124,18 @@ unordered_multiset(initializer_list<value_type> il,
 
 - (9)	(3) の形式を `unordered_multiset(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と同等である。
 
+- (10)  (2) の形式を `unordered_multiset(n, hasher(), key_equal(), a)` として呼び出した場合と同等である。
+
+- (11)  (2) の形式を `unordered_multiset(n, hf, key_equal(), a)` として呼び出した場合と同等である。
+
+- (12)  (3) の形式を `unordered_multiset(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と同等である。
+
+- (13)  (3) の形式を `unordered_multiset(f, l, n, hf, key_equal(), a)` として呼び出した場合と同等である。
+
+- (14)  (5) の形式を `unordered_multiset(il, n, hasher(), key_equal(), a)` として呼び出した場合と同等である。
+
+- (15)  (5) の形式を `unordered_multiset(il, n, hf, key_equal(), a)` として呼び出した場合と同等である。
+
 
 ##事後条件
 以下では構築されたオブジェクトを `u` とする。
@@ -147,7 +187,13 @@ unordered_multiset(initializer_list<value_type> il,
 - (7)	O(`v.`[`size`](./size.md)`()`)
 - (8)	`a == rv.`[`get_allocator`](./get_allocator.md)`()` の場合、定数。
 	そうでない場合、O(`rv.`[`size`](./size.md)`()`)。
-- (9)	(3)の形式を `unordered_multiset(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と同等。
+- (9)	(3) の形式を `unordered_multiset(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と同等。
+- (10)  (2) の形式を `unordered_multiset(n, hasher(), key_equal(), a)` として呼び出した場合と同等。
+- (11)  (2) の形式を `unordered_multiset(n, hf, key_equal(), a)` として呼び出した場合と同等。
+- (12)  (3) の形式を `unordered_multiset(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と同等。
+- (13)  (3) の形式を `unordered_multiset(f, l, n, hf, key_equal(), a)` として呼び出した場合と同等。
+- (14)  (5) の形式を `unordered_multiset(il, n, hasher(), key_equal(), a)` として呼び出した場合と同等。
+- (15)  (5) の形式を `unordered_multiset(il, n, hf, key_equal(), a)` として呼び出した場合と同等。
 
 
 ##備考
@@ -190,4 +236,7 @@ libstdc++ には 4.8.2 現在、(6)、(7)、(8)の形式はない。
 ##参照
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
     (1) + (2) を 2 つのオーバーロードに分割するきっかけとなったレポート
+- [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
+    (10)、(11)、(12)、(13)、(14)、(15) を追加するきっかけとなったレポート  
+    なお、Discussion の例はアロケータの型が誤っているので注意
 
