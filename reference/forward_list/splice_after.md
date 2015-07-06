@@ -5,41 +5,56 @@
 * function[meta id-type]
 
 ```cpp
-void splice_after(const_iterator position, forward_list& x);
-void splice_after(const_iterator position, forward_list&& x);
+void splice_after(const_iterator position, forward_list& x);  // (1)
+void splice_after(const_iterator position, forward_list&& x); // (2)
 
 void splice_after(const_iterator position, forward_list& x,
-                  const_iterator i);
+                  const_iterator i);                          // (3)
 
 void splice_after(const_iterator position, forward_list&& x,
-                  const_iterator i);
+                  const_iterator i);                          // (4)
 
 void splice_after(const_iterator position, forward_list& x,
-                  const_iterator first, const_iterator last);
+                  const_iterator first, const_iterator last); // (5)
 
 void splice_after(const_iterator position, forward_list&& x,
-                  const_iterator first, const_iterator last);
+                  const_iterator first, const_iterator last); // (6)
 
 ```
 
 ##概要
 他のコンテナから要素を移動する。
 
-- `void splice_after(const_iterator position, forward_list& x);`
-- `void splice_after(const_iterator position, forward_list&& x);`<br/>`position`の次の要素の後ろに`x`の全ての要素を移動する。<br/>例外： 投げない<br/>計算量： `x`の要素数に対して線形時間
-- `void splice_after(const_iterator position, forward_list& x, const_iterator i);`
-- `void splice_after(const_iterator position, forward_list&& x, const_iterator i);`<br/>`position`の次の要素の後ろに、`x`の要素のうち`i`の次の要素を移動する<br/>例外： 投げない<br/>計算量： 定数時間
-- `void splice_after(const_iterator position, forward_list& x, const_iterator first, const_iterator last);`
-- `void splice_after(const_iterator position, forward_list&& x, const_iterator first, const_iterator last);`<br/>`position`の次の要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する<br/>計算量： `(first, last)`の要素数に対して線形時間
-
 
 ##要件
-第1パラメータ`position`が、[`before_begin()`](./before_begin.md)もしくは`[`[`begin()`](./begin.md)`, `[`end()`](./end.md)]の範囲の間接参照可能なイテレータであること。
-`i`, `first`, `last`が、`x`のイテレータであること。
+- 第1パラメータ`position`が、[`before_begin()`](./before_begin.md)もしくは`[`[`begin()`](./begin.md)`, `[`end()`](./end.md)]の範囲の間接参照可能なイテレータであること。
+- `i`, `first`, `last`が、`x`のイテレータであること。
+
+
+##効果
+- (1) : `position`の次の要素の後ろに`x`の全ての要素をコピーする
+- (2) : `position`の次の要素の後ろに`x`の全ての要素を移動する
+- (3) : `position`の次の要素の後ろに、`x`の要素のうち`i`の次の要素をコピーする
+- (4) : `position`の次の要素の後ろに、`x`の要素のうち`i`の次の要素を移動する
+- (5) : `position`の次の要素の後ろに、`x`の要素のうち`(first, last)`の範囲をコピーする
+- (6) : `position`の次の要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する
 
 
 ##戻り値
 なし
+
+
+##例外
+- (1) : 投げない
+- (2) : 投げない
+- (3) : 投げない
+- (4) : 投げない
+
+
+##計算量
+- (1), (2) : `x`の要素数に対して線形時間
+- (3), (4) : 定数時間
+- (5), (6) : `(first, last)`の要素数に対して線形時間
 
 
 ##例
