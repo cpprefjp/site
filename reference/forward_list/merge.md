@@ -20,7 +20,8 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 
 ##要件
-`comp`が[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)として定義されていること。`*this`と`x`がその順序でソートされていること。
+- `comp`が[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)として定義されていること。`*this`と`x`がその順序でソートされていること。
+- [`get_allocator()`](./get_allocator.md) `== x.`[`get_allocator()`](./get_allocator.md)であること。(C++14)
 
 
 ##効果
@@ -87,4 +88,5 @@ int main()
 
 ##参照
 - [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
+- [LWG Issue 2045. `forward_list::merge` and `forward_list::splice_after` with unequal allocators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2045)
 
