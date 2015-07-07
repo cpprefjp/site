@@ -29,6 +29,7 @@ void splice_after(const_iterator position, forward_list&& x,
 ##要件
 - 第1パラメータ`position`が、[`before_begin()`](./before_begin.md)もしくは`[`[`begin()`](./begin.md)`, `[`end()`](./end.md)]の範囲の間接参照可能なイテレータであること。
 - `i`, `first`, `last`が、`x`のイテレータであること。
+- [`get_allocator()`](./get_allocator.md) `== x.`[`get_allocator()`](./get_allocator.md)であること。(C++14)
 
 
 ##効果
@@ -123,5 +124,5 @@ int main()
 
 
 ##参照
-
+- [LWG Issue 2045. `forward_list::merge` and `forward_list::splice_after` with unequal allocators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2045)
 
