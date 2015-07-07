@@ -5,10 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-void merge(forward_list& x);
-void merge(forward_list&& x);
-template <class Compare> void merge(forward_list& x, Compare comp);
-template <class Compare> void merge(forward_list&& x, Compare comp);
+void merge(forward_list& x);                // (1)
+void merge(forward_list&& x);               // (2)
+
+template <class Compare>
+void merge(forward_list& x, Compare comp);  // (3)
+
+template <class Compare>
+void merge(forward_list&& x, Compare comp); // (4)
 ```
 
 ##概要
