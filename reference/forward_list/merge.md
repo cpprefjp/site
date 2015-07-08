@@ -43,7 +43,8 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 
 ##備考
-この操作は安定である。
+- この操作は安定である。
+- `this->`[`get_allocator()`](./get_allocator.md) `!= x.`[`get_allocator()`](./get_allocator.md)である場合、その振る舞いは未定義。(C++14)
 
 
 ##例
@@ -87,6 +88,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 ##参照
-- [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
 - [LWG Issue 2045. `forward_list::merge` and `forward_list::splice_after` with unequal allocators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2045)
+- [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
+- [LWG Issue 2123. `merge()` allocator requirements for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2123)
 
