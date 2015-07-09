@@ -58,6 +58,10 @@ void splice_after(const_iterator position, forward_list&& x,
 - (5), (6) : `(first, last)`の要素数に対して線形時間
 
 
+##備考
+- (3), (4) : この関数を呼び出したあとも、`*++i`へのポインタ、参照、イテレータは有効である。ただし、そのポインタと参照は、`x`ではなく`*this`の要素となる。
+
+
 ##例
 ```cpp
 #include <iostream>
@@ -125,4 +129,6 @@ int main()
 
 ##参照
 - [LWG Issue 2045. `forward_list::merge` and `forward_list::splice_after` with unequal allocators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2045)
+- [LWG Issue 2222. Inconsistency in description of `forward_list::splice_after` single-element overload](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2222)
+	- (3)と(4)のオーバーロードについて、有効性が継続される対象が、`*i`となっていたが、`*++i`の間違いであったため、C++14で修正された。
 
