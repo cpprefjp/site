@@ -188,6 +188,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 ##バージョン
 ###言語
 - C++11
+- C++14: 2つ目の終端のイテレータ`last2`を実引数に取る多重定義の追加。
 
 
 ###処理系
@@ -195,8 +196,8 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
-
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
+	- C++14で追加された多重定義は14.0から実装されている。
 
 ##参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
