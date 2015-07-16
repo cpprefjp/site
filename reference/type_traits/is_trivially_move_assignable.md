@@ -19,9 +19,16 @@ namespace std {
 
 
 ##効果
-`is_trivially_move_assignable`は、型`T`がトリビアルにムーブ代入可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。  
-[`is_trivially_assignable`](./is_trivially_assignable.md)`<T&, T&&>::value == true`ならば、トリビアルにムーブ代入可能であると判断される。
+`is_trivially_move_assignable`は、型`T`がトリビアルにムーブ代入可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
 
+以下の条件が`true`である場合に、トリビアルにムーブ代入可能であると見なされる：
+
+- C++11 : [`is_trivially_assignable`](./is_trivially_assignable.md)`<T&, T&&>::value == true`
+- C++14 : 参照可能な型`T`に対しては、[`is_trivially_assignable`](./is_trivially_assignable.md)`<T&, T&&>::value == true`と同じ結果となり、それ以外は`false`と見なされる。
+    - 参照可能な型とは、以下のいずれかの条件に合致する型である：
+        - [オブジェクト型](./is_object.md)
+        - CV修飾されていない、もしくは参照修飾されていない関数型
+        - 参照修飾されている型
 
 ##例
 ```cpp
@@ -81,4 +88,9 @@ int main() {}
 
 ###備考
 Clang 3.0から3.2は、上記例の`Y`クラスがトリビアルにムーブ代入可能と判定される。Clang 3.3から修正されている。
+
+
+##参照
+- [LWG Issue 2196. Specification of `is_*[copy/move]_[constructible/assignable]` unclear for non-referencable types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2196)
+    - C++11では、この型特性が参照型に対してどのような振る舞いになるのか不明確であったため、C++14で明確化された。
 
