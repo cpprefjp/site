@@ -9,7 +9,11 @@ basic_string& append(const basic_string& str);                 // (1)
 
 basic_string& append(const basic_string& str,
                      size_type pos,
-                     size_type n);                             // (2)
+                     size_type n);                             // (2) C++03
+
+basic_string& append(const basic_string& str,
+                     size_type pos,
+                     size_type n = npos);                      // (2) C++14
 
 basic_string& append(const charT* s, size_type n);             // (3)
 
@@ -44,7 +48,7 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
     * C++11 から：`append(str.`[`data`](./data.md)`(), str.`[`size`](./size.md)`())` と同一。
 
 - (2) 対象オブジェクトの末尾に `str` の `pos` 以降の文字が追加される。
-    追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](./size.md)`() - pos` の小さい方である。
+    追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](./size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](./size.md)`() - pos` が使用される。
     * C++03 まで：対象オブジェクトの末尾に `str` の `pos` 番目からの `rlen` 文字を追加（コピー）する。
     * C++11 から：`append(str.`[`data`](./data.md)`() + pos, rlen)` と同一。
 
@@ -134,7 +138,7 @@ Hello, world!!
 Hello, world!! :)
 ```
 
-##参照
+##関連項目
 
 |                                     |                        |
 |-------------------------------------|------------------------|
@@ -142,3 +146,9 @@ Hello, world!! :)
 | [`push_back`](./push_back.md)       | 文字を追加する         |
 | [`insert`](./insert.md)             | 文字／文字列を挿入する |
 | [`operator+`](./op_plus.md)         | 文字列を連結する       |
+
+
+##参照
+- [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
+    - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
+
