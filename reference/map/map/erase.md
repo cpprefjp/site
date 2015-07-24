@@ -29,7 +29,7 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11
 ##戻り値
 - (1), (3)
 	- C++03 : 戻り値なし
-	- C++11 : 削除された要素の次を指すイテレータを返す。
+    - C++11 : 削除された要素の次を指すイテレータを返す。そのような要素がない場合、[`end()`](./end)を返す(コンテナが空になった場合や、最後尾の要素を削除した場合)。
 - (2) 削除された要素の数を返す。
 
 
@@ -55,6 +55,7 @@ int main()
 
   c.erase(1);
   std::cout << c.size() << std::endl;
+
 
   c.erase(5);
   std::cout << c.size() << std::endl;
@@ -86,10 +87,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
 
-##参照
-- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
-
-
 ##関連項目
 
 | 名前 | 説明|
@@ -98,5 +95,10 @@ int main()
 | [`map::insert`](/reference/map/map/insert.md) | 要素を挿入する |
 | [`map::find`](/reference/map/map/find.md) | 指定したキーで要素を探す |
 
+
+##参照
+- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
+- [LWG Issue 2258. `a.erase(q1, q2)` unable to directly return `q2`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2258)
+    - C++11では、「`a.erase(q1, q2)`の結果として`q2`が返る」という仕様だったが、要素を削除した結果としてコンテナが空になった場合や、最後尾の要素を削除した場合を、考慮していなかった。C++14では、空の場合に`end()`イテレータが返ることが明記された。
 
 

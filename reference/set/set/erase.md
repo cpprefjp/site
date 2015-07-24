@@ -29,7 +29,7 @@ size_type erase(const key_type& x);                        // (3)
 ##戻り値
 - (1), (2) :
     - C++03 : なし
-    - C++11 : 削除された要素の次を指すイテレータを返す。
+    - C++11 : 削除された要素の次を指すイテレータを返す。そのような要素がない場合、[`end()`](./end)を返す(コンテナが空になった場合や、最後尾の要素を削除した場合)。
 - (3) : 削除された要素の数を返す。　
 
 
@@ -103,9 +103,6 @@ int main()
 0
 ```
 
-##参照
-- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
-
 
 ##関連項目
 
@@ -114,3 +111,11 @@ int main()
 | [`clear`](./clear.md)   | 全ての要素を削除する     |
 | [`insert`](./insert.md) | 要素を挿入する           |
 | [`find`](./find.md)     | 指定したキーで要素を探す |
+
+
+##参照
+- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
+- [LWG Issue 2258. `a.erase(q1, q2)` unable to directly return `q2`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2258)
+    - C++11では、「`a.erase(q1, q2)`の結果として`q2`が返る」という仕様だったが、要素を削除した結果としてコンテナが空になった場合や、最後尾の要素を削除した場合を、考慮していなかった。C++14では、空の場合に`end()`イテレータが返ることが明記された。
+
+
