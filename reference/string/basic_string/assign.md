@@ -11,7 +11,11 @@ basic_string& assign(basic_string&& str) noexcept; // (2) C++11
 
 basic_string& assign(const basic_string& str,
                      size_type pos,
-                     size_type n);                 // (3)
+                     size_type n);                 // (3) C++03
+
+basic_string& assign(const basic_string& str,
+                     size_type pos,
+                     size_type n = npos);          // (3) C++14
 
 basic_string& assign(const charT* s, size_type n); // (4)
 
@@ -130,4 +134,6 @@ s8 : hello
 ```
 
 ##参照
+- [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
+    - C++14から(3)のオーバーロードに、`n = npos`のデフォルト引数を追加。
 
