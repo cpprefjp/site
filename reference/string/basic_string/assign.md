@@ -29,6 +29,7 @@ basic_string& assign(InputIterator first,
 
 basic_string& assign(initializer_list<charT>);     // (8) C++11
 ```
+* initializer_list[link /reference/initializer_list.md]
 
 ##概要
 文字列の再代入を行う。
