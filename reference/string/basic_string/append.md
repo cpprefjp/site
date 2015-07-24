@@ -5,20 +5,22 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& append(const basic_string& str);								// (1)
+basic_string& append(const basic_string& str);                 // (1)
 
-basic_string& append(const basic_string& str, size_type pos, size_type n);	// (2)
+basic_string& append(const basic_string& str,
+                     size_type pos,
+                     size_type n);                             // (2)
 
-basic_string& append(const charT* s, size_type n);							// (3)
+basic_string& append(const charT* s, size_type n);             // (3)
 
-basic_string& append(const charT* s);										// (4)
+basic_string& append(const charT* s);                          // (4)
 
-basic_string& append(size_type n, charT c);									// (5)
+basic_string& append(size_type n, charT c);                    // (5)
 
 template <class InputIterator>
-basic_string& append(InputIterator first, InputIterator last);				// (6)
+basic_string& append(InputIterator first, InputIterator last); // (6)
 
-basic_string& append(initializer_list<charT> il);							// (7) C++11 から
+basic_string& append(initializer_list<charT> il);              // (7) C++11 から
 ```
 * initializer_list[link /reference/initializer_list.md]
 
@@ -38,30 +40,30 @@ basic_string& append(initializer_list<charT> il);							// (7) C++11 から
 
 ##効果
 - (1) 対象オブジェクトの末尾に `str` の値が追加（コピー）される。
-	* C++03 まで：`append(str, 0, npos)` と同一。
-	* C++11 から：`append(str.`[`data`](./data.md)`(), str.`[`size`](./size.md)`())` と同一。
+    * C++03 まで：`append(str, 0, npos)` と同一。
+    * C++11 から：`append(str.`[`data`](./data.md)`(), str.`[`size`](./size.md)`())` と同一。
 
 - (2) 対象オブジェクトの末尾に `str` の `pos` 以降の文字が追加される。
-	追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](./size.md)`() - pos` の小さい方である。
-	* C++03 まで：対象オブジェクトの末尾に `str` の `pos` 番目からの `rlen` 文字を追加（コピー）する。
-	* C++11 から：`append(str.`[`data`](./data.md)`() + pos, rlen)` と同一。
+    追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](./size.md)`() - pos` の小さい方である。
+    * C++03 まで：対象オブジェクトの末尾に `str` の `pos` 番目からの `rlen` 文字を追加（コピー）する。
+    * C++11 から：`append(str.`[`data`](./data.md)`() + pos, rlen)` と同一。
 
 - (3) 対象オブジェクトの末尾に `s` が指す長さ `n` の文字列が追加（コピー）される。
-	* C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s, n))` と同一。
-	* C++11 から：対象オブジェクトの末尾に `s` からの `n` 文字を追加（コピー）する。
+    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s, n))` と同一。
+    * C++11 から：対象オブジェクトの末尾に `s` からの `n` 文字を追加（コピー）する。
 
 - (4) 対象オブジェクトの末尾に `s` が指す NULL 終端された文字列が追加（コピー）される。
-	* C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s))` と同一。
-	* C++11 から：`append(s, traits_type::length(s))` と同一。
+    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s))` と同一。
+    * C++11 から：`append(s, traits_type::length(s))` と同一。
 
 - (5) 対象オブジェクトの末尾に、文字 `c` が `n` 文字が追加（コピー）される。  
-	`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と同一。
+    `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と同一。
 
 - (6) 対象オブジェクトの末尾に、範囲 `[first, last)` の文字列が追加（コピー）される。  
-	`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と同一。
+    `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と同一。
 
 - (7) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。  
-	`append(il.begin(), il.end())` と同一。
+    `append(il.begin(), il.end())` と同一。
 
 
 ##戻り値
@@ -70,23 +72,23 @@ basic_string& append(initializer_list<charT> il);							// (7) C++11 から
 
 ##例外
 - (1) C++03 まで：[`size`](size.md)`() >= npos - str.`[`size`](size.md)`()` の場合、`length_error` が送出される。  
-	C++11 から：[`size`](size.md)`() + str.`[`size`](size.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
+    C++11 から：[`size`](size.md)`() + str.`[`size`](size.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 - (2) `pos > str.`[`size`](./size.md)`()` の場合、`out_of_range` が送出される。  
-	C++03 まで：[`size`](./size.md)`() >= npos - rlen` の場合、`length_error` が送出される。  
-	C++11 から：[`size`](./size.md)`() + rlen >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
+    C++03 まで：[`size`](./size.md)`() >= npos - rlen` の場合、`length_error` が送出される。  
+    C++11 から：[`size`](./size.md)`() + rlen >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 - (3) C++03 まで：[`size`](./size.md)`() >= npos - n` の場合、`length_error` が送出される。  
-	C++11 から：[`size`](./size.md)`() + n >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+    C++11 から：[`size`](./size.md)`() + n >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
 
 - (4) C++03 まで：[`size`](./size.md)`() >= npos - traits::length(s)` の場合、`length_error` が送出される。  
-	C++11 から：[`size`](./size.md)`() + traits::length(s) >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+    C++11 から：[`size`](./size.md)`() + traits::length(s) >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
 
 - (5) C++03 まで：[`size`](./size.md)`() >= npos - n` の場合、`length_error` が送出される。  
-	C++11 から：[`size`](./size.md)`() + n >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+    C++11 から：[`size`](./size.md)`() + n >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
 
 - (6) C++03 まで：[`size`](./size.md)`() >= npos -` [`distance`](/reference/iterator/distance.md)`(first, last)` の場合、`length_error` が送出される。  
-	C++11 から：[`size`](./size.md)`() +` [`distance`](/reference/iterator/distance.md)`(first, last) >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+    C++11 から：[`size`](./size.md)`() +` [`distance`](/reference/iterator/distance.md)`(first, last) >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
 
 - (7) [`size`](./size.md)`() + il.`[`size`](/reference/initializer_list.md)`() >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
 
