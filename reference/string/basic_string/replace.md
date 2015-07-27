@@ -7,9 +7,14 @@
 ```cpp
 basic_string& replace(size_type pos1, size_type n1,
                       const basic_string& str);                     // (1)
+
 basic_string& replace(size_type pos1, size_type n1,
                       const basic_string& str,
-                      size_type pos2, size_type n2);                // (2)
+                      size_type pos2, size_type n2);                // (2) C++11まで
+basic_string& replace(size_type pos1, size_type n1,
+                      const basic_string& str,
+                      size_type pos2, size_type n2 = npos);         // (2) C++14から
+
 basic_string& replace(size_type pos, size_type n1, const charT* s,
                       size_type n2);                                // (3)
 basic_string& replace(size_type pos, size_type n1, const charT* s); // (4)
@@ -66,7 +71,9 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 
 ##効果
 - (1) : `replace(pos1, n1, str.`[`data()`](./data.md)`, str.`[`size()`](./size.md)`)`を呼び出す。
-- (2) : `n2`と`str.`[`size()`](./size.md) `- pos2`のうち小さい方を`rlen`とし、`replace(pos1, n1, str.`[`data()`](./data.md) `+ pos2, rlen)`を呼び出す。
+- (2) :
+    - `n2`と`str.`[`size()`](./size.md) `- pos2`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](./size.md)`() - pos2` が使用される。
+    - `replace(pos1, n1, str.`[`data()`](./data.md) `+ pos2, rlen)`を呼び出す。
 - (3) : `n1`と[`size()`](./size.md) `- pos1`のうち小さい方を`xlen`とし、自身の`pos1`番目から`xlen`個の要素を、文字配列`s`の先頭`n2`文字で置き換える。
 - (4) : `replace(pos, n, s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`を呼び出す。
 - (5) : `replace(pos1, n1, basic_string(n2, c))`と同じ効果を持つ。
@@ -222,4 +229,8 @@ int main()
 (11) : 1abcde45
 ```
 
+
+##参照
+- [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
+    - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
 
