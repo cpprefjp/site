@@ -6,8 +6,12 @@
 
 ```cpp
 basic_string& insert(size_type pos1, const basic_string& str);    // (1)
+
 basic_string& insert(size_type pos1, const basic_string& str,
-                     size_type pos2, size_type n);                // (2)
+                     size_type pos2, size_type n);                // (2) C++03
+basic_string& insert(size_type pos1, const basic_string& str,
+                     size_type pos2, size_type n = npos);         // (2) C++14から
+
 basic_string& insert(size_type pos, const charT* s, size_type n); // (3)
 basic_string& insert(size_type pos, const charT* s);              // (4)
 basic_string& insert(size_type pos, size_type n, charT c);        // (5)
@@ -45,7 +49,9 @@ iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11�
 
 ##効果
 - (1) : `insert(pos, str.`[`data()`](./data.md)`, str.`[`size()`](./size.md)`)`
-- (2) : `str.`[`size()`](./size.md) `- pos2`と`n`のうち小さい方を`rlen`とし、`insert(pos1, str.`[`data()`](./data.md) `+ pos2, rlen)`を呼び出す。
+- (2) :
+	- `str.`[`size()`](./size.md) `- pos2`と`n`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](./size.md)`() - pos` が使用される。
+	- `insert(pos1, str.`[`data()`](./data.md) `+ pos2, rlen)`を呼び出す。
 - (3) : `*this`の`pos`番目に、文字配列`s`の先頭`n`文字を挿入する。
 - (4) : `insert(pos, s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`と同じ効果を持つ。
 - (5) : `insert(pos, basic_string(n, c))`と同じ効果を持つ。
@@ -181,3 +187,6 @@ int main()
 
 ##参照
 - [LWG Issue 180. Container member iterator arguments constness has unintended consequences](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#180)
+- [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
+    - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
+
