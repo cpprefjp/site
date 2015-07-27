@@ -55,6 +55,15 @@ basic_string(basic_string&& str, const Allocator&);      // (12) C++11
 - (12) : アロケータを受け取るムーブコンストラクタ。
 
 
+##要件
+- (6)
+    - C++11 : `s`がヌルポインタではないこと。`n < npos`であること。
+    - C++14 : `s`は、`charT`型の要素を少なくても`n`個を持つ配列を指していること。
+- (7)
+    - C++11 : `s`がヌルポインタではないこと。
+    - C++14 : `s`は、`charT`型の要素を少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個持つ配列を指していること。
+
+
 ##例外
 - (12) : `alloc == str.`[get_allocator()`](./get_allocator.md)の場合、例外を投げない。
 
@@ -132,7 +141,8 @@ s9 : hello
 
 ##参照
 - [LWG Issue 2069. Inconsistent exception spec for `basic_string` move constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2069)
-- [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
+- [LWG Issue 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
     `explicit basic_string(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
-
+- [LWG Issue 2235. Undefined behavior without proper requirements on `basic_string` constructors](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2235)
+    - C++14で、(6)と(7)の要件を見直した。
 
