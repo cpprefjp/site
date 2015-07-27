@@ -5,17 +5,22 @@
 * function[meta id-type]
 
 ```cpp
-int compare(const basic_string& str) const noexcept; // (1)
+int compare(const basic_string& str) const noexcept;    // (1)
 int compare(size_type pos1, size_type n1,
-            const basic_string& str) const;          // (2)
+            const basic_string& str) const;             // (2)
+
 int compare(size_type pos1, size_type n1,
             const basic_string& str,
-            size_type pos2, size_type n2) const;     // (3)
-int compare(const charT* s) const;                   // (4)
+            size_type pos2, size_type n2) const;        // (3) C++11まで
 int compare(size_type pos1, size_type n1,
-            const charT* s) const;                   // (5)
+            const basic_string& str,
+            size_type pos2, size_type n2 = npos) const; // (3) C++14から
+
+int compare(const charT* s) const;                      // (4)
 int compare(size_type pos1, size_type n1,
-            const charT* s, size_type n2) const;     // (6)
+            const charT* s) const;                      // (5)
+int compare(size_type pos1, size_type n1,
+            const charT* s, size_type n2) const;        // (6)
 ```
 
 ##概要
@@ -65,3 +70,6 @@ int main()
 ```
 
 ##参照
+- [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
+    - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
+
