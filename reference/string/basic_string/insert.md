@@ -50,7 +50,7 @@ iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11�
 ##効果
 - (1) : `insert(pos, str.`[`data()`](./data.md)`, str.`[`size()`](./size.md)`)`
 - (2) :
-	- `str.`[`size()`](./size.md) `- pos2`と`n`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](./size.md)`() - pos` が使用される。
+	- `str.`[`size()`](./size.md) `- pos2`と`n`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](./size.md)`() - pos2` が使用される。
 	- `insert(pos1, str.`[`data()`](./data.md) `+ pos2, rlen)`を呼び出す。
 - (3) : `*this`の`pos`番目に、文字配列`s`の先頭`n`文字を挿入する。
 - (4) : `insert(pos, s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`と同じ効果を持つ。
