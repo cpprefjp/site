@@ -63,3 +63,7 @@ right_shift_result : {3,4,5,1,2}
 ```
 
 
+##参照
+- [LWG Issue 618. `valarray::cshift()` effects on empty array](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#618)
+    - 空の配列に対するこの関数の挙動が、C++11で明確になった
+
