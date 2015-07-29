@@ -52,3 +52,7 @@ char : true
 ```
 
 
+##参照
+- [LWG Issue 612. `numeric_limits::is_modulo` insufficiently defined]
+    - C++11で、定義がより明確になった
+
