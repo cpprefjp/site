@@ -62,5 +62,6 @@ int main()
 
 
 ##参照
+- [LWG Issue 685. `reverse_iterator`/`move_iterator` difference has invalid signatures](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#685)
 
 

@@ -5,10 +5,15 @@
 
 ```cpp
 namespace std {
+  template<class Iterator1, class Iterator2> 
+  typename reverse_iterator<Iterator>::difference_type 
+  operator-(const reverse_iterator<Iterator1>& x, 
+            const reverse_iterator<Iterator2>& y);     // C++03まで
+
   template <class Iterator1, class Iterator2>
   auto operator-(const reverse_iterator<Iterator1>& x,
                  const reverse_iterator<Iterator2>& y)
-    -> decltype(y.current - x.current);
+    -> decltype(y.current - x.current);                // C++11から
 }
 ```
 
@@ -45,5 +50,6 @@ int main()
 ```
 
 ##参照
+- [LWG Issue 685. `reverse_iterator`/`move_iterator` difference has invalid signatures](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#685)
 
 
