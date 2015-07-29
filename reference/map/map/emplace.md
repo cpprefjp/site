@@ -5,7 +5,6 @@
 * function[meta id-type]
 
 ```cpp
-// since C++11
 template <class... Args>
 pair<iterator, bool> emplace(Args&&... args);
 ```

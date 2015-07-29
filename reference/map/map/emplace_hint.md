@@ -5,7 +5,6 @@
 * function[meta id-type]
 
 ```cpp
-// since C++11
 template <class... Args>
 iterator emplace_hint(const_iterator hint, Args&&... args);
 ```
