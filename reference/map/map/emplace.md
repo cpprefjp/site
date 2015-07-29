@@ -6,8 +6,8 @@
 
 ```cpp
 // since C++11
-template <class... Args> pair<iterator, bool>
-emplace(Args&&... args);
+template <class... Args>
+pair<iterator, bool> emplace(Args&&... args);
 ```
 
 ##概要
