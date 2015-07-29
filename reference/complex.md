@@ -178,4 +178,6 @@ polar : (-1.62921e-07,1)
 - [複素数 - Wikipedia](http://ja.wikipedia.org/wiki/複素数)
 - [複素数の手ほどき - 日本電気技術者協会](http://www.jeea.or.jp/course/contents/01109/)
 - [複素数とは何か - EMANの物理学](http://homepage2.nifty.com/eman/math/imaginary01.html)
+- [LWG Issue 387. `std::complex` over-encapsulated](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#387)
+    - C++11で、`std::complex`型のメモリレイアウトが規定された経緯のレポート
 
