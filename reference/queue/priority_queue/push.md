@@ -25,7 +25,7 @@ push_heap(c.begin(), c.end(), comp);
 
 - (2) :
 
-    `cpp
+    ```cpp
 c.push_back(move(x));
 push_heap(c.begin(), c.end(), comp);
 ```
