@@ -14,8 +14,13 @@ void emplace(Args&&... args);
 
 
 ##効果
-`c.emplace_back(`[`forward`](/reference/utility/forward.md)`<Args>(args)...);` 
-[`push_heap`](/reference/algorithm/push_heap.md)`(c.begin(), c.end(), comp);`
+
+```cpp
+c.emplace_back(forward<Args>(args)...);
+push_heap(c.begin(), c.end(), comp);
+```
+* forward[link /reference/utility/forward.md]
+* push_heap[link /reference/algorithm/push_heap.md]
 
 
 ##戻り値

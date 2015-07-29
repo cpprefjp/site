@@ -5,10 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void push(const value_type& x);
-
-// C++11から
-void push(value_type&& x);
+void push(const value_type& x); // (1)
+void push(value_type&& x);      // (2) C++11
 ```
 
 ##概要
@@ -16,13 +14,23 @@ void push(value_type&& x);
 
 
 ##効果
-`const`左辺値参照バージョン： 
-`c.push_back(x);` 
-[`push_heap`](/reference/algorithm/push_heap.md)`(c.begin(), c.end(), comp);` 
+- (1) :
 
-右辺値参照バージョン： 
-`c.push_back(`[`move`](/reference/utility/move.md)`(x));`
-[`push_heap`](/reference/algorithm/push_heap.md)`(c.begin(), c.end(), comp);`
+    ```cpp
+c.push_back(x);
+push_heap(c.begin(), c.end(), comp);
+```
+* push_heap[link /reference/algorithm/push_heap.md]
+
+
+- (2) :
+
+    `cpp
+c.push_back(move(x));
+push_heap(c.begin(), c.end(), comp);
+```
+* move[link /reference/utility/move.md]
+* push_heap[link /reference/algorithm/push_heap.md]
 
 
 ##戻り値
