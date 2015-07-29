@@ -21,6 +21,8 @@ void insert(InputIterator first, InputIterator last);          // (5)
 
 void insert(initializer_list<value_type> init);                // (6) C++11から
 ```
+* pair[link /reference/utility/pair.md]
+* initializer_list[link /reference/initializer_list.md]
 
 ##概要
 　新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入することにより、 `map` コンテナを拡張する。
