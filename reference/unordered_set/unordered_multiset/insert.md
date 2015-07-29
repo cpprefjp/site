@@ -237,4 +237,7 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(initializer_l
 ##参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (4)の経緯となる提案文書
+- [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#518)
+    - 安定性の保証が規定された経緯のレポート
+
 

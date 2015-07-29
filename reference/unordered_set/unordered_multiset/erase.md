@@ -160,7 +160,8 @@ after : 9 1 3 3
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+
+##関連項目
 
 |                                     |                                                        |
 |-------------------------------------|--------------------------------------------------------|
@@ -169,4 +170,10 @@ after : 9 1 3 3
 | [`insert`](./insert.md)             | 要素の追加                                             |
 | [`clear`](./clear.md)               | 全要素の削除                                           |
 | [`swap`](./swap.md)                 | 内容の交換                                             |
+
+
+##参照
+- [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#518)
+    - 安定性の保証が規定された経緯のレポート
+
 
