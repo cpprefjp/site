@@ -140,3 +140,8 @@ minmax_element(ForwardIterator first, ForwardIterator last)
 - [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
+
+
+##参照
+- [LWG Issue 715. `minmax_element` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#715)
+
