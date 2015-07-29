@@ -63,3 +63,7 @@
 ###言語
 - C++11
 
+
+##参照
+- [N2661 A Foundation to Sleep On](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2661.htm)
+

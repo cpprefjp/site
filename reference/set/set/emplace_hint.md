@@ -76,9 +76,14 @@ int main()
 - C++11
 
 
-##参照
+##関連項目
 
 | 名前                      | 説明               | 対応バージョン |
 |---------------------------|--------------------|----------------|
 | [`emplace`](./emplace.md) | 要素を直接構築する | C++11          |
 | [`insert`](./insert.md)   | 要素を挿入する     |                |
+
+
+##参照
+- [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
+

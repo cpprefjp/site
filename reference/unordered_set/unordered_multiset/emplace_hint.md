@@ -187,7 +187,8 @@ int main()
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+
+##関連項目
 
 |                                           |                                                    |
 |-------------------------------------------|----------------------------------------------------|
@@ -201,4 +202,8 @@ int main()
 | [`max_load_factor`](./max_load_factor.md) | 最大負荷率を取得、設定                             |
 | [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整           |
 | [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整               |
+
+
+##参照
+- [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
 

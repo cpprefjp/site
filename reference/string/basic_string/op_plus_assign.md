@@ -93,7 +93,7 @@ Hello, world!
 Hello, world! :)
 ```
 
-##参照
+##関連項目
 
 |                               |                        |
 |-------------------------------|------------------------|
@@ -101,3 +101,9 @@ Hello, world! :)
 | [`push_back`](./push_back.md) | 文字を追加する         |
 | [`insert`](./insert.md)       | 文字／文字列を挿入する |
 | [`operator+`](./op_plus.md)   | 文字列を連結する       |
+
+
+##参照
+- [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+    - (4)の経緯となる提案文書
+

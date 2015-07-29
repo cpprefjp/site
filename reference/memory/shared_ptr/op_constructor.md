@@ -241,4 +241,6 @@ int main()
 - (4), (5) : [nullptrを所有するshared_ptr - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120623/p1)
 - (7) : [今更ながらに Boost.SmartPointers を考える - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20091214/1260804379)
 - [N2351 Improving shared_ptr for C++0x, Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2351.htm)
+- [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
+    - (15)の経緯となる提案文書
 

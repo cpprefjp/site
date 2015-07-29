@@ -52,5 +52,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 ##参照
-
+- [N2514 Implicit Conversion Operators for Atomics](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2514.html)
 

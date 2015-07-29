@@ -92,6 +92,8 @@ OutputIterator copy_if(InputIterator first, InputIterator last,
 
 
 ##参照
+- [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
+- [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 - [LWG Issue 2039. Issues with `std::reverse` and `std::copy_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2039)
     - C++11まで、戻り値の仕様がなかった。C++14で追加。
 

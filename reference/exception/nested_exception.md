@@ -73,4 +73,5 @@ int main()
 
 
 ###参照
+- [N2559 Nesting Exception Objects (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2559.htm)
 

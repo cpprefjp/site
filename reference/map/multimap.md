@@ -208,3 +208,6 @@ count = 2
 40
 ```
 
+
+##参照
+- [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)

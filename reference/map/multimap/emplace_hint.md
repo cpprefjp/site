@@ -72,11 +72,14 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
 
-##参照
+##関連項目
 
 | 名前 | 説明 |
 |-----------------------------------------------------------------------------------------|-----------------------------|
 | [`multimap::emplace`](/reference/map/multimap/emplace.md) | 要素を直接構築する |
 | [`multimap::insert`](/reference/map/multimap/insert.md) | 要素を挿入する |
 
+
+##参照
+- [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
 

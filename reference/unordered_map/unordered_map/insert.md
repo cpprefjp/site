@@ -270,10 +270,6 @@ inline void unordered_map<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 * insert[color ff0000]
 
 
-##参照
-- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
-
-
 ##関連項目
 
 |                                           |                                                        |
@@ -289,3 +285,8 @@ inline void unordered_map<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 | [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
 | [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 
+
+##参照
+- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
+- [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+    - (6)の経緯となる提案文書

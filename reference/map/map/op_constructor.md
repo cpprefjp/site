@@ -153,15 +153,20 @@ Size of c2: 2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
-##参照
+
+##関連項目
 
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------------|-----------------------|
 | [`operator=`](/reference/map/map/op_assign.md) | 代入演算子 |
 | [`insert`](/reference/map/map/insert.md) | 要素を挿入する |
 
-* [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
+
+##参照
+- [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+    - (10)の経緯となる提案文書
+- [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
     (1) + (2) を 2 つのオーバーロードに分割するきっかけとなったレポート
-* [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
+- [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
     (5)、(11) を追加するきっかけとなったレポート  
     なお、Discussion の例はアロケータの型が誤っているので注意

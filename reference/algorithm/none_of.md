@@ -82,7 +82,13 @@ bool none_of(InputIterator first, InputIterator last, Predicate pred) {
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-##参照
+
+##関連項目
 - [`all_of`](/reference/algorithm/all_of.md)
 - [`any_of`](/reference/algorithm/any_of.md)
+
+
+##参照
+- [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
+- [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 

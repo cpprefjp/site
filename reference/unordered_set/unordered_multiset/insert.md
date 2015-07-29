@@ -217,7 +217,8 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(initializer_l
 * initializer_list[link /reference/initializer_list.md]
 * insert[color ff0000]
 
-##参照
+
+##関連項目
 
 |                                           |                                                        |
 |-------------------------------------------|--------------------------------------------------------|
@@ -231,4 +232,9 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(initializer_l
 | [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定                             |
 | [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
 | [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
+
+
+##参照
+- [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+    - (4)の経緯となる提案文書
 

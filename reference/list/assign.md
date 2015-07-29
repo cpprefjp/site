@@ -115,5 +115,6 @@ ls3 : 1 2 3
 ```
 
 ##参照
-
+- [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+    - (3)の経緯となる提案文書
 
