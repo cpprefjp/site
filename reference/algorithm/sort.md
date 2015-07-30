@@ -72,3 +72,7 @@ int main()
 ```
 
 
+##参照
+- [LWG Issue 713. `sort()` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#713)
+    - C++11で、イントロソートアルゴリズムを考慮して、計算量の規定が見直された経緯のレポート
+
