@@ -9,7 +9,7 @@ namespace std {
   void swap(T& a, T& b) noexcept(see below);
 
   template <class T, size_t N>
-  void swap(T (&a)[N], T (&b)[N]) noexcept(noexcept(swap(*a, *b)));
+  void swap(T (&a)[N], T (&b)[N]) noexcept(noexcept(swap(*a, *b))); // C++11
 }
 ```
 * see below[italic]
@@ -139,5 +139,7 @@ int main()
 
 
 ##参照
+- [LWG Issue 809. `std::swap` should be overloaded for array types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#809)
+    - C++11で、配列に対するオーバーロードが追加された経緯のレポート
 
 
