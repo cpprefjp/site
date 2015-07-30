@@ -121,5 +121,6 @@ Windows環境においては、`<windows.h>`をインクルードすると`min`�
 
 
 ##参照
+- [N2551 A Variadic `std::min(T, ...)` for the C++ Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2551.pdf)
 - [LWG2350 - min, max, and minmax should be constexpr](http://cplusplus.github.io/LWG/lwg-defects.html#2350)
 
