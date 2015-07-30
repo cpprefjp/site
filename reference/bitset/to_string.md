@@ -63,5 +63,6 @@ int main()
 ##参照
 - [LWG Issue 853. `to_string` needs updating with `zero` and `one`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#853)
     - C++11で、`0`を表す文字と`1`を表す文字を指定できるようになった経緯のレポート
-
+- [LWG Issue 1113. `bitset::to_string` could be simplified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#1113)
+    - C++11で、デフォルトの文字型が設定された経緯のレポート
 
