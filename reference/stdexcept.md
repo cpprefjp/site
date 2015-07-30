@@ -76,3 +76,8 @@ int main()
 }
 ```
 
+
+##参照
+- [LWG Issue 254. Exception types in clause 19 are constructed from `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#254)
+    - C++11から例外送出の理由として、文字配列を受け取ることを許可した経緯のレポート
+
