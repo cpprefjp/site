@@ -32,6 +32,8 @@ namespace std {
 
 実行のスレッドに対して一意な`thread::id`が対応づけられる。デフォルトコンストラクトされた`thread::id`はいかなるスレッドとも対応付けられない（ポインタ型における`nullptr`のようなもの）。
 
+終了したスレッドを表す識別子の値は、再利用される可能性がある。
+
 
 ###メンバ関数
 
@@ -89,5 +91,5 @@ main=824a30
 - C++11:
 
 ###参照
-
+- [LWG Issue 783. `thread::id` reuse](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#783)
 
