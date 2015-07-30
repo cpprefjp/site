@@ -41,4 +41,5 @@ o
 ```
 
 ##参照
+- [LWG Issue 534. Missing `basic_string` members](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#534)
 
