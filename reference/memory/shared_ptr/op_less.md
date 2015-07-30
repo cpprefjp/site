@@ -71,3 +71,8 @@ true
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
 	- Visual C++ 11.0までは`nullptr`バージョンがない。
+
+
+##参照
+- [N2637 Revisiting `std::shared_ptr` comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
+

@@ -116,7 +116,11 @@ Carol
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
-###参照
+
+###関連項目
 - [`shared_ptr::owner_before()`](/reference/memory/shared_ptr/owner_before.md)
 
+
+##参照
+- [N2637 Revisiting `std::shared_ptr` comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 
