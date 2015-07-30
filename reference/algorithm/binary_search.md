@@ -95,3 +95,9 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
 }
 ```
 * lower_bound[link lower_bound.md]
+
+
+##参照
+- [LWG Issue 787. complexity of `binary_search`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#787)
+    - C++03までの計算量が間違っていたので、C++11で修正。
+
