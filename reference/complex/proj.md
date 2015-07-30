@@ -105,3 +105,8 @@ proj( (nan,-inf) ) = (inf,-0)
 | [`norm`](norm.md)                  | 複素数体のノルムを得る。               |
 | [`conj`](conj.md)                  | 共役複素数を得る。                     |
 | [`polar`](polar.md)                | 指定した絶対値と偏角の複素数値を得る。 |
+
+
+##参照
+- [LWG Issue 781. `std::complex` should add missing C99 functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#781)
+
