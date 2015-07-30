@@ -120,4 +120,6 @@ int main()
 
 
 ##参照
+- [LWG Issue 778. `std::bitset` does not have any constructor taking a string literal](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#778)
+    - (4)のコンストラクタが追加された経緯となるレポート
 
