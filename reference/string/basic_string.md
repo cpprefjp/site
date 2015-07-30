@@ -203,4 +203,6 @@ hello world
 ```
 
 ###参照
+- [N2668 Concurrency Modifications to Basic String](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2668.htm)
+    - C++11で、`basic_string`の仕様が、並行実行のパフォーマンスを考慮したものに変更された経緯の提案文書
 
