@@ -125,4 +125,5 @@ hoge::~hoge()
 ###参照
 - [LWG Issue 673. `unique_ptr` update](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#672)
     - `unique_ptr<void, Deleter>`を許可するために、インタフェースを改良した経緯
+- [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)
 
