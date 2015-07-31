@@ -65,6 +65,7 @@ Tは整数型以外
 
 
 ##参照
+- [N2240 Two missing traits: `enable_if` and `conditional`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2240.html)
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 
