@@ -79,5 +79,6 @@ terminate called after throwing an instance of 'std::runtime_error'
 
 
 ##参照
+- [N2179 Language Support for Transporting Exceptions between Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html)
 - [Can I use `std::current_exception` during stack unwinding? - StackOverflow](http://stackoverflow.com/questions/28267484/can-i-use-stdcurrent-exception-during-stack-unwinding)
 
