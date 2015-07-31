@@ -13,12 +13,16 @@ namespace std {
 
 ##概要
 `n`回進めたイテレータを返す。
+
 [`advance`](/reference/iterator/advance.md)`()`と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回進んだイテレータのコピーを返す。
 
 
 ##効果
-[`advance`](/reference/iterator/advance.md)`(x, n);`
-`return x;`
+```cpp
+advance(x, n);
+return x;
+```
+* advance[link /reference/iterator/advance.md]
 
 
 ##戻り値
