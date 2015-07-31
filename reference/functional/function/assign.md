@@ -61,4 +61,5 @@ int main()
 
 
 ##参照
+- [N2308 Adding allocator support to `std::function` for C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2308.html)
 
