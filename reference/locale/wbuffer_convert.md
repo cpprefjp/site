@@ -50,5 +50,7 @@ namespace std {
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
-###参照
+
+##参照
+- [N2007 Proposed Library Additions for Code Conversion](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2007.html)
 
