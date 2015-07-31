@@ -85,3 +85,6 @@ ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last)
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
+##参照
+- [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
+
