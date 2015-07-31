@@ -19,7 +19,9 @@ slice(const slice&);  // (3)
 
 `slice`オブジェクトを次に示す通りの要素で初期化する。
 
-- (1) : `slice(0, 0 ,0)`と等価。
+- (1) :
+    - C++03 : 未規定
+    - C++11 : `slice(0, 0 ,0)`と等価
 - (2) : 初期位置`start`、要素数`length`、間隔`stride`でスライスする`slice`オブジェクトを構築する。
 - (3) : コピーコンストラクタ。コピー元の`slice`オブジェクトと同じ初期位置、要素数、間隔でスライスする`slice`オブジェクトを構築する。
 
@@ -67,3 +69,8 @@ auto main()
 0x7fffe0c71c70: 3 5 7
 0x7fffe0c71c58: 3 5 7
 ```
+
+
+##参照
+- [LWG Issue 543. `valarray` `slice` default constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#543)
+
