@@ -5,9 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-slice();
-slice(size_t start, size_t length, size_t stride);
-slice(const slice&);
+slice();              // (1)
+
+slice(size_t start,
+      size_t length,
+      size_t stride); // (2)
+
+slice(const slice&);  // (3)
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
@@ -15,12 +19,9 @@ slice(const slice&);
 
 `slice`オブジェクトを次に示す通りの要素で初期化する。
 
-- `slice();`
-    - `slice(0, 0 ,0)`と等価。
-- `slice(size_t start, size_t length, size_t stride);`
-    - 初期位置`start`、要素数`length`、間隔`stride`でスライスする`slice`オブジェクトを構築する。
-- `slice(const slice&);`
-    - コピーコンストラクタ。コピー元の`slice`オブジェクトと同じ初期位置、要素数、間隔でスライスする`slice`オブジェクトを構築する。
+- (1) : `slice(0, 0 ,0)`と等価。
+- (2) : 初期位置`start`、要素数`length`、間隔`stride`でスライスする`slice`オブジェクトを構築する。
+- (3) : コピーコンストラクタ。コピー元の`slice`オブジェクトと同じ初期位置、要素数、間隔でスライスする`slice`オブジェクトを構築する。
 
 
 ##パラメータ
