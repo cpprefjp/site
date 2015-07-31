@@ -6,7 +6,7 @@
 
 ```cpp
 gslice();
-gslice(size_t s, valarray<size_t> l, valarray<size_t> d);
+gslice(size_t start, valarray<size_t> lengths, valarray<size_t> strides);
 gslice(const slice&);
 ```
 * size_t[link /reference/cstddef/size_t.md]
@@ -18,19 +18,19 @@ gslice(const slice&);
 
 - `gslice();`
     - `gslice( 0, valarray<size_t>(), valarray<size_t>() )`と等価。
-- `slice(size_t s, size_t l, size_t d);`
-    - 初期位置`s`から要素数群`l`と間隔数群`d`でスライスする`gslice`オブジェクトを構築する。
-        - `l`と`d`はインデックス`0`番目から準に読み出され、`d[0]`個おきに`l[0]`個を選び、そのそれぞれの位置からさらに`d[1]`個おきに`l[1]`個を選び…とスライスされる。
+- `slice(size_t start, size_t lengths, size_t strides);`
+    - 初期位置`start`から要素数群`lengths`と間隔数群`strides`でスライスする`gslice`オブジェクトを構築する。
+        - `lengths`と`strides`はインデックス`0`番目から準に読み出され、`strides[0]`個おきに`lengths[0]`個を選び、そのそれぞれの位置からさらに`strides[1]`個おきに`lengths[1]`個を選び…とスライスされる。
 - `gslice(const gslice&);`
     - コピーコンストラクタ。コピー元の`gslice`オブジェクトと同じ初期位置、要素数群、間隔数群でスライスする`gslice`オブジェクトを構築する。
 
 
 ##パラメータ
-- `s`
+- `start`
     - スライスする初期位置。
-- `l`
+- `lengths`
     - スライスする要素数群。
-- `d`
+- `strides`
     - スライスする間隔数群。
 
 
