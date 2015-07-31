@@ -48,3 +48,6 @@ int main()
 ```
 
 
+##参照
+- [N2348 Wording for `std::numeric_limits<T>::lowest()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2348.pdf)
+
