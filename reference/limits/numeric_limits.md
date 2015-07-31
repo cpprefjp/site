@@ -27,6 +27,10 @@ namespace std {
   template<> class numeric_limits<float>;
   template<> class numeric_limits<double>;
   template<> class numeric_limits<long double>;
+
+  template <class T> class numeric_limits<const T>;          // C++11から追加
+  template <class T> class numeric_limits<volatile T>;       // C++11から追加
+  template <class T> class numeric_limits<const volatile T>; // C++11から追加
 }
 ```
 
@@ -36,6 +40,7 @@ namespace std {
 * 浮動小数点型、整数型、`bool`型について特殊化が提供され、`is_specialized=true`になる
 * このクラスのメンバは全て `static constexpr` として定義されているため、定数式として使いやすい (C++11)
 * [`std::complex`](/reference/complex.md)のような非算術型については特殊化は提供されない
+* CV修飾された型をテンプレート引数として指定した場合、CV修飾されていない型を指定した場合と同じになる (C++11)
 
 | 静的メンバ                                                   | 性質 | 対応バージョン |
 |--------------------------------------------------------------|--------------------------------------------------------|-------|
@@ -70,4 +75,8 @@ namespace std {
 | [`traps`](./numeric_limits/traps.md)                         | トラップが実装されている型かを判定する | |
 | [`tinyness_before`](./numeric_limits/tinyness_before.md)     | 丸めが行われる前に小さな値になることを検出できるかを判定する | |
 | [`round_style`](./numeric_limits/round_style.md)             | 丸めスタイルを取得する | |
+
+
+##参照
+- [LWG Issue 559. `numeric_limits<const T>`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#559)
 
