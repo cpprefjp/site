@@ -88,3 +88,8 @@ InputIterator find_first_of(InputIterator first1, InputIterator last1,
 }
 ```
 
+
+##参照
+- [LWG Issue 576. `find_first_of` is overconstrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#576)
+    - C++11から、パラメータのイテレータ型に対する制約が緩和され、`ForwardIterator`から`InputIterator`に変更になった経緯のレポート
+
