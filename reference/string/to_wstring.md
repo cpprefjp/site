@@ -156,9 +156,14 @@ std::wstring to_wstring(long double val)
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+
+##関連項目
 
 | 名前                          | 参照                     |
 |-------------------------------|--------------------------|
 | [`to_string`](./to_string.md) | 数値を`string`に変換する |
+
+
+##参照
+- [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
 

@@ -197,6 +197,7 @@ long stol(const wstring& str, size_t* idx = nullptr, long base = 10) {
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 ##参照
+- [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
 - [LWG Issue 2009. Reporting out-of-bound values on numeric string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009)
 
 ### C標準ライブラリに由来する関数
