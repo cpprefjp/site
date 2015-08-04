@@ -167,6 +167,7 @@ int main()
 * [N0352 Proposal for Standardization of Random Number Generators in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1993/N0352.asc)
 * [N1398 A Proposal to Add an Extensible Random Number Facility to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1398.html)
 * [N1588 On Random-Number Distributions for C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1588.pdf)
+* [N2423 Recommendations for Resolving Issues re \[rand\], Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2423.pdf)
 * [N2424 Recommendations for Resolving the 2007-09-21 Issues re \[rand\]](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2424.pdf)
 * [N3551 Random Number Generation in C++11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)
 
