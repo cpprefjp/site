@@ -31,5 +31,6 @@ namespace std {
 ###言語
 - C++11:
 
-###参照
+##参照
+- [N2401 Code Conversion Facets for the Standard C++ Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2401.htm)
 
