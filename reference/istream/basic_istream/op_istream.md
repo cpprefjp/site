@@ -195,9 +195,14 @@ TBD
 - C++98
 - C++11: `long long`、`unsigned long long`、ストリームへの右辺値参照を実引数として受け取るものが追加された
 
-##参照
+##関連項目
 
 - このほかの`>>`演算子関数
     - [`std::basic_string`に対するもの](../../string/basic_string/op_istream.md)
 - 入力対象の型
     - [`basic_streambuf`](../../streambuf/basic_streambuf.md)
+
+
+##参照
+- [N2114 `long long` Goes to the Library, Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2114.html)
+

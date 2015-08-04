@@ -78,5 +78,6 @@ namespace std {
 
 
 ##参照
+- [N2114 `long long` Goes to the Library, Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2114.html)
 - [LWG Issue 559. `numeric_limits<const T>`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#559)
 
