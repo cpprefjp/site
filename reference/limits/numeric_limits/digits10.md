@@ -56,3 +56,6 @@ int main()
 ```
 
 
+##参照
+- [N1822 A Proposal to add a max significant decimal digits value to the C++ Standard Library Numeric limits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1822.pdf)
+
