@@ -65,3 +65,5 @@ int main()
 ```
 
 
+##参照
+- [LWG Issue 384. `equal_range` has unimplementable runtime complexity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384)
