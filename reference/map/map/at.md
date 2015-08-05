@@ -63,11 +63,15 @@ exception std::out_of_ranget
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
-##参照
+
+##関連項目
 
 | 名前 | 説明 |
 |------------------------------------------------|-----------------------|
 | [`operator=`](/reference/map/map/op_assign.md) | 代入演算子 |
 | [`insert`](/reference/map/map/insert.md) | 要素を挿入する |
 
+
+##参照
+- [LWG Issue 464. Suggestion for new member functions in standard containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#464)
 
