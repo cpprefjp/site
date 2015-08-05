@@ -143,5 +143,7 @@ minmax_element(ForwardIterator first, ForwardIterator last)
 
 
 ##参照
+- [N1840 C++0x Proposal: Function template `std::minmax` and / or algorithm `std::minmax_element`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1840.pdf)
+- [N1990 Proposed Text for `minmax` (N1840)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1990.htm)
 - [LWG Issue 715. `minmax_element` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#715)
 
