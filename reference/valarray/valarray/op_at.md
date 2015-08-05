@@ -5,7 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-const T& operator[](size_t n) const;                        // (1)
+T operator[](size_t n) const;                               // (1) C++03
+const T& operator[](size_t n) const;                        // (1) C++11
+
 T& operator[](size_t n);                                    // (2)
 
 valarray<T> operator[](slice ar) const;                     // (3)
@@ -257,4 +259,9 @@ int main()
 
 ###備考
 - GCC 4.8.2時点のlibstdc++において、(8)と(10)のオーバーロードにおいて、一時オブジェクトのマスク配列を渡すと、ぶら下がり参照が発生する問題がある([#Bug 63314](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63314), [mask_array behavior in libstdc++](http://stackoverflow.com/questions/25918764/mask-array-behavior-in-libstdc))
+
+
+##参照
+- [LWG Issue 389. Const overload of `valarray::operator[]` returns by value](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#389)
+    - (1)の戻り値の型が、C++03の`T`から、C++11の`const T&`に変更された経緯のレポート
 
