@@ -50,5 +50,6 @@ int main()
 - GCC(libstdc++, C++11)は、5.0から定数時間。
 
 ##参照
+- [N2909 Specifying the complexity of `size()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2909.pdf)
 - [C++0x 標準コンテナのsize()の計算量を規定 - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20090902/1251879571)
 
