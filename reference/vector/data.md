@@ -64,3 +64,5 @@ int main()
 gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が空の場合に `data()` を呼び出すと未定義動作になる。([Bug 59829](http://gcc.gnu.org/bugzilla/show_bug.cgi?id=59829))
 
 
+##参照
+- [LWG Issue 464. Suggestion for new member functions in standard containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#464)
