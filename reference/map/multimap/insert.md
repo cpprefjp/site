@@ -32,6 +32,22 @@ void insert(initializer_list<value_type> init);                // (6) C++11
 この操作は、適切な位置パラメータを提供することで効率を飛躍的に改善することができる。
 
 
+##要件
+- (1) : `value_type` は、コンテナに対してコピー挿入可能でなければならない。
+- (2) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
+- (3) : `value_type` は、コンテナに対してコピー挿入可能でなければならない。
+- (4) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
+
+
+##効果
+- (1) : `x`を`*this`の要素としてコピー挿入する。
+- (2) : [`emplace`](./emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(x))`と同等。
+- (3) : `x`を`*this`の要素としてコピー挿入する。可能であれば、挿入位置のヒントを表すイテレータ`position`のすぐ前に挿入する。
+- (4) : [`emplace_hint`](./emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と同等。
+- (5) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。
+- (6) : `insert(init.begin(), init.end())`と同等。
+
+
 ##戻り値
 - (1), (2), (3), (4) : 新しく挿入された要素を指すイテレータを返す。
 - (5), (6) : なし
@@ -97,4 +113,6 @@ int main ()
 
 ##参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+- [LWG Issue 2005. `unordered_map::insert(T&&)` protection should apply to `map` too](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2005)
+    - C++14から、(2)と(4)の仕様の書き方が、`unordered_map::insert()`のものと統一された。
 
