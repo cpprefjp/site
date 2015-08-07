@@ -5,9 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-// since C++11
-template <class... Args> iterator 
-emplace(Args&&... args);
+template <class... Args>
+iterator emplace(Args&&... args);
 ```
 
 ##概要
