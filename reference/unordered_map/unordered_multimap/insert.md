@@ -54,10 +54,12 @@ void insert(initializer_list<value_type> il);                  // (6)
 ##効果
 - (1)	引数 `v` で指定した値の要素を追加する。
 - (2)	引数 `obj` から構築されたオブジェクト `v` を追加する。
+    - このバージョンの動作は、[`emplace`](./emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))`を呼び出した場合と同等である。
 - (3)	引数 `v` で指定した値の要素を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
 - (4)	引数 `obj` から構築されたオブジェクト `v` を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
+    - このバージョンの動作は、[`emplace_hint`](./emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))`を呼び出した場合と同等である。
 - (5)	範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と同等である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）。
 - (6)	(5)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
 
@@ -281,5 +283,6 @@ inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(initializer_l
     - (6)の経緯となる提案文書
 - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#518)
     - 安定性の保証が規定された経緯のレポート
+- [LWG Issue 2005. `unordered_map::insert(T&&)` protection should apply to `map` too](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2005)
 
 
