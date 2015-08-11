@@ -173,7 +173,7 @@
 | [`<cstddef>`](/reference/cstddef.md) | 基本的な型、値、マクロの定義        |                |
 | [`<cstdint>`](/reference/cstdint.md) | 大きさが規定されている整数型        | C++11 (C99)    |
 | `<cstdio>`                           | 入出力                              |                |
-| `<cstdlib>`                          | ユーティリティ関数                  |                |
+| [`<cstdlib>`](/reference/cstdlib.md) | ユーティリティ関数                  |                |
 | `<cstring>`                          | 文字列操作                          |                |
 | `<ctgmath>`                          | ジェネリックな数学関数              | C++11 (C99)    |
 | `<ctime>`                            | 日付・時間                          |                |
