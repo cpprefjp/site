@@ -29,7 +29,7 @@ namespace std {
 4. 全てのCストリームが破棄される。
     - まだ書き出されていないバッファリングされたデータはフラッシュされる。
     - ストリームが閉じられる。
-    - `tmpfile()`関数の呼び出しで作成された一時ファイルが削除される。
+    - [`tmpfile()`](/reference/cstdio/tmpfile.md.nolink)関数の呼び出しで作成された一時ファイルが削除される。
 5. ホスト環境に制御が戻される。
     - パラメータ`status`の値が`0`もしくは[`EXIT_SUCCESS`](./exit_success.md.nolink)であった場合、実装依存の正常終了値が返る。
     - パラメータ`status`の値が[`EXIT_FAILURE`](./exit_failure.md.nolink)であった場合、実装依存の異常終了値が返る。
