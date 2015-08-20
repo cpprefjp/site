@@ -16,7 +16,7 @@ namespace std {
 パラメータとして渡された`status`は、プログラムの終了コードとして使用される。
 
 - プログラムを正常終了させたい場合は、`0`もしくは[`EXIT_SUCCESS`](./exit_success.md)をパラメータ`status`に設定する。
-- プログラムを異常終了させたい場合は、[`EXIT_FAILURE`](./exit_failure.md.nolink)をパラメータ`status`に設定する。
+- プログラムを異常終了させたい場合は、[`EXIT_FAILURE`](./exit_failure.md)をパラメータ`status`に設定する。
 
 この関数でプログラムを終了させた場合、生存しているオブジェクトおよびストリームは、自動的に破棄される。
 
@@ -32,7 +32,7 @@ namespace std {
     - [`tmpfile()`](/reference/cstdio/tmpfile.md.nolink)関数の呼び出しで作成された一時ファイルが削除される。
 5. ホスト環境に制御が戻される。
     - パラメータ`status`の値が`0`もしくは[`EXIT_SUCCESS`](./exit_success.md)であった場合、実装依存の正常終了値が返る。
-    - パラメータ`status`の値が[`EXIT_FAILURE`](./exit_failure.md.nolink)であった場合、実装依存の異常終了値が返る。
+    - パラメータ`status`の値が[`EXIT_FAILURE`](./exit_failure.md)であった場合、実装依存の異常終了値が返る。
     - それ以外の場合には、実装依存の値が返る。
 
 
