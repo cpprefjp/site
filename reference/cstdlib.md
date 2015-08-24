@@ -51,9 +51,9 @@
 | `abort`         | プログラムを異常終了させる (function) | |
 | `_Exit`         | 後処理をせずに、プログラムを終了させる (function) | C++11 |
 | [`exit`](./cstdlib/exit.md)          | プログラムを終了させる (function) | |
-| `atexit`        | `exit`関数でプログラムが終了するときに呼ばれる関数を指定する (function) | |
+| [`atexit`](./cstdlib/atexit.md)      | プログラムが通常の方法で終了するときに呼ばれる関数を登録する (function) | |
 | `quick_exit`    | 後処理をせずに、プログラムを終了させる (function) | C++11 |
-| `at_quick_exit` | `quick_exit`関数でプログラムが終了するときに呼ばれる関数を指定する (function) | C++11 |
+| `at_quick_exit` | `quick_exit`関数でプログラムが終了するときに呼ばれる関数を登録する (function) | C++11 |
 
 
 ##環境
