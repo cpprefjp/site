@@ -65,6 +65,6 @@ int main()
 | 名前 | 説明 |
 |------|------|
 | [`atexit`](./atexit.md) | プログラムが通常の方法で終了するときに呼ばれる関数を登録する |
-| [`quick_exit`](./quick_exit.md.nolink) | 後処理をせずに、プログラムを終了させる |
+| [`quick_exit`](./quick_exit.md) | 後処理をせずに、プログラムを終了させる |
 
 

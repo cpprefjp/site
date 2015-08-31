@@ -52,7 +52,7 @@
 | `_Exit`         | 後処理をせずに、プログラムを終了させる (function) | C++11 |
 | [`exit`](./cstdlib/exit.md)          | プログラムを終了させる (function) | |
 | [`atexit`](./cstdlib/atexit.md)      | プログラムが通常の方法で終了するときに呼ばれる関数を登録する (function) | |
-| `quick_exit`    | 後処理をせずに、プログラムを終了させる (function) | C++11 |
+| [`quick_exit`](./cstdlib/quick_exit.md)    | 後処理をせずに、プログラムを終了させる (function) | C++11 |
 | `at_quick_exit` | `quick_exit`関数でプログラムが終了するときに呼ばれる関数を登録する (function) | C++11 |
 
 
