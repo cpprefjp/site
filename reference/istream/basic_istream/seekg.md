@@ -14,6 +14,9 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 
 非書式化入力関数であるが、後続の`gcount()`呼び出しに影響を及ぼさない点が通常と異なる。
 
+`seekg`は、`seek get`の略称。「読み取り用の位置の移動」を意味する。
+
+
 ##効果
 
 1. （`pos_type`を引数に取るもののみ）初めにeofbitを消去する。

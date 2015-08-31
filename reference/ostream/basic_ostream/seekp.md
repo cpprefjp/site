@@ -12,6 +12,8 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir);
 ##概要
 ストリームバッファに対し、書き込み位置の移動を指示する。
 
+`seekp`は、`seek put`の略称。「書き込み用の位置の移動」を意味する。
+
 ##効果
 
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
