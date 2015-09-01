@@ -25,7 +25,7 @@ namespace std {
 
 指定された関数は、プログラムの終了処理において、`static`変数の破棄が行われる前に呼び出される。
 
-指定された関数の中で例外が送出された場合、[`std::terminate()`](/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
+指定された関数の中で例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
 
 
 ##戻り値

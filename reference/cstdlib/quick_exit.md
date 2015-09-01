@@ -24,7 +24,7 @@ namespace std {
 
 ##効果
 - [`at_quick_exit()`](./at_quick_exit.md)関数で登録された関数が、逆順で呼び出される。
-    - 登録された関数で例外が送出された場合、[`std::terminate()`](/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
+    - 登録された関数で例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
 - この関数を呼び出したときに生存しているオブジェクトは、破棄されない。
 - Cストリームのバッファはフラッシュされない。
 - 登録された関数が呼び出されたあと、[`_Exit`](./_exit.md.nolink)`(status)`を呼び出す。
