@@ -53,6 +53,8 @@ int main()
   std::atexit(on_exit);
 }
 ```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
