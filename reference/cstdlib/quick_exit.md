@@ -54,6 +54,17 @@ int main()
 ```
 
 
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation.md#clang): 3.4
+- [GCC, C++11 mode](/implementation.md#gcc): 4.8
+- [ICC](/implementation.md#icc): 
+- [Visual C++](/implementation.md#visual_cpp):
+
+
 ##関連項目
 
 | 名前 | 説明 |

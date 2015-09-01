@@ -56,6 +56,17 @@ on exit
 ```
 
 
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation.md#clang): 3.4
+- [GCC, C++11 mode](/implementation.md#gcc): 4.8
+- [ICC](/implementation.md#icc): 
+- [Visual C++](/implementation.md#visual_cpp):
+
+
 ##参照
 - [N2440 Abandoning a Process](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2440.htm)
 
