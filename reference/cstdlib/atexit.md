@@ -45,12 +45,12 @@ namespace std {
 
 void on_exit()
 {
-    std::cout << "on exit" << std::endl;
+  std::cout << "on exit" << std::endl;
 }
 
 int main()
 {
-    std::atexit(on_exit);
+  std::atexit(on_exit);
 }
 ```
 
