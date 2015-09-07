@@ -61,8 +61,8 @@ int main()
 }
 ```
 * std::codecvt_utf8[link /reference/codecvt/codecvt_utf8.md]
-* std::string[link /reference/codecvt/string/basic_string.md]
-* std::u32string[link /reference/codecvt/string/basic_string.md]
+* std::string[link /reference/string/basic_string.md]
+* std::u32string[link /reference/string/basic_string.md]
 * from_bytes[link ./wstring_convert/from_bytes.md.nolink]
 * std::size_t[link /reference/cstddef/size_t.md]
 * std::cout[link /reference/iostream/cout.md]
