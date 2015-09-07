@@ -65,6 +65,7 @@ int main()
 * std::u32string[link /reference/string/basic_string.md]
 * from_bytes[link ./wstring_convert/from_bytes.md.nolink]
 * std::size_t[link /reference/cstddef/size_t.md]
+* size()[link /reference/string/basic_string/size.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
