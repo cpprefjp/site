@@ -16,27 +16,30 @@ namespace std {
 ##概要
 (ここに、クラスの概要を記載する)
 
-###メンバ関数
 
-| | |
-|----------------------------|--------------------------------------------------|
-| `(constructor)` | コンストラクタ |
-| `(destructor)` | デストラクタ |
-| `from_bytes` | バイト列からワイド文字列への変換 |
-| `to_bytes` | ワイド文字列からバイト列への変換 |
-| `converted` | 変換した数を取得する |
-| `state` | 変換の状態を取得する |
+##メンバ関数
 
-###メンバ型
+| 名前 | 説明 | 対応バージョン |
+|----------------------------|----------------------------------|-------|
+| `(constructor)` | コンストラクタ | C++11 |
+| `(destructor)`  | デストラクタ | C++11 |
+| `from_bytes`    | バイト列からワイド文字列への変換 | C++11 |
+| `to_bytes`      | ワイド文字列からバイト列への変換 | C++11 |
+| `converted`     | 変換した数を取得する | C++11 |
+| `state`         | 変換の状態を取得する | C++11 |
 
-| | |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `byte_string` | バイト列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<char, `[`char_traits`](/reference/string/char_traits.md)`<char>, Byte_alloc>` |
-| `wide_string` | ワイド文字列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<Elem, `[`char_traits`](/reference/string/char_traits.md)`<Elem>, Wide_alloc>` |
-| `state_type` | ストリームのマルチバイト文字の変換の状態を表す型 `Codecvt::state_type` |
-| `int_type` | 文字に対応する値を表す数値型 `wide_string::traits_type::int_type` |
 
-###例
+##メンバ型
+
+| 名前 | 説明 | 対応バージョン |
+|--------------------------|---------------------------------------|-------|
+| `byte_string` | バイト列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<char, `[`char_traits`](/reference/string/char_traits.md)`<char>, Byte_alloc>` | C++11 |
+| `wide_string` | ワイド文字列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<Elem, `[`char_traits`](/reference/string/char_traits.md)`<Elem>, Wide_alloc>` | C++11 |
+| `state_type` | ストリームのマルチバイト文字の変換の状態を表す型 `Codecvt::state_type` | C++11 |
+| `int_type` | 文字に対応する値を表す数値型 `wide_string::traits_type::int_type` | C++11 |
+
+
+##例
 ```cpp
 ```
 
