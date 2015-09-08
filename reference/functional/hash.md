@@ -68,7 +68,7 @@ namespace std {
 | `hash()`<br/>`hash(const hash&)`<br/>`hash(hash&&)` | デフォルトコンストラクタ、コピーコンストラクタ、ムーブコンストラクタを持つ |
 | `~hash()` | デストラクタを持つ |
 | `hash& operator=(const hash&)`<br/>`hash& operator=(hash&&)` | コピー代入演算子とムーブ代入演算子を持つ |
-| `size_t operator()(T key)` | 関数呼び出し演算子によって、キーに対応するハッシュ値を返す |
+| `size_t operator()(T key) const` | 関数呼び出し演算子によって、キーに対応するハッシュ値を返す |
 
 ###メンバ型
 
