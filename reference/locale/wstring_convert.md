@@ -14,7 +14,33 @@ namespace std {
 * allocator[link /reference/memory/allocator.md]
 
 ##概要
-(ここに、クラスの概要を記載する)
+`wstring_convert`は、ワイド文字列とバイト文字列を相互変換するクラスである。
+
+バイト文字列とは、ひとつの文字を表すのに可変長のバイト数を必要とする、UTF-8やShift_JISのような文字コードの文字列である。
+
+ワイド文字列とは、ひとつの文字を表すのに固定長のバイト数を必要とする、UTF-16やUTF-32のような文字コードの文字列である。
+
+このクラスの[`from_bytes()`](./wstring_convert/from_bytes.md)メンバ関数を使用することによってバイト文字列からワイド文字列への変換ができ、[`to_bytes()`](./wstring_convert/to_bytes.md)メンバ関数を使用することによってワイド文字列からバイト文字列への変換ができる。
+
+
+テンプレートパラメータは、以下を意味する：
+
+- `Codecvt` : コード変換を行うクラス。[`<codecvt>`](/reference/codecvt.md)ヘッダでいくつかの変換器が定義されている。
+- `Elem` : ワイド文字列の内部表現で使用する文字型。
+- `Wide_alloc` : ワイド文字列のアロケータ。
+- `Byte_alloc` : バイト文字列のアロケータ。
+
+
+テンプレートパラメータの設定例：
+
+| 目的 | バイト文字列型 | ワイド文字列 | パラメータ |
+|------|------------|-------|-------|
+| UTF-8とUTF-16の変換 | [`std::string`][std-string] | [`std::u16string`][std-string] | `std::wstring_convert<`[`std::codecvt_utf8_utf16`][utf8-16]`<char16_t>, char16_t>` |
+| UTF-8とUTF-32の変換 | [`std::string`][std-string] | [`std::u32string`][std-string] | `std::wstring_convert<`[`std::codecvt_utf8`][utf8]`<char32_t>, char32_t>` |
+
+[std-string]: /reference/string/basic_string.md
+[utf8-16]: /reference/codecvt/codecvt_utf8_utf16.md
+[utf8]: /reference/codecvt/codecvt_utf8.md
 
 
 ##メンバ関数
