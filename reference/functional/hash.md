@@ -61,7 +61,7 @@ namespace std {
 | 全ての列挙型         | C++14          |
 
 
-###メンバ関数
+##メンバ関数
 
 | 名前 | 説明 |
 |-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -70,14 +70,16 @@ namespace std {
 | `hash& operator=(const hash&)`<br/>`hash& operator=(hash&&)` | コピー代入演算子とムーブ代入演算子を持つ |
 | `size_t operator()(T key) const` | 関数呼び出し演算子によって、キーに対応するハッシュ値を返す |
 
-###メンバ型
+
+##メンバ型
 
 | 名前 | 説明 |
 |-----------------|------------------------------------------------------|
 | `result_type`   | 戻り値の型([`size_t`](/reference/cstddef/size_t.md)) |
 | `argument_type` | 引数の型(キーの型`T`) |
 
-###例
+
+##例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -116,7 +118,7 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 
-###参照
+##参照
 - [ハッシュ関数 - Wikipedia](http://ja.wikipedia.org/wiki/ハッシュ関数)
 - [LWG 2148 - Hashing enums should be supported directly by std::hash](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2148)
 - [LWG 2291 - std::hash is vulnerable to collision DoS attack](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2291)
