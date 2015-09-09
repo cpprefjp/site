@@ -49,7 +49,7 @@ namespace std {
 |----------------------------|----------------------------------|-------|
 | `(constructor)` | コンストラクタ | C++11 |
 | `(destructor)`  | デストラクタ | C++11 |
-| [`from_bytes`](./wstring_convert.md)    | バイト列からワイド文字列に変換する | C++11 |
+| [`from_bytes`](./wstring_convert/from_bytes.md)    | バイト列からワイド文字列に変換する | C++11 |
 | `to_bytes`      | ワイド文字列からバイト列に変換する | C++11 |
 | `converted`     | 変換した数を取得する | C++11 |
 | `state`         | 変換の状態を取得する | C++11 |
