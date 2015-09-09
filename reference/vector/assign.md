@@ -13,6 +13,10 @@ void assign(size_type n, const T& u);
 void assign(initializer_list<T>);
 ```
 
+##概要
+コンテナの再代入。
+
+
 ##要件
 `a.assign(first, last)`形式の場合、型`T`は`*first`から`X`に対してEmplaceConstructibleでなければならない。イテレーターがForward iterators の要件を満たさない場合、型`T`は`X`に対してMoveInsertableでなければならない。`[first, last)`の範囲のそれぞれのイテレーターは１回だけ間接参照される。`first`, `last`は自身のイテレーターであってはならない。
 
