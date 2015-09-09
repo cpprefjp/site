@@ -6,32 +6,31 @@
 
 ```cpp
 template <class InputIterator>
-void assign(InputIterator first, InputIterator last);
+void assign(InputIterator first, InputIterator last); // (1)
 
-void assign(size_type n, const T& u);
+void assign(size_type n, const T& u);                 // (2)
 
-void assign(initializer_list<T>);
+void assign(initializer_list<T>);                     // (3) C++11
 ```
+* initializer_list[link /reference/initializer_list.md]
 
 ##概要
 コンテナの再代入。
 
+- (1) : 範囲を代入。
+- (2) : `n`個の値`t`を代入。
+- (3) : 初期化子リストを代入。
+
 
 ##要件
-`a.assign(first, last)`形式の場合、型`T`は`*first`から`X`に対してEmplaceConstructibleでなければならない。イテレーターがForward iterators の要件を満たさない場合、型`T`は`X`に対してMoveInsertableでなければならない。`[first, last)`の範囲のそれぞれのイテレーターは１回だけ間接参照される。`first`, `last`は自身のイテレーターであってはならない。
-
-
-`a.assign(n, u)` 形式の場合、`u`は`a`の要素への参照であってはならない。
+- (1) : 型`T`は`*first`から`X`に対してEmplaceConstructibleでなければならない。イテレーターがForward iterators の要件を満たさない場合、型`T`は`X`に対してMoveInsertableでなければならない。`[first, last)`の範囲のそれぞれのイテレーターは１回だけ間接参照される。`first`, `last`は自身のイテレーターであってはならない。
+- (2) : `u`は`*this`の要素への参照であってはならない。
 
 
 ##効果
-`a.assign(first, last)`形式の場合、`[first, last)`の範囲の要素のコピーでaの要素を置き換える。
-
-
-`a.assign(n, u)` 形式の場合、`a`の要素をすべて`n`個の`u`のコピーに置き換える。
-
-
-`a.assign(il)` 形式の場合の効果は、`a.assign(il.begin(), il.end())`と同じである。
+- (1) : `[first, last)`の範囲の要素のコピーで`*this`の要素を置き換える。
+- (2) : `*this`の要素をすべて`n`個の`u`のコピーに置き換える。
+- (3) : `assign(il.begin(), il.end())`と同等。
 
 
 ##戻り値
