@@ -49,8 +49,8 @@ namespace std {
 |----------------------------|----------------------------------|-------|
 | `(constructor)` | コンストラクタ | C++11 |
 | `(destructor)`  | デストラクタ | C++11 |
-| `from_bytes`    | バイト列からワイド文字列への変換 | C++11 |
-| `to_bytes`      | ワイド文字列からバイト列への変換 | C++11 |
+| [`from_bytes`](./wstring_convert.md)    | バイト列からワイド文字列に変換する | C++11 |
+| `to_bytes`      | ワイド文字列からバイト列に変換する | C++11 |
 | `converted`     | 変換した数を取得する | C++11 |
 | `state`         | 変換の状態を取得する | C++11 |
 
@@ -89,7 +89,7 @@ int main()
 * std::codecvt_utf8[link /reference/codecvt/codecvt_utf8.md]
 * std::string[link /reference/string/basic_string.md]
 * std::u32string[link /reference/string/basic_string.md]
-* from_bytes[link ./wstring_convert/from_bytes.md.nolink]
+* from_bytes[link ./wstring_convert/from_bytes.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 * size()[link /reference/string/basic_string/size.md]
 * std::cout[link /reference/iostream/cout.md]
