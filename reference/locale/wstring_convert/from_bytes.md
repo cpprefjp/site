@@ -24,7 +24,7 @@ wide_string from_bytes(const char* first,
 - (3) : バイト文字列を、ワイド文字列に変換する。
 - (4) : バイト文字の範囲`[first, last)`を、ワイド文字列に変換する。
 
-変換に成功した場合、成功した要素数が、[`converted()`](./converted.md.nolink)メンバ関数が返す変数に設定される。
+変換に成功した場合、成功した要素数が、[`converted()`](./converted.md)メンバ関数が返す変数に設定される。
 
 
 

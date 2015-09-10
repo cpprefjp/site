@@ -24,7 +24,7 @@ byte_string to_bytes(const Elem* first,
 - (3) : ワイド文字列を、バイト文字列に変換する。
 - (4) : ワイド文字の範囲`[first, last)`を、バイト文字列に変換する。
 
-変換に成功した場合、成功した要素数が、[`converted()`](./converted.md.nolink)メンバ関数が返す変数に設定される。
+変換に成功した場合、成功した要素数が、[`converted()`](./converted.md)メンバ関数が返す変数に設定される。
 
 
 
