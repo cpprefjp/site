@@ -52,7 +52,7 @@ namespace std {
 | [`from_bytes`](./wstring_convert/from_bytes.md)    | バイト文字列からワイド文字列に変換する | C++11 |
 | [`to_bytes`](./wstring_convert/to_bytes.md)        | ワイド文字列からバイト文字列に変換する | C++11 |
 | [`converted`](./wstring_convert/converted.md)      | 変換した要素数を取得する | C++11 |
-| `state`         | 変換の状態を取得する | C++11 |
+| [`state`](./wstring_convert/state.md)              | 変換の状態を取得する | C++11 |
 
 
 ##メンバ型
