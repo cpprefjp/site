@@ -13,7 +13,7 @@ wide_string from_bytes(const char* first,
 ```
 
 ##概要
-バイト列からワイド文字列に変換する。
+バイト文字列からワイド文字列に変換する。
 
 
 ##効果
