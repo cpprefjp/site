@@ -13,9 +13,9 @@ state_type state() const;
 
 
 ##戻り値
-これによって返される状態は、初期状態か失敗状態かのどちらかである。
+これによって返される状態は、初期状態か、部分的に変換した状態かのどちらかである。
 
-変換に成功した場合は、初期状態が設定される。
+全ての文字が変換された場合は、初期状態が設定される。
 
 
 ##例外
@@ -39,13 +39,13 @@ int main()
   std::u32string result = converter.from_bytes(input);
   std::mbstate_t state = converter.state();
 
-  // 変換成功
+  // 全ての文字が変換された
   if (std::mbsinit(&state) != 0) {
-    std::cout << "convert succeed" << std::endl;
+    std::cout << "converted all" << std::endl;
   }
-  // 変換失敗
+  // 変換されなかった文字がある
   else {
-    std::cout << "convert failed" << std::endl;
+    std::cout << "converted partial" << std::endl;
   }
 }
 ```
