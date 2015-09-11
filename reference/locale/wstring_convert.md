@@ -49,6 +49,7 @@ namespace std {
 |----------------------------|----------------------------------|-------|
 | [`(constructor)`](./wstring_convert/op_constructor.md) | コンストラクタ | C++11 |
 | [`(destructor)`](./wstring_convert/op_destructor.md)   | デストラクタ | C++11 |
+| [`operator=`](./wstring_convert/op_assign.md)      | 代入演算子 | C++11 |
 | [`from_bytes`](./wstring_convert/from_bytes.md)    | バイト文字列からワイド文字列に変換する | C++11 |
 | [`to_bytes`](./wstring_convert/to_bytes.md)        | ワイド文字列からバイト文字列に変換する | C++11 |
 | [`converted`](./wstring_convert/converted.md)      | 変換した要素数を取得する | C++11 |
