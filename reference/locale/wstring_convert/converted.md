@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-size_t converted() const noexcept;
+size_t converted() const;          // C++11
+size_t converted() const noexcept; // C++14
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
@@ -72,4 +73,7 @@ int main()
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
+
+##参照
+- [LWG Issue 2174. `wstring_convert::converted()` should be `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2174)
 
