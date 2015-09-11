@@ -5,19 +5,26 @@
 * function[meta id-type]
 
 ```cpp
-explicit wstring_convert(Codecvt* pcvt = new Codecvt); // (1)
+wstring_convert(Codecvt* pcvt = new Codecvt);          // (1) C++11
+explicit wstring_convert(Codecvt* pcvt = new Codecvt); // (1) C++14
 
-wstring_convert(Codecvt* pcvt, state_type state);      // (2)
+wstring_convert(Codecvt* pcvt, state_type state);      // (2) C++11
 
+wstring_convert(
+    const byte_string& byte_err,
+    const wide_string& wide_err = wide_string());      // (3) C++11
 explicit wstring_convert(
     const byte_string& byte_err,
-    const wide_string& wide_err = wide_string());      // (3)
+    const wide_string& wide_err = wide_string());      // (3) C++14
+
+wstring_convert(const wstring_convert&) = delete;      // (4) C++14
 ```
 
 ##概要
 - (1) : デフォルトコンストラクタ。
 - (2) : コード変換機、および変換状態を受け取るコンストラクタ。
 - (3) : 変換に失敗した際に返す文字列を受け取るコンストラクタ。
+- (4) : コピーコンストラクタ。コピー不可。これによりムーブも不可。
 
 
 ##要件
@@ -81,4 +88,7 @@ int main()
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
+
+##参照
+- [LWG Issue 2176. Special members for `wstring_convert` and `wbuffer_convert`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2176)
 
