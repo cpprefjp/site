@@ -46,13 +46,13 @@ basic_regex(initializer_list<charT> il,
 - (2) コピーコンストラクタ。`that` をコピーして `basic_regex` オブジェクトを構築する。
 - (3) ムーブコンストラクタ。`that` をムーブして `basic_regex` オブジェクトを構築する。
 - (4) 引数 `f` で指定されたフラグに従って、先頭が `ptr` で長さ [`char_traits`](../../string/char_traits.md)`::`[`length`](../../string/char_traits/length.md)`(ptr)` の文字列から `basic_regex` オブジェクトを構築する。  
-	指定された文字列が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md.nolink) を投げる。
+	指定された文字列が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md) を投げる。
 - (5) 引数 `f` で指定されたフラグに従って、先頭が `ptr` で長さ `len` の文字列から `basic_regex` オブジェクトを構築する。  
-	指定された文字列が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md.nolink) を投げる。
+	指定された文字列が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md) を投げる。
 - (6) 引数 `f` で指定されたフラグに従って、`p` で指定された文字列から `basic_regex` オブジェクトを構築する。  
-	文字列 `p` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md.nolink) を投げる。
+	文字列 `p` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md) を投げる。
 - (7) 引数 `f` で指定されたフラグに従って、範囲 `[first, last)` で指定された文字列から `basic_regex` オブジェクトを構築する。  
-	文字列 `[first, last)` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md.nolink) を投げる。
+	文字列 `[first, last)` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md) を投げる。
 - (8) `basic_regex(il.`[`begin`](../../initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/end.md)`(), f)` と同等。
 
 

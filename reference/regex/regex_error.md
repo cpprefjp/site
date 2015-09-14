@@ -1,0 +1,103 @@
+#regex_error (C++11)
+* regex[meta header]
+* std[meta namespace]
+* class template[meta id-type]
+
+```cpp
+namespace std {
+  class regex_error : public std::runtime_error;
+}
+```
+* std::runtime_error[link /reference/stdexcept.md]
+
+##概要
+`regex_error`クラスは、正規表現ライブラリ`<regex>`からのエラー報告として送出される例外オブジェクトの型である。
+
+有効ではない正規表現が入力された場合に送出される。
+
+エラーとなった理由は、[`what()`](/reference/stdexcept.md)メンバ関数によってエラーメッセージ文字列として取得できるほか、[`code()`](./regex_error/code.md.nolink)メンバ関数によって[`regex_constants::error_type`](./regex_constants/error_type.md)型のエラーコード値としても取得できる。
+
+
+##メンバ関数
+
+基底クラスである[`runtime_error`](/reference/stdexcept.md)も参照のこと。
+
+###構築・破棄
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `(constructor)` | コンストラクタ | C++11 |
+| `(destructor)`  | デストラクタ | C++11 |
+| `operator=`     | 代入演算子 | C++11 |
+
+
+###エラー内容
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `code` | エラーコードを取得する | C++11 |
+
+
+##例
+```cpp
+#include <iostream>
+#include <regex>
+#include <string>
+
+std::string code_to_string(std::regex_constants::error_type e)
+{
+  using namespace std::regex_constants;
+  switch (e) {
+    case error_collate:    return "error collapse";
+    case error_ctype:      return "error ctype";
+    case error_escape:     return "error escape";
+    case error_backref:    return "error back reference";
+    case error_brack:      return "error bracket";
+    case error_paren:      return "error paren";
+    case error_brace:      return "error brace";
+    case error_badbrace:   return "error bad brace";
+    case error_range:      return "error range";
+    case error_space:      return "error space";
+    case error_badrepeat:  return "error bad repeat";
+    case error_complexity: return "error complexity";
+    case error_stack:      return "error stack";
+    default:
+	  throw std::invalid_argument("invalid error code");
+  }
+}
+
+int main()
+{
+  try {
+    std::regex re("("); // 開きカッコに対応する閉じカッコがない正規表現を指定
+  }
+  catch (std::regex_error& e) {
+    std::cout << code_to_string(e.code()) << std::endl;
+    std::cout << e.what() << std::endl;
+  }
+}
+```
+* std::regex_error[color ff0000]
+* std::string[link /reference/string/basic_string.md]
+* std::invalid_argument[link /reference/stdexcept.md]
+* std::regex[link /reference/regex/basic_regex.md]
+* code()[link ./regex_error/code.md.nolink]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+###出力例
+```
+error paren
+The expression contained mismatched ( and ).
+```
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): ?
+
