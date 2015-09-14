@@ -5,8 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator
-  operator-(typename reverse_iterator<Iterator>::difference_type n) const;
+reverse_iterator operator-(difference_type n) const;
 ```
 
 ##概要

@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-unspecified operator[](typename reverse_iterator<Iterator>::difference_type n) const;
+unspecified operator[](difference_type n) const;
 ```
 * unspecified[italic]
 
