@@ -78,6 +78,7 @@ int main()
 }
 ```
 * std::regex_error[color ff0000]
+* std::regex_constants::error_type[link /reference/regex/regex_constants/error_type.md]
 * std::string[link /reference/string/basic_string.md]
 * std::invalid_argument[link /reference/stdexcept.md]
 * std::regex[link /reference/regex/basic_regex.md]
