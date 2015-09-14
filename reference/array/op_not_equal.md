@@ -37,19 +37,17 @@ int main()
   std::array<int, 3> y = {1, 2, 3};
 
   if (x != y) {
-    std::cout << "equal" << std::endl;
+    std::cout << "not equal" << std::endl;
   }
   else {
-    std::cout << "not equal" << std::endl;
+    std::cout << "equal" << std::endl;
   }
 }
 ```
-* !=[color ff0000]
-
 
 ###出力
 ```
-not equal
+equal
 ```
 
 
