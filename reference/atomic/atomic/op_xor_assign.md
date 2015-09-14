@@ -45,7 +45,7 @@ int main()
   std::cout << std::bitset<4>(x.load()).to_string() << std::endl;
 }
 ```
-* x ^= b[color ff0000]
+* x ^= b;[color ff0000]
 
 ###出力
 ```

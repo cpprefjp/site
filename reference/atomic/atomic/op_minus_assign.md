@@ -39,7 +39,7 @@ int main()
   std::cout << x.load() << std::endl;
 }
 ```
-* x -= 2[color ff0000]
+* x -= 2;[color ff0000]
 
 ###出力
 ```

@@ -32,17 +32,18 @@ int main ()
   std::array<int, 3> x = {1, 2, 3};
   std::array<int, 3> y = {4, 5, 6};
 
-  std::cout << std::boolalpha;
-
-  std::cout << (x <= y) << std::endl;
+  if (x <= y) {
+    std::cout << "less equal" << std::endl;
+  }
+  else {
+    std::cout << "greater" << std::endl;
+  }
 }
 ```
-* <=[color ff0000]
-
 
 ###出力
 ```
-true
+less equal
 ```
 
 
