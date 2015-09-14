@@ -40,7 +40,7 @@ int main()
   std::cout << *it << std::endl;
 }
 ```
-* it -= 1[color ff0000]
+* it -= 1;[color ff0000]
 
 ###出力
 ```
