@@ -11,7 +11,7 @@ namespace std {
 * std::runtime_error[link /reference/stdexcept.md]
 
 ##概要
-`regex_error`クラスは、正規表現ライブラリ`<regex>`からのエラー報告として送出される例外オブジェクトの型である。
+`regex_error`クラスは、正規表現ライブラリ`<regex>`からのエラー報告として送出される、例外オブジェクトの型である。
 
 有効ではない正規表現が入力された場合に送出される。
 
