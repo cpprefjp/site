@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  template< class ForwardIterator, class T>
+  template <class ForwardIterator, class T>
   pair<ForwardIterator, ForwardIterator> equal_range(
       ForwardIterator first, ForwardIterator last, const T& value); // (1)
 
