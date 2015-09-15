@@ -34,8 +34,8 @@ namespace regex_constants {
 | `error_collate` | 式に、不正な照合要素名が含まれている | C++11 |
 | `error_ctype`   | 式に、不正な文字クラス名が含まれている | C++11 |
 | `error_escape`  | 式に、不正なエスケープ文字もしくは不正な後方エスケープ(trailing escape)が含まれている | C++11 |
-| `error_backref` | 式に、不正な後方参照が含まれている | C++11 |
-| `error_brack`   | 式に、対応していないカギカッコ`[ ]`が含まれている | C++11 |
+| `error_backref` | 式に、不正な後方参照が含まれている。backrefはback reference(後方参照)の略称 | C++11 |
+| `error_brack`   | 式に、対応していないカギカッコ`[ ]`が含まれている。brackはbracket(カギカッコ)の略称 | C++11 |
 | `error_paren`   | 式に、対応していない丸カッコ`( )`が含まれている | C++11 |
 | `error_brace`   | 式に、対応していない波カッコ`{ }`が含まれている | C++11 |
 | `error_badbrace` | 式に、不正な範囲が設定された波カッコ`{ }`が含まれている | C++11 |
