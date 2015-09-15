@@ -15,7 +15,7 @@ namespace std {
 
 有効ではない正規表現が入力された場合に送出される。
 
-エラーとなった理由は、[`what()`](/reference/stdexcept.md)メンバ関数によってエラーメッセージ文字列として取得できるほか、[`code()`](./regex_error/code.md.nolink)メンバ関数によって[`regex_constants::error_type`](./regex_constants/error_type.md)型のエラーコード値としても取得できる。
+エラーとなった理由は、[`what()`](/reference/stdexcept.md)メンバ関数によってエラーメッセージ文字列として取得できるほか、[`code()`](./regex_error/code.md)メンバ関数によって[`regex_constants::error_type`](./regex_constants/error_type.md)型のエラーコード値としても取得できる。
 
 
 ##メンバ関数
@@ -35,7 +35,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `code` | エラーコードを取得する | C++11 |
+| [`code`](./regex_error/code.md) | エラーコードを取得する | C++11 |
 
 
 ##例
@@ -82,7 +82,7 @@ int main()
 * std::string[link /reference/string/basic_string.md]
 * std::invalid_argument[link /reference/stdexcept.md]
 * std::regex[link /reference/regex/basic_regex.md]
-* code()[link ./regex_error/code.md.nolink]
+* code()[link ./regex_error/code.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

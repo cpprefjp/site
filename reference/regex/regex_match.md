@@ -100,7 +100,7 @@ namespace std {
 
 ##例外
 本関数は [`regex_error`](regex_error.md) を送出する可能性がある。  
-もしそのような例外 `e` が送出された場合、 `e.`[`code`](regex_error/code.md.nolink)`()` は [`regex_constants::error_complexity`](regex_constants/error_type.md) か [`regex_constants::error_stack`](regex_constants/error_type.md) のいずれかである。
+もしそのような例外 `e` が送出された場合、 `e.`[`code`](regex_error/code.md)`()` は [`regex_constants::error_complexity`](regex_constants/error_type.md) か [`regex_constants::error_stack`](regex_constants/error_type.md) のいずれかである。
 
 
 ##備考
