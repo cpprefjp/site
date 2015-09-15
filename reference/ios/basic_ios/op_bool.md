@@ -1,23 +1,30 @@
-#explicit operator bool
+#operator bool (C++11)
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
+* function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ios : public ios_base {
-  public:
-    explicit operator bool() const;
-  };
-}
+explicit operator bool() const;
 ```
 
 ##概要
-現在の状態値が正常を示す値になっていることを判定する演算子関数。
+現在の状態値が正常を示す値になっていることを判定する変換関数。
 
 ##戻り値
-`!fail()`。
+`!`[`fail`](fail.md)`()`。
+
+##備考
+- 本関数と [`good`](good.md)`()` は結果が異なる事に注意。本関数は `eofbit` がセットされていても `true` を返すが、[`good`](good.md)`()` は `eofbit` がセットされている場合 `false` を返す。
+- C++03 までは本関数とほぼ同等の機能が [`operator void*`](op_voidptr.md)`()` によって提供されていたが、C++11 でユーザ定義変換関数に `explicit` を指定することで当該変換の暗黙適用を回避できるようになったことから、より意図が明確となるように本関数が提供され、[`operator void*`](op_voidptr.md)`()` は廃止された。  
+	なお、`if` 文や `while` 文の条件式で使用している分には問題とならないが、この変更によって一部 C++03 までは問題の無かったコードがコンパイルエラーとなる等の非互換が生じている。
+	```cpp
+// C++03 まではコンパイル可能だが C++11 からはコンパイルエラーになる例
+bool b1 = std::cout;
+bool b2 = std::cout == NULL;
+	```
+* cout[link ../../iostream.md]
+
 
 ##実装例
 ```cpp
@@ -25,11 +32,14 @@ explicit operator bool() const {
   return !fail();
 }
 ```
+* fail[link fail.md]
 
 ##バージョン
 ###言語
-- C++98: `operator void*`として定義されていた。
-- C++11: `explicit operator bool`に変更。
+- C++11
+
+###備考
+libc++ では C++03 モードでも本関数が使用可能である。（ただし、`explicit` ではない）
 
 ##参照
 - 状態値の書き込み
@@ -41,5 +51,6 @@ explicit operator bool() const {
     - [`eof`](eof.md)
     - [`fail`](fail.md)
     - [`bad`](bad.md)
-    - `explicit operator bool`（この関数）
+    - `operator bool`（この関数）
+    - [`operator void*`](op_voidptr.md)
     - [`operator!`](op_not.md)

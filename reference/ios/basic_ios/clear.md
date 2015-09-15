@@ -2,15 +2,10 @@
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
+* function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ios : public ios_base {
-  public:
-    void clear(iostate state = goodbit);
-  };
-}
+void clear(iostate state = goodbit);
 ```
 
 ##概要
@@ -18,12 +13,12 @@ namespace std {
 
 ##効果
 状態値を`state`にする。
-ただし、`rdbuf() == nullptr`であれば、さらに`ios_base::bad_bit`をビットORした値にする。
+ただし、[`rdbuf`](rdbuf.md.nolink)`() == nullptr`であれば、さらに[`ios_base`](../ios_base.md)`::bad_bit`をビットORした値にする。
 
 ##例外
 
-変更後の状態値のビットと`exceptions()`で設定した値でビットごとのANDを行って非0になれば、`basic_ios::failure`型の例外を送出する。
-その際、`basic_ios::failure`のコンストラクタに渡される文字列は、処理系定義である。
+変更後の状態値のビットと[`exceptions`](exceptions.md.nolink)`()`で設定した値でビットごとのANDを行って非0になれば、[`basic_ios`](../basic_ios.md)`::failure`型の例外を送出する。
+その際、[`basic_ios`](../basic_ios.md)`::failure`のコンストラクタに渡される文字列は、処理系定義である。
 
 ##実装例
 ```cpp
@@ -39,6 +34,10 @@ void clear(iostate state = goodbit) {
   }
 }
 ```
+* rdbuf[link rdbuf.md.nolink]
+* exceptions[link exceptions.md.nolink]
+* basic_ios[link ../basic_ios.md]
+* rdstate[link rdstate.md]
 
 ##戻り値
 なし
@@ -57,5 +56,6 @@ void clear(iostate state = goodbit) {
     - [`eof`](eof.md)
     - [`fail`](fail.md)
     - [`bad`](bad.md)
-    - [`explicit operator bool`](op_bool.md)
+    - [`operator bool`](op_bool.md)
+    - [`operator void*`](op_voidptr.md)
     - [`operator!`](op_not.md)

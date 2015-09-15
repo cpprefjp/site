@@ -1,16 +1,11 @@
-#fail
+#bad
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
+* function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ios : public ios_base {
-  public:
-    bool bad() const;
-  };
-}
+bool bad() const;
 ```
 
 ##概要
@@ -25,6 +20,7 @@ bool bad() const {
   return (rdstate() & badbit) != 0;
 }
 ```
+* rdstate[link rdstate.md]
 
 ##バージョン
 ###言語
@@ -40,5 +36,6 @@ bool bad() const {
     - [`eof`](eof.md)
     - [`fail`](fail.md)
     - `bad`（この関数）
-    - [`explicit operator bool`](op_bool.md)
+    - [`operator bool`](op_bool.md)
+    - [`operator void*`](op_voidptr.md)
     - [`operator!`](op_not.md)

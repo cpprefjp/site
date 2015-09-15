@@ -2,22 +2,17 @@
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
+* function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ios : public ios_base {
-  public:
-    bool good() const;
-  };
-}
+bool good() const;
 ```
 
 ##概要
 現在の状態値が空であることを判定する。状態値のビットが全く設定されていない場合に真を返す。
 
 ##戻り値
-`rdstate() == 0`
+[`rdstate`](rdstate.md)`() == 0`
 
 ##実装例
 ```cpp
@@ -25,6 +20,7 @@ bool good() const {
   return rdstate() == 0;
 }
 ```
+* rdstate[link rdstate.md]
 
 ##バージョン
 ###言語
@@ -40,4 +36,6 @@ bool good() const {
     - [`eof`](eof.md)
     - [`fail`](fail.md)
     - [`bad`](bad.md)
-    - [`explicit operator bool`](op_bool.md)
+    - [`operator bool`](op_bool.md)
+    - [`operator void*`](op_voidptr.md)
+    - [`operator!`](op_not.md)

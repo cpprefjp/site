@@ -1,16 +1,11 @@
-#setstate: set state
+#setstate
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
+* function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ios : public ios_base {
-  public:
-    void setstate(iostate state);
-  };
-}
+void setstate(iostate state);
 ```
 
 ##概要
@@ -18,9 +13,9 @@ namespace std {
 現在の状態に、実引数で指定された値を加えた状態を新しい状態値とする。
 
 ##効果
-`clear(rdstate()) | state`を呼び出す。
+[`clear`](clear.md)`(`[`rdstate`](rdstate.md)`() | state)`を呼び出す。
 
-結果として、`exceptions`メンバ関数での設定に従い、例外が送出される可能性がある。
+結果として、[`exceptions`](exceptions.md.nolink)`()`メンバ関数での設定に従い、例外が送出される可能性がある。
 
 ##戻り値
 なし
@@ -31,6 +26,8 @@ void setstate(iostate state) {
   clear(rdstate() | state);
 }
 ```
+* clear[link clear.md]
+* rdstate[link rdstate.md]
 
 ##バージョン
 ###言語
@@ -46,5 +43,6 @@ void setstate(iostate state) {
     - [`eof`](eof.md)
     - [`fail`](fail.md)
     - [`bad`](bad.md)
-    - [`explicit operator bool`](op_bool.md)
+    - [`operator bool`](op_bool.md)
+    - [`operator void*`](op_voidptr.md)
     - [`operator!`](op_not.md)

@@ -1,16 +1,11 @@
-#rdstate: read state
+#rdstate
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
+* function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ios : public ios_base {
-  public:
-    iostate rdstate() const;
-  };
-}
+iostate rdstate() const;
 ```
 
 ##概要
@@ -18,8 +13,6 @@ namespace std {
 
 ##戻り値
 現在の状態。
-
-##実装例
 
 ##バージョン
 ###言語
@@ -35,5 +28,6 @@ namespace std {
     - [`eof`](eof.md)
     - [`fail`](fail.md)
     - [`bad`](bad.md)
-    - [`explicit operator bool`](op_bool.md)
+    - [`operator bool`](op_bool.md)
+    - [`operator void*`](op_voidptr.md)
     - [`operator!`](op_not.md)

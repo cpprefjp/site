@@ -2,22 +2,17 @@
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
+* function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ios : public ios_base {
-  public:
-    bool operator!() const;
-  };
-}
+bool operator!() const;
 ```
 
 ##概要
 現在の状態値が異常を示す値になっていることを判定する演算子関数。
 
 ##戻り値
-`fail()`。
+[`fail`](fail.md)`()`。
 
 ##実装例
 ```cpp
@@ -25,6 +20,7 @@ bool operator!() const {
   return fail();
 }
 ```
+* fail[link fail.md]
 
 ##バージョン
 ###言語
@@ -40,5 +36,6 @@ bool operator!() const {
     - [`eof`](eof.md)
     - [`fail`](fail.md)
     - [`bad`](bad.md)
-    - [`explicit operator bool`](op_bool.md)
+    - [`operator bool`](op_bool.md)
+    - [`operator void*`](op_voidptr.md)
     - `operator!`（この関数）

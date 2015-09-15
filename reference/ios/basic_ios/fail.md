@@ -2,15 +2,10 @@
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
+* function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ios : public ios_base {
-  public:
-    bool fail() const;
-  };
-}
+bool fail() const;
 ```
 
 ##概要
@@ -20,7 +15,7 @@ namespace std {
 `failbit`と`badbit`のいずれかまたは両方が設定されていれば`true`、さもなくば`false`。
 
 ##備考
-もし、本当に`failbit`のみの判定を行う必要があれば、`rdstate()`を使って`(rdstate() & failbit) != 0`などと記述すればよい。
+もし、本当に`failbit`のみの判定を行う必要があれば、[`rdstate`](rdstate.md)`()`を使って`(`[`rdstate`](rdstate.md)`() & failbit) != 0`などと記述すればよい。
 
 ##実装例
 ```cpp
@@ -28,6 +23,7 @@ bool fail() const {
   return (rdstate() & (failbit | badbit)) != 0;
 }
 ```
+* rdstate[link rdstate.md]
 
 ##バージョン
 ###言語
