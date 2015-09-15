@@ -26,7 +26,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `(constructor)` | コンストラクタ | C++11 |
+| [`(constructor)`](./regex_error/op_constructor.md) | コンストラクタ | C++11 |
 | `(destructor)`  | デストラクタ | C++11 |
 | `operator=`     | 代入演算子 | C++11 |
 
