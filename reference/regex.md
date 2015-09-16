@@ -17,7 +17,7 @@
 | 名前              | 説明                                  | 対応バージョン |
 |-------------------|---------------------------------------|-------|
 | [`regex_constants`](./regex/regex_constants.md) | 正規表現の構文オプション、マッチフラグ、エラー値などの定数 (namespace) | C++11 |
-| `regex_traits`    | 正規表現の文字・変換に関する特性 (class template)                      | C++11 |
+| [`regex_traits`](./regex/regex_traits.md)       | 正規表現の文字・変換に関する特性 (class template)                      | C++11 |
 
 
 ##エラー
