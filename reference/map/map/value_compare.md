@@ -1,8 +1,8 @@
-#map::value_compare
+#value_compare
 * map[meta header]
 * std[meta namespace]
 * map[meta class]
-* function[meta id-type]
+* class[meta id-type]
 
 ```cpp
 namespace std {
