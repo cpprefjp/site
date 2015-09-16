@@ -1,8 +1,8 @@
-#bitset::reference
+#reference
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
-* function[meta id-type]
+* class[meta id-type]
 
 ```cpp
 namespace std {
