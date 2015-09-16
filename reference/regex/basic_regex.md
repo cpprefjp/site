@@ -98,3 +98,26 @@ namespace std {
 | 名前                               | 説明                                 | 対応バージョン |
 |------------------------------------|--------------------------------------|----------------|
 | [`swap`](basic_regex/swap_free.md) | 二つの正規表現オブジェクトを交換する | C++11          |
+
+
+##例
+```cpp
+```
+
+###出力
+```
+```
+
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
