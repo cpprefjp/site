@@ -62,12 +62,37 @@ namespace std {
 
 ##例
 ```cpp
+#include <iostream>
+#include <regex>
+#include <string>
+
+int main()
+{
+  std::regex_traits<char> traits;
+  
+  std::string class_name = "alnum"; // 正規表現中で[[:alnum:]]のように入力するクラス名
+  
+  // 文字'a'がアルファベットと数字のクラスに含まれているかを判定する
+  if (traits.isctype('a', traits.lookup_classname(class_name.begin(), class_name.end()))) {
+    std::cout << "'a' is alpha-numeric class" << std::endl;
+  }
+  else {
+    std::cout << "'a' is not alpha-numeric class" << std::endl;
+  }
+}
 ```
+* std::string[link /reference/string/basic_string.md]
+* begin()[link /reference/string/basic_string/begin.md]
+* end()[link /reference/string/basic_string/end.md]
+* isctype[link ./regex_traits/isctype.md]
+* lookup_classname[link ./regex_traits/lookup_classname.md.nolink]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
+'a' is alpha-numeric class
 ```
-
 
 ##バージョン
 ###言語
