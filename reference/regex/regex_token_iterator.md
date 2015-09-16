@@ -17,6 +17,7 @@ namespace std {
 }
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]
+* regex_traits[link ./regex_traits.md]
 
 ##概要
 `regex_token_iterator` は、ある文字列に対して、指定した正規表現で検索した結果をサブマッチ毎に順番に列挙する読み取り専用の前方向イテレータである。

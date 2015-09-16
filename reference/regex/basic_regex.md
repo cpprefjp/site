@@ -14,6 +14,7 @@ namespace std {
   typedef basic_regex<wchar_t> wregex;
 }
 ```
+* regex_traits[link ./regex_traits.md]
 
 ##概要
 

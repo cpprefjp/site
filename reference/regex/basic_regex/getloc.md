@@ -23,7 +23,7 @@ locale_type getloc() const;
 ##備考
 - `traits_inst` はデフォルト初期化されたオブジェクトである。
 - `locale_type` は、ロケールに関する型であり、`traits_type::locale_type` の typedef である。
-- `traits_type` は、クラステンプレート [`basic_regex`](../basic_regex.md) の 2 番目のテンプレート引数で、デフォルトでは [`regex_traits`](../regex_traits.md.nolink)`<char_type>` である。  
+- `traits_type` は、クラステンプレート [`basic_regex`](../basic_regex.md) の 2 番目のテンプレート引数で、デフォルトでは [`regex_traits`](../regex_traits.md)`<char_type>` である。  
 	その場合、`locale_type` は [`locale`](../../locale/locale.md) である。
 
 
