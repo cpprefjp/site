@@ -4,7 +4,7 @@
 * std[meta namespace]
 
 <!-- `[meta header]`は、所属ヘッダを表すメタ情報 -->
-<!-- `[meta id-type]`は、識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, typedef, macro -->
+<!-- `[meta id-type]`は、識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, typedef, macro, namespace -->
 <!-- `[meta namespace]`は、所属する名前空間を表すメタ情報。マクロを考慮して省略可。名前空間の区切りは`::` -->
 <!-- `[meta class]`は、所属するクラスを表すメタ情報。クラスページでは省略する。structとは書けない -->
 
