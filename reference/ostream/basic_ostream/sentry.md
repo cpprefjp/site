@@ -1,4 +1,4 @@
-#basic_ostream<>::sentry
+#sentry
 * ostream[meta header]
 * std[meta namespace]
 * basic_ostream[meta class]
