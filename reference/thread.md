@@ -20,3 +20,7 @@
 - [GCC, C++0x mode](/implementation.md#gcc): 4.6.3, 4.7.0
 - GCC／pthread環境でスレッドサポートを有効化するには -pthread オプション指定が必要。（GCC 4.7.0で確認）
 
+##参照
+- [The cpp-threads Archives](http://www.decadent.org.uk/pipermail/cpp-threads/)<br/>
+以前、C++標準の言語とライブラリに並行プログラミングの提案を行うため使用されていたメーリングリストのアーカイブです。
+
