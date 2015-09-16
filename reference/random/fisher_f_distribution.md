@@ -89,7 +89,7 @@ int main()
   std::fisher_f_distribution<> dist(5, 10);
   
   std::ofstream file("fisher_f_distribution.tsv");
-  for (size_t n = n; n < 256; ++n) {
+  for (size_t n = 0; n < 256; ++n) {
     // F分布で乱数を生成する
     double result = dist(engine);
     file << result << "\n";
@@ -98,7 +98,7 @@ int main()
 ```
 
 ###出力
-このプログラムによってある時に得られた結果（[fisher_f_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/discrete_distribution.tsv.7z)）を図示する。
+このプログラムによってある時に得られた結果（[fisher_f_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/fisher_f_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/fisher_f_distribution.png)
 
