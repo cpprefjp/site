@@ -44,7 +44,7 @@ char_class_type lookup_classname(ForwardIterator first,
 | `"w"`/`L"w"`           | [`ctype_base::alnum`][ctype_base] | 英字・数字にマッチする |
 | `"xdigit"`/`L"xdigit"` | [`ctype_base::xdigit`][ctype_base] | 十六進数字にマッチする |
 
-[ctype_base]: /reference/locale/ctype_base.md]
+[ctype_base]: /reference/locale/ctype_base.md
 
 ##例
 ```cpp
