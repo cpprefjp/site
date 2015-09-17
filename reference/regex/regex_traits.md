@@ -36,8 +36,8 @@ namespace std {
 | `transform` | 与えられた範囲を、並べ替えのキーとして使用する、文字のシーケンスに変換する | C++11 |
 | `transform_primary` | 与えられた文字の範囲を、並べ替えのキーとして使用する、大文字・小文字を区別しない文字のシーケンスに変換する | C++11 |
 | `lookup_collatename` | 与えられた文字の範囲に対応する照合名を取得する | C++11 |
-| `lookup_classname` | 与えられた文字の範囲に対応するクラス名を取得する | C++11 |
-| `istype` | 文字が特定のクラスに属しているかを判定する | C++11 |
+| [`lookup_classname`](./regex_traits/lookup_classname.md) | 与えられた文字の範囲に対応するクラス名を取得する | C++11 |
+| [`istype`](./regex_traits/istype.md) | 文字が特定のクラスに属しているかを判定する | C++11 |
 | `value` | 文字の整数表現を取得する | C++11 |
 | `imbue` | ロケールを設定する | C++11 |
 | `getloc` | ロケールを取得する | C++11 |
@@ -85,7 +85,7 @@ int main()
 * begin()[link /reference/string/basic_string/begin.md]
 * end()[link /reference/string/basic_string/end.md]
 * isctype[link ./regex_traits/isctype.md]
-* lookup_classname[link ./regex_traits/lookup_classname.md.nolink]
+* lookup_classname[link ./regex_traits/lookup_classname.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
