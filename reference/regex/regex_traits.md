@@ -39,7 +39,7 @@ namespace std {
 | [`lookup_classname`](./regex_traits/lookup_classname.md) | 与えられた文字の範囲に対応するクラス名を取得する | C++11 |
 | [`isctype`](./regex_traits/isctype.md) | 文字が特定のクラスに属しているかを判定する | C++11 |
 | `value` | 文字の整数表現を取得する | C++11 |
-| `imbue` | ロケールを設定する | C++11 |
+| [`imbue`](./regex_traits/imbue.md) | ロケールを設定する | C++11 |
 | `getloc` | ロケールを取得する | C++11 |
 
 
