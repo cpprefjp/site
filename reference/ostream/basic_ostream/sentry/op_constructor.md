@@ -5,22 +5,24 @@
 * function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ostream<CharT, Traits>::sentry {
-  public:
-    explicit sentry(basic_ostream<CharT, Traits>& os);
-  };
-}
+explicit sentry(basic_ostream& os);
 ```
 
 ##概要
 出力処理の前処理を行う。
 
 ##効果
-1. `os.good()`が`false`なら、関数から帰る。
-1. `os.tie()`が非ヌルポインタなら、`os.tie()->flush()`を呼び出す。
+もし `os.`[`good`](../../../ios/basic_ios/good.md)`()` が `true` なら、書式化出力・非書式化出力の準備処理を行い、`os.`[`tie`](i../../../ios/basic_ios/tie.md.nolink)`()` が非ヌルポインタなら、`os.`[`tie`](i../../../ios/basic_ios/tie.md.nolink)`()->`[`flush`](../flush.md.nolink)`()` を呼び出す。
 
-その他の処理によっては、`os.setstate(failbit)`が呼び出される可能性がある。
+全ての準備処理が完了したら、このオブジェクトの [`operator bool`](op_bool.md)`()` 関数は `true` を、さもなくば `false` を返すようになる。
 
-ここまでの手順が完了したら、このオブジェクトの`explicit operator bool`関数は`true`を、さもなくば`false`を返すようになる。
+準備処理を行っている間に、`os.`[`setstate`](../../../ios/basic_ios/setstate.md)`(failbit)` が呼び出される可能性がある。（これは、[`ios_base`](../../../ios/ios_base.md)`::failure` 例外の送出を引き起こす可能性がある）
+
+##備考
+- 本コンストラクタでは、効果に記載されている以外に実装依存の処理が行われるかもしれない。
+- `os.`[`tie`](i../../../ios/basic_ios/tie.md.nolink)`()->`[`flush`](../flush.md.nolink)`()` は、同期が不要と判断できる場合には呼び出されないかもしれない。
+
+
+##参照
+- [`operator bool`](op_bool.md)
+- [`(destructor)`](op_destructor.md)

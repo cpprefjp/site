@@ -21,12 +21,12 @@ namespace std {
 * basic_ostream[link ../basic_ostream.md]
 
 ##概要
-`basic_ostream<>::sentry`は、出力処理共通の前処理・後処理を実行するためのクラスである。
+`basic_ostream<>::sentry` は、出力処理共通の前処理・後処理を実行するためのクラスである。
 前処理・後処理がそれぞれコンストラクタ・デストラクタ内部で実行される。
 
-書式化出力関数・非書式化出力関数は、内部で必ず`sentry`オブジェクトを構築・破棄する。
+書式化出力関数・非書式化出力関数は、内部で必ず `sentry` オブジェクトを構築・破棄する。
 
-`explicit operator bool`関数は、コンストラクタでの処理が成功していれば`true`、さもなくば`false`を返す。
+[`operator bool`](sentry/op_bool.md)`()` 関数は、コンストラクタでの処理が成功していれば `true`、さもなくば `false` を返す。
 
 なお、C++標準規格では、規格で要求している処理のほかに、追加の処理を行っても良いとされている。
 
@@ -35,6 +35,7 @@ namespace std {
 |-------------------------------------|----------------|----------------|
 | [`(constructor)`](sentry/op_constructor.md) | コンストラクタ |                |
 | [`(destructor)`](sentry/op_destructor.md) | デストラクタ   |                |
+| [`operator bool`](sentry/op_bool.md) | 変換関数   |                |
 
 
 ##参照

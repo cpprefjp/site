@@ -5,18 +5,16 @@
 * function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_ostream<CharT, Traits>::sentry {
-  public:
-    ~sentry();
-  };
-}
+~sentry();
 ```
 
 ##概要
 出力処理の後処理を行う。
 
 ##効果
-1. `(os.flags() & unitbuf) && !uncought_exception() && os.good()`が真なら、`os.rdbuf()->pubsync()`を呼び出す。
-    - `os.rdbuf()->pubsync()`が-1を返したら、`bad_bit`をセットする。ただし、これにより例外を投げることはない。
+`(os.`[`flags`](../../../ios/ios_base/flags.md.nolink)`() & unitbuf) && !`[`uncaught_exception`](../../../exception/uncaught_exception.md)`() && os.`[`good`](../../../ios/basic_ios/good.md)`()` が `true` なら、`os.`[`rdbuf`](../../../ios/basic_ios/rdbuf.md.nolink)`()->`[`pubsync`](../../../streambuf/basic_streambuf/pubsync.md.nolink)`()` を呼び出す。  
+`os.`[`rdbuf`](../../../ios/basic_ios/rdbuf.md.nolink)`()->`[`pubsync`](../../../streambuf/basic_streambuf/pubsync.md.nolink)`()` が `-1` を返したら、`bad_bit` をセットする。ただし、これにより例外を投げることはない。
+
+##参照
+- [`(constructor)`](op_constructor.md)
+- [`operator bool`](op_bool.md)
