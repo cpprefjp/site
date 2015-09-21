@@ -16,7 +16,7 @@ static time_point from_time_t(time_t t) noexcept;
 ##戻り値
 パラメータtと同じ時間を指す[`time_point`](/reference/chrono/time_point.md)を返す。
 
-`time_t`精度が[`time_point`](/reference/chrono/time_point.md)よりも高い場合は、[`time_point`](/reference/chrono/time_point.md)の精度に切り捨てられる。
+`time_t`の分解能が[`time_point`](/reference/chrono/time_point.md)よりも高い場合は、[`time_point`](/reference/chrono/time_point.md)の分解能に切り捨てられる。
 
 
 ##例外
