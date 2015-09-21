@@ -1,6 +1,5 @@
 #LDBL_MAX
 * cfloat[meta header]
-
 * macro[meta id-type]
 
 ```cpp
@@ -10,4 +9,5 @@
 
 ##概要
 `long double` の最大の有限値。
+
 `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しい。

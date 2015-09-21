@@ -1,7 +1,7 @@
 #DBL_EPSILON
 * cfloat[meta header]
-
 * macro[meta id-type]
+
 ```cpp
 #define DBL_EPSILON implementation-defined
 ```
