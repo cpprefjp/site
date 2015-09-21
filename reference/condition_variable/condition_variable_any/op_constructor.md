@@ -16,6 +16,7 @@ condition_variable_any(const condition_variable_any&) = delete;
 
 ##例外
 この関数は、[`bad_alloc`](/reference/new/bad_alloc.md)例外オブジェクト、もしくは以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
+
 - `resource_unavailable_try_again` : 制限により、非メモリリソースの初期化ができなかった
 - `operation_not_permitted` : スレッドがこの操作を実行する権限を持っていない
 

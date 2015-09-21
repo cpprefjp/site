@@ -16,6 +16,7 @@ condition_variable(const condition_variable&) = delete;
 
 ##例外
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
+
 - `resource_unavailable_try_again` : いくつかの非メモリリソースの制限によって初期化できない
 
 
