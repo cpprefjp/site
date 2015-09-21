@@ -5,13 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-condition_variable_any();
-condition_variable_any(const condition_variable_any&) = delete;
+condition_variable_any();                                       // (1)
+condition_variable_any(const condition_variable_any&) = delete; // (2)
 ```
 
-##condition_variable_anyオブジェクトの構築
-- `condition_variable_any()`デフォルトコンストラクタ。`condition_variable_any`<br/>オブジェクトの初期化を行う
-- `condition_variable_any(const condition_variable_any&) = delete`<br/>コピーコンストラクタ。コピー不可。
+##概要
+- (1) : デフォルトコンストラクタ。`condition_variable_any`オブジェクトの初期化を行う
+- (2) : コピーコンストラクタ。コピー不可。これによってムーブも不可。
 
 
 ##例外
