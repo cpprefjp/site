@@ -13,7 +13,12 @@ static constexpr Rep max()
 
 
 ##戻り値
-[`numeric_limits`](/reference/limits/numeric_limits.md)`<Rep>::`[`max`](/reference/limits/numeric_limits/max.md)`()`
+```cpp
+numeric_limits<Rep>::max()
+```
+* numeric_limits[link /reference/limits/numeric_limits.md]
+* max()[link /reference/limits/numeric_limits/max.md]
+
 ※戻り値は0より大きくなければならない。
 
 

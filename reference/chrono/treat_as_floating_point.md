@@ -6,7 +6,8 @@
 ```cpp
 namespace std {
 namespace chrono {
-  template <class Rep> struct treat_as_floating_point
+  template <class Rep>
+  struct treat_as_floating_point
     : is_floating_point<Rep> { };
 }}
 ```
@@ -14,6 +15,7 @@ namespace chrono {
 
 ##概要
 `treat_as_floating_point`は、テンプレートパラメータ`Rep`が浮動小数点型かを判定するトレイトである。
+
 [`duration`](/reference/chrono/duration.md)クラスにおいて、他の[`duration`](/reference/chrono/duration.md)の型から変換可能な型かどうかを判定するために使用される。`treat_as_floating_point<Rep>::value == true`の場合に、変換可能である。
 
 

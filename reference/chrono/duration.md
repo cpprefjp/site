@@ -3,7 +3,6 @@
 * std::chrono[meta namespace]
 * class template[meta id-type]
 
-
 ```cpp
 namespace std {
 namespace chrono {

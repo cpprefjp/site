@@ -15,6 +15,7 @@ static time_t to_time_t(const time_point& t) noexcept;
 
 ##戻り値
 パラメータ`t`と同じ時間を指す`time_t`を返す。
+
 [`time_point`](/reference/chrono/time_point.md)の精度が`time_t`よりも高い場合は、`time_t`の精度に切り捨てられる。
 
 

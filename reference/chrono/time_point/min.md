@@ -9,11 +9,14 @@ static constexpr time_point min();
 ```
 
 ##概要
-最小のtime_pointを取得する
+最小の`time_point`を取得する
 
 
 ##戻り値
-`time_point(duration::min())`
+```cpp
+time_point(duration::min())
+```
+* min()[link /reference/chrono/duration/min.md]
 
 
 ##例

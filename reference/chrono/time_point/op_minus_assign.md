@@ -13,7 +13,10 @@ time_point& operator-=(const duration& d);
 
 
 ##効果
-`d_ -= d`
+```cpp
+d_ -= d
+```
+
 ※ `d_`は`time_point`内部で保持している`duration`。変数名は説明用。
 
 

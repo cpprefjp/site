@@ -13,7 +13,12 @@ static constexpr Rep min();
 
 
 ##戻り値
-[`numeric_limits`](/reference/limits/numeric_limits.md)`<Rep>::`[`lowest`](/reference/limits/numeric_limits/lowest.md)`()`
+```cpp
+numeric_limits<Rep>::lowest()
+```
+* numeric_limits[link /reference/limits/numeric_limits.md]
+* lowest()[link /reference/limits/numeric_limits/lowest.md]
+
 ※戻り値の値は0より小さくなければならない。
 
 

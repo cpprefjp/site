@@ -13,7 +13,10 @@ static constexpr time_point max();
 
 
 ##戻り値
-`time_point(duration::max())`
+```cpp
+time_point(duration::max())
+```
+* max()[link /reference/chrono/duration/max.md]
 
 
 ##例

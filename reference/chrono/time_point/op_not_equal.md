@@ -23,7 +23,9 @@ namespace chrono {
 
 
 ##戻り値
-`!(lhs == rhs)`
+```cpp
+!(lhs == rhs)
+```
 
 
 ##例

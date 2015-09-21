@@ -13,7 +13,9 @@ static constexpr Rep zero();
 
 
 ##戻り値
-`Rep(0)`
+```cpp
+Rep(0)
+```
 
 
 ##例

@@ -5,7 +5,6 @@
 
 ```cpp
 namespace std {
-
 namespace chrono {
   template <class ToDuration, class Rep, class Period>
   constexpr ToDuration duration_cast(const duration<Rep, Period>& d);
