@@ -17,17 +17,21 @@ C++のストリームには行バッファリングの機能がないため、�
 
 ##効果
 1. `os.`[`put`](basic_ostream/put.md)`(os.`[`widen`](../ios/basic_ios/widen.md.nolink)`('\n'))`を呼び出す。
-1. `os.`[`flush`](basic_ostream/flush.md`()`を呼び出す。
+1. `os.`[`flush`](basic_ostream/flush.md)`()`を呼び出す。
 
 ##戻り値
 `os`
+
+本関数は、直接呼ぶのではなく、マニピュレータ関数へのポインタを引数に取る出力演算子（[`operator<<`](basic_ostream/op_ostream.md)、挿入演算子、インサータとも呼ばれる）を通じて呼び出されるのが一般的である。
 
 ##例
 ```cpp
 #include <iostream>
 
 int main() {
-  std::cout << "Kamaboko" << std::endl;
+  std::cout << "Kamaboko";
+  std::endl(std::cout);                 // 直接呼出し（あまり一般的では無い）
+  std::cout << "cpprefjp" << std::endl; // operator<< を通じた間接的な呼び出し（より一般的）
 }
 ```
 * iostream[link ../iostream.md]
