@@ -75,7 +75,7 @@ namespace std {
 | [`operator<<`](basic_ostream/op_ostream.md) | 書式化出力・マニピュレータの実行 |                |
 | [`put`](basic_ostream/put.md)               | 文字の出力                       |                |
 | [`write`](basic_ostream/write.md)           | 文字列・バイト列の出力           |                |
-| [`flush`](basic_ostream/flush.md.nolink)           | ストリームバッファのフラッシュ   |                |
+| [`flush`](basic_ostream/flush.md)           | ストリームバッファのフラッシュ   |                |
 
 `<<`演算子のほとんどは書式化出力関数である。
 その他のメンバ関数は非書式化出力関数である。
