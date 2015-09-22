@@ -16,8 +16,8 @@ namespace std {
 C++のストリームには行バッファリングの機能がないため、行バッファリングの模倣として`endl`が多用される。
 
 ##効果
-1. `os.put(os.widen('\n'))`を呼び出す。
-1. `os.flush()`を呼び出す。
+1. `os.`[`put`](basic_ostream/put.md)`(os.`[`widen`](../ios/basic_ios/widen.md.nolink)`('\n'))`を呼び出す。
+1. `os.`[`flush`](basic_ostream/flush.md`()`を呼び出す。
 
 ##戻り値
 `os`
@@ -30,6 +30,9 @@ int main() {
   std::cout << "Kamaboko" << std::endl;
 }
 ```
+* iostream[link ../iostream.md]
+* cout[link ../iostream/cout.md]
+* endl[color ff0000]
 
 ###出力
 ```
@@ -45,6 +48,10 @@ namespace std {
   }
 }
 ```
+* basic_ostream[link basic_ostream.md]
+* put[link basic_ostream/put.md]
+* flush[link basic_ostream/flush.md]
+* widen[link ../ios/basic_ios/widen.md.nolink]
 
 ##バージョン
 ###言語
