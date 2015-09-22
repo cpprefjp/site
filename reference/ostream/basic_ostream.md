@@ -16,8 +16,8 @@ namespace std {
 * char_traits[link ../string/char_traits.md]
 
 ##概要
-`basic_ostream`は、出力ストリームを表現するクラスである。
-すなわち、`rdbuf()`が指し示すストリームバッファオブジェクトに対する書き込み操作を提供する。
+`basic_ostream` は、出力ストリームを表現するクラスである。
+すなわち、[`rdbuf()`](../ios/basic_ios/rdbuf.md.nolink) が指し示すストリームバッファオブジェクトに対する書き込み操作を提供する。
 
 各種の出力関数——特に`<<`演算子——がクラスのメンバ関数・非メンバ関数として定義されている。
 このため、ユーザーコードで入力処理を実装する際には、`basic_ostream`、あるいはそれに対するtypedefである`ostream`や`wostream`などの型への参照を実引数として受け取るようにすると良い。
@@ -39,16 +39,16 @@ namespace std {
 注意：書式化出力関数と非書式化出力関数すべてについて、「効果」の項目は以下の処理を前提として記載している。
 
 書式化出力関数・非書式化出力関数は、出力処理に先立って`sentry`オブジェクトを構築し、関数から脱出する前に破棄する。
-構築した`sentry`オブジェクトが`explict operator bool`関数で`true`に変換できる場合のみ、実際の出力処理（各関数の「効果」として記載した処理）が実行される。
+構築した [`sentry`](basic_ostream/sentry.md) オブジェクトが [`operator bool`](basic_ostream/sentry/op_bool.md) 関数で `true` に変換できる場合のみ、実際の出力処理（各関数の「効果」として記載した処理）が実行される。
 
-（書式化出力関数のみ）`explict operator bool`関数の結果が`false`であったら、`setstate(ios_base::bad_bit)`を呼び出す。
+（書式化出力関数のみ）[`operator bool`](basic_ostream/sentry/op_bool.md) 関数の結果が `false` であったら、[`setstate`](../ios/basic_ios/setstate.md)`(ios_base::badbit)` を呼び出す。
 
-関数内部で例外が送出された場合、`ios_base::bad_bit`をセットする。
-そして、`(exceptions() & bad_bit) != 0`であれば例外を再送出する。
+関数内部で例外が送出された場合、`ios_base::badbit` をセットする。
+そして、`(`[`exceptions`](../ios/basic_ios/exceptions.md.nolink)`() & badbit) != 0` であれば例外を再送出する。
 
 ##メンバ
 
-基底クラスである[`ios_base`](../ios/ios_base.md)と[`basic_ios`](../ios/basic_ios.md)も参照のこと。
+基底クラスである [`ios_base`](../ios/ios_base.md) と[`basic_ios`](../ios/basic_ios.md) も参照のこと。
 
 ###型
 
