@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-basic_ostream<CharT, Traits>& seekp(pos_type pos);
-basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir);
+basic_ostream<CharT, Traits>& seekp(pos_type pos);              // (1)
+basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir); // (2)
 ```
 
 ##概要
@@ -16,18 +16,24 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir);
 
 ##効果
 
-1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
-1. 与えられた実引数により、以下のいずれかを実行する。
-    - `rdbuf()->pubseekpos(pos, ios_base::out)`
-    - `rdbuf()->pubseekoff(off, dir, ios_base::out)`
-1. 失敗した場合、`setstate(failbit)`を呼び出す。
+- (1) 出力ストリームの書き込み位置を `pos` に設定する。
+- (2) 出力ストリームの書き込み位置を `dir` を基準として相対位置 `off` に設定する。
 
 ##戻り値
 `*this`
 
+##備考
+本関数の処理内容は以下の通り。
+
+1. [`sentry`](sentry.md) オブジェクトを構築する（C++11 以降のみ）。
+1. 与えられた実引数により、以下のいずれかを実行する。
+    - (1) [`rdbuf`](../../ios/basic_ios/rdbuf.md.nolink)`()->`[`pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md.nolink)`(pos, ios_base::out)`
+    - (2) [`rdbuf`](../../ios/basic_ios/rdbuf.md.nolink)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)`(off, dir, ios_base::out)`
+1. 処理に失敗した場合（上記の戻り値が `-1` だった場合）、[`setstate`](../../ios/basic_ios/setstate.md)`(failbit)`を呼び出す。
+
 ##例
-以下は、`off_type`と`seekdir`を使用する例。
-`pos_type`のみを引数に取る多重定義の例は、[`tellp`](tellp.md)を参照。
+以下は、`off_type` と `seekdir` を使用する例。
+`pos_type` のみを引数に取る多重定義の例は、[`tellp`](tellp.md) を参照。
 
 ```cpp
 #include <iostream>
@@ -41,6 +47,13 @@ int main() {
   std::cout << os.str() << std::endl;
 }
 ```
+* iostream[link ../../iostream.md]
+* sstream[link ../../sstream.md]
+* ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
+* seekp[color ff0000]
+* cout[link ../../iostream/cout.md]
+* str[link ../../sstream/basic_ostringstream/str.md.nolink]
+* endl[link ../endl.md]
 
 ###出力
 ```
@@ -50,43 +63,31 @@ int main() {
 ##実装例
 ```cpp
 basic_ostream<CharT, Traits>& seekp(pos_type pos) {
-  iostate state = goodbit;
-  try {
-    sentry s(*this);
-    if (s) {
-      if (this->rdbuf()->pubseekpos(pos, ios_base::out) == -1) {
-        state |= failbit;
-      }
-    }
-  } catch (...) {
-    例外を投げずにbadbitを設定する;
-    if ((this->exceptions() & badbit) != 0) {
-      throw;
+  sentry s(*this);
+  if (!this->fail()) {
+    if (this->rdbuf()->pubseekpos(pos, ios_base::out) == pos_type(-1)) {
+      this->setstate(failbit);
     }
   }
-  this->setstate(state);
   return *this;
 }
 
 basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir) {
-  iostate state = goodbit;
-  try {
-    sentry s(*this);
-    if (s) {
-      if (this->rdbuf()->pubseekoff(off, dir, ios_base::out) == -1) {
-        state |= failbit;
-      }
-    }
-  } catch (...) {
-    例外を投げずにbadbitを設定する;
-    if ((this->exceptions() & badbit) != 0) {
-      throw;
+  sentry s(*this);
+  if (!this->fail()) {
+    if (this->rdbuf()->pubseekoff(off, dir, ios_base::out) == pos_type(-1)) {
+      this->setstate(failbit);
     }
   }
-  this->setstate(state);
   return *this;
 }
 ```
+* sentry[link sentry.md]
+* fail[link ../../ios/basic_ios/fail.md]
+* rdbuf[link ../../ios/basic_ios/rdbuf.md.nolink]
+* pubseekpos[link ../../streambuf/basic_streambuf/pubseekpos.md.nolink]
+* pubseekoff[link ../../streambuf/basic_streambuf/pubseekoff.md.nolink]
+* setstate[link ../../ios/basic_ios/setstate.md]
 
 ##バージョン
 ###言語
@@ -95,7 +96,5 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir) {
 ##参照
 
 - [`basic_ostream::tellp`](tellp.md)
-- `basic_streambuf::pubseekpos`
-- `basic_streambuf::pubseekoff`
-- `basic_streambuf::seekpos`
-- `basic_streambuf::seekoff`
+- [`basic_streambuf::pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md.nolink)
+- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)
