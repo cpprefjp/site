@@ -14,10 +14,13 @@ namespace std {
 ヌル文字を出力する。
 
 ##効果
-1. `os.put(CharT())`を呼び出す。
+`os.`[`put`](basic_ostream/put.md)`(CharT())` を呼び出す。
 
 ##戻り値
 `os`
+
+##備考
+本関数は、直接呼ぶのではなく、マニピュレータ関数へのポインタを引数に取る出力演算子（[`operator<<`](basic_ostream/op_ostream.md)、挿入演算子、インサータとも呼ばれる）を通じて呼び出されるのが一般的である。
 
 ##実装例
 ```cpp
@@ -28,9 +31,12 @@ namespace std {
   }
 }
 ```
+* basic_ostream[link basic_ostream.md]
+* put[link basic_ostream/put.md]
 
 ##バージョン
 ###言語
 - C++98
 
 ##参照
+- [endl](endl.md)
