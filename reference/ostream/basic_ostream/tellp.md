@@ -11,15 +11,13 @@ pos_type tellp();
 ##概要
 ストリームバッファから現在の書き込み位置を取得する。
 
-##効果
-
-1. `sentry`オブジェクトを構築する。
-1. 成功した場合、`rdbuf()->pubseekoff(0, cur, out)`を呼び出して戻り値とする。
-
 ##戻り値
 
-- `fail() == false`であれば、`rdbuf()->pubseekoff(0, cur, out)`。
-- `fail() == true`であれば、`pos_type(-1)`。
+- [`fail`](../../ios/basic_ios/fail.md)`() == false` であれば、[`rdbuf`](../../ios/basic_ios/rdbuf.md.nolink)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)`(0, cur, out)`。
+- [`fail`](../../ios/basic_ios/fail.md)`() == true` であれば、`pos_type(-1)`。
+
+##備考
+C++11 から、本関数の処理開始時に [`sentry`](sentry.md) オブジェクトを構築するようになった。
 
 ##例
 ```cpp
@@ -39,6 +37,14 @@ int main() {
   std::cout << os.str() << std::endl;
 }
 ```
+* iostream[link ../../iostream.md]
+* sstream[link ../../sstream.md]
+* ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
+* tellp[color ff0000]
+* cout[link ../../iostream/cout.md]
+* str[link ../../sstream/basic_ostringstream/str.md.nolink]
+* seekp[link seekp.md]
+* endl[link ../endl.md]
 
 ###出力
 ```
@@ -49,20 +55,17 @@ ABCDEF
 ##実装例
 ```cpp
 pos_type tellp(pos_type pos) {
-  try {
-    sentry s(*this);
-    if (s) {
-      return this->rdbuf()->pubseekoff(0, cur, ios_base::out);
-    }
-  } catch (...) {
-    例外を投げずにbadbitを設定する;
-    if ((this->exceptions() & badbit) != 0) {
-      throw;
-    }
+  sentry s(*this);
+  if (this->fail()) {
+    return pos_type(-1);
   }
-  return pos_type(-1);
+  return this->rdbuf()->pubseekoff(0, cur, ios_base::out);
 }
 ```
+* sentry[link sentry.md]
+* fail[link ../../ios/basic_ios/fail.md]
+* rdbuf[link ../../ios/basic_ios/rdbuf.md.nolink]
+* pubseekoff[link ../../streambuf/basic_streambuf/pubseekoff.md.nolink]
 
 ##バージョン
 ###言語
@@ -71,5 +74,4 @@ pos_type tellp(pos_type pos) {
 ##参照
 
 - [`basic_ostream::seekp`](seekp.md)
-- `basic_streambuf::pubseekoff`
-- `basic_streambuf::seekoff`
+- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)
