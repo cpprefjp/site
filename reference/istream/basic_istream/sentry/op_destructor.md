@@ -2,15 +2,10 @@
 * istream[meta header]
 * std[meta namespace]
 * basic_istream::sentry[meta class]
+* function[meta id-type]
 
 ```cpp
-namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
-  class basic_istream<CharT, Traits>::sentry {
-  public:
-    ~sentry();
-  };
-}
+~sentry();
 ```
 
 ##概要
