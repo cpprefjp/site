@@ -68,7 +68,7 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 | [`fmtflags`](ios_base/type-fmtflags.md) | 書式フラグ                                   |                |
 | [`iostate`](ios_base/type-iostate.md)   | 入出力オブジェクトの状態                     |                |
 | [`openmode`](ios_base/type-openmode.md) | ストリームを開く際のモード                   |                |
-| `seekdir`        | シーク時の起点の指定                         |                |
+| [`seekdir`](ios_base/type-seekdir.md)   | シーク時の起点の指定                         |                |
 | `Init`           | 標準入出力オブジェクトの初期化・後処理の管理 |                |
 | `event`          | コールバックイベントの種類                   |                |
 | `event_callback` | コールバック関数                             |                |
