@@ -13,7 +13,7 @@ void clear(iostate state = goodbit);
 
 ##効果
 状態値を`state`にする。
-ただし、[`rdbuf`](rdbuf.md.nolink)`() == nullptr`であれば、さらに[`ios_base`](../ios_base.md)`::bad_bit`をビットORした値にする。
+ただし、[`rdbuf`](rdbuf.md.nolink)`() == nullptr`であれば、さらに[`ios_base`](../ios_base.md)`::badbit`をビットORした値にする。
 
 ##例外
 

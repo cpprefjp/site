@@ -62,8 +62,8 @@ namespace std {
 
 構築した`sentry`オブジェクトが`explict operator bool`関数で`true`に変換できる場合のみ、実際の入力処理（各関数の「効果」として記載した処理）が実行される。
 
-関数内部で例外が送出された場合、`ios_base::bad_bit`をセットする。
-そして、`(exceptions() & bad_bit) != 0`であれば例外を再送出する。
+関数内部で例外が送出された場合、`ios_base::badbit`をセットする。
+そして、`(exceptions() & badbit) != 0`であれば例外を再送出する。
 
 ##メンバ
 
