@@ -1,8 +1,9 @@
-#make_ready_at_thread_exit (C++11)
+#make_ready_at_thread_exit
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void make_ready_at_thread_exit(ArgTypes... args);

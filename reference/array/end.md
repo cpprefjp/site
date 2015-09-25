@@ -1,8 +1,9 @@
-#end (C++11)
+#end
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 iterator end() noexcept;

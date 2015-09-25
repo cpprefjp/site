@@ -1,8 +1,9 @@
-#empty (C++11)
+#empty
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 bool empty() const noexcept;

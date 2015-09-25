@@ -1,7 +1,8 @@
-#promise (C++11)
+#promise
 * future[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

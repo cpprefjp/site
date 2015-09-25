@@ -1,5 +1,6 @@
-#tuple (C++11)
+#tuple
 * tuple[meta header]
+* cpp11[meta cpp]
 
 `<tuple>`ヘッダでは、異なる型を格納できる固定サイズコレクションであるタプル型を提供する。2要素のみ格納可能な[`pair`](/reference/utility/pair.md)とは違い、[`tuple`](./tuple/tuple.md)は任意の数の要素を格納できる。
 

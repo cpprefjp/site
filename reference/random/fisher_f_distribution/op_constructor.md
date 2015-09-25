@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * fisher_f_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 explicit fisher_f_distribution(RealType m = 1, RealType n = 1);

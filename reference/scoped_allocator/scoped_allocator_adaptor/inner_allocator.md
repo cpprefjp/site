@@ -1,8 +1,9 @@
-#inner_allocator (C++11)
+#inner_allocator
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 inner_allocator_type& inner_allocator() noexcept;             // (1)

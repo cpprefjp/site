@@ -1,7 +1,8 @@
-#error_condition (C++11)
+#error_condition
 * system_error[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,7 +1,8 @@
-#asinh (C++11)
+#asinh
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

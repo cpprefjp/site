@@ -1,8 +1,9 @@
-#try_lock_for (C++11)
+#try_lock_for
 * mutex[meta header]
 * std[meta namespace]
 * recursive_timed_mutex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 template <class Rep, class Period>

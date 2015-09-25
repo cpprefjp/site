@@ -1,8 +1,9 @@
-#native_handle (C++11)
+#native_handle
 * mutex[meta header]
 * std[meta namespace]
 * mutex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 native_handle_type native_handle();

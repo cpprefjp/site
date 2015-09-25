@@ -1,8 +1,9 @@
-#operator= (C++14)
+#operator=
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_lock[meta class]
 * function[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 shared_lock& operator=(const shared_lock&) = delete; // (1)

@@ -1,7 +1,8 @@
-#atomic_is_lock_free (C++11)
+#atomic_is_lock_free
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

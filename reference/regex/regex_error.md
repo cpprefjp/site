@@ -1,7 +1,8 @@
-#regex_error (C++11)
+#regex_error
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

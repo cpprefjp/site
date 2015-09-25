@@ -1,8 +1,9 @@
-#reset (C++11)
+#reset
 * random[meta header]
 * std[meta namespace]
 * extreme_value_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void reset();

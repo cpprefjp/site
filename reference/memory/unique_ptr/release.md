@@ -1,8 +1,9 @@
-#release (C++11)
+#release
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 pointer release() noexcept;

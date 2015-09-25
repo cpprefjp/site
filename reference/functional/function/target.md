@@ -1,8 +1,9 @@
-#target (C++11)
+#target
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 template <class T>

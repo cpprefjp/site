@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * exception[meta header]
 * std[meta namespace]
 * nested_exception[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 nested_exception() noexcept;

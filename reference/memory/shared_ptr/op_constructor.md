@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 constexpr shared_ptr() noexcept;                   // (1)

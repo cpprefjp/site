@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * normal_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 explicit normal_distribution(RealType mean = 0.0, RealType stddev = 1.0);

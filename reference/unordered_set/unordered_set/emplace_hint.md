@@ -1,8 +1,9 @@
-#emplace_hint (C++11)
+#emplace_hint
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 template <class... Args>

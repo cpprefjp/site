@@ -1,8 +1,9 @@
-#cend (C++11)
+#cend
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 const_iterator cend() const noexcept;

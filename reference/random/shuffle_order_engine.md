@@ -1,7 +1,8 @@
-#shuffle_order_engine (C++11)
+#shuffle_order_engine
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

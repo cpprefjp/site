@@ -1,8 +1,9 @@
-#set_exception_at_thread_exit (C++11)
+#set_exception_at_thread_exit
 * future[meta header]
 * std[meta namespace]
 * promise[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void set_exception_at_thread_exit(exception_ptr p);

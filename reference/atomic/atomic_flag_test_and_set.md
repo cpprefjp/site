@@ -1,7 +1,8 @@
-#atomic_flag_test_and_set (C++11)
+#atomic_flag_test_and_set
 * atomic[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#hash_function (C++11)
+#hash_function
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 hasher hash_function() const;

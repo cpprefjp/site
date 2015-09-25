@@ -1,8 +1,9 @@
-#alpha (C++11)
+#alpha
 * random[meta header]
 * std[meta namespace]
 * gamma_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 result_type alpha() const;

@@ -1,8 +1,9 @@
-#min (C++11)
+#min
 * random[meta header]
 * std[meta namespace]
 * geometric_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 result_type min() const;

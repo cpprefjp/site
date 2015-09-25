@@ -1,8 +1,9 @@
-#fetch_sub (C++11)
+#fetch_sub
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 T fetch_sub(T operand, memory_order order = memory_order_seq_cst) volatile noexcept;

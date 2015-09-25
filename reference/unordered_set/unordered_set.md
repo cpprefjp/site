@@ -1,7 +1,8 @@
-#unordered_set (C++11)
+#unordered_set
 * unordered_set[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

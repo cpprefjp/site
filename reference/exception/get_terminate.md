@@ -1,7 +1,8 @@
-#get_terminate (C++11)
+#get_terminate
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,7 +1,8 @@
-#memory_order (C++11)
+#memory_order
 * atomic[meta header]
 * std[meta namespace]
 * enum[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

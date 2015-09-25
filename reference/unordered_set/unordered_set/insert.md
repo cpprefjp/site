@@ -1,8 +1,9 @@
-#insert (C++11)
+#insert
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 pair<iterator, bool> insert(const value_type& v);

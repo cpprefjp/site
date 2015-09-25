@@ -1,7 +1,8 @@
-#undeclare_no_pointers (C++11)
+#undeclare_no_pointers
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

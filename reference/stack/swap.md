@@ -1,8 +1,9 @@
-#swap (C++11)
+#swap
 * stack[meta header]
 * std[meta namespace]
 * stack[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void swap(stack& s) noexcept(noexcept(swap(c, s.c)));

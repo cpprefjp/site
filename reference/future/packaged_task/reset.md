@@ -1,8 +1,9 @@
-#reset (C++11)
+#reset
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void reset();

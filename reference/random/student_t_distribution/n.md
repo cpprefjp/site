@@ -1,8 +1,9 @@
-#n (C++11)
+#n
 * random[meta header]
 * std[meta namespace]
 * student_t_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 result_type n() const;

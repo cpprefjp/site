@@ -1,8 +1,9 @@
-#operator bool (C++11)
+#operator bool
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 explicit operator bool() const;

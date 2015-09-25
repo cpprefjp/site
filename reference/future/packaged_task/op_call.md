@@ -1,8 +1,9 @@
-#operator() (C++11)
+#operator()
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void operator()(ArgTypes... args);

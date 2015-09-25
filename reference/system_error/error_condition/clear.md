@@ -1,8 +1,9 @@
-#clear (C++11)
+#clear
 * system_error[meta header]
 * std[meta namespace]
 * error_condition[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void clear() noexcept;

@@ -1,7 +1,8 @@
-#mutex (C++11)
+#mutex
 * mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

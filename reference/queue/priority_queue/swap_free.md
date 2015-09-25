@@ -1,7 +1,8 @@
-#swap (非メンバ関数) (C++11)
+#swap (非メンバ関数)
 * queue[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

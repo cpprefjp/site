@@ -1,7 +1,8 @@
-#random_device (C++11)
+#random_device
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

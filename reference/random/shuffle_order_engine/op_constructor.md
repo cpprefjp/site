@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * shuffle_order_engine[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 shuffle_order_engine();

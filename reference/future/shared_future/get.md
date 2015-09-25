@@ -1,8 +1,9 @@
-#get (C++11)
+#get
 * future[meta header]
 * std[meta namespace]
 * shared_future[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 const R& shared_future::get() const;

@@ -1,8 +1,9 @@
-#swap (C++11)
+#swap
 * future[meta header]
 * std[meta namespace]
 * promise[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void swap(promise& other) noexcept;

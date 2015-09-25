@@ -1,7 +1,8 @@
-#recursive_timed_mutex (C++11)
+#recursive_timed_mutex
 * mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

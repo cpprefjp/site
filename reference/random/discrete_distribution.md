@@ -1,7 +1,8 @@
-#discrete_distribution (C++11)
+#discrete_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

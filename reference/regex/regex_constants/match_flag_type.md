@@ -1,7 +1,8 @@
-#match_flag_type (C++11)
+#match_flag_type
 * regex[meta header]
 * std::regex_constants[meta namespace]
 * typedef[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

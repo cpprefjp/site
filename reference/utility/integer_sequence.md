@@ -1,7 +1,8 @@
-#integer_sequence (C++14)
+#integer_sequence
 * utility[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 namespace std {

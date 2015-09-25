@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * independent_bits_engine[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 independent_bits_engine();

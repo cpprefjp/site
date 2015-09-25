@@ -1,8 +1,9 @@
-#test_and_set (C++11)
+#test_and_set
 * atomic[meta header]
 * std[meta namespace]
 * atomic_flag[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 bool test_and_set(memory_order order = memory_order_seq_cst) volatile noexcept;

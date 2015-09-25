@@ -1,7 +1,8 @@
-#is_sorted (C++11)
+#is_sorted
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#swap (C++11)
+#swap
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void swap(const match_results& that);

@@ -1,8 +1,9 @@
-#rehash (C++11)
+#rehash
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void rehash(size_type n);

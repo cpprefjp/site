@@ -1,8 +1,9 @@
-#use_count (C++11)
+#use_count
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 long use_count() const noexcept;

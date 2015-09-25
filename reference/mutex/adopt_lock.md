@@ -1,7 +1,8 @@
-#adopt_lock (C++11)
+#adopt_lock
 * mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

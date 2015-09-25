@@ -1,8 +1,9 @@
-#lock (C++14)
+#lock
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
 * function[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 void lock();

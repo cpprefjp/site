@@ -1,8 +1,9 @@
-#operator= (C++11)
+#operator=
 * functional[meta header]
 * std[meta namespace]
 * reference_wrapper[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 reference_wrapper& operator=(const reference_wrapper<T>& x) noexcept;

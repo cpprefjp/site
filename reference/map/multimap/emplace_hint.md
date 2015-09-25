@@ -1,8 +1,9 @@
-#emplace_hint (C++11)
+#emplace_hint
 * map[meta header]
 * std[meta namespace]
 * multimap[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 // since C++11

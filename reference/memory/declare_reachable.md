@@ -1,7 +1,8 @@
-#declare_reachable (C++11)
+#declare_reachable
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,7 +1,8 @@
-#high_resolution_clock (C++11)
+#high_resolution_clock
 * chrono[meta header]
 * std::chrono[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * system_error[meta header]
 * std[meta namespace]
 * error_category[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 constexpr error_category() noexcept;            // (1) C++14

@@ -1,8 +1,9 @@
-#notify_all_at_thread_exit (C++11)
+#notify_all_at_thread_exit
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

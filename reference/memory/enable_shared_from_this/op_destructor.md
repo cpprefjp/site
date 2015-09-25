@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * memory[meta header]
 * std[meta namespace]
 * enable_shared_from_this[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~enable_shared_from_this();

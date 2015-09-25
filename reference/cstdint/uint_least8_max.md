@@ -1,6 +1,7 @@
-#UINT_LEAST8_MAX (C++11)
+#UINT_LEAST8_MAX
 * cstdint[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define UINT_LEAST8_MAX implementation-defined

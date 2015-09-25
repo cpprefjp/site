@@ -1,7 +1,8 @@
-#aligned_storage (C++11)
+#aligned_storage
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,6 +1,7 @@
-#INT_LEAST16_MIN (C++11)
+#INT_LEAST16_MIN
 * cstdint[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define INT_LEAST16_MIN implementation-defined

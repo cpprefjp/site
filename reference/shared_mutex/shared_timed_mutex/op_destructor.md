@@ -1,8 +1,9 @@
-#デストラクタ (C++14)
+#デストラクタ
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
 * function[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 ~shared_timed_mutex();

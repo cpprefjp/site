@@ -1,7 +1,8 @@
-#make_error_condition (C++11)
+#make_error_condition
 * system_error[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

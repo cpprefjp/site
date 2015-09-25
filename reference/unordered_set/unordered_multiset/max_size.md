@@ -1,8 +1,9 @@
-#max_size (C++11)
+#max_size
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 size_type max_size() const noexcept;

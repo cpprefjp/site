@@ -1,7 +1,8 @@
-#初期化 (C++11)
+#初期化
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

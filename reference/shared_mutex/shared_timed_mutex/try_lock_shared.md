@@ -1,8 +1,9 @@
-#try_lock_shared (C++14)
+#try_lock_shared
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
 * function[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 bool try_lock_shared();

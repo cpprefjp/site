@@ -1,8 +1,9 @@
-#lock (C++11)
+#lock
 * mutex[meta header]
 * std[meta namespace]
 * recursive_timed_mutex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void lock();

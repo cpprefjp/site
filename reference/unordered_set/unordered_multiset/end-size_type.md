@@ -1,8 +1,9 @@
-#end(size_type) (C++11)
+#end(size_type)
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 local_iterator end(size_type n);

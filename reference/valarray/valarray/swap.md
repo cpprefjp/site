@@ -1,8 +1,9 @@
-#swap (C++11)
+#swap
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void swap(valarray& v) noexcept;

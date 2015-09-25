@@ -1,8 +1,9 @@
-#mean (C++11)
+#mean
 * random[meta header]
 * std[meta namespace]
 * poisson_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 double mean() const;

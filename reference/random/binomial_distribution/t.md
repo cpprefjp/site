@@ -1,8 +1,9 @@
-#t (C++11)
+#t
 * random[meta header]
 * std[meta namespace]
 * binomial_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 IntType t() const;

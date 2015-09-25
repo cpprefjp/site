@@ -1,8 +1,9 @@
-#operator= (C++11)
+#operator=
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 unique_lock& operator=(const unique_lock&) = delete; // (1) C++11

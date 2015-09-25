@@ -1,6 +1,7 @@
-#FP_ZERO (C++11)
+#FP_ZERO
 * cmath[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define FP_ZERO integer_constant_expression

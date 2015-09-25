@@ -1,7 +1,8 @@
-#try_to_lock (C++11)
+#try_to_lock
 * mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

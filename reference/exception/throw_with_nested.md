@@ -1,7 +1,8 @@
-#throw_with_nested (C++11)
+#throw_with_nested
 * exception[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

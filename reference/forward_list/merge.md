@@ -1,8 +1,9 @@
-#merge (C++11)
+#merge
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void merge(forward_list& x);                // (1)

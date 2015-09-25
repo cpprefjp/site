@@ -1,8 +1,9 @@
-#try_lock (C++11)
+#try_lock
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 bool try_lock();

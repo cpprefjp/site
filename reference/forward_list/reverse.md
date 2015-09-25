@@ -1,8 +1,9 @@
-#reverse (C++11)
+#reverse
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void reverse() noexcept;

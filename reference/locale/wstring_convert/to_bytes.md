@@ -1,8 +1,9 @@
-#to_bytes (C++11)
+#to_bytes
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 byte_string to_bytes(Elem wchar);              // (1)

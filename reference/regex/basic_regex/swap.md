@@ -1,8 +1,9 @@
-#swap (C++11)
+#swap
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void swap(basic_regex& e);

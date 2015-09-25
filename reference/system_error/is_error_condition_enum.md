@@ -1,7 +1,8 @@
-#is_error_condition_enum (C++11)
+#is_error_condition_enum
 * system_error[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

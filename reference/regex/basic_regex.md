@@ -1,7 +1,8 @@
-#basic_regex (C++11)
+#basic_regex
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 
 ```cpp

@@ -1,7 +1,8 @@
-#launch (C++11)
+#launch
 * future[meta header]
 * std[meta namespace]
 * enum[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

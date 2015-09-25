@@ -1,5 +1,6 @@
-#condition_variable (C++11)
+#condition_variable
 * condition_variable[meta header]
+* cpp11[meta cpp]
 
 `<condition_variable>`ヘッダでは、条件変数に関するいくつかのクラス・関数を提供する。
 

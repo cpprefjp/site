@@ -1,8 +1,9 @@
-#lock (C++11)
+#lock
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 shared_ptr<T> lock() const noexcept;

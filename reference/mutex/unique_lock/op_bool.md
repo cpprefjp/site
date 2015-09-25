@@ -1,8 +1,9 @@
-#operator bool (C++11)
+#operator bool
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 explicit operator bool() const noexcept;

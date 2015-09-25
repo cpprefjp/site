@@ -1,7 +1,8 @@
-#minmax_element (C++11)
+#minmax_element
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

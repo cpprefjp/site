@@ -1,7 +1,8 @@
-#atomic_compare_exchange_weak (C++11)
+#atomic_compare_exchange_weak
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

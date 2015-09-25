@@ -1,5 +1,6 @@
-#regex (C++11)
+#regex
 * regex[meta header]
+* cpp11[meta cpp]
 
 `<regex>`ヘッダは、正規表現に関するクラス・関数を定義する。
 

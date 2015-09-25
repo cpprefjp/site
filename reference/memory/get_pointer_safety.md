@@ -1,7 +1,8 @@
-#get_pointer_safety (C++11)
+#get_pointer_safety
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

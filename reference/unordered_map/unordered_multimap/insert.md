@@ -1,8 +1,9 @@
-#insert (C++11)
+#insert
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 iterator insert(const value_type& v);                          // (1)

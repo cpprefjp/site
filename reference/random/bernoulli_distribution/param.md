@@ -1,8 +1,9 @@
-#param (C++11)
+#param
 * random[meta header]
 * std[meta namespace]
 * bernoulli_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 param_type param() const;

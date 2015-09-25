@@ -1,7 +1,8 @@
-#uninitialized_copy_n (C++11)
+#uninitialized_copy_n
 * memory[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,7 +1,8 @@
-#is_abstract (C++11)
+#is_abstract
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

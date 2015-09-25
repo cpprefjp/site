@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~wstring_convert();

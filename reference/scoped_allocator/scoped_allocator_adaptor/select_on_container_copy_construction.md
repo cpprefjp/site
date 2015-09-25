@@ -1,8 +1,9 @@
-#select_on_container_copy_construction (C++11)
+#select_on_container_copy_construction
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 scoped_allocator_adaptor select_on_container_copy_construction() const;

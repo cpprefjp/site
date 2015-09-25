@@ -1,8 +1,9 @@
-#operator-> (C++11)
+#operator->
 * iterator[meta header]
 * std[meta namespace]
 * istreambuf_iterator[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 pointer operator->() const;

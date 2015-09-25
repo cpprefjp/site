@@ -1,8 +1,9 @@
-#operator= (C++11)
+#operator=
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 unique_ptr& operator=(unique_ptr&& u) noexcept;       // (1) 単一オブジェクト、配列

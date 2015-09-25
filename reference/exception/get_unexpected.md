@@ -1,7 +1,8 @@
-#get_unexpected (C++11)
+#get_unexpected
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

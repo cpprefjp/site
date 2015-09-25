@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * subtract_with_carry_engine[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 explicit subtract_with_carry_engine(result_type value = default_seed);

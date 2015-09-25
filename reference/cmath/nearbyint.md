@@ -1,7 +1,8 @@
-#nearbyint (C++11)
+#nearbyint
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

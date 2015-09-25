@@ -1,8 +1,9 @@
-#max_load_factor (C++11)
+#max_load_factor
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 float max_load_factor() const noexcept; // (1)

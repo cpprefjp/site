@@ -1,8 +1,9 @@
-#operator[] (C++11)
+#operator[]
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 reference operator[](size_type n);                       // (1)

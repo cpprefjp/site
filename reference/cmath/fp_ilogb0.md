@@ -1,6 +1,7 @@
-#FP_ILOGB0 (C++11)
+#FP_ILOGB0
 * cmath[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define FP_ILOGB0 implementation_defined

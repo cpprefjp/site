@@ -1,8 +1,9 @@
-#select_on_container_copy_construction (C++11)
+#select_on_container_copy_construction
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static Alloc select_on_container_copy_construction(const Alloc& a);

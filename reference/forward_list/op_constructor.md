@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 forward_list();                                          // (1) C++14

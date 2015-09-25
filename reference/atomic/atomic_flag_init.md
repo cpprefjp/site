@@ -1,6 +1,7 @@
-#ATOMIC_FLAG_INIT (C++11)
+#ATOMIC_FLAG_INIT
 * atomic[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define ATOMIC_FLAG_INIT see below

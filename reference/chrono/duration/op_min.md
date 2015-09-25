@@ -1,7 +1,8 @@
-#minリテラル (C++14)
+#minリテラル
 * chrono[meta header]
 * std::chrono_literals[meta namespace]
 * function[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 namespace std {

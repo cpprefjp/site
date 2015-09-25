@@ -1,8 +1,9 @@
-#min (C++11)
+#min
 * random[meta header]
 * std[meta namespace]
 * random_device[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static constexpr result_type min();

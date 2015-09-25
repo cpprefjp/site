@@ -1,8 +1,9 @@
-#max (C++11)
+#max
 * random[meta header]
 * std[meta namespace]
 * chi_squared_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 result_type max() const;

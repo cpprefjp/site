@@ -1,8 +1,9 @@
-#count (C++11)
+#count
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 size_type count(const key_type& k) const;

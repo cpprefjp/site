@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * future[meta header]
 * std[meta namespace]
 * promise[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~promise();

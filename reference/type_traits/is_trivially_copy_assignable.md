@@ -1,7 +1,8 @@
-#is_trivially_copy_assignable (C++11)
+#is_trivially_copy_assignable
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

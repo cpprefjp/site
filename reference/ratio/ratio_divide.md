@@ -1,7 +1,8 @@
-#ratio_divide (C++11)
+#ratio_divide
 * ratio[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

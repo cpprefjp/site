@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~basic_regex();

@@ -1,8 +1,9 @@
-#to_time_t (C++11)
+#to_time_t
 * chrono[meta header]
 * std::chrono[meta namespace]
 * system_clock[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static time_t to_time_t(const time_point& t) noexcept;

@@ -1,7 +1,8 @@
-#bad_array_new_length (C++11)
+#bad_array_new_length
 * new[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

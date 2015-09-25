@@ -1,7 +1,8 @@
-#kill_dependency (C++11)
+#kill_dependency
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

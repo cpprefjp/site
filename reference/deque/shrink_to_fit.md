@@ -1,8 +1,9 @@
-#shrink_to_fit (C++11)
+#shrink_to_fit
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void shrink_to_fit();

@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~weak_ptr();

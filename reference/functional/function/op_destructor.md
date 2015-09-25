@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~function();

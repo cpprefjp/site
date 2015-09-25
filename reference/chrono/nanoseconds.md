@@ -1,7 +1,8 @@
-#nanoseconds (C++11)
+#nanoseconds
 * chrono[meta header]
 * std::chrono[meta namespace]
 * typedef[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

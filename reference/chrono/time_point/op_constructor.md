@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * chrono[meta header]
 * std::chrono[meta namespace]
 * time_point[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 time_point();           // (1) C++11

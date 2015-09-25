@@ -1,8 +1,9 @@
-#before_begin (C++11)
+#before_begin
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 iterator before_begin() noexcept;

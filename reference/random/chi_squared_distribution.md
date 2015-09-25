@@ -1,8 +1,9 @@
-#chi_squared_distribution (C++11)
+#chi_squared_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
 * [mathjax enable]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,7 +1,8 @@
-#shared_future (C++11)
+#shared_future
 * future[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

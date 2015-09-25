@@ -1,8 +1,9 @@
-#getloc (C++11)
+#getloc
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 locale_type getloc() const;

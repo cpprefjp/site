@@ -1,6 +1,7 @@
-#INT_FAST16_MAX (C++11)
+#INT_FAST16_MAX
 * cstdint[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define INT_FAST16_MAX implementation-defined

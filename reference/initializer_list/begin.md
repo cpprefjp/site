@@ -1,8 +1,9 @@
-#begin (C++11)
+#begin
 * initializer_list[meta header]
 * std[meta namespace]
 * initializer_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 const E* begin() const noexcept;           // C++11

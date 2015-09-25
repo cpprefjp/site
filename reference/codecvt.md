@@ -1,5 +1,6 @@
-#codecvt (C++11)
+#codecvt
 * codecvt[meta header]
+* cpp11[meta cpp]
 
 `<codecvt>`ヘッダでは、文字コード変換のためのファセットクラスを定義する。
 

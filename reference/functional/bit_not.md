@@ -1,7 +1,8 @@
-#bit_not (C++14)
+#bit_not
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 namespace std {

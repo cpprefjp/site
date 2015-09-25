@@ -1,8 +1,9 @@
-#operator= (C++11)
+#operator=
 * thread[meta header]
 * std[meta namespace]
 * thread[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 // コピー

@@ -1,7 +1,8 @@
-#allocator_arg_t (C++11)
+#allocator_arg_t
 * memory[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

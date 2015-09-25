@@ -1,8 +1,9 @@
-#state (C++11)
+#state
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 state_type state() const;

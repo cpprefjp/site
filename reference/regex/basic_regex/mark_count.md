@@ -1,8 +1,9 @@
-#mark_count (C++11)
+#mark_count
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 unsigned int mark_count() const;

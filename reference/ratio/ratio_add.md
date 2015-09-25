@@ -1,7 +1,8 @@
-#ratio_add (C++11)
+#ratio_add
 * ratio[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

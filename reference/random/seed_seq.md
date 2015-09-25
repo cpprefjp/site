@@ -1,7 +1,8 @@
-#seed_seq (C++11)
+#seed_seq
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

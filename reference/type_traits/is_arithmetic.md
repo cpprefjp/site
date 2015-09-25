@@ -1,7 +1,8 @@
-#is_arithmetic (C++11)
+#is_arithmetic
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

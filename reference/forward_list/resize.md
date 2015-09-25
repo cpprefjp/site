@@ -1,8 +1,9 @@
-#resize (C++11)
+#resize
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void resize(size_type sz);

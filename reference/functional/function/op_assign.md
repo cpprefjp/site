@@ -1,8 +1,9 @@
-#operator= (C++11)
+#operator=
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 function& operator=(const function& f);               // (1)

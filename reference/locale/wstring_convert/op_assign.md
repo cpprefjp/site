@@ -1,8 +1,9 @@
-#代入演算子 (C++11)
+#代入演算子
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 wstring_convert& operator=(const wstring_convert&) = default; // C++11

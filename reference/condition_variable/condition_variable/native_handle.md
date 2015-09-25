@@ -1,8 +1,9 @@
-#native_handle (C++11)
+#native_handle
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 native_handle_type native_handle();

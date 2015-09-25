@@ -1,7 +1,8 @@
-#allocator_traits (C++11)
+#allocator_traits
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

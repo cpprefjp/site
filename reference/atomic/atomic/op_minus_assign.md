@@ -1,8 +1,9 @@
-#operator-= (C++11)
+#operator-=
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 T operator-=(T operand) volatile noexcept;

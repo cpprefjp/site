@@ -1,7 +1,8 @@
-#codecvt_mode (C++11)
+#codecvt_mode
 * codecvt[meta header]
 * std[meta namespace]
 * enum[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

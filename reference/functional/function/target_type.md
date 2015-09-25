@@ -1,8 +1,9 @@
-#target_type (C++11)
+#target_type
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 const std::type_info& target_type() const noexcept;

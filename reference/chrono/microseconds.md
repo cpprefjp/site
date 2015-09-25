@@ -1,7 +1,8 @@
-#microseconds (C++11)
+#microseconds
 * chrono[meta header]
 * std::chrono[meta namespace]
 * typedef[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

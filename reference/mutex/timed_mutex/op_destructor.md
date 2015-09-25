@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * timed_mutex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~timed_mutex();

@@ -1,8 +1,9 @@
-#wait_for (C++11)
+#wait_for
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 template <class Rep, class Period>

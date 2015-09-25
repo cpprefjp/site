@@ -1,7 +1,8 @@
-#rethrow_exception (C++11)
+#rethrow_exception
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 [[noreturn]] void rethrow_exception(exception_ptr p);

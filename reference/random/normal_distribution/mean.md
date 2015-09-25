@@ -1,8 +1,9 @@
-#mean (C++11)
+#mean
 * random[meta header]
 * std[meta namespace]
 * normal_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 result_type mean() const;

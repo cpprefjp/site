@@ -1,8 +1,9 @@
-#begin (C++11)
+#begin
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 iterator begin() noexcept;

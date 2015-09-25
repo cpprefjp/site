@@ -1,8 +1,9 @@
-#flags (C++11)
+#flags
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 flag_type flags() const;

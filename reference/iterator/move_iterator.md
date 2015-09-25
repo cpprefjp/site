@@ -1,7 +1,8 @@
-#move_iterator (C++11)
+#move_iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

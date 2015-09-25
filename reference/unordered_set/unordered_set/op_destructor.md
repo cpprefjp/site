@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~unordered_set();

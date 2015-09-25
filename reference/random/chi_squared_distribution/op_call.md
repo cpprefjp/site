@@ -1,8 +1,9 @@
-#operator() (C++11)
+#operator()
 * random[meta header]
 * std[meta namespace]
 * chi_squared_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 template <class URNG>

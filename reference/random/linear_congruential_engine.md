@@ -1,8 +1,9 @@
-#linear_congruential_engine (C++11)
+#linear_congruential_engine
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
 * [mathjax enable]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#p (C++11)
+#p
 * random[meta header]
 * std[meta namespace]
 * geometric_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 double p() const;

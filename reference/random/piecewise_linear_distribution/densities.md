@@ -1,8 +1,9 @@
-#densities (C++11)
+#densities
 * random[meta header]
 * std[meta namespace]
 * piecewise_linear_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 vector<result_type> densities() const;

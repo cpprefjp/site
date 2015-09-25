@@ -1,8 +1,9 @@
-#operator= (C++11)
+#operator=
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 unordered_set& operator=(const unordered_set& v);          // (1)

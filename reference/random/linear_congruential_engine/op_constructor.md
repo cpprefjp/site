@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * linear_congruential_engine[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 explicit linear_congruential_engine(result_type s = default_seed);

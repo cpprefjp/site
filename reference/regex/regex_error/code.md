@@ -1,8 +1,9 @@
-#code (C++11)
+#code
 * regex[meta header]
 * std[meta namespace]
 * regex_error[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 regex_constants::error_type code() const;

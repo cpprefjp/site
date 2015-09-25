@@ -1,8 +1,9 @@
-#assign (C++11)
+#assign
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 basic_regex& assign(const basic_regex& that);					// (1)

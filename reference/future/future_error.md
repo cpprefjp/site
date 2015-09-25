@@ -1,7 +1,8 @@
-#future_error (C++11)
+#future_error
 * future[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#find (C++11)
+#find
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 iterator find ( const key_type& k );

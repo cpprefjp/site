@@ -1,8 +1,9 @@
-#time_since_epoch (C++11)
+#time_since_epoch
 * chrono[meta header]
 * std::chrono[meta namespace]
 * time_point[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 duration time_since_epoch() const;           // C++11

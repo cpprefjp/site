@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * once_flag[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 constexpr once_flag() noexcept;

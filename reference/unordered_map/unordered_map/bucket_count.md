@@ -1,8 +1,9 @@
-#bucket_count (C++11)
+#bucket_count
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 size_type bucket_count() const noexcept;

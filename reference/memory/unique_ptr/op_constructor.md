@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 constexpr unique_ptr() noexcept;             // (1) 単一オブジェクト、配列

@@ -1,7 +1,8 @@
-#partition_copy (C++11)
+#partition_copy
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#max (C++11)
+#max
 * random[meta header]
 * std[meta namespace]
 * mersenne_twister_engine[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static constexpr result_type max();

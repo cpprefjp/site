@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 condition_variable();                                   // (1)

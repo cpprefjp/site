@@ -1,7 +1,8 @@
-#allocate_shared (C++11)
+#allocate_shared
 * memory[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#operator-> (C++11)
+#operator->
 * regex[meta header]
 * std[meta namespace]
 * regex_token_iterator[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 const value_type* operator->() const;

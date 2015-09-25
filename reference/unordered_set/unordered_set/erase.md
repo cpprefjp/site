@@ -1,8 +1,9 @@
-#erase (C++11)
+#erase
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 iterator erase(const_iterator position);                   // (1)

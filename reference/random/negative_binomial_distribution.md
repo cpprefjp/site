@@ -1,7 +1,8 @@
-#negative_binomial_distribution (C++11)
+#negative_binomial_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

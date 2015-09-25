@@ -1,7 +1,8 @@
-#duration (C++11)
+#duration
 * chrono[meta header]
 * std::chrono[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

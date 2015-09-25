@@ -1,7 +1,8 @@
-#bad_weak_ptr (C++11)
+#bad_weak_ptr
 * memory[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

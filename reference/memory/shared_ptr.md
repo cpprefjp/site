@@ -1,7 +1,8 @@
-#shared_ptr (C++11)
+#shared_ptr
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

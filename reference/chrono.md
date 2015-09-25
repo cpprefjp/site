@@ -1,5 +1,6 @@
-#chrono (C++11)
+#chrono
 * chrono[meta header]
+* cpp11[meta cpp]
 
 `<chrono>`ヘッダは、時間に関するユーティリティとして機能する関数・クラスを提供する。このヘッダに含まれる関数・クラスは、`std::chrono`名前空間で定義される。
 

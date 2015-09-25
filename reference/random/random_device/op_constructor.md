@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * random_device[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 explicit random_device(const string& token = implementation-defined);

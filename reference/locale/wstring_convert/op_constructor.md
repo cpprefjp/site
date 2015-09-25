@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 wstring_convert(Codecvt* pcvt = new Codecvt);          // (1) C++11

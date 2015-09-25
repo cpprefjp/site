@@ -1,8 +1,9 @@
-#discard (C++11)
+#discard
 * random[meta header]
 * std[meta namespace]
 * discard_block_engine[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void discard(unsigned long long z);

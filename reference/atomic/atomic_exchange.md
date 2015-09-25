@@ -1,7 +1,8 @@
-#atomic_exchange (C++11)
+#atomic_exchange
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

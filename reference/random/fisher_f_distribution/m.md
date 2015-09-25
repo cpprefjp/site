@@ -1,8 +1,9 @@
-#m (C++11)
+#m
 * random[meta header]
 * std[meta namespace]
 * fisher_f_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 result_type m() const;

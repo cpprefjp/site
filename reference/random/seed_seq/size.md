@@ -1,8 +1,9 @@
-#size (C++11)
+#size
 * random[meta header]
 * std[meta namespace]
 * seed_seq[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 size_t size() const;

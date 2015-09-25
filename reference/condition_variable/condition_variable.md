@@ -1,7 +1,8 @@
-#condition_variable (C++11)
+#condition_variable
 * condition_variable[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

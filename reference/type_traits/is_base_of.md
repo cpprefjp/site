@@ -1,7 +1,8 @@
-#is_base_of (C++11)
+#is_base_of
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

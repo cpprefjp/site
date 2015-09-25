@@ -1,7 +1,8 @@
-#end (非メンバ関数) (C++11)
+#end (非メンバ関数)
 * initializer_list[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 template <class E>

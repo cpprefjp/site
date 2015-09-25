@@ -1,6 +1,7 @@
-#UINT_FAST32_MAX (C++11)
+#UINT_FAST32_MAX
 * cstdint[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define UINT_FAST32_MAX implementation-defined

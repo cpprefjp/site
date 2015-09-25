@@ -1,8 +1,9 @@
-#all (C++11)
+#all
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 bool all() const noexcept;

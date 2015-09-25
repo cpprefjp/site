@@ -1,8 +1,9 @@
-#destroy (C++11)
+#destroy
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 template <class T>

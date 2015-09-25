@@ -1,7 +1,8 @@
-#shared_timed_mutex (C++14)
+#shared_timed_mutex
 * shared_mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 namespace std {

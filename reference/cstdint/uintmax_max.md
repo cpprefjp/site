@@ -1,6 +1,7 @@
-#UINTMAX_MAX (C++11)
+#UINTMAX_MAX
 * cstdint[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define UINTMAX_MAX implementation-defined

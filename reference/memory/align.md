@@ -1,7 +1,8 @@
-#align (C++11)
+#align
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

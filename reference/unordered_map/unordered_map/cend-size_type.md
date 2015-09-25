@@ -1,8 +1,9 @@
-#cend(size_type) (C++11)
+#cend(size_type)
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 const_local_iterator cend(size_type n) const;

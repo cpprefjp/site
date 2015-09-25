@@ -1,7 +1,8 @@
-#stol (C++11)
+#stol
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

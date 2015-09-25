@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * lock_guard[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~lock_guard();

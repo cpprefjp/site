@@ -1,8 +1,9 @@
-#value (C++11)
+#value
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 int value(CharT ch, int radix) const;

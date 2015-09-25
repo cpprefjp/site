@@ -1,8 +1,9 @@
-#hardware_concurrency (C++11)
+#hardware_concurrency
 * thread[meta header]
 * std[meta namespace]
 * thread[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static unsigned int hardware_concurrency() noexcept;

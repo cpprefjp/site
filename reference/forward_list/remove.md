@@ -1,8 +1,9 @@
-#remove (C++11)
+#remove
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void remove(const T& value);

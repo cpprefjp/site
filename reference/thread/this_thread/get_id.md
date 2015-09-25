@@ -1,7 +1,8 @@
-#get_id (C++11)
+#get_id
 * thread[meta header]
 * std::this_thread[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

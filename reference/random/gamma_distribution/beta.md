@@ -1,8 +1,9 @@
-#beta (C++11)
+#beta
 * random[meta header]
 * std[meta namespace]
 * gamma_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 result_type beta() const;

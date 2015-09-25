@@ -1,8 +1,9 @@
-#acosh (C++11)
+#acosh
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
 * [mathjax enable]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

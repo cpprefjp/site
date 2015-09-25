@@ -1,8 +1,9 @@
-#max (C++11)
+#max
 * chrono[meta header]
 * std::chrono[meta namespace]
 * duration[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static constexpr duration max();

@@ -1,8 +1,9 @@
-#exponential_distribution (C++11)
+#exponential_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
 * [mathjax enable]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

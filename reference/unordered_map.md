@@ -1,5 +1,6 @@
-#unordered_map (C++11)
+#unordered_map
 * unordered_map[meta header]
+* cpp11[meta cpp]
 
 `<unordered_map>` ヘッダは、キーと値のペアが要素である非順序連想コンテナを提供する。
 

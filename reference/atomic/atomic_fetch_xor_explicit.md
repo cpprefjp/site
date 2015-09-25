@@ -1,7 +1,8 @@
-#atomic_fetch_xor_explicit (C++11)
+#atomic_fetch_xor_explicit
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

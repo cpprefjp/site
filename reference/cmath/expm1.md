@@ -1,8 +1,9 @@
-#expm1 (C++11)
+#expm1
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
 * [mathjax enable]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

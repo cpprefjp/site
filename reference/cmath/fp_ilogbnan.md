@@ -1,6 +1,7 @@
-#FP_ILOGBNAN (C++11)
+#FP_ILOGBNAN
 * cmath[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define FP_ILOGBNAN implementation_defined

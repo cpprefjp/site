@@ -1,7 +1,8 @@
-#cv_status (C++11)
+#cv_status
 * condition_variable[meta header]
 * std[meta namespace]
 * enum[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#operator[] (C++11)
+#operator[]
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 T& operator[](size_t i) const;

@@ -1,7 +1,8 @@
-#atomic_signal_fence (C++11)
+#atomic_signal_fence
 * atomic[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

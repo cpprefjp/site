@@ -1,7 +1,8 @@
-#is_final (C++14)
+#is_final
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 namespace std {

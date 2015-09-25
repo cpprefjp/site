@@ -1,8 +1,9 @@
-#probabilities (C++11)
+#probabilities
 * random[meta header]
 * std[meta namespace]
 * discrete_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 vector<double> probabilities() const;

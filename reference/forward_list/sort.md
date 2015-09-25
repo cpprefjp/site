@@ -1,8 +1,9 @@
-#sort (C++11)
+#sort
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void sort();

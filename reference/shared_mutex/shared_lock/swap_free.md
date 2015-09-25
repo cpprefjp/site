@@ -1,7 +1,8 @@
-#swap (非メンバ関数) (C++14)
+#swap (非メンバ関数)
 * shared_mutex[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 namespace std {

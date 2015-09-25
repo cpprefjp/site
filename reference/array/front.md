@@ -1,8 +1,9 @@
-#front (C++11)
+#front
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 reference front();                       // (1)

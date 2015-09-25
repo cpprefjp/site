@@ -1,8 +1,9 @@
-#get_deleter (C++11)
+#get_deleter
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 deleter_type& get_deleter() noexcept;

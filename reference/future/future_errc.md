@@ -1,7 +1,8 @@
-#future_errc (C++11)
+#future_errc
 * future[meta header]
 * std[meta namespace]
 * enum[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

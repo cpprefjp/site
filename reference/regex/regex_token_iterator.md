@@ -1,7 +1,8 @@
-#regex_token_iterator (C++11)
+#regex_token_iterator
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

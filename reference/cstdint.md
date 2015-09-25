@@ -1,5 +1,6 @@
-#cstdint (C++11)
+#cstdint
 * cstdint[meta header]
+* cpp11[meta cpp]
 
 `<cstdint>`ヘッダでは、ビット数が規定された整数型の`typedef`、およびマクロを提供する。これらの機能は、`std`名前空間に属することを除いてC言語の標準ライブラリ`<stdint.h>`ヘッダと同じである。
 

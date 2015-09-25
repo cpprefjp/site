@@ -1,8 +1,9 @@
-#size (C++11)
+#size
 * initializer_list[meta header]
 * std[meta namespace]
 * initializer_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 size_t size() const noexcept;           // C++11

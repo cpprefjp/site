@@ -1,7 +1,8 @@
-#generic_category (C++11)
+#generic_category
 * system_error[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

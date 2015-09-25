@@ -1,8 +1,9 @@
-#length (C++11)
+#length
 * regex[meta header]
 * std[meta namespace]
 * sub_match[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 difference_type length() const;

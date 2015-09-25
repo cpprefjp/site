@@ -1,7 +1,8 @@
-#uniform_real_distribution (C++11)
+#uniform_real_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

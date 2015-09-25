@@ -1,5 +1,6 @@
-#atomic (C++11)
+#atomic
 * atomic[meta header]
+* cpp11[meta cpp]
 
 `<atomic>`ヘッダでは、アトミック操作(atomic operation ： 不可分操作とも呼ばれる)のライブラリを提供する。
 

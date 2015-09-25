@@ -1,8 +1,9 @@
-#seed (C++11)
+#seed
 * random[meta header]
 * std[meta namespace]
 * linear_congruential_engine[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void seed(result_type value = default_seed);

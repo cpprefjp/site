@@ -1,7 +1,8 @@
-#atomic_load_explicit (C++11)
+#atomic_load_explicit
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

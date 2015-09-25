@@ -1,8 +1,9 @@
-#min (C++11)
+#min
 * chrono[meta header]
 * std::chrono[meta namespace]
 * time_point[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static constexpr time_point min();

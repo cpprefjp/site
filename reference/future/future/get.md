@@ -1,8 +1,9 @@
-#get (C++11)
+#get
 * future[meta header]
 * std[meta namespace]
 * future[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 R future::get();

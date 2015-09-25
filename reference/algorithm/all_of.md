@@ -1,7 +1,8 @@
-#all_of (C++11)
+#all_of
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

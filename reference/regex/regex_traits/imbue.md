@@ -1,8 +1,9 @@
-#imbue (C++11)
+#imbue
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 locale_type imbue(locale_type loc);

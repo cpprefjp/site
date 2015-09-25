@@ -1,7 +1,8 @@
-#rethrow_if_nested (C++11)
+#rethrow_if_nested
 * exception[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

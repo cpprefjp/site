@@ -1,6 +1,7 @@
-#FP_FAST_FMAF (C++11)
+#FP_FAST_FMAF
 * cmath[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define FP_FAST_FMAF implementation_defined

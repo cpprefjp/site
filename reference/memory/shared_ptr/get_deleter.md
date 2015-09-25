@@ -1,7 +1,8 @@
-#get_deleter (C++11)
+#get_deleter
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

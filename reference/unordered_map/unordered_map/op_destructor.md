@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~unordered_map();

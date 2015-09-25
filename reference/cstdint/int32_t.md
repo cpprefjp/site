@@ -1,7 +1,8 @@
-#int32_t (C++11)
+#int32_t
 * cstdint[meta header]
 * std[meta namespace]
 * typedef[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

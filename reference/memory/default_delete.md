@@ -1,7 +1,8 @@
-#default_delete (C++11)
+#default_delete
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

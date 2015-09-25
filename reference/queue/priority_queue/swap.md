@@ -1,8 +1,9 @@
-#swap (C++11)
+#swap
 * queue[meta header]
 * std[meta namespace]
 * priority_queue[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void swap(priority_queue& q)

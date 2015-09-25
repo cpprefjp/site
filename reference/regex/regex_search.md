@@ -1,7 +1,8 @@
-#regex_search (C++11)
+#regex_search
 * regex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#k (C++11)
+#k
 * random[meta header]
 * std[meta namespace]
 * negative_binomial_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 IntType k() const;

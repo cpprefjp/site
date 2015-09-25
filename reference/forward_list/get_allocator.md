@@ -1,8 +1,9 @@
-#get_allocator (C++11)
+#get_allocator
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 allocator_type get_allocator() const noexcept;

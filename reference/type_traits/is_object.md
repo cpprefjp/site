@@ -1,7 +1,8 @@
-#is_object (C++11)
+#is_object
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

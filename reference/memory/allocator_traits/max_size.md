@@ -1,8 +1,9 @@
-#max_size (C++11)
+#max_size
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static size_type max_size(Alloc& a);                // C++11

@@ -1,8 +1,9 @@
-#now (C++11)
+#now
 * chrono[meta header]
 * std::chrono[meta namespace]
 * high_resolution_clock[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static time_point now() noexcept;

@@ -1,8 +1,9 @@
-#release (C++11)
+#release
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 mutex_type* release() noexcept;

@@ -1,8 +1,9 @@
-#a (C++11)
+#a
 * random[meta header]
 * std[meta namespace]
 * weibull_distribution[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 RealType a() const;

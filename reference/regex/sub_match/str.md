@@ -1,8 +1,9 @@
-#str (C++11)
+#str
 * regex[meta header]
 * std[meta namespace]
 * sub_match[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 string_type str() const;

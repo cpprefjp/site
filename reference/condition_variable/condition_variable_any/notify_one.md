@@ -1,8 +1,9 @@
-#notify_one (C++11)
+#notify_one
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable_any[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void notify_one() noexcept;

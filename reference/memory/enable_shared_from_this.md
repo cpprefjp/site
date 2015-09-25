@@ -1,7 +1,8 @@
-#enable_shared_from_this (C++11)
+#enable_shared_from_this
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

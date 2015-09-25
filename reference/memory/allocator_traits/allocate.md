@@ -1,8 +1,9 @@
-#allocate (C++11)
+#allocate
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static pointer allocate(Alloc& a, size_type n);   // (1)

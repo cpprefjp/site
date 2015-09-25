@@ -1,7 +1,8 @@
-#forward_list (C++11)
+#forward_list
 * forward_list[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

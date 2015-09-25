@@ -1,8 +1,9 @@
-#from_bytes (C++11)
+#from_bytes
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 wide_string from_bytes(char byte);              // (1)

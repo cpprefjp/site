@@ -1,7 +1,8 @@
-#undeclare_reachable (C++11)
+#undeclare_reachable
 * memory[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

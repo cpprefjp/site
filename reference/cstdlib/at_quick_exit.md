@@ -1,7 +1,8 @@
-#at_quick_exit (C++11)
+#at_quick_exit
 * cstdlib[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

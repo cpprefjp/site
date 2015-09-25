@@ -1,8 +1,9 @@
-#operator string_type (C++11)
+#operator string_type
 * regex[meta header]
 * std[meta namespace]
 * sub_match[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 operator string_type() const;

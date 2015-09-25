@@ -1,7 +1,8 @@
-#geometric_distribution (C++11)
+#geometric_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

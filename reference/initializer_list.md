@@ -1,7 +1,8 @@
-#initializer_list (C++11)
+#initializer_list
 * initializer_list[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

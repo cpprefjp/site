@@ -1,7 +1,8 @@
-#shuffle (C++11)
+#shuffle
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 
 ```cpp

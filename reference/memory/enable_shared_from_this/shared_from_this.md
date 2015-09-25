@@ -1,8 +1,9 @@
-#shared_from_this (C++11)
+#shared_from_this
 * memory[meta header]
 * std[meta namespace]
 * enable_shared_from_this[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 shared_ptr<T> shared_from_this();

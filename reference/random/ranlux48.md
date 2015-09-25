@@ -1,7 +1,8 @@
-#ranlux48 (C++11)
+#ranlux48
 * random[meta header]
 * std[meta namespace]
 * typedef[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

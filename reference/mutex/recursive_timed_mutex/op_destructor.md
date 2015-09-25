@@ -1,8 +1,9 @@
-#デストラクタ (C++11)
+#デストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * recursive_timed_mutex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 ~recursive_timed_mutex();

@@ -1,8 +1,9 @@
-#key_eq (C++11)
+#key_eq
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 key_equal key_eq() const;

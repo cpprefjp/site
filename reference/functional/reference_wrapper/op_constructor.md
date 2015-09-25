@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * functional[meta header]
 * std[meta namespace]
 * reference_wrapper[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 reference_wrapper(T& t) noexcept;

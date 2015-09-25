@@ -1,7 +1,8 @@
-#ratio_not_equal (C++11)
+#ratio_not_equal
 * ratio[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

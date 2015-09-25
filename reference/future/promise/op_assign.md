@@ -1,8 +1,9 @@
-#operator= (C++11)
+#operator=
 * future[meta header]
 * std[meta namespace]
 * promise[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 promise& operator=(promise&& rhs) noexcept;

@@ -1,7 +1,8 @@
-#make_integer_sequence (C++14)
+#make_integer_sequence
 * utility[meta header]
 * std[meta namespace]
 * typedef[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 namespace std {

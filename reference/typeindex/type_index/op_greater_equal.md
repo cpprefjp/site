@@ -1,8 +1,9 @@
-#operator>= (C++11)
+#operator>=
 * typeindex[meta header]
 * std[meta namespace]
 * type_index[meta class]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 bool operator>=(const type_index& rhs) const noexcept;

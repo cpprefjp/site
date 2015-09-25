@@ -1,8 +1,9 @@
-#ready (C++11)
+#ready
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 bool ready() const;

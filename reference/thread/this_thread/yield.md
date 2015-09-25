@@ -1,7 +1,8 @@
-#yield (C++11)
+#yield
 * thread[meta header]
 * std::this_thread[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

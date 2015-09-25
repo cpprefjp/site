@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * system_error[meta header]
 * std[meta namespace]
 * error_condition[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 error_condition() noexcept;                                   // (1)

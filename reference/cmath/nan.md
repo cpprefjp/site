@@ -1,6 +1,7 @@
-#NAN (C++11)
+#NAN
 * cmath[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define NAN constant_expression

@@ -1,7 +1,8 @@
-#get_new_handler (C++11)
+#get_new_handler
 * new[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

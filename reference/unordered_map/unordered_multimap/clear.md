@@ -1,8 +1,9 @@
-#clear (C++11)
+#clear
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void clear() noexcept;

@@ -1,8 +1,9 @@
-#log2 (C++11)
+#log2
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
 * [mathjax enable]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

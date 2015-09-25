@@ -1,8 +1,9 @@
-#cbegin (C++11)
+#cbegin
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 const_iterator cbegin() const noexcept;

@@ -1,7 +1,8 @@
-#is_bind_expression (C++11)
+#is_bind_expression
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

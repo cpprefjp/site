@@ -1,7 +1,8 @@
-#error_type (C++11)
+#error_type
 * regex[meta header]
 * std::regex_constants[meta namespace]
 * enum[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

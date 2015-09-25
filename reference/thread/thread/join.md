@@ -1,8 +1,9 @@
-#join (C++11)
+#join
 * thread[meta header]
 * std[meta namespace]
 * thread[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void join();

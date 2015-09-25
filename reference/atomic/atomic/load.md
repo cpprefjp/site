@@ -1,8 +1,9 @@
-#load (C++11)
+#load
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 T load(memory_order order = memory_order_seq_cst) const volatile noexcept;

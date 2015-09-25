@@ -1,8 +1,9 @@
-#id (C++11)
+#id
 * thread[meta header]
 * std[meta namespace]
 * thread[meta class]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,7 +1,8 @@
-#bit_and (C++11)
+#bit_and
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

@@ -1,8 +1,9 @@
-#unlock_shared (C++14)
+#unlock_shared
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
 * function[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 void unlock_shared();

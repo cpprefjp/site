@@ -1,7 +1,8 @@
-#move (utility) (C++11)
+#move (utility)
 * utility[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

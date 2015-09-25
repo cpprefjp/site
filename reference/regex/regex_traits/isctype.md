@@ -1,8 +1,9 @@
-#istype (C++11)
+#istype
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 bool isctype(char_type c, char_class_type f) const;

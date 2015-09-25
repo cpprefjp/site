@@ -1,8 +1,9 @@
-#suffix (C++11)
+#suffix
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 const_reference suffix() const;

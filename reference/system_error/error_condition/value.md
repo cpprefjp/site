@@ -1,8 +1,9 @@
-#value (C++11)
+#value
 * system_error[meta header]
 * std[meta namespace]
 * error_condition[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 int value() const noexcept;

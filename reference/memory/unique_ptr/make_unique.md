@@ -1,7 +1,8 @@
-#make_unique (C++14)
+#make_unique
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp14[meta cpp]
 
 ```cpp
 namespace std {

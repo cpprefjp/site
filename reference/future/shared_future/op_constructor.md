@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * future[meta header]
 * std[meta namespace]
 * shared_future[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 shared_future() noexcept;

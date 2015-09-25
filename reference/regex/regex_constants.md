@@ -1,7 +1,8 @@
-#regex_constants (C++11)
+#regex_constants
 * regex[meta header]
 * std[meta namespace]
 * namespace[meta id-type]
+* cpp11[meta cpp]
 
 `std::regex_constants`名前空間では、正規表現の構文オプション、マッチフラグ、エラー値などの定数を定義する。
 

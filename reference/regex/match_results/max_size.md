@@ -1,8 +1,9 @@
-#max_size (C++11)
+#max_size
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 size_type max_size() const;

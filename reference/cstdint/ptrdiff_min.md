@@ -1,6 +1,7 @@
-#PTRDIFF_MIN (C++11)
+#PTRDIFF_MIN
 * cstdint[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define PTRDIFF_MIN implementation-defined

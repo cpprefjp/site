@@ -1,8 +1,9 @@
-#lookup_classname (C++11)
+#lookup_classname
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 template <class ForwardIterator>

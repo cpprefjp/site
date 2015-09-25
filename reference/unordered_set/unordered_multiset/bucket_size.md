@@ -1,8 +1,9 @@
-#bucket_size (C++11)
+#bucket_size
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 size_type bucket_size(size_type n) const;

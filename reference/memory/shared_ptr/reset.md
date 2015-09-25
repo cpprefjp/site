@@ -1,8 +1,9 @@
-#reset (C++11)
+#reset
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void reset() noexcept;                              // (1)

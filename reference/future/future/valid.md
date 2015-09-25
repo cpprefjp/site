@@ -1,8 +1,9 @@
-#valid (C++11)
+#valid
 * future[meta header]
 * std[meta namespace]
 * future[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 bool valid() const noexcept;

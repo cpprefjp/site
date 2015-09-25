@@ -1,8 +1,9 @@
-#コンストラクタ (C++11)
+#コンストラクタ
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 packaged_task() noexcept;                          // (1)

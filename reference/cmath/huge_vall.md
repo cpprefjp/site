@@ -1,6 +1,7 @@
-#HUGE_VALL (C++11)
+#HUGE_VALL
 * cmath[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define HUGE_VALL implementation-defined

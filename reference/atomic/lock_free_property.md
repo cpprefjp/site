@@ -1,6 +1,7 @@
-#ロックフリープロパティ (C++11)
+#ロックフリープロパティ
 * atomic[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define ATOMIC_BOOL_LOCK_FREE unspecified

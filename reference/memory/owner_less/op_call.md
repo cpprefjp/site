@@ -1,8 +1,9 @@
-#operator() (C++11)
+#operator()
 * memory[meta header]
 * std[meta namespace]
 * owner_less[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 // shared_ptr版

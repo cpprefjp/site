@@ -1,8 +1,9 @@
-#is_lock_free (C++11)
+#is_lock_free
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 bool is_lock_free() const volatile noexcept;

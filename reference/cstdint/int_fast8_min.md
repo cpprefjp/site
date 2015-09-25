@@ -1,6 +1,7 @@
-#INT_FAST8_MIN (C++11)
+#INT_FAST8_MIN
 * cstdint[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define INT_FAST8_MIN implementation-defined

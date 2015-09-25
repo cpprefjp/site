@@ -1,8 +1,9 @@
-#entropy (C++11)
+#entropy
 * random[meta header]
 * std[meta namespace]
 * random_device[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 double entropy() const noexcept;

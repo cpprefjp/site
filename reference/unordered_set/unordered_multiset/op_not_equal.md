@@ -1,7 +1,8 @@
-#operator!= (C++11)
+#operator!=
 * unordered_set[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

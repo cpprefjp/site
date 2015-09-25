@@ -1,7 +1,8 @@
-#lock (C++11)
+#lock
 * mutex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

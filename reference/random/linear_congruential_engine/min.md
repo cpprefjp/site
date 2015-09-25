@@ -1,8 +1,9 @@
-#min (C++11)
+#min
 * random[meta header]
 * std[meta namespace]
 * linear_congruential_engine[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 static constexpr result_type min() { return C == 0u ? 1u: 0u; }

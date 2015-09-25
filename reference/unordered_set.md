@@ -1,5 +1,6 @@
-#unordered_set (C++11)
+#unordered_set
 * unordered_set[meta header]
+* cpp11[meta cpp]
 
 `<unordered_set>` ヘッダは、キーが要素である非順序連想コンテナを提供する。
 

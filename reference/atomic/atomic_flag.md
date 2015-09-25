@@ -1,7 +1,8 @@
-#atomic_flag (C++11)
+#atomic_flag
 * atomic[meta header]
 * std[meta namespace]
 * class[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {

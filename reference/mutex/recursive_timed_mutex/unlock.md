@@ -1,8 +1,9 @@
-#unlock (C++11)
+#unlock
 * mutex[meta header]
 * std[meta namespace]
 * recursive_timed_mutex[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void unlock();
