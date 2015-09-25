@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-int value(CharT ch, int radix) const;
+int value(char_type ch, int radix) const;
 ```
 
 
