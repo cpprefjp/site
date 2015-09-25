@@ -1,7 +1,14 @@
 #page_title (ページのタイトルです)
 * header_name[meta header]
+* cpp11[meta cpp]
 
 <!-- `[meta header]`は、所属ヘッダを表すメタ情報 -->
+<!-- `[meta cpp]`は、機能が追加・非推奨・削除されたバージョンを表すメタ情報。改行して複数指定ができる。 -->
+<!--    `cpp11[meta cpp]` : C++11で追加された機能 -->
+<!--    `cpp14[meta cpp]` : C++14で追加された機能 -->
+<!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 -->
+<!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 -->
+<!--    `cpp14removed[meta cpp]` : C++14で削除された機能 -->
 
 (ここには、このヘッダファイル(ライブラリ)の概要を記述します。必須事項です。)
 
