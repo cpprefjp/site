@@ -33,7 +33,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`translate`](./regex_traits/translate.md) | 与えられた文字と同等の文字を取得する | C++11 |
-| `translate_nocase` | 与えられた文字列と大文字・小文字を区別せずに同等な文字列を取得する | C++11 |
+| [`translate_nocase`](./regex_traits/translate_nocase.md) | 与えられた文字列と大文字・小文字を区別せずに同等な文字列を取得する | C++11 |
 | `transform` | 与えられた範囲を、並べ替えのキーとして使用する、文字のシーケンスに変換する | C++11 |
 | `transform_primary` | 与えられた文字の範囲を、並べ替えのキーとして使用する、大文字・小文字を区別しない文字のシーケンスに変換する | C++11 |
 | [`lookup_collatename`](./regex_traits/lookup_collatename.md) | 与えられた文字の範囲に対応する照合名を取得する | C++11 |
