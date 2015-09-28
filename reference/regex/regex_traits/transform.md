@@ -1,0 +1,77 @@
+#transform
+* regex[meta header]
+* std[meta namespace]
+* regex_traits[meta class]
+* function[meta id-type]
+* cpp11[meta cpp]
+
+```cpp
+template <class ForwardIterator>
+string_type transform(ForwardIterator first, ForwardIterator last) const;
+```
+
+
+##概要
+与えられた文字範囲`[first, last)`を、並べ替えのキーとして使用する、文字のシーケンスに変換する。結果のシーケンスは、ロケールを使用した順序付けとなる。
+
+
+##戻り値
+```cpp
+string_type str(first, last);
+return use_facet<collate<char_type>>(getloc())
+         .transform(&*str.begin(), &*str.begin() + str.length());
+```
+* use_facet[link /reference/locale/use_facet.md.nolink]
+* collate[link /reference/locale/collate.md]
+* getloc()[link ./getloc.md]
+* transform[link /reference/locale/collate/transform.md.nolink]
+* str.begin()[link /reference/string/basic_string/begin.md]
+* str.length() [link /reference/string/basic_string/length.md]
+
+
+##例
+```cpp
+#include <regex>
+#include <cassert>
+
+int main()
+{
+  std::regex_traits<char> traits;
+
+  const std::string a = "a";
+  const std::string b = "B";
+
+  {
+    const std::string key_a = traits.transform(a.begin(), a.end());
+    const std::string key_b = traits.transform(b.begin(), b.end());
+    assert(key_a > key_b);
+  }
+  {
+    // Latin2
+    traits.imbue(std::locale("cs_CZ.ISO8859-2"));
+    const std::string key_a = traits.transform(a.begin(), a.end());
+    const std::string key_b = traits.transform(b.begin(), b.end());
+    assert(key_a < key_b);
+  }
+}
+```
+* std::string[link /reference/string/basic_string.md]
+* assert[link /reference/cassert/assert.md.nolink]
+
+###出力
+```
+```
+
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
