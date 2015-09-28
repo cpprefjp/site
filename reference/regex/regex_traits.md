@@ -23,7 +23,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `(constructor)` | コンストラクタ | C++11 |
+| [`(constructor)`](./regex_traits/op_constructor.md) | コンストラクタ | C++11 |
 | `~regex_traits() = default;` | デストラクタ | C++11 |
 | `regex_traits& operator=(const regex_traits&) = default;`<br/> `regex_traits& operator=(regex_traits&&) = default;` | 代入演算子 | C++11 |
 
