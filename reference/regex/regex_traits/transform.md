@@ -57,6 +57,8 @@ int main()
 ```
 * std::string[link /reference/string/basic_string.md]
 * assert[link /reference/cassert/assert.md.nolink]
+* imbue[link ./imbue.md]
+* std::locale[link /reference/locale/locale.md]
 
 ###出力
 ```
