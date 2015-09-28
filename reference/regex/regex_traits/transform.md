@@ -26,7 +26,7 @@ return use_facet<collate<char_type>>(getloc())
 * getloc()[link ./getloc.md]
 * transform[link /reference/locale/collate/transform.md.nolink]
 * str.begin()[link /reference/string/basic_string/begin.md]
-* str.length() [link /reference/string/basic_string/length.md]
+* str.length()[link /reference/string/basic_string/length.md]
 
 
 ##例
