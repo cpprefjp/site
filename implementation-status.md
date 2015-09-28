@@ -11,10 +11,10 @@
 | `alignas`                        | アラインメント指定 | 4.8 | 3.0 | | 14.0<br/>7.1あるいはそれ以前からある`__declspec(align(x))`構文で代替可能。 |
 | `alignof`                        | アラインメント取得 | 4.5 | 3.3 | | 14.0<br/>7.1あるいはそれ以前よりある`__alignof`で代替可能。 |
 | `auto`                           | 型推論 | 4.4 | 2.9 | 12.0 | 10.0 |
-| C99互換のプリプロセッサ          | 可変引数マクロ等 | 4.3 | 2.9 | 11.1 | 8.0 (partial) 可変引数のみ `_Pragma`の代わりに`__pragma`が存在する。 |
+| C99互換のプリプロセッサ          | 可変引数マクロ等 | 4.3 | 2.9 | 11.1 | 8.0 (partial): 可変引数のみ `_Pragma`の代わりに`__pragma`が存在する。<br/>14.0: `__pragma`に対応。 |
 | `constexpr`                      | 定数式 | 4.6 | 3.1 | 13.0 (partial)<br/> 14.0 | 14.0 (partial) |
 | `decltype`                       | 式の型を取得 | 4.3 | 2.9 | 13.0 | 10.0 (partial)<br/> 11.0 |
-| 関数の`default/delete`宣言       | 自動定義される特殊関数の制御 | 4.4 | 3.0 | 12.0 | 14.0<br/>12.0 ムーブコンストラクタ・ムーブ代入演算子の`default`は不可<br/> 14.0 |
+| 関数の`default/delete`宣言       | 自動定義される特殊関数の制御 | 4.4 | 3.0 | 12.0 | 12.0: ムーブコンストラクタ・ムーブ代入演算子の`default`は不可<br/> 14.0 |
 | 移譲コンストラクタ               | コンストラクタから他のコンストラクタに処理を移譲する | 4.7 | 3.0 | No | 12.0 |
 | `explicit operator T()`          | 明示的型変換の演算子 | 4.5 | 3.0 | 14.0 | 12.0 |
 | 拡張`friend`宣言                 | テンプレートパラメータや`typedef`名を`friend`宣言 | 4.7 | 2.9 | 11.1 (partial) <br/> 12.0 | 10.0 |
@@ -58,10 +58,8 @@
 - libstdc++ : [C++ 2011](http://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2011)
 - Clang： [C++98 and C++11 Support in Clang](http://clang.llvm.org/cxx_status.html)
 - ICC : [C++11 Features Supported by Intel&#174; C++ Compiler](http://software.intel.com/en-us/articles/c0x-features-supported-by-intel-c-compiler)
-- VC++： [C++11 Features (Modern C++)](http://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.120%29.aspx)
-- VC++ November 2013 CTP: [Visual C++ Compiler November 2013 CTP](http://herbsutter.com/2013/11/18/visual-c-compiler-november-2013-ctp/)
-- Visual Studio “14” CTP: [Visual Studio “14” CTP - Visual C++ Team Blog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/vcblog/archive/2014/06/03/visual-studio-14-ctp.aspx)
-- [C++11/14/17 Features In VS 2015 Preview - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2014/11/17/c-11-14-17-features-in-vs-2015-preview.aspx)
+- Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
+- Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
 
 
 ## <a name="cpp14" href="#cpp14">C++14言語機能の実装状況</a>
@@ -87,7 +85,8 @@ C++14は、C++11のバグフィックス + マイナーアップデートが行�
 - libstdc++: [C++ 2014](http://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2014)
 - Clang: [C++98, C++11, and C++14 Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libc++: [libc++ C++1Y Status](http://libcxx.llvm.org/cxx1y_status.html)
-- Visual C++: [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
+- Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
+- Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
 - ICC: [C++14 Features Supported by Intel C++ Compiler](https://software.intel.com/en-us/articles/c14-features-supported-by-intel-c-compiler)
     - [Intel (R) Parallel Studio XE 2016 Beta program has begun](https://software.intel.com/en-us/forums/topic/549502)
 
@@ -107,12 +106,12 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 |----------|------|-----|-------|-----|------|
 | [メッセージなしの`static_assert`][n3928] | デフォルトの表明メッセージを使用する | No | 3.5 | No | No |
 | [トライグラフを削除][n4086] | | No | 3.5 | No | 12.0 |
-| [テンプレートテンプレートパラメータに`typename`を許可][n4051] | `class`キーワードしか使用できなかった部分に、`typename`を許可 | No | 3.5 | No | No |
-| [単一要素初期化子リストを`auto`で受け取った場合の型を変更][n3922] | `initializer_list<T>`だったのを`T`に変更 | No | No | No | No |
+| [テンプレートテンプレートパラメータに`typename`を許可][n4051] | `class`キーワードしか使用できなかった部分に、`typename`を許可 | No | 3.5 | No | 14.0 |
+| [単一要素初期化子リストを`auto`で受け取った場合の型を変更][n3922] | `initializer_list<T>`だったのを`T`に変更 | No | No | No | 14.0 |
 | [畳み込み式][n4295] | パラメータパックに対する2項演算の集積処理 | No | 3.6 | No | No |
-| [UTF-8文字リテラル][n4267] | 文字列リテラルだけでなく、文字リテラルにもUTF-8指定できるようにする | No | 3.6 | No | No |
+| [UTF-8文字リテラル][n4267] | 文字列リテラルだけでなく、文字リテラルにもUTF-8指定できるようにする | No | 3.6 | No | 14.0 |
 | [入れ子名前空間の定義][n4230] | `namespace A::B {}`のように、入れ子の名前空間を簡単に定義できるようにする | No | 3.6 | No | No |
-| [名前空間と列挙子に属性の付加を許可][n4266] | 名前空間の定義と、列挙型の各要素の定義に、属性を付けられるようにする | No | 3.6 | No | No |
+| [名前空間と列挙子に属性の付加を許可][n4266] | 名前空間の定義と、列挙型の各要素の定義に、属性を付けられるようにする | No | 3.6 | No | 14.0 |
 | [非型テンプレートパラメータの定数式を評価する][n4268] | `nullptr`から任意の型のポインタへの変換等をテンプレート引数の指定時に行う | No | 3.6 | No | No |
 
 [n3928]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3928.pdf
@@ -128,7 +127,8 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 各処理系のC++1z実装状況ページ：
 
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
-
+- Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
+- Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
 
 [gcc]: ./implementation.md#gcc
 [clang]: ./implementation.md#clang
