@@ -12,7 +12,7 @@ string_type transform(ForwardIterator first, ForwardIterator last) const;
 
 
 ##概要
-与えられた文字範囲`[first, last)`を、並べ替えのキーとして使用する、文字のシーケンスに変換する。結果のシーケンスは、ロケールを使用した順序付けとなる。
+与えられた文字範囲`[first, last)`を、並べ替えのキーとして使用する、文字のシーケンスに変換する。結果のシーケンスは、ロケールごとの照合順序となる。
 
 
 ##戻り値
