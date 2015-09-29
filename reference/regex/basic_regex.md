@@ -104,10 +104,33 @@ namespace std {
 
 ##例
 ```cpp
+#include <iostream>
+#include <regex>
+#include <string>
+
+int main()
+{
+  std::string input = "12345";
+
+  // 全てが数字か判定するための正規表現
+  std::regex re(R"(^\d+$)");
+
+  if (std::regex_match(input, re)) {
+    std::cout << "全て数字です" << std::endl;
+  }
+  else {
+    std::cout << "数字以外が含まれています" << std::endl;
+  }
+}
 ```
+* std::string[link /reference/string/basic_string.md]
+* std::regex_match[link ./regex_match.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
+全て数字です
 ```
 
 
