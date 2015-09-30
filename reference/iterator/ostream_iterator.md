@@ -10,6 +10,7 @@ namespace std {
     : public iterator<output_iterator_tag, void, void, void, void>
 }
 ```
+* char_traits[link /reference/string/char_traits.md]
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
@@ -17,32 +18,32 @@ namespace std {
 `ostream_iterator`は出力イテレータであり、代入の際に外部から渡された`ostream`オブジェクトに`operator<<()`で値を出力するイテレータアダプタである。
 
 
-###メンバ関数
+##メンバ関数
 
-| | |
-|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`(constructor)`](./ostream_iterator/op_constructor.md) | コンストラクタ |
-| `~ostream_iterator() = default` | デストラクタ |
-| [`operator=`](./ostream_iterator/op_assign.md) | 代入演算子 |
-| [`operator*`](./ostream_iterator/op_deref.md) | 間接参照 |
-| [`operator++`](./ostream_iterator/op_increment.md) | インクリメント |
-
-
-###メンバ型
-
-| | |
-|--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `char_type` | `CharT (デフォルトはchar)` |
-| `traits_type` | `Traits (デフォルトはchar_traits<CharT>)` |
-| `ostream_type` | [`basic_ostream<CharT, Traits>`](../ostream/basic_ostream.md) |
-| `difference_type` | `void` |
-| `pointer` | `void` |
-| `value_type` | `void` |
-| `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) |
-| `reference` | `void` |
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------|-----------------------|
+| [`(constructor)`](./ostream_iterator/op_constructor.md) | コンストラクタ | |
+| `~ostream_iterator() = default`                         | デストラクタ | |
+| [`operator=`](./ostream_iterator/op_assign.md)          | 代入演算子 | |
+| [`operator*`](./ostream_iterator/op_deref.md)           | 間接参照 | |
+| [`operator++`](./ostream_iterator/op_increment.md)      | インクリメント | |
 
 
-###例
+##メンバ型
+
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------|-----------------------|
+| `char_type` | `CharT` (デフォルトは`char`) | |
+| `traits_type` | `Traits` (デフォルトは`char_traits<CharT>`) | |
+| `ostream_type` | [`basic_ostream<CharT, Traits>`](../ostream/basic_ostream.md) | |
+| `difference_type` | `void` | |
+| `pointer` | `void` | |
+| `value_type` | `void` | |
+| `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) | |
+| `reference` | `void` | |
+
+
+##例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -64,5 +65,5 @@ int main()
 1,2,3,
 ```
 
-###参照
+##参照
 
