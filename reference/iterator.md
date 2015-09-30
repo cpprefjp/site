@@ -26,8 +26,11 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 | [`reverse_iterator`](./iterator/reverse_iterator.md) | 逆方向に進むイテレータアダプタ(class template) | |
 | [`make_reverse_iterator`](./iterator/make_reverse_iterator.md) | `reverse_iterator`オブジェクトを作るヘルパ関数(function template) | C++14 |
 | [`back_insert_iterator`](./iterator/back_insert_iterator.md) | 末尾に要素を挿入する出力イテレータアダプタ(class template) | |
+| [`back_inserter`](./iterator/back_inserter.md) | `back_insert_iterator`オブジェクトを作るヘルパ関数(function template) | |
 | [`front_insert_iterator`](./iterator/front_insert_iterator.md) | 先頭に要素を挿入する出力イテレータアダプタ(class template) | |
+| [`front_inserter`](./iterator/front_inserter.md) | `front_insert_iterator`オブジェクトを作るヘルパ関数(function template) | |
 | [`insert_iterator`](./iterator/insert_iterator.md) | 任意の位置に要素を挿入する出力イテレータアダプタ(class template) | |
+| [`inserter`](./iterator/inserter.md) | `insert_iterator`オブジェクトを作るヘルパ関数(function template) | |
 | [`move_iterator`](./iterator/move_iterator.md) | 間接参照時にムーブするイテレータアダプタ(class template) | C++11 |
 | [`make_move_iterator`](./iterator/make_move_iterator.md) | `move_iterator`オブジェクトを作るヘルパ関数(function template) | C++11 |
 | [`istream_iterator`](./iterator/istream_iterator.md) | 入力ストリームイテレータ(class template) | |

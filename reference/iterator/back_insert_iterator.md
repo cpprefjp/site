@@ -48,7 +48,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------|-----------------------------------------------------|-------|
-| [`back_inserter`](./back_insert_iterator/back_inserter.md) | `back_insert_iterator`のヘルパ関数 | |
+| [`back_inserter`](./back_inserter.md) | `back_insert_iterator`のヘルパ関数 | |
 
 
 ##例

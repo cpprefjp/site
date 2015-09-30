@@ -50,7 +50,7 @@ namespace std {
 
 | | |
 |------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [`front_inserter`](./front_insert_iterator/front_inserter.md) | `front_insert_iterator`のヘルパ関数 |
+| [`front_inserter`](./front_inserter.md) | `front_insert_iterator`のヘルパ関数 |
 
 
 ##例
