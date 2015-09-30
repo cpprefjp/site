@@ -18,39 +18,41 @@ namespace std {
 `front_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_front()`メンバ関数を呼び出すイテレータアダプタである。
 
 
-###メンバ関数
+##メンバ関数
 
-| | |
-|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./front_insert_iterator/op_constructor.md) | コンストラクタ |
-| `~front_insert_iterator() = default` | デストラクタ |
-| [`operator=`](./front_insert_iterator/op_assign.md) | 代入演算子 |
-| [`operator*`](./front_insert_iterator/op_deref.md) | 間接参照演算子 |
-| [`operator++`](./front_insert_iterator/op_increment.md) | イテレータをインクリメントする |
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`(constructor)`](./front_insert_iterator/op_constructor.md) | コンストラクタ | |
+| `~front_insert_iterator() = default` | デストラクタ | |
+| [`operator=`](./front_insert_iterator/op_assign.md) | 代入演算子 | |
+| [`operator*`](./front_insert_iterator/op_deref.md) | 間接参照演算子 | |
+| [`operator++`](./front_insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
-###protectedメンバ変数
 
-| | |
-|------------------------|-------------------------|
-| 変数名 | 型 |
-| `container` | `Container*` |
+##protectedメンバ変数
 
-###メンバ型
+| 変数名 | 型 | 対応バージョン |
+|-------------|--------------|-------|
+| `container` | `Container*` | |
 
-| | |
-|--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-|` container_type` |` Container` |
-|` difference_type` |` void` |
-|` pointer` |` void` |
-|` value_type` |` void` |
-|` iterator_category` |` [output_iterator_tag](/reference/iterator/iterator_tag.md)` |
-|` reference` |` void` |
 
-###非メンバ関数
+##メンバ型
 
-| | |
-|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [`front_inserter`](./front_inserter.md) | `front_insert_iterator`のヘルパ関数 |
+| 名前 | 説明 | 対応バージョン |
+|----------------------|------------|-------|
+| `container_type`    | `Container` | |
+| `difference_type`   | `void` | |
+| `pointer`           | `void` | |
+| `value_type`        | `void` | |
+| `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) | |
+| `reference`         | `void` | |
+
+
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------------------|-------------------------------------|-------|
+| [`front_inserter`](./front_inserter.md) | `front_insert_iterator`のヘルパ関数 | |
 
 
 ##例
@@ -82,5 +84,5 @@ int main()
 1
 ```
 
-###参照
+##参照
 
