@@ -21,10 +21,37 @@ namespace std {
 
 ##例
 ```cpp
+#include <iostream>
+#include <deque>
+#include <iterator>
+#include <algorithm>
+
+int main()
+{
+  std::deque<int> src = {1, 2, 3};
+  std::deque<int> dest;
+
+  // srcの要素をdestの先頭に追加しながらコピー
+  std::copy(src.begin(), src.end(), std::front_inserter(dest));
+
+  for (int x : dest) {
+    std::cout << x << std::endl;
+  }
+}
 ```
+* std::front_inserter[color ff0000]
+* std::deque[link /reference/deque.md]
+* begin()[link /reference/deque/begin.md]
+* end()[link /reference/deque/end.md]
+* std::copy[link /reference/algorithm/copy.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
+3
+2
+1
 ```
 
 ##参照
