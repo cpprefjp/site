@@ -17,39 +17,38 @@ namespace std {
 ##概要
 `back_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_back()`メンバ関数を呼び出すイテレータアダプタである。
 
-###メンバ関数
+##メンバ関数
 
-| | |
-|----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./back_insert_iterator/op_constructor.md) | コンストラクタ |
-| `~back_insert_iterator() = default` | デストラクタ |
-| [`operator=`](./back_insert_iterator/op_assign.md) | 代入演算子 |
-| [`operator*`](./back_insert_iterator/op_deref.md) | 間接参照演算子 |
-| [`operator++`](./back_insert_iterator/op_increment.md) | イテレータをインクリメントする |
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`(constructor)`](./back_insert_iterator/op_constructor.md) | コンストラクタ | |
+| `~back_insert_iterator() = default` | デストラクタ | |
+| [`operator=`](./back_insert_iterator/op_assign.md) | 代入演算子 | |
+| [`operator*`](./back_insert_iterator/op_deref.md) | 間接参照演算子 | |
+| [`operator++`](./back_insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
-###protectedメンバ変数
+##protectedメンバ変数
 
-| | |
-|------------------------|-------------------------|
-| 変数名 | 型 |
-| `container` | `Container*` |
+| 変数名 | 型 | 対応バージョン |
+|-------------|--------------|-------|
+| `container` | `Container*` | |
 
-###メンバ型
+##メンバ型
 
-| | |
-|--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-|` container_type` |` Container` |
-|` difference_type` |` void` |
-|` pointer` |` void` |
-|` value_type` |` void` |
-|` iterator_category` |` [output_iterator_tag](/reference/iterator/iterator_tag.md)` |
-|` reference` |` void` |
+| 名前 | 説明 | 対応バージョン |
+|--------------------------------|---------------------------------|-------|
+|` container_type`    | `Container` | |
+|` difference_type`   | `void` | |
+|` pointer`           | `void` | |
+|` value_type`        | `void` | |
+|` iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) | |
+|` reference`         | `void` | |
 
-###非メンバ関数
+##非メンバ関数
 
-| | |
-|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| [`back_inserter`](./back_insert_iterator/back_inserter.md) | `back_insert_iterator`のヘルパ関数 |
+| 名前 | 説明 | 対応バージョン |
+|--------------------|-----------------------------------------------------|-------|
+| [`back_inserter`](./back_insert_iterator/back_inserter.md) | `back_insert_iterator`のヘルパ関数 | |
 
 
 ##例
@@ -82,5 +81,5 @@ int main()
 3
 ```
 
-###参照
+##参照
 
