@@ -34,23 +34,25 @@ namespace std {
   };
 }
 ```
+* ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
+* random_access_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
-イテレータに関する型情報を取得するクラス。
+`iterator_traits`は、イテレータに関する型情報を取得するためのクラスである。
+
 イテレータが指す値型、分類を取得でき、ポインタに対しても一様に適用できる。
 
 
-| | |
-|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| `difference_type` | イテレータの差 |
-| `value_type` | イテレータが指している値型 |
-| `pointer` | ポインタ型 |
-| `reference` | イテレータが指している参照型 |
+| 型 | 説明 |
+|---------------------|------------------------|
+| `difference_type`   | イテレータの差を表す符号あり整数型 |
+| `value_type`        | イテレータが指している値型 |
+| `pointer`           | ポインタ型 |
+| `reference`         | イテレータが指している参照型 |
 | `iterator_category` | イテレータの分類を表す型(参照： [iterator tag](/reference/iterator/iterator_tag.md)) |
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <vector>
