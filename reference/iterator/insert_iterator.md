@@ -18,52 +18,45 @@ namespace std {
 `insert_iterator`は出力イテレータであり、代入の際にコンテナの`insert()`メンバ関数を呼び出すイテレータアダプタである。
 
 
-###メンバ関数
+##メンバ関数
 
-| | |
-|------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./insert_iterator/op_constructor.md) | コンストラクタ |
-| `~insert_iterator() = default` | デストラクタ |
-| [`operator=`](./insert_iterator/op_assign.md) | 代入演算子 |
-| [`operator*`](./insert_iterator/op_deref.md) | 間接参照演算子 |
-| [`operator++`](./insert_iterator/op_increment.md) | イテレータをインクリメントする |
-
-
-###protectedメンバ変数
-
-| | |
-|------------------------|----------------------------------|
-| 変数名 | 型 |
-| `container` | `Container*` |
-| `iter` | `Container::iterator` |
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`(constructor)`](./insert_iterator/op_constructor.md) | コンストラクタ | |
+| `~insert_iterator() = default` | デストラクタ | |
+| [`operator=`](./insert_iterator/op_assign.md) | 代入演算子 | |
+| [`operator*`](./insert_iterator/op_deref.md) | 間接参照演算子 | |
+| [`operator++`](./insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
 
-###メンバ型
+##protectedメンバ変数
 
-| | |
-|--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-|` container_type` |` Container` |
-|` difference_type` |` void` |
-|` pointer` |` void` |
-|` value_type` |` void` |
-|` iterator_category` |` [output_iterator_tag](/reference/iterator/iterator_tag.md)` |
-|` reference` |` void` |
+| 変数名 | 型 | 対応バージョン |
+|-------------|-----------------------|-------|
+| `container` | `Container*` | |
+| `iter`      | `Container::iterator` | |
 
 
-###非メンバ関数
+##メンバ型
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------|-------------|-------|
+| `container_type`    | `Container` | |
+| `difference_type`   | `void` | |
+| `pointer`           | `void` | |
+| `value_type`        | `void` | |
+| `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) | |
+| `reference`         | `void` | |
 
 
-| | |
-|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| [`inserter`](./inserter.md) | `insert_iterator`のヘルパ関数 |
+##非メンバ関数
 
-
-
+| 名前 | 説明 | 対応バージョン |
+|-----------------------------|-------------------------------|-------|
+| [`inserter`](./inserter.md) | `insert_iterator`のヘルパ関数 | |
 
 
 ##例
-
-
 ```cpp
 #include <iostream>
 #include <set>
@@ -92,6 +85,6 @@ int main()
 3
 ```
 
-###参照
+##参照
 
 
