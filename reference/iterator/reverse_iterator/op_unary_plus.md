@@ -34,7 +34,7 @@ int main()
   std::cout << *it2 << std::endl;
 }
 ```
-* it1 + 1[color ff0000]
+* it1 + 1;[color ff0000]
 
 ###出力
 ```
