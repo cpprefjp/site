@@ -16,13 +16,13 @@ namespace std {
 
 
 ##要件
-`InputIterator`がランダムアクセスイテレータの場合、`first`は`last`に到達可能、もしくは`last`から`first`に到達可能であること。
-それ以外のイテレータの場合には、`first`から`last`に到達可能であること。
+- `InputIterator`がランダムアクセスイテレータの場合、`first`は`last`に到達可能、もしくは`last`から`first`に到達可能であること。
+- それ以外のイテレータの場合には、`first`から`last`に到達可能であること。
 
 
 ##効果
-`InputIterator`がランダムアクセスイテレータの場合は、`last - first`が返る。
-それ以外のイテレータの場合は、`first`から`last`までイテレータをインクリメントしていき、距離をカウントする。
+- `InputIterator`がランダムアクセスイテレータの場合は、`last - first`が返る。
+- それ以外のイテレータの場合は、`first`から`last`までイテレータをインクリメントしていき、距離をカウントする。
 
 
 ##戻り値
@@ -56,7 +56,6 @@ int main()
   }
 }
 ```
-* distance[color ff0000]
 * distance[color ff0000]
 
 ###出力
