@@ -11,45 +11,49 @@ namespace std {
     : public iterator<input_iterator_tag, T, Distance, const T*, const T&>
 }
 ```
+* char_traits[link /reference/string/char_traits.md]
+* ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 * iterator[link /reference/iterator/iterator.md]
 * input_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ##概要
-`istream_iterator`は、`operator++()`でイテレータを進めることにより、入力ストリームの`operator>>()`でストリームからデータを読み込む入力イテレータである。ストリームからの読み取りが`fail() == true`となる場合に、イテレータは`end`イテレータと等しくなる。
+`istream_iterator`は、`operator++()`でイテレータを進めることにより、入力ストリームの`operator>>()`でストリームからデータを読み込む入力イテレータである。
+
+ストリームからの読み取りが`fail() == true`となる場合に、イテレータは`end`イテレータと等しくなる。
 
 
-###メンバ関数
+##メンバ関数
 
-| 名前 | 説明 |
-|----------------------------------------------------|-----------------------------------------------|
-| [`(constructor)`](./istream_iterator/op_constructor.md) | コンストラクタ |
-| `~istream_iterator() = default` | デストラクタ |
-| `operator=(const istream_iterator&) = default<br/> operator=(istream_iterator&&) = default` | 代入演算子 |
-| [`operator*`](./istream_iterator/op_deref.md) | 間接参照 |
-| [`operator->`](./istream_iterator/op_arrow.md) | メンバアクセス |
-| [`operator++`](./istream_iterator/op_increment.md) | イテレータをインクリメントする |
-
-
-###メンバ型
-
-| 型 | 説明 |
-|---------------------|------------------------------------------------------------------------------------------|
-| `char_type`         | `CharT (デフォルトはchar)` |
-| `traits_type`       | `Traits (デフォルトはchar_traits<CharT>)` |
-| `istream_type`      | 入力ストリーム型 [`basic_istream`](/reference/istream/basic_istream.md)`<CharT, Traits>` |
-| `difference_type`   | `Distance (デフォルトはptrdiff_t)` |
-| `pointer`           | `const T*` |
-| `value_type`        | `T` |
-| `iterator_category` | [`input_iterator_tag`](/reference/iterator/iterator_tag.md) |
-| `reference`         | `const T&` |
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------------|-----------------------------------------------|-------||
+| [`(constructor)`](./istream_iterator/op_constructor.md) | コンストラクタ | |
+| `~istream_iterator() = default` | デストラクタ | |
+| `operator=(const istream_iterator&) = default<br/> operator=(istream_iterator&&) = default` | 代入演算子 | |
+| [`operator*`](./istream_iterator/op_deref.md) | 間接参照 | |
+| [`operator->`](./istream_iterator/op_arrow.md) | メンバアクセス | |
+| [`operator++`](./istream_iterator/op_increment.md) | イテレータをインクリメントする | |
 
 
-###非メンバ関数
+##メンバ型
 
-| 名前 | 説明 |
-|----------------------------------------------------|------------|
-| [`operator==`](./istream_iterator/op_equal.md)     | 等値比較   |
-| [`operator!=`](./istream_iterator/op_not_equal.md) | 非等値比較 |
+| 型 | 説明 | 対応バージョン |
+|---------------------|------------------------------------------------------------------------------------------|-------|
+| `char_type`         | `CharT (デフォルトはchar)` | |
+| `traits_type`       | `Traits (デフォルトはchar_traits<CharT>)` | |
+| `istream_type`      | 入力ストリーム型 [`basic_istream`](/reference/istream/basic_istream.md)`<CharT, Traits>` | |
+| `difference_type`   | `Distance` (デフォルトは`ptrdiff_t`) | |
+| `pointer`           | `const T*` | |
+| `value_type`        | `T` | |
+| `iterator_category` | [`input_iterator_tag`](/reference/iterator/iterator_tag.md) | |
+| `reference`         | `const T&` | |
+
+
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------------|------------|-------|
+| [`operator==`](./istream_iterator/op_equal.md)     | 等値比較   | |
+| [`operator!=`](./istream_iterator/op_not_equal.md) | 非等値比較 | |
 
 
 ##例
