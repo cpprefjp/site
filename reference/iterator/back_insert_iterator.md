@@ -37,12 +37,12 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|---------------------------------|-------|
-|` container_type`    | `Container` | |
-|` difference_type`   | `void` | |
-|` pointer`           | `void` | |
-|` value_type`        | `void` | |
-|` iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) | |
-|` reference`         | `void` | |
+| `container_type`    | `Container` | |
+| `difference_type`   | `void` | |
+| `pointer`           | `void` | |
+| `value_type`        | `void` | |
+| `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) | |
+| `reference`         | `void` | |
 
 ##非メンバ関数
 
