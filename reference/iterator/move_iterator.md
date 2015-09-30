@@ -6,58 +6,63 @@
 
 ```cpp
 namespace std {
-  template <class Iterator> class move_iterator;
+  template <class Iterator>
+  class move_iterator;
 }
 ```
 
 ##概要
 `move_iterator`は、イテレータをラップし、間接参照時に参照先の要素をムーブするイテレータアダプタである。その他の操作は、元のイテレータそのものの動作をする。
 
-###要件
+
+##要件
 `move_iterator`クラスのテンプレートパラメータ`Iterator`は、入力イテレータの要件を満たすこと。双方向またはランダムアクセスの横断を必要とする操作を行う場合は、それぞれ双方向イテレータまたはランダムアクセスイテレータの要件を満たすこと。
 
-###メンバ関数
 
-| | |
-|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`(constructor)`](./move_iterator/op_constructor.md) | コンストラクタ |
-| `~move_iterator() = default` | デストラクタ |
-| [`operator=`](./move_iterator/op_assign.md) | 代入演算子 |
-| [`base`](./move_iterator/base.md) | 元のイテレータを取得する |
-| [`operator*`](./move_iterator/op_deref.md) | 間接参照演算子 |
-| [`operator->`](./move_iterator/op_arrow.md) | メンバアクセス演算子 |
-| [`operator++`](./move_iterator/op_increment.md) | イテレータをインクリメントする |
-| [`operator--`](./move_iterator/op_decrement.md) | イテレータをデクリメントする |
-| [`operator+`](./move_iterator/op_unary_plus.md) | イテレータを進める |
-| [`operator+=`](./move_iterator/op_plus_assign.md) | イテレータ自身を進める |
-| [`operator-`](./move_iterator/op_unary_minus.md) | イテレータを逆に進める |
-| [`operator-=`](./move_iterator/op_minus_assign.md) | イテレータ自身を逆に進める |
-| [`operator[]`](./move_iterator/op_at.md) | 任意の位置にランダムアクセスする |
+##メンバ関数
 
-###メンバ型
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------|-------------|-------|
+| [`(constructor)`](./move_iterator/op_constructor.md) | コンストラクタ | C++11 |
+| `~move_iterator() = default`                         | デストラクタ | C++11 |
+| [`operator=`](./move_iterator/op_assign.md)          | 代入演算子 | C++11 |
+| [`base`](./move_iterator/base.md)                    | 元のイテレータを取得する | C++11 |
+| [`operator*`](./move_iterator/op_deref.md)           | 間接参照演算子 | C++11 |
+| [`operator->`](./move_iterator/op_arrow.md)          | メンバアクセス演算子 | C++11 |
+| [`operator++`](./move_iterator/op_increment.md)      | イテレータをインクリメントする | C++11 |
+| [`operator--`](./move_iterator/op_decrement.md)      | イテレータをデクリメントする | C++11 |
+| [`operator+`](./move_iterator/op_unary_plus.md)      | イテレータを進める | C++11 |
+| [`operator+=`](./move_iterator/op_plus_assign.md)    | イテレータ自身を進める | C++11 |
+| [`operator-`](./move_iterator/op_unary_minus.md)     | イテレータを逆に進める | C++11 |
+| [`operator-=`](./move_iterator/op_minus_assign.md)   | イテレータ自身を逆に進める | C++11 |
+| [`operator[]`](./move_iterator/op_at.md)             | 任意の位置にランダムアクセスする | C++11 |
 
-| | |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `iterator_type` | `Iterator` |
-| `difference_type` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::difference_type` |
-| `pointer` | `Iterator` |
-| `value_type` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::value_type` |
-| `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` |
-| `reference` | `value_type&&` |
 
-###非メンバ関数
+##メンバ型
 
-| | |
-|-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| [`operator==`](./move_iterator/op_equal.md) | 等値比較 |
-| [`operator!=`](./move_iterator/op_not_equal.md) | 非等値比較 |
-| [`operator<`](./move_iterator/op_less.md) | 左辺が右辺より小さいかの判定を行う |
-| [`operator<=`](./move_iterator/op_less_equal.md) | 左辺が右辺以下かの判定を行う |
-| [`operator>`](./move_iterator/op_greater.md) | 左辺が右辺より大きいかの判定を行う |
-| [`operator>=`](./move_iterator/op_greater_equal.md) | 左辺が右辺以上かの判定を行う |
-| [`operator-`](./move_iterator/op_minus.md) | 2つの`move_iterator`の差を求める |
-| [`operator+`](./move_iterator/op_plus.md) | イテレータを進める |
-| [`make_move_iterator`](./make_move_iterator.md) | `move_iterator`のヘルパ関数 |
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------|-------------|-------|
+| `iterator_type` | `Iterator` | C++11 |
+| `difference_type` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::difference_type` | C++11 |
+| `pointer` | `Iterator` | C++11 |
+| `value_type` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::value_type` | C++11 |
+| `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` | C++11 |
+| `reference` | `value_type&&` | C++11 |
+
+
+##非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------|-------------|-------|
+| [`operator==`](./move_iterator/op_equal.md)         | 等値比較 | C++11 |
+| [`operator!=`](./move_iterator/op_not_equal.md)     | 非等値比較 | C++11 |
+| [`operator<`](./move_iterator/op_less.md)           | 左辺が右辺より小さいかの判定を行う | C++11 |
+| [`operator<=`](./move_iterator/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++11 |
+| [`operator>`](./move_iterator/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++11 |
+| [`operator>=`](./move_iterator/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++11 |
+| [`operator-`](./move_iterator/op_minus.md)          | 2つの`move_iterator`の差を求める | C++11 |
+| [`operator+`](./move_iterator/op_plus.md)           | イテレータを進める | C++11 |
+| [`make_move_iterator`](./make_move_iterator.md)     | `move_iterator`のヘルパ関数 | C++11 |
 
 
 ##例
@@ -105,5 +110,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-###参照
+##参照
 
