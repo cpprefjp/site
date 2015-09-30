@@ -17,7 +17,10 @@ namespace std {
 
 
 ##戻り値
-`reverse_iterator<Iterator>(i)`
+```cpp
+reverse_iterator<Iterator>(i)
+```
+* reverse_iterator[link ./reverse_iterator.md]
 
 
 ##例
