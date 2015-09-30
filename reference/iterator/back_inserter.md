@@ -10,13 +10,16 @@ namespace std {
   back_insert_iterator<Container> back_inserter(Container& x);
 }
 ```
+* back_insert_iterator[link ./back_insert_iterator.md]
 
 ##概要
 `back_insert_iterator`のヘルパ関数。
 
 
 ##戻り値
-`back_insert_iterator<Container>(x)`
+```cpp
+back_insert_iterator<Container>(x)
+```
 
 
 ##例
