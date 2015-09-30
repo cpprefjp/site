@@ -16,7 +16,7 @@ namespace std {
 ##概要
 `n`回逆に進めたイテレータを返す。
 
-[`advance`](/reference/iterator/advance.md)`()`と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回逆に進んだイテレータのコピーを返す。
+[`advance()`](/reference/iterator/advance.md)と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回逆に進んだイテレータのコピーを返す。
 
 
 
