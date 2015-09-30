@@ -20,6 +20,7 @@ namespace std {
 ```cpp
 back_insert_iterator<Container>(x)
 ```
+* back_insert_iterator[link ./back_insert_iterator.md]
 
 
 ##例
