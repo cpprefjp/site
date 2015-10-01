@@ -33,7 +33,7 @@ namespace std {
 - `Allocator` : ストレージの割り当てモデルを定義するために使用されるアロケータオブジェクトの型。デフォルトでは、値に依存しない単純なメモリ割り当てモデルを定義する、型 `T` の [`allocator`](/reference/memory/allocator.md) クラステンプレートが使われる。 
 
 
-###メンバ関数
+##メンバ関数
 ###構築／コピー／破棄
 
 | 名前 | 説明 | 対応バージョン |
@@ -97,7 +97,7 @@ namespace std {
 | [`swap`](./deque/swap.md)                   | 他の`deque`オブジェクトとデータを入れ替える | |
 
 
-###メンバ型
+##メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |-------------|----------------------------------------------------|-------|
@@ -115,7 +115,7 @@ namespace std {
 | `const_reverse_iterator` | 読み取り専用逆イテレータ型 [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | |
 
 
-###非メンバ関数
+##非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------------|-------|
@@ -154,6 +154,6 @@ int main()
 1
 ```
 
-###参照
+##参照
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
 
