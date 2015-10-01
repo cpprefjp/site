@@ -6,21 +6,22 @@
 
 ```cpp
 template <class InputIterator>
-void assign(InputIterator first, InputIterator last);
+void assign(InputIterator first, InputIterator last); // (1)
 
-void assign(size_type n, const T& t);
+void assign(size_type n, const T& t);                 // (2)
 
-// C++11から
-void assign(initializer_list<T> init);
+void assign(initializer_list<T> init);                // (3) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
 コンテナに値を代入する。
 
-- `template <class InputIterator>`<br/>`void assign(InputIterator first, InputIterator last);`<br/>`*this`の全ての要素を解放し、`[first, last)`の範囲の要素のコピーを`*this`にコピーする。
-- `void assign(size_type n, const T& t);`<br/>`*this`の全ての要素が解放され、`t`オブジェクトの`n`個のコピーから`*this`を再構築する。
-- `void assign(`[`initializer_list`](/reference/initializer_list.md)`<T> init);`<br/>`*this`の全ての要素を解放し、`x`の全ての要素を`*this`にコピーする。
+
+##効果
+- (1) : `*this`の全ての要素を解放し、`[first, last)`の範囲の要素のコピーを`*this`にコピーする。
+- (2) : `*this`の全ての要素が解放され、`t`オブジェクトの`n`個のコピーから`*this`を再構築する。
+- (3) : `*this`の全ての要素を解放し、`x`の全ての要素を`*this`にコピーする。
 
 
 ##例
