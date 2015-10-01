@@ -36,7 +36,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|-----------------------|
-| `char_type`         | `CharT` (デフォルトは`char`) | |
+| `char_type`         | `CharT` | |
 | `traits_type`       | `Traits` (デフォルトは`char_traits<CharT>`) | |
 | `streambuf_type`    | [`basic_streambuf<CharT, Traits>`](../streambuf/basic_streambuf.md) | |
 | `ostream_type`      | [`basic_ostream<CharT, Traits>`](../ostream/basic_ostream.md) | |
