@@ -102,9 +102,9 @@ reserve(20) により
 
 ###処理系
 - [Clang](/implementation.md#clang): -
-- [Clang, C++0x mode](/implementation.md#clang): ??
+- [Clang, C++11 mode](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): -
-- [GCC, C++0x mode](/implementation.md#gcc): ??
+- [GCC, C++11 mode](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 

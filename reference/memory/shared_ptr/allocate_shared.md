@@ -53,7 +53,7 @@ int main()
 ###処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.3
 - [GCC](/implementation.md#gcc): 
-- [GCC, C++0x mode](/implementation.md#gcc): 4.3.6
+- [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 	- Visual C++ 11.0までは、可変引数テンプレートに対応していないため、不完全な実装である。

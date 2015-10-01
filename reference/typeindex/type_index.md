@@ -73,6 +73,6 @@ int main()
 - C++11
 
 ###処理系
-- GCC, C++0x mode: 4.6.1
+- GCC, C++11 mode: 4.6.1
 
 

@@ -21,7 +21,7 @@ namespace std {
 
 ###処理系
 - Clang: ?
-- GCC (c++11 or c++0x mode): 4.7.0
+- GCC (c++11 or c++11 mode): 4.7.0
 - ICC: ?
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 

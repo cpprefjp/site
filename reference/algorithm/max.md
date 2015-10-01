@@ -119,7 +119,7 @@ T max(std::initializer_list<T> t, Compare comp)
 ##initializer_listバージョンの使用可能状況
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
-- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp)
 

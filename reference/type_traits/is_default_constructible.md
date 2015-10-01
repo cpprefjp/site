@@ -68,7 +68,7 @@ int main(){}
 
 ###処理系
 - [Clang](/implementation.md#clang): 3.0
-- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 
 ####備考
 上の例でコンパイラによってはエラーになる。Clang 3.0 は `constexpr` に対応していないためにエラーになる。`operator bool` は持っているので、実行時に用いることはできる。

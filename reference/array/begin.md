@@ -62,7 +62,7 @@ int main()
 
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
-- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0
 

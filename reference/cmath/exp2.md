@@ -63,7 +63,7 @@ exp2(-∞) = 0.000000
 
 ###処理系
 - [Clang](/implementation.md#clang): 2.9, 3.1
-- [GCC, C++0x mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 
 ####備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）

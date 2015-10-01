@@ -87,7 +87,7 @@ OutputIterator copy_if(InputIterator first, InputIterator last,
 ###処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
-- [GCC, C++0x mode](/implementation.md#gcc): 4.4.7
+- [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

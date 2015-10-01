@@ -67,7 +67,7 @@ void basic_string::shrink_to_fit() {
 ###処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.4
 - [GCC](/implementation.md#gcc):
-- [GCC, C++0x mode](/implementation.md#gcc): 4.5.4, 4.6.4, 4.7.3, 4.8.2
+- [GCC, C++11 mode](/implementation.md#gcc): 4.5.4, 4.6.4, 4.7.3, 4.8.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0
 

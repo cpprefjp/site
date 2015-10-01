@@ -74,7 +74,7 @@ int main()
 - C++11
 
 ###処理系
-- [GCC, C++0x mode](/implementation.md#gcc): 4.4.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.4.0
 
 
 ###参照

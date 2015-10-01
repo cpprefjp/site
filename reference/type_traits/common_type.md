@@ -114,7 +114,7 @@ struct common_type<T, U, V...> {
 
 ###処理系
 - [Clang](/implementation.md#clang): 3.0
-- [GCC, C++0x mode](/implementation.md#gcc): 4.4.7
+- [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

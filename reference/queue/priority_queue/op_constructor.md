@@ -114,7 +114,7 @@ que5 : 5 4 3 2 1
 ###処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
-- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0(アロケータ付き初期化以外は使用可能)
+- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0(アロケータ付き初期化以外は使用可能)
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 

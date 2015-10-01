@@ -195,7 +195,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 ###処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
-- [GCC, C++0x mode](/implementation.md#gcc): 4.7.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 	- C++14で追加された多重定義は14.0から実装されている。
