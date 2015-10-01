@@ -13,6 +13,7 @@ const_reverse_iterator crend() const noexcept;
 先頭要素の前を指す読み取り専用逆イテレータを取得する。
 
 [`rend()`](./rend.md)は非`const`な`deque`オブジェクトに対して`reverse_iterator`を返し、`const`な`deque`オブジェクトに対しては`const_reverse_iterator`を返すが、`cend()`は`const_reverse_iterator`を返すバージョンのみが提供されている。
+
 アルゴリズムにイテレータの組を渡す際、アルゴリズム内でデータの書き換えが起こらないというユーザーの意図を示す場合などに有用である。
 
 
