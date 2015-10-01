@@ -5,14 +5,17 @@
 * function[meta id-type]
 
 ```cpp
-void push_back(const T& x);
-
-// C++11から
-void push_back(T&& y);
+void push_back(const T& x); // (1)
+void push_back(T&& y);      // (2) C++11
 ```
 
 ##概要
 末尾に要素を追加する。
+
+
+##効果
+- (1) : `x`のコピーを末尾に追加する
+- (2) : 一時オブジェクト`x`を移動して末尾に追加する
 
 
 ##戻り値

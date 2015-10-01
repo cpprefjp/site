@@ -5,14 +5,17 @@
 * function[meta id-type]
 
 ```cpp
-void push_front(const T& x);
-
-// C++11から
-void push_front(T&& y);
+void push_front(const T& x); // (1)
+void push_front(T&& y);      // (2) C++11
 ```
 
 ##概要
 先頭に要素を追加する。
+
+
+##効果
+- (1) : `x`のコピーを先頭に追加する
+- (2) : 一時オブジェクト`x`を移動して先頭に追加する
 
 
 ##戻り値
