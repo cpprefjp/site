@@ -19,8 +19,24 @@ namespace std {
 
 
 ##効果
-- C++03 : `x.`[`size`](./size.md)`() == y.`[`size`](./size.md)`() && `[`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`());`
-- C++14 : [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`(), y.`[`end`](./end.md)`());`
+- C++03 :
+
+    ```cpp
+x.size() == y.size() && equal()(x.begin(), x.end(), y.begin());
+```
+* size()[link ./size.md]
+* equal[link /reference/algorithm/equal.md]
+* begin()[link ./begin.md]
+* end()[link ./end.md]
+
+- C++14 :
+
+    ```cpp
+equal(x.begin(), x.end(), y.begin(), y.end());
+```
+* equal[link /reference/algorithm/equal.md]
+* begin()[link ./begin.md]
+* end()[link ./end.md]
 
 
 ##戻り値
