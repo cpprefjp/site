@@ -147,9 +147,9 @@ out = copy(last_m.suffix().first, last_m.suffix().second, out)
 
 		を呼び出す。
 
-- (3)、(4) [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_insert_iterator/back_inserter.md)`(result), s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), e, fmt, flags)` を呼び出す。  
+- (3)、(4) [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), e, fmt, flags)` を呼び出す。  
 	戻り値は `result` となる。
-- (5)、(6) [`basic_string`](../string/basic_string.md)`<charT>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_insert_iterator/back_inserter.md)`(result), s, s + `[`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(s), e, fmt, flags)` を呼び出す。  
+- (5)、(6) [`basic_string`](../string/basic_string.md)`<charT>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s, s + `[`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(s), e, fmt, flags)` を呼び出す。  
 	戻り値は `result` となる。
 
 

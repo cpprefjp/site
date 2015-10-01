@@ -75,7 +75,7 @@ int main()
 * sort[link sort.md]
 * begin[link ../vector/begin.md]
 * end[link ../vector/end.md]
-* back_inserter[link ../iterator/back_insert_iterator/back_inserter.md]
+* back_inserter[link ../iterator/back_inserter.md]
 * for_each[link for_each.md]
 * cout[link ../iostream/cout.md]
 * endl[link ../ostream/endl.md]
