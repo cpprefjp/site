@@ -109,8 +109,8 @@ namespace std {
 | `difference_type` | 符号付き整数型(通常は [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) | |
 | `value_type` | `T` | |
 | `allocator_type` | `Allocator` | |
-| `pointer` | `allocator_traits<Allocator>::pointer` | |
-| `const_iterator` | `allocator_traits<Allocator>::const_pointer` | |
+| `pointer` | [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer` | |
+| `const_iterator` | [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer` | |
 | `reverse_iterator` | 逆イテレータ型 [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | |
 | `const_reverse_iterator` | 読み取り専用逆イテレータ型 [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | |
 
