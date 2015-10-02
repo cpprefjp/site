@@ -17,8 +17,15 @@ namespace std {
 
 
 ##効果
-型`E`が[`nested_exception`](/reference/exception/nested_exception.md)を継承した型だった場合、
-`dynamic_cast<const `[`nested_exception`](/reference/exception/nested_exception.md)`&>(e).`[`rethrow_nested`](/reference/exception/nested_exception/rethrow_nested.md)`()`を行う。そうでなければ何もしない。
+型`E`が[`nested_exception`](/reference/exception/nested_exception.md)を継承した型だった場合、以下の処理を行う：
+
+```cpp
+dynamic_cast<const nested_exception&>(e).rethrow_nested()
+```
+* nested_exception[link ./nested_exception.md]
+* rethrow_nested()[link ./nested_exception/rethrow_nested.md]
+
+そうでなければ何もしない。
 
 
 ##戻り値
