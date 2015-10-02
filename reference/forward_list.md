@@ -13,15 +13,24 @@ namespace std {
 * allocator[link /reference/memory/allocator.md]
 
 ##概要
+`<forward_list>`ヘッダでは、単方向リンクリストの実装である`forward_list`コンテナを提供する。
 
-`<forward_list>`ヘッダでは、単方向リンクリストの実装である`forward_list`コンテナを提供する。`forward_list`は、標準ライブラリではシーケンスコンテナの一種として定義されるが、いくつかの点でシーケンスコンテナの要件を満たさない：
+`forward_list`は、標準ライブラリではシーケンスコンテナの一種として定義されるが、いくつかの点でシーケンスコンテナの要件を満たさない：
 
-- `size()`メンバ関数を提供しない。<br/>`size()`メンバ関数は全てのコンテナにO(1)計算量を要求するため、単方向リストの実装ではサイズのためのメンバ変数が必要になる。`forward_list`では、サイズメンバ変数を内部に持たないことを示すために`size()`メンバ関数は提供しない。要素数が必要な場合は[`distance()`](/reference/iterator/distance.md)を使用して取得する。
+- `size()`メンバ関数を提供しない。
+    - `size()`メンバ関数は全てのコンテナにO(1)計算量を要求するため、単方向リストの実装ではサイズのためのメンバ変数が必要になる。`forward_list`では、サイズメンバ変数を内部に持たないことを示すために`size()`メンバ関数は提供しない。要素数が必要な場合は[`distance()`](/reference/iterator/distance.md)を使用して取得する。
 
-- `insert()/emplace()/erase()`メンバ関数を提供しない。<br/>双方向リンクリストである[`list`](/reference/list.md)の[`insert()`](/reference/list/insert.md)／[`emplace()`](/reference/list/emplace.md)／[`erase()`](/reference/list/erase.md)はinsert-before方式をとっておりO(1)計算量だが、単方向リストの典型的なinsert-beforeの実装ではO(N)計算量になってしまう。`forward_list`では、単方向リンクリストでO(1)計算量であるinsert-after方式を使用することを示す[`insert_after()`](./forward_list/insert_after.md)／[`emplace_after()`](./forward_list/emplace_after.md)／[`erase_after()`](./forward_list/erase_after.md)メンバ関数を提供する。先頭に挿入するために[`before_begin()`](./forward_list/before_begin.md)メンバ関数を提供する。
+- `insert()/emplace()/erase()`メンバ関数を提供しない。
+    - 双方向リンクリストである[`list`](/reference/list.md)の[`insert()`](/reference/list/insert.md)／[`emplace()`](/reference/list/emplace.md)／[`erase()`](/reference/list/erase.md)はinsert-before方式をとっておりO(1)計算量だが、単方向リストの典型的なinsert-beforeの実装ではO(N)計算量になってしまう。
+    - `forward_list`では、単方向リンクリストでO(1)計算量であるinsert-after方式を使用することを示す[`insert_after()`](./forward_list/insert_after.md)／[`emplace_after()`](./forward_list/emplace_after.md)／[`erase_after()`](./forward_list/erase_after.md)メンバ関数を提供する。先頭に挿入するために[`before_begin()`](./forward_list/before_begin.md)メンバ関数を提供する。
 
 `forward_list`は、C言語で単方向リンクリストを実装する場合と比べ、空間的にもパフォーマンス的にもゼロオーバーヘッドであるよう設計されている。  
 また、`forward_list`はリンクリストの性質上、挿入・削除のような破壊的操作を行なってもイテレータは無効にならない。
+
+各テンプレートパラメータの意味は次の通りである。
+
+- `T`: 格納される要素の型
+- `Allocator`: メモリ確保に使用されるアロケータの型。無指定の場合は標準の`allocator`クラスが使用される。
 
 
 ##メンバ関数
@@ -164,6 +173,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-###参照
-[N2543 STL singly linked lists (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2543.htm) [[概要の日本語訳](http://d.hatena.ne.jp/faith_and_brave/20080905/1220611240)]
+##参照
+- [N2543 STL singly linked lists (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2543.htm) [[概要の日本語訳](http://faithandbrave.hateblo.jp/entry/20080905/1220611240)]
 
