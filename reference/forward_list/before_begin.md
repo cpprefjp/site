@@ -12,6 +12,7 @@ const_iterator before_begin() const noexcept;
 
 ##概要
 先頭要素の前を指すイテレータを取得する。
+
 この関数は、[`insert_after()`](insert_after.md)メンバ関数で先頭に要素を挿入するために使用できる。
 
 
