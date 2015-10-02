@@ -5,11 +5,8 @@
 
 ```cpp
 namespace std {
-  // C++03
-  bool uncaught_exception() throw();
-
-  // C++11
-  bool uncaught_exception() noexcept;
+  bool uncaught_exception() throw();  // C++03
+  bool uncaught_exception() noexcept; // C++11
 }
 ```
 
@@ -18,10 +15,11 @@ namespace std {
 
 
 ##戻り値
-例外オブジェクトが生成され、スローされてからキャッチするまでの間にtrueを返す。
+例外オブジェクトが生成され、スローされてからキャッチするまでの間に`true`を返す。
+
 また、明示的に[`terminate()`](/reference/exception/terminate.md)を呼び出し、実際に呼び出されるまでの間に`true`を返す。
 
-具体的には、tryブロック中で作られたオブジェクトのデストラクタや、スタック巻き戻し(unwind)中のデストラクタ、[`terminate()`](/reference/exception/terminate.md)の場合は生存している全てのオブジェクトのデストラクタで`true`になる。
+具体的には、`try`ブロック中で作られたオブジェクトのデストラクタや、スタック巻き戻し(unwind)中のデストラクタ、[`terminate()`](/reference/exception/terminate.md)の場合は生存している全てのオブジェクトのデストラクタで`true`になる。
 
 
 ##例外
@@ -61,5 +59,5 @@ catch
 ```
 
 ##参照
-[GotW #47 Uncaught Exceptions](http://www.gotw.ca/gotw/047.htm)
+- [GotW #47 Uncaught Exceptions](http://www.gotw.ca/gotw/047.htm)
 
