@@ -20,6 +20,8 @@ namespace std {
 
 `exception_ptr`は通常、参照カウントスマートポインタとして実装されるだろう。
 
+`exception_ptr`の主な用途は、バックグランドスレッドからメインスレッドに、例外オブジェクトを持ち運ぶ、というものである。標準ライブラリにおいては、[`promise`](/reference/future/promise.md)と[`future`](/reference/future/future.md)の実装で使用される。
+
 
 ##例
 ```cpp
@@ -72,7 +74,6 @@ int main()
 }
 ```
 
-
 ###出力
 ```
 1. null
@@ -95,5 +96,6 @@ error!
 
 
 ##参照
+- [N2107 Exception Propagation across Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2107.html)
 - [N2179 Language Support for Transporting Exceptions between Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html)
 
