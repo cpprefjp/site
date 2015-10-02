@@ -15,7 +15,13 @@ void assign(F&& f, const Alloc& alloc);
 
 
 ##効果
-[`function`](./op_constructor.md)`(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`, a,` [`std::forward`](/reference/utility/forward.md)`<F>(f)).`[`swap`](./swap.md)`(*this)`
+```cpp
+function(allocator_arg, alloc,std::forward<F>(f)).swap(*this)
+```
+* function[link ./op_constructor.md]
+* allocator_arg[link /reference/memory/allocator_arg_t.md]
+* std::forward[link /reference/utility/forward.md]
+* swap[link ./swap.md]
 
 
 ##戻り値
