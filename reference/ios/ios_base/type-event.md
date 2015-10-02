@@ -30,38 +30,38 @@ std::stringstream ss1;
 
 void f(std::ios_base::event e, std::ios_base& str, int index)
 {
-    switch (e) {
-    case std::ios_base::erase_event:
-        std::cout << "event = erase_event, ";
-        break;
-    case std::ios_base::copyfmt_event:
-        std::cout << "event = copyfmt_event, ";
-        break;
-    case std::ios_base::imbue_event:
-        std::cout << "event = imbue_event, ";
-        break;
-    }
-    std::cout << "str = " << (&str == &ss1 ? "ss1" : "ss2") << ", index = " << index << ", getloc.name = " << str.getloc().name() << '\n';
+  switch (e) {
+  case std::ios_base::erase_event:
+    std::cout << "event = erase_event, ";
+    break;
+  case std::ios_base::copyfmt_event:
+    std::cout << "event = copyfmt_event, ";
+    break;
+  case std::ios_base::imbue_event:
+    std::cout << "event = imbue_event, ";
+    break;
+  }
+  std::cout << "str = " << (&str == &ss1 ? "ss1" : "ss2") << ", index = " << index << ", getloc.name = " << str.getloc().name() << '\n';
 }
 
 int main()
 {
-    ss1.register_callback(f, 0);
-    std::locale l("en_US.UTF-8");
+  ss1.register_callback(f, 0);
+  std::locale l("en_US.UTF-8");
 
-    {
-        std::stringstream ss2;
-        ss2.register_callback(f, 1);
+  {
+    std::stringstream ss2;
+    ss2.register_callback(f, 1);
 
-        std::cout << "imbue start\n";
-        ss2.imbue(l);
-        std::cout << "imbue end\n";
+    std::cout << "imbue start\n";
+    ss2.imbue(l);
+    std::cout << "imbue end\n";
 
-        std::cout << "copyfmt start\n";
-        ss2.copyfmt(ss1);
-        std::cout << "copyfmt end\n";
-    }
-    std::cout << "block end\n";
+    std::cout << "copyfmt start\n";
+    ss2.copyfmt(ss1);
+    std::cout << "copyfmt end\n";
+  }
+  std::cout << "block end\n";
 }
 ```
 * iostream[link ../../iostream.md]
