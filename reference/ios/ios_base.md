@@ -70,7 +70,7 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 | [`openmode`](ios_base/type-openmode.md) | ストリームを開く際のモード                   |                |
 | [`seekdir`](ios_base/type-seekdir.md)   | シーク時の起点の指定                         |                |
 | `Init`           | 標準入出力オブジェクトの初期化・後処理の管理 |                |
-| `event`          | コールバックイベントの種類                   |                |
+| [`event`](ios_base/type-event.md)       | コールバックイベントの種類                   |                |
 | `event_callback` | コールバック関数                             |                |
 
 ##参照
