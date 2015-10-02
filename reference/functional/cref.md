@@ -7,9 +7,14 @@
 
 ```cpp
 namespace std {
-  template <class T> reference_wrapper<const T> cref(const T& t) noexcept;
-  template <class T> reference_wrapper<const T> cref(reference_wrapper<T> t) noexcept;
-  template <class T> void cref(const T&&) = delete;
+  template <class T>
+  reference_wrapper<const T> cref(const T& t) noexcept;             // (1)
+
+  template <class T>
+  reference_wrapper<const T> cref(reference_wrapper<T> t) noexcept; // (2)
+
+  template <class T>
+  void cref(const T&&) = delete;                                    // (3)
 }
 ```
 * reference_wrapper[link ./reference_wrapper.md]
@@ -19,9 +24,8 @@ namespace std {
 
 
 ##戻り値
-`t`を参照する`reference_wrapper<const T>`オブジェクトを返す。
-
-ただし、`t`の型が`reference_wrapper`である場合はそのまま返す。
+- (1) : `t`を参照する`reference_wrapper<const T>`オブジェクトを返す。
+- (2) : `t`をそのまま返す。
 
 
 ##例外

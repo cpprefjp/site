@@ -7,22 +7,25 @@
 
 ```cpp
 namespace std {
-  template <typename T> reference_wrapper<T> ref(T& t) noexcept;
-  template <typename T> reference_wrapper<T> ref(reference_wrapper<T> t) noexcept;
+  template <typename T>
+  reference_wrapper<T> ref(T& t) noexcept;                   // (1)
 
-  template <class T> void ref(const T&&) = delete;
+  template <typename T>
+  reference_wrapper<T> ref(reference_wrapper<T> t) noexcept; // (2)
+
+  template <class T>
+  void ref(const T&&) = delete;                              // (3)
 }
 ```
 * reference_wrapper[link ./reference_wrapper.md]
 
 ##概要
-変数への参照tを保持する`reference_wrapper`オブジェクトを生成する
+変数への参照`t`を保持する`reference_wrapper`オブジェクトを生成する
 
 
 ##戻り値
-`t`を参照する`reference_wrapper<T>`オブジェクトを返す。
-
-ただし、`t`の型が`reference_wrapper`である場合はそのまま返す。
+- (1) : `t`を参照する`reference_wrapper<T>`オブジェクトを返す。
+- (2) : `t`をそのまま返す。
 
 
 ##例外
