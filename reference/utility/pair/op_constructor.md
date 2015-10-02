@@ -182,8 +182,10 @@ p8 : (X(1 2 3),Y(4 5))
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
-
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
+	- C++03で規定されていたものは、10.0以前のバージョンから実装されている。
+	- 10.0までは、(8) `std::piecewise_construct`版が実装されていない。
+	- 12.0までは、デフォルトコンストラクタに`constexpr`が付与されていない。
 
 ##参照
 - [N2345 Placement Insert for Containers (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2345.pdf)

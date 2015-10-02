@@ -92,8 +92,8 @@ copy
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
-
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+	- 11.0は正しく実装されていないと思われる。上記「例」のコードにおいて、ともにmoveしてしまう結果となる。
 
 ##参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
