@@ -46,7 +46,7 @@ int main()
 
 ###処理系
 - GCC: 4.5.1, 4.6.1
-
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 ##参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)

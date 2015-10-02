@@ -69,8 +69,7 @@ int main()
 ###処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
-- [Visual C++](/implementation.md#visual_cpp): ??
-
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 ##参照
 - [LWG Issue 2094. `duration` conversion overflow shouldn't participate in overload resolution](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2094)

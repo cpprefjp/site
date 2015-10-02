@@ -28,6 +28,7 @@ static time_point from_time_t(time_t t) noexcept;
 ```cpp
 #include <iostream>
 #include <chrono>
+#include <ctime>
 
 using std::chrono::system_clock;
 
@@ -55,4 +56,4 @@ Tue Sep 27 14:21:13 2011
 
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
-
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

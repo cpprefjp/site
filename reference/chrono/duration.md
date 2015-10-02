@@ -156,6 +156,7 @@ Tue Oct 16 16:25:11 2012
 
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 ##参照
 
