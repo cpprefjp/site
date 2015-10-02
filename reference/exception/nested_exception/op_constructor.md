@@ -6,12 +6,12 @@
 * cpp11[meta cpp]
 
 ```cpp
-nested_exception() noexcept;
-nested_exception(const nested_exception&) noexcept = default;
+nested_exception() noexcept;                                  // (1)
+nested_exception(const nested_exception&) noexcept = default; // (2)
 ```
 
 ##nested_exceptionオブジェクトの構築
-- `nested_exception() noexcept;`<br/>[`current_exception()`](/reference/exception/current_exception.md)を呼び出し、その戻り値をメンバ変数として保持する。
+- (1) : [`current_exception()`](/reference/exception/current_exception.md)を呼び出し、その戻り値をメンバ変数として保持する。
 
 
 ##例外
