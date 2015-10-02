@@ -7,10 +7,10 @@
 
 ```cpp
 namespace std {
-  template <typename T>
+  template <class T>
   reference_wrapper<T> ref(T& t) noexcept;                   // (1)
 
-  template <typename T>
+  template <class T>
   reference_wrapper<T> ref(reference_wrapper<T> t) noexcept; // (2)
 
   template <class T>
