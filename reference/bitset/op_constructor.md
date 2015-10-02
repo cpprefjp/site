@@ -116,7 +116,7 @@ int main()
 - (4)のコンストラクタ
 	- [Clang, C++11 mode](/implementation.md#clang): 3.0
 	- [GCC, C++11 mode](/implementation.md#gcc): 4.5.4
-	- [Visual C++](/implementation.md#visual_cpp): ??
+	- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
 ##参照
