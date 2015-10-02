@@ -15,17 +15,19 @@ namespace std {
 
 入れ子になった例外を補足した場合、[`rethrow_nested()`](./nested_exception/rethrow_nested.md)メンバ関数を呼び出すことで、元の例外を送出できる。
 
-###メンバ関数
 
-| | |
-|---------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| [`(constructor)`](./nested_exception/op_constructor.md) | コンストラクタ |
-| `~virtual nested_exception() = default;` | デストラクタ |
-| `nested_exception& operator=(const nested_exception&) = default;` | 代入演算子 |
-| [`rethrow_nested`](./nested_exception/rethrow_nested.md) | 入れ子になった例外を送出する |
-| [`nested_ptr`](./nested_exception/nested_ptr.md) | 入れ子になった例外へのポインタを取得する |
+##メンバ関数
 
-###例
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`(constructor)`](./nested_exception/op_constructor.md) | コンストラクタ | C++11 |
+| `~virtual nested_exception() = default;` | デストラクタ | C++11 |
+| `nested_exception& operator=(const nested_exception&) = default;` | 代入演算子 | C++11 |
+| [`rethrow_nested`](./nested_exception/rethrow_nested.md) | 入れ子になった例外を送出する | C++11 |
+| [`nested_ptr`](./nested_exception/nested_ptr.md) | 入れ子になった例外へのポインタを取得する | C++11 |
+
+
+##例
 ```cpp
 #include <exception>
 #include <iostream>
@@ -75,6 +77,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-###参照
+##参照
 - [N2559 Nesting Exception Objects (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2559.htm)
 
