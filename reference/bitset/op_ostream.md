@@ -27,7 +27,7 @@ os << x.template to_string<CharT, Traits, allocator<CharT>>(
 * allocator[link /reference/memory/allocator.md]
 * use_facet[link /reference/locale/use_facet.md.nolink]
 * ctype[link /reference/locale/ctype.md]
-* getloc[link /reference/ios/ios_base/getloc.md.nolink]
+* getloc[link /reference/ios/ios_base/getloc.md]
 * widen[link /reference/locale/ctype/widen.md.nolink]
 
 
