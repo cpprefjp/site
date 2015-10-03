@@ -18,11 +18,11 @@ locale imbue(const locale& loc);
 
 
 ##戻り値
-[`getloc`](getloc.md.nolink)`()` の以前の値
+[`getloc`](getloc.md)`()` の以前の値
 
 
 ##備考
-- 呼び出されたコールバック関数の内部で [`getloc`](getloc.md.nolink)`()` を呼び出した場合、新たに設定されたロケール（つまり引数 `loc` で指定されたロケール）が返される。
+- 呼び出されたコールバック関数の内部で [`getloc`](getloc.md)`()` を呼び出した場合、新たに設定されたロケール（つまり引数 `loc` で指定されたロケール）が返される。
 - 設定されたロケールは、ロケール依存の入出力に使用される。ただし、[`ios_base`](../ios_base.md) 自体にはロケール依存の入出力関数は存在しない。実際にロケール依存の入出力を行うのは、派生クラスである [`basic_istream`](../../istream/basic_istream.md) と [`basic_ostream`](../../ostream/basic_ostream.md)（および、それらの派生クラス [`basic_iostream`](../../istream/basic_iostream.md)）である。
 
 
@@ -75,4 +75,4 @@ int main()
 - [`ios_base`](../ios_base.md)`::`[`event`](type-event.md)
 - [`ios_base`](../ios_base.md)`::`[`event_callback`](type-event_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`register_callback`](register_callback.md)
-- [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md)
