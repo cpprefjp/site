@@ -9,7 +9,7 @@ enum event { erase_event, imbue_event, copyfmt_event };
 ```
 
 ##概要
-`event` は　[`register_callback`](register_callback.md.nolink) で登録した [`event_callback`](type-event_callback.md) 型のコールバック関数を呼び出す際に、当該関数を呼び出すきっかけとなったイベントの種類を表すための列挙型である。  
+`event` は　[`register_callback`](register_callback.md) で登録した [`event_callback`](type-event_callback.md) 型のコールバック関数を呼び出す際に、当該関数を呼び出すきっかけとなったイベントの種類を表すための列挙型である。  
 `event` には以下の表のような列挙子値が存在する。
 
 | 列挙子          | 発生したイベント |
@@ -25,6 +25,7 @@ enum event { erase_event, imbue_event, copyfmt_event };
 ```cpp
 #include <iostream>
 #include <sstream>
+#include <locale>
 
 std::stringstream ss1;
 
@@ -75,7 +76,7 @@ int main()
 * copyfmt_event[color ff0000]
 * imbue_event[color ff0000]
 * locale[link ../../locale.md]
-* register_callback[link register_callback.md.nolink]
+* register_callback[link register_callback.md]
 * imbue[link imbue.md.nolink]
 * copyfmt[link ../basic_ios/copyfmt.md.nolink]
 
@@ -109,7 +110,7 @@ event = erase_event, str = ss1, index = 0, getloc.name = C
 
 
 ##参照
-- [`ios_base`](../ios_base.md)`::`[`register_callback`](register_callback.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`register_callback`](register_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`event_callback`](type-event_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md.nolink)
 - [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md.nolink)
