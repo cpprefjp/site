@@ -17,7 +17,7 @@ namespace rel_ops {
 
 `std::rel_ops`名前空間は、関係演算子を自動的に定義する。
 
-`operator!=()`は、`operator==()`によって定義され、`operator>()`、`operator<=()`、`operator>=()`は、`operator==()`によって定義される。
+`operator!=()`は、`operator==()`によって定義され、`operator>()`、`operator<=()`、`operator>=()`は、`operator<()`によって定義される。
 
 各演算子の定義は以下の通りである：
 
