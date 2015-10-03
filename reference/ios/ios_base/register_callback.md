@@ -10,15 +10,19 @@ void register_callback(event_callback fn, int index);
 * event_callback[link type-event_callback.md]
 
 ##概要
+コールバック関数を登録する。
+
+
+##要件
+引数 `fn` で指定された関数は例外を投げてはいけない。
+
+
+##効果
 引数で指定された関数 `fn` を、[`imbue`](imbue.md.nolink)`()`、[`copyfmt`](../basic_ios/copyfmt.md.nolink)`()`、および、[`~ios_base`](op_destructor.md.nolink)`()` が呼び出された際に引数の `index` と共にコールバック関数として呼び出すよう登録する。
 
 登録されたコールバック関数は、登録と逆の順序で呼び出される。
 
 あるコールバック関数が呼び出されている中で登録されたコールバック関数は、次のイベントまで呼び出されない。
-
-
-##要件
-引数 `fn` で指定された関数は例外を投げてはいけない。
 
 
 ##戻り値
