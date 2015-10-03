@@ -99,7 +99,7 @@ int main()
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
+- [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
 ##参照
