@@ -15,7 +15,7 @@ enum event { erase_event, imbue_event, copyfmt_event };
 | 列挙子          | 発生したイベント |
 |-----------------|----------------------|
 | `erase_event`   | [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md.nolink) が呼び出されてオブジェクトの破棄を開始した。または、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](copyfmt.md.nolink) が呼び出された。 |
-| `imbue_event`   | [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md.nolink) が呼び出されて [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md.nolink) が新しく設定されたロケールオブジェクトを返すようになった。 |
+| `imbue_event`   | [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md) が呼び出されて [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md.nolink) が新しく設定されたロケールオブジェクトを返すようになった。 |
 | `copyfmt_event` | [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink) が呼び出されて [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md.nolink) 以外の設定がコピーされた。 |
 
 なお、各イベントが発生する正確なタイミングは、それぞれの関数を参照。
@@ -77,7 +77,7 @@ int main()
 * imbue_event[color ff0000]
 * locale[link ../../locale.md]
 * register_callback[link register_callback.md]
-* imbue[link imbue.md.nolink]
+* imbue[link imbue.md]
 * copyfmt[link ../basic_ios/copyfmt.md.nolink]
 
 ###出力
@@ -113,7 +113,7 @@ event = erase_event, str = ss1, index = 0, getloc.name = C
 - [`ios_base`](../ios_base.md)`::`[`register_callback`](register_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`event_callback`](type-event_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md.nolink)
-- [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md)
 - [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md.nolink)
 - [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink)
 - [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md.nolink)
