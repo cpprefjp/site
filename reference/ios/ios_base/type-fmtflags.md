@@ -217,7 +217,7 @@ a
 
 
 ##参照
-- [`ios_base`](../ios_base.md)`::`[`flags`](flags.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`flags`](flags.md)
 - [`ios_base`](../ios_base.md)`::`[`setf`](setf.md.nolink)
 - [`ios_base`](../ios_base.md)`::`[`unsetf`](unsetf.md.nolink)
 - [`boolalpha`](../boolalpha.md)
