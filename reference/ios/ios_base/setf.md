@@ -25,7 +25,7 @@ fmtflags setf(fmtflags fmtfl, fmtflags mask);       // (2)
 
 
 ##備考
-- (1) の形式は単独のビットで意味のあるフィールドに、(2) の形式は複数のビットで排他的に使用するようなフィールドに用いる。（例を参照）
+- (1) の形式は単独のビットで意味のあるフィールドに、(2) の形式は複数のビットで一つの意味を表すフィールドに用いる。（例を参照）
 - 設定後に戻す必要が無いような場合には、本関数より各種マニピュレータを使用した方が便利だろう。
 
 
@@ -88,4 +88,4 @@ true
 ##参照
 - [`ios_base`](../ios_base.md)`::`[`fmtflags`](type-fmtflags.md)
 - [`ios_base`](../ios_base.md)`::`[`flags`](flags.md)
-- [`ios_base`](../ios_base.md)`::`[`unsetf`](unsetf.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`unsetf`](unsetf.md)

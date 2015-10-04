@@ -26,7 +26,7 @@ fmtflags flags(fmtflags fmtfl);     // (2)
 
 ##備考
 (2) の形式ではすべての書式フラグの設定を行ってしまうため、特定の書式フラグを変更するのにはあまり向かないが、書式フラグを一時的に変更した後に元に戻す際には便利である。  
-それ以外の用途では、一般的に [`setf`](setf.md)、[`unsetf`](unsetf.md.nolink) を使用したり、各種マニピュレータを使用する方が便利である。
+それ以外の用途では、一般的に [`setf`](setf.md)、[`unsetf`](unsetf.md) を使用したり、各種マニピュレータを使用する方が便利である。
 
 
 ##例
@@ -96,4 +96,4 @@ int main()
 ##参照
 - [`ios_base`](../ios_base.md)`::`[`fmtflags`](type-fmtflags.md)
 - [`ios_base`](../ios_base.md)`::`[`setf`](setf.md)
-- [`ios_base`](../ios_base.md)`::`[`unsetf`](unsetf.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`unsetf`](unsetf.md)
