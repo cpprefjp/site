@@ -13,7 +13,7 @@ namespace std {
 ##概要
 浮動小数点数を初期状態の書式で出力することを指示するマニピュレータ。
 
-この書式は、出力値や出力すべき精度により小数点数表記と指数表記が切り替わるものである（[`printf()`](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/printf.3.html)関数の`%g`／`%G`相当）。
+この書式は、出力値や出力すべき精度により小数点数表記と指数表記が切り替わるものである（[`printf()`](http://linuxjm.osdn.jp/html/LDP_man-pages/man3/printf.3.html)関数の`%g`／`%G`相当）。
 
 ##効果
 `str.unsetf(ios_base::floatfield)`を実行する。

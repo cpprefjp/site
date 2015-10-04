@@ -28,7 +28,7 @@ namespace this_thread {
 
 
 ##備考
-C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched_yield()`](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man2/sched_yield.2.html)関数やWindows APIの[`SwitchToThread()`](http://msdn.microsoft.com/ja-jp/library/cc429368.aspx)関数などを参考のこと。
+C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched_yield()`](http://linuxjm.osdn.jp/html/LDP_man-pages/man2/sched_yield.2.html)関数やWindows APIの[`SwitchToThread()`](http://msdn.microsoft.com/ja-jp/library/cc429368.aspx)関数などを参考のこと。
 
 
 ##例
