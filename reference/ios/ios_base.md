@@ -30,7 +30,7 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 | [`flags`](ios_base/flags.md)     | 書式フラグの取得・設定       |                |
 | [`setf`](ios_base/setf.md)      | 書式フラグの設定             |                |
 | [`unsetf`](ios_base/unsetf.md)    | 書式フラグの解除             |                |
-| `precision` | 浮動書数点数精度の取得・設定 |                |
+| [`precision`](ios_base/precision.md) | 浮動書数点数精度の取得・設定 |                |
 | `width`     | フィールド幅の取得・設定     |                |
 
 ###ロケール
