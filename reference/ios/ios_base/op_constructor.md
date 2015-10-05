@@ -43,7 +43,7 @@ public:
 
 
 ##参照
-- [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md)
 - [`basic_ios`](../basic_ios.md)
 - [`basic_ios`](../basic_ios.md)`::`[`basic_ios`](../basic_ios/op_constructor.md.nolink)
 - [`basic_ios`](../basic_ios.md)`::`[`init`](../basic_ios/init.md.nolink)
