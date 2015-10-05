@@ -64,7 +64,7 @@ std::ostream& operator<<(std::ostream& os, const MyUnsigned& x)
   std::string s;
   unsigned n = x.value;
   do {
-    s = static_cast<char>('0' + n % radix) + s;
+    s.insert(0, 1, '0' + n % radix);
     n /= radix;
   } while (n != 0);
 
@@ -74,7 +74,10 @@ std::ostream& operator<<(std::ostream& os, const MyUnsigned& x)
 // マニピュレータ用の出力演算子
 std::ostream& operator<<(std::ostream& os, const setradix& manip)
 {
-  os.iword(setradix::index) = manip.radix;
+  long& radix = os.iword(setradix::index);
+  if (!os.bad()) {
+    radix = manip.radix;
+  }
   return os;
 }
 
@@ -101,6 +104,8 @@ int main()
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 * ios_base[link ../ios_base.md]
+* insert[link ../../string/basic_string/insert.md]
+* bad[link ../basic_ios/bad.md]
 
 ###出力
 ```
