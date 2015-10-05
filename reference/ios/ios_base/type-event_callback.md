@@ -15,6 +15,10 @@ typedef void (*event_callback)(event ev, ios_base& str, int index);
 イベントが発生して当該関数が呼ばれる際には、`ev` には発生したイベントの種類（[`event`](type-event.md)）が、`str` にはイベントが発生したストリームが、`index` には [`register_callback`](register_callback.md) での登録時に指定した値がそれぞれ渡される。
 
 
+##備考
+[`register_callback`](register_callback.md) で登録する関数は例外を投げてはいけない。
+
+
 ##例
 [`event`](type-event.md) の例を参照
 
