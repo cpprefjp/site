@@ -11,6 +11,7 @@ void reset();
 
 ##概要
 共有状態を作り直す。
+
 一度タスクを実行したのちは共有状態への結果値の再格納ができないため、同じ`packaged_task`オブジェクトの同じ関数(タスク)を再度非同期実行したい場合に使用する。
 
 
@@ -18,7 +19,7 @@ void reset();
 ```cpp
 *this = packaged_task(std::move(f));
 ```
-* move[link /reference/utility/move.md]
+* std::move[link /reference/utility/move.md]
 
 によって、新たに共有状態を作成する。古い共有状態は放棄される。
 

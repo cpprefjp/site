@@ -6,13 +6,26 @@
 * cpp11[meta cpp]
 
 ```cpp
-shared_future& operator=(const shared_future& rhs);
-shared_future& operator=(shared_future&& rhs) noexcept;
+shared_future& operator=(const shared_future& rhs);     // (1)
+shared_future& operator=(shared_future&& rhs) noexcept; // (2)
 ```
 
 ##概要
-- `shared_future& operator=(const shared_future& rhs);`<br/>コピー代入。効果： 共有状態を解放し、`rhs`の共有状態を含むコンテンツを`*this`にコピー代入する。`rhs`と`*this`が同じ共有状態を参照するようになる。<br/>事後条件： `valid() == rhs.valid()`
-- `shared_future& operator=(shared_future&& rhs) noexcept;`<br/>ムーブ代入。<br/>事後条件： `valid()`の戻り値が、この関数を呼び出す前の`rhs.valid()`と等価になること。`rhs.valid() == false`になること。<br/>戻り値： `*this例外： 投げない`
+- (1) : コピー代入。
+- (2) : ムーブ代入。
+
+
+##効果
+- (1) : 共有状態を解放し、`rhs`の共有状態を含むコンテンツを`*this`にコピー代入する。`rhs`と`*this`が同じ共有状態を参照するようになる。
+
+
+##事後条件
+- (1) : `valid() == rhs.valid()`
+- (2) : `valid()`の戻り値が、この関数を呼び出す前の`rhs.valid()`と等価になること。`rhs.valid() == false`になること。
+
+
+##例外
+- (2) : 投げない
 
 
 ##戻り値

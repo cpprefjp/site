@@ -6,13 +6,22 @@
 * cpp11[meta cpp]
 
 ```cpp
-promise& operator=(promise&& rhs) noexcept;
-promise& operator=(const promise& rhs) = delete;
+promise& operator=(promise&& rhs) noexcept;      // (1)
+promise& operator=(const promise& rhs) = delete; // (2)
 ```
 
 ##概要
-- `promise& operator=(promise&& rhs) noexcept;`<br/>ムーブ代入演算子。現在の共有状態を放棄し、`promise(std::`[`move`](/reference/utility/move.md)`(rhs)).swap(*this)`する。<br/>戻り値： `*this`
-- `promise& operator=(const promise& rhs) = delete;`<br/>コピー代入演算子。コピー禁止。
+- (1) : ムーブ代入演算子。
+- (2) : コピー代入演算子。コピー禁止。
+
+
+##効果
+- (1) : 現在の共有状態を放棄し、`promise(std::`[`move`](/reference/utility/move.md)`(rhs)).swap(*this)`する。
+
+
+##戻り値
+- (1) : `*this`
+
 
 ##例
 ```cpp

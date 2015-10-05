@@ -12,6 +12,7 @@ shared_future<R> share();
 
 ##概要
 `future`オブジェクトを共有する。
+
 `*this`の`future`オブジェクトと同じ共有状態を持つ`shared_future`オブジェクトを生成する。
 
 この関数を呼び出したあと、`*this`の`future`オブジェクトは無効となる。

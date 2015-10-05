@@ -6,18 +6,25 @@
 * cpp11[meta cpp]
 
 ```cpp
-shared_future() noexcept;
-shared_future(const shared_future& rhs);
-shared_future(future<R>&&) noexcept;
-shared_future(shared_future&& rhs) noexcept;
+shared_future() noexcept;                    // (1)
+shared_future(const shared_future& rhs);     // (2)
+shared_future(future<R>&&) noexcept;         // (3)
+shared_future(shared_future&& rhs) noexcept; // (4)
 ```
 * future[link /reference/future/future.md]
 
 ##shared_futureオブジェクトの構築
-- `shared_future() noexcept;`<br/>デフォルトコンストラクタ。共有状態を持たない空の`shared_future`オブジェクトを生成する。<br/>事後条件： [`valid()`](./valid.md)` == false`
-- `shared_future(const shared_future& rhs);`<br/>コピーコンストラクタ。`rhs`と同じ共有状態を参照する`shared_future`オブジェクトを生成する。<br/>事後条件： [`valid()`](./valid.md)` == rhs.`[`valid()`](./valid.md)
-- `shared_future(`[`future`](/reference/future/future.md)`<R>&&) noexcept;`
-- `shared_future(shared_future&& rhs) noexcept;`<br/>ムーブコンストラクタ。`rhs`の共有状態への参照を`*this`に移動して`shared_future`オブジェクトを生成する。<br/>事後条件： [`valid()`](./valid.md)が、この関数実行前の`rhs.`[`valid()`](./valid.md)と等価になること。`rhs.`[`valid()`](./valid.md)` == false`になること。
+- (1) : デフォルトコンストラクタ。共有状態を持たない空の`shared_future`オブジェクトを生成する。
+- (2) : コピーコンストラクタ。`rhs`と同じ共有状態を参照する`shared_future`オブジェクトを生成する。
+- (3), (4) : ムーブコンストラクタ。`rhs`の共有状態への参照を`*this`に移動して`shared_future`オブジェクトを生成する。
+
+
+##事後条件
+- (1) :  [`valid()`](./valid.md)` == false`
+- (2) : [`valid()`](./valid.md)` == rhs.`[`valid()`](./valid.md)
+- (3), (4) :
+    - [`valid()`](./valid.md)が、この関数実行前の`rhs.`[`valid()`](./valid.md)と等価になること。
+    - `rhs.`[`valid()`](./valid.md)` == false`になること。
 
 
 ##例

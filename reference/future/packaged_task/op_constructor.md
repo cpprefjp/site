@@ -23,7 +23,6 @@ packaged_task(packaged_task&& rhs) noexcept;       // (5)
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 ##概要
-
 - (1) : デフォルトコンストラクタ。
 - (2) : 関数オブジェクトを受け取るコンストラクタ。
 - (3) : 関数オブジェクトおよびカスタムアロケータを受け取るコンストラクタ。

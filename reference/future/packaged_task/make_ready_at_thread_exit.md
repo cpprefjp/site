@@ -11,11 +11,13 @@ void make_ready_at_thread_exit(ArgTypes... args);
 
 ##概要
 タスクを実行し、スレッド終了時に準備完了状態にする。
+
 この関数は、タスクの実行と準備完了状態にするタイミングをずらし、準備完了にするのをスレッド終了時まで遅延させたい場合に使用する。
 
 
 ##効果
 メンバ変数として保持している関数オブジェクト`f`に対して[`INVOKE`](/reference/functional/invoke.md)`(f, args..., R)`によって関数呼び出しを行い、その戻り値を[`future`](../future.md)との共有状態に格納する。関数`f`の内部で例外が送出された場合は、共有状態に送出された例外が格納される。
+
 現在のスレッドが終了し、スレッドローカル記憶域を持つ全てのオブジェクトを破棄したあと、準備完了状態([`future_status::ready`](../future_status.md))にする。
 
 
@@ -31,7 +33,6 @@ void make_ready_at_thread_exit(ArgTypes... args);
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <future>
@@ -76,7 +77,6 @@ int main()
 - C++11
 
 ###処理系
-
 - [Clang, C++11 mode](/implementation.md#clang): 3.5
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
@@ -84,5 +84,5 @@ int main()
 
 
 ##参照
-[_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
+- [_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
 

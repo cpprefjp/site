@@ -15,6 +15,7 @@ void operator()(ArgTypes... args);
 
 ##効果
 メンバ変数として保持している関数オブジェクト`f`に対して[`INVOKE`](/reference/functional/invoke.md)`(f, args..., R)`によって関数呼び出しを行い、その戻り値を[`future`](../future.md)との共有状態に格納する。関数`f`の内部で例外が送出された場合は、共有状態に送出された例外が格納される。
+
 共有状態が準備完了状態([`future_status::ready`](../future_status.md))となる。
 
 

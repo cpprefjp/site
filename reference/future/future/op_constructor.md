@@ -6,15 +6,23 @@
 * cpp11[meta cpp]
 
 ```cpp
-future() noexcept;
-future(future&& rhs) noexcept;
-future(const future& rhs) = delete;
+future() noexcept;                  // (1)
+future(future&& rhs) noexcept;      // (2)
+future(const future& rhs) = delete; // (3)
 ```
 
 ##futureオブジェクトの構築
-- `future() noexcept;`<br/>デフォルトコンストラクタ。共有状態を持たない空の`future`オブジェクトを生成する。<br/>事後条件： `[valid()](/reference/future/future/valid.md) == false`
-- `future(future&& rhs) noexcept;`<br/>ムーブコンストラクタ。`rhs`オブジェクトが持つ共有状態を`*this`に移動する。<br/>事後条件： [`valid()`](./valid.md)が、この関数実行前の`rhs.`[`valid()`](/reference/future/future/valid.md)と等価になること。`rhs.`[`valid()`](./valid.md)` == false`になること。
+- (1) : デフォルトコンストラクタ。共有状態を持たない空の`future`オブジェクトを生成する。
+- (2) : ムーブコンストラクタ。`rhs`オブジェクトが持つ共有状態を`*this`に移動する。
 - `future(const future& rhs) = delete;`<br/>コピーコンストラクタ。コピー不可。
+
+
+##事後条件
+- (1) : `[valid()](/reference/future/future/valid.md) == false`
+- (2) :
+    - [`valid()`](./valid.md)が、この関数実行前の`rhs.`[`valid()`](/reference/future/future/valid.md)と等価になること。
+    - `rhs.`[`valid()`](./valid.md)` == false`になること。
+
 
 ##例
 ```cpp

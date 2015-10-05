@@ -6,24 +6,28 @@
 * cpp11[meta cpp]
 
 ```cpp
-promise();
+promise();                                    // (1)
 
 template <class Allocator>
-promise(allocator_arg_t, const Allocator& a);
+promise(allocator_arg_t, const Allocator& a); // (2)
 
-promise(promise&& rhs) noexcept;
-promise(const promise& rhs) = delete;
+promise(promise&& rhs) noexcept;              // (3)
+promise(const promise& rhs) = delete;         // (4)
 ```
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 ##promiseオブジェクトの構築
-- `promise();`<br/>デフォルトコンストラクタ。`promise`オブジェクトと共有状態の構築を行う。
-- `template <class Allocator>`<br/>`promise(allocator_arg_t, const Allocator& a);`<br/>アロケータを指定して`promise`オブジェクトと共有状態の構築を行う。
-- `promise(promise&& rhs) noexcept;`<br/>ムーブコンストラクタ。新たな`promise`オブジェクトを構築し、`rhs`から共有状態の所有権を移譲する。<br/>事後条件： `rhs`が共有状態を持っていないこと
-- `promise(const promise& rhs) = delete;`<br/>コピーコンストラクタ。コピー禁止。
+- (1) : デフォルトコンストラクタ。`promise`オブジェクトと共有状態の構築を行う。
+- (2) : アロケータを指定して`promise`オブジェクトと共有状態の構築を行う。
+- (3) : ムーブコンストラクタ。新たな`promise`オブジェクトを構築し、`rhs`から共有状態の所有権を移譲する。
+- (4) : コピーコンストラクタ。コピー禁止。
 
 
-###例
+##事後条件
+- (3) : `rhs`が共有状態を持っていないこと
+
+
+##例
 ```cpp
 #include <memory>
 #include <future>

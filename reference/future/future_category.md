@@ -17,6 +17,7 @@ namespace std {
 
 ##戻り値
 [`error_category`](/reference/system_error/error_category.md)クラスを継承したクラスオブジェクトへの参照を返す。
+
 この関数を呼び出すことによって返されるオブジェクトは、同じオブジェクトを指す。
 
 この関数によって返されるオブジェクトのクラスは以下の特徴を持つ：

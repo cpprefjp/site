@@ -6,13 +6,30 @@
 * cpp11[meta cpp]
 
 ```cpp
-future& operator=(const future& rhs) = delete;
-future& operator=(future&& rhs) noexcept;
+future& operator=(const future& rhs) = delete; // (1)
+future& operator=(future&& rhs) noexcept;      // (2)
 ```
 
 ##概要
-- `future& operator=(const future& rhs) = delete;`<br/>コピー代入。コピー不可。
-- `future& operator=(future&& rhs) noexcept;`<br/>ムーブ代入。効果： 共有状態を解放し、`rhs`の共有状態を含むコンテンツを`*this`にムーブ代入する。事後条件： [`valid()`](./valid.md)の戻り値が、この関数を呼び出す前の`rhs.`[`valid()`](./valid.md)と等価になること。`rhs.`[`valid()`](./valid.md)` == false`になること。<br/>戻り値： `*this`<br/>例外： 投げない
+- (1) : コピー代入。コピー不可。
+- (2) : ムーブ代入。
+
+
+##効果
+- (2) : 共有状態を解放し、`rhs`の共有状態を含むコンテンツを`*this`にムーブ代入する。
+
+
+##戻り値
+- (2) : `*this`
+
+
+##事後条件
+- (2) : [`valid()`](./valid.md)の戻り値が、この関数を呼び出す前の`rhs.`[`valid()`](./valid.md)と等価になること。`rhs.`[`valid()`](./valid.md)` == false`になること。
+
+
+##例外
+- (2) : 投げない
+
 
 ##例
 ```cpp
