@@ -15,6 +15,7 @@ namespace std {
 変数のアドレスを必ず取得する。
 
 `operator&()` をオーバーロードしたクラスであっても、正しくそのオブジェクトのアドレスが欲しいという要求がある。
+
 `addressof()`関数は、`operator&()` がオーバーロードされていても、変数のアドレスを取得できる。
 
 
@@ -72,5 +73,5 @@ int main()
 	- Visual C++ 11.0はマニュアル（MSDNライブラリ）に記載がないものの、実装されている。
 
 ##参照
-[boost::addressof() - Boost C++ Libraries](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#addressof)
+- [boost::addressof() - Boost C++ Libraries](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#addressof)
 
