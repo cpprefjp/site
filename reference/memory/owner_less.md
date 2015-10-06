@@ -118,7 +118,7 @@ Carol
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 
-###関連項目
+##関連項目
 - [`shared_ptr::owner_before()`](/reference/memory/shared_ptr/owner_before.md)
 
 
