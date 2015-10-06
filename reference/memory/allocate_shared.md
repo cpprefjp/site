@@ -20,7 +20,7 @@ namespace std {
 
 一般的にアロケータは型 `T` のサイズより大きいサイズのアロケートを要求される。
 
-これは、[`make_shared`](/reference/memory/shared_ptr/make_shared.md) と同様に型 `T` と `shared_ptr` の管理領域を1つの大きなブロックとしてアロケートすることが実装に推奨されているためである。
+これは、[`make_shared`](/reference/memory/make_shared.md) と同様に型 `T` と `shared_ptr` の管理領域を1つの大きなブロックとしてアロケートすることが実装に推奨されているためである。
 
 また、コピー不可能なクラスもムーブによって引数リストへ渡すことが可能である。
 
@@ -57,5 +57,5 @@ int main() {
 	- Visual C++ 11.0までは、可変引数テンプレートに対応していないため、不完全な実装である。
 
 ##関連項目
-- [`std::make_shared`](/reference/memory/shared_ptr/make_shared.md)
+- [`std::make_shared`](/reference/memory/make_shared.md)
 
