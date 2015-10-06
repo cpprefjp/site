@@ -115,4 +115,5 @@ int main()
 - [Allocators@C++11 - Cryolite](http://www.slideshare.net/Cryolite/allocator11final)
 - [A visitor’s guide to C++ allocators](https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html)
 - [N2982 Allocators post Removal of C++ Concepts (Rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2982.pdf)
+- [AllocatorAwareContainer: Introduction and pitfalls of `propagate_on_container_XXX` defaults](http://foonathan.github.io/blog/2015/10/05/allocatorawarecontainer-propagation-pitfalls.html)
 
