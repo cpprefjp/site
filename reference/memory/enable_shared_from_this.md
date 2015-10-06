@@ -44,23 +44,23 @@ ptr->func();
 ```
 
 
-###protectedメンバ関数
+##protectedメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|-------------------------------------------------------------------------|----------------|-------|
+|----------------------------------------------------------------|----------------|-------|
 | [`(constructor)`](./enable_shared_from_this/op_constructor.md) | コンストラクタ | C++11 |
-| [`(destructor)`](./enable_shared_from_this/op_destructor.md) | デストラクタ   | C++11 |
-| [`operator=`](./enable_shared_from_this/op_assign.md)                   | 代入演算子     | C++11 |
+| [`(destructor)`](./enable_shared_from_this/op_destructor.md)   | デストラクタ   | C++11 |
+| [`operator=`](./enable_shared_from_this/op_assign.md)          | 代入演算子     | C++11 |
 
 
-###publicメンバ関数
+##publicメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|----------------------------------------|-------|
 | [`shared_from_this`](./enable_shared_from_this/shared_from_this.md) | `this`ポインタを`shared_ptr`に変換する | C++11 |
 
 
-###例
+##例
 ```cpp
 #include <cassert>
 #include <memory>
@@ -99,6 +99,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
 
 
-###参照
-- [enable_shared_from_thisクラステンプレート - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120314/p1)
+##参照
+- [`enable_shared_from_this`クラステンプレート - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120314/p1)
 
