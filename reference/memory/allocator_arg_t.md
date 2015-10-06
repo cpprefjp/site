@@ -12,7 +12,11 @@ namespace std {
 ```
 
 ##概要
-`allocator_arg_t`クラスは、実装を持たない空のクラスである。このクラスは、コンストラクタや関数のオーバーロードを行う際に一意な型として使用される。[`tuple`](/reference/tuple/tuple.md)や[`promise`](/reference/future/promise.md)、[`function`](/reference/functional/function.md)などのコンストラクタではこのクラスを第一引数として第二引数以降にアロケータを設定している。`allocator_arg_t`型の変数`allocator_arg`が定義されている。
+`allocator_arg_t`は、実装を持たない空のクラスである。
+
+このクラスは、コンストラクタや関数のオーバーロードを行う際に一意な型として使用される。[`tuple`](/reference/tuple/tuple.md)や[`promise`](/reference/future/promise.md)、[`function`](/reference/functional/function.md)などのコンストラクタではこのクラスを第一引数として第二引数以降にアロケータを設定している。
+
+`allocator_arg_t`型の変数`allocator_arg`が定義されている。
 
 
 ##バージョン
@@ -25,7 +29,8 @@ namespace std {
 - ICC: ?
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-##参照
+##関連項目
 - [`std::tuple`](/reference/tuple/tuple.md)クラス
 - [`std::promise`](/reference/future/promise.md)クラス
 - [`std::function`](/reference/functional/function.md)クラス
+
