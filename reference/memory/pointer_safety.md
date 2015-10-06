@@ -42,7 +42,8 @@ namespace std {
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
-###参照
-* [C++0x ガベージコレクションと到達可能性ベースリーク検知の最小支援 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081117/1226913980)
+##参照
+- [C++0x ガベージコレクションと到達可能性ベースリーク検知の最小支援 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081117/1226913980)
 * [N2670: Minimal Support for Garbage Collection and Reachability-Based Leak Detection (revised)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2670.htm)
-* [Garbage Collection ABI - C++ FAQ - www.stroustrup.com](http://www.stroustrup.com/C++11FAQ.html#gc-abi)
+- [Garbage Collection ABI - C++ FAQ - www.stroustrup.com](http://www.stroustrup.com/C++11FAQ.html#gc-abi)
+
