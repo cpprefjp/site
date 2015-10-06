@@ -33,8 +33,8 @@
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|--------------------------------------------|-------|
 | [`shared_ptr`](./memory/shared_ptr.md) | 共有方式スマートポインタ(class template) | C++11 |
-| [`make_shared`](./memory/make_shared.md) | `shared_ptr`を構築するヘルパ関数 | C++11 |
-| [`allocate_shared`](./memory/allocate_shared.md) | アロケータを指定して`shared_ptr`を構築するヘルパ関数 | C++11 |
+| [`make_shared`](./memory/make_shared.md) | `shared_ptr`を構築するヘルパ関数(function template) | C++11 |
+| [`allocate_shared`](./memory/allocate_shared.md) | アロケータを指定して`shared_ptr`を構築するヘルパ関数(function template) | C++11 |
 | [`enable_shared_from_this`](./memory/enable_shared_from_this.md) | `this`を指す`shared_ptr`を可能にする(class template) | C++11 |
 | [`weak_ptr`](./memory/weak_ptr.md) | `shared_ptr`のインスタンス監視(class template) | C++11 |
 | [`bad_weak_ptr`](./memory/bad_weak_ptr.md) | `weak_ptr`から投げられる例外クラス(class template) | C++11 |
