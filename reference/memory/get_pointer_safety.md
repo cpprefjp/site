@@ -16,7 +16,8 @@ namespace std {
 
 
 ##戻り値
-[`pointer_safety`](/reference/memory/pointer_safety.md)型の列挙値のうち、いずれかが返却される。 
+[`pointer_safety`](/reference/memory/pointer_safety.md)型の列挙値のうち、いずれかが返却される。
+
 返される値は処理系依存。
 
 
