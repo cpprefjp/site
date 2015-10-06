@@ -13,9 +13,10 @@ namespace std {
 
 ##概要
 `bad_weak_ptr`は、[`weak_ptr`](./weak_ptr.md)オブジェクトから破棄済みの[`shared_ptr`](./shared_ptr.md)オブジェクトを構築しようとした場合に発生する例外クラスである。
+
 破棄済みの`shared_ptr`を監視する`weak_ptr`オブジェクトから`weak_ptr::lock()`メンバ関数で`shared_ptr`オブジェクトを構築した場合、すでに`shared_ptr`が破棄されていれば、例外を送出することなく空の`shared_ptr`が返される。しかし、破棄済みの`shared_ptr`を監視する`weak_ptr`オブジェクトが`shared_ptr`のコンストラクタ引数として渡された場合には、この例外が送出される。
 
-###メンバ関数
+##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|--------------------------------------------------------|-------|
@@ -24,7 +25,7 @@ namespace std {
 | `bad_weak_ptr& operator=(const bad_weak_ptr&) noexcept;` | 代入演算子 | C++11 |
 | `virtual const char* what() const noexcept;`             | エラー内容を取得する。文字列`"bad_weak_ptr"`が返される | C++11 |
 
-###例
+##例
 ```cpp
 #include <memory>
 #include <iostream>
@@ -59,5 +60,5 @@ std::bad_weak_ptr
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
 	- Visual C++ 10.0までは`what()`が`"tr1::bad_weak_ptr"`を返す。
 
-###参照
+##参照
 
