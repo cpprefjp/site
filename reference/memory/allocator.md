@@ -35,7 +35,7 @@ C++11から：
 デストラクタを除く、`allocator`クラスのメンバ関数は、データ競合を引き起こさない。そのため、複数スレッドから同時に`allocator`クラスのメンバ関数が呼ばれたとしても、正しくメモリ確保・解放される。
 
 
-###メンバ関数
+##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------|-------|
@@ -50,7 +50,7 @@ C++11から：
 | [`destroy`](./allocator/destroy.md)         | インスタンスを破棄する                       | |
 
 
-###メンバ型
+##メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|----------------------------------------------|-------|
@@ -65,7 +65,7 @@ C++11から：
 | `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータの状態を伝搬するか。 [`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md) | C++14 |
 
 
-###非メンバ関数
+##非メンバ関数
 
 | 名前                                        | 説明                          | 対応バージョン |
 |---------------------------------------------|-------------------------------|-------|
@@ -112,7 +112,7 @@ int main(int argc, char** argv) {
     - [GCC, C++1y mode](/implementation.md#gcc): 
     - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-###参照
+##参照
 - [A visitor’s guide to C++ allocators](https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html)
 - [LWG #2103 - std::allocator_traits<std::allocator<T>>::propagate_on_container_move_assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2103)
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
