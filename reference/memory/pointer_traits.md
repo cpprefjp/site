@@ -6,8 +6,11 @@
 
 ```cpp
 namespace std {
-  template <class Ptr> struct pointer_traits;
-  template <class T> struct pointer_traits<T*>;
+  template <class Ptr>
+  struct pointer_traits;
+
+  template <class T>
+  struct pointer_traits<T*>;
 }
 ```
 
@@ -15,14 +18,14 @@ namespace std {
 `pointer_traits`は、ポインタと見なせる型の情報に統一的にアクセスするためのクラスである。スマートポインタもポインタと見なせる。
 
 
-###静的メンバ関数
+##静的メンバ関数
 
 | 名前                                           | 説明                       | 対応バージョン |
 |------------------------------------------------|----------------------------|-------|
 | [`pointer_to`](./pointer_traits/pointer_to.md) | 変数へのポインタを取得する | C++11 |
 
 
-###メンバ型
+##メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|----------------------------------------------|-------|
@@ -32,7 +35,7 @@ namespace std {
 | `rebind<U>`    | 型の再束縛。<br/> 型`Ptr`が`rebind<U>`を持っていればそれを使用する。型`Ptr`が型`T`と0個以上の他のパラメータをとるクラステンプレートであれば、型`U`で再束縛した`Ptr`型を使用する。どちらもなければ、`rebind<U>`のインスタンス化は不適格となる。 | C++11 |
 
 
-###メンバ型(ポインタに対する特殊化)
+##メンバ型(ポインタに対する特殊化)
 
 | 名前              | 説明 | 対応バージョン |
 |-------------------|------|----------------|
@@ -74,7 +77,8 @@ int main()
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-###参照
+
+##参照
 - [N2982 Allocators post Removal of C++ Concepts (Rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2982.pdf)
 - [Why `pointer_traits` was introduced in C++11 - Doug Judd's Blog](http://blog.nuggetwheat.org/index.php/2015/09/01/why-pointer_traits-was-introduced-in-c11/)
 
