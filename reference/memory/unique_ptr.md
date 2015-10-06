@@ -75,7 +75,7 @@ namespace std {
 | [`operator>`](./unique_ptr/op_greater.md)        | 左辺が右辺より大きいかを判定する          | C++11 |
 | [`operator>=`](./unique_ptr/op_greater_equal.md) | 左辺が右辺以上かを判定する                | C++11 |
 | [`swap`](./unique_ptr/swap_free.md)              | 2つの`unique_ptr`オブジェクトを入れ替える | C++11 |
-| [`make_unique`](./unique_ptr/make_unique.md)     | `unique_ptr`を構築するヘルパ関数          | C++14 |
+| [`make_unique`](./make_unique.md)                | `unique_ptr`を構築するヘルパ関数          | C++14 |
 
 ##ハッシュサポート
 

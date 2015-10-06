@@ -16,10 +16,11 @@ namespace std {
   unspecified make_unique(Args&&...) = delete; // (3)
 }
 ```
+* unique_ptr[link ./unique_ptr.md]
 * unspecified[italic]
 
 ##概要
-`make_ptr`オブジェクトを構築する。
+`unique_ptr`オブジェクトを構築する。
 
 - (1) : 非配列型`T`のコンストラクタ引数を受け取り、`unique_ptr<T>`オブジェクトを構築する。
 - (2) : 配列型`T`の要素数を受け取り、`unique_ptr<T>`オブジェクトを構築する。
