@@ -111,7 +111,7 @@ int main()
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-###参照
+##参照
 - [Allocators@C++11 - Cryolite](http://www.slideshare.net/Cryolite/allocator11final)
 - [A visitor’s guide to C++ allocators](https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html)
 - [N2982 Allocators post Removal of C++ Concepts (Rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2982.pdf)
