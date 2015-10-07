@@ -17,29 +17,38 @@ namespace std {
 
 `is_error_code_enum`はデフォルトでは[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承し、`is_error_code_enum<T>::value`は`false`となる。
 
-`is_error_code_enum<T>::value == true`であることを要求する関数にユーザー定義の列挙型を渡したい場合は、`is_error_code_enum`クラスを特殊化し、[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承するよう特殊化する必要がある。標準では`is_error_code_enum<T>::value == true`となるような特殊化は提供しない。
+`is_error_code_enum<T>::value == true`であることを要求する関数（[`error_code`](error_code.md) の[コンストラクタ](error_code/op_constructor.md)、および、[代入演算子](error_code/op_assign.md)）にユーザー定義の列挙型を渡したい場合は、`is_error_code_enum`クラスを特殊化し、[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承するよう特殊化する必要がある。
+
+標準では、[`io_errc`](../ios/io_errc.md)列挙型と[`future_errc`](../future/future_errc.md)列挙型に対する[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)の特殊化を提供する。
 
 
 ##例
 ```cpp
 #include <system_error>
+#include <ios>
+#include <future>
+#include <cassert>
 
 enum class user_defined_error {
   success = 0,
   error = 1,
 };
 
-namespace std {
-  template <>
-  struct is_error_code_enum<user_defined_error> : true_type {};
-}
-
 int main()
 {
-  static_assert(!std::is_error_code_enum<std::errc>::value, "");
-  static_assert(std::is_error_code_enum<user_defined_error>::value, "");
+  static_assert(std::is_error_code_enum<std::io_errc>::value, "");
+  static_assert(std::is_error_code_enum<std::future_errc>::value, "");
+  static_assert(!std::is_error_code_enum<user_defined_error>::value, "");
 }
 ```
+* system_error[link ../system_error.md]
+* ios[link ../ios.md]
+* future[link ../future.md]
+* cassert[link ../cassert.md.nolink]
+* is_error_code_enum[color ff0000]
+* static_assert[link ../cassert/static_assert.md.nolink]
+* io_errc[link ../ios/io_errc.md]
+* future_errc[link ../future/future_errc.md]
 
 ###出力
 ```
@@ -50,11 +59,22 @@ int main()
 - C++11
 
 ###処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5.0, 3.6.0, 3.7.0, 3.8.0
 - [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.4.7, 4.5.4, 4.6.4, 4.7.0, 4.7.3, 4.8.2, 4.9.0, 4.9.1, 4.9.2, 5.1.0, 5.2.0, 6.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp):
 
 
+###備考
+GCC では、4.4 から `is_error_code_enum` が提供されているものの、[`future_errc`](../future/future_errc.md) は 4.5 から、[`io_errc`](../ios/io_errc.md) は 5.1 からのサポートである。
+
+
 ##参照
+- [`error_code`](error_code.md)
+- [`error_code`](error_code.md)`::`[`error_code`](error_code/op_constructor.md)
+- [`error_code`](error_code.md)`::`[`operator=`](error_code/op_assign.md)
+* [`future_errc`](../future/future_errc.md)
+* [`io_errc`](../ios/io_errc.md)
+- [`error_condition`](error_condition.md)
+- [`is_error_condition_enum`](is_error_condition_enum.md)
