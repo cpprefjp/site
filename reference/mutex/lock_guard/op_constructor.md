@@ -6,17 +6,25 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit lock_guard(mutex_type& m);
-lock_guard(mutex_type& m, adopt_lock_t);
+explicit lock_guard(mutex_type& m);      // (1)
+lock_guard(mutex_type& m, adopt_lock_t); // (2)
 
-lock_guard(lock_guard const&) = delete;
+lock_guard(lock_guard const&) = delete;  // (3)
 ```
 * adopt_lock_t[link /reference/mutex/adopt_lock.md]
 
-##lock_guardオブジェクトの構築
-- `explicit lock_guard(mutex_type& m);`<br/>非ロック状態のミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。<br/>効果： `m.lock()`
-- `lock_guard(mutex_type& m, adopt_lock_t);`<br/>ロック済みミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。<br/>例外： 投げない
-- `lock_guard(lock_guard const&) = delete;`<br/>コピーコンストラクタ。コピー不可。<br/>非自明なコンストラクタが定義されているため、ムーブコンストラクタは定義されない
+##概要
+- (1) : 非ロック状態のミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。
+- (2) : ロック済みミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。
+- (3) : コピーコンストラクタ。コピー不可。非自明なコンストラクタが定義されているため、ムーブコンストラクタは定義されない
+
+
+##効果
+- (1) : `m.lock()`
+
+
+##例外
+- (2) : 投げない
 
 
 ##例
