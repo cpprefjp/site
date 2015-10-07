@@ -14,7 +14,7 @@ namespace std {
 `once_flag`は、一度だけ指定された処理を呼び出す[`call_once()`](/reference/mutex/call_once.md)関数で、呼び出し済みかどうかの状態フラグとして使用するクラスである。
 
 
-###メンバ関数
+##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------|-------|
@@ -23,7 +23,7 @@ namespace std {
 | `operator=(const once_flag&) = delete`      | 代入演算子     | C++11 |
 
 
-###例
+##例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -72,5 +72,5 @@ initialize
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-###参照
+##参照
 
