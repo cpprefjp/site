@@ -7,14 +7,14 @@
 namespace std {
   template <class InputIterator1, class InputIterator2, class T>
   T inner_product(InputIterator1 first1, InputIterator1 last1,
-                  InputIterator2 first2, T init);
+                  InputIterator2 first2, T init); // (1)
 
   template <class InputIterator1, class InputIterator2, class T,
             class BinaryOperation1, class BinaryOperation2>
   T inner_product(InputIterator1 first1, InputIterator1 last1,
                   InputIterator2 first2, T init,
                   BinaryOperation1 binary_op1,
-                  BinaryOperation2 binary_op2);
+                  BinaryOperation2 binary_op2);   // (2)
 }
 ```
 
@@ -24,7 +24,7 @@ namespace std {
 
 ##パラメータ
 
-| | |
+| パラメータ名 | 説明 |
 |------------|---------------------------------------------------------|
 | `first1` | 1つめのシーケンスの先頭 |
 | `last1` | 1つめのシーケンスの終端 |
@@ -33,42 +33,23 @@ namespace std {
 | `binary_op1` | アキュームレータ |
 | `binary_op2` | 2つのシーケンスの対になる要素への処理 |
 
+
 ##戻り値
 シーケンスの値の型。
 
 
 ##計算量
-最初のバージョンは n 回の加算処理と n 回の乗算処理を行う。 
-2番目のバージョンは n 回の binary_op1 呼び出しと n 回の binary_op2 呼び出しを行う。 
-（n は `last1-first1`）
+- (1) : n 回の加算処理と n 回の乗算処理を行う。
+- (2) : n 回の binary_op1 呼び出しと n 回の binary_op2 呼び出しを行う。
+
+ここで、n は `last1 - first1`とする。
 
 
-##実装例
-```cpp
-template <class InputIterator1, class InputIterator2, class T>
-T inner_product(InputIterator1 first1, InputIterator1 last1,
-                InputIterator2 first2, T init) {
-  while (first1 != last1)
-    init = init + (*first1++ * *first2++);
-  return init;
-}
-```
+###備考
+C++03 では `binary_op1`, `binary_op2` で副作用を起こすことを禁止していたが、C++11 以降では、要素を書き換えることと、イテレータを無効にすること以外の操作は全て認められるようになった。
 
-```cpp
-template <class InputIterator1, class InputIterator2, class T,
-          class BinaryOperation1, class BinaryOperation2>
-T inner_product(InputIterator1 first1, InputIterator1 last1,
-                InputIterator2 first2, T init,
-                BinaryOperation1 binary_op1,
-                BinaryOperation2 binary_op2) {
-  while (first1 != last1)
-    init = binary_op1(init, binary_op2(*first1++, *first2++));
-  return init;
-}
-```
 
-##使用例
-
+##例
 ```cpp
 #include <numeric>
 #include <iostream>
@@ -100,6 +81,28 @@ int main(){
 96.7873
 ```
 
-##備考
-C++03 では `binary_op1`, `binary_op2` で副作用を起こすことを禁止していたが、C++11 以降では、要素を書き換えることと、イテレータを無効にすること以外の操作は全て認められるようになった。
+
+##実装例
+```cpp
+template <class InputIterator1, class InputIterator2, class T>
+T inner_product(InputIterator1 first1, InputIterator1 last1,
+                InputIterator2 first2, T init) {
+  while (first1 != last1)
+    init = init + (*first1++ * *first2++);
+  return init;
+}
+```
+
+```cpp
+template <class InputIterator1, class InputIterator2, class T,
+          class BinaryOperation1, class BinaryOperation2>
+T inner_product(InputIterator1 first1, InputIterator1 last1,
+                InputIterator2 first2, T init,
+                BinaryOperation1 binary_op1,
+                BinaryOperation2 binary_op2) {
+  while (first1 != last1)
+    init = binary_op1(init, binary_op2(*first1++, *first2++));
+  return init;
+}
+```
 
