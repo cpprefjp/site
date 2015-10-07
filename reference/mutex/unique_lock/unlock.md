@@ -31,6 +31,7 @@ pm->unlock();
 
 ##例外
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
+
 - [`operation_not_permitted`](/reference/system_error/errc.md) ： [`owns_lock()`](./owns_lock.md)` == false`の状態でこの関数が呼び出された
 
 
