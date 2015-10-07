@@ -6,13 +6,13 @@
 * cpp11[meta cpp]
 
 ```cpp
-constexpr once_flag() noexcept;
-once_flag(const once_flag&) = delete;
+constexpr once_flag() noexcept;       // (1)
+once_flag(const once_flag&) = delete; // (2)
 ```
 
-##once_flagオブジェクトの構築
-- `constexpr once_flag() noexcept;`<br/>デフォルトコンストラクタ。`once_flag`オブジェクトを初期化する。
-- `once_flag(const once_flag&) = delete;`<br/>コピーコンストラクタ。コピー不可。
+##概要
+- (1) : デフォルトコンストラクタ。`once_flag`オブジェクトを初期化する。
+- (2) : コピーコンストラクタ。コピー不可。
 
 
 ##例
