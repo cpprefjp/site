@@ -27,7 +27,6 @@ namespace std {
 #include <system_error>
 #include <ios>
 #include <future>
-#include <cassert>
 
 enum class user_defined_error {
   success = 0,
@@ -44,9 +43,7 @@ int main()
 * system_error[link ../system_error.md]
 * ios[link ../ios.md]
 * future[link ../future.md]
-* cassert[link ../cassert.md.nolink]
 * is_error_code_enum[color ff0000]
-* static_assert[link ../cassert/static_assert.md.nolink]
 * io_errc[link ../ios/io_errc.md]
 * future_errc[link ../future/future_errc.md]
 

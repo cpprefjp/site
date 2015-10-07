@@ -31,7 +31,6 @@ namespace std {
 ##例
 ```cpp
 #include <system_error>
-#include <cassert>
 
 enum class user_defined_error {
   success = 0,
@@ -45,9 +44,7 @@ int main()
 }
 ```
 * system_error[link ../system_error.md]
-* cassert[link ../cassert.md.nolink]
 * is_error_condition_enum[color ff0000]
-* static_assert[link ../cassert/static_assert.md.nolink]
 * errc[link errc.md]
 
 ###出力
