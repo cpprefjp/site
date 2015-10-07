@@ -14,7 +14,7 @@ enum event { erase_event, imbue_event, copyfmt_event };
 
 | 列挙子          | 発生したイベント |
 |-----------------|----------------------|
-| `erase_event`   | [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md.nolink) が呼び出されてオブジェクトの破棄を開始した。または、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](copyfmt.md.nolink) が呼び出された。 |
+| `erase_event`   | [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md) が呼び出されてオブジェクトの破棄を開始した。または、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](copyfmt.md.nolink) が呼び出された。 |
 | `imbue_event`   | [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md) が呼び出されて [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md) が新しく設定されたロケールオブジェクトを返すようになった。 |
 | `copyfmt_event` | [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink) が呼び出されて [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md.nolink) 以外の設定がコピーされた。 |
 
@@ -112,7 +112,7 @@ event = erase_event, str = ss1, index = 0, getloc.name = C
 ##参照
 - [`ios_base`](../ios_base.md)`::`[`register_callback`](register_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`event_callback`](type-event_callback.md)
-- [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md)
 - [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md)
 - [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md)
 - [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink)

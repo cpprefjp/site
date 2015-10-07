@@ -32,11 +32,11 @@ int main()
 }
 ```
 * iostream[link ../../../iostream.md]
-* failure[color ff0000]
+* failure[link ../failure.md]
 * cout[link ../../../iostream/cout.md]
 * endl[link ../../../ostream/endl.md]
 * ios_base[link ../../ios_base.md]
-* what[link what.md]
+* what[color ff0000]
 
 ###出力
 ```
@@ -63,5 +63,5 @@ error message
 
 ##参照
 - [`failure`](op_constructor.md)
-- [`exception`](../../../exception/exception.md)`::`[`what`](../../../exception/exception/what.md)
-- [`system_error`](../../../system_error/system_error.md)`::`[`what`](../../../system_error/system_error/what.md)
+- [`exception`](../../../exception/exception.md)
+- [`system_error`](../../../system_error/system_error.md)

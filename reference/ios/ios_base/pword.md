@@ -14,11 +14,11 @@ void*& pword(int idx);
 
 ##効果
 `idx` で指定した記憶域がまだ確保されていなかった場合、新たに `void*` 型の記憶域を確保し、ヌルポインタで初期化する。
-もし、記憶域の確保に失敗し、かつ、`*this` が [`basic_ios`](../basic_ios.md) の基底サブオブジェクトの場合、[`basic_ios`](../basic_ios.md)`::`[`setstate`](../basic_ios/setstate.md)`(badbit)` を呼び出す（これは [`failure`](failure.md.nolink) 例外を送出するかもしれない）。
+もし、記憶域の確保に失敗し、かつ、`*this` が [`basic_ios`](../basic_ios.md) の基底サブオブジェクトの場合、[`basic_ios`](../basic_ios.md)`::`[`setstate`](../basic_ios/setstate.md)`(badbit)` を呼び出す（これは [`failure`](failure.md) 例外を送出するかもしれない）。
 
 
 ##戻り値
-`idx` で指定した記憶域への参照。もし記憶域が確保できなかった場合（かつ[`failure`](failure.md.nolink) 例外が投げられなかった場合）には、ヌルポインタに初期化された有効な `void*` 型への参照。
+`idx` で指定した記憶域への参照。もし記憶域が確保できなかった場合（かつ[`failure`](failure.md) 例外が投げられなかった場合）には、ヌルポインタに初期化された有効な `void*` 型への参照。
 
 
 ##備考
