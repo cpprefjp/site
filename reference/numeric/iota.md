@@ -43,22 +43,38 @@ n 回のインクリメントと代入が行われる。
 ```cpp
 #include <numeric>
 #include <iostream>
-#include <string>
+#include <array>
 
 int main()
 {
-  std::string s = "hello, iota!";
-  std::cout << s << std::endl;
-  std::iota(s.begin(), s.end(), 'A');
-  std::cout << s << std::endl;
+  // 0から始まるシーケンスを作成する
+  std::array<int, 10> ar;
+  std::iota(ar.begin(), ar.end(), 0);
+    
+  for (int x : ar) {
+    std::cout << x << std::endl;
+  }
 }
 ```
 * std::iota[color ff0000]
+* std::array[link /reference/array.md]
+* begin()[link /reference/array/begin.md]
+* end()[link /reference/array/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
-hello, iota!
-ABCDEFGHIJKL
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
 ```
 
 ##バージョン
