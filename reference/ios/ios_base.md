@@ -62,15 +62,15 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 
 ##メンバ型
 
-| 名前             | 説明                                         | 対応バージョン |
-|------------------|----------------------------------------------|----------------|
-| `failure`        | エラー                                       |                |
-| [`fmtflags`](ios_base/type-fmtflags.md) | 書式フラグ                                   |                |
-| [`iostate`](ios_base/type-iostate.md)   | 入出力オブジェクトの状態                     |                |
-| [`openmode`](ios_base/type-openmode.md) | ストリームを開く際のモード                   |                |
-| [`seekdir`](ios_base/type-seekdir.md)   | シーク時の起点の指定                         |                |
-| [`Init`](ios_base/Init.md)              | 標準入出力オブジェクトの初期化・後処理の管理 |                |
-| [`event`](ios_base/type-event.md)       | コールバックイベントの種類                   |                |
+| 名前                                                | 説明                                         | 対応バージョン |
+|-----------------------------------------------------|----------------------------------------------|----------------|
+| [`failure`](ios_base/failure.md)                    | エラー                                       |                |
+| [`fmtflags`](ios_base/type-fmtflags.md)             | 書式フラグ                                   |                |
+| [`iostate`](ios_base/type-iostate.md)               | 入出力オブジェクトの状態                     |                |
+| [`openmode`](ios_base/type-openmode.md)             | ストリームを開く際のモード                   |                |
+| [`seekdir`](ios_base/type-seekdir.md)               | シーク時の起点の指定                         |                |
+| [`Init`](ios_base/Init.md)                          | 標準入出力オブジェクトの初期化・後処理の管理 |                |
+| [`event`](ios_base/type-event.md)                   | コールバックイベントの種類                   |                |
 | [`event_callback`](ios_base/type-event_callback.md) | コールバック関数                             |                |
 
 ##参照
