@@ -1,7 +1,7 @@
 #論理反転関数オブジェクト
 * functional[meta header]
 * std[meta namespace]
-* macro[meta id-type]
+* class template[meta id-type]
 
 ```cpp
 namespace std {
