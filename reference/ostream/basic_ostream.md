@@ -44,7 +44,7 @@ namespace std {
 （書式化出力関数のみ）[`operator bool`](basic_ostream/sentry/op_bool.md) 関数の結果が `false` であったら、[`setstate`](../ios/basic_ios/setstate.md)`(ios_base::badbit)` を呼び出す。
 
 関数内部で例外が送出された場合、`ios_base::badbit` をセットする。
-そして、`(`[`exceptions`](../ios/basic_ios/exceptions.md.nolink)`() & badbit) != 0` であれば例外を再送出する。
+そして、`(`[`exceptions`](../ios/basic_ios/exceptions.md)`() & `[`badbit`](../ios/ios_base/type-iostate.md)`) != 0` であれば例外を再送出する。
 
 ##メンバ
 

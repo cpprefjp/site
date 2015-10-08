@@ -41,4 +41,4 @@ typedef void (*event_callback)(event ev, ios_base& str, int index);
 - [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md)
 - [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md)
 - [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink)
-- [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md)

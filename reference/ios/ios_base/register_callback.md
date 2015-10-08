@@ -135,4 +135,4 @@ event = erase_event, index = 0
 - [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md)
 - [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md)
 - [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink)
-- [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md)

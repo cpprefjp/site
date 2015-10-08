@@ -13,9 +13,9 @@ void setstate(iostate state);
 現在の状態に、実引数で指定された値を加えた状態を新しい状態値とする。
 
 ##効果
-[`clear`](clear.md)`(`[`rdstate`](rdstate.md)`() | state)`を呼び出す。
+[`clear`](clear.md)`(`[`rdstate`](rdstate.md)`() | state)` を呼び出す。
 
-結果として、[`exceptions`](exceptions.md.nolink)`()`メンバ関数での設定に従い、例外が送出される可能性がある。
+結果として、[`exceptions`](exceptions.md)`()` メンバ関数での設定に従い、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md) 例外が送出される可能性がある。
 
 ##戻り値
 なし
@@ -46,3 +46,5 @@ void setstate(iostate state) {
     - [`operator bool`](op_bool.md)
     - [`operator void*`](op_voidptr.md)
     - [`operator!`](op_not.md)
+- 例外マスクの取得・設定
+    - [`exceptions`](exceptions.md)

@@ -113,4 +113,4 @@ failbit = false
 - [`basic_ios`](../basic_ios.md)`::`[`eof`](../basic_ios/eof.md)`()`
 - [`basic_ios`](../basic_ios.md)`::`[`fail`](../basic_ios/fail.md)`()`
 - [`basic_ios`](../basic_ios.md)`::`[`bad`](../basic_ios/bad.md)`()`
-- [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md.nolink)`()`
+- [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md)`()`

@@ -5,16 +5,27 @@
 
 ```cpp
 namespace std {
-  template<class CharT, class Traits = char_traits<CharT>>
+  template<class CharT, class Traits = char_traits<CharT> >
   class basic_ios : public ios_base { …… };
+
+  typedef basic_ios<char> ios;                                  // <iosfwd> で定義
+  typedef basic_ios<wchar_t> wios;                              // <iosfwd> で定義
 }
 ```
 * ios_base[link ./ios_base.md]
 * char_traits[link ../string/char_traits.md]
 
 ##概要
-`basic_ios`は入出力に対する共通機能を提供するクラスである。
-ストリームバッファや状態ビットの管理などの機能を有する。
+`basic_ios` は入出力に対する共通機能を提供するクラステンプレートである。  
+[`ios_base`](ios_base.md) がロケールや文字型に依存しない書式の状態を保持するのに対して、本クラスはロケールや文字型に依存した書式の状態や、 [ストリームバッファ](../streambuf/basic_streambuf.md)とその状態を保持する。
+
+テンプレートパラメータとして文字型と文字特性型を受け取るようになっており、使用を容易にするため、以下のパラメータ設定済みエイリアスが定義されている。
+このエイリアスは `<iosfwd>` ヘッダで定義されている。
+
+| エイリアス  | 説明                     | 対応バージョン |
+|-------------|--------------------------|----------------|
+| `ios`       | `char` 型のストリーム    |                |
+| `wios`      | `wchar_t` 型のストリーム |                |
 
 ##メンバ関数
 ###構築・破棄
@@ -44,7 +55,7 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 | [`operator bool`](basic_ios/op_bool.md)     | 正常状態であるか否かの判定                 | C++11          |
 | [`operator void*`](basic_ios/op_voidptr.md) | 正常状態であるか否かの判定                 | C++03 まで     |
 | [`operator!`](basic_ios/op_not.md)          | 異常状態であるか否かの判定                 |                |
-| `exceptions`                                | 特定の状態時に例外を投げる指定の設定・取得 |                |
+| [`exceptions`](basic_ios/exceptions.md)     | 特定の状態時に例外を投げる指定の設定・取得 |                |
 
 ###ストリームバッファ
 
@@ -81,6 +92,11 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 | `pos_type`    | `Traits::pos_type`         |                |
 | `off_type`    | `Traits::off_type`         |                |
 | `traits_type` | テンプレート仮引数`Traits` |                |
+
+
+##備考
+本クラス、および、本クラスを継承したクラスの説明については、上記にあるメンバ型 `pos_type`、および、`off_type` がそれぞれ [`streampos`](../iosfwd/type-streampos.md.nolink)、および、[`streamoff`](type-streamoff.md) である場合の記載となっている。  
+これらのメンバ型がそれ以外の型の場合の挙動は実装依存である。
 
 ##参照
 - [`ios_base`](./ios_base.md)
