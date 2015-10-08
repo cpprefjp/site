@@ -10,6 +10,7 @@ const_reference top() const;
 
 ##概要
 次に処理する要素を取得する。
+
 内部のコンテナの`front()`メンバ関数を呼ぶ。
 
 
