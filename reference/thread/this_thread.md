@@ -2,6 +2,7 @@
 * thread[meta header]
 * std[meta namespace]
 * namespace[meta id-type]
+* cpp11[meta cpp]
 
 名前空間 `std::this_thread` では現在のスレッドに対する制御関数を提供する。
 
