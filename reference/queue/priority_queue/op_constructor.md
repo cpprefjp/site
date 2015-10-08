@@ -5,60 +5,131 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
-priority_queue();
-priority_queue(const priority_queue&);
+explicit priority_queue(
+             const Compare& x = Compare(),
+             const Container& other = Container());       // (1) C++03まで
+
+priority_queue(const Compare& x, const Container& other); // (2) C++11
+
 explicit priority_queue(const Compare& x = Compare(),
-                        const Container& other = Container());
+                        Container&& = Container());       // (3) C++11
+
+priority_queue(const priority_queue&);                    // (4) C++03
+priority_queue(const priority_queue&) = default;          // (4) C++11
 
 template <class InputIterator>
 priority_queue(InputIterator first, InputIterator last,
                const Compare& x = Compare(),
-               const Container& other = Container());
-
-// C++11
-priority_queue() = default;
-priority_queue(const priority_queue&) = default;
-
-priority_queue(priority_queue&&) = default;
-priority_queue(const Compare& x, const Container& other);
-explicit priority_queue(const Compare& x = Compare(), Container&& other = Container());
+               const Container& other = Container());     // (5) C++03
 
 template <class InputIterator>
 priority_queue(InputIterator first, InputIterator last,
-               const Compare& x, const Container& other);
+               const Compare& x,
+               const Container& other);                   // (6) C++11
 
 template <class InputIterator>
 priority_queue(InputIterator first, InputIterator last,
-               const Compare& x = Compare(), Container&& other = Container());
+               const Compare& x = Compare(),
+               Container&& other = Container());          // (7) C++11
 
-template <class Alloc> explicit priority_queue(const Alloc& alloc);
-template <class Alloc> priority_queue(const Compare& x, const Alloc& alloc);
-template <class Alloc> priority_queue(const Compare& x,
-                                      const Container& other, const Alloc& alloc);
-template <class Alloc> priority_queue(const Compare x&,
-                                      Container&& other, const Alloc& alloc);
-template <class Alloc> priority_queue(const priority_queue& que, const Alloc& alloc);
-template <class Alloc> priority_queue(priority_queue&& que, const Alloc& alloc);
+priority_queue(priority_queue&&) = default;               // (8) C++11
+
+template <class Alloc>
+explicit priority_queue(const Alloc& alloc);              // (9) C++11
+
+template <class Alloc>
+priority_queue(const Compare& x, const Alloc& alloc);     // (10) C++11
+
+template <class Alloc>
+priority_queue(const Compare& x,
+               const Container& other,
+               const Alloc& alloc);                       // (11) C++11
+
+template <class Alloc>
+priority_queue(const Compare x&,
+               Container&& other,
+               const Alloc& alloc);                       // (12) C++11
+
+template <class Alloc>
+priority_queue(const priority_queue& que,
+               const Alloc& alloc);                       // (13) C++11
+
+template <class Alloc>
+priority_queue(priority_queue&& que,
+               const Alloc& alloc);                       // (14) C++11
 ```
 
 ##概要
-C++03
-- `explicit priority_queue(const Compare& x = Compare(),`<br/>                        `const Container& other = Container());`<br/>効果： メンバ変数`comp`を`x`で初期化する。メンバ変数`c`を`other`で初期化する。[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
-- `template <class InputIterator>`<br/>`priority_queue(InputIterator first, InputIterator last,`<br/>`               const Compare& x = Compare(),`<br/>`               const Container& other = Container());`効果： メンバ変数`c`を`other`で初期化する。メンバ変数`comp`を`x`で初期化する。`c.insert(c.end(), first, last)`を呼び出す。最後に[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
-
-
-C++11
-- `priority_queue(const Compare& x, const Container& other);`<br/>`explicit priority_queue(const Compare& x = Compare(), Container&& other = Container());`<br/>効果： メンバ変数`comp`を`x`で初期化する。メンバ変数`c`を`other`で初期化する(`other`が左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
-- `template <class InputIterator>`<br/>`priority_queue(InputIterator first, InputIterator last,`<br/>`               const Compare& x, const Container& other);`<br/>`template <class InputIterator>`<br/>`priority_queue(InputIterator first, InputIterator last,`<br/>`               const Compare& x = Compare(), Container&& other = Container());`<br/>効果： メンバ変数`comp`を`x`で初期化する。メンバ変数`c`を`other`で初期化する(`other`が左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。<br/>`c.insert(c.end(), first, last)`を呼び出す。最後に[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
-- `template <class Alloc> explicit priority_queue(const Alloc& alloc);`<br/>効果：メンバ変数`c`を`alloc`で初期化する。メンバ変数`comp`を値初期化する。
-- `template <class Alloc> priority_queue(const Compare& x, const Alloc& alloc);`<br/>効果：メンバ変数`c`を`alloc`で初期化する。メンバ変数`comp`を`x`で初期化する。
-- `template <class Alloc> priority_queue(const Compare& x,`<br/>`                                      const Container& other, const Alloc& alloc);`<br/>`template <class Alloc> priority_queue(const Compare x&,`<br/>`                                      Container&& other, const Alloc& alloc);`<br/>効果：メンバ変数`c`を第1引数`other`、第2引数`alloc`で初期化する(`other`が左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。 最後に[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。 
-- `template <class Alloc> priority_queue(const priority_queue& que, const Alloc& alloc);`<br/>`template <class Alloc> priority_queue(priority_queue&& que, const Alloc& alloc);`<br/>効果：メンバ変数`c`を第1引数`que.c`、第2引数`alloc`で初期化する(`que`が左辺値参照であればコピー構築し、右辺値参照であればムーブ構築する)。最後に[`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。)
+- (1) : デフォルトコンストラクタ
+- (2) : 比較関数と、元となるコンテナのコピーから構築するコンストラクタ。
+- (3) : デフォルトコンストラクタ。比較関数のコピーと、元となるコンテナをムーブして構築する。
+- (4) : コピーコンストラクタ
+- (5), (6), (7) : イテレータ範囲で優先順位付きキューを構築する。
+- (8) : ムーブコンストラクタ
+- (9) : アロケータを受け取るコンストラクタ
+- (10) : 比較関数とアロケータを受け取るコンストラクタ
+- (11) : 比較関数、元となるコンテナのコピー、アロケータを受け取るコンストラクタ
+- (12) : 比較関数、元となるコンテナの一時オブジェクト、アロケータを受け取るコンストラクタ
+- (13) : アロケータ指定でコピー構築する
+- (14) : アロケータ指定でムーブ構築する
 
 
 ##要件
 `Compare`型パラメータ`x`が、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)で定義されていること。
+
+
+##効果
+- (1) :
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. メンバ変数`c`を`other`でコピー構築する。
+    3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (2) :
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. メンバ変数`c`を`other`でコピー構築する。
+    3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (3) :
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. メンバ変数`c`を`other`でムーブ構築する。
+    3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (5):
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. メンバ変数`c`を`other`でコピー構築する。
+    3. `c.insert(c.end(), first, last)`を呼び出す。
+    4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (6) :
+    1. `c.insert(c.end(), first, last)`を呼び出す。
+    2. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (7):
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. メンバ変数`c`を`other`でムーブ構築する。
+    3. `c.insert(c.end(), first, last)`を呼び出す。
+    4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (9) :
+    1. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    2. メンバ変数`comp`を値初期化する。
+- (10) :
+    1. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    2. メンバ変数`comp`を`x`で初期化する。
+- (11) :
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. メンバ変数`c`を`other`でコピー構築する。
+    3. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (12) :
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. メンバ変数`c`を`other`でムーブ構築する。
+    3. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (13) :
+    1. メンバ変数`comp`を`que.comp`でコピー構築する。
+    2. メンバ変数`c`を`que.c`でコピー構築する。
+    3. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (14) :
+    1. メンバ変数`comp`を`que.comp`でムーブ構築する。
+    2. メンバ変数`c`を`que.c`でムーブ構築する。
+    3. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 
 
 ##例
