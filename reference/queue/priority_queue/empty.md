@@ -10,6 +10,7 @@ bool empty() const;
 
 ##概要
 `priority_queue`が空か否か、つまり要素数が 0 か否かを判定する。
+
 内部のコンテナの `empty()` メンバ関数を呼ぶ。
 
 
