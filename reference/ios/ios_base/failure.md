@@ -85,3 +85,5 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
     基底クラスの変更を含む C++11 での提案文書
 - [DR331 bad declaration of destructor for ios_base::failure](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#331)  
     デストラクタ宣言削除の Defect Report
+- [Bug 66145 - [5/6 Regression] std::ios_base::failure objects thrown from libstdc++.so use old ABI](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66145)  
+    GCC 5.1.0 以降でライブラリから送出された `ios_base::failure` が `catch` できない問題のバグレポート
