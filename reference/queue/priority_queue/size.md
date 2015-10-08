@@ -10,6 +10,7 @@ size_type size() const;
 
 ##概要
 `priority_queue`に格納されている要素の個数を返す。
+
 内部のコンテナの `size()` メンバ関数を呼ぶ。
 
 
@@ -19,6 +20,7 @@ size_type size() const;
 
 ##戻り値
 `priority_queue` の内部のコンテナに含まれている要素の個数。
+
 `size_type` は符号なし汎整数型。
 
 
