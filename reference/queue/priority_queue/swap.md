@@ -15,9 +15,11 @@ void swap(priority_queue& q)
 
 
 ##効果
-`using std::swap;` 
-`swap(c, q.c);` 
-`swap(comp, q.comp);` 
+```cpp
+using std::swap;
+swap(c, q.c);
+swap(comp, q.comp);
+```
 
 
 ##戻り値
