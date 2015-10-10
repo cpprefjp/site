@@ -12,7 +12,7 @@ explicit sentry(basic_ostream& os);
 出力処理の前処理を行う。
 
 ##効果
-もし `os.`[`good`](../../../ios/basic_ios/good.md)`()` が `true` なら、書式化出力・非書式化出力の準備処理を行い、`os.`[`tie`](i../../../ios/basic_ios/tie.md.nolink)`()` が非ヌルポインタなら、`os.`[`tie`](i../../../ios/basic_ios/tie.md.nolink)`()->`[`flush`](../flush.md)`()` を呼び出す。
+もし `os.`[`good`](../../../ios/basic_ios/good.md)`()` が `true` なら、書式化出力・非書式化出力の準備処理を行い、`os.`[`tie`](../../../ios/basic_ios/tie.md)`()` が非ヌルポインタなら、`os.`[`tie`](../../../ios/basic_ios/tie.md)`()->`[`flush`](../flush.md)`()` を呼び出す。
 
 全ての準備処理が完了したら、このオブジェクトの [`operator bool`](op_bool.md)`()` 関数は `true` を、さもなくば `false` を返すようになる。
 
@@ -20,7 +20,7 @@ explicit sentry(basic_ostream& os);
 
 ##備考
 - 本コンストラクタでは、効果に記載されている以外に実装依存の処理が行われるかもしれない。
-- `os.`[`tie`](i../../../ios/basic_ios/tie.md.nolink)`()->`[`flush`](../flush.md)`()` は、同期が不要と判断できる場合には呼び出されないかもしれない。
+- `os.`[`tie`](../../../ios/basic_ios/tie.md)`()->`[`flush`](../flush.md)`()` は、同期が不要と判断できる場合には呼び出されないかもしれない。
 
 
 ##参照

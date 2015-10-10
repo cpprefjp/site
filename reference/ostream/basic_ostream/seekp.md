@@ -27,8 +27,8 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir); // (2)
 
 1. [`sentry`](sentry.md) オブジェクトを構築する（C++11 以降のみ）。
 1. 与えられた実引数により、以下のいずれかを実行する。
-    - (1) [`rdbuf`](../../ios/basic_ios/rdbuf.md.nolink)`()->`[`pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md.nolink)`(pos, ios_base::out)`
-    - (2) [`rdbuf`](../../ios/basic_ios/rdbuf.md.nolink)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)`(off, dir, ios_base::out)`
+    - (1) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md.nolink)`(pos, ios_base::out)`
+    - (2) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)`(off, dir, ios_base::out)`
 1. 処理に失敗した場合（上記の戻り値が `-1` だった場合）、[`setstate`](../../ios/basic_ios/setstate.md)`(failbit)`を呼び出す。
 
 ##例
@@ -84,7 +84,7 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir) {
 ```
 * sentry[link sentry.md]
 * fail[link ../../ios/basic_ios/fail.md]
-* rdbuf[link ../../ios/basic_ios/rdbuf.md.nolink]
+* rdbuf[link ../../ios/basic_ios/rdbuf.md]
 * pubseekpos[link ../../streambuf/basic_streambuf/pubseekpos.md.nolink]
 * pubseekoff[link ../../streambuf/basic_streambuf/pubseekoff.md.nolink]
 * setstate[link ../../ios/basic_ios/setstate.md]

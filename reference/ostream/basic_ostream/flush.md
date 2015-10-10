@@ -12,9 +12,9 @@ basic_ostream<CharT, Traits>& flush();
 （非書式化出力関数）ストリームバッファをフラッシュする。
 
 ##効果
-1. [`rdbuf`](../../ios/basic_ios/rdbuf.md.nolink)`()` がヌルポインタであれば、何もしない。
+1. [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()` がヌルポインタであれば、何もしない。
 1. [`sentry`](sentry.md) オブジェクトを構築する。[`sentry`](sentry.md) オブジェクトが失敗を示した場合、何もしない。
-1. [`rdbuf`](../../ios/basic_ios/rdbuf.md.nolink)`()->`[`pubsync`](../../streambuf/basic_streambuf/pubsync.md.nolink)`()` を呼び出す。
+1. [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubsync`](../../streambuf/basic_streambuf/pubsync.md.nolink)`()` を呼び出す。
 1. [`pubsync`](../../streambuf/basic_streambuf/pubsync.md.nolink)`()` が `-1` を返した場合は、[`setstate`](../../ios/basic_ios/setstate.md)`(`[`badbit`](../../ios/ios_base/type-iostate.md)`)` を呼び出す。（それによって、例外 [`ios_base`](../../ios/ios_base.md)`::`[`failure`](../../ios/ios_base/failure.md) が送出されるかもしれない）
 1. 上記処理中に例外が送出された場合、出力ストリームの現在の状態に [`ios_base`](../../ios/ios_base.md)`::`[`badbit`](../../ios/ios_base/type-iostate.md) を設定し、`(`[`exceptions`](../../ios/basic_ios/exceptions.md)`() & `[`ios_base`](../../ios/ios_base.md)`::`[`badbit`](../../ios/ios_base/type-iostate.md)`) != 0` の場合、当該例外を再送出する。
 
@@ -67,7 +67,7 @@ basic_ostream<CharT, Traits>& basic_ostream<CharT, Traits>::flush()
 }
 ```
 * basic_ostream[link ../basic_ostream.md]
-* rdbuf[link ../../ios/basic_ios/rdbuf.md.nolink]
+* rdbuf[link ../../ios/basic_ios/rdbuf.md]
 * sentry[link sentry.md]
 * pubsync[link ../../streambuf/basic_streambuf/pubsync.md.nolink]
 * setstate[link ../../ios/basic_ios/setstate.md]

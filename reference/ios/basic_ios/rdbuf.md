@@ -61,5 +61,4 @@ int main()
 - C++98
 
 ##参照
-- [`tie`](tie.md.nolink)
 - [`set_rdbuf`](set_rdbuf.md.nolink)

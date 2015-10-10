@@ -15,7 +15,7 @@ void clear(iostate state = goodbit);
 
 ##効果
 状態値を`state`にする。
-ただし、[`rdbuf`](rdbuf.md.nolink)`() == nullptr`であれば、さらに[`ios_base`](../ios_base.md)`::`[`badbit`](../ios_base/type-iostate.md)をビットORした値にする。
+ただし、[`rdbuf`](rdbuf.md)`() == nullptr`であれば、さらに[`ios_base`](../ios_base.md)`::`[`badbit`](../ios_base/type-iostate.md)をビットORした値にする。
 
 ##例外
 
@@ -36,7 +36,7 @@ void clear(iostate state = goodbit) {
   }
 }
 ```
-* rdbuf[link rdbuf.md.nolink]
+* rdbuf[link rdbuf.md]
 * exceptions[link exceptions.md]
 * basic_ios[link ../basic_ios.md]
 * rdstate[link rdstate.md]
