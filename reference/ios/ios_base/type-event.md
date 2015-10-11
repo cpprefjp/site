@@ -14,9 +14,9 @@ enum event { erase_event, imbue_event, copyfmt_event };
 
 | 列挙子          | 発生したイベント |
 |-----------------|----------------------|
-| `erase_event`   | [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md) が呼び出されてオブジェクトの破棄を開始した。または、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](copyfmt.md.nolink) が呼び出された。 |
+| `erase_event`   | [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md) が呼び出されてオブジェクトの破棄を開始した。または、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) が呼び出された。 |
 | `imbue_event`   | [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md) が呼び出されて [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md) が新しく設定されたロケールオブジェクトを返すようになった。 |
-| `copyfmt_event` | [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink) が呼び出されて [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md) 以外の設定がコピーされた。 |
+| `copyfmt_event` | [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) が呼び出されて [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md) 以外の設定がコピーされた。 |
 
 なお、各イベントが発生する正確なタイミングは、それぞれの関数を参照。
 
@@ -78,7 +78,7 @@ int main()
 * locale[link ../../locale.md]
 * register_callback[link register_callback.md]
 * imbue[link imbue.md]
-* copyfmt[link ../basic_ios/copyfmt.md.nolink]
+* copyfmt[link ../basic_ios/copyfmt.md]
 
 ###出力
 ```
@@ -115,5 +115,5 @@ event = erase_event, str = ss1, index = 0, getloc.name = C
 - [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md)
 - [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md)
 - [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md)
-- [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md)
 - [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md)

@@ -26,7 +26,7 @@ long& iword(int idx);
     そうすることによって、各プログラムが他のプログラムと競合すること無く各ストリームオブジェクト内に `long` 型の私用記憶域を確保することが可能となる。
 - 本関数で取得した `long` への参照は、本オブジェクトの他の操作によって無効になる可能性がある。  
     しかし、その場合でも引数 `idx` で指定した記憶域の内容は依然として有効である。
-- 本関数で取得した `long` 型の記憶域の内容は、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink) でコピーされる。
+- 本関数で取得した `long` 型の記憶域の内容は、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) でコピーされる。
 
 
 ##例
@@ -118,4 +118,4 @@ int main()
 ##参照
 - [`xalloc`](xalloc.md)
 - [`pword`](pword.md)
-- [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md)

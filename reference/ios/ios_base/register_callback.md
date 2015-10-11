@@ -18,7 +18,7 @@ void register_callback(event_callback fn, int index);
 
 
 ##効果
-引数で指定された関数 `fn` を、[`imbue`](imbue.md)`()`、[`copyfmt`](../basic_ios/copyfmt.md.nolink)`()`、および、[`~ios_base`](op_destructor.md)`()` が呼び出された際に引数の `index` と共にコールバック関数として呼び出すよう登録する。
+引数で指定された関数 `fn` を、[`imbue`](imbue.md)`()`、[`copyfmt`](../basic_ios/copyfmt.md)`()`、および、[`~ios_base`](op_destructor.md)`()` が呼び出された際に引数の `index` と共にコールバック関数として呼び出すよう登録する。
 
 登録されたコールバック関数は、登録と逆の順序で呼び出される。
 
@@ -134,5 +134,5 @@ event = erase_event, index = 0
 - [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md)
 - [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md)
 - [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md)
-- [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md)
 - [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md)

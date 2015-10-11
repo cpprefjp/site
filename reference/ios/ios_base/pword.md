@@ -26,7 +26,7 @@ void*& pword(int idx);
     そうすることによって、各プログラムが他のプログラムと競合すること無く各ストリームオブジェクト内に `void*` 型の私用記憶域を確保することが可能となる。
 - 本関数で取得した `void*` への参照は、本オブジェクトの他の操作によって無効になる可能性がある。  
     しかし、その場合でも引数 `idx` で指定した記憶域の内容は依然として有効である。
-- 本関数で取得した `void*` 型の記憶域の内容は、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink) でコピーされる。  
+- 本関数で取得した `void*` 型の記憶域の内容は、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) でコピーされる。  
     ただし、コピーされるのはあくまでもポインタ値であるため、必要に応じてコールバックで対処を行うこと。（下記の例も参照）
 
 
@@ -137,7 +137,7 @@ int main()
 ##参照
 - [`xalloc`](xalloc.md)
 - [`iword`](iword.md)
-- [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md)
 - [`register_callback`](register_callback.md)
 - [`event_callback`](type-event_callback.md)
 - [`event`](type-event.md)
