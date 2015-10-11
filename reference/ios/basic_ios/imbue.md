@@ -1,0 +1,78 @@
+#imbue
+* ios[meta header]
+* std[meta namespace]
+* basic_ios[meta class]
+* function[meta id-type]
+
+```cpp
+locale imbue(const locale& loc);
+```
+* locale[link ../../locale/locale.md]
+
+##概要
+ロケールを設定する。
+
+
+##効果
+[`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)`(loc)` を呼び出した後、[`rdbuf`](rdbuf.md)`() != 0` であれば、[`rdbuf`](rdbuf.md)`()->`[`pubimbue`](../../streambuf/basic_streambuf/pubimbue.md)`(loc)` を呼び出す。
+
+
+##戻り値
+[`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)`(loc)` の戻り値
+
+
+##備考
+[`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)`()` は仮想関数ではないため、[`ios_base`](../ios_base.md) へのポインタや参照経由で `imbue()` を呼び出した場合には本関数ではなく [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)`()` が呼び出される。
+
+
+##例
+```cpp
+#include <iostream>
+#include <locale>
+
+int main()
+{
+  std::cout.imbue(std::locale::classic());
+  std::cout << 1234.5 << '\n';
+  std::cout.imbue(std::locale("en_US"));
+  std::cout << 1234.5 << '\n';
+  std::cout.imbue(std::locale("de_DE"));
+  std::cout << 1234.5 << '\n';
+
+  // ios_base への参照経由で呼び出すと、ストリームバッファのロケールは変更されない
+  std::ios_base& base = std::cout;
+  base.imbue(std::locale::classic());
+  std::cout << std::cout.rdbuf()->getloc().name() << '\n';
+}
+```
+* iostream[link ../../iostream.md]
+* locale[link ../../locale.md]
+* classic[link ../../locale/locale/classic.md.nolink]
+* cout[link ../../iostream/cout.md]
+* imbue[color ff0000]
+* rdbuf[link rdbuf.md]
+* getloc[link ../../streambuf/basic_streambuf/getloc.md]
+* name[link ../../locale/locale/name.md.nolink]
+
+###出力例
+```
+1234.5
+1,234.5
+1.234,5
+de_DE
+```
+
+なお、ロケールの名称（ここでは `en_US` と `de_DE`）は環境依存のため、上記の例は動作しないこともある。  
+その場合でも、ロケールの名称を当該環境で適切なものに変更すれば動作するはずである。  
+また、2 行目・3 行目の出力はロケール依存のため、たとえこれらのロケールが使用できたとしても上記のようには出力されない可能性もある（が、一般的にはこのように出力される）。
+
+
+##バージョン
+###言語
+- C++98
+
+##参照
+- [`basic_ios`](../basic_ios.md)`::`[`getloc`](getloc.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)
+- [`basic_streambuf`](../../streambuf/basic_streambuf.md)`::`[`pubimbue`](../../streambuf/basic_streambuf/pubimbue.md)
+- [`locale`](../../locale/locale.md)

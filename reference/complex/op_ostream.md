@@ -27,7 +27,7 @@ return os << s.str();
 ```
 * basic_ostringstream[link /reference/sstream/basic_ostringstream.md.nolink]
 * flags[link /reference/ios/ios_base/flags.md]
-* imbue[link /reference/ios/basic_ios/imbue.md.nolink]
+* imbue[link /reference/ios/basic_ios/imbue.md]
 * getloc[link /reference/ios/ios_base/getloc.md]
 * precision[link /reference/ios/ios_base/precision.md]
 * real[link ./real.md]
