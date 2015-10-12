@@ -1,6 +1,7 @@
 #FLT_EVAL_METHOD
 * cfloat[meta header]
 * macro[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 #define FLT_EVAL_METHOD implementation-defined
