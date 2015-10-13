@@ -31,8 +31,9 @@ namespace std {
 | `u32string` | `char32_t`型文字列。UTF-32の文字列として使用する。 | C++11 |
 
 `basic_string`文字列オブジェクトに含まれる各要素は、必ずしも1文字を表すわけではないことに注意が必要である。  
-このクラスが表すのは、文字型`charT`の動的配列であり、文字の動的配列ではない。
+このクラスが表すのは、文字型`charT`の動的配列であり、文字の動的配列ではない。  
 したがって、文字列中に以下のようなものが含まれている場合、`basic_string`クラスにおいては複数の要素と見なされる。
+
 - マルチバイト文字（`charT`が`char`などの場合）
 - サロゲートペア
 - 結合文字列
@@ -202,7 +203,7 @@ hello
 hello world
 ```
 
-###参照
+##参照
 - [N2668 Concurrency Modifications to Basic String](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2668.htm)
     - C++11で、`basic_string`の仕様が、並行実行のパフォーマンスを考慮したものに変更された経緯の提案文書
 
