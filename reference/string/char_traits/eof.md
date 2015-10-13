@@ -5,11 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
-static int_type eof();
-
-// C++11以降
-static constexpr int_type eof() noexcept;
+static int_type eof();                    // C++03
+static constexpr int_type eof() noexcept; // C++11
 ```
 
 ##概要

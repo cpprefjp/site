@@ -5,11 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
-static bool eq_int_type(const int_type& c1, const int_type& c2);
-
-// C++11以降
-static constexpr bool eq_int_type(int_type c1, int_type c2) noexcept;
+static bool eq_int_type(const int_type& c1, const int_type& c2);      // C++03
+static constexpr bool eq_int_type(int_type c1, int_type c2) noexcept; // C++11
 ```
 
 ##概要

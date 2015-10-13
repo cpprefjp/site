@@ -5,13 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-// C++03まで
-static void assign(char_type& c1, const char_type& c2);        // (1)
-static char_type* assign(char_type* s, size_t n, char_type a); // (2)
+static void assign(char_type& c1, const char_type& c2);          // (1) C++03
+static void assign(char_type& c1, const char_type& c2) noexcept; // (1) C++11
 
-// C++11以降
-static void assign(char_type& c1, const char_type& c2) noexcept; // (1)
-static char_type* assign(char_type* s, size_t n, char_type a);   // (2)
+static char_type* assign(char_type* s, size_t n, char_type a);   // (2) C++03
+static char_type* assign(char_type* s, size_t n, char_type a);   // (2) C++11
 ```
 
 ##概要

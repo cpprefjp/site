@@ -5,11 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
-static int_type to_int_type(const char_type& c);
-
-// C++11以降
-static constexpr int_type to_int_type(char_type c) noexcept;
+static int_type to_int_type(const char_type& c);             // C++03
+static constexpr int_type to_int_type(char_type c) noexcept; // C++11
 ```
 
 ##概要
