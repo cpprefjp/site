@@ -5,10 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-stack& operator=(const stack& st);
-
-// C++11
-stack& operator=(stack&& st);
+stack& operator=(const stack& st); // (1)
+stack& operator=(stack&& st);      // (2) C++11
 ```
 
 ##概要
