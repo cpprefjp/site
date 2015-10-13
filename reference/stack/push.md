@@ -5,21 +5,27 @@
 * function[meta id-type]
 
 ```cpp
-void push(const value_type& x);
-void push(value_type&& x);  // C++11
+void push(const value_type& x); // (1)
+void push(value_type&& x);      // (2) C++11
 ```
 
 ##概要
 新しい要素を `stack` の末尾に追加し、そのインスタンスを`x`のコピー、もしくはムーブして初期化する。
 
 
-##パラメータ
-`x`: 新しい要素としてコピー、もしくはムーブする値。
-
-
 ##効果
-`void push(const value_type& x)`: `c.push_back(x)`
-`void push(value_type&& x)`: `c.push_back(std::`[`move`](/reference/utility/move.md)`(x))`
+- (1) :
+
+    ```cpp
+c.push_back(x);
+```
+
+- (2) :
+
+    ```cpp
+c.push_back(std::move(x));
+```
+* std::move[link /reference/utility/move.md]
 
 
 ##戻り値
@@ -63,6 +69,4 @@ void push(const value_type& x) { c.push_back(x); }
 void push(value_type&& x) { c.push_back(std::move(x)); }
 ```
 
-##参照
-TBD
 
