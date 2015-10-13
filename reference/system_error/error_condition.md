@@ -20,22 +20,22 @@ VC10、GCC 4.6.1では[`generic_category()`](./generic_category.md)と[`system_c
 - システムのエラーコードを汎用のエラーコードに変換し、[`error_code`](/reference/system_error/error_code.md)にはシステムの環境依存エラー値、`error_condition`には環境依存しない汎用エラー値を格納する
 
 
-###メンバ関数
+##メンバ関数
 
-| | |
-|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| [`(constructor)`](./error_condition/op_constructor.md) | コンストラクタ |
-| `~error_condition() = default` | デストラクタ |
-| [`operator=`](./error_condition/op_assign.md) | 代入演算子 |
-| [`assign`](./error_condition/assign.md) | 値の再設定 |
-| [`clear`](./error_condition/clear.md) | エラー情報をクリアする |
-| [`value`](./error_condition/value.md) | エラー値を取得する |
-| [`category`](./error_condition/category.md) | エラーカテゴリを取得する |
-| [`message`](./error_condition/message.md) | エラーメッセージを取得する |
-| [`explicit operator bool`](./error_condition/op_bool.md) | エラーかどうかを判定する |
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`(constructor)`](./error_condition/op_constructor.md) | コンストラクタ | C++11 |
+| `~error_condition() = default`                         | デストラクタ | C++11 |
+| [`operator=`](./error_condition/op_assign.md)          | 代入演算子 | C++11 |
+| [`assign`](./error_condition/assign.md)                | 値の再設定 | C++11 |
+| [`clear`](./error_condition/clear.md)                  | エラー情報をクリアする | C++11 |
+| [`value`](./error_condition/value.md)                  | エラー値を取得する | C++11 |
+| [`category`](./error_condition/category.md)            | エラーカテゴリを取得する | C++11 |
+| [`message`](./error_condition/message.md)              | エラーメッセージを取得する | C++11 |
+| [`explicit operator bool`](./error_condition/op_bool.md) | エラーかどうかを判定する | C++11 |
 
 
-###例
+##例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -81,5 +81,5 @@ Invalid argument
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-###参照
+##参照
 
