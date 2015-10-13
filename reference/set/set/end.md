@@ -7,9 +7,6 @@
 ```cpp
 iterator end() noexcept;
 const_iterator end() const noexcept;
-
-// since C++11
-const_iterator cend() const noexcept;
 ```
 
 ##概要
@@ -17,7 +14,8 @@ const_iterator cend() const noexcept;
 
 
 ##戻り値
-コンテナの最後の要素の次を参照するイテレータ。 
+コンテナの最後の要素の次を参照するイテレータ。
+
 `iterator` と `const_iterator` はいずれもメンバ型である。`set` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
@@ -64,6 +62,6 @@ int main()
 
 | 名前                             | 説明                             |
 |----------------------------------|----------------------------------|
-| [`begin, cbegin`](./begin.md)    | 先頭を指すイテレータを取得する   |
+| [`begin`](./begin.md)            | 先頭を指すイテレータを取得する   |
 | [`rbegin, crbegin`](./rbegin.md) | 末尾を指す逆イテレータを取得する |
 | [`rend, crend`](./rend.md)       | 先頭を指す逆イテレータを取得する |

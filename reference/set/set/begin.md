@@ -1,4 +1,4 @@
-#begin, cbegin
+#begin
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
@@ -7,19 +7,18 @@
 ```cpp
 iterator begin() noexcept;
 const_iterator begin() const noexcept;
-
-// since C++11
-const_iterator cbegin() const noexcept;
 ```
 
 
 ##概要
-`set` コンテナの先頭要素を参照するイテレータを返す。 
-内部的に、`set`コンテナは要素を下位から上位へと並べており、従って `begin()`, `cbegin()` は `set` 内の最下位のキーにあたる値を返す。
+`set` コンテナの先頭要素を参照するイテレータを返す。
+
+内部的に、`set`コンテナは要素を下位から上位へと並べており、従って `begin()` は `set` 内の最下位のキーにあたる値を返す。
 
 
 ##戻り値
 コンテナの先頭要素へのイテレータ。
+
 `iterator` と `const_iterator` はともにメンバ型である。`set` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
@@ -66,6 +65,6 @@ int main()
 
 | 名前                                | 説明                             |
 |-------------------------------------|----------------------------------|
-| [`set::end, cend`](end.md)          | 末尾を指すイテレータを取得する   |
+| [`set::end`](end.md)                | 末尾を指すイテレータを取得する   |
 | [`set::rbegin, crbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
 | [`set::rend, crend`](rend.md)       | 先頭を指す逆イテレータを取得する |
