@@ -56,7 +56,7 @@ namespace std {
 
 int main()
 {
-  // 十進法での変換
+  // 10進法での変換
   std::cout << "---- base = 10" << std::endl;
 
   unsigned long a = std::stoul("10"); // std::stoul("10", nullptr, 10);
@@ -65,7 +65,7 @@ int main()
   unsigned long aw = std::stoul(L"11"); // std::stoul(L"11", nullptr, 10);
   std::cout << aw << std::endl;
 
-  // 八進法での変換
+  // 8進法での変換
   std::cout << "---- base = 8" << std::endl;
 
   unsigned long b = std::stoul("10", nullptr, 8);
@@ -74,7 +74,7 @@ int main()
   unsigned long bw = std::stoul(L"10", nullptr, 8);
   std::cout << bw << std::endl;
 
-  // 十六進法での変換
+  // 16進法での変換
   std::cout << "---- base = 16" << std::endl;
 
   unsigned long c = std::stoul("10", nullptr, 16);
@@ -83,14 +83,14 @@ int main()
   unsigned long cw = std::stoul(L"11", nullptr, 16);
   std::cout << cw << std::endl;
 
-  // 十六進法での変換（プレフィックス付き）
+  // 16進法での変換（プレフィックス付き）
   unsigned long d = std::stoul("0x20", nullptr, 16);
   std::cout << d << std::endl;
 
   unsigned long dw = std::stoul(L"0x21", nullptr, 16);
   std::cout << dw << std::endl;
 
-  // base = 0による十進法・八進法・十六進法の自動判別
+  // base = 0による10進法・8進法・16進法の自動判別
   std::cout << "---- base = 0" << std::endl;
 
   std::cout << std::stoul("100", nullptr, 0) << std::endl;

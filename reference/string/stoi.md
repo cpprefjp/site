@@ -56,7 +56,7 @@ namespace std {
 
 int main()
 {
-  // 十進法での変換
+  // 10進法での変換
   std::cout << "---- base = 10" << std::endl;
 
   int a = std::stoi("10"); // std::stoi("10", nullptr, 10);
@@ -65,7 +65,7 @@ int main()
   int aw = std::stoi(L"11"); // std::stoi(L"11", nullptr, 10);
   std::cout << aw << std::endl;
 
-  // 八進法での変換
+  // 8進法での変換
   std::cout << "---- base = 8" << std::endl;
 
   int b = std::stoi("10", nullptr, 8);
@@ -74,7 +74,7 @@ int main()
   int bw = std::stoi(L"10", nullptr, 8);
   std::cout << bw << std::endl;
 
-  // 十六進法での変換
+  // 16進法での変換
   std::cout << "---- base = 16" << std::endl;
 
   int c = std::stoi("10", nullptr, 16);
@@ -83,14 +83,14 @@ int main()
   int cw = std::stoi(L"11", nullptr, 16);
   std::cout << cw << std::endl;
 
-  // 十六進法での変換（プレフィックス付き）
+  // 16進法での変換（プレフィックス付き）
   int d = std::stoi("0x20", nullptr, 16);
   std::cout << d << std::endl;
 
   int dw = std::stoi(L"0x21", nullptr, 16);
   std::cout << dw << std::endl;
 
-  // base = 0による十進法・八進法・十六進法の自動判別
+  // base = 0による10進法・8進法・16進法の自動判別
   std::cout << "---- base = 0" << std::endl;
 
   std::cout << std::stoi("100", nullptr, 0) << std::endl;

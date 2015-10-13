@@ -52,7 +52,7 @@ namespace std {
 
 int main()
 {
-  // 十進法での変換
+  // 10進法での変換
   std::cout << "---- decimal point" << std::endl;
 
   long double a = std::stold("1.5"); // std::stold("1.5", nullptr);
@@ -70,7 +70,7 @@ int main()
   long double bw = std::stold(L".25e3", nullptr);
   std::cout << bw << std::endl;
 
-  // 十六進法での変換
+  // 16進法での変換
   std::cout << "---- base = 16" << std::endl;
 
   long double c = std::stold("0x1.2P3", nullptr);
