@@ -5,39 +5,50 @@
 * function[meta id-type]
 
 ```cpp
-// C++03 まで
-explicit stack(const Container& cont = Container());
-stack(const stack& st);
+explicit stack(const Container& cont = Container());  // (1) C++03まで
+explicit stack(Container&& cont = Container());       // (2) C++11
+explicit stack(const Container& cont);                // (3) C++11
 
-// C++11 から
-explicit stack(const Container& cont);
-stack(const stack& st);
-explicit stack(Container&& cont = Container());
-stack(stack&& st);
-template <class Allocator> explicit stack(const Allocator& alloc);
-template <class Allocator> stack(const Container& cont, const Allocator& alloc);
-template <class Allocator> stack(Container&& cont, const Allocator& alloc);
-template <class Allocator> stack(const stack& st, const Allocator& alloc);
-template <class Allocator> stack(stack&& st, const Allocator& alloc);
+stack(const stack& st);                               // (4)
+stack(stack&& st);                                    // (5) C++11
+
+template <class Allocator>
+explicit stack(const Allocator& alloc);               // (6) C++11
+
+template <class Allocator>
+stack(const Container& cont, const Allocator& alloc); // (7) C++11
+
+template <class Allocator>
+stack(Container&& cont, const Allocator& alloc);      // (8) C++11
+
+template <class Allocator>
+stack(const stack& st, const Allocator& alloc);       // (9) C++11
+
+template <class Allocator>
+stack(stack&& st, const Allocator& alloc);            // (10) C++11
 ```
 
 ##概要
-`stack` コンテナアダプタのオブジェクトを構築する。 
-コンテナアダプタは、実際にデータを保持するコンテナオブジェクトを内部に持つが、これは引数として渡されたコンテナオブジェクトをコピー、もしくはムーブして用いる。 
-空のコンテナが引数として渡された場合も同様の動作を行う。
+- (1) : デフォルトコンストラクタ。元となるコンテナのコピーを受け取る。
+- (2) : デフォルトコンストラクタ。元となるコンテナの一時オブジェクトをムーブで受け取る。
+- (3) : 元となるコンテナのコピーを受け取るコンストラクタ。
+- (4) : コピーコンストラクタ。
+- (5) : ムーブコンストラクタ。
+- (6) : アロケータを受け取るコンストラクタ。
+- (7) : 元となるコンテナのコピーとアロケータを受け取るコンストラクタ。
+- (8) : 元となるコンテナの一時オブジェクトとアロケータを受け取るコンストラクタ。
+- (9) : アロケータを受け取るコピーコンストラクタ。
+- (10) : アロケータを受け取るムーブコンストラクタ。
 
 
-##パラメータ
-- `cont`  
-	初期化に用いるコンテナオブジェクト
-- `alloc`  
-	内部のコンテナで使用するアロケータオブジェクト
-- `st`  
-	コピー・ムーブ元の `stack` オブジェクト
-
-
-##計算量
-線形時間 O(n)。
+##効果
+- (2) : メンバ変数`c`を[`std::move`](/reference/utility/move.md)`(cont)`で初期化する。
+- (3) : メンバ変数`c`を`cont`のコピーで初期化する。
+- (6) : メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+- (7) : メンバ変数`c`を`Container(cont, alloc)`で初期化する。
+- (8) : メンバ変数`c`を`Container(`[`std::move`](/reference/utility/move.md)`(cont), alloc)`で初期化する。
+- (9) : メンバ変数`c`を`Container(st.c, alloc)`で初期化する。
+- (10) : メンバ変数`c`を`Container(`[`std::move`](/reference/utility/move.md)`(st.c), alloc)`で初期化する。
 
 
 ##例
