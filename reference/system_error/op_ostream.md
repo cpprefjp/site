@@ -12,17 +12,24 @@ namespace std {
 }
 ```
 * error_code[link ./error_code.md]
+* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ##概要
 左辺の`basic_ostream`オブジェクトに`error_code`オブジェクトを出力する
 
 
 ##効果
-`os << ec.`[`category()`](./error_code/category.md)`.`[`name()`](./error_category/name.md)` << ’:’ << ec.`[`value()`](./error_code/value.md)
+```cpp
+os << ec.category().name() << ':' << ec.value();
+```
+* category()[link ./error_code/category.md]
+* name()[link ./error_category/name.md]
+* value()[link ./error_code/value.md]
 
 
 ##戻り値
 `os`
+
 
 ##例
 ```cpp
