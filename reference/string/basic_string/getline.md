@@ -76,5 +76,9 @@ Haru wa akebono.
 Haru wa akebono.
 ```
 
-##参照
-- [`std::basic_istream<>::getline`](../../istream/basic_istream/getline.md): 文字の配列へ入力を行うもの。
+##関連項目
+
+| 名前                  | 説明                           |
+|-----------------------|--------------------------------|
+| [`std::basic_istream<>::getline`](../../istream/basic_istream/getline.md) | 文字の配列へ入力を行うもの |
+

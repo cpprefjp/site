@@ -101,13 +101,15 @@ size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 
 ```
 
 
-##参照
+##関連項目
 
 | 名前                                       | 説明                                     |
 |--------------------------------------------|------------------------------------------|
 | [`search`](/reference/algorithm/search.md) | 指定された最初のサブシーケンスを検索する |
 | [`find`](/reference/algorithm/find.md)     | 指定された値を検索する                   |
 
+
+##参照
 - [LWG2064 - More noexcept issues in basic_string](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2064)
 
 
