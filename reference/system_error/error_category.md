@@ -11,22 +11,26 @@ namespace std {
 ```
 
 ##概要
-`error_category`クラスは、エラー情報を分類するための基本クラスである。エラーコードから対応するエラーメッセージを取得する処理が異なる場合などで、`error_category`クラスを派生して環境固有のエラー情報を取得するためのクラスを定義することができる。
+`error_category`クラスは、エラー情報を分類するための基本クラスである。
+
+エラーコードから対応するエラーメッセージを取得する処理が異なる場合などで、`error_category`クラスを派生して環境固有のエラー情報を取得するためのクラスを定義できる。
+
 
 ##メンバ関数
 
-| | |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| [`(constructor)`](./error_category/op_constructor.md) | コンストラクタ |
-| [`(destructor)`](./error_category/op_destructor.md) | デストラクタ |
-| `operator=(const error_category&) = delete` | 代入演算子(使用不可) |
-| [`name`](./error_category/name.md) | カテゴリ名を取得(pure virtual function) |
-| [`default_error_condition`](./error_category/default_error_condition.md) | エラー値と自身のカテゴリから`error_condition`を生成 |
-| [`equivalent`](./error_category/equivalent.md) | エラーコードとエラー状態の等値比較 |
-| [`message`](./error_category/message.md) | エラーコードに対応するメッセージを取得 |
-| [`operator==`](./error_category/op_equal.md) | 等値比較 |
-| [`operator!=`](./error_category/op_not_equal.md) | 非等値比較 |
-| [`operator<`](./error_category/op_less.md) | 小なり比較 |
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`(constructor)`](./error_category/op_constructor.md) | コンストラクタ | C++11 |
+| [`(destructor)`](./error_category/op_destructor.md)   | デストラクタ | C++11 |
+| `operator=(const error_category&) = delete`           | 代入演算子(使用不可) | C++11 |
+| [`name`](./error_category/name.md) | カテゴリ名を取得(pure virtual function) | C++11 |
+| [`default_error_condition`](./error_category/default_error_condition.md) | エラー値と自身のカテゴリから`error_condition`を生成 | C++11 |
+| [`equivalent`](./error_category/equivalent.md) | エラーコードとエラー状態の等値比較 | C++11 |
+| [`message`](./error_category/message.md) | エラーコードに対応するメッセージを取得 | C++11 |
+| [`operator==`](./error_category/op_equal.md) | 等値比較 | C++11 |
+| [`operator!=`](./error_category/op_not_equal.md) | 非等値比較 | C++11 |
+| [`operator<`](./error_category/op_less.md) | 小なり比較 | C++11 |
+
 
 ##例
 ```cpp
@@ -77,5 +81,5 @@ user defined error
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-###参照
+##参照
 
