@@ -17,11 +17,11 @@ namespace std {
 
 ##メンバ関数
 
-| | |
-|--------------------------------------------|-------------------------------------------------------------------|
-|`system_error(`[`error_code`](./error_code.md)` ec, const string& what_arg);`<br/>`system_error(`[`error_code`](./error_code.md)` ec, const char* what_arg);`<br/>`system_error(`[`error_code`](./error_code.md)` ec);`<br/>`system_error(int ev, const `[`error_category`](./error_category.md)`& cat,`<br/>`             const string& what_arg);`<br/>`system_error(int ev, const `[`error_category`](./error_category.md)`& cat,`<br/>`             const char* what_arg);`<br/>`system_error(int ev, const `[`error_category`](./error_category.md)`& cat);` | `error_code`オブジェクト or エラー値 + エラーカテゴリとエラー理由の文字列から`system_error`オブジェクトを生成する |
-|`const `[`error_code`](./error_code.md)`& code() const noexcept;` | 包含している`error_code`オブジェクトへの参照を取得する |
-|`virtual const char* what() const noexcept;` | メッセージを取得する メッセージ内容は実装依存だが、「`what_arg + ": " + code().message()`」という形式になると予想できる。 |
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+|`system_error(`[`error_code`](./error_code.md)` ec, const string& what_arg);`<br/>`system_error(`[`error_code`](./error_code.md)` ec, const char* what_arg);`<br/>`system_error(`[`error_code`](./error_code.md)` ec);`<br/>`system_error(int ev, const `[`error_category`](./error_category.md)`& cat,`<br/>`             const string& what_arg);`<br/>`system_error(int ev, const `[`error_category`](./error_category.md)`& cat,`<br/>`             const char* what_arg);`<br/>`system_error(int ev, const `[`error_category`](./error_category.md)`& cat);` | `error_code`オブジェクト or エラー値 + エラーカテゴリとエラー理由の文字列から`system_error`オブジェクトを生成する | C++11 |
+|`const `[`error_code`](./error_code.md)`& code() const noexcept;` | 包含している`error_code`オブジェクトへの参照を取得する | C++11 |
+|`virtual const char* what() const noexcept;` | メッセージを取得する メッセージ内容は実装依存だが、「`what_arg + ": " + code().message()`」という形式になると予想できる。 | C++11 |
 
 
 ##例
