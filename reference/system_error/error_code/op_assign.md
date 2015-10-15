@@ -21,7 +21,10 @@ error_code& operator=(ErrorCodeEnum e) noexcept;
 
 
 ##効果
-`*this = `[`make_error_code`](../make_error_code.md)`(e)`
+```cpp
+*this = make_error_code(e);
+```
+* make_error_code[link ../make_error_code.md]
 
 
 ##戻り値
