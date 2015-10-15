@@ -16,7 +16,7 @@ namespace std {
 C++のストリームには行バッファリングの機能がないため、行バッファリングの模倣として`endl`が多用される。
 
 ##効果
-1. `os.`[`put`](basic_ostream/put.md)`(os.`[`widen`](../ios/basic_ios/widen.md.nolink)`('\n'))`を呼び出す。
+1. `os.`[`put`](basic_ostream/put.md)`(os.`[`widen`](../ios/basic_ios/widen.md)`('\n'))`を呼び出す。
 1. `os.`[`flush`](basic_ostream/flush.md)`()`を呼び出す。
 
 ##戻り値
@@ -56,7 +56,7 @@ namespace std {
 * basic_ostream[link basic_ostream.md]
 * put[link basic_ostream/put.md]
 * flush[link basic_ostream/flush.md]
-* widen[link ../ios/basic_ios/widen.md.nolink]
+* widen[link ../ios/basic_ios/widen.md]
 
 ##バージョン
 ###言語

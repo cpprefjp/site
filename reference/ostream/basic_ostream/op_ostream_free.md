@@ -47,7 +47,7 @@ namespace std {
 ###(1)～(5) 文字の書式化出力
 
 文字 `c` を出力ストリーム `os` に出力する。この際、`os` に設定されている幅、埋め文字、および、整列方向に従う。  
-なお、(2) の形式（`os` の文字型（`char_type`）が `char` 以外で `c` が `char` ）の時は、`c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md.nolink)`(c)` を出力する。  
+なお、(2) の形式（`os` の文字型（`char_type`）が `char` 以外で `c` が `char` ）の時は、`c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
 出力後、幅指定は `0` にリセットされる。
 
 ###(6)～(10) 文字列の書式化出力
@@ -59,7 +59,7 @@ namespace std {
 - (7) の形式：`std::`[`char_traits`](../../string/char_traits.md)`<char>::`[`length`](../../string/char_traits/length.md)`(s)`
 - (9) と (10) の形式：`Traits::length(reinterpret_cast<const char*>(s))`
 
-なお、(7) の形式（`os` の文字型（`char_type`）が `char` 以外で `s` が `const char*`）の時は、`s` の各文字 `c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md.nolink)`(c)` を出力する。  
+なお、(7) の形式（`os` の文字型（`char_type`）が `char` 以外で `s` が `const char*`）の時は、`s` の各文字 `c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
 出力後、幅指定は `0` にリセットされる。
 
 ###(11) 右辺値参照ストリームへの出力 (C++11)

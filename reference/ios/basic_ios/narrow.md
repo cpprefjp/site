@@ -47,7 +47,7 @@ int main()
 - C++98
 
 ##参照
-- [`basic_ios`](../basic_ios.md)`::`[`widen`](widen.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`widen`](widen.md)
 - [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)
 - [`ios_base`](../ios_base.md)`::`[`getloc`](../ios_base/getloc.md)
 - [`ctype`](../../locale/ctype.md)
