@@ -21,7 +21,10 @@ error_condition& operator=(ErrorConditionEnum e) noexcept;
 
 
 ##効果
-`*this = `[`make_error_condition`](../make_error_condition.md)`(e)`
+```cpp
+*this = make_error_condition(e);
+```
+* make_error_condition[link ../make_error_condition.md]
 
 
 ##戻り値
