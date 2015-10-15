@@ -15,7 +15,12 @@ string message() const;
 
 
 ##戻り値
-[`category()`](./category.md)`.`[`message`](../error_category/message.md)`(`[`value()`](./value.md)`)`
+```cpp
+category().message(value())
+```
+* category()[link ./category.md]
+* message[link ../error_category/message.md]
+* value()[link ./value.md]
 
 
 ##例
