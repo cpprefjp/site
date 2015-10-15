@@ -15,12 +15,17 @@ error_condition default_error_condition() const noexcept;
 
 
 ##戻り値
-[`category()`](./category.md)`.`[`default_error_condition`](../error_category/default_error_condition.md)`(`[`value()`](./value.md)`)`
+```cpp
+category().default_error_condition(value())
+```
+* category()[link ./category.md]
+* default_error_condition[link ../error_category/default_error_condition.md]
+* value()[link ./value.md]
 
 
 ##例外
-
 投げない
+
 
 ##備考
 構築される[`error_condition`](../error_condition.md)オブジェクトの[`value()`](../error_condition/value.md)および[`category()`](../error_condition/category.md)は、`default_error_condition()`関数内において対応するエラー値、カテゴリに変換される可能性がある(VC10, GCC 4.6.1では同じエラー値、同じカテゴリとなる)。
