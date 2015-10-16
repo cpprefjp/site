@@ -7,13 +7,13 @@
 ```cpp
 namespace std {
   const unspecified ignore;
-
 }
 ```
 * unspecified[italic]
 
 ##概要
-`ignore`は、[`tie()`](./tie.md)を使用してタプルから値を抽出する際に、「不要な値」をマーキングするためのプレースホルダーである。 
+`ignore`は、[`tie()`](./tie.md)を使用してタプルから値を抽出する際に、「不要な値」をマーキングするためのプレースホルダーである。
+
 使用例は[`tie()`](./tie.md)を参照。
 
 
@@ -29,7 +29,7 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp) 9.0, 10.0
 
 
-##参照
+##関連項目
 - [`std::make_tuple`](./make_tuple.md)
 - [`std::forward_as_tuple`](./forward_as_tuple.md)
 - [`std::tie`](./tie.md)
