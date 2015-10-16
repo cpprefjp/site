@@ -27,17 +27,17 @@ namespace std {
 
 - `template <class T> class tuple_size;`
 
-特殊化のための先行宣言。特殊化されていない型の場合、定義が行われないため要素数を取得しようとする段階でコンパイルエラーとなる。
+    特殊化のための先行宣言。特殊化されていない型の場合、定義が行われないため要素数を取得しようとする段階でコンパイルエラーとなる。
 
 - `template <class T> class tuple_size<const T>;`
 - `template <class T> class tuple_size<volatile T>;`
 - `template <class T> class tuple_size<const volatile T>;`
 
-CV修飾された型からも要素数を取得できるようにするための部分特殊化。
+    CV修飾された型からも要素数を取得できるようにするための部分特殊化。
 
 - `template <class... Types> class tuple_size<tuple<Types...>>;`
 
-`std::tuple`の要素数を取得できるようにするための部分特殊化。
+    `std::tuple`の要素数を取得できるようにするための部分特殊化。
 
 
 ##例
