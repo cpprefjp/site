@@ -18,7 +18,8 @@ namespace std {
 ##概要
 パラメータの参照からなる[`tuple`](../tuple.md)を生成する。 
 
-本関数は、[`tuple`](../tuple.md)のオブジェクトから要素をまとめて取り出すために使用することができる。 
+本関数は、[`tuple`](../tuple.md)のオブジェクトから要素をまとめて取り出すために使用することができる。
+
 その際、引数として[`ignore`](./ignore.md)を使用することで、一部の要素を取り出さず、無視することができる。
 
 
@@ -98,7 +99,10 @@ Hello
 - [Visual C++](/implementation.md#visual_cpp) 9.0, 10.0
 
 
-##参照
+##関連項目
 - [`std::ignore`](./ignore.md)
+
+
+##参照
 - [LWG2301 Why is std::tie not constexpr?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2301)
 
