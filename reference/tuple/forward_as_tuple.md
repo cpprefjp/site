@@ -64,7 +64,7 @@ int main()
 
 
 ##注意事項
-`forward_as_tuple`は、ドラフト仕様の段階で`pack_arguments`という名前で一時期表記されていた。 
+`forward_as_tuple`は、ドラフト仕様の段階で`pack_arguments`という名前で一時期表記されていた。  
 コンパイラのバージョンによっては、この名前での実装もありえる。
 
 ##参照
