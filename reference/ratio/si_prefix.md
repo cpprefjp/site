@@ -1,4 +1,4 @@
-#SI単位
+#SI接頭辞
 * ratio[meta header]
 * std[meta namespace]
 * typedef[meta id-type]
