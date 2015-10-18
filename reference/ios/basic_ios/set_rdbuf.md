@@ -3,6 +3,7 @@
 * std[meta namespace]
 * basic_ios[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 void set_rdbuf(basic_streambuf<CharT, Traits>* sb);
