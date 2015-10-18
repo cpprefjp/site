@@ -17,7 +17,7 @@ namespace std {
 
 以下の確率密度関数に基いて、浮動小数点数の値`x`を生成する：
 
-$$ p(x| \lambda ) = \lambda e^{^\lambda x} $$
+$$ p(x| \lambda ) = \lambda e^{-\lambda x} $$
 
 この数式におけるλ(lambda)は、ある事象が起こってから次にまた発生するまでの間隔を表す。
 
