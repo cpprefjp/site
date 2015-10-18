@@ -19,7 +19,7 @@ public:
 
 ##効果
 - (1) 構築が完了した時点では、本オブジェクトの各メンバの値は不定である。  
-    本オブジェクトの各メンバは、初めて使用する時かデストラクタが呼ばれる時のいずれか早い方の前までに [`basic_ios`](../basic_ios.md)`::`[`init`](../basic_ios/init.md.nolink) を呼び出して初期化しなければならない。  
+    本オブジェクトの各メンバは、初めて使用する時かデストラクタが呼ばれる時のいずれか早い方の前までに [`basic_ios`](../basic_ios.md)`::`[`init`](../basic_ios/init.md) を呼び出して初期化しなければならない。  
     さもなければ、未定義動作となる。
 - (2) [`ios_base`](../ios_base.md) オブジェクトをコピーすることはできない。
 
@@ -46,4 +46,4 @@ public:
 - [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md)
 - [`basic_ios`](../basic_ios.md)
 - [`basic_ios`](../basic_ios.md)`::`[`basic_ios`](../basic_ios/op_constructor.md.nolink)
-- [`basic_ios`](../basic_ios.md)`::`[`init`](../basic_ios/init.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`init`](../basic_ios/init.md)

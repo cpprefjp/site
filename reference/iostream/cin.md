@@ -13,7 +13,7 @@ namespace std {
 `cin` は、標準入力に対するマルチバイト入力ストリームオブジェクトである。
 すなわち、`<cstdio>` の `stdin` オブジェクトに結びつけられたストリームオブジェクトである。  
 本オブジェクトは、初期化が完了すると [`tie`](../ios/basic_ios/tie.md)`()` が `&`[`cout`](cout.md) を返すようになる。  
-その他の状態は、[`basic_ios`](../ios/basic_ios.md)`<char>::`[`init`](../ios/basic_ios/init.md.nolink) の事後条件と同様である。
+その他の状態は、[`basic_ios`](../ios/basic_ios.md)`<char>::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
 
 ##例
 ```cpp
