@@ -32,4 +32,4 @@ virtual ~ios_base();
 ##参照
 - [`ios_base`](../ios_base.md)`::`[`ios_base`](op_constructor.md)
 - [`basic_ios`](../basic_ios.md)
-- [`basic_ios`](../basic_ios.md)`::`[`~basic_ios`](../basic_ios/op_destructor.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`~basic_ios`](../basic_ios/op_destructor.md)
