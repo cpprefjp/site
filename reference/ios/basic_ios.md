@@ -82,7 +82,7 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 | `(constructor)` | コンストラクタ           |                |
 | [`init`](basic_ios/init.md)          | ストリームオブジェクトの初期化 |                |
 | [`move`](basic_ios/move.md)          | ムーブ                   | C++11          |
-| `swap`          | 値の交換                 | C++11          |
+| [`swap`](basic_ios/swap.md)          | 値の交換                 | C++11          |
 | [`set_rdbuf`](basic_ios/set_rdbuf.md)     | ストリームバッファの設定 | C++11          |
 
 ##メンバ型

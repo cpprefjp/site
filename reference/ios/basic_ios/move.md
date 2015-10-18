@@ -32,4 +32,4 @@ void move(basic_ios&& rhs);
 
 
 ##参照
-- [`basic_ios`](../basic_ios.md)`::`[`swap`](swap.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`swap`](swap.md)
