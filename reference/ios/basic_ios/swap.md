@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(basic_ios& rhs);
+protected:
+  void swap(basic_ios& rhs) noexcept;
 ```
 * basic_ios[link ../basic_ios.md]
 
@@ -21,6 +22,10 @@ void swap(basic_ios& rhs);
 
 ##戻り値
 無し
+
+
+##例外
+投げない
 
 
 ##バージョン

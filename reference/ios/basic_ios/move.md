@@ -6,9 +6,10 @@
 * cpp11[meta cpp]
 
 ```cpp
-void move(basic_ios& rhs);
+protected:
+  void move(basic_ios& rhs);
 
-void move(basic_ios&& rhs);
+  void move(basic_ios&& rhs);
 ```
 * basic_ios[link ../basic_ios.md]
 

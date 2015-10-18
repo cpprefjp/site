@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void set_rdbuf(basic_streambuf<CharT, Traits>* sb);
+protected:
+  void set_rdbuf(basic_streambuf<CharT, Traits>* sb);
 ```
 * basic_streambuf[link ../../streambuf/basic_streambuf.md]
 

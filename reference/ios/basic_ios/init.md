@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void init(basic_streambuf<CharT, Traits>* sb);
+protected:
+  void init(basic_streambuf<CharT, Traits>* sb);
 ```
 * basic_streambuf[link ../../streambuf/basic_streambuf.md]
 
