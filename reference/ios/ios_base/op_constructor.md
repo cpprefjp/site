@@ -8,7 +8,7 @@
 protected:
   ios_base();                               // (1)
 private:
-  ios_base(const ios_base&);                // (2) C++03 まで
+  ios_base(const ios_base&);                // (2) 宣言のみ、C++03 まで
 public:
   ios_base(const ios_base&) = delete;       // (2) C++11 から
 ```
@@ -18,10 +18,12 @@ public:
 
 
 ##効果
-- (1) 構築が完了した時点では、本オブジェクトの各メンバの値は不定である。  
+- (1) デフォルトコンストラクタ。  
+    構築が完了した時点では、本オブジェクトの各メンバの値は不定である。  
     本オブジェクトの各メンバは、初めて使用する時かデストラクタが呼ばれる時のいずれか早い方の前までに [`basic_ios`](../basic_ios.md)`::`[`init`](../basic_ios/init.md) を呼び出して初期化しなければならない。  
     さもなければ、未定義動作となる。
-- (2) [`ios_base`](../ios_base.md) オブジェクトをコピーすることはできない。
+- (2) コピーコンストラクタ。コピー不可。  
+    [`ios_base`](../ios_base.md) オブジェクトをコピーすることはできない。
 
 
 ##備考
@@ -45,5 +47,5 @@ public:
 ##参照
 - [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md)
 - [`basic_ios`](../basic_ios.md)
-- [`basic_ios`](../basic_ios.md)`::`[`basic_ios`](../basic_ios/op_constructor.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`basic_ios`](../basic_ios/op_constructor.md)
 - [`basic_ios`](../basic_ios.md)`::`[`init`](../basic_ios/init.md)

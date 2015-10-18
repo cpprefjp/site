@@ -43,7 +43,7 @@ protected:
 
 
 ##参照
-- [`basic_ios`](../basic_ios.md)`::`[`basic_ios`](op_constructor.md.nolink)
+- [`basic_ios`](../basic_ios.md)`::`[`basic_ios`](op_constructor.md)
 - [`basic_ios`](../basic_ios.md)`::`[`~basic_ios`](op_destructor.md)
 - [`ios_base`](../ios_base.md)`::`[`ios_base`](../ios_base/op_constructor.md)
 - [`ios_base`](../ios_base.md)`::`[`~ios_base`](../ios_base/op_destructor.md)
