@@ -61,4 +61,4 @@ int main()
 - C++98
 
 ##参照
-- [`set_rdbuf`](set_rdbuf.md.nolink)
+- [`set_rdbuf`](set_rdbuf.md)
