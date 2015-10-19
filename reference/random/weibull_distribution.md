@@ -17,7 +17,7 @@ namespace std {
 ワイブル分布は、物体の劣化、寿命、強度、破壊といったものを記述するために考案された分布法である。  
 ワイブル分布は、以下の密度関数に基いて、浮動小数点数の値を生成する：
 
-$$ p(x|a,b) = \frac{a}{b} \cdot \big( \frac{x}{b} \big)^{a - 1} \cdot exp \big( - \big( \frac{x}{b} \big)^{a} \big) $$
+$$ p(x|a,b) = \frac{a}{b} \cdot \big( \frac{x}{b} \big)^{a - 1} \cdot \exp \big( - \big( \frac{x}{b} \big)^{a} \big) $$
 
 この数式におけるaはワイブル係数(形状パラメータ : shape parameter)を意味し、bは尺度パラメータ(scale parameter)を意味する。
 
