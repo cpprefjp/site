@@ -16,7 +16,7 @@ namespace std {
 `lognormal_distribution`は、乱数を対数正規分布させるクラスである。 
 対数正規分布はその名のとおり、正規分布に対数を付けたものである。以下の密度関数に基いて、浮動小数点数の乱数を生成する：  
 
-$$ p(x|m,s) = \frac{1}{sx \sqrt{2 \pi } } \cdot exp \big( - \frac{(1nx-m)^{2}}{2s^{2}} \big) $$
+$$ p(x|m,s) = \frac{1}{sx \sqrt{2 \pi } } \cdot \exp \big( - \frac{(\ln x - m)^{2}}{2s^{2}} \big) $$
 
 この密度関数において、mは平均(mean)、sは標準偏差(standard deviation)を意味する。
 

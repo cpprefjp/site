@@ -21,7 +21,7 @@ namespace std {
 `linear_congruential_engine`クラスは、線形合同法による擬似乱数生成エンジンである。  
 前の擬似乱数と定数A、定数B、定数Mを保持し、以下の漸化式により次の擬似乱数を生成する。 
 
-$$X_{n+1}= (A \times X_n + C) mod M$$
+$$X_{n+1}= (A \times X_n + C) \bmod M$$
 
 線形合同法は、以下の特徴を持つ：
 
