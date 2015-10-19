@@ -22,8 +22,9 @@ namespace std {
 
 
 ##要件
-2つの[`tuple`](../tuple.md)オブジェクトの要素数が同じであること。 
-[`tuple`](../tuple.md)の要素`std::`[`get`](./get.md)`<i>(t)`と`std::`[`get`](./get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](./get.md)`<i>(t) == std::`[`get`](./get.md)`<i>(u)` の比較結果が`bool`に変換可能な型であること。
+- 2つの[`tuple`](../tuple.md)オブジェクトの要素数が同じであること。
+- [`tuple`](../tuple.md)の要素`std::`[`get`](./get.md)`<i>(t)`と`std::`[`get`](./get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](./get.md)`<i>(t) == std::`[`get`](./get.md)`<i>(u)` の比較結果が`bool`に変換可能な型であること。
+
 
 ##効果
 0番目の要素から順に等値比較を行う。
