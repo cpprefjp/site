@@ -71,3 +71,7 @@ en_US.UTF-8
 - [`ios_base`](../ios_base.md)`::`[`event_callback`](type-event_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`register_callback`](register_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md)
+- [`basic_ios`](../basic_ios.md)`::`[`imbue`](../basic_ios/imbue.md)
+- [`basic_streambuf`](../../streambuf/basic_streambuf.md)`::`[`getloc`](../../streambuf/basic_streambuf/getloc.md)
+- [`basic_streambuf`](../../streambuf/basic_streambuf.md)`::`[`pubimbue`](../../streambuf/basic_streambuf/pubimbue.md)
+- [`locale`](../../locale/locale.md)

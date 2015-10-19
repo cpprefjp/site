@@ -72,7 +72,8 @@ de_DE
 - C++98
 
 ##参照
-- [`basic_ios`](../basic_ios.md)`::`[`getloc`](getloc.md.nolink)
+- [`ios_base`](../ios_base.md)`::`[`getloc`](../ios_base/getloc.md)
 - [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)
+- [`basic_streambuf`](../../streambuf/basic_streambuf.md)`::`[`getloc`](../../streambuf/basic_streambuf/getloc.md)
 - [`basic_streambuf`](../../streambuf/basic_streambuf.md)`::`[`pubimbue`](../../streambuf/basic_streambuf/pubimbue.md)
 - [`locale`](../../locale/locale.md)
