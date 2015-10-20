@@ -10,11 +10,11 @@ namespace std {
 }
 ```
 
-###概要
+##概要
 `type_index`は、[`type_info`](/reference/typeinfo/type_info.md)を連想コンテナや非順序連想コンテナのインデックス型として使用するためのクラスである。
 
 
-###メンバ関数
+##メンバ関数
 
 | 名前                                              | 説明                               | 対応バージョン |
 |---------------------------------------------------|------------------------------------|----------------|
@@ -37,7 +37,7 @@ namespace std {
 | `template <> struct hash<type_index>;` | `hash`クラスの`type_index`に対する特殊化 | C++11 |
 
 
-###例
+##例
 ```cpp
 #include <iostream>
 #include <map>
