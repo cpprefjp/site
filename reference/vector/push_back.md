@@ -18,7 +18,11 @@ void push_back(T&& x);      // (2) C++11
 
 
 ##計算量
-定数時間
+償却定数時間。
+
+この関数を呼び出す前に[`size()`](./size.md) `<` [`capacity()`](./capacity)であった場合、この関数の実行は定数時間で行われる。そうでない場合は、メモリ領域の再確保と、その領域への要素のコピーもしくはムーブが行われるため、線形時間で実行される。
+
+`vector`の実装で行われるメモリ確保戦略では、再確保の際にそれら要素がぴったり収まるサイズを確保するのではなく、少し多めの1.5倍や2倍といったサイズのメモリを確保し、再確保の回数を減らしている。事前に追加する要素の数がわかっている場合には[`reserve`](./reserve.md)メンバ関数で事前にその要素数分のメモリを確保し、そうでない場合には`vector`のメモリ確保戦略に任せるのがよいだろう。
 
 
 ##備考
@@ -59,6 +63,8 @@ world
 
 
 ##参照
+- [２倍だけじゃない - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_2334100705)
+- [それでも２倍だ - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_1001100720)
 - [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
 	- C++03では、「`vector`の`push_back()`、`deque`の`push_back()`と`push_front()`で例外が発生した場合、副作用が発生しない」という強い保証があった。
 	- C++11では、ムーブ対応のため文面が見直されたが、その際に`insert()` `emplace()`とまとめて以下のような仕様となった：
