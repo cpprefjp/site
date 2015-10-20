@@ -76,3 +76,6 @@ int main()
 - GCC, C++11 mode: 4.6.1
 
 
+##参照
+- [N2530 Making It Easier to Use `std::type_info` as an Index in an Associative Container](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2530.html)
+
