@@ -5,10 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void push_back(const T& x);
-
-// C++11から
-void push_back(T&& x);
+void push_back(const T& x); // (1)
+void push_back(T&& x);      // (2) C++11
 ```
 
 ##概要
