@@ -62,7 +62,7 @@ namespace std {
 |---------------------------------------------------|----------------|----------------|
 | [`(constructor)`](basic_ostream/op_constructor.md.nolink) | コンストラクタ |                |
 | `(destructor)`                                    | デストラクタ   |                |
-| `operator=`                                       | ムーブ代入     | C++11          |
+| [`operator=`](basic_ostream/op_assign.md)                                       | 代入     | C++11          |
 | [`swap`](basic_ostream/swap.md)                                            | 値の交換       | C++11          |
 
 - コピーコンストラクタとコピー代入演算子はdelete定義されている。
