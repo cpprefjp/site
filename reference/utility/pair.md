@@ -13,6 +13,8 @@ namespace std {
 ##概要
 `pair`は、2つの異なる型の値を保持する「組」を表現するためのクラスである。また、N個の異なる型の値を保持する「タプル」を表現するためのクラスとして、[`tuple`](/reference/tuple/tuple.md)クラスも提供されている。
 
+標準ライブラリにおいて`pair`は、連想配列コンテナの実装である[`map`](/reference/map/map.md)クラスや[`unordered_map`](/reference/unordered_map/unordered_map.md)クラスで、キーと値をまとめるためのデータ型として使用されている。
+
 
 ##メンバ変数
 
