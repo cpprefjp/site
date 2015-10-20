@@ -86,5 +86,6 @@ int main()
 
 
 ##参照
-
+- [LWG Issue 1255. `declval` should be added to the library](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#1255)
+- [N3276 US22/DE9 Revisited: Decltype and Call Expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf)
 
