@@ -5,13 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-// C++03まで
-iterator erase(iterator position);
-iterator erase(iterator first, iterator last);
+iterator erase(iterator position);       // (1) C++03
+iterator erase(const_iterator position); // (2) C++11
 
-// C++11から
-iterator erase(const_iterator position);
-iterator erase(const_iterator first, const_iterator last);
+iterator erase(iterator first, iterator last);             // (2) C++03
+iterator erase(const_iterator first, const_iterator last); // (2) C++11
 ```
 
 ##概要
@@ -19,11 +17,14 @@ iterator erase(const_iterator first, const_iterator last);
 
 
 ##要件
-`T`はMoveAssignableでなければならない。
+- `T`はMoveAssignableでなければならない。
 
 
 ##効果
-1引数版は、`position`が指す要素が削除される。2引数版は、`[first, last)`で示される範囲の要素が削除される。削除された要素またはそれ以降の要素を指すイテレータや参照は無効になる。
+- (1) : `position`が指す要素が削除される。
+- (2) : `[first, last)`で示される範囲の要素が削除される。
+
+削除された要素またはそれ以降の要素を指すイテレータや参照は無効になる。
 
 
 ##戻り値
