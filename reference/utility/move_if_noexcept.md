@@ -95,6 +95,12 @@ copy
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 	- 11.0は正しく実装されていないと思われる。上記「例」のコードにおいて、ともにmoveしてしまう結果となる。
 
+
+##関連項目
+- [`is_nothrow_copy_constructible`](/reference/type_traits/is_nothrow_copy_constructible.md)
+- [`is_nothrow_move_constructible`](/reference/type_traits/is_nothrow_move_constructible.md)
+
+
 ##参照
 - [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
