@@ -62,7 +62,7 @@ void good(T&& x)
 
 
 ##備考
-二番目の形式（ `template <class T> T&& forward(typename remove_reference<T>::type&&) noexcept;` ）が左辺値参照の型に対して呼ばれた場合、プログラムは不適格である。（例： `std::forward<int&>(1)` は不適格）
+- (2) : この形式が左辺値参照の型に対して呼ばれた場合、プログラムは不適格である。（例： `std::forward<int&>(1)` は不適格）
 
 
 ##例
