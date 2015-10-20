@@ -12,7 +12,9 @@ namespace std {
 ```
 
 ##概要
-型`T`がムーブ構築でき、かつそのムーブコンストラクタが例外を投げないか調べる
+型`T`がムーブ構築でき、かつそのムーブコンストラクタが例外を投げないか調べる。
+
+これを使用することにより、特定の条件を満たすことで、例外を投げない強い保証をする関数・クラスを実装できる。
 
 
 ##要件
@@ -88,6 +90,10 @@ int main() {}
 ###処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
+
+
+##関連項目
+- [move_if_noexcept](/reference/utility/move_if_noexcept.md)
 
 
 ##参照
