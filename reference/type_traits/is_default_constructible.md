@@ -73,3 +73,7 @@ int main(){}
 ####備考
 上の例でコンパイラによってはエラーになる。Clang 3.0 は `constexpr` に対応していないためにエラーになる。`operator bool` は持っているので、実行時に用いることはできる。
 
+
+##参照
+- [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
+
