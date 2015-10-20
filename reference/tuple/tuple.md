@@ -104,3 +104,6 @@ hello
 - [Visual C++](/implementation.md#visual_cpp): 9.0, 10.0
 
 
+##参照
+- [タプル - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%97%E3%83%AB)
+

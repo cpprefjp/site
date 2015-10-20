@@ -91,5 +91,10 @@ int main()
 hello
 ```
 
-###参照
+##関連項目
+- [`std::tuple`](/reference/tuple/tuple.md)
+
+
+##参照
+- [タプル - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%97%E3%83%AB)
 
