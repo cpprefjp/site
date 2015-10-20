@@ -28,11 +28,12 @@ namespace std {
 | `wios`      | `wchar_t` 型のストリーム |                |
 
 ##メンバ関数
-###構築・破棄
+###構築・破棄・代入
 | 名前                                           | 説明                     | 対応バージョン |
 |------------------------------------------------|--------------------------|----------------|
 | [`(constructor)`](basic_ios/op_constructor.md) | コンストラクタ           |                |
 | [`(destructor)`](basic_ios/op_destructor.md)   | デストラクタ             |                |
+| [`operator=`](basic_ios/op_assign.md)          | 代入演算子               |                |
 
 なお、コピーコンストラクタとコピー代入演算子はdelete定義されている。
 C++03では、delete定義の代わりに`private`で宣言のみされていた。
