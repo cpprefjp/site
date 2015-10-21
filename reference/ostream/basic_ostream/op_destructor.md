@@ -31,7 +31,7 @@ virtual ~basic_ostream();
 
 
 ##参照
-- [`basic_ostream`](../basic_ostream.md)`::`[`basic_ostream`](op_constructor.md.nolink)
+- [`basic_ostream`](../basic_ostream.md)`::`[`basic_ostream`](op_constructor.md)
 - [`basic_ostream`](../basic_ostream.md)`::`[`swap`](swap.md)
 - [`basic_ostream`](../basic_ostream.md)`::`[`operator=`](op_assign.md)
 - [`basic_ios`](../../ios/basic_ios.md)`::`[`basic_ios`](../../ios/basic_ios/op_constructor.md)

@@ -58,12 +58,10 @@ namespace std {
 
 ###構築・破棄
 
-| 名前                                              | 説明           | 対応バージョン |
-|---------------------------------------------------|----------------|----------------|
-| [`(constructor)`](basic_ostream/op_constructor.md.nolink) | コンストラクタ |                |
-| [`(destructor)`](basic_ostream/op_destructor.md)                                    | デストラクタ   |                |
-| [`operator=`](basic_ostream/op_assign.md)                                       | 代入     | C++11          |
-| [`swap`](basic_ostream/swap.md)                                            | 値の交換       | C++11          |
+| 名前                                               | 説明           | 対応バージョン |
+|----------------------------------------------------|----------------|----------------|
+| [`(constructor)`](basic_ostream/op_constructor.md) | コンストラクタ |                |
+| [`(destructor)`](basic_ostream/op_destructor.md)   | デストラクタ   |                |
 
 - コピーコンストラクタとコピー代入演算子はdelete定義されている。
 - ムーブコンストラクタ・ムーブ代入演算子と`swap`はprotectedで定義されている。
@@ -85,6 +83,14 @@ namespace std {
 |-----------------------------------|------------------------------|----------------|
 | [`tellp`](basic_ostream/tellp.md) | 現在の読み取り位置を取得する |                |
 | [`seekp`](basic_ostream/seekp.md) | 読み取り位置を移動する       |                |
+
+###protectedメンバ関数
+
+| 名前                                               | 説明           | 対応バージョン |
+|----------------------------------------------------|----------------|----------------|
+| [`(constructor)`](basic_ostream/op_constructor.md) | コンストラクタ |                |
+| [`operator=`](basic_ostream/op_assign.md)          | 代入           | C++11          |
+| [`swap`](basic_ostream/swap.md)                    | 値の交換       | C++11          |
 
 ##非メンバ関数
 

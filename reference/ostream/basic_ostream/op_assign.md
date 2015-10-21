@@ -49,7 +49,7 @@ protected:
 
 
 ##参照
-- [`basic_ostream`](../basic_ostream.md)`::`[`basic_ostream`](op_constructor.md.nolink)
+- [`basic_ostream`](../basic_ostream.md)`::`[`basic_ostream`](op_constructor.md)
 - [`basic_ios`](../../ios/basic_ios.md)`::`[`basic_ios`](../../ios/basic_ios/op_constructor.md)
 - [`basic_ios`](../../ios/basic_ios.md)`::`[`operator=`](../../ios/basic_ios/op_assign.md)
 - [`basic_ios`](../../ios/basic_ios.md)`::`[`move`](../../ios/basic_ios/move.md)
