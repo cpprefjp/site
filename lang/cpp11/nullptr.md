@@ -1,5 +1,5 @@
 #nullptr
-* cpp14[meta cpp]
+* cpp11[meta cpp]
 
 ##概要
 `nullptr`は、ヌルポインタ値を表すキーワードである。
