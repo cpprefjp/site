@@ -61,7 +61,7 @@ namespace std {
 | 名前                                              | 説明           | 対応バージョン |
 |---------------------------------------------------|----------------|----------------|
 | [`(constructor)`](basic_ostream/op_constructor.md.nolink) | コンストラクタ |                |
-| `(destructor)`                                    | デストラクタ   |                |
+| [`(destructor)`](basic_ostream/op_destructor.md)                                    | デストラクタ   |                |
 | [`operator=`](basic_ostream/op_assign.md)                                       | 代入     | C++11          |
 | [`swap`](basic_ostream/swap.md)                                            | 値の交換       | C++11          |
 
