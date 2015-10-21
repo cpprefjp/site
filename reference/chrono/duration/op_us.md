@@ -24,7 +24,7 @@ using namespace literals::chrono_literals;
 ```
 * chrono::microseconds[link /reference/chrono/microseconds.md]
 * chrono::duration[link /reference/chrono/duration.md]
-* micro[link /reference/ratio/si_unit.md]
+* micro[link /reference/ratio/si_prefix.md]
 * unspecified[italic]
 
 ##概要
