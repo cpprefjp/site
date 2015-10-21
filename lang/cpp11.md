@@ -64,5 +64,5 @@ C++11とは、ISO/IEC 14882:2011で標準規格化されたC++バージョンの
 
 
 ##参照
-- [C++11 Overview - Wikipedia](https://isocpp.org/wiki/faq/cpp11)
+- [C++11 Overview - Standard C++](https://isocpp.org/wiki/faq/cpp11)
 
