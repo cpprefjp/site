@@ -44,6 +44,25 @@ C++03まで、ヌルポインタを表すために`0`数値リテラルや[`NULL
 2つの[`nullptr_t`][nullptr_t]型を比較した場合、`==`、`<=`、`>=`演算子の結果は`true`となり、それ以外の演算子は`false`となる。
 
 
+##例
+```cpp
+#include <iostream>
+
+int main()
+{
+  int* p = nullptr;
+  if (!p) {
+    std::cout << "p is nullptr" << std::endl;
+  }
+}
+```
+
+###出力
+```
+p is nullptr
+```
+
+
 ##この機能が必要になった背景・経緯
 以下のような関数テンプレートを考える：
 
