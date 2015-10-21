@@ -3,7 +3,7 @@
 ここでは、C++の言語機能の解説を記載する。
 
 - [C++11](./lang/cpp11.md)
-- [C++14](./lang/cpp14.md.nolink)
+- [C++14](./lang/cpp14.md)
 - [言語拡張](./lang/extension.md.nolink)
 
 
