@@ -2,9 +2,9 @@
 
 ここでは、C++の言語機能の解説を記載する。
 
-- C++11
-- C++14
-- 言語拡張
+- [C++11](./lang/cpp11.md)
+- [C++14](./lang/cpp14.md.nolink)
+- [言語拡張](./lang/extension.md.nolink)
 
 
 ##運営方針
