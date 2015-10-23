@@ -65,6 +65,113 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | `long long`型 | `long`以上の大きさを持つ整数型 |
 
 
+##ライブラリ更新の概要
+
+###コンテナ
+
+- 固定長配列クラス[`std::array`](/reference/array.md)を追加
+- 単方向リンクリストの実装である[`std::forward_list`](/reference/forward_list.md)を追加
+- ハッシュ表の連想コンテナである[`std::unordered_map`](/reference/unordered_map/unordered_map.md)クラス、[`std::unordered_set`](/reference/unordered_set/unordered_set.md)クラス、およびその重複を許可するバージョンを追加
+- コンテナ全般がムーブセマンティクスに対応
+    - クラステンプレートのパラメータ`T`が、コピー構築可能な型だけでなく、ムーブ構築のみ可能な型も受け付けるようになった
+	- `push_back()`や`insert()`等の要素追加のためのメンバ関数が、新たな要素のコピーだけでなく、一時オブジェクトも受け取れて、ムーブで挿入ができるようになった。
+- 要素追加のためのメンバ関数として、クラステンプレートのパラメータ`T`のコンストラクタ引数を受け取り、一時オブジェクトの生成コストを減らせるものが追加された。これらは、以下のように命名されたメンバ関数である：`emplace()`、`emplace_back()`、`emplace_front()`
+- コンテナのメモリアロケータが状態を持てるようになった
+- 初期化子リストでコンテナを初期化できるようになった
+- 初期化子リストをパラメータで受け取れるようにするためのクラス[`std::initializer_list`](/reference/algorithm/initializer_list.md)を追加
+- 型情報型を連想コンテナのキーとして使用するための[`std::type_index`](/reference/typeindex/type_index.md)クラスを追加
+
+
+###イテレータ
+
+- イテレータを進める関数[`std::next()`](/reference/iterator/next.md)、イテレータを逆に進める関数[`std::prev()`](/reference/iterator/prev.md)を追加
+- 要素をムーブするイテレータとして、[`std::move_iterator`](/reference/iterator/move_iterator.md)クラスを追加
+- 先頭イテレータと末尾イテレータを取得する非メンバ関数として、[`std::begin()`](/reference/iterator/begin.md)と[`std::end()`](/reference/iterator/end.md)を追加
+
+
+###アルゴリズム
+
+- 範囲が特定の条件を満たしているか調べる、[`std::all_of()`](/reference/algorithm/all_of.md)、[`std::any_of()`](/reference/algorithm/any_of.md)、[`std::none_of`](/reference/algorithm/none_of.md)を追加
+- 条件を満たしていない最初の要素を検索する[`std::find_if_not()`](/reference/algorithm/find_if_not.md)を追加
+- 指定された数の要素をコピーする[`std::copy_n()`](/reference/algorithm/copy_n.md)を追加
+- 条件を満たす要素のみをコピーする[`std::copy_if()`](/reference/algorithm/copy_if.md)を追加
+- 範囲の要素をムーブする[`std::move`](/reference/algorithm/move.md)、[`std::move_backward`](/reference/algorithm/move_backward.md)を追加
+- 新たな乱数ライブラリ[`<random>`](/reference/random.md)に対応した範囲のシャッフルアルゴリズム[`std::shuffle`](/reference/algorithm/shuffle.md)を追加
+- 範囲がソート済みか調べる[`std::is_sorted`](/reference/algorithm/is_sorted.md)を追加
+- 2つの値の最小値を取得する[`std::min()`](/reference/algorithm/min.md)、最大値を取得する[`std::max()`](/reference/algorithm/max.md)に、初期化子リストによる可変引数版を追加
+- 最小値と最大値を同時に取得する関数[`std::minmax()`](/reference/algorithm/minmax.md)、[`std::minmax_element()`](/reference/algorithm/minmax_element.md)を追加
+- 指定された値から始まる整数列を生成する[`std::iota`](/reference/numeric/iota.md)を追加
+
+
+###メモリ管理
+
+- メモリアロケータの実装をより容易にするために、コンテナとメモリアロケータの中間インタフェースとして[`std::allocator_traits`](/reference/memory/allocator_traits.md)を追加
+- スマートポインタの実装として、所有権共有方式の[`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスと、所有権専有方式の[`std::unique_ptr`](/reference/memory/unique_ptr.md)クラスを追加
+- 従来のスマートポインタ`auto_ptr`クラスを、非推奨とする
+- `operator&()`がオーバーロードされていたとしても正しく変数のアドレスを取得する関数、[`std::addressof()`](/reference/memory/addressof.md)を追加
+
+
+###入出力
+- 標準ライブラリ中の入力ストリーム演算子`operator<<()`と出力ストリーム演算子`operator>>()`がムーブセマンティクスに対応。ストリームの一時オブジェクトを受け取れるようになった
+
+
+###文字列処理
+- UTF-16の文字列型[`std::u16string`](/reference/string/basic_string.md)、UTF-32の文字列型[`std::u32string`]を追加
+- UTF-8とUTF-16、UTF-8とUTF-32といった、マルチバイト文字とワイド文字列の相互変換を行うクラス[`std::wstring_convert`](/reference/locale/wstring_convert.md)を追加
+- 数値から文字列オブジェクトに変換する関数として、[`std::to_string()`](/reference/string/to_string.md)と[`std::to_wstring()`](/reference/string/to_wstring.md)を追加
+- 文字列オブジェクトから数値に変換する、[`std::stoi()`](/reference/string/stoi.md)や[`std::stof()`](/reference/string/stof.md)といった関数を追加
+
+
+###関数オブジェクト
+- 関数ポインタと関数オブジェクトを統一的に扱えるクラス[`std::function`](/reference/functional/function.md)を追加
+- 関数の引数を束縛して部分適用する関数[`std::bind()`](/reference/functional/bind.md)を追加
+- メンバ関数ポインタを関数オブジェクトにアダプトする関数[`std::mem_fn()`](/reference/functional/mem_fn.md)を追加
+- テンプレートに、明示的に左辺値参照を渡すための渡すためのクラス[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)と、そのヘルパ関数である[`std::ref()`](/reference/functional/ref.md)と[`std::cref()`](/reference/functional/cref.md)を追加
+- ハッシュ表コンテナの追加にともない、オブジェクトのハッシュ値を計算する関数オブジェクト[`std::hash`](/reference/functional/hash.md)クラスを追加
+- ビット演算の関数オブジェクトとして、[`std::bit_and`](/reference/functional/bit_and.md)、[`std::bit_or`](/reference/functional/bit_or.md)、[`std::bit_xor`](/reference/functional/bit_xor.md)を追加
+- 従来の関数オブジェクトアダプタ`std::unary_function`、`std::binary_function`、`std::mem_fun()`、`std::mem_fun_ref()`等を非推奨とする
+- 従来の関数バインダ`std::bind1st`、`std::bind2nd`等を非推奨とする
+
+
+###並行処理
+- スレッドを管理するクラス[`std::thread`](/reference/thread/thread.md)を追加
+- スレッド間での排他制御を行うミューテックスの実装である[`std::mutex`](/reference/mutex/mutex.md)クラス、[`std::recursive_mutex`](/reference/mutex/recursive_mutex.md)クラス等を追加
+    - ミューテックスの所有権放棄を自動的に行うためのクラス[`std::lock_guard`](/reference/mutex/lock_guard.md)、[`std::unique_lock`](/reference/mutex/unique_lock.md)を追加
+- スレッドセーフに一度だけ処理を呼び出す関数、[`std::call_once()`](/reference/mutex/call_once.md)を追加
+- 条件変数の実装である[`std::condition_variable`](/reference/condition_variable/condition_variable.md)クラス、[`std::condition_variable_any`](/reference/condition_variable/condition_variable_any.md)クラスを追加
+- Futureデザインパターンをサポートする[`std::future`](/reference/future/future.md)クラス、[`std::promise`](/reference/future/promise.md)クラス、およびその補助機能を追加
+- アトミック操作のライブラリ[`<atomic>`](/reference/atomic.md)を追加
+
+
+##汎用的なユーティリティ
+- `std::swap()`関数を、[`<algorithm>`](/reference/algorithm.md)から[`<utility>`](/reference/utility.md)に移動
+- ムーブセマンティクスのために、左辺値を右辺値に変換する関数[`std::move()`](/reference/utility/move.md)を追加
+- 引数転送のための関数[`std::forward()`](/reference/utility/forward.md)を追加
+- [`std::pair`](/reference/utility/pair.md)クラスの[コンストラクタ](/reference/utility/pair/op_constructor.md)が、それぞれの要素型のコンストラクタ引数を直接受け取れるようになった
+- タプルの実装である[`std::tuple`](/reference/tuple/tuple.md)クラスを追加
+- SFINAEのために、型の値を取得する関数[`std::declval()`](/reference/utility/declval.md)を追加
+- 時間ユーティリティライブラリ[`<chrono>`](/reference/chrono.md)を追加
+- 型特性ライブラリ[`<type_traits>`](/reference/type_traits.md)を追加
+
+
+###エラー報告
+- OSのエラー値を扱うライブラリ[`<system_error>`](/reference/system_error.md)を追加
+
+
+###正規表現ライブラリ
+- 正規表現ライブラリ[`<regex>`](/reference/regex.md)を追加
+- ECMAScript、POSIX、AWK、grepなどの構文を切り替えて使用できるのが特徴。デフォルトではECMAScript
+
+
+###乱数ライブラリ
+- 乱数ライブラリ[`<random>`](/reference/random.md)を追加
+- 複数定義されている乱数生成器と分布アルゴリズムを、組み合わせて使用するのが特徴
+
+
+###C互換ライブラリ
+- ビット幅規定の整数型ライブラリである[`<cstdint>`](/reference/cstdint.md)を追加
+
+
 ##参照
 - [C++11 Overview - Standard C++](https://isocpp.org/wiki/faq/cpp11)
 
