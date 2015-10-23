@@ -78,7 +78,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 - 要素追加のためのメンバ関数として、クラステンプレートのパラメータ`T`のコンストラクタ引数を受け取り、一時オブジェクトの生成コストを減らせるものが追加された。これらは、以下のように命名されたメンバ関数である：`emplace()`、`emplace_back()`、`emplace_front()`
 - コンテナのメモリアロケータが状態を持てるようになった
 - 初期化子リストでコンテナを初期化できるようになった
-- 初期化子リストをパラメータで受け取れるようにするためのクラス[`std::initializer_list`](/reference/algorithm/initializer_list.md)を追加
+- 初期化子リストをパラメータで受け取れるようにするためのクラス[`std::initializer_list`](/reference/initializer_list.md)を追加
 - 型情報型を連想コンテナのキーとして使用するための[`std::type_index`](/reference/typeindex/type_index.md)クラスを追加
 
 
@@ -95,12 +95,12 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 - 条件を満たしていない最初の要素を検索する[`std::find_if_not()`](/reference/algorithm/find_if_not.md)を追加
 - 指定された数の要素をコピーする[`std::copy_n()`](/reference/algorithm/copy_n.md)を追加
 - 条件を満たす要素のみをコピーする[`std::copy_if()`](/reference/algorithm/copy_if.md)を追加
-- 範囲の要素をムーブする[`std::move`](/reference/algorithm/move.md)、[`std::move_backward`](/reference/algorithm/move_backward.md)を追加
-- 新たな乱数ライブラリ[`<random>`](/reference/random.md)に対応した範囲のシャッフルアルゴリズム[`std::shuffle`](/reference/algorithm/shuffle.md)を追加
-- 範囲がソート済みか調べる[`std::is_sorted`](/reference/algorithm/is_sorted.md)を追加
+- 範囲の要素をムーブする[`std::move()`](/reference/algorithm/move.md)、[`std::move_backward()`](/reference/algorithm/move_backward.md)を追加
+- 新たな乱数ライブラリ[`<random>`](/reference/random.md)に対応した範囲のシャッフルアルゴリズム[`std::shuffle()`](/reference/algorithm/shuffle.md)を追加
+- 範囲がソート済みか調べる[`std::is_sorted()`](/reference/algorithm/is_sorted.md)を追加
 - 2つの値の最小値を取得する[`std::min()`](/reference/algorithm/min.md)、最大値を取得する[`std::max()`](/reference/algorithm/max.md)に、初期化子リストによる可変引数版を追加
 - 最小値と最大値を同時に取得する関数[`std::minmax()`](/reference/algorithm/minmax.md)、[`std::minmax_element()`](/reference/algorithm/minmax_element.md)を追加
-- 指定された値から始まる整数列を生成する[`std::iota`](/reference/numeric/iota.md)を追加
+- 指定された値から始まる整数列を生成する[`std::iota()`](/reference/numeric/iota.md)を追加
 
 
 ###メモリ管理
@@ -116,7 +116,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 
 
 ###文字列処理
-- UTF-16の文字列型[`std::u16string`](/reference/string/basic_string.md)、UTF-32の文字列型[`std::u32string`]を追加
+- UTF-16の文字列型[`std::u16string`](/reference/string/basic_string.md)、UTF-32の文字列型[`std::u32string`](/reference/string/basic_string.md)を追加
 - UTF-8とUTF-16、UTF-8とUTF-32といった、マルチバイト文字とワイド文字列の相互変換を行うクラス[`std::wstring_convert`](/reference/locale/wstring_convert.md)を追加
 - 数値から文字列オブジェクトに変換する関数として、[`std::to_string()`](/reference/string/to_string.md)と[`std::to_wstring()`](/reference/string/to_wstring.md)を追加
 - 文字列オブジェクトから数値に変換する、[`std::stoi()`](/reference/string/stoi.md)や[`std::stof()`](/reference/string/stof.md)といった関数を追加
