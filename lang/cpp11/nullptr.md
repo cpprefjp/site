@@ -103,7 +103,7 @@ public:
   { return 0; }
 
   // 任意のメンバポインタ型への変換演算子
-  template<class C, class T>
+  template <class C, class T>
   operator T C::*() const
   { return 0; }
 
