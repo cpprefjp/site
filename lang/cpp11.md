@@ -143,7 +143,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 - アトミック操作のライブラリ[`<atomic>`](/reference/atomic.md)を追加
 
 
-##汎用的なユーティリティ
+###汎用的なユーティリティ
 - `std::swap()`関数を、[`<algorithm>`](/reference/algorithm.md)から[`<utility>`](/reference/utility.md)に移動
 - ムーブセマンティクスのために、左辺値を右辺値に変換する関数[`std::move()`](/reference/utility/move.md)を追加
 - 引数転送のための関数[`std::forward()`](/reference/utility/forward.md)を追加
