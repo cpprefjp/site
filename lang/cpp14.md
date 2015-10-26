@@ -37,7 +37,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 
 
 ###イテレータ
-- Forward Iteratorを値初期化した場合に、どこも指さない塗るイテレータになる、という規定が追加された(参照 : [N3644 Null Forward Iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3644.pdf))
+- Forward Iteratorを値初期化した場合に、どこも指さないヌルイテレータになる、という規定が追加された(参照 : [N3644 Null Forward Iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3644.pdf))
 
 
 ###アルゴリズム
