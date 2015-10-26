@@ -53,7 +53,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 
 
 ###入出力
-- 文字列をクォート修飾する[`std::quated`](/reference/iomanip/quated.md)マニピュレータを追加
+- 文字列をクォート修飾する[`std::quoted`](/reference/iomanip/quoted.md)マニピュレータを追加
 
 
 ###汎用的なユーティリティ
@@ -74,13 +74,13 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
     - ナノ秒単位を表す[`ns`リテラル](/reference/chrono/duration/op_ns.md)
 	- マイクロ秒単位を表す[`us`リテラル](/reference/chrono/duration/op_us.md)
 	- ミリ秒単位を表す[`ms`リテラル](/reference/chrono/duration/op_ms.md)
-	- 秒単位を表す[`s`リテラル](/reference/chrono/op_s.md)
-	- 分単位を表す[`min`リテラル](/reference/chrono/op_min.md)
-	- 時単位を表す[`h`リテラル](/reference/chrono/op_h.md)
+	- 秒単位を表す[`s`リテラル](/reference/chrono/duration/op_s.md)
+	- 分単位を表す[`min`リテラル](/reference/chrono/duration/op_min.md)
+	- 時単位を表す[`h`リテラル](/reference/chrono/duration/op_h.md)
 - [`std::complex`](/reference/complex.md)の、各要素型を表す、以下のリテラルを追加
     - `std::complex<double>`を表す[`i`リテラル](/reference/complex/op_i.md)
 	- `std::complex<float>`を表す[`if`リテラル](/reference/complex/op_if.md)
-	- `std::complex<long double>`を表す[`il`リテラル](/reference/complex/il.md)
+	- `std::complex<long double>`を表す[`il`リテラル](/reference/complex/op_il.md)
 
 
 ###並行処理
