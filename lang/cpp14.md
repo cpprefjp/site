@@ -64,7 +64,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 
 
 ###リテラル演算子
-- [`std::basic_string`](/reference/string/basic_string.md)の[リテラル演算子`s`](/reference/string/op_s.md)を追加
+- [`std::basic_string`](/reference/string/basic_string.md)の[リテラル演算子`s`](/reference/string/basic_string/op_s.md)を追加
     - `"hello"s`は、文字コード未規定の`std::string`オブジェクトを表すリテラル
 	- `L"hello"s`は、文字コード未規定の`std::wstring`オブジェクトを表すリテラル
 	- `u8"hello"s`は、UTF-8文字コードの`std::string`オブジェクトを表すリテラル
