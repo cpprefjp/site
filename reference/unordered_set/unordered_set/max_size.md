@@ -60,7 +60,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 ###備考
-C++11 ではアロケータにメンバ関数 `max_size` は必須ではないが、libstdc++ では、コンテナのアロケータ `allocator_type` にメンバ関数 `max_size` が無いとコンパイル時エラーが発生する。
+C++11 ではアロケータにメンバ関数 `max_size` は必須ではないが、GCC(libstdc++) の 4.9.0 より前のバージョンでは、コンテナのアロケータ `allocator_type` にメンバ関数 `max_size` が無いとコンパイル時エラーが発生する。
 
 （`allocator_type::max_size()` を `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`::`[`max_size`](/reference/memory/allocator_traits/max_size.md) 経由ではなく直接使用しているため。）
 
