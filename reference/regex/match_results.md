@@ -103,10 +103,10 @@ namespace std {
 | `reference`       | 参照の型。`value_type&` の typedef（C++11 では `const value_type&` となっていたが、規格のバグとして C++14 で修正された）                      | C++11          |
 | `const_iterator`  | 読み取り専用イテレータの型。実装依存の型の typedef                                                                                            | C++11          |
 | `iterator`        | イテレータの型。`const_iterator`                                                                                                              | C++11          |
-| `difference_type` | 2 つのイテレータの差の型。`typename `[`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::difference_type` の typedef | C++11          |
-| `size_type`       | `typename `[`allocator_traits`](../memory/allocator_traits.md)`<Allocator>::size_type` の typedef                                             | C++11          |
+| `difference_type` | 2 つのイテレータの差の型。`typename` [`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::difference_type` の typedef | C++11          |
+| `size_type`       | `typename` [`allocator_traits`](../memory/allocator_traits.md)`<Allocator>::size_type` の typedef                                             | C++11          |
 | `allocator_type`  | アロケータオブジェクトの型。`Allocator` の typedef                                                                                            | C++11          |
-| `char_type`       | 文字の型。`typename `[`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::value_type` の typedef                      | C++11          |
+| `char_type`       | 文字の型。`typename` [`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::value_type` の typedef                      | C++11          |
 | `string_type`     | 文字列の型。[`basic_string`](../string/basic_string.md)`<char_type>` の typedef                                                               | C++11          |
 
 ##非メンバ関数

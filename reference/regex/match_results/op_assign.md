@@ -32,12 +32,12 @@ match_results& operator=(match_results&& m) noexcept;	// (2)
 	|-----------------------------------------|-----------------------------------------------------------------------------------------------|
 	| [`ready`](ready.md)`()`                 | `m.`[`ready`](ready.md)`()`                                                                   |
 	| [`size`](size.md)`()`                   | `m.`[`size`](size.md)`()`                                                                     |
-	| [`str`](str.md)`(n)`                    | `n < `[`size`](size.md)`()` である全ての整数 `n` について、`m.`[`str`](str.md)`(n)`           |
+	| [`str`](str.md)`(n)`                    | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`str`](str.md)`(n)`           |
 	| [`prefix`](prefix.md)`()`               | `m.`[`prefix`](prefix.md)`()`                                                                 |
 	| [`suffix`](suffix.md)`()`               | `m.`[`suffix`](suffix.md)`()`                                                                 |
-	| `(*this)[n]`                            | `n < `[`size`](size.md)`()` である全ての整数 `n` について、`m[n]`                             |
-	| [`length`](length.md)`()`               | `n < `[`size`](size.md)`()` である全ての整数 `n` について、`m.`[`length`](length.md)`(n)`     |
-	| [`position`](position.md)`()`           | `n < `[`size`](size.md)`()` である全ての整数 `n` について、`m.`[`position`](position.md)`(n)` |
+	| `(*this)[n]`                            | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m[n]`                             |
+	| [`length`](length.md)`()`               | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`length`](length.md)`(n)`     |
+	| [`position`](position.md)`()`           | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`position`](position.md)`(n)` |
 
 
 ##計算量

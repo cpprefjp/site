@@ -18,7 +18,7 @@ namespace std {
 
 
 ##戻り値
-- `!(m1 `[`==`](op_equal.md)` m2)`
+- `!(m1` [`==`](op_equal.md) `m2)`
 
 
 ##例

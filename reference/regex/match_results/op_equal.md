@@ -24,7 +24,7 @@ namespace std {
 	- `m1.`[`empty`](empty.md)`() && m2.`[`empty`](empty.md)`()` である。
 	- `!m1.`[`empty`](empty.md)`() && !m2.`[`empty`](empty.md)`()`、かつ、以下の条件をすべて満たす。
 		- `m1.`[`prefix`](prefix.md)`() == m2.`[`prefix`](prefix.md)`()`
-		- `m1.`[`size`](size.md)`() == m2.`[`size`](size.md)`() && `[`equal`](../../algorithm/equal.md)`(m1.`[`begin`](begin.md)`(), m1.`[`end`](end.md)`(), m2.`[`begin`](begin.md)`()`
+		- `m1.`[`size`](size.md)`() == m2.`[`size`](size.md)`() &&` [`equal`](../../algorithm/equal.md)`(m1.`[`begin`](begin.md)`(), m1.`[`end`](end.md)`(), m2.`[`begin`](begin.md)`()`
 		- `m1.`[`suffix`](suffix.md)`() == m2.`[`suffix`](suffix.md)`()`
 
 
