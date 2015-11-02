@@ -21,7 +21,7 @@ namespace std {
 
 
 ##戻り値
-`complex<T>(lhs) `[`*=`](complex/op_multiply_assign.md)` rhs`  
+`complex<T>(lhs)` [`*=`](complex/op_multiply_assign.md) `rhs`  
 （`lhs` を基に新たな `complex<T>` 型のオブジェクトを作成し、そのオブジェクトに [`operator*=`](complex/op_multiply_assign.md) を用いて `rhs` を掛けた上で、当該オブジェクトを返す）
 
 

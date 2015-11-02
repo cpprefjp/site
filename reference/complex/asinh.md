@@ -23,7 +23,7 @@ namespace std {
 - 本関数は実軸の区間 `[-1, +1]` の外側を分岐截断とする。
 - 本関数は、C99 の規格にある `casinh`（より正確には `complex.h` ヘッダの `casinh`、`casinhf`、`casinhl` の 3 つ。それぞれ C++ の `asinh<double>`、`asinh<float>`、`asinh<long double>` に相当）と同等である。  
 	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
-	- `asinh(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(asinh(x))` で、また、`asinh` は奇関数（つまり、`asinh(-x) = -asinh(x)`）。
+	- `asinh(`[`conj`](conj.md)`(x)) =` [`conj`](conj.md)`(asinh(x))` で、また、`asinh` は奇関数（つまり、`asinh(-x) = -asinh(x)`）。
 	- `asinh(complex(+0, +0))` は `complex(+0, +0)` を返す。
 	- 有限で正の符号を持つ（`+0` を含む）`x` について、`asinh(complex(x, +∞))` は `complex(+∞, π/2)` を返す。
 	- 有限の `x` について、`asinh(complex(x, NaN))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。

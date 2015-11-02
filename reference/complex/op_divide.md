@@ -21,7 +21,7 @@ namespace std {
 
 
 ##戻り値
-`complex<T>(lhs) `[`/=`](complex/op_divide_assign.md)` rhs`  
+`complex<T>(lhs)` [`/=`](complex/op_divide_assign.md) `rhs`  
 （`lhs` を基に新たな `complex<T>` 型のオブジェクトを作成し、そのオブジェクトを [`operator/=`](complex/op_divide_assign.md) を用いて `rhs` で割った上で、当該オブジェクトを返す）
 
 

@@ -21,7 +21,7 @@ namespace std {
 ##備考
 - 規格には、上記の戻り値に記載されている以上の規定・説明は無い。  
 	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `csinh`、`csinhf`、`csinhl` の 3 つ。それぞれ C++ の `sinh<double>`、`sinh<float>`、`sinh<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
-	- `sinh(`[`conj`](conj.md)`(x)) = `[`conj`](conj.md)`(sinh(x))` で、また、`sinh` は奇関数（つまり、`sinh(-x) = -sinh(x)`）。
+	- `sinh(`[`conj`](conj.md)`(x)) =` [`conj`](conj.md)`(sinh(x))` で、また、`sinh` は奇関数（つまり、`sinh(-x) = -sinh(x)`）。
 	- `sinh(complex(+0, +0))` は `complex(+0, +0)` を返す。
 	- `sinh(complex(+0, +∞))` は `complex(±0, NaN)` を返し（結果の実部の符号は未規定）、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす。
 	- `sinh(complex(+0, NaN))` は `complex(±0, NaN)` を返す（結果の実部の符号は未規定）。

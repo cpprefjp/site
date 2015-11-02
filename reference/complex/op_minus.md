@@ -21,7 +21,7 @@ namespace std {
 
 
 ##戻り値
-`complex<T>(lhs) `[`-=`](complex/op_minus_assign.md)` rhs`  
+`complex<T>(lhs)` [`-=`](complex/op_minus_assign.md) `rhs`  
 （`lhs` を基に新たな `complex<T>` 型のオブジェクトを作成し、そのオブジェクトから [`operator-=`](complex/op_minus_assign.md) を用いて `rhs` を引いた上で当該オブジェクトを返す）
 
 

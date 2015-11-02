@@ -27,7 +27,7 @@ namespace std {
 
 
 ##戻り値
-引数 `x` の偏角。単位はラジアン。[`atan2`](/reference/cmath/atan2.md)`(`[`imag`](imag.md)`(x), `[`real`](real.md)`(x))`。
+引数 `x` の偏角。単位はラジアン。[`atan2`](/reference/cmath/atan2.md)`(`[`imag`](imag.md)`(x),` [`real`](real.md)`(x))`。
 
 
 ##備考
