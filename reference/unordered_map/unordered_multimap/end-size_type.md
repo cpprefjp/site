@@ -17,7 +17,7 @@ const_local_iterator end(size_type n) const;
 
 
 ##要件
-パラメータ `n` は `[0, `[`bucket_count`](./bucket_count.md)`())` の範囲でなければならない。
+パラメータ `n` は `[0,` [`bucket_count`](./bucket_count.md)`())` の範囲でなければならない。
 
 
 ##戻り値
