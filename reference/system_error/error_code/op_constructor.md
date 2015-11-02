@@ -23,7 +23,7 @@ error_code(ErrorCodeEnum e) noexcept;                    // (3)
 
 ##効果
 - (1) : 値`0`(正常値)で構築する。エラーカテゴリは[`system_category()`](../system_category.md)と見なされる。
-- (3) : `*this = `[`make_error_code`](../make_error_code.md)`(e);` となる。
+- (3) : `*this =` [`make_error_code`](../make_error_code.md)`(e);` となる。
 
 
 ##例外
