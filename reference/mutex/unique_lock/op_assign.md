@@ -17,11 +17,11 @@ unique_lock& operator=(unique_lock&& u);             // (2) C++14
 
 
 ##効果
-- (2) : [`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)` == true`だった場合、[`unlock()`](/reference/mutex/unique_lock/unlock.md)を呼び出す。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)の状態を`u`から移動する。
+- (2) : [`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`だった場合、[`unlock()`](/reference/mutex/unique_lock/unlock.md)を呼び出す。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)の状態を`u`から移動する。
 
 
 ##事後条件
-- (2) : `u`はミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)` == false`となる。
+- (2) : `u`はミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== false`となる。
 
 
 ##例外
