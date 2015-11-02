@@ -14,7 +14,7 @@ static constexpr bool has_signaling_NaN;
 
 ##概要
 浮動小数点数型において、型`T`がシグナルを投げるNaN (Not a Number)を持っているかを判定する。  
-[`is_iec559`](./is_iec559.md)` != false`が成り立つ場合は常に`true`である。
+[`is_iec559`](./is_iec559.md) `!= false`が成り立つ場合は常に`true`である。
 
 
 ##例

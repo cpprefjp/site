@@ -19,7 +19,7 @@ static constexpr T quiet_NaN() noexcept;
 
 
 ##要件
-[`has_quiet_NaN`](./has_quiet_nan.md)` != false && `[`is_iec559`](./is_iec559.md)` != false`この要件を満たさない場合は`T()`が返る。
+[`has_quiet_NaN`](./has_quiet_nan.md) `!= false &&` [`is_iec559`](./is_iec559.md) `!= false`この要件を満たさない場合は`T()`が返る。
 
 
 ##戻り値
