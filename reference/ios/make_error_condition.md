@@ -18,7 +18,7 @@ namespace std {
 
 
 ##戻り値
-[`error_condition`](/reference/system_error/error_condition.md)`(static_cast<int>(e), `[`iostream_category`](./iostream_category.md)`())`
+[`error_condition`](/reference/system_error/error_condition.md)`(static_cast<int>(e),` [`iostream_category`](./iostream_category.md)`())`
 
 
 ##例外
