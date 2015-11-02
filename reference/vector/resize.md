@@ -29,7 +29,7 @@ void resize(size_type sz, T c = T());  // (1) + (2) C++03
     - もし`sz`が現在のコンテナの[`size()`](./size.md)より小さい場合、以下の動作をする：
         - [`erase`](./erase.md)`(`[`begin()`](./begin.md) `+ sz,` [`end()`](./end.md)`);` (C++11まで)
         - [`pop_back()`](./pop_back.md)関数を[`size()`](./size.md) `- sz`回呼ぶ (C++14以降)
-    - もし`sz`が現在のコンテナの[`size()`](./size.md)より大きい場合、`sz - `[`size()`](./size.md)個だけ値初期化された`T`型オブジェクトのコピーを追加する。
+    - もし`sz`が現在のコンテナの[`size()`](./size.md)より大きい場合、`sz -` [`size()`](./size.md)個だけ値初期化された`T`型オブジェクトのコピーを追加する。
 
 
 - (2) :
@@ -49,7 +49,7 @@ else if (sz < size())
 
     - C++14以降
         - もし`sz`が現在のコンテナの[`size()`](./size.md)より小さい場合、[`pop_back()`](./pop_back.md)関数を[`size()`](./size.md) `- sz`回呼ぶ
-        - もし`sz`が現在のコンテナの[`size()`](./size.md)より大きい場合、`sz - `[`size()`](./size.md)個だけオブジェクト`c`のコピーを追加する。
+        - もし`sz`が現在のコンテナの[`size()`](./size.md)より大きい場合、`sz -` [`size()`](./size.md)個だけオブジェクト`c`のコピーを追加する。
 
 
 ##戻り値

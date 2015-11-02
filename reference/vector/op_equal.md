@@ -19,7 +19,7 @@ namespace std {
 
 
 ##効果
-- C++03 : `x.`[`size`](./size.md)`() == y.`[`size`](./size.md)`() && `[`equal`](../algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`());`
+- C++03 : `x.`[`size`](./size.md)`() == y.`[`size`](./size.md)`() &&` [`equal`](../algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`());`
 - C++14 : [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`(), y.`[`end`](./end.md)`());`
 
 
