@@ -14,7 +14,7 @@ void pop_front();
 
 
 ##要件
-[`empty()`](./empty.md)` == false`であること。
+[`empty()`](./empty.md) `== false`であること。
 
 
 ##戻り値

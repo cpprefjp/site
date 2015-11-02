@@ -28,7 +28,7 @@ void splice_after(const_iterator position, forward_list&& x,
 
 
 ##要件
-- 第1パラメータ`position`が、[`before_begin()`](./before_begin.md)もしくは`[`[`begin()`](./begin.md)`, `[`end()`](./end.md)]の範囲の間接参照可能なイテレータであること。
+- 第1パラメータ`position`が、[`before_begin()`](./before_begin.md)もしくは`[`[`begin()`](./begin.md)`,` [`end()`](./end.md)]の範囲の間接参照可能なイテレータであること。
 - `i`, `first`, `last`が、`x`のイテレータであること。
 - [`get_allocator()`](./get_allocator.md) `== x.`[`get_allocator()`](./get_allocator.md)であること。(C++14)
 

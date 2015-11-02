@@ -29,7 +29,7 @@ template <class Compare> void sort(Compare comp);
 
 
 ##計算量
-[`distance`](/reference/iterator/distance.md)([`begin`](/reference/forward_list/begin.md)`(), `[`end`](/reference/forward_list/end.md)`())`を`N`として、約`N logN`回の比較
+[`distance`](/reference/iterator/distance.md)([`begin`](/reference/forward_list/begin.md)`(),` [`end`](/reference/forward_list/end.md)`())`を`N`として、約`N logN`回の比較
 
 
 ##備考

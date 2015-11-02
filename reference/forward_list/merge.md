@@ -40,7 +40,7 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 
 ##計算量
-高々[`distance`](/reference/iterator/distance.md)`(`[`begin`](./begin.md)()`, `[`end`](./end.md)`()) + `[`distance`](/reference/iterator/distance.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`()) - 1`回の比較
+高々[`distance`](/reference/iterator/distance.md)`(`[`begin`](./begin.md)()`,` [`end`](./end.md)`()) +` [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`()) - 1`回の比較
 
 
 ##備考
