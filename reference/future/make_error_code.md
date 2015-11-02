@@ -17,7 +17,7 @@ namespace std {
 
 
 ##戻り値
-[`error_code`](/reference/system_error/error_code.md)`(static_cast<int>(e), `[`future_category`](./future_category.md)`())`
+[`error_code`](/reference/system_error/error_code.md)`(static_cast<int>(e),` [`future_category`](./future_category.md)`())`
 
 
 ##例外
