@@ -31,7 +31,7 @@ void sort(Compare comp); // (2)
 
 
 ##計算量
-[`distance`](/reference/iterator/distance.md)([`begin`](./begin.md)`(), `[`end`](./end.md)`())`を`N`として、約`N logN`回の比較
+[`distance`](/reference/iterator/distance.md)([`begin`](./begin.md)`(),` [`end`](./end.md)`())`を`N`として、約`N logN`回の比較
 
 
 ##例
