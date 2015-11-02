@@ -18,11 +18,11 @@ namespace std {
 
 
 ##戻り値
-`os `[`<<`](../../string/basic_string/op_ostream.md)` m.`[`str`](str.md)`()`
+`os` [`<<`](../../string/basic_string/op_ostream.md) `m.`[`str`](str.md)`()`
 
 
 ##備考
-テンプレート引数は 3 つあるが、規格上は文字列の出力に使用している [`operator<<`](../../string/basic_string/op_ostream.md) が `charT = `[`iterator_traits`](../../iterator/iterator_traits.md)`<BiIter>::value_type`、かつ、`ST = `[`char_traits`](../../string/char_traits.md)`<charT>` のバージョンしか存在しない。
+テンプレート引数は 3 つあるが、規格上は文字列の出力に使用している [`operator<<`](../../string/basic_string/op_ostream.md) が `charT =` [`iterator_traits`](../../iterator/iterator_traits.md)`<BiIter>::value_type`、かつ、`ST =` [`char_traits`](../../string/char_traits.md)`<charT>` のバージョンしか存在しない。
 
 
 ##例

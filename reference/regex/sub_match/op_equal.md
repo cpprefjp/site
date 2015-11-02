@@ -47,14 +47,14 @@ namespace std {
 
 ##戻り値
 - (1) `lhs.`[`compare`](compare.md)`(rhs) == 0`
-- (2) `rhs.`[`compare`](compare.md)`(typename `[`sub_match`](../sub_match.md)`<BiIter>::string_type(lhs.`[`data`](../../string/basic_string/data.md)`(), lhs.`[`size`](../../string/basic_string/size.md)`())) == 0`  
+- (2) `rhs.`[`compare`](compare.md)`(typename` [`sub_match`](../sub_match.md)`<BiIter>::string_type(lhs.`[`data`](../../string/basic_string/data.md)`(), lhs.`[`size`](../../string/basic_string/size.md)`())) == 0`  
 	なお、C++11 の規格書では `rhs.`[`compare`](compare.md)`(lhs.`[`c_str`](../../string/basic_string/c_str.md)`()) == 0` となっているが、この式では `lhs` に `'\0'` が含まれていた場合に正しく比較することができないため、規格上の誤りとして上記の式に修正された。
-- (3) `lhs.`[`compare`](compare.md)`(typename `[`sub_match`](../sub_match.md)`<BiIter>::string_type(rhs.`[`data`](../../string/basic_string/data.md)`(), rhs.`[`size`](../../string/basic_string/size.md)`())) == 0`  
+- (3) `lhs.`[`compare`](compare.md)`(typename` [`sub_match`](../sub_match.md)`<BiIter>::string_type(rhs.`[`data`](../../string/basic_string/data.md)`(), rhs.`[`size`](../../string/basic_string/size.md)`())) == 0`  
 	なお、C++11 の規格書では `lhs.`[`compare`](compare.md)`(rhs.`[`c_str`](../../string/basic_string/c_str.md)`()) == 0` となっているが、この式では `rhs` に `'\0'` が含まれていた場合に正しく比較することができないため、規格上の誤りとして上記の式に修正された。
 - (4) `rhs.`[`compare`](compare.md)`(lhs) == 0`
 - (5) `lhs.`[`compare`](compare.md)`(rhs) == 0`
-- (6) `rhs.`[`compare`](compare.md)`(typename `[`sub_match`](../sub_match.md)`<BiIter>::string_type(1, lhs)) == 0`
-- (7) `lhs.`[`compare`](compare.md)`(typename `[`sub_match`](../sub_match.md)`<BiIter>::string_type(1, rhs)) == 0`
+- (6) `rhs.`[`compare`](compare.md)`(typename` [`sub_match`](../sub_match.md)`<BiIter>::string_type(1, lhs)) == 0`
+- (7) `lhs.`[`compare`](compare.md)`(typename` [`sub_match`](../sub_match.md)`<BiIter>::string_type(1, rhs)) == 0`
 
 ##備考
 - (1) の形式でもマッチした文字列のみが比較され、マッチした位置は考慮されない。（例を参照）

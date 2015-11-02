@@ -14,7 +14,7 @@ difference_type length() const;
 
 
 ##戻り値
-`matched ? `[`distance`](../../iterator/distance.md)`(first, second) : 0`
+`matched ?` [`distance`](../../iterator/distance.md)`(first, second) : 0`
 
 
 ##例
