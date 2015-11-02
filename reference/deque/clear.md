@@ -13,7 +13,7 @@ void clear() noexcept;
 
 
 ##事後条件
-[`empty()`](/reference/deque/empty.md)` == true`
+[`empty()`](/reference/deque/empty.md) `== true`
 
 
 ##戻り値
