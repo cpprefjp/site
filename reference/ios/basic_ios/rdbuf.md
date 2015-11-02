@@ -17,7 +17,7 @@ basic_streambuf<CharT, Traits>* rdbuf(basic_streambuf<CharT, Traits>* sb);      
 ##効果
 - (1) -
 - (2) `*this` に紐づくストリームバッファ（[`basic_streambuf`](../../streambuf/basic_streambuf.md)）オブジェクトを引数 `sb` に設定する（`rdbuf() == sb` となる）。  
-    その後、[`clear`](clear.md)`()` を実行する（結果として、`sb == nullptr`、かつ、`(`[`exceptions`](exceptions.md)`() & `[`ios_base`](../ios_base.md)`::`[`badbit`](../ios_base/type-iostate.md)`) != 0` の場合、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md) 例外が送出される）。
+    その後、[`clear`](clear.md)`()` を実行する（結果として、`sb == nullptr`、かつ、`(`[`exceptions`](exceptions.md)`() &` [`ios_base`](../ios_base.md)`::`[`badbit`](../ios_base/type-iostate.md)`) != 0` の場合、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md) 例外が送出される）。
 
 ##戻り値
 - (1) `*this` に紐づいているストリームバッファ（[`basic_streambuf`](../../streambuf/basic_streambuf.md)）オブジェクトへのポインタ
