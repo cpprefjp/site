@@ -61,8 +61,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------|---------------------------------------|-------|
-| `byte_string` | バイト列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<char, `[`char_traits`](/reference/string/char_traits.md)`<char>, Byte_alloc>` | C++11 |
-| `wide_string` | ワイド文字列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<Elem, `[`char_traits`](/reference/string/char_traits.md)`<Elem>, Wide_alloc>` | C++11 |
+| `byte_string` | バイト列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<char,` [`char_traits`](/reference/string/char_traits.md)`<char>, Byte_alloc>` | C++11 |
+| `wide_string` | ワイド文字列型 `std::`[`basic_string`](/reference/string/basic_string.md)`<Elem,` [`char_traits`](/reference/string/char_traits.md)`<Elem>, Wide_alloc>` | C++11 |
 | `state_type` | ストリームのマルチバイト文字の変換の状態を表す型 `Codecvt::state_type` | C++11 |
 | `int_type` | 文字に対応する値を表す数値型 `wide_string::traits_type::int_type` | C++11 |
 
