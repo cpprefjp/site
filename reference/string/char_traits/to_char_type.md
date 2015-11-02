@@ -14,7 +14,7 @@ static constexpr char_type to_char_type(int_type c) noexcept; // C++11
 
 
 ##戻り値
-[`eq_int_type`](./eq_int_type.md)`(c, `[`to_int_type`](./to_int_type.md)`(e)) == true`となるような整数値`e`が存在する場合、`e`を返す。そのような値がない場合は、未規定の値を返す。
+[`eq_int_type`](./eq_int_type.md)`(c,` [`to_int_type`](./to_int_type.md)`(e)) == true`となるような整数値`e`が存在する場合、`e`を返す。そのような値がない場合は、未規定の値を返す。
 
 
 ##計算量

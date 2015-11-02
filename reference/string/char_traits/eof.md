@@ -14,7 +14,7 @@ static constexpr int_type eof() noexcept; // C++11
 
 
 ##戻り値
-文字集合の全ての文字`c`に対して[`eq_int_type`](./eq_int_type.md)`(e, `[`to_int_type`](./to_int_type.md)`(c)) == false`となるような`e`を返す。
+文字集合の全ての文字`c`に対して[`eq_int_type`](./eq_int_type.md)`(e,` [`to_int_type`](./to_int_type.md)`(c)) == false`となるような`e`を返す。
 
 標準で定義される特殊化は、以下の値を返す：
 
