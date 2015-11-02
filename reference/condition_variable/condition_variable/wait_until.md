@@ -32,7 +32,7 @@ bool wait_until(unique_lock<mutex>& lock,
 
 
 ##要件
-- `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)` == true`であること
+- `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`であること
 - `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
 - `*this`の`condition_variable`オブジェクトが他スレッドで待機していないか、もしくは並行に待機している全てのスレッドで`lock`パラメータが同じミューテックスオブジェクトを参照していること
 
@@ -64,7 +64,7 @@ return true;
 
 
 ##事後条件
-- `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)` == true`であること
+- `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`であること
 - `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
 
 
