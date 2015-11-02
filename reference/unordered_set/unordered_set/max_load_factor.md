@@ -107,11 +107,11 @@ int main()
 ###出力
 libstdc++ の出力例（4.7.2 時点）
 
-- [`load_factor`](./load_factor.md)` > z` の場合に、`max_load_factor` を `z` に設定して `load_factor < max_load_factor` となるようにリハッシュされている。
+- [`load_factor`](load_factor.md)`() > z` の場合に、`max_load_factor()` に `z` を設定して [`load_factor`](load_factor.md)`() < max_load_factor()` となるようにリハッシュされている。
 
-- [`size`](./size.md)` = 0` の場合にバケット数が減っている。
+- [`size`](size.md)`() = 0` の場合にバケット数が減っている。
 
-- [`emplace`](./emplace.md) では、[`load_factor`](./load_factor.md) が `max_load_factor` に達する前にバケット数が増加している。
+- [`emplace`](emplace.md)`()` では、[`load_factor`](load_factor.md)`()` が `max_load_factor()` に達する前にバケット数が増加している。
 
 ```
 max_load_factor is 1
@@ -134,11 +134,11 @@ size is 4, bucket_count is 29, load_factor is 0.137931, bucket_count * max_load_
 
 libc++ の出力例（2012/12/19 現在）
 
-- [`load_factor`](./load_factor.md)` > z` の場合に、`max_load_factor` を [`load_factor`](./load_factor.md) の値を設定してリハッシュはされていない。
+- [`load_factor`](load_factor.md)`() > z` の場合に、`max_load_factor()` に [`load_factor`](load_factor.md)`()` の値を設定してリハッシュはされていない。
 
-- [`size`](./size.md)` = 0` の場合にもバケット数は減っていない。
+- [`size`](size.md)`() = 0` の場合にもバケット数は減っていない。
 
-- [`emplace`](./emplace.md) では、[`load_factor`](./load_factor.md) が `max_load_factor` を超えた際にバケット数が増加している。
+- [`emplace`](emplace.md)`()` では、[`load_factor`](load_factor.md)`()` が `max_load_factor()` を超えた際にバケット数が増加している。
 
 ```
 max_load_factor is 1
@@ -183,7 +183,7 @@ size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load
 | [`insert`](./insert.md)               | 要素の追加 |
 | [`size`](./size.md)                   | 要素数の取得 |
 | [`bucket_count`](./bucket_count.md)   | バケット数の取得 |
-| [`load_factor`](./max_load_factor.md) | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
+| [`load_factor`](./load_factor.md)     | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
 | [`rehash`](./rehash.md)               | 最小バケット数指定によるバケット数の調整 |
 | [`reserve`](./reserve.md)             | 最小要素数指定によるバケット数の調整 |
 
