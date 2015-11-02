@@ -26,7 +26,7 @@ namespace std {
 
 
 ##戻り値
-`!(t `[`==`](./op_equal.md)` u);`
+`!(t` [`==`](./op_equal.md) `u);`
 
 
 ##例
