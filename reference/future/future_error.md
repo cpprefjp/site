@@ -19,8 +19,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `future_error(`[`error_code`](/reference/system_error/error_code.md)` ec);` | [`error_code`](/reference/system_error/error_code.md)オブジェクトから`future_error`オブジェクトを生成する。<br/>注：このクラスは標準ライブラリの内部で送出される例外クラスで、ユーザーが使用するものではないため、コンストラクタは説明のためにのみ記載されている。 | C++11 |
-| `const `[`error_code`](/reference/system_error/error_code.md)`& code() const noexcept;` | 包含している[`error_code`](/reference/system_error/error_code.md)オブジェクトへの参照を取得する | C++11 |
+| `future_error(`[`error_code`](/reference/system_error/error_code.md) `ec);` | [`error_code`](/reference/system_error/error_code.md)オブジェクトから`future_error`オブジェクトを生成する。<br/>注：このクラスは標準ライブラリの内部で送出される例外クラスで、ユーザーが使用するものではないため、コンストラクタは説明のためにのみ記載されている。 | C++11 |
+| `const` [`error_code`](/reference/system_error/error_code.md)`& code() const noexcept;` | 包含している[`error_code`](/reference/system_error/error_code.md)オブジェクトへの参照を取得する | C++11 |
 | `virtual const char* what() const noexcept;` | エラー理由となる実装依存文字列(`code.`[`message`](/reference/system_error/error_code/message.md)`()`)を返す | C++11 |
 
 
