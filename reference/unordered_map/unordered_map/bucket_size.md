@@ -14,7 +14,7 @@ size_type bucket_size(size_type n) const;
 
 
 ##要件
-パラメータ `n` は `[0, `[`bucket_count`](./bucket_count.md)`())` の範囲であること。
+パラメータ `n` は `[0,` [`bucket_count`](./bucket_count.md)`())` の範囲であること。
 
 
 ##戻り値

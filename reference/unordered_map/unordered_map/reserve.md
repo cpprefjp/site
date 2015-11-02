@@ -28,15 +28,13 @@ void reserve(size_type n);
 
 ##備考
 - 本関数は、概要の通り、リハッシュされずに引数 `n` で指定された要素数格納できるように意図されているはずであるが、現在の条件では `n - 1` しか格納することができない場合がある（少なくとも、事後条件を満たすだけでは確実に `n` 要素を格納できる保証はない）。この件については、既に Issue が上がっている（[2156. Unordered containers' reserve(n) reserves for n-1 elements](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2156)）。リハッシュされる条件については、[`insert`](./insert.md)`()`、[`emplace`](./emplace.md)`()`、[`emplace_hint`](./emplace_hint.md)`()` も参照。
-
-
-リハッシュが行われた場合、
-- 全てのイテレータが無効になる。
-- 要素間の順番が変わる。
-- 要素の格納されているバケットが変更になる。
-- 要素へのポインタや参照は無効に**ならない**。
-- 現在のバケット数が既に [`ceil`](/reference/cmath/ceil.md)`(n / `[`max_load_factor`](./max_load_factor.md)`())` 以上の場合の動作は、標準では特に規定されていない。
-- 標準では、事後条件が [`bucket_count`](./bucket_count.md)`() > `[`size`](./size.md)`() / `[`max_load_factor`](./max_load_factor.md)`()` となっている（等号がない）が、[`load_factor`](./load_factor.md)`()`（`= `[`size`](./size.md)`() / `[`bucket_count`](./bucket_count.md)`()`）の条件は [`max_load_factor`](./max_load_factor.md)`() >= `[`load_factor`](./load_factor.md)`()` である（等号がある）ため、[`bucket_count`](./bucket_count.md)`() >= `[`size`](./size.md)`() / `[`max_load_factor`](./max_load_factor.md)`()` の（等号がある）方が適切であると思われる。
+- リハッシュが行われた場合、
+	- 全てのイテレータが無効になる。
+	- 要素間の順番が変わる。
+	- 要素の格納されているバケットが変更になる。
+	- 要素へのポインタや参照は無効に**ならない**。
+- 現在のバケット数が既に [`ceil`](/reference/cmath/ceil.md)`(n /` [`max_load_factor`](./max_load_factor.md)`())` 以上の場合の動作は、標準では特に規定されていない。
+- 標準では、事後条件が [`bucket_count`](./bucket_count.md)`() >` [`size`](./size.md)`() /` [`max_load_factor`](./max_load_factor.md)`()` となっている（等号がない）が、[`load_factor`](./load_factor.md)`()`（`=` [`size`](./size.md)`() /` [`bucket_count`](./bucket_count.md)`()`）の条件は [`max_load_factor`](./max_load_factor.md)`() >=` [`load_factor`](./load_factor.md)`()` である（等号がある）ため、[`bucket_count`](./bucket_count.md)`() >=` [`size`](./size.md)`() /` [`max_load_factor`](./max_load_factor.md)`()` の（等号がある）方が適切であると思われる。
 
 
 ##例

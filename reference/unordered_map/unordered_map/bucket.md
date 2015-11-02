@@ -20,7 +20,7 @@ size_type bucket(const key_type& k) const;
 ##戻り値
 パラメータ `k` と等価なキーの要素が格納されているバケットのインデックス（添え字）
 
-戻り値は `[0, `[`bucket_count`](./bucket_count.md)`())` の範囲である。
+戻り値は `[0,` [`bucket_count`](./bucket_count.md)`())` の範囲である。
 
 
 ##計算量
