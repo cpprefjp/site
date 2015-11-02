@@ -11,8 +11,8 @@ void reserve(size_type n);
 
 ##概要
 コンテナが、リハッシュされずに少なくとも引数 `n` で指定された要素数格納できるようにバケット数を調整（リハッシュ）する。  
-実際には 引数を `n` / [`max_load_factor`](./max_load_factor.md) にし [`rehash`](./rehash.md) を呼ぶ。  
-( VC11の実装では `n` / [`max_load_factor`](./max_load_factor.md) + 0.5f   で呼んでいる)
+実際には 引数を `n /` [`max_load_factor`](./max_load_factor.md)`()` にし [`rehash`](./rehash.md)`()` を呼ぶ。  
+( VC11の実装では `n /` [`max_load_factor`](./max_load_factor.md)`() + 0.5f`   で呼んでいる)
 
 ##戻り値
 なし
@@ -34,7 +34,6 @@ void reserve(size_type n);
 	- 要素の格納されているバケットが変更になる。
 	- 要素へのポインタや参照は無効に**ならない**。
 - 現在のバケット数が既に [`ceil`](/reference/cmath/ceil.md)`(n /` [`max_load_factor`](./max_load_factor.md)`())` 以上の場合の動作は、標準では特に規定されていない。
-- 標準では、事後条件が [`bucket_count`](./bucket_count.md)`() >` [`size`](./size.md)`() /` [`max_load_factor`](./max_load_factor.md)`()` となっている（等号がない）が、[`load_factor`](./load_factor.md)`()`（`=` [`size`](./size.md)`() /` [`bucket_count`](./bucket_count.md)`()`）の条件は [`max_load_factor`](./max_load_factor.md)`() >=` [`load_factor`](./load_factor.md)`()` である（等号がある）ため、[`bucket_count`](./bucket_count.md)`() >=` [`size`](./size.md)`() /` [`max_load_factor`](./max_load_factor.md)`()` の（等号がある）方が適切であると思われる。
 
 
 ##例
@@ -67,15 +66,20 @@ int main()
   std::cout << "new size: " << m.size() << std::endl;
   std::cout << "new bucket_count: " << m.bucket_count() << std::endl;
   std::cout << "new load_factor: " << m.load_factor() << std::endl;
-
-  return 0;
 }
 ```
+* <iostream>[link ../../iostream.md]
+* <unordered_map>[link ../../unordered_map.md]
+* reserve[color ff0000]
 * size[link ./size.md]
 * max_load_factor[link ./max_load_factor.md]
+* load_factor[link ./load_factor.md]
 * bucket_count[link ./bucket_count.md]
+* emplace[link emplace.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
 
-###出力
+###出力例
 ```
 current max_load_factor: 2
 current size: 4
@@ -90,9 +94,9 @@ new bucket_count: 16
 new load_factor: 0.25
 ```
 
-##考察
-reserve(20) により  
-[`bucket_count`](./bucket_count.md) > `n` / [`max_load_factor`](./max_load_factor.md) を満たしている
+###考察
+`reserve(20)` により  
+[`bucket_count`](./bucket_count.md)`() > n /` [`max_load_factor`](./max_load_factor.md)`()` を満たしている
 
 ##バージョン
 ###言語
