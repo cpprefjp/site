@@ -31,7 +31,7 @@ namespace std {
 
 
 ##効果
-`[first,last)` にある要素の中から、[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` 個の要素をソート済みの状態で `[result_first,result_first + `[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first))` に配置する。
+`[first,last)` にある要素の中から、[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` 個の要素をソート済みの状態で `[result_first,result_first +` [`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first))` に配置する。
 
 
 ##戻り値
