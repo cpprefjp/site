@@ -24,7 +24,7 @@ future& operator=(future&& rhs) noexcept;      // (2)
 
 
 ##事後条件
-- (2) : [`valid()`](./valid.md)の戻り値が、この関数を呼び出す前の`rhs.`[`valid()`](./valid.md)と等価になること。`rhs.`[`valid()`](./valid.md)` == false`になること。
+- (2) : [`valid()`](./valid.md)の戻り値が、この関数を呼び出す前の`rhs.`[`valid()`](./valid.md)と等価になること。`rhs.`[`valid()`](./valid.md) `== false`になること。
 
 
 ##例外
