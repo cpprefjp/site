@@ -21,7 +21,7 @@ namespace std {
 
 ##効果
 `is_assignable`は、型`T`が型`U`から代入可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
-[`declval`](/reference/utility/declval.md)`<T>() = `[`declval`](/reference/utility/declval.md)`<U>()`という実際には評価されない式が適格ならば代入可能であると判断される。
+[`declval`](/reference/utility/declval.md)`<T>() =` [`declval`](/reference/utility/declval.md)`<U>()`という実際には評価されない式が適格ならば代入可能であると判断される。
 
 
 ##例
