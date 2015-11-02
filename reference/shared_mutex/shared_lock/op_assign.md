@@ -16,11 +16,11 @@ shared_lock& operator=(shared_lock&& u) noexcept;    // (2)
 
 
 ##効果
-- (2) : [`owns_lock()`](./owns_lock.md)` == true`だった場合、[`unlock()`](./unlock.md)を呼び出す。`shared_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](./owns_lock.md)の状態を`u`から移動する。
+- (2) : [`owns_lock()`](./owns_lock.md) `== true`だった場合、[`unlock()`](./unlock.md)を呼び出す。`shared_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](./owns_lock.md)の状態を`u`から移動する。
 
 
 ##事後条件
-- (2) : `u`はミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](./owns_lock.md)` == false`となる。
+- (2) : `u`はミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](./owns_lock.md) `== false`となる。
 
 
 ##例外

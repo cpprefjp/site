@@ -17,7 +17,7 @@ mutex_type* release() noexcept;
 
 ##事後条件
 - 保持しているミューテックスオブジェクトへのポインタが`NULL`になること
-- [`owns_lock()`](./owns_lock.md)` == false`になること
+- [`owns_lock()`](./owns_lock.md) `== false`になること
 
 
 ##戻り値
