@@ -21,7 +21,7 @@ result_type operator()(URNG& g, const param_type& parm);
 
 ##戻り値
 指定された確率に基いて、ランダムな値を生成して返す。  
-確率[`p()`](./p.md)で`true`を生成し、確率`1 - `[`p()`](./p.md)で`false`を生成する。
+確率[`p()`](./p.md)で`true`を生成し、確率`1 -` [`p()`](./p.md)で`false`を生成する。
 
 
 ##計算量

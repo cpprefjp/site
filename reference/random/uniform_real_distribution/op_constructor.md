@@ -16,7 +16,7 @@ explicit uniform_real_distribution(const param_type& parm);
 値を生成する範囲として最小値`a`および最大値`b`を受け取るコンストラクタ。 
 `a`以上`b`未満(`[a, b)`)の値が生成される。 
 
-要件： `a <= b`かつ`b - a <= `[`numeric_limits`](/reference/limits/numeric_limits.md)`<RealType>::`[`max()`](/reference/limits/numeric_limits/max.md)であること。
+要件： `a <= b`かつ`b - a <=` [`numeric_limits`](/reference/limits/numeric_limits.md)`<RealType>::`[`max()`](/reference/limits/numeric_limits/max.md)であること。
 
 
 - `explicit uniform_real_distribution(const param_type& parm);`
