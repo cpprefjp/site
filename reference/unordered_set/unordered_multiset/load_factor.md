@@ -14,7 +14,7 @@ float load_factor() const noexcept;
 
 
 ##戻り値
-現在の負荷率（バケットあたりの要素数の平均：[`size`](./size.md)`() / `[`bucket_count`](./bucket_count.md)`()`）
+現在の負荷率（バケットあたりの要素数の平均：[`size`](./size.md)`() /` [`bucket_count`](./bucket_count.md)`()`）
 
 
 ##例外
