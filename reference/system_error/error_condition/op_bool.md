@@ -18,7 +18,7 @@ explicit operator bool() const noexcept;
 
 
 ##戻り値
-[`value()`](./value.md)` != 0`
+[`value()`](./value.md) `!= 0`
 
 
 ##例外

@@ -23,7 +23,7 @@ error_condition(ErrorConditionEnum e) noexcept;               // (3)
 
 ##効果
 - (1) : 値`0`(正常値)で構築する。エラーカテゴリは[`generic_category()`](../generic_category.md)と見なされる。
-- (3) : `*this = `[`make_error_condition`](../make_error_condition.md)`(e);` となる。
+- (3) : `*this =` [`make_error_condition`](../make_error_condition.md)`(e);` となる。
 
 
 ##例外

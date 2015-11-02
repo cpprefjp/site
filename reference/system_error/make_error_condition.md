@@ -17,7 +17,7 @@ namespace std {
 
 
 ##戻り値
-[`error_condition`](./error_condition.md)`(static_cast<int>(e), `[`generic_category()`](./generic_category.md)`)`
+[`error_condition`](./error_condition.md)`(static_cast<int>(e),` [`generic_category()`](./generic_category.md)`)`
 
 
 ##例外
