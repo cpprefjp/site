@@ -87,11 +87,11 @@ basic_string<charT, traits, Allocator>
 
 - (8) `std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, 1, lhs))`
 
-- (9) `lhs + `[`basic_string`](op_constructor.md)`<charT, traits, Allocator>(rhs)`  
+- (9) `lhs +` [`basic_string`](op_constructor.md)`<charT, traits, Allocator>(rhs)`  
 
 - (10) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(rhs))`  
 
-- (11) `lhs + `[`basic_string`](op_constructor.md)`<charT, traits, Allocator>(1, rhs)`
+- (11) `lhs +` [`basic_string`](op_constructor.md)`<charT, traits, Allocator>(1, rhs)`
 
 - (12) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(1, rhs))`
 

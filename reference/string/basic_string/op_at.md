@@ -14,17 +14,17 @@ reference operator[](size_type pos) noexcept;
 
 
 ##要件
-`pos <= `[`size()`](./size.md)
+`pos <=` [`size()`](./size.md)
 
 
 ##戻り値
 - C++03
-`pos <` [`size()`](./size.md) の場合、`*(`[`begin()`](./begin.md)` + pos)` を返す。 
+`pos <` [`size()`](./size.md) の場合、`*(`[`begin()`](./begin.md) `+ pos)` を返す。 
 `pos ==` [`size()`](./size.md)の場合、`charT()` の値を持ったオブジェクトへの参照を返す。 
 それ以外の場合は、未定義動作。
 
 - C++11以降
-`pos < `[`size()`](./size.md) の場合、`*(`[`begin()`](./begin.md)` + pos)` を返す。 
+`pos <` [`size()`](./size.md) の場合、`*(`[`begin()`](./begin.md) `+ pos)` を返す。 
 そうでない場合は、`charT()` の値を持ったオブジェクトへの参照を返す。 
 後者の場合、参照を変更するべきではない。
 

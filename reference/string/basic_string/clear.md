@@ -13,7 +13,7 @@ void clear() noexcept;
 
 
 ##効果
-[`erase`](./erase.md)`(`[`begin()`](./begin.md)`, `[`end()`](./end.md)`);`と同じ。
+[`erase`](./erase.md)`(`[`begin()`](./begin.md)`,` [`end()`](./end.md)`);`と同じ。
 
 
 ##戻り値

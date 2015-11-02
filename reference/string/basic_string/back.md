@@ -19,7 +19,7 @@ charT& back();
 
 
 ##戻り値
-[`operator[]`](./op_at.md)`(`[`size()`](./size.md)` - 1)` の結果を返す。
+[`operator[]`](./op_at.md)`(`[`size()`](./size.md) `- 1)` の結果を返す。
 
 
 ##例
