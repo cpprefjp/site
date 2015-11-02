@@ -96,7 +96,7 @@ regex_iterator<BidirectionalIterator, charT, traits> i(first, last, e, flags)
 	として構築する。  
 
 	- `i` がシーケンス終端イテレータの場合（すなわち、マッチが 1 つも存在しない場合）  
-		`flags & `[`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
+		`flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
 
 		```cpp
 out = copy(first, last, out)
@@ -108,9 +108,9 @@ out = copy(first, last, out)
 
 	- `i` がシーケンス終端イテレータでは無い場合（すなわち、マッチが 1 つ以上存在した場合）  
 		`i` を用いて `[first, last)` で指定された文字列中のすべてのマッチを [`match_results`](match_results.md)`<BidirectionalIterator>` 型のオブジェクト `m` として列挙して以下を繰り返す。  
-		ただし、`flags & `[`regex_constants::format_first_only`](regex_constants/match_flag_type.md) が `0` でなければ、最初のマッチのみを処理する。  
+		ただし、`flags &` [`regex_constants::format_first_only`](regex_constants/match_flag_type.md) が `0` でなければ、最初のマッチのみを処理する。  
 
-		- `flags & `[`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
+		- `flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
 			```cpp
 out = copy(m.prefix().first, m.prefix().second, out)
 ```
@@ -137,7 +137,7 @@ out = m.format(out, fmt, fmt + char_traits<charT>::length(fmt), flags)
 
 			を呼び出す。
 
-		最後に、`flags & `[`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、最後のマッチの `m` のコピーを `last_m` として
+		最後に、`flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、最後のマッチの `m` のコピーを `last_m` として
 
 		```cpp
 out = copy(last_m.suffix().first, last_m.suffix().second, out)
@@ -149,7 +149,7 @@ out = copy(last_m.suffix().first, last_m.suffix().second, out)
 
 - (3)、(4) [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), e, fmt, flags)` を呼び出す。  
 	戻り値は `result` となる。
-- (5)、(6) [`basic_string`](../string/basic_string.md)`<charT>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s, s + `[`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(s), e, fmt, flags)` を呼び出す。  
+- (5)、(6) [`basic_string`](../string/basic_string.md)`<charT>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s, s +` [`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(s), e, fmt, flags)` を呼び出す。  
 	戻り値は `result` となる。
 
 

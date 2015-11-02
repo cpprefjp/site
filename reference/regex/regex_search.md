@@ -65,11 +65,11 @@ namespace std {
 ##効果
 - (1) `[first, last)` で指定された文字列中に、`e` で指定された正規表現にマッチする部分が存在するか否かの判定を行う。  
 	`flags` は正規表現が文字列に対してどのようにマッチするかを指定する。
-- (2) `return regex_search(str, str + `[`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(str), m, e, flags)` と同等。
+- (2) `return regex_search(str, str +` [`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(str), m, e, flags)` と同等。
 - (3) `return regex_search(s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), m, e, flags)` と同等。
 - (4) `deleted` 宣言されているため、使用するとコンパイルエラーとなる。
 - (5) [`match_results`](match_results.md)`<BidirectionalIterator>` 型のダミーオブジェクト `what` を構築し、`return regex_search(first, last, what, e, flags)` としたものと同等。
-- (6) `return regex_search(str, str + `[`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(str), e, flags)` と同等。
+- (6) `return regex_search(str, str +` [`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(str), e, flags)` と同等。
 - (7) `return regex_search(s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), e, flags)` と同等。
 
 ##事後条件
