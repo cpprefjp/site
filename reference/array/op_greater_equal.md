@@ -16,7 +16,7 @@ namespace std {
 
 
 ##戻り値
-`!(a `[`<`](./op_less.md)` b)`
+`!(a` [`<`](./op_less.md) `b)`
 
 
 ##計算量

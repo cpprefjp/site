@@ -20,7 +20,7 @@ namespace std {
 
 
 ##戻り値
-`!(x `[`==`](./op_equal.md)` y)`
+`!(x` [`==`](./op_equal.md) `y)`
 
 
 ##計算量

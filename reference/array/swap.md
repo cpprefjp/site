@@ -16,7 +16,7 @@ void swap(array& other) noexcept(noexcept(swap(declval<T&>(), declval<T&>())));
 
 
 ##効果
-[`swap_ranges`](/reference/algorithm/swap_ranges.md)`(`[`begin`](./begin.md)`(), `[`end`](./end.md)`(), other.`[`begin`](./begin.md)`())`
+[`swap_ranges`](/reference/algorithm/swap_ranges.md)`(`[`begin`](./begin.md)`(),` [`end`](./end.md)`(), other.`[`begin`](./begin.md)`())`
 
 
 ##戻り値

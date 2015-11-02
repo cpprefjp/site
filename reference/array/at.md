@@ -28,7 +28,7 @@ n番目の要素を参照する。
 
 
 ##備考
-`a.at(n)` は `*(a.`[`begin()`](/reference/array/begin.md)` + n)` と同じ結果になる。
+`a.at(n)` は `*(a.`[`begin()`](/reference/array/begin.md) `+ n)` と同じ結果になる。
 
 
 ##例
