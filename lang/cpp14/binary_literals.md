@@ -59,6 +59,7 @@ int main()
 
 ##関連項目
 - [数値リテラルの桁区切り文字](./digit_separators.md.nolink)
+- [`bitset`](/reference/bitset.md)
 
 
 ##参照
