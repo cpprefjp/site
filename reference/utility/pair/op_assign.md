@@ -24,10 +24,10 @@ pair& operator=(pair<U, V>&& p);              // (4) C++11
 
 
 ##要件
-- (1) : [`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<first_type>::value && `[`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<second_type>::value`であること
-- (2) : [`is_assignable`](/reference/type_traits/is_assignable.md)`<first_type&, const U&>::value && `[`is_assignable`](/reference/type_traits/is_assignable.md)`<second_type&, const V&>::value`であること
-- (3) : [`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<first_type>::value && `[`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<second_type>::value`であること
-- (4) : [`is_assignable`](/reference/type_traits/is_assignable.md)`<first_type&, U&&>::value && `[`is_assignable`](/reference/type_traits/is_assignable.md)`<second_type&, V&&>::value`であること
+- (1) : [`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<first_type>::value &&` [`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<second_type>::value`であること
+- (2) : [`is_assignable`](/reference/type_traits/is_assignable.md)`<first_type&, const U&>::value &&` [`is_assignable`](/reference/type_traits/is_assignable.md)`<second_type&, const V&>::value`であること
+- (3) : [`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<first_type>::value &&` [`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<second_type>::value`であること
+- (4) : [`is_assignable`](/reference/type_traits/is_assignable.md)`<first_type&, U&&>::value &&` [`is_assignable`](/reference/type_traits/is_assignable.md)`<second_type&, V&&>::value`であること
 
 
 ##効果

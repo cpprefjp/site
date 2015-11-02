@@ -35,7 +35,7 @@ C++11以降の場合、結果型の`V1`および`V2`は以下のような型と�
 
 
 ##戻り値
-[`pair`](/reference/utility/pair.md)`<V1, V2>(`[`forward`](/reference/utility/forward.md)`<T1>(x), `[`forward`](/reference/utility/forward.md)`<T2>(y))`
+[`pair`](/reference/utility/pair.md)`<V1, V2>(`[`forward`](/reference/utility/forward.md)`<T1>(x),` [`forward`](/reference/utility/forward.md)`<T2>(y))`
 
 
 ##例

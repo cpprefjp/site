@@ -53,9 +53,9 @@ pair(piecewise_construct_t,
 ##要件
 - (1) : `first_type`と`second_type`が[`is_default_constructible`](/reference/type_traits/is_default_constructible.md)`<T>::value == true`であること
 - (4) : `first_type`と`second_type`が[`is_copy_constructible`](/reference/type_traits/is_copy_constructible.md)`<T>::value == true`であること
-- (5) : [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value && `[`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
-- (6) : [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, const U&>::value && `[`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, const V&>::value`であること
-- (7) : [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value && `[`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
+- (5) : [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
+- (6) : [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, const U&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, const V&>::value`であること
+- (7) : [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
 
 
 ##注記
