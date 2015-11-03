@@ -101,7 +101,7 @@ unordered_set(initializer_list<value_type> il,
 - (1) + (2) バケット数最低 `n`、ハッシュ関数オブジェクト `hf`、キー比較用関数オブジェクト `eql`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。
     引数 `n` のデフォルト値は実装依存である。
 
-- (3)   (1)と同様に `unordered_set` が構築された後、`[first, last)` の範囲の要素が挿入される。
+- (3)   (2)と同様に `unordered_set` が構築された後、`[first, last)` の範囲の要素が挿入される。
 
 - (4)   コピーコンストラクタ。`v` の全ての要素をコピーした、`unordered_set` を構築する。
     ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](./max_load_factor.md)`()` の値も `v` からコピーされる。
