@@ -42,7 +42,7 @@ auto main() -> int
 #include <iomanip>
 
 // ネイピア数: http://www.wolframalpha.com/input/?i=Napier%27s%20constant
-template < class T = float >
+template < typename T = float >
 constexpr auto napier = static_cast<T>( 2.718'281'828'459'045'235'360'287'471'352'662'497'757'247'093'699'959'5L );
 
 auto main() -> int
