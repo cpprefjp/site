@@ -2,11 +2,60 @@
 * cpp14[meta cpp]
 
 ##概要
-変数定義時のテンプレート指定を可能にする
+変数定義時のテンプレート指定を可能にする。
+
+C++11までは、関数、クラス、型の別名をテンプレートで定義できた。C++14からは、変数もテンプレートで定義できるようになった。これにより、型もしくは整数値をパラメータにとり、そのパラメータの組み合わせごとに変数の値を保持できるようになった。
+
+これはたとえば、円周率πの値を、数値型ごとの有効桁数で取得するために使用できる：
+
+```cpp
+template <class T>
+constexpr T pi = static_cast<T>(3.14159265358979323846);
+
+// 円の面積を求める
+template <class T>
+T area_of_circle_with_radius(T r)
+{
+  return pi<T> * r * r;
+}
+```
+
+従来であれば、このような目的には、関数テンプレートが使用されていた。型`T`の円周率を返す関数`pi()`を定義すればよかった。しかし、多倍長整数のように、コピーのコストが高いものについては、関数テンプレートよりも、変数テンプレートを使用した方が効率がよくなる。
+
+そのほかの用途としては、関数呼び出しの丸カッコを省略できるため、2文字ではあるがより短いコードを書けるようにできる、というものもある。たとえば、型`T`が整数型か判定する[`std::is_integral`](/reference/type_traits/is_integral.md)型特性は、以下のように、`::value`を付けるか、クラスのインスタンスを作成して`bool`への変換演算子を呼び出す必要がある：
+
+```cpp
+#include <type_traits>
+
+int main()
+{
+  if (std::is_integral<int>::value) {}
+  if (std::is_integral<int>()) {}
+}
+```
+
+変数テンプレートを使用することで、以下のように記述できる：
+
+```cpp
+template <class T>
+constexpr bool is_integral_v = false;
+
+template <>
+constexpr bool is_integral_v<int> = true;
+
+// 以下のようにラッパーとして定義してもよい
+// #include <type_traits>
+// template <class T>
+// constexpr bool is_integral_v = std::is_integral<int>::value;
+
+int main()
+{
+  if (is_integral_v<int>) {}
+}
+```
 
 
 ##仕様
-
 C++14より前の規格でも使用できた関数テンプレートを変数にも適用可能に拡張した仕様です。
 言語規格から変数テンプレートについて明言されている仕様を以下に整理します。
 これらは全て従来の関数またはクラスのテンプレートについてと同様に定義されています。
@@ -21,20 +70,6 @@ C++14より前の規格でも使用できた関数テンプレートを変数に
 - テンプレート変数のインスタンス化は名前空間へ行われる。（§14.7.1 Implicit instantiation, §14.7.2 Explicit instantiation）
 - テンプレート変数の宣言は明示的なインスタンス化よりも前に行わなければならない。（§14.7.2 Explicit instantiation）
 
-```cpp
-#include <iostream>
-
-template < typename T > constexpr auto value = static_cast<T>( -1 );
-
-auto main() -> int
-{
-  std::cout
-    << std::to_string( value<  signed char> ) << "\n"
-    << std::to_string( value<unsigned char> ) << std::endl
-    ;
-}
-```
-* template < typename T >[color ff0000]
 
 ##例
 ```cpp
