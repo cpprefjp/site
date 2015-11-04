@@ -132,3 +132,11 @@ C++14という言語バージョンは、C++11の仕様に対するバグ修正�
 - [N3661 Digit Separators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3661.html)
 - [N3781 Single-Quotation-Mark as a Digit Separator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3781.pdf)
 
+他言語の桁区切り文字：
+
+- Perl : [Underscores in numbers](http://www.perlmonks.org/?node=72112)
+- Ruby : [アンダーバーによる数値の区切り](http://www.rubylife.jp/ini/num/index2.html)
+- Java 7 : [Underscores in Numeric Literals](http://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html)
+- Ada : [Ada '83 Language Reference Manual](http://archive.adaic.com/standards/83lrm/html/lrm-02-04.html#2.4)
+
+
