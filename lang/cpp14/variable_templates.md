@@ -77,29 +77,37 @@ C++14より前の規格でも使用できた関数テンプレートを変数に
 ```cpp
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 // ネイピア数: http://www.wolframalpha.com/input/?i=Napier%27s%20constant
 template < typename T = float >
 constexpr auto napier = static_cast<T>( 2.718'281'828'459'045'235'360'287'471'352'662'497'757'247'093'699'959'5L );
 
+template <class FloatingPoint>
+constexpr int precision = std::numeric_limits<FloatingPoint>::max_digits10;
+
 auto main() -> int
 {
   std::cout
-    << std::setprecision( 60 )
-    << napier<           > << "\n"
-    << napier<     double> << "\n"
-    << napier<long double> << "\n"
+    << std::setprecision(precision<float>)       << napier<>            << "\n"
+    << std::setprecision(precision<double>)      << napier<double>      << "\n"
+    << std::setprecision(precision<long double>) << napier<long double> << "\n"
     << "2.7182818284590452353602874713526624977572470936999595" << std::endl
     ;
 }
 ```
 * template < typename T = float >[color ff0000]
+* std::numeric_limits[link /reference/limits/numeric_limits.md]
+* max_digits10[link /reference/limits/numeric_limits/max_digits10.md]
+* std::setprecision[link /reference/iomanip/setprecision.md.nolink]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力例
 ```
-2.71828174591064453125
-2.718281828459045090795598298427648842334747314453125
-2.71828182845904523542816810799394033892895095050334930419922
+2.71828175
+2.7182818284590451
+2.71828182845904523543
 2.7182818284590452353602874713526624977572470936999595
 ```
 
