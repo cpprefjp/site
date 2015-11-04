@@ -56,7 +56,7 @@ auto main() -> int
     ;
 }
 ```
-* template < typename T >[color ff0000]
+* template < typename T = float >[color ff0000]
 
 ###出力例
 ```
