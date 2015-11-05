@@ -1,4 +1,4 @@
-#`[[deprecated]]`属性
+#[[deprecated]]属性
 * cpp14[meta cpp]
 
 ##概要
