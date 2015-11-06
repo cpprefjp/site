@@ -122,7 +122,7 @@ auto main() -> int
 - テンプレートテンプレートについても提案があったが、ワーキンググループで複数の不要論がありC++14では含めない事にした。（N3651）
 
 ##関連項目
-- `constexpr`
+- [`constexpr`](/lang/cpp11/constexpr.md)
 
 ##参照
 - [N3651 Variable Templates (Revision 1)](http://open-std.org/JTC1/SC22/WG21/docs/papers/2013/n3651.pdf)
