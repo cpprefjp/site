@@ -1,6 +1,7 @@
 #DBL_DIG
 * cfloat[meta header]
 * macro[meta id-type]
+* [mathjax enable]
 
 ```cpp
 #define DBL_DIG implementation-defined
@@ -8,7 +9,21 @@
 * implementation-defined[italic]
 
 ##概要
-n 桁の10進数を `double` に変換し、また元に戻した場合に値が変わらないような n のうち最大のもの。
+n 桁の10進数を `double` に変換し、また元に戻した場合に値が変わらないような n のうち最大のもの。  
+以下の式で表される。
+
+$$
+\left\{
+\begin{array}{ll}
+p \log_{10}b&\text{もし $b$ が $10$ の累乗の場合}\\
+\lfloor (p - 1) \log_{10} b\rfloor&\text{上記以外の場合}\\
+\end{array}
+\right.
+$$
+
+ここで、$b$ は指数表現の基数、$p$ は精度（基数 $b$ での仮数部の桁数）である。
 
 `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`digits10`](/reference/limits/numeric_limits/digits10.md) と等しい。
 
+##備考
+規格で 10 以上であることが規定されている。
