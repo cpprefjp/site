@@ -2,7 +2,7 @@
 * cpp14[meta cpp]
 
 ##概要
-C++11で、汎用定数式の機能である[`constexpr`](/land/cpp11/constexpr.md)が導入された。
+C++11で、汎用定数式の機能である[`constexpr`](/lang/cpp11/constexpr.md)が導入された。
 
 `constexpr`関数には、コードの表現として強い制限があった。C++14では、以下のような制限緩和が行われた。
 
