@@ -171,7 +171,7 @@ C++11段階の標準ライブラリでも、そのような機能は標準では
 
 ##関連項目
 - [ユーザー定義リテラル](./user_defined_literals.md.nolink)
-- [constexprの制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md.nolink)
+- [constexprの制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md)
 
 
 ##参照
