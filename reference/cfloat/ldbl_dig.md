@@ -9,7 +9,8 @@
 * implementation-defined[italic]
 
 ##概要
-n 桁の10進数を `long double` に変換し、また元に戻した場合に値が変わらないような n のうち最大のもの。  
+`long double` で正確に表現可能な10進数の最大の桁数を表すマクロ。  
+より正確には、$n$ 桁の10進数を `long double` に変換し、また元に戻した場合に値が変わらないような $n$ のうち最大のもの。  
 以下の式で表される。
 
 $$
@@ -21,9 +22,11 @@ p \log_{10}b&\text{もし $b$ が $10$ の累乗の場合}\\
 \right.
 $$
 
-ここで、$b$ は指数表現の基数、$p$ は精度（基数 $b$ での仮数部の桁数）である。
+ここで、$b$ は指数表現の基数、$p$ は精度（基数 $b$ での仮数部の桁数）である。  
+$b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
 `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`digits10`](/reference/limits/numeric_limits/digits10.md) と等しい。
 
 ##備考
-規格で 10 以上であることが規定されている。
+- 規格で 10 以上であることが規定されている。
+- 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
