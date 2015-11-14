@@ -32,7 +32,7 @@ int main()
 * <iostream>[link ../iostream.md]
 * <cfloat>[link ../cfloat.md]
 * cout[link ../iostream/cout.md]
-* DBL_MANT_DIG[color ff0000]
+* FLT_MANT_DIG[color ff0000]
 
 ##出力例
 ```
