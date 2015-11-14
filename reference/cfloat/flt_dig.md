@@ -22,7 +22,7 @@ p \log_{10}b&\text{もし $b$ が $10$ の累乗の場合}\\
 \right.
 $$
 
-ここで、$b$ は指数表現の基数、$p$ は精度（基数 $b$ での仮数部の桁数）である。  
+ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は精度（基数 $b$ での仮数部の桁数、[`FLT_MANT_DIG`](flt_mant_dig.md)）である。  
 $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
 `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`digits10`](/reference/limits/numeric_limits/digits10.md) と等しい。
