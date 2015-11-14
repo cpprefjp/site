@@ -30,3 +30,25 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 ##備考
 - 規格で 10 以上であることが規定されている。
 - 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
+- `DBL_DIG` は DouBLe DIGits（digit：桁）に由来する。
+
+
+##例
+```cpp
+#include <iostream>
+#include <cfloat>
+
+int main()
+{
+  std::cout << DBL_DIG << '\n';
+}
+```
+* <iostream>[link ../iostream.md]
+* <cfloat>[link ../cfloat.md]
+* cout[link ../iostream/cout.md]
+* DBL_DIG[color ff0000]
+
+##出力例
+```
+15
+```
