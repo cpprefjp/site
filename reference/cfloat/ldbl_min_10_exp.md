@@ -55,7 +55,7 @@ int main()
 * LDBL_MIN[link ldbl_min.md]
 * pow[link ../cmath/pow.md]
 * log10[link ../cmath/log10.md]
-* ceil[link ../cmath/ceil.md.nolink]
+* ceil[link ../cmath/ceil.md]
 
 ##出力例
 ```
