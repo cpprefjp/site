@@ -23,7 +23,9 @@ $b$ や $p$、$e_{\rm max}$ については [`<cfloat>`](../cfloat.md) のモデ
 
 
 ##備考
-規格で +37 以上であることが規定されている。
+- 規格で +37 以上であることが規定されている。
+- 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
+- `DBL_MAX_10_EXP` は Long DouBLe MAXimum base-10 EXPonent（maximum：最大値、base-10：10を底とした、exponent：指数）に由来する。
 
 
 ##例
