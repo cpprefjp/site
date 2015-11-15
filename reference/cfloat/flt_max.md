@@ -9,7 +9,7 @@
 * implementation-defined[italic]
 
 ##概要
-`float` の最大の有限値。  
+`float` の最大の有限値を表すマクロ。  
 以下の式で表される。
 
 $$
