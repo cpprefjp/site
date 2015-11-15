@@ -37,18 +37,35 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 ```cpp
 #include <iostream>
 #include <cfloat>
+#include <cmath>
 
 int main()
 {
   std::cout << FLT_DIG << '\n';
+
+  // 以下の式と同一
+  double log10b = std::log10(FLT_RADIX);
+  double intpart;
+  if (std::modf(log10b, &intpart) == 0.0) {
+    std::cout << FLT_MANT_DIG * log10b << '\n';
+  } else {
+    std::cout << std::floor((FLT_MANT_DIG - 1) * log10b) << '\n';
+  }
 }
 ```
 * <iostream>[link ../iostream.md]
 * <cfloat>[link ../cfloat.md]
+* <cmath>[link ../cmath.md]
 * cout[link ../iostream/cout.md]
 * FLT_DIG[color ff0000]
+* FLT_RADIX[link flt_radix.md]
+* FLT_MANT_DIG[link flt_mant_dig.md]
+* log10[link ../cmath/log10.md]
+* floor[link ../cmath/floor.md.nolink]
+* modf[link ../cmath/modf.md.nolink]
 
 ##出力例
 ```
+6
 6
 ```
