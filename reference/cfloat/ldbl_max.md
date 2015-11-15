@@ -16,7 +16,7 @@ $$
 (1-b^{-p})b^{e_{\rm max}}
 $$
 
-ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は精度（基数 $b$ での仮数部の桁数、[`LDBL_MANT_DIG`](ldbl_mant_dig.md)）、$e_{\rm max}$ は指数の最大値（[`LDBL_MAX_EXP`](ldbl_max_exp.md.nolink)）である。  
+ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は精度（基数 $b$ での仮数部の桁数、[`LDBL_MANT_DIG`](ldbl_mant_dig.md)）、$e_{\rm max}$ は指数の最大値（[`LDBL_MAX_EXP`](ldbl_max_exp.md)）である。  
 $b$ や $p$、$e_{\rm max}$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
 `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しい。
@@ -51,7 +51,7 @@ int main()
 * FLT_RADIX[link flt_radix.md]
 * LDBL_DIG[link ldbl_dig.md]
 * LDBL_MANT_DIG[link ldbl_mant_dig.md]
-* LDBL_MAX_EXP[link ldbl_max_exp.md.nolink]
+* LDBL_MAX_EXP[link ldbl_max_exp.md]
 * pow[link ../cmath/pow.md]
 
 ##出力例

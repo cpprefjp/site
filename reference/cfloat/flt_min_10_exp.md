@@ -16,7 +16,7 @@ $$
 \lceil\log_{10} FLT\_MIN\rceil = \lceil\log_{10} b^{e_{\rm min} - 1}\rceil
 $$
 
-ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$e_{\rm min}$ は指数の最小値（[`FLT_MIN_EXP`](flt_min_exp.md.nolink)）である。  
+ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$e_{\rm min}$ は指数の最小値（[`FLT_MIN_EXP`](flt_min_exp.md)）である。  
 $b$ や $e_{\rm min}$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
 `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`min_exponent10`](/reference/limits/numeric_limits/min_exponent10.md) と等しい。
@@ -51,7 +51,7 @@ int main()
 * cout[link ../iostream/cout.md]
 * FLT_MIN_10_EXP[color ff0000]
 * FLT_RADIX[link flt_radix.md]
-* FLT_MIN_EXP[link flt_min_exp.md.nolink]
+* FLT_MIN_EXP[link flt_min_exp.md]
 * FLT_MIN[link flt_min.md]
 * pow[link ../cmath/pow.md]
 * log10[link ../cmath/log10.md]

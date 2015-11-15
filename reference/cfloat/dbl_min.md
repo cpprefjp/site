@@ -16,7 +16,7 @@ $$
 b^{e_{\rm min} - 1}
 $$
 
-ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$e_{\rm min}$ は指数の最小値（[`DBL_MIN_EXP`](dbl_min_exp.md.nolink)）である。  
+ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$e_{\rm min}$ は指数の最小値（[`DBL_MIN_EXP`](dbl_min_exp.md)）である。  
 $b$ や $e_{\rm min}$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
 `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しい。
@@ -50,7 +50,7 @@ int main()
 * DBL_MIN[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * DBL_DIG[link dbl_dig.md]
-* DBL_MIN_EXP[link dbl_min_exp.md.nolink]
+* DBL_MIN_EXP[link dbl_min_exp.md]
 * pow[link ../cmath/pow.md]
 
 ##出力例
