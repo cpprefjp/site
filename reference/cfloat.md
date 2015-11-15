@@ -24,7 +24,7 @@ $$
 NaN とは非数（Not-a-Number）を表し、ほとんど全ての演算で浮動小数点例外を起こさず結果に伝播する quiet NaN（quiet：静かな）と、演算のオペランドに使用されると浮動小数点例外を引き起こす signaling NaN（signaling：信号を発する）がある。  
 ゼロと浮動小数点数ではない値（無限大や NaN 等）には符号があるかもしれない（実装によっては無いかもしれない）。
 
-本ヘッダで提供される整数値を表すマクロは、[`FLT_ROUNDS`](cfloat/flt_rounds.md.nolink) を除いて `#if` プリプロセッサディレクティブに使用可能な定数式である。
+本ヘッダで提供される整数値を表すマクロは、[`FLT_ROUNDS`](cfloat/flt_rounds.md) を除いて `#if` プリプロセッサディレクティブに使用可能な定数式である。
 
 | マクロ                                          | 説明 | 対応バージョン |
 |-------------------------------------------------|--------------------------------------------------------|-------|
@@ -49,7 +49,7 @@ NaN とは非数（Not-a-Number）を表し、ほとんど全ての演算で浮�
 | [`FLT_MIN_10_EXP`](cfloat/flt_min_10_exp.md)    | $10$ の $n$ 乗が`float`の正の正規化数であるような最小の負の整数値 $n$。<br/>上記モデルでは、$\lceil\log_{10} b^{e_{\rm min} - 1}\rceil$ | |
 | [`FLT_MIN_EXP`](cfloat/flt_min_exp.md)          | [`FLT_RADIX`](cfloat/flt_radix.md) の $n - 1$ 乗が`float`の正規化数として表現可能な最小の負の整数値 $n$。<br/>上記モデルでは、$e_{\rm min}$ | |
 | [`FLT_RADIX`](cfloat/flt_radix.md)              | 指数表現の基数。<br/>上記モデルでは、$b$ | |
-| [`FLT_ROUNDS`](cfloat/flt_rounds.md.nolink)     | 浮動小数点加算の丸めモード | |
+| [`FLT_ROUNDS`](cfloat/flt_rounds.md)            | 浮動小数点加算の丸めモード | |
 | [`LDBL_DIG`](cfloat/ldbl_dig.md)                | `long double`で正確に表現可能な10進数の最大の桁数。<br/>上記モデルでは、$b$ が $10$ の累乗の場合、$p \log_{10} b$、それ以外の場合、$\lfloor (p - 1)\log_{10} b\rfloor$ | |
 | [`LDBL_EPSILON`](cfloat/ldbl_epsilon.md)        | `long double`における、$1$ と $1$ より大きい最小の数との差。（機械イプシロン）<br/>上記モデルでは、$b^{1-p}$ | |
 | [`LDBL_MANT_DIG`](cfloat/ldbl_mant_dig.md)      | `long double`を基数 [`FLT_RADIX`](cfloat/flt_radix.md) で表現した際の仮数部の桁数。<br/>上記モデルでは、$p$ | |
