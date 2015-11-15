@@ -22,7 +22,7 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`epsilon`](/reference/limits/numeric_limits/epsilon.md)`()` と等しい。
 
 ##備考
-規格で `1E-6`（$10^{-6}$）以下であることが規定されている。
+規格で `1E-5`（$10^{-5}$）以下であることが規定されている。
 
 
 ##例
