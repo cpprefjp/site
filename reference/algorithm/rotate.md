@@ -148,6 +148,15 @@ swapping 0x1806043(1) <-> 0x1806045(5)
 [std::rotate を読んでみた](http://www.kmonos.net/wlog/115.html#_0007101223)
 
 
+###処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 8.0, 9.0, 10.0, 11.0, 12.0, 14.0
+	- C++11への対応（戻り値の変更）は10.0から。
+
+
 ##参照
 - [LWG DR488. rotate throws away useful information](http://cplusplus.github.io/LWG/lwg-defects.html#488)  
 	戻り値が追加されるきっかけとなったレポート

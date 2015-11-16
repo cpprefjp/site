@@ -38,6 +38,7 @@ namespace std {
 ```cpp
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <vector>
 #include <memory>
  
@@ -87,6 +88,6 @@ OutputIterator move(InputIterator first, InputIterator last, OutputIterator resu
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 

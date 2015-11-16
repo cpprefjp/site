@@ -79,6 +79,15 @@ fill_n(OutputIterator first, Size n, const T& value) {
 ```
 
 
+###処理系
+- [Clang](/implementation.md#clang):
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++11 mode](/implementation.md#gcc): 
+- [ICC](/implementation.md#icc): 
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
+	- C++11への対応（戻り値の変更）は11.0から。
+
+
 ##参照
 - [LWG DR865. More algorithms that throw away information](http://cplusplus.github.io/LWG/lwg-defects.html#865)  
 	戻り値が追加されるきっかけとなったレポート
