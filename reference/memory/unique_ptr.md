@@ -18,11 +18,14 @@ namespace std {
 * default_delete[link /reference/memory/default_delete.md]
 
 ##概要
-`unique_ptr`は指定されたリソースへのポインタの所有権(ownership)を唯一(unique)持っているように振舞うスマートポインタである。
+`unique_ptr`は指定されたリソースへのポインタの所有権(ownership)を唯一(unique)持っているように振舞うスマートポインタである。`auto_ptr`を置き換えるものとしてC++に追加された。
 
 `unique_ptr`はコピー不可能なクラスである。代わりにムーブによって所有権を他の`unique_ptr` へ譲渡することができる。また、[`shared_ptr`](/reference/memory/shared_ptr.md)は`unique_ptr`を受け取るムーブコンストラクタとムーブ代入演算子を持つ。
 
-`auto_ptr`では配列を渡すことができなかったが、（正確にはデストラクタで`delete[]`ではなく`delete`が呼び出されるため上手く動作しない）`unique_ptr`では`T[]`時に`delete[]`を呼び出すように[`default_delete`](/reference/memory/default_delete.md)を特殊化することで対応した。`unique_ptr`自体も`T[]`時には特殊化され、`operator[]`によるアクセスを提供している。
+`new[]`演算子で作成された配列へのポインタにも対応している。
+
+- `T[]`時に`delete[]`を呼び出すように[`default_delete`](/reference/memory/default_delete.md)を特殊化している。`auto_ptr`では配列を渡すことができなかった（正確にはデストラクタで`delete[]`ではなく`delete`が呼び出されるため上手く動作しない）。
+- `unique_ptr`自体も`T[]`時には部分特殊化され、`operator[]`によるアクセスを提供している。
 
 
 ##メンバ関数
@@ -129,6 +132,8 @@ hoge::~hoge()
 
 
 ##参照
+- [Rvalue Reference Recommendations for Chapter 20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1856.html)
+    - `unique_ptr`の追加と`auto_ptr`の非推奨が提案された文書。
 - [LWG Issue 673. `unique_ptr` update](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#672)
     - `unique_ptr<void, Deleter>`を許可するために、インタフェースを改良した経緯
 - [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)

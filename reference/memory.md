@@ -44,6 +44,7 @@
 | [`default_delete`](./memory/default_delete.md) | `unique_ptr`のデフォルトの削除子(class template) | C++11 |
 | `auto_ptr` | 古い専有方式スマートポインタ(class template) | C++11から非推奨 |
 
+`auto_ptr`の代わりに`unique_ptr`を推奨する。
 
 ##ガベージコレクション支援
 
