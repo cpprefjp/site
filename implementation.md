@@ -75,7 +75,9 @@
 ## <a name="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a>
 このサイトでは Visual C++ と呼ぶ。
 
-- [Microsoft Visual Studio Express](http://www.microsoft.com/japan/msdn/vstudio/express/)
+現在、統合開発環境Visual Studioの一部として入手できる。
+
+- [Visual Studio - Microsoft Developer Tools](https://www.visualstudio.com/ja-jp/visual-studio-homepage-vs.aspx)
 
 ###別名
 - VC
@@ -84,7 +86,7 @@
 - cl
 
 ###バージョンの表記
-Visual C++ 2010 ではなく Visual C++ 10.0 と表記する。
+このサイトでは Visual C++ 2010 などではなく、 Visual C++ 10.0 などと表記する。
 
 | 製品名               | バージョン      | 定数`_MSC_VER`の値 |
 |----------------------|-----------------|--------------------|
