@@ -67,7 +67,7 @@ int main()
 * FLT_MAX[link flt_max.md]
 * pow[link ../cmath/pow.md]
 * log10[link ../cmath/log10.md]
-* floor[link ../cmath/floor.md.nolink]
+* floor[link ../cmath/floor.md]
 * isfinite[link ../cmath/isfinite.md.nolink]
 
 ##出力例

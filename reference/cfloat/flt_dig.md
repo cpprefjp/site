@@ -61,7 +61,7 @@ int main()
 * FLT_RADIX[link flt_radix.md]
 * FLT_MANT_DIG[link flt_mant_dig.md]
 * log10[link ../cmath/log10.md]
-* floor[link ../cmath/floor.md.nolink]
+* floor[link ../cmath/floor.md]
 * modf[link ../cmath/modf.md.nolink]
 
 ##出力例
