@@ -14,14 +14,14 @@ namespace std {
 
 
 ##概要
-`make_integer_sequence`は、要素数を指定して、0から始まる整数シーケンスを生成する、[`integer_sequence`](./integer_sequence.md)クラステンプレートの別名である。
+`make_integer_sequence`は、要素数を指定して、0から始まる整数シーケンスを生成する、[`integer_sequence`](integer_sequence.md)クラステンプレートの別名である。
 
 テンプレートパラメータは、以下を意味する：
 
 - `T` : シーケンスの要素となる整数型
 - `N` : 要素数
 
-要素数`N`に0が設定された場合は、[`integer_sequence<T>`](./integer_sequence.md)の別名として定義され、シーケンスが空となる。
+要素数`N`に0が設定された場合は、[`integer_sequence<T>`](integer_sequence.md)の別名として定義され、シーケンスが空となる。
 
 
 ##例

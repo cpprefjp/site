@@ -34,8 +34,8 @@ namespace std {
 ##戻り値
 - (1) : `c.rend();`
 - (2) : `c.rend();`
-- (3) : [`reverse_iterator`](./reverse_iterator.md)`<T*>(array)`
-- (4) : [`reverse_iterator`](./reverse_iterator.md)`<const E*>(`[`il.begin()`](/reference/initializer_list/begin.md)`)`
+- (3) : [`reverse_iterator`](reverse_iterator.md)`<T*>(array)`
+- (4) : [`reverse_iterator`](reverse_iterator.md)`<const E*>(`[`il.begin()`](/reference/initializer_list/begin.md)`)`
 
 
 ##例

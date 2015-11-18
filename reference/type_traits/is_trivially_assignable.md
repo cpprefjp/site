@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_trivially_assignable`は、型`T`が型`U`からトリビアルに代入可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。  
+`is_trivially_assignable`は、型`T`が型`U`からトリビアルに代入可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。  
 「トリビアルに代入可能」とは、ユーザー定義されない代入演算子を持っているということを意味する。
 
 

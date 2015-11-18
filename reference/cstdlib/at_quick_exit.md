@@ -12,11 +12,11 @@ namespace std {
 ```
 
 ##概要
-[`quick_exit`](./quick_exit.md)関数でプログラムが終了するときに呼ばれる関数を登録する。
+[`quick_exit`](quick_exit.md)関数でプログラムが終了するときに呼ばれる関数を登録する。
 
 
 ##効果
-この関数に指定した関数は、[`std::quick_exit()`](./quick_exit.md)関数が呼び出された際に呼び出される。
+この関数に指定した関数は、[`std::quick_exit()`](quick_exit.md)関数が呼び出された際に呼び出される。
 
 指定された関数の中で例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
 

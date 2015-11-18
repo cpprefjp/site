@@ -20,9 +20,9 @@ namespace std {
 ##要件
 `order`が以下のメモリオーダーではないこと：
 
-- [`memory_order_consume`](./memory_order.md) (C++14)
-- [`memory_order_acquire`](./memory_order.md)
-- [`memory_order_acq_rel`](./memory_order.md)
+- [`memory_order_consume`](memory_order.md) (C++14)
+- [`memory_order_acquire`](memory_order.md)
+- [`memory_order_acq_rel`](memory_order.md)
 
 
 ##効果

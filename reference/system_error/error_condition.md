@@ -11,9 +11,9 @@ namespace std {
 ```
 
 ##概要
-`error_condition`は、[`error_code`](./error_code.md)に紐付くエラーを表現することを可能にするためのクラスである。
+`error_condition`は、[`error_code`](error_code.md)に紐付くエラーを表現することを可能にするためのクラスである。
 
-VC10、GCC 4.6.1では[`generic_category()`](./generic_category.md)と[`system_category()`](./system_category.md)の[`error_category`](./error_category.md)オブジェクトは[`name()`](./error_category/name.md)メンバ関数を除いて同じ挙動を行い、それぞれの[`default_error_conditon()`](./error_category/default_error_condition.md)メンバ関数も同じエラー値、同じカテゴリの`error_condition`を構築するため、実質[`error_code`](./error_code.md)と`error_condition`は標準カテゴリでは等価な動作をする。だが、[`error_category`](./error_category.md)を継承した新たなカテゴリを定義することにより、以下のようなエラーを表現することが可能となる：
+VC10、GCC 4.6.1では[`generic_category()`](generic_category.md)と[`system_category()`](system_category.md)の[`error_category`](error_category.md)オブジェクトは[`name()`](error_category/name.md)メンバ関数を除いて同じ挙動を行い、それぞれの[`default_error_conditon()`](error_category/default_error_condition.md)メンバ関数も同じエラー値、同じカテゴリの`error_condition`を構築するため、実質[`error_code`](error_code.md)と`error_condition`は標準カテゴリでは等価な動作をする。だが、[`error_category`](error_category.md)を継承した新たなカテゴリを定義することにより、以下のようなエラーを表現することが可能となる：
 
 - 一つのエラー値で上位Nビット、下位Nビットで異なるエラー情報を表現する
 - 例： WindowsのHRESULT : 「[HRESULT型とは？ - UsefullCode.net](http://www.usefullcode.net/2007/03/hresult.html)」
@@ -24,15 +24,15 @@ VC10、GCC 4.6.1では[`generic_category()`](./generic_category.md)と[`system_c
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](./error_condition/op_constructor.md) | コンストラクタ | C++11 |
+| [`(constructor)`](error_condition/op_constructor.md) | コンストラクタ | C++11 |
 | `~error_condition() = default`                         | デストラクタ | C++11 |
-| [`operator=`](./error_condition/op_assign.md)          | 代入演算子 | C++11 |
-| [`assign`](./error_condition/assign.md)                | 値の再設定 | C++11 |
-| [`clear`](./error_condition/clear.md)                  | エラー情報をクリアする | C++11 |
-| [`value`](./error_condition/value.md)                  | エラー値を取得する | C++11 |
-| [`category`](./error_condition/category.md)            | エラーカテゴリを取得する | C++11 |
-| [`message`](./error_condition/message.md)              | エラーメッセージを取得する | C++11 |
-| [`explicit operator bool`](./error_condition/op_bool.md) | エラーかどうかを判定する | C++11 |
+| [`operator=`](error_condition/op_assign.md)          | 代入演算子 | C++11 |
+| [`assign`](error_condition/assign.md)                | 値の再設定 | C++11 |
+| [`clear`](error_condition/clear.md)                  | エラー情報をクリアする | C++11 |
+| [`value`](error_condition/value.md)                  | エラー値を取得する | C++11 |
+| [`category`](error_condition/category.md)            | エラーカテゴリを取得する | C++11 |
+| [`message`](error_condition/message.md)              | エラーメッセージを取得する | C++11 |
+| [`explicit operator bool`](error_condition/op_bool.md) | エラーかどうかを判定する | C++11 |
 
 
 ##例

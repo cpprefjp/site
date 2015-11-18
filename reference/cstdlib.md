@@ -46,14 +46,14 @@
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------|--------------------------------------------------------|-------|
-| [`EXIT_FAILURE`](./cstdlib/exit_failure.md)  | プログラムが異常終了したことを表す整数値マクロ (macro) | |
-| [`EXIT_SUCCESS`](./cstdlib/exit_success.md)  | プログラムが正常終了したことを表す整数値マクロ (macro) | |
-| [`abort`](./cstdlib/abort.md) | プログラムを異常終了させる (function) | |
-| [`_Exit`](./cstdlib/exit_.md) | 後処理をせずに、プログラムを終了させる (function) | C++11 |
-| [`exit`](./cstdlib/exit.md) | プログラムを終了させる (function) | |
-| [`atexit`](./cstdlib/atexit.md) | プログラムが通常の方法で終了するときに呼ばれる関数を登録する (function) | |
-| [`quick_exit`](./cstdlib/quick_exit.md) | 後処理をせずに、プログラムを終了させる (function) | C++11 |
-| [`at_quick_exit`](./cstdlib/at_quick_exit.md) | `quick_exit`関数でプログラムが終了するときに呼ばれる関数を登録する (function) | C++11 |
+| [`EXIT_FAILURE`](cstdlib/exit_failure.md)  | プログラムが異常終了したことを表す整数値マクロ (macro) | |
+| [`EXIT_SUCCESS`](cstdlib/exit_success.md)  | プログラムが正常終了したことを表す整数値マクロ (macro) | |
+| [`abort`](cstdlib/abort.md) | プログラムを異常終了させる (function) | |
+| [`_Exit`](cstdlib/exit_.md) | 後処理をせずに、プログラムを終了させる (function) | C++11 |
+| [`exit`](cstdlib/exit.md) | プログラムを終了させる (function) | |
+| [`atexit`](cstdlib/atexit.md) | プログラムが通常の方法で終了するときに呼ばれる関数を登録する (function) | |
+| [`quick_exit`](cstdlib/quick_exit.md) | 後処理をせずに、プログラムを終了させる (function) | C++11 |
+| [`at_quick_exit`](cstdlib/at_quick_exit.md) | `quick_exit`関数でプログラムが終了するときに呼ばれる関数を登録する (function) | C++11 |
 
 
 ##環境

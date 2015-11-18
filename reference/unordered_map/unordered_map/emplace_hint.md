@@ -41,22 +41,22 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 
 ##計算量
-平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](./size.md)`()`)）。
+平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）。
 
 
 ##備考
 - この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。  
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
 
-- この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
+- この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
 	コンテナのバケット数が変わらない場合とは、
 
 	* 追加しようとした要素と等価なキーの要素が既にコンテナに存在したため、要素が追加されなかった。
-	* 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった。
+	* 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
 
 	のいずれかである。  
-	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
+	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
 
 - このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace` も含めた一覧を以下に示す。
@@ -70,7 +70,7 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 - `unordered_map` では、キーのハッシュ値に基づいて要素を格納するバケットを決定するため、`position` を有効に使用することはできないものと思われる。
 	実際、libstdc++、および、libc++ では `position` は単に無視される。  
-	通常は、[`emplace`](./emplace.md) を使用した方が良いだろう。
+	通常は、[`emplace`](emplace.md) を使用した方が良いだろう。
 
 ##例
 ```cpp
@@ -152,16 +152,16 @@ int main()
 
 |                                           |                                                    |
 |-------------------------------------------|----------------------------------------------------|
-| [`emplace`](./emplace.md)                 | コンテナ内への要素の直接構築                       |
-| [`insert`](./insert.md)                   | 要素の追加                                         |
-| [`erase`](./erase.md)                     | 要素の削除                                         |
-| [`clear`](./clear.md)                     | 全要素の削除                                       |
-| [`swap`](./swap.md)                       | 内容の交換                                         |
-| [`bucket_count`](./bucket_count.md)       | バケット数の取得                                   |
-| [`load_factor`](./load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](./max_load_factor.md) | 最大負荷率を取得、設定                             |
-| [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整           |
-| [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整               |
+| [`emplace`](emplace.md)                 | コンテナ内への要素の直接構築                       |
+| [`insert`](insert.md)                   | 要素の追加                                         |
+| [`erase`](erase.md)                     | 要素の削除                                         |
+| [`clear`](clear.md)                     | 全要素の削除                                       |
+| [`swap`](swap.md)                       | 内容の交換                                         |
+| [`bucket_count`](bucket_count.md)       | バケット数の取得                                   |
+| [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
+| [`max_load_factor`](max_load_factor.md) | 最大負荷率を取得、設定                             |
+| [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整           |
+| [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整               |
 
 
 ##参照

@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_trivially_constructible`は、`T( Args... )`の形式のコンストラクタ呼出しがトリビアルに可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`is_trivially_constructible`は、`T( Args... )`の形式のコンストラクタ呼出しがトリビアルに可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
 
 「トリビアルに構築可能」とは、ユーザー定義されないコンストラクタを持っていることを意味する。
 

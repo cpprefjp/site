@@ -63,10 +63,10 @@ Markdown形式では、htmlのタグも併用できますが、cpprefjpサイト
 
 新規リファレンスを書くにあたって、雛形ページを用意していますので、そちらをベースにして編集作業を行ってください。
 
-* [ヘッダファイルトップページの雛形](./header_template_page.md)
-* [関数の雛形](./function_template_page.md)
-* [クラスの雛形](./class_template_page.md)
-* [型の別名の雛形](./type-type_template_page.md)
+* [ヘッダファイルトップページの雛形](header_template_page.md)
+* [関数の雛形](function_template_page.md)
+* [クラスの雛形](class_template_page.md)
+* [型の別名の雛形](type-type_template_page.md)
 
 ## 初めての人は見ておいたほうがよいページ
 

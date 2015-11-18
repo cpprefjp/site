@@ -34,7 +34,7 @@ namespace chrono {
 
 | 名前                                      | 説明                  | 対応バージョン |
 |-------------------------------------------|-----------------------|----------------|
-| [`(constructor)`](./duration/op_constructor.md) | コンストラクタ        | C++11          |
+| [`(constructor)`](duration/op_constructor.md) | コンストラクタ        | C++11          |
 | `~duration() = default;`                  | デストラクタ          | C++11          |
 | `operator=(const duration&) = default;`   | 代入演算子            | C++11          |
 
@@ -42,22 +42,22 @@ namespace chrono {
 
 | 名前                           | 説明         | 対応バージョン |
 |--------------------------------|--------------|----------------|
-| [`count`](./duration/count.md) | 値を取得する | C++11          |
+| [`count`](duration/count.md) | 値を取得する | C++11          |
 
 
 ###算術演算
 
 | 名前                                             | 説明                     | 対応バージョン |
 |--------------------------------------------------|--------------------------|----------------|
-| [`operator+`](./duration/op_unary_plus.md)       | 正の`duration`を生成する | C++11          |
-| [`operator-`](./duration/op_unary_minus.md)      | 負の`duration`を生成する | C++11          |
-| [`operator++`](./duration/op_increment.md)       | 値をインクリメントする   | C++11          |
-| [`operator--`](./duration/op_decrement.md)       | 値をデクリメントする     | C++11          |
-| [`operator+=`](./duration/op_plus_assign.md)     | `+`の複合代入            | C++11          |
-| [`operator-=`](./duration/op_minus_assign.md)    | `-`の複合代入            | C++11          |
-| [`operator*=`](./duration/op_multiply_assign.md) | `*`の複合代入            | C++11          |
-| [`operator/=`](./duration/op_divide_assign.md)   | `/`の複合代入            | C++11          |
-| [`operator%=`](./duration/op_modulo_assign.md)   | `%`の複合代入            | C++11          |
+| [`operator+`](duration/op_unary_plus.md)       | 正の`duration`を生成する | C++11          |
+| [`operator-`](duration/op_unary_minus.md)      | 負の`duration`を生成する | C++11          |
+| [`operator++`](duration/op_increment.md)       | 値をインクリメントする   | C++11          |
+| [`operator--`](duration/op_decrement.md)       | 値をデクリメントする     | C++11          |
+| [`operator+=`](duration/op_plus_assign.md)     | `+`の複合代入            | C++11          |
+| [`operator-=`](duration/op_minus_assign.md)    | `-`の複合代入            | C++11          |
+| [`operator*=`](duration/op_multiply_assign.md) | `*`の複合代入            | C++11          |
+| [`operator/=`](duration/op_divide_assign.md)   | `/`の複合代入            | C++11          |
+| [`operator%=`](duration/op_modulo_assign.md)   | `%`の複合代入            | C++11          |
 
 
 ##静的メンバ関数
@@ -65,9 +65,9 @@ namespace chrono {
 
 | 名前                         | 説明         | 対応バージョン |
 |------------------------------|--------------|----------------|
-| [`zero`](./duration/zero.md) | 初期値を取得 | C++11          |
-| [`min`](./duration/min.md)   | 最小値を取得 | C++11          |
-| [`max`](./duration/max.md)   | 最大値を取得 | C++11          |
+| [`zero`](duration/zero.md) | 初期値を取得 | C++11          |
+| [`min`](duration/min.md)   | 最小値を取得 | C++11          |
+| [`max`](duration/max.md)   | 最大値を取得 | C++11          |
 
 
 ##メンバ型
@@ -82,29 +82,29 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------|-------|
-| [`operator+`](./op_plus.md)                    | 加算(function template) | C++11 |
-| [`operator-`](./op_minus.md)                   | 減算(function template) | C++11 |
-| [`operator*`](./duration/op_multiply.md)       | 乗算(function template) | C++11 |
-| [`operator/`](./duration/op_divide.md)         | 除算(function template) | C++11 |
-| [`operator%`](./duration//op_modulo.md)        | 剰余算(function template) | C++11 |
-| [`operator==`](./duration/op_equal.md)         | 等値判定を行う(function template) | C++11 |
-| [`operator!=`](./duration/op_not_equal.md)     | 非等値判定を行う(function template) | C++11 |
-| [`operator<`](./duration/op_less.md)           | 左辺が右辺より小さいか判定を行う(function template) | C++11 |
-| [`operator<=`](./duration/op_less_equal.md)    | 左辺が右辺以下かの判定を行う(function template) | C++11 |
-| [`operator>`](./duration/op_greater.md)        | 左辺が右辺より大きいか判定を行う(function template) | C++11 |
-| [`operator>=`](./duration/op_greater_equal.md) | 左辺が右辺以上かの判定を行う(function template) | C++11 |
+| [`operator+`](op_plus.md)                    | 加算(function template) | C++11 |
+| [`operator-`](op_minus.md)                   | 減算(function template) | C++11 |
+| [`operator*`](duration/op_multiply.md)       | 乗算(function template) | C++11 |
+| [`operator/`](duration/op_divide.md)         | 除算(function template) | C++11 |
+| [`operator%`](duration//op_modulo.md)        | 剰余算(function template) | C++11 |
+| [`operator==`](duration/op_equal.md)         | 等値判定を行う(function template) | C++11 |
+| [`operator!=`](duration/op_not_equal.md)     | 非等値判定を行う(function template) | C++11 |
+| [`operator<`](duration/op_less.md)           | 左辺が右辺より小さいか判定を行う(function template) | C++11 |
+| [`operator<=`](duration/op_less_equal.md)    | 左辺が右辺以下かの判定を行う(function template) | C++11 |
+| [`operator>`](duration/op_greater.md)        | 左辺が右辺より大きいか判定を行う(function template) | C++11 |
+| [`operator>=`](duration/op_greater_equal.md) | 左辺が右辺以上かの判定を行う(function template) | C++11 |
 
 
 ###リテラル
 
 | 名前  | 説明               | 対応バージョン |
 |-------|--------------------|----------------|
-| [`ns`](./duration/op_ns.md)   | ナノ秒リテラル     | C++14 |
-| [`us`](./duration/op_us.md)   | マイクロ秒リテラル | C++14 |
-| [`ms`](./duration/op_ms.md)   | ミリ秒リテラル     | C++14 |
-| [`s`](./duration/op_s.md)     | 秒リテラル         | C++14 |
-| [`min`](./duration/op_min.md) | 分リテラル         | C++14 |
-| [`h`](./duration/op_h.md)     | 時リテラル         | C++14 |
+| [`ns`](duration/op_ns.md)   | ナノ秒リテラル     | C++14 |
+| [`us`](duration/op_us.md)   | マイクロ秒リテラル | C++14 |
+| [`ms`](duration/op_ms.md)   | ミリ秒リテラル     | C++14 |
+| [`s`](duration/op_s.md)     | 秒リテラル         | C++14 |
+| [`min`](duration/op_min.md) | 分リテラル         | C++14 |
+| [`h`](duration/op_h.md)     | 時リテラル         | C++14 |
 
 
 ##例

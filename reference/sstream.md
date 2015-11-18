@@ -15,9 +15,9 @@
 
 | 名前                  | 説明                                           | 対応バージョン |
 |-----------------------|------------------------------------------------|----------------|
-| [`basic_istringstream`](./sstream/basic_istringstream.md) | 文字列入力ストリーム(class template)           | |
-| [`istringstream`](./sstream/basic_istringstream.md)       | `char`版の文字列入力ストリーム(typedef)        | |
-| [`wistringstream`](./sstream/basic_istringstream.md)      | `wchar_t`版の文字列入力ストリーム(typedef)     | |
+| [`basic_istringstream`](sstream/basic_istringstream.md) | 文字列入力ストリーム(class template)           | |
+| [`istringstream`](sstream/basic_istringstream.md)       | `char`版の文字列入力ストリーム(typedef)        | |
+| [`wistringstream`](sstream/basic_istringstream.md)      | `wchar_t`版の文字列入力ストリーム(typedef)     | |
 
 ##出力ストリーム
 

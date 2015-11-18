@@ -16,7 +16,7 @@ void shared_future<void>::get() const;
 
 
 ##効果
-共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまで[`wait()`](./wait.md)で待機し、共有状態に格納されている値を取得する。
+共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまで[`wait()`](wait.md)で待機し、共有状態に格納されている値を取得する。
 
 
 ##戻り値

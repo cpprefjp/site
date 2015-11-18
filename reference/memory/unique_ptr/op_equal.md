@@ -23,7 +23,7 @@ namespace std {
 
 
 ##戻り値
-- (1) : `a.`[`get()`](./get.md) `==` `b.`[`get()`](./get.md)
+- (1) : `a.`[`get()`](get.md) `==` `b.`[`get()`](get.md)
 - (2), (3) : `!x`
 
 

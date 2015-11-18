@@ -42,7 +42,7 @@ bool compare_exchange_strong(T& expected, T desired, memory_order order = memory
 ##備考
 この関数は、値が交換可能な場合はCAS操作が常に成功する。
 
-[`compare_exchange_weak`](./compare_exchange_weak.md)()はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。
+[`compare_exchange_weak`](compare_exchange_weak.md)()はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。
 
 通常、CAS操作は、CASが成功するまでループさせる。
 

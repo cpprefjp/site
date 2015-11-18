@@ -29,27 +29,27 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------------|------------------------------|-------|
-| [`(constructor)`](./piecewise_constant_distribution/op_constructor.md) | コンストラクタ | C++11 |
+| [`(constructor)`](piecewise_constant_distribution/op_constructor.md) | コンストラクタ | C++11 |
 | `~piecewise_constant_distribution() = default;`                             | デストラクタ               | C++11 |
-| [`reset`](./piecewise_constant_distribution/reset.md)                       | 状態をリセットする         | C++11 |
+| [`reset`](piecewise_constant_distribution/reset.md)                       | 状態をリセットする         | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------|-------|
-| [`operator()`](./piecewise_constant_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](piecewise_constant_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|----------------------------------|-------|
-| [`intervals`](./piecewise_constant_distribution/intervals.md) | 区間の数列を取得する             | C++11 |
-| [`densities`](./piecewise_constant_distribution/densities.md) | 重み付けの数列を取得する         | C++11 |
-| [`param`](./piecewise_constant_distribution/param.md)         | 分布のパラメータを取得／設定する | C++11 |
-| [`mix`](./piecewise_constant_distribution/min.md)             | 最小値を取得する                 | C++11 |
-| [`max`](./piecewise_constant_distribution/max.md)             | 最大値を取得する                 | C++11 |
+| [`intervals`](piecewise_constant_distribution/intervals.md) | 区間の数列を取得する             | C++11 |
+| [`densities`](piecewise_constant_distribution/densities.md) | 重み付けの数列を取得する         | C++11 |
+| [`param`](piecewise_constant_distribution/param.md)         | 分布のパラメータを取得／設定する | C++11 |
+| [`mix`](piecewise_constant_distribution/min.md)             | 最小値を取得する                 | C++11 |
+| [`max`](piecewise_constant_distribution/max.md)             | 最大値を取得する                 | C++11 |
 
 
 ##メンバ型

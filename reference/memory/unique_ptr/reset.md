@@ -19,7 +19,7 @@ template <class U> void reset(U) = delete;  // (3)
 
 ##効果
 - (1) : 保持しているポインタ変数に`p`を代入する。デフォルト引数を使用する場合、この関数を呼び出したあと`*this`はリソースを保持していない状態になる。
-    代入前に保持していたポインタ変数を`old_p`とし、それが`nullptr`でなければ、[`get_deleter()`](./get_deleter.md)`(old_p)`によって、以前保持していたポインタを解放する。
+    代入前に保持していたポインタ変数を`old_p`とし、それが`nullptr`でなければ、[`get_deleter()`](get_deleter.md)`(old_p)`によって、以前保持していたポインタを解放する。
 
 - (2) :
     - C++14 : `reset(pointer())`と同等の効果を持つ。

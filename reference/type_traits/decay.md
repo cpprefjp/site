@@ -27,10 +27,10 @@ namespace std {
 
 
 ##効果
-[`remove_reference`](./remove_reference.md)`<T>::type`した型を`U`とする。  
+[`remove_reference`](remove_reference.md)`<T>::type`した型を`U`とする。  
 型`U`が配列型`U[N]`であれば、`U*`型をメンバ型`type`として定義する。  
 型`U`が関数型`R(Args...)`であれば、`R(*)(Args...)`型をメンバ型`type`として定義する。  
-それ以外の場合は、[`remove_cv`](./remove_cv.md)`<U>::type`した型を、メンバ型`type`として定義する。  
+それ以外の場合は、[`remove_cv`](remove_cv.md)`<U>::type`した型を、メンバ型`type`として定義する。  
 
 
 ##例

@@ -18,7 +18,7 @@ static char_type* copy(char_type* s1, const char_type* s2, size_t n);
 
 
 ##効果
-範囲`[0, n)`の各`i`について、[`assign`](./assign.md)`(s1[i], s2[i])`を実行する。  
+範囲`[0, n)`の各`i`について、[`assign`](assign.md)`(s1[i], s2[i])`を実行する。  
 
 
 ##戻り値

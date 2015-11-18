@@ -12,11 +12,11 @@ namespace std {
 ```
 
 ##概要
-`ratio_multiply`は、左辺の[`ratio`](./ratio.md)と右辺の[`ratio`](./ratio.md)を乗算した[`ratio`](./ratio.md)型を作るエイリアステンプレートである。
+`ratio_multiply`は、左辺の[`ratio`](ratio.md)と右辺の[`ratio`](ratio.md)を乗算した[`ratio`](ratio.md)型を作るエイリアステンプレートである。
 
 
 ##効果
-乗算結果は、[`ratio`](./ratio.md)`<R1::num * R2::num, R1::den * R2::den>`という型になる。
+乗算結果は、[`ratio`](ratio.md)`<R1::num * R2::num, R1::den * R2::den>`という型になる。
 
 
 ##例

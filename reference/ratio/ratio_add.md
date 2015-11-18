@@ -12,11 +12,11 @@ namespace std {
 ```
 
 ##概要
-`ratio_add`は、2つの[`ratio`](./ratio.md)を加算した[`ratio`](./ratio.md)型を作るエイリアステンプレートである。
+`ratio_add`は、2つの[`ratio`](ratio.md)を加算した[`ratio`](ratio.md)型を作るエイリアステンプレートである。
 
 
 ##効果
-加算結果は、[`ratio`](./ratio.md)`<R1::num * R2::den + R2::num * R1::den, R1::den * R2::den>`という型になる。
+加算結果は、[`ratio`](ratio.md)`<R1::num * R2::den + R2::num * R1::den, R1::den * R2::den>`という型になる。
 
 
 ##例

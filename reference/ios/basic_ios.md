@@ -102,4 +102,4 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 これらのメンバ型がそれ以外の型の場合の挙動は実装依存である。
 
 ##参照
-- [`ios_base`](./ios_base.md)
+- [`ios_base`](ios_base.md)

@@ -19,7 +19,7 @@ void clear();
 
 
 ##事後条件
-[`empty()`](./empty.md) `== true`
+[`empty()`](empty.md) `== true`
 
 
 ##計算量

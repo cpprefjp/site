@@ -16,7 +16,7 @@ namespace std {
 
 
 ##効果
-`is_compound`は、型`T`が複合型であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`is_compound`は、型`T`が複合型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
 
 
 ##備考

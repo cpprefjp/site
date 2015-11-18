@@ -13,7 +13,7 @@ bool test(size_t pos) const;
 
 
 ##要件
-`pos <` [`size()`](./size.md)であること。
+`pos <` [`size()`](size.md)であること。
 
 
 ##戻り値
@@ -21,7 +21,7 @@ bool test(size_t pos) const;
 
 
 ##例外
-`pos >=` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+`pos >=` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 
 
 ##例

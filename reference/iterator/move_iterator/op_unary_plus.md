@@ -14,7 +14,7 @@ move_iterator operator+(difference_type n) const;
 
 
 ##戻り値
-`return move_iterator(`[`base`](./base.md)`() + n);`
+`return move_iterator(`[`base`](base.md)`() + n);`
 
 
 ##例

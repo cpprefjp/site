@@ -26,7 +26,7 @@ namespace std {
 
 キャリー付き減算法は、以下の特徴を持つ：
 
-* [メルセンヌ・ツイスター](./mersenne_twister_engine.md)より周期が短い(10<sup>171</sup>)が軽量。
+* [メルセンヌ・ツイスター](mersenne_twister_engine.md)より周期が短い(10<sup>171</sup>)が軽量。
 
 
 この生成法は、RANLUX(LUXury RANdom numbers)法の実装にも使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
@@ -37,17 +37,17 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./subtract_with_carry_engine/op_constructor.md)             | コンストラクタ   | C++11 |
+| [`(constructor)`](subtract_with_carry_engine/op_constructor.md)             | コンストラクタ   | C++11 |
 | `~subtract_with_carry_engine() = default;`                                    | デストラクタ     | C++11 |
-| [`seed`](./subtract_with_carry_engine/seed.md)                                | シードを設定する | C++11 |
+| [`seed`](subtract_with_carry_engine/seed.md)                                | シードを設定する | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|--------------------|-------|
-| [`operator()`](./subtract_with_carry_engine/op_call.md) | 擬似乱数を生成する | C++11 |
-| [`discard`](./subtract_with_carry_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
+| [`operator()`](subtract_with_carry_engine/op_call.md) | 擬似乱数を生成する | C++11 |
+| [`discard`](subtract_with_carry_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
 
 
 ##静的メンバ関数
@@ -55,8 +55,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
-| [`min`](./subtract_with_carry_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](./subtract_with_carry_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](subtract_with_carry_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
+| [`max`](subtract_with_carry_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
 
 
 ##メンバ型
@@ -80,10 +80,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./subtract_with_carry_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./subtract_with_carry_engine/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./subtract_with_carry_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./subtract_with_carry_engine/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](subtract_with_carry_engine/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](subtract_with_carry_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](subtract_with_carry_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](subtract_with_carry_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

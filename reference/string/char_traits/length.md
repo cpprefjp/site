@@ -14,7 +14,7 @@ static size_t length(const char_type* s);
 
 
 ##戻り値
-範囲`[0, ?)`の各`i`に対し、[`eq`](./eq.md)`(s[i], charT())`が最初に`true`を返した`i`を返す。
+範囲`[0, ?)`の各`i`に対し、[`eq`](eq.md)`(s[i], charT())`が最初に`true`を返した`i`を返す。
 
 
 ##計算量

@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_final`は、型`T`が`final`指定されていれば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`is_final`は、型`T`が`final`指定されていれば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
 
 「これ以上継承できない場合は`true_type`」ではなく`final`識別子の有無で判断することに注意。`int`のような組み込み型は、継承はできないが`false_type`となる。
 

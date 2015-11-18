@@ -13,11 +13,11 @@ size_type copy(charT* s, size_type n, size_type pos = 0) const;
 
 
 ##要件
-`pos <=` [`size()`](./size.md)
+`pos <=` [`size()`](size.md)
 
 
 ##効果
-`n`と[`size()`](./size.md) `- pos`のうち、小さい方をコピーする長さとして、自身の文字列をパラメータ`s`にコピーする。  
+`n`と[`size()`](size.md) `- pos`のうち、小さい方をコピーする長さとして、自身の文字列をパラメータ`s`にコピーする。  
 `pos`はコピーを開始する、自身の文字列の開始位置。  
 
 この関数は、文字列`s`にヌルオブジェクトを追加しない。
@@ -28,7 +28,7 @@ size_type copy(charT* s, size_type n, size_type pos = 0) const;
 
 
 ##例外
-`pos >` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+`pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 
 
 ##例

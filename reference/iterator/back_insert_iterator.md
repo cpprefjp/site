@@ -21,11 +21,11 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](./back_insert_iterator/op_constructor.md) | コンストラクタ | |
+| [`(constructor)`](back_insert_iterator/op_constructor.md) | コンストラクタ | |
 | `~back_insert_iterator() = default` | デストラクタ | |
-| [`operator=`](./back_insert_iterator/op_assign.md) | 代入演算子 | |
-| [`operator*`](./back_insert_iterator/op_deref.md) | 間接参照演算子 | |
-| [`operator++`](./back_insert_iterator/op_increment.md) | イテレータをインクリメントする | |
+| [`operator=`](back_insert_iterator/op_assign.md) | 代入演算子 | |
+| [`operator*`](back_insert_iterator/op_deref.md) | 間接参照演算子 | |
+| [`operator++`](back_insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
 ##protectedメンバ変数
 
@@ -48,7 +48,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------|-----------------------------------------------------|-------|
-| [`back_inserter`](./back_inserter.md) | `back_insert_iterator`のヘルパ関数 | |
+| [`back_inserter`](back_inserter.md) | `back_insert_iterator`のヘルパ関数 | |
 
 
 ##例

@@ -26,7 +26,7 @@ namespace std {
 
 
 ##戻り値
-`!(t` [`==`](./op_equal.md) `u);`
+`!(t` [`==`](op_equal.md) `u);`
 
 
 ##例
@@ -76,5 +76,5 @@ true
 
 
 ##関連項目
-- [`operator==`](./op_equal.md)
+- [`operator==`](op_equal.md)
 

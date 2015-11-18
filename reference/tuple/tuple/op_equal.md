@@ -23,7 +23,7 @@ namespace std {
 
 ##要件
 - 2つの[`tuple`](../tuple.md)オブジェクトの要素数が同じであること。
-- [`tuple`](../tuple.md)の要素`std::`[`get`](./get.md)`<i>(t)`と`std::`[`get`](./get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](./get.md)`<i>(t) == std::`[`get`](./get.md)`<i>(u)` の比較結果が`bool`に変換可能な型であること。
+- [`tuple`](../tuple.md)の要素`std::`[`get`](get.md)`<i>(t)`と`std::`[`get`](get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](get.md)`<i>(t) == std::`[`get`](get.md)`<i>(u)` の比較結果が`bool`に変換可能な型であること。
 
 
 ##効果
@@ -31,7 +31,7 @@ namespace std {
 
 
 ##戻り値
-[`tuple`](../tuple.md)の全ての要素を`std::`[`get`](./get.md)`<i>(t) ==std::`[`get`](./get.md)`<i>(u)` した結果が`true`である場合`true`を返し、そうでなければ`false`を返す。
+[`tuple`](../tuple.md)の全ての要素を`std::`[`get`](get.md)`<i>(t) ==std::`[`get`](get.md)`<i>(u)` した結果が`true`である場合`true`を返し、そうでなければ`false`を返す。
 
 
 ##例

@@ -22,7 +22,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------|-------|
-| [`(constructor)`](./seed_seq/op_constructor.md) | コンストラクタ       | C++11 |
+| [`(constructor)`](seed_seq/op_constructor.md) | コンストラクタ       | C++11 |
 | `~seed_seq() = default;`                     | デストラクタ         | C++11 |
 | `void operator()(const seed_seq&) = delete;` | 代入演算子。代入不可 | C++11 |
 
@@ -31,15 +31,15 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|--------------------|-------|
-| [`generate`](./seed_seq/generate.md) | シード列を生成する | C++11 |
+| [`generate`](seed_seq/generate.md) | シード列を生成する | C++11 |
 
 
 ##特性
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|----------------------------|-------|
-| [`size`](./seed_seq/size.md)   | シード列の要素数を取得する | C++11 |
-| [`param`](./seed_seq/param.md) | シード列を取得する         | C++11 |
+| [`size`](seed_seq/size.md)   | シード列の要素数を取得する | C++11 |
+| [`param`](seed_seq/param.md) | シード列を取得する         | C++11 |
 
 
 ##メンバ型

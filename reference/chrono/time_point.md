@@ -23,30 +23,30 @@ namespace chrono {
 
 | 名前                                          | 説明           | 対応バージョン |
 |-----------------------------------------------|----------------|----------------|
-| [`(constructor)`](./time_point/op_constructor.md) | コンストラクタ | C++11          |
+| [`(constructor)`](time_point/op_constructor.md) | コンストラクタ | C++11          |
 
 
 ###観測
 
 | 名前                                                   | 説明                             | 対応バージョン |
 |--------------------------------------------------------|----------------------------------|----------------|
-| [`time_since_epoch`](./time_point/time_since_epoch.md) | エポックからの経過時間を取得する | C++11          |
+| [`time_since_epoch`](time_point/time_since_epoch.md) | エポックからの経過時間を取得する | C++11          |
 
 
 ###算術演算
 
 | 名前                                            | 説明         | 対応バージョン |
 |-------------------------------------------------|--------------|----------------|
-| [`operator+=`](./time_point/op_plus_assign.md)  | 時間を進める | C++11          |
-| [`operator-=`](./time_point/op_minus_assign.md) | 時間を戻す   | C++11          |
+| [`operator+=`](time_point/op_plus_assign.md)  | 時間を進める | C++11          |
+| [`operator-=`](time_point/op_minus_assign.md) | 時間を戻す   | C++11          |
 
 
 ###特別な値
 
 | 名前                         | 説明   | 対応バージョン |
 |------------------------------|--------|----------------|
-| [`min`](./time_point/min.md) | 最小値 | C++11          |
-| [`max`](./time_point/max.md) | 最大値 | C++11          |
+| [`min`](time_point/min.md) | 最小値 | C++11          |
+| [`max`](time_point/max.md) | 最大値 | C++11          |
 
 
 ##メンバ型
@@ -63,14 +63,14 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
-| [`operator+`](./op_plus.md)                      | 加算(function template) | C++11 |
-| [`operator-`](./op_minus.md)                     | 減算(function template) | C++11 |
-| [`operator==`](./time_point/op_equal.md)         | 等値判定を行う(function template) | C++11 |
-| [`operator!=`](./time_point/op_not_equal.md)     | 非等値判定を行う(function template) | C++11 |
-| [`operator<`](./time_point/op_less.md)           | 左辺が右辺より小さいか判定を行う(function template) | C++11 |
-| [`operator<=`](./time_point/op_less_equal.md)    | 左辺が右辺以下かの判定を行う(function template) | C++11 |
-| [`operator>`](./time_point/op_greater.md)        | 左辺が右辺より大きいか判定を行う(function template) | C++11 |
-| [`operator>=`](./time_point/op_greater_equal.md) | 左辺が右辺以上かの判定を行う(function template) | C++11 |
+| [`operator+`](op_plus.md)                      | 加算(function template) | C++11 |
+| [`operator-`](op_minus.md)                     | 減算(function template) | C++11 |
+| [`operator==`](time_point/op_equal.md)         | 等値判定を行う(function template) | C++11 |
+| [`operator!=`](time_point/op_not_equal.md)     | 非等値判定を行う(function template) | C++11 |
+| [`operator<`](time_point/op_less.md)           | 左辺が右辺より小さいか判定を行う(function template) | C++11 |
+| [`operator<=`](time_point/op_less_equal.md)    | 左辺が右辺以下かの判定を行う(function template) | C++11 |
+| [`operator>`](time_point/op_greater.md)        | 左辺が右辺より大きいか判定を行う(function template) | C++11 |
+| [`operator>=`](time_point/op_greater_equal.md) | 左辺が右辺以上かの判定を行う(function template) | C++11 |
 
 
 ##例

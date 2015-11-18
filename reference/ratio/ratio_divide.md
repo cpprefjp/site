@@ -12,11 +12,11 @@ namespace std {
 ```
 
 ##概要
-`ratio_divide`は、左辺の[`ratio`](./ratio.md)を右辺の[`ratio`](./ratio.md)で除算した[`ratio`](./ratio.md)型を作るエイリアステンプレートである。
+`ratio_divide`は、左辺の[`ratio`](ratio.md)を右辺の[`ratio`](ratio.md)で除算した[`ratio`](ratio.md)型を作るエイリアステンプレートである。
 
 
 ##効果
-除算結果は、[`ratio`](./ratio.md)`<R1::num * R2::den, R1::den * R2::num>`という型になる。
+除算結果は、[`ratio`](ratio.md)`<R1::num * R2::den, R1::den * R2::num>`という型になる。
 
 
 ##例

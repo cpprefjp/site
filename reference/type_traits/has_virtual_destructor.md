@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`has_virtual_destructor`は、型`T`が仮想デストラクタを持っていれば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
+`has_virtual_destructor`は、型`T`が仮想デストラクタを持っていれば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。 
 
 ##例
 ```cpp

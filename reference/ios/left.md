@@ -45,5 +45,5 @@ int main()
 - C++03
 
 ##参照
-- [`internal`](./internal.md)
-- [`right`](./right.md)
+- [`internal`](internal.md)
+- [`right`](right.md)

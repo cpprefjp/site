@@ -14,7 +14,7 @@ size_type max_size() const noexcept; // C++11
 
 
 ##戻り値
-[`allocate`](./allocate.md)`(N, 0)`が成功するであろう最大の`N`を返す。
+[`allocate`](allocate.md)`(N, 0)`が成功するであろう最大の`N`を返す。
 
 
 ##例

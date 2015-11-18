@@ -25,7 +25,7 @@ namespace std {
 ```
 
 ##概要
-`bitset::reference`は、`bitset`の各ビットにアクセスするためのプロキシクラスである。`bitset::`[`operator[]`](./op_at.md)で返されるビット情報を取得、書き換えるためにある。
+`bitset::reference`は、`bitset`の各ビットにアクセスするためのプロキシクラスである。`bitset::`[`operator[]`](op_at.md)で返されるビット情報を取得、書き換えるためにある。
 
 
 ###メンバ関数

@@ -15,7 +15,7 @@ namespace std {
 * shuffle_order_engine[link ./shuffle_order_engine.md]
 
 ##概要
-`knuth_b`は、MINSTD最小標準乱数生成器である[`minstd_rand0`](./minstd_rand0.md)の生成順を並び替えた乱数生成法である。  
+`knuth_b`は、MINSTD最小標準乱数生成器である[`minstd_rand0`](minstd_rand0.md)の生成順を並び替えた乱数生成法である。  
 
 Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volume 2, Seminumerical Algorithms』で考案された、リオーダーアルゴリズムBがそれだ。  
 

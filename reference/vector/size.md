@@ -25,7 +25,7 @@ size_type size() const noexcept;
 
 
 ##備考
-`a.size()` と [`distance`](/reference/iterator/distance.md)`(a.`[`begin`](./begin.md)`(), a.`[`end`](./end.md)`())` は同じ結果になる。
+`a.size()` と [`distance`](/reference/iterator/distance.md)`(a.`[`begin`](begin.md)`(), a.`[`end`](end.md)`())` は同じ結果になる。
 
 
 ##例

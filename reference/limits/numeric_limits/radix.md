@@ -13,7 +13,7 @@ static constexpr int radix;
 ```
 
 ##概要
-[`digits`](./digits.md)を表現する基数を示す
+[`digits`](digits.md)を表現する基数を示す
 
 
 ##例

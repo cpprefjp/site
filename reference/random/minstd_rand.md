@@ -19,11 +19,11 @@ namespace std {
 
 これは線形合同法に、より良いパラメータを設定したものである。
 
-オリジナルのMINSTDパラメータは、[`std::minstd_rand0`](./minstd_rand0.md)の方で、1988年にStephen K. ParkとKeith W. Millerによって考案された。この`minstd_rand`はパラメータ改良版で、1993年にStephen K. Park、Keith W. Miller、Paul K. Stockmeyerによって推奨された。
+オリジナルのMINSTDパラメータは、[`std::minstd_rand0`](minstd_rand0.md)の方で、1988年にStephen K. ParkとKeith W. Millerによって考案された。この`minstd_rand`はパラメータ改良版で、1993年にStephen K. Park、Keith W. Miller、Paul K. Stockmeyerによって推奨された。
 
 
 ##備考
-C言語標準ライブラリの`rand()`関数は、実装によっては問題のある[線形合同法](./linear_congruential_engine.md)のパラメータが設定されていた。たとえば、実装によっては以下のような問題が発生していた。
+C言語標準ライブラリの`rand()`関数は、実装によっては問題のある[線形合同法](linear_congruential_engine.md)のパラメータが設定されていた。たとえば、実装によっては以下のような問題が発生していた。
 
 - 生成される値の最下位ビットは、`0`と`1`が交互に生成されていた。これにより、生成される値は偶数と奇数が交互になっていた。
 - 生成される値の最大値が非常に小さく、`RAND_MAX`の値が`32767`となっていた。

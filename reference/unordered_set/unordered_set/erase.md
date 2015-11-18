@@ -18,9 +18,9 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ##要件
-- `position` は、有効で、かつ、間接参照可能な（dereferenceable、つまり [`cend`](./cend.md)`()` ではない）当該コンテナを指す読み取り専用イテレータでなければならない。
+- `position` は、有効で、かつ、間接参照可能な（dereferenceable、つまり [`cend`](cend.md)`()` ではない）当該コンテナを指す読み取り専用イテレータでなければならない。
 - `first` と `last` は `[first, last)` が当該コンテナの有効な範囲である読み取り専用イテレータでなければならない。  
-	なお、規格書では `first` は間接参照可能である必要があることになっているが、他の種類のコンテナの要件と照らし合わせると、間接参照可能である必要はない（つまり、`first` と `last` が共に [`cend`](./cend.md)`()` でも良い）ものと思われる。
+	なお、規格書では `first` は間接参照可能である必要があることになっているが、他の種類のコンテナの要件と照らし合わせると、間接参照可能である必要はない（つまり、`first` と `last` が共に [`cend`](cend.md)`()` でも良い）ものと思われる。
 
 
 ##効果
@@ -45,9 +45,9 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ##計算量
-- (1)	平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](./size.md)`()`)）
-- (2)	平均的なケースでは削除された要素数に比例（O([`count`](./count.md)`(k)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](./size.md)`()`)）
-- (3)	平均的なケースでは指定された範囲の要素数に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](./size.md)`()`)）
+- (1)	平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
+- (2)	平均的なケースでは削除された要素数に比例（O([`count`](count.md)`(k)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
+- (3)	平均的なケースでは指定された範囲の要素数に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
 
 
 ##備考
@@ -168,9 +168,9 @@ after : 9 3 1
 
 |                                     |                                                        |
 |-------------------------------------|--------------------------------------------------------|
-| [`emplace`](./emplace.md)           | コンテナ内への要素の直接構築                           |
-| [`emplace_hint`](./emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
-| [`insert`](./insert.md)             | 要素の追加                                             |
-| [`clear`](./clear.md)               | 全要素の削除                                           |
-| [`swap`](./swap.md)                 | 内容の交換                                             |
+| [`emplace`](emplace.md)           | コンテナ内への要素の直接構築                           |
+| [`emplace_hint`](emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
+| [`insert`](insert.md)             | 要素の追加                                             |
+| [`clear`](clear.md)               | 全要素の削除                                           |
+| [`swap`](swap.md)                 | 内容の交換                                             |
 

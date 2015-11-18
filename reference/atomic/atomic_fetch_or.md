@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-[`memory_order_seq_cst`](./memory_order.md)のメモリオーダーにしたがって、現在の値に`operand`をORした値でアトミックに置き換える
+[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、現在の値に`operand`をORした値でアトミックに置き換える
 
 
 ##戻り値

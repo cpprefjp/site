@@ -12,37 +12,37 @@ namespace std {
 ```
 
 ##概要
-`shared_future`は、[`future`](./future.md)クラスオブジェクトから変換によって生成されるクラスである。[`future`](./future.md)オブジェクトが[`promise`](./promise.md)との共有状態を単一オブジェクトで待機するのに対し、`shared_future`オブジェクトは同じ共有状態を複数オブジェクトで待機することを可能にする。
+`shared_future`は、[`future`](future.md)クラスオブジェクトから変換によって生成されるクラスである。[`future`](future.md)オブジェクトが[`promise`](promise.md)との共有状態を単一オブジェクトで待機するのに対し、`shared_future`オブジェクトは同じ共有状態を複数オブジェクトで待機することを可能にする。
 
 
 ##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](./shared_future/op_constructor.md) | コンストラクタ | C++11 |
-| [`(destructor)`](./shared_future/op_destructor.md) | デストラクタ | C++11 |
-| [`operator=`](./shared_future/op_assign.md) | 代入演算子 | C++11 |
+| [`(constructor)`](shared_future/op_constructor.md) | コンストラクタ | C++11 |
+| [`(destructor)`](shared_future/op_destructor.md) | デストラクタ | C++11 |
+| [`operator=`](shared_future/op_assign.md) | 代入演算子 | C++11 |
 
 
 ###値の取得
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`get`](./shared_future/get.md) | 結果を取得する | C++11 |
+| [`get`](shared_future/get.md) | 結果を取得する | C++11 |
 
 ###関数の状態を確認する
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`valid`](./shared_future/valid.md) | 共有状態を持っているかを確認する | C++11 |
+| [`valid`](shared_future/valid.md) | 共有状態を持っているかを確認する | C++11 |
 
 ###待機
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`wait`](./shared_future/wait.md) | 処理が完了するまで待機する | C++11 |
-| [`wait_for`](./shared_future/wait_for.md) | 相対時間でタイムアウトを指定して、処理が完了するまで待機する | C++11 |
-| [`wait_until`](./shared_future/wait_until.md) | 絶対時間でタイムアウトを指定して、処理が完了するまで待機する | C++11 |
+| [`wait`](shared_future/wait.md) | 処理が完了するまで待機する | C++11 |
+| [`wait_for`](shared_future/wait_for.md) | 相対時間でタイムアウトを指定して、処理が完了するまで待機する | C++11 |
+| [`wait_until`](shared_future/wait_until.md) | 絶対時間でタイムアウトを指定して、処理が完了するまで待機する | C++11 |
 
 
 ##例

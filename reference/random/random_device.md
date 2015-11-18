@@ -25,7 +25,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------------|-------|
-| [`(constructor)`](./random_device/op_constructor.md)  | コンストラクタ       | C++11 |
+| [`(constructor)`](random_device/op_constructor.md)  | コンストラクタ       | C++11 |
 | `~random_device() = default;`                         | デストラクタ         | C++11 |
 | `void operator()(const random_device&) = delete;`     | 代入演算子。代入不可 | C++11 |
 
@@ -34,14 +34,14 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------|-------|
-| [`operator()`](./random_device/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](random_device/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|------------------------|-------|
-| [`entropy`](./random_device/entropy.md) | エントロピーを取得する | C++11 |
+| [`entropy`](random_device/entropy.md) | エントロピーを取得する | C++11 |
 
 
 ##静的メンバ関数
@@ -49,8 +49,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|------------------------|-------|
-| [`min`](./random_device/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](./random_device/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](random_device/min.md) | 生成する範囲の最小値を取得する | C++11 |
+| [`max`](random_device/max.md) | 生成する範囲の最大値を取得する | C++11 |
 
 
 ##メンバ型

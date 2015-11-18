@@ -62,7 +62,7 @@ const_reference top() const { return c.back(); }
 
 | 名前 | 説明 |
 |---------------------|------------|
-| [`push`](./push.md) | 要素の追加 |
-| [`pop`](./pop.md)   | 要素の削除 |
+| [`push`](push.md) | 要素の追加 |
+| [`pop`](pop.md)   | 要素の削除 |
 
 

@@ -24,7 +24,7 @@ bool try_lock_shared_until(const chrono::time_point<Clock, Duration>& abs_time);
 
 共有所有権が取得できるまで、もしくは`abs_time`時間に到達するまでこの関数はブロッキングする。
 
-`abs_timeにすでに到達していた場合`、この関数は[`try_lock_shared()`](./try_lock_shared.md)と同じ効果をもち、ブロッキングせずにミューテックスの共有所有権の取得を試みる。
+`abs_timeにすでに到達していた場合`、この関数は[`try_lock_shared()`](try_lock_shared.md)と同じ効果をもち、ブロッキングせずにミューテックスの共有所有権の取得を試みる。
 
 
 ##戻り値

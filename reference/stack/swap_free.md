@@ -16,7 +16,7 @@ namespace std {
 
 
 ##効果
-`x.`[`swap`](./swap.md)`(y)`
+`x.`[`swap`](swap.md)`(y)`
 
 
 ##戻り値
@@ -24,7 +24,7 @@ namespace std {
 
 
 ##例外
-`x.`[`swap`](./swap.md)`(y)` が例外を投げない場合、この関数は決して例外を投げない。
+`x.`[`swap`](swap.md)`(y)` が例外を投げない場合、この関数は決して例外を投げない。
 
 
 ##例

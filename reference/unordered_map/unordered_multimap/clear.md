@@ -22,7 +22,7 @@ void clear() noexcept;
 
 
 ##事後条件
-[`empty`](./empty.md)`() == true`
+[`empty`](empty.md)`() == true`
 
 
 ##戻り値
@@ -34,7 +34,7 @@ void clear() noexcept;
 
 
 ##計算量
-本関数呼び出し前のコンテナの要素数（[`size`](./size.md)`()`）に比例
+本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
 
 
 ##例
@@ -80,10 +80,10 @@ true
 
 |                                     |                                                        |
 |-------------------------------------|--------------------------------------------------------|
-| [`empty`](./empty.md)               | コンテナが空かどうかを判定                             |
-| [`emplace`](./emplace.md)           | コンテナ内への要素の直接構築                           |
-| [`emplace_hint`](./emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
-| [`insert`](./insert.md)             | 要素の追加                                             |
-| [`erase`](./erase.md)               | 要素の削除                                             |
-| [`swap`](./swap.md)                 | 内容の交換                                             |
+| [`empty`](empty.md)               | コンテナが空かどうかを判定                             |
+| [`emplace`](emplace.md)           | コンテナ内への要素の直接構築                           |
+| [`emplace_hint`](emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
+| [`insert`](insert.md)             | 要素の追加                                             |
+| [`erase`](erase.md)               | 要素の削除                                             |
+| [`swap`](swap.md)                 | 内容の交換                                             |
 

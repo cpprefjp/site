@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_nothrow_destructible`は、型`T`が例外を投げない保証のもとに破棄可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
+`is_nothrow_destructible`は、型`T`が例外を投げない保証のもとに破棄可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。 
 
 
 ##例

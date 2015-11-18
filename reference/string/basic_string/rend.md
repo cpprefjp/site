@@ -14,7 +14,7 @@ const_reverse_iterator rend() const noexcept;
 
 
 ##戻り値
-`reverse_iterator(`[`begin()`](./begin.md)`)`
+`reverse_iterator(`[`begin()`](begin.md)`)`
 
 
 ##例外

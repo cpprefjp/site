@@ -28,7 +28,7 @@ int compare(size_type pos1, size_type n1,
 
 
 ##効果
-- (1) 自身の文字列長とパラメータ`str`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](./data.md)`, str.`[`data()`](./data.md)`, rlen)`を呼び出す。
+- (1) 自身の文字列長とパラメータ`str`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, str.`[`data()`](data.md)`, rlen)`を呼び出す。
 
 
 ##戻り値
@@ -36,9 +36,9 @@ int compare(size_type pos1, size_type n1,
 
 	| 条件                                                   | 戻り値                |
 	|--------------------------------------------------------|-----------------------|
-	| [`size()`](./size.md) `<` `str.`[`size()`](./size.md)  | `0`未満の値を返す     |
-	| [`size()`](./size.md) `==` `str.`[`size()`](./size.md) | `0`を返す             |
-	| [`size()`](./size.md) `>` `str.`[`size()`](./size.md)  | `0`より大きい値を返す |
+	| [`size()`](size.md) `<` `str.`[`size()`](size.md)  | `0`未満の値を返す     |
+	| [`size()`](size.md) `==` `str.`[`size()`](size.md) | `0`を返す             |
+	| [`size()`](size.md) `>` `str.`[`size()`](size.md)  | `0`より大きい値を返す |
 
 - (2) `basic_string(*this, pos1, n1).compare(str)`
 - (3) `basic_string(*this, pos1, n1).compare(basic_string(str, pos2, n2))`

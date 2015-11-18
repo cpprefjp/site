@@ -71,24 +71,24 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 
 ##計算量
-- (1)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](./size.md)`()` に比例（O(N)）。
-- (2)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](./size.md)`()` に比例（O(N)）。
-- (3)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](./size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](./size.md)`() + 1)`)）。
+- (1)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
+- (2)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
+- (3)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
 - (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
 
 
 ##備考
 - これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
-- これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。  
+- これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。  
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
 	コンテナのバケット数が変わらない場合とは、
 
 	* 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
-	* 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](./bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](./max_load_factor.md)`()` の戻り値）よりも小さかった。
+	* 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
 
 	のいずれかである。  
-	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](./reserve.md) も参照。
+	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
 
 
 ##例
@@ -232,16 +232,16 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 
 |                                           |                                                        |
 |-------------------------------------------|--------------------------------------------------------|
-| [`emplace`](./emplace.md)                 | コンテナ内への要素の直接構築                           |
-| [`emplace_hint`](./emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
-| [`erase`](./erase.md)                     | 要素の削除                                             |
-| [`clear`](./clear.md)                     | 全要素の削除                                           |
-| [`swap`](./swap.md)                       | 内容の交換                                             |
-| [`bucket_count`](./bucket_count.md)       | バケット数の取得                                       |
-| [`load_factor`](./load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
-| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定                             |
-| [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
-| [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
+| [`emplace`](emplace.md)                 | コンテナ内への要素の直接構築                           |
+| [`emplace_hint`](emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
+| [`erase`](erase.md)                     | 要素の削除                                             |
+| [`clear`](clear.md)                     | 全要素の削除                                           |
+| [`swap`](swap.md)                       | 内容の交換                                             |
+| [`bucket_count`](bucket_count.md)       | バケット数の取得                                       |
+| [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定                             |
+| [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
+| [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 
 
 ##参照

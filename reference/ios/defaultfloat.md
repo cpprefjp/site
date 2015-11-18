@@ -82,8 +82,8 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0
 
 ##参照
-- [`fixed`](./fixed.md)
-- [`scientific`](./scientific.md)
-- [`hexfloat`](./hexfloat.md)
+- [`fixed`](fixed.md)
+- [`scientific`](scientific.md)
+- [`hexfloat`](hexfloat.md)
 - [N1842 A Proposal to add two iostream manipulators to the C++ Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1842.pdf)
 - [N1991 Proposed Text for defaultfloat (N1842)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1991.htm)

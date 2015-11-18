@@ -19,9 +19,9 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|---------------------|-------|
-| [`zero`](./duration_values/zero.md) | `Rep`の初期値を取得 | C++11 |
-| [`min`](./duration_values/min.md)   | `Rep`の最小値を取得 | C++11 |
-| [`max`](./duration_values/max.md)   | `Rep`の最大値を取得 | C++11 |
+| [`zero`](duration_values/zero.md) | `Rep`の初期値を取得 | C++11 |
+| [`min`](duration_values/min.md)   | `Rep`の最小値を取得 | C++11 |
+| [`max`](duration_values/max.md)   | `Rep`の最大値を取得 | C++11 |
 
 
 ###言語

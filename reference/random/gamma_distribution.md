@@ -38,27 +38,27 @@ $$ p(x|\alpha,\beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\alpha) }
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./gamma_distribution/op_constructor.md)     | コンストラクタ     | C++11 |
+| [`(constructor)`](gamma_distribution/op_constructor.md)     | コンストラクタ     | C++11 |
 | `~gamma_distribution() = default;`                            | デストラクタ       | C++11 |
-| [`reset`](./gamma_distribution/reset.md)                      | 状態をリセットする | C++11 |
+| [`reset`](gamma_distribution/reset.md)                      | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|----------------|-------|
-| [`operator()`](./gamma_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](gamma_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|----------------------------------|-------|
-| [`alpha`](./gamma_distribution/alpha.md) | 形状母数を取得する   | C++11 |
-| [`beta`](./gamma_distribution/beta.md)   | 尺度母数を取得する | C++11 |
-| [`param`](./gamma_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./gamma_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./gamma_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`alpha`](gamma_distribution/alpha.md) | 形状母数を取得する   | C++11 |
+| [`beta`](gamma_distribution/beta.md)   | 尺度母数を取得する | C++11 |
+| [`param`](gamma_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](gamma_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](gamma_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -73,10 +73,10 @@ $$ p(x|\alpha,\beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\alpha) }
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|----------------------|-------|
-| [`operator==`](./gamma_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./gamma_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./gamma_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./gamma_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](gamma_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](gamma_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](gamma_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](gamma_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

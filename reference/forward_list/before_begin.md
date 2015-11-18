@@ -28,8 +28,8 @@ const_iterator before_begin() const noexcept;
 この関数によって返されるイテレータは、以下の特徴を持つ：
 
 - 間接参照できない
-- インクリメントすると[`begin()`](./begin.md)と等値になる
-- [`end()`](./end.md)と等値にはならない
+- インクリメントすると[`begin()`](begin.md)と等値になる
+- [`end()`](end.md)と等値にはならない
 
 
 ##例

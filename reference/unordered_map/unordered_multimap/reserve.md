@@ -11,8 +11,8 @@ void reserve(size_type n);
 
 ##概要
 コンテナが、リハッシュされずに少なくとも引数 `n` で指定された要素数格納できるようにバケット数を調整（リハッシュ）する。  
-実際には 引数を `n /` [`max_load_factor`](./max_load_factor.md)`()` にし [`rehash`](./rehash.md)`()` を呼ぶ。  
-( VC11の実装では `n /` [`max_load_factor`](./max_load_factor.md)`() + 0.5f`   で呼んでいる)
+実際には 引数を `n /` [`max_load_factor`](max_load_factor.md)`()` にし [`rehash`](rehash.md)`()` を呼ぶ。  
+( VC11の実装では `n /` [`max_load_factor`](max_load_factor.md)`() + 0.5f`   で呼んでいる)
 
 ##戻り値
 なし
@@ -23,17 +23,17 @@ void reserve(size_type n);
 
 
 ##計算量
-平均的なケースでは [`size`](./size.md)`()` に比例するが、最悪のケースでは [`size`](./size.md)`()` の 2 乗に比例する。
+平均的なケースでは [`size`](size.md)`()` に比例するが、最悪のケースでは [`size`](size.md)`()` の 2 乗に比例する。
 
 
 ##備考
-- 本関数は、概要の通り、リハッシュされずに引数 `n` で指定された要素数格納できるように意図されているはずであるが、現在の条件では `n - 1` しか格納することができない場合がある（少なくとも、事後条件を満たすだけでは確実に `n` 要素を格納できる保証はない）。この件については、既に Issue が上がっている（[2156. Unordered containers' reserve(n) reserves for n-1 elements](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2156)）。リハッシュされる条件については、[`insert`](./insert.md)`()`、[`emplace`](./emplace.md)`()`、[`emplace_hint`](./emplace_hint.md)`()` も参照。
+- 本関数は、概要の通り、リハッシュされずに引数 `n` で指定された要素数格納できるように意図されているはずであるが、現在の条件では `n - 1` しか格納することができない場合がある（少なくとも、事後条件を満たすだけでは確実に `n` 要素を格納できる保証はない）。この件については、既に Issue が上がっている（[2156. Unordered containers' reserve(n) reserves for n-1 elements](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2156)）。リハッシュされる条件については、[`insert`](insert.md)`()`、[`emplace`](emplace.md)`()`、[`emplace_hint`](emplace_hint.md)`()` も参照。
 - リハッシュが行われた場合、
 	- 全てのイテレータが無効になる。
 	- 要素間の順番が変わる。
 	- 要素の格納されているバケットが変更になる。
 	- 要素へのポインタや参照は無効に**ならない**。
-- 現在のバケット数が既に [`ceil`](/reference/cmath/ceil.md)`(n /` [`max_load_factor`](./max_load_factor.md)`())` 以上の場合の動作は、標準では特に規定されていない。
+- 現在のバケット数が既に [`ceil`](/reference/cmath/ceil.md)`(n /` [`max_load_factor`](max_load_factor.md)`())` 以上の場合の動作は、標準では特に規定されていない。
 
 
 ##例
@@ -96,7 +96,7 @@ new load_factor: 0.25
 
 ###考察
 `reserve(20)` により  
-[`bucket_count`](./bucket_count.md)`() > n /` [`max_load_factor`](./max_load_factor.md)`()` を満たしている
+[`bucket_count`](bucket_count.md)`() > n /` [`max_load_factor`](max_load_factor.md)`()` を満たしている
 
 ##バージョン
 ###言語
@@ -114,12 +114,12 @@ new load_factor: 0.25
 
 | | |
 |-------------------------------------------|--------------------------------------------------------|
-| [`size`](./size.md)                       | 要素数の取得 |
-| [`bucket_count`](./bucket_count.md)       | バケット数の取得 |
-| [`load_factor`](./load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定 |
-| [`rehash`](./reserve.md)                  | 最小バケット数指定によるバケット数の調整 |
-| [`insert`](./insert.md)                   | 要素の追加 |
-| [`emplace`](./emplace.md)                 | コンテナ内への要素の直接構築 |
-| [`emplace_hint`](./emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
+| [`size`](size.md)                       | 要素数の取得 |
+| [`bucket_count`](bucket_count.md)       | バケット数の取得 |
+| [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
+| [`rehash`](reserve.md)                  | 最小バケット数指定によるバケット数の調整 |
+| [`insert`](insert.md)                   | 要素の追加 |
+| [`emplace`](emplace.md)                 | コンテナ内への要素の直接構築 |
+| [`emplace_hint`](emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
 

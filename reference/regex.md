@@ -8,24 +8,24 @@
 
 | 名前                                    | 説明                                  | 対応バージョン |
 |-----------------------------------------|---------------------------------------|----------------|
-| [`basic_regex`](./regex/basic_regex.md) | 正規表現クラス (class template)       | C++11          |
-| [`regex`](./regex/basic_regex.md)       | `char`版の正規表現クラス (typedef)    | C++11          |
-| [`wregex`](./regex/basic_regex.md)      | `wchar_t`版の正規表現クラス (typedef) | C++11          |
+| [`basic_regex`](regex/basic_regex.md) | 正規表現クラス (class template)       | C++11          |
+| [`regex`](regex/basic_regex.md)       | `char`版の正規表現クラス (typedef)    | C++11          |
+| [`wregex`](regex/basic_regex.md)      | `wchar_t`版の正規表現クラス (typedef) | C++11          |
 
 
 ##オプション・定数
 
 | 名前              | 説明                                  | 対応バージョン |
 |-------------------|---------------------------------------|-------|
-| [`regex_constants`](./regex/regex_constants.md) | 正規表現の構文オプション、マッチフラグ、エラー値などの定数 (namespace) | C++11 |
-| [`regex_traits`](./regex/regex_traits.md)       | 正規表現の文字・変換に関する特性 (class template)                      | C++11 |
+| [`regex_constants`](regex/regex_constants.md) | 正規表現の構文オプション、マッチフラグ、エラー値などの定数 (namespace) | C++11 |
+| [`regex_traits`](regex/regex_traits.md)       | 正規表現の文字・変換に関する特性 (class template)                      | C++11 |
 
 
 ##エラー
 
 | 名前              | 説明                                               | 対応バージョン |
 |-------------------|----------------------------------------------------|-------|
-| [`regex_error`](./regex/regex_error.md) | このライブラリから送出される正規表現の例外 (class) | C++11 |
+| [`regex_error`](regex/regex_error.md) | このライブラリから送出される正規表現の例外 (class) | C++11 |
 
 
 ##マッチ結果

@@ -37,27 +37,27 @@ $$ p(x| \mu , \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \cdot \exp \big( - \frac{
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./normal_distribution/op_constructor.md)      | コンストラクタ     | C++11 |
+| [`(constructor)`](normal_distribution/op_constructor.md)      | コンストラクタ     | C++11 |
 | `~normal_distribution() = default;`                             | デストラクタ       | C++11 |
-| [`reset`](./normal_distribution/reset.md)                       | 状態をリセットする | C++11 |
+| [`reset`](normal_distribution/reset.md)                       | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------|-------|
-| [`operator()`](./normal_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](normal_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------|-------|
-| [`mean`](./normal_distribution/mean.md)     | コンストラクタで指定された平均を取得する   | C++11 |
-| [`stddev`](./normal_distribution/stddev.md) | コンストラクタで指定された標準偏差を取得する | C++11 |
-| [`param`](./normal_distribution/param.md)   | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./normal_distribution/min.md)       | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./normal_distribution/max.md)       | 生成する範囲の最大値を取得する   | C++11 |
+| [`mean`](normal_distribution/mean.md)     | コンストラクタで指定された平均を取得する   | C++11 |
+| [`stddev`](normal_distribution/stddev.md) | コンストラクタで指定された標準偏差を取得する | C++11 |
+| [`param`](normal_distribution/param.md)   | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](normal_distribution/min.md)       | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](normal_distribution/max.md)       | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -72,10 +72,10 @@ $$ p(x| \mu , \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \cdot \exp \big( - \frac{
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------------|-------|
-| [`operator==`](./normal_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./normal_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./normal_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./normal_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](normal_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](normal_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](normal_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](normal_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

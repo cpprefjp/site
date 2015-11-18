@@ -28,7 +28,7 @@ try {
 
 
 ##戻り値
-例外オブジェクト`e`を指す[`exception_ptr`](./exception_ptr.md)オブジェクトを返す。
+例外オブジェクト`e`を指す[`exception_ptr`](exception_ptr.md)オブジェクトを返す。
 
 
 ##例外

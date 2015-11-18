@@ -64,9 +64,9 @@ world
 
 | 名前 | 説明 |
 |-------------------------------------|--------------------------------|
-| [`emplace_back`](./emplace_back.md) | 末尾に要素を直接構築で追加する |
-| [`push_front`](./push_front.md)     | 先頭に要素を追加する |
-| [`insert`](./insert.md)             | 任意の位置に要素を挿入する |
+| [`emplace_back`](emplace_back.md) | 末尾に要素を直接構築で追加する |
+| [`push_front`](push_front.md)     | 先頭に要素を追加する |
+| [`insert`](insert.md)             | 任意の位置に要素を挿入する |
 
 
 ##参照

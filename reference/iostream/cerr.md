@@ -46,6 +46,6 @@ int main()
 - C++98
 
 ##参照
-- [`clog`](./clog.md)
-- [`wcerr`](./wcerr.md.nolink)
-- [`wclog`](./wclog.md.nolink)
+- [`clog`](clog.md)
+- [`wcerr`](wcerr.md.nolink)
+- [`wclog`](wclog.md.nolink)

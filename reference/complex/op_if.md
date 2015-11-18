@@ -64,8 +64,8 @@ int main()
 
 | 名前               | 説明                             |
 |--------------------|----------------------------------|
-| [`i`](./op_i.md)   | `complex<double>`のリテラル       |
-| [`il`](./op_il.md) | `complex<long double>`のリテラル |
+| [`i`](op_i.md)   | `complex<double>`のリテラル       |
+| [`il`](op_il.md) | `complex<long double>`のリテラル |
 
 - [N3779 User-dened Literals for std::complex part 2 of UDL for Standard Library Types (version 5)](http://isocpp.org/files/papers/N3779.pdf)
 

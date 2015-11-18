@@ -12,7 +12,7 @@ namespace std {
 ##概要
 `gslice`は、[`std::slice`](/reference/valarray/slice.md) をより一般化したスライス指示用のヘルパークラスである。
 
-このクラスは、[`std::valarray`](./valarray.md) クラスの [`operator[]`](./valarray/op_at.md) メンバ関数にスライスの指示を与えるために使用する。
+このクラスは、[`std::valarray`](valarray.md) クラスの [`operator[]`](valarray/op_at.md) メンバ関数にスライスの指示を与えるために使用する。
 
 
 「`gslice`」は、「generalized slice (汎用スライス)」の略。
@@ -23,16 +23,16 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|----------------------------|------|
-| [`(constructor)`](./gslice/op_constructor.md)| コンストラクタ             |      |
+| [`(constructor)`](gslice/op_constructor.md)| コンストラクタ             |      |
 
 
 ###その他メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|----------------------------------------------------------------|------|
-| [`start`](./gslice/start.md)   | スライスを生成する初期位置を取得する                           |      |
-| [`size`](./gslice/size.md)     | 生成するスライスの要素数群の `valarray` オブジェクトを取得する |      |
-| [`stride`](./gslice/stride.md) | スライスを生成する間隔数群の `valarray` を取得する             |      |
+| [`start`](gslice/start.md)   | スライスを生成する初期位置を取得する                           |      |
+| [`size`](gslice/size.md)     | 生成するスライスの要素数群の `valarray` オブジェクトを取得する |      |
+| [`stride`](gslice/stride.md) | スライスを生成する間隔数群の `valarray` を取得する             |      |
 
 
 ##例

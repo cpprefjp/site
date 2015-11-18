@@ -31,7 +31,7 @@ iterator emplace(const_iterator position, Args&&... args);
 
 
 ##備考
-例外発生時に副作用が発生しない保証は[`insert()`](./insert.md)と同様。
+例外発生時に副作用が発生しない保証は[`insert()`](insert.md)と同様。
 
 
 ##例
@@ -78,7 +78,7 @@ int main()
 
 | 名前 | 説明 |
 |-------------------------|----------------------------|
-| [`insert`](./insert.md) | 任意の位置に要素を挿入する |
+| [`insert`](insert.md) | 任意の位置に要素を挿入する |
 
 
 ##参照

@@ -24,12 +24,12 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|-----------------------|
-| [`(constructor)`](./ostreambuf_iterator/op_constructor.md) | コンストラクタ | |
+| [`(constructor)`](ostreambuf_iterator/op_constructor.md) | コンストラクタ | |
 | `~ostream_iterator() = default` | デストラクタ | |
-| [`operator=`](./ostreambuf_iterator/op_assign.md) | 代入演算子 | |
-| [`operator*`](./ostreambuf_iterator/op_deref.md) | 間接参照 | |
-| [`operator++`](./ostreambuf_iterator/op_increment.md) | インクリメント | |
-| [`failed`](./ostreambuf_iterator/failed.md) | 書き込みが失敗したかを判定する | |
+| [`operator=`](ostreambuf_iterator/op_assign.md) | 代入演算子 | |
+| [`operator*`](ostreambuf_iterator/op_deref.md) | 間接参照 | |
+| [`operator++`](ostreambuf_iterator/op_increment.md) | インクリメント | |
+| [`failed`](ostreambuf_iterator/failed.md) | 書き込みが失敗したかを判定する | |
 
 
 ##メンバ型

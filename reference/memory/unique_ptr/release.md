@@ -20,7 +20,7 @@ pointer release() noexcept;
 
 
 ##事後条件
-この関数を呼び出したあと、[`get()`](./get.md)メンバ関数は`nullptr`を返す。
+この関数を呼び出したあと、[`get()`](get.md)メンバ関数は`nullptr`を返す。
 
 
 ##戻り値

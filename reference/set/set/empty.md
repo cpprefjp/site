@@ -10,9 +10,9 @@ bool empty() const noexcept;
 
 ##概要
 コンテナが空かどうかをテストする。 
-`set` コンテナが空（[`size()`](./size.md) が 0）の場合に `true` を返す。 
+`set` コンテナが空（[`size()`](size.md) が 0）の場合に `true` を返す。 
 
-この関数はコンテナ内のコンテンツを変化させない。コンテンツをクリアするには [`clear()`](./clear.md) メンバを使う。
+この関数はコンテナ内のコンテンツを変化させない。コンテンツをクリアするには [`clear()`](clear.md) メンバを使う。
 
 
 ##戻り値
@@ -56,5 +56,5 @@ int main ()
 
 | 名前                                   | 説明           |
 |----------------------------------------|----------------|
-| [`insert`](./insert.md)                | 要素を挿入する |
-| [`(constructor)`](./op_constructor.md) | コンストラクタ |
+| [`insert`](insert.md)                | 要素を挿入する |
+| [`(constructor)`](op_constructor.md) | コンストラクタ |

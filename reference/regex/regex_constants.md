@@ -8,9 +8,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`syntax_option_type`](./regex_constants/syntax_option_type.md) | 構文オプションを表す実装定義のビットマスク型(typedef) | C++11 |
-| [`match_flag_type`](./regex_constants/match_flag_type.md) | マッチ条件と書式を表す実装定義のビットマスク型(typedef) | C++11 |
-| [`error_type`](./regex_constants/error_type.md) | 正規表現のエラーを表す実装定義の列挙型(enum) | C++11 |
+| [`syntax_option_type`](regex_constants/syntax_option_type.md) | 構文オプションを表す実装定義のビットマスク型(typedef) | C++11 |
+| [`match_flag_type`](regex_constants/match_flag_type.md) | マッチ条件と書式を表す実装定義のビットマスク型(typedef) | C++11 |
+| [`error_type`](regex_constants/error_type.md) | 正規表現のエラーを表す実装定義の列挙型(enum) | C++11 |
 
 
 ##バージョン

@@ -16,7 +16,7 @@ bitset<N>& set(size_t pos, bool val = true); // (2)
 
 
 ##要件
-- (2): `pos <` [`size()`](./size.md)であること。
+- (2): `pos <` [`size()`](size.md)であること。
 
 
 ##効果
@@ -30,7 +30,7 @@ bitset<N>& set(size_t pos, bool val = true); // (2)
 
 ##例外
 - (1): 投げない。
-- (2): `pos >=` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (2): `pos >=` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 
 
 ##例

@@ -20,7 +20,7 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 
 所有権が取得できるまで、もしくは`rel_time`時間が経過するまでこの関数はブロッキングする。
 
-`rel_time`が`rel_time.`[`zero()`](/reference/chrono/duration/zero.md)より小さい場合、この関数は[`try_lock()`](./try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
+`rel_time`が`rel_time.`[`zero()`](/reference/chrono/duration/zero.md)より小さい場合、この関数は[`try_lock()`](try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
 
 
 ##戻り値

@@ -59,7 +59,7 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 | 名前                                             | 説明                 | 対応バージョン |
 |--------------------------------------------------|----------------------|----------------|
 | [`sync_with_stdio`](ios_base/sync_with_stdio.md) | stdioとの同期の設定  |                |
-| [`xalloc`](./ios_base/xalloc.md)                 | 私用記憶域を予約する |                |
+| [`xalloc`](ios_base/xalloc.md)                 | 私用記憶域を予約する |                |
 
 ##メンバ型
 
@@ -75,4 +75,4 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 | [`event_callback`](ios_base/type-event_callback.md) | コールバック関数                             |                |
 
 ##参照
-- [`basic_ios`](./basic_ios.md): ios_baseから派生するクラステンプレート
+- [`basic_ios`](basic_ios.md): ios_baseから派生するクラステンプレート

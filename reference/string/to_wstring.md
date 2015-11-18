@@ -162,7 +162,7 @@ std::wstring to_wstring(long double val)
 
 | 名前                          | 参照                     |
 |-------------------------------|--------------------------|
-| [`to_string`](./to_string.md) | 数値を`string`に変換する |
+| [`to_string`](to_string.md) | 数値を`string`に変換する |
 
 
 ##参照

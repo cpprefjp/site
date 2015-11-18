@@ -16,8 +16,8 @@ namespace std {
 
 
 ##効果
-この関数は、弱い[`memory_order`](./memory_order.md)が指定されたアトミック操作の前後に指定することで、より強い`memory_order`を指定した場合と似たような振る舞いをさせる効果を持つ。
-たとえば、`a`を[`atomic`](./atomic.md)`<int>`型の変数とするとき、下記2種類の処理はほぼ同等の振る舞いをする。
+この関数は、弱い[`memory_order`](memory_order.md)が指定されたアトミック操作の前後に指定することで、より強い`memory_order`を指定した場合と似たような振る舞いをさせる効果を持つ。
+たとえば、`a`を[`atomic`](atomic.md)`<int>`型の変数とするとき、下記2種類の処理はほぼ同等の振る舞いをする。
 
 ```cpp
 // relaxed操作 + releaseフェンス
@@ -71,11 +71,11 @@ assert(i == 1 || j == 1); // すなわち、i と j が共に0となることは
 
 | メモリオーダー | フェンス |
 |---------------------------------------------|------------------------------------------------------------------|
-| [`memory_order_relaxed`](./memory_order.md) | 何も行わない |
-| [`memory_order_acquire`](./memory_order.md)<br/>[`memory_order_consume`](/reference/atomic/memory_order.md) | acquireフェンス |
-| [`memory_order_release`](./memory_order.md) | releaseフェンス |
-| [`memory_order_acq_rel`](./memory_order.md) | acquireフェンスとreleaseフェンスの両方 |
-| [`memory_order_seq_cst`](./memory_order.md) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
+| [`memory_order_relaxed`](memory_order.md) | 何も行わない |
+| [`memory_order_acquire`](memory_order.md)<br/>[`memory_order_consume`](/reference/atomic/memory_order.md) | acquireフェンス |
+| [`memory_order_release`](memory_order.md) | releaseフェンス |
+| [`memory_order_acq_rel`](memory_order.md) | acquireフェンスとreleaseフェンスの両方 |
+| [`memory_order_seq_cst`](memory_order.md) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
 
 
 ##戻り値

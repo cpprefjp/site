@@ -17,9 +17,9 @@ namespace std {
 
 
 ##戻り値
-`sizeof...(InnerAlloc) == 0`であるならば、`a.`[outer_allocator()](./outer_allocator.md) `== b.`[`outer_allocator()`](./outer_allocator.md)の結果を返す。
+`sizeof...(InnerAlloc) == 0`であるならば、`a.`[outer_allocator()](outer_allocator.md) `== b.`[`outer_allocator()`](outer_allocator.md)の結果を返す。
 
-そうでなければ、`a.`[outer_allocator()](./outer_allocator.md) `== b.`[`outer_allocator()`](./outer_allocator.md) `&& a.`[`inner_allocator()`](./inner_allocator.md) `== b.`[`inner_allocator()`]の結果を返す。
+そうでなければ、`a.`[outer_allocator()](outer_allocator.md) `== b.`[`outer_allocator()`](outer_allocator.md) `&& a.`[`inner_allocator()`](inner_allocator.md) `== b.`[`inner_allocator()`]の結果を返す。
 
 
 ##例

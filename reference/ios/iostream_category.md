@@ -13,7 +13,7 @@ namespace std {
 * error_category[link /reference/system_error/error_category.md]
 
 ##概要
-[`io_errc`](./io_errc.md)のためのエラーカテゴリを取得する。
+[`io_errc`](io_errc.md)のためのエラーカテゴリを取得する。
 
 
 ##戻り値

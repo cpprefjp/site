@@ -40,9 +40,9 @@ thread(thread&&) noexcept;              // (4)
 
 
 ##事後条件
-- (1) : [`get_id()`](./get_id.md) `==` [`id()`](./id.md)。
-- (2) : [`get_id()`](./get_id.md) `!=` [`id()`](./id.md)。`*this`は新しいスレッドと関連付けられる。
-- (4) : ムーブ前の`x.`[`get_id()`](./get_id.md) `==` [`get_id()`](./get_id.md) かつ ムーブ後の`x.`[`get_id()`](./get_id.md) `==` [`id()`](./id.md)
+- (1) : [`get_id()`](get_id.md) `==` [`id()`](id.md)。
+- (2) : [`get_id()`](get_id.md) `!=` [`id()`](id.md)。`*this`は新しいスレッドと関連付けられる。
+- (4) : ムーブ前の`x.`[`get_id()`](get_id.md) `==` [`get_id()`](get_id.md) かつ ムーブ後の`x.`[`get_id()`](get_id.md) `==` [`id()`](id.md)
 
 
 ##例外

@@ -34,29 +34,29 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------------------------------------------|-------|
-| [`(constructor)`](./thread/op_constructor.md)        | コンストラクタ | C++11 |
-| [`(destructor)`](./thread/op_destructor.md)        | デストラクタ | C++11 |
-| [`operator=`](./thread/op_assign.md)         | 代入演算子 | C++11 |
-| [`swap`](./thread/swap.md)                   | 別の`thread`と交換する | C++11 |
-| [`joinable`](./thread/joinable.md)           | スレッドに関連付けられているか否かを取得する | C++11 |
-| [`join`](./thread/join.md)                   | スレッドが終了するまで待機する | C++11 |
-| [`detach`](./thread/detach.md)               | スレッドの管理を手放す | C++11 |
-| [`get_id`](./thread/get_id.md)               | 関連付けられているスレッドのスレッド識別子を取得する | C++11 |
-| [`native_handle`](./thread/native_handle.md) | スレッドに関連付けられたネイティブハンドルを取得する［処理系定義］ | C++11 |
+| [`(constructor)`](thread/op_constructor.md)        | コンストラクタ | C++11 |
+| [`(destructor)`](thread/op_destructor.md)        | デストラクタ | C++11 |
+| [`operator=`](thread/op_assign.md)         | 代入演算子 | C++11 |
+| [`swap`](thread/swap.md)                   | 別の`thread`と交換する | C++11 |
+| [`joinable`](thread/joinable.md)           | スレッドに関連付けられているか否かを取得する | C++11 |
+| [`join`](thread/join.md)                   | スレッドが終了するまで待機する | C++11 |
+| [`detach`](thread/detach.md)               | スレッドの管理を手放す | C++11 |
+| [`get_id`](thread/get_id.md)               | 関連付けられているスレッドのスレッド識別子を取得する | C++11 |
+| [`native_handle`](thread/native_handle.md) | スレッドに関連付けられたネイティブハンドルを取得する［処理系定義］ | C++11 |
 
 
 ##静的メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------------------------------------|-------|
-| [`hardware_concurrency`](./thread/hardware_concurrency.md) | 処理系によりサポートされるスレッド並行数を取得する | C++11 |
+| [`hardware_concurrency`](thread/hardware_concurrency.md) | 処理系によりサポートされるスレッド並行数を取得する | C++11 |
 
 
 ##メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|----------------------------------------------|-------|
-| [`id`](./thread/id.md) | スレッド識別子 (class) | C++11 |
+| [`id`](thread/id.md) | スレッド識別子 (class) | C++11 |
 | `native_handle_type`   | ネイティブハンドル型 (typedef)［処理系定義］ | C++11 |
 
 
@@ -64,7 +64,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|---------------------------------------|-------|
-| [`swap`](./thread/swap_free.md) | 2つの`thread`オブジェクトを入れ替える | C++11 |
+| [`swap`](thread/swap_free.md) | 2つの`thread`オブジェクトを入れ替える | C++11 |
 
 
 ##備考

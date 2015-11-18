@@ -16,7 +16,7 @@ namespace std {
 
 このクラスが[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する場合、以下のコンストラクタ初期化が可能である：
 
-- `T(allocator_arg_t, alloc, args...)`のように、第1引数に[`allocator_arg_t`](./allocator_arg_t.md)、第2引数にアロケータオブジェクトをとる構築。
+- `T(allocator_arg_t, alloc, args...)`のように、第1引数に[`allocator_arg_t`](allocator_arg_t.md)、第2引数にアロケータオブジェクトをとる構築。
 - `T(args..., alloc)`のように、最後の引数としてアロケータオブジェクトをとる構築。
 
 このクラスは、[`scoped_allocator_adaptor`](/reference/scoped_allocator/scoped_allocator_adaptor.md)クラスで使用される。

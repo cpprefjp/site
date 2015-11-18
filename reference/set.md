@@ -18,6 +18,6 @@
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|--------------------------------------------|-------|
-| [`set`](./set/set.md)           | キーの重複を許可しない集合(class template) |  |
-| [`multiset`](./set/multiset.md) | キーの重複を許可する集合(class template)   |  |
+| [`set`](set/set.md)           | キーの重複を許可しない集合(class template) |  |
+| [`multiset`](set/multiset.md) | キーの重複を許可する集合(class template)   |  |
 

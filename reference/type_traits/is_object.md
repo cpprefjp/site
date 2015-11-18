@@ -16,7 +16,7 @@ namespace std {
 
 
 ##効果
-`is_object`は、型`T`がオブジェクト型であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`is_object`は、型`T`がオブジェクト型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
 
 
 ##例

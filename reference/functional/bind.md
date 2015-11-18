@@ -16,14 +16,14 @@ namespace std {
 * unspecified[italic]
 
 ##概要
-[<i>Callable</i>](./callable.md) オブジェクトに対し、引数を部分的に束縛(bind)する。
+[<i>Callable</i>](callable.md) オブジェクトに対し、引数を部分的に束縛(bind)する。
 
 ##引数
-- `f` -- 束縛先となる [<i>Callable</i>](./callable.md) オブジェクト
+- `f` -- 束縛先となる [<i>Callable</i>](callable.md) オブジェクト
 - `bound_args` -- 束縛対象の値やプレースホルダ(`_1`, `_2`, ...)、別の `bind()` 呼び出し
 
 ##戻り値
-引数を部分束縛された [<i>Callable</i>](./callable.md) オブジェクト。このオブジェクトは、次のような関数オブジェクトとして扱うことができる：
+引数を部分束縛された [<i>Callable</i>](callable.md) オブジェクト。このオブジェクトは、次のような関数オブジェクトとして扱うことができる：
 ```cpp
 struct bound_function_type {
   typedef unspecified result_type;
@@ -38,9 +38,9 @@ struct bound_function_type {
 
 <i>`bound_function_type`</i>`::operator ()()`を呼び出すと、`bound_args` と `unbound_args` が次のように使われ、最終的に `f` の呼出しに到達する。(説明用に、 `BoundArgs` のそれぞれの `decay` された型を `TiD` 、値を `ti` 、`UnBoundArgs` のそれぞれの値を `uj` とおく)。
 
-1. 型`Ti` が `std::`[`reference_wrapper`](./reference_wrapper.md)`<X>` である場合、`ti.`[`get()`](./reference_wrapper/get.md) が `ti` の代わりに使用される。
-2. `std::`[`is_bind_expression`](./is_bind_expression.md)`<TiD>::value`が `true` に評価される場合、`ti(unbound_args...)` の結果が `ti` の代わりに使用される(これは、ネストされた `bind()` が一度の呼び出しで再帰的に全て評価されることを示す)。
-3. `std::`[`is_placeholder`](./is_placeholder.md)`<TiD>::value`が非ゼロに評価される場合、`uj` (ただし `j = std::`[`is_placeholder`](./is_placeholder.md)`<Ti>::value+1`) が `ti` の代わりに使用される。
+1. 型`Ti` が `std::`[`reference_wrapper`](reference_wrapper.md)`<X>` である場合、`ti.`[`get()`](reference_wrapper/get.md) が `ti` の代わりに使用される。
+2. `std::`[`is_bind_expression`](is_bind_expression.md)`<TiD>::value`が `true` に評価される場合、`ti(unbound_args...)` の結果が `ti` の代わりに使用される(これは、ネストされた `bind()` が一度の呼び出しで再帰的に全て評価されることを示す)。
+3. `std::`[`is_placeholder`](is_placeholder.md)`<TiD>::value`が非ゼロに評価される場合、`uj` (ただし `j = std::`[`is_placeholder`](is_placeholder.md)`<Ti>::value+1`) が `ti` の代わりに使用される。
 4. その他の場合、`ti` がそのまま使用される。
 上記の置換を行った後、 `f(ti...)` を呼び出した結果が <i>`bound_function_type`</i>`::operator ()()` の呼出し結果として返される。
 

@@ -12,11 +12,11 @@ namespace std {
 ```
 
 ##概要
-`ratio_greater_equal`は、2つの[`ratio`](./ratio.md)において、左辺が右辺以上かを判定するクラステンプレートである。
+`ratio_greater_equal`は、2つの[`ratio`](ratio.md)において、左辺が右辺以上かを判定するクラステンプレートである。
 
 
 ##効果
-`ratio_greater_equal`は、[`ratio_less`](./ratio_less.md)`<R1, R2>::value == false`であれば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
+`ratio_greater_equal`は、[`ratio_less`](ratio_less.md)`<R1, R2>::value == false`であれば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
 
 
 ##例

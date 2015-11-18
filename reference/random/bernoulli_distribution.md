@@ -28,26 +28,26 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./bernoulli_distribution/op_constructor.md)         | コンストラクタ     | C++11 |
+| [`(constructor)`](bernoulli_distribution/op_constructor.md)         | コンストラクタ     | C++11 |
 | `~bernoulli_distribution() = default;`                                | デストラクタ       | C++11 |
-| [`reset`](./bernoulli_distribution/reset.md)                          | 状態をリセットする | C++11 |
+| [`reset`](bernoulli_distribution/reset.md)                          | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|----------------|-------|
-| [`operator()`](./bernoulli_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](bernoulli_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
-| [`p`](./bernoulli_distribution/p.md)         | 確率を取得する                   | C++11 |
-| [`param`](./bernoulli_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./bernoulli_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./bernoulli_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`p`](bernoulli_distribution/p.md)         | 確率を取得する                   | C++11 |
+| [`param`](bernoulli_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](bernoulli_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](bernoulli_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -62,10 +62,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./bernoulli_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./bernoulli_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./bernoulli_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./bernoulli_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](bernoulli_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](bernoulli_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](bernoulli_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](bernoulli_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

@@ -40,7 +40,7 @@ namespace std {
 
     CV修飾された型からも要素型を取得できるようにするための部分特殊化。
 
-- `template <size_t I, class... Types> class tuple_element<I,` [`tuple`](./tuple.md)`<Tuples...>>;`
+- `template <size_t I, class... Types> class tuple_element<I,` [`tuple`](tuple.md)`<Tuples...>>;`
 
     `std::tuple`から要素型を取得できるようにするための部分特殊化。
 

@@ -15,7 +15,7 @@ unspecified operator[](difference_type n) const;
 
 
 ##戻り値
-`return std::`[`move`](/reference/utility/move.md)`(`[`base`](./base.md)`()[n]);`
+`return std::`[`move`](/reference/utility/move.md)`(`[`base`](base.md)`()[n]);`
 
 
 ##例

@@ -31,27 +31,27 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./binomial_distribution/op_constructor.md)        | コンストラクタ     | C++11 |
+| [`(constructor)`](binomial_distribution/op_constructor.md)        | コンストラクタ     | C++11 |
 | `~binomial_distribution() = default;`                               | デストラクタ       | C++11 |
-| [`reset`](./binomial_distribution/reset.md)                         | 状態をリセットする | C++11 |
+| [`reset`](binomial_distribution/reset.md)                         | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|----------------|-------|
-| [`operator()`](./binomial_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](binomial_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------|-------|
-| [`t`](./binomial_distribution/t.md)         | 試行回数を取得する               | C++11 |
-| [`p`](./binomial_distribution/p.md)         | 確率を取得する                   | C++11 |
-| [`param`](./binomial_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./binomial_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./binomial_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`t`](binomial_distribution/t.md)         | 試行回数を取得する               | C++11 |
+| [`p`](binomial_distribution/p.md)         | 確率を取得する                   | C++11 |
+| [`param`](binomial_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](binomial_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](binomial_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -66,10 +66,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./binomial_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./binomial_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./binomial_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./binomial_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](binomial_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](binomial_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](binomial_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](binomial_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

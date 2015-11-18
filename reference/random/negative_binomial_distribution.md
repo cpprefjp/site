@@ -13,7 +13,7 @@ namespace std {
 
 ##概要
 `negative_binomial_distribution`は、離散確率分布の一種である、負の二項分布を表すクラスである。  
-二項分布([`binomial_distribution`](./binomial_distribution.md)が「確率pで成功する事象をt回施行し、成功回数を取得する」のに対し、負の二項分布は「確率pで成功する事象がk回成功するまでに失敗した回数を取得する」ということを行う。  
+二項分布([`binomial_distribution`](binomial_distribution.md)が「確率pで成功する事象をt回施行し、成功回数を取得する」のに対し、負の二項分布は「確率pで成功する事象がk回成功するまでに失敗した回数を取得する」ということを行う。  
 
 
 負の二項分布は、実装によって「k回成功するまでに施行した回数を取得する」ものと、「k回成功するまでに失敗した回数を取得する」もの、2つのバリエーションが存在する。`std::negative_binomial_distribution`クラスは後者である。
@@ -29,27 +29,27 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./negative_binomial_distribution/op_constructor.md) | コンストラクタ | C++11 |
+| [`(constructor)`](negative_binomial_distribution/op_constructor.md) | コンストラクタ | C++11 |
 | `~negative_binomial_distribution() = default;`       | デストラクタ       | C++11 |
-| [`reset`](./negative_binomial_distribution/reset.md) | 状態をリセットする | C++11 |
+| [`reset`](negative_binomial_distribution/reset.md) | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------|----------------|-------|
-| [`operator()`](./negative_binomial_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](negative_binomial_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|----------------------------------|-------|
-| [`k`](./negative_binomial_distribution/k.md)         | 目標とする成功回数を取得する     | C++11 |
-| [`p`](./negative_binomial_distribution/p.md)         | 確率を取得する                   | C++11 |
-| [`param`](./negative_binomial_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./negative_binomial_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./negative_binomial_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`k`](negative_binomial_distribution/k.md)         | 目標とする成功回数を取得する     | C++11 |
+| [`p`](negative_binomial_distribution/p.md)         | 確率を取得する                   | C++11 |
+| [`param`](negative_binomial_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](negative_binomial_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](negative_binomial_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -64,10 +64,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./negative_binomial_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./negative_binomial_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./negative_binomial_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./negative_binomial_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](negative_binomial_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](negative_binomial_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](negative_binomial_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](negative_binomial_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

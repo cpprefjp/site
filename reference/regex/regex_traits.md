@@ -23,7 +23,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](./regex_traits/op_constructor.md) | コンストラクタ | C++11 |
+| [`(constructor)`](regex_traits/op_constructor.md) | コンストラクタ | C++11 |
 | `~regex_traits() = default;` | デストラクタ | C++11 |
 | `regex_traits& operator=(const regex_traits&) = default;`<br/> `regex_traits& operator=(regex_traits&&) = default;` | 代入演算子 | C++11 |
 
@@ -32,23 +32,23 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`translate`](./regex_traits/translate.md) | 与えられた文字と同等の文字を取得する | C++11 |
-| [`translate_nocase`](./regex_traits/translate_nocase.md) | 与えられた文字列と大文字・小文字を区別せずに同等な文字列を取得する | C++11 |
-| [`transform`](./regex_traits/transform.md) | 与えられた範囲を、並べ替えのキーとして使用する、文字のシーケンスに変換する | C++11 |
-| [`transform_primary`](./regex_traits/transform_primary.md) | 与えられた文字の範囲を、並べ替えのキーとして使用する、大文字・小文字を区別しない文字のシーケンスに変換する | C++11 |
-| [`lookup_collatename`](./regex_traits/lookup_collatename.md) | 与えられた文字の範囲に対応する照合名を取得する | C++11 |
-| [`lookup_classname`](./regex_traits/lookup_classname.md) | 与えられた文字の範囲に対応するクラス名を取得する | C++11 |
-| [`isctype`](./regex_traits/isctype.md) | 文字が特定のクラスに属しているかを判定する | C++11 |
-| [`value`](./regex_traits/value.md) | 文字の整数表現を取得する | C++11 |
-| [`imbue`](./regex_traits/imbue.md) | ロケールを設定する | C++11 |
-| [`getloc`](./regex_traits/getloc.md) | ロケールを取得する | C++11 |
+| [`translate`](regex_traits/translate.md) | 与えられた文字と同等の文字を取得する | C++11 |
+| [`translate_nocase`](regex_traits/translate_nocase.md) | 与えられた文字列と大文字・小文字を区別せずに同等な文字列を取得する | C++11 |
+| [`transform`](regex_traits/transform.md) | 与えられた範囲を、並べ替えのキーとして使用する、文字のシーケンスに変換する | C++11 |
+| [`transform_primary`](regex_traits/transform_primary.md) | 与えられた文字の範囲を、並べ替えのキーとして使用する、大文字・小文字を区別しない文字のシーケンスに変換する | C++11 |
+| [`lookup_collatename`](regex_traits/lookup_collatename.md) | 与えられた文字の範囲に対応する照合名を取得する | C++11 |
+| [`lookup_classname`](regex_traits/lookup_classname.md) | 与えられた文字の範囲に対応するクラス名を取得する | C++11 |
+| [`isctype`](regex_traits/isctype.md) | 文字が特定のクラスに属しているかを判定する | C++11 |
+| [`value`](regex_traits/value.md) | 文字の整数表現を取得する | C++11 |
+| [`imbue`](regex_traits/imbue.md) | ロケールを設定する | C++11 |
+| [`getloc`](regex_traits/getloc.md) | ロケールを取得する | C++11 |
 
 
 ##静的メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`length`](./regex_traits/length.md) | 文字列の長さを取得する | C++11 |
+| [`length`](regex_traits/length.md) | 文字列の長さを取得する | C++11 |
 
 
 ##メンバ型

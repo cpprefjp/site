@@ -9,11 +9,11 @@ void return_temporary_buffer(T* p);
 ```
 
 ##概要
-[`get_temporary_buffer()`](./get_temporary_buffer.md)関数で確保したメモリを解放する。
+[`get_temporary_buffer()`](get_temporary_buffer.md)関数で確保したメモリを解放する。
 
 
 ##要件
-ポインタ`p`が指すバッファが、[`get_temporary_buffer()`](./get_temporary_buffer.md)関数で確保されたものであること。
+ポインタ`p`が指すバッファが、[`get_temporary_buffer()`](get_temporary_buffer.md)関数で確保されたものであること。
 
 
 ##効果

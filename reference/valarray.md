@@ -7,7 +7,7 @@
 
 | クラス                               | 説明                          | 対応バージョン |
 |--------------------------------------|-------------------------------|----------------|
-| [`valarray`](./valarray/valarray.md) | 数値演算に特化した配列クラス  | |
+| [`valarray`](valarray/valarray.md) | 数値演算に特化した配列クラス  | |
 
 
 ##スライス指示
@@ -16,8 +16,8 @@
 
 | クラス                               | 説明                          | 対応バージョン |
 |--------------------------------------|-------------------------------|----------------|
-| [`slice`](./valarray/slice.md)       | スライス指示用のヘルパークラス | |
-| [`gslice`](./valarray/gslice.md)     | `slice`をより一般化したスライス指示用のヘルパークラス | |
+| [`slice`](valarray/slice.md)       | スライス指示用のヘルパークラス | |
+| [`gslice`](valarray/gslice.md)     | `slice`をより一般化したスライス指示用のヘルパークラス | |
 
 
 ##スライス結果の配列クラス
@@ -26,9 +26,9 @@
 
 | クラス                               | 説明                          | 対応バージョン |
 |--------------------------------------|-------------------------------|----------------|
-| [`slice_array`](./valarray/slice_array.md)   | `valarray`から`slice`によって要素抽出した結果となる配列クラス | |
-| [`gslice_array`](./valarray/gslice_array.md) | `valarray`から`gslice`によって要素抽出した結果となる配列クラス | |
-| [`mask_array`](./valarray/mask_array.md)     | `valarray`から`valarray<bool>`を指定して要素抽出した結果となる配列クラス | |
-| [`indirect_array`](./valarray/indirect_array.md) | `valarray`から`valarray<size_t>`を指定して要素抽出した結果となる配列クラス | |
+| [`slice_array`](valarray/slice_array.md)   | `valarray`から`slice`によって要素抽出した結果となる配列クラス | |
+| [`gslice_array`](valarray/gslice_array.md) | `valarray`から`gslice`によって要素抽出した結果となる配列クラス | |
+| [`mask_array`](valarray/mask_array.md)     | `valarray`から`valarray<bool>`を指定して要素抽出した結果となる配列クラス | |
+| [`indirect_array`](valarray/indirect_array.md) | `valarray`から`valarray<size_t>`を指定して要素抽出した結果となる配列クラス | |
 
 

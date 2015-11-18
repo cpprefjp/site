@@ -16,7 +16,7 @@ namespace std {
 
 有効ではない正規表現が入力された場合に送出される。
 
-エラーとなった理由は、[`what()`](/reference/stdexcept.md)メンバ関数によってエラーメッセージ文字列として取得できるほか、[`code()`](./regex_error/code.md)メンバ関数によって[`regex_constants::error_type`](./regex_constants/error_type.md)型のエラーコード値としても取得できる。
+エラーとなった理由は、[`what()`](/reference/stdexcept.md)メンバ関数によってエラーメッセージ文字列として取得できるほか、[`code()`](regex_error/code.md)メンバ関数によって[`regex_constants::error_type`](regex_constants/error_type.md)型のエラーコード値としても取得できる。
 
 
 ##メンバ関数
@@ -27,7 +27,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](./regex_error/op_constructor.md) | コンストラクタ | C++11 |
+| [`(constructor)`](regex_error/op_constructor.md) | コンストラクタ | C++11 |
 | `~regex_error() = default;`  | デストラクタ | C++11 |
 | `regex_error& operator=(const regex_error&) = default;`<br/> `regex_error& operator=(regex_error&&) = default;` | 代入演算子 | C++11 |
 
@@ -36,7 +36,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`code`](./regex_error/code.md) | エラーコードを取得する | C++11 |
+| [`code`](regex_error/code.md) | エラーコードを取得する | C++11 |
 
 
 ##例

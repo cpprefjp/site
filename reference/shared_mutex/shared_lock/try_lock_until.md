@@ -24,7 +24,7 @@ pm->try_lock_until_shared(abs_time);
 
 
 ##事後条件
-[`owns_lock()`](./owns_lock.md)の値が、`pm->try_lock_until_shared(abs_time)`の戻り値になること
+[`owns_lock()`](owns_lock.md)の値が、`pm->try_lock_until_shared(abs_time)`の戻り値になること
 
 
 ##戻り値
@@ -37,7 +37,7 @@ pm->try_lock_until_shared(abs_time);
 そのほかに、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`operation_not_permitted`](/reference/system_error/errc.md) ： `pm`が`NULL`
-- [`resource_deadlock_would_occur`](/reference/system_error/errc.md) ： [`owns_lock()`](./owns_lock.md) `== true`の状態でこの関数が呼び出された
+- [`resource_deadlock_would_occur`](/reference/system_error/errc.md) ： [`owns_lock()`](owns_lock.md) `== true`の状態でこの関数が呼び出された
 
 
 ##例

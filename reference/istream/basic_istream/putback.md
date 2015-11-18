@@ -91,5 +91,5 @@ basic_istream<CharT, Traits>& putback(char_type c) {
 
 ##参照
 
-- [`basic_istream::unget`](./unget.md)
+- [`basic_istream::unget`](unget.md)
 - `basic_streambuf::sputbackc`

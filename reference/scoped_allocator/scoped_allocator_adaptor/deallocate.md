@@ -14,7 +14,7 @@ void deallocate(pointer p, size_type n);
 
 
 ##戻り値
-[`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`deallocate`](/reference/memory/allocator_traits/deallocate.md)`(`[`outer_allocator()`](./outer_allocator.md)`, p, n)`
+[`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`deallocate`](/reference/memory/allocator_traits/deallocate.md)`(`[`outer_allocator()`](outer_allocator.md)`, p, n)`
 
 
 ##例

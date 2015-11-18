@@ -36,7 +36,7 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 ##備考
 アルゴリズムによっては、一時的なメモリ確保を必要とするものがある。
 
-この関数は、短期的なメモリ領域のために実装が最適化している可能性がある。[`std::allocator`](./allocator.md)`::`[`allocate()`](./allocator/allocate.md)を長期的に使用するメモリとして使用することで、この関数との使い分けができるだろう。
+この関数は、短期的なメモリ領域のために実装が最適化している可能性がある。[`std::allocator`](allocator.md)`::`[`allocate()`](allocator/allocate.md)を長期的に使用するメモリとして使用することで、この関数との使い分けができるだろう。
 
 ただし、Visual C++ 12.0、GCC 4.8 (libstdc++)、Clang 3.4 (libc++)は単に[`new`](/reference/new/op_new.md)を呼んでいるだけで、最適化はとくに行っていない。
 

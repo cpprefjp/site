@@ -17,7 +17,7 @@ namespace std {
 
 
 ##効果
-この関数は、スレッドと、そのスレッド上で処理されるシグナルハンドラとの間でのみ、その効果が有効である、という点を除いて[`atomic_thread_fence`](./atomic_thread_fence.md)`(order)`と同じ効果を持つ。
+この関数は、スレッドと、そのスレッド上で処理されるシグナルハンドラとの間でのみ、その効果が有効である、という点を除いて[`atomic_thread_fence`](atomic_thread_fence.md)`(order)`と同じ効果を持つ。
 
 
 ##戻り値

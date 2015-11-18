@@ -38,26 +38,26 @@ iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11�
 
 
 ##要件
-- (1) : `pos <=` [`size()`](./size.md)
-- (2) : `pos1 <=` [`size()`](./size.md)および`pos2 <= str.`[`size()`](./size.md)
-- (3) : 文字配列へのポインタ`s`が指す配列が少なくても`n`要素あり、`pos <=` [`size()`](./size.md)であること。
-- (4) : `pos <=` [`size()`](./size.md)、および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
+- (1) : `pos <=` [`size()`](size.md)
+- (2) : `pos1 <=` [`size()`](size.md)および`pos2 <= str.`[`size()`](size.md)
+- (3) : 文字配列へのポインタ`s`が指す配列が少なくても`n`要素あり、`pos <=` [`size()`](size.md)であること。
+- (4) : `pos <=` [`size()`](size.md)、および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
 - (6) : イテレータ`p`が、`*this`に対して有効であること。
 - (7) : イテレータ`p`が、`*this`に対して有効であること。
 - (8) : イテレータ`p`が、`*this`に対して有効であること。`[first, last)`が有効な範囲であること。
 
 
 ##効果
-- (1) : `insert(pos, str.`[`data()`](./data.md)`, str.`[`size()`](./size.md)`)`
+- (1) : `insert(pos, str.`[`data()`](data.md)`, str.`[`size()`](size.md)`)`
 - (2) :
-	- `str.`[`size()`](./size.md) `- pos2`と`n`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](./size.md)`() - pos2` が使用される。
-	- `insert(pos1, str.`[`data()`](./data.md) `+ pos2, rlen)`を呼び出す。
+	- `str.`[`size()`](size.md) `- pos2`と`n`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](size.md)`() - pos2` が使用される。
+	- `insert(pos1, str.`[`data()`](data.md) `+ pos2, rlen)`を呼び出す。
 - (3) : `*this`の`pos`番目に、文字配列`s`の先頭`n`文字を挿入する。
 - (4) : `insert(pos, s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`と同じ効果を持つ。
 - (5) : `insert(pos, basic_string(n, c))`と同じ効果を持つ。
 - (6) : イテレータ`p`が指す要素の前に、文字`c`のコピーを挿入する。
 - (7) : イテレータ`p`が指す要素の前に、文字`c`のコピーを`n`個挿入する。
-- (8) : `insert(p -` [`begin()`](./begin.md)`, basic_string(first, last))`と同じ効果を持つ。
+- (8) : `insert(p -` [`begin()`](begin.md)`, basic_string(first, last))`と同じ効果を持つ。
 - (9) : `insert(p, il.`[`begin()`](/reference/initializer_list/begin.md)`, il.`[`end()`](/reference/initializer_list/end.md)`)`
 
 
@@ -73,9 +73,9 @@ iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11�
 
 
 ##例外
-- (1) : `pos >` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
-- (2) : `pos1 >` [`size()`](./size.md)もしくは`pos2 > str.`[`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
-- (3) : `pos >` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。また、[`size()`](./size.md) `+ n >` [`max_size()`](./max_size.md)の場合には[`length_error`](/reference/stdexcept.md)例外を送出する。
+- (1) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (2) : `pos1 >` [`size()`](size.md)もしくは`pos2 > str.`[`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (3) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。また、[`size()`](size.md) `+ n >` [`max_size()`](max_size.md)の場合には[`length_error`](/reference/stdexcept.md)例外を送出する。
 
 
 ##例

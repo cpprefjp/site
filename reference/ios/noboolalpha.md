@@ -42,4 +42,4 @@ false
 - C++03
 
 ##参照
-- [`boolalpha`](./boolalpha.md)
+- [`boolalpha`](boolalpha.md)

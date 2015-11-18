@@ -20,14 +20,14 @@ namespace std {
 
 
 ##効果
-`is_copy_assignable` は `T` がコピー代入可能であるならば [`true_type`](./integral_constant-true_type-false_type.md) から派生し、そうでなければ [`false_type`](./integral_constant-true_type-false_type.md) から派生する。
+`is_copy_assignable` は `T` がコピー代入可能であるならば [`true_type`](integral_constant-true_type-false_type.md) から派生し、そうでなければ [`false_type`](integral_constant-true_type-false_type.md) から派生する。
 
 以下の条件が`true`である場合に、コピー代入可能であると見なされる：
 
-- C++11 : [`is_assignable`](./is_assignable.md)`<T&, const T&>::value == true`
-- C++14 : 参照可能な型`T`に対しては、[`is_assignable`](./is_assignable.md)`<T&, const T&>::value == true`と同じ結果となり、それ以外は`false`と見なされる。
+- C++11 : [`is_assignable`](is_assignable.md)`<T&, const T&>::value == true`
+- C++14 : 参照可能な型`T`に対しては、[`is_assignable`](is_assignable.md)`<T&, const T&>::value == true`と同じ結果となり、それ以外は`false`と見なされる。
     - 参照可能な型とは、以下のいずれかの条件に合致する型である：
-        - [オブジェクト型](./is_object.md)
+        - [オブジェクト型](is_object.md)
         - CV修飾されていない、もしくは参照修飾されていない関数型
         - 参照修飾されている型
 

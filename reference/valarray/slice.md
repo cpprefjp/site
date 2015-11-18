@@ -10,7 +10,7 @@ namespace std {
 ```
 
 ##概要
-`slice`は、[`std::valarray`](./valarray.md) クラスの [`operator[]`](./valarray/op_at.md) メンバ関数にスライスの指示を与えるためのヘルパークラスである。
+`slice`は、[`std::valarray`](valarray.md) クラスの [`operator[]`](valarray/op_at.md) メンバ関数にスライスの指示を与えるためのヘルパークラスである。
 
 
 ##メンバ関数
@@ -18,16 +18,16 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|----------------------------|------|
-| [`(constructor)`](./slice/op_constructor.md) | コンストラクタ             |      |
+| [`(constructor)`](slice/op_constructor.md) | コンストラクタ             |      |
 
 
 ###その他メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------|--------------------------------------|------|
-| [`start`](./slice/start.md)   | スライスを生成する初期位置を取得する |      |
-| [`size`](./slice/size.md)     | 生成するスライスの要素数を取得する   |      |
-| [`stride`](./slice/stride.md) | スライスを生成する間隔を取得する     |      |
+| [`start`](slice/start.md)   | スライスを生成する初期位置を取得する |      |
+| [`size`](slice/size.md)     | 生成するスライスの要素数を取得する   |      |
+| [`stride`](slice/stride.md) | スライスを生成する間隔を取得する     |      |
 
 
 ##例

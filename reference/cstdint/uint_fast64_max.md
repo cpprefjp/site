@@ -9,7 +9,7 @@
 * implementation-defined[italic]
 
 ##概要
-[`uint_fast64_t`](./uint_fast64_t.md) の最大値。
+[`uint_fast64_t`](uint_fast64_t.md) の最大値。
 
 ##バージョン
 ###言語

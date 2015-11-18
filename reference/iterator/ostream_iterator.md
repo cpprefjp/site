@@ -22,11 +22,11 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|-----------------------|
-| [`(constructor)`](./ostream_iterator/op_constructor.md) | コンストラクタ | |
+| [`(constructor)`](ostream_iterator/op_constructor.md) | コンストラクタ | |
 | `~ostream_iterator() = default`                         | デストラクタ | |
-| [`operator=`](./ostream_iterator/op_assign.md)          | 代入演算子 | |
-| [`operator*`](./ostream_iterator/op_deref.md)           | 間接参照 | |
-| [`operator++`](./ostream_iterator/op_increment.md)      | インクリメント | |
+| [`operator=`](ostream_iterator/op_assign.md)          | 代入演算子 | |
+| [`operator*`](ostream_iterator/op_deref.md)           | 間接参照 | |
+| [`operator++`](ostream_iterator/op_increment.md)      | インクリメント | |
 
 
 ##メンバ型

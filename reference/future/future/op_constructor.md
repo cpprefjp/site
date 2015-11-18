@@ -20,8 +20,8 @@ future(const future& rhs) = delete; // (3)
 ##事後条件
 - (1) : `[valid()](/reference/future/future/valid.md) == false`
 - (2) :
-    - [`valid()`](./valid.md)が、この関数実行前の`rhs.`[`valid()`](/reference/future/future/valid.md)と等価になること。
-    - `rhs.`[`valid()`](./valid.md) `== false`になること。
+    - [`valid()`](valid.md)が、この関数実行前の`rhs.`[`valid()`](/reference/future/future/valid.md)と等価になること。
+    - `rhs.`[`valid()`](valid.md) `== false`になること。
 
 
 ##例

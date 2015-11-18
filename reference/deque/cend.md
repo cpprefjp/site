@@ -12,7 +12,7 @@ const_iterator cend() const noexcept;
 ##概要
 末尾要素の次を指す読み取り専用イテレータを取得する。
 
-[`end()`](./end.md)は非`const`な`deque`オブジェクトに対して`iterator`を返し、`const`な`deque`オブジェクトに対しては`const_iterator`を返すが、`cend()`は`const_iterator`を返すバージョンのみが提供されている。
+[`end()`](end.md)は非`const`な`deque`オブジェクトに対して`iterator`を返し、`const`な`deque`オブジェクトに対しては`const_iterator`を返すが、`cend()`は`const_iterator`を返すバージョンのみが提供されている。
 
 アルゴリズムにイテレータの組を渡す際、アルゴリズム内でデータの書き換えが起こらないというユーザーの意図を示す場合などに有用である。
 

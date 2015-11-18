@@ -28,7 +28,7 @@ namespace std {
 5. `Y`を生成した乱数として返す。
 
 
-この生成器アダプタは、標準内においては[`linear_congruential_engine`](./linear_congruential_engine.md)クラスと組み合わせて、KnuthのリオーダーアルゴリズムB([`knuth_b`](./knuth_b.md))の実装に使用されている。
+この生成器アダプタは、標準内においては[`linear_congruential_engine`](linear_congruential_engine.md)クラスと組み合わせて、KnuthのリオーダーアルゴリズムB([`knuth_b`](knuth_b.md))の実装に使用されている。
 
 
 ##要件
@@ -40,24 +40,24 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./shuffle_order_engine/op_constructor.md)       | コンストラクタ   | C++11 |
+| [`(constructor)`](shuffle_order_engine/op_constructor.md)       | コンストラクタ   | C++11 |
 | `~shuffle_order_engine() = default;`                              | デストラクタ     | C++11 |
-| [`seed`](./shuffle_order_engine/seed.md)                          | シードを設定する | C++11 |
+| [`seed`](shuffle_order_engine/seed.md)                          | シードを設定する | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|--------------------|-------|
-| [`operator()`](./shuffle_order_engine/op_call.md) | 乱数を生成する | C++11 |
-| [`discard`](./shuffle_order_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
+| [`operator()`](shuffle_order_engine/op_call.md) | 乱数を生成する | C++11 |
+| [`discard`](shuffle_order_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
 
 
 ###エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|------------------------------|-------|
-| [`base`](./shuffle_order_engine/base.md) | 元となる乱数生成器を取得する | C++11 |
+| [`base`](shuffle_order_engine/base.md) | 元となる乱数生成器を取得する | C++11 |
 
 
 ##静的メンバ関数
@@ -65,8 +65,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
-| [`min`](./shuffle_order_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](./shuffle_order_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](shuffle_order_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
+| [`max`](shuffle_order_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
 
 
 ##メンバ型
@@ -87,10 +87,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./shuffle_order_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./shuffle_order_engine/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./shuffle_order_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./shuffle_order_engine/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](shuffle_order_engine/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](shuffle_order_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](shuffle_order_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](shuffle_order_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

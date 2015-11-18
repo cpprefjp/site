@@ -75,8 +75,8 @@ Size of c2: 6
 
 | 名前                         | 説明           |
 |------------------------------|----------------|
-| [`insert`](./insert.md)      | 要素を挿入する |
-| [`set`](./op_constructor.md) | コンストラクタ |
+| [`insert`](insert.md)      | 要素を挿入する |
+| [`set`](op_constructor.md) | コンストラクタ |
 
 
 ##参照

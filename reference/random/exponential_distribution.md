@@ -13,7 +13,7 @@ namespace std {
 ```
 
 ##概要
-`exponential_distribution`は、連続確率分布の一種である指数分布を表すクラスである。指数分布は、ガンマ分布([`gamma_distribution`](./gamma_distribution.md))の形状母数(scale parameter)を1.0とした特殊ケースとして定義される。  
+`exponential_distribution`は、連続確率分布の一種である指数分布を表すクラスである。指数分布は、ガンマ分布([`gamma_distribution`](gamma_distribution.md))の形状母数(scale parameter)を1.0とした特殊ケースとして定義される。  
 
 以下の確率密度関数に基いて、浮動小数点数の値`x`を生成する：
 
@@ -38,26 +38,26 @@ $$ p(x| \lambda ) = \lambda e^{-\lambda x} $$
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./exponential_distribution/op_constructor.md)           | コンストラクタ     | C++11 |
+| [`(constructor)`](exponential_distribution/op_constructor.md)           | コンストラクタ     | C++11 |
 | `~exponential_distribution() = default;`                                  | デストラクタ       | C++11 |
-| [`reset`](./exponential_distribution/reset.md)                            | 状態をリセットする | C++11 |
+| [`reset`](exponential_distribution/reset.md)                            | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|----------------|-------|
-| [`operator()`](./exponential_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](exponential_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------------|-------|
-| [`lambda`](./exponential_distribution/lambda.md) | 母数を取得する                   | C++11 |
-| [`param`](./exponential_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./exponential_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./exponential_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`lambda`](exponential_distribution/lambda.md) | 母数を取得する                   | C++11 |
+| [`param`](exponential_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](exponential_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](exponential_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -72,10 +72,10 @@ $$ p(x| \lambda ) = \lambda e^{-\lambda x} $$
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./exponential_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./exponential_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./exponential_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./exponential_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](exponential_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](exponential_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](exponential_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](exponential_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

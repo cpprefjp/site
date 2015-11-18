@@ -19,12 +19,12 @@ namespace std {
 実引数のstrオブジェクト。
 
 ##例
-[`dec`](./dec.md)を参照。
+[`dec`](dec.md)を参照。
 
 ##バージョン
 ###言語
 - C++03
 
 ##参照
-- [`oct`](./oct.md)
-- [`dec`](./dec.md)
+- [`oct`](oct.md)
+- [`dec`](dec.md)

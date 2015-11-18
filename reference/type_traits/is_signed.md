@@ -16,12 +16,12 @@ namespace std {
 
 
 ##効果
-`is_signed`は、型`T`が符号付き算術型 (cv修飾を許容する) であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`is_signed`は、型`T`が符号付き算術型 (cv修飾を許容する) であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
 
 符号付き算術型と見なす条件は以下：
 
-- C++11 : [`is_arithmetic`](./is_arithmetic.md)`<T>::value && T(-1) < T(0)`
-- C++14 : [`is_arithmetic`](./is_arithmetic.md)`<T>::value == true`の場合、[`integral_constant`](./integral_constant-true_type-false_type.md)`<bool, T(-1) < T(0)>::value`の結果を真偽の結果とする。そうでなければ偽の結果とする。
+- C++11 : [`is_arithmetic`](is_arithmetic.md)`<T>::value && T(-1) < T(0)`
+- C++14 : [`is_arithmetic`](is_arithmetic.md)`<T>::value == true`の場合、[`integral_constant`](integral_constant-true_type-false_type.md)`<bool, T(-1) < T(0)>::value`の結果を真偽の結果とする。そうでなければ偽の結果とする。
     - 備考： `T`が算術型以外だった場合に、`T(0)`、`T(-1)`でテンプレートの置き換えが発生してしまうため、このような文言になっている。
 
 

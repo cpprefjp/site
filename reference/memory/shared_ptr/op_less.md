@@ -21,15 +21,15 @@ namespace std {
 ##概要
 `shared_ptr`において、左辺が右辺より小さいかを判定する。
 
-比較対象は、`shared_ptr`が指す値ではなく、`shared_ptr`が保持するポインタ値。これは「値ベース(value-based)な比較」と呼ばれる。「所有権ベース(ownership-based)な比較」は、[`owner_before()`](./owner_before.md)を参照。
+比較対象は、`shared_ptr`が指す値ではなく、`shared_ptr`が保持するポインタ値。これは「値ベース(value-based)な比較」と呼ばれる。「所有権ベース(ownership-based)な比較」は、[`owner_before()`](owner_before.md)を参照。
 
 
 ##戻り値
-- (1) : [`std::common_type`](/reference/type_traits/common_type.md)`<T*, U*>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/less.md)`<CT>(a.`[`get()`](./get.md), b.`[`get()`](./get.md)`)`で比較した結果を返す。
+- (1) : [`std::common_type`](/reference/type_traits/common_type.md)`<T*, U*>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/less.md)`<CT>(a.`[`get()`](get.md), b.`[`get()`](get.md)`)`で比較した結果を返す。
 
-- (2) : [`std::less`](/reference/functional/less.md)`<T*>()(x.`[`get()`](./get.md)`, nullptr)`で比較した結果を返す。
+- (2) : [`std::less`](/reference/functional/less.md)`<T*>()(x.`[`get()`](get.md)`, nullptr)`で比較した結果を返す。
 
-- (3) : [`std::less`](/reference/functional/less.md)`<T*>()(nullptr, x.`[`get()`](./get.md)`)`で比較した結果を返す。
+- (3) : [`std::less`](/reference/functional/less.md)`<T*>()(nullptr, x.`[`get()`](get.md)`)`で比較した結果を返す。
 
 
 ##例

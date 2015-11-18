@@ -14,9 +14,9 @@ namespace std {
 ```
 
 ##概要
-`packaged_task`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`future`](./future.md)クラスと組み合わせて使用する。`packaged_task`に登録した非同期実行する関数の戻り値を[`future`](./future.md)が読み取る。
+`packaged_task`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`future`](future.md)クラスと組み合わせて使用する。`packaged_task`に登録した非同期実行する関数の戻り値を[`future`](future.md)が読み取る。
 
-`packaged_task`と[`future`](./future.md)は内部的に同一の共有状態を参照する。  
+`packaged_task`と[`future`](future.md)は内部的に同一の共有状態を参照する。  
 
 
 テンプレートパラメータ：
@@ -28,41 +28,41 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](./packaged_task/op_constructor.md) | コンストラクタ | C++11 |
-| [`(destructor)`](./packaged_task/op_destructor.md) | デストラクタ | C++11 |
-| [`operator=`](./packaged_task/op_assign.md) | 代入演算子 | C++11 |
-| [`swap`](./packaged_task/swap.md) | 他の`packaged_task`オブジェクトと値を入れ替える | C++11 |
-| [`valid`](./packaged_task/valid.md) | 共有状態を持っているかを確認する | C++11 |
-| [`reset`](./packaged_task/reset.md) | 共有状態を作り直す | C++11 |
+| [`(constructor)`](packaged_task/op_constructor.md) | コンストラクタ | C++11 |
+| [`(destructor)`](packaged_task/op_destructor.md) | デストラクタ | C++11 |
+| [`operator=`](packaged_task/op_assign.md) | 代入演算子 | C++11 |
+| [`swap`](packaged_task/swap.md) | 他の`packaged_task`オブジェクトと値を入れ替える | C++11 |
+| [`valid`](packaged_task/valid.md) | 共有状態を持っているかを確認する | C++11 |
+| [`reset`](packaged_task/reset.md) | 共有状態を作り直す | C++11 |
 
 
 ###結果の取得
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`get_future`](./packaged_task/get_future.md) | 結果取得のための`future`オブジェクトを取得する | C++11 |
+| [`get_future`](packaged_task/get_future.md) | 結果取得のための`future`オブジェクトを取得する | C++11 |
 
 
 ###実行
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator()`](./packaged_task/op_call.md) | タスクを実行し、戻り値を共有状態に格納する | C++11 |
-| [`make_ready_at_thread_exit`](./packaged_task/make_ready_at_thread_exit.md) | タスクを実行し、スレッド終了時に準備完了状態にする | C++11 |
+| [`operator()`](packaged_task/op_call.md) | タスクを実行し、戻り値を共有状態に格納する | C++11 |
+| [`make_ready_at_thread_exit`](packaged_task/make_ready_at_thread_exit.md) | タスクを実行し、スレッド終了時に準備完了状態にする | C++11 |
 
 
 ##非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](./packaged_task/swap_free.md) | 2つの`packaged_task`オブジェクトを入れ替える | C++11 |
+| [`swap`](packaged_task/swap_free.md) | 2つの`packaged_task`オブジェクトを入れ替える | C++11 |
 
 
 ##その他
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`uses_allocator`](./packaged_task/uses_allocator.md) | `packaged_task`による特殊化 | C++11 |
+| [`uses_allocator`](packaged_task/uses_allocator.md) | `packaged_task`による特殊化 | C++11 |
 
 
 ##例

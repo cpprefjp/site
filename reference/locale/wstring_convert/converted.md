@@ -16,7 +16,7 @@ size_t converted() const noexcept; // C++14
 
 
 ##戻り値
-[`from_bytes()`](./from_bytes.md)もしくは[`to_bytes()`](./to_bytes.md)関数で変換した、変換元となった文字列の要素数を返す。
+[`from_bytes()`](from_bytes.md)もしくは[`to_bytes()`](to_bytes.md)関数で変換した、変換元となった文字列の要素数を返す。
 
 
 ##例外

@@ -38,7 +38,7 @@ basic_string& assign(initializer_list<charT>);     // (8) C++11
 
 
 ##要件
-- (3) : `pos <= str.`[`size()`](./size.md)であること。
+- (3) : `pos <= str.`[`size()`](size.md)であること。
 - (4) : `s` は少なくとも `n` の長さを持つ `charT` 型の配列を指していること。
 - (5) : `s` は少なくとも `traits_type::length(s) + 1` の長さを持つ `charT` 型の配列を指していること。
 
@@ -48,7 +48,7 @@ basic_string& assign(initializer_list<charT>);     // (8) C++11
     - `assign(str, 0, npos)`と同等。
 - (2) : ムーブ代入。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
 - (3) : `str`オブジェクトの部分文字列のコピーから構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
-    - 追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](./size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](./size.md)`() - pos` が使用される。
+    - 追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
     - `assign(str.data() + pos, rlen)`を呼び出す。
 - (4) : 文字配列`s`の先頭`n`文字からなる部分文字列のコピーから構築する。
 - (5) : 文字配列`s`のコピーから構築する。
@@ -66,8 +66,8 @@ basic_string& assign(initializer_list<charT>);     // (8) C++11
 
 
 ##例外
-- (3) : `pos > str.`[`size()`](./size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
-- (4) : `n >` [`max_size()`](./max_size.md)である場合、[`length_error`](/reference/stdexcept.md)例外を送出する
+- (3) : `pos > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
+- (4) : `n >` [`max_size()`](max_size.md)である場合、[`length_error`](/reference/stdexcept.md)例外を送出する
 
 
 

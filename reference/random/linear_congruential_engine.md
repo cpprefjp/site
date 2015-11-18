@@ -32,7 +32,7 @@ $$X_{n+1}= (A \times X_n + C) \bmod M$$
 C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/reference/cstdlib/rand.md.nolink)の乱数生成法は実装定義だが、多くの実装で線形合同法が使用されている。
 
 
-しかし、メモリ使用量がそれほど問題にならないのであれば、メルセンヌ・ツイスター([`mt19937`](./mt19937.md))の使用を検討した方がいいだろう。
+しかし、メモリ使用量がそれほど問題にならないのであれば、メルセンヌ・ツイスター([`mt19937`](mt19937.md))の使用を検討した方がいいだろう。
 
 標準にはないが、メモリ使用量が少なく、高速で、周期も長い(メルセンヌ・ツイスターほどではない)、xorshiftという乱数生成法も存在する。
 
@@ -42,17 +42,17 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./linear_congruential_engine/op_constructor.md)             | コンストラクタ   | C++11 |
+| [`(constructor)`](linear_congruential_engine/op_constructor.md)             | コンストラクタ   | C++11 |
 | `~linear_congruential_engine() = default;`                                    | デストラクタ     | C++11 |
-| [`seed`](./linear_congruential_engine/seed.md)                                | シードを設定する | C++11 |
+| [`seed`](linear_congruential_engine/seed.md)                                | シードを設定する | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|--------------------|-------|
-| [`operator()`](./linear_congruential_engine/op_call.md) | 擬似乱数を生成する | C++11 |
-| [`discard`](./linear_congruential_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
+| [`operator()`](linear_congruential_engine/op_call.md) | 擬似乱数を生成する | C++11 |
+| [`discard`](linear_congruential_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
 
 
 ##静的メンバ関数
@@ -60,8 +60,8 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
-| [`min`](./linear_congruential_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](./linear_congruential_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](linear_congruential_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
+| [`max`](linear_congruential_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
 
 
 ##メンバ型
@@ -85,10 +85,10 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./linear_congruential_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./linear_congruential_engine/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./linear_congruential_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./linear_congruential_engine/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](linear_congruential_engine/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](linear_congruential_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](linear_congruential_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](linear_congruential_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

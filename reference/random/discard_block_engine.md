@@ -20,7 +20,7 @@ namespace std {
 `discard_block_engine`クラスは、乱数生成エンジンが生成する乱数を調整し、捨てるブロックと使用するブロックに分ける生成器アダプタである。  
 テンプレートパラメータ`p`はブロックの全体サイズ、`r`は使用するブロックサイズである。`p - r`が破棄するブロックサイズとなる。  
 
-この生成器アダプタは、標準内においては[`subtract_with_carry_engine`](./subtract_with_carry_engine.md)クラスと組み合わせて、RANLUX(LUXury RANdom numbers)法を実装するために使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
+この生成器アダプタは、標準内においては[`subtract_with_carry_engine`](subtract_with_carry_engine.md)クラスと組み合わせて、RANLUX(LUXury RANdom numbers)法を実装するために使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
 
 
 ##要件
@@ -32,24 +32,24 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./discard_block_engine/op_constructor.md)       | コンストラクタ   | C++11 |
+| [`(constructor)`](discard_block_engine/op_constructor.md)       | コンストラクタ   | C++11 |
 | `~discard_block_engine() = default;`                              | デストラクタ     | C++11 |
-| [`seed`](./discard_block_engine/seed.md)                          | シードを設定する | C++11 |
+| [`seed`](discard_block_engine/seed.md)                          | シードを設定する | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|--------------------|-------|
-| [`operator()`](./discard_block_engine/op_call.md) | 乱数を生成する | C++11 |
-| [`discard`](./discard_block_engine/discard.md)    | 指定した回数だけ乱数を生成し、内部状態を進める | C++11 |
+| [`operator()`](discard_block_engine/op_call.md) | 乱数を生成する | C++11 |
+| [`discard`](discard_block_engine/discard.md)    | 指定した回数だけ乱数を生成し、内部状態を進める | C++11 |
 
 
 ###エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|------------------------------|-------|
-| [`base`](./discard_block_engine/base.md) | 元となる乱数生成器を取得する | C++11 |
+| [`base`](discard_block_engine/base.md) | 元となる乱数生成器を取得する | C++11 |
 
 
 ##静的メンバ関数
@@ -57,8 +57,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
-| [`min`](./discard_block_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](./discard_block_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](discard_block_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
+| [`max`](discard_block_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
 
 
 ##メンバ型
@@ -80,10 +80,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./discard_block_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./discard_block_engine/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./discard_block_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./discard_block_engine/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](discard_block_engine/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](discard_block_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](discard_block_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](discard_block_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

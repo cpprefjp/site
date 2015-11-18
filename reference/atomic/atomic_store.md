@@ -21,8 +21,8 @@ namespace std {
 
 
 ##効果
-[`memory_order_seq_cst`](./memory_order.md)のメモリオーダーにしたがって、`object`が指す値を`desired`でアトミックに置き換える。
-この関数は、戻り値のない[`atomic_exchange()`](./atomic_exchange.md)と見なせる。
+[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、`object`が指す値を`desired`でアトミックに置き換える。
+この関数は、戻り値のない[`atomic_exchange()`](atomic_exchange.md)と見なせる。
 
 
 ##戻り値
@@ -34,7 +34,7 @@ namespace std {
 
 
 ##備考
-この関数は、特殊化された[`atomic`](./atomic.md)型に対して定義される。
+この関数は、特殊化された[`atomic`](atomic.md)型に対して定義される。
 
 
 ##例

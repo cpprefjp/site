@@ -24,7 +24,7 @@ namespace std {
 3. 変換前と逆変換のポインタ値が等値となる
 
 
-コード例は、[`intptr_t`](./intptr_t.md)を参照。
+コード例は、[`intptr_t`](intptr_t.md)を参照。
 
 
 ##バージョン

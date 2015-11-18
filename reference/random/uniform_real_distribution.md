@@ -13,7 +13,7 @@ namespace std {
 
 ##概要
 `uniform_real_distribution`は、指定された範囲の値が等確率で発生するよう離散分布するクラスである。 
-このクラスは、離散一様分布(Discrete Uniform Distribution)の実数に特化したバージョンである。整数が必要な場合は、[`uniform_int_distribution`](./uniform_int_distribution.md)クラスを使用する。
+このクラスは、離散一様分布(Discrete Uniform Distribution)の実数に特化したバージョンである。整数が必要な場合は、[`uniform_int_distribution`](uniform_int_distribution.md)クラスを使用する。
 
 テンプレートパラメータは、以下を意味する：
 
@@ -25,27 +25,27 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./uniform_real_distribution/op_constructor.md)            | コンストラクタ     | C++11 |
+| [`(constructor)`](uniform_real_distribution/op_constructor.md)            | コンストラクタ     | C++11 |
 | `~uniform_real_distribution() = default;`                                   | デストラクタ       | C++11 |
-| [`reset`](./uniform_real_distribution/reset.md)                             | 状態をリセットする | C++11 |
+| [`reset`](uniform_real_distribution/reset.md)                             | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------|----------------|-------|
-| [`operator()`](./uniform_real_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](uniform_real_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|----------------------------------|-------|
-| [`a`](./uniform_real_distribution/a.md)         | 生成する範囲の最小値を取得する   | C++11 |
-| [`b`](./uniform_real_distribution/b.md)         | 生成する範囲の最大値を取得する   | C++11 |
-| [`param`](./uniform_real_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./uniform_real_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./uniform_real_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`a`](uniform_real_distribution/a.md)         | 生成する範囲の最小値を取得する   | C++11 |
+| [`b`](uniform_real_distribution/b.md)         | 生成する範囲の最大値を取得する   | C++11 |
+| [`param`](uniform_real_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](uniform_real_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](uniform_real_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -60,10 +60,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./uniform_real_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./uniform_real_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./uniform_real_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./uniform_real_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](uniform_real_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](uniform_real_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](uniform_real_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](uniform_real_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

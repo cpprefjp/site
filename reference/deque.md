@@ -38,63 +38,63 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------|-------|
-| [`(constructor)`](./deque/op_constructor.md)         | コンストラクタ | |
-| [`(destructor)`](./deque/op_destructor.md)         | デストラクタ   | |
-| [`operator=`](./deque/op_assign.md)         | 代入演算子     | |
-| [`assign`](./deque/assign.md)               | コンテナに値を代入する | |
-| [`get_allocator`](./deque/get_allocator.md) | アロケータオブジェクトを取得する | |
+| [`(constructor)`](deque/op_constructor.md)         | コンストラクタ | |
+| [`(destructor)`](deque/op_destructor.md)         | デストラクタ   | |
+| [`operator=`](deque/op_assign.md)         | 代入演算子     | |
+| [`assign`](deque/assign.md)               | コンテナに値を代入する | |
+| [`get_allocator`](deque/get_allocator.md) | アロケータオブジェクトを取得する | |
 
 
 ###要素アクセス
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|----------------------------------|-------|
-| [`at`](./deque/at.md)            | 任意位置の要素への参照を取得する | |
-| [`operator[]`](./deque/op_at.md) | 任意位置の要素への参照を取得する | |
-| [`front`](./deque/front.md)      | 先頭要素への参照を取得する | |
-| [`back`](./deque/back.md)        | 末尾要素への参照を取得する | |
+| [`at`](deque/at.md)            | 任意位置の要素への参照を取得する | |
+| [`operator[]`](deque/op_at.md) | 任意位置の要素への参照を取得する | |
+| [`front`](deque/front.md)      | 先頭要素への参照を取得する | |
+| [`back`](deque/back.md)        | 末尾要素への参照を取得する | |
 
 
 ###イテレータ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|------------------------------------------------------|-------|
-| [`begin`](./deque/begin.md)     | 先頭要素を指すイテレータの取得する                   | |
-| [`end`](./deque/end.md)         | 末尾要素の次を指すイテレータを取得する               | |
-| [`cbegin`](./deque/cbegin.md)   | 先頭要素を指す読み取り専用イテレータを取得する       | C++11 |
-| [`cend`](./deque/cend.md)       | 末尾要素の次を指す読み取り専用イテレータを取得する   | C++11 |
-| [`rbegin`](./deque/rbegin.md)   | 末尾要素を指す逆イテレータを取得する                 | |
-| [`rend`](./deque/rend.md)       | 先頭要素の前を指す逆イテレータを取得する             | |
-| [`crbegin`](./deque/crbegin.md) | 末尾要素を指す読み取り専用逆イテレータを取得する     | C++11 |
-| [`crend`](./deque/crend.md)     | 先頭要素の前を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`begin`](deque/begin.md)     | 先頭要素を指すイテレータの取得する                   | |
+| [`end`](deque/end.md)         | 末尾要素の次を指すイテレータを取得する               | |
+| [`cbegin`](deque/cbegin.md)   | 先頭要素を指す読み取り専用イテレータを取得する       | C++11 |
+| [`cend`](deque/cend.md)       | 末尾要素の次を指す読み取り専用イテレータを取得する   | C++11 |
+| [`rbegin`](deque/rbegin.md)   | 末尾要素を指す逆イテレータを取得する                 | |
+| [`rend`](deque/rend.md)       | 先頭要素の前を指す逆イテレータを取得する             | |
+| [`crbegin`](deque/crbegin.md) | 末尾要素を指す読み取り専用逆イテレータを取得する     | C++11 |
+| [`crend`](deque/crend.md)     | 先頭要素の前を指す読み取り専用逆イテレータを取得する | C++11 |
 
 
 ###領域
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------------|-------|
-| [`empty`](./deque/empty.md)                 | コンテナが空であるかどうかを調べる                 | |
-| [`size`](./deque/size.md)                   | 要素数を取得する                                   | |
-| [`max_size`](./deque/max_size.md)           | 格納可能な最大の要素数を取得する                   | |
-| [`shrink_to_fit`](./deque/shrink_to_fit.md) | 利用していないメモリを解放してメモリ使用量を減らす | C++11 |
+| [`empty`](deque/empty.md)                 | コンテナが空であるかどうかを調べる                 | |
+| [`size`](deque/size.md)                   | 要素数を取得する                                   | |
+| [`max_size`](deque/max_size.md)           | 格納可能な最大の要素数を取得する                   | |
+| [`shrink_to_fit`](deque/shrink_to_fit.md) | 利用していないメモリを解放してメモリ使用量を減らす | C++11 |
 
 
 ###コンテナの変更
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------------|-------|
-| [`clear`](./deque/clear.md)                 | 全ての要素を削除する | |
-| [`insert`](./deque/insert.md)               | 任意の位置に要素を挿入する | |
-| [`emplace`](./deque/emplace.md)             | 任意の位置に要素を直接構築で挿入する | C++11 |
-| [`push_back`](./deque/push_back.md)         | 末尾に要素を追加する | |
-| [`emplace_back`](./deque/emplace_back.md)   | 末尾に要素を直接構築で追加する | C++11 |
-| [`pop_back`](./deque/pop_back.md)           | 末尾要素を削除する | |
-| [`push_front`](./deque/push_front.md)       | 先頭に要素を追加する | |
-| [`emplace_front`](./deque/emplace_front.md) | 先頭に要素を直接構築で追加する | C++11 |
-| [`pop_front`](./deque/pop_front.md)         | 先頭要素を削除する | |
-| [`resize`](./deque/resize.md)               | 要素数を変更する | |
-| [`erase`](./deque/erase.md)                 | 指定した要素を削除する | |
-| [`swap`](./deque/swap.md)                   | 他の`deque`オブジェクトとデータを入れ替える | |
+| [`clear`](deque/clear.md)                 | 全ての要素を削除する | |
+| [`insert`](deque/insert.md)               | 任意の位置に要素を挿入する | |
+| [`emplace`](deque/emplace.md)             | 任意の位置に要素を直接構築で挿入する | C++11 |
+| [`push_back`](deque/push_back.md)         | 末尾に要素を追加する | |
+| [`emplace_back`](deque/emplace_back.md)   | 末尾に要素を直接構築で追加する | C++11 |
+| [`pop_back`](deque/pop_back.md)           | 末尾要素を削除する | |
+| [`push_front`](deque/push_front.md)       | 先頭に要素を追加する | |
+| [`emplace_front`](deque/emplace_front.md) | 先頭に要素を直接構築で追加する | C++11 |
+| [`pop_front`](deque/pop_front.md)         | 先頭要素を削除する | |
+| [`resize`](deque/resize.md)               | 要素数を変更する | |
+| [`erase`](deque/erase.md)                 | 指定した要素を削除する | |
+| [`swap`](deque/swap.md)                   | 他の`deque`オブジェクトとデータを入れ替える | |
 
 
 ##メンバ型
@@ -119,13 +119,13 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------------|-------|
-| [`operator==`](./deque/op_equal.md)         | 等値比較 | |
-| [`operator!=`](./deque/op_not_equal.md)     | 非等値比較 | |
-| [`operator<`](./deque/op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
-| [`operator<=`](./deque/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | |
-| [`operator>`](./deque/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
-| [`operator>=`](./deque/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | |
-| [`swap`](./deque/swap_free.md)              | 2つの`deque`オブジェクトを入れ替える | |
+| [`operator==`](deque/op_equal.md)         | 等値比較 | |
+| [`operator!=`](deque/op_not_equal.md)     | 非等値比較 | |
+| [`operator<`](deque/op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
+| [`operator<=`](deque/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | |
+| [`operator>`](deque/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
+| [`operator>=`](deque/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | |
+| [`swap`](deque/swap_free.md)              | 2つの`deque`オブジェクトを入れ替える | |
 
 
 ##例

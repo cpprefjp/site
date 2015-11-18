@@ -14,7 +14,7 @@ namespace std {
 * integer_sequence[link ./integer_sequence.md]
 
 ##概要
-`index_sequence`は、[`size_t`](/reference/cstddef/size_t.md)型のシーケンスをコンパイル時に表現する、[`integer_sequence`](./integer_sequence.md)クラスの別名である。
+`index_sequence`は、[`size_t`](/reference/cstddef/size_t.md)型のシーケンスをコンパイル時に表現する、[`integer_sequence`](integer_sequence.md)クラスの別名である。
 
 
 ##例

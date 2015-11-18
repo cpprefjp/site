@@ -12,7 +12,7 @@ namespace std {
 * logic_error[link /reference/stdexcept.md]
 
 ##概要
-`future_error`は、[`future`](./future.md)/[`promise`](./promise.md)操作でのエラーを扱うための例外クラスである。
+`future_error`は、[`future`](future.md)/[`promise`](promise.md)操作でのエラーを扱うための例外クラスである。
 
 
 ##メンバ関数

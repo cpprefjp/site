@@ -53,7 +53,7 @@ int main(int argc, char** argv)
 
 ##参照
 
-- [`wclog`](./wclog.md.nolink)
-- [`cerr`](./cerr.md)
-- [`wcerr`](./wcerr.md.nolink)
+- [`wclog`](wclog.md.nolink)
+- [`cerr`](cerr.md)
+- [`wcerr`](wcerr.md.nolink)
 

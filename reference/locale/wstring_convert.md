@@ -21,7 +21,7 @@ namespace std {
 
 ワイド文字列とは、ひとつの文字を表すのに固定長のバイト数を必要とする、UTF-16やUTF-32のような文字コードの文字列である。
 
-このクラスの[`from_bytes()`](./wstring_convert/from_bytes.md)メンバ関数を使用することによってバイト文字列からワイド文字列への変換ができ、[`to_bytes()`](./wstring_convert/to_bytes.md)メンバ関数を使用することによってワイド文字列からバイト文字列への変換ができる。
+このクラスの[`from_bytes()`](wstring_convert/from_bytes.md)メンバ関数を使用することによってバイト文字列からワイド文字列への変換ができ、[`to_bytes()`](wstring_convert/to_bytes.md)メンバ関数を使用することによってワイド文字列からバイト文字列への変換ができる。
 
 
 テンプレートパラメータは、以下を意味する：
@@ -48,13 +48,13 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------|----------------------------------|-------|
-| [`(constructor)`](./wstring_convert/op_constructor.md) | コンストラクタ | C++11 |
-| [`(destructor)`](./wstring_convert/op_destructor.md)   | デストラクタ | C++11 |
-| [`operator=`](./wstring_convert/op_assign.md)      | 代入演算子 | C++11 |
-| [`from_bytes`](./wstring_convert/from_bytes.md)    | バイト文字列からワイド文字列に変換する | C++11 |
-| [`to_bytes`](./wstring_convert/to_bytes.md)        | ワイド文字列からバイト文字列に変換する | C++11 |
-| [`converted`](./wstring_convert/converted.md)      | 変換した要素数を取得する | C++11 |
-| [`state`](./wstring_convert/state.md)              | 変換の状態を取得する | C++11 |
+| [`(constructor)`](wstring_convert/op_constructor.md) | コンストラクタ | C++11 |
+| [`(destructor)`](wstring_convert/op_destructor.md)   | デストラクタ | C++11 |
+| [`operator=`](wstring_convert/op_assign.md)      | 代入演算子 | C++11 |
+| [`from_bytes`](wstring_convert/from_bytes.md)    | バイト文字列からワイド文字列に変換する | C++11 |
+| [`to_bytes`](wstring_convert/to_bytes.md)        | ワイド文字列からバイト文字列に変換する | C++11 |
+| [`converted`](wstring_convert/converted.md)      | 変換した要素数を取得する | C++11 |
+| [`state`](wstring_convert/state.md)              | 変換の状態を取得する | C++11 |
 
 
 ##メンバ型

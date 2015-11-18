@@ -13,7 +13,7 @@ float load_factor() const noexcept;
 現在の負荷率（バケットあたりの要素数の平均）を取得する。
 
 ##戻り値
-現在の負荷率　:[`size`](./size.md) / [`bucket_count](./bucket_count.md) 
+現在の負荷率　:[`size`](size.md) / [`bucket_count](bucket_count.md) 
 
 
 ##例外
@@ -57,7 +57,7 @@ current load_factor: 0.5
 ```
 
 ###検証
-[`load_factor`](./load_factor.md) = [`size`](./size.md) / [`bucket_count](./bucket_count.md)   を満たしている。
+[`load_factor`](load_factor.md) = [`size`](size.md) / [`bucket_count](bucket_count.md)   を満たしている。
 
 
 ##バージョン
@@ -75,9 +75,9 @@ current load_factor: 0.5
 
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------------|-----------------------|
-| [`emplace`](./emplace.md) | コンテナ内への要素の直接構築 |
-| [`size`](./size.md) | 要素数の取得 |
-| [`bucket_count`](./bucket_count.md) | バケット数の取得 |
-| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定 |
+| [`emplace`](emplace.md) | コンテナ内への要素の直接構築 |
+| [`size`](size.md) | 要素数の取得 |
+| [`bucket_count`](bucket_count.md) | バケット数の取得 |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
 
 

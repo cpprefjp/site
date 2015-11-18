@@ -25,17 +25,17 @@ basic_string& operator+=(initializer_list<charT> il);	// (4) C++11 から
 
 ##効果
 - (1) 対象オブジェクトの末尾に `str` の値が追加（コピー）される。  
-	[`append`](./append.md)`(str)` と同一。
+	[`append`](append.md)`(str)` と同一。
 
 - (2) 対象オブジェクトの末尾に `s` から始まる NULL で終端された文字列が追加される。  
-	[`append`](./append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(s))`（C++03 まで）、あるいは、[`append`](./append.md)`(s)`（C++11 から）と同一。  
+	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(s))`（C++03 まで）、あるいは、[`append`](append.md)`(s)`（C++11 から）と同一。  
 	なお、`s` から始まる NULL 終端された文字列の長さは、`traits_type::length(s)` で求められる。
 
 - (3) 対象オブジェクトの末尾に文字 `c` が追加される。  
-	[`append`](./append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(1, c))` と同一。
+	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(1, c))` と同一。
 
 - (4) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。  
-	[`append`](./append.md)`(il)` と同一。
+	[`append`](append.md)`(il)` と同一。
 
 
 ##戻り値
@@ -43,13 +43,13 @@ basic_string& operator+=(initializer_list<charT> il);	// (4) C++11 から
 
 
 ##例外
-- (1) [`size`](./size.md)`() + str.`[`size`](./size.md)`() >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+- (1) [`size`](size.md)`() + str.`[`size`](size.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (2) [`size`](./size.md)`() + traits_type::length(s) >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+- (2) [`size`](size.md)`() + traits_type::length(s) >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (3) [`size`](./size.md)`() + 1 >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+- (3) [`size`](size.md)`() + 1 >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (4) [`size`](./size.md)`() + il.size() >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+- (4) [`size`](size.md)`() + il.size() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 
 ##備考
@@ -97,10 +97,10 @@ Hello, world! :)
 
 |                               |                        |
 |-------------------------------|------------------------|
-| [`append`](./append.md)       | 文字／文字列を追加する |
-| [`push_back`](./push_back.md) | 文字を追加する         |
-| [`insert`](./insert.md)       | 文字／文字列を挿入する |
-| [`operator+`](./op_plus.md)   | 文字列を連結する       |
+| [`append`](append.md)       | 文字／文字列を追加する |
+| [`push_back`](push_back.md) | 文字を追加する         |
+| [`insert`](insert.md)       | 文字／文字列を挿入する |
+| [`operator+`](op_plus.md)   | 文字列を連結する       |
 
 
 ##参照

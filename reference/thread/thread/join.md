@@ -14,7 +14,7 @@ void join();
 
 
 ##要件
-`thread`オブジェクトにスレッドが関連付けられていること([`joinable()`](./joinable.md) `== true`)。
+`thread`オブジェクトにスレッドが関連付けられていること([`joinable()`](joinable.md) `== true`)。
 
 
 ##効果

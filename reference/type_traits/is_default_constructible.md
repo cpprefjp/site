@@ -20,8 +20,8 @@ namespace std {
 
 
 ##効果
-`is_default_constructible`は、型`T`がデフォルトコンストラクト可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
-[`is_constructible`](./is_constructible.md)`<T>::value == true`の時に、デフォルト構築可能であると判断される。
+`is_default_constructible`は、型`T`がデフォルトコンストラクト可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。 
+[`is_constructible`](is_constructible.md)`<T>::value == true`の時に、デフォルト構築可能であると判断される。
 
 
 ##例

@@ -44,7 +44,7 @@ d_ = std::forward<E>(u.get_deleter());
 * get_deleter[link ./get_deleter.md]
 
 
-- (3) : [`reset()`](./reset.md)
+- (3) : [`reset()`](reset.md)
 
 
 ##戻り値

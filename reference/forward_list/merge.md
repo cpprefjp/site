@@ -22,7 +22,7 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 ##要件
 - `comp`が[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)として定義されていること。`*this`と`x`がその順序でソートされていること。
-- [`get_allocator()`](./get_allocator.md) `== x.`[`get_allocator()`](./get_allocator.md)であること。(C++14)
+- [`get_allocator()`](get_allocator.md) `== x.`[`get_allocator()`](get_allocator.md)であること。(C++14)
 
 
 ##効果
@@ -40,12 +40,12 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 
 ##計算量
-高々[`distance`](/reference/iterator/distance.md)`(`[`begin`](./begin.md)()`,` [`end`](./end.md)`()) +` [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`()) - 1`回の比較
+高々[`distance`](/reference/iterator/distance.md)`(`[`begin`](begin.md)()`,` [`end`](end.md)`()) +` [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`()) - 1`回の比較
 
 
 ##備考
 - この操作は安定である。
-- `this->`[`get_allocator()`](./get_allocator.md) `!= x.`[`get_allocator()`](./get_allocator.md)である場合、その振る舞いは未定義。(C++14)
+- `this->`[`get_allocator()`](get_allocator.md) `!= x.`[`get_allocator()`](get_allocator.md)である場合、その振る舞いは未定義。(C++14)
 
 
 ##例

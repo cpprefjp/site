@@ -18,33 +18,33 @@ namespace std {
 
 テンプレートパラメータ`Mutex`は、`lock()`／`unlock()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
 
-シンプルな機能しか提供しない[`lock_guard`](./lock_guard.md)クラスとの違いとして、以下の拡張機能を持つ：
+シンプルな機能しか提供しない[`lock_guard`](lock_guard.md)クラスとの違いとして、以下の拡張機能を持つ：
 
-- コンストラクタでロックを取得せず、あとからロックを取得できる([`defer_lock`](./defer_lock.md))
-- コンストラクタでのロック取得に、`lock()`ではなく`try_lock()`を使用できる([`try_to_lock`](./try_to_lock.md))
+- コンストラクタでロックを取得せず、あとからロックを取得できる([`defer_lock`](defer_lock.md))
+- コンストラクタでのロック取得に、`lock()`ではなく`try_lock()`を使用できる([`try_to_lock`](try_to_lock.md))
 - ミューテックスの所有権を移動・交換(`swap`)・放棄(`release`)できる
 - 任意のタイミングで所有ミューテックスのロック操作を呼び出せる
 
 
-また条件変数std::[`condition_variable`](/reference/condition_variable/condition_variable.md)オブジェクトと組み合わせて利用できるのは、`std::unique_lock<std::`[`mutex`](./mutex.md)`>`型のオブジェクトに限定されている。
+また条件変数std::[`condition_variable`](/reference/condition_variable/condition_variable.md)オブジェクトと組み合わせて利用できるのは、`std::unique_lock<std::`[`mutex`](mutex.md)`>`型のオブジェクトに限定されている。
 
 ##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|--------------------------------------------------------|-------|
-| [`(constructor)`](./unique_lock/op_constructor.md)     | コンストラクタ | C++11 |
-| [`(destructor)`](./unique_lock/op_destructor.md)     | デストラクタ | C++11 |
-| [`operator=`](./unique_lock/op_assign.md)           | 代入演算子 | C++11 |
-| [`lock`](./unique_lock/lock.md)                     | ロックを取得する | C++11 |
-| [`try_lock`](./unique_lock/try_lock.md)             | ロックの取得を試みる | C++11 |
-| [`try_lock_for`](./unique_lock/try_lock_for.md)     | タイムアウトする相対時間を指定してロックの取得を試みる | C++11 |
-| [`try_lock_until`](./unique_lock/try_lock_until.md) | タイムアウトする絶対時間を指定してロックの取得を試みる | C++11 |
-| [`unlock`](./unique_lock/unlock.md)                 | ロックを手放す | C++11 |
-| [`swap`](./unique_lock/swap.md)                     | 他の`unique_lock`オブジェクトと値を入れ替える | C++11 |
-| [`release`](./unique_lock/release.md)               | ミューテックスの所有権を放棄する | C++11 |
-| [`owns_lock`](./unique_lock/owns_lock.md)           | ロックを取得しているかを判定する | C++11 |
-| [`operator bool`](./unique_lock/op_bool.md)         | ロックを取得しているかを判定する | C++11 |
-| [`mutex`](./unique_lock/mutex.md)                   | 所有しているミューテックスオブジェクトを取得する | C++11 |
+| [`(constructor)`](unique_lock/op_constructor.md)     | コンストラクタ | C++11 |
+| [`(destructor)`](unique_lock/op_destructor.md)     | デストラクタ | C++11 |
+| [`operator=`](unique_lock/op_assign.md)           | 代入演算子 | C++11 |
+| [`lock`](unique_lock/lock.md)                     | ロックを取得する | C++11 |
+| [`try_lock`](unique_lock/try_lock.md)             | ロックの取得を試みる | C++11 |
+| [`try_lock_for`](unique_lock/try_lock_for.md)     | タイムアウトする相対時間を指定してロックの取得を試みる | C++11 |
+| [`try_lock_until`](unique_lock/try_lock_until.md) | タイムアウトする絶対時間を指定してロックの取得を試みる | C++11 |
+| [`unlock`](unique_lock/unlock.md)                 | ロックを手放す | C++11 |
+| [`swap`](unique_lock/swap.md)                     | 他の`unique_lock`オブジェクトと値を入れ替える | C++11 |
+| [`release`](unique_lock/release.md)               | ミューテックスの所有権を放棄する | C++11 |
+| [`owns_lock`](unique_lock/owns_lock.md)           | ロックを取得しているかを判定する | C++11 |
+| [`operator bool`](unique_lock/op_bool.md)         | ロックを取得しているかを判定する | C++11 |
+| [`mutex`](unique_lock/mutex.md)                   | 所有しているミューテックスオブジェクトを取得する | C++11 |
 
 
 ##メンバ型
@@ -58,7 +58,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|--------------------------------------------|-------|
-| [`swap`](./unique_lock/swap_free.md) | 2つの`unique_lock`オブジェクトを入れ替える | C++11 |
+| [`swap`](unique_lock/swap_free.md) | 2つの`unique_lock`オブジェクトを入れ替える | C++11 |
 
 
 ##例

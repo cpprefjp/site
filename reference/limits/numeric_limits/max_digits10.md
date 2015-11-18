@@ -16,7 +16,7 @@ static constexpr int max_digits10;
 `max_digits10`は、上の変換によって元の浮動小数点数の値が変化しないようなnのうち、最小のものを表す。  
 したがって、浮動小数点数を文字列などに変換する場合に、正確な値を保持するために使用できる。  
 
-`max_digits10`は [`digits`](./digits.md) を用いて次のように計算できる：  
+`max_digits10`は [`digits`](digits.md) を用いて次のように計算できる：  
 
   `(Is radix power of 10) ? digits * log10(radix) : ceil(1 + digits * log10(radix))`
 

@@ -22,7 +22,7 @@ namespace std {
 
 ##要件
 - 2つの`tuple`の要素数が同じであること。
-- `tuple`の要素`std::`[`get`](./get.md)`<i>(t)`と`std::`[`get`](./get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](./get.md)`<i>(t) < std::`[`get`](./get.md)`<i>(u)` の比較結果が`bool`に変換可能な型であること。
+- `tuple`の要素`std::`[`get`](get.md)`<i>(t)`と`std::`[`get`](get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](get.md)`<i>(t) < std::`[`get`](get.md)`<i>(u)` の比較結果が`bool`に変換可能な型であること。
 
 
 ##戻り値

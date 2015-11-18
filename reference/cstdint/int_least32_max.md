@@ -9,7 +9,7 @@
 * implementation-defined[italic]
 
 ##概要
-[`int_least32_t`](./int_least32_t.md) の最大値。
+[`int_least32_t`](int_least32_t.md) の最大値。
 
 ##バージョン
 ###言語

@@ -44,7 +44,7 @@ equal(x.begin(), x.end(), y.begin(), y.end());
 
 
 ##計算量
-`x.`[`size()`](./size.md)に対して線形時間
+`x.`[`size()`](size.md)に対して線形時間
 
 
 ##例

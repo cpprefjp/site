@@ -13,7 +13,7 @@ void deallocate(pointer p, size_type n);
 
 
 ##要件
-`p`は、[`allocate()`](./allocate.md)によって確保されたポインタ値であること。`n`は、アロケートされた`p`のサイズと同じであること。
+`p`は、[`allocate()`](allocate.md)によって確保されたポインタ値であること。`n`は、アロケートされた`p`のサイズと同じであること。
 
 
 ##効果

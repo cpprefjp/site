@@ -33,4 +33,4 @@ Hello world
 - C++98
 
 ##参照
-- [`wcout`](./wcout.md.nolink)
+- [`wcout`](wcout.md.nolink)

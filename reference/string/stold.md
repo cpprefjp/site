@@ -175,11 +175,11 @@ long double stold(const wstring& str, size_t* idx = nullptr) {
 - `strtold`, `wcstold`: `stold`は`strtold`および`wcstold`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
 
 ### ファミリー
-- [`stoi`](./stoi.md): 戻り値の型が`int`となったもの。
-- [`stol`](./stol.md): 戻り値の型が`long`となったもの。
-- [`stoll`](./stoll.md): 戻り値の型が`long long`となったもの。
-- [`stoul`](./stoul.md): 戻り値の型が`unsigned long`となったもの。
-- [`stoull`](./stoull.md): 戻り値の型が`unsigned long long`となったもの。
-- [`stof`](./stof.md): 戻り値の型が`float`となったもの。
-- [`stod`](./stod.md): 戻り値の型が`double`となったもの。
+- [`stoi`](stoi.md): 戻り値の型が`int`となったもの。
+- [`stol`](stol.md): 戻り値の型が`long`となったもの。
+- [`stoll`](stoll.md): 戻り値の型が`long long`となったもの。
+- [`stoul`](stoul.md): 戻り値の型が`unsigned long`となったもの。
+- [`stoull`](stoull.md): 戻り値の型が`unsigned long long`となったもの。
+- [`stof`](stof.md): 戻り値の型が`float`となったもの。
+- [`stod`](stod.md): 戻り値の型が`double`となったもの。
 - (`stold`: この関数自身)

@@ -23,15 +23,15 @@ namespace std {
 
 
 ##効果
-[`declare_reachable`](./declare_reachable.md)`(p)`と`undeclare_reachable(p)`が同じ回数呼び出された時、非ヌルな`p`の参照するオブジェクトの到達可能の宣言が取り消される。
+[`declare_reachable`](declare_reachable.md)`(p)`と`undeclare_reachable(p)`が同じ回数呼び出された時、非ヌルな`p`の参照するオブジェクトの到達可能の宣言が取り消される。
 
 これが起きた場合、`p`の参照するオブジェクトに対するポインタからは間接参照できなくなる。
 
 
 ##戻り値
-`p`と等しい[Safely-derived](./pointer_safety.md)な`p`の複製。
+`p`と等しい[Safely-derived](pointer_safety.md)な`p`の複製。
 
-`p`に対する宣言が取り消されば場合、戻り値のポインタは[Safely-derived](./pointer_safety.md)なので、たとえ[Safely-derived](./pointer_safety.md)なポインタが存在しなくとも、戻り値からは`p`の参照するオブジェクトにアクセスできる。
+`p`に対する宣言が取り消されば場合、戻り値のポインタは[Safely-derived](pointer_safety.md)なので、たとえ[Safely-derived](pointer_safety.md)なポインタが存在しなくとも、戻り値からは`p`の参照するオブジェクトにアクセスできる。
 
 
 ##例外

@@ -16,15 +16,15 @@ std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 
 
 ##戻り値
-キー値が引数 `k` と等価な要素を全て含む範囲。そのような要素が無い場合には、[`make_pair`](/reference/utility/make_pair.md)`(`[`end`](./end.md)`(),` [`end`](./end.md)`())`。
+キー値が引数 `k` と等価な要素を全て含む範囲。そのような要素が無い場合には、[`make_pair`](/reference/utility/make_pair.md)`(`[`end`](end.md)`(),` [`end`](end.md)`())`。
 
 
 ##計算量
-平均的なケースでは O([`count`](./count.md)`(k)`)。最悪のケースでは O([`size`](./size.md)`()`)。
+平均的なケースでは O([`count`](count.md)`(k)`)。最悪のケースでは O([`size`](size.md)`()`)。
 
 
 ##備考
-[`unordered_set`](/reference/unordered_set/unordered_set.md) の場合には、等価なキーはたかだか1つであるため、[`find`](./find.md) ほど有用ではないと思われる。
+[`unordered_set`](/reference/unordered_set/unordered_set.md) の場合には、等価なキーはたかだか1つであるため、[`find`](find.md) ほど有用ではないと思われる。
 
 ##例
 ```cpp
@@ -90,6 +90,6 @@ equal_range(8): [5, 5)
 ##参照
 |ページ|概要|
 |------|----|
-|[`find`](./find.md)|指定したキーの位置を検索|
-|[`count`](./count.md)|指定したキーの要素数を取得|
+|[`find`](find.md)|指定したキーの位置を検索|
+|[`count`](count.md)|指定したキーの要素数を取得|
 

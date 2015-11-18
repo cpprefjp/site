@@ -37,9 +37,9 @@ void max_load_factor(float z);          // (2)
 
 
 ##備考
-- `max_load_factor` はその名前の通り、[`load_factor`](./load_factor.md) の最大値（上限）を定義する。<br/>従って、[`insert`](./insert.md)、[`emplace`](./emplace.md)、[`emplace_hint`](./emplace_hint.md) で要素が追加された際、および、[`operator=`](./op_assign.md) による [`initializer_list`](/reference/initializer_list.md) からの代入で要素数が増加した際には、[`load_factor`](./load_factor.md) が `max_load_factor()` 以下になるように、必要に応じてバケット数が調整される。<br/>なお、`min_load_factor` のようなものはないので、[`erase`](./erase.md) で要素が削除された際にも、バケット数の調整は行われない。<br/>（標準では、[`erase`](./erase.md) が呼び出された際に、削除された要素を指すイテレータ、および、参照以外は無効にならないと規定されているため、調整できないと思われる）
+- `max_load_factor` はその名前の通り、[`load_factor`](load_factor.md) の最大値（上限）を定義する。<br/>従って、[`insert`](insert.md)、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md) で要素が追加された際、および、[`operator=`](op_assign.md) による [`initializer_list`](/reference/initializer_list.md) からの代入で要素数が増加した際には、[`load_factor`](load_factor.md) が `max_load_factor()` 以下になるように、必要に応じてバケット数が調整される。<br/>なお、`min_load_factor` のようなものはないので、[`erase`](erase.md) で要素が削除された際にも、バケット数の調整は行われない。<br/>（標準では、[`erase`](erase.md) が呼び出された際に、削除された要素を指すイテレータ、および、参照以外は無効にならないと規定されているため、調整できないと思われる）
 
-- (2) の形式では、効果にもある通り引数 `z` は「ヒント」であり、設定も変更される「かもしれない」となっているため、確定的な事は何も無いが、少なくとも [`load_factor`](./load_factor.md)`() <= z` が満たされていれば `z` に従って設定されると考えてよいと思われる。<br/>一方、[`load_factor`](./load_factor.md)`() > z` の場合、単純に無視するか [`load_factor`](./load_factor.md)`()` に設定するのが適切と思われるが、`z` をそのまま設定する実装もある。<br/>なお、計算量が定数であることからわかるように、いずれの場合でもリハッシュ（バケット数の調整）は行われない（はずだが、[`load_factor`](./load_factor.md)`() > z` の場合に [`load_factor`](./load_factor.md)`() <= z` を満たすようにリハッシュされる実装も多い）。
+- (2) の形式では、効果にもある通り引数 `z` は「ヒント」であり、設定も変更される「かもしれない」となっているため、確定的な事は何も無いが、少なくとも [`load_factor`](load_factor.md)`() <= z` が満たされていれば `z` に従って設定されると考えてよいと思われる。<br/>一方、[`load_factor`](load_factor.md)`() > z` の場合、単純に無視するか [`load_factor`](load_factor.md)`()` に設定するのが適切と思われるが、`z` をそのまま設定する実装もある。<br/>なお、計算量が定数であることからわかるように、いずれの場合でもリハッシュ（バケット数の調整）は行われない（はずだが、[`load_factor`](load_factor.md)`() > z` の場合に [`load_factor`](load_factor.md)`() <= z` を満たすようにリハッシュされる実装も多い）。
 
 
 ##例
@@ -177,13 +177,13 @@ size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load
 
 | | |
 |---------------------------------------|------------|
-| [`operator=`](./op_assign.md)         | 代入演算子 |
-| [`emplace`](./emplace.md)             | コンテナ内への要素の直接構築 |
-| [`emplace_hint`](./emplace_hint.md)   | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
-| [`insert`](./insert.md)               | 要素の追加 |
-| [`size`](./size.md)                   | 要素数の取得 |
-| [`bucket_count`](./bucket_count.md)   | バケット数の取得 |
-| [`load_factor`](./load_factor.md)     | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`rehash`](./rehash.md)               | 最小バケット数指定によるバケット数の調整 |
-| [`reserve`](./reserve.md)             | 最小要素数指定によるバケット数の調整 |
+| [`operator=`](op_assign.md)         | 代入演算子 |
+| [`emplace`](emplace.md)             | コンテナ内への要素の直接構築 |
+| [`emplace_hint`](emplace_hint.md)   | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
+| [`insert`](insert.md)               | 要素の追加 |
+| [`size`](size.md)                   | 要素数の取得 |
+| [`bucket_count`](bucket_count.md)   | バケット数の取得 |
+| [`load_factor`](load_factor.md)     | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
+| [`rehash`](rehash.md)               | 最小バケット数指定によるバケット数の調整 |
+| [`reserve`](reserve.md)             | 最小要素数指定によるバケット数の調整 |
 

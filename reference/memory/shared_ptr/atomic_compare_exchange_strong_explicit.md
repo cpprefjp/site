@@ -85,7 +85,7 @@ int main()
 
 
 ##参照
-- [`atomic_compare_exchange_strong() - shared_ptr`](./atomic_compare_exchange_strong.md)
+- [`atomic_compare_exchange_strong() - shared_ptr`](atomic_compare_exchange_strong.md)
 - [`atomic_compare_exchange_strong_explicit() - <atomic>`](/reference/atomic/atomic_compare_exchange_strong_explicit.md)
 - [`atomic_compare_exchange_strong_explicit() - <atomic>`](/reference/atomic/atomic_compare_exchange_strong_explicit.md)
 - [N2674 Shared_ptr atomic access, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2674.htm)

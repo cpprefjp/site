@@ -62,10 +62,10 @@ int main()
 
 | 名前 | 説明 |
 |-------------------------------|------------------------------------|
-| [`erase`](./erase.md)         | 指定した要素を削除する |
-| [`resize`](./resize.md)       | 要素数を変更する |
-| [`pop_back`](./pop_back.md)   | 末尾要素を削除する |
-| [`pop_front`](./pop_front.md) | 先頭要素を削除する |
-| [`empty`](./empty.md)         | コンテナが空であるかどうかを調べる |
+| [`erase`](erase.md)         | 指定した要素を削除する |
+| [`resize`](resize.md)       | 要素数を変更する |
+| [`pop_back`](pop_back.md)   | 末尾要素を削除する |
+| [`pop_front`](pop_front.md) | 先頭要素を削除する |
+| [`empty`](empty.md)         | コンテナが空であるかどうかを調べる |
 
 

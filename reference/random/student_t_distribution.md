@@ -35,26 +35,26 @@ $$ p(x|n) = \frac{1}{\sqrt{n\pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)} \cdo
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./student_t_distribution/op_constructor.md) | コンストラクタ     | C++11 |
+| [`(constructor)`](student_t_distribution/op_constructor.md) | コンストラクタ     | C++11 |
 | `~student_t_distribution() = default;`                                | デストラクタ       | C++11 |
-| [`reset`](./student_t_distribution/reset.md)                          | 状態をリセットする | C++11 |
+| [`reset`](student_t_distribution/reset.md)                          | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|----------------|-------|
-| [`operator()`](./student_t_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](student_t_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
-| [`n`](./student_t_distribution/n.md)         | 自由度を取得する                 | C++11 |
-| [`param`](./student_t_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./student_t_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./student_t_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`n`](student_t_distribution/n.md)         | 自由度を取得する                 | C++11 |
+| [`param`](student_t_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](student_t_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](student_t_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -69,10 +69,10 @@ $$ p(x|n) = \frac{1}{\sqrt{n\pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)} \cdo
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------|-------|
-| [`operator==`](./student_t_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./student_t_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./student_t_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./student_t_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](student_t_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](student_t_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](student_t_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](student_t_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 

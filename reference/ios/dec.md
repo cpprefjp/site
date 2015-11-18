@@ -61,5 +61,5 @@ int main()
 - C++03
 
 ##参照
-- [`oct`](./oct.md)
-- [`hex`](./hex.md)
+- [`oct`](oct.md)
+- [`hex`](hex.md)

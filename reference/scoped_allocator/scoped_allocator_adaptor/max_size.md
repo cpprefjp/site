@@ -14,7 +14,7 @@ size_type max_size() const;
 
 
 ##戻り値
-[`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`max_size`](/reference/memory/allocator_traits/max_size.md)`(`[`outer_allocator()`](./outer_allocator.md)`)`
+[`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`max_size`](/reference/memory/allocator_traits/max_size.md)`(`[`outer_allocator()`](outer_allocator.md)`)`
 
 
 ##例

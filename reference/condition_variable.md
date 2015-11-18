@@ -7,9 +7,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------------|------------------------|-------|
-| [`condition_variable`](./condition_variable/condition_variable.md) | 条件変数(class) | C++11 |
-| [`condition_variable_any`](./condition_variable/condition_variable_any.md) | あらゆるミューテックス型をサポートする条件変数(class) | C++11 |
-| [`cv_status`](./condition_variable/cv_status.md) | 条件変数の状態(enum class) | C++11 |
+| [`condition_variable`](condition_variable/condition_variable.md) | 条件変数(class) | C++11 |
+| [`condition_variable_any`](condition_variable/condition_variable_any.md) | あらゆるミューテックス型をサポートする条件変数(class) | C++11 |
+| [`cv_status`](condition_variable/cv_status.md) | 条件変数の状態(enum class) | C++11 |
 
 
 ##バージョン

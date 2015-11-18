@@ -17,8 +17,8 @@ T operator--(int) noexcept;
 
 
 ##戻り値
-- 前置`operator--`： [`fetch_sub`](./fetch_sub.md)`(1) - 1`
-- 後置`operator--`： [`fetch_sub`](./fetch_sub.md)`(1)`
+- 前置`operator--`： [`fetch_sub`](fetch_sub.md)`(1) - 1`
+- 後置`operator--`： [`fetch_sub`](fetch_sub.md)`(1)`
 
 
 ##例外

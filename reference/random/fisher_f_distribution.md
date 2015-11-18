@@ -35,27 +35,27 @@ $$ p(x|m,n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \cdot \big(\fra
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./fisher_f_distribution/op_constructor.md)        | コンストラクタ     | C++11 |
+| [`(constructor)`](fisher_f_distribution/op_constructor.md)        | コンストラクタ     | C++11 |
 | `~fisher_f_distribution() = default;`                               | デストラクタ       | C++11 |
-| [`reset`](./fisher_f_distribution/reset.md)                         | 状態をリセットする | C++11 |
+| [`reset`](fisher_f_distribution/reset.md)                         | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|----------------|-------|
-| [`operator()`](./fisher_f_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](fisher_f_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------|-------|
-| [`m`](./fisher_f_distribution/m.md)         | 自由度mを取得する                | C++11 |
-| [`n`](./fisher_f_distribution/n.md)         | 自由度nを取得する                | C++11 |
-| [`param`](./fisher_f_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./fisher_f_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./fisher_f_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`m`](fisher_f_distribution/m.md)         | 自由度mを取得する                | C++11 |
+| [`n`](fisher_f_distribution/n.md)         | 自由度nを取得する                | C++11 |
+| [`param`](fisher_f_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](fisher_f_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](fisher_f_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -70,10 +70,10 @@ $$ p(x|m,n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \cdot \big(\fra
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|----------------------|-------|
-| [`operator==`](./fisher_f_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./fisher_f_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./fisher_f_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./fisher_f_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](fisher_f_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](fisher_f_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](fisher_f_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](fisher_f_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

@@ -12,11 +12,11 @@ const_local_iterator cbegin(size_type n) const;
 ##概要
 インデックス（添え字）で指定したバケット内の先頭の要素を指す読み取り専用イテレータを取得する。
 
-`unordered_multiset` は非順序連想コンテナであるため「先頭」に特に意味はないが、`cbegin(size_type)` で得られたイテレータを [`cend(size_type)`](./cend-size_type.md) まで `operator++()` でイテレートすることで当該バケットの要素を漏れなくダブりなく走査することができる。
+`unordered_multiset` は非順序連想コンテナであるため「先頭」に特に意味はないが、`cbegin(size_type)` で得られたイテレータを [`cend(size_type)`](cend-size_type.md) まで `operator++()` でイテレートすることで当該バケットの要素を漏れなくダブりなく走査することができる。
 
 
 ##要件
-パラメータ `n` は `[0,` [`bucket_count`](./bucket_count.md)`())` の範囲でなければならない。
+パラメータ `n` は `[0,` [`bucket_count`](bucket_count.md)`())` の範囲でなければならない。
 
 
 ##戻り値
@@ -94,11 +94,11 @@ bucket = 10, bucket_size = 0, keys = { }
 
 | | |
 |--------------------------------------------|--------------------------------|
-| [`begin`](./begin.md)                      | 先頭要素を指すイテレータの取得 |
-| [`end`](./end.md)                          | 最終要素の次を指すイテレータの取得 |
-| [`cbegin`](./cbegin.md)                    | 先頭要素を指す読み取り専用イテレータの取得 |
-| [`cend`](./cend.md)                        | 最終要素の次を指す読み取り専用イテレータの取得 |
-| [`begin(size_type)`](./begin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
-| [`end(size_type)`](./end-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
-| [`cend(size_type)`](./cend-size_type.md)   | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
+| [`begin`](begin.md)                      | 先頭要素を指すイテレータの取得 |
+| [`end`](end.md)                          | 最終要素の次を指すイテレータの取得 |
+| [`cbegin`](cbegin.md)                    | 先頭要素を指す読み取り専用イテレータの取得 |
+| [`cend`](cend.md)                        | 最終要素の次を指す読み取り専用イテレータの取得 |
+| [`begin(size_type)`](begin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
+| [`end(size_type)`](end-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+| [`cend(size_type)`](cend-size_type.md)   | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
 

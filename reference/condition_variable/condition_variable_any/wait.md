@@ -27,7 +27,7 @@ void wait(Lock& lock, Predicate pred); // (2)
 ##効果
 - (1) :
     - アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)する
-    - [`notify_one()`](./notify_one.md)/[`notify_all()`](./notify_all.md)もしくはそれ以外の理由で通知があるまでブロッキングする
+    - [`notify_one()`](notify_one.md)/[`notify_all()`](notify_all.md)もしくはそれ以外の理由で通知があるまでブロッキングする
     - この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
     - この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
 

@@ -15,8 +15,8 @@ pointer allocate(size_type n, const_void_pointer hint); // (2)
 
 
 ##戻り値
-- (1) : [`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`allocate`](/reference/memory/allocator_traits/allocate.md)`(`[`outer_allocator()`](./outer_allocator.md)`, n)`
-- (2) : [`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`allocate`](/reference/memory/allocator_traits/allocate.md)`(`[`outer_allocator()`](./outer_allocator.md)`, n, hint)`
+- (1) : [`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`allocate`](/reference/memory/allocator_traits/allocate.md)`(`[`outer_allocator()`](outer_allocator.md)`, n)`
+- (2) : [`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`allocate`](/reference/memory/allocator_traits/allocate.md)`(`[`outer_allocator()`](outer_allocator.md)`, n, hint)`
 
 
 ##例

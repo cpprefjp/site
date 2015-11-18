@@ -14,7 +14,7 @@ namespace std {
 ポインタが到達可能であることを宣言する。
 
 ##要件
-ポインタ`p`が[Safely-derived Pointer](./pointer_safety.md)か、またはヌルである。
+ポインタ`p`が[Safely-derived Pointer](pointer_safety.md)か、またはヌルである。
 
 
 ##効果

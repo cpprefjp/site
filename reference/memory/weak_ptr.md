@@ -33,15 +33,15 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|----------------------------------------------------------------|-------|
-| [`(constructor)`](./weak_ptr/op_constructor.md) | コンストラクタ                                                 | C++11 |
-| [`(destructor)`](./weak_ptr/op_destructor.md) | デストラクタ                                                   | C++11 |
-| [`operator=`](./weak_ptr/op_assign.md)    | 代入演算子                                                     | C++11 |
-| [`swap`](./weak_ptr/swap.md)              | 他の`weak_ptr`オブジェクトとデータを入れ替える                 | C++11 |
-| [`reset`](./weak_ptr/reset.md)            | 監視対象をクリアする                                           | C++11 |
-| [`use_count`](./weak_ptr/use_count.md)    | 監視している`shared_ptr`オブジェクトの所有者数を取得する       | C++11 |
-| [`expired`](./weak_ptr/expired.md)        | 監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する | C++11 |
-| [`lock`](./weak_ptr/lock.md)              | 監視している`shared_ptr`オブジェクトを取得する                 | C++11 |
-| [`owner_before`](./weak_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                            | C++11 |
+| [`(constructor)`](weak_ptr/op_constructor.md) | コンストラクタ                                                 | C++11 |
+| [`(destructor)`](weak_ptr/op_destructor.md) | デストラクタ                                                   | C++11 |
+| [`operator=`](weak_ptr/op_assign.md)    | 代入演算子                                                     | C++11 |
+| [`swap`](weak_ptr/swap.md)              | 他の`weak_ptr`オブジェクトとデータを入れ替える                 | C++11 |
+| [`reset`](weak_ptr/reset.md)            | 監視対象をクリアする                                           | C++11 |
+| [`use_count`](weak_ptr/use_count.md)    | 監視している`shared_ptr`オブジェクトの所有者数を取得する       | C++11 |
+| [`expired`](weak_ptr/expired.md)        | 監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する | C++11 |
+| [`lock`](weak_ptr/lock.md)              | 監視している`shared_ptr`オブジェクトを取得する                 | C++11 |
+| [`owner_before`](weak_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                            | C++11 |
 
 
 ##メンバ型
@@ -55,7 +55,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------|-----------------------------------------|-------|
-| [`swap`](./weak_ptr/swap_free.md) | 2つの`weak_ptr`オブジェクトを入れ替える | C++11 |
+| [`swap`](weak_ptr/swap_free.md) | 2つの`weak_ptr`オブジェクトを入れ替える | C++11 |
 
 
 ##例

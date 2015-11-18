@@ -38,15 +38,15 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|-----------------------------------------|-------|
-| [`(constructor)`](./queue/op_constructor.md) | コンストラクタ | |
-| [`empty`](./queue/empty.md)         | 要素が空であるかを確認する | |
-| [`size`](./queue/size.md)           | 要素数を取得する | |
-| [`front`](./queue/front.md)         | 次の要素にアクセスする | |
-| [`back`](./queue/back.md)           | 最後の要素にアクセスする | |
-| [`push`](./queue/push.md)           | 要素を追加する | |
-| [`emplace`](./queue/emplace.md)     | 直接構築で要素を追加する | C++11 |
-| [`pop`](./queue/pop.md)             | 次の要素を削除する | |
-| [`swap`](./queue/swap.md)           | 他の`queue`オブジェクトと値を入れ替える | C++11 |
+| [`(constructor)`](queue/op_constructor.md) | コンストラクタ | |
+| [`empty`](queue/empty.md)         | 要素が空であるかを確認する | |
+| [`size`](queue/size.md)           | 要素数を取得する | |
+| [`front`](queue/front.md)         | 次の要素にアクセスする | |
+| [`back`](queue/back.md)           | 最後の要素にアクセスする | |
+| [`push`](queue/push.md)           | 要素を追加する | |
+| [`emplace`](queue/emplace.md)     | 直接構築で要素を追加する | C++11 |
+| [`pop`](queue/pop.md)             | 次の要素を削除する | |
+| [`swap`](queue/swap.md)           | 他の`queue`オブジェクトと値を入れ替える | C++11 |
 
 
 ##protectedメンバ変数
@@ -71,13 +71,13 @@ namespace std {
 
 | 名前                                        | 説明                                 | 対応バージョン |
 |---------------------------------------------|--------------------------------------|----------------|
-| [`operator==`](./queue/op_equal.md)         | 等値比較                             |                |
-| [`operator!=`](./queue/op_not_equal.md)     | 非等値比較                           |                |
-| [`operator<`](./queue/op_less.md)           | 左辺が右辺より小さいかの判定を行う   |                |
-| [`operator<=`](./queue/op_less_equal.md)    | 左辺が右辺以下かの判定を行う         |                |
-| [`operator>`](./queue/op_greater.md)        | 左辺が右辺より大きいかの判定を行う   |                |
-| [`operator>=`](./queue/op_greater_equal.md) | 左辺が右辺以上かの判定を行う         |                |
-| [`swap`](./queue/swap_free.md)              | 2つの`queue`オブジェクトを入れ替える | C++11          |
+| [`operator==`](queue/op_equal.md)         | 等値比較                             |                |
+| [`operator!=`](queue/op_not_equal.md)     | 非等値比較                           |                |
+| [`operator<`](queue/op_less.md)           | 左辺が右辺より小さいかの判定を行う   |                |
+| [`operator<=`](queue/op_less_equal.md)    | 左辺が右辺以下かの判定を行う         |                |
+| [`operator>`](queue/op_greater.md)        | 左辺が右辺より大きいかの判定を行う   |                |
+| [`operator>=`](queue/op_greater_equal.md) | 左辺が右辺以上かの判定を行う         |                |
+| [`swap`](queue/swap_free.md)              | 2つの`queue`オブジェクトを入れ替える | C++11          |
 
 
 ##例

@@ -42,9 +42,9 @@ void insert(initializer_list<value_type> init);                // (6) C++11
 
 ##効果
 - (1) : `x`を`*this`の要素としてコピー挿入する。
-- (2) : [`emplace`](./emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(x))`と同等。
+- (2) : [`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(x))`と同等。
 - (3) : `x`を`*this`の要素としてコピー挿入する。可能であれば、挿入位置のヒントを表すイテレータ`position`のすぐ前に挿入する。
-- (4) : [`emplace_hint`](./emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と同等。
+- (4) : [`emplace_hint`](emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と同等。
 - (5) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。
 - (6) : `insert(init.begin(), init.end())`と同等。
 
@@ -58,7 +58,7 @@ void insert(initializer_list<value_type> init);                // (6) C++11
 - (1), (2) : 対数時間。
 - (3), (4) : 一般に対数時間だが、`x` が `position` が指す要素の後に挿入された場合は償却定数時間。
 - (5), (6) : 一般に N log(size + N) だが、イテレータ範囲`[first, last)` が、コンテナで使われているものと同じ順序基準に従ってソート済みである場合は線形時間。
-    - ※ ここで `N` は `first` と `last` の間の距離であり `size` は挿入前のコンテナの [`size()`](./size.md)
+    - ※ ここで `N` は `first` と `last` の間の距離であり `size` は挿入前のコンテナの [`size()`](size.md)
 
 
 ##例

@@ -22,7 +22,7 @@ namespace std {
 
 ##効果
 指定されたメモリオーダーにしたがって、`object`が指す値を`desired`でアトミックに置き換える。
-この関数は、戻り値のない[`atomic_exchange_explicit()`](./atomic_exchange_explicit.md)と見なせる。
+この関数は、戻り値のない[`atomic_exchange_explicit()`](atomic_exchange_explicit.md)と見なせる。
 
 
 ##戻り値
@@ -34,7 +34,7 @@ namespace std {
 
 
 ##備考
-この関数は、特殊化された[`atomic`](./atomic.md)型に対して定義される。
+この関数は、特殊化された[`atomic`](atomic.md)型に対して定義される。
 
 
 ##例

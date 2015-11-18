@@ -11,7 +11,7 @@ namespace std {
 
 ##概要
 整数出力時に基数を表すプレフィックスを付与することを指示するマニピュレータ。
-[`hex`](./hex.md)や[`oct`](./hex.md)と組み合わせると、それぞれ0xおよび0が頭に出力される。
+[`hex`](hex.md)や[`oct`](hex.md)と組み合わせると、それぞれ0xおよび0が頭に出力される。
 ただし、0の場合を除く。
 
 `money_put`など、その他の出力でも効果がある場合がある。
@@ -53,4 +53,4 @@ f 0
 - C++03
 
 ##参照
-- [`noshowbase`](./noshowbase.md)
+- [`noshowbase`](noshowbase.md)

@@ -19,7 +19,7 @@ namespace std {
 
 
 ##戻り値
-[`lexicographical_compare`](/reference/algorithm/lexicographical_compare.md)`(x.`[`begin`](./begin.md)`(), x.`[`end`](./end.md)`(), y.`[`begin`](./begin.md)`(), y.`[`end`](/reference/vector/end.md)`());`
+[`lexicographical_compare`](/reference/algorithm/lexicographical_compare.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`(), y.`[`end`](/reference/vector/end.md)`());`
 
 
 ##計算量

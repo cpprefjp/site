@@ -42,4 +42,4 @@ int main()
 - C++03
 
 ##参照
-- [`noshowpoint`](./noshowpoint.md)
+- [`noshowpoint`](noshowpoint.md)

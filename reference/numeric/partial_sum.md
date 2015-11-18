@@ -20,7 +20,7 @@ namespace std {
 ##概要
 1つのシーケンスの任意の範囲の値の部分和を計算する。
 
-[`accumulate`](./accumulate.md)`()`は最終結果のみを得るが、`partial_sum()`は計算の途中結果のシーケンスを得る。
+[`accumulate`](accumulate.md)`()`は最終結果のみを得るが、`partial_sum()`は計算の途中結果のシーケンスを得る。
 
 
 ##パラメータ

@@ -26,26 +26,26 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------------|------------------------------|-------|
-| [`(constructor)`](./discrete_distribution/op_constructor.md)         | コンストラクタ               | C++11 |
+| [`(constructor)`](discrete_distribution/op_constructor.md)         | コンストラクタ               | C++11 |
 | `~discrete_distribution() = default;`                                | デストラクタ                 | C++11 |
-| [`reset`](./discrete_distribution/reset.md)                          | 状態をリセットする           | C++11 |
+| [`reset`](discrete_distribution/reset.md)                          | 状態をリセットする           | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|----------------|-------|
-| [`operator()`](./discrete_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](discrete_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------|--------------------------------------------|-------|
-| [`probabilities`](./discrete_distribution/probabilities.md) | インデックスに対応する確率の数列を取得する | C++11 |
-| [`param`](./discrete_distribution/param.md)                 | 分布のパラメータを取得／設定する           | C++11 |
-| [`mix`](./discrete_distribution/min.md)                     | 最小値を取得する                           | C++11 |
-| [`max`](./discrete_distribution/max.md)                     | 最大値を取得する                           | C++11 |
+| [`probabilities`](discrete_distribution/probabilities.md) | インデックスに対応する確率の数列を取得する | C++11 |
+| [`param`](discrete_distribution/param.md)                 | 分布のパラメータを取得／設定する           | C++11 |
+| [`mix`](discrete_distribution/min.md)                     | 最小値を取得する                           | C++11 |
+| [`max`](discrete_distribution/max.md)                     | 最大値を取得する                           | C++11 |
 
 
 ##メンバ型
@@ -60,10 +60,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|----------------------|-------|
-| [`operator==`](./discrete_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./discrete_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./discrete_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./discrete_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](discrete_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](discrete_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](discrete_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](discrete_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

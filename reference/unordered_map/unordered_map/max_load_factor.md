@@ -37,13 +37,13 @@ void max_load_factor(float z);          // (2)
 
 
 ###検証
-[`max_load_factor`](./max_load_factor.md) の初期値は 1.0f  
+[`max_load_factor`](max_load_factor.md) の初期値は 1.0f  
 
-その状態では、[`bucket_count](./bucket_count.md) を超える要素を挿入した場合   
-[`load_factor`](./load_factor.md) < [`max_load_factor`](./max_load_factor.md) になるよう、バケットが拡張されている  
+その状態では、[`bucket_count](bucket_count.md) を超える要素を挿入した場合   
+[`load_factor`](load_factor.md) < [`max_load_factor`](max_load_factor.md) になるよう、バケットが拡張されている  
 
-[`max_load_factor`](./max_load_factor.md) を 大きくした場合は  
-[`load_factor`](./load_factor.md) < [`max_load_factor`](./max_load_factor.md) を満たすよう  
+[`max_load_factor`](max_load_factor.md) を 大きくした場合は  
+[`load_factor`](load_factor.md) < [`max_load_factor`](max_load_factor.md) を満たすよう  
 パケットが縮小された
 
 
@@ -103,13 +103,13 @@ new load_factor: 1.125
 ```
 
 ###検証
-[`max_load_factor`](./max_load_factor.md) の初期値は 1.0f  
+[`max_load_factor`](max_load_factor.md) の初期値は 1.0f  
 
-その状態では、[`bucket_count](./bucket_count.md) を超える要素を挿入した場合   
-[`load_factor`](./load_factor.md) < [`max_load_factor`](./max_load_factor.md) になるよう、バケットが拡張されている  
+その状態では、[`bucket_count](bucket_count.md) を超える要素を挿入した場合   
+[`load_factor`](load_factor.md) < [`max_load_factor`](max_load_factor.md) になるよう、バケットが拡張されている  
 
-[`max_load_factor`](./max_load_factor.md) を 大きくした場合は  
-[`load_factor`](./load_factor.md) < [`max_load_factor`](./max_load_factor.md) を満たすよう  
+[`max_load_factor`](max_load_factor.md) を 大きくした場合は  
+[`load_factor`](load_factor.md) < [`max_load_factor`](max_load_factor.md) を満たすよう  
 パケットが縮小された
 
 
@@ -130,9 +130,9 @@ new load_factor: 1.125
 
 | | |
 |---------------------------------------|------------|
-| [`emplace`](./emplace.md) | コンテナ内への要素の直接構築 |
-| [`size`](./size.md) | 要素数の取得 |
-| [`bucket_count`](./bucket_count.md) | バケット数の取得 |
-| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定 |
-| [`clear`](./clear.md) | 全要素の削除 |
+| [`emplace`](emplace.md) | コンテナ内への要素の直接構築 |
+| [`size`](size.md) | 要素数の取得 |
+| [`bucket_count`](bucket_count.md) | バケット数の取得 |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
+| [`clear`](clear.md) | 全要素の削除 |
 

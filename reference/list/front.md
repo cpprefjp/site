@@ -14,7 +14,7 @@ const_reference front() const; // (2)
 
 
 ##戻り値
-`*`[`begin()`](./begin.md)
+`*`[`begin()`](begin.md)
 
 
 ##計算量

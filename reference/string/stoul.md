@@ -204,11 +204,11 @@ unsigned long stoul(const wstring& str, size_t* idx = nullptr, unsigned long bas
 - `strtoul`, `wcstoul`: `stoul`は`wcstoull`および`wcstoul`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
 
 ### ファミリー
-- [`stoi`](./stoi.md): 戻り値の型が`int`となったもの。
-- [`stol`](./stol.md): 戻り値の型が`long`となったもの。
-- [`stoll`](./stoll.md): 戻り値の型が`long long`となったもの。
+- [`stoi`](stoi.md): 戻り値の型が`int`となったもの。
+- [`stol`](stol.md): 戻り値の型が`long`となったもの。
+- [`stoll`](stoll.md): 戻り値の型が`long long`となったもの。
 - (`stoul`: この関数自身)
-- [`stoull`](./stoull.md): 戻り値の型が`unsigned long long`となったもの。
-- [`stof`](./stof.md): 戻り値の型が`float`となったもの。
-- [`stod`](./stod.md): 戻り値の型が`double`となったもの。
-- [`stold`](./stold.md): 戻り値の型が`long double`となったもの。
+- [`stoull`](stoull.md): 戻り値の型が`unsigned long long`となったもの。
+- [`stof`](stof.md): 戻り値の型が`float`となったもの。
+- [`stod`](stod.md): 戻り値の型が`double`となったもの。
+- [`stold`](stold.md): 戻り値の型が`long double`となったもの。

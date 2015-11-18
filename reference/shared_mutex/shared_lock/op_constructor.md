@@ -51,18 +51,18 @@ shared_lock(shared_lock&& u) noexcept;                            // (9)
 - (5) : 共有ロック取得済みの共有ミューテックスオブジェクトへの参照を受け取り、共有ロックの取得操作を呼び出さない。共有ミューテックスオブジェクトへのポインタを保持する。
 - (6) : 共有ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_until_shared(abs_time)`を呼び出す。共有ミューテックスオブジェクトへのポインタを保持する。
 - (7) : 共有ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_for_shared(rel_time)`を呼び出す。共有ミューテックスオブジェクトへのポインタを保持する。
-- (9) : ムーブコンストラクタ。`shared_lock`オブジェクト`u`が保持している共有ミューテックスの所有権を、自分のオブジェクトに移動する。共有ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](./owns_lock.md)の状態を`u`から移動する。
+- (9) : ムーブコンストラクタ。`shared_lock`オブジェクト`u`が保持している共有ミューテックスの所有権を、自分のオブジェクトに移動する。共有ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](owns_lock.md)の状態を`u`から移動する。
 
 
 ##事後条件
-- (1) : [`owns_lock()`](./owns_lock.md) `== false`
-- (2) : [`owns_lock()`](./owns_lock.md) `== true`
-- (3) : [`owns_lock()`](./owns_lock.md) `== false`
-- (4) : [`owns_lock()`](./owns_lock.md) `== m.try_lock()`
-- (5) : [`owns_lock()`](./owns_lock.md) `== true`
-- (6) : [`owns_lock()`](./owns_lock.md) `== m.try_lock_until(abs_time)`
-- (7) : [`owns_lock()`](./owns_lock.md) `== m.try_lock_for(rel_time)`
-- (9) : `u`は共有ミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](./owns_lock.md) `== false`となる。
+- (1) : [`owns_lock()`](owns_lock.md) `== false`
+- (2) : [`owns_lock()`](owns_lock.md) `== true`
+- (3) : [`owns_lock()`](owns_lock.md) `== false`
+- (4) : [`owns_lock()`](owns_lock.md) `== m.try_lock()`
+- (5) : [`owns_lock()`](owns_lock.md) `== true`
+- (6) : [`owns_lock()`](owns_lock.md) `== m.try_lock_until(abs_time)`
+- (7) : [`owns_lock()`](owns_lock.md) `== m.try_lock_for(rel_time)`
+- (9) : `u`は共有ミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](owns_lock.md) `== false`となる。
 
 
 ##例

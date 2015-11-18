@@ -23,88 +23,88 @@ struct doubler {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------------------------|-------|
-| [`function`](./functional/function.md) | 関数・関数オブジェクトの多相的なラッパー(class template) | C++11 |
-| [`bad_function_call`](./functional/bad_function_call.md) | 不正な関数呼び出しに関する例外(class)  | C++11 |
+| [`function`](functional/function.md) | 関数・関数オブジェクトの多相的なラッパー(class template) | C++11 |
+| [`bad_function_call`](functional/bad_function_call.md) | 不正な関数呼び出しに関する例外(class)  | C++11 |
 
 
 ##引数の束縛
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------------------------|-------|
-| [`bind`](./functional/bind.md) | 関数の引数を部分適用する(function template) | C++11 |
-| [`is_bind_expression`](./functional/is_bind_expression.md) | 型を`bind`の式と見なすか判定する(class template) | C++11 |
-| [`is_placeholder`](./functional/is_placeholder.md) | 型がプレースホルダーかどうかを判定する(class template) | C++11 |
-| [`placeholders`](./functional/placeholders.md) | 部分適用のためのプレースホルダー(namespace) | C++11 |
-| [`mem_fn`](./functional/mem_fn.md) | メンバ関数アダプタ(function template) | C++11 |
+| [`bind`](functional/bind.md) | 関数の引数を部分適用する(function template) | C++11 |
+| [`is_bind_expression`](functional/is_bind_expression.md) | 型を`bind`の式と見なすか判定する(class template) | C++11 |
+| [`is_placeholder`](functional/is_placeholder.md) | 型がプレースホルダーかどうかを判定する(class template) | C++11 |
+| [`placeholders`](functional/placeholders.md) | 部分適用のためのプレースホルダー(namespace) | C++11 |
+| [`mem_fn`](functional/mem_fn.md) | メンバ関数アダプタ(function template) | C++11 |
 
 
 ##参照ラッパー
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------------------------|-------|
-| [`reference_wrapper`](./functional/reference_wrapper.md) | テンプレートで参照を渡すためのラッパー(class template)  | C++11 |
-| [`ref`](./functional/ref.md) | オブジェクトへの参照を構築する(function template) | C++11 |
-| [`cref`](./functional/cref.md) | オブジェクトへのconst左辺値参照を構築する(function template) | C++11 |
+| [`reference_wrapper`](functional/reference_wrapper.md) | テンプレートで参照を渡すためのラッパー(class template)  | C++11 |
+| [`ref`](functional/ref.md) | オブジェクトへの参照を構築する(function template) | C++11 |
+| [`cref`](functional/cref.md) | オブジェクトへのconst左辺値参照を構築する(function template) | C++11 |
 
 
 ##ハッシュ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|------------------------------------------------------|-------|
-| [`hash`](./functional/hash.md) | オブジェクトを示すハッシュを計算する(class template) | C++11 |
+| [`hash`](functional/hash.md) | オブジェクトを示すハッシュを計算する(class template) | C++11 |
 
 
 ##算術演算関数オブジェクト
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------------|-------|
-| [`plus`](./functional/plus.md)             | 加算(class template) | |
-| [`minus`](./functional/minus.md)           | 減算(class template) | |
-| [`multiplies`](./functional/multiplies.md) | 乗算(class template) | |
-| [`divides`](./functional/divides.md)       | 除算(class template) | |
-| [`modulus`](./functional/modulus.md)       | 剰余算(class template) | |
-| [`negate`](./functional/negate.md)         | 符号反転(class template) | |
+| [`plus`](functional/plus.md)             | 加算(class template) | |
+| [`minus`](functional/minus.md)           | 減算(class template) | |
+| [`multiplies`](functional/multiplies.md) | 乗算(class template) | |
+| [`divides`](functional/divides.md)       | 除算(class template) | |
+| [`modulus`](functional/modulus.md)       | 剰余算(class template) | |
+| [`negate`](functional/negate.md)         | 符号反転(class template) | |
 
 
 ##比較演算関数オブジェクト
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|--------------------------|-------|
-| [`equal_to`](./functional/equal_to.md)           | 等値比較(class template) | |
-| [`not_equal_to`](./functional/not_equal_to.md)   | 非等値比較(class template) | |
-| [`less`](./functional/less.md)                   | 左辺が右辺より小さいかの比較(class template) | |
-| [`less_equal`](./functional/less_equal.md)       | 左辺が右辺以下かの比較(class template) | |
-| [`greater`](./functional/greater.md)             | 左辺が右辺より大きいかの比較(class template) | |
-| [`greater_equal`](./functional/greater_equal.md) | 左辺が右辺以上かの比較(class template) | |
+| [`equal_to`](functional/equal_to.md)           | 等値比較(class template) | |
+| [`not_equal_to`](functional/not_equal_to.md)   | 非等値比較(class template) | |
+| [`less`](functional/less.md)                   | 左辺が右辺より小さいかの比較(class template) | |
+| [`less_equal`](functional/less_equal.md)       | 左辺が右辺以下かの比較(class template) | |
+| [`greater`](functional/greater.md)             | 左辺が右辺より大きいかの比較(class template) | |
+| [`greater_equal`](functional/greater_equal.md) | 左辺が右辺以上かの比較(class template) | |
 
 
 ##論理演算関数オブジェクト
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------|-------|
-| [`logical_and`](./functional/logical_and.md) | 論理積(AND) (class template) | |
-| [`logical_or`](./functional/logical_or.md)   | 論理和(OR) (class template) | |
-| [`logical_not`](./functional/logical_not.md) | 論理否定 (class template) | |
+| [`logical_and`](functional/logical_and.md) | 論理積(AND) (class template) | |
+| [`logical_or`](functional/logical_or.md)   | 論理和(OR) (class template) | |
+| [`logical_not`](functional/logical_not.md) | 論理否定 (class template) | |
 
 
 ##ビット演算関数オブジェクト
 
 | 名前                                            | 説明                                | 対応バージョン |
 |-------------------------------------------------|-------------------------------------|----------------|
-| [`bit_and`](./functional/bit_and.md) | ビットごとの論理積(AND) (class template)       | C++11          |
-| [`bit_or`](./functional/bit_or.md)   | ビットごとの論理和(OR) (class template)        | C++11          |
-| [`bit_xor`](./functional/bit_xor.md) | ビットごとの排他的論理和(XOR) (class template) | C++11          |
-| [`bit_not`](./functional/bit_not.md) | ビットごとの論理否定(NOT) (class template)     | C++14          |
+| [`bit_and`](functional/bit_and.md) | ビットごとの論理積(AND) (class template)       | C++11          |
+| [`bit_or`](functional/bit_or.md)   | ビットごとの論理和(OR) (class template)        | C++11          |
+| [`bit_xor`](functional/bit_xor.md) | ビットごとの排他的論理和(XOR) (class template) | C++11          |
+| [`bit_not`](functional/bit_not.md) | ビットごとの論理否定(NOT) (class template)     | C++14          |
 
 
 ##論理反転関数オブジェクト
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|--------------------------|-------|
-| [`unary_negate`](./functional/negators.md)  | 単項の論理反転 (class template) | |
-| [`not1`](./functional/negators.md)          | 単項の述語を論理反転する (function template) | |
-| [`binary_negate`](./functional/negators.md) | 二項の論理反転 (class template) | |
-| [`not2`](./functional/negators.md)          | 二項の述語を論理反転する (function template) | |
+| [`unary_negate`](functional/negators.md)  | 単項の論理反転 (class template) | |
+| [`not1`](functional/negators.md)          | 単項の述語を論理反転する (function template) | |
+| [`binary_negate`](functional/negators.md) | 二項の論理反転 (class template) | |
+| [`not2`](functional/negators.md)          | 二項の述語を論理反転する (function template) | |
 
 
 ##古い関数オブジェクトアダプタ(C++11から非推奨)
@@ -140,7 +140,7 @@ struct doubler {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|--------------------------|-------|
-| [`Callable`](./functional/callable.md) | 関数呼び出し可能な型 | C++11 |
-| [`INVOKE`](./functional/invoke.md) | 関数呼び出しの式 | C++11 |
+| [`Callable`](functional/callable.md) | 関数呼び出し可能な型 | C++11 |
+| [`INVOKE`](functional/invoke.md) | 関数呼び出しの式 | C++11 |
 
 

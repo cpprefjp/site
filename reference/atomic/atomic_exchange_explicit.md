@@ -34,7 +34,7 @@ namespace std {
 
 
 ##備考
-この関数は、特殊化された[`atomic`](./atomic.md)型に対して定義される。
+この関数は、特殊化された[`atomic`](atomic.md)型に対して定義される。
 
 
 ##例

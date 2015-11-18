@@ -19,7 +19,7 @@ T& operator[](size_t i) const;
 
 
 ##戻り値
-[`get()`](./get.md)`[i]`
+[`get()`](get.md)`[i]`
 
 
 ##例

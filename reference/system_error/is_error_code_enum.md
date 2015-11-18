@@ -13,7 +13,7 @@ namespace std {
 * false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 
 ##概要
-[`error_code`](./error_code.md)のエラー値として見なせる列挙型かどうかを判定する。
+[`error_code`](error_code.md)のエラー値として見なせる列挙型かどうかを判定する。
 
 `is_error_code_enum`はデフォルトでは[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承し、`is_error_code_enum<T>::value`は`false`となる。
 

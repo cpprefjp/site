@@ -22,7 +22,7 @@ namespace std {
 }
 ```
 
-この関数は、C++14から非推奨である。代わりに[`shuffle()`](./shuffle.md)関数を使用すること。
+この関数は、C++14から非推奨である。代わりに[`shuffle()`](shuffle.md)関数を使用すること。
 
 
 ##概要
@@ -56,7 +56,7 @@ C++14では、C互換ライブラリの乱数生成関数である`std::rand()`�
 
 `std::random_shuffle()`関数は`std::rand()`に依存したアルゴリズムであるため、共に非推奨となった。
 
-`std::rand()`と`std::srand()`の代わりに、[`<random>`](/reference/random.md)ヘッダで定義される乱数生成器と分布を使用すること。`std::random_shuffle()`関数の代わりに、[`std::shuffle()`](./shuffle.md)関数を使用すること。
+`std::rand()`と`std::srand()`の代わりに、[`<random>`](/reference/random.md)ヘッダで定義される乱数生成器と分布を使用すること。`std::random_shuffle()`関数の代わりに、[`std::shuffle()`](shuffle.md)関数を使用すること。
 
 
 ##例

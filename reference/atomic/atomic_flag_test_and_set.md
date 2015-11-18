@@ -18,7 +18,7 @@ namespace std {
 
 
 ##効果
-[`memory_order_seq_cst`](./memory_order.md)のメモリオーダーにしたがって、アトミックに`true`値を書き込む。この操作はread-modify-write操作である。
+[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、アトミックに`true`値を書き込む。この操作はread-modify-write操作である。
 
 
 ##戻り値

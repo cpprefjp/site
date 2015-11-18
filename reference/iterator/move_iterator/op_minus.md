@@ -19,7 +19,7 @@ namespace std {
 
 
 ##戻り値
-`return x.`[`base`](./base.md)`() - y.`[`base`](./base.md)`();`
+`return x.`[`base`](base.md)`() - y.`[`base`](base.md)`();`
 
 
 ##例

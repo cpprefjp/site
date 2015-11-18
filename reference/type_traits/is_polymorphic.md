@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_polymorphic`は、型`T`が多相的クラス (cv修飾を許容する) であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`is_polymorphic`は、型`T`が多相的クラス (cv修飾を許容する) であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
 
 
 ##備考

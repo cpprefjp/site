@@ -33,7 +33,7 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
 
 
 ##要件
-- (2) では、`pos <=` [`size`](./size.md)`()` であること。
+- (2) では、`pos <=` [`size`](size.md)`()` であること。
 
 - (3) では、`s` は少なくとも `n` の長さを持つ `charT` 型の配列を指していること。
 
@@ -45,12 +45,12 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
 ##効果
 - (1) 対象オブジェクトの末尾に `str` の値が追加（コピー）される。
     * C++03 まで：`append(str, 0, npos)` と同一。
-    * C++11 から：`append(str.`[`data`](./data.md)`(), str.`[`size`](./size.md)`())` と同一。
+    * C++11 から：`append(str.`[`data`](data.md)`(), str.`[`size`](size.md)`())` と同一。
 
 - (2) 対象オブジェクトの末尾に `str` の `pos` 以降の文字が追加される。
-    追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](./size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](./size.md)`() - pos` が使用される。
+    追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
     * C++03 まで：対象オブジェクトの末尾に `str` の `pos` 番目からの `rlen` 文字を追加（コピー）する。
-    * C++11 から：`append(str.`[`data`](./data.md)`() + pos, rlen)` と同一。
+    * C++11 から：`append(str.`[`data`](data.md)`() + pos, rlen)` と同一。
 
 - (3) 対象オブジェクトの末尾に `s` が指す長さ `n` の文字列が追加（コピー）される。
     * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s, n))` と同一。
@@ -78,23 +78,23 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
 - (1) C++03 まで：[`size`](size.md)`() >= npos - str.`[`size`](size.md)`()` の場合、`length_error` が送出される。  
     C++11 から：[`size`](size.md)`() + str.`[`size`](size.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (2) `pos > str.`[`size`](./size.md)`()` の場合、`out_of_range` が送出される。  
-    C++03 まで：[`size`](./size.md)`() >= npos - rlen` の場合、`length_error` が送出される。  
-    C++11 から：[`size`](./size.md)`() + rlen >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
+- (2) `pos > str.`[`size`](size.md)`()` の場合、`out_of_range` が送出される。  
+    C++03 まで：[`size`](size.md)`() >= npos - rlen` の場合、`length_error` が送出される。  
+    C++11 から：[`size`](size.md)`() + rlen >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (3) C++03 まで：[`size`](./size.md)`() >= npos - n` の場合、`length_error` が送出される。  
-    C++11 から：[`size`](./size.md)`() + n >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+- (3) C++03 まで：[`size`](size.md)`() >= npos - n` の場合、`length_error` が送出される。  
+    C++11 から：[`size`](size.md)`() + n >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (4) C++03 まで：[`size`](./size.md)`() >= npos - traits::length(s)` の場合、`length_error` が送出される。  
-    C++11 から：[`size`](./size.md)`() + traits::length(s) >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+- (4) C++03 まで：[`size`](size.md)`() >= npos - traits::length(s)` の場合、`length_error` が送出される。  
+    C++11 から：[`size`](size.md)`() + traits::length(s) >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (5) C++03 まで：[`size`](./size.md)`() >= npos - n` の場合、`length_error` が送出される。  
-    C++11 から：[`size`](./size.md)`() + n >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+- (5) C++03 まで：[`size`](size.md)`() >= npos - n` の場合、`length_error` が送出される。  
+    C++11 から：[`size`](size.md)`() + n >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (6) C++03 まで：[`size`](./size.md)`() >= npos -` [`distance`](/reference/iterator/distance.md)`(first, last)` の場合、`length_error` が送出される。  
-    C++11 から：[`size`](./size.md)`() +` [`distance`](/reference/iterator/distance.md)`(first, last) >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+- (6) C++03 まで：[`size`](size.md)`() >= npos -` [`distance`](/reference/iterator/distance.md)`(first, last)` の場合、`length_error` が送出される。  
+    C++11 から：[`size`](size.md)`() +` [`distance`](/reference/iterator/distance.md)`(first, last) >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (7) [`size`](./size.md)`() + il.`[`size`](/reference/initializer_list.md)`() >` [`max_size`](./max_size.md)`()` の場合、`length_error` が送出される。
+- (7) [`size`](size.md)`() + il.`[`size`](/reference/initializer_list.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 
 ##備考
@@ -142,10 +142,10 @@ Hello, world!! :)
 
 | 名前                                | 説明                   |
 |-------------------------------------|------------------------|
-| [`operator+=`](./op_plus_assign.md) | 文字／文字列を追加する |
-| [`push_back`](./push_back.md)       | 文字を追加する         |
-| [`insert`](./insert.md)             | 文字／文字列を挿入する |
-| [`operator+`](./op_plus.md)         | 文字列を連結する       |
+| [`operator+=`](op_plus_assign.md) | 文字／文字列を追加する |
+| [`push_back`](push_back.md)       | 文字を追加する         |
+| [`insert`](insert.md)             | 文字／文字列を挿入する |
+| [`operator+`](op_plus.md)         | 文字列を連結する       |
 
 
 ##参照

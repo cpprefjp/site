@@ -13,18 +13,18 @@ namespace std {
 ##概要
 `nested_exception`は、例外を階層構造として処理する場合に、元の例外を一時的に保持した状態で、別の例外として送出するための使用する例外クラスである。
 
-入れ子になった例外を補足した場合、[`rethrow_nested()`](./nested_exception/rethrow_nested.md)メンバ関数を呼び出すことで、元の例外を送出できる。
+入れ子になった例外を補足した場合、[`rethrow_nested()`](nested_exception/rethrow_nested.md)メンバ関数を呼び出すことで、元の例外を送出できる。
 
 
 ##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](./nested_exception/op_constructor.md) | コンストラクタ | C++11 |
+| [`(constructor)`](nested_exception/op_constructor.md) | コンストラクタ | C++11 |
 | `~virtual nested_exception() = default;` | デストラクタ | C++11 |
 | `nested_exception& operator=(const nested_exception&) = default;` | 代入演算子 | C++11 |
-| [`rethrow_nested`](./nested_exception/rethrow_nested.md) | 入れ子になった例外を送出する | C++11 |
-| [`nested_ptr`](./nested_exception/nested_ptr.md) | 入れ子になった例外へのポインタを取得する | C++11 |
+| [`rethrow_nested`](nested_exception/rethrow_nested.md) | 入れ子になった例外を送出する | C++11 |
+| [`nested_ptr`](nested_exception/nested_ptr.md) | 入れ子になった例外へのポインタを取得する | C++11 |
 
 
 ##例

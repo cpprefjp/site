@@ -15,7 +15,7 @@ OR演算を行う
 
 
 ##戻り値
-[`fetch_or`](./fetch_or.md)`(operand) | operand`
+[`fetch_or`](fetch_or.md)`(operand) | operand`
 
 
 ##例外

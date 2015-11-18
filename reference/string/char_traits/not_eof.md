@@ -14,7 +14,7 @@ static constexpr int_type not_eof(int_type c) noexcept; // C++11
 
 
 ##戻り値
-[`eq_int_type`](./eq_int_type.md)`(c,` [`eof`](./eof.md)`()) == false`の場合は`c`を返す。そうでない場合は、[`eq_int_type`](./eq_int_type.md)`(f,` [`eof`](./eof.md)`()) == false`となるような値`f`を返す。
+[`eq_int_type`](eq_int_type.md)`(c,` [`eof`](eof.md)`()) == false`の場合は`c`を返す。そうでない場合は、[`eq_int_type`](eq_int_type.md)`(f,` [`eof`](eof.md)`()) == false`となるような値`f`を返す。
 
 つまり、EOF以外の値が渡されたら渡された値を返し、EOFが渡されたらEOF以外の値を返す。
 

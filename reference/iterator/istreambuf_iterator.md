@@ -27,12 +27,12 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|-------------------------|-------|
-| [`(constructor)`](./istreambuf_iterator/op_constructor.md) | コンストラクタ | |
+| [`(constructor)`](istreambuf_iterator/op_constructor.md) | コンストラクタ | |
 | `~istreambuf_iterator() = default` | デストラクタ | |
-| [`operator*`](./istreambuf_iterator/op_deref.md) | 間接参照 | |
-| [`operator->`](./istreambuf_iterator/op_arrow.md) | メンバアクセス | C++11 |
-| [`operator++`](./istreambuf_iterator/op_increment.md) | イテレータをインクリメントする | |
-| [`equal`](./istreambuf_iterator/equal.md) | `istreambuf_iterator`オブジェクトの等値比較 | |
+| [`operator*`](istreambuf_iterator/op_deref.md) | 間接参照 | |
+| [`operator->`](istreambuf_iterator/op_arrow.md) | メンバアクセス | C++11 |
+| [`operator++`](istreambuf_iterator/op_increment.md) | イテレータをインクリメントする | |
+| [`equal`](istreambuf_iterator/equal.md) | `istreambuf_iterator`オブジェクトの等値比較 | |
 
 
 ##メンバ型
@@ -55,8 +55,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|------------|------|
-| [`operator==`](./istreambuf_iterator/op_equal.md)     | 等値比較   | |
-| [`operator!=`](./istreambuf_iterator/op_not_equal.md) | 非等値比較 | |
+| [`operator==`](istreambuf_iterator/op_equal.md)     | 等値比較   | |
+| [`operator!=`](istreambuf_iterator/op_not_equal.md) | 非等値比較 | |
 
 
 ##例

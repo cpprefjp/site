@@ -9,7 +9,7 @@
 * implementation-defined[italic]
 
 ##概要
-[`int_fast8_t`](./int_fast8_t.md) の最大値。
+[`int_fast8_t`](int_fast8_t.md) の最大値。
 
 ##バージョン
 ###言語

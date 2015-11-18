@@ -45,7 +45,7 @@ indirect_array<T> operator[](const valarray<size_t>& mask); // (10)
 
 `*this`に含まれる`n`番目の要素への参照を返す。
 
-`n >=` [`size()`](./size.md)の場合、その挙動は未定義。
+`n >=` [`size()`](size.md)の場合、その挙動は未定義。
 
 - (3) : `*this`に含まれる要素を、[`slice`](/reference/valarray/slice.md)の条件に基いてスライスする。このオーバーロードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
 - (4) : `*this`に含まれる要素を、[`slice`](/reference/valarray/slice.md)の条件に基いてスライスする。このオーバーロードでは、条件一致した要素への参照を管理する[`slice_array`](/reference/valarray/slice_array.md)オブジェクトを返す。
@@ -58,7 +58,7 @@ indirect_array<T> operator[](const valarray<size_t>& mask); // (10)
 
 
 ##備考
-- (7), (8) : [`size()`](./size.md) `!= mask.`[`size()`](./size.md)の場合、その挙動は未定義。
+- (7), (8) : [`size()`](size.md) `!= mask.`[`size()`](size.md)の場合、その挙動は未定義。
 
 ##例
 ```cpp

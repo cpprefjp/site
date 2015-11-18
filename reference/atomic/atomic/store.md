@@ -25,7 +25,7 @@ void store(T desired, memory_order order = memory_order_seq_cst) noexcept;
 
 ##効果
 `order`で指定されたメモリオーダーにしたがって、現在の値を`desired`でアトミックに置き換える。
-この関数は、戻り値のない[`exchange()`](./exchange.md)と見なせる。
+この関数は、戻り値のない[`exchange()`](exchange.md)と見なせる。
 
 
 ##戻り値

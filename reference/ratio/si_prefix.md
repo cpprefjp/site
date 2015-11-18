@@ -31,7 +31,7 @@ namespace std {
 * ratio[link ./ratio.md]
 
 ##概要
-これらは、コンパイル時有理数である[`ratio`](./ratio.md)を利用した、SI単位系(The International System of Units : 国際単位系)の接頭辞を表す型である。
+これらは、コンパイル時有理数である[`ratio`](ratio.md)を利用した、SI単位系(The International System of Units : 国際単位系)の接頭辞を表す型である。
 
 | 型      | 説明     |
 |---------|----------|

@@ -20,13 +20,13 @@ namespace std {
 
 
 ##効果
-`is_nothrow_move_assignable`は、型`T`が例外を投げない保証のもとにムーブ代入可能であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。 
+`is_nothrow_move_assignable`は、型`T`が例外を投げない保証のもとにムーブ代入可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。 
 以下の条件が`true`である場合に、例外を投げないムーブ代入が可能であると見なされる：
 
-- C++11 : [`is_nothrow_assignable`](./is_nothrow_assignable.md)`<T&, T&&>::value == true`
-- C++14 : 参照可能な型`T`に対しては、[`is_nothrow_assignable`](./is_nothrow_assignable.md)`<T&, T&&>::value == true`と同じ結果となり、それ以外は`false`と見なされる。
+- C++11 : [`is_nothrow_assignable`](is_nothrow_assignable.md)`<T&, T&&>::value == true`
+- C++14 : 参照可能な型`T`に対しては、[`is_nothrow_assignable`](is_nothrow_assignable.md)`<T&, T&&>::value == true`と同じ結果となり、それ以外は`false`と見なされる。
     - 参照可能な型とは、以下のいずれかの条件に合致する型である：
-        - [オブジェクト型](./is_object.md)
+        - [オブジェクト型](is_object.md)
         - CV修飾されていない、もしくは参照修飾されていない関数型
         - 参照修飾されている型
 

@@ -13,23 +13,23 @@ namespace std {
 ##概要
 `error_code`は、OSのAPIで発生するエラー値およびそのエラーメッセージを扱うクラスである。
 
-このクラス主に、[`system_error`](./system_error.md)例外クラスに付加する情報として使用する。
+このクラス主に、[`system_error`](system_error.md)例外クラスに付加する情報として使用する。
 
 
 ##メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](./error_code/op_constructor.md) | コンストラクタ | C++11 |
+| [`(constructor)`](error_code/op_constructor.md) | コンストラクタ | C++11 |
 | `~error_code() = default`                         | デストラクタ | C++11 |
-| [`operator=`](./error_code/op_assign.md)          | 代入演算子 | C++11 |
-| [`assign`](./error_code/assign.md)                | 値の再設定 | C++11 |
-| [`clear`](./error_code/clear.md)                  | エラー情報をクリアする | C++11 |
-| [`value`](./error_code/value.md)                  | エラー値を取得する | C++11 |
-| [`category`](./error_code/category.md)            | エラーカテゴリを取得する | C++11 |
-| [`default_error_condition`](./error_code/default_error_condition.md) | `error_code`に対応する`error_condition`を取得する | | C++11 |
-| [`message`](./error_code/message.md) | エラーメッセージを取得する | C++11 |
-| [`explicit operator bool`](./error_code/op_bool.md) | エラーかどうかを判定する | C++11 |
+| [`operator=`](error_code/op_assign.md)          | 代入演算子 | C++11 |
+| [`assign`](error_code/assign.md)                | 値の再設定 | C++11 |
+| [`clear`](error_code/clear.md)                  | エラー情報をクリアする | C++11 |
+| [`value`](error_code/value.md)                  | エラー値を取得する | C++11 |
+| [`category`](error_code/category.md)            | エラーカテゴリを取得する | C++11 |
+| [`default_error_condition`](error_code/default_error_condition.md) | `error_code`に対応する`error_condition`を取得する | | C++11 |
+| [`message`](error_code/message.md) | エラーメッセージを取得する | C++11 |
+| [`explicit operator bool`](error_code/op_bool.md) | エラーかどうかを判定する | C++11 |
 
 
 ##例

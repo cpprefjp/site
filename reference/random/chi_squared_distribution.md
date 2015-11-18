@@ -39,26 +39,26 @@ $$ p(x|n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $$
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./chi_squared_distribution/op_constructor.md)           | コンストラクタ     | C++11 |
+| [`(constructor)`](chi_squared_distribution/op_constructor.md)           | コンストラクタ     | C++11 |
 | `~chi_squared_distribution() = default;`                                  | デストラクタ       | C++11 |
-| [`reset`](./chi_squared_distribution/reset.md)                            | 状態をリセットする | C++11 |
+| [`reset`](chi_squared_distribution/reset.md)                            | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------|-------|
-| [`operator()`](./chi_squared_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](chi_squared_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------------|-------|
-| [`n`](./chi_squared_distribution/n.md)         | 自由度を取得する                 | C++11 |
-| [`param`](./chi_squared_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./chi_squared_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./chi_squared_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`n`](chi_squared_distribution/n.md)         | 自由度を取得する                 | C++11 |
+| [`param`](chi_squared_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](chi_squared_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](chi_squared_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -73,10 +73,10 @@ $$ p(x|n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $$
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------|-------|
-| [`operator==`](./chi_squared_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./chi_squared_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./chi_squared_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./chi_squared_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](chi_squared_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](chi_squared_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](chi_squared_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](chi_squared_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

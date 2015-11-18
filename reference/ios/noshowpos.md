@@ -41,4 +41,4 @@ int main()
 - C++03
 
 ##参照
-- [`showpos`](./showpos.md)
+- [`showpos`](showpos.md)

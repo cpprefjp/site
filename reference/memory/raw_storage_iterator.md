@@ -29,11 +29,11 @@ namespace std {
 
 | 名前 | 説明 |
 |--------------------------------------|-------------------------------|
-| [`(constructor)`](./raw_storage_iterator/op_constructor.md) | コンストラクタ |
+| [`(constructor)`](raw_storage_iterator/op_constructor.md) | コンストラクタ |
 | `~raw_storage_iterator() = default;` | デストラクタ |
-| [`operator=`](./raw_storage_iterator/op_assign.md)     | 代入演算子 |
-| [`operator*`](./raw_storage_iterator/op_deref.md)      | 間接参照演算子 |
-| [`operator++`](./raw_storage_iterator/op_increment.md) | イテレータをインクリメントする |
+| [`operator=`](raw_storage_iterator/op_assign.md)     | 代入演算子 |
+| [`operator*`](raw_storage_iterator/op_deref.md)      | 間接参照演算子 |
+| [`operator++`](raw_storage_iterator/op_increment.md) | イテレータをインクリメントする |
 
 
 ##メンバ型
@@ -95,8 +95,8 @@ int main()
 ```
 
 ##参照
-- [`uninitialized_copy`](./uninitialized_copy.md)
-- [`uninitialized_copy_n`](./uninitialized_copy_n.md)
-- [`uninitialized_fill`](./uninitialized_fill.md)
-- [`uninitialized_fill_n`](./uninitialized_fill_n.md)
+- [`uninitialized_copy`](uninitialized_copy.md)
+- [`uninitialized_copy_n`](uninitialized_copy_n.md)
+- [`uninitialized_fill`](uninitialized_fill.md)
+- [`uninitialized_fill_n`](uninitialized_fill_n.md)
 

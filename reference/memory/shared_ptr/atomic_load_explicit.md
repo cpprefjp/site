@@ -26,7 +26,7 @@ namespace std {
 
 
 ##戻り値
-[`*p`](./op_deref.md)相当のことをアトミックに実行して返す。
+[`*p`](op_deref.md)相当のことをアトミックに実行して返す。
 
 
 ##例外
@@ -73,7 +73,7 @@ int main()
 
 
 ##参照
-- [`atomic_load() - shared_ptr`](./atomic_load.md)
+- [`atomic_load() - shared_ptr`](atomic_load.md)
 - [`atomic_load_explicit() - <atomic>`](/reference/atomic/atomic_load.md)
 - [N2674 Shared_ptr atomic access, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2674.htm)
 - [C++0x Shared_ptr atomic access - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081015/1224066366)

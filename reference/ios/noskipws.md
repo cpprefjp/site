@@ -48,4 +48,4 @@ int main()
 - C++03
 
 ##参照
-- [`skipws`](./skipws.md)
+- [`skipws`](skipws.md)

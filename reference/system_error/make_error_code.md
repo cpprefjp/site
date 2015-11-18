@@ -13,11 +13,11 @@ namespace std {
 * errc[link ./errc.md]
 
 ##概要
-[`errc`](./errc.md)型の列挙値から[`error_code`](./error_code.md)オブジェクトを生成する
+[`errc`](errc.md)型の列挙値から[`error_code`](error_code.md)オブジェクトを生成する
 
 
 ##戻り値
-[`error_code`](./error_code.md)`(static_cast<int>(e),` [`generic_category()`](./generic_category.md)`)`
+[`error_code`](error_code.md)`(static_cast<int>(e),` [`generic_category()`](generic_category.md)`)`
 
 
 ##例外

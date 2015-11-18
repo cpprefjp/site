@@ -16,7 +16,7 @@ namespace std {
 
 
 ##効果
-`x.`[`swap`](./swap_free.md)`(y)`
+`x.`[`swap`](swap_free.md)`(y)`
 
 
 ##戻り値

@@ -24,24 +24,24 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11から
 
 
 ##要件
-- (1) : `pos <=` [`size()`](./size.md)
+- (1) : `pos <=` [`size()`](size.md)
 - (3) : `first`と`last`が`*this`に対する有効なイテレータであり、`[first, last)`が有効な範囲であること。
 
 
 ##効果
-- (1) : `n`と[`size()`](./size.md) `- pos`のうち小さい方を`xlen`とし、`pos`番目から`xlen`個の要素を削除する。
+- (1) : `n`と[`size()`](size.md) `- pos`のうち小さい方を`xlen`とし、`pos`番目から`xlen`個の要素を削除する。
 - (2) : イテレータ`p`が指す要素を削除する。
 - (3) : 範囲`[first, last)`の文字列を削除する。
 
 
 ##戻り値
 - (1) : `*this`
-- (2) : 削除した要素の次を指すイテレータを返す。そのような要素がなければ[`end()`](./end.md)を返す。
-- (3) : 最後に削除した要素の次を指すイテレータを返す。そのような要素がなければ[`end()`](./end.md)を返す。
+- (2) : 削除した要素の次を指すイテレータを返す。そのような要素がなければ[`end()`](end.md)を返す。
+- (3) : 最後に削除した要素の次を指すイテレータを返す。そのような要素がなければ[`end()`](end.md)を返す。
 
 
 ##例外
-- (1) : `pos >` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (1) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 - (2) : 投げない (C++14から)
 - (3) : 投げない (C++14から)
 

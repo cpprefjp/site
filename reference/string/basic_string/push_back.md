@@ -13,7 +13,7 @@ void push_back(charT c);
 
 
 ##効果
-[`append`](./append.md)`(static_cast<size_type>(1), c)`
+[`append`](append.md)`(static_cast<size_type>(1), c)`
 
 
 ##例

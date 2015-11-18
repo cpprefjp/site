@@ -9,7 +9,7 @@
 * implementation-defined[italic]
 
 ##概要
-[`int_least16_t`](./int_least16_t.md) の最小値。
+[`int_least16_t`](int_least16_t.md) の最小値。
 
 ##バージョン
 ###言語

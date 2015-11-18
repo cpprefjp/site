@@ -14,7 +14,7 @@ string message() const;
 
 
 ##戻り値
-[`category()`](./category.md)`.`[`message`](../error_category/message.md)`(`[`value()`](./value.md)`)`
+[`category()`](category.md)`.`[`message`](../error_category/message.md)`(`[`value()`](value.md)`)`
 
 
 ##例

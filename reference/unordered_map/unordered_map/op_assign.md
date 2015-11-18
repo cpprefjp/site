@@ -29,11 +29,11 @@ unordered_map& operator=(initializer_list<value_type> il); // (3)
 
 
 ##効果
-- (1)	`v` の全ての要素がコピー代入される。ハッシュ関数オブジェクト、キー比較用関数オブジェクト、[`max_load_factor`](./max_load_factor.md)`()` の値もコピーされる。
+- (1)	`v` の全ての要素がコピー代入される。ハッシュ関数オブジェクト、キー比較用関数オブジェクト、[`max_load_factor`](max_load_factor.md)`()` の値もコピーされる。
 	アロケータオブジェクトは、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_copy_assignment::value` が `true` の場合に限りコピーされる。
 
 - (2)	ハッシュ関数オブジェクト、キー比較用関数オブジェクトの値はムーブされる。
-	[`max_load_factor`](./max_load_factor.md)`()` の値はコピーされる。
+	[`max_load_factor`](max_load_factor.md)`()` の値はコピーされる。
 	アロケータオブジェクトは、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `true` の場合に限りムーブされる。コンテナ内に元々存在していた要素は、代入されるか、破棄される（デストラクタが呼び出される）。
 
 - (3)	範囲 `[il.begin(), il.end())` がコピー代入される。
@@ -53,13 +53,13 @@ unordered_map& operator=(initializer_list<value_type> il); // (3)
 
 
 ##計算量
-- (1)	平均的には O(n)、ここで、`n = v.`[`size`](./size.md)`()`。最悪のケースでは O(n<sup>2</sup>)
+- (1)	平均的には O(n)、ここで、`n = v.`[`size`](size.md)`()`。最悪のケースでは O(n<sup>2</sup>)
 - (2)	線形時間。
 - (3)	代入対象を `a`、`a` の型を `X` とすると、`a = X(il)` と同様。（備考参照）
 
 
 ##備考
-- (3) の形式の場合、計算量は `a = X(il)` と同様となっているが、効果が `a = X(il)` と同様なわけではない。（ハッシュ関数オブジェクト、キー比較用関数オブジェクト、アロケータオブジェクト、[`max_load_factor`](./max_load_factor.md)`()` 等が異なる）
+- (3) の形式の場合、計算量は `a = X(il)` と同様となっているが、効果が `a = X(il)` と同様なわけではない。（ハッシュ関数オブジェクト、キー比較用関数オブジェクト、アロケータオブジェクト、[`max_load_factor`](max_load_factor.md)`()` 等が異なる）
 
 - (2) の形式の要件に、「`value_type` はこのコンテナに対してムーブ挿入可能であること」というものがあるが、`value_type` は `std::`[`pair`](/reference/utility/pair.md)`<const key_type, mapped_type>` であるため、通常のムーブ挿入可能の条件に合わせると `key_type` にコピーコンストラクタが必要となってしまう。
 	従って、規格書に明確な記載はないものの、この場合のムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタ、`krv` をキーの型 `key_type` の右辺値、`mrv` を値の型 `mapped_type` の右辺値とすると、以下の式が適格（well-formed）であるということであるものと思われる。
@@ -84,8 +84,8 @@ unordered_map& operator=(initializer_list<value_type> il); // (3)
 
 |                                       |                |
 |---------------------------------------|----------------|
-| [`(constructor)`](./op_constructor.md) | コンストラクタ |
-| [`(destructor)`](./op_destructor.md) | デストラクタ   |
+| [`(constructor)`](op_constructor.md) | コンストラクタ |
+| [`(destructor)`](op_destructor.md) | デストラクタ   |
 
 
 ##参照

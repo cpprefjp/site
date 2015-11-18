@@ -43,16 +43,16 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|------------------------------------------------|-------|
-| [`(constructor)`](./priority_queue/op_constructor.md) | コンストラクタ | |
+| [`(constructor)`](priority_queue/op_constructor.md) | コンストラクタ | |
 | `~priority_queue() = default`            | デストラクタ | |
 | `operator=(const priority_queue&) = default`<br/> `operator=(priority_queue&&) = default` | 代入演算子 | |
-| [`empty`](./priority_queue/empty.md)     | 要素が空かどうかを判定する | |
-| [`size`](./priority_queue/size.md)       | 要素数を取得する | |
-| [`top`](./priority_queue/top.md)         | 次の要素にアクセスする | |
-| [`push`](./priority_queue/push.md)       | 要素を追加する | |
-| [`emplace`](./priority_queue/emplace.md) | 直接構築で要素を追加する | C++11 |
-| [`pop`](./priority_queue/pop.md)         | 次の要素を削除する | |
-| [`swap`](./priority_queue/swap.md)       | 他のpriority_queueオブジェクトと値を入れ替える | C++11 |
+| [`empty`](priority_queue/empty.md)     | 要素が空かどうかを判定する | |
+| [`size`](priority_queue/size.md)       | 要素数を取得する | |
+| [`top`](priority_queue/top.md)         | 次の要素にアクセスする | |
+| [`push`](priority_queue/push.md)       | 要素を追加する | |
+| [`emplace`](priority_queue/emplace.md) | 直接構築で要素を追加する | C++11 |
+| [`pop`](priority_queue/pop.md)         | 次の要素を削除する | |
+| [`swap`](priority_queue/swap.md)       | 他のpriority_queueオブジェクトと値を入れ替える | C++11 |
 
 
 ##protectedメンバ変数
@@ -78,7 +78,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|-----------------------------------------------|-------|
-| [`swap`](./priority_queue/swap_free.md) | 2つの`priority_queue`オブジェクトを入れ替える | C++11 |
+| [`swap`](priority_queue/swap_free.md) | 2つの`priority_queue`オブジェクトを入れ替える | C++11 |
 
 
 ##例

@@ -21,7 +21,7 @@ namespace std {
 ##概要
 `shared_ptr`において、左辺が右辺以上かを判定する。
 
-比較対象は、`shared_ptr`が指す値ではなく、`shared_ptr`が保持するポインタ値。これは「値ベース(value-based)な比較」と呼ばれる。「所有権ベース(ownership-based)な比較」は、[`owner_before()`](./owner_before.md)を参照。
+比較対象は、`shared_ptr`が指す値ではなく、`shared_ptr`が保持するポインタ値。これは「値ベース(value-based)な比較」と呼ばれる。「所有権ベース(ownership-based)な比較」は、[`owner_before()`](owner_before.md)を参照。
 
 
 ##戻り値

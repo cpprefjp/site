@@ -89,6 +89,6 @@ inline bool unordered_multimap<Key, Hash, Pred, Allocator>::empty() const noexce
 
 | 名前                        | 説明                         |
 |-----------------------------|------------------------------|
-| [`size`](./size.md)         | 要素数の取得                 |
-| [`max_size`](./max_size.md) | 格納可能な最大の要素数の取得 |
+| [`size`](size.md)         | 要素数の取得                 |
+| [`max_size`](max_size.md) | 格納可能な最大の要素数の取得 |
 

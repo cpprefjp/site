@@ -15,7 +15,7 @@ T operator-=(T operand) noexcept;
 
 
 ##戻り値
-[`fetch_sub`](./fetch_sub.md)`(operand) - operand`
+[`fetch_sub`](fetch_sub.md)`(operand) - operand`
 
 
 ##例外

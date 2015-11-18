@@ -43,9 +43,9 @@ weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++14
 
 
 ##事後条件
-- (1) : [`use_count()`](./use_count.md) `== 0`
-- (2), (3), (4) : [`use_count()`](./use_count.md) `==` `r.`[`use_count()`](./use_count.md)
-- (5), (6) : `r.`[`use_count()`](./use_count.md) `== 0`
+- (1) : [`use_count()`](use_count.md) `== 0`
+- (2), (3), (4) : [`use_count()`](use_count.md) `==` `r.`[`use_count()`](use_count.md)
+- (5), (6) : `r.`[`use_count()`](use_count.md) `== 0`
 
 
 ##例

@@ -93,14 +93,14 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 
 
 ##事後条件
-- (1) : [`use_count()`](./use_count.md) `== 0 &&` [`get()`](./get.md) ` == nullptr`
-- (2), (3), (4) : [`use_count()`](./use_count.md) `== 1 &&` [`get()`](./get.md) ` == p`
-- (5), (6) : [`use_count()`](./use_count.md) `== 1 &&` [`get()`](./get.md) ` == nullptr`
-- (7) : [`get()`](./get.md) `== p &&` [`use_count()`](./use_count.md) `== r.`[`use_count()`](./use_count.md)
-- (8), (9) : [`get()`](./get.md) `==` [`get()`](./get.md) `&&` [`use_count()`](./use_count.md) `== r.`[`use_count()`](./use_count.md)
+- (1) : [`use_count()`](use_count.md) `== 0 &&` [`get()`](get.md) ` == nullptr`
+- (2), (3), (4) : [`use_count()`](use_count.md) `== 1 &&` [`get()`](get.md) ` == p`
+- (5), (6) : [`use_count()`](use_count.md) `== 1 &&` [`get()`](get.md) ` == nullptr`
+- (7) : [`get()`](get.md) `== p &&` [`use_count()`](use_count.md) `== r.`[`use_count()`](use_count.md)
+- (8), (9) : [`get()`](get.md) `==` [`get()`](get.md) `&&` [`use_count()`](use_count.md) `== r.`[`use_count()`](use_count.md)
 - (10) : `*this`は`r`がこれまで持っていた値を持ち、`r`は空の状態になる。
-- (12) : [`use_count()`](./use_count.md) `== r.`[`use_count()`](./use_count.md)
-- (13) : [`use_count()`](./use_count.md) `== 1 &&` `r.`[`get()`](./get.md) `== nullptr`
+- (12) : [`use_count()`](use_count.md) `== r.`[`use_count()`](use_count.md)
+- (13) : [`use_count()`](use_count.md) `== 1 &&` `r.`[`get()`](get.md) `== nullptr`
 
 
 ##例外

@@ -12,13 +12,13 @@ namespace std {
 * exception_ptr[link ./exception_ptr.md]
 
 ##概要
-現在処理中の例外オブジェクトを指す[`exception_ptr`](./exception_ptr.md)を取得する。
+現在処理中の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を取得する。
 
 
 ##戻り値
-現在処理中の例外オブジェクトを指す[`exception_ptr`](./exception_ptr.md)を返す。
+現在処理中の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す。
 
-処理中の例外オブジェクトがない場合は、ヌルを指す[`exception_ptr`](./exception_ptr.md)を返す。
+処理中の例外オブジェクトがない場合は、ヌルを指す[`exception_ptr`](exception_ptr.md)を返す。
 
 
 ##例外

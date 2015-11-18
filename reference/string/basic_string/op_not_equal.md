@@ -34,7 +34,7 @@ namespace std {
 ##戻り値
 - (1) `!(a == b)`
 - (2) `b != a`
-- (3) `a.`[`compare`](./compare.md)`(b) != 0`
+- (3) `a.`[`compare`](compare.md)`(b) != 0`
 
 
 ##例

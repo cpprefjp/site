@@ -13,7 +13,7 @@ bool empty() const noexcept;
 
 
 ##戻り値
-[`size()`](./size.md) `== 0` の評価結果。
+[`size()`](size.md) `== 0` の評価結果。
 
 
 ##例外

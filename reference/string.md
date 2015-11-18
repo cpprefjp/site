@@ -7,34 +7,34 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|--------------------------|-------|
-| [`char_traits`](./string/char_traits.md) | 文字特性(class template) | |
+| [`char_traits`](string/char_traits.md) | 文字特性(class template) | |
 
 
 ##文字列クラス
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|------------------------------------|-------|
-| [`basic_string`](./string/basic_string.md) | 汎用文字型の文字列(class template) | |
-| [`string`](./string/basic_string.md)       | マルチバイト文字列(typedef) | |
-| [`wstring`](./string/basic_string.md)      | ワイド文字列(typedef) | |
-| [`u16string`](./string/basic_string.md)    | UTF-16文字列(typedef) | C++11 |
-| [`u32string`](./string/basic_string.md)    | UTF-32文字列(typedef) | C++11 |
+| [`basic_string`](string/basic_string.md) | 汎用文字型の文字列(class template) | |
+| [`string`](string/basic_string.md)       | マルチバイト文字列(typedef) | |
+| [`wstring`](string/basic_string.md)      | ワイド文字列(typedef) | |
+| [`u16string`](string/basic_string.md)    | UTF-16文字列(typedef) | C++11 |
+| [`u32string`](string/basic_string.md)    | UTF-32文字列(typedef) | C++11 |
 
 
 ##数値との変換
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------|----------------------------------------------------|-------|
-| [`stoi`](./string/stoi.md)             | 文字列から`int`型への変換(function)                | C++11 |
-| [`stol`](./string/stol.md)             | 文字列から`long`型への変換(function)               | C++11 |
-| [`stoul`](./string/stoul.md)           | 文字列から`unsigned long`型への変換(function)      | C++11 |
-| [`stoll`](./string/stoll.md)           | 文字列から`long long`型への変換(function)          | C++11 |
-| [`stoull`](./string/stoull.md)         | 文字列から`unsigned long long`型への変換(function) | C++11 |
-| [`stof`](./string/stof.md)             | 文字列から`float`型への変換(function)              | C++11 |
-| [`stod`](./string/stod.md)             | 文字列から`double`型への変換(function)             | C++11 |
-| [`stold`](./string/stold.md)           | 文字列から`long double`型への変換(function)        | C++11 |
-| [`to_string`](./string/to_string.md)   | 数値から`string`への変換(function)                 | C++11 |
-| [`to_wstring`](./string/to_wstring.md) | 数値から`wstring`への変換(function)                | C++11 |
+| [`stoi`](string/stoi.md)             | 文字列から`int`型への変換(function)                | C++11 |
+| [`stol`](string/stol.md)             | 文字列から`long`型への変換(function)               | C++11 |
+| [`stoul`](string/stoul.md)           | 文字列から`unsigned long`型への変換(function)      | C++11 |
+| [`stoll`](string/stoll.md)           | 文字列から`long long`型への変換(function)          | C++11 |
+| [`stoull`](string/stoull.md)         | 文字列から`unsigned long long`型への変換(function) | C++11 |
+| [`stof`](string/stof.md)             | 文字列から`float`型への変換(function)              | C++11 |
+| [`stod`](string/stod.md)             | 文字列から`double`型への変換(function)             | C++11 |
+| [`stold`](string/stold.md)           | 文字列から`long double`型への変換(function)        | C++11 |
+| [`to_string`](string/to_string.md)   | 数値から`string`への変換(function)                 | C++11 |
+| [`to_wstring`](string/to_wstring.md) | 数値から`wstring`への変換(function)                | C++11 |
 
 
 ##ハッシュサポート

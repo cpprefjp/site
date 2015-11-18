@@ -13,7 +13,7 @@ namespace std {
 
 ##概要
 `independent_bits_engine`クラスは、乱数生成エンジンが生成する乱数をラップし、生成結果のビット数を変更する生成器アダプタである。  
-32ビット整数を生成する[`mt19937`](./mt19937.md)をラップして、64ビット整数を生成させる、といったことができる。  
+32ビット整数を生成する[`mt19937`](mt19937.md)をラップして、64ビット整数を生成させる、といったことができる。  
 
 
 テンプレートパラメータは、以下を意味する：
@@ -31,24 +31,24 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./independent_bits_engine/op_constructor.md)          | コンストラクタ   | C++11 |
+| [`(constructor)`](independent_bits_engine/op_constructor.md)          | コンストラクタ   | C++11 |
 | `~independent_bits_engine() = default;`                                 | デストラクタ     | C++11 |
-| [`seed`](./independent_bits_engine/seed.md)                             | シードを設定する | C++11 |
+| [`seed`](independent_bits_engine/seed.md)                             | シードを設定する | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|--------------------|-------|
-| [`operator()`](./independent_bits_engine/op_call.md) | 乱数を生成する | C++11 |
-| [`discard`](./independent_bits_engine/discard.md)    | 指定した回数だけ乱数を生成し、内部状態を進める | C++11 |
+| [`operator()`](independent_bits_engine/op_call.md) | 乱数を生成する | C++11 |
+| [`discard`](independent_bits_engine/discard.md)    | 指定した回数だけ乱数を生成し、内部状態を進める | C++11 |
 
 
 ###エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------|-------|
-| [`base`](./independent_bits_engine/base.md) | 元となる乱数生成器を取得する | C++11 |
+| [`base`](independent_bits_engine/base.md) | 元となる乱数生成器を取得する | C++11 |
 
 
 ##静的メンバ関数
@@ -56,8 +56,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------|-------|
-| [`min`](./independent_bits_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](./independent_bits_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](independent_bits_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
+| [`max`](independent_bits_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
 
 
 ##メンバ型
@@ -71,10 +71,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./independent_bits_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./independent_bits_engine/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./independent_bits_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./independent_bits_engine/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](independent_bits_engine/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](independent_bits_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](independent_bits_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](independent_bits_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

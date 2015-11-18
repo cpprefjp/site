@@ -39,4 +39,4 @@ int main()
 - C++03
 
 ##参照
-- [`noshowpos`](./noshowpos.md)
+- [`noshowpos`](noshowpos.md)

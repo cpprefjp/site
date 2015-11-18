@@ -21,7 +21,7 @@ namespace std {
 
 
 ##効果
-`add_pointer`は、型[`remove_reference`](./remove_reference.md)`<T>::type*`を、メンバ型`type`として定義する。  
+`add_pointer`は、型[`remove_reference`](remove_reference.md)`<T>::type*`を、メンバ型`type`として定義する。  
 
 
 ##例

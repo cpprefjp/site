@@ -20,7 +20,7 @@ namepsace std {
 - 一部でも`declare_no_pointers()`で既に宣言されていない。
 - 割り当てオブジェクトである場合
     - それは単一の割り当てオブジェクトに収まらなければならない。
-    - 対応する[`undeclare_no_pointers()`](./undeclare_no_pointers.md)の呼び出しまで生存しなければならない。
+    - 対応する[`undeclare_no_pointers()`](undeclare_no_pointers.md)の呼び出しまで生存しなければならない。
 
 
 ##効果

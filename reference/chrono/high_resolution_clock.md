@@ -21,7 +21,7 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|----------------|-------|
-| [`now`](./high_resolution_clock/now.md) | 現在日時の取得 | C++11 |
+| [`now`](high_resolution_clock/now.md) | 現在日時の取得 | C++11 |
 
 
 ##メンバ型

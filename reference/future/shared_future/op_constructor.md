@@ -20,11 +20,11 @@ shared_future(shared_future&& rhs) noexcept; // (4)
 
 
 ##事後条件
-- (1) :  [`valid()`](./valid.md) `== false`
-- (2) : [`valid()`](./valid.md) `== rhs.`[`valid()`](./valid.md)
+- (1) :  [`valid()`](valid.md) `== false`
+- (2) : [`valid()`](valid.md) `== rhs.`[`valid()`](valid.md)
 - (3), (4) :
-    - [`valid()`](./valid.md)が、この関数実行前の`rhs.`[`valid()`](./valid.md)と等価になること。
-    - `rhs.`[`valid()`](./valid.md) `== false`になること。
+    - [`valid()`](valid.md)が、この関数実行前の`rhs.`[`valid()`](valid.md)と等価になること。
+    - `rhs.`[`valid()`](valid.md) `== false`になること。
 
 
 ##例

@@ -11,7 +11,7 @@ namespace std {
 
 ##概要
 整数出力時に基数を表すプレフィックスを付与しないことを指示するマニピュレータ。
-[`showbase`](./showbase.md)の効果を打ち消す効果がある。
+[`showbase`](showbase.md)の効果を打ち消す効果がある。
 
 ##効果
 `str.unsetf(std::ios_base::showbase)`を実行する。
@@ -44,4 +44,4 @@ f
 - C++03
 
 ##参照
-- [`showbase`](./showbase.md)
+- [`showbase`](showbase.md)

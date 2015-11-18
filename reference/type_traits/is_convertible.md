@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_convertible`は、型`From`から型`To`に変換可能であれば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`is_convertible`は、型`From`から型`To`に変換可能であれば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
 
 
 ##例

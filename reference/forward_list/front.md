@@ -15,7 +15,7 @@ const_reference front() const;
 
 
 ##戻り値
-`*`[`begin()`](./begin.md)
+`*`[`begin()`](begin.md)
 
 ##計算量
 定数時間

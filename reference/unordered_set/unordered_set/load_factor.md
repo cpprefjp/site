@@ -14,7 +14,7 @@ float load_factor() const noexcept;
 
 
 ##戻り値
-現在の負荷率（バケットあたりの要素数の平均：[`size`](./size.md)`() /` [`bucket_count`](./bucket_count.md)`()`）
+現在の負荷率（バケットあたりの要素数の平均：[`size`](size.md)`() /` [`bucket_count`](bucket_count.md)`()`）
 
 
 ##例外
@@ -88,9 +88,9 @@ size is 10, bucket_count is 11, load_factor is 0.909091
 
 | | |
 |-------------------------------------------|------------------------------------------|
-| [`size`](./size.md)                       | 要素数の取得                             |
-| [`bucket_count`](./bucket_count.md)       | バケット数の取得                         |
-| [`max_load_factor`](./max_load_factor.md) | 負荷率の最大値を取得、設定               |
-| [`rehash`](./rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
-| [`reserve`](./reserve.md)                 | 最小要素数指定によるバケット数の調整     |
+| [`size`](size.md)                       | 要素数の取得                             |
+| [`bucket_count`](bucket_count.md)       | バケット数の取得                         |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定               |
+| [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
+| [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整     |
 

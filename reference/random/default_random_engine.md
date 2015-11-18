@@ -22,9 +22,9 @@ namespace std {
 
 | ライブラリ         | エンジン                            |
 |--------------------|-------------------------------------|
-| Visual C++ 2012    | [`mt19937`](./mt19937.md)           |
-| GCC 4.8(libstdc++) | [`minstd_rand0`](./minstd_rand0.md) |
-| Clang 3.4(libc++)  | [`minstd_rand`](./minstd_rand.md)   |
+| Visual C++ 2012    | [`mt19937`](mt19937.md)           |
+| GCC 4.8(libstdc++) | [`minstd_rand0`](minstd_rand0.md) |
+| Clang 3.4(libc++)  | [`minstd_rand`](minstd_rand.md)   |
 
 
 ##例

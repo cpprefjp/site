@@ -28,7 +28,7 @@ namespace std {
 
 `make_shared()` 内部的にオブジェクトを生成するため、オブジェクトの生成と参照カウンタの生成を、1つの大きなブロックとしてメモリを確保するため、より効率的になる。
 
-メモリの確保にユーザー定義のアロケータを使用したい場合には、 [`allocate_shared()`](./allocate_shared.md) を使用する。
+メモリの確保にユーザー定義のアロケータを使用したい場合には、 [`allocate_shared()`](allocate_shared.md) を使用する。
 
 ##例
 ```cpp
@@ -64,7 +64,7 @@ Visual C++ 10.0～11.0 でも使用可能だが、コンパイラが可変引数
 
 
 ##関連項目
-- [`std::allocate_shared()`](./allocate_shared.md)
+- [`std::allocate_shared()`](allocate_shared.md)
 
 
 ##参照

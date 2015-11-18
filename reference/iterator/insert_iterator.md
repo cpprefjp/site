@@ -22,11 +22,11 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](./insert_iterator/op_constructor.md) | コンストラクタ | |
+| [`(constructor)`](insert_iterator/op_constructor.md) | コンストラクタ | |
 | `~insert_iterator() = default` | デストラクタ | |
-| [`operator=`](./insert_iterator/op_assign.md) | 代入演算子 | |
-| [`operator*`](./insert_iterator/op_deref.md) | 間接参照演算子 | |
-| [`operator++`](./insert_iterator/op_increment.md) | イテレータをインクリメントする | |
+| [`operator=`](insert_iterator/op_assign.md) | 代入演算子 | |
+| [`operator*`](insert_iterator/op_deref.md) | 間接参照演算子 | |
+| [`operator++`](insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
 
 ##protectedメンバ変数
@@ -53,7 +53,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------|-------------------------------|-------|
-| [`inserter`](./inserter.md) | `insert_iterator`のヘルパ関数 | |
+| [`inserter`](inserter.md) | `insert_iterator`のヘルパ関数 | |
 
 
 ##例

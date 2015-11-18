@@ -19,13 +19,13 @@ namespace std {
 
 
 ##概要
-[`error_condition`](./error_condition.md)のエラー値として見なせる列挙型かどうかを判定する。
+[`error_condition`](error_condition.md)のエラー値として見なせる列挙型かどうかを判定する。
 
 `is_error_condition_enum`はデフォルトでは[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承し、`is_error_condition_enum<T>::value`は`false`となる。 
 
 `is_error_condition_enum<T>::value == true`であることを要求する関数（[`error_condition`](error_condition.md) の[コンストラクタ](error_condition/op_constructor.md)、および、[代入演算子](error_condition/op_assign.md)）にユーザー定義の列挙型を渡したい場合は、`is_error_condition_enum`クラスを特殊化し、[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承するよう特殊化する必要がある。
 
-標準では、[`errc`](./errc.md)列挙型に対する[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)の特殊化を提供する。
+標準では、[`errc`](errc.md)列挙型に対する[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)の特殊化を提供する。
 
 
 ##例

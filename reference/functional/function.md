@@ -37,15 +37,15 @@ int result = f(1); // result == 2
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------------------------------------|-------|
-| [`(constructor)`](./function/op_constructor.md)  | コンストラクタ                         | C++11 |
-| [`(destructor)`](./function/op_destructor.md)  | デストラクタ                             | C++11 |
-| [`operator=`](./function/op_assign.md)     | 代入演算子                                   | C++11 |
-| [`swap`](./function/swap.md)               | 他の`function`オブジェクトと中身を入れ替える | C++11 |
-| [`assign`](./function/assign.md)           | 関数オブジェクトとアロケータを再代入する     | C++11 |
-| [`operator bool`](./function/op_bool.md)   | 関数呼び出しが可能か調べる                   | C++11 |
-| [`operator()`](./function/op_call.md)      | 関数呼び出し                                 | C++11 |
-| [`target_type`](./function/target_type.md) | 元となる関数の型情報を取得する               | C++11 |
-| [`target`](./function/target.md)           | 元となる関数を取得する                       | C++11 |
+| [`(constructor)`](function/op_constructor.md)  | コンストラクタ                         | C++11 |
+| [`(destructor)`](function/op_destructor.md)  | デストラクタ                             | C++11 |
+| [`operator=`](function/op_assign.md)     | 代入演算子                                   | C++11 |
+| [`swap`](function/swap.md)               | 他の`function`オブジェクトと中身を入れ替える | C++11 |
+| [`assign`](function/assign.md)           | 関数オブジェクトとアロケータを再代入する     | C++11 |
+| [`operator bool`](function/op_bool.md)   | 関数呼び出しが可能か調べる                   | C++11 |
+| [`operator()`](function/op_call.md)      | 関数呼び出し                                 | C++11 |
+| [`target_type`](function/target_type.md) | 元となる関数の型情報を取得する               | C++11 |
+| [`target`](function/target.md)           | 元となる関数を取得する                       | C++11 |
 
 
 ##メンバ型
@@ -62,9 +62,9 @@ int result = f(1); // result == 2
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|-----------------------------------------|-------|
-| [`operator==`](./function/op_equal.md)     | 等値比較                                | C++11 |
-| [`operator!=`](./function/op_not_equal.md) | 非等値比較                              | C++11 |
-| [`swap`](./function/swap_free.md)          | 2つの`function`オブジェクトを入れ替える | C++11 |
+| [`operator==`](function/op_equal.md)     | 等値比較                                | C++11 |
+| [`operator!=`](function/op_not_equal.md) | 非等値比較                              | C++11 |
+| [`swap`](function/swap_free.md)          | 2つの`function`オブジェクトを入れ替える | C++11 |
 
 
 ##その他

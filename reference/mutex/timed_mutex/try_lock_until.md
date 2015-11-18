@@ -24,7 +24,7 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 
 所有権が取得できるまで、もしくは`abs_time`時間に到達するまでこの関数はブロッキングする。
 
-`abs_timeにすでに到達していた場合`、この関数は[`try_lock()`](./try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
+`abs_timeにすでに到達していた場合`、この関数は[`try_lock()`](try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
 
 
 ##戻り値

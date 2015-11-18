@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_empty`は、型`T`が空のクラス (cv修飾を許容する) であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`is_empty`は、型`T`が空のクラス (cv修飾を許容する) であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
 
 
 ##備考

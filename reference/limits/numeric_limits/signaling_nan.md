@@ -17,7 +17,7 @@ static constexpr T signaling_NaN() noexcept;
 
 
 ##要件
-[`has_signaling_NaN`](./has_signaling_nan.md) `!= false &&` [`is_iec559`](./is_iec559.md) `!= false`この要件を満たさない場合は`T()`が返る。
+[`has_signaling_NaN`](has_signaling_nan.md) `!= false &&` [`is_iec559`](is_iec559.md) `!= false`この要件を満たさない場合は`T()`が返る。
 
 
 ##戻り値
@@ -51,6 +51,6 @@ double : 1.#QNAN
 ```
 
 ##参照
-* [`numeric_limits::has_quiet_NaN`](./signaling_nan.md)
+* [`numeric_limits::has_quiet_NaN`](signaling_nan.md)
 * [NANの定義について - ぴょぴょぴょ？ - Linuxとかプログラミングの覚え書き](http://d.hatena.ne.jp/pyopyopyo/20100330/p1)
 

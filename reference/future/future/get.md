@@ -16,7 +16,7 @@ void future<void>::get();
 
 
 ##効果
-共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまで[`wait()`](./wait.md)で待機し、共有状態に格納されている値を取得する。
+共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまで[`wait()`](wait.md)で待機し、共有状態に格納されている値を取得する。
 
 
 ##戻り値
@@ -30,7 +30,7 @@ void future<void>::get();
 
 
 ##事後条件
-この関数呼び出し後は共有状態が破棄され、[`valid()`](./valid.md) `== false`となること。
+この関数呼び出し後は共有状態が破棄され、[`valid()`](valid.md) `== false`となること。
 
 つまりこの関数は1オブジェクトにつき1回しか呼び出せない。
 

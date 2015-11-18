@@ -43,4 +43,4 @@ int main()
 - C++03
 
 ##参照
-- [`showpoint`](./showpoint.md)
+- [`showpoint`](showpoint.md)

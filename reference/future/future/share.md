@@ -19,7 +19,7 @@ shared_future<R> share();
 
 
 ##事後条件
-[`valid()`](./valid.md) `== false`
+[`valid()`](valid.md) `== false`
 
 
 ##戻り値

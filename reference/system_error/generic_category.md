@@ -14,18 +14,18 @@ namespace std {
 ##概要
 汎用エラーに関する`error_category`を返す。
 
-ここでの「汎用」とは、`<cerrno>`ヘッダで定義される環境依存しないエラー値、およびそれに対応する[`std::errc`](./errc.md)列挙値によるエラー情報を指す。
+ここでの「汎用」とは、`<cerrno>`ヘッダで定義される環境依存しないエラー値、およびそれに対応する[`std::errc`](errc.md)列挙値によるエラー情報を指す。
 
 
 ##戻り値
-[`error_category`](./error_category.md)クラスを継承したクラスオブジェクトへの参照を返す。
+[`error_category`](error_category.md)クラスを継承したクラスオブジェクトへの参照を返す。
 
 この関数を呼び出すことによって返されるオブジェクトは、同じオブジェクトを指す。
 
 この関数によって返されるオブジェクトのクラスは以下の特徴を持つ：
 
-- [`name()`](./error_category/name.md)関数によって返される文字列は`"generic"`
-- [`default_error_condition()`](./error_category/default_error_condition.md)仮想関数および[`equivalent()`](./error_category/equivalent.md)仮想関数の挙動は、基本クラスである[`error_category`](./error_category.md)と同じである
+- [`name()`](error_category/name.md)関数によって返される文字列は`"generic"`
+- [`default_error_condition()`](error_category/default_error_condition.md)仮想関数および[`equivalent()`](error_category/equivalent.md)仮想関数の挙動は、基本クラスである[`error_category`](error_category.md)と同じである
 
 
 ##例外

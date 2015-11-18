@@ -39,4 +39,4 @@ true
 - C++03
 
 ##参照
-- [`noboolalpha`](./noboolalpha.md)
+- [`noboolalpha`](noboolalpha.md)

@@ -26,12 +26,12 @@ namespace std {
 実引数のstrオブジェクト。
 
 ##例
-[`left`](./left.md)を参照。
+[`left`](left.md)を参照。
 
 ##バージョン
 ###言語
 - C++03
 
 ##参照
-- [`left`](./left.md)
-- [`right`](./right.md)
+- [`left`](left.md)
+- [`right`](right.md)

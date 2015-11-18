@@ -17,6 +17,6 @@
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|--------------------------------------------------|-------|
-| [`map`](./map/map.md)           | キーの重複を許さない連想コンテナ(class template) |  |
-| [`multimap`](./map/multimap.md) | キーの重複を許す連想コンテナ(class template)     |  |
+| [`map`](map/map.md)           | キーの重複を許さない連想コンテナ(class template) |  |
+| [`multimap`](map/multimap.md) | キーの重複を許す連想コンテナ(class template)     |  |
 

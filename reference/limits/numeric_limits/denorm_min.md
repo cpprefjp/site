@@ -47,6 +47,6 @@ double : 0
 ```
 
 ##参照
-* [`numeric_limits::has_denorm`](./has_denorm.md)
-* [`numeric_limits::has_denorm_loss`](./has_denorm_loss.md)
+* [`numeric_limits::has_denorm`](has_denorm.md)
+* [`numeric_limits::has_denorm_loss`](has_denorm_loss.md)
 

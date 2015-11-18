@@ -83,5 +83,5 @@ int_type peek() {
 
 ##参照
 
-- [`basic_istream::get`](./get.md)
+- [`basic_istream::get`](get.md)
 - `basic_streambuf::sgetc`

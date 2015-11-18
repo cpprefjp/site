@@ -48,8 +48,8 @@ int main()
 
 | 名前 | 説明 |
 |---------------------------------|--------------------|
-| [`pop_back`](./pop_back.md)     | 末尾要素を削除する |
-| [`push_front`](./push_front.md) | 先頭に要素を追加する |
-| [`erase`](./erase.md)           | 指定した要素を削除する |
+| [`pop_back`](pop_back.md)     | 末尾要素を削除する |
+| [`push_front`](push_front.md) | 先頭に要素を追加する |
+| [`erase`](erase.md)           | 指定した要素を削除する |
 
 

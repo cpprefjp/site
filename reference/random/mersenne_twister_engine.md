@@ -47,17 +47,17 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------|------------------|-------|
-| [`(constructor)`](./mersenne_twister_engine/op_constructor.md)          | コンストラクタ   | C++11 |
+| [`(constructor)`](mersenne_twister_engine/op_constructor.md)          | コンストラクタ   | C++11 |
 | `~mersenne_twister_engine() = default;`                                 | デストラクタ     | C++11 |
-| [`seed`](./mersenne_twister_engine/seed.md)                             | シードを設定する | C++11 |
+| [`seed`](mersenne_twister_engine/seed.md)                             | シードを設定する | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|--------------------|-------|
-| [`operator()`](./mersenne_twister_engine/op_call.md) | 擬似乱数を生成する | C++11 |
-| [`discard`](./mersenne_twister_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
+| [`operator()`](mersenne_twister_engine/op_call.md) | 擬似乱数を生成する | C++11 |
+| [`discard`](mersenne_twister_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
 
 
 ##静的メンバ関数
@@ -65,8 +65,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------|-------|
-| [`min`](./mersenne_twister_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](./mersenne_twister_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](mersenne_twister_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
+| [`max`](mersenne_twister_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
 
 
 ##メンバ型
@@ -100,10 +100,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------|----------------------|-------|
-| [`operator==`](./mersenne_twister_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./mersenne_twister_engine/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./mersenne_twister_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./mersenne_twister_engine/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](mersenne_twister_engine/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](mersenne_twister_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](mersenne_twister_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](mersenne_twister_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

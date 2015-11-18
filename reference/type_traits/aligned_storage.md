@@ -29,7 +29,7 @@ namespace std {
 
 ##効果
 `aligned_storage`は、領域サイズ`Len`、アラインメント`Align`で調整した未初期化領域をメンバ型`type`として定義する。  
-メンバ型`type`はPOD型となる(参照：[`is_pod`](./is_pod.md))。  
+メンバ型`type`はPOD型となる(参照：[`is_pod`](is_pod.md))。  
 
 `Align`のデフォルト値は、`Len`よりも大きくない、最も厳格なアラインメント要件を持つ、C++の何らかのオブジェクト型のアラインメント値。
 

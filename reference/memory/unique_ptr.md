@@ -32,30 +32,30 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------|--------------------------------------------------|-------|
-| [`(constructor)`](./unique_ptr/op_constructor.md) | コンストラクタ                               | C++11 |
-| [`(destructor)`](./unique_ptr/op_destructor.md) | デストラクタ                                   | C++11 |
-| [`operator=`](./unique_ptr/op_assign.md)      | 代入演算子                                       | C++11 |
-| [`release`](./unique_ptr/release.md)          | リソースの所有権を放棄する                       | C++11 |
-| [`reset`](./unique_ptr/reset.md)              | リソースの所有権を放棄し、新たなリソースの所有権を設定する | C++11 |
-| [`swap`](./unique_ptr/swap.md)                | 他の`unique_ptr`オブジェクトとデータを入れ替える | C++11 |
-| [`get`](./unique_ptr/get.md)                  | リソースを取得する                               | C++11 |
-| [`get_deleter`](./unique_ptr/get_deleter.md)  | デリータを取得する                               | C++11 |
-| [`operator bool`](./unique_ptr/op_bool.md)    | 有効なリソースを所有しているかを判定する         | C++11 |
+| [`(constructor)`](unique_ptr/op_constructor.md) | コンストラクタ                               | C++11 |
+| [`(destructor)`](unique_ptr/op_destructor.md) | デストラクタ                                   | C++11 |
+| [`operator=`](unique_ptr/op_assign.md)      | 代入演算子                                       | C++11 |
+| [`release`](unique_ptr/release.md)          | リソースの所有権を放棄する                       | C++11 |
+| [`reset`](unique_ptr/reset.md)              | リソースの所有権を放棄し、新たなリソースの所有権を設定する | C++11 |
+| [`swap`](unique_ptr/swap.md)                | 他の`unique_ptr`オブジェクトとデータを入れ替える | C++11 |
+| [`get`](unique_ptr/get.md)                  | リソースを取得する                               | C++11 |
+| [`get_deleter`](unique_ptr/get_deleter.md)  | デリータを取得する                               | C++11 |
+| [`operator bool`](unique_ptr/op_bool.md)    | 有効なリソースを所有しているかを判定する         | C++11 |
 
 
 ###単一オブジェクト版(unique_ptr<T>)固有のメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|----------------|-------|
-| [`operator*`](./unique_ptr/op_deref.md)  | 間接参照       | C++11 |
-| [`operator->`](./unique_ptr/op_arrow.md) | メンバアクセス | C++11 |
+| [`operator*`](unique_ptr/op_deref.md)  | 間接参照       | C++11 |
+| [`operator->`](unique_ptr/op_arrow.md) | メンバアクセス | C++11 |
 
 
 ###配列版(unique_ptr<T[ ]>)固有のメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------|----------------------------|-------|
-| [`operator[]`](./unique_ptr/op_at.md) | 任意の位置の要素にアクセス | C++11 |
+| [`operator[]`](unique_ptr/op_at.md) | 任意の位置の要素にアクセス | C++11 |
 
 
 ##メンバ型
@@ -71,14 +71,14 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|-------------------------------------------|-------|
-| [`operator==`](./unique_ptr/op_equal.md)         | 等値比較                                  | C++11 |
-| [`operator!=`](./unique_ptr/op_not_equal.md)     | 非等値比較                                | C++11 |
-| [`operator<`](./unique_ptr/op_less.md)           | 左辺が右辺より小さいかを判定する          | C++11 |
-| [`operator<=`](./unique_ptr/op_less_equal.md)    | 左辺が右辺以下かを判定する                | C++11 |
-| [`operator>`](./unique_ptr/op_greater.md)        | 左辺が右辺より大きいかを判定する          | C++11 |
-| [`operator>=`](./unique_ptr/op_greater_equal.md) | 左辺が右辺以上かを判定する                | C++11 |
-| [`swap`](./unique_ptr/swap_free.md)              | 2つの`unique_ptr`オブジェクトを入れ替える | C++11 |
-| [`make_unique`](./make_unique.md)                | `unique_ptr`を構築するヘルパ関数          | C++14 |
+| [`operator==`](unique_ptr/op_equal.md)         | 等値比較                                  | C++11 |
+| [`operator!=`](unique_ptr/op_not_equal.md)     | 非等値比較                                | C++11 |
+| [`operator<`](unique_ptr/op_less.md)           | 左辺が右辺より小さいかを判定する          | C++11 |
+| [`operator<=`](unique_ptr/op_less_equal.md)    | 左辺が右辺以下かを判定する                | C++11 |
+| [`operator>`](unique_ptr/op_greater.md)        | 左辺が右辺より大きいかを判定する          | C++11 |
+| [`operator>=`](unique_ptr/op_greater_equal.md) | 左辺が右辺以上かを判定する                | C++11 |
+| [`swap`](unique_ptr/swap_free.md)              | 2つの`unique_ptr`オブジェクトを入れ替える | C++11 |
+| [`make_unique`](make_unique.md)                | `unique_ptr`を構築するヘルパ関数          | C++14 |
 
 ##ハッシュサポート
 

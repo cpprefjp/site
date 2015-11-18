@@ -22,7 +22,7 @@ get() != nullptr
 
 
 ##戻り値
-[`get()`](./get.md)
+[`get()`](get.md)
 
 
 ##例

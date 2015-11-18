@@ -9,7 +9,7 @@
 * implementation-defined[italic]
 
 ##概要
-[`uint_least16_t`](./uint_least16_t.md) の最大値。
+[`uint_least16_t`](uint_least16_t.md) の最大値。
 
 ##バージョン
 ###言語

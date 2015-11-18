@@ -11,7 +11,7 @@ namespace std {
 
 ##概要
 出力時に英小文字を使用することを指示するマニピュレータ。
-[`hex`](./hex.md)や[`scientific`](./scientific.md)、[`hexfloat`](./hexfloat.md)などと組み合わせることで効果がある。
+[`hex`](hex.md)や[`scientific`](scientific.md)、[`hexfloat`](hexfloat.md)などと組み合わせることで効果がある。
 
 ##効果
 `str.unsetf(std::ios_base::uppercase)`を実行する。
@@ -42,4 +42,4 @@ beef
 - C++03
 
 ##参照
-- [`uppercase`](./uppercase.md)
+- [`uppercase`](uppercase.md)

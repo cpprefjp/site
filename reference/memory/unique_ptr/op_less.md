@@ -25,11 +25,11 @@ namespace std {
 
 
 ##戻り値
-- (1) : [`std::common_type`](/reference/type_traits/common_type.md)`<unique_ptr<T1, D1>::pointer, unique_ptr<T2, D2>::pointer>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/less.md)`<CT>(a.`[`get()`](./get.md), b.`[`get()`](./get.md)`)`で比較した結果を返す。
+- (1) : [`std::common_type`](/reference/type_traits/common_type.md)`<unique_ptr<T1, D1>::pointer, unique_ptr<T2, D2>::pointer>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/less.md)`<CT>(a.`[`get()`](get.md), b.`[`get()`](get.md)`)`で比較した結果を返す。
 
-- (2) : [`std::less`](/reference/functional/less.md)`<unique_ptr<T, D>::pointer>()(x.`[`get()`](./get.md)`, nullptr)`で比較した結果を返す。
+- (2) : [`std::less`](/reference/functional/less.md)`<unique_ptr<T, D>::pointer>()(x.`[`get()`](get.md)`, nullptr)`で比較した結果を返す。
 
-- (3) : [`std::less`](/reference/functional/less.md)`<unique_ptr<T, D>::pointer>()(nullptr, x.`[`get()`](./get.md)`)`で比較した結果を返す。
+- (3) : [`std::less`](/reference/functional/less.md)`<unique_ptr<T, D>::pointer>()(nullptr, x.`[`get()`](get.md)`)`で比較した結果を返す。
 
 
 ##例

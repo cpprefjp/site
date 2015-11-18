@@ -15,7 +15,7 @@ operator T() const noexcept;
 
 
 ##戻り値
-[`load()`](./load.md)
+[`load()`](load.md)
 
 ##例外
 投げない

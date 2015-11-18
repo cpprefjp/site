@@ -47,57 +47,57 @@ valarray<int> c = a + b;
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------|-----------------------------|-------|
-| [`(constructor)`](./valarray/op_constructor.md) | コンストラクタ | |
-| [`(destructor)`](./valarray/op_destructor.md) | デストラクタ   | |
-| [`operator=`](./valarray/op_assign.md)    | 代入演算子     | |
+| [`(constructor)`](valarray/op_constructor.md) | コンストラクタ | |
+| [`(destructor)`](valarray/op_destructor.md) | デストラクタ   | |
+| [`operator=`](valarray/op_assign.md)    | 代入演算子     | |
 
 
 ###部分演算
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|----------------------|-------|
-| [`operator[]`](./valarray/op_at.md) | 一部の要素を抽出する | |
+| [`operator[]`](valarray/op_at.md) | 一部の要素を抽出する | |
 
 
 ###四則演算
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|------------------------------------------|-------|
-| [`operator+` (単項)](./valarray/op_unary_plus.md)  | 単項 `+` 演算（符号そのままの要素を得る）| |
-| [`operator-` (単項)](./valarray/op_unary_minus.md) | 単項 `-` 演算（符号を反転した要素を得る）| |
-| [`operator+=`](./valarray/op_plus_assign.md)       | 加算の複合代入                           | |
-| [`operator-=`](./valarray/op_minus_assign.md)      | 減算の複合代入                           | |
-| [`operator*=`](./valarray/op_multiply_assign.md)   | 乗算の複合代入                           | |
-| [`operator/=`](./valarray/op_divide_assign.md)     | 除算の複合代入                           | |
-| [`operator%=`](./valarray/op_modulo_assign.md)     | 剰余算の複合代入                         | |
+| [`operator+` (単項)](valarray/op_unary_plus.md)  | 単項 `+` 演算（符号そのままの要素を得る）| |
+| [`operator-` (単項)](valarray/op_unary_minus.md) | 単項 `-` 演算（符号を反転した要素を得る）| |
+| [`operator+=`](valarray/op_plus_assign.md)       | 加算の複合代入                           | |
+| [`operator-=`](valarray/op_minus_assign.md)      | 減算の複合代入                           | |
+| [`operator*=`](valarray/op_multiply_assign.md)   | 乗算の複合代入                           | |
+| [`operator/=`](valarray/op_divide_assign.md)     | 除算の複合代入                           | |
+| [`operator%=`](valarray/op_modulo_assign.md)     | 剰余算の複合代入                         | |
 
 
 ###ビット演算
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|------------------------------------------|-------|
-| [`operator~` (単項)](./valarray/op_flip.md)                | 単項 `~` 演算（ビット反転した要素を得る）| |
-| [`operator&=`](./valarray/op_and_assign.md)                | 論理積の複合代入                         | |
-| [<code>operator&#x7C;=</code>](./valarray/op_or_assign.md) | 論理和の複合代入                         | |
-| [`operator^=`](./valarray/op_xor_assign.md)                | 排他的論理和の複合代入                   | |
-| [`operator<<=`](./valarray/op_left_shift_assign.md)        | 左シフトの複合代入                       | |
-| [`operator>>=`](./valarray/op_right_shift_assign.md)       | 右シフトの複合代入                       | |
+| [`operator~` (単項)](valarray/op_flip.md)                | 単項 `~` 演算（ビット反転した要素を得る）| |
+| [`operator&=`](valarray/op_and_assign.md)                | 論理積の複合代入                         | |
+| [<code>operator&#x7C;=</code>](valarray/op_or_assign.md) | 論理和の複合代入                         | |
+| [`operator^=`](valarray/op_xor_assign.md)                | 排他的論理和の複合代入                   | |
+| [`operator<<=`](valarray/op_left_shift_assign.md)        | 左シフトの複合代入                       | |
+| [`operator>>=`](valarray/op_right_shift_assign.md)       | 右シフトの複合代入                       | |
 
 
 ###その他メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|--------------------------------------------|-------|
-| [`swap`](./valarray/swap.md)     | 他の`valarray`オブジェクトと値を入れ替える | C++11 |
-| [`size`](./valarray/size.md)     | 要素数を取得する                           | |
-| [`sum`](./valarray/sum.md)       | 合計値を求める                             | |
-| [`min`](./valarray/min.md)       | 最小の要素を取得する                       | |
-| [`max`](./valarray/max.md)       | 最大の要素を取得する                       | |
-| [`shift`](./valarray/shift.md)   | 要素の位置をシフトする                     | |
-| [`cshift`](./valarray/cshift.md) | 要素の位置を循環シフトする                 | |
-| [`apply`](./valarray/apply.md)   | 各要素に任意の関数を適用する               | |
-| [`resize`](./valarray/resize.md) | 要素数を変更する                           | |
-| [`operator!`](./valarray/op_not.md) | 各要素の論理NOTをとる                      | |
+| [`swap`](valarray/swap.md)     | 他の`valarray`オブジェクトと値を入れ替える | C++11 |
+| [`size`](valarray/size.md)     | 要素数を取得する                           | |
+| [`sum`](valarray/sum.md)       | 合計値を求める                             | |
+| [`min`](valarray/min.md)       | 最小の要素を取得する                       | |
+| [`max`](valarray/max.md)       | 最大の要素を取得する                       | |
+| [`shift`](valarray/shift.md)   | 要素の位置をシフトする                     | |
+| [`cshift`](valarray/cshift.md) | 要素の位置を循環シフトする                 | |
+| [`apply`](valarray/apply.md)   | 各要素に任意の関数を適用する               | |
+| [`resize`](valarray/resize.md) | 要素数を変更する                           | |
+| [`operator!`](valarray/op_not.md) | 各要素の論理NOTをとる                      | |
 
 
 ##メンバ型
@@ -111,73 +111,73 @@ valarray<int> c = a + b;
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------|-----------------------------------------|-------|
-| [`swap`](./valarray/swap_free.md) | 2つの`valarray`オブジェクトを入れ替える | C++11 |
+| [`swap`](valarray/swap_free.md) | 2つの`valarray`オブジェクトを入れ替える | C++11 |
 
 
 ###範囲アクセス
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|--------------------------------------|-------|
-| [`begin`](./valarray/begin_free.md) | 先頭の要素を指すイテレータを取得する | C++11 |
-| [`end`](./valarray/end_free.md)     | 末尾の次を指すイテレータを取得する   | C++11 |
+| [`begin`](valarray/begin_free.md) | 先頭の要素を指すイテレータを取得する | C++11 |
+| [`end`](valarray/end_free.md)     | 末尾の次を指すイテレータを取得する   | C++11 |
 
 
 ###四則演算
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|--------|-------|
-| [`operator+`](./valarray/op_plus.md)     | 加算   | |
-| [`operator-`](./valarray/op_minus.md)    | 減算   | |
-| [`operator*`](./valarray/op_multiply.md) | 乗算   | |
-| [`operator/`](./valarray/op_divide.md)   | 除算   | |
-| [`operator%`](./valarray/op_modulo.md)   | 剰余算 | |
+| [`operator+`](valarray/op_plus.md)     | 加算   | |
+| [`operator-`](valarray/op_minus.md)    | 減算   | |
+| [`operator*`](valarray/op_multiply.md) | 乗算   | |
+| [`operator/`](valarray/op_divide.md)   | 除算   | |
+| [`operator%`](valarray/op_modulo.md)   | 剰余算 | |
 
 
 ###ビット演算
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|--------------|-------|
-| [`operator&`](./valarray/op_and.md)                | 論理積       | |
-| [<code>operator&#x7C;</code>](./valarray/op_or.md) | 論理和       | |
-| [`operator^`](./valarray/op_xor.md)                | 排他的論理和 | |
-| [`operator<<`](./valarray/op_left_shift.md)        | 左シフト     | |
-| [`operator>>`](./valarray/op_right_shift.md)       | 右シフト     | |
+| [`operator&`](valarray/op_and.md)                | 論理積       | |
+| [<code>operator&#x7C;</code>](valarray/op_or.md) | 論理和       | |
+| [`operator^`](valarray/op_xor.md)                | 排他的論理和 | |
+| [`operator<<`](valarray/op_left_shift.md)        | 左シフト     | |
+| [`operator>>`](valarray/op_right_shift.md)       | 右シフト     | |
 
 
 ###比較演算
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------------|----------------------------------|-------|
-| [`operator==`](./valarray/op_equal.md)                           | 等値比較                         | |
-| [`operator!=`](./valarray/op_not_equal.md)                       | 非等値比較                       | |
-| [`operator<`](./valarray/op_less.md)                             | 左辺が右辺より小さいかを判定する | |
-| [`operator<=`](./valarray/op_less_equal.md)                      | 左辺が右辺以下かを判定する       | |
-| [`operator>`](./valarray/op_greater.md)                          | 左辺が右辺より大きいかを判定する | |
-| [`operator>=`](./valarray/op_greater_equal.md)                   | 左辺が右辺以上かを判定する       | |
-| [`operator&&`](./valarray/op_logical_and.md)                     | 条件式の論理積                   | |
-| [<code>operator&#x7C;&#x7C;</code>](./valarray/op_logical_or.md) | 条件式の論理和                   | |
+| [`operator==`](valarray/op_equal.md)                           | 等値比較                         | |
+| [`operator!=`](valarray/op_not_equal.md)                       | 非等値比較                       | |
+| [`operator<`](valarray/op_less.md)                             | 左辺が右辺より小さいかを判定する | |
+| [`operator<=`](valarray/op_less_equal.md)                      | 左辺が右辺以下かを判定する       | |
+| [`operator>`](valarray/op_greater.md)                          | 左辺が右辺より大きいかを判定する | |
+| [`operator>=`](valarray/op_greater_equal.md)                   | 左辺が右辺以上かを判定する       | |
+| [`operator&&`](valarray/op_logical_and.md)                     | 条件式の論理積                   | |
+| [<code>operator&#x7C;&#x7C;</code>](valarray/op_logical_or.md) | 条件式の論理和                   | |
 
 
 ###数学関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|-------------------------------|-------|
-| [`sin`](./valarray/sin.md)     | 正弦を求める                  | |
-| [`cos`](./valarray/cos.md)     | 余弦を求める                  | |
-| [`tan`](./valarray/tan.md)     | 正接を求める                  | |
-| [`asin`](./valarray/asin.md)   | 逆正弦を求める                | |
-| [`acos`](./valarray/acos.md)   | 逆余弦を求める                | |
-| [`atan`](./valarray/atan.md)   | 逆正接を求める                | |
-| [`atan2`](./valarray/atan2.md) | 対辺と隣辺から逆正接を求める  | |
-| [`sinh`](./valarray/sinh.md)   | 双曲線正弦を求める            | |
-| [`cosh`](./valarray/cosh.md)   | 双曲線余弦を求める            | |
-| [`tanh`](./valarray/tanh.md)   | 双曲線正接を求める            | |
-| [`exp`](./valarray/exp.md)     | 自然対数の底 e の累乗を求める | |
-| [`log`](./valarray/log.md)     | 自然対数を求める              | |
-| [`log10`](./valarray/log10.md) | 常用対数を求める              | |
-| [`pow`](./valarray/pow.md)     | 累乗を求める                  | |
-| [`sqrt`](./valarray/sqrt.md)   | 平方根を求める                | |
-| [`abs`](./valarray/abs.md)     | 絶対値を求める                | |
+| [`sin`](valarray/sin.md)     | 正弦を求める                  | |
+| [`cos`](valarray/cos.md)     | 余弦を求める                  | |
+| [`tan`](valarray/tan.md)     | 正接を求める                  | |
+| [`asin`](valarray/asin.md)   | 逆正弦を求める                | |
+| [`acos`](valarray/acos.md)   | 逆余弦を求める                | |
+| [`atan`](valarray/atan.md)   | 逆正接を求める                | |
+| [`atan2`](valarray/atan2.md) | 対辺と隣辺から逆正接を求める  | |
+| [`sinh`](valarray/sinh.md)   | 双曲線正弦を求める            | |
+| [`cosh`](valarray/cosh.md)   | 双曲線余弦を求める            | |
+| [`tanh`](valarray/tanh.md)   | 双曲線正接を求める            | |
+| [`exp`](valarray/exp.md)     | 自然対数の底 e の累乗を求める | |
+| [`log`](valarray/log.md)     | 自然対数を求める              | |
+| [`log10`](valarray/log10.md) | 常用対数を求める              | |
+| [`pow`](valarray/pow.md)     | 累乗を求める                  | |
+| [`sqrt`](valarray/sqrt.md)   | 平方根を求める                | |
+| [`abs`](valarray/abs.md)     | 絶対値を求める                | |
 
 
 

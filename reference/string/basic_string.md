@@ -45,48 +45,48 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|----------------|------|
-| [`(constructor)`](./basic_string/op_constructor.md) | コンストラクタ | |
-| [`(destructor)`](./basic_string/op_destructor.md) | デストラクタ   | |
-| [`operator=`](./basic_string/op_assign.md)        | 代入演算子     | |
+| [`(constructor)`](basic_string/op_constructor.md) | コンストラクタ | |
+| [`(destructor)`](basic_string/op_destructor.md) | デストラクタ   | |
+| [`operator=`](basic_string/op_assign.md)        | 代入演算子     | |
 
 
 ###イテレータ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------|----------------|------|
-| [`begin`](./basic_string/begin.md)     | 先頭の要素を指すイテレータを取得する | |
-| [`end`](./basic_string/end.md)         | 末尾の次を指すイテレータを取得する | |
-| [`cbegin`](./basic_string/cbegin.md)   | 先頭の要素を指す読み取り専用イテレータを取得する | C++11 |
-| [`cend`](./basic_string/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
-| [`rbegin`](./basic_string/rbegin.md)   | 末尾を指す逆イテレータを取得する | |
-| [`rend`](./basic_string/rend.md)       | 先頭の前を指す逆イテレータを取得する | |
-| [`crbegin`](./basic_string/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
-| [`crend`](./basic_string/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`begin`](basic_string/begin.md)     | 先頭の要素を指すイテレータを取得する | |
+| [`end`](basic_string/end.md)         | 末尾の次を指すイテレータを取得する | |
+| [`cbegin`](basic_string/cbegin.md)   | 先頭の要素を指す読み取り専用イテレータを取得する | C++11 |
+| [`cend`](basic_string/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
+| [`rbegin`](basic_string/rbegin.md)   | 末尾を指す逆イテレータを取得する | |
+| [`rend`](basic_string/rend.md)       | 先頭の前を指す逆イテレータを取得する | |
+| [`crbegin`](basic_string/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`crend`](basic_string/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++11 |
 
 
 ###領域
 
 | 名前                                               | 説明                                                 | 対応バージョン |
 |----------------------------------------------------|------------------------------------------------------|----------------|
-| [`size`](./basic_string/size.md)                   | 文字列の長さを取得する                               |                |
-| [`length`](./basic_string/length.md)               | 文字列の長さを取得する                               |                |
-| [`max_size`](./basic_string/max_size.md)           | 格納可能な最大の文字列長を取得する                   |                |
-| [`resize`](./basic_string/resize.md)               | 文字列の長さを変更する                               |                |
-| [`capacity`](./basic_string/capacity.md)           | メモリを再確保せずに格納できる最大の要素数を取得する |                |
-| [`reserve`](./basic_string/reserve.md)             | `capacity`を変更する                                 |                |
-| [`shrink_to_fit`](./basic_string/shrink_to_fit.md) | `capacity`を`size`まで縮小する                       | C++11          |
-| [`clear`](./basic_string/clear.md)                 | 文字列をクリアする                                   |                |
-| [`empty`](./basic_string/empty.md)                 | 文字列が空かどうかを判定する                         |                |
+| [`size`](basic_string/size.md)                   | 文字列の長さを取得する                               |                |
+| [`length`](basic_string/length.md)               | 文字列の長さを取得する                               |                |
+| [`max_size`](basic_string/max_size.md)           | 格納可能な最大の文字列長を取得する                   |                |
+| [`resize`](basic_string/resize.md)               | 文字列の長さを変更する                               |                |
+| [`capacity`](basic_string/capacity.md)           | メモリを再確保せずに格納できる最大の要素数を取得する |                |
+| [`reserve`](basic_string/reserve.md)             | `capacity`を変更する                                 |                |
+| [`shrink_to_fit`](basic_string/shrink_to_fit.md) | `capacity`を`size`まで縮小する                       | C++11          |
+| [`clear`](basic_string/clear.md)                 | 文字列をクリアする                                   |                |
+| [`empty`](basic_string/empty.md)                 | 文字列が空かどうかを判定する                         |                |
 
 
 ###要素アクセス
 
 | 名前                                    | 説明                       | 対応バージョン |
 |-----------------------------------------|----------------------------|----------------|
-| [`operator[]`](./basic_string/op_at.md) | 任意の位置の要素を取得する |                |
-| [`at`](./basic_string/at.md)            | 任意の位置の要素を取得する |                |
-| [`front`](./basic_string/front.md)      | 先頭要素を取得する         | C++11          |
-| [`back`](./basic_string/back.md)        | 末尾要素を取得する         | C++11          |
+| [`operator[]`](basic_string/op_at.md) | 任意の位置の要素を取得する |                |
+| [`at`](basic_string/at.md)            | 任意の位置の要素を取得する |                |
+| [`front`](basic_string/front.md)      | 先頭要素を取得する         | C++11          |
+| [`back`](basic_string/back.md)        | 末尾要素を取得する         | C++11          |
 
 
 ###文字列の変更
@@ -95,31 +95,31 @@ namespace std {
 |-------------------------------------------------|----------------------------------------------------|----------------|
 | [`operator+=`](basic_string/op_plus_assign.md)  | 文字／文字列を追加する                             |                |
 | [`append`](basic_string/append.md)              | 文字／文字列を追加する                             |                |
-| [`push_back`](./basic_string/push_back.md)      | 末尾に要素を追加する                               |                |
-| [`assign`](./basic_string/assign.md)            | 文字列の再代入                                     |                |
-| [`insert`](./basic_string/insert.md)            | 文字／文字列を挿入する                             |                |
-| [`erase`](./basic_string/erase.md)              | 要素を削除する                                     |                |
-| [`pop_back`](./basic_string/pop_back.md)        | 末尾の1要素を削除する                              | C++11          |
-| [`replace`](./basic_string/replace.md)          | 文字列の一部を置換する                             |                |
-| [`swap`](./basic_string/swap.md)                | 他の`basic_string`オブジェクトとデータを入れ替える |                |
+| [`push_back`](basic_string/push_back.md)      | 末尾に要素を追加する                               |                |
+| [`assign`](basic_string/assign.md)            | 文字列の再代入                                     |                |
+| [`insert`](basic_string/insert.md)            | 文字／文字列を挿入する                             |                |
+| [`erase`](basic_string/erase.md)              | 要素を削除する                                     |                |
+| [`pop_back`](basic_string/pop_back.md)        | 末尾の1要素を削除する                              | C++11          |
+| [`replace`](basic_string/replace.md)          | 文字列の一部を置換する                             |                |
+| [`swap`](basic_string/swap.md)                | 他の`basic_string`オブジェクトとデータを入れ替える |                |
 
 
 ###文字列の操作
 
 | 名前                                                       | 説明                                           | 対応バージョン |
 |------------------------------------------------------------|------------------------------------------------|----------------|
-| [`c_str`](./basic_string/c_str.md)                         | C言語の文字列表現を取得する                    |                |
-| [`data`](./basic_string/data.md)                           | 文字配列表現を取得する                         |                |
-| [`get_allocator`](./basic_string/get_allocator.md)         | アロケータを取得する                           |                |
-| [`copy`](./basic_string/copy.md)                           | 他の文字列にコピーする                         |                |
-| [`find`](./basic_string/find.md)                           | 指定文字列を検索する                           |                |
-| [`rfind`](./basic_string/rfind.md)                         | 最後に現れる指定文字列を検索する               |                |
-| [`find_first_of`](./basic_string/find_first_of.md)         | 最初に現れる指定文字を検索する                 |                |
-| [`find_last_of`](./basic_string/find_last_of.md)           | 最後に現れる指定文字を検索する                 |                |
-| [`find_first_not_of`](./basic_string/find_first_not_of.md) | 先頭から、指定文字が見つからない位置を検索する |                |
-| [`find_last_nof_of`](./basic_string/find_last_not_of.md)   | 末尾から、指定文字が見つからない位置を検索する |                |
-| [`substr`](./basic_string/substr.md)                       | 部分文字列を取得する                           |                |
-| [`compare`](./basic_string/compare.md)                     | 他の文字列との比較を行う                       |                |
+| [`c_str`](basic_string/c_str.md)                         | C言語の文字列表現を取得する                    |                |
+| [`data`](basic_string/data.md)                           | 文字配列表現を取得する                         |                |
+| [`get_allocator`](basic_string/get_allocator.md)         | アロケータを取得する                           |                |
+| [`copy`](basic_string/copy.md)                           | 他の文字列にコピーする                         |                |
+| [`find`](basic_string/find.md)                           | 指定文字列を検索する                           |                |
+| [`rfind`](basic_string/rfind.md)                         | 最後に現れる指定文字列を検索する               |                |
+| [`find_first_of`](basic_string/find_first_of.md)         | 最初に現れる指定文字を検索する                 |                |
+| [`find_last_of`](basic_string/find_last_of.md)           | 最後に現れる指定文字を検索する                 |                |
+| [`find_first_not_of`](basic_string/find_first_not_of.md) | 先頭から、指定文字が見つからない位置を検索する |                |
+| [`find_last_nof_of`](basic_string/find_last_not_of.md)   | 末尾から、指定文字が見つからない位置を検索する |                |
+| [`substr`](basic_string/substr.md)                       | 部分文字列を取得する                           |                |
+| [`compare`](basic_string/compare.md)                     | 他の文字列との比較を行う                       |                |
 
 
 ###メンバ定数
@@ -161,15 +161,15 @@ namespace std {
 | [`operator>=`](basic_string/op_greater_equal.md) | 左辺が右辺以上かの判定を行う                |                |
 | [`operator<<`](basic_string/op_ostream.md)       | ストリームへの出力                          |                |
 | [`operator>>`](basic_string/op_istream.md)       | ストリームからの入力                        |                |
-| [`swap`](./basic_string/swap_free.md)            | 2つの`basic_string`オブジェクトを入れ替える |                |
-| [`getline`](./basic_string/getline.md)           | 入力ストリームから1行読み込む               |                |
+| [`swap`](basic_string/swap_free.md)            | 2つの`basic_string`オブジェクトを入れ替える |                |
+| [`getline`](basic_string/getline.md)           | 入力ストリームから1行読み込む               |                |
 
 
 ###リテラル
 
 | 名前                          | 説明                     | 対応バージョン |
 |-------------------------------|--------------------------|----------------|
-| [`s`](./basic_string/op_s.md) | `basic_string`のリテラル | C++14 |
+| [`s`](basic_string/op_s.md) | `basic_string`のリテラル | C++14 |
 
 
 ##例

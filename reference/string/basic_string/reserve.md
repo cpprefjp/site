@@ -13,7 +13,7 @@ void reserve(size_type res_arg = 0);
 
 
 ##効果
-[`capacity()`](./capacity.md) `>= res_arg` となる。
+[`capacity()`](capacity.md) `>= res_arg` となる。
 
 
 ##戻り値
@@ -21,7 +21,7 @@ void reserve(size_type res_arg = 0);
 
 
 ##例外
-`res_arg >` [`max_size()`](./max_size.md) の場合、[`length_error`](/reference/stdexcept.md) 例外を投げる。 
+`res_arg >` [`max_size()`](max_size.md) の場合、[`length_error`](/reference/stdexcept.md) 例外を投げる。 
 `allocator_traits<Allocator>::allocate()` が、よりふさわしい例外を投げるかもしれない。
 
 

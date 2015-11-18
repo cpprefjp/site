@@ -21,7 +21,7 @@ namespace std {
 
 
 ##効果
-[`memory_order_seq_cst`](./memory_order.md)のメモリオーダーにしたがって、アトミックに値を読み込む
+[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、アトミックに値を読み込む
 
 
 ##戻り値
@@ -33,7 +33,7 @@ namespace std {
 
 
 ##備考
-この関数は、特殊化された[`atomic`](./atomic.md)型に対して定義される。
+この関数は、特殊化された[`atomic`](atomic.md)型に対して定義される。
 
 
 ##例

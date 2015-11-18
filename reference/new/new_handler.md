@@ -10,14 +10,14 @@ namespace std {
 ```
 
 ##概要
-`new`失敗時に呼ばれる関数の型。[`set_new_handler`](./set_new_handler.md)`()`、[`get_new_handler`](./get_new_handler.md)`()`で使用する。
+`new`失敗時に呼ばれる関数の型。[`set_new_handler`](set_new_handler.md)`()`、[`get_new_handler`](get_new_handler.md)`()`で使用する。
 
-`new`演算子は本来であれば失敗時に[`bad_alloc`](./bad_alloc.md)例外を送出するが、これらを使用することで、`new`失敗時の動作を任意の関数で置き換えられる。 
+`new`演算子は本来であれば失敗時に[`bad_alloc`](bad_alloc.md)例外を送出するが、これらを使用することで、`new`失敗時の動作を任意の関数で置き換えられる。 
 
 ハンドラの内部では、以下のいずれかを行う必要がある：
 
 - 確保済みの領域を解放して`return`する
-- [`bad_alloc`](./bad_alloc.md)またはその派生の例外を送出する
+- [`bad_alloc`](bad_alloc.md)またはその派生の例外を送出する
 - `return`により処理を返すことなく、プログラムの実行を直ちに終了させる(`quick_exit()`、`exit()`、`abort()`などを使用する)
 
 

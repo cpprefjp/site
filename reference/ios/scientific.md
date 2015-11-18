@@ -19,13 +19,13 @@ namespace std {
 実引数のstrオブジェクト。
 
 ##例
-[`defaultfloat`](./defaultfloat.md)を参照。
+[`defaultfloat`](defaultfloat.md)を参照。
 
 ##バージョン
 ###言語
 - C++03
 
 ##参照
-- [`defaultfloat`](./defaultfloat.md)
-- [`fixed`](./fixed.md)
-- [`hexfloat`](./hexfloat.md)
+- [`defaultfloat`](defaultfloat.md)
+- [`fixed`](fixed.md)
+- [`hexfloat`](hexfloat.md)

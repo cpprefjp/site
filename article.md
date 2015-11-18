@@ -5,13 +5,13 @@
 
 
 ##ライブラリ
-- [条件変数の利用方法](./article/lib/how_to_use_cv.md)
-- [標準ライブラリにおける、関数にnoexceptを付けない条件](./article/lib/dont_use_noexcept.md)
-- [`_at_thread_exit`系の関数が存在している理由](./article/lib/at_thread_exit.md)
+- [条件変数の利用方法](article/lib/how_to_use_cv.md)
+- [標準ライブラリにおける、関数にnoexceptを付けない条件](article/lib/dont_use_noexcept.md)
+- [`_at_thread_exit`系の関数が存在している理由](article/lib/at_thread_exit.md)
 
 
 ##プラットフォーム
-- [使用できるロケール文字列](./article/platform/locales.md)
+- [使用できるロケール文字列](article/platform/locales.md)
 
 
 ##方針

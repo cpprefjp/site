@@ -118,9 +118,9 @@ libstdc++ の `unordered_multiset` では、アロケータの `select_on_contai
 
 | | |
 |----------------------------------------------------------|----------------|
-| [`(constructor)`](./op_constructor.md)                   | コンストラクタ |
-| [`operator=`](./op_assign.md)                            | 代入演算子     |
-| [`swap`](./op_assign.md)                                 | 内容の交換（非メンバ関数） |
+| [`(constructor)`](op_constructor.md)                   | コンストラクタ |
+| [`operator=`](op_assign.md)                            | 代入演算子     |
+| [`swap`](op_assign.md)                                 | 内容の交換（非メンバ関数） |
 | [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ |
 | [`allocator_traits`](/reference/memory/allocator_traits.md) | アロケータのトレイツ |
 

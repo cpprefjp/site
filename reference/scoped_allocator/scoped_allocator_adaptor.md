@@ -87,8 +87,8 @@ namespace std {
 
 | 名前                                                       | 説明       | 対応バージョン |
 |------------------------------------------------------------|------------|-------|
-| [`operator==`](./scoped_allocator_adaptor/op_equal.md)     | 等値比較   | C++11 |
-| [`operator!=`](./scoped_allocator_adaptor/op_not_equal.md) | 非等値比較 | C++11 |
+| [`operator==`](scoped_allocator_adaptor/op_equal.md)     | 等値比較   | C++11 |
+| [`operator!=`](scoped_allocator_adaptor/op_not_equal.md) | 非等値比較 | C++11 |
 
 
 ##例1 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる

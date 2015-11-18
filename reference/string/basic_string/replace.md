@@ -57,32 +57,32 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 
 
 ##要件
-- (1) : `pos1 <=` [`size()`](./size.md)
-- (2) : `pos1 <=` [`size()`](./size.md)、および`pos2 <= str.`[`size()`](./size.md)であること。
-- (3) : `pos1 <=` [`size()`](./size.md)、および文字配列へのポインタ`s`が、少なくても`n2`個の要素を持つ配列を指していること。
-- (4) : `pos <=` [`size()`](./size.md)、および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
-- (6) : `[`[`begin()`](./begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
-- (7) : `[`[`begin()`](./begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。また、文字配列へのポインタ`s`が、少なくても`n`個の要素を持つ配列を指していること。
-- (8) : `[`[`begin()`](./begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
-- (9) : `[`[`begin()`](./begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
-- (10) : `[`[`begin()`](./begin.md)`, i1)`、`[i1, i2)`、および`[j1, j2)`が有効は範囲であること。
-- (11) : `[`[`begin()`](./begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
+- (1) : `pos1 <=` [`size()`](size.md)
+- (2) : `pos1 <=` [`size()`](size.md)、および`pos2 <= str.`[`size()`](size.md)であること。
+- (3) : `pos1 <=` [`size()`](size.md)、および文字配列へのポインタ`s`が、少なくても`n2`個の要素を持つ配列を指していること。
+- (4) : `pos <=` [`size()`](size.md)、および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
+- (6) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
+- (7) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。また、文字配列へのポインタ`s`が、少なくても`n`個の要素を持つ配列を指していること。
+- (8) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
+- (9) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
+- (10) : `[`[`begin()`](begin.md)`, i1)`、`[i1, i2)`、および`[j1, j2)`が有効は範囲であること。
+- (11) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
 
 
 ##効果
-- (1) : `replace(pos1, n1, str.`[`data()`](./data.md)`, str.`[`size()`](./size.md)`)`を呼び出す。
+- (1) : `replace(pos1, n1, str.`[`data()`](data.md)`, str.`[`size()`](size.md)`)`を呼び出す。
 - (2) :
-    - `n2`と`str.`[`size()`](./size.md) `- pos2`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](./size.md)`() - pos2` が使用される。
-    - `replace(pos1, n1, str.`[`data()`](./data.md) `+ pos2, rlen)`を呼び出す。
-- (3) : `n1`と[`size()`](./size.md) `- pos1`のうち小さい方を`xlen`とし、自身の`pos1`番目から`xlen`個の要素を、文字配列`s`の先頭`n2`文字で置き換える。
+    - `n2`と`str.`[`size()`](size.md) `- pos2`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](size.md)`() - pos2` が使用される。
+    - `replace(pos1, n1, str.`[`data()`](data.md) `+ pos2, rlen)`を呼び出す。
+- (3) : `n1`と[`size()`](size.md) `- pos1`のうち小さい方を`xlen`とし、自身の`pos1`番目から`xlen`個の要素を、文字配列`s`の先頭`n2`文字で置き換える。
 - (4) : `replace(pos, n, s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`を呼び出す。
 - (5) : `replace(pos1, n1, basic_string(n2, c))`と同じ効果を持つ。
-- (6) : `replace(i1 -` [`begin()`](./begin.md)`, i2 - i1, str)`を呼び出す。
-- (7) : `replace(i1 -` [`begin()`](./begin.md)`, i2 - i1, s, n)`を呼び出す。
-- (8) : `replace(i1 -` [`begin()`](./begin.md)`, i2 - i1, s,` [`traits::length`](/reference/string/char_traits.md)`(s))`を呼び出す。
-- (9) : `replace(i1 -` [`begin()`](./begin.md)`, i2 - i1, basic_string(n, c))`を呼び出す。
-- (10) : `replace(i1 -` [`begin()`](./begin.md)`, i2 - i1, basic_string(j1, j2))`を呼び出す。
-- (11) : `replace(i1 -` [`begin()`](./begin.md)`, i2 - i1, il.`[`begin()`](/reference/initializer_list/begin.md)`, il.`[`size()`](/reference/initializer_list/size.md)`)`を呼び出す。
+- (6) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, str)`を呼び出す。
+- (7) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, s, n)`を呼び出す。
+- (8) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, s,` [`traits::length`](/reference/string/char_traits.md)`(s))`を呼び出す。
+- (9) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, basic_string(n, c))`を呼び出す。
+- (10) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, basic_string(j1, j2))`を呼び出す。
+- (11) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, il.`[`begin()`](/reference/initializer_list/begin.md)`, il.`[`size()`](/reference/initializer_list/size.md)`)`を呼び出す。
 
 
 ##戻り値
@@ -90,9 +90,9 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 
 
 ##例外
-- (1) : `pos1 >` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
-- (2) : `pos1 >` [`size()`](./size.md)もしくは`pos1 > str.`[`size()`](./size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
-- (3) : `pos1 >` [`size()`](./size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。また、置き換え結果の文字列が`max_size()`を超えた場合、[`length_error`](/reference/stdexcept.md)例外を送出する。
+- (1) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (2) : `pos1 >` [`size()`](size.md)もしくは`pos1 > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (3) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。また、置き換え結果の文字列が`max_size()`を超えた場合、[`length_error`](/reference/stdexcept.md)例外を送出する。
 
 
 ##例

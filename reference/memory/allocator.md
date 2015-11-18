@@ -39,15 +39,15 @@ C++11から：
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------|-------|
-| [`(constructor)`](./allocator/op_constructor.md) | コンストラクタ                               | |
-| [`(destructor)`](./allocator/op_destructor.md) | デストラクタ                                 | |
+| [`(constructor)`](allocator/op_constructor.md) | コンストラクタ                               | |
+| [`(destructor)`](allocator/op_destructor.md) | デストラクタ                                 | |
 | `operator=(const allocator&) = default`     | 代入演算子                                   | |
-| [`address`](./allocator/address.md)         | 変数のアドレスを取得する                     | |
-| [`allocate`](./allocator/allocate.md)       | メモリを確保する                             | |
-| [`deallocate`](./allocator/deallocate.md)   | メモリを解放する                             | |
-| [`max_size`](./allocator/max_size.md)       | 一度に確保可能なメモリの最大サイズを取得する | |
-| [`construct`](./allocator/construct.md)     | 引数を元にインスタンスを構築する             | |
-| [`destroy`](./allocator/destroy.md)         | インスタンスを破棄する                       | |
+| [`address`](allocator/address.md)         | 変数のアドレスを取得する                     | |
+| [`allocate`](allocator/allocate.md)       | メモリを確保する                             | |
+| [`deallocate`](allocator/deallocate.md)   | メモリを解放する                             | |
+| [`max_size`](allocator/max_size.md)       | 一度に確保可能なメモリの最大サイズを取得する | |
+| [`construct`](allocator/construct.md)     | 引数を元にインスタンスを構築する             | |
+| [`destroy`](allocator/destroy.md)         | インスタンスを破棄する                       | |
 
 
 ##メンバ型
@@ -69,8 +69,8 @@ C++11から：
 
 | 名前                                        | 説明                          | 対応バージョン |
 |---------------------------------------------|-------------------------------|-------|
-| [`operator==`](./allocator/op_equal.md)     | 等値比較。常に`true`を返す    | |
-| [`operator!=`](./allocator/op_not_equal.md) | 非等値比較。常に`false`を返す | |
+| [`operator==`](allocator/op_equal.md)     | 等値比較。常に`true`を返す    | |
+| [`operator!=`](allocator/op_not_equal.md) | 非等値比較。常に`false`を返す | |
 
 
 ##例

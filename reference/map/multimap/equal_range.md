@@ -29,7 +29,7 @@ pair<const_iterator, const_iterator>
 
 
 ##戻り値
-この関数は `pair` を返す。ここで `pair::first` は [`lower_bound`](./lower_bound.md)`(x)` が返すであろう値と同じ値で範囲の下境界にあたり、`pair::second` は [`upper_bound`](/reference/map/multimap/upper_bound.md)`(x)` が返すであろう値と同じ値で範囲の上境界にあたる。
+この関数は `pair` を返す。ここで `pair::first` は [`lower_bound`](lower_bound.md)`(x)` が返すであろう値と同じ値で範囲の下境界にあたり、`pair::second` は [`upper_bound`](/reference/map/multimap/upper_bound.md)`(x)` が返すであろう値と同じ値で範囲の上境界にあたる。
 
 
 ##計算量
@@ -37,7 +37,7 @@ pair<const_iterator, const_iterator>
 
 
 ##備考
-- (2), (4) : この関数がオーバーロード解決に参加する条件は、[`find()`](./find.md)メンバ関数の備考欄を参照。
+- (2), (4) : この関数がオーバーロード解決に参加する条件は、[`find()`](find.md)メンバ関数の備考欄を参照。
 
 
 ##例

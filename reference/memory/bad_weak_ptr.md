@@ -12,7 +12,7 @@ namespace std {
 * exception[link /reference/exception/exception.md]
 
 ##概要
-`bad_weak_ptr`は、[`weak_ptr`](./weak_ptr.md)オブジェクトから破棄済みの[`shared_ptr`](./shared_ptr.md)オブジェクトを構築しようとした場合に発生する例外クラスである。
+`bad_weak_ptr`は、[`weak_ptr`](weak_ptr.md)オブジェクトから破棄済みの[`shared_ptr`](shared_ptr.md)オブジェクトを構築しようとした場合に発生する例外クラスである。
 
 破棄済みの`shared_ptr`を監視する`weak_ptr`オブジェクトから`weak_ptr::lock()`メンバ関数で`shared_ptr`オブジェクトを構築した場合、すでに`shared_ptr`が破棄されていれば、例外を送出することなく空の`shared_ptr`が返される。しかし、破棄済みの`shared_ptr`を監視する`weak_ptr`オブジェクトが`shared_ptr`のコンストラクタ引数として渡された場合には、この例外が送出される。
 

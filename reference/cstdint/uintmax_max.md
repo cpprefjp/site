@@ -9,7 +9,7 @@
 * implementation-defined[italic]
 
 ##概要
-[`uintmax_t`](./uintmax_t.md) の最大値。
+[`uintmax_t`](uintmax_t.md) の最大値。
 
 ##バージョン
 ###言語

@@ -15,7 +15,7 @@ charT& front();
 
 
 ##要件
-`!`[`empty()`](./empty.md)
+`!`[`empty()`](empty.md)
 
 
 ##戻り値

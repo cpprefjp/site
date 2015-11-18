@@ -37,27 +37,27 @@ $$ p(x|a,b) = \frac{1}{b} \cdot \exp \big( \frac{a-x}{b} - \exp \big( \frac{a-x}
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./extreme_value_distribution/op_constructor.md) | コンストラクタ     | C++11 |
+| [`(constructor)`](extreme_value_distribution/op_constructor.md) | コンストラクタ     | C++11 |
 | `~extreme_value_distribution() = default;`                              | デストラクタ       | C++11 |
-| [`reset`](./extreme_value_distribution/reset.md)                        | 状態をリセットする | C++11 |
+| [`reset`](extreme_value_distribution/reset.md)                        | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|----------------|-------|
-| [`operator()`](./extreme_value_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](extreme_value_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------------|-------|
-| [`a`](./extreme_value_distribution/a.md)         | 位置パラメータを取得する         | C++11 |
-| [`b`](./extreme_value_distribution/b.md)         | 尺度パラメータを取得する         | C++11 |
-| [`param`](./extreme_value_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./extreme_value_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./extreme_value_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`a`](extreme_value_distribution/a.md)         | 位置パラメータを取得する         | C++11 |
+| [`b`](extreme_value_distribution/b.md)         | 尺度パラメータを取得する         | C++11 |
+| [`param`](extreme_value_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](extreme_value_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](extreme_value_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -72,10 +72,10 @@ $$ p(x|a,b) = \frac{1}{b} \cdot \exp \big( \frac{a-x}{b} - \exp \big( \frac{a-x}
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./extreme_value_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./extreme_value_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./extreme_value_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./extreme_value_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](extreme_value_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](extreme_value_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](extreme_value_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](extreme_value_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

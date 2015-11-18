@@ -32,18 +32,18 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|--------------------------------------------------|-------|
-| [`(constructor)`](./shared_ptr/op_constructor.md)  | コンストラクタ                                   | C++11 |
-| [`(destructor)`](./shared_ptr/op_destructor.md)  | デストラクタ                                     | C++11 |
-| [`operator=`](./shared_ptr/op_assign.md)       | 代入演算子                                       | C++11 |
-| [`reset`](./shared_ptr/reset.md)               | 所有権を放棄し、新たな所有権を設定する           | C++11 |
-| [`swap`](./shared_ptr/swap.md)                 | 他の`shared_ptr`オブジェクトとデータを入れ替える | C++11 |
-| [`get`](./shared_ptr/get.md)                   | リソースを取得する                               | C++11 |
-| [`operator*`](./shared_ptr/op_deref.md)        | 間接参照                                         | C++11 |
-| [`operator->`](./shared_ptr/op_arrow.md)       | メンバアクセス                                   | C++11 |
-| [`use_count`](./shared_ptr/use_count.md)       | 所有権を持つユーザー数を取得する                 | C++11 |
-| [`unique`](./shared_ptr/unique.md)             | 所有権を持つユーザーが一人だけかを判定する       | C++11 |
-| [`operator bool`](./shared_ptr/op_bool.md)     | 有効なリソースを所有しているかを判定する         | C++11 |
-| [`owner_before`](./shared_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                 | C++11 |
+| [`(constructor)`](shared_ptr/op_constructor.md)  | コンストラクタ                                   | C++11 |
+| [`(destructor)`](shared_ptr/op_destructor.md)  | デストラクタ                                     | C++11 |
+| [`operator=`](shared_ptr/op_assign.md)       | 代入演算子                                       | C++11 |
+| [`reset`](shared_ptr/reset.md)               | 所有権を放棄し、新たな所有権を設定する           | C++11 |
+| [`swap`](shared_ptr/swap.md)                 | 他の`shared_ptr`オブジェクトとデータを入れ替える | C++11 |
+| [`get`](shared_ptr/get.md)                   | リソースを取得する                               | C++11 |
+| [`operator*`](shared_ptr/op_deref.md)        | 間接参照                                         | C++11 |
+| [`operator->`](shared_ptr/op_arrow.md)       | メンバアクセス                                   | C++11 |
+| [`use_count`](shared_ptr/use_count.md)       | 所有権を持つユーザー数を取得する                 | C++11 |
+| [`unique`](shared_ptr/unique.md)             | 所有権を持つユーザーが一人だけかを判定する       | C++11 |
+| [`operator bool`](shared_ptr/op_bool.md)     | 有効なリソースを所有しているかを判定する         | C++11 |
+| [`owner_before`](shared_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                 | C++11 |
 
 
 ##メンバ型
@@ -57,20 +57,20 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------|-------------------------------------------|-------|
-| [`operator==`](./shared_ptr/op_equal.md)                       | 等値比較                                  | C++11 |
-| [`operator!=`](./shared_ptr/op_not_equal.md)                   | 非等値比較                                | C++11 |
-| [`operator<`](./shared_ptr/op_less.md)                         | 左辺が右辺より小さいかを判定する          | C++11 |
-| [`operator<=`](./shared_ptr/op_less_equal.md)                  | 左辺が右辺以下かを判定する                | C++11 |
-| [`operator>`](./shared_ptr/op_greater.md)                      | 左辺が右辺より大きいかを判定する          | C++11 |
-| [`operator>=`](./shared_ptr/op_greater_equal.md)               | 左辺が右辺以上かを判定する                | C++11 |
-| [`swap`](./shared_ptr/swap_free.md)                            | 2つの`shared_ptr`オブジェクトを入れ替える | C++11 |
-| [`get_deleter`](./shared_ptr/get_deleter.md)                   | デリータを取得する                        | C++11 |
-| [`operator<<`](./shared_ptr/op_ostream.md)                     | ストリームへの出力                        | C++11 |
-| [`static_pointer_cast`](./shared_ptr/static_pointer_cast.md)   | `shared_ptr`の静的キャスト                | C++11 |
-| [`dynamic_pointer_cast`](./shared_ptr/dynamic_pointer_cast.md) | `shared_ptr`の動的キャスト                | C++11 |
-| [`const_pointer_cast`](./shared_ptr/const_pointer_cast.md)     | `shared_ptr`の`const`修飾キャスト         | C++11 |
-| [`make_shared`](./make_shared.md)                              | `shared_ptr`を構築するヘルパ関数          | C++11 |
-| [`allocate_shared`](./allocate_shared.md)                      | アロケータを指定して`shared_ptr`を構築するヘルパ関数 | C++11 |
+| [`operator==`](shared_ptr/op_equal.md)                       | 等値比較                                  | C++11 |
+| [`operator!=`](shared_ptr/op_not_equal.md)                   | 非等値比較                                | C++11 |
+| [`operator<`](shared_ptr/op_less.md)                         | 左辺が右辺より小さいかを判定する          | C++11 |
+| [`operator<=`](shared_ptr/op_less_equal.md)                  | 左辺が右辺以下かを判定する                | C++11 |
+| [`operator>`](shared_ptr/op_greater.md)                      | 左辺が右辺より大きいかを判定する          | C++11 |
+| [`operator>=`](shared_ptr/op_greater_equal.md)               | 左辺が右辺以上かを判定する                | C++11 |
+| [`swap`](shared_ptr/swap_free.md)                            | 2つの`shared_ptr`オブジェクトを入れ替える | C++11 |
+| [`get_deleter`](shared_ptr/get_deleter.md)                   | デリータを取得する                        | C++11 |
+| [`operator<<`](shared_ptr/op_ostream.md)                     | ストリームへの出力                        | C++11 |
+| [`static_pointer_cast`](shared_ptr/static_pointer_cast.md)   | `shared_ptr`の静的キャスト                | C++11 |
+| [`dynamic_pointer_cast`](shared_ptr/dynamic_pointer_cast.md) | `shared_ptr`の動的キャスト                | C++11 |
+| [`const_pointer_cast`](shared_ptr/const_pointer_cast.md)     | `shared_ptr`の`const`修飾キャスト         | C++11 |
+| [`make_shared`](make_shared.md)                              | `shared_ptr`を構築するヘルパ関数          | C++11 |
+| [`allocate_shared`](allocate_shared.md)                      | アロケータを指定して`shared_ptr`を構築するヘルパ関数 | C++11 |
 
 
 ##アトミックアクセス(非メンバ関数)

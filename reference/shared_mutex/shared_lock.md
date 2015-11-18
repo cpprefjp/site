@@ -28,19 +28,19 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|--------------------------------------------------------|-------|
-| [`(constructor)`](./shared_lock/op_constructor.md)  | コンストラクタ | C++14 |
-| [`(destructor)`](./shared_lock/op_destructor.md)    | デストラクタ | C++14 |
-| [`operator=`](./shared_lock/op_assign.md)           | 代入演算子 | C++14 |
-| [`lock`](./shared_lock/lock.md)                     | 共有ロックを取得する | C++14 |
-| [`try_lock`](./shared_lock/try_lock.md)             | 共有ロックの取得を試みる | C++14 |
-| [`try_lock_for`](./shared_lock/try_lock_for.md)     | タイムアウトする相対時間を指定して共有ロックの取得を試みる | C++14 |
-| [`try_lock_until`](./shared_lock/try_lock_until.md) | タイムアウトする絶対時間を指定して共有ロックの取得を試みる | C++14 |
-| [`unlock`](./shared_lock/unlock.md)                 | 共有ロックを手放す | C++14 |
-| [`swap`](./shared_lock/swap.md)                     | 他の`shared_lock`オブジェクトと値を入れ替える | C++14 |
-| [`release`](./shared_lock/release.md)               | ミューテックスの所有権を放棄する | C++14 |
-| [`owns_lock`](./shared_lock/owns_lock.md)           | ロックを取得しているかを判定する | C++14 |
-| [`operator bool`](./shared_lock/op_bool.md)         | ロックを取得しているかを判定する | C++14 |
-| [`mutex`](./shared_lock/mutex.md)                   | 所有しているミューテックスオブジェクトを取得する | C++14 |
+| [`(constructor)`](shared_lock/op_constructor.md)  | コンストラクタ | C++14 |
+| [`(destructor)`](shared_lock/op_destructor.md)    | デストラクタ | C++14 |
+| [`operator=`](shared_lock/op_assign.md)           | 代入演算子 | C++14 |
+| [`lock`](shared_lock/lock.md)                     | 共有ロックを取得する | C++14 |
+| [`try_lock`](shared_lock/try_lock.md)             | 共有ロックの取得を試みる | C++14 |
+| [`try_lock_for`](shared_lock/try_lock_for.md)     | タイムアウトする相対時間を指定して共有ロックの取得を試みる | C++14 |
+| [`try_lock_until`](shared_lock/try_lock_until.md) | タイムアウトする絶対時間を指定して共有ロックの取得を試みる | C++14 |
+| [`unlock`](shared_lock/unlock.md)                 | 共有ロックを手放す | C++14 |
+| [`swap`](shared_lock/swap.md)                     | 他の`shared_lock`オブジェクトと値を入れ替える | C++14 |
+| [`release`](shared_lock/release.md)               | ミューテックスの所有権を放棄する | C++14 |
+| [`owns_lock`](shared_lock/owns_lock.md)           | ロックを取得しているかを判定する | C++14 |
+| [`operator bool`](shared_lock/op_bool.md)         | ロックを取得しているかを判定する | C++14 |
+| [`mutex`](shared_lock/mutex.md)                   | 所有しているミューテックスオブジェクトを取得する | C++14 |
 
 
 ##メンバ型
@@ -54,7 +54,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|--------------------------------------------|-------|
-| [`swap`](./shared_lock/swap_free.md) | 2つの`shared_lock`オブジェクトを入れ替える | C++14 |
+| [`swap`](shared_lock/swap_free.md) | 2つの`shared_lock`オブジェクトを入れ替える | C++14 |
 
 
 ##例
@@ -111,7 +111,7 @@ int main()
 
 
 ##関連項目
-- [`shared_timed_mutex`](./shared_timed_mutex.md) : 共有ミューテックスクラス
+- [`shared_timed_mutex`](shared_timed_mutex.md) : 共有ミューテックスクラス
 - [`lock_guard`](/reference/mutex/lock_guard.md) : 排他ロックを自動的に手放す
 - [`unique_lock`](/reference/mutex/unique_lock.md) : 排他ロックを自動的に手放す
 

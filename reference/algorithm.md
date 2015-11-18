@@ -55,62 +55,62 @@ return distance(a, b);
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|--------------------------------------------|-------|
-| [`all_of`](./algorithm/all_of.md)               | 全ての要素が条件を満たしているかを調べる   | C++11 |
-| [`any_of`](./algorithm/any_of.md)               | どれかの要素が条件を満たしているかを調べる | C++11 |
-| [`none_of`](./algorithm/none_of.md)             | 全ての要素が条件を満たしていないかを調べる | C++11 |
-| [`for_each`](./algorithm/for_each.md)           | 全ての要素に対して処理を行う               | |
-| [`find`](./algorithm/find.md)                   | 指定された値を検索する                     | |
-| [`find_if`](./algorithm/find_if.md)             | 条件を満たす最初の要素を検索する           | |
-| [`find_if_not`](./algorithm/find_if_not.md)     | 条件を満たしていない最初の要素を検索する   | C++11 |
-| [`find_end`](./algorithm/find_end.md)           | 指定された最後のサブシーケンスを検索する   | |
-| [`find_first_of`](./algorithm/find_first_of.md) | ある集合の1つとマッチする最初の要素を検索する | |
-| [`adjacent_find`](./algorithm/adjacent_find.md) | 隣接する要素で条件を満たしている最初の要素を検索する | |
-| [`count`](./algorithm/count.md)                 | 指定された値である要素の数を数える | |
-| [`count_if`](./algorithm/count_if.md)           | 条件を満たしている要素の数を数える | |
-| [`mismatch`](./algorithm/mismatch.md)           | 2つの範囲が一致していない場所を検索する | |
-| [`equal`](./algorithm/equal.md)                 | 2つの範囲を等値比較する | |
-| [`search`](./algorithm/search.md)               | 指定された最初のサブシーケンスを検索する | |
-| [`search_n`](./algorithm/search_n.md)           | 指定された最初のサブシーケンスを検索する | |
+| [`all_of`](algorithm/all_of.md)               | 全ての要素が条件を満たしているかを調べる   | C++11 |
+| [`any_of`](algorithm/any_of.md)               | どれかの要素が条件を満たしているかを調べる | C++11 |
+| [`none_of`](algorithm/none_of.md)             | 全ての要素が条件を満たしていないかを調べる | C++11 |
+| [`for_each`](algorithm/for_each.md)           | 全ての要素に対して処理を行う               | |
+| [`find`](algorithm/find.md)                   | 指定された値を検索する                     | |
+| [`find_if`](algorithm/find_if.md)             | 条件を満たす最初の要素を検索する           | |
+| [`find_if_not`](algorithm/find_if_not.md)     | 条件を満たしていない最初の要素を検索する   | C++11 |
+| [`find_end`](algorithm/find_end.md)           | 指定された最後のサブシーケンスを検索する   | |
+| [`find_first_of`](algorithm/find_first_of.md) | ある集合の1つとマッチする最初の要素を検索する | |
+| [`adjacent_find`](algorithm/adjacent_find.md) | 隣接する要素で条件を満たしている最初の要素を検索する | |
+| [`count`](algorithm/count.md)                 | 指定された値である要素の数を数える | |
+| [`count_if`](algorithm/count_if.md)           | 条件を満たしている要素の数を数える | |
+| [`mismatch`](algorithm/mismatch.md)           | 2つの範囲が一致していない場所を検索する | |
+| [`equal`](algorithm/equal.md)                 | 2つの範囲を等値比較する | |
+| [`search`](algorithm/search.md)               | 指定された最初のサブシーケンスを検索する | |
+| [`search_n`](algorithm/search_n.md)           | 指定された最初のサブシーケンスを検索する | |
 
 
 ##シーケンスを変更する操作
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|------------------------------------------|-------|
-| [`copy`](./algorithm/copy.md)                       | 指定された範囲の要素をコピーする         | |
-| [`copy_n`](./algorithm/copy_n.md)                   | 指定された数の要素をコピーする           | C++11 |
-| [`copy_if`](./algorithm/copy_if.md)                 | 条件を満たす要素のみをコピーする         | C++11 |
-| [`copy_backward`](./algorithm/copy_backward.md)     | 指定された範囲の要素を後ろからコピーする | |
-| [`move`](./algorithm/move.md)                       | 指定された範囲の要素をムーブする         | C++11 |
-| [`move_backward`](./algorithm/move_backward.md)     | 指定された範囲の要素を後ろからムーブする | C++11 |
-| [`swap_ranges`](./algorithm/swap_ranges.md)         | 指定された2つの範囲同士を swap する      | |
-| [`iter_swap`](./algorithm/iter_swap.md)             | 2つのイテレータの要素を swap する        | |
-| [`transform`](./algorithm/transform.md)             | 全ての要素に関数を適用する               | |
-| [`replace`](./algorithm/replace.md)                 | 指定された値と一致する要素を指定された値に置き換える | |
-| [`replace_if`](./algorithm/replace_if.md)           | 条件を満たす要素を指定された値に置き換える | |
-| [`replace_copy`](./algorithm/replace_copy.md)       | 指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする | |
-| [`replace_copy_if`](./algorithm/replace_copy_if.md) | 条件を満たす要素を指定された値に置き換え、その結果を出力の範囲へコピーする | |
-| [`fill`](./algorithm/fill.md)                       | 指定された値で出力の範囲に書き込む | |
-| [`fill_n`](./algorithm/fill_n.md)                   | 指定された値で出力の範囲に n 個書き込む | |
-| [`generate`](./algorithm/generate.md)               | 出力の範囲へ関数の結果を書き込む | |
-| [`generate_n`](./algorithm/generate_n.md)           | 出力の範囲へ関数の結果を n 個書き込む | |
-| [`remove`](./algorithm/remove.md)                   | 指定された要素を除ける | |
-| [`remove_if`](./algorithm/remove_if.md)             | 条件を満たす要素を除ける | |
-| [`remove_copy`](./algorithm/remove_copy.md)         | 指定された要素を除け、その結果を出力の範囲へコピーする | |
-| [`remove_copy_if`](./algorithm/remove_copy_if.md)   | 条件を満たす要素を除け、その結果を出力の範囲へコピーする | |
-| [`unique`](./algorithm/unique.md)                   | 重複した要素を除ける | |
-| [`unique_copy`](./algorithm/unique_copy.md)         | 重複した要素を除け、その結果を出力の範囲へコピーする | |
-| [`reverse`](./algorithm/reverse.md)                 | 要素の並びを逆にする | |
-| [`reverse_copy`](./algorithm/reverse_copy.md)       | 要素の並びを逆にし、その結果を出力の範囲へコピーする | |
-| [`rotate`](./algorithm/rotate.md)                   | 要素の並びを回転させる | |
-| [`rotate_copy`](./algorithm/rotate_copy.md)         | 要素の並びを回転させ、その結果を出力の範囲へコピーする | |
-| [`random_shuffle`](./algorithm/random_shuffle.md)   | それぞれの要素をランダムな位置に移動させる | |
-| [`shuffle`](./algorithm/shuffle.md)                 | それぞれの要素をランダムな位置に移動させる | C++11 |
-| [`is_partitioned`](./algorithm/is_partitioned.md)   | 与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する | C++11 |
-| [`partition`](./algorithm/partition.md)             | 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する | |
-| [`stable_partition`](./algorithm/stable_partition.md) | 与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する | |
-| [`partition_copy`](./algorithm/partition_copy.md)   | 与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする | C++11 |
-| [`partition_point`](./algorithm/partition_point.md) | 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る | C++11 |
+| [`copy`](algorithm/copy.md)                       | 指定された範囲の要素をコピーする         | |
+| [`copy_n`](algorithm/copy_n.md)                   | 指定された数の要素をコピーする           | C++11 |
+| [`copy_if`](algorithm/copy_if.md)                 | 条件を満たす要素のみをコピーする         | C++11 |
+| [`copy_backward`](algorithm/copy_backward.md)     | 指定された範囲の要素を後ろからコピーする | |
+| [`move`](algorithm/move.md)                       | 指定された範囲の要素をムーブする         | C++11 |
+| [`move_backward`](algorithm/move_backward.md)     | 指定された範囲の要素を後ろからムーブする | C++11 |
+| [`swap_ranges`](algorithm/swap_ranges.md)         | 指定された2つの範囲同士を swap する      | |
+| [`iter_swap`](algorithm/iter_swap.md)             | 2つのイテレータの要素を swap する        | |
+| [`transform`](algorithm/transform.md)             | 全ての要素に関数を適用する               | |
+| [`replace`](algorithm/replace.md)                 | 指定された値と一致する要素を指定された値に置き換える | |
+| [`replace_if`](algorithm/replace_if.md)           | 条件を満たす要素を指定された値に置き換える | |
+| [`replace_copy`](algorithm/replace_copy.md)       | 指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする | |
+| [`replace_copy_if`](algorithm/replace_copy_if.md) | 条件を満たす要素を指定された値に置き換え、その結果を出力の範囲へコピーする | |
+| [`fill`](algorithm/fill.md)                       | 指定された値で出力の範囲に書き込む | |
+| [`fill_n`](algorithm/fill_n.md)                   | 指定された値で出力の範囲に n 個書き込む | |
+| [`generate`](algorithm/generate.md)               | 出力の範囲へ関数の結果を書き込む | |
+| [`generate_n`](algorithm/generate_n.md)           | 出力の範囲へ関数の結果を n 個書き込む | |
+| [`remove`](algorithm/remove.md)                   | 指定された要素を除ける | |
+| [`remove_if`](algorithm/remove_if.md)             | 条件を満たす要素を除ける | |
+| [`remove_copy`](algorithm/remove_copy.md)         | 指定された要素を除け、その結果を出力の範囲へコピーする | |
+| [`remove_copy_if`](algorithm/remove_copy_if.md)   | 条件を満たす要素を除け、その結果を出力の範囲へコピーする | |
+| [`unique`](algorithm/unique.md)                   | 重複した要素を除ける | |
+| [`unique_copy`](algorithm/unique_copy.md)         | 重複した要素を除け、その結果を出力の範囲へコピーする | |
+| [`reverse`](algorithm/reverse.md)                 | 要素の並びを逆にする | |
+| [`reverse_copy`](algorithm/reverse_copy.md)       | 要素の並びを逆にし、その結果を出力の範囲へコピーする | |
+| [`rotate`](algorithm/rotate.md)                   | 要素の並びを回転させる | |
+| [`rotate_copy`](algorithm/rotate_copy.md)         | 要素の並びを回転させ、その結果を出力の範囲へコピーする | |
+| [`random_shuffle`](algorithm/random_shuffle.md)   | それぞれの要素をランダムな位置に移動させる | |
+| [`shuffle`](algorithm/shuffle.md)                 | それぞれの要素をランダムな位置に移動させる | C++11 |
+| [`is_partitioned`](algorithm/is_partitioned.md)   | 与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する | C++11 |
+| [`partition`](algorithm/partition.md)             | 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する | |
+| [`stable_partition`](algorithm/stable_partition.md) | 与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する | |
+| [`partition_copy`](algorithm/partition_copy.md)   | 与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする | C++11 |
+| [`partition_point`](algorithm/partition_point.md) | 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る | C++11 |
 
 
 ##ソートや、それに関連した操作
@@ -148,8 +148,8 @@ return distance(a, b);
   あるシーケンスが比較関数 `comp` でソートされている場合、そのシーケンスは `comp` に任意の検索キー `k` を部分適用した式 `comp(e, k)` や `!comp(k, e)` などにより区分化されているともいえる。  
   例えば、ソートされた整数列 `[1, 5, 13, 17, 25]` は「 `10` より小さい」によって区分化されている。さらに、そのほかの任意の数値についても「～より小さい」あるいは「～より小さくない（～以上）」などによって区分化されているといえる。  
   C++03 までの二分探索アルゴリズムは比較関数が狭義の弱順序となることおよび対象シーケンスがその比較関数でソートされていることを要求していた。しかしその後、 C++11 で異なる型のキーによる検索を明示的に許すために制限が見直された結果、比較関数そのものに対する要求はなくなり、比較関数に検索キーを部分適用した式による区分化のみに要求が緩められた。（参照: [LWG issue 270 "Binary search requirements overly strict"](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#270) ）  
-  これにより、例えばソートされていない整数列 `[5, 1, 25, 13, 17]` に対しても `10` をキーとして [`lower_bound()`](./algorithm/lower_bound.md) を用いることにより `10` より小さい範囲の境界を取り出すことが可能になっている。しかし `15` をキーとすることは不正である。  
-  ただ、 C++03 の要件に合わない（特にソートされていない範囲に対する）二分探索を行いたい場合は、同じく C++11 で追加された [`partition_point()`](./algorithm/partition_point.md) の使用も検討したほうがよい。  
+  これにより、例えばソートされていない整数列 `[5, 1, 25, 13, 17]` に対しても `10` をキーとして [`lower_bound()`](algorithm/lower_bound.md) を用いることにより `10` より小さい範囲の境界を取り出すことが可能になっている。しかし `15` をキーとすることは不正である。  
+  ただ、 C++03 の要件に合わない（特にソートされていない範囲に対する）二分探索を行いたい場合は、同じく C++11 で追加された [`partition_point()`](algorithm/partition_point.md) の使用も検討したほうがよい。  
 
 順序関係を扱う関数の説明において、この節では安定性 (stability) のようなコンセプトを説明するために等価性 (equivalence) の概念を頻繁に使う。  
 この節で参照する等価性は必ずしも `operator==` ではなく、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)によって示される等価関係である。つまりそれは、２つの要素 `a` と `b` は `!(a < b) && !(b < a)` の時かつその時に限り等価とみなされるということである。  
@@ -159,19 +159,19 @@ return distance(a, b);
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|---------------------------------------|-------|
-| [`sort`](./algorithm/sort.md)                           | 範囲を並べ替える | |
-| [`stable_sort`](./algorithm/stable_sort.md)             | 範囲を安定ソートで並べ替える | |
-| [`partial_sort`](./algorithm/partial_sort.md)           | 範囲を部分的にソートし、先頭N個を並んだ状態にする | |
-| [`partial_sort_copy`](./algorithm/partial_sort_copy.md) | 範囲を部分的にソートした結果を他の範囲にコピーする | |
-| [`is_sorted`](./algorithm/is_sorted.md)                 | ソート済みか判定する | C++11 |
-| [`is_sorted_until`](./algorithm/is_sorted_until.md)     | ソート済みか判定し、ソートされていない位置のイテレータを取得する | C++11 |
+| [`sort`](algorithm/sort.md)                           | 範囲を並べ替える | |
+| [`stable_sort`](algorithm/stable_sort.md)             | 範囲を安定ソートで並べ替える | |
+| [`partial_sort`](algorithm/partial_sort.md)           | 範囲を部分的にソートし、先頭N個を並んだ状態にする | |
+| [`partial_sort_copy`](algorithm/partial_sort_copy.md) | 範囲を部分的にソートした結果を他の範囲にコピーする | |
+| [`is_sorted`](algorithm/is_sorted.md)                 | ソート済みか判定する | C++11 |
+| [`is_sorted_until`](algorithm/is_sorted_until.md)     | ソート済みか判定し、ソートされていない位置のイテレータを取得する | C++11 |
 
 
 ###N 番目の要素
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------------------|-------|
-| [`nth_element`](./algorithm/nth_element.md) | 基準となる要素よりも小さい要素が、前に来るよう並べ替える | |
+| [`nth_element`](algorithm/nth_element.md) | 基準となる要素よりも小さい要素が、前に来るよう並べ替える | |
 
 
 ###<a name="alg.binary.search"></a>二分探索
@@ -182,32 +182,32 @@ return distance(a, b);
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------------------------|-------|
-| [`lower_bound`](./algorithm/lower_bound.md) | 指定された要素以上の値が現れる最初の位置のイテレータを取得する | |
-| [`upper_bound`](./algorithm/upper_bound.md) | 指定された要素より大きい値が現れる最も後ろの位置のイテレータを取得する | |
-| [`equal_range`](./algorithm/equal_range.md) | `lower_bound`と`upper_bound`の結果を組で取得する | |
-| [`binary_search`](./algorithm/binary_search.md) | 二分探索法による検索を行う | |
+| [`lower_bound`](algorithm/lower_bound.md) | 指定された要素以上の値が現れる最初の位置のイテレータを取得する | |
+| [`upper_bound`](algorithm/upper_bound.md) | 指定された要素より大きい値が現れる最も後ろの位置のイテレータを取得する | |
+| [`equal_range`](algorithm/equal_range.md) | `lower_bound`と`upper_bound`の結果を組で取得する | |
+| [`binary_search`](algorithm/binary_search.md) | 二分探索法による検索を行う | |
 
 
 ###マージ
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|---------------------------------|-------|
-| [`merge`](./algorithm/merge.md)                 | 2つのソート済み範囲をマージする | |
-| [`inplace_merge`](./algorithm/inplace_merge.md) | 2つの連続したソート済み範囲をマージする | |
+| [`merge`](algorithm/merge.md)                 | 2つのソート済み範囲をマージする | |
+| [`inplace_merge`](algorithm/inplace_merge.md) | 2つの連続したソート済み範囲をマージする | |
 
 
 ###ソート済み構造に対する集合演算
 
 このセクションでは基本的なソート済み構造に対する集合演算を定義する。  
 これらの演算は、等価な要素を複数格納できる `multiset` であっても動作する。集合演算のセマンティクスは、等価な要素が複数あっても、一般化された標準的な方法で演算できるようになっている。  
-例えば [`set_union()`](./algorithm/set_union.md) ならそれぞれの要素の最大数を格納する、[`set_intersection()`](./algorithm/set_intersection.md) なら最小数を格納するといったようになる。
+例えば [`set_union()`](algorithm/set_union.md) ならそれぞれの要素の最大数を格納する、[`set_intersection()`](algorithm/set_intersection.md) なら最小数を格納するといったようになる。
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|-----------------------------------|-------|
-| [`set_union`](./algorithm/set_union.md)               | 2つのソート済み範囲の和集合を得る | |
-| [`set_intersection`](./algorithm/set_intersection.md) | 2つのソート済み範囲の積集合を得る | |
-| [`set_difference`](./algorithm/set_difference.md)     | 2つのソート済み範囲の差集合を得る | |
-| [`set_symmetric_difference`](./algorithm/set_symmetric_difference.md) | 2つのソート済み範囲の互いに素な集合を得る | |
+| [`set_union`](algorithm/set_union.md)               | 2つのソート済み範囲の和集合を得る | |
+| [`set_intersection`](algorithm/set_intersection.md) | 2つのソート済み範囲の積集合を得る | |
+| [`set_difference`](algorithm/set_difference.md)     | 2つのソート済み範囲の差集合を得る | |
+| [`set_symmetric_difference`](algorithm/set_symmetric_difference.md) | 2つのソート済み範囲の互いに素な集合を得る | |
 
 
 ###ヒープ
@@ -222,39 +222,39 @@ return distance(a, b);
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|-----------------------------------|-------|
-| [`push_heap`](./algorithm/push_heap.md)         | ヒープ化された範囲に要素を追加したヒープ範囲を得る | |
-| [`pop_heap`](./algorithm/pop_heap.md)           | ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す | |
-| [`make_heap`](./algorithm/make_heap.md)         | 範囲をヒープ化する | |
-| [`sort_heap`](./algorithm/sort_heap.md)         | ヒープ化された範囲を並べ替える | |
-| [`is_heap_until`](./algorithm/is_heap_until.md) | 範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する | C++11 |
-| [`is_heap`](./algorithm/is_heap.md)             | 範囲がヒープ化されているか判定する | C++11 |
+| [`push_heap`](algorithm/push_heap.md)         | ヒープ化された範囲に要素を追加したヒープ範囲を得る | |
+| [`pop_heap`](algorithm/pop_heap.md)           | ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す | |
+| [`make_heap`](algorithm/make_heap.md)         | 範囲をヒープ化する | |
+| [`sort_heap`](algorithm/sort_heap.md)         | ヒープ化された範囲を並べ替える | |
+| [`is_heap_until`](algorithm/is_heap_until.md) | 範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する | C++11 |
+| [`is_heap`](algorithm/is_heap.md)             | 範囲がヒープ化されているか判定する | C++11 |
 
 
 ###最小と最大
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|-----------------------------------|-------|
-| [`min`](./algorithm/min.md)                       | 最小値を取得する | |
-| [`max`](./algorithm/max.md)                       | 最大値を取得する | |
-| [`minmax`](./algorithm/minmax.md)                 | 最小値と最大値を取得する | C++11 |
-| [`min_element`](./algorithm/min_element.md)       | 範囲内の最小要素へのイテレータを取得する | |
-| [`max_element`](./algorithm/max_element.md)       | 範囲内の最大要素へのイテレータを取得する | |
-| [`minmax_element`](./algorithm/minmax_element.md) | 範囲内の最小要素と最大要素へのイテレータを取得する | C++11 |
+| [`min`](algorithm/min.md)                       | 最小値を取得する | |
+| [`max`](algorithm/max.md)                       | 最大値を取得する | |
+| [`minmax`](algorithm/minmax.md)                 | 最小値と最大値を取得する | C++11 |
+| [`min_element`](algorithm/min_element.md)       | 範囲内の最小要素へのイテレータを取得する | |
+| [`max_element`](algorithm/max_element.md)       | 範囲内の最大要素へのイテレータを取得する | |
+| [`minmax_element`](algorithm/minmax_element.md) | 範囲内の最小要素と最大要素へのイテレータを取得する | C++11 |
 
 
 ###辞書式比較
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|---------------------------------|-------|
-| [`lexicographical_compare`](./algorithm/lexicographical_compare.md) | 2つの範囲を辞書式順序で比較する | |
+| [`lexicographical_compare`](algorithm/lexicographical_compare.md) | 2つの範囲を辞書式順序で比較する | |
 
 
 ###順列
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|------------------------|-------|
-| [`next_permutation`](./algorithm/next_permutation.md) | 次の順列を生成する     | |
-| [`prev_permutation`](./algorithm/prev_permutation.md) | 前の順列を生成する     | |
-| [`is_permutation`](./algorithm/is_permutation.md)     | 範囲が順列かを判定する | C++11 |
+| [`next_permutation`](algorithm/next_permutation.md) | 次の順列を生成する     | |
+| [`prev_permutation`](algorithm/prev_permutation.md) | 前の順列を生成する     | |
+| [`is_permutation`](algorithm/is_permutation.md)     | 範囲が順列かを判定する | C++11 |
 
 

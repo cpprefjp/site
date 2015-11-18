@@ -175,11 +175,11 @@ float stof(const wstring& str, size_t* idx = nullptr) {
 - `strtod`, `wcstof`: `stof`は`strtod`および`wcstof`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
 
 ### ファミリー
-- [`stoi`](./stoi.md): 戻り値の型が`int`となったもの。
-- [`stol`](./stol.md): 戻り値の型が`long`となったもの。
-- [`stoll`](./stoll.md): 戻り値の型が`long long`となったもの。
-- [`stoul`](./stoul.md): 戻り値の型が`unsigned long`となったもの。
-- [`stoull`](./stoull.md): 戻り値の型が`unsigned long long`となったもの。
+- [`stoi`](stoi.md): 戻り値の型が`int`となったもの。
+- [`stol`](stol.md): 戻り値の型が`long`となったもの。
+- [`stoll`](stoll.md): 戻り値の型が`long long`となったもの。
+- [`stoul`](stoul.md): 戻り値の型が`unsigned long`となったもの。
+- [`stoull`](stoull.md): 戻り値の型が`unsigned long long`となったもの。
 - (`stof`: この関数自身)
-- [`stod`](./stod.md): 戻り値の型が`double`となったもの。
-- [`stold`](./stold.md): 戻り値の型が`long double`となったもの。
+- [`stod`](stod.md): 戻り値の型が`double`となったもの。
+- [`stold`](stold.md): 戻り値の型が`long double`となったもの。

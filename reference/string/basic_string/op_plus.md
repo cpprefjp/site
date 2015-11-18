@@ -128,6 +128,6 @@ Hello, world!
 
 |                               |                        |
 |-------------------------------|------------------------|
-| [`append`](./append.md)       | 文字／文字列を追加する |
-| [`push_back`](./push_back.md) | 文字を追加する         |
-| [`insert`](./insert.md)       | 文字／文字列を挿入する |
+| [`append`](append.md)       | 文字／文字列を追加する |
+| [`push_back`](push_back.md) | 文字を追加する         |
+| [`insert`](insert.md)       | 文字／文字列を挿入する |

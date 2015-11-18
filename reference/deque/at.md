@@ -14,7 +14,7 @@ const_reference at(size_type n) const;
 
 この関数は、`deque`コンテナオブジェクト中の位置`n`にある要素への参照を返す。
 
-[`operator[]`](./op_at.md)メンバ関数は範囲外アクセスの動作が未規定だが、この関数は範囲外アクセスの場合に [`out_of_range`](/reference/stdexcept.md) 例外を送出する。
+[`operator[]`](op_at.md)メンバ関数は範囲外アクセスの動作が未規定だが、この関数は範囲外アクセスの場合に [`out_of_range`](/reference/stdexcept.md) 例外を送出する。
 
 
 ##戻り値
@@ -66,6 +66,6 @@ out of range!
 
 | 名前 | 説明 |
 |----------------------------|----------------------------------|
-| [`operator[]`](./op_at.md) | 任意位置の要素への参照を取得する |
+| [`operator[]`](op_at.md) | 任意位置の要素への参照を取得する |
 
 

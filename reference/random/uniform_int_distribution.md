@@ -13,7 +13,7 @@ namespace std {
 
 ##概要
 `uniform_int_distribution`は、指定された範囲の値が等確率で発生するよう離散分布するクラスである。 
-このクラスは、離散一様分布(Discrete Uniform Distribution)の整数に特化したバージョンである。実数が必要な場合は、[`uniform_real_distribution`](./uniform_real_distribution.md)クラスを使用する。
+このクラスは、離散一様分布(Discrete Uniform Distribution)の整数に特化したバージョンである。実数が必要な場合は、[`uniform_real_distribution`](uniform_real_distribution.md)クラスを使用する。
 
 
 一様性数分布は、以下のような用途で使用できる：
@@ -32,27 +32,27 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------------|--------------------|-------|
-| [`(constructor)`](./uniform_int_distribution/op_constructor.md)           | コンストラクタ     | C++11 |
+| [`(constructor)`](uniform_int_distribution/op_constructor.md)           | コンストラクタ     | C++11 |
 | `~uniform_int_distribution() = default;`                                  | デストラクタ       | C++11 |
-| [`reset`](./uniform_int_distribution/reset.md)                            | 状態をリセットする | C++11 |
+| [`reset`](uniform_int_distribution/reset.md)                            | 状態をリセットする | C++11 |
 
 
 ###生成
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------|-------|
-| [`operator()`](./uniform_int_distribution/op_call.md) | 乱数を生成する | C++11 |
+| [`operator()`](uniform_int_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
 ###プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------------|-------|
-| [`a`](./uniform_int_distribution/a.md)         | 生成する範囲の最小値を取得する   | C++11 |
-| [`b`](./uniform_int_distribution/b.md)         | 生成する範囲の最大値を取得する   | C++11 |
-| [`param`](./uniform_int_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](./uniform_int_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](./uniform_int_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`a`](uniform_int_distribution/a.md)         | 生成する範囲の最小値を取得する   | C++11 |
+| [`b`](uniform_int_distribution/b.md)         | 生成する範囲の最大値を取得する   | C++11 |
+| [`param`](uniform_int_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`min`](uniform_int_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
+| [`max`](uniform_int_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
 
 
 ##メンバ型
@@ -67,10 +67,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
-| [`operator==`](./uniform_int_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](./uniform_int_distribution/op_not_equal.md) | 非等値比較           | C++11 |
-| [`operator<<`](./uniform_int_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
-| [`operator>>`](./uniform_int_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
+| [`operator==`](uniform_int_distribution/op_equal.md)     | 等値比較             | C++11 |
+| [`operator!=`](uniform_int_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator<<`](uniform_int_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
+| [`operator>>`](uniform_int_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
 ##例

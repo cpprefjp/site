@@ -12,9 +12,9 @@ namespace std {
 * exception[link /reference/exception/exception.md]
 
 ##概要
-`std::bad_function`は、空の[`std::function`](./function.md)オブジェクトに対して`operator()`を呼び出した際に送出される例外クラスである。
+`std::bad_function`は、空の[`std::function`](function.md)オブジェクトに対して`operator()`を呼び出した際に送出される例外クラスである。
 
-注意: 空の[`std::function`](./function.md)オブジェクトに対して[`std::bind()`](./bind.md)を呼び出した結果を[`std::function`](./function.md)オブジェクトに格納しても空にはならないが、実際に`operator()`を呼ぶと`std::bad_function_call`例外が送出される。
+注意: 空の[`std::function`](function.md)オブジェクトに対して[`std::bind()`](bind.md)を呼び出した結果を[`std::function`](function.md)オブジェクトに格納しても空にはならないが、実際に`operator()`を呼ぶと`std::bad_function_call`例外が送出される。
 
 ###例
 ```cpp

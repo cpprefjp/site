@@ -41,8 +41,8 @@ basic_string& operator=(initializer_list<charT> il); // C++11から
 | メンバ関数                    | コピーの場合                                | ムーブ代入の場合  |
 |-------------------------------|---------------------------------------------|------------------------------|
 | `data()`                      | `str.data()` をコピーした領域の先頭ポインタ | `str.data()` |
-| [`size()`](./size.md)         | `str.`[`size()`](./size.md) と同じ値        | `str.`[`size()`](./size.md)と同じ値 |
-| [`capacity()`](./capacity.md) | [`size()`](./size.md) 以上の値              | [`size()`](./size.md) 以上の値 |
+| [`size()`](size.md)         | `str.`[`size()`](size.md) と同じ値        | `str.`[`size()`](size.md)と同じ値 |
+| [`capacity()`](capacity.md) | [`size()`](size.md) 以上の値              | [`size()`](size.md) 以上の値 |
 
 
 ##戻り値

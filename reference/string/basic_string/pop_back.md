@@ -14,11 +14,11 @@ void pop_back();
 
 
 ##要件
-`!`[`empty`](./empty.md)`()`
+`!`[`empty`](empty.md)`()`
 
 
 ##効果
-[`erase`](./erase.md)`(`[`size()`](./size.md) `- 1, 1)`
+[`erase`](erase.md)`(`[`size()`](size.md) `- 1, 1)`
 
 
 ##例外

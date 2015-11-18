@@ -50,7 +50,7 @@ double : -307
 
 ##参照
 * [takagi.in - 標準C++辞典 - `<cfloat>`ヘッダ](http://takagi.in/modules/bwiki/index.php?%A1%E3cfloat%A1%E4%A5%D8%A5%C3%A5%C0)
-* [`numeric_limits::min_exponent`](./min_exponent.md)
-* [`numeric_limits::max_exponent`](./max_exponent.md)
-* [`numeric_limits::max_exponent10`](./max_exponent10.md)
+* [`numeric_limits::min_exponent`](min_exponent.md)
+* [`numeric_limits::max_exponent`](max_exponent.md)
+* [`numeric_limits::max_exponent10`](max_exponent10.md)
 

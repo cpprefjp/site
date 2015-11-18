@@ -15,11 +15,11 @@ namespace std {
 
 
 ##要件
-同じ領域が既に[`declare_no_pointers()`](./declare_no_pointers.md)で宣言されている。
+同じ領域が既に[`declare_no_pointers()`](declare_no_pointers.md)で宣言されている。
 
 
 ##効果
-[`declare_no_pointers()`](./declare_no_pointers.md)で登録された領域の登録を取り消す。
+[`declare_no_pointers()`](declare_no_pointers.md)で登録された領域の登録を取り消す。
 
 この関数は、指定された範囲のオブジェクトが寿命を終える前に呼ばれなければならない。
 

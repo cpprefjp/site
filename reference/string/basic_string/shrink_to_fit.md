@@ -18,7 +18,7 @@ void shrink_to_fit();
 
 
 ##備考
-[`capacity`](./capacity.md)`()`を[`size`](./size.md)`()`に縮小させるリクエストを行う。
+[`capacity`](capacity.md)`()`を[`size`](size.md)`()`に縮小させるリクエストを行う。
 
 実装依存の最適化を許可するために、縮小するという動作は仕様上強制されない。
 

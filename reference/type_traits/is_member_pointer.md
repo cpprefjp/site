@@ -16,7 +16,7 @@ namespace std {
 
 
 ##要件
-`is_member_pointer`は、型`T`がメンバポインタ型であるならば[`true_type`](./integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](./integral_constant-true_type-false_type.md)から派生する。
+`is_member_pointer`は、型`T`がメンバポインタ型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
 
 
 ##例

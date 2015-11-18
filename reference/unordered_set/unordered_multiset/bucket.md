@@ -14,13 +14,13 @@ size_type bucket(const key_type& k) const;
 
 
 ##要件
-当該コンテナは [`bucket_count`](./bucket_count.md)`() > 0` であること
+当該コンテナは [`bucket_count`](bucket_count.md)`() > 0` であること
 
 
 ##戻り値
 パラメータ `k` と等価なキーの要素が格納されているバケットのインデックス（添え字）
 
-戻り値は `[0,` [`bucket_count`](./bucket_count.md)`())` の範囲である。
+戻り値は `[0,` [`bucket_count`](bucket_count.md)`())` の範囲である。
 
 
 ##計算量
@@ -28,7 +28,7 @@ size_type bucket(const key_type& k) const;
 
 
 ##備考
-指定したキーと等価な要素が格納されていない場合、そのキーを挿入した際に [`rehash`](./rehash.md) が発生しなければ格納されるバケットのインデックス（添え字）が返る。
+指定したキーと等価な要素が格納されていない場合、そのキーを挿入した際に [`rehash`](rehash.md) が発生しなければ格納されるバケットのインデックス（添え字）が返る。
 
 
 ##例
@@ -97,5 +97,5 @@ key = H, bucket = 3, bucket_size = 0
 
 | | |
 |----------------------------------------------|----------------------|
-| [`max_bucket_count`](./max_bucket_count.md)  | 最大バケット数の取得 |
+| [`max_bucket_count`](max_bucket_count.md)  | 最大バケット数の取得 |
 

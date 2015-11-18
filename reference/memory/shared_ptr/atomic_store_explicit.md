@@ -26,7 +26,7 @@ namespace std {
 
 
 ##効果
-`p->`[`swap`](./swap.md)`(r)`相当のことを、アトミックに実行する。
+`p->`[`swap`](swap.md)`(r)`相当のことを、アトミックに実行する。
 
 
 ##戻り値
@@ -77,7 +77,7 @@ int main()
 
 
 ##参照
-- [`atomic_store() - shared_ptr`](./atomic_store.md)
+- [`atomic_store() - shared_ptr`](atomic_store.md)
 - [`atomic_store_explicit() - <atomic>`](/reference/atomic/atomic_store_explicit.md)
 - [N2674 Shared_ptr atomic access, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2674.htm)
 - [C++0x Shared_ptr atomic access - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081015/1224066366)

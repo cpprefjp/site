@@ -23,8 +23,8 @@ namespace std {
 ##要件
 `order`が以下のメモリオーダーではないこと：
 
-- [`memory_order_release`](./memory_order.md)
-- [`memory_order_acq_rel`](./memory_order.md)
+- [`memory_order_release`](memory_order.md)
+- [`memory_order_acq_rel`](memory_order.md)
 
 
 ##効果
@@ -40,7 +40,7 @@ namespace std {
 
 
 ##備考
-この関数は、特殊化された[`atomic`](./atomic.md)型に対して定義される。
+この関数は、特殊化された[`atomic`](atomic.md)型に対して定義される。
 
 
 ##例

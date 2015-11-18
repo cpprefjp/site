@@ -25,13 +25,13 @@ void push_back(T&& x);      // (2) C++11
 ##計算量
 償却定数時間。
 
-この関数を呼び出す前に[`size()`](./size.md) `<` [`capacity()`](./capacity.md)であった場合、この関数の実行は定数時間で行われる。そうでない場合は、メモリ領域の再確保と、その領域への要素のコピーもしくはムーブが行われるため、線形時間で実行される。
+この関数を呼び出す前に[`size()`](size.md) `<` [`capacity()`](capacity.md)であった場合、この関数の実行は定数時間で行われる。そうでない場合は、メモリ領域の再確保と、その領域への要素のコピーもしくはムーブが行われるため、線形時間で実行される。
 
-`vector`の実装で行われるメモリ確保戦略では、再確保の際にそれら要素がぴったり収まるサイズを確保するのではなく、少し多めの1.5倍や2倍といったサイズのメモリを確保し、再確保の回数を減らしている。事前に追加する要素の数がわかっている場合には[`reserve()`](./reserve.md)メンバ関数で事前にその要素数分のメモリを確保し、そうでない場合には`vector`のメモリ確保戦略に任せるのがよいだろう。
+`vector`の実装で行われるメモリ確保戦略では、再確保の際にそれら要素がぴったり収まるサイズを確保するのではなく、少し多めの1.5倍や2倍といったサイズのメモリを確保し、再確保の回数を減らしている。事前に追加する要素の数がわかっている場合には[`reserve()`](reserve.md)メンバ関数で事前にその要素数分のメモリを確保し、そうでない場合には`vector`のメモリ確保戦略に任せるのがよいだろう。
 
 
 ##備考
-- 要素を追加した後の[`size()`](./size.md)が要素を追加する前の[`capacity()`](./capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じなかった場合には全てのイテレータや参照は有効である。
+- 要素を追加した後の[`size()`](size.md)が要素を追加する前の[`capacity()`](capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じなかった場合には全てのイテレータや参照は有効である。
 - 非CopyInsertableな要素型`T`のムーブコンストラクタ以外で例外が発生した場合、副作用は発生しない。
 
 
@@ -78,8 +78,8 @@ world
 	- C++14では、上記文面を見直し、終端（`deque`の場合は両端）への単一要素の追加の場合に限りC++03と同等の強い保証を提供するよう修正された。
 	- それに加えて、C++14ではこの強い保証を提供する関数を、以下のように拡大した：
 		- `vector`の`push_back()` (C++03から)
-		- `vector`の[`emplace_back()`](./emplace_back.md) (C++14から)
-		- `vector`の終端へ単一要素を挿入する[`insert()`](./insert.md)と[`emplace()`](./emplace.md) (C++14から)
+		- `vector`の[`emplace_back()`](emplace_back.md) (C++14から)
+		- `vector`の終端へ単一要素を挿入する[`insert()`](insert.md)と[`emplace()`](emplace.md) (C++14から)
 		- `deque`の[`push_back()`](/reference/deque/push_back.md)と[`push_front()`](/reference/deque/push_front.md) (C++03から)
 		- `deque`の[`emplace_back()`](/reference/deque/emplace_back.md)と[`emplace_front()`](/reference/deque/emplace_front.md) (C++14から)
 		- `deque`の両端へ単一要素を挿入する[`insert()`](/reference/deque/insert.md)と[`emplace()`](/reference/deque/emplace.md) (C++14)

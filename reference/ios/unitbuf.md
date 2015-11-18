@@ -59,4 +59,4 @@ ABC
 - C++03
 
 ##参照
-- [`nounitbuf`](./nounitbuf.md)
+- [`nounitbuf`](nounitbuf.md)

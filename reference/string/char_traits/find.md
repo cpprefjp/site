@@ -15,7 +15,7 @@ static const char_type* find(const char_type* s, size_t n,
 
 
 ##戻り値
-範囲`[s, s+n)`の各ポインタ`p`について、[`eq`](./eq.md)`(*p, a) == true`となる`p`を返す。該当しない場合は`nullptr`を返す。
+範囲`[s, s+n)`の各ポインタ`p`について、[`eq`](eq.md)`(*p, a) == true`となる`p`を返す。該当しない場合は`nullptr`を返す。
 
 
 ##計算量

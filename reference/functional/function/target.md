@@ -22,7 +22,7 @@ const T* target() const noexcept;
 
 
 ##戻り値
-[`target_type()`](./target_type.md) `== typeid(T)`ならば、保持している関数へのポインタを返す。そうれなければヌルポインタを返す。
+[`target_type()`](target_type.md) `== typeid(T)`ならば、保持している関数へのポインタを返す。そうれなければヌルポインタを返す。
 
 
 ##例

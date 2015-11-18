@@ -28,7 +28,7 @@ namespace std {
 
 ##効果
 `aligned_union`は、領域サイズ`Len`、要素型列`Types...`で調整した未初期化の共用体領域をメンバ型`type`として定義する。  
-`Types...`のいずれかの型が非POD型だとしても、メンバ型`type`はPOD型となる(参照：[`is_pod`](./is_pod.md))。  
+`Types...`のいずれかの型が非POD型だとしても、メンバ型`type`はPOD型となる(参照：[`is_pod`](is_pod.md))。  
 
 また、`Types...`全ての厳格なアラインメント値を、`std::size_t`型の静的メンバ定数`alignment_value`として定義する。
 

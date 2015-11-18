@@ -13,7 +13,7 @@ void pop_back();
 
 
 ##要件
-[`empty()`](./pop_back.md) `== false`であること。
+[`empty()`](pop_back.md) `== false`であること。
 
 
 ##戻り値
