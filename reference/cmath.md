@@ -135,7 +135,7 @@
 | [`ceil`](cmath/ceil.md)           | 天井関数（引数より小さくない最近傍の整数）   |                |
 | [`floor`](cmath/floor.md)         | 床関数（引数より大きくない最近傍の整数）     |                |
 | [`trunc`](cmath/trunc.md)         | ゼロ方向への丸め                             | C++11          |
-| `round`                           | 四捨五入による丸め                           | C++11          |
+| [`round`](cmath/round.md)         | 四捨五入による丸め                           | C++11          |
 | `lround`                          | `long` 型への四捨五入による丸め              | C++11          |
 | `llround`                         | `long long` 型への四捨五入による丸め         | C++11          |
 | [`nearbyint`](cmath/nearbyint.md) | 現在の丸めモードによる丸め                   | C++11          |
