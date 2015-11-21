@@ -20,13 +20,13 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 
 
 ##効果
-この関数は、型`T`のオブジェクトを`n`個格納するのに十分な領域を確保する。
+この関数は、強制ではない要素数の指定`n`に対して、連続する型`T`のオブジェクトのための未初期化の領域を確保する。
 
 
 ##戻り値
-バッファへのアドレスを`first`、確保した要素数を`second`とする[`pair`](/reference/utility/pair.md)オブジェクトを返す。
+領域へのアドレスを`first`、領域の容量（要素数単位）を`second`とする[`pair`](/reference/utility/pair.md)オブジェクトを返す。容量は`n`より小さいかもしれないし、大きいかもしれない。
 
-`n <= 0`の場合は、バッファをヌルポインタ、確保した要素数を`0`として返す。
+`n <= 0`の場合、または領域が全く確保できなかった場合は、`first`をヌルポインタ、`second`を`0`として返す。
 
 
 ##例外
@@ -34,9 +34,9 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 
 
 ##備考
-アルゴリズムによっては、一時的なメモリ確保を必要とするものがある。
+例えば[`stable_sort()`](/reference/algorithm/stable_sort.md) など、アルゴリズムによっては追加のメモリ領域を利用することで計算量を低減できるものがあり、この関数は主にそういったアルゴリズムの実装内で使用される。
 
-この関数は、短期的なメモリ領域のために実装が最適化している可能性がある。[`std::allocator`](allocator.md)`::`[`allocate()`](allocator/allocate.md)を長期的に使用するメモリとして使用することで、この関数との使い分けができるだろう。
+この関数は、短期的なメモリ領域のため、たとえば実装が保持している空き領域リストからサイズの照合を省いて領域を返すなど、実装が最適化されている可能性がある。[`std::allocator`](allocator.md)`::`[`allocate()`](allocator/allocate.md)を長期的に使用するメモリとして使用することで、この関数との使い分けができるだろう。
 
 ただし、Visual C++ 12.0、GCC 4.8 (libstdc++)、Clang 3.4 (libc++)は単に[`new`](/reference/new/op_new.md)を呼んでいるだけで、最適化はとくに行っていない。
 
@@ -48,7 +48,7 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 
 int main()
 {
-  // int型のオブジェクトが3つ入る領域を確保
+  // int型のオブジェクトを3つ構築する想定の領域確保を依頼
   std::pair<int*, std::ptrdiff_t> result = std::get_temporary_buffer<int>(3);
 
   int* p = result.first;
@@ -78,4 +78,5 @@ int main()
 
 ##参照
 - [Why do I need std::get_temporary_buffer? - Stack Overflow](http://stackoverflow.com/questions/3264299/why-do-i-need-stdget-temporary-buffer)
+- [LWG2072 Unclear wording about capacity of temporary buffers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2072)
 

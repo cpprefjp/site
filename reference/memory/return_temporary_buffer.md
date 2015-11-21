@@ -9,19 +9,23 @@ void return_temporary_buffer(T* p);
 ```
 
 ##概要
-[`get_temporary_buffer()`](get_temporary_buffer.md)関数で確保したメモリを解放する。
+[`get_temporary_buffer()`](get_temporary_buffer.md)関数で確保したメモリ領域を解放する。
 
 
 ##要件
-ポインタ`p`が指すバッファが、[`get_temporary_buffer()`](get_temporary_buffer.md)関数で確保されたものであること。
+`p`が、先行する[`get_temporary_buffer()`](get_temporary_buffer.md)の呼び出しで返され、その後`return_temporary_buffer(T*)`の呼び出しで無効化されていない値であること。
 
 
 ##効果
-ポインタ`p`が指すバッファを解放する。
+ポインタ`p`が指す領域を解放する。
 
 
 ##戻り値
 なし
+
+
+##例外
+- 投げない
 
 
 ##例
@@ -31,7 +35,7 @@ void return_temporary_buffer(T* p);
 
 int main()
 {
-  // int型のオブジェクトが3つ入る領域を確保
+  // int型のオブジェクトを3つ構築する想定の領域確保を依頼
   std::pair<int*, std::ptrdiff_t> result = std::get_temporary_buffer<int>(3);
 
   int* p = result.first;
@@ -61,4 +65,6 @@ int main()
 
 ##参照
 - [Why do I need std::get_temporary_buffer? - Stack Overflow](http://stackoverflow.com/questions/3264299/why-do-i-need-stdget-temporary-buffer)
+- [LWG2072 Unclear wording about capacity of temporary buffers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2072)
+  [`get_temporary_buffer()`](get_temporary_buffer.md)の容量についての規定と併せて、二重解放が未定義動作になること、例外を投げないこと（いずれもC++14まで暗黙的に期待されていたこと）が明確化されている。
 
