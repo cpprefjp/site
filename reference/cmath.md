@@ -141,7 +141,7 @@
 | [`nearbyint`](cmath/nearbyint.md) | 現在の丸めモードによる丸め                   | C++11          |
 | [`rint`](cmath/rint.md)           | 現在の丸めモードによる丸め                   | C++11          |
 | [`lrint`](cmath/lrint.md)         | `long` 型への現在の丸めモードによる丸め      | C++11          |
-| `llrint`                          | `long long` 型への現在の丸めモードによる丸め | C++11          |
+| [`llrint`](cmath/llrint.md)       | `long long` 型への現在の丸めモードによる丸め | C++11          |
 
 
 ##剰余
