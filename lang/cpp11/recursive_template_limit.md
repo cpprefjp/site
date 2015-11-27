@@ -26,23 +26,25 @@ Clang 3.7時点で、デフォルトは256回。
 ##例
 ```cpp
 // 再帰回数の上限を確認する用のコード。
-// sumメタ関数に与えるテンプレート引数を、
-// 任意の値に変更して確認してください。
+// 範囲[1, N]の総和を求めるメタ関数sigma_nを定義している。
+//
+// sigma_nメタ関数に与えるテンプレート引数を、
+// 任意の値に変更して再帰回数の上限を確認してください。
 #include <iostream>
 
 template <int N>
-struct sum {
-  static constexpr int value = N + sum<N - 1>::value;
+struct sigma_n {
+  static constexpr int value = N + sigma_n<N - 1>::value;
 };
 
 template <>
-struct sum<0> {
+struct sigma_n<0> {
   static constexpr int value = 0;
 };
 
 int main()
 {
-  std::cout << sum<10>::value << std::endl;
+  std::cout << sigma_n<10>::value << std::endl;
 }
 ```
 * std::cout[link /reference/iostream/cout.md]
