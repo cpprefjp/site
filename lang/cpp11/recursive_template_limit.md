@@ -23,6 +23,35 @@ GCC 5.2時点で、デフォルトは900回。
 Clang 3.7時点で、デフォルトは256回。
 
 
+##例
+```cpp
+// 再帰回数の上限を確認する用のコード。
+// sumメタ関数に与えるテンプレート引数を、
+// 任意の値に変更して確認してください。
+#include <iostream>
+
+template <int N>
+struct sum {
+  static constexpr int value = N + sum<N - 1>::value;
+};
+
+template <>
+struct sum<0> {
+  static constexpr int value = 0;
+};
+
+int main()
+{
+  std::cout << sum<10>::value << std::endl;
+}
+```
+
+###出力
+```
+55
+```
+
+
 ##参照
 - [CWG Issue 831. Limit on recursively nested template instantiations](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#831)
 - [Variadic Templates for C++0x](http://www.jot.fm/issues/issue_2008_02/article2/)
