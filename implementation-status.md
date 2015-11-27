@@ -135,6 +135,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 
 各処理系のC++1z実装状況ページ：
 
+- GCC: [C++1z Support in GCC](https://gcc.gnu.org/projects/cxx1z.html)
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
 - Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
 - Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
