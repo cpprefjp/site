@@ -117,7 +117,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 | [非推奨だった`register`キーワードを削除][P0001R1] | | No | 3.8 | No | No |
 | [非推奨だった`bool`型オブジェクトに対するインクリメントの仕様を削除][P0002R1] | | No | 3.8 | No | No |
 | [例外指定を型システムの一部にする][P0012R1] | | No | No | No | No |
-| [プリプロセッサでの条件式`__has_include`][P0012R1] | 対象のインクルードファイルが存在するかをプリプロセス時に判定する | 5.0 | 3.0 | No | No |
+| [プリプロセッサでの条件式`__has_include`][P0061R1] | 対象のインクルードファイルが存在するかをプリプロセス時に判定する | 5.0 | 3.0 | No | No |
 
 [n3928]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3928.pdf
 [n4086]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4086.html
@@ -130,6 +130,8 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 [n4268]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4268.html
 [P0001R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0001r1.html
 [P0002R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0002r1.html
+[P0012R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0012r1.html
+[P0061R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0061r1.html
 
 各処理系のC++1z実装状況ページ：
 
