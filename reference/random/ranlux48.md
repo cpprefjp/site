@@ -38,7 +38,10 @@ RANLUX法は、0から4までの贅沢さレベル(luxury level)が選択可能�
 
 
 ##サイズ
-`12 * sizeof(uint_fast64_t)`
+```cpp
+12 * sizeof(uint_fast64_t)
+```
+* uint_fast64_t[link /reference/cstdint/uint_fast64_t.md]
 
 
 ##シード、および生成される値の型

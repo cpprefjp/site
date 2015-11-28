@@ -42,7 +42,10 @@ MINSTDでは、このような問題は発生しない。
 
 
 ##サイズ
-`sizeof(uint_fast32_t)`
+```cpp
+sizeof(uint_fast32_t)
+```
+* uint_fast32_t[link /reference/cstdint/uint_fast32_t.md]
 
 
 ##次元
