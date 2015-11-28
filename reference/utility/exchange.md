@@ -25,8 +25,8 @@ T old_val = std::move(obj);
 obj = std::forward<U>(new_val);
 return old_val;
 ```
-* move[link ./move.md]
-* forward[link ./forward.md]
+* move[link move.md]
+* forward[link forward.md]
 
 
 ##戻り値

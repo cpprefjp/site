@@ -10,7 +10,7 @@ namespace std {
   using make_integer_sequence = integer_sequence<T, 0, 1, …, N - 1>;
 }
 ```
-* integer_sequence[link ./integer_sequence.md]
+* integer_sequence[link integer_sequence.md]
 
 
 ##概要
@@ -47,7 +47,7 @@ int main()
   f(std::make_integer_sequence<int, 3>());
 }
 ```
-* std::integer_sequence[link ./integer_sequence.md]
+* std::integer_sequence[link integer_sequence.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

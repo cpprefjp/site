@@ -71,7 +71,7 @@ int main()
 * try_lock_until()[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
-* owns_lock()[link ./owns_lock.md]
+* owns_lock()[link owns_lock.md]
 * chrono::steady_clock[link /reference/chrono/steady_clock.md]
 * now()[link /reference/chrono/steady_clock/now.md]
 * std::chrono::seconds[link /reference/chrono/seconds.md]

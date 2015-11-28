@@ -61,8 +61,8 @@ int main()
 * iostream[link /reference/iostream.md]
 * string[link /reference/string.md]
 * unordered_set[link /reference/unordered_set.md]
-* bucket_count[link ./bucket_count.md]
-* bucket_size[link ./bucket_size.md]
+* bucket_count[link bucket_count.md]
+* bucket_size[link bucket_size.md]
 
 ###出力
 ```

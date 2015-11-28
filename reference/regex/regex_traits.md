@@ -85,8 +85,8 @@ int main()
 * std::string[link /reference/string/basic_string.md]
 * begin()[link /reference/string/basic_string/begin.md]
 * end()[link /reference/string/basic_string/end.md]
-* isctype[link ./regex_traits/isctype.md]
-* lookup_classname[link ./regex_traits/lookup_classname.md]
+* isctype[link regex_traits/isctype.md]
+* lookup_classname[link regex_traits/lookup_classname.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

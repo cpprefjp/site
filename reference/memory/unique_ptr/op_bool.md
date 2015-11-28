@@ -18,7 +18,7 @@ explicit operator bool() const noexcept;
 ```cpp
 get() != nullptr
 ```
-* get()[link ./get.md]
+* get()[link get.md]
 
 
 ##例

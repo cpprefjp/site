@@ -19,7 +19,7 @@ bitset<N> operator<<(size_t pos) const noexcept;
 ```cpp
 return bitset(*this) <<= pos;
 ```
-* <<=[link ./op_left_shift_assign.md]
+* <<=[link op_left_shift_assign.md]
 
 
 ##例外

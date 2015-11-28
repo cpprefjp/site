@@ -84,9 +84,9 @@ int main()
 }
 ```
 * try_lock_shared_for[color ff0000]
-* lock()[link ./lock.md]
-* unlock()[link ./unlock.md]
-* unlock_shared()[link ./unlock_shared.md]
+* lock()[link lock.md]
+* unlock()[link unlock.md]
+* unlock_shared()[link unlock_shared.md]
 * std::thread[link /reference/thread/thread.md]
 * join()[link /reference/thread/thread/join.md]
 * std::chrono::seconds[link /reference/chrono/seconds.md]

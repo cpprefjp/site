@@ -11,8 +11,8 @@ namespace std {
   ranlux48;
 }
 ```
-* ranlux48_base[link ./ranlux48_base.md]
-* discard_block_engine[link ./discard_block_engine.md]
+* ranlux48_base[link ranlux48_base.md]
+* discard_block_engine[link discard_block_engine.md]
 
 ##概要
 `ranlux48`は、贅沢さレベル4のRANLUX(LUXury RANdom numbers)法エンジンである。  

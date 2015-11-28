@@ -21,7 +21,7 @@ namespace std {
 ```cpp
 return v.apply(static_cast<T(*)(T)>(std::log));
 ```
-* apply[link ./apply.md]
+* apply[link apply.md]
 * log[link /reference/cmath/log.md]
 
 

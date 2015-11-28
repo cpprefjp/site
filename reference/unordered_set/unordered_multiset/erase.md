@@ -121,12 +121,12 @@ int main()
 * string[link /reference/string.md]
 * ostream[link /reference/ostream/basic_ostream.md]
 * copy[link /reference/algorithm/copy.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
+* begin[link begin.md]
+* end[link end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * unordered_multiset[link ../unordered_multiset.md]
 * next[link /reference/iterator/next.md]
-* cbegin[link ./cbegin.md]
+* cbegin[link cbegin.md]
 
 ###出力
 ```

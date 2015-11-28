@@ -11,7 +11,7 @@ namespace std {
     operator<<(basic_ostream<charT,traits>& os, const error_code& ec);
 }
 ```
-* error_code[link ./error_code.md]
+* error_code[link error_code.md]
 * basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ##概要
@@ -22,9 +22,9 @@ namespace std {
 ```cpp
 os << ec.category().name() << ':' << ec.value();
 ```
-* category()[link ./error_code/category.md]
-* name()[link ./error_category/name.md]
-* value()[link ./error_code/value.md]
+* category()[link error_code/category.md]
+* name()[link error_category/name.md]
+* value()[link error_code/value.md]
 
 
 ##戻り値

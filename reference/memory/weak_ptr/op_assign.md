@@ -34,17 +34,17 @@ weak_ptr& operator=(weak_ptr<Y>&& r) noexcept;        // (5) C++14
 ```cpp
 weak_ptr(r).swap(*this)
 ```
-* weak_ptr[link ./op_constructor.md]
-* swap[link ./swap.md]
+* weak_ptr[link op_constructor.md]
+* swap[link swap.md]
 
 - (4), (5) : 以下と同等の効果を持つ。
 
 ```cpp
 weak_ptr(move(r)).swap(*this)
 ```
-* weak_ptr[link ./op_constructor.md]
+* weak_ptr[link op_constructor.md]
 * move[link /reference/utility/move.md]
-* swap[link ./swap.md]
+* swap[link swap.md]
 
 
 ##戻り値

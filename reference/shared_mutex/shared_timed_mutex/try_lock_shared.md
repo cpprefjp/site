@@ -79,9 +79,9 @@ int main()
 }
 ```
 * try_lock_shared()[color ff0000]
-* lock()[link ./lock.md]
-* unlock()[link ./unlock.md]
-* unlock_shared()[link ./unlock_shared.md]
+* lock()[link lock.md]
+* unlock()[link unlock.md]
+* unlock_shared()[link unlock_shared.md]
 * std::thread[link /reference/thread/thread.md]
 * join()[link /reference/thread/thread/join.md]
 * std::error_code[link /reference/system_error/error_code.md]

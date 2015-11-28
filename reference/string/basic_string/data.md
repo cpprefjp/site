@@ -47,7 +47,7 @@ int main()
 }
 ```
 * string[link /reference/string.md]
-* size[link ./size.md]
+* size[link size.md]
 * data[color ff0000]
 
 ###出力

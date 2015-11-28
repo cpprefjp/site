@@ -24,7 +24,7 @@ namespace std {
 ```cpp
 return bitset<N>(lhs) |= rhs;
 ```
-* |=[link ./op_or_assign.md]
+* |=[link op_or_assign.md]
 
 
 ##例外

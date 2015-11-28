@@ -18,7 +18,7 @@ namespace std {
 }
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]
-* regex_traits[link ./regex_traits.md]
+* regex_traits[link regex_traits.md]
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
 

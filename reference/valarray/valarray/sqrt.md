@@ -21,7 +21,7 @@ namespace std {
 ```cpp
 return v.apply(static_cast<T(*)(T)>(std::sqrt));
 ```
-* apply[link ./apply.md]
+* apply[link apply.md]
 * sqrt[link /reference/cmath/sqrt.md]
 
 

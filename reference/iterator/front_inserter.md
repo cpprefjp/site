@@ -10,7 +10,7 @@ namespace std {
   front_insert_iterator<Container> front_inserter(Container& x);
 }
 ```
-* front_insert_iterator[link ./front_insert_iterator.md]
+* front_insert_iterator[link front_insert_iterator.md]
 
 ##概要
 `front_insert_iterator`のヘルパ関数。
@@ -20,7 +20,7 @@ namespace std {
 ```cpp
 front_insert_iterator<Container>(x)
 ```
-* front_insert_iterator[link ./front_insert_iterator.md]
+* front_insert_iterator[link front_insert_iterator.md]
 
 
 ##例

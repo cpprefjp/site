@@ -82,8 +82,8 @@ inline bool unordered_multimap<Key, Hash, Pred, Allocator>::empty() const noexce
   return [size](size)() == 0; // begin() == end() でも OK
 }
 ```
-* begin[link ./begin.md]
-* end[link ./end.md]
+* begin[link begin.md]
+* end[link end.md]
 
 ##参照
 

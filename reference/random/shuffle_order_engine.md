@@ -12,7 +12,7 @@ namespace std {
   typedef … knuth_b;
 }
 ```
-* knuth_b[link ./knuth_b.md]
+* knuth_b[link knuth_b.md]
 
 ##概要
 `shuffle_order_engine`クラスは、乱数生成エンジンが生成する乱数を調整し、バッファリングされた乱数列からランダムに値を選択する生成器アダプタである。  

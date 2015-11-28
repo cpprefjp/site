@@ -12,7 +12,7 @@ namespace std {
 }
 ```
 * uint_fast64_t[link /reference/cstdint/uint_fast64_t.md]
-* subtract_with_carry_engine[link ./subtract_with_carry_engine.md]
+* subtract_with_carry_engine[link subtract_with_carry_engine.md]
 
 ##概要
 パラメータ設定済みの[`subtract_with_carry_engine`](subtract_with_carry_engine.md)。  

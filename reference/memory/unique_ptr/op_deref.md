@@ -19,7 +19,7 @@ typename add_lvalue_reference<T>::type operator*() const;
 ```cpp
 get() != nullptr
 ```
-* get()[link ./get.md]
+* get()[link get.md]
 
 
 ##戻り値

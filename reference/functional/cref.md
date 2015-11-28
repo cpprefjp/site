@@ -17,7 +17,7 @@ namespace std {
   void cref(const T&&) = delete;                                    // (3)
 }
 ```
-* reference_wrapper[link ./reference_wrapper.md]
+* reference_wrapper[link reference_wrapper.md]
 
 ##概要
 変数への`const`参照`t`を保持する`reference_wrapper`オブジェクトを生成する

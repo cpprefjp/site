@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 * size_t[link /reference/cstddef/size_t.md]
-* make_index_sequence[link ./make_index_sequence.md]
+* make_index_sequence[link make_index_sequence.md]
 
 ##概要
 `index_sequence_for`は、型のシーケンス、0から始まる[`size_t`](/reference/cstddef/size_t.md)型整数シーケンスに変換する、[`make_index_sequence`](make_index_sequence.md)の別名である。
@@ -50,7 +50,7 @@ int main()
   f(std::make_tuple(1, 'a', "Hello"));
 }
 ```
-* std::integer_sequence[link ./integer_sequence.md]
+* std::integer_sequence[link integer_sequence.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 * std::tuple[link /reference/tuple/tuple.md]

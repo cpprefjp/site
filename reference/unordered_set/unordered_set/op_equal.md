@@ -129,10 +129,10 @@ namespace std {
   }
 }
 ```
-* size[link ./size.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
-* find[link ./find.md]
+* size[link size.md]
+* begin[link begin.md]
+* end[link end.md]
+* find[link find.md]
 
 ##参照
 

@@ -93,7 +93,7 @@ int main()
 }
 ```
 * lower_bound[color ff0000]
-* upper_bound[link ./upper_bound.md]
+* upper_bound[link upper_bound.md]
 * std::string[link /reference/string/basic_string.md]
 * std::less[link /reference/functional/less.md]
 * std::cout[link /reference/iostream/cout.md]

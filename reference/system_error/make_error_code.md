@@ -9,8 +9,8 @@ namespace std {
   error_code make_error_code(errc e) noexcept;
 }
 ```
-* error_code[link ./error_code.md]
-* errc[link ./errc.md]
+* error_code[link error_code.md]
+* errc[link errc.md]
 
 ##概要
 [`errc`](errc.md)型の列挙値から[`error_code`](error_code.md)オブジェクトを生成する

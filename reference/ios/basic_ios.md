@@ -12,7 +12,7 @@ namespace std {
   typedef basic_ios<wchar_t> wios;                              // <iosfwd> で定義
 }
 ```
-* ios_base[link ./ios_base.md]
+* ios_base[link ios_base.md]
 * char_traits[link ../string/char_traits.md]
 
 ##概要

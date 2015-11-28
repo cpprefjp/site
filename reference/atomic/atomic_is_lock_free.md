@@ -13,7 +13,7 @@ namespace std {
   bool atomic_is_lock_free(const atomic<T>* object) noexcept;
 }
 ```
-* atomic[link ./atomic.md]
+* atomic[link atomic.md]
 
 
 ##概要

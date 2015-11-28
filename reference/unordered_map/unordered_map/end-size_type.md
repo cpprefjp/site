@@ -66,10 +66,10 @@ int main()
 * iostream[link /reference/iostream.md]
 * unordered_map[link /reference/unordered_map.md]
 * algorithm[link /reference/algorithm.md]
-* bucket_count[link ./bucket_count.md]
-* bucket_size[link ./bucket_size.md]
+* bucket_count[link bucket_count.md]
+* bucket_size[link bucket_size.md]
 * for_each[link /reference/algorithm/for_each.md]
-* end[link ./end-size_type.md]
+* end[link end-size_type.md]
 
 ###出力例
 ```

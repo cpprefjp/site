@@ -9,8 +9,8 @@ namespace std {
   error_condition make_error_condition(errc e) noexcept;
 }
 ```
-* error_condition[link ./error_condition.md]
-* errc[link ./errc.md]
+* error_condition[link error_condition.md]
+* errc[link errc.md]
 
 ##概要
 [`errc`](errc.md)型の列挙値から[`error_condition`](error_condition.md)オブジェクトを生成する

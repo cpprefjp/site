@@ -10,8 +10,8 @@ namespace std {
   bool operator<(const error_condition& lhs, const error_condition& rhs) noexcept;
 }
 ```
-* error_code[link ./error_code.md]
-* error_condition[link ./error_condition.md]
+* error_code[link error_code.md]
+* error_condition[link error_condition.md]
 
 ##概要
 `error_code`, `error_condition`において、左辺が右辺より小さいかの比較を行う。

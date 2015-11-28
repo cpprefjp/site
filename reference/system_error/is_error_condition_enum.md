@@ -15,7 +15,7 @@ namespace std {
 ```
 * false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 * true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
-* errc[link ./errc.md]
+* errc[link errc.md]
 
 
 ##概要

@@ -118,7 +118,7 @@ namespace std {
   }
 }
 ```
-* ==[link ./op_equal.md]
+* ==[link op_equal.md]
 
 ##参照
 

@@ -12,7 +12,7 @@ namespace std {
     -> decltype(std::begin(c));
 }
 ```
-* std::begin[link ./begin.md]
+* std::begin[link begin.md]
 
 ##概要
 範囲から先頭要素への読み取り専用イテレータを取得する。
@@ -22,7 +22,7 @@ namespace std {
 ```cpp
 return std::begin(c);
 ```
-* begin[link ./begin.md]
+* begin[link begin.md]
 
 パラメータを`const`で受け取っているので、`std::begin()`を経由することで、読み取り専用イテレータを取得している。
 
@@ -48,7 +48,7 @@ int main()
 ```
 * cbegin[color ff0000]
 * std::vector[link /reference/vector.md]
-* cend[link ./cend.md]
+* cend[link cend.md]
 * std::for_each[link /reference/algorithm/for_each.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]

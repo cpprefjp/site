@@ -52,7 +52,7 @@ int main()
 * utility[link /reference/utility.md]
 * unordered_map[link /reference/unordered_map.md]
 * for_each[link /reference/algorithm/for_each.md]
-* cend[link ./cend.md]
+* cend[link cend.md]
 
 ###出力
 ```

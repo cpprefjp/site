@@ -62,10 +62,10 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
-* bucket_count[link ./bucket_count.md]
-* bucket_size[link ./bucket_size.md]
+* bucket_count[link bucket_count.md]
+* bucket_size[link bucket_size.md]
 * copy[link /reference/algorithm/copy.md]
-* begin[link ./begin-size_type.md]
+* begin[link begin-size_type.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力

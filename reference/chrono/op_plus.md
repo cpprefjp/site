@@ -38,8 +38,8 @@ namespace chrono {
               const time_point<Clock, Duration2>& rhs); // (3) C++14
 }}
 ```
-* duration[link ./duration.md]
-* time_point[link ./time_point.md]
+* duration[link duration.md]
+* time_point[link time_point.md]
 * common_type[link /reference/type_traits/common_type.md]
 
 ##概要

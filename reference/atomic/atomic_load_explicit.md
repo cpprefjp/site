@@ -13,8 +13,8 @@ namespace std {
   T atomic_load_explicit(const atomic<T>* object, memory_order order) noexcept;
 }
 ```
-* atomic[link ./atomic.md]
-* memory_order[link ./memory_order.md]
+* atomic[link atomic.md]
+* memory_order[link memory_order.md]
 
 ##概要
 アトミックに値を読み込む

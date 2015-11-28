@@ -18,9 +18,9 @@ string message() const;
 ```cpp
 category().message(value())
 ```
-* category()[link ./category.md]
+* category()[link category.md]
 * message[link ../error_category/message.md]
-* value()[link ./value.md]
+* value()[link value.md]
 
 
 ##例

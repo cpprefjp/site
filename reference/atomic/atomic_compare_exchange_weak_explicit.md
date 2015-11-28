@@ -15,8 +15,8 @@ namespace std {
                                              memory_order success, memory_order failure) noexcept;
 }
 ```
-* atomic[link ./atomic.md]
-* memory_order[link ./memory_order.md]
+* atomic[link atomic.md]
+* memory_order[link memory_order.md]
 
 
 ##概要

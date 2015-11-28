@@ -10,7 +10,7 @@ namespace std {
   bool atomic_flag_test_and_set(atomic_flag* object) noexcept;
 }
 ```
-* atomic_flag[link ./atomic_flag.md]
+* atomic_flag[link atomic_flag.md]
 
 
 ##概要

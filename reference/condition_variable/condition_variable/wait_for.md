@@ -43,7 +43,7 @@ bool wait_for(unique_lock<mutex>& lock,
 ```cpp
 return wait_until(lock, chrono::steady_clock::now() + rel_time);
 ```
-* wait_until[link ./wait_until.md]
+* wait_until[link wait_until.md]
 * steady_clock[link /reference/chrono/steady_clock.md]
 * now[link /reference/chrono/steady_clock/now.md]
 
@@ -54,7 +54,7 @@ return wait_until(lock, chrono::steady_clock::now() + rel_time);
 ```cpp
 return wait_until(lock, chrono::steady_clock::now() + rel_time, std::move(pred));
 ```
-* wait_until[link ./wait_until.md]
+* wait_until[link wait_until.md]
 * steady_clock[link /reference/chrono/steady_clock.md]
 * now[link /reference/chrono/steady_clock/now.md]
 * move[link /reference/utility/move.md]

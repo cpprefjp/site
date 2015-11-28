@@ -22,8 +22,8 @@ namespace std {
 ```cpp
 dynamic_cast<const nested_exception&>(e).rethrow_nested()
 ```
-* nested_exception[link ./nested_exception.md]
-* rethrow_nested()[link ./nested_exception/rethrow_nested.md]
+* nested_exception[link nested_exception.md]
+* rethrow_nested()[link nested_exception/rethrow_nested.md]
 
 そうでなければ何もしない。
 

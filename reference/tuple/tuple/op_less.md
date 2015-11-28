@@ -31,7 +31,7 @@ namespace std {
 ```cpp
 get<i>(t) < get<i>(u) || !(get<i>(u) < get<i>(t)) && get<i+N...>(t) < get<i+N...>(u) ...`
 ```
-* get[link ./get.md]
+* get[link get.md]
 
 
 ##例

@@ -10,7 +10,7 @@ namespace std {
   insert_iterator<Container> inserter(Container& x, typename Container::iterator i);
 }
 ```
-* insert_iterator[link ./insert_iterator.md]
+* insert_iterator[link insert_iterator.md]
 
 ##概要
 `insert_iterator`のヘルパ関数
@@ -20,7 +20,7 @@ namespace std {
 ```cpp
 insert_iterator<Container>(x, i)
 ```
-* insert_iterator[link ./insert_iterator.md]
+* insert_iterator[link insert_iterator.md]
 
 
 ##例

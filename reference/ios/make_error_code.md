@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 * error_code[link /reference/system_error/error_code.md]
-* io_errc[link ./io_errc.md]
+* io_errc[link io_errc.md]
 
 ##概要
 `io_errc`から`error_code`を生成する

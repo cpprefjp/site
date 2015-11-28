@@ -13,7 +13,7 @@ namespace std {
   T atomic_exchange(atomic<T>* object, T desired) noexcept;
 }
 ```
-* atomic[link ./atomic.md]
+* atomic[link atomic.md]
 
 
 ##概要

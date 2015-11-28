@@ -60,10 +60,10 @@ int main()
 * iostream[link /reference/iostream.md]
 * unordered_map[link /reference/unordered_map.md]
 * algorithm[link /reference/algorithm.md]
-* bucket_count[link ./bucket_count.md]
+* bucket_count[link bucket_count.md]
 * for_each[link /reference/algorithm/for_each.md]
-* cbegin[link ./cbegin-size_type.md]
-* cend[link ./cend-size_type.md]
+* cbegin[link cbegin-size_type.md]
+* cend[link cend-size_type.md]
 
 ###出力
 ```

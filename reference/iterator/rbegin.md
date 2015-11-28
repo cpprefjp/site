@@ -19,7 +19,7 @@ namespace std {
   reverse_iterator<const E*> rbegin(initializer_list<E> il); // (4)
 }
 ```
-* reverse_iterator[link ./reverse_iterator.md]
+* reverse_iterator[link reverse_iterator.md]
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
@@ -86,8 +86,8 @@ int main()
 }
 ```
 * rbegin[color ff0000]
-* rend[link ./rend.md]
-* std::reverse_iterator[link ./reverse_iterator.md]
+* rend[link rend.md]
+* std::reverse_iterator[link reverse_iterator.md]
 * std::vector[link /reference/vector.md]
 * std::for_each[link /reference/algorithm/for_each.md]
 * std::cout[link /reference/iostream/cout.md]

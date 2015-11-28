@@ -9,7 +9,7 @@ namespace std {
   extern "C" void atomic_thread_fence(memory_order order) noexcept;
 }
 ```
-* memory_order[link ./memory_order.md]
+* memory_order[link memory_order.md]
 
 ##概要
 アトミック操作に対する、補完的なメモリフェンスを提供する。

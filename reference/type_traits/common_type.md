@@ -105,7 +105,7 @@ struct common_type<T, U, V...> {
   typedef common_type_t<common_type_t<T, U>, V...> type;
 };
 ```
-* decay_t[link ./decay.md]
+* decay_t[link decay.md]
 * declval[link /reference/utility/declval.md]
 
 ##バージョン

@@ -17,7 +17,7 @@ namespace std {
     : public integral_constant<size_t, sizeof...(Types)> {};
 }
 ```
-* tuple[link ./tuple.md]
+* tuple[link tuple.md]
 * integral_constant[link /reference/type_traits/integral_constant-true_type-false_type.md]
 
 ##概要

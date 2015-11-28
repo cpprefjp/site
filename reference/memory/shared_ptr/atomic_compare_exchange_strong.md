@@ -30,7 +30,7 @@ atomic_compare_exchange_strong_explicit(
   memory_order_seq_cst,
   memory_order_seq_cst)
 ```
-* atomic_compare_exchange_strong_explicit[link ./atomic_compare_exchange_strong_explicit.md]
+* atomic_compare_exchange_strong_explicit[link atomic_compare_exchange_strong_explicit.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 

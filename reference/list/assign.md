@@ -28,9 +28,9 @@ void assign(initializer_list<T> init); // (3) C++11
 clear();
 insert(begin(), first, last);
 ```
-* clear[link ./clear.md]
-* insert[link ./insert.md]
-* begin[link ./begin.md]
+* clear[link clear.md]
+* insert[link insert.md]
+* begin[link begin.md]
 
 
 - (2) :
@@ -39,9 +39,9 @@ insert(begin(), first, last);
 clear();
 insert(begin(), n, t);
 ```
-* clear[link ./clear.md]
-* insert[link ./insert.md]
-* begin[link ./begin.md]
+* clear[link clear.md]
+* insert[link insert.md]
+* begin[link begin.md]
 
 
 - (3) :
@@ -50,9 +50,9 @@ insert(begin(), n, t);
 clear();
 insert(begin(), init.begin(), init.end());
 ```
-* clear[link ./clear.md]
-* insert[link ./insert.md]
-* begin[link ./begin.md]
+* clear[link clear.md]
+* insert[link insert.md]
+* begin[link begin.md]
 * init.begin[link /reference/initializer_list/begin.md]
 * init.end[link /reference/initializer_list/end.md]
 

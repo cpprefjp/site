@@ -55,7 +55,7 @@ int main()
 * iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* empty[link ./empty.md]
+* empty[link empty.md]
 * clear[color ff0000]
 
 ###出力

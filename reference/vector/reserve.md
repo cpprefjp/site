@@ -59,9 +59,9 @@ int main()
   }
 }
 ```
-* capacity()[link ./capacity.md]
+* capacity()[link capacity.md]
 * assert[link /reference/cassert/assert.md.nolink]
-* push_back[link ./push_back.md]
+* push_back[link push_back.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

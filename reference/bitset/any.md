@@ -20,7 +20,7 @@ bool any() const noexcept; // C++11
 ```cpp
 return count() != 0;
 ```
-* count[link ./count.md]
+* count[link count.md]
 
 
 ##例

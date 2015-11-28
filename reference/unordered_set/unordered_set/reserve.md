@@ -69,9 +69,9 @@ int main()
 * <unordered_set>[link /reference/unordered_set.md]
 * reserve[color ff0000]
 * unordered_set[link /reference/unordered_set.md]
-* size[link ./size.md]
-* max_load_factor[link ./max_load_factor.md]
-* bucket_count[link ./bucket_count.md]
+* size[link size.md]
+* max_load_factor[link max_load_factor.md]
+* bucket_count[link bucket_count.md]
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 

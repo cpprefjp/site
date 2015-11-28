@@ -21,7 +21,7 @@ namespace std {
 ```cpp
 return v.apply(static_cast<T(*)(T)>(std::exp));
 ```
-* apply[link ./apply.md]
+* apply[link apply.md]
 * exp[link /reference/cmath/exp.md]
 
 

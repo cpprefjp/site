@@ -19,7 +19,7 @@ if (owns_lock()) {
   pm->unlock_shared();
 }
 ```
-* owns_lock()[link ./owns_lock.md]
+* owns_lock()[link owns_lock.md]
 
 ※`pm`はメンバ変数として保持している、ミューテックスオブジェクトへのポインタ
 

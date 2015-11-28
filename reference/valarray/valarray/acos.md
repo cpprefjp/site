@@ -21,7 +21,7 @@ namespace std {
 ```cpp
 return v.apply(static_cast<T(*)(T)>(std::acos));
 ```
-* apply[link ./apply.md]
+* apply[link apply.md]
 * acos[link /reference/cmath/acos.md]
 
 

@@ -61,8 +61,8 @@ int main()
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
 * unordered_multiset[link ../unordered_multiset.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
+* begin[link begin.md]
+* end[link end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * distance[link /reference/iterator/distance.md]
 

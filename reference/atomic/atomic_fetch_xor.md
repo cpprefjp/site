@@ -13,7 +13,7 @@ namespace std {
   T atomic_fetch_xor(atomic<T>* object, T operand) noexcept;
 }
 ```
-* atomic[link ./atomic.md]
+* atomic[link atomic.md]
 
 ##概要
 アトミックにXOR演算を行う

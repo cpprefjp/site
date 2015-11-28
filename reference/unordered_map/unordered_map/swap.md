@@ -81,8 +81,8 @@ int main()
 * string[link /reference/string.md]
 * ostream[link /reference/ostream.md]
 * for_each[link /reference/algorithm/for_each.md]
-* cbegin[link ./cbegin.md]
-* cend[link ./cend.md]
+* cbegin[link cbegin.md]
+* cend[link cend.md]
 * swap[color ff0000]
 
 ###出力

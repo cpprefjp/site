@@ -49,8 +49,8 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
+* begin[link begin.md]
+* end[link end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力

@@ -33,7 +33,7 @@ valarray<T> result = xs;
 result >>= ys;
 return result;
 ```
-* >>=[link ./op_right_shift_assign.md]
+* >>=[link op_right_shift_assign.md]
 
 
 - (2) : 以下のコードと同等のことを行う：
@@ -43,7 +43,7 @@ valarray<T> result = xs;
 result >>= y;
 return result;
 ```
-* >>=[link ./op_right_shift_assign.md]
+* >>=[link op_right_shift_assign.md]
 
 
 

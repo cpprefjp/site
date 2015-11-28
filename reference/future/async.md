@@ -29,8 +29,8 @@ namespace std {
   > async(launch policy, F&& f, Args&&... args); // (2) C++14
 }
 ```
-* future[link ./future.md]
-* launch[link ./launch.md]
+* future[link future.md]
+* launch[link launch.md]
 * result_of[link /reference/type_traits/result_of.md]
 * decay[link /reference/type_traits/decay.md]
 

@@ -13,7 +13,7 @@ namespace std {
   T atomic_fetch_or(atomic<T>* object, T operand) noexcept;
 }
 ```
-* atomic[link ./atomic.md]
+* atomic[link atomic.md]
 
 ##概要
 アトミックにOR演算を行う

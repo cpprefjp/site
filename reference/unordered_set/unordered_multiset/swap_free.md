@@ -98,7 +98,7 @@ namespace std {
   }
 }
 ```
-* swap[link ./swap.md]
+* swap[link swap.md]
 
 ##参照
 

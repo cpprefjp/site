@@ -9,7 +9,7 @@ namespace std {
   const error_category& generic_category() noexcept;
 }
 ```
-* error_category[link ./error_category.md]
+* error_category[link error_category.md]
 
 ##概要
 汎用エラーに関する`error_category`を返す。

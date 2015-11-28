@@ -87,8 +87,8 @@ int main()
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * hash[link /reference/functional/hash.md]
 * equal_to[link /reference/functional/equal_to.md]
-* swap[link ./swap_free.md]
-* =[link ./op_assign.md]
+* swap[link swap_free.md]
+* =[link op_assign.md]
 
 ###出力
 ```

@@ -21,7 +21,7 @@ namespace std {
 ```cpp
 return v.apply(static_cast<T(*)(T)>(std::asin));
 ```
-* apply[link ./apply.md]
+* apply[link apply.md]
 * asin[link /reference/cmath/asin.md]
 
 

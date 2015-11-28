@@ -122,9 +122,9 @@ int main()
 * hash[link /reference/functional/hash.md]
 * ostream[link /reference/ostream/basic_ostream.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* insert[link ./insert.md]
-* cbegin[link ./cbegin.md]
-* cend[link ./cend.md]
+* insert[link insert.md]
+* cbegin[link cbegin.md]
+* cend[link cend.md]
 * emplace[color ff0000]
 
 ###出力

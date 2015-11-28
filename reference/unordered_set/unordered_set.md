@@ -205,8 +205,8 @@ int main()
 * begin[link /reference/iterator/begin.md]
 * end[link /reference/iterator/end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* emplace[link ./unordered_set/emplace.md]
-* erase[link ./unordered_set/erase.md]
+* emplace[link unordered_set/emplace.md]
+* erase[link unordered_set/erase.md]
 
 ###出力
 ```

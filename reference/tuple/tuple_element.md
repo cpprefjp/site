@@ -22,7 +22,7 @@ namespace std {
   using tuple_element_t = typename tuple_element<I, T>::type; // C++14
 }
 ```
-* tuple[link ./tuple.md]
+* tuple[link tuple.md]
 * size_t[link /reference/cstddef/size_t.md]
 
 ##概要

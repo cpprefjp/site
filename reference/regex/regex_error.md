@@ -83,7 +83,7 @@ int main()
 * std::string[link /reference/string/basic_string.md]
 * std::invalid_argument[link /reference/stdexcept.md]
 * std::regex[link /reference/regex/basic_regex.md]
-* code()[link ./regex_error/code.md]
+* code()[link regex_error/code.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

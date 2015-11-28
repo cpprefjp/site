@@ -21,7 +21,7 @@ template<class Sseq> void seed(Sseq& q);
 ```cpp
 *this = shuffle_order_engine(arg);
 ```
-* shuffle_order_engine[link ./op_constructor.md]
+* shuffle_order_engine[link op_constructor.md]
 
 と同じ効果を持つ。  
 指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。  

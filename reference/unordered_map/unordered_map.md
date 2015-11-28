@@ -216,10 +216,10 @@ int main()
 * for_each[link /reference/algorithm/for_each.md]
 * begin[link /reference/iterator/begin.md]
 * end[link /reference/iterator/end.md]
-* at[link ./unordered_map/at.md]
-* emplace[link ./unordered_map/emplace.md]
-* erase[link ./unordered_map/erase.md]
-* ["5th"][link ./unordered_map/op_at.md]
+* at[link unordered_map/at.md]
+* emplace[link unordered_map/emplace.md]
+* erase[link unordered_map/erase.md]
+* ["5th"][link unordered_map/op_at.md]
 
 
 ###出力

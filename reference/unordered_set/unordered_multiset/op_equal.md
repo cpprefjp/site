@@ -134,10 +134,10 @@ namespace std {
   }
 }
 ```
-* size[link ./size.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
-* equal_range[link ./equal_range.md]
+* size[link size.md]
+* begin[link begin.md]
+* end[link end.md]
+* equal_range[link equal_range.md]
 * distance[link /reference/iterator/distance.md]
 * is_permutation[link /reference/algorithm/is_permutation.md]
 

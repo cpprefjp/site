@@ -21,7 +21,7 @@ namespace std {
 ```cpp
 return v.apply(static_cast<T(*)(T)>(std::sinh));
 ```
-* apply[link ./apply.md]
+* apply[link apply.md]
 * sinh[link /reference/cmath/sinh.md]
 
 

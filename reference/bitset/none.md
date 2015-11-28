@@ -19,7 +19,7 @@ bool none() const noexcept;
 ```cpp
 return count() == 0;
 ```
-* count[link ./count.md]
+* count[link count.md]
 
 
 ##例

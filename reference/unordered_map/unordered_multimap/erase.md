@@ -130,8 +130,8 @@ int main()
 * ostream[link /reference/ostream/basic_ostream.md]
 * for_each[link /reference/algorithm/for_each.md]
 * next[link /reference/iterator/next.md]
-* cbegin[link ./cbegin.md]
-* cend[link ./cend.md]
+* cbegin[link cbegin.md]
+* cend[link cend.md]
 * erase[color ff0000]
 
 ###出力

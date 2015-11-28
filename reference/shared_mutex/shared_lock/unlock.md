@@ -57,7 +57,7 @@ int main()
 ```
 * unlock()[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
-* owns_lock()[link ./owns_lock.md]
+* owns_lock()[link owns_lock.md]
 
 ###出力
 ```

@@ -16,8 +16,8 @@ namespace std {
   typedef … mt19937_64;
 }
 ```
-* mt19937[link ./mt19937.md]
-* mt19937_64[link ./mt19937_64.md]
+* mt19937[link mt19937.md]
+* mt19937_64[link mt19937_64.md]
 
 ##概要
 `mersenne_twister_engine`クラスは、メルセンヌ・ツイスター法による擬似乱数生成エンジンである。  

@@ -38,10 +38,10 @@ unique_ptr& operator=(const unique_ptr&) = delete;    // (4) 単一オブジェ�
 reset(u.release());
 d_ = std::forward<E>(u.get_deleter());
 ```
-* reset[link ./reset.md]
-* release[link ./release.md]
+* reset[link reset.md]
+* release[link release.md]
 * forward[link /reference/utility/forward.md]
-* get_deleter[link ./get_deleter.md]
+* get_deleter[link get_deleter.md]
 
 
 - (3) : [`reset()`](reset.md)

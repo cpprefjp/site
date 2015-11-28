@@ -18,7 +18,7 @@ bool unique() const noexcept;
 ```cpp
 use_count() == 1
 ```
-* get()[link ./get.md]
+* get()[link get.md]
 
 
 ##備考

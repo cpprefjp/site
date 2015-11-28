@@ -11,7 +11,7 @@ constexpr bool operator[](size_t pos) const; // (1) C++14
 
 reference operator[](size_t pos);            // (2)
 ```
-* reference[link ./reference.md]
+* reference[link reference.md]
 
 ##概要
 任意の位置のビットにアクセスする。

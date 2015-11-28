@@ -47,8 +47,8 @@ int main()
 * unordered_map[link /reference/unordered_map.md]
 * unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * distance[link /reference/iterator/distance.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
+* begin[link begin.md]
+* end[link end.md]
 
 ###出力
 ```

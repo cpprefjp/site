@@ -20,7 +20,7 @@ constexpr const E* begin(initializer_list<E> il) noexcept; // C++14
 ```cpp
 il.begin()
 ```
-* begin[link ./begin.md]
+* begin[link begin.md]
 
 
 ##例外

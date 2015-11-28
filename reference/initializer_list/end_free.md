@@ -20,7 +20,7 @@ constexpr const E* end(initializer_list<E> il) noexcept; // C++14
 ```cpp
 il.end()
 ```
-* end[link ./end.md]
+* end[link end.md]
 
 
 ##例外

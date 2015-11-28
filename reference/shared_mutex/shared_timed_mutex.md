@@ -128,7 +128,7 @@ int main()
 * std::lock_guard[link /reference/mutex/lock_guard.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
-* std::shared_lock[link ./shared_lock.md]
+* std::shared_lock[link shared_lock.md]
 * sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * milliseconds[link /reference/chrono/milliseconds.md]
 * std::thread[link /reference/thread/thread.md]

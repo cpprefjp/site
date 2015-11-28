@@ -193,8 +193,8 @@ int main()
 * algorithm[link /reference/algorithm.md]
 * string[link /reference/string.md]
 * for_each[link /reference/algorithm/for_each.md]
-* cbegin[link ./cbegin.md]
-* cend[link ./cend.md]
+* cbegin[link cbegin.md]
+* cend[link cend.md]
 * unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * insert[color ff0000]
 

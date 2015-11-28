@@ -22,7 +22,7 @@ namespace std {
 ```cpp
 os << p.get();
 ```
-* get()[link ./get.md]
+* get()[link get.md]
 
 
 ##戻り値

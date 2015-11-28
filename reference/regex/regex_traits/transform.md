@@ -23,7 +23,7 @@ return use_facet<collate<char_type>>(getloc())
 ```
 * use_facet[link /reference/locale/use_facet.md.nolink]
 * collate[link /reference/locale/collate.md]
-* getloc()[link ./getloc.md]
+* getloc()[link getloc.md]
 * transform[link /reference/locale/collate/transform.md.nolink]
 * str.begin()[link /reference/string/basic_string/begin.md]
 * str.length()[link /reference/string/basic_string/length.md]
@@ -57,7 +57,7 @@ int main()
 ```
 * std::string[link /reference/string/basic_string.md]
 * assert[link /reference/cassert/assert.md.nolink]
-* imbue[link ./imbue.md]
+* imbue[link imbue.md]
 * std::locale[link /reference/locale/locale.md]
 
 ###出力

@@ -35,7 +35,7 @@ valarray<T> result = xs;
 result &= ys;
 return result;
 ```
-* &=[link ./op_and_assign.md]
+* &=[link op_and_assign.md]
 
 
 - (2) : 以下のコードと同等のことを行う：
@@ -45,7 +45,7 @@ valarray<T> result = xs;
 result &= y;
 return result;
 ```
-* &=[link ./op_and_assign.md]
+* &=[link op_and_assign.md]
 
 
 
@@ -56,7 +56,7 @@ valarray<T> result = ys;
 result &= x;
 return result;
 ```
-* &=[link ./op_and_assign.md]
+* &=[link op_and_assign.md]
 
 
 ##備考

@@ -10,7 +10,7 @@ namespace std {
   reverse_iterator<Iterator> make_reverse_iterator(Iterator i);
 }
 ```
-* reverse_iterator[link ./reverse_iterator.md]
+* reverse_iterator[link reverse_iterator.md]
 
 ##概要
 `reverse_iterator`オブジェクトを作るヘルパ関数
@@ -20,7 +20,7 @@ namespace std {
 ```cpp
 reverse_iterator<Iterator>(i)
 ```
-* reverse_iterator[link ./reverse_iterator.md]
+* reverse_iterator[link reverse_iterator.md]
 
 
 ##例

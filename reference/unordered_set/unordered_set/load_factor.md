@@ -55,12 +55,12 @@ int main()
 * algorithm[link /reference/algorithm.md]
 * iterator[link /reference/iterator.md]
 * copy[link /reference/algorithm/copy.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
+* begin[link begin.md]
+* end[link end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* size[link ./size.md]
-* bucket_count[link ./bucket_count.md]
-* insert[link ./insert.md]
+* size[link size.md]
+* bucket_count[link bucket_count.md]
+* insert[link insert.md]
 
 ###出力
 ```

@@ -69,9 +69,9 @@ int main()
 }
 ```
 * unlock_shared()[color ff0000]
-* lock()[link ./lock.md]
-* unlock()[link ./unlock.md]
-* lock_shared()[link ./lock_shared.md]
+* lock()[link lock.md]
+* unlock()[link unlock.md]
+* lock_shared()[link lock_shared.md]
 * std::thread[link /reference/thread/thread.md]
 * join()[link /reference/thread/thread/join.md]
 

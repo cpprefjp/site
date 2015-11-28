@@ -66,8 +66,8 @@ int main()
 ```
 * iostream[link /reference/iostream.md]
 * unordered_map[link /reference/unordered_map.md]
-* bucket_count[link ./bucket_count.md]
-* bucket_size[link ./bucket_size.md]
+* bucket_count[link bucket_count.md]
+* bucket_size[link bucket_size.md]
 
 ###出力
 ```

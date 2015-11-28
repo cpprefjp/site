@@ -20,7 +20,7 @@ bitset<N> operator~() const noexcept; // C++11
 ```cpp
 return bitset(*this).flip();
 ```
-* flip[link ./flip.md]
+* flip[link flip.md]
 
 
 ##例外

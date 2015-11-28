@@ -10,8 +10,8 @@ namespace std {
   void atomic_flag_clear_explicit(atomic_flag* object, memory_order order) noexcept;
 }
 ```
-* atomic_flag[link ./atomic_flag.md]
-* memory_order[link ./memory_order.md]
+* atomic_flag[link atomic_flag.md]
+* memory_order[link memory_order.md]
 
 ##概要
 アトミックにフラグをクリアする

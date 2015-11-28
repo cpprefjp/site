@@ -13,7 +13,7 @@ namespace std {
   bool atomic_compare_exchange_strong(atomic<T>* object, T* expected, T desired) noexcept;
 }
 ```
-* atomic[link ./atomic.md]
+* atomic[link atomic.md]
 
 
 ##概要

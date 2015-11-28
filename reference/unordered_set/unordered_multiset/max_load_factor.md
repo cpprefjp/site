@@ -100,11 +100,11 @@ int main()
 * max_load_factor[color ff0000]
 * iostream[link /reference/iostream.md]
 * unordered_set[link /reference/unordered_set.md]
-* size[link ./size.md]
-* bucket_count[link ./bucket_count.md]
-* load_factor[link ./load_factor.md]
+* size[link size.md]
+* bucket_count[link bucket_count.md]
+* load_factor[link load_factor.md]
 * unordered_multiset[link ../unordered_multiset.md]
-* emplace[link ./emplace.md]
+* emplace[link emplace.md]
 
 ###出力
 libstdc++ の出力例（4.7.2 現在）

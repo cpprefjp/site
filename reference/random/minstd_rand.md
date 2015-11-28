@@ -11,7 +11,7 @@ namespace std {
   minstd_rand;
 }
 ```
-* linear_congruential_engine[link ./linear_congruential_engine.md]
+* linear_congruential_engine[link linear_congruential_engine.md]
 * uint_fast32_t[link /reference/cstdint/uint_fast32_t.md]
 
 ##概要

@@ -21,7 +21,7 @@ template<class Sseq> void seed(Sseq& q);
 ```cpp
 *this = independent_bits_engine(arg);
 ```
-* independent_bits_engine[link ./op_constructor.md]
+* independent_bits_engine[link op_constructor.md]
 
 と同じ効果を持つ。  
 指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。  

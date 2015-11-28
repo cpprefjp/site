@@ -54,7 +54,7 @@ int main()
 ```
 * iostream[link /reference/iostream.md]
 * unordered_map[link /reference/unordered_map.md]
-* empty[link ./empty.md]
+* empty[link empty.md]
 * clear[color ff0000]
 
 ###出力

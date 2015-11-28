@@ -32,9 +32,9 @@ void assign(initializer_list<T> init);                // (3)
 clear();
 insert_after(before_begin(), first, last);
 ```
-* clear[link ./clear.md]
-* insert_after[link ./insert_after.md]
-* before_begin[link ./before_begin.md]
+* clear[link clear.md]
+* insert_after[link insert_after.md]
+* before_begin[link before_begin.md]
 
 
 - (2) :
@@ -43,9 +43,9 @@ insert_after(before_begin(), first, last);
 clear();
 insert_after(before_begin(), n, t);
 ```
-* clear[link ./clear.md]
-* insert_after[link ./insert_after.md]
-* before_begin[link ./before_begin.md]
+* clear[link clear.md]
+* insert_after[link insert_after.md]
+* before_begin[link before_begin.md]
 
 
 - (3) : 以下と同等

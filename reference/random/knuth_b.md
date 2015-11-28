@@ -11,8 +11,8 @@ namespace std {
   knuth_b;
 }
 ```
-* minstd_rand0[link ./minstd_rand0.md]
-* shuffle_order_engine[link ./shuffle_order_engine.md]
+* minstd_rand0[link minstd_rand0.md]
+* shuffle_order_engine[link shuffle_order_engine.md]
 
 ##概要
 `knuth_b`は、MINSTD最小標準乱数生成器である[`minstd_rand0`](minstd_rand0.md)の生成順を並び替えた乱数生成法である。

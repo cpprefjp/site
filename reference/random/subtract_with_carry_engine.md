@@ -15,10 +15,10 @@ namespace std {
   typedef … ranlux48;
 }
 ```
-* ranlux24[link ./ranlux24.md]
-* ranlux48[link ./ranlux48.md]
-* ranlux24_base[link ./ranlux24_base.md]
-* ranlux48_base[link ./ranlux48_base.md]
+* ranlux24[link ranlux24.md]
+* ranlux48[link ranlux48.md]
+* ranlux24_base[link ranlux24_base.md]
+* ranlux48_base[link ranlux48_base.md]
 
 ##概要
 `subtract_with_carry_engine`クラスは、[キャリー付き減算法](http://en.wikipedia.org/wiki/Subtract_with_carry)による擬似乱数生成エンジンである。  

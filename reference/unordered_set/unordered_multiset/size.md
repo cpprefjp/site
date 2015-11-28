@@ -45,8 +45,8 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link ../unordered_multiset.md]
 * distance[link /reference/iterator/distance.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
+* begin[link begin.md]
+* end[link end.md]
 
 ###出力
 ```

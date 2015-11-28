@@ -16,7 +16,7 @@ namespace std {
   unspecified make_unique(Args&&...) = delete; // (3)
 }
 ```
-* unique_ptr[link ./unique_ptr.md]
+* unique_ptr[link unique_ptr.md]
 * unspecified[italic]
 
 ##概要

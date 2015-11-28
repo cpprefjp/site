@@ -120,11 +120,11 @@ int main()
 * string[link /reference/string.md]
 * ostream[link /reference/ostream/basic_ostream.md]
 * copy[link /reference/algorithm/copy.md]
-* begin[link ./begin.md]
-* end[link ./end.md]
+* begin[link begin.md]
+* end[link end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * next[link /reference/iterator/next.md]
-* cbegin[link ./cbegin.md]
+* cbegin[link cbegin.md]
 * erase[color ff0000]
 
 ###出力

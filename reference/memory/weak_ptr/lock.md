@@ -18,7 +18,7 @@ shared_ptr<T> lock() const noexcept;
 ```cpp
 expired() ? shared_ptr<T>() : shared_ptr<T>(*this)
 ```
-* expired()[link ./expired.md]
+* expired()[link expired.md]
 * shared_ptr[link /reference/memory/shared_ptr.md]
 
 監視している[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトが有効な状態なら、その[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトとリソースを共有する[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを作って返す。これによって、ロックしている間、[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトの寿命が尽きないようにする。

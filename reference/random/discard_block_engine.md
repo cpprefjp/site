@@ -13,8 +13,8 @@ namespace std {
   typedef … ranlux48;
 }
 ```
-* ranlux24[link ./ranlux24.md]
-* ranlux48[link ./ranlux48.md]
+* ranlux24[link ranlux24.md]
+* ranlux48[link ranlux48.md]
 
 ##概要
 `discard_block_engine`クラスは、乱数生成エンジンが生成する乱数を調整し、捨てるブロックと使用するブロックに分ける生成器アダプタである。  

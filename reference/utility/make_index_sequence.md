@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 * size_t[link /reference/cstddef/size_t.md]
-* make_integer_sequence[link ./make_integer_sequence.md]
+* make_integer_sequence[link make_integer_sequence.md]
 
 
 ##概要
@@ -44,7 +44,7 @@ int main()
   f(std::make_index_sequence<3>());
 }
 ```
-* std::integer_sequence[link ./integer_sequence.md]
+* std::integer_sequence[link integer_sequence.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

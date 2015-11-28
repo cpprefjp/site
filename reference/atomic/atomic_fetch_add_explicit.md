@@ -13,8 +13,8 @@ namespace std {
   T atomic_fetch_add_explicit(atomic<T>* object, T operand, memory_order order) noexcept;
 }
 ```
-* atomic[link ./atomic.md]
-* memory_order[link ./memory_order.md]
+* atomic[link atomic.md]
+* memory_order[link memory_order.md]
 
 ##概要
 アトミックに加算を行う

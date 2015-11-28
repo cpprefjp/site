@@ -9,7 +9,7 @@ namespace std {
   class codecvt_byname : public codecvt<internT, externT, stateT>;
 }
 ```
-* codecvt[link ./codecvt_byname.md]
+* codecvt[link codecvt_byname.md]
 
 ##概要
 

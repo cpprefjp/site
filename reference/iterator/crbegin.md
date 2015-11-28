@@ -10,7 +10,7 @@ namespace std {
   auto crbegin(const C& c) -> decltype(std::rbegin(c));
 }
 ```
-* std::rbegin[link ./rbegin.md]
+* std::rbegin[link rbegin.md]
 
 ##概要
 範囲の末尾を指す読み取り専用逆イテレータを取得する。
@@ -20,7 +20,7 @@ namespace std {
 ```cpp
 std::rbegin(c);
 ```
-* std::rbegin[link ./rbegin.md]
+* std::rbegin[link rbegin.md]
 
 
 ##例
@@ -71,8 +71,8 @@ int main()
 }
 ```
 * crbegin[color ff0000]
-* crend[link ./crend.md]
-* std::reverse_iterator[link ./reverse_iterator.md]
+* crend[link crend.md]
+* std::reverse_iterator[link reverse_iterator.md]
 * std::vector[link /reference/vector.md]
 * std::for_each[link /reference/algorithm/for_each.md]
 * std::cout[link /reference/iostream/cout.md]

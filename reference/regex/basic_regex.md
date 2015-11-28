@@ -15,7 +15,7 @@ namespace std {
   typedef basic_regex<wchar_t> wregex;
 }
 ```
-* regex_traits[link ./regex_traits.md]
+* regex_traits[link regex_traits.md]
 
 ##概要
 
@@ -124,7 +124,7 @@ int main()
 }
 ```
 * std::string[link /reference/string/basic_string.md]
-* std::regex_match[link ./regex_match.md]
+* std::regex_match[link regex_match.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

@@ -18,10 +18,10 @@ void assign(F&& f, const Alloc& alloc);
 ```cpp
 function(allocator_arg, alloc,std::forward<F>(f)).swap(*this)
 ```
-* function[link ./op_constructor.md]
+* function[link op_constructor.md]
 * allocator_arg[link /reference/memory/allocator_arg_t.md]
 * std::forward[link /reference/utility/forward.md]
-* swap[link ./swap.md]
+* swap[link swap.md]
 
 
 ##戻り値

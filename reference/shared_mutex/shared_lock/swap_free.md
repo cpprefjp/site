@@ -19,7 +19,7 @@ namespace std {
 ```cpp
 x.swap(y);
 ```
-* swap[link ./swap.md]
+* swap[link swap.md]
 
 
 ##戻り値

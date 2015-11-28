@@ -211,9 +211,9 @@ int main()
 * for_each[link /reference/algorithm/for_each.md]
 * begin[link /reference/iterator/begin.md]
 * end[link /reference/iterator/end.md]
-* emplace[link ./unordered_multimap/emplace.md]
-* insert[link ./unordered_multimap/insert.md]
-* erase[link ./unordered_multimap/erase.md]
+* emplace[link unordered_multimap/emplace.md]
+* insert[link unordered_multimap/insert.md]
+* erase[link unordered_multimap/erase.md]
 
 
 ###出力

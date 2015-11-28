@@ -136,9 +136,9 @@ int main()
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * hash[link /reference/functional/hash.md]
 * ostream[link /reference/ostream/basic_ostream.md]
-* insert[link ./insert.md]
-* cbegin[link ./cbegin.md]
-* cend[link ./cend.md]
+* insert[link insert.md]
+* cbegin[link cbegin.md]
+* cend[link cend.md]
 * emplace[color ff0000]
 
 ###出力例

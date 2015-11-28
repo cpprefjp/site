@@ -17,7 +17,7 @@ bool expired() const noexcept;
 ```cpp
 use_count() == 0
 ```
-* use_count()[link ./use_count.md]
+* use_count()[link use_count.md]
 
 
 ##備考

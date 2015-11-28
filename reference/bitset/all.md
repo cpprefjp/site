@@ -20,8 +20,8 @@ bool all() const noexcept;
 ```cpp
 return count() == size();
 ```
-* count[link ./count.md]
-* size[link ./size.md]
+* count[link count.md]
+* size[link size.md]
 
 
 ##例

@@ -12,8 +12,8 @@ namespace std {
   bool operator!=(const error_condition& lhs, const error_condition& rhs) noexcept;
 }
 ```
-* error_code[link ./error_code.md]
-* error_condition[link ./error_condition.md]
+* error_code[link error_code.md]
+* error_condition[link error_condition.md]
 
 ##概要
 `error_code`, `error_condition`の非等値比較を行う

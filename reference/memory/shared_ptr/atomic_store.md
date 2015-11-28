@@ -23,7 +23,7 @@ namespace std {
 ```cpp
 atomic_store_explicit(p, r, memory_order_seq_cst)
 ```
-* atomic_store_explicit[link ./atomic_store_explicit.md]
+* atomic_store_explicit[link atomic_store_explicit.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 

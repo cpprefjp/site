@@ -21,7 +21,7 @@ move_iterator operator++(int);
 ++base();
 return *this;
 ```
-* base[link ./base.md]
+* base[link base.md]
 
 - 後置インクリメント `operator++(int)`：
 
@@ -30,7 +30,7 @@ move_iterator tmp = *this;
 ++base();
 return tmp;
 ```
-* base[link ./base.md]
+* base[link base.md]
 
 
 ##例

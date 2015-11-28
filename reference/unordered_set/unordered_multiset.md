@@ -207,9 +207,9 @@ int main()
 * begin[link /reference/iterator/begin.md]
 * end[link /reference/iterator/end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link ./unordered_multiset.md]
-* insert[link ./unordered_multiset/insert.md]
-* erase[link ./unordered_multiset/erase.md]
+* unordered_multiset[link unordered_multiset.md]
+* insert[link unordered_multiset/insert.md]
+* erase[link unordered_multiset/erase.md]
 
 ###出力
 ```

@@ -9,7 +9,7 @@ namespace std {
   extern "C" void atomic_signal_fence(memory_order order) noexcept;
 }
 ```
-* memory_order[link ./memory_order.md]
+* memory_order[link memory_order.md]
 
 
 ##概要

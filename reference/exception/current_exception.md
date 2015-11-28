@@ -9,7 +9,7 @@ namespace std {
   exception_ptr current_exception() noexcept;
 }
 ```
-* exception_ptr[link ./exception_ptr.md]
+* exception_ptr[link exception_ptr.md]
 
 ##概要
 現在処理中の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を取得する。

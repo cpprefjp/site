@@ -57,7 +57,7 @@ int main()
 * iterator[link /reference/iterator.md]
 * unordered_set[link /reference/unordered_set.md]
 * copy[link /reference/algorithm/copy.md]
-* end[link ./end.md]
+* end[link end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * begin[color ff0000]
 

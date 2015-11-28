@@ -23,7 +23,7 @@ os << x.template to_string<CharT, Traits, allocator<CharT>>(
         use_facet<ctype<CharT>>(os.getloc()).widen('0'),
         use_facet<ctype<CharT>>(os.getloc()).widen('1'));
 ```
-* to_string[link ./to_string.md]
+* to_string[link to_string.md]
 * allocator[link /reference/memory/allocator.md]
 * use_facet[link /reference/locale/use_facet.md.nolink]
 * ctype[link /reference/locale/ctype.md]

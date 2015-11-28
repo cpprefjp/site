@@ -12,7 +12,7 @@ namespace std {
     -> decltype(std::end(c));
 }
 ```
-* std::end[link ./end.md]
+* std::end[link end.md]
 
 ##概要
 範囲から、最後尾要素の次を指す読み取り専用イテレータを取得する。
@@ -22,7 +22,7 @@ namespace std {
 ```cpp
 return std::end(c);
 ```
-* end[link ./end.md]
+* end[link end.md]
 
 パラメータを`const`で受け取っているので、`std::end()`を経由することで、読み取り専用イテレータを取得している。
 
@@ -48,7 +48,7 @@ int main()
 ```
 * cbegin[color ff0000]
 * std::vector[link /reference/vector.md]
-* cend[link ./cend.md]
+* cend[link cend.md]
 * std::for_each[link /reference/algorithm/for_each.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]

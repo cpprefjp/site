@@ -86,7 +86,7 @@ int main()
 * true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 * hash[link /reference/functional/hash.md]
 * equal_to[link /reference/functional/equal_to.md]
-* swap[link ./swap_free.md]
+* swap[link swap_free.md]
 * get_allocator[color ff0000]
 
 ###出力

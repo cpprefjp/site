@@ -13,8 +13,8 @@ namespace std {
   void atomic_store_explicit(atomic<T>* object, T desired, memory_order order) noexcept;
 }
 ```
-* atomic[link ./atomic.md]
-* memory_order[link ./memory_order.md]
+* atomic[link atomic.md]
+* memory_order[link memory_order.md]
 
 ##概要
 アトミックに値を書き込む

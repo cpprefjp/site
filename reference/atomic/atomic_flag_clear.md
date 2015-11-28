@@ -10,7 +10,7 @@ namespace std {
   void atomic_flag_clear(atomic_flag* object) noexcept;
 }
 ```
-* atomic_flag[link ./atomic_flag.md]
+* atomic_flag[link atomic_flag.md]
 
 ##概要
 アトミックにフラグをクリアする

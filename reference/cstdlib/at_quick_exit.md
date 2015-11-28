@@ -49,7 +49,7 @@ int main()
 ```
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
-* std::quick_exit[link ./quick_exit.md]
+* std::quick_exit[link quick_exit.md]
 
 ###出力
 ```

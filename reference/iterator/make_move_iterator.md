@@ -13,7 +13,7 @@ namespace std {
   move_iterator<Iterator> make_move_iterator(Iterator i);        // C++14
 }
 ```
-* move_iterator[link ./move_iterator.md]
+* move_iterator[link move_iterator.md]
 
 ##概要
 `move_iterator`のヘルパ関数。
@@ -23,7 +23,7 @@ namespace std {
 ```cpp
 return move_iterator<Iterator>(i);
 ```
-* move_iterator[link ./move_iterator.md]
+* move_iterator[link move_iterator.md]
 
 
 ##例
