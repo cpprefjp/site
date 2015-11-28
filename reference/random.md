@@ -186,10 +186,15 @@ int main()
 - C++11
 
 ##参照
+###分布アルゴリズム
 * [さまざまな確率分布 (probability distributions)](http://www.biwako.shiga-u.ac.jp/sensei/mnaka/ut/statdist.html)
 * [確率変数－種々の分布の特徴](https://sites.google.com/site/techdmba/distribution)
+
+###乱数ライブラリの使い方
+* [N3551 Random Number Generation in C++11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)
 * [Pitfalls in Random Number Generation](http://www.codeproject.com/Articles/28548/Pitfalls-in-Random-Number-Generation)
 
+###乱数ライブラリが導入された経緯
 * [N0352 Proposal for Standardization of Random Number Generators in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1993/N0352.asc)
 * [N1398 A Proposal to Add an Extensible Random Number Facility to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1398.html)
 * [N1452 A Proposal to Add an Extensible Random Number Facility to the Standard Library (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1452.html)
@@ -204,7 +209,7 @@ int main()
 * [N2111 Random Number Generation in C++0X: A Comprehensive Proposal, version 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2111.pdf)
 * [N2423 Recommendations for Resolving Issues re \[rand\], Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2423.pdf)
 * [N2424 Recommendations for Resolving the 2007-09-21 Issues re \[rand\]](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2424.pdf)
-* [N3551 Random Number Generation in C++11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)
+
 
 ##編集者向けの参照
 * [乱数分布の図を作る方法](/editors_doc/random_figure.md)
