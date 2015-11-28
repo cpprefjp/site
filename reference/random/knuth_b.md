@@ -38,7 +38,7 @@ Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volu
 ```
 * uint_fast32_t[link /reference/cstdint/uint_fast32_t.md]
 
-[`shuffle_order_engine`](./shuffle_order_engine.md)でバッファリングする要素の数(256) + [`minstd_rand0`](./minstd_rand0.md)の状態(1)。
+[`shuffle_order_engine`](shuffle_order_engine.md)でバッファリングする要素の数(256) + [`minstd_rand0`](minstd_rand0.md)の状態(1)。
 
 
 ##パフォーマンス
