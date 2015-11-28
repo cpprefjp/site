@@ -43,6 +43,10 @@ MINSTDでは、このような問題は発生しない。
 2<sup>31</sup> - 2
 
 
+##サイズ
+`sizeof(uint_fast32_t)`
+
+
 ##シード、および生成される値の型
 [`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md)
 

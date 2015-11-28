@@ -37,6 +37,10 @@ RANLUX法は、0から4までの贅沢さレベル(luxury level)が選択可能�
 10<sup>171</sup>
 
 
+##サイズ
+`12 * sizeof(uint_fast64_t)`
+
+
 ##シード、および生成される値の型
 [`uint_fast64_t`](/reference/cstdint/uint_fast64_t.md)
 
