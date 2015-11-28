@@ -62,6 +62,12 @@ sizeof(uint_fast32_t)
 [`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md)
 
 
+##予測可能性
+生成された値がひとつわかれば、次の値を予測できる。
+
+生成された値をX<sub>n</sub>として、[`linear_congruential_engine`](linear_congruential_engine.md)の計算式に当てはめればよい。
+
+
 ##例
 ```cpp
 #include <iostream>
