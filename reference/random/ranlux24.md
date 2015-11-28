@@ -44,6 +44,10 @@ RANLUX法は、0から4までの贅沢さレベル(luxury level)が選択可能�
 * uint_fast32_t[link /reference/cstdint/uint_fast32_t.md]
 
 
+##パフォーマンス
+[`minstd_rand`](minstd_rand.md)や[`minstd_rand0`](minstd_rand0.md)に比べて、5倍ほど遅い。
+
+
 ##シード、および生成される値の型
 [`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md)
 

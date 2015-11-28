@@ -41,6 +41,12 @@ Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volu
 [`shuffle_order_engine`](./shuffle_order_engine.md)でバッファリングする要素の数(256) + [`minstd_rand0`](./minstd_rand0.md)の状態(1)。
 
 
+##パフォーマンス
+`minstd_rand0`の2〜3倍遅い程度。
+
+詳細は、[`shuffle_order_engine`](shuffle_order_engine.md)ページの動作説明を参照。
+
+
 ##次元
 次元数のトレードオフは、各出力の間(現在の状態と次の状態)の相関関係が、無視できるほどしかないということを意味する。たとえばN次元のランダムなベクトルを生成する場合、各次元の値に相関関係がほぼない状態にできる。
 

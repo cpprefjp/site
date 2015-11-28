@@ -50,6 +50,10 @@ sizeof(uint_fast32_t)
 * uint_fast32_t[link /reference/cstdint/uint_fast32_t.md]
 
 
+##パフォーマンス
+整数に対して、乗算、加算、剰余算を一回ずつ行う
+
+
 ##次元
 次に生成される乱数は現在の乱数に相関関係があるため、2次元以上では一様分布しない。
 
