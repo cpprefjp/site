@@ -42,7 +42,7 @@ Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volu
 
 
 ##パフォーマンス
-`minstd_rand0`の2〜3倍遅い程度。
+[`minstd_rand0`](minstd_rand0.md)の2〜3倍遅い程度。
 
 詳細は、[`shuffle_order_engine`](shuffle_order_engine.md)ページの動作説明を参照。
 
