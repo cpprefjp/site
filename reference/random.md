@@ -2,7 +2,7 @@
 * random[meta header]
 * cpp11[meta cpp]
 
-`<random>`ヘッダは、擬似乱数を取り扱うための乱数生成器 (Random Number Generator) や分布生成器 (Distribution) 、非決定的な乱数生成器、及び関連する一連のクラス・関数を定義する乱数ライブラリである。
+`<random>`ヘッダは、擬似乱数を取り扱うための乱数生成器 (Random Number Generator) や分布生成器 (Distribution) 、非決定的な乱数生成器、および関連する一連のクラス・関数を定義する乱数ライブラリである。
 
 
 ##擬似乱数生成器
