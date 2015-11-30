@@ -12,10 +12,10 @@
 多くのユーザーにとっては、以下に挙げる生の乱数生成器テンプレートクラスそのものよりも、後述するパラメータ定義済みの乱数生成器の型を使用すれば十分である。
 
 | 名前 | 説明 | 対応バージョン |
-|-------------------------------------------------------------------------|-------------------------------|-------|
-| [`linear_congruential_engine `](random/linear_congruential_engine.md) | 線形合同法(class template)             | C++11 |
-| [`mersenne_twister_engine`](random/mersenne_twister_engine.md)        | メルセンヌツイスター法(class template) | C++11 |
-| [`subtract_with_carry_engine`](random/subtract_with_carry_engine.md)  | キャリー付き減算法(class template)     | C++11 |
+|----------------------------------------------------------------------|-------------------------------|-------|
+| [`linear_congruential_engine`](random/linear_congruential_engine.md) | 線形合同法(class template)             | C++11 |
+| [`mersenne_twister_engine`](random/mersenne_twister_engine.md)       | メルセンヌツイスター法(class template) | C++11 |
+| [`subtract_with_carry_engine`](random/subtract_with_carry_engine.md) | キャリー付き減算法(class template)     | C++11 |
 
 
 ##生成器アダプタ
