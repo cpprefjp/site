@@ -20,13 +20,13 @@ void max_load_factor(float z);          // (2)
 
 
 ##効果
-(1)	なし。
-(2)	引数 `z` を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。
+- (1)	なし。
+- (2)	引数 `z` を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。
 
 
 ##戻り値
-(1)	負荷率（バケットあたりの要素数の平均）の最大値
-(2)	なし
+- (1)	負荷率（バケットあたりの要素数の平均）の最大値
+- (2)	なし
 
 ##例外
 投げない。
@@ -36,16 +36,17 @@ void max_load_factor(float z);          // (2)
 定数。
 
 
-###検証
-[`max_load_factor`](max_load_factor.md) の初期値は 1.0f  
+##備考
+- `max_load_factor` の初期値は1.0 である。  
 
-その状態では、[`bucket_count](bucket_count.md) を超える要素を挿入した場合   
-[`load_factor`](load_factor.md) < [`max_load_factor`](max_load_factor.md) になるよう、バケットが拡張されている  
+- `max_load_factor` はその名前の通り、[`load_factor`](load_factor.md) の最大値（上限）を定義する。  
+	従って、[`insert`](insert.md)、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md) で要素が追加された際、および、[`operator=`](op_assign.md) による [`initializer_list`](/reference/initializer_list.md) からの代入で要素数が増加した際には、[`load_factor`](load_factor.md) が `max_load_factor()` 以下になるように、必要に応じてバケット数が調整される。  
+	なお、`min_load_factor` のようなものはないので、[`erase`](erase.md) で要素が削除された際にも、バケット数の調整は行われない。  
+	（標準では、[`erase`](erase.md) が呼び出された際に、削除された要素を指すイテレータ、および、参照以外は無効にならないと規定されているため、調整できないと思われる）
 
-[`max_load_factor`](max_load_factor.md) を 大きくした場合は  
-[`load_factor`](load_factor.md) < [`max_load_factor`](max_load_factor.md) を満たすよう  
-パケットが縮小された
-
+- (2) の形式では、効果にもある通り引数 `z` は「ヒント」であり、設定も変更される「かもしれない」となっているため、確定的な事は何も無いが、少なくとも [`load_factor`](load_factor.md)`() <= z` が満たされていれば `z` に従って設定されると考えてよいと思われる。  
+	一方、[`load_factor`](load_factor.md)`() > z` の場合、単純に無視するか [`load_factor`](load_factor.md)`()` に設定するのが適切と思われるが、`z` をそのまま設定する実装もある。  
+	なお、計算量が定数であることからわかるように、いずれの場合でもリハッシュ（バケット数の調整）は行われない（はずだが、[`load_factor`](load_factor.md)`() > z` の場合に [`load_factor`](load_factor.md)`() <= z` を満たすようにリハッシュされる実装も多い）。
 
 
 ##例
@@ -64,11 +65,11 @@ int main()
     m.emplace( n, n );
   }
 
-  std::cout << "current max_load_factor: " << m.max_load_factor() << std::endl;   // (1) 
+  std::cout << "current max_load_factor: " << m.max_load_factor() << std::endl;   // (1)
   std::cout << "current size: " << m.size() << std::endl;
   std::cout << "current bucket_count: " << m.bucket_count() << std::endl;
   std::cout << "current load_factor: " << m.load_factor() << std::endl;
-  std::cout  << std::endl;
+  std::cout << std::endl;
 
   // 初期化
   m.clear();
@@ -80,7 +81,7 @@ int main()
     m.emplace( n, n );
   }
 
-  std::cout << "new max_load_factor: " << m.max_load_factor() << std::endl; 
+  std::cout << "new max_load_factor: " << m.max_load_factor() << std::endl;
   std::cout << "new size: " << m.size() << std::endl;
   std::cout << "new bucket_count: " << m.bucket_count() << std::endl;
   std::cout << "new load_factor: " << m.load_factor() << std::endl;
@@ -88,6 +89,17 @@ int main()
   return 0;
 }
 ```
+* <iostream>[link ../../iostream.md]
+* <unordered_map>[link ../../unordered_map.md]
+* unordered_map[link ../unordered_map.md]
+* max_load_factor[color ff0000]
+* load_factor[link load_factor.md]
+* size[link size.md]
+* bucket_count[link bucket_count.md]
+* emplace[link emplace.md]
+* clear[link clear.md]
+* cout[link ../../iostream/cout.md]
+* endl[link ../../ostream/endl.md]
 
 ###出力例(MSVC-11.0)
 ```
@@ -105,12 +117,12 @@ new load_factor: 1.125
 ###検証
 [`max_load_factor`](max_load_factor.md) の初期値は 1.0f  
 
-その状態では、[`bucket_count](bucket_count.md) を超える要素を挿入した場合   
+その状態では、[`bucket_count`](bucket_count.md) を超える要素を挿入した場合   
 [`load_factor`](load_factor.md) < [`max_load_factor`](max_load_factor.md) になるよう、バケットが拡張されている  
 
 [`max_load_factor`](max_load_factor.md) を 大きくした場合は  
 [`load_factor`](load_factor.md) < [`max_load_factor`](max_load_factor.md) を満たすよう  
-パケットが縮小された
+バケットが縮小された
 
 
 
