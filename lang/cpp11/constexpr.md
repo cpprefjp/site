@@ -99,7 +99,7 @@ int main()
 - `main()`関数は、`constexpr`関数として定義できない
 - `throw`文は書けるが、それがコンパイル時に評価された場合には、プログラムは不適格となる。
 
-    ```cpp
+```cpp
 // コンパイル時にtrueを渡すと、コンパイルエラーになる
 constexpr int f(bool b)
 { return b ? throw -1 : 0; }
@@ -159,6 +159,27 @@ C++11段階の標準ライブラリでも、そのような機能は標準では
 - [Sprout.String - constexpr 文字列クラス - ボレロ村上 - ENiyGmaA Code](http://boleros.hateblo.jp/entry/20110926/1318115291)
 
 `constexpr`で文字列が扱えることにより、`printf()`のフォーマット文字列や、正規表現の間違いをコンパイル時に検出することができるようになる。
+
+
+###コンパイル時再帰回数
+
+コンパイラによっては、コンパイルオプションでコンパイル時における`constexpr`関数の再帰回数の上限を設定できる。
+
+GCCとClangでは、`-fconstexpr-depth=`オプションで設定できる：
+
+```
+g++ main.cpp -fconstexpr-depth=1024
+```
+
+MSVC 14.0では、`/constexpr:depth`オプションで設定できる：
+
+```
+cl.exe /constexpr:depth1024 main.cpp
+```
+
+ここの`1024`を任意の値に変更することで、再帰回数の上限を設定できる。
+
+GCC 5.2、Clang 3.7、MSVC 14.0時点で、3つともデフォルトは512回。
 
 
 ##この機能が必要になった背景・経緯
