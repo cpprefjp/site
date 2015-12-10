@@ -127,4 +127,5 @@ auto main() -> int
 ##参照
 - [N3651 Variable Templates (Revision 1)](http://open-std.org/JTC1/SC22/WG21/docs/papers/2013/n3651.pdf)
 - [Trip Report: ISO C++ Spring 2013 Meeting](https://isocpp.org/blog/2013/04/trip-report-iso-c-spring-2013-meeting)
+- [変数テンプレートをラムダ式でキャプチャするときの注意 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/2014/01/21/162701)
 
