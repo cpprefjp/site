@@ -39,6 +39,46 @@ struct F {
 | `[this]`       | `*this`のメンバを参照して、ラムダ式のなかで使用する |
 | `[this, x]`    | `*this`のメンバを参照し、変数`x`のみコピーして、ラムダ式のなかで使用する |
 
+```cpp
+#include <iostream>
+
+// コピーキャプチャの例
+void copy_capture_example()
+{
+  int a = 0;
+  auto f = [a] { return a; }; // 変数aをコピーキャプチャする
+
+  a = 1;
+
+  // ラムダ式を定義した時点での変数aがコピーされ、使用されるので、
+  // ラムダ式のなかでは、変数aの値は0となる
+  int result = f(); // result == 0
+  std::cout << result << std::endl;
+}
+
+// 参照キャプチャの例
+void reference_capture_example()
+{
+  int a = 0;
+  auto f = [&a] { return a; }; // 変数aを参照キャプチャする
+  
+  a = 1;
+
+  // 参照キャプチャした変数は、ラムダ式を実行する時点での値となるので、
+  // ラムダ式のなかでは、変数aの値は1となる
+  int result = f(); // result == 1
+  std::cout << result << std::endl;
+}
+
+int main()
+{
+  copy_capture_example();
+  reference_capture_example();
+}
+```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
 デフォルトのキャプチャ方法はひとつしか指定できない。変数個別のキャプチャ方法は、カンマ区切りで複数指定できる。
 
 コピーキャプチャによる変数のコピーは、ラムダ式によって関数オブジェクトを定義した時点で行われる。
