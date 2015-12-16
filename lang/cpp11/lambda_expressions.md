@@ -213,6 +213,20 @@ result : 8
 
 ラムダ式がデフォルト引数に現れる場合、いかなるキャプチャもしてはならない。
 
+パラメータパックを個別キャプチャする際は、`...`で展開する。
+
+```cpp
+template <class... Args>
+void bar(Args...) {}
+
+template <class... Args>
+void foo(Args... args)
+{
+  auto f = [args...] { bar(args...); };
+  f();
+}
+```
+
 
 (執筆中)
 
