@@ -63,7 +63,6 @@ void g()
 
 ##仕様
 ### <a name="syntax" href="#syntax">構文</a>
-
 ```
 [キャプチャリスト](パラメータリスト) mutable 例外仕様 属性 -> 戻り値の型 { 関数の本体 }
 ```
@@ -229,7 +228,7 @@ void foo(Args... args)
 ```
 
 
-### <a name"parameter-constraints" href="#parameter-constraints">パラメータリストの制限</a>
+### <a name="parameter-constraints" href="#parameter-constraints">パラメータリストの制限</a>
 ラムダ式のパラメータには、テンプレートは使用できない。そのため、具体的な型を指定する必要がある。
 
 
