@@ -241,7 +241,7 @@ void foo()
   void f2(int = ([i]{ return 0; })()); // コンパイルエラー
   void f3(int = ([=]{ return x; })()); // コンパイルエラー
   void f4(int = ([=]{ return 0; })()); // OK : デフォルトキャプチャしたが、使用していない
-  void f5(int = ([]{ return sizeof x; })()); // OK : キャプチャなし
+  void f5(int = ([]{ return sizeof(x); })()); // OK : キャプチャなし
 }
 ```
 
