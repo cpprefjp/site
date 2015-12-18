@@ -280,6 +280,41 @@ int rate = 2;
 ```
 
 
+### <a name="return-type-deduction" href="#return-type-deduction">戻り値型の推論</a>
+戻り値の型を省略した場合、その戻り値型は、関数本体の`return`文から推論される。
+
+`return`文がない場合、戻り値の型は`void`になる。
+
+`return`文がある場合は、`return`文に指定した式の型に対して、[左辺値から右辺値への変換、配列からポインタへの変換、関数から関数ポインタへの変換](/reference/type_traits/decay.md)を適用した型が戻り値の型となり、複数の`return`文がある場合には[それらの式に共通する型](/reference/type_traits/common_type.md)が戻り値の型となる。
+
+複数の`return`文があり、それらに共通する型がない場合、もしくは`return`文に式以外が指定された場合、プログラムは不適格となる。
+
+```cpp
+int main()
+{
+  auto f1 = []{};            // 戻り値の型はvoid
+  auto f2 = []{ return 1; }; // 戻り値の型はint
+
+  auto f3 = [] {
+    static int ar[3] = {1, 2, 3};
+    return ar;
+  }; // 戻り値の型はint*
+
+  auto f4 = [] {
+    int x = 3;
+    const int& cx = x;
+
+    if (true)
+      return x;
+    else
+      return cx;
+  }; // 戻り値の型は、intとconst int&の共通の型であるint
+
+  // コンパイルエラー： {1, 2}は式ではない(std::initializer_listには推論されない)
+  // auto f5 = [] { return {1, 2}; };
+}
+```
+
 (執筆中)
 
 ##参照
@@ -300,4 +335,5 @@ int rate = 2;
 - [N2957 Reaching Scope of Lambda Expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2957.html)
 - [N3043 Converting Lambdas to Function Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3043.html)
 - [N3052 Converting Lambdas to Function Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3052.html)
+- [CWG Issue 975. Restrictions on return type deduction for lambdas](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#975)
 
