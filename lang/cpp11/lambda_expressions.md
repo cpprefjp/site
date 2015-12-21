@@ -315,6 +315,34 @@ int main()
 }
 ```
 
+
+### <a name="convert-to-function-pointers" href="#convert-to-function-pointers">関数ポインタへの変換</a>
+キャプチャを含まない(つまり状態を持たない)ラムダ式は、同じパラメータ型と戻り値型のシグニチャを持つ関数ポインタに変換できる。
+
+```cpp
+#include <iostream>
+
+void foo(int(*fp)(int, int))
+{
+  int result = fp(2, 3);
+  std::cout << result << std::endl;
+}
+
+int main()
+{
+  foo([](int a, int b) { return a + b; });
+}
+```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+出力 :
+
+```
+5
+```
+
+
 (執筆中)
 
 ##参照
