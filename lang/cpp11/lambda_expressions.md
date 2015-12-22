@@ -343,7 +343,84 @@ int main()
 ```
 
 ##例
-(執筆中)
+###アルゴリズムの引数として関数を渡す
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main()
+{
+  std::vector<int> v = {1, 2, 3, 4, 5};
+
+  // 条件一致する最初の要素を検索する
+  decltype(v)::iterator it = std::find_if(
+                               v.begin(),
+                               v.end(),
+                               [](int x) { return x % 2 == 0; }
+                             );
+
+  // 見つかった
+  if (it != v.end()) {
+    int found_value = *it;
+    std::cout << found_value << std::endl;
+  }
+}
+```
+* std::vector[link /reference/vector.md]
+* std::find_if[link /reference/algorithm/find_if.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+####出力
+```
+2
+```
+
+###処理が完了したことが通知されるハンドラを引数として渡す
+```cpp
+#include <iostream>
+#include <functional>
+
+void proc(std::function<void()> on_complete)
+{
+  // …時間のかかる処理…
+  for (int i = 0; i < 10; ++i) {
+    std::cout << i << std::endl;
+  }
+
+  // 完了ハンドラを呼び出す
+  on_complete();
+}
+
+int main()
+{
+  // 処理が完了したときに呼ばれる関数を指定する
+  proc([] {
+    std::cout << "complete" << std::endl;
+  });
+}
+```
+* std::function[link /reference/functional/function.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+####出力
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+complete
+```
 
 
 ##この機能が必要になった背景・経緯
