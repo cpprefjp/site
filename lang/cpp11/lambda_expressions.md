@@ -533,6 +533,12 @@ for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
 なお、C++11時点のラムダ式はテンプレートを扱えないが、これはコンパイラの実装が難しい、という理由での見送りである。
 
 
+##関連項目
+- [C++11 ローカルクラスと無名クラスを、テンプレート引数として使用することを許可](local_and_anonymous_class_as_template_arguments.md.nolink)
+- [C++14 ジェネリックラムダ](/lang/cpp14/generic_lambdas.md.nolink)
+- [C++14 ラムダ式の初期化キャプチャ](/lang/cpp14/initialize_capture.md.nolink)
+
+
 ##参照
 - [N1958 A proposal to add lambda functions to the C++ standard](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1958.pdf)
 - [N1968 Lambda expressions and closures for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1968.pdf)
