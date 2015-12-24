@@ -2,7 +2,7 @@
 * cpp14[meta cpp]
 
 ##概要
-ジェネリックラムダは、[C++11のラムダ式](/lang/cpp11/lambda_expressions.md)を拡張して、パラメータにテンプレートを使用できるようにした機能である。
+ジェネリックラムダ(generic lambdas)は、[C++11のラムダ式](/lang/cpp11/lambda_expressions.md)を拡張して、パラメータにテンプレートを使用できるようにした機能である。
 
 ```cpp
 auto plus = [](auto a, auto b) { return a + b; };
