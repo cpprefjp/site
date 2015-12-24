@@ -69,7 +69,7 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
 
 ###備考
 - GCC は 4.9.x までは C++11 モードでも [`system_error`](../../system_error/system_error.md) を継承していないので、注意が必要である。
-- GCC 5.1.0 以降は現時点では `_GLIBCXX_USE_CXX11_ABI` マクロが `0` の場合（通常のビルドでは `1` がデフォルト）、C++03 モードでも C++11 モードでもライブラリ内から送出された例外を [`ios_base`](../ios_base.md)`::failure` 型では `catch` できない。  
+- GCC 5.1.0 以降は現時点では `_GLIBCXX_USE_CXX11_ABI` マクロが `1` の場合（通常のビルドでは `1` がデフォルト）、C++03 モードでも C++11 モードでもライブラリ内から送出された例外を [`ios_base`](../ios_base.md)`::failure` 型では `catch` できない。  
     [`exception`](../../exception/exception.md) 型であれば `catch` することができるが、いずれにせよストリーム系の例外とそれ以外の例外を区別することができなくなってしまう。  
     したがって、少なくともこの問題が解決されるまでは、`_GLIBCXX_USE_CXX11_ABI` マクロを `0` にする他ないだろう。（C++03 モードにおける [コンストラクタ](failure/op_constructor.md)の事後条件の違いも参照）  
     なお、`_GLIBCXX_USE_CXX11_ABI` マクロを `0` にしてしまうと、4.9.x までと同様、モードにかかわらず [`system_error`](../../system_error/system_error.md) を継承しなくなってしまうので、注意すること。
