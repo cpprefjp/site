@@ -24,7 +24,7 @@ auto operator()(T1 a, T2 b) const
 - `auto`は、型をテンプレートパラメータにするためのプレースホルダーである。
 - ラムダ式のパラメータに`auto`を指定し、`[](auto x) {}`のように記述した場合、以下のような関数オブジェクトが生成される：
 
-```cpp
+    ```cpp
 struct F {
   template <class T>
   auto operator()(T x) const {}
@@ -33,11 +33,11 @@ struct F {
 
 - 複数のパラメータ型をそれぞれ`auto`に指定した場合、各パラメータは異なるテンプレートパラメータが割り当てられる：
 
-```cpp
+    ```cpp
 auto f = [](auto a, auto b) {}
 ```
 
-```cpp
+    ```cpp
 struct F {
   template <class T1, class T2>
   auto operator()(T1 a, T2 b) const {}
@@ -46,19 +46,19 @@ struct F {
 
 - ラムダ式に指定する`auto`は、テンプレートと同様に、`const`、`volatile`、参照、ポインタといった修飾ができる：
 
-```cpp
+    ```cpp
 auto plus = [](const auto& a, const auto& b) { return a + b; };
 ```
 
 - 関数テンプレートと違い、ラムダ式の`auto`パラメータは、パラメータのテンプレートパラメータを推論する目的には使用できない：
 
-```cpp
+    ```cpp
 auto f = [](std::vector<auto> a) {}; // コンパイルエラー
 ```
 
 - キャプチャを含まないジェネリックラムダは、関数ポインタへの変換演算子を持つ。変換先の関数ポインタは、パラメータ型を推論した結果のラムダ式のシグニチャと、完全に一致しなければならない：
 
-```cpp
+    ```cpp
 int(*fp1)(int) = [](auto x) { return x; }; // OK
 char(*fp2)(int) = [](auto x) { return x; }; // コンパイルエラー
 ```
