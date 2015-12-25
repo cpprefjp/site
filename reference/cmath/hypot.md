@@ -73,6 +73,6 @@ hypot(+∞, NaN)  = inf
 
 
 ##実装例
-`sqrt` があれば、以下のように変換しても求められる。
+`abs` と `sqrt` があれば、以下のように変換しても求められる。
 
-$$ \sqrt{x^2 + y^2} = u \sqrt{1 + \left(\frac{v}{u}\right)^2} \quad \mathrm{for~all} \; (x, y), \; u = \max(x, y), \; v = \min(x, y) $$
+$$ \sqrt{x^2 + y^2} = \abs{u} \sqrt{1 + \left(\frac{v}{u}\right)^2} \quad \mathrm{for~all} \; (x, y), \; u = \max(x, y), \; v = \min(x, y) $$
