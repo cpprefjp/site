@@ -33,4 +33,5 @@ hello world
 
 ##参照
 - [N1653 Working draft changes for C99 preprocessor synchronization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1653.htm)
+- [WG14/N951 String literals and concatenation](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n951.htm)
 
