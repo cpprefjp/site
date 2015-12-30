@@ -54,7 +54,6 @@ int main()
 ##関連項目
 - [`LLONG_MIN`](/reference/climits/llong_min.md)
 - [`LLONG_MAX`](/reference/climits/llong_max.md)
-- [`ULLONG_MIN`](/reference/climits/ullong_min.md)
 - [`ULLONG_MAX`](/reference/climits/ullong_max.md)
 
 
