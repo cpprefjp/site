@@ -62,7 +62,7 @@ int main()
 - [`int_least64_t`](/reference/cstdint/int_least64_t.md)
 - [`uint64_t`](/reference/cstdint/uint64_t.md)
 - [`uint_fast64_t`](/reference/cstdint/uint_fast64_t.md)
-- [`uint_least64_t`](cstdint/uint_least64_t.md)
+- [`uint_least64_t`](/reference/cstdint/uint_least64_t.md)
 
 
 ##参照
