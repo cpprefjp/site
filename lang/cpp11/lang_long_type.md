@@ -26,6 +26,8 @@ C99互換として、`long long`整数型が追加された。
 - 最大の整数型を表す[`intmax_t`](/reference/cstdint/intmax_t.md)が`long long`の別名になり、[`uintmax_t`](/reference/cstdint/uintmax_t.md)が`unsigned long long`の別名になった。
 - その他、入出力や数学の関数にも、`long long`型のサポートが追加された。
 
+`long long`は64ビット以上の幅であることが保証されるが、64ビット固定の整数型が必要な場合には、[`int64_t`](/reference/cstdint/int64_t.md)型を使用することを推奨する。たとえばシリアライズの際には、ビット幅が固定の整数型を使用すれば、異なるプラットフォームでもデシリアライズできる。
+
 
 ##例
 ```cpp
@@ -55,6 +57,12 @@ int main()
 - [`LLONG_MIN`](/reference/climits/llong_min.md)
 - [`LLONG_MAX`](/reference/climits/llong_max.md)
 - [`ULLONG_MAX`](/reference/climits/ullong_max.md)
+- [`int64_t`](/reference/cstdint/int64_t.md)
+- [`int_fast64_t`](/reference/cstdint/int_fast64_t.md)
+- [`int_least64_t`](/reference/cstdint/int_least64_t.md)
+- [`uint64_t`](/reference/cstdint/uint64_t.md)
+- [`uint_fast64_t`](/reference/cstdint/uint_fast64_t.md)
+- [`uint_least64_t`](cstdint/uint_least64_t.md)
 
 
 ##参照
