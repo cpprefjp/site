@@ -65,6 +65,8 @@ int main()
   S().print();
 }
 ```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力例
 ```
