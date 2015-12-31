@@ -72,6 +72,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [定義済みマクロ](cpp11/c99_predefined_macros.md) | C99互換で導入された定義済みマクロ |
 | [文字列リテラルとワイド文字列リテラルの結合](cpp11/string_literal_concatenation.md) | ワイド文字列定数として結合する |
 | [`long long`型](cpp11/long_long_type.md) | 64ビット以上の大きさを持つ整数型 |
+| [事前定義識別子`__func__`](cpp11/func.md) | 現在いる関数名が格納されている識別子 |
 
 
 ##ライブラリ更新の概要
