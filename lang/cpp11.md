@@ -61,9 +61,13 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [更新された定義済みマクロ](cpp11/predefined_macros.md) | 標準規格で定義されたマクロの更新 |
 | [テンプレート再帰回数の制限緩和](cpp11/recursive_template_limit.md) | 17回から1024回に制限緩和 |
 | [依存名に対する`typename`と`template`の制限緩和](cpp11/dependent_name_specifier_outside_of_templates.md) | テンプレート外でも`typename`と`template`を付けられるようになった |
+| [列挙子の末尾へのカンマ付加を許可](cpp11/trailing_comma_following_enumerator_list.md) | 末尾の列挙子の後ろにカンマを書くことが許可された |
 
 
 ###C99互換機能
+C99は、1999年に改訂され、ISO/IEC 9899:1999で標準規格化されたC言語バージョンの通称である。
+
+C++11では、参照するC言語の規格がC89からC99に変更となり、C99の言語機能が一部、C++に導入された。
 
 | 言語機能       | 説明 |
 |----------------|------|
