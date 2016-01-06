@@ -33,17 +33,38 @@ C99互換として、可変引数マクロ(variadic macros)が導入された。
 #include <cstdio>
 
 // 可変個のパラメータを受け取り、std::printf()関数の引数として転送する
+// 第1パラメータは必須。
+// 第1パラメータのうしろにカンマがあるので、第2パラメータも必須。
 #define DEBUG_LOG(fmt, ...) std::printf(fmt, __VA_ARGS__)
+
+// 受け取ったパラメータを展開する
+// 0個以上の、任意の個数のパラメータを受け取れる
+#define FORWARD_ARGS(...) __VA_ARGS__
+
+void f1(int a, int b, int c)
+{
+  std::printf("f1 : %d %d %d\n", a, b, c);
+}
+
+void f2()
+{
+  std::printf("f2\n");
+}
 
 int main()
 {
-  DEBUG_LOG("%s %d", "Hello", 42);
+  DEBUG_LOG("%s %d\n", "Hello", 42);
+
+  f1(FORWARD_ARGS(1, 2, 3)); // 引数3個
+  f2(FORWARD_ARGS());        // 引数0個
 }
 ```
 
 ###出力
 ```
 Hello 42
+f1 : 1 2 3
+f2
 ```
 
 ##参照
