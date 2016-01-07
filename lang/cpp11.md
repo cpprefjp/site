@@ -63,7 +63,6 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [更新された定義済みマクロ](cpp11/predefined_macros.md) | 標準規格で定義されたマクロの更新 |
 | [テンプレート再帰回数の制限緩和](cpp11/recursive_template_limit.md) | 17回から1024回に制限緩和 |
 | [依存名に対する`typename`と`template`の制限緩和](cpp11/dependent_name_specifier_outside_of_templates.md) | テンプレート外でも`typename`と`template`を付けられるようになった |
-| [列挙子の末尾へのカンマ付加を許可](cpp11/trailing_comma_following_enumerator_list.md) | 末尾の列挙子の後ろにカンマを書くことが許可された |
 
 
 ###C99互換機能
@@ -79,6 +78,7 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 | [文字列リテラルとワイド文字列リテラルの結合](cpp11/string_literal_concatenation.md) | ワイド文字列定数として結合する |
 | [`long long`型](cpp11/long_long_type.md) | 64ビット以上の大きさを持つ整数型 |
 | [事前定義識別子`__func__`](cpp11/func.md) | 現在いる関数名が格納されている識別子 |
+| [列挙子の末尾へのカンマ付加を許可](cpp11/trailing_comma_following_enumerator_list.md) | 末尾の列挙子の後ろにカンマを書くことが許可された |
 
 
 ##ライブラリ更新の概要
