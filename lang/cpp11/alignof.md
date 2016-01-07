@@ -76,7 +76,7 @@ N2341 からはわからない、恐らくないと思われる。
 
 
 ##関連項目
-- [`alignof`](/lang/cpp11/alignof.md)
+- [`alignas`](/lang/cpp11/alignas.md)
 - [`std::max_align_t`](/reference/cstddef/max_align_t.md)
 
 
