@@ -10,7 +10,7 @@
 | [`ptrdiff_t`](cstddef/ptrdiff_t.md) | ポインタの差演算の結果 | |
 | [`size_t`](cstddef/size_t.md)       | 符号なし整数型         | |
 | [`nullptr_t`](cstddef/nullptr_t.md) | ヌルポインタの型       | C++11 |
-| `max_align_t`                         | 最大のアライメントを要求する型 | C++11 |
+| [`max_align_t`](cstddef/max_align_t.md) | 最大のアライメントを要求する型 | C++11 |
 
 
 ##関数マクロ
