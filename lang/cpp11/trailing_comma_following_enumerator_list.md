@@ -12,6 +12,7 @@ enum列挙型の構文が、以下のようになった：
 enum identifier opt { enumerator-list opt }
 enum identifier opt { enumerator-list , } // 追加
 ```
+* opt[italic]
 
 従来からある1行目の読み方は、以下のようになる：
 
