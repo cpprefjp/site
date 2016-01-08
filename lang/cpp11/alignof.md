@@ -30,9 +30,6 @@ struct hoge {
 };
 
 struct empty {
-  char c[63];
-  short s;
-  double i;
 };
 
 int main()
@@ -62,7 +59,7 @@ char:              1
 int:               4
 double:            8
 struct hoge:       4
-struct empty:      4
+struct empty:      1
 char *:            4
 ```
 
