@@ -6,7 +6,7 @@
 
 範囲for文が便利な例として、コンテナの各要素を処理するループを挙げる。
 
-C++03のfor文では以下のように書いていた：
+C++03のfor文では以下のように書ける：
 ```cpp
 std::vector<int> vec;
 
@@ -16,14 +16,26 @@ for (std::vector<int> it = vec.begin(); it != vec.end(); ++it) {
 ```
 ループ内の処理と直接関係のない変数（イテレータやポインタ）が出現し、ループ条件も加わりfor文が長くなりがちである。
 
-範囲for文を使うと以下のように書ける：
+C++11の範囲for文を使うと以下のように書ける：
 ```cpp
 std::vector<int> vec;
 
-for (auto& e : vec) {
+for (const auto& e : vec) {
   std::cout << e << std::endl;
 }
 ```
+
+変数宣言には直接コンテナ内の要素の型（上記の例であれば`const int& e`など）を書いても良いし、型推論[`auto`][auto]を使うと、さらに簡潔に書ける。
+
+変数宣言にconst参照`const auto& e`を書くとコンテナ内の要素の変更を禁止し、要素のコピーも行わない。参照`auto& e`を書くと、コンテナ内の要素を変更できる。実体`auto e`を書くと各要素がコピーコンストラクタによってコピーされてからfor文に渡される。
+
+| 変数宣言        | e を変更可能か？ | コンテナ内の要素を変更可能か？ |
+|-----------------|------------------|--------------------------------|
+| const auto& e   | No  | No  |
+| auto& e         | Yes | Yes |
+| auto e          | Yes | No  |
+
+[auto]: /lang/cpp11/auto.md
 
 
 ##仕様
@@ -38,12 +50,14 @@ for ( for-range-declaration : for-range-initializer ) statement
 for-range-declarationには変数宣言を書く。ここで宣言した変数に範囲内の要素が先頭から終端まで順番に代入される。
 
 for-range-initializerにはfor文が処理すべき範囲を表す値を書く。
-値の型が配列の場合、配列のサイズが分かるものでなければならない。値の型が配列以外（クラスなど）の場合、`begin()`と`end()`で範囲の先頭と終端が表せるものでなければならない。
+
+値の型が配列の場合、配列のサイズが分かるものでなければエラーとなる。値の型が配列以外（クラスなど）の場合、`begin()`と`end()`で範囲の先頭と終端が表せるものでなければエラーとなる。
 
 語弊を恐れず言えば、メンバ関数に`begin()`および`end()`を持つクラスであれば、何でも範囲for文の範囲として指定できる。
+
 従って標準コンテナのみならず、ユーザ定義のクラスに対しても範囲for文を適用可能である。
 
-従来のfor文と異なりセミコロンではなくコロンで区切るので、記述の際は間違わないように注意。
+C++03のfor文と異なりセミコロンではなくコロンで区切ることに注意する。
 
 
 範囲for文に配列以外の型を範囲として渡したとき、以下のように展開される：
@@ -130,6 +144,9 @@ int main(int argc, char *argv[])
   return 0;
 }
 ```
+* std::vector[link /reference/vector.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -151,8 +168,6 @@ For my_container:
   24
   25
 ```
-
-##関連項目
 
 
 ##参照
