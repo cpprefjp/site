@@ -79,6 +79,8 @@ int main()
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+	- 14.0で`steady_clock`の`typedef`に実装が変更された。これはWindows APIの`QueryPerformanceCounter`関数を使用した実装である。
+		- MSDNライブラリ: [QueryPerformanceCounter](https://msdn.microsoft.com/en-us/library/windows/desktop/ms644904.aspx)
 
 ##参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)

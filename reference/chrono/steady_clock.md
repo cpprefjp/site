@@ -79,6 +79,8 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 	- 11.0, 12.0は逆行が起こり得る、すなわち正しくない実装であった。
+	- 14.0からは、Windows APIの`QueryPerformanceCounter`関数を使用した実装である。
+		- MSDNライブラリ: [QueryPerformanceCounter](https://msdn.microsoft.com/en-us/library/windows/desktop/ms644904.aspx)
 
 ##参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
