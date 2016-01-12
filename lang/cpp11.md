@@ -12,8 +12,8 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 
 | 言語機能       | 説明 |
 |----------------|------|
-| [`alignas`](cpp11/alignas.md) | アラインメント指定 |
-| [`alignof`](cpp11/alignof.md) | アラインメント取得 |
+| [`alignas`](cpp11/alignas.md) | アライメント指定 |
+| [`alignof`](cpp11/alignof.md) | アライメント取得 |
 | `auto`         | 型推論 |
 | `decltype`     | 式の型を取得 |
 | 定義済みマクロ | C++11で更新された定義済みマクロ |

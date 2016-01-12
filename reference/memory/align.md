@@ -12,11 +12,11 @@ namespace std {
 ```
 
 ##概要
-アラインメント調整された領域を得る。
+アライメント調整された領域を得る。
 
 
 ##効果
-範囲`[ptr, ptr + space)`の中に`alignment`バイトでアラインメント調整された領域の`size`バイトに一致するバッファがあるなら、
+範囲`[ptr, ptr + space)`の中に`alignment`バイトでアライメント調整された領域の`size`バイトに一致するバッファがあるなら、
 
 - `ptr`を一致する領域の先頭アドレスへと更新し、
 - `space`から使用したバイト数を減算する。
@@ -39,7 +39,7 @@ int main()
   void* ptr = buffer;
   std::size_t space = sizeof(buffer) - 1;
 
-  // intアラインメントで、intをN個確保。
+  // intアライメントで、intをN個確保。
   std::size_t N = 3;
   if (std::align(alignof(int), sizeof(int) * N, ptr, space)) {
 	std::cout << ptr << " " << space << std::endl;

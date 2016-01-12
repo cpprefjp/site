@@ -13,7 +13,7 @@ pointer allocate(size_type n, allocator<void>::const_pointer hint = 0);
 
 
 ##戻り値
-適切にアラインメント配置された`n * sizeof(T)`サイズのストレージの配列の、最初の要素へのポインタを返す。  
+適切にアライメント配置された`n * sizeof(T)`サイズのストレージの配列の、最初の要素へのポインタを返す。  
 ストレージは、[`::operator new(std::size_t)`](/reference/new/op_new.md)の呼び出しによって取得される。この関数の呼び出し頻度やヒントの扱いは未規定。
 
 

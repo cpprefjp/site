@@ -167,7 +167,7 @@
 | [`<cmath>`](/reference/cmath.md)     | 数学関数                            |                |
 | `<csetjmp>`                          | ジャンプ処理                        |                |
 | `<csignal>`                          | シグナル                            |                |
-| `<cstdalign>`                        | アラインメント操作のマクロ          |                |
+| `<cstdalign>`                        | アライメント操作のマクロ            |                |
 | `<cstdarg>`                          | 可変引数操作                        |                |
 | `<cstdbool>`                         | 真理値型の定義                      | C++11 (C99)    |
 | [`<cstddef>`](/reference/cstddef.md) | 基本的な型、値、マクロの定義        |                |

@@ -196,7 +196,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 ###備考
-- GCC 4.9.2まで、アラインメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修正された。([Bug 65147](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147))
+- GCC 4.9.2まで、アライメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修正された。([Bug 65147](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147))
 
 
 ###参照

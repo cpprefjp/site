@@ -12,8 +12,8 @@
 ##仕様
 - `alignof(型)`は、指定した型のアライメントのサイズを返す。戻り値の型は`std::size_t`である。
 
-もっとも制約の弱い、すなわちアラインメントのサイズが最小となる型は`char`, `signed char`, `unsigned char`であり、
-もっとも制約の強い、すなわちアラインメントのサイズが最大となる型は[`std::max_align_t`][max_align_t]である。
+もっとも制約の弱い、すなわちアライメントのサイズが最小となる型は`char`, `signed char`, `unsigned char`であり、
+もっとも制約の強い、すなわちアライメントのサイズが最大となる型は[`std::max_align_t`][max_align_t]である。
 
 [max_align_t]: /reference/cstddef/max_align_t.md
 

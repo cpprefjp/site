@@ -20,7 +20,7 @@ namespace std {
 * default-alignment[italic]
 
 ##概要
-アラインメント調整された領域を作る。
+アライメント調整された領域を作る。
 
 
 ##要件
@@ -28,10 +28,10 @@ namespace std {
 
 
 ##効果
-`aligned_storage`は、領域サイズ`Len`、アラインメント`Align`で調整した未初期化領域をメンバ型`type`として定義する。  
+`aligned_storage`は、領域サイズ`Len`、アライメント`Align`で調整した未初期化領域をメンバ型`type`として定義する。  
 メンバ型`type`はPOD型となる(参照：[`is_pod`](is_pod.md))。  
 
-`Align`のデフォルト値は、`Len`よりも大きくない、最も厳格なアラインメント要件を持つ、C++の何らかのオブジェクト型のアラインメント値。
+`Align`のデフォルト値は、`Len`よりも大きくない、最も厳格なアライメント要件を持つ、C++の何らかのオブジェクト型のアラインメント値。
 
 
 ##例
@@ -42,8 +42,8 @@ namespace std {
 template <class T, std::size_t Capacity>
 class StackContainer {
   // 長さ：sizeof(T) * Count、
-  // アラインメント：alignof(T)
-  // でアラインメント調整された領域を作る
+  // アライメント：alignof(T)
+  // でアライメント調整された領域を作る
   typename
     std::aligned_storage<sizeof(T) * Capacity, alignof(T)>::type
   storage;

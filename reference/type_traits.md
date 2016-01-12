@@ -97,7 +97,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|---------------------------------------------|-------|
-| [`alignment_of`](type_traits/alignment_of.md) | 型のアラインメントを取得する (class template) | C++11 |
+| [`alignment_of`](type_traits/alignment_of.md) | 型のアライメントを取得する (class template) | C++11 |
 | [`rank`](type_traits/rank.md)     | 配列型の次元数を取得する (class template)   | C++11 |
 | [`extent`](type_traits/extent.md) | 配列型の`i`番目の次元の要素数を取得する (class template) | C++11 |
 
@@ -160,8 +160,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
-| [`aligned_storage`](type_traits/aligned_storage.md) | アラインメント調整された領域を作る (class template) | C++11 |
-| [`aligned_union`](type_traits/aligned_union.md) | アラインメント調整された共用体領域を作る (class template) | C++11 |
+| [`aligned_storage`](type_traits/aligned_storage.md) | アライメント調整された領域を作る (class template) | C++11 |
+| [`aligned_union`](type_traits/aligned_union.md) | アライメント調整された共用体領域を作る (class template) | C++11 |
 | [`decay`](type_traits/decay.md) | 配列と関数ポインタに関して、関数テンプレートと同様に推論された型を取得する (class template) | C++11 |
 | [`enable_if`](type_traits/enable_if.md) | コンパイル時条件式が真の場合のみ有効な型 (class template) | C++11 |
 | [`conditional`](type_traits/conditional.md) | コンパイル時条件式 (class template) | C++11 |
