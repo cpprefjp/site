@@ -44,38 +44,32 @@ namespace chrono {
 
 ##例
 ```cpp
-#include <iostream>
 #include <chrono>
-#include <ctime>
+#include <iostream>
+#include <thread>
 
 using namespace std::chrono;
 
 int main()
 {
-  // 現在日時を取得
-  high_resolution_clock::time_point p = high_resolution_clock::now();
+  // 1. 現在日時を取得
+  high_resolution_clock::time_point begin = high_resolution_clock::now();
 
-  // エポックからの経過時間を取得
-  auto d = p.time_since_epoch();
-  std::time_t time = duration_cast<seconds>(d).count();
-  std::tm* st = std::localtime(&time);
+  // 2. 時間のかかる処理...
+  std::this_thread::sleep_for(seconds(3));
 
-  // 現在日時を出力(小数点以下の秒まで)
-  std::cout
-        << st->tm_year + 1900 << "/"
-        << st->tm_mon + 1 << "/"
-        << st->tm_mday << " "
-        << st->tm_hour << ":"
-        << st->tm_min << ":"
-        << st->tm_sec << "."
-        << d.count() % decltype(d)::period::den
-  << std::endl;
+  // 3. 現在日時を再度取得
+  high_resolution_clock::time_point end = high_resolution_clock::now();
+
+  // 経過時間を取得
+  seconds elapsed_time = duration_cast<seconds>(end - begin);
+  std::cout << elapsed_time.count() << "秒" << std::endl;
 }
 ```
 
 ###出力例
 ```
-2012/10/16 15:51:29.380248
+3秒
 ```
 
 ##バージョン
