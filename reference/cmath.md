@@ -248,3 +248,7 @@
 | `MATH_ERREXCEPT`                          | 整数定数 2 | C++11 |
 | `math_errhandling`                        | `MATH_ERRNO`、`MATH_ERREXCEPT`、または両方のビットORに展開される `int` 型の式 | C++11 |
 
+
+##参照
+- [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
+

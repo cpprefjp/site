@@ -168,5 +168,6 @@ C99 の 7.18.3 `<stdint.h>` についての脚注で、同ヘッダを C++ で�
 
 
 ##参照
+- [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
 - [N1835 `<stdint.h>` for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1835.pdf)
 
