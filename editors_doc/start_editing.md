@@ -58,6 +58,11 @@ Markdownの記述方法をわかりやすく解説してくれているWebサイ
 * [Markdown記法 チートシート](http://qiita.com/Qiita/items/c686397e4a0f4f11683d)
 * [文章作成やメモ書きにも便利、Markdown記法](http://kojika17.com/2013/01/starting-markdown.html)
 
+ただし、cpprefjp特有の拡張構文もあります。
+以下のページにまとめてあるので、そちらを参照して下さい。
+
+* [cpprefjp特有の拡張構文](/editors_doc/specialized.md)
+
 
 Markdown形式では、htmlのタグも併用できますが、cpprefjpサイトでは積極的にはhtmlタグを使用しない方針です。できるだけ、Markdown形式でできる範囲内で解決するようにしてください。
 
