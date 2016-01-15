@@ -43,7 +43,7 @@ decltype(auto) f(int& r)
 
 
 ##関連項目
-- [C++11 戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md.nolink)
+- [C++11 戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)
 
 
 ##参照
