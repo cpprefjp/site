@@ -48,7 +48,10 @@ int main() {}
 ###処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
+	- 9.0には、名前空間`std::tr1`に同じ効果の`add_reference`が存在する。
+	- 10.0～12.0にも、名前空間`std`および`std::tr1`に`add_reference`が存在する。
+	- `add_cv_t`は12.0から
 
 
 ##参照
