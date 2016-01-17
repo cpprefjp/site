@@ -10,7 +10,7 @@ namespace std {
             class... Types>
   struct aligned_union {
     typedef … type;
-	static constexpr std::size_t alignment_value = …;
+    static constexpr std::size_t alignment_value = …;
   };
 
   template <std::size_t Len, class... Types>
@@ -72,7 +72,10 @@ hello
 ###処理系
 - [Clang](/implementation.md#clang): 3.3
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
+	- 11.0は、`alignment_value`が定義されていない。
+	- 11.0は、可変引数テンプレートに対応していないため、不完全な実装である。
+	- `aligned_union_t`は12.0から
 
 
 ##参照

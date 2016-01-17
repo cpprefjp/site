@@ -97,7 +97,10 @@ int main()
 ###処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.4
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
+	- Visual C++ 10.0までは、`Align`のデフォルト実引数が定義されていない。
+	- Visual C++ 11.0からは、`Align`のデフォルト実引数は`std::alignment_of<max_align_t>::value`と定義されている。
+	- `aligned_storage_t`はVisual C++ 12.0から
 
 
 ##参照
