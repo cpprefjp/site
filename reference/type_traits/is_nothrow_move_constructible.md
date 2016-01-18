@@ -90,6 +90,8 @@ int main() {}
 ###処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+	- 11.0は、すべてのクラス型において`true_type`になるかのような挙動を示した。上記例のクラス`C`の場合に、`true_type`となった。
 
 
 ##関連項目
