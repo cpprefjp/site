@@ -55,6 +55,26 @@ int f(); // コンパイルエラー : 再宣言に別な関数宣言構文を�
 関数テンプレートの明示的な特殊化とインスタンス化の場合も、同じ関数宣言構文を使用する必要がある。
 
 
+###複数個のreturn文
+複数の`return`文がある場合には[それらの式に共通する型](/reference/type_traits/common_type.md)が戻り値の型となる。
+
+複数の`return`文があり、それらに共通する型がない場合、もしくは`return`文に式以外が指定された場合、プログラムは不適格となる。
+
+```cpp
+// 戻り値の型は、intとconst int&の共通の型であるint
+auto f()
+{
+  int x = 3;
+  const int& cx = x;
+
+  if (true)
+    return x;
+  else
+    return cx;
+}
+```
+
+
 (執筆中)
 
 ##例
