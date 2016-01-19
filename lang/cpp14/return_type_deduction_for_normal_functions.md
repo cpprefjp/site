@@ -75,6 +75,44 @@ auto f()
 ```
 
 
+###再帰
+戻り値の型を推論する関数宣言構文は、再帰を許可する：
+
+```cpp
+auto sum(int i) {
+  if (i == 1)
+    return i;            // 戻り値の型がintに推論される
+  else
+    return sum(i-1) + i; // OK : まだ戻り値の型が確定はしていない
+}
+```
+
+ただし、戻り値の型が確定しない再帰は許可しない：
+
+```cpp
+auto h() { return h(); } // コンパイルエラー
+```
+
+相互再帰は許可しない。
+
+```cpp
+// パラメータnが偶数か奇数かを判定する関数
+// お互いの関数が、お互いの実装を使用する
+auto is_even(int n);
+auto is_odd(int n);
+
+auto is_even(int n)
+{
+  return n == 0 ? true : is_odd(n - 1); // コンパイルエラー : 戻り値の型を推論できない
+}
+
+auto is_odd(int n)
+{
+  return n == 0 ? false : is_even(n - 1); // コンパイルエラー : 戻り値の型を推論できない
+}
+```
+
+
 (執筆中)
 
 ##例
