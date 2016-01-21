@@ -165,7 +165,7 @@ auto& f()
 ##関連項目
 - [C++11 戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)
 - [`decltype(auto)`](cpp14/decltype_auto.md.nolink)
-- [後ろに付く戻り値型をプレースホルダーにすることを許可](cpp14/placeholder_type_in_trailing_return_type.md.nolink)
+- [後置戻り値型をプレースホルダーにすることを許可](cpp14/placeholder_type_in_trailing_return_type.md.nolink)
 
 
 ##参照
