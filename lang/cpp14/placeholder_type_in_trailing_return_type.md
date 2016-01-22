@@ -44,7 +44,7 @@ int main()
 
 
 ##この機能が必要になった背景・経緯
-`decltype(auto)`は、C++14で導入された「[通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)」の機能で、参照の変数を参照のまま`return`文で返せるようにするために導入された。
+この機能は、C++14で導入された「[通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)」の機能で、戻り値の型推論を補助するために導入された。
 
 
 ##関連項目
