@@ -161,17 +161,54 @@ auto& f()
 これは、オーバーライドのチェックと仮想関数テーブルのレイアウトが複雑になるためである。
 
 
-(執筆中)
-
 ##例
-(執筆中)
 ```cpp
-```
+#include <iostream>
 
+// 関数オブジェクトfを呼び出した結果の型を、関数g()の戻り値型とする
+template <class F>
+auto g(F f) 
+{
+  return f();
+}
+
+int main()
+{
+  // 変数resultの型はint
+  auto result = g([]{ return 3; });
+  std::cout << result << std::endl;
+}
+```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
+3
 ```
+
+
+##この機能が必要になった背景・経緯
+戻り値の型を推論する関数宣言構文は、C++11で導入された`auto`キーワードによる変数の型推論、[ラムダ式](/lang/cpp11/lambda_expressions.md)での戻り値型推論に合わせて導入された。
+
+C++11で、[戻り値の型を拘置する関数宣言構文](/lang/cpp11/trailing_return_types.md)が導入され、それによって`decltype`を使用して`return`文に指定した式の結果となる型を容易に返せるようになった：
+
+```cpp
+// 関数オブジェクトfを呼び出した結果の型を、関数g()の戻り値型とする
+template <class F>
+auto g(F f) -> decltype(f()) { return f(); }
+```
+
+しかしこの表記は、同じ式を2回書くことになるため冗長だった。戻り値の型を推論できるようになったことで、これがより短く簡潔に書けるようになった：
+
+```cpp
+template <class F>
+auto g(F f) { return f(); }
+```
+
+
+##検討されたほかの選択肢
+[戻り値の型を拘置する関数宣言構文](/lang/cpp11/trailing_return_types.md)のページを参照。
 
 
 ##関連項目
