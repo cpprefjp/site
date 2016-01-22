@@ -148,6 +148,10 @@ auto& f()
 }
 ```
 
+この機能は、[戻り値の型を拘置する関数宣言構文](/lang/cpp11/trailing_return_types.md)と[ラムダ式](/lang/cpp11/lambda_expressions.md)の、後置戻り値型(trailing return type)に対しても適用できる。以下のページを参照：
+
+- [後置戻り値型をプレースホルダーにすることを許可](placeholder_type_in_trailing_return_type.md)
+
 
 ###初期化子リストの推論
 戻り値の型を推論する関数宣言構文において、波カッコで囲まれた初期化子リストは、`return`文で返せない。
@@ -214,7 +218,7 @@ auto g(F f) { return f(); }
 ##関連項目
 - [C++11 戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)
 - [`decltype(auto)`](decltype_auto.md)
-- [後置戻り値型をプレースホルダーにすることを許可](placeholder_type_in_trailing_return_type.md.nolink)
+- [後置戻り値型をプレースホルダーにすることを許可](placeholder_type_in_trailing_return_type.md)
 
 
 ##参照
