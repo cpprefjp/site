@@ -2,7 +2,7 @@
 * cpp14[meta cpp]
 
 ##概要
-関数宣言の構文において、先頭の戻り値型を`auto`もしくは`decltype(auto)`とすることで、戻り値の型が関数の`return`文から推論される。
+関数宣言の構文において、先頭の戻り値型を`auto`もしくは[`decltype(auto)`](decltype_auto.md)とすることで、戻り値の型が関数の`return`文から推論される。
 
 ```cpp
 // 関数f()の戻り値型はint
@@ -12,7 +12,7 @@ auto f()
 }
 ```
 
-`decltype(auto)`は、戻り値として変数への参照を返したい場合に使用する。
+[`decltype(auto)`](decltype_auto.md)は、戻り値として変数への参照を返したい場合に使用する。
 
 ```cpp
 // autoの場合はintが戻り値型となるが、
@@ -213,8 +213,8 @@ auto g(F f) { return f(); }
 
 ##関連項目
 - [C++11 戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)
-- [`decltype(auto)`](cpp14/decltype_auto.md.nolink)
-- [後置戻り値型をプレースホルダーにすることを許可](cpp14/placeholder_type_in_trailing_return_type.md.nolink)
+- [`decltype(auto)`](decltype_auto.md)
+- [後置戻り値型をプレースホルダーにすることを許可](placeholder_type_in_trailing_return_type.md.nolink)
 
 
 ##参照

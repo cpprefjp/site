@@ -14,7 +14,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 |------------------------|------|
 | [2進数リテラル](cpp14/binary_literals.md) | 2進数を表す`0b` or `0B`プレフィックスを付けた数値リテラルの記述を可能とする |
 | [通常関数の戻り値型推論](cpp14/return_type_deduction_for_normal_functions.md) | 関数の戻り値型を`auto`にすることで、`return`文から戻り値の型を推論させる |
-| [`decltype(auto)`](cpp14/decltype_auto.md.nolink) | `decltype`の規則による変数の型推論 |
+| [`decltype(auto)`](cpp14/decltype_auto.md) | `decltype`の規則による変数の型推論 |
 | [後置戻り値型をプレースホルダーにすることを許可](cpp14/placeholder_type_in_trailing_return_type.md.nolink) | 戻り値の型を後置する関数宣言構文とラムダ式の戻り値型に`auto`を使用できるようにする |
 | [ラムダ式の初期化キャプチャ](cpp14/initialize_capture.md) | キャプチャに代入構文を導入し、一つの変数に複数のキャプチャ方法を指定可能にする |
 | [ジェネリックラムダ](cpp14/generic_lambdas.md) | ラムダ式のパラメータを`auto`にすることで、ジェネリックな関数呼び出し演算子を持つ関数オブジェクトを生成する |
