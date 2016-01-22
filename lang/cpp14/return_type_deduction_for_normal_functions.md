@@ -217,8 +217,8 @@ auto g(F f) { return f(); }
 
 ##関連項目
 - [C++11 戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)
-- [`decltype(auto)`](decltype_auto.md)
-- [後置戻り値型をプレースホルダーにすることを許可](placeholder_type_in_trailing_return_type.md)
+- [C++14 `decltype(auto)`](decltype_auto.md)
+- [C++14 後置戻り値型をプレースホルダーにすることを許可](placeholder_type_in_trailing_return_type.md)
 
 
 ##参照
