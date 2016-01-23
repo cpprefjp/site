@@ -2,7 +2,8 @@
 * cpp11[meta cpp]
 
 ##概要
-`override`と`final`はメンバ関数のオーバーライドに制約をかけるキーワードである。
+`override`はメンバ関数のオーバーライドを明示的に宣言するキーワードである。
+`final`は派生クラスのメンバ関数のオーバーライドを制約するキーワードである。
 
 
 ##仕様
@@ -14,7 +15,7 @@
 
 
 ##詳細な仕様
-少し正確に書くとクラス名の宣言（class-head）は下記の文法となる：
+正確ではないが、クラス名の宣言（class-head）は下記の文法となる：
 
 ```
 class-head:
@@ -88,7 +89,7 @@ int main()
 
 ##出力
 
-clang++ 3.5.0によるエラー出力を示す。
+例に挙げたコードをclang++ 3.5.0にてコンパイルした際のエラー出力を示す。
 
 ```
 $ clang++ -std=c++0x -Wall override_final.cpp
@@ -127,14 +128,13 @@ class base_f final {
     - C++11では`B::f()`を`final`と宣言することで、オーバーライドの禁止を明示でき、意図しないオーバーライドをした場合は文法違反として検知できる。
 
 - オーバーライドしたつもりで、オーバーライドできていない間違いを検知する。
-    - 例えば、メンバ関数名の間違い、引数の個数、型名の間違い、属性（`const`など）の間違いなどが挙げられる。
+    - 例えば、メンバ関数名の間違い、引数の個数、型の間違い、属性（`const`など）の間違いなどが挙げられる。
     - C++11では`D::f()`を`override`と宣言することで、オーバーライドの意思を明示でき、オーバーライドできていない場合は文法違反として検知できる。
 
 
 ##補足
-(執筆中)
 
-- なぜキーワードではなく、コンテキスト依存キーワードなのか？（N3163の提案）
+- なぜキーワードではなく、コンテキスト依存キーワードが選ばれたか？（N3163の提案）
     - `final`や`override`のような簡潔で良い名前が使えて、なおかつ、過去との互換性を維持できるためである。
     - `final`や`override`をキーワードとした場合`final`や`override`を関数名や変数名として使っていたコードがC++11では文法違反となってしまう。しかしコンテキスト依存キーワードであれば文法違反にならない。
 
@@ -175,7 +175,7 @@ class final {
 
 `override`と`final`は紆余曲折を得て、現在の形になっている。
 
-- N1827では`new`キーワードを使う案が提案された。
+- N1827にて`new`キーワードを使う提案がされた。
 
 ```cpp
 struct A {
@@ -194,7 +194,17 @@ struct B : A {
 (執筆中)
 
 
-- N2852では`[[override]]`と`[[hiding]]`と`[[check_name]]`を属性（attribute）として指定する案が提案された。
+- N2108は`new`キーワードを使う提案だが、位置が違う（virtualと同じ位置）。
+
+(執筆中)
+
+
+- N2365では`[[new]]`と`[[hiding]]`と`[[check_names]]`を属性（attribute）として指定する案が提案された。
+
+(執筆中)
+
+
+- N2852では`[[override]]`と`[[hiding]]`と`[[check_names]]`を属性（attribute）として指定する案が提案された。
 
 ```cpp
 struct base {
@@ -213,7 +223,7 @@ struct derived2 [[check_names]] : base {
 (執筆中)
 
 
-- N3151では投票の結果、属性（attributes）が望ましくないとされ、キーワードとコンテキスト依存キーワードのどちらが良いか、検討が行われた。
+- N3151では投票の結果、属性（attributes）は望ましくないとされ、残った2つの選択肢であるキーワードとコンテキスト依存キーワードのどちらが良いか、検討が行われた。
 
 |real keywords      | 6 SF | 10 WF | 5 WA |  0 SA |
 |contextual keywords| 6 SF |  7 WF | 2 WA |  5 SA |
@@ -224,22 +234,98 @@ struct derived2 [[check_names]] : base {
 - WA: Weakly Against   : 弱く反対
 - SA: Strongly Against : 強く反対
 
+コンテキスト依存キーワード`hiding`（当時は`hides_name`という名前だった）にはDaveed Vandevoordeが指摘した問題がある：
 
-- N3163では`base_check`と`hiding`が提案された。
+```
+struct Z {};
+struct X
+{
+  // これはどういう意味？
+  // 構造体の宣言？
+  // それとも変数の宣言？
+  struct Z hides_name;
+};
+
+struct C {};
+struct A
+{
+  typedef int C;
+};
+
+struct B : A
+{
+  // 以前宣言した C という名前の構造体の名前を隠す？
+  // それとも変数の宣言？
+  struct C hides_name;
+};
+
+// これで解決する？
+struct B : A
+{
+  hides_name struct hides_name C p;
+};
+```
+
+この問題は属性`[[hiding]]`やキーワード`strictdecl`ならば発生しない。
+
+N3151では結論としてキーワードを提案している。ただしキーワードの場合、ユーザが混乱するような名前を避け、なおかつ、既存のコードで使われていない（既存のコードが文法違反になるため）名前を選ぶ必要があった。
+
+最終的に下記の名前が提案された。
+
+| 属性           | 対応するキーワード |
+| [[override]]   | ovrdecl    |
+| [[final]]      | finaldecl  |
+| [[hiding]]     | hidedecl   |
+| [[base_check]] | strictdecl |
+
+
+- N3163ではコンテキスト依存キーワードを使うことの利点と、`base_check`と`hiding`と`override`と`final`が提案された。
 
 (執筆中)
 
 
 - N3234では`explicit`の削除が提案された。
 
-`explicit`と`hiding`は不要であるため。
+`explicit`によって、メンバ関数同士以外でhidingを引き起こしている既存コードが破壊されるため、`explicit`の削除を提案している。
 
-（執筆中）
+```cpp
+struct B
+{
+  void f() { std::cout << "B::f()" << std::endl;}
+};
+struct D explicit : B
+{
+  struct foo { void operator()() { std::cout << "D::foo::operator()()" << std::endl; }};
+
+  // B::f()を隠してしまうので文法違反
+  foo f;
+};
+```
+
+
+##不明点のメモ
+
+- いつ属性`[[check_names]]`が属性`[[base_check]]`になったか？
+    - N2920にて`[[base_check]]`か`[[strict_names]]`が代わりの名前として挙げられた。
+    - N2928にて`[[base_check]]`に名前を代えた。
+- いつ属性`[[base_check]]`がコンテキスト依存キーワード`explicit`になったか？
+    - N3206か？
+    - N3206は属性`[[base_check]]`を削除し、コンテキスト依存キーワード`override`と`final`と`explicit`、キーワード`new`を定義した。
+
+- いつキーワード`new`がキーワード`hiding`または属性`[[hiding]]`になったか？
+- いつキーワード`hiding`は削除されたか？
+    - おそらくコンテキスト依存キーワード`hiding`は提案されていない。
+- いつ属性`[[hiding]]`は削除されたか？
+    - N3206にて`[[base_check]], [[final]], [[override]], [[hiding]]`が削除された。
 
 
 ##参照
 - [N1827 An Explicit Override Syntax for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1827.htm)
+- [N2108 Explicit Virtual Overrides](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2108.html)
+- [N2365 Explicit Virtual Overrides](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2365.html)
 - [N2852 Explicit Virtual Overrides](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2852.html)
+- [N2928 Explicit Virtual Overrides](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2928.htm)
 - [N3151 Keywords for override control](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3151.html)
 - [N3163 Override Control Using Contextual Keywords](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3163.pdf)
+- [N3206 Override control: Eliminating Attributes](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3206.htm)
 - [N3234 Remove explicit from class-head](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3234.pdf)
