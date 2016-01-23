@@ -76,6 +76,8 @@ int main(){}
 
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+	- 11.0～12.0は、C++11の定義に基づく実装となっている。
 
 
 ##参照
