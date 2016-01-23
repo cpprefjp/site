@@ -70,6 +70,8 @@ int main() {}
 ###処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+	- 11.0～12.0は、正しく実装されていない。`is_trivially_copy_constructible<T, U>`と同一の実装になっている。
 
 
 ##参照

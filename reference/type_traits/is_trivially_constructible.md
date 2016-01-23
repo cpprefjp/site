@@ -80,6 +80,8 @@ int main() {}
 ###処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+	- 11.0は、`is_constructible<T, Args...>`と同一の実装になっている。
 
 ####備考
 

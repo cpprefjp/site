@@ -49,7 +49,9 @@ struct non_trivial_class {
   non_trivial_class() {}    // デフォルトコンストラクタが非トリビアル
 };
 static_assert(std::is_trivial<trivial_class>::value == true, "value == true, trivial_class is trivial");
+static_assert(std::is_trivial<trivial_class&>::value == true, "value == true, trivial_class& is trivial");
 static_assert(std::is_trivial<non_trivial_class>::value == false, "value == true, non_trivial_class is not trivial");
+static_assert(std::is_trivial<non_trivial_class&>::value == false, "value == true, non_trivial_class& is not trivial");
 
 int main(){}
 ```
@@ -64,7 +66,8 @@ int main(){}
 
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp) 10.0
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
+	- 10.0は、クラスへの参照型（上記例のうち`trivial_class&`）において、誤って`false_type`になっている。
 
 ####備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
