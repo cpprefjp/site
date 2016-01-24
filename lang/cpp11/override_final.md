@@ -2,12 +2,13 @@
 * cpp11[meta cpp]
 
 ##概要
-`override`はメンバ関数のオーバーライドを明示的に宣言するキーワードである。
-`final`は派生クラスのメンバ関数のオーバーライドを制約するキーワードである。
+`override`は仮想メンバ関数のオーバーライドを明示的に宣言するキーワードである。
+
+`final`は派生クラスの仮想メンバ関数のオーバーライドを制約するキーワードである。
 
 
 ##仕様
-- `override`を指定した仮想メンバ関数は、基底クラスにオーバーライド可能なメンバ関数がないとき、コンパイルエラーつまり文法違反として扱われる。
+- `override`を指定した仮想メンバ関数は、基底クラスにオーバーライド可能な仮想メンバ関数がないとき、コンパイルエラーつまり文法違反として扱われる。
 - `final`を指定した仮想メンバ関数は、派生クラスにてオーバーライドされたとき、文法違反として扱われる。
 - `override`と`final`はコンテキスト依存キーワードである。
     - キーワード（例えば`return`や`new`など）は常にキーワードとして扱われるが、`override`と`final`は特定の場所に書かれたときだけキーワードとして扱われる。
@@ -227,8 +228,9 @@ class D explicit : public B {
     - `virtual`は意味を変更し、メンバ関数の明示的なオーバーライドを宣言する。オーバーライドできていなければ文法違反となる。
         - N2108同様である。
 
+間違えてオーバーライドしてしまう例：
+
 ```cpp
-//Implicit virtual and the Accidental Override
 struct base {
   virtual void some_func();
 };
@@ -238,8 +240,10 @@ struct derived [[check_names]] {
   virtual void some_func(); // OK, override with virtual keyword
 };
 ```
+
+間違えてオーバーライドできていない例：
+
 ```cpp
-//Mispellings and mistaken signature
 struct base {
   virtual void some_func1();
   virtual void some_func2(float);
@@ -256,10 +260,10 @@ struct derived [[check_names]] {
 ```
 
 
-- N2852では`[[override]]`、`[[hiding]]`、`[[check_names]]`を属性（attribute）の追加が提案された。
+- N2852では`[[override]]`、`[[hiding]]`、`[[check_names]]`属性の追加が提案された。
     - `[[override]]`は仮想メンバ関数のオーバーライドを宣言し、オーバーライドできていなければ文法違反となる。
         - N2365では`virtual`キーワードの意味を変更して同様の機能を実現していたが、N2852では`virtual`の意味は従来通りに留め、`[[override]]`に役割を譲った。
-    - `[[hiding]]`、`[[check_names]]`はN2365と同様である。
+    - `[[hiding]]`、`[[check_names]]`はN2365と同様の意味である。
 
 ```cpp
 struct base {
@@ -283,10 +287,11 @@ struct derived2 [[check_names]] : base {
 
 - N3151では投票の結果、属性（attributes）は望ましくないとされ、残った2つの選択肢であるキーワードとコンテキスト依存キーワードのどちらが良いか、検討が行われた。
 
-|解決策             | 賛成 | やや賛成 | やや反対 | 反対 |
-|real keywords      | 6 SF | 10 WF | 5 WA |  0 SA |
-|contextual keywords| 6 SF |  7 WF | 2 WA |  5 SA |
-|attributes         | 1 SF |  6 WF | 3 WA | 10 SA |
+| 解決策             | 賛成 | やや賛成 | やや反対 | 反対 |
+|--------------------|------|----------|----------|------|
+| real keywords      | 6 SF | 10 WF | 5 WA |  0 SA |
+| contextual keywords| 6 SF |  7 WF | 2 WA |  5 SA |
+| attributes         | 1 SF |  6 WF | 3 WA | 10 SA |
 
 注：表中のSFやWFという単語は、SF: Strongly Favor, WF: Weakly Favor, WA: Weakly Against, SA: Strongly Againstの略である。
 
@@ -328,6 +333,7 @@ struct B : A
 - 最終的に下記の名前が提案された。
 
 | 属性           | 対応するキーワード |
+|----------------|--------------------|
 | [[base_check]] | strictdecl |
 | [[hiding]]     | hidedecl   |
 | [[override]]   | ovrdecl    |
