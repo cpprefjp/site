@@ -175,7 +175,10 @@ class final {
 
 `override`と`final`は紆余曲折を得て、現在の形になっている。
 
-- N1827にて`new`キーワードを使う提案がされた。
+- N1827にて`new`キーワードと明示的にオーバーライドを宣言する記法が提案された。
+    - `new`を宣言したメンバ関数は必ずオーバーライドしなければならない。
+    - この記法は基底クラスにおいて`new`の宣言を変更すると、全ての派生クラスに影響を及ぼしてしまう欠点がある。
+    - 例えば、基底クラス`A`の`virtual void f();`を`virtual void f() : new;`に変更すると、派生クラス`B`の`virtual void f();`を`virtual void f() : A;`に変更しなければならない。これは`A`の派生クラス全てにおいて生じる。
 
 ```cpp
 struct A {
@@ -191,20 +194,72 @@ struct B : A {
 };
 ```
 
-(執筆中)
+
+- N2108にて`new virtual`、`explicit`キーワードの追加と、`virtual`キーワードの意味の変更が提案された。
+    - `new virtual`は新たな仮想メンバ関数を宣言する。
+    - `virtual`は意味を変更し、メンバ関数の明示的なオーバーライドを宣言する。オーバーライドできていなければ文法違反となる。
+```cpp
+class B {
+  virtual void f();
+  virtual void h(int);
+};
+
+class D explicit : public B {
+  virtual void f();          // ok: overrides B::f
+  virtual void g(long);      // ill-formed: new virtual function introduced
+  new virtual void g2(long); // ok: new virtual function introduced
+  void h(int);               // ill-formed: overriding without "virtual"
+  virtual void h(long);      // ill-formed: new virtual function introduced
+  virtual int h(int);        // ill-formed: return type does not match B::h
+};
+```
 
 
-- N2108は`new`キーワードを使う提案だが、位置が違う（virtualと同じ位置）。
+- N2365では`[[check_names]]`、`[[new]]`、`[[hiding]]`属性（attribute）の追加と、`virtual`キーワードの意味の変更が提案された。
+    - N2236にて属性が文法として提案されたため、それを使ったようだ。
+    - `[[check_names]]`は明示的にオーバーライドのチェックを行う宣言である。
+    - `[[check_names]]`を指定しなければ、C++03以前と同じ動作をする。
+        - N2108では`[[check_names]]`の考え方がなかったため、過去との互換性が失われていた。
+        - オーバーライドのチェックの有無を選べるようにすることで、C++03で正しかったコードを破壊しないように配慮された。
+    - `[[new]]`は新たな仮想メンバ関数を宣言し、オーバーライドしていれば文法違反となる。
+        - N2108の`new virtual`キーワードとほぼ同じアイデアである。
+    - `[[hiding]]`は基底クラスの仮想メンバ関数をオーバーライドせず、同名の別関数で隠す（hiding）ことを宣言する。隠せていなければ文法違反となる。
+    - `virtual`は意味を変更し、メンバ関数の明示的なオーバーライドを宣言する。オーバーライドできていなければ文法違反となる。
+        - N2108同様である。
 
-(執筆中)
+```cpp
+//Implicit virtual and the Accidental Override
+struct base {
+  virtual void some_func();
+};
+
+struct derived [[check_names]] {
+  void some_func();  // error, accidental override with check_names attribute
+  virtual void some_func(); // OK, override with virtual keyword
+};
+```
+```cpp
+//Mispellings and mistaken signature
+struct base {
+  virtual void some_func1();
+  virtual void some_func2(float);
+  virtual void some_func3() const;
+  virtual long some_func4(int);
+};
+
+struct derived [[check_names]] {
+  virtual void sone_func1();  // error, mis-spelled name
+  virtual void some_func2(double); // error, no bad argument type
+  virtual void some_func3(); // error, missing cv-qualification
+  virtual int some_func4(int); // ill-formed: return type does not match B::h
+};
+```
 
 
-- N2365では`[[new]]`と`[[hiding]]`と`[[check_names]]`を属性（attribute）として指定する案が提案された。
-
-(執筆中)
-
-
-- N2852では`[[override]]`と`[[hiding]]`と`[[check_names]]`を属性（attribute）として指定する案が提案された。
+- N2852では`[[override]]`、`[[hiding]]`、`[[check_names]]`を属性（attribute）の追加が提案された。
+    - `[[override]]`は仮想メンバ関数のオーバーライドを宣言し、オーバーライドできていなければ文法違反となる。
+        - N2365では`virtual`キーワードの意味を変更して同様の機能を実現していたが、N2852では`virtual`の意味は従来通りに留め、`[[override]]`に役割を譲った。
+    - `[[hiding]]`、`[[check_names]]`はN2365と同様である。
 
 ```cpp
 struct base {
@@ -220,23 +275,24 @@ struct derived2 [[check_names]] : base {
 };
 ```
 
-(執筆中)
+
+- N2928にて`[[check_names]]`属性は`[[base_check]]`属性に名前が変えられた。
+    - N2920にて`[[base_check]]`、`[[strict_names]]`が候補に挙がっていた。
+    - なぜ名前を変えたのかわからなかった。加筆いただけると嬉しい。
 
 
 - N3151では投票の結果、属性（attributes）は望ましくないとされ、残った2つの選択肢であるキーワードとコンテキスト依存キーワードのどちらが良いか、検討が行われた。
 
+|解決策             | 賛成 | やや賛成 | やや反対 | 反対 |
 |real keywords      | 6 SF | 10 WF | 5 WA |  0 SA |
 |contextual keywords| 6 SF |  7 WF | 2 WA |  5 SA |
 |attributes         | 1 SF |  6 WF | 3 WA | 10 SA |
 
-- SF: Strongly Favor   : 強く賛成
-- WF: Weakly Favor     : 弱く賛成
-- WA: Weakly Against   : 弱く反対
-- SA: Strongly Against : 強く反対
+注：表中のSFやWFという単語は、SF: Strongly Favor, WF: Weakly Favor, WA: Weakly Against, SA: Strongly Againstの略である。
 
-コンテキスト依存キーワード`hiding`（当時は`hides_name`という名前だった）にはDaveed Vandevoordeが指摘した問題がある：
+コンテキスト依存キーワード（この例では`hides_name`という名前になっている）にはDaveed Vandevoordeが指摘した問題がある。この問題は`[[hiding]]`属性や`strictdecl`キーワードならば発生しない：
 
-```
+```cpp
 struct Z {};
 struct X
 {
@@ -266,27 +322,47 @@ struct B : A
 };
 ```
 
-この問題は属性`[[hiding]]`やキーワード`strictdecl`ならば発生しない。
-
-N3151では結論としてキーワードを提案している。ただしキーワードの場合、ユーザが混乱するような名前を避け、なおかつ、既存のコードで使われていない（既存のコードが文法違反になるため）名前を選ぶ必要があった。
-
-最終的に下記の名前が提案された。
+- N3151では結論としてキーワードを提案した。
+    - キーワードの場合はユーザが混乱するような変な名前を避け、なおかつ過去との互換性をできるだけ保つ名前を選ぶ必要があった。
+    - そのため、既存のコードで使われていない、つまり既存のコードが文法違反となるケースが少ない名前が調査された。
+- 最終的に下記の名前が提案された。
 
 | 属性           | 対応するキーワード |
+| [[base_check]] | strictdecl |
+| [[hiding]]     | hidedecl   |
 | [[override]]   | ovrdecl    |
 | [[final]]      | finaldecl  |
-| [[hiding]]     | hidedecl   |
-| [[base_check]] | strictdecl |
 
 
-- N3163ではコンテキスト依存キーワードを使うことの利点と、`base_check`と`hiding`と`override`と`final`が提案された。
-
-(執筆中)
+- N3163ではコンテキスト依存キーワードを使うことの利点と、`base_check`、`hiding`、`override`、`final`コンテキスト依存キーワードの追加が提案された。
 
 
-- N3234では`explicit`の削除が提案された。
+- N3206では`[[base_check]]`、`[[hiding]]`、`[[override]]`、`[[final]]`属性を削除し、`explicit`、`new`、`override`、`final`コンテキスト依存キーワードの追加が提案された。
+    - `new`は基底クラスの仮想メンバ関数をオーバーライドせず、同名の別関数で隠す（hiding）ことを宣言する。隠せていなければ文法違反となる。
+    - N3163の提案にあった`hiding`という名前は採用されなかった。
+        - N3206には`hiding`を採用しなかった理由は明示的に書いていない。
+        - 正確な理由をご存じの方は加筆いただけると嬉しい。
 
-`explicit`によって、メンバ関数同士以外でhidingを引き起こしている既存コードが破壊されるため、`explicit`の削除を提案している。
+
+- 仮想メンバ関数名を隠す（hiding）ことを宣言する方法は、今までにいくつか提案されてきたが、いずれも問題が残っている。
+    - N3221の未解決課題リストが示す通り、`[[hiding]]`属性は、`[[hiding]]`を宣言したいが文法上不可能な問題がある。
+
+```cpp
+struct B1 {
+  int N;
+  int M;
+};
+struct B2 {
+  int M;
+};
+struct [[base_check]] D: B1, B2 {
+  enum { N };    // hides B1::N but cannot take an attribute
+  using B1::M;   // hides B2::M but cannot take an attribute
+};
+```
+
+
+- N3234にある通り、`new`コンテキスト依存キーワードはメンバ関数名の後にしか書けないため、メンバ関数をメンバ変数で隠した場合に`new`を宣言したいが文法上不可能な問題がある。
 
 ```cpp
 struct B
@@ -303,20 +379,12 @@ struct D explicit : B
 ```
 
 
-##不明点のメモ
+- N3234では`new`、`explicit`コンテキスト依存キーワードの削除が提案された。
+    - `explicit`だけ残すと、メンバ関数以外でメンバ名のhidingを起こす既存のコードが破壊されるため、`new`とともに削除された。
+    - N3272で提案が取り込まれた。
 
-- いつ属性`[[check_names]]`が属性`[[base_check]]`になったか？
-    - N2920にて`[[base_check]]`か`[[strict_names]]`が代わりの名前として挙げられた。
-    - N2928にて`[[base_check]]`に名前を代えた。
-- いつ属性`[[base_check]]`がコンテキスト依存キーワード`explicit`になったか？
-    - N3206か？
-    - N3206は属性`[[base_check]]`を削除し、コンテキスト依存キーワード`override`と`final`と`explicit`、キーワード`new`を定義した。
 
-- いつキーワード`new`がキーワード`hiding`または属性`[[hiding]]`になったか？
-- いつキーワード`hiding`は削除されたか？
-    - おそらくコンテキスト依存キーワード`hiding`は提案されていない。
-- いつ属性`[[hiding]]`は削除されたか？
-    - N3206にて`[[base_check]], [[final]], [[override]], [[hiding]]`が削除された。
+- 以上の経緯を経てC++11では、`override`と`final`コンテキスト依存キーワードの追加のみが行われた。
 
 
 ##参照
@@ -329,3 +397,4 @@ struct D explicit : B
 - [N3163 Override Control Using Contextual Keywords](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3163.pdf)
 - [N3206 Override control: Eliminating Attributes](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3206.htm)
 - [N3234 Remove explicit from class-head](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3234.pdf)
+- [N3272 Follow-up on override control](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3272.htm)
