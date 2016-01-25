@@ -27,7 +27,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [ラムダ式](cpp11/lambda_expressions.md) | 関数オブジェクトをその場に書く |
 | [ローカルクラスと無名クラスを、テンプレート引数として使用することを許可](cpp11/local_and_anonymous_class_as_template_arguments.md.nolink) | |
 | インライン名前空間      | ネストした名前空間に、透過的にアクセスする |
-| `char16_t`、`char32_t`  | UTF-16とUTF-32の文字型 |
+| [`char16_t`、`char32_t`](cpp11/char16_32.md)  | UTF-16とUTF-32の文字型 |
 | Unicode文字列リテラル   | UTF-8、UTF-16、UTF-32のエンコーディングを規定したプレフィックス |
 | 生文字列リテラル        | エスケープシーケンスを無視する |
 | [ユーザー定義リテラル](cpp11/user_defined_literals.md.nolink) | リテラルのサフィックスをユーザー定義する |

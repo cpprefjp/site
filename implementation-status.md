@@ -24,7 +24,7 @@
 | [ローカルクラスと無名クラスを、テンプレート実引数として使用することを許可](/lang/cpp11/local_and_anonymous_class_as_template_arguments.md.nolink) |  | 4.5 | 2.9 | 12.0 | 10.0 |
 | `long long`型                    | `long`以上の大きさを持つ整数型 | 4.3 | 2.9 | 11.1 | 7.1 |
 | `inline namespace`               | ネストした名前空間に、透過的にアクセスする | 4.4 | 2.9 | 14.0 | 14.0 |
-| `char16_t`、`char32_t`型         | UTF-16とUTF-32の文字型 | 4.4 | 2.9 | 12.1 (Windows: partial) <br/> 12.1 (GNU/Linux, OS X)<br/> 14.0 | 14.0<br/> 10.0より同名のtypedefが存在する |
+| [`char16_t`、`char32_t`型](/lang/cpp11/char16_32.md) | UTF-16とUTF-32の文字型 | 4.4 | 2.9 | 12.1 (Windows: partial) <br/> 12.1 (GNU/Linux, OS X)<br/> 14.0 | 14.0<br/> 10.0より同名のtypedefが存在する |
 | Unicode文字列リテラル            | uプレフィックスでUTF-16 (`char16_t`)<br/> UプレフィックスでUTF-32 (`char32_t`)<br/> u8プレフィックスでUTF-8 (`char`) | 4.5 | 3.0 | No | 14.0 |
 | 生文字列リテラル                 | 文字列リテラルにRプレフィックスを付けることで、エスケープシーケンスを無視する | 4.5 | 3.0 | 14.0 | 12.0 |
 | ユーザー定義リテラル             | リテラルのサフィックスをユーザー定義する | 4.7 | 3.1 | No | 14.0 |
