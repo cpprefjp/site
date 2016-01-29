@@ -99,11 +99,60 @@ int main()
 
 
 ##例
+###JSON文字列を構築する
 ```cpp
+#include <iostream>
+#include <cstdio>
+#include <string>
+#include <sstream>
+
+// 文字列のフォーマット関数
+// not thread-safe, スレッドセーフな実装ではないので注意
+// Boost.Formatやcppformatを使用することを推奨
+template <class... Args>
+std::string format(const char* fmt, Args&&... args)
+{
+  std::streambuf* backup = std::cout.rdbuf();
+  std::stringstream sout;
+  std::streambuf* soutbuf = sout.rdbuf();
+  std::cout.rdbuf(soutbuf);
+
+  std::fprintf(stdout, fmt, args...);
+
+  std::string result = sout.str();
+
+  std::cout.rdbuf(backup);
+  return result;
+}
+
+int main()
+{
+  int user_id = 123;
+  std::string name = "Alice";
+  std::string json = format(R"({"user_id": %d, "name": "%s"})", user_id, name.c_str());
+
+  std::cout << json << std::endl;
+}
+```
+* std::string[link /reference/string/basic_string.md]
+* c_str()[link /reference/string/basic_string/c_str.md]
+* std::streambuf[link /reference/streambuf/basic_streambuf.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* rdbuf[link /reference/ios/basic_ios/rdbuf.md]
+* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* str()[link /reference/sstream/basic_stringstream/str.md.nolink]
+* std::fprintf[link /reference/cstdio/fprintf.md.nolink]
+* Boost.Format[link http://www.boost.org/libs/format]
+* cppformat[link https://github.com/cppformat/cppformat]
+
+####出力
+```
+{"user_id": 123, "name": "Alice"}
 ```
 
-###出力
-```
+
+(執筆中)
 
 
 ##参照
