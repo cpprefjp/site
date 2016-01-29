@@ -54,6 +54,58 @@ end
 生文字列リテラルの範囲内では、改行をすることでエスケープ文字`'\n'`に変換される。
 
 
+##仕様
+生文字列リテラルは、以下の構文を持つ：
+
+```
+encoding-prefix R"d-char-sequence opt (r-char-sequence opt) d-char-sequence opt"
+```
+* opt[italic]
+
+encoding-prefixとは、`u8`、`u`、`U`、`L`といった、文字列リテラルの文字エンコードを指定するプレフィックス。たとえば、UTF-8の生文字列リテラルは、`u8R"(hello)"`のように書く。
+
+文字列中の丸カッコのなか`r-char-sequence`には、エスケープシーケンスを無視する文字列リテラルを書く。丸カッコのなかは省略可能。
+
+丸カッコの前後`d-char-sequence`には、生文字列の範囲を明確にするための文字列を指定する。これは前後で同じ文字列を指定する必要がある。これは、文字列リテラルのなかにダブルクォーテーションや閉じ丸カッコが指定されるような状況で必要となる：
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main()
+{
+  std::string s = R"***(文字列中に生文字列リテラルの閉じカッコと閉じダブルクォーテーションを書く)")***";
+  std::cout << s << std::endl;
+}
+```
+* std::string[link /reference/string/basic_string.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+出力：
+
+```
+文字列中に生文字列リテラルの閉じカッコと閉じダブルクォーテーションを書く)"
+```
+
+ここで、生文字列リテラルの範囲を単なる丸カッコではなく、ユーザーがカッコの形を指定できれば、すなわち`***(`を開きカッコ、`)***`を閉じカッコ、のように指定できれば、文字列リテラルのなかに単純な閉じ丸カッコが指定されたとしても、それが生文字列リテラルの範囲終了とは見なされなくなる。
+
+生文字列リテラルの内容である`r-char-sequence`には、「`')'` + `d-char-sequence`で指定された文字列 + `"`」の組み合わせは使用できない。
+
+生文字列リテラルの範囲をユーザーが規定するための`d-char-sequence`の各文字には、以下の文字は使用できない： スペース `' '`、左丸カッコ `'('`、右丸カッコ `')'`、バックスラッシュ `\`に加えて、水平タブ `'\t'`、垂直タブ `'\v'`、改ページ `'\f'`、改行`'\n'`の制御文字。
+
+
+生文字列リテラルの内容である`r-char-sequence`の要素として改行が入力された場合、それは改行の制御文字`'\n'`に変換される。
+
+
+##例
+```cpp
+```
+
+###出力
+```
+
+
 ##参照
 - [N2053 Raw String Literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2053.html)
 - [N2146 Raw String Literals (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2146.html)
