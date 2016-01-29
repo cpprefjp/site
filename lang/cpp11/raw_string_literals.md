@@ -9,12 +9,14 @@
 ```cpp
 std::string json = "{\"user_id\": 123, \"name\": \"Alice\"}";
 ```
+* std::string[link /reference/string/basic_string.md]
 
 文字列リテラル内にダブルクォーテーションを入力するために、多くのエスケープ文字`\`が必要となっている。このような状況で生文字列リテラルを使用することで、エスケープ文字をなくし、以下のように書ける：
 
 ```cpp
 std::string json = R"({"user_id": 123, "name": "Alice"})";
 ```
+* std::string[link /reference/string/basic_string.md]
 
 この機能は、正規表現を書く場合、ファイルパスをコード中に記述するような場合にも役立つ。
 
