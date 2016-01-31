@@ -51,7 +51,11 @@ int main(){}
 
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp) 10.0
+- [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
+	- `operator value_type`関数の実装状況は次のとおり。
+		- 11.0～12.0は、`operator value_type() const`と定義されている。`constexpr`と`noexcept`修飾がされていない。
+		- 14.0では、C++14の仕様どおりに実装されている。
+	- `operator()`関数は、14.0から実装されている。
 
 ####備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator value_type()` を持っていないためエラーになる。

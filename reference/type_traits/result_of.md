@@ -128,7 +128,10 @@ Hello World
 ###処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
+	- 9.0～10.0は、TR1に基づく実装である。`decltype`を使用せず、関数オブジェクトに定義された`result_type`が使用される。
+	- 11.0までは、可変引数テンプレートに対応していないため、不完全な実装である。
+	- `result_of_t`は、12.0から。
 
 
 ##参照
