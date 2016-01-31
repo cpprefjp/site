@@ -77,7 +77,7 @@ int main() {}
 ###処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
 ##関連項目
