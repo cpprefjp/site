@@ -68,7 +68,7 @@ int main(){}
 
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.1, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp) 10.0
+- [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
 ####備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、GCC 4.3.4, Visual C++ 10.0 は `enum class` に対応していたいためにエラーになる。
