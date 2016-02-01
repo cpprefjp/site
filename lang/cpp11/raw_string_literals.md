@@ -208,6 +208,52 @@ matched
 ```
 
 
+####雛形のHTMLを処理する
+```cpp
+#include <fstream>
+#include <string>
+#include <regex>
+
+// 雛形のHTMLを用意して、その一部の要素を文字列置換によってプログラムから入力する。
+//
+// 雛形のHTMLを事前にファイルとして作成し、それをあとからプログラムに文字列リテラルとして
+// 貼り付ける。その際、生文字列リテラルを使用することで、改行文字やバックスラッシュを
+// 加工することなくそのまま扱える。
+const std::string html_template = u8R"(<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>$title$</title>
+</head>
+<body>
+  <p>$body$</p>
+</body>
+</html>)";
+
+int main()
+{
+  std::string html = html_template;
+
+  html = std::regex_replace(html, std::regex(u8R"(\$title\$)"), u8"タイトル");
+  html = std::regex_replace(html, std::regex(u8R"(\$body\$)"), u8"ボディ");
+
+  std::ofstream file("index.html");
+  file.write(html.data(), html.size());
+}
+```
+
+####出力(index.html)
+```
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>タイトル</title>
+</head>
+<body>
+  <p>ボディ</p>
+</body>
+</html>
+```
+
 (執筆中)
 
 
