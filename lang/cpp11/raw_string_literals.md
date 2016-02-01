@@ -174,6 +174,40 @@ C:\language\cpp\main.cpp
 ```
 
 
+###バックスラッシュを含む正規表現を入力する
+```cpp
+#include <iostream>
+#include <regex>
+#include <string>
+
+int main()
+{
+  // 「英数字、バックスラッシュ、英数字」の順に
+  // なっていることを要求する正規表現。
+  // 生文字列リテラルを使わない場合は"\\w\\\\\\w"となる。
+  std::regex rex(R"(\w\\\w)");
+
+  std::string input = R"(a\b)";
+  if (std::regex_match(input, rex)) {
+    std::cout << "matched" << std::endl;
+  }
+  else {
+    std::cout << "not matched" << std::endl;
+  }
+}
+```
+* std::regex[link /reference/regex/basic_regex.md]
+* std::regex_match[link /reference/regex/regex_match.md]
+* std::string[link /reference/string/basic_string.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+####出力
+```
+matched
+```
+
+
 (執筆中)
 
 
