@@ -152,6 +152,28 @@ int main()
 ```
 
 
+###ファイルパスを入力する
+```cpp
+#include <iostream>
+#include <string>
+
+int main()
+{
+  // バックスラッシュ区切りになっているWindowsのファイルパスを入力
+  std::string path = R"(C:\language\cpp\main.cpp)";
+  std::cout << path << std::endl;
+}
+```
+* std::string[link /reference/string/basic_string.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+####出力
+```
+C:\language\cpp\main.cpp
+```
+
+
 (執筆中)
 
 
