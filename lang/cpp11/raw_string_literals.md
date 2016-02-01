@@ -240,6 +240,13 @@ int main()
   file.write(html.data(), html.size());
 }
 ```
+* std::string[link /reference/string/basic_string.md]
+* std::regex[link /reference/regex/basic_regex.md]
+* std::regex_replace[link /reference/regex/regex_replace.md]
+* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* file.write[link /reference/ostream/basic_ostream/write.md]
+* html.data()[link /reference/string/basic_string/data.md]
+* html.size()[link /reference/string/basic_string/size.md]
 
 ####出力(index.html)
 ```
