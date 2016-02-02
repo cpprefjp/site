@@ -90,6 +90,23 @@ thread2 : 4
 ```
 
 
+##この機能が必要になった背景・経緯
+マルチスレッドアプリケーションでは、スレッドごとにデータを一意に維持することがたびたび必要となる。これはスレッドローカルストレージと呼ばれ、多くのベンダーがスレッド記憶域の言語拡張を用意していた：
+
+| ベンダー | 機能 |
+|----------|------|
+| [GNU](http://www.gnu.org/) | [Thread-Local Storage](http://gcc.gnu.org/onlinedocs/gcc-3.3.1/gcc/Thread-Local.html#Thread-Local) |
+| [HP](http://www.hp.com/)   | [Using Thread Local Storage](http://h30097.www3.hp.com/docs/base_doc/DOCUMENTATION/V51B_HTML/ARH9VDTE/THRDSCHP.HTM#anch_1024) |
+| [HP](http://www.hp.com/)   | [Tru64 UNIX to HP-UX STK: critical Impact: TLS - feature differences (CrCh320)](http://devrsrc1.external.hp.com/STKT/impacts/i320.html) |
+| [IBM](http://www.ibm.com/) | Thread-Local Storage in [What's New in XL C/C++ V9.0](http://www-1.ibm.com/support/docview.wss?uid=swg27007322&aid=1) |
+| [IBM](http://www.ibm.com/) | [The `__thread` storage class specifier](http://publib.boulder.ibm.com/infocenter/comphelp/v9v111/index.jsp?topic=/com.ibm.xlcpp9.aix.doc/language_ref/thread.htm) |
+| [Intel](http://www.intel.com/) | [Thread-local Storage](http://www.intel.com/software/products/compilers/clin/docs/ug_cpp/lin1057.htm) |
+| [Microsoft](http://www.microsoft.com/) | [Thread Local Storage](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vccelng/htm/decla_44.asp) |
+| [Sun](http://www.sun.com/) | [Thread-Local Storage](http://docs.sun.com/source/817-5070/Language_Extensions.html#pgfId-997650) |
+
+各ベンダーのこれらの経験を標準C++に導入することとなった。
+
+
 ##関連項目
 - [`exit`](/reference/cstdlib/exit.md)
 - [`quick_exit`](/reference/cstdlib/quick_exit.md)
