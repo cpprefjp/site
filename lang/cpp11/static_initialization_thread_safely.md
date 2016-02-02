@@ -9,7 +9,7 @@
 ```cpp
 class singleton {
 public:
-  static singleton get_instance()
+  static singleton& get_instance()
   {
     static singleton instance; // この初期化はスレッドセーフ
     return instance;
@@ -40,7 +40,7 @@ public:
 class singleton {
   int value_ = 3;
 public:
-  static singleton get_instance()
+  static singleton& get_instance()
   {
     static singleton instance; // この初期化はスレッドセーフ
     return instance;
@@ -88,7 +88,7 @@ int main()
 2. ポインタがヌルかどうかをチェックし、ヌルであればロックを取得する
 3. ヌルチェックとロック取得の間に有効なポインタになる可能性があるためにロック取得後にさらにヌルチェックをし、ヌルであれば初期化をする
 
-こういった技法は非常に難しく、潜在的なデッドロックの可能性があるためにユーザーの行動を制限していた。
+こういった技法は非常に難しく、潜在的な並行性バグの可能性があるためにユーザーの行動を制限していた。
 
 そのために、言語によって`static`変数の初期化がスレッドセーフであることを保証することとなった。
 
