@@ -21,7 +21,8 @@ namespace std {
 
 
 ##要件
-型`T`が列挙型であること。
+- C++11 : 型`T`が列挙型であること。(完全型を要求するかどうかは未規定)
+- C++14 : 型`T`が完全な列挙型であること。
 
 
 ##効果
@@ -69,4 +70,5 @@ int main() {}
 ##参照
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
+- [LWG Issue 2396. underlying_type doesn't say what to do for an incomplete enumeration type](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2396)
 
