@@ -68,6 +68,10 @@ int main() {}
 
 
 ##参照
+- [N2947 Additional Type Traits for C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2947.html)
+    - 最初は`enum_base`という名前で提案されていた
+- [N2984 Additional Type Traits for C++0x (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2984.htm)
+    - `enum_base`から`underlying_type`という名前に変更された
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 - [LWG Issue 2396. underlying_type doesn't say what to do for an incomplete enumeration type](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2396)
