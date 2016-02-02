@@ -57,6 +57,8 @@ int main()
   // 複数のスレッドから並行にrandom_range()関数を呼び出せる
   std::thread t1([]{
     int random_value = random_range(0, 100);
+
+    // ※coutに対する一度の書き込みはスレッドセーフであるため、3つの書き込みを1つに統合。
     std::cout << "thread1 : " + std::to_string(random_value) + "\n";
   });
 
