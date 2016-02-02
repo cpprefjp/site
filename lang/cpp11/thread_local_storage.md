@@ -42,8 +42,8 @@ t2.join();
 #include <thread>
 #include <random>
 
-// 範囲[min_inclusive, max_inclusive]でランダム一様分布する整数を生成する
-// スレッドごとに乱数の状態を持つ
+// 範囲[min_inclusive, max_inclusive]でランダム一様分布する整数を生成する。
+// スレッドごとに乱数の状態を持つ。
 int random_range(int min_inclusive, int max_inclusive)
 {
   std::random_device seed_gen;
