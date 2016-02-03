@@ -29,7 +29,7 @@ enum class Color : int {
 ```
 
     - 列挙子の値が基底型の範囲に収まらない場合、プログラムは不適格となる
-    - 列挙型の基底型を取得するには、[`<type_traits>`](/reference/type_traits.md)ヘッダで定義される[`std::underlying_type`](/reference/type_traits/underlying_type.md.md)を使用する
+    - 列挙型の基底型を取得するには、[`<type_traits>`](/reference/type_traits.md)ヘッダで定義される[`std::underlying_type`](/reference/type_traits/underlying_type.md)を使用する
 - 列挙型は、先行宣言でも基底型を指定できる。その場合、再宣言および定義でも、同じ基底型を明示的に指定する必要がある
 - スコープを持つ列挙型に基底型を指定しない場合、基底型は`int`となる
 - スコープを持たない列挙型に基底型を指定しない場合、その列挙型の全ての列挙子の値が`int`型に収まらない限り、`int`もしくは`unsigned int`が基底型となる。`int`型に収まらない場合は、実装定義の整数型が基底型となる
@@ -91,7 +91,7 @@ ECMA規格になっているC++/CLIが、現在のスコープを持つ列挙型
 
 
 ##関連項目
-- [`underlying_type`](/reference/type_traits/underlying_type.md.md)
+- [`underlying_type`](/reference/type_traits/underlying_type.md)
 
 
 ##参照
