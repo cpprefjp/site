@@ -17,7 +17,25 @@ namespace std {
 ```
 
 ##概要
-`enum`の基底型を取得する。
+列挙型の基底型を取得する。
+
+C++11以降の列挙型(`enum`／`enum class`／`enum struct`で定義された型)は、列挙子の値を表現するための基底型を指定できる：
+
+```cpp
+// 基底型にcharを指定。
+// 列挙子の値を表現するためにcharが使用される。
+enum class CharColor : char {
+  Red, Green, Blue
+};
+
+// 基底型を指定しない場合、
+// enum classではintがデフォルトの基底型となる。
+enum class IntColor {
+  Red, Green Blue
+};
+```
+
+`underlying_type`を使用することで、列挙型に設定された基底型を取得できる。
 
 
 ##要件
@@ -27,11 +45,6 @@ namespace std {
 
 ##効果
 `underlying_type`は、列挙型`T`の基底型を、メンバ型`type`として定義する。  
-
-
-##備考
-基底型が指定されていない場合の基底型は、固定ではない。  
-全ての列挙値を表現できる整数型が使用されるが、具体的な型の規定は実装定義となる。
 
 
 ##例
@@ -65,6 +78,10 @@ int main() {}
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+##関連項目
+- [C++11 スコープを持つ列挙型](/lang/cpp11/scoped_enum.md)
 
 
 ##参照

@@ -166,7 +166,7 @@
 | [`enable_if`](type_traits/enable_if.md) | コンパイル時条件式が真の場合のみ有効な型 (class template) | C++11 |
 | [`conditional`](type_traits/conditional.md) | コンパイル時条件式 (class template) | C++11 |
 | [`common_type`](type_traits/common_type.md) | 変換可能な共通の型を取得する (class template) | C++11 |
-| [`underlying_type`](type_traits/underlying_type.md) | `enum`の基底型を取得する (class template) | C++11 |
+| [`underlying_type`](type_traits/underlying_type.md) | 列挙型の基底型を取得する (class template) | C++11 |
 | [`result_of`](type_traits/result_of.md) | 関数の戻り値の型を取得する (class template) | C++11 |
 
 
