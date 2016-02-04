@@ -30,7 +30,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [`char16_t`と`char32_t`](cpp11/char16_32.md)  | UTF-16とUTF-32の文字型 |
 | [UTF-8文字列リテラル](cpp11/utf8_string_literals.md) | `char`の文字列をUTF-8エンコーディングするプレフィックス |
 | [生文字列リテラル](cpp11/raw_string_literals.md) | 文字列リテラルにRプレフィックスを付けることで、エスケープシーケンスを無視する |
-| [ユーザー定義リテラル](cpp11/user_defined_literals.md.nolink) | リテラルのサフィックスをユーザー定義する |
+| [ユーザー定義リテラル](cpp11/user_defined_literals.md) | リテラルのサフィックスをユーザー定義する |
 | [戻り値の型を後置する関数宣言構文](cpp11/trailing_return_types.md) | 戻り値の型を後ろに書けるようにすることで、パラメータオブジェクトを戻り値型の文脈で使用できるようにする |
 | [`nullptr`](cpp11/nullptr.md) | ヌルポインタを表すポインタリテラル |
 | テンプレートの右山カッコ | `vector<basic_string<char>>`のように、`>>`をスペースを空けずに記述可能にする |
