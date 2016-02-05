@@ -7,7 +7,7 @@
 これは、リテラルに対して以下のような情報を持たせるために使用できる：
 
 - 単位 : メートル、秒、角度として度数法か弧度法、など
-- 型 : `"hello"s`とすることで[`std::string`](/reference/string/basic_string.md)型の文字列リテラル、`1.2i`とすることで[`std::complex<double>`](/reference/complex/complex.md)型のリテラルとするなど
+- 型 : `"hello"s`とすることで[`std::string`](/reference/string/basic_string.md)型の文字列リテラル、`1.2i`とすることで[`std::complex<double>`](/reference/complex.md)型のリテラルとするなど
 
 ユーザー定義リテラルは、`operator "" サフィックス名`の演算子をオーバーロードする。`""`とサフィックス名の間にスペースが必要なので注意。
 
