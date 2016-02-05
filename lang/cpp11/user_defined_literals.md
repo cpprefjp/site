@@ -34,6 +34,110 @@ auto x = "hello"s; // xの型はstd::string
 
 
 ##仕様
+###全般的な仕様
+- ユーザー定義リテラルのサフィックスと組み込みリテラルのサフィックスが一致した場合でも、組み込みリテラルのサフィックスと型が一致しない場合には、ユーザー定義リテラルが使用される。たとえば、浮動小数点数のユーザー定義リテラルとして`LL`を定義した場合でも、整数リテラルに対して`LL`サフィックスを付けた場合には、組み込みの`LL`サフィックスが使用される：
+
+    ```cpp
+std::string operator"" LL(long double x)
+{
+  return std::to_string(x);
+}
+
+long long   a = 123LL;     // 組み込みの整数リテラル
+std::string b = 123.456LL; // ユーザー定義リテラル
+```
+* std::string[link /reference/string/basic_string.md]
+
+- リテラル演算子の名前として、ユニバーサルキャラクタ名を使用することが許可される：
+
+    ```cpp
+namespace literals {
+  // _ + 小文字のpi (π)
+  float operator"" _\u03C0(unsigned long long count)
+  {
+    return 3.141592f * count;
+  }
+}
+
+using namespace literals;
+
+float x = 2_\u03C0; // OK
+float y = 2_π;     // OK
+```
+
+(執筆中)
+
+
+###整数に対するリテラル演算子
+整数に対するリテラル演算子は、`unsigned long long`型のパラメータをひとつだけ持つこと。
+
+```cpp
+namespace unit_literals {
+  // intの大きさを持ち、
+  // km (kiro-meter, キロメートル)単位を表すリテラル演算子
+  int operator"" _kmi(unsigned long long x)
+  {
+    return x * 1000;
+  }
+}
+
+using namespace unit_literals;
+
+// 123km (123,000m)
+int distance = 123_kmi;
+```
+
+整数リテラルとして負数を記述した場合、リテラル演算子には正数部分のみが渡される。リテラル演算子によって返された値を符号反転することで、負数が表現される：
+
+```cpp
+// _kmiリテラル演算子に渡されるのは整数値123LL
+int minus_distance = -123_kmi;
+```
+
+
+###浮動小数点数に対するリテラル演算子
+浮動小数点数に対するリテラル演算子は、`long double`型のパラメータをひとつだけ持つこと。
+
+```cpp
+namespace unit_literals {
+  // floatの大きさを持ち、
+  // km (kiro-meter, キロメートル)単位を表すリテラル演算子
+  float operator"" _kmf(long double x)
+  {
+    return x * 1000.0f;
+  }
+}
+
+using namespace unit_literals;
+
+// 123km (123,000m)
+float distance = 123.0_kmf;
+```
+
+浮動小数点数リテラルとして負数を記述した場合、リテラル演算子には正数部分のみが渡される。リテラル演算子によって返された値を符号反転することで、負数が表現される：
+
+```cpp
+// _kmiリテラル演算子に渡されるのは浮動小数点数の値123.0L
+float minus_distance = -123.0_kmf;
+```
+
+
+###文字列に対するリテラル演算子
+文字列に対するリテラル演算子は、以下のいずれかのパラメータを持つこと：
+
+- `char const*`
+- `char const*, std::size_t`
+- `wchar_t const*, std::size_t`
+- `char16_t const*, std::size_t`
+- `char32_t const*, std::size_t`
+
+(執筆中)
+
+
+###リテラル演算子テンプレート
+(執筆中)
+
+
 ###リテラル演算子の規約
 注意事項としては、標準C++の規約で、リテラル演算子をユーザーがオーバーロードする場合には以下のことが要求される：
 
@@ -41,6 +145,18 @@ auto x = "hello"s; // xの型はstd::string
 - リテラル演算子の名前は、アンダースコア `_` で始めること
 
 アンダースコアで始まらないリテラル演算子は、標準C++の将来の拡張のために予約される。
+
+
+##例
+(執筆中)
+
+
+##この機能が必要になった背景・経緯
+(執筆中)
+
+
+##検討されたほかの選択肢
+(執筆中)
 
 
 ##参照
