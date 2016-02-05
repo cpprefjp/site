@@ -30,8 +30,6 @@ auto x = "hello"s; // xの型はstd::string
 
 浮動小数点数リテラルの場合には、`long double`型のパラメータをひとつ受け取るようにする。
 
-文字リテラルの場合には、`char`、`wchar_t`、[`char16_t`](char16_32.md)、[`char32_t`](char16_32.md)のいずれかの文字型のパラメータをひとつ受け取るようにする。
-
 
 ##仕様
 ###全般的な仕様
@@ -64,6 +62,8 @@ using namespace literals;
 float x = 2_\u03C0; // OK
 float y = 2_π;     // OK
 ```
+
+- 文字型と論理値型に対しては、リテラル演算子を定義できない
 
 (執筆中)
 
