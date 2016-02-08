@@ -9,7 +9,7 @@
 - 単位 : メートル、秒、角度として度数法か弧度法、など
 - 型 : `"hello"s`とすることで[`std::string`](/reference/string/basic_string.md)型の文字列リテラル、`1.2i`とすることで[`std::complex<double>`](/reference/complex.md)型のリテラルとするなど
 
-ユーザー定義リテラルは、`operator "" サフィックス名`の演算子をオーバーロードする。`""`とサフィックス名の間にスペースが必要なので注意。
+ユーザー定義リテラルは、`operator"" サフィックス名`の演算子をオーバーロードする。`""`とサフィックス名の間にスペースが必要なので注意。
 
 ```cpp
 std::string operator"" s(const char* str, std::size_t length)
@@ -22,7 +22,7 @@ auto x = "hello"s; // xの型はstd::string
 * std::string[link /reference/string/basic_string.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 
-`operator ""`は、「リテラル演算子 (literal operator)」という。
+`operator""`は、「リテラル演算子 (literal operator)」という。
 
 ここでは`char`配列の文字列リテラルに対するサフィックスを定義しているが、パラメータの型を`wchar_t`、[`char16_t`](char16_32.md)、[`char32_t`](char16_32.md)とすることで、それらの文字型の文字列に対しても、サフィックスを定義できる。
 
