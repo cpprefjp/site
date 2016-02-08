@@ -152,7 +152,25 @@ assert(str.size() == 9);
 
 
 ###リテラル演算子テンプレート
-(執筆中)
+数値リテラルに対してのみ、数値の各文字を分解してコンパイル時定数としてリテラル演算子に渡せる。これは「リテラル演算子テンプレート(literal operator template)」という機能で、非型テンプレートパラメータとして`char`の可変引数テンプレートを受け取るようにすることで、テンプレートパラメータに渡される：
+
+```cpp
+namespace literals {
+  template <char... Args> // 数値123が文字のシーケンス{'1', '2', '3'}として渡される
+  std::string operator"" _s()
+  {
+    const char str[] = {Args...};
+    return std::string(str);
+  }
+}
+
+using namespace literals;
+auto str = 123_s; // strはstd::string型
+std::cout << str << std::endl; // "123"
+```
+* std::string[link /reference/string/basic_string.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md] 
 
 
 ###リテラル演算子の規約
