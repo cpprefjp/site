@@ -247,6 +247,10 @@ DecimalFloat f = 12.34df;
 リテラル名がサフィックスであることを明示的にするために、今日の`DecimalFloat operator"" df(long double)`という形式になった。
 
 
+##関連項目
+- [C++14 リテラル演算子のスペースを省略可能とする](/lang/cpp14/no_whitespace_literal_operators.md)
+
+
 ##参照
 - [N1511 Literals for user-defined types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1511.pdf)
 - [N1892 Extensible Literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1892.pdf)
