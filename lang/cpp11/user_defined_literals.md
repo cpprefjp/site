@@ -125,13 +125,30 @@ float minus_distance = -123.0_kmf;
 ###文字列に対するリテラル演算子
 文字列に対するリテラル演算子は、以下のいずれかのパラメータを持つこと：
 
-- `char const*`
-- `char const*, std::size_t`
-- `wchar_t const*, std::size_t`
-- `char16_t const*, std::size_t`
-- `char32_t const*, std::size_t`
+- `const char*`
+- `const char*, std::size_t`
+- `const wchar_t*, std::size_t`
+- `const char16_t*, std::size_t`
+- `const char32_t*, std::size_t`
 
-(執筆中)
+第1パラメータには文字列リテラルの先頭を指すポインタ、第2パラメータには文字列リテラルの文字配列の要素数が渡される。
+
+```cpp
+namespace literals {
+  std::u32string operator"" _s(const char32_t* str, std::size_t length)
+  {
+    return std::u32string(str, length);
+  }
+}
+
+using namespace literals;
+auto str = UR"(こんにちは"世界")"_s;
+assert(str.size() == 9);
+```
+* std::u32string[link /reference/string/basic_string.md]
+* str.size()[link /reference/string/basic_string/size.md]
+* std::size_t[link /reference/cstddef/size_t.md]
+* assert[link /reference/cassert/assert.md.nolink]
 
 
 ###リテラル演算子テンプレート
