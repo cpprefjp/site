@@ -184,7 +184,35 @@ std::cout << str << std::endl; // "123"
 
 
 ##例
-(執筆中)
+```cpp
+#include <iostream>
+#include <string>
+
+namespace my_namespace {
+inline namespace literals {
+  std::string operator"" _s(const char* str, std::size_t length)
+  {
+    return std::string(str, length);
+  }
+}}
+
+int main()
+{
+  using namespace my_namespace::literals;
+
+  auto x = "hello"_s; // xの型はstd::string
+  std::cout << x << std::endl;
+}
+```
+* std::string[link /reference/string/basic_string.md]
+* std::size_t[link /reference/cstddef/size_t.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+###出力
+```
+hello
+```
 
 
 ##この機能が必要になった背景・経緯
