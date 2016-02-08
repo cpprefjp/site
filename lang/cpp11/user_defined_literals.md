@@ -67,6 +67,7 @@ float y = 2_π;     // OK
 - リテラル演算子とリテラル演算子テンプレートは、Cリンケージを持ってはならない
 - リテラル演算子とリテラル演算子テンプレートは、`inline`と`constexpr`を付けて宣言できる
 - リテラル演算子とリテラル演算子テンプレートは、内部リンケージもしくは外部リンケージを持つ可能性がある
+- リテラル演算子がデフォルト引数を持つ場合、プログラムは不適格となる
 
 
 ###整数に対するリテラル演算子
@@ -258,4 +259,5 @@ DecimalFloat f = 12.34df;
 - [N2378 User-defined literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2378.pdf)
 - [N2750 User-defined Literals (aka. Extensible Literals (revision 4))](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2750.pdf)
 - [N2765 User-defined Literals (aka. Extensible Literals (revision 5))](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2765.pdf)
+- [CWG Issue 1479. Literal operators and default arguments](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1479)
 
