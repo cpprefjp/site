@@ -34,6 +34,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 |----------|------|
 | [更新された定義済みマクロ](cpp14/predefined_macros.md) | 標準規格で定義されたマクロの更新 |
 | [リテラル演算子のスペースを省略可能とする](cpp14/no_whitespace_literal_operators.md) | `operator""`とサフィックス名の間にスペースを入力しなくてもよくなった |
+| [`nullptr_t`型の定数式を非型テンプレートパラメータとすることを許可](cpp14/nontype_template_parameters_of_type_nullptr_t.md) | `nullptr_t`型の値をテンプレート引数として渡せるようになった |
 
 
 ##ライブラリ更新の概要
