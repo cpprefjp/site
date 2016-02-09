@@ -36,7 +36,7 @@ int main()
   assert(value == 1);
 }
 ```
-* assert[link /reference/cassert/assert.md.nolink]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

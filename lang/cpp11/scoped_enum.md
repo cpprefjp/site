@@ -72,7 +72,7 @@ int main()
 }
 ```
 * std::underlying_type[link /reference/type_traits/underlying_type.md]
-* assert[link /reference/cassert/assert.md.nolink]
+* assert[link /reference/cassert/assert.md]
 
 
 ###出力

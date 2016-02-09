@@ -56,7 +56,7 @@ int main()
 }
 ```
 * std::string[link /reference/string/basic_string.md]
-* assert[link /reference/cassert/assert.md.nolink]
+* assert[link /reference/cassert/assert.md]
 * imbue[link imbue.md]
 * std::locale[link /reference/locale/locale.md]
 

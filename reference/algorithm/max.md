@@ -77,8 +77,8 @@ int main()
 * greater[link ../functional/greater.md]
 * algorithm[link ../algorithm.md]
 * functional[link ../functional.md]
-* cassert[link ../cassert.md.nolink]
-* assert[link ../cassert/assert.md.nolink]
+* cassert[link ../cassert.md]
+* assert[link ../cassert/assert.md]
 
 
 ###出力

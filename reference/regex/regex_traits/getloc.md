@@ -36,7 +36,7 @@ int main()
 * std::locale[link /reference/locale/locale.md]
 * imbue[link imbue.md]
 * name()[link /reference/locale/locale/name.md.nolink]
-* assert[link /reference/cassert/assert.md.nolink]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

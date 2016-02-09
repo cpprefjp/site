@@ -88,7 +88,7 @@ int main()
 * std::codecvt_utf8[link /reference/codecvt/codecvt_utf8.md]
 * std::string[link /reference/string/basic_string.md]
 * std::u32string[link /reference/string/basic_string.md]
-* assert[link /reference/cassert/assert.md.nolink]
+* assert[link /reference/cassert/assert.md]
 * empty()[link /reference/string/basic_string/empty.md]
 * std::begin[link /reference/iterator/begin.md]
 * std::end[link /reference/iterator/end.md]

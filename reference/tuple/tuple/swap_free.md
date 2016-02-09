@@ -52,7 +52,7 @@ int main()
 * std::swap[color ff0000]
 * std::string[link /reference/string/basic_string.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
-* assert[link /reference/cassert/assert.md.nolink]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

@@ -150,7 +150,7 @@ assert(str.size() == 9);
 * std::u32string[link /reference/string/basic_string.md]
 * str.size()[link /reference/string/basic_string/size.md]
 * std::size_t[link /reference/cstddef/size_t.md]
-* assert[link /reference/cassert/assert.md.nolink]
+* assert[link /reference/cassert/assert.md]
 
 
 ###リテラル演算子テンプレート
