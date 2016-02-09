@@ -1,5 +1,5 @@
 #assert
-* cfloat[meta header]
+* cassert[meta header]
 * macro[meta id-type]
 
 ```cpp
