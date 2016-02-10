@@ -18,6 +18,10 @@
 このマクロは、直前の`<cassert>`（または`<assert.h>`）のインクルード時点でマクロ`NDEBUG`が定義されていなかった場合に有効となり、`NDEBUG`が定義されていた場合は無効となる。
 
 
+##要件
+パラメータの式の型はスカラ型でなければならない。
+
+
 ##効果
 - 有効な場合:
     - パラメータの式を評価し、偽であった場合（`0`と等しい場合）、式をテキスト化したものに加え`__FILE__`, `__LINE__`, `__func__`の値を標準エラー出力に処理系定義の書式で書き込み、[`abort()`](/reference/cstdlib/abort.md)関数を呼び出してプログラムを異常終了させる。
@@ -62,3 +66,5 @@ prog.exe: prog.cc:6: void f(int): Assertion `x >= 0' failed.
 ##参照
 - C++14 - 19.3 [assertions]
   ただしC++としての規定はほとんど無く、ほぼ参照規格であるISO C 7.2の規定によるものとなっている。
+- [What does it mean for C++ that assert takes a scalar argument?](https://groups.google.com/a/isocpp.org/d/topic/std-discussion/6EHDRo1A2EE/discussion)
+  パラメータの式の型についての要件は参照規格であるCの規定によるものであり、「スカラ型」が[C++におけるスカラ型](/reference/type_traits/is_scalar.md)となるのか、あるいはCにおけるスカラ型の範囲に限定されるのか、少なくともC++14時点でははっきりしていない。
