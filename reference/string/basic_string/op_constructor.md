@@ -57,10 +57,10 @@ basic_string(basic_string&& str, const Allocator&);      // (12) C++11
 
 ##要件
 - (6)
-    - C++11 : `s`がヌルポインタではないこと。`n < npos`であること。
+    - C++03 : `s`がヌルポインタではないこと。`n < npos`であること。
     - C++14 : `s`は、`charT`型の要素を少なくても`n`個を持つ配列を指していること。
 - (7)
-    - C++11 : `s`がヌルポインタではないこと。
+    - C++03 : `s`がヌルポインタではないこと。
     - C++14 : `s`は、`charT`型の要素を少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個持つ配列を指していること。
 
 
