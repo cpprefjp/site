@@ -46,6 +46,10 @@ int main()
 
 そのような状況で、例外送出や[`std::exit()`](/reference/cstdlib/exit.md)、[`std::abort()`](/reference/cstdlib/abort.md)の呼び出しをラップした関数に`[[noreturn]]`を付けることで、そのようなコンパイラの警告を抑制できる。
 
+`[[noreturn]]`属性を付けて宣言した関数がほかの翻訳単位で`[[noreturn]]`属性を付けずに宣言された場合、プログラムは不適格となる。
+
+`[[noreturn]]`属性を付けた関数が返った場合、その動作は未定義。
+
 
 ###`[[carries_dependency]]`属性
 (執筆中)
