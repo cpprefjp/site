@@ -118,7 +118,7 @@ prog.cc:45:3: warning: 'class_templ<int>' is deprecated: don't use class_templ<i
 
 
 ##関連項目
-- [属性構文](/lang/cpp11/attributes.md.nolink)
+- [属性構文](/lang/cpp11/attributes.md)
 
 
 ##参照
