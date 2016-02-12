@@ -112,8 +112,8 @@ T kill_dependency(T y) noexcept
 ```
 
 ##参照
-[N2664 C++ Data-Dependency Ordering: Atomics and Memory Model](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2664.htm)
-[N2643 C++ Data-Dependency Ordering: Function Annotation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2643.html)
-[What does `std::kill_dependency` do, and why would I want to use it? - StackOverflow](http://stackoverflow.com/q/7150395/463412)
-[C++0xのメモリバリアをより深く解説してみる - yamasaのネタ帳](http://d.hatena.ne.jp/bsdhouse/20090929/1254237835)
+- [N2664 C++ Data-Dependency Ordering: Atomics and Memory Model](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2664.htm)
+- [N2643 C++ Data-Dependency Ordering: Function Annotation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2643.html)
+- [What does `std::kill_dependency` do, and why would I want to use it? - StackOverflow](http://stackoverflow.com/q/7150395/463412)
+- [C++0xのメモリバリアをより深く解説してみる - yamasaのネタ帳](http://d.hatena.ne.jp/bsdhouse/20090929/1254237835)
 
