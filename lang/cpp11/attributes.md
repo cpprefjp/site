@@ -117,7 +117,7 @@ T* r1 = x.load(memory_order_consume);
 if (r1)
   f(r1);
 else
-  g(r2);
+  g(r1);
 ```
 * atomic[link /reference/atomic/atomic.md]
 * x.load[link /reference/atomic/atomic/load.md]
