@@ -11,7 +11,7 @@ namespace chrono {
 }}
 ```
 * duration[link /reference/chrono/duration.md]
-* micro[link /ratio/si_prefix.md]
+* micro[link /reference/ratio/si_prefix.md]
 
 ##概要
 マイクロ秒単位を表現する`duration`の別名
