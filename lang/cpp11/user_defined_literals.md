@@ -250,6 +250,9 @@ DecimalFloat f = 12.34df;
 
 ##関連項目
 - [C++14 リテラル演算子のスペースを省略可能とする](/lang/cpp14/no_whitespace_literal_operators.md)
+- [`std::basic_string`の文字列リテラル`s`](/reference/string/basic_string/op_s.md)
+- [`std::complex<double`>の浮動小数点数リテラル`i`](/reference/complex/op_i.md)
+- [`std::chrono::minutes`の数値リテラル`min`](/reference/chrono/duration/op_min.md)
 
 
 ##参照
