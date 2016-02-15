@@ -14,7 +14,7 @@ namespace chrono {
 * ratio[link /reference/ratio.md]
 
 ##概要
-`duration`は、2つの時間の経過時間を表現するための型である。
+`duration`は、2つの時間の間隔を表現するための型である。
 
 `duration`のテンプレートパラメータである`ratio`の値によって、時間のためのあらゆる単位(ナノ秒、ミリ秒、秒, etc...)を表現することができる。
 

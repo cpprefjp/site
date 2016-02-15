@@ -8,7 +8,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
-| [`duration`](chrono/duration.md)               | 時間の単位(class template) | C++11 |
+| [`duration`](chrono/duration.md)               | 時間の間隔(class template) | C++11 |
 | [`time_point`](chrono/time_point.md)           | 時間軸上の一点(class template) | C++11 |
 | [`treat_as_floating_point`](chrono/treat_as_floating_point.md) | `duration`内部表現の型が浮動小数点型かを判定するためのトレイト(class template) | C++11 |
 | [`duration_values`](chrono/duration_values.md) | `duration`内部表現の特別な値を取得するためのトレイト(class template) | C++11 |
