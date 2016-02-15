@@ -14,7 +14,7 @@ namespace chrono {
 * ratio[link /reference/ratio.md]
 
 ##概要
-分単位を表現する`duration`の別名
+分単位を表現する[`duration`](duration.md)の別名
 
 ##例
 ```cpp

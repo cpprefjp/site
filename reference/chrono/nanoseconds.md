@@ -15,7 +15,7 @@ namespace chrono {
 * nano[link /reference/ratio/si_prefix.md]
 
 ##概要
-ナノ秒単位を表現する`duration`の別名
+ナノ秒単位を表現する[`duration`](duration.md)の別名
 
 
 ##例

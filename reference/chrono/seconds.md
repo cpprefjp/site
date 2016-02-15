@@ -13,7 +13,7 @@ namespace chrono {
 * duration[link /reference/chrono/duration.md]
 
 ##概要
-秒単位を表現する`duration`の別名
+秒単位を表現する[`duration`](duration.md)の別名
 
 
 ##例

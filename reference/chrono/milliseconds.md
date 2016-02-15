@@ -14,7 +14,7 @@ namespace chrono {
 * milli[link /reference/ratio/si_prefix.md]
 
 ##概要
-ミリ秒単位を表現する`duration`の別名
+ミリ秒単位を表現する[`duration`](duration.md)の別名
 
 
 ##例
