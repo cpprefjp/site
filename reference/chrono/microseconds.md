@@ -7,10 +7,11 @@
 ```cpp
 namespace std {
 namespace chrono {
-  typedef duration<最低でも55ビットを持つ符号付き整数型, nano> nanoseconds;
+  typedef duration<最低でも55ビットを持つ符号付き整数型, micro> microseconds;
 }}
 ```
 * duration[link /reference/chrono/duration.md]
+* micro[link /ratio/si_prefix.md]
 
 ##概要
 マイクロ秒単位を表現する`duration`の別名
