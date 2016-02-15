@@ -64,3 +64,9 @@ int main()
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+
+
+##関連項目
+- [`sleep_for`](/reference/thread/this_thread/sleep_for.md)
+- [`sleep_until`](/reference/thread/this_thread/sleep_until.md)
+
