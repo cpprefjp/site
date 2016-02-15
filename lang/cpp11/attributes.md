@@ -15,7 +15,7 @@
 - ユーザーは任意の属性を定義できない。属性の定義は、標準およびベンダーが行う。
 
 
-###`[[noreturn]]`属性
+### <a name="noreturn" href="#noreturn">`[[noreturn]]`属性</a>
 `[[noreturn]]`は、関数が決して返らないことを示すための属性である。
 
 この属性を指定することで、「関数が返らない」という情報を使用してコンパイラが任意の最適化を行える。また、返らない処理をラップした関数に`[[noreturn]]`属性を付けることで、「関数が返らないパスが存在する」というコンパイラからの警告を抑制するためにも使用できる：
@@ -51,8 +51,82 @@ int main()
 `[[noreturn]]`属性を付けた関数が返った場合、その動作は未定義。
 
 
-###`[[carries_dependency]]`属性
-(執筆中)
+### <a name="carries_dependency" href="#carries_dependency">`[[carries_dependency]]`属性</a>
+`[[carries_dependency]]`は、並行プログラミングのアトミック操作において、値に依存した順序付け [`memory_order_consume`](/reference/atomic/memory_order.md)を、関数をまたいで伝搬することを明示するための属性である。
+
+以下は、[`memory_order_consume`](/reference/atomic/memory_order.md)を使用した順序付けの例である：
+
+```cpp
+atomic<T> x = …;
+T* r1 = x.load(memory_order_consume);
+
+// 以下のコードはr1の値に依存しているため、実行順序が保証される
+if (r1) {
+  T r2 = *r1 + 1;
+  T r3 = r2 + 1;
+}
+```
+* atomic[link /reference/atomic/atomic.md]
+* x.load[link /reference/atomic/atomic/load.md]
+* memory_order_consume[link /reference/atomic/memory_order.md]
+
+ここでは、`r1`に関連する操作が全て同一関数内で行われているが、一部の操作が別の関数になっていると、別の関数になった操作に値の依存があるかどうか・依存として扱ってよいのかどうかがコンパイラに判断できない可能性がある。そのような状況で、関数のパラメータおよび戻り値のそれぞれが値の依存性を伝搬させることを明示するために`[[carries_dependency]]`属性を使用する。
+
+
+####関数の戻り値で値の依存性を伝搬させる
+関数の戻り値に対して値の依存性を持たせる場合、関数に対して`[[carries_dependency]]`属性を付加する。
+
+```cpp
+atomic<T> x = …;
+[[carries_dependency]] T* f()
+{
+  return x.load(memory_order_consume);
+}
+
+T* r1 = f();
+if (r1) {
+  T r2 = *r1 + 1;
+  T r3 = r2 + 1;
+}
+```
+* atomic[link /reference/atomic/atomic.md]
+* x.load[link /reference/atomic/atomic/load.md]
+* memory_order_consume[link /reference/atomic/memory_order.md]
+
+
+####関数のパラメータで値の依存性を伝搬させる
+関数のパラメータに対して値の依存性を持たせる場合、各パラメータ名のうしろに`[[carries_dependency]]`属性を付加する。
+
+```cpp
+void f(T* r1 [[carries_dependency]])
+{
+  T r2 = *r1 + 1;
+  T r3 = r2 + 1;
+}
+
+void g(T* r1 [[carries_dependency]])
+{
+  // …
+}
+
+atomic<T> x = …;
+T* r1 = x.load(memory_order_consume);
+
+// 関数f()と関数g()の呼び出し、およびその関数内の操作が、
+// r1に依存した操作であるとして実行順序が保証される
+if (r1)
+  f(r1);
+else
+  g(r2);
+```
+* atomic[link /reference/atomic/atomic.md]
+* x.load[link /reference/atomic/atomic/load.md]
+* memory_order_consume[link /reference/atomic/memory_order.md]
+
+
+`[[carries_dependency]]`属性を付けて宣言した関数がほかの翻訳単位で`[[carries_dependency]]`属性を付けずに宣言された場合、プログラムは不適格となる。
+
+`[[carries_dependency]]`の反対に、値の依存性を断ち切る[`kill_dependency()`](/reference/atomic/kill_dependency.md)関数も定義されている。
 
 
 ##関連項目
