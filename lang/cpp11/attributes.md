@@ -57,7 +57,7 @@ int main()
 以下は、[`memory_order_consume`](/reference/atomic/memory_order.md)を使用した順序付けの例である：
 
 ```cpp
-atomic<T> x = …;
+atomic<T*> x = …;
 T* r1 = x.load(memory_order_consume);
 
 // 以下のコードはr1の値に依存しているため、実行順序が保証される
@@ -77,7 +77,7 @@ if (r1) {
 関数の戻り値に対して値の依存性を持たせる場合、関数に対して`[[carries_dependency]]`属性を付加する。
 
 ```cpp
-atomic<T> x = …;
+atomic<T*> x = …;
 [[carries_dependency]] T* f()
 {
   return x.load(memory_order_consume);
@@ -109,7 +109,7 @@ void g(T* r1 [[carries_dependency]])
   // …
 }
 
-atomic<T> x = …;
+atomic<T*> x = …;
 T* r1 = x.load(memory_order_consume);
 
 // 関数f()と関数g()の呼び出し、およびその関数内の操作が、
