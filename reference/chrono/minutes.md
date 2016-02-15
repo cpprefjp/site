@@ -22,18 +22,39 @@ namespace chrono {
 
 int main()
 {
-  std::chrono::minutes ns1(30);
-  std::chrono::minutes ns2(20);
+  std::chrono::minutes m1(30);
+  std::chrono::minutes m2(20);
 
-  std::chrono::minutes result = ns1 + ns2;
+  // 20分 + 30分 = 50分
+  std::chrono::minutes sum_minutes = m1 + m2;
+  std::cout << sum_minutes.count() << std::endl;
 
-  std::cout << result.count() << std::endl;
+  // 秒に変換
+  // 50分 * 60秒 = 3000秒
+  std::chrono::seconds sec = sum_minutes;
+  std::cout << sec.count() << std::endl;
+
+  // 時に変換
+  // 65分は1時間5分だが、整数表現の時に変換する際に5分が切り捨てられるため、
+  // 1時間となる。
+  // 切り捨てが発生する場合には、duration_cast()関数を使用する。
+  std::chrono::minutes m3(65);
+  std::chrono::hours h = std::chrono::duration_cast<std::chrono::hours>(m3);
+  std::cout << h.count() << std::endl;
 }
 ```
+* std::chrono::seconds[link seconds.md]
+* std::chrono::hours[link hours.md]
+* count()[link duration/count.md]
+* std::chrono::duration_cast[link duration_cast.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
 50
+3000
+1
 ```
 
 ##バージョン
