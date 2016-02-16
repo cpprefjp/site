@@ -9,9 +9,11 @@
 * implementation-defined[italic]
 
 ##概要
-`long long` の最小値。
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long long>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しいが、`LLONG_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。  
-具体的な値は実装依存であるが、-9223372036854775807（-(2<sup>63</sup> - 1)）以下であることが規格で定められている。また、型は `long long` である。
+`long long` 型が表現できる値の最小値。
+
+`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long long>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しいが、`LLONG_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。
+
+具体的な値は実装依存であるが、-9223372036854775807（-(2<sup>63</sup> - 1)）以下であることが規格で定められている。このマクロによって定義される値の型は `long long` である。
 
 
 ##例

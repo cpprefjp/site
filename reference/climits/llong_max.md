@@ -9,9 +9,11 @@
 * implementation-defined[italic]
 
 ##概要
-`long long` の最大値。
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long long>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、`LLONG_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。  
-具体的な値は実装依存であるが、9223372036854775807（2<sup>63</sup> - 1）以上であることが規格で定められている。また、型は `long long` である。
+`long long` 型が表現できる値の最大値。
+
+`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long long>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、`LLONG_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。
+
+具体的な値は実装依存であるが、9223372036854775807（2<sup>63</sup> - 1）以上であることが規格で定められている。このマクロによって定義される値の型は `long long` である。
 
 
 ##例
