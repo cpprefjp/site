@@ -56,6 +56,7 @@ int main()
 }
 ```
 * shrink_to_fit[color ff0000]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

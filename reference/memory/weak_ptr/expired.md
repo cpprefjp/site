@@ -46,6 +46,7 @@ int main()
   assert(wp.expired());
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

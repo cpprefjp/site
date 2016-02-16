@@ -75,6 +75,7 @@ int main()
   assert(result4.first == 3 && result4.second == 1);
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 
 ###出力

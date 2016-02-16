@@ -63,6 +63,7 @@ int main()
 }
 ```
 * knuth_b[link /reference/random/knuth_b.md]
+* assert[link /reference/cassert/assert.md]
 
 ###出力例
 ```

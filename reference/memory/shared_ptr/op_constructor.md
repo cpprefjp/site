@@ -221,6 +221,7 @@ int main()
   assert(p15.use_count() == 0);
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

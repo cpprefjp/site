@@ -39,6 +39,7 @@ int main()
   assert(!result[2]);
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

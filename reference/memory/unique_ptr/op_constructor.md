@@ -103,6 +103,7 @@ int main()
   assert(*static_cast<int*>(p7.get()) == 3);
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

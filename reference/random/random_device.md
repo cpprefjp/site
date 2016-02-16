@@ -144,6 +144,7 @@ int main()
 * password += random_char[link /reference/string/basic_string/op_plus_assign.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
+* assert[link /reference/cassert/assert.md]
 
 ####出力例
 ```

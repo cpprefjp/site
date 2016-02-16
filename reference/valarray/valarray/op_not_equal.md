@@ -91,6 +91,7 @@ int main()
   expect_all_true(result3);
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

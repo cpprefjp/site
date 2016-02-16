@@ -43,6 +43,7 @@ int main()
 }
 ```
 * seconds(2) < seconds(3)[color ff0000]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

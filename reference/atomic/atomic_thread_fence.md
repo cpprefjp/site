@@ -64,6 +64,7 @@ int j = a.load(std::memory_order_relaxed);
 assert(i == 1 || j == 1); // すなわち、i と j が共に0となることはない。
 ```
 * atomic_thread_fence[color ff0000]
+* assert[link /reference/cassert/assert.md]
 
 この例では、Thread 1, 2 にある`seq_cst`フェンスのいずれか一方でも欠けると (`i == 0 && j == 0`) という結果が起こりうる。そして、`acquire`, `release`や`acq_rel`フェンスでは`seq_cst`フェンスの代用にはならない。
 

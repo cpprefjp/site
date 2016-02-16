@@ -57,6 +57,7 @@ int main()
   assert(result4 == 3);
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

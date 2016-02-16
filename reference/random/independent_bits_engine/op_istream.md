@@ -69,6 +69,7 @@ int main()
 ```
 * mt19937[link /reference/random/mt19937.md]
 * uint64_t[link /reference/cstdint/uint64_t.md]
+* assert[link /reference/cassert/assert.md]
 
 ###出力例
 ```

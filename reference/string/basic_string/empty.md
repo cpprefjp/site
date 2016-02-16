@@ -37,6 +37,7 @@ int main()
   assert(s.empty());
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

@@ -85,6 +85,7 @@ int main()
 }
 ```
 * get[color ff0000]
+* assert[link /reference/cassert/assert.md]
 
 
 ###出力

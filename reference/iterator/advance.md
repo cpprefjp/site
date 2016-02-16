@@ -93,6 +93,7 @@ void advance(Iterator& i, Distance n)
           // イテレータのカテゴリごとに最適な実装を選択させる
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ##参照
 

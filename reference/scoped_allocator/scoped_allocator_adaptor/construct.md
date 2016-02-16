@@ -194,6 +194,7 @@ int main()
   construct_pair();
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

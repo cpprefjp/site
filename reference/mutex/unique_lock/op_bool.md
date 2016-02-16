@@ -68,6 +68,7 @@ int main()
 ```
 * if (lk)[color ff0000]
 * if (!lk)[color ff0000]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```cpp

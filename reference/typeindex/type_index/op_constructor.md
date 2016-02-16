@@ -30,6 +30,7 @@ int main()
   assert(ti == typeid(int));
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

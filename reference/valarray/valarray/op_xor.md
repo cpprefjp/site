@@ -103,6 +103,7 @@ int main()
   assert((equal_valarray(result3, expected)));
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

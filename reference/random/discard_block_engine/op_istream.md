@@ -63,6 +63,7 @@ int main()
 }
 ```
 * ranlux24[link /reference/random/ranlux24.md]
+* assert[link /reference/cassert/assert.md]
 
 ###出力例
 ```

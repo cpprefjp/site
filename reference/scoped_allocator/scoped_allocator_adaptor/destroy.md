@@ -30,7 +30,6 @@ OUTERMOST_ALLOC_TRAITS(*this)::destroy(OUTERMOST(*this), p)
 
 ##例
 ```cpp
-#include <cassert>
 #include <vector>
 #include <string>
 

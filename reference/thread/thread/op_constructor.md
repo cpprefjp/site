@@ -91,6 +91,7 @@ int main()
 * std::shared_ptr[link /reference/memory/shared_ptr.md]
 * std::make_shared[link /reference/memory/make_shared.md]
 * std::unique_ptr[link /reference/memory/unique_ptr.md]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

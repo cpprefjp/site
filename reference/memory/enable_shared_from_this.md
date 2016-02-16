@@ -82,6 +82,7 @@ int main()
 }
 ```
 * std::enable_shared_from_this[color ff0000]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

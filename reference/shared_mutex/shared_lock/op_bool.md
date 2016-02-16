@@ -75,6 +75,7 @@ int main()
 * unlock()[link /reference/shared_mutex/shared_timed_mutex/unlock.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```cpp

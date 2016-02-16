@@ -25,6 +25,7 @@ int main()
   assert(init.size() == 0);
 }
 ```
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

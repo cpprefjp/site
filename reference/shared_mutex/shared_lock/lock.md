@@ -61,6 +61,7 @@ int main()
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
 * owns_lock()[link owns_lock.md]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

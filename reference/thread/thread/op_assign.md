@@ -50,6 +50,7 @@ int main()
 }
 ```
 * th2 = std::move(th1);[color ff0000]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```
