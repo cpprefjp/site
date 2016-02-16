@@ -54,8 +54,8 @@ namespace chrono {
 | 名前       | 説明                              | 対応バージョン |
 |------------|-----------------------------------|----------------|
 | `clock`    | 時計型 `Clock`                    | C++11          |
-| `duration` | 経過時間の型 `Duration`           | C++11          |
-| `rep`      | 経過時間の数値型 `Duration::rep`  | C++11          |
+| `duration` | 時間間隔の型 `Duration`           | C++11          |
+| `rep`      | 時間間隔の数値型 `Duration::rep`  | C++11          |
 | `period`   | 経過時間の単位 `Duration::period` | C++11          |
 
 
