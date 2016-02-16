@@ -4,7 +4,7 @@
 ##概要
 C++11で導入された`noexcept`キーワードには、以下の2つの意味がある：
 
-ひとつは、`throw`キーワードによる例外指定の代替。関数がどの例外を送出する可能性があるかを列挙するのではなく、例外を送出する可能性があるかないかのみを指定する。例外を送出する可能性がある関数には`noexcept(false)`を指定し、例外を送出する可能性がある関数には`noexcept(true)`もしくは`noexcept`を指定する：
+ひとつは、`throw`キーワードによる例外仕様の代替。関数がどの例外を送出する可能性があるかを列挙するのではなく、例外を送出する可能性があるかないかのみを指定する。例外を送出する可能性がある関数には`noexcept(false)`を指定し、例外を送出する可能性がある関数には`noexcept(true)`もしくは`noexcept`を指定する：
 
 ```cpp
 class Integer {
@@ -33,10 +33,39 @@ static_assert(noexcept(x.getValue()), "getValue() function never throw exception
     - 例外を送出しないという保証があることで、コンパイラは例外送出によるスタック巻き戻しのためのスタックを確保する必要がなくなる
 2. 例外を決して送出しない強い例外安全性の保証(No-throw guarantee)
     - 例外安全性で有名な問題として`stack`の`pop`操作がある。要素型`T`のコピーコンストラクタが例外を送出する可能性があるために`pop`の関数は`T`を返すのではなく戻り値型`void`とする必要があった。しかし`return`文に指定する式が決して例外を送出しないという保証があることで、`pop`の関数は`T`型のオブジェクトを返せるようになる。
-	- 参照： [ジェネリックコンポーネントにおける例外安全性 - boostjp](http://boostjp.github.io/archive/boost_docs/document/generic_exception_safety.html)
+    - 参照： [ジェネリックコンポーネントにおける例外安全性 - boostjp](http://boostjp.github.io/archive/boost_docs/document/generic_exception_safety.html)
 
 
 ##仕様
+###例外仕様としてのnoexcept
+- 例外仕様としての`noexcept`には、整数定数式を引数として指定できる。整数定数式は、`bool`に変換可能であること。
+- `noexcept`例外仕様に`false`を指定した関数は、あらゆる例外を送出する可能性がある。
+- `noexcept`例外仕様に`true`を指定した関数、もしくは引数なしで`noexcept`を指定した関数は、いかなる例外も送出してはならない。
+- `noexcept`例外仕様を指定しない関数は、一部の例外を除いて、`noexcept(false)`を意味する。
+    - デストラクタは、明示的に`noexcept(false)`を指定しない限り、デフォルトで`noexcept`である。
+
+```cpp
+struct X {
+    ~X(); // デストラクタはデフォルトでnoexcept(true)
+
+    // 例外を送出する可能性がある
+    // ※ std::vectorのコピーコンストラクタは例外を送出する
+    std::vector<T> getVector() const;
+//  std::vector<T> getVector() const noexcept(false);
+
+    // 例外を送出しない
+    int getValue() const noexcept;
+//  int getValue() const noexcept(true);
+};
+```
+* noexcept[color ff0000]
+* std::vector[link /reference/vector.md]
+
+- `noexcept`もしくは`noexcept(true)`と指定された関数が例外を送出した場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出してプログラムを異常終了させる。
+- 従来の`throw`キーワードによる例外仕様(C++03ではexception specification、C++11ではdynamic exception specificationと呼ばれる仕様)は、C++11以降で非推奨である。
+
+
+###式が例外を送出する可能性があるか判定するnoexcept演算子
 (執筆中)
 
 
