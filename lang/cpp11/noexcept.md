@@ -42,7 +42,7 @@ static_assert(noexcept(x.getValue()), "getValue() function never throw exception
 - `noexcept`例外仕様に対して`false`に評価される整数定数式を指定した関数は、あらゆる例外を送出する可能性がある。
 - `noexcept`例外仕様に対して`true`に評価される整数定数式を指定した関数、もしくは引数なしで`noexcept`を指定した関数は、いかなる例外も送出してはならない。
 - `noexcept`例外仕様を指定しない関数は、一部の例外を除いて、`noexcept(false)`を意味する。
-    - デストラクタと`delete`演算子は、明示的に`noexcept(false)`を指定しない限り、デフォルトで`noexcept`である。
+    - デストラクタと`delete`演算子は、明示的に`noexcept(falseに評価される整数定数式)`を指定しない限り、デフォルトで`noexcept`である。
 
 ```cpp
 struct X {
@@ -61,7 +61,7 @@ struct X {
 * noexcept[color ff0000]
 * std::vector[link /reference/vector.md]
 
-- `noexcept`もしくは`noexcept(true)`と指定された関数が例外を送出した場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出してプログラムを異常終了させる。その際、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出される前に、スタックの巻き戻しは起こらない可能性がある。
+- `noexcept`もしくは`noexcept(trueに評価される整数定数式)`が指定された関数が例外を送出した場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出してプログラムを異常終了させる。その際、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出される前に、スタックの巻き戻しは起こらない可能性がある。
 - 従来の`throw`キーワードによる例外仕様(C++03ではexception specification、C++11ではdynamic exception specificationと呼ばれる仕様)は、C++11以降で非推奨である。
 
 
