@@ -103,7 +103,7 @@ Thu Jul 18 13:46:26 2013
 - C++11
 
 ###処理系
-- Clang: 3.0, 3.1, 3.2, 3.3
+- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 ##参照
