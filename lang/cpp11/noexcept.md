@@ -39,8 +39,8 @@ static_assert(noexcept(x.getValue()), "getValue() function never throw exception
 ##仕様
 ###例外仕様としてのnoexcept
 - 例外仕様としての`noexcept`には、整数定数式を引数として指定できる。整数定数式は、`bool`に変換可能であること。
-- `noexcept`例外仕様に`false`を指定した関数は、あらゆる例外を送出する可能性がある。
-- `noexcept`例外仕様に`true`を指定した関数、もしくは引数なしで`noexcept`を指定した関数は、いかなる例外も送出してはならない。
+- `noexcept`例外仕様に対して`false`に評価される整数定数式を指定した関数は、あらゆる例外を送出する可能性がある。
+- `noexcept`例外仕様に対して`true`に評価される整数定数式を指定した関数、もしくは引数なしで`noexcept`を指定した関数は、いかなる例外も送出してはならない。
 - `noexcept`例外仕様を指定しない関数は、一部の例外を除いて、`noexcept(false)`を意味する。
     - デストラクタと`delete`演算子は、明示的に`noexcept(false)`を指定しない限り、デフォルトで`noexcept`である。
 
