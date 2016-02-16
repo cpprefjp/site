@@ -25,7 +25,7 @@ namespace std {
 	- 例外処理に伴う自動変数（スタック上のオブジェクト）のデストラクタ
 	- 非ローカル変数の初期化
 	- 静的記憶期間・スレッド静的記憶期間のオブジェクトのデストラクタ
-	- `exit()`や`quick_exit()`内で呼び出される`atexit()`や`at_quick_exit()`で登録した関数
+	- [`exit()`](/reference/cstdlib/exit.md)や[`quick_exit()`](/reference/cstdlib/quick_exit.md)内で呼び出される[`atexit()`](/reference/atexit.md)や[`at_quick_exit()`](/reference/cstdlib/at_quick_exit.md)で登録した関数
 	- [`set_unexpected()`](set_unexpected.md)で登録したハンドラで以下すべてを満たす場合
 		- 発端となった例外指定に含まれない例外がハンドラから送出された
 		- 発端となった例外指定に[`bad_exception`](bad_exception.md)が含まれない
@@ -41,7 +41,7 @@ namespace std {
 
 終了ハンドラは[`set_terminate()`](set_terminate.md)で指定できる。
 
-デフォルトの終了ハンドラは`abort()`を呼び出すことと規定されている。
+デフォルトの終了ハンドラは[`abort()`](/reference/cstdlib/abort.md)を呼び出すことと規定されている。
 
 
 ##戻り値
