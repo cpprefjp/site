@@ -8,9 +8,11 @@
 * implementation-defined[italic]
 
 ##概要
-`char` の最小値。
-値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<char>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しいが、型が異なり、また `CHAR_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。  
-具体的な値は実装依存であるが、`char` が符号付きであれば [`SCHAR_MIN`](schar_min.md) と同じ、符号無しであれば `0` である。また、型は `int` である。
+`char` 型が表現できる値の最小値。
+
+値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<char>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しいが、型が異なり、また `CHAR_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。
+
+具体的な値は実装依存であるが、`char` が符号付きであれば [`SCHAR_MIN`](schar_min.md) と同じ、符号無しであれば `0` である。このマクロによって定義される値の型は `int` である。
 
 
 ##例

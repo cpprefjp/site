@@ -8,9 +8,11 @@
 * implementation-defined[italic]
 
 ##概要
-`int` の最小値。
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<int>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しいが、`INT_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。  
-具体的な値は実装依存であるが、-32767（-(2<sup>15</sup> - 1)）以下であることが規格で定められている。また、型は `int` である。
+`int` 型が表現できる値の最小値。
+
+`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<int>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しいが、`INT_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。
+
+具体的な値は実装依存であるが、-32767（-(2<sup>15</sup> - 1)）以下であることが規格で定められている。このマクロによって定義される値の型は `int` である。
 
 
 ##例

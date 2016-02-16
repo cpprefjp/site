@@ -8,9 +8,11 @@
 * implementation-defined[italic]
 
 ##概要
-`unsigned char` の最大値。
-値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<unsigned char>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、型が異なり、また `UCHAR_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。  
-具体的な値は実装依存であるが、255（2<sup>8</sup> - 1）以上であることが規格で定められている。また、型は `unsigned char` の全ての値が `int` で表すことができれば `int`、そうでなければ `unsigned int` である。
+`unsigned char` が表現できる値の最大値。
+
+値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<unsigned char>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、型が異なり、また `UCHAR_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。
+
+具体的な値は実装依存であるが、255（2<sup>8</sup> - 1）以上であることが規格で定められている。このマクロによって定義される値の型は、 `unsigned char` の全ての値が `int` で表すことができれば `int`、そうでなければ `unsigned int` である。
 
 
 ##例

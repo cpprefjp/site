@@ -8,9 +8,11 @@
 * implementation-defined[italic]
 
 ##概要
-`unsigned long` の最大値。
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<unsigned long>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、`ULONG_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。  
-具体的な値は実装依存であるが、4294967295（2<sup>32</sup> - 1）以上であることが規格で定められている。また、型は `unsigned long` である。
+`unsigned long` 型が表現できる値の最大値。
+
+`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<unsigned long>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、`ULONG_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。
+
+具体的な値は実装依存であるが、4294967295（2<sup>32</sup> - 1）以上であることが規格で定められている。このマクロによって定義される値の型は `unsigned long` である。
 
 
 ##例

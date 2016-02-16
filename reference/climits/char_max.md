@@ -8,9 +8,12 @@
 * implementation-defined[italic]
 
 ##概要
-`char`の最大値。
-値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<char>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、型が異なり、また `CHAR_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。  
-具体的な値は実装依存であるが、`char` が符号付きであれば [`SCHAR_MAX`](schar_max.md) と同じ、符号無しであれば [`UCHAR_MAX`](uchar_max.md) と同じである。また、型は `char` の全ての値が `int` で表すことができれば `int`、そうでなければ `unsigned int` である。
+`char`型が表現できる値の最大値。
+
+値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<char>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、型が異なり、また `CHAR_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。
+
+具体的な値は実装依存であるが、`char` が符号付きであれば [`SCHAR_MAX`](schar_max.md) と同じ、符号無しであれば [`UCHAR_MAX`](uchar_max.md) と同じである。このマクロによって定義される値の型は、 `char` の全ての値が `int` で表すことができれば `int`、そうでなければ `unsigned int` である。
+
 
 ##例
 ```cpp
