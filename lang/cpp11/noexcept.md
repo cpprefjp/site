@@ -138,6 +138,7 @@ int main()
 * base::top()[link /reference/stack/top.md]
 * base::pop()[link /reference/stack/pop.md]
 * s.push[link /reference/stack/push.md]
+* s.empty()[link /reference/stack/empty.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
