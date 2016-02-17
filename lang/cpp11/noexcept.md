@@ -103,7 +103,7 @@ template <class T, class Container = std::deque<T>>
 class movable_stack : public std::stack<T, Container> {
   using base = std::stack<T, Container>;
  
- static_assert(std::is_nothrow_default_constructible<T>{},
+  static_assert(std::is_nothrow_default_constructible<T>{},
                 "T must be nothrow default constructible");
   static_assert(std::is_nothrow_move_constructible<T>{},
                 "T must be nothrow move constructible");
