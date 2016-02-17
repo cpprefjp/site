@@ -157,6 +157,18 @@ int main()
 そういった例外を送出しない判定や指定は、従来の`throw`キーワードによる例外仕様の範囲を超えていた。そのために、`noexcept`という機能が新設され、その機能で必要十分となったために従来の例外仕様は非推奨となった。
 
 
+##関連項目
+- [`move_if_noexcept`](/reference/utility/move_if_noexcept.md)
+- [`is_nothrow_constructible`](/reference/type_traits/is_nothrow_constructible.md)
+- [`is_nothrow_default_constructible`](/reference/type_traits/is_nothrow_default_constructible.md)
+- [`is_nothrow_copy_constructible`](/reference/type_traits/is_nothrow_copy_constructible.md)
+- [`is_nothrow_move_constructible`](/reference/type_traits/is_nothrow_move_constructible.md)
+- [`is_nothrow_assignable`](/reference/type_traits/is_nothrow_assignable.md)
+- [`is_nothrow_copy_assignable`](/reference/type_traits/is_nothrow_copy_assignable.md)
+- [`is_nothrow_move_assignable`](/reference/type_traits/is_nothrow_move_assignable.md)
+- [`is_nothrow_destructible`](/reference/type_traits/is_nothrow_destructible.md)
+
+
 ##参照
 - [N3050 Allowing Move Constructors to Throw (Rev. 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3050.html)
 - [N3166 Destructors default to `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3166.html)
