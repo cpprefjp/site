@@ -102,7 +102,9 @@ constexpr bool isNoexprF = noexcept(x.f());
 template <class T, class Container = std::deque<T>>
 class movable_stack : public std::stack<T, Container> {
   using base = std::stack<T, Container>;
-    
+ 
+ static_assert(std::is_nothrow_default_constructible<T>{},
+                "T must be nothrow default constructible");
   static_assert(std::is_nothrow_move_constructible<T>{},
                 "T must be nothrow move constructible");
 
@@ -110,11 +112,15 @@ public:
   // クラスのテンプレートパラメータTに対して、
   // ムーブコンストラクタが例外を送出しないことを要求しているので、
   // pop操作は例外を送出することなくreturnで要素を返せる。
-  T move_pop() noexcept
+  std::pair<T, bool> move_pop() noexcept
   {
+    if (base::empty()) {
+      return std::make_pair(T(), false);
+    }
+
     T x = std::move(base::top());
     base::pop();
-    return x;
+    return std::make_pair(std::move(x), true);
   }
 };
 
@@ -126,18 +132,22 @@ int main()
   s.push(3);
 
   while (!s.empty()) {
-    int next_value = s.move_pop();
+    int next_value = s.move_pop().first;
     std::cout << next_value << std::endl;
   }
 }
 ```
 * std::stack[link /reference/stack.md]
 * std::deque[link /reference/deque.md]
+* std::is_nothrow_default_constructible[link /reference/type_traits/is_nothrow_default_constructible.md]
 * std::is_nothrow_move_constructible[link /reference/type_traits/is_nothrow_move_constructible.md]
 * static_assert[link static_assert.md]
 * std::move[link /reference/utility/move.md]
+* base::empty()[link /reference/stack/empty.md]
 * base::top()[link /reference/stack/top.md]
 * base::pop()[link /reference/stack/pop.md]
+* std::pair[link /reference/utility/pair.md]
+* std::make_pair[link /reference/utility/make_pair.md]
 * s.push[link /reference/stack/push.md]
 * s.empty()[link /reference/stack/empty.md]
 * std::cout[link /reference/iostream/cout.md]
