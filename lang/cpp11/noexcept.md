@@ -134,6 +134,7 @@ int main()
 * std::stack[link /reference/stack.md]
 * std::deque[link /reference/deque.md]
 * std::is_nothrow_move_constructible[link /reference/type_traits/is_nothrow_move_constructible.md]
+* static_assert[link static_assert.md]
 * std::move[link /reference/utility/move.md]
 * base::top()[link /reference/stack/top.md]
 * base::pop()[link /reference/stack/pop.md]
