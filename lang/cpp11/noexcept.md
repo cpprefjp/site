@@ -169,7 +169,7 @@ int main()
 
 
 ##関連項目
-- [標準ライブラリにおける、関数に`noexcept`を付けない条件](/reference/article/lib/dont_use_noexcept.md)
+- [標準ライブラリにおける、関数に`noexcept`を付けない条件](/article/lib/dont_use_noexcept.md)
 - [`move_if_noexcept`](/reference/utility/move_if_noexcept.md)
 - [`is_nothrow_constructible`](/reference/type_traits/is_nothrow_constructible.md)
 - [`is_nothrow_default_constructible`](/reference/type_traits/is_nothrow_default_constructible.md)
