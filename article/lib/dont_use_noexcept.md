@@ -16,6 +16,10 @@ C++11から、`throw`キーワードを使用した関数の例外指示が非�
 例外があることを前提としていない、C言語の互換ライブラリには、`noexcept`が付いている場合がある。たとえば、[`atomic_exchange()`](/reference/atomic/atomic_exchange.md)のような、[アトミックライブラリ](/reference/atomic.md)の関数などには、`noexcept`が付いている。
 
 
+##関連項目
+- [C++11 noexcept](/lang/cpp11/noexcept.md)
+
+
 ##参照元
 この記事は、「[標準ライブラリにおける、関数にnoexceptを付けない条件 - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20130620/1371715296)」のブログエントリから転載し、修正を行っている。
 
