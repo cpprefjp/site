@@ -66,7 +66,30 @@ struct X {
 
 
 ###式が例外を送出する可能性があるか判定するnoexcept演算子
-(執筆中)
+- 演算子としての`noexcept`は、引数として指定した定数式が例外を送出する可能性があるかどうかをコンパイル時に判定し、`bool`型の定数値を返す
+
+```cpp
+struct X {
+  int f() const noexcept; // noexcept例外仕様
+
+  // 外側はnoexcept例外仕様、内側はnoexcept演算子。
+  // メンバ関数関数f()が例外を送出しない場合、関数g()もまた例外を送出しない
+  int g() const noexcept(noexcept(f())
+  { return f(); }
+};
+
+X x;
+// X::f()メンバ関数が例外を送出しない場合、
+// isNoexprFはtrue、そうでなければfalseとなる
+constexpr bool isNoexprF = noexcept(x.f());
+```
+
+- この演算子は`sizeof`や[`decltype`](decltype.md.nolink)と同じく、引数として指定された式は、実行時には評価されない
+    - 上記コードの場合、`x.f()`は実行時には呼び出されない
+- `noexcept`演算子は、以下の状況で`false`を返す：
+    - `noexcept(true)`もしくは`noexcept`が指定されていない関数、メンバ関数、関数ポインタ、メンバ関数ポインタの呼び出し。(例として、`new`式からの確保関数の呼び出しといった、暗黙の呼び出し)
+    - `throw`式
+    - 実行時型チェックが行われる式として、参照型を引数とする`dynamic_cast`式の呼び出し、および多態的に振る舞う型の左辺値に対する`typeid`式の呼び出し
 
 
 ##例
