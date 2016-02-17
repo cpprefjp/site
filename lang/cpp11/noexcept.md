@@ -93,12 +93,59 @@ constexpr bool isNoexprF = noexcept(x.f());
 
 
 ##例
-(執筆中)
 ```cpp
+#include <iostream>
+#include <stack>
+#include <deque>
+#include <type_traits>
+
+template <class T, class Container = std::deque<T>>
+class movable_stack : public std::stack<T, Container> {
+  using base = std::stack<T, Container>;
+    
+  static_assert(std::is_nothrow_move_constructible<T>{},
+                "T must be nothrow move constructible");
+
+public:
+  // クラスのテンプレートパラメータTに対して、
+  // ムーブコンストラクタが例外を送出しないことを要求しているので、
+  // pop操作は例外を送出することなくreturnで要素を返せる。
+  T move_pop() noexcept
+  {
+    T x = std::move(base::top());
+    base::pop();
+    return x;
+  }
+};
+
+int main()
+{
+  movable_stack<int> s;
+  s.push(1);
+  s.push(2);
+  s.push(3);
+
+  while (!s.empty()) {
+    int next_value = s.move_pop();
+    std::cout << next_value << std::endl;
+  }
+}
 ```
+* std::stack[link /reference/stack.md]
+* std::deque[link /reference/deque.md]
+* std::is_nothrow_move_constructible[link /reference/type_traits/is_nothrow_move_constructible.md]
+* std::move[link /reference/utility/move.md]
+* base::top()[link /reference/stack/top.md]
+* base::pop()[link /reference/stack/pop.md]
+* s.push[link /reference/stack/push.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
+3
+2
+1
 ```
 
 ##この機能が必要になった背景・経緯
@@ -112,4 +159,5 @@ constexpr bool isNoexprF = noexcept(x.f());
 - [N3204 Deducing "`noexcept`" for destructors](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3204.htm)
 - [N3205 Delete operators default to `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3205.htm)
 - [N3103 Security impact of `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3103.pdf)
+- [ムーブによるpop - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20130604/1370327651)
 
