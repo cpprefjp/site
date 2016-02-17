@@ -46,16 +46,16 @@ static_assert(noexcept(x.getValue()), "getValue() function never throw exception
 
 ```cpp
 struct X {
-    ~X(); // デストラクタはデフォルトでnoexcept(true)
+  ~X(); // デストラクタはデフォルトでnoexcept(true)
 
-    // 例外を送出する可能性がある
-    // ※ std::vectorのコピーコンストラクタは例外を送出する
-    std::vector<T> getVector() const;
-//  std::vector<T> getVector() const noexcept(false);
+  // 例外を送出する可能性がある
+  // ※ std::vectorのコピーコンストラクタは例外を送出する
+  std::vector<T> getVector() const;
+//std::vector<T> getVector() const noexcept(false);
 
-    // 例外を送出しない
-    int getValue() const noexcept;
-//  int getValue() const noexcept(true);
+  // 例外を送出しない
+  int getValue() const noexcept;
+//int getValue() const noexcept(true);
 };
 ```
 * noexcept[color ff0000]
