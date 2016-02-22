@@ -47,4 +47,5 @@ int main()
 - [N2707 Expedited core issues handling](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2707.html)
 - [N2730 Expedited core issues handling (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2730.html)
 - [N2757 Expedited core issues handling (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2757.htm)
+- [C++ における整数型の怪と "移植性のある" オーバーフローチェッカー (第1回 : 整数型の怪と対策の不足)](http://qiita.com/a4lg/items/541c9d9dd5d874eeef2f)
 
