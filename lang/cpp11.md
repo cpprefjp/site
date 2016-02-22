@@ -109,6 +109,7 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 | [`long long`型](cpp11/long_long_type.md) | 64ビット以上の大きさを持つ整数型 |
 | [事前定義識別子`__func__`](cpp11/func.md) | 現在いる関数名が格納されている識別子 |
 | [列挙子の末尾へのカンマ付加を許可](cpp11/trailing_comma_following_enumerator_list.md) | 末尾の列挙子の後ろにカンマを書くことが許可された |
+| [整数に対する除算と剰余算の丸め結果を規定](cpp11/result_of_integer_division_and_modulo.md) | これまで実装定義だった整数の除算と剰余算に対する丸め方法を、標準で規定する |
 
 
 ##ライブラリ更新の概要
