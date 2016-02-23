@@ -73,6 +73,7 @@ struct X {
 ##例
 ```cpp
 #include <vector>
+#include <utility>
 
 class X {
   std::vector<int> data_;
@@ -86,7 +87,7 @@ public:
   // *thisが右辺値の場合は参照を返すと一時オブジェクトの寿命が尽きてしまうため、
   // ムーブで返す
   std::vector<int> data() &&
-  { return data_; }
+  { return std::move(data_); }
 };
 
 int main()
@@ -98,6 +99,7 @@ int main()
 }
 ```
 * std::vector[link /reference/vector.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```
