@@ -24,7 +24,7 @@ public:
 
   // 暗黙定義される挙動をする、
   // インライン関数のコピーコンストラクタを定義する
-  inline ~X(const X&) = default;
+  inline X(const X&) = default;
 };
 ```
 
