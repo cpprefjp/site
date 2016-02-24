@@ -34,7 +34,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 |----------------|------|
 | [関数の`default`／`delete`宣言](cpp11/defaulted_and_deleted_functions.md) | 自動定義される特殊関数の制御 |
 | [移譲コンストラクタ](cpp11/delegating_constructors.md) | コンストラクタから他のコンストラクタに処理を移譲する |
-| 非静的データメンバの初期化 | メンバ変数を、宣言と同時に初期値指定する |
+| [非静的メンバ変数の初期化](cpp11/non_static_data_member_initializers.md) | メンバ変数を、宣言と同時に初期値指定する |
 | [継承コンストラクタ](cpp11/inheriting_constructors.md) | 基本クラスのコンストラクタを継承する |
 | [`override`と`final`](cpp11/override_final.md) | メンバ関数のオーバーライド指定、および派生クラスでのオーバーロードの禁止を指定する |
 | [明示的な型変換演算子のオーバーロード](cpp11/explicit_conversion_operator.md) | 明示的な型変換が行われる場合にのみ呼び出される演算子をオーバーロードできるようにする |
