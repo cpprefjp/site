@@ -21,7 +21,7 @@
 | `extern template`                | テンプレートのインスタンス化抑止 | 3.3 | 2.9 | 11.1 | 6.0 |
 | [継承コンストラクタ](/lang/cpp11/inheriting_constructors.md) | 基本クラスのコンストラクタを継承する | 4.8 | 3.3 | No | 14.0 |
 | [ラムダ式](/lang/cpp11/lambda_expressions.md) | 関数オブジェクトをその場に書く | 4.5 | 3.1 | 12.0 | 10.0 (partial)<br/> 11.0 |
-| [ローカルクラスと無名クラスを、テンプレート実引数として使用することを許可](/lang/cpp11/local_and_anonymous_class_as_template_arguments.md.nolink) |  | 4.5 | 2.9 | 12.0 | 10.0 |
+| [ローカル型と無名型を、テンプレート引数として使用することを許可](/lang/cpp11/local_and_unnamed_type_as_template_arguments.md) | ローカルおよび無名として定義したクラスや列挙型を、テンプレート引数として渡せるようにする | 4.5 | 2.9 | 12.0 | 10.0 |
 | [`long long`型](/lang/cpp11/long_long_type.md) | 64ビット以上の大きさを持つ整数型 | 4.3 | 2.9 | 11.1 | 7.1 |
 | `inline namespace`               | ネストした名前空間に、透過的にアクセスする | 4.4 | 2.9 | 14.0 | 14.0 |
 | [`char16_t`と`char32_t`](/lang/cpp11/char16_32.md) | UTF-16とUTF-32の文字型 | 4.4 | 2.9 | 12.1 (Windows: partial) <br/> 12.1 (GNU/Linux, OS X)<br/> 14.0 | 14.0<br/> 10.0より同名のtypedefが存在する |
