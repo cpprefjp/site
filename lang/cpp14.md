@@ -20,7 +20,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 | [ジェネリックラムダ](cpp14/generic_lambdas.md) | ラムダ式のパラメータを`auto`にすることで、ジェネリックな関数呼び出し演算子を持つ関数オブジェクトを生成する |
 | [変数テンプレート](cpp14/variable_templates.md)       | 変数定義時のテンプレート指定を可能にする |
 | [`constexpr`の制限緩和](cpp14/relaxing_constraints_on_constexpr.md) | `if`文、`switch`文による条件分岐の許可。<br/>`for`文、`while`文、`do-while`文によるループの許可。<br/>`void`戻り値型の許可<br/>初期化を伴う変数宣言の許可。<br/>変数書き換えの許可 |
-| 宣言時のメンバ初期化を持つ型の集成体初期化を許可 | |
+| [宣言時のメンバ初期化を持つ型の集成体初期化を許可](cpp14/brace_elision_in_array_temporary_initialization.md) | 一様初期化と初期化子リストを組み合わせた際、二重に波カッコが必要となっていた仕様を緩和し、波カッコを省略できるようにする |
 | [`[[deprecated]]`属性](cpp14/deprecated_attr.md) | 非推奨の機能であることを示す属性 |
 | [数値リテラルの桁区切り文字](cpp14/digit_separators.md) | シングルクォーテーションで数値リテラルを桁区切りする |
 | サイズ付きデアロケーション | サイズをとる`delete`演算子のオーバーロードを許可する |
