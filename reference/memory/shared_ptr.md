@@ -111,6 +111,7 @@ namespace std {
 
 
 ##例
+###shared_ptrの基本的な使い方
 ```cpp
 #include <iostream>
 #include <memory>
@@ -139,11 +140,54 @@ int main()
   // 誰もリソースを参照しなくなったので、リソースが解放される。
 ```
 
-###出力例
+####出力
 ```
 3
 3
 ```
+
+
+###shared_ptr<void>に、あらゆる型のポインタを格納する
+`void`をテンプレート引数とする`shared_ptr`に対してどんな型のポインタを代入したとしても、代入した型のデストラクタは、正しく実行される。通常、`void*`に型変換して代入されたポインタは、`delete`演算子を呼んだとしても元の型のデストラクタは呼び出されない。しかし`shared_ptr`の場合は、代入されたポインタの型が持つデストラクタが正しく実行されることが保証される。保証の文面は[デストラクタ](shared_ptr/op_destructor.md)のページを参照。
+
+```cpp
+#include <iostream>
+#include <memory>
+
+struct X {
+  ~X()
+  {
+    std::cout << "X dtor" << std::endl;
+  }
+};
+
+struct Y {
+  ~Y()
+  {
+    std::cout << "Y dtor" << std::endl;
+  }
+};
+
+int main()
+{
+  std::shared_ptr<void> p(new X());
+
+  std::cout << 0 << std::endl;
+
+  p.reset(new Y()); // Xが破棄される
+
+  std::cout << 1 << std::endl;
+} // Yが破棄される
+```
+
+###出力
+```
+0
+X dtor
+1
+Y dtor
+```
+
 
 ##バージョン
 ###言語
@@ -154,4 +198,8 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
+
+
+##参照
+- [動的削除子 (dynamic deleter) - 意外と知られていない？ `boost::shared_ptr` の側面](http://d.hatena.ne.jp/Cryolite/20060108#p1)
 
