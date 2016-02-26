@@ -10,6 +10,7 @@ namespace std {
   struct array;
 }
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 `array`は固定長のオブジェクトを保持するシーケンスコンテナで、各要素は連続して格納される。従来のCスタイルの配列のパフォーマンスを保ったまま、シーケンスのサイズの取得、要素の代入のサポートなど、標準コンテナの恩恵を受ける事ができる。また、境界チェック（範囲外の要素にアクセスしようとしていないかのチェック）付きの要素アクセスもサポートしている。
@@ -128,6 +129,14 @@ int main()
   });
 }
 ```
+* std::size_t[link /reference/cstddef/size_t.md]
+* ar.size()[link array/size.md]
+* ar[i][link array/op_at.md]
+* ar.begin()[link array/begin.md]
+* ar.end()[link array/end.md]
+* std::for_each[link /reference/algorithm/for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
