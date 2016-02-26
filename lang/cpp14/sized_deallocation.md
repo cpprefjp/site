@@ -54,7 +54,7 @@ void operator delete[](void* ptr, std::size_t size,
 
 void* operator new[](std::size_t size)
 {
-  std::printf("new size:%lu\n", size);
+  std::printf("new size:%llu\n", static_cast<unsigned long long>(size));
   return std::malloc(size);
 }
 
@@ -65,7 +65,7 @@ void operator delete[](void*) noexcept
 
 void operator delete[](void*, std::size_t t) noexcept
 {
-  std::printf("delete with two arguments, %lu\n", t);
+  std::printf("delete with two arguments, %llu\n", static_cast<unsigned long long>(t));
 }
 
 struct A {
