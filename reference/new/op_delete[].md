@@ -55,6 +55,5 @@ int main()
 ```
 
 ##参照
-- [N3778 C++ Sized Deallocation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3778.html)
-    - C++14から追加された、領域サイズの引数が付いた`operator delete[]`の提案文書
+- [C++14 サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)
 

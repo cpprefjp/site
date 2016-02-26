@@ -53,3 +53,7 @@ int main()
 ###出力
 ```
 ```
+
+
+##参照
+- [C++14 サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)

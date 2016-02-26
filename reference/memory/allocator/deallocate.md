@@ -19,7 +19,8 @@ void deallocate(pointer p, size_type n);
 ##効果
 `p`が指すストレージを解放する。
 
-解放には[`::operator delete(void*)`](/reference/new/op_delete.md)を使用するが、この関数がいつ呼び出されるかは未規定。
+- C++11まで : 解放には[`::operator delete(void*)`](/reference/new/op_delete.md)を使用するが、この関数がいつ呼び出されるかは未規定。
+- C++14まで : 解放には[`::operator delete(void*, std::size_t)`](/reference/new/op_delete.md)を使用するが、この関数がいつ呼び出されるかは未規定。
 
 
 ##例
@@ -43,4 +44,7 @@ int main()
 ```
 ```
 
+
+##参照
+- [C++14 サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)
 
