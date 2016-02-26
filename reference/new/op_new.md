@@ -17,6 +17,7 @@ void* operator new(std::size_t size, void* ptr) noexcept;				// (3) C++11 から
 ```
 * bad_alloc[link bad_alloc.md]
 * nothrow_t[link nothrow_t.md]
+* std::size_t[link /reference/cstddef/size_t.md]
 
 
 ##概要
