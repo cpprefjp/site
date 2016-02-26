@@ -148,6 +148,10 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0
 
 
-###参照
+##関連項目
+- [C++14 宣言時のメンバ初期化を持つ型の集成体初期化を許可](/lang/cpp14/brace_elision_in_array_temporary_initialization.md)
+
+
+##参照
 
 
