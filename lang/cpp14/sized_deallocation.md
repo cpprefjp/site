@@ -42,7 +42,7 @@ void operator delete[](void* ptr, std::size_t size,
 
 
 ##仕様
-- サイズをとる`delete`演算子に渡される`size`パラメータは、対応する`new`演算子によって返されたポインタの大きさと等しい
+- サイズをとる`delete`演算子に渡される`size`パラメータは、対応する`new`演算子に渡された`size`パラメータと等しい
 - 型`T`が完全型でかつ、`void*`をパラメータにとる`delete`演算子と`void*`と[`std::size_t`](/reference/cstddef/size_t.md)のパラメータにとる`delete`演算子の両方が定義されている場合、型`T`のポインタに対する`delete`演算子の呼び出しは[`std::size_t`](/reference/cstddef/size_t.md)をとるバージョンを呼び出す
 
 
