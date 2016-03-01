@@ -20,10 +20,22 @@
 
 ```
 class-head:
-    class-key attribute-specifier-seq opt class-head-name class-virt-specifier opt base-clause opt
+    class-key attribute-specifier opt class-head-name class-virt-specifier opt base-clause opt
 ```
 
-（説明、執筆中）
+- class-key：クラスのキーワード指定、`class`, `struct`, `union`のどれかが書ける
+- attribute-specifier（省略可、複数可）：属性の指定、属性は`[[attribute]]`のように書く
+- class-head-name: クラス名またはテンプレート名の指定
+- class-virt-specifier（省略可）：オーバーライドの指定、`final`のみ書ける
+- base-clause：省略可、継承元の指定、例えば`: public base_class`のように書く
+
+すなわち`final`を書くことができる位置は、クラス名の後、継承元の指定の前となる。
+
+```cpp
+class derived_class final : public base_class {
+  ...
+}
+```
 
 また、メンバ変数やメンバ関数の名前以降（member-declarator）は下記の文法となる：
 
@@ -34,17 +46,22 @@ member-declarator:
 declarator:
   ptr-declarator
   noptr-declarator parameters-and-qualifiers trailing-return-type
-
-virt-specifier:
-    override
-    final
-
-pure-specifier:
-    = 0
 ```
 
-（説明、執筆中）
+- declarator：メンバの宣言、戻り値の型を前置するか、後置するかの 2つに大別できる
+    - ptr-declarator, noptr-declarator：簡単に言うと、変数、関数の指定
+    - parameters-and-qualifiers：引数リストの指定
+    - trailing-return-type：[戻り値の型を後置する関数宣言構文](cpp11/trailing_return_types.md)、`-> 型`のように書く
+- virt-specifier（省略可）：オーバーライドの指定、`override`または`final`
+- pure-specifier（省略可）：純粋仮想関数の指定、`= 0`のように書く
 
+すなわち`override`または`final`を書くことができる位置は、戻り値の型の後置の後、純粋仮想関数の指定の前となる。
+
+```cpp
+class AAA {
+  virtual auto func_virt(int a) const -> decltype(a) final = 0;
+};
+```
 
 ##例
 ```cpp
@@ -61,7 +78,7 @@ class derived : public base {
   //NG, final メンバ関数はオーバーライドできない
   void func_final();
 
-  //OK、オーバーライドできている
+  //OK, オーバーライドできている
   void func_virt() override;
 
   //NG, 引数の個数、型が違っており、オーバーライドできてない
@@ -78,7 +95,7 @@ class base_f final {
 
 //派生クラス
 class derived_f : public base_f {
-  //NG、final 基底クラスのメンバ関数はオーバーライドできない
+  //NG, final 基底クラスのメンバ関数はオーバーライドできない
   void func_virt();
 };
 
