@@ -48,59 +48,60 @@ C++11以降対応についてはC++11と明記します。バージョン表記�
 
 | 英語               | 日本語 |
 |--------------------|----------------------------------------------|
-| well-formed                        | 適格                         |
-| ill-formed                         | 不適格                       |
-| unspecified                        | 未規定                       |
-| predicate                          | 述語                         |
-| range                              | 範囲                         |
-| empty                              | 空                           |
+| aggregate                          | 集成体型                     |
+| alignment                          | アライメント (表示位置ではなくメモリの文脈) |
 | apply, application                 | 適用                         |
+| arithmetic type                    | 算術型                       |
+| associative container(s)           | 連想コンテナ                 |
+| bidirectional iterator             | 双方向イテレータ             |
+| bucket                             | バケット                     |
 | complexity                         | 計算量                       |
-| requires                           | 要件                         |
-| returns                            | 戻り値                       |
-| effects                            | 効果                         |
-| remarks                            | 備考                         |
-| note                               | 注                           |
-| synchronization                    | 同期                         |
+| compound type                      | 複合型                       |
+| const iterator                     | 読み取り専用イテレータ       |
+| const reverse iterator             | 読み取り専用逆イテレータ     |
 | dereference                        | 間接参照                     |
 | dereferenceable                    | 間接参照可能                 |
-| mutable iterator                   | 可変イテレータ               |
-| polymorphic                        | 多相的                       |
-| arithmetic type                    | 算術型                       |
-| fundamental type                   | 単純型                       |
-| compound type                      | 複合型                       |
-| literal type                       | リテラル型                   |
-| aggregate                          | 集成体型                     |
-| strict weak ordering               | 狭義の弱順序                 |
-| move                               | (std::move 的な意味で)ムーブ |
-| move constructor                   | ムーブコンストラクタ         |
-| move assignment                    | ムーブ代入                   |
-| iterator	                         | イテレータ                   |
-| const iterator                     | 読み取り専用イテレータ       |
-| reverse iterator                   | 逆イテレータ                 |
-| const reverse iterator             | 読み取り専用逆イテレータ     |
+| effects                            | 効果                         |
 | emplace                            | 直接構築                     |
-| lvalue reference                   | 左辺値参照                   |
-| rvalue reference                   | 右辺値参照                   |
-| trait                              | トレイト                     |
-| sequence container(s)              | シーケンスコンテナ           |
-| associative container(s)           | 連想コンテナ                 |
-| unordered associative container(s) | 非順序連想コンテナ           |
-| total ordering relationalship      | 全順序関係                   |
+| empty                              | 空                           |
 | equivalence relation               | 等価関係                     |
+| forward iterator                   | 前方向イテレータ             |
+| fundamental type                   | 単純型                       |
+| ill-formed                         | 不適格                       |
 | implementation-defined             | 処理系定義                   |
 | input iterator                     | 入力イテレータ               |
-| output iterator                    | 出力イテレータ               |
-| forward iterator                   | 前方向イテレータ             |
-| bidirectional iterator             | 双方向イテレータ             |
-| random access iterator             | ランダムアクセスイテレータ   |
+| iterator                               | イテレータ                   |
+| literal type                       | リテラル型                   |
 | load factor                        | 負荷率                       |
-| Spurious Failure                   | 見かけ上の失敗<br/> [http://togetter.com/li/430770](http://togetter.com/li/430770) |
+| lvalue reference                   | 左辺値参照                   |
 | max load factor                    | 最大負荷率                   |
-| bucket                             | バケット                     |
+| move                               | (std::move 的な意味で)ムーブ |
+| move assignment                    | ムーブ代入                   |
+| move constructor                   | ムーブコンストラクタ         |
+| mutable iterator                   | 可変イテレータ               |
+| note                               | 注                           |
+| output iterator                    | 出力イテレータ               |
 | partition                          | 区分化                       |
-| alignment                          | アライメント (表示位置ではなくメモリの文脈) |
-| trailing return type               | 後置戻り値型 |
+| polymorphic                        | 多相的                       |
+| predicate                          | 述語                         |
+| random access iterator             | ランダムアクセスイテレータ   |
+| range                              | 範囲                         |
+| remarks                            | 備考                         |
+| requires                           | 要件                         |
+| returns                            | 戻り値                       |
+| reverse iterator                   | 逆イテレータ                 |
+| rvalue reference                   | 右辺値参照                   |
+| sequence container(s)              | シーケンスコンテナ           |
+| Spurious Failure                   | 見かけ上の失敗<br/> [http://togetter.com/li/430770](http://togetter.com/li/430770) |
+| strict weak ordering               | 狭義の弱順序                 |
+| synchronization                    | 同期                         |
+| total ordering relationalship      | 全順序関係                   |
+| trailing return type               | 後置戻り値型                 |
+| trait                              | トレイト                     |
+| unordered associative container(s) | 非順序連想コンテナ           |
+| unspecified                        | 未規定                       |
+| well-formed                        | 適格                         |
+
 
 
 ##処理系のC++11対応状況の調べ方
