@@ -13,12 +13,16 @@ seed_seq(initializer_list<T> il);                 // (2)
 
 template<class InputIterator>
 seed_seq(InputIterator begin, InputIterator end); // (3)
+
+seed_seq(const seed_seq&) = delete;               // (4)
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
 - (1) : デフォルトコンストラクタ。空のシード列を構築する。
-- (2) : `seed_seq(il.begin(), il.end())`と同じ。  
+- (2) : `seed_seq(il.begin(), il.end())`と同じ。
+- (3) : シード値を要素とするイテレータ範囲から、シード列を構築する
+- (4) : コピーコンストラクタ。コピー禁止。これによってムーブも禁止
 
 
 ##要件
