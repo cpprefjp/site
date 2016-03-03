@@ -79,8 +79,8 @@ namespace std {
 | `const_iterator`         | 読取り専用のランダムアクセスイテレータ (実装定義) | C++11 |
 | `reverse_iterator`       | 逆イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | C++11 |
 | `const_reverse_iterator` | 読み取り専用の逆イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | C++11 |
-| `size_type`              | 符号なし整数型 `size_t` | C++11 |
-| `difference_type`        | 符号付き整数型 `ptrdiff_t` | C++11 |
+| `size_type`              | 符号なし整数型 [`size_t`](/reference/cstddef/size_t.md) | C++11 |
+| `difference_type`        | 符号付き整数型 [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) | C++11 |
 | `pointer`                | 要素のポインタ型 `T*` | C++11 |
 | `const_pointer`          | 読取り専用の要素のポインタ型 `const T*` | C++11 |
 | `value_type`             | 要素の型 `T` | C++11 |

@@ -30,7 +30,7 @@ namespace std {
 各テンプレートパラメータの意味は次の通りである。
 
 - `T`: 格納される要素の型
-- `Allocator`: メモリ確保に使用されるアロケータの型。無指定の場合は標準の`allocator`クラスが使用される。
+- `Allocator`: メモリ確保に使用されるアロケータの型。無指定の場合は標準の[`allocator`](/reference/memory/allocator.md)クラスが使用される。
 
 
 ##メンバ関数
@@ -118,8 +118,8 @@ namespace std {
 | `difference_type` | 符号あり整数型(通常は[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) | C++11 |
 | `value_type` | `T` | C++11 |
 | `allocator_type` | `Allocator` | C++11 |
-| `pointer` | `allocator_traits<Allocator>::pointer` | C++11 |
-| `const_pointer` | `allocator_traits<Allocator>::const_pointer` | C++11 |
+| `pointer` | [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer` | C++11 |
+| `const_pointer` | [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer` | C++11 |
 
 
 ##非メンバ関数

@@ -26,7 +26,7 @@ namespace std {
 
 これらの挙動は配列と同じパフォーマンス特性を示し、加えてストレージサイズの変更が非常に簡単である。ただし、`vector`は実際の要素数より少し余分にメモリを確保する(これは拡張に備え、パフォーマンス特性を満足するための仕様である)。
 
-他の標準シーケンスコンテナと比べ、`vector`は要素アクセスと(末尾に対する)追加・削除において一般的に最高の性能を誇る。末尾以外に対する挿入・削除は`deque`や`list`に劣り、イテレータや要素への参照の安定性(無効になる操作の数)では`list`に劣る。
+他の標準シーケンスコンテナと比べ、`vector`は要素アクセスと(末尾に対する)追加・削除において一般的に最高の性能を誇る。末尾以外に対する挿入・削除は[`deque`](/reference/deque.md)や[`list`](/reference/list.md)に劣り、イテレータや要素への参照の安定性(無効になる操作の数)では[`list`](/reference/list.md)に劣る。
 
 内部的には、`vector`は(他のすべてのコンテナと同じように)サイズ用のメンバ変数を持ち、格納されている要素数を管理している。しかし`vector`の場合は、さらに確保済みのメモリサイズを管理するキャパシティ用のメンバ変数を持ち、これは常に`size`と同じか大きい値となる。確保済みの領域の余計な部分は、要素数の増加に備えて確保しているものである。この動作のおかげで、要素を追加するたびにメモリを再確保する必要が無くなり、単に確保済みの領域を初期化するだけでよくなる(再確保は要素数の対数の頻度で発生する)。
 
@@ -36,7 +36,7 @@ namespace std {
 各テンプレートパラメータの意味は次の通りである。
 
 - `T`: 格納される要素の型
-- `Allocator`: メモリ確保に使用されるアロケータの型。デフォルトでは標準の`allocator`クラスが使用される。
+- `Allocator`: メモリ確保に使用されるアロケータの型。デフォルトでは標準の[`allocator`](/reference/memory/allocator.md)クラスが使用される。
 
 リファレンス中では、これらの名前をテンプレートパラメータとして扱う。
 
@@ -125,8 +125,8 @@ namespace std {
 | `allocator_type`         | アロケータの型 `Allocator` | |
 | `pointer`                | `Allocator::pointer` | |
 | `const_pointer`          | `Allocator::const_pointer` | |
-| `reverse_iterator`       | `reverse_iterator<iterator>` | |
-| `const_reverse_iterator` | `reverse_iterator<const_iterator>` | |
+| `reverse_iterator`       | [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | |
+| `const_reverse_iterator` | [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | |
 
 
 ##非メンバ関数
