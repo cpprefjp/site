@@ -8,6 +8,7 @@ namespace std {
   class list;
 }
 ```
+* allocator[link /reference/memory/allocator.md]
 
 ##概要
 `<list>`ヘッダでは、双方向リンクリストの実装である `list` コンテナを提供する。
@@ -17,7 +18,7 @@ namespace std {
 テンプレートパラメータは、以下を意味する：
 
 - `T`: 格納される要素の型
-- `Allocator`: メモリ確保に使用されるアロケータの型。デフォルトでは標準の`allocator`クラスが使用される。
+- `Allocator`: メモリ確保に使用されるアロケータの型。デフォルトでは標準の[`allocator`](/reference/memory/allocator.md)クラスが使用される。
 
 
 ##メンバ関数
@@ -108,14 +109,14 @@ namespace std {
 | `const_reference`        | `const value_type&` | |
 | `iterator`               | 双方向イテレータ | |
 | `const_iterator`         | 読み取り専用双方向イテレータ | |
-| `size_type`              | 符号なし整数型(通常は`size_t`) | |
-| `difference_type`        | 符号あり整数型(通常は`ptrdiff_t`) | |
+| `size_type`              | 符号なし整数型(通常は[`size_t`](/reference/cstddef/size_t.md)) | |
+| `difference_type`        | 符号あり整数型(通常は[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) | |
 | `value_type`             | `T` | |
 | `allocator_type`         | `Allocator` | |
-| `pointer`                | `allocator_traits<Allocator>::pointer` | |
-| `const_pointer`          | `allocator_traits<Allocator>::const_pointer` | |
-| `reverse_iterator`       | `std::reverse_iterator<iterator>` | |
-| `const_reverse_iterator` | `std::reverse_iterator<const_iterator>` | |
+| `pointer`                | [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer` | |
+| `const_pointer`          | [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer` | |
+| `reverse_iterator`       | `std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | |
+| `const_reverse_iterator` | `std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | |
 
 
 ##非メンバ関数

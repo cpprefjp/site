@@ -39,7 +39,7 @@ namespace std {
 - 関数オブジェクト型である。
 - CopyConstructible requirements と Destructible requirements の要件を満たす。
 - `h` を `Hash` 型のオブジェクト、`Key` を `Hash` 型のオブジェクトの引数の型、`u` を `Key` 型の lvalue、`k` を `Key` 型（あるいは `const Key` 型）に変換可能な値とすると、以下の要件を満たす。
-	- `h(k)` は戻り値の型が `std::size_t` で、戻り値は引数 `k` のみにしかよらない
+	- `h(k)` は戻り値の型が `std::`[`size_t`](/reference/cstddef/size_t.md) で、戻り値は引数 `k` のみにしかよらない
 	- `h(u)` は `u` を変更しない
 
 テンプレートパラメータ `Pred` は二項述語で、テンプレートパラメータ `Key` に対する同値関係でなければならない。
