@@ -16,9 +16,9 @@ operator delete(void*, const std::nothrow_t&)
 operator delete[](void*)
 operator delete[](void*, const std::nothrow_t&)
 operator delete(void*, std::size_t)                          // C++14から追加
-operator delete(void*, std::size_t, const std::nothrow_t&)   // C++14から追加
+operator delete(void*, std::size_t, const std::nothrow_t&)   // C++14から追加（ただし、備考を参照）
 operator delete[](void*, std::size_t)                        // C++14から追加
-operator delete[](void*, std::size_t, const std::nothrow_t&) // C++14から追加
+operator delete[](void*, std::size_t, const std::nothrow_t&) // C++14から追加（ただし、備考を参照）
 ```
 * std::size_t[link /reference/cstddef/size_t.md]
 * std::nothrow_t[link /reference/new/nothrow_t.md]
@@ -29,11 +29,11 @@ operator delete[](void*, std::size_t, const std::nothrow_t&) // C++14から追�
 ```cpp
 void operator delete(void* ptr, std::size_t size) noexcept;
 void operator delete(void* ptr, std::size_t size,
-                     const std::nothrow_t&) noexcept;
+                     const std::nothrow_t&) noexcept;           // ただし、備考を参照
 
 void operator delete[](void* ptr, std::size_t size) noexcept;
 void operator delete[](void* ptr, std::size_t size,
-                       const std::nothrow_t&) noexcept;
+                       const std::nothrow_t&) noexcept;         // ただし、備考を参照
 ```
 * std::size_t[link /reference/cstddef/size_t.md]
 * std::nothrow_t[link /reference/new/nothrow_t.md]
@@ -89,7 +89,9 @@ delete with two arguments, 13
 
 
 ##備考
-Clangは3.7以降、サイズをとる`delete`演算子を使用する場合、`-fsized-deallocation`オプションを付ける必要がある。
+- C++14 で追加された関数のうち、最後の引数が `const std::nothrow_t&` であるオーバーロード 2 つは、次期規格では削除される予定である。  
+	これは、当該オーバーロードが `new` 式、あるいは `delete` 式から暗黙で呼び出される事は無いためである。
+- Clangは3.7以降、サイズをとる`delete`演算子を使用する場合、`-fsized-deallocation`オプションを付ける必要がある。
 
 
 ##関連項目
@@ -103,4 +105,4 @@ Clangは3.7以降、サイズをとる`delete`演算子を使用する場合、`
 - [N3536 C++ Sized Deallocation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3536.html)
 - [N3663 C++ Sized Deallocation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3663.html)
 - [N3778 C++ Sized Deallocation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3778.html)
-
+- [LWG Issue 2458. N3778 and new library deallocation signatures](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2458)
