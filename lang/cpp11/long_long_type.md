@@ -11,7 +11,7 @@ C99互換として、`long long`整数型が追加された。
 - `long long`型および`unsigned long long`型は、64ビット以上の値を表現できることが保証される。
     - これは、`long long`型の最大値を表現するマクロ[`LLONG_MAX`](/reference/climits/llong_max.md)、および`unsigned long long`型の最大値を表現するマクロ[`ULLONG_MAX`](/reference/climits/ullong_max.md)によって定義されている。
 - 符号あり整数型である`long long`を表す整数リテラルには、`ll`もしくは`LL`サフィックスを使用する。符号なし整数型である`unsigned long long`型を表す整数リテラルには、`ull`もしくは`ULL`サフィックスを使用する。
-    - 符合指定を除く`ll`と`LL`の部分では、大文字と小文字の混在は許可しない。(`lL`や`Ll`は許可されない。)
+    - 符号指定を除く`ll`と`LL`の部分では、大文字と小文字の混在は許可しない。(`lL`や`Ll`は許可されないが、'uLL'や'Ull'は問題ない。)
 - `long long`は、以下のようにも表記できる：
     - `signed long long`
     - `signed long long int`
