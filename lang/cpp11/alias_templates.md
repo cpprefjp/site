@@ -37,6 +37,59 @@ using Integer = int;
 using FunctionPointer = int(*)(int, int);
 ```
 
+
+##仕様
+- テンプレートによる型の別名付けは、`using`キーワードによるもののみを許可し、`typedef`キーワードに対しては許可しない
+- エイリアステンプレートによって付けられた型の別名と元の型は同等と見なされ、それらの間でオーバーロードはできない
+
+    ```cpp
+template <class T>
+using Vec = std::vector<T>;
+
+template <class T>
+void f(const Vec<T>&) {}
+
+template <class T>
+void f(const std::vector<T>&) {} // コンパイルエラー！再定義と見なされる
+```
+* std::vector[link /reference/vector.md]
+
+- エイリアステンプレートに対しては、明示的な特殊化、および部分特殊化を許可しない
+
+
+##この機能が必要になった背景・経緯
+エイリアステンプレートがなかったころは、パラメータ化した型の別名付けとして、クラステンプレートを使用していた：
+
+```cpp
+template <class T>
+struct Vec {
+  typedef std::vector<T> type;
+};
+
+Vec<int>::type v;
+v.push_back(3);
+```
+* std::vector[link /reference/vector.md]
+* v.push_back[link /reference/vector/push_back.md]
+
+このような回避策は標準ライブラリでも、`std::allocator`クラスの`rebind`で使用されている。`T`型のメモリアロケータを使用している状況でほかの型をアロケートする必要ができた際には、`U`型をアロケートする`std::allocator`型を取得する機能が必要とされる。そのような状況のために用意されている`rebind`は、以下のように定義される：
+
+```cpp
+template <class T>
+struct allocator {
+  template <class U>
+  struct rebind { typedef allocator<U> other; };
+};
+
+typedef std::allocator<void> void_alloc;
+
+// int型をアロケートするallocator型を取得
+typedef void_alloc::rebind<int>::other int_alloc;
+```
+
+前述した例での`::type`や、アロケータの例での`other`は冗長であり、必要とされることが多いこの機能には言語サポートが求められた。こういった経緯から、パラメータ化した型の別名付けが、言語機能としてサポートされることとなった。
+
+
 ##参照
 - [N1406 Proposed Addition to C++: Typedef Templates](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1406.pdf)
 - [N1449 Proposal to add template aliases to C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1449.pdf)
