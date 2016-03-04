@@ -16,10 +16,10 @@ void push_back(T&& x);      // (2) C++11
 ##要件
 - (1)
     - 型`T`が`*this`のコンテナに対して[CopyInsertable](/reference/container_concepts/CopyInsertable.md)であること
-    - 型`T`がCopyAssignableであること
+    - 型`T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
 - (2)
     - 型`T`が`*this`のコンテナに対して[MoveInsertable](/reference/container_concepts/MoveInsertable.md)であること
-    - 型`T`がMoveAssignableであること
+    - 型`T`が[MoveAssignable](/reference/concepts/MoveAssignable.md)であること
 
 
 ##効果
