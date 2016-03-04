@@ -81,7 +81,7 @@ struct allocator {
   struct rebind { typedef allocator<U> other; };
 };
 
-typedef std::allocator<void> void_alloc;
+typedef allocator<void> void_alloc;
 
 // int型をアロケートするallocator型を取得
 typedef void_alloc::rebind<int>::other int_alloc;
