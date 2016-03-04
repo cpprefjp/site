@@ -2,6 +2,11 @@
 * concepts[meta header]
 * std[meta namespace]
 
+##概要
+DefaultConstructibleは、任意の型`T`がデフォルト構築可能であること表す要件である。
+
+
+##要件
 以下の式が可能であること：
 
 ```cpp

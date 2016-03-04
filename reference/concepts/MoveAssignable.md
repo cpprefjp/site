@@ -2,6 +2,11 @@
 * concepts[meta header]
 * std[meta namespace]
 
+##概要
+MoveAssignableは、任意の型`T`がムーブ代入可能であることを表す要件である。
+
+
+##要件
 以下の式が可能であること：
 
 ```cpp

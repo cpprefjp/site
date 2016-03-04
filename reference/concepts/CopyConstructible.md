@@ -2,6 +2,11 @@
 * concepts[meta header]
 * std[meta namespace]
 
+##概要
+CopyConstructibleは、任意の型`T`がコピー構築かのうであることを表す要件である。
+
+
+##要件
 [MoveConstructible](MoveConstructible.md)の要件に加えて、以下の式が可能であること：
 
 ```cpp

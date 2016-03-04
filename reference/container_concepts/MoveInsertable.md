@@ -2,6 +2,11 @@
 * container_concepts[meta header]
 * std[meta namespace]
 
+##概要
+MoveInsertableは、任意のコンテナ`X`に対して、その要素型の右辺値オブジェクトをムーブ挿入可能かを表す要件である。
+
+
+##要件
 以下の式が可能であること：
 
 ```cpp

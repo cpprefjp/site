@@ -2,6 +2,11 @@
 * container_concepts[meta header]
 * std[meta namespace]
 
+##概要
+EmplaceInsertableは、任意のコンテナ`X`に対して、要素型`T`のコンストラクタ引数列`args`から直接構築可能かを表す要件である。
+
+
+##要件
 以下の式が可能であること：
 
 ```cpp
