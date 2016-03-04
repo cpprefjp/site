@@ -148,7 +148,7 @@ auto& f()
 }
 ```
 
-この機能は、[戻り値の型を拘置する関数宣言構文](/lang/cpp11/trailing_return_types.md)と[ラムダ式](/lang/cpp11/lambda_expressions.md)の、後置戻り値型(trailing return type)に対しても適用できる。以下のページを参照：
+この機能は、[戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)と[ラムダ式](/lang/cpp11/lambda_expressions.md)の、後置戻り値型(trailing return type)に対しても適用できる。以下のページを参照：
 
 - [後置戻り値型をプレースホルダーにすることを許可](placeholder_type_in_trailing_return_type.md)
 
@@ -195,7 +195,7 @@ int main()
 ##この機能が必要になった背景・経緯
 戻り値の型を推論する関数宣言構文は、C++11で導入された`auto`キーワードによる変数の型推論、[ラムダ式](/lang/cpp11/lambda_expressions.md)での戻り値型推論に合わせて導入された。
 
-C++11で、[戻り値の型を拘置する関数宣言構文](/lang/cpp11/trailing_return_types.md)が導入され、それによって`decltype`を使用して`return`文に指定した式の結果となる型を容易に返せるようになった：
+C++11で、[戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)が導入され、それによって`decltype`を使用して`return`文に指定した式の結果となる型を容易に返せるようになった：
 
 ```cpp
 // 関数オブジェクトfを呼び出した結果の型を、関数g()の戻り値型とする
@@ -212,7 +212,7 @@ auto g(F f) { return f(); }
 
 
 ##検討されたほかの選択肢
-[戻り値の型を拘置する関数宣言構文](/lang/cpp11/trailing_return_types.md)のページを参照。
+[戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)のページを参照。
 
 
 ##関連項目

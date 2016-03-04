@@ -2,7 +2,7 @@
 * cpp14[meta cpp]
 
 ##概要
-[戻り値の型を拘置する関数宣言構文](/lang/cpp11/trailing_return_types.md)と[ラムダ式](/lang/cpp11/lambda_expressions.md)の、後置戻り値型(trailing return type)を`auto`プレースホルダーとし、そのプレースホルダーを修飾することで、戻り値型の推論を補助できる。
+[戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)と[ラムダ式](/lang/cpp11/lambda_expressions.md)の、後置戻り値型(trailing return type)を`auto`プレースホルダーとし、そのプレースホルダーを修飾することで、戻り値型の推論を補助できる。
 
 ```cpp
 static int static_value = 3;
