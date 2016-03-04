@@ -19,3 +19,7 @@ t = v;
 - 上述した式の戻り値は`t`であること
 - 上述した式の結果として、`v`の状態は変わらず、`t`は`v`と同等になること
 
+
+##関連項目
+- [`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)
+

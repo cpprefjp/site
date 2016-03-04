@@ -28,3 +28,7 @@ T(rv)
 - `T(rv)`を実行した結果のオブジェクトは、その式を実行する前の`rv`と同等になること
 - 上述した式を実行したあとの`rv`の状態は未規定とし、各ライブラリもしくは実装がその動作を規定する
 
+
+##関連項目
+- [`is_move_constructible`](/reference/type_traits/is_move_constructible.md)
+

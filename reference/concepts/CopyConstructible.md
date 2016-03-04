@@ -26,3 +26,7 @@ T(v)
 - `v`は、型`T`の左辺値オブジェクト(`const`であってもよい)
 - 上述した式を実行した結果として、`v`の状態は変わらず、`T(v)`の結果となるオブジェクトは`v`と同等になること
 
+
+##関連項目
+- [`is_copy_constructible`](/reference/type_traits/is_copy_constructible.md)
+

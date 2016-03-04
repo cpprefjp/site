@@ -16,3 +16,6 @@ u.~T()
 - この式を実行した結果として、オブジェクト`u`が所有する全てのリソースが回収され、例外を伝搬しないこと
 
 
+##関連項目
+- [`is_destructible`](/reference/type_traits/is_destructible.md)
+
