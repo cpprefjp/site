@@ -18,8 +18,8 @@ vector& operator=(initializer_list<T>); // (3) C++11
 
 
 ##要件
-- (1) : 要件：型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること。
-- (3) : 型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること。
+- (1) : 要件：型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/CopyInsertable.md)であること。
+- (3) : 型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/CopyInsertable.md)であること。
 
 
 ##効果

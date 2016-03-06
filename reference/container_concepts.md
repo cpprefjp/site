@@ -6,9 +6,9 @@
 
 | |
 |-----------------------------------------------------------------------------------------------------------------|
-| [`CopyInsertable`](container_concepts/copyinsertable.md) |
-|  |
-|  |
+| [`CopyInsertable`](container_concepts/CopyInsertable.md) |
+| [`EmplaceInsertable`](container_concepts/EmplaceInsertable.md) |
+| [`MoveInsertable`](container_concepts/MoveInsertable.md) |
 |  |
 |  |
 |  |

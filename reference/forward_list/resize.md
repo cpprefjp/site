@@ -15,7 +15,7 @@ void resize(size_type sz, const value_type& c);
 
 
 ##要件
-- 型`T`がデフォルトコンストラクト可能であり、`*this`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること
+- 型`T`がデフォルトコンストラクト可能であり、`*this`に対して[`CopyInsertable`](/reference/container_concepts/CopyInsertable.md)であること
 
 
 ##効果

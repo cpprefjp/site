@@ -51,7 +51,7 @@ declarator:
 - declarator：メンバの宣言、戻り値の型を前置するか、後置するかの 2つに大別できる
     - ptr-declarator, noptr-declarator：簡単に言うと、変数、関数の指定
     - parameters-and-qualifiers：引数リストの指定
-    - trailing-return-type：[戻り値の型を後置する関数宣言構文](cpp11/trailing_return_types.md)、`-> 型`のように書く
+    - trailing-return-type：[戻り値の型を後置する関数宣言構文](trailing_return_types.md)、`-> 型`のように書く
 - virt-specifier（省略可）：オーバーライドの指定、`override`または`final`
 - pure-specifier（省略可）：純粋仮想関数の指定、`= 0`のように書く
 

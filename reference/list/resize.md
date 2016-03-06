@@ -15,7 +15,7 @@ void resize(size_type sz, T c = T());           // (1), (2) C++03。C++11で削�
 
 
 ##要件
-型`T`がデフォルトコンストラクト可能であり、`*this`に対して[`CopyInsertable`](/reference/container_concepts/copyinsertable.md)であること
+型`T`がデフォルトコンストラクト可能であり、`*this`に対して[`CopyInsertable`](/reference/container_concepts/CopyInsertable.md)であること
 
 
 ##効果
