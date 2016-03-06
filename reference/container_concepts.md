@@ -7,7 +7,7 @@
 | |
 |-----------------------------------------------------------------------------------------------------------------|
 | [`CopyInsertable`](container_concepts/CopyInsertable.md) |
-| [`EmplaceInsertable`](container_concepts/EmplaceInsertable.md) |
+| [`EmplaceConstructible`](container_concepts/EmplaceConstructible.md) |
 | [`MoveInsertable`](container_concepts/MoveInsertable.md) |
 |  |
 |  |
