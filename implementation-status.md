@@ -119,6 +119,16 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 | [非推奨だった`bool`型オブジェクトに対するインクリメントの仕様を削除][P0002R1] | | No | 3.8 | No | No |
 | [例外指定を型システムの一部にする][P0012R1] | | No | No | No | No |
 | [プリプロセッサでの条件式`__has_include`][P0061R1] | 対象のインクルードファイルが存在するかをプリプロセス時に判定する | 5.0 | 3.0 | No | No |
+| [継承コンストラクタの新仕様][P0136R1] | デフォルト引数を引き継ぐようにした | No | No | No | No |
+| [`[[fallthrough]]`属性][P0188R1] | `case`節で`break`や`return`を書かなかった場合に、それが意図したフォールスルーであることをコンパイラに伝える属性 | No | No | No | No |
+| [`[[nodiscard]]`属性][P0189R1] | 関数の戻り値を無視してはならないことをユーザーに伝える属性 | No | No | No | No |
+| [`[[maybe_unused]]`属性][P0212R1] | 使用しない可能性がある変数であることをコンパイラに伝える属性 | No | No | No | No |
+| [基本クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする][P0017R1] | 基本クラスのメンバを集成体初期化するために、`derived d {{42}};`の代わりに`derived d {42};`と書けるようにする | No | No | No | No |
+| [ラムダ式を`constexpr`として使用できるようにする][P0170R1] | ラムダ式の関数オブジェクトが定数式の文脈で使用された場合に、それがコンパイル時に評価されるようにする | No | No | No | No |
+| [範囲for文のための`begin()`と`end()`関数が、異なる型を返すことを許可][P0184R0] | `begin()`と`end()`が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする | No | No | No | No |
+| [ラムダ式での`*this`のコピーキャプチャ][P0018R3] | キャプチャリストに`*this`を指定することで、`*this`をコピーキャプチャする | No | No | No | No |
+| [浮動小数点数の16進数リテラル][P0245R1] | `hexfloat`マニピュレータや`printf()`の16進数出力に合わせて、浮動小数点数のリテラルも16進数表記できるようにする | 2.9 | 3.0 | No | No |
+
 
 [n3928]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3928.pdf
 [n4086]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4086.html
@@ -133,6 +143,16 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 [P0002R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0002r1.html
 [P0012R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0012r1.html
 [P0061R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0061r1.html
+[P0136R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0136r1.html
+[P0188R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0188r1.pdf
+[P0189R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0189r1.pdf
+[P0212R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0212r1.pdf
+[P0017R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0017r1.pdf
+[P0170R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0170r1.pdf
+[P0184R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0184r0.html
+[P0018R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0018r3.html
+[P0245R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0245r1.html
+
 
 各処理系のC++1z実装状況ページ：
 
