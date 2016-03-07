@@ -70,7 +70,6 @@ void operator delete[](void*, std::size_t t) noexcept
 
 struct A {
   ~A() {} // デストラクタを明示的に定義しない場合、
-          // 破棄処理を呼び出す必要なしと判断され、
           // delete演算子が呼び出されない可能性がある
 };
 
