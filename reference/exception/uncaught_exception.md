@@ -60,4 +60,5 @@ catch
 
 ##参照
 - [GotW #47 Uncaught Exceptions](http://www.gotw.ca/gotw/047.htm)
+- [CWG Issue 475. When is `std::uncaught_exception()` true? (take 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#475)
 
