@@ -94,6 +94,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [テンプレート再帰回数の制限緩和](cpp11/recursive_template_limit.md) | 17回から1024回に制限緩和 |
 | [依存名に対する`typename`と`template`の制限緩和](cpp11/dependent_name_specifier_outside_of_templates.md) | テンプレート外でも`typename`と`template`を付けられるようになった |
 | [入れ子名の指定にグローバルスコープ`::`を付加することを許可](cpp11/global_scope_syntax_in_nested_name_specifier.md) | `struct ::A {};`のように入れ子名を指定する際にグローバルスコープから指定できるようになった |
+| [宣言時に要素数を指定した配列オブジェクトの、定義時の要素数を規定](cpp11/ealier_declarated_array_bounds.md) | `static`メンバや`extern`として宣言した配列を定義した際、宣言時に指定した要素数として定義されることが規定された |
 
 
 ###C99互換機能
