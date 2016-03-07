@@ -57,6 +57,7 @@
 - GCC： [C++0x/C++11 Support in GCC](http://gcc.gnu.org/projects/cxx0x.html)
 - libstdc++ : [C++ 2011](http://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2011)
 - Clang： [C++98 and C++11 Support in Clang](http://clang.llvm.org/cxx_status.html)
+    - [C++ Defect Report Support in Clang](http://clang.llvm.org/cxx_dr_status.html)
 - ICC : [C++11 Features Supported by Intel&#174; C++ Compiler](http://software.intel.com/en-us/articles/c0x-features-supported-by-intel-c-compiler)
 - Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
 - Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
