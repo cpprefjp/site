@@ -43,17 +43,20 @@ int main()
 * constexpr[link constexpr.md]
 * static_assert[link static_assert.md]
 
-- パラメータパックの宣言は、以下の場所でできる：
-    - 関数のパラメータ
 
-        ```cpp
+###パラメータパックの宣言ができる場所
+パラメータパックの宣言は、以下の場所でできる：
+
+- 関数のパラメータ
+
+    ```cpp
 template <class... Args>
 void f(Args... args); // ここ
 
 f(1, 'a', "hello");
 ```
 
-        ```cpp
+    ```cpp
 #include <tuple>
 
 template <class... ResultTypes>
@@ -74,25 +77,25 @@ int main()
 * std::tuple[link /reference/tuple/tuple.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 
-    - テンプレートパラメータ
+- テンプレートパラメータ
 
-        ```cpp
+    ```cpp
 template <class... Args>
 struct X {};
 
 X<int, char, double> x;
 ```
 
-        ```cpp
+    ```cpp
 template <int... Args>
 struct Y {};
 
 Y<3, 1, 4, 5, 2, 6> y;
 ```
 
-    - テンプレートテンプレートパラメータ
+- テンプレートテンプレートパラメータ
 
-        ```cpp
+    ```cpp
 template <template <class...> class Container>
 struct ContainerHolder {
   Container<int> cont;
@@ -105,24 +108,26 @@ ContainerHolder<std::list> ls;
 * std::list[link /reference/list.md]
 
 
-- パラメータパックの展開は、以下の場所でできる：
-    - 関数の引数
+###パラメータパックの展開ができる場所
+パラメータパックの展開は、以下の場所でできる：
 
-        ```cpp
+- 関数の引数
+
+    ```cpp
 f(args...);
 f(args)...;
 ```
 
-    - テンプレートの引数
+- テンプレートの引数
 
-        ```cpp
+    ```cpp
 std::tuple<Args...> t;
 ```
 * std::tuple[link /reference/tuple/tuple.md]
 
-    - 初期化子
+- 初期化子
 
-        ```cpp
+    ```cpp
 int ar[] = { args... };
 
 struct Person {
@@ -134,16 +139,16 @@ Person person = { args... };
 ```
 * std::string[link /reference/string/basic_string.md]
 
-    - 継承時の基本クラスリストの指定
+- 継承時の基本クラスリストの指定
 
-        ```cpp
+    ```cpp
 template <class... Bases>
 class Derived : Bases...;
 ```
 
-    - コンストラクタのメンバ初期化子
+- コンストラクタのメンバ初期化子
 
-        ```cpp
+    ```cpp
 template <class... Bases>
 class Derived : Bases... {
     Derived(Bases... bases)
@@ -151,9 +156,9 @@ class Derived : Bases... {
 };
 ```
 
-    - 動的例外仕様
+- 動的例外仕様
 
-        ```cpp
+    ```cpp
 template <class... ExceptionList>
 void f() throw(ExceptionList...);
 ```
