@@ -57,7 +57,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [テンプレートの右山カッコ](cpp11/right_angle_brackets.md) | `vector<basic_string<char>>`のように、`>>`をスペースを空けずに記述可能にする |
 | [`extern template`](cpp11/extern_template.md) | テンプレートのインスタンス化を抑止する |
 | [エイリアステンプレート](cpp11/alias_templates.md) | テンプレートによって型の別名を定義する |
-| 可変引数テンプレート | 任意の数のテンプレートパラメータを受け取れるようにする |
+| [可変引数テンプレート](cpp11/variadic_templates.md) | 任意の数のテンプレートパラメータを受け取れるようにする |
 | [ローカル型と無名型を、テンプレート引数として使用することを許可](cpp11/local_and_unnamed_type_as_template_arguments.md) | ローカルおよび無名として定義したクラスや列挙型を、テンプレート引数として渡せるようにする |
 | [任意の式によるSFINAE](cpp11/sfinae_expressions.md) | 特定の式が有効かどうかで、その関数をオーバーロード解決に含めるかどうかを決定する |
 
