@@ -19,6 +19,28 @@
 ```
 
 - パラメータパックの宣言、および展開に使用する「`...`」は、「省略記号 (ellipsis, エリプシス)」という
+- パラメータパックには、ゼロ個以上のパラメータが含まれる
+
+    ```cpp
+template <class... Args>
+struct X {};
+
+int main()
+{
+  X<int, char, double> a; // OK
+  X<> b;                  // OK
+}
+```
+
+    ```cpp
+template <class... Args>
+struct X {};
+
+// パラメータパックが0要素だった場合の特殊化
+template <>
+struct X<> {};
+```
+
 - `sizeof...(identifier)`演算子にパラメータパックを指定することで、パラメータパックに含まれるパラメータの要素数を取得できる：
 
     ```cpp
