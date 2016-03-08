@@ -185,8 +185,8 @@ class Derived : Bases...;
     ```cpp
 template <class... Bases>
 class Derived : Bases... {
-    Derived(Bases... bases)
-        : Bases(bases)... {}
+  Derived(Bases... bases)
+    : Bases(bases)... {}
 };
 ```
 
