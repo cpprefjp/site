@@ -41,6 +41,18 @@ template <>
 struct X<> {};
 ```
 
+- パラメータパックの宣言をする際、パラメータパックはパラメータリストの最後になければならない
+
+    ```cpp
+// OK
+template <class Head, class... Tail>
+struct X {};
+
+// コンパイルエラー！パラメータパックは最後に置かなければならない
+template <class... Init, class Last>
+struct Y {};
+```
+
 - `sizeof...(identifier)`演算子にパラメータパックを指定することで、パラメータパックに含まれるパラメータの要素数を取得できる：
 
     ```cpp
