@@ -53,6 +53,15 @@ template <class... Init, class Last>
 struct Y {};
 ```
 
+- 関数パラメータパックは、型推論の補助として、パラメータパックの全ての型に対して共通の修飾を付加できる：
+
+    ```cpp
+// パラメータパックArgsに含まれる全ての型のパラメータを、
+// const左辺値参照として受け取る
+template <class... Args>
+void f(const Args&... args) {}
+```
+
 - `sizeof...(identifier)`演算子にパラメータパックを指定することで、パラメータパックに含まれるパラメータの要素数を取得できる：
 
     ```cpp
