@@ -74,6 +74,37 @@ int main()
 * std::tuple[link /reference/tuple/tuple.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 
+    - テンプレートパラメータ
+
+        ```cpp
+template <class... Args>
+struct X {};
+
+X<int, char, double> x;
+```
+
+        ```cpp
+template <int... Args>
+struct Y {};
+
+Y<3, 1, 4, 5, 2, 6> y;
+```
+
+    - テンプレートテンプレートパラメータ
+
+        ```cpp
+template <template <class...> class Container>
+struct ContainerHolder {
+  Container<int> cont;
+};
+
+ContainerHolder<std::vector> v;
+ContainerHolder<std::list> ls;
+```
+* std::vector[link /reference/vector.md]
+* std::list[link /reference/list.md]
+
+
 - パラメータパックの展開は、以下の場所でできる：
     - 関数の引数
 
