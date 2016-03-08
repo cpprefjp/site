@@ -41,6 +41,17 @@ template <>
 struct X<> {};
 ```
 
+    ```cpp
+template <class... Args>
+void f(Args... args) {}
+
+int main()
+{
+  f(1, 3.14f, "hello"); // OK
+  f();                  // OK
+}
+```
+
 - パラメータパックの宣言をする際、パラメータパックはパラメータリストの最後になければならない
 
     ```cpp
