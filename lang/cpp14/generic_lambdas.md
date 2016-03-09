@@ -112,7 +112,7 @@ HelloWorld
 
 ##関連項目
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
-- [C++14 初期化キャプチャ](initialize_capture.md)
+- [C++14 ラムダ式の初期化キャプチャ](initialize_capture.md)
 - [C++14 通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)
 
 
