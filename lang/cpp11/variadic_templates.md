@@ -2,12 +2,89 @@
 * cpp11[meta cpp]
 
 ##概要
+「可変引数テンプレート (variadic templates)」は、任意の型とそのオブジェクトを任意の数だけ受け取る機能である。これによって、「最大でN個のパラメータを受け取る関数テンプレートやクラステンプレート」を実装する際に、N個のオーバーロードをユーザーが用意する必要なく、ひとつの実装だけで済むようになる。
+
+可変引数テンプレートとしてテンプレートパラメータを受け取る場合、テンプレートパラメータを宣言する`class`または`typename`とテンプレートパラメータの間に、省略記号 `...` を入力する：
+
+```cpp
+// 0個以上のテンプレートパラメータを受け取る
+template <class... Args>
+struct X;
+
+// 0個以上の任意の型のパラメータを受け取る
+template <class... Args>
+void f(Args... args);
+```
+
+可変引数テンプレートで宣言したパラメータ(ここでは`Args`と`args`)は「パラメータパック (parameter pack)」と呼ばれ、複数の型またはオブジェクトがまとめられた状態となっている。
+
+パラメータパックになっているパラメータは、「展開 (expansion)」して使用する必要がある。これは他の関数やクラステンプレートにパラメータパックを転送するような状況で必要となる。パラメータパックの展開には、パラメータパックの後ろに省略記号 `...` を入力する：
+
+```cpp
+template <class... Args>
+struct X {
+  // パラメータパックを ... で展開して、
+  // std::tupleクラステンプレートの引数として渡す
+  std::tuple<Args...> values;
+};
+
+void g(int, char, const std::string&) {}
+
+template <class... Args>
+void f(Args... args)
+{
+  // パラメータパックを ... で展開して、
+  // 関数g()の引数として渡す
+  g(args...);
+}
+
+f(3, 'a', "hello");
+```
+* std::tuple[link /reference/tuple/tuple.md]
+* std::string[link /reference/string/basic_string.md]
+
+パラメータパックを最初の要素から順番に処理していきたい場合には、「任意の型のパラメータをひとつと、任意の個数の任意の型のパラメータを受け取る」というような形式のパラメータリストとし、再帰によって処理をする：
+
+```cpp
+#include <iostream>
+#include <utility>
+
+// パラメータパックが空になったら終了
+void print() {}
+
+// ひとつ以上のパラメータを受け取るようにし、
+// 可変引数を先頭とそれ以外に分割する
+template <class Head, class... Tail>
+void print(Head&& head, Tail&&... tail)
+{
+  std::cout << head << std::endl;
+    
+  // パラメータパックtailをさらにheadとtailに分割する
+  print(std::move(tail)...);
+}
+
+int main()
+{
+  print(1, 'a', "hello");
+}
+```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::move[link /reference/utility/move.md]
+
+出力：
+
+```
+1
+a
+hello
+```
 
 
 ##仕様
 - `template <class... Args>`や`void f(Args... args)`での、`Args`および`args`は、複数のパラメータをまとめた状態となっている。このまとまった状態のパラメータを「パラメータパック (parameter pack)」という
     - テンプレートパラメータのパラメータパックを「テンプレートパラメータパック (template parameter pack)」、関数のパラメータとしてのパラメータパックを「関数パラメータパック (function parameter pack)」という
-- パラメータパックは複数のパラメータがまとめられた状態となっているため、そのままでは個々のパラメータを取り出せない。それらを取り出すには、パラメータパックを展開する必要がある。パラメータパックの展開には、パラメータパック名に続いて「`...`」を記述する。例：
+- パラメータパックは複数のパラメータがまとめられた状態となっているため、そのままでは個々のパラメータを取り出せない。それらを取り出すには、パラメータパックを「展開 (expansion)」する必要がある。パラメータパックの展開には、パラメータパック名に続いて「`...`」を記述する。例：
 
     ```cpp
 template <class... Args>
