@@ -372,6 +372,28 @@ int main()
 * static_assert[link static_assert.md]
 
 
+##この機能が必要になった背景・経緯
+可変引数テンプレートがなかったころ、任意の数のパラメータを受け取ってほかの処理に転送するといった処理をするために、パラメータの数だけオーバーロードを用意する必要があり、それによってコピー＆ペーストのコードができあがっていた。とくに関数テンプレートの場合、`const`左辺値参照と非`const`左辺値参照の全ての組み合わせをオーバーロードとして定義する必要があったため、このコードは非常に膨大になり、コンパイル時間が増えるひとつの原因ともなっていた。
+
+```cpp
+template <class T1, class T2, class T3>
+void f(T1& t1, T2& t2, T3& t3);
+
+template <class T1, class T2, class T3>
+void f(const T1& t1, T2& t2, T3& t3);
+
+template <class T1, class T2, class T3>
+void f(const T1& t1, const T2& t2, T3& t3);
+
+template <class T1, class T2, class T3>
+void f(const T1& t1, const T2& t2, const T3& t3);
+
+…
+```
+
+この問題を解決するために、任意の数だけ任意の型のパラメータを受け取る機能が必要とされ、可変引数テンプレートが導入された。
+
+
 ##参照
 - [N1483 Typesafe Variable-length Function and Template Argument Lists](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1483.pdf)
 - [N1603 Variadic Templates](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1603.pdf)
