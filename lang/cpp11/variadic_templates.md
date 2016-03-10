@@ -169,7 +169,6 @@ ContainerHolder<std::list> ls;
 
     ```cpp
 f(args...);
-f(args)...;
 ```
 
 - テンプレートの引数
@@ -217,7 +216,83 @@ template <class... ExceptionList>
 void f() throw(ExceptionList...);
 ```
 
-(執筆中)
+###パラメータパックの拡張
+- パラメータパックは、`f(args...)`のように省略記号で展開するほかに、`f(g(args)...)`のようにパラメータパックの各要素に共通の処理を適用することもできる。これをパラメータパックの「拡張 (extend)」という
+    - この例の場合、`args`パラメータパックの各要素に関数`g()`を適用してパラメータパックの要素に対して値と型の変換を行った結果のパラメータパックを生成し、その結果となるパラメータパックを関数`f()`に渡している
+
+    ```cpp
+#include <iostream>
+#include <string>
+#include <sstream>
+
+template <class T>
+std::string to_std_string(const T& x)
+{
+  std::stringstream ss;
+  ss << x;
+    
+  std::string result;
+  ss >> result;
+  return result;
+}
+
+void print(std::string a, std::string b, std::string c)
+{
+  std::cout << a << std::endl;
+  std::cout << b << std::endl;
+  std::cout << c << std::endl;
+}
+
+template <class... Args>
+void f(Args&&... args)
+{
+  // パラメータパックの各要素を文字列に変換してから
+  // print()関数に渡す
+  print(to_std_string(args)...);
+}
+
+int main()
+{
+  f(1, 'a', "hello");
+}
+```
+* std::string[link /reference/string/basic_string.md]
+* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+- 複数のパラメータパックに対して拡張を行う場合、それらのパラメータパックは同じ要素数でなければならない。そうでない場合、プログラムは不適格となる
+
+    ```cpp
+#include <utility>
+#include <tuple>
+#include <type_traits>
+
+// 2つの型リストを綴じ合わせる
+template <class... Args1>
+struct zip {
+  template <class... Args2>
+  struct with {
+    using type = std::tuple<std::pair<Args1, Args2>...>;
+  };
+};
+
+int main()
+{
+  static_assert(std::is_same<
+    zip<int, long, long long>::with<float, double, long double>::type,
+    std::tuple<
+      std::pair<int, float>,
+      std::pair<long, double>,
+      std::pair<long long, long double>
+    >
+  >::value, ""); // OK
+}
+```
+* std::tuple[link /reference/tuple/tuple.md]
+* std::pair[link /reference/utility/pair.md]
+* std::is_same[link /reference/type_traits/is_same.md]
+* static_assert[link static_assert.md]
 
 
 ##参照
