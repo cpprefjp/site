@@ -283,11 +283,13 @@ int rate = 2;
 ### <a name="return-type-deduction" href="#return-type-deduction">戻り値型の推論</a>
 戻り値の型を省略した場合、その戻り値型は、関数本体の`return`文から推論される。
 
-`return`文がない場合、戻り値の型は`void`になる。
+`return`文がない場合、および、`return`文にオペランドが無い場合は、戻り値の型は`void`になる。
 
-`return`文がある場合は、`return`文に指定した式の型に対して、[左辺値から右辺値への変換、配列からポインタへの変換、関数から関数ポインタへの変換](/reference/type_traits/decay.md)を適用した型が戻り値の型となり、複数の`return`文がある場合には[それらの式に共通する型](/reference/type_traits/common_type.md)が戻り値の型となる。
+`return`文にオペランドがある場合は、`return`文に指定した式の型に対して、[`decay`](/reference/type_traits/decay.md)を適用した型が戻り値の型となる。
 
-複数の`return`文があり、それらに共通する型がない場合、もしくは`return`文に式以外が指定された場合、プログラムは不適格となる。
+複数の`return`文がある場合には、すべての`return`文に対して前述の方法で戻り値の型を推論し、それらが全て同じ型の場合にはその型が戻り値の型となるが、そうでない場合プログラムは不適格となる。
+
+`return`文に初期化子リストが指定された場合、プログラムは不適格となる。
 
 ```cpp
 int main()
