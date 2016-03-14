@@ -52,6 +52,13 @@ hello
 ```
 
 
+##仕様
+- 共用体の非静的メンバ変数が非自明な特殊メンバ関数を持っている場合、その共用体の対応する特殊メンバ関数はデフォルトで`delete`宣言される
+- 共用体の非静的メンバ変数として定義されている非自明なコンストラクタおよびデストラクタを持つ型のオブジェクトに対しては、配置`new`構文でオブジェクトを構築し、明示的にデストラクタを呼び出す必要がある
+
+(執筆中)
+
+
 ##参照
 - [N2430 Unrestricted Unions (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2430.pdf)
 - [N2544 Unrestricted Unions (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2544.pdf)
