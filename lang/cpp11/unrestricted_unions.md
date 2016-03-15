@@ -62,6 +62,10 @@ hello
     - 共用体は仮想メンバ関数を持てない
 
 
+##この機能が必要になった背景・経緯
+共用体を使用することによって空間的なコストが節約でき、特定領域の問題を解決するツールとして機能していた。しかし共用体には、コンストラクタとデストラクタを持つ多くのオブジェクトをメンバとして保持できなかった。これらオブジェクトの保持を禁止する理由はとくにないと判断され、共用体から参照型メンバを除く全ての制限を外すこととなった。
+
+
 ##参照
 - [N2430 Unrestricted Unions (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2430.pdf)
 - [N2544 Unrestricted Unions (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2544.pdf)
