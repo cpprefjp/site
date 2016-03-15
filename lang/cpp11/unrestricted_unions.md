@@ -65,4 +65,5 @@ hello
 ##参照
 - [N2430 Unrestricted Unions (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2430.pdf)
 - [N2544 Unrestricted Unions (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2544.pdf)
+- [Boost Variant Library](http://www.boost.org/libs/variant)
 
