@@ -96,6 +96,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [入れ子名の指定にグローバルスコープ`::`を付加することを許可](cpp11/global_scope_syntax_in_nested_name_specifier.md) | `struct ::A {};`のように入れ子名を指定する際にグローバルスコープから指定できるようになった |
 | [宣言時に要素数を指定した配列オブジェクトの、定義時の要素数を規定](cpp11/ealier_declarated_array_bounds.md) | `static`メンバや`extern`として宣言した配列を定義した際、宣言時に指定した要素数として定義されることが規定された |
 | [POSIX用の名前空間を予約](cpp11/reserved_namespaces_for_posix.md) | 将来の標準化のためにPOSIX用の名前空間を予約し、ユーザーがその名前空間で機能を定義することを禁止する |
+| [`sizeof`演算子にクラスの非静的メンバを、オブジェクトを作らずに指定できるようにする](cpp11/extending_sizeof_to_apply_to_non_static_data_members_without_an_object.md) | `sizeof(T::data_member)`のように指定して非静的メンバのサイズを取得する |
 
 
 ###C99互換機能
