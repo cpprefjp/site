@@ -114,9 +114,7 @@
 | [`UINT_LEAST32_MAX`](cstdint/uint_least32_max.md) | `uint_least32_t`の最大値 | C++11 |
 | `UINT_LEAST64_MIN`                                  | `uint_least64_t`の最小値 | C++11 |
 | [`UINT_LEAST64_MAX`](cstdint/uint_least64_max.md) | `uint_least64_t`の最大値 | C++11 |
-| `UINTMAX_MIN`                                      | `uint_max_t`の最小値 | C++11 |
 | [`UINTMAX_MAX`](cstdint/uintmax_max.md)          | `uint_max_t`の最大値 | C++11 |
-| `UINTPTR_MIN`                                      | `uintptr_t`の最小値 | C++11 |
 | `UINTPTR_MAX`                                      | `uintptr_t`の最大値 | C++11 |
 | `SIZE_MAX`                                          | [`size_t`](/reference/cstddef/size_t.md)の最大値 | C++11 |
 
