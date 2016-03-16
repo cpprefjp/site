@@ -44,7 +44,7 @@ int main()
 
 
 ##この機能が必要になった背景・経緯
-この機能は、C++14で導入された「[通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)」の機能で、戻り値の型推論を補助するために導入された。
+この機能は、C++14で導入された「[通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)」の機能において、ラムダ式から参照の戻り値を返すことを目的として導入された。
 
 
 ##関連項目
