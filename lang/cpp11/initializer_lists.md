@@ -82,6 +82,10 @@ std::vector<int> v(ar, ar + N);
 この問題を解決するために、波カッコによるリスト初期化をユーザー定義型でオーバーロードする機能が求められ、[`std::initializer_list`](/reference/initializer_list.md)クラスとオーバーロード機能が導入された。
 
 
+##関連項目
+- [C++11 一様初期化](uniform_initialization.md)
+
+
 ##参照
 - [N1493 Braces Initialization Overloading](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1493.pdf)
 - [N1509 Generalized Initializer Lists](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1509.pdf)
@@ -92,6 +96,7 @@ std::vector<int> v(ar, ar + N);
 - [N1919 Initializer lists](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1919.pdf)
 - [N2210 Initializer lists (Rev. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2100.pdf)
 - [N2215 Initializer lists (Rev. 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2215.pdf)
+- [N2531 Initializer lists WP wording (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2531.pdf)
 - [N2575 Initializer Lists - Alternative Mechanism and Rationale](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2575.pdf)
 - [N2640 Initializer Lists - Alternative Mechanism and Rationale (v. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2640.pdf)
 
