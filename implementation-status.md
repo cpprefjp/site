@@ -54,7 +54,7 @@
 各処理系のC++11実装状況ページ：
 
 - 全体的な対応状況： [C++0xCompilerSupport](http://wiki.apache.org/stdcxx/C++0xCompilerSupport)
-- GCC： [C++0x/C++11 Support in GCC](http://gcc.gnu.org/projects/cxx0x.html)
+- GCC： [C++11 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx11)
 - libstdc++ : [C++ 2011](http://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2011)
 - Clang： [C++98 and C++11 Support in Clang](http://clang.llvm.org/cxx_status.html)
     - [C++ Defect Report Support in Clang](http://clang.llvm.org/cxx_dr_status.html)
@@ -83,7 +83,7 @@ C++14は、C++11のバグフィックス + マイナーアップデートが行�
 
 各処理系のC++14実装状況ページ：
 
-- GCC: [C++1y/C++14 Support in GCC](http://gcc.gnu.org/projects/cxx1y.html)
+- GCC: [C++14 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx14)
 - libstdc++: [C++ 2014](http://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2014)
 - Clang: [C++98, C++11, and C++14 Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libc++: [libc++ C++1Y Status](http://libcxx.llvm.org/cxx1y_status.html)
@@ -157,7 +157,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 
 各処理系のC++1z実装状況ページ：
 
-- GCC: [C++1z Support in GCC](https://gcc.gnu.org/projects/cxx1z.html)
+- GCC: [C++1z Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx1z)
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
 - Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
 - Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
