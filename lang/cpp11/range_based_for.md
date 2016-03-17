@@ -35,7 +35,7 @@ for (const auto& e : vec) {
 | auto& e         | Yes | Yes |
 | auto e          | Yes | No  |
 
-[auto]: /lang/cpp11/auto.md
+[auto]: /lang/cpp11/auto.md.nolink
 
 
 ##仕様
