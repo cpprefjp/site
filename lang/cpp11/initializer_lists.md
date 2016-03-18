@@ -69,19 +69,6 @@ int main()
 * init.end()[link /reference/initializer_list/end.md]
 
 
-##この機能が必要になった背景・経緯
-C++の目標として、「組み込み型の振る舞いをユーザー定義型で定義できるようにする」というものがある。しかし、組み込み配列での波カッコを使用したリスト初期化は、ユーザー定義型に対してオーバーロードができなかった。それにより、[`std::vector`](/reference/vector.md)のようなコンテナクラスの初期化が使いにくいものとなっていた：
-
-```cpp
-const int N = 3;
-int ar[N] = {1, 2, 3};
-std::vector<int> v(ar, ar + N);
-```
-* std::vector[link /reference/vector.md]
-
-この問題を解決するために、波カッコによるリスト初期化をユーザー定義型でオーバーロードする機能が求められ、[`std::initializer_list`](/reference/initializer_list.md)クラスとオーバーロード機能が導入された。
-
-
 ##仕様
 - 波カッコ `{ }` を使用した初期化子のリストによるオブジェクトもしくは参照の初期化を、「リスト初期化 (list initialization)」と呼び、その初期化子を「初期化子リスト (initializer list)」と呼ぶ。初期化子リストは、カンマ区切りで要素を列挙する
 - 初期化子リストは、空であってもよい
@@ -261,6 +248,19 @@ X x(std::initializer_list<double>(__a, __a+3));
 * std::initializer_list[link /reference/initializer_list.md]
 
     元となった配列の寿命は、変換先の`std::initializer_list`オブジェクトと同じとなる
+
+
+##この機能が必要になった背景・経緯
+C++の目標として、「組み込み型の振る舞いをユーザー定義型で定義できるようにする」というものがある。しかし、組み込み配列での波カッコを使用したリスト初期化は、ユーザー定義型に対してオーバーロードができなかった。それにより、[`std::vector`](/reference/vector.md)のようなコンテナクラスの初期化が使いにくいものとなっていた：
+
+```cpp
+const int N = 3;
+int ar[N] = {1, 2, 3};
+std::vector<int> v(ar, ar + N);
+```
+* std::vector[link /reference/vector.md]
+
+この問題を解決するために、波カッコによるリスト初期化をユーザー定義型でオーバーロードする機能が求められ、[`std::initializer_list`](/reference/initializer_list.md)クラスとオーバーロード機能が導入された。
 
 
 ##関連項目
