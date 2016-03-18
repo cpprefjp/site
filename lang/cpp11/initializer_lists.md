@@ -226,6 +226,28 @@ X x1 = {3.0}; // 「1」が出力される
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
+- 異なる要素型を持つ`std::initializer_list`型同士でオーバーロードができる
+
+    ```cpp
+struct X {
+  X(std::initializer_list<int>)
+  {
+    std::cout << 1 << std::endl;
+  }
+
+  X(std::initializer_list<double>)
+  {
+    std::cout << 2 << std::endl;
+  }
+};
+
+X {1, 2, 3};       // 「1」が出力される
+X {1.0, 2.0, 3.0}; // 「2」が出力される
+```
+* std::initializer_list[link /reference/initializer_list.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
 
 ###初期化子リストオブジェクトの寿命
 - 初期化子リストが暗黙的に`std::initializer_list<E>`に型変換される際、実装は`E`型の要素を`N`個持つ配列を確保するかのように振る舞う。変換された`std::initializer_list<E>`オブジェクトは、元となった初期化子リストの配列を参照する。以下のような初期化子リストの引数渡しがあった場合、
@@ -276,6 +298,17 @@ int main()
   f({1, 2, 3}); // コンパイルエラー！Tの型を推論できない
 }
 ```
+
+- `std::initializer_list`の要素型のみを関数テンプレートで推論させることはできる
+
+    ```cpp
+template <class T>
+void f(std::initializer_list<T>) {}
+
+f({1, 2, 3}); // OK : Tはint
+```
+* std::initializer_list[link /reference/initializer_list.md]
+
 
 
 ##この機能が必要になった背景・経緯
