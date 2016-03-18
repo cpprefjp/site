@@ -82,6 +82,187 @@ std::vector<int> v(ar, ar + N);
 この問題を解決するために、波カッコによるリスト初期化をユーザー定義型でオーバーロードする機能が求められ、[`std::initializer_list`](/reference/initializer_list.md)クラスとオーバーロード機能が導入された。
 
 
+##仕様
+- 波カッコ `{ }` を使用した初期化子のリストによるオブジェクトもしくは参照の初期化を、「リスト初期化 (list initialization)」と呼び、その初期化子を「初期化子リスト (initializer list)」と呼ぶ。初期化子リストは、カンマ区切りで要素を列挙する
+- 初期化子リストは、空であってもよい
+
+
+###初期化子リストを使用できる文脈
+初期化子リストは、以下の文脈で使用できる：
+
+- 変数定義での初期化子リストによる初期化
+
+    ```cpp
+struct X {
+  X(std::initializer_list<int>) {}
+};
+
+X x1 {1, 2, 3};   // 直接初期化して変数定義
+X {1, 2, 3};      // 直接初期化して一時オブジェクトを定義
+X x2 = {1, 2, 3}; // コピー初期化して変数定義
+```
+* std::initializer_list[link /reference/initializer_list.md]
+
+- `new`式での初期化子リストによる初期化
+
+    ```cpp
+new X {1, 2, 3}; // 動的記憶域でXオブジェクトを直接初期化
+```
+
+- `return`文
+
+    ```cpp
+X f()
+{
+  return {1, 2, 3};
+}
+```
+
+- 関数の引数
+
+    ```cpp
+void f(X) {}
+f({1, 2, 3});
+```
+
+- 式の一部
+
+    ```cpp
+std::vector<X> xs {
+  {1, 2, 3}, // 初期化子リストのなかでさらに初期化子リストを使用する
+  {4, 5, 6}
+};
+```
+* std::vector[link /reference/vector.md]
+
+- 基本クラスやメンバの初期化子
+
+    ```cpp
+struct Y : X {
+  std::vector<int> values;
+
+  Y()
+    : X {1, 2, 3}, values {4, 5, 6} {}
+};
+```
+* std::vector[link /reference/vector.md]
+
+- 代入演算子の右辺
+
+    ```cpp
+struct X {
+  X& operator=(std::initializer_list<int>) { return *this; }
+};
+
+X x;
+x = {1, 2, 3};
+```
+* std::initializer_list[link /reference/initializer_list.md]
+
+
+###縮小変換
+- 初期化子リストに縮小変換が要求された場合、プログラムは不適格となる
+
+    ```cpp
+struct X {
+  X(std::initializer_list<int>) {}
+};
+
+X x1 = {1, 2, 3}; // OK
+//X x2 = {1, 2, 3.0}; // コンパイルエラー！3.0をint型に縮小変換できない
+```
+* std::initializer_list[link /reference/initializer_list.md]
+
+- 縮小変換以外の型変換は許可される
+
+    ```cpp
+struct X {
+  X(std::initializer_list<double>) {}
+};
+
+X x1 = {1, 2, 3};   // OK
+X x2 = {1, 2, 3.0}; // OK
+```
+* std::initializer_list[link /reference/initializer_list.md]
+
+
+###初期化子リストコンストラクタ
+以下の条件を満たすコンストラクタを、「初期化子リストコンストラクタ (initializer-list constructor)」と呼ぶ：
+
+- 任意の型`E`を要素とする`std::initializer_list<E>`型のパラメータをひとつだけとり、そのほかのパラメータを持たない
+- もしくは、`std::initializer_list<E>`型のパラメータおよび、それ以降にデフォルト引数を持つ
+
+
+###オーバーロード解決
+- デフォルトコンストラクタと初期化子リストコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
+
+    ```cpp
+#include <iostream>
+#include <initializer_list>
+
+struct X {
+  X()
+  {
+    std::cout << "default constructor" << std::endl;
+  }
+
+  X(std::initializer_list<int>)
+  {
+    std::cout << "initializer-list constructor" << std::endl;
+  }
+};
+
+int main()
+{
+  X x = {}; // 「default constructor」が出力される
+}
+```
+* std::initializer_list[link /reference/initializer_list.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+- 初期化子リストコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、初期化子リストコンストラクタが優先して呼び出される。そのような状況では、丸カッコでのコンストラクタ呼び出しが必要となる
+
+    ```cpp
+struct X {
+  X(std::initializer_list<double>) {
+    std::cout << 1 << std::endl;
+  }
+  X(double d) {
+    std::cout << 2 << std::endl;
+  }
+};
+
+X x1 = {3.0}; // 「1」が出力される
+```
+* std::initializer_list[link /reference/initializer_list.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+
+###初期化子リストオブジェクトの寿命
+- 初期化子リストが暗黙的に`std::initializer_list<E>`に型変換される際、実装は`E`型の要素を`N`個持つ配列を確保するかのように振る舞う。変換された`std::initializer_list<E>`オブジェクトは、元となった初期化子リストの配列を参照する。以下のような初期化子リストの引数渡しがあった場合、
+
+    ```cpp
+struct X {
+  X(std::initializer_list<double>) {}
+};
+
+X x = {1, 2, 3};
+```
+* std::initializer_list[link /reference/initializer_list.md]
+
+    実装は以下と同等の初期化を行う (実装が用意した`std::initializer_list`クラスがポインタの組を受け取れると仮定する)：
+
+    ```cpp
+double __a[3] = {double{1}, double{2}, double{3}};
+X x(std::initializer_list<double>(__a, __a+3));
+```
+* std::initializer_list[link /reference/initializer_list.md]
+
+    元となった配列の寿命は、変換先の`std::initializer_list`オブジェクトと同じとなる
+
+
 ##関連項目
 - [C++11 一様初期化](uniform_initialization.md)
 
