@@ -76,7 +76,7 @@ C++03バージョンは`constexpr`ではないため、非定数式となる。
 | `sig_atomic_t`                                           | `SIG_ATOMIC_MAX` |
 | `wchar_t`                                                | `WCHAR_MAX` |
 | `wint_t`                                                 | `WINT_MAX` |
-| [`size_t`](/reference/cstddef/size_t.md)                 | `SIZE_MAX` |
+| [`size_t`](/reference/cstddef/size_t.md)                 | [`SIZE_MAX`](/reference/cstdint/size_max.md) |
 | `float`                                                  | [`FLT_MAX`](/reference/cfloat/flt_max.md) |
 | `double`                                                 | [`DBL_MAX`](/reference/cfloat/dbl_max.md) |
 | `long double`                                            | [`LDBL_MAX`](/reference/cfloat/ldbl_max.md) |

@@ -104,7 +104,7 @@
 | [`UINT_LEAST64_MAX`](cstdint/uint_least64_max.md) | `uint_least64_t`の最大値 | C++11 |
 | [`UINTMAX_MAX`](cstdint/uintmax_max.md)           | `uintmax_t`の最大値 | C++11 |
 | [`UINTPTR_MAX`](cstdint/uintptr_max.md)           | `uintptr_t`の最大値 | C++11 |
-| `SIZE_MAX`                                          | [`size_t`](/reference/cstddef/size_t.md)の最大値 | C++11 |
+| [`SIZE_MAX`](cstdint/size_max.md)                 | [`size_t`](/reference/cstddef/size_t.md)の最大値 | C++11 |
 
 以下のマクロは、各整数型の定数値を表す関数マクロである。  
 例：) `int8_t x = INT8_C(1);`  
