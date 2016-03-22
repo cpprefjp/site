@@ -89,11 +89,11 @@
 ##符号なし整数型用の限界値マクロ
 
 | マクロ | 説明 | 対応バージョン |
-|-----------------------------------------------------|-----------------------|-------|
-| `UINT8_MAX`                                         | `uint8_t`の最大値 | C++11 |
-| `UINT16_MAX`                                        | `uint16_t`の最大値 | C++11 |
-| `UINT32_MAX`                                        | `uint32_t`の最大値 | C++11 |
-| `UINT64_MAX`                                        | `uint64_t`の最大値 | C++11 |
+|---------------------------------------------------|-----------------------|-------|
+| [`UINT8_MAX`](cstdint/uint8_max.md)               | `uint8_t`の最大値 | C++11 |
+| [`UINT16_MAX`](cstdint/uint16_max.md)             | `uint16_t`の最大値 | C++11 |
+| [`UINT32_MAX`](cstdint/uint32_max.md)             | `uint32_t`の最大値 | C++11 |
+| [`UINT64_MAX`](cstdint/uint64_max.md)             | `uint64_t`の最大値 | C++11 |
 | [`UINT_FAST8_MAX`](cstdint/uint_fast8_max.md)     | `uint_fast8_t`の最大値 | C++11 |
 | [`UINT_FAST16_MAX`](cstdint/uint_fast16_max.md)   | `uint_fast16_t`の最大値 | C++11 |
 | [`UINT_FAST32_MAX`](cstdint/uint_fast32_max.md)   | `uint_fast32_t`の最大値 | C++11 |
