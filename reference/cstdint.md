@@ -48,13 +48,13 @@
 
 | マクロ | 説明 | 対応バージョン |
 |-------------------------------------------------|-----------------------|-------|
-| `INT8_MIN`                                      | `int8_t`の最小値 | C++11 |
+| [`INT8_MIN`](cstdint/int8_min.md)               | `int8_t`の最小値 | C++11 |
 | [`INT8_MAX`](cstdint/int8_max.md)               | `int8_t`の最大値 | C++11 |
-| `INT16_MIN`                                     | `int16_t`の最小値 | C++11 |
+| [`INT16_MIN`](cstdint/int16_min.md)             | `int16_t`の最小値 | C++11 |
 | [`INT16_MAX`](cstdint/int16_max.md)             | `int16_t`の最大値 | C++11 |
-| `INT32_MIN`                                     | `int32_t`の最小値 | C++11 |
+| [`INT32_MIN`](cstdint/int32_min.md)             | `int32_t`の最小値 | C++11 |
 | [`INT32_MAX`](cstdint/int32_max.md)             | `int32_t`の最大値 | C++11 |
-| `INT64_MIN`                                     | `int64_t`の最小値 | C++11 |
+| [`INT64_MIN`](cstdint/int64_min.md)             | `int64_t`の最小値 | C++11 |
 | [`INT64_MAX`](cstdint/int64_max.md)             | `int64_t`の最大値 | C++11 |
 | [`INT_FAST8_MIN`](cstdint/int_fast8_min.md)     | `int_fast8_t`の最小値 | C++11 |
 | [`INT_FAST8_MAX`](cstdint/int_fast8_max.md)     | `int_fast8_t`の最大値 | C++11 |
