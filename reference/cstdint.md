@@ -78,8 +78,8 @@
 | [`INTPTR_MAX`](cstdint/intptr_max.md)           | `intptr_t`の最大値 | C++11 |
 | [`PTRDIFF_MIN`](cstdint/ptrdiff_min.md)         | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)の最小値 | C++11 |
 | [`PTRDIFF_MAX`](cstdint/ptrdiff_max.md)         | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)の最大値 | C++11 |
-| `SIG_ATOMIC_MIN`                                | `sig_atomic_t`の最小値 | C++11 |
-| `SIG_ATOMIC_MAX`                                | `sig_atomic_t`の最大値 | C++11 |
+| [`SIG_ATOMIC_MIN`](cstdint/sig_atomic_min.md)   | `sig_atomic_t`の最小値 | C++11 |
+| [`SIG_ATOMIC_MAX`](cstdint/sig_atomic_max.md)   | `sig_atomic_t`の最大値 | C++11 |
 | [`WCHAR_MIN`](cstdint/wchar_min.md)             | `wchar_t`の最小値 | C++11 |
 | [`WCHAR_MAX`](cstdint/wchar_max.md)             | `wchar_t`の最大値 | C++11 |
 | [`WINT_MIN`](cstdint/wint_min.md)               | `wint_t`の最小値 | C++11 |
