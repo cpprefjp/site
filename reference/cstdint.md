@@ -47,15 +47,15 @@
 ##符号あり整数型用の限界値マクロ
 
 | マクロ | 説明 | 対応バージョン |
-|---------------------------------------------------|-----------------------|-------|
-| `INT8_MIN`                                        | `int8_t`の最小値 | C++11 |
-| `INT8_MAX`                                        | `int8_t`の最大値 | C++11 |
-| `INT16_MIN`                                       | `int16_t`の最小値 | C++11 |
-| `INT16_MAX`                                       | `int16_t`の最大値 | C++11 |
-| `INT32_MIN`                                       | `int32_t`の最小値 | C++11 |
-| `INT32_MAX`                                       | `int32_t`の最大値 | C++11 |
-| `INT64_MIN`                                       | `int64_t`の最小値 | C++11 |
-| `INT64_MAX`                                       | `int64_t`の最大値 | C++11 |
+|-------------------------------------------------|-----------------------|-------|
+| `INT8_MIN`                                      | `int8_t`の最小値 | C++11 |
+| [`INT8_MAX`](cstdint/int8_max.md)               | `int8_t`の最大値 | C++11 |
+| `INT16_MIN`                                     | `int16_t`の最小値 | C++11 |
+| [`INT16_MAX`](cstdint/int16_max.md)             | `int16_t`の最大値 | C++11 |
+| `INT32_MIN`                                     | `int32_t`の最小値 | C++11 |
+| [`INT32_MAX`](cstdint/int32_max.md)             | `int32_t`の最大値 | C++11 |
+| `INT64_MIN`                                     | `int64_t`の最小値 | C++11 |
+| [`INT64_MAX`](cstdint/int64_max.md)             | `int64_t`の最大値 | C++11 |
 | [`INT_FAST8_MIN`](cstdint/int_fast8_min.md)     | `int_fast8_t`の最小値 | C++11 |
 | [`INT_FAST8_MAX`](cstdint/int_fast8_max.md)     | `int_fast8_t`の最大値 | C++11 |
 | [`INT_FAST16_MIN`](cstdint/int_fast16_min.md)   | `int_fast16_t`の最小値 | C++11 |
