@@ -9,7 +9,7 @@
 * int8_t[link int8_t.md]
 
 ##概要
-[`int8_t`](int8_t.md) の最大値。
+[`int8_t`](int8_t.md) の最小値。
 
 ビット数8をNとして、このマクロの値は-(2<sup>N-1</sup>)となる。
 
