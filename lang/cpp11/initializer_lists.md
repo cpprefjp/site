@@ -180,7 +180,7 @@ X x2 = {1, 2, 3.0}; // OK
 - もしくは、`std::initializer_list<E>`型のパラメータおよび、それ以降にデフォルト引数を持つ
 
 
-### <a name="overload-resolution" href="overload-resolution">オーバーロード解決</a>
+### <a name="overload-resolution" href="#overload-resolution">オーバーロード解決</a>
 - デフォルトコンストラクタと初期化子リストコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
 
     ```cpp
