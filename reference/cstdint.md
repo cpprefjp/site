@@ -90,29 +90,17 @@
 
 | マクロ | 説明 | 対応バージョン |
 |-----------------------------------------------------|-----------------------|-------|
-| `UINT8_MIN`                                         | `uint8_t`の最小値 | C++11 |
 | `UINT8_MAX`                                         | `uint8_t`の最大値 | C++11 |
-| `UINT16_MIN`                                        | `uint16_t`の最小値 | C++11 |
 | `UINT16_MAX`                                        | `uint16_t`の最大値 | C++11 |
-| `UINT32_MIN`                                        | `uint32_t`の最小値 | C++11 |
 | `UINT32_MAX`                                        | `uint32_t`の最大値 | C++11 |
-| `UINT64_MIN`                                        | `uint64_t`の最小値 | C++11 |
 | `UINT64_MAX`                                        | `uint64_t`の最大値 | C++11 |
-| `UINT_FAST8_MIN`                                    | `uint_fast8_t`の最小値 | C++11 |
 | [`UINT_FAST8_MAX`](cstdint/uint_fast8_max.md)     | `uint_fast8_t`の最大値 | C++11 |
-| `UINT_FAST16_MIN`                                   | `uint_fast16_t`の最小値 | C++11 |
 | [`UINT_FAST16_MAX`](cstdint/uint_fast16_max.md)   | `uint_fast16_t`の最大値 | C++11 |
-| `UINT_FAST32_MIN`                                   | `uint_fast32_t`の最小値 | C++11 |
 | [`UINT_FAST32_MAX`](cstdint/uint_fast32_max.md)   | `uint_fast32_t`の最大値 | C++11 |
-| `UINT_FAST64_MIN`                                   | `uint_fast64_t`の最小値 | C++11 |
 | [`UINT_FAST64_MAX`](cstdint/uint_fast64_max.md)   | `uint_fast64_t`の最大値 | C++11 |
-| `UINT_LEAST8_MIN`                                   | `uint_least8_t`の最小値 | C++11 |
 | [`UINT_LEAST8_MAX`](cstdint/uint_least8_max.md)   | `uint_least8_t`の最大値 | C++11 |
-| `UINT_LEAST16_MIN`                                  | `uint_least16_t`の最小値 | C++11 |
 | [`UINT_LEAST16_MAX`](cstdint/uint_least16_max.md) | `uint_least16_t`の最大値 | C++11 |
-| `UINT_LEAST32_MIN`                                  | `uint_least32_t`の最小値 | C++11 |
 | [`UINT_LEAST32_MAX`](cstdint/uint_least32_max.md) | `uint_least32_t`の最大値 | C++11 |
-| `UINT_LEAST64_MIN`                                  | `uint_least64_t`の最小値 | C++11 |
 | [`UINT_LEAST64_MAX`](cstdint/uint_least64_max.md) | `uint_least64_t`の最大値 | C++11 |
 | [`UINTMAX_MAX`](cstdint/uintmax_max.md)          | `uintmax_t`の最大値 | C++11 |
 | `UINTPTR_MAX`                                      | `uintptr_t`の最大値 | C++11 |
