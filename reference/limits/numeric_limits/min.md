@@ -51,7 +51,7 @@ static constexpr T min() noexcept;
 | [`intptr_t`](/reference/cstdint/intptr_t.md)           | [`INTPTR_MIN`](/reference/cstdint/intptr_min.md) |
 | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)         | [`PTRDIFF_MIN`](/reference/cstdint/ptrdiff_min.md) |
 | `sig_atomic_t`                                         | `SIG_ATOMIC_MIN` |
-| `wchar_t`                                              | `WCHAR_MIN` |
+| `wchar_t`                                              | [`WCHAR_MIN`](/reference/cstdint/wchar_min.md) |
 | `wint_t`                                               | `WINT_MIN` |
 | `float`                                                | [`FLT_MIN`](/reference/cfloat/flt_min.md) |
 | `double`                                               | [`DBL_MIN`](/reference/cfloat/dbl_min.md) |
