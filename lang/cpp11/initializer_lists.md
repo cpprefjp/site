@@ -74,7 +74,7 @@ int main()
 - 初期化子リストは、空であってもよい
 
 
-###初期化子リストを使用できる文脈
+### <a name="initializer-list-contexts" href="#initializer-list-contexts">初期化子リストを使用できる文脈</a>
 初期化子リストは、以下の文脈で使用できる：
 
 - 変数定義での初期化子リストによる初期化
@@ -147,7 +147,7 @@ x = {1, 2, 3};
 * std::initializer_list[link /reference/initializer_list.md]
 
 
-###縮小変換
+### <a name="narrow-conversion" href="#narrow-conversion">縮小変換</a>
 - 初期化子リストに縮小変換が要求された場合、プログラムは不適格となる
 
     ```cpp
@@ -173,14 +173,14 @@ X x2 = {1, 2, 3.0}; // OK
 * std::initializer_list[link /reference/initializer_list.md]
 
 
-###初期化子リストコンストラクタ
+### <a name="initializer-list-constructor" href="#initializer-list-constructor">初期化子リストコンストラクタ</a>
 以下の条件を満たすコンストラクタを、「初期化子リストコンストラクタ (initializer-list constructor)」と呼ぶ：
 
 - 任意の型`E`を要素とする`std::initializer_list<E>`型のパラメータをひとつだけとり、そのほかのパラメータを持たない
 - もしくは、`std::initializer_list<E>`型のパラメータおよび、それ以降にデフォルト引数を持つ
 
 
-###オーバーロード解決
+### <a name="overload-resolution" href="overload-resolution">オーバーロード解決</a>
 - デフォルトコンストラクタと初期化子リストコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
 
     ```cpp
@@ -249,7 +249,7 @@ X {1.0, 2.0, 3.0}; // 「2」が出力される
 * std::endl[link /reference/ostream/endl.md]
 
 
-###初期化子リストオブジェクトの寿命
+### <a name="life-time" href="#life-time">初期化子リストオブジェクトの寿命</a>
 - 初期化子リストが暗黙的に`std::initializer_list<E>`に型変換される際、実装は`E`型の要素を`N`個持つ配列を確保するかのように振る舞う。変換された`std::initializer_list<E>`オブジェクトは、元となった初期化子リストの配列を参照する。以下のような初期化子リストの引数渡しがあった場合、
 
     ```cpp
@@ -272,7 +272,7 @@ X x(std::initializer_list<double>(__a, __a+3));
     元となった配列の寿命は、変換先の`std::initializer_list`オブジェクトと同じとなる
 
 
-###型推論
+### <a name="type-deduction" href="#type-deduction">型推論</a>
 - 初期化リストを`auto`で受けた場合、`std::initializer_list`型に推論される。ただし、空の初期化子リストは推論に失敗する
 
     ```cpp
@@ -310,7 +310,7 @@ f({1, 2, 3}); // OK : Tはint
 * std::initializer_list[link /reference/initializer_list.md]
 
 
-###評価順序
+### <a name="evaluation-order" href="#evaluation-order">評価順序</a>
 - 初期化子リストに列挙した要素は、先頭から順番に評価されることが保証される
 
     ```cpp
