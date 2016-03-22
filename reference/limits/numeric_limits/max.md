@@ -44,14 +44,14 @@ C++03バージョンは`constexpr`ではないため、非定数式となる。
 | `long`                                                   | [`LONG_MAX`](/reference/climits/long_max.md) |
 | `unsigned long long`                                     | [`ULLONG_MAX`](/reference/climits/ullong_max.md) |
 | `long long`                                              | [`LLONG_MAX`](/reference/climits/llong_max.md) |
-| `uint8_t`                                                | `UINT8_MAX` |
-| `int8_t`                                                 | `INT8_MAX` |
-| `uint16_t`                                               | `UINT16_MAX` |
-| `int16_t`                                                | `INT16_MAX` |
-| `uint32_t`                                               | `UINT32_MAX` |
-| `int32_t`                                                | `INT32_MAX` |
-| `uint64_t`                                               | `UINT64_MAX` |
-| `int64_t`                                                | `INT64_MAX` |
+| [`uint8_t`](/reference/cstdint/uint8_t.md)               | [`UINT8_MAX`](/reference/cstdint/uint8_max.md) |
+| [`int8_t`](/reference/cstdint/int8_t.md)                 | [`INT8_MAX`](/reference/cstdint/int8_max.md) |
+| [`uint16_t`](/reference/cstdint/uint16_t.md)             | [`UINT16_MAX`](/reference/cstdint/uint16_max.md) |
+| [`int16_t`](/reference/cstdint/int16_t.md)               | [`INT16_MAX`](/reference/cstdint/int16_max.md) |
+| [`uint32_t`](/reference/cstdint/uint32_t.md)             | [`UINT32_MAX`](/reference/cstdint/uint32_max.md) |
+| [`int32_t`](/reference/cstdint/int32_t.md)               | [`INT32_MAX`](/reference/cstdint/int32_max.md) |
+| [`uint64_t`](/reference/cstdint/uint64_t.md)             | [`UINT64_MAX`](/reference/cstdint/uint64_max.md) |
+| [`int64_t`](/reference/cstdint/int64_t.md)               | [`INT64_MAX`](/reference/cstdint/int64_max.md) |
 | [`uint_fast8_t`](/reference/cstdint/uint_fast8_t.md)     | [`UINT_FAST8_MAX`](/reference/cstdint/uint_fast8_max.md) |
 | [`int_fast8_t`](/reference/cstdint/int_fast8_t.md)       | [`INT_FAST8_MAX`](/reference/cstdint/int_fast8_max.md) |
 | [`uint_fast16_t`](/reference/cstdint/uint_fast16_t.md)   | [`UINT_FAST16_MAX`](/reference/cstdint/uint_fast16_max.md) |
