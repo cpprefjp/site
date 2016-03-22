@@ -310,6 +310,40 @@ f({1, 2, 3}); // OK : Tはint
 * std::initializer_list[link /reference/initializer_list.md]
 
 
+###評価順序
+- 初期化子リストに列挙した要素は、先頭から順番に評価されることが保証される
+
+    ```cpp
+#include <iostream>
+#include <initializer_list>
+
+int f()
+{
+  std::cout << 1 << std::endl;
+  return 1;
+}
+
+int g()
+{
+  std::cout << 2 << std::endl;
+  return 2;
+}
+
+int h()
+{
+  std::cout << 3 << std::endl;
+  return 3;
+}
+
+int main()
+{
+  std::initializer_list<int> init = { f(), g(), h() }; // 1, 2, 3の順で出力される
+}
+```
+* std::initializer_list[link /reference/initializer_list.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
 
 ##この機能が必要になった背景・経緯
 C++の目標として、「組み込み型の振る舞いをユーザー定義型で定義できるようにする」というものがある。しかし、組み込み配列での波カッコを使用したリスト初期化は、ユーザー定義型に対してオーバーロードができなかった。それにより、[`std::vector`](/reference/vector.md)のようなコンテナクラスの初期化が使いにくいものとなっていた：
@@ -342,4 +376,5 @@ std::vector<int> v(ar, ar + N);
 - [N2575 Initializer Lists - Alternative Mechanism and Rationale](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2575.pdf)
 - [N2640 Initializer Lists - Alternative Mechanism and Rationale (v. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2640.pdf)
 - [N2672 Initializer List proposed wording](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2672.htm)
+- [CWG Issue 1030. Evaluation order in initializer-lists used in aggregate initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1030)
 

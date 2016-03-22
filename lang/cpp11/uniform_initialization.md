@@ -73,6 +73,44 @@ int main()
 * std::istream_iterator[link /reference/iterator/istream_iterator.md]
 
 
+##仕様
+###評価順序
+- 波カッコによるコンストラクタ呼び出しで渡す引数は、先頭から順番に評価されることが保証される
+
+    ```cpp
+#include <iostream>
+
+int f()
+{
+  std::cout << 1 << std::endl;
+  return 1;
+}
+
+int g()
+{
+  std::cout << 2 << std::endl;
+  return 2;
+}
+
+int h()
+{
+  std::cout << 3 << std::endl;
+  return 3;
+}
+
+struct X {
+  X(int, int, int) {}
+};
+
+int main()
+{
+  X x { f(), g(), h() }; // 1, 2, 3の順で出力される
+}
+```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+
 ##関連項目
 - [C++11 初期化子リスト](initializer_lists.md)
 
@@ -82,4 +120,5 @@ int main()
 - [N2532 Uniform initialization design choices (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2532.pdf)
 - [N2575 Initializer Lists - Alternative Mechanism and Rationale](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2575.pdf)
 - [N2640 Initializer Lists - Alternative Mechanism and Rationale (v. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2640.pdf)
+- [CWG Issue 1030. Evaluation order in initializer-lists used in aggregate initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1030)
 
