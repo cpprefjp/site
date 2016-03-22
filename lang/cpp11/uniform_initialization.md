@@ -104,7 +104,8 @@ struct X {
 
 int main()
 {
-  X x { f(), g(), h() }; // 1, 2, 3の順で出力される
+  X x1 { f(), g(), h() }; // 1, 2, 3の順で出力される
+  X x2(f(), g(), h());    // 1, 2, 3が順不同で出力される
 }
 ```
 * std::cout[link /reference/iostream/cout.md]
