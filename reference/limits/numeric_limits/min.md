@@ -35,10 +35,10 @@ static constexpr T min() noexcept;
 | `int`                                                  | [`INT_MIN`](/reference/climits/int_min.md) |
 | `long`                                                 | [`LONG_MIN`](/reference/climits/long_min.md) |
 | `long long`                                            | [`LLONG_MIN`](/reference/climits/llong_min.md) |
-| `int8_t`                                               | `INT8_MIN` |
-| `int16_t`                                              | `INT16_MIN` |
-| `int32_t`                                              | `INT32_MIN` |
-| `int64_t`                                              | `INT64_MIN` |
+| [`int8_t`](/reference/cstdint/int8_t.md)               | [`INT8_MIN`](/reference/cstdint/int8_min.md) |
+| [`int16_t`](/reference/cstdint/int16_t.md)             | [`INT16_MIN`](/reference/cstdint/int16_min.md) |
+| [`int32_t`](/reference/cstdint/int32_t.md)             | [`INT32_MIN`](/reference/cstdint/int32_min.md) |
+| [`int64_t`](/reference/cstdint/int64_t.md)             | [`INT64_MIN`](/reference/cstdint/int64_min.md) |
 | [`int_fast8_t`](/reference/cstdint/int_fast8_t.md)     | [`INT_FAST8_MIN`](/reference/cstdint/int_fast8_min.md) |
 | [`int_fast16_t`](/reference/cstdint/int_fast16_t.md)   | [`INT_FAST16_MIN`](/reference/cstdint/int_fast16_min.md) |
 | [`int_fast32_t`](/reference/cstdint/int_fast32_t.md)   | [`INT_FAST32_MIN`](/reference/cstdint/int_fast32_min.md) |
