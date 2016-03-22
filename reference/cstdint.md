@@ -82,8 +82,8 @@
 | `SIG_ATOMIC_MAX`                                | `sig_atomic_t`の最大値 | C++11 |
 | [`WCHAR_MIN`](cstdint/wchar_min.md)             | `wchar_t`の最小値 | C++11 |
 | [`WCHAR_MAX`](cstdint/wchar_max.md)             | `wchar_t`の最大値 | C++11 |
-| `WINT_MIN`                                      | `wint_t`の最小値 | C++11 |
-| `WINT_MAX`                                      | `wint_t`の最大値 | C++11 |
+| [`WINT_MIN`](cstdint/wint_min.md)               | `wint_t`の最小値 | C++11 |
+| [`WINT_MAX`](cstdint/wint_max.md)               | `wint_t`の最大値 | C++11 |
 
 
 ##符号なし整数型用の限界値マクロ
