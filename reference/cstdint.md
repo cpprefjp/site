@@ -72,18 +72,18 @@
 | [`INT_LEAST32_MAX`](cstdint/int_least32_max.md) | `int_least32_t`の最大値 | C++11 |
 | [`INT_LEAST64_MIN`](cstdint/int_least64_min.md) | `int_least64_t`の最小値 | C++11 |
 | [`INT_LEAST64_MAX`](cstdint/int_least64_max.md) | `int_least64_t`の最大値 | C++11 |
-| [`INTMAX_MIN`](cstdint/intmax_min.md)          | `intmax_t`の最小値 | C++11 |
-| [`INTMAX_MAX`](cstdint/intmax_max.md)          | `intmax_t`の最大値 | C++11 |
-| `INTPTR_MIN`                                     | `intptr_t`の最小値 | C++11 |
-| `INTPTR_MAX`                                     | `intptr_t`の最大値 | C++11 |
+| [`INTMAX_MIN`](cstdint/intmax_min.md)           | `intmax_t`の最小値 | C++11 |
+| [`INTMAX_MAX`](cstdint/intmax_max.md)           | `intmax_t`の最大値 | C++11 |
+| [`INTPTR_MIN`](cstdint/intptr_min.md)           | `intptr_t`の最小値 | C++11 |
+| [`INTPTR_MAX`](cstdint/intptr_max.md)           | `intptr_t`の最大値 | C++11 |
 | [`PTRDIFF_MIN`](cstdint/ptrdiff_min.md)         | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)の最小値 | C++11 |
 | [`PTRDIFF_MAX`](cstdint/ptrdiff_max.md)         | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)の最大値 | C++11 |
-| `SIG_ATOMIC_MIN`                                  | `sig_atomic_t`の最小値 | C++11 |
-| `SIG_ATOMIC_MAX`                                  | `sig_atomic_t`の最大値 | C++11 |
-| `WCHAR_MIN`                                       | `wchar_t`の最小値 | C++11 |
-| `WCHAR_MAX`                                       | `wchar_t`の最大値 | C++11 |
-| `WINT_MIN`                                        | `wint_t`の最小値 | C++11 |
-| `WINT_MAX`                                        | `wint_t`の最大値 | C++11 |
+| `SIG_ATOMIC_MIN`                                | `sig_atomic_t`の最小値 | C++11 |
+| `SIG_ATOMIC_MAX`                                | `sig_atomic_t`の最大値 | C++11 |
+| `WCHAR_MIN`                                     | `wchar_t`の最小値 | C++11 |
+| `WCHAR_MAX`                                     | `wchar_t`の最大値 | C++11 |
+| `WINT_MIN`                                      | `wint_t`の最小値 | C++11 |
+| `WINT_MAX`                                      | `wint_t`の最大値 | C++11 |
 
 
 ##符号なし整数型用の限界値マクロ
@@ -102,8 +102,8 @@
 | [`UINT_LEAST16_MAX`](cstdint/uint_least16_max.md) | `uint_least16_t`の最大値 | C++11 |
 | [`UINT_LEAST32_MAX`](cstdint/uint_least32_max.md) | `uint_least32_t`の最大値 | C++11 |
 | [`UINT_LEAST64_MAX`](cstdint/uint_least64_max.md) | `uint_least64_t`の最大値 | C++11 |
-| [`UINTMAX_MAX`](cstdint/uintmax_max.md)          | `uintmax_t`の最大値 | C++11 |
-| `UINTPTR_MAX`                                      | `uintptr_t`の最大値 | C++11 |
+| [`UINTMAX_MAX`](cstdint/uintmax_max.md)           | `uintmax_t`の最大値 | C++11 |
+| [`UINTPTR_MAX`](cstdint/uintptr_max.md)           | `uintptr_t`の最大値 | C++11 |
 | `SIZE_MAX`                                          | [`size_t`](/reference/cstddef/size_t.md)の最大値 | C++11 |
 
 以下のマクロは、各整数型の定数値を表す関数マクロである。  

@@ -48,7 +48,7 @@ static constexpr T min() noexcept;
 | [`int_least32_t`](/reference/cstdint/int_least32_t.md) | [`INT_LEAST32_MIN`](/reference/cstdint/int_least32_min.md) |
 | [`int_least64_t`](/reference/cstdint/int_least64_t.md) | [`INT_LEAST64_MIN`](/reference/cstdint/int_least64_min.md) |
 | [`intmax_t`](/reference/cstdint/intmax_t.md)           | [`INTMAX_MIN`](/reference/cstdint/intmax_min.md) |
-| `intptr_t`                                             | `INTPTR_MIN` |
+| [`intptr_t`](/reference/cstdint/intptr_t.md)           | [`INTPTR_MIN`](/reference/cstdint/intptr_min.md) |
 | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)         | [`PTRDIFF_MIN`](/reference/cstdint/ptrdiff_min.md) |
 | `sig_atomic_t`                                         | `SIG_ATOMIC_MIN` |
 | `wchar_t`                                              | `WCHAR_MIN` |
