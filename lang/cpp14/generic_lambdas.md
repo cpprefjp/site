@@ -118,5 +118,5 @@ HelloWorld
 
 ##参照
 - [N3418 Proposal for Generic (Polymorphic) Lambda Expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3418.pdf)
-- [N3559 Proposal for Generic (Polymorphic) Lambda Expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3559.pdf)
-
+- [N3559 Proposal for Generic (Polymorphic) Lambda Expressions (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3559.pdf)
+- [N3649 Generic (Polymorphic) Lambda Expressions (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3649.html)
