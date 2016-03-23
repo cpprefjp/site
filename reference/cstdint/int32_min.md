@@ -25,7 +25,7 @@
 int main()
 {
   std::int32_t min_value = INT32_MIN;
-  std::cout << min_value + 0 << std::endl;
+  std::cout << +min_value << std::endl;
 }
 ```
 * std::int32_t[link int32_t.md]

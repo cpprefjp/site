@@ -25,7 +25,7 @@
 int main()
 {
   std::int64_t min_value = INT64_MIN;
-  std::cout << min_value + 0 << std::endl;
+  std::cout << +min_value << std::endl;
 }
 ```
 * std::int64_t[link int64_t.md]

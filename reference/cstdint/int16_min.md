@@ -25,7 +25,7 @@
 int main()
 {
   std::int16_t min_value = INT16_MIN;
-  std::cout << min_value + 0 << std::endl;
+  std::cout << +min_value << std::endl;
 }
 ```
 * std::int16_t[link int16_t.md]
