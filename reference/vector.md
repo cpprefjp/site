@@ -142,11 +142,57 @@ namespace std {
 | [`swap`](vector/swap_free.md)              | 2つの`vector`オブジェクトを入れ替える | |
 
 
-##参照
-`vector`のメモリ効率について
+##例
+```cpp
+#include <iostream>
+#include <cassert>
+#include <vector>
 
-- [２倍だけじゃない - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_2334100705)
-- [それでも２倍だ - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_1001100720)
+int main()
+{
+  // int型を要素とする可変長配列の変数を定義し、
+  // 初期状態の要素を設定
+  std::vector<int> v = {1, 3, 4};
+
+  v.push_back(5); // 末尾に値5を追加
+  v.insert(v.begin() + 1, 2); // 1番目に値2を挿入
+
+  int* p = v.data();     // 内部表現のポインタを取得
+  std::size_t size = v.size(); // 要素数を取得
+  assert(p[0] == 1);
+  assert(size == 5u);
+
+  // 各要素に対して操作を行う
+  for (int x : v) {
+    std::cout << x << std::endl;
+  }
+}
+```
+* v.push_back[link vector/push_back.md]
+* v.insert[link vector/insert.md]
+* v.begin()[link vector/begin.md]
+* v.data()[link vector/data.md]
+* v.size()[link vector/size.md]
+* std::size_t[link /reference/cstddef/size_t.md]
+* assert[link /reference/cassert/assert.md]
+* for[link /lang/cpp11/range_based_for.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+###出力
+```
+1
+2
+3
+4
+5
+```
+
+
+##参照
+- `vector`のメモリ効率について
+    - [２倍だけじゃない - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_2334100705)
+    - [それでも２倍だ - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_1001100720)
 
 
 ##`vector<bool>`特殊化
