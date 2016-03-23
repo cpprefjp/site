@@ -7,7 +7,7 @@ C++11 から、変数宣言時に具体的な型名のかわりに `auto` キー
 ```cpp
 auto i = 0;                         // i は int 型
 const auto l = 0L;                  // l は const long 型
-auto& c = '\0';                     // c は char& 型
+auto& r = i;                        // r は int& 型
 auto s = "";                        // s は const char* 型
 auto p = std::make_pair(1, 'c');    // p は std::pair<int, char> 型
 auto q = std::make_shared<int>(42); // q は std::shared_ptr<int> 型
