@@ -15,6 +15,7 @@
 
 その値の型は、[`int32_t`](int32_t.md)を整数昇格したものとなる。
 
+なお、このマクロは [`int32_t`](int32_t.md) が定義されていない場合には定義されない。
 
 ##例
 ```cpp
@@ -24,7 +25,7 @@
 int main()
 {
   std::int32_t min_value = INT32_MIN;
-  std::cout << static_cast<long>(min_value) << std::endl;
+  std::cout << min_value + 0 << std::endl;
 }
 ```
 * std::int32_t[link int32_t.md]

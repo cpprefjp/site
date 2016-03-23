@@ -15,6 +15,7 @@
 
 その値の型は、[`int16_t`](int16_t.md)を整数昇格したものとなる。
 
+なお、このマクロは [`int16_t`](int16_t.md) が定義されていない場合には定義されない。
 
 ##例
 ```cpp
@@ -24,7 +25,7 @@
 int main()
 {
   std::int16_t min_value = INT16_MIN;
-  std::cout << static_cast<int>(min_value) << std::endl;
+  std::cout << min_value + 0 << std::endl;
 }
 ```
 * std::int16_t[link int16_t.md]
