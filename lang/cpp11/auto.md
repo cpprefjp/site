@@ -80,7 +80,7 @@ void(*pf2)(auto) = f;       // NG! auto は関数引数の型には使用でき�
 例えば、`const auto& p = 初期化式;` のようなコピー初期化を伴う変数宣言の場合、`auto` をテンプレート型パラメータ `U` で置き換えた `const U& p` を引数とした以下のような関数 `f` を考える。
 
 ```cpp
-template <typename T>
+template <typename U>
 void f(const U& p);
 ```
 
@@ -91,7 +91,7 @@ void f(const U& p);
 変数宣言がコピーリスト初期化を伴う、例えば `auto p = { 初期化子1, 初期化子2, ... 初期化子n };` の場合、`auto` をテンプレート型パラメータ `U` そのものへ置き換えたものではなく、`std::`[`initializer_list`](../../reference/initializer_list.md)`<U>` へ置き換えた以下のような関数を考えて、上記と同様の型推論を行う。  
 
 ```cpp
-template <typename T>
+template <typename U>
 void f(std::initializer_list<U> p);
 ```
 * initializer_list[link ../../reference/initializer_list.md]
