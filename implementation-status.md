@@ -10,7 +10,7 @@
 |----------------------------------|------|-----|-------|-----|------|
 | [`alignas`](/lang/cpp11/alignas.md) | アライメント指定 | 4.8 | 3.0 | | 14.0<br/>7.1あるいはそれ以前からある`__declspec(align(x))`構文で代替可能。 |
 | [`alignof`](/lang/cpp11/alignof.md) | アライメント取得 | 4.5 | 3.3 | | 14.0<br/>7.1あるいはそれ以前よりある`__alignof`で代替可能。 |
-| `auto`                           | 型推論 | 4.4 | 2.9 | 12.0 | 10.0 |
+| [`auto`](/lang/cpp11/auto.md) | 型推論 | 4.4 | 2.9 | 12.0 | 10.0 |
 | `decltype`                       | 式の型を取得 | 4.3 | 2.9 | 13.0 | 10.0 (partial)<br/> 11.0 |
 | C99互換のプリプロセッサ          | [可変引数マクロ](/lang/cpp11/variadic_macros.md)、[Pragma演算子](/lang/cpp11/pragma_operator.md)、[`__func__`](/lang/cpp11/func.md) | 4.3 | 2.9 | 11.1 | 8.0 (partial): 可変引数のみ `_Pragma`の代わりに`__pragma`が存在する。
 | [`constexpr`](/lang/cpp11/constexpr.md) | 定数式 | 4.6 | 3.1 | 13.0 (partial)<br/> 14.0 | 14.0 (partial) |
