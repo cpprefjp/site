@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define UINT16_MAX (uint16_t)65535U
+#define UINT16_MAX implementation-defined
 ```
-* uint16_t[link uint16_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`uint16_t`](uint16_t.md) の最大値。
+[`uint16_t`](uint16_t.md) の最大値を表す定数。
 
-ビット数16をNとして、このマクロの値は2<sup>N</sup> - 1となる。
+ビット数16をNとして、このマクロの値は2<sup>N</sup> - 1である65535となる。
+
+その値の型は、[`uint16_t`](uint16_t.md)を整数昇格したものとなる。
 
 
 ##例

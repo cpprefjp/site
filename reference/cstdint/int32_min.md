@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define INT32_MIN (int32_t)-2147483648L
+#define INT32_MIN implementation-defined
 ```
-* int32_t[link int32_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`int32_t`](int32_t.md) の最小値。
+[`int32_t`](int32_t.md) の最小値を表す定数。
 
-ビット数32をNとして、このマクロの値は-(2<sup>N-1</sup>)となる。
+ビット数32をNとして、このマクロの値は-(2<sup>N-1</sup>)である-2147483648となる。
+
+その値の型は、[`int32_t`](int32_t.md)を整数昇格したものとなる。
 
 
 ##例

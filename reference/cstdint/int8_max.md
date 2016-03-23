@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define INT8_MAX (int8_t)127
+#define INT8_MAX implementation-defined
 ```
-* int8_t[link int8_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`int8_t`](int8_t.md) の最大値。
+[`int8_t`](int8_t.md) の最大値を表す定数。
 
-ビット数8をNとして、このマクロの値は2<sup>N-1</sup> - 1となる。
+ビット数8をNとして、このマクロの値は2<sup>N-1</sup> - 1である127となる。
+
+その値の型は、[`int8_t`](int8_t.md)を整数昇格したものとなる。
 
 
 ##例

@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define INT8_MIN (int8_t)-128
+#define INT8_MIN implementation-defined
 ```
-* int8_t[link int8_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`int8_t`](int8_t.md) の最小値。
+[`int8_t`](int8_t.md) の最小値を表す定数。
 
-ビット数8をNとして、このマクロの値は-(2<sup>N-1</sup>)となる。
+ビット数8をNとして、このマクロの値は-(2<sup>N-1</sup>)である-128となる。
+
+その値の型は、[`int8_t`](int8_t.md)を整数昇格したものとなる。
 
 
 ##例

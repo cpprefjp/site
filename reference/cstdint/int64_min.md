@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define INT64_MIN (int64_t)-9223372036854775808LL
+#define INT64_MIN implementation-defined
 ```
-* int64_t[link int64_t.md]
+* implementation-defined[italic]
 
 ##概要
 [`int64_t`](int64_t.md) の最小値。
 
-ビット数64をNとして、このマクロの値は-(2<sup>N-1</sup>)となる。
+ビット数64をNとして、このマクロの値は-(2<sup>N-1</sup>)である-9223372036854775808となる。
+
+その値の型は、[`int64_t`](int64_t.md)を整数昇格したものとなる。
 
 
 ##例

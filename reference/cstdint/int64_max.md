@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define INT64_MAX (int64_t)9223372036854775807LL
+#define INT64_MAX implementation-defined
 ```
-* int64_t[link int64_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`int64_t`](int64_t.md) の最大値。
+[`int64_t`](int64_t.md) の最大値を表す定数。
 
-ビット数64をNとして、このマクロの値は2<sup>N-1</sup> - 1となる。
+ビット数64をNとして、このマクロの値は2<sup>N-1</sup> - 1である9223372036854775807となる。
+
+その値の型は、[`int64_t`](int64_t.md)を整数昇格したものとなる。
 
 
 ##例

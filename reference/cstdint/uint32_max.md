@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define UINT32_MAX (uint32_t)4294967295UL
+#define UINT32_MAX implementation-defined
 ```
-* uint32_t[link uint32_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`uint32_t`](uint32_t.md) の最大値。
+[`uint32_t`](uint32_t.md) の最大値を表す定数。
 
-ビット数32をNとして、このマクロの値は2<sup>N</sup> - 1となる。
+ビット数32をNとして、このマクロの値は2<sup>N</sup> - 1である4294967295となる。
+
+その値の型は、[`uint32_t`](uint32_t.md)を整数昇格したものとなる。
 
 
 ##例

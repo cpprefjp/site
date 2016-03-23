@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define INT16_MIN (int16_t)-32768
+#define INT16_MIN implementation-defined
 ```
-* int16_t[link int16_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`int16_t`](int16_t.md) の最小値。
+[`int16_t`](int16_t.md) の最小値を表す定数。
 
-ビット数16をNとして、このマクロの値は-(2<sup>N-1</sup>)となる。
+ビット数16をNとして、このマクロの値は-(2<sup>N-1</sup>)である-32768となる。
+
+その値の型は、[`int16_t`](int16_t.md)を整数昇格したものとなる。
 
 
 ##例

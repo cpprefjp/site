@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define INT16_MAX (int16_t)32767
+#define INT16_MAX implementation-defined
 ```
-* int16_t[link int16_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`int16_t`](int16_t.md) の最大値。
+[`int16_t`](int16_t.md) の最大値を表す定数。
 
-ビット数16をNとして、このマクロの値は2<sup>N-1</sup> - 1となる。
+ビット数16をNとして、このマクロの値は2<sup>N-1</sup> - 1である32767となる。
+
+その値の型は、[`int16_t`](int16_t.md)を整数昇格したものとなる。
 
 
 ##例

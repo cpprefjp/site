@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define UINT8_MAX (uint8_t)255U
+#define UINT8_MAX implementation-defined
 ```
-* uint8_t[link uint8_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`uint8_t`](uint8_t.md) の最大値。
+[`uint8_t`](uint8_t.md) の最大値を表す定数。
 
-ビット数8をNとして、このマクロの値は2<sup>N</sup> - 1となる。
+ビット数8をNとして、このマクロの値は2<sup>N</sup> - 1である255となる。
+
+その値の型は、[`uint8_t`](uint8_t.md)を整数昇格したものとなる。
 
 
 ##例

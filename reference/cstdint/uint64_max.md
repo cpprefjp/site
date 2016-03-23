@@ -4,14 +4,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define UINT64_MAX (uint64_t)18446744073709551615ULL
+#define UINT64_MAX implementation-defined
 ```
-* uint64_t[link uint64_t.md]
+* implementation-defined[italic]
 
 ##概要
-[`uint64_t`](uint64_t.md) の最大値。
+[`uint64_t`](uint64_t.md) の最大値を表す定数。
 
-ビット数64をNとして、このマクロの値は2<sup>N</sup> - 1となる。
+ビット数64をNとして、このマクロの値は2<sup>N</sup> - 1である18446744073709551615となる。
+
+その値の型は、[`uint64_t`](uint64_t.md)を整数昇格したものとなる。
 
 
 ##例
