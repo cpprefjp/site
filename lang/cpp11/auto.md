@@ -141,7 +141,7 @@ int main()
 * nullptr[link nullptr.md]
 * auto[color ff0000]
 
-###出力１
+####出力１
 ```
 1, 7, 3, 2, null, 5, null, 8, 
 ```
@@ -166,7 +166,7 @@ int main()
 * cout[link ../../reference/iostream/cout.md]
 * auto[color ff0000]
 
-###出力２
+####出力２
 ```
 C, +, +, 
 ```
@@ -190,7 +190,7 @@ int main()
 * cout[link ../../reference/iostream/cout.md]
 * auto[color ff0000]
 
-###出力３
+####出力３
 ```
 2, 3, 7, 
 ```
@@ -238,7 +238,7 @@ int main()
 * constexpr[link constexpr.md]
 * auto[color ff0000]
 
-###出力４
+####出力４
 ```
 answer
 ```
