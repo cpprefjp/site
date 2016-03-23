@@ -245,6 +245,14 @@ int main()
   });
 }
 ```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::for_each[link /reference/algorithm/for_each.md]
+* v.begin()[link vector/begin.md]
+* v.end()[link vector/end.md]
+* v[5][link vector/op_at.md]
+* v[7][link vector/op_at.md]
+* v[3][link vector/op_at.md]
 
 ###出力
 ```
