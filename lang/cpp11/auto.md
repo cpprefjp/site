@@ -12,7 +12,7 @@ auto s = "";                        // s は const char* 型
 auto p = std::make_pair(1, 'c');    // p は std::pair<int, char> 型
 auto q = std::make_shared<int>(42); // q は std::shared_ptr<int> 型
 auto z = { 1.0, 2.0, 3.0, };        // z は std::initializer_list<double> 型
-auto f = []{}                       // f は 引数を取らずに値を返さない operator() を持つユニークなクロージャ型
+auto f = []{};                      // f は 引数を取らずに値を返さない operator() を持つユニークなクロージャ型
 ```
 * make_pair[link ../../reference/utility/make_pair.md]
 * pair[link ../../reference/utility/pair.md]
