@@ -24,11 +24,9 @@
 
 int main()
 {
-  std::int32_t min_value = INT32_MIN;
-  std::cout << +min_value << std::endl;
+  std::cout << INT32_MIN << std::endl;
 }
 ```
-* std::int32_t[link int32_t.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

@@ -24,11 +24,9 @@
 
 int main()
 {
-  std::uint16_t max_value = UINT16_MAX;
-  std::cout << static_cast<unsigned int>(max_value) << std::endl;
+  std::cout << UINT16_MAX << std::endl;
 }
 ```
-* std::uint16_t[link uint16_t.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

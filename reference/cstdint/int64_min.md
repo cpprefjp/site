@@ -24,11 +24,9 @@
 
 int main()
 {
-  std::int64_t min_value = INT64_MIN;
-  std::cout << +min_value << std::endl;
+  std::cout << INT64_MIN << std::endl;
 }
 ```
-* std::int64_t[link int64_t.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

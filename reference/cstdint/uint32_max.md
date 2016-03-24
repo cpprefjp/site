@@ -24,11 +24,9 @@
 
 int main()
 {
-  std::uint32_t max_value = UINT32_MAX;
-  std::cout << static_cast<unsigned long>(max_value) << std::endl;
+  std::cout << UINT32_MAX << std::endl;
 }
 ```
-* std::uint32_t[link uint32_t.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

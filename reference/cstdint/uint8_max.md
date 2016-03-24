@@ -24,11 +24,9 @@
 
 int main()
 {
-  std::uint8_t max_value = UINT8_MAX;
-  std::cout << static_cast<unsigned int>(max_value) << std::endl;
+  std::cout << UINT8_MAX << std::endl;
 }
 ```
-* std::uint8_t[link uint8_t.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

@@ -24,11 +24,9 @@
 
 int main()
 {
-  std::int8_t min_value = INT8_MIN;
-  std::cout << static_cast<int>(min_value) << std::endl;
+  std::cout << INT8_MIN << std::endl;
 }
 ```
-* std::int8_t[link int8_t.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

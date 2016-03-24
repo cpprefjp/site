@@ -24,11 +24,9 @@
 
 int main()
 {
-  std::int64_t max_value = INT64_MAX;
-  std::cout << static_cast<long long>(max_value) << std::endl;
+  std::cout << INT64_MAX << std::endl;
 }
 ```
-* std::int64_t[link int64_t.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 

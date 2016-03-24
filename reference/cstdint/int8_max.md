@@ -24,11 +24,9 @@
 
 int main()
 {
-  std::int8_t max_value = INT8_MAX;
-  std::cout << static_cast<int>(max_value) << std::endl;
+  std::cout << INT8_MAX << std::endl;
 }
 ```
-* std::int8_t[link int8_t.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
