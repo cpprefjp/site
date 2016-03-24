@@ -10,7 +10,7 @@ C++03のfor文では以下のように書ける：
 ```cpp
 std::vector<int> vec;
 
-for (std::vector<int> it = vec.begin(); it != vec.end(); ++it) {
+for (std::vector<int>::const_iterator it = vec.begin(), e = vec.end(); it != e; ++it) {
   std::cout << *it << std::endl;
 }
 ```
