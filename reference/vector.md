@@ -142,7 +142,7 @@ namespace std {
 | [`swap`](vector/swap_free.md)              | 2つの`vector`オブジェクトを入れ替える | |
 
 
-##例
+##例 (C++11)
 ```cpp
 #include <iostream>
 #include <cassert>
