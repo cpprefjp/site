@@ -124,6 +124,31 @@ float minus_distance = -123.0_kmf;
 ```
 
 
+###文字に対するリテラル演算子
+文字に対するリテラル演算子は、以下のいずれかのパラメータを持つこと：
+
+- `char`
+- `wchar_t`
+- `char16_t`
+- `char32_t`
+
+```cpp
+namespace literals {
+  std::string operator"" _s(char c)
+  {
+    return std::string(1, c);
+  }
+}
+
+using namespace literals;
+auto str = u8'A'_s;
+assert(str.size() == 1);
+```
+* std::string[link /reference/string/basic_string.md]
+* str.size()[link /reference/string/basic_string/size.md]
+* std::size_t[link /reference/cstddef/size_t.md]
+
+
 ###文字列に対するリテラル演算子
 文字列に対するリテラル演算子は、以下のいずれかのパラメータを持つこと：
 
@@ -262,5 +287,6 @@ DecimalFloat f = 12.34df;
 - [N2378 User-defined literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2378.pdf)
 - [N2750 User-defined Literals (aka. Extensible Literals (revision 4))](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2750.pdf)
 - [N2765 User-defined Literals (aka. Extensible Literals (revision 5))](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2765.pdf)
+- [CWG Issue 935. Missing overloads for character types for user-defined literals](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#935)
 - [CWG Issue 1479. Literal operators and default arguments](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1479)
 
