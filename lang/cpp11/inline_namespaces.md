@@ -24,6 +24,125 @@ int main()
 - APIのバージョニング
 
 
+##仕様
+- 名前空間の`inline`指定は、名前付き名前空間と無名名前空間の定義で使用できる：
+
+    ```cpp
+inline namesapce my_namespace {}
+inline namespace {}
+```
+
+- インライン名前空間のメンバは、その外側の名前空間 (the enclosing namespace, それを取り囲む名前空間) のメンバとして使用できる
+- インライン名前空間とその外側の名前空間は、引数依存の名前探索で探索される「関連ある名前空間(associated namespace)」となる
+
+    ```cpp
+#include <iostream>
+
+namespace ns1 {
+  class X {};
+
+  inline namespace ns2 {
+    class Y {};
+
+    void f(X)
+    {
+      std::cout << "call f()" << std::endl;
+    }
+  }
+
+  void g(Y)
+  {
+    std::cout << "call g()" << std::endl;
+  }
+}
+
+int main()
+{
+  f(ns1::X());      // 「call f()」が出力される
+  g(ns1::Y());      // 「call g()」が出力される
+  g(ns1::ns2::Y()); // 「call g()」が出力される
+}
+```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+- インライン名前空間の外側の名前空間をusingディレクティブに指定することで、インライン名前空間のメンバがその外側の名前空間のメンバとして暗黙的に挿入される
+
+    ```cpp
+#include <iostream>
+
+namespace ns1 {
+  inline namespace ns2 {
+    void f()
+    {
+      std::cout << "call f()" << std::endl;
+    }
+  }
+}
+
+int main()
+{
+  using namespace ns1;
+  f();
+}
+```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+- インライン名前空間のメンバは、外側の名前空間で外側の名前空間のメンバであるかのように、明示的にインスタンス化、および明示的に特殊化できる
+
+    ```cpp
+#include <iostream>
+
+namespace ns1 {
+  inline namespace ns2 {
+    template <class T>
+    struct X {
+      static constexpr int value = 0;
+    };
+  }
+
+  // インライン名前空間で定義されたクラステンプレートを
+  // 明示的にインスタンス化
+  template struct X<int>;
+
+  // インライン名前空間で定義されたクラステンプレートを
+  // 明示的に特殊化
+  template <>
+  struct X<void> {
+    static constexpr int value = 1;
+  };
+}
+
+int main()
+{
+  std::cout << ns1::X<int>::value << std::endl;
+  std::cout << ns1::X<void>::value << std::endl;
+  std::cout << ns1::ns2::X<void>::value << std::endl;
+}
+```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+- インライン名前空間の外側の名前空間の機能に、明示的な名前空間修飾付きでアクセスした場合でも、インライン名前空間をusingディレクティブしたのと同様にそのインライン名前空間の機能が外側の名前空間に持ち込まれる。これは、外側の名前空間とインライン名前空間で同名のメンバが定義されたときに、名前衝突による曖昧さが発生することを意味する
+
+    ```cpp
+namespace ns1 {
+  inline namespace ns2 {
+    int a;
+  }
+  int a;
+}
+
+int main()
+{
+  ns1::a = 0; // ns2で同名の変数が定義されているため、曖昧になる
+}
+```
+
+- 翻訳単位は、`std`名前空間をインライン名前空間として宣言してはならない
+
+
 ##例
 ###using namespaceによる名前空間省略の階層を段階的に指定する
 インライン名前空間を使用することで、`using namespace`の影響範囲をユーザーが選択できるようになる。
@@ -111,4 +230,7 @@ int main()
 - [N2331 Namespace Association ("strong" using)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2331.html)
 - [N2535 Namespace Association ("inline namespace")](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2535.htm)
 - [7.9 Namespace Association - Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/Namespace-Association.html#Namespace-Association)
+- [CWG Issue 812. Duplicate names in inline namespaces](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#812)
+- [CWG Issue 861. Unintended ambiguity in inline namespace lookup](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#861)
+- [Inline namespaces and ambigous declarations - Stackoverflow](http://stackoverflow.com/questions/27252466/inline-namespaces-and-ambigous-declarations/)
 
