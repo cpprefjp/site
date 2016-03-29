@@ -116,9 +116,9 @@ namespace ns1 {
 
 int main()
 {
-  std::cout << ns1::X<int>::value << std::endl;
-  std::cout << ns1::X<void>::value << std::endl;
-  std::cout << ns1::ns2::X<void>::value << std::endl;
+  std::cout << ns1::X<int>::value << std::endl;       // 0が出力される
+  std::cout << ns1::X<void>::value << std::endl;      // 1が出力される
+  std::cout << ns1::ns2::X<void>::value << std::endl; // 1が出力される
 }
 ```
 * std::cout[link /reference/iostream/cout.md]
