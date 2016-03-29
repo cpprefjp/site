@@ -95,7 +95,7 @@ int main()
     - [`operator"" us`](/reference/chrono/duration/op_us.md)
     - [`operator"" ms`](/reference/chrono/duration/op_ms.md)
     - [`operator"" s`](/reference/chrono/duration/op_s.md)
-    - [`operator"" min`](/reference/chrono/duration/op_m.md)
+    - [`operator"" min`](/reference/chrono/duration/op_min.md)
     - [`operator"" h`](/reference/chrono/duration/op_h.md)
 - 文字列オブジェクトのリテラル
     - [`operator"" s`](/reference/string/basic_string/op_s.md)
