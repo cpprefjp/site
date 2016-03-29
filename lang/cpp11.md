@@ -24,7 +24,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [`noexcept`](cpp11/noexcept.md) | 関数の例外指定、例外を投げる可能性のある式か`bool`値を返す演算子 |
 | [`constexpr`](cpp11/constexpr.md) | 定数式 |
 | [`nullptr`](cpp11/nullptr.md) | ヌルポインタを表すポインタリテラル |
-| インライン名前空間 | ネストした名前空間に、透過的にアクセスする |
+| [インライン名前空間](cpp11/inline_namespaces.md) | ネストした名前空間に、透過的にアクセスする |
 | [ユーザー定義リテラル](cpp11/user_defined_literals.md) | リテラルのサフィックスをユーザー定義する |
 
 
