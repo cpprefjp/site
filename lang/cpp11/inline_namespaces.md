@@ -184,14 +184,24 @@ int main()
 ###APIのバージョニング
 インライン名前空間をデフォルトのバージョンとし、古いAPIを元の名前空間でそのまま残すようにできる。
 
+デフォルトのバージョンを切り替える際は、デフォルトバージョンにする名前空間をインライン名前空間に変更し、デフォルトバージョン以外の名前空間を非インライン名前空間に変更する。
+
 ```cpp
+#include <iostream>
+
 namespace my_namespace {
   namespace v1 {
-    void f() {}
+    void f()
+    {
+      std::cout << "v1" << std::endl;
+    }
   }
 
   inline namespace v2 {
-    void f() {}
+    void f()
+    {
+      std::cout << "v2" << std::endl;
+    }
   }
 }
 
@@ -205,6 +215,9 @@ int main()
 
 ####出力
 ```
+v1
+v2
+v2
 ```
 
 
