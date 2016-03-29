@@ -28,7 +28,7 @@ int main()
 - 名前空間の`inline`指定は、名前付き名前空間と無名名前空間の定義で使用できる：
 
     ```cpp
-inline namesapce my_namespace {}
+inline namespace my_namespace {}
 inline namespace {}
 ```
 
