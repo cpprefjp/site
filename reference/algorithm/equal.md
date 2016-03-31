@@ -60,20 +60,22 @@ int main() {
   std::cout << std::boolalpha << result2 << std::endl;
 }
 ```
-* algorithm[link ../algorithm.md]
-* iostream[link ../iostream.md]
-* vector[link ../vector.md]
-* iterator[link ../iterator.md]
-* array[link ../array.md]
-* equal[color ff0000]
-* boolalpha[link ../ios/boolalpha.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* begin[link ../iterator/begin.md]
-* end[link ../iterator/end.md]
+* std::equal[color ff0000]
+* <algorithm>[link /reference/algorithm.md]
+* <iostream>[link /reference/iostream.md]
+* <vector>[link /reference/vector.md]
+* <iterator>[link /reference/iterator.md]
+* <array>[link /reference/array.md]
+* std::vector[link /reference/vector.md]
+* std::array[link /reference/array.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::begin[link /reference/iterator/begin.md]
+* std::end[link /reference/iterator/end.md]
 
 ###出力
-```cpp
+```
 false
 true
 ```
@@ -152,7 +154,7 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1,
 - [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 8.0, 9.0, 10.0, 11.0, 12.0, 14.0
-	- C++14で追加された多重定義は14.0から実装されている。
+    - C++14で追加された多重定義は14.0から実装されている。
 
 ##参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)

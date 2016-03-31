@@ -58,6 +58,17 @@ int main() {
 }
 ```
 * copy[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.size()[link /reference/vector/size.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* v2.begin()[link /reference/vector/begin.md]
+* std::list[link /reference/list.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
+* std::cout[link /reference/iostream/cout.md]
+* v3.begin()[link /reference/list/begin.md]
+* v3.end()[link /reference/list/end.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力
 ```

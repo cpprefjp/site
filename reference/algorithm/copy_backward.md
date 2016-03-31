@@ -50,14 +50,21 @@ int main() {
   std::list<int> list = { 1,2,3,4,5 };
   // 1,2,3 の範囲を、3,4,5 の値のある範囲へコピーする
   std::copy_backward(list.begin(), std::next(list.begin(), 3), list.end());
- 
+
   // 以下のコードだと期待した結果にならないことを確認しよう
   // std::copy(list.begin(), std::next(list.begin(), 3), std::next(list.begin(), 2));
- 
+
   std::copy(list.begin(), list.end(), std::ostream_iterator<int>(std::cout, ","));
 }
 ```
 * copy_backward[color ff0000]
+* std::list[link /reference/list.md]
+* list.begin()[link /reference/list/begin.md]
+* std::next[link /reference/iterator/next.md]
+* list.end()[link /reference/list/end.md]
+* std::copy[link copy.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::cout[link /reference/iostream/cout.md]
 
 ###出力
 ```

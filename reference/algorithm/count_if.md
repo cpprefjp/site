@@ -29,16 +29,21 @@ namespace std {
 #include <algorithm>
 #include <iostream>
 #include <vector>
- 
+
 int main() {
   std::vector<int> v = { 1,4,3,3,1,2,2,1 };
- 
+
   // 値が 1 または 3 の要素がいくつあるかを数える
   auto count = std::count_if(v.begin(), v.end(), [](int x) { return x == 1 || x == 3; });
   std::cout << "count of 1 or 3: " << count << std::endl;
 }
 ```
 * count_if[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```cpp

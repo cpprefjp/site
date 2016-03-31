@@ -30,13 +30,13 @@ namespace std {
 ##例
 ```cpp
 #include <algorithm>
+#include <iterator>
 #include <iostream>
-#include <iomanip>
 #include <vector>
- 
+
 int main() {
   std::vector<int> v = { 1,4,3,3,1,2,2 };
- 
+
   // 同じ値が連続している最初の要素を検索する
   auto it = std::adjacent_find(v.begin(), v.end());
   if (it == v.end()) {
@@ -48,6 +48,13 @@ int main() {
 }
 ```
 * adjacent_find[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::distance[link /reference/iterator/distance.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
 
 ###出力
 ```
