@@ -55,6 +55,7 @@ auto plus = [](const auto& a, const auto& b) { return a + b; };
     ```cpp
 auto f = [](std::vector<auto> a) {}; // コンパイルエラー
 ```
+* std::vector[link /reference/vector.md]
 
 - キャプチャを含まないジェネリックラムダは、関数ポインタへの変換演算子を持つ。変換先の関数ポインタは、パラメータ型を推論した結果のラムダ式のシグニチャと、完全に一致しなければならない：
 

@@ -7,6 +7,7 @@
 範囲for文が便利な例として、コンテナの各要素を処理するループを挙げる。
 
 C++03のfor文では以下のように書ける：
+
 ```cpp
 std::vector<int> vec;
 
@@ -14,9 +15,16 @@ for (std::vector<int>::const_iterator it = vec.begin(), e = vec.end(); it != e; 
   std::cout << *it << std::endl;
 }
 ```
+* std::vector[link /reference/vector.md]
+* vec.begin()[link /reference/vector/begin.md]
+* vec.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
 ループ内の処理と直接関係のない変数（イテレータやポインタ）が出現し、ループ条件も加わりfor文が長くなりがちである。
 
 C++11の範囲for文を使うと以下のように書ける：
+
 ```cpp
 std::vector<int> vec;
 
@@ -24,6 +32,9 @@ for (const auto& e : vec) {
   std::cout << e << std::endl;
 }
 ```
+* std::vector[link /reference/vector.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 変数宣言には直接コンテナ内の要素の型（上記の例であれば`const int& e`など）を書いても良いし、型推論[`auto`][auto]を使うと、さらに簡潔に書ける。
 
@@ -81,6 +92,8 @@ for (auto& e : vec) {
   std::cout << e << std::endl;
 }
 ```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ```cpp
 {
@@ -93,6 +106,8 @@ for (auto& e : vec) {
   }
 }
 ```
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 展開されたコード内の`begin()`と`end()`が正確に何を呼びだすかについては、引数依存の名前検索（argument-dependent name lookup; ADL）を参照のこと。
 

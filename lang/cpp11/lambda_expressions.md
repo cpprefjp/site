@@ -461,6 +461,10 @@ void f(int x)
   std::remove_if(v.begin(), v.end(), void (int& n) { n < x; });
 }
 ```
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::remove_if[link /reference/algorithm/remove_if.md]
 
 この構文の問題点は、先に述べたコピーキャプチャと参照キャプチャの使い分けができない、といったもののほか、構文解析が難しいというのもある。
 

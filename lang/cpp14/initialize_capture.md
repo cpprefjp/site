@@ -27,6 +27,8 @@ int main()
 std::vector<T> v; // 巨大な配列
 auto f = [x = std::move(v)] { /* … */ };
 ```
+* std::vector[link /reference/vector.md]
+* std::move[link /reference/utility/move.md]
 
 - ひとつの変数に対して、コピーキャプチャと参照キャプチャを同時に行う
 
@@ -59,6 +61,8 @@ auto f = [a = x + 1,            // 式x + 1の結果を変数名aとして、ラ
           &b = x,               // 変数xへの参照を変数名bとして、ラムダ式内で使用する
           c {std::move(v)}] {}; // 波カッコによる初期化構文を使用して、変数vを変数cにムーブする
 ```
+* std::vector[link /reference/vector.md]
+* std::move[link /reference/utility/move.md]
 
 初期化キャプチャの初期化式は、ラムダ式を定義した時点で評価される。
 
