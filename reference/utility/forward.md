@@ -38,7 +38,7 @@ void forward_to_f(Args&&... args)
 この関数に渡した引数は、多くのケースにおいて右辺値参照にキャストされ、ムーブされることに注意すること。同じ引数に対して二回以上関数を呼び出しを行いたい場合は、`std::forward()`は使ってはならない：
 
 ```cpp
-templat e<class T>
+template <class T>
 void bad(T&& x)
 {
   f(std::forward<T>(x));  // xはここでムーブされるかもしれないので
