@@ -14,7 +14,7 @@ basic_istream<CharT, Traits>& getline(char_type* s, streamsize n, char_type deli
 （非書式化入力関数）ストリームから改行文字が現れるまで（1行すべて）あるいは仮引数`delim`で指定された文字までの文字列を入力する。
 
 ##効果
-仮引数`delim`がない多重定義では、`getline(s, widen('\n'))`を呼び出す。
+仮引数`delim`がないオーバーロードでは、`getline(s, widen('\n'))`を呼び出す。
 仮引数`delim`を持つものは以下の通り。
 
 1. [`basic_istream<>::sentry`](../../istream/basic_istream/sentry.md)オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。

@@ -34,7 +34,7 @@ namespace std {
 この関数は、非書式化入力関数（[`basic_istream`](../../istream/basic_istream.md)を参照）として作用する。
 
 ## 効果
-仮引数`delim`がない多重定義では、`std::getline(is, str, is.widen('\n'))`を呼び出す。
+仮引数`delim`がないオーバーロードでは、`std::getline(is, str, is.widen('\n'))`を呼び出す。
 
 仮引数`delim`を持つものは以下の通り。
 
