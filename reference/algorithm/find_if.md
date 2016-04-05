@@ -8,7 +8,7 @@ namespace std {
   template <class InputIterator, class Predicate>
   InputIterator find_if(InputIterator first,
                         InputIterator last,
-						Predicate pred);
+                        Predicate pred);
 }
 ```
 
@@ -29,7 +29,7 @@ namespace std {
 #include <algorithm>
 #include <iostream>
 #include <vector>
- 
+
 int main() {
   std::vector<int> v = { 3, 1, 4 };
   // 3ではない最初の要素を検索する
@@ -41,10 +41,15 @@ int main() {
   }
 }
 ```
-* find_if[color ff0000]
+* std::find_if[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
-```cpp
+```
 found: 1
 ```
 

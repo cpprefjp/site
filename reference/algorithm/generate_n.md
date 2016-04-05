@@ -6,10 +6,10 @@
 ```cpp
 namespace std {
   template <class OutputIterator, class Size, class Generator>
-  void generate_n(OutputIterator first, Size n, Generator gen);				// C++03 まで
+  void generate_n(OutputIterator first, Size n, Generator gen);           // C++03 まで
 
   template <class OutputIterator, class Size, class Generator>
-  OutputIterator generate_n(OutputIterator first, Size n, Generator gen);	// C++11 から
+  OutputIterator generate_n(OutputIterator first, Size n, Generator gen); // C++11 から
 }
 ```
 
@@ -47,7 +47,7 @@ namespace std {
 #include <algorithm>
 #include <iostream>
 #include <iterator>
- 
+
 int main() {
   // 2 の累乗の値を生成して出力する
   int n = 1;
@@ -55,12 +55,12 @@ int main() {
     10, [&n]{ auto t = n; n *= 2; return t; });
 }
 ```
-* generate_n[color ff0000]
-* algorithm[link ../algorithm.md]
-* iostream[link ../iostream.md]
-* iterator[link ../iterator.md]
-* ostream_iterator[link ../iterator/ostream_iterator.md]
-* cout[link ../iostream/cout.md]
+* std::generate_n[color ff0000]
+* <algorithm>[link /reference/algorithm.md]
+* <iostream>[link /reference/iostream.md]
+* <iterator>[link /reference/iterator.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::cout[link /reference/iostream/cout.md]
 
 ###出力
 ```
@@ -92,7 +92,7 @@ generate_n(OutputIterator first, Size n, Generator gen) {
 - [GCC, C++11 mode](/implementation.md#gcc):
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 8.0, 9.0, 10.0, 11.0, 12.0, 14.0
-	- C++11への対応（戻り値の変更）は11.0から。
+    - C++11への対応（戻り値の変更）は11.0から。
 
 
 ##参照

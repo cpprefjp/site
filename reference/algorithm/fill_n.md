@@ -6,10 +6,10 @@
 ```cpp
 namespace std {
   template <class OutputIterator, class Size, class T>
-  void fill_n(OutputIterator first, Size n, const T& value);			// C++03 まで
+  void fill_n(OutputIterator first, Size n, const T& value);           // C++03 まで
 
   template <class OutputIterator, class Size, class T>
-  OutputIterator fill_n(OutputIterator first, Size n, const T& value);	// C++11 から
+  OutputIterator fill_n(OutputIterator first, Size n, const T& value); // C++11 から
 }
 ```
 
@@ -48,12 +48,12 @@ int main() {
   std::fill_n(std::ostream_iterator<int>(std::cout, ","), 10, 3);
 }
 ```
-* fill_n[color ff0000]
-* algorithm[link ../algorithm.md]
-* iostream[link ../iostream.md]
-* iterator[link ../iterator.md]
-* ostream_iterator[link ../iterator/ostream_iterator.md]
-* cout[link ../iostream/cout.md]
+* std::fill_n[color ff0000]
+* <algorithm>[link /reference/algorithm.md]
+* <iostream>[link /reference/iostream.md]
+* <iterator>[link /reference/iterator.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::cout[link /reference/iostream/cout.md]
 
 ###出力
 ```

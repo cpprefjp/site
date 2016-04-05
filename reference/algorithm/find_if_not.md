@@ -30,7 +30,7 @@ namespace std {
 #include <algorithm>
 #include <iostream>
 #include <vector>
- 
+
 int main() {
   std::vector<int> v = { 3, 1, 4 };
   // 3ではない最初の要素を検索する
@@ -42,7 +42,12 @@ int main() {
   }
 }
 ```
-* find_if_not[color ff0000]
+* std::find_if_not[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

@@ -74,7 +74,24 @@ int main() {
   std::for_each(v.begin(), v.end(), disp);
 }
 ```
-* for_each[color ff0000]
+* std::for_each[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.push_back[link /reference/vector/push_back.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+
+###出力
+```
+3
+1
+4
+----
+3
+2
+6
+```
 
 
 ##例(C++11バージョン)
@@ -97,8 +114,12 @@ int main() {
   std::for_each(v.begin(), v.end(), [](int x) { std::cout << x << std::endl; });
 }
 ```
-* for_each[color ff0000]
-
+* std::for_each[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -118,7 +139,7 @@ int main() {
 - [GCC, C++11 mode](/implementation.md#gcc):
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 8.0, 9.0, 10.0, 11.0, 12.0, 14.0
-	- C++11への対応（戻り値のムーブ）は11.0から。
+    - C++11への対応（戻り値のムーブ）は11.0から。
 
 
 ##実装例

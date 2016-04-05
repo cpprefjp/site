@@ -31,7 +31,7 @@ namespace std {
 #include <algorithm>
 #include <iostream>
 #include <vector>
- 
+
 int main() {
   std::vector<int> v(10);
 
@@ -39,11 +39,15 @@ int main() {
   int n = 1;
   std::generate(v.begin(), v.end(), [&n]() { auto t = n; n *= 2; return t; });
 
-  std::for_each(v.begin(), v.end(),
-    [](int x) { std::cout << x << ","; });
+  std::for_each(v.begin(), v.end(), [](int x) { std::cout << x << ","; });
 }
 ```
-* generate[color ff0000]
+* std::generate[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::for_each[link for_each.md]
 
 ###出力
 ```
