@@ -68,9 +68,9 @@ int main()
   assert(result4 == 3);
 }
 ```
-* min[color ff0000]
+* std::min[color ff0000]
+* std::greater[link /reference/functional/greater.md]
 * assert[link /reference/cassert/assert.md]
-
 
 ###出力
 ```
@@ -103,6 +103,7 @@ T min(std::initializer_list<T> t, Compare comp)
   return *std::min_element(t.begin(), t.end(), comp);
 }
 ```
+* std::min_element[link min_element.md]
 
 
 ##initializer_listバージョンの使用可能状況

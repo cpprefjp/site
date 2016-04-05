@@ -41,21 +41,30 @@ namespace std {
 #include <iterator>
 #include <vector>
 #include <memory>
- 
+
 int main() {
   std::vector<std::unique_ptr<int>> v;
   for (int i = 0; i < 5; i++)
     v.emplace_back(new int(i));
- 
+
   std::vector<std::unique_ptr<int>> v2;
   // v のそれぞれの要素を v2 へムーブする
   std::move(v.begin(), v.end(), std::back_inserter(v2));
- 
+
   std::for_each(v2.begin(), v2.end(),
     [](const std::unique_ptr<int>& v) { std::cout << *v << std::endl; });
 }
 ```
-* move[color ff0000]
+* std::move[color ff0000]
+* std::vector[link /reference/vector.md]
+* std::unique_ptr[link /reference/memory/unique_ptr.md]
+* v.emplace_back[link /reference/vector/emplace_back.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -76,6 +85,7 @@ OutputIterator move(InputIterator first, InputIterator last, OutputIterator resu
   return result;
 }
 ```
+* move[link /reference/utility/move.md]
 
 
 ##バージョン

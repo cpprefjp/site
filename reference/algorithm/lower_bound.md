@@ -23,7 +23,7 @@ namespace std {
 - C++03 まで
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
-	- `T` は　`LessThanComparable` であること。
+	- `T` は `LessThanComparable` であること。
 	- `operator<` または `comp` は「[狭義の弱順序](../algorithm.md#strict-weak-ordering)」であること。
 	- 範囲 `[first, last)` は `operator<` または `comp` を基準として昇順に並んでいること。
 - C++11 から  
@@ -71,15 +71,15 @@ int main()
   std::cout << *it << ", pos = " << (it - v.begin()) << std::endl;
 }
 ```
-* lower_bound[color ff0000]
-* iostream[link ../iostream.md]
-* vector[link ../vector.md]
-* algorithm[link ../algorithm.md]
-* begin[link ../vector/begin.md]
-* end[link ../vector/end.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-
+* std::lower_bound[color ff0000]
+* <iostream>[link /reference/iostream.md]
+* <vector>[link /reference/vector.md]
+* <algorithm>[link /reference/algorithm.md]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -121,9 +121,9 @@ lower_bound(ForwardIterator first, ForwardIterator last, const T& value)
   return std::lower_bound(first, last, value, less_inner());
 }
 ```
-* distance[link ../iterator/distance.md]
-* advance[link ../iterator/advance.md]
-* iterator_traits[link ../iterator/iterator_traits.md]
+* std::distance[link /reference/iterator/distance.md]
+* std::advance[link /reference/iterator/advance.md]
+* std::iterator_traits[link /reference/iterator/iterator_traits.md]
 
 ##参照
 - [LWG Issue 384. `equal_range` has unimplementable runtime complexity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384)

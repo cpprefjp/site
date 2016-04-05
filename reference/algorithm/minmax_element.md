@@ -22,8 +22,9 @@ namespace std {
 
 
 ##戻り値
-`operator<` もしくは `comp` を比較基準とした際の、最小の要素を指すイテレータを `first`、最大の要素を指すイテレータを `second` に持つ [`pair`](/reference/utility/pair.md) オブジェクト  
-ただし、`first == last` の場合には、[`make_pair`](/reference/utility/make_pair.md)`(first, first)`
+`operator<` もしくは `comp` を比較基準とした際の、最小の要素を指すイテレータを `first`、最大の要素を指すイテレータを `second` に持つ [`pair`](/reference/utility/pair.md) オブジェクトを返す。
+
+ただし、`first == last` の場合には、[`make_pair`](/reference/utility/make_pair.md)`(first, first)`を返す。
 
 
 ##計算量
@@ -59,7 +60,10 @@ int main()
   assert(*j.second == 1);
 }
 ```
-* minmax_element[color ff0000]
+* std::minmax_element[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
 * assert[link /reference/cassert/assert.md]
 
 ###出力
@@ -129,7 +133,7 @@ minmax_element(ForwardIterator first, ForwardIterator last)
   return std::minmax_element(first, last, less_inner());
 }
 ```
-* pair[link ../utility/pair.md]
+* std::pair[link /reference/utility/pair.md]
 
 
 ##バージョン

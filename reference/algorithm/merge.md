@@ -28,7 +28,7 @@ namespace std {
 
 
 ##効果
-`[first1,last1)` と `[first2,last2)` の２つの要素を全て `[result,result_last)` へコピーする。その際に、[`is_sorted`](/reference/algorithm/is_sorted.md)`(result, result_last)` または [`is_sorted`](/reference/algorithm/is_sorted.md)`(result, result_last, comp)` の条件を満たすようにコピーする（`result_last` は `result + (last1 - first1) + (last2 - first2)` とする）。
+`[first1,last1)` と `[first2,last2)` の２つの要素を全て `[result,result_last)` へコピーする。その際に、[`is_sorted`](is_sorted.md)`(result, result_last)` または [`is_sorted`](is_sorted.md)`(result, result_last, comp)` の条件を満たすようにコピーする（`result_last` は `result + (last1 - first1) + (last2 - first2)` とする）。
 
 
 ##戻り値
@@ -68,17 +68,18 @@ int main()
   });
 }
 ```
-* merge[color ff0000]
-* iostream[link ../iostream.md]
-* vector[link ../vector.md]
-* algorithm[link ../algorithm.md]
-* sort[link sort.md]
-* begin[link ../vector/begin.md]
-* end[link ../vector/end.md]
-* back_inserter[link ../iterator/back_inserter.md]
-* for_each[link for_each.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
+* std::merge[color ff0000]
+* <iostream>[link /reference/iostream.md]
+* <vector>[link /reference/vector.md]
+* <algorithm>[link /reference/algorithm.md]
+* std::vector[link /reference/vector.md]
+* std::sort[link sort.md]
+* begin()[link /reference/vector/begin.md]
+* end()[link /reference/vector/end.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -122,4 +123,4 @@ OutputIterator merge(InputIterator1 first1, InputIterator1 last1,
   return std::copy(first2, last2, result);
 }
 ```
-* copy[link copy.md]
+* std::copy[link copy.md]

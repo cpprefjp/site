@@ -50,7 +50,7 @@ void print(const std::unique_ptr<int>& v) {
   if (v) std::cout << *v       << std::endl;
   else   std::cout << "(null)" << std::endl;
 }
- 
+
 int main() {
   std::vector<std::unique_ptr<int>> v;
 
@@ -65,8 +65,16 @@ int main() {
   std::for_each(v.begin(), v.end(), &print);
 }
 ```
-* move_backward[color ff0000]
-
+* std::move_backward[color ff0000]
+* std::unique_ptr[link /reference/memory/unique_ptr.md]
+* std::vector[link /reference/vector.md]
+* v.emplace_back[link /reference/vector/emplace_back.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::move[link move.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -88,6 +96,7 @@ BidirectionalIterator2 move_backward(BidirectionalIterator1 first, Bidirectional
   return result;
 }
 ```
+* move[link /reference/utility/move.md]
 
 
 ##バージョン

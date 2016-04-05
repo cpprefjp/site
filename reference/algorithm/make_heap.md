@@ -51,15 +51,16 @@ int main()
   });
 }
 ```
-* make_heap[color ff0000]
-* iostream[link ../iostream.md]
-* vector[link ../vector.md]
-* algorithm[link ../algorithm.md]
-* for_each[link for_each.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* begin[link ../vector/begin.md]
-* end[link ../vector/end.md]
+* std::make_heap[color ff0000]
+* <iostream>[link /reference/iostream.md]
+* <vector>[link /reference/vector.md]
+* <algorithm>[link /reference/algorithm.md]
+* std::vector[link /reference/vector.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
 
 ###出力
 ```
@@ -115,10 +116,11 @@ void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
   }
 }
 ```
-* iterator_traits[link ../iterator/iterator_traits.md]
-* move[link ../utility/move.md]
+* std::iterator_traits[link /reference/iterator/iterator_traits.md]
+* std::move[link /reference/utility/move.md]
 
 なお、[`push_heap`](push_heap.md) を使用すると以下のように実装できるが、一般的に上記の実装方法の方が効率が良いようである。
+
 ```cpp
 template <class RandomAccessIterator>
 void make_heap(RandomAccessIterator first, RandomAccessIterator last)
@@ -136,4 +138,4 @@ void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
   }
 }
 ```
-* push_heap[link push_heap.md]
+* std::push_heap[link push_heap.md]

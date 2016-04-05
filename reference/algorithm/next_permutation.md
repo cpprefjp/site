@@ -60,7 +60,13 @@ int main ()
   } while (std::next_permutation(v.begin(), v.end()));
 }
 ```
-* next_permutation(v.begin(), v.end()));[color ff0000]
+* std::next_permutation[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/begin.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -118,6 +124,10 @@ bool next_permutation(BidirectionalIterator first, BidirectionalIterator last)
   return next_permutation(first, last, std::less<value_type>());
 }
 ```
+* std::swap[link /reference/utility/swap.md]
+* std::reverse[link reverse.md]
+* std::iterator_traits[link /reference/iterator/iterator_traits.md]
+* std::less[link /reference/functional/less.md]
 
 ##参照
 

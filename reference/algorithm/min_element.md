@@ -45,7 +45,10 @@ int main()
   assert(*j == 4);
 }
 ```
-* min_element[color ff0000]
+* std::min_element[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
 * assert[link /reference/cassert/assert.md]
 
 ###出力

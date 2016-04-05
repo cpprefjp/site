@@ -93,10 +93,16 @@ int main()
   }
 }
 ```
-* lexicographical_compare[color ff0000]
+* std::lexicographical_compare[color ff0000]
+* std::string[link /reference/string/basic_string.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* begin()[link /reference/string/basic_string/begin.md]
+* end()[link /reference/string/basic_string/end.md]
+* std::greater[link /reference/functional/greater.md]
 
 ###出力
-```cpp
+```
 same length string compare:
 x less than y
 x not less than y

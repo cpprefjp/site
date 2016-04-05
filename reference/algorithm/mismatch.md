@@ -8,7 +8,7 @@ namespace std {
   template <class InputIterator1, class InputIterator2>
   pair<InputIterator1, InputIterator2>
     mismatch(InputIterator1 first1, InputIterator1 last1,
-	         InputIterator2 first2);                      // (1)
+             InputIterator2 first2);                      // (1)
 
   template <class InputIterator1, class InputIterator2,
             class BinaryPredicate>
@@ -20,7 +20,7 @@ namespace std {
   pair<InputIterator1, InputIterator2>
   mismatch(InputIterator1 first1, InputIterator1 last1,
            InputIterator2 first2, InputIterator2 last2);  // (3) C++14
-						 
+
   template <class InputIterator1, class InputIterator2,
             class BinaryPredicate>
   pair<InputIterator1, InputIterator2>
@@ -88,7 +88,23 @@ int main() {
   print_mismatch_value(v3, v, pair2);
 }
 ```
-* mismatch[color ff0000]
+* std::mismatch[color ff0000]
+* std::vector[link /reference/vector.md]
+* std::array[link /reference/array.md]
+* std::list[link /reference/list.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* v2.begin()[link /reference/array/begin.md]
+* v3.begin()[link /reference/list/begin.md]
+* v3.end()[link /reference/list/end.md]
+* v.size()[link /reference/vector/size.md]
+* v3.size()[link /reference/list/size.md]
+* std::distance[link /reference/iterator/distance.md]
+* std::begin[link /reference/iterator/begin.md]
+* std::end[link /reference/iterator/end.md]
+* std::to_string[link /reference/string/to_string.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -120,6 +136,8 @@ pair<InputIterator1, InputIterator2> mismatch(
   return make_pair(first1, first2);
 }
 ```
+* pair[link /reference/utility/pair.md]
+* make_pair[link /reference/utility/make_pair.md]
 
 ##バージョン
 ###言語
@@ -132,7 +150,7 @@ pair<InputIterator1, InputIterator2> mismatch(
 - [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 8.0, 9.0, 10.0, 11.0, 12.0, 14.0
-	- C++14で追加されたオーバーロードは14.0から実装されている。
+    - C++14で追加されたオーバーロードは14.0から実装されている。
 
 ##参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)

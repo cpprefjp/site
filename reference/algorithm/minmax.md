@@ -75,8 +75,10 @@ int main()
   assert(result4.first == 3 && result4.second == 1);
 }
 ```
+* std::minmax[color ff0000]
+* std::pair[link /reference/utility/pair.md]
+* std::greater[link /reference/functional/greater.md]
 * assert[link /reference/cassert/assert.md]
-
 
 ###出力
 ```
@@ -115,6 +117,11 @@ std::pair<T, T> minmax(std::initializer_list<T> init, Compare comp)
   return std::make_pair(*p.first, *p.second);
 }
 ```
+* std::pair[link /reference/utility/pair.md]
+* std::initializer_list[link /reference/initializer_list.md]
+* std::minmax_element[link minmax_element.md]
+* init.begin()[link /reference/initializer_list/begin.md]
+* init.end()[link /reference/initializer_list/end.md]
 
 
 ##バージョン

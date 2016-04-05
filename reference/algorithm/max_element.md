@@ -24,7 +24,7 @@ namespace std {
 
 
 ##計算量
-[`max`](/reference/algorithm/max.md)`((last - first) - 1, 0)`回の比較を行う
+[`max`](max.md)`((last - first) - 1, 0)`回の比較を行う
 
 
 ##例
@@ -46,7 +46,10 @@ int main()
   assert(*j == 1);
 }
 ```
-* max_element[color ff0000]
+* std::max_element[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
 * assert[link /reference/cassert/assert.md]
 
 ###出力

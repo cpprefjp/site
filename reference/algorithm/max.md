@@ -73,13 +73,12 @@ int main()
   assert(result4 == 1);
 }
 ```
-* max[color ff0000]
-* greater[link ../functional/greater.md]
-* algorithm[link ../algorithm.md]
-* functional[link ../functional.md]
-* cassert[link ../cassert.md]
-* assert[link ../cassert/assert.md]
-
+* std::max[color ff0000]
+* <cassert>[link /reference/cassert.md]
+* <algorithm>[link /reference/algorithm.md]
+* <functional>[link /reference/functional.md]
+* std::greater[link /reference/functional/greater.md]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```
@@ -112,8 +111,8 @@ T max(std::initializer_list<T> t, Compare comp)
   return *std::max_element(t.begin(), t.end(), comp);
 }
 ```
-* initializer_list[link ../initializer_list.md]
-* max_element[link max_element.md]
+* std::initializer_list[link ../initializer_list.md]
+* std::max_element[link max_element.md]
 
 
 ##initializer_listバージョンの使用可能状況
