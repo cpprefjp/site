@@ -46,7 +46,14 @@ int main()
             << std::is_heap(v.begin(), v.end()) << std::endl;
 }
 ```
-* is_heap[color ff0000]
+* std::is_heap[color ff0000]
+* std::vector[link /reference/vector.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
+* std::endl[link /reference/ostream/endl.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::make_heap[link make_heap.md]
 
 ###出力
 ```
@@ -64,7 +71,7 @@ before: is heap? false
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
-	- 9.0では、`_HAS_TRADITIONAL_STL`を1に定義してから`<algorithm>`をインクルードすると、`stdext`名前空間で`is_heap`が定義される。
+    - 9.0では、`_HAS_TRADITIONAL_STL`を1に定義してから`<algorithm>`をインクルードすると、`stdext`名前空間で`is_heap`が定義される。
 
 
 ##参照

@@ -53,7 +53,14 @@ int main() {
   std::cout << std::endl;
 }
 ```
-* iter_swap[color ff0000]
+* std::iter_swap[color ff0000]
+* std::vector[link /reference/vector.md]
+* begin()[link /reference/vector/begin.md]
+* end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::copy[link copy.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力
 ```
@@ -69,6 +76,7 @@ void iter_swap(ForwardIterator1 a, ForwardIterator2 b) {
   swap(*a, *b);
 }
 ```
+* swap[link swap.md]
 
 
 ##参照

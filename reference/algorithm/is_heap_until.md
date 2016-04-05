@@ -49,16 +49,17 @@ int main()
             << (std::is_heap_until(v.begin(), v.end()) == v.end()) << std::endl;
 }
 ```
-* is_heap_until[color ff0000]
-* iostream[link ../iostream.md]
-* algorithm[link ../algorithm.md]
-* vector[link ../vector.md]
-* cout[link ../iostream/cout.md]
-* boolalpha[link ../ios/boolalpha.md]
-* endl[link ../ostream/endl.md]
-* begin[link ../vector/begin.md]
-* end[link ../vector/end.md]
-* make_heap[link make_heap.md]
+* std::is_heap_until[color ff0000]
+* <iostream>[link /reference/iostream.md]
+* <algorithm>[link /reference/algorithm.md]
+* <vector>[link /reference/vector.md]
+* std::vector[link /reference/vector.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
+* std::endl[link /reference/ostream/endl.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::make_heap[link make_heap.md]
 
 ###出力
 ```
@@ -97,7 +98,7 @@ RandomAccessIterator is_heap_until(RandomAccessIterator first, RandomAccessItera
 }
 
 ```
-* iterator_traits[link ../iterator/iterator_traits.md]
+* std::iterator_traits[link /reference/iterator/iterator_traits.md]
 
 
 ##バージョン

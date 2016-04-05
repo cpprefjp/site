@@ -59,16 +59,17 @@ int main()
   }
 }
 ```
-* is_partitioned[color ff0000]
-* iostream[link ../iostream.md]
-* vector[link ../vector.md]
-* algorithm[link ../algorithm.md]
-* partition[link partition.md]
-* for_each[link for_each.md]
-* begin[link ../vector/begin.md]
-* end[link ../vector/end.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
+* std::is_partitioned[color ff0000]
+* <iostream>[link /reference/iostream.md]
+* <vector>[link /reference/vector.md]
+* <algorithm>[link /reference/algorithm.md]
+* std::vector[link /reference/vector.md]
+* std::partition[link partition.md]
+* std::for_each[link for_each.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

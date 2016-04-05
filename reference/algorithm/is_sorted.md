@@ -41,7 +41,14 @@ int main()
   std::cout << " after: is sorted? " << std::is_sorted(v.begin(), v.end()) << std::endl;
 }
 ```
-* is_sorted[color ff0000]
+* std::is_sorted[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::sort[link sort.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -59,7 +66,7 @@ before: is sorted? false
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
-	- 9.0では、`_HAS_TRADITIONAL_STL`を1に定義してから`<algorithm>`をインクルードすると、`stdext`名前空間で`is_sorted`が定義される。
+    - 9.0では、`_HAS_TRADITIONAL_STL`を1に定義してから`<algorithm>`をインクルードすると、`stdext`名前空間で`is_sorted`が定義される。
 
 
 ##参照

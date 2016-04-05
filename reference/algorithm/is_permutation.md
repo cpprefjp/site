@@ -17,12 +17,12 @@ namespace std {
 
   template <class ForwardIterator1, class ForwardIterator2>
   bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
-                      ForwardIterator2 first2, ForwardIterator2 last2);				// C++14 から
+                      ForwardIterator2 first2, ForwardIterator2 last2);             // C++14 から
 
   template <class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
   bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
                       ForwardIterator2 first2, ForwardIterator2 last2,
-                      BinaryPredicate pred);										// C++14 から
+                      BinaryPredicate pred);                                        // C++14 から
 }
 ```
 
@@ -65,18 +65,19 @@ int main ()
   std::cout << std::is_permutation(v.begin(), v.end(), bad.begin()) << std::endl;
 }
 ```
-* is_permutation[color ff0000]
-* iostream[link ../iostream.md]
-* vector[link ../vector.md]
-* algorithm[link ../algorithm.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* boolalpha[link ../ios/boolalpha.md]
-* begin[link ../vector/begin.md]
-* end[link ../vector/end.md]
+* std::is_permutation[color ff0000]
+* <iostream>[link /reference/iostream.md]
+* <vector>[link /reference/vector.md]
+* <algorithm>[link /reference/algorithm.md]
+* std::vector[link /reference/vector.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
+* begin()[link /reference/vector/begin.md]
+* end()[link /reference/vector/end.md]
 
 ###出力
-```cpp
+```
 true
 false
 ```
@@ -176,14 +177,16 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 
 #endif
 ```
-* tie[link ../tuple/tie.md]
-* mismatch[link mismatch.md]
-* count[link count.md]
-* count_if[link count_if.md]
-* next[link ../iterator/next.md]
-* distance[link ../iterator/distance.md]
-* iterator_traits[link ../iterator/iterator_traits.md]
-* equal_to[link ../functional/equal_to.md]
+* std::tie[link /reference/tuple/tie.md]
+* std::mismatch[link mismatch.md]
+* std::count[link count.md]
+* std::count_if[link count_if.md]
+* std::next[link /reference/iterator/next.md]
+* std::distance[link /reference/iterator/distance.md]
+* std::iterator_traits[link /reference/iterator/iterator_traits.md]
+* std::equal_to[link /reference/functional/equal_to.md]
+* std::random_access_iterator_tag[link /reference/iterator/iterator_tag.md]
+* std::forward_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 
 ##バージョン
@@ -198,7 +201,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
-	- C++14で追加された多重定義は14.0から実装されている。
+    - C++14で追加された多重定義は14.0から実装されている。
 
 ##参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)

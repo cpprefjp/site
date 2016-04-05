@@ -46,15 +46,16 @@ int main()
   std::cout << std::includes(a.begin(), a.end(), c.begin(), c.end()) << std::endl;
 }
 ```
-* includes[color ff0000]
-* iostream[link ../iostream.md]
-* set[link ../set.md]
-* algorithm[link ../algorithm.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* boolalpha[link ../ios/boolalpha.md]
-* begin[link ../set/set/begin.md]
-* end[link ../set/set/end.md]
+* std::includes[color ff0000]
+* <iostream>[link /reference/iostream.md]
+* <set>[link /reference/set.md]
+* <algorithm>[link /reference/algorithm.md]
+* std::set[link /reference/set/set.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
+* begin()[link /reference/set/set/begin.md]
+* end()[link /reference/set/set/end.md]
 
 ###出力
 ```
