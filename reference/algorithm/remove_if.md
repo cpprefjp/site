@@ -68,12 +68,11 @@ int main() {
 ```
 * result[color ff0000]
 * std::remove_if[color ff0000]
-* v.erase(result, v.end());[color ff0000]
+* v.erase[color ff0000][link /reference/vector/erase.md]
 * std::vector[link /reference/vector.md]
 * v.begin()[link /reference/vector/begin.md]
 * v.end()[link /reference/vector/end.md]
 * v.size()[link /reference/vector/size.md]
-* v.erase[link /reference/vector/erase.md]
 * std::for_each[link for_each.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
