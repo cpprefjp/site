@@ -8,14 +8,14 @@ namespace std {
   template <class BidirectionalIterator, class Predicate>
   BidirectionalIterator
     partition(BidirectionalIterator first,
-	          BidirectionalIterator last,
-			  Predicate pred);                            // C++03
+              BidirectionalIterator last,
+              Predicate pred);                            // C++03
 
   template <class ForwardIterator, class Predicate>
   ForwardIterator
     partition(ForwardIterator first,
-	          ForwardIterator last,
-			  Predicate pred);                            // C++11
+              ForwardIterator last,
+              Predicate pred);                            // C++11
 }
 ```
 
@@ -68,7 +68,13 @@ int main()
   });
 }
 ```
-* partition[color ff0000]
+* std::partition[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

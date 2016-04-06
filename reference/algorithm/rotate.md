@@ -8,12 +8,12 @@ namespace std {
   template <class ForwardIterator>
   void rotate(ForwardIterator first,
               ForwardIterator middle,
-              ForwardIterator last);				// C++03 まで
+              ForwardIterator last);             // C++03 まで
 
   template <class ForwardIterator>
   ForwardIterator rotate(ForwardIterator first,
                          ForwardIterator middle,
-                         ForwardIterator last);		// C++11 から
+                         ForwardIterator last);  // C++11 から
 }
 ```
 
@@ -47,29 +47,30 @@ namespace std {
 
 
 ##例
+###基本的な使い方
 ```cpp
 #include <algorithm>
 #include <iostream>
 #include <string>
- 
+
 int main() {
   std::string str = "rotate";
- 
-  std::rotate(str.begin(), str.begin() + 2, str.end());
 
+  std::rotate(str.begin(), str.begin() + 2, str.end());
   std::cout << str << std::endl;
 }
 ```
-* rotate[color ff0000]
-* algorithm[link ../algorithm.md]
-* iostream[link ../iostream.md]
-* string[link ../string.md]
-* begin[link ../string/basic_string/begin.md]
-* end[link ../string/basic_string/end.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
+* std::rotate[color ff0000]
+* <algorithm>[link /reference/algorithm.md]
+* <iostream>[link /reference/iostream.md]
+* <string>[link /reference/string.md]
+* std::string[link /reference/string/basic_string.md]
+* str.begin()[link /reference/string/basic_string/begin.md]
+* str.end()[link /reference/string/basic_string/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
-###出力
+####出力
 ```
 tatero
 ```
@@ -97,37 +98,38 @@ std::vector<Elem> seq;
 
 void swap(Elem& lhs, Elem& rhs)
 {
-    // std::rotate内部で実行されるswapを可視化できる。
-    // ライブラリの実装によってスワップの順番が異なることがある。
-    std::cout << "swapping "
-              << &lhs << "(" << lhs << ") <-> "
-              << &rhs << "(" << rhs << ")" << std::endl;
-    std::swap(lhs, rhs);
-    std::copy(seq.begin(), seq.end(), std::ostream_iterator<char>(std::cout));
-    std::cout << "\n\n";
+  // std::rotate内部で実行されるswapを可視化できる。
+  // ライブラリの実装によってスワップの順番が異なることがある。
+  std::cout << "swapping "
+            << &lhs << "(" << lhs << ") <-> "
+            << &rhs << "(" << rhs << ")" << std::endl;
+  std::swap(lhs, rhs);
+  std::copy(seq.begin(), seq.end(), std::ostream_iterator<char>(std::cout));
+  std::cout << "\n\n";
 }
 
 int main()
 {
-    char str[] = "012345";
-    seq.assign(str, str + sizeof(str) - 1);
-    std::rotate(seq.begin(), seq.begin() + 2, seq.end());
+  char str[] = "012345";
+  seq.assign(str, str + sizeof(str) - 1);
+  std::rotate(seq.begin(), seq.begin() + 2, seq.end());
 }
 ```
-* rotate[color ff0000]
-* algorithm[link ../algorithm.md]
-* iostream[link ../iostream.md]
-* vector[link ../vector.md]
-* iterator[link ../iterator.md]
-* utility[link ../utility.md]
-* begin[link ../vector/begin.md]
-* end[link ../vector/end.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* ostream_iterator[link ../iterator/ostream_iterator.md]
-* copy[link copy.md]
-* assign[link ../vector/assign.md]
-* swap[link ../utility/swap.md]
+* std::rotate[color ff0000]
+* <algorithm>[link /reference/algorithm.md]
+* <iostream>[link /reference/iostream.md]
+* <vector>[link /reference/vector.md]
+* <iterator>[link /reference/iterator.md]
+* <utility>[link /reference/utility.md]
+* std::vector[link /reference/vector.md]
+* seq.begin()[link /reference/vector/begin.md]
+* seq.end[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::copy[link copy.md]
+* seq.assign[link /reference/vector/assign.md]
+* std::swap[link /reference/utility/swap.md]
 
 ####出力例
 ```
@@ -145,7 +147,7 @@ swapping 0x1806043(1) <-> 0x1806045(5)
 ```
 
 ##実装例
-[std::rotate を読んでみた](http://www.kmonos.net/wlog/115.html#_0007101223)
+- [std::rotate を読んでみた](http://www.kmonos.net/wlog/115.html#_0007101223)
 
 
 ###処理系
@@ -154,7 +156,7 @@ swapping 0x1806043(1) <-> 0x1806045(5)
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 8.0, 9.0, 10.0, 11.0, 12.0, 14.0
-	- C++11への対応（戻り値の変更）は10.0から。
+    - C++11への対応（戻り値の変更）は10.0から。
 
 
 ##参照

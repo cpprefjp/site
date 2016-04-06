@@ -43,7 +43,12 @@ int main() {
     [](int x) { std::cout << x << ","; });
 }
 ```
-* replace[color ff0000]
+* std::replace[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
 
 ###出力
 ```

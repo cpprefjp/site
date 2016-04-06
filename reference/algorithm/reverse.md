@@ -19,7 +19,7 @@ namespace std {
 
 
 ##効果
-0 以上 `(last - first) / 2` 未満の整数 `i` について、[`iter_swap`](/reference/algorithm/iter_swap.md)`(first + i, (last - i) - 1)` を行う
+0 以上 `(last - first) / 2` 未満の整数 `i` について、[`iter_swap`](iter_swap.md)`(first + i, (last - i) - 1)` を行う
 
 
 ##計算量
@@ -31,16 +31,20 @@ namespace std {
 #include <algorithm>
 #include <iostream>
 #include <string>
- 
+
 int main() {
   std::string str = "reverse";
- 
+
   std::reverse(str.begin(), str.end());
- 
   std::cout << str << std::endl;
 }
 ```
-* reverse[color ff0000]
+* std::reverse[color ff0000]
+* std::string[link /reference/string/basic_string.md]
+* str.begin()[link /reference/string/basic_string/begin.md]
+* str.end()[link /reference/string/basic_string/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

@@ -70,20 +70,28 @@ C++14では、C互換ライブラリの乱数生成関数である`std::rand()`�
 int main() {
   std::vector<int> v(10);
   std::iota(v.begin(), v.end(), 0); // 0～9 までの値を生成
- 
+
   std::cout << "before: ";
   std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout));
   std::cout << std::endl;
- 
+
   // シャッフル
   std::random_shuffle(v.begin(), v.end());
- 
+
   std::cout << " after: ";
   std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout));
   std::cout << std::endl;
 }
 ```
-* random_shuffle[color ff0000]
+* std::random_shuffle[color ff0000]
+* std::vector[link /reference/vector.md]
+* std::iota[link /reference/numeric/iota.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::copy[link copy.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力
 ```
@@ -111,6 +119,7 @@ void random_shuffle(RandomAccessIterator first, RandomAccessIterator last, Rando
     iter_swap(it, first + rand(it - first + 1));
 }
 ```
+* iter_swap[link iter_swap.md]
 
 
 ##参照

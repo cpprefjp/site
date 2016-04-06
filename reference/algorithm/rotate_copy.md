@@ -8,7 +8,7 @@ namespace std {
   template <class ForwardIterator, class OutputIterator>
   OutputIterator rotate_copy(ForwardIterator first,
                              ForwardIterator middle,
-							 ForwardIterator last,
+                             ForwardIterator last,
                              OutputIterator result);
 }
 ```
@@ -39,19 +39,24 @@ namespace std {
 #include <iostream>
 #include <string>
 #include <iterator>
- 
+
 int main() {
   std::string str = "rotate";
   std::string result;
- 
+
   std::rotate_copy(str.begin(), str.begin() + 2, str.end(),
     std::back_inserter(result));
 
   std::cout << result << std::endl;
 }
 ```
-* rotate_copy[color ff0000]
-
+* std::rotate_copy[color ff0000]
+* std::string[link /reference/string/basic_string.md]
+* str.begin()[link /reference/string/basic_string/begin.md]
+* str.end()[link /reference/string/basic_string/end.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -64,7 +69,7 @@ tatero
 template <class ForwardIterator, class OutputIterator>
 OutputIterator rotate_copy(ForwardIterator first,
                            ForwardIterator middle,
-						   ForwardIterator last,
+                           ForwardIterator last,
                            OutputIterator result) {
   return copy(first, middle, copy(middle, last, result));
 }

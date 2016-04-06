@@ -8,14 +8,14 @@
 namespace std {
   template <class InputIterator,
             class OutputIterator1,
-			class OutputIterator2,
-			class Predicate>
+            class OutputIterator2,
+            class Predicate>
   pair<OutputIterator1, OutputIterator2>
     partition_copy(InputIterator first,
-	               InputIterator last,
+                   InputIterator last,
                    OutputIterator1 out_true,
-				   OutputIterator2 out_false,
-				   Predicate pred);
+                   OutputIterator2 out_false,
+                   Predicate pred);
 }
 ```
 * pair[link /reference/utility/pair.md]
@@ -77,7 +77,15 @@ int main()
   print("odds", odds);
 }
 ```
-* partition_copy[color ff0000]
+* std::partition_copy[color ff0000]
+* std::string[link /reference/string/basic_string.md]
+* std::vector[link /reference/vector.md]
+* begin()[link /reference/vector/begin.md]
+* end()[link /reference/vector/end.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
 
 ###出力
 ```

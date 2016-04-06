@@ -45,7 +45,7 @@ namespace std {
 #include <algorithm>
 #include <iostream>
 #include <vector>
- 
+
 int main() {
   std::vector<int> v = { 2,3,1,2,1 };
 
@@ -67,10 +67,17 @@ int main() {
 }
 ```
 * result[color ff0000]
-* remove_if[color ff0000]
-* result[color ff0000]
+* std::remove_if[color ff0000]
 * v.erase(result, v.end());[color ff0000]
-
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* v.size()[link /reference/vector/size.md]
+* v.erase[link /reference/vector/erase.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* Erase-remove イディオム[link https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove)]
 
 ###出力
 ```
@@ -99,4 +106,5 @@ ForwardIterator remove_if(ForwardIterator first, ForwardIterator last, Predicate
 ##参照
 - [LWG Issue 2110. `remove` can't swap but note says it might](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2110)
     - C++11までのこのアルゴリズムは、要素の移動にswap操作が行われるかもしれない、と書いていた。だが、このアルゴリズムの要件は`MoveAssignable`のみであるため、swapはできない。そのため、C++14からは、ムーブのみで要素の移動が行われるようになった。
+- [More C++ Idioms/消去・削除(Erase-Remove)](https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove))
 

@@ -61,8 +61,13 @@ int main ()
   } while (std::prev_permutation(v.begin(), v.end()));
 }
 ```
-* prev_permutation[color ff0000]
-
+* std::prev_permutation[color ff0000]
+* std::vector[link /reference/vector.md]
+* std::for_each[link for_each.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -120,4 +125,7 @@ bool prev_permutation(BidirectionalIterator first, BidirectionalIterator last)
   return prev_permutation(first, last, std::less<value_type>());
 }
 ```
+* std::reverse[link reverse.md]
+* std::iterator_traits[link /reference/iterator/iterator_traits.md]
+* std::less[link /reference/functional/less.md]
 

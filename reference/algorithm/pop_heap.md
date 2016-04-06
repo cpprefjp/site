@@ -59,18 +59,19 @@ int main()
   });
 }
 ```
-* pop_heap[color ff0000]
-* iostream[link ../iostream.md]
-* vector[link ../vector.md]
-* algorithm[link ../algorithm.md]
-* make_heap[link make_heap.md]
-* begin[link ../vector/begin.md]
-* end[link ../vector/end.md]
-* pop_back[link ../vector/pop_back.md]
-* sort_heap[link sort_heap.md]
-* for_each[link for_each.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
+* std::pop_heap[color ff0000]
+* <iostream>[link /reference/iostream.md]
+* <vector>[link /reference/vector.md]
+* <algorithm>[link /reference/algorithm.md]
+* std::vector[link /reference/vector.md]
+* std::make_heap[link make_heap.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* v.pop_back()[link /reference/vector/pop_back.md]
+* std::sort_heap[link sort_heap.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -127,5 +128,5 @@ void pop_heap(RandomAccessIterator first, RandomAccessIterator last, Compare com
   }
 }
 ```
-* iterator_traits[link ../iterator/iterator_traits.md]
-* move[link ../utility/move.md]
+* std::iterator_traits[link /reference/iterator/iterator_traits.md]
+* std::move[link /reference/utility/move.md]

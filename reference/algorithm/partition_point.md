@@ -23,7 +23,7 @@ namespace std {
 
 
 ##戻り値
-[`all_of`](/reference/algorithm/all_of.md)`(first, mid, pred)` と [`none_of`](/reference/algorithm/none_of.md)`(mid, last, pred)` が `true` であるようなイテレータ `mid` を返す。
+[`all_of`](all_of.md)`(first, mid, pred)` と [`none_of`](none_of.md)`(mid, last, pred)` が `true` であるようなイテレータ `mid` を返す。
 
 
 ##計算量
@@ -60,16 +60,17 @@ int main()
   std::cout << *it << std::endl;
 }
 ```
-* partition_point[color ff0000]
-* vector[link ../vector.md]
-* iostream[link ../iostream.md]
-* algorithm[link ../algorithm.md]
-* for_each[link for_each.md]
-* begin[link ../vector/begin.md]
-* end[link ../vector/end.md]
-* partition[link partition.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
+* std::partition_point[color ff0000]
+* <vector>[link /reference/vector.md]
+* <iostream>[link /reference/iostream.md]
+* <algorithm>[link /reference/algorithm.md]
+* std::vector[link /reference/vector.md]
+* std::for_each[link for_each.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::partition[link partition.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 
 ###出力
@@ -97,8 +98,8 @@ partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
     return first;
 }
 ```
-* distance[link ../iterator/distance.md]
-* next[link ../iterator/next.md]
+* std::distance[link /reference/iterator/distance.md]
+* std::next[link /reference/iterator/next.md]
 
 
 ##バージョン
