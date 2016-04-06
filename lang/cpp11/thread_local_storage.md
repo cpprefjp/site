@@ -120,4 +120,6 @@ thread2 : 4
 - [N2280 Thread-Local Storage](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2280.html)
 - [N2545 Thread-Local Storage](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2545.html)
 - [N2659 Thread-Local Storage](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2659.htm)
+- [Why does Apple clang disallow C++11 `thread_local` when 'official' clang supports it - Stack Overflow](http://stackoverflow.com/a/29929949/463412)
+    - Apple実装のClangが`thread_local`機能をサポートしない理由
 
