@@ -24,7 +24,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|-----------------|-------|
-| [`(initializer)`](array/array.md) | `array`の初期化 | C++11 |
+| [`(initializer)`](array/op_initializer.md) | `array`の初期化 | C++11 |
 
 
 ###要素へのアクセス
