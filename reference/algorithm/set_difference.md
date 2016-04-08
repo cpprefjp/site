@@ -39,7 +39,7 @@ namespace std {
 
 
 ##備考
-`[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、`[first1,last1)` から最後の [`max`](/reference/algorithm/max.md)`(m-n, 0)` 要素が出力の範囲へコピーされる。
+`[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、`[first1,last1)` から最後の [`max`](max.md)`(m-n, 0)` 要素が出力の範囲へコピーされる。
 
 
 ##例
@@ -65,8 +65,14 @@ int main()
   });
 }
 ```
-* set_difference[color ff0000]
-
+* std::set_difference[color ff0000]
+* std::multiset[link /reference/set/multiset.md]
+* begin()[link /reference/set/set/begin.md]
+* end()[link /reference/set/set/end.md]
+* std::inserter[link /reference/iterator/inserter.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

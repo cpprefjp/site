@@ -40,24 +40,30 @@ namespace std {
 #include <iostream>
 #include <vector>
 #include <iterator>
- 
+
 int main() {
   std::vector<int> v1 = { 3,1,2 };
   std::vector<int> v2 = { 5,2,4,1,3 };
- 
+
   std::swap_ranges(v1.begin(), v1.end(), v2.begin());
- 
+
   std::cout << "v1: ";
   std::copy(v1.begin(), v1.end(), std::ostream_iterator<int>(std::cout, ","));
   std::cout << std::endl;
- 
+
   std::cout << "v2: ";
   std::copy(v2.begin(), v2.end(), std::ostream_iterator<int>(std::cout, ","));
   std::cout << std::endl;
 }
 ```
-* swap_ranges[color ff0000]
-
+* std::swap_ranges[color ff0000]
+* std::vector[link /reference/vector.md]
+* begin()[link /reference/vector/begin.md]
+* end()[link /reference/vector/end.md]
+* std::copy[link copy.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -76,4 +82,5 @@ ForwardIterator2 swap_ranges(ForwardIterator1 first1, ForwardIterator1 last1,
   return first2;
 }
 ```
+* iter_swap[link iter_swap.md]
 

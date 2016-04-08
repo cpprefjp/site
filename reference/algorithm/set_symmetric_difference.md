@@ -71,8 +71,14 @@ int main()
   });
 }
 ```
-* set_symmetric_difference[color ff0000]
-
+* std::set_symmetric_difference[color ff0000]
+* std::multiset[link /reference/set/multiset.md]
+* begin()[link /reference/set/set/begin.md]
+* end()[link /reference/set/set/end.md]
+* std::inserter[link /reference/iterator/inserter.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

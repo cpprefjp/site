@@ -39,8 +39,8 @@ namespace std {
 
 
 ##備考
-`[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、`[first1,last1)` から `m` 個全ての要素が出力の範囲へ順番にコピーされ、その後 `[first2,last2)` から `max(n - m, 0)` 個の要素が出力の範囲へ順番にコピーされる。
-（`[first2,last2)` から [`max`](/reference/algorithm/max.md)`(n-m,0)` 個というのが、最初から [`max`](/reference/algorithm/max.md)`(n-m,0)` 個なのか最後から [`max`](/reference/algorithm/max.md)`(n-m,0)` 個なのかが明確に書かれてない）
+`[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、`[first1,last1)` から `m` 個全ての要素が出力の範囲へ順番にコピーされ、その後 `[first2,last2)` から [`max`](max.md)`(n - m, 0)` 個の要素が出力の範囲へ順番にコピーされる。
+（`[first2,last2)` から [`max`](max.md)`(n-m,0)` 個というのが、最初から [`max`](max.md)`(n-m,0)` 個なのか最後から [`max`](max.md)`(n-m,0)` 個なのかが明確に書かれてない）
 
 
 
@@ -69,21 +69,22 @@ int main()
   });
 }
 ```
-* set_union[color ff0000]
-* iostream[link ../iostream.md]
-* set[link ../set.md]
-* list[link ../list.md]
-* vector[link ../vector.md]
-* algorithm[link ../algorithm.md]
-* iterator[link ../iterator.md]
-* multiset[link ../set/multiset.md]
-* begin[link ../iterator/begin.md]
-* end[link ../iterator/end.md]
-* insert[link ../iterator/insert_iterator/inserter.md]
-* for_each[link for_each.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-
+* std::set_union[color ff0000]
+* <iostream>[link /reference/iostream.md]
+* <set>[link /reference/set.md]
+* <list>[link /reference/list.md]
+* <vector>[link /reference/vector.md]
+* <algorithm>[link /reference/algorithm.md]
+* <iterator>[link /reference/iterator.md]
+* std::list[link /reference/list.md]
+* std::vector[link /reference/vector.md]
+* std::multiset[link /reference/set/multiset.md]
+* std::begin[link /reference/iterator/begin.md]
+* std::end[link /reference/iterator/end.md]
+* std::inserter[link /reference/iterator/inserter.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -133,4 +134,4 @@ OutputIterator set_union(InputIterator1 first1, InputIterator1 last1,
   return std::set_union(first1, last1, first2, last2, result, less_inner());
 }
 ```
-* copy[link copy.md]
+* std::copy[link copy.md]

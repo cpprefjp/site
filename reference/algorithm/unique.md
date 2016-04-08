@@ -69,9 +69,16 @@ int main() {
   v.erase(result2, v.end());
 }
 ```
-* unique[color ff0000]
+* std::unique[color ff0000]
 * result[color ff0000]
 * result2[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* v.erase[link /reference/vector/erase.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::for_each[link for_each.md]
 
 ###出力
 ```

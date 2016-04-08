@@ -59,8 +59,16 @@ int main() {
   std::cout << std::endl;
 }
 ```
-* shuffle[color ff0000]
-
+* std::shuffle[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::iota[link /reference/numeric/iota.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::copy[link copy.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::mt19937[link /reference/random/mt19937.md]
 
 ###出力
 ```
@@ -84,4 +92,8 @@ void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRando
     iter_swap(it, first + d(g, param_type(0, it - first)));
 }
 ```
+* iterator_traits[link /reference/iterator/iterator_traits.md]
+* make_unsigned[link /reference/type_traits/make_unsigned.md]
+* uniform_int_distribution[link /reference/random/uniform_int_distribution.md
+* iter_swap[link iter_swap.md]
 

@@ -15,7 +15,7 @@ namespace std {
                            InputIterator1 last1,
                            InputIterator2 first2,
                            OutputIterator result,
-						   BinaryOperation binary_op);                // (2)
+                           BinaryOperation binary_op);                // (2)
 }
 ```
 
@@ -71,8 +71,16 @@ int main() {
     [](const std::string& s) { std::cout << s << std::endl; });
 }
 ```
-* transform[color ff0000]
-
+* std::transform[color ff0000]
+* std::vector[link /reference/vector.md]
+* v.begin()[link /reference/vector/begin.md]
+* v.end()[link /reference/vector/end.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
+* std::to_string[link /reference/string/to_string.md]
+* std::string[link /reference/string/basic_string.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -103,7 +111,15 @@ int main() {
     [](const std::string& s) { std::cout << s << std::endl; });
 }
 ```
-* transform[color ff0000]
+* std::transform[color ff0000]
+* std::vector[link /reference/vector.md]
+* begin()[link /reference/vector/begin.md]
+* end()[link /reference/vector/end.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
+* std::to_string[link /reference/string/to_string.md]
+* std::string[link /reference/string/basic_string.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -127,9 +143,9 @@ template <class InputIterator1, class InputIterator2,
           class OutputIterator, class BinaryOperation>
 OutputIterator transform(InputIterator1 first1,
                          InputIterator1 last1,
-						 InputIterator2 first2,
+                         InputIterator2 first2,
                          OutputIterator result,
-						 BinaryOperation binary_op) {
+                         BinaryOperation binary_op) {
   while (first1 != last1)
     *result++ = binary_op(*first1++, *first2++);
   return result;

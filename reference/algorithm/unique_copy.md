@@ -55,8 +55,13 @@ int main() {
   std::for_each(uniqued.begin(), uniqued.end(), [](int x) { std::cout << x << ","; });
 }
 ```
-* unique_copy[color ff0000]
-
+* std::unique_copy[color ff0000]
+* std::vector[link /reference/vector.md]
+* begin()[link /reference/vector/begin.md]
+* end()[link /reference/vector/end.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
+* std::for_each[link for_each.md]
+* std::cout[link /reference/iostream/cout.md]
 
 ###出力
 ```
@@ -70,7 +75,7 @@ template <class InputIterator, class OutputIterator>
 OutputIterator unique_copy(InputIterator first, InputIterator last,
                            OutputIterator result) {
   if (first == last) return result;
- 
+
   auto value = *first++;
   *result++ = value;
   for ( ; first != last; ++first) {
@@ -87,7 +92,7 @@ template <class InputIterator, class OutputIterator, class BinaryPredicate>
 OutputIterator unique_copy(InputIterator first, InputIterator last,
                            OutputIterator result, BinaryPredicate pred) {
   if (first == last) return result;
- 
+
   auto value = *first++;
   *result++ = value;
   for ( ; first != last; ++first) {
