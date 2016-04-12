@@ -258,7 +258,7 @@ int foo(const std::unordered_map<T, std::unordered_map<T, T>>& m) {
 * unordered_map[link ../../reference/unordered_map/unordered_map.md]
 * begin[link ../../reference/unordered_map/unordered_map/begin.md]
 
-C++11 で導入された [`decltype`](decltype.md.nolink) を使用すれば以下のように簡潔に書く事が出来る。
+C++11 で導入された [`decltype`](decltype.md) を使用すれば以下のように簡潔に書く事が出来る。
 
 ```cpp
 template <class T>
@@ -268,9 +268,9 @@ int foo(const std::unordered_map<T, std::unordered_map<T, T>>& m) {
 ```
 * unordered_map[link ../../reference/unordered_map/unordered_map.md]
 * begin[link ../../reference/unordered_map/unordered_map/begin.md]
-* decltype[link decltype.md.nolink]
+* decltype[link decltype.md]
 
-しかし、[`decltype`](decltype.md.nolink) は変数宣言の用途にはあまり向かない事、および、式自体を二回書く必要があるためメンテナンス上の問題を引き起こす事から、関数テンプレート引数の型推論に基づいた `auto` を導入することとした。
+しかし、[`decltype`](decltype.md) は変数宣言の用途にはあまり向かない事、および、式自体を二回書く必要があるためメンテナンス上の問題を引き起こす事から、関数テンプレート引数の型推論に基づいた `auto` を導入することとした。
 
 
 ##検討されたほかの選択肢
@@ -382,7 +382,7 @@ std::pair<T, U>& p = foo();
 - [変換関数の型推論](../cpp14/type_deduction_for_conversion_function.md.nolink)
 - [直接リスト初期化の型推論変更](../cpp14/change_type_deduction_for_direct_list_initialization.md.nolink)
 - [戻り値の型を後置する関数宣言構文](trailing_return_types.md)
-- [`decltype`](decltype.md.nolink)
+- [`decltype`](decltype.md)
 - [ラムダ式](lambda_expressions.md)
 - [`decltype(auto)`](../cpp14/decltype_auto.md)
 - [後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)

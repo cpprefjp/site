@@ -180,7 +180,7 @@ int main()
 * std::false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 * nullptr[link nullptr.md]
 * static_assert[link static_assert.md]
-* decltype[link decltype.md.nolink]
+* decltype[link decltype.md]
 
 ####出力
 ```
@@ -219,7 +219,7 @@ int main()
 * std::false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 * nullptr[link nullptr.md]
 * static_assert[link static_assert.md]
-* decltype[link decltype.md.nolink]
+* decltype[link decltype.md]
 
 ####出力
 ```
@@ -264,7 +264,7 @@ int main()
 * std::false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
 * nullptr[link nullptr.md]
 * static_assert[link static_assert.md]
-* decltype[link decltype.md.nolink]
+* decltype[link decltype.md]
 * std::string[link /reference/string/basic_string.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]

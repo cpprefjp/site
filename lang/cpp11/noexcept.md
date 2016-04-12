@@ -84,7 +84,7 @@ X x;
 constexpr bool isNoexprF = noexcept(x.f());
 ```
 
-- この演算子は`sizeof`や[`decltype`](decltype.md.nolink)と同じく、引数として指定された式は、実行時には評価されない
+- この演算子は`sizeof`や[`decltype`](decltype.md)と同じく、引数として指定された式は、実行時には評価されない
     - 上記コードの場合、`x.f()`は実行時には呼び出されない
 - `noexcept`演算子は、以下の状況で`false`を返す：
     - `noexcept(true)`もしくは`noexcept`が指定されていない関数、メンバ関数、関数ポインタ、メンバ関数ポインタの呼び出し。(例として、`new`式からの確保関数の呼び出しといった、暗黙の呼び出し)
