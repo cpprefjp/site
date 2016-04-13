@@ -9,7 +9,7 @@
 - 単位 : メートル、秒、角度として度数法か弧度法、など
 - 型 : `"hello"s`とすることで[`std::string`](/reference/string/basic_string.md)型の文字列リテラル、`1.2i`とすることで[`std::complex<double>`](/reference/complex.md)型のリテラルとするなど
 
-ユーザー定義リテラルは、`operator"" サフィックス名`の演算子をオーバーロードする。`""`とサフィックス名の間にスペースが必要なので注意。
+ユーザー定義リテラルは、`operator"" サフィックス名`の演算子をオーバーロードする。`""`とサフィックス名の間にスペースが必要なので注意（C++14 では空白は必須では無くなった。[リテラル演算子のスペースを省略可能とする](../cpp14/no_whitespace_literal_operators.md)参照）。
 
 ```cpp
 std::string operator"" s(const char* str, std::size_t length)
@@ -22,35 +22,26 @@ auto x = "hello"s; // xの型はstd::string
 * std::string[link /reference/string/basic_string.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 
-`operator""`は、「リテラル演算子 (literal operator)」という。
+`operator"" サフィックス名`は、「リテラル演算子 (literal operator)」という。
 
-ここでは`char`配列の文字列リテラルに対するサフィックスを定義しているが、パラメータの型を`wchar_t`、[`char16_t`](char16_32.md)、[`char32_t`](char16_32.md)とすることで、それらの文字型の文字列に対しても、サフィックスを定義できる。
+ユーザ定義リテラルは、以下の 4 種類が使用できる。
 
-整数リテラルの場合には、[`unsigned long long`](long_long_type.md)型のパラメータをひとつ受け取るようにする。負数は、演算子のなかでは扱えず、演算子によって返された値を符号反転することで負数が表現される。
-
-浮動小数点数リテラルの場合には、`long double`型のパラメータをひとつ受け取るようにする。
+- 整数リテラル
+- 浮動小数点リテラル
+- 文字列リテラル（通常の文字列、ワイド文字列、`char16_t` 文字列、`char32_t` 文字列）
+- 文字リテラル（通常の文字、ワイド文字、`char16_t` 文字、`char32_t` 文字）
 
 
 ##仕様
 ###全般的な仕様
-- ユーザー定義リテラルのサフィックスと組み込みリテラルのサフィックスが一致した場合でも、組み込みリテラルのサフィックスと型が一致しない場合には、ユーザー定義リテラルが使用される。たとえば、浮動小数点数のユーザー定義リテラルとして`LL`を定義した場合でも、整数リテラルに対して`LL`サフィックスを付けた場合には、組み込みの`LL`サフィックスが使用される：
+- あるトークンがユーザー定義リテラルと通常のリテラルの両方に解釈可能な場合は、通常のリテラルとみなされる。
+	例えば、`100E2` は、通常の浮動小数点リテラル `100.0E+2` と考える事も、整数リテラル `100` にサフィックス `E2` の付いたユーザ定義整数リテラルと考えることもできるが、その場合には浮動小数点リテラルとみなされる。
 
-    ```cpp
-std::string operator"" LL(long double x)
-{
-  return std::to_string(x);
-}
-
-long long   a = 123LL;     // 組み込みの整数リテラル
-std::string b = 123.456LL; // ユーザー定義リテラル
-```
-* std::string[link /reference/string/basic_string.md]
-
-- リテラル演算子の名前として、ユニバーサルキャラクタ名を使用することが許可される：
+- リテラル演算子のサフィックス名として、ユニバーサルキャラクタ名を使用することができる。
 
     ```cpp
 namespace literals {
-  // _ + 小文字のpi (π)
+  // _ + ギリシャ文字の小文字の pi
   float operator"" _\u03C0(unsigned long long count)
   {
     return 3.141592f * count;
@@ -60,10 +51,10 @@ namespace literals {
 using namespace literals;
 
 float x = 2_\u03C0; // OK
-float y = 2_π;     // OK
+float y = 2_π;     // OK（ただし、π がソースファイル文字として許されている場合のみ）
 ```
 
-- 文字型と論理値型に対しては、リテラル演算子を定義できない
+- 論理値型に対しては、リテラル演算子を定義できない
 - リテラル演算子とリテラル演算子テンプレートは、Cリンケージを持ってはならない
 - リテラル演算子とリテラル演算子テンプレートは、`inline`と`constexpr`を付けて宣言できる
 - リテラル演算子とリテラル演算子テンプレートは、内部リンケージもしくは外部リンケージを持つ可能性がある
@@ -71,25 +62,71 @@ float y = 2_π;     // OK
 
 
 ###整数に対するリテラル演算子
-整数に対するリテラル演算子は、`unsigned long long`型のパラメータをひとつだけ持つこと。
+整数に対するリテラル演算子は、以下のいずれかとなる。
+
+1. `unsigned long long` 型のパラメータをひとつだけ持つリテラル演算子  
+	```cpp
+戻り値型 operator"" サフィックス名(unsigned long long 整数リテラル);
+```
+
+	ここで、`整数リテラル` にはユーザ定義リテラルのサフィックス名を削除した部分が `unsigned long long` 型で渡される。
+
+2. `const char*` 型のパラメータをひとつだけ持つリテラル演算子  
+	```cpp
+戻り値型 operator"" サフィックス名(const char* 整数リテラル);
+```
+
+	ここで、`整数リテラル` にはユーザ定義リテラルのサフィックス名を削除した部分が `const char*` 型（`'\0'` で終端された C 文字列）で渡される。
+
+3. `char` 型のテンプレートパラメータパックを一つだけ持ち、パラメータの無いリテラル演算子テンプレート  
+	```cpp
+template <char... 整数リテラル>
+戻り値型 operator"" サフィックス名();
+```
+
+	ここで、`整数リテラル` にはユーザ定義リテラルのサフィックス名を削除した部分の各文字が `char` 型のテンプレートパラメータパックで渡される。
+
+これらが複数見つかった場合、1 があれば 1 が、1 が無ければ 2 か 3 が使用される。1 が無く 2 と 3 の両方があった場合にはプログラムは不適格となる。  
+1 は引数が `unsigned long long` であるため、リテラル部分が `unsigned long long` を超えたユーザリテラルを使用する事はできないが、2 と 3 の形式の場合はリテラル部分が文字列として引き渡されるため、`unsigned long long` の範囲を超えたユーザ定義リテラルを使用する事が可能となる。  
+なお、1 は整数リテラルにしか使用する事ができないが、2 と 3 は浮動小数点リテラルに対しても使用する事ができてしまうため、注意が必要である。  
+（引数として渡された文字列が整数リテラルであるという仮定をしないでリテラル演算子を定義したほうが良いだろう）
 
 ```cpp
 namespace unit_literals {
-  // intの大きさを持ち、
-  // km (kiro-meter, キロメートル)単位を表すリテラル演算子
+  // intの大きさを持ち、km (kiro-meter, キロメートル)単位を表すリテラル演算子
+  // 上記 1 のバージョン
   int operator"" _kmi(unsigned long long x)
   {
     return x * 1000;
+  }
+
+  // 上記 2 のバージョン
+  int operator"" _kmj(const char* s)
+  {
+    return std::strtoull(s, nullptr, 10) * 1000;
+  }
+
+  // 上記 3 のバージョン
+  template<char... S>
+  int operator"" _kmk()
+  {
+    using CSTR = const char[];
+    return operator"" _kmj(CSTR{ S..., '\0' });
   }
 }
 
 using namespace unit_literals;
 
 // 123km (123,000m)
-int distance = 123_kmi;
+int distance1 = 123_kmi;
+// 456km (456,000m)
+int distance2 = 456_kmj;
+// 789km (789,000m)
+int distance3 = 789_kmk;
 ```
 
-整数リテラルとして負数を記述した場合、リテラル演算子には正数部分のみが渡される。リテラル演算子によって返された値を符号反転することで、負数が表現される：
+整数リテラルの前にマイナス記号（`-`）を付けて記述した場合でも、リテラル演算子には正数部分のみが渡される（通常の数値と同様、マイナス記号はリテラルの一部とはみなされない）。  
+マイナス記号は、リテラル演算子によって返された値に対して単項マイナス演算子として適用される。
 
 ```cpp
 // _kmiリテラル演算子に渡されるのは整数値123LL
@@ -98,67 +135,97 @@ int minus_distance = -123_kmi;
 
 
 ###浮動小数点数に対するリテラル演算子
-浮動小数点数に対するリテラル演算子は、`long double`型のパラメータをひとつだけ持つこと。
+浮動小数点数に対するリテラル演算子は、以下のいずれかとなる。
+
+1. `long double` 型のパラメータをひとつだけ持つリテラル演算子  
+	```cpp
+戻り値型 operator"" サフィックス名(long double 浮動小数点リテラル);
+```
+
+	ここで、`浮動小数点リテラル` にはユーザ定義リテラルのサフィックス名を削除した部分が `long double` 型で渡される。
+
+2. `const char*` 型のパラメータをひとつだけ持つリテラル演算子  
+	```cpp
+戻り値型 operator"" サフィックス名(const char* 浮動小数点リテラル);
+```
+
+	ここで、`浮動小数点リテラル` にはユーザ定義リテラルのサフィックス名を削除した部分が `const char*` 型（`'\0'` で終端された C 文字列）で渡される。
+
+3. `char` 型のテンプレートパラメータパックを一つだけ持ち、パラメータの無いリテラル演算子テンプレート  
+	```cpp
+template <char... 浮動小数点リテラル>
+戻り値型 operator"" サフィックス名();
+```
+
+	ここで、`浮動小数点リテラル` にはユーザ定義リテラルのサフィックス名を削除した部分の各文字が `char` 型のテンプレートパラメータパックで渡される。
+
+これらが複数見つかった場合、1 があれば 1 が、1 が無ければ 2 か 3 が使用される。1 が無く 2 と 3 の両方があった場合にはプログラムは不適格となる。
+1 は引数が `long double` であるため、リテラル部分が `long double` を超えたユーザリテラルを使用する事はできないが、2 と 3 の形式の場合はリテラル部分が文字列として引き渡されるため、`long double` の範囲を超えたユーザ定義リテラルを使用する事が可能となる。  
+なお、1 は浮動小数点リテラルにしか使用する事ができないが、2 と 3 は整数リテラルに対しても使用する事ができてしまうため、注意が必要である。  
+（引数として渡された文字列が浮動小数点リテラルであるという仮定をしないでリテラル演算子を定義したほうが良いだろう）
 
 ```cpp
 namespace unit_literals {
-  // floatの大きさを持ち、
-  // km (kiro-meter, キロメートル)単位を表すリテラル演算子
+  // floatの大きさを持ち、km (kiro-meter, キロメートル)単位を表すリテラル演算子
+  // 上記 1 のバージョン
   float operator"" _kmf(long double x)
   {
     return x * 1000.0f;
+  }
+
+  // 上記 2 のバージョン
+  float operator"" _kmg(const char* s)
+  {
+    return std::strtold(s, nullptr) * 1000.0f;
+  }
+
+  // 上記 3 のバージョン
+  template<char... S>
+  float operator"" _kmh()
+  {
+    using CSTR = const char[];
+    return operator"" _kmg(CSTR{ S..., '\0' });
   }
 }
 
 using namespace unit_literals;
 
 // 123km (123,000m)
-float distance = 123.0_kmf;
+float distance1 = 123.0_kmf;
+// 456km (456,000m)
+float distance2 = 456.0_kmg;
+// 789km (789,000m)
+float distance3 = 789.0_kmh;
 ```
 
-浮動小数点数リテラルとして負数を記述した場合、リテラル演算子には正数部分のみが渡される。リテラル演算子によって返された値を符号反転することで、負数が表現される：
+浮動小数点リテラルの前にマイナス記号（`-`）を付けて記述した場合でも、リテラル演算子には正数部分のみが渡される（通常の数値と同様、マイナス記号はリテラルの一部とはみなされない）。  
+マイナス記号は、リテラル演算子によって返された値に対して単項マイナス演算子として適用される。
 
 ```cpp
-// _kmiリテラル演算子に渡されるのは浮動小数点数の値123.0L
+// _kmfリテラル演算子に渡されるのは浮動小数点数の値123.0L
 float minus_distance = -123.0_kmf;
 ```
 
 
-###文字に対するリテラル演算子
-文字に対するリテラル演算子は、以下のいずれかのパラメータを持つこと：
-
-- `char`
-- `wchar_t`
-- `char16_t`
-- `char32_t`
+###文字列に対するリテラル演算子
+文字列に対するリテラル演算子は、文字列リテラルの型によって以下のいずれかとなる。
 
 ```cpp
-namespace literals {
-  std::string operator"" _s(char c)
-  {
-    return std::string(1, c);
-  }
-}
+// 通常の文字列リテラルの場合
+戻り値型 operator"" サフィックス名(const char* 文字列リテラル, std::size_t 文字列リテラル長);
 
-using namespace literals;
-auto str = u8'A'_s;
-assert(str.size() == 1);
+// ワイド文字列リテラルの場合
+戻り値型 operator"" サフィックス名(const wchar_t* 文字列リテラル, std::size_t 文字列リテラル長);
+
+// char16_t 文字列リテラルの場合
+戻り値型 operator"" サフィックス名(const char16_t* 文字列リテラル, std::size_t 文字列リテラル長);
+
+// char32_t 文字列リテラルの場合
+戻り値型 operator"" サフィックス名(const char32_t* 文字列リテラル, std::size_t 文字列リテラル長);
 ```
-* std::string[link /reference/string/basic_string.md]
-* str.size()[link /reference/string/basic_string/size.md]
-* std::size_t[link /reference/cstddef/size_t.md]
 
-
-###文字列に対するリテラル演算子
-文字列に対するリテラル演算子は、以下のいずれかのパラメータを持つこと：
-
-- `const char*`
-- `const char*, std::size_t`
-- `const wchar_t*, std::size_t`
-- `const char16_t*, std::size_t`
-- `const char32_t*, std::size_t`
-
-第1パラメータには文字列リテラルの先頭を指すポインタ、第2パラメータには文字列リテラルの文字配列の要素数が渡される。
+ここで、`文字列リテラル` にはユーザ定義リテラルのサフィックス名を削除した文字列部分の先頭を指すポインタが、`文字列リテラル長` には当該文字列の長さが渡される。  
+なお、`文字列リテラル長` には終端文字（ヌル文字）は含まれない。
 
 ```cpp
 namespace literals {
@@ -178,35 +245,27 @@ assert(str.size() == 9);
 * assert[link /reference/cassert/assert.md]
 
 
-###リテラル演算子テンプレート
-数値リテラルに対してのみ、数値の各文字を分解してコンパイル時定数としてリテラル演算子に渡せる。これは「リテラル演算子テンプレート(literal operator template)」という機能で、非型テンプレートパラメータとして`char`の可変引数テンプレートを受け取るようにすることで、テンプレートパラメータに渡される：
+###文字に対するリテラル演算子
+文字に対するリテラル演算子は、文字リテラルの型によって以下のいずれかとなる。
 
 ```cpp
-namespace literals {
-  template <char... Args> // 数値123が文字のシーケンス{'1', '2', '3'}として渡される
-  std::string operator"" _s()
-  {
-    const char str[] = {Args...};
-    return std::string(str);
-  }
-}
+// 通常の文字リテラルの場合
+戻り値型 operator"" サフィックス名(char 文字リテラル);
 
-using namespace literals;
-auto str = 123_s; // strはstd::string型
-std::cout << str << std::endl; // "123"
+// ワイド文字リテラルの場合
+戻り値型 operator"" サフィックス名(wchar_t 文字リテラル);
+
+// char16_t 文字リテラルの場合
+戻り値型 operator"" サフィックス名(char16_t 文字リテラル);
+
+// char32_t 文字リテラルの場合
+戻り値型 operator"" サフィックス名(char32_t 文字リテラル);
 ```
-* std::string[link /reference/string/basic_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md] 
-
 
 ###リテラル演算子の規約
-注意事項としては、標準C++の規約で、リテラル演算子をユーザーがオーバーロードする場合には以下のことが要求される：
-
-- 非グローバル名前空間にリテラル演算子を定義すること
-- リテラル演算子の名前は、アンダースコア `_` で始めること
-
-アンダースコアで始まらないリテラル演算子は、標準C++の将来の拡張のために予約される。
+アンダースコアで始まらないユーザ定義リテラルのサフィックス名は、標準C++の将来の拡張のために予約されている。  
+このため、ユーザ定義リテラルを定義する場合、サフィックス名はアンダースコア `_` で始める必要がある。  
+なお、アンダースコア＋大文字で始まる識別子、および、連続した 2 つ以上のアンダースコアを含む識別子は、ユーザ定義リテラルのサフィックス名に限らず標準C++の規約で予約されているため、注意が必要である。  
 
 
 ##例
@@ -230,6 +289,8 @@ int main()
   std::cout << x << std::endl;
 }
 ```
+* iostream[link ../../reference/iostream.md]
+* string[link ../../reference/string.md]
 * std::string[link /reference/string/basic_string.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 * std::cout[link /reference/iostream/cout.md]
@@ -276,15 +337,15 @@ DecimalFloat f = 12.34df;
 ##関連項目
 - [C++14 リテラル演算子のスペースを省略可能とする](/lang/cpp14/no_whitespace_literal_operators.md)
 - [`std::basic_string`の文字列リテラル`s`](/reference/string/basic_string/op_s.md)
-- [`std::complex<double`>の浮動小数点数リテラル`i`](/reference/complex/op_i.md)
+- [`std::complex<double>`の浮動小数点数リテラル`i`](/reference/complex/op_i.md)
 - [`std::chrono::minutes`の数値リテラル`min`](/reference/chrono/duration/op_min.md)
 
 
 ##参照
 - [N1511 Literals for user-defined types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1511.pdf)
 - [N1892 Extensible Literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1892.pdf)
-- [N2282 Extensible Literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2282.pdf)
-- [N2378 User-defined literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2378.pdf)
+- [N2282 Extensible Literals (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2282.pdf)
+- [N2378 User-defined literals (aka. Extensible Literals (revision 3))](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2378.pdf)
 - [N2750 User-defined Literals (aka. Extensible Literals (revision 4))](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2750.pdf)
 - [N2765 User-defined Literals (aka. Extensible Literals (revision 5))](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2765.pdf)
 - [CWG Issue 935. Missing overloads for character types for user-defined literals](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#935)
