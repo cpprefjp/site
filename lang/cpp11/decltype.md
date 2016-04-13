@@ -66,7 +66,7 @@ int main()
 * fixed[link ../../reference/ios/fixed.md]
 * decltype[color ff0000]
 
-###出力
+####出力
 ```
 3.000000
 ```
@@ -89,7 +89,7 @@ int main()
 * cout[link ../../reference/iostream/cout.md]
 * decltype[color ff0000]
 
-###出力
+####出力
 ```
 10, 42
 ```
@@ -113,7 +113,7 @@ int main()
 * cout[link ../../reference/iostream/cout.md]
 * decltype[color ff0000]
 
-###出力
+####出力
 ```
 42
 ```
@@ -149,7 +149,7 @@ int main()
 * cout[link ../../reference/iostream/cout.md]
 * decltype[color ff0000]
 
-###出力
+####出力
 ```
 allocate
 construct
@@ -179,7 +179,7 @@ int main()
 * cout[link ../../reference/iostream/cout.md]
 * decltype[color ff0000]
 
-###出力
+####出力
 ```
 42
 ```
@@ -218,7 +218,7 @@ int main()
 * forward[link ../../reference/utility/forward.md]
 * decltype[color ff0000]
 
-###出力
+####出力
 ```
 start
 end
