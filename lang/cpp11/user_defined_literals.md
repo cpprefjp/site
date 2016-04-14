@@ -262,6 +262,38 @@ assert(str.size() == 9);
 戻り値型 operator"" サフィックス名(char32_t 文字リテラル);
 ```
 
+
+###ユーザー定義文字列リテラルの結合
+通常の文字列リテラルと同様、隣接したユーザー定義文字列リテラルはプリプロセス時に結合される。  
+結合は、サフィックス名を無視して通常の文字列リテラルとして行われ、リテラル演算子は結合後の文字列に対して呼び出される。  
+なお、結合前の各ユーザー定義文字列リテラルのサフィックス名は一致していなければならない。  
+しかし、ユーザ定義文字列リテラルと通常の文字列リテラルは結合可能である。その場合、結合後の文字列リテラルはユーザ定義文字列リテラルとなる。
+
+
+```cpp
+std::string operator"" _s(const char* s, std::size_t l)
+{
+  return { s, l };
+}
+
+std::u32string operator"" _t(const char32_t* s, std::size_t l)
+{
+  return { s, l };
+}
+
+auto s1 = "hello, "_s "world"_s;            // operator"" _s は いずれのケースでも
+auto s2 = "hello, "_s "world"  ;            // "hello, world" に対して
+auto s3 = "hello, "   "world"_s;            // 1 度だけ呼び出される。
+
+auto t1 = U"Bjarne "_t U"Stroustrup"_t;     // operator"" _t はいずれのケースでも
+auto t2 =  "Bjarne "_t U"Stroustrup"  ;     // U"Bjarne Stroustrup" に対して
+auto t3 = U"Bjarne "_t  "Stroustrup"  ;     // 1 度だけ呼び出される。
+auto t4 =  "Bjarne "   U"Stroustrup"_t;
+
+//auto u = "hello, "_s "Bjarne"_t;          // サフィックス名が異なるためエラー
+```
+
+
 ###サフィックス名の規約
 アンダースコアで始まらないユーザー定義リテラルのサフィックス名は、標準C++の将来の拡張のために予約されている。  
 このため、ユーザー定義リテラルを定義する場合、サフィックス名はアンダースコア `_` で始める必要がある。  
