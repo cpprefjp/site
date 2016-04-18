@@ -76,7 +76,7 @@ void iter_swap(ForwardIterator1 a, ForwardIterator2 b) {
   swap(*a, *b);
 }
 ```
-* swap[link swap.md]
+* swap[link ../utility/swap.md]
 
 
 ##参照
