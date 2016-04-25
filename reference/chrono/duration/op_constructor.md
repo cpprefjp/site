@@ -3,6 +3,7 @@
 * std::chrono[meta namespace]
 * duration[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 constexpr duration() = default;                       // (1)
