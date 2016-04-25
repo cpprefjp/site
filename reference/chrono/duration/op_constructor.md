@@ -38,28 +38,30 @@ duration(const duration&) = default;                  // (4)
 #include <chrono>
 
 using std::chrono::duration;
-using std::milli; using std::micro;
 
 int main()
 {
-  duration<int, milli> d1;        // デフォルトコンストラクト
+  duration<int, std::milli> d1;        // デフォルト構築 d1.count()は未初期化の値
+  duration<int, std::milli> d2 {};     // デフォルト構築 d1.count()の値は0
 
-  duration<int, milli> d2(3);     // 値を指定して構築(ミリ秒)
-  duration<int, micro> d3 = d2;   // ミリ秒からマイクロ秒に変換
+  duration<int, std::milli> d3(3);     // 値を指定して構築(ミリ秒)
+  duration<int, std::micro> d4 = d3;   // ミリ秒からマイクロ秒に変換
 
-  duration<int, micro> d4 = d3;   // コピー
+  duration<int, std::micro> d5 = d4;   // コピー
 
-  std::cout << d2.count() << std::endl;
-  std::cout << d3.count() << std::endl;
-  std::cout << d4.count() << std::endl;
+  std::cout << "d2 : " << d2.count() << std::endl;
+  std::cout << "d3 : " << d3.count() << std::endl;
+  std::cout << "d4 : " << d4.count() << std::endl;
+  std::cout << "d5 : " << d5.count() << std::endl;
 }
 ```
 
 ###出力
 ```
-3
-3000
-3000
+d2 : 0
+d3 : 3
+d4 : 3000
+d5 : 3000
 ```
 
 ##バージョン
@@ -71,6 +73,8 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
+
 ##参照
 - [LWG Issue 2094. `duration` conversion overflow shouldn't participate in overload resolution](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2094)
+- [`std::chrono::duration` construction - ISO C++ Standard - Discussion](https://groups.google.com/a/isocpp.org/forum/#!topic/std-discussion/OcGX7Yj3meI)
 
