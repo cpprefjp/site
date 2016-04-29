@@ -83,9 +83,8 @@
 ## <a name="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a>
 このサイトでは Visual C++ と呼ぶ。
 
-現在、統合開発環境Visual Studioの一部として入手できる。
-
-- [Visual Studio - Microsoft Developer Tools](https://www.visualstudio.com/ja-jp/visual-studio-homepage-vs.aspx)
+- [Visual Studio - Microsoft Developer Tools](https://www.visualstudio.com/ja-jp/visual-studio-homepage-vs.aspx): Visual C++を含む統合開発環境。
+- [Announcing the official release of the Visual C++ Build Tools 2015 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/03/31/announcing-the-official-release-of-the-visual-c-build-tools-2015/): コンパイラおよび関連ツールのみのパッケージ。
 
 ###別名
 - VC
