@@ -97,8 +97,8 @@ void f(std::initializer_list<U> p);
 * initializer_list[link ../../reference/initializer_list.md]
 
 なお、`auto p{ 初期化子1, 初期化子2, ... 初期化子n };` のような直接リスト初期化の場合、C++11 ではコピーリスト初期化と同様とされている。  
-しかし、この（直接リスト初期化の）挙動は C++14 で変更されているため、注意が必要である。  
-（[直接リスト初期化の型推論変更](../cpp14/change_type_deduction_for_direct_list_initialization.md.nolink)を参照）
+しかし、この（直接リスト初期化の）挙動は C++17 で変更される予定であるため、注意が必要である。  
+（gcc 5.1.0 以降、clang 3.8.0 以降では既に変更されており、たとえ C++11 モードを使用しても元の挙動にはならない）
 
 
 ##例
@@ -380,7 +380,6 @@ std::pair<T, U>& p = foo();
 
 ##関連項目
 - [変換関数の型推論](../cpp14/type_deduction_for_conversion_function.md.nolink)
-- [直接リスト初期化の型推論変更](../cpp14/change_type_deduction_for_direct_list_initialization.md.nolink)
 - [戻り値の型を後置する関数宣言構文](trailing_return_types.md)
 - [`decltype`](decltype.md)
 - [ラムダ式](lambda_expressions.md)
