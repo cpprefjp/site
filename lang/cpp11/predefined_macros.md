@@ -20,7 +20,7 @@
 
 
 ##関連項目
-- [C99互換で導入された定義済みマクロ](c99_predefined_macros.md)
+- [C++11 C99互換で導入された定義済みマクロ](c99_predefined_macros.md)
 
 
 ##参照

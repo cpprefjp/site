@@ -25,7 +25,7 @@ int main()
 
 
 ##関連項目
-- [C++11 nullptr](/lang/cpp11/nullptr.md)
+- [C++11 `nullptr`](/lang/cpp11/nullptr.md)
 
 
 ##参照

@@ -58,7 +58,7 @@ int main()
 
 
 ##関連項目
-- [数値リテラルの桁区切り文字](digit_separators.md)
+- [C++14 数値リテラルの桁区切り文字](digit_separators.md)
 - [`bitset`](/reference/bitset.md)
 
 

@@ -12,7 +12,7 @@
 
 
 ##関連項目
-- [C++11で更新された定義済みマクロ](predefined_macros.md)
+- [C++11 更新された定義済みマクロ](predefined_macros.md)
 
 
 ##参照

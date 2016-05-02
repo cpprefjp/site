@@ -182,7 +182,7 @@ C++14では、`constexpr`関数、`constexpr`メンバ関数、暗黙の`const`�
 
 
 ##関連項目
-- [constexpr](/lang/cpp11/constexpr.md)
+- [C++11 `constexpr`](/lang/cpp11/constexpr.md)
 
 
 ##参照

@@ -379,13 +379,13 @@ std::pair<T, U>& p = foo();
 
 
 ##関連項目
-- [変換関数の型推論](../cpp14/type_deduction_for_conversion_function.md.nolink)
-- [戻り値の型を後置する関数宣言構文](trailing_return_types.md)
-- [`decltype`](decltype.md)
-- [ラムダ式](lambda_expressions.md)
-- [`decltype(auto)`](../cpp14/decltype_auto.md)
-- [後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)
-- [通常関数の戻り値型推論](../cpp14/return_type_deduction_for_normal_functions.md)
+- [C++14 変換関数の型推論](../cpp14/type_deduction_for_conversion_function.md.nolink)
+- [C++11 戻り値の型を後置する関数宣言構文](trailing_return_types.md)
+- [C++11 `decltype`](decltype.md)
+- [C++11 ラムダ式](lambda_expressions.md)
+- [C++14 `decltype(auto)`](../cpp14/decltype_auto.md)
+- [C++14 後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)
+- [C++14 通常関数の戻り値型推論](../cpp14/return_type_deduction_for_normal_functions.md)
 
 
 ##参照

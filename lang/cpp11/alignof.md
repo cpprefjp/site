@@ -73,7 +73,7 @@ N2341 からはわからない、恐らくないと思われる。
 
 
 ##関連項目
-- [`alignas`](/lang/cpp11/alignas.md)
+- [C++11 `alignas`](/lang/cpp11/alignas.md)
 - [`std::max_align_t`](/reference/cstddef/max_align_t.md)
 
 

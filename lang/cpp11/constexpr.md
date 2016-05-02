@@ -192,8 +192,8 @@ GCC 5.2、Clang 3.7、MSVC 14.0時点で、3つともデフォルトは512回。
 
 
 ##関連項目
-- [ユーザー定義リテラル](user_defined_literals.md)
-- [constexprの制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md)
+- [C++11 ユーザー定義リテラル](user_defined_literals.md)
+- [C++14 `constexpr`の制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md)
 
 
 ##参照

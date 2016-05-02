@@ -271,10 +271,10 @@ GCC や Clang には `decltype` が導入される前から、同様の機能を
 
 
 ##関連項目
-- [戻り値の型を後置する関数宣言構文](trailing_return_types.md)
-- [`auto`](auto.md)
-- [ラムダ式](lambda_expressions.md)
-- [`decltype(auto)`](../cpp14/decltype_auto.md)
+- [C++11 戻り値の型を後置する関数宣言構文](trailing_return_types.md)
+- [C++11 `auto`](auto.md)
+- [C++11 ラムダ式](lambda_expressions.md)
+- [C++14 `decltype(auto)`](../cpp14/decltype_auto.md)
 
 
 ##参照
