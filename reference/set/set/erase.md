@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-void erase(iterator position);                             // (1) C++03
-iterator erase(const_iterator position);                   // (1) C++11
+void erase(iterator position);                             // (1) C++03 まで
+iterator erase(const_iterator position);                   // (1) C++11 から
 
-void erase(iterator first, iterator last);                 // (2) C++03
-iterator erase(const_iterator first, const_iterator last); // (2) C++11
+void erase(iterator first, iterator last);                 // (2) C++03 まで
+iterator erase(const_iterator first, const_iterator last); // (2) C++11 から
 
 size_type erase(const key_type& x);                        // (3)
 ```
@@ -21,29 +21,29 @@ size_type erase(const key_type& x);                        // (3)
 
 
 ##パラメータ
-- `position` : `set` から削除する単一要素を指すイテレータ。`iterator` はメンバ型であり、双方向イテレータとして定義される。
+- `position` : `set` から削除する単一要素を指すイテレータ。`iterator`、および、`const_iterator` はメンバ型であり、双方向イテレータとして定義される。
 - `x` : `set` から削除される値。`key_type` はメンバ型であり、`set` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータであり、コンテナに格納される要素の型である。
 - `first, last` : `set` コンテナ内の、削除される範囲 `[first, last)` を指定するイテレータ。ここでいう範囲は `first` と `last` の間の全ての要素を含み、`first` が指す要素を含むが `last` が指す要素は含まない。
 
 
 ##戻り値
 - (1), (2) :
-    - C++03 : なし
-    - C++11 : 削除された要素の次を指すイテレータを返す。そのような要素がない場合、[`end()`](end.md)を返す(コンテナが空になった場合や、最後尾の要素を削除した場合)。
+    - C++03 まで : なし
+    - C++11 から : 削除された要素の次を指すイテレータを返す。そのような要素がない場合、[`end()`](end.md)を返す(コンテナが空になった場合や、最後尾の要素を削除した場合)。
 - (3) : 削除された要素の数を返す。
 
 
 ##計算量
 - (1) : 定数時間
-- (2) : コンテナの [`size()`](size.md) についての対数時間と、それに加えて `first` と `last` の間の距離に対する線形時間。 
+- (2) : コンテナの [`size()`](size.md) についての対数時間と、それに加えて `first` と `last` の間の距離に対する線形時間。
 - (3) : コンテナの [`size()`](size.md) について対数時間。
 
 
 ##備考
-ループ中で`set`の要素を削除するために、以下のようなコードを書くことになる。
+ループ中で `set` の要素を削除するためには、C++03 までは以下のようなコードを書く必要があった。
 
 ```cpp
-while(it != set_object.end()) {
+while (it != set_object.end()) {
   if (条件) {
     set_object.erase(it++);
   }
@@ -53,12 +53,17 @@ while(it != set_object.end()) {
 }
 ```
 
-削除したイテレータ自身が無効になるため`it++`を行っている。
+これは、`erase` で指定したイテレータが、対象となる要素が削除される事によって無効になるため、後置インクリメント `it++` を使用する事で要素が削除されるより先に削除対象の次の要素を指すようにするためである。
 
-C++03とC++11以降で、この部分のコーディングスタイルが異なる。
+このような書き方は C++11 以降でも依然として有効だが、`erase` が削除された次の要素を指すイテレータを返すようになったため、  
 
-- C++03では、前述した「`set_object.erase(it++);`」というスタイル。
-- C++11では、「`it = set_object.erase(it);`」というスタイルで書く。
+`set_object.erase(it++);`  
+
+の部分を  
+
+`it = set_object.erase(it);  `
+
+のような書き方をすることも可能となった。
 
 
 ##例
