@@ -339,7 +339,7 @@ glvalueの名前の由来は、generalized lvalue(一般化されたlvalue)。
 __rvalue__  
 rvalueは、prvalueとxvalueの総称。  
 
-xvalueの他には、一時オブジェクトや、リテラル値(10, 3.14, trueなど)や、特定のオブジェクトに関連付けられていない値などが該当する。  
+xvalueの他には、一時オブジェクトや、リテラル値(`10`, `3.14`, `true`など)や、特定のオブジェクトに関連付けられていない値などが該当する。  
 
 __prvalue__  
 prvalue(pure rvalue)は、rvalueのうちxvalueではないものである。  
