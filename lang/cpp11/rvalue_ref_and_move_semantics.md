@@ -349,9 +349,9 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 
 
 ##関連項目
-- [`move`](http://cpprefjp.github.io/reference/utility/move.html)
-- [`forward`](http://cpprefjp.github.io/reference/utility/forward.html)
-- [`unique_ptr`](https://cpprefjp.github.io/reference/memory/unique_ptr.html)
+- [`move`](/reference/utility/move.md)
+- [`forward`](/reference/utility/forward.md)
+- [`unique_ptr`](/reference/memory/unique_ptr.md)
 
 
 ##参照
