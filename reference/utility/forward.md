@@ -83,7 +83,7 @@ struct A {
 int main()
 {
 //std::shared_ptr<A> sp1 = factory<A>(2, 1.414);  // error: 2 will not bind to int&
-  
+
   int i = 2;
   std::shared_ptr<A> sp2 = factory<A>(i, 1.414);  // OK
 }
