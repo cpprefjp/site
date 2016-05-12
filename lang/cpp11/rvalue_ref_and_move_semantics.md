@@ -40,10 +40,11 @@ C++11 以前では、右辺値参照と左辺値参照を区別せず、右辺�
 そのため、右辺値のみに対して特別な処理を記述することができなかった。  
 
 ```cpp
-  vector<int> v, vv;
-  v = vv;                  // 代入式1
-  v = vector<int>(100, 0); // 代入式2
+std::vector<int> v, vv;
+v = vv;                  // 代入式1
+v = std::vector<int>(100, 0); // 代入式2
 ```
+* std::vector[link /reference/vector.md]
 
 上記コードは C++11 以前では、代入式1,2とも右辺の型は `vector<int> const&` になる。  
 代入処理の中では、右辺の値をコピーし、左辺の値と置き換えられる。  
@@ -99,15 +100,16 @@ int main(){
 リソースを明け渡した後のオブジェクトにはなにが入っているのか不明であり、値を参照した時の動作は未定義である。  
 
 あるオブジェクトをムーブしたいときには、
-`std::move`を使うことができる。
+[`std::move()`](/reference/utility/move.md)関数を使うことができる。
 ムーブされた変数は右辺値となり、それ以降使える保証はなくなる。  
-注意すべきことは`std::move`しただけでは  
+注意すべきことは[`std::move()`](/reference/utility/move.md)しただけでは  
 「このオブジェクトはこれ以降使わないので好きに書き換えていい」  
 ということを明示したにすぎないということである。  
-ムーブは実際に`std::move`した変数を右辺値参照や後述するムーブコンストラクタ・ムーブ代入演算子に渡した際に行われる。
+ムーブは実際に[`std::move()`](/reference/utility/move.md)した変数を右辺値参照や後述するムーブコンストラクタ・ムーブ代入演算子に渡した際に行われる。
 
 ```cpp
 #include <utility>
+
 int main()
 {
   int x = 0;
@@ -118,19 +120,21 @@ int main()
   int&& rvalue_ref = std::move(x);
 }
 ```
+* std::move[link /reference/utility/move.md]
 
 ####所有権の移動
 クラスによってはコピーは禁止されているが、ムーブはできるということがある。  
 そういったクラスではムーブが所有権の移動を表す。  
 同じものが２つ存在してはいけないものが所有権の移動に対応しており、ムーブされた変数の中身は`nullptr`であることが保証される。  
-例を挙げると、`std::unique_ptr`がそれに当たる。
-`std::unique_ptr`はあるオブジェクトの唯一の所有権を持つことを表すスマートポインタである。
+例を挙げると、[`std::unique_ptr`](/reference/memory/unique_ptr.md)がそれに当たる。
+[`std::unique_ptr`](/reference/memory/unique_ptr.md)はあるオブジェクトの唯一の所有権を持つことを表すスマートポインタである。
 所有権は唯一であるので、コピーが禁止されている。
 しかし、別の変数にムーブ代入することはできる。
 
 ```cpp
 #include <utility>
 #include <memory>
+
 int main()
 {
   std::unique_ptr<int> p = std::make_unique<int>( 1 );
@@ -140,20 +144,23 @@ int main()
   std::unique_ptr<int> q = std::move(p);
 }
 ```
+* std::unique_ptr[link /reference/memory/unique_ptr.md]
+* std::move[link /reference/utility/move.md]
 
-他には、`iostream`も所有権の移動に対応している。
+他には、[`<iostream>`](/reference/iostream.md)も所有権の移動に対応している。
 
 
 
 
 ###ムーブセマンティクス
- 
 
 ムーブセマンティクスが必要とされる場面として、コピーに高いコストがかかる場合をあげる。  
 コピーコンストラクタ、コピー代入に高いコストがかかる以下のクラスで説明する。
 
 ```cpp
 #include <memory>
+#include <algorithm>
+
 class large_class
 {
 private:
@@ -182,6 +189,7 @@ int main()
   large_class y(x);
 }
 ```
+* std::copy[link /reference/algorithm/copy.md]
 
 コピーには時間がかかる。  
 コピーをポインタの挿げ替えにしてしまえば、定数時間で処理が終わる。  
@@ -229,7 +237,7 @@ int main()
   }
 ```
 
-一時変数を`std::move`すると右辺値となり、ムーブコンストラクタが呼ばれる。  
+左辺値に対して[`std::move()`](/reference/utility/move.md)を適用すると右辺値となり、ムーブコンストラクタが呼ばれる。  
 
 ```cpp
 int main(){
@@ -240,8 +248,9 @@ int main(){
   y = std::move(x);   // x をムーブして y に代入する
 }
 ```
+* std::move[link /reference/utility/move.md]
 
-標準ライブラリで提供されるクラスのほとんどは、このようなムーブコンストラクタを用意している（`mutex`、`atomic`などを除く）。
+標準ライブラリで提供されるクラスのほとんどは、このようなムーブコンストラクタを用意している（[`mutex`](/reference/mutex/mutex.md])、[`atomic`](/reference/atomic/atomic.md)などを除く）。
 
 ムーブコンストラクタ・ムーブ代入演算子は
 - クラスがコピー演算を宣言していない
@@ -280,7 +289,7 @@ void f(T&& x){};
 しかし、引数をユニヴァーサル参照で宣言した場合安易にムーブできない。  
 引数は右辺値参照の場合と左辺値参照の場合両方があり得るからである。  
 左辺値地参照の場合はムーブせず、右辺値参照の場合はムーブして渡す機能が必要となる。  
-そのような機能として、`std::forward`が用意されている。  
+そのような機能として、[`std::forward()`](/reference/utility/forward.md)関数が用意されている。  
 
 
 ```cpp
@@ -291,6 +300,7 @@ void f(T&& a)
   g( std::forward<T>(a) ) ;
 }
 ```
+* std::forward[link /reference/utility/forward.md]
 
 
 ##仕様
