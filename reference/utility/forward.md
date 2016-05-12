@@ -19,6 +19,7 @@ namespace std {
   constexpr T&& forward(typename remove_reference<T>::type&& t) noexcept; // (2) C++14
 }
 ```
+* remove_reference[link /reference/type_traits/remove_reference.md]
 
 ##概要
 関数テンプレートの引数を転送する。
