@@ -362,6 +362,7 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 ##関連項目
 - [`move`](/reference/utility/move.md)
 - [`forward`](/reference/utility/forward.md)
+- [`move_if_noexcept`](/reference/utility/move_if_noexcept.md)
 - [`unique_ptr`](/reference/memory/unique_ptr.md)
 
 
@@ -379,3 +380,6 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 - [N2027 A Brief Introduction to Rvalue References](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html)
     - 右辺値参照の入門
 - [N2128 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2118.html)
+- [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
+    - ムーブコンストラクタから例外を送出することを許可した経緯
+
