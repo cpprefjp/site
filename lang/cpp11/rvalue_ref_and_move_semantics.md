@@ -172,12 +172,12 @@ public:
   }
   // コピーコンストラクタ
   large_class( const large_class& r ) {
-      ptr = new char[1000] ;
-      std::copy( &ptr[0], &ptr[1000], &r.ptr[0] );
+    ptr = new char[1000] ;
+    std::copy( &ptr[0], &ptr[1000], &r.ptr[0] );
   }
   // デストラクタ
   ~large_class() {
-      delete[] ptr;
+    delete[] ptr;
   }
 };
 
@@ -222,18 +222,18 @@ int main()
   // ムーブコンストラクタ
   large_class(large_class&& r)
   {
-      // ポインタの挿げ替え
-      ptr = r.ptr;
-      // 元のオブジェクトはnullptrに
-      r.ptr = nullptr;
+    // ポインタの挿げ替え
+    ptr = r.ptr;
+    // 元のオブジェクトはnullptrに
+    r.ptr = nullptr;
   }
   // ムーブ代入演算子
   large_class& operator=(large_class&& r)
   {
-      // ポインタの挿げ替え
-      ptr = r.ptr;
-      // 元のオブジェクトはnullptrに
-      r.ptr = nullptr;
+    // ポインタの挿げ替え
+    ptr = r.ptr;
+    // 元のオブジェクトはnullptrに
+    r.ptr = nullptr;
   }
 ```
 
