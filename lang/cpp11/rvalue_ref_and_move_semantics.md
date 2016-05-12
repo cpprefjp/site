@@ -355,4 +355,4 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 
 
 ##参照
-- [N1377](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1377.htm) 必要になった経緯について
+- [N1377 A Proposal to Add Move Semantics Support to the C++ Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1377.htm) 必要になった経緯について
