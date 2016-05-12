@@ -364,6 +364,7 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 - [`forward`](/reference/utility/forward.md)
 - [`move_if_noexcept`](/reference/utility/move_if_noexcept.md)
 - [`move` (範囲版)](/reference/algorithm/move.md)
+- [`move_backward`](/reference/algorithm/move_backward.md)
 - [`unique_ptr`](/reference/memory/unique_ptr.md)
 - [`move_iterator`](/reference/iterator/move_iterator.md)
 
