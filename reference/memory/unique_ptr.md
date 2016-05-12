@@ -132,6 +132,7 @@ hoge::~hoge()
 
 
 ##参照
+- [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 - [Rvalue Reference Recommendations for Chapter 20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1856.html)
     - `unique_ptr`の追加と`auto_ptr`の非推奨が提案された文書。
 - [LWG Issue 673. `unique_ptr` update](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#672)

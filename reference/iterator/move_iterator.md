@@ -111,4 +111,5 @@ int main()
 
 
 ##参照
+- [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 
