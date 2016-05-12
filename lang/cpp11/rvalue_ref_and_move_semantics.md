@@ -137,7 +137,7 @@ int main()
 
 int main()
 {
-  std::unique_ptr<int> p(new int (1));
+  std::unique_ptr<int> p(new int(1));
 
   // 所有権はqに移り
   // pはnullptrになる
