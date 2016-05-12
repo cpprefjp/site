@@ -355,4 +355,16 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 
 
 ##参照
-- [N1377 A Proposal to Add Move Semantics Support to the C++ Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1377.htm) 必要になった経緯について
+- [N1377 A Proposal to Add Move Semantics Support to the C++ Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1377.htm)
+    - 必要になった経緯について
+- [N1385 The Forwarding Problem: Arguments](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1385.htm)
+    - 引数の転送問題
+- [N1690 A Proposal to Add an Rvalue Reference to the C++ Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1690.html)
+- [N1770 A Proposal to Add an Rvalue Reference to the C++ Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1770.html)
+- [N1771 Impact of the rvalue reference on the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1771.html)
+    - 標準ライブラリへの右辺値参照の対応。MoveConstructible、MoveAssignableといった要件もこの提案文書で追加された
+- [N1855 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1855.html)
+- [N1952 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1952.html)
+- [N2027 A Brief Introduction to Rvalue References](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html)
+    - 右辺値参照の入門
+- [N2128 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2118.html)
