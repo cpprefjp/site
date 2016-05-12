@@ -13,6 +13,7 @@ namespace std {
   typename remove_reference<T>::type&& move(T&& t) noexcept; // C++14
 }
 ```
+* remove_reference[link /reference/type_traits/remove_reference.md]
 
 ##概要
 左辺値を右辺値にキャストする。
@@ -21,7 +22,10 @@ namespace std {
 
 
 ##戻り値
-`static_cast<typename std::remove_reference<T>::type &&>(t)`
+```cpp
+static_cast<typename std::remove_reference<T>::type &&>(t)
+```
+* std::remove_reference[link /reference/type_traits/remove_reference.md]
 
 
 ##例外
