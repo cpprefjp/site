@@ -16,17 +16,17 @@ int f() { return 0 ; }
 
 int main()
 {
-    int i = 0;
+  int i = 0;
 
-    i;      // 名前付きオブジェクトは左辺値
-    0;      // リテラル値は右辺値
+  i;      // 名前付きオブジェクトは左辺値
+  0;      // リテラル値は右辺値
 
-    Foo x ;
+  Foo x ;
 
-    x;      // 名前付きオブジェクトは左辺値
-    Foo();  // コンストラクタの戻り値は右辺値
+  x;      // 名前付きオブジェクトは左辺値
+  Foo();  // コンストラクタの戻り値は右辺値
 
-    f();    // 関数の戻り値は右辺値
+  f();    // 関数の戻り値は右辺値
 }
 ```
 
@@ -59,19 +59,19 @@ C++11 以降では、代入式2の右辺の型は右辺値参照 `vector<int>&&`
 ```cpp
 int main()
 {
-    int x = 0;
+  int x = 0;
 
-    // lvalue reference
-    int& lvalue_ref_1 = x;              // OK
-    // int& lvalue_ref_2 = 0;           // Error 右辺値を左辺値参照で束縛している
+  // lvalue reference
+  int& lvalue_ref_1 = x;              // OK
+  // int& lvalue_ref_2 = 0;           // Error 右辺値を左辺値参照で束縛している
 
-    // rvalue reference
-    // int&& rvalue_ref_1 = x;          // Error 左辺値を右辺値参照で束縛している
-    int&& rvalue_ref_2 = 0;             // OK
-    
-    // const lvalue refere
-    const int& const_lvalue_ref_1 = x;    // OK
-    const int& const_lvalue_ref_2 = 0;    // OK constな左辺値参照は右辺値を束縛できる
+  // rvalue reference
+  // int&& rvalue_ref_1 = x;          // Error 左辺値を右辺値参照で束縛している
+  int&& rvalue_ref_2 = 0;             // OK
+
+  // const lvalue refere
+  const int& const_lvalue_ref_1 = x;    // OK
+  const int& const_lvalue_ref_2 = 0;    // OK constな左辺値参照は右辺値を束縛できる
 }
 ```
 
@@ -82,12 +82,12 @@ __右辺値参照であるということと、右辺値であるということ
 
 ```cpp
 int main(){
-    // xの型は int&& である
-    // xは左辺値＝xは実体をを持ち名前のあるオブジェクト
-    int&& x = 1;
-    
-    // xは左辺値なので右辺値参照できない！
-    //int&& y = x; // Error!
+  // xの型は int&& である
+  // xは左辺値＝xは実体をを持ち名前のあるオブジェクト
+  int&& x = 1;
+
+  // xは左辺値なので右辺値参照できない！
+  //int&& y = x; // Error!
 }
 
 ```
@@ -110,12 +110,12 @@ int main(){
 #include <utility>
 int main()
 {
-    int x = 0;
-    // 何も起こらない
-    std::move(x);
-    
-    // 実際に rvalue_ref に x がムーブされる
-    int&& rvalue_ref = std::move(x);   
+  int x = 0;
+  // 何も起こらない
+  std::move(x);
+
+  // 実際に rvalue_ref に x がムーブされる
+  int&& rvalue_ref = std::move(x);
 }
 ```
 
@@ -133,11 +133,11 @@ int main()
 #include <memory>
 int main()
 {
-    std::unique_ptr<int> p = std::make_unique<int>( 1 );
-    
-    // 所有権はqに移り
-    // pはnullptrになる
-    std::unique_ptr<int> q = std::move(p);
+  std::unique_ptr<int> p = std::make_unique<int>( 1 );
+
+  // 所有権はqに移り
+  // pはnullptrになる
+  std::unique_ptr<int> q = std::move(p);
 }
 ```
 
@@ -157,29 +157,29 @@ int main()
 class large_class
 {
 private:
-    char* ptr ;
+  char* ptr ;
 public:
-    large_class() {
-      ptr = new char[1000];
-      // バッファに対して、時間のかかる書き込みを実行
-    }
-    // コピーコンストラクタ
-    large_class( const large_class& r ) {
-        ptr = new char[1000] ;
-        std::copy( &ptr[0], &ptr[1000], &r.ptr[0] );
-    }
-    // デストラクタ
-    ~large_class() {
-        delete[] ptr;
-    }
+  large_class() {
+    ptr = new char[1000];
+    // バッファに対して、時間のかかる書き込みを実行
+  }
+  // コピーコンストラクタ
+  large_class( const large_class& r ) {
+      ptr = new char[1000] ;
+      std::copy( &ptr[0], &ptr[1000], &r.ptr[0] );
+  }
+  // デストラクタ
+  ~large_class() {
+      delete[] ptr;
+  }
 };
 
 int main()
 {
-    large_class x{};
-    
-    // とても時間がかかる
-    large_class y(x);
+  large_class x{};
+
+  // とても時間がかかる
+  large_class y(x);
 }
 ```
 
@@ -190,11 +190,11 @@ int main()
 一時変数からオブジェクトを作る場合などである。  
 
 ```cpp
-    // 一時変数
-    large_class tmp{};
-    
-    large_class x(tmp);
-    // これ以降tmpは使わない
+  // 一時変数
+  large_class tmp{};
+
+  large_class x(tmp);
+  // これ以降tmpは使わない
 ```
 
 もう使わない変数とそうでない変数を区別する必要がある。  
@@ -211,34 +211,33 @@ int main()
 
 
 ```cpp
-    // ムーブコンストラクタ
-    large_class(large_class&& r)
-    {
-        // ポインタの挿げ替え
-        ptr = r.ptr;
-        // 元のオブジェクトはnullptrに
-        r.ptr = nullptr;
-    }
-    // ムーブ代入演算子
-    large_class& operator=(large_class&& r)
-    {
-        // ポインタの挿げ替え
-        ptr = r.ptr;
-        // 元のオブジェクトはnullptrに
-        r.ptr = nullptr;
-    }
-
- ```
+  // ムーブコンストラクタ
+  large_class(large_class&& r)
+  {
+      // ポインタの挿げ替え
+      ptr = r.ptr;
+      // 元のオブジェクトはnullptrに
+      r.ptr = nullptr;
+  }
+  // ムーブ代入演算子
+  large_class& operator=(large_class&& r)
+  {
+      // ポインタの挿げ替え
+      ptr = r.ptr;
+      // 元のオブジェクトはnullptrに
+      r.ptr = nullptr;
+  }
+```
 
 一時変数を`std::move`すると右辺値となり、ムーブコンストラクタが呼ばれる。  
 
 ```cpp
 int main(){
-    large_class tmp{};
-    large_class y{};
-    
-    large_class x(std::move(tmp));   // tmpをムーブしてxを作る
-    y = std::move(x);   // x をムーブして y に代入する
+  large_class tmp{};
+  large_class y{};
+
+  large_class x(std::move(tmp));   // tmpをムーブしてxを作る
+  y = std::move(x);   // x をムーブして y に代入する
 }
 ```
 
@@ -255,9 +254,9 @@ int main(){
 
 ```cpp
 class large_class {
-    // ムーブ演算のデフォルト指定
-    large_class(large_class&&) = default;
-    large_class& operator=(large_class&&) = default;
+  // ムーブ演算のデフォルト指定
+  large_class(large_class&&) = default;
+  large_class& operator=(large_class&&) = default;
 };
 ```
 
@@ -288,8 +287,8 @@ void f(T&& x){};
 template <typename T>
 void f(T&& a)
 {
-    // 実引数が右辺値参照型の場合のみムーブされる
-    g( std::forward<T>(a) ) ;
+  // 実引数が右辺値参照型の場合のみムーブされる
+  g( std::forward<T>(a) ) ;
 }
 ```
 
