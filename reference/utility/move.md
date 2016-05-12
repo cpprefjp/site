@@ -10,7 +10,7 @@ namespace std {
   typename remove_reference<T>::type&& move(T&& t) noexcept; // C++11
 
   template <class T>
-  typename remove_reference<T>::type&& move(T&& t) noexcept; // C++14
+  constexpr typename remove_reference<T>::type&& move(T&& t) noexcept; // C++14
 }
 ```
 * remove_reference[link /reference/type_traits/remove_reference.md]
