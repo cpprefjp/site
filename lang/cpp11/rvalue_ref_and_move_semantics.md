@@ -106,19 +106,20 @@ int main(){
 注意すべきことは[`std::move()`](/reference/utility/move.md)しただけでは  
 「このオブジェクトはこれ以降使わないので好きに書き換えていい」  
 ということを明示したにすぎないということである。  
-ムーブは実際に[`std::move()`](/reference/utility/move.md)した変数を右辺値参照や後述するムーブコンストラクタ・ムーブ代入演算子に渡した際に行われる。
+ムーブは実際に[`std::move()`](/reference/utility/move.md)した変数を、後述するムーブコンストラクタ・ムーブ代入演算子に渡した際に行われる。
 
 ```cpp
+#include <string>
 #include <utility>
 
 int main()
 {
-  int x = 0;
+  std::string x = "Hello, world!";
   // 何も起こらない
   std::move(x);
 
-  // 実際に rvalue_ref に x がムーブされる
-  int&& rvalue_ref = std::move(x);
+  // 実際に y に x がムーブされる
+  std::string y = std::move(x);
 }
 ```
 * std::move[link /reference/utility/move.md]
