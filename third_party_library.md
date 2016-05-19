@@ -31,10 +31,10 @@ C++の準標準と呼ばれているライブラリ。C++標準化委員会の�
 ライセンス：Creative Commons, CC BY-NC-SA 3.0
 
 
-- [MessagePack](http://msgpack.org/)
+- [MessagePack implementation for C and C++](https://github.com/msgpack/msgpack-c)
 
 通信などで使用できるデータの圧縮形式、シリアライズ／デシリアライズ、通信のライブラリ。  
-ライセンス：Apache License, Version 2.0
+ライセンス：Boost Software License, Version 1.0
 
 
 - [Xbyak](http://homepage1.nifty.com/herumi/soft/xbyak.html)
