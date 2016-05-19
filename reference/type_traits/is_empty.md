@@ -20,11 +20,12 @@ namespace std {
 
 
 ##効果
-`is_empty`は、型`T`が空のクラス (cv修飾を許容する) であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_empty`は、型`T`が空のクラス (cv修飾を許容する) であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ##備考
 空のクラスは、以下の条件を満たす型である。
+
 - クラス型である。
 - 共用型でない。
 - 長さ0のビットフィールド以外に、非静的データメンバを持たない。

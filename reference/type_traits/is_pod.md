@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_pod`は、型`T`がPOD型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_pod`は、型`T`がPOD型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ##備考

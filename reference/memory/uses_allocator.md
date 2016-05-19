@@ -14,7 +14,7 @@ namespace std {
 ##概要
 型`T`がアロケータを使用するかを調べる。
 
-このクラスが[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する場合、以下のコンストラクタ初期化が可能である：
+このクラスが[`true_type`](/reference/type_traits/true_type.md)から派生する場合、以下のコンストラクタ初期化が可能である：
 
 - `T(allocator_arg_t, alloc, args...)`のように、第1引数に[`allocator_arg_t`](allocator_arg_t.md)、第2引数にアロケータオブジェクトをとる構築。
 - `T(args..., alloc)`のように、最後の引数としてアロケータオブジェクトをとる構築。
@@ -23,7 +23,7 @@ namespace std {
 
 
 ##効果
-このクラスは、型`T`が`public`なメンバ型`allocator_type`を持っており、そのアロケータ型が`Alloc`に変換可能であれば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
+このクラスは、型`T`が`public`なメンバ型`allocator_type`を持っており、そのアロケータ型が`Alloc`に変換可能であれば[`true_type`](/reference/type_traits/true_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/false_type.md)から派生する。
 
 
 ##例

@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_trivially_move_constructible`は、型`T`がトリビアルにムーブ構築可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_trivially_move_constructible`は、型`T`がトリビアルにムーブ構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 以下の条件が`true`である場合に、トリビアルにムーブ構築可能であると見なされる：
 

@@ -20,7 +20,8 @@ namespace std {
 
 
 ##効果
-`is_trivially_destructible`は、`T`がトリビアルに破棄可能な型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。  
+`is_trivially_destructible`は、`T`がトリビアルに破棄可能な型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+
 「トリビアルに破棄可能」とは、ユーザー定義されないデストラクタを持っているということを意味する。
 
 

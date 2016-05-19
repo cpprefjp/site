@@ -95,7 +95,7 @@ int main()
 * type_traits[link ../../type_traits.md]
 * operator new[link ../../new/op_new.md]
 * operator delete[link ../../new/op_delete.md]
-* true_type[link ../../type_traits/integral_constant-true_type-false_type.md]
+* true_type[link ../../type_traits/true_type.md]
 * swap[link swap_free.md]
 * get_allocator[color ff0000]
 * match_results[link ../match_results.md]

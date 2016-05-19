@@ -176,8 +176,8 @@ int main()
 }
 ```
 * std::declval[link /reference/utility/declval.md]
-* std::true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
-* std::false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
+* std::true_type[link /reference/type_traits/true_type.md]
+* std::false_type[link /reference/type_traits/false_type.md]
 * nullptr[link nullptr.md]
 * static_assert[link static_assert.md]
 * decltype[link decltype.md]
@@ -215,8 +215,8 @@ int main()
   static_assert(!is_complete_type<B>::value, "B is incomplete type");
 }
 ```
-* std::true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
-* std::false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
+* std::true_type[link /reference/type_traits/true_type.md]
+* std::false_type[link /reference/type_traits/false_type.md]
 * nullptr[link nullptr.md]
 * static_assert[link static_assert.md]
 * decltype[link decltype.md]
@@ -260,8 +260,8 @@ int main()
 }
 ```
 * std::declval[link /reference/utility/declval.md]
-* std::true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
-* std::false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
+* std::true_type[link /reference/type_traits/true_type.md]
+* std::false_type[link /reference/type_traits/false_type.md]
 * nullptr[link nullptr.md]
 * static_assert[link static_assert.md]
 * decltype[link decltype.md]

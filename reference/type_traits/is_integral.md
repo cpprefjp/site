@@ -16,7 +16,7 @@ namespace std {
 
 
 ##効果
-`is_integral`は、型`T`が整数型(cv修飾も許容される)であれば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_integral`は、型`T`が整数型(cv修飾も許容される)であれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 以下のような型が、整数型として判定される：
 
@@ -75,6 +75,6 @@ int main(){}
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
 ####備考
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant-true_type-false_type.md) が `operator bool()` を持っていないためエラーになる。
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。
 
 

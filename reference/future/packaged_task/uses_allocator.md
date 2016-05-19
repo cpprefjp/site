@@ -12,7 +12,7 @@ namespace std {
     : true_type { };
 }
 ```
-* true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
+* true_type[link /reference/type_traits/true_type.md]
 
 ##概要
 `uses_allocator`の、`packaged_task<R>`に対する特殊化。

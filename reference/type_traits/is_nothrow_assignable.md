@@ -20,7 +20,8 @@ namespace std {
 
 
 ##効果
-`is_nothrow_assignable`は、型`T`が型`U`から例外を投げない保証のもとに代入可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。 
+`is_nothrow_assignable`は、型`T`が型`U`から例外を投げない保証のもとに代入可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+
 [`is_assignable`](is_assignable.md)`<T, U>::value == true`かつ、いかなる例外を投げないならば、例外を投げない代入が可能であると判断される。
 
 

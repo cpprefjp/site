@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_move_assignable` は `T` がムーブ代入可能であるならば [`true_type`](integral_constant-true_type-false_type.md) から派生し、そうでなければ [`false_type`](integral_constant-true_type-false_type.md) から派生する。
+`is_move_assignable` は `T` がムーブ代入可能であるならば [`true_type`](true_type.md) から派生し、そうでなければ [`false_type`](false_type.md) から派生する。
 
 以下の条件が`true`である場合に、ムーブ代入可能であると見なされる：
 

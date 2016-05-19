@@ -16,7 +16,7 @@ namespace std {
 
 
 ##効果
-`is_function`は、型`T`が関数型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_function`は、型`T`が関数型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ##例
@@ -60,9 +60,10 @@ int main(){}
 - [Clang](/implementation.md#clang) 3.1, 3.2, 3.3
 
 ####備考
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant-true_type-false_type.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラのバグのために関数への右辺値参照を用いるとエラーになる。
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラのバグのために関数への右辺値参照を用いるとエラーになる。
 
 Clang 3.1 - 3.3 では以下のような警告が出るが、これは[Clangのバグ](http://llvm.org/bugs/show_bug.cgi?id=16654)である。
+
 ```
 prog.cc:15:32: warning: qualifier on function type 'f' (aka 'void ()') has unspecified behavior
 static_assert(std::is_function<const f>::value == true, "const f is function");

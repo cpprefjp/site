@@ -16,7 +16,7 @@ namespace std {
 
 
 ##効果
-`ratio_less`は、`R1::num * R2::den < R2::num * R1::den`であれば[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)から派生する。
+`ratio_less`は、`R1::num * R2::den < R2::num * R1::den`であれば[`true_type`](/reference/type_traits/true_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/false_type.md)から派生する。
 
 実装によっては、演算アルゴリズムによってオーバーフローが起こる可能性がある。オーバーフローが起こった場合、プログラムは不適格となる。
 

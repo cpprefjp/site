@@ -12,7 +12,7 @@ namespace std {
 ```
 * is_error_code_enum[link /reference/system_error/is_error_code_enum.md]
 * io_errc[link io_errc.md]
-* true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
+* true_type[link /reference/type_traits/true_type.md]
 
 ##概要
 [`io_errc`](io_errc.md)に対する`is_error_code_enum`の特殊化。

@@ -20,7 +20,8 @@ namespace std {
 
 
 ##効果
-`is_nothrow_default_constructible`は、型`T`が例外を投げない保証のもとにデフォルト構築可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。 
+`is_nothrow_default_constructible`は、型`T`が例外を投げない保証のもとにデフォルト構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+
 [`is_nothrow_constructible`](is_nothrow_constructible.md)`<T>::value == true`の場合に、例外を投げないデフォルト構築が可能であると判断される。
 
 

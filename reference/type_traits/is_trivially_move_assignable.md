@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_trivially_move_assignable`は、型`T`がトリビアルにムーブ代入可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_trivially_move_assignable`は、型`T`がトリビアルにムーブ代入可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 以下の条件が`true`である場合に、トリビアルにムーブ代入可能であると見なされる：
 

@@ -77,9 +77,9 @@ namespace std {
 | `const_pointer`        | 読み取り専用の要素のポインタ型 `allocator_traits<OuterAlloc>::const_pointer` | C++11 |
 | `void_pointer`         | `void`ポインタ型 `allocator_traits<OuterAlloc>::void_pointer` | C++11 |
 | `const_void_pointer`   | 読み取り専用の`void`ポインタ型 `allocator_traits<OuterAlloc>::const_void_pointer` | C++11 |
-| `propagate_on_container_copy_assignment` | コンテナのコピー代入でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_copy_assignment`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)が使用される。 | C++11 |
-| `propagate_on_container_move_assignment` | コンテナのムーブ代入でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_move_assignment`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)が使用される。 | C++11 |
-| `propagate_on_container_swap`            | コンテナの`swap`操作でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_swap`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)が使用される。 | C++11 |
+| `propagate_on_container_copy_assignment` | コンテナのコピー代入でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_copy_assignment`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
+| `propagate_on_container_move_assignment` | コンテナのムーブ代入でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_move_assignment`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
+| `propagate_on_container_swap`            | コンテナの`swap`操作でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_swap`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
 | `rebind<U>` | 型`U`を確保するように再束縛する | C++11 |
 
 

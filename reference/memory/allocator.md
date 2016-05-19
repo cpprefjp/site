@@ -62,7 +62,7 @@ C++11から：
 | `const_reference` | 読み取り専用の要素の参照型 `const T&`        | |
 | `value_type`      | 要素の型 `T`                                 | |
 | `rebind<U>`       | 型`U`を確保するように再束縛する              | |
-| `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータの状態を伝搬するか。 [`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md) | C++14 |
+| `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータの状態を伝搬するか。 [`true_type`](/reference/type_traits/true_type.md) | C++14 |
 
 
 ##非メンバ関数

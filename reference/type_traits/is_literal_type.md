@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_literal_type`は、型`T`がリテラル型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_literal_type`は、型`T`がリテラル型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 リテラル型とは、以下のいずれかの条件を満たす型である：
 

@@ -15,7 +15,7 @@ namespace std {
 型 `T` がプレースホルダかどうかを判別する
 
 ##要件
-`is_placeholder `は、型 `T `がプレースホルダを示す(`std::placeholders::_1`, `std::placeholders::_2`, ...)ならば `std::`[`integral_constant`](/reference/type_traits/integral_constant-true_type-false_type.md)`<int, J>` から派生(ただし、`J` は何番目のプレースホルダを示すかの値)し、そうでなければ `std::`[`integral_constant`](/reference/type_traits/integral_constant-true_type-false_type.md)`<int, 0>` から派生する。
+`is_placeholder `は、型 `T `がプレースホルダを示す(`std::placeholders::_1`, `std::placeholders::_2`, ...)ならば [`std::integral_constant`](/reference/type_traits/integral_constant.md)`<int, J>` から派生(ただし、`J` は何番目のプレースホルダを示すかの値)し、そうでなければ [`std::integral_constant`](/reference/type_traits/integral_constant.md)`<int, 0>` から派生する。
 
 ヒント: ユーザ定義の型に対して `is_placeholder` を特殊化してプレースホルダとして扱わせることも可能である。
 

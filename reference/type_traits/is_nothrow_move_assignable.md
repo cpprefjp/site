@@ -20,7 +20,8 @@ namespace std {
 
 
 ##効果
-`is_nothrow_move_assignable`は、型`T`が例外を投げない保証のもとにムーブ代入可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。 
+`is_nothrow_move_assignable`は、型`T`が例外を投げない保証のもとにムーブ代入可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+
 以下の条件が`true`である場合に、例外を投げないムーブ代入が可能であると見なされる：
 
 - C++11 : [`is_nothrow_assignable`](is_nothrow_assignable.md)`<T&, T&&>::value == true`

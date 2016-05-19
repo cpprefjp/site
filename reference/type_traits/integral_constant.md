@@ -1,4 +1,4 @@
-#integral_constant、true_type、false_type
+#integral_constant
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -18,14 +18,12 @@ namespace std {
 
     constexpr value_type operator()() const noexcept { return value; } // C++14
   };
-
-  typedef integral_constant<bool, true> true_type;
-  typedef integral_constant<bool, false> false_type;
 }
 ```
 
 ##概要
-`integral_constant` は基本となる整数型と定数を合わせ，型として整数定数を表す。`true_type` は `bool` 型と `true` を組み合わせた時の `typedef` である。`false_type` は `bool` 型と `false` を組み合わせた時の `typedef` である。 
+`integral_constant` は基本となる整数型と定数を合わせ，型として整数定数を表す。
+
 多くの場合、`<type_traits>` 内のクラスやその他クラスから基本型として派生されることによって用いられる。
 
 
@@ -39,16 +37,6 @@ static_assert(int_zero::value == 0, "value == 0");
 static_assert(std::is_same<int_zero::value_type, int>::value, "value_type == int");
 static_assert(std::is_same<int_zero::type, int_zero>::value, "type == int_zero");
 static_assert(int_zero() == 0, "int_zero() == 0");
-
-static_assert(std::true_type::value == true, "value == true");
-static_assert(std::is_same<std::true_type::value_type, bool>::value, "value_type == bool");
-static_assert(std::is_same<std::true_type::type, std::true_type>::value, "type == true_type");
-static_assert(std::true_type() == true, "true_type() == true");
-
-static_assert(std::false_type::value == false, "value == true");
-static_assert(std::is_same<std::false_type::value_type, bool>::value, "value_type == bool");
-static_assert(std::is_same<std::false_type::type, std::false_type>::value, "type == false_type");
-static_assert(std::false_type() == false, "false_type() == true");
 
 int main(){}
 ```
@@ -66,7 +54,12 @@ int main(){}
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 ####備考
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant-true_type-false_type.md) が `operator value_type()` を持っていないためエラーになる。
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator value_type()` を持っていないためエラーになる。
+
+
+##関連項目
+- [`true_type`](true_type.md)
+- [`false_type`](false_type.md)
 
 
 ##参照

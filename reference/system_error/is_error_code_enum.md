@@ -10,16 +10,16 @@ namespace std {
   struct is_error_code_enum : public false_type {};
 }
 ```
-* false_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
+* false_type[link /reference/type_traits/false_type.md]
 
 ##概要
 [`error_code`](error_code.md)のエラー値として見なせる列挙型かどうかを判定する。
 
-`is_error_code_enum`はデフォルトでは[`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承し、`is_error_code_enum<T>::value`は`false`となる。
+`is_error_code_enum`はデフォルトでは[`false_type`](/reference/type_traits/false_type.md)を継承し、`is_error_code_enum<T>::value`は`false`となる。
 
-`is_error_code_enum<T>::value == true`であることを要求する関数（[`error_code`](error_code.md) の[コンストラクタ](error_code/op_constructor.md)、および、[代入演算子](error_code/op_assign.md)）にユーザー定義の列挙型を渡したい場合は、`is_error_code_enum`クラスを特殊化し、[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)を継承するよう特殊化する必要がある。
+`is_error_code_enum<T>::value == true`であることを要求する関数（[`error_code`](error_code.md) の[コンストラクタ](error_code/op_constructor.md)、および、[代入演算子](error_code/op_assign.md)）にユーザー定義の列挙型を渡したい場合は、`is_error_code_enum`クラスを特殊化し、[`true_type`](/reference/type_traits/true_type.md)を継承するよう特殊化する必要がある。
 
-標準では、[`io_errc`](../ios/io_errc.md)列挙型と[`future_errc`](../future/future_errc.md)列挙型に対する[`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md)の特殊化を提供する。
+標準では、[`io_errc`](../ios/io_errc.md)列挙型と[`future_errc`](../future/future_errc.md)列挙型に対する[`true_type`](/reference/type_traits/true_type.md)の特殊化を提供する。
 
 
 ##例

@@ -83,7 +83,7 @@ int main()
 * type_traits[link /reference/type_traits.md]
 * operator new[link /reference/new/op_new.md]
 * operator delete[link /reference/new/op_delete.md]
-* true_type[link /reference/type_traits/integral_constant-true_type-false_type.md]
+* true_type[link /reference/type_traits/true_type.md]
 * hash[link /reference/functional/hash.md]
 * equal_to[link /reference/functional/equal_to.md]
 * swap[link swap_free.md]

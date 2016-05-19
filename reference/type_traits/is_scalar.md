@@ -16,7 +16,7 @@ namespace std {
 
 
 ##効果
-`is_scalar`は、型`T`がスカラ型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_scalar`は、型`T`がスカラ型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ##例

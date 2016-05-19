@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_trivially_default_constructible`は、型`T`がトリビアルにデフォルト構築可能であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_trivially_default_constructible`は、型`T`がトリビアルにデフォルト構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 [`is_trivially_constructible`](is_trivially_constructible.md)`<T>::value == true`ならば、トリビアルにデフォルト構築可能であると判断される。
 

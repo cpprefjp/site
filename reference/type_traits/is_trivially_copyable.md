@@ -20,8 +20,9 @@ namespace std {
 
 
 ##効果
-`is_trivially_copyable`は、`T`がトリビアルコピー可能な型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。  
-「トリビアルコピー可能な型」とは、「`std::memcpy()`可能な型である」と言い換えることもできる。これに分類される型は、以下の全ての条件を満たす必要がある：  
+`is_trivially_copyable`は、`T`がトリビアルコピー可能な型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+
+「トリビアルコピー可能な型」とは、「`std::memcpy()`可能な型である」と言い換えることもできる。これに分類される型は、以下の全ての条件を満たす必要がある：
 
 - 非トリビアルなコピーコンストラクタを持っていないこと
 - 非トリビアルなムーブコンストラクタを持っていないこと

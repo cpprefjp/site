@@ -16,7 +16,7 @@ namespace std {
 
 
 ##要件
-`is_bind_expression`は、型 `T `が `std::bind()` の戻り値であれば [`true_type`](/reference/type_traits/integral_constant-true_type-false_type.md) から派生し、そうでなければ [`false_type`](/reference/type_traits/integral_constant-true_type-false_type.md) から派生する。
+`is_bind_expression`は、型 `T `が `std::bind()` の戻り値であれば [`true_type`](/reference/type_traits/true_type.md) から派生し、そうでなければ [`false_type`](/reference/type_traits/false_type.md) から派生する。
 
 
 ##例

@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-`is_standard_layout`は、型`T`がスタンダードレイアウト型であるならば[`true_type`](integral_constant-true_type-false_type.md)から派生し、そうでなければ[`false_type`](integral_constant-true_type-false_type.md)から派生する。
+`is_standard_layout`は、型`T`がスタンダードレイアウト型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 スタンダードレイアウト型は、以下の全てを満たす型を指す：
 
