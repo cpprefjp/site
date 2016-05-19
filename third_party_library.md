@@ -53,3 +53,9 @@ x86(IA32), x64(AMD64, x86-64)のマシン語命令を実行時に生成するC++
 
 C++コードの自動テストを行うフレームワーク。  
 ライセンス：BSD Version 2
+
+
+- [fmtlib](https://github.com/fmtlib/fmt)
+
+文字列フォーマットのライブラリ。  
+ライセンス：BSD
