@@ -57,15 +57,21 @@ C++11 以降では、要素を書き換えることと、イテレータを無�
 ```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 #include <numeric>
 
 int main()
 {
   const std::vector<int> v = {1, 2, 3, 4, 5};
+  const std::vector<std::string> v2 = {"aaa", "bbb", "ccc"};
 
   // (1) : 合計値を求める
   int sum = std::accumulate(v.begin(), v.end(), 0);
   std::cout << "sum : " << sum << std::endl;
+
+  // (1) : 文字列のリストを連結する
+  std::string concatenate = std::accumulate(v2.begin(), v2.end(), std::string());
+  std::cout << "concat : " << concatenate << std::endl;
 
   // (2) : 任意の二項演算を行う
   // ここでは、初期値を1として、全ての要素を掛け合わせている
@@ -80,6 +86,7 @@ int main()
 ###出力
 ```
 sum : 15
+concat : aaabbbccc
 product : 120
 ```
 
