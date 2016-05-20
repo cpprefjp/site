@@ -12,3 +12,8 @@
 | [`adjacent_difference`](numeric/adjacent_difference.md) | 1つのシーケンスの任意の範囲の隣接する値間の差を計算する | |
 | [`iota`](numeric/iota.md)                   | 指定された値から始まる整数列を生成する | C++11 |
 
+
+##関連項目
+- [`<algorithm>`](/reference/algorithm.md)
+    - より汎用的なアルゴリズム
+

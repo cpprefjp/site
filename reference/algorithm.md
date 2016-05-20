@@ -258,3 +258,7 @@ return distance(a, b);
 | [`is_permutation`](algorithm/is_permutation.md)     | 範囲が順列かを判定する | C++11 |
 
 
+##関連項目
+- [`<numeric>`](/reference/numeric.md)
+    - 数値計算のアルゴリズム
+
