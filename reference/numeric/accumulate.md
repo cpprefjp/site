@@ -28,8 +28,8 @@ namespace std{
 ##要件
 - `T`が[CopyConstructible](/reference/concepts/CopyConstructible.md)であること
 - `T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
-- `binary_op`は、範囲`[first, last)`の要素変更およびイテレータの無効化をしてはならない
 - C++03まで : `binary_op`は副作用を起こしてはならない
+- C++11から : `binary_op`は、範囲`[first, last)`の要素変更およびイテレータの無効化をしてはならない
 
 
 ##効果
