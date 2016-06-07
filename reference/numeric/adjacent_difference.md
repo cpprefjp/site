@@ -100,6 +100,7 @@ int main()
 #include <iterator>
 #include <functional>
 
+// (2)
 template <class InputIterator, class OutputIterator, class BinaryOperation>
 OutputIterator adjacent_difference(InputIterator first,
                                    InputIterator last,
@@ -129,6 +130,7 @@ OutputIterator adjacent_difference(InputIterator first,
   return result;
 }
 
+// (1)
 template <class InputIterator, class OutputIterator>
 OutputIterator adjacent_difference(InputIterator first, InputIterator last, OutputIterator result)
 {
