@@ -46,7 +46,7 @@
 | [初期化子リスト](/lang/cpp11/initializer_lists.md) | 波括弧による初期化をユーザー定義する。`vector<int> v = {1, 2, 3};`など。 | 4.4 | 3.1 | 14.0 | 12.0 |
 | [一様初期化](/lang/cpp11/uniform_initialization.md) | コンストラクタ呼び出しを波カッコで行う。 `T x { a, b, c };` | 4.6 | 3.1 | 13.0(partial)<br/> 14.0 | 12.0 |
 | [`noexcept`](/lang/cpp11/noexcept.md) | 関数の例外指定、例外を投げる可能性のある式かbool値を返す演算子 | 4.6 | 3.0 | 13.0(partial)<br/>14.0 | 14.0 |
-| [任意の式によるSFINAE](/lang/cpp11/sfinae_expressions.md) | 特定の式が有効かどうかで、その関数をオーバーロード解決に含めるかどうかを決定する | 4.4 | 2.9 | 12.0 | 14.0 Update 1 (partial) |
+| [任意の式によるSFINAE](/lang/cpp11/sfinae_expressions.md) | 特定の式が有効かどうかで、その関数をオーバーロード解決に含めるかどうかを決定する | 4.4 | 2.9 | 12.0 | 14.0 Update 1 (partial)<br/> 14.0 Update 3 |
 | [スレッドローカルストレージ](/lang/cpp11/thread_local_storage.md) | スレッドごとに異なる静的記憶域に保持される変数 | 4.8 | 3.3 | 11.1 (partial) | 10.0<br/> `__declspec(thread)`属性での部分サポート<br/> 14.0 |
 | [ブロックスコープを持つ`static`変数初期化のスレッドセーフ化](/lang/cpp11/static_initialization_thread_safely.md) | 関数ローカルで定義した`static`変数の初期化を、スレッドセーフにする | 4.0 | 2.9 | ? | 14.0 |
 
@@ -62,6 +62,7 @@
 - Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
 - Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
 - Visual C++ (MSVC): [Visual Studio 2015 Update 1 RC Available](http://blogs.msdn.com/b/vcblog/archive/2015/10/29/visual-studio-2015-update-1-rc-available.aspx)
+- Visual C++ (MSVC): [Compiler improvements in VS 2015 Update 3 RC - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/compiler-improvements-in-vs-2015-update-3-rc/)
 
 
 ## <a name="cpp14" href="#cpp14">C++14言語機能の実装状況</a>
