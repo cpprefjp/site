@@ -28,9 +28,15 @@ namespace std {
 
 象限は引数の符号から適切に求められる。
 
-`y`と`x`の両方が値`0`である場合に定義域エラーとなり、実装定義の値が返る。
+`y`と`x`の両方が値`0`である場合に定義域エラーとなり、実装定義の値が返る。定義域エラー発生時には、以下のプログラムは状態になる:
 
-いずれかのパラメータが`NaN`である場合、戻り値として`NaN`が返り、浮動小数点数例外は発生しない。
+- [`math_errhandling`](math_errhandling.md.nolink) `&` [`MATH_ERRNO`](math_errno.md.nolink)が非ゼロとなり、
+- [`errno`](/reference/cerrno/errno.md.nolink)の値は[`EDOM`](/reference/cerrno/edom.md.nolink)となり、
+- [`math_errhandling`](math_errhandling.md.nolink) `&` [`MATH_ERREXCEPT`](math_errexcept.md.nolink)が非ゼロとなり、
+- 浮動小数点数例外としてinvalidが送出される
+
+
+いずれかのパラメータが`NaN`である場合、戻り値として`NaN`が返り、浮動小数点数例外は送出されない。
 
 
 ##備考
