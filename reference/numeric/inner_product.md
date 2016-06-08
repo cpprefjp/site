@@ -83,6 +83,7 @@ int main()
 
 ##実装例
 ```cpp
+// (1)
 template <class InputIterator1, class InputIterator2, class T>
 T inner_product(InputIterator1 first1, InputIterator1 last1,
                 InputIterator2 first2, T init) {
@@ -90,9 +91,8 @@ T inner_product(InputIterator1 first1, InputIterator1 last1,
     init = init + (*first1++ * *first2++);
   return init;
 }
-```
 
-```cpp
+// (2)
 template <class InputIterator1, class InputIterator2, class T,
           class BinaryOperation1, class BinaryOperation2>
 T inner_product(InputIterator1 first1, InputIterator1 last1,
