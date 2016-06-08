@@ -28,10 +28,10 @@ namespace std {
 
 象限は引数の符号から適切に求められる。
 
-`y`と`x`の両方が値`0`である場合に定義域エラーとなり、実装定義の値が返る。定義域エラー発生時には、プログラムは以下の状態になる:
+`y`と`x`の両方が値`0`である場合に定義域エラーとなる可能性があり、実装定義の値が返る。定義域エラー発生時には、プログラムは以下の状態になる:
 
 - [`math_errhandling`](math_errhandling.md.nolink) `&` [`MATH_ERRNO`](math_errno.md.nolink)が非ゼロとなり、
-- [`errno`](/reference/cerrno/errno.md.nolink)の値は[`EDOM`](/reference/cerrno/edom.md.nolink)となり、
+- [`errno`](/reference/cerrno/errno.md)の値は[`EDOM`](/reference/cerrnomd)となり、
 - [`math_errhandling`](math_errhandling.md.nolink) `&` [`MATH_ERREXCEPT`](math_errexcept.md.nolink)が非ゼロとなり、
 - 浮動小数点数例外としてinvalidが送出される
 

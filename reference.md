@@ -157,7 +157,7 @@
 | [`<cassert>`](/reference/cassert.md) | アサート                            |                |
 | `<ccomplex>`                         | 複素数                              | C++11 (C99)    |
 | `<cctype>`                           | 文字種別の判定と変換                |                |
-| `<cerrno>`                           | エラー番号                          |                |
+| [`<cerrno>`](/reference/cerrno.md)   | エラー番号                          |                |
 | `<cfenv>`                            | 浮動小数点環境へのアクセス          | C++11 (C99)    |
 | [`<cfloat>`](/reference/cfloat.md)   | 浮動小数点数の定数                  |                |
 | `<cinttypes>`                        | 固定精度整数のための書式指定マクロ  | C++11 (C99)    |
