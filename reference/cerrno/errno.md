@@ -31,3 +31,8 @@ int main()
 * std::acosh[link /reference/cmath/acosh.md]
 
 
+##出力
+```
+定義域エラー
+```
+
