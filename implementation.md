@@ -107,5 +107,14 @@
 | Visual C++ .NET 2002 | 7.0  | 1300 |
 | Visual C++ 6.0       | 6.0  | 1200 |
 
+###C++14の機能を有効にする
+- 14.0 Update 2までは、言語のバージョンを切り替える機能はなく、そのリリース時の最新言語バージョンが有効となる
+- 14.0 Update 3からは、`/std:c++14`オプションを使用する。とくに指定しない場合はデフォルトでC++14が有効となる
 
+
+###最新バージョンの言語機能を有効にする
+- 14.0 Update 3からは、`/std:c++latest`オプションを使用する。
+
+
+- [Standards version switches in the compiler](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/standards-version-switches-in-the-compiler/)
 
