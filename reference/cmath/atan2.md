@@ -33,10 +33,10 @@ namespace std {
 - [`math_errhandling`](math_errhandling.md.nolink) `&` [`MATH_ERRNO`](math_errno.md.nolink)が非ゼロとなり、
 - [`errno`](/reference/cerrno/errno.md)の値は[`EDOM`](/reference/cerrno.md)となり、
 - [`math_errhandling`](math_errhandling.md.nolink) `&` [`MATH_ERREXCEPT`](math_errexcept.md.nolink)が非ゼロとなり、
-- 浮動小数点数例外としてinvalidが送出される
+- 浮動小数点例外としてinvalidが送出される
 
 
-いずれかのパラメータが`NaN`である場合、戻り値として`NaN`が返り、浮動小数点数例外は送出されない。
+いずれかのパラメータが`NaN`である場合、戻り値として`NaN`が返り、浮動小数点例外は送出されない。
 
 
 ##備考
