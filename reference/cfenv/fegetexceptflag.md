@@ -49,6 +49,7 @@ int main()
 ```
 * std::fegetexceptflag[color ff0000]
 * fexcept_t[link fexcept_t.md]
+* FE_ALL_EXCEPT[link fe_all_except.md]
 
 ##出力例
 ```
