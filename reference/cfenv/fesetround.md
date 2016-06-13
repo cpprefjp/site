@@ -69,7 +69,7 @@ int main()
 ```
 * std::fesetround[color ff0000]
 * std::rint[link /reference/cmath/rint.md]
-* FE_DOWNWARD[link fe_downward.md.nolink]
+* FE_DOWNWARD[link fe_downward.md]
 * FE_TONEAREST[link fe_tonearest.md.nolink]
 * FE_TOWARDZERO[link fe_towardzero.md.nolink]
 * FE_UPWARD[link fe_upward.md.nolink]
