@@ -73,7 +73,7 @@
 | [`FE_DOWNWARD`](cfenv/fe_downward.md)     | 負の無限大方向への丸め (macro) | C++11 |
 | [`FE_TONEAREST`](cfenv/fe_tonearest.md)   | 最も近い値への丸め (macro)     | C++11 |
 | [`FE_TOWARDZERO`](cfenv/fe_towardzero.md) | ゼロ方向への丸め (macro)       | C++11 |
-| `FE_UPWARD`     | 正の無限大方向への丸め (macro) | C++11 |
+| [`FE_UPWARD`](cfenv/fe_upward.md)         | 正の無限大方向への丸め (macro) | C++11 |
 
 
 ##関連項目
