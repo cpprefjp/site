@@ -54,15 +54,15 @@ double round(double x)
   return result;
 }
 ```
-* feholdexcept[link ../cfenv/feholdexcept.md.nolink]
+* feholdexcept[link ../cfenv/feholdexcept.md]
 * rint[link rint.md]
-* fetestexcept[link ../cfenv/fetestexcept.md.nolink]
-* FE_INEXACT[link ../cfenv/fe_inexact.md.nolink]
+* fetestexcept[link ../cfenv/fetestexcept.md]
+* FE_INEXACT[link ../cfenv/fe_inexact.md]
 * copysign[link copysign.md.nolink]
 * fabs[link fabs.md]
 * feupdateenv[link ../cfenv/feupdateenv.md.nolink]
 
-	ただし、本関数において戻り値が引数 `x` と異なる場合に、上記の実装のように例外 `FE_INEXACT` が発生するか否かは実装依存である。  
+	ただし、本関数において戻り値が引数 `x` と異なる場合に、上記の実装のように例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) が発生するか否かは実装依存である。  
 	なお、本関数の挙動は、現在の丸めモードには依存しない。
 
 - 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559__` が `1` に定義されている事で判別可能であるが、C++ 規格書には該当する記載を見つけることができなかった。
@@ -95,14 +95,14 @@ int main()
 ```
 * iostream[link ../iostream.md]
 * cmath[link ../cmath.md]
-* cfenv[link ../cfenv.md.nolink]
+* cfenv[link ../cfenv.md]
 * round[color ff0000]
 * cout[link ../iostream/cout.md]
 * boolalpha[link ../ios/boolalpha.md]
-* FE_INEXACT[link ../cfenv/FE_INEXACT.md.nolink]
-* FE_ALL_EXCEPT[link ../cfenv/FE_ALL_EXCEPT.md.nolink]
-* feclearexcept[link ../cfenv/feclearexcept.md.nolink]
-* fetestexcept[link ../cfenv/fetestexcept.md.nolink]
+* FE_INEXACT[link ../cfenv/fe_inexact.md]
+* FE_ALL_EXCEPT[link ../cfenv/fe_all_except.md]
+* feclearexcept[link ../cfenv/feclearexcept.md]
+* fetestexcept[link ../cfenv/fetestexcept.md]
 
 ###出力例
 ```
