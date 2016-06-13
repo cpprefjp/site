@@ -69,6 +69,7 @@ int main()
 }
 ```
 * std::feclearexcept[link feclearexcept.md.nolink]
+* FE_DIVBYZERO[link fe_divbyzero.md]
 * std::numeric_limits<double>::max()[link /reference/limits/numeric_limits/max.md]
 
 ##出力例
@@ -88,6 +89,6 @@ overflow
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp):
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
