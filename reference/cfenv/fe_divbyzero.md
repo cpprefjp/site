@@ -33,8 +33,8 @@ int main()
   std::feclearexcept(FE_ALL_EXCEPT);
 }
 ```
-* fetestexcept[link fetestexcept.md]
-* feclearexcept[link feclearexcept.md]
+* std::fetestexcept[link fetestexcept.md]
+* std::feclearexcept[link feclearexcept.md]
 
 ###出力例
 ```
