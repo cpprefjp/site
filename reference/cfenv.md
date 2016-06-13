@@ -50,7 +50,7 @@
 |-----------------|------------------------------|----------------|
 | `FE_ALL_EXCEPT` | 全ての浮動小数点例外 (macro) | C++11 |
 | [`FE_DIVBYZERO`](cfenv/fe_divbyzero.md)  | ゼロ除算 (macro)             | C++11 |
-| `FE_INEXACT`    | 不正確な結果 (macro)         | C++11 |
+| [`FE_INEXACT`](cfenv/fe_inexact.md)      | 不正確な結果 (macro)         | C++11 |
 | `FE_INVALID`    | 不正な演算 (macro)           | C++11 |
 | `FE_OVERFLOW`   | オーバーフロー (macro)       | C++11 |
 | `FE_UNDERFLOW`  | アンダーフロー (macro)       | C++11 |
