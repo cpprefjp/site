@@ -71,6 +71,7 @@ int main()
 * std::feclearexcept[link feclearexcept.md]
 * FE_DIVBYZERO[link fe_divbyzero.md]
 * FE_INEXACT[link fe_inexact.md]
+* FE_INVALID[link fe_invalid.md]
 * std::numeric_limits<double>::max()[link /reference/limits/numeric_limits/max.md]
 
 ##出力例
