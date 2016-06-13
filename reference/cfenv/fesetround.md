@@ -50,7 +50,7 @@ int main()
   // デフォルトの丸めモード (FE_TONEAREST)
   round_values("default");
 
-  // 切り捨て
+  // 切り下げ
   std::fesetround(FE_DOWNWARD);
   round_values("downward");
 
