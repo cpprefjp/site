@@ -74,6 +74,7 @@ int main()
 * FE_INEXACT[link fe_inexact.md]
 * FE_INVALID[link fe_invalid.md]
 * FE_OVERFLOW[link fe_overflow.md]
+* FE_UNDERFLOW[link fe_underflow.md]
 * std::numeric_limits<double>::max()[link /reference/limits/numeric_limits/max.md]
 
 ##出力例
