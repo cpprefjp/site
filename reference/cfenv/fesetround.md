@@ -71,8 +71,8 @@ int main()
 * std::rint[link /reference/cmath/rint.md]
 * FE_DOWNWARD[link fe_downward.md]
 * FE_TONEAREST[link fe_tonearest.md]
-* FE_TOWARDZERO[link fe_towardzero.md.nolink]
-* FE_UPWARD[link fe_upward.md.nolink]
+* FE_TOWARDZERO[link fe_towardzero.md]
+* FE_UPWARD[link fe_upward.md]
 
 ##出力
 ```
