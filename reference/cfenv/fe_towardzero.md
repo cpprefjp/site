@@ -32,14 +32,14 @@ int main()
   };
 
   for (float f : ar) {
-    int x = std::rint(f);
+    int x = std::nearbyint(f);
     std::cout << f << " -> " << x << std::endl;
   }
 }
 ```
 * FE_TOWARDZERO[color ff0000]
 * std::fesetround[link fesetround.md]
-* std::rint[link /reference/cmath/rint.md]
+* std::nearbyint[link /reference/cmath/nearbyint.md]
 
 ###出力
 ```

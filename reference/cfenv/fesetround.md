@@ -39,7 +39,7 @@ void round_values(const char* mode)
 
   std::cout << mode << std::endl << "  ";
   for (float f : ar) {
-    int x = std::rint(f);
+    int x = std::nearbyint(f);
     std::cout << '[' << f << " -> " << x << "] ";
   }
   std::cout << std::endl;
@@ -68,7 +68,7 @@ int main()
 }
 ```
 * std::fesetround[color ff0000]
-* std::rint[link /reference/cmath/rint.md]
+* std::nearbyint[link /reference/cmath/nearbyint.md]
 * FE_DOWNWARD[link fe_downward.md]
 * FE_TONEAREST[link fe_tonearest.md]
 * FE_TOWARDZERO[link fe_towardzero.md]
