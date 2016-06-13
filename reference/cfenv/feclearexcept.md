@@ -44,7 +44,7 @@ int main()
 ```
 * std::feclearexcept[color ff0000]
 * FE_DIVBYZERO[link fe_divbyzero.md]
-* FE_ALL_EXCEPT[link fe_all_except.md.nolink]
+* FE_ALL_EXCEPT[link fe_all_except.md]
 * assert[link /reference/cassert/assert.md]
 
 ##出力
