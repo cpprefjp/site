@@ -35,12 +35,12 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `fexcept_t`       | 浮動小数点例外の状態フラグを表す整数型 (typedef) | C++11 |
-| [`feclearexcept`](cfenv/feclearexcept.md)   | 指定された浮動小数点例外をクリアする (function) | C++11 |
+| [`fexcept_t`](cfenv/fexcept_t.md) | 浮動小数点例外の状態フラグを表す整数型 (typedef) | C++11 |
+| [`feclearexcept`](cfenv/feclearexcept.md) | 指定された浮動小数点例外をクリアする (function) | C++11 |
 | [`fegetexceptflag`](cfenv/fegetexceptflag.md) | 浮動小数点例外の現在の状態を、実装定義の表現で取得する (function) | C++11 |
 | [`fesetexceptflag`](cfenv/fesetexceptflag.md) | 浮動小数点例外を発生させずに、浮動小数点例外の状態を設定する (function) | C++11 |
 | [`feraiseexcept`](cfenv/feraiseexcept.md) | 指定された浮動小数点例外を発生させる (function) | C++11 |
-| [`fetestexcept`](cfenv/fetestexcept.md)    | 指定された浮動小数点例外が設定されるかを判定する (function) | C++11 |
+| [`fetestexcept`](cfenv/fetestexcept.md) | 指定された浮動小数点例外が設定されるかを判定する (function) | C++11 |
 
 ###浮動小数点例外マクロ
 

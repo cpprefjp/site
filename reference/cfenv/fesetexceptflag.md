@@ -9,6 +9,7 @@ namespace std {
   int fesetexceptflag(const fexcept_t *flagp, int excepts);
 }
 ```
+* fexcept_t[link fexcept_t.md]
 
 ##概要
 浮動小数点例外を発生させずに、浮動小数点例外の状態を設定する。
@@ -53,6 +54,7 @@ int main()
 }
 ```
 * std::fesetexceptflag[color ff0000]
+* fexcept_t[link fexcept_t.md]
 * std::fegetexceptflag[link fegetexceptflag.md]
 * std::feclearexcept[link feclearexcept.md]
 * std::fetestexcept[link fetestexcept.md]

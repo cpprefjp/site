@@ -9,6 +9,7 @@ namespace std {
   int fegetexceptflag(fexcept_t *flagp, int excepts);
 }
 ```
+* fexcept_t[link fexcept_t.md]
 
 ##概要
 浮動小数点例外の現在の状態を、実装定義の表現で取得する。
@@ -47,6 +48,7 @@ int main()
 }
 ```
 * std::fegetexceptflag[color ff0000]
+* fexcept_t[link fexcept_t.md]
 
 ##出力例
 ```
