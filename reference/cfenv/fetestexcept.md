@@ -68,6 +68,7 @@ int main()
     }
 }
 ```
+* std::fetestexcept[color ff0000]
 * std::feclearexcept[link feclearexcept.md]
 * FE_DIVBYZERO[link fe_divbyzero.md]
 * FE_INEXACT[link fe_inexact.md]
