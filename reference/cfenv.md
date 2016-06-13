@@ -70,8 +70,8 @@
 
 | 名前            | 説明                           | 対応バージョン |
 |-----------------|--------------------------------|----------------|
-| [`FE_DOWNWARD`](cfenv/fe_downward.md)   | 負の無限大方向への丸め (macro) | C++11 |
-| `FE_TONEAREST`  | 最も近い値への丸め (macro)     | C++11 |
+| [`FE_DOWNWARD`](cfenv/fe_downward.md)    | 負の無限大方向への丸め (macro) | C++11 |
+| [`FE_TONEAREST`](cfenv/fe_tonearest.md)  | 最も近い値への丸め (macro)     | C++11 |
 | `FE_TOWARDZERO` | ゼロ方向への丸め (macro)       | C++11 |
 | `FE_UPWARD`     | 正の無限大方向への丸め (macro) | C++11 |
 
