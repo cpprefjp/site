@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FE_DIVBYZERO FE_ALL_EXCEPT
+#define implementation-defined FE_ALL_EXCEPT
 ```
 * implementation-defined[italic]
 
