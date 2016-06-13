@@ -68,7 +68,7 @@ int main()
     }
 }
 ```
-* std::feclearexcept[link feclearexcept.md.nolink]
+* std::feclearexcept[link feclearexcept.md]
 * FE_DIVBYZERO[link fe_divbyzero.md]
 * std::numeric_limits<double>::max()[link /reference/limits/numeric_limits/max.md]
 

@@ -34,7 +34,7 @@ int main()
 }
 ```
 * fetestexcept[link fetestexcept.md]
-* feclearexcept[link feclearexcept.md.nolink]
+* feclearexcept[link feclearexcept.md]
 
 ###出力例
 ```
