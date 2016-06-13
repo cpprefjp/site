@@ -33,6 +33,7 @@ int main()
   std::feclearexcept(FE_ALL_EXCEPT);
 }
 ```
+* FE_DIVBYZERO[color ff0000]
 * std::fetestexcept[link fetestexcept.md]
 * std::feclearexcept[link feclearexcept.md]
 
