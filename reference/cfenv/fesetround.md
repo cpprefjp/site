@@ -100,3 +100,7 @@ upward
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+##関連項目
+- [`rint`](/reference/cmath/rint.md)
+- [`nearbyint`](/reference/cmath/nearbyint.md)
+
