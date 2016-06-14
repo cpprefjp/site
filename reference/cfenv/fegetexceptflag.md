@@ -51,7 +51,7 @@ int main()
 * fexcept_t[link fexcept_t.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
 
-##出力例
+###出力例
 ```
 zero divided
 ```

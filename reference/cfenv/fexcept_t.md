@@ -41,7 +41,7 @@ int main()
 * std::fegetexceptflag[link fegetexceptflag.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
 
-##出力例
+###出力例
 ```
 zero divided
 ```

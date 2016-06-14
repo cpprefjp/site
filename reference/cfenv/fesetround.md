@@ -74,7 +74,7 @@ int main()
 * FE_TOWARDZERO[link fe_towardzero.md]
 * FE_UPWARD[link fe_upward.md]
 
-##出力
+###出力
 ```
 default
   [2 -> 2] [2.1 -> 2] [2.5 -> 2] [2.9 -> 3] [-2 -> -2] [-2.1 -> -2] [-2.5 -> -2] [-2.9 -> -3] 

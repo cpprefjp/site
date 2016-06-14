@@ -64,7 +64,7 @@ int main()
 * FE_OVERFLOW[link fe_overflow.md]
 * FE_UNDERFLOW[link fe_underflow.md]
 
-##出力例
+###出力例
 ```
 inexact
 invalid
