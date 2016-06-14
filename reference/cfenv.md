@@ -60,7 +60,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `fegetround` | 現在の丸め方式を取得する (function) | C++11 |
+| [`fegetround`](cfenv/fegetround.md) | 現在の丸め方式を取得する (function) | C++11 |
 | [`fesetround`](cfenv/fesetround.md) | 丸め方式を設定する (function) | C++11 |
 
 
