@@ -22,7 +22,6 @@ namespace std {
 ```cpp
 #include <iostream>
 #include <cfenv>
-#include <cmath>
 
 void print_round_mode(int round_mode)
 {
