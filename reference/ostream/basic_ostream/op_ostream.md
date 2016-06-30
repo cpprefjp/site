@@ -104,7 +104,7 @@ TBD
 ##関連項目
 
 - このほかの`<<`演算子関数
-	- [`文字・文字列の書式化出力、および、右辺値ストリームに対する出力](op_ostream_free.md)
+	- [文字・文字列の書式化出力、および、右辺値ストリームに対する出力](op_ostream_free.md)
 	- [`std::sub_match`に関するもの](../../regex/sub_match/op_ostream.md)
 	- [`std::system_error`に関するもの](../../system_error/op_ostream.md)
 	- [`std::complex`に関するもの](../../complex/op_ostream.md)
