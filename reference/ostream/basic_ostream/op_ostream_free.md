@@ -196,7 +196,7 @@ TBD
 ##関連項目
 
 - このほかの`<<`演算子関数
-    - [`bool値・数値・ポインタ、ストリームバッファ、マニピュレータに対するもの](op_ostream.md)
+    - [`bool`値・数値・ポインタ、ストリームバッファ、マニピュレータに対するもの](op_ostream.md)
 	- [`std::sub_match`に関するもの](../../regex/sub_match/op_ostream.md)
 	- [`std::system_error`に関するもの](../../system_error/op_ostream.md)
 	- [`std::complex`に関するもの](../../complex/op_ostream.md)
