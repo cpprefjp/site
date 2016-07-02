@@ -71,7 +71,8 @@ int main(){}
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-	- 12.0のみは、`std::is_default_constructible<int[]>`のような要素数の指定がない配列型において、誤って`true_type`になっている。
+	- 11.0～12.0には、提案時の名前である`has_default_constructor`も存在する。
+	- 11.0～12.0は、`std::is_default_constructible<int[]>`のような要素数の指定がない配列型において、誤って`true_type`になっている。`has_default_constructor`も同様である。
 
 ####備考
 上の例でコンパイラによってはエラーになる。Clang 3.0 は `constexpr` に対応していないためにエラーになる。`operator bool` は持っているので、実行時に用いることはできる。

@@ -88,6 +88,7 @@ int main(){}
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0, 4.8.0
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+	- 11.0～12.0には、提案時の名前である`has_nothrow_copy`, `has_nothrow_copy_constructor`も存在する。
 	- 11.0は、すべてのクラス型において`true_type`になるかのような挙動を示した。上記例のうち`s`, `t`, `u`で`true_type`となった。ただし、Visual C++ 12.0で非対応の構文については適宜変更の上で試した。
 	- 12.0は、C++11に準拠する実装となっている。
 

@@ -75,6 +75,10 @@ int main(){}
 
 ###処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+	- 11.0～12.0には、提案時の名前である`has_move_constructor`も存在する。
+	- 11.0は、誤って`void`と参照型において`true_type`になっている。上記例のうち、`std::is_move_constructible<void>`, `std::is_move_constructible<int&>`, `std::is_move_constructible<int&&>`が該当する。
+	- 11.0～12.0は、上記例のうち`is_move_constructible<s>`に関するものにおいて、誤った結果になる。これは、[`is_constructible`](is_constructible.md)の不具合に由来する。
 
 
 ##参照
