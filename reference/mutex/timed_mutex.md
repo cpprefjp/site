@@ -105,7 +105,7 @@ int main()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 ##参照
 - [N2528: Timed_mutex in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2528.html)

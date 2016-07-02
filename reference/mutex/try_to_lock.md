@@ -53,7 +53,8 @@ int main()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+    - 11.0, 12.0は`constepxr`が実装されていないため、`代わりに`try_to_lock`には`const`が修飾されている。
 
 
 ##参照
