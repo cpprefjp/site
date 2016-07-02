@@ -46,7 +46,7 @@ int main()
     int result = std::try_lock(mtx1, mtx2);
 
     assert(result == -1); // 全てのtry_lock()呼び出しが成功
-    
+
     mtx1.unlock();
     mtx2.unlock();
   }
@@ -63,22 +63,25 @@ int main()
 
   // 一部のtry_lock()が失敗する場合
   {
-    std::unique_lock<std::mutex> lk1(mtx1, std::defer_lock);
-    std::unique_lock<std::recursive_mutex> lk2(mtx2, std::defer_lock);
+    // mtx2をロックしておく。
+    std::lock_guard<std::recursive_mutex> lk2_main_thread(mtx2);
 
-    lk2.lock(); // ロック取得済みにしてtry_lock()に渡す
+    std::thread th([&]
+    {
+      std::unique_lock<std::mutex> lk1(mtx1, std::defer_lock);
+      std::unique_lock<std::recursive_mutex> lk2(mtx2, std::defer_lock);
 
-    int result = std::try_lock(lk1, lk2);
+      // 他のスレッドでmtx2をロックしているため、lk2のロックに失敗する。
+      int result = std::try_lock(lk1, lk2);
 
-    // lk2が失敗したので第2引数を示す1が返る(0始まり)
-    assert(result == 1);
+      // lk2が失敗したので第2引数を示す1が返る(0始まり)
+      assert(result == 1);
 
-    // lk2が失敗したので、std::try_lock()内でlk2より前にtry_lock()が
-    // 成功した全てのミューテックスオブジェクトがunlock()される
-    assert(!lk1.owns_lock());
-
-    // lk2はロック取得済みで渡したので、ロック取得済み状態のまま
-    assert(lk2.owns_lock());
+      // lk2が失敗したので、std::try_lock()内でlk2より前にtry_lock()が
+      // 成功した全てのミューテックスオブジェクトがunlock()される
+      assert(!lk1.owns_lock());
+    });
+    th.join();
   }
 }
 ```
@@ -98,7 +101,7 @@ int main()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
 ##参照
