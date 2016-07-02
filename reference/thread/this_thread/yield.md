@@ -28,8 +28,9 @@ namespace this_thread {
 
 
 ##備考
-C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched_yield()`](http://linuxjm.osdn.jp/html/LDP_man-pages/man2/sched_yield.2.html)関数やWindows APIの[`SwitchToThread()`](http://msdn.microsoft.com/ja-jp/library/cc429368.aspx)関数などを参考のこと。
+C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched_yield()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/sched_yield.2.html)関数やWindows APIの[`SwitchToThread()`](http://msdn.microsoft.com/ja-jp/library/cc429368.aspx)関数などを参考のこと。
 
+Visual C++では、Windows APIの[`Sleep()`](https://msdn.microsoft.com/en-us/library/windows/desktop/ms686298.aspx)関数を使った実装となっている。ただし、12.0でWindowsストア向けアプリケーションを対象とする場合は、`Sleep()`関数が許可されていないため、`WaitForSingleObject()`関数のタイムアウト時間に最小値1ミリ秒を指定して呼び出す実装となっている。
 
 ##例
 ```cpp
@@ -75,7 +76,7 @@ result=42
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.3, 4.7.0
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp):
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
 ##参照

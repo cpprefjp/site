@@ -91,6 +91,13 @@ main=824a30
 ###言語
 - C++11
 
+###処理系
+- [Clang](/implementation.md#clang):
+- [GCC](/implementation.md#gcc):
+- [GCC, C++11 mode](/implementation.md#gcc):
+- [ICC](/implementation.md#icc):
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+
 ##参照
 - [LWG Issue 783. `thread::id` reuse](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#783)
 

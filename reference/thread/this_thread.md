@@ -30,3 +30,13 @@ void sleep_for(const chrono::duration<Rep, Period>& rel_time);
 | [`sleep_until`](this_thread/sleep_until.md) | 指定した絶対時刻を過ぎるまで現スレッドをブロックする (function template) | C++11 |
 | [`sleep_for`](this_thread/sleep_for.md)     | 指定した相対時間だけ現スレッドをブロックする (function template)         | C++11 |
 
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation.md#clang):
+- [GCC](/implementation.md#gcc): 
+- [GCC, C++11 mode](/implementation.md#gcc):
+- [ICC](/implementation.md#icc): 
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
