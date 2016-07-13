@@ -140,7 +140,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 | [constexpr if文][P0292R2] | `if constexpr(cond)`とすることで、そのif文はコンパイル時に処理される | No | No | No | No |
 | [処理の進行保証][P0296R1] | 並行処理に関して「処理の進行」を明確に定義<br/> (TODO:言葉の定義だけなので実装状況ページからは取り除く) | No | No | No | No |
 | [インライン変数][P0386R2] | インライン指定を関数だけでなく変数にも指定できるようにする | No | No | No | No |
-| [構造束縛][P0217R3] | タプルやユーザー定義型を分解して受け取れるようにする<br/> `tuple<int, string> f();` <br/> `const auto [a, b] = f(); // aはintの値、bはstringの値` | No | No | No | No |
+| [構造化束縛][P0217R3] | タプルやユーザー定義型を分解して受け取れるようにする<br/> `tuple<int, string> f();` <br/> `const auto [a, b] = f(); // aはintの値、bはstringの値` | No | No | No | No |
 | [if文とswitch文の条件式と初期化を分離][P0305R1] | `if (init; condition)`のように初期化と条件式を分けて記述できるようにする | No | No | No | No |
 
 
