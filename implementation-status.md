@@ -142,6 +142,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 | [インライン変数][P0386R2] | インライン指定を関数だけでなく変数にも指定できるようにする | No | No | No | No |
 | [構造化束縛][P0217R3] | タプルやユーザー定義型を分解して受け取れるようにする<br/> `tuple<int, string> f();` <br/> `const auto [a, b] = f(); // aはintの値、bはstringの値` | No | No | No | No |
 | [if文とswitch文の条件式と初期化を分離][P0305R1] | `if (init; condition)`のように初期化と条件式を分けて記述できるようにする | No | No | No | No |
+| [参照メンバをもつクラスの置き換え][P0137R0] | (だれか説明を書いてほしい) | No | No | No | No |
 
 
 [n3928]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3928.pdf
@@ -178,6 +179,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 [P0386R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0386r0.pdf
 [P0217R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0217r2.html
 [P0305R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0305r0.html
+[P0137R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0137r0.html
 
 
 各処理系のC++1z実装状況ページ：
