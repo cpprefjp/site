@@ -21,7 +21,7 @@ basic_filebuf(basic_filebuf&& rhs); // (2) C++11
 - (1)
     - 構築完了後、`is_open() == false`となる。
 - (2): コンストラクタ呼び出し前の`rhs`を`rhs_p`、コンストラクタ呼び出し後の`rhs`を`rhs_a`と表記する。
-    - `is_open() == rhs_a.is_open()`
+    - `is_open() == rhs_p.is_open()`
     - `rhs_p.is_open() == false`
     - `gptr() - eback() == rhs_p.gptr() - rhs_p.eback()`
     - `egptr() - eback() == rhs_p.egptr() - rhs_p.eback()`
