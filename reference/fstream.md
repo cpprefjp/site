@@ -10,7 +10,7 @@
 | [`basic_filebuf`](fstream/basic_filebuf.md)   | ファイルに対するストリームバッファ (class template) |                |
 | `basic_ifstream`                              | ファイルに対する入力ストリーム (class template)     |                |
 | `basic_ofstream`                              | ファイルに対する出力ストリーム (class template)     |                |
-| `basic_fstream`                               | ファイルに対する入出力ストリーム (class template)   |                |
+| [`basic_fstream`](fstream/basic_fstream.md)   | ファイルに対する入出力ストリーム (class template)   |                |
 
 ##バージョン
 ###言語
