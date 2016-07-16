@@ -133,13 +133,14 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 | [属性の名前空間指定に繰り返しをなくす][P0028R4] | `[[using CC: opt(1), debug]]`のように属性の名前空間宣言をまとめて行う | No | No | No | No |
 | [アライメント指定されたデータの動的メモリ確保時][P0035R4] | `operator new`と`operator delete`でアライメント値を取得できるようにする | No | No | No | No |
 | [クラステンプレートのテンプレート引数推論][P0091R3] | コンストラクタの引数からクラスのテンプレート引数を推論できるようにする | No | No | No | No |
-| [非型テンプレート引数の`auto`宣言][P0127R3] | `template <typename T, T x>`という冗長なコードを`template <auto x>`のようにして受けられるようにし、<br/> `X<3>; X<true>; X<'a'>`のように定数を簡潔に渡せるようにする | No | No | No | No |
+| [非型テンプレート引数の`auto`宣言][P0127R2] | `template <typename T, T x>`という冗長なコードを`template <auto x>`のようにして受けられるようにし、<br/> `X<3>; X<true>; X<'a'>`のように定数を簡潔に渡せるようにする | No | No | No | No |
 | [値のコピー省略を保証][P0135R1] | 一時オブジェクトをコピーする際に、単純な値を持つクラスであればコピーが省略されることを保証する | No | No | No | No |
-| [厳密な式の評価順][P0145R3] | 式の項が評価される順序を厳密に規定する。<br/> `b = a;`の式が右から順番(a, bの順)に評価される | No | No | No | No |
+| 厳密な式の評価順 [P0145R3][P0145R3] [P0400R0][P0400R0] | 式の項が評価される順序を厳密に規定する。<br/> `b = a;`の式が右から順番(a, bの順)に評価される | No | No | No | No |
 | [不明な属性を無視する][P0283R2] | 実装が知らない名前空間の属性は無視する | No | 3.8 | No | No |
-| [constexpr if文][P0292R2] | `if constexpr(cond)`とすることで、そのif文はコンパイル時に処理される | No | No | No | No |
+| [if constexpr文][P0292R2] | `if constexpr(cond)`とすることで、そのif文はコンパイル時に処理される | No | No | No | No |
 | [処理の進行保証][P0296R1] | 並行処理に関して「処理の進行」を明確に定義<br/> (TODO:言葉の定義だけなので実装状況ページからは取り除く) | No | No | No | No |
 | [インライン変数][P0386R2] | インライン指定を関数だけでなく変数にも指定できるようにする | No | No | No | No |
+| [templated entityという用語を導入][P0391R0] | (TODO:言葉の定義だけなので実装状況ページからは取り除く) | No | No | No | No |
 | [構造化束縛][P0217R3] | タプルやユーザー定義型を分解して受け取れるようにする<br/> `tuple<int, string> f();` <br/> `const auto [a, b] = f(); // aはintの値、bはstringの値` | No | No | No | No |
 | [if文とswitch文の条件式と初期化を分離][P0305R1] | `if (init; condition)`のように初期化と条件式を分けて記述できるようにする | No | No | No | No |
 | [参照メンバをもつクラスの置き換え][P0137R1] | 参照型メンバや`const`データメンバを含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする | No | No | No | No |
@@ -167,19 +168,21 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 [P0184R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0184r0.html
 [P0018R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0018r3.html
 [P0245R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0245r1.html
-[P0028R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0028r3.html
-[P0035R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0035r3.html
-[P0091R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0091r2.html
-[P0127R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r1.html
-[P0135R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0135r0.html
-[P0145R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0145r2.pdf
-[P0283R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0283r1.pdf
-[P0292R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r1.html
-[P0296R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0296r1.html
-[P0386R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0386r0.pdf
-[P0217R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0217r2.html
-[P0305R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0305r0.html
+[P0028R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0028r4.html
+[P0035R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0035r4.html
+[P0091R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0091r3.html
+[P0127R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r2.html
+[P0135R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html
+[P0145R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0145r3.pdf
+[P0283R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0283r2.html
+[P0292R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r2.html
+[P0296R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0296r2.html
+[P0386R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0386r2.pdf
+[P0391R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0391r0.html
+[P0217R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0217r3.html
+[P0305R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0305r1.html
 [P0137R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html
+[P0400R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0400r0.html
 
 
 各処理系のC++1z実装状況ページ：
