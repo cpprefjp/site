@@ -63,9 +63,9 @@
 ## <a name="icc" href="#icc">Intel C++ Compiler</a>
 このサイトでは ICC と呼ぶ。
 
-- [XLsoft エクセルソフト : インテル C++ Composer XE Linux 版/インテル C++ コンパイラー XE Linux 版 製品紹介](http://www.xlsoft.com/jp/products/intel/compilers/ccl/index.html?tab=0) 
-- [XLsoft エクセルソフト : インテル C++ Composer XE Mac OS 版/インテル C++ コンパイラー XE Mac OS 版 製品紹介](http://www.xlsoft.com/jp/products/intel/compilers/ccm/index.html?tab=0) 
-- [XLsoft エクセルソフト : インテル C++ Composer XE Windows 版/インテル C++ コンパイラー XE Windows 版 製品紹介](http://www.xlsoft.com/jp/products/intel/compilers/ccw/) 
+- [XLsoft エクセルソフト : インテル C++ Composer XE Linux 版/インテル C++ コンパイラー XE Linux 版 製品紹介](http://www.xlsoft.com/jp/products/intel/compilers/ccl/index.html?tab=0)
+- [XLsoft エクセルソフト : インテル C++ Composer XE Mac OS 版/インテル C++ コンパイラー XE Mac OS 版 製品紹介](http://www.xlsoft.com/jp/products/intel/compilers/ccm/index.html?tab=0)
+- [XLsoft エクセルソフト : インテル C++ Composer XE Windows 版/インテル C++ コンパイラー XE Windows 版 製品紹介](http://www.xlsoft.com/jp/products/intel/compilers/ccw/)
 
 ###別名
 - ICC
@@ -84,7 +84,7 @@
 このサイトでは Visual C++ と呼ぶ。
 
 - [Visual Studio - Microsoft Developer Tools](https://www.visualstudio.com/ja-jp/visual-studio-homepage-vs.aspx): Visual C++を含む統合開発環境。
-- [Announcing the official release of the Visual C++ Build Tools 2015 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/03/31/announcing-the-official-release-of-the-visual-c-build-tools-2015/): コンパイラおよび関連ツールのみのパッケージ。
+- [Visual C++ Build Tools](http://landinghub.visualstudio.com/visual-cpp-build-tools): コンパイラおよび関連ツールのみのパッケージ。
 
 ###別名
 - VC
@@ -117,4 +117,3 @@
 
 
 - [Standards version switches in the compiler](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/standards-version-switches-in-the-compiler/)
-
