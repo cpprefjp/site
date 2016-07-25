@@ -75,6 +75,15 @@
 | [`FE_TOWARDZERO`](cfenv/fe_towardzero.md) | ゼロ方向への丸め (macro)       | C++11 |
 | [`FE_UPWARD`](cfenv/fe_upward.md)         | 正の無限大方向への丸め (macro) | C++11 |
 
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation.md#clang): ?
+- [GCC, C++11 mode](/implementation.md#gcc): ?
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
 
 ##関連項目
 - [`<cmath>`](/reference/cmath.md)
