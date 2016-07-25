@@ -72,3 +72,15 @@ int main()
 21
 21
 ```
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation.md#clang): ?
+- [GCC, C++11 mode](/implementation.md#gcc): ?
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
+	- 12.0は、正しく実装されていない。C++11での最低値である10と定義されている。しかし、`double`および`long double`がIEEE 754倍精度で実装されているため、少なくとも17以上でなければならない。
+	- 14.0は、正しく17と定義されている。
