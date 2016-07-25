@@ -37,7 +37,8 @@ template <class Compare> void merge(list&& x, Compare comp); // (4) C++11
 
 
 ##備考
-この操作は安定である。
+- この操作は安定である。
+- 移動先と移動元のアロケータが等値でない場合(`get_allocator() != x.get_allocator()`の場合)、この関数呼び出しの効果は未定義である。
 
 
 ##例
