@@ -32,7 +32,7 @@
 ## <a name="gcc" href="#gcc">GNU Compiler Collection</a>
 このサイトでは GCC と呼ぶ
 
-- [GCC, the GNU Compiler Collection - GNU Project - Free Software Foundation (FSF)](http://gcc.gnu.org/)
+- [GCC, the GNU Compiler Collection - GNU Project - Free Software Foundation (FSF)](https://gcc.gnu.org/)
 - [MinGW | Minimalist GNU for Windows](http://www.mingw.org/)
 - [Fortran, C, C++ for Windows](http://www.equation.com/servlet/equation.cmd?fa=fortran) (MinGW バイナリ)
 

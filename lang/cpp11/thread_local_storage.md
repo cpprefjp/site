@@ -95,7 +95,7 @@ thread2 : 4
 
 | ベンダー | 機能 |
 |----------|------|
-| [GNU](http://www.gnu.org/) | [Thread-Local Storage](http://gcc.gnu.org/onlinedocs/gcc-3.3.1/gcc/Thread-Local.html#Thread-Local) |
+| [GNU](http://www.gnu.org/) | [Thread-Local Storage](https://gcc.gnu.org/onlinedocs/gcc-3.3.1/gcc/Thread-Local.html#Thread-Local) |
 | [HP](http://www.hp.com/)   | [Using Thread Local Storage](http://h30097.www3.hp.com/docs/base_doc/DOCUMENTATION/V51B_HTML/ARH9VDTE/THRDSCHP.HTM#anch_1024) |
 | [HP](http://www.hp.com/)   | [Tru64 UNIX to HP-UX STK: critical Impact: TLS - feature differences (CrCh320)](http://devrsrc1.external.hp.com/STKT/impacts/i320.html) |
 | [IBM](http://www.ibm.com/) | Thread-Local Storage in [What's New in XL C/C++ V9.0](http://www-1.ibm.com/support/docview.wss?uid=swg27007322&aid=1) |

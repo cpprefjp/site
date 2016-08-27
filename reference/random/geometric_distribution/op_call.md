@@ -81,7 +81,7 @@ int main()
 
 ###備考
 GCC 4.8時点のlibstdc++では、パラメータを渡すバージョンの`operator()`呼び出しはコンパイルエラーになる。  
-[Bug 58302 - compilation error : `std::negative_binomial_distribution::operator(e, p)`](http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58302)  
+[Bug 58302 - compilation error : `std::negative_binomial_distribution::operator(e, p)`](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58302)  
 
 
 ##参照
