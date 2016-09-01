@@ -72,12 +72,7 @@ int main() {
 * std::unique[color ff0000]
 * result[color ff0000]
 * result2[color ff0000]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
 * v.erase[link /reference/vector/erase.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * std::for_each[link for_each.md]
 
 ###出力
@@ -93,7 +88,7 @@ sorted unique: 1,2,3,4,5,
 template <class ForwardIterator>
 ForwardIterator unique(ForwardIterator first, ForwardIterator last) {
   if (first == last) return first;
- 
+
   auto result = first;
   auto value = move(*first++);
   for ( ; first != last; ++first) {    if (!(value == *first)) {
@@ -108,7 +103,7 @@ ForwardIterator unique(ForwardIterator first, ForwardIterator last) {
 template <class ForwardIterator, class BinaryPredicate>
 ForwardIterator unique(ForwardIterator first, ForwardIterator last, BinaryPredicate pred) {
   if (first == last) return first;
- 
+
   auto result = first;
   auto value = move(*first++);
   for ( ; first != last; ++first) {    if (!pred(value, *first)) {

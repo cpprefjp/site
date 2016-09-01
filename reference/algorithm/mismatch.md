@@ -89,22 +89,14 @@ int main() {
 }
 ```
 * std::mismatch[color ff0000]
-* std::vector[link /reference/vector.md]
 * std::array[link /reference/array.md]
 * std::list[link /reference/list.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
 * v2.begin()[link /reference/array/begin.md]
 * v3.begin()[link /reference/list/begin.md]
 * v3.end()[link /reference/list/end.md]
 * v.size()[link /reference/vector/size.md]
 * v3.size()[link /reference/list/size.md]
-* std::distance[link /reference/iterator/distance.md]
-* std::begin[link /reference/iterator/begin.md]
-* std::end[link /reference/iterator/end.md]
 * std::to_string[link /reference/string/to_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

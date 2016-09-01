@@ -55,12 +55,6 @@ int main() {
 }
 ```
 * none_of[color ff0000]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::boolalpha[link /reference/ios/boolalpha.md]
 
 ###出力
 ```

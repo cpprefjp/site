@@ -60,18 +60,10 @@ int main()
 }
 ```
 * std::pop_heap[color ff0000]
-* <iostream>[link /reference/iostream.md]
-* <vector>[link /reference/vector.md]
-* <algorithm>[link /reference/algorithm.md]
-* std::vector[link /reference/vector.md]
 * std::make_heap[link make_heap.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
 * v.pop_back()[link /reference/vector/pop_back.md]
 * std::sort_heap[link sort_heap.md]
 * std::for_each[link for_each.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

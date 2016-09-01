@@ -72,14 +72,6 @@ int main()
 }
 ```
 * std::lower_bound[color ff0000]
-* <iostream>[link /reference/iostream.md]
-* <vector>[link /reference/vector.md]
-* <algorithm>[link /reference/algorithm.md]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
@@ -121,7 +113,6 @@ lower_bound(ForwardIterator first, ForwardIterator last, const T& value)
   return std::lower_bound(first, last, value, less_inner());
 }
 ```
-* std::distance[link /reference/iterator/distance.md]
 * std::advance[link /reference/iterator/advance.md]
 * std::iterator_traits[link /reference/iterator/iterator_traits.md]
 

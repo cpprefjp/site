@@ -61,14 +61,8 @@ int main() {
 }
 ```
 * std::rotate[color ff0000]
-* <algorithm>[link /reference/algorithm.md]
-* <iostream>[link /reference/iostream.md]
-* <string>[link /reference/string.md]
-* std::string[link /reference/string/basic_string.md]
 * str.begin()[link /reference/string/basic_string/begin.md]
 * str.end()[link /reference/string/basic_string/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ####出力
 ```
@@ -116,16 +110,9 @@ int main()
 }
 ```
 * std::rotate[color ff0000]
-* <algorithm>[link /reference/algorithm.md]
-* <iostream>[link /reference/iostream.md]
-* <vector>[link /reference/vector.md]
-* <iterator>[link /reference/iterator.md]
 * <utility>[link /reference/utility.md]
-* std::vector[link /reference/vector.md]
 * seq.begin()[link /reference/vector/begin.md]
 * seq.end[link /reference/vector/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * std::copy[link copy.md]
 * seq.assign[link /reference/vector/assign.md]

@@ -61,18 +61,8 @@ int main() {
 }
 ```
 * std::equal[color ff0000]
-* <algorithm>[link /reference/algorithm.md]
-* <iostream>[link /reference/iostream.md]
-* <vector>[link /reference/vector.md]
-* <iterator>[link /reference/iterator.md]
 * <array>[link /reference/array.md]
-* std::vector[link /reference/vector.md]
 * std::array[link /reference/array.md]
-* std::boolalpha[link /reference/ios/boolalpha.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::begin[link /reference/iterator/begin.md]
-* std::end[link /reference/iterator/end.md]
 
 ###出力
 ```

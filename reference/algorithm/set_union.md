@@ -70,21 +70,12 @@ int main()
 }
 ```
 * std::set_union[color ff0000]
-* <iostream>[link /reference/iostream.md]
 * <set>[link /reference/set.md]
 * <list>[link /reference/list.md]
-* <vector>[link /reference/vector.md]
-* <algorithm>[link /reference/algorithm.md]
-* <iterator>[link /reference/iterator.md]
 * std::list[link /reference/list.md]
-* std::vector[link /reference/vector.md]
 * std::multiset[link /reference/set/multiset.md]
-* std::begin[link /reference/iterator/begin.md]
-* std::end[link /reference/iterator/end.md]
 * std::inserter[link /reference/iterator/inserter.md]
 * std::for_each[link for_each.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

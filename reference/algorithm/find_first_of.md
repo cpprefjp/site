@@ -48,10 +48,10 @@ namespace std {
 
 int main() {
   std::vector<int> v = { 1,3,7,4,2 };
-  std::list<int> v2 = { 2,4,6,8 };
+  std::list<int> ls = { 2,4,6,8 };
 
   // 2,4,6,8 のどれかと一致する最初の要素を返す
-  std::vector<int>::iterator it = std::find_first_of(v.begin(), v.end(), v2.begin(), v2.end());
+  std::vector<int>::iterator it = std::find_first_of(v.begin(), v.end(), ls.begin(), ls.end());
   if (it == v.end()) {
     std::cout << "not found" << std::endl;
   } else {
@@ -60,14 +60,10 @@ int main() {
 }
 ```
 * std::find_first_of[color ff0000]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
+* <list>[link /reference/list.md]
 * std::list[link /reference/list.md]
-* v2.begin()[link /reference/list/begin.md]
-* v2.end()[link /reference/list/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* ls.begin()[link /reference/list/begin.md]
+* ls.end()[link /reference/list/end.md]
 
 ###出力
 ```

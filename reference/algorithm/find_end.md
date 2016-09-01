@@ -46,10 +46,10 @@ namespace std {
 
 int main() {
   std::vector<int> v = { 1,2,1,2,3 };
-  std::list<int> v2 = { 1,2 };
+  std::list<int> ls = { 1,2 };
 
   // 1,2 と連続している最後のシーケンスを探す
-  std::vector<int>::iterator it = std::find_end(v.begin(), v.end(), v2.begin(), v2.end());
+  std::vector<int>::iterator it = std::find_end(v.begin(), v.end(), ls.begin(), ls.end());
   // v[2] の位置を指すイテレータが見つかる。
   // v[0] の位置を指すイテレータではない。
   if (it == v.end()) {
@@ -60,14 +60,10 @@ int main() {
 }
 ```
 * std::find_end[color ff0000]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
+* <list>[link /reference/list.md]
 * std::list[link /reference/list.md]
-* v2.begin()[link /reference/list/begin.md]
-* v2.end()[link /reference/list/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* ls.begin()[link /reference/list/begin.md]
+* ls.end()[link /reference/list/end.md]
 
 ###出力
 ```

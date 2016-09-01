@@ -66,15 +66,8 @@ int main ()
 }
 ```
 * std::is_permutation[color ff0000]
-* <iostream>[link /reference/iostream.md]
-* <vector>[link /reference/vector.md]
-* <algorithm>[link /reference/algorithm.md]
-* std::vector[link /reference/vector.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::boolalpha[link /reference/ios/boolalpha.md]
-* begin()[link /reference/vector/begin.md]
-* end()[link /reference/vector/end.md]
+* good.begin()[link /reference/vector/begin.md]
+* bad.begin()[link /reference/vector/begin.md]
 
 ###出力
 ```
@@ -182,7 +175,6 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 * std::count[link count.md]
 * std::count_if[link count_if.md]
 * std::next[link /reference/iterator/next.md]
-* std::distance[link /reference/iterator/distance.md]
 * std::iterator_traits[link /reference/iterator/iterator_traits.md]
 * std::equal_to[link /reference/functional/equal_to.md]
 * std::random_access_iterator_tag[link /reference/iterator/iterator_tag.md]

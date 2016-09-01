@@ -69,13 +69,8 @@ int main() {
 * result[color ff0000]
 * std::remove_if[color ff0000]
 * v.erase[color ff0000][link /reference/vector/erase.md]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
 * v.size()[link /reference/vector/size.md]
 * std::for_each[link for_each.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * Erase-remove イディオム[link https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove)]
 
 ###出力

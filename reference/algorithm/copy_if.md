@@ -60,11 +60,9 @@ int main() {
   std::copy(result.begin(), out, std::ostream_iterator<int>(std::cout, ","));
 }
 ```
-* std::vector[link /reference/vector.md]
 * begin()[link /reference/vector/begin.md]
 * end()[link /reference/vector/end.md]
 * size()[link /reference/vector/size.md]
-* std::cout[link /reference/iostream/cout.md]
 * std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力

@@ -51,12 +51,9 @@ int main() {
 }
 ```
 * std::rotate_copy[color ff0000]
-* std::string[link /reference/string/basic_string.md]
 * str.begin()[link /reference/string/basic_string/begin.md]
 * str.end()[link /reference/string/basic_string/end.md]
 * std::back_inserter[link /reference/iterator/back_inserter.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

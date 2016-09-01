@@ -43,10 +43,6 @@ int main() {
 }
 ```
 * std::generate[color ff0000]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
-* std::cout[link /reference/iostream/cout.md]
 * std::for_each[link for_each.md]
 
 ###出力

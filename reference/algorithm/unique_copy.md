@@ -56,12 +56,10 @@ int main() {
 }
 ```
 * std::unique_copy[color ff0000]
-* std::vector[link /reference/vector.md]
-* begin()[link /reference/vector/begin.md]
-* end()[link /reference/vector/end.md]
+* uniqued.begin()[link /reference/vector/begin.md]
+* uniqued.end()[link /reference/vector/end.md]
 * std::back_inserter[link /reference/iterator/back_inserter.md]
 * std::for_each[link for_each.md]
-* std::cout[link /reference/iostream/cout.md]
 
 ###出力
 ```

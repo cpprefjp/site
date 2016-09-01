@@ -42,18 +42,14 @@ namespace std {
 #include <algorithm>
 #include <iostream>
 #include <iterator>
- 
+
 int main() {
   // 3 を出力しまくる
   std::fill_n(std::ostream_iterator<int>(std::cout, ","), 10, 3);
 }
 ```
 * std::fill_n[color ff0000]
-* <algorithm>[link /reference/algorithm.md]
-* <iostream>[link /reference/iostream.md]
-* <iterator>[link /reference/iterator.md]
 * std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* std::cout[link /reference/iostream/cout.md]
 
 ###出力
 ```

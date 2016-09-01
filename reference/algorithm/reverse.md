@@ -40,11 +40,8 @@ int main() {
 }
 ```
 * std::reverse[color ff0000]
-* std::string[link /reference/string/basic_string.md]
 * str.begin()[link /reference/string/basic_string/begin.md]
 * str.end()[link /reference/string/basic_string/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

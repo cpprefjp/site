@@ -78,13 +78,7 @@ int main()
 }
 ```
 * std::partition_copy[color ff0000]
-* std::string[link /reference/string/basic_string.md]
-* std::vector[link /reference/vector.md]
-* begin()[link /reference/vector/begin.md]
-* end()[link /reference/vector/end.md]
 * std::for_each[link for_each.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * std::back_inserter[link /reference/iterator/back_inserter.md]
 
 ###出力

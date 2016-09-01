@@ -47,10 +47,10 @@ namespace std {
 
 int main() {
   std::vector<int> v = { 1,2,1,2,3 };
-  std::list<int> v2 = { 1,2 };
+  std::list<int> ls = { 1,2 };
 
   // 1,2 と連続している最初のシーケンスを探す
-  std::vector<int>::iterator it = std::search(v.begin(), v.end(), v2.begin(), v2.end());
+  std::vector<int>::iterator it = std::search(v.begin(), v.end(), ls.begin(), ls.end());
   // v[0] の位置を指すイテレータが見つかる。
   if (it == v.end()) {
     std::cout << "not found" << std::endl;
@@ -60,15 +60,9 @@ int main() {
 }
 ```
 * std::search[color ff0000]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
 * std::list[link /reference/list.md]
-* v2.begin()[link /reference/list/begin.md]
-* v2.end()[link /reference/list/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::distance[link /reference/iterator/distance.md]
+* ls.begin()[link /reference/list/begin.md]
+* ls.end()[link /reference/list/end.md]
 
 ###出力
 ```

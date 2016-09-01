@@ -41,7 +41,7 @@ namespace std {
 #include <iostream>
 #include <vector>
 #include <iterator>
- 
+
 int main() {
   std::vector<int> v = { 2,3,1,2,1 };
 
@@ -51,10 +51,6 @@ int main() {
 }
 ```
 * std::remove_copy[color ff0000]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
-* std::cout[link /reference/iostream/cout.md]
 * std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力

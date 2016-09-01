@@ -47,12 +47,6 @@ int main()
 }
 ```
 * std::is_heap[color ff0000]
-* std::vector[link /reference/vector.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::boolalpha[link /reference/ios/boolalpha.md]
-* std::endl[link /reference/ostream/endl.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
 * std::make_heap[link make_heap.md]
 
 ###出力

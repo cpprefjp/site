@@ -60,12 +60,7 @@ int main() {
 }
 ```
 * std::shuffle[color ff0000]
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
 * std::iota[link /reference/numeric/iota.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * std::copy[link copy.md]
 * std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * std::mt19937[link /reference/random/mt19937.md]

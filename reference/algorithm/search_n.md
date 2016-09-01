@@ -62,12 +62,8 @@ int main() {
 }
 ```
 * std::search_n[color ff0000]
-* std::vector[link /reference/vector.md]
 * v.cbegin()[link /reference/vector/cbegin.md]
 * v.cend()[link /reference/vector/cend.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::distance[link /reference/iterator/distance.md]
 
 ###出力
 ```

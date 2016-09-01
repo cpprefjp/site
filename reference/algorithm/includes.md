@@ -47,13 +47,8 @@ int main()
 }
 ```
 * std::includes[color ff0000]
-* <iostream>[link /reference/iostream.md]
 * <set>[link /reference/set.md]
-* <algorithm>[link /reference/algorithm.md]
 * std::set[link /reference/set/set.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::boolalpha[link /reference/ios/boolalpha.md]
 * begin()[link /reference/set/set/begin.md]
 * end()[link /reference/set/set/end.md]
 

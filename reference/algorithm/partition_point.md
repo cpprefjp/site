@@ -61,17 +61,8 @@ int main()
 }
 ```
 * std::partition_point[color ff0000]
-* <vector>[link /reference/vector.md]
-* <iostream>[link /reference/iostream.md]
-* <algorithm>[link /reference/algorithm.md]
-* std::vector[link /reference/vector.md]
 * std::for_each[link for_each.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
 * std::partition[link partition.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
 
 ###出力
 ```
@@ -98,7 +89,6 @@ partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
     return first;
 }
 ```
-* std::distance[link /reference/iterator/distance.md]
 * std::next[link /reference/iterator/next.md]
 
 

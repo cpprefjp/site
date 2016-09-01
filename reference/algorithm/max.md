@@ -74,8 +74,6 @@ int main()
 }
 ```
 * std::max[color ff0000]
-* <cassert>[link /reference/cassert.md]
-* <algorithm>[link /reference/algorithm.md]
 * <functional>[link /reference/functional.md]
 * std::greater[link /reference/functional/greater.md]
 * assert[link /reference/cassert/assert.md]
