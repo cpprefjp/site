@@ -118,7 +118,7 @@ private:
   int buf[5] = {21, 22, 23, 24, 25};
 };
 
-int main(int argc, char *argv[])
+int main()
 {
   //配列に対して範囲for文を使う
   int array[5] = {1, 2, 3, 4, 5};
