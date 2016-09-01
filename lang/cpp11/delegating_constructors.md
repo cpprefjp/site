@@ -62,9 +62,6 @@ int main()
   X x(param);
 }
 ```
-* std::string[link /reference/string/basic_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

@@ -30,7 +30,6 @@ int main()
   int value = X().template get<3>(); // OK
 }
 ```
-* std::vector[link /reference/vector.md]
 
 ###出力
 ```

@@ -47,6 +47,7 @@ int main()
 //X<double>(); // コンパイルエラー : template parameter T must be integral type
 }
 ```
+* <type_traits>[link /reference/type_traits.md]
 * std::is_integral[link /reference/type_traits/is_integral.md]
 
 

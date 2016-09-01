@@ -33,7 +33,6 @@ int main()
   Derived d2("hello"); // OK
 }
 ```
-* std::string[link /reference/string/basic_string.md]
 
 継承コンストラクタは、指定した基本クラスのコンストラクタ全てを暗黙に宣言するが、一部のコンストラクタを明示的に宣言することを許可している：
 
@@ -49,7 +48,6 @@ struct Derived : Base1, Base2 {
     : Base2::Base2(s) {}
 };
 ```
-* std::string[link /reference/string/basic_string.md]
 
 
 ##仕様

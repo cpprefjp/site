@@ -9,14 +9,12 @@
 ```cpp
 std::string json = "{\"user_id\": 123, \"name\": \"Alice\"}";
 ```
-* std::string[link /reference/string/basic_string.md]
 
 文字列リテラル内にダブルクォーテーションを入力するために、多くのエスケープ文字`\`が必要となっている。このような状況で生文字列リテラルを使用することで、エスケープ文字をなくし、以下のように書ける：
 
 ```cpp
 std::string json = R"({"user_id": 123, "name": "Alice"})";
 ```
-* std::string[link /reference/string/basic_string.md]
 
 この機能は、正規表現を書く場合、ファイルパスをコード中に記述するような場合にも役立つ。
 
@@ -37,9 +35,6 @@ end)";
   std::cout << text << std::endl;
 }
 ```
-* std::string[link /reference/string/basic_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 出力：
 
@@ -78,9 +73,6 @@ int main()
   std::cout << s << std::endl;
 }
 ```
-* std::string[link /reference/string/basic_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 出力：
 
@@ -134,11 +126,10 @@ int main()
   std::cout << json << std::endl;
 }
 ```
-* std::string[link /reference/string/basic_string.md]
+* <cstdio>[link /reference/cstdio.md.nolink]
+* <sstream>[link /reference/sstream.md]
 * c_str()[link /reference/string/basic_string/c_str.md]
 * std::streambuf[link /reference/streambuf/basic_streambuf.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * rdbuf[link /reference/ios/basic_ios/rdbuf.md]
 * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 * str()[link /reference/sstream/basic_stringstream/str.md.nolink]
@@ -164,9 +155,6 @@ int main()
   std::cout << path << std::endl;
 }
 ```
-* std::string[link /reference/string/basic_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ####出力
 ```
@@ -196,11 +184,9 @@ int main()
   }
 }
 ```
+* <regex>[link /reference/regex.md]
 * std::regex[link /reference/regex/basic_regex.md]
 * std::regex_match[link /reference/regex/regex_match.md]
-* std::string[link /reference/string/basic_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ####出力
 ```
@@ -240,7 +226,8 @@ int main()
   file.write(html.data(), html.size());
 }
 ```
-* std::string[link /reference/string/basic_string.md]
+* <fstream>[link /reference/fstream.md]
+* <regex>[link /reference/regex.md]
 * std::regex[link /reference/regex/basic_regex.md]
 * std::regex_replace[link /reference/regex/regex_replace.md]
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]

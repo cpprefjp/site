@@ -61,8 +61,6 @@ int main()
   std::cout << std::fixed << r << '\n';
 }
 ```
-* iostream[link ../../reference/iostream.md]
-* cout[link ../../reference/iostream/cout.md]
 * fixed[link ../../reference/ios/fixed.md]
 * decltype[color ff0000]
 
@@ -85,8 +83,6 @@ int main()
   std::cout << j << ", " << k << '\n';
 }
 ```
-* iostream[link ../../reference/iostream.md]
-* cout[link ../../reference/iostream/cout.md]
 * decltype[color ff0000]
 
 ####出力
@@ -109,8 +105,6 @@ int main()
   std::cout << s.*mp << '\n';
 }
 ```
-* iostream[link ../../reference/iostream.md]
-* cout[link ../../reference/iostream/cout.md]
 * decltype[color ff0000]
 
 ####出力
@@ -145,8 +139,6 @@ int main()
   ::operator delete(p);
 }
 ```
-* iostream[link ../../reference/iostream.md]
-* cout[link ../../reference/iostream/cout.md]
 * decltype[color ff0000]
 
 ####出力
@@ -175,8 +167,6 @@ int main()
   std::cout << s << '\n';
 }
 ```
-* iostream[link ../../reference/iostream.md]
-* cout[link ../../reference/iostream/cout.md]
 * decltype[color ff0000]
 
 ####出力
@@ -212,9 +202,7 @@ int main()
   std::cout << l(S::g) << '\n';
 }
 ```
-* iostream[link ../../reference/iostream.md]
 * utility[link ../../reference/utility.md]
-* cout[link ../../reference/iostream/cout.md]
 * forward[link ../../reference/utility/forward.md]
 * decltype[color ff0000]
 
@@ -233,7 +221,6 @@ end
 template <class Func, class T>
 ??? trace(Func f, T t) { std::cout << "Calling f"; return f(t); }
 ```
-* cout[link ../../reference/iostream/cout.md]
 
 C++03 まででは、このような関数テンプレートの戻り値型をあらゆるケースで正確に表現することは不可能だった。
 
@@ -243,7 +230,6 @@ C++11 では、本機能と[戻り値の型を後置する関数宣言構文](tr
 template <class Func, class T>
 auto trace(Func f, T t) -> decltype(f(t)) { std::cout << "Calling f"; return f(t); }
 ```
-* cout[link ../../reference/iostream/cout.md]
 * decltype[color ff0000]
 
 なお、C++14 では [`decltype(auto)`](../cpp14/decltype_auto.md) が導入されたため、更に簡潔に以下のように書くことができるようになっている。
@@ -252,7 +238,6 @@ auto trace(Func f, T t) -> decltype(f(t)) { std::cout << "Calling f"; return f(t
 template <class Func, class T>
 decltype(auto) trace(Func f, T t) { std::cout << "Calling f"; return f(t); }
 ```
-* cout[link ../../reference/iostream/cout.md]
 * decltype(auto)[color ff0000]
 
 ##検討されたほかの選択肢

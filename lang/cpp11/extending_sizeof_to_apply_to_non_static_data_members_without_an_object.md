@@ -17,8 +17,6 @@ int main()
   std::cout << size << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 これができなかったバージョンでは、`sizeof(((X*)0)->m)`のような回避策がとられていた。
 

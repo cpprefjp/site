@@ -58,7 +58,7 @@ template <class Head, class... Tail>
 void print(Head&& head, Tail&&... tail)
 {
   std::cout << head << std::endl;
-    
+
   // パラメータパックtailをさらにheadとtailに分割する
   print(std::move(tail)...);
 }
@@ -68,8 +68,7 @@ int main()
   print(1, 'a', "hello");
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* <utility>[link /reference/utility.md]
 * std::move[link /reference/utility/move.md]
 
 出力：
@@ -160,7 +159,7 @@ void f(Args... args)
 {
   constexpr std::size_t template_parameter_pack_size = sizeof...(Args);
   constexpr std::size_t function_parameter_pack_size = sizeof...(args);
-  
+
   static_assert(template_parameter_pack_size == 3, "");
   static_assert(function_parameter_pack_size == 3, "");
 }
@@ -170,6 +169,7 @@ int main()
   f(1, 'a', "hello");
 }
 ```
+* <cstddef>[link /reference/cstddef.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 * constexpr[link constexpr.md]
 * static_assert[link static_assert.md]
@@ -205,6 +205,7 @@ int main()
   f(a, b);
 }
 ```
+* <tuple>[link /reference/tuple.md]
 * std::tuple[link /reference/tuple/tuple.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 
@@ -235,7 +236,6 @@ struct ContainerHolder {
 ContainerHolder<std::vector> v;
 ContainerHolder<std::list> ls;
 ```
-* std::vector[link /reference/vector.md]
 * std::list[link /reference/list.md]
 
 
@@ -267,7 +267,6 @@ struct Person {
 };
 Person person = { args... };
 ```
-* std::string[link /reference/string/basic_string.md]
 
 - 継承時の基本クラスリストの指定
 
@@ -307,7 +306,7 @@ std::string to_std_string(const T& x)
 {
   std::stringstream ss;
   ss << x;
-    
+
   std::string result;
   ss >> result;
   return result;
@@ -333,10 +332,8 @@ int main()
   f(1, 'a', "hello");
 }
 ```
-* std::string[link /reference/string/basic_string.md]
+* <sstream>[link /reference/sstream.md]
 * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 - 複数のパラメータパックに対して拡張を行う場合、それらのパラメータパックは同じ要素数でなければならない。そうでない場合、プログラムは不適格となる
 
@@ -366,6 +363,9 @@ int main()
   >::value, ""); // OK
 }
 ```
+* <utility>[link /reference/utility.md]
+* <tuple>[link /reference/tuple.md]
+* <type_traits>[link /reference/type_traits.md]
 * std::tuple[link /reference/tuple/tuple.md]
 * std::pair[link /reference/utility/pair.md]
 * std::is_same[link /reference/type_traits/is_same.md]

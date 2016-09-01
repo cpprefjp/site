@@ -21,7 +21,7 @@ union X {
 int main()
 {
    X x;
-   
+
    // int型の値を代入する
    x.m1 = 3;
    std::cout << x.m1 << std::endl;
@@ -39,9 +39,6 @@ int main()
 }
 ```
 * std::complex[link /reference/complex.md]
-* std::string[link /reference/string/basic_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 出力：
 

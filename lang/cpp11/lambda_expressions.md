@@ -142,7 +142,7 @@ void reference_capture_example()
 {
   int a = 0;
   auto f = [&a] { return a; }; // 変数aを参照キャプチャする
-  
+
   a = 1;
 
   // 参照キャプチャした変数は、ラムダ式を実行する時点での値となるので、
@@ -157,8 +157,6 @@ int main()
   reference_capture_example();
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 デフォルトのキャプチャ方法はひとつしか指定できない。変数個別のキャプチャ方法は、カンマ区切りで複数指定できる。
 
@@ -179,7 +177,7 @@ public:
     auto f = [this, copy_value] {
       member_value_ = 5; // メンバ変数を参照する
       bar(); // メンバ関数を呼び出す
-        
+
       return copy_value * 2; // コピーキャプチャしたローカル変数を使用する
     };
 
@@ -200,8 +198,6 @@ int main()
   X().foo();
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 出力 :
 
@@ -227,6 +223,7 @@ int main()
   foo()(2); // 未定義の振る舞い
 }
 ```
+* <functional>[link /reference/functional.md]
 * std::function[link /reference/functional/function.md]
 
 ラムダ式がデフォルト引数に現れる場合、いかなるキャプチャもしてはならない。
@@ -335,8 +332,6 @@ int main()
   foo([](int a, int b) { return a + b; });
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 出力 :
 
@@ -369,12 +364,7 @@ int main()
   }
 }
 ```
-* std::vector[link /reference/vector.md]
 * std::find_if[link /reference/algorithm/find_if.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ####出力
 ```
@@ -405,9 +395,8 @@ int main()
   });
 }
 ```
+* <functional>[link /reference/functional.md]
 * std::function[link /reference/functional/function.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ####出力
 ```
@@ -461,9 +450,6 @@ void f(int x)
   std::remove_if(v.begin(), v.end(), void (int& n) { n < x; });
 }
 ```
-* std::vector[link /reference/vector.md]
-* v.begin()[link /reference/vector/begin.md]
-* v.end()[link /reference/vector/end.md]
 * std::remove_if[link /reference/algorithm/remove_if.md]
 
 この構文の問題点は、先に述べたコピーキャプチャと参照キャプチャの使い分けができない、といったもののほか、構文解析が難しいというのもある。

@@ -49,7 +49,6 @@ int main() {
   std::cout << (Y<X< 1>>::c >::c>::c) << '\n';
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
 
 C++03での出力：
 
@@ -79,7 +78,6 @@ int main()
   static_cast<const std::basic_string<char>>(str); // OK
 }
 ```
-* std::vector[link /reference/vector.md]
 * std::basic_string[link /reference/string/basic_string.md]
 
 

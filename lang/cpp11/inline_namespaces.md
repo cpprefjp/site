@@ -63,8 +63,6 @@ int main()
   g(ns1::ns2::Y()); // 「call g()」が出力される
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 - インライン名前空間の外側の名前空間をusingディレクティブに指定することで、インライン名前空間のメンバがその外側の名前空間のメンバとして暗黙的に挿入される
 
@@ -86,8 +84,6 @@ int main()
   f();
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 - インライン名前空間のメンバは、外側の名前空間で外側の名前空間のメンバであるかのように、明示的にインスタンス化、および明示的に特殊化できる
 
@@ -121,8 +117,6 @@ int main()
   std::cout << ns1::ns2::X<void>::value << std::endl; // 1が出力される
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 - インライン名前空間の外側の名前空間の機能に、明示的な名前空間修飾付きでアクセスした場合でも、インライン名前空間をusingディレクティブしたのと同様にそのインライン名前空間の機能が外側の名前空間に持ち込まれる。これは、外側の名前空間とインライン名前空間で同名のメンバが定義されたときに、名前衝突による曖昧さが発生することを意味する
 
@@ -214,8 +208,6 @@ int main()
   my_namespace::f();     // デフォルトバージョンのAPIを呼び出す
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ####出力
 ```

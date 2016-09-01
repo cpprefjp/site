@@ -59,6 +59,8 @@ int main()
   f2(FORWARD_ARGS());        // 引数0個
 }
 ```
+* <cstdio>[link /reference/cstdio.md.nolink]
+* std::printf[link /reference/cstdio/printf.md.nolink]
 
 ###出力
 ```

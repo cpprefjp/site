@@ -23,7 +23,6 @@ int main()
   assert(p.description == "Hello everyone.");
 }
 ```
-* std::string[link /reference/string/basic_string.md]
 * assert[link /reference/cassert/assert.md]
 
 
@@ -50,7 +49,6 @@ public:
     : id_(id), data_("world") {}
 };
 ```
-* std::string[link /reference/string/basic_string.md]
 
 
 ##参照

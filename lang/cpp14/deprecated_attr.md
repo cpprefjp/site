@@ -79,16 +79,16 @@ int main()
 {
   old_class c;
   old_type t;
-    
+
   old_variable = 1;
-  
+
   X x;
   x.old_member_variable = 1;
 
   old_func();
-    
+
   old_enum e;
-    
+
   class_templ<int> ct;
 }
 ```

@@ -32,7 +32,7 @@ int main()
 {
   // 関数オブジェクトgの戻り値型もまたint&
   auto g = []() -> auto& { return static_value; };
-  
+
   int& result_f = f();
   int& result_g = g();
 }

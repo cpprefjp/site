@@ -122,6 +122,7 @@ int main()
   std::string y = std::move(x);
 }
 ```
+* <utility>[link /reference/utility.md]
 * std::move[link /reference/utility/move.md]
 
 ####所有権の移動
@@ -146,6 +147,8 @@ int main()
   std::unique_ptr<int> q = std::move(p);
 }
 ```
+* <utility>[link /reference/utility.md]
+* <memory>[link /reference/memory.md]
 * std::unique_ptr[link /reference/memory/unique_ptr.md]
 * std::move[link /reference/utility/move.md]
 
@@ -160,7 +163,6 @@ int main()
 コピーコンストラクタ、コピー代入に高いコストがかかる以下のクラスで説明する。
 
 ```cpp
-#include <memory>
 #include <algorithm>
 
 class large_class

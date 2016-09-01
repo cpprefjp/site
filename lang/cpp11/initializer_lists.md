@@ -15,7 +15,6 @@ std::vector<int> v2 {1, 2, 3};
 // 再代入
 v2 = {4, 5, 6};
 ```
-* std::vector[link /reference/vector.md]
 
 ユーザー定義型に対してリスト初期化を許可するためには、[`<initializer_list>`](/reference/initializer_list.md)ヘッダで定義される[`std::initializer_list`](/reference/initializer_list.md)クラスのオブジェクトをパラメータとして、コンストラクタや代入演算子をオーバーロードする：
 
@@ -37,7 +36,6 @@ int main()
   MyVector<int> v = {1, 2, 3};
 }
 ```
-* std::vector[link /reference/vector.md]
 * std::initializer_list[link /reference/initializer_list.md]
 * init.begin()[link /reference/initializer_list/begin.md]
 * init.end()[link /reference/initializer_list/end.md]
@@ -63,7 +61,6 @@ int main()
    MyVector<int> v {1, 2, 3};   // OK
 }
 ```
-* std::vector[link /reference/vector.md]
 * std::initializer_list[link /reference/initializer_list.md]
 * init.begin()[link /reference/initializer_list/begin.md]
 * init.end()[link /reference/initializer_list/end.md]
@@ -120,7 +117,6 @@ std::vector<X> xs {
   {4, 5, 6}
 };
 ```
-* std::vector[link /reference/vector.md]
 
 - 基本クラスやメンバの初期化子
 
@@ -132,7 +128,6 @@ struct Y : X {
     : X {1, 2, 3}, values {4, 5, 6} {}
 };
 ```
-* std::vector[link /reference/vector.md]
 
 - 代入演算子の右辺
 
@@ -205,8 +200,6 @@ int main()
 }
 ```
 * std::initializer_list[link /reference/initializer_list.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 - 初期化子リストコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、初期化子リストコンストラクタが優先して呼び出される。そのような状況では、丸カッコでのコンストラクタ呼び出しが必要となる
 
@@ -223,8 +216,6 @@ struct X {
 X x1 = {3.0}; // 「1」が出力される
 ```
 * std::initializer_list[link /reference/initializer_list.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 - 異なる要素型を持つ`std::initializer_list`型同士でオーバーロードができる
 
@@ -245,8 +236,6 @@ X {1, 2, 3};       // 「1」が出力される
 X {1.0, 2.0, 3.0}; // 「2」が出力される
 ```
 * std::initializer_list[link /reference/initializer_list.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 
 ### <a name="life-time" href="#life-time">初期化子リストオブジェクトの寿命</a>
@@ -341,8 +330,6 @@ int main()
 }
 ```
 * std::initializer_list[link /reference/initializer_list.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 
 ##この機能が必要になった背景・経緯
@@ -353,7 +340,6 @@ const int N = 3;
 int ar[N] = {1, 2, 3};
 std::vector<int> v(ar, ar + N);
 ```
-* std::vector[link /reference/vector.md]
 
 この問題を解決するために、波カッコによるリスト初期化をユーザー定義型でオーバーロードする機能が求められ、[`std::initializer_list`](/reference/initializer_list.md)クラスとオーバーロード機能が導入された。
 

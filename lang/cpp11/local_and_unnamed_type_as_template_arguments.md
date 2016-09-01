@@ -23,8 +23,6 @@ int main()
   std::cout << value2 << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 出力：
 

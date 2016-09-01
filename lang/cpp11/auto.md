@@ -131,13 +131,10 @@ int main()
   std::cout << '\n';
 }
 ```
-* iostream[link ../../reference/iostream.md]
 * memory[link ../../reference/memory.md]
 * initializer_list[link ../../reference/initializer_list.md]
 * unique_ptr[link ../../reference/memory/unique_ptr.md]
 * begin[link ../../reference/initializer_list/begin.md]
-* end[link ../../reference/initializer_list/end.md]
-* cout[link ../../reference/iostream/cout.md]
 * nullptr[link nullptr.md]
 * auto[color ff0000]
 
@@ -162,8 +159,6 @@ int main()
   std::cout << '\n';
 }
 ```
-* iostream[link ../../reference/iostream.md]
-* cout[link ../../reference/iostream/cout.md]
 * auto[color ff0000]
 
 ####出力２
@@ -185,9 +180,7 @@ int main()
   std::cout << '\n';
 }
 ```
-* iostream[link ../../reference/iostream.md]
 * initializer_list[link ../../reference/initializer_list.md]
-* cout[link ../../reference/iostream/cout.md]
 * auto[color ff0000]
 
 ####出力３
@@ -233,8 +226,6 @@ int main()
   f(T::m);
 }
 ```
-* iostream[link ../../reference/iostream.md]
-* cout[link ../../reference/iostream/cout.md]
 * constexpr[link constexpr.md]
 * auto[color ff0000]
 

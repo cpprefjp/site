@@ -53,11 +53,8 @@ int main()
   std::cout << byte_size << std::endl;
 }
 ```
-* std::string[link /reference/string/basic_string.md]
 * s.size()[link /reference/string/basic_string/size.md]
 * std::size_t[link /reference/cstddef/size_t.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

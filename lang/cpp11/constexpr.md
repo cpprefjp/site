@@ -143,6 +143,8 @@ extern std::mutex m;
 std::thread t1{job1};
 std::thread t2{job2};
 ```
+* std::mutex[link /reference/mutex/mutex.md]
+* std::thread[link /reference/thread/thread.md]
 
 そんな状況のために、[`std::mutex`クラスのデフォルトコンストラクタ](/reference/mutex/mutex/op_constructor.md)には、`constexpr`修飾が行われている。そうすることで、その型の非ローカル変数を作ったときに、その変数は他の任意のスレッド開始よりも先に行われることが保証される。
 

@@ -27,7 +27,6 @@ int main()
 std::vector<T> v; // 巨大な配列
 auto f = [x = std::move(v)] { /* … */ };
 ```
-* std::vector[link /reference/vector.md]
 * std::move[link /reference/utility/move.md]
 
 - ひとつの変数に対して、コピーキャプチャと参照キャプチャを同時に行う
@@ -61,7 +60,6 @@ auto f = [a = x + 1,            // 式x + 1の結果を変数名aとして、ラ
           &b = x,               // 変数xへの参照を変数名bとして、ラムダ式内で使用する
           c {std::move(v)}] {}; // 波カッコによる初期化構文を使用して、変数vを変数cにムーブする
 ```
-* std::vector[link /reference/vector.md]
 * std::move[link /reference/utility/move.md]
 
 初期化キャプチャの初期化式は、ラムダ式を定義した時点で評価される。
@@ -86,11 +84,14 @@ int main()
   auto f = [q = std::move(p)] {};
 }
 ```
+* <memory>[link /reference/memory.md]
+* <utility>[link /reference/utility.md]
 * std::unique_ptr[link /reference/memory/unique_ptr.md]
 * std::make_unique[link /reference/memory/make_unique.md]
 * std::move[link /reference/utility/move.md]
 
 出力 :
+
 ```
 ```
 
@@ -126,6 +127,9 @@ int main()
   t.join();
 }
 ```
+* <utility>[link /reference/utility.md]
+* <thread>[link /reference/thread.md]
+* <future>[link /reference/future.md]
 * std::promise[link /reference/future/promise.md]
 * p.get_future()[link /reference/future/promise/get_future.md]
 * std::future[link /reference/future/future.md]
@@ -133,8 +137,6 @@ int main()
 * std::move[link /reference/utility/move.md]
 * x.set_value[link /reference/future/promise/set_value.md]
 * f.get()[link /reference/future/future/get.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * t.join()[link /reference/thread/thread/join.md]
 
 出力 :

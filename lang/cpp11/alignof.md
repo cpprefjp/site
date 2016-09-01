@@ -46,8 +46,6 @@ int main()
   return 0;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * std::max_align_t[link /reference/cstddef/max_align_t.md]
 
 ###出力

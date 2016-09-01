@@ -19,7 +19,6 @@ std::string operator"" s(const char* str, std::size_t length)
 
 auto x = "hello"s; // xの型はstd::string
 ```
-* std::string[link /reference/string/basic_string.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 
 `operator"" サフィックス名`は、「リテラル演算子 (literal operator)」という。
@@ -197,6 +196,7 @@ float distance2 = 456.0_kmg;
 // 789km (789,000m)
 float distance3 = 789.0_kmh;
 ```
+* std::strtold[link /reference/string/strtold.md]
 
 浮動小数点リテラルの前にマイナス記号（`-`）を付けて記述した場合でも、リテラル演算子には正数部分のみが渡される（通常の数値と同様、マイナス記号はリテラルの一部とはみなされない）。  
 マイナス記号は、リテラル演算子によって返された値に対して単項マイナス演算子として適用される。
@@ -321,12 +321,7 @@ int main()
   std::cout << x << std::endl;
 }
 ```
-* iostream[link ../../reference/iostream.md]
-* string[link ../../reference/string.md]
-* std::string[link /reference/string/basic_string.md]
 * std::size_t[link /reference/cstddef/size_t.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

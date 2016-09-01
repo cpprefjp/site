@@ -23,7 +23,6 @@ int main()
   v.push_back(4);
 }
 ```
-* std::vector[link /reference/vector.md]
 * v.push_back[link /reference/vector/push_back.md]
 
 `using`キーワードによる型の別名付けは、非テンプレートに対しても使用できる。この機能を「エイリアス宣言 (alias declaration)」という：
@@ -52,7 +51,6 @@ void f(const Vec<T>&) {}
 template <class T>
 void f(const std::vector<T>&) {} // コンパイルエラー！再定義と見なされる
 ```
-* std::vector[link /reference/vector.md]
 
 - エイリアステンプレートに対しては、明示的な特殊化、および部分特殊化を許可しない
 
@@ -69,7 +67,6 @@ struct Vec {
 Vec<int>::type v;
 v.push_back(3);
 ```
-* std::vector[link /reference/vector.md]
 * v.push_back[link /reference/vector/push_back.md]
 
 このような回避策は標準ライブラリでも、`std::allocator`クラスの`rebind`で使用されている。`T`型のメモリアロケータを使用している状況でほかの型をアロケートする必要ができた際には、`U`型をアロケートする`std::allocator`型を取得する機能が必要とされる。そのような状況のために用意されている`rebind`は、以下のように定義される：

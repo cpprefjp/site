@@ -52,8 +52,6 @@ int main()
   std::cout << X().f() << std::endl; // 3
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 
 ##仕様
@@ -98,7 +96,6 @@ int main()
   std::vector<int> v2 = X().data();
 }
 ```
-* std::vector[link /reference/vector.md]
 * std::move[link /reference/utility/move.md]
 
 ###出力

@@ -38,7 +38,6 @@ decltype(auto) f(int& r)
 
 ##例
 ```cpp
-#include <iostream>
 #include <type_traits>
 
 int main()
@@ -49,12 +48,14 @@ int main()
   auto           a = r; // aの型はint
   decltype(r)    b = r; // bの型はint&
   decltype(auto) c = r; // cの型はint&
-    
+
   static_assert(std::is_same<decltype(a), int>::value, "");
   static_assert(std::is_same<decltype(b), int&>::value, "");
   static_assert(std::is_same<decltype(c), int&>::value, "");
 }
 ```
+* <type_traits>[link /reference/type_traits.md]
+* std::is_same[link /reference/type_traits/is_same.md]
 
 ##出力
 ```

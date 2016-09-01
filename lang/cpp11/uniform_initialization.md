@@ -35,7 +35,6 @@ X createX()
   return {1, 3.14, "hello"}; // OK
 }
 ```
-* std::string[link /reference/string/basic_string.md]
 
 これは、関数に引数を渡す場合も同様である。
 
@@ -67,7 +66,6 @@ int main()
                         std::istream_iterator<char>()};
 }
 ```
-* std::vector[link /reference/vector.md]
 * std::cin[link /reference/iostream/cin.md]
 * std::istream_iterator[link /reference/iterator/istream_iterator.md]
 
@@ -139,8 +137,6 @@ int main()
 }
 ```
 * std::initializer_list[link /reference/initializer_list.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 - [`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、[`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタが優先して呼び出される。そのような状況で非[`std::initializer_list`](/reference/initializer_list.md)のコンストラクタを呼び出す場合は、丸カッコでのコンストラクタ呼び出しが必要となる
 
@@ -157,8 +153,6 @@ struct X {
 X x1 = {3.0}; // 「1」が出力される
 ```
 * std::initializer_list[link /reference/initializer_list.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 
 ### <a name="evaluation-order" href="#evaluation-order">評価順序</a>
@@ -195,8 +189,6 @@ int main()
   X x2(f(), g(), h());    // 1, 2, 3が順不同で出力される
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 
 ##関連項目

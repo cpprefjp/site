@@ -78,6 +78,11 @@ int main()
   delete[] (new A[5]);
 }
 ```
+* <cstdio>[link /reference/cstdio.md.nolink]
+* <cstdlib>[link /reference/cstdlib.md]
+* <new>[link /reference/new.md]
+* std::printf[link /reference/cstdio/printf.md.nolink]
+* std::malloc[link /reference/cstdlib/malloc.md.nolink]
 
 
 ###出力

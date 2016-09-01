@@ -59,7 +59,6 @@ struct X {
 };
 ```
 * noexcept[color ff0000]
-* std::vector[link /reference/vector.md]
 
 - `noexcept`もしくは`noexcept(trueに評価される整数定数式)`が指定された関数が例外を送出した場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出してプログラムを異常終了させる。その際、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出される前に、スタックの巻き戻しは起こらない可能性がある。
 - 従来の`throw`キーワードによる例外仕様(C++03ではexception specification、C++11ではdynamic exception specificationと呼ばれる仕様)は、C++11以降で非推奨である。
@@ -150,8 +149,6 @@ int main()
 * std::make_pair[link /reference/utility/make_pair.md]
 * s.push[link /reference/stack/push.md]
 * s.empty()[link /reference/stack/empty.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
