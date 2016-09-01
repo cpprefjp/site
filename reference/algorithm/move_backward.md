@@ -66,6 +66,7 @@ int main() {
 }
 ```
 * std::move_backward[color ff0000]
+* <memory>[link /reference/memory.md]
 * std::unique_ptr[link /reference/memory/unique_ptr.md]
 * v.emplace_back[link /reference/vector/emplace_back.md]
 * std::move[link move.md]

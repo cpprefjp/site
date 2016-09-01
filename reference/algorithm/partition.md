@@ -96,6 +96,9 @@ ForwardIterator partition(ForwardIterator first, ForwardIterator last, Predicate
   return first;
 }
 ```
+* std::find_if_not[link find_if_not.md]
+* std::find_if[link find_if.md]
+* std::iter_swap[link iter_swap.md]
 
 
 ##参照

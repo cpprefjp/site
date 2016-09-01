@@ -89,6 +89,8 @@ int main() {
 }
 ```
 * std::mismatch[color ff0000]
+* <array>[link /reference/array.md]
+* <list>[link /reference/list.md]
 * std::array[link /reference/array.md]
 * std::list[link /reference/list.md]
 * v2.begin()[link /reference/array/begin.md]

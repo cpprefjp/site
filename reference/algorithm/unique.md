@@ -115,4 +115,5 @@ ForwardIterator unique(ForwardIterator first, ForwardIterator last, BinaryPredic
   return result;
 }
 ```
+* move[link /reference/utility/move.md]
 
