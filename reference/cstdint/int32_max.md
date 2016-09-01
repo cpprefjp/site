@@ -6,7 +6,6 @@
 ```cpp
 #define INT32_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`int32_t`](int32_t.md) の最大値を表す定数。

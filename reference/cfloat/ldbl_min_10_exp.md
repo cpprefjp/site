@@ -6,7 +6,6 @@
 ```cpp
 #define LDBL_MIN_10_EXP implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 $10$ の $n$ 乗が `long double` の正の正規化数の最小値以上であるような最小の負の整数値 $n$ を表すマクロ。  

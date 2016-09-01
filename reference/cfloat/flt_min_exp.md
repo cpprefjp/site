@@ -6,7 +6,6 @@
 ```cpp
 #define FLT_MIN_EXP implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`FLT_RADIX`](flt_radix.md) の $n - 1$ 乗が、`float` の正規化数として表現可能であるような、最小の整数値 $n$ を表すマクロ。  

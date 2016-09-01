@@ -11,7 +11,6 @@ explicit random_device(const string& token = implementation-defined);
 random_device(const random_device&) = delete;
 ```
 * string[link /reference/string/basic_string.md]
-* implementation-defined[italic]
 
 ##`random_device`オブジェクトの構築
 - `explicit random_device(const string& token = implementation-defined);`

@@ -5,7 +5,6 @@
 ```cpp
 #define EXIT_SUCCESS implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `EXIT_SUCCESS`は、プログラムが正常終了したことを表す終了コードである。
@@ -18,7 +17,7 @@
 ##例
 ```cpp
 #include <cstdlib>
-    
+
 int main()
 {
   std::exit(EXIT_SUCCESS);

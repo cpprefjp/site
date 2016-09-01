@@ -6,7 +6,6 @@
 ```cpp
 #define LDBL_MIN implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `long double` の正の正規化数のうち最小のものを表すマクロ。  

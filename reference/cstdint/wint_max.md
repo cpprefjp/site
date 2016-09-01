@@ -6,7 +6,6 @@
 ```cpp
 #define WINT_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `wint_t` の最大値。

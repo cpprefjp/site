@@ -6,7 +6,6 @@
 ```cpp
 #define INT8_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`int8_t`](int8_t.md) の最大値を表す定数。

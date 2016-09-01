@@ -5,7 +5,6 @@
 ```cpp
 #define HUGE_VAL implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `double` 型の正の値の定数式。

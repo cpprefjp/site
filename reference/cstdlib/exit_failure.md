@@ -5,7 +5,6 @@
 ```cpp
 #define EXIT_FAILURE implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `EXIT_FAILURE`は、プログラムが異常終了したことを表す終了コードである。
@@ -18,7 +17,7 @@
 ##例
 ```cpp
 #include <cstdlib>
-    
+
 int main()
 {
   std::exit(EXIT_FAILURE);

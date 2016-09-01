@@ -6,7 +6,6 @@
 ```cpp
 #define LDBL_MAX_10_EXP implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 $10$ の $n$ 乗が `long double` の有限の値として表現可能であるような最大の整数値 $n$ を表すマクロ。  

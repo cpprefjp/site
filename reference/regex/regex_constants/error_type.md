@@ -23,7 +23,6 @@ namespace regex_constants {
   constexpr error_type error_stack = unspecified;
 }}
 ```
-* implementation-defined[italic]
 * unspecified[italic]
 
 ##概要

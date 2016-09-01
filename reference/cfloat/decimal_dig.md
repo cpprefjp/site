@@ -7,7 +7,6 @@
 ```cpp
 #define DECIMAL_DIG implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 精度が一番高い浮動小数点型の数値を10進数で正確に表すのに必要な有効数字の桁数を表すマクロ。  

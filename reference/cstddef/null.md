@@ -5,7 +5,6 @@
 ```cpp
 #define NULL implementation-defined
 ```
-* implementation-defined[italic]
 
 このマクロは処理系定義のヌルポインタ定数に展開される。
 

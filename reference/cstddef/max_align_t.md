@@ -9,8 +9,6 @@ namespace std {
   typedef implementation-defined max_align_t;
 }
 ```
-* implementation-defined[italic]
-
 
 ##概要
 `std::max_align_t`は、どのスカラー型よりも大きいアライメントを必要とするPOD (Plain Old Data) 型である。

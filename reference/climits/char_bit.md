@@ -5,7 +5,6 @@
 ```cpp
 #define CHAR_BIT implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 1バイトのビット数を表す。`#if` などのプリプロセッサディレクティブで使用できる。  

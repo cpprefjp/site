@@ -15,10 +15,10 @@ namespace std {
   }
 }
 ```
-* implementation-defined[italic]
 
 ##概要
 `tuple_element`は、タプルとして見なせる型から、`I`番目の要素型を取得するためのクラスである。
+
 `<array>`ヘッダでは、`array`クラスに関する特殊化を定義する。
 `array`の特殊化では、`tuple_element::type`は常に`T`である。
 

@@ -6,7 +6,6 @@
 ```cpp
 #define FLT_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `float` の最大の有限値を表すマクロ。  

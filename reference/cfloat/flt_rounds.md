@@ -5,7 +5,6 @@
 ```cpp
 #define FLT_ROUNDS implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `FLT_ROUNDS` は、浮動小数点数の加算の丸めモードを表すマクロである。

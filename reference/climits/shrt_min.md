@@ -5,7 +5,6 @@
 ```cpp
 #define SHRT_MIN implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `short` 型が表現できる値の最小値。

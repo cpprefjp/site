@@ -23,7 +23,6 @@ namespace regex_constants{
   constexpr match_flag_type format_first_only = unspecified;
 }}
 ```
-* implementation-defined[italic]
 * unspecified[italic]
 
 ##概要

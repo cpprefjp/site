@@ -6,7 +6,6 @@
 ```cpp
 #define UINT16_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`uint16_t`](uint16_t.md) の最大値を表す定数。
@@ -27,9 +26,6 @@ int main()
   std::cout << UINT16_MAX << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
 
 ###出力
 ```

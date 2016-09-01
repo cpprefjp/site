@@ -5,7 +5,6 @@
 ```cpp
 #define SCHAR_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `signed char` 型が表現できる値の最大値。

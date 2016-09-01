@@ -6,7 +6,6 @@
 ```cpp
 #define WCHAR_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `wchar_t` の最大値。

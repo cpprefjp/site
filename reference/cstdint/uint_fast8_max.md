@@ -6,7 +6,6 @@
 ```cpp
 #define UINT_FAST8_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`uint_fast8_t`](uint_fast8_t.md) の最大値。

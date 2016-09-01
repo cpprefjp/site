@@ -6,7 +6,6 @@
 ```cpp
 #define LDBL_MAX_EXP implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`FLT_RADIX`](flt_radix.md) の $n - 1$ 乗が、`long double` の有限の値として表現可能であるような、最大の整数値 $n$ を表すマクロ。  

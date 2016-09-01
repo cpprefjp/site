@@ -6,7 +6,6 @@
 ```cpp
 #define implementation-defined FE_INVALID
 ```
-* implementation-defined[italic]
 
 ##概要
 浮動小数点数に対して不正な操作を行ったことを表す浮動小数点例外の種類。

@@ -5,7 +5,6 @@
 ```cpp
 #define FLT_RADIX implementation-defined
 ```
-* implementation-defined[italic]
 
 
 ##概要

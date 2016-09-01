@@ -6,7 +6,6 @@
 ```cpp
 #define UINTPTR_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`uintptr_t`](uintptr_t.md) の最大値。
@@ -26,9 +25,6 @@ int main()
 }
 ```
 * std::uintptr_t[link uintptr_t.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
 
 ###出力例
 ```

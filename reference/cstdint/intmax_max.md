@@ -6,7 +6,6 @@
 ```cpp
 #define INTMAX_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`intmax_t`](intmax_t.md) の最大値。

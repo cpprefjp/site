@@ -6,7 +6,6 @@
 ```cpp
 #define LDBL_EPSILON implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `long double` における、$1$ と $1$ より大きい最小の数との差（機械イプシロン）を表すマクロ。  

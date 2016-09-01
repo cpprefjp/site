@@ -6,7 +6,6 @@
 ```cpp
 #define LDBL_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `long double` の最大の有限値を表すマクロ。  

@@ -9,7 +9,6 @@ namespace std {
   typedef implementation-defined float_t;
 }
 ```
-* implementation-defined[italic]
 
 ##概要
 `float` と同じかそれより広い範囲の値を持つ浮動小数点数型を表す。

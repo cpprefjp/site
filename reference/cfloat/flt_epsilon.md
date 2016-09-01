@@ -6,7 +6,6 @@
 ```cpp
 #define FLT_EPSILON implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `float` における、$1$ と $1$ より大きい最小の数との差（機械イプシロン）を表すマクロ。  

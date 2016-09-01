@@ -8,7 +8,6 @@ namespace std {
   typedef implementation-defined streamoff;
 }
 ```
-* implementation-defined[italic]
 
 `streamoff`は、処理系依存の符号つき整数型のtypedefである。ファイルサイズとして有り得る最大値を表現できることとされている。
 典型的には、long long型のtypedefであることが想定される。

@@ -6,7 +6,6 @@
 ```cpp
 #define SIZE_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`size_t`](/reference/cstddef/size_t.md) の最大値。
@@ -26,9 +25,6 @@ int main()
 }
 ```
 * std::size_t[link /reference/cstddef/size_t.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
 
 ###出力
 ```

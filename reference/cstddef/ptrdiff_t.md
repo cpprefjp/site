@@ -8,7 +8,6 @@ namespace std {
   typedef implementation-defined ptrdiff_t;
 }
 ```
-* implementation-defined[italic]
 
 `ptrdiff_t`は、2 つのポインタの減算の結果を示す型である。これは符号付き整数型であり、互換性のある単純データ型へキャストすることができる。
 

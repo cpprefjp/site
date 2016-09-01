@@ -6,7 +6,6 @@
 ```cpp
 #define INTPTR_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`intptr_t`](intptr_t.md) の最大値。

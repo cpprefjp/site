@@ -5,7 +5,6 @@
 ```cpp
 #define CHAR_MIN implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `char` 型が表現できる値の最小値。

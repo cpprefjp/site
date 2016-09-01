@@ -6,7 +6,6 @@
 ```cpp
 #define HUGE_VALL implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `long double` 型の正の値の定数式。

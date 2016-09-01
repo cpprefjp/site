@@ -6,7 +6,6 @@
 ```cpp
 #define implementation-defined FE_ALL_EXCEPT
 ```
-* implementation-defined[italic]
 
 ##概要
 全ての浮動小数点例外マクロをビットORでつなぐことによって実装で定義されるマクロ。

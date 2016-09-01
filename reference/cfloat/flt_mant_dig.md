@@ -6,7 +6,6 @@
 ```cpp
 #define FLT_MANT_DIG implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `float` を基数 [`FLT_RADIX`](flt_radix.md) で表現した際の仮数部の桁数を表すマクロ。  

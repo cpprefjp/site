@@ -14,7 +14,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* implementation-defined[italic]
 
 ##概要
 [`async()`](async.md)関数に指定する実行ポリシーを表す、ビットマスクの列挙型。

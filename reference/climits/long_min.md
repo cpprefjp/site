@@ -5,7 +5,6 @@
 ```cpp
 #define LONG_MIN implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `long` 型が表現できる値の最小値。

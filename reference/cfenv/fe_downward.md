@@ -6,7 +6,6 @@
 ```cpp
 #define implementation-defined FE_DOWNWARD
 ```
-* implementation-defined[italic]
 
 ##概要
 浮動小数点数の丸め方式として、「負の無限大方向への丸め (切り下げ, floor, round down)」を表すマクロ。

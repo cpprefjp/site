@@ -5,7 +5,6 @@
 ```cpp
 #define USHRT_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `unsigned short` 型が表現できる値の最大値。

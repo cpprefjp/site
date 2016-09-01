@@ -6,7 +6,6 @@
 ```cpp
 #define DBL_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `double` の最大の有限値を表すマクロ。  

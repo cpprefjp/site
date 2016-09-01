@@ -6,7 +6,6 @@
 ```cpp
 #define SIG_ATOMIC_MIN implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `sig_atomic_t` の最小値。
@@ -26,9 +25,6 @@ int main()
   std::cout << static_cast<long long>(min_value) << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
 
 ###出力例
 ```

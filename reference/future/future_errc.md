@@ -23,7 +23,6 @@ namespace std {
   };
 }
 ```
-* implementation-defined[italic]
 
 ##概要
 future操作に関するエラー値。

@@ -6,7 +6,6 @@
 ```cpp
 #define implementation-defined FE_TOWARDZERO
 ```
-* implementation-defined[italic]
 
 ##概要
 浮動小数点数の丸め方式として、「ゼロ方向への丸め (切り捨て, trunc)」を表すマクロ。

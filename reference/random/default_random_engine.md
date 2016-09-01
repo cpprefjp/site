@@ -9,7 +9,6 @@ namespace std {
   typedef implementation-defined default_random_engine;
 }
 ```
-* implementation-defined[italic]
 
 ##概要
 擬似乱数生成エンジンには、パフォーマンス、サイズ、品質といった、多くの特性による選択肢がある。  

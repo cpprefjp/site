@@ -5,7 +5,6 @@
 ```cpp
 #define UCHAR_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `unsigned char` が表現できる値の最大値。

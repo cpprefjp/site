@@ -9,7 +9,6 @@ namespace std {
   typedef implementation-defined double_t;
 }
 ```
-* implementation-defined[italic]
 
 ##概要
 `double` と同じかそれより広い範囲の値を持つ浮動小数点数型を表す。

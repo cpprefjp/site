@@ -5,7 +5,6 @@
 ```cpp
 #define ULONG_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `unsigned long` 型が表現できる値の最大値。

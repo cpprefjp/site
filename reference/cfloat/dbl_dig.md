@@ -6,7 +6,6 @@
 ```cpp
 #define DBL_DIG implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `double` で正確に表現可能な10進数の最大の桁数を表すマクロ。  

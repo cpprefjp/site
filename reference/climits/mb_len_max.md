@@ -5,7 +5,6 @@
 ```cpp
 #define MB_LEN_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 サポートされているすべてのロケールのマルチバイト文字のうち、最大のバイト数を表す。`#if` などのプリプロセッサディレクティブで使用できる。  

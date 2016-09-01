@@ -6,7 +6,6 @@
 ```cpp
 #define FLT_EVAL_METHOD implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `FLT_EVAL_METHOD` は、浮動小数点数がどのように評価されるかを表す。

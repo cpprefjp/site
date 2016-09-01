@@ -6,7 +6,6 @@
 ```cpp
 #define implementation-defined FE_INEXACT
 ```
-* implementation-defined[italic]
 
 ##概要
 浮動小数点数の演算が不正確な結果となったことを表す浮動小数点例外の種類。

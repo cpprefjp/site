@@ -6,7 +6,6 @@
 ```cpp
 #define UINT_FAST64_MAX implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`uint_fast64_t`](uint_fast64_t.md) の最大値。

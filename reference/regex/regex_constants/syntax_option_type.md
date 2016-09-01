@@ -20,7 +20,6 @@ namespace regex_constants {
   constexpr syntax_option_type egrep = unspecified;
 }}
 ```
-* implementation-defined[italic]
 * unspecified[italic]
 
 ##概要

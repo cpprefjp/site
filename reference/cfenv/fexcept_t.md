@@ -9,7 +9,6 @@ namespace std {
   typedef implementation-defined fexcept_t;
 }
 ```
-* implementation-defined[italic]
 
 ##概要
 実装が持つ浮動小数点例外の状態フラグを表す型。

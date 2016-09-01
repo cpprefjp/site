@@ -6,7 +6,6 @@
 ```cpp
 #define implementation-defined FE_UPWARD
 ```
-* implementation-defined[italic]
 
 ##概要
 浮動小数点数の丸め方式として、「正の無限大方向への丸め (切り上げ, ceil, round up)」を表すマクロ。

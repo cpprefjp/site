@@ -6,7 +6,6 @@
 ```cpp
 #define INTPTR_MIN implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 [`intptr_t`](intptr_t.md) の最小値。

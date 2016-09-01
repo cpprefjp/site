@@ -6,7 +6,6 @@
 ```cpp
 #define WINT_MIN implementation-defined
 ```
-* implementation-defined[italic]
 
 ##概要
 `wint_t` の最小値。
