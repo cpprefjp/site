@@ -64,8 +64,7 @@ int main()
     threads.push_back(std::move(t));
   }
 
-  for (std::thread& t : threads)
-  {
+  for (std::thread& t : threads) {
     t.join();
   }
 }
@@ -75,6 +74,7 @@ int main()
 * push_back[link /reference/vector/push_back.md]
 * std::move[link /reference/utility/move.md]
 * join()[link /reference/thread/thread/join.md]
+* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

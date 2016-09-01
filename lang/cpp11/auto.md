@@ -345,6 +345,7 @@ for (auto it = m.begin(), e = m.end(); it != e; ++it) {
 ```cpp
 std::pair<auto, auto>& p = foo();
 ```
+* std::pair[link /reference/utility/pair.md]
 
 この場合、`foo()` の戻り値型が `std::pair` のインスタンスでない時にはエラーとするような表明（アサーション）の役割を担うものとしていた。
 
@@ -357,6 +358,7 @@ std::pair<auto, auto>& p = foo();
 template <typename T>
 std::pair<T, T>& p = foo();
 ```
+* std::pair[link /reference/utility/pair.md]
 
 この場合、`foo()` の戻り値型が `std::pair` のインスタンスで、かつ、二つのテンプレート引数が同一でない時にはエラーとするような表明（アサーション）の役割を担うものとしていた。  
 この文法を使用すると、テンプレート引数として `auto` を使用する場合の例は、以下と等価となる。
@@ -365,6 +367,7 @@ std::pair<T, T>& p = foo();
 template <typename T, typename U>
 std::pair<T, U>& p = foo();
 ```
+* std::pair[link /reference/utility/pair.md]
 
 しかし、この使用法も規格から落とされた。
 

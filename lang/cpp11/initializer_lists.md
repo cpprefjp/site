@@ -36,6 +36,7 @@ int main()
   MyVector<int> v = {1, 2, 3};
 }
 ```
+* <initializer_list>[link /reference/initializer_list.md]
 * std::initializer_list[link /reference/initializer_list.md]
 * init.begin()[link /reference/initializer_list/begin.md]
 * init.end()[link /reference/initializer_list/end.md]
@@ -199,6 +200,7 @@ int main()
   X x = {}; // 「default constructor」が出力される
 }
 ```
+* <initializer_list>[link /reference/initializer_list.md]
 * std::initializer_list[link /reference/initializer_list.md]
 
 - 初期化子リストコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、初期化子リストコンストラクタが優先して呼び出される。そのような状況では、丸カッコでのコンストラクタ呼び出しが必要となる
@@ -329,6 +331,7 @@ int main()
   std::initializer_list<int> init = { f(), g(), h() }; // 1, 2, 3の順で出力される
 }
 ```
+* <initializer_list>[link /reference/initializer_list.md]
 * std::initializer_list[link /reference/initializer_list.md]
 
 

@@ -75,6 +75,7 @@ int main()
   t2.join();
 }
 ```
+* thread_local[color ff0000]
 * <thread>[link /reference/thread.md]
 * <random>[link /reference/random.md]
 * std::random_device[link /reference/random/random_device.md]

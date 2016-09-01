@@ -136,6 +136,7 @@ int main()
   X x = {}; // 「default constructor」が出力される
 }
 ```
+* <initializer_list>[link /reference/initializer_list.md]
 * std::initializer_list[link /reference/initializer_list.md]
 
 - [`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、[`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタが優先して呼び出される。そのような状況で非[`std::initializer_list`](/reference/initializer_list.md)のコンストラクタを呼び出す場合は、丸カッコでのコンストラクタ呼び出しが必要となる

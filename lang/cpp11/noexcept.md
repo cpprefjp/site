@@ -101,7 +101,7 @@ constexpr bool isNoexprF = noexcept(x.f());
 template <class T, class Container = std::deque<T>>
 class movable_stack : public std::stack<T, Container> {
   using base = std::stack<T, Container>;
- 
+
   static_assert(std::is_nothrow_default_constructible<T>{},
                 "T must be nothrow default constructible");
   static_assert(std::is_nothrow_move_constructible<T>{},
@@ -136,6 +136,9 @@ int main()
   }
 }
 ```
+* <stack>[link /reference/stack.md]
+* <deque>[link /reference/deque.md]
+* <type_traits>[link /reference/type_traits.md]
 * std::stack[link /reference/stack.md]
 * std::deque[link /reference/deque.md]
 * std::is_nothrow_default_constructible[link /reference/type_traits/is_nothrow_default_constructible.md]

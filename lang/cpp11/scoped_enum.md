@@ -71,6 +71,7 @@ int main()
   assert(colorValue2 == 0);
 }
 ```
+* <type_traits>[link /reference/type_traits.md]
 * std::underlying_type[link /reference/type_traits/underlying_type.md]
 * assert[link /reference/cassert/assert.md]
 

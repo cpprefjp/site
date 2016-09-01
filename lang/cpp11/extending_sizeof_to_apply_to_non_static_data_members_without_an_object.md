@@ -17,6 +17,7 @@ int main()
   std::cout << size << std::endl;
 }
 ```
+* std::size_t[link /reference/cstddef/size_t.md]
 
 これができなかったバージョンでは、`sizeof(((X*)0)->m)`のような回避策がとられていた。
 
