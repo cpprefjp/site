@@ -76,17 +76,17 @@ template<class ForwardIterator, class Predicate>
 ForwardIterator
 partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
 {
-    for (auto len = std::distance(first, last); len != 0; ) {
-        auto half = len / 2;
-        auto mid = std::next(first, half);
-        if (pred(*mid)) {
-            len -= half + 1;
-            first = std::next(mid);
-        } else {
-            len = half;
-        }
+  for (auto len = std::distance(first, last); len != 0; ) {
+    auto half = len / 2;
+    auto mid = std::next(first, half);
+    if (pred(*mid)) {
+      len -= half + 1;
+      first = std::next(mid);
+    } else {
+      len = half;
     }
-    return first;
+  }
+  return first;
 }
 ```
 * std::next[link /reference/iterator/next.md]
