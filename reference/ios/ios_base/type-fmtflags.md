@@ -50,129 +50,113 @@ typedef T1 fmtflags;
 通常はこれらのフラグを直接使用することはあまり無く、対応するマニピュレータを使用することが一般的である。
 
 
-##例
+##例 boolalpha
 ```cpp
 #include <iostream>
 
 int main()
 {
-  std::cout.setf(std::ios_base::boolalpha);									// std::boolalpha マニピュレータと同等
-  std::cout << true << ", " << false << "\n\n";
+  std::cout.setf(std::ios_base::boolalpha);   // std::boolalpha マニピュレータと同等
+  std::cout << true << ", " << false << "\n";
 
-  std::cout.unsetf(std::ios_base::boolalpha);								// std::noboolalpha マニピュレータと同等
-  std::cout << true << ", " << false << "\n\n";
-
-  std::cout.setf(std::ios_base::showpos);									// std::showpos マニピュレータと同等
-  std::cout << 10 << '\n';
-  std::cout.unsetf(std::ios_base::showpos);									// std::noshowpos マニピュレータと同等
-  std::cout << 10 << "\n\n";
-
-  std::cout.setf(std::ios_base::showpoint);									// std::showpoint マニピュレータと同等
-  std::cout << 10.0 << '\n';
-  std::cout.unsetf(std::ios_base::showpoint);								// std::noshowpoint マニピュレータと同等
-  std::cout << 10.0 << "\n\n";
-
-  std::cout.setf(std::ios_base::showbase);									// std::showbase マニピュレータと同等
-  std::cout.setf(std::ios_base::hex, std::ios_base::basefield);				// std::hex マニピュレータと同等
-  std::cout << 10 << '\n';
-  std::cout.setf(std::ios_base::oct, std::ios_base::basefield);				// std::oct マニピュレータと同等
-  std::cout << 10 << '\n';
-  std::cout.setf(std::ios_base::dec, std::ios_base::basefield);				// std::dec マニピュレータと同等
-  std::cout << 10 << "\n\n";
-
-  std::cout.unsetf(std::ios_base::showbase);								// std::noshowbase マニピュレータと同等
-  std::cout.setf(std::ios_base::hex, std::ios_base::basefield);				// std::hex マニピュレータと同等
-  std::cout << 10 << '\n';
-  std::cout.setf(std::ios_base::oct, std::ios_base::basefield);				// std::oct マニピュレータと同等
-  std::cout << 10 << '\n';
-  std::cout.setf(std::ios_base::dec, std::ios_base::basefield);				// std::dec マニピュレータと同等
-  std::cout << 10 << "\n\n";
-
-  std::cout.setf(std::ios_base::uppercase);									// std::uppercase マニピュレータと同等
-  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);			// std::fixed マニピュレータと同等
-  std::cout << 12.34567 << '\n';
-  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);		// std::fixed マニピュレータと同等
-  std::cout << 12.34567 << '\n';
-  std::cout.setf(std::ios_base::fixed | std::ios_base::scientific, std::ios_base::floatfield);	// C++11 から
-																			// std::hexfloat マニピュレータと同等
-  std::cout << 12.34567 << '\n';
-  std::cout.unsetf(std::ios_base::floatfield);								// std::defaultfloat マニピュレータと同等
-  std::cout << 12.34567 << "\n\n";
-
-  std::cout.unsetf(std::ios_base::uppercase);								// std::nouppercase マニピュレータと同等
-  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);			// std::fixed マニピュレータと同等
-  std::cout << 12.34567 << '\n';
-  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);		// std::scientific マニピュレータと同等
-  std::cout << 12.34567 << '\n';
-  std::cout.setf(std::ios_base::fixed | std::ios_base::scientific, std::ios_base::floatfield);	// C++11 から
-																			// std::hexfloat マニピュレータと同等
-  std::cout << 12.34567 << '\n';
-  std::cout.unsetf(std::ios_base::floatfield);								// std::defaultfloat マニピュレータと同等
-  std::cout << 12.34567 << "\n\n";
-
-  std::cout.width(10);
-  std::cout.setf(std::ios_base::right, std::ios_base::adjustfield);			// std::right マニピュレータと同等
-  std::cout << -10 << "|\n\n";
-
-  std::cout.width(10);
-  std::cout.setf(std::ios_base::internal, std::ios_base::adjustfield);		// std::internal マニピュレータと同等
-  std::cout << -10 << "|\n\n";
-
-  std::cout.width(10);
-  std::cout.setf(std::ios_base::left, std::ios_base::adjustfield);			// std::left マニピュレータと同等
-  std::cout << -10 << "|\n\n";
+  std::cout.unsetf(std::ios_base::boolalpha); // std::noboolalpha マニピュレータと同等
+  std::cout << true << ", " << false << "\n";
 }
 ```
-* iostream[link ../../iostream.md]
-* std::boolalpha[link ../boolalpha.md]
+* boolalpha[color ff0000]
 * std::noboolalpha[link ../noboolalpha.md]
+
+###出力
+```
+true, false
+1, 0
+```
+
+##例 showpos
+```cpp
+#include <iostream>
+
+int main()
+{
+  std::cout.setf(std::ios_base::showpos);   // std::showpos マニピュレータと同等
+  std::cout << 10 << '\n';
+
+  std::cout.unsetf(std::ios_base::showpos); // std::noshowpos マニピュレータと同等
+  std::cout << 10 << "\n";
+}
+```
+* showpos[color ff0000]
 * std::showpos[link ../showpos.md]
 * std::noshowpos[link ../noshowpos.md]
+
+###出力
+```
++10
+10
+```
+
+
+##例 showpoint
+```cpp
+#include <iostream>
+
+int main()
+{
+  std::cout.setf(std::ios_base::showpoint);   // std::showpoint マニピュレータと同等
+  std::cout << 10.0 << '\n';
+
+  std::cout.unsetf(std::ios_base::showpoint); // std::noshowpoint マニピュレータと同等
+  std::cout << 10.0 << "\n";
+}
+```
+* showpoint[color ff0000]
 * std::showpoint[link ../showpoint.md]
 * std::noshowpoint[link ../noshowpoint.md]
-* std::showbase[link ../showbase.md]
-* std::noshowbase[link ../noshowbase.md]
-* std::uppercase[link ../uppercase.md]
-* std::nouppercase[link ../nouppercase.md]
-* std::hex[link ../hex.md]
-* std::oct[link ../oct.md]
-* std::dec[link ../dec.md]
-* std::fixed[link ../fixed.md]
-* std::scientific[link ../scientific.md]
-* std::hexfloat[link ../hexfloat.md]
-* std::defaultfloat[link ../defaultfloat.md]
-* std::right[link ../right.md]
-* std::internal[link ../internal.md]
-* std::left[link ../left.md]
-* boolalpha[color ff0000]
-* showpos[color ff0000]
-* showpoint[color ff0000]
+
+###出力
+```
+10.0000
+10
+```
+
+
+##例 整数の基数指定
+```cpp
+#include <iostream>
+
+int main()
+{
+  std::cout.setf(std::ios_base::showbase);                      // std::showbase マニピュレータと同等
+  std::cout.setf(std::ios_base::hex, std::ios_base::basefield); // std::hex マニピュレータと同等
+  std::cout << 10 << '\n';
+  std::cout.setf(std::ios_base::oct, std::ios_base::basefield); // std::oct マニピュレータと同等
+  std::cout << 10 << '\n';
+  std::cout.setf(std::ios_base::dec, std::ios_base::basefield); // std::dec マニピュレータと同等
+  std::cout << 10 << "\n\n";
+
+  std::cout.unsetf(std::ios_base::showbase);                    // std::noshowbase マニピュレータと同等
+  std::cout.setf(std::ios_base::hex, std::ios_base::basefield); // std::hex マニピュレータと同等
+  std::cout << 10 << '\n';
+  std::cout.setf(std::ios_base::oct, std::ios_base::basefield); // std::oct マニピュレータと同等
+  std::cout << 10 << '\n';
+  std::cout.setf(std::ios_base::dec, std::ios_base::basefield); // std::dec マニピュレータと同等
+  std::cout << 10 << "\n";
+}
+```
 * showbase[color ff0000]
 * uppercase[color ff0000]
 * basefield[color ff0000]
 * hex[color ff0000]
 * oct[color ff0000]
 * dec[color ff0000]
-* floatfield[color ff0000]
-* fixed[color ff0000]
-* scientific[color ff0000]
-* adjustfield[color ff0000]
-* right[color ff0000]
-* internal[color ff0000]
-* left[color ff0000]
+* std::showbase[link ../showbase.md]
+* std::noshowbase[link ../noshowbase.md]
+* std::hex[link ../hex.md]
+* std::oct[link ../oct.md]
+* std::dec[link ../dec.md]
 
-###出力例
+###出力
 ```
-true, false
-
-1, 0
-
-+10
-10
-
-10.0000
-10
-
 0xa
 012
 10
@@ -180,7 +164,49 @@ true, false
 a
 12
 10
+```
 
+##例 浮動小数点数のフォーマット
+```cpp
+#include <iostream>
+
+int main()
+{
+  std::cout.setf(std::ios_base::uppercase);                                 // std::uppercase マニピュレータと同等
+  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);          // std::fixed マニピュレータと同等
+  std::cout << 12.34567 << '\n';
+  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);     // std::fixed マニピュレータと同等
+  std::cout << 12.34567 << '\n';
+  std::cout.setf(std::ios_base::fixed | std::ios_base::scientific, std::ios_base::floatfield);  // C++11 から
+                                                                            // std::hexfloat マニピュレータと同等
+  std::cout << 12.34567 << '\n';
+  std::cout.unsetf(std::ios_base::floatfield);                              // std::defaultfloat マニピュレータと同等
+  std::cout << 12.34567 << "\n\n";
+
+  std::cout.unsetf(std::ios_base::uppercase);                               // std::nouppercase マニピュレータと同等
+  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);          // std::fixed マニピュレータと同等
+  std::cout << 12.34567 << '\n';
+  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);     // std::scientific マニピュレータと同等
+  std::cout << 12.34567 << '\n';
+  std::cout.setf(std::ios_base::fixed | std::ios_base::scientific, std::ios_base::floatfield);  // C++11 から
+                                                                            // std::hexfloat マニピュレータと同等
+  std::cout << 12.34567 << '\n';
+  std::cout.unsetf(std::ios_base::floatfield);                              // std::defaultfloat マニピュレータと同等
+  std::cout << 12.34567 << "\n\n";
+}
+```
+* floatfield[color ff0000]
+* fixed[color ff0000]
+* scientific[color ff0000]
+* std::uppercase[link ../uppercase.md]
+* std::nouppercase[link ../nouppercase.md]
+* std::fixed[link ../fixed.md]
+* std::scientific[link ../scientific.md]
+* std::hexfloat[link ../hexfloat.md]
+* std::defaultfloat[link ../defaultfloat.md]
+
+###出力
+```
 12.345670
 1.234567E+01
 0X1.8B0FBA8826AA9P+3
@@ -190,13 +216,40 @@ a
 1.234567e+01
 0x1.8b0fba8826aa9p+3
 12.3457
+```
 
+
+```cpp
+#include <iostream>
+
+int main()
+{
+  std::cout.width(10);
+  std::cout.setf(std::ios_base::right, std::ios_base::adjustfield);    // std::right マニピュレータと同等
+  std::cout << -10 << "|\n";
+
+  std::cout.width(10);
+  std::cout.setf(std::ios_base::internal, std::ios_base::adjustfield); // std::internal マニピュレータと同等
+  std::cout << -10 << "|\n";
+
+  std::cout.width(10);
+  std::cout.setf(std::ios_base::left, std::ios_base::adjustfield);     // std::left マニピュレータと同等
+  std::cout << -10 << "|\n";
+}
+```
+* adjustfield[color ff0000]
+* right[color ff0000]
+* internal[color ff0000]
+* left[color ff0000]
+* std::right[link ../right.md]
+* std::internal[link ../internal.md]
+* std::left[link ../left.md]
+
+###出力
+```
        -10|
-
 -       10|
-
 -10       |
-
 ```
 
 
