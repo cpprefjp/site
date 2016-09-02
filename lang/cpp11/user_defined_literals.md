@@ -175,7 +175,7 @@ namespace unit_literals {
   // 上記 2 のバージョン
   float operator"" _kmg(const char* s)
   {
-    return std::strtold(s, nullptr) * 1000.0f;
+    return std::stold(s, nullptr) * 1000.0f;
   }
 
   // 上記 3 のバージョン
@@ -196,7 +196,7 @@ float distance2 = 456.0_kmg;
 // 789km (789,000m)
 float distance3 = 789.0_kmh;
 ```
-* std::strtold[link /reference/string/strtold.md]
+* std::stold[link /reference/string/stold.md]
 
 浮動小数点リテラルの前にマイナス記号（`-`）を付けて記述した場合でも、リテラル演算子には正数部分のみが渡される（通常の数値と同様、マイナス記号はリテラルの一部とはみなされない）。  
 マイナス記号は、リテラル演算子によって返された値に対して単項マイナス演算子として適用される。
