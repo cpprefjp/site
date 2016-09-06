@@ -254,7 +254,7 @@ int main(){
 ```
 * std::move[link /reference/utility/move.md]
 
-標準ライブラリで提供されるクラスのほとんどは、このようなムーブコンストラクタを用意している（[`mutex`](/reference/mutex/mutex.md])、[`atomic`](/reference/atomic/atomic.md)などを除く）。
+標準ライブラリで提供されるクラスのほとんどは、このようなムーブコンストラクタを用意している（[`mutex`](/reference/mutex/mutex.md)、[`atomic`](/reference/atomic/atomic.md)などを除く）。
 
 ムーブコンストラクタ・ムーブ代入演算子は
 

@@ -87,7 +87,7 @@ int main()
 Resource deadlock avoided
 ```
 
-Visual C++ 11.0, 12.0では、このコードは正常に動作せず、1件目の`assert`で動作を停止してしまう。[`unique_lock::lock()`](../unique_lock/lock.md)のバグのためである。
+Visual C++ 11.0, 12.0では、このコードは正常に動作せず、1件目の`assert`で動作を停止してしまう。[`unique_lock::lock()`](unique_lock/lock.md)のバグのためである。
 
 ##バージョン
 ###言語

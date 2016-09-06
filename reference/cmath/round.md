@@ -54,7 +54,7 @@ double round(double x)
   return result;
 }
 ```
-* feholdexcept[link ../cfenv/feholdexcept.md]
+* feholdexcept[link ../cfenv.md]
 * rint[link rint.md]
 * fetestexcept[link ../cfenv/fetestexcept.md]
 * FE_INEXACT[link ../cfenv/fe_inexact.md]

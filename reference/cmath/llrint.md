@@ -97,7 +97,7 @@ int main()
 * feclearexcept[link ../cfenv/feclearexcept.md]
 * fetestexcept[link ../cfenv/fetestexcept.md]
 * fesetround[link ../cfenv/fesetround.md]
-* FE_DOWNWARD[link ../cfenv/fe_backward.md]
+* FE_DOWNWARD[link ../cfenv/fe_downward.md]
 * FE_UPWARD[link ../cfenv/fe_upward.md]
 * FE_TOWARDZERO[link ../cfenv/fe_towardzero.md]
 * FE_TONEAREST[link ../cfenv/fe_tonearest.md]
