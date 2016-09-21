@@ -32,6 +32,7 @@ int main()
 255
 ```
 
+Visual C++では、`static_cast<int>(UINT8_MAX)`としないと、このとおりに出力されない。
 
 ##バージョン
 ###言語
@@ -41,5 +42,6 @@ int main()
 - [Clang C++11 mode](/implementation.md#clang): 3.3
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
+	- 11.0以降、値の型は`unsigned char`となっており、標準規格に合致していないことに注意。
 
