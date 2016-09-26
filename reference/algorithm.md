@@ -208,6 +208,7 @@ return distance(a, b);
 | [`set_intersection`](algorithm/set_intersection.md) | 2つのソート済み範囲の積集合を得る | |
 | [`set_difference`](algorithm/set_difference.md)     | 2つのソート済み範囲の差集合を得る | |
 | [`set_symmetric_difference`](algorithm/set_symmetric_difference.md) | 2つのソート済み範囲の互いに素な集合を得る | |
+| [`includes`](algorithm/includes.md) | 2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する | |
 
 
 ###ヒープ
