@@ -28,11 +28,12 @@
 | [`move_if_noexcept`](utility/move_if_noexcept.md) | 例外を投げないオブジェクトをムーブする(function template) | C++11    |
 
 
-##型の値
+##型の演算
 
 | 名前                              | 説明                                      | 対応バージョン |
 |-----------------------------------|-------------------------------------------|----------------|
 | [`declval`](utility/declval.md) | 指定された型の値を得る(function template) | C++11 |
+| [`as_const`](utility/as_const.md) | 左辺値参照を`const`左辺値参照にする | C++17 |
 
 
 ##組
