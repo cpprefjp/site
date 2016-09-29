@@ -19,47 +19,47 @@ namespace std {
 
 | 名前付きアトミック型 | テンプレート引数となる整数型 |
 |--------------------------------|--------------------------------------------|
-|` atomic_char` |` char` |
-|` atomic_schar` |` signed char` |
-|` atomic_uchar` |` unsigned char` |
-|` atomic_short` |` short` |
-|` atomic_ushort` |` unsigned short` |
-|` atomic_int` |` int` |
-|` atomic_long` |` long` |
-|` atomic_ulong` |` unsigned long` |
-|` atomic_llong` |` long long` |
-|` atomic_ullong` |` unsigned long long` |
-|` atomic_char16_t` |` char16_t` |
-|` atomic_char32_t` |` char32_t` |
-|` atomic_wchar_t` |` wchar_t` |
-|` atomic_bool` |` bool` |
+| `atomic_char`     | `char` |
+| `atomic_schar`    | `signed char` |
+| `atomic_uchar`    | `unsigned char` |
+| `atomic_short`    | `short` |
+| `atomic_ushort`   | `unsigned short` |
+| `atomic_int`      | `int` |
+| `atomic_long`     | `long` |
+| `atomic_ulong`    | `unsigned long` |
+| `atomic_llong`    | [`long long`](/lang/cpp11/long_long_type.md) |
+| `atomic_ullong`   | [`unsigned long long`](/lang/cpp11/long_long_type.md) |
+| `atomic_char16_t` | [`char16_t`](/lang/cpp11/char16_32.md) |
+| `atomic_char32_t` | [`char32_t`](/lang/cpp11/char16_32.md) |
+| `atomic_wchar_t`  | `wchar_t` |
+| `atomic_bool`     | `bool` |
 
-また、`<cstdint>`で定義される整数型に対する以下の`typedef`も提供される。
+また、[`<cstdint>`](/reference/cstdint.md)で定義される整数型に対する以下の`typedef`も提供される。
 
 | 名前付きアトミック型 | テンプレート引数となる整数型 |
 |------------------------------------|--------------------------------------------|
-|` atomic_int_least8_t` |` int_least8_t` |
-|` atomic_uint_least8_t` |` uint_least8_t` |
-|` atomic_int_least16_t` |` int_least16_t` |
-|` atomic_uint_least16_t` |` uint_least16_t` |
-|` atomic_int_least32_t` |` int_least32_t` |
-|` atomic_uint_least32_t` |` uint_least32_t` |
-|` atomic_int_least64_t` |` int_least64_t` |
-|` atomic_uint_least64_t` |` uint_least64_t` |
-|` atomic_int_fast8_t` |` int_fast8_t` |
-|` atomic_uint_fast8_t` |` uint_fast8_t` |
-|` atomic_int_fast16_t` |` int_fast16_t` |
-|` atomic_uint_fast16_t` |` uint_fast16_t` |
-|` atomic_int_fast32_t` |` int_fast32_t` |
-|` atomic_uint_fast32_t` |` uint_fast32_t` |
-|` atomic_int_fast64_t` |` int_fast64_t` |
-|` atomic_uint_fast64_t` |` uint_fast64_t` |
-|` atomic_intptr_t` |` intptr_t` |
-|` atomic_uintptr_t` |` uintptr_t` |
-|` atomic_size_t` |` size_t` |
-|` atomic_ptrdiff_t` |` ptrdiff_t` |
-|` atomic_intmax_t` |` intmax_t` |
-|` atomic_uintmax_t` |` uintmax_t` |
+| `atomic_int_least8_t`   | [`int_least8_t`](/reference/cstdint/int_least8_t.md) |
+| `atomic_uint_least8_t`  | [`uint_least8_t`](/reference/cstdint/uint_least8_t.md) |
+| `atomic_int_least16_t`  | [`int_least16_t`](/reference/cstdint/int_least16_t.md) |
+| `atomic_uint_least16_t` | [`uint_least16_t`](/reference/cstdint/uint_least16_t.md) |
+| `atomic_int_least32_t`  | [`int_least32_t`](/reference/cstdint/int_least32_t.md) |
+| `atomic_uint_least32_t` | [`uint_least32_t`](/reference/cstdint/uint_least32_t.md) |
+| `atomic_int_least64_t`  | [`int_least64_t`](/reference/cstdint/int_least64_t.md) |
+| `atomic_uint_least64_t` | [`uint_least64_t`](/reference/cstdint/uint_least64_t.md) |
+| `atomic_int_fast8_t`    | [`int_fast8_t`](/reference/cstdint/int_fast8_t.md) |
+| `atomic_uint_fast8_t`   | [`uint_fast8_t`](/reference/cstdint/uint_fast8_t.md) |
+| `atomic_int_fast16_t`   | [`int_fast16_t`](/reference/cstdint/int_fast16_t.md) |
+| `atomic_uint_fast16_t`  | [`uint_fast16_t`](/reference/cstdint/uint_fast16_t.md) |
+| `atomic_int_fast32_t`   | [`int_fast32_t`](/reference/cstdint/int_fast32_t.md) |
+| `atomic_uint_fast32_t`  | [`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md) |
+| `atomic_int_fast64_t`   | [`int_fast64_t`](/reference/cstdint/int_fast64_t.md) |
+| `atomic_uint_fast64_t`  | [`uint_fast64_t`](/reference/cstdint/uint_fast64_t.md) |
+| `atomic_intptr_t`       | [`intptr_t`](/reference/cstdint/intptr_t.md) |
+| `atomic_uintptr_t`      | [`uintptr_t`](/reference/cstdint/uintptr_t.md) |
+| `atomic_size_t`         | [`size_t`](/reference/cstddef/size_t.md) |
+| `atomic_ptrdiff_t`      | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) |
+| `atomic_intmax_t`       | [`intmax_t`](/reference/cstdint/intmax_t.md) |
+| `atomic_uintmax_t`      | [`uintmax_t`](/reference/cstdint/uintmax_t.md) |
 
 `void*`に対する特殊化の`typedef`として、`atomic_address`型が提供される。
 
