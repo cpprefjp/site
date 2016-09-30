@@ -79,4 +79,4 @@ log(-1.0) = nan
 ##実装例
 マクローリン展開によって近似的に求めることができる。
 
-$$ \log_e (1 + x) = \sum_{n = 1}^{\infty} \frac{(-1)^{n + 1}}{n} x^n \quad \mathrm{for} \; | x | < 1 $$
+$$ \log_e (1 + x) = \sum_{n = 1}^{\infty} \frac{(-1)^{n + 1}}{n} x^n \quad \mathrm{for} \; -1 < x \le 1 $$
