@@ -79,5 +79,5 @@ log10(-1.0) = nan
 ##実装例
 [`log`](log.md) があれば、以下のように変換することで求められる。
 
-$$ \log_{10} x = \frac{\log_e x}{\log_e 10} \quad \mathrm{for} \; |x| < 1 $$
+$$ \log_{10} x = \frac{\log_e x}{\log_e 10}$$
 
