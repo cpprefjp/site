@@ -75,4 +75,4 @@ log2(-1.0) = nan
 ##実装例
 [`log`](log.md) があれば、以下のように変換することで求められる。
 
-$$ \log_2 x = \frac{\log_e x}{\log_e 2} \quad \mathrm{for} \; |x| < 1 $$
+$$ \log_2 x = \frac{\log_e x}{\log_e 2}$$
