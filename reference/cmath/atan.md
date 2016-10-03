@@ -22,7 +22,7 @@ namespace std {
 
 
 ##戻り値
-引数 `x` の逆正接を `[-π/2; π/2]` の範囲で返す。
+引数 `x` の逆正接を主値 `[-π/2, π/2]` の範囲で返す。
 
 
 ##備考
@@ -75,7 +75,7 @@ atan(∞)    = 1.570796
 
 
 ##実装例
-マクローリン展開によって近似的に求めることができる。
+以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
 $$ \tan^{-1} x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
@@ -84,9 +84,9 @@ $ |x| \ge 1 $ の範囲、および $ |x| \rightarrow 1 $ 近傍の精度低下�
 
 （特に $ \sqrt{2} + 1 < |x| $ の場合）
 
-$$ \tan^{-1} x = \frac{\pi}{2} - \tan^{-1} \frac{1}{x} \quad \mathrm{for~all} \; x $$
+$$ \tan^{-1} x = \frac{\pi}{2} - \tan^{-1} \frac{1}{x} \quad \mathrm{for} \; x > 0 $$
 
 
 （特に $ \sqrt{2} - 1 < |x| \le \sqrt{2} + 1 $ の場合）
 
-$$ \tan^{-1} x = \frac{\pi}{4} + \tan^{-1} \frac{x - 1}{x + 1} \quad \mathrm{for~all} \; x $$
+$$ \tan^{-1} x = \frac{\pi}{4} + \tan^{-1} \frac{x - 1}{x + 1} \quad \mathrm{for} \; x \ne -1 $$
