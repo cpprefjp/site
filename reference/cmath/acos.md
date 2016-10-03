@@ -82,6 +82,6 @@ acos(1.0)   = 0.000000
 $$ \cos^{-1} x = \frac{\pi}{2} - \sum_{n = 0}^{\infty}\frac{\left(2n\right)!}{4^n\left(n!\right)^2\left(2n + 1\right)}x^{2n+1} \quad \mathrm{for} \; |x| < 1 $$
 
 
-また、逆正接関数と逆余接関数の和は $$π / 2$$ なので `asin` から求めることができる。
+また、逆正接関数と逆余接関数の和は π / 2 なので `asin` から求めることができる。
 
 $$ \cos^{-1} x = \frac{\pi}{2} - \sin^{-1} x \quad \mathrm{for} \; |x| < 1 $$
