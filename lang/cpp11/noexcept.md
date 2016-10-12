@@ -73,7 +73,7 @@ struct X {
 
   // 外側はnoexcept例外仕様、内側はnoexcept演算子。
   // メンバ関数関数f()が例外を送出しない場合、関数g()もまた例外を送出しない
-  int g() const noexcept(noexcept(f())
+  int g() const noexcept(noexcept(f()))
   { return f(); }
 };
 
