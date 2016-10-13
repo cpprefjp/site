@@ -75,7 +75,7 @@ C++14は、C++11のバグフィックス + マイナーアップデートが行�
 | [ラムダ式の初期化キャプチャ](/lang/cpp14/initialize_capture.md) | キャプチャに代入構文を導入し、一つの変数に複数のキャプチャ方法を指定可能にする | 4.9 | 3.4 | 15.0 | 14.0 |
 | [ジェネリックラムダ](/lang/cpp14/generic_lambdas.md) | ラムダ式のパラメータを`auto`にすることで、ジェネリックな関数呼び出し演算子を持つ関数オブジェクトを生成する | 4.9 | 3.4 | 16.0 | 14.0 |
 | [変数テンプレート](/lang/cpp14/variable_templates.md) | 変数定義時のテンプレート指定を可能にする。 | 5.1 | 3.4 | 16.0 | 14.0 Update 2 |
-| [`constexpr`の制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md) | `if`文、`switch`文による条件分岐の許可。<br/>`for`文、`while`文、`do-while`文によるループの許可。<br/>`void`戻り値型の許可<br/>初期化を伴う変数宣言の許可。<br/>変数書き換えの許可。 | 5.1 | 3.3(partial) | 16.0 | No |
+| [`constexpr`の制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md) | `if`文、`switch`文による条件分岐の許可。<br/>`for`文、`while`文、`do-while`文によるループの許可。<br/>`void`戻り値型の許可<br/>初期化を伴う変数宣言の許可。<br/>変数書き換えの許可。 | 5.1 | 3.3(partial) | 16.0 | 15.0 |
 | [宣言時のメンバ初期化を持つ型の集成体初期化を許可](/lang/cpp14/brace_elision_in_array_temporary_initialization.md) | 一様初期化と初期化子リストを組み合わせた際、二重に波カッコが必要となっていた仕様を緩和し、波カッコを省略できるようにする | 5.1 | 3.3 | 16.0 | 15.0 |
 | [`[[deprecated]]`属性](/lang/cpp14/deprecated_attr.md) | 非推奨の機能であることを示す属性。 | 4.9 | 3.4 | 15.0<br/> (Linux/Mac OS) | 14.0<br/>それ以前は`__declspec(deprecated)`で代替可能 |
 | [数値リテラルの桁区切り文字](/lang/cpp14/digit_separators.md) | シングルクォーテーションで数値リテラルを桁区切りする。 | 4.9 | 3.4 | 16.0 | 14.0 |
@@ -92,6 +92,7 @@ C++14は、C++11のバグフィックス + マイナーアップデートが行�
 - Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
     - [Compiler improvements in VS 2015 Update 2 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/02/11/compiler-improvements-in-vs-2015-update-2/)
     - [C++14/17 Features and STL Fixes in VS “15” Preview 4 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/08/24/c1417-features-and-stl-fixes-in-vs-15-preview-4/)
+    - [C++14/17 Features and STL Fixes in VS “15” Preview 5 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/10/11/c1417-features-and-stl-fixes-in-vs-15-preview-5/)
 - ICC: [C++14 Features Supported by Intel C++ Compiler](https://software.intel.com/en-us/articles/c14-features-supported-by-intel-c-compiler)
     - [Intel (R) Parallel Studio XE 2016 Beta program has begun](https://software.intel.com/en-us/forums/topic/549502)
 
@@ -109,13 +110,13 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|
-| [メッセージなしの`static_assert`][n3928] | デフォルトの表明メッセージを使用する | 6 | 3.5 | No | No |
+| [メッセージなしの`static_assert`][n3928] | デフォルトの表明メッセージを使用する | 6 | 3.5 | No | 15.0 |
 | [トライグラフを削除][n4086] | | 5.1 | 3.5 | No | 12.0 |
 | [テンプレートテンプレートパラメータに`typename`を許可][n4051] | `class`キーワードしか使用できなかった部分に、`typename`を許可 | 5.0 | 3.5 | No | 14.0 |
 | [単一要素初期化子リストを`auto`で受け取った場合の型を変更][n3922] | `initializer_list<T>`だったのを`T`に変更 | No | 3.8 | No | 14.0 |
 | [畳み込み式][n4295] | パラメータパックに対する2項演算の集積処理 | 6 | 3.6 | No | No |
 | [UTF-8文字リテラル][n4267] | 文字列リテラルだけでなく、文字リテラルにもUTF-8指定できるようにする | 6 | 3.6 | No | 14.0 |
-| [入れ子名前空間の定義][n4230] | `namespace A::B {}`のように、入れ子の名前空間を簡単に定義できるようにする | 6 | 3.6 | No | No |
+| [入れ子名前空間の定義][n4230] | `namespace A::B {}`のように、入れ子の名前空間を簡単に定義できるようにする | 6 | 3.6 | No | 14.0 Update 3 |
 | [名前空間と列挙子に属性の付加を許可][n4266] | 名前空間の定義と、列挙型の各要素の定義に、属性を付けられるようにする | 名前空間は4.0<br/>列挙子は6 | 3.6 | No | 14.0 |
 | [非型テンプレートパラメータの定数式を評価する][n4268] | `nullptr`から任意の型のポインタへの変換等をテンプレート引数の指定時に行う | 6 | 3.6 | No | No |
 | [非推奨だった`register`キーワードを削除][P0001R1] | | No | 3.8 | No | No |
@@ -128,7 +129,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 | [`[[maybe_unused]]`属性][P0212R1] | 使用しない可能性がある変数であることをコンパイラに伝える属性 | 4.8からは`[[gnu::unused]]`を使用すること<br/> 7からサポート | 3.9 | No | No |
 | [基本クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする][P0017R1] | 基本クラスのメンバを集成体初期化するために、`derived d {{42}};`の代わりに`derived d {42};`と書けるようにする | No | 3.9 | No | No |
 | [ラムダ式を`constexpr`として使用できるようにする][P0170R1] | ラムダ式の関数オブジェクトが定数式の文脈で使用された場合に、それがコンパイル時に評価されるようにする | 7 | No | No | No |
-| [範囲for文のための`begin()`と`end()`関数が、異なる型を返すことを許可][P0184R0] | `begin()`と`end()`が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする | 6 | 3.9 | No | No |
+| [範囲for文のための`begin()`と`end()`関数が、異なる型を返すことを許可][P0184R0] | `begin()`と`end()`が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする | 6 | 3.9 | No | 15.0 |
 | [ラムダ式での`*this`のコピーキャプチャ][P0018R3] | キャプチャリストに`*this`を指定することで、`*this`をコピーキャプチャする | No | 3.8 | No | No |
 | [浮動小数点数の16進数リテラル][P0245R1] | `hexfloat`マニピュレータや`printf()`の16進数出力に合わせて、浮動小数点数のリテラルも16進数表記できるようにする | 3.0 | 3.0 | No | No |
 | [属性の名前空間指定に繰り返しをなくす][P0028R4] | `[[using CC: opt(1), debug]]`のように属性の名前空間宣言をまとめて行う | 7 | 3.9 | No | No |
@@ -195,6 +196,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
     - [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
     - [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
     - [C++14/17 Features and STL Fixes in VS “15” Preview 4 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/08/24/c1417-features-and-stl-fixes-in-vs-15-preview-4/)
+    - [C++14/17 Features and STL Fixes in VS “15” Preview 5 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/10/11/c1417-features-and-stl-fixes-in-vs-15-preview-5/)
 
 [gcc]: ./implementation.md#gcc
 [clang]: ./implementation.md#clang
