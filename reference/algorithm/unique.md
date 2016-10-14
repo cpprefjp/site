@@ -92,10 +92,12 @@ ForwardIterator unique(ForwardIterator first, ForwardIterator last) {
 
   auto result = first;
   auto value = move(*first++);
-  for ( ; first != last; ++first) {    if (!(value == *first)) {
+  for ( ; first != last; ++first) {
+    if (!(value == *first)) {
       *result++ = move(value);
       value = move(*first);
-    }  }
+    }
+  }
   *result++ = move(value);
 
   return result;
@@ -107,10 +109,12 @@ ForwardIterator unique(ForwardIterator first, ForwardIterator last, BinaryPredic
 
   auto result = first;
   auto value = move(*first++);
-  for ( ; first != last; ++first) {    if (!pred(value, *first)) {
+  for ( ; first != last; ++first) {
+    if (!pred(value, *first)) {
       *result++ = move(value);
       value = move(*first);
-    }  }
+    }
+  }
   *result++ = move(value);
 
   return result;
