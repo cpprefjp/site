@@ -27,7 +27,7 @@ namespace std {
 
 int main()
 {
-  // 以下の式でDE_DIVBYZERO浮動小数点例外が発生したと想定する
+  // 以下の式でFE_DIVBYZERO浮動小数点例外が発生したと想定する
   float result = 1.0f / 0.0f;
 
   // FE_ALL_EXCEPTを指定することによって、
@@ -43,7 +43,9 @@ int main()
 }
 ```
 * std::feclearexcept[color ff0000]
+* std::fetestexcept[link fetestexcept.md]
 * FE_DIVBYZERO[link fe_divbyzero.md]
+* FE_INVALID[link fe_invalid.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
 * assert[link /reference/cassert/assert.md]
 
