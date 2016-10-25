@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define implementation-defined FE_UPWARD
+#define FE_UPWARD implementation-defined
 ```
 
 ##概要

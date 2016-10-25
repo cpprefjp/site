@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define implementation-defined FE_INEXACT
+#define FE_INEXACT implementation-defined
 ```
 
 ##概要

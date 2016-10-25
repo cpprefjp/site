@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define implementation-defined FE_OVERFLOW
+#define FE_OVERFLOW implementation-defined
 ```
 
 ##概要

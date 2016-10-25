@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define implementation-defined FE_DIVBYZERO
+#define FE_DIVBYZERO implementation-defined
 ```
 
 ##概要
