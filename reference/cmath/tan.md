@@ -35,7 +35,7 @@ $$ f(x) = \tan x $$
 #include <iostream>
 
 int main() {
-  static const double pi = 3.14159265358979265358979;
+  static const double pi = 3.141592653589793;
   std::cout << std::fixed;
   std::cout << "tan(0.0)  = " << std::tan(0.0) << std::endl;
   std::cout << "tan(pi/6) = " << std::tan(pi/6) << std::endl;

@@ -35,7 +35,7 @@ $$ f(x) = \sin x $$
 #include <iostream>
 
 int main() {
-  static const double pi = 3.14159265358979265358979;
+  static const double pi = 3.141592653589793;
   std::cout << std::fixed;
   std::cout << "sin(0.0)  = " << std::sin(0.0) << std::endl;
   std::cout << "sin(pi/6) = " << std::sin(pi/6) << std::endl;

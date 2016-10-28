@@ -35,7 +35,7 @@ $$ f(x) = \cos x $$
 #include <iostream>
 
 int main() {
-  static const double pi = 3.14159265358979265358979;
+  static const double pi = 3.141592653589793;
   std::cout << std::fixed;
   std::cout << "cos(0.0)  = " << std::cos(0.0) << std::endl;
   std::cout << "cos(pi/6) = " << std::cos(pi/6) << std::endl;
