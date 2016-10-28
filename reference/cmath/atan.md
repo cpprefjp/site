@@ -35,7 +35,6 @@ $$ f(x) = \tan^{-1} x $$
 #include <iostream>
 
 int main() {
-  static const double pi = 3.141592653589793;
   std::cout << std::fixed;
   std::cout << "atan(0.0)   = " << std::atan(0.0) << std::endl;
   std::cout << "atan(0.5)   = " << std::atan(0.5) << std::endl;

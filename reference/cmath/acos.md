@@ -37,7 +37,6 @@ $$ f(x) = \cos^{-1} x $$
 #include <iostream>
 
 int main() {
-  static const double pi = 3.141592653589793;
   std::cout << std::fixed;
   std::cout << "acos(0.0)   = " << std::acos(0.0) << std::endl;
   std::cout << "acos(0.5)   = " << std::acos(0.5) << std::endl;

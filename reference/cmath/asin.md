@@ -35,7 +35,6 @@ $$ f(x) = \sin^{-1} x $$
 #include <iostream>
 
 int main() {
-  static const double pi = 3.141592653589793;
   std::cout << std::fixed;
   std::cout << "asin(0.0)   = " << std::asin(0.0) << std::endl;
   std::cout << "asin(0.5)   = " << std::asin(0.5) << std::endl;
