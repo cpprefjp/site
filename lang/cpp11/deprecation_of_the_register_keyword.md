@@ -18,5 +18,5 @@ register int v = 42;
 
 
 ##参照
-- [CWG Issue 809. Deprecation of the `register` keyword](hhttp://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#809)
+- [CWG Issue 809. Deprecation of the `register` keyword](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#809)
 
