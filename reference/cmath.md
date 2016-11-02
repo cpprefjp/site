@@ -246,7 +246,7 @@
 | [`FP_ILOGBNAN`](cmath/fp_ilogbnan.md)   | `ilogb(NaN)` の返値を表す整数定数式 | C++11 |
 | `MATH_ERRNO`                              | 整数定数 1 | C++11 |
 | `MATH_ERREXCEPT`                          | 整数定数 2 | C++11 |
-| `math_errhandling`                        | `MATH_ERRNO`、`MATH_ERREXCEPT`、または両方のビットORに展開される `int` 型の式 | C++11 |
+| [`math_errhandling`](cmath/math_errhandling.md) | `<cmath>` 内の関数がエラーをどのように取り扱うかを表すマクロ | C++11 |
 
 
 ##参照
