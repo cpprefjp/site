@@ -45,8 +45,8 @@ int main()
 * std::modf[color ff0000]
 * assert[link /reference/cassert/assert.md]
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
-* quiet_NaN()[link /reference/limits/numeric_limits/quiet_NaN.md]
-* signaling_NaN()[link /reference/limits/numeric_limits/signaling_NaN.md]
+* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
+* signaling_NaN()[link /reference/limits/numeric_limits/signaling_nan.md]
 
 ###出力
 ```

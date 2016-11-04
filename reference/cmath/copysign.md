@@ -88,7 +88,7 @@ namespace std {
 * std::abs[link abs.md]
 * std::isnan[link isnan.md]
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
-* quiet_NaN()[link /reference/limits/numeric_limits/quiet_NaN.md]
+* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 
 
 ##バージョン
