@@ -48,6 +48,7 @@ int main()
 }
 ```
 * epsilon[color ff0000]
+* std::abs[link /reference/cmath/abs.md]
 
 ###出力
 ```
