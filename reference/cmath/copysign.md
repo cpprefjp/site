@@ -87,3 +87,13 @@ namespace std {
 * std::isnan[link isnan.md.nolink]
 * NAN[link nan.md]
 
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang, C++11 mode](/implementation.md#clang): 3.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.3
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
