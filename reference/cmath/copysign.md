@@ -84,7 +84,7 @@ namespace std {
 }
 ```
 * std::abs[link abs.md]
-* std::isnan[link isnan.md.nolink]
+* std::isnan[link isnan.md]
 * NAN[link nan.md]
 
 
