@@ -58,7 +58,7 @@ double round(double x)
 * rint[link rint.md]
 * fetestexcept[link ../cfenv/fetestexcept.md]
 * FE_INEXACT[link ../cfenv/fe_inexact.md]
-* copysign[link copysign.md.nolink]
+* copysign[link copysign.md]
 * fabs[link fabs.md]
 * feupdateenv[link ../cfenv/feupdateenv.md.nolink]
 
