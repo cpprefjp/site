@@ -77,23 +77,22 @@ namespace std {
   {
     float integral_part = std::trunc(x);
     *iptr = integral_part;
-    return std::copysign(x - integral_part, x);
+    return x - integral_part;
   }
 
   double modf(double x, double* iptr)
   {
     double integral_part = std::trunc(x);
     *iptr = integral_part;
-    return std::copysign(x - integral_part, x);
+    return x - integral_part;
   }
 
   long double modf(long double x, long double* iptr)
   {
     long double integral_part = std::trunc(x);
     *iptr = integral_part;
-    return std::copysign(x - integral_part, x);
+    return x - integral_part;
   }
 }
 ```
 * std::trunc[link trunc.md]
-* std::copysign[link copysign.md.nolink]
