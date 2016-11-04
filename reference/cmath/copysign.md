@@ -60,24 +60,26 @@ int main()
 ##実装例
 ```cpp
 namespace std {
-  float my_copysign(float x, float y)
+  float copysign(float x, float y)
   {
-    float absolute_value = std::isnan(x) ? NAN : std::abs(x);
+    float absolute_value = std::isnan(x) ?
+                           std::numeric_limits<float>::quiet_NaN() :
+                           std::abs(x);
     return y >= 0 ? absolute_value : -absolute_value;
   }
 
-  double my_copysign(double x, double y)
+  double copysign(double x, double y)
   {
     double absolute_value = std::isnan(x) ?
-                            static_cast<double>(NAN) :
+                            std::numeric_limits<double>::quiet_NaN() :
                             std::abs(x);
     return y >= 0 ? absolute_value : -absolute_value;
   }
 
-  long double my_copysign(long double x, long double y)
+  long double copysign(long double x, long double y)
   {
     long double absolute_value = std::isnan(x) ?
-                                 static_cast<long double>(NAN) :
+                                 std::numeric_limits<long double>::quiet_NaN() :
                                  std::abs(x);
     return y >= 0 ? absolute_value : -absolute_value;
   }
@@ -85,7 +87,8 @@ namespace std {
 ```
 * std::abs[link abs.md]
 * std::isnan[link isnan.md]
-* NAN[link nan.md]
+* std::numeric_limits[link /reference/limits/numeric_limits.md]
+* quiet_NaN()[link /reference/limits/numeric_limits/quiet_NaN.md]
 
 
 ##バージョン
