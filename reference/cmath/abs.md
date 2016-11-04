@@ -43,6 +43,8 @@ int main() {
   std::cout << "abs(-1.5) = " << std::abs(-1.5) << std::endl;
 }
 ```
+* std::abs[color ff0000]
+* std::fixed[link /reference/ios/fixed.md]
 
 ###出力
 ```
