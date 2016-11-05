@@ -97,14 +97,6 @@ C++14は、C++11のバグフィックス + マイナーアップデートが行�
     - [Intel (R) Parallel Studio XE 2016 Beta program has begun](https://software.intel.com/en-us/forums/topic/549502)
 
 
-##Technical Specificationの実装状況
-Technical Specificationは、C++14に追加で導入する言語機能、およびライブラリである。
-
-| 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
-|------------------------------|------|-----|-------|-----|------|
-| 実行時サイズの配列           | 組み込み配列を、実行時の要素数で構築することを可能にする | 4.9 | No | No | No |
-
-
 ## <a name="cpp1z" href="#cpp1z">C++1z言語機能の実装状況</a>
 C++1zは、2017年に策定予定の、C++14に対するメジャーバージョンアップである。
 
