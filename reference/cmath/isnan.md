@@ -42,7 +42,7 @@ int main()
   assert(result2);
 }
 ```
-* std::modf[color ff0000]
+* std::isnan[color ff0000]
 * assert[link /reference/cassert/assert.md]
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
 * quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
