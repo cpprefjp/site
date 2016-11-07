@@ -53,7 +53,7 @@ int main()
   assert(!result_nan);
 
   if (std::numeric_limits<float>::has_denorm) {
-    // 非正規化数(最小の浮動小数点数値)は正規化数ではない
+    // 非正規化数は正規化数ではない
     bool result_denorm = std::isnormal(std::numeric_limits<float>::denorm_min());
     assert(!result_denorm);
   }
