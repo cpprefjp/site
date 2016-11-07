@@ -190,7 +190,7 @@
 | [`isinf`](cmath/isinf.md)       | 数値が無限大であるか判定    | C++11 |
 | [`isnan`](cmath/isnan.md)       | 数値が NaN であるか判定     | C++11 |
 | [`isnormal`](cmath/isnormal.md) | 数値が正規化数であるか判定  | C++11 |
-| `signbit`    | 数値の符号が負であるか判定  | C++11 |
+| [`signbit`](cmath/signbit.md)   | 数値の符号が負であるか判定  | C++11 |
 
 
 ##数値比較
