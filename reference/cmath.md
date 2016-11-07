@@ -186,7 +186,7 @@
 | 名前 | 説明 | 対応バージョン |
 |--------------|------------------|-------|
 | [`fpclassify`](cmath/fpclassify.md) | 数値を NaN、無限大、正規化数、非正規化数、0 または他の処理系定義のカテゴリに分類 | C++11 |
-| `isfinite`   | 数値が有限であるか判定      | C++11 |
+| [`isfinite`](cmath/isfinite.md) | 数値が有限であるか判定      | C++11 |
 | [`isinf`](cmath/isinf.md)       | 数値が無限大であるか判定    | C++11 |
 | [`isnan`](cmath/isnan.md)       | 数値が NaN であるか判定     | C++11 |
 | [`isnormal`](cmath/isnormal.md) | 数値が正規化数であるか判定  | C++11 |
