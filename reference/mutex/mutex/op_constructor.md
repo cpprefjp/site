@@ -106,4 +106,5 @@ A
 ##参照
 - [Constant Initialization - 雑貨's tumblr](http://zakkas783.tumblr.com/post/25490513807/constant-initialization)
 - [mutexのconstexprコンストラクタ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120621/p1)
+- [なぜmutexオブジェクトはムーブできないか？ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20161106/p1)
 
