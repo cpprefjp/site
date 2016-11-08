@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FP_FAST_FMA implementation_defined
+#define FP_FAST_FMA 1
 ```
 * implementation_defined[italic]
 
