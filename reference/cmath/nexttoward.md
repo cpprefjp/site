@@ -17,6 +17,7 @@ namespace std {
 }
 ```
 * Integral[italic]
+* Promoted[italic]
 
 ##概要
 指定方向への次の表現可能な値を取得する。
