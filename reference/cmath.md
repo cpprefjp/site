@@ -161,8 +161,8 @@
 | `nan`        | 文字列から quiet NaN への変換 | C++11 |
 | `nanf`       | 文字列から quiet NaN への変換 | C++11 |
 | `nanl`       | 文字列から quiet NaN への変換 | C++11 |
-| [`nextafter`](cmath/nextafter.md)  | 指定方向への次の表現可能な値  | C++11 |
-| `nexttoward` | 指定方向への次の表現可能な値  | C++11 |
+| [`nextafter`](cmath/nextafter.md)   | 指定方向への次の表現可能な値  | C++11 |
+| [`nexttoward`](cmath/nexttoward.md) | 指定方向への次の表現可能な値  | C++11 |
 
 
 ##最大値・最小値と正の差
