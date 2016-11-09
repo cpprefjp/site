@@ -16,7 +16,9 @@ namespace std {
   Promoted nextafter(Arithmetic1 x, Arithmetic2 y);
 }
 ```
-* Integral[italic]
+* Arithmetic1[italic]
+* Arithmetic2[italic]
+* Promoted[italic]
 
 ##概要
 指定方向への次の表現可能な値を取得する。
