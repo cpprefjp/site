@@ -40,7 +40,7 @@ int main()
 {
   // シグナルを発生させないNaNを生成する。ペイロードなし
   double result1 = std::nan("");
-  // シグナルを発生させずにNaN値を持つ変数を整数に変換して出力
+  // 浮動小数点例外を発生させずにNaN値を持つ変数を整数に変換して出力
   std::uint64_t result1n = 0;
   std::memcpy(&result1n, &result1, sizeof(result1));
   std::cout << result1 << "(" << std::hex << result1n << ")" << std::endl;
