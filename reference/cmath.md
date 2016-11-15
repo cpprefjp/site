@@ -102,8 +102,8 @@
 | `ilogb`   | 指数部を符号付き整数値として抽出 | C++11 |
 | `logb`    | 指数部を浮動小数点数値として抽出 | C++11 |
 | [`modf`](cmath/modf.md)    | 整数部と小数部への分解           | |
-| `scalbn`  | 内部表現の基数 (`FLT_RADIX`) の累乗との乗算 | C++11 |
-| `scalbln` | 内部表現の基数 (`FLT_RADIX`) の累乗との乗算 | C++11 |
+| [`scalbn`](cmath/scalbn.md)  | 内部表現の基数 (`FLT_RADIX`) の累乗との乗算 | C++11 |
+| [`scalbln`](cmath/scalbn.md) | 内部表現の基数 (`FLT_RADIX`) の累乗との乗算 | C++11 |
 
 
 ##累乗・冪根と絶対値
