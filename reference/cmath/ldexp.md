@@ -28,7 +28,7 @@ namespace std {
 
 - [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERRNO`](math_errno.md.nolink)が非ゼロとなり、
 - [`errno`](/reference/cerrno/errno.md)の値は[`ERANGE`](/reference/cerrno.md)となり、
-- [`math_errhandling`](math_errhandling.md.nolink) `&` [`MATH_ERREXCEPT`](math_errexcept.md.nolink)が非ゼロとなり、
+- [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERREXCEPT`](math_errexcept.md.nolink)が非ゼロとなり、
 - 浮動小数点例外として[overflow](/reference/cfenv/fe_overflow.md)が送出される
 - 戻り値として、
     - パラメータ`x`の型が`double`であれば[`HUGE_VAL`](huge_val.md)
