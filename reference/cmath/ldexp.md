@@ -12,7 +12,7 @@ namespace std {
   float ldexpf(float x, int exp);
   long double ldexpl(long double x, int exp);
 
-  Integral ldexp(Integral value, int exp);
+  Integral ldexp(Integral x, int exp);
 }
 ```
 * Integral[italic]
