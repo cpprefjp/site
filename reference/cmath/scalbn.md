@@ -23,7 +23,7 @@ namespace std {
   float scalblnf(float x, long int n);
   long double scalblnl(long double x, long int n);
 
-  Integral scalbln(Integral x, int n);
+  Integral scalbln(Integral x, long int n);
 }
 ```
 * Integral[italic]
@@ -53,6 +53,8 @@ namespace std {
 
 ##備考
 この関数は元々`scalb()`という名前で提案されていたが、非標準の同名関数が広く実装されていた。そのため、`new`の意味を持つ`n`を関数名の末尾に付けて`scalbn()`関数として標準ライブラリに定義された。
+
+`scalbln()`関数は、パラメータ`n`の型が`long int`であることを除いて、`scalbn()`関数と同等である。
 
 
 ##例
