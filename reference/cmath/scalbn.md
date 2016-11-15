@@ -37,7 +37,7 @@ namespace std {
 
 
 ##戻り値
-`x * `[`FLT_RADIX`](/reference/cfloat/flt_radix.md)<sup>n</sup>
+`x *` [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<sup>n</sup>
 
 - 結果値が大きすぎる場合、値域エラーが発生する。その場合、プログラムは以下の状態になる:
 
