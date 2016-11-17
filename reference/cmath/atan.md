@@ -22,11 +22,14 @@ namespace std {
 
 
 ##戻り値
-引数 `x` の逆正接を主値 `[-π/2, π/2]` の範囲で返す。
+引数 `x` の逆正接を主値 `[-π/2, π/2]` の範囲で返す。（単位はラジアン）
 
 
 ##備考
-$$ f(x) = \tan^{-1} x $$
+- $$ f(x) = \tan^{-1} x $$
+- 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+	- `x = ±0` の場合、戻り値は `±0` となる。（複号同順）
+	- `x = ±∞` の場合、戻り値は `±π/2` となる。（複号同順）
 
 
 ##例
@@ -38,12 +41,18 @@ int main() {
   std::cout << std::fixed;
   std::cout << "atan(0.0)   = " << std::atan(0.0) << std::endl;
   std::cout << "atan(0.5)   = " << std::atan(0.5) << std::endl;
-  std::cout << "atan(1/√2) = " << std::atan(1/std::sqrt(2)) << std::endl;
-  std::cout << "atan(√3/2) = " << std::atan(std::sqrt(3)/2) << std::endl;
+  std::cout << "atan(1/√2) = " << std::atan(1.0 / std::sqrt(2.0)) << std::endl;
+  std::cout << "atan(√3/2) = " << std::atan(std::sqrt(3.0) / 2.0) << std::endl;
   std::cout << "atan(1.0)   = " << std::atan(1.0) << std::endl;
-  std::cout << "atan(∞)    = " << std::atan(INFINITY) << std::endl;
+  std::cout << "atan(∞)    = " << std::atan(std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::atan[color ff0000]
+* std::sqrt[link sqrt.md]
+* std::fixed[link ../ios/fixed.md]
+* std::numeric_limits[link ../limits/numeric_limits.md]
+* infinity[link ../limits/numeric_limits/infinity.md]
 
 ###出力
 ```
