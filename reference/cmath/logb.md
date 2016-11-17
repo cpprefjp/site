@@ -23,7 +23,7 @@ namespace std {
 
 
 ##戻り値
-`x *` [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<code><sup>logb(x)</sup></code>が範囲`[1, FLT_RADIX)`に収まるように指数を求めて返す。
+`x *` [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<code><sup>-logb(x)</sup></code>が範囲`[1, `[`FLT_RADIX`](/reference/cfloat/flt_radix.md)`)`に収まるように指数を求めて返す。
 
 `x`がゼロである場合、定義域エラーが発生する。その場合、プログラムは以下の状態になる:
 
