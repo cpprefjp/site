@@ -22,13 +22,23 @@ namespace std {
 
 
 ##戻り値
-引数 `x` の逆余弦を主値 `[0, π]` の範囲で返す。
+引数 `x` の逆余弦を主値 `[0, π]` の範囲で返す。（単位はラジアン）
 
-`x` が `[-1.0, 1.0]` の範囲外だった場合 `NaN` を返す。
+`x` が `[-1.0, 1.0]` の範囲外だった場合は定義域エラーとなり、戻り値は処理系定義である。（備考参照）
 
 
 ##備考
-$$ f(x) = \cos^{-1} x $$
+- $$ f(x) = \cos^{-1} x $$
+- 定義域エラーが発生した場合、以下のようになる。
+	- C++11 以降（C99 準拠）で [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERRNO`](math_errno.md.nolink) がゼロ以外の場合、および、C++03 まで（C90 準拠）の場合  
+		[`errno`](../cerrno/errno.md) が [`EDOM`](../cerrno.md) に設定される。  
+		なお、定義域エラーが発生しなかった場合でも、[`errno`](../cerrno/errno.md) がクリアされる（ゼロになる）わけではないため、[`errno`](../cerrno/errno.md) で判別する場合にはあらかじめ [`errno`](../cerrno/errno.md) にゼロを設定しておく必要がある。
+	- C++11 以降（C99 準拠）で [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERREXCEPT`](math_errexcept.md.nolink) がゼロ以外の場合  
+		無効演算浮動小数点例外（[`FE_INVALID`](../cfenv/fe_invalid.md)）が発生する。  
+		なお、定義域エラーが発生しなかった場合でも、浮動小数点例外の状態フラグがクリアされるわけではないため、[`fetestexcept`](../cfenv/fetestexcept.md) で判別する場合にはあらかじめ [`feclearexcept`](../cfenv/feclearexcept.md) で無効演算浮動小数点例外（[`FE_INVALID`](../cfenv/fe_invalid.md)）のフラグをクリアしておく必要がある。
+- 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+	- `x = 1` の場合、戻り値は `+0` となる。
+	- `x > |1|` の場合、戻り値は NaN（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`quiet_NaN`](../limits/numeric_limits/quiet_nan.md)`()`）となる。
 
 
 ##例
@@ -40,11 +50,15 @@ int main() {
   std::cout << std::fixed;
   std::cout << "acos(0.0)   = " << std::acos(0.0) << std::endl;
   std::cout << "acos(0.5)   = " << std::acos(0.5) << std::endl;
-  std::cout << "acos(1/√2) = " << std::acos(1/std::sqrt(2)) << std::endl;
-  std::cout << "acos(√3/2) = " << std::acos(std::sqrt(3)/2) << std::endl;
+  std::cout << "acos(1/√2) = " << std::acos(1.0 / std::sqrt(2.0)) << std::endl;
+  std::cout << "acos(√3/2) = " << std::acos(std::sqrt(3.0) / 2.0) << std::endl;
   std::cout << "acos(1.0)   = " << std::acos(1.0) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::acos[color ff0000]
+* std::sqrt[link sqrt.md]
+* std::fixed[link ../ios/fixed.md]
 
 ###出力
 ```
@@ -81,6 +95,6 @@ acos(1.0)   = 0.000000
 $$ \cos^{-1} x = \frac{\pi}{2} - \sum_{n = 0}^{\infty}\frac{\left(2n\right)!}{4^n\left(n!\right)^2\left(2n + 1\right)}x^{2n+1} \quad \mathrm{for} \; |x| < 1 $$
 
 
-また、逆正接関数と逆余接関数の和は π / 2 なので `asin` から求めることができる。
+また、逆正接関数と逆余接関数の和は π / 2 なので [`asin`](asin.md) から求めることができる。
 
 $$ \cos^{-1} x = \frac{\pi}{2} - \sin^{-1} x \quad \mathrm{for} \; |x| < 1 $$
