@@ -13,7 +13,7 @@ namespace std {
 
   long double acosh(long double x);
 
-  double acosh(Integral x);   // C++11
+  double acosh(Integral x);
 }
 ```
 * Integral[italic]
@@ -25,13 +25,16 @@ namespace std {
 ##戻り値
 引数 `x` の逆双曲線余弦を `[0, +∞]` の範囲で返す。
 
-`x < 1` だった場合 `NaN` を返す。
-
-`x` が `+∞` だった場合 `+∞` を返す。
+`x < 1` だった場合は定義域エラーとなり、戻り値は処理系定義である。（備考参照）
 
 
 ##備考
-$$ f(x) = \cosh^{-1} x $$
+- $$ f(x) = \cosh^{-1} x $$
+- 定義域エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
+- 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+	- `x = 1` の場合、戻り値は `+0` となる。
+	- `x < 1` の場合、戻り値は NaN（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`quiet_NaN`](../limits/numeric_limits/quiet_nan.md)`()`）となる。
+	- `x = +∞` の場合、戻り値は `+∞` となる。
 
 
 ##例
@@ -43,11 +46,15 @@ int main() {
   std::cout << std::fixed;
   std::cout << "acosh(1.0) = " << std::acosh(1.0) << std::endl;
   std::cout << "acosh(2.0) = " << std::acosh(2.0) << std::endl;
-  std::cout << "acosh(∞)  = " << std::acosh(INFINITY) << std::endl;
+  std::cout << "acosh(∞)  = " << std::acosh(std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::acosh[color ff0000]
+* std::numeric_limits[link ../limits/numeric_limits.md]
+* infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力
+###出力例
 ```
 acosh(1.0) = 0.000000
 acosh(2.0) = 1.316958
