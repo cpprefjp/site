@@ -22,11 +22,17 @@ namespace std {
 
 
 ##戻り値
-引数 `x` の逆正弦を主値 `[-π/2, π/2]` の範囲で返す。`x` が `[-1.0, 1.0]` の範囲外だった場合 `NaN` を返す。
+引数 `x` の逆正弦を主値 `[-π/2, π/2]` の範囲で返す。（単位はラジアン）
+
+`x` が `[-1.0, 1.0]` の範囲外だった場合は定義域エラーとなり、戻り値は処理系定義である。（備考参照）
 
 
 ##備考
-$$ f(x) = \sin^{-1} x $$
+- $$ f(x) = \sin^{-1} x $$
+- 定義域エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
+- 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+	- `x = ±0` の場合、戻り値は `±0` となる。
+	- `x > |1|` の場合、戻り値は NaN（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`quiet_NaN`](../limits/numeric_limits/quiet_nan.md)`()`）となる。
 
 
 ##例
@@ -38,11 +44,15 @@ int main() {
   std::cout << std::fixed;
   std::cout << "asin(0.0)   = " << std::asin(0.0) << std::endl;
   std::cout << "asin(0.5)   = " << std::asin(0.5) << std::endl;
-  std::cout << "asin(1/√2) = " << std::asin(1/std::sqrt(2)) << std::endl;
-  std::cout << "asin(√3/2) = " << std::asin(std::sqrt(3)/2) << std::endl;
+  std::cout << "asin(1/√2) = " << std::asin(1.0 / std::sqrt(2.0)) << std::endl;
+  std::cout << "asin(√3/2) = " << std::asin(std::sqrt(3.0) / 2.0) << std::endl;
   std::cout << "asin(1.0)   = " << std::asin(1.0) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::asin[color ff0000]
+* std::sqrt[link sqrt.md]
+* std::fixed[link ../ios/fixed.md]
 
 ###出力
 ```
