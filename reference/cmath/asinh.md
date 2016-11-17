@@ -13,7 +13,7 @@ namespace std {
 
   long double asinh(long double x);
 
-  double asinh(Integral x);   // C++11
+  double asinh(Integral x);
 }
 ```
 * Integral[italic]
@@ -25,11 +25,12 @@ namespace std {
 ##戻り値
 引数 `x` の逆双曲線正弦を返す。
 
-`x` が `±∞` だった場合 `±∞` を返す。
-
 
 ##備考
-$$ f(x) = \sinh^{-1} x $$
+- $$ f(x) = \sinh^{-1} x $$
+- 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
+	- `x = ±0` の場合、戻り値は `±0` となる。
+	- `x = ±∞` の場合、戻り値は `±∞` となる。
 
 
 ##例
@@ -44,6 +45,8 @@ int main() {
   std::cout << "asinh(1.0)  = " << std::asinh(1.0) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::asinh[color ff0000]
 
 ###出力
 ```
