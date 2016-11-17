@@ -55,6 +55,90 @@
 * Arithmetic2[italic]
 * Promoted[italic]
 
+## エラーの扱い
+`<cmath>` で提供される各関数は、特に明記されていない限り、引数の型が表現できる全ての値についての挙動が定義されている。
+なお、ここで言う「挙動が定義されている」とは、未定義動作を引き起こさないというだけで、エラーが発生したり、実装依存の挙動となる場合がある事に注意。
+
+`<cmath>` で提供される各関数においてエラーが発生した場合、[`errno`](cerrno/errno.md)、あるいは、浮動小数点例外のいずれか、もしくは両方によってエラーが通知される。  
+C++11 以降の場合、どちらの方法によって通知されるかは [`math_errhandling`](cmath/math_errhandling.md) の値によって判別可能である。（利用者が選択する事はできない）  
+C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない。
+
+### [`errno`](cerrno/errno.md) によるエラーの通知
+[`errno`](cerrno/errno.md) によってエラーが通知される場合、エラー内容は [`errno`](cerrno/errno.md) に設定された値によって判別可能である。  
+なお、エラーが発生しなかった場合でも [`errno`](cerrno/errno.md) がクリアされる事は無いので、エラー発生の有無を [`errno`](cerrno/errno.md) で判断するためにはあらかじめ [`errno`](cerrno/errno.md) にゼロを設定しておく必要がある。
+
+
+### 浮動小数点例外によるエラーの通知（C++11 以降）
+名称に「例外」と付いているが、C++ の例外とは全く関係ないため注意。  
+浮動小数点例外によってエラーが通知される場合、エラー内容は浮動小数点状態フラグに設定されるため、[`fetestexcept`](cfenv/fetestexcept.md) によって判別可能である。  
+なお、エラーが発生しなかった場合でも浮動小数点状態フラグがクリアされる事は無いので、エラー発生の有無を浮動小数点状態フラグで判断するためにはあらかじめ [`feclearexcept`](cfenv/feclearexcept.md) で浮動小数点状態フラグをクリアしておく必要がある。
+
+
+## エラーの種類
+`<cmath>` で提供される各関数で発生するエラーは、以下の 5 種類ある。
+
+### 定義域エラー（domain error）
+引数の値が、関数の数学的な定義域の範囲外であることを示すエラー。（例：[`sqrt`](cmath/sqrt.md)`(-1.0)` や、[`asin`](cmath/asin.md)`(2.0)` 等）
+
+定義域エラーが発生しなければならない条件は関数毎に規格で規定されているが、数学的な定義と整合的である場合には追加の条件で定義域エラーが発生する事が処理系に許されている。
+
+定義域エラーが発生した場合、通知は以下のように行われる。
+
+- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`EDOM`](cerrno.md)（定義域エラー、Error DOMain）が設定される。  
+- 浮動小数点例外によってエラーが通知される場合、[`FE_INVALID`](cfenv/fe_invalid.md)（無効演算浮動小数点例外）が設定される。  
+
+定義域エラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の型が quiet NaN（quiet Not a Number：静かな非数）を表現可能（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`has_quiet_NaN`](limits/numeric_limits/has_quiet_nan.md)`()` が真）の場合、一般的には quiet NaN（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`quiet_NaN`](limits/numeric_limits/quiet_nan.md)`()`）が返る。
+なお、マクロ [`NAN`](cmath/nan.md) も、定義されている場合には quiet NaN を表すものではあるが、`float` 型であることに注意。
+
+### 極エラー（pole error）
+引数の値が有限値である場合に、関数の当該値に対する数学的な極限値が無限大であることを示すエラー。（例：[`log`](cmath/log.md)`(0.0)` や、[`atanh`](cmath/atanh.md)`(1.0)` 等）  
+引数の値が無限大の場合には、極エラーではないので注意。
+
+極エラーが発生しなければならない条件は関数毎に規格で規定されているが、数学的な定義と整合的である場合には追加の条件で極エラーが発生する事が処理系に許されている。  
+
+極エラーが発生した場合、通知は以下のように行われる。
+
+- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`ERANGE`](cerrno.md)（値域エラー、Error RANGE）が設定される。
+- 浮動小数点例外によってエラーが通知される場合、[`FE_DIVBYZERO`](cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が設定される（注：「ゼロ除算浮動小数点例外」は誤記では無い）。
+
+極エラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の型が浮動小数点数の場合、一般的には [`HUGE_VAL`](cmath/huge_val.md)（`double`）、[`HUGE_VALF`](cmath/huge_valf.md)（`float` 、C++11 以降のみ）、[`HUGE_VALL`](cmath/huge_vall.md)（`long double`、C++11 以降のみ）に正しい符号を付加した値が返る。
+また、戻り値の型が無限大を表現可能（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`has_infinity`](limits/numeric_limits/has_infinity.md)`()` が真）の場合、一般的には無限大（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`infinity`](limits/numeric_limits/infinity.md)`()`）が返る。
+なお、マクロ [`INFINITY`](cmath/infinity.md) も、定義されている場合には無限大を表すものではあるが、`float` 型であることに注意。
+
+### オーバーフローエラー（overflow error）
+戻り値が有限だが大きすぎるため、余分な丸め誤差無しでは戻り値の型で表す事が出来ないことを示すエラー。
+
+オーバーフローエラーが発生した場合、通知は以下のように行われる。
+
+- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`ERANGE`](cerrno.md)（値域エラー、Error RANGE）が設定される。
+- 浮動小数点例外によってエラーが通知される場合、[`FE_OVERFLOW`](cfenv/fe_overflow.md)（オーバーフロー浮動小数点例外）が設定される。
+
+オーバーフローエラーが発生した場合、戻り値の型が浮動小数点型でデフォルトの丸めモードが有効であれば、[`HUGE_VAL`](cmath/huge_val.md)（`double`）、[`HUGE_VALF`](cmath/huge_valf.md)（`float` 、C++11 以降のみ）、[`HUGE_VALL`](cmath/huge_vall.md)（`long double`、C++11 以降のみ）に正しい符号を付加した値が返る。
+
+
+### アンダーフローエラー（underflow error）
+戻り値の絶対値が小さすぎるため、余分な丸め誤差無しでは戻り値の型で表す事が出来ないことを示すエラー。
+
+アンダーフローエラーが発生した場合でも処理系によってはエラーの通知が行われないが（規格でエラーの通知が任意となっているため）、通知される場合には以下のように行われる。
+
+- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`ERANGE`](cerrno.md)（値域エラー、Error RANGE）が設定される。
+- 浮動小数点例外によってエラーが通知される場合、[`FE_UNDERFLOW`](cfenv/fe_underflow.md)（アンダーフロー浮動小数点例外）が設定される。
+
+アンダーフローエラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の絶対値はその型における最小の正の正規化数（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`min`](limits/numeric_limits/min.md)`()`）以下である。（非正規化数、あるいは、ゼロを含む）
+
+
+### 不正確エラー（inexact error）
+戻り値が戻り値の型では正確に表す事が出来ないことを示すエラー。（例：[`exp`](cmath/exp.md)`(1.0)` や、[`sqrt`](cmath/sqrt.md)`(2.0)` 等）  
+浮動小数点演算ではほとんどの場合に発生する。
+
+不正確エラーが発生した場合でも処理系によってはエラーの通知が行われないが（規格でエラーの通知が任意となっているため）、通知される場合には以下のように行われる。
+
+- [`errno`](cerrno/errno.md) によるエラーの通知は行われない。
+- 浮動小数点例外によってエラーが通知される場合、[`FE_INEXACT`](cfenv/fe_inexact.md)（不正確浮動小数点例外）が設定される。
+
+不正確エラーが発生した場合、関数の戻り値は真の値を丸めた値となるが、その際の丸め方式は処理系定義である。（関数に特別に規定がある場合を除く）  
+特に、[`fesetround`](cfenv/fesetround.md) で設定した丸め方式に従うとは限らないため、注意が必要である。
+
 
 ##三角関数
 
