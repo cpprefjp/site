@@ -22,12 +22,15 @@ namespace std {
 
 
 ##戻り値
-引数 `x` の正弦を返す(`x`の単位はラジアン)。`x` が `±∞` だった場合 `NaN` を返す。
+引数 `x` の正弦を返す(`x`の単位はラジアン)。
 
 
 ##備考
-$$ f(x) = \sin x $$
+- $$ f(x) = \sin x $$
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 
+	- `x = ±0` の場合、`±0` が返る。（複号同順）
+	- `x = ±∞` の場合、quiet NaN（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`quiet_NaN`](../limits/numeric_limits/quiet_nan.md)`()`）が返り、[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外）が発生する。
 
 ##例
 ```cpp
@@ -45,6 +48,9 @@ int main() {
   std::cout << "sin(pi)   = " << std::sin(pi) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::sin[color ff0000]
+* std::fixed[link ../ios/fixed.md]
 
 ###出力
 ```
@@ -70,6 +76,7 @@ sin(pi)   = 0.000000
 
 ####備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+
 - GCC 4.6.1 以上
 
 
