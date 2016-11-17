@@ -29,15 +29,9 @@ namespace std {
 
 ##備考
 - $$ f(x) = \cos^{-1} x $$
-- 定義域エラーが発生した場合、以下のようになる。
-	- C++11 以降（C99 準拠）で [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERRNO`](math_errno.md.nolink) がゼロ以外の場合、および、C++03 まで（C90 準拠）の場合  
-		[`errno`](../cerrno/errno.md) が [`EDOM`](../cerrno.md) に設定される。  
-		なお、定義域エラーが発生しなかった場合でも、[`errno`](../cerrno/errno.md) がクリアされる（ゼロになる）わけではないため、[`errno`](../cerrno/errno.md) で判別する場合にはあらかじめ [`errno`](../cerrno/errno.md) にゼロを設定しておく必要がある。
-	- C++11 以降（C99 準拠）で [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERREXCEPT`](math_errexcept.md.nolink) がゼロ以外の場合  
-		無効演算浮動小数点例外（[`FE_INVALID`](../cfenv/fe_invalid.md)）が発生する。  
-		なお、定義域エラーが発生しなかった場合でも、浮動小数点例外の状態フラグがクリアされるわけではないため、[`fetestexcept`](../cfenv/fetestexcept.md) で判別する場合にはあらかじめ [`feclearexcept`](../cfenv/feclearexcept.md) で無効演算浮動小数点例外（[`FE_INVALID`](../cfenv/fe_invalid.md)）のフラグをクリアしておく必要がある。
+- 定義域エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
-	- `x = 1` の場合、戻り値は `+0` となる。
+	- `x = 1` の場合、戻り値は `+0` となる（複号同順）。
 	- `x > |1|` の場合、戻り値は NaN（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`quiet_NaN`](../limits/numeric_limits/quiet_nan.md)`()`）となる。
 
 
