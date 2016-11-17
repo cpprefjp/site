@@ -13,7 +13,7 @@ namespace std {
 
   long double atanh(long double x);
 
-  double atanh(Integral x);   // C++11
+  double atanh(Integral x);
 }
 ```
 * Integral[italic]
@@ -25,13 +25,16 @@ namespace std {
 ##戻り値
 引数 `x` の逆双曲線正接を返す。
 
-`x` が `±1` だった場合 `±∞` を返す。
-
-`|x| > 1` だった場合 `NaN` を返す。
+`x` が `[-1, +1]` の範囲外だった場合は定義域エラーとなり、戻り値は処理系定義である。また、`x` が `-1` か `+1` と等しい場合には処理系によっては極エラーが起きる可能性がある。（備考参照）
 
 
 ##備考
-$$ f(x) = \tanh^{-1} x $$
+- $$ f(x) = \tanh^{-1} x $$
+- 定義域エラー、あるいは、極エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
+- 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
+	- `x = ±0` の場合、戻り値は `±0` となる。
+	- `x = ±1` の場合、戻り値は `±∞` となり、[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が発生する。
+	- `|x| > 1` の場合、戻り値は NaN となり、[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外）が発生する。
 
 
 ##例
@@ -48,8 +51,11 @@ int main() {
   std::cout << "atanh(1.0)  = " << std::atanh(1.0) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::atanh[color ff0000]
+* std::fixed[link ../ios/fixed.md]
 
-###出力
+###出力例
 ```
 atanh(-1.0) = -inf
 atanh(-0.5) = -0.549306
