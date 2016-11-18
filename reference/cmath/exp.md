@@ -24,19 +24,21 @@ namespace std {
 ##戻り値
 `e` (ネイピア数) の `x` 乗を返す。
 
-`x` が `+∞` だった場合 `+∞` を返す。
-
-`x` が `-∞` だった場合 0 を返す。
+`x` の絶対値が大きすぎる場合には、オーバーフローエラー、あるいはアンダーフローエラーとなり、戻り値は処理系定義である。（備考参照）
 
 
 ##備考
-$$ f(x) = e^x $$
+- $$ f(x) = e^x $$
+- オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+	- `x = ±0` の場合、戻り値は `1` となる。
+	- `x = -∞` の場合、戻り値は `+0` となる。
+	- `x = +∞` の場合、戻り値は `+∞` となる。
 
 
 ##例
 ```cpp
 #include <cmath>
-#include <limits>
 #include <iostream>
 
 int main() {
@@ -47,8 +49,13 @@ int main() {
   std::cout << "exp(-∞) = " << std::exp(-std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::exp[color ff0000]
+* std::fixed[link ../ios/fixed.md]
+* std::numeric_limits[link ../limits/numeric_limits.md]
+* infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力
+###出力例
 ```
 exp(0.0) = 1.000000
 exp(1.0) = 2.718282
