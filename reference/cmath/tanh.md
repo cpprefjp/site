@@ -26,7 +26,10 @@ namespace std {
 
 
 ##備考
-$$ f(x) = \tanh x $$
+- $$ f(x) = \tanh x $$
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
+	- `x = ±0` の場合、戻り値は `±0` となる。
+	- `x = ±∞` の場合、戻り値は `±1` となる。
 
 
 ##例
@@ -41,6 +44,9 @@ int main() {
   std::cout << "tanh(1.0)  = " << std::tanh(1.0) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::tanh[color ff0000]
+* std::fixed[link ../ios/fixed.md]
 
 ###出力
 ```
