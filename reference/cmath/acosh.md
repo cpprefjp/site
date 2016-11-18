@@ -33,7 +33,7 @@ namespace std {
 - 定義域エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = 1` の場合、戻り値は `+0` となる。
-	- `x < 1` の場合、戻り値は NaN（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`quiet_NaN`](../limits/numeric_limits/quiet_nan.md)`()`）となる。
+	- `x < 1` の場合、戻り値は quiet NaN となり、[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外）が発生する。
 	- `x = +∞` の場合、戻り値は `+∞` となる。
 
 
