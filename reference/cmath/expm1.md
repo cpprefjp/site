@@ -42,6 +42,7 @@ namespace std {
 ##例
 ```cpp
 #include <cmath>
+#include <limits>
 #include <iostream>
 
 int main() {
@@ -54,6 +55,7 @@ int main() {
 }
 ```
 * <cmath>[link ../cmath.md]
+* <limits>[link ../limits.md]
 * std::expm1[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 * std::numeric_limits[link ../limits/numeric_limits.md]

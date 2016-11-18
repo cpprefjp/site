@@ -35,6 +35,7 @@ namespace std {
 ##例
 ```cpp
 #include <cmath>
+#include <limits>
 #include <iostream>
 
 int main() {
@@ -48,6 +49,7 @@ int main() {
 }
 ```
 * <cmath>[link ../cmath.md]
+* <limits>[link ../limits.md]
 * std::atan[color ff0000]
 * std::sqrt[link sqrt.md]
 * std::fixed[link ../ios/fixed.md]
