@@ -13,7 +13,7 @@ namespace std {
 
   long double expm1(long double x);
 
-  double expm1(Integral x);   // C++11
+  double expm1(Integral x);
 }
 ```
 * Integral[italic]
@@ -25,19 +25,23 @@ namespace std {
 
 
 ##戻り値
-- `e` (ネイピア数) の `x` 乗から 1 を引いた値を返す。
-- `x` が `+∞` だった場合 `+∞` を返す。
-- `x` が `-∞` だった場合 -1 を返す。
+`e` (ネイピア数) の `x` 乗から 1 を引いた値を返す。
+
+`x` の絶対値が大きすぎる場合には、オーバーフローエラー、あるいはアンダーフローエラーとなり、戻り値は処理系定義である。（備考参照）
 
 
 ##備考
-$$ f(x) = e^x - 1 $$
+- $$ f(x) = e^x - 1 $$
+- オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
+- 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+	- `x = ±0` の場合、戻り値は `±0` となる。（複号同順）
+	- `x = -∞` の場合、戻り値は `-1` となる。
+	- `x = +∞` の場合、戻り値は `+∞` となる。
 
 
 ##例
 ```cpp
 #include <cmath>
-#include <limits>
 #include <iostream>
 
 int main() {
@@ -49,8 +53,13 @@ int main() {
   std::cout << "expm1(-∞)  = " << std::expm1(-std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* std::expm1[color ff0000]
+* std::fixed[link ../ios/fixed.md]
+* std::numeric_limits[link ../limits/numeric_limits.md]
+* infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力
+###出力例
 ```
 expm1(0.0)  = 0.000000
 expm1(0.01) = 0.010050
