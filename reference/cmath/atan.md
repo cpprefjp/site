@@ -27,7 +27,7 @@ namespace std {
 
 ##備考
 - $$ f(x) = \tan^{-1} x $$
-- 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = ±0` の場合、戻り値は `±0` となる。（複号同順）
 	- `x = ±∞` の場合、戻り値は `±π/2` となる。（複号同順）
 
@@ -54,7 +54,7 @@ int main() {
 * std::numeric_limits[link ../limits/numeric_limits.md]
 * infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力
+###出力例
 ```
 atan(0.0)   = 0.000000
 atan(0.5)   = 0.463648
