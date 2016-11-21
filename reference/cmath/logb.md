@@ -79,8 +79,3 @@ logb(1e-309) = -1027
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-
-####備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
-
-- GCC 4.7.0 以上
