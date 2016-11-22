@@ -9,10 +9,10 @@ namespace std {
   double ldexp(double x, int exp);
   long double ldexp(long double x, int exp);
 
-  float ldexpf(float x, int exp);
-  long double ldexpl(long double x, int exp);
+  double ldexp(Integral x, int exp);            // C++11 から
 
-  Integral ldexp(Integral x, int exp);
+  float ldexpf(float x, int exp);               // C++17 から
+  long double ldexpl(long double x, int exp);   // C++17 から
 }
 ```
 * Integral[italic]
@@ -24,16 +24,12 @@ namespace std {
 ##戻り値
 `x * 2`<sup>exp</sup>
 
-- 結果値が大きすぎる場合、値域エラーが発生する。その場合、プログラムは以下の状態になる:
+オーバーフローエラー、アンダーフローエラーが発生する可能性がある。
 
-- [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERRNO`](math_errno.md.nolink)が非ゼロとなり、
-- [`errno`](/reference/cerrno/errno.md)の値は[`ERANGE`](/reference/cerrno.md)となり、
-- [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERREXCEPT`](math_errexcept.md.nolink)が非ゼロとなり、
-- 浮動小数点例外として[overflow](/reference/cfenv/fe_overflow.md)が送出される
-- 戻り値として、
-    - パラメータ`x`の型が`double`であれば[`HUGE_VAL`](huge_val.md)
-    - パラメータ`x`の型が`float`であれば[`HUGE_VALF`](huge_valf.md)
-    - パラメータ`x`の型が`long double`であれば[`HUGE_VALL`](huge_vall.md)が返る
+
+##備考
+- オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、かつ、基数が 2 の場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`radix`](../limits/numeric_limits/radix.md)`() == 2`）、[`scalbn`](scalbn.md)`(x, exp)` と同等である。
 
 
 ##例
@@ -53,9 +49,11 @@ int main()
   std::cout << std::setprecision(8) << pi << std::endl;
 }
 ```
+* <iomanip>[link ../iomanip.md]
+* <cmath>[link ../cmath.md]
 * std::ldexp[color ff0000]
 * std::acos[link acos.md]
-* std::setprecision[link /reference/iomanip/setprecision.md]
+* std::setprecision[link /reference/iomanip/setprecision.md.nolink]
 
 ###出力
 ```
