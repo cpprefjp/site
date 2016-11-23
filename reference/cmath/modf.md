@@ -142,3 +142,5 @@ namespace std {
 * fegetround[link ../cfenv/fegetround.md]
 * fesetround[link ../cfenv/fesetround.md]
 * FE_TOWARDZERO[link ../cfenv/fe_towardzero.md]
+* enable_if[link ../type_traits/enable_if.md]
+* is_integral[link ../type_traits/is_integral.md]
