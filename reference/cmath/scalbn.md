@@ -10,51 +10,46 @@ namespace std {
   double scalbn(double x, int n);
   long double scalbn(long double x, int n);
 
-  float scalbnf(float x, int n);
-  long double scalbnl(long double x, int n);
+  double scalbn(Integral x, int n);
 
-  Integral scalbn(Integral x, int n);
+  float scalbnf(float x, int n);                // C++17 から
+  long double scalbnl(long double x, int n);    // C++17 から
 
   // 乗数としてlong int型を受け取るバージョン
   float scalbln(float x, long int n);
   double scalbln(double x, long int n);
   long double scalbln(long double x, long int n);
 
-  float scalblnf(float x, long int n);
-  long double scalblnl(long double x, long int n);
+  double scalbln(Integral x, long int n);
 
-  Integral scalbln(Integral x, long int n);
+  float scalblnf(float x, long int n);              // C++17 から
+  long double scalblnl(long double x, long int n);  // C++17 から
 }
 ```
 * Integral[italic]
 
 ##概要
-`x`に内部表現の基数の`n`乗を掛けた値を計算する。scalbは「scale binary」を意味する。
+`x` に、浮動小数点数の内部表現の基数 [`FLT_RADIX`](/reference/cfloat/flt_radix.md) の `n` 乗を掛けた値を効率的に（通常は [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<sup>n</sup> を明示的には計算せずに）計算する。scalbは「scale binary」を意味する。
 
-この関数は、浮動小数点数の内部表現として使用される基数[`FLT_RADIX`](/reference/cfloat/flt_radix.md)が`2`であるシステム上では、[`ldexp()`](ldexp.md)関数と同等である。
-
-この関数は、`x * FLT_RADIX`<sup>n</sup>をより効率的に計算する。
+この関数は、[`FLT_RADIX`](/reference/cfloat/flt_radix.md) が `2` であるシステム上では、[`ldexp()`](ldexp.md) 関数と同等である。
 
 
 ##戻り値
 `x *` [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<sup>n</sup>
 
-- 結果値が大きすぎる場合、値域エラーが発生する。その場合、プログラムは以下の状態になる:
-
-- [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERRNO`](math_errno.md.nolink)が非ゼロとなり、
-- [`errno`](/reference/cerrno/errno.md)の値は[`ERANGE`](/reference/cerrno.md)となり、
-- [`math_errhandling`](math_errhandling.md) `&` [`MATH_ERREXCEPT`](math_errexcept.md.nolink)が非ゼロとなり、
-- 浮動小数点例外として[overflow](/reference/cfenv/fe_overflow.md)が送出される
-- 戻り値として、
-    - パラメータ`x`の型が`double`であれば[`HUGE_VAL`](huge_val.md)
-    - パラメータ`x`の型が`float`であれば[`HUGE_VALF`](huge_valf.md)
-    - パラメータ`x`の型が`long double`であれば[`HUGE_VALL`](huge_vall.md)が返る
+オーバーフローエラー、アンダーフローエラーが発生する可能性がある。
 
 
 ##備考
-この関数は元々`scalb()`という名前で提案されていたが、非標準の同名関数が広く実装されていた。そのため、`new`の意味を持つ`n`を関数名の末尾に付けて`scalbn()`関数として標準ライブラリに定義された。
+- この関数は元々 `scalb()` という名前で提案されていたが、非標準の同名関数が広く実装されていた。そのため、`new` の意味を持つ `n` を関数名の末尾に付けて `scalbn()` 関数として標準ライブラリに定義された。
+- オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
+- 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
+	- `x = ±0` の場合、戻り値は `±0` となる。
+	- `n = 0` の場合、戻り値は `x` となる。
+	- `x = ±∞` の場合、戻り値は `±∞` となる。
+	- もしオーバーフローエラーやアンダーフローエラーを起こさなければ、結果は正確で現在の丸め方式には依存しない。
 
-`scalbln()`関数は、パラメータ`n`の型が`long int`であることを除いて、`scalbn()`関数と同等である。
+- `scalbln()` 関数は、パラメータ `n` の型が `long int` であることを除いて、`scalbn()` 関数と同等である。
 
 
 ##例
