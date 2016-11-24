@@ -19,17 +19,18 @@ namespace std {
 * Integral[italic]
 
 ##概要
-算術型の立方根を求める。
+算術型の実数の立方根を求める。
 
 
 ##戻り値
-引数 `x` の立方根を返す。
-
-`x` が `±∞` だった場合 `±∞` を返す。
+引数 `x` の実数の立方根を返す。
 
 
 ##備考
-$$ f(x) = \sqrt[3] x $$
+- $$ f(x) = \sqrt[3] x $$
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
+	- `x = ±0` の場合、戻り値は `±0` となる。
+	- `x = ±∞` の場合、戻り値は `±∞` となる。
 
 
 ##例
@@ -44,18 +45,24 @@ int main() {
   std::cout << "cbrt(1.0)  = " << std::cbrt(1.0) << std::endl;
   std::cout << "cbrt(2.0)  = " << std::cbrt(2.0) << std::endl;
   std::cout << "cbrt(8.0)  = " << std::cbrt(8.0) << std::endl;
-  std::cout << "cbrt(+∞)  = " << std::cbrt(std::numeric_limits<double>::infinity()) << std::endl;
+  std::cout << "cbrt(+∞)   = " << std::cbrt(std::numeric_limits<double>::infinity()) << std::endl;
   std::cout << "cbrt(-1.0) = " << std::cbrt(-1.0) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* <limits>[link ../limits.md]
+* std::fixed[link ../ios/fixed.md]
+* std::cbrt[color ff0000]
+* std::numeric_limits[link ../limits/numeric_limits.md]
+* infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力
+###出力例
 ```
 cbrt(0.0)  = 0.000000
 cbrt(1.0)  = 1.000000
 cbrt(2.0)  = 1.259921
 cbrt(8.0)  = 2.000000
-cbrt(+∞)  = inf
+cbrt(+∞)   = inf
 cbrt(-1.0) = -1.000000
 ```
 
