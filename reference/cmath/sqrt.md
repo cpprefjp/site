@@ -12,23 +12,26 @@ namespace std {
 
   long double sqrt(long double x);
 
-  double sqrt(Integral x);   // C++11
+  double sqrt(Integral x);          // C++11 から
 }
 ```
 * Integral[italic]
 
 ##概要
-算術型の平方根を求める。
+算術型の非負の平方根を求める。
 
 
 ##戻り値
-引数 `x` の正の平方根を返す。
-`x < 0` だった場合 `NaN` を返す。
-`x` が `+∞` だった場合 `+∞` を返す。
+引数 `x` の非負の平方根を返す。
+
+`x` が `0` 未満だった場合は定義域エラーとなり、戻り値は処理系定義である。（備考参照）
 
 
 ##備考
-$$ f(x) = \sqrt{x} $$
+- $$ f(x) = \sqrt{x} $$
+- 定義域エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
+	- `x = ±0` の場合、戻り値は `±0` となる。
 
 
 ##例
@@ -44,21 +47,29 @@ int main() {
   std::cout << "sqrt(1.0)  = " << std::sqrt(1.0) << std::endl;
   std::cout << "sqrt(2.0)  = " << std::sqrt(2.0) << std::endl;
   std::cout << "sqrt(4.0)  = " << std::sqrt(4.0) << std::endl;
-  std::cout << "sqrt(+∞)  = "
+  std::cout << "sqrt(+∞)   = "
             << std::sqrt(std::numeric_limits<double>::infinity())
             << std::endl;
+  std::cout << "sqrt(-0.0) = " << std::sqrt(-0.0) << std::endl;
   std::cout << "sqrt(-1.0) = " << std::sqrt(-1.0) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* <limits>[link ../limits.md]
+* std::fixed[link ../ios/fixed.md]
+* std::sqrt[color ff0000]
+* std::numeric_limits[link ../limits/numeric_limits.md]
+* infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力
+###出力例
 ```
 sqrt(0.0)  = 0.000000
 sqrt(0.5)  = 0.707107
 sqrt(1.0)  = 1.000000
 sqrt(2.0)  = 1.414214
 sqrt(4.0)  = 2.000000
-sqrt(+∞)  = inf
+sqrt(+∞)   = inf
+sqrt(-0.0) = -0.000000
 sqrt(-1.0) = -nan
 ```
 
@@ -76,6 +87,7 @@ sqrt(-1.0) = -nan
 
 ####備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+
 - GCC 4.6.1 以上
 
 
