@@ -28,25 +28,44 @@ namespace std {
 
 
 ##備考
-$$ f(x) = | x | $$
+- $$ f(x) = | x | $$
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+- `value = ±0` の場合、戻り値は `+0` となる。
+- `value = ±∞` の場合、戻り値は `+∞` となる。
+- 戻り値は正確で、現在の丸め方式には依存しない。
 
 
 ##例
 ```cpp
 #include <cmath>
+#include <limits>
 #include <iostream>
 
 int main() {
   std::cout << std::fixed;
   std::cout << "fabs(1.5)  = " << std::fabs(1.5) << std::endl;
   std::cout << "fabs(-1.5) = " << std::fabs(-1.5) << std::endl;
+  std::cout << "fabs(0.0)  = " << std::fabs(0.0) << std::endl;
+  std::cout << "fabs(-0.0) = " << std::fabs(-0.0) << std::endl;
+  std::cout << "fabs(+∞)   = " << std::fabs(std::numeric_limits<double>::infinity()) << std::endl;
+  std::cout << "fabs(-∞)   = " << std::fabs(-std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
+* <cmath>[link ../cmath.md]
+* <limits>[link ../limits.md]
+* std::fixed[link ../ios/fixed.md]
+* std::fabs[color ff0000]
+* std::numeric_limits[link ../limits/numeric_limits.md]
+* infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力
+###出力例
 ```
 fabs(1.5)  = 1.500000
 fabs(-1.5) = 1.500000
+fabs(0.0)  = 0.000000
+fabs(-0.0) = 0.000000
+fabs(+∞)   = inf
+fabs(-∞)   = inf
 ```
 
 ##バージョン
@@ -70,22 +89,26 @@ fabs(-1.5) = 1.500000
 ##実装例
 ```cpp
 namespace std {
-  constexpr float fabs(float x) {
-    return x < 0 ? -x : x;
+  float fabs(float x) {
+    return signbit(x) ? -x : x;
   }
 
-  constexpr double fabs(double x) {
-    return x < 0 ? -x : x;
+  double fabs(double x) {
+    return signbit(x) ? -x : x;
   }
 
-  constexpr long double fabs(long double x) {
-    return x < 0 ? -x : x;
+  long double fabs(long double x) {
+    return signbit(x) ? -x : x;
   }
 
-  extern void* enabler;
-  template<class Integral, typename enable_if<is_integral<Integral>::value>::type*& = enabler>
-  constexpr double fabs(Integral x) {
+  template<class Integral>
+  typename enable_if<is_integral<Integral>::value, double>::type
+  fabs(Integral x) {
     return fabs(static_cast<double>(x));
   }
 }
 ```
+* fabs[color ff0000]
+* signbit[link signbit.md]
+* is_integral[link ../type_traits/is_integral.md]
+* enable_if[link ../type_traits/enable_if.md]
