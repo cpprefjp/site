@@ -7,24 +7,34 @@
 namespace std {
   template <class InputIterator1, class InputIterator2>
   bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2);
+             InputIterator2 first2);                       // (1)
 
   template <class InputIterator1, class InputIterator2, class BinaryPredicate>
   bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2, BinaryPredicate pred);
+             InputIterator2 first2, BinaryPredicate pred); // (2)
 
   template <class InputIterator1, class InputIterator2>
   bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2, InputIterator2 last2);                          // C++14 から
+             InputIterator2 first2, InputIterator2 last2); // (3) C++14 から
 
   template <class InputIterator1, class InputIterator2, class BinaryPredicate>
   bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2, InputIterator2 last2, BinaryPredicate pred);    // C++14 から
+             InputIterator2 first2, InputIterator2 last2,
+             BinaryPredicate pred);                        // (4) C++14 から
 }
 ```
 
 ##概要
 2つの範囲を等値比較する。
+
+- (1) : 範囲`[first1, last1)`と範囲`[first2, first2 + (last1 - first2))`が等値かを判定する
+- (2) : (1)の等値比較を任意の2引数関数オブジェクトで行う
+- (3) : 範囲`[first1, last2)`と範囲`[first2, last2)`が等値かを判定する
+- (4) : (3)の等値比較を任意の2引数関数オブジェクトで行う
+
+2つの範囲が異なる要素数であった場合、`false`を返す。
+
+2つの範囲が要素数および各要素が等値であった場合、`true`を返す。
 
 
 ##戻り値
@@ -36,6 +46,10 @@ namespace std {
 ##計算量
 `last2` が与えられている形式の場合、もし `InputIterator1` と `InputIterator2` が共にランダムアクセスイテレータの要件を満たす場合で、かつ、`last1 - first1 != last2 - first2` の場合、1 度も比較または述語は適用されない。  
 そうでない場合、最大で `last1 - first1` 回（`last2` が与えられていない形式の場合）、あるいは、`min(last1 - first1, last2 - first2)` 回（`last2` が与えられている形式の場合）の比較または述語が適用される。
+
+
+##備考
+- ランダムアクセスイテレータの範囲を使用する場合、状況によっては(1) (2)のバージョンよりも、(3) (4)を使用する方が効率がよくなることが期待できる。ランダムアクセスイテレータはイテレータ同士の差を定数時間で求められるため、イテレーションを行うことなく2つの範囲の要素数が異なることを検出できるためである
 
 
 ##例
@@ -51,11 +65,11 @@ int main() {
   std::array<int, 6> v2 = { 1,2,3,4,2,1 };
 
   // コンテナの中身が同じかどうか調べる
-  bool result = std::equal(std::begin(v), std::end(v), std::begin(v2));
+  bool result = std::equal(std::begin(v), std::end(v), std::begin(v2), std::end(v2));
   std::cout << std::boolalpha << result << std::endl;
 
   // x±1 の誤差を許すようにする
-  bool result2 = std::equal(std::begin(v), std::end(v), std::begin(v2),
+  bool result2 = std::equal(std::begin(v), std::end(v), std::begin(v2), std::end(v2),
                             [](int x, int y) { return x - 1 <= y && y <= x + 1; });
   std::cout << std::boolalpha << result2 << std::endl;
 }
