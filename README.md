@@ -1,7 +1,7 @@
 site
 ====
 
-このリポジトリは、C++リファレンスサイト[cpprefjp](http://cpprefjp.github.io/)のMarkdownソースです。
+このリポジトリは、C++リファレンスサイト[cpprefjp](https://cpprefjp.github.io/)のMarkdownソースです。
 
 このリポジトリにあるMarkdownファイルを編集することで、cpprefjpサイトに自動的に反映されます。
 
