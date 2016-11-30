@@ -33,7 +33,7 @@ static_assert(noexcept(x.getValue()), "getValue() function never throw exception
     - 例外を送出しないという保証があることで、コンパイラは例外送出によるスタック巻き戻しのためのスタックを確保する必要がなくなる
 2. 例外を決して送出しない強い例外安全性の保証(No-throw guarantee)
     - 例外安全性で有名な問題として`stack`の`pop`操作がある。要素型`T`のコピーコンストラクタが例外を送出する可能性があるために`pop`の関数は`T`を返すのではなく戻り値型`void`とする必要があった。しかし`return`文に指定する式が決して例外を送出しないという保証があることで、`pop`の関数は`T`型のオブジェクトを返せるようになる。
-    - 参照： [ジェネリックコンポーネントにおける例外安全性 - boostjp](http://boostjp.github.io/archive/boost_docs/document/generic_exception_safety.html)
+    - 参照： [ジェネリックコンポーネントにおける例外安全性 - boostjp](https://boostjp.github.io/archive/boost_docs/document/generic_exception_safety.html)
 
 
 ##仕様
