@@ -61,5 +61,5 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 ##ライセンスについて
 本サイトの情報は、[クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)](http://creativecommons.org/licenses/by/3.0/)の下に提供しています。
 
-![](http://i.creativecommons.org/l/by/3.0/88x31.png)
+![](https://i.creativecommons.org/l/by/3.0/88x31.png)
 
