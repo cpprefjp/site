@@ -183,6 +183,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 [P0400R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0400r0.html
 [P0003R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0003r4.html
 [P0195R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0195r1.html
+[P0512R0]: http://wg21.link/p0512r0
 [P0490R0]: http://wg21.link/p0490r0
 
 
