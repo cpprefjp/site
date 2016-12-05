@@ -41,11 +41,11 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|----------------------------------|-------|
-| [`a`](uniform_real_distribution/a.md)         | 生成する範囲の最小値を取得する   | C++11 |
-| [`b`](uniform_real_distribution/b.md)         | 生成する範囲の最大値を取得する   | C++11 |
+| [`a`](uniform_real_distribution/a.md)         | 生成し得る値の下限を取得する   | C++11 |
+| [`b`](uniform_real_distribution/b.md)         | 生成し得る値の上限を取得する   | C++11 |
 | [`param`](uniform_real_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](uniform_real_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](uniform_real_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](uniform_real_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](uniform_real_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

@@ -13,7 +13,7 @@ explicit gamma_distribution(const param_type& parm);
 ##`gamma_distribution`オブジェクトの構築
 - `explicit gamma_distribution(RealType alpha = 1.0, RealType beta = 1.0);`
 
-値を生成する範囲として形状母数`alpha`および尺度母数`beta`を受け取るコンストラクタ。 
+ガンマ分布の形状母数`alpha`および尺度母数`beta`を受け取るコンストラクタ。
 
 要件： `a > 0`かつ`b > 0`であること。
 

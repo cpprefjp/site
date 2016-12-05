@@ -15,8 +15,8 @@ explicit uniform_int_distribution(const param_type& parm);
 ##`uniform_int_distribution`オブジェクトの構築
 - `explicit uniform_int_distribution(IntType a = 0, IntType b = numeric_limits<IntType>::max());`
 
-値を生成する範囲として最小値`a`および最大値`b`を受け取るコンストラクタ。 
-`a`以上`b`以下(`[a, b]`)の値が生成される。 
+一様整数分布の下限`a`および上限`b`を受け取るコンストラクタ。
+`a`以上`b`以下(`[a, b]`)の値が生成される。
 
 要件： `a <= b`であること。
 

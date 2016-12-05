@@ -10,7 +10,7 @@ static constexpr result_type min() { return Engine::min(); }
 ```
 
 ##概要
-生成する値の最小値を取得する。
+生成し得る値の最小値を取得する。
 
 
 ##戻り値

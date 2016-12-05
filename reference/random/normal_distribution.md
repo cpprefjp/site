@@ -13,14 +13,13 @@ namespace std {
 ```
 
 ##概要
-`normal_distribution`は、平均μ、標準偏差σの正規分布にしたがった乱数を生成するクラスである。
+`normal_distribution`は、平均μ、標準偏差σの正規分布にしたがう乱数を生成するクラスである。
 
-$$ p(x| \mu , \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \cdot \exp \big( - \frac{(x - \mu)^{2}}{2 \sigma ^{2}} \big) $$
+$$ p(x \mid \mu, \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \exp \left( - \frac{(x - \mu)^2}{2 \sigma ^2} \right) $$
 
-正規分布は、釣り鐘型の分布で、平均値を中心に、左右(マイナスとプラス)に値が分散する。平均値付近が最も出現確率が高く、標準偏差の値を基準として、左右に離れるほど出現確率が低くなる。
-
-標準偏差は、値が分布する広がり方(ばらつき)の尺度である。「平均 ± 標準偏差」を超える値も、低確率ながら出現する。
-
+正規分布は釣り鐘型の分布で、平均値を中心に左右に値が分散する。
+標準偏差は値が分布する広がり方(ばらつき)の尺度である。
+平均値が最も出現確率が高く、平均値 ± 標準偏差の範囲に全体の約68 %が含まれる。
 
 正規分布は、以下のような用途に使用できる：
 
@@ -53,11 +52,11 @@ $$ p(x| \mu , \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \cdot \exp \big( - \frac{
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------|-------|
-| [`mean`](normal_distribution/mean.md)     | コンストラクタで指定された平均を取得する   | C++11 |
-| [`stddev`](normal_distribution/stddev.md) | コンストラクタで指定された標準偏差を取得する | C++11 |
+| [`mean`](normal_distribution/mean.md)     | 分布の平均値を取得する   | C++11 |
+| [`stddev`](normal_distribution/stddev.md) | 分布の標準偏差を取得する | C++11 |
 | [`param`](normal_distribution/param.md)   | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](normal_distribution/min.md)       | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](normal_distribution/max.md)       | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](normal_distribution/min.md)       | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](normal_distribution/max.md)       | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

@@ -13,11 +13,11 @@ namespace std {
 ```
 
 ##概要
-`chi_squared_distribution`は、乱数をカイ二乗分布(χ二乗分布、χ²分布)させるクラスである。以下の密度関数に基いて、浮動小数点数の乱数を生成する。  
+`chi_squared_distribution`は、乱数をカイ二乗分布(χ二乗分布、χ²分布)させるクラスである。以下の確率密度関数に基いて、浮動小数点数の乱数を生成する。
 
-$$ p(x|n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $$
+$$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $$
 
-この密度関数において、nは自由度(degrees of freedom)を意味する。  
+この確率密度関数において、nは自由度(degrees of freedom)を意味する。
 
 
 カイ二乗分布は、以下のような用途に使用できる：
@@ -55,10 +55,10 @@ $$ p(x|n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $$
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------------|-------|
-| [`n`](chi_squared_distribution/n.md)         | 自由度を取得する                 | C++11 |
+| [`n`](chi_squared_distribution/n.md)         | 分布の自由度を取得する           | C++11 |
 | [`param`](chi_squared_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](chi_squared_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](chi_squared_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](chi_squared_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](chi_squared_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

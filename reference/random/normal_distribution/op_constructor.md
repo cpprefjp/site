@@ -13,7 +13,7 @@ explicit normal_distribution(const param_type& parm);
 ##`normal_distribution`オブジェクトの構築
 - `explicit normal_distribution(RealType mean = 0.0, RealType stddev = 1.0);`
 
-値を生成する範囲として平均値`mean`および標準偏差`stddev`を受け取るコンストラクタ。 
+正規分布の平均値`mean`および標準偏差`stddev`を受け取るコンストラクタ。
 
 要件： `stddev > 0`であること。
 

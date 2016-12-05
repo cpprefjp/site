@@ -14,11 +14,11 @@ namespace std {
 
 ##概要
 `gamma_distribution`は、連続確率分布の一種であるガンマ分布を表すクラスである。  
-以下の密度関数に基いて、浮動小数点数の値`x`を生成する：
+以下の確率密度関数に基いて、浮動小数点数の値`x`を生成する：
 
-$$ p(x|\alpha,\beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\alpha) } \cdot x^{\alpha -1} $$
+$$ p(x \mid \alpha, \beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\alpha) } \cdot x^{\alpha - 1} $$
 
-この数式におけるα(alpha)は形状母数(shape parameter)を意味し、β(beta)は尺度母数(scale parameter)を意味する。  
+この数式においてα(alpha)は形状母数(shape parameter)、β(beta)は尺度母数(scale parameter)を表す。  
 形状母数に正の整数を与えれば、アーラン分布(Erlang distribution)としても使用できる。  
 
 
@@ -57,8 +57,8 @@ $$ p(x|\alpha,\beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\alpha) }
 | [`alpha`](gamma_distribution/alpha.md) | 形状母数を取得する   | C++11 |
 | [`beta`](gamma_distribution/beta.md)   | 尺度母数を取得する | C++11 |
 | [`param`](gamma_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](gamma_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](gamma_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](gamma_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](gamma_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

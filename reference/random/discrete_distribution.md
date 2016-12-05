@@ -44,8 +44,8 @@ namespace std {
 |-------------------------------------------------------------|--------------------------------------------|-------|
 | [`probabilities`](discrete_distribution/probabilities.md) | インデックスに対応する確率の数列を取得する | C++11 |
 | [`param`](discrete_distribution/param.md)                 | 分布のパラメータを取得／設定する           | C++11 |
-| [`mix`](discrete_distribution/min.md)                     | 最小値を取得する                           | C++11 |
-| [`max`](discrete_distribution/max.md)                     | 最大値を取得する                           | C++11 |
+| [`min`](discrete_distribution/min.md)                     | 下限を取得する                           | C++11 |
+| [`max`](discrete_distribution/max.md)                     | 上限を取得する                           | C++11 |
 
 
 ##メンバ型

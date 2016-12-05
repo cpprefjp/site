@@ -13,7 +13,7 @@ explicit cauchy_distribution(const param_type& parm);
 ##`cauchy_distribution`オブジェクトの構築
 - `explicit cauchy_distribution(RealType a = 0.0, RealType b = 1.0);`
 
-位置母数`a`および尺度母数`b`を受け取るコンストラクタ。 
+コーシー分布の位置母数`a`および尺度母数`b`を受け取るコンストラクタ。
 
 要件： `b > 0`であること。
 

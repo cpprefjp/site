@@ -13,11 +13,11 @@ namespace std {
 ```
 
 ##概要
-`student_t_distribution`は、連続確率分布の一種である、ステューデントのt分布を生成する。以下の密度関数に基いて、浮動小数点数の乱数を生成する：
+`student_t_distribution`は、連続確率分布の一種である、ステューデントのt分布を生成する。以下の確率密度関数に基いて、浮動小数点数の乱数を生成する：
 
-$$ p(x|n) = \frac{1}{\sqrt{n\pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)} \cdot \big( 1 + \frac{x^{2}}{n} \big) ^ {-(n+1)/2} $$
+$$ p(x \mid n) = \frac{1}{\sqrt{n \pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)} \cdot \left( 1 + \frac{x^2}{n} \right) ^ {-(n+1)/2} $$
 
-この密度関数において、nは自由度を意味する。
+この確率密度関数において、nは自由度を意味する。
 
 
 以下のような用途に使用できる：
@@ -51,10 +51,10 @@ $$ p(x|n) = \frac{1}{\sqrt{n\pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)} \cdo
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
-| [`n`](student_t_distribution/n.md)         | 自由度を取得する                 | C++11 |
+| [`n`](student_t_distribution/n.md)         | 分布の自由度を取得する           | C++11 |
 | [`param`](student_t_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](student_t_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](student_t_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](student_t_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](student_t_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

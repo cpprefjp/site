@@ -46,8 +46,8 @@ namespace std {
 |----------------------------------------------|----------------------------------|-------|
 | [`p`](bernoulli_distribution/p.md)         | 確率を取得する                   | C++11 |
 | [`param`](bernoulli_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](bernoulli_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](bernoulli_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](bernoulli_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](bernoulli_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

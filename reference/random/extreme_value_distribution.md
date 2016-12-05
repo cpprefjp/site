@@ -14,11 +14,11 @@ namespace std {
 
 ##概要
 `extreme_value_distribution`は、連続確率分布の一種である極値分布を表すクラスである。  
-以下の密度関数に基いて、浮動小数点数の値を生成する：  
+以下の確率密度関数に基いて、浮動小数点数の値を生成する：
 
-$$ p(x|a,b) = \frac{1}{b} \cdot \exp \big( \frac{a-x}{b} - \exp \big( \frac{a-x}{b} \big) \big) $$
+$$ p(x \mid a, b) = \frac{1}{b} \cdot \exp \left( \frac{a-x}{b} - \exp \left( \frac{a-x}{b} \right) \right) $$
 
-この数式におけるaは位置パラメータ(location parameter)、bは尺度パラメータ(scale parameter)を表す。
+この数式においてaは位置パラメータ(location parameter)、bは尺度パラメータ(scale parameter)である。
 
 
 極値分布は、以下のような用途に使用できる：
@@ -56,8 +56,8 @@ $$ p(x|a,b) = \frac{1}{b} \cdot \exp \big( \frac{a-x}{b} - \exp \big( \frac{a-x}
 | [`a`](extreme_value_distribution/a.md)         | 位置パラメータを取得する         | C++11 |
 | [`b`](extreme_value_distribution/b.md)         | 尺度パラメータを取得する         | C++11 |
 | [`param`](extreme_value_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](extreme_value_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](extreme_value_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](extreme_value_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](extreme_value_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

@@ -48,8 +48,8 @@ namespace std {
 | [`intervals`](piecewise_constant_distribution/intervals.md) | 区間の数列を取得する             | C++11 |
 | [`densities`](piecewise_constant_distribution/densities.md) | 重み付けの数列を取得する         | C++11 |
 | [`param`](piecewise_constant_distribution/param.md)         | 分布のパラメータを取得／設定する | C++11 |
-| [`mix`](piecewise_constant_distribution/min.md)             | 最小値を取得する                 | C++11 |
-| [`max`](piecewise_constant_distribution/max.md)             | 最大値を取得する                 | C++11 |
+| [`mix`](piecewise_constant_distribution/min.md)             | 下限を取得する                 | C++11 |
+| [`max`](piecewise_constant_distribution/max.md)             | 上限を取得する                 | C++11 |
 
 
 ##メンバ型

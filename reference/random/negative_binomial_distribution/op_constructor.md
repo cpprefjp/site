@@ -13,7 +13,7 @@ explicit negative_binomial_distribution(const param_type& parm);
 ##`negative_binomial_distribution`オブジェクトの構築
 - `explicit negative_binomial_distribution(IntType k = 1, double p = 0.5);`
 
-成功回数`k`、および一度の事象が成功する確率`p`を受け取るコンストラクタ。 
+成功回数`k`、および一度の事象が成功する確率`p`を受け取るコンストラクタ。
 
 要件： `p > 0.0 && p <= 1.0`かつ`k > 0`であること。(`p == 0`だと無限ループしてしまうため)
 

@@ -65,8 +65,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------|-------|
-| [`min`](mersenne_twister_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](mersenne_twister_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](mersenne_twister_engine/min.md) | 生成し得る値の最小値を取得する | C++11 |
+| [`max`](mersenne_twister_engine/max.md) | 生成し得る値の最大値を取得する | C++11 |
 
 
 ##メンバ型

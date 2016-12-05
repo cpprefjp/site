@@ -17,7 +17,7 @@ namespace std {
 
 以下の確率密度関数に基いて、浮動小数点数の値`x`を生成する：
 
-$$ p(x| \lambda ) = \lambda e^{-\lambda x} $$
+$$ p(x \mid \lambda) = \lambda e^{-\lambda x} $$
 
 この数式におけるλ(lambda)は、ある事象が起こってから次にまた発生するまでの間隔を表す。
 
@@ -56,8 +56,8 @@ $$ p(x| \lambda ) = \lambda e^{-\lambda x} $$
 |------------------------------------------------|----------------------------------|-------|
 | [`lambda`](exponential_distribution/lambda.md) | 母数を取得する                   | C++11 |
 | [`param`](exponential_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](exponential_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](exponential_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](exponential_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](exponential_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

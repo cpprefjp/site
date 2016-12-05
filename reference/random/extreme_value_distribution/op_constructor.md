@@ -13,7 +13,7 @@ explicit extreme_value_distribution(const param_type& parm);
 ##`extreme_value_distribution`オブジェクトの構築
 - `explicit extreme_value_distribution(RealType a = 0.0, RealType b = 1.0);`
 
-位置パラメータ`a`と尺度パラメータ`b`を受け取るコンストラクタ。 
+極値分布の位置パラメータ`a`と尺度パラメータ`b`を受け取るコンストラクタ。
 
 要件： `b > 0`であること。
 
