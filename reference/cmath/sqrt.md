@@ -18,7 +18,7 @@ namespace std {
 * Integral[italic]
 
 ##概要
-算術型の非負の平方根を求める。
+算術型の非負の平方根を求める。sqrtは square root (平方根) の略。
 
 
 ##戻り値
