@@ -15,11 +15,11 @@ namespace std {
 ##概要
 `weibull_distribution`は、確率分布の一種であるワイブル分布を表すクラスである。  
 ワイブル分布は、物体の劣化、寿命、強度、破壊といったものを記述するために考案された分布法である。  
-ワイブル分布は、以下の密度関数に基いて、浮動小数点数の値を生成する：
+ワイブル分布は、以下の確率密度関数に基いて、浮動小数点数の値を生成する：
 
-$$ p(x|a,b) = \frac{a}{b} \cdot \big( \frac{x}{b} \big)^{a - 1} \cdot \exp \big( - \big( \frac{x}{b} \big)^{a} \big) $$
+$$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \exp \left( - \left( \frac{x}{b} \right)^{a} \right) $$
 
-この数式におけるaはワイブル係数(形状パラメータ : shape parameter)を意味し、bは尺度パラメータ(scale parameter)を意味する。
+この数式においてaはワイブル係数(形状パラメータ : shape parameter)、bは尺度パラメータ(scale parameter)である。
 
 
 テンプレートパラメータは、以下を意味する：
@@ -51,8 +51,8 @@ $$ p(x|a,b) = \frac{a}{b} \cdot \big( \frac{x}{b} \big)^{a - 1} \cdot \exp \big(
 | [`a`](weibull_distribution/a.md)         | 形状母数を取得する   | C++11 |
 | [`b`](weibull_distribution/b.md)         | 尺度母数を取得する | C++11 |
 | [`param`](weibull_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](weibull_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](weibull_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](weibull_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](weibull_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

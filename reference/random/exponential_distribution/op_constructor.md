@@ -13,7 +13,7 @@ explicit exponential_distribution(const param_type& parm);
 ##`exponential_distribution`オブジェクトの構築
 - `explicit exponential_distribution(RealType lambda = 1.0);`
 
-指数分布のパラメータλ(`lambda`)を受け取るコンストラクタ。 
+指数分布のパラメータλ(`lambda`)を受け取るコンストラクタ。
 
 要件： `lambda > 0`であること。
 

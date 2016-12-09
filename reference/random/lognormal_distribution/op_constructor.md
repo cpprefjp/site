@@ -13,7 +13,7 @@ explicit lognormal_distribution(const param_type& param);
 ##`lognormal_distribution`オブジェクトの構築
 - `explicit lognormal_distribution(RealType m = 0.0, RealType s = 1.0);`
 
-値を生成する範囲として平均値`m`および標準偏差`s`を受け取るコンストラクタ。 
+対数正規分布の平均値`m`および標準偏差`s`を受け取るコンストラクタ。
 
 要件： `s > 0`であること。
 

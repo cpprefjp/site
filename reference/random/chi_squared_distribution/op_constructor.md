@@ -13,7 +13,7 @@ explicit chi_squared_distribution(const param_type& parm);
 ##`chi_squared_distribution`オブジェクトの構築
 - `explicit chi_squared_distribution(RealType n = 1);`
 
-自由度`n`を受け取るコンストラクタ。 
+カイ二乗分布の自由度`n`を受け取るコンストラクタ。
 
 要件： `n > 0`であること。
 

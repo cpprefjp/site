@@ -13,7 +13,7 @@ explicit student_t_distribution(const param_type& parm);
 ##`student_t_distribution`オブジェクトの構築
 - `explicit student_t_distribution(RealType n = 1);`
 
-自由度`n`を受け取るコンストラクタ。 
+ステューデントのt分布の自由度`n`を受け取るコンストラクタ。
 
 要件： `n > 0`であること。
 

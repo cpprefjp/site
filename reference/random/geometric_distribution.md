@@ -20,7 +20,7 @@ namespace std {
 
 幾何分布は、以下のような用途で使用できる：
 
-- くじ引きを当たるまで施行し、当たりが出るまでに失敗した数を求める
+- くじ引きを行い、当たりが出るまでに引いた回数を求める
 - 信頼性の低い部品を製造するために失敗した個数を求める
 
 
@@ -52,8 +52,8 @@ namespace std {
 |----------------------------------------------|----------------------------------|-------|
 | [`p`](geometric_distribution/p.md)         | 確率を取得する                   | C++11 |
 | [`param`](geometric_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](geometric_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](geometric_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](geometric_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](geometric_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

@@ -13,7 +13,7 @@ explicit bernoulli_distribution(const param_type& parm);
 ##`bernoulli_distribution`オブジェクトの構築
 - `explicit bernoulli_distribution(double p = 0.5);`
 
-確率`p`を受け取るコンストラクタ。 
+確率`p`を受け取るコンストラクタ。
 確率`p`で`true`が生成され、確率`1.0 - p`で`false`が生成される。
 
 

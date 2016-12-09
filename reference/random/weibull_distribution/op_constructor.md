@@ -13,7 +13,7 @@ explicit weibull_distribution(const param_type& parm);
 ##`weibull_distribution`オブジェクトの構築
 - `explicit weibull_distribution(RealType a = 1.0, RealType b = 1.0);`
 
-形状パラメータ(ワイブル係数)`a`と尺度パラメータ`b`を受け取るコンストラクタ。 
+ワイブル分布の形状パラメータ(ワイブル係数)`a`と尺度パラメータ`b`を受け取るコンストラクタ。
 
 要件： `a > 0`かつ`b > 0`であること。
 

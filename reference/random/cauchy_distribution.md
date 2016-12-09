@@ -15,16 +15,16 @@ namespace std {
 ##概要
 `cauchy_distribution`は、連絡確率分布の一種であるコーシー分布(ローレンツ分布とも呼ばれる)を生成するクラスである。  
 正規分布([`normal_distribution`](normal_distribution.md))と違い、平均も分散も定義されない、という特徴を持つ。  
-以下の密度関数に基いて、浮動小数点数の乱数を生成する：  
+以下の確率密度関数に基いて、浮動小数点数の乱数を生成する：
 
-$$ p(x|a,b) =  \big( \pi b \big(1+ \big( \frac{x-a}{b} \big) ^{2}  \big) \big) ^{-1} $$
+$$ p(x \mid a, b) = \left( \pi b \left(1 + \left( \frac{x-a}{b} \right) ^2 \right) \right) ^{-1}$$
 
-この密度関数において、aは分布の最頻値を与える位置母数(location parameter)、bは半値半幅を与える尺度母数(scale parameter)を意味する。  
+この確率密度関数において、aは分布の最頻値を与える位置母数(location parameter)、bは半値半幅を与える尺度母数(scale parameter)である。  
 
 コーシー分布は、以下のような用途に使用できる：
 
-- 正規分布に比べて外れ値(outliers)が非常に多い場合の分布のモデルに、使われることがある
-- 原子核物理の文やにおいて、放射線の線スペクトルの強度分布など、共鳴現象を表すのに使われる(この分野では、ブライト・ウィグナー分布とも呼ばれている)
+- 正規分布に比べて外れ値(outliers)が非常に多い場合の分布のモデル
+- 原子核物理の分野において、放射線の線スペクトルの強度分布などの共鳴現象(この分野では、ブライト・ウィグナー分布とも呼ばれている)
 
 
 テンプレートパラメータは、以下を意味する：
@@ -53,11 +53,11 @@ $$ p(x|a,b) =  \big( \pi b \big(1+ \big( \frac{x-a}{b} \big) ^{2}  \big) \big) ^
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|----------------------------------|-------|
-| [`a`](cauchy_distribution/a.md)         | 位置母数を取得する               | C++11 |
-| [`b`](cauchy_distribution/b.md)         | 尺度母数を取得する               | C++11 |
+| [`a`](cauchy_distribution/a.md)         | 分布の位置母数を取得する               | C++11 |
+| [`b`](cauchy_distribution/b.md)         | 分布の尺度母数を取得する               | C++11 |
 | [`param`](cauchy_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](cauchy_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](cauchy_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](cauchy_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](cauchy_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

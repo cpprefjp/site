@@ -65,8 +65,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
-| [`min`](shuffle_order_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](shuffle_order_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](shuffle_order_engine/min.md) | 生成し得る値の最小値を取得する | C++11 |
+| [`max`](shuffle_order_engine/max.md) | 生成し得る値の最大値を取得する | C++11 |
 
 
 ##メンバ型

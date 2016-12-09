@@ -13,7 +13,7 @@ explicit fisher_f_distribution(const param_type& parm);
 ##`fisher_f_distribution`オブジェクトの構築
 - `explicit fisher_f_distribution(RealType m = 1, RealType n = 1);`
 
-自由度`m`と`n`を受け取るコンストラクタ。 
+フィッシャーのF分布の自由度`m`と`n`を受け取るコンストラクタ。
 
 要件： `m > 0`かつ`n > 0`であること。
 

@@ -60,8 +60,8 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
-| [`min`](linear_congruential_engine/min.md) | 生成する範囲の最小値を取得する | C++11 |
-| [`max`](linear_congruential_engine/max.md) | 生成する範囲の最大値を取得する | C++11 |
+| [`min`](linear_congruential_engine/min.md) | 生成し得る値の最小値を取得する | C++11 |
+| [`max`](linear_congruential_engine/max.md) | 生成し得る値の最大値を取得する | C++11 |
 
 
 ##メンバ型

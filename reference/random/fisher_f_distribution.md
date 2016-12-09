@@ -13,11 +13,11 @@ namespace std {
 ```
 
 ##概要
-`fisher_f_distribution`は、連続確率分布の一種である、フィッシャーのF分布を生成するクラスである。以下の密度関数に基いて、浮動小数点数の乱数を生成する：  
+`fisher_f_distribution`は、連続確率分布の一種である、フィッシャーのF分布を生成するクラスである。以下の確率密度関数に基いて、浮動小数点数の乱数を生成する：
 
-$$ p(x|m,n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \cdot \big(\frac{m}{n} \big) ^{m/2} \cdot x^{(m/2)-1} \cdot \big( 1 + \frac{mx}{n} \big) ^{-(m+n)/2} $$
+$$ p(x \mid m, n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \cdot \left( \frac{m}{n} \right) ^{m/2} \cdot x^{(m/2)-1} \cdot \left( 1 + \frac{mx}{n} \right) ^{-(m+n)/2} $$
 
-この密度関数におけるmとnは、自由度(degrees of freedom)を意味し、2つの独立したカイ二乗分布を除算したものを結果として生成する。
+この確率密度関数におけるmとnは自由度(degrees of freedom)で、2つの独立したカイ二乗分布を除算したものを結果として生成する。
 
 
 以下のような用途で使用できる：
@@ -51,11 +51,11 @@ $$ p(x|m,n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \cdot \big(\fra
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------|-------|
-| [`m`](fisher_f_distribution/m.md)         | 自由度mを取得する                | C++11 |
-| [`n`](fisher_f_distribution/n.md)         | 自由度nを取得する                | C++11 |
+| [`m`](fisher_f_distribution/m.md)         | 分布の自由度mを取得する          | C++11 |
+| [`n`](fisher_f_distribution/n.md)         | 分布の自由度nを取得する          | C++11 |
 | [`param`](fisher_f_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](fisher_f_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](fisher_f_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](fisher_f_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](fisher_f_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

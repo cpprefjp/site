@@ -13,7 +13,7 @@ explicit poisson_distribution(const param_type& parm);
 ##`poisson_distribution`オブジェクトの構築
 - `explicit poisson_distribution(double mean = 1.0);`
 
-平均値`mean`を受け取るコンストラクタ。 
+ポワソン分布の平均値`mean`を受け取るコンストラクタ。
 
 要件： `mean > 0`であること。
 

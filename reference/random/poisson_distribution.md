@@ -14,12 +14,12 @@ namespace std {
 
 ##概要
 `poisson_distribution`は、離散確率分布の一種であるポワソン分布を表すクラスである。  
-以下の密度関数に基いて、ランダムな整数を生成する：
+以下の確率密度関数に基いて、ランダムな整数を生成する：
 
-$$ p(x| \mu ) = \frac{e^{- \mu} \mu ^{i} }{i!} $$
+$$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 
 
-この数式におけるμ(mu)は、平均値(mean)を意味する。
+この数式においてμ(mu)は、平均値(mean)である。
 
 
 ポワソン分布は、以下のような用途に使用できる：
@@ -55,10 +55,10 @@ $$ p(x| \mu ) = \frac{e^{- \mu} \mu ^{i} }{i!} $$
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------------------------|-------|
-| [`mean`](poisson_distribution/mean.md)   | 平均値を取得する                 | C++11 |
+| [`mean`](poisson_distribution/mean.md)   | 分布の平均値を取得する           | C++11 |
 | [`param`](poisson_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](poisson_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](poisson_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](poisson_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](poisson_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

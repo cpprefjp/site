@@ -13,7 +13,7 @@ explicit geometric_distribution(const param_type& parm);
 ##`geometric_distribution`オブジェクトの構築
 - `explicit geometric_distribution(double p = 0.5);`
 
-一度の事象が成功する確率`p`を受け取るコンストラクタ。 
+一度の事象が成功する確率`p`を受け取るコンストラクタ。
 
 要件： `p > 0.0 && p < 1.0`であること。(`p == 0`だと無限ループになってしまうため)
 

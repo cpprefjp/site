@@ -13,8 +13,8 @@ explicit uniform_real_distribution(const param_type& parm);
 ##`uniform_real_distribution`オブジェクトの構築
 - `explicit uniform_real_distribution(RealType a = 0.0, RealType b = 1.0);`
 
-値を生成する範囲として最小値`a`および最大値`b`を受け取るコンストラクタ。 
-`a`以上`b`未満(`[a, b)`)の値が生成される。 
+一様実数分布の下限`a`および上限`b`を受け取るコンストラクタ。
+`a`以上`b`未満(`[a, b)`)の値が生成される。
 
 要件： `a <= b`かつ`b - a <=` [`numeric_limits`](/reference/limits/numeric_limits.md)`<RealType>::`[`max()`](/reference/limits/numeric_limits/max.md)であること。
 

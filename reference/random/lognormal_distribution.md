@@ -14,11 +14,11 @@ namespace std {
 
 ##概要
 `lognormal_distribution`は、乱数を対数正規分布させるクラスである。 
-対数正規分布はその名のとおり、正規分布に対数を付けたものである。以下の密度関数に基いて、浮動小数点数の乱数を生成する：  
+対数正規分布はその名のとおり、正規分布に対数を付けたものである。以下の確率密度関数に基いて、浮動小数点数の乱数を生成する：  
 
-$$ p(x|m,s) = \frac{1}{sx \sqrt{2 \pi } } \cdot \exp \big( - \frac{(\ln x - m)^{2}}{2s^{2}} \big) $$
+$$ p(x \mid m, s) = \frac{1}{sx \sqrt{2 \pi} } \cdot \exp \left( - \frac{(\ln x - m)^2}{2s^2} \right) $$
 
-この密度関数において、mは平均(mean)、sは標準偏差(standard deviation)を意味する。
+この確率密度関数において、mは平均(mean)、sは標準偏差(standard deviation)を表す。
 
 
 対数正規分布は、以下のような用途に使用できる：
@@ -53,11 +53,11 @@ $$ p(x|m,s) = \frac{1}{sx \sqrt{2 \pi } } \cdot \exp \big( - \frac{(\ln x - m)^{
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
-| [`m`](lognormal_distribution/m.md)         | 生成する範囲の平均値を取得する   | C++11 |
-| [`s`](lognormal_distribution/s.md)         | 生成する範囲の標準偏差を取得する | C++11 |
+| [`m`](lognormal_distribution/m.md)         | 分布の平均値を取得する   | C++11 |
+| [`s`](lognormal_distribution/s.md)         | 分布の標準偏差を取得する | C++11 |
 | [`param`](lognormal_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
-| [`min`](lognormal_distribution/min.md)     | 生成する範囲の最小値を取得する   | C++11 |
-| [`max`](lognormal_distribution/max.md)     | 生成する範囲の最大値を取得する   | C++11 |
+| [`min`](lognormal_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
+| [`max`](lognormal_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
 ##メンバ型

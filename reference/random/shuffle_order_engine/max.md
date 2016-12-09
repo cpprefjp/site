@@ -10,7 +10,7 @@ static constexpr result_type max() { return Engine::max(); }
 ```
 
 ##概要
-生成する値の最大値を取得する。
+生成し得る値の最大値を取得する。
 
 
 ##戻り値
