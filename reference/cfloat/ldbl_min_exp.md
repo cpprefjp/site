@@ -53,7 +53,7 @@ int main()
 * FLT_RADIX[link flt_radix.md]
 * LDBL_MIN_EXP[link ldbl_min_exp.md]
 * pow[link ../cmath/pow.md]
-* isnormal[link ../cmath/isnormal.md.nolink]
+* isnormal[link ../cmath/isnormal.md]
 
 ##出力例
 ```

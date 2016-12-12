@@ -67,7 +67,7 @@ int main()
 * pow[link ../cmath/pow.md]
 * log10[link ../cmath/log10.md]
 * floor[link ../cmath/floor.md]
-* isfinite[link ../cmath/isfinite.md.nolink]
+* isfinite[link ../cmath/isfinite.md]
 
 ##出力例
 ```

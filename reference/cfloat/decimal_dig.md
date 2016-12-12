@@ -64,7 +64,7 @@ int main()
 * LDBL_MANT_DIG[link ldbl_mant_dig.md]
 * log10[link ../cmath/log10.md]
 * ceil[link ../cmath/ceil.md]
-* modf[link ../cmath/modf.md.nolink]
+* modf[link ../cmath/modf.md]
 
 ##出力例
 ```

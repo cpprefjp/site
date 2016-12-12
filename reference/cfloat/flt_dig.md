@@ -61,7 +61,7 @@ int main()
 * FLT_MANT_DIG[link flt_mant_dig.md]
 * log10[link ../cmath/log10.md]
 * floor[link ../cmath/floor.md]
-* modf[link ../cmath/modf.md.nolink]
+* modf[link ../cmath/modf.md]
 
 ##出力例
 ```
