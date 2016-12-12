@@ -139,9 +139,10 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 | [if文とswitch文の条件式と初期化を分離][P0305R1] | `if (init; condition)`のように初期化と条件式を分けて記述できるようにする | No | 3.9 | No | No |
 | [参照メンバをもつクラスの置き換え][P0137R1] | 参照型メンバや`const`データメンバを含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする | No | No | No | No |
 | [非推奨だった例外仕様を削除][P0003R4] | `noexcept`が入ったことによって非推奨になった`throw`キーワードによる例外仕様を削除 | No | No | No | No |
-| [using宣言でのパック展開][P0195R1] | パラメータパックの型を基本クラスとして指定した場合に、`using`宣言に基本クラスのパラメータパックを指定できるようにする | No | No | No | No |
+| [using宣言でのパック展開][P0195R2] | パラメータパックの型を基本クラスとして指定した場合に、`using`宣言に基本クラスのパラメータパックを指定できるようにする | No | No | No | No |
 | [クラステンプレート引数の推論仕様を調整][P0512R0] | | No | No | No | No |
-| [構造化束縛の仕様調整][P0490R0] | 分解できる要素の個数制限など | No | No | No | No |
+| [Committee Draftに対するNational Body Commentへの対応][P0490R0] | | - | - | - | - |
+| [テンプレートテンプレート引数のマッチングにおいて、互換性のあるテンプレートを除外][P0522R0] | | No | No | No | No |
 
 
 [n3928]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3928.pdf
@@ -182,9 +183,10 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 [P0137R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html
 [P0400R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0400r0.html
 [P0003R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0003r4.html
-[P0195R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0195r1.html
-[P0512R0]: http://wg21.link/p0512r0
-[P0490R0]: http://wg21.link/p0490r0
+[P0195R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0195r2.html
+[P0512R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0512r0.pdf
+[P0490R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0490r0.html
+[P0522R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0522r0.html
 
 
 各処理系のC++1z実装状況ページ：
