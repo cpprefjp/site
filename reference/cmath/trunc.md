@@ -33,8 +33,8 @@ namespace std {
 	- `x = ±0` の場合、`±0` を返す。
 	- `x = ±∞` の場合、`±∞` を返す。
 
-	また、本関数の挙動は、丸めモードが `FE_TOWARDZERO` に設定されている時の [`rint`](rint.md)、あるいは [`nearbyint`](nearbyint.md) のいずれかと同等である。  
-	したがって、本関数において戻り値が引数 `x` と異なる場合に例外 `FE_INEXACT` が発生するか否かは実装依存である。  
+	また、本関数の挙動は、丸めモードが [`FE_TOWARDZERO`](/reference/cfenv/fe_towardzero.md) に設定されている時の [`rint`](rint.md)、あるいは [`nearbyint`](nearbyint.md) のいずれかと同等である。  
+	したがって、本関数において戻り値が引数 `x` と異なる場合に例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) が発生するか否かは実装依存である。  
 	なお、本関数の挙動は、現在の丸めモードには依存しない。
 
 - 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559__` が `1` に定義されている事で判別可能であるが、C++ 規格書には該当する記載を見つけることができなかった。
