@@ -2,12 +2,15 @@
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp11deprecated[meta cpp]
 
 ```cpp
 namespace std {
   void unexpected();
 }
 ```
+
+この関数はC++11から非推奨である。`throw`キーワードの代わりに使用する[`noexcept`キーワード](/lang/cpp11/noexcept.md)では、指定外の例外が発生することによるエラーは起こらない。
 
 ##概要
 例外指定のある関数内で、指定外の例外が発生した時に呼び出される例外ハンドラを直接呼び出す。

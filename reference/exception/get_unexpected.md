@@ -3,6 +3,7 @@
 * std[meta namespace]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp11deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -10,6 +11,8 @@ namespace std {
   unexpected_handler get_unexpected() noexcept;
 }
 ```
+
+この関数はC++11から非推奨である。`throw`キーワードの代わりに使用する[`noexcept`キーワード](/lang/cpp11/noexcept.md)では、指定外の例外が発生することによるエラーは起こらない。
 
 ##概要
 予想外の例外が発生した場合の処理を行う関数を取得する。
