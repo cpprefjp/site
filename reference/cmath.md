@@ -233,10 +233,10 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 
 | 名前 | 説明 | 対応バージョン |
 |----------|----------------------|-------|
-| `erf`    | 誤差関数             | C++11 |
-| `erfc`   | 相補誤差関数         | C++11 |
-| `tgamma` | ガンマ関数           | C++11 |
-| `lgamma` | ガンマ関数の自然対数 | C++11 |
+| [`erf`](cmath/erf.md)       | 誤差関数             | C++11 |
+| [`erfc`](cmath/erfc.md)     | 相補誤差関数         | C++11 |
+| [`tgamma`](cmath/tgamma.md) | ガンマ関数           | C++11 |
+| [`lgamma`](cmath/lgamma.md) | ガンマ関数の自然対数 | C++11 |
 
 
 ## <a name="nearest-integer-functions" href="#nearest-integer-functions">最近傍整数</a>
