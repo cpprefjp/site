@@ -1,0 +1,71 @@
+#erf
+* cmath[meta header]
+* std[meta namespace]
+* function[meta id-type]
+* [mathjax enable]
+
+```cpp
+namespace std {
+  float erf(float x);
+
+  double erf(double x);
+
+  long double erf(long double x);
+
+  double erf(Integral x);
+}
+```
+* Integral[italic]
+
+##概要
+算術型の誤差関数 (error function) を求める。
+
+
+##戻り値
+引数 `x` の誤差関数を返す。
+
+
+##備考
+- $$ f(x) = \mathrm{erf}~x \equiv \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt $$
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+    - `x = ±0` の場合、戻り値は `±0` となる。
+    - `x = ±∞` の場合、戻り値は `±1` となる。
+- 標準正規分布（平均0, 標準偏差1の正規分布）の累積分布関数は $1 + \mathrm{erf}~(x / \sqrt{2})$ で与えられる。
+
+
+##例
+```cpp
+#include <cmath>
+#include <iostream>
+#include <limits>
+
+int main() {
+  std::cout << std::fixed;
+  std::cout << "erf(-∞) = " << std::erf(-std::numeric_limits<double>::infinity()) << std::endl;
+  std::cout << "erf(0)  = " << std::erf(0.0) << std::endl;
+  std::cout << "erf(1)  = " << std::erf(1.0) << std::endl;
+  std::cout << "erf(+∞) = " << std::erf(std::numeric_limits<double>::infinity()) << std::endl;
+}
+```
+* <cmath>[link ../cmath.md]
+* std::erf[color ff0000]
+* std::fixed[link ../ios/fixed.md]
+
+###出力例
+```
+erf(-∞) = -1.000000
+erf(0)  = 0.000000
+erf(1)  = 0.842701
+erf(+∞) = 1.000000
+```
+
+##バージョン
+###言語
+- C++11
+
+###処理系
+
+####備考
+特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+
+- GCC 4.6.1 以上
