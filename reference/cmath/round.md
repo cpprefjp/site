@@ -12,7 +12,7 @@ namespace std {
 
   long double round(long double x);
 
-  double round(Integral x);			// C++11 から
+  double round(Integral x);
 }
 ```
 * Integral[italic]
