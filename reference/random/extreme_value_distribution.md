@@ -123,7 +123,7 @@ int main()
 
 ###参考
 - [極値分布](https://ja.wikipedia.org/wiki/極値分布)
-- [一般化極値分布 - MATLAB & Simulink - MathWorks 日本](http://www.mathworks.co.jp/jp/help/stats/generalized-extreme-value-distribution.html)
+- [一般化極値分布 - MATLAB & Simulink - MathWorks 日本](https://jp.mathworks.com/help/stats/generalized-extreme-value-distribution.html)
 - [生態学のデータ解析 - 極値分布](http://hosho.ees.hokudai.ac.jp/~kubo/ce/ExtremeValue.html)
 - [極値分布とその応用に関する研究](http://www.seto.nanzan-u.ac.jp/msie/gr-thesis/ms/2005/osaki/02mm042.pdf)
 

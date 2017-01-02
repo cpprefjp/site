@@ -13,7 +13,7 @@ namespace std {
 ##概要
 `random_device`クラスは、非決定的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。
 
-`random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)関数のラッパーとして、UNIX系環境では[`/dev/random`](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](http://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
+`random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
 
 予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといったものから乱数を生成する。
 
@@ -164,7 +164,7 @@ jyiasder
 
 ##参照
 - [/dev/random - Wikipedia](https://ja.wikipedia.org/wiki//dev/random)
-- [Man page of RANDOM](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man4/random.4.html)
+- [Man page of RANDOM](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)
 - [CryptoGenRandom function - MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)
 - [random_deviceの実装（再訪） - 煙人計画](http://vaporoid.hateblo.jp/entry/2014/07/25/154852)
 - [Replacing `/dev/urandom` May 4, 2016 - Security](https://lwn.net/Articles/685371/)

@@ -137,5 +137,5 @@ int main()
 
 
 ##参照
-- [Implementing Dekker's algorithm with Fences](http://www.justsoftwaresolutions.co.uk/threading/implementing_dekkers_algorithm_with_fences.html)
+- [Implementing Dekker's algorithm with Fences](https://www.justsoftwaresolutions.co.uk/threading/implementing_dekkers_algorithm_with_fences.html)
 
