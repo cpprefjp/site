@@ -63,7 +63,7 @@ int main()
 
 この2つがあった。テンプレートライブラリを作るにあたって、これらはテンプレート引数のアサーションには使用できなかった。
 
-この問題を解決する必要性は、[Boost Static Assertion Library](http://www.boost.org/libs/static_assert)と、それを利用する他のBoostライブラリの存在によって示されている。Boostには含まれていないLokiライブラリにも`STATIC_CHECK`というマクロの形で同様の機能がある。CzarneckiとEiseneckerによる著書『[Generative Programming](http://www.amazon.co.jp/dp/0201309777) (邦訳 : [ジェネレーティブプログラミング](http://www.amazon.co.jp/dp/479811331X))』では、コンパイル時アサートをシミュレートするためにテンプレートメタプログラミング手法を使用し、コンフィグレーションを生成する中間段階でのチェックを行っている。
+この問題を解決する必要性は、[Boost Static Assertion Library](http://www.boost.org/libs/static_assert)と、それを利用する他のBoostライブラリの存在によって示されている。Boostには含まれていないLokiライブラリにも`STATIC_CHECK`というマクロの形で同様の機能がある。CzarneckiとEiseneckerによる著書『[Generative Programming](https://www.amazon.co.jp/dp/0201309777) (邦訳 : [ジェネレーティブプログラミング](https://www.amazon.co.jp/dp/479811331X))』では、コンパイル時アサートをシミュレートするためにテンプレートメタプログラミング手法を使用し、コンフィグレーションを生成する中間段階でのチェックを行っている。
 
 Boost Static Assertion Libraryが開発されたときに、コンパイル時アサートの設計要件が認識された：
 

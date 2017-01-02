@@ -73,7 +73,7 @@ void basic_string::shrink_to_fit() {
 
 
 ##参照
-- 『[Effective STL - STLを効果的に使いこなす50の鉄則](http://www.amazon.co.jp/dp/4894714108)』 第17項 余分な容量を取り除くには「swap技法」を使おう
+- 『[Effective STL - STLを効果的に使いこなす50の鉄則](https://www.amazon.co.jp/dp/4894714108)』 第17項 余分な容量を取り除くには「swap技法」を使おう
 - [LWG Issue 755. `std::vector` and `std:string` lack explicit shrink-to-fit operations]
 - [std::vector<>::shrink_to_fit](../../vector/shrink_to_fit.md)
 - [std::deque<>::shrink_to_fit](../../deque/shrink_to_fit.md)
