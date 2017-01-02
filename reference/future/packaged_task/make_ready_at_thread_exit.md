@@ -45,7 +45,7 @@ int plus_task(int a, int b)
 }
 
 // packaged_taskを左辺値参照にしているのはVisual C++ 2012のバグのため
-// http://connect.microsoft.com/VisualStudio/feedback/details/737812
+// https://connect.microsoft.com/VisualStudio/feedback/details/737812
 void calc(std::packaged_task<int(int, int)>& task)
 {
   // 現在のスレッド終了時に準備完了状態にする
@@ -65,7 +65,7 @@ int main()
   std::cout << result << std::endl;
 }
 ```
-* http://connect.microsoft.com/VisualStudio/feedback/details/737812[link http://connect.microsoft.com/VisualStudio/feedback/details/737812]
+* https://connect.microsoft.com/VisualStudio/feedback/details/737812[link https://connect.microsoft.com/VisualStudio/feedback/details/737812]
 
 ###出力
 ```

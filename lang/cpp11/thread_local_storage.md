@@ -103,7 +103,7 @@ thread2 : 4
 | [IBM](http://www.ibm.com/) | Thread-Local Storage in [What's New in XL C/C++ V9.0](http://www-1.ibm.com/support/docview.wss?uid=swg27007322&aid=1) |
 | [IBM](http://www.ibm.com/) | [The `__thread` storage class specifier](http://publib.boulder.ibm.com/infocenter/comphelp/v9v111/index.jsp?topic=/com.ibm.xlcpp9.aix.doc/language_ref/thread.htm) |
 | [Intel](http://www.intel.com/) | [Thread-local Storage](http://www.intel.com/software/products/compilers/clin/docs/ug_cpp/lin1057.htm) |
-| [Microsoft](http://www.microsoft.com/) | [Thread Local Storage](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vccelng/htm/decla_44.asp) |
+| [Microsoft](https://www.microsoft.com/) | [__declspec thread](https://msdn.microsoft.com/en-us/library/9w1sdazb.aspx) |
 | [Sun](http://www.sun.com/) | [Thread-Local Storage](http://docs.sun.com/source/817-5070/Language_Extensions.html#pgfId-997650) |
 
 各ベンダーのこれらの経験を標準C++に導入することとなった。

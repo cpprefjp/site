@@ -60,8 +60,8 @@
     - [C++ Defect Report Support in Clang](http://clang.llvm.org/cxx_dr_status.html)
 - ICC : [C++11 Features Supported by Intel&#174; C++ Compiler](https://software.intel.com/en-us/articles/c0x-features-supported-by-intel-c-compiler)
 - Visual C++ (MSVC): [C++11/14/17 の機能のサポート (Modern C++)](https://msdn.microsoft.com/ja-jp/library/hh567368.aspx)
-- Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
-- Visual C++ (MSVC): [Visual Studio 2015 Update 1 RC Available](http://blogs.msdn.com/b/vcblog/archive/2015/10/29/visual-studio-2015-update-1-rc-available.aspx)
+- Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
+- Visual C++ (MSVC): [Visual Studio 2015 Update 1 RC Available](https://blogs.msdn.microsoft.com/vcblog/2015/10/29/visual-studio-2015-update-1-rc-available/)
 - Visual C++ (MSVC): [Compiler improvements in VS 2015 Update 3 RC - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/compiler-improvements-in-vs-2015-update-3-rc/)
 
 
@@ -88,8 +88,8 @@ C++14は、C++11のバグフィックス + マイナーアップデートが行�
 - libstdc++: [C++ 2014](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2014)
 - Clang: [C++98, C++11, and C++14 Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libc++: [libc++ C++1Y Status](http://libcxx.llvm.org/cxx1y_status.html)
-- Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
-- Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
+- Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/hh567368%28v=vs.140%29.aspx)
+- Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2015/06/19/c111417-features-in-vs-2015-rtm/)
     - [Compiler improvements in VS 2015 Update 2 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/02/11/compiler-improvements-in-vs-2015-update-2/)
     - [C++14/17 Features and STL Fixes in VS “15” Preview 4 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/08/24/c1417-features-and-stl-fixes-in-vs-15-preview-4/)
     - [C++14/17 Features and STL Fixes in VS “15” Preview 5 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/10/11/c1417-features-and-stl-fixes-in-vs-15-preview-5/)
@@ -196,7 +196,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 - libc++ : [libc++ C++1z Status](http://libcxx.llvm.org/cxx1z_status.html)
 - Visual C++ (MSVC):
     - [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
-    - [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](http://blogs.msdn.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
+    - [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2015/06/19/c111417-features-in-vs-2015-rtm/)
     - [C++14/17 Features and STL Fixes in VS “15” Preview 4 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/08/24/c1417-features-and-stl-fixes-in-vs-15-preview-4/)
     - [C++14/17 Features and STL Fixes in VS “15” Preview 5 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/10/11/c1417-features-and-stl-fixes-in-vs-15-preview-5/)
 

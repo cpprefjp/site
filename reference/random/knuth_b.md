@@ -21,7 +21,7 @@ namespace std {
 
 Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volume 2, Seminumerical Algorithms』で考案された、リオーダーアルゴリズムBがそれだ。  
 
-このアルゴリズムは、Microsoft .NET Frameworkの[`System.Random`](http://msdn.microsoft.com/ja-jp/library/system.random.aspx)クラスにも、実装として使用されている。
+このアルゴリズムは、Microsoft .NET Frameworkの[`System.Random`](https://msdn.microsoft.com/ja-jp/library/system.random.aspx)クラスにも、実装として使用されている。
 
 
 ##要件

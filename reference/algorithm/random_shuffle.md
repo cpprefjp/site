@@ -118,6 +118,6 @@ void random_shuffle(RandomAccessIterator first, RandomAccessIterator last, Rando
 
 
 ##参照
-- [rand() Considered Harmful - Going Native 2013](http://channel9.msdn.com/Events/GoingNative/2013/rand-Considered-Harmful)
+- [rand() Considered Harmful - Going Native 2013](https://channel9.msdn.com/Events/GoingNative/2013/rand-Considered-Harmful)
 - [N3924 Discouraging rand() in C++14, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3924.pdf)
 

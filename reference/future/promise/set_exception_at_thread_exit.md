@@ -39,7 +39,7 @@ void set_exception_at_thread_exit(exception_ptr p);
 #include <functional>
 
 // promiseを左辺値参照にしているのはVisual C++ 2012のバグのため
-// http://connect.microsoft.com/VisualStudio/feedback/details/737812
+// https://connect.microsoft.com/VisualStudio/feedback/details/737812
 void calc(std::promise<int>& p)
 {
   try {
@@ -71,7 +71,7 @@ int main()
   t.join();
 }
 ```
-* http://connect.microsoft.com/VisualStudio/feedback/details/737812[link http://connect.microsoft.com/VisualStudio/feedback/details/737812]
+* https://connect.microsoft.com/VisualStudio/feedback/details/737812[link https://connect.microsoft.com/VisualStudio/feedback/details/737812]
 * set_exception_at_thread_exit[color ff0000]
 
 ###出力

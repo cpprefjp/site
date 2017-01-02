@@ -53,7 +53,7 @@ void promise<void>::set_value_at_thread_exit();
 #include <functional>
 
 // promiseを左辺値参照にしているのはVisual C++ 2012のバグのため
-// http://connect.microsoft.com/VisualStudio/feedback/details/737812
+// https://connect.microsoft.com/VisualStudio/feedback/details/737812
 void calc(std::promise<int>& p)
 {
   int sum = 0;
@@ -79,7 +79,7 @@ int main()
   t.join();
 }
 ```
-* http://connect.microsoft.com/VisualStudio/feedback/details/737812[link http://connect.microsoft.com/VisualStudio/feedback/details/737812]
+* https://connect.microsoft.com/VisualStudio/feedback/details/737812[link https://connect.microsoft.com/VisualStudio/feedback/details/737812]
 * set_value_at_thread_exit[color ff0000]
 
 ###出力
