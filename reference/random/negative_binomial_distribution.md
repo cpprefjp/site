@@ -108,6 +108,6 @@ int main()
 
 
 ##参照
-- [負の二項分布 - Wikipedia](http://ja.wikipedia.org/wiki/負の二項分布)
+- [負の二項分布 - Wikipedia](https://ja.wikipedia.org/wiki/負の二項分布)
 
 

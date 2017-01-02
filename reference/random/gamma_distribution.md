@@ -121,5 +121,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ###参考
-- [ガンマ分布 - Wikipedia](http://ja.wikipedia.org/wiki/ガンマ分布)
+- [ガンマ分布 - Wikipedia](https://ja.wikipedia.org/wiki/ガンマ分布)
 

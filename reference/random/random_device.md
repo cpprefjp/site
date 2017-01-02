@@ -163,7 +163,7 @@ jyiasder
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ##参照
-- [dev/random - Wikipedia](http://ja.wikipedia.org/wiki//dev/random)
+- [/dev/random - Wikipedia](https://ja.wikipedia.org/wiki//dev/random)
 - [Man page of RANDOM](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man4/random.4.html)
 - [CryptoGenRandom function - MSDN](http://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)
 - [random_deviceの実装（再訪） - 煙人計画](http://vaporoid.hateblo.jp/entry/2014/07/25/154852)

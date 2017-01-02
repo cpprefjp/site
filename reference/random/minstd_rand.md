@@ -112,7 +112,7 @@ int main()
 
 
 ##参照
-- [Lehmer random number generator - Wikipedia](http://en.wikipedia.org/wiki/Lehmer_random_number_generator)
+- [Lehmer random number generator - Wikipedia](https://en.wikipedia.org/wiki/Lehmer_random_number_generator)
 - [MINSTD - Classical LSGs](http://random.mat.sbg.ac.at/results/karl/server/node4.html#SECTION00042000000000000000)
 - "Random Number Generators: Good ones are hard to find", Stephen K. Park and Keith W. Miller, Communications of the ACM, Vol. 31, No. 10, October 1988, pp. 1192-1201
 

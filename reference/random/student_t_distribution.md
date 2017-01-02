@@ -120,7 +120,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ###参考
-- [t分布 - Wikipedia](http://ja.wikipedia.org/wiki/T%E5%88%86%E5%B8%83)
+- [t分布 - Wikipedia](https://ja.wikipedia.org/wiki/T%E5%88%86%E5%B8%83)
 - [t分布 統計学入門](http://www.tamagaki.com/math/Statistics402.html)
 - [第８回　ｔ分布とｔ検定](http://www.ipc.shimane-u.ac.jp/food/kobayasi/biometry8_2011.html)
 

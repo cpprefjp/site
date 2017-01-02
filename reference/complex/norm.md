@@ -81,5 +81,5 @@ norm( (1,2) ) = 5
 | [`proj`](proj.md)                  | リーマン球面への射影を得る。           |
 | [`polar`](polar.md)                | 指定した絶対値と偏角の複素数値を得る。 |
 
-- [ノルム (体論) - Wikipedia](http://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%83%A0_(%E4%BD%93%E8%AB%96))
-- [ノルム - Wikipedia](http://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%83%A0)
+- [ノルム (体論) - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%83%A0_(%E4%BD%93%E8%AB%96))
+- [ノルム - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%83%A0)

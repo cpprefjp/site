@@ -120,6 +120,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ###参考
-- [対数正規分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E5%AF%BE%E6%95%B0%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
+- [対数正規分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%AF%BE%E6%95%B0%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
 - [対数正規分布 - NtRand](http://www.ntrand.com/jp/log-normal-distribution/)
 - [対数正規分布の仕組み - 小人さんの妄想](http://d.hatena.ne.jp/rikunora/20100418/p1)

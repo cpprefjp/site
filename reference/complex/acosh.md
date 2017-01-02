@@ -48,7 +48,7 @@ namespace std {
 	なお、残念ながら [`valarray`](/reference/valarray.md) クラステンプレートには逆双曲線余弦の算出は定義されていない。
 	逆双曲線関数は C++11 で追加された関数であるため、その際の追加漏れかもしれない。
 
-- 規格書では arc hyperbolic cosine となっているが、逆双曲線関数で求めるのは「弧（arc）」ではなく「面積（area）」であるため、（広く誤用されてはいるものの）適切な表現ではない。（[逆双曲線関数 - Wikipedia](http://ja.wikipedia.org/wiki/逆双曲線関数)）
+- 規格書では arc hyperbolic cosine となっているが、逆双曲線関数で求めるのは「弧（arc）」ではなく「面積（area）」であるため、（広く誤用されてはいるものの）適切な表現ではない。（[逆双曲線関数 - Wikipedia](https://ja.wikipedia.org/wiki/逆双曲線関数)）
 
 
 ##例

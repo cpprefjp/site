@@ -119,7 +119,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ###参考
-- [指数分布 - Wikipedia](http://ja.wikipedia.org/wiki/指数分布)
+- [指数分布 - Wikipedia](https://ja.wikipedia.org/wiki/指数分布)
 - [指数分布 - NtRand](http://www.ntrand.com/jp/exponential-distribution/)
 - [指数分布 - 統計学自習ノート](http://aoki2.si.gunma-u.ac.jp/lecture/Bunpu/exponential.html)
 - [指数分布とポアソン分布のいけない関係](http://www.slideshare.net/teramonagi/ss-11296227)

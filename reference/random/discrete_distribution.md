@@ -129,8 +129,8 @@ int main()
 
 
 ##参照
-- [離散確率分布 - Wikipedia](http://ja.wikipedia.org/wiki/離散確率分布)
-- [Pseudo-random number sampling - Wikipedia](http://en.wikipedia.org/wiki/Pseudo-random_number_sampling)
-- [Alias Method - Wikipedia](http://en.wikipedia.org/wiki/Alias_method)
+- [離散確率分布 - Wikipedia](https://ja.wikipedia.org/wiki/離散確率分布)
+- [Pseudo-random number sampling - Wikipedia](https://en.wikipedia.org/wiki/Pseudo-random_number_sampling)
+- [Alias Method - Wikipedia](https://en.wikipedia.org/wiki/Alias_method)
 - [一般の離散分布の従う乱数の発生させる方法 - arupaka-_-arupakaの日記](http://d.hatena.ne.jp/arupaka-_-arupaka/20100508/1273319666)
 

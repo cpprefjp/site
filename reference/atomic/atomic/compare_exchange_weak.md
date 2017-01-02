@@ -44,7 +44,7 @@ bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_o
 
 [`compare_exchange_strong`](compare_exchange_strong.md)()はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
 
-アーキテクチャによっては、この関数は[`compare_exchange_strong()`](compare_exchange_strong.md)と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](http://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](http://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
+アーキテクチャによっては、この関数は[`compare_exchange_strong()`](compare_exchange_strong.md)と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](https://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](https://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
 
 通常、CAS操作は、CASが成功するまでループさせる。
 

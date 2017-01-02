@@ -121,7 +121,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp):
 
 ###参考
-- [カイ二乗分布 - Wikipedia](http://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83)
+- [カイ二乗分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83)
 - [χ2（カイ２乗）分布](http://staff.aist.go.jp/t.ihara/chi2.html)
 - [カイ２乗分布とは](http://ogawas.cerp.u-toyama.ac.jp/e-stat/kai.html)
 

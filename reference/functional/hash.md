@@ -120,7 +120,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 ##参照
-- [ハッシュ関数 - Wikipedia](http://ja.wikipedia.org/wiki/ハッシュ関数)
+- [ハッシュ関数 - Wikipedia](https://ja.wikipedia.org/wiki/ハッシュ関数)
 - [LWG 2148 - Hashing enums should be supported directly by std::hash](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2148)
 - [LWG 2291 - std::hash is vulnerable to collision DoS attack](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2291)
 

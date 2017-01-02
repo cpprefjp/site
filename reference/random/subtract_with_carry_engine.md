@@ -21,7 +21,7 @@ namespace std {
 * ranlux48_base[link ranlux48_base.md]
 
 ##概要
-`subtract_with_carry_engine`クラスは、[キャリー付き減算法](http://en.wikipedia.org/wiki/Subtract_with_carry)による擬似乱数生成エンジンである。  
+`subtract_with_carry_engine`クラスは、[キャリー付き減算法](https://en.wikipedia.org/wiki/Subtract_with_carry)による擬似乱数生成エンジンである。
 
 
 キャリー付き減算法は、以下の特徴を持つ：
@@ -134,6 +134,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ##参照
-- [Subtract with carry - Wikipedia](http://en.wikipedia.org/wiki/Subtract_with_carry)
+- [Subtract with carry - Wikipedia](https://en.wikipedia.org/wiki/Subtract_with_carry)
 - [A New Class of Random Number Generators](http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoap/1177005878), George Marsaglia and Arif Zaman, The Annals of Applied Probability, Vol. 1, No. 3, 1991
 

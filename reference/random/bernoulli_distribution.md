@@ -113,6 +113,6 @@ int main()
 
 
 ##参照
-- [ベルヌーイ分布 - Wikipedia](http://ja.wikipedia.org/wiki/ベルヌーイ分布)
+- [ベルヌーイ分布 - Wikipedia](https://ja.wikipedia.org/wiki/ベルヌーイ分布)
 - [ベルヌーイ分布(Bernoulli distribution) - NtRand](http://www.ntrand.com/jp/bernoulli-distribution/)
 

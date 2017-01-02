@@ -18,7 +18,7 @@ namespace std {
 
 このクラスは、[`shared_ptr`](/reference/memory/shared_ptr.md)として管理するクラスの基本クラスとして使用する。このクラスをpublic継承したクラスでpublicメンバ関数[`shared_from_this()`](enable_shared_from_this/shared_from_this.md)を使用することで、`this`を指す[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを取得できる。
 
-このクラスを継承する際には、このクラスのテンプレート引数として、派生クラス(このクラスを継承するクラス自身)を指定すること。(このようにテンプレート引数を指定する方法を、[CRTP:Curiously Recurring Template Pattern](http://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/奇妙に再帰したテンプレートパターン(Curiously_Recurring_Template_Pattern))と言う)
+このクラスを継承する際には、このクラスのテンプレート引数として、派生クラス(このクラスを継承するクラス自身)を指定すること。(このようにテンプレート引数を指定する方法を、[CRTP:Curiously Recurring Template Pattern](https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/奇妙に再帰したテンプレートパターン(Curiously_Recurring_Template_Pattern))と言う)
 
 
 ###正しい使い方と、誤った使い方

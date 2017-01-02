@@ -121,7 +121,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ###参考
-- [ポワソン分布 - Wikipedia](http://ja.wikipedia.org/wiki/ポアソン分布)
+- [ポワソン分布 - Wikipedia](https://ja.wikipedia.org/wiki/ポアソン分布)
 - [ポアソン分布 - 統計・データ解析](http://oku.edu.mie-u.ac.jp/~okumura/stat/poisson.php)
 - [ポアソン分布 - NtRand](http://www.ntrand.com/jp/poisson-distribution/)
 

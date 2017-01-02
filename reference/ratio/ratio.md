@@ -22,8 +22,8 @@ namespace std {
 
 `num`と`den`の値は、gcd(最大公約数:the greatest common divisor)を使用して、以下のように`N`と`D`を約分して割り当てる：
 
-- `num` : [`sign`](http://ja.wikipedia.org/wiki/符号関数)`(N) *` [`sign`](http://ja.wikipedia.org/wiki/符号関数)`(D) *` [`abs`](/reference/cmath/abs.md)`(N) /` [`gcd`](http://ja.wikipedia.org/wiki/最大公約数)`(N, D)`
-- `den` : [`abs`](/reference/cmath/abs.md)`(D) /` [`gcd`](http://ja.wikipedia.org/wiki/最大公約数)`(N, D)`
+- `num` : [`sign`](https://ja.wikipedia.org/wiki/符号関数)`(N) *` [`sign`](https://ja.wikipedia.org/wiki/符号関数)`(D) *` [`abs`](/reference/cmath/abs.md)`(N) /` [`gcd`](https://ja.wikipedia.org/wiki/最大公約数)`(N, D)`
+- `den` : [`abs`](/reference/cmath/abs.md)`(D) /` [`gcd`](https://ja.wikipedia.org/wiki/最大公約数)`(N, D)`
 
 
 ##例
