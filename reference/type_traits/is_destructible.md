@@ -80,7 +80,7 @@ int main(){}
 	- 11.0～12.0は、`delete`定義されたデストラクタを持つクラスにおいて、誤って`std::true_type`になっている。
 
 ####備考
-Clang 3.1 - 3.3 では以下のようなエラーが出るが、これは[Clang付属のlibc++のバグ](http://llvm.org/bugs/show_bug.cgi?id=16839)である。
+Clang 3.1 - 3.3 では以下のようなエラーが出るが、これは[Clang付属のlibc++のバグ](https://llvm.org/bugs/show_bug.cgi?id=16839)である。
 ```
 prog.cc:27:1: error: static_assert failed "int[] is not destructible"
 static_assert(std::is_destructible<int[]>::value == false, "int[] is not destructible");
