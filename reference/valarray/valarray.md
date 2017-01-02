@@ -275,6 +275,6 @@ slice + multiply : {1,4,3,8,5,12}
 ```
 
 ##参照
-- [インテルの valarray の使用](http://nf.nci.org.au/facilities/software/intel-ct/13.1.117/Documentation/ja_JP/compiler_c/main_cls/GUID-4739A9CC-8886-40A5-AF78-A94BD75425B0.htm)
+- [インテルの valarray の使用](https://www.xlsoft.com/jp/products/intel/compilers/ccw/12/ug/cref_cls/common/cppref_valarray_use.htm)
 
 
