@@ -93,7 +93,7 @@ C++11以降対応についてはC++11と明記します。バージョン表記�
 | reverse iterator                   | 逆イテレータ                 |
 | rvalue reference                   | 右辺値参照                   |
 | sequence container(s)              | シーケンスコンテナ           |
-| Spurious Failure                   | 見かけ上の失敗<br/> [http://togetter.com/li/430770](http://togetter.com/li/430770) |
+| Spurious Failure                   | 見かけ上の失敗<br/> [https://togetter.com/li/430770](https://togetter.com/li/430770) |
 | strict weak ordering               | 狭義の弱順序                 |
 | synchronization                    | 同期                         |
 | total ordering relationalship      | 全順序関係                   |

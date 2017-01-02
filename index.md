@@ -47,7 +47,7 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 
 
 ##Twitter ハッシュタグ
-[#cpprefjp](http://twitter.com/#!/search/%23cpprefjp)
+[#cpprefjp](https://twitter.com/search?q=%23cpprefjp)
 
 
 ##その他参考情報

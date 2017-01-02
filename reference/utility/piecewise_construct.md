@@ -64,5 +64,5 @@ int main()
 
 ##参照
 - [N3059 Proposal to Simplify `pair` (rev 5.2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3059.pdf)
-- [N3059 - togetter](http://togetter.com/li/17236)
+- [N3059 - togetter](https://togetter.com/li/17236)
 
