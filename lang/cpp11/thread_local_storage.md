@@ -101,10 +101,10 @@ thread2 : 4
 | [HP](http://www.hp.com/)   | [Using Thread Local Storage](http://h30097.www3.hp.com/docs/base_doc/DOCUMENTATION/V51B_HTML/ARH9VDTE/THRDSCHP.HTM#anch_1024) |
 | [HP](http://www.hp.com/)   | [Tru64 UNIX to HP-UX STK: critical Impact: TLS - feature differences (CrCh320)](http://devrsrc1.external.hp.com/STKT/impacts/i320.html) |
 | [IBM](http://www.ibm.com/) | Thread-Local Storage in [What's New in XL C/C++ V9.0](http://www-1.ibm.com/support/docview.wss?uid=swg27007322&aid=1) |
-| [IBM](http://www.ibm.com/) | [The `__thread` storage class specifier](http://publib.boulder.ibm.com/infocenter/comphelp/v9v111/index.jsp?topic=/com.ibm.xlcpp9.aix.doc/language_ref/thread.htm) |
+| [IBM](http://www.ibm.com/) | [__thread ストレージ・クラス指定子](https://www.ibm.com/support/knowledgecenter/ja/ssw_ibm_i_71/rzarg/thread.htm?view=embed) |
 | [Intel](http://www.intel.com/) | [Thread-local Storage](http://www.intel.com/software/products/compilers/clin/docs/ug_cpp/lin1057.htm) |
 | [Microsoft](https://www.microsoft.com/) | [__declspec thread](https://msdn.microsoft.com/en-us/library/9w1sdazb.aspx) |
-| [Sun](http://www.sun.com/) | [Thread-Local Storage](http://docs.sun.com/source/817-5070/Language_Extensions.html#pgfId-997650) |
+| [Oracle](https://www.oracle.com/)（旧Sun Microsystems） | [Thread-Local Storage](https://docs.oracle.com/cd/E37069_01/html/E37075/bkaeg.html) |
 
 各ベンダーのこれらの経験を標準C++に導入することとなった。
 
