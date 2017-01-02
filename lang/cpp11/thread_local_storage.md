@@ -98,11 +98,10 @@ thread2 : 4
 | ベンダー | 機能 |
 |----------|------|
 | [GNU](https://www.gnu.org/) | [Thread-Local Storage](https://gcc.gnu.org/onlinedocs/gcc-3.3.1/gcc/Thread-Local.html#Thread-Local) |
-| [HP](http://www.hp.com/)   | [Using Thread Local Storage](http://h30097.www3.hp.com/docs/base_doc/DOCUMENTATION/V51B_HTML/ARH9VDTE/THRDSCHP.HTM#anch_1024) |
-| [HP](http://www.hp.com/)   | [Tru64 UNIX to HP-UX STK: critical Impact: TLS - feature differences (CrCh320)](http://devrsrc1.external.hp.com/STKT/impacts/i320.html) |
+| [HP](http://www.hp.com/)   | スレッドローカルストレージを指定する記憶クラス指定子が存在した。 例: `__declspec(__thread) int x = 0;` |
 | [IBM](http://www.ibm.com/) | Thread-Local Storage in [What's New in XL C/C++ V9.0](http://www-1.ibm.com/support/docview.wss?uid=swg27007322&aid=1) |
 | [IBM](http://www.ibm.com/) | [__thread ストレージ・クラス指定子](https://www.ibm.com/support/knowledgecenter/ja/ssw_ibm_i_71/rzarg/thread.htm?view=embed) |
-| [Intel](http://www.intel.com/) | [Thread-local Storage](http://www.intel.com/software/products/compilers/clin/docs/ug_cpp/lin1057.htm) |
+| [Intel](http://www.intel.com/) | GCC互換の`__thread`キーワードが存在した。 |
 | [Microsoft](https://www.microsoft.com/) | [__declspec thread](https://msdn.microsoft.com/en-us/library/9w1sdazb.aspx) |
 | [Oracle](https://www.oracle.com/)（旧Sun Microsystems） | [Thread-Local Storage](https://docs.oracle.com/cd/E37069_01/html/E37075/bkaeg.html) |
 
