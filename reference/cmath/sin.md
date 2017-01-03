@@ -33,6 +33,7 @@ namespace std {
 
 
 ##例
+###基本的な使い方
 ```cpp
 #include <cmath>
 #include <iostream>
@@ -52,7 +53,7 @@ int main() {
 * std::sin[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 
-###出力例
+####出力例
 ```
 sin(0.0)  = 0.000000
 sin(pi/6) = 0.500000
@@ -61,6 +62,28 @@ sin(pi/3) = 0.866025
 sin(pi/2) = 1.000000
 sin(pi)   = 0.000000
 ```
+
+###値の遷移
+```cpp
+#include <fstream>
+#include <cmath>
+
+int main()
+{
+  static const double pi = 3.141592653589793;
+  std::ofstream file("sin.tsv");
+  for (double x = -3.0*pi; x <= 3.0*pi; x += 0.1) {
+      file << x << "\t" << std::sin(x) << "\n";
+  }
+}
+```
+
+この例で得られた値の遷移は、以下の図のようになる：
+
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/cmath/sin/sin.png)
+
+このような値の遷移は、[正弦波, サインカーブ](https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%BC%A6%E6%B3%A2)として知られている。
+
 
 ##バージョン
 ###言語
