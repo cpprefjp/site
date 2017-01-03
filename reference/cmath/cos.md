@@ -82,7 +82,7 @@ int main()
 
 ![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/cmath/cos/cos.png)
 
-この値の遷移は、[`sin()`](sin.md)関数の[正弦波, サインカーブ](https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%BC%A6%E6%B3%A2)をπ/2 (90°)だけずらしたものとなっている。引数が0のときに結果が1になるため、値の遷移として使用する場合には、[`sin()`](sin.md)関数よりも`cos()`関数の方が使いやすい場合がある。
+この値の遷移は、[`sin()`](sin.md)関数の[正弦波, サインカーブ](https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%BC%A6%E6%B3%A2)をπ/2 (90°)だけずらしたものとなっている。引数が0のときに結果が1になるため、値の遷移として使用する場合には、[`sin()`](sin.md)関数よりも`cos()`関数の方が使いやすいことがある。
 
 
 ##バージョン
