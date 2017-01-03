@@ -73,7 +73,7 @@ int main()
   static const double pi = 3.141592653589793;
   std::ofstream file("cos.tsv");
   for (double x = -3.0*pi; x <= 3.0*pi; x += 0.1) {
-      file << x << "\t" << std::cos(x) << "\n";
+    file << x << "\t" << std::cos(x) << "\n";
   }
 }
 ```
