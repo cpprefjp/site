@@ -28,10 +28,9 @@ namespace std {
 ##備考
 - 本関数と [`rint`](rint.md) は戻り値は同一であるが、本関数は引数 `x` が戻り値と異なっていても [`FE_INEXACT`](../cfenv/fe_invalid.md) は発生しないが、[`rint`](rint.md) は発生する可能性がある点のみ動作が異なる。
 - 本関数は、C99 の規格にある `nearbyint`（より正確には `math.h` ヘッダの `nearbyint`、`nearbyintf`、`nearbyintl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
-	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一)に準拠している場合、以下のように規定されている。
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = ±0` の場合、`±0` を返す。
 	- `x = ±∞` の場合、`±∞` を返す。
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559__` が `1` に定義されている事で判別可能であるが、C++ 規格書には該当する記載を見つけることができなかった。
 - C99 では、丸めモードの設定時には `#pragma STDC FENV_ACCESS ON` でなければなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。  
 	なお、C99 でも `FENV_ACCESS` のデフォルトは処理系定義である。
 - 丸めモード [`FE_TONEAREST`](../cfenv/fe_tonearest.md) は単なる四捨五入ではないことに注意。

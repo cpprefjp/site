@@ -26,7 +26,7 @@ namespace std {
 
 ##備考
 - 本関数は、C99 の規格にある `floor`（より正確には `math.h` ヘッダの `floor`、`floorf`、`floorl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
-- C99 では、処理系が ISO IEC 60559（IEEE 754 と同一)に準拠している場合、以下のように規定されている。
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 
 	- `x = ±0` の場合、`±0` を返す。
 	- `x = ±∞` の場合、`±∞` を返す。
@@ -34,8 +34,6 @@ namespace std {
 	また、本関数の挙動は、丸めモードが [`FE_DOWNWARD`](/reference/cfenv/fe_downward.md) に設定されている時の [`rint`](rint.md)、あるいは [`nearbyint`](nearbyint.md) のいずれかと同等である。  
 	したがって、本関数において戻り値が引数 `x` と異なる場合に例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) が発生するか否かは実装依存である。  
 	なお、本関数の挙動は、現在の丸めモードには依存しない。
-
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559__` が `1` に定義されている事で判別可能であるが、C++ 規格書には該当する記載を見つけることができなかった。
 
 
 ##例
