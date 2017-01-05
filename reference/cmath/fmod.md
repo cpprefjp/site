@@ -83,7 +83,7 @@ int main()
 ```
 * fmod[color ff0000]
 
-###出力
+###出力例
 ```
 fmod(5, 2) = 1
 fmod(6, 4) = 2
