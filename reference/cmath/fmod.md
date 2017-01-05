@@ -65,24 +65,32 @@ double fmod(double x, double y)
 #include <iostream>
 #include <cmath>
 
+void test(double x, double y)
+{
+  std::cout << "fmod(" << x << ", " << y << ") = " << std::fmod(x, y) << std::endl;
+}
+
 int main()
 {
-    std::cout << fmod(5.0, 2.0) << std::endl;
-    std::cout << fmod(6.0, 4.0) << std::endl;
-    std::cout << fmod(6.3, 3.0) << std::endl;
-
-    std::cout << fmod(6.3, 3.15) << std::endl;
-    std::cout << fmod(6.0, 2.0) << std::endl;
+  test(5.0, 2.0);
+  test(6.0, 4.0);
+  test(6.3, 3.0);
+  test(-6.3, 3.0);
+  test(-6.3, -3.0);
+  test(6.3, 3.15);
+  test(6.0, 2.0);
 }
 ```
 * fmod[color ff0000]
 
 ###出力
 ```
-1
-2
-0.3
-0
-0
+fmod(5, 2) = 1
+fmod(6, 4) = 2
+fmod(6.3, 3) = 0.3
+fmod(-6.3, 3) = -0.3
+fmod(-6.3, -3) = -0.3
+fmod(6.3, 3.15) = 0
+fmod(6, 2) = 0
 ```
 
