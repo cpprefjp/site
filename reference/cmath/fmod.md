@@ -1,0 +1,88 @@
+#fmod
+* cmath[meta header]
+* std[meta namespace]
+* function[meta id-type]
+
+```cpp
+namespace std {
+  double fmod(double x, double y);
+
+  float fmod(float x, float y);
+
+  long double fmod(long double x, long double y);
+
+  Integral fmod(Integral x, Integral y); // C++11 から
+}
+```
+* Integral[italic]
+
+##概要
+浮動小数点数の剰余を求める。
+
+整数に対する剰余は`%`演算子で求められるが、浮動小数点数に対しては本関数を使用する必要がある。
+
+
+##戻り値
+`x / y`の余りを返す。
+
+- この関数は、ある整数値を`n`として、`x - ny`を戻り値として返す。
+- `y`が非ゼロである場合、`x`と同じ符号の、`y`より小さい値を返す。
+- `y`がゼロである場合、定義域エラーを発生させるかゼロを返すかは、実装定義となる。
+
+定義域エラーが発生した際の挙動については、[`<cmath>`](../cmath.md) を参照。
+
+
+##備考
+- 本関数は、C99 の規格にある `fmod`（より正確には `math.h` ヘッダの `fmod`、`fmodf`、`fmodl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
+
+    - 非ゼロの`y`について、`x`が`±0`の場合、`±0`を返す。
+    - `x`が無限大、もしくは`y`がゼロである場合、NaNを返し、[`FE_INVALID`](../cfenv/fe_invalid.md) が発生する。
+    - `x`が非無限大で、`y`が`±∞`の場合、`x`を返す。
+
+    また、`double` バージョンの本関数は、以下の実装のように振る舞う。
+
+    ```c
+#include <math.h>
+#include <fenv.h>
+#pragma STDC FENV_ACCESS ON
+double fmod(double x, double y)
+{
+  double result;
+  result = remainder(fabs(x), (y = fabs(y)));
+  if (signbit(result)) result += y;
+  return copysign(result, x);
+}
+```
+* remainder[link remainder.md.nolink]
+* fabs[link fabs.md]
+* signbit[link signbit.md]
+* copysign[link copysign.md]
+
+
+##例
+```cpp
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+    std::cout << fmod(5.0, 2.0) << std::endl;
+    std::cout << fmod(6.0, 4.0) << std::endl;
+    std::cout << fmod(6.3, 3.0) << std::endl;
+
+    std::cout << fmod(6.3, 3.15) << std::endl;
+    std::cout << fmod(6.0, 2.0) << std::endl;
+}
+```
+* fmod[color ff0000]
+
+###出力
+```
+1
+2
+0.3
+0
+0
+```
+
