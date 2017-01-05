@@ -280,9 +280,9 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 
 | 名前 | 説明 | 対応バージョン |
 |--------|--------|-------|
-| `fmax` | 最大値 | C++11 |
-| `fmin` | 最小値 | C++11 |
-| `fdim` | 正の差 | C++11 |
+| [`fmax`](cmath/fmax.md) | 最大値 | C++11 |
+| [`fmin`](cmath/fmin.md) | 最小値 | C++11 |
+| [`fdim`](cmath/fdim.md) | 正の差 | C++11 |
 
 
 ## <a name="floating-multiply-add" href="#floating-multiply-add">乗算-加算</a>
