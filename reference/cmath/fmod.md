@@ -54,7 +54,7 @@ double fmod(double x, double y)
   return copysign(result, x);
 }
 ```
-* remainder[link remainder.md.nolink]
+* remainder[link remainder.md]
 * fabs[link fabs.md]
 * signbit[link signbit.md]
 * copysign[link copysign.md]
@@ -75,6 +75,7 @@ int main()
   test(5.0, 2.0);
   test(6.0, 4.0);
   test(6.3, 3.0);
+  test(6.3, -3.0);
   test(-6.3, 3.0);
   test(-6.3, -3.0);
   test(6.3, 3.15);
@@ -88,6 +89,7 @@ int main()
 fmod(5, 2) = 1
 fmod(6, 4) = 2
 fmod(6.3, 3) = 0.3
+fmod(6.3, -3) = 0.3
 fmod(-6.3, 3) = -0.3
 fmod(-6.3, -3) = -0.3
 fmod(6.3, 3.15) = 0
