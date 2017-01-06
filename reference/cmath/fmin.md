@@ -48,8 +48,8 @@ int main() {
 ```
 * std::fmin[color ff0000]
 * <cmath>[link ../cmath.md]
-* std::showpos[link ../limits/ios/showpos.md]
-* std::nan[link ../limits/cmath/nanf.md]
+* std::showpos[link ../ios/showpos.md]
+* std::nan[link ../cmath/nanf.md]
 
 ###出力例
 ```
@@ -79,28 +79,29 @@ fmin( nan, nan)  = +nan
 ```cpp
 namespace std {
   float fmin(float x, float y) {
-    return (islessequal(x, y) || isnan(y)) ? x : y;
+    return (std::islessequal(x, y) || std::isnan(y)) ? x : y;
   }
 
   double fmin(double x, double y) {
-    return (islessequal(x, y) || isnan(y)) ? x : y;
+    return (std::islessequal(x, y) || std::isnan(y)) ? x : y;
   }
 
   long double fmin(long double x, long double y) {
-    return (islessequal(x, y) || isnan(y)) ? x : y;
+    return (std::islessequal(x, y) || std::isnan(y)) ? x : y;
   }
 
   template <typename T, typename U>
-  auto fmin(T x, U y) -> typename enable_if<
-    is_arithmetic<T>::value && is_arithmetic<U>::value,
-    typename common_type<T, U>::type
+  auto fmin(T x, U y) -> typename std::enable_if<
+    std::is_arithmetic<T>::value && std::is_arithmetic<U>::value,
+    typename std::common_type<T, U>::type
   >::type {
     return (std::islessequal(x, y) || std::isnan(y)) ? x : y;
   }
 }
 ```
-* std::fmin[color ff0000]
+* fmin[color ff0000]
 * std::islessequal[link ../cmath/islessequal.md.nolink]
 * std::isnan[link ../cmath/isnan.md]
 * std::enable_if[link ../type_traits/enable_if.md]
 * std::is_arithmetic[link ../type_traits/is_arithmetic.md]
+* std::common_type[link ../type_traits/common_type.md]

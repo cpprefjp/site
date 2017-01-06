@@ -34,14 +34,14 @@ namespace std {
 
 int main() {
   std::cout << std::showpos;
-  std::cout << "fdim(-1.0, 0.0) = " << fdim(-1.0, 0.0) << std::endl;
-  std::cout << "fdim( 0.0, 0.0) = " << fdim( 0.0, 0.0) << std::endl;
-  std::cout << "fdim(+1.0, 0.0) = " << fdim(+1.0, 0.0) << std::endl;
+  std::cout << "fdim(-1.0, 0.0) = " << std::fdim(-1.0, 0.0) << std::endl;
+  std::cout << "fdim( 0.0, 0.0) = " << std::fdim( 0.0, 0.0) << std::endl;
+  std::cout << "fdim(+1.0, 0.0) = " << std::fdim(+1.0, 0.0) << std::endl;
 }
 ```
 * std::fdim[color ff0000]
 * <cmath>[link ../cmath.md]
-* std::showpos[link ../limits/ios/showpos.md]
+* std::showpos[link ../ios/showpos.md]
 
 ###出力例
 ```
