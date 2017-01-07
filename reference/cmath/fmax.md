@@ -93,7 +93,7 @@ namespace std {
   template <typename T, typename U>
   auto fmax(T x, U y) -> typename std::enable_if<
     std::is_arithmetic<T>::value && std::is_arithmetic<U>::value,
-    typename std::common_type<T, U>::type
+    typename std::common_type<T, U, double>::type
   >::type {
     return (std::isgreaterequal(x, y) || std::isnan(y)) ? x : y;
   }
