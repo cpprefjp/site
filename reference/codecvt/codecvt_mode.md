@@ -23,6 +23,11 @@ namespace std {
 | `generate_header` | 先頭にバイトオーダーマーク(BOM)を出力する                          |
 | `little_endian`   | リトルエンディアンで出力する（デフォルト動作はビッグエンディアン） |
 
+この型は、以下のクラステンプレートにおいて、テンプレート仮引数として使用されている。
+
+- [`codecvt_utf8`](codecvt_utf8.md)
+- [`codecvt_utf16`](codecvt_utf16.md)
+- [`codecvt_utf8_utf16`](codecvt_utf8_utf16.md)
 
 ##バージョン
 ###言語
