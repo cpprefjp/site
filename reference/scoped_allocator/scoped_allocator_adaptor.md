@@ -259,5 +259,5 @@ element allocator : 2
 
 ##参照
 - [N2554 The Scoped Allocator Model (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2554.pdf)
-- [スコープ付きアロケータ - C++11 FAQ](http://www32.ocn.ne.jp/~ons/text/CPP0xFAQ.html.ja#scoped-allocator)
+- [Scoped allocators - C++11 FAQ](http://www.stroustrup.com/C++11FAQ.html#scoped-allocator)
 
