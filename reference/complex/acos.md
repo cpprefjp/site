@@ -84,7 +84,7 @@ acos( (1,2) ) = (1.14372,-1.52857)
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0, 14.1
 
 ###備考
 - libstdc++ では（規格通りに）C++11 以降のモードでなければ本関数は使用できないが、libc++ では C++98 モードでも使用することができる。（上記の [Clang](/implementation.md#clang) が C++11 モードになっていないのはそのため）
