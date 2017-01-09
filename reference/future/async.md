@@ -69,7 +69,7 @@ namespace std {
 ##例外
 この関数は、以下のerror conditionを持つ[`future_error`](future_error.md)例外オブジェクトを送出する可能性がある：
 
-- [`resource_unavailable_try_again`](future_errc.md) ： [`launch::async`](launch.md)が指定され、新たなスレッドをを起動しようとしたができなかった
+- [`resource_unavailable_try_again`](future_errc.md) ： [`launch::async`](launch.md)が指定され、新たなスレッドを起動しようとしたができなかった
 
 
 ##例
