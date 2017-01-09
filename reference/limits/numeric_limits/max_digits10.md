@@ -53,6 +53,16 @@ int main()
 3.145900011e+000
 ```
 
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation.md#clang): ?
+- [GCC](/implementation.md#gcc): ?
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
+
 ###参照
 * [A Proposal to add a max significant decimal digits value to the C++ Standard Library Numeric limits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1822.pdf)
 

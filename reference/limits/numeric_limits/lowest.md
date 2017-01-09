@@ -49,6 +49,16 @@ int main()
 ```
 
 
+##バージョン
+###言語
+- C++11
+
+###処理系
+- [Clang](/implementation.md#clang): ?
+- [GCC](/implementation.md#gcc): ?
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
+
 ##参照
 - [N2348 Wording for `std::numeric_limits<T>::lowest()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2348.pdf)
 
