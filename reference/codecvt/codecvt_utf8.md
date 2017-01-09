@@ -29,6 +29,7 @@ BOMの有無を[`codecvt_mode`](codecvt_mode.md)で指定できる。
 #include <codecvt>
 #include <string>
 #include <cassert>
+#include <locale>
 
 int main()
 {

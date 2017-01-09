@@ -29,6 +29,7 @@ BOMの有無やエンディアンなどを[`codecvt_mode`](codecvt_mode.md)で�
 #include <codecvt>
 #include <string>
 #include <cassert>
+#include <locale>
 
 int main()
 {

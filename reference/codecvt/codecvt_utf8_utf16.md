@@ -29,6 +29,7 @@ UTF-8文字列におけるBOMの有無を[`codecvt_mode`](codecvt_mode.md)で指
 #include <string>
 #include <codecvt>
 #include <cassert>
+#include <locale>
 
 int main()
 {
