@@ -14,18 +14,18 @@
 
 | 値 | 関数でエラーが発生した際の取り扱い |
 |----|------------------------------------|
-| [`MATH_ERRNO`](math_errno.md.nolink) | エラー内容を [`errno`](../cerrno/errno.md) に設定する。 |
-| [`MATH_ERREXCEPT`](math_errexcept.md.nolink) | エラー内容に応じた浮動小数点例外を発生させる。（C++ の例外ではない事に注意） |
-| [`MATH_ERRNO`](math_errno.md.nolink) <code>&#x7c;</code> [`MATH_ERREXCEPT`](math_errexcept.md.nolink) | 上記の両方を行う。 |
+| [`MATH_ERRNO`](math_errno.md) | エラー内容を [`errno`](../cerrno/errno.md) に設定する。 |
+| [`MATH_ERREXCEPT`](math_errexcept.md) | エラー内容に応じた浮動小数点例外を発生させる。（C++ の例外ではない事に注意） |
+| [`MATH_ERRNO`](math_errno.md) <code>&#x7c;</code> [`MATH_ERREXCEPT`](math_errexcept.md) | 上記の両方を行う。 |
 
 
 
 ##備考
 - 上記では「マクロ」としているが、規格上は外部リンケージの識別子であっても構わないとされている。  
 	なお、その場合でも `math_errhandling` の値はプログラムの実行中は定数であり、実行中に変わる事はない。
-- `math_errhandling &` [`MATH_ERRNO`](math_errno.md.nolink) がゼロの場合に [`errno`](../cerrno/errno.md) がどのようになるかは C99 規格（C++11、C++14 の参照規格）では明記されていないが、C11 では `math_errhandling &` [`MATH_ERRNO`](math_errno.md.nolink) が非ゼロの場合と同様に設定するか、全く変更しないかのいずれかである事が明記されている。
+- `math_errhandling &` [`MATH_ERRNO`](math_errno.md) がゼロの場合に [`errno`](../cerrno/errno.md) がどのようになるかは C99 規格（C++11、C++14 の参照規格）では明記されていないが、C11 では `math_errhandling &` [`MATH_ERRNO`](math_errno.md) が非ゼロの場合と同様に設定するか、全く変更しないかのいずれかである事が明記されている。
 - エラーが発生しなかった場合に [`errno`](../cerrno/errno.md) がどのようになるかは C99 規格（C++11、C++14 の参照規格）では明記されていないが、C11 では `math_errhandling` の値によらず変更されない事が明記されている。
-- C99（C++11、C++14 の参照規格）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`math_errhandling &` [`MATH_ERREXCEPT`](math_errexcept.md.nolink) は非ゼロと規定されている。
+- C99（C++11、C++14 の参照規格）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`math_errhandling &` [`MATH_ERREXCEPT`](math_errexcept.md) は非ゼロと規定されている。
 
 
 ##例
@@ -109,8 +109,7 @@ log(0) = -inf
 - C++11
 
 ###処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): ??
+- [Clang, C++11 mode](/implementation.md#clang): 3.0
+- [GCC, C++11 mode](/implementation.md#gcc): 4.3
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

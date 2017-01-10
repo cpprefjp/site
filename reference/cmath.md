@@ -355,8 +355,8 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`FP_FAST_FMAL`](cmath/fp_fast_fmal.md) | `long double` 型の `fma` 関数がより高速な実装であるか | C++11 |
 | [`FP_ILOGB0`](cmath/fp_ilogb0.md)       | `ilogb(0)` の返値を表す整数定数式 | C++11 |
 | [`FP_ILOGBNAN`](cmath/fp_ilogbnan.md)   | `ilogb(NaN)` の返値を表す整数定数式 | C++11 |
-| `MATH_ERRNO`                              | 整数定数 1 | C++11 |
-| `MATH_ERREXCEPT`                          | 整数定数 2 | C++11 |
+| [`MATH_ERRNO`](cmath/math_errno.md)             | 数学ライブラリ内で`errno`にエラーが設定されたかを表す整数定数 | C++11 |
+| [`MATH_ERREXCEPT`](cmath/math_errexcept.md)     | 数学ライブラリ内で浮動小数点例外が発生したかを表す整数定数 | C++11 |
 | [`math_errhandling`](cmath/math_errhandling.md) | `<cmath>` 内の関数がエラーをどのように取り扱うかを表すマクロ | C++11 |
 
 
