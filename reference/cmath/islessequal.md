@@ -63,7 +63,7 @@ int main()
   test(nan, nan);
 }
 ```
-* isless[color ff0000]
+* islessequal[color ff0000]
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
 * infinity()[link /reference/limits/numeric_limits/infinity.md]
 * quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
