@@ -261,7 +261,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 |-------------|--------------------------|-------|
 | [`fmod`](cmath/fmod.md)           | 浮動小数点剰余           | |
 | [`remainder`](cmath/remainder.md) | 符号付きの浮動小数点剰余 | C++11 |
-| `remquo`    | 商と浮動小数点剰余       | C++11 |
+| [`remquo`](cmath/remquo.md)       | 商と浮動小数点剰余       | C++11 |
 
 
 ## <a name="manipulation-functions" href="#manipulation-functions">浮動小数点操作</a>
