@@ -89,6 +89,6 @@ void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRando
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * make_unsigned[link /reference/type_traits/make_unsigned.md]
-* uniform_int_distribution[link /reference/random/uniform_int_distribution.md
+* uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
 * iter_swap[link iter_swap.md]
 
