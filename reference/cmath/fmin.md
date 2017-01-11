@@ -100,7 +100,7 @@ namespace std {
 }
 ```
 * fmin[color ff0000]
-* std::islessequal[link ../cmath/islessequal.md.nolink]
+* std::islessequal[link ../cmath/islessequal.md]
 * std::isnan[link ../cmath/isnan.md]
 * std::enable_if[link ../type_traits/enable_if.md]
 * std::is_arithmetic[link ../type_traits/is_arithmetic.md]
