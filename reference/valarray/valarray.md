@@ -212,19 +212,19 @@ int main()
   {
     std::valarray<int> a = {3, 6, 9};
     std::valarray<int> b = {4, 5, 6};
-    
+
     std::valarray<int> plus = a + b;
     print("add", plus);
-    
+
     std::valarray<int> minus = a - b;
     print("minus", minus);
-    
+
     std::valarray<int> multiply = a * b;
     print("multiply", multiply);
-    
+
     std::valarray<int> divide = a / b;
     print("divide", divide);
-    
+
     std::valarray<int> modulo = a % b;
     print("modulo", modulo);
   }

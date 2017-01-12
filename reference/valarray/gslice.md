@@ -46,7 +46,7 @@ auto main()
 {
   std::valarray<int> a( 40 );
   std::iota( std::begin(a), std::end(a), 16 );
-  
+
   // スライスの開始位置 3（start）から
   // 10個（strides[0]）おきに 3箇所（length[0]）
   // について、さらにそこから、
@@ -59,7 +59,7 @@ auto main()
   std::gslice gs( start, lengths, strides );
 
   auto gsliced_array = a[ gs ];
-  
+
   decltype( a ) b( gsliced_array );
 
   for ( auto v : b )

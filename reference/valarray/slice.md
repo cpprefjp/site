@@ -40,7 +40,7 @@ auto main()
 {
   std::valarray<int> a( 32 );
   std::iota( std::begin(a), std::end(a), 16 );
-  
+
   constexpr auto start  = 3;
   constexpr auto length = 5;
   constexpr auto stride = 7;
@@ -48,7 +48,7 @@ auto main()
   std::slice s( start, length, stride );
 
   auto sliced_array = a[ s ];
-  
+
   decltype( a ) b( sliced_array );
 
   for ( auto v : b )
