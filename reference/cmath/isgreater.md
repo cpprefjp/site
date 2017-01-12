@@ -25,7 +25,7 @@ namespace std {
 ##戻り値
 `x > y`と同等の演算によって、`x`が`y`より大きければ`true`、そうでなければ`false`を返す。
 
-`x > y`と違って、この関数は`x`と`y`が順序付けされていない場合に、[`FE_INVALID`](/reference/cfenv/fe_invalid.md)浮動小数点数例外は発生しない。
+`x > y`と違って、この関数は`x`と`y`が順序付けされていない場合に、[`FE_INVALID`](/reference/cfenv/fe_invalid.md)（無効演算浮動小数点例外）は発生しない。
 
 
 ##備考
