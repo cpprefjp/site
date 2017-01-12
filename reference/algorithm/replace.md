@@ -32,7 +32,7 @@ namespace std {
 #include <algorithm>
 #include <iostream>
 #include <vector>
- 
+
 int main() {
   std::vector<int> v = { 3,1,2,1,2 };
 
