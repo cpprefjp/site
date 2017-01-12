@@ -61,7 +61,6 @@ int main()
 }
 ```
 * std::partition_point[color ff0000]
-* std::for_each[link for_each.md]
 * std::partition[link partition.md]
 
 ###出力

@@ -69,7 +69,6 @@ int main()
 * begin()[link /reference/set/set/begin.md]
 * end()[link /reference/set/set/end.md]
 * std::inserter[link /reference/iterator/inserter.md]
-* std::for_each[link for_each.md]
 
 ###出力
 ```

@@ -60,9 +60,6 @@ int main() {
 }
 ```
 * std::shuffle[color ff0000]
-* std::iota[link /reference/numeric/iota.md]
-* std::copy[link copy.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * std::mt19937[link /reference/random/mt19937.md]
 
 ###出力

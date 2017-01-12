@@ -55,7 +55,6 @@ int main() {
 }
 ```
 * std::replace_copy_if[color ff0000]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力
 ```

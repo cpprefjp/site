@@ -75,7 +75,6 @@ int main() {
 }
 ```
 * std::equal[color ff0000]
-* std::array[link /reference/array.md]
 
 ###出力
 ```

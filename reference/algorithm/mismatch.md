@@ -89,13 +89,6 @@ int main() {
 }
 ```
 * std::mismatch[color ff0000]
-* std::array[link /reference/array.md]
-* std::list[link /reference/list.md]
-* v2.begin()[link /reference/array/begin.md]
-* v3.begin()[link /reference/list/begin.md]
-* v3.end()[link /reference/list/end.md]
-* v.size()[link /reference/vector/size.md]
-* v3.size()[link /reference/list/size.md]
 * std::to_string[link /reference/string/to_string.md]
 
 ###出力
@@ -111,25 +104,24 @@ mismatch value: (end,2)
 ##実装例
 ```cpp
 template <class InputIterator1, class InputIterator2>
-pair<InputIterator1, InputIterator2> mismatch(
+std::pair<InputIterator1, InputIterator2> mismatch(
   InputIterator1 first1, InputIterator1 last1, InputIterator2 first2) {
   for ( ; first1 != last1; ++first1, ++first2)
     if (!bool(*first1 == *first2))
-      return make_pair(first1, first2);
-  return make_pair(first1, first2);
+      return std::make_pair(first1, first2);
+  return std::make_pair(first1, first2);
 }
 
 template <class InputIterator1, class InputIterator2, class BinaryPredicate>
-pair<InputIterator1, InputIterator2> mismatch(
+std::pair<InputIterator1, InputIterator2> mismatch(
   InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, BinaryPredicate pred) {
   for ( ; first1 != last1; ++first1, ++first2)
     if (!bool(pred(*first1, *first2)))
-      return make_pair(first1, first2);
-  return make_pair(first1, first2);
+      return std::make_pair(first1, first2);
+  return std::make_pair(first1, first2);
 }
 ```
-* pair[link /reference/utility/pair.md]
-* make_pair[link /reference/utility/make_pair.md]
+* std::make_pair[link /reference/utility/make_pair.md]
 
 ##バージョン
 ###言語

@@ -70,10 +70,8 @@ int main()
 }
 ```
 * std::set_union[color ff0000]
-* std::list[link /reference/list.md]
 * std::multiset[link /reference/set/multiset.md]
 * std::inserter[link /reference/iterator/inserter.md]
-* std::for_each[link for_each.md]
 
 ###出力
 ```

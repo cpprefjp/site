@@ -58,7 +58,6 @@ int main()
 }
 ```
 * std::stable_sort[color ff0000]
-* std::for_each[link for_each.md]
 
 ###出力
 ```

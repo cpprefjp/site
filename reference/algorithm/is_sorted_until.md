@@ -50,7 +50,6 @@ int main()
 }
 ```
 * std::is_sorted_until[color ff0000]
-* std::sort[link sort.md]
 
 ###出力
 ```

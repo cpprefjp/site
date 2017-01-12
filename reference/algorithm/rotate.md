@@ -112,8 +112,6 @@ int main()
 * std::rotate[color ff0000]
 * seq.begin()[link /reference/vector/begin.md]
 * seq.end[link /reference/vector/end.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* std::copy[link copy.md]
 * seq.assign[link /reference/vector/assign.md]
 * std::swap[link /reference/utility/swap.md]
 

@@ -76,9 +76,7 @@ int main()
 }
 ```
 * std::minmax[color ff0000]
-* std::pair[link /reference/utility/pair.md]
 * std::greater[link /reference/functional/greater.md]
-* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

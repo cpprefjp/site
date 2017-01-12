@@ -57,7 +57,6 @@ int main()
 ```
 * std::sort_heap[color ff0000]
 * std::make_heap[link make_heap.md]
-* std::for_each[link for_each.md]
 
 ###出力
 ```

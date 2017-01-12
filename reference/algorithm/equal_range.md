@@ -57,7 +57,6 @@ int main()
 }
 ```
 * equal_range[color ff0000]
-* std::sort[link sort.md]
 
 ###出力
 ```

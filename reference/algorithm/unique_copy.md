@@ -58,8 +58,6 @@ int main() {
 * std::unique_copy[color ff0000]
 * uniqued.begin()[link /reference/vector/begin.md]
 * uniqued.end()[link /reference/vector/end.md]
-* std::back_inserter[link /reference/iterator/back_inserter.md]
-* std::for_each[link for_each.md]
 
 ###出力
 ```

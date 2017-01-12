@@ -60,7 +60,6 @@ int main() {
 }
 ```
 * std::search[color ff0000]
-* std::list[link /reference/list.md]
 * ls.begin()[link /reference/list/begin.md]
 * ls.end()[link /reference/list/end.md]
 

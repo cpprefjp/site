@@ -53,7 +53,6 @@ int main() {
 * std::rotate_copy[color ff0000]
 * str.begin()[link /reference/string/basic_string/begin.md]
 * str.end()[link /reference/string/basic_string/end.md]
-* std::back_inserter[link /reference/iterator/back_inserter.md]
 
 ###出力
 ```
@@ -68,7 +67,7 @@ OutputIterator rotate_copy(ForwardIterator first,
                            ForwardIterator middle,
                            ForwardIterator last,
                            OutputIterator result) {
-  return copy(first, middle, copy(middle, last, result));
+  return std::copy(first, middle, std::copy(middle, last, result));
 }
 ```
 

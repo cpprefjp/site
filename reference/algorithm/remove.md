@@ -70,8 +70,6 @@ int main() {
 * result[color ff0000]
 * std::remove[color ff0000]
 * v.erase[color ff0000][link /reference/vector/erase.md]
-* v.size()[link /reference/vector/size.md]
-* std::for_each[link for_each.md]
 * Erase-remove イディオム[link https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove)]
 
 ###出力

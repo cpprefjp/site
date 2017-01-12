@@ -49,22 +49,15 @@ int main() {
 
   // back_inserter を使って v3 へ設定。
   // back_inserter は要素をコピーするときに v3.push_back() するイテレータを作る関数。
-  std::list<int> v3;
-  std::copy(v2.begin(), v2.end(), std::back_inserter(v3));
+  std::list<int> ls3;
+  std::copy(v2.begin(), v2.end(), std::back_inserter(ls3));
 
   // ostream_iterator を使って出力。
   // ostream_iterator<int>(cout, ",") は要素をコピーするときに cout << x << "," としてくれるイテレータ。
-  std::copy(v3.begin(), v3.end(), std::ostream_iterator<int>(std::cout, ","));
+  std::copy(ls3.begin(), ls3.end(), std::ostream_iterator<int>(std::cout, ","));
 }
 ```
 * copy[color ff0000]
-* v.size()[link /reference/vector/size.md]
-* v2.begin()[link /reference/vector/begin.md]
-* std::list[link /reference/list.md]
-* std::back_inserter[link /reference/iterator/back_inserter.md]
-* v3.begin()[link /reference/list/begin.md]
-* v3.end()[link /reference/list/end.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力
 ```

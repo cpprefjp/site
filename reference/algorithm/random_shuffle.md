@@ -64,7 +64,7 @@ C++14では、C互換ライブラリの乱数生成関数である`std::rand()`�
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric> // for iota
+#include <numeric>
 #include <iterator>
 
 int main() {
@@ -84,9 +84,6 @@ int main() {
 }
 ```
 * std::random_shuffle[color ff0000]
-* std::iota[link /reference/numeric/iota.md]
-* std::copy[link copy.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力
 ```

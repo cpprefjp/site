@@ -56,7 +56,6 @@ int main()
 }
 ```
 * std::nth_element[color ff0000]
-* std::for_each[link for_each.md]
 
 ###出力
 ```

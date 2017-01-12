@@ -61,7 +61,6 @@ int main()
 ```
 * std::is_partitioned[color ff0000]
 * std::partition[link partition.md]
-* std::for_each[link for_each.md]
 
 ###出力
 ```

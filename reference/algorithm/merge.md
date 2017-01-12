@@ -69,8 +69,6 @@ int main()
 }
 ```
 * std::merge[color ff0000]
-* std::back_inserter[link /reference/iterator/back_inserter.md]
-* std::for_each[link for_each.md]
 
 ###出力
 ```

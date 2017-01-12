@@ -73,8 +73,6 @@ int main() {
 * result[color ff0000]
 * result2[color ff0000]
 * v.erase[link /reference/vector/erase.md]
-* std::for_each[link for_each.md]
-* std::sort[link sort.md]
 
 ###出力
 ```

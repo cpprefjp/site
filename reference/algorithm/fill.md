@@ -41,8 +41,7 @@ int main() {
   std::for_each(v.begin(), v.end(), [](int x) { std::cout << x << ","; });
 }
 ```
-* fill[color ff0000]
-* std::for_each[link for_each.md]
+* std::fill[color ff0000]
 
 ###出力
 ```

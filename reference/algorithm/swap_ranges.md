@@ -57,10 +57,6 @@ int main() {
 }
 ```
 * std::swap_ranges[color ff0000]
-* begin()[link /reference/vector/begin.md]
-* end()[link /reference/vector/end.md]
-* std::copy[link copy.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ###出力
 ```

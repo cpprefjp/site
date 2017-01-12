@@ -63,7 +63,6 @@ int main()
 * std::make_heap[link make_heap.md]
 * v.pop_back()[link /reference/vector/pop_back.md]
 * std::sort_heap[link sort_heap.md]
-* std::for_each[link for_each.md]
 
 ###出力
 ```

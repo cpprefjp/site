@@ -75,7 +75,6 @@ int main()
 ```
 * std::max[color ff0000]
 * std::greater[link /reference/functional/greater.md]
-* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

@@ -72,9 +72,7 @@ int main() {
 }
 ```
 * std::transform[color ff0000]
-* std::back_inserter[link /reference/iterator/back_inserter.md]
 * std::to_string[link /reference/string/to_string.md]
-* std::for_each[link for_each.md]
 
 ###出力
 ```
@@ -106,9 +104,8 @@ int main() {
 }
 ```
 * std::transform[color ff0000]
-* begin()[link /reference/vector/begin.md]
-* end()[link /reference/vector/end.md]
-* std::back_inserter[link /reference/iterator/back_inserter.md]
+* result.begin()[link /reference/vector/begin.md]
+* result.end()[link /reference/vector/end.md]
 * std::to_string[link /reference/string/to_string.md]
 
 ###出力

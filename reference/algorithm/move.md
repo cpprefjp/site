@@ -56,10 +56,7 @@ int main() {
 }
 ```
 * std::move[color ff0000]
-* std::unique_ptr[link /reference/memory/unique_ptr.md]
 * v.emplace_back[link /reference/vector/emplace_back.md]
-* std::back_inserter[link /reference/iterator/back_inserter.md]
-* std::for_each[link for_each.md]
 
 ###出力
 ```
