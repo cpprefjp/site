@@ -186,9 +186,9 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`sinh`](cmath/sinh.md)   | 双曲線正弦関数（ハイパボリックサイン） | |
 | [`cosh`](cmath/cosh.md)   | 双曲線余弦関数（ハイパボリックコサイン） | |
 | [`tanh`](cmath/tanh.md)   | 双曲線正接関数（ハイパボリックタンジェント） | |
-| [`asinh`](cmath/asinh.md) | 逆双曲線正弦関数（アークハイパボリックサイン）       | C++11 |
-| [`acosh`](cmath/acosh.md) | 逆双曲線余弦関数（アークハイパボリックコサイン）     | C++11 |
-| [`atanh`](cmath/atanh.md) | 逆双曲線正接関数（アークハイパボリックタンジェント） | C++11 |
+| [`asinh`](cmath/asinh.md) | 逆双曲線正弦関数（エリアハイパボリックサイン）       | C++11 |
+| [`acosh`](cmath/acosh.md) | 逆双曲線余弦関数（エリアハイパボリックコサイン）     | C++11 |
+| [`atanh`](cmath/atanh.md) | 逆双曲線正接関数（エリアハイパボリックタンジェント） | C++11 |
 
 
 ## <a name="exponential-and-logarithmic-functions" href="#exponential-and-logarithmic-functions">指数関数と対数関数</a>
