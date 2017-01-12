@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> acos(const valarray<T>& v);
+  valarray<T> acos(const valarray<T>& va);
 }
 ```
 
@@ -19,7 +19,7 @@ namespace std {
 以下のコードと同等のことを行う：
 
 ```cpp
-return v.apply(static_cast<T(*)(T)>(std::acos));
+return va.apply(static_cast<T(*)(T)>(std::acos));
 ```
 * apply[link apply.md]
 * acos[link /reference/cmath/acos.md]
@@ -32,9 +32,9 @@ return v.apply(static_cast<T(*)(T)>(std::acos));
 
 int main()
 {
-  const std::valarray<float> v = {0.1f, 0.2f, 0.3f};
+  const std::valarray<float> va = {0.1f, 0.2f, 0.3f};
 
-  std::valarray<float> result = std::acos(v);
+  std::valarray<float> result = std::acos(va);
   for (float x : result) {
     std::cout << x << std::endl;
   }

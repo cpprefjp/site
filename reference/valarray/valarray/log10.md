@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> log10(const valarray<T>& v);
+  valarray<T> log10(const valarray<T>& va);
 }
 ```
 
@@ -19,7 +19,7 @@ namespace std {
 以下のコードと同等のことを行う：
 
 ```cpp
-return v.apply(static_cast<T(*)(T)>(std::log10));
+return va.apply(static_cast<T(*)(T)>(std::log10));
 ```
 * apply[link apply.md]
 * log10[link /reference/cmath/log10.md]
@@ -32,11 +32,11 @@ return v.apply(static_cast<T(*)(T)>(std::log10));
 
 int main()
 {
-  const std::valarray<float> v = {100.0f, 10000.0f, 1000000.0f};
+  const std::valarray<float> va = {100.0f, 10000.0f, 1000000.0f};
 
-  std::valarray<float> result = std::log10(v);
+  std::valarray<float> result = std::log10(va);
   for (float x : result) {
-	std::cout << x << std::endl;
+    std::cout << x << std::endl;
   }
 }
 ```

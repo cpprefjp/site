@@ -70,9 +70,9 @@ return result;
 #include <valarray>
 #include <algorithm>
 
-void expect_all_true(const std::valarray<bool>& v)
+void expect_all_true(const std::valarray<bool>& va)
 {
-  assert((std::all_of(std::begin(v), std::end(v), [](bool b) { return b; })));
+  assert((std::all_of(std::begin(va), std::end(va), [](bool b) { return b; })));
 }
 
 int main()

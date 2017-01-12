@@ -36,20 +36,20 @@ void resize(size_t sz, T c = T());
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3};
+  std::valarray<int> va = {1, 2, 3};
 
   // 要素数を3から2に減少させる
-  v.resize(2);
+  va.resize(2);
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << x << ", ";
   }
   std::cout << std::endl;
 
   // 要素数を5に増加させる。値8で埋める
-  v.resize(5, 8);
+  va.resize(5, 8);
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << x << ", ";
   }
   std::cout << std::endl;

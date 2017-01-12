@@ -40,12 +40,12 @@ public:
 #include <valarray>
 
 template <class T>
-void print(const char* name, const std::valarray<T>& v)
+void print(const char* name, const std::valarray<T>& va)
 {
   std::cout << name << " : {";
   bool first = true;
 
-  for (const T& x : v) {
+  for (const T& x : va) {
     if (first) {
       first = false;
     }
@@ -59,28 +59,28 @@ void print(const char* name, const std::valarray<T>& v)
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va = {1, 2, 3, 4, 5, 6};
   std::valarray<std::size_t> mask = {1, 3, 5};
 
-  std::indirect_array<int> result = v[mask];
+  std::indirect_array<int> result = va[mask];
 
   // (1)
   // result1が参照する各要素に、resultが参照する各要素を代入する
-  std::valarray<int> v1 = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va1 = {1, 2, 3, 4, 5, 6};
   std::valarray<std::size_t> mask1 = {0, 1, 2};
-  std::indirect_array<int> result1 = v1[mask1];
+  std::indirect_array<int> result1 = va1[mask1];
   result1 = result;
-  print("assign indirect_array", v1);
+  print("assign indirect_array", va1);
 
   // (2)
   // resultが参照する要素全てに、33を代入
   result = std::valarray<int>(33, mask.size());
-  print("assign valarray", v);
+  print("assign valarray", va);
 
   // (3)
   // resultが参照する要素全てに、55を代入
   result = 55;
-  print("assign value", v);
+  print("assign value", va);
 }
 ```
 

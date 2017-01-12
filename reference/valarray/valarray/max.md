@@ -27,9 +27,9 @@ T max() const;
 
 int main()
 {
-  const std::valarray<int> v = {3, 1, 4};
+  const std::valarray<int> va = {3, 1, 4};
 
-  int result = v.max();
+  int result = va.max();
   std::cout << result << std::endl;
 }
 ```

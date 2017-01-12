@@ -78,8 +78,8 @@ std::size_t make_position(std::size_t x, std::size_t y)
 int main()
 {
   // 4x4の行列
-  std::valarray<int> v(x_size * y_size);
-  std::iota(std::begin(v), std::end(v), 0); // 0からの連番にする
+  std::valarray<int> va(x_size * y_size);
+  std::iota(std::begin(va), std::end(va), 0); // 0からの連番にする
 
   // (1,1)の位置から、横に3要素、縦に2要素を抽出する
   const std::size_t start = make_position(1, 1);
@@ -88,11 +88,11 @@ int main()
 
   // 抽出した要素を99で埋める
   // v[std::gslice(...)]で返されるオブジェクトがgslice_array
-  v[std::gslice(start, lengths, strides)] = 99;
+  va[std::gslice(start, lengths, strides)] = 99;
 
   // 行列を出力
-  for (std::size_t i = 0; i < v.size(); ++i) {
-    std::cout << std::setw(2) << v[i] << ' ';
+  for (std::size_t i = 0; i < va.size(); ++i) {
+    std::cout << std::setw(2) << va[i] << ' ';
     const std::size_t x = i % x_size;
     if (x == x_size - 1)
       std::cout << std::endl;

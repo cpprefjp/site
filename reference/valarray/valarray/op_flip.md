@@ -32,7 +32,7 @@ return result;
 
 int main()
 {
-  const std::valarray<std::uint8_t> v = {
+  const std::valarray<std::uint8_t> va = {
     3, // 0000'0011
     5, // 0000'0101
     13 // 0000'1101
@@ -44,7 +44,7 @@ int main()
     242  // 1111'0010
   };
 
-  std::valarray<std::uint8_t> result = ~v;
+  std::valarray<std::uint8_t> result = ~va;
 
   std::valarray<bool> equal_result = result == expected;
   assert((std::all_of(

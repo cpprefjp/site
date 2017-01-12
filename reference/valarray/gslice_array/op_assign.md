@@ -41,22 +41,22 @@ public:
 #include <numeric> // accumulate
 #include <functional> // multiplies
 
-std::size_t product(const std::valarray<std::size_t>& v)
+std::size_t product(const std::valarray<std::size_t>& va)
 {
   return std::accumulate(
-           std::begin(v),
-           std::end(v),
+           std::begin(va),
+           std::end(va),
            1u,
            std::multiplies<std::size_t>());
 }
 
 template <class T>
-void print(const char* name, const std::valarray<T>& v)
+void print(const char* name, const std::valarray<T>& va)
 {
   std::cout << name << " : {";
   bool first = true;
 
-  for (const T& x : v) {
+  for (const T& x : va) {
     if (first) {
       first = false;
     }
@@ -70,7 +70,7 @@ void print(const char* name, const std::valarray<T>& v)
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va = {1, 2, 3, 4, 5, 6};
 
   const std::size_t start = 1u;  // 開始位置
   const std::valarray<std::size_t> lengths = {3u}; // 要素数
@@ -78,22 +78,22 @@ int main()
 
   // (1)
   // 左辺のgslice_arrayが参照する各要素に、右辺のgslice_arrayが参照する各要素を代入する
-  std::valarray<int> v1 = {1, 2, 3, 4, 5, 6};
-  v1[std::gslice(
+  std::valarray<int> va1 = {1, 2, 3, 4, 5, 6};
+  va1[std::gslice(
         0,
         std::valarray<std::size_t>(3u, 1),
-        std::valarray<std::size_t>(1u, 1))] = v[std::gslice(start, lengths, strides)];
-  print("assign gslice_array", v1);
+        std::valarray<std::size_t>(1u, 1))] = va[std::gslice(start, lengths, strides)];
+  print("assign gslice_array", va1);
 
   // (2)
   // 抽出した要素全てに33を代入する
-  v[std::gslice(start, lengths, strides)] = std::valarray<int>(33, product(lengths));
-  print("assign valarray", v);
-  
+  va[std::gslice(start, lengths, strides)] = std::valarray<int>(33, product(lengths));
+  print("assign valarray", va);
+
   // (3)
   // 抽出した要素全てに55を代入する
-  v[std::gslice(start, lengths, strides)] = 55;
-  print("assign value", v);
+  va[std::gslice(start, lengths, strides)] = 55;
+  print("assign value", va);
 }
 ```
 

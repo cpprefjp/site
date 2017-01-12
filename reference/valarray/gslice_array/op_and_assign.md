@@ -32,18 +32,18 @@ void operator&=(const valarray<T>& xs) const;
 #include <numeric> // accumulate
 #include <functional> // multiplies
 
-std::size_t product(const std::valarray<std::size_t>& v)
+std::size_t product(const std::valarray<std::size_t>& va)
 {
   return std::accumulate(
-           std::begin(v),
-           std::end(v),
+           std::begin(va),
+           std::end(va),
            1u,
            std::multiplies<std::size_t>());
 }
 
 int main()
 {
-  std::valarray<int> v = {
+  std::valarray<int> va = {
     0b00000101,
     0b00001010,
     0b00010101
@@ -55,9 +55,9 @@ int main()
 
   // 抽出した要素に0b11を論理積する
   // lengthを掛け合わせたものがgsliceで抽出した配列の長さ
-  v[std::gslice(start, lengths, strides)] &= std::valarray<int>(0b00000011, product(lengths));
+  va[std::gslice(start, lengths, strides)] &= std::valarray<int>(0b00000011, product(lengths));
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << std::bitset<8>(x).to_string() << std::endl;
   }
 }

@@ -32,7 +32,7 @@ void operator>>=(const valarray<T>& xs) const;
 
 int main()
 {
-  std::valarray<int> v = {
+  std::valarray<int> va = {
     0b01010001,
     0b10100000,
     0b01011000
@@ -40,12 +40,12 @@ int main()
 
   std::valarray<std::size_t> mask = {0, 1, 2};
 
-  std::indirect_array<int> result = v[mask];
+  std::indirect_array<int> result = va[mask];
 
   // 抽出した要素を4ビット右シフトする
   result >>= std::valarray<int>(4, mask.size());
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << std::bitset<8>(x).to_string() << std::endl;
   }
 }

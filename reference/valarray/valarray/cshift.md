@@ -27,12 +27,12 @@ valarray<T> cshift(int n) const;
 #include <valarray>
 
 template <class T>
-void print(const char* name, const std::valarray<T>& v)
+void print(const char* name, const std::valarray<T>& va)
 {
   std::cout << name << " : {";
   bool first = true;
 
-  for (const T& x : v) {
+  for (const T& x : va) {
     if (first) {
       first = false;
     }
@@ -46,12 +46,12 @@ void print(const char* name, const std::valarray<T>& v)
 
 int main()
 {
-  const std::valarray<int> v = {1, 2, 3, 4, 5};
+  const std::valarray<int> va = {1, 2, 3, 4, 5};
 
-  const std::valarray<int> left_shift_result = v.cshift(3);
+  const std::valarray<int> left_shift_result = va.cshift(3);
   print("left_shift_result", left_shift_result);
 
-  const std::valarray<int> right_shift_result = v.cshift(-3);
+  const std::valarray<int> right_shift_result = va.cshift(-3);
   print("right_shift_result", right_shift_result);
 }
 ```

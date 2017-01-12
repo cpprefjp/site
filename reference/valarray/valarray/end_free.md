@@ -8,10 +8,10 @@
 ```cpp
 namespace std {
   template <class T>
-  unspecified1 end(valarray<T>& v);       // (1)
+  unspecified1 end(valarray<T>& va);       // (1)
 
   template <class T>
-  unspecified2 end(const valarray<T>& v); // (2)
+  unspecified2 end(const valarray<T>& va); // (2)
 }
 ```
 * unspecified1[italic]
@@ -39,9 +39,9 @@ namespace std {
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3};
+  std::valarray<int> va = {1, 2, 3};
 
-  std::for_each(std::begin(v), std::end(v), [](int x) {
+  std::for_each(std::begin(va), std::end(va), [](int x) {
     std::cout << x << std::endl;
   });
 }

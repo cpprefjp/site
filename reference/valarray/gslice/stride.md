@@ -29,11 +29,11 @@ auto main()
   constexpr auto             start   = 3;
   std::valarray<std::size_t> lengths = {  3, 4 };
   std::valarray<std::size_t> strides = { 10, 3 };
-  
+
   std::gslice gs( start, lengths, strides );
-  
-  for ( auto v : gs.stride() )
-    std::cout << v << "\n";
+
+  for ( auto x : gs.stride() )
+    std::cout << x << "\n";
   std::cout << std::flush;
 }
 ```

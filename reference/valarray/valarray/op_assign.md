@@ -50,12 +50,12 @@ valarray& operator=(const indirect_array<T>& x); // (8)
 #include <valarray>
 
 template <class T>
-void print(const char* name, const std::valarray<T>& v)
+void print(const char* name, const std::valarray<T>& va)
 {
   std::cout << name << " : {";
   bool first = true;
 
-  for (const T& x : v) {
+  for (const T& x : va) {
     if (first) {
       first = false;
     }
@@ -71,67 +71,67 @@ int main()
 {
   // (1)
   // コピー代入
-  std::valarray<int> v1_org = {1, 2, 3};
-  std::valarray<int> v1 = v1_org;
-  print("v1", v1);
+  std::valarray<int> va1_org = {1, 2, 3};
+  std::valarray<int> va1 = va1_org;
+  print("va1", va1);
 
   // (2)
   // ムーブ代入
-  std::valarray<int> v2 = std::move(v1);
-  print("v2", v2);
+  std::valarray<int> va2 = std::move(va1);
+  print("va2", va2);
 
   // (3)
   // 初期化子リストを代入
-  std::valarray<int> v3;
-  v3 = {1, 2, 3};
-  print("v3", v3);
+  std::valarray<int> va3;
+  va3 = {1, 2, 3};
+  print("va3", va3);
 
   // (4)
   // 値を全要素に代入
-  std::valarray<int> v4(3);
-  v4 = 1;
-  print("v4", v4);
+  std::valarray<int> va4(3);
+  va4 = 1;
+  print("va4", va4);
 
   // (5)
   // スライスされたvalarrayオブジェクトを代入
-  std::valarray<int> v5_org = {1, 2, 3, 4, 5};
-  std::valarray<int> v5 = v5_org[std::slice(0, 3, 1)]; // 先頭3要素
-  print("v5", v5);
+  std::valarray<int> va5_org = {1, 2, 3, 4, 5};
+  std::valarray<int> va5 = va5_org[std::slice(0, 3, 1)]; // 先頭3要素
+  print("va5", va5);
 
   // (6)
   // 行列スライスされたvalarrayオブジェクトを代入
-  std::valarray<int> v6_org = {1, 2, 3, 4, 5};
-  std::valarray<std::size_t> v6_len = {1, 2, 2};
-  std::valarray<std::size_t> v6_stride = {2, 3, 1};
-  std::valarray<int> v6 = v6_org[std::gslice(0, v6_len, v6_stride)];
-  print("v6", v6);
+  std::valarray<int> va6_org = {1, 2, 3, 4, 5};
+  std::valarray<std::size_t> va6_len = {1, 2, 2};
+  std::valarray<std::size_t> va6_stride = {2, 3, 1};
+  std::valarray<int> va6 = va6_org[std::gslice(0, va6_len, va6_stride)];
+  print("va6", va6);
 
   // (7)
   // マスクされたvalarrayオブジェクトを代入
-  std::valarray<int> v7_org = {1, 2, 3, 4, 5};
-  std::valarray<bool> v7_mask = {true, false, true, false, true};
-  std::valarray<int> v7 = v7_org[v7_mask];
-  print("v7", v7);
+  std::valarray<int> va7_org = {1, 2, 3, 4, 5};
+  std::valarray<bool> va7_mask = {true, false, true, false, true};
+  std::valarray<int> va7 = va7_org[va7_mask];
+  print("va7", va7);
 
   // (8)
   // インデックス列の指定によってマスクされたvalarrayオブジェクトを代入
-  std::valarray<int> v8_org = {1, 2, 3, 4, 5};
-  std::valarray<std::size_t> v8_indices = {0, 2, 4};
-  std::valarray<int> v8 = v8_org[v8_indices];
-  print("v8", v8);
+  std::valarray<int> va8_org = {1, 2, 3, 4, 5};
+  std::valarray<std::size_t> va8_indices = {0, 2, 4};
+  std::valarray<int> va8 = va8_org[va8_indices];
+  print("va8", va8);
 }
 ```
 
 ###出力
 ```
-v1 : {1,2,3}
-v2 : {1,2,3}
-v3 : {1,2,3}
-v4 : {1,1,1}
-v5 : {1,2,3}
-v6 : {1,2,4,5}
-v7 : {1,3,5}
-v8 : {1,3,5}
+va1 : {1,2,3}
+va2 : {1,2,3}
+va3 : {1,2,3}
+va4 : {1,1,1}
+va5 : {1,2,3}
+va6 : {1,2,4,5}
+va7 : {1,3,5}
+va8 : {1,3,5}
 ```
 
 ##参照

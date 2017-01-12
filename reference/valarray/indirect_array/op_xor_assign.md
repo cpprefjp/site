@@ -32,7 +32,7 @@ void operator^=(const valarray<T>& xs) const;
 
 int main()
 {
-  std::valarray<int> v = {
+  std::valarray<int> va = {
     0b00000101,
     0b00001010,
     0b00010101
@@ -40,12 +40,12 @@ int main()
 
   std::valarray<std::size_t> mask = {0, 1, 2};
 
-  std::indirect_array<int> result = v[mask];
+  std::indirect_array<int> result = va[mask];
 
   // 抽出した要素に0b11を排他的論理和する
   result ^= std::valarray<int>(0b00000011, mask.size());
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << std::bitset<8>(x).to_string() << std::endl;
   }
 }

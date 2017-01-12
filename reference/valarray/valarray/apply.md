@@ -26,10 +26,10 @@ valarray<T> apply(T func(const T&)) const;
 
 int main()
 {
-  const std::valarray<int> v = {1, 2, 3};
+  const std::valarray<int> va = {1, 2, 3};
 
   // 全要素を+1する
-  std::valarray<int> result = v.apply([](int x) { return x + 1; });
+  std::valarray<int> result = va.apply([](int x) { return x + 1; });
 
   for (int x : result) {
     std::cout << x << std::endl;

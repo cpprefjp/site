@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> cos(const valarray<T>& v);
+  valarray<T> cos(const valarray<T>& va);
 }
 ```
 
@@ -19,7 +19,7 @@ namespace std {
 以下のコードと同等のことを行う：
 
 ```cpp
-return v.apply(static_cast<T(*)(T)>(std::cos));
+return va.apply(static_cast<T(*)(T)>(std::cos));
 ```
 * apply[link apply.md]
 * cos[link /reference/cmath/cos.md]
@@ -32,9 +32,9 @@ return v.apply(static_cast<T(*)(T)>(std::cos));
 
 int main()
 {
-  const std::valarray<float> v = {0.1f, 0.2f, 0.3f};
+  const std::valarray<float> va = {0.1f, 0.2f, 0.3f};
 
-  std::valarray<float> result = std::cos(v);
+  std::valarray<float> result = std::cos(va);
   for (float x : result) {
     std::cout << x << std::endl;
   }

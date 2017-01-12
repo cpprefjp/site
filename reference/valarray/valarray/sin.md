@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> sin(const valarray<T>& v);
+  valarray<T> sin(const valarray<T>& va);
 }
 ```
 
@@ -19,7 +19,7 @@ namespace std {
 以下のコードと同等のことを行う：
 
 ```cpp
-return v.apply(static_cast<T(*)(T)>(std::sin));
+return va.apply(static_cast<T(*)(T)>(std::sin));
 ```
 * apply[link apply.md]
 * sin[link /reference/cmath/sin.md]
@@ -32,9 +32,9 @@ return v.apply(static_cast<T(*)(T)>(std::sin));
 
 int main()
 {
-  const std::valarray<float> v = {0.1f, 0.2f, 0.3f};
+  const std::valarray<float> va = {0.1f, 0.2f, 0.3f};
 
-  std::valarray<float> result = std::sin(v);
+  std::valarray<float> result = std::sin(va);
   for (float x : result) {
     std::cout << x << std::endl;
   }

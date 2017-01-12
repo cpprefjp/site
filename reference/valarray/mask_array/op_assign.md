@@ -10,8 +10,8 @@ private:
 
 public:
   const mask_array& operator=(const mask_array& ar) const; // (1) C++11
-  void operator=(const valarray<T>& ar) const;               // (2)
-  void operator=(const T& value) const;                      // (3)
+  void operator=(const valarray<T>& ar) const;             // (2)
+  void operator=(const T& value) const;                    // (3)
 ```
 
 ##概要
@@ -40,12 +40,12 @@ public:
 #include <valarray>
 
 template <class T>
-void print(const char* name, const std::valarray<T>& v)
+void print(const char* name, const std::valarray<T>& va)
 {
   std::cout << name << " : {";
   bool first = true;
 
-  for (const T& x : v) {
+  for (const T& x : va) {
     if (first) {
       first = false;
     }
@@ -59,28 +59,28 @@ void print(const char* name, const std::valarray<T>& v)
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va = {1, 2, 3, 4, 5, 6};
   std::valarray<bool> mask = {false, true, false, true, false, true};
 
-  std::mask_array<int> result = v[mask];
+  std::mask_array<int> result = va[mask];
 
   // (1)
   // result1が参照する各要素に、resultが参照する各要素を代入する
-  std::valarray<int> v1 = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va1 = {1, 2, 3, 4, 5, 6};
   std::valarray<bool> mask1 = {true, true, true, false, false, false};
-  std::mask_array<int> result1 = v1[mask1];
+  std::mask_array<int> result1 = va1[mask1];
   result1 = result;
-  print("assign mask_array", v1);
+  print("assign mask_array", va1);
 
   // (2)
   // resultが参照する要素全てに、33を代入
   result = std::valarray<int>(33, 3);
-  print("assign valarray", v);
+  print("assign valarray", va);
 
   // (3)
   // resultが参照する要素全てに、55を代入
   result = 55;
-  print("assign value", v);
+  print("assign value", va);
 }
 ```
 

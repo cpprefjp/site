@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> sqrt(const valarray<T>& v);
+  valarray<T> sqrt(const valarray<T>& va);
 }
 ```
 
@@ -19,7 +19,7 @@ namespace std {
 以下のコードと同等のことを行う：
 
 ```cpp
-return v.apply(static_cast<T(*)(T)>(std::sqrt));
+return va.apply(static_cast<T(*)(T)>(std::sqrt));
 ```
 * apply[link apply.md]
 * sqrt[link /reference/cmath/sqrt.md]
@@ -32,9 +32,9 @@ return v.apply(static_cast<T(*)(T)>(std::sqrt));
 
 int main()
 {
-  const std::valarray<float> v = {1.0f, 2.0f, 3.0f};
+  const std::valarray<float> va = {1.0f, 2.0f, 3.0f};
 
-  std::valarray<float> result = std::sqrt(v);
+  std::valarray<float> result = std::sqrt(va);
   for (float x : result) {
     std::cout << x << std::endl;
   }

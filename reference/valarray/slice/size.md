@@ -27,9 +27,9 @@ auto main()
   constexpr auto start  = 3;
   constexpr auto length = 5;
   constexpr auto stride = 7;
-  
+
   std::slice s( start, length, stride );
-  
+
   std::cout << s.size();
 }
 ```

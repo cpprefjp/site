@@ -32,7 +32,7 @@ void operator|=(const valarray<T>& xs) const;
 
 int main()
 {
-  std::valarray<int> v = {
+  std::valarray<int> va = {
     0b00000101,
     0b00001010,
     0b00010101
@@ -42,12 +42,12 @@ int main()
   const std::size_t length = 3u; // 要素数
   const std::size_t stride = 1u; // 何個置きに処理するか
 
-  std::slice_array<int> result = v[std::slice(start, length, stride)];
+  std::slice_array<int> result = va[std::slice(start, length, stride)];
 
   // 抽出した要素に0b11を論理和する
   result |= std::valarray<int>(0b00000011, length);
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << std::bitset<8>(x).to_string() << std::endl;
   }
 }

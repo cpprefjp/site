@@ -58,12 +58,12 @@ valarray(initializer_list<T> init);   // (11) C++11
 #include <valarray>
 
 template <class T>
-void print(const char* name, const std::valarray<T>& v)
+void print(const char* name, const std::valarray<T>& va)
 {
   std::cout << name << " : {";
   bool first = true;
 
-  for (const T& x : v) {
+  for (const T& x : va) {
     if (first) {
       first = false;
     }
@@ -79,84 +79,84 @@ int main()
 {
   // (1)
   // デフォルト構築
-  std::valarray<int> v1;
-  print("v1", v1);
+  std::valarray<int> va1;
+  print("va1", va1);
 
   // (2)
   // 3個の要素を保持するvalarrayオブジェクトを構築。
   // 要素は0(T())で埋められる。
-  std::valarray<int> v2(3);
-  print("v2", v2);
+  std::valarray<int> va2(3);
+  print("va2", va2);
 
   // (3)
   // 値1を持つ要素3個からなるvalarrayオブジェクトを構築。
-  std::valarray<int> v3(1, 3);
-  print("v3", v3);
+  std::valarray<int> va3(1, 3);
+  print("va3", va3);
 
   // (4)
   // 配列の先頭3要素のコピーからvalarrayオブジェクトを構築。
   int ar4[] = {1, 2, 3, 4};
-  std::valarray<int> v4(ar4, 3);
-  print("v4", v4);
+  std::valarray<int> va4(ar4, 3);
+  print("va4", va4);
 
   // (5)
   // コピー構築。
-  std::valarray<int> v5 = v4;
-  print("v5", v5);
+  std::valarray<int> va5 = va4;
+  print("va5", va5);
 
   // (6)
   // ムーブ構築。
-  std::valarray<int> v6 = std::move(v5);
-  print("v6", v6);
+  std::valarray<int> va6 = std::move(va5);
+  print("va6", va6);
 
   // (7)
   // スライスされたvalarrayオブジェクトから構築
-  std::valarray<int> v7_org = {1, 2, 3, 4, 5};
-  std::valarray<int> v7(v7_org[std::slice(0, 3, 1)]); // 先頭3要素
-  print("v7", v7);
+  std::valarray<int> va7_org = {1, 2, 3, 4, 5};
+  std::valarray<int> va7(va7_org[std::slice(0, 3, 1)]); // 先頭3要素
+  print("va7", va7);
 
   // (8)
   // 行列スライスされたvalarrayオブジェクトから構築
-  std::valarray<int> v8_org = {1, 2, 3, 4, 5};
-  std::valarray<std::size_t> v8_len = {1, 2, 2};
-  std::valarray<std::size_t> v8_stride = {2, 3, 1};
-  std::valarray<int> v8 = v8_org[std::gslice(0, v8_len, v8_stride)];
-  print("v8", v8);
+  std::valarray<int> va8_org = {1, 2, 3, 4, 5};
+  std::valarray<std::size_t> va8_len = {1, 2, 2};
+  std::valarray<std::size_t> va8_stride = {2, 3, 1};
+  std::valarray<int> va8 = va8_org[std::gslice(0, va8_len, va8_stride)];
+  print("va8", va8);
 
   // (9)
   // マスクされたvalarrayオブジェクトから構築
-  std::valarray<int> v9_org = {1, 2, 3, 4, 5};
-  std::valarray<bool> v9_mask = {true, false, true, false, true};
-  std::valarray<int> v9 = v9_org[v9_mask];
-  print("v9", v9);
+  std::valarray<int> va9_org = {1, 2, 3, 4, 5};
+  std::valarray<bool> va9_mask = {true, false, true, false, true};
+  std::valarray<int> va9 = va9_org[va9_mask];
+  print("va9", va9);
 
   // (10)
   // インデックス列の指定によってマスクされたvalarrayオブジェクトから構築
-  std::valarray<int> v10_org = {1, 2, 3, 4, 5};
-  std::valarray<std::size_t> v10_indices = {0, 2, 4};
-  std::valarray<int> v10 = v10_org[v10_indices];
-  print("v10", v10);
+  std::valarray<int> va10_org = {1, 2, 3, 4, 5};
+  std::valarray<std::size_t> va10_indices = {0, 2, 4};
+  std::valarray<int> va10 = va10_org[va10_indices];
+  print("va10", va10);
 
   // (11)
   // 初期化子リストから構築
-  std::valarray<int> v11 = {1, 2, 3};
-  print("v11", v11);
+  std::valarray<int> va11 = {1, 2, 3};
+  print("va11", va11);
 }
 ```
 
 ###出力
 ```
-v1 : {}
-v2 : {0,0,0}
-v3 : {1,1,1}
-v4 : {1,2,3}
-v5 : {1,2,3}
-v6 : {1,2,3}
-v7 : {1,2,3}
-v8 : {1,2,4,5}
-v9 : {1,3,5}
-v10 : {1,3,5}
-v11 : {1,2,3}
+va1 : {}
+va2 : {0,0,0}
+va3 : {1,1,1}
+va4 : {1,2,3}
+va5 : {1,2,3}
+va6 : {1,2,3}
+va7 : {1,2,3}
+va8 : {1,2,4,5}
+va9 : {1,3,5}
+va10 : {1,3,5}
+va11 : {1,2,3}
 ```
 
 

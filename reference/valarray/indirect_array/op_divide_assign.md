@@ -31,15 +31,15 @@ void operator/=(const valarray<T>& xs) const;
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va = {1, 2, 3, 4, 5, 6};
   std::valarray<std::size_t> mask = {1, 3, 5};
 
-  std::indirect_array<int> result = v[mask];
+  std::indirect_array<int> result = va[mask];
 
   // 抽出した要素に2を除算する
   result /= std::valarray<int>(2, mask.size());
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << x << std::endl;
   }
 }

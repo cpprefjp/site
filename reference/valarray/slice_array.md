@@ -67,18 +67,18 @@ namespace std {
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va = {1, 2, 3, 4, 5, 6};
 
   const std::size_t start = 1u;  // 開始位置
   const std::size_t length = 3u; // 要素数
   const std::size_t stride = 2u; // 何個置きに処理するか
 
-  std::slice_array<int> result = v[std::slice(start, length, stride)];
+  std::slice_array<int> result = va[std::slice(start, length, stride)];
 
   // 抽出した要素を書き換える
   result *= std::valarray<int>(2, length);
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << x << std::endl;
   }
 }

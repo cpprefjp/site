@@ -31,15 +31,15 @@ void operator+=(const valarray<T>& xs) const;
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va = {1, 2, 3, 4, 5, 6};
   std::valarray<bool> mask = {false, true, false, true, false, true};
 
-  std::mask_array<int> result = v[mask];
+  std::mask_array<int> result = va[mask];
 
   // 抽出した要素に2を加算する
   result += std::valarray<int>(2, 3);
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << x << std::endl;
   }
 }

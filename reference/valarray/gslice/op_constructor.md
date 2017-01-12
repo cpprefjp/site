@@ -52,11 +52,11 @@ auto main()
   constexpr auto             start   = 3;
   std::valarray<std::size_t> lengths = {  3, 4 };
   std::valarray<std::size_t> strides = { 10, 3 };
-  
+
   std::gslice gs1( start, lengths, strides );
-  
+
   std::gslice gs2( gs1 );
-  
+
   auto to_string = []( const std::valarray<std::size_t> a )
     {
       std::stringstream r;
@@ -65,7 +65,7 @@ auto main()
       return r.str();
     }
     ;
-  
+
   auto print = [ &to_string ]( const std::gslice& gs )
     {
       std::cout
@@ -76,7 +76,7 @@ auto main()
         ;
     }
     ;
-  
+
   print( gs0 );
   print( gs1 );
   print( gs2 );

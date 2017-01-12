@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> abs(const valarray<T>& v);
+  valarray<T> abs(const valarray<T>& va);
 }
 ```
 
@@ -19,7 +19,7 @@ namespace std {
 以下のコードと同等のことを行う：
 
 ```cpp
-return v.apply(static_cast<T(*)(T)>(std::abs));
+return va.apply(static_cast<T(*)(T)>(std::abs));
 ```
 * apply[link apply.md]
 * abs[link /reference/cmath/abs.md]
@@ -32,9 +32,9 @@ return v.apply(static_cast<T(*)(T)>(std::abs));
 
 int main()
 {
-  const std::valarray<float> v = {1.0f, -2.0f, 3.0f, -4.0f};
+  const std::valarray<float> va = {1.0f, -2.0f, 3.0f, -4.0f};
 
-  std::valarray<float> result = std::abs(v);
+  std::valarray<float> result = std::abs(va);
   for (float x : result) {
     std::cout << x << std::endl;
   }

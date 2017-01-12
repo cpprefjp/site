@@ -31,9 +31,9 @@ return result;
 
 int main()
 {
-  const std::valarray<bool> v = {true, false, true};
+  const std::valarray<bool> va = {true, false, true};
 
-  std::valarray<bool> result = !v;
+  std::valarray<bool> result = !va;
   assert(!result[0]);
   assert(result[1]);
   assert(!result[2]);

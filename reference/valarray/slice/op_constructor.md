@@ -48,15 +48,15 @@ auto main()
   constexpr auto start  = 3;
   constexpr auto length = 5;
   constexpr auto stride = 7;
-  
+
   std::slice s1( start, length, stride );
-  
+
   std::slice s2( s1 );
-  
+
   auto print = []( const std::slice& s )
     { std::cout << &s << ": " << s.start() << " " << s.size() << " " << s.stride() << "\n"; }
     ;
-  
+
   print( s0 );
   print( s1 );
   print( s2 );

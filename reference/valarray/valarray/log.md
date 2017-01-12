@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> log(const valarray<T>& v);
+  valarray<T> log(const valarray<T>& va);
 }
 ```
 
@@ -19,7 +19,7 @@ namespace std {
 以下のコードと同等のことを行う：
 
 ```cpp
-return v.apply(static_cast<T(*)(T)>(std::log));
+return va.apply(static_cast<T(*)(T)>(std::log));
 ```
 * apply[link apply.md]
 * log[link /reference/cmath/log.md]
@@ -31,13 +31,13 @@ return v.apply(static_cast<T(*)(T)>(std::log));
 #include <valarray>
 
 template <class T>
-void print(const char* name, const std::valarray<T>& v)
+void print(const char* name, const std::valarray<T>& va)
 {
   std::cout << name << " : {";
   bool first = true;
 
   // 範囲for文で全要素を走査する
-  for (const T& x : v) {
+  for (const T& x : va) {
     if (first) {
       first = false;
     }
@@ -51,9 +51,9 @@ void print(const char* name, const std::valarray<T>& v)
 
 int main()
 {
-  const std::valarray<float> v = {0.1f, 0.2f, 0.3f};
+  const std::valarray<float> va = {0.1f, 0.2f, 0.3f};
 
-  std::valarray<float> exp_result = std::exp(v);
+  std::valarray<float> exp_result = std::exp(va);
   std::valarray<float> log_result = std::log(exp_result);
 
   print("exp_result", exp_result);

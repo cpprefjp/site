@@ -80,14 +80,14 @@ bool equal_valarray(const std::valarray<T>& a, const std::valarray<T>& b)
 int main()
 {
   const std::valarray<std::uint8_t> a = {
-	0b00000101,
-	0b00001010,
-	0b00010101
+    0b00000101,
+    0b00001010,
+    0b00010101
   };
   const std::valarray<std::uint8_t> b = {
-	0b00000011,
-	0b00000011,
-	0b00000011
+    0b00000011,
+    0b00000011,
+    0b00000011
   };
   const std::valarray<std::uint8_t> expected = {
     0b00000001,

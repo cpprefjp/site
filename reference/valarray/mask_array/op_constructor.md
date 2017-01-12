@@ -6,11 +6,11 @@
 
 ```cpp
 private:
-  mask_array();                   // (1) C++03
+  mask_array();                  // (1) C++03
   mask_array(const mask_array&)  // (2) C++03
 
 public:
-  mask_array() = delete;          // (1) C++11
+  mask_array() = delete;         // (1) C++11
   mask_array(const mask_array&); // (2) C++11
 ```
 
@@ -36,9 +36,9 @@ public:
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va = {1, 2, 3, 4, 5, 6};
   std::valarray<bool> mask = {false, true, false, true, false, true};
-  std::mask_array<int> result = v[mask];
+  std::mask_array<int> result = va[mask];
 
   // (2)
   // copyとresultが、同じvalarrayオブジェクトを参照する
@@ -47,7 +47,7 @@ int main()
   // 抽出した要素を書き換える
   copy = 99;
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << x << std::endl;
   }
 }

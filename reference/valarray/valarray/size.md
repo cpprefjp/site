@@ -27,9 +27,9 @@ size_t size() const;
 
 int main()
 {
-  const std::valarray<int> v = {1, 2, 3};
+  const std::valarray<int> va = {1, 2, 3};
 
-  std::size_t size = v.size();
+  std::size_t size = va.size();
   std::cout << size << std::endl;
 }
 ```

@@ -27,9 +27,9 @@ T sum() const;
 
 int main()
 {
-  const std::valarray<int> v = {1, 2, 3, 4, 5};
+  const std::valarray<int> va = {1, 2, 3, 4, 5};
 
-  int result = v.sum();
+  int result = va.sum();
   std::cout << result << std::endl;
 }
 ```

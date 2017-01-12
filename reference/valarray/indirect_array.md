@@ -66,17 +66,17 @@ namespace std {
 
 int main()
 {
-  std::valarray<int> v = {1, 2, 3, 4, 5, 6};
+  std::valarray<int> va = {1, 2, 3, 4, 5, 6};
   const std::valarray<std::size_t> mask = {1, 3, 5};
 
   // maskの要素である各インデックス値に
   // 対応する要素のみを抽出する
-  std::indirect_array<int> result = v[mask];
+  std::indirect_array<int> result = va[mask];
 
   // 抽出した要素を書き換える
   result *= std::valarray<int>(2, mask.size());
 
-  for (int x : v) {
+  for (int x : va) {
     std::cout << x << std::endl;
   }
 }
