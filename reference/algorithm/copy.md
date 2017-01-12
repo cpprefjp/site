@@ -57,7 +57,7 @@ int main() {
   std::copy(ls3.begin(), ls3.end(), std::ostream_iterator<int>(std::cout, ","));
 }
 ```
-* copy[color ff0000]
+* std::copy[color ff0000]
 
 ###出力
 ```

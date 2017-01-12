@@ -43,7 +43,7 @@ int main() {
   std::cout << result2 << std::endl;
 }
 ```
-* all_of[color ff0000]
+* std::all_of[color ff0000]
 
 ###出力
 ```

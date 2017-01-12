@@ -61,7 +61,7 @@ int main()
   }
 }
 ```
-* binary_search[color ff0000]
+* std::binary_search[color ff0000]
 
 ###出力
 ```
@@ -87,7 +87,7 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
   return first != last && !bool(comp(value, *first));
 }
 ```
-* lower_bound[link lower_bound.md]
+* std::lower_bound[link lower_bound.md]
 
 
 ##参照

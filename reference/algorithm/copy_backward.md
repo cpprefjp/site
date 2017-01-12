@@ -57,7 +57,7 @@ int main() {
   std::copy(ls.begin(), ls.end(), std::ostream_iterator<int>(std::cout, ","));
 }
 ```
-* copy_backward[color ff0000]
+* std::copy_backward[color ff0000]
 * ls.begin()[link /reference/list/begin.md]
 * std::next[link /reference/iterator/next.md]
 * ls.end()[link /reference/list/end.md]

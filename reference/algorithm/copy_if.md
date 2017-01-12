@@ -60,6 +60,7 @@ int main() {
   std::copy(result.begin(), out, std::ostream_iterator<int>(std::cout, ","));
 }
 ```
+* std::copy_if[color ff0000]
 * result.begin()[link /reference/vector/begin.md]
 
 ###出力

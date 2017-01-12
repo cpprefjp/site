@@ -87,10 +87,11 @@ ForwardIterator remove(ForwardIterator first, ForwardIterator last, const T& val
   auto result = first;
   for ( ; first != last; ++first)
     if (!(*first == value))
-      *result++ = move(*first);
+      *result++ = std::move(*first);
   return result;
 }
 ```
+* std::move[link /reference/utility/move.md]
 
 
 ##参照

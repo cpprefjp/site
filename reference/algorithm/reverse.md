@@ -54,9 +54,10 @@ esrever
 template <class BidirectionalIterator>
 void reverse(BidirectionalIterator first, BidirectionalIterator last) {
   for ( ; first != last && first != --last; ++first)
-    iter_swap(first, last);
+    std::iter_swap(first, last);
 }
 ```
+* std::iter_swap[link iter_swap.md]
 
 
 ##参照

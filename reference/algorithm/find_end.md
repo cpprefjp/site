@@ -98,6 +98,7 @@ ForwardIterator1 find_end(ForwardIterator1 first1, ForwardIterator1 last1,
   return result;
 }
 ```
+* std::search[link search.md]
 
 
 ##参照

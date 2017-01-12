@@ -44,7 +44,7 @@ int main() {
   std::cout << result2 << std::endl;
 }
 ```
-* any_of[color ff0000]
+* std::any_of[color ff0000]
 
 ###出力
 ```

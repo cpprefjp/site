@@ -5,6 +5,7 @@
 * <typeinfo>[link /reference/typeinfo.md]
 * <exception>[link /reference/exception.md]
 * <initializer_list>[link /reference/initializer_list.md]
+* std::initializer_list[link /reference/initializer_list.md]
 * <stdexcept>[link /reference/stdexcept.md]
 * <system_error>[link /reference/system_error.md]
 * <utility>[link /reference/utility.md]

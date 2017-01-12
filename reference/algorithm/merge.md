@@ -69,6 +69,12 @@ int main()
 }
 ```
 * std::merge[color ff0000]
+* a.begin()[link /reference/vector/begin.md]
+* a.end()[link /reference/vector/end.md]
+* b.begin()[link /reference/vector/begin.md]
+* b.end()[link /reference/vector/end.md]
+* result.begin()[link /reference/vector/begin.md]
+* result.end()[link /reference/vector/end.md]
 
 ###出力
 ```

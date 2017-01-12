@@ -89,10 +89,11 @@ ForwardIterator remove_if(ForwardIterator first, ForwardIterator last, Predicate
       if (first == result)
         ++result;
       else
-        *result++ = move(*first);
+        *result++ = std::move(*first);
   return result;
 }
 ```
+* std::move[link /reference/utility/move.md]
 
 
 ##参照

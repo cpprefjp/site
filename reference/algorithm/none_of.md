@@ -54,7 +54,7 @@ int main() {
   std::cout << result2 << std::endl;
 }
 ```
-* none_of[color ff0000]
+* std::none_of[color ff0000]
 
 ###出力
 ```

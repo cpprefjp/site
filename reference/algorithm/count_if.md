@@ -38,7 +38,7 @@ int main() {
   std::cout << "count of 1 or 3: " << count << std::endl;
 }
 ```
-* count_if[color ff0000]
+* std::count_if[color ff0000]
 
 ###出力
 ```cpp

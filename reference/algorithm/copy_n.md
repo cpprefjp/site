@@ -40,7 +40,7 @@ int main() {
   std::copy_n(v.begin(), 5, std::ostream_iterator<int>(std::cout, "\n"));
 }
 ```
-* copy_n[color ff0000]
+* std::copy_n[color ff0000]
 
 ###出力
 ```

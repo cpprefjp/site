@@ -82,8 +82,8 @@ bool is_partitioned(InputIterator first, InputIterator last, Predicate pred)
   return (first == last) || std::none_of(++first, last, pred);
 }
 ```
-* none_of[link none_of.md]
-* find_if_not[link find_if_not.md]
+* std::none_of[link none_of.md]
+* std::find_if_not[link find_if_not.md]
 
 
 ##バージョン
