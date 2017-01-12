@@ -36,9 +36,7 @@ int main()
 * MATH_ERRNO[color ff0000]
 * std::acosh[link acosh.md]
 * math_errhandling[link math_errhandling.md]
-* <cerrno>[link ../cerrno.md]
 * errno[link ../cerrno/errno.md]
-* <cmath>[link ../cmath.md]
 
 ###出力例
 ```

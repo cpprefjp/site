@@ -54,8 +54,6 @@ int main() {
   std::cout << "expm1(-∞)  = " << std::expm1(-std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
-* <limits>[link ../limits.md]
 * std::expm1[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 * std::numeric_limits[link ../limits/numeric_limits.md]

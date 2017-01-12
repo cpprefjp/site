@@ -51,8 +51,6 @@ int main() {
   std::cout << "fabs(-∞)   = " << std::fabs(-std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
-* <limits>[link ../limits.md]
 * std::fixed[link ../ios/fixed.md]
 * std::fabs[color ff0000]
 * std::numeric_limits[link ../limits/numeric_limits.md]

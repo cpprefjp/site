@@ -58,7 +58,6 @@ int main() {
 }
 ```
 * copy[color ff0000]
-* <list>[link /reference/list.md]
 * v.size()[link /reference/vector/size.md]
 * v2.begin()[link /reference/vector/begin.md]
 * std::list[link /reference/list.md]

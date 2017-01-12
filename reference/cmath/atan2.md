@@ -67,7 +67,6 @@ int main() {
   std::cout << "atan2(-1.0, 1.0)  = " << std::atan2(-1.0, 1.0) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::atan2[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 

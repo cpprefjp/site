@@ -54,8 +54,6 @@ int main() {
   std::cout << "sqrt(-1.0) = " << std::sqrt(-1.0) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
-* <limits>[link ../limits.md]
 * std::fixed[link ../ios/fixed.md]
 * std::sqrt[color ff0000]
 * std::numeric_limits[link ../limits/numeric_limits.md]

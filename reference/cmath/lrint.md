@@ -83,13 +83,7 @@ int main()
 #endif
 }
 ```
-* <iostream>[link ../iostream.md]
-* <climits>[link ../climits.md]
-* <cmath>[link ../cmath.md]
-* <cfenv>[link ../cfenv.md]
 * lrint[color ff0000]
-* cout[link ../iostream/cout.md]
-* boolalpha[link ../ios/boolalpha.md]
 * FE_INEXACT[link ../cfenv/fe_inexact.md]
 * FE_INVALID[link ../cfenv/fe_invalid.md]
 * FE_ALL_EXCEPT[link ../cfenv/fe_all_except.md]

@@ -49,7 +49,6 @@ int main() {
   std::cout << "cos(pi)   = " << std::cos(pi) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::cos[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 

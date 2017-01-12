@@ -52,8 +52,6 @@ int main()
   std::cout << "ilogb(1e-309) = " << std::ilogb(1e-309) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
-* <limits>[link ../limits.md]
 * std::ilogb[color ff0000]
 
 ###出力例

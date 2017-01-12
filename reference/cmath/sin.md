@@ -49,7 +49,6 @@ int main() {
   std::cout << "sin(pi)   = " << std::sin(pi) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::sin[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 

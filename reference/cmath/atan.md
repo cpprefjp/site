@@ -48,8 +48,6 @@ int main() {
   std::cout << "atan(∞)    = " << std::atan(std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
-* <limits>[link ../limits.md]
 * std::atan[color ff0000]
 * std::sqrt[link sqrt.md]
 * std::fixed[link ../ios/fixed.md]

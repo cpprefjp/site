@@ -51,7 +51,6 @@ int main() {
   std::cout << "atanh(1.0)  = " << std::atanh(1.0) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::atanh[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 

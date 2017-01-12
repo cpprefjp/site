@@ -58,7 +58,6 @@ int main() {
 }
 ```
 * copy_backward[color ff0000]
-* <list>[link /reference/list.md]
 * std::list[link /reference/list.md]
 * ls.begin()[link /reference/list/begin.md]
 * std::next[link /reference/iterator/next.md]

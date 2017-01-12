@@ -49,7 +49,6 @@ int main() {
   std::cout << "acos(1.0)   = " << std::acos(1.0) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::acos[color ff0000]
 * std::sqrt[link sqrt.md]
 * std::fixed[link ../ios/fixed.md]

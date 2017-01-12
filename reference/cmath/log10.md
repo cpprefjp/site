@@ -51,8 +51,6 @@ int main() {
   std::cout << "log10(-1.0) = " << std::log10(-1.0) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
-* <limits>[link ../limits.md]
 * std::log10[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 * std::numeric_limits[link ../limits/numeric_limits.md]

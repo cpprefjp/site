@@ -60,7 +60,6 @@ int main() {
 }
 ```
 * std::find_first_of[color ff0000]
-* <list>[link /reference/list.md]
 * std::list[link /reference/list.md]
 * ls.begin()[link /reference/list/begin.md]
 * ls.end()[link /reference/list/end.md]

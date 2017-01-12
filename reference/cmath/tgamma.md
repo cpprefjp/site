@@ -56,7 +56,6 @@ int main() {
   std::cout << "tgamma(+∞)  = " << std::tgamma(std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::tgamma[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 * std::numeric_limits[link ../limits/numeric_limits.md]

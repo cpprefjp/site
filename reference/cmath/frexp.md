@@ -53,7 +53,6 @@ int main()
   std::cout << value << " = " << x << " * 2^" << exp << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::frexp[color ff0000]
 
 ###出力例

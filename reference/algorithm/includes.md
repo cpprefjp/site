@@ -47,7 +47,6 @@ int main()
 }
 ```
 * std::includes[color ff0000]
-* <set>[link /reference/set.md]
 * std::set[link /reference/set/set.md]
 * begin()[link /reference/set/set/begin.md]
 * end()[link /reference/set/set/end.md]

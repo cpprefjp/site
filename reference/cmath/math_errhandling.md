@@ -92,10 +92,7 @@ int main()
 * FE_DIVBYZERO[link ../cfenv/fe_divbyzero.md]
 * std::feclearexcept[link ../cfenv/feclearexcept.md]
 * std::fetestexcept[link ../cfenv/fetestexcept.md]
-* <cerrno>[link ../cerrno.md]
 * errno[link ../cerrno/errno.md]
-* <cfenv>[link ../cfenv.md]
-* <cmath>[link ../cmath.md]
 
 ###出力例
 ```

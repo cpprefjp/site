@@ -51,8 +51,6 @@ int main() {
   std::cout << "exp2(-∞) = " << std::exp2(-std::numeric_limits<double>::infinity()) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
-* <limits>[link ../limits.md]
 * std::exp2[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 * std::numeric_limits[link ../limits/numeric_limits.md]

@@ -47,7 +47,6 @@ int main() {
   std::cout << "cosh(1.0)  = " << std::cosh(1.0) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::cosh[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 

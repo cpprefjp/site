@@ -70,8 +70,6 @@ int main()
 }
 ```
 * std::set_union[color ff0000]
-* <set>[link /reference/set.md]
-* <list>[link /reference/list.md]
 * std::list[link /reference/list.md]
 * std::multiset[link /reference/set/multiset.md]
 * std::inserter[link /reference/iterator/inserter.md]

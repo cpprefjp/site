@@ -54,8 +54,6 @@ int main()
   std::cout << "logb(1e-309) = " << std::logb(1e-309) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
-* <limits>[link ../limits.md]
 * std::logb[color ff0000]
 * std::numeric_limits[link ../limits/numeric_limits.md]
 * infinity[link ../limits/numeric_limits/infinity.md]

@@ -110,7 +110,6 @@ int main()
 }
 ```
 * std::rotate[color ff0000]
-* <utility>[link /reference/utility.md]
 * seq.begin()[link /reference/vector/begin.md]
 * seq.end[link /reference/vector/end.md]
 * std::ostream_iterator[link /reference/iterator/ostream_iterator.md]

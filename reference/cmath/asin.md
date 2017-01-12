@@ -49,7 +49,6 @@ int main() {
   std::cout << "asin(1.0)   = " << std::asin(1.0) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::asin[color ff0000]
 * std::sqrt[link sqrt.md]
 * std::fixed[link ../ios/fixed.md]

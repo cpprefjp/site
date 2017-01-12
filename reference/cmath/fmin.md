@@ -47,7 +47,6 @@ int main() {
 }
 ```
 * std::fmin[color ff0000]
-* <cmath>[link ../cmath.md]
 * std::showpos[link ../ios/showpos.md]
 * std::nan[link ../cmath/nanf.md]
 

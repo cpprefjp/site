@@ -66,7 +66,6 @@ int main()
   }
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::modf[color ff0000]
 
 ###出力

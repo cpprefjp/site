@@ -45,7 +45,6 @@ int main() {
   std::cout << "asinh(1.0)  = " << std::asinh(1.0) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::asinh[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 

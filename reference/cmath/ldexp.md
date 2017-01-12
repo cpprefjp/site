@@ -49,8 +49,6 @@ int main()
   std::cout << std::setprecision(8) << pi << std::endl;
 }
 ```
-* <iomanip>[link ../iomanip.md]
-* <cmath>[link ../cmath.md]
 * std::ldexp[color ff0000]
 * std::acos[link acos.md]
 * std::setprecision[link /reference/iomanip/setprecision.md.nolink]

@@ -40,7 +40,6 @@ int main() {
 }
 ```
 * std::fdim[color ff0000]
-* <cmath>[link ../cmath.md]
 * std::showpos[link ../ios/showpos.md]
 
 ###出力例

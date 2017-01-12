@@ -47,7 +47,6 @@ int main() {
   std::cout << "tan(pi/2) = " << std::tan(pi/2) << std::endl;
 }
 ```
-* <cmath>[link ../cmath.md]
 * std::tan[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 
