@@ -28,7 +28,7 @@ bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_o
 ##効果
 現在の値と`expected`をバイトレベルで等値比較を行い、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
 
-バイト等値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる。メモリーダーが一つだけ指定された場合、`order`メモリーダーが使用される。
+バイト等値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる。メモリオーダーが一つだけ指定された場合、`order`メモリオーダーが使用される。
 
 
 ##戻り値
