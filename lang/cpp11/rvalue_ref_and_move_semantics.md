@@ -178,7 +178,7 @@ public:
   // コピーコンストラクタ
   large_class( const large_class& r ) {
     ptr = new char[1000] ;
-    std::copy( &ptr[0], &ptr[1000], &r.ptr[0] );
+    std::copy( r.ptr, r.ptr + 1000, ptr );
   }
   // デストラクタ
   ~large_class() {
