@@ -82,7 +82,8 @@ __右辺値参照であるということと、右辺値であるということ
 
 
 ```cpp
-int main(){
+int main()
+{
   // xの型は int&& である
   // xは左辺値＝xは実体を持ち名前のあるオブジェクト
   int&& x = 1;
@@ -238,13 +239,15 @@ int main()
     ptr = r.ptr;
     // 元のオブジェクトはnullptrに
     r.ptr = nullptr;
+    return *this;
   }
 ```
 
 左辺値に対して[`std::move()`](/reference/utility/move.md)を適用すると右辺値となり、ムーブコンストラクタが呼ばれる。  
 
 ```cpp
-int main(){
+int main()
+{
   large_class tmp{};
   large_class y{};
 
@@ -268,6 +271,7 @@ int main(){
 
 ```cpp
 class large_class {
+public:
   // ムーブ演算のデフォルト指定
   large_class(large_class&&) = default;
   large_class& operator=(large_class&&) = default;
@@ -280,7 +284,7 @@ class large_class {
 
 ```cpp
 template <typename T>
-void f(T&& x){};
+void f(T&& x) {}
 ```
 
 とした場合、`f()`に渡された実引数が左辺値の場合には左辺値参照となり、右辺値の場合は右辺値参照となる。  
@@ -314,7 +318,7 @@ void f(T&& a)
 右辺値と左辺値は、明快な基準によって2つに分けることが難しい。  
 厳密な分類は以下のようになっている。  
 
-`expression`は、  
+`expression`は、 
 `glvalue`と`rvalue`に分類できる。  
 `glvalue`と`rvalue`は、  
 `lvalue`と`xvalue`と`prvalue`に分類できる。
