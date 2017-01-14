@@ -44,3 +44,15 @@ int main()
 ```
 
 
+##バージョン
+###言語
+- C++03
+- C++11
+
+###処理系
+- [Clang](/implementation.md#clang): ?
+- [GCC](/implementation.md#gcc): ?
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 7.0, 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 14.1
+	- 11.0, 12.0は、`noexcept`が実装されていないため、`throw()`が修飾されている。
+	- 14.0からは、`noexcept`が修飾されている。
