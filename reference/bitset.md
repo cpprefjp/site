@@ -101,7 +101,7 @@ int main()
 {
   // 整数から8ビットのビット集合を構築
   std::bitset<8> bs1(131uL); // 10000011
-  
+
   // 文字列から8ビットのビット集合を構築
   std::bitset<8> bs2("10000011");
 
@@ -132,6 +132,10 @@ int main()
   std::cout << "xor : " << xor_bits << std::endl;
 }
 ```
+* [1][link bitset/op_at.md]
+* set[link bitset/set.md]
+* reset[link bitset/reset.md]
+* any()[link bitset/any.md]
 
 ###出力
 ```

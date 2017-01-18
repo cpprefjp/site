@@ -64,7 +64,6 @@ int main()
   assert(bs.to_string() == "1010");
 }
 ```
-* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```
