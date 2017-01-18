@@ -32,10 +32,10 @@ int main()
   std::bitset<4> bs2("1010");
 
   if (bs1 == bs2) {
-	std::cout << "equal" << std::endl;
+    std::cout << "equal" << std::endl;
   }
   else {
-	std::cout << "not equal" << std::endl;
+    std::cout << "not equal" << std::endl;
   }
 }
 ```
