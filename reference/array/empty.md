@@ -17,6 +17,8 @@ constexpr bool empty() const noexcept; // C++14
 ##戻り値
 コンテナが空であれば`true`、そうでなければ`false`を返す。
 
+`std::array`コンテナに対して動的な要素の追加・削除はできないため、0要素を持つ`std::array`型オブジェクトを定義した場合にのみ、この関数は`true`を返す。
+
 
 ##例外
 投げない
