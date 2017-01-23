@@ -52,7 +52,7 @@ namespace std {
 ```cpp
 #include <cassert>
 #include <array>
-#include <utility> // std::move
+#include <utility>
 
 int main()
 {
@@ -86,6 +86,7 @@ int main()
 }
 ```
 * std::get[color ff0000]
+* std::move[link /reference/utility/move.md]
 
 
 ###出力
