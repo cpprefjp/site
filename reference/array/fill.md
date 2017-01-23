@@ -25,7 +25,7 @@ void fill(const T& u);
 ```cpp
 #include <iostream>
 #include <array>
-#include <algorithm> // std::for_each
+#include <algorithm>
 
 int main()
 {

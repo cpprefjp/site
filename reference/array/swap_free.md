@@ -33,7 +33,7 @@ namespace std {
 #include <iostream>
 #include <array>
 #include <string>
-#include <algorithm> // std::for_each
+#include <algorithm>
 
 template <class T, std::size_t N>
 void print(const std::string& name, const std::array<T, N>& ar)

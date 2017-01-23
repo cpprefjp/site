@@ -37,6 +37,8 @@ int main()
 }
 ```
 * {1, 2, 3}[color ff0000]
+* ar.size()[link size.md]
+* ar[i][link op_at.md]
 
 
 ###出力

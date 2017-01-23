@@ -15,6 +15,7 @@ namespace std {
   }
 }
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 `tuple_element`は、タプルとして見なせる型から、`I`番目の要素型を取得するためのクラスである。
@@ -45,7 +46,8 @@ int main()
                 >::value, "");
 }
 ```
-* tuple_element[color ff0000]
+* std::tuple_element[color ff0000]
+* std::is_same[link /reference/type_traits/is_same.md]
 
 
 ###出力

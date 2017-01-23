@@ -40,7 +40,7 @@ int main()
   static_assert(std::tuple_size<std::array<int, 3>>::value == 3, "");
 }
 ```
-* tuple_size[color ff0000]
+* std::tuple_size[color ff0000]
 
 
 ###出力

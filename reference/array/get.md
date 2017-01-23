@@ -25,6 +25,7 @@ namespace std {
   constexpr const T& get(const array<T, N>& x) noexcept; // (3) C++14
 }
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 タプルと見なせる型から指定した位置の要素を取得する。
@@ -85,7 +86,6 @@ int main()
 }
 ```
 * get[color ff0000]
-* assert[link /reference/cassert/assert.md]
 
 
 ###出力
