@@ -85,7 +85,7 @@ int main()
   }
 }
 ```
-* get[color ff0000]
+* std::get[color ff0000]
 
 
 ###出力
