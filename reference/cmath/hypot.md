@@ -41,6 +41,7 @@ namespace std {
 
 
 ##例
+###基本的な使い方
 ```cpp
 #include <cmath>
 #include <limits>
@@ -62,12 +63,42 @@ int main() {
 * infinity[link ../limits/numeric_limits/infinity.md]
 * quiet_NaN[link ../limits/numeric_limits/quiet_nan.md]
 
-###出力
+####出力
 ```
 hypot(0.0, 0.0)  = 0.000000
 hypot(1.0, 1.0)  = 1.414214
 hypot(3.0, 4.0)  = 5.000000
 hypot(+∞, NaN)   = inf
+```
+
+###ベクトルの長さを求める
+```cpp
+#include <iostream>
+#include <cmath>
+
+// 2次元ベクトル
+struct Vector2 {
+  double x = 0;
+  double y = 0;
+
+  // ベクトルの長さ。
+  // ノルム (norm) とも呼ばれる
+  double length() const
+  {
+    return std::hypot(x, y);
+  }
+};
+
+int main()
+{
+  std::cout << Vector2{3.0, 3.0}.length() << std::endl;
+}
+```
+* std::hypot[color ff0000]
+
+####出力
+```
+4.24264
 ```
 
 ##バージョン
