@@ -45,6 +45,8 @@ int main()
 ```
 * std::memory_order_acquire[color ff0000]
 * std::memory_order_release[color ff0000]
+* load[link atomic/load.md]
+* store[link atomic/store.md]
 
 ###出力
 ```
