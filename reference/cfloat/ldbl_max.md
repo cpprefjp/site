@@ -41,7 +41,7 @@ int main()
   std::cout << (1 - std::pow((long double)FLT_RADIX, -LDBL_MANT_DIG)) * std::pow((long double)FLT_RADIX, LDBL_MAX_EXP - 1) * FLT_RADIX << '\n';
 }
 ```
-* sts::setprecision[link /reference/iomanip/setprecision.md.nolink]
+* sts::setprecision[link /reference/iomanip/setprecision.md]
 * LDBL_MAX[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * LDBL_DIG[link ldbl_dig.md]

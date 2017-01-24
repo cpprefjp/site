@@ -28,7 +28,7 @@ streamsize presision(streamsize prec);              // (2)
 - 浮動小数点の精度は、浮動小数点をストリームに出力する際に使用されるが、その意味は浮動小数点の出力形式によって異なる。  
     通常表記の場合出力される有効数字の最大数、科学表記の場合出力される有効数字の数、固定表記の場合出力される小数点以下の数字の数を表す。  
     なお、C++11 から導入された 16 進浮動小数点表記の場合は使用されない（無視される）。
-- 設定後に戻す必要が無いような場合には、本関数よりマニピュレータ（[`setprecision`](../../iomanip/setprecision.md.nolink)`()`）を使用した方が便利だろう。
+- 設定後に戻す必要が無いような場合には、本関数よりマニピュレータ（[`setprecision()`](../../iomanip/setprecision.md)）を使用した方が便利だろう。
 
 
 ##例
@@ -60,7 +60,7 @@ int main()
 * scientific[link ../scientific.md]
 * fixed[link ../fixed.md]
 * hexfloat[link ../hexfloat.md]
-* setprecision[link ../../iomanip/setprecision.md.nolink]
+* setprecision[link ../../iomanip/setprecision.md]
 
 ###出力例
 ```
@@ -85,5 +85,5 @@ int main()
 
 ##参照
 - [`ios_base`](../ios_base.md)`::`[`width`](width.md)
-- [`setprecision`](../../iomanip/setprecision.md.nolink)
+- [`setprecision`](../../iomanip/setprecision.md)
 - [`setw`](../../iomanip/setw.md.nolink)

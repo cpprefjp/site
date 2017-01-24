@@ -51,7 +51,7 @@ int main()
 ```
 * std::ldexp[color ff0000]
 * std::acos[link acos.md]
-* std::setprecision[link /reference/iomanip/setprecision.md.nolink]
+* std::setprecision[link /reference/iomanip/setprecision.md]
 
 ###出力
 ```

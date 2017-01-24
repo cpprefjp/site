@@ -40,7 +40,7 @@ int main()
   std::cout << std::pow(FLT_RADIX, 1 - FLT_MANT_DIG) << '\n';
 }
 ```
-* sts::setprecision[link /reference/iomanip/setprecision.md.nolink]
+* sts::setprecision[link /reference/iomanip/setprecision.md]
 * FLT_EPSILON[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * FLT_DIG[link flt_dig.md]

@@ -41,7 +41,7 @@ int main()
   std::cout << std::pow((float)FLT_RADIX, (float)(FLT_MIN_EXP - 1)) << '\n';
 }
 ```
-* sts::setprecision[link /reference/iomanip/setprecision.md.nolink]
+* sts::setprecision[link /reference/iomanip/setprecision.md]
 * FLT_MIN[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * FLT_DIG[link flt_dig.md]

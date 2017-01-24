@@ -41,7 +41,7 @@ int main()
   std::cout << d2 << ", " << std::isnormal(d2) << '\n';
 }
 ```
-* std::setprecision[link ../iomanip/setprecision.md.nolink]
+* std::setprecision[link ../iomanip/setprecision.md]
 * DBL_MIN_EXP[color ff0000]
 * DBL_DIG[link dbl_dig.md]
 * FLT_RADIX[link flt_radix.md]

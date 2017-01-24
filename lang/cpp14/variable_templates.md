@@ -104,7 +104,7 @@ auto main() -> int
 * template < typename T = float >[color ff0000]
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
 * max_digits10[link /reference/limits/numeric_limits/max_digits10.md]
-* std::setprecision[link /reference/iomanip/setprecision.md.nolink]
+* std::setprecision[link /reference/iomanip/setprecision.md]
 
 ###出力例
 ```

@@ -11,7 +11,7 @@
 | `setiosflags`   | フォーマットフラグを設定する (function)         | |
 | `setbase`       | 基数を設定する (function)                       | |
 | `setfill`       | 埋める文字を設定する (function template)        | |
-| `setprecision`  | 浮動小数点数を出力する精度を設定する (function) | |
+| [`setprecision`](iomanip/setprecision.md)  | 浮動小数点数を出力する精度を設定する (function) | |
 | `setw`          | 出力する幅を設定する (function)                 | |
 | `get_money`     | 金額書式から入力する (function template)        | C++11 |
 | `put_money`     | 金額書式で出力する (function template)          | C++11 |

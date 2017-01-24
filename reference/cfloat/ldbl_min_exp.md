@@ -41,7 +41,7 @@ int main()
   std::cout << ld2 << ", " << std::isnormal(ld2) << '\n';
 }
 ```
-* std::setprecision[link ../iomanip/setprecision.md.nolink]
+* std::setprecision[link ../iomanip/setprecision.md]
 * boolalpha[link ../ios/boolalpha.md]
 * LDBL_MIN_EXP[color ff0000]
 * LDBL_DIG[link ldbl_dig.md]

@@ -40,7 +40,7 @@ int main()
   std::cout << std::pow(FLT_RADIX, 1 - LDBL_MANT_DIG) << '\n';
 }
 ```
-* sts::setprecision[link /reference/iomanip/setprecision.md.nolink]
+* sts::setprecision[link /reference/iomanip/setprecision.md]
 * LDBL_EPSILON[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * LDBL_DIG[link ldbl_dig.md]

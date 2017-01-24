@@ -75,5 +75,5 @@ int main()
 
 ##参照
 - [`ios_base`](../ios_base.md)`::`[`precision`](precision.md)
-- [`setprecision`](../../iomanip/setprecision.md.nolink)
+- [`setprecision`](../../iomanip/setprecision.md)
 - [`setw`](../../iomanip/setw.md.nolink)

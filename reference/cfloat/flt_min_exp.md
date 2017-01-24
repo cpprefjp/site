@@ -41,7 +41,7 @@ int main()
   std::cout << f2 << ", " << std::isnormal(f2) << '\n';
 }
 ```
-* std::setprecision[link ../iomanip/setprecision.md.nolink]
+* std::setprecision[link ../iomanip/setprecision.md]
 * FLT_MIN_EXP[color ff0000]
 * FLT_DIG[link flt_dig.md]
 * FLT_RADIX[link flt_radix.md]
