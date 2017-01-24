@@ -47,7 +47,6 @@ int main()
 * FE_DIVBYZERO[link fe_divbyzero.md]
 * FE_INVALID[link fe_invalid.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
-* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

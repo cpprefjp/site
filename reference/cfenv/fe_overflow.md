@@ -32,7 +32,7 @@ int main()
 ```
 * FE_OVERFLOW[color ff0000]
 * std::fetestexcept[link fetestexcept.md]
-* std::numeric_limits<float>::max()[link /reference/limits/numeric_limits/max.md]
+* max()[link /reference/limits/numeric_limits/max.md]
 
 ###出力例
 ```

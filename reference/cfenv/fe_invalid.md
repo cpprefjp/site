@@ -32,7 +32,7 @@ int main()
 ```
 * FE_INVALID[color ff0000]
 * std::fetestexcept[link fetestexcept.md]
-* std::numeric_limits<float>::quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
+* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 
 ###出力例
 ```

@@ -58,7 +58,6 @@ int main()
 * std::fegetexceptflag[link fegetexceptflag.md]
 * std::feclearexcept[link feclearexcept.md]
 * std::fetestexcept[link fetestexcept.md]
-* assert[link /reference/cassert/assert.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
 * FE_DIVBYZERO[link fe_divbyzero.md]
 

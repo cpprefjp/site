@@ -76,7 +76,7 @@ int main()
 * FE_OVERFLOW[link fe_overflow.md]
 * FE_UNDERFLOW[link fe_underflow.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
-* std::numeric_limits<double>::max()[link /reference/limits/numeric_limits/max.md]
+* max()[link /reference/limits/numeric_limits/max.md]
 
 ###出力例
 ```
