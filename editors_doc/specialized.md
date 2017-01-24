@@ -112,6 +112,26 @@ int main() {
     - `＜対象文字列＞`をイタリック体にします。
     - `＜引数＞`はありません。
 
+### グローバル修飾
+
+全てのコードブロックでは、デフォルトの修飾が実行されます。
+これを **グローバル修飾** と呼びます。
+
+例えば `<vector>`, `<iostream>`, `<iterator>`, `std::vector`, `v.begin()`, `v.end()` `std::copy`, `std::ostream_iterator` 等はグローバル修飾されるため、特に修飾を書かなくてもリンクになります。
+
+```cpp
+#include <vector>
+#include <iostream>
+#include <iterator>
+
+int main() {
+    std::vector<int> v = { 1, 2, 3 };
+    std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, ", "));
+}
+```
+
+グローバル修飾の一覧は [GLOBAL_QUALIFY_LIST.txt](https://github.com/cpprefjp/site/blob/master/GLOBAL_QUALIFY_LIST.txt) にあります。
+
 ## リンクの存在チェック
 
 プログラムの修飾で`link`を使用した際に、リンク先がサイト内へのリンクだった場合、リンク先の存在チェックも行います。
