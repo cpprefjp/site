@@ -18,7 +18,7 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は精度（基数 $b$ での仮数部の桁数、[`DBL_MANT_DIG`](dbl_mant_dig.md)）、$e_{\rm max}$ は指数の最大値（[`DBL_MAX_EXP`](dbl_max_exp.md)）である。  
 $b$ や $p$、$e_{\rm max}$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`max_exponent10`](/reference/limits/numeric_limits/max_exponent10.md) と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`max_exponent10`](/reference/limits/numeric_limits/max_exponent10.md) と等しい。
 
 
 ##備考
@@ -54,20 +54,15 @@ int main()
   std::cout << d2 << ", " << std::isfinite(d2) << '\n';
 }
 ```
-* <iostream>[link ../iostream.md]
-* <cfloat>[link ../cfloat.md]
-* <cmath>[link ../cmath.md]
-* cout[link ../iostream/cout.md]
-* boolalpha[link ../ios/boolalpha.md]
 * DBL_MAX_10_EXP[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * DBL_MANT_DIG[link dbl_mant_dig.md]
 * DBL_MAX_EXP[link dbl_max_exp.md]
 * DBL_MAX[link dbl_max.md]
-* pow[link ../cmath/pow.md]
-* log10[link ../cmath/log10.md]
-* floor[link ../cmath/floor.md]
-* isfinite[link ../cmath/isfinite.md]
+* std::pow[link ../cmath/pow.md]
+* std::log10[link ../cmath/log10.md]
+* std::floor[link ../cmath/floor.md]
+* std::isfinite[link ../cmath/isfinite.md]
 
 ##出力例
 ```

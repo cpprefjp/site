@@ -18,7 +18,7 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$e_{\rm min}$ は指数の最小値（[`DBL_MIN_EXP`](dbl_min_exp.md)）である。  
 $b$ や $e_{\rm min}$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しい。
 
 
 ##備考
@@ -41,16 +41,12 @@ int main()
   std::cout << std::pow(FLT_RADIX, DBL_MIN_EXP - 1) << '\n';
 }
 ```
-* <iostream>[link ../iostream.md]
-* <iomanip>[link ../iomanip.md]
-* <cfloat>[link ../cfloat.md]
-* <cmath>[link ../cmath.md]
-* cout[link ../iostream/cout.md]
+* sts::setprecision[link /reference/iomanip/setprecision.md.nolink]
 * DBL_MIN[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * DBL_DIG[link dbl_dig.md]
 * DBL_MIN_EXP[link dbl_min_exp.md]
-* pow[link ../cmath/pow.md]
+* std::pow[link ../cmath/pow.md]
 
 ##出力例
 ```

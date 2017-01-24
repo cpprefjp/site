@@ -10,7 +10,7 @@
 ##概要
 浮動小数点型の指数表現の基数を表す。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`radix`](/reference/limits/numeric_limits/radix.md) と等しい。  
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`radix`](/reference/limits/numeric_limits/radix.md) と等しい。  
 （`T` は `float`、`double`、`long double` のいずれか）
 
 
@@ -28,9 +28,6 @@ int main()
   std::cout << FLT_RADIX << '\n';
 }
 ```
-* <iostream>[link ../iostream.md]
-* <cfloat>[link ../cfloat.md]
-* cout[link ../iostream/cout.md]
 * FLT_RADIX[color ff0000]
 
 ##出力例

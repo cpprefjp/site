@@ -24,7 +24,7 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は精度（基数 $b$ での仮数部の桁数、[`FLT_MANT_DIG`](flt_mant_dig.md)）である。  
 $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`digits10`](/reference/limits/numeric_limits/digits10.md) と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`digits10`](/reference/limits/numeric_limits/digits10.md) と等しい。
 
 ##備考
 - 規格で 6 以上であることが規定されている。
@@ -52,16 +52,12 @@ int main()
   }
 }
 ```
-* <iostream>[link ../iostream.md]
-* <cfloat>[link ../cfloat.md]
-* <cmath>[link ../cmath.md]
-* cout[link ../iostream/cout.md]
 * FLT_DIG[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * FLT_MANT_DIG[link flt_mant_dig.md]
-* log10[link ../cmath/log10.md]
-* floor[link ../cmath/floor.md]
-* modf[link ../cmath/modf.md]
+* std::log10[link ../cmath/log10.md]
+* std::floor[link ../cmath/floor.md]
+* std::modf[link ../cmath/modf.md]
 
 ##出力例
 ```

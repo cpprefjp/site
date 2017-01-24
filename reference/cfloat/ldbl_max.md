@@ -18,7 +18,7 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は精度（基数 $b$ での仮数部の桁数、[`LDBL_MANT_DIG`](ldbl_mant_dig.md)）、$e_{\rm max}$ は指数の最大値（[`LDBL_MAX_EXP`](ldbl_max_exp.md)）である。  
 $b$ や $p$、$e_{\rm max}$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しい。
 
 
 ##備考
@@ -41,17 +41,13 @@ int main()
   std::cout << (1 - std::pow((long double)FLT_RADIX, -LDBL_MANT_DIG)) * std::pow((long double)FLT_RADIX, LDBL_MAX_EXP - 1) * FLT_RADIX << '\n';
 }
 ```
-* <iostream>[link ../iostream.md]
-* <iomanip>[link ../iomanip.md]
-* <cfloat>[link ../cfloat.md]
-* <cmath>[link ../cmath.md]
-* cout[link ../iostream/cout.md]
+* sts::setprecision[link /reference/iomanip/setprecision.md.nolink]
 * LDBL_MAX[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * LDBL_DIG[link ldbl_dig.md]
 * LDBL_MANT_DIG[link ldbl_mant_dig.md]
 * LDBL_MAX_EXP[link ldbl_max_exp.md]
-* pow[link ../cmath/pow.md]
+* std::pow[link ../cmath/pow.md]
 
 ##出力例
 ```

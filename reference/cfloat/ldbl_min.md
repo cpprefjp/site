@@ -41,16 +41,12 @@ int main()
   std::cout << std::pow((long double)FLT_RADIX, LDBL_MIN_EXP - 1) << '\n';
 }
 ```
-* <iostream>[link ../iostream.md]
-* <iomanip>[link ../iomanip.md]
-* <cfloat>[link ../cfloat.md]
-* <cmath>[link ../cmath.md]
-* cout[link ../iostream/cout.md]
+* sts::setprecision[link /reference/iomanip/setprecision.md.nolink]
 * LDBL_MIN[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * LDBL_DIG[link ldbl_dig.md]
 * LDBL_MIN_EXP[link ldbl_min_exp.md]
-* pow[link ../cmath/pow.md]
+* std::pow[link ../cmath/pow.md]
 
 ##出力例
 ```

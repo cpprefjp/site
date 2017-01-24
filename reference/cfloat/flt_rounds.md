@@ -40,12 +40,8 @@ int main()
   std::cout << "FLT_ROUNDS = " << FLT_ROUNDS << '\n';
 }
 ```
-* <iostream>[link ../iostream.md]
-* <cfloat>[link ../cfloat.md]
-* <cfenv>[link ../cfenv.md]
-* cout[link ../iostream/cout.md]
 * FLT_ROUNDS[color ff0000]
-* fesetround[link ../cfenv.md]
+* std::fesetround[link ../cfenv.md]
 * FE_TOWARDZERO[link ../cfenv/fe_towardzero.md]
 
 ###出力例

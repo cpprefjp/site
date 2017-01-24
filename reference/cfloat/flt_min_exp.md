@@ -11,7 +11,7 @@
 [`FLT_RADIX`](flt_radix.md) の $n - 1$ 乗が、`float` の正規化数として表現可能であるような、最小の整数値 $n$ を表すマクロ。  
 [`<cfloat>`](../cfloat.md) のモデルにおける $e_{\rm min}$。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`min_exponent`](/reference/limits/numeric_limits/min_exponent.md) と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`min_exponent`](/reference/limits/numeric_limits/min_exponent.md) と等しい。
 
 
 ##備考
@@ -41,19 +41,13 @@ int main()
   std::cout << f2 << ", " << std::isnormal(f2) << '\n';
 }
 ```
-* <iostream>[link ../iostream.md]
-* <iomanip>[link ../iomanip.md]
-* <cfloat>[link ../cfloat.md]
-* <cmath>[link ../cmath.md]
-* cout[link ../iostream/cout.md]
-* setprecision[link ../iomanip/setprecision.md.nolink]
-* boolalpha[link ../ios/boolalpha.md]
+* std::setprecision[link ../iomanip/setprecision.md.nolink]
 * FLT_MIN_EXP[color ff0000]
 * FLT_DIG[link flt_dig.md]
 * FLT_RADIX[link flt_radix.md]
 * FLT_MIN_EXP[link flt_min_exp.md]
-* pow[link ../cmath/pow.md]
-* isnormal[link ../cmath/isnormal.md]
+* std::pow[link ../cmath/pow.md]
+* std::isnormal[link ../cmath/isnormal.md]
 
 ##出力例
 ```

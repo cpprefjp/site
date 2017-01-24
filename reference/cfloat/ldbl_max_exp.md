@@ -11,7 +11,7 @@
 [`FLT_RADIX`](flt_radix.md) の $n - 1$ 乗が、`long double` の有限の値として表現可能であるような、最大の整数値 $n$ を表すマクロ。  
 [`<cfloat>`](../cfloat.md) のモデルにおける $e_{\rm max}$。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max_exponent`](/reference/limits/numeric_limits/max_exponent.md) と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max_exponent`](/reference/limits/numeric_limits/max_exponent.md) と等しい。
 
 
 ##備考
@@ -39,15 +39,11 @@ int main()
   std::cout << std::pow((long double)FLT_RADIX, LDBL_MAX_EXP) << '\n';
 }
 ```
-* <iostream>[link ../iostream.md]
-* <iomanip>[link ../iomanip.md]
-* <cfloat>[link ../cfloat.md]
-* <cmath>[link ../cmath.md]
-* cout[link ../iostream/cout.md]
+* sts::setprecision[link /reference/iomanip/setprecision.md.nolink]
 * LDBL_MAX_EXP[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * LDBL_DIG[link ldbl_dig.md]
-* pow[link ../cmath/pow.md]
+* std::pow[link ../cmath/pow.md]
 
 ##出力例
 ```

@@ -25,7 +25,7 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p_{\rm max}$ は精度が一番高い浮動小数点型の精度（基数 $b$ での仮数部の桁数）である。  
 $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-`T` を精度が一番高い浮動小数点型とすると、`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`max_digits10`](/reference/limits/numeric_limits/max_digits10.md) と等しい。
+`T` を精度が一番高い浮動小数点型とすると、[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`max_digits10`](/reference/limits/numeric_limits/max_digits10.md) と等しい。
 
 ##備考
 - 規格で 10 以上であることが規定されている。
@@ -55,16 +55,12 @@ int main()
   }
 }
 ```
-* <iostream>[link ../iostream.md]
-* <cfloat>[link ../cfloat.md]
-* <cmath>[link ../cmath.md]
-* cout[link ../iostream/cout.md]
 * DECIMAL_DIG[color ff0000]
 * FLT_RADIX[link flt_radix.md]
 * LDBL_MANT_DIG[link ldbl_mant_dig.md]
-* log10[link ../cmath/log10.md]
-* ceil[link ../cmath/ceil.md]
-* modf[link ../cmath/modf.md]
+* std::log10[link ../cmath/log10.md]
+* std::ceil[link ../cmath/ceil.md]
+* std::modf[link ../cmath/modf.md]
 
 ##出力例
 ```
