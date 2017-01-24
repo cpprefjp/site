@@ -28,8 +28,6 @@ a.store(42, std::memory_order_relaxed);
 a.store(42, std::memory_order_release);
 ```
 * std::atomic_thread_fence[color ff0000]
-* std::memory_order_release[link memory_order.md]
-* std::memory_order_relaxed[link memory_order.md]
 * a.store[link atomic/store.md]
 
 ただし、後者のほうがより効率的な機械語命令へとコンパイルされる可能性が高い。より詳しい議論については[N2176](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2176.html#integrated)などを参照のこと。
@@ -44,8 +42,6 @@ std::atomic_thread_fence(std::memory_order_acquire);
 int i = a.load(std::memory_order_acquire);
 ```
 * std::atomic_thread_fence[color ff0000]
-* std::memory_order_relaxed[link memory_order.md]
-* std::memory_order_acquire[link memory_order.md]
 * a.load[link atomic/load.md]
 
 またメモリフェンスの`memory_order`として `memory_order_seq_cst` が指定された場合は、異なる`atomic`変数への操作間に順序一貫性を与える。
@@ -70,11 +66,8 @@ int j = a.load(std::memory_order_relaxed);
 assert(i == 1 || j == 1); // すなわち、i と j が共に0となることはない。
 ```
 * std::atomic_thread_fence[color ff0000]
-* std::atomic[link atomic.md]
 * store[link atomic/store.md]
 * load[link atomic/load.md]
-* std::memory_order_relaxed[link memory_order.md]
-* std::memory_order_seq_cst[link memory_order.md]
 
 この例では、Thread 1, 2 にある`seq_cst`フェンスのいずれか一方でも欠けると (`i == 0 && j == 0`) という結果が起こりうる。そして、`acquire`, `release`や`acq_rel`フェンスでは`seq_cst`フェンスの代用にはならない。
 
