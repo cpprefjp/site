@@ -47,6 +47,8 @@ int main()
 }
 ```
 * x |= b;[color ff0000]
+* x.load()[link load.md]
+* to_string()[link /reference/bitset/to_string.md]
 
 ###出力
 ```

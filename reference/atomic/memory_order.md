@@ -43,8 +43,8 @@ int main()
   t.join();
 }
 ```
-* memory_order_acquire[color ff0000]
-* memory_order_release[color ff0000]
+* std::memory_order_acquire[color ff0000]
+* std::memory_order_release[color ff0000]
 
 ###出力
 ```

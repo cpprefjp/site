@@ -51,8 +51,8 @@ int main()
   std::cout << x.load() << std::endl;
 }
 ```
-* atomic_fetch_sub_explicit[color ff0000]
-
+* std::atomic_fetch_sub_explicit[color ff0000]
+* x.load()[link /reference/atomic/atomic/load.md]
 
 ###出力
 ```

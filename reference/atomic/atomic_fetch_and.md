@@ -55,7 +55,9 @@ int main()
   std::cout << std::bitset<4>(x.load()).to_string() << std::endl;
 }
 ```
-* atomic_fetch_and[color ff0000]
+* std::atomic_fetch_and[color ff0000]
+* x.load()[link /reference/atomic/atomic/load.md]
+* to_string()[link /reference/bitset/to_string.md]
 
 
 ###出力

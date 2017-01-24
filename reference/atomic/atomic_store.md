@@ -44,15 +44,16 @@ namespace std {
 
 int main()
 {
-  std::atomic<int> a(3);
+  std::atomic<int> x(3);
 
   // 2を書き込む
-  std::atomic_store(&a, 2);
+  std::atomic_store(&x, 2);
 
-  std::cout << a.load() << std::endl;
+  std::cout << x.load() << std::endl;
 }
 ```
-* atomic_store[color ff0000]
+* std::atomic_store[color ff0000]
+* x.load()[link /reference/atomic/atomic/load.md]
 
 
 ###出力

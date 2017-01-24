@@ -43,6 +43,7 @@ int main()
   std::cout << b.load() << std::endl;
 }
 ```
+* x.load()[link load.md]
 
 
 ###出力

@@ -44,7 +44,6 @@ namespace std {
 
 
 ##例
-
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -59,8 +58,7 @@ int main()
   std::cout << result << std::endl;
 }
 ```
-* atomic_load_explicit[color ff0000]
-
+* std::atomic_load_explicit[color ff0000]
 
 ###出力
 ```

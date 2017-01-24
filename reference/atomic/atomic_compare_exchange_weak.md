@@ -20,7 +20,7 @@ namespace std {
 
 
 ##効果
-[memory_order_seq_cst](memory_order.md)のメモリオーダーにしたがって現在の値`object`と`expected`をバイトレベルで等値比較を行い、`true`である場合は現在の値`object`を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
+[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって現在の値`object`と`expected`をバイトレベルで等値比較を行い、`true`である場合は現在の値`object`を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
 
 
 ##戻り値
@@ -74,7 +74,8 @@ int main()
   }
 }
 ```
-* atomic_compare_exchange_weak[color ff0000]
+* std::atomic_compare_exchange_weak[color ff0000]
+* x.load()[link /reference/atomic/atomic/load.md]
 
 
 ###出力

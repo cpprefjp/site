@@ -81,6 +81,7 @@ int main()
 }
 ```
 * compare_exchange_weak[color ff0000]
+* x.load()[link load.md]
 
 ###出力
 ```

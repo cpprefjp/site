@@ -88,7 +88,6 @@ int main()
 * test_and_set[color ff0000]
 * clear[color ff0000]
 
-
 ###出力例
 ```
 2

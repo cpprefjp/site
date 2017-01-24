@@ -51,7 +51,7 @@ int main()
   }
 }
 ```
-* atomic_is_lock_free[color ff0000]
+* std::atomic_is_lock_free[color ff0000]
 
 ###出力例
 ```

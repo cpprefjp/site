@@ -71,7 +71,8 @@ int main()
   }
 }
 ```
-* atomic_compare_exchange_strong[color ff0000]
+* std::atomic_compare_exchange_strong[color ff0000]
+* x.load()[link /reference/atomic/atomic/load.md]
 
 
 ###出力

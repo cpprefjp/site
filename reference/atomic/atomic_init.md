@@ -49,6 +49,8 @@ int main()
   std::cout << x.load() << std::endl;
 }
 ```
+* std::atomic_init[color ff0000]
+* x.load()[link atomic/load.md]
 
 ###出力
 ```

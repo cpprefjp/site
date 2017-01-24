@@ -24,8 +24,8 @@ namespace std {
 
 
 ##要件
-`failure`が[`memory_order_release`](memory_order.md), [`memory_order_acq_rel`](memory_order.md)ではないこと。
-`failure`が`success`よりも強くないこと。
+- `failure`が[`memory_order_release`](memory_order.md), [`memory_order_acq_rel`](memory_order.md)ではないこと。
+- `failure`が`success`よりも強くないこと。
 
 
 ##効果
@@ -85,11 +85,12 @@ int main()
   }
 }
 ```
-* atomic_compare_exchange_strong_explicit[color ff0000]
+* std::atomic_compare_exchange_strong_explicit[color ff0000]
+* x.load()[link /reference/atomic/atomic/load.md]
 
 
 ###出力
-```cpp
+```
 true 2 3
 false 3 3
 ```

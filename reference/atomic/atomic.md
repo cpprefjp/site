@@ -176,7 +176,6 @@ int main()
 * exchange[color ff0000]
 * store[color ff0000]
 
-
 ###出力例
 ```
 2

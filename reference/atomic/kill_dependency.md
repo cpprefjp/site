@@ -77,6 +77,9 @@ int main()
   t1.join();
 }
 ```
+* std::kill_dependency[color ff0000]
+* a.store[link atomic/store.md]
+* a.load[link atomic/load.md]
 
 
 ###出力例

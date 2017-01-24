@@ -33,6 +33,7 @@ int main()
 }
 ```
 * ATOMIC_VAR_INIT[color ff0000]
+* x.load()[link atomic/load.md]
 
 
 ###出力

@@ -51,7 +51,7 @@ int main()
   std::cout << result << std::endl;
 }
 ```
-* atomic_load[color ff0000]
+* std::atomic_load[color ff0000]
 
 
 ###出力

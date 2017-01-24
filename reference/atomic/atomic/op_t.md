@@ -34,7 +34,7 @@ int main()
   std::cout << value << std::endl;
 }
 ```
-* int value = x;[color ff0000]
+* int value = x;[color ff0000]a
 
 ###出力
 ```

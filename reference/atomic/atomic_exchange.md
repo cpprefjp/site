@@ -53,7 +53,7 @@ int main()
   }
 }
 ```
-* atomic_exchange[color ff0000]
+* std::atomic_exchange[color ff0000]
 
 
 ###出力
