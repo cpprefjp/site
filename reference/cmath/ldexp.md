@@ -22,7 +22,7 @@ namespace std {
 
 
 ##戻り値
-`x * 2`<sup>exp</sup>
+<code>x * 2<sup>exp</sup></code>
 
 オーバーフローエラー、アンダーフローエラーが発生する可能性がある。
 
