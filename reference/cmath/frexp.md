@@ -63,3 +63,9 @@ int main()
 ```
 48 = 0.75 * 2^6
 ```
+
+
+##参照
+- [Why does `frexp()` not yield scientific notation?](http://stackoverflow.com/questions/24928833/why-does-frexp-not-yield-scientific-notation)
+    - `frexp()`が戻り値を`[1, 2)`の範囲ではなく、`[0.5, 1)`の範囲に収めるようにしている理由は、IEEE 754およびISO/IEC 60559が策定される前に作られた関数であることが理由と考えられる
+
