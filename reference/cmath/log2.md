@@ -39,6 +39,7 @@ namespace std {
 
 
 ##例
+##基本的な使い方
 ```cpp
 #include <cmath>
 #include <limits>
@@ -57,12 +58,73 @@ int main() {
 * std::numeric_limits[link ../limits/numeric_limits.md]
 * infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力例
+####出力例
 ```
 log2(0.0)  = -inf
 log2(2)    = 1.000000
 log2(+∞)  = inf
 log2(-1.0) = nan
+```
+
+###Nが2の何乗か調べる
+```cpp
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+  for (int i = 1; i <= 32; i++) {
+    double result = std::log2(i);
+
+    // 小数部が0だったら、iは2の乗数
+    double integral_part = 0.0;
+    double fractional_part = std::modf(result, &integral_part);
+    bool is_pow_of_2 = fractional_part == 0.0;
+
+    std::cout << "log2(" << i << ") : "
+              << result
+              << (is_pow_of_2 ? ", power of 2" : "")
+              << std::endl;
+  }
+}
+```
+* std::log2[color ff0000]
+* std::modf[link modf.md]
+
+####出力
+```
+log2(1) : 0, power of 2
+log2(2) : 1, power of 2
+log2(3) : 1.58496
+log2(4) : 2, power of 2
+log2(5) : 2.32193
+log2(6) : 2.58496
+log2(7) : 2.80735
+log2(8) : 3, power of 2
+log2(9) : 3.16993
+log2(10) : 3.32193
+log2(11) : 3.45943
+log2(12) : 3.58496
+log2(13) : 3.70044
+log2(14) : 3.80735
+log2(15) : 3.90689
+log2(16) : 4, power of 2
+log2(17) : 4.08746
+log2(18) : 4.16993
+log2(19) : 4.24793
+log2(20) : 4.32193
+log2(21) : 4.39232
+log2(22) : 4.45943
+log2(23) : 4.52356
+log2(24) : 4.58496
+log2(25) : 4.64386
+log2(26) : 4.70044
+log2(27) : 4.75489
+log2(28) : 4.80735
+log2(29) : 4.85798
+log2(30) : 4.90689
+log2(31) : 4.9542
+log2(32) : 5, power of 2
 ```
 
 ##バージョン
