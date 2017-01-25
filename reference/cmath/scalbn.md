@@ -35,7 +35,7 @@ namespace std {
 
 
 ##戻り値
-`x *` [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<sup>n</sup>
+<code>x * [FLT_RADIX](/reference/cfloat/flt_radix.md)<sup>n</sup></code>
 
 オーバーフローエラー、アンダーフローエラーが発生する可能性がある。
 
