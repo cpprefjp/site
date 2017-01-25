@@ -38,6 +38,7 @@ namespace std {
 
 
 ##例
+###基本的な使い方
 ```cpp
 #include <cmath>
 #include <limits>
@@ -56,12 +57,44 @@ int main() {
 * std::numeric_limits[link ../limits/numeric_limits.md]
 * infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力例
+####出力例
 ```
 log10(0.0)  = -inf
 log10(10)   = 1.000000
 log10(+∞)  = inf
 log10(-1.0) = nan
+```
+
+
+###Nが10の何乗か調べる
+```cpp
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+  for (int i = 1; i <= 8; i++) {
+    double x = std::pow(10, i);
+    double result = std::log10(x);
+
+    std::cout << std::fixed << "log10(" << x << ") : " << result << std::endl;
+  }
+}
+```
+* std::log10[color ff0000]
+* std::pow[link pow.md]
+* std::fixed[link ../ios/fixed.md]
+
+####出力
+```
+log10(10.000000) : 1.000000
+log10(100.000000) : 2.000000
+log10(1000.000000) : 3.000000
+log10(10000.000000) : 4.000000
+log10(100000.000000) : 5.000000
+log10(1000000.000000) : 6.000000
+log10(10000000.000000) : 7.000000
+log10(100000000.000000) : 8.000000
 ```
 
 ##バージョン
