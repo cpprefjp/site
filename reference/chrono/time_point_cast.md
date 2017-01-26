@@ -50,6 +50,8 @@ int main()
   std::cout << sp.time_since_epoch().count() << std::endl;
 }
 ```
+* time_point[link time_point.md]
+* system_clock[link system_clock.md]
 * time_point_cast[color ff0000]
 * milliseconds[link milliseconds.md]
 * seconds[link seconds.md]
