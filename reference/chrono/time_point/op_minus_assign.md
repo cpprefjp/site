@@ -41,6 +41,11 @@ int main()
   std::cout << p.time_since_epoch().count() << std::endl;
 }
 ```
+* system_clock[link /reference/chrono/system_clock.md]
+* now()[link /reference/chrono/system_clock/now.md]
+* seconds[link /reference/chrono/seconds.md]
+* time_since_epoch()[link time_since_epoch.md]
+* count()[link /reference/chrono/duration/count.md]
 
 ###出力例
 ```

@@ -13,7 +13,7 @@ static constexpr duration min();
 `rep`の最小値から成る`duration`を取得する
 
 ##戻り値
-`duration(`[`duration_values`](/reference/chrono/duration_values.md)`<rep>::`[`min`](/reference/chrono/duration_values/min.md)`())`
+`duration(`[`duration_values`](/reference/chrono/duration_values.md)`<rep>::`[`min()`](/reference/chrono/duration_values/min.md)`)`
 
 
 ##例
@@ -33,6 +33,8 @@ int main()
 }
 ```
 * min()[color ff0000]
+* micro[link /reference/ratio/si_prefix.md]
+* count()[link count.md]
 
 
 ###出力例

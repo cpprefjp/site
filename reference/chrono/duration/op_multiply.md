@@ -68,6 +68,9 @@ int main()
   }
 }
 ```
+* seconds[link /reference/chrono/seconds.md]
+* milliseconds[link /reference/chrono/milliseconds.md]
+* count()[link count.md]
 
 ###出力
 ```

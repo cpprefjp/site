@@ -34,7 +34,10 @@ int main()
   std::cout << p.time_since_epoch().count() << std::endl;
 }
 ```
-* min[color ff0000]
+* min()[color ff0000]
+* system_clock[link /reference/chrono/system_clock.md]
+* time_since_epoch()[link time_since_epoch.md]
+* count()[link /reference/chrono/duration/count.md]
 
 ###出力例
 ```

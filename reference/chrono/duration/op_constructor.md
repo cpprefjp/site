@@ -56,6 +56,9 @@ int main()
   std::cout << "d5 : " << d5.count() << std::endl;
 }
 ```
+* std::milli[link /reference/ratio/si_prefix.md]
+* std::micro[link /reference/ratio/si_prefix.md]
+* count()[link count.md]
 
 ###出力
 ```

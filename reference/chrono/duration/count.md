@@ -33,6 +33,7 @@ int main()
 }
 ```
 * count[color ff0000]
+* nano[link /reference/ratio/si_prefix.md]
 
 ###出力
 ```

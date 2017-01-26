@@ -41,8 +41,9 @@ int main()
 }
 ```
 * system_clock::to_time_t(p)[color ff0000]
+* now()[link now.md]
 
-###出力
+###出力例
 ```
 Tue Sep 27 14:21:13 2011
 ```

@@ -47,6 +47,8 @@ int main()
   }
 }
 ```
+* nano[link /reference/ratio/si_prefix.md]
+* count()[link count.md]
 
 ###出力
 ```

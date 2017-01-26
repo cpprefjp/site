@@ -32,6 +32,7 @@ int main()
 }
 ```
 * zero[color ff0000]
+* seconds[link /reference/chrono/seconds.md]
 
 
 ###出力

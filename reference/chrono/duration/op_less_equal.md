@@ -43,7 +43,7 @@ int main()
 }
 ```
 * seconds(3) <= seconds(3)[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* seconds[link /reference/chrono/seconds.md]
 
 ###出力
 ```

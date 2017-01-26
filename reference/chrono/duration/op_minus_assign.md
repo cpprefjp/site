@@ -39,6 +39,8 @@ int main()
   std::cout << d1.count() << std::endl;
 }
 ```
+* micro[link /reference/ratio/si_prefix.md]
+* count()[link count.md]
 
 
 ###出力

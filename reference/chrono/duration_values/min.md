@@ -37,8 +37,10 @@ int main()
   std::cout << duration_values<duration<double, std::nano>::rep>::min() << std::endl;
 }
 ```
-* min[color ff0000]
-
+* min()[color ff0000]
+* seconds[link /reference/chrono/seconds.md]
+* duration[link /reference/chrono/duration.md]
+* std::nano[link /reference/ratio/si_prefix.md]
 
 ###出力例
 ```

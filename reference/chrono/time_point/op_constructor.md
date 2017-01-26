@@ -49,6 +49,11 @@ int main()
   }
 }
 ```
+* system_clock[link /reference/chrono/system_clock.md]
+* time_since_epoch()[link time_since_epoch.md]
+* count()[link /reference/chrono/duration/count.md]
+* seconds[link /reference/chrono/seconds.md]
+* milliseconds[link /reference/chrono/milliseconds.md]
 
 ###出力
 ```

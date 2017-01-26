@@ -44,6 +44,7 @@ int main()
 }
 ```
 * system_clock::from_time_t(t)[color ff0000]
+* to_time_t[link to_time_t.md]
 
 ###出力例
 ```

@@ -57,8 +57,7 @@ int main()
 ```
 * 3s[color ff0000]
 * 3.1s[color ff0000]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* count()[link count.md]
 
 ###出力
 ```
