@@ -66,6 +66,11 @@ int main()
   std::cout << elapsed_time.count() << "秒" << std::endl;
 }
 ```
+* now()[link high_resolution_clock/now.md]
+* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
+* seconds[link seconds.md]
+* duration_cast[link duration_cast.md]
+* count()[link duration/count.md]
 
 ###出力例
 ```

@@ -38,6 +38,9 @@ int main()
 }
 ```
 * duration_cast[color ff0000]
+* milliseconds[link milliseconds.md]
+* seconds[link seconds.md]
+* s.count()[link duration/count.md]
 
 ###出力
 ```

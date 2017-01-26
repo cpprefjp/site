@@ -45,8 +45,6 @@ int main()
 * std::chrono::minutes[link minutes.md]
 * std::chrono::seconds[link seconds.md]
 * count()[link duration/count.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

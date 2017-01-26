@@ -48,8 +48,6 @@ int main()
 * std::chrono::hours[link hours.md]
 * count()[link duration/count.md]
 * std::chrono::duration_cast[link duration_cast.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

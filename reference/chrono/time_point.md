@@ -92,6 +92,9 @@ int main() {
   std::cout << std::put_time(lt, "%c") << std::endl;
 }
 ```
+* system_clock[link system_clock.md]
+* now()[link system_clock/now.md]
+* to_time_t[link system_clock/to_time_t.md]
 
 ###出力例
 ```

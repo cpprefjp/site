@@ -144,6 +144,10 @@ int main()
   print(p);
 }
 ```
+* system_clock[link system_clock.md]
+* to_time_t[link system_clock/to_time_t.md]
+* now()[link system_clock/now.md]
+* seconds[link seconds.md]
 
 ###出力例
 ```

@@ -51,6 +51,10 @@ int main()
 }
 ```
 * time_point_cast[color ff0000]
+* milliseconds[link milliseconds.md]
+* seconds[link seconds.md]
+* time_since_epoch()[link time_point/time_since_epoch.md]
+* count()[link duration/count.md]
 
 ###出力
 ```

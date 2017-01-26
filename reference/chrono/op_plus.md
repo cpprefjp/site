@@ -53,6 +53,8 @@ namespace chrono {
 typedef common_type<decltype(lhs), decltype(rhs)> cd;
 return cd(cd(lhs).count() + cd(rhs).count());
 ```
+* common_type[link /reference/type_traits/common_type.md]
+* count()[link duration/count.md]
 
 - (2)
 
@@ -60,6 +62,8 @@ return cd(cd(lhs).count() + cd(rhs).count());
 typedef time_point<Clock, common_type<decltype(lhs), decltype(rhs)>> ct;
 return ct(lhs) += rhs;
 ```
+* time_point[link time_point.md]
+* common_type[link /reference/type_traits/common_type.md]
 
 - (3)
 
@@ -98,6 +102,12 @@ int main()
 }
 ```
 * +[color ff0000]
+* seconds[link seconds.md]
+* count()[link duration/count.md]
+* milliseconds[link milliseconds.md]
+* time_point[link time_point.md]
+* system_clock[link system_clock.md]
+* time_since_epoch()[link time_point/time_since_epoch.md]
 
 ###出力
 ```

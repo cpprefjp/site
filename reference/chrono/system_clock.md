@@ -62,6 +62,8 @@ int main()
   std::cout << std::ctime(&t) << std::endl;
 }
 ```
+* now()[link system_clock/now.md]
+* to_time_t[link system_clock/to_time_t.md]
 
 ###出力例
 ```
