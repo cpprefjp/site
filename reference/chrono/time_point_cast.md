@@ -12,7 +12,7 @@ namespace chrono {
     time_point_cast(const time_point<Clock, Duration>& t); // C++11
 
   template <class ToDuration, class Clock, class Duration>
-  time_point<Clock, ToDuration>
+  constexpr time_point<Clock, ToDuration>
     time_point_cast(const time_point<Clock, Duration>& t); // C++14
 }}
 ```
