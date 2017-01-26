@@ -44,7 +44,7 @@ int main()
 ```
 * treat_as_floating_point[color ff0000]
 * duration[link duration.md]
-* std::ratio[link ratio/ratio.md]
+* std::ratio[link /reference/ratio/ratio.md]
 * milliseconds[link milliseconds.md]
 
 ###出力
