@@ -22,6 +22,10 @@ namespace std {
 ##概要
 算術型の逆正接（アークタンジェント）を対辺と隣辺から求める。
 
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/cmath/atan2/atan2.jpg)
+
+このような三角形があった場合、辺`y`の長さと辺`a`の長さを`atan2()`関数に与えることで、角度θがラジアン単位として求まる。
+
 
 ##戻り値
 `y / x` の逆正接を `[-π, π]` の範囲で返す。（単位はラジアン）
