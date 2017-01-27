@@ -63,6 +63,24 @@ exp2(+∞) = inf
 exp2(-∞) = 0.000000
 ```
 
+##実装例
+```cpp
+namespace std {
+  double exp2(double x) {
+    return std::pow(2.0, x);
+  }
+
+  float exp2(float x) {
+    return std::pow(2.0f, x);
+  }
+
+  long double exp2(long double x) {
+    return std::pow(2.0L, x);
+  }
+}
+```
+* std::pow[link pow.md]
+
 ##バージョン
 ###言語
 - C++11
