@@ -18,7 +18,7 @@ namespace std {
 * Integral[italic]
 
 ##概要
-`e` (ネイピア数) を底とする自然対数を求める。
+`e` (ネイピア数) を底とする自然対数を求める。logは「logarithm (対数)」の略である。
 
 
 ##戻り値
