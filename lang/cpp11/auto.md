@@ -25,7 +25,7 @@ auto f = []{};                      // f は 引数を取らずに値を返さ�
 この機能の追加に伴って、C++03 までの `auto` に存在した、自動変数である事を意味する記憶クラス指定子としての使用はできなくなった。
 
 なお、`auto` は[戻り値の型を後置する関数宣言構文](trailing_return_types.md)でも使用されるが、その場合の `auto` には型推論の意味は無い。  
-さらに、C++14 では `auto` キーワードを使用する機能として、[変換関数の型推論](../cpp14/type_deduction_for_conversion_function.md.nolink)、[通常関数の戻り値型推論](../cpp14/return_type_deduction_for_normal_functions.md)、[後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)、[ジェネリックラムダ](../cpp14/generic_lambdas.md)、および、[`decltype(auto)`](../cpp14/decltype_auto.md) が追加されている。  
+さらに、C++14 では `auto` キーワードを使用する機能として、[ユーザ定義変換関数の型推論](../cpp14/return_type_deduction_for_normal_functions.md)、[通常関数の戻り値型推論](../cpp14/return_type_deduction_for_normal_functions.md)、[後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)、[ジェネリックラムダ](../cpp14/generic_lambdas.md)、および、[`decltype(auto)`](../cpp14/decltype_auto.md) が追加されている。  
 それぞれの機能については、各解説を参照。
 
 
@@ -42,7 +42,7 @@ auto f = []{};                      // f は 引数を取らずに値を返さ�
 - クラス定義内での静的メンバ宣言
 
 これら以外の場所では `auto` による型推論は使用できない。  
-なお、C++14 ではこれらのほか、[変換関数](../cpp14/type_deduction_for_conversion_function.md.nolink)、[通常関数の戻り値型](../cpp14/return_type_deduction_for_normal_functions.md)、[後置戻り値型](../cpp14/placeholder_type_in_trailing_return_type.md)、[ジェネリックラムダの引数](../cpp14/generic_lambdas.md)でも使用可能になっている。
+なお、C++14 ではこれらのほか、[ユーザ定義変換関数](../cpp14/return_type_deduction_for_normal_functions.md)、[通常関数の戻り値型](../cpp14/return_type_deduction_for_normal_functions.md)、[後置戻り値型](../cpp14/placeholder_type_in_trailing_return_type.md)、[ジェネリックラムダの引数](../cpp14/generic_lambdas.md)でも使用可能になっている。
 
 `auto` は単独での指定だけではなく、CV修飾（`const`、`volatile`）やポインタ・参照修飾（`*`、`&`、`&&`）等と共に指定する事が可能である。
 
@@ -373,13 +373,12 @@ std::pair<T, U>& p = foo();
 
 
 ##関連項目
-- [C++14 変換関数の型推論](../cpp14/type_deduction_for_conversion_function.md.nolink)
 - [C++11 戻り値の型を後置する関数宣言構文](trailing_return_types.md)
 - [C++11 `decltype`](decltype.md)
 - [C++11 ラムダ式](lambda_expressions.md)
 - [C++14 `decltype(auto)`](../cpp14/decltype_auto.md)
 - [C++14 後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)
-- [C++14 通常関数の戻り値型推論](../cpp14/return_type_deduction_for_normal_functions.md)
+- [C++14 通常関数の戻り値型推論（ユーザ定義変換関数の型推論を含む）](../cpp14/return_type_deduction_for_normal_functions.md)
 
 
 ##参照
