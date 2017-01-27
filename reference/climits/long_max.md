@@ -9,7 +9,7 @@
 ##概要
 `long` 型が表現できる値の最大値。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、`LONG_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long>::`[`max()`](/reference/limits/numeric_limits/max.md) と等しいが、`LONG_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。
 
 具体的な値は実装依存であるが、2147483647（2<sup>31</sup> - 1）以上であることが規格で定められている。このマクロによって定義される値の型は `long` である。
 

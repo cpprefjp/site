@@ -9,7 +9,7 @@
 ##概要
 `signed char` 型が表現できる値の最小値。
 
-値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<signed char>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しいが、型が異なり、また `SCHAR_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。
+値は [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<signed char>::`[`min()`](/reference/limits/numeric_limits/min.md) と等しいが、型が異なり、また `SCHAR_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。
 
 具体的な値は実装依存であるが、-127（-(2<sup>7</sup> - 1)）以下であることが規格で定められている。このマクロによって定義される値の型は `int` である。
 

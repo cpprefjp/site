@@ -9,7 +9,7 @@
 ##概要
 `long` 型が表現できる値の最小値。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しいが、`LONG_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long>::`[`min()`](/reference/limits/numeric_limits/min.md) と等しいが、`LONG_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。
 
 具体的な値は実装依存であるが、-2147483647（-(2<sup>31</sup> - 1)）以下であることが規格で定められている。このマクロによって定義される値の型は `long` である。
 

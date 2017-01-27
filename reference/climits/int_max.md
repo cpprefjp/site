@@ -9,7 +9,7 @@
 ##概要
 `int` 型が表現できる値の最大値。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<int>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しいが、`INT_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<int>::`[`max()`](/reference/limits/numeric_limits/max.md) と等しいが、`INT_MAX` は `#if` などのプリプロセッサディレクティブで使用できる。
 
 具体的な値は実装依存であるが、32767（2<sup>15</sup> - 1）以上であることが規格で定められている。このマクロによって定義される値の型は `int` である。
 
