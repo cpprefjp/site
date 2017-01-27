@@ -24,7 +24,7 @@ namespace std {
 
 ![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/cmath/atan2/atan2.jpg)
 
-このような三角形があった場合、辺`y`の長さと辺`a`の長さを`atan2()`関数に与えることで、角度θがラジアン単位として求まる。
+このような三角形があった場合、辺`y`の長さと辺`x`の長さを`atan2()`関数に与えることで、角度θがラジアン単位として求まる。
 
 
 ##戻り値
