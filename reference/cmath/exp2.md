@@ -47,6 +47,8 @@ int main() {
   std::cout << std::fixed;
   std::cout << "exp2(0.0) = " << std::exp2(0.0) << std::endl;
   std::cout << "exp2(1.0) = " << std::exp2(1.0) << std::endl;
+  std::cout << "exp2(3.0) = " << std::exp2(3.0) << std::endl;
+  std::cout << "exp2(4.0) = " << std::exp2(4.0) << std::endl;
   std::cout << "exp2(+∞) = " << std::exp2(std::numeric_limits<double>::infinity()) << std::endl;
   std::cout << "exp2(-∞) = " << std::exp2(-std::numeric_limits<double>::infinity()) << std::endl;
 }
@@ -59,6 +61,8 @@ int main() {
 ```
 exp2(0.0) = 1.000000
 exp2(1.0) = 2.000000
+exp2(3.0) = 8.000000
+exp2(4.0) = 16.000000
 exp2(+∞) = inf
 exp2(-∞) = 0.000000
 ```
