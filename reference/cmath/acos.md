@@ -47,6 +47,7 @@ int main() {
   std::cout << "acos(1/√2) = " << std::acos(1.0 / std::sqrt(2.0)) << std::endl;
   std::cout << "acos(√3/2) = " << std::acos(std::sqrt(3.0) / 2.0) << std::endl;
   std::cout << "acos(1.0)   = " << std::acos(1.0) << std::endl;
+  std::cout << "acos(-1.0) = " << std::acos(-1.0) << std::endl; // 円周率
 }
 ```
 * std::acos[color ff0000]
@@ -60,6 +61,7 @@ acos(0.5)   = 1.047198
 acos(1/√2) = 0.785398
 acos(√3/2) = 0.523599
 acos(1.0)   = 0.000000
+acos(-1.0) = 3.141593
 ```
 
 ##バージョン
