@@ -82,8 +82,7 @@ int main() {
 ```
 * std::pow[color ff0000]
 * std::fixed[link ../ios/fixed.md]
-* std::numeric_limits[link ../limits/numeric_limits.md]
-* infinity[link ../limits/numeric_limits/infinity.md]
+* infinity()[link ../limits/numeric_limits/infinity.md]
 
 ###出力例
 ```

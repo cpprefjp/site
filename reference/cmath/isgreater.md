@@ -65,8 +65,7 @@ int main()
   test(nan, nan);
 }
 ```
-* isgreater[color ff0000]
-* std::numeric_limits[link /reference/limits/numeric_limits.md]
+* std::isgreater[color ff0000]
 * infinity()[link /reference/limits/numeric_limits/infinity.md]
 * quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 

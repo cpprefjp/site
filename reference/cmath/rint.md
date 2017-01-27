@@ -71,18 +71,12 @@ int main()
 #endif
 }
 ```
-* iostream[link ../iostream.md]
-* cmath[link ../cmath.md]
-* cfenv[link ../cfenv.md]
-* rint[color ff0000]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* boolalpha[link ../ios/boolalpha.md]
+* std::rint[color ff0000]
 * FE_INEXACT[link ../cfenv/fe_inexact.md]
 * FE_ALL_EXCEPT[link ../cfenv/fe_all_except.md]
-* feclearexcept[link ../cfenv/feclearexcept.md]
-* fetestexcept[link ../cfenv/fetestexcept.md]
-* fesetround[link ../cfenv/fesetround.md]
+* std::feclearexcept[link ../cfenv/feclearexcept.md]
+* std::fetestexcept[link ../cfenv/fetestexcept.md]
+* std::fesetround[link ../cfenv/fesetround.md]
 * FE_DOWNWARD[link ../cfenv/fe_downward.md]
 * FE_TONEAREST[link ../cfenv/fe_tonearest.md]
 * FE_TOWARDZERO[link ../cfenv/fe_towardzero.md]

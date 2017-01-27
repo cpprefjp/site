@@ -15,7 +15,7 @@
 
 
 ##備考
-このマクロの値は、[`fpclassify`](fpclassify.md) において、引数が非正規化数である場合に、戻り値として使用される。
+このマクロの値は、[`std::fpclassify`](fpclassify.md) において、引数が非正規化数である場合に、戻り値として使用される。
 
 
 ##例
@@ -31,15 +31,8 @@ int main()
 }
 ```
 * FP_SUBNORMAL[color ff0000]
-* iostream[link ../iostream.md]
-* limits[link ../limits.md]
-* cmath[link ../cmath.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* boolalpha[link ../ios/boolalpha.md]
-* numeric_limits[link ../limits/numeric_limits.md]
-* denorm_min[link ../limits/numeric_limits/denorm_min.md]
-* fpclassify[link fpclassify.md]
+* denorm_min()[link ../limits/numeric_limits/denorm_min.md]
+* std::fpclassify[link fpclassify.md]
 
 ###出力例
 ```

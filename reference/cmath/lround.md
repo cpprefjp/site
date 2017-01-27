@@ -57,8 +57,7 @@ int main()
   test(-2.9);
 }
 ```
-* cmath[link ../cmath.md]
-* lround[color ff0000]
+* std::lround[color ff0000]
 
 ###出力
 ```

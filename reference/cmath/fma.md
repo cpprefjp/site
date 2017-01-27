@@ -116,6 +116,21 @@ int main()
   test(INFINITY, 1.0F, -INFINITY);
 }
 ```
+* std::fma[link ff0000]
+* math_errhandling[link math_errhandling.md]
+* MATH_ERREXCEPT[link math_errexcept.md]
+* std::feclearexcept[link /reference/cfenv/feclearexcept.md]
+* FE_ALL_EXCEPT[link /reference/cfenv/fe_all_except.md]
+* FE_INVALID[link /reference/cfenv/fe_invalid.md]
+* FE_DIVBYZERO[link /reference/cfenv/fe_divbyzero.md]
+* FE_OVERFLOW[link /reference/cfenv/fe_overflow.md]
+* FE_UNDERFLOW[link /reference/cfenv/fe_underflow.md]
+* FE_INEXACT[link /reference/cfenv/fe_inexact.md]
+* errno[link /reference/cerrno/errno.md]
+* std::fixed[link /reference/ios/fixed.md]
+* std::setprecision[link /reference/iomanip/setprecision.md]
+* INFINITY[link infinity.md]
+* NAN[link nan.md]
 
 ###出力例
 ```

@@ -49,9 +49,8 @@ int main() {
   std::cout << "cbrt(-1.0) = " << std::cbrt(-1.0) << std::endl;
 }
 ```
-* std::fixed[link ../ios/fixed.md]
 * std::cbrt[color ff0000]
-* std::numeric_limits[link ../limits/numeric_limits.md]
+* std::fixed[link ../ios/fixed.md]
 * infinity[link ../limits/numeric_limits/infinity.md]
 
 ###出力例

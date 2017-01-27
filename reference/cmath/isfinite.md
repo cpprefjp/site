@@ -63,11 +63,9 @@ int main()
 }
 ```
 * std::isfinite[color ff0000]
-* assert[link /reference/cassert/assert.md]
-* std::numeric_limits[link /reference/limits/numeric_limits.md]
 * infinity()[link /reference/limits/numeric_limits/infinity.md]
 * quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
-* has_denorm()[link /reference/limits/numeric_limits/has_denorm.md]
+* has_denorm[link /reference/limits/numeric_limits/has_denorm.md]
 * denorm_min()[link /reference/limits/numeric_limits/denorm_min.md]
 
 ###出力

@@ -15,7 +15,7 @@
 
 
 ##備考
-このマクロの値は、[`fpclassify`](fpclassify.md) において、引数が正規化数である場合に、戻り値として使用される。
+このマクロの値は、[`std::fpclassify`](fpclassify.md) において、引数が正規化数である場合に、戻り値として使用される。
 
 
 ##例
@@ -30,12 +30,7 @@ int main()
 }
 ```
 * FP_NORMAL[color ff0000]
-* iostream[link ../iostream.md]
-* cmath[link ../cmath.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* boolalpha[link ../ios/boolalpha.md]
-* fpclassify[link fpclassify.md]
+* std::fpclassify[link fpclassify.md]
 
 ###出力例
 ```

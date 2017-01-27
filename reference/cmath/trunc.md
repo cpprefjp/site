@@ -63,16 +63,11 @@ int main()
   test(-2.9);
 }
 ```
-* iostream[link ../iostream.md]
-* cmath[link ../cmath.md]
-* cfenv[link ../cfenv.md]
-* trunc[color ff0000]
-* cout[link ../iostream/cout.md]
-* boolalpha[link ../ios/boolalpha.md]
+* std::trunc[color ff0000]
 * FE_INEXACT[link ../cfenv/fe_inexact.md]
 * FE_ALL_EXCEPT[link ../cfenv/fe_all_except.md]
-* feclearexcept[link ../cfenv/feclearexcept.md]
-* fetestexcept[link ../cfenv/fetestexcept.md]
+* std::feclearexcept[link ../cfenv/feclearexcept.md]
+* std::fetestexcept[link ../cfenv/fetestexcept.md]
 
 ###出力例
 ```

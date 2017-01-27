@@ -56,17 +56,10 @@ int main()
   std::cout << (std::fpclassify(0.0                                      ) == FP_ZERO     ) << std::endl;
 }
 ```
-* fpclassify[color ff0000]
-* iostream[link ../iostream.md]
-* limits[link ../limits.md]
-* cmath[link ../cmath.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* boolalpha[link ../ios/boolalpha.md]
-* numeric_limits[link ../limits/numeric_limits.md]
-* infinity[link ../limits/numeric_limits/infinity.md]
-* quiet_NaN[link ../limits/numeric_limits/quiet_nan.md]
-* denorm_min[link ../limits/numeric_limits/denorm_min.md]
+* std::fpclassify[color ff0000]
+* infinity()[link ../limits/numeric_limits/infinity.md]
+* quiet_NaN()[link ../limits/numeric_limits/quiet_nan.md]
+* denorm_min()[link ../limits/numeric_limits/denorm_min.md]
 * FP_INFINITE[link fp_infinite.md]
 * FP_NAN[link fp_nan.md]
 * FP_NORMAL[link fp_normal.md]

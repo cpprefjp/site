@@ -83,13 +83,13 @@ int main()
 #endif
 }
 ```
-* lrint[color ff0000]
+* std::lrint[color ff0000]
 * FE_INEXACT[link ../cfenv/fe_inexact.md]
 * FE_INVALID[link ../cfenv/fe_invalid.md]
 * FE_ALL_EXCEPT[link ../cfenv/fe_all_except.md]
-* feclearexcept[link ../cfenv/feclearexcept.md]
-* fetestexcept[link ../cfenv/fetestexcept.md]
-* fesetround[link ../cfenv/fesetround.md]
+* std::feclearexcept[link ../cfenv/feclearexcept.md]
+* std::fetestexcept[link ../cfenv/fetestexcept.md]
+* std::fesetround[link ../cfenv/fesetround.md]
 * FE_DOWNWARD[link ../cfenv/fe_downward.md]
 * FE_UPWARD[link ../cfenv/fe_upward.md]
 * FE_TOWARDZERO[link ../cfenv/fe_towardzero.md]

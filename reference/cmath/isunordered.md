@@ -55,8 +55,7 @@ int main()
   test(1.0, inf);
 }
 ```
-* isunordered[color ff0000]
-* std::numeric_limits[link /reference/limits/numeric_limits.md]
+* std::isunordered[color ff0000]
 * infinity()[link /reference/limits/numeric_limits/infinity.md]
 * quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 

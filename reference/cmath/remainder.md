@@ -57,7 +57,7 @@ int main()
   test(6.0, 2.0);
 }
 ```
-* remainder[color ff0000]
+* std::remainder[color ff0000]
 
 ###出力例
 ```

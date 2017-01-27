@@ -56,7 +56,7 @@ int main()
   test(6.0, 2.0);
 }
 ```
-* remquo[color ff0000]
+* std::remquo[color ff0000]
 
 ###出力例
 ```

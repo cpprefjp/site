@@ -40,8 +40,6 @@ int main()
 }
 ```
 * std::isinf[color ff0000]
-* assert[link /reference/cassert/assert.md]
-* std::numeric_limits[link /reference/limits/numeric_limits.md]
 * infinity()[link /reference/limits/numeric_limits/infinity.md]
 
 ###出力

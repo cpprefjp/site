@@ -13,7 +13,7 @@
 
 
 ##備考
-このマクロの値は、[`fpclassify`](fpclassify.md) において、引数が `NaN`（Not a Number、非数）である場合に、戻り値として使用される。
+このマクロの値は、[`std::fpclassify`](fpclassify.md) において、引数が `NaN`（Not a Number、非数）である場合に、戻り値として使用される。
 
 
 ##例
@@ -29,15 +29,8 @@ int main()
 }
 ```
 * FP_NAN[color ff0000]
-* iostream[link ../iostream.md]
-* limits[link ../limits.md]
-* cmath[link ../cmath.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* boolalpha[link ../ios/boolalpha.md]
-* numeric_limits[link ../limits/numeric_limits.md]
-* quiet_NaN[link ../limits/numeric_limits/quiet_nan.md]
-* fpclassify[link fpclassify.md]
+* quiet_NaN()[link ../limits/numeric_limits/quiet_nan.md]
+* std::fpclassify[link fpclassify.md]
 
 ###出力例
 ```

@@ -53,6 +53,7 @@ int main()
 }
 ```
 * std::ilogb[color ff0000]
+* infinity()[link /reference/limits/numeric_limits/infinity.md]
 
 ###出力例
 ```

@@ -55,8 +55,7 @@ int main()
 }
 ```
 * std::logb[color ff0000]
-* std::numeric_limits[link ../limits/numeric_limits.md]
-* infinity[link ../limits/numeric_limits/infinity.md]
+* infinity()[link ../limits/numeric_limits/infinity.md]
 
 ###出力例
 ```
