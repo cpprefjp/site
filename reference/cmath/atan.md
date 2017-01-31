@@ -28,7 +28,7 @@ namespace std {
 
 
 ##備考
-- $$ f(x) = \tan^{-1} x $$
+- $$ f(x) = \operatorname{Arctan} x $$
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = ±0` の場合、戻り値は `±0` となる。（複号同順）
 	- `x = ±∞` の場合、戻り値は `±π/2` となる。（複号同順）
@@ -86,16 +86,16 @@ atan(∞)    = 1.570796
 ##実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \tan^{-1} x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
+$$ \operatorname{Arctan} x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 $ |x| \ge 1 $ の範囲、および $ |x| \rightarrow 1 $ 近傍の精度低下する領域においては、以下の公式による変換で求めることができる。
 
 （特に $ \sqrt{2} + 1 < |x| $ の場合）
 
-$$ \tan^{-1} x = \frac{\pi}{2} - \tan^{-1} \frac{1}{x} \quad \mathrm{for} \; x > 0 $$
+$$ \operatorname{Arctan} x = \frac{\pi}{2} - \operatorname{Arctan} \frac{1}{x} \quad \mathrm{for} \; x > 0 $$
 
 
 （特に $ \sqrt{2} - 1 < |x| \le \sqrt{2} + 1 $ の場合）
 
-$$ \tan^{-1} x = \frac{\pi}{4} + \tan^{-1} \frac{x - 1}{x + 1} \quad \mathrm{for} \; x \ne -1 $$
+$$ \operatorname{Arctan} x = \frac{\pi}{4} + \operatorname{Arctan} \frac{x - 1}{x + 1} \quad \mathrm{for} \; x \ne -1 $$

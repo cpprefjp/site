@@ -29,7 +29,7 @@ namespace std {
 
 
 ##備考
-- $$ f(x) = \cosh^{-1} x $$
+- $$ f(x) = \operatorname{arcosh} x $$
 - 定義域エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = 1` の場合、戻り値は `+0` となる。
@@ -77,4 +77,4 @@ acosh(∞)  = inf
 ##実装例
 対数に変換して求めることができる。
 
-$$ \cosh^{-1} x = \log_e \left(x + \sqrt{x^2-1}\right) \quad \mathrm{for} \; 1 < x $$
+$$ \operatorname{arcosh} x = \log_e \left(x + \sqrt{x^2-1}\right) \quad \mathrm{for} \; 1 < x $$

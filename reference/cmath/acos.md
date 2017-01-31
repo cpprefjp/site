@@ -30,7 +30,7 @@ namespace std {
 
 
 ##備考
-- $$ f(x) = \cos^{-1} x $$
+- $$ f(x) = \operatorname{Arccos} x $$
 - 定義域エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = 1` の場合、戻り値は `+0` となる。
@@ -89,9 +89,9 @@ acos(-1.0) = 3.141593
 ##実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \cos^{-1} x = \frac{\pi}{2} - \sum_{n = 0}^{\infty}\frac{\left(2n\right)!}{4^n\left(n!\right)^2\left(2n + 1\right)}x^{2n+1} \quad \mathrm{for} \; |x| < 1 $$
+$$ \operatorname{Arccos} x = \frac{\pi}{2} - \sum_{n = 0}^{\infty}\frac{\left(2n\right)!}{4^n\left(n!\right)^2\left(2n + 1\right)}x^{2n+1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 また、逆正接関数と逆余接関数の和は π / 2 なので [`asin`](asin.md) から求めることができる。
 
-$$ \cos^{-1} x = \frac{\pi}{2} - \sin^{-1} x \quad \mathrm{for} \; |x| < 1 $$
+$$ \operatorname{Arccos} x = \frac{\pi}{2} - \operatorname{Arcsin} x \quad \mathrm{for} \; |x| < 1 $$

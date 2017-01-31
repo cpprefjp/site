@@ -35,7 +35,7 @@ namespace std {
 `y`と`x`の両方が値`0`である場合に定義域エラーとなる可能性がある。定義域エラーが発生した場合、戻り値は処理系定義である。（備考参照）
 
 ##備考
-- $$ f(y, x) = \tan^{-1} \frac{y}{x} $$
+- $$ f(y, x) = \operatorname{Arctan} \frac{y}{x} $$
 
 	引数の順番に注意されたし。
 
@@ -108,10 +108,10 @@ atan2(-1.0, 1.0)  = -0.785398
 `[-π/2, π/2]` の範囲を返す [`atan`](atan.md) があれば、引数の符号に応じて以下のように変換することで求められる。
 
 $$
-\tan^{-1} \frac{y}{x} =
+\operatorname{Arctan} \frac{y}{x} =
 \begin{cases}
-\displaystyle \tan^{-1} \frac{y}{x}       & \quad \mathrm{for} \; 0 \le x \\[2ex]
-\displaystyle \tan^{-1} \frac{y}{x} + \pi & \quad \mathrm{for} \; x < 0, \; 0 \le y \\[2ex]
-\displaystyle \tan^{-1} \frac{y}{x} - \pi & \quad \mathrm{for} \; x < 0, \; y < 0
+\displaystyle \operatorname{Arctan} \frac{y}{x}       & \quad \mathrm{for} \; 0 \le x \\[2ex]
+\displaystyle \operatorname{Arctan} \frac{y}{x} + \pi & \quad \mathrm{for} \; x < 0, \; 0 \le y \\[2ex]
+\displaystyle \operatorname{Arctan} \frac{y}{x} - \pi & \quad \mathrm{for} \; x < 0, \; y < 0
 \end{cases}
 $$

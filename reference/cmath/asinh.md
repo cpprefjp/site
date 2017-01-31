@@ -27,7 +27,7 @@ namespace std {
 
 
 ##備考
-- $$ f(x) = \sinh^{-1} x $$
+- $$ f(x) = \operatorname{arsinh} x $$
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
 	- `x = ±0` の場合、戻り値は `±0` となる。
 	- `x = ±∞` の場合、戻り値は `±∞` となる。
@@ -73,9 +73,9 @@ asinh(1.0)  = 0.881374
 ##実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \sinh^{-1} x = \sum_{n = 0}^{\infty} \frac{(-1)^n (2n)!}{4^n (n!)^2 (2n + 1)} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
+$$ \operatorname{arcsinh} x = \sum_{n = 0}^{\infty} \frac{(-1)^n (2n)!}{4^n (n!)^2 (2n + 1)} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 または対数に変換して求めることができる。
 
-$$ \sinh^{-1} x = \log_e \left(x + \sqrt{x^2+1}\right) \quad \mathrm{for~all} \; x $$
+$$ \operatorname{arsinh} x = \log_e \left(x + \sqrt{x^2+1}\right) \quad \mathrm{for~all} \; x $$
