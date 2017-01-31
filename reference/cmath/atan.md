@@ -20,7 +20,7 @@ namespace std {
 ##概要
 算術型の逆正接（アークタンジェント、arc tangent）を求める。
 
-`atan()`は、正接を表す[`tan()`](tan.md)の逆関数である。`tan(atan(x)) == x`となり、`atan(tan(x)) == x`となる。
+`atan()`は、正接を表す[`tan()`](tan.md)の逆関数である。$\tan(\operatorname{Arctan} x) = x$、$\operatorname{Arctan}(\tan x) = x ~ (x \in [-\pi/2, \pi/2])$である。
 
 
 ##戻り値

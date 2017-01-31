@@ -20,7 +20,7 @@ namespace std {
 ##概要
 算術型の逆余弦（アークコサイン、arc cosine）を求める。
 
-`acos()`は、余弦を表す[`cos()`](cos.md)の逆関数である。`cos(acos(x)) == x`となり、`acos(cos(x)) == x`となる。
+`acos()`は、余弦を表す[`cos()`](cos.md)の逆関数である。$\cos(\operatorname{Arccos} x) = x$、$\operatorname{Arccos}(\cos x) = x ~ (x \in [0, \pi])$である。
 
 
 ##戻り値

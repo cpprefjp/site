@@ -20,7 +20,7 @@ namespace std {
 ##概要
 算術型の逆正弦（アークサイン、arc sine）を求める。
 
-`asin()`は、正弦を表す[`sin()`](sin.md)の逆関数である。`sin(asin(x)) == x`となり、`asin(sin(x)) == x`となる。
+`asin()`は、正弦を表す[`sin()`](sin.md)の逆関数である。$\sin(\operatorname{Arcsin} x) = x$、$\operatorname{Arcsin}(\sin x) = x ~ (x \in [-\pi/2, \pi/2])$である。
 
 
 ##戻り値
