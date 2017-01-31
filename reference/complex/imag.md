@@ -53,9 +53,7 @@ int main()
   std::cout << c << ", imag part = " << result << std::endl;
 }
 ```
-* imag[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::imag[color ff0000]
 
 ###出力
 ```

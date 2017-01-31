@@ -43,9 +43,7 @@ int main()
   std::cout << "conj( " << c << " ) = " << result << std::endl;
 }
 ```
-* conj[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::conj[color ff0000]
 
 ###出力
 ```

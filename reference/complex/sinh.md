@@ -59,9 +59,7 @@ int main()
   std::cout << "sinh( " << c << " ) = " << result << std::endl;
 }
 ```
-* sinh[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::sinh[color ff0000]
 
 ###出力
 ```

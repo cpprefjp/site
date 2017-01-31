@@ -70,9 +70,7 @@ int main()
   std::cout << "pow( " << c << ", " << d << " ) = " << result << std::endl;
 }
 ```
-* pow[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::pow[color ff0000]
 
 ###出力
 ```

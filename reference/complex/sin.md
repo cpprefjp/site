@@ -46,9 +46,7 @@ int main()
   std::cout << "sin( " << c << " ) = " << result << std::endl;
 }
 ```
-* sin[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::sin[color ff0000]
 
 ###出力
 ```

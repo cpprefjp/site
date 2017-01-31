@@ -42,8 +42,6 @@ int main()
 }
 ```
 * 1.0il[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
 
 ###出力
 ```

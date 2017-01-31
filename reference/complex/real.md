@@ -53,9 +53,7 @@ int main()
   std::cout << c << ", real part = " << result << std::endl;
 }
 ```
-* real[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::real[color ff0000]
 
 ###出力
 ```

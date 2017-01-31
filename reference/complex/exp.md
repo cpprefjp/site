@@ -60,9 +60,7 @@ int main()
   std::cout << "exp( " << c << " ) = " << result << std::endl;
 }
 ```
-* exp[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::exp[color ff0000]
 
 ###出力
 ```

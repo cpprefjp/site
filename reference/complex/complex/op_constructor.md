@@ -92,8 +92,8 @@ int main()
 
   // (3)'
   // 縮小変換となるコンストラクタは explicit
-  // std::complex<float> c4 = c3;	// エラー
-  std::complex<float> c4(c3);		// 直接初期化なら OK
+  // std::complex<float> c4 = c3; // エラー
+  std::complex<float> c4(c3);     // 直接初期化なら OK
 
   std::cout << "c1 : " << c1 << std::endl;
   std::cout << "c2 : " << c2 << std::endl;
@@ -101,8 +101,6 @@ int main()
   std::cout << "c4 : " << c4 << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
 
 ###出力
 ```

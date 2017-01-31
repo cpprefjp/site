@@ -64,9 +64,7 @@ int main()
   std::cout << "acosh( " << c << " ) = " << result << std::endl;
 }
 ```
-* acosh[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::acosh[color ff0000]
 
 ###出力
 ```

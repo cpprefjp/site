@@ -46,9 +46,7 @@ int main()
   std::cout << "tan( " << c << " ) = " << result << std::endl;
 }
 ```
-* tan[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::tan[color ff0000]
 
 ###出力
 ```

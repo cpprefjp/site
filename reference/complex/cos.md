@@ -46,9 +46,7 @@ int main()
   std::cout << "cos( " << c << " ) = " << result << std::endl;
 }
 ```
-* cos[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::cos[color ff0000]
 
 ###出力
 ```

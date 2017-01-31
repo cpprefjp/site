@@ -48,9 +48,7 @@ int main()
   std::cout << "norm( " << c << " ) = " << result << std::endl;
 }
 ```
-* norm[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::norm[color ff0000]
 
 ###出力
 ```

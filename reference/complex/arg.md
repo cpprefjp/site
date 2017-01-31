@@ -51,9 +51,7 @@ int main()
   std::cout << "arg( " << c << " ) = " << result << std::endl;
 }
 ```
-* arg[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::arg[color ff0000]
 
 ###出力
 ```

@@ -59,9 +59,7 @@ int main()
   std::cout << "cosh( " << c << " ) = " << result << std::endl;
 }
 ```
-* cosh[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::cosh[color ff0000]
 
 ###出力
 ```

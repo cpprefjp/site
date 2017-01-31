@@ -59,13 +59,9 @@ int main()
   print_proj(std::complex<double>(std::numeric_limits<double>::quiet_NaN(), -std::numeric_limits<double>::infinity()));
 }
 ```
-* proj[color ff0000]
-* numeric_limits[link /reference/limits/numeric_limits.md]
-* quiet_NaN[link /reference/limits/numeric_limits/quiet_nan.md]
-* infinity[link /reference/limits/numeric_limits/infinity.md]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
-* limits[link /reference/limits.md]
+* std::proj[color ff0000]
+* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
+* infinity()[link /reference/limits/numeric_limits/infinity.md]
 
 ###出力例
 ```

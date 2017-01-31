@@ -57,9 +57,7 @@ int main()
   std::cout << "sqrt( " << c << " ) = " << result << std::endl;
 }
 ```
-* sqrt[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::sqrt[color ff0000]
 
 ###出力
 ```

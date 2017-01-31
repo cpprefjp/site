@@ -63,9 +63,7 @@ int main()
   std::cout << "log( " << c << " ) = " << result << std::endl;
 }
 ```
-* log[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::log[color ff0000]
 
 ###出力
 ```

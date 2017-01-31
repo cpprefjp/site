@@ -40,11 +40,8 @@ int main()
   std::cout << "polar(1.0, pi / 4.0) = " << result << std::endl;
 }
 ```
-* polar[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
-* cmath[link /reference/cmath.md]
-* acos[link /reference/cmath/acos.md]
+* std::polar[color ff0000]
+* std::acos[link /reference/cmath/acos.md]
 
 ###出力
 ```

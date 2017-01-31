@@ -48,9 +48,7 @@ int main()
   std::cout << "atan( " << c << " ) = " << result << std::endl;
 }
 ```
-* atan[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::atan[color ff0000]
 
 ###出力
 ```

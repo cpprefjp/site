@@ -48,9 +48,7 @@ int main()
   std::cout << "asin( " << c << " ) = " << result << std::endl;
 }
 ```
-* asin[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::asin[color ff0000]
 
 ###出力
 ```

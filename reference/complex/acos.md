@@ -61,9 +61,7 @@ int main()
   std::cout << "acos( " << c << " ) = " << result << std::endl;
 }
 ```
-* acos[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::acos[color ff0000]
 
 ###出力
 ```

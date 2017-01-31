@@ -63,9 +63,7 @@ int main()
   std::cout << "asinh( " << c << " ) = " << result << std::endl;
 }
 ```
-* asinh[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::asinh[color ff0000]
 
 ###出力
 ```

@@ -56,9 +56,7 @@ int main()
   std::cout << "tanh( " << c << " ) = " << result << std::endl;
 }
 ```
-* tanh[color ff0000]
-* iostream[link /reference/iostream.md]
-* complex[link /reference/complex.md]
+* std::atanh[color ff0000]
 
 ###出力
 ```
