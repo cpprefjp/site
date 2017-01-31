@@ -20,7 +20,7 @@ namespace std {
 ##概要
 算術型の逆正弦（アークサイン、arc sine）を求める。
 
-`asin()`は、正弦を表す[`sin()`](sin.md)の逆関数である。$\sin(\operatorname{Arcsin} x) = x$、$\operatorname{Arcsin}(\sin x) = x ~ (x \in [-\pi/2, \pi/2])$である。
+`asin()`は、正弦を表す[`sin()`](sin.md)の逆関数である。$\sin(\mathrm{Arcsin}~x) = x$、$\mathrm{Arcsin}~(\sin x) = x ~ (x \in [-\pi/2, \pi/2])$である。
 
 
 ##戻り値
@@ -30,7 +30,7 @@ namespace std {
 
 
 ##備考
-- $$ f(x) = \operatorname{Arcsin} x $$
+- $$ f(x) = \mathrm{Arcsin}~x $$
 - 定義域エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = ±0` の場合、戻り値は `±0` となる。（複号同順）
@@ -85,9 +85,9 @@ asin(1.0)   = 1.570796
 ##実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \operatorname{Arcsin} x = \sum_{n = 0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
+$$ \mathrm{Arcsin}~x = \sum_{n = 0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 $|x| = 1$ 近傍の精度低下する領域（特に $1 / \sqrt{2} < |x| \le 1$）においては、以下の公式による変換で精度向上を図れる。
 
-$$ \operatorname{Arcsin} x = \frac{\pi}{2} - \operatorname{Arccos} x = \frac{\pi}{2} - \operatorname{Arcsin} \sqrt{1 - x^2} \quad \mathrm{for} \; 0 \le x \le 1 $$
+$$ \mathrm{Arcsin}~x = \frac{\pi}{2} - \mathrm{Arccos}~x = \frac{\pi}{2} - \mathrm{Arcsin}~\sqrt{1 - x^2} \quad \mathrm{for} \; 0 \le x \le 1 $$

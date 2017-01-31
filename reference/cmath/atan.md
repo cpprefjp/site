@@ -20,7 +20,7 @@ namespace std {
 ##概要
 算術型の逆正接（アークタンジェント、arc tangent）を求める。
 
-`atan()`は、正接を表す[`tan()`](tan.md)の逆関数である。$\tan(\operatorname{Arctan} x) = x$、$\operatorname{Arctan}(\tan x) = x ~ (x \in [-\pi/2, \pi/2])$である。
+`atan()`は、正接を表す[`tan()`](tan.md)の逆関数である。$\tan(\mathrm{Arctan}~x) = x$、$\mathrm{Arctan}~(\tan x) = x ~ (x \in [-\pi/2, \pi/2])$である。
 
 
 ##戻り値
@@ -28,7 +28,7 @@ namespace std {
 
 
 ##備考
-- $$ f(x) = \operatorname{Arctan} x $$
+- $$ f(x) = \mathrm{Arctan}~x $$
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = ±0` の場合、戻り値は `±0` となる。（複号同順）
 	- `x = ±∞` の場合、戻り値は `±π/2` となる。（複号同順）
@@ -86,16 +86,16 @@ atan(∞)    = 1.570796
 ##実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \operatorname{Arctan} x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
+$$ \mathrm{Arctan}~x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 $ |x| \ge 1 $ の範囲、および $ |x| \rightarrow 1 $ 近傍の精度低下する領域においては、以下の公式による変換で求めることができる。
 
 （特に $ \sqrt{2} + 1 < |x| $ の場合）
 
-$$ \operatorname{Arctan} x = \frac{\pi}{2} - \operatorname{Arctan} \frac{1}{x} \quad \mathrm{for} \; x > 0 $$
+$$ \mathrm{Arctan}~x = \frac{\pi}{2} - \mathrm{Arctan}~\frac{1}{x} \quad \mathrm{for} \; x > 0 $$
 
 
 （特に $ \sqrt{2} - 1 < |x| \le \sqrt{2} + 1 $ の場合）
 
-$$ \operatorname{Arctan} x = \frac{\pi}{4} + \operatorname{Arctan} \frac{x - 1}{x + 1} \quad \mathrm{for} \; x \ne -1 $$
+$$ \mathrm{Arctan}~x = \frac{\pi}{4} + \mathrm{Arctan}~\frac{x - 1}{x + 1} \quad \mathrm{for} \; x \ne -1 $$
