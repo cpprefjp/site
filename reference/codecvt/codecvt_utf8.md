@@ -47,12 +47,20 @@ int main()
 
   // UTF-8からUCS-4/UTF-32に変換
   std::u32string restored = converter.from_bytes(u8str);
-  assert(u32str== restored);
+  assert(u32str == restored);
 }
 ```
-* wstring_convert[link ../locale/wstring_convert.md]
-* u32string[link ../string/basic_string.md]
-* string[link ../string/basic_string.md]
+* std::codecvt_utf8[color ff0000]
+* std::wstring_convert[link ../locale/wstring_convert.md]
+* std::u32string[link ../string/basic_string.md]
+* std::string[link ../string/basic_string.md]
+* u8str.size()[link ../string/basic_string/size.md]
+* u8str[0][link ../string/basic_string/op_at.md]
+* u8str[1][link ../string/basic_string/op_at.md]
+* u8str[2][link ../string/basic_string/op_at.md]
+* u8str[3][link ../string/basic_string/op_at.md]
+* converter.to_bytes[link ../locale/wstring_convert/to_bytes.md]
+* converter.from_bytes[link ../locale/wstring_convert/from_bytes.md]
 
 
 ###出力
