@@ -31,7 +31,7 @@ namespace std {
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - `x = ±0` の場合、戻り値は `±0` となる。
     - `x = ±∞` の場合、戻り値は `±1` となる。
-- 標準正規分布（平均0, 標準偏差1の正規分布）の累積分布関数は $[1 + \mathrm{erf}~(x / \sqrt{2})] / 2$ で与えられる。
+- 平均μ, 標準偏差σの正規分布の累積分布関数は $$\frac{1}{2} \left( 1 + \mathrm{erf} ~ \frac{x - \mu}{\sqrt{2} \sigma} \right)$$ で与えられる。
 
 
 ##例
