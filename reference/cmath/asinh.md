@@ -73,7 +73,7 @@ asinh(1.0)  = 0.881374
 ##実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \mathrm{arcsinh}~x = \sum_{n = 0}^{\infty} \frac{(-1)^n (2n)!}{4^n (n!)^2 (2n + 1)} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
+$$ \mathrm{arsinh}~x = \sum_{n = 0}^{\infty} \frac{(-1)^n (2n)!}{4^n (n!)^2 (2n + 1)} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 または対数に変換して求めることができる。
