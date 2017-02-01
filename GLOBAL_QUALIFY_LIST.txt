@@ -106,6 +106,7 @@
 * t.join()[link /reference/thread/thread/join.md]
 * t1.join()[link /reference/thread/thread/join.md]
 * t2.join()[link /reference/thread/thread/join.md]
+* t3.join()[link /reference/thread/thread/join.md]
 * <mutex>[link /reference/mutex.md]
 * std::mutex[link /reference/mutex/mutex.md]
 * std::lock_guard[link /reference/mutex/lock_guard.md]
