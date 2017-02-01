@@ -143,6 +143,8 @@ int main()
 }
 ```
 * wait[color ff0000]
+* cond_.notify_all()[link notify_all.md]
+* std::unique_lock[link /reference/mutex/unique_lock.md]
 
 ###出力
 ```

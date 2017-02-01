@@ -84,6 +84,9 @@ int main()
 }
 ```
 * notify_all[color ff0000]
+* std::recursive_mutex[link /reference/mutex/recursive_mutex.md]
+* std::unique_lock[link /reference/mutex/unique_lock.md]
+* cond_.wait[link wait.md]
 
 ###出力
 ```

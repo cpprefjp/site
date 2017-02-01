@@ -39,7 +39,7 @@ int main()
   pthread_cond_signal(cond.native_handle());
 }
 ```
-* native_handle[color ff0000]
+* native_handle()[color ff0000]
 
 ###出力
 ```

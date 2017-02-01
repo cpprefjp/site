@@ -107,6 +107,10 @@ int main()
   t2.join();
 }
 ```
+* std::condition_variable[color ff0000]
+* std::unique_lock[link /reference/mutex/unique_lock.md]
+* cond_.notify_one()[link condition_variable/notify_one.md]
+* cond_.wait[link condition_variable/wait.md]
 
 ###出力
 ```

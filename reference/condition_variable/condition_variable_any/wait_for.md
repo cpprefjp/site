@@ -37,7 +37,7 @@ return wait_until(lock, chrono::steady_clock::now() + rel_time);
 ```
 * wait_until[link wait_until.md]
 * steady_clock[link /reference/chrono/steady_clock.md]
-* now[link /reference/chrono/steady_clock/now.md]
+* now()[link /reference/chrono/steady_clock/now.md]
 
 `rel_time`で指定された相対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。
 
@@ -48,8 +48,8 @@ return wait_until(lock, chrono::steady_clock::now() + rel_time, std::move(pred))
 ```
 * wait_until[link wait_until.md]
 * steady_clock[link /reference/chrono/steady_clock.md]
-* now[link /reference/chrono/steady_clock/now.md]
-* move[link /reference/utility/move.md]
+* now()[link /reference/chrono/steady_clock/now.md]
+* std::move[link /reference/utility/move.md]
 
 `pred()`が最初から`true`の場合、またはすでに期限が過ぎている場合、この関数はブロッキングしない
 
@@ -153,6 +153,11 @@ int main()
 }
 ```
 * wait_for[color ff0000]
+* std::recursive_mutex[link /reference/mutex/recursive_mutex.md]
+* std::unique_lock[link /reference/mutex/unique_lock.md]
+* std::cv_status[link /reference/condition_variable/cv_status.md]
+* chrono::seconds[link /reference/chrono/seconds.md]
+* std::cv_status::timeout[link /reference/condition_variable/cv_status.md]
 
 ###出力例
 ```
