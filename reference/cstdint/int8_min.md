@@ -26,9 +26,7 @@ int main()
   std::cout << INT8_MIN << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
+* INT8_MIN[color ff0000]
 
 ###出力
 ```

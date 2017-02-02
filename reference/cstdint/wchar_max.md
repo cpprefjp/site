@@ -23,9 +23,7 @@ int main()
   std::cout << static_cast<long long>(max_value) << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
+* WCHAR_MAX[color ff0000]
 
 ###出力例
 ```

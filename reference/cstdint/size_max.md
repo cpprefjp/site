@@ -24,7 +24,7 @@ int main()
   std::cout << static_cast<unsigned long long>(max_value) << std::endl;
 }
 ```
-* std::size_t[link /reference/cstddef/size_t.md]
+* SIZE_MAX[color ff0000]
 
 ###出力
 ```

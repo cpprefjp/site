@@ -26,9 +26,7 @@ int main()
   std::cout << INT64_MAX << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
+* INT64_MAX[color ff0000]
 
 ###出力
 ```

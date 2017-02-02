@@ -24,9 +24,7 @@ int main()
   std::cout << static_cast<long long>(min_value) << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
+* WINT_MIN[color ff0000]
 
 ###出力例
 ```

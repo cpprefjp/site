@@ -26,9 +26,7 @@ int main()
   std::cout << INT32_MIN << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
+* INT32_MIN[color ff0000]
 
 ###出力
 ```

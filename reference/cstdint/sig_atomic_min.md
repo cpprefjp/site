@@ -25,6 +25,7 @@ int main()
   std::cout << static_cast<long long>(min_value) << std::endl;
 }
 ```
+* SIG_ATOMIC_MIN[color ff0000]
 
 ###出力例
 ```

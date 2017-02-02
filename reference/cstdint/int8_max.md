@@ -26,8 +26,7 @@ int main()
   std::cout << INT8_MAX << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* INT8_MAX[color ff0000]
 
 
 ###出力

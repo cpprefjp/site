@@ -24,6 +24,7 @@ int main()
   std::cout << static_cast<unsigned long long>(max_value) << std::endl;
 }
 ```
+* UINTPTR_MAX[color ff0000]
 * std::uintptr_t[link uintptr_t.md]
 
 ###出力例

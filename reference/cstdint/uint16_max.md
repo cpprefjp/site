@@ -26,6 +26,7 @@ int main()
   std::cout << UINT16_MAX << std::endl;
 }
 ```
+* UINT16_MAX[color ff0000]
 
 ###出力
 ```

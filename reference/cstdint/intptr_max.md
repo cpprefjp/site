@@ -24,10 +24,8 @@ int main()
   std::cout << static_cast<long long>(max_value) << std::endl;
 }
 ```
+* INTPTR_MAX[color ff0000]
 * std::intptr_t[link intptr_t.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-
 
 ###出力例
 ```

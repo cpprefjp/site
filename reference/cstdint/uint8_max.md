@@ -26,6 +26,7 @@ int main()
   std::cout << UINT8_MAX << std::endl;
 }
 ```
+* UINT8_MAX[color ff0000]
 
 ###出力
 ```
