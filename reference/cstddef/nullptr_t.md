@@ -29,6 +29,12 @@ int main()
   std::cout << "is_class<nullptr_t>: " << std::is_class<std::nullptr_t>::value << std::endl;
 }
 ```
+* std::nullptr_t[color ff0000]
+* std::is_object[link /reference/type_traits/is_object.md]
+* std::is_scalar[link /reference/type_traits/is_scalar.md]
+* std::is_union[link /reference/type_traits/is_union.md]
+* std::is_array[link /reference/type_traits/is_array.md]
+* std::is_class[link /reference/type_traits/is_class.md]
 
 ###出力
 ```

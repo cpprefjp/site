@@ -35,6 +35,13 @@ int main()
   std::cout << "is_pod<max_align_t>: " << std::is_pod<std::max_align_t>::value << std::endl;
 }
 ```
+* std::max_align_t[color ff0000]
+* std::is_object[link /reference/type_traits/is_object.md]
+* std::is_scalar[link /reference/type_traits/is_scalar.md]
+* std::is_union[link /reference/type_traits/is_union.md]
+* std::is_array[link /reference/type_traits/is_array.md]
+* std::is_class[link /reference/type_traits/is_class.md]
+* std::is_pod[link /reference/type_traits/is_pod.md]
 
 ###出力
 ```

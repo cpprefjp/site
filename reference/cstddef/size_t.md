@@ -25,6 +25,7 @@ int main()
   assert(n == 1);
 }
 ```
+* std::size_t[color ff0000]
 
 
 ###出力
