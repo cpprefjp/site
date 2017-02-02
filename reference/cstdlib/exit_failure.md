@@ -23,6 +23,8 @@ int main()
   std::exit(EXIT_FAILURE);
 }
 ```
+* EXIT_FAILURE[color ff0000]
+* std::exit[link exit.md]
 
 ##出力
 ```

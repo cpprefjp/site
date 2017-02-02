@@ -61,8 +61,7 @@ int main()
   f();
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* std::_Exit[color ff0000]
 
 ###出力
 ```

@@ -41,6 +41,7 @@ int main()
   std::abort();
 }
 ```
+* std::abort()[color ff0000]
 
 ###出力例
 ```

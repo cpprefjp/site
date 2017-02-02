@@ -53,8 +53,7 @@ int main()
   std::atexit(on_exit);
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* std::atexit[color ff0000]
 
 ###出力
 ```

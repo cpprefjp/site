@@ -47,8 +47,7 @@ int main()
   std::quick_exit(0);
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* std::at_quick_exit[color ff0000]
 * std::quick_exit[link quick_exit.md]
 
 ###出力

@@ -54,6 +54,7 @@ int main()
   f();
 }
 ```
+* std::exit[color ff0000]
 
 ###出力
 ```
