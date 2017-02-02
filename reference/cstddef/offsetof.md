@@ -38,9 +38,9 @@ struct mystruct {
 
 int main ()
 {
-  printf ("offsetof(mystruct,singlechar) is %zu\n", offsetof(mystruct,singlechar));
-  printf ("offsetof(mystruct,arraymember) is %zu\n", offsetof(mystruct,arraymember));
-  printf ("offsetof(mystruct,anotherchar) is %zu\n", offsetof(mystruct,anotherchar));
+  std::printf("offsetof(mystruct,singlechar) is %zu\n", offsetof(mystruct,singlechar));
+  std::printf("offsetof(mystruct,arraymember) is %zu\n", offsetof(mystruct,arraymember));
+  std::printf("offsetof(mystruct,anotherchar) is %zu\n", offsetof(mystruct,anotherchar));
 }
 ```
 * offsetof[color ff0000]
