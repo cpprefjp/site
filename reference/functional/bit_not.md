@@ -10,7 +10,7 @@ namespace std {
   struct bit_not {
     constexpr T operator()(const T& x) const;
     typedef T argument_type;
-	typedef T result_type;
+    typedef T result_type;
   };
 
   template <>
