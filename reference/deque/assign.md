@@ -61,6 +61,8 @@ int main ()
 }
 ```
 * assign[color ff0000]
+* c.begin()[link begin.md]
+* c.end()[link end.md]
 
 ###出力
 ```

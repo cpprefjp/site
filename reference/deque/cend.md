@@ -45,7 +45,8 @@ int main()
   });
 }
 ```
-* cend[color ff0000]
+* cend()[color ff0000]
+* cbegin()[link cbegin.md]
 
 ###出力
 ```

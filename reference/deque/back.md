@@ -33,13 +33,13 @@ const_reference back() const;
 int main()
 {
   std::deque<int> c = {1, 2, 3};
- 
+
   // 末尾要素を取得する
   int& x = c.back();
   std::cout << x << std::endl;
 }
 ```
-* back[color ff0000]
+* back()[color ff0000]
 
 ###出力
 ```

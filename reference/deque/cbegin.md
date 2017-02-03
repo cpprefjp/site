@@ -46,7 +46,8 @@ int main()
   });
 }
 ```
-* cbegin[color ff0000]
+* cbegin()[color ff0000]
+* cend()[link cend.md]
 
 ###出力
 ```

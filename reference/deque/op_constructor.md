@@ -101,11 +101,8 @@ int main()
   l.emplace_back(10u);
 }
 ```
-* list[link ../list.md]
-* deque[link ../deque.md]
-* scoped_allocator[link ../scoped_allocator.md]
-* scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-* allocator[link ../memory/allocator.md]
+* std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
+* std::allocator[link ../memory/allocator.md]
 * emplace_back[link ../list/emplace_back.md]
 
 
@@ -159,14 +156,9 @@ int main ()
   print("c7", c7);
 }
 ```
-* iostream[link ../iostream.md]
-* deque[link ../deque.md]
-* utility[link ../utility.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* begin[link begin.md]
-* end[link end.md]
-* move[link ../utility/move.md]
+* begin()[link begin.md]
+* end()[link end.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

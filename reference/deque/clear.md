@@ -48,7 +48,10 @@ int main()
   });
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* clear()[color ff0000]
+* c.empty()[link empty.md]
+* c.begin()[link begin.md]
+* c.end()[link end.md]
 
 ###出力
 ```

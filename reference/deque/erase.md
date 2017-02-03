@@ -61,6 +61,7 @@ int main()
 }
 ```
 * erase[color ff0000]
+* c.begin()[link begin.md]
 
 ###出力
 ```

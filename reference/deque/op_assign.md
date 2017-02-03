@@ -69,6 +69,7 @@ int main ()
   print("c3", c3);
 }
 ```
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

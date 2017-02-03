@@ -33,7 +33,7 @@ const_reference front() const;
 int main()
 {
   std::deque<int> c = {1, 2, 3};
- 
+
   // 先頭要素を取得する
   int& x = c.front();
   std::cout << x << std::endl;

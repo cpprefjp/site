@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* pop_back[color ff0000]
+* pop_back()[color ff0000]
 
 ###出力
 ```

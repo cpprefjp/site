@@ -51,7 +51,8 @@ int main()
   }
 }
 ```
-* rend[color ff0000]
+* rend()[color ff0000]
+* rbegin()[link rbegin.md]
 
 ###出力
 ```

@@ -40,7 +40,7 @@ const_reference at(size_type n) const;
 int main()
 {
   std::deque<int> c = {1, 2, 3};
- 
+
   // 1番目の要素を取得する
   int& x = c.at(1);
   std::cout << x << std::endl;
@@ -55,6 +55,7 @@ int main()
 }
 ```
 * at[color ff0000]
+* std::out_of_range[link /reference/stdexcept.md]
 
 ###出力
 ```

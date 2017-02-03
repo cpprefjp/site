@@ -48,6 +48,8 @@ int main()
 }
 ```
 * emplace_front[color ff0000]
+* c.push_front[link push_front.md]
+* std::make_pair[link /reference/utility/make_pair.md]
 
 ###出力
 ```
