@@ -147,6 +147,11 @@ int main()
   });
 }
 ```
+* std::deque[color ff0000]
+* deq.push_front[link deque/push_front.md]
+* deq.push_back[link deque/push_back.md]
+* deq.begin()[link deque/begin.md]
+* deq.end()[link deque/end.md]
 
 ###出力
 ```
