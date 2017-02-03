@@ -94,6 +94,8 @@ int main()
   std::cout << result << std::endl;
 }
 ```
+* std::function[color ff0000]
+* f(1)[link function/op_call.md]
 
 ###出力
 ```

@@ -40,6 +40,7 @@ int main()
   }
 }
 ```
+* target_type()[color ff0000]
 
 ###出力
 ```

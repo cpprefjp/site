@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `greater`クラスは、左辺が右辺より大きいかの比較を行う関数オブジェクトである。
@@ -68,9 +68,7 @@ int main()
   std::cout << std::boolalpha << std::greater<int>()(3, 2) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* greater[color ff0000]
+* std::greater[color ff0000]
 
 ###出力
 ```

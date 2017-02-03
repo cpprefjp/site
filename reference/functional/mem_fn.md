@@ -49,6 +49,11 @@ int main() {
   << std::endl;
 }
 ```
+* std::mem_fn[color ff0000]
+* std::make_shared[link /reference/memory/make_shared.md]
+* std::less[link less.md]
+* std::bind[link bind.md]
+* std::placeholders::_1[link placeholders.md]
 
 ###出力
 ```

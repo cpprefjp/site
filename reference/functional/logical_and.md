@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `logical_and`クラスは、論理積(AND)を計算する関数オブジェクトである。
@@ -71,9 +71,7 @@ int main()
   std::cout << std::boolalpha << std::logical_and<bool>()(true, true) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* logical_and[color ff0000]
+* std::logical_and[color ff0000]
 
 ###出力
 ```

@@ -16,7 +16,7 @@ void assign(F&& f, const Alloc& alloc);
 
 ##効果
 ```cpp
-function(allocator_arg, alloc,std::forward<F>(f)).swap(*this)
+function(allocator_arg, alloc, std::forward<F>(f)).swap(*this)
 ```
 * function[link op_constructor.md]
 * allocator_arg[link /reference/memory/allocator_arg_t.md]
@@ -38,7 +38,7 @@ int ident(int x) { return x; }
 int main()
 {
   std::function<int(int)> f;
-  
+
   // 関数とアロケータを代入。
   //
   // ※ここではint型を対象とするアロケータを渡しているが、
@@ -49,6 +49,9 @@ int main()
   std::cout << result << std::endl;
 }
 ```
+* assign[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* f(1)[link op_call.md]
 
 ###出力
 ```

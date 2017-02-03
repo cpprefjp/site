@@ -56,6 +56,7 @@ int main()
   std::cout << result << std::endl;
 }
 ```
+* f(1)[link op_call.md]
 
 ###出力
 ```

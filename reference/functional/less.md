@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `less`クラスは、左辺が右辺より小さいかの比較を行う関数オブジェクトである。
@@ -68,9 +68,7 @@ int main()
   std::cout << std::boolalpha << std::less<int>()(2, 3) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* less[color ff0000]
+* std::less[color ff0000]
 
 ###出力
 ```

@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `multiplies`クラスは、乗算を行う関数オブジェクトである。
@@ -67,9 +67,7 @@ int main()
   std::cout << std::multiplies<int>()(3, 2) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* multiplies[color ff0000]
+* std::multiplies[color ff0000]
 
 ###出力
 ```

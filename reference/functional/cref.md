@@ -50,7 +50,9 @@ int main()
   std::cout << rx << std::endl;
 }
 ```
-* cref[color ff0000]
+* std::cref[color ff0000]
+* std::reference_wrapper[link reference_wrapper.md]
+* r.get()[link reference_wrapper/get.md]
 
 ###出力
 ```

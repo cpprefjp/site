@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `plus`クラスは、加算を行う関数オブジェクトである。
@@ -67,9 +67,7 @@ int main()
   std::cout << std::plus<int>()(3, 5) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* plus[color ff0000]
+* std::plus[color ff0000]
 
 ###出力
 ```

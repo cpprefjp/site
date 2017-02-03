@@ -40,6 +40,7 @@ int main()
   std::cout << x << std::endl;
 }
 ```
+* r.get()[link get.md]
 
 ###出力
 ```

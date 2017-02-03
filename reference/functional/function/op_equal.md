@@ -35,13 +35,13 @@ int main()
   std::function<int(int)> f;
 
   if (f == nullptr) {
-	std::cout << "empty" << std::endl;
+    std::cout << "empty" << std::endl;
   }
 
   f = ident;
   if (f == nullptr) {}
   else {
-	std::cout << "not empty" << std::endl;
+    std::cout << "not empty" << std::endl;
   }
 }
 ```

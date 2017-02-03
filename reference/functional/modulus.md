@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `modulus`クラスは、剰余算を行う関数オブジェクトである。
@@ -67,9 +67,7 @@ int main()
   std::cout << std::modulus<int>()(6, 4) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* modulus[color ff0000]
+* std::modulus[color ff0000]
 
 ###出力
 ```

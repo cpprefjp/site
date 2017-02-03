@@ -202,7 +202,9 @@ int main()
   }
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::move[link /reference/utility/move.md]
+* std::allocator_arg[link /reference/memory/allocator_arg_t.md]
+* std::allocator[link /reference/memory/allocator.md]
 
 ###出力
 ```

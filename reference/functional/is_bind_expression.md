@@ -36,6 +36,9 @@ static_assert(
 
 int main() {}
 ```
+* std::is_bind_expression[color ff0000]
+* std::less[link less.md]
+* std::placeholders::_1[link placeholders.md]
 
 ###出力
 ```

@@ -40,6 +40,8 @@ int main()
   std::cout << y << std::endl;
 }
 ```
+* std::ref[link /reference/functional/ref.md]
+* r.get()[link get.md]
 
 ###出力
 ```

@@ -63,6 +63,7 @@ int main()
   }
 }
 ```
+* target[color ff0000]
 
 ###出力
 ```

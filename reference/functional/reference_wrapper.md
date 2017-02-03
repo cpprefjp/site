@@ -74,6 +74,7 @@ int main()
   std::cout << x << std::endl;
 }
 ```
+* std::ref[link ref.md]
 
 ###出力
 ```

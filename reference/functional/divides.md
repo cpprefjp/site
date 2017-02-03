@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `divides`クラスは、除算を行う関数オブジェクトである。
@@ -67,9 +67,7 @@ int main()
   std::cout << std::divides<int>()(6, 2) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* divides[color ff0000]
+* std::divides[color ff0000]
 
 ###出力
 ```

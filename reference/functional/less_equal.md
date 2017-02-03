@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `less_equal`クラスは、左辺が右辺以下かの比較を行う関数オブジェクトである。
@@ -68,9 +68,7 @@ int main()
   std::cout << std::boolalpha << std::less_equal<int>()(2, 3) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* less_equal[color ff0000]
+* std::less_equal[color ff0000]
 
 ###出力
 ```

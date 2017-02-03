@@ -28,6 +28,9 @@ static_assert(!std::is_placeholder< std::less<int> >::value, "not a placeholder"
 
 int main() {}
 ```
+* std::is_placeholder[color ff0000]
+* std::placeholders::_1[link placeholders.md]
+* std::less[link less.md]
 
 ###出力
 ```

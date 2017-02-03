@@ -69,11 +69,9 @@ int main()
   std::cout << result << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* bind[color ff0000]
-* function[link function.md]
-* placeholders[link placeholders.md]
+* std::bind[color ff0000]
+* std::function[link function.md]
+* std::placeholders[link placeholders.md]
 
 ###出力
 ```

@@ -48,7 +48,9 @@ int main()
   std::cout << r.get() << std::endl;
 }
 ```
-* ref[color ff0000]
+* std::ref[color ff0000]
+* std::reference_wrapper[link reference_wrapper.md]
+* r.get()[link reference_wrapper/get.md]
 
 ###出力
 ```

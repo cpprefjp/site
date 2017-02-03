@@ -95,11 +95,8 @@ int main()
   std::cout << std::boolalpha << std::not2(std::less<int>())(3, 5) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* less[link less.md]
-* not2[color ff0000]
-* boolalpha[link ../ios/boolalpha.md]
+* std::not2[color ff0000]
+* std::less[link less.md]
 
 ###出力
 ```

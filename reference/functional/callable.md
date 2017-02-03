@@ -57,7 +57,7 @@ int main()
   assert(result4 == 3);
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::function[link function.md]
 
 ###出力
 ```

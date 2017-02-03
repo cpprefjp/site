@@ -75,10 +75,8 @@ int main()
   std::cout << "0x" << std::hex << std::bit_or<>()(0xFA, 0x47) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* hex[link ../ios/hex.md]
-* bit_or[color ff0000]
+* std::bit_or[color ff0000]
+* std::hex[link ../ios/hex.md]
 
 ###出力
 ```

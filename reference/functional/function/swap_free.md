@@ -43,6 +43,9 @@ int main()
   std::cout << g(1) << std::endl; // ident
 }
 ```
+* std::swap[color ff0000]
+* f(1)[link op_call.md]
+* g(1)[link op_call.md]
 
 ###出力
 ```

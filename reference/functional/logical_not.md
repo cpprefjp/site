@@ -30,7 +30,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `logical_not`クラスは、論理否定(NOT)を計算する関数オブジェクトである。
@@ -64,9 +64,7 @@ int main()
   std::cout << std::boolalpha << std::logical_not<bool>()(false) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* logical_not[color ff0000]
+* std::logical_not[color ff0000]
 
 ###出力
 ```

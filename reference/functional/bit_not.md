@@ -62,10 +62,8 @@ int main()
   std::cout << "0x" << std::hex << std::bit_not<>()(0xFA) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* hex[link ../ios/hex.md]
-* bit_not[color ff0000]
+* std::bit_not[color ff0000]
+* std::hex[link ../ios/hex.md]
 
 ###出力
 ```

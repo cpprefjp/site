@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `minus`クラスは、減算を行う関数オブジェクトである。
@@ -67,9 +67,7 @@ int main()
   std::cout << std::minus<int>()(3, 2) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* minus[color ff0000]
+* std::minus[color ff0000]
 
 ###出力
 ```

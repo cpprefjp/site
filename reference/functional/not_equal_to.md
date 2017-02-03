@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `not_equal_to`クラスは、非等値比較を行う関数オブジェクトである。
@@ -68,9 +68,7 @@ int main()
   std::cout << std::boolalpha << std::not_equal_to<int>()(3, 2) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* not_equal_to[color ff0000]
+* std::not_equal_to[color ff0000]
 
 ###出力
 ```

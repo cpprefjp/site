@@ -32,7 +32,7 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* forward[link ../utility/forward.md]
+* std::forward[link ../utility/forward.md]
 
 ##概要
 `equal_to`クラスは、等値比較を行う関数オブジェクトである。
@@ -68,9 +68,7 @@ int main()
   std::cout << std::boolalpha << std::equal_to<int>()(3, 3) << std::endl;
 }
 ```
-* iostream[link ../iostream.md]
-* functional[link ../functional.md]
-* equal_to[color ff0000]
+* std::equal_to[color ff0000]
 
 ###出力
 ```

@@ -33,6 +33,8 @@ int main()
   }
 }
 ```
+* std::bad_function_call[color ff0000]
+* std::function[link function.md]
 
 ###出力
 ```
