@@ -10,7 +10,7 @@ namespace std {
   struct equal_to {
     bool operator ()(const T& x, const T& y) const;
     typedef T first_argument_type;
-	typedef T second_argument_type;
+    typedef T second_argument_type;
     typedef bool result_type;
   };
 
