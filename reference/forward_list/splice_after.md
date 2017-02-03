@@ -69,7 +69,8 @@ void splice_after(const_iterator position, forward_list&& x,
 ```cpp
 #include <iostream>
 #include <forward_list>
-#include <utility> // move
+#include <utility>
+#include <iterator>
 
 template <class T>
 void print(const std::forward_list<T>& ls)
@@ -110,6 +111,10 @@ int main()
 }
 ```
 * splice_after[color ff0000]
+* begin()[link begin.md]
+* end()[link end.md]
+* std::move[link /reference/utility/move.md]
+* std::next[link /reference/iterator/next.md]
 
 ###出力
 ```

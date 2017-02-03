@@ -68,14 +68,9 @@ int main()
 }
 ```
 * erase_after[color ff0000]
-* iostream[link ../iostream.md]
-* iterator[link ../iterator.md]
-* forward_list[link ../forward_list.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* before_begin[link before_begin.md]
-* end[link end.md]
-* next[link ../iterator/next.md]
+* ls.before_begin()[link before_begin.md]
+* ls.end()[link end.md]
+* std::next[link /reference/iterator/next.md]
 
 ###出力
 ```

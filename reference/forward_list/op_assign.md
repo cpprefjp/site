@@ -44,7 +44,7 @@ forward_list& operator=(initializer_list<T>);   // (3)
 ```cpp
 #include <cassert>
 #include <forward_list>
-#include <algorithm> // std::equal
+#include <algorithm>
 
 int main()
 {
@@ -83,6 +83,9 @@ int main()
 }
 ```
 * assert[link /reference/cassert/assert.md]
+* ls2.begin()[link begin.md]
+* ls2.end()[link end.md]
+* init.begin()[link /reference/initializer_List/begin.md]
 
 ###出力
 ```

@@ -38,7 +38,9 @@ int main()
   });
 }
 ```
-* pop_front[color ff0000]
+* pop_front()[color ff0000]
+* ls.begin()[link begin.md]
+* ls.end()[link end.md]
 
 
 ###出力

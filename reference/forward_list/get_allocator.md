@@ -37,7 +37,7 @@ int main()
 }
 ```
 * get_allocator[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* std::allocator[link /reference/memory/allocator.md]
 
 ###出力
 ```

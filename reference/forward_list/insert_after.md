@@ -109,6 +109,10 @@ int main()
 }
 ```
 * insert_after[color ff0000]
+* ls.begin()[link begin.md]
+* ls.end()[link end.md]
+* ls.before_begin()[link before_begin.md]
+* std::next[link /reference/iterator/next.md]
 
 ###出力
 ```

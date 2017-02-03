@@ -32,9 +32,9 @@ void assign(initializer_list<T> init);                // (3)
 clear();
 insert_after(before_begin(), first, last);
 ```
-* clear[link clear.md]
+* clear()[link clear.md]
 * insert_after[link insert_after.md]
-* before_begin[link before_begin.md]
+* before_begin()[link before_begin.md]
 
 
 - (2) :
@@ -43,9 +43,9 @@ insert_after(before_begin(), first, last);
 clear();
 insert_after(before_begin(), n, t);
 ```
-* clear[link clear.md]
+* clear()[link clear.md]
 * insert_after[link insert_after.md]
-* before_begin[link before_begin.md]
+* before_begin()[link before_begin.md]
 
 
 - (3) : 以下と同等
@@ -53,8 +53,8 @@ insert_after(before_begin(), n, t);
 ```cpp
 assign(init.begin(), init.end());
 ```
-* begin[link /reference/initializer_list/begin.md]
-* end[link /reference/initializer_list/end.md]
+* begin()[link /reference/initializer_list/begin.md]
+* end()[link /reference/initializer_list/end.md]
 
 
 ##戻り値
@@ -106,11 +106,6 @@ int main()
 }
 ```
 * assign[color ff0000]
-* iostream[link ../iostream.md]
-* string[link ../string.md]
-* forward_list[link ../forward_list.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
 * begin[link begin.md]
 * end[link end.md]
 

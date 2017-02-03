@@ -52,6 +52,7 @@ void merge(forward_list&& x, Compare comp); // (4)
 ```cpp
 #include <iostream>
 #include <forward_list>
+#include <utility>
 
 int main()
 {
@@ -66,6 +67,7 @@ int main()
 }
 ```
 * merge[color ff0000]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

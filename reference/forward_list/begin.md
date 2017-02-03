@@ -39,7 +39,7 @@ int main()
   std::cout << *ci << std::endl;
 }
 ```
-* begin[color ff0000]
+* begin()[color ff0000]
 
 
 ###出力

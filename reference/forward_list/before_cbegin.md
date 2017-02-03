@@ -50,16 +50,10 @@ int main()
 }
 ```
 * cbefore_begin[color ff0000]
-* iostream[link ../iostream.md]
-* forward_list[link ../forward_list.md]
-* algorithm[link ../algorithm.md]
-* push_front[link push_front.md]
-* insert_after[link insert_after.md]
-* for_each[link ../algorithm/for_each.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
+* ls.push_front[link push_front.md]
+* ls.insert_after[link insert_after.md]
+* ls.cbegin()[link cbegin.md]
+* ls.cend()[link cend.md]
 
 
 ###出力

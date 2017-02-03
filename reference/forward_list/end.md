@@ -47,7 +47,8 @@ int main()
   }
 }
 ```
-* end[color ff0000]
+* end()[color ff0000]
+* begin()[link begin.md]
 
 ###出力
 ```

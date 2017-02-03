@@ -49,7 +49,9 @@ int main()
   print("ls2", ls2);
 }
 ```
-* swap[color ff0000]
+* std::swap[color ff0000]
+* ls.begin()[link begin.md]
+* ls.end()[link end.md]
 
 ###出力
 ```
