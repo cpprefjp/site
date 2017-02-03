@@ -66,7 +66,7 @@ int main()
   std::cout << "after terminate" << std::endl; // 実行されない
 }
 ```
-* terminate[color ff0000]
+* std::terminate[color ff0000]
 
 ###出力例
 ```

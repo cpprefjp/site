@@ -93,9 +93,12 @@ int main()
   }
 }
 ```
-* nested_exception [color ff0000]
-* rethrow_if_nested[color ff0000]
-* throw_with_nested[color ff0000]
+* std::rethrow_if_nested[color ff0000]
+* std::exception[link exception.md]
+* std::nested_exception[link nested_exception.md]
+* std::exception_ptr[link exception_ptr.md]
+* std::throw_with_nested[link throw_with_nested.md]
+* std::current_exception()[link current_exception.md]
 
 ###出力
 ```

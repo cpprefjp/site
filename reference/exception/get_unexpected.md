@@ -47,6 +47,8 @@ int main()
   }
 }
 ```
+* std::get_unexpected()[color ff0000]
+* std::set_unexpected[link set_unexpected.md]
 
 ###出力
 ```

@@ -39,7 +39,7 @@ try {
 ```cpp
 #include <iostream>
 #include <exception>
-#include <stdexcept> // std::runtime_error
+#include <stdexcept>
 
 int main()
 {
@@ -53,7 +53,9 @@ int main()
   }
 }
 ```
-* make_exception_ptr[color ff0000]
+* std::make_exception_ptr[color ff0000]
+* std::runtime_error[link /reference/stdexcept.md]
+* std::rethrow_exception[link rethrow_exception.md]
 
 ###出力
 ```

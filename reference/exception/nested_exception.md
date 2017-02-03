@@ -57,6 +57,8 @@ int main()
   }
 }
 ```
+* std::nested_exception[color ff0000]
+* e.rethrow_nested()[link nested_exception/rethrow_nested.md]
 
 ###出力
 ```

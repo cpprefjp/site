@@ -52,7 +52,8 @@ int main()
   }
 }
 ```
-* nested_ptr[color ff0000]
+* nested_ptr()[color ff0000]
+* std::rethrow_exception[link /reference/exception/rethrow_exception.md]
 
 ###出力
 ```

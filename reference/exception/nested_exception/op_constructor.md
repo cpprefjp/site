@@ -43,6 +43,8 @@ int main()
   }
 } 
 ```
+* nested_ptr()[link nested_ptr.md]
+* std::rethrow_exception[link /reference/exception/rethrow_exception.md]
 
 ###出力
 ```

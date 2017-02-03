@@ -44,6 +44,8 @@ int main()
   }
 }
 ```
+* std::get_terminate()[color ff0000]
+* std::set_terminate[link set_terminate.md]
 
 ###出力
 ```

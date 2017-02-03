@@ -55,7 +55,10 @@ int main()
   }
 }
 ```
-* current_exception[color ff0000]
+* std::current_exception[color ff0000]
+* std::exception_ptr[link exception_ptr.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
+* std::rethrow_exception[link rethrow_exception.md]
 
 ###出力例
 ```

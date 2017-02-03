@@ -62,6 +62,8 @@ int main()
     return 0;
 }
 ```
+* std::set_unexpected[color ff0000]
+* std::bad_exception[link bad_exception.md]
 
 ###出力
 ```

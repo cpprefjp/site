@@ -28,7 +28,7 @@ namespace std {
 ```cpp
 #include <iostream>
 #include <exception>
-#include <stdexcept> // std::runtime_error
+#include <stdexcept>
 
 int main()
 {
@@ -74,6 +74,10 @@ int main()
   }
 }
 ```
+* std::exception_ptr[color ff0000]
+* std::current_exception()[link current_exception.md]
+* std::runtime_error[link /reference/stdexcept.md]
+* std::rethrow_exception[link rethrow_exception.md]
 
 ###出力
 ```

@@ -44,7 +44,8 @@ int main()
   throw std::exception(); // no catch
 }
 ```
-* set_terminate[color ff0000]
+* std::set_terminate[color ff0000]
+* std::exception[link exception.md]
 
 ###出力例
 ```

@@ -39,7 +39,7 @@ void user_unexpected()
 
 void not_runtime_error_throw() throw(std::runtime_error, std::bad_exception)
 {
-  throw std::invalid_argument( "throw invalid_argument." );
+  throw std::invalid_argument("throw invalid_argument.");
 }
 
 int main()
@@ -58,7 +58,10 @@ int main()
   }
 }
 ```
-* bad_exception[color ff0000]
+* std::bad_exception[color ff0000]
+* std::runtime_error[link /reference/stdexcept.md]
+* std::invalid_argument[link /reference/stdexcept.md]
+* std::unexpected[link unexpected.md]
 
 
 ###出力

@@ -55,7 +55,7 @@ int main()
   }
 }
 ```
-* rethrow_nested[color ff0000]
+* rethrow_nested()[color ff0000]
 
 ###出力
 ```

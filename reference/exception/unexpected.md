@@ -31,11 +31,12 @@ void unexpected_handler()
 
 int main()
 {
-  std::set_unexpected( unexpected_handler );
+  std::set_unexpected(unexpected_handler);
   std::unexpected();
 }
-
 ```
+* std::unexpected()[color ff0000]
+* std::set_unexpected[link set_unexpected.md]
 
 ###出力
 ```

@@ -50,7 +50,8 @@ int main()
   }
 }
 ```
-* uncaught_exception[color ff0000]
+* std::uncaught_exception[color ff0000]
+* std::exception[link exception.md]
 
 ###出力
 ```
