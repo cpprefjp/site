@@ -39,27 +39,27 @@ namespace std {
 
 void unexpected_handler()
 {
-    std::cout << "unexpected exception!" << std::endl;
-    throw;
+  std::cout << "unexpected exception!" << std::endl;
+  throw;
 }
 
-void other_throw() throw( int, std::bad_exception )
+void other_throw() throw(int, std::bad_exception)
 {
-    throw 1.0;
+  throw 1.0;
 }
 
 int main()
 {
-    std::set_unexpected( unexpected_handler );
+  std::set_unexpected(unexpected_handler);
 
-    try {
-        other_throw();
-    }
-    catch( std::bad_exception ) {
-        std::cout << "bad_exception." << std::endl;
-    }
+  try {
+    other_throw();
+  }
+  catch(std::bad_exception) {
+    std::cout << "bad_exception." << std::endl;
+  }
 
-    return 0;
+  return 0;
 }
 ```
 * std::set_unexpected[color ff0000]
