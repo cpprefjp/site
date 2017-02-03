@@ -38,15 +38,12 @@ int main()
   ios << "ABC" << std::endl;
 }
 ```
-* istream[link ../../istream.md]
-* fstream[link ../../fstream.md]
-* filebuf[link ../basic_filebuf.md]
-* rdbuf[color ff0000]
-* iostream[link ../../istream/basic_iostream.md]
+* std::filebuf[link ../basic_filebuf.md]
+* rdbuf()[color ff0000]
+* std::iostream[link ../../istream/basic_iostream.md]
 * seekg[link ../../istream/basic_istream/seekg.md]
-* ios_base[link ../../ios/ios_base.md]
+* std::ios_base[link ../../ios/ios_base.md]
 * beg[link ../../ios/ios_base/type-seekdir.md]
-* endl[link ../../ostream/endl.md]
 
 ##バージョン
 ###言語
