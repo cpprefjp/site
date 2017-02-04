@@ -8,7 +8,7 @@
 ```
 
 ##概要
-[`uint_fast32_t](uint_fast32_t.md) の最大値。
+[`uint_fast32_t`](uint_fast32_t.md) の最大値。
 
 ##バージョン
 ###言語
