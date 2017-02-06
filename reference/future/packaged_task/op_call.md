@@ -81,6 +81,10 @@ int main()
 ```
 * task(2, 3);[color ff0000]
 * task()[color ff0000]
+* std::runtime_error[link /reference/stdexcept.md]
+* task.get_future()[link get_future.md]
+* std::future[link /reference/future/future.md]
+* f.get()[link /reference/future/future/get.md]
 
 ###出力
 ```

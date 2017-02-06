@@ -30,7 +30,7 @@ int main()
 {
   std::promise<int> p;
   std::shared_future<int> f;
-  
+
   assert(!f.valid()); // まだ共有状態を持っていない
 
   f = p.get_future().share();
@@ -39,7 +39,9 @@ int main()
 }
 ```
 * valid[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* std::promise[link /reference/future/promise.md]
+* p.get_future()[link /reference/future/promise/get_future.md]
+* share()[link /reference/future/future/share.md]
 
 ###出力
 ```

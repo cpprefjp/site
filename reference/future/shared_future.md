@@ -83,6 +83,12 @@ int main()
   t2.join();
 }
 ```
+* std::shared_future[color ff0000]
+* f.get()[link shared_future/get.md]
+* std::promise[link promise.md]
+* p.get_future()[link promise/get_future.md]
+* share()[link future/share.md]
+* p.set_value[link promise/set_value.md]
 
 ###出力
 ```

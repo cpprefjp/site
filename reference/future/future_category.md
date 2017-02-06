@@ -44,7 +44,11 @@ int main()
   std::cout << cat.message(static_cast<int>(std::future_errc::broken_promise)) << std::endl;
 }
 ```
-* future_category[color ff0000]
+* std::future_category()[color ff0000]
+* std::error_category[link /reference/system_error/error_category.md]
+* cat.name()[link /reference/system_error/error_category/name.md]
+* cat.message[link /reference/system_error/error_category/message.md]
+* std::future_errc::broken_promise[link future_errc.md]
 
 ###出力例
 ```

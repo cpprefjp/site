@@ -79,6 +79,12 @@ int main()
   t.join();
 }
 ```
+* std::future[color ff0000]
+* std::promise[link promise.md]
+* p.set_value[link promise/set_value.md]
+* p.get_future()[link promise/get_future.md]
+* std::move[link /reference/utility/move.md]
+* f.get()[link future/get.md]
 
 ###出力
 ```

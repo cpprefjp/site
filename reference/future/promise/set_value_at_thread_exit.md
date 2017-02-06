@@ -81,6 +81,10 @@ int main()
 ```
 * https://connect.microsoft.com/VisualStudio/feedback/details/737812[link https://connect.microsoft.com/VisualStudio/feedback/details/737812]
 * set_value_at_thread_exit[color ff0000]
+* std::future[link /reference/future/future.md]
+* p.get_future()[link get_future.md]
+* std::ref[link /reference/functional/ref.md]
+* f.get()[link /reference/future/future/get.md]
 
 ###出力
 ```

@@ -77,6 +77,10 @@ int main()
 }
 ```
 * set_value[color ff0000]
+* std::future[link /reference/future/future.md]
+* p.get_future()[link get_future.md]
+* std::move[link /reference/utility/move.md]
+* f.get()[link /reference/future/future/get.md]
 
 ###出力
 ```

@@ -56,8 +56,11 @@ int main()
   t.join();
 }
 ```
-* set_value[color ff0000]
-* get_future[color ff0000]
+* get_future()[color ff0000]
+* p.set_value[link set_value.md]
+* std::future[link /reference/future/future.md]
+* std::move[link /reference/utility/move.md]
+* f.get()[link /reference/future/future/get.md]
 
 ###出力
 ```

@@ -35,6 +35,7 @@ int main()
   p2 = std::move(p1);
 }
 ```
+* std::move[link reference/utility/move.md]
 
 ###出力
 ```

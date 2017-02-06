@@ -52,7 +52,11 @@ int main()
   std::cout << f2.get() << std::endl;
 }
 ```
-* swap[color ff0000]
+* std::swap[color ff0000]
+* std::future[link /reference/future/future.md]
+* get_future()[link get_future.md]
+* set_value[link set_value.md]
+* get()[link /reference/future/future/get.md]
 
 ###出力
 ```

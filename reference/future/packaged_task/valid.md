@@ -41,7 +41,7 @@ int main()
   }
 }
 ```
-* valid[color ff0000]
+* valid()[color ff0000]
 
 ###出力
 ```

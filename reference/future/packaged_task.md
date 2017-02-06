@@ -99,6 +99,12 @@ int main()
   }
 }
 ```
+* std::packaged_task[color ff0000]
+* task.get_future()[link packaged_task/get_future.md]
+* std::future[link future.md]
+* std::f.get()[link future/get.md]
+* std::move[link /reference/utility/move.md]
+* t.detach()[link /reference/thread/thread/detach.md]
 
 ###出力
 ```

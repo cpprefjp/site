@@ -55,6 +55,7 @@ packaged_task(packaged_task&& rhs) noexcept;       // (5)
 ```cpp
 #include <memory>
 #include <future>
+#include <utility>
 
 int foo() { return 3; }
 
@@ -92,6 +93,9 @@ int main()
   }
 }
 ```
+* std::allocator_arg[link /reference/memory/allocator_arg_t.md]
+* std::allocator[link /reference/memory/allocator.md]
+* std::move[link /reference/memory/move.md]
 
 ###出力
 ```

@@ -32,6 +32,7 @@ packaged_task& operator=(packaged_task&& rhs) noexcept;  // (2)
 ##例
 ```cpp
 #include <future>
+#include <utility>
 
 int foo() { return 3; }
 
@@ -47,6 +48,7 @@ int main()
   // task1は共有状態を持たない
 }
 ```
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

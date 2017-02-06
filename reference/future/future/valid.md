@@ -41,7 +41,11 @@ int main()
   std::cout << std::boolalpha << f.valid() << std::endl;
 }
 ```
-* valid[color ff0000]
+* valid()[color ff0000]
+* std::promise[link /reference/future/promise.md]
+* p.get_future()[link /reference/future/promise/get_future.md]
+* p.set_value[link /reference/future/promise/set_value.md]
+* f.get()[link get.md]
 
 ###出力
 ```

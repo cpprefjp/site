@@ -63,7 +63,10 @@ int main()
   execute(task); // タスクを再度実行
 }
 ```
-* reset[color ff0000]
+* reset()[color ff0000]
+* task.get_future()[link get_future.md]
+* std::future[link /reference/future/future.md]
+* f.get()[link /reference/future/future/get.md]
 
 ###出力
 ```

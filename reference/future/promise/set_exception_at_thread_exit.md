@@ -73,6 +73,13 @@ int main()
 ```
 * https://connect.microsoft.com/VisualStudio/feedback/details/737812[link https://connect.microsoft.com/VisualStudio/feedback/details/737812]
 * set_exception_at_thread_exit[color ff0000]
+* std::invalid_argument[link /reference/stdexcept.md]
+* std::exception_ptr[link /reference/exception/exception_ptr.md]
+* std::current_exception[link /reference/exception/current_exception.md]
+* std::future[link /reference/future/future.md]
+* p.get_future()[link get_future.md]
+* std::ref[link /reference/functional/ref.md]
+* f.get()[link /reference/future/future/get.md]
 
 ###出力
 ```

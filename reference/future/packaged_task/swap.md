@@ -51,6 +51,9 @@ int main()
 }
 ```
 * swap[color ff0000]
+* get_future()[link get_future.md]
+* std::future[link /reference/future/future.md]
+* get()[link /reference/future/future/get.md]
 
 ###出力
 ```

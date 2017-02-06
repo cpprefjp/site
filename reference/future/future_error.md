@@ -56,6 +56,13 @@ int main()
   t.join();
 }
 ```
+* std::future_error[color ff0000]
+* std::promise[link promise.md]
+* p.set_value[link promise/set_value.md]
+* p.get_future()[link promise/get_future.md]
+* std::future[link future.md]
+* f.get()[link future/get.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力例
 ```

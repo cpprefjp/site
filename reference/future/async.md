@@ -111,6 +111,13 @@ int main()
   return 0;
 }
 ```
+* std::async[color ff0000]
+* std::launch::async[link launch.md]
+* std::launch::deferred[link launch.md]
+* std::future[link future.md]
+* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
+* std::chrono::milliseconds[link /reference/chrono/milliseconds.md]
+* f.get()[link future/get.md]
 
 ###出力
 ```

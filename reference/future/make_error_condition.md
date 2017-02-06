@@ -39,7 +39,13 @@ int main()
   std::cout << "message : " << ec.message() << std::endl;
 }
 ```
-* make_error_condition[color ff0000]
+* std::make_error_condition[color ff0000]
+* std::error_condition[link /reference/system_error/error_condition.md]
+* std::future_errc::broken_promise[link future_errc.md]
+* ec.category()[link /reference/system_error/error_condition/category.md]
+* name()[link /reference/system_error/error_category/name.md]
+* ec.value()[link /reference/system_error/error_condition/value.md]
+* ec.message()[link /reference/system_error/error_condition/message.md]
 
 ###出力例
 ```

@@ -42,6 +42,8 @@ int main()
   f = p.get_future();
 }
 ```
+* std::promise[link /reference/future/promise.md]
+* p.get_future()[link /reference/future/promise/get_future.md]
 
 ###出力
 ```

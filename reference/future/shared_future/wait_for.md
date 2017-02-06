@@ -63,6 +63,15 @@ int main()
   t.join();
 }
 ```
+* wait_for[color ff0000]
+* std::promise[link /reference/future/promise.md]
+* p.set_value[link /reference/future/promise/set_value.md]
+* p.get_future()[link /reference/future/promise/get_future.md]
+* share()[link /reference/future/future/share.md]
+* std::move[link /reference/utility/move.md]
+* std::future_status[link /reference/future/future_status.md]
+* std::chrono::seconds[link /reference/chrono/seconds.md]
+* f.get()[link get.md]
 
 ###出力例
 ```

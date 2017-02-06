@@ -67,6 +67,15 @@ int main()
 }
 ```
 * wait_until[color ff0000]
+* std::promise[link /reference/future/promise.md]
+* p.set_value[link /reference/future/promise/set_value.md]
+* p.get_future()[link /reference/future/promise/get_future.md]
+* std::move[link /reference/utility/move.md]
+* std::future_status[link /reference/future/future_status.md]
+* chrono::steady_clock[link /reference/chrono/steady_clock.md]
+* now()[link /reference/chrono/steady_clock/now.md]
+* chrono::seconds[link /reference/chrono/seconds.md]
+* f.get()[link shared_future/get.md]
 
 ###出力例
 ```
