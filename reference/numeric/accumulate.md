@@ -61,6 +61,12 @@ int main()
   int sum = std::accumulate(v.begin(), v.end(), 0);
   std::cout << "sum : " << sum << std::endl;
 
+  // (1) : 合計値をlong long型として求める
+  // accumulateの第3引数がlong long型のゼロを表す0LLになっていることに注意
+  // accumulateの戻り値型は、第3引数の型となるため、変数sum_llの型はlong long
+  auto sum_ll = std::accumulate(v.begin(), v.end(), 0LL);
+  std::cout << "sum_ll : " << sum_ll << std::endl;
+
   // (1) : 文字列のリストを連結する
   std::string concatenate = std::accumulate(v2.begin(), v2.end(), std::string());
   std::cout << "concat : " << concatenate << std::endl;
