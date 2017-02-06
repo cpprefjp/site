@@ -13,7 +13,7 @@ namespace std {
 `cerr`は、標準出力に対するマルチバイト出力ストリームオブジェクトである。
 すなわち、`<cstdio>`の`stderr`オブジェクトに結びつけられたストリームオブジェクトである。
 
-clogと異なる点は、unitbufフラグが指定されていることである。そのため、出力操作のたびにバッファの吐き出しが行われる。
+`clog`と異なる点は、[`unitbuf`](/reference/ios/unitbuf.md)フラグが指定されていることである。そのため、出力操作のたびにバッファの吐き出しが行われる。
 
 ##例
 ```cpp
@@ -33,8 +33,11 @@ int main()
   }
 }
 ```
+* std::cerr[color ff0000]
+* v.at[link /reference/vector/at.md]
+* std::exception[link /reference/exception/exception.md]
 
-###出力
+###出力例
 ```
 問題発生: invalid vector<T> subscript
 ```

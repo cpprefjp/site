@@ -34,6 +34,9 @@ int main(int argc, char** argv)
   }
 }
 ```
+* std::clog[color ff0000]
+* std::fstream[link /reference/fstream/basic_fstream.md]
+* rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
 
 ###出力
 （コマンドラインを_program_ foo.txtとしてプログラムを起動した場合）

@@ -31,11 +31,7 @@ int main()
   std::cout << "あなたの名前は「" << s << "」ですね。" << std::endl;
 }
 ```
-* cin[color ff0000]
-* iostream[link ../iostream.md]
-* string[link ../string.md]
-* cout[link cout.md]
-* endl[link ../ostream/endl.md]
+* std::cin[color ff0000]
 
 ##バージョン
 ###言語

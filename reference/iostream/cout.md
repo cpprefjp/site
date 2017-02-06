@@ -22,6 +22,7 @@ int main()
   std::cout << "Hello world" << std::endl;
 }
 ```
+* std::cout[color ff0000]
 
 ###出力
 ```
