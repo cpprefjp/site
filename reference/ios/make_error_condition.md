@@ -28,18 +28,17 @@ namespace std {
 ##例
 ```cpp
 #include <iostream>
-#include <future>
 
 int main()
 {
-  std::error_condition ec = std::make_error_condition(std::future_errc::broken_promise);
+  std::error_condition ec = std::make_error_condition(std::io_errc::stream);
 
   std::cout << "category : " << ec.category().name() << std::endl;
   std::cout << "value : " << ec.value() << std::endl;
   std::cout << "message : " << ec.message() << std::endl;
 }
 ```
-* make_error_condition[color ff0000]
+* std::make_error_condition[color ff0000]
 
 ###出力例
 ```
