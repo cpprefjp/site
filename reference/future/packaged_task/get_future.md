@@ -48,7 +48,7 @@ int main()
 * get_future()[color ff0000]
 * std::future[link /reference/future/future.md]
 * task()[link op_call.md]
-* f.get()[link /reference/future/future/future/get.md]
+* f.get()[link /reference/future/future/get.md]
 
 ###出力
 ```

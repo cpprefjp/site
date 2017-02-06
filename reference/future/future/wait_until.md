@@ -75,7 +75,7 @@ int main()
 * chrono::steady_clock[link /reference/chrono/steady_clock.md]
 * now()[link /reference/chrono/steady_clock/now.md]
 * chrono::seconds[link /reference/chrono/seconds.md]
-* f.get()[link shared_future/get.md]
+* f.get()[link /reference/future/shared_future/get.md]
 
 ###出力例
 ```

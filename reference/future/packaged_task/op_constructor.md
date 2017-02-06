@@ -95,7 +95,7 @@ int main()
 ```
 * std::allocator_arg[link /reference/memory/allocator_arg_t.md]
 * std::allocator[link /reference/memory/allocator.md]
-* std::move[link /reference/memory/move.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

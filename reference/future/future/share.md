@@ -65,7 +65,7 @@ int main()
 }
 ```
 * share()[color ff0000]
-* f.get()[link shared_future/get.md]
+* f.get()[link /reference/future/shared_future/get.md]
 * std::promise[link /reference/future/promise.md]
 * p.get_future()[link /reference/future/promise/get_future.md]
 * p.set_value[link /reference/future/promise/set_value.md]
