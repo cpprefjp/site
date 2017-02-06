@@ -41,6 +41,7 @@ int main()
 ```
 * std::showbase[color ff0000]
 * std::hex[link hex.md]
+* std::oct[link oct.md]
 * std::noshowbase[link noshowbase.md]
 
 ###出力
