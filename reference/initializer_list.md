@@ -64,6 +64,9 @@ int main()
   const Vector<int> v = {1, 2, 3}; // 初期化子リストによる初期化
 }
 ```
+* std::initializer_list[color ff0000]
+* init.begin()[link initializer_list/begin.md]
+* init.end()[link initializer_list/end.md]
 
 ###出力
 ```

@@ -34,11 +34,11 @@ int main()
   std::initializer_list<int> init = {1, 2, 3};
 
   decltype(init)::iterator it = init.begin();
-  
+
   std::cout << *it << std::endl;
 }
 ```
-
+* init.begin()[color ff0000]
 
 ###出力
 ```
