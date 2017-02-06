@@ -90,8 +90,6 @@ int main()
 * pword[link pword.md]
 * std::ostringstream[link /reference/sstream/basic_ostringstream.md.nolink]
 * std::hex[link /reference/ios/hex.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

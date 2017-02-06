@@ -51,16 +51,13 @@ int main()
   std::cout << std::setprecision(8) << std::scientific << f << '\n';
 }
 ```
-* iostream[link ../../iostream.md]
-* iomanip[link ../../iomanip.md]
-* cout[link ../../iostream/cout.md]
-* streamsize[link ../type-streamsize.md]
 * precision[color ff0000]
-* defaultfloat[link ../defaultfloat.md]
-* scientific[link ../scientific.md]
-* fixed[link ../fixed.md]
-* hexfloat[link ../hexfloat.md]
-* setprecision[link ../../iomanip/setprecision.md]
+* std::streamsize[link ../type-streamsize.md]
+* std::defaultfloat[link ../defaultfloat.md]
+* std::scientific[link ../scientific.md]
+* std::fixed[link ../fixed.md]
+* std::hexfloat[link ../hexfloat.md]
+* std::setprecision[link ../../iomanip/setprecision.md]
 
 ###出力例
 ```

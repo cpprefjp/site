@@ -43,7 +43,11 @@ int main()
   std::cout << cat.message(static_cast<int>(std::io_errc::stream)) << std::endl;
 }
 ```
-* iostream_category[color ff0000]
+* std::iostream_category[color ff0000]
+* std::error_category[link /reference/system_error/error_category.md]
+* cat.name()[link /reference/system_error/error_category/name.md]
+* cat.message()[link /reference/system_error/error_category/message.md]
+* std::io_errc::stream[link io_errc.md]
 
 ###出力例
 ```

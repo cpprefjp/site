@@ -31,6 +31,9 @@ int main()
   std::cout << std::noshowbase << 15 << std::endl;
 }
 ```
+* std::noshowbase[color ff0000]
+* std::hex[link hex.md]
+* std::showbase[link showbase.md]
 
 ###出力
 ```

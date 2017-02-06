@@ -32,6 +32,9 @@ int main()
   std::cout << ec.message() << std::endl;
 }
 ```
+* std::error_code[link /reference/system_error/error_code.md]
+* std::io_errc::stream[link io_errc.md]
+* ec.message()[link /reference/system_error/error_code/message.md]
 
 ###出力例
 ```

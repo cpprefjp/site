@@ -47,14 +47,11 @@ int main()
   output(std::ios_base::out | std::ios_base::app);
 }
 ```
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* ios_base[link ../ios_base.md]
-* ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
-* cout[link ../../iostream/cout.md]
+* std::ios_base[link ../ios_base.md]
+* std::ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
 * seekp[link ../../ostream/basic_ostream/seekp.md]
-* flush[link ../../ostream/flush.md]
-* str[link ../../sstream/basic_ostringstream/str.md.nolink]
+* std::flush[link ../../ostream/flush.md]
+* str()[link ../../sstream/basic_ostringstream/str.md.nolink]
 * openmode[color ff0000]
 * out[color ff0000]
 * ate[color ff0000]
@@ -109,14 +106,11 @@ int main()
   output(std::ios_base::in | std::ios_base::out | std::ios_base::app);
 }
 ```
-* iostream[link ../../iostream.md]
-* fstream[link ../../fstream.md]
-* string[link ../../string.md]
-* ios_base[link ../ios_base.md]
-* ofstream[link ../../fstream/basic_ofstream.md.nolink]
-* cout[link ../../iostream/cout.md]
+* std::ios_base[link ../ios_base.md]
+* std::fstream[link ../../fstream/basic_fstream.md]
+* std::ofstream[link ../../fstream/basic_ofstream.md.nolink]
 * seekp[link ../../ostream/basic_ostream/seekp.md]
-* flush[link ../../ostream/flush.md]
+* std::flush[link ../../ostream/flush.md]
 * openmode[color ff0000]
 * out[color ff0000]
 * ate[color ff0000]

@@ -31,6 +31,11 @@ int main()
   std::cout << std::hexfloat << 1234.5 << std::endl;
 }
 ```
+* std::uppercase[color ff0000]
+* std::hex[link hex.md]
+* std::showbase[link showbase.md]
+* std::scientific[link scientific.md]
+* std::hexfloat[link hexfloat.md]
 
 ###出力
 ```

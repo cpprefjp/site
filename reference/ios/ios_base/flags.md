@@ -63,9 +63,7 @@ int main()
   std::cout << 100 << '\n';
 }
 ```
-* iostream[link ../../iostream.md]
-* cout[link ../../iostream/cout.md]
-* flags[color ff0000]
+* flags()[color ff0000]
 * fmtflags[link type-fmtflags.md]
 * setf[link setf.md]
 * hex[link type-fmtflags.md]

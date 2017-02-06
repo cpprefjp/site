@@ -106,22 +106,18 @@ int main()
   std::cout << x << std::endl;                          // 涼風青葉風に出力（ss に対する変更は無影響）
 }
 ```
-* xalloc[link xalloc.md]
-* ostream[link ../../ostream/basic_ostream.md]
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* string[link ../../string.md]
 * pword[color ff0000]
-* stringstream[link ../../sstream/basic_stringstream.md.nolink]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* ios_base[link ../ios_base.md]
-* bad[link ../basic_ios/bad.md]
+* xalloc()[link xalloc.md]
+* std::ostream[link ../../ostream/basic_ostream.md]
+* std::stringstream[link ../../sstream/basic_stringstream.md.nolink]
+* std::ios_base[link ../ios_base.md]
+* bad()[link ../basic_ios/bad.md]
 * event[link type-event.md]
 * erase_event[link type-event.md]
 * copyfmt_event[link type-event.md]
 * imbue_event[link type-event.md]
 * register_callback[link register_callback.md]
+* copyfmt[link ../basic_ios/copyfmt.md]
 
 ###出力
 ```

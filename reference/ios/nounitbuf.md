@@ -33,6 +33,8 @@ int main()
   std::cout << std::nounitbuf << "test\n";
 }
 ```
+* std::nounitbuf[color ff0000]
+* std::unitbuf[link unitbuf.md]
 
 ###出力
 ```

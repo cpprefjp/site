@@ -17,13 +17,13 @@ namespace std {
 具体的には、以下の部分が中間部分となる。挿入できる中間部分がない場合、std::leftと同じような出力になる。
 
 - 符号付き整数の場合、符号と整数の間
-- std::showbaseによるプレフィックスと数値の間
+- `std::showbase`によるプレフィックスと数値の間
 
 ##効果
 `str.setf(ios_base::internal, ios_base::adjustfield)`を実行する。
 
 ##戻り値
-実引数のstrオブジェクト。
+実引数`str`オブジェクト。
 
 ##例
 [`left`](left.md)を参照。

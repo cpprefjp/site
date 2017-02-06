@@ -39,6 +39,12 @@ int main()
 }
 ```
 * std::make_error_condition[color ff0000]
+* std::io_errc::stream[link io_errc.md]
+* std::error_condition[link /reference/system_error/error_condition.md]
+* ec.category()[link /reference/system_error/error_code/category.md]
+* name()[link /reference/system_error/error_category/name.md]
+* ec.value()[link /reference/system_error/error_condition/value.md]
+* ec.message()[link /reference/system_error/error_condition/message.md]
 
 ###出力例
 ```

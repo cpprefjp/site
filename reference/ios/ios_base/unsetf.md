@@ -61,20 +61,17 @@ int main()
   std::cout << std::defaultfloat << 123.456 << '\n';    // C++11 から
 }
 ```
-* iostream[link ../../iostream.md]
-* cout[link ../../iostream/cout.md]
 * unsetf[color ff0000]
 * setf[link setf.md]
 * boolalpha[link type-fmtflags.md]
 * scientific[link type-fmtflags.md]
 * fixed[link type-fmtflags.md]
 * floatfield[link type-fmtflags.md]
-* std::boolalpha[link ../boolalpha.md]
 * std::noboolalpha[link ../noboolalpha.md]
 * std::scientific[link ../scientific.md]
 * std::fixed[link ../fixed.md]
 * std::defaultfloat[link ../defaultfloat.md]
-* ios_base[link ../ios_base.md]
+* std::ios_base[link ../ios_base.md]
 
 ###出力例
 ```

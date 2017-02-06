@@ -77,17 +77,13 @@ int main()
   std::cout << "imbue 3 end\n";
 }
 ```
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* ios_base[link ../ios_base.md]
-* basic_ios[link ../basic_ios.md]
-* stringstream[link ../../sstream/basic_stringstream.md.nolink]
-* cout[link ../../iostream/cout.md]
-* event[link type-event.md]
+* std::ios_base[link ../ios_base.md]
+* std::basic_ios[link ../basic_ios.md]
+* std::stringstream[link ../../sstream/basic_stringstream.md.nolink]
 * erase_event[link type-event.md]
 * copyfmt_event[link type-event.md]
 * imbue_event[link type-event.md]
-* locale[link ../../locale.md]
+* std::locale[link ../../locale/locale.md]
 * register_callback[color ff0000]
 * imbue[link imbue.md]
 

@@ -28,8 +28,7 @@ int main()
   std::cout << std::noboolalpha << false << std::endl;
 }
 ```
-* boolalpha[link boolalpha.md]
-* noboolalpha[color ff0000]
+* std::noboolalpha[color ff0000]
 
 ###出力
 ```

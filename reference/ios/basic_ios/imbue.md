@@ -45,11 +45,10 @@ int main()
   std::cout << std::cout.rdbuf()->getloc().name() << '\n';
 }
 ```
-* iostream[link ../../iostream.md]
-* locale[link ../../locale.md]
-* classic[link ../../locale/locale/classic.md.nolink]
-* cout[link ../../iostream/cout.md]
 * imbue[color ff0000]
+* std::locale[link ../../locale/locale.md]
+* classic[link ../../locale/locale/classic.md.nolink]
+* std::ios_base[link ../ios_base.md]
 * rdbuf[link rdbuf.md]
 * getloc[link ../../streambuf/basic_streambuf/getloc.md]
 * name[link ../../locale/locale/name.md.nolink]

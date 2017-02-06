@@ -65,17 +65,14 @@ int main()
   std::cout << "block end\n";
 }
 ```
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* ios_base[link ../ios_base.md]
-* basic_ios[link ../basic_ios.md]
-* stringstream[link ../../sstream/basic_stringstream.md.nolink]
-* cout[link ../../iostream/cout.md]
+* std::ios_base[link ../ios_base.md]
+* std::basic_ios[link ../basic_ios.md]
+* std::stringstream[link ../../sstream/basic_stringstream.md.nolink]
 * event[color ff0000]
 * erase_event[color ff0000]
 * copyfmt_event[color ff0000]
 * imbue_event[color ff0000]
-* locale[link ../../locale.md]
+* std::locale[link ../../locale/locale.md]
 * register_callback[link register_callback.md]
 * imbue[link imbue.md]
 * copyfmt[link ../basic_ios/copyfmt.md]

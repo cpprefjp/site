@@ -46,12 +46,8 @@ int main()
   std::cout << s << '\n';
 }
 ```
-* iostream[link ../../iostream.md]
-* iomanip[link ../../iomanip.md]
-* cout[link ../../iostream/cout.md]
-* streamsize[link ../type-streamsize.md]
 * width[color ff0000]
-* setw[link ../../iomanip/setw.md.nolink]
+* std::setw[link ../../iomanip/setw.md.nolink]
 
 ###出力例
 ```

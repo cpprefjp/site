@@ -32,10 +32,8 @@ int main()
   std::cout << c1 << ", " << c2 << '\n';
 }
 ```
-* iostream[link ../../iostream.md]
-* cout[link ../../iostream/cout.md]
-* wcout[link ../../iostream/wcout.md.nolink]
 * narrow[color ff0000]
+* std::wcout[link ../../iostream/wcout.md.nolink]
 
 ###出力
 ```

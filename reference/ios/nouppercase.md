@@ -30,6 +30,9 @@ int main()
   std::cout << std::nouppercase << 0xbeef << std::endl;
 }
 ```
+* std::nouppercase[color ff0000]
+* std::hex[link hex.md]
+* std::uppercase[link uppercase.md]
 
 ###出力
 ```

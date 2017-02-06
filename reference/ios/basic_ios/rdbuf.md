@@ -40,14 +40,10 @@ int main()
   std::cout << sstr.str();
 }
 ```
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
-* streambuf[link ../../streambuf/basic_streambuf.md]
+* std::ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
+* std::streambuf[link ../../streambuf/basic_streambuf.md]
 * rdbuf[color ff0000]
-* str[link ../../sstream/basic_ostringstream/str.md.nolink]
+* str()[link ../../sstream/basic_ostringstream/str.md.nolink]
 
 ###出力
 ```

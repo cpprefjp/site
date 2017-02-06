@@ -35,12 +35,9 @@ int main()
   std::cout << f.what() << std::endl;
 }
 ```
-* iostream[link ../../../iostream.md]
 * failure[link ../failure.md]
-* cout[link ../../../iostream/cout.md]
-* endl[link ../../../ostream/endl.md]
-* ios_base[link ../../ios_base.md]
-* what[color ff0000]
+* std::ios_base[link ../../ios_base.md]
+* what()[link what.md]
 
 ###出力
 ```

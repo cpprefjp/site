@@ -94,18 +94,14 @@ int main()
   std::cout << x << std::endl;                      // 3 進数として出力
 }
 ```
-* xalloc[link xalloc.md]
-* ostream[link ../../ostream/basic_ostream.md]
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* string[link ../../string.md]
 * iword[color ff0000]
-* stringstream[link ../../sstream/basic_stringstream.md.nolink]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* ios_base[link ../ios_base.md]
+* xalloc[link xalloc.md]
+* std::ostream[link ../../ostream/basic_ostream.md]
+* std::stringstream[link ../../sstream/basic_stringstream.md.nolink]
+* std::ios_base[link ../ios_base.md]
 * insert[link ../../string/basic_string/insert.md]
-* bad[link ../basic_ios/bad.md]
+* bad()[link ../basic_ios/bad.md]
+* copyfmt[link ../basic_ios/copyfmt.md]
 
 ###出力
 ```

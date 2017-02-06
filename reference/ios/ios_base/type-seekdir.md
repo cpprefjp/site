@@ -44,14 +44,11 @@ int main()
   seek(std::ios_base::end);
 }
 ```
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* ios_base[link ../ios_base.md]
-* ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
-* cout[link ../../iostream/cout.md]
+* std::ios_base[link ../ios_base.md]
+* std::ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
 * seekp[link ../../ostream/basic_ostream/seekp.md]
-* flush[link ../../ostream/flush.md]
-* str[link ../../sstream/basic_ostringstream/str.md.nolink]
+* std::flush[link ../../ostream/flush.md]
+* str()[link ../../sstream/basic_ostringstream/str.md.nolink]
 * out[link type-openmode.md]
 * seekdir[color ff0000]
 * beg[color ff0000]
@@ -100,14 +97,12 @@ int main()
   seek(std::ios_base::end);
 }
 ```
-* iostream[link ../../iostream.md]
-* fstream[link ../../fstream.md]
-* string[link ../../string.md]
-* ios_base[link ../ios_base.md]
-* ofstream[link ../../fstream/basic_ofstream.md.nolink]
-* cout[link ../../iostream/cout.md]
+* std::ios_base[link ../ios_base.md]
+* std::fstream[link ../../fstream/basic_fstream.md]
+* std::ofstream[link ../../fstream/basic_ofstream.md.nolink]
+* std::ifstream[link ../../fstream/basic_ifstream.md.nolink]
 * seekp[link ../../ostream/basic_ostream/seekp.md]
-* flush[link ../../ostream/flush.md]
+* std::flush[link ../../ostream/flush.md]
 * in[link type-openmode.md]
 * out[link type-openmode.md]
 * seekdir[color ff0000]

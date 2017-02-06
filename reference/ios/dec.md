@@ -31,6 +31,9 @@ int main()
   }
 }
 ```
+* std::dec[color ff0000]
+* std::oct[link oct.md]
+* std::hex[link hex.md]
 
 ###出力
 ```

@@ -43,16 +43,12 @@ int main()
   std::cout << "end\n";
 }
 ```
-* iostream[link ../../iostream.md]
-* cout[link ../../iostream/cout.md]
-* cin[link ../../iostream/cin.md]
-* ios_base[link ../ios_base.md]
+* exceptions()[color ff0000]
+* std::ios_base[link ../ios_base.md]
 * failbit[link ../ios_base/type-iostate.md]
 * badbit[link ../ios_base/type-iostate.md]
 * failure[link ../ios_base/failure.md]
 * what[link ../ios_base/failure/what.md]
-* exceptions[color ff0000]
-* setstate[link setstate.md]
 * rdstate[link rdstate.md]
 
 ###出力例

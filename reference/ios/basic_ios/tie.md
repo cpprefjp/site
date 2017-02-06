@@ -76,17 +76,13 @@ int main()
   input(ifs);               // tie していれば入力時に自動的にフラッシュされる
 }
 ```
-* iostream[link ../../iostream.md]
-* fstream[link ../../fstream.md]
-* string[link ../../string.md]
-* istream[link ../../istream/basic_istream.md]
-* ifstream[link ../../fstream/basic_ifilestream.md.nolink]
-* ofstream[link ../../fstream/basic_ofilestream.md.nolink]
-* cout[link ../../iostream/cout.md]
 * tie[color ff0000]
-* clear[link clear.md]
+* std::istream[link ../../istream/basic_istream.md]
+* std::ifstream[link ../../fstream/basic_ifilestream.md.nolink]
+* std::ofstream[link ../../fstream/basic_ofilestream.md.nolink]
+* clear()[link clear.md]
 * rdstate[link rdstate.md]
-* ios_base[link ../ios_base.md]
+* std::ios_base[link ../ios_base.md]
 * badbit[link ../ios_base/type-iostate.md]
 * eofbit[link ../ios_base/type-iostate.md]
 * failbit[link ../ios_base/type-iostate.md]

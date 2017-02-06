@@ -44,12 +44,9 @@ int main()
   std::putchar('4');
 }
 ```
-* iostream[link ../../iostream.md]
-* cstdio[link ../../cstdio.md.nolink]
 * sync_with_stdio[color ff0000]
-* ios_base[link ../ios_base.md]
-* cout[link ../../iostream/cout.md]
-* putchar[link ../../cstdio/putchar.md.nolink]
+* std::ios_base[link ../ios_base.md]
+* std::putchar[link ../../cstdio/putchar.md.nolink]
 
 ###出力例
 ```

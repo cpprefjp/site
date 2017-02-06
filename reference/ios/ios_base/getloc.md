@@ -36,14 +36,10 @@ int main()
   std::cout << ss.getloc().name() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* locale[link ../../locale.md]
-* name[link ../../locale/locale/name.md.nolink]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* getloc()[color ff0000]
+* std::locale[link ../../locale/locale.md]
+* name()[link ../../locale/locale/name.md.nolink]
 * imbue[link imbue.md]
-* getloc[color ff0000]
 
 ###出力例
 ```

@@ -30,6 +30,8 @@ int main()
   std::cout << std::setprecision(2) << 1. << ' ' << 1.e-10 << std::endl;
 }
 ```
+* std::showpoint[color ff0000]
+* std::setprecision[link /reference/iomanip/setprecision.md]
 
 ###出力
 ```

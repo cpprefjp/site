@@ -31,6 +31,9 @@ int main()
   std::cout << 1. << ' ' << 1.e+100 << std::endl;
 }
 ```
+* std::noshowpoint[color ff0000]
+* std::showpoint[link showpoint.md]
+* std::setprecision[link /reference/iomanip/setprecision.md]
 
 ###出力
 ```

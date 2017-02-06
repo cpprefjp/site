@@ -61,18 +61,14 @@ int main()
   printstate(iss.rdstate());
 }
 ```
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* string[link ../../string.md]
-* istringstream[link ../../sstream/basic_istringstream.md]
-* boolalpha[link ../boolalpha.md]
-* ios_base[link ../ios_base.md]
+* std::istringstream[link ../../sstream/basic_istringstream.md]
+* std::ios_base[link ../ios_base.md]
 * iostate[color ff0000]
 * badbit[color ff0000]
 * eofbit[color ff0000]
 * failbit[color ff0000]
-* rdstate[link ../basic_ios/rdstate.md]
-* clear[link ../basic_ios/clear.md]
+* rdstate()[link ../basic_ios/rdstate.md]
+* clear()[link ../basic_ios/clear.md]
 * putback[link ../../istream/basic_istream/putback.md]
 
 ###出力

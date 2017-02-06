@@ -41,12 +41,9 @@ int main()
   std::cout << 1234.5 << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* locale[link ../../locale.md]
-* classic[link ../../locale/classic.md.nolink]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
 * imbue[color ff0000]
+* std::locale[link ../../locale/locale.md]
+* classic[link ../../locale/classic.md.nolink]
 
 ###出力例
 ```

@@ -29,6 +29,8 @@ int main()
   std::cout << std::noshowpos << 1 << ' ' << 0 << ' ' << 1 << std::endl;
 }
 ```
+* std::noshowpos[color ff0000]
+* std::showpos[link showpos.md]
 
 ###出力
 ```

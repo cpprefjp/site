@@ -44,6 +44,11 @@ int main()
   std::clog << std::endl;
 }
 ```
+* std::unitbuf[color ff0000]
+* std::ios_base[link ios_base.md]
+* sync_with_stdio[link ios_base/sync_with_stdio.md]
+* std::clog[link /reference/iostream/clog.md]
+* tie[link basic_ios/tie.md]
 
 ###出力
 ```

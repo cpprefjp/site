@@ -48,12 +48,9 @@ int main()
   std::cout << std::setfill('*') << std::setw(10) << 10 << '\n';
 }
 ```
-* iostream[link ../../iostream.md]
-* iomanip[link ../../iomanip.md]
-* cout[link ../../iostream/cout.md]
-* setw[link ../../iomanip/setw.md.nolink]
-* setfill[link ../../iomanip/setfill.md.nolink]
 * fill[color ff0000]
+* std::setw[link ../../iomanip/setw.md.nolink]
+* std::setfill[link ../../iomanip/setfill.md.nolink]
 * width[link ../ios_base/width.md]
 
 ###出力

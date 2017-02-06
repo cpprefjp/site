@@ -52,18 +52,16 @@ int main()
   std::cout << std::hex << 100 << std::dec << '\n';
 }
 ```
-* iostream[link ../../iostream.md]
-* cout[link ../../iostream/cout.md]
+* setf[color ff0000]
 * flags[link flags.md]
 * fmtflags[link type-fmtflags.md]
-* setf[color ff0000]
 * hex[link type-fmtflags.md]
 * boolalpha[link type-fmtflags.md]
 * std::hex[link ../hex.md]
 * std::dec[link ../dec.md]
 * std::boolalpha[link ../boolalpha.md]
 * std::noboolalpha[link ../noboolalpha.md]
-* ios_base[link ../ios_base.md]
+* std::ios_base[link ../ios_base.md]
 
 ###出力
 ```

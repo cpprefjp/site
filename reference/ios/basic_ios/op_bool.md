@@ -24,7 +24,6 @@ explicit operator bool() const;
 bool b1 = std::cout;
 bool b2 = std::cout == NULL;
 	```
-* cout[link ../../iostream.md]
 
 
 ##実装例

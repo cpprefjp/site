@@ -28,6 +28,7 @@ int main()
   std::cout << std::showpos << 1 << ' ' << 0 << std::endl;
 }
 ```
+* std::showpos[color ff0000]
 
 ###出力
 ```

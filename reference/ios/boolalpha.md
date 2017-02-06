@@ -27,7 +27,7 @@ int main()
   std::cout << std::boolalpha << true << std::endl;
 }
 ```
-* boolalpha[color ff0000]
+* std::boolalpha[color ff0000]
 
 ###出力
 ```

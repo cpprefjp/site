@@ -32,6 +32,10 @@ int main()
   std::cout << '|' << std::right << std::setw(6) << -12 << '|' << std::endl;
 }
 ```
+* std::left[color ff0000]
+* std::internal[link internal.md]
+* std::right[link right.md]
+* std::setw[link /reference/iomanip/setw.md]
 
 ###出力
 ```

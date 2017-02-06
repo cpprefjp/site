@@ -52,18 +52,14 @@ int main()
   std::cout << 10 << '\n';
 }
 ```
-* iostream[link ../../iostream.md]
-* iomanip[link ../../iomanip.md]
-* cstddef[link ../../cstddef.md]
-* NULL[link ../../cstddef/null.md]
-* ostream[link ../../ostream/basic_ostream.md]
-* hex[link ../hex.md]
-* showbase[link ../showbase.md]
-* internal[link ../internal.md]
-* setw[link ../../iomanip/setw.md.nolink]
-* setfill[link ../../iomanip/setfill.md.nolink]
 * copyfmt[color ff0000]
-* cout[link ../../iostream/cout.md]
+* NULL[link ../../cstddef/null.md]
+* std::ostream[link ../../ostream/basic_ostream.md]
+* std::hex[link ../hex.md]
+* std::showbase[link ../showbase.md]
+* std::internal[link ../internal.md]
+* std::setw[link ../../iomanip/setw.md.nolink]
+* std::setfill[link ../../iomanip/setfill.md.nolink]
 
 ###出力
 ```
