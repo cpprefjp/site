@@ -36,7 +36,18 @@ void f(basic_ios<CharT, Traits>& out, const struct tm* tmb, const CharT* fmt)
     out.setstate(ios_base::badbit);
 }
 ```
-
+* basic_ios[link /reference/ios/basic_ios.md]
+* ostreambuf_iterator[link /reference/iterator/ostreambuf_iterator.md]
+* time_put[link /reference/locale/time_put.md]
+* use_facet[link /reference/locale/use_facet.md.nolink]
+* out.getloc()[link /reference/ios/ios_base/getloc.md]
+* out.rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
+* out.fill()[link /reference/ios/basic_ios/fill.md]
+* tp.put[link /reference/locale/time_put/put.md.nolink]
+* end.failed()[link /reference/iterator/ostreambuf_iterator/failed.md]
+* out.setstate[link /reference/ios/basic_ios/setstate.md]
+* ios_base[link /reference/ios/ios_base.md]
+* badbit[link /reference/ios/ios_base/type-iostate.md]
 
 ##例
 ```cpp
@@ -57,7 +68,10 @@ int main() {
   std::cout << std::put_time(lt, "%c") << std::endl;
 }
 ```
-* put_time[color ff0000]
+* std::put_time[color ff0000]
+* system_clock[link /reference/chrono/system_clock.md]
+* now()[link /reference/chrono/system_clock/now.md]
+* to_time_t[link /reference/chrono/system_clock/to_time_t.md]
 
 ###出力
 ```
