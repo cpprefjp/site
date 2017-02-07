@@ -41,7 +41,7 @@ std::string get_word(std::istream& is) {
     // 大文字にしてからput_backで戻す。
     is.putback(std::toupper(c, is.getloc()));
 
-    std::cin >> s;
+    is >> s;
   }
   return s;
 }
