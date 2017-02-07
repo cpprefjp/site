@@ -80,6 +80,8 @@ int main()
   std::for_each(it, last, [](char c) { std::cout << c; });
 }
 ```
+* std::istreambuf_iterator[color ff0000]
+* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 
 ###出力
 ```

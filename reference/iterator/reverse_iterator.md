@@ -90,7 +90,7 @@ namespace std {
 #include <iostream>
 #include <vector>
 #include <iterator>
-#include <algorithm> // for_each
+#include <algorithm>
 
 int main()
 {
@@ -105,7 +105,7 @@ int main()
   });
 }
 ```
-* reverse_iterator[color ff0000]
+* std::reverse_iterator[color ff0000]
 
 ###出力
 ```

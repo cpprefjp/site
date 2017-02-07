@@ -46,12 +46,8 @@ int main()
   });
 }
 ```
-* cbegin[color ff0000]
-* std::vector[link /reference/vector.md]
-* cend[link cend.md]
-* std::for_each[link /reference/algorithm/for_each.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* std::cbegin[color ff0000]
+* std::cend[link cend.md]
 
 ###出力
 ```

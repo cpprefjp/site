@@ -48,7 +48,7 @@ namespace std {
 #include <iostream>
 #include <iterator>
 #include <vector>
-#include <algorithm> // copy
+#include <algorithm>
 
 int main()
 {
@@ -58,7 +58,7 @@ int main()
   std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, ","));
 }
 ```
-* ostream_iterator[color ff0000]
+* std::ostream_iterator[color ff0000]
 
 ###出力
 ```

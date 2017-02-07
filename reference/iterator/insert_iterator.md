@@ -61,7 +61,7 @@ namespace std {
 #include <iostream>
 #include <set>
 #include <iterator>
-#include <algorithm> // copy
+#include <algorithm>
 
 int main()
 {
@@ -76,7 +76,10 @@ int main()
   }
 }
 ```
-* inserter[color ff0000]
+* std::inserter[color ff0000]
+* src.begin()[link /reference/set/set/begin.md]
+* src.end()[link /reference/set/set/end.md]
+* dest.end()[link /reference/set/set/end.md]
 
 ###出力
 ```

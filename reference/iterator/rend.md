@@ -85,13 +85,9 @@ int main()
   }
 }
 ```
-* rend[color ff0000]
-* rbegin[link rbegin.md]
+* std::rend[color ff0000]
+* std::rbegin[link rbegin.md]
 * std::reverse_iterator[link reverse_iterator.md]
-* std::vector[link /reference/vector.md]
-* std::for_each[link /reference/algorithm/for_each.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

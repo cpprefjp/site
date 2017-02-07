@@ -60,7 +60,7 @@ namespace std {
 #include <iostream>
 #include <deque>
 #include <iterator>
-#include <algorithm> // copy
+#include <algorithm>
 
 int main()
 {
@@ -75,7 +75,9 @@ int main()
   }
 }
 ```
-* front_inserter[color ff0000]
+* std::front_inserter[color ff0000]
+* src.begin()[link /reference/deque/begin.md]
+* src.end()[link /reference/deque/end.md]
 
 ###出力
 ```

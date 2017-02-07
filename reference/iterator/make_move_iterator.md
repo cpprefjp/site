@@ -45,7 +45,7 @@ int main()
   std::cout << *p << std::endl;
 }
 ```
-* make_move_iterator[color ff0000]
+* std::make_move_iterator[color ff0000]
 
 ###出力
 ```

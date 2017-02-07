@@ -42,9 +42,7 @@ int main()
   );
 }
 ```
-* for_each[link /reference/algorithm/for_each.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* std::make_reverse_iterator[color ff0000]
 
 ###出力
 ```

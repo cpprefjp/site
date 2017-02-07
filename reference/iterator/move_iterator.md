@@ -87,7 +87,8 @@ int main()
     [](const std::unique_ptr<int>& v) { std::cout << *v << std::endl; });
 }
 ```
-* make_move_iterator[color ff0000]
+* std::make_move_iterator[color ff0000]
+* v.emplace_back[link /reference/vector/emplace_back.md]
 
 ###出力
 ```

@@ -23,10 +23,8 @@ std::vector<int> v = { … };
 auto it = std::find_if(v.begin(), v.end(), pred);
 std::size_t index = std::distance(v.begin(), it);
 ```
-* std::vector[link /reference/vector.md]
+* std::distance[color ff0000]
 * std::find_if[link /reference/algorithm/find_if.md]
-* std::size_t[link /reference/cstddef/size_t.md]
-* begin()[link /reference/vector/begin.md]
 
 - [`std::forward_list`](/reference/forward_list.md)のような、要素数を直接取得できないコンテナに対して、イテレータ範囲で要素数を求める。
 
@@ -34,10 +32,10 @@ std::size_t index = std::distance(v.begin(), it);
 std::forward_list<int> ls = { … };
 std::size_t size = std::distance(ls.begin(), ls.end());
 ```
+* std::distance[color ff0000]
 * std::forward_list[link /reference/forward_list.md]
-* begin()[link /reference/forward_list/begin.md]
-* end()[link /reference/forward_list/end.md]
-* std::size_t[link /reference/cstddef/size_t.md]
+* ls.begin()[link /reference/forward_list/begin.md]
+* ls.end()[link /reference/forward_list/end.md]
 
 
 ##要件
@@ -81,7 +79,9 @@ int main()
   }
 }
 ```
-* distance[color ff0000]
+* std::distance[color ff0000]
+* ls.begin()[link /reference/list/begin.md]
+* ls.end()[link /reference/list/end.md]
 
 ###出力
 ```
@@ -123,6 +123,9 @@ typename std::iterator_traits<InputIterator>::difference_type
               typename std::iterator_traits<InputIterator>::iterator_category());
 }
 ```
+* std::iterator_traits[link iterator_traits.md]
+* std::input_iterator_tag[link iterator_tag.md]
+* std::random_access_iterator_tag[link iterator_tag.md]
 
 ##参照
 

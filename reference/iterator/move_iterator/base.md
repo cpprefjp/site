@@ -36,7 +36,8 @@ int main()
   std::cout << **base << std::endl;
 }
 ```
-* base[color ff0000]
+* base()[color ff0000]
+* v.emplace_back[link /reference/vector/emplace_back.md]
 
 ###出力
 ```

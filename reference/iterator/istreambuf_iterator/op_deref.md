@@ -33,9 +33,10 @@ int main()
   std::cout << *it << std::endl;
 }
 ```
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ###出力
-```cpp
+```
 1
 ```
 

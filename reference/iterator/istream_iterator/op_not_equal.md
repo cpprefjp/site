@@ -45,6 +45,7 @@ int main()
   std::cout << "it1 == last : " << (it1 != last) << std::endl;
 }
 ```
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ###出力
 ```

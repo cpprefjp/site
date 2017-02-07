@@ -32,7 +32,7 @@ int main()
   std::cout << *base << std::endl;
 }
 ```
-* base[color ff0000]
+* base()[color ff0000]
 
 ###出力
 ```

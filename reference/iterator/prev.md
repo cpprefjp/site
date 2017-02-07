@@ -52,7 +52,7 @@ int main()
   }
 }
 ```
-* prev[color ff0000]
+* std::prev[color ff0000]
 
 ###出力
 ```

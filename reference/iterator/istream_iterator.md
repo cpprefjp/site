@@ -61,7 +61,7 @@ namespace std {
 #include <iostream>
 #include <iterator>
 #include <sstream>
-#include <algorithm> // for_each
+#include <algorithm>
 
 int main()
 {
@@ -81,8 +81,8 @@ int main()
   });
 }
 ```
-* istream_iterator[color ff0000]
-
+* std::istream_iterator[color ff0000]
+* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 
 ###出力
 ```

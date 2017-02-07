@@ -23,7 +23,7 @@ ostreambuf_iterator(streambuf_type* s) noexcept;
 ```cpp
 #include <iostream>
 #include <iterator>
-#include <algorithm> // copy
+#include <algorithm>
 #include <string>
 
 int main()
@@ -40,6 +40,7 @@ int main()
   std::copy(s.begin(), s.end(), it2);
 }
 ```
+* rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
 
 ###出力
 ```

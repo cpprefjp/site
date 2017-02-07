@@ -44,12 +44,9 @@ int main()
 }
 ```
 * std::front_inserter[color ff0000]
-* std::set[link /reference/set/set.md]
-* begin()[link /reference/set/set/begin.md]
-* end()[link /reference/set/set/end.md]
-* std::copy[link /reference/algorithm/copy.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* src.begin()[link /reference/set/set/begin.md]
+* src.end()[link /reference/set/set/end.md]
+* dest.end()[link /reference/set/set/end.md]
 
 ###出力
 ```

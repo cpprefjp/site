@@ -51,7 +51,7 @@ int main()
   }
 }
 ```
-* next[color ff0000]
+* std::next[color ff0000]
 
 ###出力
 ```

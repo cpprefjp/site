@@ -48,7 +48,7 @@ int main()
   std::cout << *i << std::endl;
 }
 ```
-* advance[color ff0000]
+* std::advance[color ff0000]
 
 ###出力
 ```
@@ -93,7 +93,10 @@ void advance(Iterator& i, Distance n)
           // イテレータのカテゴリごとに最適な実装を選択させる
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::iterator_traits[link iterator_traits.md]
+* std::input_iterator_tag[link iterator_tag.md]
+* std::bidirectional_iterator_tag[link iterator_tag.md]
+* std::random_access_iterator_tag[link iterator_tag.md]
 
 ##参照
 

@@ -5,9 +5,9 @@
 
 ```cpp
 namespace std {
-  template<class Iterator1, class Iterator2> 
-  typename reverse_iterator<Iterator>::difference_type 
-  operator-(const reverse_iterator<Iterator1>& x, 
+  template<class Iterator1, class Iterator2>
+  typename reverse_iterator<Iterator>::difference_type
+  operator-(const reverse_iterator<Iterator1>& x,
             const reverse_iterator<Iterator2>& y);     // C++03まで
 
   template <class Iterator1, class Iterator2>
@@ -43,6 +43,7 @@ int main()
 }
 ```
 * it2 - it1[color ff0000]
+* std::ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
 ###出力
 ```

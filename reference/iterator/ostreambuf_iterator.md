@@ -51,7 +51,7 @@ namespace std {
 ```cpp
 #include <iostream>
 #include <iterator>
-#include <algorithm> // copy
+#include <algorithm>
 #include <string>
 
 int main()
@@ -62,7 +62,7 @@ int main()
   std::copy(s.begin(), s.end(), std::ostreambuf_iterator<char>(std::cout));
 }
 ```
-* ostreambuf_iterator[color ff0000]
+* std::ostreambuf_iterator[color ff0000]
 
 ###出力
 ```

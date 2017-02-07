@@ -45,14 +45,10 @@ int main()
 }
 ```
 * std::back_inserter[color ff0000]
-* std::vector[link /reference/vector.md]
-* reserve[link /reference/vector/reserve.md]
-* size()[link /reference/vector/size.md]
-* begin()[link /reference/vector/begin.md]
-* end()[link /reference/vector/end.md]
-* std::copy[link /reference/algorithm/copy.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* dest.reserve[link /reference/vector/reserve.md]
+* src.size()[link /reference/vector/size.md]
+* src.begin()[link /reference/vector/begin.md]
+* src.end()[link /reference/vector/end.md]
 
 ###出力
 ```

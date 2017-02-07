@@ -40,7 +40,7 @@ namespace std {
 ```cpp
 #include <iostream>
 #include <iterator>
-#include <algorithm> // for_each
+#include <algorithm>
 
 // インクリメントするイテレータ
 class increment_iterator
@@ -97,6 +97,7 @@ int main()
 }
 ```
 * std::iterator[color ff0000]
+* std::input_iterator_tag[link iterator_tag.md]
 
 ###出力
 ```

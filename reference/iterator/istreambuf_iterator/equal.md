@@ -50,6 +50,7 @@ int main()
 }
 ```
 * equal[color ff0000]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ###出力
 ```

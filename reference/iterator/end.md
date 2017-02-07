@@ -39,7 +39,7 @@ namespace std {
 #include <iostream>
 #include <vector>
 #include <iterator>
-#include <algorithm> // for_each
+#include <algorithm>
 
 void print(int x)
 {
@@ -70,7 +70,7 @@ int main()
   }
 }
 ```
-* end[color ff0000]
+* std::end[color ff0000]
 
 ###出力
 ```
