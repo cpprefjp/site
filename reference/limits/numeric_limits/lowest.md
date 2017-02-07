@@ -40,7 +40,7 @@ int main()
   std::cout << d << std::endl;
 }
 ```
-* lowest[color ff0000]
+* lowest()[color ff0000]
 
 ###出力例
 ```

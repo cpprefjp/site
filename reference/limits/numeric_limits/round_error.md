@@ -30,7 +30,7 @@ int main()
   std::cout << d << std::endl;
 }
 ```
-* round_error[color ff0000]
+* round_error()[color ff0000]
 
 ###出力例
 ```

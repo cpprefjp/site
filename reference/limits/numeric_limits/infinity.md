@@ -46,7 +46,7 @@ int main()
   std::cout << "double : " << d << std::endl;
 }
 ```
-* infinity[color ff0000]
+* infinity()[color ff0000]
 
 ###出力例
 ```

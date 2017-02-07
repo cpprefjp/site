@@ -44,7 +44,7 @@ int main()
   std::cout << "double : " << d << std::endl;
 }
 ```
-* quiet_NaN[color ff0000]
+* quiet_NaN()[color ff0000]
 
 ###出力
 ```

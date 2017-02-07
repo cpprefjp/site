@@ -46,6 +46,10 @@ int main()
 }
 ```
 * max_digits10[color ff0000]
+* std::stringstring[link /reference/sstream/basic_stringstream.md.nolink]
+* precision[link /reference/ios/ios_base/precision.md]
+* std::scientific[link /reference/ios/scientific.md]
+* s.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
 
 ###出力例
 ```

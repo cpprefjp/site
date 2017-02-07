@@ -42,7 +42,7 @@ int main()
   std::cout << "double : " << d << std::endl;
 }
 ```
-* signaling_NaN[color ff0000]
+* signaling_NaN()[color ff0000]
 
 ###出力
 ```

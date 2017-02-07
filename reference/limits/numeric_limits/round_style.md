@@ -47,6 +47,8 @@ int main()
 }
 ```
 * round_style[color ff0000]
+* std::float_round_style[link /reference/limits/float_round_style.md]
+* std::invalid_argument[link /reference/stdexcept.md]
 
 ###出力例
 ```

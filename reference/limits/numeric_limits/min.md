@@ -72,7 +72,7 @@ int main()
   std::cout << d << std::endl;
 }
 ```
-* min[color ff0000]
+* min()[color ff0000]
 
 ###出力例
 ```

@@ -53,6 +53,8 @@ int main()
 }
 ```
 * has_denorm[color ff0000]
+* std::float_denorm_style[link /reference/limits/float_denorm_style.md]
+* std::invalid_argument[link /reference/stdexcept.md]
 
 ###出力例
 ```

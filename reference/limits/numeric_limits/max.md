@@ -96,7 +96,7 @@ int main()
   std::cout << d << std::endl;
 }
 ```
-* max[color ff0000]
+* max()[color ff0000]
 
 ###出力例
 ```

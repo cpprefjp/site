@@ -38,7 +38,7 @@ int main()
   std::cout << "double : " << d << std::endl;
 }
 ```
-* denorm_min[color ff0000]
+* denorm_min()[color ff0000]
 
 ###出力例
 ```
