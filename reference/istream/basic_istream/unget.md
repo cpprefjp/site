@@ -56,6 +56,12 @@ int main() {
   std::cout << iss.rdbuf() << std::endl;
 }
 ```
+* unget()[color ff0000]
+* std::isalpha[link /reference/locale/isalpha.md.nolink]
+* getloc()[link /reference/ios/ios_base/getloc.md]
+* push_back[link /reference/string/basic_string/push_back.md]
+* std::istringstream[link /reference/sstream/basic_istringstream.md]
+* rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
 
 ###出力
 ```
@@ -86,6 +92,14 @@ basic_istream<CharT, Traits>& unget() {
   return *this;
 }
 ```
+* clear[link /reference/ios/basic_ios/clear.md]
+* rdstate()[link /reference/ios/basic_ios/rdstate.md]
+* eofbit[link /reference/ios/ios_base/type-iostate.md]
+* sentry[link sentry.md]
+* rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
+* sungetc()[link /reference/streambuf/basic_streambuf/sungetc.md.nolink]
+* exceptions()[link /reference/ios/basic_ios/exceptions.md]
+* badbit[link /reference/ios/ios_base/type-iostate.md]
 
 ##バージョン
 ###言語

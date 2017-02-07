@@ -152,6 +152,7 @@ int main() {
   }
 }
 ```
+* std::cin[link /reference/iostream/cin.md]
 
 ###入力
 ```

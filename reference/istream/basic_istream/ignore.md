@@ -48,6 +48,10 @@ int main() {
   }
 }
 ```
+* ignore[color ff0000]
+* std::cin[link /reference/iostream/cin.md]
+* std::streamsize[link /reference/ios/type-streamsize.md]
+* max()[link /reference/limits/numeric_limits/max.md]
 
 ###入力
 ```

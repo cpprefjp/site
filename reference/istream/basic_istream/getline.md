@@ -55,6 +55,14 @@ int main() {
   }
 }
 ```
+* getline[color ff0000]
+* std::cin[link /reference/iostream/cin.md]
+* bad()[link /reference/ios/basic_ios/bad.md]
+* eof()[link /reference/ios/basic_ios/eof.md]
+* fail()[link /reference/ios/basic_ios/fail.md]
+* clear[link /reference/ios/basic_ios/clear.md]
+* rdstate()[link /reference/ios/basic_ios/rdstate.md]
+* std::ios_base[link /reference/ios/ios_base/type-iostate.md]
 
 1度で1行すべての入力が行えなかった場合の処理を追いかけやすくするため、この例はわざと`buffer_size`を少なくしている。
 

@@ -41,6 +41,8 @@ int main() {
   std::cout << get_word(is) << std::endl;
 }
 ```
+* readsome[color ff0000]
+* std::istringstream[link /reference/sstream/basic_istringstream.md]
 
 ###出力
 ```

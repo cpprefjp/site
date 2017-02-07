@@ -81,6 +81,10 @@ int main() {
   }
 }
 ```
+* get[color ff0000]
+* std::cin[link /reference/iostream/cin.md]
+* std::char_traits[link /reference/string/char_traits.md]
+* to_char_type[link /reference/string/char_traits/to_char_type.md]
 
 ###入力
 ```

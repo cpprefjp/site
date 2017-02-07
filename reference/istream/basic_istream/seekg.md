@@ -49,6 +49,10 @@ int main() {
   std::cout << x << std::endl;
 }
 ```
+* seekg[color ff0000]
+* std::istringstream[link /reference/sstream/bsic_istringstream.md]
+* std::ios_base[link /reference/ios/ios_base.md]
+* beg[link /reference/ios/ios_base/type-seekdir.md]
 
 ###出力
 ```
@@ -97,6 +101,18 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
   return *this;
 }
 ```
+* clear[link /reference/ios/basic_ios/clear.md]
+* rdstate()[link /reference/ios/basic_ios/rdstate.md]
+* eofbit[link /reference/ios/ios_base/type-iostate.md]
+* sentry[link sentry.md]
+* rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
+* pubseekpos()[link /reference/streambuf/basic_streambuf/pubseekpos.md.nolink]
+* ios_base[link /reference/ios/ios_base.md]
+* in[link /reference/ios/ios_base/type-openmode.md]
+* failbit[link /reference/ios/ios_base/type-iostate.md]
+* badbit[link /reference/ios/ios_base/type-iostate.md]
+* exceptions()[link /reference/ios/basic_ios/exceptions.md]
+* setstate[link /reference/ios/basic_ios/setstate.md]
 
 ##バージョン
 ###言語

@@ -44,6 +44,9 @@ int main() {
   std::cout << x << std::endl;
 }
 ```
+* tellg()[color ff0000]
+* std::istringstream[link /reference/sstream/basic_istringstream.md]
+* seekg[link seekg.md]
 
 ###出力
 ```
@@ -69,6 +72,11 @@ pos_type tellg(pos_type pos) {
   return pos_type(-1);
 }
 ```
+* sentry[link sentry.md]
+* rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
+* pubseekoff[link /reference/streambuf/basic_streambuf/pubseekoff.md.nolink]
+* exceptions()[link /reference/ios/basic_ios/exceptions.md]
+* badbit[link /reference/ios/ios_base/type-iostate.md]
 
 ##バージョン
 ###言語

@@ -50,6 +50,10 @@ int main() {
   std::cout << get_word(std::cin) << std::endl;
 }
 ```
+* putback[color ff0000]
+* std::toupper[link /reference/locale/toupper.md]
+* getloc()[link /reference/ios/ios_base/getloc.md]
+* std::cin[link /reference/iostream/cin.md]
 
 ###入力
 ```

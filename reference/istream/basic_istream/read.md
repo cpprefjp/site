@@ -39,6 +39,10 @@ int main() {
   std::cout << std::endl;
 }
 ```
+* read[color ff0000]
+* std::cin[link /reference/iostream/cin.md]
+* gcount()[link gcount.md]
+* write[link /reference/ostream/basic_ostream/write.md]
 
 ###入力
 ```

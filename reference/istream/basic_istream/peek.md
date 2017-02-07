@@ -25,7 +25,7 @@ int_type peek();
 #include <locale>
 #include <string>
 
-bool try_read_int(std::istream& is, unsigned & x) {
+bool try_read_int(std::istream& is, unsigned& x) {
   is >> std::ws;
   int n = is.peek();
   char c = std::char_traits<char>::to_char_type(n);
@@ -48,6 +48,12 @@ int main() {
   }
 }
 ```
+* peek()[color ff0000]
+* std::char_traits[link /reference/string/char_traits.md]
+* to_char_type[link /reference/string/char_traits/to_char_type.md]
+* std::isdigit[link /reference/locale/isdigit.md.nolink]
+* getloc()[link /reference/ios/ios_base/getloc.md]
+* std::cin[link /reference/iostream/cin.md]
 
 ###入力
 ```
