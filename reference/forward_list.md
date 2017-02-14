@@ -155,8 +155,8 @@ int main()
 }
 ```
 * std::forward_list[color ff0000]
-* ls.push_front[link push_front.md]
-* ls.insert_after[link insert_after.md]
+* ls.push_front[link forward_list/push_front.md]
+* ls.insert_after[link forward_list/insert_after.md]
 * ls.begin()[link forward_list/begin.md]
 * ls.end()[link forward_list/end.md]
 
