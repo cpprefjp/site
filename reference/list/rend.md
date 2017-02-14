@@ -30,14 +30,14 @@ const_reverse_iterator rend() const noexcept; // (2) C++11
 
 int main()
 {
-  std::list<int>         ls   =  { 1, 2, 3 };
-  const std::list<int>&  cls  =  ls;
+  std::list<int>        ls  = { 1, 2, 3 };
+  const std::list<int>& cls = ls;
 
-  decltype(ls)::reverse_iterator  i     =  ls.rbegin();
-  decltype(ls)::reverse_iterator  last  =  ls.rend();
+  decltype(ls)::reverse_iterator i    = ls.rbegin();
+  decltype(ls)::reverse_iterator last = ls.rend();
 
-  decltype(ls)::const_reverse_iterator  ci     =  cls.rbegin();
-  decltype(ls)::const_reverse_iterator  clast  =  cls.rend();
+  decltype(ls)::const_reverse_iterator ci    = cls.rbegin();
+  decltype(ls)::const_reverse_iterator clast = cls.rend();
 
   for (; i != last; ++i) {
     std::cout << *i << std::endl;
@@ -48,7 +48,8 @@ int main()
   }
 }
 ```
-* rend[color ff0000]
+* rend()[color ff0000]
+* rbegin()[link rbegin.md]
 
 ###出力
 ```

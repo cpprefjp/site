@@ -62,7 +62,8 @@ int main()
   }
 }
 ```
-* unique[color ff0000]
+* unique()[color ff0000]
+* ls.sort()[link sort.md]
 
 ###出力
 ```

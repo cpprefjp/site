@@ -136,11 +136,11 @@ namespace std {
 ```cpp
 #include <iostream>
 #include <list>
-#include <algorithm>  // for_each
+#include <algorithm>
 
 int main ()
 {
-  std::list<int>  ls;
+  std::list<int> ls;
 
   // 先頭から要素を追加
   ls.push_front(1);
@@ -156,6 +156,11 @@ int main ()
   });
 }
 ```
+* std::list[color ff0000]
+* ls.push_front[link list/push_front.md]
+* ls.push_back[link list/push_back.md]
+* ls.cbegin()[link list/cbegin.md]
+* ls.cend()[link list/cend.md]
 
 ###出力
 ```

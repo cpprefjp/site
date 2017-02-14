@@ -36,7 +36,7 @@ int main()
   };
 }
 ```
-* pop_front[color ff0000]
+* pop_front()[color ff0000]
 
 
 ###出力

@@ -29,7 +29,7 @@ const_iterator cend() const noexcept;
 
 int main()
 {
-  std::list<int>  ls  =  { 1, 2, 3 };
+  std::list<int> ls = { 1, 2, 3 };
 
   // このアルゴリズム内ではlsの書き換えを決して行わない
   std::for_each(ls.cbegin(), ls.cend(), [](const int& x) {
@@ -37,7 +37,8 @@ int main()
   });
 }
 ```
-* cend[color ff0000]
+* cend()[color ff0000]
+* ls.cbegin()[link cbegin.md]
 
 ###出力
 ```

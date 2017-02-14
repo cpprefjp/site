@@ -38,7 +38,7 @@ int main()
   std::cout << s << std::endl;
 }
 ```
-* max_size[color ff0000]
+* max_size()[color ff0000]
 
 
 ###出力例

@@ -30,11 +30,11 @@ const_reverse_iterator rbegin() const noexcept; // (2) C++11
 
 int main()
 {
-  std::list<int>         ls   =  { 1, 2, 3 };
-  const std::list<int>&  cls  =  ls;
+  std::list<int>        ls  = { 1, 2, 3 };
+  const std::list<int>& cls = ls;
 
-  decltype(ls)::reverse_iterator        i   =  ls.rbegin();
-  decltype(ls)::const_reverse_iterator  ci  =  cls.rbegin();
+  decltype(ls)::reverse_iterator       i  = ls.rbegin();
+  decltype(ls)::const_reverse_iterator ci = cls.rbegin();
 
   std::cout << *i  << std::endl;
   std::cout << *ci << std::endl;

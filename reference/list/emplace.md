@@ -53,6 +53,7 @@ int main()
 }
 ```
 * emplace[color ff0000]
+* ls.begin()[link begin.md]
 
 ###出力
 ```

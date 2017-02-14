@@ -45,7 +45,7 @@ int main()
   }
 }
 ```
-* reverse[color ff0000]
+* reverse()[color ff0000]
 
 ###出力
 ```

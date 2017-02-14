@@ -50,7 +50,7 @@ int main()
   }
 }
 ```
-* sort[color ff0000]
+* sort()[color ff0000]
 
 ###出力
 ```

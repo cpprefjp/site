@@ -37,24 +37,24 @@ list& operator=(initializer_list<T> x); // (3) C++11
 ```cpp
 #include <cassert>
 #include <list>
-#include <algorithm>  // std::equal
+#include <algorithm>
 
 int main ()
 {
   // コピー代入
   {
-    std::list<int>  ls1  =  { 1, 2, 3 };
-    std::list<int>  ls2;
+    std::list<int> ls1 = { 1, 2, 3 };
+    std::list<int> ls2;
 
-    ls2  =  ls1;
+    ls2 = ls1;
 
     assert(ls1 == ls2);
   }
 
   // ムーブ代入
   {
-    std::list<int>  ls1  =  { 1, 2, 3 };
-    std::list<int>  ls2;
+    std::list<int> ls1 = { 1, 2, 3 };
+    std::list<int> ls2;
 
     ls2  =  std::list<int>(ls1);
 
@@ -63,19 +63,22 @@ int main ()
 
   // 初期化子リストからのコピー代入
   {
-    std::list<int>  ls1;
-    ls1  =  { 1, 2, 3 };
+    std::list<int> ls1;
+    ls1 = { 1, 2, 3 };
 
     // 事後条件の検証
-    std::initializer_list<int>  init  =  { 1, 2, 3 };
-    std::list<int>  ls2;
-    ls2  =  init;
+    std::initializer_list<int> init = { 1, 2, 3 };
+    std::list<int> ls2;
+    ls2 = init;
 
     assert(std::equal(ls2.begin(), ls2.end(), init.begin()));
   }
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::equal[link /reference/algorithm/equal.md]
+* ls2.begin()[link begin.md]
+* ls2.end()[link end.md]
+* init.begin()[link /reference/initializer_list/begin.md]
 
 ###出力
 ```

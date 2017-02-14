@@ -29,7 +29,7 @@ const_reverse_iterator crend() const noexcept;
 
 int main()
 {
-  std::list<int>  ls  =  { 1, 2, 3 };
+  std::list<int> ls = { 1, 2, 3 };
 
   // このアルゴリズム内ではlsの書き換えを決して行わない
   std::for_each(ls.crbegin(), ls.crend(), [](const int& x) {
@@ -37,7 +37,8 @@ int main()
   });
 }
 ```
-* crend[color ff0000]
+* crend()[color ff0000]
+* ls.crbegin()[link crbegin.md]
 
 ###出力
 ```

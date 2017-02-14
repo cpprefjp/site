@@ -114,6 +114,8 @@ int main()
 }
 ```
 * splice[color ff0000]
+* begin()[link begin.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

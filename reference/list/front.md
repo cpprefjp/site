@@ -34,7 +34,7 @@ int main()
   std::cout << x << std::endl;
 }
 ```
-* front[color ff0000]
+* front()[color ff0000]
 
 
 ###出力

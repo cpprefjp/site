@@ -81,8 +81,8 @@ int main()
 {
   // 範囲を代入
   {
-    std::list<int>  ls  =  { 1, 2, 3 };
-    std::list<int>  ls1;
+    std::list<int> ls  =  { 1, 2, 3 };
+    std::list<int> ls1;
     ls1.assign(ls.begin(), ls.end());
 
     print("ls1", ls1);
@@ -90,7 +90,7 @@ int main()
 
   // n 個の指定された値で埋める
   {
-    std::list<int>  ls2;
+    std::list<int> ls2;
     ls2.assign(3, 1);
 
     print("ls2", ls2);
@@ -98,7 +98,7 @@ int main()
 
   // 初期化子リストを代入
   {
-    std::list<int>  ls3;
+    std::list<int> ls3;
     ls3.assign({ 1, 2, 3 });
 
     print("ls3", ls3);
@@ -106,6 +106,8 @@ int main()
 }
 ```
 * assign[color ff0000]
+* ls.begin()[link begin.md]
+* ls.end()[link end.md]
 
 ###出力
 ```

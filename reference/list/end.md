@@ -30,14 +30,14 @@ const_iterator end() const noexcept; // (2) C++11
 
 int main()
 {
-  std::list<int>         ls   =  { 1, 2, 3 };
-  const std::list<int>&  cls  =  ls;
+  std::list<int>        ls  = { 1, 2, 3 };
+  const std::list<int>& cls = ls;
 
-  decltype(ls)::iterator  i     =  ls.begin();
-  decltype(ls)::iterator  last  =  ls.end();
+  decltype(ls)::iterator  i    = ls.begin();
+  decltype(ls)::iterator  last = ls.end();
 
-  decltype(ls)::const_iterator  ci     =  cls.begin();
-  decltype(ls)::const_iterator  clast  =  cls.end();
+  decltype(ls)::const_iterator ci    = cls.begin();
+  decltype(ls)::const_iterator clast = cls.end();
 
   for (; i != last; ++i) {
     std::cout << *i << std::endl;
@@ -48,7 +48,8 @@ int main()
   }
 }
 ```
-* end[color ff0000]
+* end()[color ff0000]
+* ls.begin()[link begin.md]
 
 ###出力
 ```

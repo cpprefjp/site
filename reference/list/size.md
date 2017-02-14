@@ -39,7 +39,7 @@ int main()
   std::cout << size << std::endl;
 }
 ```
-* size[color ff0000]
+* size()[color ff0000]
 
 ###出力
 ```

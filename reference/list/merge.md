@@ -59,6 +59,7 @@ int main()
 }
 ```
 * merge[color ff0000]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

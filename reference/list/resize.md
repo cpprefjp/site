@@ -54,7 +54,8 @@ int main()
 }
 ```
 * resize[color ff0000]
-
+* ls.begin()[link begin.md]
+* ls.end()[link end.md]
 
 ###出力
 ```

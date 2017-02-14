@@ -89,11 +89,8 @@ int main()
   v.emplace_back(10u);
 }
 ```
-* list[link ../list.md]
-* vector[link ../vector.md]
-* scoped_allocator[link ../scoped_allocator.md]
-* scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-* allocator[link ../memory/allocator.md]
+* std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
+* std::allocator[link ../memory/allocator.md]
 * emplace_back[link ../vector/emplace_back.md]
 
 
@@ -102,10 +99,10 @@ int main()
 #include <iostream>
 #include <list>
 #include <string>
-#include <utility>  // move
+#include <utility>
 
 template <class T>
-void  print(const std::string& name, const std::list<T>& ls)
+void print(const std::string& name, const std::list<T>& ls)
 {
   std::cout << name << " : ";
   for (const T& x : ls) {
@@ -117,43 +114,37 @@ void  print(const std::string& name, const std::list<T>& ls)
 int main ()
 {
   // デフォルト構築
-  std::list<int>  ls1;
+  std::list<int> ls1;
   print("ls1", ls1);
 
   // n 個の要素を持つリストを作成
-  std::list<int>  ls2(3);
+  std::list<int> ls2(3);
   print("ls2", ls2);
 
   // n 個の指定された値を要素に持つリストを作成
-  std::list<int>  ls3(3, 1);
+  std::list<int> ls3(3, 1);
   print("ls3", ls3);
 
   // 範囲から構築
-  std::list<int>  ls4(ls3.begin(), ls3.end());
+  std::list<int> ls4(ls3.begin(), ls3.end());
   print("ls4", ls4);
 
   // コピー構築
-  std::list<int>  ls5  =  ls4;
+  std::list<int> ls5 = ls4;
   print("ls5", ls5);
 
   // ムーブ構築
-  std::list<int>  ls6  =  std::move(ls5);
+  std::list<int> ls6 = std::move(ls5);
   print("ls6", ls6);
 
   // 初期化子リストで構築
-  std::list<int>  ls7  =  { 1, 2, 3 };
+  std::list<int> ls7 = { 1, 2, 3 };
   print("ls7", ls7);
 }
 ```
-* iostream[link ../iostream.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* list[link ../list.md]
-* string[link ../string.md]
-* utility[link ../utility.md]
-* move[link ../utility/move.md]
-* begin[link begin.md]
-* end[link end.md]
+* std::move[link ../utility/move.md]
+* ls3.begin()[link begin.md]
+* ls3.end()[link end.md]
 
 ###出力
 ```

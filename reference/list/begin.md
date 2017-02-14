@@ -30,17 +30,17 @@ const_iterator begin() const noexcept; // (2) C++11
 
 int main()
 {
-  std::list<int>         ls   =  { 1, 2, 3 };
-  const std::list<int>&  cls  =  ls;
+  std::list<int>        ls  = { 1, 2, 3 };
+  const std::list<int>& cls = ls;
 
-  decltype(ls)::iterator        i   =  ls.begin();
-  decltype(ls)::const_iterator  ci  =  cls.begin();
+  decltype(ls)::iterator       i  = ls.begin();
+  decltype(ls)::const_iterator ci = cls.begin();
 
   std::cout << *i  << std::endl;
   std::cout << *ci << std::endl;
 }
 ```
-* begin[color ff0000]
+* begin()[color ff0000]
 
 ###出力
 ```
