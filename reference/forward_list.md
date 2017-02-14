@@ -158,7 +158,8 @@ int main()
 * ls.push_front[link forward_list/push_front.md]
 * ls.insert_after[link forward_list/insert_after.md]
 * ls.begin()[link forward_list/begin.md]
-* ls.end()[link forward_list/end.md]
+* ls.cbegin()[link forward_list/cbegin.md]
+* ls.cend()[link forward_list/end.md]
 
 ###出力
 ```
