@@ -31,7 +31,7 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11
 - (1), (3)
 	- C++03 : 戻り値なし
     - C++11 : 削除された要素の次を指すイテレータを返す。そのような要素がない場合、[`end()`](end.md)を返す(コンテナが空になった場合や、最後尾の要素を削除した場合)。
-- (2) 削除された要素の数を返す。　
+- (2) 削除された要素の数を返す。
 
 
 ##計算量
@@ -47,25 +47,30 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11
 
 int main()
 {
-  std::multimap<int, char> c;
+  std::multimap<int, char> m;
 
-  c.insert(std::make_pair(1,'A'));
-  c.insert(std::make_pair(2,'B'));
-  c.insert(std::make_pair(3,'C'));
-  std::cout << c.size() << std::endl;
+  m.insert(std::make_pair(1, 'A'));
+  m.insert(std::make_pair(2, 'B'));
+  m.insert(std::make_pair(3, 'C'));
+  std::cout << m.size() << std::endl;
 
-  c.erase(1);
-  std::cout << c.size() << std::endl;
+  m.erase(1);
+  std::cout << m.size() << std::endl;
 
-  c.erase(5);
-  std::cout << c.size() << std::endl;
+  m.erase(5);
+  std::cout << m.size() << std::endl;
 
-  c.erase(c.begin(), c.end());
-  std::cout << c.size() << std::endl;
+  m.erase(m.begin(), m.end());
+  std::cout << m.size() << std::endl;
 
   return 0;
 }
 ```
+* erase[color ff0000]
+* m.insert[link insert.md]
+* m.size()[link size.md]
+* m.begin()[link begin.md]
+* m.end()[link end.md]
 
 ###出力
 ```

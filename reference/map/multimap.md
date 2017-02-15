@@ -6,10 +6,10 @@
 ```cpp
 namespace std {
   template <
-		class Key, 
-		class T, 
-		class Compare = less<Key>, 
-		class Allocator = allocator<pair<const Key, T> > 
+        class Key,
+        class T,
+        class Compare = less<Key>,
+        class Allocator = allocator<pair<const Key, T> >
   >
   class multimap;
 }
@@ -173,6 +173,10 @@ int main()
   }
 }
 ```
+* std::multimap[color ff0000]
+* m.insert[link multimap/insert.md]
+* m.count[link multimap/count.md]
+* m.equal_range[link multimap/equal_range.md]
 
 ###C++11版
 ```cpp
@@ -202,6 +206,10 @@ int main()
   }
 }
 ```
+* std::multimap[color ff0000]
+* m.emplace[link multimap/emplace.md]
+* m.count[link multimap/count.md]
+* m.equal_range[link multimap/equal_range.md]
 
 ###出力(C++03版、C++11版共通)
 ```

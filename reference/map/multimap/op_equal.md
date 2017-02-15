@@ -28,20 +28,21 @@ bool operator==(const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T
 
 int main()
 {
-  std::multimap<int,char> c1;
-  c1.insert( std::make_pair(0,'a'));
+  std::multimap<int, char> m1;
+  m1.insert(std::make_pair(0, 'a'));
 
-  auto c2 = c1;
+  auto m2 = m1;
 
-  std::cout << (c1 == c2) << std::endl;
+  std::cout << (m1 == m2) << std::endl;
 
-  c2.insert( std::make_pair(0,'b'));
+  m2.insert(std::make_pair(0, 'b'));
 
-  std::cout << (c1 == c2) << std::endl;
+  std::cout << (m1 == m2) << std::endl;
 
   return 0;
 }
 ```
+* insert[link insert.md]
 
 ###出力
 ```

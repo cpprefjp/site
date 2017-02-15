@@ -31,20 +31,23 @@ const_reverse_iterator crbegin() const noexcept;
 
 int main()
 {
-  std::multimap<int, char> c;
-  c.insert(std::make_pair(5, 'e'));
-  c.insert(std::make_pair(2, 'b'));
-  c.insert(std::make_pair(4, 'd'));
-  c.insert(std::make_pair(1, 'a'));
-  c.insert(std::make_pair(1, 'a'));
+  std::multimap<int, char> m;
+  m.insert(std::make_pair(5, 'e'));
+  m.insert(std::make_pair(2, 'b'));
+  m.insert(std::make_pair(4, 'd'));
+  m.insert(std::make_pair(1, 'a'));
+  m.insert(std::make_pair(1, 'a'));
 
-  std::multimap<int,char>::const_reverse_iterator i = c.crbegin();
-  for( ; i != c.crend() ; ++i )
+  std::multimap<int,char>::const_reverse_iterator i = m.crbegin();
+  for( ; i != m.crend() ; ++i )
     std::cout << i->first << " " << i->second << std::endl;
 
   return 0;
 }
 ```
+* crbegin()[color ff0000]
+* m.crend()[link crend.md]
+* m.insert[link insert.md]
 
 ###出力
 ```

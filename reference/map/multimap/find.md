@@ -55,7 +55,7 @@ int main()
       {"Bob",   1},
       {"Carol", 4}
     };
-  
+
     decltype(m)::iterator it = m.find("Bob");
     if (it != m.end()) { // 見つかった
       std::cout << it->second << std::endl;
@@ -81,10 +81,7 @@ int main()
 }
 ```
 * find[color ff0000]
-* std::string[link /reference/string/basic_string.md]
 * std::less[link /reference/functional/less.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

@@ -32,17 +32,17 @@ bool operator!=(const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T
 
 int main()
 {
-  std::multimap<int,char> s1, s2;
-  s1.insert(std::make_pair(1,'a'));
-  s1.insert(std::make_pair(2,'b'));
-  s1.insert(std::make_pair(3,'c'));
-  s2 = s1;
+  std::multimap<int, char> m1, m2;
+  m1.insert(std::make_pair(1, 'a'));
+  m1.insert(std::make_pair(2, 'b'));
+  m1.insert(std::make_pair(3, 'c'));
+  m2 = m1;
 
-  std::cout << (s1 != s2) << std::endl;
+  std::cout << (m1 != m2) << std::endl;
 
-  s2.insert(std::make_pair(4,'d'));
+  m2.insert(std::make_pair(4, 'd'));
 
-  std::cout << (s1 != s2) << std::endl;
+  std::cout << (m1 != m2) << std::endl;
 
   return 0;
 }

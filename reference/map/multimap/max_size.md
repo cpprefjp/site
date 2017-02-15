@@ -29,13 +29,14 @@ size_type max_size() const noexcept;
 
 int main ()
 {
-  std::multimap<char, int> c;
+  std::multimap<char, int> m;
 
-  std::cout << c.max_size();
+  std::cout << m.max_size() << std::endl;
 
   return 0;
 }
 ```
+* max_size()[color ff0000]
 
 ###出力例
 ```

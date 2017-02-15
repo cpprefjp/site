@@ -28,8 +28,8 @@ key_compare key_comp() const;
 
 int main()
 {
-  std::multimap<int,char> c;
-  std::multimap<int,char>::key_compare comp = c.key_comp();
+  std::multimap<int, char> c;
+  std::multimap<int, char>::key_compare comp = c.key_comp();
 
   std::cout << comp(1, 2) << std::endl;
   std::cout << comp(3, 2) << std::endl;
@@ -37,6 +37,7 @@ int main()
   return 0;
 }
 ```
+* key_comp()[color ff0000]
 
 ###出力
 ```

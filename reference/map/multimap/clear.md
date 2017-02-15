@@ -23,21 +23,24 @@ void clear() noexcept;
 
 int main()
 {
-  std::multimap<int, char> c;
-  c.insert( std::make_pair(3,'C'));
-  c.insert( std::make_pair(4,'D'));
-  c.insert( std::make_pair(1,'A'));
-  c.insert( std::make_pair(2,'B'));
+  std::multimap<int, char> m;
+  m.insert(std::make_pair(3, 'C'));
+  m.insert(std::make_pair(4, 'D'));
+  m.insert(std::make_pair(1, 'A'));
+  m.insert(std::make_pair(2, 'B'));
 
-  std::cout << c.size() << std::endl;
+  std::cout << m.size() << std::endl;
 
-  c.clear();
+  m.clear();
 
-  std::cout << c.size() << std::endl;
+  std::cout << m.size() << std::endl;
 
   return 0;
 }
 ```
+* clear()[color ff0000]
+* m.insert[link insert.md]
+* m.size()[link size.md]
 
 ###出力
 ```

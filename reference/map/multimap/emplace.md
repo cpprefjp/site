@@ -32,15 +32,20 @@ iterator emplace(Args&&... args);
 
 int main()
 {
-  std::multimap<int, char> c;
+  std::multimap<int, char> m;
 
-  c.emplace( std::piecewise_construct, std::make_tuple(1), std::make_tuple('A') );
+  m.emplace( std::piecewise_construct, std::make_tuple(1), std::make_tuple('A') );
 
-  std::cout << std::get<0>( *c.begin() ) << " " << std::get<1>( *c.begin() ) << std::endl;
+  std::cout << std::get<0>( *m.begin() ) << " " << std::get<1>( *m.begin() ) << std::endl;
 
   return 0;
 }
 ```
+* emplace[color ff0000]
+* std::piecewise_construct[link /reference/utility/piecewise_construct.md]
+* std::make_tuple[link /reference/tuple/make_tuple.md]
+* std::get[link /reference/utility/pair/get.md]
+* m.begin()[link begin.md]
 
 ###出力
 ```

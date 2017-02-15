@@ -13,7 +13,7 @@ namespace std {
 
 ##概要
 2つの `multimap` オブジェクトである `x` と 'y'が保持するコンテンツを交換する。サイズは異なる場合もある。 
-このメンバ関数の呼び出しの後、呼び出し前に 'x' にあった要素は `y` へ、`y` 内にあった要素は `x` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。 
+このメンバ関数の呼び出しの後、呼び出し前に 'x' にあった要素は `y` へ、`y` 内にあった要素は `x` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。
 
 
 ##効果
@@ -45,27 +45,29 @@ void print(const char* name, const Map& m)
 
 int main()
 {
-  std::multimap<int, char> c1;
-  c1.insert( std::make_pair(10, 'a') );
-  c1.insert( std::make_pair(20, 'b') );
-  c1.insert( std::make_pair(30, 'c') );
+  std::multimap<int, char> m1;
+  m1.insert(std::make_pair(10, 'a'));
+  m1.insert(std::make_pair(20, 'b'));
+  m1.insert(std::make_pair(30, 'c'));
 
-  std::multimap<int, char> c2;
-  c2.insert( std::make_pair(5, 'd') );
-  c2.insert( std::make_pair(15, 'e') );
+  std::multimap<int, char> m2;
+  m2.insert(std::make_pair(5, 'd'));
+  m2.insert(std::make_pair(15, 'e'));
 
-  // c1とc2を入れ替える
-  std::swap(c1, c2);
+  // m1とm2を入れ替える
+  std::swap(m1, m2);
 
-  print("c1", c1);
-  print("c2", c2);
+  print("m1", m1);
+  print("m2", m2);
 }
 ```
+* std::swap[color ff0000]
+* insert[link insert.md]
 
 ###出力
 ```
-c1 : {[5,d], [15,e], }
-c2 : {[10,a], [20,b], [30,c], }
+m1 : {[5,d], [15,e], }
+m2 : {[10,a], [20,b], [30,c], }
 ```
 
 ##バージョン

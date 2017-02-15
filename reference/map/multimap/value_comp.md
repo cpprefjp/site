@@ -30,12 +30,12 @@ value_compare value_comp() const;
 
 int main()
 {
-  std::multimap<int,char> c;
-  const std::multimap<int,char>::value_compare& comp = c.value_comp();
+  std::multimap<int, char> c;
+  const std::multimap<int, char>::value_compare& comp = c.value_comp();
 
-  auto p1 = std::make_pair(1,'a');
-  auto p2 = std::make_pair(2,'b');
-  auto p3 = std::make_pair(3,'c');
+  auto p1 = std::make_pair(1, 'a');
+  auto p2 = std::make_pair(2, 'b');
+  auto p3 = std::make_pair(3, 'c');
 
   std::cout << comp(p1, p2) << std::endl;
   std::cout << comp(p3, p2) << std::endl;
@@ -43,6 +43,7 @@ int main()
   return 0;
 }
 ```
+* value_comp()[color ff0000]
 
 ###出力
 ```

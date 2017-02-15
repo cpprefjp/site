@@ -30,24 +30,27 @@ const_iterator cbegin() const noexcept;
 
 int main()
 {
-  std::multimap<int, char> c;
-  c.insert( std::make_pair(3,'C'));
-  c.insert( std::make_pair(3,'D'));
-  c.insert( std::make_pair(7,'G'));
-  c.insert( std::make_pair(8,'H'));
-  c.insert( std::make_pair(4,'D'));
-  c.insert( std::make_pair(5,'E'));
-  c.insert( std::make_pair(1,'A'));
-  c.insert( std::make_pair(2,'B'));
-  c.insert( std::make_pair(6,'F'));
+  std::multimap<int, char> m;
+  m.insert(std::make_pair(3, 'C'));
+  m.insert(std::make_pair(3, 'D'));
+  m.insert(std::make_pair(7, 'G'));
+  m.insert(std::make_pair(8, 'H'));
+  m.insert(std::make_pair(4, 'D'));
+  m.insert(std::make_pair(5, 'E'));
+  m.insert(std::make_pair(1, 'A'));
+  m.insert(std::make_pair(2, 'B'));
+  m.insert(std::make_pair(6, 'F'));
 
-  for( auto i = c.begin(); i != c.end() ; ++i ) {
+  for( auto i = m.cbegin(); i != m.cend() ; ++i ) {
     std::cout << i->first << " " << i->second << "\n";
   }
 
   return 0;
 }
 ```
+* cbegin()[color ff0000]
+* m.cend()[link cend.md]
+* m.insert[link insert.md]
 
 ###出力
 ```

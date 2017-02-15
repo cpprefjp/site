@@ -59,8 +59,8 @@ int main()
   m2 = m1;
   m1 = std::map<int,char>();
 
-  std::cout << "Size of c1: " << m1.size() << std::endl;
-  std::cout << "Size of c2: " << m2.size() << std::endl;
+  std::cout << "Size of m1: " << m1.size() << std::endl;
+  std::cout << "Size of m2: " << m2.size() << std::endl;
 
   return 0;
 }
@@ -69,8 +69,8 @@ int main()
 
 ###出力
 ```
-Size of c1: 0
-Size of c2: 5
+Size of m1: 0
+Size of m2: 5
 ```
 
 ###処理系

@@ -24,7 +24,7 @@ void insert(initializer_list<value_type> init);                // (6) C++11
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-　新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入することにより、 `multimap` コンテナを拡張する。
+新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入することにより、 `multimap` コンテナを拡張する。
 
 これは、挿入された要素の数だけコンテナの [`size()`](/reference/map/multimap/size.md) を増やす。
 
@@ -68,23 +68,27 @@ void insert(initializer_list<value_type> init);                // (6) C++11
 
 int main ()
 {
-  std::multimap<char,int> c1;
-  std::multimap<char,int> c2;
+  std::multimap<char, int> m1;
+  std::multimap<char, int> m2;
 
-  c1.insert(std::make_pair('a', 10));
-  c1.insert(std::make_pair('b', 20));
-  c1.insert(std::make_pair('c', 30));
+  m1.insert(std::make_pair('a', 10));
+  m1.insert(std::make_pair('b', 20));
+  m1.insert(std::make_pair('c', 30));
 
-  std::cout << c1.size() << std::endl;
+  std::cout << m1.size() << std::endl;
 
-  c2.insert(c1.begin(), c1.end());
-  c2.insert(std::make_pair('d', 40));
+  m2.insert(m1.begin(), m1.end());
+  m2.insert(std::make_pair('d', 40));
 
-  std::cout << c2.size() << std::endl;
+  std::cout << m2.size() << std::endl;
 
   return 0;
 }
 ```
+* insert[color ff0000]
+* size()[link size.md]
+* m1.begin()[link begin.md]
+* m1.end()[link end.md]
 
 ###出力
 ```
@@ -106,7 +110,7 @@ int main ()
 
 ##関連項目
 
-| 名前 | 説明　|
+| 名前 | 説明 |
 |-------------------------------------------------------------------------------------|--------------------------------------|
 | [`multimap::erase`](/reference/map/multimap/erase.md) | 要素を削除する |
 | [`multimap::find`](/reference/map/multimap/find.md) | 指定したキーで要素を探す |

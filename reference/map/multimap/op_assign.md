@@ -45,7 +45,7 @@ multimap& operator=(initializer_list<value_type> init); // (3) C++11
 
 int main()
 {
-  std::pair<int,char> values[] = {
+  std::pair<int, char> values[] = {
     std::make_pair(5,'e'),
     std::make_pair(2,'b'),
     std::make_pair(4,'d'),
@@ -53,23 +53,24 @@ int main()
     std::make_pair(1,'a'),
     std::make_pair(3,'c')
   };
-  std::multimap<int, char> c1(values, values + 6);
-  std::multimap<int, char> c2;
+  std::multimap<int, char> m1(values, values + 6);
+  std::multimap<int, char> m2;
 
-  c2 = c1;
-  c1 = std::multimap<int,char>();
+  m2 = m1;
+  m1 = std::multimap<int, char>();
 
-  std::cout << "Size of c1: " << c1.size() << std::endl;
-  std::cout << "Size of c2: " << c2.size() << std::endl;
+  std::cout << "Size of m1: " << m1.size() << std::endl;
+  std::cout << "Size of m2: " << m2.size() << std::endl;
 
   return 0;
 }
 ```
+* size()[link size.md]
 
 ###出力
 ```
-Size of c1: 0
-Size of c2: 6
+Size of m1: 0
+Size of m2: 6
 ```
 
 ###処理系

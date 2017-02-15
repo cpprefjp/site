@@ -43,7 +43,7 @@ int main()
       {"Carol", 4},
       {"Bob",   5}
     };
-  
+
     std::size_t n = m.count("Bob");
     std::cout << n << std::endl;
   }
@@ -66,11 +66,7 @@ int main()
 }
 ```
 * count[color ff0000]
-* std::string[link /reference/string/basic_string.md]
 * std::less[link /reference/functional/less.md]
-* std::size_t[link /reference/cstddef/size_t.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```
