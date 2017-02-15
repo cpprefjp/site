@@ -27,21 +27,23 @@ const_reverse_iterator crend() const noexcept;
 
 int main()
 {
-  std::map<int, char> c;
-  c.insert(std::make_pair(5, 'e'));
-  c.insert(std::make_pair(2, 'b'));
-  c.insert(std::make_pair(4, 'd'));
-  c.insert(std::make_pair(1, 'a'));
-  c.insert(std::make_pair(1, 'a'));
+  std::map<int, char> m;
+  m.insert(std::make_pair(5, 'e'));
+  m.insert(std::make_pair(2, 'b'));
+  m.insert(std::make_pair(4, 'd'));
+  m.insert(std::make_pair(1, 'a'));
+  m.insert(std::make_pair(1, 'a'));
 
-  std::map<int,char>::const_reverse_iterator i = c.crbegin();
-  for( ; i != c.crend() ; ++i )
+  std::map<int,char>::const_reverse_iterator i = m.crbegin();
+  for( ; i != m.crend() ; ++i )
     std::cout << i->first << " " << i->second << std::endl;
 
   return 0;
 }
 ```
-
+* crend()[color ff0000]
+* m.crbegin()[link crbegin.md]
+* m.insert[link insert.md]
 
 ###出力
 ```

@@ -39,6 +39,9 @@ int main()
   m[2] = 'b';
 }
 ```
+* m[1][color ff0000]
+* m[2][color ff0000]
+* m.insert[link insert.md]
 
 ###出力
 ```

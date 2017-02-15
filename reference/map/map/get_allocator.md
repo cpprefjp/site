@@ -33,10 +33,9 @@ allocator_type get_allocator() const noexcept; // C++11
 
 int main()
 {
-  std::map<int,char> c;
-  std::pair<const int,char> * p;
+  std::map<int,char> m;
 
-  p = c.get_allocator().allocate(2);
+  std::pair<const int,char>* p = m.get_allocator().allocate(2);
 
   p[0].second = 'a';
   p[1].second = 'b';
@@ -44,11 +43,14 @@ int main()
   std::cout << p[0].second << std::endl;
   std::cout << p[1].second << std::endl;
 
-  c.get_allocator().deallocate(p, 2);
+  m.get_allocator().deallocate(p, 2);
 
   return 0;
 }
 ```
+* get_allocator()[color ff0000]
+* allocate[link /reference/memory/allocator/allocate.md]
+* deallocate[link /reference/memory/allocator/deallocate.md]
 
 ###出力
 ```

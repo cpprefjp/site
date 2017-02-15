@@ -23,21 +23,23 @@ void clear() noexcept;
 
 int main() 
 {
-  std::map<int, char> c;
-  c[3] = 'C';
-  c[4] = 'D';
-  c[1] = 'A';
-  c[2] = 'B';
+  std::map<int, char> m;
+  m[3] = 'C';
+  m[4] = 'D';
+  m[1] = 'A';
+  m[2] = 'B';
 
-  std::cout << c.size() << std::endl;
+  std::cout << m.size() << std::endl;
 
-  c.clear();
+  m.clear();
 
-  std::cout << c.size() << std::endl;
+  std::cout << m.size() << std::endl;
 
   return 0;
 }
 ```
+* clear()[color ff0000]
+* m.size()[link size.md]
 
 ###出力
 ```

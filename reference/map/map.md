@@ -6,10 +6,10 @@
 ```cpp
 namespace std {
   template <
-		class Key, 
-		class T, 
-		class Compare = less<Key>, 
-		class Allocator = allocator<pair<const Key, T> > 
+        class Key,
+        class T,
+        class Compare = less<Key>,
+        class Allocator = allocator<pair<const Key, T> >
   >
   class map;
 }
@@ -166,6 +166,9 @@ int main()
   std::cout << value << std::endl;
 }
 ```
+* std::map[color ff0000]
+* m.insert[link map/insert.md]
+* m.at[link map/at.md]
 
 ###出力
 ```

@@ -64,10 +64,6 @@ int main()
 }
 ```
 * equal_range[color ff0000]
-* std::string[link /reference/string/basic_string.md]
-* std::pair[link /reference/utility/pair.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

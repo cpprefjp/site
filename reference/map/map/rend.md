@@ -24,20 +24,23 @@ const_reverse_iterator rend() const noexcept;
 
 int main()
 {
-  std::map<int, char> c;
-  c.insert(std::make_pair(5, 'e'));
-  c.insert(std::make_pair(2, 'b'));
-  c.insert(std::make_pair(4, 'd'));
-  c.insert(std::make_pair(1, 'a'));
-  c.insert(std::make_pair(1, 'a'));
+  std::map<int, char> m;
+  m.insert(std::make_pair(5, 'e'));
+  m.insert(std::make_pair(2, 'b'));
+  m.insert(std::make_pair(4, 'd'));
+  m.insert(std::make_pair(1, 'a'));
+  m.insert(std::make_pair(1, 'a'));
 
-  std::map<int,char>::reverse_iterator i = c.rbegin();
-  for( ; i != c.rend() ; ++i )
+  std::map<int,char>::reverse_iterator i = m.rbegin();
+  for( ; i != m.rend() ; ++i )
     std::cout << i->first << " " << i->second << std::endl;
 
   return 0;
 }
 ```
+* rend()[color ff0000]
+* m.rbegin()[link rbegin.md]
+* m.insert[link insert.md]
 
 ###出力
 ```

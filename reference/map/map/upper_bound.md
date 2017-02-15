@@ -60,14 +60,14 @@ int main()
     // B以上D以下の範囲を取得
     decltype(m)::iterator it = m.lower_bound("B");
     decltype(m)::iterator last = m.upper_bound("D");
-      
+
     while (it != last) {
       std::cout << it->first << ',' << it->second << std::endl;
       ++it;
     }
     std::cout << std::endl;
   }
-    
+
   // (2)
   {
     std::map<std::string, int, std::less<>> m = {
@@ -91,11 +91,8 @@ int main()
 }
 ```
 * upper_bound[color ff0000]
-* lower_bound[link lower_bound.md]
-* std::string[link /reference/string/basic_string.md]
+* m.lower_bound[link lower_bound.md]
 * std::less[link /reference/functional/less.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

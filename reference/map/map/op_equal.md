@@ -30,16 +30,16 @@ namespace std {
 
 int main()
 {
-  std::map<int,char> c1;
-  c1[0] = 'a';
+  std::map<int,char> m1;
+  m1[0] = 'a';
 
-  auto c2 = c1;
+  auto m2 = m1;
 
-  std::cout << (c1 == c2) << std::endl;
+  std::cout << (m1 == m2) << std::endl;
 
-  c2[0] = 'b';
+  m2[0] = 'b';
 
-  std::cout << (c1 == c2) << std::endl;
+  std::cout << (m1 == m2) << std::endl;
 
   return 0;
 }

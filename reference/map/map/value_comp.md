@@ -41,13 +41,8 @@ int main()
   std::cout << comp(p3, p2) << std::endl;
 }
 ```
-* make_pair[link ../../utility/make_pair.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* iostream[link ../../iostream.md]
-* map[link ../map.md]
+* value_comp()[color ff0000]
 * value_compare[link value_compare.md]
-* value_comp[color ff0000]
 
 ###出力
 ```

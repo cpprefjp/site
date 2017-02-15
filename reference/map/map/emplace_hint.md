@@ -36,20 +36,26 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 
 int main()
 {
-  std::map<int, char> c;
+  std::map<int, char> m;
 
-  c.emplace( std::piecewise_construct, std::make_tuple(1), std::make_tuple('A') );
-  c.emplace_hint( c.end(), std::piecewise_construct, std::make_tuple(2), std::make_tuple('B') );
-  c.emplace_hint( c.end(), std::piecewise_construct, std::make_tuple(3), std::make_tuple('C') );
-  c.emplace_hint( c.end(), std::piecewise_construct, std::make_tuple(4), std::make_tuple('D') );
+  m.emplace( std::piecewise_construct, std::make_tuple(1), std::make_tuple('A') );
+  m.emplace_hint( m.end(), std::piecewise_construct, std::make_tuple(2), std::make_tuple('B') );
+  m.emplace_hint( m.end(), std::piecewise_construct, std::make_tuple(3), std::make_tuple('C') );
+  m.emplace_hint( m.end(), std::piecewise_construct, std::make_tuple(4), std::make_tuple('D') );
 
-  for( const auto& pr : c ) {
+  for( const auto& pr : m ) {
     std::cout << std::get<0>( pr) << " " << std::get<1>( pr ) << std::endl;
   }
 
   return 0;
 }
 ```
+* emplace_hint[color ff0000]
+* m.emplace[link emplace.md]
+* std::piecewise_construct[link /reference/utility/piecewise_construct.md]
+* std::make_tuple[link /reference/tuple/make_tuple.md]
+* m.end()[link end.md]
+* std::get[link /reference/utility/pair/get.md]
 
 ###出力
 ```

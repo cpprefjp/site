@@ -30,17 +30,19 @@ bool empty() const noexcept;
 
 int main ()
 {
-  std::map<int, char> c;
+  std::map<int, char> m;
 
-  std::cout << c.empty() << std::endl;
+  std::cout << m.empty() << std::endl;
 
-  c.insert(std::make_pair(42,'a'));
+  m.insert(std::make_pair(42, 'a'));
 
-  std::cout << c.empty() << std::endl;
+  std::cout << m.empty() << std::endl;
 
   return 0;
 }
 ```
+* empty()[color ff0000]
+* m.insert[link insert.md]
 
 ###出力
 ```

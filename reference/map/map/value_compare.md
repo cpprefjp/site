@@ -59,14 +59,9 @@ int main()
   std::cout << std::boolalpha << comp(*m.find(0), *m.find(1)) << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* map[link ../../map.md]
-* value_comp[link value_comp.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* find[link find.md]
 * value_compare[color ff0000]
+* value_comp()[link value_comp.md]
+* find[link find.md]
 
 ###出力
 ```

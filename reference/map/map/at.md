@@ -30,7 +30,7 @@ const T& at(const key_type & x) const;
 #include <stdexcept>
 
 template<class Container, class T>
-void at_wrap(Container &c, T v)
+void at_wrap(Container& c, T v)
 {
   try {
     std::cout << c.at(v) << std::endl;
@@ -42,15 +42,18 @@ void at_wrap(Container &c, T v)
 
 int main()
 {
-  std::map<int,char> s1;
-  s1.insert(std::make_pair(1,'a'));
+  std::map<int,char> m;
+  m.insert(std::make_pair(1, 'a'));
 
-  at_wrap(s1, 1);
-  at_wrap(s1, 2);
+  at_wrap(m, 1);
+  at_wrap(m, 2);
 
   return 0;
 }
 ```
+* c.at[color ff0000]
+* m.insert[link insert.md]
+* std::out_of_range[link /reference/stdexcept.md]
 
 ###出力
 ```

@@ -30,23 +30,25 @@ const_iterator cend() const noexcept;
 
 int main()
 {
-  std::map<int, char> c;
-  c[3] = 'C';
-  c[7] = 'G';
-  c[8] = 'H';
-  c[4] = 'D';
-  c[5] = 'E';
-  c[1] = 'A';
-  c[2] = 'B';
-  c[6] = 'F';
+  std::map<int, char> m;
+  m[3] = 'C';
+  m[7] = 'G';
+  m[8] = 'H';
+  m[4] = 'D';
+  m[5] = 'E';
+  m[1] = 'A';
+  m[2] = 'B';
+  m[6] = 'F';
 
-  for( auto i = c.begin(); i != c.end() ; ++i ) {
-	  std::cout << i->first << " " << i->second << "\n";
+  for( auto i = m.cbegin(); i != m.cend() ; ++i ) {
+      std::cout << i->first << " " << i->second << "\n";
   }
 
   return 0;
 }
 ```
+* cend()[color ff0000]
+* m.cbegin()[link cbegin.md]
 
 ###出力
 ```

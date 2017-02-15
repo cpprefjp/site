@@ -34,21 +34,22 @@ namespace std {
 
 int main()
 {
-  std::map<char,int> s1, s2;
-  s1.insert(std::make_pair('a',10));
-  s1.insert(std::make_pair('b',20));
-  s1.insert(std::make_pair('c',30));
-  s2 = s1;
+  std::map<char,int> m1, m2;
+  m1.insert(std::make_pair('a',10));
+  m1.insert(std::make_pair('b',20));
+  m1.insert(std::make_pair('c',30));
+  m2 = m1;
 
-  std::cout << (s1 < s2) << std::endl;
+  std::cout << (m1 < m2) << std::endl;
 
-  s2.insert(std::make_pair('d',40));
+  m2.insert(std::make_pair('d',40));
 
-  std::cout << (s1 < s2) << std::endl;
+  std::cout << (m1 < m2) << std::endl;
 
   return 0;
 }
 ```
+* insert[link insert.md]
 
 ###出力
 ```

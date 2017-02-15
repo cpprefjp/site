@@ -28,18 +28,14 @@ key_compare key_comp() const;
 
 int main()
 {
-  std::map<int,char> c;
-  std::map<int,char>::key_compare comp = c.key_comp();
+  std::map<int,char> m;
+  std::map<int,char>::key_compare comp = m.key_comp();
 
   std::cout << comp(1, 2) << std::endl;
   std::cout << comp(3, 2) << std::endl;
 }
 ```
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* iostream[link ../../iostream.md]
-* map[link ../map.md]
-* key_comp[color ff0000]
+* key_comp()[color ff0000]
 
 ###出力
 ```

@@ -109,6 +109,7 @@
     * std::unordered_set[link /reference/unordered_map/unordered_set.md]
 * <utility>[link /reference/utility.md]
     * std::pair[link /reference/utility/pair.md]
+    * std::make_pair[link /reference/utility/make_pair.md]
 * <valarray>[link /reference/valarray.md]
     * std::valarray[link /reference/valarray/valarray.md]
 * <vector>[link /reference/vector.md]

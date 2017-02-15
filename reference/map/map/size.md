@@ -28,20 +28,22 @@ size_type size() const noexcept;
 
 int main ()
 {
-  std::map<int,char> c;
+  std::map<int,char> m;
 
-  std::cout << c.size() << std::endl;
+  std::cout << m.size() << std::endl;
 
-  c.insert( std::make_pair(1, 'a') );
-  c.insert( std::make_pair(2, 'b') );
-  c.insert( std::make_pair(3, 'c') );
-  c.insert( std::make_pair(1, 'a') );
+  m.insert( std::make_pair(1, 'a') );
+  m.insert( std::make_pair(2, 'b') );
+  m.insert( std::make_pair(3, 'c') );
+  m.insert( std::make_pair(1, 'a') );
 
-  std::cout << c.size() << std::endl;
+  std::cout << m.size() << std::endl;
 
   return 0;
 }
 ```
+* size()[color ff0000]
+* m.insert[link insert.md]
 
 ###出力
 ```

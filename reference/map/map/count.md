@@ -46,7 +46,7 @@ int main()
       {"Bob",   1},
       {"Carol", 4}
     };
-  
+
     std::size_t n = m.count("Bob");
     if (n > 0) { // 見つかった
       std::cout << "found" << std::endl;
@@ -71,12 +71,8 @@ int main()
   }
 }
 ```
-* count[color ff0000]
-* std::string[link /reference/string/basic_string.md]
+* count()[color ff0000]
 * std::less[link /reference/functional/less.md]
-* std::size_t[link /reference/cstddef/size_t.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

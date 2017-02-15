@@ -38,29 +38,29 @@ void print(const char* name, const Map& m)
 
 int main()
 {
-  std::map<int, char> c1 = {
+  std::map<int, char> m1 = {
     {10, 'a'},
     {20, 'b'},
     {30, 'c'}
   };
 
-  std::map<int, char> c2 = {
+  std::map<int, char> m2 = {
     {5, 'd'},
     {15, 'e'}
   };
 
-  // c1とc2を入れ替える
-  c1.swap(c2);
+  // m1とm2を入れ替える
+  m1.swap(m2);
 
-  print("c1", c1);
-  print("c2", c2);
+  print("m1", m1);
+  print("m2", m2);
 }
 ```
 
 ###出力
 ```
-c1 : {[5,d], [15,e], }
-c2 : {[10,a], [20,b], [30,c], }
+m1 : {[5,d], [15,e], }
+m2 : {[10,a], [20,b], [30,c], }
 ```
 
 ##バージョン
