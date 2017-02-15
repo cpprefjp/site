@@ -54,7 +54,6 @@ int main()
 }
 ```
 * emplace[color ff0000]
-* std::make_pair[link /reference/utility/make_pair.md]
 * c.insert[link insert.md]
 
 ###出力

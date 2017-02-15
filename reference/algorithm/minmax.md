@@ -115,7 +115,6 @@ std::pair<T, T> minmax(std::initializer_list<T> init, Compare comp)
   return std::make_pair(*p.first, *p.second);
 }
 ```
-* std::make_pair[link /reference/utility/make_pair.md]
 * std::minmax_element[link minmax_element.md]
 * init.begin()[link /reference/initializer_list/begin.md]
 * init.end()[link /reference/initializer_list/end.md]

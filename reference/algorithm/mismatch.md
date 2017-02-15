@@ -121,7 +121,6 @@ std::pair<InputIterator1, InputIterator2> mismatch(
   return std::make_pair(first1, first2);
 }
 ```
-* std::make_pair[link /reference/utility/make_pair.md]
 
 ##バージョン
 ###言語
