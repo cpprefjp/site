@@ -82,6 +82,13 @@ int main()
   print_punct(std::locale("German"));
 }
 ```
+* std::numpunct[color ff0000]
+* std::locale[link locale.md]
+* loc.name()[link locale/name.md.nolink]
+* std::use_facet[link use_facet.md.nolink]
+* punct.decimal_point()[link numpunct/decimal_point.md.nolink]
+* punct.thousands_sep()[link numpunct/thousands_sep.md.nolink]
+* punct.grouping()[link numpunct/grouping.md.nolink]
 
 ###出力例
 ```

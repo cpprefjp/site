@@ -35,6 +35,9 @@ int main()
   std::cout << std::tolower('A', l) << std::endl;
 }
 ```
+* std::tolower[color ff0000]
+* std::locale[link locale.md]
+* classic()[link locale/classic.md.nolink]
 
 ###出力
 ```

@@ -35,6 +35,9 @@ int main()
   std::cout << std::toupper('a', l) << std::endl;
 }
 ```
+* std::toupper[color ff0000]
+* std::locale[link locale.md]
+* classic()[link locale/classic.md.nolink]
 
 ###出力
 ```
