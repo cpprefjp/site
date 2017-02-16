@@ -49,6 +49,7 @@ int main()
   MyDeleter* deleter = std::get_deleter<MyDeleter>(p);
 }
 ```
+* std::get_deleter[color ff0000]
 
 ###出力
 ```

@@ -29,29 +29,31 @@ namespace std {
 ```cpp
 #include <memory>
 #include <iostream>
- 
+
 struct A {
   virtual void call() const {
     std::cout << "A::call" << std::endl;
   }
 };
- 
+
 struct B : A {
   void call() const {
     std::cout << "B::call()" << std::endl;
   }
 };
- 
+
 int main() {
   auto sp1 = std::make_shared<B>();
   sp1->call();
- 
+
   auto sp2 = std::static_pointer_cast<A>(sp1);
   if(sp1 == sp2) {
     sp2->call();
   }
 }
 ```
+* std::static_pointer_cast[link static_pointer_cast.md]
+* std::make_shared[link /reference/memory/make_shared.md]
 
 ###出力
 ```

@@ -116,7 +116,9 @@ int main()
   }
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::move[link /reference/utility/move.md]
+* p.get()[link get.md]
+* p.use_count()[link use_count.md]
 
 ###出力
 ```

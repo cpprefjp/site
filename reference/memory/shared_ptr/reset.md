@@ -56,6 +56,7 @@ int main()
   p2.reset(new int(2));
 }
 ```
+* reset[color ff0000]
 
 ###出力
 ```

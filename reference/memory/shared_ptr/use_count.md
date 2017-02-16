@@ -33,6 +33,7 @@ int main()
   std::cout << count << std::endl;
 }
 ```
+* use_count()[color ff0000]
 
 ###出力
 ```

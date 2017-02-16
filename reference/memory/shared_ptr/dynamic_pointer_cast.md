@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ##概要
-`shared_ptr` で管理するインスタンスに対して `dynamic_cast` を行う。 
+`shared_ptr` で管理するインスタンスに対して `dynamic_cast` を行う。
 
 
 ##戻り値
@@ -33,19 +33,19 @@ namespace std {
 ```cpp
 #include <memory>
 #include <iostream>
- 
+
 struct A {
   virtual void call() const {
     std::cout << "A::call" << std::endl;
   }
 };
- 
+
 struct B : A {
   void call() const {
     std::cout << "B::call()" << std::endl;
   }
 };
- 
+
 int main()
 {
   std::shared_ptr<B> b(new B());
@@ -60,6 +60,8 @@ int main()
   }
 }
 ```
+* std::dynamic_pointer_cast[color ff0000]
+* std::static_pointer_cast[link static_pointer_cast.md]
 
 ###出力
 ```

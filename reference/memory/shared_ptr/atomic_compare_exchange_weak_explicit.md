@@ -64,8 +64,8 @@ int main()
   std::cout << *result << std::endl;
 }
 ```
-* atomic_compare_exchange_weak_explicit[color ff0000]
-
+* std::atomic_compare_exchange_weak_explicit[color ff0000]
+* std::atomic_load[link atomic_load.md]
 
 ###出力
 ```

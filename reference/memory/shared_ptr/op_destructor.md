@@ -58,6 +58,7 @@ int main()
   std::cout << 1 << std::endl;
 } // Yが破棄される
 ```
+* p.reset[link reset.md]
 
 ###出力
 ```

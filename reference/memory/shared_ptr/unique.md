@@ -46,6 +46,7 @@ int main()
   }
 }
 ```
+* unique()[color ff0000]
 
 ###出力
 ```

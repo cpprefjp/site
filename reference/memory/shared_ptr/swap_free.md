@@ -44,6 +44,7 @@ int main()
   std::cout << *b << std::endl;
 }
 ```
+* std::swap[color ff0000]
 
 ###出力
 ```

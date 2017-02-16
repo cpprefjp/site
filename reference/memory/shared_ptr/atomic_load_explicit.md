@@ -52,8 +52,8 @@ int main()
   std::cout << *result << std::endl;
 }
 ```
-* atomic_load_explicit[color ff0000]
-
+* std::atomic_load_explicit[color ff0000]
+* std::atomic_store_explicit[link atomic_store_explicit.md]
 
 ###出力
 ```

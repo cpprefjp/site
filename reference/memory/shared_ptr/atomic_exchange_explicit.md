@@ -50,8 +50,7 @@ int main()
   std::cout << *prev_state << std::endl;
 }
 ```
-* atomic_exchange_explicit[color ff0000]
-
+* std::atomic_exchange_explicit[color ff0000]
 
 ###出力
 ```

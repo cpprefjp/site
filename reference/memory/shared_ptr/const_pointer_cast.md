@@ -34,7 +34,7 @@ namespace std {
 ```cpp
 #include <memory>
 #include <iostream>
- 
+
 int main()
 {
   std::shared_ptr<const int> cp(new int(3));
@@ -43,6 +43,7 @@ int main()
   std::cout << *p << std::endl;
 }
 ```
+* std::const_pointer_cast[color ff0000]
 
 ###出力
 ```
