@@ -58,6 +58,13 @@ int main()
   std::return_temporary_buffer(p);
 }
 ```
+* std::return_temporary_buffer[color ff0000]
+* std::get_temporary_buffer[link get_temporary_buffer.md]
+* std::ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
+* std::allocator[link allocator.md]
+* std::allocator_traits[link allocator_traits.md]
+* traits::construct[link allocator_traits/construct.md]
+* traits::destroy[link allocator_traits/destroy.md]
 
 ###出力
 ```

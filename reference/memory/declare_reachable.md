@@ -62,6 +62,9 @@ int main()
   return EXIT_SUCCESS;
 }
 ```
+* std::declare_reachable[color ff0000]
+* std::undeclare_reachable[link undeclare_reachable.md]
+* EXIT_SUCCESS[link /reference/cstdlib/exit_success.md]
 
 ###出力
 ```

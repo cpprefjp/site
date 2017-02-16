@@ -29,11 +29,11 @@ namespace std {
 ```cpp
 #include <memory>
 #include <iostream>
- 
+
 int main() {
   auto sp = std::make_shared<int>(42);
   std::weak_ptr<int> wp(sp);
- 
+
   sp.reset();
   try {
     std::shared_ptr<int> i(wp);
@@ -42,6 +42,10 @@ int main() {
   }
 }
 ```
+* std::make_shared[link make_shared.md]
+* std::weak_ptr[link weak_ptr.md]
+* sp.reset[link shared_ptr/reset.md]
+* std::exception[link /reference/exception/exception.md]
 
 ###出力(GCC 4.7での出力。規格上は"bad_weak_ptr"と出力されるのが正しい)
 ```
@@ -58,7 +62,7 @@ std::bad_weak_ptr
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4, 4.7.2(`what()`が`"std::bad_weak_ptr"`を返すので規格違反。バグ報告済み。[#55847](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847))
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
-	- Visual C++ 10.0までは`what()`が`"tr1::bad_weak_ptr"`を返す。
+    - Visual C++ 10.0までは`what()`が`"tr1::bad_weak_ptr"`を返す。
 
 ##参照
 

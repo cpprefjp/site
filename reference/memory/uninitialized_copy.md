@@ -67,7 +67,11 @@ int main()
   alloc.deallocate(p, size);
 }
 ```
-* uninitialized_copy[color ff0000]
+* std::uninitialized_copy[color ff0000]
+* std::allocator[link allocator.md]
+* alloc.allocate[link allocator/allocate.md]
+* alloc.destroy[link allocator/destroy.md]
+* alloc.deallocate[link allocator/deallocate.md]
 
 ###出力
 ```

@@ -106,12 +106,14 @@ int main() {
   std::unique_ptr<hoge> p1(std::move(p0));
 
   if (p0) {
-    abort();
+    std::abort(); // p0は空
   }
 
   // p1が所有しているリソースが解放される
 }
 ```
+* std::move[link /reference/utility/move.md]
+* std::abort[link /reference/cstdlib/abort.md]
 
 ###出力
 ```

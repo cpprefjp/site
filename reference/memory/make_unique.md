@@ -63,6 +63,7 @@ int main()
   p2[3] = 3;
 }
 ```
+* std::make_unique[color ff0000]
 
 ###出力
 ```

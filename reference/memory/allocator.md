@@ -100,6 +100,12 @@ int main(int argc, char** argv) {
   alc.deallocate(arr, 10);
 }
 ```
+* std::allocator[color ff0000]
+* alc.allocate[link allocator/allocate.md]
+* alc.construct[link allocator/construct.md]
+* std::iota[link /reference/numeric/iota.md]
+* alc.destroy[link allocator/destroy.md]
+* alc.deallocate[link allocator/deallocate.md]
 
 ###出力
 ```

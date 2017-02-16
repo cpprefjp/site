@@ -42,10 +42,11 @@ int main()
   // intアライメントで、intをN個確保。
   std::size_t N = 3;
   if (std::align(alignof(int), sizeof(int) * N, ptr, space)) {
-	std::cout << ptr << " " << space << std::endl;
+    std::cout << ptr << " " << space << std::endl;
   }
 }
 ```
+* std::align[color ff0000]
 
 ###出力例
 ```
@@ -61,7 +62,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
-	- Visual C++ 11.0はマニュアル（MSDNライブラリ）に記載がないものの、実装されている。
+    - Visual C++ 11.0はマニュアル（MSDNライブラリ）に記載がないものの、実装されている。
 
 
 ##参照

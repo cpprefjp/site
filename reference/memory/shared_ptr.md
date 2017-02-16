@@ -139,6 +139,7 @@ int main()
   // リソースの所有者が0人になる。
   // 誰もリソースを参照しなくなったので、リソースが解放される。
 ```
+* std::shared_ptr[color ff0000]
 
 ####出力
 ```
@@ -179,6 +180,7 @@ int main()
   std::cout << 1 << std::endl;
 } // Yが破棄される
 ```
+* std::shared_ptr[color ff0000]
 
 ###出力
 ```

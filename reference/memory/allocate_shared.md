@@ -30,22 +30,17 @@ namespace std {
 ```cpp
 #include <memory>
 #include <iostream>
- 
+
 int main() {
-  std::allocator<int>  alloc;
+  std::allocator<int> alloc;
   std::shared_ptr<int> sp = std::allocate_shared<int>(alloc, 42);
   if (sp) {
     std::cout << *sp << std::endl;
   }
 }
 ```
-* memory[link ../memory.md]
-* iostream[link ../iostream.md]
-* allocator[link allocator.md]
-* shared_ptr[link shared_ptr.md]
-* allocate_shared[color ff0000]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
+* std::allocate_shared[color ff0000]
+* std::allocator[link allocator.md]
 
 ###出力
 ```
@@ -62,7 +57,7 @@ int main() {
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3, 4.8.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
-	- Visual C++ 11.0までは、可変引数テンプレートに対応していないため、不完全な実装である。
+    - Visual C++ 11.0までは、可変引数テンプレートに対応していないため、不完全な実装である。
 
 ##関連項目
 - [`std::make_shared`](/reference/memory/make_shared.md)

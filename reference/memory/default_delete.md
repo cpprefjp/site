@@ -63,6 +63,7 @@ int main()
   } // pが指しているint配列がdelete[]される
 }
 ```
+* std::default_delete[color ff0000]
 
 ###出力
 ```

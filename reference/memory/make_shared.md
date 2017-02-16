@@ -42,6 +42,7 @@ int main() {
   }
 }
 ```
+* std::make_shared[color ff0000]
 
 ###出力
 ```

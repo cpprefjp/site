@@ -44,6 +44,8 @@ int main()
   return EXIT_SUCCESS;
 }
 ```
+* std::undeclare_no_pointers[color ff0000]
+* EXIT_SUCCESS[link /reference/cstdlib/exit_success.md]
 
 ##バージョン
 ###言語

@@ -85,7 +85,11 @@ int main()
   alloc.deallocate(p, size);
 }
 ```
-* raw_storage_iterator[color ff0000]
+* std::raw_storage_iterator[color ff0000]
+* std::allocator[link allocator.md]
+* alloc.allocate[link allocator/allocate.md]
+* alloc.destroy[link allocator/destroy.md]
+* alloc.deallocate[link allocator/deallocate.md]
 
 ###出力
 ```

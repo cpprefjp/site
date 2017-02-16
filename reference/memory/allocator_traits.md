@@ -96,6 +96,12 @@ int main()
   MyVector<int, std::allocator<int>> v(3);
 }
 ```
+* std::allocator_traits[color ff0000]
+* std::allocator[link allocator.md]
+* traits::allocate[link allocator_traits/allocate.md]
+* traits::construct[link allocator_traits/construct.md]
+* traits::destroy[link allocator_traits/destroy.md]
+* traits::deallocate[link allocator_traits/deallocate.md]
 
 ###出力
 ```

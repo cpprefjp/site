@@ -79,6 +79,10 @@ int main()
   return EXIT_SUCCESS;
 }
 ```
+* std::declare_no_pointers[color ff0000]
+* intptr_t[link /reference/cstdint/intptr_t.md]
+* std::undeclare_no_pointers[link undeclare_no_pointers.md]
+* EXIT_SUCCESS[link /reference/cstdlib/exit_success.md]
 
 ###出力
 ```

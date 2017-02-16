@@ -48,7 +48,9 @@ int main()
   static_assert(result, "should be true");
 }
 ```
-
+* std::uses_allocator[color ff0000]
+* std::allocator[link allocator.md]
+* std::allocator_arg_t[link allocator_arg_t.md]
 
 ###出力
 ```
