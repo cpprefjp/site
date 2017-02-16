@@ -50,7 +50,7 @@ public:
   MyVector(const MyVector& other, Alloc alloc)
   {
     alloc_ = alloc; // 受け取ったアロケータをメンバ変数に保持する
-      
+
     // 受け取ったアロケータでメモリ確保
     using traits = std::allocator_traits<Alloc>;
     size_ = other.size_;
@@ -88,7 +88,7 @@ private:
 
     // メモリを解放
     traits::deallocate(alloc_, data_, size_);
-      
+
     size_ = 0;
     data_ = nullptr;
   }
@@ -101,6 +101,11 @@ int main()
 }
 ```
 * select_on_container_copy_construction[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* traits::allocate[link allocate.md]
+* traits::construct[link construct.md]
+* traits::destroy[link destroy.md]
+* traits::deallocate[link deallocate.md]
 
 ###出力
 ```

@@ -38,6 +38,9 @@ int main()
   traits::deallocate(alloc, p, n);
 }
 ```
+* deallocate[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* traits::allocate[link allocate.md]
 
 ###出力
 ```
