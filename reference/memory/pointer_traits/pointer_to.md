@@ -32,6 +32,7 @@ int main()
   std::cout << *p << std::endl;
 }
 ```
+* pointer_to[color ff0000]
 
 ###出力
 ```

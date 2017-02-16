@@ -24,7 +24,10 @@ bool operator()(const weak_ptr<T>& a, const shared_ptr<T>& b) const;
 
 
 ##戻り値
-`a.owner_before(b)`
+```cpp
+a.owner_before(b)
+```
+* owner_before[link /reference/memory/shared_ptr/owner_before.md]
 
 
 ##バージョン
