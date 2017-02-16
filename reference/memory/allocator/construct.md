@@ -49,6 +49,10 @@ int main()
   alloc.deallocate(p, n);
 }
 ```
+* construct[color ff0000]
+* alloc.allocate[link allocate.md]
+* alloc.destroy[link destroy.md]
+* alloc.deallocate[link deallocate.md]
 
 ###出力
 ```

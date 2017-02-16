@@ -41,6 +41,9 @@ int main()
   std::cout << std::dec << x << std::endl;
 }
 ```
+* address[color ff0000]
+* std::hex[link /reference/ios/hex.md]
+* std::dec[link /reference/ios/dec.md]
 
 ###出力例
 ```

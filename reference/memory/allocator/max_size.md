@@ -29,6 +29,7 @@ int main()
   std::cout << alloc.max_size() << std::endl;
 }
 ```
+* max_size()[color ff0000]
 
 ###出力例
 ```
