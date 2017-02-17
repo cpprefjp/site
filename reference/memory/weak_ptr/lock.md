@@ -42,7 +42,7 @@ if (int* r = wp.lock()) {
   std::cout << *r << std::endl;
 }
 ```
-* shared_ptr[link /reference/memory/shared_ptr.md]
+* lock()[color ff0000]
 
 このコードの場合、ロックを取得した`if`文内で、`shared_ptr`オブジェクト`sp`に対して[`reset()`](/reference/memory/shared_ptr/reset.md)が呼ばれると、ポインタ`p`がダングリングポインタ(dangling pointer : 不正な領域を指すポインタ)になってしまう。
 
@@ -69,14 +69,15 @@ int main()
   // wpが監視しているshared_ptrオブジェクトの
   // 寿命が切れていなければ処理する
   if (std::shared_ptr<int> r = wp.lock()) {
-	std::cout << *r << std::endl;
+    std::cout << *r << std::endl;
   }
   else {
-	// shared_ptrオブジェクトの寿命が切れている
-	std::cout << "sp is expired" << std::endl;
+    // shared_ptrオブジェクトの寿命が切れている
+    std::cout << "sp is expired" << std::endl;
   }
 }
 ```
+* lock()[color ff0000]
 
 ###出力
 ```

@@ -38,7 +38,8 @@ int main()
   assert(wp.use_count() == 0);
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* reset()[color ff0000]
+* wp.use_count()[link use_count.md]
 
 ###出力
 ```

@@ -42,14 +42,16 @@ int main()
   wp1.swap(wp2);
 
   if (std::shared_ptr<int> r = wp1.lock()) {
-	std::cout << *r << std::endl;
+    std::cout << *r << std::endl;
   }
 
   if (std::shared_ptr<int> r = wp2.lock()) {
-	std::cout << *r << std::endl;
+    std::cout << *r << std::endl;
   }
 }
 ```
+* swap[color ff0000]
+* lock()[link lock.md]
 
 ###出力
 ```

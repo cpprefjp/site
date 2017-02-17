@@ -89,7 +89,7 @@ int main()
   if (std::shared_ptr<int> r = wp4.lock()) {
     std::cout << *r << std::endl;
   }
-    
+
   // (5)
   // weak_ptrオブジェクトの監視対象を移動する
   std::shared_ptr<int> sp5(new int(3));
@@ -111,7 +111,10 @@ int main()
   }
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* use_count()[link use_count.md]
+* lock()[link lock.md]
+* std::static_pointer_cast[link /reference/memory/static_pointer_cast.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

@@ -39,6 +39,7 @@ int main()
   std::cout << wp.use_count() << std::endl;
 }
 ```
+* use_count()[color ff0000]
 
 ###出力
 ```

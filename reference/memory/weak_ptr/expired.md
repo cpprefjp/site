@@ -46,7 +46,7 @@ int main()
   assert(wp.expired());
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* expired()[color ff0000]
 
 ###出力
 ```

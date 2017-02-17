@@ -49,6 +49,7 @@ int main()
   std::cout << std::boolalpha << ownership_based_result << std::endl;
 }
 ```
+* owner_before[color ff0000]
 
 ###出力
 ```
