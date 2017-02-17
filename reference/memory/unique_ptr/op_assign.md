@@ -40,8 +40,8 @@ d_ = std::forward<E>(u.get_deleter());
 ```
 * reset[link reset.md]
 * release[link release.md]
-* forward[link /reference/utility/forward.md]
-* get_deleter[link get_deleter.md]
+* std::forward[link /reference/utility/forward.md]
+* get_deleter()[link get_deleter.md]
 
 
 - (3) : [`reset()`](reset.md)
@@ -82,7 +82,7 @@ int main()
   assert(!p3);
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

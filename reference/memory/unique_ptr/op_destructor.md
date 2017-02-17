@@ -14,7 +14,7 @@
 
 
 ##効果
-`get()` が `nullptr` でなければ `get_deleter()(get())` を呼び出す。。
+[`get()`](get.md) が `nullptr` でなければ [`get_deleter`](get_deleter.md)`()(`[`get()`](get.md)`)` を呼び出す。
 
 
 ##バージョン

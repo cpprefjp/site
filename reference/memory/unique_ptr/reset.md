@@ -51,6 +51,7 @@ int main()
   std::cout << *p << std::endl;
 }
 ```
+* reset[color ff0000]
 
 ###出力
 ```

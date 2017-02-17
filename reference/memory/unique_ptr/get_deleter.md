@@ -31,6 +31,8 @@ int main()
   std::default_delete<int>& f = p.get_deleter();
 }
 ```
+* get_deleter()[color ff0000]
+* std::default_delete[link /reference/memory/default_delete.md]
 
 ###出力
 ```

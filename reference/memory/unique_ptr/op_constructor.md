@@ -103,7 +103,9 @@ int main()
   assert(*static_cast<int*>(p7.get()) == 3);
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::default_delete[link /reference/memory/default_delete.md]
+* std::move[link /reference/utility/move.md]
+* get()[link get.md]
 
 ###出力
 ```

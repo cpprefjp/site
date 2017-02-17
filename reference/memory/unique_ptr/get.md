@@ -35,6 +35,7 @@ int main()
   std::cout << *raw_pointer << std::endl;
 }
 ```
+* get()[color ff0000]
 
 ###出力
 ```
