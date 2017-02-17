@@ -54,6 +54,7 @@ int main()
 }
 ```
 * std::once_flag[color ff0000]
+* std::call_once[link call_once.md]
 
 ###出力
 ```

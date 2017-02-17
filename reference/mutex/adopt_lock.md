@@ -36,7 +36,9 @@ int main()
   } // unique_lockの破棄時にunlock()される
 }
 ```
-* adopt_lock[color ff0000]
+* std::adopt_lock[color ff0000]
+* mtx.lock()[link mutex/lock.md]
+* std::unique_lock[link unique_lock.md]
 
 ###出力
 ```

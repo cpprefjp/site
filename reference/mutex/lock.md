@@ -80,7 +80,14 @@ int main()
 }
 ```
 * std::lock[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* std::recursive_mutex[link recursive_mutex.md]
+* mtx1.unlock()[link mutex/unlock.md]
+* mtx2.unlock()[link mutex/unlock.md]
+* std::defer_lock[link defer_lock.md]
+* std::unique_lock[link unique_lock.md]
+* lk2.lock()[link unique_lock/lock.md]
+* std::system_error[link /reference/system_error/system_error.md]
+* owns_lock()[link unique_lock/owns_lock.md]
 
 ###出力例
 ```

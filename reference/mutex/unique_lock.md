@@ -117,6 +117,7 @@ int main()
 }
 ```
 * std::unique_lock[color ff0000]
+* data_.push_back[link /reference/vector/push_back.md]
 
 ###出力例
 ```

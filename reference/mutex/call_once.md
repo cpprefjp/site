@@ -68,8 +68,8 @@ int main()
   t3.join();
 }
 ```
-* call_once[color ff0000]
-
+* std::call_once[color ff0000]
+* std::once_flag[link once_flag.md]
 
 ###出力
 ```
