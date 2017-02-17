@@ -119,7 +119,7 @@ int main()
 }
 ```
 * lock()[link lock.md]
-* std::static_pointer_cast[link /reference/memory/static_pointer_cast.md]
+* std::static_pointer_cast[link /reference/memory/shared_ptr/static_pointer_cast.md]
 * std::move[link /reference/utility/move.md]
 
 ###出力
