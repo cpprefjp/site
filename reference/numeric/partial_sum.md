@@ -98,23 +98,26 @@ void print(const Range& r)
 
 int main()
 {
-  const std::array<double, 5> a = {.0,.2,.4,.6,.8};
+  const std::array<double, 5> ar = {.0,.2,.4,.6,.8};
 
   {
     std::array<double, 5> result;
-    std::partial_sum(a.begin(), a.end(), result.begin());
+    std::partial_sum(ar.begin(), ar.end(), result.begin());
     print(result);
   }
 
   {
     std::array<double, 5> result;
-    std::partial_sum(a.begin(), a.end(), result.begin(),
+    std::partial_sum(ar.begin(), ar.end(), result.begin(),
                        [](double a, double b) { return 2 * a - b; });
     print(result);
   }
 }
 ```
 * std::partial_sum[color ff0000]
+* ar.begin()[link /reference/array/begin.md]
+* ar.end()[link /reference/array/end.md]
+* result.begin()[link /reference/array/begin.md]
 
 ###出力
 ```

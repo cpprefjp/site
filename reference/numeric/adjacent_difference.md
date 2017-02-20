@@ -87,6 +87,7 @@ int main()
 }
 ```
 * std::adjacent_difference[color ff0000]
+* diffs.begin()[link /reference/vector/begin.md]
 
 ###出力
 ```

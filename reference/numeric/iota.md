@@ -61,11 +61,8 @@ int main()
 }
 ```
 * std::iota[color ff0000]
-* std::array[link /reference/array.md]
-* begin()[link /reference/array/begin.md]
-* end()[link /reference/array/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* ar.begin()[link /reference/array/begin.md]
+* ar.end()[link /reference/array/end.md]
 
 ###出力
 ```

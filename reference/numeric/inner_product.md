@@ -47,7 +47,7 @@ namespace std {
 
 ##計算量
 - (1) : n 回の加算処理と n 回の乗算処理を行う。
-- (2) : n 回の binary_op1 呼び出しと n 回の binary_op2 呼び出しを行う。
+- (2) : n 回の `binary_op1` 呼び出しと n 回の `binary_op2` 呼び出しを行う。
 
 ここで、n は `last1 - first1`とする。
 
@@ -74,6 +74,7 @@ int main()
 }
 ```
 * std::inner_product[color ff0000]
+* u.begin()[link /reference/vector/begin.md]
 
 ###出力
 ```
