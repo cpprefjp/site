@@ -51,7 +51,8 @@ int main()
 }
 ```
 * owns_lock[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* lk.lock()[link lock.md]
+* std::defer_lock[link /reference/mutex/defer_lock.md]
 
 ###出力
 ```

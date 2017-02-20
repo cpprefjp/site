@@ -47,7 +47,7 @@ int main()
   } // lk1はunlock()せず、lk2がunlock()する
 }
 ```
-* swap[color ff0000]
+* std::swap[color ff0000]
 
 ###出力
 ```

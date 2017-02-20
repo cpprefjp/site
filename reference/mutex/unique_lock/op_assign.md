@@ -45,6 +45,7 @@ int main()
   } // lk1はunlock()せず、lk2がunlock()する
 }
 ```
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

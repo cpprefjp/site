@@ -69,7 +69,7 @@ int main()
   t2.join();
 }
 ```
-* unlock[color ff0000]
+* unlock()[color ff0000]
 
 ###出力
 ```

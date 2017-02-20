@@ -68,7 +68,8 @@ int main()
   std::cout << x.get() << std::endl;
 }
 ```
-* release[color ff0000]
+* release()[color ff0000]
+* m->unlock()[link /reference/mutex/mutex/unlock.md]
 
 ###出力
 ```

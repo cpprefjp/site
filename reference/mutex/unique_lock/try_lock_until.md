@@ -87,6 +87,14 @@ int main()
 }
 ```
 * try_lock_until[color ff0000]
+* std::defer_lock[link /reference/mutex/defer_lock.md]
+* chrono::system_clock[link /reference/chrono/system_clock.md]
+* now()[link /reference/chrono/system_clock/now.md]
+* chrono::seconds[link /reference/chrono/seconds.md]
+* std::error_code[link /reference/system_error/error_code.md]
+* std::errc::device_or_resource_busy[link /reference/system_error/errc.md]
+* std::generic_category()[link /reference/system_error/generic_category.md]
+* std::system_error[link /reference/system_error/system_error.md]
 
 ###出力
 ```

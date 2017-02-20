@@ -70,7 +70,8 @@ int main()
   t2.join();
 }
 ```
-* lock[color ff0000]
+* lock()[color ff0000]
+* std::defer_lock[link /reference/mutex/defer_lock.md]
 
 ###出力
 ```
