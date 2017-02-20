@@ -35,9 +35,7 @@ int main() {
   std::cout << "cpprefjp" << std::endl; // operator<< を通じた間接的な呼び出し（より一般的）
 }
 ```
-* iostream[link ../iostream.md]
-* cout[link ../iostream/cout.md]
-* endl[color ff0000]
+* std::endl[color ff0000]
 
 ###出力
 ```
@@ -55,7 +53,7 @@ namespace std {
 ```
 * basic_ostream[link basic_ostream.md]
 * put[link basic_ostream/put.md]
-* flush[link basic_ostream/flush.md]
+* flush()[link basic_ostream/flush.md]
 * widen[link ../ios/basic_ios/widen.md]
 
 ##バージョン

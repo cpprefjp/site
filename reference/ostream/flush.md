@@ -32,9 +32,7 @@ int main() {
   std::cout << "Hello cpprefjp\n" << std::flush;  // operator<< を通じた間接的な呼び出し（より一般的）
 }
 ```
-* flush[color ff0000]
-* iostream[link ../iostream.md]
-* cout[link ../iostream/cout.md]
+* std::flush[color ff0000]
 
 ###出力
 ```

@@ -98,13 +98,10 @@ int main()
   std::wcout << std::setw(10) << "cpprefjp" << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* iomanip[link ../../iomanip.md]
-* wcout[link ../../iostream/wcout.md.nolink]
-* endl[link ../endl.md]
-* left[link ../../ios/left.md]
-* setfill[link ../../iomanip/setfill.md.nolink]
-* setw[link ../../iomanip/setw.md.nolink]
+* std::wcout[link ../../iostream/wcout.md.nolink]
+* std::left[link ../../ios/left.md]
+* std::setfill[link ../../iomanip/setfill.md.nolink]
+* std::setw[link ../../iomanip/setw.md.nolink]
 
 ###出力
 ```
@@ -132,13 +129,9 @@ int main()
   std::cout << std::setw(10) << reinterpret_cast<const unsigned char*>("cpprefjp") << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* iomanip[link ../../iomanip.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../endl.md]
-* left[link ../../ios/left.md]
-* setfill[link ../../iomanip/setfill.md.nolink]
-* setw[link ../../iomanip/setw.md.nolink]
+* std::left[link ../../ios/left.md]
+* std::setfill[link ../../iomanip/setfill.md.nolink]
+* std::setw[link ../../iomanip/setw.md.nolink]
 
 ###出力
 ```
@@ -166,13 +159,8 @@ int main()
   std::cout << s << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* fstream[link ../../fstream.md]
-* string[link ../../string.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../endl.md]
-* ofstream[link ../../fstream/basic_ofstream.md.nolink]
-* ifstream[link ../../fstream/basic_ifstream.md.nolink]
+* std::ofstream[link ../../fstream/basic_ofstream.md.nolink]
+* std::ifstream[link ../../fstream/basic_ifstream.md.nolink]
 
 ###出力
 ```

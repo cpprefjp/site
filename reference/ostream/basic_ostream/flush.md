@@ -34,9 +34,7 @@ int main() {
   std::cout << "cpprefjp";
 }
 ```
-* iostream[link ../../iostream.md]
-* cout[link ../../iostream/cout.md]
-* flush[color ff0000]
+* flush()[color ff0000]
 
 ###出力
 ```

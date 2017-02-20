@@ -30,8 +30,6 @@ int main() {
 }
 ```
 * write[color ff0000]
-* iostream[link ../../iostream.md]
-* cout[link ../../iostream/cout.md]
 
 ###出力
 ```

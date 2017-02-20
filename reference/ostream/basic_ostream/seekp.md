@@ -47,13 +47,9 @@ int main() {
   std::cout << os.str() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* sstream[link ../../sstream.md]
-* ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
+* std::ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
 * seekp[color ff0000]
-* cout[link ../../iostream/cout.md]
-* str[link ../../sstream/basic_ostringstream/str.md.nolink]
-* endl[link ../endl.md]
+* str()[link ../../sstream/basic_ostringstream/str.md.nolink]
 
 ###出力
 ```
