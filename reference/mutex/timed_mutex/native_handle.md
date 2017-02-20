@@ -44,7 +44,7 @@ int main()
   std::cout << prioceiling << std::endl;
 }
 ```
-* native_handle[color ff0000]
+* native_handle()[color ff0000]
 
 ###出力
 ```

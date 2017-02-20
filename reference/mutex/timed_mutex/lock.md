@@ -65,7 +65,8 @@ int main()
   t2.join();
 }
 ```
-* lock[color ff0000]
+* lock()[color ff0000]
+* mtx_.unlock()[link unlock.md]
 
 ###出力
 ```
