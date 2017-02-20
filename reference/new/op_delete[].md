@@ -18,7 +18,6 @@ void operator delete[](void* ptr, void*) throw();                               
 void operator delete[](void* ptr, void*) noexcept;                                      // (5) C++11 から
 ```
 * nothrow_t[link /reference/new/nothrow_t.md]
-* std::size_t[link /reference/cstddef/size_t.md]
 
 ##効果
 [`new[]`](op_new[].md)演算子によって動的に確保した記憶域を解放する。
@@ -49,6 +48,7 @@ int main()
   }
 }
 ```
+* delete[][color ff0000]
 
 ###出力
 ```

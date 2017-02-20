@@ -8,10 +8,10 @@ namespace std {
   new_handler set_new_handler(new_handler new_p) noexcept;
 }
 ```
-* new_handler[link /reference/new/new_handler.md]
+* new_handler[link new_handler.md]
 
 ##概要
-`new`失敗時に呼ばれる関数を設定する。 
+`new`失敗時に呼ばれる関数を設定する。
 
 `new`失敗時にはデフォルトで[`bad_alloc`](bad_alloc.md)例外が投げられるが、この関数を使用することで`new`失敗時の挙動を切り替えられる。
 
@@ -48,7 +48,9 @@ int main()
   int* p = new int[std::numeric_limits<std::size_t>::max()];
 }
 ```
-* set_new_handler[color ff0000]
+* std::set_new_handler[color ff0000]
+* max()[link /reference/limits/numeric_limits/max.md]
+* std::abort()[link /reference/cstdlib/abort.md]
 
 ###出力例
 ```

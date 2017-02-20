@@ -42,6 +42,10 @@ int main()
   }
 }
 ```
+* std::get_new_handler()[color ff0000]
+* std::new_handler[link new_handler.md]
+* std::set_new_handler[link set_new_handler.md]
+* std::abort()[link /reference/cstdlib/abort.md]
 
 ###出力
 ```

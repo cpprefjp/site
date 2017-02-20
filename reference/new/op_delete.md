@@ -4,21 +4,20 @@
 
 ```cpp
 // 単純な記憶域の解放
-void operator delete(void* ptr) throw();											// (1) C++03 まで
-void operator delete(void* ptr) noexcept;											// (1) C++11 から
-void operator delete(void* ptr, std::size_t size) noexcept;							// (2) C++14 から
+void operator delete(void* ptr) throw();                                            // (1) C++03 まで
+void operator delete(void* ptr) noexcept;                                           // (1) C++11 から
+void operator delete(void* ptr, std::size_t size) noexcept;                         // (2) C++14 から
 
 // 単純な記憶域の解放（例外をスローしない）
-void operator delete(void* ptr, const std::nothrow_t&) throw();						// (3) C++03 まで
-void operator delete(void* ptr, const std::nothrow_t&) noexcept;					// (3) C++11 から
-void operator delete(void* ptr, std::size_t size, const std::nothrow_t&) noexcept;	// (4) C++14 から
+void operator delete(void* ptr, const std::nothrow_t&) throw();                     // (3) C++03 まで
+void operator delete(void* ptr, const std::nothrow_t&) noexcept;                    // (3) C++11 から
+void operator delete(void* ptr, std::size_t size, const std::nothrow_t&) noexcept;  // (4) C++14 から
 
 // replacement-new に対応する記憶域の解放
-void operator delete(void* ptr, void*) throw();										// (5) C++03 まで
-void operator delete(void* ptr, void*) noexcept;									// (5) C++11 から
+void operator delete(void* ptr, void*) throw();                                     // (5) C++03 まで
+void operator delete(void* ptr, void*) noexcept;                                    // (5) C++11 から
 ```
 * nothrow_t[link /reference/new/nothrow_t.md]
-* std::size_t[link /reference/cstddef/size_t.md]
 
 ##効果
 [`new`](op_new.md)演算子によって動的に確保した記憶域を解放する。
@@ -49,6 +48,7 @@ int main()
   }
 }
 ```
+* delete[color ff0000]
 
 ###出力
 ```

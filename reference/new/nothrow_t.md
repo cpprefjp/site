@@ -49,6 +49,7 @@ int main()
 }
 ```
 * std::nothrow[color ff0000]
+* std::logic_error[link /reference/stdexcept.md]
 
 ###出力
 ```

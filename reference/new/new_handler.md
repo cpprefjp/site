@@ -44,6 +44,10 @@ int main()
   int* p = new int[std::numeric_limits<std::size_t>::max()];
 }
 ```
+* std::new_handler[color ff0000]
+* std::set_new_handler[link set_new_handler.md]
+* max()[link /reference/limits/numeric_limits/max.md]
+* std::abort()[link /reference/cstdlib/abort.md]
 
 ###出力例
 ```
