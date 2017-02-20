@@ -86,6 +86,7 @@ int main()
 }
 ```
 * lock()[color ff0000]
+* mtx_.unlock()[link unlock.md]
 
 ###出力
 ```
