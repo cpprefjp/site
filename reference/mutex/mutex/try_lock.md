@@ -67,8 +67,11 @@ int main()
   t2.join();
 }
 ```
-* try_lock[color ff0000]
-
+* try_lock()[color ff0000]
+* mtx_.unlock()[link unlock.md]
+* std::error_code[link /reference/system_error/error_code.md]
+* std::errc::device_or_resource_busy[link /reference/system_error/errc.md]
+* std::generic_category()[link /reference/system_error/generic_category.md]
 
 ###出力例
 ```

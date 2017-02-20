@@ -25,7 +25,7 @@ mutex(const mutex&) = delete; // (2)
 
 
 ##備考
-非自明なコンストラクタが定義されるため、ムーブコンストラクタは定義されない。 
+非自明なコンストラクタが定義されるため、ムーブコンストラクタは定義されない。
 
 デフォルトコンストラクタに`constexpr`が付加されていることにより、`mutex`クラスのオブジェクトは他のスレッド開始よりも前に初期化されることが保証される。
 
@@ -56,6 +56,8 @@ int main()
 {
 }
 ```
+* mutexB.lock()[link lock.md]
+* mutexB.unlock()[link unlock.md]
 
 ```cpp
 // file b.cpp
@@ -77,6 +79,8 @@ public:
   }
 } glbB;
 ```
+* mutexA.lock()[link lock.md]
+* mutexA.unlock()[link unlock.md]
 
 ###出力
 ```

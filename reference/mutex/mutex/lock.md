@@ -63,6 +63,7 @@ int main()
 }
 ```
 * lock()[color ff0000]
+* mutx_.unlock()[link unlock.md]
 
 ###出力
 ```
