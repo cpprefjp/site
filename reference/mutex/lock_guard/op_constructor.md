@@ -52,6 +52,8 @@ int main()
   } // ロックを手放す
 }
 ```
+* mtx.lock()[link /reference/mutex/mutex/lock.md]
+* std::adopt_lock[link /reference/mutex/adopt_lock.md]
 
 ###出力
 ```
