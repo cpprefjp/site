@@ -82,7 +82,7 @@ int main()
 * try_lock_until[color ff0000]
 * mtx_.unlock()[link unlock.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
-* now()[link /reference/chrono/system_clock/now().md]
+* now()[link /reference/chrono/system_clock/now.md]
 * std::chrono::seconds[link /reference/chrono/seconds.md]
 * std::error_code[link /reference/system_error/error_code.md]
 * std::errc::device_or_resource_busy[link /reference/system_error/errc.md]
