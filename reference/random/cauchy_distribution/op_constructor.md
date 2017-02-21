@@ -6,21 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit cauchy_distribution(RealType a = 0.0, RealType b = 1.0);
-explicit cauchy_distribution(const param_type& parm);
+explicit cauchy_distribution(RealType a = 0.0, RealType b = 1.0); // (1)
+explicit cauchy_distribution(const param_type& parm);             // (2)
 ```
 
-##`cauchy_distribution`オブジェクトの構築
-- `explicit cauchy_distribution(RealType a = 0.0, RealType b = 1.0);`
-
-コーシー分布の位置母数`a`および尺度母数`b`を受け取るコンストラクタ。
-
-要件： `b > 0`であること。
+##概要
+- (1) : コーシー分布の位置母数`a`および尺度母数`b`を受け取るコンストラクタ。
+- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-- `explicit cauchy_distribution(const param_type& parm);`
-
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。 
+##要件
+- (1) : `b > 0`であること
 
 
 ##例
