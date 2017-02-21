@@ -156,11 +156,19 @@ int main()
     // 各分布法に基いて乱数を生成
     double r1 = dist1(engine);
     double r2 = dist2(engine);
- 
+
     file << r1 << "\t" << r2 << "\n";
   }
 }
 ```
+* std::random_device[link random/random_device.md]
+* std::mt19937[link random/mt19937.md]
+* seed_gen()[link random/random_device/op_call.md]
+* std::uniform_real_distribution[link random/uniform_real_distribution.md]
+* std::normal_distribution[link random/normal_distribution.md]
+* std::ofstream[link fstream/basic_ofstream.md.nolink]
+* dist1(engine)[link random/uniform_real_distribution/op_call.md]
+* dist2(engine)[link random/normal_distribution/op_call.md]
 
 この例である時得られた [random.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/random.tsv.xz) (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮) を元に、得られたデータの密度を図示すると、以下のような図が得られた。
 

@@ -89,7 +89,15 @@ int main()
   }
 }
 ```
-
+* std::piecewise_constant_distribution[color ff0000]
+* std::random_device[link random_device.md]
+* std::default_random_engine[link default_random_engine.md]
+* seed_gen()[link random_device/op_call.md]
+* intervals.begin()[link /reference/array/begin.md]
+* intervals.end()[link /reference/array/end.md]
+* densities.begin()[link /reference/array/begin.md]
+* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* dist(engine)[link piecewise_constant_distribution/op_call.md]
 
 ###出力
 ```

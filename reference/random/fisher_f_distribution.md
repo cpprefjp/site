@@ -88,15 +88,21 @@ int main()
 
   // 自由度5と10で分布させる
   std::fisher_f_distribution<> dist(5, 10);
-  
+
   std::ofstream file("fisher_f_distribution.tsv");
-  for (size_t n = 0; n < 256; ++n) {
+  for (std::size_t n = 0; n < 256; ++n) {
     // F分布で乱数を生成する
     double result = dist(engine);
     file << result << "\n";
   }
 }
 ```
+* std::fisher_f_distribution[color ff0000]
+* std::random_device[link random_device.md]
+* std::default_random_engine[link default_random_engine.md]
+* seed_gen()[link random_device/op_call.md]
+* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* dist(engine)[link fisher_f_distribution/op_call.md]
 
 ###出力
 このプログラムによってある時に得られた結果（[fisher_f_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/fisher_f_distribution.tsv)）を図示する。

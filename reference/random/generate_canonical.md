@@ -10,6 +10,7 @@ namespace std {
   RealType generate_canonical(URNG& g);
 }
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 実数区間\[0.0, 1.0\)に展開（事実上正規化）された一様分布乱数を得るための関数テンプレート。
@@ -33,18 +34,18 @@ namespace std {
 ```cpp
 #include <random>
 #include <iostream>
- 
+
 int main()
 {
   std::default_random_engine g(123456789);
- 
+
   for(auto n = 3; n; --n)
     std::cout
       << "g directly: "
       << g()
       << std::endl
       ;
- 
+
   for(auto n = 3; n; --n)
     std::cout
       << "generate_canonical<float, std::numeric_limits<float>::digits>"
@@ -56,7 +57,9 @@ int main()
       ;
 }
 ```
-
+* std::generate_canonical[color ff0000]
+* std::default_random_engine[link default_random_engine.md]
+* digits[link /reference/limits/numeric_limits/digits.md]
 
 ###出力
 ```

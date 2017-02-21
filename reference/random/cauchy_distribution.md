@@ -92,13 +92,19 @@ int main()
   std::cauchy_distribution<> dist(0.0, 1.0);
 
   std::ofstream file("cauchy_distribution.tsv");
-  for (size_t n = 0; n < 1000; ++n) {
+  for (std::size_t n = 0; n < 1000; ++n) {
     // コーシー分布で乱数を生成する
     double result = dist(engine);
     file << result << "\n";
   }
 }
 ```
+* std::cauchy_distribution[color ff0000]
+* std::random_device[link random_device.md]
+* std::default_random_engine[link default_random_engine.md]
+* seed_gen()[link random_device/op_call.md]
+* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* dist(engine)[link cauchy_distribution/op_call.md]
 
 ###出力
 ```

@@ -95,8 +95,10 @@ int main()
   }
 }
 ```
-* mt19937[link /reference/random/mt19937.md]
-* uint64_t[link /reference/cstdint/uint64_t.md]
+* std::independent_bits_engine[color ff0000]
+* std::mt19937[link mt19937.md]
+* std::uint64_t[link /reference/cstdint/uint64_t.md]
+* engine()[link independent_bits_engine/op_call.md]
 
 ###出力
 ```

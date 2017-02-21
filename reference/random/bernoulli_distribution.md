@@ -73,7 +73,7 @@ namespace std {
 #include <random>
 #include <fstream>
 
-int main() 
+int main()
 {
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
@@ -82,7 +82,7 @@ int main()
   std::bernoulli_distribution dist(0.7);
 
   std::ofstream result_file("bernoulli_distribution.tsv");
-  for (size_t n = 0; n < 1000; ++n) {
+  for (std::size_t n = 0; n < 1000; ++n) {
     // 乱数を生成する
     bool result = dist(engine);
 
@@ -90,6 +90,12 @@ int main()
   }
 }
 ```
+* std::bernoulli_distribution[color ff0000]
+* std::random_device[link random_device.md]
+* std::default_random_engine[link default_random_engine.md]
+* seed_gen()[link random_device/op_call.md]
+* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* dist(engine)[link bernoulli_distribution/op_call.md]
 
 ###出力
 ```

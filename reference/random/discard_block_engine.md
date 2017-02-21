@@ -128,6 +128,8 @@ int main()
   }
 }
 ```
+* std::discard_block_engine[color ff0000]
+* engine()[link discard_block_engine/op_call.md]
 
 ###出力
 ```

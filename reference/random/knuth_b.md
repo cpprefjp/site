@@ -73,6 +73,10 @@ int main()
   }
 }
 ```
+* std::knuth_b[color ff0000]
+* std::random_device[link random_device.md]
+* seed_gen()[link random_device/op_call.md]
+* std::uint64_t[link /reference/cstdint/uint64_t.md]
 
 ###出力例
 ```

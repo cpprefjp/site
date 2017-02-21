@@ -78,8 +78,8 @@ int main()
   }
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* std::random_device[color ff0000]
+* rng()[link random_device/op_call.md]
 
 ####出力例
 ```

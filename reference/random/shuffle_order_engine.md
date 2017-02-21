@@ -120,6 +120,10 @@ int main()
   }
 }
 ```
+* std::shuffle_order_engine[color ff0000]
+* std::minstd_rand0[link minstd_rand0.md]
+* base_engine()[link linear_congruential_engine/op_call.md]
+* engine()[link shuffle_order_engine/op_call.md]
 
 ###出力
 ```

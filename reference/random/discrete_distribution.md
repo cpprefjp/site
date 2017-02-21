@@ -94,7 +94,7 @@ int main()
   );
 
   std::ofstream result_file("discrete_distribution.tsv");
-  for (size_t n = 0; n < 1000; ++n) {
+  for (std::size_t n = 0; n < 1000; ++n) {
     // 確率列に基いて、ランダムなインデックスを生成する。
     // 確率0.1のものが選択された場合は1が返され、
     // 確率0.6が選択された場合は10が返される。
@@ -104,7 +104,14 @@ int main()
   }
 }
 ```
-
+* std::discrete_distribution[color ff0000]
+* std::random_device[link random_device.md]
+* seed_gen()[link random_device/op_call.md]
+* std::mt19937[link mt19937.md]
+* probabilities.begin()[link /reference/vector/begin.md]
+* probabilities.end()[link /reference/vector/end.md]
+* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* dist(engine)[link discrete_distribution/op_call.md]
 
 ###出力
 ```

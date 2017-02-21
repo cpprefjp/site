@@ -44,6 +44,11 @@ int main()
   }
 }
 ```
+* std::default_random_engine[color ff0000]
+* std::random_device[link random_device.md]
+* seed_gen()[link random_device/op_call.md]
+* std::uniform_int_distribution[link uniform_int_distribution.md]
+* dist(engine)[link uniform_int_distribution/op_call.md]
 
 ###出力例
 ```

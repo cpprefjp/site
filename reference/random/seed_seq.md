@@ -55,8 +55,8 @@ namespace std {
 ```cpp
 #include <iostream>
 #include <array>
-#include <algorithm> // generate
-#include <functional> // ref
+#include <algorithm>
+#include <functional>
 #include <random>
 
 int main()
@@ -84,6 +84,15 @@ int main()
   }
 }
 ```
+* std::seed_seq[color ff0000]
+* std::mt19937[link mt19937.md]
+* std::random_device[link random_device.md]
+* std::generate[link /reference/algorithm/generate.md]
+* seed_data.begin()[link /reference/array/begin.md]
+* seed_data.end()[link /reference/array/end.md]
+* std::ref[link /reference/functional/ref.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* engine()[link mersenne_twister_engine/op_call.md]
 
 ###出力
 ```

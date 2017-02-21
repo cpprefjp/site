@@ -127,6 +127,11 @@ int main()
   }
 }
 ```
+* std::mt19937[color ff0000]
+* std::random_device[link random_device.md]
+* seed_gen()[link random_device/op_call.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* engine()[link mersenne_twister_engine/op_call.md]
 
 ###出力例
 ```
