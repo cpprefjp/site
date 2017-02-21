@@ -37,38 +37,35 @@ namespace std {
 
 int main()
 {
-  std::default_random_engine g(123456789);
+  std::random_device seed_gen;
+  std::mt19937 engine(seed_gen());
 
-  for(auto n = 3; n; --n)
-    std::cout
-      << "g directly: "
-      << g()
-      << std::endl
-      ;
-
-  for(auto n = 3; n; --n)
-    std::cout
-      << "generate_canonical<float, std::numeric_limits<float>::digits>"
-         " [std::numeric_limits<float>::digits = "
-      << std::numeric_limits<float>::digits
-      << "] "
-      << std::generate_canonical<float, std::numeric_limits<float>::digits>(g)
-      << std::endl
-      ;
+  for(int i = 0; i < 10; ++i) {
+    // floatの仮数部桁数で、範囲[0.0, 1.0)のランダムなfloat値を生成する
+    constexpr std::size_t bits = std::numeric_limits<float>::digits;
+    float result = std::generate_canonical<float, bits>(engine);
+    std::cout << result << std::endl;
+  }
 }
 ```
 * std::generate_canonical[color ff0000]
-* std::default_random_engine[link default_random_engine.md]
+* std::random_device[link random_device.md]
+* seed_gen()[link random_device/op_call.md]
+* std::mt19937[link mt19937.md]
 * digits[link /reference/limits/numeric_limits/digits.md]
 
 ###出力
 ```
-g directly: 469049721
-g directly: 2053676357
-g directly: 1781357515
-generate_canonical<float, std::numeric_limits<float>::digits> [std::numeric_limits<float>::digits = 24] 0.561695
-generate_canonical<float, std::numeric_limits<float>::digits> [std::numeric_limits<float>::digits = 24] 0.415307
-generate_canonical<float, std::numeric_limits<float>::digits> [std::numeric_limits<float>::digits = 24] 0.0661187
+0.93695
+0.880826
+0.0535227
+0.174785
+0.989711
+0.393811
+0.588513
+0.383415
+0.920717
+0.216669
 ```
 
 ##バージョン
