@@ -6,21 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit chi_squared_distribution(RealType n = 1);
-explicit chi_squared_distribution(const param_type& parm);
+explicit chi_squared_distribution(RealType n = 1);         // (1)
+explicit chi_squared_distribution(const param_type& parm); // (2)
 ```
 
-##`chi_squared_distribution`オブジェクトの構築
-- `explicit chi_squared_distribution(RealType n = 1);`
-
-カイ二乗分布の自由度`n`を受け取るコンストラクタ。
-
-要件： `n > 0`であること。
+##概要
+- (1) : カイ二乗分布の自由度`n`を受け取るコンストラクタ。
+- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-- `explicit chi_squared_distribution(const param_type& parm);`
-
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。 
+##要件
+- (1) : `n > 0`であること
 
 
 ##例
