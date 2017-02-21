@@ -30,6 +30,7 @@ int main()
   std::cout << std::boolalpha << max_value << std::endl;
 }
 ```
+* max()[color ff0000]
 
 ###出力
 ```

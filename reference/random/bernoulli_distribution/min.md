@@ -30,6 +30,7 @@ int main()
   std::cout << std::boolalpha << min_value << std::endl;
 }
 ```
+* min()[color ff0000]
 
 ###出力
 ```
