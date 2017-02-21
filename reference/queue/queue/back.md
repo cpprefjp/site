@@ -29,20 +29,22 @@ const value_type& back() const;
 #include <queue>
 
 int main() {
-  std::queue<int> q;
+  std::queue<int> que;
 
-  q.push(10);
-  std::cout << q.back() << std::endl; // 最後に挿入したのは10
+  que.push(10);
+  std::cout << que.back() << std::endl; // 最後に挿入したのは10
 
-  q.push(20);
-  std::cout << q.back() << std::endl; // 最後に挿入したのは20
+  que.push(20);
+  std::cout << que.back() << std::endl; // 最後に挿入したのは20
 
-  q.push(30);
-  std::cout << q.back() << std::endl; // 最後に挿入したのは30
+  que.push(30);
+  std::cout << que.back() << std::endl; // 最後に挿入したのは30
 
   return 0;
 }
 ```
+* back()[color ff0000]
+* q.push[link push.md]
 
 ###出力
 ```

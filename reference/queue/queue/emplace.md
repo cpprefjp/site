@@ -15,7 +15,10 @@ void emplace(Args&&... args)
 
 
 ##効果
-`c.emplace_back(std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
+```cpp
+c.emplace_back(std::forward<Args>(args)...);
+```
+* std::forward[link /reference/utility/forward.md]
 
 
 ##戻り値
@@ -27,7 +30,7 @@ void emplace(Args&&... args)
 #include <iostream>
 #include <queue>
 #include <string>
-#include <utility> // std::pair
+#include <utility>
 
 int main ()
 {
@@ -44,6 +47,9 @@ int main ()
 }
 ```
 * emplace[color ff0000]
+* que.empty()[link empty.md]
+* que.front()[link front.md]
+* que.pop()[link pop.md]
 
 ###出力
 ```

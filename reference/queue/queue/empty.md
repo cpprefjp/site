@@ -14,7 +14,9 @@ bool empty() const;
 
 
 ##効果
-`return c.empty()`
+```cpp
+return c.empty()
+```
 
 
 ##戻り値
@@ -31,8 +33,9 @@ bool empty() const;
 #include <queue>
 
 int main() {
-  std::queue<int> q;
-  if( q.empty() ) {
+  std::queue<int> que;
+
+  if (que.empty()) {
     std::cout << "empty" << std::endl;
   }
   else {

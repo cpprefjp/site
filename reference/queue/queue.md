@@ -24,7 +24,7 @@ namespace std {
 - `pop_front()`
 - `emplace_back()` (C++11)
 
-この要件を満たすものとしては [`deque`](/reference/deque.md) と [`list`](/reference/list.md) があり、デフォルトでは[`deque`](/reference/deque.md)が使用される。 
+この要件を満たすものとしては [`deque`](/reference/deque.md) と [`list`](/reference/list.md) があり、デフォルトでは[`deque`](/reference/deque.md)が使用される。
 
 `queue`は2つのテンプレート引数を持つ。各テンプレートパラメータの意味は以下の通りである。
 
@@ -101,6 +101,10 @@ int main()
 }
 ```
 * std::queue[color ff0000]
+* que.push[link queue/push.md]
+* que.empty()[link queue/empty.md]
+* que.front()[link queue/front.md]
+* que.pop()[link queue/pop.md]
 
 ###出力
 ```

@@ -33,7 +33,7 @@ push_heap(c.begin(), c.end(), comp);
 #include <iostream>
 #include <queue>
 #include <string>
-#include <utility> // std::pair
+#include <utility>
 
 int main ()
 {
@@ -50,6 +50,9 @@ int main ()
 }
 ```
 * emplace[color ff0000]
+* que.empty()[link empty.md]
+* que.top()[link top.md]
+* que.pop()[link pop.md]
 
 ###出力
 ```

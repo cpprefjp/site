@@ -15,7 +15,9 @@ namespace std {
 
 
 ##戻り値
-`x.c != y.c`
+```cpp
+x.c != y.c
+```
 
 
 ##例
@@ -44,6 +46,7 @@ int main ()
 }
 ```
 * x != y[color ff0000]
+* push[link push.md]
 
 ###出力
 ```

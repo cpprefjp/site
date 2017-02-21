@@ -55,7 +55,8 @@ int main()
   }
 }
 ```
-* empty[color ff0000]
+* empty()[color ff0000]
+* non_empty_que.push[link push.md]
 
 ###出力
 ```

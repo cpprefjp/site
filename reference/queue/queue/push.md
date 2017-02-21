@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void push(const value_type& x);
-void push(value_type&& x); // C++11
+void push(const value_type& x); // (1)
+void push(value_type&& x);      // (2) C++11から
 ```
 
 ##概要
@@ -18,8 +18,8 @@ void push(value_type&& x); // C++11
 
 
 ##効果
-`const`左辺値参照版： `c.push_back(x)`
-右辺値参照版： `c.push_back(std::`[`move`](/reference/utility/move.md)`(x))`
+- (1) : `c.push_back(x)`
+- (2) : `c.push_back(std::`[`move`](/reference/utility/move.md)`(x))`
 
 
 ##戻り値
@@ -33,20 +33,24 @@ void push(value_type&& x); // C++11
 
 int main()
 {
-  std::queue<int> q;
+  std::queue<int> que;
 
   // 値を追加する
-  q.push(10);
-  q.push(20);
-  q.push(30);
+  que.push(10);
+  que.push(20);
+  que.push(30);
 
   // 中身の出力
-  while(!q.empty()) {
-    std::cout << q.front() << std::endl;
-    q.pop();
+  while(!que.empty()) {
+    std::cout << que.front() << std::endl;
+    que.pop();
   }
 }
 ```
+* push[color ff0000]
+* que.empty()[link empty.md]
+* que.front()[link front.md]
+* que.pop()[link pop.md]
 
 ###出力
 ```

@@ -62,7 +62,11 @@ int main()
   pop_print(y);
 }
 ```
-* swap[color ff0000]
+* std::swap[color ff0000]
+* push[link push.md]
+* que.empty()[link empty.md]
+* que.top()[link top.md]
+* que.pop()[link pop.md]
 
 ###出力
 ```

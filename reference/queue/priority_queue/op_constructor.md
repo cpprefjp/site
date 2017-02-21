@@ -174,6 +174,10 @@ int main()
   pop_print("que5", que5);
 }
 ```
+* que.empty()[link empty.md]
+* que.top()[link top.md]
+* que.pop()[link pop.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

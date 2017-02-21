@@ -58,6 +58,8 @@ int main()
 }
 ```
 * push[color ff0000]
+* que.empty()[link empty.md]
+* que.pop()[link pop.md]
 
 ###出力
 ```

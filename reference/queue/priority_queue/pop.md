@@ -46,7 +46,8 @@ int main()
   std::cout << que.top() << std::endl;
 }
 ```
-* pop[color ff0000]
+* pop()[color ff0000]
+* que.top()[link top.md]
 
 ###出力
 ```

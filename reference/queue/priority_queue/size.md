@@ -42,6 +42,7 @@ int main()
 }
 ```
 * size()[color ff0000]
+* que.push[link push.md]
 
 ###出力
 ```

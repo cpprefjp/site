@@ -47,15 +47,20 @@ int main() {
   s.push_back(30);
 
   // sを引数に構築
-  std::queue<int> q(std::move(s));
+  std::queue<int> que(std::move(s));
 
   // 中身の出力
-  while (!q.empty()) {
-    std::cout << q.front() << std::endl;
-    q.pop();
+  while (!que.empty()) {
+    std::cout << que.front() << std::endl;
+    que.pop();
   }
 }
 ```
+* s.push_back[link /reference/deque/push_back.md]
+* std::move[link /reference/utility/move.md]
+* que.empty()[link empty.md]
+* que.front()[link front.md]
+* que.pop()[link pop.md]
 
 ###出力
 ```
