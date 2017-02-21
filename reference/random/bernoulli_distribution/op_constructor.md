@@ -6,23 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit bernoulli_distribution(double p = 0.5);
-explicit bernoulli_distribution(const param_type& parm);
+explicit bernoulli_distribution(double p = 0.5);         // (1)
+explicit bernoulli_distribution(const param_type& parm); // (2)
 ```
 
-##`bernoulli_distribution`オブジェクトの構築
-- `explicit bernoulli_distribution(double p = 0.5);`
-
-確率`p`を受け取るコンストラクタ。
-確率`p`で`true`が生成され、確率`1.0 - p`で`false`が生成される。
+##概要
+- (1) : 確率`p`を受け取るコンストラクタ。確率`p`で`true`が生成され、確率`1.0 - p`で`false`が生成される。
+- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-要件： `p >= 0.0 && p <= 1.0`であること。
-
-
-- `explicit bernoulli_distribution(const param_type& parm);`
-
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
+##要件
+- (1) : `p >= 0.0 && p <= 1.0`であること。
 
 
 ##例
