@@ -14,7 +14,7 @@ void discard(unsigned long long z);
 
 
 ##効果
-`*this`を`e`とした場合、 
+`*this`を`e`とした場合、
 
 ```cpp
 for (unsigned long long i = 0; i < z; ++i) {
@@ -22,8 +22,9 @@ for (unsigned long long i = 0; i < z; ++i) {
 }
 ```
 
-と同じ効果を持つ。  
-指定された回数だけ乱数生成を行い、結果を破棄する。  
+と同じ効果を持つ。
+
+指定された回数だけ乱数生成を行い、結果を破棄する。
 
 
 ##戻り値
@@ -53,7 +54,10 @@ int main()
   std::cout << engine() << std::endl;
 }
 ```
-* ranlux24[link /reference/random/ranlux24.md]
+* discard[color ff0000]
+* std::ranlux24[link /reference/random/ranlux24.md]
+* engine()[link op_call.md]
+* engine.seed()[link seed.md]
 
 ###出力
 ```

@@ -30,8 +30,9 @@ int main()
   const std::ranlux24_base& base_engine = engine.base();
 }
 ```
-* ranlux24[link /reference/random/ranlux24.md]
-* ranlux24_base[link /reference/random/ranlux24_base.md]
+* base()[color ff0000]
+* std::ranlux24[link /reference/random/ranlux24.md]
+* std::ranlux24_base[link /reference/random/ranlux24_base.md]
 
 ###出力
 ```

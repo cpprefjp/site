@@ -32,7 +32,9 @@ int main()
   std::cout << max_value << std::endl;
 }
 ```
-* ranlux24[link /reference/random/ranlux24.md]
+* max()[color ff0000]
+* std::ranlux24[link /reference/random/ranlux24.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ###出力
 ```

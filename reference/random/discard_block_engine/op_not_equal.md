@@ -45,7 +45,7 @@ int main()
   }
 }
 ```
-* ranlux24[link /reference/random/ranlux24.md]
+* std::ranlux24[link /reference/random/ranlux24.md]
 
 ###出力
 ```
