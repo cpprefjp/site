@@ -6,22 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit binomial_distribution(IntType t = 1, double p = 0.5);
-explicit binomial_distribution(const param_type& parm);
+explicit binomial_distribution(IntType t = 1, double p = 0.5); // (1)
+explicit binomial_distribution(const param_type& parm);        // (2)
 ```
 
-##`binomial_distribution`オブジェクトの構築
-- `explicit binomial_distribution(IntType t = 1, double p = 0.5);`
-
-成功確率`p`および試行回数`t`を受け取るコンストラクタ。
-
-
-要件： `p >= 0.0 && p <= 1.0`かつ`t >= 0`であること。
+##概要
+- (1) : 成功確率`p`および試行回数`t`を受け取るコンストラクタ。
+- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-- `explicit binomial_distribution(const param_type& parm);`
-
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
+##要件
+- (1) : `p >= 0.0 && p <= 1.0`かつ`t >= 0`であること
 
 
 ##例
@@ -29,7 +24,7 @@ explicit binomial_distribution(const param_type& parm);
 #include <iostream>
 #include <random>
 
-int main() 
+int main()
 {
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
