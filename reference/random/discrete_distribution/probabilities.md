@@ -33,7 +33,7 @@ int main()
   }
 }
 ```
-
+* probabilities()[color ff0000]
 
 ###出力
 ```

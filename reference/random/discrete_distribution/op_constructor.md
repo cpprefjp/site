@@ -122,7 +122,11 @@ int main()
   }
 }
 ```
-
+* std::random_device[link /reference/random/random_device.md]
+* seed_gen()[link /reference/random/random_device/op_call.md]
+* std::mt19937[link /reference/random/mt19937.md]
+* probabilities.begin()[link /reference/vector/begin.md]
+* probabilities.end()[link /reference/vector/end.md]
 
 ###出力例
 ```
