@@ -90,9 +90,9 @@ int main()
 - `constexpr`関数の戻り値の型、およびパラメータの型は、非`const`参照にはできない
 - `constexpr`関数の本体は、以下の要素だけを含むことができる：
     - ヌル文
-	- `static_assert`宣言
-	- 型の別名定義
-	- using宣言と、usingディレクティブ
+    - `static_assert`宣言
+    - 型の別名定義
+    - using宣言と、usingディレクティブ
     - 唯一の`return`文
 - `constexpr`関数は暗黙的にインラインとなる。そのため、その関数は外部リンケージを持つ
 - `constexpr`関数を再帰的に呼び出せる深さは、512回以上であることが、コンパイラに推奨される
