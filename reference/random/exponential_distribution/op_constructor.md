@@ -6,21 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit exponential_distribution(RealType lambda = 1.0);
-explicit exponential_distribution(const param_type& parm);
+explicit exponential_distribution(RealType lambda = 1.0);  // (1)
+explicit exponential_distribution(const param_type& parm); // (2)
 ```
 
-##`exponential_distribution`オブジェクトの構築
-- `explicit exponential_distribution(RealType lambda = 1.0);`
-
-指数分布のパラメータλ(`lambda`)を受け取るコンストラクタ。
-
-要件： `lambda > 0`であること。
+##概要
+- (1) : 指数分布のパラメータλ(`lambda`)を受け取るコンストラクタ。
+- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-- `explicit exponential_distribution(const param_type& parm);`
-
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。 
+##要件
+- (1) : `lambda > 0`であること
 
 
 ##例
@@ -33,7 +29,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  // パラメータを個別に指定する
+  // (1)
   {
     std::exponential_distribution<> dist(1.0);
 
@@ -43,7 +39,7 @@ int main()
   }
   std::cout << std::endl;
 
-  // パラメータを通して範囲指定する
+  // (2)
   {
     typedef std::exponential_distribution<> dist_type;
 
