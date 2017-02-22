@@ -30,6 +30,7 @@ int main()
   std::cout << lambda << std::endl;
 }
 ```
+* lambda()[color ff0000]
 
 ###出力
 ```
