@@ -30,6 +30,7 @@ int main()
   std::cout << beta << std::endl;
 }
 ```
+* beta()[color ff0000]
 
 ###出力
 ```

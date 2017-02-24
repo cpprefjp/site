@@ -30,6 +30,7 @@ int main()
   std::cout << max_val << std::endl;
 }
 ```
+* max()[color ff0000]
 
 ###出力例
 ```

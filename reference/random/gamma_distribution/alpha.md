@@ -30,6 +30,7 @@ int main()
   std::cout << alpha << std::endl;
 }
 ```
+* alpha()[color ff0000]
 
 ###出力
 ```
