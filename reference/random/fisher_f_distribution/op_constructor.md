@@ -6,21 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit fisher_f_distribution(RealType m = 1, RealType n = 1);
-explicit fisher_f_distribution(const param_type& parm);
+explicit fisher_f_distribution(RealType m = 1, RealType n = 1); // (1)
+explicit fisher_f_distribution(const param_type& parm);         // (2)
 ```
 
-##`fisher_f_distribution`オブジェクトの構築
-- `explicit fisher_f_distribution(RealType m = 1, RealType n = 1);`
-
-フィッシャーのF分布の自由度`m`と`n`を受け取るコンストラクタ。
-
-要件： `m > 0`かつ`n > 0`であること。
+##概要
+- (1) : フィッシャーのF分布の自由度`m`と`n`を受け取るコンストラクタ。
+- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-- `explicit fisher_f_distribution(const param_type& parm);`
-
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。 
+##要件
+- (1) : `m > 0`かつ`n > 0`であること
 
 
 ##例
