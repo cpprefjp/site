@@ -31,8 +31,9 @@ int main()
   const std::mt19937& base_engine = engine.base();
 }
 ```
-* mt19937[link /reference/random/mt19937.md]
-* uint64_t[link /reference/cstdint/uint64_t.md]
+* base()[color ff0000]
+* std::mt19937[link /reference/random/mt19937.md]
+* std::uint64_t[link /reference/cstdint/uint64_t.md]
 
 ###出力
 ```

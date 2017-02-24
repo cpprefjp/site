@@ -16,15 +16,17 @@ template<class Sseq> void seed(Sseq& q);
 
 
 ##効果
-各オーバーロードが持つパラメータを`arg`とした場合、  
+各オーバーロードが持つパラメータを`arg`とした場合、
 
 ```cpp
 *this = independent_bits_engine(arg);
 ```
 * independent_bits_engine[link op_constructor.md]
 
-と同じ効果を持つ。  
-指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。  
+と同じ効果を持つ。
+
+指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。
+
 パラメータなしのバージョンは、元となる乱数生成器のデフォルトシードで再初期化を行う。
 
 
@@ -88,10 +90,16 @@ int main()
   }
 }
 ```
-* mt19937[link /reference/random/mt19937.md]
-* uint64_t[link /reference/cstdint/uint64_t.md]
-* seed_seq[link /reference/random/seed_seq.md]
-* random_device[link /reference/random/random_device.md]
+* seed()
+* seed(seed)
+* seed(seq)
+* std::mt19937[link /reference/random/mt19937.md]
+* std::uint64_t[link /reference/cstdint/uint64_t.md]
+* std::seed_seq[link /reference/random/seed_seq.md]
+* std::random_device[link /reference/random/random_device.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* seeds.begin()[link /reference/array/begin.md]
+* seeds.end()[link /reference/array/end.md]
 
 ###出力
 ```

@@ -125,10 +125,14 @@ int main()
   }
 }
 ```
-* mt19937[link /reference/random/mt19937.md]
-* uint64_t[link /reference/cstdint/uint64_t.md]
-* seed_seq[link /reference/random/seed_seq.md]
-* random_device[link /reference/random/random_device.md]
+* std::mt19937[link /reference/random/mt19937.md]
+* std::uint64_t[link /reference/cstdint/uint64_t.md]
+* std::seed_seq[link /reference/random/seed_seq.md]
+* std::random_device[link /reference/random/random_device.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* std::move[link /reference/utility/move.md]
+* seeds.begin()[link /reference/array/begin.md]
+* seeds.end()[link /reference/array/end.md]
 
 ###出力例
 ```

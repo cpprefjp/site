@@ -29,15 +29,16 @@ static constexpr result_type min() { return 0; }
 int main()
 {
   typedef
-	std::independent_bits_engine<std::mt19937, 64, std::uint64_t>
+    std::independent_bits_engine<std::mt19937, 64, std::uint64_t>
   engine_type;
 
   std::uint64_t min_value = engine_type::min();
   std::cout << min_value << std::endl;
 }
 ```
-* mt19937[link /reference/random/mt19937.md]
-* uint64_t[link /reference/cstdint/uint64_t.md]
+* min()[color ff0000]
+* std::mt19937[link /reference/random/mt19937.md]
+* std::uint64_t[link /reference/cstdint/uint64_t.md]
 
 ###出力
 ```
