@@ -6,50 +6,24 @@
 * cpp11[meta cpp]
 
 ```cpp
-independent_bits_engine();
-explicit independent_bits_engine(const Engine& e);
-explicit independent_bits_engine(Engine&& e);
-explicit independent_bits_engine(result_type s);
-template<class Sseq> explicit independent_bits_engine(Sseq& q);
+independent_bits_engine();                                           // (1)
+explicit independent_bits_engine(const Engine& e);                   // (2)
+explicit independent_bits_engine(Engine&& e);                        // (3)
+explicit independent_bits_engine(result_type s);                     // (4)
+template<class Sseq> explicit independent_bits_engine(Sseq& q);      // (5)
 
-independent_bits_engine(const independent_bits_engine& e) = default;
-independent_bits_engine(independent_bits_engine&& e) = default;
+independent_bits_engine(const independent_bits_engine& e) = default; // (6)
+independent_bits_engine(independent_bits_engine&& e) = default;      // (7)
 ```
 
-##`independent_bits_engine`オブジェクトの構築
-- `independent_bits_engine();`
-
-デフォルトコンストラクタ。  
-元となる乱数生成器を、デフォルト構築する(デフォルトシードで初期化)。
-
-
-- `explicit independent_bits_engine(const Engine& e);`
-
-元となる乱数生成器のコピーを作るコンストラクタ。
-
-
-- `explicit independent_bits_engine(Engine&& e);`
-
-元となる乱数生成器オブジェクトを受け取り、移動して保持するコンストラクタ。
-
-
-- `explicit independent_bits_engine(result_type s);`
-
-受け取ったシードで、元となる乱数生成器を初期化するコンストラクタ。
-
-
-- `template<class Sseq> explicit independent_bits_engine(Sseq& q);`
-
-受け取ったシードのシーケンスで、元となる乱数生成器を初期化するコンストラクタ。
-
-
-- `independent_bits_engine(const independent_bits_engine& e) = default;`
-
-コピーコンストラクタ。
-
-- `independent_bits_engine(independent_bits_engine&& e) = default;`
-
-ムーブコンストラクタ。可能であれば、元となる乱数生成器を移動する。  
+##概要
+- (1) : デフォルトコンストラクタ。元となる乱数生成器を、デフォルト構築する(デフォルトシードで初期化)
+- (2) : 元となる乱数生成器のコピーを作るコンストラクタ
+- (3) : 元となる乱数生成器オブジェクトを受け取り、移動して保持するコンストラクタ
+- (4) : 受け取ったシードで、元となる乱数生成器を初期化するコンストラクタ
+- (5) : 受け取ったシードのシーケンスで、元となる乱数生成器を初期化するコンストラクタ
+- (6) : コピーコンストラクタ
+- (7) : ムーブコンストラクタ。可能であれば、元となる乱数生成器を移動する
 
 
 ##例
@@ -69,7 +43,7 @@ int main()
     >
   engine_type;
 
-  // デフォルト構築
+  // (1) デフォルト構築
   // 元となる乱数生成器を、デフォルトのシード値で初期化する
   {
     engine_type engine;
@@ -78,7 +52,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // 元となる乱数生成器のコピーから構築する
+  // (2) 元となる乱数生成器のコピーから構築する
   {
     std::mt19937 base_engine;
     engine_type engine(base_engine);
@@ -87,7 +61,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // 元となる乱数生成器をムーブして構築する
+  // (3) 元となる乱数生成器をムーブして構築する
   {
     std::mt19937 base_engine;
     engine_type engine(std::move(base_engine));
@@ -96,7 +70,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シード値を指定して構築
+  // (4) シード値を指定して構築
   {
     std::uint32_t seed = std::random_device()();
     engine_type engine(seed);
@@ -105,7 +79,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シードのシーケンスを指定して構築
+  // (5) シードのシーケンスを指定して構築
   {
     // シードのシーケンスを作る
     std::random_device seed_gen;
