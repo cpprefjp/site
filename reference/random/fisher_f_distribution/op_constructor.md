@@ -60,7 +60,9 @@ int main()
   }
 }
 ```
-
+* std::random_device[link /reference/random/random_device.md]
+* seed_gen()[link /reference/random/random_device/op_call.md]
+* std::default_random_engine[link /reference/random/default_random_engine.md]
 
 ###出力例
 ```
