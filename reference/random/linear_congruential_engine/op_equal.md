@@ -36,13 +36,14 @@ int main()
   std::minstd_rand e2;
 
   if (e1 == e2) {
-	std::cout << "equal" << std::endl;
+    std::cout << "equal" << std::endl;
   }
   else {
-	std::cout << "not equal" << std::endl;
+    std::cout << "not equal" << std::endl;
   }
 }
 ```
+* std::minstd_rand[link /reference/random/minstd_rand.md]
 
 ###出力
 ```

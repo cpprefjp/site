@@ -15,14 +15,15 @@ template<class Sseq> void seed(Sseq& q);
 
 
 ##効果
-パラメータ`value`および`q`を`arg`とした場合、  
+パラメータ`value`および`q`を`arg`とした場合、
 
 ```cpp
 *this = linear_congruential_engine(arg);
 ```
 * linear_congruential_engine[link op_constructor.md]
 
-と同じ効果を持つ。  
+と同じ効果を持つ。
+
 指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。
 
 
@@ -81,6 +82,14 @@ int main()
   }
 }
 ```
+* seed()[color ff0000]
+* seed(seed)[color ff0000]
+* seed(seq)[color ff0000]
+* std::minstd_rand[link /reference/random/minstd_rand.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* std::random_device[link /reference/random/random_device.md]
+* seeds.begin()[link /reference/array/begin.md]
+* seeds.end()[link /reference/array/end.md]
 
 ###出力
 ```

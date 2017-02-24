@@ -62,7 +62,9 @@ int main()
   }
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::minstd_rand[link /reference/random/minstd_rand.md]
+* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* ss.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
 
 ###出力例
 ```

@@ -45,6 +45,7 @@ int main()
   }
 }
 ```
+* std::minstd_rand[link /reference/random/minstd_rand.md]
 
 ###出力
 ```
