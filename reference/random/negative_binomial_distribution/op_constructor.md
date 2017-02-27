@@ -6,21 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit negative_binomial_distribution(IntType k = 1, double p = 0.5);
-explicit negative_binomial_distribution(const param_type& parm);
+explicit negative_binomial_distribution(IntType k = 1, double p = 0.5); // (1)
+explicit negative_binomial_distribution(const param_type& parm);        // (2)
 ```
 
-##`negative_binomial_distribution`オブジェクトの構築
-- `explicit negative_binomial_distribution(IntType k = 1, double p = 0.5);`
-
-成功回数`k`、および一度の事象が成功する確率`p`を受け取るコンストラクタ。
-
-要件： `p > 0.0 && p <= 1.0`かつ`k > 0`であること。(`p == 0`だと無限ループしてしまうため)
+##概要
+- (1) : 成功回数`k`、および一度の事象が成功する確率`p`を受け取るコンストラクタ
+- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-- `explicit negative_binomial_distribution(const param_type& parm);`
-
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。 
+##概要
+- (1) : `p > 0.0 && p <= 1.0`かつ`k > 0`であること。(`p == 0`だと無限ループしてしまうため)
 
 
 ##例
@@ -33,7 +29,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  // パラメータを個別に指定する
+  // (1) パラメータを個別に指定する
   {
     // 確率0.5で成功する事象を、3回成功させる
     std::negative_binomial_distribution<> dist(3, 0.5);
@@ -43,7 +39,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // パラメータを通して範囲指定する
+  // (2) パラメータを通して範囲指定する
   {
     typedef std::negative_binomial_distribution<> dist_type;
 
