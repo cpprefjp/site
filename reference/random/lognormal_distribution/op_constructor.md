@@ -24,7 +24,7 @@ explicit lognormal_distribution(const param_type& param);            // (2)
 #include <iostream>
 #include <random>
 
-int main() 
+int main()
 {
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
