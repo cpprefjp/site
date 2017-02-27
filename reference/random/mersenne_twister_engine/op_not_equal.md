@@ -48,6 +48,7 @@ int main()
   }
 }
 ```
+* std::mt19937[link /reference/random/mt19937.md]
 
 ###出力
 ```

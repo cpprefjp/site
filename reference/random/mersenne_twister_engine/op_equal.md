@@ -39,13 +39,14 @@ int main()
   std::mt19937 e2;
 
   if (e1 == e2) {
-	std::cout << "equal" << std::endl;
+    std::cout << "equal" << std::endl;
   }
   else {
-	std::cout << "not equal" << std::endl;
+    std::cout << "not equal" << std::endl;
   }
 }
 ```
+* std::mt19937[link /reference/random/mt19937.md]
 
 ###出力
 ```
