@@ -20,7 +20,7 @@ result_type operator()(URNG& g, const param_type& parm);
 
 
 ##戻り値
-指定された平均値と標準偏差に基いて、ランダムな値を生成して返す。  
+指定された平均値と標準偏差に基いて、ランダムな値を生成して返す。
 
 
 ##計算量
@@ -60,7 +60,11 @@ int main()
   }
 }
 ```
-
+* dist(engine)[color ff0000]
+* dist(engine, param)[color ff0000]
+* std::random_device[link /reference/random/random_device.md]
+* seed_gen()[link /reference/random/random_device/op_call.md]
+* std::default_random_engine[link /reference/random/default_random_engine.md]
 
 ###出力例
 ```

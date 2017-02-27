@@ -30,6 +30,7 @@ int main()
   std::cout << mean << std::endl;
 }
 ```
+* mean()[color ff0000]
 
 ###出力
 ```

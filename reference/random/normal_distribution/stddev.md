@@ -30,6 +30,7 @@ int main()
   std::cout << stddev << std::endl;
 }
 ```
+* stddev()[color ff0000]
 
 ###出力
 ```

@@ -18,8 +18,8 @@ result_type max() const;
 
 
 ##備考
-Boost.Randomおよびlibc++(Clang)の実装では、[`numeric_limits`](/reference/limits/numeric_limits.md)`::`[`infinity()`](/reference/limits/numeric_limits/infinity.md)を返す。
-libstdc++(GCC)の実装では、[`numeric_limits`](/reference/limits/numeric_limits.md)`::`[`max()`](/reference/limits/numeric_limits/max.md)を返す。
+- Boost.Randomおよびlibc++(Clang)の実装では、[`numeric_limits`](/reference/limits/numeric_limits.md)`::`[`infinity()`](/reference/limits/numeric_limits/infinity.md)を返す。
+- libstdc++(GCC)の実装では、[`numeric_limits`](/reference/limits/numeric_limits.md)`::`[`max()`](/reference/limits/numeric_limits/max.md)を返す。
 
 
 ##例
@@ -35,6 +35,7 @@ int main()
   std::cout << max_val << std::endl;
 }
 ```
+* max()[color ff0000]
 
 ###出力例
 ```
