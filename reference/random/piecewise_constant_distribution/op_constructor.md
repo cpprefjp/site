@@ -6,61 +6,49 @@
 * cpp11[meta cpp]
 
 ```cpp
-piecewise_constant_distribution();
+piecewise_constant_distribution();                                // (1)
 
 template <class InputIteratorB, class InputIteratorW>
-piecewise_constant_distribution(InputIteratorB firstB, InputIteratorB lastB,
-                                InputIteratorW firstW);
+piecewise_constant_distribution(InputIteratorB firstB,
+                                InputIteratorB lastB,
+                                InputIteratorW firstW);           // (2)
 
 template <class UnaryOperation>
-piecewise_constant_distribution(initializer_list<RealType> bl, UnaryOperation fw);
+piecewise_constant_distribution(initializer_list<RealType> bl,
+                                UnaryOperation fw);               // (3)
 
 template <class UnaryOperation>
-piecewise_constant_distribution(size_t nw, RealType xmin, RealType xmax, UnaryOperation fw);
+piecewise_constant_distribution(size_t nw,
+                                RealType xmin,
+                                RealType xmax,
+                                UnaryOperation fw);               // (4)
 
-explicit piecewise_constant_distribution(const param_type& parm);
+explicit piecewise_constant_distribution(const param_type& parm); // (5)
 ```
 * initializer_list[link /reference/initializer_list.md]
+* size_t[link /reference/cstddef/size_t.md]
 
 ##piecewise_constant_distributionオブジェクトの構築
-- `piecewise_constant_distribution();`
-
-デフォルトコンストラクタ。  
-区間数列を`{0.0, 1.0}`、重み数列を`{1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。
-
-
-- `template <class InputIteratorB, class InputIteratorW>`<br/>`piecewise_constant_distribution(InputIteratorB firstB, InputIteratorB lastB,`<br/>`                                InputIteratorW firstW);`
-
-区間数列の範囲`[firstB, lastB)`および重み数列の範囲の先頭`firstW`を受け取るコンストラクタ。これら数列によって、区間ごとの値を、線形に変化する確率によって生成する分布オブジェクトを構築する。重み数列の要素数は、区間数列の要素数 - 1である。  
-  
-範囲`[firstB, lastB)`の要素数が`1`以下の場合、区間数列を`{0.0, 1.0}`、重み数列を`{1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。  
-  
-要件： `InputIteratorB`と`InputIteratorW`の要素型が、`double`型に変換可能であること。 
+- (1) : デフォルトコンストラクタ。区間数列を`{0.0, 1.0}`、重み数列を`{1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。
+- (2) : 区間数列の範囲`[firstB, lastB)`および重み数列の範囲の先頭`firstW`を受け取るコンストラクタ。これら数列によって、区間ごとの値を、線形に変化する確率によって生成する分布オブジェクトを構築する。重み数列の要素数は、区間数列の要素数 - 1である
+    - 範囲`[firstB, lastB)`の要素数が`1`以下の場合、区間数列を`{0.0, 1.0}`、重み数列を`{1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。
+- (3) : 区間数列`bl`および重み付けを計算する関数オブジェクト`fw`を受け取るコンストラクタ。
+    - 重み付け数列は、`[bl.begin(), bl.end())`の各隣接要素`b1`と`b2`に対し、式`fw((b1 + b2) / 2)`で返された重みから構築する。
+- (4) : 区間値の範囲を受け取るコンストラクタ。
+    - `nw`は区間列の要素数、`xmin`は区間の最小値、`xmax`は区間の最大値、`fw`は各区間に対する重み値を求めるための単項関数オブジェクトである。`UnaryOperation`関数オブジェクトは、`double`型に変換可能な区間値を受け取り、区間に対応する確率値を返す。
+    - 以下の公式で確率列を構築する。δの値を`0 < δ = (xmax−xmin)/n`、`k`番目の区間値`b k`を`xmin+k・δ`として、`k番目の確率 = fw(b k + δ/2)`。
+    - `nw`が1以下だった場合、区間数列を`{0.0, 1.0}`、重み数列を`{1.0, 1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。
+- (5) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(5)以外のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-- `template <class UnaryOperation>`<br/>`piecewise_constant_distribution(initializer_list<RealType> bl, UnaryOperation fw);`
-
-区間数列`bl`および重み付けを計算する関数オブジェクト`fw`を受け取るコンストラクタ。  
-重み付け数列は、`[bl.begin(), bl.end())`の各隣接要素`b1`と`b2`に対し、式`fw((b1 + b2) / 2)`で返された重みから構築する。  
-  
-要件： `UnaryOperation`関数オブジェクトは、`double`に変換可能な型を返すこと。  
-計算量：`fw`関数オブジェクトの呼び出しが、要素数`n`を超えないものとする。  
+##要件
+- (2) : `InputIteratorB`と`InputIteratorW`の要素型が、`double`型に変換可能であること
+- (3) : `UnaryOperation`関数オブジェクトは、`double`に変換可能な型を返すこと
 
 
-- `template <class UnaryOperation>`<br/>`piecewise_constant_distribution(size_t nw, RealType xmin, RealType xmax, UnaryOperation fw);`
-
-区間値の範囲を受け取るコンストラクタ。  
-`nw`は区間列の要素数、`xmin`は区間の最小値、`xmax`は区間の最大値、`fw`は各区間に対する重み値を求めるための単項関数オブジェクトである。`UnaryOperation`関数オブジェクトは、`double`型に変換可能な区間値を受け取り、区間に対応する確率値を返す。  
-  
-以下の公式で確率列を構築する。δの値を`0 < δ = (xmax−xmin)/n`、`k`番目の区間値`b k`を`xmin+k・δ`として、`k番目の確率 = fw(b k + δ/2)`。  
-`nw`が1以下だった場合、区間数列を`{0.0, 1.0}`、重み数列を`{1.0, 1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。  
-  
-計算量：`fw`関数オブジェクトの呼び出しが、要素数`n`を超えないものとする。  
-  
-  
-- `explicit piecewise_constant_distribution(const param_type& parm);`
-
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。 
+##計算量
+- (3) : `fw`関数オブジェクトの呼び出し回数が、要素数`n`を超えないものとする
+- (4) : `fw`関数オブジェクトの呼び出しが、要素数`n`を超えないものとする。
 
 
 ##例
@@ -77,7 +65,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  // piecewise_constant_distribution();
+  // (1)
   {
     std::piecewise_constant_distribution<> dist;
 
@@ -85,9 +73,7 @@ int main()
     std::cout << "default constructor : " << result << std::endl;
   }
 
-  // template <class InputIteratorB, class InputIteratorW>
-  // piecewise_constant_distribution(InputIteratorB firstB, InputIteratorB lastB,
-  //                                 InputIteratorW firstW);
+  // (2)
   {
     std::array<double, 3> intervals = {0.0, 0.5, 1.0}; // 区間数列
     std::array<double, 3> densities = {0.3, 0.5};      // 重み数列
@@ -102,8 +88,7 @@ int main()
     std::cout << "iterator range constructor : " << result << std::endl;
   }
 
-  // template <class UnaryOperation>
-  // piecewise_constant_distribution(initializer_list<RealType> bl, UnaryOperation fw);
+  // (3)
   {
     std::piecewise_constant_distribution<> dist(
       {0.0, 1.0},
@@ -114,8 +99,7 @@ int main()
     std::cout << "initializer list constructor : " << result << std::endl;
   }
 
-  // template <class UnaryOperation>
-  // piecewise_constant_distribution(size_t nw, RealType xmin, RealType xmax, UnaryOperation fw);
+  // (4)
   {
     std::piecewise_constant_distribution<> dist(
       10,
@@ -128,7 +112,7 @@ int main()
     std::cout << "min-max constructor : " << result << std::endl;
   }
 
-  // explicit piecewise_constant_distribution(const param_type& parm);
+  // (5)
   {
     typedef std::piecewise_constant_distribution<> dist_type;
 
