@@ -30,6 +30,7 @@ int main()
   std::cout << min_val << std::endl;
 }
 ```
+* min()[color ff0000]
 
 ###出力例
 ```

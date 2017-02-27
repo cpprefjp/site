@@ -30,6 +30,7 @@ int main()
   std::cout << m << std::endl;
 }
 ```
+* m()[color ff0000]
 
 ###出力
 ```
