@@ -8,6 +8,7 @@
 ```cpp
 vector<result_type> densities() const;
 ```
+* vector[link /reference/vector.md]
 
 ##概要
 重みの数列を取得する。
@@ -41,7 +42,10 @@ int main()
   }
 }
 ```
-
+* densities()[color ff0000]
+* intervals.begin()[link /reference/array/begin.md]
+* intervals.end()[link /reference/array/end.md]
+* densities.begin()[link /reference/array/begin.md]
 
 ###出力
 ```

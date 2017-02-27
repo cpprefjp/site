@@ -57,6 +57,11 @@ int main()
   }
 }
 ```
+* intervals1.begin()[link /reference/array/begin.md]
+* intervals1.end()[link /reference/array/end.md]
+* intervals2.begin()[link /reference/array/begin.md]
+* intervals2.end()[link /reference/array/end.md]
+* densities.begin()[link /reference/array/begin.md]
 
 ###出力
 ```
