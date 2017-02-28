@@ -116,10 +116,15 @@ int main()
   }
 }
 ```
-* knuth_b[link /reference/random/knuth_b.md]
-* minstd_rand0[link /reference/random/minstd_rand0.md]
-* seed_seq[link /reference/random/seed_seq.md]
-* random_device[link /reference/random/random_device.md]
+* std::knuth_b[link /reference/random/knuth_b.md]
+* std::minstd_rand0[link /reference/random/minstd_rand0.md]
+* std::seed_seq[link /reference/random/seed_seq.md]
+* seeds.begin()[link /reference/array/begin.md]
+* seeds.end()[link /reference/array/end.md]
+* std::random_device[link /reference/random/random_device.md]
+* seed_gen()[link /reference/random/random_device/op_call.md]
+* std::move[link /reference/utility/move.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ###出力例
 ```

@@ -36,14 +36,14 @@ int main()
   std::knuth_b e2;
 
   if (e1 == e2) {
-	std::cout << "equal" << std::endl;
+    std::cout << "equal" << std::endl;
   }
   else {
-	std::cout << "not equal" << std::endl;
+    std::cout << "not equal" << std::endl;
   }
 }
 ```
-* knuth_b[link /reference/random/knuth_b.md]
+* std::knuth_b[link /reference/random/knuth_b.md]
 
 ###出力
 ```

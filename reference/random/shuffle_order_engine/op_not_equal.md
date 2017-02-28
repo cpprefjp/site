@@ -45,7 +45,7 @@ int main()
   }
 }
 ```
-* knuth_b[link /reference/random/knuth_b.md]
+* std::knuth_b[link /reference/random/knuth_b.md]
 
 ###出力
 ```

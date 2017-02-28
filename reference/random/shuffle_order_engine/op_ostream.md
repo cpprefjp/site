@@ -43,7 +43,7 @@ int main()
   std::cout << engine << std::endl;
 }
 ```
-* knuth_b[link /reference/random/knuth_b.md]
+* std::knuth_b[link /reference/random/knuth_b.md]
 
 ###出力例
 ```

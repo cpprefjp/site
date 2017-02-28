@@ -14,16 +14,18 @@ void discard(unsigned long long z);
 
 
 ##効果
-`*this`を`e`とした場合、 
+`*this`を`e`とした場合、
 
 ```cpp
 for (unsigned long long i = 0; i < z; ++i) {
   e();
 }
 ```
+* e()[link op_call.md]
 
-と同じ効果を持つ。  
-指定された回数だけ乱数生成を行い、結果を破棄する。  
+と同じ効果を持つ。
+
+指定された回数だけ乱数生成を行い、結果を破棄する。
 
 
 ##戻り値
@@ -53,7 +55,10 @@ int main()
   std::cout << engine() << std::endl;
 }
 ```
-* knuth_b[link /reference/random/knuth_b.md]
+* discard[color ff0000]
+* std::knuth_b[link /reference/random/knuth_b.md]
+* engine()[link op_call.md]
+* seed()[link seed.md]
 
 ###出力
 ```

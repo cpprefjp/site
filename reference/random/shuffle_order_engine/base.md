@@ -30,8 +30,9 @@ int main()
   const std::minstd_rand0& base_engine = engine.base();
 }
 ```
-* knuth_b[link /reference/random/knuth_b.md]
-* minstd_rand0[link /reference/random/minstd_rand0.md]
+* base()[color ff0000]
+* std::knuth_b[link /reference/random/knuth_b.md]
+* std::minstd_rand0[link /reference/random/minstd_rand0.md]
 
 ###出力
 ```

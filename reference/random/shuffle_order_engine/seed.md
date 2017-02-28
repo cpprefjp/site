@@ -16,15 +16,17 @@ template<class Sseq> void seed(Sseq& q);
 
 
 ##効果
-各オーバーロードが持つパラメータを`arg`とした場合、  
+各オーバーロードが持つパラメータを`arg`とした場合、
 
 ```cpp
 *this = shuffle_order_engine(arg);
 ```
 * shuffle_order_engine[link op_constructor.md]
 
-と同じ効果を持つ。  
-指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。  
+と同じ効果を持つ。
+
+指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。
+
 パラメータなしのバージョンは、元となる乱数生成器のデフォルトシードで再初期化を行う。
 
 
@@ -83,9 +85,16 @@ int main()
   }
 }
 ```
-* knuth_b[link /reference/random/knuth_b.md]
-* seed_seq[link /reference/random/seed_seq.md]
-* random_device[link /reference/random/random_device.md]
+* seed()[color ff0000]
+* seed(seed)[color ff0000]
+* seed(seq)[color ff0000]
+* std::knuth_b[link /reference/random/knuth_b.md]
+* std::seed_seq[link /reference/random/seed_seq.md]
+* std::random_device[link /reference/random/random_device.md]
+* seed_gen()[link /reference/random/random_device/op_call.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* seeds.begin()[link /reference/array/begin.md]
+* seeds.end()[link /reference/array/end.md]
 
 ###出力
 ```
