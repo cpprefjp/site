@@ -8,6 +8,7 @@
 ```cpp
 vector<result_type> intervals() const;
 ```
+* vector[link /reference/vector.md]
 
 ##概要
 区間の数列を取得する。
@@ -41,7 +42,10 @@ int main()
   }
 }
 ```
-
+* intervals()[color ff0000]
+* intervals.begin()[link /reference/array/begin.md]
+* intervals.end()[link /reference/array/end.md]
+* densities.begin()[link /reference/array/begin.md]
 
 ###出力
 ```

@@ -38,6 +38,10 @@ int main()
   std::cout << min_value << std::endl;
 }
 ```
+* min()[color ff0000]
+* intervals.begin()[link /reference/array/begin.md]
+* intervals.end()[link /reference/array/end.md]
+* densities.begin()[link /reference/array/begin.md]
 
 ###出力
 ```
