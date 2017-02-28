@@ -6,26 +6,28 @@
 * cpp11[meta cpp]
 
 ```cpp
-void seed();
-void seed(result_type s);
-template<class Sseq> void seed(Sseq& q);
+void seed();                             // (1)
+void seed(result_type s);                // (2)
+template<class Sseq> void seed(Sseq& q); // (3)
 ```
 
 ##概要
-シードを設定する。
+- (1) : 元となる乱数生成器のデフォルトのシード値で再初帰化する
+- (2) : シード値を受け取って再初期化する
+- (3) : シードのシーケンスを受け取って再初期化する
 
 
 ##効果
-各オーバーロードが持つパラメータを`arg`とした場合、  
+各オーバーロードが持つパラメータを`arg`とした場合、
 
 ```cpp
 *this = discard_block_engine(arg);
 ```
 * discard_block_engine[link op_constructor.md]
 
-と同じ効果を持つ。  
-指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。  
-パラメータなしのバージョンは、元となる乱数生成器のデフォルトシードで再初期化を行う。
+と同じ効果を持つ。
+
+指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。
 
 
 ##戻り値
@@ -40,7 +42,7 @@ template<class Sseq> void seed(Sseq& q);
 
 int main()
 {
-  // デフォルトのシード値から再初期化
+  // (1) デフォルトのシード値から再初期化
   {
     std::ranlux24 engine;
 
@@ -50,7 +52,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シード値を指定して再初期化
+  // (2) シード値を指定して再初期化
   {
     std::ranlux24 engine;
 
@@ -61,7 +63,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シードのシーケンスを指定して再初期化
+  // (3) シードのシーケンスを指定して再初期化
   {
     std::ranlux24 engine;
 
