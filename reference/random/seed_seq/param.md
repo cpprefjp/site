@@ -22,7 +22,7 @@ copy(v.begin(), v.end(), dest);
 ```
 * copy[link /reference/algorithm/copy.md]
 
-※ `v`は、メンバ変数として保持される、`vector<result_type>`型のシード列オブジェクトである。  
+※ `v`は、メンバ変数として保持される、`vector<result_type>`型のシード列オブジェクトである。
 
 
 ##戻り値
@@ -61,6 +61,10 @@ int main()
   }
 }
 ```
+* std::uint64_t[link /reference/cstdint/uint64_t.md]
+* max()[link /reference/limits/numeric_limits/max.md]
+* seed_data.begin()[link /reference/vector/begin.md]
+* seed_data.end()[link /reference/vector/end.md]
 
 ###出力
 ```

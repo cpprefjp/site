@@ -8,6 +8,7 @@
 ```cpp
 size_t size() const;
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 シード列の要素数を取得する。
@@ -34,6 +35,7 @@ int main()
   std::cout << size << std::endl;
 }
 ```
+* size()[color ff0000]
 
 ###出力
 ```

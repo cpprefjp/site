@@ -76,10 +76,14 @@ int main()
   seq.generate(seeds.begin(), seeds.end());
 
   for (std::uint32_t x : seeds) {
-	std::cout << x << std::endl;
+    std::cout << x << std::endl;
   }
 }
 ```
+* generate[color ff0000]
+* seeds.begin()[link /reference/vector/begin.md]
+* seeds.end()[link /reference/vector/end.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ###出力
 ```

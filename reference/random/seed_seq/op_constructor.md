@@ -113,7 +113,12 @@ int main()
   }
 }
 ```
-
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* seq.param[link param.md]
+* std::uint64_t[link /reference/cstdint/uint64_t.md]
+* max()[link /reference/limits/numeric_limits/max.md]
+* seed_data.begin()[link /reference/vector/begin.md]
+* seed_data.end()[link /reference/vector/end.md]
 
 ###出力例
 ```
