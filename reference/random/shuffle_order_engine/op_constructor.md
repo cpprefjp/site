@@ -6,50 +6,24 @@
 * cpp11[meta cpp]
 
 ```cpp
-shuffle_order_engine();
-explicit shuffle_order_engine(const Engine& e);
-explicit shuffle_order_engine(Engine&& e);
-explicit shuffle_order_engine(result_type s);
-template<class Sseq> explicit shuffle_order_engine(Sseq& q);
+shuffle_order_engine();                                        // (1)
+explicit shuffle_order_engine(const Engine& e);                // (2)
+explicit shuffle_order_engine(Engine&& e);                     // (3)
+explicit shuffle_order_engine(result_type s);                  // (4)
+template<class Sseq> explicit shuffle_order_engine(Sseq& q);   // (5)
 
-shuffle_order_engine(const shuffle_order_engine& e) = default;
-shuffle_order_engine(shuffle_order_engine&& e) = default;
+shuffle_order_engine(const shuffle_order_engine& e) = default; // (6)
+shuffle_order_engine(shuffle_order_engine&& e) = default;      // (7)
 ```
 
-##`shuffle_order_engine`オブジェクトの構築
-- `shuffle_order_engine();`
-
-デフォルトコンストラクタ。  
-元となる乱数生成器を、デフォルト構築する(デフォルトシードで初期化)。
-
-
-- `explicit shuffle_order_engine(const Engine& e);`
-
-元となる乱数生成器のコピーを作るコンストラクタ。
-
-
-- `explicit shuffle_order_engine(Engine&& e);`
-
-元となる乱数生成器オブジェクトを受け取り、移動して保持するコンストラクタ。
-
-
-- `explicit shuffle_order_engine(result_type s);`
-
-受け取ったシードで、元となる乱数生成器を初期化するコンストラクタ。
-
-
-- `template<class Sseq> explicit shuffle_order_engine(Sseq& q);`
-
-受け取ったシードのシーケンスで、元となる乱数生成器を初期化するコンストラクタ。
-
-
-- `shuffle_order_engine(const shuffle_order_engine& e) = default;`
-
-コピーコンストラクタ。
-
-- `shuffle_order_engine(shuffle_order_engine&& e) = default;`
-
-ムーブコンストラクタ。可能であれば、元となる乱数生成器を移動する。  
+##概要
+- (1) : デフォルトコンストラクタ。元となる乱数生成器を、デフォルト構築する(デフォルトシードで初期化)
+- (2) : 元となる乱数生成器のコピーを作るコンストラクタ
+- (3) : 元となる乱数生成器オブジェクトを受け取り、移動して保持するコンストラクタ
+- (4) : 受け取ったシードで、元となる乱数生成器を初期化するコンストラクタ
+- (5) : 受け取ったシードのシーケンスで、元となる乱数生成器を初期化するコンストラクタ
+- (6) : コピーコンストラクタ
+- (7) : ムーブコンストラクタ。可能であれば、元となる乱数生成器を移動する
 
 
 ##例
@@ -60,7 +34,7 @@ shuffle_order_engine(shuffle_order_engine&& e) = default;
 
 int main()
 {
-  // デフォルト構築
+  // (1) デフォルト構築
   // 元となる乱数生成器を、デフォルトのシード値で初期化する
   {
     std::knuth_b engine;
@@ -69,7 +43,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // 元となる乱数生成器のコピーから構築する
+  // (2) 元となる乱数生成器のコピーから構築する
   {
     std::minstd_rand0 base_engine;
     std::knuth_b engine(base_engine);
@@ -78,7 +52,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // 元となる乱数生成器をムーブして構築する
+  // (3) 元となる乱数生成器をムーブして構築する
   {
     std::minstd_rand0 base_engine;
     std::knuth_b engine(std::move(base_engine));
@@ -87,7 +61,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シード値を指定して構築
+  // (4) シード値を指定して構築
   {
     std::uint32_t seed = std::random_device()();
     std::knuth_b engine(seed);
@@ -96,7 +70,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シードのシーケンスを指定して構築
+  // (5) シードのシーケンスを指定して構築
   {
     // シードのシーケンスを作る
     std::random_device seed_gen;
