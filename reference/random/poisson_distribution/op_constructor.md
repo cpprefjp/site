@@ -28,7 +28,7 @@ explicit poisson_distribution(const param_type& parm);
 #include <iostream>
 #include <random>
 
-int main() 
+int main()
 {
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
@@ -58,7 +58,9 @@ int main()
   }
 }
 ```
-
+* std::random_device[link /reference/random/random_device.md]
+* seed_gen()[link /reference/random/random_device/op_call.md]
+* std::default_random_engine[link /reference/random/default_random_engine.md]
 
 ###出力例
 ```

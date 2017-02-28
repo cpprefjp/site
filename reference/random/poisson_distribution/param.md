@@ -44,7 +44,8 @@ int main()
   }
 }
 ```
-
+* param()[color ff0000]
+* param(param)[color ff0000]
 
 ###出力
 ```
