@@ -19,9 +19,9 @@ double entropy() const noexcept;
 
 
 ##備考
-GCC(libstdc++)とClang(libc++)は常に`0.0`を返す。  
-Visual C++は常に`32`を返す。  
-Boost.Randomの`random_device::entropy()`は常に`10`を返す。
+- GCC(libstdc++)とClang(libc++)は常に`0.0`を返す。
+- Visual C++は常に`32`を返す。
+- Boost.Randomの`random_device::entropy()`は常に`10`を返す。
 
 
 ##例
@@ -37,6 +37,7 @@ int main()
   std::cout << result << std::endl;
 }
 ```
+* entropy()[color ff0000]
 
 ###出力
 ```
