@@ -6,21 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit student_t_distribution(RealType n = 1);
-explicit student_t_distribution(const param_type& parm);
+explicit student_t_distribution(RealType n = 1);         // (1)
+explicit student_t_distribution(const param_type& parm); // (2)
 ```
 
-##`student_t_distribution`オブジェクトの構築
-- `explicit student_t_distribution(RealType n = 1);`
-
-ステューデントのt分布の自由度`n`を受け取るコンストラクタ。
-
-要件： `n > 0`であること。
+##概要
+- (1) : ステューデントのt分布の自由度`n`を受け取るコンストラクタ
+- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-- `explicit student_t_distribution(const param_type& parm);`
-
-パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスのコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。 
+##要件
+- (1) : `n > 0`であること
 
 
 ##例
@@ -33,7 +29,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  // パラメータを個別に指定する
+  // (1) パラメータを個別に指定する
   {
     // 自由度1で分布させる
     std::student_t_distribution<> dist(1.0);
@@ -45,7 +41,7 @@ int main()
   }
   std::cout << std::endl;
 
-  // パラメータを指定する
+  // (2) パラメータを指定する
   {
     typedef std::student_t_distribution<> dist_type;
 
