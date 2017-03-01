@@ -5,20 +5,14 @@
 * cpp11[meta cpp]
 
 ```cpp
-param_type param() const;
-void param(const param_type& parm);
+param_type param() const;           // (1)
+void param(const param_type& parm); // (2)
 ```
 
 ##概要
-分布のパラメータを設定／取得する。
+- (1) : 分布のパラメータを取得する
+- (2) : 分布のパラメータを設定する
 
-- `param_type param() const;`
-
-分布のパラメータを返す。
-
-- `void param(const param_type& param);`
-
-分布のパラメータを設定する。
 
 ##例
 ```cpp
@@ -38,12 +32,12 @@ int main()
     densities.begin()
   );
 
-  // パラメータを取得
+  // (1) パラメータを取得
   {
     dist_type::param_type param = dist.param();
   }
 
-  // パラメータを設定
+  // (2) パラメータを設定
   {
     std::array<double, 3> intervals2 = {0.0, 1.0, 2.0};
     std::array<double, 2> densities2 = {0.2, 8.0};

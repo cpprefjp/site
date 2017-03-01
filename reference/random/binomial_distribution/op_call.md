@@ -7,16 +7,15 @@
 
 ```cpp
 template <class URNG>
-result_type operator()(URNG& g);
+result_type operator()(URNG& g);                         // (1)
 
 template <class URNG>
-result_type operator()(URNG& g, const param_type& parm);
+result_type operator()(URNG& g, const param_type& parm); // (2)
 ```
 
 ##概要
-指定された値の範囲に基いて、乱数生成を行う。
-
-パラメータを受け取るバージョンは、コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用する。
+- (1) : コンストラクタで指定されたパラメータに基いて、乱数生成を行う
+- (2) : コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用して乱数生成を行う
 
 
 ##戻り値
@@ -37,6 +36,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
+  // (1)
   {
     // 確率0.5で成功する事象を3回施行する
     std::binomial_distribution<> dist(3, 0.5);
@@ -46,7 +46,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // パラメータを渡すバージョン
+  // (2) パラメータを渡すバージョン
   {
     typedef std::binomial_distribution<> dist_type;
     dist_type dist;

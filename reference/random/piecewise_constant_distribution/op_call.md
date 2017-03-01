@@ -7,16 +7,15 @@
 
 ```cpp
 template <class URNG>
-result_type operator()(URNG& g);
+result_type operator()(URNG& g);                         // (1)
 
 template <class URNG>
-result_type operator()(URNG& g, const param_type& parm);
+result_type operator()(URNG& g, const param_type& parm); // (2)
 ```
 
 ##概要
-区間列と重み列に基いて、乱数生成を行う。
-
-パラメータを受け取るバージョンは、コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用する。
+- (1) : コンストラクタで指定されたパラメータに基いて、乱数生成を行う
+- (2) : コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用して乱数生成を行う
 
 
 ##戻り値
@@ -43,6 +42,7 @@ int main()
   std::array<double, 3> intervals = {0.0, 0.5, 1.0};
   std::array<double, 2> densities = {0.3, 0.5};
 
+  // (1)
   {
     std::piecewise_constant_distribution<> dist(
       intervals.begin(),
@@ -56,7 +56,7 @@ int main()
     }
   }
 
-  // パラメータを渡すバージョン
+  // (2) パラメータを渡すバージョン
   std::cout << std::endl;
   {
     typedef std::piecewise_constant_distribution<> dist_type;

@@ -7,20 +7,19 @@
 
 ```cpp
 template <class URNG>
-result_type operator()(URNG& g);
+result_type operator()(URNG& g);                         // (1)
 
 template <class URNG>
-result_type operator()(URNG& g, const param_type& parm);
+result_type operator()(URNG& g, const param_type& parm); // (2)
 ```
 
 ##概要
-指定されたパラメータに基いて、乱数生成を行う。
-
-パラメータを受け取るバージョンは、コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用する。
+- (1) : コンストラクタで指定されたパラメータに基いて、乱数生成を行う
+- (2) : コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用して乱数生成を行う
 
 
 ##戻り値
-指定されたパラメータに基いて、ガンマ分布したランダムな値を生成して返す。  
+指定されたパラメータに基いて、ガンマ分布したランダムな値を生成して返す。
 
 
 ##計算量
@@ -37,6 +36,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
+  // (1)
   {
     std::gamma_distribution<> dist(1.0, 1.0);
 
@@ -46,7 +46,7 @@ int main()
     }
   }
 
-  // パラメータを渡すバージョン
+  // (2) パラメータを渡すバージョン
   std::cout << std::endl;
   {
     typedef std::gamma_distribution<> dist_type;

@@ -6,20 +6,14 @@
 * cpp11[meta cpp]
 
 ```cpp
-param_type param() const;
-void param(const param_type& parm);
+param_type param() const;           // (1)
+void param(const param_type& parm); // (2)
 ```
 
 ##概要
-分布のパラメータを設定／取得する。
+- (1) : 分布のパラメータを取得する
+- (2) : 分布のパラメータを設定する
 
-- `param_type param() const;`
-
-分布のパラメータを返す。
-
-- `void param(const param_type& param);`
-
-分布のパラメータを設定する。
 
 ##例
 ```cpp
@@ -32,12 +26,12 @@ int main()
 
   dist_type dist(1.0, 1.0);
 
-  // パラメータを取得
+  // (1) パラメータを取得
   {
     dist_type::param_type param = dist.param();
   }
 
-  // パラメータを設定
+  // (2) パラメータを設定
   {
     dist_type::param_type param(1.0, 1.0);
     dist.param(param);

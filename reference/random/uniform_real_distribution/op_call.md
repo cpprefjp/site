@@ -7,16 +7,15 @@
 
 ```cpp
 template <class URNG>
-result_type operator()(URNG& g);
+result_type operator()(URNG& g);                         // (1)
 
 template <class URNG>
-result_type operator()(URNG& g, const param_type& parm);
+result_type operator()(URNG& g, const param_type& parm); // (2)
 ```
 
 ##概要
-指定された値の範囲に基いて、乱数生成を行う。
-
-パラメータを受け取るバージョンは、コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用する。
+- (1) : コンストラクタで指定されたパラメータに基いて、乱数生成を行う
+- (2) : コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用して乱数生成を行う
 
 
 ##戻り値
@@ -38,6 +37,7 @@ int main()
   std::random_device seed_gen;
   std::mt19937 engine(seed_gen());
 
+  // (1)
   {
     std::uniform_real_distribution<> dist(0.0, 1.0);
 
@@ -47,7 +47,7 @@ int main()
     }
   }
 
-  // パラメータを渡すバージョン
+  // (2) パラメータを渡すバージョン
   std::cout << std::endl;
   {
     typedef std::uniform_real_distribution<> dist_type;
