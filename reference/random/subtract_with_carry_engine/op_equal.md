@@ -36,14 +36,14 @@ int main()
   std::ranlux24_base e2;
 
   if (e1 == e2) {
-	std::cout << "equal" << std::endl;
+    std::cout << "equal" << std::endl;
   }
   else {
-	std::cout << "not equal" << std::endl;
+    std::cout << "not equal" << std::endl;
   }
 }
 ```
-* ranlux24_base[link /reference/random/ranlux24_base.md]
+* std::ranlux24_base[link /reference/random/ranlux24_base.md]
 
 ###出力
 ```

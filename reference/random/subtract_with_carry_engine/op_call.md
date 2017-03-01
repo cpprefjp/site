@@ -44,8 +44,9 @@ int main()
   }
 }
 ```
-* ranlux24_base[link /reference/random/ranlux24_base.md]
-
+* engine()[color ff0000]
+* std::ranlux24_base[link /reference/random/ranlux24_base.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ###出力例
 ```

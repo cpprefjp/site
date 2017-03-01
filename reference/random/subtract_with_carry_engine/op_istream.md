@@ -62,8 +62,9 @@ int main()
   }
 }
 ```
-* ranlux24_base[link /reference/random/ranlux24_base.md]
-* assert[link /reference/cassert/assert.md]
+* std::ranlux24_base[link /reference/random/ranlux24_base.md]
+* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* ss.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
 
 ###出力例
 ```

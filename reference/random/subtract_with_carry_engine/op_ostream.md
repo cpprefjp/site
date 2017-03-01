@@ -43,7 +43,7 @@ int main()
   std::cout << engine << std::endl;
 }
 ```
-* ranlux24_base[link /reference/random/ranlux24_base.md]
+* std::ranlux24_base[link /reference/random/ranlux24_base.md]
 
 ###出力例
 ```

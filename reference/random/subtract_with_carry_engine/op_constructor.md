@@ -85,9 +85,13 @@ int main()
   }
 }
 ```
-* ranlux24_base[link /reference/random/ranlux24_base.md]
-* seed_seq[link /reference/random/seed_seq.md]
-* random_device[link /reference/random/random_device.md]
+* std::ranlux24_base[link /reference/random/ranlux24_base.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* std::seed_seq[link /reference/random/seed_seq.md]
+* std::random_device[link /reference/random/random_device.md]
+* seed_gen()[link /reference/random/random_device/op_call.md]
+* seeds.begin()[link /reference/array/begin.md]
+* seeds.end()[link /reference/array/end.md]
 
 ###出力例
 ```

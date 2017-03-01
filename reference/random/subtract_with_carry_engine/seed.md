@@ -15,14 +15,15 @@ template<class Sseq> void seed(Sseq& q);
 
 
 ##効果
-パラメータ`value`および`q`を`arg`とした場合、  
+パラメータ`value`および`q`を`arg`とした場合、
 
 ```cpp
 *this = subtract_with_carry_engine(arg);
 ```
 * subtract_with_carry_engine[link op_constructor.md]
 
-と同じ効果を持つ。  
+と同じ効果を持つ。
+
 指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。
 
 
@@ -81,9 +82,16 @@ int main()
   }
 }
 ```
-* ranlux24_base[link /reference/random/ranlux24_base.md]
-* seed_seq[link /reference/random/seed_seq.md]
-* random_device[link /reference/random/random_device.md]
+* seed()[color ff0000]
+* seed(seed)[color ff0000]
+* seed(seq)[color ff0000]
+* std::ranlux24_base[link /reference/random/ranlux24_base.md]
+* std::seed_seq[link /reference/random/seed_seq.md]
+* std::random_device[link /reference/random/random_device.md]
+* seed_gen()[link /reference/random/random_device/op_call.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* seeds.begin()[link /reference/array/begin.md]
+* seeds.end()[link /reference/array/end.md]
 
 ###出力
 ```
