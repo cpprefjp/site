@@ -6,36 +6,24 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit subtract_with_carry_engine(result_type value = default_seed);
-template<class Sseq> explicit subtract_with_carry_engine(Sseq& q);
+explicit subtract_with_carry_engine(result_type value = default_seed);     // (1)
+template<class Sseq> explicit subtract_with_carry_engine(Sseq& q);         // (2)
 
-subtract_with_carry_engine(const subtract_with_carry_engine& e) = default;
-subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;
+subtract_with_carry_engine(const subtract_with_carry_engine& e) = default; // (3)
+subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (4)
 ```
 
-##`subtract_with_carry_engine`オブジェクトの構築
-- `explicit subtract_with_carry_engine(result_type value = default_seed);`
-
-シード値を受け取って状態シーケンスを構築する。  
-※ シード値には、初期状態の予測不可能性を高めるために、UNIX時間(エポックからの経過時間)や、非決定的な乱数を指定するのがよい。  
-  
-計算量：O(n)
-
-
-- `template<class Sseq> explicit subtract_with_carry_engine(Sseq& q);`
-
-シードのシーケンスを受け取って状態シーケンスを構築する。
+##概要
+- (1) : シード値を受け取って状態シーケンスを構築する
+    - シード値が指定されない場合は、固定のシード値でデフォルト構築される
+    - ※ シード値には、初期状態の予測不可能性を高めるために、UNIX時間(エポックからの経過時間)や、非決定的な乱数を指定するのがよい。
+- (2) : シードのシーケンスを受け取って状態シーケンスを構築する
+- (3) : コピーコンストラクタ。状態シーケンスをコピーする
+- (4) : ムーブコンストラクタ。可能であれば状態シーケンスを移動する
 
 
-- `subtract_with_carry_engine(const subtract_with_carry_engine& e) = default;`
-
-コピーコンストラクタ。状態シーケンスをコピーする。
-
-計算量：O(n)
-
-- `subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;`
-
-ムーブコンストラクタ。可能であれば状態シーケンスを移動する。  
+##計算量
+- (1), (3) : O(n)
 
 
 ##例
@@ -47,7 +35,7 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;
 
 int main()
 {
-  // デフォルト構築
+  // (1) デフォルト構築
   // デフォルトのシード値(default_seed静的データメンバ)から構築する
   {
     std::ranlux24_base engine;
@@ -56,7 +44,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シード値を指定して構築
+  // (1) シード値を指定して構築
   {
     std::uint32_t seed = std::random_device()();
     std::ranlux24_base engine(seed);
@@ -65,7 +53,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シードのシーケンスを指定して構築
+  // (2) シードのシーケンスを指定して構築
   {
     // シードのシーケンスを作る
     std::random_device seed_gen;

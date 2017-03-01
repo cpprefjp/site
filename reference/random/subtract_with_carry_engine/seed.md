@@ -6,12 +6,13 @@
 * cpp11[meta cpp]
 
 ```cpp
-void seed(result_type value = default_seed);
-template<class Sseq> void seed(Sseq& q);
+void seed(result_type value = default_seed); // (1)
+template<class Sseq> void seed(Sseq& q);     // (2)
 ```
 
 ##概要
-シードを設定する。
+- (1) : シード値を受け取って再初期化する
+- (2) : シードのシーケンスを受け取って再初期化する
 
 
 ##効果
@@ -23,8 +24,6 @@ template<class Sseq> void seed(Sseq& q);
 * subtract_with_carry_engine[link op_constructor.md]
 
 と同じ効果を持つ。
-
-指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。
 
 
 ##戻り値
@@ -39,7 +38,7 @@ template<class Sseq> void seed(Sseq& q);
 
 int main()
 {
-  // デフォルトのシード値から再初期化
+  // (1) デフォルトのシード値から再初期化
   {
     std::ranlux24_base engine;
 
@@ -49,7 +48,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シード値を指定して再初期化
+  // (1) シード値を指定して再初期化
   {
     std::ranlux24_base engine;
 
@@ -60,7 +59,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // シードのシーケンスを指定して再初期化
+  // (2) シードのシーケンスを指定して再初期化
   {
     std::ranlux24_base engine;
 
