@@ -7,50 +7,50 @@
 ```cpp
 namespace std {
   template <class OutputIterator, class BidirectionalIterator,
-      class traits, class charT, class FST, class FSA>
-    OutputIterator
-    regex_replace(OutputIterator out,
-                  BidirectionalIterator first, BidirectionalIterator last,
-                  const basic_regex<charT, traits>& e,
-                  const basic_string<charT, FST, FSA>& fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default); // (1)
+            class traits, class charT, class FST, class FSA>
+  OutputIterator
+  regex_replace(OutputIterator out,
+                BidirectionalIterator first, BidirectionalIterator last,
+                const basic_regex<charT, traits>& e,
+                const basic_string<charT, FST, FSA>& fmt,
+                regex_constants::match_flag_type flags = regex_constants::match_default); // (1)
 
   template <class OutputIterator, class BidirectionalIterator,
-      class traits, class charT>
-    OutputIterator
-    regex_replace(OutputIterator out,
-                  BidirectionalIterator first, BidirectionalIterator last,
-                  const basic_regex<charT, traits>& e,
-                  const charT* fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default); // (2)
+            class traits, class charT>
+  OutputIterator
+  regex_replace(OutputIterator out,
+                BidirectionalIterator first, BidirectionalIterator last,
+                const basic_regex<charT, traits>& e,
+                const charT* fmt,
+                regex_constants::match_flag_type flags = regex_constants::match_default); // (2)
 
   template <class traits, class charT, class ST, class SA, class FST, class FSA>
-    basic_string<charT, ST, SA>
-    regex_replace(const basic_string<charT, ST, SA>& s,
-                  const basic_regex<charT, traits>& e,
-                  const basic_string<charT, FST, FSA>& fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default); // (3)
+  basic_string<charT, ST, SA>
+  regex_replace(const basic_string<charT, ST, SA>& s,
+                const basic_regex<charT, traits>& e,
+                const basic_string<charT, FST, FSA>& fmt,
+                regex_constants::match_flag_type flags = regex_constants::match_default); // (3)
 
   template <class traits, class charT, class ST, class SA>
-    basic_string<charT, ST, SA>
-    regex_replace(const basic_string<charT, ST, SA>& s,
-                  const basic_regex<charT, traits>& e,
-                  const charT* fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default); // (4)
+  basic_string<charT, ST, SA>
+  regex_replace(const basic_string<charT, ST, SA>& s,
+                const basic_regex<charT, traits>& e,
+                const charT* fmt,
+                regex_constants::match_flag_type flags = regex_constants::match_default); // (4)
 
   template <class traits, class charT, class FST, class FSA>
-    basic_string<charT>
-    regex_replace(const charT* s,
-                  const basic_regex<charT, traits>& e,
-                  const basic_string<charT, FST, FSA>& fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default); // (5)
+  basic_string<charT>
+  regex_replace(const charT* s,
+                const basic_regex<charT, traits>& e,
+                const basic_string<charT, FST, FSA>& fmt,
+                regex_constants::match_flag_type flags = regex_constants::match_default); // (5)
 
   template <class traits, class charT>
-    basic_string<charT>
-    regex_replace(const charT* s,
-                  const basic_regex<charT, traits>& e,
-                  const charT* fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default); // (6)
+  basic_string<charT>
+  regex_replace(const charT* s,
+                const basic_regex<charT, traits>& e,
+                const charT* fmt,
+                regex_constants::match_flag_type flags = regex_constants::match_default); // (6)
 }
 ```
 * basic_regex[link basic_regex.md]

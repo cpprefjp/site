@@ -7,43 +7,43 @@
 ```cpp
 namespace std {
   template <class BidirectionalIterator, class Allocator, class charT, class traits>
-    bool regex_match(BidirectionalIterator first, BidirectionalIterator last,
-                     match_results<BidirectionalIterator, Allocator>& m,
-                     const basic_regex<charT, traits>& e,
-                     regex_constants::match_flag_type flags = regex_constants::match_default);              // (1)
+  bool regex_match(BidirectionalIterator first, BidirectionalIterator last,
+                   match_results<BidirectionalIterator, Allocator>& m,
+                   const basic_regex<charT, traits>& e,
+                   regex_constants::match_flag_type flags = regex_constants::match_default);          // (1)
 
   template <class charT, class Allocator, class traits>
-    bool regex_match(const charT* str,
-                     match_results<const charT*, Allocator>& m,
-                     const basic_regex<charT, traits>& e,
-                     regex_constants::match_flag_type flags = regex_constants::match_default);              // (2)
+  bool regex_match(const charT* str,
+                   match_results<const charT*, Allocator>& m,
+                   const basic_regex<charT, traits>& e,
+                   regex_constants::match_flag_type flags = regex_constants::match_default);          // (2)
 
   template <class ST, class SA, class Allocator, class charT, class traits>
-    bool regex_match(const basic_string<charT, ST, SA>& s,
-                     match_results<typename basic_string<charT, ST, SA>::const_iterator, Allocator>& m,
-                     const basic_regex<charT, traits>& e,
-                     regex_constants::match_flag_type flags = regex_constants::match_default);              // (3)
+  bool regex_match(const basic_string<charT, ST, SA>& s,
+                   match_results<typename basic_string<charT, ST, SA>::const_iterator, Allocator>& m,
+                   const basic_regex<charT, traits>& e,
+                   regex_constants::match_flag_type flags = regex_constants::match_default);          // (3)
 
   template <class ST, class SA, class Allocator, class charT, class traits>
-    bool regex_match(basic_string<charT, ST, SA>&& s,
-                     match_results<typename basic_string<charT, ST, SA>::const_iterator, Allocator>& m,
-                     const basic_regex<charT, traits>& e,
-                     regex_constants::match_flag_type flags = regex_constants::match_default) = delete;     // (4) C++14 から
+  bool regex_match(basic_string<charT, ST, SA>&& s,
+                   match_results<typename basic_string<charT, ST, SA>::const_iterator, Allocator>& m,
+                   const basic_regex<charT, traits>& e,
+                   regex_constants::match_flag_type flags = regex_constants::match_default) = delete; // (4) C++14 から
 
   template <class BidirectionalIterator, class charT, class traits>
-    bool regex_match(BidirectionalIterator first, BidirectionalIterator last,
-                     const basic_regex<charT, traits>& e,
-                     regex_constants::match_flag_type flags = regex_constants::match_default);              // (5)
+  bool regex_match(BidirectionalIterator first, BidirectionalIterator last,
+                   const basic_regex<charT, traits>& e,
+                   regex_constants::match_flag_type flags = regex_constants::match_default);          // (5)
 
   template <class charT, class traits>
-    bool regex_match(const charT* str,
-                     const basic_regex<charT, traits>& e,
-                     regex_constants::match_flag_type flags = regex_constants::match_default);              // (6)
+  bool regex_match(const charT* str,
+                   const basic_regex<charT, traits>& e,
+                   regex_constants::match_flag_type flags = regex_constants::match_default);          // (6)
 
   template <class ST, class SA, class charT, class traits>
-    bool regex_match(const basic_string<charT, ST, SA>& s,
-                     const basic_regex<charT, traits>& e,
-                     regex_constants::match_flag_type flags = regex_constants::match_default);              // (7)
+  bool regex_match(const basic_string<charT, ST, SA>& s,
+                   const basic_regex<charT, traits>& e,
+                   regex_constants::match_flag_type flags = regex_constants::match_default);          // (7)
 }
 ```
 * match_results[link match_results.md]
