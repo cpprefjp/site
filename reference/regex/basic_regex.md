@@ -123,10 +123,8 @@ int main()
   }
 }
 ```
-* std::string[link /reference/string/basic_string.md]
+* std::regex[color ff0000]
 * std::regex_match[link regex_match.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

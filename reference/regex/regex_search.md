@@ -10,40 +10,40 @@ namespace std {
     bool regex_search(BidirectionalIterator first, BidirectionalIterator last,
                       match_results<BidirectionalIterator, Allocator>& m,
                       const basic_regex<charT, traits>& e,
-                      regex_constants::match_flag_type flags = regex_constants::match_default);				// (1)
+                      regex_constants::match_flag_type flags = regex_constants::match_default);             // (1)
 
   template <class charT, class Allocator, class traits>
     bool regex_search(const charT* str,
                       match_results<const charT*, Allocator>& m,
                       const basic_regex<charT, traits>& e,
-                      regex_constants::match_flag_type flags = regex_constants::match_default);				// (2)
+                      regex_constants::match_flag_type flags = regex_constants::match_default);             // (2)
 
   template <class ST, class SA, class Allocator, class charT, class traits>
     bool regex_search(const basic_string<charT, ST, SA>& s,
                       match_results<typename basic_string<charT, ST, SA>::const_iterator, Allocator>& m,
                       const basic_regex<charT, traits>& e,
-                      regex_constants::match_flag_type flags = regex_constants::match_default);				// (3)
+                      regex_constants::match_flag_type flags = regex_constants::match_default);             // (3)
 
   template <class ST, class SA, class Allocator, class charT, class traits>
     bool regex_search(basic_string<charT, ST, SA>&& s,
                       match_results<typename basic_string<charT, ST, SA>::const_iterator, Allocator>& m,
                       const basic_regex<charT, traits>& e,
-                      regex_constants::match_flag_type flags = regex_constants::match_default) = delete;	// (4) C++14 から
+                      regex_constants::match_flag_type flags = regex_constants::match_default) = delete;    // (4) C++14 から
 
   template <class BidirectionalIterator, class charT, class traits>
     bool regex_search(BidirectionalIterator first, BidirectionalIterator last,
                       const basic_regex<charT, traits>& e,
-                      regex_constants::match_flag_type flags = regex_constants::match_default);				// (5)
+                      regex_constants::match_flag_type flags = regex_constants::match_default);             // (5)
 
   template <class charT, class traits>
     bool regex_search(const charT* str,
                       const basic_regex<charT, traits>& e,
-                      regex_constants::match_flag_type flags = regex_constants::match_default);				// (6)
+                      regex_constants::match_flag_type flags = regex_constants::match_default);             // (6)
 
   template <class ST, class SA, class charT, class traits>
     bool regex_search(const basic_string<charT, ST, SA>& s,
                       const basic_regex<charT, traits>& e,
-                      regex_constants::match_flag_type flags = regex_constants::match_default);				// (7)
+                      regex_constants::match_flag_type flags = regex_constants::match_default);             // (7)
 }
 ```
 * match_results[link match_results.md]
@@ -64,7 +64,7 @@ namespace std {
 
 ##効果
 - (1) `[first, last)` で指定された文字列中に、`e` で指定された正規表現にマッチする部分が存在するか否かの判定を行う。  
-	`flags` は正規表現が文字列に対してどのようにマッチするかを指定する。
+    `flags` は正規表現が文字列に対してどのようにマッチするかを指定する。
 - (2) `return regex_search(str, str +` [`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(str), m, e, flags)` と同等。
 - (3) `return regex_search(s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), m, e, flags)` と同等。
 - (4) `deleted` 宣言されているため、使用するとコンパイルエラーとなる。
@@ -75,25 +75,25 @@ namespace std {
 ##事後条件
 
 - (1) 常に `m.`[`ready`](match_results/ready.md)`() == true` となる。  
-	もし、戻り値が `false` の場合、`m` の [`ready`](match_results/ready.md)`()` 以外の状態については、`m.`[`size`](match_results/size.md)`() == 0` および `m.`[`empty`](match_results/empty.md)`() == true` となる事以外は未規定である。  
-	もし、戻り値が `true` の場合、`m` の [`ready`](match_results/ready.md)`()` 以外の状態は以下の表を満たす。
+    もし、戻り値が `false` の場合、`m` の [`ready`](match_results/ready.md)`()` 以外の状態については、`m.`[`size`](match_results/size.md)`() == 0` および `m.`[`empty`](match_results/empty.md)`() == true` となる事以外は未規定である。  
+    もし、戻り値が `true` の場合、`m` の [`ready`](match_results/ready.md)`()` 以外の状態は以下の表を満たす。
 
-	| 要素                                                | 値                                                                                                                                                                                                                                                               |
-	|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| `m.`[`size`](match_results/size.md)`()`             | `1 + e.`[`mark_count`](basic_regex/mark_count.md)`()`                                                                                                                                                                                                            |
-	| `m.`[`empty`](match_results/empty.md)`()`           | `false`                                                                                                                                                                                                                                                          |
-	| `m.`[`prefix`](match_results/prefix.md)`().first`   | `first`                                                                                                                                                                                                                                                          |
-	| `m.`[`prefix`](match_results/prefix.md)`().second`  | `m[0].first`                                                                                                                                                                                                                                                     |
-	| `m.`[`prefix`](match_results/prefix.md)`().matched` | `m.`[`prefix`](match_results/prefix.md)`().first != m.`[`prefix`](match_results/prefix.md)`().second`                                                                                                                                                            |
-	| `m.`[`suffix`](match_results/suffix.md)`().first`   | `m[0].second`                                                                                                                                                                                                                                                    |
-	| `m.`[`suffix`](match_results/suffix.md)`().second`  | `last`                                                                                                                                                                                                                                                           |
-	| `m.`[`suffix`](match_results/suffix.md)`().matched` | `m.`[`suffix`](match_results/suffix.md)`().first != m.`[`suffix`](match_results/suffix.md)`().second`                                                                                                                                                            |
-	| `m.[0].first`                                       | 正規表現がマッチした文字列の最初の文字を指すイテレータ                                                                                                                                                                                                           |
-	| `m.[0].second`                                      | 正規表現がマッチした文字列の最後の文字の次を指すイテレータ                                                                                                                                                                                                       |
-	| `m.[0].matched`                                     | `true`                                                                                                                                                                                                                                                           |
-	| `m.[n].first`                                       | `0 < n < m.`[`size`](match_results/size.md)`()` となるすべての整数 `n` について、正規表現内の `n` 番目のキャプチャグループがマッチした文字列の最初の文字を指すイテレータ。<br />もし、`n` 番目のキャプチャグループがマッチに参加していない場合には、`last`。     |
-	| `m.[n].second`                                      | `0 < n < m.`[`size`](match_results/size.md)`()` となるすべての整数 `n` について、正規表現内の `n` 番目のキャプチャグループがマッチした文字列の最後の文字の次を指すイテレータ。<br />もし、`n` 番目のキャプチャグループがマッチに参加していない場合には、`last`。 |
-	| `m.[n].matched`                                     | `0 < n < m.`[`size`](match_results/size.md)`()` となるすべての整数 `n` について、正規表現内の `n` 番目のキャプチャグループがマッチに参加していれば `true`。<br />もし、`n` 番目のキャプチャグループがマッチに参加していない場合には、`false`。                   |
+    | 要素                                                | 値                                                                                                                                                                                                                                                               |
+    |-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | `m.`[`size`](match_results/size.md)`()`             | `1 + e.`[`mark_count`](basic_regex/mark_count.md)`()`                                                                                                                                                                                                            |
+    | `m.`[`empty`](match_results/empty.md)`()`           | `false`                                                                                                                                                                                                                                                          |
+    | `m.`[`prefix`](match_results/prefix.md)`().first`   | `first`                                                                                                                                                                                                                                                          |
+    | `m.`[`prefix`](match_results/prefix.md)`().second`  | `m[0].first`                                                                                                                                                                                                                                                     |
+    | `m.`[`prefix`](match_results/prefix.md)`().matched` | `m.`[`prefix`](match_results/prefix.md)`().first != m.`[`prefix`](match_results/prefix.md)`().second`                                                                                                                                                            |
+    | `m.`[`suffix`](match_results/suffix.md)`().first`   | `m[0].second`                                                                                                                                                                                                                                                    |
+    | `m.`[`suffix`](match_results/suffix.md)`().second`  | `last`                                                                                                                                                                                                                                                           |
+    | `m.`[`suffix`](match_results/suffix.md)`().matched` | `m.`[`suffix`](match_results/suffix.md)`().first != m.`[`suffix`](match_results/suffix.md)`().second`                                                                                                                                                            |
+    | `m.[0].first`                                       | 正規表現がマッチした文字列の最初の文字を指すイテレータ                                                                                                                                                                                                           |
+    | `m.[0].second`                                      | 正規表現がマッチした文字列の最後の文字の次を指すイテレータ                                                                                                                                                                                                       |
+    | `m.[0].matched`                                     | `true`                                                                                                                                                                                                                                                           |
+    | `m.[n].first`                                       | `0 < n < m.`[`size`](match_results/size.md)`()` となるすべての整数 `n` について、正規表現内の `n` 番目のキャプチャグループがマッチした文字列の最初の文字を指すイテレータ。<br />もし、`n` 番目のキャプチャグループがマッチに参加していない場合には、`last`。     |
+    | `m.[n].second`                                      | `0 < n < m.`[`size`](match_results/size.md)`()` となるすべての整数 `n` について、正規表現内の `n` 番目のキャプチャグループがマッチした文字列の最後の文字の次を指すイテレータ。<br />もし、`n` 番目のキャプチャグループがマッチに参加していない場合には、`last`。 |
+    | `m.[n].matched`                                     | `0 < n < m.`[`size`](match_results/size.md)`()` となるすべての整数 `n` について、正規表現内の `n` 番目のキャプチャグループがマッチに参加していれば `true`。<br />もし、`n` 番目のキャプチャグループがマッチに参加していない場合には、`false`。                   |
 
 
 ##戻り値
@@ -169,22 +169,13 @@ int main()
   }
 }
 ```
-* iostream[link ../iostream.md]
-* iterator[link ../iterator.md]
-* list[link ../list.md]
-* regex[link ../regex.md]
-* string[link ../string.md]
-* cout[link ../iostream/cout.md]
-* boolalpha[link ../ios/boolalpha.md]
-* endl[link ../ostream/endl.md]
-* regex_search[color ff0000]
-* begin[link ../iterator/begin.md]
-* end[link ../iterator/end.md]
-* match_results[link match_results.md]
-* cmatch[link match_results.md]
-* smatch[link match_results.md]
-* str[link match_results/str.md]
-* position[link match_results/position.md]
+* std::regex_search[color ff0000]
+* std::regex[link basic_regex.md]
+* std::match_results[link match_results.md]
+* std::cmatch[link match_results.md]
+* std::smatch[link match_results.md]
+* m.str()[link match_results/str.md]
+* m.position()[link match_results/position.md]
 
 ###出力
 ```

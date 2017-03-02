@@ -141,19 +141,18 @@ int main()
   }
 }
 ```
-* iostream[link ../iostream.md]
-* regex[link ../regex.md]
-* cmatch[color ff0000]
-* regex_search[link regex_search.md]
-* ready[link match_results/ready.md]
-* empty[link match_results/empty.md]
-* size[link match_results/size.md]
-* prefix[link match_results/prefix.md]
-* suffix[link match_results/suffix.md]
-* str[link match_results/str.md]
-* position[link match_results/position.md]
-* length[link match_results/length.md]
-* format[link match_results/format.md]
+* std::cmatch[color ff0000]
+* std::regex[link basic_regex.md]
+* std::regex_search[link regex_search.md]
+* m.ready()[link match_results/ready.md]
+* m.empty()[link match_results/empty.md]
+* m.size()[link match_results/size.md]
+* m.prefix()[link match_results/prefix.md]
+* m.suffix()[link match_results/suffix.md]
+* m.str()[link match_results/str.md]
+* m.position[link match_results/position.md]
+* m.length[link match_results/length.md]
+* m.format[link match_results/format.md]
 
 ###出力
 ```

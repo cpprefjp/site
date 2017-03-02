@@ -63,7 +63,7 @@ std::string code_to_string(std::regex_constants::error_type e)
     case error_complexity: return "error complexity";
     case error_stack:      return "error stack";
     default:
-	  throw std::invalid_argument("invalid error code");
+      throw std::invalid_argument("invalid error code");
   }
 }
 
@@ -80,12 +80,9 @@ int main()
 ```
 * std::regex_error[color ff0000]
 * std::regex_constants::error_type[link /reference/regex/regex_constants/error_type.md]
-* std::string[link /reference/string/basic_string.md]
 * std::invalid_argument[link /reference/stdexcept.md]
 * std::regex[link /reference/regex/basic_regex.md]
 * code()[link regex_error/code.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力例
 ```

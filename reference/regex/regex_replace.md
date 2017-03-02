@@ -13,7 +13,7 @@ namespace std {
                   BidirectionalIterator first, BidirectionalIterator last,
                   const basic_regex<charT, traits>& e,
                   const basic_string<charT, FST, FSA>& fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default);				// (1)
+                  regex_constants::match_flag_type flags = regex_constants::match_default); // (1)
 
   template <class OutputIterator, class BidirectionalIterator,
       class traits, class charT>
@@ -22,35 +22,35 @@ namespace std {
                   BidirectionalIterator first, BidirectionalIterator last,
                   const basic_regex<charT, traits>& e,
                   const charT* fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default);				// (2)
+                  regex_constants::match_flag_type flags = regex_constants::match_default); // (2)
 
   template <class traits, class charT, class ST, class SA, class FST, class FSA>
     basic_string<charT, ST, SA>
     regex_replace(const basic_string<charT, ST, SA>& s,
                   const basic_regex<charT, traits>& e,
                   const basic_string<charT, FST, FSA>& fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default);				// (3)
+                  regex_constants::match_flag_type flags = regex_constants::match_default); // (3)
 
   template <class traits, class charT, class ST, class SA>
     basic_string<charT, ST, SA>
     regex_replace(const basic_string<charT, ST, SA>& s,
                   const basic_regex<charT, traits>& e,
                   const charT* fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default);				// (4)
+                  regex_constants::match_flag_type flags = regex_constants::match_default); // (4)
 
   template <class traits, class charT, class FST, class FSA>
     basic_string<charT>
     regex_replace(const charT* s,
                   const basic_regex<charT, traits>& e,
                   const basic_string<charT, FST, FSA>& fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default);				// (5)
+                  regex_constants::match_flag_type flags = regex_constants::match_default); // (5)
 
   template <class traits, class charT>
     basic_string<charT>
     regex_replace(const charT* s,
                   const basic_regex<charT, traits>& e,
                   const charT* fmt,
-                  regex_constants::match_flag_type flags = regex_constants::match_default);				// (6)
+                  regex_constants::match_flag_type flags = regex_constants::match_default); // (6)
 }
 ```
 * basic_regex[link basic_regex.md]
@@ -65,10 +65,10 @@ namespace std {
 
 ##効果
 - (1)、(2) `[first, last)` で指定された文字列内に出現する、正規表現 `e` にマッチする部分を、置換文字列 `fmt` で置換した結果を出力イテレータ `out` に出力する。  
-	置換文字列 `fmt` には通常の文字の他、マッチした文字列全体やキャプチャグループを表すシーケンスを使用することができる。  
-	指定可能なシーケンスは、デフォルトでは ECMAScript の置換文字列と同等であるが、`flags` に [`regex_constants::format_sed`](regex_constants/match_flag_type.md) が指定されていた場合には POSIX にて規定されている sed の置換文字列と同等となる。  
-	なお、デフォルトでは全てのマッチする部分が `fmt` で置換されるが、`flags` に [`regex_constants::format_first_only`](regex_constants/match_flag_type.md) が指定されていた場合には最初にマッチする部分のみが置換される。  
-	また、デフォルトではマッチしない部分はそのまま `out` に出力されるが、`flags` に [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が指定されていた場合には、マッチしない部分は `out` には出力されない。
+    置換文字列 `fmt` には通常の文字の他、マッチした文字列全体やキャプチャグループを表すシーケンスを使用することができる。  
+    指定可能なシーケンスは、デフォルトでは ECMAScript の置換文字列と同等であるが、`flags` に [`regex_constants::format_sed`](regex_constants/match_flag_type.md) が指定されていた場合には POSIX にて規定されている sed の置換文字列と同等となる。  
+    なお、デフォルトでは全てのマッチする部分が `fmt` で置換されるが、`flags` に [`regex_constants::format_first_only`](regex_constants/match_flag_type.md) が指定されていた場合には最初にマッチする部分のみが置換される。  
+    また、デフォルトではマッチしない部分はそのまま `out` に出力されるが、`flags` に [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が指定されていた場合には、マッチしない部分は `out` には出力されない。
 - (3)、(4) 置換対象文字列が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列として返される点を除いて、(1)、(2) と同様である。
 - (5)、(6) 置換対象文字列が `const charT*` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT>` 型の文字列として返される点を除いて、(1)、(2) と同様である。
 
@@ -88,69 +88,69 @@ namespace std {
 
 - (1)、(2) [`regex_iterator`](regex_iterator.md) 型のオブジェクト `i` を
 
-	```cpp
+    ```cpp
 regex_iterator<BidirectionalIterator, charT, traits> i(first, last, e, flags)
-	```
-	* regex_iterator[link regex_iterator.md]
+    ```
+    * regex_iterator[link regex_iterator.md]
 
-	として構築する。  
+    として構築する。  
 
-	- `i` がシーケンス終端イテレータの場合（すなわち、マッチが 1 つも存在しない場合）  
-		`flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
+    - `i` がシーケンス終端イテレータの場合（すなわち、マッチが 1 つも存在しない場合）  
+        `flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
 
-		```cpp
+        ```cpp
 out = copy(first, last, out)
 ```
 * copy[link ../algorithm/copy.md]
 
-		を呼び出す。
+        を呼び出す。
 
 
-	- `i` がシーケンス終端イテレータでは無い場合（すなわち、マッチが 1 つ以上存在した場合）  
-		`i` を用いて `[first, last)` で指定された文字列中のすべてのマッチを [`match_results`](match_results.md)`<BidirectionalIterator>` 型のオブジェクト `m` として列挙して以下を繰り返す。  
-		ただし、`flags &` [`regex_constants::format_first_only`](regex_constants/match_flag_type.md) が `0` でなければ、最初のマッチのみを処理する。  
+    - `i` がシーケンス終端イテレータでは無い場合（すなわち、マッチが 1 つ以上存在した場合）  
+        `i` を用いて `[first, last)` で指定された文字列中のすべてのマッチを [`match_results`](match_results.md)`<BidirectionalIterator>` 型のオブジェクト `m` として列挙して以下を繰り返す。  
+        ただし、`flags &` [`regex_constants::format_first_only`](regex_constants/match_flag_type.md) が `0` でなければ、最初のマッチのみを処理する。  
 
-		- `flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
-			```cpp
+        - `flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
+            ```cpp
 out = copy(m.prefix().first, m.prefix().second, out)
 ```
 * copy[link ../algorithm/copy.md]
 * prefix[link match_results/prefix.md]
 
-			を呼び出す。  
+            を呼び出す。  
 
-		- その後、(1) の形式であれば
+        - その後、(1) の形式であれば
 
-			```cpp
+            ```cpp
 out = m.format(out, fmt, flags)
 ```
 * format[link match_results/format.md]
 
-			を、(2) の形式であれば
+            を、(2) の形式であれば
 
-			```cpp
+            ```cpp
 out = m.format(out, fmt, fmt + char_traits<charT>::length(fmt), flags)
 ```
 * format[link match_results/format.md]
 * char_traits[link ../string/char_traits.md]
 * length[link ../string/char_traits/length.md]
 
-			を呼び出す。
+            を呼び出す。
 
-		最後に、`flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、最後のマッチの `m` のコピーを `last_m` として
+        最後に、`flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、最後のマッチの `m` のコピーを `last_m` として
 
-		```cpp
+        ```cpp
 out = copy(last_m.suffix().first, last_m.suffix().second, out)
 ```
 * copy[link ../algorithm/copy.md]
 * suffix[link match_results/suffix.md]
 
-		を呼び出す。
+        を呼び出す。
 
 - (3)、(4) [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), e, fmt, flags)` を呼び出す。  
-	戻り値は `result` となる。
+    戻り値は `result` となる。
 - (5)、(6) [`basic_string`](../string/basic_string.md)`<charT>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s, s +` [`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(s), e, fmt, flags)` を呼び出す。  
-	戻り値は `result` となる。
+    戻り値は `result` となる。
 
 
 ##例
@@ -214,21 +214,12 @@ int main()
   }
 }
 ```
-* iostream[link ../iostream.md]
-* iterator[link ../iterator.md]
-* list[link ../list.md]
-* regex[link ../regex.md]
-* string[link ../string.md]
-* cout[link ../iostream/cout.md]
-* endl[link ../ostream/endl.md]
-* regex_replace[color ff0000]
-* regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
-* regex_constants::format_no_copy[link /reference/regex/regex_constants/match_flag_type.md]
-* regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
-* regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
-* begin[link ../iterator/begin.md]
-* end[link ../iterator/end.md]
-* ostream_iterator[link ../iterator/ostream_iterator.md]
+* std::regex_replace[color ff0000]
+* std::regex[link basic_regex.md]
+* std::regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
+* std::regex_constants::format_no_copy[link /reference/regex/regex_constants/match_flag_type.md]
+* std::regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
+* std::regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
 
 ###出力
 ```

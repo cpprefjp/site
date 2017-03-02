@@ -103,16 +103,12 @@ int main()
   }
 }
 ```
-* ssub_match[color ff0000]
-* length[link sub_match/length.md]
-* str[link sub_match/str.md]
-* begin[link ../iterator/begin.md]
-* iostream[link ../iostream.md]
-* iterator[link ../iterator.md]
-* regex[link ../regex.md]
-* string[link ../string.md]
-* regex_search[link regex_search.md]
-* smatch[link match_results.md]
+* std::ssub_match[color ff0000]
+* std::regex[link basic_regex.md]
+* sub.length()[link sub_match/length.md]
+* sub.str()[link sub_match/str.md]
+* std::regex_search[link regex_search.md]
+* std::smatch[link match_results.md]
 
 ###出力
 ```

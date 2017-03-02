@@ -7,8 +7,8 @@
 ```cpp
 namespace std {
   template <class BidirectionalIterator,
-			class charT = typename iterator_traits<BidirectionalIterator>::value_type,
-			class traits = regex_traits<charT> >
+            class charT = typename iterator_traits<BidirectionalIterator>::value_type,
+            class traits = regex_traits<charT> >
   class regex_iterator;
 
   typedef regex_iterator<const char*> cregex_iterator;
@@ -119,12 +119,16 @@ int main()
   std::regex re("\\d+");
 
   for (std::sregex_iterator it(std::begin(s), std::end(s), re), end; it != end; ++it) {
-    auto&& m = *it;
+    std::match_results&& m = *it;
     std::cout << "position = " << m.position() << ", length = " << m.length() << ", str = '" << m.str() << '\'' << std::endl;
   }
 }
 ```
-* sregex_iterator[color ff0000]
+* std::sregex_iterator[color ff0000]
+* std::regex[link basic_regex.md]
+* m.position()[link match_results/position.md]
+* m.length()[link match_results/length.md]
+* m.str()[link match_results/length.md]
 
 ###出力
 ```

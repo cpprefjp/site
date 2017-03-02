@@ -152,7 +152,8 @@ int main()
   f(std::initializer_list<int>{ 1, 2 });
 }
 ```
-* sregex_token_iterator[color ff0000]
+* std::sregex_token_iterator[color ff0000]
+* std::regex[link basic_regex.md]
 
 ###出力
 ```
