@@ -87,20 +87,14 @@ int main()
   std::cout << mm3.get_allocator().no << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* memory[link ../../memory.md]
-* type_traits[link ../../type_traits.md]
+* get_allocator()[color ff0000]
 * operator new[link ../../new/op_new.md]
 * operator delete[link ../../new/op_delete.md]
-* true_type[link ../../type_traits/true_type.md]
+* std::true_type[link ../../type_traits/true_type.md]
 * swap[link swap_free.md]
-* get_allocator[color ff0000]
-* match_results[link ../match_results.md]
-* sub_match[link ../sub_match.md]
-
+* std::match_results[link ../match_results.md]
+* std::sub_match[link ../sub_match.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

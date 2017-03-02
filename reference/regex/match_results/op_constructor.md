@@ -6,11 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-match_results(const Allocator& a = Allocator());	// (1)
+match_results(const Allocator& a = Allocator());    // (1)
 
-match_results(const match_results& m);				// (2)
+match_results(const match_results& m);              // (2)
 
-match_results(match_results&& m) noexcept;			// (3)
+match_results(match_results&& m) noexcept;          // (3)
 ```
 
 ##概要
@@ -18,8 +18,6 @@ match_results(match_results&& m) noexcept;			// (3)
 
 
 ##要件
-- (1) -
-- (2) -
 - (3) `Allocator` のムーブコンストラクタは例外で終了しないこと。
 
 
@@ -34,17 +32,17 @@ match_results(match_results&& m) noexcept;			// (3)
 - (2) 構築したオブジェクトを `u` とすると、`u == m`
 - (3) 以下の表を満たす。
 
-	| 要素                                    | 値                                                                                            |
-	|-----------------------------------------|-----------------------------------------------------------------------------------------------|
-	| [`ready`](ready.md)`()`                 | `m.`[`ready`](ready.md)`()`                                                                   |
-	| [`size`](size.md)`()`                   | `m.`[`size`](size.md)`()`                                                                     |
-	| [`str`](str.md)`(n)`                    | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`str`](str.md)`(n)`           |
-	| [`prefix`](prefix.md)`()`               | `m.`[`prefix`](prefix.md)`()`                                                                 |
-	| [`suffix`](suffix.md)`()`               | `m.`[`suffix`](suffix.md)`()`                                                                 |
-	| `(*this)[n]`                            | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m[n]`                             |
-	| [`length`](length.md)`()`               | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`length`](length.md)`(n)`     |
-	| [`position`](position.md)`()`           | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`position`](position.md)`(n)` |
-	| [`get_allocator`](get_allocator.md)`()` | `m.`[`get_allocator`](get_allocator.md)`(n)`                                                  |
+    | 要素                                    | 値                                                                                            |
+    |-----------------------------------------|-----------------------------------------------------------------------------------------------|
+    | [`ready`](ready.md)`()`                 | `m.`[`ready`](ready.md)`()`                                                                   |
+    | [`size`](size.md)`()`                   | `m.`[`size`](size.md)`()`                                                                     |
+    | [`str`](str.md)`(n)`                    | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`str`](str.md)`(n)`           |
+    | [`prefix`](prefix.md)`()`               | `m.`[`prefix`](prefix.md)`()`                                                                 |
+    | [`suffix`](suffix.md)`()`               | `m.`[`suffix`](suffix.md)`()`                                                                 |
+    | `(*this)[n]`                            | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m[n]`                             |
+    | [`length`](length.md)`()`               | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`length`](length.md)`(n)`     |
+    | [`position`](position.md)`()`           | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`position`](position.md)`(n)` |
+    | [`get_allocator`](get_allocator.md)`()` | `m.`[`get_allocator`](get_allocator.md)`(n)`                                                  |
 
 
 ##計算量
@@ -83,32 +81,28 @@ int main()
   const char s[] = " abc 123 def ";
   const std::regex re("(\\w+) (\\d+) (\\w+)");
 
-  std::cmatch m1;					// (1) の形式
+  std::cmatch m1;                   // (1) の形式
   print(m1);
 
   std::regex_search(s, m1, re);
   print(m1);
 
-  std::cmatch m2(m1);				// (2) の形式
+  std::cmatch m2(m1);               // (2) の形式
   print(m2);
 
-  std::cmatch m3(std::move(m1));	// (3) の形式
+  std::cmatch m3(std::move(m1));    // (3) の形式
   print(m3);
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* size[link size.md]
-* prefix[link prefix.md]
-* suffix[link suffix.md]
-* str[link str.md]
-* ready[link ready.md]
-* cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* move[link ../../utility/move.md]
+* m.size()[link size.md]
+* std::regex[link ../basic_regex.md]
+* m.prefix()[link prefix.md]
+* m.suffix()[link suffix.md]
+* m.str[link str.md]
+* m.ready()[link ready.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* std::move[link ../../utility/move.md]
 
 ###出力
 ```

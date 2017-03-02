@@ -21,11 +21,11 @@ namespace std {
 - どちらも [`ready`](ready.md)`() == false` である場合、`true` を返す。
 - いずれかが [`ready`](ready.md)`() == true` で、もう一方が  [`ready`](ready.md)`() == false` である場合、`false` を返す。
 - どちらも [`ready`](ready.md)`() == true` である場合、以下のいずれかの条件を満たす場合に限り `true` を返す。
-	- `m1.`[`empty`](empty.md)`() && m2.`[`empty`](empty.md)`()` である。
-	- `!m1.`[`empty`](empty.md)`() && !m2.`[`empty`](empty.md)`()`、かつ、以下の条件をすべて満たす。
-		- `m1.`[`prefix`](prefix.md)`() == m2.`[`prefix`](prefix.md)`()`
-		- `m1.`[`size`](size.md)`() == m2.`[`size`](size.md)`() &&` [`equal`](../../algorithm/equal.md)`(m1.`[`begin`](begin.md)`(), m1.`[`end`](end.md)`(), m2.`[`begin`](begin.md)`()`
-		- `m1.`[`suffix`](suffix.md)`() == m2.`[`suffix`](suffix.md)`()`
+    - `m1.`[`empty`](empty.md)`() && m2.`[`empty`](empty.md)`()` である。
+    - `!m1.`[`empty`](empty.md)`() && !m2.`[`empty`](empty.md)`()`、かつ、以下の条件をすべて満たす。
+        - `m1.`[`prefix`](prefix.md)`() == m2.`[`prefix`](prefix.md)`()`
+        - `m1.`[`size`](size.md)`() == m2.`[`size`](size.md)`() &&` [`equal`](../../algorithm/equal.md)`(m1.`[`begin`](begin.md)`(), m1.`[`end`](end.md)`(), m2.`[`begin`](begin.md)`()`
+        - `m1.`[`suffix`](suffix.md)`() == m2.`[`suffix`](suffix.md)`()`
 
 
 ##備考
@@ -60,13 +60,9 @@ int main()
   std::cout << std::boolalpha << (m1 == m2) << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* regex_search[link ../regex_search.md]
-* cmatch[link ../match_results.md]
-* cout[link ../../iostream/cout.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* endl[link ../../ostream/endl.md]
+* std::regex[link ../basic_regex.md]
+* std::regex_search[link ../regex_search.md]
+* std::cmatch[link ../match_results.md]
 
 ###出力
 ```

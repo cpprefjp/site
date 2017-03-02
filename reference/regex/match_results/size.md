@@ -22,9 +22,9 @@ size_type size() const;
 - [`prefix`](prefix.md)、および、[`suffix`](suffix.md) で返されるオブジェクトも [`sub_match`](../sub_match.md) 型ではあるが、これらは本メンバ関数の戻り値の数には含まれていない。
 - 本メンバ関数は [`ready`](ready.md)`() == false` でも呼び出すことが可能である（その場合、0 が返される）。
 - 正規表現 `re` に含まれているキャプチャグループの数は `re.`[`mark_count`](../basic_regex/mark_count.md)`()` で取得することができる。  
-	したがって、成功したマッチの結果を保持している場合には、`size() == 1 + re.`[`mark_count`](../basic_regex/mark_count.md)`()` となっている。  
-	1 が加えられる理由は、正規表現全体にマッチした部分をサブマッチとして保持しているためである。  
-	なお、失敗したマッチの結果を保持している場合には、使用した正規表現に含まれているキャプチャグループの数によらずに `size() == 0` である。
+    したがって、成功したマッチの結果を保持している場合には、`size() == 1 + re.`[`mark_count`](../basic_regex/mark_count.md)`()` となっている。  
+    1 が加えられる理由は、正規表現全体にマッチした部分をサブマッチとして保持しているためである。  
+    なお、失敗したマッチの結果を保持している場合には、使用した正規表現に含まれているキャプチャグループの数によらずに `size() == 0` である。
 
 
 ##例
@@ -59,16 +59,12 @@ int main()
   }
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
-* ready[link ready.md]
-* size[color ff0000]
-* boolalpha[link ../../ios/boolalpha.md]
-* mark_count[link ../basic_regex/mark_count.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* size()[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* m.ready()[link ready.md]
+* re.mark_count()[link ../basic_regex/mark_count.md]
 
 ###出力
 ```

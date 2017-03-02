@@ -43,13 +43,12 @@ int main()
   }
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
-* size[link size.md]
-* str[link str.md]
-* position[color ff0000]
+* m.position[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* m.size()[link size.md]
+* m.str[link str.md]
 
 ###出力
 ```

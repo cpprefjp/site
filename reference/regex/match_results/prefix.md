@@ -22,13 +22,13 @@ const_reference prefix() const;
 具体的なサブマッチの各メンバ変数の設定内容は以下の通り。
 
 - [`regex_match`](../regex_match.md) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.prefix().first` と `m.prefix().second` は共に検索対象文字列の先頭となる。  
-	また、`m.prefix().matched` は `false` となる。  
-	戻り値が `false` の場合は未規定である。
+    また、`m.prefix().matched` は `false` となる。  
+    戻り値が `false` の場合は未規定である。
 - [`regex_search`](../regex_search.md) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.prefix().first` は検索対象文字列の先頭となり、`m.prefix().second` は `m[0].first`（つまり、マッチした文字列の先頭）と等しくなる。  
-	また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` の結果となる（つまり、`m.prefix()` が空文字であれば `false`、そうでなければ `true`）。  
-	戻り値が `false` の場合は未規定である。
+    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` の結果となる（つまり、`m.prefix()` が空文字であれば `false`、そうでなければ `true`）。  
+    戻り値が `false` の場合は未規定である。
 - [`regex_iterator`](../regex_iterator.md) を間接参照したオブジェクトの場合、当該オブジェクトを `m` とすると、`m.prefix().first` は最初のマッチでなければ直前のマッチの際の `m[0].second`（つまり直前にマッチした文字列の末尾）、最初のマッチであれば検索対象文字列の先頭となり、`m.prefix().second` は `m[0].first`（つまり、マッチした文字列の先頭）と等しくなる。  
-	また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` となる（つまり、`m.prefix()` が空文字であれば `false`、そうでなければ `true`）。
+    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` となる（つまり、`m.prefix()` が空文字であれば `false`、そうでなければ `true`）。
 
 
 ##例
@@ -94,20 +94,15 @@ int main()
   }
 }
 ```
-* iostream[link ../../iostream.md]
-* iterator[link ../../iterator.md]
-* regex[link ../../regex.md]
-* string[link ../../string.md]
-* smatch[link ../match_results.md]
-* regex_match[link ../regex_match.md]
-* regex_search[link ../regex_search.md]
-* regex_iterator[link ../regex_iterator.md]
-* sregex_iterator[link ../regex_iterator.md]
-* str[link str.md]
-* prefix[color ff0000]
-* begin[link ../../iterator/begin.md]
-* end[link ../../iterator/end.md]
-* ssub_match[link ../sub_match.md]
+* m.prefix()[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::smatch[link ../match_results.md]
+* std::regex_match[link ../regex_match.md]
+* std::regex_search[link ../regex_search.md]
+* std::regex_iterator[link ../regex_iterator.md]
+* std::sregex_iterator[link ../regex_iterator.md]
+* sub.str()[link str.md]
+* std::ssub_match[link ../sub_match.md]
 
 ###出力
 ```

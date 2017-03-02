@@ -32,12 +32,8 @@ int main()
   std::cout << "max_size = " << m.max_size() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* cmatch[link ../match_results.md]
-* max_size[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* max_size()[color ff0000]
+* std::cmatch[link ../match_results.md]
 
 ###出力例
 ```

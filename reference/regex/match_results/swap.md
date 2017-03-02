@@ -57,14 +57,10 @@ int main()
   }
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* regex_search[link ../regex_search.md]
-* cmatch[link ../match_results.md]
-* cout[link ../../iostream/cout.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* endl[link ../../ostream/endl.md]
 * swap[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::regex_search[link ../regex_search.md]
+* std::cmatch[link ../match_results.md]
 
 ###出力
 ```

@@ -49,14 +49,10 @@ int main()
   std::cout << std::boolalpha << (m1 != m2) << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* regex_search[link ../regex_search.md]
-* cmatch[link ../match_results.md]
-* cout[link ../../iostream/cout.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* endl[link ../../ostream/endl.md]
 * !=[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::regex_search[link ../regex_search.md]
+* std::cmatch[link ../match_results.md]
 
 ###出力
 ```

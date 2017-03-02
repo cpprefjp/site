@@ -9,21 +9,21 @@
 template <class OutputIter>
 OutputIter
 format(OutputIter out, const char_type* fmt_first, const char_type* fmt_last,
-       regex_constants::match_flag_type flags = regex_constants::format_default) const;	// (1)
+       regex_constants::match_flag_type flags = regex_constants::format_default) const; // (1)
 
 template <class OutputIter, class ST, class SA>
 OutputIter
 format(OutputIter out, const basic_string<char_type, ST, SA>& fmt,
-       regex_constants::match_flag_type flags = regex_constants::format_default) const;	// (2)
+       regex_constants::match_flag_type flags = regex_constants::format_default) const; // (2)
 
 template <class ST, class SA>
 basic_string<char_type, ST, SA>
 format(const basic_string<char_type, ST, SA>& fmt,
-       regex_constants::match_flag_type flags = regex_constants::format_default) const;	// (3)
+       regex_constants::match_flag_type flags = regex_constants::format_default) const; // (3)
 
 string_type
 format(const char_type* fmt,
-       regex_constants::match_flag_type flags = regex_constants::format_default) const;	// (4)
+       regex_constants::match_flag_type flags = regex_constants::format_default) const; // (4)
 ```
 * basic_string[link ../../string/basic_string.md]
 * regex_constants::format_default[link ../regex_constants/match_flag_type.md]
@@ -40,8 +40,8 @@ format(const char_type* fmt,
 
 ##効果
 - (1) 書式文字列 `[fmt_first, fmt_last)` を出力イテレータ `out` にコピーする。
-	コピーされる書式文字列内のエスケープシーケンスや書式指定子は、対応する文字や `*this` 内の対応する文字列に置換される。  
-	書式文字列の形式は、ビットマスク `flags` で指定する。
+    コピーされる書式文字列内のエスケープシーケンスや書式指定子は、対応する文字や `*this` 内の対応する文字列に置換される。  
+    書式文字列の形式は、ビットマスク `flags` で指定する。
 - (2) `return format(out, fmt.`[`data`](../../string/basic_string/data.md)`(), fmt.`[`data`](../../string/basic_string/data.md)`() + fmt.`[`size`](../../string/basic_string/size.md)`(), flags)` と同等。
 - (3) [`basic_string`](../../string/basic_string.md)`<char_type, ST, SA>` 型の空の文字列変数 `result` を構築し、`format(`[`back_inserter`](../../iterator/back_inserter.md)`(result), fmt, flags)` を呼び出す。
 - (4) `string_type` 型の空の文字列変数 `result` を構築し、`format(`[`back_inserter`](../../iterator/back_inserter.md)`(result), fmt, fmt +` [`char_traits`](../../string/char_traits.md)`<char_type>::`[`length`](../../string/char_traits/length.md)`(fmt), flags)` を呼び出す。
@@ -78,13 +78,10 @@ int main()
   }
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
 * format[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
 
 ###出力
 ```
