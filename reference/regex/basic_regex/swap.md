@@ -59,20 +59,15 @@ int main()
   print(re2);
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
 * swap[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
-* prefix[link ../match_results/prefix.md]
-* suffix[link ../match_results/suffix.md]
-* str[link ../match_results/str.md]
-* position[link ../match_results/position.md]
-* size[link ../match_results/size.md]
-* ready[link ../match_results/ready.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* m.prefix()[link ../match_results/prefix.md]
+* m.suffix()[link ../match_results/suffix.md]
+* m.str[link ../match_results/str.md]
+* m.position[link ../match_results/position.md]
+* m.size()[link ../match_results/size.md]
+* m.ready()[link ../match_results/ready.md]
 
 ###出力
 ```

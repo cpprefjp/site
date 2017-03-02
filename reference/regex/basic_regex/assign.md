@@ -6,26 +6,26 @@
 * cpp11[meta cpp]
 
 ```cpp
-basic_regex& assign(const basic_regex& that);					// (1)
+basic_regex& assign(const basic_regex& that);                   // (1)
 
-basic_regex& assign(basic_regex&& that) noexcept;				// (2)
+basic_regex& assign(basic_regex&& that) noexcept;               // (2)
 
 basic_regex& assign(const charT* ptr,
-                    flag_type f = regex_constants::ECMAScript);	// (3)
+                    flag_type f = regex_constants::ECMAScript); // (3)
 
 basic_regex& assign(const charT* ptr, size_t len,
-                    flag_type f = regex_constants::ECMAScript);	// (4)
+                    flag_type f = regex_constants::ECMAScript); // (4)
 
 template <class ST, class SA>
 basic_regex& assign(const basic_string<charT, ST, SA>& p,
-                    flag_type f = regex_constants::ECMAScript);	// (5)
+                    flag_type f = regex_constants::ECMAScript); // (5)
 
 template <class InputIterator>
 basic_regex& assign(InputIterator first, InputIterator last,
-                    flag_type f = regex_constants::ECMAScript);	// (6)
+                    flag_type f = regex_constants::ECMAScript); // (6)
 
 basic_regex& assign(initializer_list<charT> il,
-                    flag_type f = regex_constants::ECMAScript);	// (7)
+                    flag_type f = regex_constants::ECMAScript); // (7)
 ```
 * basic_regex[link ../basic_regex.md]
 * regex_constants::ECMAScript[link ../regex_constants/syntax_option_type.md]
@@ -47,7 +47,7 @@ basic_regex& assign(initializer_list<charT> il,
 - (3) `assign(string_type(ptr), f)` と同等。
 - (4) `assign(string_type(ptr, len), f)` と同等。
 - (5) 引数 `f` で指定されたフラグに従って、文字列 `p` で指定された正規表現を `*this` に代入する。文字列 `p` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md) を投げる。  
-	例外が投げられた場合、`*this` は変更されない。
+    例外が投げられた場合、`*this` は変更されない。
 - (6) `assign(string_type(first, last), f)` と同等。
 - (7) `assign(il.begin(), il.end(), f)` と同等。
 
@@ -55,7 +55,7 @@ basic_regex& assign(initializer_list<charT> il,
 ##事後条件
 - (1) [`flags`](flags.md)`()` と [`mark_count`](mark_count.md) は、それぞれ `that.`[`flags`](flags.md)`()` と `that.`[`mark_count`](mark_count.md) を返す。
 - (2) [`flags`](flags.md)`()` と [`mark_count`](mark_count.md) は、それぞれ `that.`[`flags`](flags.md)`()` と `that.`[`mark_count`](mark_count.md) の元の値を返す。  
-	`that` は未規定の有効な状態である。
+    `that` は未規定の有効な状態である。
 - (3) -
 - (4) -
 - (5) 例外が投げられなければ、[`flags`](flags.md)`()` は引数 `f` を、[`mark_count`](mark_count.md) は指定された正規表現内のキャプチャグループの数を返す。
@@ -87,31 +87,24 @@ int main()
   std::cout << std::boolalpha;
 
   const std::regex re1("\\w+");
-  re = re1;												// (1) の形式
+  re = re1;                                             // (1) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = std::regex("\\d+");								// (2) の形式
+  re = std::regex("\\d+");                              // (2) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = "\\w+";											// (3) の形式
+  re = "\\w+";                                          // (3) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = { '\\', 'd', '+' };								// (4) の形式
+  re = { '\\', 'd', '+' };                              // (4) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
   const std::string p = "\\w+";
-  re = p;												// (5) の形式
+  re = p;                                               // (5) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* string[link ../../string.md]
-* imbue[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* regex_search[link ../regex_search.md]
+* std::regex_search[link ../regex_search.md]
 
 ###出力
 ```

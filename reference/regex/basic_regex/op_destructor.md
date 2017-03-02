@@ -34,13 +34,8 @@ int main()
   // スコープの終わりで破棄される。
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* regex_search[link ../regex_search.md]
-* regex_constants::icase[link ../regex_constants/syntax_option_type.md]
+* std::regex_search[link ../regex_search.md]
+* std::regex_constants::icase[link ../regex_constants/syntax_option_type.md]
 
 ###出力
 ```

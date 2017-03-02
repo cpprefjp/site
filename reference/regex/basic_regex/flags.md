@@ -48,14 +48,10 @@ int main()
   print(re.flags());
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
+* flags[color ff0000]
 * std::regex_constants::syntax_option_type[link ../regex_constants/syntax_option_type.md]
 * std::regex_constants::icase[link ../regex_constants/syntax_option_type.md]
 * std::regex_constants::optimize[link ../regex_constants/syntax_option_type.md]
-* flags[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
 
 ###出力
 ```

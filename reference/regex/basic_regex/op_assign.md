@@ -6,16 +6,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-basic_regex& operator=(const basic_regex& e);					// (1)
+basic_regex& operator=(const basic_regex& e);                   // (1)
 
-basic_regex& operator=(basic_regex&& e) noexcept;				// (2)
+basic_regex& operator=(basic_regex&& e) noexcept;               // (2)
 
-basic_regex& operator=(const charT* ptr);						// (3)
+basic_regex& operator=(const charT* ptr);                       // (3)
 
-basic_regex& operator=(initializer_list<charT> il);				// (4)
+basic_regex& operator=(initializer_list<charT> il);             // (4)
 
 template <class ST, class SA>
-basic_regex& operator=(const basic_string<charT, ST, SA>& p);	// (5)
+basic_regex& operator=(const basic_string<charT, ST, SA>& p);   // (5)
 ```
 * basic_regex[link ../basic_regex.md]
 * initializer_list[link ../../initializer_list.md]
@@ -55,31 +55,24 @@ int main()
   std::cout << std::boolalpha;
 
   const std::regex re1("\\w+");
-  re = re1;												// (1) の形式
+  re = re1;                                             // (1) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = std::regex("\\d+");								// (2) の形式
+  re = std::regex("\\d+");                              // (2) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = "\\w+";											// (3) の形式
+  re = "\\w+";                                          // (3) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = { '\\', 'd', '+' };								// (4) の形式
+  re = { '\\', 'd', '+' };                              // (4) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
   const std::string p = "\\w+";
-  re = p;												// (5) の形式
+  re = p;                                               // (5) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* string[link ../../string.md]
-* imbue[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* regex_search[link ../regex_search.md]
+* std::regex_search[link ../regex_search.md]
 
 ###出力
 ```

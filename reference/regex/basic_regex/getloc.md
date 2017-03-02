@@ -25,7 +25,7 @@ locale_type getloc() const;
 - `traits_inst` はデフォルト初期化されたオブジェクトである。
 - `locale_type` は、ロケールに関する型であり、`traits_type::locale_type` の typedef である。
 - `traits_type` は、クラステンプレート [`basic_regex`](../basic_regex.md) の 2 番目のテンプレート引数で、デフォルトでは [`regex_traits`](../regex_traits.md)`<char_type>` である。  
-	その場合、`locale_type` は [`locale`](../../locale/locale.md) である。
+    その場合、`locale_type` は [`locale`](../../locale/locale.md) である。
 
 
 ##例
@@ -41,13 +41,8 @@ int main()
   std::cout << std::boolalpha << (loc == std::locale()) << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* locale[link ../../locale.md]
-* regex[link ../../regex.md]
-* getloc[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* boolalpha[link ../../ios/boolalpha.md]
+* getloc()[color ff0000]
+* std::locale[link /reference/locale/locale.md]
 
 ###出力
 ```

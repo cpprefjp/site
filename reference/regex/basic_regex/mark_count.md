@@ -36,11 +36,7 @@ int main()
   std::cout << re.mark_count() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* mark_count[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* mark_count()[color ff0000]
 
 ###出力
 ```
