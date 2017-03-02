@@ -8,8 +8,8 @@ namespace std {
   template<class CharT, class Traits = char_traits<CharT> >
   class basic_ios : public ios_base { …… };
 
-  typedef basic_ios<char> ios;                                  // <iosfwd> で定義
-  typedef basic_ios<wchar_t> wios;                              // <iosfwd> で定義
+  using ios  = basic_ios<char>;                                  // <iosfwd> で定義
+  using wios = basic_ios<wchar_t>;                              // <iosfwd> で定義
 }
 ```
 * ios_base[link ios_base.md]

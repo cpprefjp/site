@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef unsigned-integer-type uint_fast32_t;
+  using uint_fast32_t = unsigned-integer-type;
 }
 ```
 * unsigned-integer-type[italic]

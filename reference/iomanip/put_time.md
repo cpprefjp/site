@@ -26,8 +26,8 @@ unspecified put_time(const struct tm* tmb, const CharT* fmt);
 template <class CharT, class Traits>
 void f(basic_ios<CharT, Traits>& out, const struct tm* tmb, const CharT* fmt)
 {
-  typedef ostreambuf_iterator<CharT, Traits> Iter;
-  typedef time_put<CharT, Iter> TimePut;
+  using Iter    = ostreambuf_iterator<CharT, Traits>;
+  using TimePut = time_put<CharT, Iter>;
   const TimePut& tp = use_facet<TimePut>(out.getloc());
   const Iter end = tp.put(Iter(out.rdbuf()), out, out.fill(), tmb,
                           fmt, fmt + Traits::length(fmt));

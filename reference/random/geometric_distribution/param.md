@@ -22,7 +22,7 @@ void param(const param_type& parm); // (2)
 
 int main()
 {
-  typedef std::geometric_distribution<> dist_type;
+  using dist_type = std::geometric_distribution<>;
 
   dist_type dist(0.5);
 

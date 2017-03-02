@@ -43,7 +43,7 @@ int main()
 
   // パラメータを指定する
   {
-    typedef std::fisher_f_distribution<> dist_type;
+    using dist_type = std::fisher_f_distribution<>;
 
     // 自由度3と4で分布させる
     dist_type::param_type param(3.0, 4.0);

@@ -37,7 +37,7 @@ const_iterator cend() const noexcept;
 
 int main()
 {
-  typedef std::unordered_map<std::string, int> mymap;
+  using mymap = std::unordered_map<std::string, int>;
 
   mymap um{ { "1st", 1 }, { "2nd", 2 }, { "3rd", 3 }, };
 

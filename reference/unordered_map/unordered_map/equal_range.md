@@ -47,7 +47,7 @@ int main()
   c.insert(std::make_pair(4,'d'));
   c.insert(std::make_pair(5,'e'));
 
-  typedef std::unordered_map<int,char>::iterator it_t;
+  using it_t = std::unordered_map<int,char>::iterator;
   std::pair<it_t, it_t> ret = c.equal_range(3);
 
   std::cout << "low: " << ret.first->first << " " << ret.first->second << std::endl;

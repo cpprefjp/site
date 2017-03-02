@@ -48,7 +48,7 @@ int main()
 
   // (2) パラメータを渡すバージョン
   {
-    typedef std::geometric_distribution<> dist_type;
+    using dist_type = std::geometric_distribution<>;
     dist_type dist;
 
     // 確率0.5で成功する事象を、成功するまで施行する

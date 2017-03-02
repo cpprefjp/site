@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef implementation-defined default_random_engine;
+  using default_random_engine = implementation-defined;
 }
 ```
 

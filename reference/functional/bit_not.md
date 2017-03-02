@@ -9,8 +9,8 @@ namespace std {
   template <typename T = void>
   struct bit_not {
     constexpr T operator()(const T& x) const;
-    typedef T argument_type;
-    typedef T result_type;
+    using argument_type = T;
+    using result_type   = T;
   };
 
   template <>
@@ -18,7 +18,7 @@ namespace std {
     template <typename T>
     constexpr auto operator()(T&& t) const
       -> decltype(~forward<T>(t));
-    typedef unspecified is_transparent;
+    using is_transparent = unspecified;
   };
 }
 ```

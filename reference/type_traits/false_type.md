@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef integral_constant<bool, false> true_type;
+  using true_type = integral_constant<bool, false>;
 }
 ```
 * integral_constant[link integral_constant.md]

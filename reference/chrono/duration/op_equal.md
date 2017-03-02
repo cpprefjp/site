@@ -22,7 +22,7 @@ namespace chrono {
 2つの[`duration`](/reference/chrono/duration.md)の単位を合わせた上で、[`count()`](/reference/chrono/duration/count.md)の等値比較を行う。
 
 ```cpp
-typedef common_type<decltype(lhs), decltype(rhs)>::type ct;
+using ct = common_type<decltype(lhs), decltype(rhs)>::type;
 return ct(lhs).count() == ct(rhs).count();
 ```
 * common_type[link /reference/type_traits/common_type.md]

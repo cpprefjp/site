@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef signed-integer-type int8_t;
+  using int8_t = signed-integer-type;
 }
 ```
 * signed-integer-type[italic]

@@ -66,8 +66,8 @@ int main()
 template <class RandomAccessIterator>
 void make_heap(RandomAccessIterator first, RandomAccessIterator last)
 {
-  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
-  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+  using difference_type = typename std::iterator_traits<RandomAccessIterator>::difference_type;
+  using value_type      = typename std::iterator_traits<RandomAccessIterator>::value_type;
 
   const difference_type len = last - first;
   for (difference_type top = len / 2 - 1; top >= 0; --top) {
@@ -88,8 +88,8 @@ void make_heap(RandomAccessIterator first, RandomAccessIterator last)
 template <class RandomAccessIterator, class Compare>
 void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp)
 {
-  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
-  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+  using difference_type = typename std::iterator_traits<RandomAccessIterator>::difference_type;
+  using value_type      = typename std::iterator_traits<RandomAccessIterator>::value_type;
 
   const difference_type len = last - first;
   for (difference_type top = len / 2 - 1; top >= 0; --top) {

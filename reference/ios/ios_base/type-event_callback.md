@@ -5,7 +5,7 @@
 * ios_base[meta class]
 
 ```cpp
-typedef void (*event_callback)(event ev, ios_base& str, int index);
+using event_callback = void(*)(event ev, ios_base& str, int index);
 ```
 * event[link type-event.md]
 * ios_base[link ../ios_base.md]

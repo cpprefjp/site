@@ -8,7 +8,7 @@
 namespace std {
   template <class... Types>
   struct common_type {
-    typedef … type;
+    using type = …;
   };
 
   template <class... T>
@@ -66,17 +66,17 @@ struct common_type;
 
 template <class T>
 struct common_type<T> {
-  typedef T type;
+  using type = T;
 };
 
 template <class T, class U>
 struct common_type<T, U> {
-  typedef decltype(true ? declval<T>() : declval<U>()) type;
+  using type = decltype(true ? declval<T>() : declval<U>());
 };
 
 template <class T, class U, class... V>
 struct common_type<T, U, V...> {
-  typedef typename common_type<typename common_type<T, U>::type, V...>::type type;
+  using type = typename common_type<typename common_type<T, U>::type, V...>::type;
 };
 ```
 * declval[link /reference/utility/declval.md]
@@ -92,17 +92,17 @@ using common_type_t = typename common_type<T...>::type;
 
 template <class T>
 struct common_type<T> {
-  typedef decay_t<T> type;
+  using type = decay_t<T>;
 };
 
 template <class T, class U>
 struct common_type<T, U> {
-  typedef decay_t<decltype(true ? declval<T>() : declval<U>())> type;
+  using type = decay_t<decltype(true ? declval<T>() : declval<U>())>;
 };
 
 template <class T, class U, class... V>
 struct common_type<T, U, V...> {
-  typedef common_type_t<common_type_t<T, U>, V...> type;
+  using type = common_type_t<common_type_t<T, U>, V...>;
 };
 ```
 * decay_t[link decay.md]

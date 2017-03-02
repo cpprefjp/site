@@ -12,8 +12,8 @@ namespace std {
             UIntType c, size_t l, UIntType f>
   class mersenne_twister_engine;
 
-  typedef … mt19937;
-  typedef … mt19937_64;
+  using mt19937    = …;
+  using mt19937_64 = …;
 }
 ```
 * mt19937[link mt19937.md]

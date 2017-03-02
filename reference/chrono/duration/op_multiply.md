@@ -33,7 +33,7 @@ durationの乗算を行う
 
 ##戻り値
 ```cpp
-typedef duration<typename common_type<Rep1, Rep2>::type, Period> cd;
+using cd = duration<typename common_type<Rep1, Rep2>::type, Period>;
 return cd(cd(d).count() * s);
 ```
 * duration[link /reference/chrono/duration.md]

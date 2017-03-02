@@ -11,10 +11,10 @@ namespace std {
             class traits = regex_traits<charT> >
   class regex_token_iterator;
 
-  typedef regex_token_iterator<const char*> cregex_token_iterator;
-  typedef regex_token_iterator<const wchar_t*> wcregex_token_iterator;
-  typedef regex_token_iterator<string::const_iterator> sregex_token_iterator;
-  typedef regex_token_iterator<wstring::const_iterator> wsregex_token_iterator;
+  using cregex_token_iterator  = regex_token_iterator<const char*>;
+  using wcregex_token_iterator = regex_token_iterator<const wchar_t*>;
+  using sregex_token_iterator  = regex_token_iterator<string::const_iterator>;
+  using wsregex_token_iterator = regex_token_iterator<wstring::const_iterator>;
 }
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]

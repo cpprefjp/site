@@ -113,7 +113,7 @@ int main()
 
   // (5)
   {
-    typedef std::piecewise_linear_distribution<> dist_type;
+    using dist_type = std::piecewise_linear_distribution<>;
 
     std::array<double, 3> intervals = {0.0, 0.5, 1.0}; // 区間数列
     std::array<double, 3> densities = {0.0, 0.5, 0.0}; // 重み数列

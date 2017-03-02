@@ -9,23 +9,23 @@ namespace std {
   template <typename T>
   struct logical_not {
     bool operator ()(const T& x) const;
-    typedef T argument_type;
-    typedef bool result_type;
+    using argument_type = T;
+    using result_type   = bool;
   };
 
   // C++14
   template <class T = void>
   struct logical_not {
     bool constexpr operator()(const T& x) const;
-    typedef T argument_type;
-    typedef bool result_type;
+    using argument_type = T;
+    using result_type   = bool;
   };
 
   template <>
   struct logical_not<void> {
     template <class T> constexpr auto operator()(T&& t) const
       -> decltype(!std::forward<T>(t));
-    typedef unspecified is_transparent;
+    using is_transparent = unspecified;
   };
 }
 ```

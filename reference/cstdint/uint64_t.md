@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef unsigned-integer-type uint64_t;
+  using uint64_t = unsigned-integer-type;
 }
 ```
 * unsigned-integer-type[italic]

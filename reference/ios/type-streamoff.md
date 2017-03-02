@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  typedef implementation-defined streamoff;
+  using streamoff = implementation-defined;
 }
 ```
 

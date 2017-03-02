@@ -15,7 +15,7 @@ namespace std {
   template <size_t I, class... Types>
   class tuple_element<I, tuple<Types...>> {
   public:
-    typedef TI type;
+    using type = TI;
   };
 
   template <size_t I, class T>

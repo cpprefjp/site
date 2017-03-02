@@ -34,7 +34,7 @@ void destroy(U* p);
 
 int main()
 {
-  typedef std::pair<int, char> value_type;
+  using value_type = std::pair<int, char>;
   std::allocator<value_type> alloc;
 
   std::size_t n = 1;

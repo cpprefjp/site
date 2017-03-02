@@ -43,7 +43,7 @@ int main()
 
   // パラメータを通して範囲指定する
   {
-    typedef std::chi_squared_distribution<> dist_type;
+    using dist_type = std::chi_squared_distribution<>;
 
     // 自由度1.0で分布させる
     dist_type::param_type param(1.0);

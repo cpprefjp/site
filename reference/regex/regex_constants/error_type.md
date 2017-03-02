@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
 namespace regex_constants {
-  typedef implementation-defined error_type;
+  using error_type = implementation-defined;
   constexpr error_type error_collate = unspecified;
   constexpr error_type error_ctype = unspecified;
   constexpr error_type error_escape = unspecified;

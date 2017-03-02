@@ -5,7 +5,7 @@
 * ios_base[meta class]
 
 ```cpp
-typedef T4 seekdir;
+using seekdir = T4;
 ```
 * T4[italic]
 

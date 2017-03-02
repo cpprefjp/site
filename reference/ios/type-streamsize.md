@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  typedef implementation-defined streamsize;
+  using streamsize = implementation-defined;
 }
 ```
 

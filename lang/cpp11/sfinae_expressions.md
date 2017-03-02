@@ -97,10 +97,10 @@ template <class T> void h(Z<T::template TT>*){}
 struct A {};
 struct B { int Y; };
 struct C {
-  typedef int N;
+  using N = int;
 };
 struct D {
-  typedef int TT;
+  using TT = int;
 };
 
 int main() {

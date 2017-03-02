@@ -22,7 +22,7 @@ void param(const param_type& parm); // (2)
 
 int main()
 {
-  typedef std::fisher_f_distribution<> dist_type;
+  using dist_type = std::fisher_f_distribution<>;
 
   dist_type dist(3.0, 4.0);
 

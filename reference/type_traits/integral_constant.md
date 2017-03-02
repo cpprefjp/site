@@ -10,8 +10,8 @@ namespace std {
   struct integral_constant {
     static constexpr T value = v;
 
-    typedef T value_type;
-    typedef integral_constant<T,v> type;
+    using value_type = T;
+    using type       = integral_constant<T,v>;
 
     constexpr operator value_type()          { return value; } // C++11
     constexpr operator value_type() noexcept { return value; } // C++14
@@ -31,7 +31,7 @@ namespace std {
 ```cpp
 #include <type_traits>
 
-typedef std::integral_constant<int, 0> int_zero;
+using int_zero = std::integral_constant<int, 0>;
 
 static_assert(int_zero::value == 0, "value == 0");
 static_assert(std::is_same<int_zero::value_type, int>::value, "value_type == int");

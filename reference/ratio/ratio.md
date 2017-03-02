@@ -9,7 +9,7 @@ namespace std {
   template <intmax_t N, intmax_t D = 1>
   class ratio {
   public:
-    typedef ratio<num, den> type;
+    using type = ratio<num, den>;
     static constexpr intmax_t num;
     static constexpr intmax_t den;
   };

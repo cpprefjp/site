@@ -8,7 +8,7 @@
 namespace std {
   template <class T>
   struct rank {
-    typedef … type;
+    using type = …;
   };
 }
 ```

@@ -41,7 +41,7 @@ int main()
 
   // パラメータを通して範囲指定する
   {
-    typedef std::binomial_distribution<> dist_type;
+    using dist_type = std::binomial_distribution<>;
 
     // 確率0.5で成功する事象を、3回施行する
     dist_type::param_type param(3, 0.5);

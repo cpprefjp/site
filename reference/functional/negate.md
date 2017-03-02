@@ -10,23 +10,23 @@ namespace std {
   struct negate {
     T operator()(const T& x) const;
     constexpr T operator ()(const T& x) const;
-    typedef T argument_type;
-    typedef T result_type;
+    using argument_type = T;
+    using result_type   = T;
   };
 
   // C++14
   template <typename T = void>
   struct negate {
     constexpr T operator()(const T& x) const;
-    typedef T argument_type;
-    typedef T result_type;
+    using argument_type = T;
+    using result_type   = T;
   };
 
   template <>
   struct negate<void> {
     template <class T> constexpr auto operator()(T&& t) const
       -> decltype(-std::forward<T>(t));
-    typedef unspecified is_transparent;
+    using is_transparent = unspecified;
   };
 }
 ```

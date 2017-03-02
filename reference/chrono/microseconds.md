@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
 namespace chrono {
-  typedef duration<最低でも55ビットを持つ符号付き整数型, micro> microseconds;
+  using microseconds = duration<最低でも55ビットを持つ符号付き整数型, micro>;
 }}
 ```
 * duration[link /reference/chrono/duration.md]

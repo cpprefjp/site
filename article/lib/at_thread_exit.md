@@ -51,7 +51,7 @@ namespace std {
 
 template<class F>
 std::future<typename std::result_of<F()>::type> spawn_task(F f) {
-  typedef typename std::result_of<F()>::type result_type;
+  using result_type = typename std::result_of<F()>::type;
   std::packaged_task<result_type ()> task(std::move(f));
   std::future<result_type> future(task.get_future());
   std::thread th(std::move(task));
@@ -104,7 +104,7 @@ struct task_executor
 
 template<class F>
 std::future<typename std::result_of<F()>::type> spawn_task(F f) {
-  typedef typename std::result_of<F()>::type result_type;
+  using result_type = typename std::result_of<F()>::type;
   std::packaged_task<result_type ()> task(std::move(f));
   std::future<result_type> future(task.get_future());
   std::thread th(task_executor{}, std::move(task));

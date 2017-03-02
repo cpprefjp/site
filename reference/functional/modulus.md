@@ -9,25 +9,25 @@ namespace std {
   template <typename T>
   struct modulus {
     T operator()(const T& x, const T& y) const;
-    typedef T first_argument_type;
-    typedef T second_argument_type;
-    typedef T result_type;
+    using first_argument_type  = T;
+    using second_argument_type = T;
+    using result_type          = T;
   };
 
   // C++14
   template <typename T = void>
   struct modulus {
     constexpr T operator()(const T& x, const T& y) const;
-    typedef T first_argument_type;
-    typedef T second_argument_type;
-    typedef T result_type;
+    using first_argument_type  = T;
+    using second_argument_type = T;
+    using result_type          = T;
   };
 
   template <>
   struct modulus<void> {
     template <class T, class U> constexpr auto operator()(T&& t, U&& u) const
       -> decltype(std::forward<T>(t) / std::forward<U>(u));
-    typedef unspecified is_transparent;
+    using is_transparent = unspecified;
   };
 }
 ```

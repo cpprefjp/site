@@ -26,7 +26,7 @@ namespace std {
 引数を部分束縛された [<i>Callable</i>](callable.md) オブジェクト。このオブジェクトは、次のような関数オブジェクトとして扱うことができる：
 ```cpp
 struct bound_function_type {
-  typedef unspecified result_type;
+  using result_type = unspecified;
   template <class... UnBoundArgs>
   unspecified operator ()(UnBoundArgs&&... unbound_args) const;
 };

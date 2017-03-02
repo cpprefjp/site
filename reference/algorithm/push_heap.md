@@ -77,8 +77,8 @@ int main()
 template <class RandomAccessIterator>
 void push_heap(RandomAccessIterator first, RandomAccessIterator last)
 {
-  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
-  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+  using difference_type = typename std::iterator_traits<RandomAccessIterator>::difference_type;
+  using value_type      = typename std::iterator_traits<RandomAccessIterator>::value_type;
   difference_type c = last - first - 1;
   value_type v = std::move(first[c]);
   while (c > 0) {
@@ -94,8 +94,8 @@ void push_heap(RandomAccessIterator first, RandomAccessIterator last)
 template <class RandomAccessIterator, class Compare>
 void push_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp)
 {
-  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type difference_type;
-  typedef typename std::iterator_traits<RandomAccessIterator>::value_type value_type;
+  using difference_type = typename std::iterator_traits<RandomAccessIterator>::difference_type;
+  using value_type      = typename std::iterator_traits<RandomAccessIterator>::value_type;
 
   difference_type c = last - first - 1;
   value_type v = std::move(first[c]);

@@ -39,8 +39,8 @@ using namespace std::chrono;
 
 int main()
 {
-  typedef time_point<system_clock, milliseconds> MTimePoint;
-  typedef time_point<system_clock, seconds>      STimePoint;
+  using MTimePoint = time_point<system_clock, milliseconds>;
+  using STimePoint = time_point<system_clock, seconds>;
 
   MTimePoint mp(milliseconds(1100));
 

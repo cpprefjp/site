@@ -8,8 +8,8 @@ namespace std {
   template<class CharT, class Traits = char_traits<CharT>>
   class basic_ostream : virtual public basic_ios<CharT, Traits> { …… };
 
-  typedef basic_ostream<char> ostream;
-  typedef basic_ostream<wchar_t> wostream;
+  using ostream  = basic_ostream<char>;
+  using wostream = basic_ostream<wchar_t>;
 }
 ```
 * basic_ios[link ../ios/basic_ios.md]

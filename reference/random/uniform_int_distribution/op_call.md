@@ -50,7 +50,7 @@ int main()
   // (2) パラメータを渡すバージョン
   std::cout << std::endl;
   {
-    typedef std::uniform_int_distribution<> dist_type;
+    using dist_type = std::uniform_int_distribution<>;
     dist_type dist;
 
     for (int i = 0; i < 5; ++i) {

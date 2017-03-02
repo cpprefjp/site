@@ -10,12 +10,12 @@ namespace std {
 
   template <class T1, class T2>
   struct tuple_element<0, pair<T1, T2>> {
-    typedef T1 type;
+    using type = T1;
   };
 
   template <class T1, class T2>
   struct tuple_element<1, pair<T1, T2>> {
-    typedef T2 type;
+    using type = T2;
   };
 }
 ```

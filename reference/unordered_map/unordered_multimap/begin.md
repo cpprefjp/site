@@ -45,7 +45,7 @@ const_iterator begin() const noexcept;
 
 int main()
 {
-  typedef std::unordered_multimap<std::string, int> mymap;
+  using mymap = std::unordered_multimap<std::string, int>;
 
   mymap um{ { "1st", 1 }, { "2nd", 2 }, { "3rd", 3 }, };
   const mymap cum{um};

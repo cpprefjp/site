@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef unspecified exception_ptr;
+  using exception_ptr = unspecified;
 }
 ```
 * unspecified[italic]

@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef implementation-defined float_t;
+  using float_t = implementation-defined;
 }
 ```
 

@@ -8,7 +8,7 @@
 namespace std {
   template <class T>
   struct add_pointer {
-    typedef … type;
+    using type = …;
   };
 
   template <class T>

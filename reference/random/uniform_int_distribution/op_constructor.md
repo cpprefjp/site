@@ -46,7 +46,7 @@ int main()
 
   // (2) パラメータを通して範囲指定する
   {
-    typedef std::uniform_int_distribution<> dist_type;
+    using dist_type = std::uniform_int_distribution<>;
 
     // 0以上3以下の範囲で、値を等確率で生成する
     dist_type::param_type param(0, 3);

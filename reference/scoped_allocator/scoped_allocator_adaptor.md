@@ -107,7 +107,7 @@ class MyAlloc : public std::allocator<T> {
   template <class> friend class MyAlloc;
 public:
   template <class U>
-  struct rebind { typedef MyAlloc<U> other; };
+  struct rebind { using other = MyAlloc<U>; };
 
   MyAlloc(int state = 0)
     : state_(state) {}
@@ -180,7 +180,7 @@ class MyAlloc : public std::allocator<T> {
   template <class> friend class MyAlloc;
 public:
   template <class U>
-  struct rebind { typedef MyAlloc<U> other; };
+  struct rebind { using other = MyAlloc<U>; };
 
   MyAlloc(int state = 0)
     : state_(state) {}

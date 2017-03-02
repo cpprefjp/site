@@ -8,7 +8,7 @@
 namespace std {
   template <bool B, class T, class F>
   struct conditional {
-    typedef … type;
+    using type = …;
   };
 
   template <bool B, class T, class F>

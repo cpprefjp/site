@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef signed-integer-type int_least16_t;
+  using int_least16_t = signed-integer-type;
 }
 ```
 * signed-integer-type[italic]

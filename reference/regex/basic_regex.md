@@ -11,8 +11,8 @@ namespace std {
             class traits = regex_traits<charT> >
   class basic_regex;
 
-  typedef basic_regex<char>    regex;
-  typedef basic_regex<wchar_t> wregex;
+  using regex  = basic_regex<char>;
+  using wregex = basic_regex<wchar_t>;
 }
 ```
 * regex_traits[link regex_traits.md]

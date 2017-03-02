@@ -10,8 +10,8 @@ namespace std {
     public basic_istream<CharT, Traits>,
     public basic_ostream<CharT, Traits> { …… };
 
-  typedef basic_iostream<char> iostream;
-  typedef basic_iostream<wchar_t> wiostream;
+  using iostream  = basic_iostream<char>;
+  using wiostream = basic_iostream<wchar_t>;
 }
 ```
 * basic_istream[link basic_istream.md]

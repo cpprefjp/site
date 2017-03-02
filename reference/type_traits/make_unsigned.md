@@ -8,7 +8,7 @@
 namespace std {
   template <class T>
   struct make_unsigned {
-    typedef … type;
+    using type = …;
   };
 
   template <class T>

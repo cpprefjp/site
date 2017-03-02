@@ -41,7 +41,7 @@ int main()
 
   // (2) パラメータを通して範囲指定する
   {
-    typedef std::geometric_distribution<> dist_type;
+    using dist_type = std::geometric_distribution<>;
 
     // 確率0.5で成功する事象を、成功するまで施行する
     dist_type::param_type param(0.5);
