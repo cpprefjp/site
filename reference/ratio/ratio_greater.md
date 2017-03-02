@@ -31,6 +31,8 @@ int main()
   static_assert(std::ratio_greater<r1, r2>::value == true, "r1 > r2");
 }
 ```
+* std::ratio_greater[color ff0000]
+* std::ratio[link ratio.md]
 
 ###出力
 ```

@@ -34,6 +34,8 @@ int main()
   static_assert(result::den == 25, "result den is 25");
 }
 ```
+* std::ratio_multiply[color ff0000]
+* std::ratio[link ratio.md]
 
 ###出力
 ```

@@ -34,6 +34,8 @@ int main()
   static_assert(result::den == 5, "result den is 5");
 }
 ```
+* std::ratio_subtract[color ff0000]
+* std::ratio[link ratio.md]
 
 ###出力
 ```

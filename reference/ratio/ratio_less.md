@@ -33,6 +33,8 @@ int main()
   static_assert(std::ratio_less<r1, r2>::value == true, "r1 < r2");
 }
 ```
+* std::ratio_less[color ff0000]
+* std::ratio[link ratio.md]
 
 ###出力
 ```

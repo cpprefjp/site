@@ -38,6 +38,7 @@ int main()
   static_assert(r::den == 4, "den is 4");
 }
 ```
+* std::ratio[color ff0000]
 
 ###出力
 ```
