@@ -33,6 +33,7 @@ int main()
   }
 }
 ```
+* code()[color ff0000]
 * std::regex[link /reference/regex/basic_regex.md]
 * std::regex_constants::error_type[link /reference/regex/regex_constants/error_type.md]
 
