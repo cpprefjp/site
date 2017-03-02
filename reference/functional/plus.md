@@ -10,7 +10,7 @@ namespace std {
   struct plus {
     T operator()(const T& x, const T& y) const;
     typedef T first_argument_type;
-    typedef T second_argument_type
+    typedef T second_argument_type;
     typedef T result_type;
   };
 
