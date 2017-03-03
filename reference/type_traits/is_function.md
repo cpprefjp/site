@@ -23,7 +23,7 @@ namespace std {
 ```cpp
 #include <type_traits>
 
-typedef void f();
+using f = void();
 
 static_assert(std::is_function<f>::value == true, "value == true, f is function");
 static_assert(std::is_same<std::is_function<f>::value_type, bool>::value, "value_type == bool");

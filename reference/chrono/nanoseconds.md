@@ -8,7 +8,7 @@
 namespace std {
 
 namespace chrono {
-  typedef duration<最低でも64ビットを持つ符号付き整数型, nano> nanoseconds;
+  using nanoseconds = duration<最低でも64ビットを持つ符号付き整数型, nano>;
 }}
 ```
 * duration[link /reference/chrono/duration.md]

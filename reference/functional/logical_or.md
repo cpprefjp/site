@@ -9,25 +9,25 @@ namespace std {
   template <typename T>
   struct logical_or {
     bool operator ()(const T& x, const T& y) const;
-    typedef T first_argument_type;
-    typedef T second_argument_type;
-    typedef bool result_type;
+    using first_argument_type  = T;
+    using second_argument_type = T;
+    using result_type          = bool;
   };
 
   // C++14
   template <class T = void>
   struct logical_or {
     bool constexpr operator()(const T& x, const T& y) const;
-    typedef T first_argument_type;
-    typedef T second_argument_type;
-    typedef bool result_type;
+    using first_argument_type  = T;
+    using second_argument_type = T;
+    using result_type          = bool;
   };
 
   template <>
   struct logical_or<void> {
     template <class T, class U> constexpr auto operator()(T&& t, U&& u) const
       -> decltype(std::forward<T>(t) || std::forward<U>(u));
-    typedef unspecified is_transparent;
+    using is_transparent = unspecified;
   };
 }
 ```

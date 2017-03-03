@@ -10,18 +10,18 @@ namespace std {
   template <typename T>
   struct bit_or {
     T operator()(const T& x, const T& y) const;
-    typedef T first_argument_type;
-    typedef T second_argument_type;
-    typedef T result_type;
+    using first_argument_type  = T;
+    using second_argument_type = T;
+    using result_type          = T;
   };
 
   // C++14 から（operator() が constexpr、テンプレート引数にデフォルトが指定された）
   template <typename T = void>
   struct bit_or {
     constexpr T operator()(const T& x, const T& y) const;
-    typedef T first_argument_type;
-    typedef T second_argument_type;
-    typedef T result_type;
+    using first_argument_type  = T;
+    using second_argument_type = T;
+    using result_type          = T;
   };
 
   // テンプレート引数が void（デフォルト）の場合の特殊化（operator() が関数テンプレート）
@@ -30,7 +30,7 @@ namespace std {
     template <typename T, typename U>
     constexpr auto operator()(const T& t, const U& u) const
       -> decltype(forward<T>(t) | forward<U>(u));
-    typedef unspecified is_transparent;
+    using is_transparent = unspecified;
   };
 }
 ```

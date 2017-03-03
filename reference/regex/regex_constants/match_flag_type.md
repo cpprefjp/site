@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
 namespace regex_constants{
-  typedef implementation-defined match_flag_type;
+  using match_flag_type = implementation-defined;
   constexpr match_flag_type match_default = {};
   constexpr match_flag_type match_not_bol = unspecified;
   constexpr match_flag_type match_not_eol = unspecified;

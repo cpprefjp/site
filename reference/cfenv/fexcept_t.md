@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef implementation-defined fexcept_t;
+  using fexcept_t = implementation-defined;
 }
 ```
 

@@ -96,7 +96,7 @@ int main()
 
   // (5)
   {
-    typedef std::discrete_distribution<> dist_type;
+    using dist_type = std::discrete_distribution<>;
 
     // 初期化子リストで確率列を作成
     dist_type::param_type param = {0.1, 0.2, 0.3};

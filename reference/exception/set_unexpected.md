@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef void (*unexpected_handler)();
+  using unexpected_handler = void(*)();
   unexpected_handler set_unexpected (unexpected_handler f) throw();
 }
 ```

@@ -9,8 +9,8 @@ namespace std {
             class Allocator = allocator<CharT> >
   class basic_istringstream : public basic_istream<CharT, Traits>;
   
-  typedef basic_istringstream<char>    istringstream;
-  typedef basic_istringstream<wchar_t> wistringstream;
+  using istringstream  = basic_istringstream<char>;
+  using wistringstream = basic_istringstream<wchar_t>;
 }
 ```
 * char_traits[link /reference/string/char_traits.md]

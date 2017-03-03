@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef decltype(nullptr) nullptr_t;
+  using nullptr_t = decltype(nullptr);
 }
 ```
 

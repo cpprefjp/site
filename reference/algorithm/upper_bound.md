@@ -85,7 +85,7 @@ template<class ForwardIterator, class T, class Compare>
 ForwardIterator
 upper_bound(ForwardIterator first, ForwardIterator last, const T& value, Compare comp)
 {
-  typedef typename std::iterator_traits<ForwardIterator>::difference_type diff;
+  using diff = typename std::iterator_traits<ForwardIterator>::difference_type;
   for (diff len = std::distance(first, last); len != 0; ) {
     diff half = len / 2;
     ForwardIterator mid = first;

@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef unsigned-integer-type uint_least8_t;
+  using uint_least8_t = unsigned-integer-type;
 }
 ```
 * unsigned-integer-type[italic]

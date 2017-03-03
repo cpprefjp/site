@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef signed-integer-type int_fast16_t;
+  using int_fast16_t = signed-integer-type;
 }
 ```
 * signed-integer-type[italic]

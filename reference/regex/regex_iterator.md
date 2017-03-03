@@ -11,10 +11,10 @@ namespace std {
             class traits = regex_traits<charT> >
   class regex_iterator;
 
-  typedef regex_iterator<const char*> cregex_iterator;
-  typedef regex_iterator<const wchar_t*> wcregex_iterator;
-  typedef regex_iterator<string::const_iterator> sregex_iterator;
-  typedef regex_iterator<wstring::const_iterator> wsregex_iterator;
+  using cregex_iterator  = regex_iterator<const char*>;
+  using wcregex_iterator = regex_iterator<const wchar_t*>;
+  using sregex_iterator  = regex_iterator<string::const_iterator>;
+  using wsregex_iterator = regex_iterator<wstring::const_iterator>;
 }
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]

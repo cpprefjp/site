@@ -10,8 +10,8 @@ namespace std {
   template <class UIntType, UIntType A, UIntType C, UIntType M>
   class linear_congruential_engine;
 
-  typedef … minstd_rand0;
-  typedef … minstd_rand;
+  using minstd_rand0 = …;
+  using minstd_rand  = …;
 }
 ```
 * minstd_rand0[link minstd_rand0.md]

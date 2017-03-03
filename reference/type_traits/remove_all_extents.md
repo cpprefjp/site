@@ -8,7 +8,7 @@
 namespace std {
   template <class T>
   struct remove_all_extents {
-    typedef … type;
+    using type = …;
   };
 
   template <class T>

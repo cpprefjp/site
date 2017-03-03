@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  typedef void (*terminate_handler)();
+  using terminate_handler = void(*)();
   terminate_handler set_terminate(terminate_handler f) noexcept;
 }
 ```

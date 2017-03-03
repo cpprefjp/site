@@ -54,7 +54,7 @@ int main()
   // (2) パラメータを渡すバージョン
   std::cout << std::endl;
   {
-    typedef std::discrete_distribution<> dist_type;
+    using dist_type = std::discrete_distribution<>;
     dist_type dist;
 
     for (int i = 0; i < 5; ++i) {

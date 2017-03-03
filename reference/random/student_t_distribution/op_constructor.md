@@ -43,7 +43,7 @@ int main()
 
   // (2) パラメータを指定する
   {
-    typedef std::student_t_distribution<> dist_type;
+    using dist_type = std::student_t_distribution<>;
 
     // 自由度1で分布させる
     dist_type::param_type param(1.0);

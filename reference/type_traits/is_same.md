@@ -23,7 +23,7 @@ namespace std {
 ```cpp
 #include <type_traits>
 
-typedef std::is_same<int, int> same;
+using same = std::is_same<int, int>;
 
 static_assert(same::value == true, "int == int");
 static_assert(std::is_same<same::value_type, bool>::value, "value_type == bool");
@@ -31,14 +31,14 @@ static_assert(std::is_same<same::type, std::true_type>::value, "type == true_typ
 static_assert(same() == true, "same() == true");
 
 struct my_type{};
-typedef std::is_same<int, my_type> not_same;
+using not_same = std::is_same<int, my_type>;
 
 static_assert(not_same::value == false, "int != my_type");
 static_assert(std::is_same<not_same::value_type, bool>::value, "value_type == bool");
 static_assert(std::is_same<not_same::type, std::false_type>::value, "type == false_type");
 static_assert(not_same() == false, "not_same() == false");
 
-typedef int my_int;
+using my_int = int;
 
 static_assert(std::is_same<int, my_int>::value == true, "int == my_int");
 static_assert(std::is_same<my_type, my_type>::value == true, "my_type == my_type");

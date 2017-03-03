@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  typedef void (*new_handler)();
+  using new_handler = void(*)();
 }
 ```
 

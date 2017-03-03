@@ -38,7 +38,7 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 #include <unordered_map>
 #include <algorithm>
 
-typedef std::unordered_multimap<int,char>::iterator it_t;
+using it_t = std::unordered_multimap<int,char>::iterator;
 
 void disp( std::pair<const int,char>& p) {
   std::cout << p.second << std::endl;

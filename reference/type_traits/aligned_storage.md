@@ -9,7 +9,7 @@ namespace std {
   template <std::size_t Len,
             std::size_t Align = default-alignment>
   struct aligned_storage {
-    typedef … type;
+    using type = …;
   };
 
   template <std::size_t Len,

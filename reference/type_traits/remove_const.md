@@ -8,7 +8,7 @@
 namespace std {
   template <class T>
   struct remove_const {
-    typedef … type;
+    using type = …;
   };
 
   template <class T>

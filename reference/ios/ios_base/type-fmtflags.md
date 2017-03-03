@@ -5,7 +5,7 @@
 * ios_base[meta class]
 
 ```cpp
-typedef T1 fmtflags;
+using fmtflags = T1;
 ```
 * T1[italic]
 

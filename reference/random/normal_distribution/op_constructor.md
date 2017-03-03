@@ -43,7 +43,7 @@ int main()
 
   // (2) パラメータを通して範囲指定する
   {
-    typedef std::normal_distribution<> dist_type;
+    using dist_type = std::normal_distribution<>;
 
     // 平均0.0、標準偏差1.0で分布させる
     dist_type::param_type param(0.0, 1.0);

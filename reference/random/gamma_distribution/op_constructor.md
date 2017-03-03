@@ -42,7 +42,7 @@ int main()
 
   // (2) パラメータを通して範囲指定する
   {
-    typedef std::gamma_distribution<> dist_type;
+    using dist_type = std::gamma_distribution<>;
 
     // 形状母数1.0、尺度母数1.0で分布させる
     dist_type::param_type param(1.0, 1.0);

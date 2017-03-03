@@ -76,7 +76,7 @@ pair<iterator, bool> emplace(Args&&... args);
 #include <algorithm>  // for std::for_each
 
 // サンプル用typedef
-typedef std::pair<const std::string, std::complex<double>> sc;
+using sc = std::pair<const std::string, std::complex<double>>;
 
 // サンプル用typedefのための挿入演算子
 std::ostream& operator<<(std::ostream& os, const sc& p)

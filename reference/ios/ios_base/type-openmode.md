@@ -5,7 +5,7 @@
 * ios_base[meta class]
 
 ```cpp
-typedef T3 openmode;
+using openmode = T3;
 ```
 * T3[italic]
 

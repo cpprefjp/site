@@ -5,7 +5,7 @@
 * ios_base[meta class]
 
 ```cpp
-typedef T2 iostate;
+using iostate = T2;
 ```
 * T2[italic]
 

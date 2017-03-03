@@ -9,10 +9,10 @@ namespace std {
   template <class UIntType, size_t w, size_t s, size_t r>
   class subtract_with_carry_engine;
 
-  typedef … ranlux24_base;
-  typedef … ranlux48_base;
-  typedef … ranlux24;
-  typedef … ranlux48;
+  using ranlux24_base = …;
+  using ranlux48_base = …;
+  using ranlux24      = …;
+  using ranlux48      = …;
 }
 ```
 * ranlux24[link ranlux24.md]

@@ -9,7 +9,7 @@ namespace std {
   template <std::size_t Len,
             class... Types>
   struct aligned_union {
-    typedef … type;
+    using type = …;
     static constexpr std::size_t alignment_value = …;
   };
 
@@ -48,7 +48,7 @@ union X {
 
 int main()
 {
-  typedef std::aligned_union<sizeof(X), int, std::string> aligned_X;
+  using aligned_X = std::aligned_union<sizeof(X), int, std::string>;
 
   aligned_X::type x;
 

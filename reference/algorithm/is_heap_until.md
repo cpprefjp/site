@@ -64,7 +64,7 @@ before: is heap? false
 template<class RandomAccessIterator>
 RandomAccessIterator is_heap_until(RandomAccessIterator first, RandomAccessIterator last)
 {
-  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type diff;
+  using diff = typename std::iterator_traits<RandomAccessIterator>::difference_type;
   for (diff len = last - first, p = 0, c = 1; c < len; ++c) {
     if (first[c] < first[p])
       return first + c;
@@ -78,7 +78,7 @@ template<class RandomAccessIterator, class Compare>
 RandomAccessIterator is_heap_until(RandomAccessIterator first, RandomAccessIterator last,
                                    Compare comp)
 {
-  typedef typename std::iterator_traits<RandomAccessIterator>::difference_type diff;
+  using diff = typename std::iterator_traits<RandomAccessIterator>::difference_type;
   for (diff len = last - first, p = 0, c = 1; c < len; ++c) {
     if (comp(first[c], first[p]))
       return first + c;

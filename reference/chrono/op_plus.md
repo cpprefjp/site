@@ -50,7 +50,7 @@ namespace chrono {
 - (1)
 
 ```cpp
-typedef common_type<decltype(lhs), decltype(rhs)> cd;
+using cd = common_type<decltype(lhs), decltype(rhs)>;
 return cd(cd(lhs).count() + cd(rhs).count());
 ```
 * common_type[link /reference/type_traits/common_type.md]
@@ -59,7 +59,7 @@ return cd(cd(lhs).count() + cd(rhs).count());
 - (2)
 
 ```cpp
-typedef time_point<Clock, common_type<decltype(lhs), decltype(rhs)>> ct;
+using ct = time_point<Clock, common_type<decltype(lhs), decltype(rhs)>>;
 return ct(lhs) += rhs;
 ```
 * time_point[link time_point.md]

@@ -10,10 +10,10 @@ namespace std {
             class Allocator = allocator<sub_match<BidirectionalIterator>>>
   class match_results;
 
-  typedef match_results<const char*>             cmatch;
-  typedef match_results<const wchar_t*>          wcmatch;
-  typedef match_results<string::const_iterator>  smatch;
-  typedef match_results<wstring::const_iterator> wsmatch;
+  using cmatch  = match_results<const char*>;
+  using wcmatch = match_results<const wchar_t*>;
+  using smatch  = match_results<string::const_iterator>;
+  using wsmatch = match_results<wstring::const_iterator>;
 }
 ```
 * allocator[link ../memory/allocator.md]

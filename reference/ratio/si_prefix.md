@@ -6,26 +6,26 @@
 
 ```cpp
 namespace std {
-  typedef ratio<1, 1000000000000000000000000> yocto;
-  typedef ratio<1,    1000000000000000000000> zepto;
-  typedef ratio<1,       1000000000000000000> atto;
-  typedef ratio<1,          1000000000000000> femto;
-  typedef ratio<1,             1000000000000> pico;
-  typedef ratio<1,                1000000000> nano;
-  typedef ratio<1,                   1000000> micro;
-  typedef ratio<1,                      1000> milli;
-  typedef ratio<1,                       100> centi;
-  typedef ratio<1,                        10> deci;
-  typedef ratio<                       10, 1> deca;
-  typedef ratio<                      100, 1> hecto;
-  typedef ratio<                     1000, 1> kilo;
-  typedef ratio<                  1000000, 1> mega;
-  typedef ratio<               1000000000, 1> giga;
-  typedef ratio<            1000000000000, 1> tera;
-  typedef ratio<         1000000000000000, 1> peta;
-  typedef ratio<      1000000000000000000, 1> exa;
-  typedef ratio<   1000000000000000000000, 1> zetta;
-  typedef ratio<1000000000000000000000000, 1> yotta;
+  using yocto = ratio<1, 1000000000000000000000000>;
+  using zepto = ratio<1,    1000000000000000000000>;
+  using atto  = ratio<1,       1000000000000000000>;
+  using femto = ratio<1,          1000000000000000>;
+  using pico  = ratio<1,             1000000000000>;
+  using nano  = ratio<1,                1000000000>;
+  using micro = ratio<1,                   1000000>;
+  using milli = ratio<1,                      1000>;
+  using centi = ratio<1,                       100>;
+  using deci  = ratio<1,                        10>;
+  using deca  = ratio<                       10, 1>;
+  using hecto = ratio<                      100, 1>;
+  using kilo  = ratio<                     1000, 1>;
+  using mega  = ratio<                  1000000, 1>;
+  using giga  = ratio<               1000000000, 1>;
+  using tera  = ratio<            1000000000000, 1>;
+  using peta  = ratio<         1000000000000000, 1>;
+  using exa   = ratio<      1000000000000000000, 1>;
+  using zetta = ratio<   1000000000000000000000, 1>;
+  using yotta = ratio<1000000000000000000000000, 1>;
 }
 ```
 * ratio[link ratio.md]

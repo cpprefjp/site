@@ -42,7 +42,7 @@ int main()
 
   // (2) パラメータを通して範囲指定する
   {
-    typedef std::uniform_real_distribution<> dist_type;
+    using dist_type = std::uniform_real_distribution<>;
 
     // 0.0以上1.0未満の範囲で、値を等確率で生成する
     dist_type::param_type param(0.0, 1.0);

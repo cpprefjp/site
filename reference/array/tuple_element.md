@@ -11,7 +11,7 @@ namespace std {
   template <size_t I, class T, size_t N>
   struct tuple_element<I, array<T, N>> {
     static_assert(I < N, implementation-defined);
-    typedef T type;
+    using type = T;
   }
 }
 ```

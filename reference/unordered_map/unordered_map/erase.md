@@ -63,7 +63,7 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 #include <string>
 #include <utility>
 
-typedef std::pair<const std::string, int> si;
+using si = std::pair<const std::string, int>;
 
 std::ostream& operator<<(std::ostream& os, const si& p)
 {

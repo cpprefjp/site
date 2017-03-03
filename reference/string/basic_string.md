@@ -10,10 +10,10 @@ namespace std {
             class Allocator = allocator<charT> >
   class basic_string;
 
-  typedef basic_string<char>     string;
-  typedef basic_string<char16_t> u16string;  // C++11から
-  typedef basic_string<char32_t> u32string;  // C++11から
-  typedef basic_string<wchar_t>  wstring;
+  using string    = basic_string<char>;
+  using u16string = basic_string<char16_t>;  // C++11から
+  using u32string = basic_string<char32_t>;  // C++11から
+  using wstring   = basic_string<wchar_t>;
 }
 ```
 * char_traits[link char_traits.md]

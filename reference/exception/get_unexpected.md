@@ -7,7 +7,7 @@
 
 ```cpp
 namespace std {
-  typedef void (*unexpected_handler)();
+  using unexpected_handler = void(*)();
   unexpected_handler get_unexpected() noexcept;
 }
 ```

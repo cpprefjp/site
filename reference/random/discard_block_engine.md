@@ -9,8 +9,8 @@ namespace std {
   template <class Engine, size_t p, size_t r>
   class discard_block_engine;
 
-  typedef … ranlux24;
-  typedef … ranlux48;
+  using ranlux24 = …;
+  using ranlux48 = …;
 }
 ```
 * ranlux24[link ranlux24.md]

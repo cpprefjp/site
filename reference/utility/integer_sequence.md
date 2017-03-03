@@ -8,7 +8,7 @@
 namespace std {
   template <class T, T... I>
   struct integer_sequence {
-    typedef T value_type;
+    using value_type = T;
     static constexpr size_t size() noexcept { return sizeof...(I); }
   };
 }

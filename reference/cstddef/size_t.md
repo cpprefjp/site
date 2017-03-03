@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  typedef implementation-defined size_t;
+  using size_t = implementation-defined;
 }
 ```
 

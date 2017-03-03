@@ -8,8 +8,8 @@ namespace std {
   template<class CharT, class Traits = char_traits<CharT>>
   class basic_streambuf { …… };
 
-  typedef basic_streambuf<char> streambuf;
-  typedef basic_streambuf<wchar_t> wstreambuf;
+  using streambuf  = basic_streambuf<char>;
+  using wstreambuf = basic_streambuf<wchar_t>;
 }
 ```
 * char_traits[link ../string/char_traits.md]

@@ -9,10 +9,10 @@ namespace std {
   template <class BidirectionalIterator>
   class sub_match : public pair<BidirectionalIterator, BidirectionalIterator>;
 
-  typedef sub_match<const char*>             csub_match;
-  typedef sub_match<const wchar_t*>          wcsub_match;
-  typedef sub_match<string::const_iterator>  ssub_match;
-  typedef sub_match<wstring::const_iterator> wssub_match;
+  using csub_match  = sub_match<const char*>;
+  using wcsub_match = sub_match<const wchar_t*>;
+  using ssub_match  = sub_match<string::const_iterator>;
+  using wssub_match = sub_match<wstring::const_iterator>;
 }
 ```
 * pair[link ../utility/pair.md]

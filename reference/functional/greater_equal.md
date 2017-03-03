@@ -9,25 +9,25 @@ namespace std {
   template <typename T>
   struct greater_equal {
     bool operator ()(const T& x, const T& y) const;
-    typedef T first_argument_type;
-    typedef T second_argument_type;
-    typedef bool result_type;
+    using first_argument_type  = T;
+    using second_argument_type = T;
+    using result_type          = bool;
   };
 
   // C++14
   template <class T = void>
   struct greater_equal {
     constexpr bool operator()(const T& x, const T& y) const;
-    typedef T first_argument_type;
-    typedef T second_argument_type;
-    typedef bool result_type;
+    using first_argument_type  = T;
+    using second_argument_type = T;
+    using result_type          = bool;
   };
 
   template <>
   struct greater_equal<void> {
     template <class T, class U> auto operator()(T&& t, U&& u) const
       -> decltype(std::forward<T>(t) >= std::forward<U>(u));
-    typedef unspecified is_transparent;
+    using is_transparent = unspecified;
   };
 }
 ```

@@ -104,7 +104,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
     return true;
   auto last2 = std::next(first2, std::distance(first1, last1));
 
-  typedef typename std::iterator_traits<ForwardIterator1>::value_type value_type;
+  using value_type = typename std::iterator_traits<ForwardIterator1>::value_type;
   auto upred = [&pred, &first1](const value_type& x) { return pred(*first1, x); };
   for (; first1 != last1; ++first1) {
     auto count2 = std::count_if(first2, last2, upred);

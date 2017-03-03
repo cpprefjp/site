@@ -11,11 +11,11 @@ namespace std {
            class Pointer = T*,
            class Reference = T&>
   struct iterator {
-    typedef T value_type;
-    typedef Distance difference_type;
-    typedef Pointer pointer;
-    typedef Reference reference;
-    typedef Category iterator_category;
+    using value_type        = T;
+    using difference_type   = Distance;
+    using pointer           = Pointer;
+    using reference         = Reference;
+    using iterator_category = Category;
   };
 }
 ```

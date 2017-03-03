@@ -41,7 +41,7 @@ int main()
 
   // (2)
   {
-    typedef std::exponential_distribution<> dist_type;
+    using dist_type = std::exponential_distribution<>;
 
     dist_type::param_type param(1.0);
     dist_type dist(param);

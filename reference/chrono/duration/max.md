@@ -26,7 +26,7 @@ using std::micro;
 
 int main()
 {
-  typedef duration<int, micro> microseconds;
+  using microseconds = duration<int, micro>;
 
   microseconds m = microseconds::max();
   std::cout << m.count() << std::endl;

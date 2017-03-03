@@ -10,7 +10,7 @@ namespace std {
 
   template <class F, class... ArgTypes>
   class result_of<F(ArgTypes...)> {
-    typedef … type;
+    using type = …;
   };
 
   template <class T>

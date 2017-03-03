@@ -44,7 +44,7 @@ int main()
 
   // パラメータを通して範囲指定する
   {
-    typedef std::bernoulli_distribution dist_type;
+    using dist_type = std::bernoulli_distribution;
 
     // 確率0.7でtrueを生成し、確率0.3(1.0 - 0.7)でfalseを生成する
     dist_type::param_type param(0.7);

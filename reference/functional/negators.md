@@ -11,8 +11,8 @@ namespace std {
     explicit constexpr unary_negate(const Pred& pred); // C++14
     bool operator()(const typename Pred::argument_type& x) const;           // C++98
     constexpr bool operator()(const typename Pred::argument_type& x) const; // C++14
-    typedef typename Pred::argument_type argument_type;
-    typedef bool result_type;
+    using argument_type = typename Pred::argument_type;
+    using result_type   = bool;
   };
 
   template <typename Pred>
@@ -32,9 +32,9 @@ namespace std {
              const typename Pred::first_argument_type& x,
              const typename Pred::second_argument_type& y) const; // C++14
 
-    typedef typename Pred::first_argument_type first_argument_type;
-    typedef typename Pred::second_argument_type second_argument_type;
-    typedef bool result_type;
+    using first_argument_type  = typename Pred::first_argument_type;
+    using second_argument_type = typename Pred::second_argument_type;
+    using result_type          = bool;
   };
 
   template <typename Pred>

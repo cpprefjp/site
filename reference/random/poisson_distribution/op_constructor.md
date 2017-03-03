@@ -42,7 +42,7 @@ int main()
 
   // (2) パラメータを通して範囲指定する
   {
-    typedef std::poisson_distribution<> dist_type;
+    using dist_type = std::poisson_distribution<>;
 
     // 平均値1.0で分布させる
     dist_type::param_type param(1.0);

@@ -9,7 +9,7 @@ namespace std {
   template<class Engine, size_t K>
   class shuffle_order_engine;
 
-  typedef … knuth_b;
+  using knuth_b = …;
 }
 ```
 * knuth_b[link knuth_b.md]

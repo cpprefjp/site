@@ -22,7 +22,7 @@ void param(const param_type& parm); // (2)
 
 int main()
 {
-  typedef std::piecewise_constant_distribution<> dist_type;
+  using dist_type = std::piecewise_constant_distribution<>;
 
   std::array<double, 3> intervals = {0.0, 0.5, 1.0};
   std::array<double, 2> densities = {0.3, 0.5};

@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  typedef implementation-defined ptrdiff_t;
+  using ptrdiff_t = implementation-defined;
 }
 ```
 

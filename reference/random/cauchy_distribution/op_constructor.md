@@ -43,7 +43,7 @@ int main()
 
   // パラメータを通して範囲指定する
   {
-    typedef std::cauchy_distribution<> dist_type;
+    using dist_type = std::cauchy_distribution<>;
 
     // 位置母数0.0、尺度母数1.0で分布させる
     dist_type::param_type param(0.0, 1.0);

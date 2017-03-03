@@ -107,8 +107,8 @@ void insert(initializer_list<value_type> il);                  // (6)
 #include <utility>
 #include <initializer_list>
 
-typedef std::pair<const int, std::string> cis;
-typedef std::pair<int, std::string> is;
+using cis = std::pair<const int, std::string>;
+using is  = std::pair<int, std::string>;
 
 std::ostream& operator<<(std::ostream& os, const cis& p)
 {

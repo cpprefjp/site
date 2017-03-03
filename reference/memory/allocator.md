@@ -10,10 +10,10 @@ namespace std {
 
   template<>
   class allocator<void> {
-    typedef void* pointer;
-    typedef const void* const_pointer;
-    typedef void value_type;
-    template <class U> struct rebind { typedef allocator<U> other; };
+    using pointer       = void*;
+    using const_pointer = const void*;
+    using value_type    = void;
+    template <class U> struct rebind { using other = allocator<U>; };
   };
 }
 ```

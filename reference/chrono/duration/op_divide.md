@@ -35,7 +35,7 @@ namespace chrono {
 - (1)
 
 ```cpp
-typedef duration<typename common_type<Rep1, Rep2>::type, Period> cd;
+using cd = duration<typename common_type<Rep1, Rep2>::type, Period>;
 return cd(cd(d).count() / s);
 ```
 * duration[link /reference/chrono/duration.md]
@@ -45,7 +45,7 @@ return cd(cd(d).count() / s);
 - (2)
 
 ```cpp
-typedef typename common_type<Rep1, Rep2>::type cd;
+using cd = typename common_type<Rep1, Rep2>::type;
 return cd(lhs).count() / cd(rhs).count();
 ```
 * common_type[link /reference/type_traits/common_type.md]

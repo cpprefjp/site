@@ -7,30 +7,30 @@
 namespace std {
   template <class Iterator>
   struct iterator_traits {
-    typedef typename Iterator::difference_type difference_type;
-    typedef typename Iterator::value_type value_type;
-    typedef typename Iterator::pointer pointer;
-    typedef typename Iterator::reference reference;
-    typedef typename Iterator::iterator_category iterator_category;
+    using difference_type   = typename Iterator::difference_type;
+    using value_type        = typename Iterator::value_type;
+    using pointer           = typename Iterator::pointer;
+    using reference         = typename Iterator::reference;
+    using iterator_category = typename Iterator::iterator_category;
   };
 
   // ポインタに対する特殊化
   template <class T>
   struct iterator_traits<T*> {
-    typedef ptrdiff_t difference_type;
-    typedef T value_type;
-    typedef T* pointer;
-    typedef T& reference;
-    typedef random_access_iterator_tag iterator_category;
+    using difference_type   = ptrdiff_t;
+    using value_type        = T;
+    using pointer           = T*;
+    using reference         = T&;
+    using iterator_category = random_access_iterator_tag;
   };
 
   template<class T>
   struct iterator_traits<const T*> {
-    typedef ptrdiff_t difference_type;
-    typedef T value_type;
-    typedef const T* pointer;
-    typedef const T& reference;
-    typedef random_access_iterator_tag iterator_category;
+    using difference_type   = ptrdiff_t;
+    using value_type        = T;
+    using pointer           = const T*;
+    using reference         = const T&;
+    using iterator_category = random_access_iterator_tag;
   };
 }
 ```

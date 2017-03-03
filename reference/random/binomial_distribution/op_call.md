@@ -48,7 +48,7 @@ int main()
 
   // (2) パラメータを渡すバージョン
   {
-    typedef std::binomial_distribution<> dist_type;
+    using dist_type = std::binomial_distribution<>;
     dist_type dist;
 
     // 確率0.5で成功する事象を3回施行する

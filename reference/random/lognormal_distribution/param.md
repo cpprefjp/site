@@ -22,7 +22,7 @@ void param(const param_type& parm); // (2)
 
 int main()
 {
-  typedef std::lognormal_distribution<> dist_type;
+  using dist_type = std::lognormal_distribution<>;
 
   dist_type dist(0.0, 1.0);
 

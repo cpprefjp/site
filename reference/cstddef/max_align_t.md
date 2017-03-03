@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef implementation-defined max_align_t;
+  using max_align_t = implementation-defined;
 }
 ```
 

@@ -327,7 +327,7 @@ struct X
 struct C {};
 struct A
 {
-  typedef int C;
+  using C = int;
 };
 
 struct B : A

@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
 namespace regex_constants {
-  typedef implementation-defined syntax_option_type;
+  using syntax_option_type = implementation-defined;
   constexpr syntax_option_type icase = unspecified;
   constexpr syntax_option_type nosubs = unspecified;
   constexpr syntax_option_type optimize = unspecified;

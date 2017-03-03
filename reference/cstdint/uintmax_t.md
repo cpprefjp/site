@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef unsigned-integer-type uintmax_t;
+  using uintmax_t = unsigned-integer-type;
 }
 ```
 * unsigned-integer-type[italic]

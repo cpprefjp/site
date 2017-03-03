@@ -76,7 +76,7 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 #include <iterator>   // for std::next
 
 // サンプル用typedef
-typedef std::pair<const int, std::string> is;
+using is = std::pair<const int, std::string>;
 
 // サンプル用typedefのための挿入演算子
 std::ostream& operator<<(std::ostream& os, const is& p)

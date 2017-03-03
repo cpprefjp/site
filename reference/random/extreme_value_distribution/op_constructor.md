@@ -42,7 +42,7 @@ int main()
 
   // (2) パラメータを通して範囲指定する
   {
-    typedef std::extreme_value_distribution<> dist_type;
+    using dist_type = std::extreme_value_distribution<>;
 
     // 位置パラメータ0.0、尺度パラメータ1.0で分布させる
     dist_type::param_type param(0.0, 1.0);

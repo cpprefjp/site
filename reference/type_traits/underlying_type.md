@@ -8,7 +8,7 @@
 namespace std {
   template <class T>
   struct underlying_type {
-    typedef … type;
+    using type = …;
   };
 
   template <class T>
