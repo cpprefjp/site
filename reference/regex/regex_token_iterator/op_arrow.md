@@ -48,6 +48,8 @@ int main()
   }
 }
 ```
+* std::regex[link /reference/regex/basic_regex.md]
+* str()[link /reference/regex/sub_match/str.md]
 
 ###出力
 ```

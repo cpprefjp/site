@@ -21,20 +21,20 @@ regex_token_iterator operator++(int); // (2) 後置形式
 
 ##効果
 - (1) の形式（前置形式）は、以下のように振る舞う。
-	- `value_type` 型（[`sub_match`](../sub_match.md)`<BidirectionalIterator>`）のローカル変数 `prev` を構築し、値 `position->`[`suffix`](../match_results/suffix.md)`()` で初期化する。
-	- `*this` が接尾辞イテレータであれば、 `*this` をシーケンス終端イテレータに設定する。
-	- そうでなくて、`N + 1 < subs.size()` であれば、`N` をインクリメントし `result` を現在のマッチ（備考参照）のアドレスに設定する。
-	- そうでなければ、`N` を `0` に設定し、`position` をインクリメントする。
-		- `position` がシーケンス終端イテレータでなければ、`result` を現在のマッチのアドレスに設定する。
-		- そうでなくて、`subs` が `-1` を含んでいて、かつ、`prev.length()` が `0` でなければ、 `*this` を範囲 `[prev.first, prev.second)` を指す接尾辞イテレータに設定する。
-		- そうでなければ、`*this` をシーケンス終端イテレータに設定する。
+    - `value_type` 型（[`sub_match`](../sub_match.md)`<BidirectionalIterator>`）のローカル変数 `prev` を構築し、値 `position->`[`suffix`](../match_results/suffix.md)`()` で初期化する。
+    - `*this` が接尾辞イテレータであれば、 `*this` をシーケンス終端イテレータに設定する。
+    - そうでなくて、`N + 1 < subs.size()` であれば、`N` をインクリメントし `result` を現在のマッチ（備考参照）のアドレスに設定する。
+    - そうでなければ、`N` を `0` に設定し、`position` をインクリメントする。
+        - `position` がシーケンス終端イテレータでなければ、`result` を現在のマッチのアドレスに設定する。
+        - そうでなくて、`subs` が `-1` を含んでいて、かつ、`prev.length()` が `0` でなければ、 `*this` を範囲 `[prev.first, prev.second)` を指す接尾辞イテレータに設定する。
+        - そうでなければ、`*this` をシーケンス終端イテレータに設定する。
 - (2) の形式（後置形式）は、以下のように振る舞う。
 
-	```cpp
-	regex_token_iterator tmp = *this;
-	++(*this);
-	return tmp;
-	```
+    ```cpp
+    regex_token_iterator tmp = *this;
+    ++(*this);
+    return tmp;
+    ```
 
 
 ##戻り値
@@ -78,6 +78,8 @@ int main()
 }
 ```
 * ++[color ff0000]
+* std::regex[link /reference/regex/basic_regex.md]
+* str()[link /reference/regex/sub_match/str.md]
 
 ###出力
 ```

@@ -70,14 +70,14 @@ regex_token_iterator(const regex_token_iterator&);                              
 - 「現在のマッチ」とは、もし `subs[N]` が -1 の場合には `(*position).`[`prefix`](../match_results/prefix.md)`()`、そうでなければ `(*position).[subs[N]]` の事を指す。
 - メンバ変数 `subs`、`N`、`position`、`result` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
 - `regex_token_iterator` は、メンバ変数 `position` を通して指定された正規表現 `re` のコピーではなく、`re` へのポインタをオブジェクト内に保持するため、引数に渡した正規表現オブジェクトは当該イテレータを使用し終わるまで破棄されないようにする必要がある。  
-	従って、(2)～(5) の形式のコンストラクタに渡す引数 `re` に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。  
-	(6)～(9) の形式のコンストラクタが C++14 で追加された理由は、この事態をコンパイル時に検出するためである。  
-	しかし、この追加のため、C++11 では合法となりうる以下のようなコードは C++14 ではコンパイルエラーになる。
-	```cpp
-	void f(std::sregex_token_iterator&&);
+    従って、(2)～(5) の形式のコンストラクタに渡す引数 `re` に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。  
+    (6)～(9) の形式のコンストラクタが C++14 で追加された理由は、この事態をコンパイル時に検出するためである。  
+    しかし、この追加のため、C++11 では合法となりうる以下のようなコードは C++14 ではコンパイルエラーになる。
+    ```cpp
+    void f(std::sregex_token_iterator&&);
 
-	f(std::sregex_token_iterator(s.begin(), s.end(), std::regex("\\d+")));
-	```
+    f(std::sregex_token_iterator(s.begin(), s.end(), std::regex("\\d+")));
+    ```
 
 
 ##例
@@ -120,7 +120,9 @@ int main()
   f(ia);
 }
 ```
-* sregex_token_iterator[color ff0000]
+* std::sregex_token_iterator[color ff0000]
+* std::regex[link /reference/regex/basic_regex.md]
+* str()[link /reference/regex/sub_match/str.md]
 
 ###出力
 ```
