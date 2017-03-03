@@ -61,7 +61,7 @@ void f(const std::vector<T>&) {} // コンパイルエラー！再定義と見�
 ```cpp
 template <class T>
 struct Vec {
-  using type = std::vector<T>;
+  typedef std::vector<T> type;
 };
 
 Vec<int>::type v;
@@ -75,13 +75,13 @@ v.push_back(3);
 template <class T>
 struct allocator {
   template <class U>
-  struct rebind { using other = allocator<U>; };
+  struct rebind { typedef allocator<U> other; };
 };
 
-using void_alloc = allocator<void>;
+typedef allocator<void> void_alloc;
 
 // int型をアロケートするallocator型を取得
-using int_alloc = void_alloc::rebind<int>::other;
+typedef void_alloc::rebind<int>::other int_alloc;
 ```
 
 前述した例での`::type`や、アロケータの例での`other`は冗長であり、必要とされることが多いこの機能には言語サポートが求められた。こういった経緯から、パラメータ化した型の別名付けが、言語機能としてサポートされることとなった。
