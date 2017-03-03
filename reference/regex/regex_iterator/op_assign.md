@@ -51,6 +51,12 @@ int main()
   }
 }
 ```
+* std::regex[link /reference/regex/basic_regex.md]
+* position()[link /reference/regex/match_results/position.md]
+* length()[link /reference/regex/match_results/length.md]
+* str()[link /reference/regex/match_results/str.md]
+* prefix()[link /reference/regex/match_results/prefix.md]
+* suffix()[link /reference/regex/match_results/suffix.md]
 
 ###出力
 ```

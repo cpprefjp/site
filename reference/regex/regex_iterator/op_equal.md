@@ -59,6 +59,8 @@ int main()
 }
 ```
 * ==[color ff0000]
+* std::regex[link /reference/regex/basic_regex.md]
+* str()[link /reference/regex/match_results/str.md]
 
 ###出力
 ```

@@ -44,6 +44,10 @@ int main()
   }
 }
 ```
+* std::regex[link /reference/regex/basic_regex.md]
+* prefix()[link /reference/regex/match_results/prefix.md]
+* str()[link /reference/regex/match_results/str.md]
+* suffix()[link /reference/regex/match_results/suffix.md]
 
 ###出力
 ```
