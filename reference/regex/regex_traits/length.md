@@ -34,9 +34,7 @@ int main()
   std::cout << length << std::endl;
 }
 ```
-* std::size_t[link /reference/cstddef/size_t.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* length("hello")[color ff0000]
 
 ###出力
 ```

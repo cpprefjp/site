@@ -55,10 +55,11 @@ int main()
   }
 }
 ```
-* std::string[link /reference/string/basic_string.md]
-* assert[link /reference/cassert/assert.md]
+* transform[color ff0000]
 * imbue[link imbue.md]
 * std::locale[link /reference/locale/locale.md]
+* begin()[link /reference/string/basic_string/begin.md]
+* end()[link /reference/string/basic_string/end.md]
 
 ###出力
 ```

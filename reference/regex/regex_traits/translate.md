@@ -33,8 +33,7 @@ int main()
   std::cout << c << std::endl;
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* translate[color ff0000]
 
 ###出力
 ```

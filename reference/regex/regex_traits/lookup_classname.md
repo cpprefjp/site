@@ -56,9 +56,9 @@ char_class_type lookup_classname(ForwardIterator first,
 int main()
 {
   std::regex_traits<char> traits;
-  
+
   std::string class_name = "alnum"; // 正規表現中で[[:alnum:]]のように入力するクラス名
-  
+
   // 文字'a'がアルファベットと数字のクラスに含まれているかを判定する
   std::regex_traits<char>::char_class_type class_value =
     traits.lookup_classname(class_name.begin(), class_name.end());
@@ -70,12 +70,10 @@ int main()
   }
 }
 ```
-* std::string[link /reference/string/basic_string.md]
-* begin()[link /reference/string/basic_string/begin.md]
-* end()[link /reference/string/basic_string/end.md]
+* lookup_classname[color ff0000]
+* class_name.begin()[link /reference/string/basic_string/begin.md]
+* class_name.end()[link /reference/string/basic_string/end.md]
 * isctype[link isctype.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

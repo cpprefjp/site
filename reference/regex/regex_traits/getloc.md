@@ -29,14 +29,14 @@ int main()
 
   traits.imbue(std::locale("ja_JP.UTF-8"));
   std::locale loc = traits.getloc();
-    
+
   assert(loc.name() == "ja_JP.UTF-8");
 }
 ```
+* getloc()[color ff0000]
 * std::locale[link /reference/locale/locale.md]
 * imbue[link imbue.md]
 * name()[link /reference/locale/locale/name.md.nolink]
-* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

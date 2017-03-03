@@ -34,6 +34,7 @@ int main()
   traits.imbue(loc);
 }
 ```
+* imbue[color ff0000]
 * std::locale[link /reference/locale/locale.md]
 
 ###出力

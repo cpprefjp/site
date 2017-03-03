@@ -29,7 +29,7 @@ string_type lookup_collatename(
 int main()
 {
   std::regex_traits<char> traits;
-    
+
   // tilde(チルダ、~記号)の照合名を取得する
   std::string input = "tilde";
   std::string result = traits.lookup_collatename(input.begin(), input.end());
@@ -37,11 +37,9 @@ int main()
   std::cout << result << std::endl;
 }
 ```
-* std::string[link /reference/string/basic_string.md]
-* begin()[link /reference/string/basic_string/begin.md]
-* end()[link /reference/string/basic_string/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* lookup_collatename[color ff0000]
+* input.begin()[link /reference/string/basic_string/begin.md]
+* input.end()[link /reference/string/basic_string/end.md]
 
 ###出力
 ```

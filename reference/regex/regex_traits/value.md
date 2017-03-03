@@ -36,7 +36,7 @@ int main()
   assert(value == 1);
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* value('1', 10)[color ff0000]
 
 ###出力
 ```
