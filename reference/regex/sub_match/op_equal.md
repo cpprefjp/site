@@ -79,25 +79,23 @@ int main()
     const std::string s1 = "abc";
     const std::string s2 = "ABC";
     std::cout << std::boolalpha
-              << (sub1  == sub2 ) << std::endl              // (1) の形式
-              << (s1    == sub2 ) << std::endl              // (2) の形式
-              << (sub1  == s2   ) << std::endl              // (3) の形式
-              << ("ABC" == sub2 ) << std::endl              // (4) の形式
-              << (sub1  == "abc") << std::endl              // (5) の形式
-              << ('A'   == sub2 ) << std::endl              // (6) の形式
-              << (sub1  == 'a'  ) << std::endl;             // (7) の形式
+              << (sub1  == sub2 ) << std::endl  // (1) の形式
+              << (s1    == sub2 ) << std::endl  // (2) の形式
+              << (sub1  == s2   ) << std::endl  // (3) の形式
+              << ("ABC" == sub2 ) << std::endl  // (4) の形式
+              << (sub1  == "abc") << std::endl  // (5) の形式
+              << ('A'   == sub2 ) << std::endl  // (6) の形式
+              << (sub1  == 'a'  ) << std::endl; // (7) の形式
   } else {
     std::cout << "not match" << std::endl;
   }
 }
 ```
 * ==[color ff0000]
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* string[link ../../string.md]
-* cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
-* csub_match[link ../sub_match.md]
+* std::regex[link ../basic_regex.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* std::csub_match[link ../sub_match.md]
 
 ###出力
 ```

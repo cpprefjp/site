@@ -42,13 +42,11 @@ int main()
   }
 }
 ```
-* length[color ff0000]
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* string[link ../../string.md]
-* smatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
-* ssub_match[link ../sub_match.md]
+* length()[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::smatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* std::ssub_match[link ../sub_match.md]
 
 ###出力
 ```

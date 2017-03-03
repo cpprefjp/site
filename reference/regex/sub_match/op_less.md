@@ -91,12 +91,10 @@ int main()
   }
 }
 ```
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
-* string[link ../../string.md]
-* cmatch[link ../match_results.md]
-* regex_search[link ../regex_search.md]
-* csub_match[link ../sub_match.md]
+* std::regex[link ../basic_regex.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* std::csub_match[link ../sub_match.md]
 
 ###出力
 ```

@@ -36,8 +36,6 @@ int main()
 }
 ```
 * csub_match[color ff0000]
-* iostream[link ../../iostream.md]
-* regex[link ../../regex.md]
 
 ###出力
 ```
