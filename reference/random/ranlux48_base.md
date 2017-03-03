@@ -6,9 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef
-    subtract_with_carry_engine<uint_fast64_t, 48, 5, 12>
-  ranlux48_base;
+  using ranlux48_base = subtract_with_carry_engine<uint_fast64_t, 48, 5, 12>;
 }
 ```
 * uint_fast64_t[link /reference/cstdint/uint_fast64_t.md]

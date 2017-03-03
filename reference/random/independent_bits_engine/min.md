@@ -28,9 +28,7 @@ static constexpr result_type min() { return 0; }
 
 int main()
 {
-  typedef
-    std::independent_bits_engine<std::mt19937, 64, std::uint64_t>
-  engine_type;
+  using engine_type = std::independent_bits_engine<std::mt19937, 64, std::uint64_t>;
 
   std::uint64_t min_value = engine_type::min();
   std::cout << min_value << std::endl;

@@ -35,13 +35,7 @@ independent_bits_engine(independent_bits_engine&& e) = default;      // (7)
 
 int main()
 {
-  typedef
-    std::independent_bits_engine<
-      std::mt19937,
-      64,
-      std::uint64_t
-    >
-  engine_type;
+  using engine_type = std::independent_bits_engine<std::mt19937, 64, std::uint64_t>;
 
   // (1) デフォルト構築
   // 元となる乱数生成器を、デフォルトのシード値で初期化する

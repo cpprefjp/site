@@ -64,9 +64,7 @@ typename std::iterator_traits<Iterator>::value_type
     sum(Iterator first, Iterator last)
 {
   // イテレータの型から値型を取得する
-  typedef
-    typename std::iterator_traits<Iterator>::value_type
-  value_type;
+  using value_type = typename std::iterator_traits<Iterator>::value_type;
 
   // 取得した値型の変数を定義し、合計値を計算する
   value_type result = value_type();

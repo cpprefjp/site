@@ -6,9 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef
-    linear_congruential_engine<uint_fast32_t, 16807, 0, 2147483647>
-  minstd_rand0;
+  using minstd_rand0 = linear_congruential_engine<uint_fast32_t, 16807, 0, 2147483647>;
 }
 ```
 * linear_congruential_engine[link linear_congruential_engine.md]

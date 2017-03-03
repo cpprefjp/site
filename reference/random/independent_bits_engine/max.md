@@ -28,9 +28,7 @@ static constexpr result_type max();
 
 int main()
 {
-  typedef
-    std::independent_bits_engine<std::mt19937, 64, std::uint64_t>
-  engine_type;
+  using engine_type = std::independent_bits_engine<std::mt19937, 64, std::uint64_t>;
 
   std::uint64_t max_value = engine_type::max();
   std::cout << max_value << std::endl;

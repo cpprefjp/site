@@ -6,9 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef
-    discard_block_engine<ranlux48_base, 389, 11>
-  ranlux48;
+  using ranlux48 = discard_block_engine<ranlux48_base, 389, 11>;
 }
 ```
 * ranlux48_base[link ranlux48_base.md]

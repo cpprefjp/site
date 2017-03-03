@@ -112,9 +112,7 @@ bool prev_permutation(BidirectionalIterator first, BidirectionalIterator last, C
 template <class BidirectionalIterator>
 bool prev_permutation(BidirectionalIterator first, BidirectionalIterator last)
 {
-  typedef
-    typename std::iterator_traits<BidirectionalIterator>::value_type
-  value_type;
+  using value_type = typename std::iterator_traits<BidirectionalIterator>::value_type;
 
   return prev_permutation(first, last, std::less<value_type>());
 }

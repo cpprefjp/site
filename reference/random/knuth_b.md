@@ -6,9 +6,7 @@
 
 ```cpp
 namespace std {
-  typedef
-    shuffle_order_engine<minstd_rand0, 256>
-  knuth_b;
+  using knuth_b = shuffle_order_engine<minstd_rand0, 256>;
 }
 ```
 * minstd_rand0[link minstd_rand0.md]

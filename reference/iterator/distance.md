@@ -96,9 +96,7 @@ typename std::iterator_traits<InputIterator>::difference_type
     distance_impl(InputIterator first, InputIterator last,
                   std::input_iterator_tag)
 {
-  typedef
-    typename std::iterator_traits<InputIterator>::difference_type
-  result_type;
+  using result_type = typename std::iterator_traits<InputIterator>::difference_type;
 
   result_type n = 0;
   for (; first != last; ++first) {

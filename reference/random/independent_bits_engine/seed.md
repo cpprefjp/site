@@ -41,9 +41,7 @@ template<class Sseq> void seed(Sseq& q); // (3)
 
 int main()
 {
-  typedef
-    std::independent_bits_engine<std::mt19937, 64, std::uint64_t>
-  engine_type;
+  using engine_type = std::independent_bits_engine<std::mt19937, 64, std::uint64_t>;
 
   // (1) デフォルトのシード値から再初期化
   {
