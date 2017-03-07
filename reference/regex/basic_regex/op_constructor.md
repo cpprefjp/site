@@ -71,7 +71,7 @@ basic_regex(initializer_list<charT> il,
 
 ##備考
 - `charT` は `basic_regex` の 1 番目のテンプレートパラメータで、文字型である。
-- `flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の typedef である。
+- `flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の別名である。
 
 
 ##例

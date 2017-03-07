@@ -52,10 +52,10 @@ namespace std {
 テンプレート引数 `Pred` に対する要求
 
 - `unary_negate`の場合
-	- 型`Pred`に`argument_type`という nested typedef が存在すること
+	- 型`Pred`に`argument_type`というメンバ型が存在すること
 	- 型`Pred`への`const`参照`pred`に対して、式 `(bool)pred(x)` が有効であること。ただし `x` は `argument_type` への `const` 参照。
 - `binary_negate`の場合
-	- 型`Pred`に`first_argument_type`、`second_argument_type`という nested typedef が存在すること
+	- 型`Pred`に`first_argument_type`、`second_argument_type`というメンバ型が存在すること
 	- 型`Pred`への`const`参照`pred`に対して、式 `(bool)pred(x, y)` が有効であること。ただし `x` と `y` は、それぞれ `first_argument_type` と `second_argument_type` への `const` 参照。
 
 

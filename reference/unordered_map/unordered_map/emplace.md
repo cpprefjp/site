@@ -75,10 +75,10 @@ pair<iterator, bool> emplace(Args&&... args);
 #include <utility>    // for std::pair
 #include <algorithm>  // for std::for_each
 
-// サンプル用typedef
+// サンプルで使用する型の別名
 using sc = std::pair<const std::string, std::complex<double>>;
 
-// サンプル用typedefのための挿入演算子
+// サンプルで使用する型の別名のための挿入演算子
 std::ostream& operator<<(std::ostream& os, const sc& p)
 {
   return os << '{' << p.first << ',' << p.second << '}';

@@ -24,7 +24,7 @@ key_equal key_eq() const;
 
 
 ##備考
-戻り値の型である、キー比較用関数オブジェクトの型 `key_equal` は、[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) のメンバ型で、三番目のテンプレートパラメータ `Pred` を `typedef` したものである。
+戻り値の型である、キー比較用関数オブジェクトの型 `key_equal` は、[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) のメンバ型で、三番目のテンプレートパラメータ `Pred` を別名定義したものである。
 
 キー比較用関数オブジェクトは、名前の通りキーを比較するためのオブジェクトで、与えられた二つのキーが等しいときには `true`、等しくないときには `false` を返すメンバ関数 `bool operator()(key_type, key_type)`を持つ必要がある。
 

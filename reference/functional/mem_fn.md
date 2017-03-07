@@ -20,7 +20,7 @@ namespace std {
 ##戻り値
 `fn(t, a2, ..., aN)` の呼出しが [*INVOKE*](invoke.md)`(pm, t, a2, ..., aN)` と等価となる [*Callable*](callable.md) オブジェクト `fn` を返す。
 
-`fn` の型には、必要に応じて `typedef` 名 `argument_type`, `first_argument_type`, `second_argument_type`, `result_type` が定義される。
+`fn` の型には、必要に応じて型の別名 `argument_type`, `first_argument_type`, `second_argument_type`, `result_type` が定義される。
 
 
 ##例外

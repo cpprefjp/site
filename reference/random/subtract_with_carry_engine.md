@@ -96,7 +96,7 @@ int main()
 {
   std::random_device seed_gen;
 
-  // subtract_with_carry_engineのパラメータ設定済みtypedefであるranlux24_baseを使用する。
+  // subtract_with_carry_engineのパラメータ設定済み別名であるranlux24_baseを使用する。
   // ランダムなシードを使用して初期化
   std::ranlux24_base engine(seed_gen());
 

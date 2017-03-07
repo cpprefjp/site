@@ -18,7 +18,7 @@ flag_type flags() const;
 
 
 ##備考
-`flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の typedef である。
+`flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の別名である。
 
 
 ##例

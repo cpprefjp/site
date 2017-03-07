@@ -24,7 +24,7 @@ hasher hash_function() const;
 
 
 ##備考
-戻り値の型である、ハッシュ関数オブジェクトの型 `hasher` は、[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) のメンバ型で、二番目のテンプレートパラメータ `Hash` を `typedef` したものである。
+戻り値の型である、ハッシュ関数オブジェクトの型 `hasher` は、[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) のメンバ型で、二番目のテンプレートパラメータ `Hash` を別名定義したものである。
 
 ハッシュ関数オブジェクトは、名前の通りハッシュ値を算出するためのオブジェクトで、キー値が与えられると `std::size_t` の値を返すメンバ関数 `std::size_t operator()(key_type)` を持つ必要がある。
 

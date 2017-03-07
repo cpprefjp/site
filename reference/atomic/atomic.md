@@ -15,7 +15,7 @@ namespace std {
 * integral[italic]
 
 ##概要
-`atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラステンプレートを使用する場合、型`T`は[trivially copyable](/reference/type_traits/is_trivially_copyable.md)である必要がある。特殊化された整数型および`bool`型には、それぞれ`atomic_T`という名前の`typedef`が提供される。
+`atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラステンプレートを使用する場合、型`T`は[trivially copyable](/reference/type_traits/is_trivially_copyable.md)である必要がある。特殊化された整数型および`bool`型には、それぞれ`atomic_T`という型の別名が提供される。
 
 | 名前付きアトミック型 | テンプレート引数となる整数型 |
 |--------------------------------|--------------------------------------------|
@@ -34,7 +34,7 @@ namespace std {
 | `atomic_wchar_t`  | `wchar_t` |
 | `atomic_bool`     | `bool` |
 
-また、[`<cstdint>`](/reference/cstdint.md)で定義される整数型に対する以下の`typedef`も提供される。
+また、[`<cstdint>`](/reference/cstdint.md)で定義される整数型に対する以下の別名も提供される。
 
 | 名前付きアトミック型 | テンプレート引数となる整数型 |
 |------------------------------------|--------------------------------------------|
@@ -61,7 +61,7 @@ namespace std {
 | `atomic_intmax_t`       | [`intmax_t`](/reference/cstdint/intmax_t.md) |
 | `atomic_uintmax_t`      | [`uintmax_t`](/reference/cstdint/uintmax_t.md) |
 
-`void*`に対する特殊化の`typedef`として、`atomic_address`型が提供される。
+`void*`に対する特殊化の別名として、`atomic_address`型が提供される。
 
 
 ###共通メンバ関数

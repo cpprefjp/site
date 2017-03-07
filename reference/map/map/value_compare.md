@@ -35,9 +35,9 @@ namespace std {
 
 | 名前                   | 説明                                                                                 | 対応バージョン |
 |------------------------|--------------------------------------------------------------------------------------|----------------|
-| `result_type`          | 関数オブジェクトとしての戻り型。`bool` の typedef                                    |                |
-| `first_argument_type`  | 関数オブジェクトとしての第一引数の型。[`map`](../../map.md)`::value_type` の typedef |                |
-| `second_argument_type` | 関数オブジェクトとしての第二引数の型。[`map`](../../map.md)`::value_type` の typedef |                |
+| `result_type`          | 関数オブジェクトとしての戻り型。`bool` の別名                                        |                |
+| `first_argument_type`  | 関数オブジェクトとしての第一引数の型。[`map`](../../map.md)`::value_type` の別名     |                |
+| `second_argument_type` | 関数オブジェクトとしての第二引数の型。[`map`](../../map.md)`::value_type` の別名     |                |
 
 これらのメンバ型は、C++03 までは [`binary_function`](../../functional/binary_function.md.nolink)`<value_type, value_type, bool>` を
 public 継承することによって定義していたが、C++11 から [`binary_function`](../../functional/binary_function.md.nolink) 等が非推奨になったことから

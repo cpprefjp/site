@@ -18,9 +18,9 @@ namespace chrono {
 
 `duration`のテンプレートパラメータである`ratio`の値によって、時間のためのあらゆる単位(ナノ秒、ミリ秒、秒, etc...)を表現することができる。
 
-標準では、以下の`typedef`が提供される：
+標準では、以下の別名が提供される：
 
-| `typedef名`                                         | 説明       | 対応バージョン |
+| 型の別名                                            | 説明       | 対応バージョン |
 |-----------------------------------------------------|------------|----------------|
 | [`nanoseconds`](/reference/chrono/nanoseconds.md)   | ナノ秒     | C++11          |
 | [`microseconds`](/reference/chrono/microseconds.md) | マイクロ秒 | C++11          |

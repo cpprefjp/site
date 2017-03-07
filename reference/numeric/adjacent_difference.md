@@ -111,9 +111,7 @@ OutputIterator adjacent_difference(InputIterator first,
   if (first == last)
     return result;
 
-  typedef
-    typename std::iterator_traits<InputIterator>::value_type
-  value_type;
+  using value_type = typename std::iterator_traits<InputIterator>::value_type;
 
   value_type acc = *first;
   *result = acc;
@@ -135,10 +133,7 @@ OutputIterator adjacent_difference(InputIterator first,
 template <class InputIterator, class OutputIterator>
 OutputIterator adjacent_difference(InputIterator first, InputIterator last, OutputIterator result)
 {
-  typedef
-    typename std::iterator_traits<InputIterator>::value_type
-  value_type;
-
+  using value_type = typename std::iterator_traits<InputIterator>::value_type;
   return adjacent_difference(first, last, result, std::minus<value_type>());
 }
 ```

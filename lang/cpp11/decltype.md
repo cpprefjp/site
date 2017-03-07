@@ -16,7 +16,7 @@ auto add(const T& lhs, const U& rhs)
   -> decltype(lhs + rhs);               // add の戻り値型は lhs + rhs の式の型
 
 struct S {
-  using U = decltype(add('a', 'b'));    // S::U は int 型の typedef 名
+  using U = decltype(add('a', 'b'));    // S::U は int 型の別名
 } s;
 
 decltype(s)::U l{};                     // l は S::U 型（つまり int 型）

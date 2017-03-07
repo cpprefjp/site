@@ -100,7 +100,7 @@ int main()
 {
   std::random_device seed_gen;
 
-  // linear_congruential_engineのパラメータ設定済みtypedefであるminstd_randを使用する。
+  // linear_congruential_engineのパラメータ設定済み別名であるminstd_randを使用する。
   // ランダムなシードを使用して初期化
   std::minstd_rand engine(seed_gen());
 

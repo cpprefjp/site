@@ -69,9 +69,9 @@ basic_regex& assign(initializer_list<charT> il,
 
 ##備考
 - `charT` は `basic_regex` の 1 番目のテンプレートパラメータで、文字型である。
-- `string_type` は `traits_type::string_type` の typedef で、デフォルトは [`basic_string`](../../string/basic_string.md)`<charT>` である。
+- `string_type` は `traits_type::string_type` の別名で、デフォルトは [`basic_string`](../../string/basic_string.md)`<charT>` である。
 - `traits_type` は `basic_regex` の 2 番目のテンプレートパラメータで、デフォルトは [`regex_traits`](../regex_traits.md)`<charT>` である。
-- `flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の typedef である。
+- `flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の別名である。
 
 
 ##例

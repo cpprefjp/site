@@ -78,14 +78,14 @@ namespace std {
 
 ##メンバ型
 
-| 名前                | 説明                                                                                                            | 対応バージョン |
+| 名前                | 説明                                                                                                        | 対応バージョン |
 |---------------------|-----------------------------------------------------------------------------------------------------------------|----------------|
-| `regex_type`        | マッチに使用している正規表現型。[`basic_regex`](basic_regex.md)`<charT, traits>` の typedef                     | C++11          |
-| `value_type`        | マッチ結果の型（間接参照で返される型）。[`match_results`](match_results.md)`<BidirectionalIterator>` の typedef | C++11          |
-| `difference_type`   | 2 つのイテレータの差を表すための型。`ptrdiff_t` の typedef                                                      | C++11          |
-| `pointer`           | `const value_type` へのポインタ                                                                                 | C++11          |
-| `reference`         | `const value_type` への参照                                                                                     | C++11          |
-| `iterator_category` | このイテレータのカテゴリを表すタグ。前方向イテレータ（`forward_iterator_tag`）                                  | C++11          |
+| `regex_type`        | マッチに使用している正規表現型。[`basic_regex`](basic_regex.md)`<charT, traits>` の別名                     | C++11          |
+| `value_type`        | マッチ結果の型（間接参照で返される型）。[`match_results`](match_results.md)`<BidirectionalIterator>` の別名 | C++11          |
+| `difference_type`   | 2 つのイテレータの差を表すための型。`ptrdiff_t` の別名                                                      | C++11          |
+| `pointer`           | `const value_type` へのポインタ                                                                             | C++11          |
+| `reference`         | `const value_type` への参照                                                                                 | C++11          |
+| `iterator_category` | このイテレータのカテゴリを表すタグ。前方向イテレータ（`forward_iterator_tag`）                              | C++11          |
 
 ##説明用プライベートメンバ変数
 | 名前     | 説明                                                                                                                           | 対応バージョン |
@@ -98,12 +98,12 @@ namespace std {
 
 ##非メンバ型
 
-| 名前               | 説明                                                 | 対応バージョン |
-|--------------------|------------------------------------------------------|----------------|
-| `cregex_iterator`  | `regex_iterator<const char*>` の typedef             | C++11          |
-| `wcregex_iterator` | `regex_iterator<const wchar_t*>` の typedef          | C++11          |
-| `sregex_iterator`  | `regex_iterator<string::const_iterator>` の typedef  | C++11          |
-| `wsregex_iterator` | `regex_iterator<wstring::const_iterator>` の typedef | C++11          |
+| 名前               | 説明                                             | 対応バージョン |
+|--------------------|--------------------------------------------------|----------------|
+| `cregex_iterator`  | `regex_iterator<const char*>` の別名             | C++11          |
+| `wcregex_iterator` | `regex_iterator<const wchar_t*>` の別名          | C++11          |
+| `sregex_iterator`  | `regex_iterator<string::const_iterator>` の別名  | C++11          |
+| `wsregex_iterator` | `regex_iterator<wstring::const_iterator>` の別名 | C++11          |
 
 
 ##例

@@ -16,7 +16,7 @@ value_compare value_comp() const;
 
 ##戻り値
 要素比較用の関数オブジェクト。
-[`value_compare`](value_compare.md) はメンバ型である。`key_compare` とは異なり、単なる typedef ではなく入れ子クラスである。
+[`value_compare`](value_compare.md) はメンバ型である。`key_compare` とは異なり、単なる型の別名ではなく入れ子クラスである。
 
 
 ##計算量

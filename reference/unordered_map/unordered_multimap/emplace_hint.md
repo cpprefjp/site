@@ -75,10 +75,10 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 #include <algorithm>  // for std::for_each
 #include <iterator>   // for std::next
 
-// サンプル用typedef
+// サンプルで使用する型の別名
 using is = std::pair<const int, std::string>;
 
-// サンプル用typedefのための挿入演算子
+// サンプルで使用する型の別名のための挿入演算子
 std::ostream& operator<<(std::ostream& os, const is& p)
 {
   return os << '(' << p.first << ',' << p.second << ')';

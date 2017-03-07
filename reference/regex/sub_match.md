@@ -44,14 +44,14 @@ namespace std {
 
 ##メンバ型
 
-| 名前              | 説明                                                                                                                                         | 対応バージョン |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------|----------------|
-| `value_type`      | 検索対象の文字の型。[`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::value_type` の typedef                      | C++11          |
-| `difference_type` | 2 つのイテレータの差を表すための型。[`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::difference_type` の typedef | C++11          |
-| `iterator`        | 検索対象の文字を指すイテレータの型。`BidirectionalIterator` の typedef                                                                       | C++11          |
-| `string_type`     | 検索対象の文字の型に対応する文字列型。[`basic_string`](../string/basic_string.md)`<value_type>` の typedef                                   | C++11          |
-| `first_type`      | メンバ変数 `first` の型。[`pair`](../utility/pair.md) から継承。`BidirectionalIterator` の typedef                                           | C++11          |
-| `second_type`     | メンバ変数 `second` の型。[`pair`](../utility/pair.md) から継承。`BidirectionalIterator` の typedef                                          | C++11          |
+| 名前              | 説明                                                                                                                                     | 対応バージョン |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------|
+| `value_type`      | 検索対象の文字の型。[`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::value_type` の別名                      | C++11          |
+| `difference_type` | 2 つのイテレータの差を表すための型。[`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::difference_type` の別名 | C++11          |
+| `iterator`        | 検索対象の文字を指すイテレータの型。`BidirectionalIterator` の別名                                                                       | C++11          |
+| `string_type`     | 検索対象の文字の型に対応する文字列型。[`basic_string`](../string/basic_string.md)`<value_type>` の別名                                   | C++11          |
+| `first_type`      | メンバ変数 `first` の型。[`pair`](../utility/pair.md) から継承。`BidirectionalIterator` の別名                                           | C++11          |
+| `second_type`     | メンバ変数 `second` の型。[`pair`](../utility/pair.md) から継承。`BidirectionalIterator` の別名                                          | C++11          |
 
 ##非メンバ関数
 
@@ -69,12 +69,12 @@ namespace std {
 
 ##非メンバ型
 
-| 名前          | 説明                                                                             | 対応バージョン |
-|---------------|----------------------------------------------------------------------------------|----------------|
-| `csub_match`  | `sub_match<const char*>` の typedef                                              | C++11          |
-| `wcsub_match` | `sub_match<const wchar_t*>` の typedef                                           | C++11          |
-| `ssub_match`  | `sub_match<`[`string`](../string/basic_string.md)`::const_iterator>` の typedef  | C++11          |
-| `wssub_match` | `sub_match<`[`wstring`](../string/basic_string.md)`::const_iterator>` の typedef | C++11          |
+| 名前          | 説明                                                                         | 対応バージョン |
+|---------------|------------------------------------------------------------------------------|----------------|
+| `csub_match`  | `sub_match<const char*>` の別名                                              | C++11          |
+| `wcsub_match` | `sub_match<const wchar_t*>` の別名                                           | C++11          |
+| `ssub_match`  | `sub_match<`[`string`](../string/basic_string.md)`::const_iterator>` の別名  | C++11          |
+| `wssub_match` | `sub_match<`[`wstring`](../string/basic_string.md)`::const_iterator>` の別名 | C++11          |
 
 ##例
 ```cpp
