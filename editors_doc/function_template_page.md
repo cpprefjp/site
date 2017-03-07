@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 <!-- `[meta header]`は、所属ヘッダを表すメタ情報 -->
-<!-- `[meta id-type]`は、識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, typedef, macro, namespace -->
+<!-- `[meta id-type]`は、識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, type-alias, macro, namespace -->
 <!-- `[meta namespace]`は、所属する名前空間を表すメタ情報。マクロを考慮して省略可。名前空間の区切りは`::` -->
 <!-- `[meta class]`は、所属するクラスを表すメタ情報。クラスページでは省略する。structとは書けない -->
 <!-- `[meta cpp]`は、機能が追加・非推奨・削除されたバージョンを表すメタ情報。改行して複数指定ができる。 -->

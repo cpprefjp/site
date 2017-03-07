@@ -1,7 +1,7 @@
 #make_integer_sequence
 * utility[meta header]
 * std[meta namespace]
-* typedef[meta id-type]
+* type-alias[meta id-type]
 * cpp14[meta cpp]
 
 ```cpp

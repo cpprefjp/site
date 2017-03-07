@@ -1,6 +1,6 @@
 #openmode
 * ios[meta header]
-* typedef[meta id-type]
+* type-alias[meta id-type]
 * std[meta namespace]
 * ios_base[meta class]
 

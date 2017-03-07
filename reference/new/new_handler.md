@@ -1,7 +1,7 @@
 #new_handler
 * new[meta header]
 * std[meta namespace]
-* typedef[meta id-type]
+* type-alias[meta id-type]
 
 ```cpp
 namespace std {

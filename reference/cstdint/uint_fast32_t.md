@@ -1,7 +1,7 @@
 #uint_fast32_t
 * cstdint[meta header]
 * std[meta namespace]
-* typedef[meta id-type]
+* type-alias[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

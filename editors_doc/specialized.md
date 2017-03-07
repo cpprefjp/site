@@ -177,7 +177,7 @@ Warning: [nolinked editors_doc/specialized.md] href "/reference/foobar.md.nolink
 
 * `[meta header]`: 所属ヘッダを表すメタ情報
     * 例: `* chrono[meta header]`
-* `[meta id-type]`: 識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, typedef, macro, namespace
+* `[meta id-type]`: 識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, type-alias, macro, namespace
 * `[meta namespace]`: 所属する名前空間を表すメタ情報。マクロを考慮して省略可。名前空間の区切りは`::`
     * 例: `* std[meta namespace]`
     * 例: `* std::chrono[meta namespace]`

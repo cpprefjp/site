@@ -1,7 +1,7 @@
 #syntax_option_type
 * regex[meta header]
 * std::regex_constants[meta namespace]
-* typedef[meta id-type]
+* type-alias[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
