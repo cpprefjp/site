@@ -87,7 +87,6 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 #include <cassert>
 #include <vector>
 #include <string>
-
 #include <scoped_allocator>
 
 template <class T>
@@ -194,7 +193,16 @@ int main()
   construct_pair();
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* construct[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* std::basic_string[link /reference/string/basic_string.md]
+* std::char_traits[link /reference/string/char_traits.md]
+* alloc.allocate[link allocate.md]
+* alloc.destroy[link destroy.md]
+* alloc.deallocate[link deallocate.md]
+* std::piecewise_construct[link /reference/utility/piecewise_construct.md]
+* std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
+* std::next[link /reference/iterator/next.md]
 
 ###出力
 ```

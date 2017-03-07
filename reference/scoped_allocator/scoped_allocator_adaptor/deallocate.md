@@ -22,7 +22,6 @@ void deallocate(pointer p, size_type n);
 #include <iostream>
 #include <vector>
 #include <string>
-
 #include <scoped_allocator>
 
 template <class T>
@@ -57,6 +56,11 @@ int main()
   alloc.deallocate(p, n);
 }
 ```
+* deallocate[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* std::basic_string[link /reference/string/basic_string.md]
+* std::char_traits[link /reference/string/char_traits.md]
+* alloc.allocate[link allocate.md]
 
 ###出力
 ```

@@ -52,6 +52,10 @@ int main()
   vector<string>::allocator_type for_copy_alloc = alloc.select_on_container_copy_construction();
 }
 ```
+* select_on_container_copy_construction()[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* std::basic_string[link /reference/string/basic_string.md]
+* std::char_traits[link /reference/string/char_traits.md]
 
 ###出力
 ```

@@ -86,6 +86,10 @@ int main()
   std::cout << outer_alloc.getState() << std::endl;
 }
 ```
+* outer_allocator()[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* std::basic_string[link /reference/string/basic_string.md]
+* std::char_traits[link /reference/string/char_traits.md]
 
 ###出力
 ```

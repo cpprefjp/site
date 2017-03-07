@@ -56,7 +56,6 @@ scoped_allocator_adaptor(
 #include <iostream>
 #include <vector>
 #include <string>
-
 #include <scoped_allocator>
 
 template <class T>
@@ -99,6 +98,10 @@ int main()
   vector<string>::allocator_type alloc4 = std::move(alloc3);
 }
 ```
+* std::allocator[link /reference/memory/allocator.md]
+* std::basic_string[link /reference/string/basic_string.md]
+* std::char_traits[link /reference/string/char_traits.md]
+* std::move[link /reference/utility/move.md]
 
 ###出力
 ```

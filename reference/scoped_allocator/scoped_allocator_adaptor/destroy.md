@@ -32,7 +32,6 @@ OUTERMOST_ALLOC_TRAITS(*this)::destroy(OUTERMOST(*this), p)
 ```cpp
 #include <vector>
 #include <string>
-
 #include <scoped_allocator>
 
 template <class T>
@@ -73,6 +72,13 @@ int main()
   alloc.deallocate(p, n);
 }
 ```
+* destroy[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* std::basic_string[link /reference/string/basic_string.md]
+* std::char_traits[link /reference/string/char_traits.md]
+* alloc.allocate[link allocate.md]
+* alloc.construct[link construct.md]
+* alloc.deallocate[link deallocate.md]
 
 ###出力
 ```

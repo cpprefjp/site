@@ -157,6 +157,11 @@ int main()
   std::cout << v.front().get_allocator().getState() << std::endl;
 }
 ```
+* std::scoped_allocator_adaptor[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* v.push_back[link /reference/vector/push_back.md]
+* v.get_allocator()[link /reference/vector/get_allocator.md]
+* v.front()[link /reference/vector/front.md]
 
 ###出力
 ```
@@ -169,7 +174,6 @@ int main()
 #include <iostream>
 #include <vector>
 #include <forward_list>
-
 #include <scoped_allocator>
 
 // std::allocatorに状態変数を持たせただけのクラス
@@ -237,6 +241,11 @@ int main()
   }
 }
 ```
+* std::scoped_allocator_adaptor[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* v.push_back[link /reference/vector/push_back.md]
+* v.get_allocator()[link /reference/vector/get_allocator.md]
+* x.get_allocator()[link /reference/forward_list/get_allocator.md]
 
 ###出力
 ```

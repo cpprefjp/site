@@ -25,7 +25,6 @@ const inner_allocator_type& inner_allocator() const noexcept; // (2)
 #include <iostream>
 #include <vector>
 #include <string>
-
 #include <scoped_allocator>
 
 // std::allocatorに状態変数を持たせただけのクラス
@@ -87,6 +86,10 @@ int main()
   std::cout << inner_alloc.getState() << std::endl;
 }
 ```
+* inner_allocator()[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
+* std::basic_string[link /reference/string/basic_string.md]
+* std::char_traits[link /reference/string/char_traits.md]
 
 ###出力
 ```
