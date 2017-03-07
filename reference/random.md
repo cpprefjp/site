@@ -41,16 +41,16 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|---------------------------|-------|
-| [`minstd_rand0`](random/minstd_rand0.md)   | 最小標準MINSTD(typedef)                               | C++11 |
-| [`minstd_rand`](random/minstd_rand.md)     | 最小標準MINSTDのパラメータ改良版(typedef)             | C++11 |
-| [`mt19937`](random/mt19937.md)             | メルセンヌツイスターの32ビット版(typedef)             | C++11 |
-| [`mt19937_64`](random/mt19937_64.md)       | メルセンヌツイスターの64ビット版(typedef)             | C++11 |
-| [`ranlux24_base`](random/ranlux24_base.md) | RANLUX法の`ranlux24`を定義するための型(typedef)       | C++11 |
-| [`ranlux48_base`](random/ranlux48_base.md) | RANLUX法の`ranlux48`を定義するための型(typedef)       | C++11 |
-| [`ranlux24`](random/ranlux24.md)           | RANLUX法のレベル3(typedef)                            | C++11 |
-| [`ranlux48`](random/ranlux48.md)           | RANLUX法のレベル4(typedef)                            | C++11 |
-| [`knuth_b`](random/knuth_b.md)             | KnuthのリオーダーアルゴリズムB(typedef)               | C++11 |
-| [`default_random_engine`](random/default_random_engine.md) | 非専門用途でデフォルト使用する擬似乱数生成器(typedef) | C++11 |
+| [`minstd_rand0`](random/minstd_rand0.md)   | 最小標準MINSTD(type-alias)                               | C++11 |
+| [`minstd_rand`](random/minstd_rand.md)     | 最小標準MINSTDのパラメータ改良版(type-alias)             | C++11 |
+| [`mt19937`](random/mt19937.md)             | メルセンヌツイスターの32ビット版(type-alias)             | C++11 |
+| [`mt19937_64`](random/mt19937_64.md)       | メルセンヌツイスターの64ビット版(type-alias)             | C++11 |
+| [`ranlux24_base`](random/ranlux24_base.md) | RANLUX法の`ranlux24`を定義するための型(type-alias)       | C++11 |
+| [`ranlux48_base`](random/ranlux48_base.md) | RANLUX法の`ranlux48`を定義するための型(type-alias)       | C++11 |
+| [`ranlux24`](random/ranlux24.md)           | RANLUX法のレベル3(type-alias)                            | C++11 |
+| [`ranlux48`](random/ranlux48.md)           | RANLUX法のレベル4(type-alias)                            | C++11 |
+| [`knuth_b`](random/knuth_b.md)             | KnuthのリオーダーアルゴリズムB(type-alias)               | C++11 |
+| [`default_random_engine`](random/default_random_engine.md) | 非専門用途でデフォルト使用する擬似乱数生成器(type-alias) | C++11 |
 
 
 ##非決定的な乱数生成器

@@ -7,8 +7,8 @@
 
 | 名前                                                    | 説明                                                           | 対応バージョン |
 |---------------------------------------------------------|----------------------------------------------------------------|----------------|
-| [`streamoff`](ios/type-streamoff.md)                  | ファイルサイズの表現に適した符号付き整数型 (typedef)           |                |
-| [`streamsize`](ios/type-streamsize.md)                | 入出力操作のバイト数などの表現に適した符号付き整数型 (typedef) |                |
+| [`streamoff`](ios/type-streamoff.md)                  | ファイルサイズの表現に適した符号付き整数型 (type-alias)           |                |
+| [`streamsize`](ios/type-streamsize.md)                | 入出力操作のバイト数などの表現に適した符号付き整数型 (type-alias) |                |
 | [`fpos`](ios/fpos.md)                                 | ストリーム上の位置を表現する型 (class template)                |                |
 | [`ios_base`](ios/ios_base.md)                         | 入出力の最基底クラス (class)                                   |                |
 | [`basic_ios`](ios/basic_ios.md)                       | 入出力共通の基底クラス (class template)                        |                |

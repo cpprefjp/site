@@ -38,26 +38,26 @@
 
 | 名前                            | 説明              | 対応バージョン |
 |---------------------------------|-------------------|----------------|
-| [`yocto`](ratio/si_prefix.md) | ヨクト(typedef)   | C++11          |
-| [`zepto`](ratio/si_prefix.md) | ゼプト(typedef)   | C++11          |
-| [`atto`](ratio/si_prefix.md)  | アト(typedef)     | C++11          |
-| [`femto`](ratio/si_prefix.md) | フェムト(typedef) | C++11          |
-| [`pico`](ratio/si_prefix.md)  | ピコ(typedef)     | C++11          |
-| [`nano`](ratio/si_prefix.md)  | ナノ(typedef)     | C++11          |
-| [`micro`](ratio/si_prefix.md) | マイクロ(typedef) | C++11          |
-| [`milli`](ratio/si_prefix.md) | ミリ(typedef)     | C++11          |
-| [`centi`](ratio/si_prefix.md) | センチ(typedef)   | C++11          |
-| [`deci`](ratio/si_prefix.md)  | デシ(typedef)     | C++11          |
-| [`deca`](ratio/si_prefix.md)  | デカ(typedef)     | C++11          |
-| [`hecto`](ratio/si_prefix.md) | ヘクト(typedef)   | C++11          |
-| [`kilo`](ratio/si_prefix.md)  | キロ(typedef)     | C++11          |
-| [`mega`](ratio/si_prefix.md)  | メガ(typedef)     | C++11          |
-| [`giga`](ratio/si_prefix.md)  | ギガ(typedef)     | C++11          |
-| [`tera`](ratio/si_prefix.md)  | テラ(typedef)     | C++11          |
-| [`peta`](ratio/si_prefix.md)  | ペタ(typedef)     | C++11          |
-| [`exa`](ratio/si_prefix.md)   | エクサ(typedef)   | C++11          |
-| [`zetta`](ratio/si_prefix.md) | ゼタ(typedef)     | C++11          |
-| [`yotta`](ratio/si_prefix.md) | ヨタ(typedef)     | C++11          |
+| [`yocto`](ratio/si_prefix.md) | ヨクト(type-alias)   | C++11          |
+| [`zepto`](ratio/si_prefix.md) | ゼプト(type-alias)   | C++11          |
+| [`atto`](ratio/si_prefix.md)  | アト(type-alias)     | C++11          |
+| [`femto`](ratio/si_prefix.md) | フェムト(type-alias) | C++11          |
+| [`pico`](ratio/si_prefix.md)  | ピコ(type-alias)     | C++11          |
+| [`nano`](ratio/si_prefix.md)  | ナノ(type-alias)     | C++11          |
+| [`micro`](ratio/si_prefix.md) | マイクロ(type-alias) | C++11          |
+| [`milli`](ratio/si_prefix.md) | ミリ(type-alias)     | C++11          |
+| [`centi`](ratio/si_prefix.md) | センチ(type-alias)   | C++11          |
+| [`deci`](ratio/si_prefix.md)  | デシ(type-alias)     | C++11          |
+| [`deca`](ratio/si_prefix.md)  | デカ(type-alias)     | C++11          |
+| [`hecto`](ratio/si_prefix.md) | ヘクト(type-alias)   | C++11          |
+| [`kilo`](ratio/si_prefix.md)  | キロ(type-alias)     | C++11          |
+| [`mega`](ratio/si_prefix.md)  | メガ(type-alias)     | C++11          |
+| [`giga`](ratio/si_prefix.md)  | ギガ(type-alias)     | C++11          |
+| [`tera`](ratio/si_prefix.md)  | テラ(type-alias)     | C++11          |
+| [`peta`](ratio/si_prefix.md)  | ペタ(type-alias)     | C++11          |
+| [`exa`](ratio/si_prefix.md)   | エクサ(type-alias)   | C++11          |
+| [`zetta`](ratio/si_prefix.md) | ゼタ(type-alias)     | C++11          |
+| [`yotta`](ratio/si_prefix.md) | ヨタ(type-alias)     | C++11          |
 
 
 ##バージョン

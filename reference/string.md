@@ -15,10 +15,10 @@
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|------------------------------------|-------|
 | [`basic_string`](string/basic_string.md) | 汎用文字型の文字列(class template) | |
-| [`string`](string/basic_string.md)       | マルチバイト文字列(typedef) | |
-| [`wstring`](string/basic_string.md)      | ワイド文字列(typedef) | |
-| [`u16string`](string/basic_string.md)    | UTF-16文字列(typedef) | C++11 |
-| [`u32string`](string/basic_string.md)    | UTF-32文字列(typedef) | C++11 |
+| [`string`](string/basic_string.md)       | マルチバイト文字列(type-alias) | |
+| [`wstring`](string/basic_string.md)      | ワイド文字列(type-alias) | |
+| [`u16string`](string/basic_string.md)    | UTF-16文字列(type-alias) | C++11 |
+| [`u32string`](string/basic_string.md)    | UTF-32文字列(type-alias) | C++11 |
 
 
 ##数値との変換

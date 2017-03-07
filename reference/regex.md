@@ -9,8 +9,8 @@
 | 名前                                    | 説明                                  | 対応バージョン |
 |-----------------------------------------|---------------------------------------|----------------|
 | [`basic_regex`](regex/basic_regex.md) | 正規表現クラス (class template)       | C++11          |
-| [`regex`](regex/basic_regex.md)       | `char`版の正規表現クラス (typedef)    | C++11          |
-| [`wregex`](regex/basic_regex.md)      | `wchar_t`版の正規表現クラス (typedef) | C++11          |
+| [`regex`](regex/basic_regex.md)       | `char`版の正規表現クラス (type-alias)    | C++11          |
+| [`wregex`](regex/basic_regex.md)      | `wchar_t`版の正規表現クラス (type-alias) | C++11          |
 
 
 ##オプション・定数
@@ -33,15 +33,15 @@
 | 名前                                      | 説明                                                                                                                                     | 対応バージョン |
 |-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------|
 | [`sub_match`](regex/sub_match.md)         | 各サブマッチ結果が格納されるクラス (class template)                                                                                      | C++11          |
-| [`csub_match`](regex/sub_match.md)        | [`sub_match`](regex/sub_match.md) クラスの `const char*` 型バージョン (typedef)                                                          | C++11          |
-| [`wcsub_match`](regex/sub_match.md)       | [`sub_match`](regex/sub_match.md) クラスの `const wchar_t*` 型バージョン (typedef)                                                       | C++11          |
-| [`ssub_match`](regex/sub_match.md)        | [`sub_match`](regex/sub_match.md) クラスの [`string`](/reference/string/basic_string.md)`::const_iterator` バージョン (typedef)          | C++11          |
-| [`wssub_match`](regex/sub_match.md)       | [`sub_match`](regex/sub_match.md) クラスの [`wstring`](/reference/string/basic_string.md)`::const_iterator` バージョン (typedef)         | C++11          |
+| [`csub_match`](regex/sub_match.md)        | [`sub_match`](regex/sub_match.md) クラスの `const char*` 型バージョン (type-alias)                                                          | C++11          |
+| [`wcsub_match`](regex/sub_match.md)       | [`sub_match`](regex/sub_match.md) クラスの `const wchar_t*` 型バージョン (type-alias)                                                       | C++11          |
+| [`ssub_match`](regex/sub_match.md)        | [`sub_match`](regex/sub_match.md) クラスの [`string`](/reference/string/basic_string.md)`::const_iterator` バージョン (type-alias)          | C++11          |
+| [`wssub_match`](regex/sub_match.md)       | [`sub_match`](regex/sub_match.md) クラスの [`wstring`](/reference/string/basic_string.md)`::const_iterator` バージョン (type-alias)         | C++11          |
 | [`match_results`](regex/match_results.md) | 全マッチ結果が格納されるクラス (class template)                                                                                          | C++11          |
-| [`cmatch`](regex/match_results.md)        | [`match_results`](regex/match_results.md) クラスの `const char*` 型バージョン (typedef)                                                  | C++11          |
-| [`wcmatch`](regex/match_results.md)       | [`match_results`](regex/match_results.md) クラスの `const wchar_t*` 型バージョン (typedef)                                               | C++11          |
-| [`smatch`](regex/match_results.md)        | [`match_results`](regex/match_results.md) クラスの [`string`](/reference/string/basic_string.md)`::const_iterator` バージョン (typedef)  | C++11          |
-| [`wsmatch`](regex/match_results.md)       | [`match_results`](regex/match_results.md) クラスの [`wstring`](/reference/string/basic_string.md)`::const_iterator` バージョン (typedef) | C++11          |
+| [`cmatch`](regex/match_results.md)        | [`match_results`](regex/match_results.md) クラスの `const char*` 型バージョン (type-alias)                                                  | C++11          |
+| [`wcmatch`](regex/match_results.md)       | [`match_results`](regex/match_results.md) クラスの `const wchar_t*` 型バージョン (type-alias)                                               | C++11          |
+| [`smatch`](regex/match_results.md)        | [`match_results`](regex/match_results.md) クラスの [`string`](/reference/string/basic_string.md)`::const_iterator` バージョン (type-alias)  | C++11          |
+| [`wsmatch`](regex/match_results.md)       | [`match_results`](regex/match_results.md) クラスの [`wstring`](/reference/string/basic_string.md)`::const_iterator` バージョン (type-alias) | C++11          |
 
 
 ##アルゴリズム

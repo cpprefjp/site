@@ -20,12 +20,12 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
-| [`nanoseconds`](chrono/nanoseconds.md)   | ナノ秒を表現するためのdurationの別名(typedef) | C++11 |
-| [`microseconds`](chrono/microseconds.md) | マイクロ秒を表現するためのdurationの別名(typedef) | C++11 |
-| [`milliseconds`](chrono/milliseconds.md) | ミリ秒を表現するためのdurationの別名(typedef) | C++11 |
-| [`seconds`](chrono/seconds.md)           | 秒を表現するためのdurationの別名(typedef) | C++11 |
-| [`minutes`](chrono/minutes.md)           | 分を表現するためのdurationの別名(typedef) | C++11 |
-| [`hours`](chrono/hours.md)               | 時を表現するためのdurationの別名(typedef) | C++11 |
+| [`nanoseconds`](chrono/nanoseconds.md)   | ナノ秒を表現するためのdurationの別名(type-alias) | C++11 |
+| [`microseconds`](chrono/microseconds.md) | マイクロ秒を表現するためのdurationの別名(type-alias) | C++11 |
+| [`milliseconds`](chrono/milliseconds.md) | ミリ秒を表現するためのdurationの別名(type-alias) | C++11 |
+| [`seconds`](chrono/seconds.md)           | 秒を表現するためのdurationの別名(type-alias) | C++11 |
+| [`minutes`](chrono/minutes.md)           | 分を表現するためのdurationの別名(type-alias) | C++11 |
+| [`hours`](chrono/hours.md)               | 時を表現するためのdurationの別名(type-alias) | C++11 |
 
 
 ##時計型

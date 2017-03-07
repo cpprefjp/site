@@ -18,7 +18,7 @@
 
 | 名前    | 説明 | 対応バージョン |
 |---------|------|----------------|
-| `fenv_t` | 浮動小数点環境の状態を表す型 (typedef) | C++11 |
+| `fenv_t` | 浮動小数点環境の状態を表す型 (type-alias) | C++11 |
 | `fegetenv` | 現在の浮動小数点環境を取得する (function) | C++11 |
 | `fesetenv` | 浮動小数点環境を設定する (function) | C++11 |
 | `feholdexcept` | 現在の浮動小数点環境を保存する (function) | C++11 |
@@ -35,7 +35,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`fexcept_t`](cfenv/fexcept_t.md) | 浮動小数点例外の状態フラグを表す整数型 (typedef) | C++11 |
+| [`fexcept_t`](cfenv/fexcept_t.md) | 浮動小数点例外の状態フラグを表す整数型 (type-alias) | C++11 |
 | [`feclearexcept`](cfenv/feclearexcept.md) | 指定された浮動小数点例外をクリアする (function) | C++11 |
 | [`fegetexceptflag`](cfenv/fegetexceptflag.md) | 浮動小数点例外の現在の状態を、実装定義の表現で取得する (function) | C++11 |
 | [`fesetexceptflag`](cfenv/fesetexceptflag.md) | 浮動小数点例外を発生させずに、浮動小数点例外の状態を設定する (function) | C++11 |
