@@ -6,7 +6,6 @@
 * cpp11[meta cpp]
 
 ```cpp
-// since C++11
 template <class... Args>
 iterator emplace_hint(const_iterator hint, Args&&... args);
 ```
@@ -57,14 +56,10 @@ int main()
   std::cout << c.size() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* insert[link insert.md]
 * emplace_hint[color ff0000]
-* find[link find.md]
-* cout[link ../../iostream/cout.md]
-* size[link size.md]
-* endl[link ../../ostream/endl.md]
+* c.insert[link insert.md]
+* c.find[link find.md]
+* c.size()[link size.md]
 
 ###出力
 ```

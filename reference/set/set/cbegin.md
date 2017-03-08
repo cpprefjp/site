@@ -39,11 +39,7 @@ int main()
 }
 ```
 * cbegin()[color ff0000]
-* std::set[link ../../set.md]
-* cend()[link cend.md]
-* std::for_each[link /reference/algorithm/for_each.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* c.cend()[link cend.md]
 
 ###出力
 ```

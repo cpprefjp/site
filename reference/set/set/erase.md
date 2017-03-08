@@ -57,11 +57,15 @@ while (it != set_object.end()) {
 
 このような書き方は C++11 以降でも依然として有効だが、`erase` が削除された次の要素を指すイテレータを返すようになったため、  
 
-`set_object.erase(it++);`  
+```cpp
+set_object.erase(it++);
+```
 
-の部分を  
+の部分を
 
-`it = set_object.erase(it);  `
+```cpp
+it = set_object.erase(it);
+```
 
 のような書き方をすることも可能となった。
 
@@ -90,15 +94,11 @@ int main()
   std::cout << c.size() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* insert[link insert.md]
 * erase[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* size[link size.md]
-* begin[link begin.md]
-* end[link end.md]
+* c.insert[link insert.md]
+* c.size()[link size.md]
+* c.begin()[link begin.md]
+* c.end()[link end.md]
 
 ###出力
 ```

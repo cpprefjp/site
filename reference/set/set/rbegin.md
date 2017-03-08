@@ -50,13 +50,9 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
+* rbegin()[color ff0000]
 * insert[link insert.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* rbegin[color ff0000]
-* rend[link rend.md]
+* rend()[link rend.md]
 
 ###出力
 ```

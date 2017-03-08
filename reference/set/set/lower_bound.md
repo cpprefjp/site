@@ -55,14 +55,14 @@ int main()
     // B以上D以下の範囲を取得
     decltype(s)::iterator it = s.lower_bound("B");
     decltype(s)::iterator last = s.upper_bound("D");
-      
+
     while (it != last) {
       std::cout << *it << std::endl;
       ++it;
     }
     std::cout << std::endl;
   }
-    
+
   // (2)
   {
     std::multiset<std::string, std::less<>> s = { "A", "B", "B", "C", "D" };
@@ -81,11 +81,8 @@ int main()
 }
 ```
 * lower_bound[color ff0000]
-* upper_bound[link upper_bound.md]
-* std::string[link /reference/string/basic_string.md]
+* s.upper_bound[link upper_bound.md]
 * std::less[link /reference/functional/less.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

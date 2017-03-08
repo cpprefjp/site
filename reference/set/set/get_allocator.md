@@ -45,11 +45,7 @@ int main()
   c.get_allocator().deallocate(p, 2);
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* get_allocator[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* get_allocator()[color ff0000]
 * allocate[link ../../memory/allocator/allocate.md]
 * deallocate[link ../../memory/allocator/deallocate.md]
 

@@ -45,13 +45,9 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* insert[link insert.md]
-* begin[link begin.md]
-* end[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* end()[color ff0000]
+* c.insert[link insert.md]
+* c.begin()[link begin.md]
 
 ###出力
 ```

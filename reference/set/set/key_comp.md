@@ -36,11 +36,7 @@ int main()
   std::cout << comp(5, 3) << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* key_comp[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* key_comp()[color ff0000]
 
 ###出力
 ```

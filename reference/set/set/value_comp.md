@@ -9,13 +9,13 @@ value_compare value_comp() const;
 ```
 
 ##概要
-コンテナに関連づけられた比較オブジェクトを返す。これはコンテナ内の二つの要素を比較するために利用できる。 
-この比較オブジェクトはオブジェクトの構築時にセットされ、関数ポインタであっても関数オブジェクトであっても良い。いずれにせよこれは同じ型の 2 つの引数をとり、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)に従って一つ目の引数が二つ目の引数の前になる場合に `true`、そうでない場合に `false` を返す。 
+コンテナに関連づけられた比較オブジェクトを返す。これはコンテナ内の二つの要素を比較するために利用できる。  
+この比較オブジェクトはオブジェクトの構築時にセットされ、関数ポインタであっても関数オブジェクトであっても良い。いずれにせよこれは同じ型の 2 つの引数をとり、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)に従って一つ目の引数が二つ目の引数の前になる場合に `true`、そうでない場合に `false` を返す。  
 `set` コンテナでは、要素の値はキーそのものであり、従って `value_comp` とその兄弟メンバ関数である [`key_comp`](key_comp.md) は同じである。
 
 
 ##戻り値
-比較オブジェクト。 
+比較オブジェクト。  
 `value_compare` はメンバ型であり、テンプレートパラメータ `Compare` の別名として定義される。
 
 
@@ -37,12 +37,8 @@ int main()
   std::cout << comp(5, 3) << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
+* value_comp()[color ff0000]
 * insert[link insert.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* value_comp[color ff0000]
 
 ###出力
 ```

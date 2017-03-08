@@ -25,10 +25,11 @@ void insert(InputIterator first, InputIterator last);
 // since C++11
 void insert(initializer_list<value_type> init);
 ```
-* pair[link ../../utility/pair.md]
+* pair[link /reference/utility/pair.md]
+* initializer_list[link /reference/initializer_list.md]
 
 ##概要
-　新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入することにより、 `set` コンテナを拡張する。 
+新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入することにより、 `set` コンテナを拡張する。 
 これは、挿入された要素の数だけコンテナの [`size()`](size.md) を増やす。 
  `set` コンテナは重複した値を許さないため、挿入操作はそれぞれの要素が他のコンテナ内の既存要素と同じ値かどうかをチェックする。もし同じであれば要素は挿入されず、戻り値を持つ関数の場合はそれへのイテレータを返す。 
 重複した値を許す、類似したコンテナについては `multiset` を参照。 
@@ -79,14 +80,10 @@ int main ()
   std::cout << c2.size() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
 * insert[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* size[link size.md]
-* begin[link begin.md]
-* end[link end.md]
+* size()[link size.md]
+* c1.begin()[link begin.md]
+* c1.end()[link end.md]
 
 ###出力
 ```

@@ -47,12 +47,8 @@ int main()
   std::cout << (s1 <= s2) << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* insert[link insert.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
 * <=[color ff0000]
+* insert[link insert.md]
 
 ###出力
 ```

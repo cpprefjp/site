@@ -14,7 +14,7 @@ size_type max_size() const noexcept;
 
 
 ##戻り値
-`set` コンテナが自身のコンテンツとして保持できる要素の最大数。 
+`set` コンテナが自身のコンテンツとして保持できる要素の最大数。  
 メンバ型 `size_type` は符号なし整数型である。
 
 
@@ -34,11 +34,7 @@ int main ()
   std::cout << c.max_size() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* cout[link ../../iostream/cout.md]
-* max_size[color ff0000]
-* endl[link ../../ostream/endl.md]
+* max_size()[color ff0000]
 
 ###出力例
 ```

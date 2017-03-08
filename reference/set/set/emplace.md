@@ -6,9 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-// since C++11
-template <class... Args> pair<iterator, bool>
-emplace(Args&&... args);
+template <class... Args>
+pair<iterator, bool> emplace(Args&&... args);
 ```
 * pair[link ../../utility/pair.md]
 
@@ -40,6 +39,7 @@ struct s
   s(int a): a_(a) {}
   int a_;
 };
+
 bool operator<(const s& lhs, const s& rhs)
 {
   return lhs.a_ < rhs.a_;
@@ -54,11 +54,8 @@ int main()
   std::cout << (*c.begin()).a_ << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
 * emplace[color ff0000]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* c.begin()[link begin.md]
 
 ###出力
 ```

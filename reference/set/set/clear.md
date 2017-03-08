@@ -36,13 +36,9 @@ int main ()
   std::cout << c.size() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* insert[link insert.md]
-* cout[link ../../iostream/cout.md]
-* size[link size.md]
-* endl[link ../../ostream/endl.md]
-* clear[color ff0000]
+* clear()[color ff0000]
+* c.insert[link insert.md]
+* c.size()[link size.md]
 
 ###出力
 ```

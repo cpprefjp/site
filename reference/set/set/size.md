@@ -13,7 +13,7 @@ size_type size() const noexcept;
 
 
 ##戻り値
-`set` コンテナに格納されている要素の数を返す。 
+`set` コンテナに格納されている要素の数を返す。  
 メンバ型 `size_type` は符号なし整数型である。
 
 
@@ -40,12 +40,8 @@ int main ()
   std::cout << c.size() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
+* size()[color ff0000]
 * insert[link insert.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* size[color ff0000]
 
 ###出力
 ```

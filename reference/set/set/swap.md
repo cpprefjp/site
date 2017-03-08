@@ -9,7 +9,7 @@ void swap(set& st);
 ```
 
 ##概要
-コンテナ内のコンテンツを、同じ型の要素を保持する他の `set` オブジェクトである `st` 内のコンテンツと交換する。サイズは異なる場合もある。 
+コンテナ内のコンテンツを、同じ型の要素を保持する他の `set` オブジェクトである `st` 内のコンテンツと交換する。サイズは異なる場合もある。  
 このメンバ関数の呼び出しの後、呼び出し前にコンテナ内にあった要素は `st` へ、`st` 内にあった要素は `*this` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。 
 
 
@@ -47,14 +47,10 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* insert[link insert.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
 * swap[color ff0000]
-* begin[link begin.md]
-* end[link end.md]
+* insert[link insert.md]
+* c1.begin()[link begin.md]
+* c1.end()[link end.md]
 
 ###出力
 ```

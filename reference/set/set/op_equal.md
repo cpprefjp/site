@@ -44,11 +44,7 @@ int main()
 }
 ```
 * ==[color ff0000]
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
 * insert[link insert.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
 
 ###出力
 ```

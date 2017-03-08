@@ -57,12 +57,8 @@ int main()
   std::cout << "Size of c2: " << c2.size() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* size[link size.md]
 * =[color ff0000]
+* size()[link size.md]
 
 ###出力
 ```

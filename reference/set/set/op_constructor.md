@@ -89,19 +89,14 @@ std::set<int> s = {};
 int main()
 {
   using sii = std::set<int>;
-  std::list<sii, std::scoped_allocator_adaptor<std::allocator<sii>>> l;
+  std::list<sii, std::scoped_allocator_adaptor<std::allocator<sii>>> ls;
   int a[] = {1, 2, 3};
-  l.emplace_back(std::begin(a), std::end(a));
+  ls.emplace_back(std::begin(a), std::end(a));
 }
 ```
-* list[link ../../list.md]
-* set[link ../../set.md]
-* scoped_allocator[link ../../scoped_allocator.md]
-* iterator[link ../../iterator.md]
-* memory[link ../../memory.md]
-* scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
-* allocator[link ../../memory/allocator.md]
-* emplace_back[link ../../list/emplace_back.md]
+* std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
+* std::allocator[link ../../memory/allocator.md]
+* ls.emplace_back[link ../../list/emplace_back.md]
 
     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
     （`set(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `set` が構築され、`alloc` と共に (9) の形式に引き渡される）
@@ -122,11 +117,7 @@ int main()
   std::cout << "Size of c2: " << c2.size() << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* size[link size.md]
+* size()[link size.md]
 
 ###出力
 ```

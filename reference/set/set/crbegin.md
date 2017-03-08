@@ -41,11 +41,7 @@ int main()
 }
 ```
 * crbegin()[color ff0000]
-* std::set[link ../../set.md]
 * crend()[link crend.md]
-* std::for_each[link /reference/algorithm/for_each.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
 
 ###出力
 ```

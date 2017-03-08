@@ -50,14 +50,10 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link ../../iostream.md]
-* set[link ../../set.md]
+* std::swap[color ff0000]
 * insert[link insert.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* swap[color ff0000]
-* begin[link begin.md]
-* end[link end.md]
+* c1.begin()[link begin.md]
+* c1.end()[link end.md]
 
 ###出力
 ```

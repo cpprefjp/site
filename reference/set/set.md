@@ -160,6 +160,10 @@ int main()
   }
 }
 ```
+* std::set[color ff0000]
+* s.insert[link set/insert.md]
+* s.find[link set/find.md]
+* s.end()[link set/end.md]
 
 ###出力
 ```
