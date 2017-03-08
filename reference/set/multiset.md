@@ -159,6 +159,7 @@ int main()
     for (std::size_t i = 0; i < count; ++i) {
       int value = *it;
       std::cout << value << std::endl;
+      ++it;
     }
   }
   else {
