@@ -47,9 +47,9 @@ int main()
   }
 }
 ```
-* release[color ff0000]
+* release()[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
-* unlock_shared()[link /reference/shared_mutex/shared_timed_mutex/unlock_shared.md]
+* p->unlock_shared()[link /reference/shared_mutex/shared_timed_mutex/unlock_shared.md]
 
 ###出力
 ```

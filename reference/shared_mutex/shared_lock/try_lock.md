@@ -70,7 +70,6 @@ int main()
 * std::errc::device_or_resource_busy[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_error[link /reference/system_error/system_error.md]
-* assert[link /reference/cassert/assert.md]
 
 ###出力
 ```

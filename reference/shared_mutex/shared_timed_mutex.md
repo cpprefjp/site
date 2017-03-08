@@ -124,14 +124,10 @@ int main()
   reader3.join();
 }
 ```
-* std::mutex[link /reference/mutex/mutex.md]
-* std::lock_guard[link /reference/mutex/lock_guard.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* std::shared_timed_mutex[color ff0000]
 * std::shared_lock[link shared_lock.md]
-* sleep_for[link /reference/thread/this_thread/sleep_for.md]
-* milliseconds[link /reference/chrono/milliseconds.md]
-* std::thread[link /reference/thread/thread.md]
+* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
+* std::chrono::milliseconds[link /reference/chrono/milliseconds.md]
 * join()[link /reference/thread/thread/join.md]
 
 ###出力例

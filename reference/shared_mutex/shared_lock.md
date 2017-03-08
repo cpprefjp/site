@@ -82,9 +82,8 @@ int main()
   std::cout << value << std::endl;
 }
 ```
+* std::shared_lock[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ###出力
 ```

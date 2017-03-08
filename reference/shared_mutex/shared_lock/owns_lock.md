@@ -36,10 +36,10 @@ int main()
     // owns_lock() == true
     assert(lock.owns_lock());
   } // 共有ロックを手放す(shared_lockのデストラクタ)
-  
+
   {
     std::shared_lock<std::shared_timed_mutex> lock(mtx, std::defer_lock);
-    
+
     // 遅延ロックのため、コンストラクタで共有ロックが取得されないので、
     // owns_lock() == false
     assert(!lock.owns_lock());
@@ -52,12 +52,10 @@ int main()
   } // 共有ロックを手放す(shared_lockのデストラクタ)
 }
 ```
-* owns_lock[color ff0000]
+* owns_lock()[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
-* lock()[link /reference/shared_mutex/shared_timed_mutex/lock.md]
-* unlock()[link /reference/shared_mutex/shared_timed_mutex/unlock.md]
-* assert[link /reference/cassert/assert.md]
+* lock.lock()[link /reference/shared_mutex/shared_timed_mutex/lock.md]
 
 ###出力
 ```

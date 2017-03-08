@@ -30,7 +30,7 @@ pm->lock_shared();
 
 
 ##例外
-この関数は、`pm->lock()` 関数内で投げられうるあらゆる例外を投げる可能性がある。 
+この関数は、`pm->lock()` 関数内で投げられうるあらゆる例外を投げる可能性がある。
 
 そのほかに、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
@@ -60,8 +60,7 @@ int main()
 * lock()[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
-* owns_lock()[link owns_lock.md]
-* assert[link /reference/cassert/assert.md]
+* lock.owns_lock()[link owns_lock.md]
 
 ###出力
 ```

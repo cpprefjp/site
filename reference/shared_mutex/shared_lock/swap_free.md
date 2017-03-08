@@ -46,7 +46,7 @@ int main()
   } // lock1はunlock_shared()せず、lock2がunlock_shared()する
 }
 ```
-* swap[color ff0000]
+* std::swap[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 
 ###出力

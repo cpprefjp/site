@@ -128,6 +128,17 @@ int main()
   }
 }
 ```
+* std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
+* std::defer_lock[link /reference/mutex/defer_lock.md]
+* lk.lock()[link lock.md]
+* std::try_to_lock[link /reference/mutex/try_to_lock.md]
+* mtx.lock_shared()[link /reference/shared_mutex/shared_timed_mutex/lock_shared.md]
+* std::adopt_lock[link /reference/mutex/adopt_lock.md]
+* std::move[link /reference/utility/move.md]
+* chrono::seconds[link /reference/chrono/seconds.md]
+* chrono::steady_clock[link /reference/chrono/steady_clock.md]
+* now()[link /reference/chrono/steady_clock/now.md]
+* std::chrono::seconds[link /reference/chrono/seconds.md]
 
 ###出力
 ```

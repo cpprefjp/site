@@ -44,7 +44,7 @@ int main()
 
   {
     std::shared_lock<std::shared_timed_mutex> lock(mtx, std::defer_lock);
-    
+
     // 遅延ロックのため、コンストラクタで共有ロックが取得されないので、
     // boolへの変換はfalseとなる
     if (!lock) {
@@ -71,11 +71,8 @@ int main()
 * if (!lock)[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
-* lock()[link /reference/shared_mutex/shared_timed_mutex/lock.md]
-* unlock()[link /reference/shared_mutex/shared_timed_mutex/unlock.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* assert[link /reference/cassert/assert.md]
+* lock.lock()[link /reference/shared_mutex/shared_timed_mutex/lock.md]
+* lock.unlock()[link /reference/shared_mutex/shared_timed_mutex/unlock.md]
 
 ###出力
 ```cpp
