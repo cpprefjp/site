@@ -8,7 +8,7 @@ namespace std {
   template <class CharT, class Traits = char_traits<CharT>,
             class Allocator = allocator<CharT> >
   class basic_istringstream : public basic_istream<CharT, Traits>;
-  
+
   using istringstream  = basic_istringstream<char>;
   using wistringstream = basic_istringstream<wchar_t>;
 }
