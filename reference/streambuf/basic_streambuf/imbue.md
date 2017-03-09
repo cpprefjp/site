@@ -15,6 +15,7 @@ namespace std {
   };
 }
 ```
+* locale[link /reference/locale/locale.md]
 
 ##概要
 `basic_streambuf`の派生クラスに対し、ロケールの変更を通知する。

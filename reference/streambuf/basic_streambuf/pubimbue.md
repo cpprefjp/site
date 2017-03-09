@@ -15,6 +15,7 @@ namespace std {
   };
 }
 ```
+* locale[link /reference/locale/locale.md]
 
 ##概要
 ストリームバッファのロケールを変更する。

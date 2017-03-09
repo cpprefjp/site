@@ -15,6 +15,7 @@ namespace std {
   };
 }
 ```
+* locale[link /reference/locale/locale.md]
 
 ##概要
 ストリームバッファの現在のロケールを取得する。
@@ -48,6 +49,8 @@ namespace std {
   };
 }
 ```
+* locale[link /reference/locale/locale.md]
+* imbue[link imbue.md]
 
 ##バージョン
 ###言語
