@@ -55,7 +55,7 @@
 ```cpp
 #include <stdexcept>
 #include <iostream>
-#include <cstdlib> // exit
+#include <cstdlib>
 
 void f()
 {
@@ -71,11 +71,12 @@ int main()
   catch (const std::logic_error& e) {
     // 例外が発生した！
     std::cout << e.what() << std::endl;
-    exit(1);
+    std::exit(1);
   }
 }
 ```
-
+* std::logic_error[color ff0000]
+* std::exit[link /reference/cstdlib/exit.md]
 
 ##参照
 - [LWG Issue 254. Exception types in clause 19 are constructed from `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#254)
