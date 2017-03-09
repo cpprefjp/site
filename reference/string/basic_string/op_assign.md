@@ -5,34 +5,20 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& operator=(const basic_string& str);
-basic_string& operator=(basic_string&& str) noexcept; // C++11から
-basic_string& operator=(const charT* s);
-basic_string& operator=(charT c);
-basic_string& operator=(initializer_list<charT> il); // C++11から
+basic_string& operator=(const basic_string& str);     // (1)
+basic_string& operator=(basic_string&& str) noexcept; // (2) C++11
+basic_string& operator=(const charT* s);              // (3)
+basic_string& operator=(charT c);                     // (4)
+basic_string& operator=(initializer_list<charT> il);  // (5) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
 ##概要
-- `basic_string& operator=(const basic_string& str);`
-
-`str` を `*this` へコピーする。`*this` と `str` が同一オブジェクトである場合は何も行わない。
-
-- `basic_string& operator=(basic_string&& str) noexcept;`
-
-`str` から `*this` へデータの所有権を移動する。`*this` と `str` が同一オブジェクトである場合は何も行わない。
-
-- `basic_string& operator=(const charT* s);`
-
-`*this = basic_string(s);` と等価。
-
-- `basic_string& operator=(charT c);`
-
-`*this = basic_string(1, c);` と等価。
-
-- `basic_string& operator=(`[`initializer_list`](/reference/initializer_list.md)`<charT> il);`
-
-`*this = basic_string(il);` と等価。
+- (1) : `str` を `*this` へコピーする。`*this` と `str` が同一オブジェクトである場合は何も行わない。
+- (2) : `str` から `*this` へデータの所有権を移動する。`*this` と `str` が同一オブジェクトである場合は何も行わない。
+- (3) : `*this = basic_string(s);` と等価。
+- (4) : `*this = basic_string(1, c);` と等価。
+- (5) : `*this = basic_string(il);` と等価。
 
 
 ##効果
@@ -62,28 +48,28 @@ int main()
 {
   std::string s;
 
-  // basic_string左辺値の代入
+  // (1) basic_string左辺値の代入
   {
     std::string r = "hello";
     s = r;
   }
 
-  // basic_string右辺値の代入
+  // (2) basic_string右辺値の代入
   {
     s = std::string("hello");
   }
 
-  // 文字配列の代入
+  // (3) 文字配列の代入
   {
     s = "hello";
   }
 
-  // 文字の代入
+  // (4) 文字の代入
   {
     s = 'a';
   }
 
-  // 文字の初期化子リストを代入
+  // (5) 文字の初期化子リストを代入
   {
     s = {'h', 'e', 'l', 'l', 'o'};
   }
