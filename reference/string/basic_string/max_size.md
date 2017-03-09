@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-size_type max_size() const noexcept;
+size_type max_size() const;          // C++03
+size_type max_size() const noexcept; // C++11
 ```
 
 ##概要
@@ -37,9 +38,9 @@ int main()
   std::cout << n << std::endl;
 }
 ```
-* max_size[color ff0000]
+* max_size()[color ff0000]
 
-###出力
+###出力例
 ```
 4611686018427387897
 ```

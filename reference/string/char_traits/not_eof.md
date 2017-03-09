@@ -48,6 +48,9 @@ int main()
   }
 }
 ```
+* not_eof[color ff0000]
+* to_int_type[link to_int_type.md]
+* eof()[link eof.md]
 
 ###出力例
 ```

@@ -5,9 +5,12 @@
 * function[meta id-type]
 
 ```cpp
-size_type find_last_not_of(const basic_string& str, size_type pos = npos) const noexcept; // (1)
+size_type find_last_not_of(const basic_string& str, size_type pos = npos) const;          // (1) C++03
+size_type find_last_not_of(const basic_string& str, size_type pos = npos) const noexcept; // (1) C++11
+
 size_type find_last_not_of(const charT* s, size_type pos, size_type n) const;             // (2)
 size_type find_last_not_of(const charT* s, size_type pos = npos) const;                   // (3)
+
 size_type find_last_not_of(charT c, size_type pos = npos) const noexcept;                 // (4) C++11
 size_type find_last_not_of(charT c, size_type pos = npos) const;                          // (4) C++14
 ```
@@ -72,7 +75,7 @@ int main()
 * find_last_not_of[color ff0000]
 
 ###出力
-```cpp
+```
 6
 5
 25

@@ -5,13 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& operator+=(const basic_string& str);		// (1)
+basic_string& operator+=(const basic_string& str);    // (1)
 
-basic_string& operator+=(const charT* s);				// (2)
+basic_string& operator+=(const charT* s);             // (2)
 
-basic_string& operator+=(charT c);						// (3)
+basic_string& operator+=(charT c);                    // (3)
 
-basic_string& operator+=(initializer_list<charT> il);	// (4) C++11 から
+basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
 ```
 * initializer_list[link /reference/initializer_list.md]
 
@@ -80,8 +80,6 @@ int main()
   std::cout << s1 << '\n';
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
 * +=[color ff0000]
 
 ###出力

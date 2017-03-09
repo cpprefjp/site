@@ -120,6 +120,8 @@ int main()
   std::cout << std::stoul(L"    2") << std::endl;
 }
 ```
+* std::stoul[color ff0000]
+* std::wstring[link basic_string.md]
 
 ###出力
 ```
@@ -149,16 +151,16 @@ int main()
 
 ##実装例
 ```cpp
-unsigned long stoul(const string& str, size_t* idx = nullptr, unsigned long base = 10) {
+unsigned long stoul(const std::string& str, std::size_t* idx = nullptr, unsigned long base = 10) {
   const char* p = str.c_str();
   char* end;
   errno = 0;
-  unsigned long x = strtoul(p, &end, base);
+  unsigned long x = std::strtoul(p, &end, base);
   if (p == end) {
-    throw invalid_argument("stoul");
+    throw std::invalid_argument("stoul");
   }
   if (errno == ERANGE) {
-    throw out_of_range("stoul");
+    throw std::out_of_range("stoul");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -166,16 +168,16 @@ unsigned long stoul(const string& str, size_t* idx = nullptr, unsigned long base
   return x;
 }
 
-unsigned long stoul(const wstring& str, size_t* idx = nullptr, unsigned long base = 10) {
+unsigned long stoul(const std::wstring& str, std::size_t* idx = nullptr, unsigned long base = 10) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
-  unsigned long x = wcstoul(p, &end, base);
+  unsigned long x = std::wcstoul(p, &end, base);
   if (p == end) {
-    throw invalid_argument("stoul");
+    throw std::invalid_argument("stoul");
   }
   errno = 0;
   if (errno == ERANGE) {
-    throw out_of_range("stoul");
+    throw std::out_of_range("stoul");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -183,6 +185,11 @@ unsigned long stoul(const wstring& str, size_t* idx = nullptr, unsigned long bas
   return x;
 }
 ```
+* str.c_str()[link basic_string/c_str.md]
+* std::invalid_argument[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept.md]
+* errno[link /reference/cerrno/errno.md]
+* ERANGE[link /reference/cerrno.md]
 
 ##バージョン
 ###言語

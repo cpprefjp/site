@@ -9,17 +9,17 @@ namespace std {
   basic_istream<CharT, Traits>&
     getline(basic_istream<CharT, Traits>& is,
             basic_string<CharT, Traits, Allocator>& str);              // (1)
-  
+
   template <class CharT, class Traits, class Allocator>
   basic_istream<CharT, Traits>&
     getline(basic_istream<CharT, Traits>&& is,
             basic_string<CharT, Traits, Allocator>& str);              // (2) C++11から
-  
+
   template <class CharT, class Traits, class Allocator>
   basic_istream<CharT, Traits>&
     getline(basic_istream<CharT, Traits>& is,
             basic_string<CharT, Traits, Allocator>& str, CharT delim); // (3)
-  
+
   template <class CharT, class Traits, class Allocator>
   basic_istream<CharT, Traits>&
     getline(basic_istream<CharT, Traits>&& is,
@@ -65,6 +65,8 @@ int main() {
   }
 }
 ```
+* std::getline[color ff0000]
+* std::cin[link /reference/iostream/cin.md]
 
 ###入力
 ```

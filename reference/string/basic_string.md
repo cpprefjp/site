@@ -196,6 +196,9 @@ int main()
   std::printf("%s", s.c_str());
 }
 ```
+* std::string[color ff0000]
+* s.substr[link basic_string/substr.md]
+* s.c_str()[link basic_string/c_str.md]
 
 ###出力
 ```

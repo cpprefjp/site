@@ -98,6 +98,8 @@ int main()
   std::cout << std::stold(L"    -.25") << std::endl;
 }
 ```
+* std::stold[color ff0000]
+* std::wstring[link basic_string.md]
 
 ###出力例
 ```
@@ -118,16 +120,16 @@ int main()
 
 ##実装例
 ```cpp
-long double stold(const string& str, size_t* idx = nullptr) {
+long double stold(const std::string& str, std::size_t* idx = nullptr) {
   const char* p = str.c_str();
   char* end;
   errno = 0;
-  long double x = strtold(p, &end);
+  long double x = std::strtold(p, &end);
   if (p == end) {
-    throw invalid_argument("stold");
+    throw std::invalid_argument("stold");
   }
   if (errno == ERANGE) {
-    throw out_of_range("stold");
+    throw std::out_of_range("stold");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -135,16 +137,16 @@ long double stold(const string& str, size_t* idx = nullptr) {
   return x;
 }
 
-long double stold(const wstring& str, size_t* idx = nullptr) {
+long double stold(const std::wstring& str, std::size_t* idx = nullptr) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
   errno = 0;
-  long double x = wcstold(p, &end);
+  long double x = std::wcstold(p, &end);
   if (p == end) {
-    throw invalid_argument("stold");
+    throw std::invalid_argument("stold");
   }
   if (errno == ERANGE) {
-    throw out_of_range("stold");
+    throw std::out_of_range("stold");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -152,6 +154,11 @@ long double stold(const wstring& str, size_t* idx = nullptr) {
   return x;
 }
 ```
+* str.c_str()[link basic_string/c_str.md]
+* std::invalid_argument[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept.md]
+* errno[link /reference/cerrno/errno.md]
+* ERANGE[link /reference/cerrno.md]
 
 ##バージョン
 ###言語

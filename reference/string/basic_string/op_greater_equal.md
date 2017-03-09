@@ -8,11 +8,11 @@ namespace std {
   template <class CharT, class Traits, class Allocator>
   bool operator>=(const basic_string<CharT, Traits, Allocator>& a,
                   const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1)
-  
+
   template <class CharT, class Traits, class Allocator>
   bool operator>=(const CharT* a,
                   const basic_string<CharT, Traits, Allocator>& b) noexcept; // (2)
-  
+
   template <class CharT, class Traits, class Allocator>
   bool operator>=(const basic_string<CharT, Traits, Allocator>& a,
                   const CharT* rhs) noexcept;                                // (3)

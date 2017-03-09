@@ -38,6 +38,7 @@ int main()
   std::cout << c << std::endl;
 }
 ```
+* begin()[color ff0000]
 
 ###出力
 ```

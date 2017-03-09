@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-size_type capacity() const noexcept;
+size_type capacity() const;          // C++03
+size_type capacity() const noexcept; // C++11
 ```
 
 ##概要
@@ -35,6 +36,8 @@ int main()
   std::cout << cap << std::endl;
 }
 ```
+* capacity()[color ff0000]
+* reserve[link reserve.md]
 
 ###出力例
 ```

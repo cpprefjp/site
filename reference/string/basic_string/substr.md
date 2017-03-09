@@ -51,6 +51,7 @@ int main()
   }
 }
 ```
+* substr[color ff0000]
 
 ###出力
 ```

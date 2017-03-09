@@ -7,62 +7,62 @@
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(const basic_string<charT, traits, Allocator>& lhs,
-            const basic_string<charT, traits, Allocator>& rhs);	// (1)
+            const basic_string<charT, traits, Allocator>& rhs); // (1)
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(basic_string<charT, traits, Allocator>&& lhs,
-            const basic_string<charT, traits, Allocator>& rhs);	// (2) C++11 から
+            const basic_string<charT, traits, Allocator>& rhs); // (2) C++11 から
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(const basic_string<charT, traits, Allocator>& lhs,
-            basic_string<charT, traits, Allocator>&& rhs);		// (3) C++11 から
+            basic_string<charT, traits, Allocator>&& rhs);      // (3) C++11 から
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(basic_string<charT, traits, Allocator>&& lhs,
-            basic_string<charT, traits, Allocator>&& rhs);		// (4) C++11 から
+            basic_string<charT, traits, Allocator>&& rhs);      // (4) C++11 から
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(const charT* lhs,
-            const basic_string<charT, traits, Allocator>& rhs);	// (5)
+            const basic_string<charT, traits, Allocator>& rhs); // (5)
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(const charT* lhs,
-            basic_string<charT, traits, Allocator>&& rhs);		// (6) C++11 から
+            basic_string<charT, traits, Allocator>&& rhs);      // (6) C++11 から
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(charT lhs,
-            const basic_string<charT, traits, Allocator>& rhs);	// (7)
+            const basic_string<charT, traits, Allocator>& rhs); // (7)
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(charT lhs,
-            basic_string<charT, traits, Allocator>&& rhs);		// (8) C++11 から
+            basic_string<charT, traits, Allocator>&& rhs);      // (8) C++11 から
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(const basic_string<charT, traits, Allocator>& rhs,
-            const charT* lhs);									// (9)
+            const charT* lhs);                                  // (9)
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(basic_string<charT, traits, Allocator>&& rhs,
-            const charT* lhs);									// (10) C++11 から
+            const charT* lhs);                                  // (10) C++11 から
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(const basic_string<charT, traits, Allocator>& rhs,
-            charT lhs);											// (11)
+            charT lhs);                                         // (11)
 
 template <class charT, class traits, class Allocator>
 basic_string<charT, traits, Allocator>
   operator+(basic_string<charT, traits, Allocator>&& rhs,
-            charT lhs);											// (12) C++11 から
+            charT lhs);                                         // (12) C++11 から
 ```
 
 ##概要
@@ -115,8 +115,6 @@ int main()
   std::cout << s3 << '\n';
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
 * +[color ff0000]
 
 ###出力

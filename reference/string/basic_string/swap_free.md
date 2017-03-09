@@ -39,7 +39,7 @@ int main()
   std::cout << b << std::endl;
 }
 ```
-* swap[color ff0000]
+* std::swap[color ff0000]
 
 ###出力
 ```

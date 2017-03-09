@@ -5,9 +5,12 @@
 * function[meta id-type]
 
 ```cpp
-size_type rfind(const basic_string& str, size_type pos = npos) const noexcept; // (1)
+size_type rfind(const basic_string& str, size_type pos = npos) const;          // (1) C++03
+size_type rfind(const basic_string& str, size_type pos = npos) const noexcept; // (1) C++11
+
 size_type rfind(const charT* s, size_type pos, size_type n) const;             // (2)
 size_type rfind(const charT* s, size_type pos = npos) const;                   // (3)
+
 size_type rfind(charT c, size_type pos = npos) const noexcept;                 // (4) C++11
 size_type rfind(charT c, size_type pos = npos) const;                          // (4) C++14
 ```

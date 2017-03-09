@@ -54,6 +54,7 @@ int main()
   std::cout << s2 << std::endl;
 }
 ```
+* std::to_string[color ff0000]
 
 ###出力
 ```
@@ -136,6 +137,8 @@ std::string to_string(long double val)
   return buff;
 }
 ```
+* digits10[link /reference/limits/numeric_limits/digits10.md]
+* max_exponent10[link /reference/limits/numeric_limits/max_exponent10.md]
 
 ##バージョン
 ###言語

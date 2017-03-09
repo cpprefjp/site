@@ -66,10 +66,10 @@ int main()
   // (2) 指定したイテレータが指す要素を削除する
   {
     std::string s = "12345";
-   
+
     decltype(s)::iterator it = s.begin() + 2; // '3'を指す
     s.erase(it);
-   
+
     std::cout << "(2) : " << s << std::endl;
   }
 
@@ -84,6 +84,9 @@ int main()
   }
 }
 ```
+* erase[color ff0000]
+* s.begin()[link begin.md]
+* s.end()[link end.md]
 
 ###出力
 ```

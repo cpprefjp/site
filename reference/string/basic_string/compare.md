@@ -62,6 +62,7 @@ int main()
   std::cout << a.compare(c) << std::endl;
 }
 ```
+* compare[link compare.md]
 
 ###出力例
 ```

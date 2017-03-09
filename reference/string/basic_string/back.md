@@ -30,11 +30,12 @@ charT& back();
 int main()
 {
   std::string s = "hello";
-  
+
   char& c = s.back();
   std::cout << c << std::endl;
 }
 ```
+* back()[color ff0000]
 
 ###出力
 ```

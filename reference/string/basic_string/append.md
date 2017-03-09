@@ -125,8 +125,6 @@ int main()
   std::cout << s1 << '\n';
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
 * append[color ff0000]
 
 ###出力

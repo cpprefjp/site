@@ -5,9 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-const charT* data() const;				// C++03 まで
+const charT* data() const;          // C++03 まで
 
-const charT* data() const noexcept;		// C++11 から
+const charT* data() const noexcept; // C++11 から
 ```
 
 ##概要
@@ -46,9 +46,8 @@ int main()
   std::fwrite(s.data(), 1, s.size(), stdout);
 }
 ```
-* string[link /reference/string.md]
-* size[link size.md]
-* data[color ff0000]
+* data()[color ff0000]
+* s.size()[link size.md]
 
 ###出力
 ```

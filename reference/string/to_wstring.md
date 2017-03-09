@@ -54,6 +54,7 @@ int main()
   std::wcout << s2 << std::endl;
 }
 ```
+* std::to_wstring[color ff0000]
 
 ###出力
 ```
@@ -146,6 +147,8 @@ std::wstring to_wstring(long double val)
   return buff;
 }
 ```
+* digits10[link /reference/limits/numeric_limits/digits10.md]
+* max_exponent10[link /reference/limits/numeric_limits/max_exponent10.md]
 
 ##バージョン
 ###言語

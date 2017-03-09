@@ -65,6 +65,7 @@ int main()
   }
 }
 ```
+* copy[color ff0000]
 
 ###出力
 ```

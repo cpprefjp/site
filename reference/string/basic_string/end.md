@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-iterator end() noexcept;
-const_iterator end() const noexcept;
+iterator end();                      // (1) C++03
+iterator end() noexcept;             // (1) C++11
+
+const_iterator end() const;          // (2) C++03
+const_iterator end() const noexcept; // (2) C++11
 ```
 
 ##概要
@@ -43,6 +46,9 @@ int main()
   });
 }
 ```
+* end()[color ff0000]
+* s.insert[link insert.md]
+* s.begin()[link begin.md]
 
 ###出力
 ```

@@ -5,9 +5,12 @@
 * function[meta id-type]
 
 ```cpp
-size_type find_first_of(const basic_string& str, size_type pos = 0) const noexcept; // (1)
+size_type find_first_of(const basic_string& str, size_type pos = 0) const;          // (1) C++03
+size_type find_first_of(const basic_string& str, size_type pos = 0) const noexcept; // (1) C++11
+
 size_type find_first_of(const charT* s, size_type pos, size_type n) const;          // (2)
 size_type find_first_of(const charT* s, size_type pos = 0) const;                   // (3)
+
 size_type find_first_of(charT c, size_type pos = 0) const noexcept;                 // (4) C++11
 size_type find_first_of(charT c, size_type pos = 0) const;                          // (4) C++14
 ```
@@ -73,7 +76,7 @@ int main()
 * find_first_of[color ff0000]
 
 ###出力
-```cpp
+```
 16
 26
 true

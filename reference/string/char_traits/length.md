@@ -32,6 +32,7 @@ int main()
   std::cout << n << std::endl;
 }
 ```
+* length[color ff0000]
 
 ###出力
 ```

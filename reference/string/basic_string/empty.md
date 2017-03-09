@@ -37,7 +37,8 @@ int main()
   assert(s.empty());
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* empty()[color ff0000]
+* s.clear()[link clear.md]
 
 ###出力
 ```

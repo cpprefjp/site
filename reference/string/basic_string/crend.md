@@ -36,6 +36,8 @@ int main()
   });
 }
 ```
+* crend()[color ff0000]
+* s.crbegin()[link crbegin.md]
 
 ###出力
 ```

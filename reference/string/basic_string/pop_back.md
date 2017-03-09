@@ -40,6 +40,7 @@ int main()
   std::cout << s << std::endl;
 }
 ```
+* pop_back()[color ff0000]
 
 ###出力
 ```

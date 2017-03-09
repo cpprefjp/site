@@ -171,6 +171,9 @@ int main()
   }
 }
 ```
+* insert[color ff0000]
+* begin()[link begin.md]
+* end()[link end.md]
 
 ###出力
 ```

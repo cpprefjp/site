@@ -116,6 +116,8 @@ int main()
   }
 }
 ```
+* std::char_traits[color ff0000]
+* std::basic_string[link basic_string.md]
 
 ###出力
 ```

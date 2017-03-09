@@ -125,6 +125,9 @@ int main()
   std::cout << "s9 : " << s9 << std::endl;
 }
 ```
+* std::move[link /reference/utility/move.md]
+* s4.begin()[link begin.md]
+* s4.end()[link end.md]
 
 ###出力
 ```

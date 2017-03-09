@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-size_type length() const noexcept;
+size_type length() const;          // C++03
+size_type length() const noexcept; // C++11
 ```
 
 ##概要
@@ -39,6 +40,7 @@ int main()
   std::cout << n << std::endl;
 }
 ```
+* length()[color ff0000]
 
 ###出力
 ```

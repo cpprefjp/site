@@ -44,6 +44,7 @@ int main()
   }
 }
 ```
+* find[color ff0000]
 
 ###出力
 ```

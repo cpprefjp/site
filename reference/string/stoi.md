@@ -120,6 +120,8 @@ int main()
   std::cout << std::stoi(L"    -2") << std::endl;
 }
 ```
+* std::stoi[color ff0000]
+* std::wstring[link basic_string.md]
 
 ###出力
 ```
@@ -151,16 +153,16 @@ int main()
 
 ##実装例
 ```cpp
-int stoi(const string& str, size_t* idx = nullptr, int base = 10) {
+int stoi(const std::string& str, std::size_t* idx = nullptr, int base = 10) {
   const char* p = str.c_str();
   char* end;
   errno = 0;
-  long x = strtol(p, &end, base);
+  long x = std::strtol(p, &end, base);
   if (p == end) {
-    throw invalid_argument("stoi");
+    throw std::invalid_argument("stoi");
   }
   if (errno == ERANGE || x < INT_MIN || x > INT_MAX) {
-    throw out_of_range("stoi");
+    throw std::out_of_range("stoi");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -168,16 +170,16 @@ int stoi(const string& str, size_t* idx = nullptr, int base = 10) {
   return static_cast<int>(x);
 }
 
-int stoi(const wstring& str, size_t* idx = nullptr, int base = 10) {
+int stoi(const std::wstring& str, std::size_t* idx = nullptr, int base = 10) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
   errno = 0;
-  long x = wcstol(p, &end, base);
+  long x = std::wcstol(p, &end, base);
   if (p == end) {
-    throw invalid_argument("stoi");
+    throw std::invalid_argument("stoi");
   }
   if (errno == ERANGE || x < INT_MIN || x > INT_MAX) {
-    throw out_of_range("stoi");
+    throw std::out_of_range("stoi");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -185,6 +187,13 @@ int stoi(const wstring& str, size_t* idx = nullptr, int base = 10) {
   return static_cast<int>(x);
 }
 ```
+* str.c_str()[link basic_string/c_str.md]
+* std::invalid_argument[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept.md]
+* errno[link /reference/cerrno/errno.md]
+* ERANGE[link /reference/cerrno.md]
+* INT_MIN[link /reference/climits/int_min.md]
+* INT_MAX[link /reference/climits/int_max.md]
 
 ##バージョン
 ###言語

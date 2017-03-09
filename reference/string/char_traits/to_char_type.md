@@ -32,6 +32,7 @@ int main()
   std::cout << x << std::endl;
 }
 ```
+* to_char_type[color ff0000]
 
 ###出力例
 ```

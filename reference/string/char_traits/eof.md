@@ -39,6 +39,7 @@ int main()
   std::cout << eof << std::endl;
 }
 ```
+* eof()[color ff0000]
 
 ###出力例
 ```

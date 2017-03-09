@@ -21,7 +21,7 @@ void reserve(size_type res_arg = 0);
 
 
 ##例外
-`res_arg >` [`max_size()`](max_size.md) の場合、[`length_error`](/reference/stdexcept.md) 例外を投げる。 
+`res_arg >` [`max_size()`](max_size.md) の場合、[`length_error`](/reference/stdexcept.md) 例外を投げる。  
 `allocator_traits<Allocator>::allocate()` が、よりふさわしい例外を投げるかもしれない。
 
 
@@ -46,6 +46,9 @@ int main()
   s.push_back('c');
 }
 ```
+* reserve[color ff0000]
+* s.capacity()[link capacity.md]
+* s.push_back[link push_back.md]
 
 ###出力例
 ```

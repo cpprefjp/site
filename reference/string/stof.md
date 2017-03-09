@@ -98,6 +98,8 @@ int main()
   std::cout << std::stof(L"    -.25") << std::endl;
 }
 ```
+* std::stof[color ff0000]
+* std::wstring[link basic_string.md]
 
 ###出力例
 ```
@@ -118,16 +120,16 @@ int main()
 
 ##実装例
 ```cpp
-float stof(const string& str, size_t* idx = nullptr) {
+float stof(const std::string& str, std::size_t* idx = nullptr) {
   const char* p = str.c_str();
   char* end;
   errno = 0;
-  double x = strtod(p, &end);
+  double x = std::strtod(p, &end);
   if (p == end) {
-    throw invalid_argument("stof");
+    throw std::invalid_argument("stof");
   }
   if (errno == ERANGE) {
-    throw out_of_range("stof");
+    throw std::out_of_range("stof");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -135,16 +137,16 @@ float stof(const string& str, size_t* idx = nullptr) {
   return static_cast<float>(x);
 }
 
-float stof(const wstring& str, size_t* idx = nullptr) {
+float stof(const std::wstring& str, std::size_t* idx = nullptr) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
   errno = 0;
-  double x = wcstof(p, &end);
+  double x = std::wcstof(p, &end);
   if (p == end) {
-    throw invalid_argument("stof");
+    throw std::invalid_argument("stof");
   }
   if (errno == ERANGE) {
-    throw out_of_range("stof");
+    throw std::out_of_range("stof");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -152,6 +154,11 @@ float stof(const wstring& str, size_t* idx = nullptr) {
   return static_cast<float>(x);
 }
 ```
+* str.c_str()[link basic_string/c_str.md]
+* std::invalid_argument[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept.md]
+* errno[link /reference/cerrno/errno.md]
+* ERANGE[link /reference/cerrno.md]
 
 ##バージョン
 ###言語

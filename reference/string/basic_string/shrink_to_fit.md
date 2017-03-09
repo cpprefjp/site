@@ -27,7 +27,6 @@ void shrink_to_fit();
 ```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
 
 int main()
 {
@@ -45,6 +44,10 @@ int main()
 }
 ```
 * shrink_to_fit[color ff0000]
+* s.capacity()[link capacity.md]
+* s.erase[link erase.md]
+* s.begin()[link begin.md]
+* s.end()[link end.md]
 
 ###出力例
 ```

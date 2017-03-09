@@ -31,6 +31,7 @@ int main()
   std::cout << s << std::endl;
 }
 ```
+* push_back[color ff0000]
 
 ###出力
 ```

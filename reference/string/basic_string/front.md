@@ -30,11 +30,12 @@ charT& front();
 int main()
 {
   std::string s = "hello";
-  
+
   char& c = s.front();
   std::cout << c << std::endl;
 }
 ```
+* front()[color ff0000]
 
 ###出力
 ```

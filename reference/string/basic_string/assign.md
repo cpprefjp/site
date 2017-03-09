@@ -121,6 +121,7 @@ int main()
   std::cout << "s8 : " << s8 << std::endl;
 }
 ```
+* assign[color ff0000]
 
 ###出力
 ```

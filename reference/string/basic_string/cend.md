@@ -43,6 +43,10 @@ int main()
   });
 }
 ```
+* cend()[color ff0000]
+* insert[link insert.md]
+* s.begin()[link begin.md]
+* s.cbegin()[link cbegin.md]
 
 ###出力
 ```

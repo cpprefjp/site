@@ -120,6 +120,8 @@ int main()
   std::cout << std::stol(L"    -2") << std::endl;
 }
 ```
+* std::stol[color ff0000]
+* std::wstring[link basic_string.md]
 
 ###出力
 ```
@@ -151,16 +153,16 @@ int main()
 
 ##実装例
 ```cpp
-long stol(const string& str, size_t* idx = nullptr, long base = 10) {
+long stol(const std::string& str, std::size_t* idx = nullptr, long base = 10) {
   const char* p = str.c_str();
   char* end;
   errno = 0;
-  long x = strtol(p, &end, base);
+  long x = std::strtol(p, &end, base);
   if (p == end) {
-    throw invalid_argument("stol");
+    throw std::invalid_argument("stol");
   }
   if (errno == ERANGE) {
-    throw out_of_range("stol");
+    throw std::out_of_range("stol");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -168,16 +170,16 @@ long stol(const string& str, size_t* idx = nullptr, long base = 10) {
   return x;
 }
 
-long stol(const wstring& str, size_t* idx = nullptr, long base = 10) {
+long stol(const std::wstring& str, std::size_t* idx = nullptr, long base = 10) {
   const wchar_t* p = str.c_str();
   wchar_t* end;
   errno = 0;
-  long x = wcstol(p, &end, base);
+  long x = std::wcstol(p, &end, base);
   if (p == end) {
-    throw invalid_argument("stol");
+    throw std::invalid_argument("stol");
   }
   if (errno == ERANGE) {
-    throw out_of_range("stol");
+    throw std::out_of_range("stol");
   }
   if (idx != nullptr) {
     *idx = static_cast<std::size_t>(end - p);
@@ -185,6 +187,11 @@ long stol(const wstring& str, size_t* idx = nullptr, long base = 10) {
   return x;
 }
 ```
+* str.c_str()[link basic_string/c_str.md]
+* std::invalid_argument[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept.md]
+* errno[link /reference/cerrno/errno.md]
+* ERANGE[link /reference/cerrno.md]
 
 ##バージョン
 ###言語

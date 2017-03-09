@@ -38,6 +38,7 @@ int main()
   }
 }
 ```
+* eq_int_type[color ff0000]
 
 ###出力例
 ```

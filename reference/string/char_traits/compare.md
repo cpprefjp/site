@@ -7,6 +7,7 @@
 ```cpp
 static int compare(const char_type* s1, const char_type* s2, size_t n);
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 2つの文字列を比較する。
@@ -34,6 +35,7 @@ int main()
   std::cout << std::char_traits<char>::compare("abc", "aac", 3) << std::endl;
 }
 ```
+* compare[color ff0000]
 
 ###出力例
 ```

@@ -8,9 +8,9 @@
 static void assign(char_type& c1, const char_type& c2);          // (1) C++03
 static void assign(char_type& c1, const char_type& c2) noexcept; // (1) C++11
 
-static char_type* assign(char_type* s, size_t n, char_type a);   // (2) C++03
-static char_type* assign(char_type* s, size_t n, char_type a);   // (2) C++11
+static char_type* assign(char_type* s, size_t n, char_type a);   // (2)
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ##概要
 左辺に右辺を代入する。
@@ -43,6 +43,7 @@ int main()
   std::cout << c << std::endl;
 }
 ```
+* assign[color ff0000]
 
 ###出力
 ```

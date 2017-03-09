@@ -43,6 +43,7 @@ int main()
   std::cout << n << std::endl;
 }
 ```
+* size()[color ff0000]
 
 ###出力
 ```

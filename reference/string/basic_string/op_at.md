@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-const_reference operator[](size_type pos) const noexcept;
-reference operator[](size_type pos) noexcept;
+const_reference operator[](size_type pos) const;          // (1) C++03
+const_reference operator[](size_type pos) const noexcept; // (1) C++11
+
+reference operator[](size_type pos);                      // (2) C++03
+reference operator[](size_type pos) noexcept;             // (2) C++11
 ```
 
 ##概要
@@ -19,14 +22,14 @@ reference operator[](size_type pos) noexcept;
 
 ##戻り値
 - C++03
-`pos <` [`size()`](size.md) の場合、`*(`[`begin()`](begin.md) `+ pos)` を返す。 
-`pos ==` [`size()`](size.md)の場合、`charT()` の値を持ったオブジェクトへの参照を返す。 
-それ以外の場合は、未定義動作。
+    - `pos <` [`size()`](size.md) の場合、`*(`[`begin()`](begin.md) `+ pos)` を返す。
+    - `pos ==` [`size()`](size.md)の場合、`charT()` の値を持ったオブジェクトへの参照を返す。
+    - それ以外の場合は、未定義動作。
 
 - C++11以降
-`pos <` [`size()`](size.md) の場合、`*(`[`begin()`](begin.md) `+ pos)` を返す。 
-そうでない場合は、`charT()` の値を持ったオブジェクトへの参照を返す。 
-後者の場合、参照を変更するべきではない。
+    - `pos <` [`size()`](size.md) の場合、`*(`[`begin()`](begin.md) `+ pos)` を返す。
+    - そうでない場合は、`charT()` の値を持ったオブジェクトへの参照を返す。
+    - 後者の場合、参照を変更するべきではない。
 
 
 ##例外
@@ -50,6 +53,7 @@ int main()
   std::cout << c << std::endl;
 }
 ```
+* s[1][color ff0000]
 
 ###出力
 ```

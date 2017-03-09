@@ -50,6 +50,7 @@ int main()
   }
 }
 ```
+* move[color ff0000]
 
 ###出力例
 ```

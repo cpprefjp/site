@@ -5,9 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-const charT* c_str() const;				// C++03 まで
+const charT* c_str() const;          // C++03 まで
 
-const charT* c_str() const noexcept;	// C++11 から
+const charT* c_str() const noexcept; // C++11 から
 ```
 
 ##概要
@@ -63,8 +63,7 @@ int main()
   std::puts(s.c_str());  // ',' 以降は出力されない
 }
 ```
-* string[link /reference/string.md]
-* c_str[color ff0000]
+* c_str()[color ff0000]
 
 ###出力
 ```
