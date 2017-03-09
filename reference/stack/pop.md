@@ -31,17 +31,18 @@ c.pop_back();
 #include <iostream>
 #include <stack>
 
-int main ()
+int main()
 {
-  std::stack<int> mystack;
+  std::stack<int> st;
 
-  for (int i = 0; i < 5; ++i) mystack.push(i);
+  for (int i = 0; i < 5; ++i)
+    st.push(i);
 
   std::cout << "Popping out elements...";
-  while (!mystack.empty())
+  while (!st.empty())
   {
-     std::cout << " " << mystack.top();
-     mystack.pop();
+     std::cout << " " << st.top();
+     st.pop();
   }
   std::cout << std::endl;
 
@@ -59,5 +60,3 @@ Popping out elements... 4 3 2 1 0
 void pop() { c.pop_back(); }
 ```
 
-##参照
-TBD

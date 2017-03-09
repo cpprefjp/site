@@ -30,10 +30,10 @@ stack& operator=(stack&& st);      // (2) C++11
 #include <iostream>
 #include <stack>
 
-int main ()
+int main()
 {
-  std::stack<int>  st0;
-  std::stack<int>  st1;
+  std::stack<int> st0;
+  std::stack<int> st1;
 
   // 要素を追加
   st0.push(1);
@@ -41,7 +41,7 @@ int main ()
   st0.push(3);
 
   // st1 に st0 を代入
-  st1  =  st0;
+  st1 = st0;
 
   // st1 の内容を表示
   while (!st1.empty()) {
@@ -50,6 +50,11 @@ int main ()
   }
 }
 ```
+* st1 = st0;[color ff0000]
+* st0.push[link push.md]
+* st1.empty()[link empty.md]
+* st1.top()[link top.md]
+* st1.pop()[link pop.md]
 
 ###出力
 ```

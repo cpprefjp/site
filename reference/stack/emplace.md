@@ -15,7 +15,10 @@ void emplace(Args&&... args);
 
 
 ##効果
-`c.emplace_back(std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
+```cpp
+c.emplace_back(std::forward<Args>(args)...);
+```
+* std::forward[link /reference/utility/forward.md]
 
 
 ##戻り値
@@ -44,6 +47,9 @@ int main()
 }
 ```
 * emplace[color ff0000]
+* st.empty()[link empty.md]
+* st.top()[link top.md]
+* st.pop()[link pop.md]
 
 ###出力
 ```

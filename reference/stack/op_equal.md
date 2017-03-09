@@ -23,7 +23,7 @@ namespace std {
 #include <iostream>
 #include <stack>
 
-int main ()
+int main()
 {
   std::stack<int> x;
   x.push(3);
@@ -38,6 +38,7 @@ int main ()
   std::cout << std::boolalpha << (x == y) << std::endl;
 }
 ```
+* push[link push.md]
 
 ###出力
 ```

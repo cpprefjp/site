@@ -11,11 +11,13 @@ size_type size() const;
 ##概要
 `stack` に格納されている要素の個数を返す。
 
-内部のコンテナの size() メンバ関数を呼ぶ。
+内部のコンテナの `size()` メンバ関数を呼ぶ。
 
 
 ##効果
-`return c.size();`
+```cpp
+return c.size();
+```
 
 
 ##戻り値
@@ -27,9 +29,9 @@ size_type size() const;
 #include <iostream>
 #include <stack>
 
-int main(int argc, char** argv)
+int main()
 {
-  std::stack<int>  st;
+  std::stack<int> st;
 
   // 要素を 1 個追加
   st.push(3);
@@ -48,6 +50,8 @@ int main(int argc, char** argv)
   std::cout << st.size() << std::endl;
 }
 ```
+* size()[color ff0000]
+* st.push[link push.md]
 
 ###出力
 ```

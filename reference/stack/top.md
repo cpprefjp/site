@@ -31,7 +31,7 @@ return c.back();
 #include <iostream>
 #include <stack>
 
-int  main ()
+int main()
 {
   std::stack<int> st;
 
@@ -44,8 +44,8 @@ int  main ()
   std::cout << st.top();
 }
 ```
-* swap[color ff0000]
-
+* top()[color ff0000]
+* st.push[link push.md]
 
 ###出力
 ```

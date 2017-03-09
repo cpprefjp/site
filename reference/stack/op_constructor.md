@@ -58,18 +58,18 @@ stack(stack&& st, const Allocator& alloc);            // (10) C++11
 #include <vector>
 #include <stack>
 
-int main ()
+int main()
 {
   // デフォルトでは Container == deque<T>
-  std::vector<int>  vec;
+  std::vector<int> v;
 
   // 要素を追加
-  vec.push_back(1);
-  vec.push_back(2);
-  vec.push_back(3);
+  v.push_back(1);
+  v.push_back(2);
+  v.push_back(3);
 
   // vec を引数に構築
-  std::stack<int, std::vector<int>>  st(std::move(vec));
+  std::stack<int, std::vector<int>> st(std::move(v));
 
   while (!st.empty()) {
     std::cout << st.top() << " "; // 末尾要素を参照する
@@ -77,6 +77,11 @@ int main ()
   }
 }
 ```
+* v.push_back[link /reference/vector/push_back.md]
+* std::move[link /reference/utility/move.md]
+* st.empty()[link empty.md]
+* st.top()[link top.md]
+* st.pop()[link pop.md]
 
 ###出力
 ```

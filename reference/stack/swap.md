@@ -30,42 +30,47 @@ void swap(stack& s) noexcept(noexcept(swap(c, s.c)));
 #include <iostream>
 #include <stack>
 
-int main ()
+int main()
 {
-  std::stack<int> st0;
-  st0.push(3);
-  st0.push(1);
-  st0.push(4);
+  std::stack<int> x;
+  x.push(3);
+  x.push(1);
+  x.push(4);
 
-  std::stack<int> st1;
-  st1.push(2);
-  st1.push(7);
-  st1.push(1);
+  std::stack<int> y;
+  y.push(2);
+  y.push(7);
+  y.push(1);
 
   // 交換
-  st0.swap(st1);
+  x.swap(y);
 
   // それぞれの要素を表示
-  std::cout << "st0 : ";
-  while (!st0.empty()) {
-    std::cout << st0.top() << " ";
-    st0.pop();
+  std::cout << "x : ";
+  while (!x.empty()) {
+    std::cout << x.top() << " ";
+    x.pop();
   }
 
   std::cout << std::endl;
 
-  std::cout << "st1 : ";
-  while (!st1.empty()) {
-    std::cout << st1.top() << " ";
-    st1.pop();
+  std::cout << "y : ";
+  while (!y.empty()) {
+    std::cout << y.top() << " ";
+    y.pop();
   }
 }
 ```
+* swap[color ff0000]
+* push[link push.md]
+* empty()[link empty.md]
+* top()[link top.md]
+* pop()[link pop.md]
 
 ###出力
 ```
-st0 : 1 7 2 
-st1 : 4 1 3 
+x : 1 7 2 
+y : 4 1 3 
 ```
 
 ##実装例

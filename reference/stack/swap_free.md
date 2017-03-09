@@ -16,7 +16,10 @@ namespace std {
 
 
 ##効果
-`x.`[`swap`](swap.md)`(y)`
+```cpp
+x.swap(y)
+```
+* swap[link swap.md]
 
 
 ##戻り値
@@ -32,14 +35,14 @@ namespace std {
 #include <iostream>
 #include <stack>
 
-int main ()
+int main()
 {
-  std::stack<int>  x;
+  std::stack<int> x;
   x.push(3);
   x.push(1);
   x.push(4);
 
-  std::stack<int>  y;
+  std::stack<int> y;
   y.push(2);
   y.push(7);
   y.push(1);
@@ -61,10 +64,13 @@ int main ()
     std::cout << y.top() << " ";
     y.pop();
   }
-
 }
 ```
-* swap[color ff0000]
+* std::swap[color ff0000]
+* push[link push.md]
+* empty()[link empty.md]
+* top()[link top.md]
+* pop()[link pop.md]
 
 ###出力
 ```

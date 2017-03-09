@@ -84,7 +84,7 @@ namespace std {
 
 int main ()
 {
-  std::stack<int>  st;
+  std::stack<int> st;
 
   // 要素を追加
   st.push(1);
@@ -97,6 +97,10 @@ int main ()
   }
 }
 ```
+* std::stack[color ff0000]
+* st.push[link stack/push.md]
+* st.empty()[link stack/empty.md]
+* st.pop()[link stack/pop.md]
 
 ###出力
 ```

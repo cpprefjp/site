@@ -41,9 +41,9 @@ c.push_back(std::move(x));
 #include <iostream>
 #include <stack>
 
-int main ()
+int main()
 {
-  std::stack<int>  st;
+  std::stack<int> st;
 
   // 要素を追加
   st.push(1);
@@ -57,6 +57,9 @@ int main ()
 }
 ```
 * push[color ff0000]
+* st.empty()[link empty.md]
+* st.top()[link top.md]
+* st.pop()[link pop.md]
 
 ###出力
 ```

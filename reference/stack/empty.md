@@ -23,15 +23,13 @@ bool empty() const;
 
 
 ##例
-
-
 ```cpp
 #include <iostream>
 #include <stack>
 
-int  main ()
+int main()
 {
-  std::stack<int>  st;
+  std::stack<int> st;
 
   // 空なら "empty", そうでなければ "not empty" と表示する
   if (st.empty()) {
@@ -51,8 +49,8 @@ int  main ()
   }
 }
 ```
-* empty[color ff0000]
-
+* empty()[color ff0000]
+* st.push[link push.md]
 
 ###出力
 ```
