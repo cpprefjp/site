@@ -26,42 +26,30 @@ void emplace(Args&&... args);
 ```cpp
 #include <iostream>
 #include <stack>
+#include <string>
+#include <utility>
 
-struct MyObj
+int main()
 {
-  MyObj(int i) { std::cout << i << " "; }
-  MyObj(const MyObj&) { std::cout << "copy "; }
-  MyObj(const MyObj&&) { std::cout << "move "; }
-  MyObj& operator=(const MyObj&) { std::cout << "assign "; return *this; }
-};
+  std::stack<std::pair<int, std::string>> st;
 
-int main ()
-{
-  std::stack<MyObj> mystack;
+  st.emplace(3, "aaa");
+  st.emplace(1, "bbb");
+  st.emplace(4, "ccc");
 
-  std::cout << "stack::push ";
-  for (int i = 0; i < 5; ++i)
-  {
-    mystack.push(i);
+  while (!st.empty()) {
+    std::cout << st.top().first << ", " << st.top().second << std::endl;
+    st.pop();
   }
-  std::cout << std::endl;
-
-  std::cout << "stack::emplace ";
-  for (int i = 0; i < 5; ++i)
-  {
-    mystack.emplace(i);
-  }
-  std::cout << std::endl;
-
-  return 0;
 }
 ```
 * emplace[color ff0000]
 
 ###出力
 ```
-stack::push 0 move 1 move 2 move 3 move 4 move 
-stack::emplace 0 1 2 3 4 
+4, ccc
+1, bbb
+3, aaa
 ```
 
 ##バージョン

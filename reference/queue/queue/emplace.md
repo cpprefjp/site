@@ -32,7 +32,7 @@ c.emplace_back(std::forward<Args>(args)...);
 #include <string>
 #include <utility>
 
-int main ()
+int main()
 {
   std::queue<std::pair<int, std::string>> que;
 
