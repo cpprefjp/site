@@ -67,7 +67,6 @@ int main()
 * std::generic_category()[link generic_category.md]
 * std::system_error[link system_error.md]
 * std::error_code[link error_code.md]
-* e.code()[link system_error/code.md]
 * ec.default_error_condition()[link error_code/default_error_condition.md]
 * cond.value()[link error_condition/value.md]
 * cond.message()[link error_condition/message.md]
