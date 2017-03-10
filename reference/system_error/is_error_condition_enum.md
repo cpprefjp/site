@@ -43,9 +43,8 @@ int main()
   static_assert(!std::is_error_condition_enum<user_defined_error>::value, "");
 }
 ```
-* system_error[link ../system_error.md]
-* is_error_condition_enum[color ff0000]
-* errc[link errc.md]
+* std::is_error_condition_enum[color ff0000]
+* std::errc[link errc.md]
 
 ###出力
 ```

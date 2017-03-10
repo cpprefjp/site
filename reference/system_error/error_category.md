@@ -63,6 +63,7 @@ int main()
   std::cout << cat.name() << std::endl;
 }
 ```
+* std::error_category[color ff0000]
 
 ###出力
 ```

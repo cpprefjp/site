@@ -43,6 +43,9 @@ int main()
   std::cout << ec << std::endl;
 }
 ```
+* std::error_code[link error_code.md]
+* std::make_error_code[link make_error_code.md]
+* std::errc::invalid_argument[link errc.md]
 
 ###出力
 ```

@@ -14,7 +14,7 @@ namespace std {
 ##概要
 汎用エラーに関する`error_category`を返す。
 
-ここでの「汎用」とは、`<cerrno>`ヘッダで定義される環境依存しないエラー値、およびそれに対応する[`std::errc`](errc.md)列挙値によるエラー情報を指す。
+ここでの「汎用」とは、[`<cerrno>`](/reference/cerrno.md)ヘッダで定義される環境依存しないエラー値、およびそれに対応する[`std::errc`](errc.md)列挙値によるエラー情報を指す。
 
 
 ##戻り値
@@ -46,7 +46,11 @@ int main()
   std::cout << cat.message(static_cast<int>(std::errc::invalid_argument)) << std::endl;
 }
 ```
-* generic_category[color ff0000]
+* std::generic_category()[color ff0000]
+* std::error_category[link error_category.md]
+* cat.name()[link error_category/name.md]
+* cat.message[link error_category/message.md]
+* std::errc::invalid_argument[link errc.md]
 
 ###出力
 ```

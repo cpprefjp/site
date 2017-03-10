@@ -45,7 +45,11 @@ int main()
   std::cout << cat.message(static_cast<int>(std::errc::invalid_argument)) << std::endl;
 }
 ```
-* system_category[color ff0000]
+* std::system_category()[color ff0000]
+* std::error_category[link error_category.md]
+* cat.name()[link error_category/name.md]
+* cat.message[link error_category/message.md]
+* std::errc::invalid_argument[link errc.md]
 
 ###出力
 ```

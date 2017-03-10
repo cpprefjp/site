@@ -39,7 +39,13 @@ int main()
   std::cout << "message : " << ec.message() << std::endl;
 }
 ```
-* make_error_condition[color ff0000]
+* std::make_error_condition[color ff0000]
+* std::error_condition[link error_code.md]
+* std::errc::invalid_argument[link errc.md]
+* ec.category()[link error_condition/category.md]
+* name()[link error_category/name.md]
+* ec.value()[link error_condition/value.md]
+* ec.message()[link error_condition/message.md]
 
 ###出力
 ```

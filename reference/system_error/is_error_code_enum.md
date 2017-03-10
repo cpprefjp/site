@@ -40,12 +40,10 @@ int main()
   static_assert(!std::is_error_code_enum<user_defined_error>::value, "");
 }
 ```
-* system_error[link ../system_error.md]
-* ios[link ../ios.md]
-* future[link ../future.md]
-* is_error_code_enum[color ff0000]
-* io_errc[link ../ios/io_errc.md]
-* future_errc[link ../future/future_errc.md]
+* std::is_error_code_enum[color ff0000]
+* std::io_errc[link ../ios/io_errc.md]
+* std::future_errc[link ../future/future_errc.md]
+* std::future_errc[link ../future/future_errc.md]
 
 ###出力
 ```

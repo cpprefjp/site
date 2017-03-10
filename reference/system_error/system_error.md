@@ -47,6 +47,10 @@ int main()
 }
 ```
 * std::system_error[color ff0000]
+* std::error_code[link error_code.md]
+* std::errc::invalid_argument[link errc.md]
+* std::generic_category()[link generic_category.md]
+* ec.value()[link error_code/value.md]
 
 ###出力例
 ```

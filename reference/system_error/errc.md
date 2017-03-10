@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 
-`errc`列挙型は、`<cerrno>`ヘッダが提供するPOSIXエラーのマクロに対応する列挙値を定義する。
+`errc`列挙型は、[`<cerrno>`](/reference/cerrno.md)ヘッダが提供するPOSIXエラーのマクロに対応する列挙値を定義する。
 
 この値は、[`error_code`](error_code.md)/[`error_condition`](error_condition.md)に設定する[`generic_category()`](generic_category.md)カテゴリのエラー値として使用される。
 

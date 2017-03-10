@@ -43,6 +43,12 @@ int main()
   std::cout << "error_condition < error_condition : " << (ed1 < ed2) << std::endl;
 }
 ```
+* std::error_code[link error_code.md]
+* std::make_error_code[link make_error_code.md]
+* std::errc::invalid_argument[link errc.md]
+* std::errc::permission_denied[link errc.md]
+* std::error_condition[link error_condition.md]
+* std::make_error_condition[link make_error_condition.md]
 
 ###出力
 ```
