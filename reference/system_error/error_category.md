@@ -40,12 +40,12 @@ namespace std {
 
 class user_defined_error_category : public std::error_category {
 public:
-  const char* name() const noexcept
+  const char* name() const noexcept override
   {
     return "user defined error";
   }
 
-  std::string message(int ev) const
+  std::string message(int ev) const override
   {
     return "error message";
   }
