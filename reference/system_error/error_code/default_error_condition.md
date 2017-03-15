@@ -55,7 +55,17 @@ int main()
   std::cout << ed.message() << std::endl;
 }
 ```
-* default_error_condition[color ff0000]
+* default_error_condition()[color ff0000]
+* std::errc::invalid_argument[link /reference/system_error/errc.md]
+* std::generic_category()[link /reference/system_error/generic_category.md]
+* std::error_condition[link /reference/system_error/error_condition.md]
+* ec.value()[link value.md]
+* ec.category()[link category.md]
+* ec.message()[link category.md]
+* name()[link /reference/system_error/error_category/name.md]
+* ed.value()[link /reference/system_error/error_condition/value.md]
+* ed.category()[link /reference/system_error/error_condition/category.md]
+* ed.message()[link /reference/system_error/error_condition/message.md]
 
 ###出力例
 ```

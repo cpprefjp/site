@@ -37,6 +37,10 @@ int main()
 }
 ```
 * category()[color ff0000]
+* std::errc::invalid_argument[link /reference/system_error/errc.md]
+* std::generic_category()[link /reference/system_error/generic_category.md]
+* std::error_category[link /reference/system_error/error_category.md]
+* cat.name()[link /reference/system_error/error_category/name.md]
 
 ###出力
 ```

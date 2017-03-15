@@ -31,7 +31,9 @@ int main()
   std::cout << ec.message() << std::endl;
 }
 ```
-* message[color ff0000]
+* message()[color ff0000]
+* std::errc::invalid_argument[link /reference/system_error/errc.md]
+* std::generic_category()[link /reference/system_error/generic_category.md]
 
 ###出力
 ```
