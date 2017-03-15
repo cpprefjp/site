@@ -40,6 +40,8 @@ int main()
   std::cout << (a != c) << std::endl;
 }
 ```
+* std::generic_category()[link /reference/system_error/generic_category.md]
+* std::system_category()[link /reference/system_error/system_category.md]
 
 ###出力
 ```

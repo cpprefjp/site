@@ -46,6 +46,7 @@ int main()
   std::cout << cat.name() << std::endl;
 }
 ```
+* cat.name()[link name.md]
 
 ###出力
 ```

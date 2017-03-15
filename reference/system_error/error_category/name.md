@@ -35,9 +35,9 @@ int main()
   std::cout << system_cat.name() << std::endl;
 }
 ```
-* name[color ff0000]
-* generic_category()[link ../generic_category.md]
-* system_category()[link ../system_category.md]
+* name()[color ff0000]
+* std::generic_category()[link ../generic_category.md]
+* std::system_category()[link ../system_category.md]
 
 ###出力
 ```

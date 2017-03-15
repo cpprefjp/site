@@ -8,6 +8,7 @@
 ```cpp
 virtual error_condition default_error_condition(int ev) const noexcept;
 ```
+* error_condition[link /reference/system_error/error_condition.md]
 
 ##概要
 パラメータ`ev`と自身の`error_category`から成る`error_condition`を生成して返す
@@ -38,6 +39,11 @@ int main()
 }
 ```
 * default_error_condition[color ff0000]
+* std::generic_category()[link /reference/system_error/generic_category.md]
+* ENOTDIR[link /reference/cerrno.md]
+* std::error_condition[link /reference/system_error/error_condition.md]
+* ed.value()[link /reference/system_error/error_condition/value.md]
+* ed.message()[link /reference/system_error/error_condition/message.md]
 
 ###出力
 ```
