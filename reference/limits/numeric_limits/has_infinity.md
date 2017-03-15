@@ -1,4 +1,4 @@
-#has_infinity
+# has_infinity
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,12 +12,12 @@ static const bool has_infinity;
 static constexpr bool has_infinity;
 ```
 
-##概要
+## 概要
 浮動小数点数型において、型`T`が正の無限表現を持っているかどうかを判定する。  
 [`is_iec559`](is_iec559.md) `!= false`が成り立つ場合は常に`true`である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -36,7 +36,7 @@ int main()
 ```
 * has_infinity[color ff0000]
 
-###出力
+### 出力
 ```
 int : false
 float : true

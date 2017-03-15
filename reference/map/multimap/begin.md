@@ -1,4 +1,4 @@
-#begin
+# begin
 * map[meta header]
 * std[meta namespace]
 * multimap[meta class]
@@ -10,21 +10,21 @@ const_iterator begin() const noexcept;
 ```
 
 
-##概要
+## 概要
 `multimap` コンテナの先頭のキーと要素のpairを参照するイテレータを返す。 
 内部的に、`multimap`コンテナは要素を下位から上位へと並べており、従って `begin()`は `multimap` 内の最下位のキーにあたるpairのイテレータを返す。
 
 
-##戻り値
+## 戻り値
 コンテナの先頭要素へのイテレータ。
 `iterator` と `const_iterator` はともにメンバ型である。`multimap` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
-##計算量
+## 計算量
 定数時間。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -53,7 +53,7 @@ int main()
 * m.end()[link end.md]
 * m.insert[link insert.md]
 
-###出力
+### 出力
 ```
 1 A
 2 B
@@ -66,11 +66,11 @@ int main()
 8 H
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 2.9, 3.0, 3.1, 3.2, 3.3
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
@@ -78,7 +78,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 
 | 名前 | 説明 |
 |------------------------------------------------------------------------------------------------|--------------------------------------------------|

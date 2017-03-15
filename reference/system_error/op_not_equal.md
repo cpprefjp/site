@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * system_error[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -15,19 +15,19 @@ namespace std {
 * error_code[link error_code.md]
 * error_condition[link error_condition.md]
 
-##概要
+## 概要
 `error_code`, `error_condition`の非等値比較を行う
 
 
-##戻り値
+## 戻り値
 `!(lhs` [`==`](op_equal.md) `rhs)`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -59,7 +59,7 @@ int main()
 * std::error_condition[link error_condition.md]
 * std::make_error_condition[link make_error_condition.md]
 
-###出力
+### 出力
 ```
 error_code != error_code : false
 error_code != error_code : true
@@ -69,11 +69,11 @@ error_condition != error_condition : false
 error_condition != error_condition : true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -81,5 +81,5 @@ error_condition != error_condition : true
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照
 [`operator==()`](op_equal.md)

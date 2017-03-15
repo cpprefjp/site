@@ -1,4 +1,4 @@
-#value
+# value
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
@@ -10,19 +10,19 @@ int value(char_type ch, int radix) const;
 ```
 
 
-##概要
+## 概要
 文字の整数表現を取得する。
 
 
-##要件
+## 要件
 基数のパラメータ`radix`は、`8`、`10`、`16`のいずれかであること。
 
 
-##戻り値
+## 戻り値
 基数`radix`の数字文字`ch`に対応する数値を返す。対応する数値がない場合は`-1`を返す。
 
 
-##例
+## 例
 ```cpp
 #include <regex>
 #include <cassert>
@@ -38,16 +38,16 @@ int main()
 ```
 * value('1', 10)[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

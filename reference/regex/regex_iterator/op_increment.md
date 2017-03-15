@@ -1,4 +1,4 @@
-#operator++
+# operator++
 * regex[meta header]
 * std[meta namespace]
 * regex_iterator[meta class]
@@ -11,15 +11,15 @@ regex_iterator& operator++();   // (1) 前置形式
 regex_iterator operator++(int); // (2) 後置形式
 ```
 
-##概要
+## 概要
 イテレータを次のマッチに進める
 
 
-##要件
+## 要件
 シーケンスの終端を示すイテレータではない事。（シーケンス終端イテレータに対して呼び出した場合は未定義動作となる）
 
 
-##効果
+## 効果
 - (1) の形式（前置形式）は、以下のように振る舞う。
     - `BidirectionalIterator` 型のローカル変数 `start` を構築し、値 `match[0].second` で初期化する。
     - イテレータが長さゼロのマッチの場合（`match[0].matched == true` かつ `match[0].first == match[0].second` の場合）で、かつ、`start == end` の場合、`*this` をシーケンス終端イテレータにして `*this` を返す。
@@ -39,12 +39,12 @@ regex_iterator operator++(int); // (2) 後置形式
     ```
 
 
-##戻り値
+## 戻り値
 - (1) `*this`
 - (2) インクリメントを行う前の `*this` のコピー
 
 
-##備考
+## 備考
 - メンバ変数 `begin`、`end`、`pregex`、`flags`、`match` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
 - 「効果」にあるように、`match` には検索後に補正が行われるため、`regex_iterator` を間接参照した結果は、[`regex_search`](../regex_search.md) を順に呼び出した結果とは異なる。  
     また、これらの補正が実装でどのように行われるかについては、規格では規定されていない。
@@ -52,7 +52,7 @@ regex_iterator operator++(int); // (2) 後置形式
     したがって、[`regex_search`](../regex_search.md) にユーザ定義の特殊化バージョンを提供しても、呼ばれないかもしれない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -76,7 +76,7 @@ int main()
 * str()[link /reference/regex/match_results/str.md]
 * prefix()[link /reference/regex/match_results/prefix.md]
 
-###出力
+### 出力
 ```
 position = 0, length = 3, str = 'aaa', prefix = ''
 position = 3, length = 0, str = '', prefix = ''
@@ -89,11 +89,11 @@ position = 9, length = 0, str = '', prefix = ''
 注意：Clang & libc++ では正常に実行されない（終了しなくなってしまう）。また、GCC & libstdc++ の 4.9.1 までのバージョンでは、結果が正しくない。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -101,12 +101,12 @@ position = 9, length = 0, str = '', prefix = ''
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 Clang & libc++ と GCC & libstdc++ の 4.9.1 までのバージョンには、長さ 0 の文字列にマッチした時の挙動に問題があるため、注意が必要。
 （特に、Clang は長さ 0 の文字列にマッチするとそこから先に進まなくなってしまう。例を参照）
 
 
-##参照
+## 参照
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |

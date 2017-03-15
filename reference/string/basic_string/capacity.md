@@ -1,4 +1,4 @@
-#capacity
+# capacity
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -9,19 +9,19 @@ size_type capacity() const;          // C++03
 size_type capacity() const noexcept; // C++11
 ```
 
-##概要
+## 概要
 メモリを再確保せずに格納できる最大の要素数を取得する。
 
 
-##戻り値
+## 戻り値
 メモリを再確保せずに格納できる最大の要素数
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -39,9 +39,9 @@ int main()
 * capacity()[color ff0000]
 * reserve[link reserve.md]
 
-###出力例
+### 出力例
 ```
 3
 ```
 
-##参照
+## 参照

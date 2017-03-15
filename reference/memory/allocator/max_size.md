@@ -1,4 +1,4 @@
-#max_size
+# max_size
 * memory[meta header]
 * std[meta namespace]
 * allocator[meta class]
@@ -9,15 +9,15 @@ size_type max_size() const throw();  // C++03
 size_type max_size() const noexcept; // C++11
 ```
 
-##概要
+## 概要
 一度に確保可能なメモリの最大サイズを取得する。
 
 
-##戻り値
+## 戻り値
 [`allocate`](allocate.md)`(N, 0)`が成功するであろう最大の`N`を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -31,7 +31,7 @@ int main()
 ```
 * max_size()[color ff0000]
 
-###出力例
+### 出力例
 ```
 4611686018427387903
 ```

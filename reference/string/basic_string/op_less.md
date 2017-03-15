@@ -1,4 +1,4 @@
-#operator<
+# operator<
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -19,17 +19,17 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `basic_string`において、左辺が右辺より小さいかの判定を行う。
 
 
-##戻り値
+## 戻り値
 - (1) `a.`[`compare`](compare.md)`(b) < 0`
 - (2) `b.`[`compare`](compare.md)`(a) > 0`
 - (3) `a.`[`compare`](compare.md)`(b) < 0`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -44,9 +44,9 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 true
 ```
 
-##参照
+## 参照

@@ -1,4 +1,4 @@
-#SI接頭辞
+# SI接頭辞
 * ratio[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -30,7 +30,7 @@ namespace std {
 ```
 * ratio[link ratio.md]
 
-##概要
+## 概要
 これらは、コンパイル時有理数である[`ratio`](ratio.md)を利用した、SI単位系(The International System of Units : 国際単位系)の接頭辞を表す型である。
 
 | 型      | 説明     |
@@ -57,11 +57,11 @@ namespace std {
 | `yotta` | ヨタ     |
 
 
-##備考
+## 備考
 `yocto`、`zepto`、`zetta`、`yotta`は、[`intmax_t`](/reference/cstdint/intmax_t.md)型で値を表現できる場合のみ定義され、表現できない場合は定義されない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <ratio>
@@ -96,16 +96,16 @@ int main()
 * std::chrono::duration[link /reference/chrono/duration.md]
 * area.count()[link /reference/chrono/duration/count.md]
 
-###出力
+### 出力
 ```
 15000
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [Visual C++](/implementation.md#visual_cpp): ??

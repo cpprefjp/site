@@ -1,4 +1,4 @@
-#swap
+# swap
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,19 +9,19 @@
 void swap(const match_results& that);
 ```
 
-##概要
+## 概要
 `match_results` オブジェクトの内容を交換する。
 
 
-##効果
+## 効果
 `*this` の内容と `that` の内容を交換する。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -62,7 +62,7 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::cmatch[link ../match_results.md]
 
-###出力
+### 出力
 ```
 abc 012
 abc
@@ -82,11 +82,11 @@ abc
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -11,21 +11,21 @@ match_results& operator=(const match_results& m);       // (1)
 match_results& operator=(match_results&& m) noexcept;   // (2)
 ```
 
-##概要
+## 概要
 `match_results` オブジェクトを代入する。
 
 
-##要件
+## 要件
 - (1) `value_type`（[`sub_match`](../sub_match.md)`<BidirectionalIterator>`）はこのコンテナに対してコピー挿入可能（CopyInsertable）であること。
 - (2) [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value == false` である場合、`value_type`（[`sub_match`](../sub_match.md)`<BidirectionalIterator>`）はこのコンテナに対してムーブ挿入可能（MoveInsertable）であること。
 
 
-##効果
+## 効果
 - (1) コピー代入演算子。引数 `m` を `*this` にコピー代入する。
 - (2) ムーブ代入演算子。引数 `m` を `*this` にムーブ代入する。`*this` の全ての既存の要素はムーブ代入されるか破棄される。
 
 
-##事後条件
+## 事後条件
 - (1)、(2) 以下の表を満たす。
 
     | 要素                                    | 値                                                                                            |
@@ -40,19 +40,19 @@ match_results& operator=(match_results&& m) noexcept;   // (2)
     | [`position`](position.md)`()`           | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`position`](position.md)`(n)` |
 
 
-##計算量
+## 計算量
 - (1) 線形時間
 - (2) 線形時間
 
 
-##備考
+## 備考
 規格では明確ではないものの、以下の事後条件を満たすべきであると思われる。
 
 - (1) [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::propagate_on_container_copy_assignment::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
 - (2) [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -97,7 +97,7 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::move[link ../../utility/move.md]
 
-###出力
+### 出力
 ```
 ready:true
 prefix:' '
@@ -125,11 +125,11 @@ suffix:' '
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -137,5 +137,5 @@ suffix:' '
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 GCC(libstdc++) の 4.9.2 までは、アロケータが上記の備考欄のようには設定されず、また、[`regex_iterator`](../regex_iterator.md) を間接参照した結果を代入した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。

@@ -1,4 +1,4 @@
-#count
+# count
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
@@ -9,22 +9,22 @@
 size_type count(const key_type& k) const;
 ```
 
-##概要
+## 概要
 指定されたキーの要素数を数える。
 
 
-##戻り値
+## 戻り値
 引数 `k` と等価なキーの要素数を返す。
 
 つまり、見つかれば `1`、見つからなければ `0`。
 
 
-##計算量
+## 計算量
 平均： O(`count(k)`)  
 最悪： [`size`](size.md) について線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -53,18 +53,18 @@ int main()
 * end[link end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
-###出力
+### 出力
 ```
 9, 7, 5, 3, 1,
 count of 5:1
 count of 8:0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -73,11 +73,11 @@ count of 8:0
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
-##参照
+## 参照
 - [LWG Issue 2304. Complexity of `count` in unordered associative containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2304)
 
 
-##関連項目
+## 関連項目
 
 | | |
 |-----------------------------------|--------------------------|

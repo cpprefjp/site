@@ -1,4 +1,4 @@
-#try_lock_for
+# try_lock_for
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
@@ -11,15 +11,15 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 ```
 * duration[link /reference/chrono/duration.md]
 
-##概要
+## 概要
 タイムアウトする相対時間を指定してロックの取得を試みる
 
 
-##要件
+## 要件
 `Mutex`型が、`try_lock_for()`メンバ関数をサポートするミューテックス型であること
 
 
-##効果
+## 効果
 ```cpp
 pm->try_lock_for(rel_time);
 ```
@@ -27,15 +27,15 @@ pm->try_lock_for(rel_time);
 ※`pm`はメンバ変数として保持している、ミューテックスオブジェクトへのポインタ
 
 
-##事後条件
+## 事後条件
 [`owns_lock()`](owns_lock.md)の値が、`pm->try_lock_for(rel_time)`の戻り値になること
 
 
-##戻り値
+## 戻り値
 `pm->try_lock_for(rel_time)`の戻り値が返る
 
 
-##例外
+## 例外
 この関数は、`pm->try_lock_for()` 関数内で投げられうるあらゆる例外を投げる可能性がある。 
 
 そのほかに、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
@@ -44,7 +44,7 @@ pm->try_lock_for(rel_time);
 - [`resource_deadlock_would_occur`](/reference/system_error/errc.md) ： [`owns_lock()`](owns_lock.md) `== true`の状態でこの関数が呼び出された
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -91,15 +91,15 @@ int main()
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_error[link /reference/system_error/system_error.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -108,6 +108,6 @@ int main()
     - 11.0, 12.0は、例外の節で説明している`system_error`を投げる処理が実装されていない。
 
 
-##参照
+## 参照
 
 

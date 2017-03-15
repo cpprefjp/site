@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * iterator[meta header]
 * std[meta namespace]
 * move_iterator[meta class]
@@ -11,7 +11,7 @@ move_iterator& operator=(const move_iterator&) = default;
 move_iterator& operator=(move_iterator&&) = default;
 ```
 
-##概要
+## 概要
 - `move_iterator& operator=(const move_iterator<U>& u)`
 
 `u.base()`をメンバ変数に保持する。
@@ -19,7 +19,7 @@ move_iterator& operator=(move_iterator&&) = default;
 要件： `U`が`Iterator`に変換可能であること
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -43,16 +43,16 @@ int main()
 * v.emplace_back[link /reference/vector/emplace_back.md]
 * it2.base()[link base.md]
 
-###出力
+### 出力
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -60,6 +60,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照
 
 

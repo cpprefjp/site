@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * tuple[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -17,24 +17,24 @@ namespace std {
 ```
 * tuple[link ../tuple.md]
 
-##概要
+## 概要
 2つの[`tuple`](../tuple.md)オブジェクトの等値比較を行う。
 
 
-##要件
+## 要件
 - 2つの[`tuple`](../tuple.md)オブジェクトの要素数が同じであること。
 - [`tuple`](../tuple.md)の要素`std::`[`get`](get.md)`<i>(t)`と`std::`[`get`](get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](get.md)`<i>(t) == std::`[`get`](get.md)`<i>(u)` の比較結果が`bool`に変換可能な型であること。
 
 
-##効果
+## 効果
 0番目の要素から順に等値比較を行う。
 
 
-##戻り値
+## 戻り値
 [`tuple`](../tuple.md)の全ての要素を`std::`[`get`](get.md)`<i>(t) ==std::`[`get`](get.md)`<i>(u)` した結果が`true`である場合`true`を返し、そうでなければ`false`を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <tuple>
@@ -58,17 +58,17 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -76,5 +76,5 @@ false
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)

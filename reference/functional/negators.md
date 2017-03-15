@@ -1,4 +1,4 @@
-#論理反転関数オブジェクト
+# 論理反転関数オブジェクト
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -45,7 +45,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 述語関数オブジェクトの結果を反転する関数オブジェクトアダプタ。`unary_negate` は1引数述語用、`binary_negate` は2引数述語用。
 
 
@@ -59,7 +59,7 @@ namespace std {
 	- 型`Pred`への`const`参照`pred`に対して、式 `(bool)pred(x, y)` が有効であること。ただし `x` と `y` は、それぞれ `first_argument_type` と `second_argument_type` への `const` 参照。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 |
 |-----------------------------------|------------------------------------|
@@ -67,7 +67,7 @@ namespace std {
 | `binary_negate<Pred>::operator()` | `!pred(x, y)` と等価 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 |
 |------------------------|-------------------------------------------------------------------------|
@@ -77,7 +77,7 @@ namespace std {
 | `result_type`          | `bool` |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 |
 |--------------------------|--------------------------------------------|
@@ -85,7 +85,7 @@ namespace std {
 | `not2(const Pred& pred)` | `binary_negate<Pred>(pred)` を構築して返す |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -98,11 +98,11 @@ int main()
 * std::not2[color ff0000]
 * std::less[link less.md]
 
-###出力
+### 出力
 ```
 false
 ```
 
-##参照
+## 参照
 - [N3789 Constexpr Library Additions: functional](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3789.htm)
 

@@ -1,4 +1,4 @@
-#fma
+# fma
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -21,7 +21,7 @@ namespace std {
 * Arithmetic3[italic]
 
 
-##概要
+## 概要
 `x * y + z` を計算する。
 
 丸めは乗算と加算のあとに1回だけ行われる。
@@ -29,11 +29,11 @@ namespace std {
 `fma` は fused multiply-add の略。
 
 
-##戻り値
+## 戻り値
 `x * y + z` を無限精度で計算した後、現在の丸めモードで丸めた結果
 
 
-##備考
+## 備考
 - 本関数は、C99 の規格にある `fma`（より正確には `math.h` ヘッダの `fma`、`fmaf`、`fmal` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
 - C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
 
@@ -47,7 +47,7 @@ namespace std {
 	これらのマクロは、一般的に本関数がハードウェアによる積和演算命令を使用している場合にのみ定義される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -132,7 +132,7 @@ int main()
 * INFINITY[link infinity.md]
 * NAN[link nan.md]
 
-###出力例
+### 出力例
 ```
 fma(1.5, 8388609.0, -0.5) = 12582913.0
 

@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * regex[meta header]
 * std[meta namespace]
 * regex_iterator[meta class]
@@ -9,11 +9,11 @@
 bool operator==(const regex_iterator& right) const;
 ```
 
-##概要
+## 概要
 `regex_iterator` の等値比較を行う。
 
 
-##戻り値
+## 戻り値
 `*this` と引数 `right` が共にシーケンスの終端を示すイテレータの場合、`true` を返す。  
 `*this` と引数 `right` のいずれか一方のみがシーケンスの終端を示すイテレータの場合、`false` を返す。  
 `*this` と引数 `right` が共にシーケンスの終端を示すイテレータではない場合、各メンバ変数が以下の全ての条件を満たしていれば `true` を、そうでなければ `false` を返す。
@@ -25,12 +25,12 @@ bool operator==(const regex_iterator& right) const;
 - `match[0] == right.match[0]`
 
 
-##備考
+## 備考
 - メンバ変数 `begin`、`end`、`pregex`、`flags`、`match` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
 - 本メンバ関数が `true` を返したとしても、イテレータが同じ個所を指しているとは限らないことに注意すること。（下記の例を参照）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -62,7 +62,7 @@ int main()
 * std::regex[link /reference/regex/basic_regex.md]
 * str()[link /reference/regex/match_results/str.md]
 
-###出力
+### 出力
 ```
 true
 it1:'1'(5, 6)
@@ -70,11 +70,11 @@ it2:'1'(3, 4)
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -83,7 +83,7 @@ it2:'1'(3, 4)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 |                                 |            |
 |---------------------------------|------------|
 | [`operator!=`](op_not_equal.md) | 非等値比較 |

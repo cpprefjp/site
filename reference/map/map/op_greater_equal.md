@@ -1,4 +1,4 @@
-#operator>=
+# operator>=
 * map[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,24 +10,24 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `x` が `y` より大きいか等しいかの判定を行う。
 
 
-##引数
+## 引数
 - `x`, `y`<br/>
 比較するコンテナ。
 
 
-##戻り値
+## 戻り値
 `x` が `y` より大きいか等しい場合に `true`, そうでない場合に `false`。
 
 
-##計算量
+## 計算量
 [`size`](/reference/map/map/size.md) に対して線形時間。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -51,7 +51,7 @@ int main()
 ```
 * insert[link insert.md]
 
-###出力
+### 出力
 ```
 1
 0

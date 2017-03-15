@@ -1,4 +1,4 @@
-#value_compare
+# value_compare
 * map[meta header]
 * std[meta namespace]
 * map[meta class]
@@ -10,13 +10,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `value_compare` は `map` の入れ子クラスで、`map::value_type` 型のオブジェクトを比較する関数オブジェクト型である。  
 比較の基準は `map::key_compare` と同様であるが、`map::key_compare` の関数呼び出し演算子の引数型が `map::key_type` であるのに対して、本クラスの関数呼び出し演算子の比較型は `map::value_type` である点が異なっている。
 なお、引数のうち [`map`](../../map.md)`::mapped_type` にあたる [`pair`](../../utility/pair.md) の `second` 部については、比較時には無視される。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前                                                      | 説明               | 対応バージョン |
 |-----------------------------------------------------------|--------------------|----------------|
@@ -24,14 +24,14 @@ namespace std {
 | [`operator()`](value_compare/op_call.md.nolink)           | 関数呼び出し演算子 |                |
 
 
-##protected メンバ変数
+## protected メンバ変数
 
 | 名前   | 型                                   | 説明                                   | 対応バージョン |
 |--------|--------------------------------------|----------------------------------------|----------------|
 | `comp` | [`map`](../../map.md)`::key_compare` | キー値の比較に使用する関数オブジェクト |                |
 
 
-##メンバ型
+## メンバ型
 
 | 名前                   | 説明                                                                                 | 対応バージョン |
 |------------------------|--------------------------------------------------------------------------------------|----------------|
@@ -44,7 +44,7 @@ public 継承することによって定義していたが、C++11 から [`bina
 [`binary_function`](../../functional/binary_function.md.nolink)`<value_type, value_type, bool>` を継承せずに、直接本クラス内で定義するように変更された。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -63,7 +63,7 @@ int main()
 * value_comp()[link value_comp.md]
 * find[link find.md]
 
-###出力
+### 出力
 ```
 true
 ```

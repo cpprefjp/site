@@ -1,4 +1,4 @@
-#exp2
+# exp2
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,17 +18,17 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 2 を底とする指数関数を求める。
 
 
-##戻り値
+## 戻り値
 2 の `x` 乗を返す。
 
 `x` の絶対値が大きすぎる場合には、オーバーフローエラー、あるいはアンダーフローエラーとなり、戻り値は処理系定義である。（備考参照）
 
 
-##備考
+## 備考
 - $$ f(x) = 2^x $$
 - オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
@@ -37,7 +37,7 @@ namespace std {
 	- `x = +∞` の場合、戻り値は `+∞` となる。
 
 
-##例
+## 例
 ```cpp
 #include <cmath>
 #include <limits>
@@ -57,7 +57,7 @@ int main() {
 * std::fixed[link ../ios/fixed.md]
 * infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力例
+### 出力例
 ```
 exp2(0.0) = 1.000000
 exp2(1.0) = 2.000000
@@ -67,7 +67,7 @@ exp2(+∞) = inf
 exp2(-∞) = 0.000000
 ```
 
-##実装例
+## 実装例
 ```cpp
 namespace std {
   double exp2(double x) {
@@ -85,21 +85,21 @@ namespace std {
 ```
 * std::pow[link pow.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 2.9, 3.1
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 
-####備考
+#### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上
 
 
-##実装例
+## 実装例
 `exp` があれば、以下のように変換することで求められる。
 
 $$ 2^x = e^{x \log_e 2} \quad \mathrm{for~all} \; x $$

@@ -1,7 +1,7 @@
-#後置戻り値型をプレースホルダーにすることを許可
+# 後置戻り値型をプレースホルダーにすることを許可
 * cpp14[meta cpp]
 
-##概要
+## 概要
 [戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)と[ラムダ式](/lang/cpp11/lambda_expressions.md)の、後置戻り値型(trailing return type)を`auto`プレースホルダーとし、そのプレースホルダーを修飾することで、戻り値型の推論を補助できる。
 
 ```cpp
@@ -19,7 +19,7 @@ auto g = []() -> auto& { return static_value; };
 ```
 
 
-##例
+## 例
 ```cpp
 static int static_value = 3;
 
@@ -38,16 +38,16 @@ int main()
 }
 ```
 
-##出力
+## 出力
 ```
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 この機能は、C++14で導入された「[通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)」の機能において、ラムダ式から参照の戻り値を返すことを目的として導入された。
 
 
-##関連項目
+## 関連項目
 - [C++14 通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)
 
 

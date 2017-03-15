@@ -1,4 +1,4 @@
-#push_heap
+# push_heap
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -14,28 +14,28 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 ヒープ化された範囲に要素を追加したヒープ範囲を得る
 
 
-##要件
+## 要件
 - `[first,last - 1)` は有効な heap である必要がある。
 - `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
-##効果
+## 効果
 `last - 1` の値を、`[first,last)` が有効な heap となるように配置する
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 最大で `log(last - first)` 回比較する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -63,7 +63,7 @@ int main()
 * v.push_back[link /reference/vector/push_back.md]
 * std::sort_heap[link sort_heap.md]
 
-###出力
+### 出力
 ```
 1
 2
@@ -72,7 +72,7 @@ int main()
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class RandomAccessIterator>
 void push_heap(RandomAccessIterator first, RandomAccessIterator last)

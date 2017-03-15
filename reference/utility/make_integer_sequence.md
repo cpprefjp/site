@@ -1,4 +1,4 @@
-#make_integer_sequence
+# make_integer_sequence
 * utility[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -13,7 +13,7 @@ namespace std {
 * integer_sequence[link integer_sequence.md]
 
 
-##概要
+## 概要
 `make_integer_sequence`は、要素数を指定して、0から始まる整数シーケンスを生成する、[`integer_sequence`](integer_sequence.md)クラステンプレートの別名である。
 
 テンプレートパラメータは、以下を意味する：
@@ -24,7 +24,7 @@ namespace std {
 要素数`N`に0が設定された場合は、[`integer_sequence<T>`](integer_sequence.md)の別名として定義され、シーケンスが空となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -51,24 +51,24 @@ int main()
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
-##出力
+## 出力
 ```
 0, 1, 2
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 - [N3658 Compile-time integer sequences](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3658.html)
 
 

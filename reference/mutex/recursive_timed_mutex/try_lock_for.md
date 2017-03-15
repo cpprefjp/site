@@ -1,4 +1,4 @@
-#try_lock_for
+# try_lock_for
 * mutex[meta header]
 * std[meta namespace]
 * recursive_timed_mutex[meta class]
@@ -11,11 +11,11 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 ```
 * duration[link /reference/chrono/duration.md]
 
-##概要
+## 概要
 タイムアウトする相対時間を指定してロックの取得を試みる
 
 
-##効果
+## 効果
 `rel_time`パラメータで指定された相対時間の間、ミューテックスの所有権取得を試みる。
 
 所有権が取得できるまで、もしくは`rel_time`時間が経過するまでこの関数はブロッキングする。
@@ -23,22 +23,22 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 `rel_time`が`rel_time.`[`zero()`](/reference/chrono/duration/zero.md)より小さい場合、この関数は[`try_lock()`](try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
 
 
-##戻り値
+## 戻り値
 所有権が取得できた場合は`true`を返す。
 
 `rel_time`パラメータで指定された相対時間の間に所有権が取得できなかった場合はタイムアウトとなり、`false`を返す。
 
 
-##例外
+## 例外
 - C++11 : 投げない
 - C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
 
 
-##備考
+## 備考
 この関数の実装が、ミューテックスの所有権を保持しているスレッドがひとつもない場合でも、所有権の取得に失敗する可能性がある。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -84,15 +84,15 @@ int main()
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_error[link /reference/system_error/system_error.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -100,7 +100,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [LWG Issue 2091. Misplaced effect in `m.try_lock_for()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2091)
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 

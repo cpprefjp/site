@@ -1,4 +1,4 @@
-#regex_replace
+# regex_replace
 * regex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -57,13 +57,13 @@ namespace std {
 * regex_constants::match_default[link regex_constants/match_flag_type.md]
 * basic_string[link ../string/basic_string.md]
 
-##概要
+## 概要
 指定された文字列の中で、正規表現にマッチする部分を指定した文字列に置換する。  
 置換は、全てのマッチする部分、あるいは、最初のマッチする部分のみのいずれかを指定可能である。  
 また、マッチしない部分を残すか否かも指定可能である。
 
 
-##効果
+## 効果
 - (1)、(2) `[first, last)` で指定された文字列内に出現する、正規表現 `e` にマッチする部分を、置換文字列 `fmt` で置換した結果を出力イテレータ `out` に出力する。  
     置換文字列 `fmt` には通常の文字の他、マッチした文字列全体やキャプチャグループを表すシーケンスを使用することができる。  
     指定可能なシーケンスは、デフォルトでは ECMAScript の置換文字列と同等であるが、`flags` に [`regex_constants::format_sed`](regex_constants/match_flag_type.md) が指定されていた場合には POSIX にて規定されている sed の置換文字列と同等となる。  
@@ -72,18 +72,18 @@ namespace std {
 - (3)、(4) 置換対象文字列が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列として返される点を除いて、(1)、(2) と同様である。
 - (5)、(6) 置換対象文字列が `const charT*` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT>` 型の文字列として返される点を除いて、(1)、(2) と同様である。
 
-##戻り値
+## 戻り値
 - (1)、(2) 置換結果出力後の `out`（引数のコピーではない）
 - (3)、(4) 置換結果の文字列
 - (5)、(6) 置換結果の文字列
 
 
-##例外
+## 例外
 本関数は [`regex_error`](regex_error.md) を送出する可能性がある。  
 もしそのような例外 `e` が送出された場合、 `e.`[`code`](regex_error/code.md)`()` は [`regex_constants::error_complexity`](regex_constants/error_type.md) か [`regex_constants::error_stack`](regex_constants/error_type.md) のいずれかである。
 
 
-##備考
+## 備考
 本関数の正確な挙動は以下の通りである。
 
 - (1)、(2) [`regex_iterator`](regex_iterator.md) 型のオブジェクト `i` を
@@ -153,7 +153,7 @@ out = copy(last_m.suffix().first, last_m.suffix().second, out)
     戻り値は `result` となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -221,7 +221,7 @@ int main()
 * std::regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
 * std::regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
 
-###出力
+### 出力
 ```
 (1) 'abc[012]def'
 (2) '[012]'
@@ -232,11 +232,11 @@ int main()
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
@@ -244,5 +244,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 * [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)

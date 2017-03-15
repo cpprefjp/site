@@ -1,4 +1,4 @@
-#converted
+# converted
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
@@ -11,19 +11,19 @@ size_t converted() const noexcept; // C++14
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 変換した要素数を取得する。
 
 
-##戻り値
+## 戻り値
 [`from_bytes()`](from_bytes.md)もしくは[`to_bytes()`](to_bytes.md)関数で変換した、変換元となった文字列の要素数を返す。
 
 
-##例外
+## 例外
 投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -57,24 +57,24 @@ int main()
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
-###出力
+### 出力
 ```
 5 : 5
 15 : 15
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 
-##参照
+## 参照
 - [LWG Issue 2174. `wstring_convert::converted()` should be `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2174)
 

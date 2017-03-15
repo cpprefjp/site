@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`unique_ptr`オブジェクトを入れ替える。
 
 
-##効果
+## 効果
 `a.`[`swap`](swap.md)`(b);`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -42,17 +42,17 @@ int main()
 ```
 * std::swap[color ff0000]
 
-###出力
+### 出力
 ```
 1
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

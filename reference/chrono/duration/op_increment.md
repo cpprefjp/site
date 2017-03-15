@@ -1,4 +1,4 @@
-#operator++
+# operator++
 * chrono[meta header]
 * std::chrono[meta namespace]
 * duration[meta class]
@@ -10,16 +10,16 @@ duration& operator++();
 duration operator++(int);
 ```
 
-##概要
+## 概要
 `duration`の値をインクリメントする
 
-##戻り値
+## 戻り値
 - `duration& opertor++()` : `++rep_; return *this;`
 - `duration operator++(int)` : `return duration(rep_++);`
 ※ `rep_`は内部で保持している値。メンバ変数名は説明用のもの。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -50,7 +50,7 @@ int main()
 * nano[link /reference/ratio/si_prefix.md]
 * count()[link count.md]
 
-###出力
+### 出力
 ```
 3
 3
@@ -59,10 +59,10 @@ int main()
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC: 4.5.1, 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

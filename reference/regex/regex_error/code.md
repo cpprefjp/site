@@ -1,4 +1,4 @@
-#code
+# code
 * regex[meta header]
 * std[meta namespace]
 * regex_error[meta class]
@@ -10,15 +10,15 @@ regex_constants::error_type code() const;
 ```
 * regex_constants::error_type[link /reference/regex/regex_constants/error_type.md]
 
-##概要
+## 概要
 エラーコードを取得する。
 
 
-##戻り値
+## 戻り値
 コンストラクタで設定されたエラーコードを返す。
 
 
-##例
+## 例
 ```cpp
 #include <regex>
 
@@ -37,16 +37,16 @@ int main()
 * std::regex[link /reference/regex/basic_regex.md]
 * std::regex_constants::error_type[link /reference/regex/regex_constants/error_type.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
 - [ICC](/implementation.md#icc): ??

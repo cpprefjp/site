@@ -1,4 +1,4 @@
-#reference
+# reference
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -24,11 +24,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `bitset::reference`は、`bitset`の各ビットにアクセスするためのプロキシクラスである。`bitset::`[`operator[]`](op_at.md)で返されるビット情報を取得、書き換えるためにある。
 
 
-###メンバ関数
+### メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------|----------------------------------------------------------|-------|
@@ -39,7 +39,7 @@ namespace std {
 | `flip()`                      | ビットを反転させる       | |
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <bitset>
@@ -65,9 +65,9 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 
-###参照
+### 参照
 

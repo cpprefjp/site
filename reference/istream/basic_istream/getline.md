@@ -1,4 +1,4 @@
-#getline
+# getline
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
@@ -9,11 +9,11 @@ basic_istream<CharT, Traits>& getline(char_type* s, streamsize n);
 basic_istream<CharT, Traits>& getline(char_type* s, streamsize n, char_type delim);
 ```
 
-##概要
+## 概要
 
 （非書式化入力関数）ストリームから改行文字が現れるまで（1行すべて）あるいは仮引数`delim`で指定された文字までの文字列を入力する。
 
-##効果
+## 効果
 仮引数`delim`がないオーバーロードでは、`getline(s, widen('\n'))`を呼び出す。
 仮引数`delim`を持つものは以下の通り。
 
@@ -27,10 +27,10 @@ basic_istream<CharT, Traits>& getline(char_type* s, streamsize n, char_type deli
 
 `n`が1以上の場合、必ず`s`の末尾にヌル文字を書き込む。
 
-##戻り値
+## 戻り値
 - 仮引数`is`。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 
@@ -66,22 +66,22 @@ int main() {
 
 1度で1行すべての入力が行えなかった場合の処理を追いかけやすくするため、この例はわざと`buffer_size`を少なくしている。
 
-###入力
+### 入力
 ```
 Natsu wa yoru.
 ```
 
-###出力
+### 出力
 ```
 Natsu wa yoru.
 ```
 
-##実装例
+## 実装例
 TBD
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [`std::getline`](../../string/basic_string/getline.md): `std::basic_string`へ入力を行うもの。

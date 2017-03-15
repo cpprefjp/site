@@ -1,4 +1,4 @@
-#probabilities
+# probabilities
 * random[meta header]
 * std[meta namespace]
 * discrete_distribution[meta class]
@@ -9,15 +9,15 @@
 vector<double> probabilities() const;
 ```
 
-##概要
+## 概要
 確率列を取得する。
 
 
-##戻り値
+## 戻り値
 保持している確率列を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -35,7 +35,7 @@ int main()
 ```
 * probabilities()[color ff0000]
 
-###出力
+### 出力
 ```
 0
 0.166667
@@ -43,11 +43,11 @@ int main()
 0.5
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -55,6 +55,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

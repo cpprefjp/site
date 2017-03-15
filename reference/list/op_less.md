@@ -1,4 +1,4 @@
-#operator<
+# operator<
 * list[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,25 +10,25 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `list`において、左辺が右辺より小さいかの判定を行う。
 
 
 
-##要件
+## 要件
 型`T`が`<`比較可能であること。その`<`が全順序関係を持っていること。
 
 
 
-##戻り値
+## 戻り値
 [`lexicographical_compare`](/reference/algorithm/lexicographical_compare.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`(), y.`[`end`](end.md)`());`
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -44,7 +44,7 @@ int main ()
 }
 ```
 
-###出力
+### 出力
 ```
 true
 ```

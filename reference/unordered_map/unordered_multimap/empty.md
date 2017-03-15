@@ -1,4 +1,4 @@
-#empty
+# empty
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
@@ -9,23 +9,23 @@
 bool empty() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナが空かどうかを判定する。
 
 
-##戻り値
+## 戻り値
 コンテナが空であれば `true`、そうでなければ `false` を返す。
 
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -58,24 +58,24 @@ int main()
 * emplace[link emplace.md]
 * clear[link clear.md]
 
-###出力
+### 出力
 ```
 true
 false
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##実装例
+## 実装例
 ```cpp
 template <class Key, class Hash, class Pred, class Allocator>
 inline bool unordered_multimap<Key, Hash, Pred, Allocator>::empty() const noexcept {
@@ -85,7 +85,7 @@ inline bool unordered_multimap<Key, Hash, Pred, Allocator>::empty() const noexce
 * begin[link begin.md]
 * end[link end.md]
 
-##参照
+## 参照
 
 | 名前                        | 説明                         |
 |-----------------------------|------------------------------|

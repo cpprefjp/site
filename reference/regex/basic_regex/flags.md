@@ -1,4 +1,4 @@
-#flags
+# flags
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
@@ -9,24 +9,24 @@
 flag_type flags() const;
 ```
 
-##概要
+## 概要
 最後に設定された正規表現フラグを返す。
 
 
-##戻り値
+## 戻り値
 最後に設定された正規表現フラグ
 
 
-##備考
+## 備考
 `flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の別名である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
 
-#define PRINTFLAG(f, FLAG) (std::cout << #FLAG " is " << (f & std::regex_constants::FLAG ? "set" : "not set") << std::endl)
+# define PRINTFLAG(f, FLAG) (std::cout << #FLAG " is " << (f & std::regex_constants::FLAG ? "set" : "n
 
 void print(std::regex_constants::syntax_option_type f)
 {
@@ -53,7 +53,7 @@ int main()
 * std::regex_constants::icase[link ../regex_constants/syntax_option_type.md]
 * std::regex_constants::optimize[link ../regex_constants/syntax_option_type.md]
 
-###出力
+### 出力
 ```
 icase is set
 nosubs is not set
@@ -68,11 +68,11 @@ egrep is not set
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

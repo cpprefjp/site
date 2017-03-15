@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -9,19 +9,19 @@ bool operator==(const bitset<N>& rhs) const;          // C++03
 bool operator==(const bitset<N>& rhs) const noexcept; // C++11
 ```
 
-##概要
+## 概要
 `*this`と`rhs`を等値比較する。
 
 
-##戻り値
+## 戻り値
 `*this`と`rhs`の全てのビット値が等しければ`true`、そうでなければ`false`を返す。
 
 
-##例外
+## 例外
 投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -40,11 +40,11 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 equal
 ```
 
 
-##参照
+## 参照
 

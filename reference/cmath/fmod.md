@@ -1,4 +1,4 @@
-#fmod
+# fmod
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -16,13 +16,13 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 浮動小数点数の剰余を求める。
 
 整数に対する剰余は`%`演算子で求められるが、浮動小数点数に対しては本関数を使用する必要がある。
 
 
-##戻り値
+## 戻り値
 `x / y`の余りを返す。
 
 - この関数は、ある整数値を`n`として、`x - ny`を戻り値として返す。
@@ -32,7 +32,7 @@ namespace std {
 定義域エラーが発生した際の挙動については、[`<cmath>`](../cmath.md) を参照。
 
 
-##備考
+## 備考
 - 本関数は、C99 の規格にある `fmod`（より正確には `math.h` ヘッダの `fmod`、`fmodf`、`fmodl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 
@@ -45,7 +45,7 @@ namespace std {
     ```c
 #include <math.h>
 #include <fenv.h>
-#pragma STDC FENV_ACCESS ON
+# pragma STDC FENV_ACCESS ON
 double fmod(double x, double y)
 {
   double result;
@@ -60,7 +60,7 @@ double fmod(double x, double y)
 * copysign[link copysign.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -84,7 +84,7 @@ int main()
 ```
 * std::fmod[color ff0000]
 
-###出力例
+### 出力例
 ```
 fmod(5, 2) = 1
 fmod(6, 4) = 2

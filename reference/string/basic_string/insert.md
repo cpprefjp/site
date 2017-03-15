@@ -1,4 +1,4 @@
-#insert
+# insert
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -33,11 +33,11 @@ iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11�
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 文字／文字列を挿入する。
 
 
-##要件
+## 要件
 - (1) : `pos <=` [`size()`](size.md)
 - (2) : `pos1 <=` [`size()`](size.md)および`pos2 <= str.`[`size()`](size.md)
 - (3) : 文字配列へのポインタ`s`が指す配列が少なくても`n`要素あり、`pos <=` [`size()`](size.md)であること。
@@ -47,7 +47,7 @@ iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11�
 - (8) : イテレータ`p`が、`*this`に対して有効であること。`[first, last)`が有効な範囲であること。
 
 
-##効果
+## 効果
 - (1) : `insert(pos, str.`[`data()`](data.md)`, str.`[`size()`](size.md)`)`
 - (2) :
 	- `str.`[`size()`](size.md) `- pos2`と`n`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](size.md)`() - pos2` が使用される。
@@ -61,7 +61,7 @@ iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11�
 - (9) : `insert(p, il.`[`begin()`](/reference/initializer_list/begin.md)`, il.`[`end()`](/reference/initializer_list/end.md)`)`
 
 
-##戻り値
+## 戻り値
 - (1) : `*this`
 - (2) : `*this`
 - (3) : `*this`
@@ -72,13 +72,13 @@ iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11�
 - (8) : 挿入された最初の文字を指すイテレータを返す。`first == last`なら`p`を返す。
 
 
-##例外
+## 例外
 - (1) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 - (2) : `pos1 >` [`size()`](size.md)もしくは`pos2 > str.`[`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 - (3) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。また、[`size()`](size.md) `+ n >` [`max_size()`](max_size.md)の場合には[`length_error`](/reference/stdexcept.md)例外を送出する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -175,7 +175,7 @@ int main()
 * begin()[link begin.md]
 * end()[link end.md]
 
-###出力
+### 出力
 ```
 (1) : aabbbbbaaa
 (2) : aa345aaa
@@ -188,7 +188,7 @@ int main()
 (9) : bbbbbaaaaa
 ```
 
-##参照
+## 参照
 - [LWG Issue 180. Container member iterator arguments constness has unintended consequences](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#180)
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。

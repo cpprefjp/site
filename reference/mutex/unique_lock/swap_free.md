@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * mutex[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,26 +11,26 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`unique_lock`オブジェクトを入れ替える
 
 
-##効果
+## 効果
 ```cpp
 x.swap(y);
 ```
 * swap[link swap.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <mutex>
 #include <utility>
@@ -49,15 +49,15 @@ int main()
 ```
 * std::swap[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -65,6 +65,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

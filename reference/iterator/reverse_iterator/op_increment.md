@@ -1,4 +1,4 @@
-#operator++
+# operator++
 * iterator[meta header]
 * std[meta namespace]
 * reverse_iterator[meta class]
@@ -9,12 +9,12 @@ reverse_iterator& operator++();
 reverse_iterator operator++(int);
 ```
 
-##概要
+## 概要
 イテレータをインクリメントする。
 `reverse_iterator`なので逆方向に進める。
 
 
-##効果
+## 効果
 
 - 前置インクリメント `operator++()`：
 
@@ -32,7 +32,7 @@ return tmp;
 ```
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -51,11 +51,11 @@ int main()
 ```
 * ++it[color ff0000]
 
-###出力
+### 出力
 ```
 2
 ```
 
-##参照
+## 参照
 
 

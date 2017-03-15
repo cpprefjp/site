@@ -1,4 +1,4 @@
-#atexit
+# atexit
 * cstdlib[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,11 +13,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 プログラムが通常の方法で終了するときに呼ばれる関数を登録する。
 
 
-##効果
+## 効果
 この関数に指定した関数は、以下の条件のときに呼び出される：
 
 - `main()`関数が返る。
@@ -28,17 +28,17 @@ namespace std {
 指定された関数の中で例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
 
 
-##戻り値
+## 戻り値
 関数の登録に成功した場合は`0`が返り、失敗した場合は非`0`が返る。
 
 
-##備考
+## 備考
 この関数では、複数の関数を登録できる。
 
 登録できる上限数は実装定義だが、32個以上は登録できることが実装に要求される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cstdlib>
@@ -55,13 +55,13 @@ int main()
 ```
 * std::atexit[color ff0000]
 
-###出力
+### 出力
 ```
 on exit
 ```
 
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |------|------|

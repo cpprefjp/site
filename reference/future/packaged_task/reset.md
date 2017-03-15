@@ -1,4 +1,4 @@
-#reset
+# reset
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
@@ -9,13 +9,13 @@
 void reset();
 ```
 
-##概要
+## 概要
 共有状態を作り直す。
 
 一度タスクを実行したのちは共有状態への結果値の再格納ができないため、同じ`packaged_task`オブジェクトの同じ関数(タスク)を再度非同期実行したい場合に使用する。
 
 
-##効果
+## 効果
 ```cpp
 *this = packaged_task(std::move(f));
 ```
@@ -26,11 +26,11 @@ void reset();
 `f`はメンバ変数として保持している、非同期実行する関数オブジェクト。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 この関数は、以下の例外を送出する可能性がある：
 
 - [`bad_alloc`](/reference/new/bad_alloc.md) ： 新たな共有状態のアロケートに失敗
@@ -38,7 +38,7 @@ void reset();
 - [`future_error`](../future_error.md) ： 共有状態を持っていない状態でこの関数を呼び出した場合、[`no_state`](../future_errc.md)をerror conditionにして送出する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -68,17 +68,17 @@ int main()
 * std::future[link /reference/future/future.md]
 * f.get()[link /reference/future/future/get.md]
 
-###出力
+### 出力
 ```
 3
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -86,6 +86,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

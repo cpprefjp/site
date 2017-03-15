@@ -1,4 +1,4 @@
-#fesetexceptflag
+# fesetexceptflag
 * cfenv[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,23 +11,23 @@ namespace std {
 ```
 * fexcept_t[link fexcept_t.md]
 
-##概要
+## 概要
 浮動小数点例外を発生させずに、浮動小数点例外の状態を設定する。
 
 
-##効果
+## 効果
 `flagp`が指す浮動小数点例外の状態のうち、`excepts`で指定された種類の浮動小数点例外のみを、現在の浮動小数点例外の状態として設定する。
 
 この関数は、浮動小数点例外を発生させない。
 
 
-##戻り値
+## 戻り値
 - `excepts`が`0`であった場合、この関数は`0`を返す
 - 指定された浮動小数点例外を正しく設定できた場合、この関数は`0`を返す
 - それ以外の場合、この関数は`0`以外を返す
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <cfenv>
@@ -61,16 +61,16 @@ int main()
 * FE_ALL_EXCEPT[link fe_all_except.md]
 * FE_DIVBYZERO[link fe_divbyzero.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??

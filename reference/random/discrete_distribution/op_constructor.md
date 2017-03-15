@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * discrete_distribution[meta class]
@@ -22,7 +22,7 @@ explicit discrete_distribution(const param_type& parm);           // (5)
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ。確率列の要素数を1、0番目の確率を1で初期化する。
     - このコンストラクタで構築された場合、乱数生成は常に0を返す。
 - (2) : 確率列の範囲を受け取るコンストラクタ。受け取った範囲を、乱数生成のパラメータとして保持する。
@@ -36,15 +36,15 @@ explicit discrete_distribution(const param_type& parm);           // (5)
 - (5) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(5)以外のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-##要件
+## 要件
 - (2) : `InputIterator`の要素型が、double型に変換可能であること。
 
 
-##計算量
+## 計算量
 - (4) : `fw`関数オブジェクトの呼び出しが、要素数nを超えないものとする。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -113,7 +113,7 @@ int main()
 * probabilities.begin()[link /reference/vector/begin.md]
 * probabilities.end()[link /reference/vector/end.md]
 
-###出力例
+### 出力例
 ```
 default constructor : 0
 iterator range constructor : 1
@@ -132,11 +132,11 @@ min-max constructor : 3
 parameter constructor : 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -144,6 +144,6 @@ parameter constructor : 2
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

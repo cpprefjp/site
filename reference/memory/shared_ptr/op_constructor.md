@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
@@ -51,7 +51,7 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 * weak_ptr[link /reference/memory/weak_ptr.md]
 * unique_ptr[link /reference/memory/unique_ptr.md]
 
-##`shared_ptr`オブジェクトの構築
+## `shared_ptr`オブジェクトの構築
 - (1) : 所有権を持たない、空の`shared_ptr`オブジェクトを構築する。
 - (2) : 生ポインタの所有権を受け取る。
 - (3) : 生ポインタの所有権と、リソースを破棄する際に使用する関数オブジェクトを受け取る。
@@ -67,7 +67,7 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 - (15) : (1)と同じく、所有権を持たない、空の`shared_ptr`オブジェクトを構築する。
 
 
-##要件
+## 要件
 - (2) : `p`が`T*`に変換可能であること。`Y`が完全型であり、式`delete p`が妥当であること。
 - (3), (4), (5), (6) : `p`が`T*`に変換可能であること。`Deleter`がコピー構築可能な型であり、そのコピーコンストラクタとデストラクタが例外を投げないこと。`d(p)`という式が妥当であること。
 - (9) : `Y*`が`T*`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される。
@@ -76,7 +76,7 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 - (13) : `r.release()`によって返されるポインタ値が、`T*`に変換可能であること。`Y`が完全型であり、式`delete r.release()`が妥当であること。
 
 
-##効果
+## 効果
 - (1) : 空の`shared_ptr`オブジェクトを構築する。
 - (2) : ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。
 - (3) : リソースを破棄する際に使用する関数オブジェクト`d`を受け取り、ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。
@@ -92,7 +92,7 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 - (15) : 空の`shared_ptr`オブジェクトを構築する。
 
 
-##事後条件
+## 事後条件
 - (1) : [`use_count()`](use_count.md) `== 0 &&` [`get()`](get.md) ` == nullptr`
 - (2), (3), (4) : [`use_count()`](use_count.md) `== 1 &&` [`get()`](get.md) ` == p`
 - (5), (6) : [`use_count()`](use_count.md) `== 1 &&` [`get()`](get.md) ` == nullptr`
@@ -103,17 +103,17 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 - (13) : [`use_count()`](use_count.md) `== 1 &&` `r.`[`get()`](get.md) `== nullptr`
 
 
-##例外
+## 例外
 - (3), (4), (5), (6) : メモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)例外を送出する。例外送出時には`d(p)`を呼び出すことが保証される。
 - (12) : `r.`[`expired()`](/reference/memory/weak_ptr/expired.md) `== true`の場合、[`bad_weak_ptr`](/reference/memory/bad_weak_ptr.md)例外を送出する。
 - (13) : メモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)もしくはその他実装定義の例外を送出する。
 
 
-##備考
+## 備考
 アロケータは、参照カウンタのメモリ確保に使用される。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <memory>
@@ -229,15 +229,15 @@ int main()
 * std::weak_ptr[link /reference/memory/weak_ptr.md]
 * lock()[link /reference/memory/weak_ptr/lock.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6 (unique_ptr, nullptr以外), 4.4.7 (nullptr以外), 4.6.4
 - [ICC](/implementation.md#icc): ??
@@ -245,7 +245,7 @@ int main()
 	- Visual C++ 9.0は(1), (2), (3), (4), (8), (9), (12), (13)のみ
 	- Visual C++ 9.0, 1.0の(13)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
 
-##参照
+## 参照
 - (4), (5) : [nullptrを所有するshared_ptr - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120623/p1)
 - (7) : [今更ながらに Boost.SmartPointers を考える - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20091214/1260804379)
 - [N2351 Improving shared_ptr for C++0x, Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2351.htm)

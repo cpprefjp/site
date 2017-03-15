@@ -1,7 +1,7 @@
-#C99互換で導入された定義済みマクロ
+# C99互換で導入された定義済みマクロ
 * cpp11[meta cpp]
 
-##概要
+## 概要
 定義済みマクロの値が、以下のように更新された：
 
 | マクロ名          | 説明                    |
@@ -11,11 +11,11 @@
 | `__STDC_ISO_10646__` | `wchar_t`の文字が、Unicodeの規格であるISO/IEC 10646の、yyyymm年の仕様を満たしている場合に定義される。<br/>このマクロの値は、`yyyymmL`の形式の整数値として定義される。yは年、mは月を表す。yとmそれぞれの個数は、桁数を表す。 |
 
 
-##関連項目
+## 関連項目
 - [C++11 更新された定義済みマクロ](predefined_macros.md)
 
 
-##参照
+## 参照
 - [N1653 Working draft changes for C99 preprocessor synchronization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1653.htm)
 - [CWG Issue 630. Equality of narrow and wide character values in the basic character set](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#630)
 

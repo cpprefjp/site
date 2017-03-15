@@ -1,4 +1,4 @@
-#suffix
+# suffix
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,15 +9,15 @@
 const_reference suffix() const;
 ```
 
-##概要
+## 概要
 マッチした文字列の後の文字列を指すサブマッチを返す。
 
 
-##要件
+## 要件
 [`ready`](ready.md)`() == true`
 
 
-##戻り値
+## 戻り値
 マッチした文字列の後の文字列を指すサブマッチ。ただし、マッチが失敗した場合は未規定。  
 具体的なサブマッチの各メンバ変数の設定内容は以下の通り。
 
@@ -31,7 +31,7 @@ const_reference suffix() const;
     また、`m.suffix().matched` は `m.suffix().first != m.suffix().second` の結果となる（つまり、`m.suffix()` が空文字であれば `false`、そうでなければ `true`）。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -104,7 +104,7 @@ int main()
 * sub.str()[link str.md]
 * std::ssub_match[link ../sub_match.md]
 
-###出力
+### 出力
 ```
 regex_match
 m[0]: str() = '0123', range = [0, 4), matched = true
@@ -123,11 +123,11 @@ suffix(): str() = '', range = [8, 8), matched = false
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

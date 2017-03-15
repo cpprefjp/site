@@ -1,4 +1,4 @@
-#is_signed
+# is_signed
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,12 +12,12 @@ static const bool is_signed;
 static constexpr bool is_signed;
 ```
 
-##概要
+## 概要
 型`T`が符号付き型であるなら、`is_signed`は`true`となり、そうでなければ`false`となる。  
 `is_specialized == false`の場合、`is_signed`は`false`となる。
 
 
-##例
+## 例
 ```cpp
 #include <limits>
 
@@ -32,7 +32,7 @@ int main()
 ```
 * is_signed[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 

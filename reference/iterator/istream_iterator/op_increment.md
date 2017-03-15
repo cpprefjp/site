@@ -1,4 +1,4 @@
-#operator++
+# operator++
 * iterator[meta header]
 * std[meta namespace]
 * istream_iterator[meta class]
@@ -9,12 +9,12 @@ istream_iterator<T, CharT, Traits, Distance>& operator++();
 istream_iterator<T, CharT, Traits, Distance> operator++(int);
 ```
 
-##概要
+## 概要
 イテレータを進める。
 入力ストリームから`operator>>`でデータを読み取る。
 
 
-##効果
+## 効果
 前置`operator++`：
 `*in_stream ≫ value;`
 `return *this;`
@@ -26,7 +26,7 @@ istream_iterator<T, CharT, Traits, Distance> operator++(int);
 
 ※`in_stream`は、メンバ変数として保持している入力ストリームオブジェクトへのポインタ
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -51,13 +51,13 @@ int main()
 * ++it[color ff0000]
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#internal
+# internal
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -9,7 +9,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 出力時に両端揃えにすることを指示するマニピュレータ。
 フィールド幅に揃えるための文字を中間部分に挿入するようになる。
 `setw`と組み合わせることで効果がある。
@@ -19,19 +19,19 @@ namespace std {
 - 符号付き整数の場合、符号と整数の間
 - `std::showbase`によるプレフィックスと数値の間
 
-##効果
+## 効果
 `str.setf(ios_base::internal, ios_base::adjustfield)`を実行する。
 
-##戻り値
+## 戻り値
 実引数`str`オブジェクト。
 
-##例
+## 例
 [`left`](left.md)を参照。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-##参照
+## 参照
 - [`left`](left.md)
 - [`right`](right.md)

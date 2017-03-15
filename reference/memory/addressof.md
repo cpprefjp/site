@@ -1,4 +1,4 @@
-#addressof
+# addressof
 * memory[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 変数のアドレスを必ず取得する。
 
 `operator&()` をオーバーロードしたクラスであっても、正しくそのオブジェクトのアドレスが欲しいという要求がある。
@@ -19,15 +19,15 @@ namespace std {
 `addressof()`関数は、`operator&()` がオーバーロードされていても、変数のアドレスを取得できる。
 
 
-##戻り値
+## 戻り値
 変数`r`のアドレスを返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 #include <iostream>
@@ -56,15 +56,15 @@ int main()
 ```
 * std::addressof[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -72,6 +72,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
     - Visual C++ 11.0はマニュアル（MSDNライブラリ）に記載がないものの、実装されている。
 
-##参照
+## 参照
 - [`boost::addressof()` - Boost C++ Libraries](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#addressof)
 

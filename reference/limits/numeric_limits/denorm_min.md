@@ -1,4 +1,4 @@
-#denorm_min
+# denorm_min
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,19 +12,19 @@ static T denorm_min() throw();
 static constexpr T denorm_min() noexcept;
 ```
 
-##概要
+## 概要
 浮動小数点数型において、最小の正の非正規化数(denormalized value)を取得する。
 
 
-##戻り値
+## 戻り値
 最小の正の非正規化数
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -40,13 +40,13 @@ int main()
 ```
 * denorm_min()[color ff0000]
 
-###出力例
+### 出力例
 ```
 float : 1.4013e-045
 double : 0
 ```
 
-##参照
+## 参照
 * [`numeric_limits::has_denorm`](has_denorm.md)
 * [`numeric_limits::has_denorm_loss`](has_denorm_loss.md)
 

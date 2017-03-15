@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * list[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,23 +10,23 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `list`オブジェクトの非等値比較を行う。
 
 
-##要件
+## 要件
 型`T`が`operator==`で比較可能であること。
 
 
-##戻り値
+## 戻り値
 `!(x == y)`
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -48,7 +48,7 @@ int main ()
 }
 ```
 
-###出力
+### 出力
 ```
 false
 true

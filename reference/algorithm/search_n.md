@@ -1,4 +1,4 @@
-#search_n
+# search_n
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -15,25 +15,25 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 あるシーケンスの中から、特定のサブシーケンスを探す。
 
 
-##要件
+## 要件
 `Size`は整数型に変換できる型である必要がある。
 
 
-##戻り値
+## 戻り値
 `[first,last-count)` 内のイテレータ `i` があるとき、0 以上 `count` 未満の整数 `n` について、それぞれ `*(i + n) == value` もしくは `pred(*(i + n),value) != false` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
 
 そのようなイテレータが見つからない場合は `last` を返す。
 
 
-##計算量
+## 計算量
 最大で `last - first` 回の対応する比較もしくは述語が適用される。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -65,14 +65,14 @@ int main() {
 * v.cbegin()[link /reference/vector/cbegin.md]
 * v.cend()[link /reference/vector/cend.md]
 
-###出力
+### 出力
 ```
 found: index==5
 found: index==0
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class ForwardIterator, class Size, class T>
 ForwardIterator search_n(ForwardIterator first, ForwardIterator last, Size count, T const& value)
@@ -127,7 +127,7 @@ ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
 ```
 
 
-##参照
+## 参照
 - [LWG Issue 714. `search_n` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#714)
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
 

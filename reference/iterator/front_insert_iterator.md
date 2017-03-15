@@ -1,4 +1,4 @@
-#front_insert_iterator
+# front_insert_iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,11 +14,11 @@ namespace std {
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
-##概要
+## 概要
 `front_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_front()`メンバ関数を呼び出すイテレータアダプタである。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -29,14 +29,14 @@ namespace std {
 | [`operator++`](front_insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
 
-##protectedメンバ変数
+## protectedメンバ変数
 
 | 変数名 | 型 | 対応バージョン |
 |-------------|--------------|-------|
 | `container` | `Container*` | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------|------------|-------|
@@ -48,14 +48,14 @@ namespace std {
 | `reference`         | `void` | |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|-------------------------------------|-------|
 | [`front_inserter`](front_inserter.md) | `front_insert_iterator`のヘルパ関数 | |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -79,12 +79,12 @@ int main()
 * src.begin()[link /reference/deque/begin.md]
 * src.end()[link /reference/deque/end.md]
 
-###出力
+### 出力
 ```
 3
 2
 1
 ```
 
-##参照
+## 参照
 

@@ -1,13 +1,13 @@
-#LDBL_EPSILON
+# LDBL_EPSILON
 * cfloat[meta header]
 * macro[meta id-type]
 * [mathjax enable]
 
 ```cpp
-#define LDBL_EPSILON implementation-defined
+# define LDBL_EPSILON implementation-defined
 ```
 
-##概要
+## 概要
 `long double` における、$1$ と $1$ より大きい最小の数との差（機械イプシロン）を表すマクロ。  
 以下の式で表される。
 
@@ -20,11 +20,11 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
 [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`epsilon`](/reference/limits/numeric_limits/epsilon.md)`()` と等しい。
 
-##備考
+## 備考
 規格で `1E-9`（$10^{-9}$）以下であることが規定されている。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -47,7 +47,7 @@ int main()
 * LDBL_MANT_DIG[link ldbl_mant_dig.md]
 * std::pow[link ../cmath/pow.md]
 
-##出力例
+## 出力例
 ```
 1.08420217248550443e-19
 1.08420217248550443e-19

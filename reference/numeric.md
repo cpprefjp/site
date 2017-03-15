@@ -1,4 +1,4 @@
-#numeric
+# numeric
 * numeric[meta header]
 
 `<numeric>` ヘッダは数値のシーケンスの処理に特化したアルゴリズムを定義する。
@@ -13,7 +13,7 @@
 | [`iota`](numeric/iota.md)                   | 指定された値から始まる整数列を生成する | C++11 |
 
 
-##関連項目
+## 関連項目
 - [`<algorithm>`](/reference/algorithm.md)
     - より汎用的なアルゴリズム
 

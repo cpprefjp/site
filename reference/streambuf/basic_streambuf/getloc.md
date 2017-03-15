@@ -1,4 +1,4 @@
-#getloc
+# getloc
 * streambuf[meta header]
 * std[meta namespace]
 * basic_streambuf[meta class]
@@ -17,14 +17,14 @@ namespace std {
 ```
 * locale[link /reference/locale/locale.md]
 
-##概要
+## 概要
 ストリームバッファの現在のロケールを取得する。
 
-##戻り値
+## 戻り値
 - 最後に`pubimbue()`を呼び出したときの実引数。
 - そのオブジェクトに対して`pubimbue()`を1回も呼び出していなければ、構築時のグローバルロケール。
 
-##実装例
+## 実装例
 [`pubimbue()`](pubimbue.md)も併せて掲載している。
 ```cpp
 namespace std {
@@ -52,10 +52,10 @@ namespace std {
 * locale[link /reference/locale/locale.md]
 * imbue[link imbue.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [`pubimbue()`](pubimbue.md)
 - [`imbue()`](imbue.md)

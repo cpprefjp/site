@@ -1,4 +1,4 @@
-#stof
+# stof
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,28 +12,28 @@ namespace std {
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 文字列`str`を数値として読み取って、`float`型の値に変換する。
 
 
-##効果
+## 効果
 パラメータ`str`が`string`型であれば`std::strtod(str.c_str(), &end)`、`wstring`であれば`std::wcstof(str.c_str(), &end)`を呼び出して、その戻り値を返す。
 
 パラメータ`idx`が非`nullptr`の場合、変換に使用されなかった要素のインデックス（`end - str.c_str()`）が格納される。
 
 
-##戻り値
+## 戻り値
 変換して得られた数値が返される。
 
 
-##例外
+## 例外
 - 数値への変換が行われなかった場合、[`std::invalid_argument`](/reference/stdexcept.md)が送出される。
 - 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
     - `std::strtoull()`関数が`std::errno`変数に`ERANGE`を設定した場合
     - 結果が範囲外の値になった場合 (C++14)
 
 
-##備考
+## 備考
 ### errnoの扱い
 - Visual C++ 11やGCC (libstdc++) 4.8.2では、この関数を呼び出すと`errno`の値が変更される。
 - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
@@ -45,7 +45,7 @@ namespace std {
 - 小数点記号は`LC_NUMERIC`で指定されたものが使用される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -101,7 +101,7 @@ int main()
 * std::stof[color ff0000]
 * std::wstring[link basic_string.md]
 
-###出力例
+### 出力例
 ```
 1.5
 1
@@ -118,7 +118,7 @@ int main()
 -0.25
 ```
 
-##実装例
+## 実装例
 ```cpp
 float stof(const std::string& str, std::size_t* idx = nullptr) {
   const char* p = str.c_str();
@@ -160,11 +160,11 @@ float stof(const std::wstring& str, std::size_t* idx = nullptr) {
 * errno[link /reference/cerrno/errno.md]
 * ERANGE[link /reference/cerrno.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [GCC, C++11 mode](/implementation.md#gcc): ?
@@ -173,7 +173,7 @@ float stof(const std::wstring& str, std::size_t* idx = nullptr) {
 
 ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
 
-##参照
+## 参照
 - [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
 - [LWG Issue 2009. Reporting out-of-bound values on numeric string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009)
 

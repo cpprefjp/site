@@ -1,4 +1,4 @@
-#sinh
+# sinh
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 双曲線正弦（ハイパボリックサイン：hyperbolic sine）を得る。
 
 
-##戻り値
+## 戻り値
 以下のコードと同等のことを行う：
 
 ```cpp
@@ -25,7 +25,7 @@ return v.apply(static_cast<T(*)(T)>(std::sinh));
 * sinh[link /reference/cmath/sinh.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -42,7 +42,7 @@ int main()
 ```
 * sinh[color ff0000]
 
-###出力
+### 出力
 ```
 0.100167
 0.201336

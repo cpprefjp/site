@@ -1,4 +1,4 @@
-#piecewise_construct
+# piecewise_construct
 * utility[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -11,13 +11,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `piecewise_construct_t`クラスは、オーバーロードのための空クラスである。
 
 `pair`の要素型のコンストラクタ引数を引数にとるコンストラクタを呼び出すためにある。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -45,16 +45,16 @@ int main()
 ```
 * piecewise_construct[color ff0000]
 
-###出力
+### 出力
 ```
 (1,2), (3,4)
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -62,7 +62,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [N3059 Proposal to Simplify `pair` (rev 5.2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3059.pdf)
 - [N3059 - togetter](https://togetter.com/li/17236)
 

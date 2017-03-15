@@ -1,4 +1,4 @@
-#assign
+# assign
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
@@ -10,11 +10,11 @@ template <class F, class Alloc>
 void assign(F&& f, const Alloc& alloc);
 ```
 
-##概要
+## 概要
 関数オブジェクトとアロケータを再代入する。
 
 
-##効果
+## 効果
 ```cpp
 function(allocator_arg, alloc, std::forward<F>(f)).swap(*this)
 ```
@@ -24,11 +24,11 @@ function(allocator_arg, alloc, std::forward<F>(f)).swap(*this)
 * swap[link swap.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -53,23 +53,23 @@ int main()
 * std::allocator[link /reference/memory/allocator.md]
 * f(1)[link op_call.md]
 
-###出力
+### 出力
 ```
 1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): (4.8.2時点で実装していない)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [N2308 Adding allocator support to `std::function` for C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2308.html)
 

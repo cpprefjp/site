@@ -1,4 +1,4 @@
-#swap
+# swap
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -9,19 +9,19 @@
 void swap(valarray& v) noexcept;
 ```
 
-##概要
+## 概要
 他の`valarray`オブジェクトと値を入れ替える。
 
 
-##効果
+## 効果
 `*this`の内容を`x`と交換する。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -56,18 +56,18 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 a : {4,5,6}
 b : {1,2,3}
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3

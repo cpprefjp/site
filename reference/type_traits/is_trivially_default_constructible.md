@@ -1,4 +1,4 @@
-#is_trivially_default_constructible
+# is_trivially_default_constructible
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,21 +11,21 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`がトリビアルにデフォルト構築可能か調べる。
 
 
-##要件
+## 要件
 型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
-##効果
+## 効果
 `is_trivially_default_constructible`は、型`T`がトリビアルにデフォルト構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 [`is_trivially_constructible`](is_trivially_constructible.md)`<T>::value == true`ならば、トリビアルにデフォルト構築可能であると判断される。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 #include <string>
@@ -69,15 +69,15 @@ static_assert(
 int main() {}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

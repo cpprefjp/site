@@ -1,4 +1,4 @@
-#raw_storage_iterator
+# raw_storage_iterator
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -13,7 +13,7 @@ namespace std {
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
-##概要
+## 概要
 `raw_storage_iterator`は、未初期化領域のイテレータをラップし、構築しながら値を出力していく出力イテレータクラスである。
 
 未初期化領域に特化したアルゴリズム以外の、[`std::copy()`](/reference/algorithm/copy.md)や[`std::transform()`](/reference/algorithm/transform.md)のような出力イテレータをともなうアルゴリズムに、未初期化領域を出力として使用するためにある。
@@ -25,7 +25,7 @@ namespace std {
 - `T` : このイテレータが出力する型
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 |
 |--------------------------------------|-------------------------------|
@@ -36,7 +36,7 @@ namespace std {
 | [`operator++`](raw_storage_iterator/op_increment.md) | イテレータをインクリメントする |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 |
 |---------------------|--------------------------------------------------------------|
@@ -47,7 +47,7 @@ namespace std {
 | `reference`         | 参照型。 `void` |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -91,14 +91,14 @@ int main()
 * alloc.destroy[link allocator/destroy.md]
 * alloc.deallocate[link allocator/deallocate.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##参照
+## 参照
 - [`uninitialized_copy`](uninitialized_copy.md)
 - [`uninitialized_copy_n`](uninitialized_copy_n.md)
 - [`uninitialized_fill`](uninitialized_fill.md)

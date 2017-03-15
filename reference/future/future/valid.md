@@ -1,4 +1,4 @@
-#valid
+# valid
 * future[meta header]
 * std[meta namespace]
 * future[meta class]
@@ -9,19 +9,19 @@
 bool valid() const noexcept;
 ```
 
-##概要
+## 概要
 共有状態を持っているか確認する
 
 
-##戻り値
+## 戻り値
 `*this`が共有状態を持っていれば`true`を返し、そうでなければ`false`を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -47,17 +47,17 @@ int main()
 * p.set_value[link /reference/future/promise/set_value.md]
 * f.get()[link get.md]
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -65,6 +65,6 @@ false
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

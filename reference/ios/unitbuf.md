@@ -1,4 +1,4 @@
-#unitbuf
+# unitbuf
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -9,20 +9,20 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 出力操作の都度バッファを吐き出すことを指示するマニピュレータ。
 
-##効果
+## 効果
 `str.setf(std::ios_base::unitbuf)`を実行する。
 
-##戻り値
+## 戻り値
 実引数のstrオブジェクト。
 
-##備考
+## 備考
 [`std::cerr`](../iostream/cerr.md)と[`std::wcerr`](../iostream/wcerr.md.nolink)オブジェクトは、
 初期状態として`std::ios_base::unitbuf`が設定されている。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 
@@ -50,7 +50,7 @@ int main()
 * std::clog[link /reference/iostream/clog.md]
 * tie[link basic_ios/tie.md]
 
-###出力
+### 出力
 ```
 123
 ABC
@@ -59,9 +59,9 @@ ABC
 標準出力と標準エラー出力が同一主力先であることを前提とする。  
 '1'、'2'、'3'はすぐに出力され、"ABC"は`std::clog << std::endl;`が行われた際に出力されることを表現している。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-##参照
+## 参照
 - [`nounitbuf`](nounitbuf.md)

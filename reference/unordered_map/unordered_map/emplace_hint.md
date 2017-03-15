@@ -1,4 +1,4 @@
-#emplace_hint
+# emplace_hint
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
@@ -10,11 +10,11 @@ template <class... Args>
 iterator emplace_hint(const_iterator position, Args&&... args);
 ```
 
-##概要
+## 概要
 挿入位置のヒントを使用してコンテナ内へ要素を直接構築する
 
 
-##要件
+## 要件
 
 - このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。  
 	ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
@@ -24,7 +24,7 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 - 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならないが、間接参照可能（dereferenceable）である必要はない。（つまり、最終要素の次を指すイテレータでも良い）
 
 
-##効果
+## 効果
 `std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...` から構築された `value_type` のオブジェクトを `t` とすると、`t.first` と等価なキーがコンテナに既に存在していなければ、`t` をコンテナに挿入する。
 
 なお、オブジェクト `t` は、構築後にコンテナにコピー、あるいはムーブされるわけではなく、コンテナ内に直接構築される。
@@ -32,19 +32,19 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
 
 
-##戻り値
+## 戻り値
 新たな要素が追加された場合、その追加された要素を指すイテレータ。新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
 
 
-##例外
+## 例外
 ハッシュ関数以外から例外が投げられた場合には、挿入はされない。
 
 
-##計算量
+## 計算量
 平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）。
 
 
-##備考
+## 備考
 - この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。  
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
 
@@ -72,7 +72,7 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 	実際、libstdc++、および、libc++ では `position` は単に無視される。  
 	通常は、[`emplace`](emplace.md) を使用した方が良いだろう。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -122,7 +122,7 @@ int main()
 * forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * emplace_hint[color ff0000]
 
-###出力
+### 出力
 ```
 {e,(2.71828,0)} at 0
 {pi,(3.14159,0)} at 0
@@ -134,11 +134,11 @@ int main()
 注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
@@ -148,7 +148,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
-##関連項目
+## 関連項目
 
 |                                           |                                                    |
 |-------------------------------------------|----------------------------------------------------|
@@ -164,5 +164,5 @@ int main()
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整               |
 
 
-##参照
+## 参照
 - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)

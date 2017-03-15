@@ -1,4 +1,4 @@
-#atomic_flag_clear_explicit
+# atomic_flag_clear_explicit
 * atomic[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,11 +13,11 @@ namespace std {
 * atomic_flag[link atomic_flag.md]
 * memory_order[link memory_order.md]
 
-##概要
+## 概要
 アトミックにフラグをクリアする
 
 
-##要件
+## 要件
 `order`が以下のメモリオーダーではないこと：
 
 - [`memory_order_consume`](memory_order.md) (C++14)
@@ -25,19 +25,19 @@ namespace std {
 - [`memory_order_acq_rel`](memory_order.md)
 
 
-##効果
+## 効果
 `order`で指定されたメモリオーダーにしたがって、アトミックに`false`値を書き込む。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -69,18 +69,18 @@ int main()
 * std::atomic_flag_test_and_set_explicit[link atomic_flag_test_and_set_explicit.md]
 
 
-###出力
+### 出力
 ```
 false
 false
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -88,6 +88,6 @@ false
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [LWG Issue 2138. `atomic_flag::clear` should not accept `memory_order_consume`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2138)
 

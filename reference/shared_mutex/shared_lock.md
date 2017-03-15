@@ -1,4 +1,4 @@
-#shared_lock
+# shared_lock
 * shared_mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `shared_lock`は、共有ミューテックスの`lock_shared()`／`unlock_shared()`処理を、コンストラクタとデストラクタで確実に実行するためのクラスである。
 
 このクラスは、排他ロックを自動的に手放す[`lock_guard`](/reference/mutex/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスと組み合わせて使用する。
@@ -24,7 +24,7 @@ namespace std {
 テンプレートパラメータ`Mutex`は、`lock_shared()`／`unlock_shared()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|--------------------------------------------------------|-------|
@@ -43,21 +43,21 @@ namespace std {
 | [`mutex`](shared_lock/mutex.md)                   | 所有しているミューテックスオブジェクトを取得する | C++14 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |--------------|-------------------------|-------|
 | `mutex_type` | ミューテックス型`Mutex` | C++14 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|--------------------------------------------|-------|
 | [`swap`](shared_lock/swap_free.md) | 2つの`shared_lock`オブジェクトを入れ替える | C++14 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <shared_mutex>
@@ -85,23 +85,23 @@ int main()
 * std::shared_lock[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 
-###出力
+### 出力
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 - [Readers–writer lock - Wikipedia](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)
 - [N3427 Shared locking in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3427.html)
 - [N3568 Shared locking in C++ (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3568.html)
@@ -109,7 +109,7 @@ int main()
 - [N3891 A proposal to rename `shared_mutex` to `shared_timed_mutex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3891.htm)
 
 
-##関連項目
+## 関連項目
 - [`shared_timed_mutex`](shared_timed_mutex.md) : 共有ミューテックスクラス
 - [`lock_guard`](/reference/mutex/lock_guard.md) : 排他ロックを自動的に手放す
 - [`unique_lock`](/reference/mutex/unique_lock.md) : 排他ロックを自動的に手放す

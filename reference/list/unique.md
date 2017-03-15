@@ -1,4 +1,4 @@
-#unique
+# unique
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -11,15 +11,15 @@ template <class BinaryPredicate>
 void unique(BinaryPredicate pred); // (2)
 ```
 
-##概要
+## 概要
 コンテナから重複した要素を削除する
 
 
-##要件
+## 要件
 コンテナがソート済みであること。ソート済みでない場合、この関数の動作は未規定。
 
 
-##効果
+## 効果
 範囲`[first + 1, last)`の全てのイテレータ`i`について、オーバーロードごとに、以下の条件が`true`となる要素を削除する。
 
 - (1) : `*i == *(i - 1)`
@@ -28,11 +28,11 @@ void unique(BinaryPredicate pred); // (2)
 削除された要素に対するイテレータおよび参照は無効となる。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 比較関数を指定しないバージョン：  
 型`T`の等値比較が例外を投げない場合、この関数は例外を投げない
 
@@ -41,11 +41,11 @@ void unique(BinaryPredicate pred); // (2)
 `pred`が例外を投げない場合、この関数は例外を投げない
 
 
-##計算量
+## 計算量
 ちょうど`(last - first) - 1`回の等値比較、もしくは述語の適用を行う。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -65,7 +65,7 @@ int main()
 * unique()[color ff0000]
 * ls.sort()[link sort.md]
 
-###出力
+### 出力
 ```
 1
 3

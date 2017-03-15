@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * utility[meta header]
 * std[meta namespace]
 * pair[meta class]
@@ -11,24 +11,24 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`pair`オブジェクトを入れ替える
 
 
-##効果
+## 効果
 ```cpp
 x.swap(y);
 ```
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 式`x.swap(y))`が例外を投げない場合、この関数は決して例外を送出しない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -53,12 +53,12 @@ int main()
 ```
 * swap[color ff0000]
 
-###出力
+### 出力
 ```
 p1 : (2,bbb)
 p2 : (1,aaa)
 ```
 
-##参照
+## 参照
 
 

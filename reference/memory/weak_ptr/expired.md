@@ -1,4 +1,4 @@
-#expired
+# expired
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
@@ -9,22 +9,22 @@
 bool expired() const noexcept;
 ```
 
-##概要
+## 概要
 監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する。
 
 
-##戻り値
+## 戻り値
 ```cpp
 use_count() == 0
 ```
 * use_count()[link use_count.md]
 
 
-##備考
+## 備考
 この関数は、実際には[`use_count()`](use_count.md) `== 0`で判定するよりも、高速に実装される可能性がある。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <memory>
@@ -48,15 +48,15 @@ int main()
 ```
 * expired()[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

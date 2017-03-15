@@ -1,4 +1,4 @@
-#pop_heap
+# pop_heap
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -14,29 +14,29 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す
 
 
-##要件
+## 要件
 - `[first,last)` は空でない heap でなければならない。
 - `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
 - `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
-##効果
+## 効果
 `first` にある値を `last - 1` と交換し、その後 `[first,last - 1)` が有効な heap となるように配置する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 最大で `2 * log(last - first)` 回比較する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -64,14 +64,14 @@ int main()
 * v.pop_back()[link /reference/vector/pop_back.md]
 * std::sort_heap[link sort_heap.md]
 
-###出力
+### 出力
 ```
 1
 3
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class RandomAccessIterator>
 void pop_heap(RandomAccessIterator first, RandomAccessIterator last)

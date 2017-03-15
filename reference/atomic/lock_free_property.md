@@ -1,23 +1,23 @@
-#ロックフリープロパティ
+# ロックフリープロパティ
 * atomic[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
-#define ATOMIC_BOOL_LOCK_FREE unspecified
-#define ATOMIC_CHAR_LOCK_FREE unspecified
-#define ATOMIC_CHAR16_T_LOCK_FREE unspecified
-#define ATOMIC_CHAR32_T_LOCK_FREE unspecified
-#define ATOMIC_WCHAR_T_LOCK_FREE unspecified
-#define ATOMIC_SHORT_LOCK_FREE unspecified
-#define ATOMIC_INT_LOCK_FREE unspecified
-#define ATOMIC_LONG_LOCK_FREE unspecified
-#define ATOMIC_LLONG_LOCK_FREE unspecified
-#define ATOMIC_POINTER_LOCK_FREE unspecified
+# define ATOMIC_BOOL_LOCK_FREE unspecified
+# define ATOMIC_CHAR_LOCK_FREE unspecified
+# define ATOMIC_CHAR16_T_LOCK_FREE unspecified
+# define ATOMIC_CHAR32_T_LOCK_FREE unspecified
+# define ATOMIC_WCHAR_T_LOCK_FREE unspecified
+# define ATOMIC_SHORT_LOCK_FREE unspecified
+# define ATOMIC_INT_LOCK_FREE unspecified
+# define ATOMIC_LONG_LOCK_FREE unspecified
+# define ATOMIC_LLONG_LOCK_FREE unspecified
+# define ATOMIC_POINTER_LOCK_FREE unspecified
 ```
 * unspecified[italic]
 
-##概要
+## 概要
 これらのマクロは、それぞれの型`T`が[`atomic<T>`](atomic.md)でロックフリーに振る舞うかを調べるために使用できる。値は未規定。
 これらのマクロはそれぞれ以下の型を意味する。符号ありなしはまとめて扱われる。
 
@@ -44,7 +44,7 @@
 | 2 | その型は常にロックフリーに振る舞う |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -64,7 +64,7 @@ int main()
 }
 ```
 
-###出力例
+### 出力例
 ```
 bool      : 2
 char      : 2
@@ -79,11 +79,11 @@ T*        : 2
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
@@ -92,6 +92,6 @@ T*        : 2
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 
 

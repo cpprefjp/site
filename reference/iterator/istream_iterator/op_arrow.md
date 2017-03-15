@@ -1,4 +1,4 @@
-#operator->
+# operator->
 * iterator[meta header]
 * std[meta namespace]
 * istream_iterator[meta class]
@@ -8,15 +8,15 @@
 const T* operator->() const;
 ```
 
-##概要
+## 概要
 イテレータを通してオブジェクトにアクセスする
 
 
-##戻り値
+## 戻り値
 `&(operator*())`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -40,13 +40,13 @@ int main()
 * it->c_str()[color ff0000]
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##参照
+## 参照
 
 

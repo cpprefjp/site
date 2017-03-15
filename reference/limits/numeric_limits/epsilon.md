@@ -1,4 +1,4 @@
-#epsilon
+# epsilon
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,7 +12,7 @@ static const T epsilon() throw();
 static constexpr T epsilon() noexcept;
 ```
 
-##概要
+## 概要
 機械イプシロンを取得する。  
 これは浮動小数点数の比較のために誤差幅を評価するのに使用できる。  
 
@@ -25,7 +25,7 @@ static constexpr T epsilon() noexcept;
 | `long double` | [`LDBL_EPSILON`](/reference/cfloat/ldbl_epsilon.md) |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -50,13 +50,13 @@ int main()
 * epsilon()[color ff0000]
 * std::abs[link /reference/cmath/abs.md]
 
-###出力
+### 出力
 ```
 2.22045e-016
 equal
 ```
 
-##参照
+## 参照
 - [C++ FAQ - Why doesn't my floating-point comparison work?](http://www.cs.technion.ac.il/users/yechiel/c++-faq/floating-point-arith.html)
 - [Comparing Floating Point Numbers, 2012 Edition](https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/)
 - [浮動小数比較の落とし穴 - trinoの走り書き](http://d.hatena.ne.jp/n-trino/20161101#p1)

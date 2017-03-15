@@ -1,4 +1,4 @@
-#min
+# min
 * chrono[meta header]
 * std::chrono[meta namespace]
 * duration[meta class]
@@ -9,14 +9,14 @@
 static constexpr duration min();
 ```
 
-##概要
+## 概要
 `rep`の最小値から成る`duration`を取得する
 
-##戻り値
+## 戻り値
 `duration(`[`duration_values`](/reference/chrono/duration_values.md)`<rep>::`[`min()`](/reference/chrono/duration_values/min.md)`)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -37,15 +37,15 @@ int main()
 * count()[link count.md]
 
 
-###出力例
+### 出力例
 ```
 -2147483648
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC: 4.5.1, 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

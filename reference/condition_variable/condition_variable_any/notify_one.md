@@ -1,4 +1,4 @@
-#notify_one
+# notify_one
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable_any[meta class]
@@ -9,23 +9,23 @@
 void notify_one() noexcept;
 ```
 
-##概要
+## 概要
 待機しているスレッドをひとつ起床させる
 
 
-##効果
+## 効果
 `*this`の`condition_variable_any`オブジェクトを待機しているスレッドがある場合、その一つをブロッキング解除する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -86,16 +86,16 @@ int main()
 * std::unique_lock[link /reference/mutex/unique_lock.md]
 * cond_.wait[link wait.md]
 
-###出力
+### 出力
 ```
 process data
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -103,6 +103,6 @@ process data
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

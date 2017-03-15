@@ -1,4 +1,4 @@
-#messages_base
+# messages_base
 * locale[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -9,21 +9,21 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 (ここに、クラスの概要を記載する)
 
-###メンバ型
+### メンバ型
 
 | | |
 |----------------------|----------------------------------------|
 | `catalog` | 翻訳カタログ型 `int` |
 
-###例
+### 例
 ```cpp
 ```
 
-###出力
+### 出力
 ```
 ```
 
-###参照
+### 参照

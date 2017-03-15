@@ -1,4 +1,4 @@
-#ctype_byname
+# ctype_byname
 * locale[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,33 +11,33 @@ namespace std {
 ```
 * ctype[link /reference/locale/ctype.md]
 
-##概要
+## 概要
 (ここに、クラスの概要を記載する)
 
-###publicメンバ関数
+### publicメンバ関数
 
 | | |
 |----------------------------|-----------------------|
 | `(constructor)` | コンストラクタ |
 
-###protectedメンバ関数
+### protectedメンバ関数
 
 | | |
 |---------------------------|--------------------|
 | `(destructor)` | デストラクタ |
 
-###メンバ型
+### メンバ型
 
 | | |
 |-------------------|--------------------------------------------------------|
 | `mask` | ビットマスク型 `ctype<charT>::mask` |
 
-###例
+### 例
 ```cpp
 ```
 
-###出力
+### 出力
 ```
 ```
 
-###参照
+### 参照

@@ -1,4 +1,4 @@
-#wait
+# wait
 * future[meta header]
 * std[meta namespace]
 * shared_future[meta class]
@@ -9,19 +9,19 @@
 void wait() const;
 ```
 
-##概要
+## 概要
 処理が完了するまで待機する
 
 
-##効果
+## 効果
 共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまでこの関数をブロックする。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 
 ```cpp
 #include <iostream>
@@ -58,16 +58,16 @@ int main()
 * std::move[link /reference/utility/move.md]
 * f.get()[link get.md]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -75,6 +75,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

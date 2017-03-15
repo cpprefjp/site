@@ -1,4 +1,4 @@
-#ostream
+# ostream
 * ostream[meta header]
 
 `<ostream>`ヘッダでは、出力処理に関するクラスやマニピュレータ（の実体である関数）などが定義されている。
@@ -12,6 +12,6 @@
 | [`ends`](ostream/ends.md)                   | ヌル文字を出力する (maniplator, function template)                       |                |
 | [`flush`](ostream/flush.md)                 | バッファを出力して空にする (maniplator, function template)               |                |
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98

@@ -1,4 +1,4 @@
-#defaultfloat
+# defaultfloat
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,18 +10,18 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 浮動小数点数を初期状態の書式で出力することを指示するマニピュレータ。
 
 この書式は、出力値や出力すべき精度により小数点数表記と指数表記が切り替わるものである（[`printf()`](http://linuxjm.osdn.jp/html/LDP_man-pages/man3/printf.3.html)関数の`%g`／`%G`相当）。
 
-##効果
+## 効果
 `str.unsetf(ios_base::floatfield)`を実行する。
 
-##戻り値
+## 戻り値
 実引数の`str`オブジェクト。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -48,7 +48,7 @@ int main()
 * std::scientific[link scientific.md]
 * std::hexfloat[link hexfloat.md]
 
-###出力
+### 出力
 ```
 defaultfloat             fixed      scientific        hexfloat
       1e-006          0.000001   1.000000e-006  0x1.0c6f7ap-20
@@ -66,7 +66,7 @@ defaultfloat             fixed      scientific        hexfloat
   4.096e+009 4096000000.000000   4.096000e+009  0x1.e84800p+31
 ```
 
-##実装例
+## 実装例
 この実装はC++03の下でも可能である。
 ```cpp
 namespace std {
@@ -77,17 +77,17 @@ namespace std {
 }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0
 
-##参照
+## 参照
 - [`fixed`](fixed.md)
 - [`scientific`](scientific.md)
 - [`hexfloat`](hexfloat.md)

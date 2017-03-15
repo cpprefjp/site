@@ -1,4 +1,4 @@
-#iterator_traits
+# iterator_traits
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -37,7 +37,7 @@ namespace std {
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 * random_access_iterator_tag[link /reference/iterator/iterator_tag.md]
 
-##概要
+## 概要
 `iterator_traits`は、イテレータに関する型情報を取得するためのクラスである。
 
 イテレータが指す値型、分類を取得でき、ポインタに対しても一様に適用できる。
@@ -52,7 +52,7 @@ namespace std {
 | `iterator_category` | イテレータの分類を表す型(参照： [iterator tag](/reference/iterator/iterator_tag.md)) |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -94,12 +94,12 @@ int main()
 ```
 * std::iterator_traits<Iterator>::value_type[color ff0000]
 
-###出力
+### 出力
 ```
 15
 15
 ```
 
-##参照
+## 参照
 
 

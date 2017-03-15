@@ -1,4 +1,4 @@
-#is_signed
+# is_signed
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`が符号付き算術型か調べる
 
 
-##効果
+## 効果
 `is_signed`は、型`T`が符号付き算術型 (cv修飾を許容する) であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 符号付き算術型と見なす条件は以下：
@@ -25,7 +25,7 @@ namespace std {
     - 備考： `T`が算術型以外だった場合に、`T(0)`、`T(-1)`でテンプレートの置き換えが発生してしまうため、このような文言になっている。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -49,23 +49,23 @@ static_assert(std::is_signed<c>::value == false, "value == true, class is not si
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 	- 9.0は、TR1の定義に基づく実装となっている。すなわち、`T`が整数型でなければ必ず`false_type`になる。上記例では`std::is_signed<float>`が該当する。
 
-####備考
+#### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
 
 
-##参照
+## 参照
 - [LWG Issue 2197. Specification of `is_[un]signed` unclear for non-arithmetic types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2197)
 

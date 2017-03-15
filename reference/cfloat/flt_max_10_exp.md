@@ -1,13 +1,13 @@
-#FLT_MAX_10_EXP
+# FLT_MAX_10_EXP
 * cfloat[meta header]
 * macro[meta id-type]
 * [mathjax enable]
 
 ```cpp
-#define FLT_MAX_10_EXP implementation-defined
+# define FLT_MAX_10_EXP implementation-defined
 ```
 
-##概要
+## 概要
 $10$ の $n$ 乗が `float` の有限の値として表現可能であるような最大の整数値 $n$ を表すマクロ。
 以下の式で表される。
 
@@ -21,13 +21,13 @@ $b$ や $p$、$e_{\rm max}$ については [`<cfloat>`](../cfloat.md) のモデ
 [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`max_exponent10`](/reference/limits/numeric_limits/max_exponent10.md) と等しい。
 
 
-##備考
+## 備考
 - 規格で +37 以上であることが規定されている。
 - 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
 - `FLT_MAX_10_EXP` は FLoaT MAXimum base-10 EXPonent（maximum：最大値、base-10：10を底とした、exponent：指数）に由来する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cfloat>
@@ -64,7 +64,7 @@ int main()
 * std::floor[link ../cmath/floor.md]
 * std::isfinite[link ../cmath/isfinite.md]
 
-##出力例
+## 出力例
 ```
 38
 38

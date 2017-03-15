@@ -1,4 +1,4 @@
-#iomanip
+# iomanip
 * iomanip[meta header]
 
 `<iomanip>`ヘッダでは、入出力に使用するフォーマットとマニピュレータの機能を定義する。

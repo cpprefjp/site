@@ -1,4 +1,4 @@
-#eq_int_type
+# eq_int_type
 * string[meta header]
 * std[meta namespace]
 * char_traits[meta class]
@@ -9,21 +9,21 @@ static bool eq_int_type(const int_type& c1, const int_type& c2);      // C++03
 static constexpr bool eq_int_type(int_type c1, int_type c2) noexcept; // C++11
 ```
 
-##概要
+## 概要
 数値の等値比較を行う。
 
 
-##戻り値
+## 戻り値
 全ての文字`c`と`d`に対しては、[`eq`](eq.md)`(c, d)`と`eq_int_type(`[`to_int_type`](to_int_type.md)`(c),` [`to_int_type`](to_int_type.md)`(d))`は等価となる。
 
 文字以外として、`c1`と`c2`がどちらも[`eof`](eof.md)であるなら`true`、それ以外は`false`を返す。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -40,10 +40,10 @@ int main()
 ```
 * eq_int_type[color ff0000]
 
-###出力例
+### 出力例
 ```
 equal
 ```
 
-##参照
+## 参照
 

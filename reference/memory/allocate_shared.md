@@ -1,4 +1,4 @@
-#allocate_shared
+# allocate_shared
 * memory[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -12,7 +12,7 @@ namespace std {
 ```
 * shared_ptr[link shared_ptr.md]
 
-##概要
+## 概要
 `class T` に対する [`shared_ptr`](shared_ptr.md)`<T>`オブジェクト を作成し返却する。
 
 このとき、`args...` で受け取った引数リストを型 `T` の作成時コンストラクタへ渡して作成する。
@@ -26,7 +26,7 @@ namespace std {
 また、コピー不可能なクラスもムーブによって引数リストへ渡すことが可能である。
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 #include <iostream>
@@ -42,16 +42,16 @@ int main() {
 * std::allocate_shared[color ff0000]
 * std::allocator[link allocator.md]
 
-###出力
+### 出力
 ```
 42
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.2, 3.3
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3, 4.8.2
@@ -59,6 +59,6 @@ int main() {
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
     - Visual C++ 11.0までは、可変引数テンプレートに対応していないため、不完全な実装である。
 
-##関連項目
+## 関連項目
 - [`std::make_shared`](/reference/memory/make_shared.md)
 

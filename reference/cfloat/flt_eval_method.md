@@ -1,13 +1,13 @@
-#FLT_EVAL_METHOD
+# FLT_EVAL_METHOD
 * cfloat[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
-#define FLT_EVAL_METHOD implementation-defined
+# define FLT_EVAL_METHOD implementation-defined
 ```
 
-##概要
+## 概要
 `FLT_EVAL_METHOD` は、浮動小数点数がどのように評価されるかを表す。
 
 `FLT_EVAL_METHOD` が
@@ -29,11 +29,11 @@
 | 2 | `long double` | `long double` |
 | その他 | 実装依存 | 実装依存 |
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): ?
 - [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?

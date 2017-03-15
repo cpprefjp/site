@@ -1,4 +1,4 @@
-#linear_congruential_engine
+# linear_congruential_engine
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -17,7 +17,7 @@ namespace std {
 * minstd_rand0[link minstd_rand0.md]
 * minstd_rand[link minstd_rand.md]
 
-##概要
+## 概要
 `linear_congruential_engine`クラスは、線形合同法による擬似乱数生成エンジンである。  
 前の擬似乱数と定数A、定数C、定数Mを保持し、以下の漸化式により次の擬似乱数を生成する。 
 
@@ -37,8 +37,8 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 標準にはないが、メモリ使用量が少なく、高速で、周期も長い(メルセンヌ・ツイスターほどではない)、xorshiftという乱数生成法も存在する。
 
 
-##メンバ関数
-###構築・シード
+## メンバ関数
+### 構築・シード
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------------|------------------|-------|
@@ -47,7 +47,7 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 | [`seed`](linear_congruential_engine/seed.md)                                | シードを設定する | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|--------------------|-------|
@@ -55,8 +55,8 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 | [`discard`](linear_congruential_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
 
 
-##静的メンバ関数
-###エンジンの特性
+## 静的メンバ関数
+### エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
@@ -64,14 +64,14 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 | [`max`](linear_congruential_engine/max.md) | 生成し得る値の最大値を取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
 | `result_type` | 擬似乱数生成結果の符号なし整数型 `UIntType`。 | C++11 |
 
 
-##メンバ定数
+## メンバ定数
 
 | 定数 | 説明 | 対応バージョン |
 |---------------|-------------------|---------|
@@ -81,7 +81,7 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 | `static constexpr result_type default_seed` | デフォルトのシード値。`1u` | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
@@ -91,7 +91,7 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 | [`operator>>`](linear_congruential_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -118,7 +118,7 @@ int main()
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 * engine()[link linear_congruential_engine/op_call.md]
 
-###出力
+### 出力
 ```
 822915164
 932862885
@@ -133,10 +133,10 @@ int main()
 ```
 
 ## バージョン
-###言語
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2

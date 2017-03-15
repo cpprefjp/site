@@ -1,4 +1,4 @@
-#istream_iterator
+# istream_iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -16,13 +16,13 @@ namespace std {
 * iterator[link /reference/iterator/iterator.md]
 * input_iterator_tag[link /reference/iterator/iterator_tag.md]
 
-##概要
+## 概要
 `istream_iterator`は、`operator++()`でイテレータを進めることにより、入力ストリームの`operator>>()`でストリームからデータを読み込む入力イテレータである。
 
 ストリームからの読み取りが`fail() == true`となる場合に、イテレータは`end`イテレータと等しくなる。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|-----------------------------------------------|-------||
@@ -34,7 +34,7 @@ namespace std {
 | [`operator++`](istream_iterator/op_increment.md) | イテレータをインクリメントする | |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------------|------------------------------------------------------------------------------------------|-------|
@@ -48,7 +48,7 @@ namespace std {
 | `reference`         | `const T&` | |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|------------|-------|
@@ -56,7 +56,7 @@ namespace std {
 | [`operator!=`](istream_iterator/op_not_equal.md) | 非等値比較 | |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -84,13 +84,13 @@ int main()
 * std::istream_iterator[color ff0000]
 * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-###参照
+### 参照
 
 

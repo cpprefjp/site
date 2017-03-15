@@ -1,4 +1,4 @@
-#uninitialized_copy
+# uninitialized_copy
 * memory[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,13 +11,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 未初期化領域の範囲を配置`new`で初期化して出力する。
 
 入力範囲`[first, last)`のコピーを未初期化出力範囲`[result, )`に書き込む。
 
 
-##効果
+## 効果
 
 ```cpp
 for (; first != last; ++result, ++first)
@@ -27,11 +27,11 @@ for (; first != last; ++result, ++first)
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 
-##戻り値
+## 戻り値
 `result`
 
 
-###例
+### 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -73,7 +73,7 @@ int main()
 * alloc.destroy[link allocator/destroy.md]
 * alloc.deallocate[link allocator/deallocate.md]
 
-###出力
+### 出力
 ```
 1
 2

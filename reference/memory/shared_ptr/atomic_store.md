@@ -1,4 +1,4 @@
-#atomic_store
+# atomic_store
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `shared_ptr`オブジェクトに、アトミックに値を書き込む。
 
 
-##要件
+## 要件
 `p != nullptr`であること。
 
 
-##効果
+## 効果
 ```cpp
 atomic_store_explicit(p, r, memory_order_seq_cst)
 ```
@@ -27,15 +27,15 @@ atomic_store_explicit(p, r, memory_order_seq_cst)
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -56,24 +56,24 @@ int main()
 * std::atomic_store[color ff0000]
 * std::atomic_load[link atomic_load.md]
 
-###出力
+### 出力
 ```
 3
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.3
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [`atomic_store() - <atomic>`](/reference/atomic/atomic_store.md)
 - [N2674 Shared_ptr atomic access, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2674.htm)
 - [C++0x Shared_ptr atomic access - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081015/1224066366)

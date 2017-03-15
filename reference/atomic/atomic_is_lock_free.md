@@ -1,4 +1,4 @@
-#atomic_is_lock_free
+# atomic_is_lock_free
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -16,24 +16,24 @@ namespace std {
 * atomic[link atomic.md]
 
 
-##概要
+## 概要
 オブジェクトがロックフリーに振る舞えるかを判定する
 
 
-##戻り値
+## 戻り値
 オブジェクトに対する操作がロックフリーに振る舞えるなら`true`、そうでなければ`false`を返す。
 
 `false`を返す場合は、ロックで実装されることを意味する。
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、特殊化された[`atomic`](atomic.md)型に対して定義される。
 
 
-##例
+## 例
 
 ```cpp
 #include <iostream>
@@ -53,18 +53,18 @@ int main()
 ```
 * std::atomic_is_lock_free[color ff0000]
 
-###出力例
+### 出力例
 ```
 atomic<int> is lock-free
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -72,6 +72,6 @@ atomic<int> is lock-free
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#hypot
+# hypot
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -20,7 +20,7 @@ namespace std {
 * Arithmetic1[italic]
 * Arithmetic2[italic]
 
-##概要
+## 概要
 算術型の平方和の平方根を求める。この際、余計なオーバーフロー、アンダーフローを起こさない。hypot は hypotenuse（（直角三角形の）斜辺）の略。
 
 この関数は、「三平方の定理」によって、直角三角形の斜辺の長さを求めるために使用できる。直角三角形において、直角に隣接する辺aとb、および斜辺cがあったとき、辺の長さは、三平方の定理によって以下の関係が成り立つ：
@@ -34,13 +34,13 @@ $$ f(x, y) = \sqrt{x^2 + y^2} $$
 <code>a<sup>2</sup> + b<sup>2</sup></code>は<code>c<sup>2</sup></code>と等しくなるため、2乗の和に対する平方根を求めることで、斜辺cの長さが求まる。つまり、この関数に引数として、直角に隣接する辺aとbの長さを与えることで、戻り値として斜辺cの長さが返される。
 
 
-##戻り値
+## 戻り値
 引数 `x` と引数 `y` の平方和の平方根を返す。
 
 オーバーフローエラー、アンダーフローエラーが発生する可能性がある。
 
 
-##備考
+## 備考
 - $$ f(x, y) = \sqrt{x^2 + y^2} $$
 - 概要の「余計なオーバーフロー、アンダーフローを起こさない」とは、たとえ <code>x<sup>2</sup></code> が戻り値型の範囲を超えていても、結果が戻り値型の範囲に収まるのであればオーバーフローしないで正しい結果を返す、と言う事である。
 - オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
@@ -50,8 +50,8 @@ $$ f(x, y) = \sqrt{x^2 + y^2} $$
 	- `hypot(±∞, y)` の戻り値は、たとえ `y` が NaN の場合でも `+∞` となる。
 
 
-##例
-###基本的な使い方
+## 例
+### 基本的な使い方
 ```cpp
 #include <cmath>
 #include <limits>
@@ -73,7 +73,7 @@ int main() {
 * infinity[link ../limits/numeric_limits/infinity.md]
 * quiet_NaN[link ../limits/numeric_limits/quiet_nan.md]
 
-####出力
+#### 出力
 ```
 hypot(0.0, 0.0)  = 0.000000
 hypot(1.0, 1.0)  = 1.414214
@@ -81,7 +81,7 @@ hypot(3.0, 4.0)  = 5.000000
 hypot(+∞, NaN)   = inf
 ```
 
-###ベクトルの長さを求める
+### ベクトルの長さを求める
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -106,16 +106,16 @@ int main()
 ```
 * std::hypot[color ff0000]
 
-####出力
+#### 出力
 ```
 4.24264
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 2.9, 3.1
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0, 14.1
@@ -128,13 +128,13 @@ int main()
 		- 仮引数・戻り値が`long double`型の`hypotl`マクロが定義されている。
 	- 12.0以降、`_hypotl`と`hypotl`は関数として定義されている。
 
-####備考
+#### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上
 
 
-##実装例
+## 実装例
 [`fabs`](fabs.md) と [`sqrt`](sqrt.md) があれば、以下のように変換しても求められる。
 
 $$ \sqrt{x^2 + y^2} = \left| u \right| \sqrt{1 + \left( \frac{v}{u} \right)^2} \quad \mathrm{for~all} \; (x, y), \; u = \max(|x|, |y|), \; v = \min(|x|, |y|) $$

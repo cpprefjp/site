@@ -1,4 +1,4 @@
-#transform
+# transform
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -20,38 +20,38 @@ namespace std {
 ```
 
 
-##概要
+## 概要
 全ての要素に関数を適用する。
 
 
-##要件
+## 要件
 - (1) : `op` は、`[first,last]`, `[result,result + (last - first)]` 内のイテレータや subrange を無効にしたり、要素を書き換えてはならない。
 - (2) : `binary_op` は、`[first1,last1]`, `[first2,first2 + (last1 - first1)]`, `[result,result + (last1 - first1)]` 内のイテレータや subrange を無効にしたり、要素を書き換えてはならない。
 
 ※ 閉区間で表しているのは意図的なもの
 
 
-##効果
+## 効果
 - (1) : `[result,result + (last - first))` 内のイテレータ `i` の要素に、それぞれ `op(*(first + (i - result)))` を代入する
 - (2) : `[result,result + (last1 - first1))` 内のイテレータ `i` の要素に、それぞれ `binary_op(*(first1 + (i - result)), *(first2 + (i - result)))` を代入する。
 
 
-##戻り値
+## 戻り値
 - (1) : `result + (last - first)`
 - (2) : `result + (last1 - first1)`
 
 
-##計算量
+## 計算量
 - (1) : 正確に `last - first` 回の `op` の適用が行われる。
 - (2) : 正確に `last - first` 回の `binary_op` の適用が行われる。
 
 
-##備考
+## 備考
 - (1) : `result` は `first` と同じであっても構わない。
 - (2) : `result` は `first1` や `first2` と同じであっても構わない。
 
 
-##(1)の例
+## (1)の例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -74,7 +74,7 @@ int main() {
 * std::transform[color ff0000]
 * std::to_string[link /reference/string/to_string.md]
 
-###出力
+### 出力
 ```
 6
 2
@@ -82,7 +82,7 @@ int main() {
 ```
 
 
-##(2)の例
+## (2)の例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -108,7 +108,7 @@ int main() {
 * result.end()[link /reference/vector/end.md]
 * std::to_string[link /reference/string/to_string.md]
 
-###出力
+### 出力
 ```
 aaa
 b
@@ -116,7 +116,7 @@ cccc
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class OutputIterator, class UnaryOperation>
 OutputIterator transform(InputIterator first, InputIterator last,

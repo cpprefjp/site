@@ -1,4 +1,4 @@
-#mark_count
+# mark_count
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
@@ -9,15 +9,15 @@
 unsigned int mark_count() const;
 ```
 
-##概要
+## 概要
 正規表現内のキャプチャグループの数を返す。
 
 
-##戻り値
+## 戻り値
 正規表現内のキャプチャグループの数
 
 
-##備考
+## 備考
 キャプチャグループとは、正規表現内の丸括弧で囲まれた部分の事である。  
 キャプチャグループは、その正規表現内の後方や、[`regex_replace`](../regex_replace.md) による置換時などに使用することができる。  
 また、[`match_results`](../match_results.md) オブジェクトを使用することによって、[`regex_match`](../regex_match.md) や [`regex_search`](../regex_search.md) 等の結果として受け取ることもできる。  
@@ -25,7 +25,7 @@ unsigned int mark_count() const;
 なお、`this->`[`flags`](flags.md)`()` に [`regex_constants::nosubs`](../regex_constants/syntax_option_type.md) が含まれている場合は、キャプチャグループは無効となるため、本関数の戻り値は `0` となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -38,17 +38,17 @@ int main()
 ```
 * mark_count()[color ff0000]
 
-###出力
+### 出力
 ```
 3
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

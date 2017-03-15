@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
@@ -22,15 +22,15 @@ basic_regex& operator=(const basic_string<charT, ST, SA>& p);   // (5)
 * basic_string[link ../../string/basic_string.md]
 
 
-##概要
+## 概要
 正規表現オブジェクトを代入する。
 
 
-##要件
+## 要件
 - `ptr` はヌルポインタではないこと。
 
 
-##効果
+## 効果
 - (1) コピー代入演算子。[`assign`](assign.md)`(e)` と同等。
 - (2) ムーブ代入演算子。[`assign`](assign.md)`(`[`move`](../../utility/move.md)`(e))` と同等。
 - (3) [`assign`](assign.md)`(ptr)` と同等。
@@ -38,11 +38,11 @@ basic_regex& operator=(const basic_string<charT, ST, SA>& p);   // (5)
 - (5) [`assign`](assign.md)`(p)` と同等。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -74,7 +74,7 @@ int main()
 ```
 * std::regex_search[link ../regex_search.md]
 
-###出力
+### 出力
 ```
 true
 false
@@ -84,11 +84,11 @@ true
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -96,6 +96,6 @@ true
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 Clang バージョン 3.0 は [`initializer_list`](../../initializer_list.md) に対応していないため、(4) の形式は提供されていない。  
 また、Clang(libc++) では例外が発生した場合に `*this` が元の状態を保持せずに中途半端に更新されてしまう。

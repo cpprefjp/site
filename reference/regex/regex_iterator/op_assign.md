@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * regex[meta header]
 * std[meta namespace]
 * regex_iterator[meta class]
@@ -9,23 +9,23 @@
 regex_iterator& operator=(const regex_iterator& rhs);
 ```
 
-##概要
+## 概要
 `rhs` を `*this` にコピーする。
 
 
-##効果
+## 効果
 `rhs` の状態を `*this` にコピーする。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##備考
+## 備考
 規格書には特に記載は無いが、前方向イテレータの要件から、コピー元オブジェクトの全ての状態を引き継ぐと考えてよいものと思われる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -58,7 +58,7 @@ int main()
 * prefix()[link /reference/regex/match_results/prefix.md]
 * suffix()[link /reference/regex/match_results/suffix.md]
 
-###出力
+### 出力
 ```
 position = 3, length = 3, str = '111', prefix = '+++', suffix = '---222+++333---'
 position = 9, length = 3, str = '222', prefix = '---', suffix = '+++333---'
@@ -69,11 +69,11 @@ position = 15, length = 3, str = '333', prefix = '+++', suffix = '---'
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -82,11 +82,11 @@ position = 15, length = 3, str = '333', prefix = '+++', suffix = '---'
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-###備考
+### 備考
 GCC & libstdc++ では、コピー後のオブジェクトの `match.`[`position`](../match_results/position.md)`(i)` が補正されずに誤っている。（補正については [`operator++`](op_increment.md) の「効果」を参照）
 
 
-##参照
+## 参照
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |

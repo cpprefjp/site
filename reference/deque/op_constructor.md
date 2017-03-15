@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
@@ -35,11 +35,11 @@ deque(initializer_list<T> il,
 * initializer_list[link /reference/initializer_list.md]
 
 
-##概要
+## 概要
 `deque` オブジェクトの構築
 
 
-##効果
+## 効果
 `deque` コンテナオブジェクトを構築し、コンストラクタの種類に応じて要素を初期化する。
 
 - (1) : デフォルトコンストラクタ。サイズがゼロで要素を持たない空の `deque` を構築する。
@@ -57,7 +57,7 @@ deque(initializer_list<T> il,
 - (10) : 初期化子リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../initializer_list/begin.md)`(), il.`[`end`](../initializer_list/end.md)`(), a)` と同等。
 
 
-##計算量
+## 計算量
 - (1) : 定数時間
 - (2) : 定数時間
 - (1) + (2) : 定数時間
@@ -71,7 +71,7 @@ deque(initializer_list<T> il,
 - (10) : `il`の要素数に対して線形時間
 
 
-##備考
+## 備考
 - イテレータ範囲コンストラクタ `template <class InputIterator> deque(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、C++03 までは `InputIterator` が整数型の場合には `deque(static_cast<typename deque::size_type>(first), static_cast<typename deque::value_type>(last), a)` と同等とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、`explicit deque(size_type n, const T& value = T(), const Allocator& a = Allocator())` の引数 `value` に関するデフォルト引数が削除され、新たなコンストラクタ `explicit deque(size_type n)` が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`deque` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `deque` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
@@ -106,7 +106,7 @@ int main()
 * emplace_back[link ../list/emplace_back.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -160,7 +160,7 @@ int main ()
 * end()[link end.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 c1 : {}
 c2 : {1 1 1 }
@@ -171,7 +171,7 @@ c6 : {1 2 3 }
 c7 : {1 2 3 }
 ```
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (10)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  

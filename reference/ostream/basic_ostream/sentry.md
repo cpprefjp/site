@@ -1,4 +1,4 @@
-#sentry
+# sentry
 * ostream[meta header]
 * std[meta namespace]
 * basic_ostream[meta class]
@@ -20,7 +20,7 @@ namespace std {
 ```
 * basic_ostream[link ../basic_ostream.md]
 
-##概要
+## 概要
 `basic_ostream<>::sentry` は、出力処理共通の前処理・後処理を実行するためのクラスである。
 前処理・後処理がそれぞれコンストラクタ・デストラクタ内部で実行される。
 
@@ -30,7 +30,7 @@ namespace std {
 
 なお、C++標準規格では、規格で要求している処理のほかに、追加の処理を行っても良いとされている。
 
-##メンバ
+## メンバ
 | 名前                                | 説明           | 対応バージョン |
 |-------------------------------------|----------------|----------------|
 | [`(constructor)`](sentry/op_constructor.md) | コンストラクタ |                |
@@ -38,7 +38,7 @@ namespace std {
 | [`operator bool`](sentry/op_bool.md) | 変換関数   |                |
 
 
-##参照
+## 参照
 
 - [`basic_ostream`](../basic_ostream.md)
 - [`basic_istream<>::sentry`](../../istream/basic_istream/sentry.md)

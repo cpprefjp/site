@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * random[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,19 +13,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 等値比較を行う。
 
 
-##戻り値
+## 戻り値
 `x`と`y`の状態シーケンスの、全ての値を等値比較し、等しければ`true`、そうでなければ`false`を返す。
 
 
-##計算量
+## 計算量
 O(状態シーケンスのサイズ)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -45,16 +45,16 @@ int main()
 ```
 * std::minstd_rand[link /reference/random/minstd_rand.md]
 
-###出力
+### 出力
 ```
 equal
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -62,6 +62,6 @@ equal
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

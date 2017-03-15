@@ -1,4 +1,4 @@
-#setstate
+# setstate
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -8,19 +8,19 @@
 void setstate(iostate state);
 ```
 
-##概要
+## 概要
 現在の状態値を設定する。
 現在の状態に、実引数で指定された値を加えた状態を新しい状態値とする。
 
-##効果
+## 効果
 [`clear`](clear.md)`(`[`rdstate`](rdstate.md)`() | state)` を呼び出す。
 
 結果として、[`exceptions`](exceptions.md)`()` メンバ関数での設定に従い、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md) 例外が送出される可能性がある。
 
-##戻り値
+## 戻り値
 なし
 
-##実装例
+## 実装例
 ```cpp
 void setstate(iostate state) {
   clear(rdstate() | state);
@@ -29,11 +29,11 @@ void setstate(iostate state) {
 * clear[link clear.md]
 * rdstate[link rdstate.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - 状態値の書き込み
     - `setstate`（この関数）
     - [`clear`](clear.md)

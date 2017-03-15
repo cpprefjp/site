@@ -1,13 +1,13 @@
-#LDBL_MIN_10_EXP
+# LDBL_MIN_10_EXP
 * cfloat[meta header]
 * macro[meta id-type]
 * [mathjax enable]
 
 ```cpp
-#define LDBL_MIN_10_EXP implementation-defined
+# define LDBL_MIN_10_EXP implementation-defined
 ```
 
-##概要
+## 概要
 $10$ の $n$ 乗が `long double` の正の正規化数の最小値以上であるような最小の負の整数値 $n$ を表すマクロ。  
 以下の式で表される。
 
@@ -21,13 +21,13 @@ $b$ や $e_{\rm min}$ については [`<cfloat>`](../cfloat.md) のモデルも
 [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`min_exponent10`](/reference/limits/numeric_limits/min_exponent10.md) と等しい。
 
 
-##備考
+## 備考
 - 規格で -37 以下であることが規定されている。
 - 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
 - `LDBL_MIN_10_EXP` は Long DouBLe MINimum base-10 EXPonent（minimum：最小値、base-10：10を底とした、exponent：指数）に由来する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cfloat>
@@ -52,7 +52,7 @@ int main()
 * std::log10[link ../cmath/log10.md]
 * std::ceil[link ../cmath/ceil.md]
 
-##出力例
+## 出力例
 ```
 -4931
 -4931

@@ -1,4 +1,4 @@
-#tellp
+# tellp
 * ostream[meta header]
 * std[meta namespace]
 * basic_ostream[meta class]
@@ -8,18 +8,18 @@
 pos_type tellp();
 ```
 
-##概要
+## 概要
 ストリームバッファから現在の書き込み位置を取得する。
 
-##戻り値
+## 戻り値
 
 - [`fail`](../../ios/basic_ios/fail.md)`() == false` であれば、[`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)`(0, cur, out)`。
 - [`fail`](../../ios/basic_ios/fail.md)`() == true` であれば、`pos_type(-1)`。
 
-##備考
+## 備考
 C++11 から、本関数の処理開始時に [`sentry`](sentry.md) オブジェクトを構築するようになった。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -42,13 +42,13 @@ int main() {
 * str()[link ../../sstream/basic_ostringstream/str.md.nolink]
 * seekp[link seekp.md]
 
-###出力
+### 出力
 ```
 ABCdef
 ABCDEF
 ```
 
-##実装例
+## 実装例
 ```cpp
 pos_type tellp(pos_type pos) {
   sentry s(*this);
@@ -63,11 +63,11 @@ pos_type tellp(pos_type pos) {
 * rdbuf[link ../../ios/basic_ios/rdbuf.md]
 * pubseekoff[link ../../streambuf/basic_streambuf/pubseekoff.md.nolink]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 
 - [`basic_ostream::seekp`](seekp.md)
 - [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)

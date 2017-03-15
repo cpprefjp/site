@@ -1,4 +1,4 @@
-#operator[]
+# operator[]
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -30,7 +30,7 @@ indirect_array<T> operator[](const valarray<size_t>& mask); // (10)
 * mask_array[link /reference/valarray/mask_array.md]
 * indirect_array[link /reference/valarray/indirect_array.md]
 
-##概要
+## 概要
 一部の要素を抽出する。
 
 - (1), (2) : `*this`に含まれる`n`番目の要素への参照を取得する。
@@ -40,7 +40,7 @@ indirect_array<T> operator[](const valarray<size_t>& mask); // (10)
 - (9), (10) : `*this`に含まれる、`mask`に含まれるインデックス値の要素のみを抽出する。
 
 
-##戻り値
+## 戻り値
 - (1), (2) :
 
 `*this`に含まれる`n`番目の要素への参照を返す。
@@ -57,10 +57,10 @@ indirect_array<T> operator[](const valarray<size_t>& mask); // (10)
 - (10) : `*this`に含まれる、`mask`に含まれるインデックス値の要素のみを抽出する。このオーバーロードでは、条件一致した要素への参照を管理する[`indirect_array`](/reference/valarray/indirect_array.md)オブジェクトを返す。
 
 
-##備考
+## 備考
 - (7), (8) : [`size()`](size.md) `!= mask.`[`size()`](size.md)の場合、その挙動は未定義。
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <numeric>
@@ -254,15 +254,15 @@ int main()
 ```
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 
-###備考
+### 備考
 - GCC 4.8.2時点のlibstdc++において、(8)と(10)のオーバーロードにおいて、一時オブジェクトのマスク配列を渡すと、ぶら下がり参照が発生する問題がある([#Bug 63314](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63314), [mask_array behavior in libstdc++](http://stackoverflow.com/questions/25918764/mask-array-behavior-in-libstdc))
 
 
-##参照
+## 参照
 - [LWG Issue 389. Const overload of `valarray::operator[]` returns by value](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#389)
     - (1)の戻り値の型が、C++03の`T`から、C++11の`const T&`に変更された経緯のレポート
 

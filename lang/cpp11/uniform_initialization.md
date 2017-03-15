@@ -1,7 +1,7 @@
-#一様初期化
+# 一様初期化
 * cpp11[meta cpp]
 
-##概要
+## 概要
 「一様初期化 (uniform initialization)」は、コンストラクタの呼び出しを、リスト初期化と合わせて波カッコ `{ }`で記述する構文である。
 
 ```cpp
@@ -70,7 +70,7 @@ int main()
 * std::istream_iterator[link /reference/iterator/istream_iterator.md]
 
 
-##仕様
+## 仕様
 - 波カッコによる初期化子リストを`auto`で受けた場合、そのオブジェクトは[`std::initializer_list`](/reference/initializer_list.md)型に推論される
 - 関数テンプレートのパラメータとして波カッコの初期化子リストを渡して型推論させることはできない。波カッコの初期化子リストを受ける側で構築する型が確定しないためである
 
@@ -192,11 +192,11 @@ int main()
 ```
 
 
-##関連項目
+## 関連項目
 - [C++11 初期化子リスト](initializer_lists.md)
 
 
-##参照
+## 参照
 - [N2477 Uniform initialization design choices](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2477.pdf)
 - [N2532 Uniform initialization design choices (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2532.pdf)
 - [N2575 Initializer Lists - Alternative Mechanism and Rationale](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2575.pdf)

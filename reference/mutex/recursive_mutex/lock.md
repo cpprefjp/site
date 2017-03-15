@@ -1,4 +1,4 @@
-#lock
+# lock
 * mutex[meta header]
 * std[meta namespace]
 * recursive_mutex[meta class]
@@ -9,21 +9,21 @@
 void lock();
 ```
 
-##概要
+## 概要
 ロックを取得する
 
 
-##効果
+## 効果
 この関数を呼び出したスレッドがミューテックスの所有権を取得できるまでブロックする。新しく所有権を取得した直後の所有権カウントは1となる。
 
 この関数を呼び出したスレッドがすでにミューテックスの所有権を保持していた場合は、ブロッキングは行わず所有権を維持する。このとき所有権カウントを1増加する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`operation_not_permitted`](/reference/system_error/errc.md) : スレッドにこの操作を行う権限がない
@@ -31,11 +31,11 @@ void lock();
 - [`device_or_resource_busy`](/reference/system_error/errc.md) : ミューテックスがすでにロックされていて、ブロッキングできない
 
 
-##備考
+## 備考
 あるスレッドが再帰的に所有権を取得可能な最大回数（所有権カウントの上限値）は、規定されていない。所有権カウントの上限値に達している場合、既に所有権を保持しているスレッドによるlockは[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -88,17 +88,17 @@ int main()
 * lock()[color ff0000]
 * mtx_.unlock()[link unlock.md]
 
-###出力
+### 出力
 ```
 count == 1
 count == 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -106,6 +106,6 @@ count == 2
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

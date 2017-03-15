@@ -1,4 +1,4 @@
-#find
+# find
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
@@ -10,23 +10,23 @@ iterator find(const key_type& k);
 const_iterator find(const key_type& k) const;
 ```
 
-##概要
+## 概要
 指定されたキーの位置を検索する。
 
 
-##戻り値
+## 戻り値
 パラメータ `k` と等価なキーの要素を指すイテレータを返す。そのような要素がない場合には、[`end`](end.md)`()`を返す。
 
 
-##計算量
+## 計算量
 平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O([`size`](size.md)`()`)）。
 
 
-##備考
+## 備考
 コンテナが `const` の場合には `const_iterator`、そうでない場合には `iterator` が返るが、`unordered_set` の場合には、いずれにせよ読み取り専用イテレータである。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -64,18 +64,18 @@ int main()
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * distance[link /reference/iterator/distance.md]
 
-###出力
+### 出力
 ```
 9, 7, 5, 3, 1,
 found 5 at 2
 not found
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -83,7 +83,7 @@ not found
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 
 | | |
 |-----------------------------------|----------------------------|

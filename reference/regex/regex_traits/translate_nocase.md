@@ -1,4 +1,4 @@
-#translate_nocase
+# translate_nocase
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
@@ -10,11 +10,11 @@ char_type translate_nocase(char_type c) const;
 ```
 
 
-##概要
+## 概要
 与えられた文字列と大文字・小文字を区別せずに同等な文字列を取得する。
 
 
-##戻り値
+## 戻り値
 ```cpp
 use_facet<ctype<char_type>>(getloc()).tolower(c)
 ```
@@ -24,7 +24,7 @@ use_facet<ctype<char_type>>(getloc()).tolower(c)
 * tolower[link /reference/locale/ctype/tolower.md.nolink]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -39,17 +39,17 @@ int main()
 ```
 * translate_nocase[color ff0000]
 
-###出力
+### 出力
 ```
 a
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

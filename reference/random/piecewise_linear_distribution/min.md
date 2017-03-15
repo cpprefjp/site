@@ -1,4 +1,4 @@
-#min
+# min
 * random[meta header]
 * std[meta namespace]
 * piecewise_linear_distribution[meta class]
@@ -9,15 +9,15 @@
 result_type min() const;
 ```
 
-##概要
+## 概要
 値の範囲の下限を取得する。
 
 
-##戻り値
+## 戻り値
 生成する値の範囲の下限を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -43,16 +43,16 @@ int main()
 * intervals.end()[link /reference/array/end.md]
 * densities.begin()[link /reference/array/begin.md]
 
-###出力
+### 出力
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -60,6 +60,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#operator%
+# operator%
 * chrono[meta header]
 * std::chrono[meta namespace]
 * function[meta id-type]
@@ -22,15 +22,15 @@ namespace std {
 * duration[link /reference/chrono/duration.md]
 * common_type[link /reference/type_traits/common_type.md]
 
-##概要
+## 概要
 durationの剰余演算を行う
 
 
-##要件
+## 要件
 - (1) : 右辺の`Rep2`型は、`Rep1`に変換可能でなければならない。変換できない型の場合は、この関数はオーバーロードから除外される。
 
 
-##戻り値
+## 戻り値
 - (1)
 
 ```cpp
@@ -51,7 +51,7 @@ return cd(cd(lhs).count() % cd(rhs).count());
 * common_type[link /reference/type_traits/common_type.md]
 * count[link /reference/chrono/duration/count.md]
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -84,7 +84,7 @@ int main()
 * milliseconds[link /reference/chrono/milliseconds.md]
 * count()[link count.md]
 
-###出力
+### 出力
 ```
 2
 2
@@ -92,11 +92,11 @@ int main()
 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 	- 11.0, 12.0でサンプルコードをコンパイルしたところ、dulation % dulationでコンパイルエラーになった。

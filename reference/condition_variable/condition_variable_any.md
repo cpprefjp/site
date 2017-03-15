@@ -1,4 +1,4 @@
-#condition_variable_any
+# condition_variable_any
 * condition_variable[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `condition_variable_any`は、特定のイベントもしくは条件を満たすまでスレッドの実行を待機するためのクラスである。
 
 [`wait()`](condition_variable_any/wait.md)／[`wait_for()`](condition_variable_any/wait_for.md)／[`wait_until()`](condition_variable_any/wait_until.md)を使用してスレッドを待機させ、[`notify_one()`](condition_variable_any/notify_one.md)／[`notify_all()`](condition_variable_any/notify_all.md)によって待機しているスレッドを起床させる。
@@ -19,7 +19,7 @@ namespace std {
 
 `condition_variable_any`の適切な利用については、[条件変数の利用方法](/article/lib/how_to_use_cv.md)も参照のこと。
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|----------------------------------------------------------|-------|
@@ -32,7 +32,7 @@ namespace std {
 | [`wait_for`](condition_variable_any/wait_for.md)                    | 相対時間のタイムアウトを指定して、起床されるまで待機する | C++11 |
 | [`wait_until`](condition_variable_any/wait_until.md)                | 絶対時間のタイムアウトを指定して、起床されるまで待機する | C++11 |
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -94,16 +94,16 @@ int main()
 * cond_.notify_one()[link condition_variable_any/notify_one.md]
 * cond_.wait[link condition_variable_any/wait.md]
 
-###出力
+### 出力
 ```
 process data
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): ??
@@ -111,5 +111,5 @@ process data
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 

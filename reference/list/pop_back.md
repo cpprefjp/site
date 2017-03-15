@@ -1,4 +1,4 @@
-#pop_back
+# pop_back
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -8,19 +8,19 @@
 void pop_back();
 ```
 
-##概要
+## 概要
 末尾要素を削除する
 
 
-##要件
+## 要件
 [`empty()`](empty.md) `== false`であること。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -39,7 +39,7 @@ int main()
 * pop_back()[color ff0000]
 
 
-###出力
+### 出力
 ```
 1
 2

@@ -1,4 +1,4 @@
-#swap
+# swap
 * stack[meta header]
 * std[meta namespace]
 * stack[meta class]
@@ -9,23 +9,23 @@
 void swap(stack& s) noexcept(noexcept(swap(c, s.c)));
 ```
 
-##概要
+## 概要
 他の `stack` オブジェクトと値を入れ替える。
 
 
-##効果
+## 効果
 `swap(c, s.c)`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 `swap(c, s.c)` が例外を投げない場合、この関数は決して例外を投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <stack>
@@ -67,13 +67,13 @@ int main()
 * top()[link top.md]
 * pop()[link pop.md]
 
-###出力
+### 出力
 ```
 x : 1 7 2 
 y : 4 1 3 
 ```
 
-##実装例
+## 実装例
 ```cpp
 void swap(stack& s) noexcept(noexcept(swap(c, s.c)))
 {
@@ -82,11 +82,11 @@ void swap(stack& s) noexcept(noexcept(swap(c, s.c)))
 }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -94,6 +94,6 @@ void swap(stack& s) noexcept(noexcept(swap(c, s.c)))
 - [Visual C++](/implementation.md#visual_cpp)
 
 
-##参照
+## 参照
 
 

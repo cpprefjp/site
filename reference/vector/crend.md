@@ -1,4 +1,4 @@
-#crend
+# crend
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -9,7 +9,7 @@
 const_reverse_iterator crend() const noexcept;
 ```
 
-##概要
+## 概要
 先頭要素の前を指す読み取り専用逆イテレータを取得する。
 
 [`rend`](rend.md)`()`は非`const`な`vector`オブジェクトに対して`reverse_iterator`を返し、`const`な`vector`オブジェクトに対しては`const_reverse_iterator`を返すが、`cend()`は`const_reverse_iterator`を返すバージョンのみが提供されている。
@@ -17,19 +17,19 @@ const_reverse_iterator crend() const noexcept;
 アルゴリズムにイテレータの組を渡す際、アルゴリズム内でデータの書き換えが起こらないというユーザーの意図を示す場合などに有用である。
 
 
-##戻り値
+## 戻り値
 先頭要素の前を指す読み取り専用逆イテレータ
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -47,18 +47,18 @@ int main()
 ```
 * crend[color ff0000]
 
-###出力
+### 出力
 ```
 3
 2
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0

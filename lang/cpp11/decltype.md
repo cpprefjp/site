@@ -1,7 +1,7 @@
-#decltype
+# decltype
 * cpp11[meta cpp]
 
-##概要
+## 概要
 `decltype` は、オペランドで指定した式の型を取得する機能である。  
 型を指定する必要のある個所で `decltype` を使用することによって、具体的な型名を指定する代わりに式から取得した型を指定できるようになった。
 
@@ -26,7 +26,7 @@ decltype(s)::U l{};                     // l は S::U 型（つまり int 型）
 なお、C++14 では特定の文脈において式のかわりに `auto` キーワードを使用する [`decltype(auto)`](../cpp14/decltype_auto.md) が追加されている。
 
 
-##仕様
+## 仕様
 
 `e` を式とすると、`decltype(e)` が意味する型は以下のとおりである。
 
@@ -43,8 +43,8 @@ decltype(s)::U l{};                     // l は S::U 型（つまり int 型）
 `sizeof` とは異なり、`decltype` のオペランドには丸括弧が必須である。（`sizeof i` はＯＫだが、`decltype i` はＮＧ）
 
 
-##例
-###関数の戻り型での使用例
+## 例
+### 関数の戻り型での使用例
 ```cpp
 #include <iostream>
 
@@ -64,12 +64,12 @@ int main()
 * fixed[link ../../reference/ios/fixed.md]
 * decltype[color ff0000]
 
-####出力
+#### 出力
 ```
 3.000000
 ```
 
-###変数の型としての使用例
+### 変数の型としての使用例
 ```cpp
 #include <iostream>
 
@@ -85,12 +85,12 @@ int main()
 ```
 * decltype[color ff0000]
 
-####出力
+#### 出力
 ```
 10, 42
 ```
 
-###ネストした名前の指定子としての使用例
+### ネストした名前の指定子としての使用例
 ```cpp
 #include <iostream>
 
@@ -107,12 +107,12 @@ int main()
 ```
 * decltype[color ff0000]
 
-####出力
+#### 出力
 ```
 42
 ```
 
-###new 式の型、キャスト、および、明示的デストラクタ呼び出しの一部としての使用例
+### new 式の型、キャスト、および、明示的デストラクタ呼び出しの一部としての使用例
 ```cpp
 #include <iostream>
 
@@ -141,7 +141,7 @@ int main()
 ```
 * decltype[color ff0000]
 
-####出力
+#### 出力
 ```
 allocate
 construct
@@ -151,7 +151,7 @@ destruct
 deallocate
 ```
 
-###変換演算子の型としての使用例
+### 変換演算子の型としての使用例
 ```cpp
 #include <iostream>
 
@@ -169,12 +169,12 @@ int main()
 ```
 * decltype[color ff0000]
 
-####出力
+#### 出力
 ```
 42
 ```
 
-###template 型引数としての使用例（下記の例は C++14 以降でのみコンパイル可能）
+### template 型引数としての使用例（下記の例は C++14 以降でのみコンパイル可能）
 ```cpp
 #include <iostream>
 #include <utility>
@@ -206,7 +206,7 @@ int main()
 * forward[link ../../reference/utility/forward.md]
 * decltype[color ff0000]
 
-####出力
+#### 出力
 ```
 start
 end
@@ -214,7 +214,7 @@ end
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 以下のような関数テンプレートの戻り値型を考える：
 
 ```cpp
@@ -240,7 +240,7 @@ decltype(auto) trace(Func f, T t) { std::cout << "Calling f"; return f(t); }
 ```
 * decltype(auto)[color ff0000]
 
-##検討されたほかの選択肢
+## 検討されたほかの選択肢
 
 GCC や Clang には `decltype` が導入される前から、同様の機能を持つ `typeof` が非標準の拡張機能として存在している。  
 `decltype` もこれらの拡張機能を参考にしているが、大きく以下の 3 点において `typeof` とは異なる。  
@@ -255,14 +255,14 @@ GCC や Clang には `decltype` が導入される前から、同様の機能を
 	`decltype` のオペランドは式のみしか許されていないが、`typeof` は式だけでなく型そのものも許されている。
 
 
-##関連項目
+## 関連項目
 - [C++11 戻り値の型を後置する関数宣言構文](trailing_return_types.md)
 - [C++11 `auto`](auto.md)
 - [C++11 ラムダ式](lambda_expressions.md)
 - [C++14 `decltype(auto)`](../cpp14/decltype_auto.md)
 
 
-##参照
+## 参照
 - [N1478 Decltype and auto](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1478.pdf)
 - [N1527 Mechanisms for querying types of expressions: Decltype and auto revisited](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1527.pdf)
 - [N1607 Decltype and auto (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1607.pdf)

@@ -1,4 +1,4 @@
-#random_shuffle
+# random_shuffle
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -25,25 +25,25 @@ namespace std {
 この関数は、C++14から非推奨である。代わりに[`shuffle()`](shuffle.md)関数を使用すること。
 
 
-##概要
+## 概要
 `[first,last)` のそれぞれの要素を同じ確率で並び替える。
 
 
-##要件
+## 要件
 - `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
 - 乱数生成関数オブジェクトである `rand` の戻り値は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
 - 0 より大きい [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` 型の `n` について、`rand(n)` という呼び出しは `[0,n)` の範囲から無作為に選ばれた値を返す必要がある。
 
 
-##計算量
+## 計算量
 正確に `(last - first) - 1` 回 swap する。
 
 
-##備考
+## 備考
 最初の形式がC互換ライブラリの `std::rand()`関数を使うかどうかは実装依存である。
 
 
-##非推奨の詳細(C++14)
+## 非推奨の詳細(C++14)
 C++14では、C互換ライブラリの乱数生成関数である`std::rand()`と`std::srand()`が非推奨となった。
 
 これらの関数には、以下のような問題が合った：
@@ -59,7 +59,7 @@ C++14では、C互換ライブラリの乱数生成関数である`std::rand()`�
 `std::rand()`と`std::srand()`の代わりに、[`<random>`](/reference/random.md)ヘッダで定義される乱数生成器と分布を使用すること。`std::random_shuffle()`関数の代わりに、[`std::shuffle()`](shuffle.md)関数を使用すること。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -85,14 +85,14 @@ int main() {
 ```
 * std::random_shuffle[color ff0000]
 
-###出力
+### 出力
 ```
 before: 0123456789
  after: 4378052169
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 // [0,n) のどれかの値を返す内部関数
 T get_random_number(T n);
@@ -114,7 +114,7 @@ void random_shuffle(RandomAccessIterator first, RandomAccessIterator last, Rando
 * iter_swap[link iter_swap.md]
 
 
-##参照
+## 参照
 - [rand() Considered Harmful - Going Native 2013](https://channel9.msdn.com/Events/GoingNative/2013/rand-Considered-Harmful)
 - [N3924 Discouraging rand() in C++14, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3924.pdf)
 

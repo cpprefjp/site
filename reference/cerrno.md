@@ -1,4 +1,4 @@
-#cerrno
+# cerrno
 * cerrno[meta header]
 
 `<cerrno>`ヘッダでは、標準ライブラリで発生するエラー情報を格納したグローバル変数`errno`、およびエラー値を表す定数マクロが定義される。
@@ -101,6 +101,6 @@
 | `EPROTOTYPE`      | ソケットに指定できないプロトコルタイプ                           | C++11 |
 
 
-##関連項目
+## 関連項目
 - [`<system_error>`](/reference/system_error.md)
 

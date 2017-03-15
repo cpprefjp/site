@@ -1,4 +1,4 @@
-#native_handle
+# native_handle
 * thread[meta header]
 * std[meta namespace]
 * thread[meta class]
@@ -9,11 +9,11 @@
 native_handle_type native_handle();
 ```
 
-##概要
+## 概要
 スレッドのハンドルを取得する
 
 
-##効果
+## 効果
 この関数は、実装依存のスレッドのハンドルを返す。
 
 - Unix系環境におけるlibstdc++とlibc++では、`pthread_t`を表す。
@@ -22,11 +22,11 @@ native_handle_type native_handle();
 ハンドル型に対する操作は汎用的ではないため、環境依存のプログラミングが必要な場合に使用する。
 
 
-##戻り値
+## 戻り値
 実装依存のスレッドハンドル
 
 
-##例
+## 例
 ```cpp
 #include <thread>
 #include <iostream>
@@ -44,22 +44,22 @@ int main() {
 ```
 * native_handle[color ff0000]
 
-###出力
+### 出力
 ```
 func
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
-##参照
+## 参照
 
 

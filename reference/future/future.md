@@ -1,4 +1,4 @@
-#future
+# future
 * future[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `future`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`promise`](promise.md)クラスと組み合わせて使用する。[`promise`](promise.md)が別スレッドでの処理結果を書き込み、`future`がその結果を読み取る。[`promise`](promise.md)と`future`は内部的に同一の共有状態を参照する。これによってスレッド間での値の受け渡しやスレッド間同期を実現する。このクラスは`R&`および`void`の、2つの特殊化を持つ。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------|--------------------------------|-------|
@@ -25,21 +25,21 @@ namespace std {
 | [`share`](future/share.md)          | `future`オブジェクトを共有する | C++11 |
 
 
-###値の取得
+### 値の取得
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------|----------------|-------|
 | [`get`](future/get.md) | 結果を取得する | C++11 |
 
 
-###関数の状態を確認する
+### 関数の状態を確認する
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------|----------------------------------|-------|
 | [`valid`](future/valid.md) | 共有状態を持っているかを確認する | C++11 |
 
 
-###待機
+### 待機
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------|----------------------------------|-------|
@@ -48,7 +48,7 @@ namespace std {
 | [`wait_until`](future/wait_until.md) | 絶対時間でタイムアウトを指定して、処理が完了するまで待機する | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -86,26 +86,26 @@ int main()
 * std::move[link /reference/utility/move.md]
 * f.get()[link future/get.md]
 
-###出力
+### 出力
 ```
 55
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
-###備考
+### 備考
 - ※ VC++11.0段階の`std::thread`クラスは、コンストラクタに引数をムーブで渡すことができない。そのため、`promise`オブジェクトはスレッド間の共有オブジェクトにする必要がある。(所有権が曖昧になるため、スタイルとしてはよくない)
     - [#737812 - std::thread does not accept std::move](https://connect.microsoft.com/VisualStudio/feedback/details/737812)
 
 
-##参照
+## 参照
 

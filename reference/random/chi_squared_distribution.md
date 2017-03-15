@@ -1,4 +1,4 @@
-#chi_squared_distribution
+# chi_squared_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -12,7 +12,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `chi_squared_distribution`は、乱数をカイ二乗分布(χ二乗分布、χ²分布)させるクラスである。以下の確率密度関数に基いて、浮動小数点数の乱数を生成する。
 
 $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $$
@@ -34,8 +34,8 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 - `RealType` : 生成する実数の型。
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------------|--------------------|-------|
@@ -44,14 +44,14 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 | [`reset`](chi_squared_distribution/reset.md)                            | 状態をリセットする | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------|-------|
 | [`operator()`](chi_squared_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------------|-------|
@@ -61,7 +61,7 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 | [`max`](chi_squared_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
@@ -69,7 +69,7 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 | `param_type`  | 分布パラメータの型。未規定。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------|-------|
@@ -79,7 +79,7 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 | [`operator>>`](chi_squared_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <fstream>
 #include <random>
@@ -107,7 +107,7 @@ int main()
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
 * dist(engine)[link chi_squared_distribution/op_call.md]
 
-###出力
+### 出力
 ```
 ```
 
@@ -115,18 +115,18 @@ int main()
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.png)
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp):
 
-###参考
+### 参考
 - [カイ二乗分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83)
 - [χ2（カイ２乗）分布](http://staff.aist.go.jp/t.ihara/chi2.html)
 - [カイ２乗分布とは](http://ogawas.cerp.u-toyama.ac.jp/e-stat/kai.html)

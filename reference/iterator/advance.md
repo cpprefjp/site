@@ -1,4 +1,4 @@
-#advance
+# advance
 * iterator[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -10,29 +10,29 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 イテレータを`n`回進める。
 
 
-##要件
+## 要件
 双方向イテレータもしくはランダムアクセスイテレータの場合のみ、`n`が負数であることを許可する。
 
 
-##効果
+## 効果
 イテレータへの参照`i`を`n`回進める(`n`が負数の場合は逆方向に進める)。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 
 - 入力イテレータ、前方向イテレータ ： `n`回のインクリメント
 - 双方向イテレータ： `n`回のインクリメント、もしくはデクリメント
 - ランダムアクセスイテレータ： O(1)
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -50,12 +50,12 @@ int main()
 ```
 * std::advance[color ff0000]
 
-###出力
+### 出力
 ```
 2
 ```
 
-##実装例
+## 実装例
 ```cpp
 // 入力イテレータ(or 前方向イテレータ)
 template <class InputIterator, class Distance>
@@ -98,6 +98,6 @@ void advance(Iterator& i, Distance n)
 * std::bidirectional_iterator_tag[link iterator_tag.md]
 * std::random_access_iterator_tag[link iterator_tag.md]
 
-##参照
+## 参照
 
 

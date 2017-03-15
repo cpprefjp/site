@@ -1,7 +1,7 @@
-#constexprの制限緩和
+# constexprの制限緩和
 * cpp14[meta cpp]
 
-##概要
+## 概要
 C++11で、汎用定数式の機能である[`constexpr`](/lang/cpp11/constexpr.md)が導入された。
 
 `constexpr`関数には、コードの表現として強い制限があった。C++14では、以下のような制限緩和が行われた。
@@ -14,8 +14,8 @@ C++11で、汎用定数式の機能である[`constexpr`](/lang/cpp11/constexpr.
 - `constexpr`非静的メンバ関数の、暗黙の`const`修飾を削除
 
 
-##仕様
-###`constexpr`関数内での変数宣言を許可
+## 仕様
+### `constexpr`関数内での変数宣言を許可
 
 以下の例で示すように、`constexpr`関数内で変数を宣言できるようになった。
 
@@ -35,7 +35,7 @@ constexpr int f()
 - 未初期化変数の宣言は許可されない。
 
 
-###`constexpr`関数内での条件分岐として、`if`文と`switch`文を許可
+### `constexpr`関数内での条件分岐として、`if`文と`switch`文を許可
 
 以下の例で示すように、`constexpr`関数内での条件分岐に、`if`文を使用できるようになった。`else`節も使用でき、`else`節を省略してもよい。
 
@@ -67,7 +67,7 @@ constexpr Weekday intToWeekday(int n)
 ただし、`goto`文は許可されない。
 
 
-###`constexpr`関数内で、全てのループ文を許可
+### `constexpr`関数内で、全てのループ文を許可
 
 ループ文として、`for`文、範囲`for`文、`while`文、`do-while`文が許可された。
 
@@ -104,7 +104,7 @@ constexpr int f()
 ```
 
 
-###`constexpr`関数内での、変数の書き換えを許可
+### `constexpr`関数内での、変数の書き換えを許可
 `constexpr`関数内において、ローカル変数、またはその関数が所属するクラスの非静的メンバ変数の書き換えが許可された。
 
 ```cpp
@@ -137,7 +137,7 @@ constexpr int square(int n)
 ```
 
 
-###`constexpr`関数の戻り値型として、`void`を許可
+### `constexpr`関数の戻り値型として、`void`を許可
 `constexpr`関数での、パラメータの型、および戻り値の型は、[リテラル型](/reference/type_traits/is_literal_type.md)に分類される型に限定される。
 
 C++14では、[リテラル型](/reference/type_traits/is_literal_type.md)に分類される型に、`void`が追加された。
@@ -158,7 +158,7 @@ constexpr int f(int x)
 ```
 
 
-###`constexpr`非静的メンバ関数の、暗黙の`const`修飾を削除
+### `constexpr`非静的メンバ関数の、暗黙の`const`修飾を削除
 C++11では、`constexpr`非静的メンバ関数は、暗黙で`const`が付けられ、明示的に`const`を付けることもできなかった：
 
 ```cpp
@@ -173,7 +173,7 @@ C++14ではこの仕様が削除され、`const`か非`const`かを、明示的�
 ※この変更によって、既存コードの互換性は壊れない。
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 C++は直交性を重視して設計されており、直接関係ない機能同士を組み合わせて使用できる。しかし、C++11での`constexpr`は、その制限によって、ほかの機能(インスタンス、`for`ループ、変数書き換え、例外等)とうまく組み合わせられなかった。
 
 これらの制限を回避するために表現力を犠牲にしなければならず、プログラマをいらつかせていた。
@@ -181,11 +181,11 @@ C++は直交性を重視して設計されており、直接関係ない機能�
 C++14では、`constexpr`関数、`constexpr`メンバ関数、暗黙の`const`といった制限を緩和する。
 
 
-##関連項目
+## 関連項目
 - [C++11 `constexpr`](/lang/cpp11/constexpr.md)
 
 
-##参照
+## 参照
 - [N3597 Relaxing constraints on `constexpr` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3597.html)
 - [N3598 `constexpr` member functions and implicit `const`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3598.html)
 - [N3652 Relaxing constraints on `constexpr` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3652.html)

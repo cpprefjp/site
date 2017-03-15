@@ -1,4 +1,4 @@
-#packaged_task
+# packaged_task
 * future[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -13,7 +13,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `packaged_task`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`future`](future.md)クラスと組み合わせて使用する。`packaged_task`に登録した非同期実行する関数の戻り値を[`future`](future.md)が読み取る。
 
 `packaged_task`と[`future`](future.md)は内部的に同一の共有状態を参照する。  
@@ -24,7 +24,7 @@ namespace std {
 - `R(ArgTypes...)` ： 非同期実行する関数のシグニチャ。`R`が戻り値の型、`ArgTypes...`が引数の型
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -36,14 +36,14 @@ namespace std {
 | [`reset`](packaged_task/reset.md) | 共有状態を作り直す | C++11 |
 
 
-###結果の取得
+### 結果の取得
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`get_future`](packaged_task/get_future.md) | 結果取得のための`future`オブジェクトを取得する | C++11 |
 
 
-###実行
+### 実行
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -51,21 +51,21 @@ namespace std {
 | [`make_ready_at_thread_exit`](packaged_task/make_ready_at_thread_exit.md) | タスクを実行し、スレッド終了時に準備完了状態にする | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`swap`](packaged_task/swap_free.md) | 2つの`packaged_task`オブジェクトを入れ替える | C++11 |
 
 
-##その他
+## その他
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`uses_allocator`](packaged_task/uses_allocator.md) | `packaged_task`による特殊化 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -106,16 +106,16 @@ int main()
 * std::move[link /reference/utility/move.md]
 * t.detach()[link /reference/thread/thread/detach.md]
 
-###出力
+### 出力
 ```
 55
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -123,5 +123,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 

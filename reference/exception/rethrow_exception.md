@@ -1,4 +1,4 @@
-#rethrow_exception
+# rethrow_exception
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -8,19 +8,19 @@
 [[noreturn]] void rethrow_exception(exception_ptr p);
 ```
 
-##概要
+## 概要
 `exception_ptr`が指す例外オブジェクトを再スローする。
 
 
-##要件
+## 要件
 `p`がヌルを指す`exception_ptr`ではないこと。
 
 
-##戻り値
+## 戻り値
 この関数は決して返らない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <exception>
@@ -49,7 +49,7 @@ int main()
 * std::runtime_error[link /reference/stdexcept.md]
 * std::current_exception()[link current_exception.md]
 
-###出力例
+### 出力例
 ```
 catch
 rethrow
@@ -60,11 +60,11 @@ terminate called after throwing an instance of 'std::runtime_error'
   what():  error!
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -72,7 +72,7 @@ terminate called after throwing an instance of 'std::runtime_error'
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [N2179 Language Support for Transporting Exceptions between Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html)
 
 

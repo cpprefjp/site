@@ -1,4 +1,4 @@
-#operator new
+# operator new
 * new[meta header]
 * function[meta id-type]
 
@@ -20,11 +20,11 @@ void* operator new(std::size_t size, void* ptr) noexcept;               // (3) C
 * std::size_t[link /reference/cstddef/size_t.md]
 
 
-##概要
+## 概要
 単一オブジェクトのために動的に記憶域を確保する。
 
 
-##効果
+## 効果
 - (1) `size` で指定したサイズ（バイト）の記憶域を確保する。  
     確保された記憶域の先頭アドレスは、`size` バイトのあらゆるオブジェクトのアライメント要求を満たしている。  
     確保に失敗した場合、[`bad_alloc`](bad_alloc.md) 例外をスローする。
@@ -34,14 +34,14 @@ void* operator new(std::size_t size, void* ptr) noexcept;               // (3) C
 - (3) 何もしない。
 
 
-##戻り値
+## 戻り値
 - (1) 確保した記憶域の先頭アドレスを指すポインタ。
 - (2) 記憶域を確保できた場合、確保した記憶域の先頭アドレスを指すポインタ。  
     確保できなかった場合、ヌルポインタ。
 - (3) 引数 `ptr`
 
 
-##備考
+## 備考
 - (1)、および、(2) の形式は、`size` が `0` でも他の確保済みの記憶域と異なるアドレスを返す。  
     ただし、記憶域の確保に失敗する可能性もあり、また、成功しても当該ポインタを間接参照した場合の結果は未定義である。
 
@@ -76,7 +76,7 @@ void* operator new(std::size_t size, void* ptr) noexcept;               // (3) C
     特に、(2) の形式を使用するために `new` 式を `new(std::`[`nothrow`](nothrow_t.md)`)` のようにしても、依然としてコンストラクタが例外をスローする可能性はあるため、`new` 式が例外をスローしないとは限らない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <new>
@@ -114,6 +114,6 @@ int main()
 * std::nothrow[link nothrow_t.md]
 * std::bad_alloc[link bad_alloc.md]
 
-###出力
+### 出力
 ```
 ```

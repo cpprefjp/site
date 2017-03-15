@@ -1,7 +1,7 @@
-#エイリアステンプレート
+# エイリアステンプレート
 * cpp11[meta cpp]
 
-##概要
+## 概要
 「エイリアステンプレート (alias templates)」は、テンプレートによって型の別名を定義する機能である。これによって、パラメータ化した型の別名付けができる。
 
 エイリアステンプレートによる型の別名付けには、`typedef`キーワードではなく`using`キーワードを使用する：
@@ -37,7 +37,7 @@ using FunctionPointer = int(*)(int, int);
 ```
 
 
-##仕様
+## 仕様
 - テンプレートによる型の別名付けは、`using`キーワードによるもののみを許可し、`typedef`キーワードに対しては許可しない
 - エイリアステンプレートによって付けられた型の別名と元の型は同等と見なされ、それらの間でオーバーロードはできない
 
@@ -55,7 +55,7 @@ void f(const std::vector<T>&) {} // コンパイルエラー！再定義と見�
 - エイリアステンプレートに対しては、明示的な特殊化、および部分特殊化を許可しない
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 エイリアステンプレートがなかったころは、パラメータ化した型の別名付けとして、クラステンプレートを使用していた：
 
 ```cpp
@@ -87,7 +87,7 @@ typedef void_alloc::rebind<int>::other int_alloc;
 前述した例での`::type`や、アロケータの例での`other`は冗長であり、必要とされることが多いこの機能には言語サポートが求められた。こういった経緯から、パラメータ化した型の別名付けが、言語機能としてサポートされることとなった。
 
 
-##参照
+## 参照
 - [N1406 Proposed Addition to C++: Typedef Templates](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1406.pdf)
 - [N1449 Proposal to add template aliases to C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1449.pdf)
 - [N1451 A Case for Template Aliasing](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1451.html)

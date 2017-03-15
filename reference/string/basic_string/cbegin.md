@@ -1,4 +1,4 @@
-#cbegin
+# cbegin
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -9,19 +9,19 @@
 const_iterator cbegin() const noexcept;
 ```
 
-##概要
+## 概要
 文字列の先頭を指す読み取り専用イテレータを取得する。
 
 
-##戻り値
+## 戻り値
 先頭を指す読み取り専用イテレータ。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -40,9 +40,9 @@ int main()
 ```
 * cbegin()[color ff0000]
 
-###出力
+### 出力
 ```
 h
 ```
 
-##参照
+## 参照

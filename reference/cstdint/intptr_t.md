@@ -1,4 +1,4 @@
-#intptr_t
+# intptr_t
 * cstdint[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 ```
 * signed-integer-type[italic]
 
-##概要
+## 概要
 ポインタサイズの符号あり整数型。
 
 この型を実装するかどうかは処理系定義。
@@ -24,7 +24,7 @@ namespace std {
 3. 変換前と逆変換のポインタ値が等値となる
 
 
-##備考
+## 備考
 この型は、以下のような用途に使用できる：
 
 - ポインタ値を、一意なIDとして使用する
@@ -32,7 +32,7 @@ namespace std {
 - コールバック関数に渡す引数として、任意のオブジェクトを設定する
 
 
-##例
+## 例
 ```cpp
 #include <cstdint>
 #include <iostream>
@@ -70,11 +70,11 @@ int main()
 * std::intptr_t[color ff0000]
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??

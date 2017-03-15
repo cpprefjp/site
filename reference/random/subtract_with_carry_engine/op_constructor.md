@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * subtract_with_carry_engine[meta class]
@@ -13,7 +13,7 @@ subtract_with_carry_engine(const subtract_with_carry_engine& e) = default; // (3
 subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (4)
 ```
 
-##概要
+## 概要
 - (1) : シード値を受け取って状態シーケンスを構築する
     - シード値が指定されない場合は、固定のシード値でデフォルト構築される
     - ※ シード値には、初期状態の予測不可能性を高めるために、UNIX時間(エポックからの経過時間)や、非決定的な乱数を指定するのがよい。
@@ -22,11 +22,11 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (4
 - (4) : ムーブコンストラクタ。可能であれば状態シーケンスを移動する
 
 
-##計算量
+## 計算量
 - (1), (3) : O(n)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -81,18 +81,18 @@ int main()
 * seeds.begin()[link /reference/array/begin.md]
 * seeds.end()[link /reference/array/end.md]
 
-###出力例
+### 出力例
 ```
 15039276
 7573519
 3112173
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -100,6 +100,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 
 

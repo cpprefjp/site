@@ -1,4 +1,4 @@
-#floor
+# floor
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -16,15 +16,15 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 引数 `x` 以下で最大の整数値を得る。（床関数）
 
 
-##戻り値
+## 戻り値
 引数 `x` 以下で最大の整数値
 
 
-##備考
+## 備考
 - 本関数は、C99 の規格にある `floor`（より正確には `math.h` ヘッダの `floor`、`floorf`、`floorl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 
@@ -36,7 +36,7 @@ namespace std {
 	なお、本関数の挙動は、現在の丸めモードには依存しない。
 
 
-##例
+## 例
 ```cpp
 #include <cfenv>
 #include <cmath>
@@ -67,7 +67,7 @@ int main()
 * std::feclearexcept[link ../cfenv/feclearexcept.md]
 * std::fetestexcept[link ../cfenv/fetestexcept.md]
 
-###出力例
+### 出力例
 ```
 floor(2) = 2
 FE_INEXACT = false

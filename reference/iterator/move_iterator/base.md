@@ -1,4 +1,4 @@
-#base
+# base
 * iterator[meta header]
 * std[meta namespace]
 * move_iterator[meta class]
@@ -9,15 +9,15 @@
 Iterator base() const;
 ```
 
-##概要
+## 概要
 メンバ変数として保持している、元のイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 元のイテレータオブジェクトのコピー
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -39,16 +39,16 @@ int main()
 * base()[color ff0000]
 * v.emplace_back[link /reference/vector/emplace_back.md]
 
-###出力
+### 出力
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -56,6 +56,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

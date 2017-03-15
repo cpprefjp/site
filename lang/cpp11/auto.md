@@ -1,7 +1,7 @@
-#auto
+# auto
 * cpp11[meta cpp]
 
-##概要
+## 概要
 C++11 から、変数宣言時に具体的な型名のかわりに `auto` キーワードを指定する事によって、変数の型を初期化子から推論できるようになった。
 
 ```cpp
@@ -29,8 +29,8 @@ auto f = []{};                      // f は 引数を取らずに値を返さ�
 それぞれの機能については、各解説を参照。
 
 
-##仕様
-###使用可能な場所
+## 仕様
+### 使用可能な場所
 
 `auto` による型推論は、以下の場所で初期化子がある場合のみ使用可能である。
 
@@ -73,7 +73,7 @@ void(*pf2)(auto) = f;       // NG! auto は関数引数の型には使用でき�
 * auto[color ff0000]
 
 
-###型推論規則
+### 型推論規則
 
 `auto` による型推論は、基本的に関数テンプレートの引数での型推論と同様である。
 
@@ -101,8 +101,8 @@ void f(std::initializer_list<U> p);
 （gcc 5.1.0 以降、clang 3.8.0 以降では既に変更されており、たとえ C++11 モードを使用しても元の挙動にはならない）
 
 
-##例
-###例１（名前空間スコープ、new 式の型名指定部、for 文の初期化文、if 文の条件部）
+## 例
+### 例１（名前空間スコープ、new 式の型名指定部、for 文の初期化文、if 文の条件部）
 ```cpp
 #include <iostream>
 #include <memory>
@@ -138,12 +138,12 @@ int main()
 * nullptr[link nullptr.md]
 * auto[color ff0000]
 
-####出力１
+#### 出力１
 ```
 1, 7, 3, 2, null, 5, null, 8, 
 ```
 
-###例２（ブロックスコープ、for 文の初期化文、および、条件部）
+### 例２（ブロックスコープ、for 文の初期化文、および、条件部）
 ```cpp
 #include <iostream>
 
@@ -161,12 +161,12 @@ int main()
 ```
 * auto[color ff0000]
 
-####出力２
+#### 出力２
 ```
 C, +, +, 
 ```
 
-###例３（範囲 for 文の宣言部）
+### 例３（範囲 for 文の宣言部）
 ```cpp
 #include <iostream>
 #include <initializer_list>
@@ -183,13 +183,13 @@ int main()
 * initializer_list[link ../../reference/initializer_list.md]
 * auto[color ff0000]
 
-####出力３
+#### 出力３
 ```
 2, 3, 7, 
 ```
 
 
-###例４（クラス定義内の静的メンバ、switch 文の条件部）
+### 例４（クラス定義内の静的メンバ、switch 文の条件部）
 
 ```cpp
 #include <iostream>
@@ -229,13 +229,13 @@ int main()
 * constexpr[link constexpr.md]
 * auto[color ff0000]
 
-####出力４
+#### 出力４
 ```
 answer
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 C++ では、簡単な式の型がしばしば非常に複雑になりうる。それらの型を書いたりその型の変数を宣言するのは退屈で間違えやすい。  
 よくあるのは、以下のようなコンテナのイテレータ用の変数宣言である：
 
@@ -264,7 +264,7 @@ int foo(const std::unordered_map<T, std::unordered_map<T, T>>& m) {
 しかし、[`decltype`](decltype.md) は変数宣言の用途にはあまり向かない事、および、式自体を二回書く必要があるためメンテナンス上の問題を引き起こす事から、関数テンプレート引数の型推論に基づいた `auto` を導入することとした。
 
 
-##検討されたほかの選択肢
+## 検討されたほかの選択肢
 ### 記憶クラス指定子としての `auto`
 自動変数である事を意味する記憶クラス指定子としての `auto` を残す案も考えられた。
 
@@ -372,7 +372,7 @@ std::pair<T, U>& p = foo();
 しかし、この使用法も規格から落とされた。
 
 
-##関連項目
+## 関連項目
 - [C++11 戻り値の型を後置する関数宣言構文](trailing_return_types.md)
 - [C++11 `decltype`](decltype.md)
 - [C++11 ラムダ式](lambda_expressions.md)
@@ -381,7 +381,7 @@ std::pair<T, U>& p = foo();
 - [C++14 通常関数の戻り値型推論（ユーザ定義変換関数の型推論を含む）](../cpp14/return_type_deduction_for_normal_functions.md)
 
 
-##参照
+## 参照
 - [N1478 Decltype and auto](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1478.pdf)
 - [N1527 Mechanisms for querying types of expressions: Decltype and auto revisited](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1527.pdf)
 - [N1607 Decltype and auto (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1607.pdf)

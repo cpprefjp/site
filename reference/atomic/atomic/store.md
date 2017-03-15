@@ -1,4 +1,4 @@
-#store
+# store
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
@@ -12,31 +12,31 @@ void store(T desired, memory_order order = memory_order_seq_cst) noexcept;
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
-##概要
+## 概要
 値を書き込む
 
 
-##要件
+## 要件
 `order`が以下のメモリオーダーではないこと：
 
 - [`memory_order_consume`](/reference/atomic/memory_order.md)
 - [`memory_order_acquire`](/reference/atomic/memory_order.md)
 - [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
 
-##効果
+## 効果
 `order`で指定されたメモリオーダーにしたがって、現在の値を`desired`でアトミックに置き換える。
 この関数は、戻り値のない[`exchange()`](exchange.md)と見なせる。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -53,17 +53,17 @@ int main()
 * store[color ff0000]
 * x.load()[link load.md]
 
-###出力
+### 出力
 ```
 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -71,6 +71,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

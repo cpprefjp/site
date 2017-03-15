@@ -1,7 +1,7 @@
-#ラムダ式
+# ラムダ式
 * cpp11[meta cpp]
 
-##概要
+## 概要
 「ラムダ式(lambda expressions)」は、簡易的な関数オブジェクトをその場で定義するための機能である。
 
 この機能によって、「高階関数(関数を引数もしくは戻り値とする関数)」をより使いやすくできる。
@@ -61,7 +61,7 @@ void g()
 ```
 
 
-##仕様
+## 仕様
 ### <a name="syntax" href="#syntax">構文</a>
 ```
 [キャプチャリスト](パラメータリスト) mutable 例外仕様 属性 -> 戻り値の型 { 関数の本体 }
@@ -339,8 +339,8 @@ int main()
 5
 ```
 
-##例
-###アルゴリズムの引数として関数を渡す
+## 例
+### アルゴリズムの引数として関数を渡す
 ```cpp
 #include <iostream>
 #include <vector>
@@ -366,12 +366,12 @@ int main()
 ```
 * std::find_if[link /reference/algorithm/find_if.md]
 
-####出力
+#### 出力
 ```
 2
 ```
 
-###処理が完了したことが通知されるハンドラを引数として渡す
+### 処理が完了したことが通知されるハンドラを引数として渡す
 ```cpp
 #include <iostream>
 #include <functional>
@@ -398,7 +398,7 @@ int main()
 * <functional>[link /reference/functional.md]
 * std::function[link /reference/functional/function.md]
 
-####出力
+#### 出力
 ```
 0
 1
@@ -414,7 +414,7 @@ complete
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 ラムダ式が標準C++に最初に提案された2006年当時、多くのプログラミング言語が、コードブロックを引数として関数に渡す機能を用意していた。たとえば、Algol 68はdownward funargsという機能を持っていたし、Lispはクロージャ(closure)、Smalltalkはパラメータとして渡してあとで実行する「コードブロック」と呼ばれる機能を、C# 2.0 (クロージャ)やJava (匿名クラス)も同様の機能を持っていた。これらの概念は、C++においてもBoost.LambdaやBoost.Bindといったライブラリ実装で導入が試みられてきた。
 
 C++には、関数を第一級オブジェクトとして扱う「関数オブジェクト(function objects)」という機能があり、これによって関数を引数または戻り値として使用できた。関数オブジェクトをさらに扱いやすくするために、Boost C++ Librariesから提案された[`bind()`](/reference/functional/bind.md)関数や[`function`](/reference/functional/function.md)クラスを、標準ライブラリに導入した。
@@ -430,10 +430,10 @@ C++には、関数を第一級オブジェクトとして扱う「関数オブ�
 - 最も重要なことは、ラムダライブラリは、一般的な状況でもユーザーが理解して使用するのが難しい
 
 
-##検討されたほかの選択肢
+## 検討されたほかの選択肢
 ラムダ式の構文は、段階的にいくつかのバリエーションが考えられた。
 
-###第1案
+### 第1案
 第1案は、以下のような構文。
 
 ```
@@ -455,7 +455,7 @@ void f(int x)
 この構文の問題点は、先に述べたコピーキャプチャと参照キャプチャの使い分けができない、といったもののほか、構文解析が難しいというのもある。
 
 
-###第2案
+### 第2案
 第2案は、以下のような構文。
 
 ```
@@ -475,7 +475,7 @@ void f()
 戻り値の型`-> ret_type`を省略した場合は、ラムダ式の`return`文から戻り値の型が推論される。
 
 
-###第3案
+### 第3案
 第3案は、以下のような構文。
 
 ```
@@ -507,7 +507,7 @@ for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
 ここでは、関数の本体に丸カッコを使用している。これは、関数の本体がひとつの式だけで成り立つ場合に使用する。2つ以上の式や文がある場合は、波カッコを使用する。
 
 
-###第4案
+### 第4案
 第3案では`<&>`という、デフォルトで参照キャプチャする方法が考えられたが、第4案では以下のデフォルトキャプチャが考えられた。
 
 1. `<.>` : デフォルトキャプチャを持たない
@@ -515,7 +515,7 @@ for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
 3. `<+>` : デフォルトでコピーキャプチャ
 
 
-###最終版
+### 最終版
 ここまで出た案をさらに改良して、現在のラムダ式の形に収束した。
 
 キャプチャ方法の指定は、山カッコ`< >`の代わりに、角カッコ`[ ]`が採用された。これは、山カッコが`operator<()`、`operator>()`、テンプレートといった機能があるために構文解析が難しい、という理由からだ。
@@ -525,13 +525,13 @@ for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
 なお、C++11時点のラムダ式はテンプレートを扱えないが、これはコンパイラの実装が難しい、という理由での見送りである。
 
 
-##関連項目
+## 関連項目
 - [C++11 ローカル型と無名型を、テンプレート引数として使用することを許可](local_and_unnamed_type_as_template_arguments.md)
 - [C++14 ジェネリックラムダ](/lang/cpp14/generic_lambdas.md)
 - [C++14 ラムダ式の初期化キャプチャ](/lang/cpp14/initialize_capture.md)
 
 
-##参照
+## 参照
 - [N1958 A proposal to add lambda functions to the C++ standard](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1958.pdf)
 - [N1968 Lambda expressions and closures for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1968.pdf)
 - [N2329 Lambda expressions and closures for C++ (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2329.pdf)

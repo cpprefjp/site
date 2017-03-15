@@ -1,4 +1,4 @@
-#capacity
+# capacity
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -8,15 +8,15 @@
 size_type capacity() const;
 ```
 
-##概要
+## 概要
 メモリを再確保せずに格納できる最大の要素数を取得する
 
 
-##戻り値
+## 戻り値
 メモリの再確保をすることなく保持することができる最大の要素数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -44,7 +44,7 @@ int main()
 ```
 * capacity[color ff0000]
 
-###出力
+### 出力
 ```
 3
 3

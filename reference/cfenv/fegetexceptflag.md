@@ -1,4 +1,4 @@
-#fegetexceptflag
+# fegetexceptflag
 * cfenv[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,21 +11,21 @@ namespace std {
 ```
 * fexcept_t[link fexcept_t.md]
 
-##概要
+## 概要
 浮動小数点例外の現在の状態を、実装定義の表現で取得する。
 
 この関数は、現在発生している浮動小数点例外のうち、指定された例外の集合のみを抽出して、実装定義の表現に変換して返す。
 
 
-##効果
+## 効果
 ビット演算のORで複数指定された浮動小数点例外の種類`excepts`の例外発生状態を、実装定義の表現に変換して`flagp`に書き込んで返す。
 
 
-##戻り値
+## 戻り値
 実装定義の表現への変換および書き込みに成功したら`0`、そうでなければ`0`以外の値を返す。
 
 
-##例
+## 例
 ```cpp
 // 標準C++の浮動小数点例外を、
 // Visual C++での浮動小数点例外の形式に変換する
@@ -51,17 +51,17 @@ int main()
 * fexcept_t[link fexcept_t.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
 
-###出力例
+### 出力例
 ```
 zero divided
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??

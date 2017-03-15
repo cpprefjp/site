@@ -1,19 +1,19 @@
-#INTPTR_MIN
+# INTPTR_MIN
 * cstdint[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
-#define INTPTR_MIN implementation-defined
+# define INTPTR_MIN implementation-defined
 ```
 
-##概要
+## 概要
 [`intptr_t`](intptr_t.md) の最小値。
 
 ビット数16をNとして、このマクロの値は-(2<sup>N-1</sup> - 1)以下となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cstdint>
@@ -27,17 +27,17 @@ int main()
 * INTPTR_MIN[color ff0000]
 * std::intptr_t[link intptr_t.md]
 
-###出力例
+### 出力例
 ```
 -9223372036854775808
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang C++11 mode](/implementation.md#clang): 3.3
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4
 - [ICC](/implementation.md#icc): ??

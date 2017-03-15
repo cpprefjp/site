@@ -1,4 +1,4 @@
-#adopt_lock
+# adopt_lock
 * mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `adopt_lock_t`型とその値`adopt_lock`は、ロック済みミューテックスを受け取るためのタグである。
 
 `lock()/unlock()`の呼び出しをRAIIで自動化する[`unique_lock`](unique_lock.md)クラスおよび[`lock_guard`](lock_guard.md)クラスのコンストラクタで`lock()`を呼び出さず、ロックの所有権を移譲するために使用する。
@@ -19,7 +19,7 @@ namespace std {
 [`defer_lock`](defer_lock.md)との違いは、`unique_lock::`[`owns_lock()`](unique_lock/owns_lock.md) `== true`になることである。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -40,15 +40,15 @@ int main()
 * mtx.lock()[link mutex/lock.md]
 * std::unique_lock[link unique_lock.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -57,6 +57,6 @@ int main()
     - 11.0, 12.0は`constexpr`が実装されていないため、代わりに`adopt_lock`には`const`が修飾されている。
 
 
-##参照
+## 参照
 
 

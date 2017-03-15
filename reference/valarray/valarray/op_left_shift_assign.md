@@ -1,4 +1,4 @@
-#operator<<=
+# operator<<=
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -9,14 +9,14 @@ valarray<T>& operator<<=(const valarray<T>& xs); // (1)
 valarray<T>& operator<<=(const T& x);            // (2)
 ```
 
-##概要
+## 概要
 左シフトの複合代入を行う。
 
 - (1) : `*this`の各要素に、`xs`の各要素の値だけ左シフトした結果を代入する。
 - (2) : `*this`の各要素に、`x`の値だけ左シフトした結果を代入する。
 
 
-##効果
+## 効果
 - (1) : 以下のコードと同等のことを行う：
 
 ```cpp
@@ -34,15 +34,15 @@ for (size_t i = 0; i < size(); ++i) {
 ```
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##備考
+## 備考
 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <valarray>
@@ -85,7 +85,7 @@ int main()
 ```
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 

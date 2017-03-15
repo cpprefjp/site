@@ -1,4 +1,4 @@
-#event
+# event
 * ios[meta header]
 * type-alias[meta id-type]
 * std[meta namespace]
@@ -8,7 +8,7 @@
 enum event { erase_event, imbue_event, copyfmt_event };
 ```
 
-##概要
+## 概要
 `event` は　[`register_callback`](register_callback.md) で登録した [`event_callback`](type-event_callback.md) 型のコールバック関数を呼び出す際に、当該関数を呼び出すきっかけとなったイベントの種類を表すための列挙型である。  
 `event` には以下の表のような列挙子値が存在する。
 
@@ -21,7 +21,7 @@ enum event { erase_event, imbue_event, copyfmt_event };
 なお、各イベントが発生する正確なタイミングは、それぞれの関数を参照。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -77,7 +77,7 @@ int main()
 * imbue[link imbue.md]
 * copyfmt[link ../basic_ios/copyfmt.md]
 
-###出力
+### 出力
 ```
 imbue start
 event = imbue_event, str = ss2, index = 1, getloc.name = en_US.UTF-8
@@ -95,18 +95,18 @@ event = erase_event, str = ss1, index = 0, getloc.name = C
 その場合でも、ロケールの名称を当該環境で適切なものに変更すれば動作するはずである。
 
 
-##バージョン
-##言語
+## バージョン
+## 言語
 - C++98
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5.0, 3.6.0, 3.7.0, 3.8.0
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 4.9.2, 5.1.0, 5.2.0, 6.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [`ios_base`](../ios_base.md)`::`[`register_callback`](register_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`event_callback`](type-event_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md)

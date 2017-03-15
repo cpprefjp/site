@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * functional[meta header]
 * std[meta namespace]
 * reference_wrapper[meta class]
@@ -11,16 +11,16 @@ reference_wrapper(T&&) = delete;
 reference_wrapper(const reference_wrapper<T>& x) noexcept;
 ```
 
-##概要
+## 概要
 与えられた参照で、参照オブジェクトを構築する。
 
-##各オーバーロードの詳細
+## 各オーバーロードの詳細
 - `reference_wrapper(T& t) noexcept;`<br/>`t`への参照を保持する`reference_wrapper`オブジェクトを構築する
 - `reference_wrapper(const reference_wrapper<T>& x) noexcept;`<br/>`x.`[`get()`](/reference/functional/reference_wrapper/get.md)への参照を保持する`reference_wrapper`オブジェクトを構築する
 
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -42,17 +42,17 @@ int main()
 ```
 * r.get()[link get.md]
 
-###出力
+### 出力
 ```
 4
 5
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -60,6 +60,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

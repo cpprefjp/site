@@ -1,4 +1,4 @@
-#uninitialized_copy_n
+# uninitialized_copy_n
 * memory[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -12,13 +12,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化して出力する。
 
 入力範囲`[first, first + n)`のコピーを未初期化出力範囲`[result, result + n)`に書き込む。
 
 
-##効果
+## 効果
 
 ```cpp
 for ( ; n > 0; ++result, ++first, --n) {
@@ -29,11 +29,11 @@ for ( ; n > 0; ++result, ++first, --n) {
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 
-##戻り値
+## 戻り値
 `result`
 
 
-###例
+### 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -75,25 +75,25 @@ int main()
 * alloc.destroy[link allocator/destroy.md]
 * alloc.deallocate[link allocator/deallocate.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
-##参照
+## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 

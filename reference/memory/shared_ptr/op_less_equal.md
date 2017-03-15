@@ -1,4 +1,4 @@
-#operator<=
+# operator<=
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,19 +18,19 @@ namespace std {
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
-##概要
+## 概要
 `shared_ptr`において、左辺が右辺以下かを判定する。
 
 比較対象は、`shared_ptr`が指す値ではなく、`shared_ptr`が保持するポインタ値。これは「値ベース(value-based)な比較」と呼ばれる。「所有権ベース(ownership-based)な比較」は、[`owner_before()`](owner_before.md)を参照。
 
 
-##戻り値
+## 戻り値
 - (1) : `!(b < a)`
 - (2) : `!(nullptr < x)`
 - (3) : `!(x < nullptr)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -53,18 +53,18 @@ int main()
 }
 ```
 
-###出力例
+### 出力例
 ```
 false
 false
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.3.6 (`nullptr`バージョン以外), 4.7.4
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0 (`nullptr`バージョン以外), 3.3
 - [ICC](/implementation.md#icc): ?

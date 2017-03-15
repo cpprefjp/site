@@ -1,4 +1,4 @@
-#operator<<
+# operator<<
 * system_error[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -14,11 +14,11 @@ namespace std {
 * error_code[link error_code.md]
 * basic_ostream[link /reference/ostream/basic_ostream.md]
 
-##概要
+## 概要
 左辺の`basic_ostream`オブジェクトに`error_code`オブジェクトを出力する
 
 
-##効果
+## 効果
 ```cpp
 os << ec.category().name() << ':' << ec.value();
 ```
@@ -27,11 +27,11 @@ os << ec.category().name() << ':' << ec.value();
 * value()[link error_code/value.md]
 
 
-##戻り値
+## 戻り値
 `os`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -47,16 +47,16 @@ int main()
 * std::make_error_code[link make_error_code.md]
 * std::errc::invalid_argument[link errc.md]
 
-###出力
+### 出力
 ```
 generic:22
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -64,4 +64,4 @@ generic:22
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照

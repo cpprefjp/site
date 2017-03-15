@@ -1,4 +1,4 @@
-#operator>>
+# operator>>
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
@@ -57,7 +57,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 
 ストリームからの入力またはマニピュレータの実行を行う。
 
@@ -76,20 +76,20 @@ namespace std {
 あるいは、これらの代わりに`basic_string` (`std::string`、`std::wstring`など)に対して`>>`演算子を使用することでも、この危険を回避できる。
 参考: [`>>`演算子 (`basic_string`)](../../string/basic_string/op_istream.md)。
 
-##効果
+## 効果
 
-###マニピュレータ
+### マニピュレータ
 
 1. `pf(*this)`を呼び出す。
 
-###bool値・数値・ポインタ
+### bool値・数値・ポインタ
 
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. `num_get::get`を使用して入力のパース・数値への変換を行う。
     - ただし、`int`と`short`の場合は、`long`を実引数に取るものを使用する。結果が`int`と`short`それぞれの範囲外の値になった場合、`failbit`を追加する。
 1. `num_get::get`から得られた`iostate`値を実引数にして`setstate`関数を呼び出す。
 
-###ストリームバッファ
+### ストリームバッファ
 
 ストリームからの入力を別のストリームバッファに出力する。
 
@@ -102,7 +102,7 @@ namespace std {
 
 入力がなされなかった場合、`setstate(failbit)`を呼び出す。
 
-###文字
+### 文字
 
 文字型`CharT`への参照を実引数として受け取る。
 ただし、`CharT`がcharの場合に限り`unsigned char`および`signed char`への参照も受け付ける。
@@ -112,7 +112,7 @@ namespace std {
 
 入力がなされなかった場合、`setstate(failbit)`を呼び出す。
 
-###文字列
+### 文字列
 
 文字型`CharT`の配列の要素を指し示すポインタを実引数として受け取る。
 ただし、`CharT`が`char`の場合に限り、`unsigned char`および`signed char`の配列の要素を指し示すポインタも受け付ける。
@@ -131,16 +131,16 @@ namespace std {
 
 `width()`の値を変更するには、`setw`マニピュレータまたは`width()`メンバ関数を使用する。
 
-###ストリームへの右辺値参照 (C++11)
+### ストリームへの右辺値参照 (C++11)
 
 `is >> x`を実行する。このオーバーロードは、一時オブジェクトなどに対して`>>`演算子を利用可能にするためのものである。
 
 
-##戻り値
+## 戻り値
 
 `*this`
 
-##例（数値）
+## 例（数値）
 ```cpp
 #include <iostream>
 
@@ -154,17 +154,17 @@ int main() {
 ```
 * std::cin[link /reference/iostream/cin.md]
 
-###入力
+### 入力
 ```
 1
 ```
 
-###出力
+### 出力
 ```
 1が入力されました。
 ```
 
-##例（文字列）
+## 例（文字列）
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -178,25 +178,25 @@ int main() {
 }
 ```
 
-###入力
+### 入力
 ```
 Kerberos
 ```
 
-###出力
+### 出力
 ```
 Kerberoが入力されました。
 ```
 
-##実装例
+## 実装例
 TBD
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 - C++11: `long long`、`unsigned long long`、ストリームへの右辺値参照を実引数として受け取るものが追加された
 
-##関連項目
+## 関連項目
 
 - このほかの`>>`演算子関数
     - [`std::basic_string`に対するもの](../../string/basic_string/op_istream.md)
@@ -204,6 +204,6 @@ TBD
     - [`basic_streambuf`](../../streambuf/basic_streambuf.md)
 
 
-##参照
+## 参照
 - [N2114 `long long` Goes to the Library, Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2114.html)
 

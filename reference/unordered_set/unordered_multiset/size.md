@@ -1,4 +1,4 @@
-#size
+# size
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
@@ -9,23 +9,23 @@
 size_type size() const noexcept;
 ```
 
-##概要
+## 概要
 要素数を取得する。
 
 
-##戻り値
+## 戻り値
 現在 `unordered_multiset` オブジェクトに格納されている要素の数
 
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -48,17 +48,17 @@ int main()
 * begin[link begin.md]
 * end[link end.md]
 
-###出力
+### 出力
 ```
 10
 10
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1
 - [GCC](/implementation.md#gcc): -
@@ -66,7 +66,7 @@ int main()
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 
 | | |
 |-----------------------------------------------|----------------------------|

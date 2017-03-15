@@ -1,4 +1,4 @@
-#load_factor
+# load_factor
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
@@ -9,23 +9,23 @@
 float load_factor() const noexcept;
 ```
 
-##概要
+## 概要
 現在の負荷率（バケットあたりの要素数の平均）を取得する。
 
 
-##戻り値
+## 戻り値
 現在の負荷率（バケットあたりの要素数の平均：[`size`](size.md)`() /` [`bucket_count`](bucket_count.md)`()`）
 
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -62,7 +62,7 @@ int main()
 * bucket_count[link bucket_count.md]
 * insert[link insert.md]
 
-###出力
+### 出力
 ```
 9, 7, 5, 3, 1,
 size is 5, bucket_count is 5, load_factor is 1
@@ -72,11 +72,11 @@ size is 10, bucket_count is 11, load_factor is 0.909091
 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -84,7 +84,7 @@ size is 10, bucket_count is 11, load_factor is 0.909091
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 
 | | |
 |-------------------------------------------|------------------------------------------|

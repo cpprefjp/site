@@ -1,4 +1,4 @@
-#operator<<=
+# operator<<=
 * valarray[meta header]
 * std[meta namespace]
 * mask_array[meta class]
@@ -8,23 +8,23 @@
 void operator<<=(const valarray<T>& xs) const;
 ```
 
-##概要
+## 概要
 左シフトの複合代入を行う。
 
 
-##効果
+## 効果
 元となる`valarray`オブジェクトから参照によって抽出した各要素を、`xs`の各要素の値だけ左シフトする。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##備考
+## 備考
 `valarray`から抽出した要素数と`xs`の要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -51,7 +51,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 01010000
 10100000

@@ -1,4 +1,4 @@
-#common_type
+# common_type
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -16,19 +16,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 変換可能な共通の型を取得する。
 
 
-##要件
+## 要件
 `Types...`の全ての型は完全型であるか、`const/volatile`修飾された(あるいはされていない)`void`でなければならない。
 
 
-##効果
+## 効果
 `common_type`は、`Types...`に含まれる全ての型が暗黙変換可能な型を、メンバ型`type`として定義する。  
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <type_traits>
@@ -54,12 +54,12 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 2
 ```
 
-##定義(C++11)
+## 定義(C++11)
 ```cpp
 template <class ...T>
 struct common_type;
@@ -82,7 +82,7 @@ struct common_type<T, U, V...> {
 * declval[link /reference/utility/declval.md]
 
 
-##定義(C++14)
+## 定義(C++14)
 ```cpp
 template <class ...T>
 struct common_type;
@@ -108,11 +108,11 @@ struct common_type<T, U, V...> {
 * decay_t[link decay.md]
 * declval[link /reference/utility/declval.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
@@ -120,7 +120,7 @@ struct common_type<T, U, V...> {
 	- `common_type_t`は、12.0から。
 
 
-##参照
+## 参照
 - [N2661 A Foundation to Sleep On](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2661.htm)
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)

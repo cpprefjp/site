@@ -1,4 +1,4 @@
-#lock
+# lock
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
@@ -9,11 +9,11 @@
 void lock();
 ```
 
-##概要
+## 概要
 ロックを取得する
 
 
-##効果
+## 効果
 ```cpp
 pm->lock();
 ```
@@ -21,15 +21,15 @@ pm->lock();
 ※`pm`はメンバ変数として保持している、ミューテックスオブジェクトへのポインタ
 
 
-##事後条件
+## 事後条件
 [`owns_lock()`](owns_lock.md) `== true`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 この関数は、`pm->lock()` 関数内で投げられうるあらゆる例外を投げる可能性がある。 
 
 そのほかに、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
@@ -38,7 +38,7 @@ pm->lock();
 - [`resource_deadlock_would_occur`](/reference/system_error/errc.md) ： [`owns_lock()`](owns_lock.md) `== true`の状態でこの関数が呼び出された
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -73,15 +73,15 @@ int main()
 * lock()[color ff0000]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -90,6 +90,6 @@ int main()
     - 11.0, 12.0は、例外の節で説明している`system_error`を投げる処理が実装されていない。
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
@@ -9,23 +9,23 @@
 ~unordered_set();
 ```
 
-##概要
+## 概要
 `unordered_set` が保持している全ての要素に対してデストラクタを実行し、メモリを解放する。
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -33,7 +33,7 @@
 - [ICC](/implementation.md#icc): ?
 - [Visual C++:](/implementation.md#visual_cpp) ?
 
-##参照
+## 参照
 
 |                                        |                |
 |----------------------------------------|----------------|

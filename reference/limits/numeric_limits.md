@@ -1,4 +1,4 @@
-#numeric_limits
+# numeric_limits
 * limits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -77,7 +77,7 @@ namespace std {
 | [`round_style`](numeric_limits/round_style.md)             | 丸めスタイルを取得する | |
 
 
-##参照
+## 参照
 - [N2114 `long long` Goes to the Library, Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2114.html)
 - [LWG Issue 559. `numeric_limits<const T>`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#559)
 

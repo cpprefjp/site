@@ -1,4 +1,4 @@
-#min_element
+# min_element
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -14,19 +14,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `[first, last)`の範囲において、最小要素を指す最初のイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 `*i < *j`もしくは`comp(*i, *j)`の比較によって最小と判断された最初の要素を指すイテレータ
 
 
-##計算量
+## 計算量
 [`max`](/reference/algorithm/max.md)`((last - first) - 1, 0)`回の比較を行う
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <algorithm>
@@ -47,11 +47,11 @@ int main()
 ```
 * std::min_element[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##実装例
+## 実装例
 ```cpp
 template <class ForwardIterator>
 ForwardIterator min_element(ForwardIterator first, ForwardIterator last)
@@ -84,5 +84,5 @@ ForwardIterator min_element(ForwardIterator first, ForwardIterator last, Compare
 }
 ```
 
-##参照
+## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)

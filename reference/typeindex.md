@@ -1,4 +1,4 @@
-#typeindex
+# typeindex
 * typeindex[meta header]
 * cpp11[meta cpp]
 
@@ -10,7 +10,7 @@
 | [`type_index`](typeindex/type_index.md) | 型情報型を連想コンテナのキーとして使用するための型(class) | C++11 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 

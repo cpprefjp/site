@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * scoped_allocator[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,17 +12,17 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`scoped_allocator_adaptor`オブジェクトを等値比較する。
 
 
-##戻り値
+## 戻り値
 `sizeof...(InnerAlloc) == 0`であるならば、`a.`[outer_allocator()](outer_allocator.md) `== b.`[`outer_allocator()`](outer_allocator.md)の結果を返す。
 
 そうでなければ、`a.`[outer_allocator()](outer_allocator.md) `== b.`[`outer_allocator()`](outer_allocator.md) `&& a.`[`inner_allocator()`](inner_allocator.md) `== b.`[`inner_allocator()`]の結果を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -63,16 +63,16 @@ int main()
 * std::basic_string[link /reference/string/basic_string.md]
 * std::char_traits[link /reference/string/char_traits.md]
 
-###出力
+### 出力
 ```
 equal
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

@@ -1,4 +1,4 @@
-#length
+# length
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
@@ -11,11 +11,11 @@ static std::size_t length(const char_type* p);
 * std::size_t[link /reference/cstddef/size_t.md]
 
 
-##概要
+## 概要
 文字列の長さを取得する。
 
 
-##戻り値
+## 戻り値
 ```
 char_traits<char_type>::length(p)
 ```
@@ -23,7 +23,7 @@ char_traits<char_type>::length(p)
 * length[link /reference/string/char_traits/length.md]
 
 
-##例
+## 例
 ```cpp
 #include <regex>
 #include <iostream>
@@ -36,17 +36,17 @@ int main()
 ```
 * length("hello")[color ff0000]
 
-###出力
+### 出力
 ```
 5
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

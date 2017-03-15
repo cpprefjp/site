@@ -1,4 +1,4 @@
-#random_device
+# random_device
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `random_device`クラスは、非決定的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。
 
 `random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
@@ -20,8 +20,8 @@ namespace std {
 実装の制限によって予測不能な乱数生成器を定義できない場合、このクラスは擬似乱数生成器で定義される可能性がある。
 
 
-##メンバ関数
-###構築
+## メンバ関数
+### 構築
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------------|-------|
@@ -30,22 +30,22 @@ namespace std {
 | `void operator()(const random_device&) = delete;`     | 代入演算子。代入不可 | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------|-------|
 | [`operator()`](random_device/op_call.md) | 乱数を生成する | C++11 |
 
 
-###エンジンの特性
+### エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|------------------------|-------|
 | [`entropy`](random_device/entropy.md) | エントロピーを取得する | C++11 |
 
 
-##静的メンバ関数
-###生成の特徴
+## 静的メンバ関数
+### 生成の特徴
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|------------------------|-------|
@@ -53,15 +53,15 @@ namespace std {
 | [`max`](random_device/max.md) | 生成する範囲の最大値を取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
 | `result_type` | 乱数生成結果の符号なし整数型 `unsigned int`。 | C++11 |
 
 
-##例
-###基本的な使い方
+## 例
+### 基本的な使い方
 ```cpp
 #include <iostream>
 #include <random>
@@ -81,7 +81,7 @@ int main()
 * std::random_device[color ff0000]
 * rng()[link random_device/op_call.md]
 
-####出力例
+#### 出力例
 ```
 770203506
 3783995753
@@ -96,7 +96,7 @@ int main()
 ```
 
 
-###パスワードを生成する
+### パスワードを生成する
 ```cpp
 #include <iostream>
 #include <cassert>
@@ -146,23 +146,23 @@ int main()
 * std::endl[link /reference/ostream/endl.md]
 * assert[link /reference/cassert/assert.md]
 
-####出力例
+#### 出力例
 ```
 jyiasder
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
-##参照
+## 参照
 - [/dev/random - Wikipedia](https://ja.wikipedia.org/wiki//dev/random)
 - [Man page of RANDOM](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)
 - [CryptoGenRandom function - MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)

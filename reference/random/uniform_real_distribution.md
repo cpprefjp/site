@@ -1,4 +1,4 @@
-#uniform_real_distribution
+# uniform_real_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `uniform_real_distribution`は、指定された範囲の値が等確率で発生するよう離散分布するクラスである。 
 このクラスは、離散一様分布(Discrete Uniform Distribution)の実数に特化したバージョンである。整数が必要な場合は、[`uniform_int_distribution`](uniform_int_distribution.md)クラスを使用する。
 
@@ -20,8 +20,8 @@ namespace std {
 - `RealType` : 生成する実数の型。
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------------|--------------------|-------|
@@ -30,14 +30,14 @@ namespace std {
 | [`reset`](uniform_real_distribution/reset.md)                             | 状態をリセットする | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------|----------------|-------|
 | [`operator()`](uniform_real_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|----------------------------------|-------|
@@ -48,7 +48,7 @@ namespace std {
 | [`max`](uniform_real_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
@@ -56,7 +56,7 @@ namespace std {
 | `param_type`  | 分布パラメータの型。未規定。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------|----------------------|-------|
@@ -66,7 +66,7 @@ namespace std {
 | [`operator>>`](uniform_real_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <random>
 #include <fstream>
@@ -95,7 +95,7 @@ int main()
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
 * dist(engine)[link uniform_real_distribution/op_call.md]
 
-###出力
+### 出力
 ```
 ```
 
@@ -108,11 +108,11 @@ int main()
 1,000個程度のデータのため、ある程度は偏りがあるが、誤差の範囲でほぼ等確率で0.0から1.0までの値が生成されていることがわかる。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2

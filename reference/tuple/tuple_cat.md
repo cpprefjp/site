@@ -1,4 +1,4 @@
-#tuple_cat
+# tuple_cat
 * tuple[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -14,24 +14,24 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 複数の[`tuple`](../tuple.md)を繋ぎ合わせ、1つの[`tuple`](../tuple.md)にする。
 
 
-##要件
+## 要件
 - `Tuples...`の全ての型が`std::tuple<Args...>`であること。
 - `Args...`の各型が左辺値参照であればコピー構築可能、そうでなければムーブ構築可能であること。
 
 
-##戻り値
+## 戻り値
 `Tuples...`の全ての`tuple`型の要素型全てを取り出し、`std::`[`forward`](/reference/utility/forward.md)`<T>(x)`して構築される1つの`tuple`オブジェクト。
 
 
-##備考
+## 備考
 実装によっては、`Tuples...` パラメータパックに含めることのできる型として、他のタプルライクな型（[`pair`](/reference/utility/pair.md)や[`array`](/reference/array.md)のような）を追加的にサポートする可能性がある。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <tuple>
@@ -56,7 +56,7 @@ int main()
 ```
 * tuple_cat[color ff0000]
 
-###出力
+### 出力
 ```
 1
 Hello
@@ -65,11 +65,11 @@ a
 World
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -77,6 +77,6 @@ World
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 

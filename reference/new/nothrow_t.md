@@ -1,4 +1,4 @@
-#nothrow_t
+# nothrow_t
 * new[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `nothrow_t`は、`new`失敗時に例外を送出させないための型である。
 
 `nothrow`は、`std::nothrow_t`型の定数であり、`new`キーワードに指定するタグとして使用する。
@@ -51,7 +51,7 @@ int main()
 * std::nothrow[color ff0000]
 * std::logic_error[link /reference/stdexcept.md]
 
-###出力
+### 出力
 ```
 logic_error: ThrowObj::ThrowObj()
 ```

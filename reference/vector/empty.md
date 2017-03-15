@@ -1,4 +1,4 @@
-#empty
+# empty
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -8,27 +8,27 @@
 bool empty() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナが空かどうかを判定する
 
 
-##戻り値
+## 戻り値
 コンテナが空であれば`true`、そうでなければ`false`を返す。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -51,13 +51,13 @@ int main()
 ```
 * empty[color ff0000]
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
-##備考
+## 備考
 `a.empty()` と `a.begin() == a.end()` は同じ結果になる。
 
 

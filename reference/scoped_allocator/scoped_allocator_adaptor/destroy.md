@@ -1,4 +1,4 @@
-#destroy
+# destroy
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
@@ -10,11 +10,11 @@ template <class T>
 void destroy(T* p);
 ```
 
-##概要
+## 概要
 オブジェクトを破棄する。
 
 
-##効果
+## 効果
 
 この関数において、以下の名称定義を行う。
 
@@ -28,7 +28,7 @@ OUTERMOST_ALLOC_TRAITS(*this)::destroy(OUTERMOST(*this), p)
 ```
 * destroy[link /reference/memory/allocator_traits/destroy.md]
 
-##例
+## 例
 ```cpp
 #include <vector>
 #include <string>
@@ -80,15 +80,15 @@ int main()
 * alloc.construct[link construct.md]
 * alloc.deallocate[link deallocate.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

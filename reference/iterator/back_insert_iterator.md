@@ -1,4 +1,4 @@
-#back_insert_iterator
+# back_insert_iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,10 +14,10 @@ namespace std {
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
-##概要
+## 概要
 `back_insert_iterator`は出力イテレータであり、代入の際にコンテナの`push_back()`メンバ関数を呼び出すイテレータアダプタである。
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -27,13 +27,13 @@ namespace std {
 | [`operator*`](back_insert_iterator/op_deref.md) | 間接参照演算子 | |
 | [`operator++`](back_insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
-##protectedメンバ変数
+## protectedメンバ変数
 
 | 変数名 | 型 | 対応バージョン |
 |-------------|--------------|-------|
 | `container` | `Container*` | |
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|---------------------------------|-------|
@@ -44,14 +44,14 @@ namespace std {
 | `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) | |
 | `reference`         | `void` | |
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------|-----------------------------------------------------|-------|
 | [`back_inserter`](back_inserter.md) | `back_insert_iterator`のヘルパ関数 | |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -78,12 +78,12 @@ int main()
 * src.begin()[link /reference/vector/begin.md]
 * src.end()[link /reference/vector/end.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##参照
+## 参照
 

@@ -1,4 +1,4 @@
-#operator+
+# operator+
 * chrono[meta header]
 * std::chrono[meta namespace]
 * duration[meta class]
@@ -9,15 +9,15 @@
 constexpr duration operator+() const;
 ```
 
-##概要
+## 概要
 正の`duration`を生成する
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -38,16 +38,16 @@ int main()
 * nano[link /reference/ratio/si_prefix.md]
 * count()[link count.md]
 
-###出力
+### 出力
 ```
 2
 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC: 4.5.1, 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

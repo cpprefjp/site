@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * deque[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,15 +10,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `deque`オブジェクトの等値比較を行う。
 
 
-##要件
+## 要件
 型`T`が`==`で比較可能であること。
 
 
-##効果
+## 効果
 - C++03 :
 
     ```cpp
@@ -39,15 +39,15 @@ equal(x.begin(), x.end(), y.begin(), y.end());
 * end()[link end.md]
 
 
-##戻り値
+## 戻り値
 `x`と`y`の要素数および要素の値が等しければ`true`、そうでなければ`false`を返す。
 
 
-##計算量
+## 計算量
 `x.`[`size()`](size.md)に対して線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -69,13 +69,13 @@ int main ()
 ```
 * ==[color ff0000]
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
-##参照
+## 参照
 - [LWG Issue 2257. Simplify container requirements with the new algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2257)
     - C++14から、2つ目の範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
 

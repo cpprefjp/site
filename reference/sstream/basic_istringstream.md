@@ -1,4 +1,4 @@
-#basic_istringstream
+# basic_istringstream
 * sstream[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -17,10 +17,10 @@ namespace std {
 * allocator[link /reference/memory/allocator.md]
 * basic_istream[link /reference/istream/basic_istream.md]
 
-##概要
+## 概要
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前          | 説明                                       | 対応バージョン |
 |---------------|--------------------------------------------|----------------|
@@ -32,14 +32,14 @@ namespace std {
 | `str`         | 文字列オブジェクトの設定・取得             | |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前   | 説明                          | 対応バージョン |
 |--------|-------------------------------|----------------|
 | `swap` | 2つのオブジェクトを入れ替える | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前             | 説明                          | 対応バージョン |
 |------------------|-------------------------------|----------------|
@@ -50,11 +50,11 @@ namespace std {
 | `traits_type`    | テンプレート仮引数`Traits`    | |
 | `allocator_type` | テンプレート仮引数`Allocator` | |
 
-##例
+## 例
 ```cpp
 ```
 
-###出力
+### 出力
 ```
 ```
 

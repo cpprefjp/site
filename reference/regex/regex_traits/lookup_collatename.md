@@ -1,4 +1,4 @@
-#lookup_collatename
+# lookup_collatename
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
@@ -12,15 +12,15 @@ string_type lookup_collatename(
                 ForwardIterator last) const;
 ```
 
-##概要
+## 概要
 与えられた文字の範囲`[first, last)`に対応する照合名を取得する。
 
 
-##戻り値
+## 戻り値
 文字範囲`[first, last)`の文字列に対応する照合名があったらそれを返す。そのような照合名がない場合は、空文字列を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -41,17 +41,17 @@ int main()
 * input.begin()[link /reference/string/basic_string/begin.md]
 * input.end()[link /reference/string/basic_string/end.md]
 
-###出力
+### 出力
 ```
 ~
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1.0
 - [ICC](/implementation.md#icc): ??

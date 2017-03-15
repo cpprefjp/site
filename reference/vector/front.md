@@ -1,4 +1,4 @@
-#front
+# front
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -9,23 +9,23 @@ reference front();
 const_reference front() const;
 ```
 
-##概要
+## 概要
 先頭要素への参照を取得する。
 
 
-##戻り値
+## 戻り値
 先頭要素への参照
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##備考
+## 備考
 `a.front()` と `*a.begin()` は同じ結果になる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -39,7 +39,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 3
 ```

@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
@@ -71,11 +71,11 @@ unordered_multimap(initializer_list<value_type> il,
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 `unordered_multimap` オブジェクトを構築する
 
 
-##要件
+## 要件
 - ハッシュ関数オブジェクト `hasher` が引数として与えられなかった場合、`hasher` は DefaultConstructible であること。
 
 - キー比較用関数オブジェクト `key_equal` が引数として与えられなかった場合、`key_equal` は DefaultConstructible であること。
@@ -91,7 +91,7 @@ unordered_multimap(initializer_list<value_type> il,
 - (8) の形式の場合、`value_type` はこの `unordered_multimap` に MoveInsertable であること。（但し、備考参照）
 
 
-##効果
+## 効果
 
 - (1)   バケット数の最低が実装依存の、要素を持たない空の `unordered_multimap` を構築する。
 
@@ -137,7 +137,7 @@ unordered_multimap(initializer_list<value_type> il,
 - (15)  (5) の形式を `unordered_multimap(il, n, hf, key_equal(), a)` として呼び出した場合と同等である。
 
 
-##事後条件
+## 事後条件
 以下では構築されたオブジェクトを `u` とする。
 
 - (1) `u.`[`empty`](empty.md)`() == true`。
@@ -175,7 +175,7 @@ unordered_multimap(initializer_list<value_type> il,
     `u.`[`bucket_count`](bucket_count.md)`() >= n`。
 
 
-##計算量
+## 計算量
 - (1)   定数
 - (2)   定数
 - (3)   平均的には O(n)、ここで、n は `std::`[`distance`](/reference/iterator/distance.md)`(first, last)`。
@@ -196,7 +196,7 @@ unordered_multimap(initializer_list<value_type> il,
 - (15)  (5) の形式を `unordered_multimap(il, n, hf, key_equal(), a)` として呼び出した場合と同等。
 
 
-##備考
+## 備考
 - (8) の形式の場合、MoveInsertable が要件となっているが、`rv.`[`get_allocator`](get_allocator.md)`() == a` の場合にはムーブコンストラクタと同様の挙動となるため、MoveInsertable ではなくても良いと思われる。
 
 - C++14 では、デフォルトコンストラクタを (1) + (2) の形式から (1) の形式に分離して残りを (2) の形式（`n` のデフォルト引数を削除）にした。
@@ -209,11 +209,11 @@ std::unordered_multimap<int, char> m = {};
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1
 - [GCC](/implementation.md#gcc): -
@@ -221,11 +221,11 @@ std::unordered_multimap<int, char> m = {};
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-####備考
+#### 備考
 libstdc++ には 4.8.2 現在、(6)、(7)、(8)の形式はない。
 
 
-##関連項目
+## 関連項目
 
 |                                            |              |
 |--------------------------------------------|--------------|
@@ -233,7 +233,7 @@ libstdc++ には 4.8.2 現在、(6)、(7)、(8)の形式はない。
 | [`operator=`](op_assign.md)              | 代入演算子   |
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (9)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  

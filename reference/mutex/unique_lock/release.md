@@ -1,4 +1,4 @@
-#release
+# release
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
@@ -9,26 +9,26 @@
 mutex_type* release() noexcept;
 ```
 
-##概要
+## 概要
 ミューテックスの所有権を放棄する。 
 
 この関数を実行することで、`unique_lock`オブジェクトはミューテックスのアンロック責任を放棄する。この関数を実行したユーザーは、自分でミューテックスをアンロックする必要がある。
 
 
-##事後条件
+## 事後条件
 - 保持しているミューテックスオブジェクトへのポインタが`NULL`になること
 - [`owns_lock()`](owns_lock.md) `== false`になること
 
 
-##戻り値
+## 戻り値
 保持しているミューテックスオブジェクトへのポインタを返す
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -71,16 +71,16 @@ int main()
 * release()[color ff0000]
 * m->unlock()[link /reference/mutex/mutex/unlock.md]
 
-###出力
+### 出力
 ```
 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -88,6 +88,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [what are the use cases for `std::unique_lock::release`? - StackOverflow](http://stackoverflow.com/questions/28491075/what-are-the-use-cases-for-stdunique-lockrelease)
 

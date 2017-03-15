@@ -1,4 +1,4 @@
-#fail
+# fail
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -8,16 +8,16 @@
 bool fail() const;
 ```
 
-##概要
+## 概要
 現在の状態値のうち`failbit`と`badbit`を判定する。
 
-##戻り値
+## 戻り値
 `failbit`と`badbit`のいずれかまたは両方が設定されていれば`true`、さもなくば`false`。
 
-##備考
+## 備考
 もし、本当に`failbit`のみの判定を行う必要があれば、[`rdstate`](rdstate.md)`()`を使って`(`[`rdstate`](rdstate.md)`() & failbit) != 0`などと記述すればよい。
 
-##実装例
+## 実装例
 ```cpp
 bool fail() const {
   return (rdstate() & (failbit | badbit)) != 0;
@@ -25,11 +25,11 @@ bool fail() const {
 ```
 * rdstate[link rdstate.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)

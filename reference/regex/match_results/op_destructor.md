@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,23 +9,23 @@
 ~match_results();
 ```
 
-##概要
+## 概要
 `match_results` オブジェクトを破棄する。
 
 
-##効果
+## 効果
 `match_results` が保持しているすべての要素に対してデストラクタを実行し、メモリを解放する。
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

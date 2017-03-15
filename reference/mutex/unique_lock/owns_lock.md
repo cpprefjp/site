@@ -1,4 +1,4 @@
-#owns_lock
+# owns_lock
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
@@ -9,19 +9,19 @@
 bool owns_lock() const noexcept;
 ```
 
-##概要
+## 概要
 ロックを取得しているかを確認する
 
 
-##戻り値
+## 戻り値
 ロックが取得済みであれば`true`、そうでなければ`false`を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <mutex>
@@ -54,15 +54,15 @@ int main()
 * lk.lock()[link lock.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -70,6 +70,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

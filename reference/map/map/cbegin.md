@@ -1,4 +1,4 @@
-#cbegin
+# cbegin
 * map[meta header]
 * std[meta namespace]
 * map[meta class]
@@ -10,21 +10,21 @@ const_iterator cbegin() const noexcept;
 ```
 
 
-##概要
+## 概要
 `map` コンテナの先頭のキーと要素のpairを参照するイテレータを返す。 
 内部的に、`map`コンテナは要素を下位から上位へと並べており、従って `cbegin()` は `map` 内の最下位のキーにあたるpairのイテレータを返す。
 
 
-##戻り値
+## 戻り値
 コンテナの先頭要素へのイテレータ。
 `const_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
-##計算量
+## 計算量
 定数時間。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -51,7 +51,7 @@ int main()
 * cbegin()[color ff0000]
 * m.cend()[link cend.md]
 
-###出力
+### 出力
 ```
 1 A
 2 B
@@ -63,7 +63,7 @@ int main()
 8 H
 ```
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
@@ -71,7 +71,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 
 | 名前 | 説明 |
 |------------------------------------------------------------------------------------------------|--------------------------------------------------|

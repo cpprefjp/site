@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * stack[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,26 +11,26 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの `stack` オブジェクトを入れ替える。
 
 
-##効果
+## 効果
 ```cpp
 x.swap(y)
 ```
 * swap[link swap.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 `x.`[`swap`](swap.md)`(y)` が例外を投げない場合、この関数は決して例外を投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <stack>
@@ -72,17 +72,17 @@ int main()
 * top()[link top.md]
 * pop()[link pop.md]
 
-###出力
+### 出力
 ```
 x : 1 7 2 
 y : 4 1 3 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0

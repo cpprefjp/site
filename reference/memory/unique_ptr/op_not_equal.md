@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,16 +18,16 @@ namespace std {
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
-##概要
+## 概要
 非等値比較。
 
 
-##戻り値
+## 戻り値
 - (1) : `a.`[`get()`](get.md) `!=` `b.`[`get()`](get.md)
 - (2), (3) : `static_cast<bool>(x)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -51,18 +51,18 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 not equal
 p3 is not nullptr
 p3 is not nullptr
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7 (`nullptr`バージョン以外), 4.6.4
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

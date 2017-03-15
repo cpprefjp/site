@@ -1,4 +1,4 @@
-#operator<<
+# operator<<
 * bitset[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,11 +12,11 @@ namespace std {
 ```
 * basic_ostream[link /reference/ostream/basic_ostream.md]
 
-##概要
+## 概要
 2進数表記でストリームに出力する。
 
 
-##戻り値
+## 戻り値
 
 ```cpp
 os << x.template to_string<CharT, Traits, allocator<CharT>>(
@@ -31,7 +31,7 @@ os << x.template to_string<CharT, Traits, allocator<CharT>>(
 * widen[link /reference/locale/ctype/widen.md.nolink]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -44,11 +44,11 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 1010
 ```
 
 
-##参照
+## 参照
 

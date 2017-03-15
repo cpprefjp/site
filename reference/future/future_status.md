@@ -1,4 +1,4 @@
-#future_status
+# future_status
 * future[meta header]
 * std[meta namespace]
 * enum[meta id-type]
@@ -14,7 +14,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 [`future`](future.md)オブジェクトの状態値。
 
 | 列挙値 | 説明 |
@@ -24,11 +24,11 @@ namespace std {
 | `deferred` | 処理する関数が遅延実行指定されている |
  
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -36,6 +36,6 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

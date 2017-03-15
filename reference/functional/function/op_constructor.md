@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
@@ -32,14 +32,14 @@ function(allocator_arg_t, const Alloc& alloc, F f);                // (10)
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
-##要件
+## 要件
 - (5), (10) :
     - `F`はコピー構築可能であること。
     - `F`のコピーコンストラクタとデストラクタは、例外を投げるべきではない。
     - C++11まで : `F`は、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること。
 
 
-##効果
+## 効果
 - (1), (2) : 関数を持たない空の`function`オブジェクトを構築する。この方法で構築した後、[`operator bool`](op_bool.md)は`false`を返す。
 - (3) : `f`が保持する関数、または関数オブジェクトをコピーする。
 - (4) : `f`が保持する状態を`*this`に移動する。移動された後の`f`は、未規定な値を持つ有効な状態となる。
@@ -49,17 +49,17 @@ function(allocator_arg_t, const Alloc& alloc, F f);                // (10)
 - (10) : アロケータを設定する。`f`がヌルの関数ポインタ、もしくはメンバポインタである場合、構築後の[`operator bool`](op_bool.md)は`false`を返す。`f`が有効な関数ポインタ、メンバポインタ、もしくは関数オブジェクトである場合は、`f`が持つターゲットを`*this`に移動する。
 
 
-##例外
+## 例外
 - (3), (8) : `f`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)か関数ポインタを保持している場合は、例外を投げるべきではない。`f`が関数オブジェクトを保持している場合は、そのコピーコンストラクタが[`bad_alloc`](/reference/new/bad_alloc.md)やその他の例外を投げる可能性がある。
 - (10) : `f`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)か関数ポインタを保持している場合は、例外を投げるべきではない。`f`が関数オブジェクトを保持している場合は、そのコピーコンストラクタもしくはムーブコンストラクタが[`bad_alloc`](/reference/new/bad_alloc.md)やその他の例外を投げる可能性がある。
 
 
-##備考
+## 備考
 - (5), (10) : 
     - C++14 : `F`が、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトでない場合、この関数はオーバーロード解決から除外される。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <iostream>
@@ -206,7 +206,7 @@ int main()
 * std::allocator_arg[link /reference/memory/allocator_arg_t.md]
 * std::allocator[link /reference/memory/allocator.md]
 
-###出力
+### 出力
 ```
 (3) : 1
 (4) : 1
@@ -220,18 +220,18 @@ int main()
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6(アロケータを受け取るバージョンは、4.8.2時点でサポートされていない)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [N2308 Adding allocator support to `std::function` for C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2308.html)
 - [LWG Issue 2132. `std::function` ambiguity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132)
     - C++14から、(5)と(10)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。

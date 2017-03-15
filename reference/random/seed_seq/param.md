@@ -1,4 +1,4 @@
-#param
+# param
 * random[meta header]
 * std[meta namespace]
 * seed_seq[meta class]
@@ -10,11 +10,11 @@ template <class OutputIterator>
 void param(OutputIterator dest) const;
 ```
 
-##概要
+## 概要
 シード列を取得する。
 
 
-##効果
+## 効果
 32ビット単位になったシード列を、以下の式で`dest`にコピーする。
 
 ```cpp
@@ -25,15 +25,15 @@ copy(v.begin(), v.end(), dest);
 ※ `v`は、メンバ変数として保持される、`vector<result_type>`型のシード列オブジェクトである。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 - C++14 : `OutputIterator`要件のオブジェクト`dest`への操作が、例外を投げる可能性がある
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -66,18 +66,18 @@ int main()
 * seed_data.begin()[link /reference/vector/begin.md]
 * seed_data.end()[link /reference/vector/end.md]
 
-###出力
+### 出力
 ```
 1
 2
 4294967295
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -85,7 +85,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG Issue 2180. Exceptions from `std::seed_seq` operations](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2180)
 
 

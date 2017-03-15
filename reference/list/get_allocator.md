@@ -1,4 +1,4 @@
-#get_allocator
+# get_allocator
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -9,19 +9,19 @@ allocator_type get_allocator() const;          // C++03
 allocator_type get_allocator() const noexcept; // C++11
 ```
 
-##概要
+## 概要
 このコンテナで使用されているアロケータオブジェクトを取得する。
 
 
-##戻り値
+## 戻り値
 このコンテナで使用されているアロケータオブジェクト
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <list>
@@ -39,17 +39,17 @@ int main()
 * get_allocator()[color ff0000]
 * std::allocator[link /reference/memory/allocator.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?

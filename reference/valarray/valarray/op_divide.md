@@ -1,4 +1,4 @@
-#operator/
+# operator/
 * valarray[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -16,7 +16,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `valarray`において、左辺と右辺を除算する。
 
 - (1) : `xs`の各要素と、`ys`の各要素を除算する。
@@ -24,7 +24,7 @@ namespace std {
 - (3) : `x`と、`ys`の各要素を除算する。
 
 
-##戻り値
+## 戻り値
 - (1) : 以下のコードと同等のことを行う：
 
 ```cpp
@@ -56,11 +56,11 @@ return result;
 ```
 
 
-##備考
+## 備考
 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -99,7 +99,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 valarray/valarray : {4,2,2}
 valarray/int : {2,2,3}

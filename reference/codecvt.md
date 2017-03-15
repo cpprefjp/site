@@ -1,4 +1,4 @@
-#codecvt
+# codecvt
 * codecvt[meta header]
 * cpp11[meta cpp]
 
@@ -11,7 +11,7 @@
 | [`codecvt_utf16`](codecvt/codecvt_utf16.md) | UTF-16への文字コード変換(class template) | C++11 |
 | [`codecvt_utf8_utf16`](codecvt/codecvt_utf8_utf16.md) | UTF-8とUTF-16間での文字コード変換(class template) | C++11 |
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 

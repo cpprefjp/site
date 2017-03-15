@@ -1,4 +1,4 @@
-#minmax_element
+# minmax_element
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -17,21 +17,21 @@ namespace std {
 ```
 * pair[link /reference/utility/pair.md]
 
-##概要
+## 概要
 `[first, last)` の範囲において、最小要素を指すイテレータと最大要素を指すイテレータの組を取得する。
 
 
-##戻り値
+## 戻り値
 `operator<` もしくは `comp` を比較基準とした際の、最小の要素を指すイテレータを `first`、最大の要素を指すイテレータを `second` に持つ [`pair`](/reference/utility/pair.md) オブジェクトを返す。
 
 ただし、`first == last` の場合には、[`make_pair`](/reference/utility/make_pair.md)`(first, first)`を返す。
 
 
-##計算量
+## 計算量
 `n` を範囲の要素数とする場合、[`max`](max.md)`(3(n / 2) - 1, 0)` 回の述語適用を行う。
 
 
-##備考
+## 備考
 - `comp` は 2 引数の関数オブジェクトで、1 番目の引数が 2 番目の引数「より小さい」場合に `true` を、そうでない場合に `false` を返すものとして扱われる。
 - 最小の要素が複数ある場合、[`min_element`](min_element.md) と同様、最も左側（`first` に近い方）にある要素を指すイテレータを返す。  
 	一方、最大の要素が複数ある場合、[`max_element`](max_element.md) と**異なり**、最も右側（`last` に近い方）にあるイテレータを返す。
@@ -39,7 +39,7 @@ namespace std {
 	ただし、上記の通り最大の要素に関しては [`max_element`](max_element.md) と結果が異なる可能性があるため、注意する必要がある。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <algorithm>
@@ -62,12 +62,12 @@ int main()
 ```
 * std::minmax_element[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class ForwardIterator, class Compare>
 std::pair<ForwardIterator, ForwardIterator>
@@ -132,11 +132,11 @@ minmax_element(ForwardIterator first, ForwardIterator last)
 * std::pair[link /reference/utility/pair.md]
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -144,7 +144,7 @@ minmax_element(ForwardIterator first, ForwardIterator last)
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [N1840 C++0x Proposal: Function template `std::minmax` and / or algorithm `std::minmax_element`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1840.pdf)
 - [N1990 Proposed Text for `minmax` (N1840)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1990.htm)
 - [LWG Issue 715. `minmax_element` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#715)

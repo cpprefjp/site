@@ -1,4 +1,4 @@
-#mismatch
+# mismatch
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -32,11 +32,11 @@ namespace std {
 * pair[link /reference/utility/pair.md]
 
 
-##概要
+## 概要
 2つのシーケンスが一致していない場所を検索する。
 
 
-##戻り値
+## 戻り値
 `last2`が渡されなかった場合は、`last2 = first2 + (last1 - first1)`とする。
 
 `[first1,last1)` 内にあるイテレータ `i` と、`j == first2 + (i - first1)` であるイテレータ `j` について、
@@ -48,11 +48,11 @@ namespace std {
 そのようなイテレータが見つからなかった場合は `last1` と `first2 + (last1 - first1)` のペアを返す。
 
 
-##計算量
+## 計算量
 最大で `last1 - first1` 回の対応する比較もしくは述語が適用される。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -91,7 +91,7 @@ int main() {
 * std::mismatch[color ff0000]
 * std::to_string[link /reference/string/to_string.md]
 
-###出力
+### 出力
 ```
 mismatch index: 2
 mismatch value: (3,4)
@@ -101,7 +101,7 @@ mismatch value: (end,2)
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator1, class InputIterator2>
 std::pair<InputIterator1, InputIterator2> mismatch(
@@ -122,12 +122,12 @@ std::pair<InputIterator1, InputIterator2> mismatch(
 }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 - C++14: 2つ目の終端のイテレータ`last2`を実引数に取るオーバーロードの追加。
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [GCC, C++11 mode](/implementation.md#gcc): ?
@@ -135,7 +135,7 @@ std::pair<InputIterator1, InputIterator2> mismatch(
 - [Visual C++](/implementation.md#visual_cpp): 8.0, 9.0, 10.0, 11.0, 12.0, 14.0
     - C++14で追加されたオーバーロードは14.0から実装されている。
 
-##参照
+## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
     - C++14から、`last2`を受け取るオーバーロードを追加。
 

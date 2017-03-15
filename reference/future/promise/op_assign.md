@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * future[meta header]
 * std[meta namespace]
 * promise[meta class]
@@ -10,20 +10,20 @@ promise& operator=(promise&& rhs) noexcept;      // (1)
 promise& operator=(const promise& rhs) = delete; // (2)
 ```
 
-##概要
+## 概要
 - (1) : ムーブ代入演算子。
 - (2) : コピー代入演算子。コピー禁止。
 
 
-##効果
+## 効果
 - (1) : 現在の共有状態を放棄し、`promise(std::`[`move`](/reference/utility/move.md)`(rhs)).swap(*this)`する。
 
 
-##戻り値
+## 戻り値
 - (1) : `*this`
 
 
-##例
+## 例
 ```cpp
 #include <utility>
 #include <future>
@@ -37,15 +37,15 @@ int main()
 ```
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -53,6 +53,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#basic_iostream
+# basic_iostream
 * istream[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -18,7 +18,7 @@ namespace std {
 * basic_ostream[link ../ostream/basic_ostream.md]
 * char_traits[link ../string/char_traits.md]
 
-##概要
+## 概要
 `basic_iostream`は、入出力両方が可能なストリームを表現するクラスである。
 すなわち、`rdbuf()`が指し示すストリームバッファオブジェクトに対する読み取り操作・書き込み操作を提供する。
 入力操作は[`basic_istream`](basic_istream.md)から、出力操作は[`basic_ostream`](../ostream/basic_ostream.md)から継承している。
@@ -31,7 +31,7 @@ namespace std {
 | `iostream`  | `char`型。ASCII、UTF-8等のマルチバイト文字列や、バイナリデータとして使用する。 | |
 | `wiostream` | `wchar_t`型。ワイド文字列として使用する。                                      | |
 
-##メンバ
+## メンバ
 
 基底クラスも参照のこと。
 
@@ -40,7 +40,7 @@ namespace std {
 - [`basic_istream`](basic_istream.md)
 - [`basic_ostream`](../ostream/basic_ostream.md)
 
-###型
+### 型
 
 多重継承による曖昧さを解消するため、`basic_ios`と同じ内容でこのクラスでも定義されている。
 
@@ -52,7 +52,7 @@ namespace std {
 | `off_type`    | `Traits::off_type`の別名         | C++11          |
 | `traits_type` | テンプレート仮引数`Traits`の別名 | C++11          |
 
-###構築・破棄
+### 構築・破棄
 
 | 名前                                                | 説明           | 対応バージョン |
 |-----------------------------------------------------|----------------|----------------|
@@ -65,7 +65,7 @@ namespace std {
 - ムーブコンストラクタ・ムーブ代入演算子と`swap`はprotectedで定義されている。
 
 
-##参照
+## 参照
 
 - 基底クラス
     - [`ios_base`](../ios/ios_base.md)

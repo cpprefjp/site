@@ -1,4 +1,4 @@
-#find
+# find
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -10,19 +10,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 指定された値を検索する。
 
 
-##戻り値
+## 戻り値
 `[first,last)` 内のイテレータ i について、`*i == value` であるような最初のイテレータを返す。そのようなイテレータが見つからなかった場合は `last` を返す。
 
 
-##計算量
+## 計算量
 最大で `last - first` 回比較を行う
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -40,13 +40,13 @@ int main() {
 ```
 * std::find[color ff0000]
 
-###出力
+### 出力
 ```
 found: 1
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class T>
 InputIterator find(InputIterator first, InputIterator last, const T& value) {

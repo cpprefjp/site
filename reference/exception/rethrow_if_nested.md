@@ -1,4 +1,4 @@
-#rethrow_if_nested
+# rethrow_if_nested
 * exception[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,12 +11,12 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 入れ子になった例外が存在する場合に、入れ子になった例外を送出する
 
 
 
-##効果
+## 効果
 型`E`が[`nested_exception`](/reference/exception/nested_exception.md)を継承した型だった場合、以下の処理を行う：
 
 ```cpp
@@ -28,11 +28,11 @@ dynamic_cast<const nested_exception&>(e).rethrow_nested()
 そうでなければ何もしない。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <exception>
@@ -100,17 +100,17 @@ int main()
 * std::throw_with_nested[link throw_with_nested.md]
 * std::current_exception()[link current_exception.md]
 
-###出力
+### 出力
 ```
 outer
 inner
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -118,6 +118,6 @@ inner
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#uses_allocator
+# uses_allocator
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`がアロケータを使用するかを調べる。
 
 このクラスが[`true_type`](/reference/type_traits/true_type.md)から派生する場合、以下のコンストラクタ初期化が可能である：
@@ -22,11 +22,11 @@ namespace std {
 このクラスは、[`scoped_allocator_adaptor`](/reference/scoped_allocator/scoped_allocator_adaptor.md)クラスで使用される。
 
 
-##効果
+## 効果
 このクラスは、型`T`が`public`なメンバ型`allocator_type`を持っており、そのアロケータ型が`Alloc`に変換可能であれば[`true_type`](/reference/type_traits/true_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/false_type.md)から派生する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -52,16 +52,16 @@ int main()
 * std::allocator[link allocator.md]
 * std::allocator_arg_t[link allocator_arg_t.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
 - [ICC](/implementation.md#icc): ??

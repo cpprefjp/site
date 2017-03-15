@@ -1,4 +1,4 @@
-#iostream
+# iostream
 * iostream[meta header]
 
 `<iostream>`ヘッダは、標準入出力オブジェクトを提供する。
@@ -14,7 +14,7 @@
 
 なお、[`basic_iostream`、`iostream`、`wiostream`](istream/basic_istream.md)は[`<istream>`](istream.md)で定義されている。
 
-##標準入出力オブジェクト
+## 標準入出力オブジェクト
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|--------------------------------------------------------------------|-------|

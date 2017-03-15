@@ -1,4 +1,4 @@
-#basic_streambuf
+# basic_streambuf
 * streambuf[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,7 +14,7 @@ namespace std {
 ```
 * char_traits[link ../string/char_traits.md]
 
-##概要
+## 概要
 `basic_streambuf`は、ストリームバッファを表現するクラスである。
 入力ストリーム・出力ストリームに対して、実際の入出力機能を提供する。
 
@@ -26,7 +26,7 @@ namespace std {
 | `streambuf`  | `char`型。ASCII、UTF-8等のマルチバイト文字列や、バイナリデータとして使用する。 | |
 | `wstreambuf` | `wchar_t`型。ワイド文字列として使用する。                                      | |
 
-###ストリームバッファについて
+### ストリームバッファについて
 
 `basic_streambuf`はストリームバッファを取り扱うクラステンプレートである。
 ストリームバッファは入力列と出力列からなる。
@@ -39,13 +39,13 @@ namespace std {
 
 たとえば`basic_filebuf`では、ファイルの内容を列全体と見なし、basic_filebuf内でバッファリングしている部分が先頭・現在位置・終端の3つのポインタで指し示されるという構成になる。
 
-##メンバ
+## メンバ
 
 - publicな関数: 主に`basic_streambuf`を利用する側に対するもの。
 - protectedな関数: `basic_streambuf`の派生クラスを作る側に対するもの。
 - protected virtualな関数: `basic_streambuf`の派生クラスを作る際に必要に応じてオーバーライドするもの。
 
-###型
+### 型
 
 | 名前          | 説明                       | 対応バージョン |
 |---------------|----------------------------|----------------|
@@ -55,7 +55,7 @@ namespace std {
 | `off_type`    | `Traits::off_type`         |                |
 | `traits_type` | テンプレート仮引数`Traits` |                |
 
-###構築・破棄
+### 構築・破棄
 
 | 名前                                                  | 説明                       | 対応バージョン |
 |-------------------------------------------------------|----------------------------|----------------|
@@ -64,7 +64,7 @@ namespace std {
 | `operator=`                                           | コピー代入 (protected)     | C++11          |
 | `swap`                                                | 値の交換 (protected)       | C++11          |
 
-###ロケール
+### ロケール
 
 | 名前                                      | 説明                                     | 対応バージョン |
 |-------------------------------------------|------------------------------------------|----------------|
@@ -136,5 +136,5 @@ namespace std {
 | `pbump` | 出力部分列の現在位置を指定した量だけ進める (protected)。 | |
 | `setp` | 出力部分列の各ポインタを設定する (protected)。 | |
 
-##参照
+## 参照
 

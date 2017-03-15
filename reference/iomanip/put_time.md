@@ -1,4 +1,4 @@
-#put_time
+# put_time
 * iomanip[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,16 +10,16 @@ unspecified put_time(const struct tm* tmb, const CharT* fmt);
 ```
 * unspecified[italic]
 
-##概要
+## 概要
 日時書式で出力する。
 
 
-##要件
+## 要件
 - `tmb`は、有効な`tm`型オブジェクトを指すポインタであること。
 - `fmt`は、有効な文字配列を指すポインタであること。
 
 
-##効果
+## 効果
 入出力ストリームオブジェクト`out`があるものとし、以下の関数`f`のように振る舞う：
 
 ```cpp
@@ -49,7 +49,7 @@ void f(basic_ios<CharT, Traits>& out, const struct tm* tmb, const CharT* fmt)
 * ios_base[link /reference/ios/ios_base.md]
 * badbit[link /reference/ios/ios_base/type-iostate.md]
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -73,7 +73,7 @@ int main() {
 * now()[link /reference/chrono/system_clock/now.md]
 * to_time_t[link /reference/chrono/system_clock/to_time_t.md]
 
-###出力
+### 出力
 ```
 Thu Dec 25 15:12:30 2014
 ```
@@ -81,11 +81,11 @@ Thu Dec 25 15:12:30 2014
 出力内容の日時は、実行時間に依存する。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??

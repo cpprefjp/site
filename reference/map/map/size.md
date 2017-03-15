@@ -1,4 +1,4 @@
-#size
+# size
 * map[meta header]
 * std[meta namespace]
 * map[meta class]
@@ -8,20 +8,20 @@
 size_type size() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナ内の要素の数を返す。
 
 
-##戻り値
+## 戻り値
 `map` コンテナに格納されている要素の数を返す。 
 メンバ型 `size_type` は符号なし整数型である。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -45,17 +45,17 @@ int main ()
 * size()[color ff0000]
 * m.insert[link insert.md]
 
-###出力
+### 出力
 ```
 0
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -63,7 +63,7 @@ int main ()
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
 
-##参照
+## 参照
 
 | 名前 | 説明|
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------|

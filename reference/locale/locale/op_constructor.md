@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * locale[meta header]
 * std[meta namespace]
 * locale[meta class]
@@ -16,7 +16,7 @@ locale(cosnt locale&, Facet*);
 locale(const locale&, const locale&, category);
 ```
 
-##localeオブジェクトの構築
+## localeオブジェクトの構築
 
 - `locale() noexcept;`<br/>デフォルトコンストラクタ。呼び出した時点のグローバル`locale`のコピーを作成する。
 - `locale(const locale&) noexcept;`<br/>コピーコンストラクタ。
@@ -28,12 +28,12 @@ locale(const locale&, const locale&, category);
 - `locale(const locale& other, const locale& one, category cats);`<br/>`cats`で指定された部分については`one`の、それ以外は`other`のファセットを組み合わせた`locale`を構築。
 
 
-##例
+## 例
 ```cpp
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##参照
+## 参照

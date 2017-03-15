@@ -1,7 +1,7 @@
-#変数テンプレート
+# 変数テンプレート
 * cpp14[meta cpp]
 
-##概要
+## 概要
 変数定義時のテンプレート指定を可能にする。
 
 C++11までは、関数、クラス、型の別名をテンプレートで定義できた。C++14からは、変数もテンプレートで定義できるようになった。これにより、型もしくは整数値をパラメータにとり、そのパラメータの組み合わせごとに変数の値を保持できるようになった。
@@ -58,7 +58,7 @@ int main()
 * std::is_integral[link /reference/type_traits/is_integral.md]
 
 
-##仕様
+## 仕様
 C++14より前の規格でも使用できた関数テンプレートを変数にも適用可能に拡張した仕様である。
 
 言語規格から変数テンプレートについて明記されている仕様を、以下に整理する。
@@ -76,7 +76,7 @@ C++14より前の規格でも使用できた関数テンプレートを変数に
 - テンプレート変数の宣言は明示的なインスタンス化よりも前に行わなければならない。（§14.7.2 Explicit instantiation）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -106,7 +106,7 @@ auto main() -> int
 * max_digits10[link /reference/limits/numeric_limits/max_digits10.md]
 * std::setprecision[link /reference/iomanip/setprecision.md]
 
-###出力例
+### 出力例
 ```
 2.71828175
 2.7182818284590451
@@ -115,19 +115,19 @@ auto main() -> int
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 - 型をパラメーター化された定数値を簡単に扱いたい。（N3651）
 - `constexpr`でそのような定数値を扱いたい。（N3651）
 - C++11規格の範囲内でも対応は出来たが煩雑で扱い難い方法を取る必要があるため簡潔に扱えるようにしたい。（N3651）
 
-##検討されたほかの選択肢
+## 検討されたほかの選択肢
 - `const`または`constexpr`と組み合わせて用いる提案があったが、ワーキンググループの多数意見によりC++14の対象では制限しない事にした。（N3651）
 - テンプレートテンプレートについても提案があったが、ワーキンググループで複数の不要論がありC++14では含めない事にした。（N3651）
 
-##関連項目
+## 関連項目
 - [C++11 `constexpr`](/lang/cpp11/constexpr.md)
 
-##参照
+## 参照
 - [N3651 Variable Templates (Revision 1)](http://open-std.org/JTC1/SC22/WG21/docs/papers/2013/n3651.pdf)
 - [Trip Report: ISO C++ Spring 2013 Meeting](https://isocpp.org/blog/2013/04/trip-report-iso-c-spring-2013-meeting)
 - [変数テンプレートをラムダ式でキャプチャするときの注意 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/2014/01/21/162701)

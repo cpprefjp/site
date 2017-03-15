@@ -1,4 +1,4 @@
-#once_flag
+# once_flag
 * mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,11 +10,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `once_flag`は、一度だけ指定された処理を呼び出す[`call_once()`](/reference/mutex/call_once.md)関数で、呼び出し済みかどうかの状態フラグとして使用するクラスである。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------|-------|
@@ -23,7 +23,7 @@ namespace std {
 | `operator=(const once_flag&) = delete`      | 代入演算子     | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -56,16 +56,16 @@ int main()
 * std::once_flag[color ff0000]
 * std::call_once[link call_once.md]
 
-###出力
+### 出力
 ```
 initialize
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -73,5 +73,5 @@ initialize
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 

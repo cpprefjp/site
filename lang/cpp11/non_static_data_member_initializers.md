@@ -1,7 +1,7 @@
-#非静的メンバ変数の初期化
+# 非静的メンバ変数の初期化
 * cpp11[meta cpp]
 
-##概要
+## 概要
 非静的メンバ変数の定義時に、`=`演算子もしくは`{ }`波カッコ初期化子によるコンストラクタ構文で、初期化式を記述できる。
 
 ```cpp
@@ -26,7 +26,7 @@ int main()
 * assert[link /reference/cassert/assert.md]
 
 
-##仕様
+## 仕様
 - 非静的メンバ変数の初期化子としては、`=`演算子によるコンストラクタ呼び出し、および`{ }`波カッコ構文によるコンストラクタ呼び出しのみを許可する。`( )`丸カッコ構文によるコンストラクタ呼び出しは、メンバ関数の宣言と曖昧になるために許可しない
 - 非静的メンバ変数の初期化子は、コンストラクタが呼び出された際に、メンバ変数の定義順に実行される
 - 非静的メンバ変数の型に`auto`プレースホルダは使用できない
@@ -51,7 +51,7 @@ public:
 ```
 
 
-##参照
+## 参照
 - [N1959 Class member initializers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1959.pdf)
 - [N2354 Class member initializers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2354.htm)
 - [N2426 Class member initializers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2426.htm)

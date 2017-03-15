@@ -1,4 +1,4 @@
-#is_error_code_enum
+# is_error_code_enum
 * future[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,13 +14,13 @@ namespace std {
 * future_errc[link /reference/future/future_errc.md]
 * true_type[link /reference/type_traits/true_type.md]
 
-##概要
+## 概要
 [`future_errc`](future_errc.md)に対する`is_error_code_enum`の特殊化。
 
 [`error_code`](/reference/system_error/error_code.md)のコンストラクタに[`future_errc`](future_errc.md)の列挙値を指定するために使用する。それによって`make_error_code()`の[`future_errc`](future_errc.md)に対するオーバーロードが呼び出され、[`future_category()`](future_category.md)の[`error_code`](/reference/system_error/error_code.md)オブジェクトが生成される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -38,16 +38,16 @@ int main()
 * std::future_errc::broken_promise[link future_errc.md]
 * ec.message()[link /reference/system_error/error_code/message.md]
 
-###出力例
+### 出力例
 ```
 Broken promise
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -55,6 +55,6 @@ Broken promise
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

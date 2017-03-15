@@ -1,4 +1,4 @@
-#xalloc
+# xalloc
 * ios[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -8,13 +8,13 @@
 static int xalloc();
 ```
 
-##概要
+## 概要
 私用記憶域を予約する。
 
 この関数は、呼び出すたびに一意な整数値を返す。この関数は、IOマニピュレータ単位の設定状態を管理するために使用する。
 
 
-##戻り値
+## 戻り値
 - C++11まで
 
 ```cpp
@@ -33,7 +33,7 @@ return index++;
 * index++[link /reference/atomic/atomic/op_increment.md]
 
 
-##例
+## 例
 ```cpp
 // 値を16進数で出力するIOマニピュレータを作成する
 #include <iostream>
@@ -91,14 +91,14 @@ int main()
 * std::ostringstream[link /reference/sstream/basic_ostringstream.md.nolink]
 * std::hex[link /reference/ios/hex.md]
 
-###出力
+### 出力
 ```
 10
 a
 ```
 
 
-##参照
+## 参照
 - [LWG Issue 2143. `ios_base::xalloc` should be thread-safe](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2143)
     - C++14から、この関数は複数スレッドから呼び出しても安全になった。
 

@@ -1,7 +1,7 @@
-#[[deprecated]]属性
+# [[deprecated]]属性
 * cpp14[meta cpp]
 
-##概要
+## 概要
 `[[deprecated]]`は、対象となる機能が非推奨であることを示す属性である。
 
 ユーザーに提供するAPIは、バージョンアップしていくにあたって、非互換のインタフェース変更が必要になることがある。そういったときに、以下のようなことをユーザーに示す必要がある：
@@ -27,7 +27,7 @@ int main()
 機能を非推奨とするときには、必ず代わりに使用すべきAPIが存在する。可能な限り文字列リテラルを指定して、代わりに何を使用すればよいかをユーザーに示すのがよいだろう。
 
 
-##仕様
+## 仕様
 - `[[deprecated]]`属性の引数は、なにも指定しないか、もしくは文字列リテラルを指定するかのどちらかである
     - 引数なしの場合は、`[[deprecated]]`と記述する
 	- 文字列リテラルを指定する場合は、`[[deprecated("message")]]`のように記述する
@@ -43,7 +43,7 @@ int main()
     - テンプレートの特殊化
 
 
-##例
+## 例
 ```cpp
 // 非推奨なクラス
 class [[deprecated("please use new_class class")]] old_class {};
@@ -93,7 +93,7 @@ int main()
 }
 ```
 
-###出力例
+### 出力例
 ```
 prog.cc:33:3: warning: 'old_class' is deprecated: please use new_class class
 prog.cc:34:3: warning: 'old_type' is deprecated: please use new_type type
@@ -105,7 +105,7 @@ prog.cc:45:3: warning: 'class_templ<int>' is deprecated: don't use class_templ<i
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 機能が非推奨であることを示す属性は、C++11で属性構文が導入される以前から、各コンパイラが独自の構文でサポートしていた。
 
 | コンパイラ  | 簡潔な非推奨化 | メッセージ付きの非推奨化 |
@@ -117,11 +117,11 @@ prog.cc:45:3: warning: 'class_templ<int>' is deprecated: don't use class_templ<i
 これらの機能が使われてきた経験から、この属性・アノテーションは、ユーザーにとって役立つものであることが判明していた。そのため、この機能をC++標準の属性構文でサポートすることとなった。
 
 
-##関連項目
+## 関連項目
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 
 
-##参照
+## 参照
 - [N3394 `[[deprecated]]` attribute](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3394.html)
 - [N3760 `[[deprecated]]` attribute](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3760.html)
 

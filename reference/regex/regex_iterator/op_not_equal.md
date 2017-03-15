@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * regex[meta header]
 * std[meta namespace]
 * regex_iterator[meta class]
@@ -9,19 +9,19 @@
 bool operator!=(const regex_iterator& right) const;
 ```
 
-##概要
+## 概要
 `regex_iterator` の非等値比較を行う。
 
 
-##戻り値
+## 戻り値
 `!(*this == right)`
 
 
-##備考
+## 備考
 - 本メンバ関数が `true` を返したとしても、イテレータの指す文字列が等しくないとは限らないことに注意すること。（下記の例を参照）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -52,7 +52,7 @@ int main()
 * std::regex[link /reference/regex/basic_regex.md]
 * str()[link /reference/regex/match_results/str.md]
 
-###出力
+### 出力
 ```
 true
 it1:'1'(3, 4)
@@ -60,11 +60,11 @@ it2:'1'(1, 2)
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -73,7 +73,7 @@ it2:'1'(1, 2)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 |                             |          |
 |-----------------------------|----------|
 | [`operator==`](op_equal.md) | 等値比較 |

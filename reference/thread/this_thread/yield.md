@@ -1,4 +1,4 @@
-#yield
+# yield
 * thread[meta header]
 * std::this_thread[meta namespace]
 * function[meta id-type]
@@ -11,28 +11,28 @@ namespace this_thread {
 }}
 ```
 
-##概要
+## 概要
 処理系に再スケジュールの機会を与える。
 
 
-##効果
+## 効果
 処理系に対して、再スケジューリングを行う機会を与える。たとえばオペレーティングシステムのスケジューラに対して、現スレッドに割り当てられたタイムスライスの破棄を指示し、他に実行可能なスレッドがあればそのスレッドに実行機会を与える。
 
 
-##同期
+## 同期
 特に他操作と同期しない。
 
 
-##例外
+## 例外
 送出しない。
 
 
-##備考
+## 備考
 C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched_yield()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/sched_yield.2.html)関数やWindows APIの[`SwitchToThread()`](https://msdn.microsoft.com/ja-jp/library/cc429368.aspx)関数などを参考のこと。
 
 Visual C++では、Windows APIの[`Sleep()`](https://msdn.microsoft.com/en-us/library/windows/desktop/ms686298.aspx)関数を使った実装となっている。ただし、12.0でWindowsストア向けアプリケーションを対象とする場合は、`Sleep()`関数が許可されていないため、`WaitForSingleObject()`関数のタイムアウト時間に最小値1ミリ秒を指定して呼び出す実装となっている。
 
-##例
+## 例
 ```cpp
 #include <thread>
 #include <atomic>
@@ -62,16 +62,16 @@ int main()
 ```
 * std::this_thread::yield[color ff0000]
 
-###出力
+### 出力
 ```
 result=42
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.3, 4.7.0
@@ -79,6 +79,6 @@ result=42
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [thread::yield()の実装 - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20120618/1340000626)
 

@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * iterator[meta header]
 * std[meta namespace]
 * ostreambuf_iterator[meta class]
@@ -8,25 +8,25 @@
 ostreambuf_iterator& operator=(CharT c);
 ```
 
-##概要
+## 概要
 値を出力する
 
 
-##効果
+## 効果
 [`failed`](failed.md)`() == false`の場合に`sbuf_->`[`sputc`](../../streambuf/basic_streambuf/sputc.md.nolink)`(c)`を行い、そうでなければ何もしない。
 
 ※ `sbuf_`はメンバ変数として保持している`streambuf_type`オブジェクトへのポインタ
 
 
-##戻り値
+## 戻り値
 `*this`
 
-##例
+## 例
 ```cpp
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##参照
+## 参照

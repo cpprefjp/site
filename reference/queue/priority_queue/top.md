@@ -1,4 +1,4 @@
-#top
+# top
 * queue[meta header]
 * std[meta namespace]
 * priority_queue[meta class]
@@ -8,21 +8,21 @@
 const_reference top() const;
 ```
 
-##概要
+## 概要
 次に処理する要素を取得する。
 
 内部のコンテナの`front()`メンバ関数を呼ぶ。
 
 
-##効果
+## 効果
 `return c.front();`
 
 
-##戻り値
+## 戻り値
 次に処理する要素への参照
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -48,7 +48,7 @@ int main()
 * que.top()[link top.md]
 * que.pop()[link pop.md]
 
-###出力
+### 出力
 ```
 4
 3

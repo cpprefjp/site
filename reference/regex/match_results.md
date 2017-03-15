@@ -1,4 +1,4 @@
-#match_results
+# match_results
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -21,7 +21,7 @@ namespace std {
 * string[link ../string/basic_string.md]
 * wstring[link ../string/basic_string.md]
 
-##概要
+## 概要
 `match_results` は正規表現によるマッチ結果を格納するコンテナである。コンテナの要素はマッチ結果を表すサブマッチ（[`sub_match`](sub_match.md)）である。  
 コンテナとは言っても [`regex_match`](regex_match.md) や [`regex_search`](regex_search.md) のマッチ結果を格納することを目的としているため、
 一般的なコンテナのように通常の操作でコンテナに要素を格納したり変更したりすることはできない。
@@ -41,8 +41,8 @@ namespace std {
 `match_results` オブジェクトからメンバ関数で取得できるイテレータについて規格では特に言及されていないが、[`operator[]`](match_results/op_at.md) が使用できることから通常ランダムアクセスイテレータであるもの考えても差し支えないものと思われる。
 
 
-##メンバ関数
-###構築・破棄
+## メンバ関数
+### 構築・破棄
 
 | 名前                                              | 説明           | 対応バージョン |
 |---------------------------------------------------|----------------|----------------|
@@ -50,13 +50,13 @@ namespace std {
 | [`(destructor)`](match_results/op_destructor.md) | デストラクタ   | C++11          |
 | [`operator=`](match_results/op_assign.md)         | 代入演算子     | C++11          |
 
-###状態
+### 状態
 
 | 名前                              | 説明                       | 対応バージョン |
 |-----------------------------------|----------------------------|----------------|
 | [`ready`](match_results/ready.md) | 結果が利用可能か否かを返す | C++11          |
 
-###サイズ
+### サイズ
 
 | 名前                                    | 説明                               | 対応バージョン |
 |-----------------------------------------|------------------------------------|----------------|
@@ -64,7 +64,7 @@ namespace std {
 | [`max_size`](match_results/max_size.md) | 格納できるサブマッチの最大数を返す | C++11          |
 | [`empty`](match_results/empty.md)       | マッチしたか否かを返す             | C++11          |
 
-###要素アクセス
+### 要素アクセス
 
 | 名前                                    | 説明                                               | 対応バージョン |
 |-----------------------------------------|----------------------------------------------------|----------------|
@@ -79,22 +79,22 @@ namespace std {
 | [`cbegin`](match_results/cbegin.md)     | 先頭のサブマッチを指すイテレータを取得する         | C++11          |
 | [`cend`](match_results/cend.md)         | 末尾のサブマッチの次を指すイテレータを取得する     | C++11          |
 
-###フォーマット
+### フォーマット
 | 名前                                | 説明                                                     | 対応バージョン |
 |-------------------------------------|----------------------------------------------------------|----------------|
 | [`format`](match_results/format.md) | `match_results` オブジェクトを書式文字列に従って出力する | C++11          |
 
-###アロケータ
+### アロケータ
 | 名前                                              | 説明                             | 対応バージョン |
 |---------------------------------------------------|----------------------------------|----------------|
 | [`get_allocator`](match_results/get_allocator.md) | アロケータオブジェクトを取得する | C++11          |
 
-###交換
+### 交換
 | 名前                            | 説明                         | 対応バージョン |
 |---------------------------------|------------------------------|----------------|
 | [`swap`](match_results/swap.md) | オブジェクトの内容を交換する | C++11          |
 
-##メンバ型
+## メンバ型
 
 | 名前              | 説明                                                                                                                                      | 対応バージョン |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------------|
@@ -109,7 +109,7 @@ namespace std {
 | `char_type`       | 文字の型。`typename` [`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::value_type` の別名                      | C++11          |
 | `string_type`     | 文字列の型。[`basic_string`](../string/basic_string.md)`<char_type>` の別名                                                               | C++11          |
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前                                          | 説明                                                | 対応バージョン |
 |-----------------------------------------------|-----------------------------------------------------|----------------|
@@ -117,7 +117,7 @@ namespace std {
 | [`operator!=`](match_results/op_not_equal.md) | 非等値比較を行う                                    | C++11          |
 | [`swap`](match_results/swap_free.md)          | 2 つの `match_results` オブジェクトの内容を交換する | C++11          |
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -154,7 +154,7 @@ int main()
 * m.length[link match_results/length.md]
 * m.format[link match_results/format.md]
 
-###出力
+### 出力
 ```
 ready = true, empty = false
 
@@ -168,11 +168,11 @@ The C++14 is very cool!!
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

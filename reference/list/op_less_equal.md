@@ -1,4 +1,4 @@
-#operator<=
+# operator<=
 * list[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,19 +10,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `list`において、左辺が右辺以下かを判定する。
 
 
-##戻り値
+## 戻り値
 `!(a > b)`
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -39,7 +39,7 @@ int main ()
 ```
 
 
-###出力
+### 出力
 ```
 true
 ```

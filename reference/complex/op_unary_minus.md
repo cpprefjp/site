@@ -1,4 +1,4 @@
-#operator- (単項)
+# operator- (単項)
 * complex[meta header]
 * std[meta namespace]
 * complex[meta class]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 単項 `-` 演算（符号を反転した複素数値を得る）
 
 
-##戻り値
+## 戻り値
 `complex<T>(-lhs.`[`real`](complex/real.md)`(), -lhs.`[`imag`](complex/imag.md)`())`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <complex>
@@ -32,13 +32,13 @@ int main()
 ```
 * -[color ff0000]
 
-###出力
+### 出力
 ```
 -(1,2) = (-1,-2)
 ```
 
 
-##参照
+## 参照
 |                                        |                                     |
 |----------------------------------------|-------------------------------------|
 | [`operator+` (単項)](op_unary_plus.md) | 単項 `+` 演算（引数をそのまま返す） |

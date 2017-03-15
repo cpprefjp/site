@@ -1,4 +1,4 @@
-#push_back
+# push_back
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -9,19 +9,19 @@ void push_back(const T& x); // (1)
 void push_back(T&& x);      // (2) C++11
 ```
 
-##概要
+## 概要
 新たな要素を末尾に追加する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -46,7 +46,7 @@ int main()
 ```
 * push_back[color ff0000]
 
-###出力
+### 出力
 ```
 hello
 world

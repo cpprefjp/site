@@ -1,4 +1,4 @@
-#atomic_thread_fence
+# atomic_thread_fence
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 ```
 * memory_order[link memory_order.md]
 
-##概要
+## 概要
 アトミック操作に対する、補完的なメモリフェンスを提供する。
 
 
-##効果
+## 効果
 この関数は、弱い[`memory_order`](memory_order.md)が指定されたアトミック操作の前後に指定することで、より強い`memory_order`を指定した場合と似たような振る舞いをさせる効果を持つ。
 たとえば、`a`を[`atomic`](atomic.md)`<int>`型の変数とするとき、下記2種類の処理はほぼ同等の振る舞いをする。
 
@@ -82,15 +82,15 @@ assert(i == 1 || j == 1); // すなわち、i と j が共に0となることは
 | [`memory_order_seq_cst`](memory_order.md) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -124,16 +124,16 @@ int main()
 * load[link atomic/load.md]
 * store[link atomic/store.md]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -141,6 +141,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [Implementing Dekker's algorithm with Fences](https://www.justsoftwaresolutions.co.uk/threading/implementing_dekkers_algorithm_with_fences.html)
 

@@ -1,4 +1,4 @@
-#pword
+# pword
 * ios[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -8,20 +8,20 @@
 void*& pword(int idx);
 ```
 
-##概要
+## 概要
 `void*` 型の私用記憶域への参照を取得する。
 
 
-##効果
+## 効果
 `idx` で指定した記憶域がまだ確保されていなかった場合、新たに `void*` 型の記憶域を確保し、ヌルポインタで初期化する。
 もし、記憶域の確保に失敗し、かつ、`*this` が [`basic_ios`](../basic_ios.md) の基底サブオブジェクトの場合、[`basic_ios`](../basic_ios.md)`::`[`setstate`](../basic_ios/setstate.md)`(badbit)` を呼び出す（これは [`failure`](failure.md) 例外を送出するかもしれない）。
 
 
-##戻り値
+## 戻り値
 `idx` で指定した記憶域への参照。もし記憶域が確保できなかった場合（かつ[`failure`](failure.md) 例外が投げられなかった場合）には、ヌルポインタに初期化された有効な `void*` 型への参照。
 
 
-##備考
+## 備考
 - 引数 `idx` には、[`xalloc`](xalloc.md) で取得した値を渡すことが想定されている。
     そうすることによって、各プログラムが他のプログラムと競合すること無く各ストリームオブジェクト内に `void*` 型の私用記憶域を確保することが可能となる。
 - 本関数で取得した `void*` への参照は、本オブジェクトの他の操作によって無効になる可能性がある。  
@@ -30,7 +30,7 @@ void*& pword(int idx);
     ただし、コピーされるのはあくまでもポインタ値であるため、必要に応じてコールバックで対処を行うこと。（下記の例も参照）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -119,7 +119,7 @@ int main()
 * register_callback[link register_callback.md]
 * copyfmt[link ../basic_ios/copyfmt.md]
 
-###出力
+### 出力
 ```
 今日も一日がんばる
 今日も一日がんばるドン
@@ -130,7 +130,7 @@ int main()
 （コールバックは例外を送出してはいけない。[`register_callback`](register_callback.md) の要件を参照）
 
 
-##参照
+## 参照
 - [`xalloc`](xalloc.md)
 - [`iword`](iword.md)
 - [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md)

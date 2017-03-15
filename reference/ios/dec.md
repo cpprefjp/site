@@ -1,4 +1,4 @@
-#dec
+# dec
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -9,16 +9,16 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 整数を十進法で出力することを指示するマニピュレータ。
 
-##効果
+## 効果
 `str.setf(ios_base::dec, ios_base::basefield)`を実行する。
 
-##戻り値
+## 戻り値
 実引数のstrオブジェクト。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 
@@ -35,7 +35,7 @@ int main()
 * std::oct[link oct.md]
 * std::hex[link hex.md]
 
-###出力
+### 出力
 ```
 0       0       0
 1       1       1
@@ -59,10 +59,10 @@ int main()
 19      23      13
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-##参照
+## 参照
 - [`oct`](oct.md)
 - [`hex`](hex.md)

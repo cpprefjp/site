@@ -1,4 +1,4 @@
-#operator-=
+# operator-=
 * chrono[meta header]
 * std::chrono[meta namespace]
 * time_point[meta class]
@@ -9,11 +9,11 @@
 time_point& operator-=(const duration& d);
 ```
 
-##概要
+## 概要
 `time_point`の時間を戻す
 
 
-##効果
+## 効果
 ```cpp
 d_ -= d
 ```
@@ -21,11 +21,11 @@ d_ -= d
 ※ `d_`は`time_point`内部で保持している`duration`。変数名は説明用。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -47,15 +47,15 @@ int main()
 * time_since_epoch()[link time_since_epoch.md]
 * count()[link /reference/chrono/duration/count.md]
 
-###出力例
+### 出力例
 ```
 1314362390421481
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC: 4.5.0
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

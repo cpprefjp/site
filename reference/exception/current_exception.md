@@ -1,4 +1,4 @@
-#current_exception
+# current_exception
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,27 +11,27 @@ namespace std {
 ```
 * exception_ptr[link exception_ptr.md]
 
-##概要
+## 概要
 現在処理中の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を取得する。
 
 
-##戻り値
+## 戻り値
 現在処理中の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す。
 
 処理中の例外オブジェクトがない場合は、ヌルを指す[`exception_ptr`](exception_ptr.md)を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、`catch`節で使用すれば、処理中の例外オブジェクトへの例外ポインタを取得できる。
 
 ただし、例外送出によるスタック巻き戻し中は、取得できないので注意。(スタック巻き戻し中とは、`try`ブロック中で定義されたオブジェクトのデストラクタのこと)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <exception>
@@ -60,7 +60,7 @@ int main()
 * std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * std::rethrow_exception[link rethrow_exception.md]
 
-###出力例
+### 出力例
 ```
 catch
 rethrow
@@ -71,11 +71,11 @@ terminate called after throwing an instance of 'std::runtime_error'
   what():  error!
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -83,7 +83,7 @@ terminate called after throwing an instance of 'std::runtime_error'
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [N2179 Language Support for Transporting Exceptions between Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html)
 - [Can I use `std::current_exception` during stack unwinding? - StackOverflow](http://stackoverflow.com/questions/28267484/can-i-use-stdcurrent-exception-during-stack-unwinding)
 

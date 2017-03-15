@@ -1,4 +1,4 @@
-#emplace
+# emplace
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
@@ -10,11 +10,11 @@ template <class... Args>
 iterator emplace(Args&&... args);
 ```
 
-##概要
+## 概要
 コンテナ内へ要素を直接構築する
 
 
-##要件
+## 要件
 このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。
 
 ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
@@ -22,25 +22,25 @@ iterator emplace(Args&&... args);
 `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
 
 
-##効果
+## 効果
 `std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...` から構築された `value_type` のオブジェクト `t` をコンテナに挿入する。
 
 なお、オブジェクト `t` は、構築後にコンテナにコピー、あるいはムーブされるわけではなく、コンテナ内に直接構築される。
 
 
-##戻り値
+## 戻り値
 追加された要素を指すイテレータ。
 
 
-##例外
+## 例外
 ハッシュ関数以外から例外が投げられた場合には、挿入はされない。
 
 
-##計算量
+## 計算量
 平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）。
 
 
-##備考
+## 備考
 - この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。  
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
 
@@ -60,7 +60,7 @@ iterator emplace(Args&&... args);
 	| 連想コンテナ、非順序連想コンテナ                                      | `template <class... Args>`<br/> `iterator emplace_hint(const_iterator, Args&&...)` |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -127,7 +127,7 @@ int main()
 * cend[link cend.md]
 * emplace[color ff0000]
 
-###出力
+### 出力
 ```
 (1,1st)
 (2,2nd)
@@ -138,11 +138,11 @@ int main()
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
@@ -152,7 +152,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
-##関連項目
+## 関連項目
 
 |                                           |                                                        |
 |-------------------------------------------|--------------------------------------------------------|
@@ -168,6 +168,6 @@ int main()
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 
 
-##参照
+## 参照
 - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
 

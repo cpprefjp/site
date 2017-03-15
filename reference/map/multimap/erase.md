@@ -1,4 +1,4 @@
-#erase
+# erase
 * map[meta header]
 * std[meta namespace]
 * multimap[meta class]
@@ -15,32 +15,32 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11
 ```
 
 
-##概要
+## 概要
 単一要素または要素範囲（`[first, last)`）を `multimap` コンテナから削除する。
 
 これは削除された要素の数だけコンテナの `size` を減らし、それぞれの要素のデストラクタを呼び出す。
 
 
-##パラメータ
+## パラメータ
 - `position` : `multimap` から削除する単一要素を指すイテレータ。`iterator` はメンバ型であり、双方向イテレータとして定義される。
 - `x` : `multimap` から削除される値のキー。`key_type` はメンバ型であり、`multimap` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータであり、コンテナに格納される要素のキーの型である。
 - `first, last` : `multimap` コンテナ内の、削除される範囲 `[first, last)` を指定するイテレータ。ここでいう範囲は `first` と `last` の間の全ての要素を含み、`first` が指す要素を含むが `last` が指す要素は含まない。
 
 
-##戻り値
+## 戻り値
 - (1), (3)
 	- C++03 : 戻り値なし
     - C++11 : 削除された要素の次を指すイテレータを返す。そのような要素がない場合、[`end()`](end.md)を返す(コンテナが空になった場合や、最後尾の要素を削除した場合)。
 - (2) 削除された要素の数を返す。
 
 
-##計算量
+## 計算量
 - (1) 定数時間。
 - (2) コンテナの [`size()`](/reference/map/map/size.md) について対数時間。
 - (3) コンテナの [`size()`](/reference/map/map/size.md) について対数時間、それに加えて `first` と `last` の間の距離に対する線形時間。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -72,7 +72,7 @@ int main()
 * m.begin()[link begin.md]
 * m.end()[link end.md]
 
-###出力
+### 出力
 ```
 3
 2
@@ -80,11 +80,11 @@ int main()
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
@@ -92,7 +92,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明|
 |---------------------------------------------------------------------------------------|--------------------------------------|
@@ -101,7 +101,7 @@ int main()
 | [`multimap::find`](/reference/map/multimap/find.md) | 指定したキーで要素を探す |
 
 
-##参照
+## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [LWG Issue 2258. `a.erase(q1, q2)` unable to directly return `q2`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2258)
     - C++11では、「`a.erase(q1, q2)`の結果として`q2`が返る」という仕様だったが、要素を削除した結果としてコンテナが空になった場合や、最後尾の要素を削除した場合を、考慮していなかった。C++14では、空の場合に`end()`イテレータが返ることが明記された。

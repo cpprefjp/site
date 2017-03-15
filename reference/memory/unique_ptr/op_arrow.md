@@ -1,4 +1,4 @@
-#operator->
+# operator->
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
@@ -9,11 +9,11 @@
 pointer operator->() const noexcept;
 ```
 
-##概要
+## 概要
 ポインタを通してオブジェクトにアクセスする。
 
 
-##要件
+## 要件
 
 ```cpp
 get() != nullptr
@@ -21,11 +21,11 @@ get() != nullptr
 * get()[link get.md]
 
 
-##戻り値
+## 戻り値
 [`get()`](get.md)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -39,16 +39,16 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 hello
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

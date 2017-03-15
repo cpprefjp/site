@@ -1,4 +1,4 @@
-#operator[]
+# operator[]
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
@@ -10,23 +10,23 @@ T& operator[](const key_type& x);
 T& operator[](const key_type&& x);
 ```
 
-##概要
+## 概要
 要素へのアクセス
 
-##戻り値
+## 戻り値
 キーxに対応する値を返す。
 オブジェクトが存在しないときは、新しい要素が追加される。
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 平均： 定数時間  
 最悪： [`size`](size.md) について線形時間。  
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -53,7 +53,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 size=1
 {a}
@@ -61,18 +61,18 @@ size=1
 size=2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
-##参照
+## 参照
 
 | 名前                        | 説明           |
 |-----------------------------|----------------|

@@ -1,4 +1,4 @@
-#unique_lock
+# unique_lock
 * mutex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `unique_lock`は、ミューテックスの`lock()`／`unlock()`処理を、コンストラクタとデストラクタで確実に実行するためのクラスである。
 
 このクラスは通常、メンバ変数もしくはグローバル変数としてもつミューテックスオブジェクトに対し、関数内の先頭で`lock()`、関数を抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
@@ -28,7 +28,7 @@ namespace std {
 
 また条件変数std::[`condition_variable`](/reference/condition_variable/condition_variable.md)オブジェクトと組み合わせて利用できるのは、`std::unique_lock<std::`[`mutex`](mutex.md)`>`型のオブジェクトに限定されている。
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|--------------------------------------------------------|-------|
@@ -47,21 +47,21 @@ namespace std {
 | [`mutex`](unique_lock/mutex.md)                   | 所有しているミューテックスオブジェクトを取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |--------------|-------------------------|-------|
 | `mutex_type` | ミューテックス型`Mutex` | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|--------------------------------------------|-------|
 | [`swap`](unique_lock/swap_free.md) | 2つの`unique_lock`オブジェクトを入れ替える | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -119,17 +119,17 @@ int main()
 * std::unique_lock[color ff0000]
 * data_.push_back[link /reference/vector/push_back.md]
 
-###出力例
+### 出力例
 ```
 2
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -137,6 +137,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##関連項目
+## 関連項目
 - [`shared_lock`](/reference/shared_mutex/shared_lock.md) : 共有ミューテックスを自動的に手放す
 

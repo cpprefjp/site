@@ -1,4 +1,4 @@
-#operator>>
+# operator>>
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -12,15 +12,15 @@ namespace std {
 ```
 * basic_istream[link /reference/istream/basic_istream.md]
 
-##概要
+## 概要
 ストリームからの入力。
 
 
-##要件
+## 要件
 入力の値が`T`に変換可能であること。
 
 
-##効果
+## 効果
 以下のいずれかの形式の`complex`オブジェクトを読み込む：
 
 - `u`
@@ -32,7 +32,7 @@ namespace std {
 読み込みに失敗した場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base`](/reference/ios/ios_base.md)`::failbit)`が呼び出される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -50,13 +50,13 @@ int main()
 ```
 * >>[color ff0000]
 
-###出力
+### 出力
 ```
 (1,2)
 ```
 
 
-##参照
+## 参照
 
 | 名前                          | 説明               |
 |-------------------------------|--------------------|

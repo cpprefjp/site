@@ -1,4 +1,4 @@
-#seed_seq
+# seed_seq
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -10,15 +10,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `seed_seq`クラスは、擬似乱数を生成するためのシード列を表現するためのクラスである。  
 シード列は、32ビット整数の[`vector`](/reference/vector.md)として表現される。
 
 擬似乱数は一つの値をシードとして使用することもできるが、より多くの乱雑さ(エントロピー)が必要な場合に、複数のシードで擬似乱数を初期化するためにこのクラスを使用する。
 
 
-##メンバ関数
-###構築
+## メンバ関数
+### 構築
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------|-------|
@@ -27,14 +27,14 @@ namespace std {
 | `void operator=(const seed_seq&) = delete;`  | 代入演算子。代入不可 | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|--------------------|-------|
 | [`generate`](seed_seq/generate.md) | シード列を生成する | C++11 |
 
 
-##特性
+## 特性
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|----------------------------|-------|
@@ -42,14 +42,14 @@ namespace std {
 | [`param`](seed_seq/param.md) | シード列を取得する         | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
 | `result_type` | シードを表す整数型 [`uint_least32_t`](/reference/cstdint/uint_least32_t.md)。 | C++11 |
 
 
-##例
+## 例
 以下は、メルセンヌ・ツイスター法による擬似乱数生成器を、状態シーケンスのサイズ分のシード列で初期化する例である。
 
 ```cpp
@@ -94,7 +94,7 @@ int main()
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 * engine()[link mersenne_twister_engine/op_call.md]
 
-###出力
+### 出力
 ```
 2454004218
 3605965574
@@ -108,18 +108,18 @@ int main()
 2723491878
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-##参照
+## 参照
 * [Does std::mt19937 require warmup? - StackOverflow](http://stackoverflow.com/questions/15509270/does-stdmt19937-require-warmup)
 * [Mersenne twister warm up vs. reproducibility](http://stackoverflow.com/questions/16078794/mersenne-twister-warm-up-vs-reproducibility)
 

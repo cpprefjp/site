@@ -1,7 +1,7 @@
-#インライン名前空間
+# インライン名前空間
 * cpp11[meta cpp]
 
-##概要
+## 概要
 インライン名前空間 (inline namespace)は、名前空間内の機能に透過的にアクセスするための機能である。`inline namespace`によって定義した名前空間の機能には、その名前空間を指定しなくてもアクセスできる。
 
 ```cpp
@@ -24,7 +24,7 @@ int main()
 - APIのバージョニング
 
 
-##仕様
+## 仕様
 - 名前空間の`inline`指定は、名前付き名前空間と無名名前空間の定義で使用できる。`inline`指定された名前空間を「インライン名前空間 (inline namespace)」と呼ぶ
 
     ```cpp
@@ -137,8 +137,8 @@ int main()
 - 翻訳単位は、`std`名前空間をインライン名前空間として宣言してはならない
 
 
-##例
-###using namespaceによる名前空間省略の階層を段階的に指定する
+## 例
+### using namespaceによる名前空間省略の階層を段階的に指定する
 インライン名前空間を使用することで、`using namespace`の影響範囲をユーザーが選択できるようになる。
 
 ```cpp
@@ -170,12 +170,12 @@ int main()
 }
 ```
 
-####出力
+#### 出力
 ```
 ```
 
 
-###APIのバージョニング
+### APIのバージョニング
 インライン名前空間をデフォルトのバージョンとし、古いAPIを元の名前空間でそのまま残すようにできる。
 
 デフォルトのバージョンを切り替える際は、デフォルトバージョンにする名前空間をインライン名前空間に変更し、デフォルトバージョン以外の名前空間を非インライン名前空間に変更する。
@@ -209,7 +209,7 @@ int main()
 }
 ```
 
-####出力
+#### 出力
 ```
 v1
 v2
@@ -217,7 +217,7 @@ v2
 ```
 
 
-##関連項目
+## 関連項目
 - 時間間隔オブジェクトのリテラル
     - [`operator"" ns`](/reference/chrono/duration/op_ns.md)
     - [`operator"" us`](/reference/chrono/duration/op_us.md)
@@ -233,7 +233,7 @@ v2
     - [`operator"" il`](/reference/complex/op_il.md)
 
 
-##参照
+## 参照
 - [N1344 Namespaces and Library Versioning](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1344.pdf)
 - [N2013 Versioning with Namespaces](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2013.html)
 - [N2331 Namespace Association ("strong" using)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2331.html)

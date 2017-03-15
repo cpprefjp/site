@@ -1,4 +1,4 @@
-#min
+# min
 * random[meta header]
 * std[meta namespace]
 * random_device[meta class]
@@ -9,19 +9,19 @@
 static constexpr result_type min();
 ```
 
-##概要
+## 概要
 生成する値の最小値を取得する。
 
 
-##戻り値
+## 戻り値
 [`numeric_limits`](/reference/limits/numeric_limits.md)`<result_type>::`[`min()`](/reference/limits/numeric_limits/min.md)
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -34,16 +34,16 @@ int main()
 ```
 * min()[color ff0000]
 
-###出力
+### 出力
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -51,6 +51,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 
 

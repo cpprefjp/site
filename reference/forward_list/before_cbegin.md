@@ -1,4 +1,4 @@
-#before_cbegin
+# before_cbegin
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -9,21 +9,21 @@
 const_iterator cbefore_begin() const noexcept;
 ```
 
-##概要
+## 概要
 先頭要素の前を指す読み取り専用イテレータを取得する。
 
 この関数は、[`insert_after()`](insert_after.md)メンバ関数で先頭に要素を挿入するために使用できる。
 
 
-##戻り値
+## 戻り値
 先頭要素の前を指す読み取り専用イテレータを返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数によって返されるイテレータは、以下の特徴を持つ：
 
 - 間接参照できない
@@ -31,7 +31,7 @@ const_iterator cbefore_begin() const noexcept;
 - [`cend()`](cend.md)と等値にはならない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -56,17 +56,17 @@ int main()
 * ls.cend()[link cend.md]
 
 
-###出力
+### 出力
 ```
 1
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -74,6 +74,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 
 

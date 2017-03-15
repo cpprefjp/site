@@ -1,4 +1,4 @@
-#max_align_t
+# max_align_t
 * cstddef[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -10,13 +10,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `std::max_align_t`は、どのスカラー型よりも大きいアライメントを必要とするPOD (Plain Old Data) 型である。
 
 `alignas`指示子により、`std::max_align_t`のアライメントより大きいサイズのアライメントを指定できるかどうかは、実装依存である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cstddef>
@@ -43,7 +43,7 @@ int main()
 * std::is_class[link /reference/type_traits/is_class.md]
 * std::is_pod[link /reference/type_traits/is_pod.md]
 
-###出力
+### 出力
 ```
 sizeof(max_align_t): 24
 alignof(max_align_t): 8
@@ -56,11 +56,11 @@ is_pod<max_align_t>: 1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.5
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9

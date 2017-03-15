@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -34,18 +34,18 @@ explicit bitset(
 ```
 * basic_string[link /reference/string/basic_string.md]
 
-##bitsetオブジェクトの構築
+## bitsetオブジェクトの構築
 - (1) : デフォルトコンストラクタ。
 - (2) : 整数値を受け取るコンストラクタ。
 - (3) : `'0'`と`'1'`の文字で構成される`basic_string`文字列からビット列を構築する。
 - (4) : `'0'`と`'1'`の文字で構成される文字配列からビット列を構築する。
 
 
-##要件
+## 要件
 - (3) : `pos <= str.`[`size()`](/reference/string/basic_string/size.md)
 
 
-##効果
+## 効果
 - (1) : 全てのビットを`0`に初期化する。
 - (2) : 整数値`val`でビット列を初期化する。`bitset`クラスのテンプレートパラメータ`N`と`val`のビット数のうち、小さい方の大きさで表現可能なビット列となる。クラステンプレートパラメータ`N`よりも`val`のビット数の方が小さい場合は、残りのビットを`0`で初期化する。
 - (3) : 文字列`str`でビット列を初期化する。
@@ -63,14 +63,14 @@ bitset(
 ```
 
 
-##例外
+## 例外
 - (3) : `pos > str.`[`size()`](/reference/string/basic_string/size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 	- C++03 : `str`に`'0'`と`'1'`以外の文字が含まれていた場合、[`invalid_argument`](/reference/stdexcept.md)例外を送出する。
 	- C++11 : `str`に`zero`と`one`以外の文字が含まれていた場合、[`invalid_argument`](/reference/stdexcept.md)例外を送出する。
 
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -103,7 +103,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 (1) : 0000
 (2) : 1010
@@ -112,14 +112,14 @@ int main()
 ```
 
 
-###処理系
+### 処理系
 - (4)のコンストラクタ
 	- [Clang, C++11 mode](/implementation.md#clang): 3.0
 	- [GCC, C++11 mode](/implementation.md#gcc): 4.5.4
 	- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [LWG Issue 778. `std::bitset` does not have any constructor taking a string literal](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#778)
     - (4)のコンストラクタが追加された経緯となるレポート
 

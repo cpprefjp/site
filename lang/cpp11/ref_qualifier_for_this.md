@@ -1,7 +1,7 @@
-#メンバ関数の左辺値／右辺値修飾
+# メンバ関数の左辺値／右辺値修飾
 * cpp11[meta cpp]
 
-##概要
+## 概要
 メンバ関数の`CV`修飾は、`*this`が`const`／`volatile`である場合とそうでない場合でメンバ関数をオーバーロードできる。
 
 同じように、メンバ関数に対して`&`もしくは`&&`の参照修飾子を付加することで、`*this`が左辺値である場合に呼び出されるメンバ関数のオーバーロード、`*this`が右辺値である場合に呼び出されるメンバ関数のオーバーロードを定義できる。
@@ -54,7 +54,7 @@ int main()
 ```
 
 
-##仕様
+## 仕様
 - コンストラクタとデストラクタに対しては、参照修飾子を付加できない
 - CV修飾のみされたメンバ関数と、参照修飾のみされたメンバ関数ではオーバーロードできない
 
@@ -68,7 +68,7 @@ struct X {
 - 仮想関数は、基本クラスと派生クラスで、同じ参照修飾子を持たなくてはならない
 
 
-##例
+## 例
 ```cpp
 #include <vector>
 #include <utility>
@@ -99,12 +99,12 @@ int main()
 * <utility>[link /reference/utility.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##参照
+## 参照
 - [N1784 A proposal to add l-value member function qualifier](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1784.htm)
 - [N1821 Extending Move Semantics To `*this` (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1821.htm)
 - [N2377 Extending move semantics to `*this` (revised wording)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2377.htm)

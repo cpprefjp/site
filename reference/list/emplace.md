@@ -1,4 +1,4 @@
-#emplace
+# emplace
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -10,26 +10,26 @@ template <class... Args>
 iterator emplace(const_iterator position, Args&&... args);
 ```
 
-##概要
+## 概要
 任意の位置に直接構築で要素を挿入する。  
 この関数の引数`args...`は、要素型`T`のコンストラクタ引数である。当関数の内部で要素型`T`のコンストラクタを呼び出し、追加する要素を構築する。
 
 第1パラメータ`position`で指定された要素の前に追加する。
 
 
-##要件
+## 要件
 第1パラメータ`position`が、`[`[`begin()`](begin.md)`,` [`end()`](end.md)`]`の範囲の間接参照可能なイテレータであること。
 
 
-##戻り値
+## 戻り値
 挿入された要素を指すイテレータ
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -55,7 +55,7 @@ int main()
 * emplace[color ff0000]
 * ls.begin()[link begin.md]
 
-###出力
+### 出力
 ```
 1,a
 2,b
@@ -63,11 +63,11 @@ int main()
 4,d
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
@@ -75,7 +75,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [N2345 Placement Insert for Containers (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2345.pdf)
 
 

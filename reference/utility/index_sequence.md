@@ -1,4 +1,4 @@
-#index_sequence
+# index_sequence
 * utility[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -13,11 +13,11 @@ namespace std {
 * size_t[link /reference/cstddef/size_t.md]
 * integer_sequence[link integer_sequence.md]
 
-##概要
+## 概要
 `index_sequence`は、[`size_t`](/reference/cstddef/size_t.md)型のシーケンスをコンパイル時に表現する、[`integer_sequence`](integer_sequence.md)クラスの別名である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -44,25 +44,25 @@ int main()
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
-##出力
+## 出力
 ```
 0, 1, 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
-###備考
+### 備考
 - GCC 4.9.2で、`std::index_sequence`を関数のパラメータとして受け取るとコンパイルエラーになる問題がある([Bug 65790](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65790))
 
 
-##参照
+## 参照
 - [N3658 Compile-time integer sequences](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3658.html)
 

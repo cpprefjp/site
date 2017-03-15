@@ -1,4 +1,4 @@
-#log10
+# log10
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 常用対数（10 を底とした対数）を得る。log は logarithm（対数）、あるいは、logarithmic function（対数関数）の略。
 
 
-##戻り値
+## 戻り値
 以下のコードと同等のことを行う：
 
 ```cpp
@@ -25,7 +25,7 @@ return va.apply(static_cast<T(*)(T)>(std::log10));
 * log10[link /reference/cmath/log10.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -42,7 +42,7 @@ int main()
 ```
 * log10[color ff0000]
 
-###出力
+### 出力
 ```
 2
 4

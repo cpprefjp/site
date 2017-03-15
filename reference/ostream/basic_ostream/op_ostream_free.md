@@ -1,4 +1,4 @@
-#operator<< (非メンバ関数)
+# operator<< (非メンバ関数)
 * ostream[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -35,22 +35,22 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 
 ストリームへの出力を行う。
 
 - 文字に対するオーバーロードは、書式化出力関数である。
 - 文字列に対するオーバーロードは、書式化出力関数である。
 
-##効果
+## 効果
 
-###(1)～(5) 文字の書式化出力
+### (1)～(5) 文字の書式化出力
 
 文字 `c` を出力ストリーム `os` に出力する。この際、`os` に設定されている幅、埋め文字、および、整列方向に従う。  
 なお、(2) の形式（`os` の文字型（`char_type`）が `char` 以外で `c` が `char` ）の時は、`c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
 出力後、幅指定は `0` にリセットされる。
 
-###(6)～(10) 文字列の書式化出力
+### (6)～(10) 文字列の書式化出力
 
 ヌル終端文字列 `s` を出力ストリーム `os` に出力する。この際、`os` に設定されている幅、埋め文字、および、整列方向に従う。  
 出力する文字列の長さは以下で求める。
@@ -62,27 +62,27 @@ namespace std {
 なお、(7) の形式（`os` の文字型（`char_type`）が `char` 以外で `s` が `const char*`）の時は、`s` の各文字 `c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
 出力後、幅指定は `0` にリセットされる。
 
-###(11) 右辺値参照ストリームへの出力 (C++11)
+### (11) 右辺値参照ストリームへの出力 (C++11)
 
 `os << x`を実行する。  
 このオーバーロードは、一時オブジェクトなどに対して`<<`演算子を利用可能にするためのものである。
 
 
-##戻り値
+## 戻り値
 
 `os`
 
 
-##備考
+## 備考
 - (11) の形式は C++11 から追加されたが、より使いやすくするための変更が提案されている。  
 	[LWG1203. More useful rvalue stream insertion](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#1203)
 - (3)、および、(8) の形式は、オーバーロード解決時の曖昧さ解消のために存在する。  
 	（これらが存在しないと、`CharT` が `char` 型の場合に、(1) と (2)、あるいは (6) と (7) が同じ優先順位となりオーバーロード解決に失敗してしまう）
 
 
-##例
+## 例
 
-###(1)、(2)、(6)、(7) の例
+### (1)、(2)、(6)、(7) の例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -103,7 +103,7 @@ int main()
 * std::setfill[link ../../iomanip/setfill.md.nolink]
 * std::setw[link ../../iomanip/setw.md.nolink]
 
-###出力
+### 出力
 ```
 C+++++++++
 C+++++++++
@@ -111,7 +111,7 @@ cpprefjp++
 cpprefjp++
 ```
 
-###(3)～(5)、(8)～(10) の例
+### (3)～(5)、(8)～(10) の例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -133,7 +133,7 @@ int main()
 * std::setfill[link ../../iomanip/setfill.md.nolink]
 * std::setw[link ../../iomanip/setw.md.nolink]
 
-###出力
+### 出力
 ```
 C+++++++++
 C+++++++++
@@ -143,7 +143,7 @@ cpprefjp++
 cpprefjp++
 ```
 
-###(11) の例
+### (11) の例
 ```cpp
 #include <fstream>
 #include <string>
@@ -162,7 +162,7 @@ int main()
 * std::ofstream[link ../../fstream/basic_ofstream.md.nolink]
 * std::ifstream[link ../../fstream/basic_ifstream.md.nolink]
 
-###出力
+### 出力
 ```
 cpprefjp
 ```
@@ -172,16 +172,16 @@ cpprefjp
 （`operator<<(basic_ostream<char, Traits>&, const char*)` は左辺に `const` ではない参照を必要とするため `ofstream` の一時オブジェクトを受け取れないが、`basic_ostream<char, Traits>::operator<<(const void*)` はメンバ関数であるため `ofstream` の一時オブジェクトに対しても呼び出す事が可能）
 
 
-##実装例
+## 実装例
 TBD
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 - C++11: ストリームへの右辺値参照を実引数として受け取るものが追加された
 
 
-##関連項目
+## 関連項目
 
 - このほかの`<<`演算子関数
     - [`bool`値・数値・ポインタ、ストリームバッファ、マニピュレータに対するもの](op_ostream.md)

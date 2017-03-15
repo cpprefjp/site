@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * lock_guard[meta class]
@@ -13,21 +13,21 @@ lock_guard(lock_guard const&) = delete;  // (3)
 ```
 * adopt_lock_t[link /reference/mutex/adopt_lock.md]
 
-##概要
+## 概要
 - (1) : 非ロック状態のミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。
 - (2) : ロック済みミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。
 - (3) : コピーコンストラクタ。コピー不可。非自明なコンストラクタが定義されているため、ムーブコンストラクタは定義されない
 
 
-##効果
+## 効果
 - (1) : `m.lock()`
 
 
-##例外
+## 例外
 - (2) : 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -55,15 +55,15 @@ int main()
 * mtx.lock()[link /reference/mutex/mutex/lock.md]
 * std::adopt_lock[link /reference/mutex/adopt_lock.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -72,6 +72,6 @@ int main()
     - Visual C++ 11.0はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
-##参照
+## 参照
 
 

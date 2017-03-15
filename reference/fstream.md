@@ -1,4 +1,4 @@
-#fstream
+# fstream
 * fstream[meta header]
 
 `<fstream>`ヘッダでは、ファイルに対する入出力に関するクラスを提供する。
@@ -12,6 +12,6 @@
 | `basic_ofstream`                              | ファイルに対する出力ストリーム (class template)     |                |
 | [`basic_fstream`](fstream/basic_fstream.md)   | ファイルに対する入出力ストリーム (class template)   |                |
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98

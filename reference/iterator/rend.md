@@ -1,4 +1,4 @@
-#rend
+# rend
 * iterator[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -22,7 +22,7 @@ namespace std {
 * reverse_iterator[link reverse_iterator.md]
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 範囲の先頭の前を指す逆イテレータを取得する。
 
 - (1) : コンテナの`rend()`メンバ関数で、範囲の先頭の前を指す、逆イテレータを返す。
@@ -31,14 +31,14 @@ namespace std {
 - (4) : `initializer_list`オブジェクトの先頭の前を指す、読み取り専用逆イテレータを返す。
 
 
-##戻り値
+## 戻り値
 - (1) : `c.rend();`
 - (2) : `c.rend();`
 - (3) : [`reverse_iterator`](reverse_iterator.md)`<T*>(array)`
 - (4) : [`reverse_iterator`](reverse_iterator.md)`<const E*>(`[`il.begin()`](/reference/initializer_list/begin.md)`)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -89,24 +89,24 @@ int main()
 * std::rbegin[link rbegin.md]
 * std::reverse_iterator[link reverse_iterator.md]
 
-###出力
+### 出力
 ```
 3 2 1 
 6 5 4 
 9 8 7 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG Issue 2128. Absence of global functions `cbegin`/`cend`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2128)
 

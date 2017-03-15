@@ -1,4 +1,4 @@
-#iterator tag
+# iterator tag
 * iterator[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -13,7 +13,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `<iterator>`ヘッダでは、イテレータを分類するためのタグ(空クラス)を定義している。
 
 | 型                           | 説明 |

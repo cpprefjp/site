@@ -1,4 +1,4 @@
-#sub_match
+# sub_match
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -17,12 +17,12 @@ namespace std {
 ```
 * pair[link ../utility/pair.md]
 
-##概要
+## 概要
 クラステンプレート `sub_match` は、文字列が正規表現にマッチした際に、その正規表現がマッチした範囲、あるいは、その正規表現内のあるグループがマッチした範囲を表す。
 `sub_match` は [`pair`](../utility/pair.md) から public 継承している。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前                                                  | 説明                                                        | 対応バージョン |
 |-------------------------------------------------------|-------------------------------------------------------------|----------------|
@@ -34,7 +34,7 @@ namespace std {
 
 注：上記の他、オブジェクトの内容を交換するメンバ関数 [`swap`](../utility/pair/swap.md) もあるが、[`pair`](../utility/pair.md) から継承したものであるため、メンバ変数 `matched` の内容は交換しないため注意が必要。
 
-##メンバ変数
+## メンバ変数
 
 | 名前      | 型                      | 説明                                                                             | 対応バージョン |
 |-----------|-------------------------|----------------------------------------------------------------------------------|----------------|
@@ -42,7 +42,7 @@ namespace std {
 | `second`  | `BidirectionalIterator` | このサブマッチがマッチに参加している場合、当該サブマッチの終了位置の一つ先を表す | C++11          |
 | `matched` | `bool`                  | このサブマッチがマッチに参加しているか否かを表す                                 | C++11          |
 
-##メンバ型
+## メンバ型
 
 | 名前              | 説明                                                                                                                                     | 対応バージョン |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------|
@@ -53,7 +53,7 @@ namespace std {
 | `first_type`      | メンバ変数 `first` の型。[`pair`](../utility/pair.md) から継承。`BidirectionalIterator` の別名                                           | C++11          |
 | `second_type`     | メンバ変数 `second` の型。[`pair`](../utility/pair.md) から継承。`BidirectionalIterator` の別名                                          | C++11          |
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前                                          | 説明                               | 対応バージョン |
 |-----------------------------------------------|------------------------------------|----------------|
@@ -67,7 +67,7 @@ namespace std {
 
 注：非メンバ関数版の [`swap`](../utility/swap.md) は `sub_match` 用にオーバーロードされていないため、[`pair`](../utility/pair.md) から継承したメンバ関数 [`swap`](../utility/pair/swap.md) は呼び出さずに汎用版の動作となる（一時変数を利用したムーブでオブジェクトの内容を交換する）。従って、こちらはメンバ変数 `matched` も交換される。
 
-##非メンバ型
+## 非メンバ型
 
 | 名前          | 説明                                                                         | 対応バージョン |
 |---------------|------------------------------------------------------------------------------|----------------|
@@ -76,7 +76,7 @@ namespace std {
 | `ssub_match`  | `sub_match<`[`string`](../string/basic_string.md)`::const_iterator>` の別名  | C++11          |
 | `wssub_match` | `sub_match<`[`wstring`](../string/basic_string.md)`::const_iterator>` の別名 | C++11          |
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -110,18 +110,18 @@ int main()
 * std::regex_search[link regex_search.md]
 * std::smatch[link match_results.md]
 
-###出力
+### 出力
 ```
 0:range = [1, 5), length() = 4, str() = 'abc '
 1:not participate
 2:range = [1, 4), length() = 3, str() = 'abc'
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

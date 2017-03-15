@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * mutex[meta class]
@@ -9,15 +9,15 @@
 ~mutex();
 ```
 
-##概要
+## 概要
 ミューテックスの破棄を行う
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -25,6 +25,6 @@
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

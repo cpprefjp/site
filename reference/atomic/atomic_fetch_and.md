@@ -1,4 +1,4 @@
-#atomic_fetch_and
+# atomic_fetch_and
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -15,27 +15,27 @@ namespace std {
 ```
 * atomic[link atomic.md]
 
-##概要
+## 概要
 アトミックにAND演算を行う
 
 
-##効果
+## 効果
 [`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、現在の値に`operand`をANDした値でアトミックに置き換える
 
 
-##戻り値
+## 戻り値
 変更前の値が返される
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 符号付き整数型に対しては、2の補数表現による演算が行われ、未定義動作はない。アドレス型に関しては結果として未定義アドレスになる場合があるが、それ以外の未定義動作はない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -60,7 +60,7 @@ int main()
 * to_string()[link /reference/bitset/to_string.md]
 
 
-###出力
+### 出力
 ```
 1011
 1110
@@ -68,11 +68,11 @@ int main()
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -80,6 +80,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#time_point_cast
+# time_point_cast
 * chrono[meta header]
 * std::chrono[meta namespace]
 * function template[meta id-type]
@@ -18,11 +18,11 @@ namespace chrono {
 ```
 * time_point[link /reference/chrono/time_point.md]
 
-##概要
+## 概要
 分解能の低い[`duration`](/reference/chrono/duration.md)型を内部表現として持つ[`time_point`](/reference/chrono/time_point.md)への変換
 
 
-##戻り値
+## 戻り値
 ```cpp
 time_point<Clock, ToDuration>(duration_cast<ToDuration>(t.time_since_epoch()));
 ```
@@ -30,7 +30,7 @@ time_point<Clock, ToDuration>(duration_cast<ToDuration>(t.time_since_epoch()));
 * duration_cast[link /reference/chrono/duration_cast.md]
 * time_since_epoch[link /reference/chrono/time_point/time_since_epoch.md]
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -58,19 +58,19 @@ int main()
 * time_since_epoch()[link time_point/time_since_epoch.md]
 * count()[link duration/count.md]
 
-###出力
+### 出力
 ```
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
-##参照
+## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 

@@ -1,7 +1,7 @@
-#スコープを持つ列挙型
+# スコープを持つ列挙型
 * cpp11[meta cpp]
 
-##概要
+## 概要
 `enum class`で定義した列挙型は、従来の`enum`に加えて、「整数型への暗黙の型変換を行わない」「列挙型のスコープを持つ」という機能を持つ。
 
 ```cpp
@@ -16,7 +16,7 @@ int color = static_cast<int>(Color::Red);
 ```
 
 
-##仕様
+## 仕様
 - `enum class`もしくは`enum struct`で定義した列挙型は、「スコープを持つ列挙型 (scoped enumeration type)」という。`enum class`と`enum struct`に、機能の違いはない
 - `enum`で定義した列挙型は、「スコープを持たない列挙型 (unscoped enumeration type)」という
 - 列挙型には、型名の後ろにコロン `:` 区切りで、基底の整数型を指定できる。基底型として指定した整数型のCV修飾は無視される
@@ -48,7 +48,7 @@ enum class Color : int {
 詳細は、上述した仕様を参照。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <type_traits>
@@ -76,12 +76,12 @@ int main()
 * assert[link /reference/cassert/assert.md]
 
 
-###出力
+### 出力
 ```
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 C++03は、C99の列挙型に対する改善は提供していたが、依然として以下のような問題が残っていた：
 
 - 型の安全性
@@ -92,11 +92,11 @@ C++03は、C99の列挙型に対する改善は提供していたが、依然と
 ECMA規格になっているC++/CLIが、現在のスコープを持つ列挙型と同等の機能を持っていたために、その経験を標準C++に取り入れることとなった。
 
 
-##関連項目
+## 関連項目
 - [`underlying_type`](/reference/type_traits/underlying_type.md)
 
 
-##参照
+## 参照
 - [N1513 Improving Enumeration Types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1513.pdf)
 - [N1579 Strongly Typed Enums](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1579.pdf)
 - [N1579 Strongly Typed Enums (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1719.pdf)

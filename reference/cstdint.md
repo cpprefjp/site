@@ -1,10 +1,10 @@
-#cstdint
+# cstdint
 * cstdint[meta header]
 * cpp11[meta cpp]
 
 `<cstdint>`ヘッダでは、ビット数が規定された整数型の別名、およびマクロを提供する。これらの機能は、`std`名前空間に属することを除いてC言語の標準ライブラリ`<stdint.h>`ヘッダと同じである。
 
-##符号あり整数型
+## 符号あり整数型
 
 | 型 | 説明 | 対応バージョン |
 |-----------------------------------------------|-------------------------------------------------------|-------|
@@ -23,7 +23,7 @@
 | [`intmax_t`](cstdint/intmax_t.md)           | 最も大きい符号あり整数型 | C++11 |
 | [`intptr_t`](cstdint/intptr_t.md)           | ポインタサイズの符号あり整数型(実装するかどうかは処理系定義) | C++11 |
 
-##符号なし整数型
+## 符号なし整数型
 
 | 型 | 説明 | 対応バージョン |
 |-------------------------------------------------|------------------------------------------------------|-------|
@@ -44,7 +44,7 @@
 
 
 以下のマクロは、整数型の限界値を表す。
-##符号あり整数型用の限界値マクロ
+## 符号あり整数型用の限界値マクロ
 
 | マクロ | 説明 | 対応バージョン |
 |-------------------------------------------------|-----------------------|-------|
@@ -86,7 +86,7 @@
 | [`WINT_MAX`](cstdint/wint_max.md)               | `wint_t`の最大値 | C++11 |
 
 
-##符号なし整数型用の限界値マクロ
+## 符号なし整数型用の限界値マクロ
 
 | マクロ | 説明 | 対応バージョン |
 |---------------------------------------------------|-----------------------|-------|
@@ -107,7 +107,7 @@
 | [`SIZE_MAX`](cstdint/size_max.md)                 | [`size_t`](/reference/cstddef/size_t.md)の最大値 | C++11 |
 
 
-##符号あり整数型用の定数値マクロ
+## 符号あり整数型用の定数値マクロ
 
 以下のマクロは、各整数型の定数値を表す関数マクロである。  
 例：) `int8_t x = INT8_C(1);`  
@@ -121,7 +121,7 @@
 | `INTMAX_C(n)` | 最も大きい符号あり整数型の定数値 | C++11 |
 
 
-##符号なし整数型用の定数値マクロ
+## 符号なし整数型用の定数値マクロ
 
 | マクロ | 説明 | 対応バージョン |
 |----------------|------------------------------------------|-------|
@@ -131,8 +131,8 @@
 | `UINT64_C(n)`  | 64ビット幅を持つ、符号なし整数型の定数値 | C++11 |
 | `UINTMAX_C(n)` | 最も大きい符号なし整数型の定数値 | C++11 |
 
-##備考
-###<a name="stdc-macros"></a>`__STDC_LIMIT_MACROS`, `__STDC_CONSTANT_MACROS` マクロについて
+## 備考
+### <a name="stdc-macros"></a>`__STDC_LIMIT_MACROS`, `__STDC_CONSTANT_MACROS` マクロについて
 C99 の 7.18.3 `<stdint.h>` についての脚注で、同ヘッダを C++ でコンパイルする場合に限界値マクロ、定数値マクロを得るためにはこれらのマクロを事前に定義する必要があるものとされていた。
 > Footnote 219, 220: C++ implementations should define these macros only when `__STDC_LIMIT_MACROS` is defined before `<stdint.h>` is included.
 
@@ -149,12 +149,12 @@ C99 の 7.18.3 `<stdint.h>` についての脚注で、同ヘッダを C++ で�
   [Bug 15366 – Per C11 and C++11, `<stdint.h>` should not look at `__STDC_LIMIT_MACROS` or `__STDC_CONSTANT_MACROS`](https://sourceware.org/bugzilla/show_bug.cgi?id=15366)
 - [What do __STDC_LIMIT_MACROS and __STDC_CONSTANT_MACROS mean? - Stack Overflow](https://stackoverflow.com/questions/986426/what-do-stdc-limit-macros-and-stdc-constant-macros-mean)
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-##参照
+## 参照
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
 - [N1835 `<stdint.h>` for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1835.pdf)
 

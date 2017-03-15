@@ -1,4 +1,4 @@
-#operator[]
+# operator[]
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -9,23 +9,23 @@ reference operator[](size_type n);
 const_reference operator[](size_type n) const;
 ```
 
-##概要
+## 概要
 要素アクセス
 
 
-##戻り値
+## 戻り値
 `n`番目の要素への参照を返す。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##備考
+## 備考
 `a[n]` と `*(a.begin() + n)` は同じ結果になる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -40,7 +40,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 4
 ```

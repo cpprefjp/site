@@ -1,4 +1,4 @@
-#is_base_of
+# is_base_of
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,23 +11,23 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`Base`が型`Derived`の基底クラスか調べる。
 
 
-##要件
+## 要件
 `Base`と`Derived`が非共用体のクラスであり、異なる型である場合(cv修飾は無視される)、`Derived`は完全型でなければならない。
 
 
-##効果
+## 効果
 `is_base_of`は、型`Base`が型`Derived`の基底クラス (cv修飾は無視される) である、もしくは2つが同じクラス型ならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##備考
+## 備考
 派生時の`private`、`protected`指定は、派生関係の判定に影響しない。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -49,21 +49,21 @@ static_assert(std::is_base_of<int, char>::value == false, "int is not base of ch
 int main() {}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [LWG Issue 2015. Incorrect pre-conditions for some type traits]
     - C++11では要件が「`Base`と`Derived`がクラスであり、異なる型である場合(cv修飾は無視される)、`Derived`は完全型でなければならない。」であったが、共用体を意図せず許容していたため、C++14で「`Base`と`Derived`が**非共用体**のクラスであり、異なる型である場合(cv修飾は無視される)、`Derived`は完全型でなければならない。」に変更した。
 

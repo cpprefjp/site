@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * stack[meta header]
 * std[meta namespace]
 * stack[meta class]
@@ -9,23 +9,23 @@ stack& operator=(const stack& st); // (1)
 stack& operator=(stack&& st);      // (2) C++11
 ```
 
-##概要
+## 概要
 コピーまたはムーブを行う事で、他の `stack` から `stack` を構築する。
 
 
-##パラメータ
+## パラメータ
 `st`: コピー・ムーブ元の `stack` オブジェクト
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##計算量
+## 計算量
 線形 O(n)。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <stack>
@@ -56,12 +56,12 @@ int main()
 * st1.top()[link top.md]
 * st1.pop()[link pop.md]
 
-###出力
+### 出力
 ```
 3 2 1 
 ```
 
-##参照
+## 参照
 | | |
 |--------------------------------------------------------------------------------------------|-----------------------------------------------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ |

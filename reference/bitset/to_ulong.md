@@ -1,4 +1,4 @@
-#to_ulong
+# to_ulong
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -8,19 +8,19 @@
 unsigned long to_ulong() const;
 ```
 
-##概要
+## 概要
 `unsigned long`型に変換する。
 
 
-##戻り値
+## 戻り値
 ビット列を`unsigned long`型に変換して返す。
 
 
-##例外
+## 例外
 `unsigned long`型に変換した結果としてオーバーフローした場合、[`overflow_error`](/reference/stdexcept.md)例外を送出する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -34,11 +34,11 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 11
 ```
 
 
-##参照
+## 参照
 

@@ -1,4 +1,4 @@
-#assign
+# assign
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -13,7 +13,7 @@ void assign(initializer_list<T> init); // (3) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 コンテナの再代入
 
 - (1) : 範囲を代入。
@@ -21,7 +21,7 @@ void assign(initializer_list<T> init); // (3) C++11
 - (3) : 初期化子リストを代入。
 
 
-##効果
+## 効果
 - (1) :
 
 ```cpp
@@ -57,11 +57,11 @@ insert(begin(), init.begin(), init.end());
 * init.end[link /reference/initializer_list/end.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -109,14 +109,14 @@ int main()
 * ls.begin()[link begin.md]
 * ls.end()[link end.md]
 
-###出力
+### 出力
 ```
 ls1 : 1 2 3 
 ls2 : 1 1 1 
 ls3 : 1 2 3 
 ```
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (3)の経緯となる提案文書
 

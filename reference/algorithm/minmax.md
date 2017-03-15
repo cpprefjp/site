@@ -1,4 +1,4 @@
-#minmax
+# minmax
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -34,27 +34,27 @@ namespace std {
 * pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 同じ型の2つの値、もしくは[`initializer_list`](/reference/initializer_list.md)によるN個の値のうち、最小値と最大値の組を取得する。
 
 最後の引数`comp`は、2項の述語関数オブジェクトであり、これを使用して比較演算をカスタマイズすることができる。
 
 
-##要件
+## 要件
 - 型`T`が`operator<`による比較が可能であること。
 - [`initializer_list`](/reference/initializer_list.md)バージョンはそれに加えて、要素数が1以上であり、`T`がコピーコンストラクト可能であること。
 
 
-##戻り値
+## 戻り値
 `first`が最小値、`second`が最大値となる[`pair`](/reference/utility/pair.md)オブジェクト
 
 
-##計算量
+## 計算量
 - 2値比較バージョンは1操作。
 - `initializer_list`バージョンは高々`(3/2) * t.size()`回の述語適用。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <algorithm>
@@ -78,12 +78,12 @@ int main()
 * std::minmax[color ff0000]
 * std::greater[link /reference/functional/greater.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class T>
 std::pair<const T&, const T&> minmax(const T& a, const T& b)
@@ -120,12 +120,12 @@ std::pair<T, T> minmax(std::initializer_list<T> init, Compare comp)
 * init.end()[link /reference/initializer_list/end.md]
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -133,7 +133,7 @@ std::pair<T, T> minmax(std::initializer_list<T> init, Compare comp)
 - [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
 
 
-##参照
+## 参照
 - [N1840 C++0x Proposal: Function template `std::minmax` and / or algorithm `std::minmax_element`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1840.pdf)
 - [N1990 Proposed Text for `minmax` (N1840)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1990.htm)
 - [N2551 A Variadic `std::min(T, ...)` for the C++ Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2551.pdf)

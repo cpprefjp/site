@@ -1,4 +1,4 @@
-#fesetround
+# fesetround
 * cfenv[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,21 +10,21 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 浮動小数点数の丸め方式を設定する。
 
 
-##効果
+## 効果
 パラメータ`round`で渡された丸め方式を、標準ライブラリの丸め方式として設定する。
 
 パラメータ`round`の値が標準ライブラリで定義される丸め方式のマクロ値と異なる場合、丸め方式は変更されない。
 
 
-##戻り値
+## 戻り値
 丸め方式を正しく設定できた場合、この関数は`0`を返す。そうでなければ、`0`以外の値を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cfenv>
@@ -74,7 +74,7 @@ int main()
 * FE_TOWARDZERO[link fe_towardzero.md]
 * FE_UPWARD[link fe_upward.md]
 
-###出力
+### 出力
 ```
 default
   [2 -> 2] [2.1 -> 2] [2.5 -> 2] [2.9 -> 3] [-2 -> -2] [-2.1 -> -2] [-2.5 -> -2] [-2.9 -> -3] 
@@ -89,11 +89,11 @@ upward
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
@@ -101,7 +101,7 @@ upward
 	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
 
 
-##関連項目
+## 関連項目
 - [`rint`](/reference/cmath/rint.md)
 - [`nearbyint`](/reference/cmath/nearbyint.md)
 

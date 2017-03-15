@@ -1,4 +1,4 @@
-#type_index
+# type_index
 * typeindex[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,11 +10,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `type_index`は、[`type_info`](/reference/typeinfo/type_info.md)を連想コンテナや非順序連想コンテナのインデックス型として使用するためのクラスである。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前                                              | 説明                               | 対応バージョン |
 |---------------------------------------------------|------------------------------------|----------------|
@@ -29,7 +29,7 @@ namespace std {
 | [`name`](type_index/name.md)                    | 型名を取得する                     | C++11          |
 
 
-##ハッシュサポート
+## ハッシュサポート
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------|------------------------------------------|-------|
@@ -37,7 +37,7 @@ namespace std {
 | `template <> struct hash<type_index>;` | `hash`クラスの`type_index`に対する特殊化 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -61,7 +61,7 @@ int main()
 * typeid(double)[color ff0000]
 * typeid(char)[color ff0000]
 
-###出力
+### 出力
 ```
 3
 1
@@ -69,16 +69,16 @@ int main()
 ```
 
 
-###言語
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 - [N2530 Making It Easier to Use `std::type_info` as an Index in an Associative Container](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2530.html)
 

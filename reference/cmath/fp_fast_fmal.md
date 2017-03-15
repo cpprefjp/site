@@ -1,16 +1,16 @@
-#FP_FAST_FMAL
+# FP_FAST_FMAL
 * cmath[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
-#define FP_FAST_FMAL 1
+# define FP_FAST_FMAL 1
 ```
 
-##概要
+## 概要
 `FP_FAST_FMAL` は `long double` 型の変数 `x`, `y`, `z` に対し、関数呼び出し [`fma(x, y, z)`](fma.md) が式 `x * y + z` より高速であるとき、またそのときに限り `#define` される。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11

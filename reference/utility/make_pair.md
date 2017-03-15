@@ -1,4 +1,4 @@
-#make_pair
+# make_pair
 * utility[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -17,7 +17,7 @@ namespace std {
 ```
 * pair[link /reference/utility/pair.md]
 
-##概要
+## 概要
 pairクラスのオブジェクトを構築する。
 
 
@@ -34,11 +34,11 @@ C++11以降の場合、結果型の`V1`および`V2`は以下のような型と�
 - かつ`T`が`reference_wrapper`型であった場合`T&`型を使用する
 
 
-##戻り値
+## 戻り値
 [`pair`](/reference/utility/pair.md)`<V1, V2>(`[`forward`](/reference/utility/forward.md)`<T1>(x),` [`forward`](/reference/utility/forward.md)`<T2>(y))`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -57,10 +57,10 @@ int main()
 ```
 * make_pair[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##参照
+## 参照
 - [N2244 Wording for `decay`, `make_pair` and `make_tuple`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2244.html)
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)

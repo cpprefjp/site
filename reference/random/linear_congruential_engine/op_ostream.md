@@ -1,4 +1,4 @@
-#operator<<
+# operator<<
 * random[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -15,24 +15,24 @@ namespace std {
 ```
 * basic_ostream[link /reference/ostream/basic_ostream.md]
 
-##概要
+## 概要
 ストリームへの出力を行う。
 
 
-##効果
+## 効果
 `os`に対してフォーマットフラグ`ios_base::dec | ios_base::left`を設定する。  
 フォーマットを設定した`os`に対して、エンジン`x`の現在状態を出力する。
 
 
-##事後条件
+## 事後条件
 `os`のフォーマットフラグが、この関数を呼び出す前の状態に戻ること。
 
 
-##戻り値
+## 戻り値
 `os`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -45,16 +45,16 @@ int main()
 ```
 * std::minstd_rand[link /reference/random/minstd_rand.md]
 
-###出力例
+### 出力例
 ```
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -62,6 +62,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

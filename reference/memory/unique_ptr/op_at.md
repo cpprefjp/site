@@ -1,4 +1,4 @@
-#operator[]
+# operator[]
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
@@ -10,19 +10,19 @@ T& operator[](size_t i) const;
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 任意の位置の要素にアクセスする。
 
 
-##要件
+## 要件
 `i`が、保持している動的配列の要素数より小さいこと。
 
 
-##戻り値
+## 戻り値
 [`get()`](get.md)`[i]`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -40,16 +40,16 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

@@ -1,4 +1,4 @@
-#operator++
+# operator++
 * iterator[meta header]
 * std[meta namespace]
 * istreambuf_iterator[meta class]
@@ -10,11 +10,11 @@ proxy operator++(int);
 ```
 * proxy[italic]
 
-##概要
+## 概要
 イテレータを進める
 
 
-##効果
+## 効果
 前置インクリメント：
 `sbuf_->sbumpc();`
 `return *this;`
@@ -26,7 +26,7 @@ proxy operator++(int);
 ※`sbuf_`は、メンバ変数として保持している`streambuf_type`オブジェクトへのポインタ
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -49,13 +49,13 @@ int main()
 * it++[color ff0000]
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
-###出力
+### 出力
 ```
 2
 2
 3
 ```
 
-##参照
+## 参照
 
 

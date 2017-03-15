@@ -1,4 +1,4 @@
-#back
+# back
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -10,19 +10,19 @@ const charT& back() const;
 charT& back();
 ```
 
-##概要
+## 概要
 末尾要素への参照を取得する。
 
 
-##要件
+## 要件
 `!`[`empty()`](empty.md)
 
 
-##戻り値
+## 戻り値
 [`operator[]`](op_at.md)`(`[`size()`](size.md) `- 1)` の結果を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -37,11 +37,11 @@ int main()
 ```
 * back()[color ff0000]
 
-###出力
+### 出力
 ```
 o
 ```
 
-##参照
+## 参照
 - [LWG Issue 534. Missing `basic_string` members](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#534)
 

@@ -1,4 +1,4 @@
-#crbegin
+# crbegin
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -8,19 +8,19 @@
 const_reverse_iterator crbegin() const noexcept;
 ```
 
-##概要
+## 概要
 末尾を指す読み取り専用逆イテレータを取得する
 
 
-##戻り値
+## 戻り値
 `reverse_iterator(`[`end()`](end.md)`)`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -39,9 +39,9 @@ int main()
 ```
 * crbegin()[color ff0000]
 
-###出力
+### 出力
 ```
 o
 ```
 
-##参照
+## 参照

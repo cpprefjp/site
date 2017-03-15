@@ -1,4 +1,4 @@
-#operator[]
+# operator[]
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -13,24 +13,24 @@ reference operator[](size_t pos);            // (2)
 ```
 * reference[link reference.md]
 
-##概要
+## 概要
 任意の位置のビットにアクセスする。
 
 
-##要件
+## 要件
 `pos <` [`size()`](size.md)であること。
 
 
-##戻り値
+## 戻り値
 - (1) : `pos`番目のビットが1になっていれば`true`、そうでなければ`false`を返す。
 - (2) : `pos`番目のビットを表すプロキシオブジェクトを返す。この戻り値を`bool`への変換として扱った場合は、`bs.`[`test`](test.md)`(pos)`と同じ効果となる。戻り値をビットの書き換え(`bs[pos] = value`)として扱った場合は、`bs.`[`set`](set.md)`(pos, value)`と同じ効果となる。
 
 
-##例外
+## 例外
 投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -49,13 +49,13 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 false
 1011
 ```
 
 
-##参照
+## 参照
 - [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
 

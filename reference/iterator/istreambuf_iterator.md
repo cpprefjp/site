@@ -1,4 +1,4 @@
-#istreambuf_iterator
+# istreambuf_iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -15,7 +15,7 @@ namespace std {
 * input_iterator_tag[link /reference/iterator/iterator_tag.md]
 * unspecified[italic]
 
-##概要
+## 概要
 `istreambuf_iterator`は、`operator++()`でイテレータを進めることにより、ストリームバッファの`sbumpc()`メンバ関数でストリームからデータを読み込む入力イテレータである。
 
 ストリームからの`sgetc()`メンバ関数による読み取りが`Traits::eof()`を返した場合に、イテレータは`end`イテレータと等しくなる。
@@ -23,7 +23,7 @@ namespace std {
 [`istream_iterator`](/reference/iterator/istream_iterator.md)とは異なり、スペースや改行が読み飛ばされることはない。いくつかのメンバ関数は、同じ`streambuf`オブジェクトを参照するためにプロキシオブジェクトを返す。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|-------------------------|-------|
@@ -35,7 +35,7 @@ namespace std {
 | [`equal`](istreambuf_iterator/equal.md) | `istreambuf_iterator`オブジェクトの等値比較 | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------|------------------------|-------|
@@ -51,7 +51,7 @@ namespace std {
 | `reference`         | `CharT` | |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|------------|------|
@@ -59,7 +59,7 @@ namespace std {
 | [`operator!=`](istreambuf_iterator/op_not_equal.md) | 非等値比較 | |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -83,12 +83,12 @@ int main()
 * std::istreambuf_iterator[color ff0000]
 * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 
-###出力
+### 出力
 ```
 1 2 3
 4 5 6
 ```
 
-##関連項目
+## 関連項目
 - [`basic_streambuf`](../streambuf/basic_streambuf.md)
 

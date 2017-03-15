@@ -1,4 +1,4 @@
-#integer_sequence
+# integer_sequence
 * utility[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,13 +14,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `integer_sequence`は、任意の整数型のシーケンスをコンパイル時に表現するクラスである。
 
 このクラスは、[`tuple`](/reference/tuple/tuple.md)オブジェクトを展開して、引数パックとして他の関数に転送することを主目的として作られた。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -45,22 +45,22 @@ int main()
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
-##出力
+## 出力
 ```
 0, 1, 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
-##参照
+## 参照
 - [N3658 Compile-time integer sequences](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3658.html)
 
 

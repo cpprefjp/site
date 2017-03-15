@@ -1,4 +1,4 @@
-#ratio
+# ratio
 * ratio[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -17,7 +17,7 @@ namespace std {
 ```
 * intmax_t[link /reference/cstdint/intmax_t.md]
 
-##概要
+## 概要
 `ratio`は、コンパイル時に有理数を表現するためのクラスである。メンバ定数として、`num`(分子:numerator)と`den`(分母：denominator)を持つ。
 
 `num`と`den`の値は、gcd(最大公約数:the greatest common divisor)を使用して、以下のように`N`と`D`を約分して割り当てる：
@@ -26,7 +26,7 @@ namespace std {
 - `den` : [`abs`](/reference/cmath/abs.md)`(D) /` [`gcd`](https://ja.wikipedia.org/wiki/最大公約数)`(N, D)`
 
 
-##例
+## 例
 ```cpp
 #include <ratio>
 
@@ -40,15 +40,15 @@ int main()
 ```
 * std::ratio[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [Visual C++](/implementation.md#visual_cpp): ??

@@ -1,4 +1,4 @@
-#native_handle
+# native_handle
 * mutex[meta header]
 * std[meta namespace]
 * recursive_mutex[meta class]
@@ -9,11 +9,11 @@
 native_handle_type native_handle();
 ```
 
-##概要
+## 概要
 ミューテックスのハンドルを取得する。
 
 
-##効果
+## 効果
 この関数は、実装依存のミューテックスハンドルを返す。
 
 - Unix系環境におけるlibstdc++とlibc++では、pthreadライブラリのミューテックス型`pthread_mutex_t*`を表す。
@@ -22,11 +22,11 @@ native_handle_type native_handle();
 ハンドル型に対する操作は汎用的ではないため、環境依存のプログラミングが必要な場合に使用する。
 
 
-##戻り値
+## 戻り値
 実装依存のミューテックスハンドル
 
 
-##例
+## 例
 ```cpp
 // libstdc++(pthread)環境での、ミューテックスの優先順位上限取得
 #include <iostream>
@@ -46,16 +46,16 @@ int main()
 ```
 * native_handle()[color ff0000]
 
-###出力例
+### 出力例
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -63,6 +63,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

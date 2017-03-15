@@ -1,4 +1,4 @@
-#all_of
+# all_of
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 範囲の全ての要素が条件を満たすかを判定する。
 
 
-##戻り値
+## 戻り値
 `[first,last)` が空であったり、`[first,last)` 内の全てのイテレータ `i` について `pred(*i)` が `true` である場合は `true` を返し、そうでない場合は `false` を返す。
 
 
-##計算量
+## 計算量
 最大で `last - first` 回 `pred` を実行する。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -45,13 +45,13 @@ int main() {
 ```
 * std::all_of[color ff0000]
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class Predicate>
 bool all_of(InputIterator first, InputIterator last, Predicate pred) {
@@ -61,11 +61,11 @@ bool all_of(InputIterator first, InputIterator last, Predicate pred) {
 }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
@@ -73,12 +73,12 @@ bool all_of(InputIterator first, InputIterator last, Predicate pred) {
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##関連項目
+## 関連項目
 - [`any_of`](/reference/algorithm/any_of.md)
 - [`none_of`](/reference/algorithm/none_of.md)
 
 
-##参照
+## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 

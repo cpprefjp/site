@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * unordered_map[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,27 +12,27 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの `unordered_map` オブジェクトである `x` と 'y'が保持するコンテンツを交換する。サイズは異なる場合もある。 
 このメンバ関数の呼び出しの後、呼び出し前に 'x' にあった要素は `y` へ、`y` 内にあった要素は `x` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。 
 
 
-##効果
+## 効果
 `x.`[`swap`](swap.md)`(y);`
 
 
-##戻り値
+## 戻り値
 なし
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -67,17 +67,17 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 c1 : {[5,d], [15,e], }
 c2 : {[10,a], [20,b], [30,c], }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??

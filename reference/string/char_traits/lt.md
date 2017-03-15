@@ -1,4 +1,4 @@
-#lt
+# lt
 * string[meta header]
 * std[meta namespace]
 * char_traits[meta class]
@@ -9,19 +9,19 @@ static bool lt(const char_type& c1, const char_type& c2);      // C++03
 static constexpr bool lt(char_type c1, char_type c2) noexcept; // C++11
 ```
 
-##概要
+## 概要
 2つの文字を比較し、左辺が右辺より小さいかを判定する。
 
 
-##戻り値
+## 戻り値
 標準で定義される`char_traits`の特殊化では、`c1 < c2`の結果を返す。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -38,10 +38,10 @@ int main()
 ```
 * lt[color ff0000]
 
-###出力
+### 出力
 ```
 less
 ```
 
-##参照
+## 参照
 

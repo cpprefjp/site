@@ -1,4 +1,4 @@
-#bad_cast
+# bad_cast
 * typeinfo[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,11 +10,11 @@ namespace std {
 ```
 * exception[link /reference/exception/exception.md]
 
-##概要
+## 概要
 `bad_cast`クラスは、 `dynamic_cast`による実行時型チェックに失敗して投げられる例外の型である。オブジェクトが不完全の場合、実行時チェックは失敗する。標準ライブラリのいくつかの実装は、型キャストのエラーを示すために、この例外を投げる可能性がある。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------------|--------------------------------|---|
@@ -24,7 +24,7 @@ namespace std {
 | `virtual const char* what() const noexcept;`                     | 実装定義のエラー内容を取得する | |
 
 
-###例
+### 例
 ```cpp
 #include <iostream>
 #include <typeinfo>
@@ -45,10 +45,10 @@ int main ()
 ```
 * std::bad_cast[color ff0000]
 
-###出力例
+### 出力例
 ```
 std::bad_cast
 ```
 
-##参照
+## 参照
 

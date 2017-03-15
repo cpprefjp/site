@@ -1,7 +1,7 @@
-#ジェネリックラムダ
+# ジェネリックラムダ
 * cpp14[meta cpp]
 
-##概要
+## 概要
 ジェネリックラムダ(generic lambdas)は、[C++11のラムダ式](/lang/cpp11/lambda_expressions.md)を拡張して、パラメータにテンプレートを使用できるようにした機能である。
 
 ```cpp
@@ -19,7 +19,7 @@ auto operator()(T1 a, T2 b) const
 ```
 
 
-##仕様
+## 仕様
 - ラムダ式のパラメータには、具体的な型に加えて、`auto`を指定できる。
 - `auto`は、型をテンプレートパラメータにするためのプレースホルダーである。
 - ラムダ式のパラメータに`auto`を指定し、`[](auto x) {}`のように記述した場合、以下のような関数オブジェクトが生成される：
@@ -64,11 +64,11 @@ char(*fp2)(int) = [](auto x) { return x; }; // コンパイルエラー
 ```
 
 
-##備考
+## 備考
 ジェネリックラムダはパラメータの型がテンプレートであるために、パラメータをテンプレートのまま[`std::function`](/reference/functional/function.md)クラスのオブジェクトに代入はできない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -91,13 +91,13 @@ int main()
 * "Hello"s[link /reference/string/basic_string/op_s.md]
 * "World"s[link /reference/string/basic_string/op_s.md]
 
-###出力
+### 出力
 ```
 5
 HelloWorld
 ```
 
-##検討されたほかの選択肢
+## 検討されたほかの選択肢
 ジェネリックラムダの構文として、最初は`auto`を書かずにパラメータの変数名と型修飾のみを書くように考えられていた。
 
 ```cpp
@@ -107,13 +107,13 @@ HelloWorld
 これが現在`auto`を書くようになったのは、可読性のためである。
 
 
-##関連項目
+## 関連項目
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
 - [C++14 ラムダ式の初期化キャプチャ](initialize_capture.md)
 - [C++14 通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)
 
 
-##参照
+## 参照
 - [N3418 Proposal for Generic (Polymorphic) Lambda Expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3418.pdf)
 - [N3559 Proposal for Generic (Polymorphic) Lambda Expressions (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3559.pdf)
 - [N3649 Generic (Polymorphic) Lambda Expressions (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3649.html)

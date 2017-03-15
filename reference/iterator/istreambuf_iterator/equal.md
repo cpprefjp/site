@@ -1,4 +1,4 @@
-#equal
+# equal
 * iterator[meta header]
 * std[meta namespace]
 * istreambuf_iterator[meta class]
@@ -8,15 +8,15 @@
 bool equal(const istreambuf_iterator& b) const;
 ```
 
-##概要
+## 概要
 他の`istreambuf_iterator`オブジェクトと等値比較する
 
 
-##戻り値
+## 戻り値
 双方がストリームの終端に達していた場合(デフォルト構築した状態は終端とみなせる)、もしくは同じ位置を指していた場合は`true`を返し、そうでなければ`false`を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -52,12 +52,12 @@ int main()
 * equal[color ff0000]
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
-###出力
+### 出力
 ```
 equal
 equal
 ```
 
-##参照
+## 参照
 
 

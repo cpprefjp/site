@@ -1,4 +1,4 @@
-#iword
+# iword
 * ios[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -8,20 +8,20 @@
 long& iword(int idx);
 ```
 
-##概要
+## 概要
 `long` 型の私用記憶域への参照を取得する。
 
 
-##効果
+## 効果
 `idx` で指定した記憶域がまだ確保されていなかった場合、新たに `long` 型の記憶域を確保し、`0` で初期化する。
 もし、記憶域の確保に失敗し、かつ、`*this` が [`basic_ios`](../basic_ios.md) の基底サブオブジェクトの場合、[`basic_ios`](../basic_ios.md)`::`[`setstate`](../basic_ios/setstate.md)`(badbit)` を呼び出す（これは [`failure`](failure.md) 例外を送出するかもしれない）。
 
 
-##戻り値
+## 戻り値
 `idx` で指定した記憶域への参照。もし記憶域が確保できなかった場合（かつ[`failure`](failure.md) 例外が投げられなかった場合）には、`0` に初期化された有効な `long` 型への参照。
 
 
-##備考
+## 備考
 - 引数 `idx` には、[`xalloc`](xalloc.md) で取得した値を渡すことが想定されている。
     そうすることによって、各プログラムが他のプログラムと競合すること無く各ストリームオブジェクト内に `long` 型の私用記憶域を確保することが可能となる。
 - 本関数で取得した `long` への参照は、本オブジェクトの他の操作によって無効になる可能性がある。  
@@ -29,7 +29,7 @@ long& iword(int idx);
 - 本関数で取得した `long` 型の記憶域の内容は、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) でコピーされる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -103,7 +103,7 @@ int main()
 * bad()[link ../basic_ios/bad.md]
 * copyfmt[link ../basic_ios/copyfmt.md]
 
-###出力
+### 出力
 ```
 10
 13
@@ -111,7 +111,7 @@ int main()
 ```
 
 
-##参照
+## 参照
 - [`xalloc`](xalloc.md)
 - [`pword`](pword.md)
 - [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md)

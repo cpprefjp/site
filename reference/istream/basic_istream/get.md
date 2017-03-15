@@ -1,4 +1,4 @@
-#get
+# get
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
@@ -16,7 +16,7 @@ basic_istream<CharT, Traits>& get(basic_streambuf<char_type, Traits>& sb);
 basic_istream<CharT, Traits>& get(basic_streambuf<char_type, Traits>& sb, char_type delim);
 ```
 
-##概要
+## 概要
 
 （非書式化入力関数）ストリームから文字または文字列を入力する。
 
@@ -25,15 +25,15 @@ basic_istream<CharT, Traits>& get(basic_streambuf<char_type, Traits>& sb, char_t
     - 配列要素へのポインタ`s`（要素数`n`）へ書き込むもの。
     - ストリームバッファ`sb`へ書き込むもの。
 
-##効果
+## 効果
 
-###1文字
+### 1文字
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. ストリームバッファから1文字入力を行う。
 1. 入力が行えなかった場合、`setstate(failbit)`を呼び出す。
 1. （引数`c`を受け取るもののみ）入力した文字を`c`に代入する。
 
-###文字列
+### 文字列
 
 仮引数`delim`を持たない2つのオーバーロードは、それぞれ以下を実行する。
 
@@ -58,12 +58,12 @@ basic_istream<CharT, Traits>& get(basic_streambuf<char_type, Traits>& sb, char_t
 
 配列要素へのポインタ`s`を引数に取るものについては、入力の如何に関わらず末尾にヌル文字を書き込む処理が行われる。
 
-##戻り値
+## 戻り値
 
 - `int_type`を返すものについては入力した文字。入力が行われなければ`Traits::eof()`。
 - `basic_istream<CharT, Traits>&`を返すものについては`*this`。
 
-##例（文字）
+## 例（文字）
 ```cpp
 #include <iostream>
 #include <locale>
@@ -86,23 +86,23 @@ int main() {
 * std::char_traits[link /reference/string/char_traits.md]
 * to_char_type[link /reference/string/char_traits/to_char_type.md]
 
-###入力
+### 入力
 ```
 12
 ```
 
-###出力
+### 出力
 ```
 1
 2
 ```
 
-##実装例
+## 実装例
 TBD
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [`basic_streambuf`](../../streambuf/basic_streambuf.md)

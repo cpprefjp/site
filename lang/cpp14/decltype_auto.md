@@ -1,7 +1,7 @@
-#decltype(auto)
+# decltype(auto)
 * cpp14[meta cpp]
 
-##概要
+## 概要
 `decltype(auto)`は、`decltype`に与える式を右辺の式で置き換えて型推論する機能である。
 
 ```cpp
@@ -36,7 +36,7 @@ decltype(auto) f(int& r)
 ```
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -57,15 +57,15 @@ int main()
 * <type_traits>[link /reference/type_traits.md]
 * std::is_same[link /reference/type_traits/is_same.md]
 
-##出力
+## 出力
 ```
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 `decltype(auto)`は、C++14で導入された「[通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)」の機能で、参照の変数を参照のまま`return`文で返せるようにするために導入された。
 
 
-##関連項目
+## 関連項目
 - [C++14 通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)
 

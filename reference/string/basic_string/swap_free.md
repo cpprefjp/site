@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`basic_string`オブジェクトを入れ替える
 
 
-##効果
+## 効果
 `x.`[`swap`](swap.md)`(y)`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -41,12 +41,12 @@ int main()
 ```
 * std::swap[color ff0000]
 
-###出力
+### 出力
 ```
 world
 hello
 ```
 
-##参照
+## 参照
 
 

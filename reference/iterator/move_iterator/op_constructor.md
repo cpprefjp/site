@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * iterator[meta header]
 * std[meta namespace]
 * move_iterator[meta class]
@@ -13,7 +13,7 @@ template <class U> move_iterator(const move_iterator<U>& u);
 move_iterator(move_iterator&&) noexcept = default;
 ```
 
-##move_iteratorの構築
+## move_iteratorの構築
 `move_iterator`オブジェクトを、次に示す通りの要素で初期化する。
 
 - `move_iterator()`
@@ -31,7 +31,7 @@ move_iterator(move_iterator&&) noexcept = default;
 要件： `U`が`Iterator`に変換可能であること
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -63,16 +63,16 @@ int main()
 * v.emplace_back[link /reference/vector/emplace_back.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -80,6 +80,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#is_modulo
+# is_modulo
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,17 +12,17 @@ static const bool is_modulo;
 static constexpr bool is_modulo;
 ```
 
-##概要
+## 概要
 加算 (`+`) ・減算 (`-`) ・乗算 (`*`) における数学的な値と、その型での値との間に (`max() - min() + 1`) を法として常に合同関係があるかを判定する。  
 符号なし整数型の場合は常に`true`となる。  
 多くの場合浮動小数点数型の場合は`false`に、符号あり整数型の場合は`true`になる。
 
 
-##備考
+## 備考
 符号あり整数型において`is_modulo`が`true`であるとしても、符号あり整数型のオーバーフローは未定義の動作を起こす。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -43,7 +43,7 @@ int main()
 ```
 * is_modulo[color ff0000]
 
-###出力
+### 出力
 ```
 int : true
 float : false
@@ -52,7 +52,7 @@ char : true
 ```
 
 
-##参照
+## 参照
 - [LWG Issue 612. `numeric_limits::is_modulo` insufficiently defined]
     - C++11で、定義がより明確になった
 

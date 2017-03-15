@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * streambuf[meta header]
 * std[meta namespace]
 * basic_streambuf[meta class]
@@ -16,16 +16,16 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 オブジェクトを構築する。
 
 
-##効果
+## 効果
 - 入力部分列・出力部分列の各ポインタをヌルにする。
 - 現在のグローバルロケールを`locale`デフォルトコンストラクタで取得し、`getloc()`の初期値とする。
 
 
-##事後条件
+## 事後条件
 - `gptr()` == `nullptr`
 - `egptr()` == `nullptr`
 - `pptr()` == `nullptr`
@@ -36,10 +36,10 @@ namespace std {
 - `getloc()` == `locale()`
 
 
-##実装例
+## 実装例
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照

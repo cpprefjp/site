@@ -1,4 +1,4 @@
-#memory_order
+# memory_order
 * atomic[meta header]
 * std[meta namespace]
 * enum[meta id-type]
@@ -13,7 +13,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 コンパイラに許可されている最適化の一つに、「プログラムの意味を変えない限りにおいて、メモリアクセスの順番を変えたり、省略したりしてもよい」というものがある。また、マルチコアCPUにおいては、あるCPUコアによるメモリアクセスの順序が他のコアからも同じように見えるとは限らない。このような挙動はマルチスレッドプログラミングにおいて問題になることがある。
 この問題への対処として、C++11では各スレッドの実行に順序付けをするための"happens before"(先行発生)という関係を定義し、それによってあるスレッドでの操作が他スレッドから可視になるか否かを定めている。
 atomic変数においては、"release"操作によって書き込まれた値を"acquire"操作によって別のスレッドが読み出した場合に、そのrelease操作とacquire操作の間に順序付けが行われる。以下に例を挙げる。
@@ -48,7 +48,7 @@ int main()
 * load[link atomic/load.md]
 * store[link atomic/store.md]
 
-###出力
+### 出力
 ```
 3
 ```
@@ -71,11 +71,11 @@ int main()
 | `memory_order_seq_cst` | aquire(読み込み操作の場合)、release(書き込み操作の場合)、acq_rel(Read-Modify-Write操作の場合)としての効果を持つ。さらに、同じseq_cstが指定されている他のatomic操作との間での順序一貫性も保証する。これは最も強い保証であり、標準のatomic操作におけるデフォルトのメモリオーダーとして使用される。「seq_cst」は「sequential consistency(順序一貫性)」を意味する。 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -83,7 +83,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [そろそろvolatileについて一言いっておくか - yamasaのネタ帳](http://d.hatena.ne.jp/bsdhouse/20090720/1248085754)
 - [次期C++に導入されるメモリバリアについて解説してみる - yamasaのネタ帳](http://d.hatena.ne.jp/bsdhouse/20090816/1250446250)
 - [C++0xのメモリバリアをより深く解説してみる - yamasaのネタ帳](http://d.hatena.ne.jp/bsdhouse/20090929/1254237835)

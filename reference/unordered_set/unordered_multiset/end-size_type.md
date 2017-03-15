@@ -1,4 +1,4 @@
-#end(size_type)
+# end(size_type)
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
@@ -10,31 +10,31 @@ local_iterator end(size_type n);
 const_local_iterator end(size_type n) const;
 ```
 
-##概要
+## 概要
 インデックス（添え字）で指定したバケット内の最後の要素の次を指すイテレータを取得する。
 
 `unordered_multiset` は非順序連想コンテナであるため「最後」に特に意味はないが、[`begin(size_type)`](begin-size_type.md) で得られたイテレータを `end(size_type)` まで `operator++()` でイテレートすることで当該バケットの要素を漏れなくダブりなく走査することができる。
 
 
-##要件
+## 要件
 パラメータ `n` は `[0,` [`bucket_count`](bucket_count.md)`())` の範囲でなければならない。
 
 
-##戻り値
+## 戻り値
 インデックス（添え字） `n` で指定したバケット内の最後の要素の次を指すイテレータ
 
 
-##計算量
+## 計算量
 定数
 
 
-##備考
+## 備考
 `const` 版ではない `begin` が返す `local_iterator` も読み取り専用イテレータである。
 
 （が、`local_iterator` と `const_local_iterator` が同じ型とは限らないと思われる）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -69,7 +69,7 @@ int main()
 * begin[link begin-size_type.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
-###出力
+### 出力
 ```
 bucket_count() = 11
 bucket = 0, bucket_size = 0, keys = { }
@@ -85,11 +85,11 @@ bucket = 9, bucket_size = 0, keys = { }
 bucket = 10, bucket_size = 0, keys = { }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -97,7 +97,7 @@ bucket = 10, bucket_size = 0, keys = { }
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 
 | | |
 |----------------------------------------------|--------------------------------|

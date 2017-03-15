@@ -1,4 +1,4 @@
-#round_error
+# round_error
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,11 +12,11 @@ static const T round_error() throw();
 static constexpr T round_error() noexcept;
 ```
 
-##概要
+## 概要
 最大の丸め誤差を取得する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -32,7 +32,7 @@ int main()
 ```
 * round_error()[color ff0000]
 
-###出力例
+### 出力例
 ```
 0.5
 0.5

@@ -1,4 +1,4 @@
-#exceptions
+# exceptions
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -10,20 +10,20 @@ iostate exceptions() const;         // (1)
 void exceptions(iostate except);    // (2)
 ```
 
-##概要
+## 概要
 例外マスク（特定の状態時に例外を投げる指定）の設定・取得を行う。
 
-##効果
+## 効果
 - (1) -
 - (2) 例外マスクを引数 `except` に設定する（`exceptions() == except` となる）。  
     その後、[`clear`](clear.md)`(`[`rdstate`](rdstate.md)`())` を実行する（結果として、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md) 例外が送出される可能性がある）。
 
-##戻り値
+## 戻り値
 - (1) 現在の例外マスク
 - (2) なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cstddef>
@@ -51,7 +51,7 @@ int main()
 * what[link ../ios_base/failure/what.md]
 * rdstate[link rdstate.md]
 
-###出力例
+### 出力例
 ```
 exceptions = 0
 rdstate = 1
@@ -61,11 +61,11 @@ ios_base::clear: unspecified iostream_category error
 end
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)

@@ -1,4 +1,4 @@
-#base
+# base
 * iterator[meta header]
 * std[meta namespace]
 * reverse_iterator[meta class]
@@ -8,15 +8,15 @@
 Iterator base() const;
 ```
 
-##概要
+## 概要
 メンバ変数として保持している、元のイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 `current`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -34,11 +34,11 @@ int main()
 ```
 * base()[color ff0000]
 
-###出力
+### 出力
 ```
 1
 ```
 
-##参照
+## 参照
 
 

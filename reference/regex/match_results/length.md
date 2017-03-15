@@ -1,4 +1,4 @@
-#length
+# length
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,19 +9,19 @@
 difference_type length(size_type sub = 0) const;
 ```
 
-##概要
+## 概要
 指定されたサブマッチが指す文字列の長さを返す。
 
 
-##要件
+## 要件
 [`ready`](ready.md)`() == true`
 
 
-##戻り値
+## 戻り値
 `(*this)[sub].`[`length`](../sub_match/length.md)`()`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -49,7 +49,7 @@ int main()
 * m.size()[link size.md]
 * m.str[link str.md]
 
-###出力
+### 出力
 ```
 str() = 'abc 0123 defgh', length() = 14
 str(0) = 'abc 0123 defgh', length(0) = 14
@@ -59,11 +59,11 @@ str(3) = 'defgh', length(3) = 5
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

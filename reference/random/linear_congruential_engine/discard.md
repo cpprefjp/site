@@ -1,4 +1,4 @@
-#discard
+# discard
 * random[meta header]
 * std[meta namespace]
 * linear_congruential_engine[meta class]
@@ -9,11 +9,11 @@
 void discard(unsigned long long z);
 ```
 
-##概要
+## 概要
 指定した回数だけ擬似乱数を生成し、内部状態を進める。
 
 
-##効果
+## 効果
 `*this`を`e`とした場合、
 
 ```cpp
@@ -28,11 +28,11 @@ for (unsigned long long i = 0; i < z; ++i) {
 指定された回数だけ乱数生成を行い、結果を破棄する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -60,17 +60,17 @@ int main()
 * engine()[link op_call.md]
 * seed()[link seed.md]
 
-###出力
+### 出力
 ```
 407355683
 407355683
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -78,6 +78,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

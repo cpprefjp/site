@@ -1,4 +1,4 @@
-#operator!
+# operator!
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -8,11 +8,11 @@
 valarray<bool> operator!() const;
 ```
 
-##概要
+## 概要
 各要素の論理NOTをとる。
 
 
-##戻り値
+## 戻り値
 以下のコードと同等のことを行う：
 
 ```cpp
@@ -24,7 +24,7 @@ return result;
 ```
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <valarray>
@@ -41,7 +41,7 @@ int main()
 ```
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 

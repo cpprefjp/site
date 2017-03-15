@@ -1,4 +1,4 @@
-#equal_range
+# equal_range
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
@@ -10,29 +10,29 @@ pair<iterator,iterator> equal_range(const key_type& x);
 pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 ```
 
-##概要
+## 概要
 コンテナ内の、`x` と等しい全てのキー要素を含む範囲の境界を返す。 
 
 もし `x` がコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは [`end`](end.md) を指す。
 
 
-##パラメータ
+## パラメータ
 - `x` : 比較されるキー値。`key_type` はメンバ型であり、`map` コンテナ内で `Key` の別名として定義される。ここで `Key` は最初のテンプレートパラメータである。
 
 
-##戻り値
+## 戻り値
 `pair` を返す。
 `pair::first` は 範囲の下境界にあたり、
 `pair::second` は 範囲の上境界にあたる。
 `iterator` はメンバ型であり `unordered_multimap` において双方向イテレータとして定義される。
 
 
-##計算量
+## 計算量
 平均： 定数時間  
 最悪： [`size`](size.md) について線形時間。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -67,7 +67,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 --- ret
 a
@@ -79,11 +79,11 @@ second:1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
@@ -91,7 +91,7 @@ second:1
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
 
-##参照
+## 参照
 
 | 名前                | 説明                                   |
 |---------------------|----------------------------------------|

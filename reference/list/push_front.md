@@ -1,4 +1,4 @@
-#push_front
+# push_front
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -9,19 +9,19 @@ void push_front(const T& x); // (1)
 void push_front(T&& x);      // (2) C++11
 ```
 
-##概要
+## 概要
 新たな要素を先頭に追加する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -46,7 +46,7 @@ int main()
 ```
 * push_front[color ff0000]
 
-###出力
+### 出力
 ```
 hello
 world

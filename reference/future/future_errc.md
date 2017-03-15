@@ -1,4 +1,4 @@
-#future_errc
+# future_errc
 * future[meta header]
 * std[meta namespace]
 * enum[meta id-type]
@@ -24,7 +24,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 future操作に関するエラー値。
 
 | 列挙値 | 説明 | 対応バージョン |
@@ -36,11 +36,11 @@ future操作に関するエラー値。
 
 それぞれの値は、非ゼロである(C++14以降)。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -48,7 +48,7 @@ future操作に関するエラー値。
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 - [LWG2056 - future_errc enums start with value 0 (invalid value for broken_promise)](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2056)
     - C++11の`future_errc`は、開始値が0だった。[`error_code`](/reference/system_error/error_code.md)クラスの[`operator bool()`](/reference/system_error/error_code/op_bool.md)が0を正常値と見なしてしまうため、C++14では`future_errc`の値を実装定義とした。
 

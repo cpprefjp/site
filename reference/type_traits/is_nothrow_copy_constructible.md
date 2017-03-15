@@ -1,4 +1,4 @@
-#is_nothrow_copy_constructible
+# is_nothrow_copy_constructible
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`がコピー構築でき、かつそのコピーコンストラクタが例外を投げないか調べる
 
 
-##要件
+## 要件
 型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
-##効果
+## 効果
 `is_nothrow_copy_constructible`は、型`T`が例外を投げない保証のもとにコピー構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 以下の条件が`true`である場合に、例外を投げないコピー構築が可能であると見なされる：
@@ -33,7 +33,7 @@ namespace std {
 
 [`is_nothrow_constructible`](is_nothrow_constructible.md)`<T, T&>::value`では判断できないので注意。
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -77,15 +77,15 @@ static_assert(std::is_nothrow_copy_constructible<void>::value == false, "void is
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0, 4.8.0
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 	- 11.0～12.0には、提案時の名前である`has_nothrow_copy`, `has_nothrow_copy_constructor`も存在する。
@@ -93,7 +93,7 @@ int main(){}
 	- 12.0は、C++11に準拠する実装となっている。
 
 
-##参照
+## 参照
 - [LWG Issue 2196. Specification of `is_*[copy/move]_[constructible/assignable]` unclear for non-referencable types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2196)
     - C++11では、この型特性が参照型に対してどのような振る舞いになるのか不明確であったため、C++14で明確化された。
 

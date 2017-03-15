@@ -1,4 +1,4 @@
-#operator>>
+# operator>>
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,7 +12,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 文字列をストリームから入力する。空白文字が現れるまで、あるいは`setw`マニピュレータで指定された数までの文字列を入力する。
 
 この関数は、書式化入力関数（[`basic_istream`](../../istream/basic_istream.md)を参照）として作用する。
@@ -30,11 +30,11 @@ namespace std {
 
 `str`に1文字も入力が行われなかった場合、`is.setstate(ios_base::failbit)`が呼び出される。
 
-##戻り値
+## 戻り値
 - 仮引数`is`。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -49,18 +49,18 @@ int main() {
 ```
 * std::cin[link /reference/iostream/cin.md]
 
-###入力
+### 入力
 ```
 Apple Banana
 ```
 
-###出力
+### 出力
 ```
 Apple
 Banana
 ```
 
-##参照
+## 参照
 - [`getline`](getline.md): このほかの`basic_string`に対する入力関数。
 - このほかの`>>`演算子関数
     - [`<istream>`ヘッダで定義されているもの](../../istream/basic_istream/op_istream.md)

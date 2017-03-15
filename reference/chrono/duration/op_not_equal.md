@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * chrono[meta header]
 * std::chrono[meta namespace]
 * function[meta id-type]
@@ -14,15 +14,15 @@ namespace chrono {
 ```
 * duration[link /reference/chrono/duration.md]
 
-##概要
+## 概要
 非等値の判定を行う
 
 
-##戻り値
+## 戻り値
 `!(lhs == rhs)`
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <chrono>
@@ -38,18 +38,18 @@ int main()
 * seconds(3) != seconds(2)[color ff0000]
 * seconds[link /reference/chrono/seconds.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
-##参照
+## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 

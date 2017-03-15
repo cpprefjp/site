@@ -1,4 +1,4 @@
-#uses_allocator
+# uses_allocator
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
@@ -14,23 +14,23 @@ namespace std {
 ```
 * true_type[link /reference/type_traits/true_type.md]
 
-##概要
+## 概要
 `uses_allocator`の、`packaged_task<R>`に対する特殊化。
 
 
-##例
+## 例
 ```cpp
 ```
 
-###出力
+### 出力
 ```cpp
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -38,6 +38,6 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

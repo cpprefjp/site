@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
@@ -17,7 +17,7 @@ template<class F>
 function& operator=(reference_wrapper<F> f) noexcept; // (5)
 ```
 
-##効果
+## 効果
 - (1) : [`function`](op_constructor.md)`(f).`[`swap`](swap.md)`(*this)`
 - (2) : `*this`が持つ関数を、`f`のそれで置き換える。
 - (3) : `*this`が有効な関数ポインタ、メンバポインタ、もしくは関数オブジェクトを持っている場合、それを解放する。
@@ -25,20 +25,20 @@ function& operator=(reference_wrapper<F> f) noexcept; // (5)
 - (5) : [`function`](op_constructor.md)`(f).`[`swap`](swap.md)`(*this)`
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 - (5) : 投げない
 
 
-##備考
+## 備考
 - (4) :
     - C++14 : `typename` [`decay`](/reference/type_traits/decay.md)`<F>::type`型の関数オブジェクトが、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返さない場合、この関数はオーバーロード解決から除外される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -58,24 +58,24 @@ int main()
 ```
 * f(1)[link op_call.md]
 
-###出力
+### 出力
 ```
 1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [LWG Issue 2132. `std::function` ambiguity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132)
     - C++14から、(4)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。
 

@@ -1,4 +1,4 @@
-#generic_category
+# generic_category
 * system_error[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,13 +11,13 @@ namespace std {
 ```
 * error_category[link error_category.md]
 
-##概要
+## 概要
 汎用エラーに関する`error_category`を返す。
 
 ここでの「汎用」とは、[`<cerrno>`](/reference/cerrno.md)ヘッダで定義される環境依存しないエラー値、およびそれに対応する[`std::errc`](errc.md)列挙値によるエラー情報を指す。
 
 
-##戻り値
+## 戻り値
 [`error_category`](error_category.md)クラスを継承したクラスオブジェクトへの参照を返す。
 
 この関数を呼び出すことによって返されるオブジェクトは、同じオブジェクトを指す。
@@ -28,11 +28,11 @@ namespace std {
 - [`default_error_condition()`](error_category/default_error_condition.md)仮想関数および[`equivalent()`](error_category/equivalent.md)仮想関数の挙動は、基本クラスである[`error_category`](error_category.md)と同じである
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -52,17 +52,17 @@ int main()
 * cat.message[link error_category/message.md]
 * std::errc::invalid_argument[link errc.md]
 
-###出力
+### 出力
 ```
 generic
 Invalid argument
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -70,4 +70,4 @@ Invalid argument
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照

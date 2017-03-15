@@ -1,4 +1,4 @@
-#get_unexpected
+# get_unexpected
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -14,16 +14,16 @@ namespace std {
 
 この関数はC++11から非推奨である。`throw`キーワードの代わりに使用する[`noexcept`キーワード](/lang/cpp11/noexcept.md)では、指定外の例外が発生することによるエラーは起こらない。
 
-##概要
+## 概要
 予想外の例外が発生した場合の処理を行う関数を取得する。
 
 
-##戻り値
+## 戻り値
 予想外の例外が発生した場合の処理を行う関数へのポインタ。
 (デフォルトではおそらくヌルになる)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <stdexcept>
@@ -50,16 +50,16 @@ int main()
 * std::get_unexpected()[color ff0000]
 * std::set_unexpected[link set_unexpected.md]
 
-###出力
+### 出力
 ```
 on expected
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0
@@ -67,6 +67,6 @@ on expected
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

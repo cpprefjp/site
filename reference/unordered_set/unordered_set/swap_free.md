@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * unordered_set[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,19 +12,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2 つの `unordered_set` オブジェクトの内容を入れ替える。
 
 
-##効果
+## 効果
 `x.`[`swap`](swap.md)`(y)` と同等。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -63,7 +63,7 @@ int main()
 * end[link /reference/iterator/end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
-###出力
+### 出力
 ```
 us1 before:3, 2, 1,
 us2 before:6, 5, 4,
@@ -74,11 +74,11 @@ us2 after:3, 2, 1,
 注：[`unordered_set`](/reference/unordered_set/unordered_set.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -86,7 +86,7 @@ us2 after:3, 2, 1,
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp) ?
 
-##実装例
+## 実装例
 ```cpp
 namespace std {
   template <class Key, class Hash, class Pred, class Alloc>
@@ -99,7 +99,7 @@ namespace std {
 ```
 * swap[link swap.md]
 
-##参照
+## 参照
 
 | | |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|

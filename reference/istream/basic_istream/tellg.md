@@ -1,4 +1,4 @@
-#tellg
+# tellg
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
@@ -8,22 +8,22 @@
 pos_type tellg();
 ```
 
-##概要
+## 概要
 （非書式化入力関数）ストリームバッファから現在の読み取り位置を取得する。
 
 非書式化入力関数であるが、後続の`gcount()`呼び出しに影響を及ぼさない点が通常と異なる。
 
-##効果
+## 効果
 
 1. `sentry`オブジェクトを構築する。
 1. 成功した場合、`rdbuf()->pubseekoff(0, cur, in)`を呼び出して戻り値とする。
 
-##戻り値
+## 戻り値
 
 - `fail() == false`であれば、`rdbuf()->pubseekoff(0, cur, in)`。
 - `fail() == true`であれば、`pos_type(-1)`。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -48,14 +48,14 @@ int main() {
 * std::istringstream[link /reference/sstream/basic_istringstream.md]
 * seekg[link seekg.md]
 
-###出力
+### 出力
 ```
 103
 201
 201
 ```
 
-##実装例
+## 実装例
 ```cpp
 pos_type tellg(pos_type pos) {
   try {
@@ -78,11 +78,11 @@ pos_type tellg(pos_type pos) {
 * exceptions()[link /reference/ios/basic_ios/exceptions.md]
 * badbit[link /reference/ios/ios_base/type-iostate.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 
 - [`basic_istream::seekg`](seekg.md)
 - `basic_streambuf::pubseekoff`

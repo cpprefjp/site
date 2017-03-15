@@ -1,20 +1,20 @@
-#INT_FAST32_MIN
+# INT_FAST32_MIN
 * cstdint[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
-#define INT_FAST32_MIN implementation-defined
+# define INT_FAST32_MIN implementation-defined
 ```
 
-##概要
+## 概要
 [`int_fast32_t`](int_fast32_t.md) の最小値。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0

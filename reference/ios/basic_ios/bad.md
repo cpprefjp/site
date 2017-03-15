@@ -1,4 +1,4 @@
-#bad
+# bad
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -8,13 +8,13 @@
 bool bad() const;
 ```
 
-##概要
+## 概要
 現在の状態値のうち`badbit`を判定する。
 
-##戻り値
+## 戻り値
 `badbit`が設定されていれば`true`、さもなくば`false`。
 
-##実装例
+## 実装例
 ```cpp
 bool bad() const {
   return (rdstate() & badbit) != 0;
@@ -22,11 +22,11 @@ bool bad() const {
 ```
 * rdstate[link rdstate.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)

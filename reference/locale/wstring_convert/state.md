@@ -1,4 +1,4 @@
-#state
+# state
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
@@ -9,21 +9,21 @@
 state_type state() const;
 ```
 
-##概要
+## 概要
 変換の状態を取得する。
 
 
-##戻り値
+## 戻り値
 これによって返される状態は、初期状態か、部分的に変換した状態かのどちらかである。
 
 全ての文字が変換された場合は、初期状態が設定される。
 
 
-##例外
+## 例外
 `state_type`型のコピーコンストラクタが例外を送出しない限り、この関数は例外を送出しない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -58,17 +58,17 @@ int main()
 * std::mbstate_t[link /reference/cwchar/mbstate_t.md.nolink]
 * std::mbsinit[link /reference/cwchar/mbsinit.md.nolink]
 
-###出力
+### 出力
 ```
 converted all
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1
 - [ICC](/implementation.md#icc):

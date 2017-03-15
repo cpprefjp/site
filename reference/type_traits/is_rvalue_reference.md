@@ -1,4 +1,4 @@
-#is_rvalue_reference
+# is_rvalue_reference
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`が右辺値参照型かを調べる
 
 
-##効果
+## 効果
 `is_rvalue_reference`は、型`T`が右辺値参照型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##備考
+## 備考
 左辺値参照型は右辺値参照型ではない。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -50,18 +50,18 @@ static_assert(std::is_rvalue_reference<void (int&&)>::value == false, "void (int
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC, C++11 mode: 4.3.4, 4.5.3, 4.6.1, 4.7.2
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 	- 10.0は、関数への右辺値参照（上記例のうち`void (&&)()`）において、誤って`false_type`になっている。
 
-####備考
+#### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラにバグがあるために関数への右辺値参照型を `is_rvalue_reference` へ渡すと `is_rvalue_reference` は `false_type` から派生してしまいエラーになる。

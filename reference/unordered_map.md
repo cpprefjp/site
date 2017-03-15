@@ -1,4 +1,4 @@
-#unordered_map
+# unordered_map
 * unordered_map[meta header]
 * cpp11[meta cpp]
 
@@ -65,11 +65,11 @@ namespace std {
 * initializer_list[link /reference/initializer_list.md]
 * pair[link /reference/utility/pair.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-##参照
+## 参照
 - [クソザコ鳥頭が非順序連想コンテナに入門してみた](http://www.slideshare.net/kariya_mitsuru/ss-55842496)  
 	[Boost.勉強会 #19 東京](https://boostjp.github.io/study_meeting/study19.html)で使用した非順序連想コンテナの入門資料

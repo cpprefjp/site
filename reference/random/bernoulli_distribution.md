@@ -1,4 +1,4 @@
-#bernoulli_distribution
+# bernoulli_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `bernoulli_distribution`は、`true`と`false`という2つの値を確率分布させるクラスである。  
 このクラスは、ベルヌーイ分布(Bernoulli distribution)の実装である。
 
@@ -23,8 +23,8 @@ namespace std {
 - 成功か失敗か
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------------|--------------------|-------|
@@ -33,14 +33,14 @@ namespace std {
 | [`reset`](bernoulli_distribution/reset.md)                          | 状態をリセットする | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|----------------|-------|
 | [`operator()`](bernoulli_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
@@ -50,7 +50,7 @@ namespace std {
 | [`max`](bernoulli_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|------------------------------|-------|
@@ -58,7 +58,7 @@ namespace std {
 | `param_type`  | 分布パラメータの型。未規定。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
@@ -68,7 +68,7 @@ namespace std {
 | [`operator>>`](bernoulli_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <random>
 #include <fstream>
@@ -97,7 +97,7 @@ int main()
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
 * dist(engine)[link bernoulli_distribution/op_call.md]
 
-###出力
+### 出力
 ```
 ```
 
@@ -106,11 +106,11 @@ int main()
 ![](https://raw.github.com/cpprefjp/image/master/reference/random/bernoulli_distribution/bernoulli_distribution.png)
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -118,7 +118,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [ベルヌーイ分布 - Wikipedia](https://ja.wikipedia.org/wiki/ベルヌーイ分布)
 - [ベルヌーイ分布(Bernoulli distribution) - NtRand](http://www.ntrand.com/jp/bernoulli-distribution/)
 

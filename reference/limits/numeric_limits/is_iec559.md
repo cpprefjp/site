@@ -1,4 +1,4 @@
-#is_iec559
+# is_iec559
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,11 +12,11 @@ static const bool is_iec559;
 static constexpr bool is_iec559;
 ```
 
-##概要
+## 概要
 浮動小数点数型において、型`T`がIEC 559 (IEEE 754) に準拠しているかを判定する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -33,7 +33,7 @@ int main()
 ```
 * is_iec559[color ff0000]
 
-###出力例
+### 出力例
 ```
 float : true
 double : true

@@ -1,4 +1,4 @@
-#getline
+# getline
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -28,7 +28,7 @@ namespace std {
 ```
 * basic_istream[link ../../istream/basic_istream.md]
 
-##概要
+## 概要
 ストリームから改行文字が現れるまで（1行すべて）あるいは仮引数`delim`で指定された文字までの文字列を入力する。
 
 この関数は、非書式化入力関数（[`basic_istream`](../../istream/basic_istream.md)を参照）として作用する。
@@ -49,11 +49,11 @@ namespace std {
 
 この関数は[`basic_istream<>::gcount`](../../istream/basic_istream/gcount.md)には影響を及ぼさない。
 
-##戻り値
+## 戻り値
 - 仮引数`is`。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -68,17 +68,17 @@ int main() {
 * std::getline[color ff0000]
 * std::cin[link /reference/iostream/cin.md]
 
-###入力
+### 入力
 ```
 Haru wa akebono.
 ```
 
-###出力
+### 出力
 ```
 Haru wa akebono.
 ```
 
-##関連項目
+## 関連項目
 
 | 名前                  | 説明                           |
 |-----------------------|--------------------------------|

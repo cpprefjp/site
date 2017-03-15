@@ -1,4 +1,4 @@
-#push_back
+# push_back
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
@@ -9,28 +9,28 @@ void push_back(const T& x); // (1)
 void push_back(T&& y);      // (2) C++11
 ```
 
-##概要
+## 概要
 末尾に要素を追加する。
 
 
-##効果
+## 効果
 - (1) : `x`のコピーを末尾に追加する
 - (2) : 一時オブジェクト`x`を移動して末尾に追加する
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##備考
+## 備考
 操作中に例外が発生した場合、副作用は発生しない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -54,13 +54,13 @@ int main()
 ```
 * push_back[color ff0000]
 
-###出力
+### 出力
 ```
 hello
 world
 ```
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |-------------------------------------|--------------------------------|
@@ -69,7 +69,7 @@ world
 | [`insert`](insert.md)             | 任意の位置に要素を挿入する |
 
 
-##参照
+## 参照
 - [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
     - 経緯の説明は、[`vector::push_back()`](/reference/vector/push_back.md)ページを参照。
 

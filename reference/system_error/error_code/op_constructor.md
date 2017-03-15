@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * system_error[meta header]
 * std[meta namespace]
 * error_code[meta class]
@@ -15,26 +15,26 @@ error_code(ErrorCodeEnum e) noexcept;                    // (3)
 ```
 * error_category[link ../error_category.md]
 
-##error_codeオブジェクトの構築
+## error_codeオブジェクトの構築
 - (1) : デフォルトコンストラクタ。
 - (2) : エラー値とエラーカテゴリを受け取って構築する。
 - (3) : [`is_error_code_enum`](../is_error_code_enum.md)`<ErrorCodeEnum>::value == true`となる型のエラー値を受け取って構築する。
 
 
-##効果
+## 効果
 - (1) : 値`0`(正常値)で構築する。エラーカテゴリは[`system_category()`](../system_category.md)と見なされる。
 - (3) : `*this =` [`make_error_code`](../make_error_code.md)`(e);` となる。
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 - (3) : [`is_error_code_enum`](../is_error_code_enum.md)が`false`となる場合、この関数はオーバーロード解決から除外される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -108,7 +108,7 @@ int main()
 * std::errc::invalid_argument[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]
 
-###出力
+### 出力
 ```
 default ctor
 success
@@ -126,11 +126,11 @@ error
 generic
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -138,4 +138,4 @@ generic
 - [Visual C++](/implementation.md#visual_cpp) 10.0(enum class未対応のため、ErrorCodeEnumのコンストラクタは動作しない)
 
 
-##参照
+## 参照

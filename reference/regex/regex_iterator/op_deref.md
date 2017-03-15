@@ -1,4 +1,4 @@
-#operator*
+# operator*
 * regex[meta header]
 * std[meta namespace]
 * regex_iterator[meta class]
@@ -9,25 +9,25 @@
 const value_type& operator*() const;
 ```
 
-##概要
+## 概要
 イテレータを間接参照する。
 
 
-##要件
+## 要件
 シーケンスの終端を示すイテレータではない事。（シーケンス終端イテレータに対して呼び出した場合は未定義動作となる）
 
 
-##戻り値
+## 戻り値
 メンバ変数 `match` への `const` 参照を返す。（最後に[`regex_search`](../regex_search.md) を呼び出した際の値を保持している）
 
 
-##備考
+## 備考
 - `value_type` は `regex_iterator` のメンバ型で、[`match_results`](../match_results.md)`<BidirectionalIterator>` である。
 - 戻り値の型は `const` への参照であるため、この参照を通した変更はできない。
 - メンバ変数 `match` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -50,18 +50,18 @@ int main()
 * match.str()[link /reference/regex/match_results/str.md]
 * match.suffix()[link /reference/regex/match_results/suffix.md]
 
-###出力
+### 出力
 ```
 prefix = 'abc', str = '123', suffix = 'def456ghi'
 prefix = 'def', str = '456', suffix = 'ghi'
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -70,7 +70,7 @@ prefix = 'def', str = '456', suffix = 'ghi'
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`operator->`](op_arrow.md)          | メンバアクセス | C++11          |

@@ -1,4 +1,4 @@
-#align
+# align
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 アライメント調整された領域を得る。
 
 
-##効果
+## 効果
 範囲`[ptr, ptr + space)`の中に`alignment`バイトでアライメント調整された領域の`size`バイトに一致するバッファがあるなら、
 
 - `ptr`を一致する領域の先頭アドレスへと更新し、
@@ -24,11 +24,11 @@ namespace std {
 そのようなバッファがなければ、この関数は何もしない。
 
 
-##戻り値
+## 戻り値
 更新された`ptr`を返す。一致する領域がなければ、ヌルポインタを返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -48,16 +48,16 @@ int main()
 ```
 * std::align[color ff0000]
 
-###出力例
+### 出力例
 ```
 0x7fffd930ca40 255
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
@@ -65,5 +65,5 @@ int main()
     - Visual C++ 11.0はマニュアル（MSDNライブラリ）に記載がないものの、実装されている。
 
 
-##参照
+## 参照
 

@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -13,21 +13,21 @@ match_results(const match_results& m);              // (2)
 match_results(match_results&& m) noexcept;          // (3)
 ```
 
-##概要
+## 概要
 `match_results` オブジェクトを構築する。
 
 
-##要件
+## 要件
 - (3) `Allocator` のムーブコンストラクタは例外で終了しないこと。
 
 
-##効果
+## 効果
 - (1) デフォルトコンストラクタ。`match_results` オブジェクトを構築する。
 - (2) コピーコンストラクタ。引数 `m` をコピーした `match_results` オブジェクトを構築する。
 - (3) ムーブコンストラクタ。引数 `m` をムーブした `match_results` オブジェクトを構築する。
 
 
-##事後条件
+## 事後条件
 - (1) [`ready`](ready.md)`() == false`、かつ、[`size`](size.md)`() == 0`、かつ、[`get_allocator`](get_allocator.md)`() == a`
 - (2) 構築したオブジェクトを `u` とすると、`u == m`
 - (3) 以下の表を満たす。
@@ -45,20 +45,20 @@ match_results(match_results&& m) noexcept;          // (3)
     | [`get_allocator`](get_allocator.md)`()` | `m.`[`get_allocator`](get_allocator.md)`(n)`                                                  |
 
 
-##計算量
+## 計算量
 - (1) 定数時間
 - (2) 線形時間
 - (3) 定数時間
 
 
-##備考
+## 備考
 規格では明確ではないものの、(2) の形式でも以下の事後条件を満たすべきであると思われる。
 
 - (3) の事後条件のアロケータ以外のもの
 - [`get_allocator`](get_allocator.md)`() ==` [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](../../memory/allocator_traits/select_on_container_copy_construction.md)`(m.`[`get_allocator`](get_allocator.md)`())`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -104,7 +104,7 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::move[link ../../utility/move.md]
 
-###出力
+### 出力
 ```
 ready:false
 
@@ -134,11 +134,11 @@ suffix:' '
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -146,5 +146,5 @@ suffix:' '
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 GCC(libstdc++) の 4.9.2 までは、[`regex_iterator`](../regex_iterator.md) を間接参照した結果から (2)、あるいは、(3) の形式で構築した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。

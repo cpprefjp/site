@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * functional[meta header]
 * std[meta namespace]
 * reference_wrapper[meta class]
@@ -9,18 +9,18 @@
 reference_wrapper& operator=(const reference_wrapper<T>& x) noexcept;
 ```
 
-##概要
+## 概要
 参照先を切り替える
 
-##効果
+## 効果
 `*this`が`x.get()`を指すように更新する
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -43,17 +43,17 @@ int main()
 * std::ref[link /reference/functional/ref.md]
 * r.get()[link get.md]
 
-###出力
+### 出力
 ```
 3
 6
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -61,6 +61,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

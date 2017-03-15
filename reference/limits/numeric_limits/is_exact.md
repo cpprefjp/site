@@ -1,4 +1,4 @@
-#is_exact
+# is_exact
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,12 +12,12 @@ static const bool is_exact;
 static constexpr bool is_exact;
 ```
 
-##概要
+## 概要
 型`T`が正確(exact)な表現を持つ場合、`is_exact`は`true`となり、そうでない場合`false`となる。  
 `is_specialized == false`の場合は`false`となる。
 
 
-##例
+## 例
 ```cpp
 #include <limits>
 
@@ -34,7 +34,7 @@ int main()
 ```
 * is_exact[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 

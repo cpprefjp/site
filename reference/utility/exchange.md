@@ -1,4 +1,4 @@
-#exchange
+# exchange
 * utility[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 値を書き換え、書き換え前の値を返す。
 
 
-##効果
+## 効果
 第1パラメータ`obj`で受け取った変数への参照に、第2パラメータ`new_val`の値をムーブ代入し、代入前の`obj`の状態を返す。
 
 以下と同等の効果を持つ：
@@ -29,15 +29,15 @@ return old_val;
 * forward[link forward.md]
 
 
-##戻り値
+## 戻り値
 この関数を呼び出す前の、第1パラメータ`obj`の状態を返す。
 
 
-##備考
+## 備考
 この関数は、[`std::atomic_exchange()`](/reference/atomic/atomic_exchange.md)関数の経験から導入された。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -52,14 +52,14 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 state : 2
 before : 1
 ```
 
 
-##コンテナを出力する例
+## コンテナを出力する例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -91,23 +91,23 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 {1,2,3}
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9.0
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 - [N3511 exchange() utility function](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3511.html)
 - [N3608 exchange() utility function, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3608.html)
 - [N3668 exchange() utility function, revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3668.html)

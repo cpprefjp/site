@@ -1,4 +1,4 @@
-#default_random_engine
+# default_random_engine
 * random[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -10,13 +10,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 擬似乱数生成エンジンには、パフォーマンス、サイズ、品質といった、多くの特性による選択肢がある。  
 しかし、非専門家がこれらを正しく使い分けるのは難しいだろう。  
 `default_random_engine`は、非専門用途で十分な品質の擬似乱数生成エンジンを別名定義したものである。
 
 
-##備考
+## 備考
 以下、確認できた環境ごとのエンジンである。バージョンによって変更される可能性があるため参考までに。
 
 | ライブラリ         | エンジン                            |
@@ -26,7 +26,7 @@ namespace std {
 | Clang 3.4(libc++)  | [`minstd_rand`](minstd_rand.md)   |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -50,7 +50,7 @@ int main()
 * std::uniform_int_distribution[link uniform_int_distribution.md]
 * dist(engine)[link uniform_int_distribution/op_call.md]
 
-###出力例
+### 出力例
 ```
 1
 3
@@ -64,6 +64,6 @@ int main()
 3
 ```
 
-##参照
+## 参照
 - [N2478 A Proposal to Add `typedef default_random_engine` to C++0X](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2478.pdf)
 

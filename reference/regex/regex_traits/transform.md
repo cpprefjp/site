@@ -1,4 +1,4 @@
-#transform
+# transform
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
@@ -11,11 +11,11 @@ string_type transform(ForwardIterator first, ForwardIterator last) const;
 ```
 
 
-##概要
+## 概要
 与えられた文字範囲`[first, last)`を、並べ替えのキーとして使用する、文字のシーケンスに変換する。結果のシーケンスは、ロケールごとの照合順序となる。
 
 
-##戻り値
+## 戻り値
 ```cpp
 string_type str(first, last);
 return use_facet<collate<char_type>>(getloc())
@@ -29,7 +29,7 @@ return use_facet<collate<char_type>>(getloc())
 * str.length()[link /reference/string/basic_string/length.md]
 
 
-##例
+## 例
 ```cpp
 #include <regex>
 #include <cassert>
@@ -61,16 +61,16 @@ int main()
 * begin()[link /reference/string/basic_string/begin.md]
 * end()[link /reference/string/basic_string/end.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

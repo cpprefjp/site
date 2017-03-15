@@ -1,4 +1,4 @@
-#seed
+# seed
 * random[meta header]
 * std[meta namespace]
 * shuffle_order_engine[meta class]
@@ -11,13 +11,13 @@ void seed(result_type s);                // (2)
 template<class Sseq> void seed(Sseq& q); // (3)
 ```
 
-##概要
+## 概要
 - (1) : 元となる乱数生成器のデフォルトのシード値で再初帰化する
 - (2) : シード値を受け取って再初期化する
 - (3) : シードのシーケンスを受け取って再初期化する
 
 
-##効果
+## 効果
 各オーバーロードが持つパラメータを`arg`とした場合、
 
 ```cpp
@@ -30,11 +30,11 @@ template<class Sseq> void seed(Sseq& q); // (3)
 指定されたシード値もしくはシードのシーケンスで、エンジンの再初期化を行う。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -96,18 +96,18 @@ int main()
 * seeds.begin()[link /reference/array/begin.md]
 * seeds.end()[link /reference/array/end.md]
 
-###出力
+### 出力
 ```
 15039276
 9516009
 2488183
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -115,6 +115,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

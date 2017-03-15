@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
@@ -24,30 +24,30 @@ shared_ptr& operator=(unique_ptr<Y, D>&& r);            // (6)
 ```
 * unique_ptr[link /reference/memory/unique_ptr.md]
 
-##概要
+## 概要
 - (1), (2) : 自身が保持しているリソースの所有権を放棄し、`r`が持つリソースの所有権を共有する。
 - (3), (4), (5), (6) : 自身が保持しているリソースの所有権を放棄し、`r`が持つリソースの所有権を`*this`に移動する。
 
 
-##効果
+## 効果
 - (1), (2) : [`shared_ptr`](op_constructor.md)`(r).`[`swap`](swap.md)`(*this)`
 - (3), (4) : [`shared_ptr`](op_constructor.md)`(std::`[`move`](/reference/utility/move.md)`(r)).`[`swap`](swap.md)`(*this)`
 - (5) : [`shared_ptr`](op_constructor.md)`(r).`[`swap`](swap.md)`(*this)`
 - (6) : [`shared_ptr`](op_constructor.md)`(std::`[`move`](/reference/utility/move.md)`(r)).`[`swap`](swap.md)`(*this)`
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 - (1) : 投げない
 - (2) : 投げない
 - (3) : 投げない
 - (4) : 投げない
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <memory>
@@ -120,15 +120,15 @@ int main()
 * p.get()[link get.md]
 * p.use_count()[link use_count.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.3.6(unique_ptr以外), 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

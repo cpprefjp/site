@@ -1,4 +1,4 @@
-#value
+# value
 * system_error[meta header]
 * std[meta namespace]
 * error_condition[meta class]
@@ -9,19 +9,19 @@
 int value() const noexcept;
 ```
 
-##概要
+## 概要
 包含しているエラー値を返す
 
 
-##戻り値
+## 戻り値
 包含しているエラー値
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -38,16 +38,16 @@ int main()
 * std::errc::invalid_argument[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]
 
-###出力
+### 出力
 ```
 22
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -55,4 +55,4 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照

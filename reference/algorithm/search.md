@@ -1,4 +1,4 @@
-#search
+# search
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -17,28 +17,28 @@ namespace std {
 ```
 
 
-##概要
+## 概要
 あるシーケンスの中から、特定のサブシーケンスを探す
 
 
-##戻り値
+## 戻り値
 `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` もしくは `pred(*(i + n), *(first2 + n)) != false` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
 
 そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
 
 
-##計算量
+## 計算量
 最大で `(last1 - first1) * (last2 - first2)` 回の、対応する比較もしくは述語が適用される
 
 
-##備考
+## 備考
 `search()` と [`find_end()`](/reference/algorithm/find_end.md) は共にサブシーケンスを検索する関数だが、以下の点が異なる。
 
 * `search()` は見つかった最初のサブシーケンスを返すが [`find_end()`](/reference/algorithm/find_end.md) は見つかった最後のサブシーケンスを返す
 * `[first2,last2)` が空であるときに `search()` は `first1` を返すが、[`find_end()`](/reference/algorithm/find_end.md) は `last1` を返す
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -63,13 +63,13 @@ int main() {
 * ls.begin()[link /reference/list/begin.md]
 * ls.end()[link /reference/list/end.md]
 
-###出力
+### 出力
 ```
 found: index==0
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template<class ForwardIterator1, class ForwardIterator2>
 ForwardIterator1 search(ForwardIterator1 first1, ForwardIterator1 last1,
@@ -105,5 +105,5 @@ ForwardIterator1 search(ForwardIterator1 first1, ForwardIterator1 last1,
 ```
 
 
-##参照
+## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)

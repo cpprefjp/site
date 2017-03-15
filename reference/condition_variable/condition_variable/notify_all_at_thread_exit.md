@@ -1,4 +1,4 @@
-#notify_all_at_thread_exit
+# notify_all_at_thread_exit
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable[meta class]
@@ -13,16 +13,16 @@ namespace std {
 * unique_lock[link /reference/mutex/unique_lock.md]
 * mutex[link /reference/mutex/mutex.md]
 
-##概要
+## 概要
 現在のスレッド終了時に、条件変数が待っている全てのスレッドを起床させる
 
 
-##要件
+## 要件
 - `lk`が呼び出し元スレッドによってロック取得されていること
 - `*this`の`condition_variable`オブジェクトが他スレッドで待機していないか、もしくは並行に待機している全てのスレッドで`lock`パラメータが同じミューテックスオブジェクトを参照していること
 
 
-##効果
+## 効果
 `lk`のロック所有権を（スレッドライブラリの）内部ストレージへと移し、スレッド終了時、スレッドローカルなデータを解放した後、`cond`を使って通知する。通知は以下のように行う：
 
 ```cpp
@@ -33,15 +33,15 @@ cond.notify_all();
 * lk.unlock()[link /reference/mutex/unique_lock/unlock.md]
 * cond.notify_all()[link notify_all.md]
 
-##戻り値
+## 戻り値
 なし
 
 
-##備考
+## 備考
 ロックはスレッド終了まで保持され続けるため、デッドロックを避けるためにできるだけ早くスレッドを終了させることを推奨する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -108,24 +108,24 @@ int main()
 * std::move[link /reference/utility/move.md]
 * t1.detach()[link /reference/thread/thread/detach.md]
 
-###出力
+### 出力
 ```
 data is ready: true
 data is ready: true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.1, 3.2, 3.3, 3.4
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
 - [N3070 - Handling Detached Threads and thread_local Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3070.html)
 

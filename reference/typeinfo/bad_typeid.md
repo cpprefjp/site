@@ -1,4 +1,4 @@
-#bad_typeid
+# bad_typeid
 * typeinfo[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,11 +10,11 @@ namespace std {
 ```
 * exception[link /reference/exception/exception.md]
 
-##概要
+## 概要
 `bad_typeid`クラスは、ヌルポインタを指すオブジェクトを間接参照して`typeid`演算子に渡された場合に送出される例外である。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------|--------------------|---|
@@ -24,7 +24,7 @@ namespace std {
 | `virtual const char* what() const noexcept;`                            | 実装定義のエラー内容を取得する | |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <typeinfo>
@@ -49,11 +49,11 @@ int main()
 ```
 * std::bad_typeid[color ff0000]
 
-###出力例
+### 出力例
 ```
 1: Polymorphic*
 std::bad_typeid
 ```
 
-##参照
+## 参照
 

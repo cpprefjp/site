@@ -1,12 +1,12 @@
-#MoveConstructible
+# MoveConstructible
 * concepts[meta header]
 * std[meta namespace]
 
-##概要
+## 概要
 MoveConstructibleは、任意の型`T`がムーブ構築可能であることを表す要件である。
 
 
-##要件
+## 要件
 以下の式が可能であること：
 
 ```cpp
@@ -29,6 +29,6 @@ T(rv)
 - 上述した式を実行したあとの`rv`の状態は未規定とし、各ライブラリもしくは実装がその動作を規定する
 
 
-##関連項目
+## 関連項目
 - [`is_move_constructible`](/reference/type_traits/is_move_constructible.md)
 

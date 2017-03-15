@@ -1,4 +1,4 @@
-#end (非メンバ関数)
+# end (非メンバ関数)
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -17,21 +17,21 @@ namespace std {
 * unspecified1[italic]
 * unspecified2[italic]
 
-##概要
+## 概要
 末尾の次を指すイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 末尾の次を指すイテレータを返す。この関数によって返されるイテレータは、ランダムアクセスイテレータの要件を満たす型である。
 
 *unspecified1*は非`const`なランダムアクセスイテレータ、*unspecified2*は`const`なランダムアクセスイテレータである。
 
 
-##備考
+## 備考
 この関数によって返されるイテレータは、[`resize()`](resize.md)メンバ関数が呼び出されると無効になる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -48,7 +48,7 @@ int main()
 ```
 * end[color ff0000]
 
-###出力
+### 出力
 ```
 1
 2
@@ -56,11 +56,11 @@ int main()
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
@@ -68,7 +68,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG2058. valarray and begin/end](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2058)
 
 

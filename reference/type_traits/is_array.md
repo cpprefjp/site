@@ -1,4 +1,4 @@
-#is_array
+# is_array
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`が配列型かを調べる
 
 
-##効果
+## 効果
 `is_array`は、`T`が配列型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##備考
+## 備考
 要素数が未知(`T[]`)だとしても判断することができる。クラステンプレート[`array`](/reference/array.md)は、配列型とは見なされない。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 #include <array>
@@ -51,18 +51,18 @@ static_assert(std::is_array<void (int (&)[9])>::value == false, "void (int (&)[9
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC, C++11 mode: 4.3.4, 4.5.3, 4.6.1, 4.7.2
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
-####備考
+#### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。
 

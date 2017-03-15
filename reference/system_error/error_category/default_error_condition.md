@@ -1,4 +1,4 @@
-#default_error_condition
+# default_error_condition
 * system_error[meta header]
 * std[meta namespace]
 * error_category[meta class]
@@ -10,19 +10,19 @@ virtual error_condition default_error_condition(int ev) const noexcept;
 ```
 * error_condition[link /reference/system_error/error_condition.md]
 
-##概要
+## 概要
 パラメータ`ev`と自身の`error_category`から成る`error_condition`を生成して返す
 
 
-##戻り値
+## 戻り値
 `error_condition(ev, *this)`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -45,17 +45,17 @@ int main()
 * ed.value()[link /reference/system_error/error_condition/value.md]
 * ed.message()[link /reference/system_error/error_condition/message.md]
 
-###出力
+### 出力
 ```
 20
 Not a directory
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -63,4 +63,4 @@ Not a directory
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照

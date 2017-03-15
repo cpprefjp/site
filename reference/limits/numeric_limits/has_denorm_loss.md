@@ -1,4 +1,4 @@
-#has_denorm_loss
+# has_denorm_loss
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,11 +12,11 @@ static const bool has_denorm_loss;
 static constexpr bool has_denorm_loss;
 ```
 
-##概要
+## 概要
 浮動小数点数型において、精度の損失が非正規化数によるものかを判定する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -35,7 +35,7 @@ int main()
 ```
 * has_denorm_loss[color ff0000]
 
-###出力例
+### 出力例
 ```
 int : false
 float : false

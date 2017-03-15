@@ -1,4 +1,4 @@
-#poisson_distribution
+# poisson_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -12,7 +12,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `poisson_distribution`は、離散確率分布の一種であるポワソン分布を表すクラスである。  
 以下の確率密度関数に基いて、ランダムな整数を生成する：
 
@@ -34,8 +34,8 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 - `IntType` : 生成する整数型。
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------|--------------------|-------|
@@ -44,14 +44,14 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 | [`reset`](poisson_distribution/reset.md)                        | 状態をリセットする | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|----------------|-------|
 | [`operator()`](poisson_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------------------------|-------|
@@ -61,7 +61,7 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 | [`max`](poisson_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
@@ -69,7 +69,7 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 | `param_type`  | 分布パラメータの型。未規定。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------|----------------------|-------|
@@ -79,7 +79,7 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 | [`operator>>`](poisson_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <random>
 #include <fstream>
@@ -107,7 +107,7 @@ int main()
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
 * dist(engine)[link poisson_distribution/op_call.md]
 
-###出力
+### 出力
 ```
 ```
 
@@ -115,18 +115,18 @@ int main()
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/poisson_distribution/poisson_distribution.png)
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 
-###参考
+### 参考
 - [ポワソン分布 - Wikipedia](https://ja.wikipedia.org/wiki/ポアソン分布)
 - [ポアソン分布 - 統計・データ解析](http://oku.edu.mie-u.ac.jp/~okumura/stat/poisson.php)
 - [ポアソン分布 - NtRand](http://www.ntrand.com/jp/poisson-distribution/)

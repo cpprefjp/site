@@ -1,4 +1,4 @@
-#operator<=
+# operator<=
 * array[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `array`において、左辺が右辺以下かを判定する。
 
 
-##戻り値
+## 戻り値
 `!(a` [`>`](op_greater.md) `b)`
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <array>
@@ -42,17 +42,17 @@ int main ()
 }
 ```
 
-###出力
+### 出力
 ```
 less equal
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -60,5 +60,5 @@ less equal
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0
 
 
-##参照
+## 参照
 

@@ -1,4 +1,4 @@
-#replace
+# replace
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -52,11 +52,11 @@ basic_string& replace(const_iterator i1, const_iterator i2,
                       initializer_list<charT> il);                  // (11) C++11から
 ```
 
-##概要
+## 概要
 文字列の一部を置換する。
 
 
-##要件
+## 要件
 - (1) : `pos1 <=` [`size()`](size.md)
 - (2) : `pos1 <=` [`size()`](size.md)、および`pos2 <= str.`[`size()`](size.md)であること。
 - (3) : `pos1 <=` [`size()`](size.md)、および文字配列へのポインタ`s`が、少なくても`n2`個の要素を持つ配列を指していること。
@@ -69,7 +69,7 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 - (11) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
 
 
-##効果
+## 効果
 - (1) : `replace(pos1, n1, str.`[`data()`](data.md)`, str.`[`size()`](size.md)`)`を呼び出す。
 - (2) :
     - `n2`と`str.`[`size()`](size.md) `- pos2`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](size.md)`() - pos2` が使用される。
@@ -85,17 +85,17 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 - (11) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, il.`[`begin()`](/reference/initializer_list/begin.md)`, il.`[`size()`](/reference/initializer_list/size.md)`)`を呼び出す。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 - (1) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 - (2) : `pos1 >` [`size()`](size.md)もしくは`pos1 > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 - (3) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。また、置き換え結果の文字列が`max_size()`を超えた場合、[`length_error`](/reference/stdexcept.md)例外を送出する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -217,7 +217,7 @@ int main()
 * begin()[link begin.md]
 * end()[link end.md]
 
-###出力
+### 出力
 ```
 (1) : 1abcde45
 (2) : 1cde45
@@ -233,7 +233,7 @@ int main()
 ```
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (11)の経緯となる提案文書
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)

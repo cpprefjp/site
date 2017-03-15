@@ -1,4 +1,4 @@
-#is_pointer
+# is_pointer
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`がポインタ型かを調べる
 
 
-##効果
+## 効果
 `is_pointer`は、型`T`がポインタ型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##備考
+## 備考
 関数へのポインタはポインタ型であるが、`static`ではないメンバへのポインタは、ポインタ型ではない。 
 `nullptr`はポインタ型へ変換できるが，[`nullptr_t`](/reference/cstddef/nullptr_t.md)型はポインタ型ではない。
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 #include <cstddef>
@@ -59,18 +59,18 @@ static_assert(std::is_pointer<std::nullptr_t>::value == false, "std::nullptr_t i
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC, C++11 mode: 4.3.4, 4.5.3, 4.6.2, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
-####備考
+#### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、GCC 4,3,4, 4.5.3 は `nullptr_t` 型に対応していないためエラーになる。
 

@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * valarray[meta header]
 * std[meta namespace]
 * gslice[meta class]
@@ -16,7 +16,7 @@ gslice(const slice&);             // (3)
 * size_t[link /reference/cstddef/size_t.md]
 * valarray[link /reference/valarray/valarray.md]
 
-##`gslice`オブジェクトの構築
+## `gslice`オブジェクトの構築
 
 `gslice`オブジェクトを次に示す通りの要素で初期化する。
 
@@ -28,7 +28,7 @@ gslice(const slice&);             // (3)
 - (3) : コピーコンストラクタ。コピー元の`gslice`オブジェクトと同じ初期位置、要素数群、間隔数群でスライスする`gslice`オブジェクトを構築する。
 
 
-##パラメータ
+## パラメータ
 - `start`
     - スライスする初期位置。
 - `lengths`
@@ -37,7 +37,7 @@ gslice(const slice&);             // (3)
     - スライスする間隔数群。
 
 
-##例
+## 例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -83,7 +83,7 @@ auto main()
 }
 ```
 
-###出力
+### 出力
 ```
 [0x7fff4fe25758]:
 start : 0
@@ -100,6 +100,6 @@ stride: 10 3
 ```
 
 
-##参照
+## 参照
 - [LWG Issue 543. `valarray` `slice` default constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#543)
 

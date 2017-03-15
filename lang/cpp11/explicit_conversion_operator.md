@@ -1,7 +1,7 @@
-#明示的な型変換演算子のオーバーロード
+# 明示的な型変換演算子のオーバーロード
 * cpp11[meta cpp]
 
-##概要
+## 概要
 型変換演算子のオーバーロードをする際、`operator`キーワードの前に`explicit`を付加することで、その型変換演算子は明示的な型変換が行われる文脈でのみ呼び出されるようになる：
 
 ```cpp
@@ -33,7 +33,7 @@ int main()
 明示的な型変換演算子を使用することにより、従来の危険な型変換を抑制できる。上記サンプルコードでの、`bool`への型変換演算子を持つ`p`に対して、`p + 1`のような式が許可されていたものが、明示的な型変換演算子ではコンパイルエラーとなる。
 
 
-##仕様
+## 仕様
 ```cpp
 struct X {
   constexpr explicit operator bool() const
@@ -69,7 +69,7 @@ int main()
 * static_assert[link static_assert.md]
 
 
-##参照
+## 参照
 - [N1592 Explicit Conversion Operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1592.pdf)
 - [N2223 Explicit Conversion Operator Draft Working Paper](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2223.pdf)
 - [N2333 Explicit Conversion Operator Draft Working Paper Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2333.html)

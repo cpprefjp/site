@@ -1,4 +1,4 @@
-#swap
+# swap
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
@@ -10,19 +10,19 @@ void swap(basic_regex& e);
 ```
 * basic_regex[link ../basic_regex.md]
 
-##概要
+## 概要
 正規表現オブジェクトを交換する。
 
 
-##効果
+## 効果
 `*this` と `e` の 2 つの正規表現オブジェクトの内容を交換する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -69,7 +69,7 @@ int main()
 * m.size()[link ../match_results/size.md]
 * m.ready()[link ../match_results/ready.md]
 
-###出力
+### 出力
 ```
 ready:true
 prefix:' '
@@ -93,11 +93,11 @@ suffix:' 123 def '
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

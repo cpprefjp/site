@@ -1,4 +1,4 @@
-#codecvt_utf16
+# codecvt_utf16
 * codecvt[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -16,7 +16,7 @@ namespace std {
 * codecvt_mode[link /reference/codecvt/codecvt_mode.md]
 * codecvt[link /reference/locale/codecvt.md]
 
-##概要
+## 概要
 UTF-16との変換を行うファセットクラス。`char`列と`Elem`列との間で、以下のようにエンコーディングの変換を行う機能を有する。
 
 - `char`: UTF-16エンコーディングのマルチバイト文字列。
@@ -24,7 +24,7 @@ UTF-16との変換を行うファセットクラス。`char`列と`Elem`列と�
 
 BOMの有無やエンディアンなどを[`codecvt_mode`](codecvt_mode.md)で指定できる。
 
-##例
+## 例
 ```cpp
 #include <codecvt>
 #include <string>
@@ -63,20 +63,20 @@ int main()
 * converter.from_bytes[link ../locale/wstring_convert/from_bytes.md]
 
 
-###出力
+### 出力
 上記プログラムは何も出力しない。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
-##参照
+## 参照
 - [N2401 Code Conversion Facets for the Standard C++ Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2401.htm)
 

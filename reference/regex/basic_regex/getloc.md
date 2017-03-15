@@ -1,4 +1,4 @@
-#getloc
+# getloc
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
@@ -9,26 +9,26 @@
 locale_type getloc() const;
 ```
 
-##概要
+## 概要
 現在のロケールを取得する。
 
 
-##効果
+## 効果
 `*this` に保持されている `traits_type` 型のオブジェクト `traits_inst` に対して、`traits_inst.getloc()` を呼び出し、その結果を返す。
 
 
-##戻り値
+## 戻り値
 現在設定されているロケール
 
 
-##備考
+## 備考
 - `traits_inst` はデフォルト初期化されたオブジェクトである。
 - `locale_type` は、ロケールに関する型であり、`traits_type::locale_type` の別名である。
 - `traits_type` は、クラステンプレート [`basic_regex`](../basic_regex.md) の 2 番目のテンプレート引数で、デフォルトでは [`regex_traits`](../regex_traits.md)`<char_type>` である。  
     その場合、`locale_type` は [`locale`](../../locale/locale.md) である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <locale>
@@ -44,17 +44,17 @@ int main()
 * getloc()[color ff0000]
 * std::locale[link /reference/locale/locale.md]
 
-###出力
+### 出力
 ```
 true
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

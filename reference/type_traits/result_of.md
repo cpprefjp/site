@@ -1,4 +1,4 @@
-#result_of
+# result_of
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -18,17 +18,17 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 関数の戻り値の型を取得する。
 
 
-##要件
+## 要件
 - C++11まで : 型`F`は、関数または関数オブジェクトであること。もしくは、型`F`は、関数または関数オブジェクトへの参照であること。`INVOKE(declval<Fn>(), declval<ArgTypes>()...)`が有効な式であること。
 - C++14から : 型`F`および`ArgsTypes...`パラメータパックの全ての型が、完全型であること。もしくは`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型であること。
     - このバージョンでは要件が緩和され、関数呼び出しが可能であることが要件から外れた。これにより、有効でない関数オブジェクト、引数を指定した場合に、`static_assert`でコンパイルエラーにならず、テンプレートの置き換え失敗によりSFINAEが働くようになった。
 
 
-##効果
+## 効果
 `result_of`は、関数または関数オブジェクトの型`F`に対して、`ArgTypes...`を引数として渡した場合の戻り値の型を、メンバ型`type`として定義する。
 
 メンバ型`type`は、以下と同じ型になる：
@@ -42,7 +42,7 @@ decltype(INVOKE(declval<Fn>(), declval<ArgTypes>()...))
 C++14以降では、上記メンバ型`type`の型定義が有効な式でない場合、メンバ型`type`は定義されない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -113,7 +113,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 3
 3
@@ -121,11 +121,11 @@ Hello World
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
@@ -134,7 +134,7 @@ Hello World
 	- `result_of_t`は、12.0から。
 
 
-##参照
+## 参照
 - [N1437 A uniform method for computing function object return types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1437.html)
 - [N1454 A uniform method for computing function object return types (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1454.html)
 - [Bringing result_of near to INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3123.html)

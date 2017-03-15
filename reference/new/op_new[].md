@@ -1,4 +1,4 @@
-#operator new[]
+# operator new[]
 * new[meta header]
 * function[meta id-type]
 
@@ -20,11 +20,11 @@ void* operator new[](std::size_t size, void* ptr) noexcept;                     
 * std::size_t[link /reference/cstddef/size_t.md]
 
 
-##概要
+## 概要
 配列オブジェクトのために動的に記憶域を確保する。
 
 
-##効果
+## 効果
 - (1) [`operator new`](op_new.md)`(size)` を呼び出す。
 - (2) C++03 までと C++11 からで異なる。  
     - C++03 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` を呼び出す。  
@@ -32,7 +32,7 @@ void* operator new[](std::size_t size, void* ptr) noexcept;                     
 - (3) 何もしない。
 
 
-##戻り値
+## 戻り値
 - (1) 確保した記憶域の先頭アドレスを指すポインタ（[`operator new`](op_new.md)`(size)` の戻り値）。
 - (2) 記憶域を確保できた場合、確保した記憶域の先頭アドレスを指すポインタ。確保できなかった場合、ヌルポインタ。
     - C++03 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` の戻り値
@@ -40,7 +40,7 @@ void* operator new[](std::size_t size, void* ptr) noexcept;                     
 - (3) 引数 `ptr`
 
 
-##備考
+## 備考
 - (1)、および、(2) の形式は、`size` が `0` でも他の確保済みの記憶域と異なるアドレスを返す。  
     ただし、記憶域の確保に失敗する可能性もあり、また、成功しても当該ポインタを間接参照した場合の結果は未定義である。
 
@@ -69,7 +69,7 @@ void* operator new[](std::size_t size, void* ptr) noexcept;                     
     なお、このオーバーヘッドのサイズは、実装によって異なるだけでなく、同一の実装でも場合によって異なる可能性があり、あらかじめこのサイズを知ることは極めて困難である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <new>
@@ -122,6 +122,6 @@ int main()
 * std::nothrow[link nothrow_t.md]
 * std::bad_alloc[link bad_alloc.md]
 
-###出力
+### 出力
 ```
 ```

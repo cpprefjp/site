@@ -1,4 +1,4 @@
-#operator*
+# operator*
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
@@ -9,11 +9,11 @@
 T& operator*() const noexcept;
 ```
 
-##概要
+## 概要
 ポインタを間接参照する。
 
 
-##要件
+## 要件
 
 ```cpp
 get() != nullptr
@@ -21,15 +21,15 @@ get() != nullptr
 * get()[link get.md]
 
 
-##戻り値
+## 戻り値
 `*`[`get()`](get.md)
 
 
-##備考
+## 備考
 型`T`が`void`の場合、この関数が定義されるかどうかは未規定。定義される場合、その戻り値は未規定。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -43,16 +43,16 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.3.6
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

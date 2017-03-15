@@ -1,4 +1,4 @@
-#back
+# back
 * queue[meta header]
 * std[meta namespace]
 * queue[meta class]
@@ -9,7 +9,7 @@ value_type& back();
 const value_type& back() const;
 ```
 
-##概要
+## 概要
 `queue` の最後の要素への参照を返す。
 
 これは最後に `queue` に挿入された要素である。
@@ -17,13 +17,13 @@ const value_type& back() const;
 内部のコンテナの `back()` メンバ関数を呼ぶ。
 
 
-##戻り値
+## 戻り値
 `queue` の最後の要素への参照を返す。
 
 `value_type` 型は内部のコンテナの値を表す型で、第１テンプレート引数の `T` と同じ型であるべきである。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -46,14 +46,14 @@ int main() {
 * back()[color ff0000]
 * q.push[link push.md]
 
-###出力
+### 出力
 ```
 10
 20
 30
 ```
 
-##実装例
+## 実装例
 ```cpp
 value_type& back() { return c.back(); }
 const value_type& back() const { return c.back(); }

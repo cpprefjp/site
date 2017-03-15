@@ -1,4 +1,4 @@
-#stdexcept
+# stdexcept
 * stdexcept[meta header]
 
 `<stdexcept>`ヘッダは、標準的な例外クラスを提供する。  
@@ -40,7 +40,7 @@
 
 クラス名を`T`とすると、以下の`public`メンバ関数をもつ。
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------|--------------------------------------------|-------|
@@ -49,7 +49,7 @@
 | `virtual const char* what() const noexcept;` | メッセージを取得する | |
 
 
-##例
+## 例
 ここでは、簡単な例外処理の例を示す。
 
 ```cpp
@@ -78,7 +78,7 @@ int main()
 * std::logic_error[color ff0000]
 * std::exit[link /reference/cstdlib/exit.md]
 
-##参照
+## 参照
 - [LWG Issue 254. Exception types in clause 19 are constructed from `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#254)
     - C++11から例外送出の理由として、文字配列を受け取ることを許可した経緯のレポート
 

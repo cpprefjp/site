@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * ios[meta header]
 * std[meta namespace]
 * basic_ostream[meta class]
@@ -10,27 +10,27 @@ virtual ~basic_ostream();
 * basic_ostream[link ../basic_ostream.md]
 
 
-##概要
+## 概要
 出力ストリームオブジェクトを破棄する。
 
 
-##備考
+## 備考
 [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()` に対する操作は、一切行わない。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5.0, 3.6.0, 3.7.0, 3.8.0
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 4.9.2, 5.1.0, 5.2.0, 6.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [`basic_ostream`](../basic_ostream.md)`::`[`basic_ostream`](op_constructor.md)
 - [`basic_ostream`](../basic_ostream.md)`::`[`swap`](swap.md)
 - [`basic_ostream`](../basic_ostream.md)`::`[`operator=`](op_assign.md)

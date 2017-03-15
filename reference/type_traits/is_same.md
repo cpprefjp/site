@@ -1,4 +1,4 @@
-#is_same
+# is_same
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの型`T`と`U`が同じ型か調べる
 
 
-##効果
+## 効果
 `is_same`は、CV修飾子が同じであることを含め型`T`と型`U`が同じ型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -50,15 +50,15 @@ static_assert(std::is_same<int, my_type>::value == false, "int != my_type");
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC, C++11 mode: 4.3.4, 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 

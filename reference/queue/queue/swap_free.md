@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * queue[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,23 +11,23 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`queue`オブジェクトを入れ替える
 
 
-##効果
+## 効果
 `x.`[`swap`](swap.md)`(y)`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 `x.swap(y)` が例外を投げない場合、この関数は決して例外を投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -66,17 +66,17 @@ int main ()
 * que.front()[link front.md]
 * que.pop()[link pop.md]
 
-###出力
+### 出力
 ```
 4 5 6 
 1 2 3 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -84,4 +84,4 @@ int main ()
 - [Visual C++](/implementation.md#visual_cpp)
 
 
-##参照
+## 参照

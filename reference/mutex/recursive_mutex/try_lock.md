@@ -1,4 +1,4 @@
-#try_lock
+# try_lock
 * mutex[meta header]
 * std[meta namespace]
 * recursive_mutex[meta class]
@@ -9,27 +9,27 @@
 bool try_lock();
 ```
 
-##概要
+## 概要
 ロックの取得を試みる
 
 
-##効果
+## 効果
 ブロッキングせずに、この関数を呼び出したスレッドがミューテックスの所有権を取得する。この関数を呼び出したスレッドが新たに所有権を取得した場合は、所有権カウントを1とする。すでにミューテックスの所有権を保持していた場合は、所有権カウントを1増加する。
 
 
-##戻り値
+## 戻り値
 所有権が取得できなかった場合は何もせずに関数が`false`で返り、所有権を取得できた場合は`true`を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 あるスレッドが再帰的に所有権を取得可能な最大回数（所有権カウントの上限値）は、規定されていない。所有権カウントの上限値に達している場合、所有権を取得済みのスレッドであっても`false`を返す（このとき所有権カウントの増加は行われない）。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -95,17 +95,17 @@ int main()
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_error[link /reference/system_error/system_error.md]
 
-###出力例
+### 出力例
 ```
 count == 1
 count == 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -113,6 +113,6 @@ count == 2
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

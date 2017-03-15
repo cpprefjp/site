@@ -1,4 +1,4 @@
-#future_error
+# future_error
 * future[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 ```
 * logic_error[link /reference/stdexcept.md]
 
-##概要
+## 概要
 `future_error`は、[`future`](future.md)/[`promise`](promise.md)操作でのエラーを扱うための例外クラスである。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -24,7 +24,7 @@ namespace std {
 | `virtual const char* what() const noexcept;` | エラー理由となる実装依存文字列(`code.`[`message`](/reference/system_error/error_code/message.md)`()`)を返す | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -64,18 +64,18 @@ int main()
 * f.get()[link future/get.md]
 * std::move[link /reference/utility/move.md]
 
-###出力例
+### 出力例
 ```
 3
 value:3
 what:Promise already satisfied
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -83,6 +83,6 @@ what:Promise already satisfied
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

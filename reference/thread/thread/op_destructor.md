@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * thread[meta header]
 * std[meta namespace]
 * thread[meta class]
@@ -9,15 +9,15 @@
 ~thread();
 ```
 
-##概要
+## 概要
 `thread`オブジェクトを破棄する。
 
 
-##効果
+## 効果
 デストラクタ呼び出し時点で`thread`オブジェクトにスレッドが関連付けられている場合、[`std::terminate()`](/reference/exception/terminate.md)を呼び出してプログラムを終了する。既にjoin操作またはdetach操作済みの（つまり、`thread`オブジェクトが既にスレッドと関連付けられていない）場合は何もしない。
 
 
-##例
+## 例
 ```cpp
 #include <thread>
 
@@ -34,15 +34,15 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.3, 4.7.0
@@ -50,4 +50,4 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照

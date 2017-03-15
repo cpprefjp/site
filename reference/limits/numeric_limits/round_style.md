@@ -1,4 +1,4 @@
-#round_style
+# round_style
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -14,11 +14,11 @@ static constexpr float_round_style round_style;
 * float_round_style[link /reference/limits/float_round_style.md]
 
 
-##概要
+## 概要
 浮動小数点数の丸めスタイルを取得する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -50,13 +50,13 @@ int main()
 * std::float_round_style[link /reference/limits/float_round_style.md]
 * std::invalid_argument[link /reference/stdexcept.md]
 
-###出力例
+### 出力例
 ```
 float : to nearest
 double : to nearest
 ```
 
-##参照
+## 参照
 * [`float_round_style`](../float_round_style.md)
 
 

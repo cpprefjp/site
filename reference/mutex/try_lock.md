@@ -1,4 +1,4 @@
-#try_lock
+# try_lock
 * mutex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,27 +11,27 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 複数のミューテックスオブジェクトに対してtry_lock操作を行う
 
 
-##要件
+## 要件
 テンプレートパラメータの型が`lock()`、`unlock()`、`try_lock()`メンバ関数をサポートしていること
 
 
-##効果
+## 効果
 各ミューテックスオブジェクトに、引数の順に`try_lock()`メンバ関数を呼び出す。
 
 いずれかの`try_lock()`が`false`を返すか、もしくは例外を送出した場合、以降の`try_lock()`呼び出しを行わず、それ以前にロック取得したミューテックスオブジェクトに対して`unlock()`メンバ関数を呼び出す。
 
 
-##戻り値
+## 戻り値
 全てのミューテックスオブジェクトへの`try_lock()`が成功した場合、`-1`を返す。
 
 いずれかの`try_lock()`が失敗して終了した場合、失敗した最初のミューテックスオブジェクトへの`0`から始まるインデックスを返す。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <mutex>
@@ -94,15 +94,15 @@ int main()
 * owns_lock()[link unique_lock/owns_lock.md]
 * th.join()[link /reference/thread/thread/join.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -110,7 +110,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [lock非メンバ関数の使いどころ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120919/p1)
 - [Acquiring Multiple Locks Without Deadlock](https://www.justsoftwaresolutions.co.uk/threading/acquiring-multiple-locks-without-deadlock.html)
 

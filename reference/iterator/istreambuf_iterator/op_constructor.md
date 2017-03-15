@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * iterator[meta header]
 * std[meta namespace]
 * istreambuf_iterator[meta class]
@@ -12,14 +12,14 @@ istreambuf_iterator(streambuf_type* s) noexcept;
 istreambuf_iterator(const proxy& p) noexcept;
 ```
 
-##istreambuf_iteratorオブジェクトの構築
+## istreambuf_iteratorオブジェクトの構築
 - `istreambuf_iterator()`<br/>デフォルトコンストラクタメンバ変数として保持する`streambuf`オブジェクトへのポインタをヌル初期化する。
 - `istreambuf_iterator(istreamtype& s) noexcept`<br/>`s.rdbuf()`をメンバ変数として保持する。
 - `istreambuf_iterator(streambuf_type* s) noexcept`<br/>`s`をメンバ変数として保持する
 - `istreambuf_iterator(const proxy& p) noexcept`<br/>後置`operator++()`が返すであろうproxyオブジェクトを受け取り、そのオブジェクトが指す`streambuf`オブジェクトへのポインタをメンバ変数として保持する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -42,12 +42,12 @@ int main()
 ```
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
-###出力
+### 出力
 ```
 1
 1
 ```
 
-##参照
+## 参照
 
 

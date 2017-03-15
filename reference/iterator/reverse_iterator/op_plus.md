@@ -1,4 +1,4 @@
-#operator+ (非メンバ関数)
+# operator+ (非メンバ関数)
 * iterator[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,16 +11,16 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 イテレータを`N`回進める。
 
 `reverse_iterator`は逆方向に進める。
 
 
-##戻り値
+## 戻り値
 `reverse_iterator<Iterator>(x.current - n)`
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -38,11 +38,11 @@ int main()
 ```
 * 1 + it1[color ff0000]
 
-###出力
+### 出力
 ```
 2
 ```
 
-##参照
+## 参照
 
 

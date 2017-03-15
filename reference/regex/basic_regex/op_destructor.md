@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
@@ -10,15 +10,15 @@
 ```
 
 
-##概要
+## 概要
 正規表現オブジェクトを破棄する。
 
 
-##効果
+## 効果
 正規表現オブジェクトを破棄する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -37,17 +37,17 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::regex_constants::icase[link ../regex_constants/syntax_option_type.md]
 
-###出力
+### 出力
 ```
 true
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

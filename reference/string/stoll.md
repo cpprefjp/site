@@ -1,4 +1,4 @@
-#stoll
+# stoll
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,11 +12,11 @@ namespace std {
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 文字列`str`を数値として読み取って、`long long`型の値に変換する。
 
 
-##効果
+## 効果
 パラメータ`str`が`string`型であれば`std::strtoll(str.c_str(), &end, base)`、`wstring`型であれば`std::wcstoll(str.c_str(), &end, base)`を呼び出して、その戻り値を返す。
 
 パラメータ`idx`が非`nullptr`の場合、変換に使用されなかった要素のインデックス（`end - str.c_str()`）が格納される。
@@ -27,18 +27,18 @@ namespace std {
 - 先頭が`0x`もしくは`0X`：`16`進数
 
 
-##戻り値
+## 戻り値
 変換して得られた数値が返される。
 
 
-##例外
+## 例外
 - 数値への変換が行われなかった場合、[`std::invalid_argument`](/reference/stdexcept.md)が送出される。
 - 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
     - `std::strtoll()`関数が`std::errno`変数に`ERANGE`を設定した場合 (C++14)
     - 結果が範囲外の値になった場合
 
 
-##備考
+## 備考
 ### errnoの扱い
 - Visual C++ 11やGCC (libstdc++) 4.8.2では、この関数を呼び出すと`errno`の値が変更される。
 - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
@@ -49,7 +49,7 @@ namespace std {
 `strtol()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用されるためである。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -123,7 +123,7 @@ int main()
 * std::stoll[color ff0000]
 * std::wstring[link basic_string.md]
 
-###出力
+### 出力
 ```
 ---- base = 10
 10
@@ -151,7 +151,7 @@ int main()
 -2
 ```
 
-##実装例
+## 実装例
 ```cpp
 long long stoll(const std::string& str, std::size_t* idx = nullptr, long long base = 10) {
   const char* p = str.c_str();
@@ -193,18 +193,18 @@ long long stoll(const std::wstring& str, std::size_t* idx = nullptr, long long b
 * errno[link /reference/cerrno/errno.md]
 * ERANGE[link /reference/cerrno.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
-##参照
+## 参照
 - [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
 - [LWG Issue 2009. Reporting out-of-bound values on numeric string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009)
 

@@ -1,4 +1,4 @@
-#abs
+# abs
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -10,15 +10,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 複素数値の絶対値（大きさ・マグニチュード）を得る。abs は absolute value（絶対値）の略。
 
 
-##戻り値
+## 戻り値
 引数 `x` の絶対値（大きさ・マグニチュード）
 
 
-##備考
+## 備考
 - 規格には、本関数に関する具体的な規定・説明は無い。  
 	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `cabs`、`cabsf`、`cabsl` の 3 つ。それぞれ C++ の `abs<double>`、`abs<float>`、`abs<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している（マクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている）場合、`abs(x +` *i* `y) =` [`hypot`](/reference/cmath/hypot.md)`(x, y)` と規定されている（*i* は虚数単位）。
 - 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
@@ -45,7 +45,7 @@ namespace std {
 	また、浮動小数点版、および、整数版の `abs` については今後、全て [`cmath`](/reference/cmath.md) [`cstdlib`](/reference/cstdlib.md) 両方のヘッダで利用できるようになるかもしれない。[\<cstdlib\> should declare abs(double)](http://wg21.cmeerw.net/lwg/issue2294) 参照。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <complex>
@@ -60,24 +60,24 @@ int main()
 ```
 * std::abs[color ff0000]
 
-###出力
+### 出力
 ```
 abs( (1,2) ) = 2.23607
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 |                                    |                                        |
 |------------------------------------|----------------------------------------|
 | [`real`](real.md)                  | 複素数の実部を得る。                   |

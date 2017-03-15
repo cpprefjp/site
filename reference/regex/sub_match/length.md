@@ -1,4 +1,4 @@
-#length
+# length
 * regex[meta header]
 * std[meta namespace]
 * sub_match[meta class]
@@ -9,15 +9,15 @@
 difference_type length() const;
 ```
 
-##概要
+## 概要
 マッチした文字列の長さを返す。
 
 
-##戻り値
+## 戻り値
 `matched ?` [`distance`](../../iterator/distance.md)`(first, second) : 0`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -48,18 +48,18 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::ssub_match[link ../sub_match.md]
 
-###出力
+### 出力
 ```
 3
 0
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

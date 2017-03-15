@@ -1,4 +1,4 @@
-#has_denorm
+# has_denorm
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -13,7 +13,7 @@ static constexpr float_denorm_style has_denorm;
 ```
 * float_denorm_style[link /reference/limits/float_denorm_style.md]
 
-##概要
+## 概要
 浮動小数点数型において、型`T`の非正規化数(Denormal Number)のサポート状況を判定する。
 
 | 値                                                      | 非正規化数のサポート状況 |
@@ -23,7 +23,7 @@ static constexpr float_denorm_style has_denorm;
 | [`std::denorm_present`](../float_denorm_style.md)       | 許可する                 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -56,14 +56,14 @@ int main()
 * std::float_denorm_style[link /reference/limits/float_denorm_style.md]
 * std::invalid_argument[link /reference/stdexcept.md]
 
-###出力例
+### 出力例
 ```
 int : absent
 float : present
 double : present
 ```
 
-##参照
+## 参照
 * [`float_denorm_style`](../float_denorm_style.md)
 
 

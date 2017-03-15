@@ -1,4 +1,4 @@
-#operator>>
+# operator>>
 * random[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -15,25 +15,25 @@ namespace std {
 ```
 * basic_istream[link /reference/istream/basic_istream.md]
 
-##概要
+## 概要
 ストリームからの入力を行う。
 
 
-##効果
+## 効果
 `is`に対してフォーマットフラグ`ios_base::dec`を設定する。  
 フォーマットを設定した`is`から、`subtract_with_carry_engine`の状態シーケンスを読み取り、オブジェクト`x`に格納する。  
 不正な入力だった場合、`is.setstate(ios::failbit)`を呼び出し、ストリームを失敗状態にする。
 
 
-##事後条件
+## 事後条件
 `is`のフォーマットフラグが、この関数を呼び出す前の状態に戻ること。
 
 
-##戻り値
+## 戻り値
 `is`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -66,16 +66,16 @@ int main()
 * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 * ss.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
 
-###出力例
+### 出力例
 ```
 15136306 8587749 2346244 16479026 15515802 9510553 16090340 14501685 13839944 10789678 11581259 9590790 5840316 5953700 13398366 8134459 16629731 6851902 15583892 1317475 4231148 9092691 5707268 2355175 0 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -83,6 +83,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 
 

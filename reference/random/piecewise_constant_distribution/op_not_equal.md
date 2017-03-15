@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * random[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,19 +13,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 非等値比較を行う。
 
 
-##戻り値
+## 戻り値
 `!(a == b)`
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -63,16 +63,16 @@ int main()
 * intervals2.end()[link /reference/array/end.md]
 * densities.begin()[link /reference/array/begin.md]
 
-###出力
+### 出力
 ```
 not equal
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -80,6 +80,6 @@ not equal
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#inner_product
+# inner_product
 * numeric[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,7 +18,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つのシーケンスの内積(inner product)を計算する。
 
 この関数は、範囲`[first1, last1)`および範囲`[first2, first2 + (last1 - first1))`をそれぞれ任意次元のベクトルとみなし、その2つのベクトルの内積を計算する。
@@ -29,30 +29,30 @@ namespace std {
 - (2) : `operator()+`を`binary_op1`、`operator*()`を`binary_op2`で代用して、(1)の演算を行う
 
 
-##要件
+## 要件
 - 型`T`が[CopyConstructible](/reference/concepts/CopyConstructible.md)であること
 - 型`T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
 - C++03まで : `binary_op1`および`binary_op2`は、副作用を起こしてはならない
 - C++11から : `binary_op1`および`binary_op2`が、範囲`[first1, last1]`と範囲`[first2, first2 + (last1 - first2)]`の要素変更およびイテレータの無効化をしてはならない
 
 
-##効果
+## 効果
 - (1) : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = acc + (*i) * (*j);` の演算を行い、`acc`を返す
 - (2) : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(acc, binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
 
 
-##戻り値
+## 戻り値
 演算によって求められた内積値を返す
 
 
-##計算量
+## 計算量
 - (1) : n 回の加算処理と n 回の乗算処理を行う。
 - (2) : n 回の `binary_op1` 呼び出しと n 回の `binary_op2` 呼び出しを行う。
 
 ここで、n は `last1 - first1`とする。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -76,13 +76,13 @@ int main()
 * std::inner_product[color ff0000]
 * u.begin()[link /reference/vector/begin.md]
 
-###出力
+### 出力
 ```
 -3
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 // (1)
 template <class InputIterator1, class InputIterator2, class T>

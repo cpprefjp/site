@@ -1,4 +1,4 @@
-#try_lock_shared_until
+# try_lock_shared_until
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
@@ -11,15 +11,15 @@ bool try_lock_shared_until(const chrono::time_point<Clock, Duration>& abs_time);
 ```
 * time_point[link /reference/chrono/time_point.md]
 
-##概要
+## 概要
 タイムアウトする絶対時間を指定して共有ロックの取得を試みる。
 
 
-##要件
+## 要件
 この関数を呼び出したスレッドが、ミューテックスの排他所有権と共有所有権のいずれもを保持していないこと。
 
 
-##効果
+## 効果
 `abs_time`パラメータで指定された絶対時間に到達するまで、ミューテックスの共有所有権の取得を試みる。
 
 共有所有権が取得できるまで、もしくは`abs_time`時間に到達するまでこの関数はブロッキングする。
@@ -27,17 +27,17 @@ bool try_lock_shared_until(const chrono::time_point<Clock, Duration>& abs_time);
 `abs_timeにすでに到達していた場合`、この関数は[`try_lock_shared()`](try_lock_shared.md)と同じ効果をもち、ブロッキングせずにミューテックスの共有所有権の取得を試みる。
 
 
-##戻り値
+## 戻り値
 共有所有権が取得できた場合は`true`を返す。
 
 `abs_time`パラメータで指定された相対時間の間に共有所有権が取得できなかった場合はタイムアウトとなり、`false`を返す。
 
 
-##例外
+## 例外
 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
 
 
-##例
+## 例
 ```cpp
 #include <thread>
 #include <shared_mutex>
@@ -101,15 +101,15 @@ int main()
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_error[link /reference/system_error/system_error.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

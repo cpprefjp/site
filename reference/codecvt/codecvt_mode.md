@@ -1,4 +1,4 @@
-#codecvt_mode
+# codecvt_mode
 * codecvt[meta header]
 * std[meta namespace]
 * enum[meta id-type]
@@ -14,7 +14,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 文字コード変換の設定をするための列挙型。
 
 | 列挙値 | 説明 |
@@ -29,16 +29,16 @@ namespace std {
 - [`codecvt_utf16`](codecvt_utf16.md)
 - [`codecvt_utf8_utf16`](codecvt_utf8_utf16.md)
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#front_inserter
+# front_inserter
 * iterator[meta header]
 * std[meta namespace]
 * front_insert_iterator[meta class]
@@ -12,18 +12,18 @@ namespace std {
 ```
 * front_insert_iterator[link front_insert_iterator.md]
 
-##概要
+## 概要
 `front_insert_iterator`のヘルパ関数。
 
 
-##戻り値
+## 戻り値
 ```cpp
 front_insert_iterator<Container>(x)
 ```
 * front_insert_iterator[link front_insert_iterator.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -48,11 +48,11 @@ int main()
 * src.begin()[link /reference/deque/begin.md]
 * src.end()[link /reference/deque/end.md]
 
-###出力
+### 出力
 ```
 3
 2
 1
 ```
 
-##参照
+## 参照

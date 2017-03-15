@@ -1,4 +1,4 @@
-#swap
+# swap
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -8,29 +8,29 @@
 void swap(vector& x);
 ```
 
-##概要
+## 概要
 他の`vector`オブジェクトとデータを入れ替える。
 
 
-##効果
+## 効果
 `*this`の内容と[`capacity()`](capacity.md)を`x`と交換する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##備考
+## 備考
 swapされるコンテナの要素を指す参照、ポインタ、イテレータを無効化しない。
 
 (ただし、[`end()`](end.md)が指すイテレータはどの要素も指していないが、無効になることがある。)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -60,7 +60,7 @@ int main()
 ```
 * swap[color ff0000]
 
-###出力
+### 出力
 ```
 v1 : {4 5 6 }
 v2 : {1 2 3 }

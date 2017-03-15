@@ -1,4 +1,4 @@
-#cbegin
+# cbegin
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
@@ -9,25 +9,25 @@
 const_iterator cbegin() const noexcept;
 ```
 
-##概要
+## 概要
 
 先頭の要素を指す読み取り専用イテレータを取得する。
 `unordered_multiset` は非順序連想コンテナであるため「先頭」に特に意味はないが、`cbegin()` で得られたイテレータを [`cend`](cend.md)`()` まで `operator++()` でイテレートすることで当該コンテナの要素を漏れなくダブりなく走査することができる。
 
 
-##戻り値
+## 戻り値
 先頭の要素を指す読み取り専用イテレータ
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <algorithm>
@@ -50,7 +50,7 @@ int main()
 * cend[link /reference/unordered_set/unordered_multiset/cend.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
-###出力
+### 出力
 ```
 3 3 2 2 1 1
 ```
@@ -58,11 +58,11 @@ int main()
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1
 - [GCC](/implementation.md#gcc): -
@@ -70,7 +70,7 @@ int main()
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 
 | | |
 |----------------------------------------------|--------------------------------|

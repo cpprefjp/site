@@ -1,4 +1,4 @@
-#set_exception
+# set_exception
 * future[meta header]
 * std[meta namespace]
 * promise[meta class]
@@ -10,26 +10,26 @@ void set_exception(exception_ptr p);
 ```
 * exception_ptr[link /reference/exception/exception_ptr.md]
 
-##概要
+## 概要
 結果の例外を設定する
 
 
-##効果
+## 効果
 例外ポインタ`p`をアトミックに共有状態に格納し、準備完了状態([`future_status::ready`](../future_status.md))にする。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が設定されている
 - [`no_state`](../future_errc.md) ： `*this`が共有状態を持っていない(`promise`オブジェクトがムーブされると起こりうる)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -76,16 +76,16 @@ int main()
 * std::move[link /reference/utility/move.md]
 * f.get()[link /reference/future/future/get.md]
 
-###出力
+### 出力
 ```
 invalid argument!
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -93,6 +93,6 @@ invalid argument!
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

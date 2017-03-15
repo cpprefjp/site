@@ -1,25 +1,25 @@
-#DBL_MAX_EXP
+# DBL_MAX_EXP
 * cfloat[meta header]
 * macro[meta id-type]
 * [mathjax enable]
 
 ```cpp
-#define DBL_MAX_EXP implementation-defined
+# define DBL_MAX_EXP implementation-defined
 ```
 
-##概要
+## 概要
 [`FLT_RADIX`](flt_radix.md) の $n - 1$ 乗が、`double` の有限の値として表現可能であるような、最大の整数値 $n$ を表すマクロ。  
 [`<cfloat>`](../cfloat.md) のモデルにおける $e_{\rm max}$。
 
 [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`max_exponent`](/reference/limits/numeric_limits/max_exponent.md) と等しい。
 
 
-##備考
+## 備考
 - 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
 - `DBL_MAX_EXP` は DouBLe MAXimum EXPonent（maximum：最大値、exponent：指数）に由来する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -44,7 +44,7 @@ int main()
 * DBL_DIG[link dbl_dig.md]
 * std::pow[link ../cmath/pow.md]
 
-##出力例
+## 出力例
 ```
 1024
 8.98846567431158e+307

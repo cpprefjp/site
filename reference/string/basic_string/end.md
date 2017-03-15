@@ -1,4 +1,4 @@
-#end
+# end
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -12,23 +12,23 @@ const_iterator end() const;          // (2) C++03
 const_iterator end() const noexcept; // (2) C++11
 ```
 
-##概要
+## 概要
 末尾の次を指すイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 末尾の次を指すイテレータ
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 `basic_string`クラスのイテレータ範囲は、ヌル文字(`'\0'`)終端ではない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -50,7 +50,7 @@ int main()
 * s.insert[link insert.md]
 * s.begin()[link begin.md]
 
-###出力
+### 出力
 ```
 h
 e
@@ -59,4 +59,4 @@ l
 o
 ```
 
-##参照
+## 参照

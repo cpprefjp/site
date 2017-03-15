@@ -1,4 +1,4 @@
-#make_tuple
+# make_tuple
 * tuple[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -14,15 +14,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 渡された可変個パラメータのコピーから`tuple`型のオブジェクトを構築する。
 
 
-##戻り値
+## 戻り値
 パラメータパックの値からなる`tuple`オブジェクト。
 
 
-##例
+## 例
 ```cpp
 #include <tuple>
 #include <string>
@@ -49,15 +49,15 @@ int main()
 ```
 * make_tuple[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -65,6 +65,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) 9.0, 10.0
 
 
-##参照
+## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 

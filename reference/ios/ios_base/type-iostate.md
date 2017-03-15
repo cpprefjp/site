@@ -1,4 +1,4 @@
-#iostate
+# iostate
 * ios[meta header]
 * type-alias[meta id-type]
 * std[meta namespace]
@@ -11,7 +11,7 @@ using iostate = T2;
 
 *`T2`* は処理系定義の型。
 
-##概要
+## 概要
 `iostate` はストリームの状態に関するフラグを保持するためのビットマスク型である。  
 `iostate` には以下の表のようなビットマスク値が存在し、全て [`ios_base`](../ios_base.md) の静的メンバ定数として定義されている。
 
@@ -25,12 +25,12 @@ using iostate = T2;
 また、上記に加えて、上記のいずれも発生していない事を示す、値ゼロの `goodbit` も [`ios_base`](../ios_base.md) の静的メンバ定数として定義されている。
 
 
-##備考
+## 備考
 通常はこれらのフラグを直接使用することはあまり無く、サブクラスの [`basic_ios`](../basic_ios.md) に存在する対応する状態チェック用関数を使用することが一般的である。  
 ただし、[`fail`](../basic_ios/fail.md)`()` はその名前に反して（？）`failbit` と `badbit` のいずれかがセットされていれば `true` を返す事に注意が必要。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -71,7 +71,7 @@ int main()
 * clear()[link ../basic_ios/clear.md]
 * putback[link ../../istream/basic_istream/putback.md]
 
-###出力
+### 出力
 ```
 badbit  = false
 eofbit  = false
@@ -88,18 +88,18 @@ failbit = false
 ```
 
 
-##バージョン
-##言語
+## バージョン
+## 言語
 - C++98
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5.0, 3.6.0, 3.7.0, 3.8.0
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 4.9.2, 5.1.0, 5.2.0, 6.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [`basic_ios`](../basic_ios.md)`::`[`operator bool`](../basic_ios/op_bool.md)`()`
 - [`basic_ios`](../basic_ios.md)`::`[`operator!`](../basic_ios/op_not.md)`()`
 - [`basic_ios`](../basic_ios.md)`::`[`rdstate`](../basic_ios/rdstate.md)`()`

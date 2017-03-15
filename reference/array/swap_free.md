@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * array[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,23 +12,23 @@ namespace std {
 ```
 * swap[link /reference/array/swap.md]
 
-##概要
+## 概要
 2つのarrayオブジェクトを入れ替える。
 
 
-##効果
+## 効果
 `x.`[`swap`](swap.md)`(y);`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 `x.`[`swap`](swap.md)`(y)`が例外を投げない場合、この関数は決して例外を投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <array>
@@ -57,18 +57,18 @@ int main ()
 * std::swap[color ff0000]
 
 
-###出力
+### 出力
 ```
 x : {1 2 3 }
 y : {4 5 6 }
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -76,5 +76,5 @@ y : {4 5 6 }
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 

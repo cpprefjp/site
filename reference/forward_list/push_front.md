@@ -1,4 +1,4 @@
-#push_front
+# push_front
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -10,19 +10,19 @@ void push_front(const T& x);
 void push_front(T&& x);
 ```
 
-##概要
+## 概要
 新たな要素を先頭に追加する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -49,17 +49,17 @@ int main()
 * ls.begin()[link begin.md]
 * ls.end()[link end.md]
 
-###出力
+### 出力
 ```
 hello
 world
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -67,6 +67,6 @@ world
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

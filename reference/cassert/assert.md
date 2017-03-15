@@ -1,16 +1,16 @@
-#assert
+# assert
 * cassert[meta header]
 * macro[meta id-type]
 
 ```cpp
-#if !defined(NDEBUG)
+# if !defined(NDEBUG)
   #define assert(expr) implementation-defined
-#else
+# else
   #define assert(ignore) ((void)0)
-#endif
+# endif
 ```
 
-##概要
+## 概要
 式が真であることを表明する。
 
 このマクロは、開発時に除去できるバグを見つけるために使用できる。「関数の引数がある範囲内の値でなければならない」「ある状態でこの関数を呼び出してはならない」といったことを表明することで、その関数を呼び出すユーザーに対する要件として設定できる。
@@ -18,18 +18,18 @@
 このマクロは、直前の`<cassert>`（または`<assert.h>`）のインクルード時点でマクロ`NDEBUG`が定義されていなかった場合に有効となり、`NDEBUG`が定義されていた場合は無効となる。
 
 
-##要件
+## 要件
 パラメータの式の型はスカラ型でなければならない。
 
 
-##効果
+## 効果
 - 有効な場合:
     - パラメータの式を評価し、偽であった場合（`0`と等しい場合）、式をテキスト化したものに加え`__FILE__`, `__LINE__`, `__func__`の値を標準エラー出力に処理系定義の書式で書き込み、[`abort()`](/reference/cstdlib/abort.md)関数を呼び出してプログラムを異常終了させる。
 - 無効な場合:
     - パラメータの式は評価はされず、何もしない。
 
 
-##備考
+## 備考
 有効・無効に関わらず`void`型の式となる（文などにはならない）ので、カンマ演算子と組み合わせるなどして、式が書けるところならどこにでも記述することができる。
 
 マクロ`NDEBUG`は、標準C++の言語およびライブラリでは定義しない。開発環境やユーザーが定義することとなる。`NDEBUG`を定義せず`assert`を有効にした設定を「デバッグビルド」、`NDEBUG`を定義して`assert`を無効にした設定を「リリースビルド」などととして複数のビルド設定を持つ開発環境がある。
@@ -39,7 +39,7 @@
 実行環境や入力によって起こりえるエラーに対するエラー処理としてこのマクロを使用すると無効化された場合に意図しない動作となることがあるので、別な手段として、例外、`bool`型の返却値などを検討すること。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 
@@ -59,13 +59,13 @@ int main()
 ```
 
 
-###出力例
+### 出力例
 ```
 prog.exe: prog.cc:6: void f(int): Assertion `x >= 0' failed.
 ```
 
 
-##参照
+## 参照
 - C++14 - 19.3 [assertions]
   ただしC++としての規定はほとんど無く、ほぼ参照規格であるISO C 7.2の規定によるものとなっている。
 - [What does it mean for C++ that assert takes a scalar argument?](https://groups.google.com/a/isocpp.org/d/topic/std-discussion/6EHDRo1A2EE/discussion)

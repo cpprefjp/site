@@ -1,7 +1,7 @@
-#任意の式によるSFINAE
+# 任意の式によるSFINAE
 * cpp11[meta cpp]
 
-##概要
+## 概要
 「SFINAE (Substitution Failure Is Not An Errorの略称、スフィネェと読む)」は、テンプレートの置き換えに失敗した際に、即時にコンパイルエラーとはせず、置き換えに失敗した関数をオーバーロード解決の候補から除外するという言語機能である。
 
 たとえば、関数のシグニチャの一部として「`typename T::value_type`」が書いてあり、型`T`が`value_type`という型を持っていない場合、その関数がオーバーロード解決から除外される。これによって型が任意の機能を持っているかを、コンパイル時に判定できた。
@@ -46,7 +46,7 @@ int main()
 このプログラムにおいて、戻り値型の文脈での`a + b`という式に対してSFINAEが働く。これと同じように、`a.f(arg1, arg2)`のように記述することで、「型`T1`のオブジェクト`a`に対して、引数`arg1`と`arg2`を渡して`f()`関数の呼び出しができるか」を判定できる。
 
 
-##仕様
+## 仕様
 - テンプレート引数の推論プロセスでのあるポイントでは、テンプレートパラメータを利用する関数型をとり、それらのテンプレートパラメーターを対応するテンプレート引数に置き換えることが必要となる。これは、明示的に指定されたあらゆるテンプレート引数が関数型に置換される場合はテンプレート引数推論のはじめに行い、また、テンプレート引数推論の最後に再度、デフォルト引数から推論もしくは得られたあらゆるテンプレート引数が置き換えられる。
 - 置き換えは、関数型、テンプレートパラメータ宣言および(もしあれば)テンプレート要件の中で使用される、全ての型と式に起こる。式は、非定数式を許可する`sizeof`、`decltype`および他のコンテキストの内部の配列の範囲、あるいは非型テンプレート引数として現われるもののような定数式だけでなく、一般的な式(つまり非定数式)も含んでいる。【注釈：関数がインスタンス化される場合に限り、例外仕様中の等価な置き換えを行い、置き換えが無効の型もしくは式に帰着する場合、プログラムは不適格となる。】
 - 置き換えが無効の型もしくは式に帰着する場合、あるいは置き換えられたテンプレート要件を満たせない場合、型推論は失敗する。無効の型もしくは式は、もし置き換えられた引数を使用して書かれた場合、不適格となる。アクセスチェックは置換プロセスの一部としては行わない。したがって、推論が成功する場合、関数がインスタンス化される場合、アクセスエラーは今までどおり生じる可能性がある。関数型とそのテンプレートパラメータの型の直接のコンテキスト中の無効の型と式だけが、推論失敗に帰着できる。【注釈:置き換えられた型と式の評価は、クラステンプレート特殊化および(または)関数テンプレート特殊化のインスタンス化、暗黙に定義された関数等の生成のような副作用に帰着する場合がある。そのような副作用は「直接のコンテキスト」ではなく不適格なプログラムに帰着できる】
@@ -140,8 +140,8 @@ int i2 = f<int,1>(0); // 1からint*に変換できない
 - パラメータが`void`の型を持っているか、その中で戻り値型が関数型、もしくは配列型である関数型の作成を試みること
 
 
-##例
-###is_addableのメタ関数版
+## 例
+### is_addableのメタ関数版
 ```cpp
 #include <utility>
 #include <type_traits>
@@ -182,12 +182,12 @@ int main()
 * static_assert[link static_assert.md]
 * decltype[link decltype.md]
 
-####出力
+#### 出力
 ```
 ```
 
 
-###型が完全型かを判定するメタ関数is_complete_type
+### 型が完全型かを判定するメタ関数is_complete_type
 ```cpp
 #include <type_traits>
 
@@ -222,12 +222,12 @@ int main()
 * static_assert[link static_assert.md]
 * decltype[link decltype.md]
 
-####出力
+#### 出力
 ```
 ```
 
 
-###関数が特定の引数で呼び出し可能かを判定するメタ関数is_callable
+### 関数が特定の引数で呼び出し可能かを判定するメタ関数is_callable
 ```cpp
 #include <type_traits>
 #include <utility>
@@ -272,18 +272,18 @@ int main()
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
-####出力
+#### 出力
 ```
 ```
 
 
-##関連項目
+## 関連項目
 - [`<type_traits>`](/reference/type_traits.md)
 - [`declval`](/reference/utility/declval.md)
 - [`enable_if`](/reference/type_traits/enable_if.md)
 
 
-##参照
+## 参照
 - [CWG Issue 339. Overload resolution in operand of `sizeof` in constant expression](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#339)
 - [N2634 Solving the SFINAE problem for expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2634.html)
 

@@ -1,4 +1,4 @@
-#wait_until
+# wait_until
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable[meta class]
@@ -20,7 +20,7 @@ bool wait_until(unique_lock<mutex>& lock,
 * mutex[link /reference/mutex/mutex.md]
 * time_point[link /reference/chrono/time_point.md]
 
-##概要
+## 概要
 絶対時間でタイムアウトを指定して、起床されるまで待機する。
 
 この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
@@ -31,13 +31,13 @@ bool wait_until(unique_lock<mutex>& lock,
 
 
 
-##要件
+## 要件
 - `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`であること
 - `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
 - `*this`の`condition_variable`オブジェクトが他スレッドで待機していないか、もしくは並行に待機している全てのスレッドで`lock`パラメータが同じミューテックスオブジェクトを参照していること
 
 
-##効果
+## 効果
 - (1) :
     1. アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)する
     2. [`notify_one()`](notify_one.md)/[`notify_all()`](notify_all.md)による通知、`abs_time`によって指定された時間に到達したことによる期限切れ、もしくはなんらかの理由によって失敗するまでブロッキングする
@@ -58,26 +58,26 @@ return true;
 * cv_status::timeout[link /reference/condition_variable/cv_status.md]
 
 
-##戻り値
+## 戻り値
 - (1) : `abs_time`で指定された絶対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。 
 - (2) : `pred()`の結果が返る
 
 
-##事後条件
+## 事後条件
 - `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`であること
 - `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
 
 
-##例外
+## 例外
 - C++11 : この関数は、`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)および`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)によって送出されうる、あらゆる例外が送出される可能性がある。
 - C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
 
 
-##備考
+## 備考
 - C++14 : 事後条件を満たさない場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出して、プログラムを異常終了させる。これは、ミューテックスの再ロック取得が例外を送出した場合に発生する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -173,17 +173,17 @@ int main()
 * std::cv_status[link /reference/condition_variable/cv_status.md]
 * std::cv_status::timeout[link /reference/condition_variable/cv_status.md]
 
-###出力例
+### 出力例
 ```
 process data
 process data
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -191,7 +191,7 @@ process data
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
 

@@ -1,7 +1,7 @@
-#constexpr
+# constexpr
 * cpp11[meta cpp]
 
-##概要
+## 概要
 `constexpr`は、汎用的に定数式を表現するための機能である。
 
 `constexpr`は、「constant expression (定数式)」の略語である。
@@ -83,9 +83,9 @@ int main()
 ```
 
 
-##仕様
+## 仕様
 
-###constexpr関数
+### constexpr関数
 - `constexpr`関数の戻り値の型、およびパラメータの型は、[リテラル型](/reference/type_traits/is_literal_type.md)でなければならない
 - `constexpr`関数の戻り値の型、およびパラメータの型は、非`const`参照にはできない
 - `constexpr`関数の本体は、以下の要素だけを含むことができる：
@@ -108,7 +108,7 @@ constexpr int f(bool b)
 ```
 
 
-###constexpr変数として使用するユーザー定義クラス
+### constexpr変数として使用するユーザー定義クラス
 - コンストラクタを明示的に定義する場合には、コンストラクタを`constexpr`修飾する
 - 暗黙的に定義されるコンストラクタは、自動的に`constexpr`修飾される
 - `constexpr`コンストラクタのパラメータの型は、[リテラル型](/reference/type_traits/is_literal_type.md)でなければならない。
@@ -118,17 +118,17 @@ constexpr int f(bool b)
 - 基本クラス、および非静的メンバ変数は、メンバ初期化子を使用して初期化しなければならない
 
 
-###constexprメンバ関数
+### constexprメンバ関数
 - `constexpr`メンバ関数は自動的に`const`修飾され、明示的な`const`修飾はできない
 - 仮想関数は、`constexpr`関数として定義できない
 
 
-##備考
-###浮動小数点数演算での注意
+## 備考
+### 浮動小数点数演算での注意
 `constexpr`関数での浮動小数点数は、コンパイル時に実行するとコンパイル環境で計算が行われ、実行時に実行すると実行環境で計算が行われる。これによって、コンパイル時と実行時で、結果が異なる可能性がある。
 
 
-###コンパイル時と実行時で、統一したエラー報告
+### コンパイル時と実行時で、統一したエラー報告
 `constexpr`関数では、コンパイル時にはエラー報告に`static_assert`、実行時には`throw`文や`assert()`関数マクロなどを使用する必要があり、標準機能の範囲内では、コンパイル時と実行時で、エラー報告を統一的に行うことが難しい。
 
 そういった問題を解決するために、ユーザーコミュニティで、エラー報告を統一的に行う仕組みが作られている。ここでは、その問題に取り組んでいる場所へのリンクを記載する。
@@ -136,7 +136,7 @@ constexpr int f(bool b)
 - [コンパイル時/実行時両用アサート - ボレロ村上 - ENiyGmaA Code](http://boleros.hateblo.jp/entry/20130319/1363719366)
 
 
-###グローバル変数の初期化順
+### グローバル変数の初期化順
 並行プログラミングについて考えよう。スレッド間の排他処理を行うミューテックスをグローバル変数に保持したとき、ミューテックスの初期化が、スレッドの開始よりも必ず先に行われてほしい。
 
 ```cpp
@@ -153,7 +153,7 @@ std::thread t2{job2};
 - [`mutex`のconstexprコンストラクタ](http://d.hatena.ne.jp/yohhoy/20120621/p1)
 
 
-###文字列処理
+### 文字列処理
 `constexpr`では、`new`演算子や`malloc()`関数が使用できないために、可変長の配列や文字列を扱うことが難しい。
 
 C++11段階の標準ライブラリでも、そのような機能は標準では提供されていない。
@@ -165,7 +165,7 @@ C++11段階の標準ライブラリでも、そのような機能は標準では
 `constexpr`で文字列が扱えることにより、`printf()`のフォーマット文字列や、正規表現の間違いをコンパイル時に検出することができるようになる。
 
 
-###コンパイル時再帰回数
+### コンパイル時再帰回数
 
 コンパイラによっては、コンパイルオプションでコンパイル時における`constexpr`関数の再帰回数の上限を設定できる。
 
@@ -186,7 +186,7 @@ cl.exe /constexpr:depth1024 main.cpp
 GCC 5.2、Clang 3.7、MSVC 14.0時点で、3つともデフォルトは512回。
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 `constexpr`の主な目的は、数値型のプロパティを取得するクラス[`std::numeric_limits`](/reference/limits/numeric_limits.md)の、プロパティ取得の関数を定数式にすることである。
 
 たとえば、[`std::numeric_limits`](/reference/limits/numeric_limits.md)の[`max()`](/reference/limits/numeric_limits/max.md)静的メンバ関数は、`int`型に対しては[`INT_MAX`](/reference/climits/int_max.md)マクロの値を返すだけであるが、それが関数であるために、[`INT_MAX`](/reference/climits/int_max.md)マクロと違って定数として扱えない、という問題があった。抽象化された機能を使うより、抽象化されていない機能の方がよい、というのは、改善すべき事態だった。そのため、関数を静的に評価する仕組みが必要とされた。
@@ -194,12 +194,12 @@ GCC 5.2、Clang 3.7、MSVC 14.0時点で、3つともデフォルトは512回。
 また、`constexpr`は、値を計算するテンプレートメタプログラムを置き換えて使用できる。テンプレートメタプログラミングでは、非型テンプレートパラメータによって整数型の値をコンパイル時に計算することはできた。しかし、浮動小数点数型の値や、その他多くの値に関する計算が難しく、構文もまた通常の関数とはかけ離れていた(浮動小数点数型の値の計算は、分数形式にすれば、できることはできる)。値をコンパイル時に計算するためには、今後はテンプレートメタプログラミングよりも`constexpr`を積極的に使用していくとよいだろう。
 
 
-##関連項目
+## 関連項目
 - [C++11 ユーザー定義リテラル](user_defined_literals.md)
 - [C++14 `constexpr`の制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md)
 
 
-##参照
+## 参照
 - [N1521 Generalized Constant Expressions](http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2003/n1521.pdf)
 - [N1972 Generalized Constant Expressions — Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1972.pdf)
 - [N1980 Generalized Constant Expressions — Revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1980.pdf)

@@ -1,4 +1,4 @@
-#min
+# min
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -32,22 +32,22 @@ namespace std {
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 同じ型の2つの値、もしくは[`initializer_list`](/reference/initializer_list.md)によるN個の値のうち、最小値を取得する。
 
 最後の引数`comp`は、2項の述語関数オブジェクトであり、これを使用して比較演算をカスタマイズすることができる。
 
 
-##要件
+## 要件
 - 型`T`が`operator<`による比較が可能であること。
 - [`initializer_list`](/reference/initializer_list.md)バージョンはそれに加えて、要素数が1以上であり、`T`がコピーコンストラクト可能であること。
 
 
-##戻り値
+## 戻り値
 最小値
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <algorithm>
@@ -71,12 +71,12 @@ int main()
 * std::min[color ff0000]
 * std::greater[link /reference/functional/greater.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class T>
 const T& min(const T& a, const T& b)
@@ -105,14 +105,14 @@ T min(std::initializer_list<T> t, Compare comp)
 * std::min_element[link min_element.md]
 
 
-##initializer_listバージョンの使用可能状況
+## initializer_listバージョンの使用可能状況
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0(initializer_listバージョンが使用可能)
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
 
-###備考
+### 備考
 Windows環境においては、`<windows.h>`をインクルードすると`min`という名前の関数マクロが定義され、`std::min()`と衝突してしまうという問題がある。
 
 この解決策として以下の2つの方法がある：
@@ -121,7 +121,7 @@ Windows環境においては、`<windows.h>`をインクルードすると`min`�
 - `std::min()`を呼び出す際に、`(std::min)(a, b);`のように関数名をカッコで囲んで使用する。これで、名前解決において`std::min()`関数が必ず使用される。
 
 
-##参照
+## 参照
 - [N2551 A Variadic `std::min(T, ...)` for the C++ Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2551.pdf)
 - [N2772 Variadic functions: Variadic templates or initializer lists? -- Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2772.pdf)
 - [LWG2350 - min, max, and minmax should be constexpr](http://cplusplus.github.io/LWG/lwg-defects.html#2350)

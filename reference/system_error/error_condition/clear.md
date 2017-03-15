@@ -1,4 +1,4 @@
-#clear
+# clear
 * system_error[meta header]
 * std[meta namespace]
 * error_condition[meta class]
@@ -9,23 +9,23 @@
 void clear() noexcept;
 ```
 
-##概要
+## 概要
 エラー情報をクリアする
 
 
-##効果
+## 効果
 エラー値を`0`、エラーカテゴリを[`generic_category()`](../generic_category.md)に初期化する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -55,18 +55,18 @@ int main()
 * ec.category()[link category.md]
 * name()[link /reference/system_error/error_category/name.md]
 
-###出力
+### 出力
 ```
 success
 0
 generic
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
@@ -75,4 +75,4 @@ generic
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照

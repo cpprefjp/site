@@ -1,4 +1,4 @@
-#feclearexcept
+# feclearexcept
 * cfenv[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,17 +10,17 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 パラメータ`excepts`で指定された浮動小数点例外をクリアする。
 
 
-##戻り値
+## 戻り値
 - `excepts`が`0`であった場合、この関数は`0`を返す
 - 指定された全ての浮動小数点例外を正しくクリアできた場合、この関数は`0`を返す
 - それ以外の場合、この関数は`0`以外を返す
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <cfenv>
@@ -48,16 +48,16 @@ int main()
 * FE_INVALID[link fe_invalid.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??

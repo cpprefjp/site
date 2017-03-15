@@ -1,4 +1,4 @@
-#fexcept_t
+# fexcept_t
 * cfenv[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -10,11 +10,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 実装が持つ浮動小数点例外の状態フラグを表す型。
 
 
-##例
+## 例
 ```cpp
 // 標準C++の浮動小数点例外を、
 // Visual C++での浮動小数点例外の形式に変換する
@@ -40,17 +40,17 @@ int main()
 * std::fegetexceptflag[link fegetexceptflag.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
 
-###出力例
+### 出力例
 ```
 zero divided
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??

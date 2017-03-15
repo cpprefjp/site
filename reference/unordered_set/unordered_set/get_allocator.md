@@ -1,4 +1,4 @@
-#get_allocator
+# get_allocator
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
@@ -9,23 +9,23 @@
 allocator_type get_allocator() const noexcept;
 ```
 
-##概要
+## 概要
 このコンテナで使用されているアロケータオブジェクトを取得する。
 
 
-##戻り値
+## 戻り値
 このコンテナで使用されているアロケータオブジェクト
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -89,18 +89,18 @@ int main()
 * swap[link swap_free.md]
 * get_allocator[color ff0000]
 
-###出力
+### 出力
 ```
 1,2
 2,1
 2,1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1
 - [GCC](/implementation.md#gcc): -
@@ -110,11 +110,11 @@ int main()
 	- 10.0は、`noexcept`が修飾されていない。
 	- 11.0, 12.0は、`noexcept`が実装されていないため、`throw()`が修飾されている。
 
-###備考
+### 備考
 libstdc++ の `unordered_set` では、アロケータの `select_on_container_copy_construction`、`propagate_on_container_copy_assignment`、`propagate_on_container_move_assignment`、および、`propagate_on_container_swap` を正しく扱っていないため、`get_allocator` で返されるアロケータオブジェクトは予期せぬものになる可能性がある。
 
 
-##参照
+## 参照
 
 |                                                             |                            |
 |-------------------------------------------------------------|----------------------------|

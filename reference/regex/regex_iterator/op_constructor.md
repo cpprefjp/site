@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * regex[meta header]
 * std[meta namespace]
 * regex_iterator[meta class]
@@ -20,11 +20,11 @@ regex_iterator(const regex_iterator&);                                          
 ```
 * regex_constants::match_default[link /reference/regex/regex_constants/match_flag_type.md]
 
-##概要
+## 概要
 `regex_iterator` オブジェクトを構築する
 
 
-##効果
+## 効果
 - (1) デフォルトコンストラクタ。シーケンスの終端を示す特別なイテレータを構築する。
 - (2) メンバ変数 `begin`、`end`、`pregex`、`flags` をそれぞれ `a`、`b`、`&re`、`m` で初期化して、[`regex_search`](../regex_search.md)`(begin, end, match, *pregex, flags)` を呼び出す。
     検索に成功しなかった場合（`false` が返された場合）、デフォルトコンストラクタで構築した場合と同様、直ちにシーケンスの終端を示す特別なイテレータとなる。
@@ -32,7 +32,7 @@ regex_iterator(const regex_iterator&);                                          
 - (4) コピーコンストラクタ。
 
 
-##備考
+## 備考
 - メンバ変数 `begin`、`end`、`pregex`、`flags`、`match` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
 - `regex_iterator` は指定された正規表現 `re` のコピーではなく、`re` へのポインタをオブジェクト内に保持するため、引数に渡した正規表現オブジェクトは当該イテレータを使用し終わるまで破棄されないようにする必要がある。  
     従って、(2) の形式のコンストラクタに渡す引数 `re` に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。  
@@ -45,7 +45,7 @@ regex_iterator(const regex_iterator&);                                          
     ```
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -67,17 +67,17 @@ int main()
 * std::sregex_iterator[color ff0000]
 * std::regex[link /reference/regex/basic_regex.md]
 
-###出力
+### 出力
 ```
 match:11
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11（一部 C++14）
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -85,7 +85,7 @@ match:11
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 - libstdc++ には 5.0.0 rev.218373 現在、(3) の形式のコンストラクタは存在しない。
 - libc++ には、3.4 までは (3) の形式のコンストラクタは存在しない。
 - libstdc++ では 5.0.0 rev.218373 現在、コピーコンストラクタで構築したオブジェクトの `match.`[`position`](../match_results/position.md)`(i)` が補正されずに誤っている。（補正については [`operator++`](op_increment.md) の「効果」を参照）

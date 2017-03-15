@@ -1,11 +1,11 @@
-#random
+# random
 * random[meta header]
 * cpp11[meta cpp]
 
 `<random>`ヘッダは、擬似乱数を取り扱うための乱数生成器 (Random Number Generator) や分布生成器 (Distribution) 、非決定的な乱数生成器、および関連する一連のクラス・関数を定義する乱数ライブラリである。
 
 
-##擬似乱数生成器
+## 擬似乱数生成器
 
 擬似乱数生成器は、ソフトウェアで乱雑な値のシーケンスを生成するクラスである。
 
@@ -18,7 +18,7 @@
 | [`subtract_with_carry_engine`](random/subtract_with_carry_engine.md) | キャリー付き減算法(class template)     | C++11 |
 
 
-##生成器アダプタ
+## 生成器アダプタ
 
 生成器アダプタは、他の乱数生成器の乱数列を調整するクラスである。
 
@@ -31,7 +31,7 @@
 | [`shuffle_order_engine`](random/shuffle_order_engine.md) | 乱数の生成順をシャッフルする(class template) | C++11 |
 
 
-##パラメータ定義済み擬似乱数生成器
+## パラメータ定義済み擬似乱数生成器
 
 先に挙げた擬似乱数生成器に対して一般的なパラメータを定義し、使いやすいように用意された擬似乱数生成器の型。
 
@@ -53,7 +53,7 @@
 | [`default_random_engine`](random/default_random_engine.md) | 非専門用途でデフォルト使用する擬似乱数生成器(type-alias) | C++11 |
 
 
-##非決定的な乱数生成器
+## 非決定的な乱数生成器
 
 擬似乱数には「予測できる」「再現性がある」という特徴がある。
 
@@ -64,15 +64,15 @@
 | [`random_device`](random/random_device.md) | 予測不能な乱数生成器(class) | C++11 |
 
 
-##シード数列
+## シード数列
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------|-----------------------------------------|-------|
 | [`seed_seq`](random/seed_seq.md) | 擬似乱数エンジンの為のシード数列(class) | C++11 |
 
 
-##分布生成器
-###一様分布
+## 分布生成器
+### 一様分布
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
@@ -80,7 +80,7 @@
 | [`uniform_real_distribution`](random/uniform_real_distribution.md) | 一様実数分布(class template) | C++11 |
 
 
-###ベルヌーイ分布(Bernoulli Distribution)
+### ベルヌーイ分布(Bernoulli Distribution)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
@@ -90,7 +90,7 @@
 | [`negative_binomial_distribution`](random/negative_binomial_distribution.md) | 負の二項分布(class template) | C++11 |
 
 
-###ポワソン分布(Poisson Distribution)
+### ポワソン分布(Poisson Distribution)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
@@ -101,7 +101,7 @@
 | [`extreme_value_distribution`](random/extreme_value_distribution.md) | 極値分布(class template)     | C++11 |
 
 
-###正規分布(Normal Distribution)
+### 正規分布(Normal Distribution)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
@@ -113,7 +113,7 @@
 | [`student_t_distribution`](random/student_t_distribution.md)     | ステューデントのt分布(class template) | C++11 |
 
 
-###標本分布(Sampling Distribution)
+### 標本分布(Sampling Distribution)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
@@ -122,14 +122,14 @@
 | [`piecewise_linear_distribution`](random/piecewise_linear_distribution.md) | 区間ごとの重み付けを線形に接続した分布生成器(class template) | C++11 |
 
 
-###ユーティリティ
+### ユーティリティ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
 | [`generate_canonical`](random/generate_canonical.md) | 実数区間\[0.0,1.0\)に展開（事実上正規化）された一様分布乱数を得る(function template) | C++11 |
 
 
-##例
+## 例
 以下に示す例では、標準の乱数ライブラリを用いてランダムデバイスでシードを生成してメルセンヌツイスタエンジンを初期化、単精度浮動少数型で区間\[-1.0f, 1.0f\)の一様分布、および`1.0f`を中心として標準偏差`0.5f`の正規分布に基づく擬似乱数を100万個生成し"random.tsv"にタブ区切り形式のファイルとして結果を保存する。
 
 ```cpp
@@ -177,7 +177,7 @@ int main()
 破線は dist1 (一様分布; min=-1.0f, max=1.0f) 、実線は dist2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
 
 
-##標準乱数ライブラリの基本的な使い方
+## 標準乱数ライブラリの基本的な使い方
 - シード生成には、[`random_device`](random/random_device.md)クラスを使用する。
     - 古典的な方法として、シード生成には`std::time(NULL)`の呼び出しによる、現在時間(エポックからの経過秒)が使われていた。この方法では、アプリケーションの起動時間から、シードが推測されてしまう可能性がある。シードが推測されれば、その後の乱数のシーケンスが推測されてしまい、セキュリティホールになる恐れがある。
     - [`random_device`](random/random_device.md)クラスをシード生成に使用することで、シードの予測を困難にできる。
@@ -189,20 +189,20 @@ int main()
     - 専門特化した一様分布のクラスを使用することで、そのような偏りは起こらなくなる。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-##参照
-###分布アルゴリズム
+## 参照
+### 分布アルゴリズム
 * [さまざまな確率分布 (probability distributions)](http://www.biwako.shiga-u.ac.jp/sensei/mnaka/ut/statdist.html)
 * [確率変数－種々の分布の特徴](https://sites.google.com/site/techdmba/distribution)
 
-###乱数ライブラリの使い方
+### 乱数ライブラリの使い方
 * [N3551 Random Number Generation in C++11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)
 * [Pitfalls in Random Number Generation](https://www.codeproject.com/articles/28548/pitfalls-in-random-number-generation)
 
-###乱数ライブラリが導入された経緯
+### 乱数ライブラリが導入された経緯
 * [N0352 Proposal for Standardization of Random Number Generators in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1993/N0352.asc)
 * [N1398 A Proposal to Add an Extensible Random Number Facility to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1398.html)
 * [N1452 A Proposal to Add an Extensible Random Number Facility to the Standard Library (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1452.html)
@@ -219,6 +219,6 @@ int main()
 * [N2424 Recommendations for Resolving the 2007-09-21 Issues re \[rand\]](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2424.pdf)
 
 
-##編集者向けの参照
+## 編集者向けの参照
 * [乱数分布の図を作る方法](/editors_doc/random_figure.md)
 

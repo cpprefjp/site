@@ -1,4 +1,4 @@
-#size
+# size
 * random[meta header]
 * std[meta namespace]
 * seed_seq[meta class]
@@ -10,19 +10,19 @@ size_t size() const;
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 シード列の要素数を取得する。
 
 
-##戻り値
+## 戻り値
 シード列の要素数を返す。
 
 
-##例外
+## 例外
 - C++14 : 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -37,16 +37,16 @@ int main()
 ```
 * size()[color ff0000]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -54,7 +54,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG Issue 2180. Exceptions from `std::seed_seq` operations](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2180)
 
 

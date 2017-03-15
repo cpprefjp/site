@@ -1,4 +1,4 @@
-#message
+# message
 * system_error[meta header]
 * std[meta namespace]
 * error_condition[meta class]
@@ -10,11 +10,11 @@ string message() const;
 ```
 * string[link /reference/string/basic_string.md]
 
-##概要
+## 概要
 エラーメッセージを取得する。
 
 
-##戻り値
+## 戻り値
 ```cpp
 category().message(value())
 ```
@@ -23,7 +23,7 @@ category().message(value())
 * value()[link value.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -41,16 +41,16 @@ int main()
 * std::errc::invalid_argument[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]
 
-###出力
+### 出力
 ```
 Invalid argument
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -58,4 +58,4 @@ Invalid argument
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照

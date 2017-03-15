@@ -1,4 +1,4 @@
-#ratio_greater
+# ratio_greater
 * ratio[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `ratio_greater`は、2つの[`ratio`](ratio.md)において、左辺が右辺より大きいかを判定するクラステンプレートである。
 
 
-##効果
+## 効果
 `ratio_greater`は、[`ratio_less`](ratio_less.md)`<R2, R1>::value == true`であれば[`true_type`](/reference/type_traits/true_type.md)から派生し、そうでなければ[`false_type`](/reference/type_traits/false_type.md)から派生する。
 
 
-##例
+## 例
 ```cpp
 #include <ratio>
 
@@ -34,15 +34,15 @@ int main()
 * std::ratio_greater[color ff0000]
 * std::ratio[link ratio.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [Visual C++](/implementation.md#visual_cpp): ??

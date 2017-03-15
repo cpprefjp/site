@@ -1,4 +1,4 @@
-#type_info
+# type_info
 * typeinfo[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -9,7 +9,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `type_info`クラスは、`typeid`演算子によって返される、型の情報が格納された型である。
 
 ユーザーは、この型を使用して、型名の検索や比較を行うことができる。`typeid`演算子に型を渡すと、その型の`type_info`オブジェクトが返され、`typeid`演算子にオブジェクトを渡すと、そのオブジェクトの型の`type_info`オブジェクトが返される。
@@ -19,7 +19,7 @@ namespace std {
 `typeid`演算子に、間接参照されたヌルポインタが渡された場合、[`bad_typeid`](/reference/typeinfo/bad_typeid.md)例外が投げられる。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|-----------------------------|-------|
@@ -33,7 +33,7 @@ namespace std {
 | [`operator!=`](type_info/op_not_equal.md) | 2つの型が異なるかを判定する | |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <typeinfo>
@@ -73,7 +73,7 @@ int main() {
 }
 ```
 
-###出力例
+### 出力例
 ```
 int is: int
   i is: int
@@ -89,5 +89,5 @@ polyderived is: struct PolyDerived
 same type? true
 ```
 
-##参照
+## 参照
 

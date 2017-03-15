@@ -1,7 +1,7 @@
-#宣言時のメンバ初期化を持つ型の集成体初期化を許可
+# 宣言時のメンバ初期化を持つ型の集成体初期化を許可
 * cpp14[meta cpp]
 
-##概要
+## 概要
 C++11では、集成体初期化とリスト初期化の両方を含む場合、二重に波カッコを書くことが必須となっていた。そのため、`public`メンバ変数として組み込み配列を持つ[`std::array`](/reference/array.md)クラスのオブジェクトを初期化する場合、以下のように、不要とも思える二重の波カッコを書かなければならなかった：
 
 ```cpp
@@ -32,7 +32,7 @@ int x[2][2] = {1, 2, 3, 4};
 ```
 
 
-##参照
+## 参照
 - [CWG Issue 1270. Brace elision in array temporary initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1270)
 - [vector/arrayとUniform initialization+Initializer list - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120724/p1)
 - [initializer-listによるaggregate初期化の制約緩和 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20131116/p1)

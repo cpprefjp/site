@@ -1,4 +1,4 @@
-#top
+# top
 * stack[meta header]
 * std[meta namespace]
 * stack[meta class]
@@ -9,23 +9,23 @@ reference top();
 const_reference top() const;
 ```
 
-##概要
+## 概要
 `stack` の次の要素への参照を返す。
 
 これは一番最後に `stack` に挿入された要素で、`pop()` メンバ関数で削除される要素である。内部のコンテナの `back()` メンバ関数を呼ぶ。
 
 
-##効果
+## 効果
 ```cpp
 return c.back();
 ```
 
 
-##戻り値
+## 戻り値
 `stack` の最後の要素への参照。
 
 
-##例
+## 例
 
 ```cpp
 #include <iostream>
@@ -47,18 +47,18 @@ int main()
 * top()[color ff0000]
 * st.push[link push.md]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##実装例
+## 実装例
 ```cpp
 reference top() { return c.back(); }
 const_reference top() const { return c.back(); }
 ```
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |---------------------|------------|

@@ -1,4 +1,4 @@
-#operator bool
+# operator bool
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_lock[meta class]
@@ -9,18 +9,18 @@
 explicit operator bool() const noexcept;
 ```
 
-##概要
+## 概要
 共有ロックを取得しているかを確認する
 
 
-##戻り値
+## 戻り値
 共有ロックを取得済みであれば`true`、そうでなければ`false`を返す。
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cassert>
@@ -74,18 +74,18 @@ int main()
 * lock.lock()[link /reference/shared_mutex/shared_timed_mutex/lock.md]
 * lock.unlock()[link /reference/shared_mutex/shared_timed_mutex/unlock.md]
 
-###出力
+### 出力
 ```cpp
 locked
 unlocked
 locked
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

@@ -1,4 +1,4 @@
-#tie
+# tie
 * tuple[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -15,7 +15,7 @@ namespace std {
 ```
 * tuple[link /reference/tuple/tuple.md]
 
-##概要
+## 概要
 パラメータの参照からなる[`tuple`](../tuple.md)を生成する。 
 
 本関数は、[`tuple`](../tuple.md)のオブジェクトから要素をまとめて取り出すために使用することができる。
@@ -23,15 +23,15 @@ namespace std {
 その際、引数として[`ignore`](ignore.md)を使用することで、一部の要素を取り出さず、無視することができる。
 
 
-##戻り値
+## 戻り値
 パラメータの参照からなる`tuple`オブジェクト。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <tuple>
@@ -77,7 +77,7 @@ int main()
 ```
 * tie[color ff0000]
 
-###出力
+### 出力
 ```
 1
 a
@@ -87,11 +87,11 @@ Hello
 Hello
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -99,10 +99,10 @@ Hello
 - [Visual C++](/implementation.md#visual_cpp) 9.0, 10.0
 
 
-##関連項目
+## 関連項目
 - [`std::ignore`](ignore.md)
 
 
-##参照
+## 参照
 - [LWG2301 Why is std::tie not constexpr?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2301)
 

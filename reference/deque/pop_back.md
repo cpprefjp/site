@@ -1,4 +1,4 @@
-#pop_back
+# pop_back
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
@@ -8,23 +8,23 @@
 void pop_back();
 ```
 
-##概要
+## 概要
 末尾要素を削除する。
 
 
-##要件
+## 要件
 [`empty()`](pop_back.md) `== false`であること。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -42,13 +42,13 @@ int main()
 ```
 * pop_back()[color ff0000]
 
-###出力
+### 出力
 ```
 1
 2
 ```
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |-------------------------------|--------------------|

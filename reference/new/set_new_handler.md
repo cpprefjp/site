@@ -1,4 +1,4 @@
-#set_new_handler
+# set_new_handler
 * new[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,23 +10,23 @@ namespace std {
 ```
 * new_handler[link new_handler.md]
 
-##概要
+## 概要
 `new`失敗時に呼ばれる関数を設定する。
 
 `new`失敗時にはデフォルトで[`bad_alloc`](bad_alloc.md)例外が投げられるが、この関数を使用することで`new`失敗時の挙動を切り替えられる。
 
 
-##効果
+## 効果
 `new_p`関数を、`new`失敗時に呼ばれる関数として設定する。
 
 パラメータとしてヌルポインタが渡された場合、初期のハンドラが設定される。
 
 
-##戻り値
+## 戻り値
 この関数が呼ばれる前に設定されていた関数を返す
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <new>
@@ -52,7 +52,7 @@ int main()
 * max()[link /reference/limits/numeric_limits/max.md]
 * std::abort()[link /reference/cstdlib/abort.md]
 
-###出力例
+### 出力例
 ```
 メモリ確保に失敗した
 

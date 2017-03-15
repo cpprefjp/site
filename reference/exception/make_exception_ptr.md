@@ -1,4 +1,4 @@
-#make_exception_ptr
+# make_exception_ptr
 * exception[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -12,11 +12,11 @@ namespace std {
 ```
 * exception_ptr[link exception_ptr.md]
 
-##概要
+## 概要
 引数の例外オブジェクトを元に`exception_ptr`オブジェクトを生成する。
 
 
-##効果
+## 効果
 ```cpp
 try {
   throw e;
@@ -27,15 +27,15 @@ try {
 * current_exception[link current_exception.md]
 
 
-##戻り値
+## 戻り値
 例外オブジェクト`e`を指す[`exception_ptr`](exception_ptr.md)オブジェクトを返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <exception>
@@ -57,16 +57,16 @@ int main()
 * std::runtime_error[link /reference/stdexcept.md]
 * std::rethrow_exception[link rethrow_exception.md]
 
-###出力
+### 出力
 ```
 error!!!
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -74,7 +74,7 @@ error!!!
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##実装例
+## 実装例
 ```cpp
 template <class E>
 exception_ptr make_exception_ptr(E e) noexcept
@@ -88,6 +88,6 @@ exception_ptr make_exception_ptr(E e) noexcept
 }
 ```
 
-##参照
+## 参照
 
 

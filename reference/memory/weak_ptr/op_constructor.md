@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
@@ -23,7 +23,7 @@ weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++14
 * shared_ptr[link /reference/memory/shared_ptr.md]
 
 
-##weak_ptrオブジェクトの構築
+## weak_ptrオブジェクトの構築
 - (1) : デフォルトコンストラクタ。監視対象を持たない、空の`weak_ptr`オブジェクトを構築する。
 - (2) : コピーコンストラクタ。監視対象をコピーする。
 - (3) : 変換可能な`weak_ptr`の監視対象をコピーする。
@@ -31,24 +31,24 @@ weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++14
 - (5) : ムーブコンストラクタ。監視対象を`r`から`*this`に移動する。
 - (6) : 変換可能な`weak_ptr`からのムーブコンストラクタ。監視対象を`r`から`*this`に移動する。
 
-##要件
+## 要件
 - (3), (4), (6) : `Y*`が`T*`に暗黙変換可能であること。そうでない場合、これらはオーバーロード解決の候補から外れる。
 
 
-##効果
+## 効果
 - (1) : 監視対象を持たない、空の`weak_ptr`オブジェクトを構築する。
 - (2), (3) : `r`が空である場合、空の`weak_ptr`オブジェクトを構築する。そうでなければ、`r`の監視対象を`*this`にコピーする。
 - (4) : `r`を`*this`の監視対象とする。
 - (5), (6) : `r`の監視対象を`*this`に移動する。
 
 
-##事後条件
+## 事後条件
 - (1) : [`use_count()`](use_count.md) `== 0`
 - (2), (3), (4) : [`use_count()`](use_count.md) `==` `r.`[`use_count()`](use_count.md)
 - (5), (6) : `r.`[`use_count()`](use_count.md) `== 0`
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <iostream>
@@ -116,7 +116,7 @@ int main()
 * std::static_pointer_cast[link /reference/memory/shared_ptr/static_pointer_cast.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 3
 3
@@ -125,15 +125,15 @@ int main()
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 - [LWG Issue 2315. `weak_ptr` should be movable](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2315)

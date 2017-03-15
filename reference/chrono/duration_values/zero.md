@@ -1,4 +1,4 @@
-#zero
+# zero
 * chrono[meta header]
 * std::chrono[meta namespace]
 * duration_values[meta class]
@@ -9,17 +9,17 @@
 static constexpr Rep zero();
 ```
 
-##概要
+## 概要
 `Rep`型の初期値を取得する
 
 
-##戻り値
+## 戻り値
 ```cpp
 Rep(0)
 ```
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -35,16 +35,16 @@ int main()
 * seconds[link /reference/chrono/seconds.md]
 
 
-###出力
+### 出力
 ```
 0
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

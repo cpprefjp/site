@@ -1,4 +1,4 @@
-#forward
+# forward
 * utility[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -21,7 +21,7 @@ namespace std {
 ```
 * remove_reference[link /reference/type_traits/remove_reference.md]
 
-##概要
+## 概要
 関数テンプレートの引数を転送する。
 
 この関数は、渡された引数を`T&&`型にキャストして返す。（注：`T`が左辺値参照の場合には`T&&`も左辺値参照になり、それ以外の場合に`T&&`は右辺値参照になる。）
@@ -54,19 +54,19 @@ void good(T&& x)
 }
 ```
 
-##戻り値
+## 戻り値
 `static_cast<T&&>(t)`
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 - (2) : この形式が左辺値参照の型に対して呼ばれた場合、プログラムは不適格である。（例： `std::forward<int&>(1)` は不適格）
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 #include <utility>
@@ -90,15 +90,15 @@ int main()
 ```
 * forward[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -106,7 +106,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 - [N1377 A Proposal to Add Move Semantics Support to the C++ Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1377.htm)
 - [N1690 A Proposal to Add an Rvalue Reference to the C++ Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1690.html)

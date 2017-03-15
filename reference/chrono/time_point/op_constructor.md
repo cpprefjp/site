@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * chrono[meta header]
 * std::chrono[meta namespace]
 * time_point[meta class]
@@ -19,13 +19,13 @@ template <class Duration2>
 constexpr time_point(const time_point<clock, Duration2>& t); // (3) C++14
 ```
 
-##time_pointの構築
+## time_pointの構築
 - (1) : デフォルトコンストラクタ。エポックの`time_point(duration::zero())`を生成する。
 - (2) : エポックからの経過時間から`time_point`を生成する。
 - (3) : 他のテンプレートパラメータを持つ`time_point`からの変換コンストラクタ。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -55,21 +55,21 @@ int main()
 * seconds[link /reference/chrono/seconds.md]
 * milliseconds[link /reference/chrono/milliseconds.md]
 
-###出力
+### 出力
 ```
 0
 3000000
 5000
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC: 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
-##参照
+## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 

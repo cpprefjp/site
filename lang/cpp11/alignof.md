@@ -1,7 +1,7 @@
-#alignof
+# alignof
 * cpp11[meta cpp]
 
-##概要
+## 概要
 `alignof()`は、指定した型がメモリ上のどの位置に配置されるか（アライメント）取得する演算子である。「アライン オブ (align of)」と読む。
 
 `sizeof()`と異なり`alignof()` は変数には使用できない。
@@ -9,7 +9,7 @@
 例えば型`int`が4バイト境界の位置にアライメントされるシステムであれば、`alignof(int)`は4を返す。
 
 
-##仕様
+## 仕様
 - `alignof(型)`は、指定した型のアライメントのサイズを返す。戻り値の型は`std::size_t`である。
 
 もっとも制約の弱い、すなわちアライメントのサイズが最小となる型は`char`, `signed char`, `unsigned char`であり、
@@ -18,7 +18,7 @@
 [max_align_t]: /reference/cstddef/max_align_t.md
 
 
-##例
+## 例
 ```cpp
 #include <cstddef>
 #include <iostream>
@@ -48,7 +48,7 @@ int main()
 ```
 * std::max_align_t[link /reference/cstddef/max_align_t.md]
 
-###出力
+### 出力
 x86向けLinux上で実行した場合。
 
 ```
@@ -62,19 +62,19 @@ char *:            4
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 C++03で型のアライメントサイズを得るにはコンパイラの拡張機能を利用するしかなく、コンパイラごとに異なる記述を行う必要があったが、C++11ではどのコンパイラでも同じ記述でアライメントサイズが取得できる。
 
 
-##検討されたほかの選択肢
+## 検討されたほかの選択肢
 N2341 からはわからない、恐らくないと思われる。
 
 
-##関連項目
+## 関連項目
 - [C++11 `alignas`](/lang/cpp11/alignas.md)
 - [`std::max_align_t`](/reference/cstddef/max_align_t.md)
 
 
-##参照
+## 参照
 - [N2341 Adding Alignment Support to the C++ Programming Language / Wording](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2341.pdf)
 

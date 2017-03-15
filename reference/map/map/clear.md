@@ -1,4 +1,4 @@
-#clear
+# clear
 * map[meta header]
 * std[meta namespace]
 * map[meta class]
@@ -8,15 +8,15 @@
 void clear() noexcept;
 ```
 
-##概要
+## 概要
 `map` コンテナ内の全ての要素を削除する。それぞれのデストラクタが呼ばれ、コンテナから削除される。[`size()`](/reference/map/map/size.md) は 0 になる。
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -41,24 +41,24 @@ int main()
 * clear()[color ff0000]
 * m.size()[link size.md]
 
-###出力
+### 出力
 ```
 4
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
-##参照
+## 参照
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------|-----------------------------------------------------|

@@ -1,4 +1,4 @@
-#unique
+# unique
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
@@ -9,11 +9,11 @@
 bool unique() const noexcept;
 ```
 
-##概要
+## 概要
 有効なリソースを所有しているかを判定する。
 
 
-##戻り値
+## 戻り値
 
 ```cpp
 use_count() == 1
@@ -21,11 +21,11 @@ use_count() == 1
 * get()[link get.md]
 
 
-##備考
+## 備考
 この関数は、[`use_count()`](use_count.md)を使用するよりも高速である可能性がある。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -48,17 +48,17 @@ int main()
 ```
 * unique()[color ff0000]
 
-###出力
+### 出力
 ```
 unique
 non unique
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

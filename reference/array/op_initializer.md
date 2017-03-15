@@ -1,4 +1,4 @@
-#初期化
+# 初期化
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
@@ -15,13 +15,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `array`クラスは、固定長配列のコンテナである。静的に決定される要素数を持ち、組み込み配列のラッパーとして実装される。
 
 `array`クラスは`public`な配列メンバ変数を持ち、非自明なコンストラクタを提供しない。そのため、`array`は集成体の要件を満たす。これにより、`array`クラスは組み込み配列と同様の初期化構文を使用して初期化を行うことができる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <array>
@@ -41,24 +41,24 @@ int main()
 * ar[i][link op_at.md]
 
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0
 
-##参照
+## 参照
 
 

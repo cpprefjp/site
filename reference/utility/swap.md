@@ -1,4 +1,4 @@
-#swap
+# swap
 * utility[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -15,16 +15,16 @@ namespace std {
 ```
 * see below[italic]
 
-##概要
+## 概要
 2つの値を入れ替える。
 
 
-##要件
+## 要件
 - 値版型`T`は`MoveConstructible`かつ`MoveAssignable`でなければならない。
 - 配列版範囲`[0, N)`内の全ての`i`において、`a[i]`と`b[i]`は`Swappable`でなければならない。
 
 
-##効果
+## 効果
 値版の振る舞いは、以下のコードと等価である：
 
 ```cpp
@@ -60,16 +60,16 @@ swap(a, b);
 のように呼び出し、各クラスに対し個別に定義された swap がある場合には そちらが呼ばれるようにするべきである。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 - 値版`noexcept`中の式は、以下と等価である：`is_nothrow_move_constructible<T>::value && is_nothrow_move_assignable<T>::value`
 - 配列版配列の要素型`T`に対する`swap()`操作が例外を投げない場合、この関数もまた例外を投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -121,17 +121,17 @@ int main()
 ```
 * swap[color ff0000]
 
-###出力
+### 出力
 ```
 2, 1
 [4,5,6], [1,2,3]
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -139,7 +139,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 	- 値版はそれ以前から実装されている。
 
-##参照
+## 参照
 - [LWG Issue 809. `std::swap` should be overloaded for array types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#809)
     - C++11で、配列に対するオーバーロードが追加された経緯のレポート
 

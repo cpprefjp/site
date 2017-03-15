@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
@@ -28,7 +28,7 @@ scoped_allocator_adaptor(
   scoped_allocator_adaptor<OuterA2, InnerAllocs...>&& other) noexcept;      // (6)
 ```
 
-##scoped_allocator_adaptorオブジェクトの構築
+## scoped_allocator_adaptorオブジェクトの構築
 - (1) : デフォルト構築。各アロケータオブジェクトを値初期化する。
 - (2) : 外側のアロケータ、内側のアロケータという順番で、各アロケータオブジェクトを受け取る。
 - (3) : コピー構築。`other`が持つアロケータオブジェクトを`*this`にコピーする。
@@ -37,11 +37,11 @@ scoped_allocator_adaptor(
 - (6) : 変換可能な外側のアロケータを持つ`scoped_allocator_adaptor`オブジェクトからのムーブ構築。
 
 
-##要件
+## 要件
 - (2), (5), (6) : クラステンプレートのパラメータ`OuterAlloc`は、テンプレートパラメータの型`OuterA2`から構築可能であること。
 
 
-##効果
+## 効果
 - (1) : 外側と内側のアロケータオブジェクトを値初期化する。
 - (2) : 外側のアロケータを[`std::forward`](/reference/utility/forward.md)`<OuterA2>(outerAlloc)`でムーブ構築する。内側のアロケータオブジェクトはコピー構築する。
 - (3) : `other`が持つアロケータオブジェクトを、`*this`の対応する各アロケータオブジェクトにコピーする。
@@ -51,7 +51,7 @@ scoped_allocator_adaptor(
 
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -103,15 +103,15 @@ int main()
 * std::char_traits[link /reference/string/char_traits.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

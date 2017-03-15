@@ -1,19 +1,19 @@
-#SIZE_MAX
+# SIZE_MAX
 * cstdint[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
-#define SIZE_MAX implementation-defined
+# define SIZE_MAX implementation-defined
 ```
 
-##概要
+## 概要
 [`size_t`](/reference/cstddef/size_t.md) の最大値。
 
 このマクロの値は65535以上となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cstdint>
@@ -26,17 +26,17 @@ int main()
 ```
 * SIZE_MAX[color ff0000]
 
-###出力
+### 出力
 ```
 18446744073709551615
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang C++11 mode](/implementation.md#clang): 3.3
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4
 - [ICC](/implementation.md#icc): ??

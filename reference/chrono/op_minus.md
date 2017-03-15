@@ -1,4 +1,4 @@
-#operator-
+# operator-
 * chrono[meta header]
 * std::chrono[meta namespace]
 * function template[meta id-type]
@@ -42,11 +42,11 @@ namespace chrono {
 * time_point[link /reference/chrono/time_point.md]
 * common_type[link /reference/type_traits/common_type.md]
 
-##概要
+## 概要
 `duration`, `time_point`の減算を行う
 
 
-##戻り値
+## 戻り値
 - (1)
 
 ```cpp
@@ -70,7 +70,7 @@ return lhs.time_since_epoch() - rhs.time_since_epoch();
 * time_since_epoch[link /reference/chrono/time_point/time_since_epoch.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -110,7 +110,7 @@ int main()
 * time_since_epoch()[link time_point/time_since_epoch.md]
 * duration_cast[link duration_cast.md]
 
-###出力例
+### 出力例
 ```
 1
 2998
@@ -119,14 +119,14 @@ int main()
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
-##参照
+## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 

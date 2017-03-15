@@ -1,7 +1,7 @@
-#ラムダ式の初期化キャプチャ
+# ラムダ式の初期化キャプチャ
 * cpp14[meta cpp]
 
-##概要
+## 概要
 「初期化キャプチャ(init-capture)」は、任意の式の結果をラムダ式にキャプチャする機能である。
 
 ```cpp
@@ -39,7 +39,7 @@ auto f = [b = a, &c = a] {
 ```
 
 
-##仕様
+## 仕様
 「初期化キャプチャ(init-capture)」が追加されたことにより、従来の変数名もしくは`this`を指定するキャプチャは「簡易キャプチャ(simple-capture)」と呼ばれることとなった。
 
 初期化キャプチャの構文は以下：
@@ -67,8 +67,8 @@ auto f = [a = x + 1,            // 式x + 1の結果を変数名aとして、ラ
 初期化キャプチャでは、パラメータパックのキャプチャはできない。
 
 
-##例
-###unique_ptrの所有権を移動させる
+## 例
+### unique_ptrの所有権を移動させる
 ```cpp
 #include <memory>
 #include <utility>
@@ -96,7 +96,7 @@ int main()
 ```
 
 
-###promiseの所有権を別なスレッドに移動させる
+### promiseの所有権を別なスレッドに移動させる
 ```cpp
 #include <iostream>
 #include <utility>
@@ -145,12 +145,12 @@ int main()
 ```
 
 
-##関連項目
+## 関連項目
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
 - [C++14 ジェネリックラムダ](generic_lambdas.md)
 
 
-##参照
+## 参照
 - [N3610 Generic lambda-capture initializers, supporting capture-by-move](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3610.html)
 - [N3648 Wording Changes for Generalized Lambda-capture](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3648.html)
 

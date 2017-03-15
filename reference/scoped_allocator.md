@@ -1,4 +1,4 @@
-#scoped_allocator
+# scoped_allocator
 * scoped_allocator[meta header]
 * cpp11[meta cpp]
 
@@ -9,7 +9,7 @@
 | [`scoped_allocator_adaptor`](scoped_allocator/scoped_allocator_adaptor.md) | 入れ子になったオブジェクトに同じアロケータを使用するためのアダプタ(class template) | C++11 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 

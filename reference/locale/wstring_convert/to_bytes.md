@@ -1,4 +1,4 @@
-#to_bytes
+# to_bytes
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
@@ -13,11 +13,11 @@ byte_string to_bytes(const Elem* first,
                      const Elem* last);        // (4)
 ```
 
-##概要
+## 概要
 ワイド文字列からバイト文字列に変換する。
 
 
-##効果
+## 効果
 変換前に、[`state()`](state.md)メンバ関数が返す状態値が、コンストラクタで明示的に指定されていなかった場合、デフォルト値を設定する。
 
 - (1) : 1つの歪度文字を、バイト文字列に変換する。
@@ -29,17 +29,17 @@ byte_string to_bytes(const Elem* first,
 
 
 
-##戻り値
+## 戻り値
 変換結果のバイト文字列を返す。
 
 変換に失敗し、コンストラクタで`byte_err`パラメータ(エラー時に返す文字列)が設定された場合、そのパラメータを返す。
 
 
-##例外
+## 例外
 変換に失敗し、コンストラクタで`byte_err`パラメータ(エラー時に返す文字列)が設定されていなかった場合、[`std::range_error`](/reference/stdexcept.md)例外を送出する。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <string>
@@ -93,16 +93,16 @@ int main()
 * std::begin[link /reference/iterator/begin.md]
 * std::end[link /reference/iterator/end.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1
 - [ICC](/implementation.md#icc):

@@ -1,4 +1,4 @@
-#move_backward
+# move_backward
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -13,33 +13,33 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 指定された範囲の要素を後ろからムーブする。
 
 
-##要件
+## 要件
 `result` は `(first,last]` の範囲に含まれてはならない。
 
 
-##効果
+## 効果
 `[first,last)` 内にある要素を、それぞれ `[result - (last-first),result)` へムーブする。
 
 ムーブは `last - 1` から順番に行い、1 以上 `last - first` 以下であるそれぞれの `n` について、`*(result - n) = std::move(*(last - n))` を行う。
 
 
-##戻り値
+## 戻り値
 `result - (last - first)`
 
 
-##計算量
+## 計算量
 正確に `last - first` 回ムーブ代入が行われる。
 
 
-##備考
+## 備考
 `last` が `[result - (last-first),result)` の範囲内にあるときには、[`move()`](/reference/algorithm/move.md) の代わりに `move_backward()` を使うべきである。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -69,7 +69,7 @@ int main() {
 * v.emplace_back[link /reference/vector/emplace_back.md]
 * std::move[link move.md]
 
-###出力
+### 出力
 ```
 (null)
 (null)
@@ -79,7 +79,7 @@ int main() {
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template<class BidirectionalIterator1, class BidirectionalIterator2>
 BidirectionalIterator2 move_backward(BidirectionalIterator1 first, BidirectionalIterator1 last,
@@ -92,12 +92,12 @@ BidirectionalIterator2 move_backward(BidirectionalIterator1 first, Bidirectional
 * move[link /reference/utility/move.md]
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
@@ -105,6 +105,6 @@ BidirectionalIterator2 move_backward(BidirectionalIterator1 first, Bidirectional
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 

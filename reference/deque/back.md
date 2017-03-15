@@ -1,4 +1,4 @@
-#back
+# back
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
@@ -9,23 +9,23 @@ reference back();
 const_reference back() const;
 ```
 
-##概要
+## 概要
 末尾要素への参照を取得する
 
 
-##戻り値
+## 戻り値
 末尾要素への参照
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##備考
+## 備考
 コンテナが空の状態でこの関数が呼ばれた場合、動作は未規定。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -41,12 +41,12 @@ int main()
 ```
 * back()[color ff0000]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |-------------------------------|----------------------------|

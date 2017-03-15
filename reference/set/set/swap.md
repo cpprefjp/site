@@ -1,4 +1,4 @@
-#swap
+# swap
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
@@ -8,21 +8,21 @@
 void swap(set& st);
 ```
 
-##概要
+## 概要
 コンテナ内のコンテンツを、同じ型の要素を保持する他の `set` オブジェクトである `st` 内のコンテンツと交換する。サイズは異なる場合もある。  
 このメンバ関数の呼び出しの後、呼び出し前にコンテナ内にあった要素は `st` へ、`st` 内にあった要素は `*this` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。 
 
 
-##パラメータ
+## パラメータ
 - `st`  
 	`*this`とコンテンツを交換する、同じ型の `set` コンテナ。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <set>
@@ -52,7 +52,7 @@ int main()
 * c1.begin()[link begin.md]
 * c1.end()[link end.md]
 
-###出力
+### 出力
 ```
 5,15,
 ```

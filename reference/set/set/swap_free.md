@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * set[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,21 +11,21 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`set`オブジェクトを入れ替える。
 
 
-##効果
+## 効果
 ```cpp
 x.swap(y);
 ```
 * swap[link swap.md]
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <set>
@@ -55,7 +55,7 @@ int main()
 * c1.begin()[link begin.md]
 * c1.end()[link end.md]
 
-###出力
+### 出力
 ```
 5,15,
 ```

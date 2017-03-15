@@ -1,4 +1,4 @@
-#_at_thread_exit系の関数が存在している理由
+# _at_thread_exit系の関数が存在している理由
 
 [`<future>`](/reference/future.md) や [`<condition_variable>`](/reference/condition_variable.md) には、`*_at_thread_exit` という名前の関数が定義されている。
 
@@ -138,7 +138,7 @@ Hoge destructor
 このプログラムの出力は、必ずこの通りになる。つまり、確実にスレッドローカル記憶域のオブジェクトが破棄された後に `res.get()` の結果が出力される。
 
 
-##参考
+## 参考
 - [futureとpromiseのあれこれ（理論編） - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120131/p1)
 - [N3070 - Handling Detached Threads and thread_local Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3070.html)
 

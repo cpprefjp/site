@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -11,29 +11,29 @@ list& operator=(initializer_list<T> x); // (3) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 - (1) : コピー代入。
 - (2) : ムーブ代入。
 - (3) : 初期化子リストを代入。
 
 
-##効果
+## 効果
 - (1) : 同じテンプレートパラメータを持つ `list` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
 - (2) : 同じテンプレートパラメータを持つ `list` クラスのオブジェクトをムーブ代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にムーブされる。
 - (3) : 同じテンプレートパラメータを持つ `initializer_list` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##計算量
+## 計算量
 - (1) : 全要素のデストラクタ呼び出しとコピーを行うために、線形時間
 - (2) : 全要素のデストラクタ呼び出しをするために、線形時間
 - (3) : 全要素のデストラクタ呼び出しとコピーを行うために、線形時間
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <list>
@@ -80,10 +80,10 @@ int main ()
 * ls2.end()[link end.md]
 * init.begin()[link /reference/initializer_list/begin.md]
 
-###出力
+### 出力
 ```
 ```
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (3)の経緯となる提案文書

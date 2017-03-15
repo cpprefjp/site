@@ -1,4 +1,4 @@
-#shuffle
+# shuffle
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -13,20 +13,20 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `[first,last)` のそれぞれの要素を同じ確率で並び替える。
 
 
-##要件
+## 要件
 - `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
 - `UniformRandomNumberGenerator` は uniform random number generator の要件を満たさなければならず、その戻り値の型は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
 
 
-##計算量
+## 計算量
 正確に `(last - first) - 1` 回 swap する。
 
 
-##備考
+## 備考
 以下の実装では、[フィッシャー - イェーツのシャッフル](https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A3%E3%83%BC_-_%E3%82%A4%E3%82%A7%E3%83%BC%E3%83%84%E3%81%AE%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB)アルゴリズムが使用されている：
 
 - GCC 4.9 (libstdc++)
@@ -34,7 +34,7 @@ namespace std {
 - Visual C++ 12.0
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -62,13 +62,13 @@ int main() {
 * std::shuffle[color ff0000]
 * std::mt19937[link /reference/random/mt19937.md]
 
-###出力
+### 出力
 ```
 before: 0123456789
  after: 5803429716
 ```
 
-##実装例
+## 実装例
 ```cpp
 template <class RandomAccessIterator, class UniformRandomNumberGenerator>
 void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRandomNumberGenerator&& g) {

@@ -1,4 +1,4 @@
-#is_convertible
+# is_convertible
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`From`から型`To`に変換可能か調べる。
 
 
-##要件
+## 要件
 型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
-##効果
+## 効果
 `is_convertible`は、型`From`から型`To`に変換可能であれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -47,15 +47,15 @@ static_assert(std::is_convertible<B, A>::value == true, "B convertible to A");
 int main() {}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0

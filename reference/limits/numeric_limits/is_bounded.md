@@ -1,4 +1,4 @@
-#is_bounded
+# is_bounded
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,13 +12,13 @@ static const bool is_bounded;
 static constexpr bool is_bounded;
 ```
 
-##概要
+## 概要
 型`T`の値のなす集合が有限かを判定する。  
 浮動小数点数は値として無限大を持つことがあるが、値の種類は有限個なので `is_bounded` は `true` である。  
 基本型(fundamental types)は全て有限である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -39,7 +39,7 @@ int main()
 ```
 * is_bounded[color ff0000]
 
-###出力
+### 出力
 ```
 int : true
 float : true

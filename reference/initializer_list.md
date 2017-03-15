@@ -1,4 +1,4 @@
-#initializer_list
+# initializer_list
 * initializer_list[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `<initializer_list>`ヘッダで提供される`initializer_list`クラスは、ユーザー定義型が初期化子リスト構文による初期化を可能にするための特別なクラスである。コンテナクラスの初期化、代入に使用される。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|----------------|-------|
@@ -26,7 +26,7 @@ namespace std {
 | [`end`](initializer_list/end.md)                    | 最後尾要素の次を指すポインタを取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|------------|-------|
@@ -38,7 +38,7 @@ namespace std {
 | `const_iterator`  | `const E*` | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|------------|-------|
@@ -46,7 +46,7 @@ namespace std {
 | [`end`](initializer_list/end_free.md)     | 最後尾要素の次を指すポインタを取得する | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <initializer_list>
 #include <vector>
@@ -68,18 +68,18 @@ int main()
 * init.begin()[link initializer_list/begin.md]
 * init.end()[link initializer_list/end.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.0
 
 
-##関連項目
+## 関連項目
 - [C++11 初期化子リスト](/lang/cpp11/initializer_lists.md)
 

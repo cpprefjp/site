@@ -1,4 +1,4 @@
-#try_lock_shared
+# try_lock_shared
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
@@ -9,31 +9,31 @@
 bool try_lock_shared();
 ```
 
-##概要
+## 概要
 共有ロックの取得を試みる。
 
 
-##要件
+## 要件
 この関数を呼び出したスレッドが、ミューテックスの排他所有権と共有所有権のいずれもを保持していないこと。
 
 
-##効果
+## 効果
 ブロッキングせずに、この関数を呼び出したスレッドがミューテックスの共有所有権を取得する
 
 
-##戻り値
+## 戻り値
 共有所有権が取得できなかった場合は何もせずに関数が`false`で返り、共有所有権を取得できた場合は`true`を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数の実装が、ミューテックスの所有権を保持しているスレッドがひとつもない場合でも、所有権の取得に失敗する可能性がある。
 
 
-##例
+## 例
 ```cpp
 #include <thread>
 #include <shared_mutex>
@@ -89,15 +89,15 @@ int main()
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_error[link /reference/system_error/system_error.md]
 
-###出力例
+### 出力例
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

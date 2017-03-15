@@ -1,4 +1,4 @@
-#bucket_size
+# bucket_size
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
@@ -9,23 +9,23 @@
 size_type bucket_size(size_type n) const;
 ```
 
-##概要
+## 概要
 インデックス（添え字）で指定したバケット内に格納されている要素の数を取得する。
 
 
-##要件
+## 要件
 パラメータ `n` は `[0,` [`bucket_count`](bucket_count.md)`())` の範囲であること。
 
 
-##戻り値
+## 戻り値
 パラメータ `n`で指定した位置のバケット内に格納されている要素の数
 
 
-##計算量
+## 計算量
 O(`bucket_size(n)`)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -59,7 +59,7 @@ int main()
 * cend[link cend-size_type.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
-###出力
+### 出力
 ```
 bucket_count() = 5
 bucket = 0, bucket_size = 1, keys = { E, }
@@ -69,11 +69,11 @@ bucket = 3, bucket_size = 1, keys = { A, }
 bucket = 4, bucket_size = 2, keys = { C, B, }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -81,7 +81,7 @@ bucket = 4, bucket_size = 2, keys = { C, B, }
 - [ICC](/implementation.md#icc): ?
 - [Visual C++:](/implementation.md#visual_cpp) ?
 
-##参照
+## 参照
 
 | 名前                                         | 説明 |
 |----------------------------------------------|------------------|

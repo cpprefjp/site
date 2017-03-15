@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_lock[meta class]
@@ -31,7 +31,7 @@ shared_lock(shared_lock&& u) noexcept;                            // (9)
 * duration[link /reference/chrono/duration.md]
 
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ
 - (2) : 共有ミューテックスオブジェクトを受け取るコンストラクタ。共有ロックを取得する。
 - (3) : 共有ミューテックスオブジェクトを受け取り、その場では共有ロックを取得しない。
@@ -43,7 +43,7 @@ shared_lock(shared_lock&& u) noexcept;                            // (9)
 - (9) : ムーブコンストラクタ。共有ミューテックスの所有権を移動する。
 
 
-##効果
+## 効果
 - (1) : 空の`shared_lock`オブジェクトを構築する。共有ミューテックスオブジェクトへのポインタを保持しない。
 - (2) : 共有ミューテックスオブジェクトへの参照を受け取り、`m.lock_shared()`を呼び出す。共有ミューテックスオブジェクトへのポインタを保持する。
 - (3) : 共有ミューテックスオブジェクトへの参照を受け取り、共有ロックの取得操作をここでは呼び出さない。共有ミューテックスオブジェクトへのポインタを保持する。
@@ -54,7 +54,7 @@ shared_lock(shared_lock&& u) noexcept;                            // (9)
 - (9) : ムーブコンストラクタ。`shared_lock`オブジェクト`u`が保持している共有ミューテックスの所有権を、自分のオブジェクトに移動する。共有ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](owns_lock.md)の状態を`u`から移動する。
 
 
-##事後条件
+## 事後条件
 - (1) : [`owns_lock()`](owns_lock.md) `== false`
 - (2) : [`owns_lock()`](owns_lock.md) `== true`
 - (3) : [`owns_lock()`](owns_lock.md) `== false`
@@ -65,7 +65,7 @@ shared_lock(shared_lock&& u) noexcept;                            // (9)
 - (9) : `u`は共有ミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](owns_lock.md) `== false`となる。
 
 
-##例
+## 例
 ```cpp
 #include <shared_mutex>
 #include <chrono>
@@ -140,15 +140,15 @@ int main()
 * now()[link /reference/chrono/steady_clock/now.md]
 * std::chrono::seconds[link /reference/chrono/seconds.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

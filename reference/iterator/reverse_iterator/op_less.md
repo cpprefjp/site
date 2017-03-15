@@ -1,4 +1,4 @@
-#operator<
+# operator<
 * iterator[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,16 +11,16 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`reverse_iterator`オブジェクトにおいて、左辺が右辺より小さいかを判定する。
 
 
 
-##戻り値
+## 戻り値
 `x.current > y.current`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -44,11 +44,11 @@ int main()
 * it1 < it2[color ff0000]
 
 
-###出力
+### 出力
 ```
 less
 ```
 
-##参照
+## 参照
 
 

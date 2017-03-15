@@ -1,4 +1,4 @@
-#insert_iterator
+# insert_iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,11 +14,11 @@ namespace std {
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
-##概要
+## 概要
 `insert_iterator`は出力イテレータであり、代入の際にコンテナの`insert()`メンバ関数を呼び出すイテレータアダプタである。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -29,7 +29,7 @@ namespace std {
 | [`operator++`](insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
 
-##protectedメンバ変数
+## protectedメンバ変数
 
 | 変数名 | 型 | 対応バージョン |
 |-------------|-----------------------|-------|
@@ -37,7 +37,7 @@ namespace std {
 | `iter`      | `Container::iterator` | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------|-------------|-------|
@@ -49,14 +49,14 @@ namespace std {
 | `reference`         | `void` | |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------|-------------------------------|-------|
 | [`inserter`](inserter.md) | `insert_iterator`のヘルパ関数 | |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <set>
@@ -81,13 +81,13 @@ int main()
 * src.end()[link /reference/set/set/end.md]
 * dest.end()[link /reference/set/set/end.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##参照
+## 参照
 
 

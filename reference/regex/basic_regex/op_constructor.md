@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
@@ -33,16 +33,16 @@ basic_regex(initializer_list<charT> il,
 * initializer_list[link ../../initializer_list.md]
 
 
-##概要
+## 概要
 正規表現オブジェクトを構築する。
 
 
-##要件
+## 要件
 - `ptr` はヌルポインタではないこと。
 - `InputIterator` は入力イテレータの要件を満たすこと。
 
 
-##効果
+## 効果
 - (1) デフォルトコンストラクタ。いかなる文字列にもマッチしない `basic_regex` オブジェクトを構築する。
 - (2) コピーコンストラクタ。`that` をコピーして `basic_regex` オブジェクトを構築する。
 - (3) ムーブコンストラクタ。`that` をムーブして `basic_regex` オブジェクトを構築する。
@@ -57,7 +57,7 @@ basic_regex(initializer_list<charT> il,
 - (8) `basic_regex(il.`[`begin`](../../initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/end.md)`(), f)` と同等。
 
 
-##事後条件
+## 事後条件
 - (1) -
 - (2) [`flags`](flags.md)`()` と [`mark_count`](mark_count.md)`()` は、それぞれ `that.`[`flags`](flags.md)`()` と `that.`[`mark_count`](mark_count.md) を返す。
 - (3) [`flags`](flags.md)`()` と [`mark_count`](mark_count.md)`()` は、それぞれ `that.`[`flags`](flags.md)`()` と `that.`[`mark_count`](mark_count.md) の元の値を返す。  
@@ -69,12 +69,12 @@ basic_regex(initializer_list<charT> il,
 - (8) -
 
 
-##備考
+## 備考
 - `charT` は `basic_regex` の 1 番目のテンプレートパラメータで、文字型である。
 - `flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の別名である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -116,7 +116,7 @@ int main()
 * std::move[link ../../utility/move.md]
 * std::regex_constants::icase[link ../regex_constants/syntax_option_type.md]
 
-###出力
+### 出力
 ```
 false
 true
@@ -129,11 +129,11 @@ false
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -141,11 +141,11 @@ false
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 Clang バージョン 3.0 は [`initializer_list`](../../initializer_list.md) に対応していないため、(8) の形式は提供されていない。  
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (8)の経緯となる提案文書
 

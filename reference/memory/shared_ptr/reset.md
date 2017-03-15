@@ -1,4 +1,4 @@
-#reset
+# reset
 * memory[meta header]
 * std[meta namespace]
 * shared_ptr[meta class]
@@ -18,22 +18,22 @@ template <class Y, class Deleter, class Allocator>
 void reset(Y* p, Deleter d, Allocator a);           // (4)
 ```
 
-##概要
+## 概要
 リソースの所有権を放棄し、新たなリソースの所有権を設定する。
 
 
-##効果
+## 効果
 - (1) : [`shared_ptr`](op_constructor.md)`().`[`swap`](swap.md)`(*this)`
 - (2) : [`shared_ptr`](op_constructor.md)`(p).`[`swap`](swap.md)`(*this)`
 - (3) : [`shared_ptr`](op_constructor.md)`(p, d).`[`swap`](swap.md)`(*this)`
 - (4) : [`shared_ptr`](op_constructor.md)`(p, d, a).`[`swap`](swap.md)`(*this)`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 
@@ -58,15 +58,15 @@ int main()
 ```
 * reset[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.3.6
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

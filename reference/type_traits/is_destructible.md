@@ -1,4 +1,4 @@
-#is_destructible
+# is_destructible
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`が破棄可能か調べる
 
 
-##要件
+## 要件
 型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
-##効果
+## 効果
 `is_destructible`は、型`T`が破棄可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 - C++11 : 型`T`が完全型で `template <class U> struct test { U u; };` があるときに `test<T>::~test()` が`delete`宣言されていなければ、型`T`は破棄可能であると判断される。
@@ -29,7 +29,7 @@ namespace std {
     - `T`が関数型の場合は破棄できない
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 #include <locale>
@@ -65,21 +65,21 @@ static_assert(std::is_destructible<std::ctype<char>>::value == false, "std::ctyp
 int main(){}
 ```
 
-###出力
+### 出力
 ```cpp
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang) 3.1, 3.2, 3.3, 3.4(revision 188080)
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3, 4.8.0, 4.8.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 	- 11.0～12.0は、`delete`定義されたデストラクタを持つクラスにおいて、誤って`std::true_type`になっている。
 
-####備考
+#### 備考
 Clang 3.1 - 3.3 では以下のようなエラーが出るが、これは[Clang付属のlibc++のバグ](https://llvm.org/bugs/show_bug.cgi?id=16839)である。
 ```
 prog.cc:27:1: error: static_assert failed "int[] is not destructible"
@@ -90,6 +90,6 @@ static_assert(std::is_destructible<int[]>::value == false, "int[] is not destruc
 revision 188080以降のClang 3.4ならばエラーが出ない。
 
 
-##参照
+## 参照
 - [LWG Issue 2049. `is_destructible` is underspecified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2049)
 

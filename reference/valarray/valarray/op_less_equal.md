@@ -1,4 +1,4 @@
-#operator<=
+# operator<=
 * valarray[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -16,7 +16,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `valarray`において、左辺が右辺以下かを判定する。
 
 
@@ -25,7 +25,7 @@ namespace std {
 - (3) : `x`が、`ys`の各要素以下かを判定する。
 
 
-##戻り値
+## 戻り値
 
 - (1) : 以下のコードと同等のことを行う：
 
@@ -60,11 +60,11 @@ return result;
 ```
 
 
-##備考
+## 備考
 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <valarray>
@@ -94,7 +94,7 @@ int main()
 ```
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 

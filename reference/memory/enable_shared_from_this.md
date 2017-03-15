@@ -1,4 +1,4 @@
-#enable_shared_from_this
+# enable_shared_from_this
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `enable_shared_from_this`は、[`shared_ptr`](/reference/memory/shared_ptr.md)で関しているオブジェクトの`this`ポインタを、[`shared_ptr`](/reference/memory/shared_ptr.md)として扱うことを可能にするためのクラスである。
 
 `this`ポインタを単純に`shared_ptr<T>(this)`としてしまうと、参照カウントが増えず、`delete`が2重に呼ばれてしまいバグを引き起こすことになるため、そうならないようにこのクラスを使用して`this`を扱う。
@@ -21,7 +21,7 @@ namespace std {
 このクラスを継承する際には、このクラスのテンプレート引数として、派生クラス(このクラスを継承するクラス自身)を指定すること。(このようにテンプレート引数を指定する方法を、[CRTP:Curiously Recurring Template Pattern](https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/奇妙に再帰したテンプレートパターン(Curiously_Recurring_Template_Pattern))と言う)
 
 
-###正しい使い方と、誤った使い方
+### 正しい使い方と、誤った使い方
 `enable_shared_from_this`クラスの正しい使い方は、
 
 1. [`shared_ptr`](/reference/memory/shared_ptr.md)で管理するクラスが
@@ -44,7 +44,7 @@ ptr->func();
 ```
 
 
-##protectedメンバ関数
+## protectedメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------|----------------|-------|
@@ -53,14 +53,14 @@ ptr->func();
 | [`operator=`](enable_shared_from_this/op_assign.md)          | 代入演算子     | C++11 |
 
 
-##publicメンバ関数
+## publicメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|----------------------------------------|-------|
 | [`shared_from_this`](enable_shared_from_this/shared_from_this.md) | `this`ポインタを`shared_ptr`に変換する | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <memory>
@@ -83,15 +83,15 @@ int main()
 ```
 * std::enable_shared_from_this[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
@@ -99,6 +99,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
 
 
-##参照
+## 参照
 - [`enable_shared_from_this`クラステンプレート - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120314/p1)
 

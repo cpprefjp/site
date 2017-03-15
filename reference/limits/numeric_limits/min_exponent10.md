@@ -1,4 +1,4 @@
-#min_exponent10
+# min_exponent10
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,7 +12,7 @@ static const int min_exponent10;
 static constexpr int min_exponent10;
 ```
 
-##概要
+## 概要
 浮動小数点数型において、型`T`の指数下限値を得る。  
 基数10を`min_exponent`の値で累乗した値が、型`T`で表現可能な正規化された値となる最小の負の値。  
 浮動小数点数型以外は0になる。  
@@ -26,7 +26,7 @@ static constexpr int min_exponent10;
 | `long double` | [`LDBL_MIN_10_EXP`](/reference/cfloat/ldbl_min_10_exp.md) |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -42,13 +42,13 @@ int main()
 ```
 * min_exponent10[color ff0000]
 
-###出力
+### 出力
 ```
 float : -37
 double : -307
 ```
 
-##参照
+## 参照
 * [takagi.in - 標準C++辞典 - `<cfloat>`ヘッダ](http://takagi.in/modules/bwiki/index.php?%A1%E3cfloat%A1%E4%A5%D8%A5%C3%A5%C0)
 * [`numeric_limits::min_exponent`](min_exponent.md)
 * [`numeric_limits::max_exponent`](max_exponent.md)

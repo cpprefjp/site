@@ -1,4 +1,4 @@
-#reset
+# reset
 * random[meta header]
 * std[meta namespace]
 * bernoulli_distribution[meta class]
@@ -9,24 +9,24 @@
 void reset();
 ```
 
-##概要
+## 概要
 状態をリセットする。  
 この関数を呼び出すことで、後続の乱数生成が、前回の乱数生成によって変更されうる状態に依存せずに行うことができる。
 
 
-##効果
+## 効果
 内部の状態をリセットする。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -49,7 +49,7 @@ int main()
 * seed_gen()[link /reference/random/random_device/op_call.md]
 * std::default_random_engine[link /reference/random/default_random_engine.md]
 
-###出力例
+### 出力例
 ```
 false
 true
@@ -58,11 +58,11 @@ true
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -70,6 +70,6 @@ true
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#operator bool
+# operator bool
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
@@ -9,15 +9,15 @@
 explicit operator bool() const noexcept;
 ```
 
-##概要
+## 概要
 関数呼び出しが可能か調べる。
 
 
-##戻り値
+## 戻り値
 呼び出す関数を持っていれば`true`、そうでなければ`false`を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -37,22 +37,22 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 not empty
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 

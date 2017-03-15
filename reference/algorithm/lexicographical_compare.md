@@ -1,4 +1,4 @@
-#lexicographical_compare
+# lexicographical_compare
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -16,12 +16,12 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `[first1, last1)`および`[first2, last2)`の2つの範囲を辞書式順序で比較する。
 このアルゴリズムは、コンテナの`operator<()`の実装で使用される。
 
 
-##効果
+## 効果
 ```cpp
 for ( ; first1 != last1 && first2 != last2 ; ++first1, ++first2) {
   if (*first1 < *first2) return true;
@@ -31,21 +31,21 @@ return first1 == last1 && first2 != last2;
 ```
 
 
-##戻り値
+## 戻り値
 範囲`[first1, last1)`が、辞書式比較で範囲`[first2, last2)`より小さい場合`true`を返し、そうでなければ`false`を返す。
 
 
-##計算量
+## 計算量
 高々`2*min((last1 - first1), (last2 - first2))`回の比較が行われる。
 
 
-##備考
+## 備考
 空のシーケンスは、空じゃないシーケンスより小さいと判断されるが、空のシーケンスに対しては小さくないと判断される。
 
 どちらかのシーケンスの横断が先に終わる場合(つまり、範囲の長さが合わない場合)、先に終わった方が小さいと判断される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -98,7 +98,7 @@ int main()
 * end()[link /reference/string/basic_string/end.md]
 * std::greater[link /reference/functional/greater.md]
 
-###出力
+### 出力
 ```
 same length string compare:
 x less than y
@@ -110,7 +110,7 @@ x less than y
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator1, class InputIterator2>
 bool lexicographical_compare(InputIterator1 first1, InputIterator1 last1,

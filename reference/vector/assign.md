@@ -1,4 +1,4 @@
-#assign
+# assign
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -14,7 +14,7 @@ void assign(initializer_list<T>);                     // (3) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 コンテナの再代入。
 
 - (1) : 範囲を代入。
@@ -22,22 +22,22 @@ void assign(initializer_list<T>);                     // (3) C++11
 - (3) : 初期化子リストを代入。
 
 
-##要件
+## 要件
 - (1) : 型`T`は`*first`から`X`に対してEmplaceConstructibleでなければならない。イテレーターがForward iterators の要件を満たさない場合、型`T`は`X`に対してMoveInsertableでなければならない。`[first, last)`の範囲のそれぞれのイテレーターは１回だけ間接参照される。`first`, `last`は自身のイテレーターであってはならない。
 - (2) : `u`は`*this`の要素への参照であってはならない。
 
 
-##効果
+## 効果
 - (1) : `[first, last)`の範囲の要素のコピーで`*this`の要素を置き換える。
 - (2) : `*this`の要素をすべて`n`個の`u`のコピーに置き換える。
 - (3) : `assign(il.begin(), il.end())`と同等。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <array>
 #include <vector>
@@ -70,7 +70,7 @@ int main()
 * assign[color ff0000]
 
 
-###出力
+### 出力
 ```
 Constructor with initializer-list example:
 1
@@ -92,5 +92,5 @@ a.assign(il) example:
 ```
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)

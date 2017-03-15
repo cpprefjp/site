@@ -1,4 +1,4 @@
-#slice
+# slice
 * valarray[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -9,19 +9,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `slice`は、[`std::valarray`](valarray.md) クラスの [`operator[]`](valarray/op_at.md) メンバ関数にスライスの指示を与えるためのヘルパークラスである。
 
 
-##メンバ関数
-###構築・破棄
+## メンバ関数
+### 構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|----------------------------|------|
 | [`(constructor)`](slice/op_constructor.md) | コンストラクタ             |      |
 
 
-###その他メンバ関数
+### その他メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------|--------------------------------------|------|
@@ -30,7 +30,7 @@ namespace std {
 | [`stride`](slice/stride.md) | スライスを生成する間隔を取得する     |      |
 
 
-##例
+## 例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -57,7 +57,7 @@ auto main()
 }
 ```
 
-###出力
+### 出力
 ```
 19
 26

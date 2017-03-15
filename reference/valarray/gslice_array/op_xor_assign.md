@@ -1,4 +1,4 @@
-#operator^=
+# operator^=
 * valarray[meta header]
 * std[meta namespace]
 * gslice_array[meta class]
@@ -8,23 +8,23 @@
 void operator^=(const valarray<T>& xs) const;
 ```
 
-##概要
+## 概要
 排他的論理和の複合代入を行う。
 
 
-##効果
+## 効果
 元となる`valarray`オブジェクトから参照によって抽出した各要素に、`xs`の各要素を排他的論理和する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##備考
+## 備考
 `valarray`から抽出した要素数と`xs`の要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -63,7 +63,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 00000110
 00001001

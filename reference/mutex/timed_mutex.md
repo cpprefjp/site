@@ -1,4 +1,4 @@
-#timed_mutex
+# timed_mutex
 * mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,13 +10,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `timed_mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスであり、ロック取得のタイムアウト機能をサポートする。[`lock()`](timed_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](timed_mutex/unlock.md)メンバ関数でリソースのロックを手放す。
 
 このクラスのデストラクタは自動的に[`unlock()`](timed_mutex/op_destructor.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)や[`unique_lock`](/reference/mutex/unique_lock.md)といったロック管理クラスと併用する。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|--------------------------------------------------------|-------|
@@ -31,14 +31,14 @@ namespace std {
 | [`native_handle`](timed_mutex/native_handle.md)   | ミューテックスのハンドルを取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------|----------------------|-------|
 | `native_handle_type` | 実装依存のハンドル型 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -97,22 +97,22 @@ int main()
 * std::system_error[link /reference/system_error/system_error.md]
 * mtx_.unlock()[link timed_mutex/unlock.md]
 
-##出力例
+## 出力例
 ```
 3
 6
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
-##参照
+## 参照
 - [N2528: Timed_mutex in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2528.html)

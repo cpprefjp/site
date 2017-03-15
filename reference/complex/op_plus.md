@@ -1,4 +1,4 @@
-#operator+
+# operator+
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -16,21 +16,21 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 複素数の加算を行う
 
 
-##戻り値
+## 戻り値
 `complex<T>(lhs)` [`+=`](complex/op_plus_assign.md) `rhs`  
 （`lhs` を基に新たな `complex<T>` 型のオブジェクトを作成し、そのオブジェクトに [`operator+=`](complex/op_plus_assign.md) を用いて `rhs` を加えた上で、当該オブジェクトを返す）
 
 
-##備考
+## 備考
 `lhs` と `rhs` の両辺に現れる型 `T` は（残念ながら）同じ型でなければならない。（`complex<double>` と `complex<float>` の加算や、`complex<double>` と `float` の加算などを行うことはできない。）  
 特に、これらの演算子は関数テンプレートであるため、[`operator+=`](complex/op_plus_assign.md) の場合と異なり、暗黙の型変換は行われないことに注意。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <complex>
@@ -46,7 +46,7 @@ int main()
 ```
 * +[color ff0000]
 
-###出力
+### 出力
 ```
 (1,2) + (2,3) = (3,5)
 (1,2) + 3 = (4,2)
@@ -54,7 +54,7 @@ int main()
 ```
 
 
-##参照
+## 参照
 |                                               |                                      |
 |-----------------------------------------------|--------------------------------------|
 | [`operator=`](complex/op_assign.md)           | 代入する。                           |

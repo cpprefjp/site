@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
@@ -13,23 +13,23 @@ T operator=(T desired) volatile noexcept;
 T operator=(T desired) noexcept;
 ```
 
-##概要
+## 概要
 値を書き込む
 
 
-##効果
+## 効果
 [`store`](/reference/atomic/atomic/store.md)`(desired)`
 
 
-##戻り値
+## 戻り値
 `desired`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -47,17 +47,17 @@ int main()
 * x.load()[link load.md]
 
 
-###出力
+### 出力
 ```
 2
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -66,6 +66,6 @@ int main()
 	- Visual C++ 11.0はコピー代入演算子のdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
-##参照
+## 参照
 
 

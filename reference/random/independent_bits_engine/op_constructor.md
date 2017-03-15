@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * independent_bits_engine[meta class]
@@ -16,7 +16,7 @@ independent_bits_engine(const independent_bits_engine& e) = default; // (6)
 independent_bits_engine(independent_bits_engine&& e) = default;      // (7)
 ```
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ。元となる乱数生成器を、デフォルト構築する(デフォルトシードで初期化)
 - (2) : 元となる乱数生成器のコピーを作るコンストラクタ
 - (3) : 元となる乱数生成器オブジェクトを受け取り、移動して保持するコンストラクタ
@@ -26,7 +26,7 @@ independent_bits_engine(independent_bits_engine&& e) = default;      // (7)
 - (7) : ムーブコンストラクタ。可能であれば、元となる乱数生成器を移動する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -102,7 +102,7 @@ int main()
 * seeds.begin()[link /reference/array/begin.md]
 * seeds.end()[link /reference/array/end.md]
 
-###出力例
+### 出力例
 ```
 15028999435905310454
 15028999435905310454
@@ -111,11 +111,11 @@ int main()
 17594030327480736798
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -123,6 +123,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

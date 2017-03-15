@@ -1,4 +1,4 @@
-#digits
+# digits
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,13 +12,13 @@ static const int digits;
 static constexpr int digits;
 ```
 
-##概要
+## 概要
 基数 **[`radix`](radix.md)** において表現できる桁数を示す。整数型であれば、符号ビット以外のビット数である。
 
 浮動小数点数の場合、仮数部の桁数である。
 
 
-##備考
+## 備考
 `is_specialized == false`の場合は`0`
 
 対応するマクロを次の表に挙げる。
@@ -30,7 +30,7 @@ static constexpr int digits;
 | `long double` | [`LDBL_MANT_DIG`](/reference/cfloat/ldbl_dig.md)    |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -46,7 +46,7 @@ int main()
 ```
 * digits[color ff0000]
 
-###出力例
+### 出力例
 ```
 31
 53

@@ -1,4 +1,4 @@
-#is_integer
+# is_integer
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,12 +12,12 @@ static const bool is_integer;
 static constexpr bool is_integer;
 ```
 
-##概要
+## 概要
 型`T`が整数型であるなら`is_integer`は`true`となり、そうでなければ`false`となる。  
 `is_specialized == false`の場合、`false`となる。
 
 
-##例
+## 例
 ```cpp
 #include <limits>
 
@@ -34,7 +34,7 @@ int main()
 ```
 * is_integer[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 

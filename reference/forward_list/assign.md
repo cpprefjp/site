@@ -1,4 +1,4 @@
-#assign
+# assign
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -15,7 +15,7 @@ void assign(initializer_list<T> init);                // (3)
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 
 コンテナの再代入
 
@@ -24,7 +24,7 @@ void assign(initializer_list<T> init);                // (3)
 - (3) : 初期化子リストを代入。
 
 
-##効果
+## 効果
 
 - (1) :
 
@@ -57,11 +57,11 @@ assign(init.begin(), init.end());
 * end()[link /reference/initializer_list/end.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -109,18 +109,18 @@ int main()
 * begin[link begin.md]
 * end[link end.md]
 
-###出力
+### 出力
 ```
 ls1 : 1 2 3 
 ls2 : 1 1 1 
 ls3 : 1 2 3 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -129,7 +129,7 @@ ls3 : 1 2 3
 	- (3) `initializer_list`のオーバーロードは12.0から。
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (3)の経緯となる提案文書
 

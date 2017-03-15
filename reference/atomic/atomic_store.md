@@ -1,4 +1,4 @@
-#atomic_store
+# atomic_store
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -16,28 +16,28 @@ namespace std {
 * atomic[link /reference/atomic/atomic.md]
 
 
-##概要
+## 概要
 アトミックに値を書き込む
 
 
-##効果
+## 効果
 [`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、`object`が指す値を`desired`でアトミックに置き換える。
 この関数は、戻り値のない[`atomic_exchange()`](atomic_exchange.md)と見なせる。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、特殊化された[`atomic`](atomic.md)型に対して定義される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -56,17 +56,17 @@ int main()
 * x.load()[link /reference/atomic/atomic/load.md]
 
 
-###出力
+### 出力
 ```
 2
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -74,6 +74,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

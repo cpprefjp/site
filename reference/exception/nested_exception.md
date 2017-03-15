@@ -1,4 +1,4 @@
-#nested_exception
+# nested_exception
 * exception[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,13 +10,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `nested_exception`は、例外を階層構造として処理する場合に、元の例外を一時的に保持した状態で、別の例外として送出するための使用する例外クラスである。
 
 入れ子になった例外を補足した場合、[`rethrow_nested()`](nested_exception/rethrow_nested.md)メンバ関数を呼び出すことで、元の例外を送出できる。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -27,7 +27,7 @@ namespace std {
 | [`nested_ptr`](nested_exception/nested_ptr.md) | 入れ子になった例外へのポインタを取得する | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <exception>
 #include <iostream>
@@ -60,18 +60,18 @@ int main()
 * std::nested_exception[color ff0000]
 * e.rethrow_nested()[link nested_exception/rethrow_nested.md]
 
-###出力
+### 出力
 ```
 1st caught: 1
 2nd caught: my_exception(nested_exception).
 3rd caught: 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -79,6 +79,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 - [N2559 Nesting Exception Objects (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2559.htm)
 

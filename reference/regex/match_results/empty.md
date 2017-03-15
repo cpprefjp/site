@@ -1,4 +1,4 @@
-#empty
+# empty
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,15 +9,15 @@
 bool empty() const;
 ```
 
-##概要
+## 概要
 `*this` が空か否か（つまり、マッチが失敗したか否か）を返す。
 
 
-##戻り値
+## 戻り値
 [`size`](size.md)`() == 0`
 
 
-##備考
+## 備考
 - [`regex_match`](../regex_match.md)、および、[`regex_search`](../regex_search.md) の引数に渡した [`match_results`](../match_results.md) オブジェクトは、マッチが成功すると `empty() != true` となる。  
     [`match_results`](../match_results.md) オブジェクトの結果が利用可能か否かを確認する場合には [`ready`](ready.md) を使用すると良い。
 - [`regex_iterator`](../regex_iterator.md) を間接参照して得られる [`match_results`](../match_results.md) オブジェクトは、必ず `empty() != true` となる。
@@ -25,7 +25,7 @@ bool empty() const;
 - 本メンバ関数は [`ready`](ready.md)`() == false` でも呼び出すことが可能である（その場合、`true` が返される）。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -61,7 +61,7 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * m.ready()[link ready.md]
 
-###出力
+### 出力
 ```
 ready = false, empty = true
 not match:ready = true, empty = true
@@ -69,11 +69,11 @@ match:ready = true, empty = false
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

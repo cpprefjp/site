@@ -1,4 +1,4 @@
-#fmtflags
+# fmtflags
 * ios[meta header]
 * type-alias[meta id-type]
 * std[meta namespace]
@@ -11,7 +11,7 @@ using fmtflags = T1;
 
 *`T1`* は処理系定義の型。
 
-##概要
+## 概要
 `fmtflags` はロケールに依存しないストリームの書式に関するフラグを保持するためのビットマスク型である。  
 `fmtflags` には以下の表のようなビットマスク値が存在し、全て [`ios_base`](../ios_base.md) の静的メンバ定数として定義されている。
 
@@ -46,11 +46,11 @@ using fmtflags = T1;
 （16 進浮動小数点出力が、より直観的な `hex` との組み合わせを使用しないのは、C++03 までとの互換性のため）
 
 
-##備考
+## 備考
 通常はこれらのフラグを直接使用することはあまり無く、対応するマニピュレータを使用することが一般的である。
 
 
-##例 boolalpha
+## 例 boolalpha
 ```cpp
 #include <iostream>
 
@@ -66,13 +66,13 @@ int main()
 * boolalpha[color ff0000]
 * std::noboolalpha[link ../noboolalpha.md]
 
-###出力
+### 出力
 ```
 true, false
 1, 0
 ```
 
-##例 showpos
+## 例 showpos
 ```cpp
 #include <iostream>
 
@@ -89,14 +89,14 @@ int main()
 * std::showpos[link ../showpos.md]
 * std::noshowpos[link ../noshowpos.md]
 
-###出力
+### 出力
 ```
 +10
 10
 ```
 
 
-##例 showpoint
+## 例 showpoint
 ```cpp
 #include <iostream>
 
@@ -113,14 +113,14 @@ int main()
 * std::showpoint[link ../showpoint.md]
 * std::noshowpoint[link ../noshowpoint.md]
 
-###出力
+### 出力
 ```
 10.0000
 10
 ```
 
 
-##例 整数の基数指定
+## 例 整数の基数指定
 ```cpp
 #include <iostream>
 
@@ -155,7 +155,7 @@ int main()
 * std::oct[link ../oct.md]
 * std::dec[link ../dec.md]
 
-###出力
+### 出力
 ```
 0xa
 012
@@ -166,7 +166,7 @@ a
 10
 ```
 
-##例 浮動小数点数のフォーマット
+## 例 浮動小数点数のフォーマット
 ```cpp
 #include <iostream>
 
@@ -205,7 +205,7 @@ int main()
 * std::hexfloat[link ../hexfloat.md]
 * std::defaultfloat[link ../defaultfloat.md]
 
-###出力
+### 出力
 ```
 12.345670
 1.234567E+01
@@ -245,7 +245,7 @@ int main()
 * std::internal[link ../internal.md]
 * std::left[link ../left.md]
 
-###出力
+### 出力
 ```
        -10|
 -       10|
@@ -253,23 +253,23 @@ int main()
 ```
 
 
-##バージョン
-##言語
+## バージョン
+## 言語
 - C++98
 - C++11（`fixed | scientific` による 16 進浮動小数点出力のみ）
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5.0, 3.6.0, 3.7.0, 3.8.0
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 4.9.2, 5.1.0, 5.2.0, 6.0.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1.0, 5.2.0, 6.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 - Clang(libc++) では、C++03 モードでも `fixed | scientific` で 16 進浮動小数点出力を行う。
 
 
-##参照
+## 参照
 - [`ios_base`](../ios_base.md)`::`[`flags`](flags.md)
 - [`ios_base`](../ios_base.md)`::`[`setf`](setf.md)
 - [`ios_base`](../ios_base.md)`::`[`unsetf`](unsetf.md)

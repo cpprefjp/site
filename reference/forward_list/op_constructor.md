@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -35,11 +35,11 @@ forward_list(initializer_list<T> il,
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 `forward_list`オブジェクトを、以下に示す通りの要素で初期化する。
 
 
-##効果
+## 効果
 - (1) : デフォルトコンストラクタ。空のコンテナを作る。
 - (2) : アロケータを指定して空のコンテナを作る。
 - (1) + (2) : デフォルトコンストラクタ。アロケータを指定して空のコンテナを作る。
@@ -55,7 +55,7 @@ forward_list(initializer_list<T> il,
 - (10) : 初期化子リストを受け取るコンストラクタ。`forward_list(il.`[`begin`](../initializer_list/begin.md)`(), il.`[`end`](../initializer_list/end.md)`(), a)` と同等。
 
 
-##計算量
+## 計算量
 - (1), (2) : 定数時間
 - (3) : `n` に対して線形時間
 - (4) : `n` に対して線形時間
@@ -67,7 +67,7 @@ forward_list(initializer_list<T> il,
 - (10) : `il` の要素数に対して線形時間
 
 
-##備考
+## 備考
 - イテレータ範囲コンストラクタ `template <class InputIterator> forward_list(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、`InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しない。
 - C++14 では、`explicit forward_list(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
     これは、デフォルトコンストラクタに `explicit` が付いていると、
@@ -99,7 +99,7 @@ int main()
 * emplace_back[link ../list/emplace_back.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -150,7 +150,7 @@ int main()
 * end[link end.md]
 * std::move[link ../utility/move.md]
 
-###出力
+### 出力
 ```
 ls1 : 
 ls2 : 0 0 0 
@@ -161,12 +161,12 @@ ls6 : 1 1 1
 ls7 : 1 2 3 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -178,7 +178,7 @@ ls7 : 1 2 3
 	- (3) `initializer_list`のオーバーロードは12.0から。
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (10)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  

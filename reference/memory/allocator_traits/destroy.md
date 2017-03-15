@@ -1,4 +1,4 @@
-#destroy
+# destroy
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
@@ -10,19 +10,19 @@ template <class T>
 static void destroy(Alloc& a, T* p);
 ```
 
-##概要
+## 概要
 インスタンスを破棄する。
 
 
-##効果
+## 効果
 `a.destroy(p)`という式が有効ならそれを呼び出し、そうでなければデフォルト実装として`p->~T()`を呼び出す。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -54,16 +54,16 @@ int main()
 * traits::construct[link construct.md]
 * traits::deallocate[link deallocate.md]
 
-###出力
+### 出力
 ```
 3, a
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

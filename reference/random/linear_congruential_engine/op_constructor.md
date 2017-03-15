@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * linear_congruential_engine[meta class]
@@ -13,7 +13,7 @@ linear_congruential_engine(const linear_congruential_engine& e) = default; // (3
 linear_congruential_engine(linear_congruential_engine&& e) = default;      // (4)
 ```
 
-##`linear_congruential_engine`オブジェクトの構築
+## `linear_congruential_engine`オブジェクトの構築
 - (1) : シード値を受け取って状態シーケンスを構築する
     - シード値が指定されない場合は、固定のシード値でデフォルト構築される
     - ※ シード値には、初期状態の予測不可能性を高めるために、UNIX時間(エポックからの経過時間)や、非決定的な乱数を指定するのがよい
@@ -22,12 +22,12 @@ linear_congruential_engine(linear_congruential_engine&& e) = default;      // (4
 - (4) : ムーブコンストラクタ。可能であれば状態シーケンスを移動する
 
 
-##計算量
+## 計算量
 - (1) : O(n)
 - (3) : O(n)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -79,18 +79,18 @@ int main()
 * seeds.begin()[link /reference/array/begin.md]
 * seeds.end()[link /reference/array/end.md]
 
-###出力例
+### 出力例
 ```
 48271
 1780321255
 393384924
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -98,6 +98,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

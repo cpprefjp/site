@@ -1,7 +1,7 @@
-#生文字列リテラル
+# 生文字列リテラル
 * cpp11[meta cpp]
 
-##概要
+## 概要
 `R`プレフィックスを付けた文字列リテラル内の丸カッコ`( )`で囲まれた部分は、エスケープシーケンスが無視される。この機能を「生文字列リテラル (Raw string literals)」という。
 
 たとえばJSON形式でデータを記述する場合、通常の文字列リテラルでは以下のように書くことになる：
@@ -49,7 +49,7 @@ end
 生文字列リテラルの範囲内では、改行をすることでエスケープ文字`'\n'`に変換される。
 
 
-##仕様
+## 仕様
 生文字列リテラルは、以下の構文を持つ：
 
 ```
@@ -90,8 +90,8 @@ int main()
 生文字列リテラルの内容である`r-char-sequence`の要素として改行が入力された場合、それは改行の制御文字`'\n'`に変換される。
 
 
-##例
-###JSON文字列を構築する
+## 例
+### JSON文字列を構築する
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -137,13 +137,13 @@ int main()
 * Boost.Format[link http://www.boost.org/libs/format]
 * cppformat[link https://github.com/cppformat/cppformat]
 
-####出力
+#### 出力
 ```
 {"user_id": 123, "name": "Alice"}
 ```
 
 
-###ファイルパスを入力する
+### ファイルパスを入力する
 ```cpp
 #include <iostream>
 #include <string>
@@ -156,13 +156,13 @@ int main()
 }
 ```
 
-####出力
+#### 出力
 ```
 C:\language\cpp\main.cpp
 ```
 
 
-###バックスラッシュを含む正規表現を入力する
+### バックスラッシュを含む正規表現を入力する
 ```cpp
 #include <iostream>
 #include <regex>
@@ -188,13 +188,13 @@ int main()
 * std::regex[link /reference/regex/basic_regex.md]
 * std::regex_match[link /reference/regex/regex_match.md]
 
-####出力
+#### 出力
 ```
 matched
 ```
 
 
-###雛形のHTMLを処理する
+### 雛形のHTMLを処理する
 ```cpp
 #include <fstream>
 #include <string>
@@ -235,7 +235,7 @@ int main()
 * html.data()[link /reference/string/basic_string/data.md]
 * html.size()[link /reference/string/basic_string/size.md]
 
-####出力(index.html)
+#### 出力(index.html)
 ```
 <html>
 <head>
@@ -249,7 +249,7 @@ int main()
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 生文字列リテラルが提案された2006年当時にはすでに、HTMLやXMLといったマークアップ言語や正規表現を、C++で処理することが多かった。それらの言語では、バックスラッシュや引用符が多用されるため、文字列リテラルとしてそれらを正しく入力するのが困難だった。
 
 Perl、Python、Luaやその他の言語ではこの問題に対応するために、通常の文字列リテラルに加えて、生文字列リテラル(raw string literals)を持っている。それは単純にエスケープシーケンスを無視するという機能で、多くの言語で受け入れられてきた。
@@ -257,13 +257,13 @@ Perl、Python、Luaやその他の言語ではこの問題に対応するため�
 こういった経緯から、C++にも生文字列リテラルが提案された。
 
 
-##検討されたほかの選択肢
+## 検討されたほかの選択肢
 プレフィックスの`R`は、最初に提案された頃から変わっていない。これは「Raw」を意味する。
 
 生文字列リテラル内にユニバーサルキャラクタ名を入力できるようにして、それだけはエスケープを無視せずに変換する案があったが、バグの元となるために却下された。
 
 
-##参照
+## 参照
 - [N2053 Raw String Literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2053.html)
 - [N2146 Raw String Literals (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2146.html)
 - [N2295 Raw and Unicode String Literals; Unified Proposal](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2295.html)

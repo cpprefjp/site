@@ -1,4 +1,4 @@
-#move
+# move
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -12,29 +12,29 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 指定された範囲の要素をムーブする。
 
 
-##要件
+## 要件
 `result` は `[first,last)` の範囲に含まれてはならない。
 
 
-##効果
+## 効果
 `[first,last)` 内の要素を、それぞれ `[result,result + (last - first))` へムーブする。
 
 ムーブは `first` から順番に行い、0 以上 `last - first` 未満であるそれぞれの `n` について、`*(result + n) = std::move(*(first + n))` を行う。
 
 
-##戻り値
+## 戻り値
 `result + (last - first)`
 
 
-##計算量
+## 計算量
 正確に `last - first` 回ムーブ代入が行われる。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -58,7 +58,7 @@ int main() {
 * std::move[color ff0000]
 * v.emplace_back[link /reference/vector/emplace_back.md]
 
-###出力
+### 出力
 ```
 0
 1
@@ -68,7 +68,7 @@ int main() {
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class OutputIterator>
 OutputIterator move(InputIterator first, InputIterator last, OutputIterator result) {
@@ -80,12 +80,12 @@ OutputIterator move(InputIterator first, InputIterator last, OutputIterator resu
 * move[link /reference/utility/move.md]
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
@@ -93,6 +93,6 @@ OutputIterator move(InputIterator first, InputIterator last, OutputIterator resu
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 

@@ -1,4 +1,4 @@
-#generate_n
+# generate_n
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -13,22 +13,22 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 出力の範囲へ関数の結果を `n` 個書き込む。
 
 
-##要件
+## 要件
 - `gen` は引数をとらないこと。
 - `Size` は integral type に変換可能であること。
 
 
-##効果
+## 効果
 `n` が 1 以上の場合、`[first,last)` のそれぞれのイテレータについて関数オブジェクト `gen` を呼び出し、その戻り値を代入する。
 
 そうでない場合、何もしない。
 
 
-##戻り値
+## 戻り値
 - C++03 まで  
 	無し
 - C++11 から  
@@ -36,13 +36,13 @@ namespace std {
 	そうでない場合、`first` が返される。
 
 
-##計算量
+## 計算量
 `n` が 1 以上の場合、`n` 回の `gen` の呼び出しと代入が行われる。
 
 そうでない場合、何もしない。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -57,31 +57,31 @@ int main() {
 ```
 * std::generate_n[color ff0000]
 
-###出力
+### 出力
 ```
 1,2,4,8,16,32,64,128,256,512,
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class OutputIterator, class Size, class Generator>
-#if __cplusplus >= 201103L
+# if __cplusplus >= 201103L
 OutputIterator
-#else
+# else
 void
-#endif
+# endif
 generate_n(OutputIterator first, Size n, Generator gen) {
   while (n-- > 0)
     *first++ = gen();
-#if __cplusplus >= 201103L
+# if __cplusplus >= 201103L
   return first;
-#endif
+# endif
 }
 ```
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc):
@@ -90,6 +90,6 @@ generate_n(OutputIterator first, Size n, Generator gen) {
     - C++11への対応（戻り値の変更）は11.0から。
 
 
-##参照
+## 参照
 - [LWG DR865. More algorithms that throw away information](http://cplusplus.github.io/LWG/lwg-defects.html#865)  
 	戻り値が追加されるきっかけとなったレポート

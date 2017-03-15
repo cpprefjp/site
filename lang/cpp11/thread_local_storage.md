@@ -1,7 +1,7 @@
-#スレッドローカルストレージ
+# スレッドローカルストレージ
 * cpp11[meta cpp]
 
-##概要
+## 概要
 変数宣言の際に、記憶域として`thread_local`キーワードを指定することで、スレッドごとの静的記憶域に変数が保持される。
 
 `static`キーワードを記憶域として使用した変数は、プログラムを通してひとつの状態を持ち、プログラム終了時に変数が破棄される。`thread_local`キーワードの場合はスレッドごとに状態を持ち、スレッド終了時に変数が破棄される。
@@ -32,7 +32,7 @@ t2.join();
 * join()[link /reference/thread/thread/join.md]
 
 
-##仕様
+## 仕様
 - `thread_local`キーワードを記憶域として指定された変数は、「スレッド記憶域の有効期間 (thread storage duration)」を持つ。この記憶域を持つ変数は、スレッドの開始から終了までの有効期間を持つ。
 - `thread_local`キーワードは、`static`、`extern`、`register`といった他の記憶域キーワードと同時には使用できない。
 - スレッド終了時には、スレッド記憶域を持つ変数のデストラクタが呼び出される。
@@ -40,7 +40,7 @@ t2.join();
 - プログラム終了時の動作は、[`std::exit()`](/reference/cstdlib/exit.md)関数と[`std::quick_exit()`](/reference/cstdlib/quick_exit.md)関数のページを参照。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -85,14 +85,14 @@ int main()
 * join()[link /reference/thread/thread/join.md]
 * std::to_string[link /reference/string/to_string.md]
 
-###出力例
+### 出力例
 ```
 thread1 : 67
 thread2 : 4
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 マルチスレッドアプリケーションでは、スレッドごとにデータを一意に維持することがたびたび必要となる。これはスレッドローカルストレージと呼ばれ、多くのベンダーがスレッド記憶域の言語拡張を用意していた：
 
 | ベンダー | 機能 |
@@ -108,13 +108,13 @@ thread2 : 4
 各ベンダーのこれらの経験を標準C++に導入することとなった。
 
 
-##関連項目
+## 関連項目
 - [`exit`](/reference/cstdlib/exit.md)
 - [`quick_exit`](/reference/cstdlib/quick_exit.md)
 - [`_at_thread_exit`系の関数が存在している理由](/article/lib/at_thread_exit.md)
 
 
-##参照
+## 参照
 - [N1874 Thread-Local Storage](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1874.html)
 - [N1966 Thread-Local Storage](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1966.html)
 - [N2147 Thread-Local Storage](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2147.html)

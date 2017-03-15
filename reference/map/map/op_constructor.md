@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * map[meta header]
 * std[meta namespace]
 * map[meta class]
@@ -43,11 +43,11 @@ map(initializer_list<value_type> init,
 ```
 * initializer_list[link ../../initializer_list.md]
 
-##概要
+## 概要
 `map` オブジェクトの構築
 
 
-##効果
+## 効果
 - (1) デフォルトコンストラクタ。空の `map` オブジェクトを構築する。`map(Compare())` と同等。（C++14 から）
 - (2) 比較オブジェクト `comp`、およびアロケータ `alloc` で空の `map` オブジェクトを構築する。（C++14 から）
 - (1) + (2) デフォルトコンストラクタ。比較オブジェクト `comp`、およびアロケータ `alloc` で空の `map` オブジェクトを構築する。（C++11 まで）
@@ -62,7 +62,7 @@ map(initializer_list<value_type> init,
 - (11) アロケータ `alloc` 、および初期化リスト `init` の要素で `map` オブジェクトを構築する。`map(init, Compare(), alloc)` と同等。（C++14 から）
 
 
-##計算量
+## 計算量
 - (1)、(2)、(3) 定数時間
 - (4)、(5) `N =` [`distance`](../../iterator/distance.md)`(first, last)` とすると、範囲 `[first, last)` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
 - (6)、(7) `x.`[`size`](size.md)`()`  に対して線形時間
@@ -71,7 +71,7 @@ map(initializer_list<value_type> init,
 - (10)、(11) `init.`[`size`](size.md)`()` に対して線形時間。
 
 
-##備考
+## 備考
 - C++14 では、デフォルトコンストラクタを (1) + (2) の形式から (1) の形式に分離して残りを (2) の形式（`comp` のデフォルト引数を削除）にした。
     これは、デフォルトコンストラクタに `explicit` が付いていると、
 
@@ -108,7 +108,7 @@ int main()
     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
     （`map(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `map` が構築され、`alloc` と共に (9) の形式に引き渡される）
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -126,13 +126,13 @@ int main()
 ```
 * size()[link size.md]
 
-###出力
+### 出力
 ```
 Size of c1: 2
 Size of c2: 2
 ```
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
@@ -140,7 +140,7 @@ Size of c2: 2
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------------|-----------------------|
@@ -148,7 +148,7 @@ Size of c2: 2
 | [`insert`](/reference/map/map/insert.md) | 要素を挿入する |
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (10)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  

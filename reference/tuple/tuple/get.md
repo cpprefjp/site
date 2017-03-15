@@ -1,4 +1,4 @@
-#get
+# get
 * tuple[meta header]
 * std[meta namespace]
 * tuple[meta class]
@@ -46,25 +46,25 @@ namespace std {
 * tuple[link ../tuple.md]
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 `tuple`オブジェクトから指定した位置の要素を取得する。
 
 
-##要件
+## 要件
 - (1), (2), (3) : テンプレートパラメータ`I`が`tuple`の要素数よりも小さいこと。この要件を満たさない場合は、コンパイルエラーとなる。
 - (4), (5), (6) : 型`T`が`Types...`の中にひとつだけ含まれること。この要件を満たさない場合は、コンパイルエラーとなる。
 
 
-##戻り値
+## 戻り値
 - (1), (2), (3) : `tuple`オブジェクト`t`の`I`番目の要素への参照
 - (4), (5), (6) : `tuple`オブジェクト`t`に含まれる`T`型の要素への参照
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <tuple>
@@ -100,7 +100,7 @@ int main()
 ```
 * get[color ff0000]
 
-###出力
+### 出力
 ```
 1
 a
@@ -111,11 +111,11 @@ a
 hello
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -123,7 +123,7 @@ hello
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
 - [N3670 Wording for Addressing Tuples by Type: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3670.html)

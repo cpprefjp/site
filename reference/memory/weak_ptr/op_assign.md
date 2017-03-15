@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
@@ -20,7 +20,7 @@ template <class Y>
 weak_ptr& operator=(weak_ptr<Y>&& r) noexcept;        // (5) C++14
 ```
 
-##概要
+## 概要
 - (1) : `*this`の現在の監視を停止し、`r`の監視対象を新たに監視する。
 - (2) : `*this`の現在の監視を停止し、変換可能な`weak_ptr`オブジェクト`r`の監視対象を新たに監視する。
 - (3) : `*this`の現在の監視を停止し、新たに`r`を監視する。
@@ -28,7 +28,7 @@ weak_ptr& operator=(weak_ptr<Y>&& r) noexcept;        // (5) C++14
 - (5) : `*this`の現在の監視を停止し、変換可能な`weak_ptr`オブジェクト`r`の監視対象を`*this`に移動する。
 
 
-##効果
+## 効果
 - (1), (2), (3) : 以下と同等の効果を持つ。
 
 ```cpp
@@ -47,15 +47,15 @@ weak_ptr(move(r)).swap(*this)
 * swap[link swap.md]
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <iostream>
@@ -122,7 +122,7 @@ int main()
 * std::static_pointer_cast[link /reference/memory/shared_ptr/static_pointer_cast.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 3
 3
@@ -131,16 +131,16 @@ int main()
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
-##参照
+## 参照
 - [LWG Issue 2315. `weak_ptr` should be movable](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2315)

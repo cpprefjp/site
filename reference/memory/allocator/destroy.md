@@ -1,4 +1,4 @@
-#destroy
+# destroy
 * memory[meta header]
 * std[meta namespace]
 * allocator[meta class]
@@ -13,20 +13,20 @@ template <class U>
 void destroy(U* p);
 ```
 
-##概要
+## 概要
 インスタンスを破棄する。
 
 
-##効果
+## 効果
 - C++03 : `((T*)p)->˜T()`
 - C++11 : `p->˜U()`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -56,7 +56,7 @@ int main()
 * alloc.construct[link construct.md]
 * alloc.deallocate[link deallocate.md]
 
-###出力
+### 出力
 ```
 3, a
 ```

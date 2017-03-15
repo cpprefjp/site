@@ -1,4 +1,4 @@
-#bucket_count
+# bucket_count
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
@@ -9,23 +9,23 @@
 size_type bucket_count() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナの現在のバケット数を返す。
 
 
-##戻り値
+## 戻り値
 コンテナの現在のバケット数
 
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -41,16 +41,16 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 
-###出力例
+### 出力例
 ```
 bucket count is 11
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -58,7 +58,7 @@ bucket count is 11
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 
 | | |
 |----------------------------------------------|----------------------|

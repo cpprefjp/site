@@ -1,4 +1,4 @@
-#rend
+# rend
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -12,19 +12,19 @@ const_reverse_iterator rend() const;          // (2) C++03
 const_reverse_iterator rend() const noexcept; // (2) C++11
 ```
 
-##概要
+## 概要
 先頭の前を指す逆イテレータを取得する。
 
 
-##戻り値
+## 戻り値
 `reverse_iterator(`[`begin()`](begin.md)`)`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -41,7 +41,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 o
 l
@@ -50,4 +50,4 @@ e
 h
 ```
 
-##参照
+## 参照

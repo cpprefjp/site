@@ -1,4 +1,4 @@
-#is_enum
+# is_enum
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`が列挙型かを調べる
 
 
-##効果
+## 効果
 `is_enum`は、型`T`が列挙型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -49,18 +49,18 @@ static_assert(std::is_enum<e [1]>::value == false, "e [1] is not enum");
 int main(){}
 ```
 
-###出力
+### 出力
 ```cpp
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.1, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
-####備考
+#### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool` を持っていないためエラーになる。また、GCC 4.3.4 および Visual C++ 10.0 は `enum class` に対応していないためエラーになる。
 

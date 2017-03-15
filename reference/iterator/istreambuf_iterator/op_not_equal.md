@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * iterator[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`istreambuf_iterator`オブジェクトを非等値比較する。
 
 
-##戻り値
+## 戻り値
 `!a.equal(b)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -43,11 +43,11 @@ int main()
 ```
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
-###出力
+### 出力
 ```
 not equal
 ```
 
-##参照
+## 参照
 
 

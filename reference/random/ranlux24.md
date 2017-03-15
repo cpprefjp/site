@@ -1,4 +1,4 @@
-#ranlux24
+# ranlux24
 * random[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -12,7 +12,7 @@ namespace std {
 * ranlux24_base[link ranlux24_base.md]
 * discard_block_engine[link discard_block_engine.md]
 
-##概要
+## 概要
 `ranlux24`は、贅沢さレベル3のRANLUX(LUXury RANdom numbers)法エンジンである。  
 RANLUX法は、以下の特徴を持つ：
 
@@ -27,30 +27,30 @@ RANLUX法は、0から4までの贅沢さレベル(luxury level)が選択可能�
 モンテカルロ法によるシミュレーションに、よく使用される。  
 
 
-##要件
+## 要件
 `ranlux24`型オブジェクトをデフォルト構築した場合、10000番目に生成される擬似乱数の値は`9901578`であること。
 
 
-##乱数列の周期
+## 乱数列の周期
 10<sup>171</sup>
 
 
-##サイズ
+## サイズ
 ```cpp
 24 * sizeof(uint_fast32_t)
 ```
 * uint_fast32_t[link /reference/cstdint/uint_fast32_t.md]
 
 
-##パフォーマンス
+## パフォーマンス
 [`minstd_rand`](minstd_rand.md)や[`minstd_rand0`](minstd_rand0.md)に比べて、5倍ほど遅い。
 
 
-##シード、および生成される値の型
+## シード、および生成される値の型
 [`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -72,7 +72,7 @@ int main()
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 * engine()[link discard_block_engine/op_call.md]
 
-###出力例
+### 出力例
 ```
 14989051
 4145629
@@ -86,11 +86,11 @@ int main()
 3893002
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -98,7 +98,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 - [N1398 A Proposal to Add an Extensible Random Number Facility to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1398.html)
 - [Uniform Random Numbers of Guaranteed Quality](http://wwwasdoc.web.cern.ch/wwwasdoc/shortwrupsdir/v115/top.html)
 

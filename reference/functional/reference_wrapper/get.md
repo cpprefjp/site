@@ -1,4 +1,4 @@
-#get
+# get
 * functional[meta header]
 * std[meta namespace]
 * reference_wrapper[meta class]
@@ -9,19 +9,19 @@
 T& get() const noexcept;
 ```
 
-##概要
+## 概要
 生参照を取得する
 
 
-##戻り値
+## 戻り値
 保持している参照を返す
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -39,22 +39,22 @@ int main()
 ```
 * get()[color ff0000]
 
-###出力
+### 出力
 ```
 4
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 
-##参照
+## 参照
 
 

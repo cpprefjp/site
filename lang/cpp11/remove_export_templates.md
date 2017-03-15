@@ -1,7 +1,7 @@
-#テンプレートのエクスポート機能を削除
+# テンプレートのエクスポート機能を削除
 * cpp11[meta cpp]
 
-##概要
+## 概要
 C++11では、テンプレート定義をエクスポートする機能を削除する。
 
 テンプレートのエクスポート機能は、ヘッダファイルでテンプレートを宣言し、ソースファイルでテンプレートを定義することで、コンパイル時間の短縮を目指すものであった。
@@ -28,7 +28,7 @@ EDGフロントエンドとそれを使用するコンパイラのComeauとICC�
 `export`キーワードはC++11標準では使用しなくなるが、将来のために予約されたままとなる。
 
 
-##参照
+## 参照
 - [N3065 Removing Export](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3065.html)
 - [CWG Issue 820. Deprecation of export](https://wg21.cmeerw.net/cwg/issue820)
 - [Using export keyword with templates - StackOverflow](http://stackoverflow.com/questions/5416872/using-export-keyword-with-templates)

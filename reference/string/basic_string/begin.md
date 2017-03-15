@@ -1,4 +1,4 @@
-#begin
+# begin
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -9,19 +9,19 @@ iterator begin() noexcept;
 const_iterator begin() const noexcept;
 ```
 
-##概要
+## 概要
 文字列の先頭を指すイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 先頭を指すイテレータ。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -40,9 +40,9 @@ int main()
 ```
 * begin()[color ff0000]
 
-###出力
+### 出力
 ```
 h
 ```
 
-##参照
+## 参照

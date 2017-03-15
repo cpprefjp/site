@@ -1,4 +1,4 @@
-#wbuffer_convert
+# wbuffer_convert
 * locale[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -15,10 +15,10 @@ namespace std {
 * char_traits[link /reference/string/char_traits.md]
 * basic_streambuf[link ../streambuf/basic_streambuf.md]
 
-##概要
+## 概要
 (ここに、クラスの概要を記載する)
 
-###メンバ関数
+### メンバ関数
 
 | | |
 |----------------------------|--------------------------------------------------|
@@ -26,25 +26,25 @@ namespace std {
 | `rdbuf` | ストリームバッファのリダイレクト |
 | `state` | 変換の状態を取得する |
 
-###メンバ型
+### メンバ型
 
 | | |
 |-------------------------|------------------------------------------------------------------------------------------------------------|
 | `state_type` | ストリームのマルチバイト文字の変換の状態を表す型 `Codecvt::state_type` |
 
-###例
+### 例
 ```cpp
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc):
@@ -52,6 +52,6 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 
-##参照
+## 参照
 - [N2007 Proposed Library Additions for Code Conversion](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2007.html)
 

@@ -1,19 +1,19 @@
-#MATH_ERRNO
+# MATH_ERRNO
 * cmath[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
-#define MATH_ERRNO 1
+# define MATH_ERRNO 1
 ```
 
-##概要
+## 概要
 `MATH_ERRNO`は、[`<cmath>`](../cmath.md)内で[`errno`](../cerrno/errno.md)にエラーが設定されたかを表す整数定数マクロである。
 
 この定数と[`math_errhandling`](math_errhandling.md)でビットANDをとった結果がゼロでないか比較することにより、[`errno`](../cerrno/errno.md)にエラーが設定されたか否かを判定できる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -38,17 +38,17 @@ int main()
 * math_errhandling[link math_errhandling.md]
 * errno[link ../cerrno/errno.md]
 
-###出力例
+### 出力例
 ```
 math error : Numerical argument out of domain
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3
 - [ICC](/implementation.md#icc): ??

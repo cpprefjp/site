@@ -1,4 +1,4 @@
-#try_to_lock
+# try_to_lock
 * mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -11,13 +11,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `try_to_lock_t`型とその値`try_to_lock`は、遅延ロックのためのタグである。
 
 `lock()/unlock()`の呼び出しをRAIIで自動化する[`unique_lock`](unique_lock.md)クラスのコンストラクタで`lock()`の代わりに`try_lock()`を呼び出すために使用する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -45,15 +45,15 @@ int main()
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_error[link /reference/system_error/system_error.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -62,6 +62,6 @@ int main()
     - 11.0, 12.0は`constexpr`が実装されていないため、代わりに`try_to_lock`には`const`が修飾されている。
 
 
-##参照
+## 参照
 
 

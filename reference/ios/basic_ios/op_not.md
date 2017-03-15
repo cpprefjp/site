@@ -1,4 +1,4 @@
-#operator!
+# operator!
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -8,13 +8,13 @@
 bool operator!() const;
 ```
 
-##概要
+## 概要
 現在の状態値が異常を示す値になっていることを判定する演算子関数。
 
-##戻り値
+## 戻り値
 [`fail`](fail.md)`()`。
 
-##実装例
+## 実装例
 ```cpp
 bool operator!() const {
   return fail();
@@ -22,11 +22,11 @@ bool operator!() const {
 ```
 * fail[link fail.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)

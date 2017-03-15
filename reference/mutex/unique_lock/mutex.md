@@ -1,4 +1,4 @@
-#mutex
+# mutex
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
@@ -9,19 +9,19 @@
 mutex_type* mutex() const noexcept;
 ```
 
-##概要
+## 概要
 所有しているミューテックスオブジェクトを取得する
 
 
-##戻り値
+## 戻り値
 保持しているミューテックスオブジェクトへのポインタを返す
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 // libstdc++(pthread)
 #include <iostream>
@@ -46,16 +46,16 @@ int main()
 * mutex()[color ff0000]
 * native_handle()[link /reference/mutex/mutex/native_handle.md]
 
-###出力例
+### 出力例
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -63,6 +63,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

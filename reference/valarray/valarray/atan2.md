@@ -1,4 +1,4 @@
-#atan2
+# atan2
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -17,11 +17,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 逆正接（アークタンジェント：arc tangent）を対辺と隣辺から求める。
 
 
-##戻り値
+## 戻り値
 - (1) : 以下のコードと同等のことを行う：
 
 ```cpp
@@ -58,11 +58,11 @@ return result;
 * atan2[link /reference/cmath/atan2.md]
 
 
-##備考
+## 備考
 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -102,7 +102,7 @@ int main()
 ```
 * atan2[color ff0000]
 
-###出力
+### 出力
 ```
 valarray-valarray : {0.321751,0.785398,1.24905}
 valarray-float : {0.321751,0.588003,0.785398}

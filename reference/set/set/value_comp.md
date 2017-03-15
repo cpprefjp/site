@@ -1,4 +1,4 @@
-#value_comp
+# value_comp
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
@@ -8,22 +8,22 @@
 value_compare value_comp() const;
 ```
 
-##概要
+## 概要
 コンテナに関連づけられた比較オブジェクトを返す。これはコンテナ内の二つの要素を比較するために利用できる。  
 この比較オブジェクトはオブジェクトの構築時にセットされ、関数ポインタであっても関数オブジェクトであっても良い。いずれにせよこれは同じ型の 2 つの引数をとり、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)に従って一つ目の引数が二つ目の引数の前になる場合に `true`、そうでない場合に `false` を返す。  
 `set` コンテナでは、要素の値はキーそのものであり、従って `value_comp` とその兄弟メンバ関数である [`key_comp`](key_comp.md) は同じである。
 
 
-##戻り値
+## 戻り値
 比較オブジェクト。  
 `value_compare` はメンバ型であり、テンプレートパラメータ `Compare` の別名として定義される。
 
 
-##計算量
+## 計算量
 定数時間。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <set>
@@ -40,13 +40,13 @@ int main()
 * value_comp()[color ff0000]
 * insert[link insert.md]
 
-###出力
+### 出力
 ```
 1
 0
 ```
 
-##参照
+## 参照
 
 | 名前                              | 説明                                                     |
 |-----------------------------------|----------------------------------------------------------|

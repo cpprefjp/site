@@ -1,4 +1,4 @@
-#join
+# join
 * thread[meta header]
 * std[meta namespace]
 * thread[meta class]
@@ -9,34 +9,34 @@
 void join();
 ```
 
-##概要
+## 概要
 スレッドが終了するまで待機する
 
 
-##要件
+## 要件
 `thread`オブジェクトにスレッドが関連付けられていること([`joinable()`](joinable.md) `== true`)。
 
 
-##効果
+## 効果
 `this`に関連付けれられたスレッドが完了するまで、この関数を呼び出したスレッドをブロックする。
 
 
-##同期
+## 同期
 関連付けられたスレッドの完了は、`join()`メンバ関数の正常リターンと **同期する** 。
 
 つまり、「`this`に関連付けられたスレッドT1上で行われる全処理の完了」は、
 「`join()`メンバ関数を呼び出したスレッドT0上での同メンバ関数からの正常リターン」よりも **前に発生する** 。
 
 
-##事後条件
+## 事後条件
 `this`は何も指さない空の`thread`オブジェクトとなる。
 
 
-##例外
+## 例外
 join操作に失敗した場合、[`system_error`](/reference/system_error/system_error.md)例外を投げる。
 
 
-##例
+## 例
 
 ```cpp
 #include <cassert>
@@ -60,15 +60,15 @@ int main()
 * join[color ff0000]
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
@@ -79,4 +79,4 @@ int main()
         - main 関数を抜けた後に join() を呼ぶとハングアップするというもの
 
 
-##参照
+## 参照

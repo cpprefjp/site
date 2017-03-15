@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
@@ -12,24 +12,24 @@ packaged_task& operator=(const packaged_task&) = delete; // (1) C++14
 packaged_task& operator=(packaged_task&& rhs) noexcept;  // (2)
 ```
 
-##概要
+## 概要
 - (1) : コピー代入演算子。コピー不可。
 - (2) : ムーブ代入演算子。
 
 
-##効果
+## 効果
 - (2) : `*this`の共有状態を解放し、`packaged_task(`[`std::move`](/reference/utility/move.md)`(rhs)).swap(*this)`を行う。
 
 
-##戻り値
+## 戻り値
 - (2) : `*this`
 
 
-##例外
+## 例外
 - (2) : 投げない
 
 
-##例
+## 例
 ```cpp
 #include <future>
 #include <utility>
@@ -50,15 +50,15 @@ int main()
 ```
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -66,7 +66,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 - [LWG Issue 2067. `packaged_task` should have deleted copy c'tor with const parameter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2067)
 
 

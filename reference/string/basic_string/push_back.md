@@ -1,4 +1,4 @@
-#push_back
+# push_back
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -8,15 +8,15 @@
 void push_back(charT c);
 ```
 
-##概要
+## 概要
 末尾に要素を追加する。
 
 
-##効果
+## 効果
 [`append`](append.md)`(static_cast<size_type>(1), c)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -33,10 +33,10 @@ int main()
 ```
 * push_back[color ff0000]
 
-###出力
+### 出力
 ```
 hello
 ```
 
-##参照
+## 参照
 

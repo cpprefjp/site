@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -20,7 +20,7 @@ valarray& operator=(const indirect_array<T>& x); // (8)
 * mask_array[link /reference/valarray/mask_array.md]
 * indirect_array[link /reference/valarray/indirect_array.md]
 
-##概要
+## 概要
 - (1) : コピー代入
 - (2) : ムーブ代入
 - (3) : 初期化子リストの代入
@@ -32,7 +32,7 @@ valarray& operator=(const indirect_array<T>& x); // (8)
 
 
 
-##効果
+## 効果
 - (1) : `*this`と`x`が異なる要素数の場合、`resize(x.size())`を呼び出す。`*this`の各要素に、`x`の各要素を代入する。
 - (2) : `*this`に`x`の所有権を譲渡する。ムーブ後の`x`の状態は未規定。
 - (3) : `*this = valarray(init)`と等価。
@@ -40,11 +40,11 @@ valarray& operator=(const indirect_array<T>& x); // (8)
 - (5), (6), (7), (8) : `x`が参照している要素を、`*this`に代入する。
 
 
-##計算量
+## 計算量
 - (2) : 全要素のデストラクタを呼び出すために、線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -122,7 +122,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 va1 : {1,2,3}
 va2 : {1,2,3}
@@ -134,7 +134,7 @@ va7 : {1,3,5}
 va8 : {1,3,5}
 ```
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (3)の経緯となる提案文書
 - [LWG Issue 2071. `std::valarray` move-assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2071)

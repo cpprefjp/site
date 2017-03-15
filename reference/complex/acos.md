@@ -1,4 +1,4 @@
-#acos
+# acos
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 複素数値の逆余弦（アークコサイン：arc cosine）を得る。
 
 
-##戻り値
+## 戻り値
 引数 `x` の逆余弦。本関数の値域は、虚軸方向は全域で、実軸方向は `[0, π]` の区間である。
 
 
-##備考
+## 備考
 - 本関数は実軸の区間 `[-1, +1]` の外側を分岐截断とする。
 - 本関数は、C99 の規格にある `cacos`（より正確には `complex.h` ヘッダの `cacos`、`cacosf`、`cacosl` の 3 つ。それぞれ C++ の `acos<double>`、`acos<float>`、`acos<long double>` に相当）と同等である。  
 	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
@@ -48,7 +48,7 @@ namespace std {
 	| [`valarray`](/reference/valarray.md)`<T>` | [`acos`](/reference/valarray/valarray/acos.md) | [`valarray`](/reference/valarray.md) |            |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <complex>
@@ -63,34 +63,34 @@ int main()
 ```
 * std::acos[color ff0000]
 
-###出力
+### 出力
 ```
 acos( (1,2) ) = (1.14372,-1.52857)
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 -2.0i * log(sqrt((1.0 + c) / 2.0) + 1.0i * sqrt((1.0 - c) / 2.0));
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0, 14.1
 
-###備考
+### 備考
 - libstdc++ では（規格通りに）C++11 以降のモードでなければ本関数は使用できないが、libc++ では C++98 モードでも使用することができる。（上記の [Clang](/implementation.md#clang) が C++11 モードになっていないのはそのため）
 - libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。  
 	しかし、glibc を使用していない libstdc++、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
 
 
-##参照
+## 参照
 |                                    |                                           |
 |------------------------------------|-------------------------------------------|
 | [`asin`](asin.md)                  | 複素数の逆正弦を求める。                  |

@@ -1,4 +1,4 @@
-#mem_fn
+# mem_fn
 * functional[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -13,21 +13,21 @@ namespace std {
 * unspecified[italic]
 
 
-##概要
+## 概要
 与えられたメンバ関数を呼び出す [*Callable*](/reference/functional/callable.md) オブジェクトを生成して返す。
 
 
-##戻り値
+## 戻り値
 `fn(t, a2, ..., aN)` の呼出しが [*INVOKE*](invoke.md)`(pm, t, a2, ..., aN)` と等価となる [*Callable*](callable.md) オブジェクト `fn` を返す。
 
 `fn` の型には、必要に応じて型の別名 `argument_type`, `first_argument_type`, `second_argument_type`, `result_type` が定義される。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <functional>
 #include <memory>
@@ -55,7 +55,7 @@ int main() {
 * std::bind[link bind.md]
 * std::placeholders::_1[link placeholders.md]
 
-###出力
+### 出力
 ```
 true
 true
@@ -63,11 +63,11 @@ true
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -75,7 +75,7 @@ true
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [LWG Issue 2048. Unnecessary `mem_fn` overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2048)
     - 不必要なオーバーロードを、C++14で削除
 

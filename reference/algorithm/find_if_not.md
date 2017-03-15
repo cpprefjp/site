@@ -1,4 +1,4 @@
-#find_if_not
+# find_if_not
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -13,19 +13,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 範囲の中から、指定された条件を満たさない最初の要素を検索する。
 
 
-##戻り値
+## 戻り値
 `[first,last)` 内のイテレータ `i` について、`pred(*i) == false` である最初のイテレータを返す。そのようなイテレータが見つからなかった場合は `last` を返す。
 
 
-##計算量
+## 計算量
 最大で `last - first` 回述語による比較を行う
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -44,13 +44,13 @@ int main() {
 ```
 * std::find_if_not[color ff0000]
 
-###出力
+### 出力
 ```
 found: 1
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class Predicate>
 InputIterator find_if_not(InputIterator first, InputIterator last, Predicate pred) {
@@ -61,7 +61,7 @@ InputIterator find_if_not(InputIterator first, InputIterator last, Predicate pre
 ```
 
 
-##参照
+## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 

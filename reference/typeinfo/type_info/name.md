@@ -1,4 +1,4 @@
-#name
+# name
 * typeinfo[meta header]
 * std[meta namespace]
 * type_info[meta class]
@@ -8,26 +8,26 @@
 const char* name() const noexcept;
 ```
 
-##概要
+## 概要
 実装定義の型名を取得する
 
 
-##戻り値
+## 戻り値
 実装定義の型名を返す。
 
 
-##例外
+## 例外
 
 投げない
 
 
-##備考
+## 備考
 GCC(libstdc++)は、少なくても4.7時点まではマングリングされた名前を返す。完全な型名を取得するには、デマングルする必要がある。参照：
 
 [C++ のシンボルをデマングルする - bkブログ](http://0xcc.net/blog/archives/000095.html)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <typeinfo>
@@ -40,12 +40,12 @@ int main()
 ```
 * name[color ff0000]
 
-###出力
+### 出力
 ```
 i
 c
 ```
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -32,11 +32,11 @@ vector(initializer_list<T> il,
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 `vector`オブジェクトを次に示す通りの要素で初期化する。
 
 
-##効果
+## 効果
 
 - (1) : デフォルトコンストラクタ。`size() == 0` の要素を持たない空の `vector` オブジェクトを構築する。
 - (2) : アロケータを別で受け取り、`size() == 0` の要素を持たない空の `vector` オブジェクトを構築する。
@@ -54,7 +54,7 @@ vector(initializer_list<T> il,
 - (10) : 初期化子リストを受け取るコンストラクタ。`vector(il.`[`begin`](../initializer_list/begin.md)`(), li.`[`end`](../initializer_list/end.md)`(), a)` と等価。
 
 
-##計算量
+## 計算量
 - (1), (2) : 定数時間
 - (3), (4) : `n` に対して線形時間
 - (5) : [`distance`](../iterator/distance.md)`(first, last)` に対して線形時間。`InputIter` が前方向イテレータの要件を満たさない場合はあらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。
@@ -65,7 +65,7 @@ vector(initializer_list<T> il,
 - (10) : `il.`[`size`](../initializer_list/size.md)`()` に対して線形時間
 
 
-##備考
+## 備考
 - イテレータ範囲コンストラクタ(5) `template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator())` は、C++03 までは `InputIter` が整数型の場合には `vector(static_cast<typename vector::size_type>(first), static_cast<typename vector::value_type>(last), a)` と同等とされていたが、C++11 では `InputIter` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、`explicit vector(size_type n, const T& value = T(), const Allocator& a = Allocator())` の引数 `value` に関するデフォルト引数が削除され、新たなコンストラクタ `explicit vector(size_type n)` が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`vector` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `vector` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
@@ -103,7 +103,7 @@ int main()
 * emplace_back[link ../list/emplace_back.md]
 
 
-##例
+## 例
 ```cpp
 #include <vector>
 
@@ -152,7 +152,7 @@ int main ()
 * begin[link ../iterator/begin.md]
 * end[link ../iterator/end.md]
 
-###出力
+### 出力
 ```
 first : {}
 second : {100 100 100 100 }
@@ -163,7 +163,7 @@ sixth : {1 2 3 }
 ```
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (10)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  

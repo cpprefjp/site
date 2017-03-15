@@ -1,4 +1,4 @@
-#forward_as_tuple
+# forward_as_tuple
 * tuple[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -14,20 +14,20 @@ namespace {
 }
 ```
 
-##概要
+## 概要
 パラメータの元の型からなる`tuple`を生成する。左辺値参照型は左辺値参照型として、右辺値は右辺値参照として転送される。
 
 
-##戻り値
+## 戻り値
 
 パラメータの元の型からなる`tuple`オブジェクト
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <tuple>
@@ -47,15 +47,15 @@ int main()
 ```
 * forward_as_tuple[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -63,9 +63,9 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) 
 
 
-##注意事項
+## 注意事項
 `forward_as_tuple`は、ドラフト仕様の段階で`pack_arguments`という名前で一時期表記されていた。  
 コンパイラのバージョンによっては、この名前での実装もありえる。
 
-##参照
+## 参照
 - [LWG2275 - Why is forward_as_tuple not constexpr?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2275)

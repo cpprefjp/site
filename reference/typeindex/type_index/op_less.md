@@ -1,4 +1,4 @@
-#operator<
+# operator<
 * typeindex[meta header]
 * std[meta namespace]
 * type_index[meta class]
@@ -9,21 +9,21 @@
 bool operator<(const type_index& rhs) const noexcept;
 ```
 
-##概要
+## 概要
 左辺が右辺より小さいかの判定を行う。
 
 
-##戻り値
+## 戻り値
 `target->before(*rhs.target)`
 
 ※`target`は、`type_index`のメンバ変数として保持されている`type_info`オブジェクトへのポインタ(説明用)
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <typeindex>
@@ -54,18 +54,18 @@ int main()
 ```
 * std::less<std::type_index>[color ff0000]
 
-###出力例
+### 出力例
 ```
 char
 double
 int
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ?

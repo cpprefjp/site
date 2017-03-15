@@ -1,7 +1,7 @@
-#ブロックスコープを持つstatic変数初期化のスレッドセーフ化
+# ブロックスコープを持つstatic変数初期化のスレッドセーフ化
 * cpp11[meta cpp]
 
-##概要
+## 概要
 ブロックスコープを持つ`static`変数の初期化は、スレッドセーフであることが規定された。
 
 `static`変数の初期化が完了するまで、他のスレッドは初期化処理の前で待機する。
@@ -18,20 +18,20 @@ public:
 ```
 
 
-##仕様
-###staticローカル変数の初期化
+## 仕様
+### staticローカル変数の初期化
 - ローカルの`static`変数を宣言と同時に初期化した場合、並行実行は初期化が完了するまで待機しなければならない
 
 
-###非ローカルなstatic変数の初期化
+### 非ローカルなstatic変数の初期化
 - 非ローカルな`static`変数の初期化は、`main()`関数が開始する前に順不同で行われること
 
 
-###static変数のデストラクタ
+### static変数のデストラクタ
 - `static`変数のデストラクタは、全てのスレッドが終了したあとに、宣言と逆の順番にデストラクタが呼び出され、破棄される
 
 
-##例
+## 例
 ```cpp
 #include <thread>
 #include <vector>
@@ -76,12 +76,12 @@ int main()
 * join()[link /reference/thread/thread/join.md]
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 ローカルの`static`変数を初期化することがスレッドセーフではなかった前バージョンまでは、同じことをするために、Double Checked Lockingという技法によって、ユーザーが初期化をスレッドセーフにしていた。それは、以下のようなものである：
 
 1. `static`ローカル変数の代わりに、ポインタを`static`メンバ変数として持つ
@@ -93,7 +93,7 @@ int main()
 そのために、言語によって`static`変数の初期化がスレッドセーフであることを保証することとなった。
 
 
-##参照
+## 参照
 - [N2148 Dynamic Initialization and Destruction with Concurrency](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2148.html)
 - [N2325 Dynamic Initialization and Destruction with Concurrency](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2325.html)
 - [N2382 Dynamic Initialization and Destruction with Concurrency](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2382.html)

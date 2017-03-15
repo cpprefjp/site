@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]
@@ -21,18 +21,18 @@ explicit wstring_convert(
 wstring_convert(const wstring_convert&) = delete;      // (4) C++14
 ```
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ。
 - (2) : コード変換機、および変換状態を受け取るコンストラクタ。
 - (3) : 変換に失敗した際に返す文字列を受け取るコンストラクタ。
 - (4) : コピーコンストラクタ。コピー不可。これによりムーブも不可。
 
 
-##要件
+## 要件
 - (2) : `pcvt != nullptr`であること。
 
 
-##効果
+## 効果
 - (1) : コード変換機のインスタンス`pcvt`をメンバ変数として保持し、[`from_bytes()`](from_bytes.md)および[`to_bytes()`](to_bytes.md)関数でのコード変換に使用する。
     - [`from_bytes()`](from_bytes.md)メンバ関数での変換失敗時に返されるワイド文字列は未設定となる。
     - [`to_bytes()`](to_bytes.md)メンバ関数での変換失敗時に返されるバイト文字列は未設定となる。
@@ -45,7 +45,7 @@ wstring_convert(const wstring_convert&) = delete;      // (4) C++14
     - [`state()`](state.md)メンバ関数で返される状態は、初期状態となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -74,23 +74,23 @@ int main()
 * std::codecvt_utf8[link /reference/codecvt/codecvt_utf8.md]
 * std::mbstate_t[link /reference/cwchar/mbstate_t.md.nolink]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 
-##参照
+## 参照
 - [LWG Issue 2175. `wstring_convert` and `wbuffer_convert` validity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2176)
 - [LWG Issue 2176. Special members for `wstring_convert` and `wbuffer_convert`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2176)
 

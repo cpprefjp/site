@@ -1,4 +1,4 @@
-#for_each
+# for_each
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -12,34 +12,34 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 範囲の全ての要素に、指定された関数を適用する。
 
 
-##要件
+## 要件
 `Function` は `MoveConstructible` の要件を満たす必要があるが、`CopyConstructible` の要件を満たす必要はない。（C++11のみ）
 
 
-##効果
+## 効果
 `[first,last)` 内の全てのイテレータ `i` に `f(*i)` という操作を行う。`first` から順番に処理し、`last - 1` まで行う。
 
 このアルゴリズムはその他のアルゴリズムと違い、`Function` の内部で `*i` の値を書き換えても構わない（もちろんイテレータの型が `mutable iterator` の要件を満たしている場合に限る）。
 
 
-##戻り値
+## 戻り値
 * C++03 の場合 : `f`
 * C++11 の場合 : `std::move(f)`
 
 
-##計算量
+## 計算量
 正確に `f` を `last - first` 回適用する
 
 
-##備考
+## 備考
 `f` に戻り値がある場合、それは単に無視される。
 
 
-##例(C++03バージョン)
+## 例(C++03バージョン)
 ```cpp
 #include <iostream>
 #include <vector>
@@ -77,7 +77,7 @@ int main() {
 * std::for_each[color ff0000]
 * v.push_back[link /reference/vector/push_back.md]
 
-###出力
+### 出力
 ```
 3
 1
@@ -89,7 +89,7 @@ int main() {
 ```
 
 
-##例(C++11バージョン)
+## 例(C++11バージョン)
 ```cpp
 #include <iostream>
 #include <vector>
@@ -116,7 +116,7 @@ int main() {
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
-###出力
+### 出力
 ```
 3
 1
@@ -128,7 +128,7 @@ int main() {
 ```
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc):
@@ -137,7 +137,7 @@ int main() {
     - C++11への対応（戻り値のムーブ）は11.0から。
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class Function>
 Function for_each(InputIterator first, InputIterator last, Function f) {

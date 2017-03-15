@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * timed_mutex[meta class]
@@ -10,12 +10,12 @@ timed_mutex();                            // (1)
 timed_mutex(const timed_mutex&) = delete; // (2)
 ```
 
-##timed_mutexオブジェクトの構築
+## timed_mutexオブジェクトの構築
 - (1) : デフォルトコンストラクタ。`timed_mutex`オブジェクトの初期化を行う。
 - (2) : コピーコンストラクタ。コピー不可。
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`resource_unavailable_try_again`](/reference/system_error/errc.md): native handle型の計算ができない
@@ -24,7 +24,7 @@ timed_mutex(const timed_mutex&) = delete; // (2)
 - [`invalid_argument`](/reference/system_error/errc.md) : ミューテックスを構築する一部のnative handle型計算が正しくない
 
 
-##例
+## 例
 ```cpp
 #include <mutex>
 
@@ -35,15 +35,15 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -52,6 +52,6 @@ int main()
     - 11.0はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
-##参照
+## 参照
 
 

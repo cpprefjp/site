@@ -1,4 +1,4 @@
-#empty
+# empty
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -9,23 +9,23 @@
 bool empty() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナが空かどうかを判定する
 
 
-##戻り値
+## 戻り値
 コンテナが空であれば`true`、そうでなければ`false`を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -48,17 +48,17 @@ int main()
 ```
 * empty()[color ff0000]
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -66,6 +66,6 @@ false
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

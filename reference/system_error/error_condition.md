@@ -1,4 +1,4 @@
-#error_condition
+# error_condition
 * system_error[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `error_condition`は、[`error_code`](error_code.md)に紐付くエラーを表現することを可能にするためのクラスである。
 
 VC10、GCC 4.6.1では[`generic_category()`](generic_category.md)と[`system_category()`](system_category.md)の[`error_category`](error_category.md)オブジェクトは[`name()`](error_category/name.md)メンバ関数を除いて同じ挙動を行い、それぞれの[`default_error_conditon()`](error_category/default_error_condition.md)メンバ関数も同じエラー値、同じカテゴリの`error_condition`を構築するため、実質[`error_code`](error_code.md)と`error_condition`は標準カテゴリでは等価な動作をする。だが、[`error_category`](error_category.md)を継承した新たなカテゴリを定義することにより、以下のようなエラーを表現することが可能となる：
@@ -20,7 +20,7 @@ VC10、GCC 4.6.1では[`generic_category()`](generic_category.md)と[`system_cat
 - システムのエラーコードを汎用のエラーコードに変換し、[`error_code`](/reference/system_error/error_code.md)にはシステムの環境依存エラー値、`error_condition`には環境依存しない汎用エラー値を格納する
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -35,7 +35,7 @@ VC10、GCC 4.6.1では[`generic_category()`](generic_category.md)と[`system_cat
 | [`explicit operator bool`](error_condition/op_bool.md) | エラーかどうかを判定する | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -71,17 +71,17 @@ int main()
 * cond.value()[link error_condition/value.md]
 * cond.message()[link error_condition/message.md]
 
-###出力
+### 出力
 ```
 22
 Invalid argument
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -89,5 +89,5 @@ Invalid argument
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照
 

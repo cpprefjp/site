@@ -1,4 +1,4 @@
-#nullptr_t
+# nullptr_t
 * cstddef[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -10,10 +10,10 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `nullptr`の型。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <type_traits>
@@ -36,7 +36,7 @@ int main()
 * std::is_array[link /reference/type_traits/is_array.md]
 * std::is_class[link /reference/type_traits/is_class.md]
 
-###出力
+### 出力
 ```
 sizeof(nullptr_t): 4
 is_object<nullptr_t>: 1
@@ -46,17 +46,17 @@ is_array<nullptr_t>: 0
 is_class<nullptr_t>: 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
-####備考
+#### 備考
 Visual C++ 2010, 2012では[`is_scalar`](../type_traits/is_scalar.md)`<nullptr_t>`が`false_type`（からの派生クラス）となっているバグがある。
 

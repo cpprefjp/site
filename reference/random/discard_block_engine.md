@@ -1,4 +1,4 @@
-#discard_block_engine
+# discard_block_engine
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -16,19 +16,19 @@ namespace std {
 * ranlux24[link ranlux24.md]
 * ranlux48[link ranlux48.md]
 
-##概要
+## 概要
 `discard_block_engine`クラスは、乱数生成エンジンが生成する乱数を調整し、捨てるブロックと使用するブロックに分ける生成器アダプタである。  
 テンプレートパラメータ`p`はブロックの全体サイズ、`r`は使用するブロックサイズである。`p - r`が破棄するブロックサイズとなる。  
 
 この生成器アダプタは、標準内においては[`subtract_with_carry_engine`](subtract_with_carry_engine.md)クラスと組み合わせて、RANLUX(LUXury RANdom numbers)法を実装するために使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
 
 
-##要件
+## 要件
 `0 < r`かつ`r <= p`であること。
 
 
-##メンバ関数
-###構築・シード
+## メンバ関数
+### 構築・シード
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------|------------------|-------|
@@ -37,7 +37,7 @@ namespace std {
 | [`seed`](discard_block_engine/seed.md)                          | シードを設定する | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|--------------------|-------|
@@ -45,15 +45,15 @@ namespace std {
 | [`discard`](discard_block_engine/discard.md)    | 指定した回数だけ乱数を生成し、内部状態を進める | C++11 |
 
 
-###エンジンの特性
+### エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|------------------------------|-------|
 | [`base`](discard_block_engine/base.md) | 元となる乱数生成器を取得する | C++11 |
 
 
-##静的メンバ関数
-###エンジンの特性
+## 静的メンバ関数
+### エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
@@ -61,14 +61,14 @@ namespace std {
 | [`max`](discard_block_engine/max.md) | 生成し得る値の最大値を取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
 | `result_type` | 擬似乱数生成結果型 `typename Engine::result_type`。 | C++11 |
 
 
-##メンバ定数
+## メンバ定数
 
 | 定数 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
@@ -76,7 +76,7 @@ namespace std {
 | `static constexpr size_t used_size`  | 使用するブロックサイズ。テンプレートパラメータ`r`。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
@@ -86,7 +86,7 @@ namespace std {
 | [`operator>>`](discard_block_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -131,7 +131,7 @@ int main()
 * std::discard_block_engine[color ff0000]
 * engine()[link discard_block_engine/op_call.md]
 
-###出力
+### 出力
 ```
 0
 1
@@ -149,10 +149,10 @@ int main()
 
 
 ## バージョン
-###言語
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2

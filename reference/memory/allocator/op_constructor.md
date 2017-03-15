@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * memory[meta header]
 * std[meta namespace]
 * allocator[meta class]
@@ -16,15 +16,15 @@ allocator(const allocator&) noexcept;
 template <class U> allocator(const allocator<U>&) noexcept;
 ```
 
-##概要
+## 概要
 `allocator`オブジェクトを構築する。
 
 
-##例外
+## 例外
 投げない。
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 
@@ -34,7 +34,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 

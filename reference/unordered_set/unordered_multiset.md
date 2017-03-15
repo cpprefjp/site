@@ -1,4 +1,4 @@
-#unordered_multiset
+# unordered_multiset
 * unordered_set[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -17,7 +17,7 @@ namespace std {
 * equal_to[link /reference/functional/equal_to.md]
 * allocator[link /reference/memory/allocator.md]
 
-##概要
+## 概要
 `unordered_multiset` は、同一キーの要素を複数格納できる、格納順が規定されていないコンテナである。
 
 一般的には `hash multiset` と呼ばれるコンテナであるが、標準への採用が遅かったことから、既に存在する各種コンテナとの名前の衝突を避けるため、`unordered_multiset` と名付けられた。
@@ -47,8 +47,8 @@ namespace std {
 テンプレートパラメータ `Allocator` は、Allocator requirements を満たさなければならない。
 
 
-##メンバ関数
-###構築／コピー／破棄
+## メンバ関数
+### 構築／コピー／破棄
 
 |                                                               |                |
 |---------------------------------------------------------------|----------------|
@@ -57,7 +57,7 @@ namespace std {
 | [`operator=`](unordered_multiset/op_assign.md)              | 代入演算子     |
 
 
-###領域
+### 領域
 
 |                                                |                              |
 |------------------------------------------------|------------------------------|
@@ -66,7 +66,7 @@ namespace std {
 | [`max_size`](unordered_multiset/max_size.md) | 格納可能な最大の要素数の取得 |
 
 
-###イテレータ
+### イテレータ
 
 |                                            |                                                |
 |--------------------------------------------|------------------------------------------------|
@@ -76,7 +76,7 @@ namespace std {
 | [`cend`](unordered_multiset/cend.md)     | 最終要素の次を指す読み取り専用イテレータの取得 |
 
 
-###アロケータ
+### アロケータ
 
 
 |                                                          |                              |
@@ -84,7 +84,7 @@ namespace std {
 | [`get_allocator`](unordered_multiset/get_allocator.md) | アロケータオブジェクトの取得 |
 
 
-###コンテナの変更
+### コンテナの変更
 
 |                                                        |                                                        |
 |--------------------------------------------------------|--------------------------------------------------------|
@@ -96,7 +96,7 @@ namespace std {
 | [`swap`](unordered_multiset/swap.md)                 | 内容の交換                                             |
 
 
-###オブザーバー
+### オブザーバー
 
 |                                                          |                                  |
 |----------------------------------------------------------|----------------------------------|
@@ -104,7 +104,7 @@ namespace std {
 | [`key_eq`](unordered_multiset/key_eq.md)               | キー比較用関数オブジェクトの取得 |
 
 
-###検索
+### 検索
 
 |                                                      |                            |
 |------------------------------------------------------|----------------------------|
@@ -113,7 +113,7 @@ namespace std {
 | [`equal_range`](unordered_multiset/equal_range.md) | 指定したキーの範囲を取得   |
 
 
-###バケットインタフェース
+### バケットインタフェース
 
 |                                                                 |                                                                                            |
 |-----------------------------------------------------------------|--------------------------------------------------------------------------------------------|
@@ -127,7 +127,7 @@ namespace std {
 | [`cend(size_type)`](unordered_multiset/cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
 
 
-###ハッシュポリシー
+### ハッシュポリシー
 
 |                                                              |                                                    |
 |--------------------------------------------------------------|----------------------------------------------------|
@@ -137,7 +137,7 @@ namespace std {
 | [`reserve`](unordered_multiset/reserve.md)                 | 最小要素数指定によるバケット数の調整               |
 
 
-##メンバ型
+## メンバ型
 
 |                        |                                          |
 |------------------------|------------------------------------------|
@@ -158,7 +158,7 @@ namespace std {
 | `const_local_iterator` | 同一バケット内のみで有効な読み取り専用イテレータ。<br/>`const_iterator` と、`iterator_category`、`value_type`、`difference_type`、`pointer`、`reference` は同一である。 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 |                                                      |            |
 |------------------------------------------------------|------------|
@@ -167,7 +167,7 @@ namespace std {
 | [`operator!=`](unordered_multiset/op_not_equal.md) | 非等値比較 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -211,17 +211,17 @@ int main()
 * insert[link unordered_multiset/insert.md]
 * erase[link unordered_multiset/erase.md]
 
-###出力
+### 出力
 ```
 3rd element, 1st element, 2nd element, 
 4th element, 3rd element, 1st element, 2nd element, 2nd element, 
 4th element, 3rd element, 1st element, 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11:
 
-##参照
+## 参照
 - [Unordered associative containers do not use allocator_traits to define member types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2050) （上記の `pointer`、`const_pointer`、`reference`、`const_reference` の問題に対する修正案）
 

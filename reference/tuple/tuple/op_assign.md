@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * tuple[meta header]
 * std[meta namespace]
 * tuple[meta class]
@@ -23,7 +23,7 @@ tuple& operator=(pair<U1, U2>&&);             // (6)
 ```
 * pair[link /reference/utility/pair.md]
 
-##概要
+## 概要
 - (1) : コピー代入を行う
 - (2) : ムーブ代入を行う
 - (3) : 変換可能な`tuple`からのコピー代入を行う
@@ -32,7 +32,7 @@ tuple& operator=(pair<U1, U2>&&);             // (6)
 - (6) : 変換可能な`pair`からのムーブ代入を行う
 
 
-##要件
+## 要件
 - (1) : `tuple`の全ての要素型`i`が[`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<i>::value == true`であること
 - (2) : `tuple`の全ての要素型`i`が[`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<i>::value == true`であること
 - (3) : パラメータの`tuple`の全ての要素型が、元の`tuple`の全ての要素型にコピー代入可能であり、要素数が同じであること
@@ -41,12 +41,12 @@ tuple& operator=(pair<U1, U2>&&);             // (6)
 - (6) : 元の`tuple`の要素型が2であり、パラメータの`pair`の全ての要素型が元の`tuple`の全ての要素型にムーブ代入可能であること
 
 
-##例外
+## 例外
 - (2) : `tuple`の全ての要素型`i`が`is_nothrow_move_assignable<i>::value == true`の場合、決して例外を投げない。
 - (4) : パラメータの`tuple`の全ての要素型が、元の`tuple`の全ての要素型にムーブ代入可能であり、要素数が同じであること
 
 
-##例
+## 例
 ```cpp
 #include <string>
 #include <tuple>
@@ -88,21 +88,21 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp) 
 
 
-##参照
+## 参照
 
 

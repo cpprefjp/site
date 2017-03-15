@@ -1,4 +1,4 @@
-#upper_bound
+# upper_bound
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
@@ -16,7 +16,7 @@ template <class K>
 const_iterator upper_bound(const K& x) const;        // (4) C++14
 ```
 
-##概要
+## 概要
 `x` より大きいコンテナ内の最初の要素を指すイテレータを返す（コンテナの比較オブジェクトを使う）。
 
 [`lower_bound()`](lower_bound.md) と異なり、このメンバ関数は `x` と等しいときは要素へのイテレータを返さず、それは大きい場合にのみ要素へのイテレータを返す。
@@ -27,20 +27,20 @@ const_iterator upper_bound(const K& x) const;        // (4) C++14
 - (2), (4) : `key_type`と比較可能な`K`型のキーを受け取り、そのキーより大きい最初の要素へのイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 - (1), (3) : キー`x`より大きい最初の要素へのイテレータを返す。そのような要素がない場合は、[`end()`](end.md)を返す。
 - (2), (4) : `key_compare`型の関数オブジェクトを`c`、コンテナ内の各要素が持つキーを`k`として、キーが小さくないか判定する式`c(x, k)`が`true`となる要素へのイテレータを返す。そのような要素がない場合は、[`end()`](end.md) を返す。
 
 
-##計算量
+## 計算量
 [`size()`](size.md) について対数時間。
 
 
-##備考
+## 備考
 - (2), (4) : この関数がオーバーロード解決に参加する条件は、[`find()`](find.md)メンバ関数の備考欄を参照。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -84,7 +84,7 @@ int main()
 * s.lower_bound[link lower_bound.md]
 * std::less[link /reference/functional/less.md]
 
-###出力
+### 出力
 ```
 B
 B
@@ -97,7 +97,7 @@ C
 D
 ```
 
-##関連項目
+## 関連項目
 
 | 名前                              | 説明                                                       |
 |-----------------------------------|------------------------------------------------------------|
@@ -107,6 +107,6 @@ D
 | [`count`](count.md)             | 指定したキーにマッチする要素の数を返す                     |
 
 
-##参照
+## 参照
 - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
 

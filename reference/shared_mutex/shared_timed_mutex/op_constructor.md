@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
@@ -10,12 +10,12 @@ shared_timed_mutex();                                   // (1)
 shared_timed_mutex(const shared_timed_mutex&) = delete; // (2)
 ```
 
-##timed_mutexオブジェクトの構築
+## timed_mutexオブジェクトの構築
 - (1) : デフォルトコンストラクタ。`shared_timed_mutex`オブジェクトの初期化を行う。
 - (2) : コピーコンストラクタ。コピー不可。
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`resource_unavailable_try_again`](/reference/system_error/errc.md): native handle型の計算ができない
@@ -24,7 +24,7 @@ shared_timed_mutex(const shared_timed_mutex&) = delete; // (2)
 - [`invalid_argument`](/reference/system_error/errc.md) : ミューテックスを構築する一部のnative handle型計算が正しくない
 
 
-##例
+## 例
 ```cpp
 #include <shared_mutex>
 
@@ -35,15 +35,15 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

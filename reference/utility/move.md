@@ -1,4 +1,4 @@
-#move (utility)
+# move (utility)
 * utility[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -15,24 +15,24 @@ namespace std {
 ```
 * remove_reference[link /reference/type_traits/remove_reference.md]
 
-##概要
+## 概要
 左辺値を右辺値にキャストする。
 
 この関数は、渡されたオブジェクトを右辺値参照にキャストし、ムーブセマンティクスを適用させる。
 
 
-##戻り値
+## 戻り値
 ```cpp
 static_cast<typename std::remove_reference<T>::type &&>(t)
 ```
 * std::remove_reference[link /reference/type_traits/remove_reference.md]
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -62,7 +62,7 @@ int main()
 ```
 * move[color ff0000]
 
-###出力
+### 出力
 ```
 copy
 move
@@ -70,12 +70,12 @@ move
 
 上記の`a1`の初期化において、`a`は左辺値なので、コンストラクタ`A(const A&)`が呼び出され、`a1`は`a`からコピーされる。`a2`の初期化においては、`std::move(a)`呼び出しのため、コンストラクタ`A(A&&)`が呼ばれ、`a2`は`a`からムーブされる。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -83,7 +83,7 @@ move
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 - [N1377 A Proposal to Add Move Semantics Support to the C++ Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1377.htm)
 - [N1690 A Proposal to Add an Rvalue Reference to the C++ Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1690.html)

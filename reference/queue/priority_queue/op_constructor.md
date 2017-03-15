@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * queue[meta header]
 * std[meta namespace]
 * priority_queue[meta class]
@@ -59,7 +59,7 @@ priority_queue(priority_queue&& que,
                const Alloc& alloc);                       // (14) C++11
 ```
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ
 - (2) : 比較関数と、元となるコンテナのコピーから構築するコンストラクタ。
 - (3) : デフォルトコンストラクタ。比較関数のコピーと、元となるコンテナをムーブして構築する。
@@ -74,11 +74,11 @@ priority_queue(priority_queue&& que,
 - (14) : アロケータ指定でムーブ構築する
 
 
-##要件
+## 要件
 `Compare`型パラメータ`x`が、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)で定義されていること。
 
 
-##効果
+## 効果
 - (1) :
     1. メンバ変数`comp`を`x`でコピー構築する。
     2. メンバ変数`c`を`other`でコピー構築する。
@@ -132,7 +132,7 @@ priority_queue(priority_queue&& que,
     4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -179,14 +179,14 @@ int main()
 * que.pop()[link pop.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 que3 : 
 que4 : 4 3 1 
 que5 : 5 4 3 2 1 
 ```
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0(アロケータ付き初期化以外は使用可能)
@@ -194,6 +194,6 @@ que5 : 5 4 3 2 1
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

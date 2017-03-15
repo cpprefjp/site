@@ -1,4 +1,4 @@
-#assign
+# assign
 * regex[meta header]
 * std[meta namespace]
 * basic_regex[meta class]
@@ -33,15 +33,15 @@ basic_regex& assign(initializer_list<charT> il,
 * basic_string[link ../../string/basic_string.md]
 
 
-##概要
+## 概要
 正規表現オブジェクトを代入する。
 
 
-##要件
+## 要件
 - `InputIterator` は入力イテレータの要件を満たすこと。
 
 
-##効果
+## 効果
 - (1) `that` を `*this` にコピーする。
 - (2) `that` を `*this` にムーブ代入する。
 - (3) `assign(string_type(ptr), f)` と同等。
@@ -52,7 +52,7 @@ basic_regex& assign(initializer_list<charT> il,
 - (7) `assign(il.begin(), il.end(), f)` と同等。
 
 
-##事後条件
+## 事後条件
 - (1) [`flags`](flags.md)`()` と [`mark_count`](mark_count.md) は、それぞれ `that.`[`flags`](flags.md)`()` と `that.`[`mark_count`](mark_count.md) を返す。
 - (2) [`flags`](flags.md)`()` と [`mark_count`](mark_count.md) は、それぞれ `that.`[`flags`](flags.md)`()` と `that.`[`mark_count`](mark_count.md) の元の値を返す。  
     `that` は未規定の有効な状態である。
@@ -63,18 +63,18 @@ basic_regex& assign(initializer_list<charT> il,
 - (7) -
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##備考
+## 備考
 - `charT` は `basic_regex` の 1 番目のテンプレートパラメータで、文字型である。
 - `string_type` は `traits_type::string_type` の別名で、デフォルトは [`basic_string`](../../string/basic_string.md)`<charT>` である。
 - `traits_type` は `basic_regex` の 2 番目のテンプレートパラメータで、デフォルトは [`regex_traits`](../regex_traits.md)`<charT>` である。
 - `flag_type` は [`regex_constants::syntax_option_type`](../regex_constants/syntax_option_type.md) の別名である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -106,7 +106,7 @@ int main()
 ```
 * std::regex_search[link ../regex_search.md]
 
-###出力
+### 出力
 ```
 true
 false
@@ -116,11 +116,11 @@ true
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -128,12 +128,12 @@ true
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 Clang バージョン 3.0 は [`initializer_list`](../../initializer_list.md) に対応していないため、(7) の形式は提供されていない。  
 また、Clang(libc++) では例外が発生した場合に `*this` が元の状態を保持せずに中途半端に更新されてしまう。
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (7)の経緯となる提案文書
 

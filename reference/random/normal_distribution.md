@@ -1,4 +1,4 @@
-#normal_distribution
+# normal_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -12,7 +12,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `normal_distribution`は、平均μ、標準偏差σの正規分布にしたがう乱数を生成するクラスである。
 
 $$ p(x \mid \mu, \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \exp \left( - \frac{(x - \mu)^2}{2 \sigma ^2} \right) $$
@@ -31,8 +31,8 @@ $$ p(x \mid \mu, \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \exp \left( - \frac{(x
 - `RealType` : 生成する実数の型。
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------------|--------------------|-------|
@@ -41,14 +41,14 @@ $$ p(x \mid \mu, \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \exp \left( - \frac{(x
 | [`reset`](normal_distribution/reset.md)                       | 状態をリセットする | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------|-------|
 | [`operator()`](normal_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------|-------|
@@ -59,7 +59,7 @@ $$ p(x \mid \mu, \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \exp \left( - \frac{(x
 | [`max`](normal_distribution/max.md)       | 生成し得る値の上限を取得する   | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
@@ -67,7 +67,7 @@ $$ p(x \mid \mu, \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \exp \left( - \frac{(x
 | `param_type`  | 分布パラメータの型。未規定。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------------|-------|
@@ -77,7 +77,7 @@ $$ p(x \mid \mu, \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \exp \left( - \frac{(x
 | [`operator>>`](normal_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <random>
 #include <fstream>
@@ -105,7 +105,7 @@ int main()
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
 * dist(engine)[link normal_distribution/op_call.md]
 
-###出力
+### 出力
 ```
 ```
 
@@ -113,18 +113,18 @@ int main()
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/normal_distribution/normal_distribution.png)
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp):
 
-###参考
+### 参考
 - [正規分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
 - [Marsaglia polar method - Wikipedia](https://en.wikipedia.org/wiki/Marsaglia_polar_method)
     - GCC 4.9時点においてlibstdc++で使用されているアルゴリズム

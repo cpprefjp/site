@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * regex[meta header]
 * std[meta namespace]
 * regex_token_iterator[meta class]
@@ -9,23 +9,23 @@
 regex_token_iterator& operator=(const regex_token_iterator& rhs);
 ```
 
-##概要
+## 概要
 `rhs` を `*this` にコピーする。
 
 
-##効果
+## 効果
 `rhs` の状態を `*this` にコピーする。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##備考
+## 備考
 規格書には特に記載は無いが、前方向イテレータの要件から、コピー元オブジェクトの全ての状態を引き継ぐと考えてよいものと思われる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -60,7 +60,7 @@ int main()
 * std::regex[link /reference/regex/basic_regex.md]
 * str()[link /reference/regex/sub_match/str.md]
 
-###出力
+### 出力
 ```
 match range = (9, 20), str = 'enumerator1'
 match range = (23, 29), str = 'value1'
@@ -75,11 +75,11 @@ match range = (67, 73), str = 'value3'
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -88,11 +88,11 @@ match range = (67, 73), str = 'value3'
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-###備考
+### 備考
 GCC & libstdc++ では、コピー直後のオブジェクトの参照先が誤っている。
 
 
-##参照
+## 参照
 | 名前                                       | 説明           | 対応バージョン |
 |--------------------------------------------|----------------|----------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |

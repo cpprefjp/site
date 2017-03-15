@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * thread[meta header]
 * std[meta namespace]
 * thread[meta class]
@@ -15,23 +15,23 @@ thread& operator=(thread&& x) noexcept;
 * コピー[italic]
 * ムーブ[italic]
 
-##概要
+## 概要
 `thread`オブジェクトはムーブ代入可能／コピー代入不可。
 
 
-##効果
+## 効果
 ムーブ代入演算子呼び出し時点で`this`にスレッドが関連付けられている場合、[`std::terminate()`](/reference/exception/terminate.md)を呼び出してプログラムを異常終了する。そうでなければ`x`から`this`へのムーブ代入を行う。
 
 
-##事後条件
+## 事後条件
 ムーブ前に`x`と関連付けられていたスレッドは`this`に関連付けられる。ムーブ後の`x`は何も指さない空の`thread`オブジェクトとなる。
 
 
-##戻り値
+## 戻り値
 `*this`を返す。
 
 
-##例
+## 例
 ```cpp
 #include <thread>
 #include <cassert>
@@ -52,15 +52,15 @@ int main()
 * th2 = std::move(th1);[color ff0000]
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.3, 4.7.0
@@ -68,6 +68,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

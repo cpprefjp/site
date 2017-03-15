@@ -1,4 +1,4 @@
-#system_error
+# system_error
 * system_error[meta header]
 * cpp11[meta cpp]
 
@@ -24,12 +24,12 @@
 | `hash` | `error_code`での特殊化(class template) | C++11 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-##参照
+## 参照
 - [System error support in C++0x part1-5 - Thinking Asynchronously in C++](http://blog.think-async.com/search/label/system_error)
 - [Boost System Library Documentation](http://www.boost.org/doc/libs/release/libs/system/doc/index.html)
 - [N2241 Diagnostics Enhancements for C++0x (Rev. 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2241.html)

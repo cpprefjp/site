@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * tuple[meta header]
 * std[meta namespace]
 * tuple[meta class]
@@ -82,7 +82,7 @@ tuple(allocator_arg_t, const Alloc& a,
 * pair[link /reference/utility/pair.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
-##tupleオブジェクトの構築
+## tupleオブジェクトの構築
 - (1) : すべての要素を初期化して構築
 - (2) : 可変テンプレートパラメータの型の値によるコピー構築
 - (3) : 可変テンプレートパラメータの型に変換可能な値によるムーブ構築
@@ -103,7 +103,7 @@ tuple(allocator_arg_t, const Alloc& a,
 - (18) : テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`オブジェクトからムーブ構築する
 
 
-##例
+## 例
 ```cpp
 #include <tuple>
 #include <string>
@@ -135,22 +135,22 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp)
 
 
-##参照
+## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 
 

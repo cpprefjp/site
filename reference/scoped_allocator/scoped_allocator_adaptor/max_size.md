@@ -1,4 +1,4 @@
-#max_size
+# max_size
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
@@ -9,15 +9,15 @@
 size_type max_size() const;
 ```
 
-##概要
+## 概要
 一度に確保可能なメモリの最大サイズを取得する。
 
 
-##戻り値
+## 戻り値
 [`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`max_size`](/reference/memory/allocator_traits/max_size.md)`(`[`outer_allocator()`](outer_allocator.md)`)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -57,16 +57,16 @@ int main()
 * std::basic_string[link /reference/string/basic_string.md]
 * std::char_traits[link /reference/string/char_traits.md]
 
-###出力例
+### 出力例
 ```
 2305843009213693951
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

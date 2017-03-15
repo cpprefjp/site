@@ -1,12 +1,12 @@
-#Swappable
+# Swappable
 * concepts[meta header]
 * std[meta namespace]
 
-##概要
+## 概要
 Swappableは、任意の型`T`のオブジェクトと任意の型`U`のオブジェクトが入れ替え可能かを表す要件である。
 
 
-##要件
+## 要件
 - `t`を型`T`のオブジェクト、`u`を型`U`のオブジェクトとする
 - 以下が可能である場合にのみ、`t`は`u`と入れ替え可能(swappable)である：
     - 式`swap(t, u)`と式`swap(u, t)`が、後述する文脈で評価された場合に、有効であり、それに加えて

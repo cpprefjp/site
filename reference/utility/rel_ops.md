@@ -1,4 +1,4 @@
-#rel_ops
+# rel_ops
 * utility[meta header]
 * std::rel_ops[meta namespace]
 * function template[meta id-type]
@@ -13,7 +13,7 @@ namespace rel_ops {
 }}
 ```
 
-##概要
+## 概要
 
 `std::rel_ops`名前空間は、関係演算子を自動的に定義する。
 
@@ -31,7 +31,7 @@ namespace rel_ops {
 }}
 ```
 
-##要件
+## 要件
 `operator!=()`に対し、型`T`は`EqualityComparable`である必要がある。
 
 すなわち、型`T`は`operator==()`による比較が可能であり、その比較は反射律、対象律、推移律を満たさねばならない。
@@ -43,7 +43,7 @@ namespace rel_ops {
 
 
 
-##例
+## 例
 ```cpp
 #include <utility>
 
@@ -101,11 +101,11 @@ int main()
 * std::rel_ops::operator<=[color ff0000]
 * std::rel_ops::operator>=[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##参照
+## 参照
 このライブラリを使う場合、 Boost Operators Libraryの使用も検討すべきである。
 
 - [Boost Operators Library](http://www.boost.org/doc/libs/release/libs/utility/operators.htm)

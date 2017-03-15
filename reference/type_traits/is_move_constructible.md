@@ -1,4 +1,4 @@
-#is_move_constructible
+# is_move_constructible
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`がムーブ構築可能か調べる
 
 
-##要件
+## 要件
 型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
-##効果
+## 効果
 `is_move_constructible`は、型`T`がムーブ構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 以下の条件が`true`である場合に、ムーブ構築可能であると見なされる：
@@ -31,7 +31,7 @@ namespace std {
         - CV修飾されていない、もしくは参照修飾されていない関数型
         - 参照修飾されている型
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -65,15 +65,15 @@ static_assert(std::is_move_constructible<int ()>::value == false, "int () is not
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 	- 11.0～12.0には、提案時の名前である`has_move_constructor`も存在する。
@@ -81,7 +81,7 @@ int main(){}
 	- 11.0～12.0は、上記例のうち`is_move_constructible<s>`に関するものにおいて、誤った結果になる。これは、[`is_constructible`](is_constructible.md)の不具合に由来する。
 
 
-##参照
+## 参照
 - [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
 - [LWG Issue 2196. Specification of `is_*[copy/move]_[constructible/assignable]` unclear for non-referencable types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2196)
     - C++11では、この型特性が参照型に対してどのような振る舞いになるのか不明確であったため、C++14で明確化された。

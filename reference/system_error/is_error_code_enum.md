@@ -1,4 +1,4 @@
-#is_error_code_enum
+# is_error_code_enum
 * system_error[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -12,7 +12,7 @@ namespace std {
 ```
 * false_type[link /reference/type_traits/false_type.md]
 
-##概要
+## 概要
 [`error_code`](error_code.md)のエラー値として見なせる列挙型かどうかを判定する。
 
 `is_error_code_enum`はデフォルトでは[`false_type`](/reference/type_traits/false_type.md)を継承し、`is_error_code_enum<T>::value`は`false`となる。
@@ -22,7 +22,7 @@ namespace std {
 標準では、[`io_errc`](../ios/io_errc.md)列挙型と[`future_errc`](../future/future_errc.md)列挙型に対する[`true_type`](/reference/type_traits/true_type.md)の特殊化を提供する。
 
 
-##例
+## 例
 ```cpp
 #include <system_error>
 #include <ios>
@@ -45,15 +45,15 @@ int main()
 * std::future_errc[link ../future/future_errc.md]
 * std::future_errc[link ../future/future_errc.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5.0, 3.6.0, 3.7.0, 3.8.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7, 4.5.4, 4.6.4, 4.7.0, 4.7.3, 4.8.2, 4.9.0, 4.9.1, 4.9.2, 5.1.0, 5.2.0, 6.0.0
@@ -61,11 +61,11 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp):
 
 
-###備考
+### 備考
 GCC では、4.4 から `is_error_code_enum` が提供されているものの、[`future_errc`](../future/future_errc.md) は 4.5 から、[`io_errc`](../ios/io_errc.md) は 5.1 からのサポートである。
 
 
-##参照
+## 参照
 - [`error_code`](error_code.md)
 - [`error_code`](error_code.md)`::`[`error_code`](error_code/op_constructor.md)
 - [`error_code`](error_code.md)`::`[`operator=`](error_code/op_assign.md)

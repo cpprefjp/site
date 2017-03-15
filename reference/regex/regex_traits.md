@@ -1,4 +1,4 @@
-#regex_traits
+# regex_traits
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `regex_traits`は、正規表現ライブラリ`<regex>`クラス内で使用される、文字とその変換の規則に関する特性を表すクラスである。
 
 このクラスと同じインタフェースのクラスを実装することで、特定の文字コードの場合に、正規表現の振る舞いをカスタマイズできる。
 
 
-##メンバ関数
+## メンバ関数
 
-###構築・破棄
+### 構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -28,7 +28,7 @@ namespace std {
 | `regex_traits& operator=(const regex_traits&) = default;`<br/> `regex_traits& operator=(regex_traits&&) = default;` | 代入演算子 | C++11 |
 
 
-###変換
+### 変換
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -44,14 +44,14 @@ namespace std {
 | [`getloc`](regex_traits/getloc.md) | ロケールを取得する | C++11 |
 
 
-##静的メンバ関数
+## 静的メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`length`](regex_traits/length.md) | 文字列の長さを取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -61,7 +61,7 @@ namespace std {
 | `char_class_type` | 正規表現の文字クラス名を表す、実装定義のビットマスク型 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -88,16 +88,16 @@ int main()
 * traits.isctype[link regex_traits/isctype.md]
 * traits.lookup_classname[link regex_traits/lookup_classname.md]
 
-###出力
+### 出力
 ```
 'a' is alpha-numeric class
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

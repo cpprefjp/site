@@ -1,4 +1,4 @@
-#bad_weak_ptr
+# bad_weak_ptr
 * memory[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -11,12 +11,12 @@ namespace std {
 ```
 * exception[link /reference/exception/exception.md]
 
-##概要
+## 概要
 `bad_weak_ptr`は、[`weak_ptr`](weak_ptr.md)オブジェクトから破棄済みの[`shared_ptr`](shared_ptr.md)オブジェクトを構築しようとした場合に発生する例外クラスである。
 
 破棄済みの`shared_ptr`を監視する`weak_ptr`オブジェクトから`weak_ptr::lock()`メンバ関数で`shared_ptr`オブジェクトを構築した場合、すでに`shared_ptr`が破棄されていれば、例外を送出することなく空の`shared_ptr`が返される。しかし、破棄済みの`shared_ptr`を監視する`weak_ptr`オブジェクトが`shared_ptr`のコンストラクタ引数として渡された場合には、この例外が送出される。
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|--------------------------------------------------------|-------|
@@ -25,7 +25,7 @@ namespace std {
 | `bad_weak_ptr& operator=(const bad_weak_ptr&) noexcept;` | 代入演算子 | C++11 |
 | `virtual const char* what() const noexcept;`             | エラー内容を取得する。文字列`"bad_weak_ptr"`が返される | C++11 |
 
-##例
+## 例
 ```cpp
 #include <memory>
 #include <iostream>
@@ -47,16 +47,16 @@ int main() {
 * sp.reset[link shared_ptr/reset.md]
 * std::exception[link /reference/exception/exception.md]
 
-###出力(GCC 4.7での出力。規格上は"bad_weak_ptr"と出力されるのが正しい)
+### 出力(GCC 4.7での出力。規格上は"bad_weak_ptr"と出力されるのが正しい)
 ```
 std::bad_weak_ptr
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4, 4.7.2(`what()`が`"std::bad_weak_ptr"`を返すので規格違反。バグ報告済み。[#55847](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847))
@@ -64,5 +64,5 @@ std::bad_weak_ptr
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
     - Visual C++ 10.0までは`what()`が`"tr1::bad_weak_ptr"`を返す。
 
-##参照
+## 参照
 

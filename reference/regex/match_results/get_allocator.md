@@ -1,4 +1,4 @@
-#get_allocator
+# get_allocator
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,19 +9,19 @@
 allocator_type get_allocator() const;
 ```
 
-##概要
+## 概要
 アロケータオブジェクトのコピーを取得する。
 
 
-##戻り値
+## 戻り値
 `*this` で使用しているアロケータオブジェクトのコピー
 
 
-##備考
+## 備考
 `*this` で使用しているアロケータオブジェクトは、構築時に設定されたものか、直近の代入時、あるいは、交換時に設定されたもののいずれかである。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -96,7 +96,7 @@ int main()
 * std::sub_match[link ../sub_match.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 1,2
 2,1
@@ -106,11 +106,11 @@ int main()
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -118,5 +118,5 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 `get_allocator` の問題ではないが、GCC(libstdc++) の 4.9.2 までは代入演算子を使用した場合に正しくアロケータを設定しない。

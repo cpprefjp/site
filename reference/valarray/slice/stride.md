@@ -1,4 +1,4 @@
-#stride
+# stride
 * valarray[meta header]
 * std[meta namespace]
 * slice[meta class]
@@ -9,15 +9,15 @@ size_t stride() const;
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 スライスを生成する間隔を取得する。
 
 
-##戻り値
+## 戻り値
 スライスを生成する間隔。
 
 
-##例
+## 例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -35,7 +35,7 @@ auto main()
 }
 ```
 
-###出力
+### 出力
 ```
 7
 ```

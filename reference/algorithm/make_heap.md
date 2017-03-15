@@ -1,4 +1,4 @@
-#make_heap
+# make_heap
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -13,27 +13,27 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 範囲をヒープ化する。
 
 
-##要件
+## 要件
 `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
 
 
-##効果
+## 効果
 `[first,last)` の範囲で heap を構築する
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 最大で `3 * (last - first)` 回比較する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -53,7 +53,7 @@ int main()
 ```
 * std::make_heap[color ff0000]
 
-###出力
+### 出力
 ```
 4
 1
@@ -61,7 +61,7 @@ int main()
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class RandomAccessIterator>
 void make_heap(RandomAccessIterator first, RandomAccessIterator last)

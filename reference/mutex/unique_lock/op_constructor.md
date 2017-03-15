@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
@@ -31,7 +31,7 @@ unique_lock(unique_lock&& u) noexcept;                            // (9)
 * chrono::duration[link /reference/chrono/duration.md]
 
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ
 - (2) : ミューテックスオブジェクトを受け取るコンストラクタ。ロックを取得する。
 - (3) : ミューテックスオブジェクトを受け取り、その場ではロックを取得しない。
@@ -43,7 +43,7 @@ unique_lock(unique_lock&& u) noexcept;                            // (9)
 - (9) : ムーブコンストラクタ。ミューテックスの所有権を移動する。
 
 
-##効果
+## 効果
 - (1) : 空の`unique_lock`オブジェクトを構築する。ミューテックスオブジェクトへのポインタを保持しない。
 - (2) : ミューテックスオブジェクトへの参照を受け取り、`m.lock()`を呼び出す。ミューテックスオブジェクトへのポインタを保持する。
 - (3) : ミューテックスオブジェクトへの参照を受け取り、ロック取得操作をここでは呼び出さない。ミューテックスオブジェクトへのポインタを保持する。
@@ -54,7 +54,7 @@ unique_lock(unique_lock&& u) noexcept;                            // (9)
 - (9) : ムーブコンストラクタ。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を、自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](owns_lock.md)の状態を`u`から移動する。
 
 
-##事後条件
+## 事後条件
 - (1) : [`owns_lock()`](owns_lock.md) `== false`
 - (2) : [`owns_lock()`](owns_lock.md) `== true`
 - (3) : [`owns_lock()`](owns_lock.md) `== false`
@@ -65,7 +65,7 @@ unique_lock(unique_lock&& u) noexcept;                            // (9)
 - (9) : `u`はミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](owns_lock.md) `== false`となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -129,15 +129,15 @@ int main()
 * chrono::seconds[link /reference/chrono/seconds.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -145,6 +145,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
     - 11.0はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#left
+# left
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -9,18 +9,18 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 出力時に左揃えにすることを指示するマニピュレータ。
 フィールド幅に揃えるための文字を右側に挿入するようになる。
 `setw`と組み合わせることで効果がある。
 
-##効果
+## 効果
 `str.setf(ios_base::left, ios_base::adjustfield)`を実行する。
 
-##戻り値
+## 戻り値
 実引数のstrオブジェクト。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -37,17 +37,17 @@ int main()
 * std::right[link right.md]
 * std::setw[link /reference/iomanip/setw.md]
 
-###出力
+### 出力
 ```
 |-12   |
 |-   12|
 |   -12|
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-##参照
+## 参照
 - [`internal`](internal.md)
 - [`right`](right.md)

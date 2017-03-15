@@ -1,4 +1,4 @@
-#exception_ptr
+# exception_ptr
 * exception[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 ```
 * unspecified[italic]
 
-##概要
+## 概要
 例外オブジェクトを指すポインタ。
 
 `exception_ptr`の具体的な型は未規定だが、ヌル値を格納可能で、あらゆる例外型のオブジェクトを指すことが可能なポインタである。
@@ -24,7 +24,7 @@ namespace std {
 `exception_ptr`の主な用途は、バックグランドスレッドからメインスレッドに、例外オブジェクトを持ち運ぶ、というものである。標準ライブラリにおいては、[`promise`](/reference/future/promise.md)と[`future`](/reference/future/future.md)の実装で使用される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <exception>
@@ -79,7 +79,7 @@ int main()
 * std::runtime_error[link /reference/stdexcept.md]
 * std::rethrow_exception[link rethrow_exception.md]
 
-###出力
+### 出力
 ```
 1. null
 2. null
@@ -88,11 +88,11 @@ int main()
 error!
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -101,7 +101,7 @@ error!
 	- 10.0では、`bool`への暗黙の変換、`!=`での比較が実装されていない。上記コード例の1.と3.そして`error`の箇所にある`if`はコンパイルエラーになる。
 
 
-##参照
+## 参照
 - [N2107 Exception Propagation across Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2107.html)
 - [N2179 Language Support for Transporting Exceptions between Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html)
 

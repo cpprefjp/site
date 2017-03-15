@@ -1,6 +1,6 @@
-#C++14
+# C++14
 
-##概要
+## 概要
 C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化されたC++バージョンの通称である。
 
 前バージョンであるC++11からマイナーバージョンアップされ、小さな機能拡張が行われた。
@@ -8,7 +8,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 このバージョンは、策定中はC++1yと呼ばれていた。前バージョンであるC++11が策定中、C++0xと呼ばれていたことから、「xの次」という意味で「y」が使われていた。
 
 
-##言語機能
+## 言語機能
 
 | 言語機能               | 説明 |
 |------------------------|------|
@@ -26,7 +26,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 | [サイズ付きデアロケーション](cpp14/sized_deallocation.md) | サイズをとる`delete`演算子のオーバーロードを許可する |
 
 
-###小さな変更
+### 小さな変更
 
 ここでは、コア言語作業グループへ問題報告され、その解決策として導入された言語仕様の変更を解説する。
 
@@ -37,9 +37,9 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 | [`nullptr_t`型の定数式を非型テンプレートパラメータとすることを許可](cpp14/nontype_template_parameters_of_type_nullptr_t.md) | `nullptr_t`型の値をテンプレート引数として渡せるようになった |
 
 
-##ライブラリ更新の概要
+## ライブラリ更新の概要
 
-###コンテナ
+### コンテナ
 - 順序付き連想コンテナのルックアップ処理で、一時オブジェクトが生成されるコストを抑える拡張が行われた
     - [`std::map::find()`](/reference/map/map/find.md)
 	- [`std::map::count()`](/reference/map/map/count.md)
@@ -49,11 +49,11 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 	- `std::map`クラスのほか、`std::set`、`std::multiset`、`std::multimap`の上記メンバ関数も対象
 
 
-###イテレータ
+### イテレータ
 - Forward Iteratorを値初期化した場合に、どこも指さないヌルイテレータになる、という規定が追加された(参照 : [N3644 Null Forward Iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3644.pdf))
 
 
-###アルゴリズム
+### アルゴリズム
 - 以下のアルゴリズムに、2つ目の範囲の終端イテレータをパラメータにとるバージョンを追加。これにより、2つの範囲が同じ長さかを事前にユーザーがチェックする必要がなくなった
     - [`std::mismatch()`](/reference/algorithm/mismatch.md)
 	- [`std::equal()`](/reference/algorithm/equal.md)
@@ -61,22 +61,22 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 - 乱数生成を行うアルゴリズム、`std::rand()`と[`std::random_shuffle()`](/reference/algorithm/random_shuffle.md)を非推奨とする。`std::rand()`の代わりに[`<random>`](/reference/random.md)ヘッダで定義される乱数生成器と分布クラスを、[`std::random_shuffle()`](/reference/algorithm/random_shuffle.md)の代わりに[`std::shuffle()`](/reference/algorithm/shuffle.md)を使用すること
 
 
-##メモリ管理
+## メモリ管理
 - [`std::unique_ptr`](/reference/memory/unique_ptr.md)を生成するヘルパ関数[`std::make_unique()`](/reference/memory/make_unique.md)を追加
 
 
-###入出力
+### 入出力
 - 文字列をクォート修飾する[`std::quoted`](/reference/iomanip/quoted.md)マニピュレータを追加
 
 
-###汎用的なユーティリティ
+### 汎用的なユーティリティ
 - 2つの値を入れ替える関数[`std::exchange()`](/reference/utility/exchange.md)を追加
 - コンパイル時整数シーケンス[`std::integer_sequence`](/reference/utility/integer_sequence.md)を追加
 - タプルを型の集合と見なし、型を指定して対応する値を取得する[`std::get()`](/reference/tuple/tuple/get.md)のオーバーロードを追加
 - [`<type_traits>`](/reference/type_traits.md)ヘッダの、メンバ型`type`を定義するクラステンプレートに、エイリアステンプレート版を追加。そのバージョンには、`_t`サフィックスが付く
 
 
-###リテラル演算子
+### リテラル演算子
 - [`std::basic_string`](/reference/string/basic_string.md)の[リテラル演算子`s`](/reference/string/basic_string/op_s.md)を追加
     - `"hello"s`は、文字コード未規定の`std::string`オブジェクトを表すリテラル
 	- `L"hello"s`は、文字コード未規定の`std::wstring`オブジェクトを表すリテラル
@@ -96,10 +96,10 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 	- `std::complex<long double>`を表す[`il`リテラル](/reference/complex/op_il.md)
 
 
-###並行処理
+### 並行処理
 - Readers-writer lockと呼ばれる、書き込みを行うユーザーが1人、読み込みを行うユーザーが複数いる状況で効率的に振る舞うミューテックスの実装として、[`<shared_mutex>`](/reference/shared_mutex.md)ヘッダを追加
 
 
-##参照
+## 参照
 - [C++14 Overview - Standard C++](https://isocpp.org/wiki/faq/cpp14)
 

@@ -1,4 +1,4 @@
-#clear
+# clear
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
@@ -8,15 +8,15 @@
 void clear() noexcept;
 ```
 
-##概要
+## 概要
 `set` コンテナ内の全ての要素を削除する。それぞれのデストラクタが呼ばれ、コンテナから削除される。[`size()`](size.md) は 0 になる。
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <set>
@@ -40,13 +40,13 @@ int main ()
 * c.insert[link insert.md]
 * c.size()[link size.md]
 
-###出力
+### 出力
 ```
 3
 0
 ```
 
-##参照
+## 参照
 
 | 名前                  | 説明                               |
 |-----------------------|------------------------------------|

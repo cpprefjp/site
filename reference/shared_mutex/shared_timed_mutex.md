@@ -1,4 +1,4 @@
-#shared_timed_mutex
+# shared_timed_mutex
 * shared_mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `shared_timed_mutex`クラスは、[Readers–writer lock](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)パターンをサポートするミューテックスクラスである。
 
 このパターンは、「複数のユーザーによる読み込みと、単一ユーザーによる書き込み」の排他制御を効率的に行う、というものである。
@@ -27,8 +27,8 @@ namespace std {
 - [`shared_lock`](/reference/shared_mutex/shared_lock.md)：読み込み用のロックを自動的に手放す
 
 
-##メンバ関数
-###構築・破棄
+## メンバ関数
+### 構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|--------------------------------------------|-------|
@@ -37,7 +37,7 @@ namespace std {
 | `operator=(const shared_timed_mutex&) = delete;`          | 代入演算子 | C++14 |
 
 
-###排他の所有権
+### 排他の所有権
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|--------------------------------------------|-------|
@@ -48,7 +48,7 @@ namespace std {
 | [`unlock`](shared_timed_mutex/unlock.md)       | 排他ロックを手放す | C++14 |
 
 
-###共有の所有権
+### 共有の所有権
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|--------------------------------------------|-------|
@@ -59,7 +59,7 @@ namespace std {
 | [`unlock_shared`](shared_timed_mutex/unlock_shared.md)       | 共有ロックを手放す | C++14 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -130,7 +130,7 @@ int main()
 * std::chrono::milliseconds[link /reference/chrono/milliseconds.md]
 * join()[link /reference/thread/thread/join.md]
 
-###出力例
+### 出力例
 ```
 1
 1
@@ -164,18 +164,18 @@ int main()
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 - [Readers–writer lock - Wikipedia](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)
 - [N3427 Shared locking in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3427.html)
 - [N3568 Shared locking in C++ (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3568.html)

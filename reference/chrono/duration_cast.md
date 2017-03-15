@@ -1,4 +1,4 @@
-#duration_cast
+# duration_cast
 * chrono[meta header]
 * std::chrono[meta namespace]
 * function template[meta id-type]
@@ -13,15 +13,15 @@ namespace chrono {
 ```
 * duration[link /reference/chrono/duration.md]
 
-##概要
+## 概要
 分解能が低い[`duration`](/reference/chrono/duration.md)への変換
 
 
-##戻り値
+## 戻り値
 テンプレートパラメータ`ToDuration`で指定された型に変換された[`duration`](/reference/chrono/duration.md)。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -42,15 +42,15 @@ int main()
 * seconds[link seconds.md]
 * s.count()[link duration/count.md]
 
-###出力
+### 出力
 ```
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

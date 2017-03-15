@@ -1,4 +1,4 @@
-#system_clock
+# system_clock
 * chrono[meta header]
 * std::chrono[meta namespace]
 * class[meta id-type]
@@ -11,13 +11,13 @@ namespace chrono {
 }}
 ```
 
-##概要
+## 概要
 `system_clock`は、システム時間を表現するためのクロックである。
 
 このクラスは、`time_t`型と互換性がある。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|--------------------|-------|
@@ -26,7 +26,7 @@ namespace chrono {
 | [`from_time_t`](system_clock/from_time_t.md) | `time_t`からの変換 | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |--------------|--------------------------------|-------|
@@ -36,7 +36,7 @@ namespace chrono {
 | `time_point` | 時間の一点を指す型             | C++11 |
 
 
-##メンバ定数
+## メンバ定数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------|--------------------------------------------------------|-------|
@@ -44,7 +44,7 @@ namespace chrono {
 | `static constexpr bool is_steady` | 逆行しないクロックかどうかを表す`bool`値。値は未規定。 | C++14から |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -65,19 +65,19 @@ int main()
 * now()[link system_clock/now.md]
 * to_time_t[link system_clock/to_time_t.md]
 
-###出力例
+### 出力例
 ```
 Tue Oct 16 15:00:08 2012
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
-##参照
+## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 

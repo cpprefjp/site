@@ -1,4 +1,4 @@
-#unlock
+# unlock
 * mutex[meta header]
 * std[meta namespace]
 * recursive_timed_mutex[meta class]
@@ -9,29 +9,29 @@
 void unlock();
 ```
 
-##概要
+## 概要
 ロックを手放す
 
 
-##要件
+## 要件
 この関数を実行するスレッドがミューテックスの所有権を持っていること
 
 
-##効果
+## 効果
 この関数を呼び出したスレッドが持つミューテックスの所有権を手放す。
 
 再帰的に所有権が取得されていた場合、最後のひとつが`unlock`された際に所有権を手放す。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -84,17 +84,17 @@ int main()
 * unlock()[color ff0000]
 * mtx_.lock()[link lock.md]
 
-###出力
+### 出力
 ```
 count == 1
 count == 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -102,6 +102,6 @@ count == 2
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#bit_and
+# bit_and
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -37,20 +37,20 @@ namespace std {
 * unspecified[italic]
 * forward[link ../utility/forward.md]
 
-##概要
+## 概要
 `bit_and`クラスは、ビットごとの論理積(AND)をとる関数オブジェクトである。
 
 この関数オブジェクトは一切のメンバ変数を持たず、状態を保持しない。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前         | 説明           | 対応バージョン |
 |--------------|----------------|----------------|
 | `operator()` | `x & y` と等価 | C++11          |
 
 
-##メンバ型
+## メンバ型
 
 | 名前                   | 説明                                                                                                                                                       | 対応バージョン |
 |------------------------|--------------------------------|----------------|
@@ -60,7 +60,7 @@ namespace std {
 | `is_transparent`       | `operator()` が関数テンプレートである事を示すタグ型。<br/>実装依存の型であるがあくまでタグ型であり、型そのものには意味はない。（`T` が `void` の場合のみ） | C++14          |
 
 
-##例
+## 例
 
 ```cpp
 #include <iostream>
@@ -78,29 +78,29 @@ int main()
 * std::bit_and[color ff0000]
 * std::hex[link ../ios/hex.md]
 
-###出力
+### 出力
 ```
 0x42
 0x42
 ```
 
-##C++11バージョン
-###処理系
+## C++11バージョン
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##C++14バージョン
-###処理系
+## C++14バージョン
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.4
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG Issue 660. Missing Bitwise Operations](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#660)
 - [N3421 Making Operator Functors greater<>](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3421.htm)
 - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)

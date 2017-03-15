@@ -1,4 +1,4 @@
-#copyfmt
+# copyfmt
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -9,11 +9,11 @@ basic_ios& copyfmt(const basic_ios& rhs);
 ```
 * basic_ios[link ../basic_ios.md]
 
-##概要
+## 概要
 書式設定をコピーする。
 
 
-##効果
+## 効果
 もし `this == &rhs` であれば、何もしない。  
 そうでなければ、以下のように引数 `rhs` のメンバオブジェクトを `*this` の対応するメンバオブジェクトに代入する。
 
@@ -26,11 +26,11 @@ basic_ios& copyfmt(const basic_ios& rhs);
 - [`exceptions`](exceptions.md)`(rhs.`[`exceptions`](exceptions.md)`())` を呼び出す（結果として、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md) 例外が送出される可能性がある）。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##備考
+## 備考
 - 名前が示すように、書式設定はコピーするがストリームバッファ（[`rdbuf`](rdbuf.md)）、および、その状態（[`rdstate`](rdstate.md)`()`）はコピーしない。  
     ただし、[`exceptions`](exceptions.md)`()` は設定する。
 - コールバックは [`erase_event`](../ios_base/type-event.md) と [`copyfmt_event`](../ios_base/type-event.md) の 2 回呼び出されるが、[`erase_event`](../ios_base/type-event.md) で呼び出されるのはもともと `*this` に登録されていたコールバック、[`copyfmt_event`](../ios_base/type-event.md) で呼び出されるのは `rhs` 側に登録されていた（本関数で `*this` にコピーされた）コールバックである。  
@@ -38,7 +38,7 @@ basic_ios& copyfmt(const basic_ios& rhs);
     `pword` の私用記憶域に格納したポインタの対処については [`ios_base`](../ios_base.md)`::`[`pword`](../ios_base/pword.md) の例を参照。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -61,18 +61,18 @@ int main()
 * std::setw[link ../../iomanip/setw.md.nolink]
 * std::setfill[link ../../iomanip/setfill.md.nolink]
 
-###出力
+### 出力
 ```
 0x0000000a
 ```
 
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [`basic_ios`](../basic_ios.md)`::`[`rdstate`](rdstate.md)
 - [`basic_ios`](../basic_ios.md)`::`[`rdbuf`](rdbuf.md)
 - [`basic_ios`](../basic_ios.md)`::`[`exceptions`](exceptions.md)

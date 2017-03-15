@@ -1,4 +1,4 @@
-#accumulate
+# accumulate
 * numeric[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -14,7 +14,7 @@ namespace std{
 }
 ```
 
-##概要
+## 概要
 `accumulate()`は、範囲を集計する関数である。
 
 初期値(`init`)に対して、範囲`[first, last)`の各要素`i`を前から順番に、任意の二項演算関数`binary_op`を`init = f(init, *i)`のように適用していき、範囲の全ての要素を集計した結果を戻り値として返す。
@@ -25,27 +25,27 @@ namespace std{
 - (2) : 任意の二項演算関数を受け取って集計処理を行う
 
 
-##要件
+## 要件
 - `T`が[CopyConstructible](/reference/concepts/CopyConstructible.md)であること
 - `T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
 - C++03まで : `binary_op`は副作用を起こしてはならない
 - C++11から : `binary_op`は、範囲`[first, last)`の要素変更およびイテレータの無効化をしてはならない
 
 
-##効果
+## 効果
 - (1) : `binary_op`を`operator+`として (2) の効果を適用する
 - (2) : `acc = init`、`[first, last)`の各イテレータを`i`とし、`acc = binary_op(acc, *i)`を範囲の全要素に対して適用し、その結果となる`acc`を返す
 
 
-##戻り値
+## 戻り値
 集計結果の値
 
 
-##計算量
+## 計算量
 範囲`[first, last)`の要素数に対して線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -81,7 +81,7 @@ int main()
 ```
 * std::accumulate[color ff0000]
 
-###出力
+### 出力
 ```
 sum : 15
 sum_ll : 15
@@ -90,7 +90,7 @@ product : 120
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 // (1)
 template <class InputIterator, class T>

@@ -1,13 +1,13 @@
-#DBL_MIN
+# DBL_MIN
 * cfloat[meta header]
 * macro[meta id-type]
 * [mathjax enable]
 
 ```cpp
-#define DBL_MIN implementation-defined
+# define DBL_MIN implementation-defined
 ```
 
-##概要
+## 概要
 `double` の正の正規化数のうち最小のものを表すマクロ。  
 以下の式で表される。
 
@@ -21,11 +21,11 @@ $b$ や $e_{\rm min}$ については [`<cfloat>`](../cfloat.md) のモデルも
 [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しい。
 
 
-##備考
+## 備考
 規格で 1E-37（$10^{-37}$）以下であることが規定されている。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -48,7 +48,7 @@ int main()
 * DBL_MIN_EXP[link dbl_min_exp.md]
 * std::pow[link ../cmath/pow.md]
 
-##出力例
+## 出力例
 ```
 2.2250738585072e-308
 2.2250738585072e-308

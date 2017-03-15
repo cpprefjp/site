@@ -1,4 +1,4 @@
-#target
+# target
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
@@ -13,19 +13,19 @@ template <class T>
 const T* target() const noexcept;
 ```
 
-##概要
+## 概要
 元となる関数を取得する。
 
 
-##要件
+## 要件
 型`T`が、`ArgTypes...`型をパラメータにとり、`R`を戻り値の型とする関数、または関数オブジェクトであること。
 
 
-##戻り値
+## 戻り値
 [`target_type()`](target_type.md) `== typeid(T)`ならば、保持している関数へのポインタを返す。そうれなければヌルポインタを返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -65,23 +65,23 @@ int main()
 ```
 * target[color ff0000]
 
-###出力
+### 出力
 ```
 1
 1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 

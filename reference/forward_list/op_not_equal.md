@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * forward_list[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,23 +11,23 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `forward_list`オブジェクトの非等値比較を行う。
 
 
-##要件
+## 要件
 型`T`が`operator==`で比較可能であること。
 
 
-##戻り値
+## 戻り値
 `!(x == y)`
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -49,17 +49,17 @@ int main ()
 }
 ```
 
-###出力
+### 出力
 ```
 false
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -67,6 +67,6 @@ true
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 
 

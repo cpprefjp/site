@@ -1,4 +1,4 @@
-#lookup_classname
+# lookup_classname
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
@@ -12,11 +12,11 @@ char_class_type lookup_classname(ForwardIterator first,
                                  bool icase = false) const;
 ```
 
-##概要
+## 概要
 与えられた文字の範囲に対応するクラス名を取得する。
 
 
-##戻り値
+## 戻り値
 文字の範囲`[first, last)`からなるクラス名文字列に対応する、未規定のクラス値を返す。
 
 パラメータ`icase`が`true`である場合は、大文字・小文字を無視してクラス名の比較が行われる。
@@ -24,7 +24,7 @@ char_class_type lookup_classname(ForwardIterator first,
 与えられたクラス名に対応する値がない場合、`char_class_type()`を返す。
 
 
-##備考
+## 備考
 `regex_traits<char>`と`regex_traits<wchar_t>`に対しては、少なくても以下のクラス名は許可される：
 
 | クラス名 | クラスを表すビットマスク値 | 説明 |
@@ -47,7 +47,7 @@ char_class_type lookup_classname(ForwardIterator first,
 
 [ctype_base]: /reference/locale/ctype_base.md
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -75,17 +75,17 @@ int main()
 * class_name.end()[link /reference/string/basic_string/end.md]
 * isctype[link isctype.md]
 
-###出力
+### 出力
 ```
 'a' is alpha-numeric class
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -94,7 +94,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [LWG Issue 2018. [CD] `regex_traits::isctype` Returns clause is wrong](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2018)
     - C++14から、戻り値の仕様文面が見直された。
 

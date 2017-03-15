@@ -1,4 +1,4 @@
-#indirect_array
+# indirect_array
 * valarray[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `indirect_array`クラスは、非`const`な[`valarray`](valarray.md)オブジェクトから`valarray<size_t>`によって抽出した要素を、参照するためのクラスである。抽出条件となる`valarray<size_t>`は、元の`valarray<T>`から抽出する要素のインデックス値から成る配列である。
 
 このクラスのオブジェクトは、[`valarray`](valarray.md)クラスの[`operator[]`](valarray/op_at.md)によって返される。
@@ -20,8 +20,8 @@ namespace std {
 - `T` : `valarray`クラスの要素型`T`と同じ型
 
 
-##メンバ関数
-###構築・破棄
+## メンバ関数
+### 構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------|----------------|
@@ -30,7 +30,7 @@ namespace std {
 | [`operator=`](indirect_array/op_assign.md)          | 代入演算子     | |
 
 
-###四則演算
+### 四則演算
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------|------------------|-------|
@@ -41,7 +41,7 @@ namespace std {
 | [`operator%=`](indirect_array/op_modulo_assign.md)   | 剰余算の複合代入 | |
 
 
-###ビット演算
+### ビット演算
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------------|------------------------|-------|
@@ -52,14 +52,14 @@ namespace std {
 | [`operator>>=`](indirect_array/op_right_shift_assign.md)       | 右シフトの複合代入     | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前         | 説明      | 対応バージョン |
 |--------------|-----------|----------------|
 | `value_type` | 要素型`T` | |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -83,7 +83,7 @@ int main()
 ```
 
 
-###出力
+### 出力
 ```
 1
 4

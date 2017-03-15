@@ -1,4 +1,4 @@
-#duration
+# duration
 * chrono[meta header]
 * std::chrono[meta namespace]
 * class template[meta id-type]
@@ -13,7 +13,7 @@ namespace chrono {
 ```
 * ratio[link /reference/ratio.md]
 
-##概要
+## 概要
 `duration`は、2つの時間の間隔を表現するための型である。
 
 `duration`のテンプレートパラメータである`ratio`の値によって、時間のためのあらゆる単位(ナノ秒、ミリ秒、秒, etc...)を表現することができる。
@@ -30,8 +30,8 @@ namespace chrono {
 | [`hour`](/reference/chrono/hours.md)                | 時         | C++11          |
 
 
-##メンバ関数
-###構築／コピー／破棄
+## メンバ関数
+### 構築／コピー／破棄
 
 | 名前                                      | 説明                  | 対応バージョン |
 |-------------------------------------------|-----------------------|----------------|
@@ -39,14 +39,14 @@ namespace chrono {
 | `~duration() = default;`                  | デストラクタ          | C++11          |
 | `operator=(const duration&) = default;`   | 代入演算子            | C++11          |
 
-###観測
+### 観測
 
 | 名前                           | 説明         | 対応バージョン |
 |--------------------------------|--------------|----------------|
 | [`count`](duration/count.md) | 値を取得する | C++11          |
 
 
-###算術演算
+### 算術演算
 
 | 名前                                             | 説明                     | 対応バージョン |
 |--------------------------------------------------|--------------------------|----------------|
@@ -61,8 +61,8 @@ namespace chrono {
 | [`operator%=`](duration/op_modulo_assign.md)   | `%`の複合代入            | C++11          |
 
 
-##静的メンバ関数
-###特別な値
+## 静的メンバ関数
+### 特別な値
 
 | 名前                         | 説明         | 対応バージョン |
 |------------------------------|--------------|----------------|
@@ -71,7 +71,7 @@ namespace chrono {
 | [`max`](duration/max.md)   | 最大値を取得 | C++11          |
 
 
-##メンバ型
+## メンバ型
 
 | 名前     | 説明                      | 対応バージョン |
 |----------|---------------------------|----------------|
@@ -79,7 +79,7 @@ namespace chrono {
 | `period` | 値の周期を表す型 `Period` | C++11          |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------|-------|
@@ -96,7 +96,7 @@ namespace chrono {
 | [`operator>=`](duration/op_greater_equal.md) | 左辺が右辺以上かの判定を行う(function template) | C++11 |
 
 
-###リテラル
+### リテラル
 
 | 名前  | 説明               | 対応バージョン |
 |-------|--------------------|----------------|
@@ -108,7 +108,7 @@ namespace chrono {
 | [`h`](duration/op_h.md)     | 時リテラル         | C++14 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -121,13 +121,13 @@ void print(const system_clock::time_point& p)
 {
   std::time_t t = system_clock::to_time_t(p);
   char buf[26];  // 最低26バイトが必要
-#ifdef _MSC_VER
+# ifdef _MSC_VER
   // Visual Studioではctime_s()が推奨されている。
   ctime_s(buf, 26, &t);
-#else
+# else
   // ctime()のリエントラント版
   ctime_r(&t, buf);
-#endif
+# endif
   // 出力された文字列には改行が含まれていることに注意
   std::cout << buf;
 }
@@ -149,19 +149,19 @@ int main()
 * now()[link system_clock/now.md]
 * seconds[link seconds.md]
 
-###出力例
+### 出力例
 ```
 Tue Oct 16 16:25:08 2012
 Tue Oct 16 16:25:11 2012
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
-##参照
+## 参照
 

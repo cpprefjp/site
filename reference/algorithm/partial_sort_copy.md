@@ -1,4 +1,4 @@
-#partial_sort_copy
+# partial_sort_copy
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -22,27 +22,27 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 範囲を部分的にソートした結果を他の範囲にコピーする
 
 
-##要件
+## 要件
 `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。`*result_first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
-##効果
+## 効果
 `[first,last)` にある要素の中から、[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` 個の要素をソート済みの状態で `[result_first,result_first +` [`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first))` に配置する。
 
 
-##戻り値
+## 戻り値
 `result_last` と `result_first + (last - first)` で小さい方が返される
 
 
-##計算量
+## 計算量
 ほぼ `(last - first) * log(min(last - first, result_last - result_- first))` 回の比較を行う
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -65,7 +65,7 @@ int main()
 * result.begin()[link /reference/vector/begin.md]
 * result.end()[link /reference/vector/end.md]
 
-###出力
+### 出力
 ```
 1
 2

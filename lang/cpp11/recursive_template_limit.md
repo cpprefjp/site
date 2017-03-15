@@ -1,13 +1,13 @@
-#テンプレート再帰回数の制限緩和
+# テンプレート再帰回数の制限緩和
 * cpp11[meta cpp]
 
-##概要
+## 概要
 C++03まで、テンプレートの再帰回数は、「17回以上であることを実装に推奨する」というものであった。
 
 C++11からはこれが、1024回に緩和された。
 
 
-##備考
+## 備考
 コンパイラによっては、コンパイルオプションでテンプレート再帰回数の上限を設定できる。
 
 GCCとClangでは、`-ftemplate-depth`オプションで設定できる：
@@ -23,7 +23,7 @@ GCC 5.2時点で、デフォルトは900回。
 Clang 3.7時点で、デフォルトは256回。
 
 
-##例
+## 例
 ```cpp
 // 再帰回数の上限を確認する用のコード。
 // 範囲[1, N]の総和を求めるメタ関数sigma_nを定義している。
@@ -48,13 +48,13 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 55
 ```
 
 
-##参照
+## 参照
 - [CWG Issue 831. Limit on recursively nested template instantiations](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#831)
 - [Variadic Templates for C++0x](http://www.jot.fm/issues/issue_2008_02/article2/)
     - テンプレートの再帰によって、コンパイル時間がどれくらい延びるかのレポートがある記事

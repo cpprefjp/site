@@ -1,4 +1,4 @@
-#cin
+# cin
 * iostream[meta header]
 * std[meta namespace]
 * variable[meta id-type]
@@ -9,13 +9,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `cin` は、標準入力に対するマルチバイト入力ストリームオブジェクトである。
 すなわち、`<cstdio>` の `stdin` オブジェクトに結びつけられたストリームオブジェクトである。  
 本オブジェクトは、初期化が完了すると [`tie`](../ios/basic_ios/tie.md)`()` が `&`[`cout`](cout.md) を返すようになる。  
 その他の状態は、[`basic_ios`](../ios/basic_ios.md)`<char>::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -33,10 +33,10 @@ int main()
 ```
 * std::cin[color ff0000]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [`wcin`](wcin.md.nolink)
 

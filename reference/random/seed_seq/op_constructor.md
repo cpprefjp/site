@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * seed_seq[meta class]
@@ -18,19 +18,19 @@ seed_seq(const seed_seq&) = delete;               // (4)
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ。空のシード列を構築する。
 - (2) : `seed_seq(il.begin(), il.end())`と同じ。
 - (3) : シード値を要素とするイテレータ範囲から、シード列を構築する
 - (4) : コピーコンストラクタ。コピー禁止。これによってムーブも禁止
 
 
-##要件
+## 要件
 - (2) : 型`T`は整数型であること。
 - (3) : `InputIterator`が指す値型が整数型であること。
 
 
-##効果
+## 効果
 - (1) : 空のシード列を構築する。
 - (2) : (3)のオーバーロードに転送する。
 
@@ -52,12 +52,12 @@ for (InputIterator s = begin; s != end; ++s) {
 ```
 
 
-##例外
+## 例外
 - (1) :
     - C++14 : 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -120,17 +120,17 @@ int main()
 * seed_data.begin()[link /reference/vector/begin.md]
 * seed_data.end()[link /reference/vector/end.md]
 
-###出力例
+### 出力例
 ```
 1, 2, 3, 
 1, 2, 4294967295, 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -138,6 +138,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG Issue 2180. Exceptions from `std::seed_seq` operations](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2180)
 

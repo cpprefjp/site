@@ -1,4 +1,4 @@
-#iterator
+# iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -21,7 +21,7 @@ namespace std {
 ```
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
-##概要
+## 概要
 `std::iterator`クラスは、イテレータを定義するための基本クラスである。
 
 イテレータの実装に必要となるいくつかの型の別名定義を簡略化するために使用できる。
@@ -36,7 +36,7 @@ namespace std {
 | `Reference` | イテレータが指す値の参照型 デフォルトは`T&` |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -99,7 +99,7 @@ int main()
 * std::iterator[color ff0000]
 * std::input_iterator_tag[link iterator_tag.md]
 
-###出力
+### 出力
 ```
 0
 1
@@ -113,6 +113,6 @@ int main()
 9
 ```
 
-##参照
+## 参照
 - `std::iterator`は型定義のみを簡略化するが、これを発展させた[Boost Iterators Library](http://www.boost.org/doc/libs/release/libs/iterator/doc/index.html)は、演算子定義も簡略化する機能を提供している。
 

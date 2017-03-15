@@ -1,4 +1,4 @@
-#reverse
+# reverse
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -10,23 +10,23 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 要素の並びを逆にする。
 
 
-##要件
+## 要件
 `*first` は `Swappable` でなければならない
 
 
-##効果
+## 効果
 0 以上 `(last - first) / 2` 未満の整数 `i` について、[`iter_swap`](iter_swap.md)`(first + i, (last - i) - 1)` を行う
 
 
-##計算量
+## 計算量
 正確に `(last - first) / 2` 回 swap する
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -43,13 +43,13 @@ int main() {
 * str.begin()[link /reference/string/basic_string/begin.md]
 * str.end()[link /reference/string/basic_string/end.md]
 
-###出力
+### 出力
 ```
 esrever
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class BidirectionalIterator>
 void reverse(BidirectionalIterator first, BidirectionalIterator last) {
@@ -60,7 +60,7 @@ void reverse(BidirectionalIterator first, BidirectionalIterator last) {
 * std::iter_swap[link iter_swap.md]
 
 
-##参照
+## 参照
 - [LWG Issue 2039. Issues with `std::reverse` and `std::copy_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2039)
     - C++11まで、効果を「0 以上 `(last - first) / 2` **以下**の整数 `i` について、」と記載していたが、これは間違いなので、C++14で「0 以上 `(last - first) / 2` **未満**の整数 `i` について、」と修正。
 

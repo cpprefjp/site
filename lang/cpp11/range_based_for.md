@@ -1,7 +1,7 @@
-#範囲for文
+# 範囲for文
 * cpp11[meta cpp]
 
-##概要
+## 概要
 範囲for文（The range-based for statement）は配列やコンテナを簡潔に扱うためのfor文の別表現である。
 
 範囲for文が便利な例として、コンテナの各要素を処理するループを挙げる。
@@ -41,7 +41,7 @@ for (const auto& e : v) {
 [auto]: /lang/cpp11/auto.md
 
 
-##仕様
+## 仕様
 範囲for文は配列または、`begin()`および`end()`で表される範囲内の全ての要素に対して、処理を実行する。
 
 範囲for文は以下の構文を持つ：
@@ -100,7 +100,7 @@ for (auto& e : vec) {
 展開されたコード内の`begin()`と`end()`が正確に何を呼びだすかについては、引数依存の名前検索（argument-dependent name lookup; ADL）を参照のこと。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -148,7 +148,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 For int[5]:
   1
@@ -170,7 +170,7 @@ For my_container:
 ```
 
 
-##参照
+## 参照
 - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
 - [N3337 Working Draft, Standard for Programming Language C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf)
 

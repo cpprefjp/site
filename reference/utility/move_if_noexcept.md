@@ -1,4 +1,4 @@
-#move_if_noexcept
+# move_if_noexcept
 * utility[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -23,7 +23,7 @@ namespace std {
 * is_nothrow_move_constructible[link /reference/type_traits/is_nothrow_move_constructible.md]
 * is_copy_constructible[link /reference/type_traits/is_copy_constructible.md]
 
-##概要
+## 概要
 例外を投げないオブジェクトをムーブする。
 
 この関数は、対象のオブジェクトが例外を投げないムーブコンストラクタを持っている場合に右辺値参照を返し、そうでなければconst左辺値参照を返す。
@@ -31,15 +31,15 @@ namespace std {
 この関数は、複数のオブジェクトをムーブする際に、例外安全の強い保証を得ることを目的として使用される。
 
 
-##戻り値
+## 戻り値
 `std::`[`move`](/reference/utility/move.md)`(x)`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -77,17 +77,17 @@ int main()
 ```
 * move_if_noexcept[color ff0000]
 
-###出力
+### 出力
 ```
 move
 copy
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -96,12 +96,12 @@ copy
 	- 11.0は正しく実装されていないと思われる。上記「例」のコードにおいて、ともにmoveしてしまう結果となる。
 
 
-##関連項目
+## 関連項目
 - [`is_nothrow_copy_constructible`](/reference/type_traits/is_nothrow_copy_constructible.md)
 - [`is_nothrow_move_constructible`](/reference/type_traits/is_nothrow_move_constructible.md)
 
 
-##参照
+## 参照
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 - [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)

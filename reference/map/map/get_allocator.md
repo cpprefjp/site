@@ -1,4 +1,4 @@
-#get_allocator
+# get_allocator
 * map[meta header]
 * std[meta namespace]
 * map[meta class]
@@ -9,24 +9,24 @@ allocator_type get_allocator() const;          // C++03
 allocator_type get_allocator() const noexcept; // C++11
 ```
 
-##概要
+## 概要
 コンテナの構築に使われたアロケータオブジェクトを返す。
 
 
-##戻り値
+## 戻り値
 アロケータオブジェクト。
 メンバ型 `allocator_type` は、`map` クラスがインスタンス化されるのに使われる 4 番目のテンプレートパラメータ(`Allocator` 型)と同じ型として定義される。
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -52,18 +52,18 @@ int main()
 * allocate[link /reference/memory/allocator/allocate.md]
 * deallocate[link /reference/memory/allocator/deallocate.md]
 
-###出力
+### 出力
 ```
 a
 b
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??

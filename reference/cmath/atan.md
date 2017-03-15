@@ -1,4 +1,4 @@
-#atan
+# atan
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -17,24 +17,24 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 算術型の逆正接（アークタンジェント、arc tangent）を求める。
 
 `atan()`は、正接を表す[`tan()`](tan.md)の逆関数である。$\tan(\mathrm{Arctan}~x) = x$、$\mathrm{Arctan}~(\tan x) = x ~ (x \in [-\pi/2, \pi/2])$である。
 
 
-##戻り値
+## 戻り値
 引数 `x` の逆正接を主値 `[-π/2, π/2]` の範囲で返す。（単位はラジアン）
 
 
-##備考
+## 備考
 - $$ f(x) = \mathrm{Arctan}~x $$
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = ±0` の場合、戻り値は `±0` となる。（複号同順）
 	- `x = ±∞` の場合、戻り値は `±π/2` となる。（複号同順）
 
 
-##例
+## 例
 ```cpp
 #include <cmath>
 #include <limits>
@@ -55,7 +55,7 @@ int main() {
 * std::fixed[link ../ios/fixed.md]
 * infinity[link ../limits/numeric_limits/infinity.md]
 
-###出力例
+### 出力例
 ```
 atan(0.0)   = 0.000000
 atan(0.5)   = 0.463648
@@ -65,25 +65,25 @@ atan(1.0)   = 0.785398
 atan(∞)    = 1.570796
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 1.9, 2.9, 3.1
 - [GCC](/implementation.md#gcc): 3.4.6, 4.2.4, 4.3.5, 4.4.5, 4.5.1, 4.5.2, 4.6.1, 4.7.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 - [ICC](/implementation.md#icc): 10.1, 11.0, 11.1, 12.0
 - [Visual C++](/implementation.md#visual_cpp) 7.1, 8.0, 9.0, 10.0
 
-####備考
+#### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上
 
 
-##実装例
+## 実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
 $$ \mathrm{Arctan}~x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$

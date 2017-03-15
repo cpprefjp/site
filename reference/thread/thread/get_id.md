@@ -1,4 +1,4 @@
-#get_id
+# get_id
 * thread[meta header]
 * std[meta namespace]
 * thread[meta class]
@@ -11,19 +11,19 @@ id get_id() const noexcept;
 * id[link /reference/thread/thread/id.md]
 
 
-##概要
+## 概要
 関連付けられているスレッドのスレッド識別子を取得する。
 
 
-##戻り値
+## 戻り値
 `thread`オブジェクトがスレッドに関連付けられている場合は、そのスレッドのスレッド識別子。そうでなければデフォルトコンストラクトされた[`thread::id`](/reference/thread/thread/id.md)オブジェクト。
 
 
-##例外
+## 例外
 送出しない。
 
 
-##例
+## 例
 ```cpp
 #include <thread>
 #include <cassert>
@@ -43,15 +43,15 @@ int main()
 * get_id[color ff0000]
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.3, 4.7.0
@@ -59,4 +59,4 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照

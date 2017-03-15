@@ -1,4 +1,4 @@
-#good
+# good
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -8,13 +8,13 @@
 bool good() const;
 ```
 
-##概要
+## 概要
 現在の状態値が空であることを判定する。状態値のビットが全く設定されていない場合に真を返す。
 
-##戻り値
+## 戻り値
 [`rdstate`](rdstate.md)`() == 0`
 
-##実装例
+## 実装例
 ```cpp
 bool good() const {
   return rdstate() == 0;
@@ -22,11 +22,11 @@ bool good() const {
 ```
 * rdstate[link rdstate.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)

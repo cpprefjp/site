@@ -1,4 +1,4 @@
-#ratio_add
+# ratio_add
 * ratio[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `ratio_add`は、2つの[`ratio`](ratio.md)を加算した[`ratio`](ratio.md)型を作るエイリアステンプレートである。
 
 
-##効果
+## 効果
 加算結果は、[`ratio`](ratio.md)`<R1::num * R2::den + R2::num * R1::den, R1::den * R2::den>`という型になる。
 
 
-##例
+## 例
 ```cpp
 #include <ratio>
 
@@ -37,15 +37,15 @@ int main()
 * std::ratio_add[color ff0000]
 * std::ratio[link ratio.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
 - [Visual C++](/implementation.md#visual_cpp): ??

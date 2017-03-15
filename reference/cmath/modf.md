@@ -1,4 +1,4 @@
-#modf
+# modf
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -17,17 +17,17 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 浮動小数点数を、整数部と小数部に分解する。
 
 
-##戻り値
+## 戻り値
 引数`value`の小数部を符号付きとして返す。また、引数`value`の整数部を`*iptr`に書き込む。
 
 この関数によって返される整数部と小数部は、どちらも引数`value`と同じ符号を持つ。
 
 
-##備考
+## 備考
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
 	- `value = ±∞` の場合、戻り値は `±0` となり、`*exp` には `±∞` が設定される。
 	- `value` が NaN の場合、戻り値は NaN となり、`*exp` には NaN が設定される。
@@ -37,7 +37,7 @@ namespace std {
     （`value` に整数型、`iptr` に `nullptr` を渡した場合のみ当該オーバーロードによって呼び出しが曖昧ではなくなるが、その場合は未定義動作となってしまうため、本オーバーロードの存在はむしろ有害）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -68,7 +68,7 @@ int main()
 ```
 * std::modf[color ff0000]
 
-###出力
+### 出力
 ```
 1
 0.23
@@ -77,13 +77,13 @@ int main()
 -0.23
 ```
 
-###備考
+### 備考
 - 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 	- GCC 4.6.1 以上
 - GCC、Clang では、C++11 で追加されたオーバーロードは存在しない。
 
 
-##実装例
+## 実装例
 ```cpp
 namespace std {
   float modf(float value, float* iptr)
@@ -113,16 +113,16 @@ namespace std {
     return copysign(isinf(value) ? 0.0L : value - (*iptr), value);
   }
 
-#if __cplusplus >= 201103L
+# if __cplusplus >= 201103L
   template<typename T>
   typename enable_if<is_integral<T>::value, double>::type
   modf(T value, double* iptr)
   {
     return modf(static_cast<double>(value), iptr);
   }
-#endif
+# endif
 
-#if __cplusplus > 201402L
+# if __cplusplus > 201402L
   float modff(float value, float* iptr)
   {
     return modf(value, iptr);
@@ -132,7 +132,7 @@ namespace std {
   {
     return modf(value, iptr);
   }
-#endif
+# endif
 }
 ```
 * nearbyint[link nearbyint.md]

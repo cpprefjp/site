@@ -1,4 +1,4 @@
-#condition_variable
+# condition_variable
 * condition_variable[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,7 +10,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 
 `condition_variable`は、特定のイベントもしくは条件を満たすまでスレッドの実行を待機するためのクラスである。
 
@@ -22,7 +22,7 @@ namespace std {
 `condition_variable`の適切な利用については、[条件変数の利用方法](/article/lib/how_to_use_cv.md)も参照のこと。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|----------------------------------------------------------|-------|
@@ -37,21 +37,21 @@ namespace std {
 | [`native_handle`](condition_variable/native_handle.md)      | 条件変数のハンドルを取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------|----------------------|-------|
 | `native_handle_type` | 実装依存のハンドル型 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------------------------|------------------------------------------------------------------------|-------|
 | [`notify_all_at_thread_exit`](condition_variable/notify_all_at_thread_exit.md) | 現在のスレッド終了時に、条件変数が待っている全てのスレッドを起床させる | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -112,16 +112,16 @@ int main()
 * cond_.notify_one()[link condition_variable/notify_one.md]
 * cond_.wait[link condition_variable/wait.md]
 
-###出力
+### 出力
 ```
 process data
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -129,6 +129,6 @@ process data
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [Condition Variables - Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf)
 

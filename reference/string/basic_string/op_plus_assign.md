@@ -1,4 +1,4 @@
-#operator+=
+# operator+=
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -15,15 +15,15 @@ basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 指定された文字列、文字、あるいは初期化リストを追加する。
 
 
-##要件
+## 要件
 `s` は少なくとも `traits_type::length(s) + 1` の長さを持つ `charT` 型の配列を指していること。
 
 
-##効果
+## 効果
 - (1) 対象オブジェクトの末尾に `str` の値が追加（コピー）される。  
 	[`append`](append.md)`(str)` と同一。
 
@@ -38,11 +38,11 @@ basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
 	[`append`](append.md)`(il)` と同一。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 - (1) [`size`](size.md)`() + str.`[`size`](size.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 - (2) [`size`](size.md)`() + traits_type::length(s) >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
@@ -52,11 +52,11 @@ basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
 - (4) [`size`](size.md)`() + il.size() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 
-##備考
+## 備考
 本メンバ関数の呼び出しによって、対象オブジェクトの要素への参照、ポインタ、および、イテレータは無効になる可能性がある。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -82,7 +82,7 @@ int main()
 ```
 * +=[color ff0000]
 
-###出力
+### 出力
 ```
 Hello
 Hello, 
@@ -91,7 +91,7 @@ Hello, world!
 Hello, world! :)
 ```
 
-##関連項目
+## 関連項目
 
 |                               |                        |
 |-------------------------------|------------------------|
@@ -101,7 +101,7 @@ Hello, world! :)
 | [`operator+`](op_plus.md)   | 文字列を連結する       |
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (4)の経緯となる提案文書
 

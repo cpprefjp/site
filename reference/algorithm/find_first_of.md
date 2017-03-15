@@ -1,4 +1,4 @@
-#find_first_of
+# find_first_of
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -25,21 +25,21 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 ある集合の1つとマッチする最初の要素を検索する。
 
 
-##戻り値
+## 戻り値
 `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、`[first2,last2)` 内のイテレータ `j` について、どれかが `*i == *j` もしくは `pred(*i,*j)` であるような最初のイテレータを返す。
 
 そのようなイテレータが見つからない、もしくは `[first2,last2)` が空である場合は `last1` を返す。
 
 
-##計算量
+## 計算量
 最大で `(last1 - first1) * (last2 - first2)` 回の、対応する比較もしくは述語が適用される。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -63,13 +63,13 @@ int main() {
 * ls.begin()[link /reference/list/begin.md]
 * ls.end()[link /reference/list/end.md]
 
-###出力
+### 出力
 ```
 found: index==3, value==4
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class ForwardIterator>
 InputIterator find_first_of(InputIterator first1, InputIterator last1,
@@ -91,7 +91,7 @@ InputIterator find_first_of(InputIterator first1, InputIterator last1,
 ```
 
 
-##参照
+## 参照
 - [LWG Issue 576. `find_first_of` is overconstrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#576)
     - C++11から、パラメータのイテレータ型に対する制約が緩和され、`ForwardIterator`から`InputIterator`に変更になった経緯のレポート
 

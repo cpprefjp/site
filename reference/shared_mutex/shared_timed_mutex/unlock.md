@@ -1,4 +1,4 @@
-#unlock
+# unlock
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
@@ -9,27 +9,27 @@
 void unlock();
 ```
 
-##概要
+## 概要
 排他ロックを手放す。
 
 
-##要件
+## 要件
 この関数を実行するスレッドがミューテックスの排他所有権を持っていること。
 
 
-##効果
+## 効果
 この関数を呼び出したスレッドが持つミューテックスの排他所有権を手放す。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <thread>
 #include <shared_mutex>
@@ -75,15 +75,15 @@ int main()
 * std::thread[link /reference/thread/thread.md]
 * join()[link /reference/thread/thread/join.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

@@ -1,4 +1,4 @@
-#size
+# size
 * valarray[meta header]
 * std[meta namespace]
 * slice[meta class]
@@ -9,14 +9,14 @@ size_t size() const;
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 スライスを生成する要素数を取得する。
 
-##戻り値
+## 戻り値
 スライスを生成する要素数。
 
 
-##例
+## 例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -34,7 +34,7 @@ auto main()
 }
 ```
 
-###出力
+### 出力
 ```
 5
 ```

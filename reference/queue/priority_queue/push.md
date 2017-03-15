@@ -1,4 +1,4 @@
-#push
+# push
 * queue[meta header]
 * std[meta namespace]
 * priority_queue[meta class]
@@ -9,11 +9,11 @@ void push(const value_type& x); // (1)
 void push(value_type&& x);      // (2) C++11
 ```
 
-##概要
+## 概要
 新たな要素を追加し、優先順に並べ替えを行う。
 
 
-##効果
+## 効果
 - (1) :
 
     ```cpp
@@ -33,11 +33,11 @@ push_heap(c.begin(), c.end(), comp);
 * push_heap[link /reference/algorithm/push_heap.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -61,14 +61,14 @@ int main()
 * que.empty()[link empty.md]
 * que.pop()[link pop.md]
 
-###出力
+### 出力
 ```
 4
 3
 1
 ```
 
-###右辺値参照バージョンの使用可能状況
+### 右辺値参照バージョンの使用可能状況
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -76,6 +76,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

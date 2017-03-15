@@ -1,4 +1,4 @@
-#hash
+# hash
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -31,7 +31,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 クラステンプレート`hash`は、非順序連想コンテナ（[`unordered_map`](/reference/unordered_map/unordered_map.md)/[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md)/[`unordered_set`](/reference/unordered_set/unordered_set.md)/[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md)）のキーとなる型のためのハッシュ値を計算する関数オブジェクトである。
 
 このクラスはそのものにデフォルトの定義は存在せず、ユーザーが任意の型で特殊化する際の要件を定義する。`hash`クラステンプレートを特殊化する場合、以下に記述するメンバ関数を持たせる必要がある。
@@ -62,7 +62,7 @@ namespace std {
 | 全ての列挙型         | C++14          |
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 |
 |-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -72,7 +72,7 @@ namespace std {
 | `size_t operator()(T key) const` | 関数呼び出し演算子によって、キーに対応するハッシュ値を返す |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 |
 |-----------------|------------------------------------------------------|
@@ -80,7 +80,7 @@ namespace std {
 | `argument_type` | 引数の型(キーの型`T`) |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -104,7 +104,7 @@ int main()
 ```
 * std::hash[color ff0000]
 
-###出力例
+### 出力例
 ```
 67
 100
@@ -112,18 +112,18 @@ int main()
 3219530756
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 
-##参照
+## 参照
 - [ハッシュ関数 - Wikipedia](https://ja.wikipedia.org/wiki/ハッシュ関数)
 - [LWG 2148 - Hashing enums should be supported directly by std::hash](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2148)
 - [LWG 2291 - std::hash is vulnerable to collision DoS attack](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2291)

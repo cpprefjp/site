@@ -1,4 +1,4 @@
-#owner_less
+# owner_less
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -19,21 +19,21 @@ namespace std {
 * shared_ptr[link /reference/memory/shared_ptr.md]
 * weak_ptr[link /reference/memory/weak_ptr.md]
 
-##概要
+## 概要
 `owner_less`は、スマートポインタを所有権ベースで小なり比較するための、2項関数オブジェクトである。
 
 スマートポインタを、[`set`](/reference/set/set.md)や[`map`](/reference/map/map.md)のキーにする際、値ベースではなく所有権ベースに比較することを指定するために使用する。
 
 
-##shared_ptr版
-###メンバ関数
+## shared_ptr版
+### メンバ関数
 
 | 名前                                    | 説明               | 対応バージョン |
 |-----------------------------------------|--------------------|-------|
 | [`operator()`](owner_less/op_call.md) | 関数呼び出し演算子 | C++11 |
 
 
-###メンバ型
+### メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|---------------------------------------------------------------|-------|
@@ -42,15 +42,15 @@ namespace std {
 | `second_argument_type` | 第2引数型[`shared_ptr`](/reference/memory/shared_ptr.md)`<T>` | C++11 |
 
 
-##weak_ptr版
-###メンバ関数
+## weak_ptr版
+### メンバ関数
 
 | 名前                                    | 説明               | 対応バージョン |
 |-----------------------------------------|--------------------|-------|
 | [`operator()`](owner_less/op_call.md) | 関数呼び出し演算子 | C++11 |
 
 
-###メンバ型
+### メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-----------------------------------------------------------|-------|
@@ -59,7 +59,7 @@ namespace std {
 | `second_argument_type` | 第2引数型[`weak_ptr`](/reference/memory/weak_ptr.md)`<T>` | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -102,28 +102,28 @@ int main()
 * std::owner_less[color ff0000]
 * m.at[link /reference/map/map/at.md]
 
-###出力
+### 出力
 ```
 Alice
 Carol
 Carol
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 
-##関連項目
+## 関連項目
 - [`shared_ptr::owner_before()`](/reference/memory/shared_ptr/owner_before.md)
 
 
-##参照
+## 参照
 - [N2637 Revisiting `std::shared_ptr` comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 

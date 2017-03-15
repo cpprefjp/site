@@ -1,4 +1,4 @@
-#duration_values
+# duration_values
 * chrono[meta header]
 * std::chrono[meta namespace]
 * class template[meta id-type]
@@ -11,11 +11,11 @@ namespace chrono {
 }}
 ```
 
-##概要
+## 概要
 `duration_values`は、[`duration`](/reference/chrono/duration.md)クラスにおいて、内部表現の特別な値を取得するために使われるトレイトである。
 
 
-##静的メンバ関数
+## 静的メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|---------------------|-------|
@@ -24,9 +24,9 @@ namespace chrono {
 | [`max`](duration_values/max.md)   | `Rep`の最大値を取得 | C++11 |
 
 
-###言語
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

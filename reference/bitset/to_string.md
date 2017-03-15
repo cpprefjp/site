@@ -1,4 +1,4 @@
-#to_string
+# to_string
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -18,11 +18,11 @@ basic_string<CharT, Traits, Allocator>
 ```
 * basic_string[link /reference/string/basic_string.md]
 
-##概要
+## 概要
 文字列に変換する。
 
 
-##戻り値
+## 戻り値
 1. `bitset`クラスのテンプレートパラメータ`N`の長さの`basic_string`オブジェクトを構築する。
 2. 各ビットを文字表現に変換する
 	- C++03 : ビット値0は文字`CharT(0)`に、ビット値1は文字`CharT(1)`に変換。
@@ -30,7 +30,7 @@ basic_string<CharT, Traits, Allocator>
 3. 各ビットの文字表現を、構築した`basic_string`オブジェクトに順番に設定して返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -49,18 +49,18 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 10000011
 10000011
 ```
 
 
-##備考
+## 備考
 - Visual C++、GCC(libstdc++)には、C++03でも`bs.to_string()`のように簡単に使用するための独自実装が追加で導入されていた。
 
 
-##参照
+## 参照
 - [LWG Issue 853. `to_string` needs updating with `zero` and `one`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#853)
     - C++11で、`0`を表す文字と`1`を表す文字を指定できるようになった経緯のレポート
 - [LWG Issue 1113. `bitset::to_string` could be simplified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#1113)

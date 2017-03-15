@@ -1,4 +1,4 @@
-#cref
+# cref
 * functional[meta header]
 * std[meta namespace]
 * reference_wrapper[meta class]
@@ -19,20 +19,20 @@ namespace std {
 ```
 * reference_wrapper[link reference_wrapper.md]
 
-##概要
+## 概要
 変数への`const`参照`t`を保持する`reference_wrapper`オブジェクトを生成する
 
 
-##戻り値
+## 戻り値
 - (1) : `t`を参照する`reference_wrapper<const T>`オブジェクトを返す。
 - (2) : `t`をそのまま返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -54,16 +54,16 @@ int main()
 * std::reference_wrapper[link reference_wrapper.md]
 * r.get()[link reference_wrapper/get.md]
 
-###出力
+### 出力
 ```
 4
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -71,6 +71,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#discrete_distribution
+# discrete_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `discrete_distribution`は整数のインデックスごとに離散した確率分布を生成するクラスである。アルゴリズムとしては、Walkerの別名法(Walker's alias method, 二者択一法ともいう)で実装されることが多い。
 
 この分布クラスは、コンストラクタで指定された確率列に基いて値を分布させる。その結果として、確率列から選択された、0から始まるインデックスを返す。
@@ -21,8 +21,8 @@ namespace std {
 * `IntType` : 分布結果として返される、0から始まるインデックス値の整数型。負の値が返されることはないため、符号なし整数型を指定してもよい。デフォルトは`int`。
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------------|------------------------------|-------|
@@ -31,14 +31,14 @@ namespace std {
 | [`reset`](discrete_distribution/reset.md)                          | 状態をリセットする           | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|----------------|-------|
 | [`operator()`](discrete_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------|--------------------------------------------|-------|
@@ -48,7 +48,7 @@ namespace std {
 | [`max`](discrete_distribution/max.md)                     | 上限を取得する                           | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
@@ -56,7 +56,7 @@ namespace std {
 | `param_type`  | 分布パラメータの型。未規定。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|----------------------|-------|
@@ -66,7 +66,7 @@ namespace std {
 | [`operator>>`](discrete_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <random>
 #include <vector>
@@ -113,7 +113,7 @@ int main()
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
 * dist(engine)[link discrete_distribution/op_call.md]
 
-###出力
+### 出力
 ```
 ```
 
@@ -123,11 +123,11 @@ int main()
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/discrete_distribution/discrete_distribution-hist.png)
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.3
@@ -135,7 +135,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 
 
 
-##参照
+## 参照
 - [離散確率分布 - Wikipedia](https://ja.wikipedia.org/wiki/離散確率分布)
 - [Pseudo-random number sampling - Wikipedia](https://en.wikipedia.org/wiki/Pseudo-random_number_sampling)
 - [Alias Method - Wikipedia](https://en.wikipedia.org/wiki/Alias_method)

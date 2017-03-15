@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
@@ -11,24 +11,24 @@ unique_lock& operator=(unique_lock&& u) noexcept;    // (2) C++11
 unique_lock& operator=(unique_lock&& u);             // (2) C++14
 ```
 
-##概要
+## 概要
 - (1) : コピー代入。コピー不可。
 - (2) : ムーブ代入。
 
 
-##効果
+## 効果
 - (2) : [`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`だった場合、[`unlock()`](/reference/mutex/unique_lock/unlock.md)を呼び出す。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)の状態を`u`から移動する。
 
 
-##事後条件
+## 事後条件
 - (2) : `u`はミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== false`となる。
 
 
-##例外
+## 例外
 - (2) : 投げない
 
 
-##例
+## 例
 ```cpp
 #include <mutex>
 #include <utility>
@@ -47,16 +47,16 @@ int main()
 ```
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -64,5 +64,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [LWG Issue 2104. `unique_lock` move-assignment should not be `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2104)

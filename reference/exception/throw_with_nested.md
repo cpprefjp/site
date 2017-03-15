@@ -1,4 +1,4 @@
-#throw_with_nested
+# throw_with_nested
 * exception[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 現在処理中の例外を入れ子にした例外を送出する
 
 
-##要件
+## 要件
 型`T`がコピーコンストラクト可能であること。
 
 
-##戻り値
+## 戻り値
 この関数は決して返らない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <exception>
@@ -91,17 +91,17 @@ int main()
 * std::rethrow_if_nested[link rethrow_if_nested.md]
 * std::current_exception()[link current_exception.md]
 
-###出力
+### 出力
 ```
 outer
 inner
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
@@ -110,6 +110,6 @@ inner
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 
 

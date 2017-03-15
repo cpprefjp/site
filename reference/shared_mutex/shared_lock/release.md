@@ -1,4 +1,4 @@
-#release
+# release
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_lock[meta class]
@@ -9,26 +9,26 @@
 mutex_type* release() noexcept;
 ```
 
-##概要
+## 概要
 ミューテックスの所有権を放棄する。 
 
 この関数を実行することで、`shared_lock`オブジェクトはミューテックスのアンロック責任を放棄する。この関数を実行したユーザーは、自分でミューテックスをアンロックする必要がある。
 
 
-##事後条件
+## 事後条件
 - 保持しているミューテックスオブジェクトへのポインタが`NULL`になること
 - [`owns_lock()`](owns_lock.md) `== false`になること
 
 
-##戻り値
+## 戻り値
 保持しているミューテックスオブジェクトへのポインタを返す
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <shared_mutex>
 
@@ -51,15 +51,15 @@ int main()
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * p->unlock_shared()[link /reference/shared_mutex/shared_timed_mutex/unlock_shared.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

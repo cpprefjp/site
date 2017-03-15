@@ -1,4 +1,4 @@
-#getloc
+# getloc
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]
@@ -10,15 +10,15 @@ locale_type getloc() const;
 ```
 
 
-##概要
+## 概要
 ロケールを取得する。getlocはget localeの略称。
 
 
-##戻り値
+## 戻り値
 [`imbue()`](imbue.md)メンバ関数によってすでにロケールオブジェクトが設定されている場合は、そのコピーを返す。そうでない場合、グローバルロケールオブジェクトのコピーを返す。
 
 
-##例
+## 例
 ```cpp
 #include <regex>
 #include <cassert>
@@ -38,16 +38,16 @@ int main()
 * imbue[link imbue.md]
 * name()[link /reference/locale/locale/name.md.nolink]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

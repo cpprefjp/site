@@ -1,4 +1,4 @@
-#operator T
+# operator T
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
@@ -10,18 +10,18 @@ operator T() const volatile noexcept;
 operator T() const noexcept;
 ```
 
-##概要
+## 概要
 型`T`への暗黙の型変換
 
 
-##戻り値
+## 戻り値
 [`load()`](load.md)
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -36,22 +36,22 @@ int main()
 ```
 * int value = x;[color ff0000]a
 
-###出力
+### 出力
 ```
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-##参照
+## 参照
 - [N2514 Implicit Conversion Operators for Atomics](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2514.html)
 

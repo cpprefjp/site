@@ -1,4 +1,4 @@
-#piecewise_constant_distribution
+# piecewise_constant_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `piecewise_constant_distribution`は、区間ごとの重み付けを定数値とした分布を生成するクラスである。  
 このクラスはコンストラクタに、値の区間を表す数列と、区間ごとに線形に変化する重みの数列を設定する。重み数列の要素数は、区間数列の要素数 - 1個である。  
 
@@ -24,8 +24,8 @@ namespace std {
 - `RealType` : 生成される実数の型。
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------------|------------------------------|-------|
@@ -34,14 +34,14 @@ namespace std {
 | [`reset`](piecewise_constant_distribution/reset.md)                       | 状態をリセットする         | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------|-------|
 | [`operator()`](piecewise_constant_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|----------------------------------|-------|
@@ -52,7 +52,7 @@ namespace std {
 | [`max`](piecewise_constant_distribution/max.md)             | 上限を取得する                 | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------------------|-------|
@@ -60,7 +60,7 @@ namespace std {
 | `param_type`  | 分布パラメータの型。未規定。  | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <fstream>
 #include <random>
@@ -99,7 +99,7 @@ int main()
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
 * dist(engine)[link piecewise_constant_distribution/op_call.md]
 
-###出力
+### 出力
 ```
 ```
 
@@ -108,11 +108,11 @@ int main()
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.png)
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.3, 4.6.1

@@ -1,4 +1,4 @@
-#position
+# position
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,20 +9,20 @@
 difference_type position(size_type sub = 0) const;
 ```
 
-##概要
+## 概要
 指定されたサブマッチが指す文字列の位置を返す。
 
 
-##要件
+## 要件
 [`ready`](ready.md)`() == true`
 
 
-##戻り値
+## 戻り値
 検索対象文字列の先頭を `p` とすると、[`distance`](../../iterator/distance.md)`(p, (*this)[sub].first)`  
 なお、[`regex_iterator`](../regex_iterator.md) を逆参照して得られたオブジェクトの場合、基準となる「検索対象文字列の先頭」は各繰り返し毎の検索開始位置ではなくコンストラクタに与えた文字列の先頭である（[`regex_iterator`](../regex_iterator.md)`::`[`operator++`](../regex_iterator/op_increment.md)の「効果」参照）。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -50,7 +50,7 @@ int main()
 * m.size()[link size.md]
 * m.str[link str.md]
 
-###出力
+### 出力
 ```
 str() = 'abc 0123 defgh', position() = 1
 str(0) = 'abc 0123 defgh', position(0) = 1
@@ -60,11 +60,11 @@ str(3) = 'defgh', position(3) = 10
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

@@ -1,4 +1,4 @@
-#find
+# find
 * string[meta header]
 * std[meta namespace]
 * char_traits[meta class]
@@ -10,19 +10,19 @@ static const char_type* find(const char_type* s, size_t n,
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 文字列中から特定の値を検索する。
 
 
-##戻り値
+## 戻り値
 範囲`[s, s+n)`の各ポインタ`p`について、[`eq`](eq.md)`(*p, a) == true`となる`p`を返す。該当しない場合は`nullptr`を返す。
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -46,10 +46,10 @@ int main()
 ```
 * find[color ff0000]
 
-###出力
+### 出力
 ```
 c
 ```
 
-##参照
+## 参照
 

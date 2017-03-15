@@ -1,4 +1,4 @@
-#empty
+# empty
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
@@ -10,25 +10,25 @@ constexpr bool empty() noexcept;       // C++11
 constexpr bool empty() const noexcept; // C++14
 ```
 
-##概要
+## 概要
 コンテナが空かどうかを判定する
 
 
-##戻り値
+## 戻り値
 コンテナが空であれば`true`、そうでなければ`false`を返す。
 
 `std::array`コンテナに対して動的な要素の追加・削除はできないため、0要素を持つ`std::array`型オブジェクトを定義した場合にのみ、この関数は`true`を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <array>
@@ -46,18 +46,18 @@ int main()
 * empty[color ff0000]
 
 
-###出力
+### 出力
 ```
 non_empty_array : false
 empty_array : true
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -65,6 +65,6 @@ empty_array : true
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0
 
 
-##参照
+## 参照
 - [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
 

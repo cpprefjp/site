@@ -1,4 +1,4 @@
-#operator()
+# operator()
 * random[meta header]
 * std[meta namespace]
 * bernoulli_distribution[meta class]
@@ -13,21 +13,21 @@ template <class URNG>
 result_type operator()(URNG& g, const param_type& parm); // (2)
 ```
 
-##概要
+## 概要
 - (1) : コンストラクタで指定されたパラメータに基いて、乱数生成を行う
 - (2) : コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用して乱数生成を行う
 
 
-##戻り値
+## 戻り値
 指定された確率に基いて、ランダムな値を生成して返す。  
 確率[`p()`](p.md)で`true`を生成し、確率`1 -` [`p()`](p.md)で`false`を生成する。
 
 
-##計算量
+## 計算量
 償却定数時間(`g()`の呼び出し回数)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -69,7 +69,7 @@ int main()
 * seed_gen()[link /reference/random/random_device/op_call.md]
 * std::mt19937[link /reference/random/mt19937.md]
 
-###出力例
+### 出力例
 ```
 false
 false
@@ -84,11 +84,11 @@ true
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -96,6 +96,6 @@ true
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

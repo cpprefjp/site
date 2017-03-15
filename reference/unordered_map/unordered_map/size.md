@@ -1,4 +1,4 @@
-#size
+# size
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
@@ -9,23 +9,23 @@
 size_type size() const noexcept;
 ```
 
-##概要
+## 概要
 要素数を取得する。
 
 
-##戻り値
+## 戻り値
 現在 `unordered_map` オブジェクトに格納されている要素の数
 
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -49,17 +49,17 @@ int main()
 * begin[link /reference/unordered_map/unordered_map/begin.md]
 * end[link /reference/unordered_map/unordered_map/end.md]
 
-###出力
+### 出力
 ```
 5
 5
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1
 - [GCC](/implementation.md#gcc): -
@@ -67,7 +67,7 @@ int main()
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 
 | 名前                                          | 説明                               |
 |-----------------------------------------------|------------------------------------|

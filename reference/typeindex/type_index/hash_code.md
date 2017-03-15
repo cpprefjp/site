@@ -1,4 +1,4 @@
-#hash_code
+# hash_code
 * typeindex[meta header]
 * std[meta namespace]
 * type_index[meta class]
@@ -10,17 +10,17 @@ size_t hash_code() const;          // C++11
 size_t hash_code() const noexcept; // C++14
 ```
 
-##概要
+## 概要
 型のハッシュ値を返す。
 
 
-##戻り値
+## 戻り値
 `target->hash_code()`
 
 ※`target`は、`type_index`のメンバ変数として保持されている`type_info`オブジェクトへのポインタ(説明用)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <typeindex>
@@ -54,7 +54,7 @@ int main()
 ```
 * hash_code[color ff0000]
 
-###出力例
+### 出力例
 ```
 3616029859
 3161387801
@@ -65,17 +65,17 @@ int main()
 4
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 - [LWG Issue 2144. Missing `noexcept` specification in `type_index`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2144)
 

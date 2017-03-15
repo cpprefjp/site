@@ -1,4 +1,4 @@
-#uintptr_t
+# uintptr_t
 * cstdint[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 ```
 * unsigned-integer-type[italic]
 
-##概要
+## 概要
 ポインタサイズの符号なし整数型。
 
 この型を実装するかどうかは処理系定義。
@@ -27,11 +27,11 @@ namespace std {
 コード例は、[`intptr_t`](intptr_t.md)を参照。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??

@@ -1,4 +1,4 @@
-#uintmax_t
+# uintmax_t
 * cstdint[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -11,14 +11,14 @@ namespace std {
 ```
 * unsigned-integer-type[italic]
 
-##概要
+## 概要
 最大の符号なし整数型。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0

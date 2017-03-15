@@ -1,4 +1,4 @@
-#pop_front
+# pop_front
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
@@ -8,19 +8,19 @@
 void pop_front();
 ```
 
-##概要
+## 概要
 先頭要素を削除する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -38,13 +38,13 @@ int main()
 ```
 * pop_front()[color ff0000]
 
-###出力
+### 出力
 ```
 2
 3
 ```
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |---------------------------------|--------------------|

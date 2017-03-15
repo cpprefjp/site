@@ -1,4 +1,4 @@
-#operator<=
+# operator<=
 * queue[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,17 +10,17 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `queue`において、左辺が右辺以下かを判定する。
 
 
-##戻り値
+## 戻り値
 ```cpp
 x.c <= y.c
 ```
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -43,11 +43,11 @@ int main ()
 * x <= y[color ff0000]
 * push[link push.md]
 
-###出力
+### 出力
 ```
 true
 ```
 
-##参照
+## 参照
 
 

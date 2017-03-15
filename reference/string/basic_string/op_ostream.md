@@ -1,4 +1,4 @@
-#operator<<
+# operator<<
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,20 +12,20 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 
 文字列をストリームへ出力する。
 
-##効果
+## 効果
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. 仮引数`s`が指し示す文字列を出力する。
     - `width()`と`flags() & (ios_base::adjustfield)`に従ってパディングの出力も行う。
 1. `width(0)`を呼び出す。
 
-##戻り値
+## 戻り値
 `os`
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -36,18 +36,18 @@ int main() {
 }
 ```
 
-###出力例
+### 出力例
 ```
 Tuna
 ```
 
-##実装例
+## 実装例
 TBD
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - このほかの`<<`演算子関数
     - [`<ostream>`ヘッダで定義されているもの](../../ostream/basic_ostream/op_ostream.md)

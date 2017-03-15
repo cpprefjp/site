@@ -1,4 +1,4 @@
-#errc
+# errc
 * system_error[meta header]
 * std[meta namespace]
 * enum[meta id-type]
@@ -97,6 +97,6 @@ namespace std {
 | `wrong_protocol_type`                | `EPROTOTYPE`      | ソケットに指定できないプロトコルタイプ |
 
 
-##参照
+## 参照
 - [Man page of ERRNO](http://linuxjm.osdn.jp/html/LDP_man-pages/man3/errno.3.html)
 

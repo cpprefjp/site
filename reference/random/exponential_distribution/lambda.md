@@ -1,4 +1,4 @@
-#lambda
+# lambda
 * random[meta header]
 * std[meta namespace]
 * exponential_distribution[meta class]
@@ -9,15 +9,15 @@
 result_type lambda() const;
 ```
 
-##概要
+## 概要
 指数分布のパラメータλを取得する。
 
 
-##戻り値
+## 戻り値
 構築時に設定された、`lambda`の値を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -32,16 +32,16 @@ int main()
 ```
 * lambda()[color ff0000]
 
-###出力
+### 出力
 ```
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -49,6 +49,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

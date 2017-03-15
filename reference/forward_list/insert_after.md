@@ -1,4 +1,4 @@
-#insert_after
+# insert_after
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -21,7 +21,7 @@ iterator insert_after(const_iterator position,
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 任意の位置に新たな要素を挿入する。
 
 [`list`](/reference/list.md)の`insert()`は指定された要素の前に挿入するが、`forward_list`は指定された要素の後に挿入する。
@@ -32,20 +32,20 @@ iterator insert_after(const_iterator position,
 - (5) : `initializer_list`の全て要素を挿入する
 
 
-##要件
+## 要件
 - 第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](/reference/forward_list/end.md)`]`の範囲の間接参照可能なイテレータであること。
 - `first`、`last`は`*this`のイテレータではないこと。
 
 
-##戻り値
+## 戻り値
 挿入された要素を指すイテレータ
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -114,7 +114,7 @@ int main()
 * ls.before_begin()[link before_begin.md]
 * std::next[link /reference/iterator/next.md]
 
-###出力
+### 出力
 ```
 insert one element : 0 1 2 3 4 
 insert n elements : 1 2 3 3 5 
@@ -122,11 +122,11 @@ insert range : 1 2 3 4 5 6
 insert initializer_list : 1 2 3 4 5 6 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -135,7 +135,7 @@ insert initializer_list : 1 2 3 4 5 6
 	- (5) `initializer_list<T>`を仮引数に持つものは、12.0から。
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (5)の経緯となる提案文書
 

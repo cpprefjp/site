@@ -1,4 +1,4 @@
-#regex_error
+# regex_error
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 ```
 * std::runtime_error[link /reference/stdexcept.md]
 
-##概要
+## 概要
 `regex_error`クラスは、正規表現ライブラリ`<regex>`からのエラー報告として送出される、例外オブジェクトの型である。
 
 有効ではない正規表現が入力された場合に送出される。
@@ -19,11 +19,11 @@ namespace std {
 エラーとなった理由は、[`what()`](/reference/stdexcept.md)メンバ関数によってエラーメッセージ文字列として取得できるほか、[`code()`](regex_error/code.md)メンバ関数によって[`regex_constants::error_type`](regex_constants/error_type.md)型のエラーコード値としても取得できる。
 
 
-##メンバ関数
+## メンバ関数
 
 基底クラスである[`runtime_error`](/reference/stdexcept.md)も参照のこと。
 
-###構築・破棄
+### 構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -32,14 +32,14 @@ namespace std {
 | `regex_error& operator=(const regex_error&) = default;`<br/> `regex_error& operator=(regex_error&&) = default;` | 代入演算子 | C++11 |
 
 
-###エラー内容
+### エラー内容
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`code`](regex_error/code.md) | エラーコードを取得する | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -84,17 +84,17 @@ int main()
 * std::regex[link /reference/regex/basic_regex.md]
 * code()[link regex_error/code.md]
 
-###出力例
+### 出力例
 ```
 error paren
 The expression contained mismatched ( and ).
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
 - [ICC](/implementation.md#icc): ?

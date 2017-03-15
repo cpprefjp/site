@@ -1,4 +1,4 @@
-#is_null_pointer
+# is_null_pointer
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`が[`nullptr_t`](/reference/cstddef/nullptr_t.md)か調べる
 
 
-##効果
+## 効果
 `is_null_pointer`は、型`T`が[`nullptr_t`](/reference/cstddef/nullptr_t.md)であれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -41,20 +41,20 @@ static_assert(std::is_null_pointer<int>::value == false,
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 - [LWG Issue 2247. Type traits and `std::nullptr_t`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2247)
 

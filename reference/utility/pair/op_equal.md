@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * utility[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,15 +13,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`pair`の等値比較を行う
 
 
-##戻り値
+## 戻り値
 `x.first == y.first && x.second == y.second`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -39,11 +39,11 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
-##参照
+## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)

@@ -1,4 +1,4 @@
-#get_future
+# get_future
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
@@ -10,22 +10,22 @@ future<R> get_future();
 ```
 * future[link ../future.md]
 
-##概要
+## 概要
 結果取得のための`future`オブジェクトを取得する
 
 
-##戻り値
+## 戻り値
 `*this`と同じ共有状態を持つ[`future`](../future.md)`<R>`オブジェクトを返す
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`future_already_retrieved`](../future_errc.md) ： すでにこの関数によって共有状態が作られている
 - [`no_state`](../future_errc.md)： `*this`が共有状態を持っていない(デフォルト構築された`packaged_task`、ムーブされたあとなどに起こりうる)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -50,16 +50,16 @@ int main()
 * task()[link op_call.md]
 * f.get()[link /reference/future/future/get.md]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -67,6 +67,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

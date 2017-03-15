@@ -1,4 +1,4 @@
-#is_sorted_until
+# is_sorted_until
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -17,19 +17,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 ソート済みか判定し、ソートされていない位置のイテレータを取得する
 
 
-##戻り値
+## 戻り値
 [`distance`](/reference/iterator/distance.md)`(first, last) < 2` なら `last` を返す。そうでない場合、`[first,last]` の中でソートされている範囲を `[first,i)` としたとき、そのイテレータ `i` を返す。
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -51,14 +51,14 @@ int main()
 ```
 * std::is_sorted_until[color ff0000]
 
-###出力
+### 出力
 ```
 before: is sorted? false
  after: is sorted? true
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class ForwardIterator>
 ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last)
@@ -73,12 +73,12 @@ ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last)
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -86,6 +86,6 @@ ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last)
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
 

@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * fstream[meta header]
 * std[meta namespace]
 * basic_fstream[meta class]
@@ -12,10 +12,10 @@ basic_fstream(const basic_fstream& rhs) = delete; // (4) C++11
 basic_fstream(basic_fstream&& rhs); // (5) C++11
 ```
 
-##概要
+## 概要
 オブジェクトを構築する。一部のオーバーロードでは、ファイルを開く機能を持っている。
 
-##効果
+## 効果
 
 - (1) : デフォルトコンストラクタ。空の状態にする。
 - (2) : 仮引数`s`で指定したファイルを開く。
@@ -47,13 +47,13 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ファイルを開けませんでした。
 ファイルを開けませんでした。
 ```
 
-##実装例
+## 実装例
 
 例示のため、`basic_fstream<>`が内部で保持している`basic_filebuf`オブジェクトを、仮にメンバ変数`sb`とする。
 
@@ -85,9 +85,9 @@ basic_fstream<CharT, Traits>::basic_fstream(basic_fstream&& rhs) : basic_iostrea
 }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 - C++11: ムーブコンストラクタの追加
 
-##参照
+## 参照

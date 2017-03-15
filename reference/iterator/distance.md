@@ -1,4 +1,4 @@
-#distance
+# distance
 * iterator[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 イテレータ間の距離を求める。
 
 この関数は、以下のような状況で活用できる：
@@ -38,25 +38,25 @@ std::size_t size = std::distance(ls.begin(), ls.end());
 * ls.end()[link /reference/forward_list/end.md]
 
 
-##要件
+## 要件
 - `InputIterator`がランダムアクセスイテレータの場合、`first`は`last`に到達可能、もしくは`last`から`first`に到達可能であること。
 - それ以外のイテレータの場合には、`first`から`last`に到達可能であること。
 
 
-##効果
+## 効果
 - `InputIterator`がランダムアクセスイテレータの場合は、`last - first`が返る。
 - それ以外のイテレータの場合は、`first`から`last`までイテレータをインクリメントしていき、距離をカウントする。
 
 
-##戻り値
+## 戻り値
 `first`から`last`までの距離
 
 
-##計算量
+## 計算量
 `InputIterator`がランダムアクセスイテレータの場合はO(1)。それ以外のイテレータの場合はO(n)。
 
 
-##例
+## 例
 ```cpp
 #include <iterator>
 #include <iostream>
@@ -83,13 +83,13 @@ int main()
 * ls.begin()[link /reference/list/begin.md]
 * ls.end()[link /reference/list/end.md]
 
-###出力
+### 出力
 ```
 3
 5
 ```
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator>
 typename std::iterator_traits<InputIterator>::difference_type
@@ -125,6 +125,6 @@ typename std::iterator_traits<InputIterator>::difference_type
 * std::input_iterator_tag[link iterator_tag.md]
 * std::random_access_iterator_tag[link iterator_tag.md]
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#assign
+# assign
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
@@ -14,17 +14,17 @@ void assign(initializer_list<T> init);                // (3) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 コンテナに値を代入する。
 
 
-##効果
+## 効果
 - (1) : `*this`の全ての要素を解放し、`[first, last)`の範囲の要素のコピーを`*this`にコピーする。
 - (2) : `*this`の全ての要素が解放され、`t`オブジェクトの`n`個のコピーから`*this`を再構築する。
 - (3) : `*this`の全ての要素を解放し、`x`の全ての要素を`*this`にコピーする。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -64,14 +64,14 @@ int main ()
 * c.begin()[link begin.md]
 * c.end()[link end.md]
 
-###出力
+### 出力
 ```
 c1 : {1 2 3 }
 c2 : {1 1 1 }
 c3 : {1 2 3 }
 ```
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
 
 

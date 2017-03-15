@@ -1,7 +1,7 @@
-#初期化子リスト
+# 初期化子リスト
 * cpp11[meta cpp]
 
-##概要
+## 概要
 「初期化子リスト (initializer lists)」は、ユーザー定義型のオブジェクトに対して、波カッコによるリスト初期化を使用できるようにするようオーバーロードする機能である。
 
 これによって、[`std::vector`](/reference/vector.md)のようなコンテナクラスに対しても、組み込み配列と同様に、波カッコによる簡易的な初期化構文を使用できる：
@@ -67,7 +67,7 @@ int main()
 * init.end()[link /reference/initializer_list/end.md]
 
 
-##仕様
+## 仕様
 - 波カッコ `{ }` を使用した初期化子のリストによるオブジェクトもしくは参照の初期化を、「リスト初期化 (list initialization)」と呼び、その初期化子を「初期化子リスト (initializer list)」と呼ぶ。初期化子リストは、カンマ区切りで要素を列挙する
 - 初期化子リストは、空であってもよい
 
@@ -335,7 +335,7 @@ int main()
 * std::initializer_list[link /reference/initializer_list.md]
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 C++の目標として、「組み込み型の振る舞いをユーザー定義型で定義できるようにする」というものがある。しかし、組み込み配列での波カッコを使用したリスト初期化は、ユーザー定義型に対してオーバーロードができなかった。それにより、[`std::vector`](/reference/vector.md)のようなコンテナクラスの初期化が使いにくいものとなっていた：
 
 ```cpp
@@ -347,11 +347,11 @@ std::vector<int> v(ar, ar + N);
 この問題を解決するために、波カッコによるリスト初期化をユーザー定義型でオーバーロードする機能が求められ、[`std::initializer_list`](/reference/initializer_list.md)クラスとオーバーロード機能が導入された。
 
 
-##関連項目
+## 関連項目
 - [C++11 一様初期化](uniform_initialization.md)
 
 
-##参照
+## 参照
 - [N1493 Braces Initialization Overloading](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1493.pdf)
 - [N1509 Generalized Initializer Lists](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1509.pdf)
 - [N1584 Regularizing Initialization Syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1584.pdf)

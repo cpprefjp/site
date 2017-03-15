@@ -1,4 +1,4 @@
-#operator-=
+# operator-=
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
@@ -10,23 +10,23 @@ T operator-=(T operand) volatile noexcept;
 T operator-=(T operand) noexcept;
 ```
 
-##概要
+## 概要
 加算を行う
 
 
-##戻り値
+## 戻り値
 [`fetch_sub`](fetch_sub.md)`(operand) - operand`
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、`atomic`クラスの整数型およびポインタに対する特殊化で定義される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -43,17 +43,17 @@ int main()
 * x -= 2;[color ff0000]
 * x.load()[link load.md]
 
-###出力
+### 出力
 ```
 1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -61,6 +61,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

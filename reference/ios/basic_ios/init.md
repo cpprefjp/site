@@ -1,4 +1,4 @@
-#init
+# init
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -11,11 +11,11 @@ protected:
 * basic_streambuf[link ../../streambuf/basic_streambuf.md]
 
 
-##概要
+## 概要
 `*this` を初期化する。
 
 
-##効果
+## 効果
 `*this` の状態を以下の表のようになるよう設定する。
 
 | 要素 | 値 |
@@ -33,16 +33,16 @@ protected:
 | [`pword`](../ios_base/pword.md)`()` で使用される私用記憶域 | なし |
 
 
-##戻り値
+## 戻り値
 無し
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
 
-##参照
+## 参照
 - [`basic_ios`](../basic_ios.md)`::`[`basic_ios`](op_constructor.md)
 - [`basic_ios`](../basic_ios.md)`::`[`~basic_ios`](op_destructor.md)
 - [`ios_base`](../ios_base.md)`::`[`ios_base`](../ios_base/op_constructor.md)

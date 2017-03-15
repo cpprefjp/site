@@ -1,4 +1,4 @@
-#insert
+# insert
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -25,11 +25,11 @@ iterator insert(const_iterator position,
 iterator insert(const_iterator position, initializer_list<T> il); // (5) C++11
 ```
 
-##概要
+## 概要
 任意の位置に新たな要素を挿入する
 
 
-##要件
+## 要件
 - (1)
     - 型`T`が`*this`のコンテナに対して[CopyInsertable](/reference/container_concepts/CopyInsertable.md)であること
     - 型`T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
@@ -41,15 +41,15 @@ iterator insert(const_iterator position, initializer_list<T> il); // (5) C++11
     - 型`T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
 
 
-##戻り値
+## 戻り値
 挿入された要素を指すイテレータ
 
 
-##計算量
+## 計算量
 挿入される要素の数と挿入される要素の位置と[`end()`](end.md)の間の要素数に対して線形時間の計算量が必要である。
 
 
-##備考
+## 備考
 - 要素を追加した後の[`size()`](size.md)が要素を追加する前の[`capacity()`](capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じなかった場合には挿入位置より前のイテレーターや参照は有効である。
 - 条件付きで、例外が発生した場合に副作用が発生しない保証がある。
 	- C++03: 要素型`T`のコピーコンストラクタ、代入演算子以外で例外が発生した場合、副作用は発生しない。
@@ -57,7 +57,7 @@ iterator insert(const_iterator position, initializer_list<T> il); // (5) C++11
 	- C++14: 単一要素を終端に追加する場合は[`push_back()`](push_back.md)と同様。それ以外はC++11と同様。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -97,7 +97,7 @@ int main()
 ```
 * insert[color ff0000]
 
-###出力
+### 出力
 ```
 aaa
 hhh
@@ -110,8 +110,8 @@ bbb
 ccc
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11 :右辺参照バージョン
 	- [Clang](/implementation.md#clang): ??
 	- [GCC](/implementation.md#gcc): 
@@ -126,7 +126,7 @@ ccc
 	- [ICC](/implementation.md#icc): ??
 	- [Visual C++](/implementation.md#visual_cpp) 
 
-##参照
+## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (5)の経緯となる提案文書

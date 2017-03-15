@@ -1,4 +1,4 @@
-#rend
+# rend
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
@@ -10,24 +10,24 @@ reverse_iterator rend() noexcept;
 const_reverse_iterator rend() const noexcept;
 ```
 
-##概要
+## 概要
 先頭要素の前を指す逆イテレータを取得する。
 
 
-##戻り値
+## 戻り値
 非`const`な文脈では`reverse_iterator`型で先頭要素の前を指す逆イテレータを返し、
 `const`な文脈では`const_reverse_iterator`型で 先頭要素の前を指す逆イテレータを返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <array>
@@ -55,7 +55,7 @@ int main()
 * rend[color ff0000]
 
 
-###出力
+### 出力
 ```
 3
 2
@@ -65,12 +65,12 @@ int main()
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -78,5 +78,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0
 
 
-##参照
+## 参照
 

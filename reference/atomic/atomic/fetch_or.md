@@ -1,4 +1,4 @@
-#fetch_or
+# fetch_or
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
@@ -12,28 +12,28 @@ T fetch_or(T operand, memory_order order = memory_order_seq_cst) noexcept;
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
-##概要
+## 概要
 OR演算を行う
 
 
-##効果
+## 効果
 `order`で指定されたメモリオーダーにしたがって、現在の値に`operand`をORした値でアトミックに置き換える
 
 
-##戻り値
+## 戻り値
 変更前の値が返される
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、`atomic`クラスの整数型に対する特殊化で定義される。
 符号付き整数型に対しては、2の補数表現による演算が行われ、未定義動作はない。アドレス型に関しては結果として未定義アドレスになる場合があるが、それ以外の未定義動作はない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -57,18 +57,18 @@ int main()
 * x.load()[link load.md]
 * to_string()[link /reference/bitset/to_string.md]
 
-###出力
+### 出力
 ```
 1011
 1110
 1111
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -76,6 +76,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

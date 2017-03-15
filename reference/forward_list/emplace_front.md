@@ -1,4 +1,4 @@
-#emplace_front
+# emplace_front
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -10,21 +10,21 @@ template <class... Args>
 void emplace_front(Args&&... args);
 ```
 
-##概要
+## 概要
 直接構築で新たな要素を先頭に追加する。
 
 この関数の引数`args...`は、要素型`T`のコンストラクタ引数である。当関数の内部で要素型`T`のコンストラクタを呼び出し、追加する要素を構築する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -49,17 +49,17 @@ int main()
 * ls.begin()[link begin.md]
 * ls.end()[link end.md]
 
-###出力
+### 出力
 ```
 3,hello
 1,world
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -69,7 +69,7 @@ int main()
 	- Visual C++ 11.0は、可変引数テンプレートに対応していないため、不完全な実装である。
 
 
-##参照
+## 参照
 - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
 
 

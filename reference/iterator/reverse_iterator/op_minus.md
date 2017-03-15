@@ -1,4 +1,4 @@
-#operator- (非メンバ関数)
+# operator- (非メンバ関数)
 * iterator[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -17,15 +17,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`reverse_iterator`の差を求める
 
 
-##戻り値
+## 戻り値
 `y.current - x.current`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -45,12 +45,12 @@ int main()
 * it2 - it1[color ff0000]
 * std::ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##参照
+## 参照
 - [LWG Issue 685. `reverse_iterator`/`move_iterator` difference has invalid signatures](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#685)
 
 

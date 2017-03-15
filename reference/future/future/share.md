@@ -1,4 +1,4 @@
-#share
+# share
 * future[meta header]
 * std[meta namespace]
 * future[meta class]
@@ -10,7 +10,7 @@ shared_future<R> share();
 ```
 * shared_future[link ../shared_future.md]
 
-##概要
+## 概要
 `future`オブジェクトを共有する。
 
 `*this`の`future`オブジェクトと同じ共有状態を持つ`shared_future`オブジェクトを生成する。
@@ -18,15 +18,15 @@ shared_future<R> share();
 この関数を呼び出したあと、`*this`の`future`オブジェクトは無効となる。
 
 
-##事後条件
+## 事後条件
 [`valid()`](valid.md) `== false`
 
 
-##戻り値
+## 戻り値
 [`shared_future`](../shared_future.md)`<R>(std::`[`move`](/reference/utility/move.md)`(*this))`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -70,17 +70,17 @@ int main()
 * p.get_future()[link /reference/future/promise/get_future.md]
 * p.set_value[link /reference/future/promise/set_value.md]
 
-###出力
+### 出力
 ```
 3
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -88,7 +88,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 [futureとshared_future - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120201/p1)
 [future::share()は何のためにあるのか - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20121029/1351494001)

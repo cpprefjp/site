@@ -1,4 +1,4 @@
-#upper_bound
+# upper_bound
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -15,11 +15,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 指定された要素より大きい値が現れる最初の位置のイテレータを取得する
 
 
-##要件
+## 要件
 - C++03 まで
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
@@ -33,7 +33,7 @@ namespace std {
 		つまり、`!(value < e)` または `!comp(value, e)` が `true` となる全ての要素 `e` は、`false` となる全ての要素よりも左側（`first` に近い方）になければならない。
 
 
-##戻り値
+## 戻り値
 `[first, last]` 内のイテレータ `i` のうち、以下の条件を満た、最も右側（`first` から遠い方）のもの
 
 - `[first, i)` 内の全てのイテレータ `j` が `!(value < *j)` または `comp(value, *j) == false` である
@@ -41,18 +41,18 @@ namespace std {
 （つまり、`value` より大きい要素のうち最初のものを指すイテレータ。`value` より大きい要素が無ければ `last`）
 
 
-##計算量
+## 計算量
 最大で log2(`last - first`) + 1 回の比較を行う
 
 
-##備考
+## 備考
 - 本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と同一である。  
 	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return !bool(value < e); })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return !bool(comp(value, e)); })` とすることで同一の結果が得られる。
 - 本関数の要件は、上記の通り C++03 までの方が C++11 よりも厳しい。  
 	しかし、本アルゴリズムの特性上、処理系が C++03 までにしか準拠していない場合でも、昇順に並んでいなくても正常に動作する可能性は高いものと思われる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -73,13 +73,13 @@ int main()
 ```
 * std::upper_bound[color ff0000]
 
-###出力
+### 出力
 ```
 4
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template<class ForwardIterator, class T, class Compare>
 ForwardIterator
@@ -116,6 +116,6 @@ upper_bound(ForwardIterator first, ForwardIterator last, const T& value)
 * std::advance[link /reference/iterator/advance.md]
 * std::iterator_traits[link /reference/iterator/iterator_traits.md]
 
-##参照
+## 参照
 - [LWG Issue 384. `equal_range` has unimplementable runtime complexity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384)
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)

@@ -1,4 +1,4 @@
-#regex_token_iterator
+# regex_token_iterator
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -22,7 +22,7 @@ namespace std {
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
 
-##概要
+## 概要
 `regex_token_iterator` は、ある文字列に対して、指定した正規表現で検索した結果をサブマッチ毎に順番に列挙する読み取り専用の前方向イテレータである。
 [`regex_iterator`](regex_iterator.md) と違い、マッチ結果（[`match_results`](match_results.md)）ではなくサブマッチ（[`sub_match`](sub_match.md)）を返す。
 
@@ -57,35 +57,35 @@ namespace std {
 - 2 つの間接参照可能な `regex_token_iterator` オブジェクト `a` と `b` がある時、`a == b` の場合でも、`*a` と `*b` が同じオブジェクトとは限らない。
 
 
-##メンバ関数
-###構築・破棄
+## メンバ関数
+### 構築・破棄
 
 | 名前                                                            | 説明           | 対応バージョン |
 |-----------------------------------------------------------------|----------------|----------------|
 | [`(constructor)`](regex_token_iterator/op_constructor.md) | コンストラクタ | C++11          |
 | [`operator=`](regex_token_iterator/op_assign.md)                | 代入演算子     | C++11          |
 
-###比較
+### 比較
 
 | 名前                                                | 説明       | 対応バージョン |
 |-----------------------------------------------------|------------|----------------|
 |[`operator==`](regex_token_iterator/op_equal.md)     | 等値比較   | C++11          |
 |[`operator!=`](regex_token_iterator/op_not_equal.md) | 非等値比較 | C++11          |
 
-###間接
+### 間接
 
 | 名前                                            | 説明           | 対応バージョン |
 |-------------------------------------------------|----------------|----------------|
 |[`operator*`](regex_token_iterator/op_deref.md)  | 間接参照       | C++11          |
 |[`operator->`](regex_token_iterator/op_arrow.md) | メンバアクセス | C++11          |
 
-###インクリメント
+### インクリメント
 
 | 名前                                                | 説明           | 対応バージョン |
 |-----------------------------------------------------|----------------|----------------|
 |[`operator++`](regex_token_iterator/op_increment.md) | インクリメント | C++11          |
 
-##メンバ型
+## メンバ型
 
 | 名前                | 説明                                                                                                | 対応バージョン |
 |---------------------|-----------------------------------------------------------------------------------------------------|----------------|
@@ -96,7 +96,7 @@ namespace std {
 | `reference`         | `const value_type` への参照                                                                         | C++11          |
 | `iterator_category` | このイテレータのカテゴリを表すタグ。前方向イテレータ（`forward_iterator_tag`）                      | C++11          |
 
-##説明用プライベートメンバ変数
+## 説明用プライベートメンバ変数
 
 | 名前       | 説明                                                                                                                  | 対応バージョン |
 |------------|-----------------------------------------------------------------------------------------------------------------------|----------------|
@@ -106,7 +106,7 @@ namespace std {
 | `N`        | 現在のサブマッチを識別する整数値。`size_t` 型                                                                         | C++11          |
 | `subs`     | 返すべきサブマッチを表す整数のリスト。[`vector`](/reference/vector.md)`<int>` 型                                      | C++11          |
 
-##非メンバ型
+## 非メンバ型
 
 | 名前                     | 説明                                                   | 対応バージョン |
 |--------------------------|--------------------------------------------------------|----------------|
@@ -115,7 +115,7 @@ namespace std {
 | `sregex_token_iterator`  | `regex_token_iterator<string::const_iterator>` の別名  | C++11          |
 | `wsregex_token_iterator` | `regex_token_iterator<wstring::const_iterator>` の別名 | C++11          |
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -155,7 +155,7 @@ int main()
 * std::sregex_token_iterator[color ff0000]
 * std::regex[link basic_regex.md]
 
-###出力
+### 出力
 ```
 match range = (9, 20), str = 'enumerator1'
 match range = (31, 42), str = 'enumerator2'
@@ -178,11 +178,11 @@ match range = (53, 64), str = 'enumerator3'
 match range = (67, 73), str = 'value3'
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

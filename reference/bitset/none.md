@@ -1,4 +1,4 @@
-#none
+# none
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -8,11 +8,11 @@
 bool none() const noexcept;
 ```
 
-##概要
+## 概要
 全てのビットが0になっているかを判定する。
 
 
-##戻り値
+## 戻り値
 全てのビットが0になっていれば`true`、そうでなければ`false`を返す。  
 この関数は、以下のプログラムと同じ動作をする：
 
@@ -22,7 +22,7 @@ return count() == 0;
 * count[link count.md]
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <bitset>
@@ -44,9 +44,9 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##参照
+## 参照
 

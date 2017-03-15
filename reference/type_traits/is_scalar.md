@@ -1,4 +1,4 @@
-#is_scalar
+# is_scalar
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`がスカラ型か調べる。スカラ型は、算術型、列挙型、ポインタ型、メンバポインタ型、`std::nullptr_t`、およびそれらのcv修飾を含む。
 
 
-##効果
+## 効果
 `is_scalar`は、型`T`がスカラ型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -57,18 +57,18 @@ static_assert(std::is_scalar<void (s::*)()>::value == true, "void (s::*)() is sc
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 	- 10.0～11.0は、`is_scalar<`[`nullptr_t`](../cstddef/nullptr_t.md)`>`が`false_type`からの派生クラスとなっている
 
-####備考
+#### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。

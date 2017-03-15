@@ -1,4 +1,4 @@
-#category
+# category
 * system_error[meta header]
 * std[meta namespace]
 * error_condition[meta class]
@@ -10,19 +10,19 @@ const error_category& category() const noexcept;
 ```
 * error_category[link ../error_category.md]
 
-##概要
+## 概要
 包含しているエラーカテゴリへの参照を返す
 
 
-##戻り値
+## 戻り値
 包含しているエラーカテゴリへの参照
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -42,16 +42,16 @@ int main()
 * std::error_category[link /reference/system_error/error_category.md]
 * cat.name()[link /reference/system_error/error_category/name.md]
 
-###出力
+### 出力
 ```
 generic
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -59,4 +59,4 @@ generic
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照

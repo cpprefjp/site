@@ -1,4 +1,4 @@
-#is_polymorphic
+# is_polymorphic
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,23 +11,23 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`が多相的なクラスか調べる
 
 
-##要件
+## 要件
 型`T`が非共用体のクラスである場合、その型は完全型でなければならない。
 
 
-##効果
+## 効果
 `is_polymorphic`は、型`T`が多相的クラス (cv修飾を許容する) であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##備考
+## 備考
 多相的クラスは、少なくとも一つの仮想関数を持つクラスである。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -52,23 +52,23 @@ static_assert(std::is_polymorphic<polymorphic_class&>::value == false, "value ==
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
-####備考
+#### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
 
 
-##参照
+## 参照
 - [LWG Issue 2015. Incorrect pre-conditions for some type traits](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2015)
     - C++11では要件が「型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。」だったが、これは間違いであるため、C++14で「型`T`が非共用体のクラスである場合、その型は完全型でなければならない。」に変更された。
 

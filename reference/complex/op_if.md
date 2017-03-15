@@ -1,4 +1,4 @@
-#ifリテラル
+# ifリテラル
 * complex[meta header]
 * std::complex_literals[meta namespace]
 * function[meta id-type]
@@ -14,19 +14,19 @@ inline namespace complex_literals {
 }}}
 ```
 
-##概要
+## 概要
 `complex<float>`のリテラル。
 
 虚部の値を受け取り、実部`0.0f`の値と合わせて`complex<float>`型のオブジェクトを生成する。
 
 
-##戻り値
+## 戻り値
 ```cpp
 complex<float>{0.0f, static_cast<float>(d)}
 ```
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <complex>
@@ -43,22 +43,22 @@ int main()
 ```
 * 1.0if[color ff0000]
 
-###出力
+### 出力
 ```
 (0,1)
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++1y mode](/implementation.md#clang): 3.4
 - [GCC, C++1y mode](/implementation.md#gcc): 4.9.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 
 
-##参照
+## 参照
 
 | 名前               | 説明                             |
 |--------------------|----------------------------------|

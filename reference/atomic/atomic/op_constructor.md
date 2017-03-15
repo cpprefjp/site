@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
@@ -12,22 +12,22 @@ constexpr atomic(T desired) noexcept; // (2)
 atomic(const atomic&) = delete;       // (3)
 ```
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ。
 - (2) : `desired`でオブジェクトを初期化する。
 - (3) : コピーコンストラクタ。コピー不可。これによって、ムーブ構築も不可となる。
 
 
-##効果
+## 効果
 - (1) : `atomic`オブジェクトを未初期化状態にする(C言語との互換性のため)
 - (2) : パラメータ`desired`の値を、メンバ変数として保持する。この初期化はアトミック操作ではないことに注意。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -46,16 +46,16 @@ int main()
 * x.load()[link load.md]
 
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -64,6 +64,6 @@ int main()
 	- Visual C++ 11.0はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
-##参照
+## 参照
 
 

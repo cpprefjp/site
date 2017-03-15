@@ -1,4 +1,4 @@
-#ldexp
+# ldexp
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -17,7 +17,7 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 `ldexp`関数 (load exponent)は、`x`に2の`exp`乗を掛けた値を計算する。
 
 この関数は、ビット操作をすることなく、仮数部と指数部を指定して浮動小数点の値を作り出すために使用できる。第1引数`x`に仮数部、第2引数`exp`に指数部の値をそれぞれ設定することで、それらの要素を持つ浮動小数点数が返される。
@@ -25,18 +25,18 @@ namespace std {
 この関数と反対に、[`std::frexp()`](frexp.md)関数を使用することで、浮動小数点数を仮数部と指数部に分解できる。
 
 
-##戻り値
+## 戻り値
 <code>x * 2<sup>exp</sup></code>
 
 オーバーフローエラー、アンダーフローエラーが発生する可能性がある。
 
 
-##備考
+## 備考
 - オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、かつ、基数が 2 の場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`radix`](../limits/numeric_limits/radix.md)`() == 2`）、[`scalbn`](scalbn.md)`(x, exp)` と同等である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -57,19 +57,19 @@ int main()
 * std::acos[link acos.md]
 * std::setprecision[link /reference/iomanip/setprecision.md]
 
-###出力
+### 出力
 ```
 48
 3.1415927
 ```
 
-###備考
+### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上
 
 
-##実装例
+## 実装例
 ```cpp
 namespace std {
   double ldexp(double x, int exp)

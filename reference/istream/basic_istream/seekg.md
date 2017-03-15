@@ -1,4 +1,4 @@
-#seekg
+# seekg
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
@@ -9,7 +9,7 @@ basic_istream<CharT, Traits>& seekg(pos_type pos);
 basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 ```
 
-##概要
+## 概要
 （非書式化入力関数）ストリームバッファに対し、読み取り位置の移動を指示する。
 
 非書式化入力関数であるが、後続の`gcount()`呼び出しに影響を及ぼさない点が通常と異なる。
@@ -17,7 +17,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 `seekg`は、`seek get`の略称。「読み取り用の位置の移動」を意味する。
 
 
-##効果
+## 効果
 
 1. （`pos_type`を引数に取るもののみ）初めにeofbitを消去する。
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
@@ -26,10 +26,10 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
     - `rdbuf()->pubseekoff(off, dir, ios_base::in)`
 1. 失敗した場合、`setstate(failbit)`を呼び出す。
 
-##戻り値
+## 戻り値
 `*this`
 
-##例
+## 例
 以下は、`off_type`と`seekdir`を使用する例。
 `pos_type`のみを引数に取るオーバーロードの例は、[`tellg`](tellg.md)を参照。
 
@@ -54,13 +54,13 @@ int main() {
 * std::ios_base[link /reference/ios/ios_base.md]
 * beg[link /reference/ios/ios_base/type-seekdir.md]
 
-###出力
+### 出力
 ```
 A
 A
 ```
 
-##実装例
+## 実装例
 ```cpp
 basic_istream<CharT, Traits>& seekg(pos_type pos) {
   iostate state = goodbit;
@@ -114,11 +114,11 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
 * exceptions()[link /reference/ios/basic_ios/exceptions.md]
 * setstate[link /reference/ios/basic_ios/setstate.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 
 - [`basic_istream::tellg`](tellg.md)
 - `basic_streambuf::pubseekpos`

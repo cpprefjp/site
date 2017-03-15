@@ -1,4 +1,4 @@
-#count
+# count
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -9,16 +9,16 @@ size_t count() const;          // C++03
 size_t count() const noexcept; // C++11
 ```
 
-##概要
+## 概要
 1になっているビットの数を取得する。
 
 
-##戻り値
+## 戻り値
 1になっているビットの数を返す。
 
 
-##例
-###基本操作
+## 例
+### 基本操作
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -31,12 +31,12 @@ int main()
 }
 ```
 
-####出力
+#### 出力
 ```
 3
 ```
 
-###値が2の乗数かを判定する
+### 値が2の乗数かを判定する
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -59,7 +59,7 @@ int main()
 ```
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 
-####出力
+#### 出力
 ```
 4 is power of 2
 8 is power of 2
@@ -69,5 +69,5 @@ int main()
 ```
 
 
-##参照
+## 参照
 

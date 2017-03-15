@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -13,7 +13,7 @@ basic_string& operator=(initializer_list<charT> il);  // (5) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 - (1) : `str` を `*this` へコピーする。`*this` と `str` が同一オブジェクトである場合は何も行わない。
 - (2) : `str` から `*this` へデータの所有権を移動する。`*this` と `str` が同一オブジェクトである場合は何も行わない。
 - (3) : `*this = basic_string(s);` と等価。
@@ -21,7 +21,7 @@ basic_string& operator=(initializer_list<charT> il);  // (5) C++11
 - (5) : `*this = basic_string(il);` と等価。
 
 
-##効果
+## 効果
 コピーを行った場合と、ムーブ代入を行った場合で効果が異なる
 
 | メンバ関数                    | コピーの場合                                | ムーブ代入の場合  |
@@ -31,15 +31,15 @@ basic_string& operator=(initializer_list<charT> il);  // (5) C++11
 | [`capacity()`](capacity.md) | [`size()`](size.md) 以上の値              | [`size()`](size.md) 以上の値 |
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 ムーブ代入の場合は例外を投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -78,10 +78,10 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 hello
 ```
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)

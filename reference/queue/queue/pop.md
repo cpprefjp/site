@@ -1,4 +1,4 @@
-#pop
+# pop
 * queue[meta header]
 * std[meta namespace]
 * queue[meta class]
@@ -8,7 +8,7 @@
 void pop();
 ```
 
-##概要
+## 概要
 `queue` の次の要素を削除して、要素数を１つ減らす。
 
 削除する要素は `queue` の最初にある要素で、[`front()`](front.md) メンバ関数で得られるものであり、そのデストラクタが呼ばれる。
@@ -16,11 +16,11 @@ void pop();
 内部のコンテナの `pop_front()` メンバ関数を呼ぶ。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -43,15 +43,15 @@ int main() {
 * que.push[link push.md]
 * que.front()[link front.md]
 
-###出力
+### 出力
 ```
 30
 ```
 
-##実装例
+## 実装例
 ```cpp
 void pop() { c.pop_front(); }
 ```
 
-##参照
+## 参照
 

@@ -1,4 +1,4 @@
-#operator~ (単項)
+# operator~ (単項)
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -8,11 +8,11 @@
 valarray<T> operator~() const;
 ```
 
-##概要
+## 概要
 単項 `~` 演算（ビット反転した要素を得る）。
 
 
-##戻り値
+## 戻り値
 以下のコードと同等のことを行う：
 
 ```cpp
@@ -24,7 +24,7 @@ return result;
 ```
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <valarray>
@@ -56,7 +56,7 @@ int main()
 ```
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 

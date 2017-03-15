@@ -1,4 +1,4 @@
-#cbegin
+# cbegin
 * iterator[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -14,11 +14,11 @@ namespace std {
 ```
 * std::begin[link begin.md]
 
-##概要
+## 概要
 範囲から先頭要素への読み取り専用イテレータを取得する。
 
 
-##戻り値
+## 戻り値
 ```cpp
 return std::begin(c);
 ```
@@ -27,7 +27,7 @@ return std::begin(c);
 パラメータを`const`で受け取っているので、`std::begin()`を経由することで、読み取り専用イテレータを取得している。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -49,24 +49,24 @@ int main()
 * std::cbegin[color ff0000]
 * std::cend[link cend.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG Issue 2128. Absence of global functions `cbegin`/`cend`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2128)
 

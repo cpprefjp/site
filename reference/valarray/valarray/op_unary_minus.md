@@ -1,4 +1,4 @@
-#operator- (単項)
+# operator- (単項)
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -8,11 +8,11 @@
 valarray<T> operator-() const;
 ```
 
-##概要
+## 概要
 単項 `+` 演算（符号を反転した要素を得る）。
 
 
-##戻り値
+## 戻り値
 以下のコードと同等のことを行う：
 
 ```cpp
@@ -24,7 +24,7 @@ return result;
 ```
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -41,7 +41,7 @@ int main()
 ```
 * -a[color ff0000]
 
-###出力
+### 出力
 ```
 -1
 2

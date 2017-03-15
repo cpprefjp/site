@@ -1,4 +1,4 @@
-#atomic_exchange_explicit
+# atomic_exchange_explicit
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,27 +13,27 @@ namespace std {
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 
-##概要
+## 概要
 メモリオーダーを指定して、`shared_ptr`オブジェクトを、アトミックに入れ替える。
 
 
-##要件
+## 要件
 `p != nullptr`であること。
 
 
-##効果
+## 効果
 `p->`[`swap`](swap.md)`(r)`相当のことを、アトミックに実行する。
 
 
-##戻り値
+## 戻り値
 変更前の`*p`を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -52,25 +52,25 @@ int main()
 ```
 * std::atomic_exchange_explicit[color ff0000]
 
-###出力
+### 出力
 ```
 2
 1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.3
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [`atomic_exchange() - shared_ptr`](atomic_exchange.md)
 - [`atomic_exchange_explicit() - <atomic>`](/reference/atomic/atomic_exchange_explicit.md)
 - [N2674 Shared_ptr atomic access, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2674.htm)

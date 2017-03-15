@@ -1,4 +1,4 @@
-#set_union
+# set_union
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -18,33 +18,33 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つのソート済み範囲の和集合を得る
 
 
-##要件
+## 要件
 結果の範囲は両方の入力の範囲と重なっていてはならない。
 
 
-##効果
+## 効果
 ２つの範囲からソート済みの union を構築する。つまり、片方または両方の範囲にある要素の集合を構築する。
 
 
-##戻り値
+## 戻り値
 構築された範囲の終端
 
 
-##計算量
+## 計算量
 最大で `2 * ((last1 - first1) + (last2 - first2)) - 1` 回の比較を行う
 
 
-##備考
+## 備考
 `[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、`[first1,last1)` から `m` 個全ての要素が出力の範囲へ順番にコピーされ、その後 `[first2,last2)` から [`max`](max.md)`(n - m, 0)` 個の要素が出力の範囲へ順番にコピーされる。
 （`[first2,last2)` から [`max`](max.md)`(n-m,0)` 個というのが、最初から [`max`](max.md)`(n-m,0)` 個なのか最後から [`max`](max.md)`(n-m,0)` 個なのかが明確に書かれてない）
 
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <set>
@@ -73,7 +73,7 @@ int main()
 * std::multiset[link /reference/set/multiset.md]
 * std::inserter[link /reference/iterator/inserter.md]
 
-###出力
+### 出力
 ```
 1
 2
@@ -84,7 +84,7 @@ int main()
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator1, class InputIterator2, class OutputIterator,
           class Compare>

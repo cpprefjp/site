@@ -1,4 +1,4 @@
-#operator->
+# operator->
 * iterator[meta header]
 * std[meta namespace]
 * reverse_iterator[meta class]
@@ -8,15 +8,15 @@
 pointer operator->() const;
 ```
 
-##概要
+## 概要
 イテレータを通してオブジェクトにアクセスする
 
 
-##戻り値
+## 戻り値
 - C++03 : `&(operator*())`
 - C++14 : [`addressof`](/reference/memory/addressof.md)`(operator*())`
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -43,11 +43,11 @@ int main()
 ```
 * it->[color ff0000]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##参照
+## 参照
 - [LWG Issue 2188. Reverse iterator does not fully support targets that overload `operator&`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2188)
 

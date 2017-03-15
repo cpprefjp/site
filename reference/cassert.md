@@ -1,4 +1,4 @@
-#cassert
+# cassert
 * cassert[meta header]
 
 `<cassert>`ヘッダでは、式が真であることを表明するための機能を提供する

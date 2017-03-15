@@ -1,4 +1,4 @@
-#operator()
+# operator()
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
@@ -9,28 +9,28 @@
 void operator()(ArgTypes... args);
 ```
 
-##概要
+## 概要
 タスクの実行し、戻り値を共有状態に格納する。
 
 
-##効果
+## 効果
 メンバ変数として保持している関数オブジェクト`f`に対して[`INVOKE`](/reference/functional/invoke.md)`(f, args..., R)`によって関数呼び出しを行い、その戻り値を[`future`](../future.md)との共有状態に格納する。関数`f`の内部で例外が送出された場合は、共有状態に送出された例外が格納される。
 
 共有状態が準備完了状態([`future_status::ready`](../future_status.md))となる。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`promise_already_satisfied`](../future_errc.md) ： 格納されたタスクがすでに実行された
 - [`no_state`](../future_errc.md)： `*this`が共有状態を持っていない(`packaged_task`オブジェクトがムーブされると起こりうる)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -86,17 +86,17 @@ int main()
 * std::future[link /reference/future/future.md]
 * f.get()[link /reference/future/future/get.md]
 
-###出力
+### 出力
 ```
 5
 error!
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -104,6 +104,6 @@ error!
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

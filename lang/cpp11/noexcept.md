@@ -1,7 +1,7 @@
-#noexcept
+# noexcept
 * cpp11[meta cpp]
 
-##概要
+## 概要
 C++11で導入された`noexcept`キーワードには、以下の2つの意味がある：
 
 ひとつは、`throw`キーワードによる例外仕様の代替。関数がどの例外を送出する可能性があるかを列挙するのではなく、例外を送出する可能性があるかないかのみを指定する。例外を送出する可能性がある関数には`noexcept(false)`を指定し、例外を送出する可能性がない関数には`noexcept(true)`もしくは`noexcept`を指定する：
@@ -36,8 +36,8 @@ static_assert(noexcept(x.getValue()), "getValue() function never throw exception
     - 参照： [ジェネリックコンポーネントにおける例外安全性 - boostjp](https://boostjp.github.io/archive/boost_docs/document/generic_exception_safety.html)
 
 
-##仕様
-###例外仕様としてのnoexcept
+## 仕様
+### 例外仕様としてのnoexcept
 - 例外仕様としての`noexcept`には、整数定数式を引数として指定できる。整数定数式は、`bool`に変換可能であること。
 - `noexcept`例外仕様に対して`false`に評価される整数定数式を指定した関数は、あらゆる例外を送出する可能性がある。
 - `noexcept`例外仕様に対して`true`に評価される整数定数式を指定した関数、もしくは引数なしで`noexcept`を指定した関数は、いかなる例外も送出してはならない。
@@ -64,7 +64,7 @@ struct X {
 - 従来の`throw`キーワードによる例外仕様(C++03ではexception specification、C++11ではdynamic exception specificationと呼ばれる仕様)は、C++11以降で非推奨である。
 
 
-###式が例外を送出する可能性があるか判定するnoexcept演算子
+### 式が例外を送出する可能性があるか判定するnoexcept演算子
 - 演算子としての`noexcept`は、引数として指定した定数式が例外を送出する可能性があるかどうかをコンパイル時に判定し、`bool`型の定数値を返す
 
 ```cpp
@@ -91,7 +91,7 @@ constexpr bool isNoexprF = noexcept(x.f());
     - 実行時型チェックが行われる式として、参照型を引数とする`dynamic_cast`式の呼び出し、および多態的に振る舞う型の左辺値に対する`typeid`式の呼び出し
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <stack>
@@ -153,14 +153,14 @@ int main()
 * s.push[link /reference/stack/push.md]
 * s.empty()[link /reference/stack/empty.md]
 
-###出力
+### 出力
 ```
 3
 2
 1
 ```
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 `noexcept`機能は、ムーブコンストラクタから例外を送出することを許可する際に提案された。
 
 ムーブ操作は基本的には例外を送出しない。そのため、例外を送出しないという、例外安全性の強い保証がしやすい仕組みと言える。ムーブに例外を送出しない保証があれば、より最適化された実装を選択できるだろう。しかし、ムーブ操作が例外を送出する可能性があるのであれば、例外を送出しないムーブ操作のための最適化された実装とそれ以外を呼び分ける仕組みが必要となる。
@@ -168,7 +168,7 @@ int main()
 そういった例外を送出しない判定や指定は、従来の`throw`キーワードによる例外仕様の範囲を超えていた。そのために、`noexcept`という機能が新設され、その機能で必要十分となったために従来の例外仕様は非推奨となった。
 
 
-##関連項目
+## 関連項目
 - [標準ライブラリにおける、関数に`noexcept`を付けない条件](/article/lib/dont_use_noexcept.md)
 - [`move_if_noexcept`](/reference/utility/move_if_noexcept.md)
 - [`is_nothrow_constructible`](/reference/type_traits/is_nothrow_constructible.md)
@@ -181,7 +181,7 @@ int main()
 - [`is_nothrow_destructible`](/reference/type_traits/is_nothrow_destructible.md)
 
 
-##参照
+## 参照
 - [N3050 Allowing Move Constructors to Throw (Rev. 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3050.html)
 - [N3166 Destructors default to `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3166.html)
 - [N3167 Delete operators default to `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3167.html)

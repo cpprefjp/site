@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * istream[meta header]
 * std[meta namespace]
 * basic_istream::sentry[meta class]
@@ -10,10 +10,10 @@ explicit sentry(basic_istream& is, bool noskipws = false);
 * char_traits[link ../../../string/char_traits.md]
 * basic_istream[link ../../basic_istream.md]
 
-##概要
+## 概要
 入力処理の前処理を行う。
 
-##効果
+## 効果
 1. `is.`[`good`](../../../ios/basic_ios/good.md)`()`が`false`なら、`is.`[`setstate`](../../../ios/basic_ios/setstate.md)`(failbit)`を呼び出し、関数から帰る。
 1. `is.`[`tie`](../../../ios/basic_ios/tie.md)`()`が非ヌルポインタなら、`is.`[`tie`](../../../ios/basic_ios/tie.md)`()->`[`flush`](../../../ostream/basic_ostream/flush.md)`()`を呼び出す。
     - `is.`[`tie`](../../../ios/basic_ios/tie.md)`()`が指す先のストリームバッファのput areaが空なら、この処理を省略しても良い。

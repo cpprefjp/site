@@ -1,4 +1,4 @@
-#emplace_after
+# emplace_after
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -10,7 +10,7 @@ template <class... Args>
 iterator emplace_after(const_iterator position, Args&&... args);
 ```
 
-##概要
+## 概要
 任意の位置に直接構築で要素を挿入する。
 
 この関数の引数`args...`は、要素型`T`のコンストラクタ引数である。当関数の内部で要素型`T`のコンストラクタを呼び出し、追加する要素を構築する。
@@ -18,19 +18,19 @@ iterator emplace_after(const_iterator position, Args&&... args);
 第1パラメータ`position`で指定された要素の後ろに追加する。
 
 
-##要件
+## 要件
 第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](end.md)`]`の範囲の間接参照可能なイテレータであること。
 
 
-##戻り値
+## 戻り値
 挿入された要素を指すイテレータ
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -59,7 +59,7 @@ int main()
 * ls.begin()[link begin.md]
 * ls.end()[link end.md]
 
-###出力
+### 出力
 ```
 1,a
 2,b
@@ -67,11 +67,11 @@ int main()
 4,d
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -81,6 +81,6 @@ int main()
 	- Visual C++ 11.0は、可変引数テンプレートに対応していないため、不完全な実装である。
 
 
-##参照
+## 参照
 
 

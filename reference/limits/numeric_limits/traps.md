@@ -1,4 +1,4 @@
-#traps
+# traps
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,11 +12,11 @@ static const bool traps;
 static constexpr bool traps;
 ```
 
-##概要
+## 概要
 算術演算によってトラップが発生する型かを判定する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -37,7 +37,7 @@ int main()
 ```
 * traps[color ff0000]
 
-###出力
+### 出力
 ```
 int : true
 char : true

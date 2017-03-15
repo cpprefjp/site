@@ -1,4 +1,4 @@
-#stride
+# stride
 * valarray[meta header]
 * std[meta namespace]
 * gslice[meta class]
@@ -10,15 +10,15 @@ valarray<size_t> stride() const;
 * size_t[link /reference/cstddef/size_t.md]
 * valarray[link /reference/valarray/valarray.md]
 
-##概要
+## 概要
 スライスを生成する間隔数群を取得する。
 
 
-##戻り値
+## 戻り値
 スライスを生成する間隔数群。
 
 
-##例
+## 例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -38,7 +38,7 @@ auto main()
 }
 ```
 
-###出力
+### 出力
 ```
 10
 3

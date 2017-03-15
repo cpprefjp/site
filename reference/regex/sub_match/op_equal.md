@@ -1,4 +1,4 @@
-#operator== (非メンバ関数)
+# operator== (非メンバ関数)
 * regex[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -41,11 +41,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 マッチした文字列を等値比較する。
 
 
-##戻り値
+## 戻り値
 - (1) `lhs.`[`compare`](compare.md)`(rhs) == 0`
 - (2) `rhs.`[`compare`](compare.md)`(typename` [`sub_match`](../sub_match.md)`<BiIter>::string_type(lhs.`[`data`](../../string/basic_string/data.md)`(), lhs.`[`size`](../../string/basic_string/size.md)`())) == 0`  
 	なお、C++11 の規格書では `rhs.`[`compare`](compare.md)`(lhs.`[`c_str`](../../string/basic_string/c_str.md)`()) == 0` となっているが、この式では `lhs` に `'\0'` が含まれていた場合に正しく比較することができないため、規格上の誤りとして上記の式に修正された。
@@ -56,12 +56,12 @@ namespace std {
 - (6) `rhs.`[`compare`](compare.md)`(typename` [`sub_match`](../sub_match.md)`<BiIter>::string_type(1, lhs)) == 0`
 - (7) `lhs.`[`compare`](compare.md)`(typename` [`sub_match`](../sub_match.md)`<BiIter>::string_type(1, rhs)) == 0`
 
-##備考
+## 備考
 - (1) の形式でもマッチした文字列のみが比較され、マッチした位置は考慮されない。（例を参照）
 - (2)、および、(3) の形式でも比較に使用する文字特性クラスは標準の [`char_traits`](../../string/char_traits.md)`<value_type>` が使用され、テンプレート引数に指定された文字特性クラス `ST` は考慮されない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -97,7 +97,7 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::csub_match[link ../sub_match.md]
 
-###出力
+### 出力
 ```
 true
 true
@@ -109,11 +109,11 @@ false
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

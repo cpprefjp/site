@@ -1,4 +1,4 @@
-#error_type
+# error_type
 * regex[meta header]
 * std::regex_constants[meta namespace]
 * enum[meta id-type]
@@ -25,7 +25,7 @@ namespace regex_constants {
 ```
 * unspecified[italic]
 
-##概要
+## 概要
 正規表現のエラーを表す実装定義の列挙型。
 
 
@@ -46,18 +46,18 @@ namespace regex_constants {
 | `error_stack` | メモリ不足のため、正規表現が指定されたシーケンスにマッチするかどうかを判断できない | C++11 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [LWG Issue 2053. Errors in regex bitmask types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2053)
     - 定数定義に不要な`static`が付いていたため、C++14で削除
 

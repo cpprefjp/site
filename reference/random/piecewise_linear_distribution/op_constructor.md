@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * piecewise_linear_distribution[meta class]
@@ -28,7 +28,7 @@ explicit piecewise_linear_distribution(const param_type& parm); // (5)
 * initializer_list[link /reference/initializer_list.md]
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ。区間数列を`{0.0, 1.0}`、重み数列を`{1.0, 1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。
 - (2) : 区間数列の範囲`[firstB, lastB)`および重み数列の範囲の先頭`firstW`を受け取るコンストラクタ。これら数列によって、区間ごとの値を、線形に変化する確率によって生成する分布オブジェクトを構築する。
     - 範囲`[firstB, lastB)`の要素数が`1`以下の場合、区間数列を`{0.0, 1.0}`、重み数列を`{1.0, 1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。
@@ -41,16 +41,16 @@ explicit piecewise_linear_distribution(const param_type& parm); // (5)
 - (5) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(5)以外のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-##要件
+## 要件
 - (2) : `InputIteratorB`と`InputIteratorW`の要素型が、`double`型に変換可能であること
 - (3) : `UnaryOperation`関数オブジェクトは、`double`に変換可能な型を返すこと
 
 
-##計算量
+## 計算量
 - (3), (4) : `fw`関数オブジェクトの呼び出し回数が、要素数`n`を超えないものとする
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -133,7 +133,7 @@ int main()
 * intervals.end()[link /reference/array/end.md]
 * densities.begin()[link /reference/array/begin.md]
 
-###出力例
+### 出力例
 ```
 default constructor : 0.724384
 iterator range constructor : 0.157439
@@ -142,11 +142,11 @@ min-max constructor : 0.411983
 parameter constructor : 0.260002
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -154,6 +154,6 @@ parameter constructor : 0.260002
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

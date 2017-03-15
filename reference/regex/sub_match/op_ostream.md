@@ -1,4 +1,4 @@
-#operator<< (非メンバ関数)
+# operator<< (非メンバ関数)
 * regex[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,19 +13,19 @@ namespace std {
 * basic_ostream[link ../../ostream/basic_ostream.md]
 * sub_match[link ../sub_match.md]
 
-##概要
+## 概要
 ストリームへの出力を行う。
 
 
-##戻り値
+## 戻り値
 `os` [`<<`](../../string/basic_string/op_ostream.md) `m.`[`str`](str.md)`()`
 
 
-##備考
+## 備考
 テンプレート引数は 3 つあるが、規格上は文字列の出力に使用している [`operator<<`](../../string/basic_string/op_ostream.md) が `charT =` [`iterator_traits`](../../iterator/iterator_traits.md)`<BiIter>::value_type`、かつ、`ST =` [`char_traits`](../../string/char_traits.md)`<charT>` のバージョンしか存在しない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -50,17 +50,17 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::csub_match[link ../sub_match.md]
 
-###出力
+### 出力
 ```
 'abc'
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

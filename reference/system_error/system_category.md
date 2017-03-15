@@ -1,4 +1,4 @@
-#system_category
+# system_category
 * system_error[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 ```
 * error_category[link error_category.md]
 
-##概要
+## 概要
 環境固有のエラーに関する`error_category`を返す。
 
 
-##戻り値
+## 戻り値
 [`error_category`](error_category.md)クラスを継承したクラスオブジェクトへの参照を返す。
 
 この関数を呼び出すことによって返されるオブジェクトは、同じオブジェクトを指す。 
@@ -27,11 +27,11 @@ namespace std {
 - [`default_error_condition()`](error_category/default_error_condition.md)仮想関数は、パラメータ`ev`がPOSIXの`errno`であった場合 [`error_condition`](error_condition.md)`(ev,` [`generic_category()`](generic_category.md)`);` を返し、そうでない場合は[`error_condition`](error_condition.md)`(ev, system_category());` を返す。特定のOSに関する処理は未規定。ただし、POSIXのエラー値に対応していない場合がありえるため、環境によっては[`generic_category()`](generic_category.md)が返される挙動はサポートされない。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -51,17 +51,17 @@ int main()
 * cat.message[link error_category/message.md]
 * std::errc::invalid_argument[link errc.md]
 
-###出力
+### 出力
 ```
 system
 Invalid argument
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -69,4 +69,4 @@ Invalid argument
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照

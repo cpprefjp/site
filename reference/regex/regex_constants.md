@@ -1,4 +1,4 @@
-#regex_constants
+# regex_constants
 * regex[meta header]
 * std[meta namespace]
 * namespace[meta id-type]
@@ -13,7 +13,7 @@
 | [`error_type`](regex_constants/error_type.md) | 正規表現のエラーを表す実装定義の列挙型(enum) | C++11 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 

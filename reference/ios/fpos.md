@@ -1,4 +1,4 @@
-#fpos
+# fpos
 * ios[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -20,8 +20,8 @@ namespace std {
 
 `std::char_traits<char>::state_type`と`std::char_traits<wchar_t>::state_type`はともに`std::mbstate_t`の別名である。
 
-##メンバ関数
-###構築・破棄
+## メンバ関数
+### 構築・破棄
 
 | 名前                      | 説明             | 対応バージョン |
 |---------------------------|------------------|----------------|

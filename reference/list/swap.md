@@ -1,4 +1,4 @@
-#swap
+# swap
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -8,23 +8,23 @@
 void swap(list& x);
 ```
 
-##概要
+## 概要
 他の`list`オブジェクトと値を入れ替える。
 
 
-##効果
+## 効果
 `*this`の内容を`x`と交換する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -49,7 +49,7 @@ int main()
 ```
 * swap[color ff0000]
 
-###出力
+### 出力
 ```
 4
 5

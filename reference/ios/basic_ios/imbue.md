@@ -1,4 +1,4 @@
-#imbue
+# imbue
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -9,23 +9,23 @@ locale imbue(const locale& loc);
 ```
 * locale[link ../../locale/locale.md]
 
-##概要
+## 概要
 ロケールを設定する。
 
 
-##効果
+## 効果
 [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)`(loc)` を呼び出した後、[`rdbuf`](rdbuf.md)`() != 0` であれば、[`rdbuf`](rdbuf.md)`()->`[`pubimbue`](../../streambuf/basic_streambuf/pubimbue.md)`(loc)` を呼び出す。
 
 
-##戻り値
+## 戻り値
 [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)`(loc)` の戻り値
 
 
-##備考
+## 備考
 [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)`()` は仮想関数ではないため、[`ios_base`](../ios_base.md) へのポインタや参照経由で `imbue()` を呼び出した場合には本関数ではなく [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)`()` が呼び出される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <locale>
@@ -53,7 +53,7 @@ int main()
 * getloc[link ../../streambuf/basic_streambuf/getloc.md]
 * name[link ../../locale/locale/name.md.nolink]
 
-###出力例
+### 出力例
 ```
 1234.5
 1,234.5
@@ -66,11 +66,11 @@ de_DE
 また、2 行目・3 行目の出力はロケール依存のため、たとえこれらのロケールが使用できたとしても上記のようには出力されない可能性もある（が、一般的にはこのように出力される）。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [`ios_base`](../ios_base.md)`::`[`getloc`](../ios_base/getloc.md)
 - [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)
 - [`basic_streambuf`](../../streambuf/basic_streambuf.md)`::`[`getloc`](../../streambuf/basic_streambuf/getloc.md)

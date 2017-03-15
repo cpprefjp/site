@@ -1,4 +1,4 @@
-#front
+# front
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -10,18 +10,18 @@ reference front();
 const_reference front() const;
 ```
 
-##概要
+## 概要
 先頭要素への参照を取得する。
 
 
-##戻り値
+## 戻り値
 `*`[`begin()`](begin.md)
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <forward_list>
@@ -37,16 +37,16 @@ int main()
 * front()[color ff0000]
 
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -54,6 +54,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

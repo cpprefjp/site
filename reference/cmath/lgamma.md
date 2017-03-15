@@ -1,4 +1,4 @@
-#lgamma
+# lgamma
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,15 +18,15 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 ガンマ関数の絶対値の自然対数を求める。
 
 
-##戻り値
+## 戻り値
 引数 `x` のガンマ関数の絶対値の自然対数を返す。
 
 
-##備考
+## 備考
 - $$ f(x) = \ln | \Gamma (x) | $$
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - `x = 1` の場合、戻り値は `+0` となる。
@@ -37,7 +37,7 @@ namespace std {
     - `x = +∞` の場合、戻り値は `+∞` となる。
 
 
-##例
+## 例
 ```cpp
 #include <cmath>
 #include <iostream>
@@ -57,7 +57,7 @@ int main() {
 * std::fixed[link ../ios/fixed.md]
 * infinity()[link ../limits/numeric_limits/infinity.md]
 
-###出力例
+### 出力例
 ```
 lgamma(-∞)  = inf
 lgamma(-1)  = inf
@@ -67,17 +67,17 @@ lgamma(1)   = 0.000000
 lgamma(+∞)  = inf
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-####備考
+#### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上

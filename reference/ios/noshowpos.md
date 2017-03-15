@@ -1,4 +1,4 @@
-#noshowpos
+# noshowpos
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -9,17 +9,17 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 数値出力時に正符号を出力させないことを指示するマニピュレータ。
 符号付き整数・浮動小数点数に対して効果がある。
 
-##効果
+## 効果
 `str.setf(std::ios_base::noshowpos)`を実行する。
 
-##戻り値
+## 戻り値
 実引数のstrオブジェクト。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 
@@ -32,15 +32,15 @@ int main()
 * std::noshowpos[color ff0000]
 * std::showpos[link showpos.md]
 
-###出力
+### 出力
 ```
 +1 +0 +1
 1 0 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-##参照
+## 参照
 - [`showpos`](showpos.md)

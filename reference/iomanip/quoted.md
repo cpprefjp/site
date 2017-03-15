@@ -1,4 +1,4 @@
-#quoted
+# quoted
 * iomanip[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -25,7 +25,7 @@ namespace std {
 * unspecified[italic]
 * basic_string[link /reference/string/basic_string.md]
 
-##概要
+## 概要
 囲み文字指定で入出力する。
 
 このマニピュレータを使用して`cout << quoted("hello");`とすると、「`"hello"`」のように、引用符で囲まれた文字列が出力される。逆に、引用符で囲まれた文字列を`cin >> quoted(s);`のように入力すると、引用符が外された文字列を取得できる。
@@ -37,7 +37,7 @@ namespace std {
 - (3) : 入力用のオーバーロード。囲み文字で修飾された入力から、囲まれている文字列を抽出する。
 
 
-##効果
+## 効果
 - (1), (2) : この関数で返された結果を出力ストリームに渡すと、以下のシーケンスが出力される。出力ストリームは、そのシーケンスに対して書式を適用する。
     1. `delim`を出力する。
     2. `s`の各要素を出力する。それら要素が`delim`もしくは`escape`と等しい場合、要素の前に`escape`を出力する。
@@ -54,7 +54,7 @@ namespace std {
     - この関数で返された結果を出力ストリームに渡した場合は、(2)の動作となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -77,25 +77,25 @@ int main()
 * std::quoted[color ff0000]
 * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 
-##出力
+## 出力
 ```
 "hello"
 hello
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [N3654 Quoted Strings Library Proposal (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3654.html)
 - [LWG Issue 2272. `quoted` should use `char_traits::eq` for character comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2272)
 - [LWG Issue 2344. `quoted()`'s interaction with padding is unclear](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2344)

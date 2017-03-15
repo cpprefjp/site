@@ -1,4 +1,4 @@
-#ptrdiff_t
+# ptrdiff_t
 * cstddef[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]

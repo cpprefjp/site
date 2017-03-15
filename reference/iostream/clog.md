@@ -1,4 +1,4 @@
-#clog
+# clog
 * iostream[meta header]
 * std[meta namespace]
 * variable[meta id-type]
@@ -9,11 +9,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `clog`は、標準エラー出力に対するマルチバイト出力ストリームオブジェクトである。
 すなわち、`<cstdio>`の`stderr`オブジェクトに結びつけられたストリームオブジェクトである。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <fstream>
@@ -38,7 +38,7 @@ int main(int argc, char** argv)
 * std::fstream[link /reference/fstream/basic_fstream.md]
 * rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
 
-###出力
+### 出力
 （コマンドラインを_program_ foo.txtとしてプログラムを起動した場合）
 ```
 ファイル名: foo.txt
@@ -50,11 +50,11 @@ int main(int argc, char** argv)
 ファイル名: foo.txt
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 
 - [`wclog`](wclog.md.nolink)
 - [`cerr`](cerr.md)

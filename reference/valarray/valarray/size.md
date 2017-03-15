@@ -1,4 +1,4 @@
-#size
+# size
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -8,19 +8,19 @@
 size_t size() const;
 ```
 
-##概要
+## 概要
 要素数を取得する。
 
 
-##戻り値
+## 戻り値
 `valarray`オブジェクトに含まれる要素数を返す。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -35,7 +35,7 @@ int main()
 ```
 * size()[color ff0000]
 
-###出力
+### 出力
 ```
 3
 ```

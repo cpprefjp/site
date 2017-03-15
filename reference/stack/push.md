@@ -1,4 +1,4 @@
-#push
+# push
 * stack[meta header]
 * std[meta namespace]
 * stack[meta class]
@@ -9,11 +9,11 @@ void push(const value_type& x); // (1)
 void push(value_type&& x);      // (2) C++11
 ```
 
-##概要
+## 概要
 新しい要素を `stack` の末尾に追加し、そのインスタンスを`x`のコピー、もしくはムーブして初期化する。
 
 
-##効果
+## 効果
 - (1) :
 
     ```cpp
@@ -28,15 +28,15 @@ c.push_back(std::move(x));
 * std::move[link /reference/utility/move.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 `Container::push_back()`と同じ。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <stack>
@@ -61,12 +61,12 @@ int main()
 * st.top()[link top.md]
 * st.pop()[link pop.md]
 
-###出力
+### 出力
 ```
 3 2 1 
 ```
 
-##実装例
+## 実装例
 ```cpp
 void push(const value_type& x) { c.push_back(x); }
 void push(value_type&& x) { c.push_back(std::move(x)); }

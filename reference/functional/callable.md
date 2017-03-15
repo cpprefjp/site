@@ -1,14 +1,14 @@
-#Callable
+# Callable
 * functional[meta header]
 * std[meta namespace]
 * cpp11[meta cpp]
 
 
-##概要
+## 概要
 `Callable`は、関数呼び出し可能な型を表す、型の分類、または要件である。ライブラリ機能ではない。
 
 
-##`Callable`に該当する型
+## `Callable`に該当する型
 
 - 関数ポインタ
 - 関数オブジェクト
@@ -16,7 +16,7 @@
 - メンバ変数ポインタ
 
 
-##例
+## 例
 [`std::function`](function.md)クラスは、`Callable`に該当するあらゆる型のオブジェクトを代入できる仕様になっている。
 
 ```cpp
@@ -59,7 +59,7 @@ int main()
 ```
 * std::function[link function.md]
 
-###出力
+### 出力
 ```
 ```
 

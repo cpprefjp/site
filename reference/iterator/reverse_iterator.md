@@ -1,4 +1,4 @@
-#reverse_iterator
+# reverse_iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -17,17 +17,17 @@ namespace std {
 * iterator[link /reference/iterator/iterator.md]
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 
-##概要
+## 概要
 `reverse_iterator`は、イテレータを、逆方向に進むイテレータとしてラップするイテレータアダプタである。
 
 `end`イテレータを`reverse_iterator`でラップした場合、`end - 1` (つまり終端要素)を指し、`begin - 1`のイテレータを終端値としてみなす。
 
 
-##要件
+## 要件
 テンプレートパラメータ`Iterator`は、双方向イテレータの要件を満たすこと。ランダムアクセスイテレータであることを必要とする横断操作を使用する場合は、ランダムアクセスイテレータの要件を満たすこと。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|--------------------------------------------------|-------|
@@ -46,14 +46,14 @@ namespace std {
 | [`operator[]`](reverse_iterator/op_at.md) | 任意の位置にランダムアクセスする | |
 
 
-##protectedメンバ変数
+## protectedメンバ変数
 
 | 変数名    | 型         | 対応バージョン |
 |-----------|------------|-------|
 | `current` | `Iterator` | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|----------------------------------------|-------|
@@ -65,7 +65,7 @@ namespace std {
 | `reference` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::reference` | |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|------------------------|-------|
@@ -78,14 +78,14 @@ namespace std {
 | [`operator-`](reverse_iterator/op_minus.md) | 2つの`reverse_iterator`の差を求める | |
 | [`operator+`](reverse_iterator/op_plus.md) | イテレータを進める | |
 
-###ヘルパ関数
+### ヘルパ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`make_reverse_iterator`](make_reverse_iterator.md) | `reverse_iterator`オブジェクトを作るヘルパ関数 | C++14 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -107,7 +107,7 @@ int main()
 ```
 * std::reverse_iterator[color ff0000]
 
-###出力
+### 出力
 ```
 5
 4
@@ -116,6 +116,6 @@ int main()
 1
 ```
 
-###参照
+### 参照
 
 

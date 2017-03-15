@@ -1,4 +1,4 @@
-#clear
+# clear
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -8,23 +8,23 @@
 void clear() noexcept;
 ```
 
-##概要
+## 概要
 全ての要素を削除する。
 
 
-##効果
+## 効果
 [`erase`](erase.md)`(`[`begin()`](begin.md)`,` [`end()`](end.md)`);`と同じ。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <string>
@@ -42,8 +42,8 @@ int main()
 * clear()[color ff0000]
 * s.empty()[link empty.md]
 
-###出力
+### 出力
 ```
 ```
 
-##参照
+## 参照

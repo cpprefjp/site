@@ -1,4 +1,4 @@
-#operator&
+# operator&
 * bitset[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,11 +13,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `lhs`と`rhs`に対して、論理積(AND)した`bitset`を生成する。
 
 
-##戻り値
+## 戻り値
 `lhs`と`rhs`の共通して1となるビットを1、それ以外のビットを0とする`bitset`オブジェクトを生成して返す。  
 この関数は、以下のプログラムと同じ動作をする：
 
@@ -27,11 +27,11 @@ return bitset<N>(lhs) &= rhs;
 * &=[link op_and_assign.md]
 
 
-##例外
+## 例外
 投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -47,11 +47,11 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 0001
 ```
 
 
-##参照
+## 参照
 

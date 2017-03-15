@@ -1,4 +1,4 @@
-#rdstate
+# rdstate
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -8,17 +8,17 @@
 iostate rdstate() const;
 ```
 
-##概要
+## 概要
 現在の状態値(`iostate`)を取得する。
 
-##戻り値
+## 戻り値
 現在の状態。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)

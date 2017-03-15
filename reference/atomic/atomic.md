@@ -1,4 +1,4 @@
-#atomic
+# atomic
 * atomic[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,7 +14,7 @@ namespace std {
 ```
 * integral[italic]
 
-##概要
+## 概要
 `atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラステンプレートを使用する場合、型`T`は[trivially copyable](/reference/type_traits/is_trivially_copyable.md)である必要がある。特殊化された整数型および`bool`型には、それぞれ`atomic_T`という型の別名が提供される。
 
 | 名前付きアトミック型 | テンプレート引数となる整数型 |
@@ -64,7 +64,7 @@ namespace std {
 `void*`に対する特殊化の別名として、`atomic_address`型が提供される。
 
 
-###共通メンバ関数
+### 共通メンバ関数
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | [`(constructor)`](atomic/op_constructor.md) | コンストラクタ |
@@ -79,7 +79,7 @@ namespace std {
 | [`compare_exchange_strong`](atomic/compare_exchange_strong.md) | 強い比較で値を入れ替える |
 
 
-###atomic<integral>専用メンバ関数
+### atomic<integral>専用メンバ関数
 | 名前 | 説明 |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [`fetch_add`](atomic/fetch_add.md) | 加算 |
@@ -96,7 +96,7 @@ namespace std {
 | [`operator^=`](atomic/op_xor_assign.md) | XOR演算 |
 
 
-###atomic<T*>専用メンバ関数
+### atomic<T*>専用メンバ関数
 | 名前 | 説明 |
 |----------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [`fetch_add`](atomic/fetch_add.md) | 加算 |
@@ -107,7 +107,7 @@ namespace std {
 | [`operator-=`](atomic/op_minus_assign.md) | 減算 |
 
 
-###例
+### 例
 ```cpp
 // スピンロックの実装
 // Boost Atomic Library - Usage Example
@@ -176,29 +176,29 @@ int main()
 * exchange[color ff0000]
 * store[color ff0000]
 
-###出力例
+### 出力例
 ```
 2
 1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0(atomic_addressは未実装)
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-###備考
+### 備考
 - GCC 4.9.2まで、アライメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修正された。([Bug 65147](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147))
 
 
-###参照
+### 参照
 - [N2145 C++ Atomic Types and Operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2145.html)
 - [N2547 Allow atomics use in signal handlers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2547.htm)
 - [アトミックオブジェクトを含むクラスのコピーとムーブ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20130110/1357808183)

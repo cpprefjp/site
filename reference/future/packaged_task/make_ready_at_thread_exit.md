@@ -1,4 +1,4 @@
-#make_ready_at_thread_exit
+# make_ready_at_thread_exit
 * future[meta header]
 * std[meta namespace]
 * packaged_task[meta class]
@@ -9,30 +9,30 @@
 void make_ready_at_thread_exit(ArgTypes... args);
 ```
 
-##概要
+## 概要
 タスクを実行し、スレッド終了時に準備完了状態にする。
 
 この関数は、タスクの実行と準備完了状態にするタイミングをずらし、準備完了にするのをスレッド終了時まで遅延させたい場合に使用する。
 
 
-##効果
+## 効果
 メンバ変数として保持している関数オブジェクト`f`に対して[`INVOKE`](/reference/functional/invoke.md)`(f, args..., R)`によって関数呼び出しを行い、その戻り値を[`future`](../future.md)との共有状態に格納する。関数`f`の内部で例外が送出された場合は、共有状態に送出された例外が格納される。
 
 現在のスレッドが終了し、スレッドローカル記憶域を持つ全てのオブジェクトを破棄したあと、準備完了状態([`future_status::ready`](../future_status.md))にする。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`promise_already_satisfied`](../future_errc.md) ： 格納されたタスクがすでに実行された
 - [`no_state`](../future_errc.md)： `*this`が共有状態を持っていない(`packaged_task`オブジェクトがムーブされると起こりうる)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -72,22 +72,22 @@ int main()
 * t.detach()[link /reference/thread/thread/detach.md]
 * f.get()[link /reference/future/future/get.md]
 
-###出力
+### 出力
 ```
 5
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.5
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 - [_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
 

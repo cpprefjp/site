@@ -1,4 +1,4 @@
-#seconds
+# seconds
 * chrono[meta header]
 * std::chrono[meta namespace]
 * type-alias[meta id-type]
@@ -12,11 +12,11 @@ namespace chrono {
 ```
 * duration[link /reference/chrono/duration.md]
 
-##概要
+## 概要
 秒単位を表現する[`duration`](duration.md)の別名
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -50,23 +50,23 @@ int main()
 * count()[link duration/count.md]
 * std::chrono::duration_cast[link duration_cast.md]
 
-###出力
+### 出力
 ```
 50
 50000
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##関連項目
+## 関連項目
 - [`sleep_for`](/reference/thread/this_thread/sleep_for.md)
 - [`sleep_until`](/reference/thread/this_thread/sleep_until.md)
 

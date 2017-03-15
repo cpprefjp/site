@@ -1,4 +1,4 @@
-#empty
+# empty
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_set[meta class]
@@ -9,23 +9,23 @@
 bool empty() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナが空かどうかを判定する。
 
 
-##戻り値
+## 戻り値
 コンテナが空であれば `true`、そうでなければ `false` を返す。
 
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -56,18 +56,18 @@ int main()
 * clear[link clear.md]
 * empty[color ff0000]
 
-###出力
+### 出力
 ```
 true
 false
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1
 - [GCC](/implementation.md#gcc): -
@@ -75,7 +75,7 @@ true
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##実装例
+## 実装例
 ```cpp
 template <class Key, class Hash, class Pred, class Allocator>
 inline bool unordered_set<Key, Hash, Pred, Allocator>::empty() const noexcept {
@@ -86,7 +86,7 @@ inline bool unordered_set<Key, Hash, Pred, Allocator>::empty() const noexcept {
 * begin[link begin.md]
 * end[link end.md]
 
-##参照
+## 参照
 
 |                             |                              |
 |-----------------------------|------------------------------|

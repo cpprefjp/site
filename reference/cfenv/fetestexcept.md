@@ -1,4 +1,4 @@
-#fetestexcept
+# fetestexcept
 * cfenv[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,17 +10,17 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 指定された浮動小数点例外が設定されるかを判定する。
 
 この関数は、現在発生している浮動小数点例外のうち、指定された例外の集合のみを抽出して返す。
 
 
-##戻り値
+## 戻り値
 ビット演算のORで複数指定された浮動小数点例外の種類`excepts`の、例外発生状態を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -78,7 +78,7 @@ int main()
 * FE_ALL_EXCEPT[link fe_all_except.md]
 * max()[link /reference/limits/numeric_limits/max.md]
 
-###出力例
+### 出力例
 ```
 zero divided
 =====
@@ -87,11 +87,11 @@ overflow
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??

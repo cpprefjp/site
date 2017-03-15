@@ -1,4 +1,4 @@
-#is_sorted
+# is_sorted
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -15,15 +15,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 与えられた範囲がソート済みか判定する。
 
-###戻り値
+### 戻り値
 - (1) : [`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last) == last`
 - (2) : [`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last, comp) == last`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -43,17 +43,17 @@ int main()
 ```
 * std::is_sorted[color ff0000]
 
-###出力
+### 出力
 ```
 before: is sorted? false
  after: is sorted? true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -62,5 +62,5 @@ before: is sorted? false
     - 9.0では、`_HAS_TRADITIONAL_STL`を1に定義してから`<algorithm>`をインクルードすると、`stdext`名前空間で`is_sorted`が定義される。
 
 
-##参照
+## 参照
 - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)

@@ -1,4 +1,4 @@
-#is_bind_expression
+# is_bind_expression
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型 `T` が `bind()` の呼出し結果かどうかを判別する
 
 
-##要件
+## 要件
 `is_bind_expression`は、型 `T `が `std::bind()` の戻り値であれば [`true_type`](/reference/type_traits/true_type.md) から派生し、そうでなければ [`false_type`](/reference/type_traits/false_type.md) から派生する。
 
 
-##例
+## 例
 
 ```cpp
 #include <functional>
@@ -40,15 +40,15 @@ int main() {}
 * std::less[link less.md]
 * std::placeholders::_1[link placeholders.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -56,6 +56,6 @@ int main() {}
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 
 

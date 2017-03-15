@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * deque[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,23 +10,23 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `deque`の非等値比較を行う。
 
 
-##要件
+## 要件
 型`T`が`operator==`で比較可能であること。
 
 
-##戻り値
+## 戻り値
 `!(x` [`==`](op_equal.md) `y)`
 
 
-##計算量
+## 計算量
 `x.`[`size()`](size.md)に対して線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -47,12 +47,12 @@ int main ()
 }
 ```
 
-###出力
+### 出力
 ```
 false
 true
 ```
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#swap
+# swap
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -8,23 +8,23 @@
 void swap(basic_string& str);
 ```
 
-##概要
+## 概要
 他の`basic_string`オブジェクトとデータを入れ替える。
 
 
-##効果
+## 効果
 `*this`の内容を`str`と交換する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -42,7 +42,7 @@ int main()
 ```
 * swap[color ff0000]
 
-###出力
+### 出力
 ```
 world
 hello

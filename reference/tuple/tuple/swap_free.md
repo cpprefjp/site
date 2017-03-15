@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * tuple[meta header]
 * std[meta namespace]
 * tuple[meta class]
@@ -13,26 +13,26 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`tuple`オブジェクトを入れ替える。
 
 
-##効果
+## 効果
 ```cpp
 x.swap(y);
 ```
 * swap[link swap.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 効果の式が例外を投げない場合、この関数は決して例外を投げない。
 
 
-##例
+## 例
 ```cpp
 #include <string>
 #include <tuple>
@@ -54,21 +54,21 @@ int main()
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 
 

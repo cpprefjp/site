@@ -1,4 +1,4 @@
-#sqrt
+# sqrt
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -10,15 +10,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 複素数値の平方根（square root）を得る。
 
 
-##戻り値
+## 戻り値
 引数 `x` の平方根のうち、（複素平面の）右半平面の範囲の複素数値（つまり、実部は 0 以上）。もし、引数が負の実数の場合、戻り値は虚軸の正の範囲。
 
 
-##備考
+## 備考
 - 分岐截断は負の実軸に沿っている。
 - 規格には、上記の戻り値の記載、および、分岐截断以外の規定・説明は無い。  
 	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `csqrt`、`csqrtf`、`csqrtl` の 3 つ。それぞれ C++ の `sqrt<double>`、`sqrt<float>`、`sqrt<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
@@ -44,7 +44,7 @@ namespace std {
 	| [`valarray`](/reference/valarray.md)`<T>` | [`sqrt`](/reference/valarray/valarray/sqrt.md) | [`valarray`](/reference/valarray.md) |            |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <complex>
@@ -59,28 +59,28 @@ int main()
 ```
 * std::sqrt[color ff0000]
 
-###出力
+### 出力
 ```
 sqrt( (1,2) ) = (1.27202,0.786151)
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 - libstdc++ では、通常 glibc の対応する関数を呼び出すため、上記の備考に記載した C99 の ISO IEC 60559 準拠要件を満たす。  
 	しかし、glibc を使用していない libstdc++、および、libc++ は、当該要件を満たしていない（満たすつもりが無い？）ようである。
 
 
-##参照
+## 参照
 |                                    |                                |
 |------------------------------------|--------------------------------|
 | [`acos`](acos.md)                  | 複素数の逆余弦を求める。       |

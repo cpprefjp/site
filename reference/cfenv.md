@@ -1,4 +1,4 @@
-#cfenv
+# cfenv
 * cfenv[meta header]
 * cpp11[meta cpp]
 
@@ -14,7 +14,7 @@
 - 浮動小数点数の丸めモードは「最も近い値への丸め ([`FE_TONEAREST`](cfenv/fe_tonearest.md))」となる
 
 
-##浮動小数点環境
+## 浮動小数点環境
 
 | 名前    | 説明 | 対応バージョン |
 |---------|------|----------------|
@@ -24,14 +24,14 @@
 | `feholdexcept` | 現在の浮動小数点環境を保存する (function) | C++11 |
 | `feupdateenv` | 現在発生している浮動小数点例外を保存する (function) | C++11 |
 
-###浮動小数点環境マクロ
+### 浮動小数点環境マクロ
 
 | 名前         | 説明 | 対応バージョン |
 |--------------|------|----------------|
 | `FE_DFL_ENV` | デフォルトの浮動小数点環境 (macro) | C++11 |
 
 
-##浮動小数点例外
+## 浮動小数点例外
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -42,7 +42,7 @@
 | [`feraiseexcept`](cfenv/feraiseexcept.md) | 指定された浮動小数点例外を発生させる (function) | C++11 |
 | [`fetestexcept`](cfenv/fetestexcept.md) | 指定された浮動小数点例外が設定されるかを判定する (function) | C++11 |
 
-###浮動小数点例外マクロ
+### 浮動小数点例外マクロ
 
 以下のマクロは、浮動小数点例外の状態を表すビット値である。これらのマクロは、AND (`&`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
 
@@ -56,7 +56,7 @@
 | [`FE_UNDERFLOW`](cfenv/fe_underflow.md)   | アンダーフロー (macro)       | C++11 |
 
 
-##浮動小数点丸め
+## 浮動小数点丸め
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -64,7 +64,7 @@
 | [`fesetround`](cfenv/fesetround.md) | 丸め方式を設定する (function) | C++11 |
 
 
-###浮動小数点丸めマクロ
+### 浮動小数点丸めマクロ
 
 以下のマクロは、浮動小数点の丸めがどのような方式で行われるかを表す。
 
@@ -75,16 +75,16 @@
 | [`FE_TOWARDZERO`](cfenv/fe_towardzero.md) | ゼロ方向への丸め (macro)       | C++11 |
 | [`FE_UPWARD`](cfenv/fe_upward.md)         | 正の無限大方向への丸め (macro) | C++11 |
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): ?
 - [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
 
-##関連項目
+## 関連項目
 - [`<cmath>`](/reference/cmath.md)
 

@@ -1,4 +1,4 @@
-#rehash
+# rehash
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
@@ -9,27 +9,27 @@
 void rehash(size_type n);
 ```
 
-##概要
+## 概要
 コンテナのバケット数が最小でも引数 `n` で指定された値になるように調整（リハッシュ）する。
 
 
-##事後条件
+## 事後条件
 [`bucket_count`](bucket_count.md)`() >` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` かつ、[`bucket_count`](bucket_count.md)`() >= n`。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 ハッシュ関数、および、キー比較用関数以外から例外が投げられた場合、コンテナは変更されない。
 
 
-##計算量
+## 計算量
 平均的なケースでは [`size`](size.md)`()` に比例するが、最悪のケースでは [`size`](size.md)`()` の 2 乗に比例する。
 
 
-##備考
+## 備考
 - リハッシュが行われた場合、
 	- 全てのイテレータが無効になる。
 	- 要素間の順番が変わる。
@@ -39,7 +39,7 @@ void rehash(size_type n);
 - 標準では、事後条件が [`bucket_count`](bucket_count.md)`() >` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` となっている（等号がない）が、[`load_factor`](load_factor.md)`()`（`=` [`size`](size.md)`() /` [`bucket_count`](bucket_count.md)`()`）の条件は [`max_load_factor`](max_load_factor.md)`() >=` [`load_factor`](load_factor.md)`()` である（等号がある）ため、[`bucket_count`](bucket_count.md)`() >=` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` の（等号がある）方が適切であると思われる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -82,7 +82,7 @@ int main()
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 
-###出力例
+### 出力例
 ```
 current max_load_factor: 2
 current size: 4
@@ -97,15 +97,15 @@ new bucket_count: 32
 new load_factor: 0.125
 ```
 
-###検証
+### 検証
 `rehash(20)` により  
 [`bucket_count`](bucket_count.md)`() > n`  を満たしている
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [Clang, C++11 mode](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
@@ -113,7 +113,7 @@ new load_factor: 0.125
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
-##参照
+## 参照
 
 | | |
 |-------------------------------------------|--------------|

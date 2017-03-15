@@ -1,4 +1,4 @@
-#operator bool
+# operator bool
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
@@ -9,11 +9,11 @@
 explicit operator bool() const noexcept;
 ```
 
-##概要
+## 概要
 有効なリソースを所有しているかを判定する。
 
 
-##戻り値
+## 戻り値
 
 ```cpp
 get() != nullptr
@@ -21,7 +21,7 @@ get() != nullptr
 * get()[link get.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -39,16 +39,16 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 p has resource
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
@@ -56,6 +56,6 @@ p has resource
 	- Visual C++ 11.0までは、コンパイラが`explicit operator bool`に対応していないため、不透明な型へのポインタ型への変換演算子関数として実装されている。
 
 
-##参照
+## 参照
 - [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
 

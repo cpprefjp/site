@@ -1,4 +1,4 @@
-#erase
+# erase
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
@@ -13,23 +13,23 @@ size_type erase(const key_type& k);                        // (2)
 iterator erase(const_iterator first, const_iterator last); // (3)
 ```
 
-##概要
+## 概要
 指定された要素を削除する
 
 
-##要件
+## 要件
 - `position` は、有効で、かつ、間接参照可能な（dereferenceable、つまり [`cend`](cend.md)`()` ではない）当該コンテナを指す読み取り専用イテレータでなければならない。
 - `first` と `last` は `[first, last)` が当該コンテナの有効な範囲である読み取り専用イテレータでなければならない。  
 	なお、規格書では `first` は間接参照可能である必要があることになっているが、他の種類のコンテナの要件と照らし合わせると、間接参照可能である必要はない（つまり、`first` と `last` が共に [`cend`](cend.md)`()` でも良い）ものと思われる。
 
 
-##効果
+## 効果
 - (1)	`position` で指定された要素を削除する。
 - (2)	`k` と等価なキーの要素を削除する。
 - (3)	`[first, last)` の範囲にある要素を全て削除する。
 
 
-##戻り値
+## 戻り値
 - (1)	「削除前に、削除された要素の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`std::`[`next`](/reference/iterator/next.md)`(position)` と同じ位置を指す `iterator` である。  
 	なお、`position` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。
 - (2)	削除した要素数。
@@ -38,23 +38,23 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 	また、要件に示したように `first` が間接参照可能である必要がなかった場合にも、他の種類のコンテナの戻り値と照らし合わせると、`last` と同じ位置を指す `iterator` を返すのが適切であるものと思われる。
 
 
-##例外
+## 例外
 - (1)	投げない。
 - (2)	コンテナの `key_equal` と `hasher` のオブジェクト（それぞれ `key_eq()` と `hash_function()` が返すオブジェクト）が例外を投げなければ、例外を投げない。
 - (3)	投げない。
 
 
-##計算量
+## 計算量
 - (1)	平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
 - (2)	平均的なケースでは削除された要素数に比例（O([`count`](count.md)`(k)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
 - (3)	平均的なケースでは指定された範囲の要素数に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
 
 
-##備考
+## 備考
 削除された要素を指すイテレータ、および、参照のみ無効になる。なお、規格書に明確な記載は無いが、削除された要素を指すポインタも無効になる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -134,7 +134,7 @@ int main()
 * cend[link cend.md]
 * erase[color ff0000]
 
-###出力
+### 出力
 ```
 (1) erase(const_iterator) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 33), (3rd, 3), (1st, 1), 
 argument: (3rd, 33)
@@ -155,11 +155,11 @@ after : (9th, 9), (3rd, 33), (3rd, 3), (1st, 1),
 注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -168,7 +168,7 @@ after : (9th, 9), (3rd, 33), (3rd, 3), (1st, 1),
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
-##関連項目
+## 関連項目
 
 |                                     |                                                        |
 |-------------------------------------|--------------------------------------------------------|
@@ -179,7 +179,7 @@ after : (9th, 9), (3rd, 33), (3rd, 3), (1st, 1),
 | [`swap`](swap.md)                 | 内容の交換                                             |
 
 
-##参照
+## 参照
 - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#518)
     - 安定性の保証が規定された経緯のレポート
 

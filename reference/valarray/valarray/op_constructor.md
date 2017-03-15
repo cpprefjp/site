@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -23,7 +23,7 @@ valarray(initializer_list<T> init);   // (11) C++11
 * indirect_array[link /reference/valarray/indirect_array.md]
 * initializer_list[link /reference/initializer_list.md]
 
-##`valarray`オブジェクトの構築
+## `valarray`オブジェクトの構築
 - (1) : デフォルトコンストラクタ
 - (2) : `n`個の`T()`初期化された要素を保持した`valarray`オブジェクトを構築する。
 - (3) : `value`のコピーを`n`個要素として保持した`valarray`オブジェクトを構築する。
@@ -37,7 +37,7 @@ valarray(initializer_list<T> init);   // (11) C++11
 - (11) : 初期化子リストを受け取るコンストラクタ
 
 
-##効果
+## 効果
 - (1) : `size() == 0`の要素を持たない空の`valarray`オブジェクトを構築する。
 - (2) : `n`個の`T()`初期化された要素を保持した`valarray`オブジェクトを構築する。
 - (3) : `value`のコピーを`n`個要素として保持した`valarray`オブジェクトを構築する。
@@ -48,11 +48,11 @@ valarray(initializer_list<T> init);   // (11) C++11
 - (11) : `valarray(init.begin(), init.size())`と等価。
 
 
-##計算量
+## 計算量
 - (6) : 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -144,7 +144,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 va1 : {}
 va2 : {0,0,0}
@@ -160,7 +160,7 @@ va11 : {1,2,3}
 ```
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (11)の経緯となる提案文書
 

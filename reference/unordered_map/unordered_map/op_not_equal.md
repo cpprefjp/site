@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * unordered_map[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,25 +12,25 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `x` が `y` と等しくないかどうかの判定を行う。
 
 
-##パラメータ
+## パラメータ
 - `x`, `y`<br/>
 比較するコンテナ
 
 
-##戻り値
+## 戻り値
 二つのコンテナが等しくない場合に `true`, そうでない場合に `false`。
 
 
-##計算量
+## 計算量
 平均: [`size()`](size.md) に対して線形時間  
 最悪: [`size()`](size.md) に対して二乗時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -52,13 +52,13 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 0
 1
 ```
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??

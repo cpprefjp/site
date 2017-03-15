@@ -1,4 +1,4 @@
-#param
+# param
 * random[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -9,12 +9,12 @@ param_type param() const;           // (1)
 void param(const param_type& parm); // (2)
 ```
 
-##概要
+## 概要
 - (1) : 分布のパラメータを取得する
 - (2) : 分布のパラメータを設定する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -57,15 +57,15 @@ int main()
 * intervals.end()[link /reference/array/end.md]
 * densities.begin()[link /reference/array/begin.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -73,6 +73,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

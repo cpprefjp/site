@@ -1,12 +1,12 @@
-#FLT_ROUNDS
+# FLT_ROUNDS
 * cfloat[meta header]
 * macro[meta id-type]
 
 ```cpp
-#define FLT_ROUNDS implementation-defined
+# define FLT_ROUNDS implementation-defined
 ```
 
-##概要
+## 概要
 `FLT_ROUNDS` は、浮動小数点数の加算の丸めモードを表すマクロである。
 
 `FLT_ROUNDS` が
@@ -23,11 +23,11 @@
 従って、`FLT_ROUNDS` は `#if` プリプロセッサディレクティブで使用することはできない。
 
 
-##備考
+## 備考
 [`fesetround`](../cfenv/fesetround.md)`()`、および、[`fegetround`](../cfenv/fegetround.md)`()` で用いられるマクロ（[`FE_DOWNWARD`](../cfenv/fe_downward.md)、[`FE_TONEAREST`](../cfenv/fe_tonearest.md)、[`FE_TOWARDZERO`](../cfenv/fe_towardzero.md)、[`FE_UPWARD`](../cfenv/fe_upward.md)）の値は、本マクロの値と対応しているわけでは無いため注意。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cfloat>
@@ -44,7 +44,7 @@ int main()
 * std::fesetround[link ../cfenv.md]
 * FE_TOWARDZERO[link ../cfenv/fe_towardzero.md]
 
-###出力例
+### 出力例
 ```
 FLT_ROUNDS = 1
 0

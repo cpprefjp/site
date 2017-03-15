@@ -1,4 +1,4 @@
-#make_unique
+# make_unique
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -19,7 +19,7 @@ namespace std {
 * unique_ptr[link unique_ptr.md]
 * unspecified[italic]
 
-##概要
+## 概要
 `unique_ptr`オブジェクトを構築する。
 
 - (1) : 非配列型`T`のコンストラクタ引数を受け取り、`unique_ptr<T>`オブジェクトを構築する。
@@ -27,17 +27,17 @@ namespace std {
 - (3) : (1)に配列型が指定された場合に、許可されていないオーバーロードとして宣言される。
 
 
-##戻り値
+## 戻り値
 - (1) : `unique_ptr<T>(new T(`[`std::forward`](/reference/utility/forward.md)`<Args>(args)...))`
 - (2) : `unique_ptr<T>(new` [`remove_extent_t`](/reference/type_traits/remove_extent.md)`<T>[n]())`
 
 
-##備考
+## 備考
 - (1) : 型`T`が配列型である場合、この関数はオーバーロード解決の候補に入ってはならない。
 - (2), (3) : 型`T`が要素数不明の配列型でない場合、この関数はオーバーロード解決の候補に入ってはならない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -65,23 +65,23 @@ int main()
 ```
 * std::make_unique[color ff0000]
 
-###出力
+### 出力
 ```
 3:1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
 
 
-##参照
+## 参照
 - [N3588 make_unique](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3588.htm)
 - [N3656 make_unique (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3656.htm)
 

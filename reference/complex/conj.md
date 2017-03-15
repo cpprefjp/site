@@ -1,4 +1,4 @@
-#conj
+# conj
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -14,7 +14,7 @@ namespace std {
 * Promoted[italic]
 * Arithmetic[italic]
 
-##概要
+## 概要
 共役複素数を得る。conj は conjugate（共役）の略。
 
 なお、C++11 で追加されたオーバーロードは、以下のように規定されている。
@@ -26,11 +26,11 @@ namespace std {
 また、これらの追加のオーバーロードが関数テンプレートなのか否か、あるいは、引数が参照型なのか否かなどについては、規格では何も言及されていない。
 
 
-##戻り値
+## 戻り値
 引数 `x` の共役複素数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <complex>
@@ -45,17 +45,17 @@ int main()
 ```
 * std::conj[color ff0000]
 
-###出力
+### 出力
 ```
 conj( (1,2) ) = (1,-2)
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98（追加のオーバーロードは C++11 から）
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4（追加のオーバーロード含む）
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード以外）
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード含む）
@@ -63,7 +63,7 @@ conj( (1,2) ) = (1,-2)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 |                                    |                                        |
 |------------------------------------|----------------------------------------|
 | [`real`](real.md)                  | 複素数の実部を得る。                   |

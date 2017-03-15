@@ -1,4 +1,4 @@
-#integral_constant
+# integral_constant
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -21,13 +21,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `integral_constant` は基本となる整数型と定数を合わせ，型として整数定数を表す。
 
 多くの場合、`<type_traits>` 内のクラスやその他クラスから基本型として派生されることによって用いられる。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -41,15 +41,15 @@ static_assert(int_zero() == 0, "int_zero() == 0");
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 	- `operator value_type`関数の実装状況は次のとおり。
@@ -57,16 +57,16 @@ int main(){}
 		- 14.0では、C++14の仕様どおりに実装されている。
 	- `operator()`関数は、14.0から実装されている。
 
-####備考
+#### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator value_type()` を持っていないためエラーになる。
 
 
-##関連項目
+## 関連項目
 - [`true_type`](true_type.md)
 - [`false_type`](false_type.md)
 
 
-##参照
+## 参照
 - [N3545 An Incremental Improvement to `integral_constant`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3545.pdf)
 - [LWG defects 2346. `integral_constant`'s member functions should be marked `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2346)
 - [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)

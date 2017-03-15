@@ -1,4 +1,4 @@
-#hexfloat
+# hexfloat
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,31 +10,31 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 浮動小数点数を十六進法で出力することを指示するマニピュレータ。
 
 [`printf()`](http://linuxjm.osdn.jp/html/LDP_man-pages/man3/printf.3.html)関数の`%a`／`%A`相当。
 
-##効果
+## 効果
 `str.setf(ios_base::fixed | ios_base::scientific, ios_base::floatfield)`を実行する。
 
-##戻り値
+## 戻り値
 実引数の`str`オブジェクト。
 
-##例
+## 例
 [`defaultfloat`](defaultfloat.md)を参照。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 9.0, 10.0, 11.0
 
-##参照
+## 参照
 - [`defaultfloat`](defaultfloat.md)
 - [`fixed`](fixed.md)
 - [`scientific`](scientific.md)

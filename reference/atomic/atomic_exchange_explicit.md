@@ -1,4 +1,4 @@
-#atomic_exchange_explicit
+# atomic_exchange_explicit
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -17,27 +17,27 @@ namespace std {
 * memory_order[link memory_order.md]
 
 
-##概要
+## 概要
 アトミックに値を入れ替える
 
 
-##効果
+## 効果
 `order`で指定されたメモリオーダーにしたがって、現在の値を`desired`でアトミックに置き換える
 
 
-##戻り値
+## 戻り値
 変更前の値が返される
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、特殊化された[`atomic`](atomic.md)型に対して定義される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -57,17 +57,17 @@ int main()
 * std::atomic_exchange_explicit[color ff0000]
 
 
-###出力
+### 出力
 ```
 replaced 1 by 2
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -75,6 +75,6 @@ replaced 1 by 2
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

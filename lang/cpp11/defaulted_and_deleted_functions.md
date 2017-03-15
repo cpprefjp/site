@@ -1,7 +1,7 @@
-#関数のdefault／delete宣言
+# 関数のdefault／delete宣言
 * cpp11[meta cpp]
 
-##概要
+## 概要
 クラスを定義した際、以下のメンバ関数が暗黙的に定義される：
 
 - デフォルトコンストラクタ
@@ -73,7 +73,7 @@ int main()
 これは、特定のパラメータ型を持つオーバーロードを明示的に禁止するためにも使用できる。
 
 
-##仕様
+## 仕様
 - `= default`は「明示的なデフォルト定義 (explicity-defaulted definition)」と呼ばれる機能である。この機能は、暗黙定義される非インライン、かつ非仮想の特殊メンバ関数の挙動をそのままにして、実装に対してより効率的な定義の使用を求めることを許可するものである：
 
     ```cpp
@@ -116,7 +116,7 @@ sometype::somtype() = delete;
     - 非静的メンバ変数が削除定義された特殊メンバ関数を持つ場合、その変数をメンバとして持つクラスのその特殊メンバ関数は、暗黙的に削除定義される
 
 
-##参照
+## 参照
 - [N1582 Compiler Generated Defaults](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1582.pdf)
 - [N1702 explicit class and default definitions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1702.pdf)
 - [N1707 explicit class and default definitions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1717.pdf)

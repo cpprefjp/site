@@ -1,4 +1,4 @@
-#independent_bits_engine
+# independent_bits_engine
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `independent_bits_engine`クラスは、乱数生成エンジンが生成する乱数をラップし、生成結果のビット数を変更する生成器アダプタである。  
 32ビット整数を生成する[`mt19937`](mt19937.md)をラップして、64ビット整数を生成させる、といったことができる。  
 
@@ -22,12 +22,12 @@ namespace std {
 - `UIntType` : 生成させる符号なし整数型
 
 
-##要件
+## 要件
 `W > 0`かつ`W <=` [`numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)であること。
 
 
-##メンバ関数
-###構築・シード
+## メンバ関数
+### 構築・シード
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------|------------------|-------|
@@ -36,7 +36,7 @@ namespace std {
 | [`seed`](independent_bits_engine/seed.md)                             | シードを設定する | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|--------------------|-------|
@@ -44,15 +44,15 @@ namespace std {
 | [`discard`](independent_bits_engine/discard.md)    | 指定した回数だけ乱数を生成し、内部状態を進める | C++11 |
 
 
-###エンジンの特性
+### エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------|-------|
 | [`base`](independent_bits_engine/base.md) | 元となる乱数生成器を取得する | C++11 |
 
 
-##静的メンバ関数
-###エンジンの特性
+## 静的メンバ関数
+### エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------|-------|
@@ -60,14 +60,14 @@ namespace std {
 | [`max`](independent_bits_engine/max.md) | 生成し得る値の最大値を取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
 | `result_type` | 乱数生成結果型 `UIntType`。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
@@ -77,7 +77,7 @@ namespace std {
 | [`operator>>`](independent_bits_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -100,7 +100,7 @@ int main()
 * std::uint64_t[link /reference/cstdint/uint64_t.md]
 * engine()[link independent_bits_engine/op_call.md]
 
-###出力
+### 出力
 ```
 15028999435905310454
 16708911996216745849
@@ -115,10 +115,10 @@ int main()
 ```
 
 ## バージョン
-###言語
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2

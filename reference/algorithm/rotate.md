@@ -1,4 +1,4 @@
-#rotate
+# rotate
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -17,37 +17,37 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 要素の並びを回転させる。
 
 
-##要件
+## 要件
 - `[first,middle)` と `[middle,last)` は有効な範囲である必要がある。
 - `ForwardIterator` は `ValueSwappable` の要件を満たしている必要がある。
 - `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
-##効果
+## 効果
 0 以上 `last - first` 未満の整数 `i` について、`first + i` の要素を `first + (i + (last - middle)) % (last - first)` の位置へ移動させる。
 
 
-##戻り値
+## 戻り値
 - C++03 まで  
 	無し
 - C++11 から  
 	`first + (last - middle)`
 
 
-##備考
+## 備考
 これは左への回転である
 
 
-##計算量
+## 計算量
 最大で `last - first` 回 swap する。
 
 
-##例
-###基本的な使い方
+## 例
+### 基本的な使い方
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -64,12 +64,12 @@ int main() {
 * str.begin()[link /reference/string/basic_string/begin.md]
 * str.end()[link /reference/string/basic_string/end.md]
 
-####出力
+#### 出力
 ```
 tatero
 ```
 
-###swapをフックして可視化した例
+### swapをフックして可視化した例
 ```cpp
 #include <iostream>
 #include <algorithm>
@@ -115,7 +115,7 @@ int main()
 * seq.assign[link /reference/vector/assign.md]
 * std::swap[link /reference/utility/swap.md]
 
-####出力例
+#### 出力例
 ```
 swapping 0x1806040(0) <-> 0x1806042(2)
 210345
@@ -130,11 +130,11 @@ swapping 0x1806043(1) <-> 0x1806045(5)
 234501
 ```
 
-##実装例
+## 実装例
 - [std::rotate を読んでみた](http://www.kmonos.net/wlog/115.html#_0007101223)
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -143,6 +143,6 @@ swapping 0x1806043(1) <-> 0x1806045(5)
     - C++11への対応（戻り値の変更）は10.0から。
 
 
-##参照
+## 参照
 - [LWG DR488. rotate throws away useful information](http://cplusplus.github.io/LWG/lwg-defects.html#488)  
 	戻り値が追加されるきっかけとなったレポート

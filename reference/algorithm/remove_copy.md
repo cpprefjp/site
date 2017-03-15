@@ -1,4 +1,4 @@
-#remove_copy
+# remove_copy
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,31 +11,31 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 指定された要素を除け、その結果を出力の範囲へコピーする。
 
 
-##要件
+## 要件
 - `[first,last)` と `[result,result + (last - first)` は重なってはならない。
 - `*result = *first` という式が有効でなければならない。
 
-##効果
+## 効果
 `[first,last)` 内にあるイテレータ `i` について、`*i == value` でない要素を `result` へコピーする
 
 
-##戻り値
+## 戻り値
 実行結果の範囲の終端を返す
 
 
-##計算量
+## 計算量
 正確に `last - first` 回の比較を行う
 
 
-##備考
+## 備考
 安定。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -52,13 +52,13 @@ int main() {
 ```
 * std::remove_copy[color ff0000]
 
-###出力
+### 出力
 ```
 2,3,2,
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class OutputIterator, class T>
 OutputIterator remove_copy(InputIterator first, InputIterator last,

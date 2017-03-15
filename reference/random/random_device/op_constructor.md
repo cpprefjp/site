@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * random_device[meta class]
@@ -12,18 +12,18 @@ random_device(const random_device&) = delete;                         // (2)
 ```
 * string[link /reference/string/basic_string.md]
 
-##概要
+## 概要
 - (1) : トークンを受け取って乱数生成器を構築する。デフォルトのトークンパラメータは実装定義である。
     - ※実装は、このトークンパラメータによって、異なるランダムのソースを使用してもよい。
 - (2) : コピーコンストラクタ。コピー禁止。
     - これによって、ムーブコンストラクタも自動生成されない。
 
 
-##例外
+## 例外
 - (1) : 乱数生成器を初期化できなかった場合、[`exception`](/reference/exception/exception.md)から派生した実装定義の例外オブジェクトを送出する
 
 
-##例
+## 例
 ```cpp
 #include <random>
 
@@ -43,15 +43,15 @@ int main()
 ```
 
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -60,6 +60,6 @@ int main()
     - 14.1までにおいて、仮引数`token`の値が使用されることは無く、何を指定しても同じ結果となる。
 
 
-##参照
+## 参照
 
 

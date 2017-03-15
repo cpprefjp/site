@@ -1,4 +1,4 @@
-#insert
+# insert
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
@@ -24,11 +24,11 @@ void insert(initializer_list<value_type> il);                  // (6)
 * pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 コンテナに要素を追加する。
 
 
-##要件
+## 要件
 - `v` を引数にとる形式（(1)、(3)）では、`value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
 	コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
@@ -53,7 +53,7 @@ void insert(initializer_list<value_type> il);                  // (6)
 - (6)の形式では、`value_type` はコンテナに対してコピー挿入可能でなければならない。
 
 
-##効果
+## 効果
 - (1)	`v.first` と等価なキーがコンテナに存在していなければ、当該要素を追加する。
 - (2)	引数 `obj` から構築されたオブジェクトを `v` とすると、`v.first` と等価なキーがコンテナに存在していなければ、当該要素を追加する。
     - このバージョンの動作は、[`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))`を呼び出した場合と同等である。
@@ -66,7 +66,7 @@ void insert(initializer_list<value_type> il);                  // (6)
 - (6)	(5)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
 
 
-##戻り値
+## 戻り値
 - (1)、(2)	[`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。  
 	[`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
 - (3)、(4)	新たな要素が追加された場合、その追加された要素を指すイテレータ。  
@@ -74,17 +74,17 @@ void insert(initializer_list<value_type> il);                  // (6)
 - (5)、(6)	なし
 
 
-##例外
+## 例外
 単一要素の形式（(1)から(4)）では、ハッシュ関数以外から例外が投げられた場合には、挿入はされない。
 
 
-##計算量
+## 計算量
 - (1)から(4)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (5)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
 - (6)	(5)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
 
 
-##備考
+## 備考
 - これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
 
@@ -103,7 +103,7 @@ void insert(initializer_list<value_type> il);                  // (6)
 	※ `key_type` がムーブのみ可能（コピー不可能）の場合、`std::`[`pair`](/reference/utility/pair.md)`<key_type, mapped_type>` から `std::`[`pair`](/reference/utility/pair.md)`<const key_type, mapped_type>` へ暗黙変換可能ではない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -208,7 +208,7 @@ int main()
 * first[link /reference/utility/pair.md]
 * insert[color ff0000]
 
-###出力
+### 出力
 ```
 true (6,6th) false (2,two)
 insert one element : (6,6th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,zero), 
@@ -225,11 +225,11 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,five), (4,four), (3,thre
 注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -237,7 +237,7 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,five), (4,four), (3,thre
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##実装例
+## 実装例
 (3)以降の形式は、(1)、および、(2)の形式を使って実装することができる。
 
 ```cpp
@@ -273,7 +273,7 @@ inline void unordered_map<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 * insert[color ff0000]
 
 
-##関連項目
+## 関連項目
 
 |                                           |                                                        |
 |-------------------------------------------|--------------------------------------------------------|
@@ -289,7 +289,7 @@ inline void unordered_map<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 
 
-##参照
+## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (6)の経緯となる提案文書

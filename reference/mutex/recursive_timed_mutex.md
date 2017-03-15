@@ -1,4 +1,4 @@
-#recursive_timed_mutex
+# recursive_timed_mutex
 * mutex[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,13 +10,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `recursive_timed_mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスであり、再帰的なロックと、ロック取得のタイムアウト機能をサポートする。[`lock()`](recursive_timed_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](recursive_timed_mutex/unlock.md)メンバ関数でリソースのロックを手放す。
 
 このクラスのデストラクタは自動的に[`unlock()`](recursive_timed_mutex/unlock.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)や[`unique_lock`](/reference/mutex/unique_lock.md)といったロック管理クラスと併用する。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|--------------------------------------------------------|-------|
@@ -31,14 +31,14 @@ namespace std {
 | [`native_handle`](recursive_timed_mutex/native_handle.md)         | ミューテックスのハンドルを取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------|----------------------|-------|
 | `native_handle_type` | 実装依存のハンドル型 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <mutex>
@@ -115,17 +115,17 @@ int main()
 * std::system_error[link /reference/system_error/system_error.md]
 * mtx_.unlock()[link recursive_timed_mutex/unlock.md]
 
-###出力例
+### 出力例
 ```
 count == 1
 count == 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -133,5 +133,5 @@ count == 2
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
     - 11.0, 12.0は、(2)での実引数の受け渡しにムーブを使用しない問題がある。上記の例でも、`std::unique_ptr<int>`の実引数でコンパイルエラーになる。
 
-##参照
+## 参照
 

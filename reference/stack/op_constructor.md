@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * stack[meta header]
 * std[meta namespace]
 * stack[meta class]
@@ -28,7 +28,7 @@ template <class Allocator>
 stack(stack&& st, const Allocator& alloc);            // (10) C++11
 ```
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ。元となるコンテナのコピーを受け取る。
 - (2) : デフォルトコンストラクタ。元となるコンテナの一時オブジェクトをムーブで受け取る。
 - (3) : 元となるコンテナのコピーを受け取るコンストラクタ。
@@ -41,7 +41,7 @@ stack(stack&& st, const Allocator& alloc);            // (10) C++11
 - (10) : アロケータを受け取るムーブコンストラクタ。
 
 
-##効果
+## 効果
 - (2) : メンバ変数`c`を[`std::move`](/reference/utility/move.md)`(cont)`で初期化する。
 - (3) : メンバ変数`c`を`cont`のコピーで初期化する。
 - (6) : メンバ変数`c`のメモリアロケートに`alloc`を使用する。
@@ -51,7 +51,7 @@ stack(stack&& st, const Allocator& alloc);            // (10) C++11
 - (10) : メンバ変数`c`を`Container(`[`std::move`](/reference/utility/move.md)`(st.c), alloc)`で初期化する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -83,12 +83,12 @@ int main()
 * st.top()[link top.md]
 * st.pop()[link pop.md]
 
-###出力
+### 出力
 ```
 3 2 1 
 ```
 
-##参照
+## 参照
 
 | | |
 |-------------------------------------------------------------------------------------------|---------------------------------------------------------------|

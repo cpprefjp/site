@@ -1,4 +1,4 @@
-#rint
+# rint
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -17,15 +17,15 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 引数 `x` を現在の丸めモードで整数値に丸めた値を得る。
 
 
-##戻り値
+## 戻り値
 引数 `x` を現在の丸めモードで整数値に丸めた値
 
 
-##備考
+## 備考
 - 本関数と [`nearbyint`](nearbyint.md) は戻り値は同一であるが、本関数は引数 `x` が戻り値と異なってる場合 [`FE_INEXACT`](../cfenv/fe_inexact.md) が発生する可能性があるが、[`nearbyint`](nearbyint.md) は発生しない点のみ動作が異なる。
 - 本関数は、C99 の規格にある `rint`（より正確には `math.h` ヘッダの `rint`、`rintf`、`rintl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
@@ -37,7 +37,7 @@ namespace std {
 - 丸めモード [`FE_TONEAREST`](../cfenv/fe_tonearest.md) は単なる四捨五入ではないことに注意。
 
 
-##例
+## 例
 ```cpp
 #include <cfenv>
 #include <cmath>
@@ -53,22 +53,22 @@ void test(const char* title, int round_mode)
   std::cout << "FE_INEXACT = " << std::boolalpha << (std::fetestexcept(FE_INEXACT) != 0) << std::endl << std::endl;
 }
 
-#define test(mode) test(#mode, mode)
+# define test(mode) test(#mode, mode)
 
 int main()
 {
-#ifdef FE_DOWNWARD
+# ifdef FE_DOWNWARD
   test(FE_DOWNWARD);
-#endif
-#ifdef FE_TONEAREST
+# endif
+# ifdef FE_TONEAREST
   test(FE_TONEAREST);
-#endif
-#ifdef FE_TOWARDZERO
+# endif
+# ifdef FE_TOWARDZERO
   test(FE_TOWARDZERO);
-#endif
-#ifdef FE_UPWARD
+# endif
+# ifdef FE_UPWARD
   test(FE_UPWARD);
-#endif
+# endif
 }
 ```
 * std::rint[color ff0000]
@@ -82,7 +82,7 @@ int main()
 * FE_TOWARDZERO[link ../cfenv/fe_towardzero.md]
 * FE_UPWARD[link ../cfenv/fe_upward.md]
 
-###出力例
+### 出力例
 ```
 FE_DOWNWARD
 rint(2.5) = 2
@@ -110,11 +110,11 @@ FE_INEXACT = true
 また、処理系が IEC60559 に準拠していない場合、`FE_INEXACT` は `false` の可能性がある。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7
 - [GCC](/implementation.md#gcc): -
@@ -122,5 +122,5 @@ FE_INEXACT = true
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
 
-###備考
+### 備考
 本関数は C++11 で追加されたが、Clang(libc++) では C++11 モードでなくても使用可能である。

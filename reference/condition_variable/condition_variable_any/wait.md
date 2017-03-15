@@ -1,4 +1,4 @@
-#wait
+# wait
 * condition_variable[meta header]
 * std[meta namespace]
 * condition_variable_any[meta class]
@@ -13,7 +13,7 @@ template <class Lock, class Predicate>
 void wait(Lock& lock, Predicate pred); // (2)
 ```
 
-##概要
+## 概要
 起床されるまで待機する。
 
 この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
@@ -24,7 +24,7 @@ void wait(Lock& lock, Predicate pred); // (2)
 
 
 
-##効果
+## 効果
 - (1) :
     - アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)する
     - [`notify_one()`](notify_one.md)/[`notify_all()`](notify_all.md)もしくはそれ以外の理由で通知があるまでブロッキングする
@@ -41,15 +41,15 @@ while (!pred()) {
 ```
 
 
-##事後条件
+## 事後条件
 `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 - (1) :
     - C++11まで : この関数は、`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)および`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)によって送出されうる、あらゆる例外が送出される可能性がある。
     - C++14 : 投げない
@@ -58,11 +58,11 @@ while (!pred()) {
     - C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
 
 
-##備考
+## 備考
 - C++14 : 事後条件を満たさない場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出して、プログラムを異常終了させる。これは、ミューテックスの再ロック取得が例外を送出した場合に発生する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <condition_variable>
@@ -139,17 +139,17 @@ int main()
 * cond_.notify_all()[link notify_all.md]
 * std::unique_lock[link /reference/mutex/unique_lock.md]
 
-###出力
+### 出力
 ```
 process data
 process data
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -157,7 +157,7 @@ process data
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
 

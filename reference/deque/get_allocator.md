@@ -1,4 +1,4 @@
-#get_allocator
+# get_allocator
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
@@ -9,29 +9,29 @@ allocator_type get_allocator() const;          // C++03
 allocator_type get_allocator() const noexcept; // C++11
 ```
 
-##概要
+## 概要
 deque オブジェクトの構築に使われるアロケータオブジェクトを取得する
 
 
-##戻り値
+## 戻り値
 アロケータオブジェクト。
 
 メンバ型 `allocator_type` は、この `deque` クラスのインスタンス化に使われるテンプレートパラメータの 2 番目の型（アロケータの型）と同じであるよう定義される。
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##備考
+## 備考
 noexcept修飾はC++11で追加された。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -51,17 +51,17 @@ int main ()
 ```
 * get_allocator[color ff0000]
 
-###出力
+### 出力
 ```
 42 84
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
@@ -69,6 +69,6 @@ int main ()
 	- 11.0, 12.0は、`noexcept`が実装されていないため、`throw()`が修飾されている。
 	- 14.0からは、`noexcept`が修飾されている。
 
-##参照
+## 参照
 
 

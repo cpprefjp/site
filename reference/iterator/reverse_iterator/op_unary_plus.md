@@ -1,4 +1,4 @@
-#operator+
+# operator+
 * iterator[meta header]
 * std[meta namespace]
 * reverse_iterator[meta class]
@@ -8,17 +8,17 @@
 reverse_iterator operator+(difference_type n) const;
 ```
 
-##概要
+## 概要
 イテレータをN回進める。
 
 `reverse_iterator`は逆方向に進める。
 
 
-##戻り値
+## 戻り値
 `reverse_iterator(current-n)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -36,11 +36,11 @@ int main()
 ```
 * it1 + 1;[color ff0000]
 
-###出力
+### 出力
 ```
 2
 ```
 
-##参照
+## 参照
 
 

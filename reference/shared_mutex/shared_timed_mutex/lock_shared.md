@@ -1,4 +1,4 @@
-#lock_shared
+# lock_shared
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_timed_mutex[meta class]
@@ -9,23 +9,23 @@
 void lock_shared();
 ```
 
-##概要
+## 概要
 共有ロックを取得する。
 
 
-##要件
+## 要件
 この関数を呼び出したスレッドが、ミューテックスの排他所有権と共有所有権のいずれもを保持していないこと。
 
 
-##効果
+## 効果
 この関数を呼び出したスレッドがミューテックスの共有所有権を取得できるまでブロックする。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`operation_not_permitted`](/reference/system_error/errc.md) : スレッドにこの操作を行う権限がない
@@ -33,7 +33,7 @@ void lock_shared();
 - [`device_or_resource_busy`](/reference/system_error/errc.md) : ミューテックスがすでにロックされていて、ブロッキングできない
 
 
-##例
+## 例
 ```cpp
 #include <thread>
 #include <shared_mutex>
@@ -79,15 +79,15 @@ int main()
 * std::thread[link /reference/thread/thread.md]
 * join()[link /reference/thread/thread/join.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

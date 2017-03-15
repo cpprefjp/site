@@ -1,4 +1,4 @@
-#append
+# append
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -28,11 +28,11 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 指定された文字列、文字、あるいは初期化リストを追加する。
 
 
-##要件
+## 要件
 - (2) では、`pos <=` [`size`](size.md)`()` であること。
 
 - (3) では、`s` は少なくとも `n` の長さを持つ `charT` 型の配列を指していること。
@@ -42,7 +42,7 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
 - (6) では、`[first, last)` が有効な範囲であること。
 
 
-##効果
+## 効果
 - (1) 対象オブジェクトの末尾に `str` の値が追加（コピー）される。
     * C++03 まで：`append(str, 0, npos)` と同一。
     * C++11 から：`append(str.`[`data`](data.md)`(), str.`[`size`](size.md)`())` と同一。
@@ -70,11 +70,11 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
     `append(il.begin(), il.end())` と同一。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 - (1) C++03 まで：[`size`](size.md)`() >= npos - str.`[`size`](size.md)`()` の場合、`length_error` が送出される。  
     C++11 から：[`size`](size.md)`() + str.`[`size`](size.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
@@ -97,11 +97,11 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
 - (7) [`size`](size.md)`() + il.`[`size`](/reference/initializer_list.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 
-##備考
+## 備考
 本メンバ関数の呼び出しによって、対象オブジェクトの要素への参照、ポインタ、および、イテレータは無効になる可能性がある。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -127,7 +127,7 @@ int main()
 ```
 * append[color ff0000]
 
-###出力
+### 出力
 ```
 Hello
 Hello, 
@@ -136,7 +136,7 @@ Hello, world!!
 Hello, world!! :)
 ```
 
-##関連項目
+## 関連項目
 
 | 名前                                | 説明                   |
 |-------------------------------------|------------------------|
@@ -146,7 +146,7 @@ Hello, world!! :)
 | [`operator+`](op_plus.md)         | 文字列を連結する       |
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (7)の経緯となる提案文書
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)

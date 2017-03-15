@@ -1,4 +1,4 @@
-#peek
+# peek
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
@@ -8,18 +8,18 @@
 int_type peek();
 ```
 
-##概要
+## 概要
 （非書式化入力関数）ストリームバッファから次に入力される文字を先読みする。
 
 すなわち、この関数は次に入力される文字を返すが、読み取り位置は変化しない。
 この後の入力関数（書式化入力関数・非書式化入力関数いずれでも）で、改めて入力が行われる。
 
-##戻り値
+## 戻り値
 
 - `good() == true`なら、`rdbuf()->sgetc()`。
 - `good() == false`なら、`Traits::eof()`。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <locale>
@@ -55,17 +55,17 @@ int main() {
 * getloc()[link /reference/ios/ios_base/getloc.md]
 * std::cin[link /reference/iostream/cin.md]
 
-###入力
+### 入力
 ```
 200
 ```
 
-###出力
+### 出力
 ```
 入力された値: 200
 ```
 
-##実装例
+## 実装例
 ```cpp
 int_type peek() {
   try {
@@ -83,11 +83,11 @@ int_type peek() {
 }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 
 - [`basic_istream::get`](get.md)
 - `basic_streambuf::sgetc`

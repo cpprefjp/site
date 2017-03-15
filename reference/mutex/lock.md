@@ -1,4 +1,4 @@
-#lock
+# lock
 * mutex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,25 +11,25 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 複数のミューテックスオブジェクトに対してlock操作を行う
 
 
-##要件
+## 要件
 テンプレートパラメータの型が`lock()`、`unlock()`、`try_lock()`メンバ関数をサポートしていること
 
 
-##効果
+## 効果
 各ミューテックスオブジェクトに対して、`lock()`、`try_lock()`、あるいは`unlock()`メンバ関数を順次呼び出すことで、デッドロックを引き起こさずに全ミューテックスをロックする。
 
 いずれかの`lock()`/`try_lock()`が例外を送出した場合、以降の`lock()`/`try_lock()`呼び出しを行わず、それ以前にロック取得したミューテックスオブジェクトに対して`unlock()`メンバ関数を呼び出す。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cassert>
@@ -89,18 +89,18 @@ int main()
 * std::system_error[link /reference/system_error/system_error.md]
 * owns_lock()[link unique_lock/owns_lock.md]
 
-###出力例
+### 出力例
 ```
 Resource deadlock avoided
 ```
 
 Visual C++ 11.0, 12.0では、このコードは正常に動作せず、1件目の`assert`で動作を停止してしまう。[`unique_lock::lock()`](unique_lock/lock.md)のバグのためである。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -108,7 +108,7 @@ Visual C++ 11.0, 12.0では、このコードは正常に動作せず、1件目�
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [lock非メンバ関数の使いどころ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120919/p1)
 - [Acquiring Multiple Locks Without Deadlock](https://www.justsoftwaresolutions.co.uk/threading/acquiring-multiple-locks-without-deadlock.html)
 

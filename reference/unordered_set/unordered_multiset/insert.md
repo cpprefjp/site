@@ -1,4 +1,4 @@
-#insert
+# insert
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
@@ -19,11 +19,11 @@ void insert(initializer_list<value_type> il);                  // (4)
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 コンテナに要素を追加する。
 
 
-##要件
+## 要件
 - `v` を引数にとる形式（(1)、(2)の上側）では、`value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
 	コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
@@ -48,7 +48,7 @@ void insert(initializer_list<value_type> il);                  // (4)
 - (4)の形式では、`value_type` はコンテナに対してコピー挿入可能でなければならない。
 
 
-##効果
+## 効果
 - (1)	引数 `v`、あるいは `rv` で指定した値の要素を追加する。
 - (2)	引数 `v`、あるいは `rv` で指定した値の要素を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
@@ -56,25 +56,25 @@ void insert(initializer_list<value_type> il);                  // (4)
 - (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
 
 
-##戻り値
+## 戻り値
 - (1)	追加された要素を指すイテレータ。
 - (2)	追加された要素を指すイテレータ。
 - (3)	なし
 - (4)	なし
 
 
-##例外
+## 例外
 単一要素の形式（(1)と(2)）では、ハッシュ関数以外から例外が投げられた場合には、挿入はされない。
 
 
-##計算量
+## 計算量
 - (1)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (2)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (3)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
 - (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
 
 
-##備考
+## 備考
 - これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
 
@@ -87,7 +87,7 @@ void insert(initializer_list<value_type> il);                  // (4)
 	従って、そのような期待はすべきではない。[`emplace_hint`](emplace_hint.md)も参照。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -159,7 +159,7 @@ int main()
 * unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * insert[color ff0000]
 
-###出力
+### 出力
 ```
 6 2
 insert one element : 6 5 5 4 4 3 3 2 2 2 1 1 0 0 
@@ -172,11 +172,11 @@ insert initializer_list : 7 8 6 5 5 5 4 4 3 3 2 2 1 1 0 0 0
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -184,7 +184,7 @@ insert initializer_list : 7 8 6 5 5 5 4 4 3 3 2 2 1 1 0 0 0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##実装例
+## 実装例
 (2)以降の形式は、(1)の形式を使って実装することができる。
 
 ```cpp
@@ -219,7 +219,7 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(initializer_l
 * insert[color ff0000]
 
 
-##関連項目
+## 関連項目
 
 |                                           |                                                        |
 |-------------------------------------------|--------------------------------------------------------|
@@ -235,7 +235,7 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(initializer_l
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (4)の経緯となる提案文書
 - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#518)

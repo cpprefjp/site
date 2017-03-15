@@ -1,4 +1,4 @@
-#sリテラル
+# sリテラル
 * string[meta header]
 * std::string_literals[meta namespace]
 * basic_string[meta class]
@@ -16,7 +16,7 @@ inline namespace string_literals {
 }}}
 ```
 
-##概要
+## 概要
 `basic_string`型のリテラル。
 
 文字列リテラルを受け取り、各文字型の`basic_string`オブジェクトを構築する。
@@ -27,14 +27,14 @@ inline namespace string_literals {
 - (4) : `wstring`型のリテラル
 
 
-##戻り値
+## 戻り値
 - (1) : `basic_string<char>{str, len}`
 - (2) : `basic_string<char16_t>{str, len}`
 - (3) : `basic_string<char32_t>{str, len}`
 - (4) : `basic_string<wchar_t>{str, len}`
 
 
-##例
+## 例
 ```cpp
 #include <string>
 
@@ -53,21 +53,21 @@ int main()
 ```
 * "hello"s[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++1y mode](/implementation.md#clang): 3.4
 - [GCC, C++1y mode](/implementation.md#gcc): 4.9.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 - [N3642 User-defined Literals for Standard Library Types (part 1 - version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3642.pdf)
 

@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,15 +13,15 @@ template <class T, class U>
 bool operator!=(const allocator<T>&, const allocator<U>&) noexcept;
 ```
 
-##概要
+## 概要
 2つの`allocator`オブジェクトを非等値比較する。
 
 
-##戻り値
+## 戻り値
 `false`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -40,7 +40,7 @@ int main()
 }
 ```
 
-###出力例
+### 出力例
 ```
 equal
 ```

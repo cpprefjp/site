@@ -1,4 +1,4 @@
-#fpclassify
+# fpclassify
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,11 +18,11 @@ namespace std {
 * Integral[italic]
 
 
-##概要
+## 概要
 指定された値の数値分類を返す。
 
 
-##戻り値
+## 戻り値
 引数 `x` で指定された値の数値分類を表すマクロの整数値を返す。
 
 | 引数 `x` で指定された値の数値分類 | 戻り値                            |
@@ -36,11 +36,11 @@ namespace std {
 なお、上記のいずれにも属さない処理系定義の数値分類がある場合、その数値分類に対応するマクロの整数値が返る。
 
 
-##備考
+## 備考
 本関数は、C 言語の `fpclassify` マクロと同等の機能を持つ。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -66,7 +66,7 @@ int main()
 * FP_SUBNORMAL[link fp_subnormal.md]
 * FP_ZERO[link fp_zero.md]
 
-###出力例
+### 出力例
 ```
 true
 true

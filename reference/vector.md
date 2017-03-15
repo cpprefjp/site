@@ -1,4 +1,4 @@
-#vector
+# vector
 * vector[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -41,8 +41,8 @@ namespace std {
 リファレンス中では、これらの名前をテンプレートパラメータとして扱う。
 
 
-##メンバ関数
-###構築・破棄
+## メンバ関数
+### 構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------|----------------|-------|
@@ -51,7 +51,7 @@ namespace std {
 | [`operator=`](vector/op_assign.md)  | 代入演算子     | |
 
 
-###イテレータ
+### イテレータ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|---------------------------------------|-------|
@@ -65,7 +65,7 @@ namespace std {
 | [`crend`](vector/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++11 |
 
 
-###領域
+### 領域
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|------------------|-------|
@@ -78,7 +78,7 @@ namespace std {
 | [`shrink_to_fit`](vector/shrink_to_fit.md) | capacityをsizeまで縮小する | C++11 |
 
 
-###要素アクセス
+### 要素アクセス
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------|---------------|-------|
@@ -89,7 +89,7 @@ namespace std {
 | [`back`](vector/back.md)        | 末尾要素への参照を取得する | |
 
 
-###コンテナの変更
+### コンテナの変更
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|------------------|-------|
@@ -104,14 +104,14 @@ namespace std {
 | [`clear`](vector/clear.md)               | 全要素削除 | |
 
 
-###アロケータ
+### アロケータ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|------------------------------|-------|
 | [`get_allocator`](vector/get_allocator.md) | アロケータオブジェクトの取得 | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------|-----------------------------------------------------------------------|-------|
@@ -129,7 +129,7 @@ namespace std {
 | `const_reverse_iterator` | [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|------------------------------------|-------|
@@ -142,7 +142,7 @@ namespace std {
 | [`swap`](vector/swap_free.md)              | 2つの`vector`オブジェクトを入れ替える | |
 
 
-##例 (C++11)
+## 例 (C++11)
 ```cpp
 #include <iostream>
 #include <cassert>
@@ -181,7 +181,7 @@ int main()
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
 
-###出力
+### 出力
 ```
 1
 2
@@ -191,13 +191,13 @@ int main()
 ```
 
 
-##参照
+## 参照
 - `vector`のメモリ効率について
     - [２倍だけじゃない - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_2334100705)
     - [それでも２倍だ - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_1001100720)
 
 
-##`vector<bool>`特殊化
+## `vector<bool>`特殊化
 `vector`は`bool`型に対して特殊化されている。
 
 この特殊化はメモリ領域を最小化するために提供されていて、各要素は1bitの領域のみを必要とする。
@@ -217,7 +217,7 @@ public:
 }
 ```
 
-###ハッシュサポート
+### ハッシュサポート
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------------|------------------------------------------|-------|
@@ -225,7 +225,7 @@ public:
 | `template <class Allocator> struct hash<vector<bool, Allocator>>;` | `hash`クラスの`vector<bool>`に対する特殊化 | C++11 |
 
 
-###`vector<bool>`の基本操作：
+### `vector<bool>`の基本操作：
 ```cpp
 #include <iostream>
 #include <vector>
@@ -256,7 +256,7 @@ int main()
 * v[7][link vector/op_at.md]
 * v[3][link vector/op_at.md]
 
-###出力
+### 出力
 ```
 v[3] : 0
 0
@@ -272,7 +272,7 @@ v[3] : 0
 `vector<bool>`の要素は参照するとプロキシオブジェクトのコピーが返ってくるため、RandomAccessIteratorの要件を満たさない。
 
 
-##参照
+## 参照
 - [LWG Issue 69. Must elements of a `vector` be contiguous?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#69)
     - C++03から、`vector`の要素のメモリが連続していることが保証された。
 - [N1211 - `vector<bool>`: More Problems, Better Solutions](http://www.gotw.ca/publications/N1211.pdf)

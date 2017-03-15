@@ -1,4 +1,4 @@
-#load_factor
+# load_factor
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
@@ -9,22 +9,22 @@
 float load_factor() const noexcept;
 ```
 
-##概要
+## 概要
 現在の負荷率（バケットあたりの要素数の平均）を取得する。
 
-##戻り値
+## 戻り値
 現在の負荷率　:[`size`](size.md) / [`bucket_count`](bucket_count.md)
 
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数時間  
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -48,7 +48,7 @@ int main()
 }
 ```
 
-###出力例 (MSVC-11.0)
+### 出力例 (MSVC-11.0)
 ```
 current max_load_factor: 1
 current size: 4
@@ -56,22 +56,22 @@ current bucket_count: 8
 current load_factor: 0.5
 ```
 
-###検証
+### 検証
 [`load_factor`](load_factor.md) = [`size`](size.md) / [`bucket_count`](bucket_count.md) を満たしている。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
-##参照
+## 参照
 
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------------|-----------------------|

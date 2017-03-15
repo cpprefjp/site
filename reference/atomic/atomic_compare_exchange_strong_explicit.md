@@ -1,4 +1,4 @@
-#atomic_compare_exchange_strong_explicit
+# atomic_compare_exchange_strong_explicit
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -19,30 +19,30 @@ namespace std {
 * memory_order[link memory_order.md]
 
 
-##概要
+## 概要
 強い比較でアトミックに値を入れ替える
 
 
-##要件
+## 要件
 - `failure`が[`memory_order_release`](memory_order.md), [`memory_order_acq_rel`](memory_order.md)ではないこと。
 - `failure`が`success`よりも強くないこと。
 
 
-##効果
+## 効果
 現在の値`object`と`expected`をバイトレベルで等値比較を行う、`true`である場合は現在の値`object`を`desired`で置き換え、`false`である場合は`expected`を現在の値`object`で置き換える。
 
 バイト等値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる。メモリオーダーが一つだけ指定された場合、`order`メモリオーダーが使用される。
 
 
-##戻り値
+## 戻り値
 等値比較の結果が返される
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、値が交換可能な場合はCAS操作が常に成功する。
 
 [`atomic_compare_exchange_weak_explicit()`](atomic_compare_exchange_weak_explicit.md)はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。
@@ -54,7 +54,7 @@ namespace std {
 逆に言えば、そのような状況でないなら常にループで[`atomic_compare_exchange_weak_explicit()`](atomic_compare_exchange_weak_explicit.md)を利用すれば良い。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -89,18 +89,18 @@ int main()
 * x.load()[link /reference/atomic/atomic/load.md]
 
 
-###出力
+### 出力
 ```
 true 2 3
 false 3 3
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -108,7 +108,7 @@ false 3 3
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 - [atomic compare_exchange_weak/strong関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120725/p1)
 - [N2748 Strong Compare and Exchange](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2748.html)
 - [cbloom rants: 07-14-11 - compare_exchange_strong vs compare_exchange_weak](http://cbloomrants.blogspot.jp/2011/07/07-14-11-compareexchangestrong-vs.html)

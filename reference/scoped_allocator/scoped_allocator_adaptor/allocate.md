@@ -1,4 +1,4 @@
-#allocate
+# allocate
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
@@ -10,16 +10,16 @@ pointer allocate(size_type n);                          // (1)
 pointer allocate(size_type n, const_void_pointer hint); // (2)
 ```
 
-##概要
+## 概要
 メモリを確保する。
 
 
-##戻り値
+## 戻り値
 - (1) : [`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`allocate`](/reference/memory/allocator_traits/allocate.md)`(`[`outer_allocator()`](outer_allocator.md)`, n)`
 - (2) : [`allocator_traits`](/reference/memory/allocator_traits.md)`<OuterAlloc>::`[`allocate`](/reference/memory/allocator_traits/allocate.md)`(`[`outer_allocator()`](outer_allocator.md)`, n, hint)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -64,15 +64,15 @@ int main()
 * std::char_traits[link /reference/string/char_traits.md]
 * alloc.deallocate[link deallocate.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

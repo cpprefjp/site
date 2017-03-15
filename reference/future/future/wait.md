@@ -1,4 +1,4 @@
-#wait
+# wait
 * future[meta header]
 * std[meta namespace]
 * future[meta class]
@@ -9,19 +9,19 @@
 void wait() const;
 ```
 
-##概要
+## 概要
 処理が完了するまで待機する
 
 
-##効果
+## 効果
 共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまでこの関数をブロックする。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -55,16 +55,16 @@ int main()
 * std::move[link /reference/utility/move.md]
 * f.get()[link get.md]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -72,11 +72,11 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-###備考
+### 備考
 ※ VC++11.0段階の`std::thread`クラスは、コンストラクタに引数をムーブで渡すことができない。そのため、`promise`オブジェクトはスレッド間の共有オブジェクトにする必要がある。(所有権が曖昧になるため、スタイルとしてはよくない)  
 [#737812 - std::thread does not accept std::move](https://connect.microsoft.com/VisualStudio/feedback/details/737812)
 
 
-##参照
+## 参照
 
 

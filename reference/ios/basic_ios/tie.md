@@ -1,4 +1,4 @@
-#tie
+# tie
 * ios[meta header]
 * std[meta namespace]
 * basic_ios[meta class]
@@ -11,25 +11,25 @@ basic_ostream<CharT, Traits>* tie(basic_ostream<CharT, Traits>* tiestr);    // (
 ```
 * basic_ostream[link ../../ostream/basic_ostream.md]
 
-##概要
+## 概要
 同期する出力ストリームオブジェクトを取得・設定する。
 
 
-##要件
+## 要件
 - 引数 `tiestr` がヌルポインタでは無い場合、`tiestr` から `tie()` をたどって再び `tiestr` に到達できないこと。（C++11 から）
 
 
-##効果
+## 効果
 - (1) -
 - (2) `*this` に紐づくストリーム（[`basic_ostream`](../../ostream/basic_ostream.md)）オブジェクトを引数 `tiestr` に設定する（`tie() == tiestr` となる）。  
 
 
-##戻り値
+## 戻り値
 - (1) `*this` に紐づいている出力ストリーム（[`basic_ostream`](../../ostream/basic_ostream.md)）オブジェクトへのポインタ
 - (2) 引数 `tiestr` が設定される前の `tie()`
 
 
-##備考
+## 備考
 - 入力ストリーム（[`basic_istream`](../../istream/basic_istream.md)）、および、出力ストリーム（[`basic_ostream`](../../ostream/basic_ostream.md)）の `tie()` に出力ストリームを設定すると、書式化・非書式化入出力を実行するたびに `tie()->`[`flush`](../../ostream/basic_ostream/flush.md)`()` が実行される。  
     これにより、`*this` で書式化・非書式化入出力を実行する際には必ず `tie()` で指定された出力ストリームがフラッシュされることが保証される。  
     なお、この動作は、[`basic_istream`](../../istream/basic_istream.md)`::`[`sentry`](../../istream/basic_istream/sentry.md)`::`[`sentry`](../../istream/basic_istream/sentry/op_constructor.md)、および、[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`sentry`](../../ostream/basic_ostream/sentry.md)`::`[`sentry`](../../ostream/basic_ostream/sentry/op_constructor.md) によって引き起こされる。
@@ -44,7 +44,7 @@ basic_ostream<CharT, Traits>* tie(basic_ostream<CharT, Traits>* tiestr);    // (
     - [`wcerr`](../../iostream/wcerr.md.nolink)`.tie() == &`[`wcout`](../../iostream/wcout.md.nolink)（C++11 から）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <fstream>
@@ -87,17 +87,17 @@ int main()
 * eofbit[link ../ios_base/type-iostate.md]
 * failbit[link ../ios_base/type-iostate.md]
 
-###出力
+### 出力
 ```
 not bad, eof, fail
 new
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [`cin`](../../iostream/cin.md)
 - [`cout`](../../iostream/cout.md)
 - [`cerr`](../../iostream/cerr.md)

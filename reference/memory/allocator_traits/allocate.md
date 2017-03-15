@@ -1,4 +1,4 @@
-#allocate
+# allocate
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
@@ -11,16 +11,16 @@ static pointer allocate(Alloc& a, size_type n,
                         const_void_pointer hint); // (2)
 ```
 
-##概要
+## 概要
 メモリを確保する。
 
 
-##戻り値
+## 戻り値
 - (1) : `a.allocate(n)`
 - (2) : `a.allocate(n, hint)`という式が有効であればそれを呼び出し、そうでなければ`a.allocate(n)`を呼び出す。
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 
@@ -41,16 +41,16 @@ int main()
 * std::allocator[link /reference/memory/allocator.md]
 * traits::deallocate[link deallocate.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

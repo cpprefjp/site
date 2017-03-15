@@ -1,4 +1,4 @@
-#deallocate
+# deallocate
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
@@ -9,19 +9,19 @@
 static void deallocate(Alloc& a, pointer p, size_type n);
 ```
 
-##概要
+## 概要
 メモリを解放する。
 
 
-##効果
+## 効果
 `a.deallocate(p, n)`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 
@@ -42,16 +42,16 @@ int main()
 * std::allocator[link /reference/memory/allocator.md]
 * traits::allocate[link allocate.md]
 
-###出力
+### 出力
 ```
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

@@ -1,4 +1,4 @@
-#crbegin
+# crbegin
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -9,19 +9,19 @@
 const_reverse_iterator crbegin() const noexcept;
 ```
 
-##概要
+## 概要
 末尾要素を指す読み取り専用逆イテレータを取得する。
 
 
-##戻り値
+## 戻り値
 末尾要素を指す読み取り専用逆イテレータ
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -40,18 +40,18 @@ int main()
 * crbegin()[color ff0000]
 * ls.crend()[link crend.md]
 
-###出力
+### 出力
 ```
 3
 2
 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -59,6 +59,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照
 
 

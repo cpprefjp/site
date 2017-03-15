@@ -1,4 +1,4 @@
-#empty
+# empty
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
@@ -8,23 +8,23 @@
 bool empty() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナが空かどうかを判定する
 
 
-##戻り値
+## 戻り値
 コンテナが空であれば`true`、そうでなければ`false`を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -47,13 +47,13 @@ int main()
 ```
 * empty()[color ff0000]
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |-----------------------|----------------------|

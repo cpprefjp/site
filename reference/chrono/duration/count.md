@@ -1,4 +1,4 @@
-#count
+# count
 * chrono[meta header]
 * std::chrono[meta namespace]
 * duration[meta class]
@@ -9,15 +9,15 @@
 constexpr rep count() const;
 ```
 
-##概要
+## 概要
 `duration`内の値を取得する。
 
 
-##戻り値
+## 戻り値
 `duration`内の`rep`値。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -35,16 +35,16 @@ int main()
 * count[color ff0000]
 * nano[link /reference/ratio/si_prefix.md]
 
-###出力
+### 出力
 ```
 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - GCC: 4.5.1, 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 

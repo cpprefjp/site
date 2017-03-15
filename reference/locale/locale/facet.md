@@ -1,4 +1,4 @@
-#facet
+# facet
 * locale[meta header]
 * std[meta namespace]
 * locale[meta class]
@@ -10,10 +10,10 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 (ここに、クラスの概要を記載する)
 
-###protectedメンバ関数
+### protectedメンバ関数
 
 | | |
 |-------------------------------------------------------|-----------------------|
@@ -21,12 +21,12 @@ namespace std {
 | `(destructor)` | デストラクタ |
 | `facet& operator=(const facet&) = delete;` | 代入演算子 |
 
-###例
+### 例
 ```cpp
 ```
 
-###出力
+### 出力
 ```
 ```
 
-###参照
+### 参照

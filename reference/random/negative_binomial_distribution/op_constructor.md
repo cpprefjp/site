@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * negative_binomial_distribution[meta class]
@@ -10,16 +10,16 @@ explicit negative_binomial_distribution(IntType k = 1, double p = 0.5); // (1)
 explicit negative_binomial_distribution(const param_type& parm);        // (2)
 ```
 
-##概要
+## 概要
 - (1) : 成功回数`k`、および一度の事象が成功する確率`p`を受け取るコンストラクタ
 - (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-##概要
+## 概要
 - (1) : `p > 0.0 && p <= 1.0`かつ`k > 0`であること。(`p == 0`だと無限ループしてしまうため)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -57,17 +57,17 @@ int main()
 * seed_gen()[link /reference/random/random_device/op_call.md]
 * std::default_random_engine[link /reference/random/default_random_engine.md]
 
-###出力例
+### 出力例
 ```
 2
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -75,6 +75,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

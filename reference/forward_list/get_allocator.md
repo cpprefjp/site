@@ -1,4 +1,4 @@
-#get_allocator
+# get_allocator
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
@@ -9,19 +9,19 @@
 allocator_type get_allocator() const noexcept;
 ```
 
-##概要
+## 概要
 このコンテナで使用されているアロケータオブジェクトを取得する。
 
 
-##戻り値
+## 戻り値
 このコンテナで使用されているアロケータオブジェクト
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <forward_list>
@@ -39,15 +39,15 @@ int main()
 * get_allocator[color ff0000]
 * std::allocator[link /reference/memory/allocator.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -57,6 +57,6 @@ int main()
 	- 11.0, 12.0は、`noexcept`が実装されていないため、`throw()`が修飾されている。
 
 
-##参照
+## 参照
 
 

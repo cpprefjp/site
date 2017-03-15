@@ -1,4 +1,4 @@
-#assign
+# assign
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -31,19 +31,19 @@ basic_string& assign(initializer_list<charT>);     // (8) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 文字列の再代入を行う。
 
 この関数は、アロケータを除き、`basic_string`クラスのコンストラクタと同様のパラメータを受け取り、再代入を行う。代入演算子が一つのパラメータしか扱えないため、複数パラメータによる代入として使用する。
 
 
-##要件
+## 要件
 - (3) : `pos <= str.`[`size()`](size.md)であること。
 - (4) : `s` は少なくとも `n` の長さを持つ `charT` 型の配列を指していること。
 - (5) : `s` は少なくとも `traits_type::length(s) + 1` の長さを持つ `charT` 型の配列を指していること。
 
 
-##効果
+## 効果
 - (1) : コピー代入。`str`オブジェクトと同じ文字列を構築する。
     - `assign(str, 0, npos)`と同等。
 - (2) : ムーブ代入。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
@@ -61,17 +61,17 @@ basic_string& assign(initializer_list<charT>);     // (8) C++11
     - `assign(il.begin(), il.end())`を呼び出す。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 - (3) : `pos > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
 - (4) : `n >` [`max_size()`](max_size.md)である場合、[`length_error`](/reference/stdexcept.md)例外を送出する
 
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -123,7 +123,7 @@ int main()
 ```
 * assign[color ff0000]
 
-###出力
+### 出力
 ```
 s1 : hello
 s2 : hello
@@ -135,7 +135,7 @@ s7 : hello
 s8 : hello
 ```
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (7)の経緯となる提案文書
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)

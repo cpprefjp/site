@@ -1,4 +1,4 @@
-#rethrow_nested
+# rethrow_nested
 * exception[meta header]
 * std[meta namespace]
 * nested_exception[meta class]
@@ -9,23 +9,23 @@
 [[noreturn]] void rethrow_nested() const;
 ```
 
-##概要
+## 概要
 入れ子になった例外を送出する
 
 
-##効果
+## 効果
 [`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)メンバ関数`がヌルポインタを返した場合、`std::terminate()を呼び出してプログラムを終了させる。そうでなければ、[`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)によって返された例外を送出する。
 
 
-##戻り値
+## 戻り値
 この関数は決して返らない
 
 
-##例外
+## 例外
 入れ子になった例外を送出する
 
 
-##例
+## 例
 ```cpp
 #include <exception>
 #include <iostream>
@@ -57,18 +57,18 @@ int main()
 ```
 * rethrow_nested()[color ff0000]
 
-###出力
+### 出力
 ```
 1st caught: 1
 2nd caught: my_exception(nested_exception).
 3rd caught: 1
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -76,6 +76,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
 
-##参照
+## 参照
 
 

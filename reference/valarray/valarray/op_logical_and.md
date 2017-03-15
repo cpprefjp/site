@@ -1,4 +1,4 @@
-#operator&&
+# operator&&
 * valarray[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -16,7 +16,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `valarray`において、左辺と右辺の式の論理積をとる。
 
 
@@ -25,11 +25,11 @@ namespace std {
 - (3) : `x`と、`ys`の各要素の論理積をとる。
 
 
-##要件
+## 要件
 型`T`が`bool`に変換可能であること。
 
 
-##戻り値
+## 戻り値
 
 - (1) : 以下のコードと同等のことを行う：
 
@@ -64,11 +64,11 @@ return result;
 ```
 
 
-##備考
+## 備考
 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <valarray>
@@ -96,7 +96,7 @@ int main()
 ```
 * assert[link /reference/cassert/assert.md]
 
-###出力
+### 出力
 ```
 ```
 

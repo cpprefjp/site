@@ -1,4 +1,4 @@
-#asin
+# asin
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 逆正弦（アークサイン：arc sine）を得る。
 
 
-##戻り値
+## 戻り値
 以下のコードと同等のことを行う：
 
 ```cpp
@@ -25,7 +25,7 @@ return va.apply(static_cast<T(*)(T)>(std::asin));
 * asin[link /reference/cmath/asin.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -42,7 +42,7 @@ int main()
 ```
 * asin[color ff0000]
 
-###出力
+### 出力
 ```
 0.0998334
 0.198669

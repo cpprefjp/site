@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * stack[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,15 +10,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `stack` の等値比較を行う。
 
 
-##戻り値
+## 戻り値
 `x.c == y.c`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <stack>
@@ -40,11 +40,11 @@ int main()
 ```
 * push[link push.md]
 
-###出力
+### 出力
 ```
 true
 ```
 
-##参照
+## 参照
 
 

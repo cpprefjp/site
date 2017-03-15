@@ -1,4 +1,4 @@
-#atomic_init
+# atomic_init
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -16,27 +16,27 @@ namespace std {
 * atomic[link /reference/atomic/atomic.md]
 
 
-##概要
+## 概要
 アトミックオブジェクトを初期化する
 
 
-##効果
+## 効果
 この関数は、アトミックオブジェクト`object`を値`desired`で非アトミックに初期化する。この関数は、デフォルト構築されたオブジェクトに対して一度だけ呼びださなければならない。変数の初期化中に並行アクセスされた場合、それがアトミックな操作であったとしてもデータ競合を引き起こす。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、C言語との互換性のために存在している。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -52,26 +52,26 @@ int main()
 * std::atomic_init[color ff0000]
 * x.load()[link atomic/load.md]
 
-###出力
+### 出力
 ```
 1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 
 - [Clang, C++11 mode](/implementation.md#clang): 3.3
 - [GCC, C++11 mode](/implementation.md#gcc): 
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-####備考
+#### 備考
 
 
-##参照
+## 参照
 
 

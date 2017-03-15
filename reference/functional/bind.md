@@ -1,4 +1,4 @@
-#bind
+# bind
 * functional[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -15,14 +15,14 @@ namespace std {
 ```
 * unspecified[italic]
 
-##概要
+## 概要
 [<i>Callable</i>](callable.md) オブジェクトに対し、引数を部分的に束縛(bind)する。
 
-##引数
+## 引数
 - `f` -- 束縛先となる [<i>Callable</i>](callable.md) オブジェクト
 - `bound_args` -- 束縛対象の値やプレースホルダ(`_1`, `_2`, ...)、別の `bind()` 呼び出し
 
-##戻り値
+## 戻り値
 引数を部分束縛された [<i>Callable</i>](callable.md) オブジェクト。このオブジェクトは、次のような関数オブジェクトとして扱うことができる：
 ```cpp
 struct bound_function_type {
@@ -47,7 +47,7 @@ struct bound_function_type {
 注意： `bound_args` は明示的に [`std::ref()`](ref.md) または [`std::cref()`](cref.md) で包まない限り、内部でコピーして保持される。他方、`unbound_args` は通常の [perfect forwarding](/reference/utility/forward.md) が行われるため、`move` で渡したあるいは一時オブジェクトを直接渡した `unbound_args` を複数回プレースホルダ経由で使用すると予期しない結果になることがある。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -73,16 +73,16 @@ int main()
 * std::function[link function.md]
 * std::placeholders[link placeholders.md]
 
-###出力
+### 出力
 ```
 9
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -90,7 +90,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG Issue 2021. Further incorrect usages of `result_of`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2021)
 
 

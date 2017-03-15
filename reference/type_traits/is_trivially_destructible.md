@@ -1,4 +1,4 @@
-#is_trivially_destructible
+# is_trivially_destructible
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,21 +11,21 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`がトリビアルに破棄可能か調べる。
 
 
-##要件
+## 要件
 型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
-##効果
+## 効果
 `is_trivially_destructible`は、`T`がトリビアルに破棄可能な型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 「トリビアルに破棄可能」とは、ユーザー定義されないデストラクタを持っているということを意味する。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -52,15 +52,15 @@ static_assert(std::is_trivially_destructible<C2>::value == false, "C2 isn't triv
 int main() {}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.8.2
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0

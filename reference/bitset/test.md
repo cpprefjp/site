@@ -1,4 +1,4 @@
-#test
+# test
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -8,23 +8,23 @@
 bool test(size_t pos) const;
 ```
 
-##概要
+## 概要
 任意の位置のビットが1になっているかを判定する。
 
 
-##要件
+## 要件
 `pos <` [`size()`](size.md)であること。
 
 
-##戻り値
+## 戻り値
 `pos`番目のビットが1になっていれば`true`、そうでなければ`false`を返す。
 
 
-##例外
+## 例外
 `pos >=` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <bitset>
@@ -41,9 +41,9 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##参照
+## 参照
 

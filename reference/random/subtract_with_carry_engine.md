@@ -1,4 +1,4 @@
-#subtract_with_carry_engine
+# subtract_with_carry_engine
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -20,7 +20,7 @@ namespace std {
 * ranlux24_base[link ranlux24_base.md]
 * ranlux48_base[link ranlux48_base.md]
 
-##概要
+## 概要
 `subtract_with_carry_engine`クラスは、[キャリー付き減算法](https://en.wikipedia.org/wiki/Subtract_with_carry)による擬似乱数生成エンジンである。
 
 
@@ -32,8 +32,8 @@ namespace std {
 この生成法は、RANLUX(LUXury RANdom numbers)法の実装にも使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
 
 
-##メンバ関数
-###構築・シード
+## メンバ関数
+### 構築・シード
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------------------|------------------|-------|
@@ -42,7 +42,7 @@ namespace std {
 | [`seed`](subtract_with_carry_engine/seed.md)                                | シードを設定する | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|--------------------|-------|
@@ -50,8 +50,8 @@ namespace std {
 | [`discard`](subtract_with_carry_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
 
 
-##静的メンバ関数
-###エンジンの特性
+## 静的メンバ関数
+### エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
@@ -59,14 +59,14 @@ namespace std {
 | [`max`](subtract_with_carry_engine/max.md) | 生成し得る値の最大値を取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
 | `result_type` | 擬似乱数生成結果の符号なし整数型 `UIntType`。 | C++11 |
 
 
-##メンバ定数
+## メンバ定数
 
 | 定数 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
@@ -76,7 +76,7 @@ namespace std {
 | `static constexpr result_type default_seed` | デフォルトのシード値。`19780503u` | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
@@ -86,7 +86,7 @@ namespace std {
 | [`operator>>`](subtract_with_carry_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -114,7 +114,7 @@ int main()
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 * engine()[link subtract_with_carry_engine/op_call.md]
 
-###出力
+### 出力
 ```
 5880757
 13095533
@@ -129,10 +129,10 @@ int main()
 ```
 
 ## バージョン
-###言語
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -140,7 +140,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 	- 9.0には、`std::tr1::subtract_with_carry`が存在する。
 
-##参照
+## 参照
 - [Subtract with carry - Wikipedia](https://en.wikipedia.org/wiki/Subtract_with_carry)
 - [A New Class of Random Number Generators](http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoap/1177005878), George Marsaglia and Arif Zaman, The Annals of Applied Probability, Vol. 1, No. 3, 1991
 

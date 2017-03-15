@@ -1,4 +1,4 @@
-#log
+# log
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 自然対数（ネイピア数 e を底とした対数）を得る。log は logarithm（対数）、あるいは、logarithmic function（対数関数）の略。
 
 
-##戻り値
+## 戻り値
 以下のコードと同等のことを行う：
 
 ```cpp
@@ -25,7 +25,7 @@ return va.apply(static_cast<T(*)(T)>(std::log));
 * log[link /reference/cmath/log.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -62,7 +62,7 @@ int main()
 ```
 * log[color ff0000]
 
-###出力
+### 出力
 ```
 exp_result : {1.10517,1.2214,1.34986}
 log_result : {0.1,0.2,0.3}

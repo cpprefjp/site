@@ -1,4 +1,4 @@
-#construct
+# construct
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
@@ -29,7 +29,7 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 * tuple[link /reference/tuple/tuple.md]
 * piecewise_construct_t[link /reference/utility/piecewise_construct.md]
 
-##概要
+## 概要
 引数を元にインスタンスを構築する。
 
 - (1) : 型`T`のコンストラクタ引数`args...`を元に、型`T`のオブジェクトを生成する。以下のいずれかの形式のコンストラクタを呼び出す：
@@ -50,7 +50,7 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 	- `pair<T1, T2>(piecewise_construct_t, tuple<U>&&, tuple<V>&&)`
 
 
-##効果
+## 効果
 この関数において、以下の名称定義を行う。
 
 - `OUTERMOST(x)`関数は、アロケータオブジェクト`x`が`outer_allocator()`メンバ関数を持っている場合、その関数によって返されるアロケータを返す。そうでない場合は、`x`を返す。
@@ -82,7 +82,7 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 - (5) : 以下と同等の動作を行う。 `construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(x.first),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(x.second))`
 - (6) : 以下と同等の動作を行う。 `construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`(x.first)),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`(x.second)))`
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <vector>
@@ -204,15 +204,15 @@ int main()
 * std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * std::next[link /reference/iterator/next.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.3 (`forward_as_tuple()`まで含めた完全な実装)
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

@@ -1,7 +1,7 @@
-#コンパイル時アサート
+# コンパイル時アサート
 * cpp11[meta cpp]
 
-##概要
+## 概要
 `static_assert`宣言は、指定した定数式が真であることを表明するための機能である。
 
 これは、コンパイル時に満たされるべき要件を検証するために使用できる。
@@ -17,7 +17,7 @@ struct X {
 指定した定数式が偽である場合はコンパイルエラーとなり、`static_assert`の第2引数で指定した文字列リテラルが診断メッセージとして出力される。
 
 
-##仕様
+## 仕様
 `static_assert`宣言は、以下の形式を持つ：
 
 ```cpp
@@ -30,7 +30,7 @@ static_assert(定数式, 文字列リテラル);
 - `static_assert`宣言では、新たな型やオブジェクトは宣言しない。また、実行時にサイズや時間コストは発生しない
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -51,11 +51,11 @@ int main()
 * std::is_integral[link /reference/type_traits/is_integral.md]
 
 
-###出力
+### 出力
 ```
 ```
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 標準C++にはこれまで、ソフトウェアの正しさを表明するための機能として、
 
 - 実行時の[`assert`](/reference/cassert/assert.md)マクロ
@@ -78,7 +78,7 @@ Boost Static Assertion Libraryが開発されたときに、コンパイル時�
 コンパイル時アサートのために`BOOST_STATIC_ASSERT`や`STATIC_CHECK`のようなマクロを使用することは、名前空間を汚染する問題があるが、コア言語にその機能を追加することでその問題は解消される。
 
 
-##参照
+## 参照
 - [N1381 Proposal to Add Static Assertions to the Core Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1381.htm)
 - [N1604 Proposal to Add Static Assertions to the Core Language (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1604.html)
 - [N1617 Proposal to Add Static Assertions to the Core Language (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1617.html)

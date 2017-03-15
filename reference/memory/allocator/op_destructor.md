@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * memory[meta header]
 * std[meta namespace]
 * allocator[meta class]
@@ -12,11 +12,11 @@
 ~allocator();
 ```
 
-##概要
+## 概要
 `allocator`オブジェクトを破棄する。
 
 
-##例外
+## 例外
 投げない。
 
 

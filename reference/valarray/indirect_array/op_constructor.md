@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * valarray[meta header]
 * std[meta namespace]
 * indirect_array[meta class]
@@ -14,22 +14,22 @@ public:
   indirect_array(const indirect_array&); // (2) C++11
 ```
 
-##indirect_arrayオブジェクトの構築
+## indirect_arrayオブジェクトの構築
 - (1) デフォルトコンストラクタ。使用不可。
 - (2) コピーコンストラクタ。引数の`indirect_array`と`*this`で、同じ`valarray`オブジェクトを参照する。
 
 
-##効果
+## 効果
 概要通り。
 
 
-##備考
+## 備考
 - (2) このオーバーロードには仕様がなかったため、問題を報告中(どこかに掲載されたらリンクを貼る)。
 	- ここに記載している仕様は、[libstdc++のドキュメント](https://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-4.3/a00941.html#d66c87a19ffcdfd8a7d2975aff854ef7)およびlibc++とVisual C++の実装で確認できた挙動である。
 - これらオーバーロードのほかに、`valarray`オブジェクトからスライスするためのコンストラクタが実装として用意されるが、このクラスのユーザーはそれを使用することはできない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -53,7 +53,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 1
 99

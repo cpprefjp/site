@@ -1,4 +1,4 @@
-#future
+# future
 * future[meta header]
 * cpp11[meta cpp]
 
@@ -25,7 +25,7 @@
 | [`async`](future/async.md)                               | 処理の非同期実行(function template) | C++11 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 

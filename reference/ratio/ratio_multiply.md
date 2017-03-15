@@ -1,4 +1,4 @@
-#ratio_multiply
+# ratio_multiply
 * ratio[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `ratio_multiply`は、左辺の[`ratio`](ratio.md)と右辺の[`ratio`](ratio.md)を乗算した[`ratio`](ratio.md)型を作るエイリアステンプレートである。
 
 
-##効果
+## 効果
 乗算結果は、[`ratio`](ratio.md)`<R1::num * R2::num, R1::den * R2::den>`という型になる。
 
 
-##例
+## 例
 ```cpp
 #include <ratio>
 
@@ -37,11 +37,11 @@ int main()
 * std::ratio_multiply[color ff0000]
 * std::ratio[link ratio.md]
 
-###出力
+### 出力
 ```
 ```
 
-##乗算で大きいduration型を定義する例
+## 乗算で大きいduration型を定義する例
 ```cpp
 #include <iostream>
 #include <ratio>
@@ -67,21 +67,21 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [What is the best way to form custom std::chrono::durations and std::ratios? - StackOverflow](http://stackoverflow.com/questions/27880393/what-is-the-best-way-to-form-custom-stdchronodurations-and-stdratios)
 

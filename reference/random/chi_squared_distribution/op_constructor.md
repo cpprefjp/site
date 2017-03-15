@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * random[meta header]
 * std[meta namespace]
 * chi_squared_distribution[meta class]
@@ -10,16 +10,16 @@ explicit chi_squared_distribution(RealType n = 1);         // (1)
 explicit chi_squared_distribution(const param_type& parm); // (2)
 ```
 
-##概要
+## 概要
 - (1) : カイ二乗分布の自由度`n`を受け取るコンストラクタ。
 - (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
-##要件
+## 要件
 - (1) : `n > 0`であること
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -60,7 +60,7 @@ int main()
 * seed_gen()[link /reference/random/random_device/op_call.md]
 * std::default_random_engine[link /reference/random/default_random_engine.md]
 
-###出力例
+### 出力例
 ```
 1.0849
 0.309153
@@ -84,11 +84,11 @@ int main()
 2.61903
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -96,6 +96,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

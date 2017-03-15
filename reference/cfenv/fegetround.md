@@ -1,4 +1,4 @@
-#fegetround
+# fegetround
 * cfenv[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,15 +10,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 浮動小数点数の現在の丸め方式を取得する。
 
 
-##戻り値
+## 戻り値
 現在設定されている浮動小数点数の丸め方式を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cfenv>
@@ -50,18 +50,18 @@ int main()
 * FE_TOWARDZERO[link fe_towardzero.md]
 * FE_UPWARD[link fe_upward.md]
 
-###出力
+### 出力
 ```
 to nearest
 downward
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??

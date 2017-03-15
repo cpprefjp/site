@@ -1,4 +1,4 @@
-#operator<=
+# operator<=
 * tuple[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -16,19 +16,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`tuple`において、左辺が右辺以下かの判定を行う。
 
 
-##要件
+## 要件
 2つの`tuple`の要素数が同じであること。
 
 
-##戻り値
+## 戻り値
 `!(u < t)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <tuple>
@@ -56,18 +56,18 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 true
 false
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -75,10 +75,10 @@ true
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 
 
-##関連項目
+## 関連項目
 - [`operator<`](op_less.md)
 

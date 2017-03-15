@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * vector[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,19 +10,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`vector`オブジェクトを入れ替える
 
 
-##効果
+## 効果
 `x.`[`swap`](swap.md)`(y)`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -52,12 +52,12 @@ int main()
 ```
 * swap[color ff0000]
 
-###出力
+### 出力
 ```
 v1 : {4 5 6 }
 v2 : {1 2 3 }
 ```
 
-##参照
+## 参照
 
 

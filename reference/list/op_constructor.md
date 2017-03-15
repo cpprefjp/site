@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -33,11 +33,11 @@ list(initializer_list<T> il,
 * initializer_list[link /reference/initializer_list.md]
 
 
-##概要
+## 概要
 list オブジェクトの構築
 
 
-##効果
+## 効果
 - (1) : デフォルトコンストラクタ。アロケータをデフォルト構築して、空のコンテナを作る。
 - (2) : アロケータを指定して空のコンテナを作る。
 - (3) : `value` のコピーを `n` 個要素として保持した `list` を構築する。
@@ -50,7 +50,7 @@ list オブジェクトの構築
 - (10) : 初期化子リストを受け取るコンストラクタ。`list(il.`[`begin`](../initializer_list/begin.md)`(), il.`[`end`](../initializer_list/end.md)`(), a)` と同等。
 
 
-##計算量
+## 計算量
 - (1), (2) : 定数時間
 - (3), (4) : `n` に対して線形時間
 - (5) : [`distance`](/reference/iterator/distance.md)`(first, last)` に対して線形時間
@@ -59,7 +59,7 @@ list オブジェクトの構築
 - (9) : `a == x.`[`get_allocator`](get_allocator.md)`()` であれば定数時間。そうでなければ `x.`[`size`](size.md)`()` に対して線形時間
 
 
-##備考
+## 備考
 - (5) の形式は、C++03 までは `InputIterator` が整数型の場合には `list(static_cast<typename list::size_type>(first), static_cast<typename list::value_type>(last), a)` と同等とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、(3) の形式の引数 `value` に関するデフォルト引数が削除され、新たに (4) の形式が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`list` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `list` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
@@ -94,7 +94,7 @@ int main()
 * emplace_back[link ../vector/emplace_back.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -146,7 +146,7 @@ int main ()
 * ls3.begin()[link begin.md]
 * ls3.end()[link end.md]
 
-###出力
+### 出力
 ```
 ls1 : 
 ls2 : 0 0 0 
@@ -158,7 +158,7 @@ ls7 : 1 2 3
 ```
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (10)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  

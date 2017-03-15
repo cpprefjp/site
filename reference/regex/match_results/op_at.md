@@ -1,4 +1,4 @@
-#operator[]
+# operator[]
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,25 +9,25 @@
 const_reference operator[](size_type n) const;
 ```
 
-##概要
+## 概要
 指定されたサブマッチを返す。
 
 
-##要件
+## 要件
 [`ready`](ready.md)`() == true`
 
 
-##戻り値
+## 戻り値
 `n` 番目のキャプチャグループ（正規表現内の括弧で囲まれた部分）に対応する [`sub_match`](../sub_match.md) オブジェクトへの参照。  
 `n == 0` の場合、マッチした文字列全体に対応する [`sub_match`](../sub_match.md) オブジェクトへの参照を返す。  
 `n >=` [`size`](size.md)`()` の場合、マッチしていないことを表す [`sub_match`](../sub_match.md) オブジェクト（備考参照）への参照を返す。
 
 
-##備考
+## 備考
 マッチしていないことを表す [`sub_match`](../sub_match.md) オブジェクトとは、`first` と `second` が検索対象文字列の末尾を指し、`match == false` であるようなオブジェクトである。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -58,7 +58,7 @@ int main()
 * sub.str()[link ../sub_match/str.md]
 * sub.length()[link ../sub_match/length.md]
 
-###出力
+### 出力
 ```
 0:matched = true, str() = 'abc 0123 defgh', length() = 14
 1:matched = true, str() = 'abc', length() = 3
@@ -68,11 +68,11 @@ int main()
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

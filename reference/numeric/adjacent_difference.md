@@ -1,4 +1,4 @@
-#adjacent_difference
+# adjacent_difference
 * numeric[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,7 +18,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 隣接する要素間の差を計算する。
 
 この関数に与えられた範囲`[first, last)`を`r`として、その範囲の隣接する要素同士の差を、`{r[0], r[1] - r[0], r[2] - r[1], r[3] - r[2], r[4] - r[3]}`のように演算して求められた新たな範囲を返す。
@@ -27,7 +27,7 @@ namespace std {
 - (2) : 各隣接要素`a`と`b`を`binary_op(b, a)`で減算した結果を、`result`出力イテレータに書き込む
 
 
-##要件
+## 要件
 - C++03まで : `binary_op`は副作用を起こしてはならない
 - C++11から : `InputIterator`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
 - C++11から (1) : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`b - a`の結果が`result`出力イテレータに書き込めること
@@ -35,7 +35,7 @@ namespace std {
 - C++11から (2) : `binary_op`の呼び出しが、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更、イテレータの無効化をしてはならない
 
 
-##効果
+## 効果
 非空の範囲`[first, last)`について、
 
 1. `*result = *first`で結果の初期値を書き込む
@@ -44,17 +44,17 @@ namespace std {
 4. `val`を`acc`にムーブ代入する
 
 
-##戻り値
+## 戻り値
 ```cpp
 result + (last - first)
 ```
 
 
-##計算量
+## 計算量
 ちょうど`(last - first) - 1`回の2項演算を適用する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <numeric>
@@ -89,14 +89,14 @@ int main()
 * std::adjacent_difference[color ff0000]
 * diffs.begin()[link /reference/vector/begin.md]
 
-###出力
+### 出力
 ```
 0 --> 0.2 --> 0.2 --> 0.2 --> 0.2 --> end
 0 --> 0.04 --> 0.12 --> 0.2 --> 0.28 --> end
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 #include <iterator>
 #include <functional>

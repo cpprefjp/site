@@ -1,4 +1,4 @@
-#priority_queue
+# priority_queue
 * queue[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,7 +14,7 @@ namespace std {
 * vector[link /reference/vector.md]
 * less[link /reference/functional/less.md]
 
-##概要
+## 概要
 `priority_queue`はコンテナアダプタであり、優先順位付きキューを実現する目的で設計されている。要素を`push()`で追加し、取り出す際に`top()`を呼び出すことで、`Compare`述語によって優先順に要素が取り出される。
 
 `priority_queue`は、所定のメンバ関数を持つコンテナのオブジェクトを内部実装として用いており、標準のコンテナ、もしくは独自に実装したコンテナを指定することができる。
@@ -39,7 +39,7 @@ namespace std {
 以下のリファレンス中では、テンプレート引数として同じ名前を用いる。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|------------------------------------------------|-------|
@@ -55,7 +55,7 @@ namespace std {
 | [`swap`](priority_queue/swap.md)       | 他のpriority_queueオブジェクトと値を入れ替える | C++11 |
 
 
-##protectedメンバ変数
+## protectedメンバ変数
 
 | 変数名 | 型 | 対応バージョン |
 |--------|-------------|-------|
@@ -63,7 +63,7 @@ namespace std {
 | `comp` | `Compare`   | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|------------------------------|-------|
@@ -74,14 +74,14 @@ namespace std {
 | `container_type`  | `Container`                  | |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|-----------------------------------------------|-------|
 | [`swap`](priority_queue/swap_free.md) | 2つの`priority_queue`オブジェクトを入れ替える | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -109,12 +109,12 @@ int main()
 * que.top()[link priority_queue/top.md]
 * que.pop()[link priority_queue.pop.md]
 
-###出力
+### 出力
 ```
 4
 3
 1
 ```
 
-##参照
+## 参照
 

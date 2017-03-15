@@ -1,4 +1,4 @@
-#erase
+# erase
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -14,7 +14,7 @@ iterator erase(iterator first, iterator last);             // (3) C++03まで
 iterator erase(const_iterator first, const_iterator last); // (3) C++11から
 ```
 
-##概要
+## 概要
 要素を削除する。
 
 
@@ -23,30 +23,30 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11から
 - (3) : イテレータ範囲`[first, last)`を削除する
 
 
-##要件
+## 要件
 - (1) : `pos <=` [`size()`](size.md)
 - (3) : `first`と`last`が`*this`に対する有効なイテレータであり、`[first, last)`が有効な範囲であること。
 
 
-##効果
+## 効果
 - (1) : `n`と[`size()`](size.md) `- pos`のうち小さい方を`xlen`とし、`pos`番目から`xlen`個の要素を削除する。
 - (2) : イテレータ`p`が指す要素を削除する。
 - (3) : 範囲`[first, last)`の文字列を削除する。
 
 
-##戻り値
+## 戻り値
 - (1) : `*this`
 - (2) : 削除した要素の次を指すイテレータを返す。そのような要素がなければ[`end()`](end.md)を返す。
 - (3) : 最後に削除した要素の次を指すイテレータを返す。そのような要素がなければ[`end()`](end.md)を返す。
 
 
-##例外
+## 例外
 - (1) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 - (2) : 投げない (C++14から)
 - (3) : 投げない (C++14から)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -88,14 +88,14 @@ int main()
 * s.begin()[link begin.md]
 * s.end()[link end.md]
 
-###出力
+### 出力
 ```
 (1) : 145
 (2) : 1245
 (3) : 12
 ```
 
-##参照
+## 参照
 - [LWG Issue 180. Container member iterator arguments constness has unintended consequences](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#180)
 - [LWG Issue 2003. String exception inconsistency in erase.](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2003)
     - C++14から(2)と(3)に、「例外を投げない」という保証が追加された経緯のレポート

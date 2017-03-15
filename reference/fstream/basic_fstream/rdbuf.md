@@ -1,4 +1,4 @@
-#rdbuf
+# rdbuf
 * fstream[meta header]
 * std[meta namespace]
 * basic_fstream[meta class]
@@ -9,7 +9,7 @@ basic_filebuf<CharT, Traits>* rdbuf() const;
 ```
 * basic_filebuf[link ../basic_filebuf.md]
 
-##概要
+## 概要
 ストリームバッファオブジェクトを取得する。
 
 `basic_fstream`は内部に`basic_filebuf`オブジェクトを保有しているため、基底クラス`basic_ios`の同名のメンバー関数と以下の点で異なる。
@@ -17,10 +17,10 @@ basic_filebuf<CharT, Traits>* rdbuf() const;
 - 値を取得するための関数のみ存在する。これに対して、`basic_ios::rdbuf`関数では、値の取得・設定でオーバーロードされている。
 - 戻り値の型が`basic_filebuf`へのポインタに変更されている。
 
-##戻り値
+## 戻り値
 - `*this`が内部で保有しているストリームバッファ（[`basic_filebuf`](../basic_filebuf.md)）オブジェクトへのポインタ。
 
-##例
+## 例
 ```cpp
 #include <istream> // std::iostream用
 #include <fstream>
@@ -45,9 +45,9 @@ int main()
 * std::ios_base[link ../../ios/ios_base.md]
 * beg[link ../../ios/ios_base/type-seekdir.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [`basic_ios::rdbuf`](../../ios/basic_ios/rdbuf.md): 基底クラスに存在する同名のメンバー関数。

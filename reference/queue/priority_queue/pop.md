@@ -1,4 +1,4 @@
-#pop
+# pop
 * queue[meta header]
 * std[meta namespace]
 * priority_queue[meta class]
@@ -8,7 +8,7 @@
 void pop();
 ```
 
-##概要
+## 概要
 `priority_queue` の次の要素を削除して、要素数を１つ減らす。
 
 削除する要素は[`top()`](top.md)メンバ関数で得られるオブジェクトであり、そのデストラクタが呼ばれる。
@@ -16,7 +16,7 @@ void pop();
 内部のコンテナの`pop_back()`メンバ関数を呼ぶ。
 
 
-##効果
+## 効果
 ```cpp
 pop_heap(c.begin(), c.end(), comp);
 c.pop_back();
@@ -24,11 +24,11 @@ c.pop_back();
 * pop_heap[link /reference/algorithm/pop_heap.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -49,11 +49,11 @@ int main()
 * pop()[color ff0000]
 * que.top()[link top.md]
 
-###出力
+### 出力
 ```
 1
 ```
 
-##参照
+## 参照
 
 

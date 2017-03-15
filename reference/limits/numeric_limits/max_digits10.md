@@ -1,4 +1,4 @@
-#max_digits10
+# max_digits10
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -9,7 +9,7 @@
 static constexpr int max_digits10;
 ```
 
-##概要
+## 概要
 `max_digits10`は、`T`が浮動小数点数型のとき意味を持つ。  
 
 基数`radix`の浮動小数点数を、仮数部がn桁で基数10の浮動小数点数に変換してまた元の基数`radix`の浮動小数点数に変換することを考える。  
@@ -25,7 +25,7 @@ C99の`DECIMAL_DIG`は、サポートされている浮動小数点数型の`max
 なお、`is_specialized == false`もしくは浮動小数点数型以外の場合、`max_digits10`は`0`となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -51,23 +51,23 @@ int main()
 * std::scientific[link /reference/ios/scientific.md]
 * s.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
 
-###出力例
+### 出力例
 ```
 9
 3.145900011e+000
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.4
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
-###参照
+### 参照
 * [A Proposal to add a max significant decimal digits value to the C++ Standard Library Numeric limits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1822.pdf)
 
 

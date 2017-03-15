@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * iterator[meta header]
 * std[meta namespace]
 * reverse_iterator[meta class]
@@ -10,7 +10,7 @@ explicit reverse_iterator(Iterator x);
 template <class U> reverse_iterator(const reverse_iterator<U>& u);
 ```
 
-##reverse_iteratorの構築
+## reverse_iteratorの構築
 `reverse_iterator`オブジェクトを、次に示す通りの要素で初期化する。
 - `reverse_iterator()`
 
@@ -27,7 +27,7 @@ template <class U> reverse_iterator(const reverse_iterator<U>& u);
 要件： `U`が`Iterator`に変換可能であること
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -47,13 +47,13 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 3
 2
 1
 ```
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#max
+# max
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,20 +12,20 @@ static T max() throw();
 static constexpr T max() noexcept;
 ```
 
-##概要
+## 概要
 型`T`の値の最大値を取得する
 
 
-##戻り値
+## 戻り値
 指定された型の有限値のうち最大のもの。  
 浮動小数点数の場合、無限大やNaNではない。
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 `is_specialized == false`の場合は`T()`が返される。  
 C++03バージョンは`constexpr`ではないため、非定数式となる。  
 
@@ -82,7 +82,7 @@ C++03バージョンは`constexpr`ではないため、非定数式となる。
 | `long double`                                            | [`LDBL_MAX`](/reference/cfloat/ldbl_max.md) |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -98,7 +98,7 @@ int main()
 ```
 * max()[color ff0000]
 
-###出力例
+### 出力例
 ```
 2147483647
 1.79769e+308

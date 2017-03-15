@@ -1,4 +1,4 @@
-#shared_mutex
+# shared_mutex
 * shared_mutex[meta header]
 * cpp14[meta cpp]
 
@@ -11,7 +11,7 @@
 | [`shared_lock`](shared_mutex/shared_lock.md)               | 共有ロックを自動的に手放す(class template) | C++14 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 

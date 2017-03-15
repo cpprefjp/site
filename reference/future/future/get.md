@@ -1,4 +1,4 @@
-#get
+# get
 * future[meta header]
 * std[meta namespace]
 * future[meta class]
@@ -11,31 +11,31 @@ R& future<R&>::get();
 void future<void>::get();
 ```
 
-##概要
+## 概要
 結果を取得する
 
 
-##効果
+## 効果
 共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまで[`wait()`](wait.md)で待機し、共有状態に格納されている値を取得する。
 
 
-##戻り値
+## 戻り値
 - `future::get()` ： 共有状態に格納されている値`v`を[`std::move`](/reference/utility/move.md)`(v)`で返す。
 - `future<R&>::get()` ： 共有状態に格納されている参照を返す。
 - `future<void>::get()` ： 何も返さない。
 
 
-##例外
+## 例外
 共有状態に例外が格納されていた場合、格納されている例外を送出する。
 
 
-##事後条件
+## 事後条件
 この関数呼び出し後は共有状態が破棄され、[`valid()`](valid.md) `== false`となること。
 
 つまりこの関数は1オブジェクトにつき1回しか呼び出せない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -72,12 +72,12 @@ int main()
 * p.get_future()[link /reference/future/promise/get_future.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```cpp
 55
 ```
 
-##例：`std::future<R&>`
+## 例：`std::future<R&>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -130,12 +130,12 @@ int main()
 ```
 * get[color ff0000]
 
-###出力
+### 出力
 ```
 55
 ```
 
-##例：`std::future<void>`
+## 例：`std::future<void>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -190,16 +190,16 @@ int main()
 ```
 * get[color ff0000]
 
-###出力
+### 出力
 ```
 55
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -207,12 +207,12 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-###備考
+### 備考
 ※ VC++11.0段階の`std::thread`クラスは、コンストラクタに引数をムーブで渡すことができない。そのため、`promise`オブジェクトはスレッド間の共有オブジェクトにする必要がある。(所有権が曖昧になるため、スタイルとしてはよくない)  
 [#737812 - std::thread does not accept std::move](https://connect.microsoft.com/VisualStudio/feedback/details/737812)
 
 
-##参照
+## 参照
 - [LWG Issue 2096. Incorrect constraints of `future::get` in regard to `MoveAssignable`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2096)
     - C++14から、`future::get()`の戻り値が変更された。C++11では「ムーブ代入可能ならムーブで返し、そうでなければコピーで返す」となっていたが、これは現実的ではない制約だった。
 

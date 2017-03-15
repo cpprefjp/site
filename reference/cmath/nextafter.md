@@ -1,4 +1,4 @@
-#nextafter
+# nextafter
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -20,13 +20,13 @@ namespace std {
 * Arithmetic2[italic]
 * Promoted[italic]
 
-##概要
+## 概要
 指定方向への次の表現可能な値を取得する。
 
 この関数は、パラメータ`x`の値をパラメータ`y`の値の方向に対して、その環境で表現可能な最小の値だけ進める。
 
 
-##戻り値
+## 戻り値
 パラメータ`x`の値をパラメータ`x`の方向に、表現可能な最小の値だけ進めた値を返す。
 
 `x`と`y`が等値である場合、`y`を返す。
@@ -34,7 +34,7 @@ namespace std {
 進めた結果が無限大、もしくは表現できない場合、値域エラーとなる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -50,23 +50,23 @@ int main()
 ```
 * std::nextafter[color ff0000]
 
-###出力例
+### 出力例
 ```
 1.4013e-45
 -1.4013e-45
 ```
 
-###備考
+### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3
 - [ICC](/implementation.md#icc): ??

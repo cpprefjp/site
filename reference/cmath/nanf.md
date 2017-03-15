@@ -1,4 +1,4 @@
-#nan
+# nan
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,24 +12,24 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 文字列から quiet NaN へ変換する。
 
 この関数は、パラメータ`tagp`としてNaNのペイロードを受け取る。これは、診断用の付加情報としてユーザーが任意の値をNaNに持たせるものである。
 
 
-##効果
+## 効果
 - `nan("文字列")`は`strtod("NAN(文字列)", (char**)NULL)`と等価である
 - `nan("")`は`strtod("NAN()", (char**)NULL)`と等価である
 
 
-##戻り値
+## 戻り値
 シグナルを発生させないNaNを返す。利用可能であれば、`tagp`を通じた内容を付加する。
 
 実装がシグナルを発生させないNaNをサポートしていない場合、ゼロを返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cstring>
@@ -57,18 +57,18 @@ int main()
 * std::memcpy[link /reference/cstring/memcpy.md.nolink]
 * std::hex[link /reference/ios/hex.md]
 
-###出力
+### 出力
 ```
 nan(7ff8000000000000)
 nan(7ff800000000000f)
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3
 - [ICC](/implementation.md#icc): ??

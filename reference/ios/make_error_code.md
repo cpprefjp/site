@@ -1,4 +1,4 @@
-#make_error_code
+# make_error_code
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,19 +13,19 @@ namespace std {
 * error_code[link /reference/system_error/error_code.md]
 * io_errc[link io_errc.md]
 
-##概要
+## 概要
 `io_errc`から`error_code`を生成する
 
 
-##戻り値
+## 戻り値
 [`error_code`](/reference/system_error/error_code.md)`(static_cast<int>(e),` [`iostream_category`](iostream_category.md)`())`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream> // 自動的に<ios>もインクルードされる
 #include <string>
@@ -47,18 +47,18 @@ int main()
 * ec.value()[link /reference/system_error/error_code/value.md]
 * ec.message()[link /reference/system_error/error_code/message.md]
 
-###出力例
+### 出力例
 ```
 category : iostream
 value : 1
 message : iostream stream error
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): ??
@@ -66,6 +66,6 @@ message : iostream stream error
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0
 
 
-##参照
+## 参照
 - [LWG Issue 2087. iostream_category() and noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2087)
 

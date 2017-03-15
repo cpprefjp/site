@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * istream[meta header]
 * std[meta namespace]
 * basic_iostream[meta class]
@@ -9,7 +9,7 @@ explicit basic_iostream(basic_streambuf<CharT, Traits>* sb);
 basic_iostream(basic_iostream&& rhs);
 ```
 
-##概要
+## 概要
 オブジェクトを構築する。
 
 ## 効果
@@ -18,11 +18,11 @@ basic_iostream(basic_iostream&& rhs);
 - ムーブコンストラクタ
     - `basic_istream::move(std::move(rhs))`を呼び出す。
 
-##実装例
+## 実装例
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 - C++11: ムーブコンストラクタの追加
 
-##参照
+## 参照

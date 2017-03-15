@@ -1,20 +1,20 @@
-#UINT_LEAST32_MAX
+# UINT_LEAST32_MAX
 * cstdint[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
-#define UINT_LEAST32_MAX implementation-defined
+# define UINT_LEAST32_MAX implementation-defined
 ```
 
-##概要
+## 概要
 [`uint_least32_t`](uint_least32_t.md) の最大値。
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0

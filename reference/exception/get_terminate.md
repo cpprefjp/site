@@ -1,4 +1,4 @@
-#get_terminate
+# get_terminate
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,16 +11,16 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 例外が処理されなかった場合の処理を行う関数を取得する
 
 
-##戻り値
+## 戻り値
 例外が処理されなかった場合の処理を行う関数へのポインタ。
 (デフォルトではおそらくヌルになる)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <exception>
@@ -47,16 +47,16 @@ int main()
 * std::get_terminate()[color ff0000]
 * std::set_terminate[link set_terminate.md]
 
-###出力
+### 出力
 ```
 on terminate
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0
@@ -64,6 +64,6 @@ on terminate
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

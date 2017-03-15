@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * mutex[meta class]
@@ -10,12 +10,12 @@ constexpr mutex() noexcept;   // (1)
 mutex(const mutex&) = delete; // (2)
 ```
 
-##mutexオブジェクトの構築
+## mutexオブジェクトの構築
 - (1) : デフォルトコンストラクタ。`mutex`オブジェクトの初期化を行う。
 - (2) : コピーコンストラクタ。コピー不可。
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`resource_unavailable_try_again`](/reference/system_error/errc.md) : native handle型の計算ができない
@@ -24,14 +24,14 @@ mutex(const mutex&) = delete; // (2)
 - [`invalid_argument`](/reference/system_error/errc.md) : ミューテックスを構築する一部のnative handle型計算が正しくない
 
 
-##備考
+## 備考
 非自明なコンストラクタが定義されるため、ムーブコンストラクタは定義されない。
 
 デフォルトコンストラクタに`constexpr`が付加されていることにより、`mutex`クラスのオブジェクトは他のスレッド開始よりも前に初期化されることが保証される。
 
 以下の例は`constexpr`が付加されていない場合にはおそらく動作しない。
 
-##例
+## 例
 ```cpp
 // file a.cpp
 #include <iostream>
@@ -82,7 +82,7 @@ public:
 * mutexA.lock()[link lock.md]
 * mutexA.unlock()[link unlock.md]
 
-###出力
+### 出力
 ```
 A
 B
@@ -93,11 +93,11 @@ B
 A
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -107,7 +107,7 @@ A
     - 11.0はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
-##参照
+## 参照
 - [Constant Initialization - 雑貨's tumblr](http://zakkas783.tumblr.com/post/25490513807/constant-initialization)
 - [mutexのconstexprコンストラクタ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120621/p1)
 - [なぜmutexオブジェクトはムーブできないか？ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20161106/p1)

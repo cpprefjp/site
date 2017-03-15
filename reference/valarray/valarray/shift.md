@@ -1,4 +1,4 @@
-#shift
+# shift
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -8,18 +8,18 @@
 valarray<T> shift(int n) const;
 ```
 
-##概要
+## 概要
 要素の位置をシフトする。
 
 
-##戻り値
+## 戻り値
 - `n`が正の値である場合、`n`個分だけ要素を前(`0`番目に向かう方向)に移動する。
 - `n`が負の値である場合、`n`個分だけ要素を後ろ(`size()`に向かう方向)に移動する。
 
 移動したことによって範囲外になった要素の値はなくなる。移動したことによって使用されなくなった要素の値は`0`で埋められる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -54,7 +54,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 left_shift_result : {4,5,0,0,0}
 right_shift_result : {0,0,0,1,2}

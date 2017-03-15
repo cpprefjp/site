@@ -1,4 +1,4 @@
-#reference_wrapper
+# reference_wrapper
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `reference_wrapper`は、コピー・代入可能なオブジェクトとして持ちまわれる参照オブジェクトを提供する。コピー不可なクラス (例：`std::istream`) をポインタで保持する代わりに`reference_wrapper`で保持することができる。また、`reference_wrapper`クラスは、関数テンプレートに変数を参照として渡すためにも使用できる。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -26,7 +26,7 @@ namespace std {
 | [`operator T&()`](reference_wrapper/op_cast_ref_t.md)  | 生参照への変換 | C++11 |
 | [`operator()`](reference_wrapper/op_call.md)           | 関数オブジェクト呼び出し | C++11 |
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -37,7 +37,7 @@ namespace std {
 | `second_argument_type` | 型`T`を二引数の関数・関数オブジェクトとして扱った時の第二引数型 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -45,7 +45,7 @@ namespace std {
 | [`cref`](cref.md) | `const T&`に対応する`reference_wrapper`オブジェクトの生成 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -76,16 +76,16 @@ int main()
 ```
 * std::ref[link ref.md]
 
-###出力
+### 出力
 ```
 4
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -93,6 +93,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [参照を保持するコンテナ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20110519/1305789940)
 

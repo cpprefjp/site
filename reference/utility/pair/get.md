@@ -1,4 +1,4 @@
-#get
+# get
 * utility[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -36,27 +36,27 @@ namespace std {
 * pair[link /reference/utility/pair.md]
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 タプルと見なせる型から指定した位置の要素を取得する。
 
 `<utility>`ヘッダでは、[`pair`](/reference/utility/pair.md)に関するオーバーロードを提供する。
 
 
-##要件
+## 要件
 テンプレートパラメータIが、[`pair`](/reference/utility/pair.md)の要素数よりも小さいこと。
 
 この要件を満たさない場合はコンパイルエラーとなる。
 
 
-##戻り値
+## 戻り値
 [`pair`](/reference/utility/pair.md)の`I`番目の要素
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -74,24 +74,24 @@ int main()
 ```
 * get[color ff0000]
 
-###出力
+### 出力
 ```
 1
 a
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
-##参照
+## 参照
 - [`get - <tuple>`](/reference/tuple/tuple/get.md)
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)

@@ -1,4 +1,4 @@
-#new_handler
+# new_handler
 * new[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -9,7 +9,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `new`失敗時に呼ばれる関数の型。[`set_new_handler`](set_new_handler.md)`()`、[`get_new_handler`](get_new_handler.md)`()`で使用する。
 
 `new`演算子は本来であれば失敗時に[`bad_alloc`](bad_alloc.md)例外を送出するが、これらを使用することで、`new`失敗時の動作を任意の関数で置き換えられる。 
@@ -21,7 +21,7 @@ namespace std {
 - `return`により処理を返すことなく、プログラムの実行を直ちに終了させる(`quick_exit()`、`exit()`、`abort()`などを使用する)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <new>
@@ -49,7 +49,7 @@ int main()
 * max()[link /reference/limits/numeric_limits/max.md]
 * std::abort()[link /reference/cstdlib/abort.md]
 
-###出力例
+### 出力例
 ```
 メモリ確保に失敗した
 

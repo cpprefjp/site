@@ -1,4 +1,4 @@
-#size
+# size
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
@@ -8,23 +8,23 @@
 size_type size() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナの要素数を取得する。
 
 
-##戻り値
+## 戻り値
 `deque`オブジェクトに含まれる要素数を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -39,12 +39,12 @@ int main()
 ```
 * size()[color ff0000]
 
-###出力
+### 出力
 ```
 5
 ```
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |-----------------------------|----------------------------------|

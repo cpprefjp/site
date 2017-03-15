@@ -1,4 +1,4 @@
-#max_bucket_count
+# max_bucket_count
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
@@ -9,23 +9,23 @@
 size_type max_bucket_count() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナで格納可能な最大のバケット数を返す。
 
 
-##戻り値
+## 戻り値
 コンテナで格納可能な最大のバケット数
 
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -41,16 +41,16 @@ int main()
 * unordered_set[link /reference/unordered_set.md]
 * unordered_multiset[link ../unordered_multiset.md]
 
-###出力例
+### 出力例
 ```
 max bucket count is 2305843009213693951
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -58,7 +58,7 @@ max bucket count is 2305843009213693951
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 
 | | |
 |----------------------------------------------|------------------|

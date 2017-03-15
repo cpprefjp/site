@@ -1,7 +1,7 @@
-#nullptr
+# nullptr
 * cpp11[meta cpp]
 
-##概要
+## 概要
 `nullptr`は、ヌルポインタ値を表すキーワードである。
 
 ```cpp
@@ -15,15 +15,15 @@ C++03まで、ヌルポインタを表すために`0`数値リテラルや[`NULL
 [nullptr_t]: /reference/cstddef/nullptr_t.md
 
 
-##仕様
+## 仕様
 - `nullptr`キーワードは、[`nullptr_t`][nullptr_t]型の右辺値オブジェクトである。
 - [`nullptr_t`][nullptr_t]型の値は、ヌルポインタを表す定数である。
 
-###型の分類
+### 型の分類
 
 - `nullptr`は[スカラ型](/reference/type_traits/is_scalar.md)である。
 
-###型変換
+### 型変換
 
 - [`nullptr_t`][nullptr_t]型は、任意の型へのポインタ、任意のメンバ型へのポインタに変換できる。
 - `sizeof(`[`nullptr_t`][nullptr_t]`)`の値は、`sizeof(void*)`と等値である。
@@ -31,7 +31,7 @@ C++03まで、ヌルポインタを表すために`0`数値リテラルや[`NULL
 - [`nullptr_t`][nullptr_t]型の値は整数型に`reinterpret_cast`でキャストできる。その結果は、`(void*)0`を整数型に変換することと同じとなる。
 - `reinterpret_cast`のキャスト先の型に[`nullptr_t`][nullptr_t]を指定することはできない。
 
-###比較演算
+### 比較演算
 [`nullptr_t`][nullptr_t]型は、以下の関係演算が可能である：
 
 - `bool operator==(nullptr_t, nullptr_t);`
@@ -44,7 +44,7 @@ C++03まで、ヌルポインタを表すために`0`数値リテラルや[`NULL
 2つの[`nullptr_t`][nullptr_t]型を比較した場合、`==`、`<=`、`>=`演算子の結果は`true`となり、それ以外の演算子は`false`となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 
@@ -57,13 +57,13 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 p is nullptr
 ```
 
 
-##この機能が必要になった背景・経緯
+## この機能が必要になった背景・経緯
 以下のような関数テンプレートを考える：
 
 ```cpp
@@ -88,7 +88,7 @@ int* p = nullptr_value<int>();
 これはユーザーの工夫によって問題を解決しているが、このような状況をより簡単に解決し、C++を教え、学ぶのをより容易にするために、`nullptr`キーワードが導入された。
 
 
-##検討されたほかの選択肢
+## 検討されたほかの選択肢
 `nullptr`はキーワードとして定義されることが決まる前に、いくつかの設計選択があった。
 
 以下のような、任意のポインタ型に変換可能なクラスとして定義することが提案された：
@@ -115,12 +115,12 @@ private:
 これは言語機能ではなくライブラリで解決する案である。この案の問題としては、`nullptr`オブジェクトを使用する前に、ヘッダをインクルードしなければならない、というものがある。ヌルポインタ値は多くの一般的な状況で必要になるため、ヘッダをインクルードしない選択肢として、キーワードの`nullptr`が採用された。
 
 
-##関連項目
+## 関連項目
 - [`NULL`](/reference/cstddef/null.md)
 - [`nullptr_t`](/reference/cstddef/nullptr_t.md)
 
 
-##参照
+## 参照
 - [N1488 A name for the null pointer: `nullptr`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1488.pdf)
 - [N1601 A name for the null pointer: `nullptr` (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1601.pdf)
 - [N2214 A name for the null pointer: `nullptr` (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2214.pdf)

@@ -1,4 +1,4 @@
-#copy
+# copy
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -10,29 +10,29 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 指定された範囲の要素をコピーする。
 
 
-##要件
+## 要件
 `result` は `[first,last)` の範囲に含まれてはならない。
 
 
-##効果
+## 効果
 `[first,last)` 内の要素を、それぞれ `[result,result + (last - first))` へコピーする。
 
 コピーは `first` から順番に行い、0 以上 `last - first` 未満であるそれぞれの `n` について、`*(result + n) = *(first + n)` を行う。
 
 
-##戻り値
+## 戻り値
 `result + (last - first)`
 
 
-##計算量
+## 計算量
 正確に `last - first` 回代入が行われる。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -59,13 +59,13 @@ int main() {
 ```
 * std::copy[color ff0000]
 
-###出力
+### 出力
 ```
 3,1,2,
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class OutputIterator>
 OutputIterator copy(InputIterator first, InputIterator last, OutputIterator result) {

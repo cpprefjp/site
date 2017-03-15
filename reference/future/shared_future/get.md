@@ -1,4 +1,4 @@
-#get
+# get
 * future[meta header]
 * std[meta namespace]
 * shared_future[meta class]
@@ -11,25 +11,25 @@ R& shared_future<R&>::get() const;
 void shared_future<void>::get() const;
 ```
 
-##概要
+## 概要
 結果を取得する
 
 
-##効果
+## 効果
 共有状態が準備完了状態([`future_status::ready`](../future_status.md))になるまで[`wait()`](wait.md)で待機し、共有状態に格納されている値を取得する。
 
 
-##戻り値
+## 戻り値
 - `future::get()` ： 共有状態に格納されている値への`const`左辺値参照を返す。<br/>備考：共有状態が破壊された後、その参照を介してのアクセスは未定義の振る舞いをする。`shared_future`オブジェクトの寿命よりも長いオブジェクトに参照を保持しないこと。
 - `future<R&>::get()` ： 共有状態に格納されている参照を返す。
 - `future<void>::get()` ： 何も返さない。
 
 
-##例外
+## 例外
 共有状態に例外が格納されていた場合、格納されている例外を送出する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -67,12 +67,12 @@ int main()
 * share()[link /reference/future/future/share.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 55
 ```
 
-##例：`shared_future<void>`
+## 例：`shared_future<void>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -152,17 +152,17 @@ int main()
 ```
 * set_value[color ff0000]
 
-###出力例
+### 出力例
 ```
 thread:0 sum:15
 thread:1 sum:40
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -170,6 +170,6 @@ thread:1 sum:40
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

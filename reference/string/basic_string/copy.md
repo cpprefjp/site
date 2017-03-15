@@ -1,4 +1,4 @@
-#copy
+# copy
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -8,30 +8,30 @@
 size_type copy(charT* s, size_type n, size_type pos = 0) const;
 ```
 
-##概要
+## 概要
 他の文字列に、自身の文字列をコピーする。
 
 
-##要件
+## 要件
 `pos <=` [`size()`](size.md)
 
 
-##効果
+## 効果
 `n`と[`size()`](size.md) `- pos`のうち、小さい方をコピーする長さとして、自身の文字列をパラメータ`s`にコピーする。  
 `pos`はコピーを開始する、自身の文字列の開始位置。  
 
 この関数は、文字列`s`にヌルオブジェクトを追加しない。
 
 
-##戻り値
+## 戻り値
 コピーした長さを返す。
 
 
-##例外
+## 例外
 `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -67,12 +67,12 @@ int main()
 ```
 * copy[color ff0000]
 
-###出力
+### 出力
 ```
 hello
 hel
 llo
 ```
 
-##参照
+## 参照
 

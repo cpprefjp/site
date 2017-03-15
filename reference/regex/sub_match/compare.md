@@ -1,4 +1,4 @@
-#compare
+# compare
 * regex[meta header]
 * std[meta namespace]
 * sub_match[meta class]
@@ -13,20 +13,20 @@ int compare(const string_type& s) const; // (2)
 int compare(const value_type* s) const;  // (3)
 ```
 
-##概要
+## 概要
 マッチした文字列を比較する。
 
 
-##戻り値
+## 戻り値
 - (1) `str().`[`compare`](../../string/basic_string/compare.md)`(s.str())`
 - (2) `str().`[`compare`](../../string/basic_string/compare.md)`(s)`
 - (3) `str().`[`compare`](../../string/basic_string/compare.md)`(s)`
 
-##備考
+## 備考
 (1) の形式でもマッチした文字列のみが比較され、マッチした位置は考慮されない。（例を参照）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -54,7 +54,7 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::csub_match[link ../sub_match.md]
 
-###出力例
+### 出力例
 ```
 0
 1
@@ -64,11 +64,11 @@ int main()
 注：比較結果が等しくない時の戻り値は符号のみが規定されているため、出力は上記とは異なる可能性がある。（[`basic_string`](../../string/basic_string.md)`::`[`compare`](../../string/basic_string/compare.md) 参照）
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

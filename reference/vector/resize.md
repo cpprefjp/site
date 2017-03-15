@@ -1,4 +1,4 @@
-#resize
+# resize
 * vector[meta header]
 * std[meta namespace]
 * vector[meta class]
@@ -10,11 +10,11 @@ void resize(size_type sz, const T& c); // (2) C++11
 void resize(size_type sz, T c = T());  // (1) + (2) C++03
 ```
 
-##要件
+## 要件
 要素数を変更する
 
 
-##要件
+## 要件
 - (1) :
     - 型`T`がデフォルト構築可能であること (C++14)
     - 型`T`が`*this`に対してコピー挿入可能であること (C++11まで)
@@ -24,7 +24,7 @@ void resize(size_type sz, T c = T());  // (1) + (2) C++03
     - 型`T`が`*this`に対してコピー挿入可能であること (C++14)
 
 
-##効果
+## 効果
 - (1) :
     - もし`sz`が現在のコンテナの[`size()`](size.md)より小さい場合、以下の動作をする：
         - [`erase`](erase.md)`(`[`begin()`](begin.md) `+ sz,` [`end()`](end.md)`);` (C++11まで)
@@ -52,15 +52,15 @@ else if (sz < size())
         - もし`sz`が現在のコンテナの[`size()`](size.md)より大きい場合、`sz -` [`size()`](size.md)個だけオブジェクト`c`のコピーを追加する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##備考
+## 備考
 - (2) : 非コピー挿入可能な型`T`のムーブコンストラクタが例外を送出した場合、この関数は何もしない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -88,7 +88,7 @@ int main()
 ```
 * resize[color ff0000]
 
-###出力
+### 出力
 ```
 3
 1
@@ -100,7 +100,7 @@ int main()
 ```
 
 
-##参照
+## 参照
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
 - [LWG Issue 2323. `vector::resize(n, t)`'s specification should be simplified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2323)
 

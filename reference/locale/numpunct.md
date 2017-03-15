@@ -1,4 +1,4 @@
-#numpunct
+# numpunct
 * locale[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,10 +11,10 @@ namespace std {
 ```
 * locale::facet[link /reference/locale/locale/facet.md]
 
-##概要
+## 概要
 (ここに、クラスの概要を記載する)
 
-###メンバ関数
+### メンバ関数
 
 | | |
 |----------------------------|--------------------------------------------------------------------|
@@ -25,13 +25,13 @@ namespace std {
 | `truename` | `true`を表す文字列を取得する |
 | `falsename` | `false`を表す文字列を取得する |
 
-###静的メンバ関数
+### 静的メンバ関数
 
 | | |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
 | `static` [`locale::id`](/reference/locale/locale/id.md) `id;` |  |
 
-###protectedメンバ関数
+### protectedメンバ関数
 
 | | |
 |-------------------------------|--------------------------------------------------------------------|
@@ -42,14 +42,14 @@ namespace std {
 | `do_truename` | `true`を表す文字列を取得する |
 | `do_falsename` | `false`を表す文字列を取得する |
 
-###メンバ型
+### メンバ型
 
 | | |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | `char_type` | 文字型 `charT` |
 | `string_type` | 文字列型 [`basic_string`](/reference/string/basic_string.md)`<charT>` |
 
-###例
+### 例
 
 ```cpp
 #include <iostream>
@@ -90,7 +90,7 @@ int main()
 * punct.thousands_sep()[link numpunct/thousands_sep.md.nolink]
 * punct.grouping()[link numpunct/grouping.md.nolink]
 
-###出力例
+### 出力例
 ```
 Japanese_Japan.932
 .
@@ -103,5 +103,5 @@ German_Germany.1252
 3
 ```
 
-###参照
+### 参照
 

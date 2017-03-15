@@ -1,4 +1,4 @@
-#find
+# find
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -15,33 +15,33 @@ size_type find(charT c, size_type pos = 0) const;                          // (4
 size_type find(charT c, size_type pos = 0) const noexcept;                 // (4) C++14
 ```
 
-##概要
+## 概要
 指定した文字列を検索する。
 
 
-##要件
+## 要件
 (3) の形式の場合、`s` は少なくとも `traits_type::length(s) + 1` の要素を持つ `charT` の配列を指していること。
 
 
-##効果
+## 効果
 - (1) `pos` 以降で最初に `str` と一致する位置を返す。
 - (2) `pos` 以降で最初に `s` と一致する位置を返す。`s` は長さ `n` の文字列へのポインタである。
 - (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
 - (4) `pos` 以降で最初に `c` と一致する位置を返す。
 
 
-##戻り値
+## 戻り値
 見つかればその位置を返し、見つからない場合は `basic_string::npos` を返す。
 
 
-##例外
+## 例外
 - (1) 投げない
 - (2) -
 - (3) -
 - (4) 投げない（但し、備考参照）
 
 
-##備考
+## 備考
 - 文字列の一致は、文字列の各文字について `traits_type::eq` を用いて検査される。  
 	例えば、(1) の形式の場合、以下のような条件を満たす最小の `xpos` を求める。
 	* `pos <= xpos` かつ `xpos + str.size() <= size()`
@@ -53,7 +53,7 @@ size_type find(charT c, size_type pos = 0) const noexcept;                 // (4
 - コンテナに対して同様の検索を行う関数は [`algorithm`](/reference/algorithm.md) ヘッダの [`search`](/reference/algorithm/search.md)（検索対象がシーケンスの場合）、あるいは [`find`](/reference/algorithm/find.md)（検索対象が単一の値の場合）であるが、これらがイテレータベースであるのに対して、本メンバ関数は添字ベースであることに注意。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -72,14 +72,14 @@ int main()
 * find[color ff0000]
 * find_word.length()[link length.md]
 
-###出力
+### 出力
 ```
 7
 29
 ```
 
 
-##実装例
+## 実装例
 (1) 以外の形式は、(1) の形式を使用して実装することができる。
 ```cpp
 // (2)
@@ -105,7 +105,7 @@ size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 
 ```
 
 
-##関連項目
+## 関連項目
 
 | 名前                                       | 説明                                     |
 |--------------------------------------------|------------------------------------------|
@@ -113,7 +113,7 @@ size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 
 | [`find`](/reference/algorithm/find.md)     | 指定された値を検索する                   |
 
 
-##参照
+## 参照
 - [LWG2064 - More noexcept issues in basic_string](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2064)
 
 

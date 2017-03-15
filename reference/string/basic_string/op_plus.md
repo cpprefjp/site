@@ -1,4 +1,4 @@
-#operator+
+# operator+
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -65,11 +65,11 @@ basic_string<charT, traits, Allocator>
             charT lhs);                                         // (12) C++11 から
 ```
 
-##概要
+## 概要
 `basic_string` オブジェクトの連結を行う。
 
 
-##戻り値
+## 戻り値
 - (1) [`basic_string`](op_constructor.md)`<charT, traits, Allocator>(lhs).`[`append`](append.md)`(rhs)`
 
 - (2) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(rhs))`
@@ -96,11 +96,11 @@ basic_string<charT, traits, Allocator>
 - (12) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(1, rhs))`
 
 
-##備考
+## 備考
 (5)、(6) の形式の `lhs`、および、(9)、(10) の形式の `rhs` の文字列長算出のために `traits::length()` が使用される
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -117,12 +117,12 @@ int main()
 ```
 * +[color ff0000]
 
-###出力
+### 出力
 ```
 Hello, world!
 ```
 
-##参照
+## 参照
 
 |                               |                        |
 |-------------------------------|------------------------|

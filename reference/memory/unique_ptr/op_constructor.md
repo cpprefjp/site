@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
@@ -23,7 +23,7 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
-##unique_ptrオブジェクトの構築
+## unique_ptrオブジェクトの構築
 
 - (1) : デフォルトコンストラクタ。所有権を持たない、空の`unique_ptr`オブジェクトを構築する。
 - (2) : 生ポインタの所有権を受け取る。
@@ -35,7 +35,7 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
 - (9) : コピー構築禁止。
 
 
-##要件
+## 要件
 - (1), (2) : デリータの型`D`が、例外を投げずにデフォルト構築可能であること。
 - (3) : デリータの型`D`が、例外を投げずにコピー構築可能であること。
 - (4), (5) : デリータの型`D`が、例外を投げずにムーブ構築可能であること。
@@ -46,7 +46,7 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
     - `D`と`E`が同じ型であること。もしくは参照型ではない`D`において、`E`が`D`に暗黙的に変換可能な型であること。
 
 
-##効果
+## 効果
 - (1) : 値初期化したポインタとデリータオブジェクトを、メンバ変数に保持する。
 - (2) : ポインタ`p`と値初期化したデリータオブジェクトを、メンバ変数に保持する。
 - (3) : ポインタ`p`とデリータオブジェクト`d1`を、メンバ変数に保持する。
@@ -57,11 +57,11 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
 - (8) : `u.release()`の戻り値である所有権が放棄されたポインタと、値初期化したデリータオブジェクトを、メンバ変数に保持する。
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 - (3) : デリータの型`D`が`D&`のように左辺値参照の形式の場合、このコンストラクタのデリータパラメータは`D&`型となる。
 
 ```cpp
@@ -69,7 +69,7 @@ D deleter;
 unique_ptr<T, D&> p(new T(), deleter); // pはdeleterへの参照を保持する
 ```
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <memory>
@@ -107,15 +107,15 @@ int main()
 * std::move[link /reference/utility/move.md]
 * get()[link get.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7 (nullptr_tのオーバーロード以外), 4.6.4
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
@@ -123,7 +123,7 @@ int main()
 	- Visual C++ 11.0までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
-##参照
+## 参照
 - [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
     - (6)の経緯となる提案文書
 

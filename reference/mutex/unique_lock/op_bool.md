@@ -1,4 +1,4 @@
-#operator bool
+# operator bool
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
@@ -9,19 +9,19 @@
 explicit operator bool() const noexcept;
 ```
 
-##概要
+## 概要
 ロックを取得しているかを確認する
 
 
-##戻り値
+## 戻り値
 ロックが取得済みであれば`true`、そうでなければ`false`を返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cassert>
@@ -69,18 +69,18 @@ int main()
 * if (lk)[color ff0000]
 * if (!lk)[color ff0000]
 
-###出力
+### 出力
 ```cpp
 locked
 unlocked
 locked
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -88,6 +88,6 @@ locked
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

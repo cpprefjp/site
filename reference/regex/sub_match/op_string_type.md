@@ -1,4 +1,4 @@
-#operator string_type
+# operator string_type
 * regex[meta header]
 * std[meta namespace]
 * sub_match[meta class]
@@ -9,15 +9,15 @@
 operator string_type() const;
 ```
 
-##概要
+## 概要
 マッチした文字列を `string_type` 型にキャストする。
 
 
-##戻り値
+## 戻り値
 `matched ? string_type(first, second) : string_type()`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -47,18 +47,18 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::csub_match[link ../sub_match.md]
 
-###出力
+### 出力
 ```
 '123'
 ''
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

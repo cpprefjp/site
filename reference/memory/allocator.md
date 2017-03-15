@@ -1,4 +1,4 @@
-#allocator
+# allocator
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -18,7 +18,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `allocator`は、標準ライブラリ内でデフォルト使用されるメモリアロケータクラスである。
 
 標準ライブラリ内では、主にコンテナがメモリの確保と解放を行っているが、コンテナ内で使用するメモリアロケータは、ユーザーが独自に実装したものを`allocator`クラスの代わりに使用することもできる。例：
@@ -29,13 +29,13 @@ std::vector<int, MyAllocator<int>> v2; // 自分が用意したアロケータ�
 ```
 
 
-###備考
+### 備考
 C++11から：
 
 デストラクタを除く、`allocator`クラスのメンバ関数は、データ競合を引き起こさない。そのため、複数スレッドから同時に`allocator`クラスのメンバ関数が呼ばれたとしても、正しくメモリ確保・解放される。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------|-------|
@@ -50,7 +50,7 @@ C++11から：
 | [`destroy`](allocator/destroy.md)         | インスタンスを破棄する                       | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|----------------------------------------------|-------|
@@ -65,7 +65,7 @@ C++11から：
 | `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータの状態を伝搬するか。 [`true_type`](/reference/type_traits/true_type.md) | C++14 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前                                        | 説明                          | 対応バージョン |
 |---------------------------------------------|-------------------------------|-------|
@@ -73,7 +73,7 @@ C++11から：
 | [`operator!=`](allocator/op_not_equal.md) | 非等値比較。常に`false`を返す | |
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 #include <iostream>
@@ -107,18 +107,18 @@ int main(int argc, char** argv) {
 * alc.destroy[link allocator/destroy.md]
 * alc.deallocate[link allocator/deallocate.md]
 
-###出力
+### 出力
 ```
 0 1 2 3 4 5 6 7 8 9 
 ```
 
-###処理系
+### 処理系
 - `propagate_on_container_move_assignment`
     - [Clang, C++1y mode](/implementation.md#clang): 3.4
     - [GCC, C++1y mode](/implementation.md#gcc): 
     - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-##参照
+## 参照
 - [A visitor’s guide to C++ allocators](https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html)
 - [LWG #2103 - std::allocator_traits<std::allocator<T>>::propagate_on_container_move_assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2103)
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)

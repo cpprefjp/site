@@ -1,4 +1,4 @@
-#use_count
+# use_count
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
@@ -9,17 +9,17 @@
 long use_count() const noexcept;
 ```
 
-##概要
+## 概要
 監視している[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトの所有者数を取得する。
 
 
-##戻り値
+## 戻り値
 `*this`が[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを監視していない空の状態なら、`0`を返す。
 
 そうでなければ、[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトの所有者数([`shared_ptr`](/reference/memory/shared_ptr.md)`::`[`use_count()`](/reference/memory/shared_ptr/use_count.md))を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -41,17 +41,17 @@ int main()
 ```
 * use_count()[color ff0000]
 
-###出力
+### 出力
 ```
 1
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

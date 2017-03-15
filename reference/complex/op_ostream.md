@@ -1,4 +1,4 @@
-#operator<<
+# operator<<
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -12,11 +12,11 @@ namespace std {
 ```
 * basic_ostream[link /reference/ostream/basic_ostream.md]
 
-##概要
+## 概要
 ストリームに出力する。
 
 
-##効果
+## 効果
 ```
 basic_ostringstream<CharT, Traits> s;
 s.flags(os.flags());
@@ -35,7 +35,7 @@ return os << s.str();
 * str[link /reference/sstream/basic_ostringstream/str.md.nolink]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <complex>
@@ -49,13 +49,13 @@ int main()
 ```
 * <<[color ff0000]
 
-###出力
+### 出力
 ```
 (1,2)
 ```
 
 
-##参照
+## 参照
 
 | 名前                          | 説明                 |
 |-------------------------------|----------------------|

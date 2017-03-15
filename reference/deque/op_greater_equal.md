@@ -1,4 +1,4 @@
-#operator>=
+# operator>=
 * deque[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,19 +10,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `deque`において、左辺が右辺以上かを判定する。
 
 
-##戻り値
+## 戻り値
 `!(x` [`<`](op_less.md) `y)`
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <deque>
@@ -38,11 +38,11 @@ int main ()
 }
 ```
 
-###出力
+### 出力
 ```
 true
 ```
 
-##参照
+## 参照
 
 

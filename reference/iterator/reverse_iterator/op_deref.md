@@ -1,4 +1,4 @@
-#operator*
+# operator*
 * iterator[meta header]
 * std[meta namespace]
 * reverse_iterator[meta class]
@@ -8,11 +8,11 @@
 reference operator*() const;
 ```
 
-##概要
+## 概要
 イテレータを間接参照する。
 
 
-##効果
+## 効果
 - C++11
 
 ```cpp
@@ -32,7 +32,7 @@ return *--tmp;
 ```
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -51,12 +51,12 @@ int main()
 ```
 * *it[color ff0000]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##参照
+## 参照
 - [LWG Issue 2360. `reverse_iterator::operator*()` is unimplementable](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2360)
     - C++11まで効果は、データ競合が発生するため、C++14でそれを考慮して効果を見直した。
 

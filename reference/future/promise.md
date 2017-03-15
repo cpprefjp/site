@@ -1,4 +1,4 @@
-#promise
+# promise
 * future[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `promise`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`future`](future.md)クラスと組み合わせて使用する。`promise`が別スレッドでの処理結果を書き込み、[`future`](future.md)がその結果を読み取る。`promise`と[`future`](future.md)は内部的に同一の共有状態を参照する。これによってスレッド間での値の受け渡しやスレッド間同期を実現する。
 
 このクラスは`R&`および`void`の、2つの特殊化を持つ。
@@ -22,7 +22,7 @@ namespace std {
 - `R` ： 結果値の型
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -32,14 +32,14 @@ namespace std {
 | [`swap`](promise/swap.md) | 他の`promise`オブジェクトと値を入れ替える | C++11 |
 
 
-###結果の取得
+### 結果の取得
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`get_future`](promise/get_future.md) | 結果取得のための`future`オブジェクトを取得する | C++11 |
 
 
-###結果の設定
+### 結果の設定
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -47,7 +47,7 @@ namespace std {
 | [`set_exception`](promise/set_exception.md) | 結果の例外を設定する | C++11 |
 
 
-###遅延通知による結果の設定
+### 遅延通知による結果の設定
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -55,21 +55,21 @@ namespace std {
 | [`set_exception_at_thread_exit`](promise/set_exception_at_thread_exit.md) | スレッド終了時に結果の例外を設定する | C++11 |
 
 
-###非メンバ関数
+### 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`swap`](promise/swap_free.md) | 2つの`promise`オブジェクトを入れ替える | C++11 |
 
 
-###その他
+### その他
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`uses_allocator`](promise/uses_allocator.md) | `promise`による特殊化 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -107,16 +107,16 @@ int main()
 * std::move[link /reference/utility/move.md]
 * f.get()[link future/get.md]
 
-###出力
+### 出力
 ```
 55
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -124,5 +124,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 

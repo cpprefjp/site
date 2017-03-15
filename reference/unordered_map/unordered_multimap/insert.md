@@ -1,4 +1,4 @@
-#insert
+# insert
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
@@ -23,11 +23,11 @@ void insert(initializer_list<value_type> il);                  // (6)
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 コンテナに要素を追加する。
 
 
-##要件
+## 要件
 - `v` を引数にとる形式（(1)、(3)）では、`value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
 	コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
@@ -52,7 +52,7 @@ void insert(initializer_list<value_type> il);                  // (6)
 - (6)の形式では、`value_type` はコンテナに対してコピー挿入可能でなければならない。
 
 
-##効果
+## 効果
 - (1)	引数 `v` で指定した値の要素を追加する。
 - (2)	引数 `obj` から構築されたオブジェクト `v` を追加する。
     - このバージョンの動作は、[`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))`を呼び出した場合と同等である。
@@ -65,22 +65,22 @@ void insert(initializer_list<value_type> il);                  // (6)
 - (6)	(5)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
 
 
-##戻り値
+## 戻り値
 - (1)から(4)	追加された要素を指すイテレータ。
 - (5)、(6)	なし
 
 
-##例外
+## 例外
 単一要素の形式（(1)から(4)）では、ハッシュ関数以外から例外が投げられた場合には、挿入はされない。
 
 
-##計算量
+## 計算量
 - (1)から(4)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (5)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
 - (6)	(5)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
 
 
-##備考
+## 備考
 - これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
 
@@ -97,7 +97,7 @@ void insert(initializer_list<value_type> il);                  // (6)
 	従って、そのような期待はすべきではない。[`emplace_hint`](emplace_hint.md)も参照。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -198,7 +198,7 @@ int main()
 * unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * insert[color ff0000]
 
-###出力
+### 出力
 ```
 (6,6th) (2,2nd)
 insert one element : (6,6th), (5,five), (4,four), (3,three), (2,2nd), (2,two), (1,one), (0,zero), 
@@ -215,11 +215,11 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,5th), (5,five), (4,four)
 注：[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -227,7 +227,7 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,5th), (5,five), (4,four)
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##実装例
+## 実装例
 (3)以降の形式は、(1)、および、(2)の形式を使って実装することができる。
 
 ```cpp
@@ -263,7 +263,7 @@ inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(initializer_l
 * insert[color ff0000]
 
 
-##関連項目
+## 関連項目
 
 |                                           |                                                        |
 |-------------------------------------------|--------------------------------------------------------|
@@ -279,7 +279,7 @@ inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(initializer_l
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (6)の経緯となる提案文書
 - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#518)

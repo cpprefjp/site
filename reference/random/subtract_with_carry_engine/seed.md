@@ -1,4 +1,4 @@
-#seed
+# seed
 * random[meta header]
 * std[meta namespace]
 * subtract_with_carry_engine[meta class]
@@ -10,12 +10,12 @@ void seed(result_type value = default_seed); // (1)
 template<class Sseq> void seed(Sseq& q);     // (2)
 ```
 
-##概要
+## 概要
 - (1) : シード値を受け取って再初期化する
 - (2) : シードのシーケンスを受け取って再初期化する
 
 
-##効果
+## 効果
 パラメータ`value`および`q`を`arg`とした場合、
 
 ```cpp
@@ -26,11 +26,11 @@ template<class Sseq> void seed(Sseq& q);     // (2)
 と同じ効果を持つ。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -92,18 +92,18 @@ int main()
 * seeds.begin()[link /reference/array/begin.md]
 * seeds.end()[link /reference/array/end.md]
 
-###出力
+### 出力
 ```
 15039276
 13643873
 1408763
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -111,6 +111,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#operator+=
+# operator+=
 * iterator[meta header]
 * std[meta namespace]
 * move_iterator[meta class]
@@ -9,20 +9,20 @@
 move_iterator& operator+=(difference_type n);
 ```
 
-##概要
+## 概要
 イテレータ自身を`n`回進める。
 
 
-##効果
+## 効果
 `current += n;`
 
 ※`current`は、メンバ変数として保持しているアダプト元のイテレータ変数
 
 
-##戻り値
+## 戻り値
 `return *this;`
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -46,16 +46,16 @@ int main()
 * v.emplace_back[link /reference/vector/emplace_back.md]
 * std::make_move_iterator[link /reference/iterator/make_move_iterator.md]
 
-###出力
+### 出力
 ```cpp
 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -63,6 +63,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

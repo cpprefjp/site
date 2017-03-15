@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * future[meta header]
 * std[meta namespace]
 * promise[meta class]
@@ -16,18 +16,18 @@ promise(const promise& rhs) = delete;         // (4)
 ```
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
-##promiseオブジェクトの構築
+## promiseオブジェクトの構築
 - (1) : デフォルトコンストラクタ。`promise`オブジェクトと共有状態の構築を行う。
 - (2) : アロケータを指定して`promise`オブジェクトと共有状態の構築を行う。
 - (3) : ムーブコンストラクタ。新たな`promise`オブジェクトを構築し、`rhs`から共有状態の所有権を移譲する。
 - (4) : コピーコンストラクタ。コピー禁止。
 
 
-##事後条件
+## 事後条件
 - (3) : `rhs`が共有状態を持っていないこと
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 #include <future>
@@ -58,15 +58,15 @@ int main()
 * std::allocator[link /reference/memory/allocator.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -74,6 +74,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

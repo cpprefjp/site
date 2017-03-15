@@ -1,4 +1,4 @@
-#operator>>=
+# operator>>=
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -8,23 +8,23 @@
 bitset<N>& operator>>=(size_t pos) noexcept;
 ```
 
-##概要
+## 概要
 ビットを右シフトさせる。
 
 
-##効果
+## 効果
 `*this`のビットを`pos`の個数だけ右にシフトさせる。溢れたビットは0になる。
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -39,11 +39,11 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 00001100
 ```
 
 
-##参照
+## 参照
 

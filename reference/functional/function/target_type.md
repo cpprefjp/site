@@ -1,4 +1,4 @@
-#target_type
+# target_type
 * functional[meta header]
 * std[meta namespace]
 * function[meta class]
@@ -10,15 +10,15 @@ const std::type_info& target_type() const noexcept;
 ```
 * type_info[link /reference/typeinfo/type_info.md]
 
-##概要
+## 概要
 元となる関数の型情報を取得する。
 
 
-##戻り値
+## 戻り値
 呼び出す関数を持っていれば、その関数の型を表す[`type_info`](/reference/typeinfo/type_info.md)オブジェクトを返す。呼び出す関数を持っていなければ、`typeid(void)`を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -42,22 +42,22 @@ int main()
 ```
 * target_type()[color ff0000]
 
-###出力
+### 出力
 ```
 f has ident
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 

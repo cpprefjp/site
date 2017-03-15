@@ -1,4 +1,4 @@
-#back_inserter
+# back_inserter
 * iterator[meta header]
 * std[meta namespace]
 * back_insert_iterator[meta class]
@@ -12,18 +12,18 @@ namespace std {
 ```
 * back_insert_iterator[link back_insert_iterator.md]
 
-##概要
+## 概要
 `back_insert_iterator`のヘルパ関数。
 
 
-##戻り値
+## 戻り値
 ```cpp
 back_insert_iterator<Container>(x)
 ```
 * back_insert_iterator[link back_insert_iterator.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -50,11 +50,11 @@ int main()
 * src.begin()[link /reference/vector/begin.md]
 * src.end()[link /reference/vector/end.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##参照
+## 参照

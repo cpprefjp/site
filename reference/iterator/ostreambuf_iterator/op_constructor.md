@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * iterator[meta header]
 * std[meta namespace]
 * ostreambuf_iterator[meta class]
@@ -9,7 +9,7 @@ ostreambuf_iterator(ostream_type& s) noexcept;
 ostreambuf_iterator(streambuf_type* s) noexcept;
 ```
 
-##ostreambuf_iteratorオブジェクトの構築
+## ostreambuf_iteratorオブジェクトの構築
 - `ostreambuf_iterator(ostreamtype& s) noexcept`
 
 `s.rdbuf()`をメンバ変数として保持する。
@@ -19,7 +19,7 @@ ostreambuf_iterator(streambuf_type* s) noexcept;
 `s`をメンバ変数として保持する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -42,11 +42,11 @@ int main()
 ```
 * rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
 
-###出力
+### 出力
 ```
 HelloHello
 ```
 
-##参照
+## 参照
 
 

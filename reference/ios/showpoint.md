@@ -1,4 +1,4 @@
-#showpoint
+# showpoint
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -9,16 +9,16 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 浮動小数点数出力時に小数点を必ず出力させることを指示するマニピュレータ。
 
-##効果
+## 効果
 `str.setf(std::ios_base::showpoint)`を実行する。
 
-##戻り値
+## 戻り値
 実引数のstrオブジェクト。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -33,15 +33,15 @@ int main()
 * std::showpoint[color ff0000]
 * std::setprecision[link /reference/iomanip/setprecision.md]
 
-###出力
+### 出力
 ```
 1. 1.e-010
 1.0 1.0e-010
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-##参照
+## 参照
 - [`noshowpoint`](noshowpoint.md)

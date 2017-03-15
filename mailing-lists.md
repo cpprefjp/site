@@ -1,4 +1,4 @@
-#メーリングリスト
+# メーリングリスト
 標準C++関係のメーリングリストです。 
 
 - [ISO C++ Standard - Discussion](https://groups.google.com/a/isocpp.org/forum/#!forum/std-discussion)<br/>

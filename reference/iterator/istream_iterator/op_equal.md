@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * iterator[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`istream_iterator`オブジェクトを等値比較する
 
 
-##戻り値
+## 戻り値
 `x`と`y`がどちらも同じ有効な入力ストリームオブジェクトを指す場合、もしくはどちらも無効な入力ストリームオブジェクトを指す場合は`true`を返し、そうでなければ`false`を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -47,13 +47,13 @@ int main()
 ```
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
-###出力
+### 出力
 ```
 it1 == it2 : true
 it1 == last : false
 it1 == last : true
 ```
 
-##参照
+## 参照
 
 

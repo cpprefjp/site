@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * future[meta header]
 * std[meta namespace]
 * shared_future[meta class]
@@ -10,29 +10,29 @@ shared_future& operator=(const shared_future& rhs);     // (1)
 shared_future& operator=(shared_future&& rhs) noexcept; // (2)
 ```
 
-##概要
+## 概要
 - (1) : コピー代入。
 - (2) : ムーブ代入。
 
 
-##効果
+## 効果
 - (1) : 共有状態を解放し、`rhs`の共有状態を含むコンテンツを`*this`にコピー代入する。`rhs`と`*this`が同じ共有状態を参照するようになる。
 
 
-##事後条件
+## 事後条件
 - (1) : `valid() == rhs.valid()`
 - (2) : `valid()`の戻り値が、この関数を呼び出す前の`rhs.valid()`と等価になること。`rhs.valid() == false`になること。
 
 
-##例外
+## 例外
 - (2) : 投げない
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <future>
@@ -80,15 +80,15 @@ int main()
 * get()[link get.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -96,6 +96,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

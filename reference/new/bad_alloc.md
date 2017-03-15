@@ -1,4 +1,4 @@
-#bad_alloc
+# bad_alloc
 * new[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -16,7 +16,7 @@ namespace std {
 ```
 * exception[link /reference/exception/exception.md]
 
-##概要
+## 概要
 何らかの理由で記憶域の動的確保に失敗するなど、[`get_new_handler()`](get_new_handler.md)が`nullptr`を返した場合に投げられる例外。
 
 

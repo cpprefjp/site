@@ -1,4 +1,4 @@
-#atomic_flag_test_and_set_explicit
+# atomic_flag_test_and_set_explicit
 * atomic[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,23 +13,23 @@ namespace std {
 * atomic_flag[link atomic_flag.md]
 * memory_order[link memory_order.md]
 
-##概要
+## 概要
 アトミックにテストしてフラグを立てる
 
 
-##効果
+## 効果
 `order`で指定されたメモリオーダーにしたがって、アトミックに`true`値を書き込む。この操作はread-modify-write操作である。
 
 
-##戻り値
+## 戻り値
 変更前の値
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -56,17 +56,17 @@ int main()
 * ATOMIC_FLAG_INIT[link atomic_flag_init.md]
 
 
-###出力
+### 出力
 ```
 false
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -74,6 +74,6 @@ true
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

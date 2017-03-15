@@ -1,4 +1,4 @@
-#match_flag_type
+# match_flag_type
 * regex[meta header]
 * std::regex_constants[meta namespace]
 * type-alias[meta id-type]
@@ -25,7 +25,7 @@ namespace regex_constants{
 ```
 * unspecified[italic]
 
-##概要
+## 概要
 マッチ条件と書式を表す実装定義のビットマスク型
 
 
@@ -46,18 +46,18 @@ namespace regex_constants{
 | `format_first_only` | 検索と置換の操作において、最初にマッチしたもののみを扱う。 | C++11 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [LWG Issue 1450. Contradiction in `regex_constants`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#1450)
     - `match_default`と`format_default`の2つがデフォルト値`0`を持っているが、同じ値を持つビットマスク値が複数含まれていることはビットマスク型の要件と矛盾しているため、C++14でビットマスク型の要件を見なおした。
 - [LWG Issue 2053. Errors in regex bitmask types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2053)

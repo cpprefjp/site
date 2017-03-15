@@ -1,4 +1,4 @@
-#max_load_factor
+# max_load_factor
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
@@ -10,33 +10,33 @@ float max_load_factor() const noexcept; // (1)
 void max_load_factor(float z);          // (2)
 ```
 
-##概要
+## 概要
 - (1)	負荷率（バケットあたりの要素数の平均）の最大値を取得する。
 - (2)	負荷率（バケットあたりの要素数の平均）の最大値を設定する。
 
 
-##要件
+## 要件
 `z` は正の数であること。
 
 
-##効果
+## 効果
 - (1)	なし。
 - (2)	引数 `z` を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。
 
 
-##戻り値
+## 戻り値
 - (1)	負荷率（バケットあたりの要素数の平均）の最大値
 - (2)	なし
 
-##例外
+## 例外
 投げない。
 
 
-##計算量
+## 計算量
 定数。
 
 
-##備考
+## 備考
 - `max_load_factor` の初期値は1.0 である。  
 
 - `max_load_factor` はその名前の通り、[`load_factor`](load_factor.md) の最大値（上限）を定義する。  
@@ -49,7 +49,7 @@ void max_load_factor(float z);          // (2)
 	なお、計算量が定数であることからわかるように、いずれの場合でもリハッシュ（バケット数の調整）は行われない（はずだが、[`load_factor`](load_factor.md)`() > z` の場合に [`load_factor`](load_factor.md)`() <= z` を満たすようにリハッシュされる実装も多い）。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -101,7 +101,7 @@ int main()
 * cout[link ../../iostream/cout.md]
 * endl[link ../../ostream/endl.md]
 
-###出力例(MSVC-11.0)
+### 出力例(MSVC-11.0)
 ```
 current max_load_factor: 1
 current size: 9
@@ -114,7 +114,7 @@ new bucket_count: 8
 new load_factor: 1.125
 ```
 
-###検証
+### 検証
 [`max_load_factor`](max_load_factor.md) の初期値は 1.0f  
 
 その状態では、[`bucket_count`](bucket_count.md) を超える要素を挿入した場合   
@@ -126,11 +126,11 @@ new load_factor: 1.125
 
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [Clang, C++11 mode](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
@@ -138,7 +138,7 @@ new load_factor: 1.125
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
-##参照
+## 参照
 
 | | |
 |---------------------------------------|------------|

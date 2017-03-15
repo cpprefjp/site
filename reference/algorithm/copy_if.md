@@ -1,4 +1,4 @@
-#copy_if
+# copy_if
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -12,31 +12,31 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 条件を満たす要素のみをコピーする。
 
 
-##要件
+## 要件
 `[first,last)` の範囲と、`[result,result + (last - first))` の範囲は重なっていてはならない。
 
 
-##効果
+## 効果
 `[first,last)` 内のイテレータ `i` について `pred(*i)` が `true` である要素を `result` へ順番にコピーする。
 
 
-##戻り値
+## 戻り値
 コピー先の範囲の終端を返す。
 
 
-##計算量
+## 計算量
 正確に `last - first` 回述語を適用する。
 
 
-##備考
+## 備考
 このコピーは安定なコピーである。つまり、コピーによって要素の前後が入れ替わることは無い。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -63,13 +63,13 @@ int main() {
 * std::copy_if[color ff0000]
 * result.begin()[link /reference/vector/begin.md]
 
-###出力
+### 出力
 ```
 3,1,1,5,9,5,
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class OutputIterator, class Predicate>
 OutputIterator copy_if(InputIterator first, InputIterator last,
@@ -82,11 +82,11 @@ OutputIterator copy_if(InputIterator first, InputIterator last,
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
@@ -94,7 +94,7 @@ OutputIterator copy_if(InputIterator first, InputIterator last,
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 - [LWG Issue 2039. Issues with `std::reverse` and `std::copy_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2039)

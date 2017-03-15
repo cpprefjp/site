@@ -1,4 +1,4 @@
-#swap (非メンバ関数)
+# swap (非メンバ関数)
 * shared_mutex[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,26 +11,26 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`shared_lock`オブジェクトを入れ替える
 
 
-##効果
+## 効果
 ```cpp
 x.swap(y);
 ```
 * swap[link swap.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <shared_mutex>
 
@@ -49,15 +49,15 @@ int main()
 * std::swap[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

@@ -1,4 +1,4 @@
-#gslice
+# gslice
 * valarray[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -9,7 +9,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `gslice`は、[`std::slice`](/reference/valarray/slice.md) をより一般化したスライス指示用のヘルパークラスである。
 
 このクラスは、[`std::valarray`](valarray.md) クラスの [`operator[]`](valarray/op_at.md) メンバ関数にスライスの指示を与えるために使用する。
@@ -18,15 +18,15 @@ namespace std {
 「`gslice`」は、「generalized slice (汎用スライス)」の略。
 
 
-##メンバ関数
-###構築・破棄
+## メンバ関数
+### 構築・破棄
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|----------------------------|------|
 | [`(constructor)`](gslice/op_constructor.md)| コンストラクタ             |      |
 
 
-###その他メンバ関数
+### その他メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|----------------------------------------------------------------|------|
@@ -35,7 +35,7 @@ namespace std {
 | [`stride`](gslice/stride.md) | スライスを生成する間隔数群の `valarray` を取得する             |      |
 
 
-##例
+## 例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -69,7 +69,7 @@ auto main()
 
 ```
 
-###出力
+### 出力
 ```
 19
 22

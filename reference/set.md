@@ -1,4 +1,4 @@
-#set
+# set
 * set[meta header]
 
 `<set>`ヘッダは、集合を表す連想コンテナ、`set`と`multiset`を定義する。  

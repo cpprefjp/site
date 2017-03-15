@@ -1,4 +1,4 @@
-#bad_array_new_length
+# bad_array_new_length
 * new[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -14,10 +14,10 @@ namespace std {
 ```
 * bad_alloc[link /reference/new/bad_alloc.md]
 
-##概要
+## 概要
 動的に記憶域を確保しようとする配列の長さが 0 未満または処理系の最大値以上の場合に送出される例外。
 
 
-##バージョン
+## バージョン
 C++11
 

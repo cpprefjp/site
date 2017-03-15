@@ -1,4 +1,4 @@
-#reset
+# reset
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
@@ -13,11 +13,11 @@ void reset(nullptr_t p) noexcept;           // (2)
 template <class U> void reset(U) = delete;  // (3)
 ```
 
-##概要
+## 概要
 リソースの所有権を放棄し、新たなリソースの所有権を設定する。
 
 
-##効果
+## 効果
 - (1) : 保持しているポインタ変数に`p`を代入する。デフォルト引数を使用する場合、この関数を呼び出したあと`*this`はリソースを保持していない状態になる。
     代入前に保持していたポインタ変数を`old_p`とし、それが`nullptr`でなければ、[`get_deleter()`](get_deleter.md)`(old_p)`によって、以前保持していたポインタを解放する。
 
@@ -27,11 +27,11 @@ template <class U> void reset(U) = delete;  // (3)
 - (3) : 他のポインタ型から`pointer`型への変換を禁止する。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -53,17 +53,17 @@ int main()
 ```
 * reset[color ff0000]
 
-###出力
+### 出力
 ```
 p doesn't have resource
 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
@@ -71,6 +71,6 @@ p doesn't have resource
     - Visual C++ 11.0までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
-##参照
+## 参照
 - [LWG Issue 2169. Missing `reset()` requirements in `unique_ptr` specialization](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2169)
 

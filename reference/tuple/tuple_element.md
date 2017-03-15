@@ -1,4 +1,4 @@
-#tuple_element
+# tuple_element
 * tuple[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -25,7 +25,7 @@ namespace std {
 * tuple[link tuple.md]
 * size_t[link /reference/cstddef/size_t.md]
 
-##概要
+## 概要
 `tuple_element`は、タプルとして見なせる型から、I番目の要素型を取得するためのクラスである。
 
 `tuple_element`の第1テンプレート引数に要素番号、第2引数のタプルの型を指定し、ネスト型である`type`型を取り出すことで要素型を得ることができる。
@@ -45,7 +45,7 @@ namespace std {
     `std::tuple`から要素型を取得できるようにするための部分特殊化。
 
 
-##例
+## 例
 ```cpp
 #include <tuple>
 #include <type_traits>
@@ -88,15 +88,15 @@ int main()
 ```
 * tuple_element[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -104,6 +104,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
 

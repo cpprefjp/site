@@ -1,4 +1,4 @@
-#operator<
+# operator<
 * utility[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -13,15 +13,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 2つの`pair`について、左辺が右辺より小さいかの判定を行う
 
 
-##戻り値
+## 戻り値
 `x.first < y.first || (!(y.first < x.first) && x.second < y.second)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -38,17 +38,17 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
 
-##関連項目
+## 関連項目
 - [`lexicographical_compare`](/reference/algorithm/lexicographical_compare.md)
 
 
-##参照
+## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 

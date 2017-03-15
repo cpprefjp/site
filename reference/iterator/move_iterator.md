@@ -1,4 +1,4 @@
-#move_iterator
+# move_iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `move_iterator`は、イテレータをラップし、間接参照時に参照先の要素をムーブするイテレータアダプタである。その他の操作は、元のイテレータそのものの動作をする。
 
 
-##要件
+## 要件
 `move_iterator`クラスのテンプレートパラメータ`Iterator`は、入力イテレータの要件を満たすこと。双方向またはランダムアクセスの横断を必要とする操作を行う場合は、それぞれ双方向イテレータまたはランダムアクセスイテレータの要件を満たすこと。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
@@ -38,7 +38,7 @@ namespace std {
 | [`operator[]`](move_iterator/op_at.md)             | 任意の位置にランダムアクセスする | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
@@ -50,7 +50,7 @@ namespace std {
 | `reference` | `value_type&&` | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
@@ -65,7 +65,7 @@ namespace std {
 | [`make_move_iterator`](make_move_iterator.md)     | `move_iterator`のヘルパ関数 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -90,7 +90,7 @@ int main()
 * std::make_move_iterator[color ff0000]
 * v.emplace_back[link /reference/vector/emplace_back.md]
 
-###出力
+### 出力
 ```
 0
 1
@@ -99,11 +99,11 @@ int main()
 4
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -111,6 +111,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 

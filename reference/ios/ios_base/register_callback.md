@@ -1,4 +1,4 @@
-#register_callback
+# register_callback
 * ios[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -9,15 +9,15 @@ void register_callback(event_callback fn, int index);
 ```
 * event_callback[link type-event_callback.md]
 
-##概要
+## 概要
 コールバック関数を登録する。
 
 
-##要件
+## 要件
 引数 `fn` で指定された関数は例外を投げてはいけない。
 
 
-##効果
+## 効果
 引数で指定された関数 `fn` を、[`imbue`](imbue.md)`()`、[`copyfmt`](../basic_ios/copyfmt.md)`()`、および、[`~ios_base`](op_destructor.md)`()` が呼び出された際に引数の `index` と共にコールバック関数として呼び出すよう登録する。
 
 登録されたコールバック関数は、登録と逆の順序で呼び出される。
@@ -25,15 +25,15 @@ void register_callback(event_callback fn, int index);
 あるコールバック関数が呼び出されている中で登録されたコールバック関数は、次のイベントまで呼び出されない。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##備考
+## 備考
 引数 `fn` と `index` のペアが同じ組を 2 回以上登録した場合でも、特にマージ等は行われない（つまり、登録された回数だけ呼び出される）。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -87,7 +87,7 @@ int main()
 * register_callback[color ff0000]
 * imbue[link imbue.md]
 
-###出力
+### 出力
 ```
 imbue 1 start
 event = imbue_event, index = 0
@@ -113,18 +113,18 @@ event = erase_event, index = 0
 ```
 
 
-##バージョン
-##言語
+## バージョン
+## 言語
 - C++98
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5.0, 3.6.0, 3.7.0, 3.8.0
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 4.9.2, 5.1.0, 5.2.0, 6.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [`ios_base`](../ios_base.md)`::`[`event`](type-event.md)
 - [`ios_base`](../ios_base.md)`::`[`event_callback`](type-event_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md)

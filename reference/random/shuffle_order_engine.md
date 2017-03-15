@@ -1,4 +1,4 @@
-#shuffle_order_engine
+# shuffle_order_engine
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,7 +14,7 @@ namespace std {
 ```
 * knuth_b[link knuth_b.md]
 
-##概要
+## 概要
 `shuffle_order_engine`クラスは、乱数生成エンジンが生成する乱数を調整し、バッファリングされた乱数列からランダムに値を選択する生成器アダプタである。  
 テンプレートパラメータ`K`は、バッファリングする乱数列のサイズである。  
 
@@ -31,12 +31,12 @@ namespace std {
 この生成器アダプタは、標準内においては[`linear_congruential_engine`](linear_congruential_engine.md)クラスと組み合わせて、KnuthのリオーダーアルゴリズムB([`knuth_b`](knuth_b.md))の実装に使用されている。
 
 
-##要件
+## 要件
 `K > 0`であること。
 
 
-##メンバ関数
-###構築・シード
+## メンバ関数
+### 構築・シード
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------|------------------|-------|
@@ -45,7 +45,7 @@ namespace std {
 | [`seed`](shuffle_order_engine/seed.md)                          | シードを設定する | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|--------------------|-------|
@@ -53,15 +53,15 @@ namespace std {
 | [`discard`](shuffle_order_engine/discard.md)    | 指定した回数だけ擬似乱数を生成し、内部状態を進める | C++11 |
 
 
-###エンジンの特性
+### エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|------------------------------|-------|
 | [`base`](shuffle_order_engine/base.md) | 元となる乱数生成器を取得する | C++11 |
 
 
-##静的メンバ関数
-###エンジンの特性
+## 静的メンバ関数
+### エンジンの特性
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------|-------|
@@ -69,21 +69,21 @@ namespace std {
 | [`max`](shuffle_order_engine/max.md) | 生成し得る値の最大値を取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
 | `result_type` | 擬似乱数生成結果型 `typename Engine::result_type`。 | C++11 |
 
 
-##メンバ定数
+## メンバ定数
 
 | 定数 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
 | `static constexpr size_t table_size` | バッファリングする乱数列の要素数。テンプレートパラメータ`K`。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
@@ -93,7 +93,7 @@ namespace std {
 | [`operator>>`](shuffle_order_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -125,7 +125,7 @@ int main()
 * base_engine()[link linear_congruential_engine/op_call.md]
 * engine()[link shuffle_order_engine/op_call.md]
 
-###出力
+### 出力
 ```
 16807
 282475249
@@ -154,10 +154,10 @@ int main()
 
 
 ## バージョン
-###言語
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2

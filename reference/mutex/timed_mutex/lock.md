@@ -1,4 +1,4 @@
-#lock
+# lock
 * mutex[meta header]
 * std[meta namespace]
 * timed_mutex[meta class]
@@ -9,24 +9,24 @@
 void lock();
 ```
 
-##概要
+## 概要
 ロックを取得する
 
 
-##要件
+## 要件
 この関数を呼び出したスレッドが、ミューテックスの所有権を保持していないこと
 
 
-##効果
+## 効果
 この関数を呼び出したスレッドがミューテックスの所有権を取得できるまでブロックする
 
 
-##戻り値
+## 戻り値
 なし
 
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`operation_not_permitted`](/reference/system_error/errc.md) : スレッドにこの操作を行う権限がない
@@ -34,7 +34,7 @@ void lock();
 - [`device_or_resource_busy`](/reference/system_error/errc.md) : ミューテックスがすでにロックされていて、ブロッキングできない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <thread>
@@ -68,15 +68,15 @@ int main()
 * lock()[color ff0000]
 * mtx_.unlock()[link unlock.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -84,6 +84,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

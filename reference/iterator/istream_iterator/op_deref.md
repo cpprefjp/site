@@ -1,4 +1,4 @@
-#operator*
+# operator*
 * iterator[meta header]
 * std[meta namespace]
 * istream_iterator[meta class]
@@ -8,16 +8,16 @@
 const T& operator*() const;
 ```
 
-##概要
+## 概要
 イテレータを間接参照する。
 読み込み済みの値を返す。
 
 
-##戻り値
+## 戻り値
 `operator++()`で入力ストリームから読み込まれ、メンバ変数として保持されている値を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -42,13 +42,13 @@ int main()
 * *it[color ff0000]
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##参照
+## 参照
 
 

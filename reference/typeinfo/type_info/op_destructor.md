@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * typeinfo[meta header]
 * std[meta namespace]
 * type_info[meta class]
@@ -8,17 +8,17 @@
 virtual ~type_info();
 ```
 
-##概要
+## 概要
 `type_info`オブジェクトを破棄する
 
 
-##例
+## 例
 ```
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##参照
+## 参照
 

@@ -1,4 +1,4 @@
-#message
+# message
 * system_error[meta header]
 * std[meta namespace]
 * error_category[meta class]
@@ -10,15 +10,15 @@ virtual string message(int ev) const = 0;
 ```
 * string[link /reference/string/basic_string.md]
 
-##概要
+## 概要
 エラーコードに対応するメッセージを取得する
 
 
-##戻り値
+## 戻り値
 エラーコードを説明するメッセージを返す
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -37,16 +37,16 @@ int main()
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * ENOTDIR[link /reference/cerrno.md]
 
-###出力
+### 出力
 ```
 Not a directory
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
@@ -54,4 +54,4 @@ Not a directory
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照

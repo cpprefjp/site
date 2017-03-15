@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * functional[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -15,15 +15,15 @@ bool operator!=(nullptr_t, const function<R(ArgTypes...)>& f) noexcept;
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
-##概要
+## 概要
 非等値比較する。
 
 
-##戻り値
+## 戻り値
 `static_cast<bool>(f)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -46,23 +46,23 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 not empty
 empty
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 

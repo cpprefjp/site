@@ -1,4 +1,4 @@
-#densities
+# densities
 * random[meta header]
 * std[meta namespace]
 * piecewise_linear_distribution[meta class]
@@ -10,15 +10,15 @@ vector<result_type> densities() const;
 ```
 * vector[link /reference/vector.md]
 
-##概要
+## 概要
 重みの数列を取得する。
 
 
-##戻り値
+## 戻り値
 保持している重み列を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -47,18 +47,18 @@ int main()
 * intervals.end()[link /reference/array/end.md]
 * densities.begin()[link /reference/array/begin.md]
 
-###出力
+### 出力
 ```
 0
 2
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -66,6 +66,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

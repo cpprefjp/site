@@ -1,4 +1,4 @@
-#logical_and
+# logical_and
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -34,24 +34,24 @@ namespace std {
 * unspecified[italic]
 * std::forward[link ../utility/forward.md]
 
-##概要
+## 概要
 `logical_and`クラスは、論理積(AND)を計算する関数オブジェクトである。
 
 この関数オブジェクトは一切のメンバ変数を持たず、状態を保持しない。
 
 
-##備考
+## 備考
 この関数オブジェクトによる論理演算は、演算子を使用する場合と違って、短絡評価はされないので注意。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 |
 |---------------|-----------------|
 | `operator ()` | `x && y` と等価 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 |
 |--------------------------------------|-------------------------------|
@@ -61,7 +61,7 @@ namespace std {
 | `is_transparent`       | `operator()` が関数テンプレートである事を示すタグ型。<br/>実装依存の型であるがあくまでタグ型であり、型そのものには意味はない。（`T` が `void` の場合のみ） | C++14          |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <functional>
@@ -73,12 +73,12 @@ int main()
 ```
 * std::logical_and[color ff0000]
 
-###出力
+### 出力
 ```
 true
 ```
 
-##参照
+## 参照
 - [N3421 Making Operator Functors greater<>](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3421.htm)
 - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
 - [N3789 Constexpr Library Additions: functional](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3789.htm)

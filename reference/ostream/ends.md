@@ -1,4 +1,4 @@
-#ends
+# ends
 * ostream[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,19 +10,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 ヌル文字を出力する。
 
-##効果
+## 効果
 `os.`[`put`](basic_ostream/put.md)`(CharT())` を呼び出す。
 
-##戻り値
+## 戻り値
 `os`
 
-##備考
+## 備考
 本関数は、直接呼ぶのではなく、マニピュレータ関数へのポインタを引数に取る出力演算子（[`operator<<`](basic_ostream/op_ostream.md)、挿入演算子、インサータとも呼ばれる）を通じて呼び出されるのが一般的である。
 
-##実装例
+## 実装例
 ```cpp
 namespace std {
   template<class CharT, class Traits>
@@ -34,9 +34,9 @@ namespace std {
 * basic_ostream[link basic_ostream.md]
 * put[link basic_ostream/put.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [endl](endl.md)

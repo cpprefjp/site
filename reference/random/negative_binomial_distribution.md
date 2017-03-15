@@ -1,4 +1,4 @@
-#negative_binomial_distribution
+# negative_binomial_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `negative_binomial_distribution`は、離散確率分布の一種である、負の二項分布を表すクラスである。  
 二項分布([`binomial_distribution`](binomial_distribution.md)が「確率pで成功する事象をt回施行し、成功回数を取得する」のに対し、負の二項分布は「確率pで成功する事象がk回成功するまでに失敗した回数を取得する」ということを行う。  
 
@@ -24,8 +24,8 @@ namespace std {
 - `IntType` : 成功／失敗回数を表す整数型。
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|--------------------|-------|
@@ -34,14 +34,14 @@ namespace std {
 | [`reset`](negative_binomial_distribution/reset.md) | 状態をリセットする | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------|----------------|-------|
 | [`operator()`](negative_binomial_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|----------------------------------|-------|
@@ -52,7 +52,7 @@ namespace std {
 | [`max`](negative_binomial_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|---------------------------------|-------|
@@ -60,7 +60,7 @@ namespace std {
 | `param_type`  | 分布パラメータの型。未規定。    | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
@@ -70,7 +70,7 @@ namespace std {
 | [`operator>>`](negative_binomial_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -94,17 +94,17 @@ int main()
 * seed_gen()[link random_device/op_call.md]
 * dist(engine)[link negative_binomial_distribution/op_call.md]
 
-###出力例
+### 出力例
 ```
 3
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -112,7 +112,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [負の二項分布 - Wikipedia](https://ja.wikipedia.org/wiki/負の二項分布)
 
 

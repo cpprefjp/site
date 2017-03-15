@@ -1,4 +1,4 @@
-#weak_ptr
+# weak_ptr
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,13 +11,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `weak_ptr`は、[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトが持つリソースへの弱参照を保持するクラスである。
 
 このクラスは、[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトのリソースに対する所有権は保持せず、そのリソースを監視し、覗き見する。
 
 
-###循環参照の解決に使用する
+### 循環参照の解決に使用する
 [`shared_ptr`](/reference/memory/shared_ptr.md)は、所有権を参照カウントで管理し、所有者がいなくなったらリソースを解放するクラスである。
 
 しかし、参照カウントという機構には、循環参照を解決できないという問題がある。`A`が`B`への[`shared_ptr`](/reference/memory/shared_ptr.md)を保持し、`B`もまた`A`への[`shared_ptr`](/reference/memory/shared_ptr.md)を保持する、ということをした場合、参照カウントが永遠に`0`にならず、リソースリークが発生する。
@@ -29,7 +29,7 @@ namespace std {
 [`shared_ptr`](/reference/memory/shared_ptr.md)は、リソースを使用している間は解放されないという保証があるということも特徴の一つではあるので、`weak_ptr`にする対象が、リソースが参照できなくなっても問題ないか、ということを確認した上で使用すること。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|----------------------------------------------------------------|-------|
@@ -44,21 +44,21 @@ namespace std {
 | [`owner_before`](weak_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                            | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前           | 説明      | 対応バージョン |
 |----------------|-----------|-------|
 | `element_type` | 要素型`T` | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------|-----------------------------------------|-------|
 | [`swap`](weak_ptr/swap_free.md) | 2つの`weak_ptr`オブジェクトを入れ替える | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 #include <iostream>
@@ -88,21 +88,21 @@ int main()
 * sp.reset[link shared_ptr/reset.md]
 * wp.expired()[link weak_ptr/expired.md]
 
-###出力
+### 出力
 ```
 get weak_ptr value : 42
 shared_ptr managed object deleted.
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
 
-##参照
+## 参照
 

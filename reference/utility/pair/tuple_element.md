@@ -1,4 +1,4 @@
-#tuple_element
+# tuple_element
 * utility[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -22,13 +22,13 @@ namespace std {
 * pair[link ../pair.md]
 
 
-##概要
+## 概要
 `tuple_element`は、タプルとして見なせる型から、`I`番目の要素型を取得するためのクラスである。
 
 `<utility>`ヘッダでは、[`pair`](../pair.md)に関する特殊化を定義する。
 
 
-##例
+## 例
 ```cpp
 #include <utility>
 #include <type_traits>
@@ -48,21 +48,21 @@ int main()
 ```
 * tuple_element[color ff0000]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
-##参照
+## 参照
 - [`tuple_element - <tuple>`](/reference/tuple/tuple_element.md)
 

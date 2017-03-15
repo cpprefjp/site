@@ -1,4 +1,4 @@
-#atan2
+# atan2
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -19,7 +19,7 @@ namespace std {
 * Arithmetic1[italic]
 * Arithmetic2[italic]
 
-##概要
+## 概要
 算術型の逆正接（アークタンジェント）を対辺と隣辺から求める。
 
 ![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/cmath/atan2/atan2.jpg)
@@ -27,14 +27,14 @@ namespace std {
 このような三角形があった場合、辺`y`の長さと辺`x`の長さを`atan2()`関数に与えることで、角度θがラジアン単位として求まる。
 
 
-##戻り値
+## 戻り値
 `y / x` の逆正接を `[-π, π]` の範囲で返す。（単位はラジアン）
 
 象限は引数の符号から適切に求められる。
 
 `y`と`x`の両方が値`0`である場合に定義域エラーとなる可能性がある。定義域エラーが発生した場合、戻り値は処理系定義である。（備考参照）
 
-##備考
+## 備考
 - $$ f(y, x) = \mathrm{Arctan}~\frac{y}{x} $$
 
 	引数の順番に注意されたし。
@@ -54,7 +54,7 @@ namespace std {
 	特に、`y` と `x` の両方がゼロの場合に定義域エラー（[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外））となったり、`y` が非ゼロで `x` がゼロの場合に極エラー（[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外））となったりは**しない**事に注意。
 
 
-##例
+## 例
 ```cpp
 #include <cmath>
 #include <iostream>
@@ -74,7 +74,7 @@ int main() {
 * std::atan2[color ff0000]
 * std::fixed[link ../ios/fixed.md]
 
-###出力
+### 出力
 ```
 atan2(0.0, 1.0)   = 0.000000
 atan2(1.0, 1.0)   = 0.785398
@@ -86,25 +86,25 @@ atan2(-1.0, 0.0)  = -1.570796
 atan2(-1.0, 1.0)  = -0.785398
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 1.9, 2.9, 3.1
 - [GCC](/implementation.md#gcc): 3.4.6, 4.2.4, 4.3.5, 4.4.5, 4.5.1, 4.5.2, 4.6.1, 4.7.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 - [ICC](/implementation.md#icc): 10.1, 11.0, 11.1, 12.0
 - [Visual C++](/implementation.md#visual_cpp) 7.1, 8.0, 9.0, 10.0
 
-####備考
+#### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上
 
 
-##実装例
+## 実装例
 `[-π/2, π/2]` の範囲を返す [`atan`](atan.md) があれば、引数の符号に応じて以下のように変換することで求められる。
 
 $$

@@ -1,13 +1,13 @@
-#friend宣言できる対象を拡張
+# friend宣言できる対象を拡張
 * cpp11[meta cpp]
 
-##概要
+## 概要
 C++03までの`friend`宣言は、直接のクラス型のみを指定できた。
 
 C++11では`friend`宣言が拡張され、テンプレートパラメータ、および型の別名もまた`friend`宣言できるようになった。
 
 
-##仕様
+## 仕様
 `friend`宣言の構文が、以下のように拡張された：
 
 ```
@@ -23,7 +23,7 @@ friend typename-specifier ;        // 追加
 - `friend`宣言に指定された型のCV修飾は無視される
 
 
-##例
+## 例
 ```cpp
 template <class Derived>
 class base {
@@ -43,12 +43,12 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 ```
 
 
-##参照
+## 参照
 - [N1520 Extended friend Declarations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1520.pdf)
 - [N1616 Extended friend Declarations (Rev. 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1616.pdf)
 - [N1722 Extended friend Declarations (Rev. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1722.pdf)

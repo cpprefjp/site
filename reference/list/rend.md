@@ -1,4 +1,4 @@
-#rend
+# rend
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -11,19 +11,19 @@ const_reverse_iterator rend() const;          // (2) C++03
 const_reverse_iterator rend() const noexcept; // (2) C++11
 ```
 
-##概要
+## 概要
 先頭要素の前を指す逆イテレータを取得する。
 
 
-##戻り値
+## 戻り値
 先頭要素の前を指す逆イテレータ
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -51,7 +51,7 @@ int main()
 * rend()[color ff0000]
 * rbegin()[link rbegin.md]
 
-###出力
+### 出力
 ```
 3
 2
@@ -61,6 +61,6 @@ int main()
 1
 ```
 
-##参照
+## 参照
 
 

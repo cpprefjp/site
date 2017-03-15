@@ -1,4 +1,4 @@
-#inserter
+# inserter
 * iterator[meta header]
 * std[meta namespace]
 * insert_iterator[meta class]
@@ -12,18 +12,18 @@ namespace std {
 ```
 * insert_iterator[link insert_iterator.md]
 
-##概要
+## 概要
 `insert_iterator`のヘルパ関数
 
 
-##戻り値
+## 戻り値
 ```cpp
 insert_iterator<Container>(x, i)
 ```
 * insert_iterator[link insert_iterator.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <set>
@@ -48,11 +48,11 @@ int main()
 * src.end()[link /reference/set/set/end.md]
 * dest.end()[link /reference/set/set/end.md]
 
-###出力
+### 出力
 ```
 1
 2
 3
 ```
 
-##参照
+## 参照

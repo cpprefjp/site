@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * valarray[meta header]
 * std[meta namespace]
 * gslice_array[meta class]
@@ -14,27 +14,27 @@ public:
   void operator=(const T& value) const;                        // (3)
 ```
 
-##概要
+## 概要
 - (1) : 元となる`valarray`オブジェクトから参照によって抽出した各要素に、`ar`が参照する各要素を代入する
 - (2) : 元となる`valarray`オブジェクトから参照によって抽出した各要素に、`ar`の各要素を代入する
 - (3) : 元となる`valarray`オブジェクトから参照によって抽出した各要素に、`value`を代入する
 
 
-##効果
+## 効果
 概要通り
 
 
-##戻り値
+## 戻り値
 - (1) : `*this`
 - (2), (3) : なし
 
 
-##備考
+## 備考
 - (1) : C++03まで、このオーバーロードは使用できなかった。
 - (2) : `valarray`から抽出した要素数と`ar`の要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -97,7 +97,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 assign gslice_array : {2,4,6,4,5,6}
 assign valarray : {1,33,3,33,5,33}

@@ -1,13 +1,13 @@
-#DBL_MAX
+# DBL_MAX
 * cfloat[meta header]
 * macro[meta id-type]
 * [mathjax enable]
 
 ```cpp
-#define DBL_MAX implementation-defined
+# define DBL_MAX implementation-defined
 ```
 
-##概要
+## 概要
 `double` の最大の有限値を表すマクロ。  
 以下の式で表される。
 
@@ -21,11 +21,11 @@ $b$ や $p$、$e_{\rm max}$ については [`<cfloat>`](../cfloat.md) のモデ
 [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しい。
 
 
-##備考
+## 備考
 規格で 1E+37（$10^{37}$）以上であることが規定されている。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -49,7 +49,7 @@ int main()
 * DBL_MAX_EXP[link dbl_max_exp.md]
 * std::pow[link ../cmath/pow.md]
 
-##出力例
+## 出力例
 ```
 1.79769313486232e+308
 1.79769313486232e+308

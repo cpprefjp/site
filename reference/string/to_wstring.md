@@ -1,4 +1,4 @@
-#to_wstring
+# to_wstring
 * string[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,11 +18,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 数値`val`を`wstring`型文字列に変換する。
 
 
-##戻り値
+## 戻り値
 各数値型に対して、`swprintf(buf, buffsize, fmt, val)`によって生成された文字列の`wstring`オブジェクトを返す。使用されるバッファサイズは未規定。
 
 各型で使用されるフォーマットは以下のようになる：
@@ -40,7 +40,7 @@ namespace std {
 | `long double`        | `L"%Lf"`      |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -56,13 +56,13 @@ int main()
 ```
 * std::to_wstring[color ff0000]
 
-###出力
+### 出力
 ```
 123
 3.140000
 ```
 
-##実装例
+## 実装例
 ```cpp
 #include <cstdio>
 #include <string>
@@ -150,11 +150,11 @@ std::wstring to_wstring(long double val)
 * digits10[link /reference/limits/numeric_limits/digits10.md]
 * max_exponent10[link /reference/limits/numeric_limits/max_exponent10.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.4
 - [ICC](/implementation.md#icc): ?
@@ -165,13 +165,13 @@ std::wstring to_wstring(long double val)
 		- `long double`
 
 
-##関連項目
+## 関連項目
 
 | 名前                          | 参照                     |
 |-------------------------------|--------------------------|
 | [`to_string`](to_string.md) | 数値を`string`に変換する |
 
 
-##参照
+## 参照
 - [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
 

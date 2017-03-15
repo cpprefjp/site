@@ -1,4 +1,4 @@
-#end
+# end
 * array[meta header]
 * std[meta namespace]
 * array[meta class]
@@ -10,24 +10,24 @@ iterator end() noexcept;
 const_iterator end() const noexcept;
 ```
 
-##概要
+## 概要
 末尾の次を指すイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 非`const`な文脈では`iterator`型で最後尾要素の次を指すイテレータを返し、
 `const`な文脈では`const_iterator`型で 最後尾要素の次を指すイテレータを返す。
 
 
-##例外
+## 例外
 投げない
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <array>
@@ -55,7 +55,7 @@ int main()
 * end[color ff0000]
 
 
-###出力
+### 出力
 ```
 1
 2
@@ -65,11 +65,11 @@ int main()
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -77,5 +77,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0
 
 
-##参照
+## 参照
 

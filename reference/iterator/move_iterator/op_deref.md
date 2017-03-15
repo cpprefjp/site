@@ -1,4 +1,4 @@
-#operator*
+# operator*
 * iterator[meta header]
 * std[meta namespace]
 * move_iterator[meta class]
@@ -9,15 +9,15 @@
 reference operator*() const;
 ```
 
-##概要
+## 概要
 イテレータを間接参照し、ムーブして返す。
 
 
-##戻り値
+## 戻り値
 `std::move(*base())`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -39,16 +39,16 @@ int main()
 * v.emplace_back[link /reference/vector/emplace_back.md]
 * std::make_move_iterator[link /reference/iterator/make_move_iterator.md]
 
-###出力
+### 出力
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -56,6 +56,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

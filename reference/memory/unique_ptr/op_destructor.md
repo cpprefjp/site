@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
@@ -9,19 +9,19 @@
 ~unique_ptr();
 ```
 
-##unique_ptrオブジェクトの破棄
+## unique_ptrオブジェクトの破棄
 所有権を持つ場合、所有しているリソースを解放する。
 
 
-##効果
+## 効果
 [`get()`](get.md) が `nullptr` でなければ [`get_deleter`](get_deleter.md)`()(`[`get()`](get.md)`)` を呼び出す。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?

@@ -1,4 +1,4 @@
-#ostream_iterator
+# ostream_iterator
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,11 +14,11 @@ namespace std {
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
-##概要
+## 概要
 `ostream_iterator`は出力イテレータであり、代入の際に外部から渡された`ostream`オブジェクトに`operator<<()`で値を出力するイテレータアダプタである。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|-----------------------|
@@ -29,7 +29,7 @@ namespace std {
 | [`operator++`](ostream_iterator/op_increment.md)      | インクリメント | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|-----------------------|
@@ -43,7 +43,7 @@ namespace std {
 | `reference` | `void` | |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -60,10 +60,10 @@ int main()
 ```
 * std::ostream_iterator[color ff0000]
 
-###出力
+### 出力
 ```
 1,2,3,
 ```
 
-##参照
+## 参照
 

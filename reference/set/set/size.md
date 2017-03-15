@@ -1,4 +1,4 @@
-#size
+# size
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
@@ -8,20 +8,20 @@
 size_type size() const noexcept;
 ```
 
-##概要
+## 概要
 コンテナ内の要素の数を返す。
 
 
-##戻り値
+## 戻り値
 `set` コンテナに格納されている要素の数を返す。  
 メンバ型 `size_type` は符号なし整数型である。
 
 
-##計算量
+## 計算量
 定数時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <set>
@@ -43,13 +43,13 @@ int main ()
 * size()[color ff0000]
 * insert[link insert.md]
 
-###出力
+### 出力
 ```
 0
 3
 ```
 
-##参照
+## 参照
 
 | 名前                        | 説明                               |
 |-----------------------------|------------------------------------|

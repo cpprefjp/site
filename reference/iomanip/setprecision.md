@@ -1,4 +1,4 @@
-#setprecision
+# setprecision
 * iomanip[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,11 +10,11 @@ namespace std {
 ```
 * unspecified[italic]
 
-##概要
+## 概要
 浮動小数点数を出力する精度を設定する。
 
 
-##効果
+## 効果
 このマニピュレータをストリームオブジェクトに適用することにより、以下の関数と同等の効果を持つ：
 
 ```cpp
@@ -28,7 +28,7 @@ void f(std::ios_base& str, int n) {
 このマニピュレータは、入力ストリームと出力ストリームのどちらに対しても適用できる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -47,7 +47,7 @@ int main()
 * max_digits10[link /reference/limits/numeric_limits/max_digits10.md]
 * std::scientific[link /reference/ios/scientific.md]
 
-##出力例
+## 出力例
 ```
 9
 3.145900011e+00

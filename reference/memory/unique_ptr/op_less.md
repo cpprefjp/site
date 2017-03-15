@@ -1,4 +1,4 @@
-#operator<
+# operator<
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,13 +18,13 @@ namespace std {
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
-##概要
+## 概要
 `unique_ptr`において、左辺が右辺より小さいかを判定する。
 
 比較対象は、`unique_ptr`が指す値ではなく、`unique_ptr`が保持するポインタ値。
 
 
-##戻り値
+## 戻り値
 - (1) : [`std::common_type`](/reference/type_traits/common_type.md)`<unique_ptr<T1, D1>::pointer, unique_ptr<T2, D2>::pointer>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/less.md)`<CT>(a.`[`get()`](get.md), b.`[`get()`](get.md)`)`で比較した結果を返す。
 
 - (2) : [`std::less`](/reference/functional/less.md)`<unique_ptr<T, D>::pointer>()(x.`[`get()`](get.md)`, nullptr)`で比較した結果を返す。
@@ -32,7 +32,7 @@ namespace std {
 - (3) : [`std::less`](/reference/functional/less.md)`<unique_ptr<T, D>::pointer>()(nullptr, x.`[`get()`](get.md)`)`で比較した結果を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -55,18 +55,18 @@ int main()
 }
 ```
 
-###出力例
+### 出力例
 ```
 true
 false
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7 (`nullptr`バージョン以外), 4.7.4
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0 (`nullptr`バージョン以外), 3.3
 - [ICC](/implementation.md#icc): ?

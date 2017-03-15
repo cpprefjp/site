@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * mutex[meta header]
 * std[meta namespace]
 * unique_lock[meta class]
@@ -9,11 +9,11 @@
 ~unique_lock();
 ```
 
-##概要
+## 概要
 ロックを手放す
 
 
-##効果
+## 効果
 ```cpp
 if (owns_lock()) {
   pm->unlock();
@@ -24,11 +24,11 @@ if (owns_lock()) {
 ※`pm`はメンバ変数として保持している、ミューテックスオブジェクトへのポインタ
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -36,6 +36,6 @@ if (owns_lock()) {
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#kill_dependency
+# kill_dependency
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,34 +11,34 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 データ依存性を切る。
 
 
-##効果
+## 効果
 引数の依存性を戻り値に持ち運ばない
 
 
-##戻り値
+## 戻り値
 `y`
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、読み込んだ値に依存する式に対する順序を保証する[`memory_order_consume`](memory_order.md)メモリーオーダーにおいて、値の依存性を断ち切り、最適化を許可するために用意されている。
 
 この関数とは逆に、依存性を持ち運ぶことをコンパイラに指示するための[`[[carries_dependency]]`](/lang/cpp11/attributes.md#carries_dependency)属性も用意されている。
 
-##注意
+## 注意
 この関数は、並行性およびコンパイラの最適化に関する深い理解をもつ専門家ですら正しく利用することが非常に難しい。
 
 安易に利用すると、この関数がアトミックウェポンと化してしまうので控えること。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -82,7 +82,7 @@ int main()
 * a.load[link atomic/load.md]
 
 
-###出力例
+### 出力例
 ```
 3
 5
@@ -91,11 +91,11 @@ int main()
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -103,7 +103,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##実装例
+## 実装例
 ```cpp
 template <class T>
 T kill_dependency(T y) noexcept
@@ -116,7 +116,7 @@ T kill_dependency(T y) noexcept
 }
 ```
 
-##参照
+## 参照
 - [N2492 C++ Data-Dependency Ordering: Atomics and Memory Model](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2492.html)
 - [N2664 C++ Data-Dependency Ordering: Atomics and Memory Model](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2664.htm)
 - [N2643 C++ Data-Dependency Ordering: Function Annotation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2643.html)

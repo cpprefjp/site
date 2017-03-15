@@ -1,4 +1,4 @@
-#owner_before
+# owner_before
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
@@ -14,17 +14,17 @@ bool owner_before(const weak_ptr<U>& b) const;   // (2)
 ```
 * shared_ptr[link /reference/memory/shared_ptr.md]
 
-##概要
+## 概要
 所有権ベースでの小なり比較を行う。
 
 
-##戻り値
+## 戻り値
 `*this`が監視している[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトのリソースと、`b`が監視している[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトのリソースを、所有権ベースで小なり比較し、`*this`が小さければ`true`、そうでなければ`false`を返す。
 
 詳細は、[`shared_ptr`](/reference/memory/shared_ptr.md)の[`owner_before()`](/reference/memory/shared_ptr/owner_before.md)メンバ関数を参照。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -51,27 +51,27 @@ int main()
 ```
 * owner_before[color ff0000]
 
-###出力
+### 出力
 ```
 false
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
-##関連項目
+## 関連項目
 - [`owner_less`](/reference/memory/owner_less.md)
 
 
-##参照
+## 参照
 - [N1590 Smart Pointer Comparison Operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1590.html)
 - [N2637 Revisiting std::shared_ptr comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 - [LWG Issue 1406. Support hashing smart-pointers based on owner](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#1406)

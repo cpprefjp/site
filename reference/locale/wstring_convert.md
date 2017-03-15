@@ -1,4 +1,4 @@
-#wstring_convert
+# wstring_convert
 * locale[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -14,7 +14,7 @@ namespace std {
 ```
 * allocator[link /reference/memory/allocator.md]
 
-##概要
+## 概要
 `wstring_convert`は、ワイド文字列とバイト文字列を相互変換するクラスである。
 
 バイト文字列とは、ひとつの文字を表すのに可変長のバイト数を必要とする、UTF-8やShift_JISのような文字コードの文字列である。
@@ -44,7 +44,7 @@ namespace std {
 [utf8]: /reference/codecvt/codecvt_utf8.md
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------|----------------------------------|-------|
@@ -57,7 +57,7 @@ namespace std {
 | [`state`](wstring_convert/state.md)              | 変換の状態を取得する | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------|---------------------------------------|-------|
@@ -67,7 +67,7 @@ namespace std {
 | `int_type` | 文字に対応する値を表す数値型 `wide_string::traits_type::int_type` | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -92,22 +92,22 @@ int main()
 * from_bytes[link wstring_convert/from_bytes.md]
 * size()[link /reference/string/basic_string/size.md]
 
-###出力
+### 出力
 ```
 5
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
 
-##参照
+## 参照
 - [N2007 Proposed Library Additions for Code Conversion](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2007.html)
 

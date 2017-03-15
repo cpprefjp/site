@@ -1,4 +1,4 @@
-#system_error
+# system_error
 * system_error[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 ```
 * runtime_error[link /reference/stdexcept.md]
 
-##概要
+## 概要
 `system_error`クラスは、OSのエラーを表現する`error_code`クラスのオブジェクトを包含した例外クラスである。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -24,7 +24,7 @@ namespace std {
 |`virtual const char* what() const noexcept;` | メッセージを取得する メッセージ内容は実装依存だが、「`what_arg + ": " + code().message()`」という形式になると予想できる。 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -52,17 +52,17 @@ int main()
 * std::generic_category()[link generic_category.md]
 * ec.value()[link error_code/value.md]
 
-###出力例
+### 出力例
 ```
 22
 system error!: Invalid argument
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0

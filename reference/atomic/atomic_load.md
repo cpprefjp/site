@@ -1,4 +1,4 @@
-#atomic_load
+# atomic_load
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -16,27 +16,27 @@ namespace std {
 * atomic[link /reference/atomic/atomic.md]
 
 
-##概要
+## 概要
 アトミックに値を読み込む
 
 
-##効果
+## 効果
 [`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、アトミックに値を読み込む
 
 
-##戻り値
+## 戻り値
 アトミックに読み込まれた値
 
 
-##例外
+## 例外
 投げない
 
 
-##備考
+## 備考
 この関数は、特殊化された[`atomic`](atomic.md)型に対して定義される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <atomic>
@@ -54,17 +54,17 @@ int main()
 * std::atomic_load[color ff0000]
 
 
-###出力
+### 出力
 ```
 3
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -72,6 +72,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
-##参照
+## 参照
 
 

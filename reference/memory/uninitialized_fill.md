@@ -1,4 +1,4 @@
-#uninitialized_fill
+# uninitialized_fill
 * memory[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,13 +11,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 未初期化領域の範囲を、指定された値で配置`new`する。
 
 未初期化入力範囲`[first, last)`を初期化しつつ値`x`で埋める。
 
 
-##効果
+## 効果
 
 ```cpp
 for (; first != last; ++first)
@@ -27,11 +27,11 @@ for (; first != last; ++first)
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 
-##戻り値
+## 戻り値
 なし
 
 
-###例
+### 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -69,7 +69,7 @@ int main()
 * alloc.destroy[link allocator/destroy.md]
 * alloc.deallocate[link allocator/deallocate.md]
 
-###出力
+### 出力
 ```
 2
 2

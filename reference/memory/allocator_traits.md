@@ -1,4 +1,4 @@
-#allocator_traits
+# allocator_traits
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,17 +11,17 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `allocator_traits`は、アロケータクラスの機能に間接的にアクセスするためのインタフェースを提供するクラスである。
 
 
-##備考
+## 備考
 このクラスはC++11から導入され、メモリアロケータを扱うクラス(たとえばコンテナ)は、アロケータクラスの機能に直接アクセスする従来の仕様から、`allocator_traits`を介してアロケータにアクセスするように変更された。
 
 `allocator_traits`はアロケータに必要な機能の多くに対してデフォルト実装を用意しているため、この変更により、ユーザーが自作アロケータを作るのが容易になった。
 
 
-###静的メンバ関数
+### 静的メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------------------------|-------|
@@ -33,7 +33,7 @@ namespace std {
 | [`select_on_container_copy_construction`](allocator_traits/select_on_container_copy_construction.md) | コンテナのコピー構築に使用するアロケータオブジェクトを取得する | C++11 |
 
 
-###メンバ型
+### メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|----------------------------------------------|-------|
@@ -52,7 +52,7 @@ namespace std {
 | `rebind_traits<U>` | 再束縛した型`U`に対する`allocator_traits`。`allocator_traits<rebind_alloc<U>>` | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 
@@ -103,21 +103,21 @@ int main()
 * traits::destroy[link allocator_traits/destroy.md]
 * traits::deallocate[link allocator_traits/deallocate.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-##参照
+## 参照
 - [Allocators@C++11 - Cryolite](http://www.slideshare.net/Cryolite/allocator11final)
 - [A visitor’s guide to C++ allocators](https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html)
 - [N2982 Allocators post Removal of C++ Concepts (Rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2982.pdf)

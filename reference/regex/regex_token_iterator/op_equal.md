@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * regex[meta header]
 * std[meta namespace]
 * regex_token_iterator[meta class]
@@ -9,11 +9,11 @@
 bool operator==(const regex_token_iterator& right) const;
 ```
 
-##概要
+## 概要
 `regex_token_iterator` の等値比較を行う。
 
 
-##戻り値
+## 戻り値
 `*this` と引数 `right` が共にシーケンス終端イテレータの場合、`true` を返す。  
 `*this` と引数 `right` が共に接尾辞イテレータで、かつ、`suffix == right.suffix` の場合、`true` を返す。  
 そうでなくて、`*this` と引数 `right` のいずれかがシーケンス終端イテレータ、あるいは、接尾辞イテレータの場合、`false` を返す。  
@@ -24,12 +24,12 @@ bool operator==(const regex_token_iterator& right) const;
 - `subs == right.subs`
 
 
-##備考
+## 備考
 - メンバ変数 `position`、`N`、`subs`、`suffix` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
 - 本メンバ関数が `true` を返したとしても、イテレータが同じ個所を指しているとは限らないことに注意すること。（下記の例を参照）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -65,7 +65,7 @@ int main()
 * std::advance[link /reference/iterator/advance.md]
 * str()[link /reference/regex/sub_match/str.md]
 
-###出力
+### 出力
 ```
 true
 match range = (31, 42), str = 'enumerator2'
@@ -73,11 +73,11 @@ match range = (53, 64), str = 'enumerator2'
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -86,7 +86,7 @@ match range = (53, 64), str = 'enumerator2'
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 | 名前                                       | 説明           | 対応バージョン |
 |--------------------------------------------|----------------|----------------|
 | [`operator*`](op_deref.md)                 | 間接参照       | C++11          |

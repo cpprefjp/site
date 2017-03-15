@@ -1,4 +1,4 @@
-#operator==
+# operator==
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -31,19 +31,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 等値比較を行う。
 
 
-##戻り値
+## 戻り値
 `lhs.`[`real`](complex/real.md)`() == rhs.`[`real`](complex/real.md)`() && lhs.`[`imag`](complex/imag.md)`() == rhs.`[`imag`](complex/imag.md)`()`
 
 
-##備考
+## 備考
 引数の型が `const T&` の場合、虚部（[`imag`](imag.md)`()`）は `T()`、あるいは、`0.0` とみなされる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <complex>
@@ -61,7 +61,7 @@ int main()
 ```
 * ==[color ff0000]
 
-###出力
+### 出力
 ```
 (1,2) == (1,2):true
 (1,2) == (1,4):false
@@ -69,11 +69,11 @@ int main()
 4 == (1,4):false
 ```
 
-##参照
+## 参照
 - [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
 
 
-##関連項目
+## 関連項目
 
 | 名前                            | 説明                                           |
 |---------------------------------|------------------------------------------------|

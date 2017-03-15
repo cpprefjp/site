@@ -1,4 +1,4 @@
-#デストラクタ
+# デストラクタ
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_lock[meta class]
@@ -9,11 +9,11 @@
 ~shared_lock();
 ```
 
-##概要
+## 概要
 共有ロックを手放す
 
 
-##効果
+## 効果
 ```cpp
 if (owns_lock()) {
   pm->unlock_shared();
@@ -24,11 +24,11 @@ if (owns_lock()) {
 ※`pm`はメンバ変数として保持している、ミューテックスオブジェクトへのポインタ
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++14
 
-###処理系
+### 処理系
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??

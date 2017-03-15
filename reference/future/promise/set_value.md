@@ -1,4 +1,4 @@
-#set_value
+# set_value
 * future[meta header]
 * std[meta namespace]
 * promise[meta class]
@@ -17,19 +17,19 @@ void promise<R&>::set_value(R& r);
 void promise<void>::set_value();
 ```
 
-##概要
+## 概要
 結果の値を設定する
 
 
-##効果
+## 効果
 値`r`をアトミックに共有状態に格納し、準備完了状態([`future_status::ready`](../future_status.md))にする。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が設定されている
@@ -45,7 +45,7 @@ void promise<void>::set_value();
     - C++14 : `R`型のオブジェクトをムーブするために選択されたコンストラクタが、あらゆる例外を送出する可能性がある
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <future>
@@ -82,12 +82,12 @@ int main()
 * std::move[link /reference/utility/move.md]
 * f.get()[link /reference/future/future/get.md]
 
-###出力
+### 出力
 ```
 55
 ```
 
-##例 : `promise<R&>`
+## 例 : `promise<R&>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -140,12 +140,12 @@ int main()
 ```
 * set_value[color ff0000]
 
-###出力
+### 出力
 ```
 55
 ```
 
-##例 : `promise<void>`
+## 例 : `promise<void>`
 ```cpp
 #include <iostream>
 #include <future>
@@ -199,16 +199,16 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 55
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -216,6 +216,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 - [LWG Issue 2098. Minor Inconsistency between `promise::set_value` and `promise::set_value_at_thread_exit`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2098)
 

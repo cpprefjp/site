@@ -1,4 +1,4 @@
-#operator()
+# operator()
 * random[meta header]
 * std[meta namespace]
 * random_device[meta class]
@@ -9,20 +9,20 @@
 result_type operator()();
 ```
 
-##概要
+## 概要
 非決定的な乱数の生成を行う。
 
 
-##戻り値
+## 戻り値
 実装定義な方法で、非決定的な乱数を生成して返す。  
 値の範囲は`[`[`min()`](min.md), [`max()`](max.md)`]`である。つまり、最小値と最大値両方を含む。
 
 
-##例外
+## 例外
 非決定的な乱数を生成できなかった場合、[`exception`](/reference/exception/exception.md)から派生した実装定義の例外オブジェクトを送出する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -41,7 +41,7 @@ int main()
 ```
 * rd()[color ff0000]
 
-###出力例
+### 出力例
 ```
 2284556121
 263670535
@@ -55,11 +55,11 @@ int main()
 1302323609
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -67,6 +67,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#begin
+# begin
 * iterator[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -20,21 +20,21 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 範囲から先頭要素へのイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 - (1) : `return c.begin();`
 - (2) : `return c.begin();`
 - (3) : `return array;`
 
 
-##備考
+## 備考
 この関数は、範囲`for`文の実装に使用される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -72,17 +72,17 @@ int main()
 ```
 * std::begin[color ff0000]
 
-###出力
+### 出力
 ```
 1 2 3 
 4 5 6 
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -90,7 +90,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [boost::begin() - Boost Range Library](http://www.boost.org/doc/libs/release/libs/range/doc/html/range/reference/concept_implementation/semantics/functions.html)
 - [LWG2280 - begin/end for arrays should be constexpr and noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2280)
 

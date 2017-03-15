@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -13,15 +13,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `match_results` オブジェクトを非等値比較する。
 
 
-##戻り値
+## 戻り値
 - `!(m1` [`==`](op_equal.md) `m2)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -54,7 +54,7 @@ int main()
 * std::regex_search[link ../regex_search.md]
 * std::cmatch[link ../match_results.md]
 
-###出力
+### 出力
 ```
 abc 012 def
 abc
@@ -70,11 +70,11 @@ false
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

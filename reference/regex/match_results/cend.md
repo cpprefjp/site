@@ -1,4 +1,4 @@
-#cend
+# cend
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,18 +9,18 @@
 const_iterator cend() const;
 ```
 
-##概要
+## 概要
 `*this` 内の全てのサブマッチを列挙するため、最後のサブマッチの次を指すイテレータを返す。
 
 
-##戻り値
+## 戻り値
 最後のサブマッチの次を指すイテレータ
 
-##備考
+## 備考
 - 本メンバ関数で返されるイテレータは、[`end`](end.md) で返されるイテレータと型も含め完全に同一である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -49,7 +49,7 @@ int main()
 * m.cbegin()[link cbegin.md]
 * it->str()[link str.md]
 
-###出力
+### 出力
 ```
 str() = 'abc 0123 defgh', range = [1, 15), matched = true
 str() = 'abc', range = [1, 4), matched = true
@@ -58,11 +58,11 @@ str() = 'defgh', range = [10, 15), matched = true
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -70,5 +70,5 @@ str() = 'defgh', range = [10, 15), matched = true
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 GCC(libstdc++) のバージョン 4.9.2 までは、`cend` が誤ったイテレータを返す。これは 4.9.3 以降で修正される予定である。

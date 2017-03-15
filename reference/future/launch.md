@@ -1,4 +1,4 @@
-#launch
+# launch
 * future[meta header]
 * std[meta namespace]
 * enum[meta id-type]
@@ -15,7 +15,7 @@ namespace std {
 ```
 * unspecified[italic]
 
-##概要
+## 概要
 [`async()`](async.md)関数に指定する実行ポリシーを表す、ビットマスクの列挙型。
 
 列挙値の基底型は未規定。
@@ -28,11 +28,11 @@ namespace std {
 | 実装定義の列挙値 | 実装による拡張実行ポリシーを許可する | C++11 |
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -40,6 +40,6 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 - [LWG Issue 2102. Why is `std::launch` an implementation-defined type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2102)
 

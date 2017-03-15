@@ -1,4 +1,4 @@
-#failure
+# failure
 * ios[meta header]
 * class[meta id-type]
 * std[meta namespace]
@@ -29,7 +29,7 @@ namespace std {
 * io_errc[link ../io_errc.md]
 * string[link ../../string/basic_string.md]
 
-##概要
+## 概要
 [`ios_base`](../ios_base.md)`::failure` は、ストリームライブラリ内の関数で、ストリームバッファ操作の間に検出したエラーを報告するために、例外として送出される全てのオブジェクトの型の基底クラスとして定義されている。  
 C++11 からは、エラー内容としてメッセージだけではなく、[`error_code`](../../system_error/error_code.md) を指定出来るようになった。  
 これによって、ストリームの操作で発生したエラーをプログラムから判別することが容易になる。  
@@ -37,7 +37,7 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
 しかし、少なくとも現時点では [`error_code`](../../system_error/error_code.md) はあまり有効に機能していないようである。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前                                         | 説明                   | 対応バージョン |
 |----------------------------------------------|------------------------|----------------|
@@ -47,7 +47,7 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
 なお、一見 C++11 で `what()` が無くなっているように見えるが、[`system_error`](../../system_error/system_error.md)`::what()` を継承しているため、メンバ関数自体は使用可能である。
 
 
-##備考
+## 備考
 - [`ios_base`](../ios_base.md)`::failure` は、C++11 から基底クラスが変更になっている。  
     このため、C++03 まででも使用可能とするためには、基底クラスが [`system_error`](../../system_error/system_error.md) であることに依存しないようにする必要がある。  
     なお、C++ 標準規格では、ライブラリの各クラスは基底クラスを直接継承しなくても（間接的に継承していれば）良いことになっている。  
@@ -56,18 +56,18 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
 - C++03 まではデストラクタが宣言されていたが、例外指定が誤っていたため（基底クラス [`exception`](../../exception/exception.md) のデストラクタには `throw()` が付いているため、派生クラスにも `throw()` が必要）、C++11 では宣言自体が削除された。
 
 
-##バージョン
-##言語
+## バージョン
+## 言語
 - C++98
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5.0, 3.6.0, 3.7.0, 3.8.0
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 4.9.2, 5.1.0, 5.2.0, 6.0.0
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1.0, 5.2.0, 6.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 - GCC は 4.9.x までは C++11 モードでも [`system_error`](../../system_error/system_error.md) を継承していないので、注意が必要である。
 - GCC 5.1.0 以降は現時点では `_GLIBCXX_USE_CXX11_ABI` マクロが `1` の場合（通常のビルドでは `1` がデフォルト）、C++03 モードでも C++11 モードでもライブラリ内から送出された例外を [`ios_base`](../ios_base.md)`::failure` 型では `catch` できない。  
     [`exception`](../../exception/exception.md) 型であれば `catch` することができるが、いずれにせよストリーム系の例外とそれ以外の例外を区別することができなくなってしまう。  
@@ -76,7 +76,7 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
 - Clang では、C++03 モードでも [`strcmp`](../../cstring/strcmp.md.nolink)`(`[`what`](failure/what.md)`(), msg.`[`c_str`](../../string/basic_string/c_str.md)`()) == 0` にはならない。  
 
 
-##参照
+## 参照
 - [`exception`](../../exception/exception.md)
 - [`system_error`](../../system_error/system_error.md)
 - [`io_errc`](../io_errc.md)

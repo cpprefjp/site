@@ -1,4 +1,4 @@
-#regex_match
+# regex_match
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -51,17 +51,17 @@ namespace std {
 * regex_constants::match_default[link regex_constants/match_flag_type.md]
 * basic_string[link ../string/basic_string.md]
 
-##概要
+## 概要
 指定された文字列全体が、正規表現にマッチするか否かの判定を行う。  
 引数に [`match_results`](match_results.md) がある場合、当該オブジェクトにマッチの結果を格納する。  
 なお、同様の関数である [`regex_search`](regex_search.md) と異なり、正規表現が文字列全体にマッチしなければならない。
 
 
-##要件
+## 要件
 `BidirectionalIterator` は双方向イテレータの要件を満たすこと。
 
 
-##効果
+## 効果
 - (1) `[first, last)` で指定された文字列全体が、`e` で指定された正規表現にマッチするか否かの判定を行う。  
     `flags` は正規表現が文字列に対してどのようにマッチするかを指定する。
 - (2) `return regex_match(str, str +` [`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(str), m, e, flags)` と同等。
@@ -71,7 +71,7 @@ namespace std {
 - (6) `return regex_match(str, str +` [`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(str), e, flags)` と同等。
 - (7) `return regex_match(s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), e, flags)` と同等。
 
-##事後条件
+## 事後条件
 
 - (1) 常に `m.`[`ready`](match_results/ready.md)`() == true` となる。  
     もし、戻り値が `false` の場合、`m` の [`ready`](match_results/ready.md)`()` 以外の状態については、`m.`[`size`](match_results/size.md)`() == 0` および `m.`[`empty`](match_results/empty.md)`() == true` となる事以外は未規定である。  
@@ -95,23 +95,23 @@ namespace std {
     | `m.[n].matched`                                     | `0 < n < m.`[`size`](match_results/size.md)`()` となるすべての整数 `n` について、正規表現内の `n` 番目のキャプチャグループがマッチに参加していれば `true`。<br />もし、`n` 番目のキャプチャグループがマッチに参加していない場合には、`false`。                   |
 
 
-##戻り値
+## 戻り値
 指定した文字列全体が、正規表現にマッチした場合、`true`。マッチしなかった場合は `false`。
 
 
-##例外
+## 例外
 本関数は [`regex_error`](regex_error.md) を送出する可能性がある。  
 もしそのような例外 `e` が送出された場合、 `e.`[`code`](regex_error/code.md)`()` は [`regex_constants::error_complexity`](regex_constants/error_type.md) か [`regex_constants::error_stack`](regex_constants/error_type.md) のいずれかである。
 
 
-##備考
+## 備考
 [`match_results`](match_results.md) オブジェクトを引数に取る形式の場合、そのオブジェクトは引数で指定した検索対象文字列へのイテレータを保持する。  
 このため、検索対象文字列は本関数を呼び出した後も [`match_results`](match_results.md) オブジェクトを使用し終わるまで破棄されないようにする必要がある。  
 従って、(3) の形式に渡す引数 `s` に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。  
 (4) の形式が `deleted` として C++14 で追加された理由は、このような事態をコンパイル時に検出するためである。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -176,7 +176,7 @@ int main()
 * m.str()[link match_results/str.md]
 * m.position()[link match_results/position.md]
 
-###出力
+### 出力
 ```
 (1) = true
 str = 'abc123def', position = 0
@@ -191,21 +191,21 @@ str = 'abc123def', position = 0
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-###備考
+### 備考
 Clang(libc++) では、3.4 までは (4) の形式は存在しない。  
 GCC(libstdc++) では、4.9.2 までは (4) の形式は存在しない。
 
 
-##参照
+## 参照
 * [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)

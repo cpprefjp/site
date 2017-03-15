@@ -1,4 +1,4 @@
-#lock
+# lock
 * memory[meta header]
 * std[meta namespace]
 * weak_ptr[meta class]
@@ -10,11 +10,11 @@ shared_ptr<T> lock() const noexcept;
 ```
 * shared_ptr[link /reference/memory/shared_ptr.md]
 
-##概要
+## 概要
 監視している[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを取得する。
 
 
-##戻り値
+## 戻り値
 ```cpp
 expired() ? shared_ptr<T>() : shared_ptr<T>(*this)
 ```
@@ -29,7 +29,7 @@ expired() ? shared_ptr<T>() : shared_ptr<T>(*this)
 - C++14 : 上記に相当することをアトミックに実行する。
 
 
-##備考
+## 備考
 (この関数が`shared_ptr`オブジェクトではなく生ポインタを返す設計になっていない理由を解説する。以下のコードを考えてみよう：
 
 ```cpp
@@ -50,11 +50,11 @@ if (int* r = wp.lock()) {
 
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -79,21 +79,21 @@ int main()
 ```
 * lock()[color ff0000]
 
-###出力
+### 出力
 ```
 3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 - [LWG 2316 - weak_ptr::lock() should be atomic](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2316)
 

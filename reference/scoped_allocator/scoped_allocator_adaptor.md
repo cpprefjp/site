@@ -1,4 +1,4 @@
-#scoped_allocator_adaptor
+# scoped_allocator_adaptor
 * scoped_allocator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `scoped_allocator_adaptor`は、[`vector`](/reference/vector.md)`<`[`string`](/reference/string/basic_string.md)`>`のように、メモリ確保を行う型が入れ子になっているような場合に、外側と内側でアロケータオブジェクトを共有するための、アロケータクラスのアダプタである。
 
 以下は、このアダプタクラスを使用することによって変化する、コンテナのメモリイメージである。
@@ -38,7 +38,7 @@ namespace std {
 - `InnerAlloc...` : 内側のアロケータ。(たとえばコンテナの要素に対するアロケータ)
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|----------------------------------------------|-------|
@@ -64,7 +64,7 @@ namespace std {
 [select]: ./scoped_allocator_adaptor/select_on_container_copy_construction.md
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|------------------------------|-------|
@@ -83,7 +83,7 @@ namespace std {
 | `rebind<U>` | 型`U`を確保するように再束縛する | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前                                                       | 説明       | 対応バージョン |
 |------------------------------------------------------------|------------|-------|
@@ -91,7 +91,7 @@ namespace std {
 | [`operator!=`](scoped_allocator_adaptor/op_not_equal.md) | 非等値比較 | C++11 |
 
 
-##例1 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる
+## 例1 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる
 ```cpp
 #include <iostream>
 #include <vector>
@@ -163,13 +163,13 @@ int main()
 * v.get_allocator()[link /reference/vector/get_allocator.md]
 * v.front()[link /reference/vector/front.md]
 
-###出力
+### 出力
 ```
 5
 5
 ```
 
-##例2 全ての要素にアロケータオブジェクトの状態を伝搬させる
+## 例2 全ての要素にアロケータオブジェクトの状態を伝搬させる
 ```cpp
 #include <iostream>
 #include <vector>
@@ -247,18 +247,18 @@ int main()
 * v.get_allocator()[link /reference/vector/get_allocator.md]
 * x.get_allocator()[link /reference/forward_list/get_allocator.md]
 
-###出力
+### 出力
 ```
 container allocator : 5
 element allocator : 2
 element allocator : 2
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -266,7 +266,7 @@ element allocator : 2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-##参照
+## 参照
 - [N2554 The Scoped Allocator Model (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2554.pdf)
 - [Scoped allocators - C++11 FAQ](http://www.stroustrup.com/C++11FAQ.html#scoped-allocator)
 

@@ -1,4 +1,4 @@
-#outer_allocator
+# outer_allocator
 * scoped_allocator[meta header]
 * std[meta namespace]
 * scoped_allocator_adaptor[meta class]
@@ -10,16 +10,16 @@ outer_allocator_type& outer_allocator() noexcept;             // (1)
 const outer_allocator_type& outer_allocator() const noexcept; // (2)
 ```
 
-##概要
+## 概要
 外側のアロケータを取得する。
 
 
-##戻り値
+## 戻り値
 - (1) : `static_cast<OuterAlloc&>(*this)`
 - (2) : `static_cast<const OuterAlloc&>(*this)`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -91,16 +91,16 @@ int main()
 * std::basic_string[link /reference/string/basic_string.md]
 * std::char_traits[link /reference/string/char_traits.md]
 
-###出力
+### 出力
 ```
 5
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??

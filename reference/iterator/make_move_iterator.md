@@ -1,4 +1,4 @@
-#make_move_iterator
+# make_move_iterator
 * iterator[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -15,18 +15,18 @@ namespace std {
 ```
 * move_iterator[link move_iterator.md]
 
-##概要
+## 概要
 `move_iterator`のヘルパ関数。
 
 
-##戻り値
+## 戻り値
 ```cpp
 return move_iterator<Iterator>(i);
 ```
 * move_iterator[link move_iterator.md]
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -47,16 +47,16 @@ int main()
 ```
 * std::make_move_iterator[color ff0000]
 
-###出力
+### 出力
 ```
 0
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -64,7 +64,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG Issue 2061. `make_move_iterator` and arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2061)
     - C++11ではパラメータが`const Iterator&`だったが、C++14では`Iterator`に変更された。これは、組み込み配列を渡された際に、ポインタに型推論(decay)させるため。
 

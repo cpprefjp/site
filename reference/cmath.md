@@ -1,4 +1,4 @@
-#cmath
+# cmath
 * cmath[meta header]
 
 `<cmath>`ヘッダでは、一般的な数学関数および各種マクロを提供する。
@@ -28,14 +28,14 @@
 ## <a name="difference-from-c" href="#difference-from-c">標準Cライブラリとの差異</a>
 `<cmath>`は基本的には、標準 C ライブラリの `<math.h>` に準拠しているが、いくつかの変更点がある。
 
-###C++03のC90との差異
+### C++03のC90との差異
 - 各関数は std 名前空間に定義されている。
 - `fabs` と同等の関数 `abs` を追加している。
 - `pow` の第 2 引数が `int` のオーバーロードを追加している。
 - 各関数（上記 2 関数を含む）に対して、引数および戻り値の `double` に対応する箇所が `float` および `long double` になっているオーバーロードバージョンを追加している。
 
 
-###C++11のC99との差異
+### C++11のC99との差異
 - 各関数は std 名前空間に定義されている。
 - `fabs` と同等の関数 `abs` を追加している。
 - 引数に `double` を含む各関数（上記 `abs` を含む）に対して、引数および戻り値の `double` に対応する箇所が `float` と `long double` のオーバーロードバージョンを追加している。  
@@ -360,6 +360,6 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`math_errhandling`](cmath/math_errhandling.md) | `<cmath>` 内の関数がエラーをどのように取り扱うかを表すマクロ | C++11 |
 
 
-##参照
+## 参照
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
 

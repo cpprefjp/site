@@ -1,4 +1,4 @@
-#is_permutation
+# is_permutation
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -26,28 +26,28 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `first2` で始まる範囲を並べ替えたものが、`[first1, last1)` の範囲と一致するか判定する。
 
 
-##要件
+## 要件
 - `decltype(*first1)` と `decltype(*first2)` の型が同じであること。
 - `BinaryPredicate` は等価関係を持っていること。
 
 
-##戻り値
+## 戻り値
 `last2` が与えられている形式の場合、`last1 - first1 != last2 - first2` であれば `false` を返す。  
 そうでなければ、`[first1, last1)` の範囲と `[first2, first2 + (last1 - first1))` の範囲を並び変えたもので、[`equal`](equal.md)`(first1, last1, first2)`、あるいは [`equal`](equal.md)`(first1, last1, first2, pred)` が `true` を返すようなものがあれば `true` を、そうでなければ `false` を返す。  
 なお、実際に並べ替えが行われるわけではない。
 
 
-##計算量
+## 計算量
 `last2` が与えられている形式の場合、`ForwardIterator1` と `ForwardIterator2` がどちらもランダムアクセスイテレータの要件を満たし、かつ `last1 - first1 != last2 - first2` であれば 1 度も述語の適用を行わない。  
 そうでなければ、[`equal`](/reference/algorithm/equal.md)`(first1, last1, first2, last2) == true` もしくは [`equal`](/reference/algorithm/equal.md)`(first1, last1, first2, last2, pred) == true` の場合（`last2` が無い形式の場合、[`equal`](/reference/algorithm/equal.md) も `last2` の無い形式で置き換える）、[`distance`](/reference/iterator/distance.md)`(first1, last1)` 回の述語適用で完了する。  
 そうでなければ、[`distance`](/reference/iterator/distance.md)`(first1, last1)` をNとした場合に最悪O(N^2)回の述語適用で完了する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -69,14 +69,14 @@ int main ()
 * good.begin()[link /reference/vector/begin.md]
 * bad.begin()[link /reference/vector/begin.md]
 
-###出力
+### 出力
 ```
 true
 false
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class ForwardIterator1, class ForwardIterator2>
 bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
@@ -114,7 +114,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
   return true;
 }
 
-#if __cplusplus >= 201402L
+# if __cplusplus >= 201402L
 
 template <class RandomAccessIterator1, class RandomAccessIterator2, class BinaryPredicate>
 bool is_permutation_impl(RandomAccessIterator1 first1, RandomAccessIterator1 last1,
@@ -168,7 +168,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
                              typename std::iterator_traits<ForwardIterator2>::iterator_category());
 }
 
-#endif
+# endif
 ```
 * std::tie[link /reference/tuple/tie.md]
 * std::mismatch[link mismatch.md]
@@ -181,13 +181,13 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 * std::forward_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 - C++14: 2つ目の終端のイテレータ`last2`を実引数に取るオーバーロードの追加。
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -195,6 +195,6 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
     - C++14で追加されたオーバーロードは14.0から実装されている。
 
-##参照
+## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
     - C++14から追加された、`last2`を受け取るオーバーロードの提案文書

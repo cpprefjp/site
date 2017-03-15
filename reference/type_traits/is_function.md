@@ -1,4 +1,4 @@
-#is_function
+# is_function
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,15 +11,15 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 型`T`が関数型か調べる
 
 
-##効果
+## 効果
 `is_function`は、型`T`が関数型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
-##例
+## 例
 ```cpp
 #include <type_traits>
 
@@ -46,21 +46,21 @@ static_assert(std::is_function<f&&>::value == false, "f&& is not function");
 int main(){}
 ```
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.3, 4.6.1, 4.7.0
 - [Clang](/implementation.md#clang) 3.1, 3.2, 3.3
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 	- 10.0までは、関数への右辺値参照型をテンプレート実引数に渡すとコンパイルエラーになる。上記例では、`std::is_function<f&&>`の場合が該当する。
 
-####備考
+#### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラのバグのために関数への右辺値参照を用いるとエラーになる。
 
 Clang 3.1 - 3.3 では以下のような警告が出るが、これは[Clangのバグ](https://llvm.org/bugs/show_bug.cgi?id=16654)である。

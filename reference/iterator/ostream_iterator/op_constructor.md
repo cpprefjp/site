@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * iterator[meta header]
 * std[meta namespace]
 * ostream_iterator[meta class]
@@ -10,7 +10,7 @@ ostream_iterator(ostream_type& s, const CharT* delimiter);
 ostream_iterator(const ostream_iterator<T, CharT, Traits>& x) = default;
 ```
 
-##ostream_iteratorオブジェクトの構築
+## ostream_iteratorオブジェクトの構築
 - `ostream_iterator(ostream_type& s)`
 
 出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列はヌルとなる。
@@ -20,7 +20,7 @@ ostream_iterator(const ostream_iterator<T, CharT, Traits>& x) = default;
 出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列を受け取り、メンバ変数に保持する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -41,12 +41,12 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 123
 1,2,3,
 ```
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#streamsize
+# streamsize
 * ios[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]

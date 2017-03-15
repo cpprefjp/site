@@ -1,4 +1,4 @@
-#partition_point
+# partition_point
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -13,24 +13,24 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る。
 
 
-##要件
+## 要件
 - `ForwardIterator` の value type は `Predicate` の argument type へ変換可能でなければならない。
 - `[first,last)` は `pred` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現してなければならない。
 
 
-##戻り値
+## 戻り値
 [`all_of`](all_of.md)`(first, mid, pred)` と [`none_of`](none_of.md)`(mid, last, pred)` が `true` であるようなイテレータ `mid` を返す。
 
 
-##計算量
+## 計算量
 O(log(`last - first`)) のオーダーで `pred` が適用される。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -63,13 +63,13 @@ int main()
 * std::partition_point[color ff0000]
 * std::partition[link partition.md]
 
-###出力
+### 出力
 ```
 v : 4,2,3,1,5,
 3
 ```
 
-##実装例
+## 実装例
 ```cpp
 template<class ForwardIterator, class Predicate>
 ForwardIterator
@@ -91,12 +91,12 @@ partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
 * std::next[link /reference/iterator/next.md]
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -104,7 +104,7 @@ partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 

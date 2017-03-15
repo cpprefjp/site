@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * future[meta header]
 * std[meta namespace]
 * shared_future[meta class]
@@ -13,13 +13,13 @@ shared_future(shared_future&& rhs) noexcept; // (4)
 ```
 * future[link /reference/future/future.md]
 
-##shared_futureオブジェクトの構築
+## shared_futureオブジェクトの構築
 - (1) : デフォルトコンストラクタ。共有状態を持たない空の`shared_future`オブジェクトを生成する。
 - (2) : コピーコンストラクタ。`rhs`と同じ共有状態を参照する`shared_future`オブジェクトを生成する。
 - (3), (4) : ムーブコンストラクタ。`rhs`の共有状態への参照を`*this`に移動して`shared_future`オブジェクトを生成する。
 
 
-##事後条件
+## 事後条件
 - (1) :  [`valid()`](valid.md) `== false`
 - (2) : [`valid()`](valid.md) `== rhs.`[`valid()`](valid.md)
 - (3), (4) :
@@ -27,7 +27,7 @@ shared_future(shared_future&& rhs) noexcept; // (4)
     - `rhs.`[`valid()`](valid.md) `== false`になること。
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <future>
@@ -81,15 +81,15 @@ int main()
 * get()[link get.md]
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -97,6 +97,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
-##参照
+## 参照
 
 

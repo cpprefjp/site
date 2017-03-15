@@ -1,4 +1,4 @@
-#operator*
+# operator*
 * iterator[meta header]
 * std[meta namespace]
 * istreambuf_iterator[meta class]
@@ -8,17 +8,17 @@
 CharT operator*() const
 ```
 
-##概要
+## 概要
 イテレータを間接参照する。
 
 
-##戻り値
+## 戻り値
 `sbuf_->sgetc()`で文字を読み込んで返す。
 
 ※`sbuf_`はメンバ変数として保持している`streambuf_type`オブジェクトへのポインタ
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -35,11 +35,11 @@ int main()
 ```
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
-###出力
+### 出力
 ```
 1
 ```
 
-##参照
+## 参照
 
 

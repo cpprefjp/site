@@ -1,4 +1,4 @@
-#select_on_container_copy_construction
+# select_on_container_copy_construction
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
@@ -9,19 +9,19 @@
 static Alloc select_on_container_copy_construction(const Alloc& a);
 ```
 
-##概要
+## 概要
 コンテナのコピー構築に使用するアロケータオブジェクトを取得する。
 
 
-##戻り値
+## 戻り値
 `a.select_on_container_copy_construction()`という式が有効ならその戻り値を返し、そうでなければデフォルト実装として`a`を返す。
 
 
-##備考
+## 備考
 この関数は、標準コンテナのコピーコンストラクタで呼び出され、この関数の戻り値であるアロケータオブジェクトを、コピーに必要なメモリ確保・解放、オブジェクトの構築・破棄に使用する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -107,15 +107,15 @@ int main()
 * traits::destroy[link destroy.md]
 * traits::deallocate[link deallocate.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0

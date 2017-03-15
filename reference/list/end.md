@@ -1,4 +1,4 @@
-#end
+# end
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -11,19 +11,19 @@ const_iterator end() const;          // (2) C++03
 const_iterator end() const noexcept; // (2) C++11
 ```
 
-##概要
+## 概要
 末尾の次を指すイテレータを取得する。
 
 
-##戻り値
+## 戻り値
 末尾の次を指すイテレータ
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -51,7 +51,7 @@ int main()
 * end()[color ff0000]
 * ls.begin()[link begin.md]
 
-###出力
+### 出力
 ```
 1
 2
@@ -61,6 +61,6 @@ int main()
 3
 ```
 
-##参照
+## 参照
 
 

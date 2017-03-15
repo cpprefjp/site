@@ -1,4 +1,4 @@
-#skipws
+# skipws
 * ios[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -9,16 +9,16 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 書式入力を開始する際に空白の読み飛ばすことを指示するマニピュレータ。
 
-##効果
+## 効果
 `str.setf(std::ios_base::skipws)`を実行する。
 
-##戻り値
+## 戻り値
 実引数のstrオブジェクト。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -43,15 +43,15 @@ int main()
 * std::ios_base[link ios_base.md]
 * beg[link ios_base/type-seekdir.md]
 
-###出力
+### 出力
 ```
 1 2
 12
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++03
 
-##参照
+## 参照
 - [`noskipws`](noskipws.md)

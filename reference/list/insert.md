@@ -1,4 +1,4 @@
-#insert
+# insert
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
@@ -29,7 +29,7 @@ iterator insert(const_iterator position,
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 任意の位置に新たな要素を挿入する。
 
 この関数は、指定されたイテレータが指す要素の前に、新たな要素を挿入する。  
@@ -40,11 +40,11 @@ iterator insert(const_iterator position,
 - (5) : `initializer_list`の全て要素を挿入する
 
 
-##要件
+## 要件
 第1パラメータ`position`が、`[`[`begin()`](begin.md)`,` [`end()`](end.md)`]`の範囲の間接参照可能なイテレータであること。
 
 
-##戻り値
+## 戻り値
 - (1), (2) : 挿入された要素を指すイテレータ
 - (3), (4) :
 	- C++03 : なし
@@ -52,12 +52,12 @@ iterator insert(const_iterator position,
 - (5) : 挿入された要素の先頭を指すイテレータ
 
 
-##計算量
+## 計算量
 - (1), (2) : 定数時間
 - (3), (4), (5) : 追加する要素数に比例して線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <list>
@@ -123,7 +123,7 @@ int main()
 * ls.begin()[link begin.md]
 * std::next[link /reference/iterator/next.md]
 
-###出力
+### 出力
 ```
 insert one element : 0 1 2 3 4 
 insert n elements : 1 2 3 3 5 
@@ -132,7 +132,7 @@ insert initializer_list : 1 2 3 4 5 6
 ```
 
 
-##参照
+## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (5)の経緯となる提案文書

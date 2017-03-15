@@ -1,4 +1,4 @@
-#operator()
+# operator()
 * random[meta header]
 * std[meta namespace]
 * piecewise_constant_distribution[meta class]
@@ -13,20 +13,20 @@ template <class URNG>
 result_type operator()(URNG& g, const param_type& parm); // (2)
 ```
 
-##概要
+## 概要
 - (1) : コンストラクタで指定されたパラメータに基いて、乱数生成を行う
 - (2) : コンストラクタで設定されたパラメータの代わりに、`param`を乱数生成のパラメータとして使用して乱数生成を行う
 
 
-##戻り値
+## 戻り値
 区間列と重み列に基いて、ランダムな実数値を生成して返す。
 
 
-##計算量
+## 計算量
 償却定数時間(`g()`の呼び出し回数)
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -85,7 +85,7 @@ int main()
 * densities.begin()[link /reference/array/begin.md]
 
 
-###出力例
+### 出力例
 ```
 0.567734
 0.516554
@@ -100,11 +100,11 @@ int main()
 0.435703
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -112,6 +112,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 
 

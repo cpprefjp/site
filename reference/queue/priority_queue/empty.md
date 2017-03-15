@@ -1,4 +1,4 @@
-#empty
+# empty
 * queue[meta header]
 * std[meta namespace]
 * priority_queue[meta class]
@@ -8,21 +8,21 @@
 bool empty() const;
 ```
 
-##概要
+## 概要
 `priority_queue`が空か否か、つまり要素数が 0 か否かを判定する。
 
 内部のコンテナの `empty()` メンバ関数を呼ぶ。
 
 
-##効果
+## 効果
 `return c.empty();`
 
 
-##戻り値
+## 戻り値
 要素数が0の場合は`true`、それ以外の場合は`false`を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <queue>
@@ -58,12 +58,12 @@ int main()
 * empty()[color ff0000]
 * non_empty_que.push[link push.md]
 
-###出力
+### 出力
 ```
 empty_que is empty
 non_empty_que is not empty
 ```
 
-##参照
+## 参照
 
 

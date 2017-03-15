@@ -1,4 +1,4 @@
-#radix
+# radix
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,11 +12,11 @@ static const int radix;
 static constexpr int radix;
 ```
 
-##概要
+## 概要
 [`digits`](digits.md)を表現する基数を示す
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -34,7 +34,7 @@ int main()
 ```
 * radix[color ff0000]
 
-###出力例
+### 出力例
 ```
 int : 2
 char : 2

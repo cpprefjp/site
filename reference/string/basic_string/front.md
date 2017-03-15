@@ -1,4 +1,4 @@
-#front
+# front
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -10,19 +10,19 @@ const charT& front() const;
 charT& front();
 ```
 
-##概要
+## 概要
 先頭要素への参照を返す。
 
 
-##要件
+## 要件
 `!`[`empty()`](empty.md)
 
 
-##戻り値
+## 戻り値
 `operator[](0)` の結果を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -37,10 +37,10 @@ int main()
 ```
 * front()[color ff0000]
 
-###出力
+### 出力
 ```
 h
 ```
 
-##参照
+## 参照
 - [LWG Issue 534. Missing `basic_string` members](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#534)

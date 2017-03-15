@@ -1,4 +1,4 @@
-#operator+
+# operator+
 * valarray[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -16,7 +16,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `valarray`において、左辺と右辺を加算する。
 
 
@@ -25,7 +25,7 @@ namespace std {
 - (3) : `ys`の各要素に、`x`を加算する。
 
 
-##戻り値
+## 戻り値
 
 - (1) : 以下のコードと同等のことを行う：
 
@@ -58,11 +58,11 @@ return result;
 * +=[link op_plus_assign.md]
 
 
-##備考
+## 備考
 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -101,7 +101,7 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 valarray+valarray : {5,7,9}
 valarray+int : {5,6,7}

@@ -1,4 +1,4 @@
-#adjacent_find
+# adjacent_find
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -13,21 +13,21 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 隣接する要素で条件を満たしている最初の要素を検索する。
 
 
-##戻り値
+## 戻り値
 `[first,last)` 内にあるイテレータ i について、`*i == *(i + 1)` もしくは `pred(*i, *(i + 1)) != false` であるような最初のイテレータを返す。
 
 もしそのようなイテレータが見つからなかった場合は `last` を返す。
 
 
-##計算量
+## 計算量
 与えられたシーケンスが空でない場合、正確に [`min`](/reference/algorithm/min.md)`((i - first) + 1, (last - first) - 1)` 回（`i` は `adjacent_find` の戻り値）の比較または述語が適用される
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iterator>
@@ -49,13 +49,13 @@ int main() {
 ```
 * adjacent_find[color ff0000]
 
-###出力
+### 出力
 ```
 found: index==2
 *it == *(it+1): true
 ```
 
-##実装例
+## 実装例
 ```cpp
 template <class ForwardIterator>
 ForwardIterator adjacent_find(ForwardIterator first, ForwardIterator last)

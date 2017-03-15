@@ -1,4 +1,4 @@
-#binary_search
+# binary_search
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -18,29 +18,29 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 二分探索法による検索を行う。
 
 
-##要件
+## 要件
 `[first,last)` の要素 `e` は `e < value` および `!(value < e)`、または `comp(e, value)` および `!comp(value, e)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。
 
 また、`[first, last)` の全ての要素 `e` は、`e < value` であれば `!(value < e)` である、または `comp(e, value)` であれば `!comp(value, e)` である必要がある。
 
 
-##戻り値
+## 戻り値
 `[first,last)` 内のイテレータ `i` について、`!(*i < value) && !(value < *i)` または `comp(*i, value) == false && comp(value, *i) == false` であるようなイテレータが見つかった場合は `true` を返す。
 
 
-##計算量
+## 計算量
 最大で log2(`last - first`) + 1 回の比較を行う
 
 
-##備考
+## 備考
 - `comp` は 2 引数の関数オブジェクトで、1 番目の引数が 2 番目の引数「より小さい」場合に `true` を、そうでない場合に `false` を返すものとして扱われる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -63,13 +63,13 @@ int main()
 ```
 * std::binary_search[color ff0000]
 
-###出力
+### 出力
 ```
 found
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template <class ForwardIterator, class T>
 bool binary_search(ForwardIterator first, ForwardIterator last,
@@ -90,7 +90,7 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
 * std::lower_bound[link lower_bound.md]
 
 
-##参照
+## 参照
 - [LWG Issue 787. complexity of `binary_search`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#787)
     - C++03までの計算量が間違っていたので、C++11で修正。
 

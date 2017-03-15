@@ -1,4 +1,4 @@
-#swap
+# swap
 * utility[meta header]
 * std[meta namespace]
 * pair[meta class]
@@ -8,29 +8,29 @@
 void swap(pair& p) noexcept(下記参照);
 ```
 
-##概要
+## 概要
 他の`pair`オブジェクトと値を入れ替える
 
 
-##要件
+## 要件
 `first_type`と`second_type`が`Swappable`であること。
 
 
-##効果
+## 効果
 `swap(this->first, p.first);`
 
 `swap(this->second, p.second);`
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 `noexcept(swap(first, p.first)) && noexcept(swap(second, p.second))`である場合、この関数は決して例外を送出しない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <utility>
@@ -55,12 +55,12 @@ int main()
 ```
 * swap[color ff0000]
 
-###出力
+### 出力
 ```
 p1 : (2,bbb)
 p2 : (1,aaa)
 ```
 
-##参照
+## 参照
 
 

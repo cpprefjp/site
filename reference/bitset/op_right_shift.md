@@ -1,4 +1,4 @@
-#operator>>
+# operator>>
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
@@ -8,11 +8,11 @@
 bitset<N> operator>>(size_t pos) const noexcept;
 ```
 
-##概要
+## 概要
 ビットを右シフトした`bitset`オブジェクトを生成する。
 
 
-##戻り値
+## 戻り値
 `*this`のビットを`pos`の個数だけ右にシフトさせた`bitset`オブジェクトを生成して返す。溢れたビットは0になる。  
 この関数は、以下のプログラムと同じ動作をする：
 
@@ -22,11 +22,11 @@ return bitset(*this) >>= pos;
 * >>=[link op_right_shift_assign.md]
 
 
-##例外
+## 例外
 投げない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <bitset>
@@ -41,11 +41,11 @@ int main()
 }
 ```
 
-###出力
+### 出力
 ```
 00001100
 ```
 
 
-##参照
+## 参照
 

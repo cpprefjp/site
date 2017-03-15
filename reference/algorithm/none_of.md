@@ -1,4 +1,4 @@
-#none_of
+# none_of
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -11,19 +11,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 範囲の全ての要素が条件を満たさないかを判定する。
 
 
-##戻り値
+## 戻り値
 `[first,last)` が空であったり、`[first,last)` 内の全てのイテレータ `i` について `pred(*i)` が `false` である場合は `true` を返し、そうでない場合は `false` を返す。
 
 
-##計算量
+## 計算量
 最大で `last - first` 回 `pred` を実行する。
 
 
-###備考
+### 備考
 この関数は
 
 ```cpp
@@ -34,7 +34,7 @@ all_of(first, last, not1(pred));
 とほぼ同じであるが、全ての要素が条件を満たしていないということを明示したい場合は `none_of()` を使う方が意図が伝わりやすい。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -56,13 +56,13 @@ int main() {
 ```
 * std::none_of[color ff0000]
 
-###出力
+### 出力
 ```
 false
 true
 ```
 
-##実装例
+## 実装例
 ```cpp
 template <class InputIterator, class Predicate>
 bool none_of(InputIterator first, InputIterator last, Predicate pred) {
@@ -72,11 +72,11 @@ bool none_of(InputIterator first, InputIterator last, Predicate pred) {
 }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
@@ -84,12 +84,12 @@ bool none_of(InputIterator first, InputIterator last, Predicate pred) {
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##関連項目
+## 関連項目
 - [`all_of`](/reference/algorithm/all_of.md)
 - [`any_of`](/reference/algorithm/any_of.md)
 
 
-##参照
+## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 

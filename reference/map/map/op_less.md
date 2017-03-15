@@ -1,4 +1,4 @@
-#operator<
+# operator<
 * map[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,24 +10,24 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `x` が `y` より小さいかどうかの判定を行う。
 
 
-##パラメータ
+## パラメータ
 - `x`, `y`<br/>
 比較するコンテナ
 
 
-##戻り値
+## 戻り値
 `x` が `y` より小さい場合に `true`, そうでない場合に `false`。
 
 
-##計算量
+## 計算量
 [`size()`](/reference/map/map/size.md) に対して線形時間。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <map>
@@ -51,13 +51,13 @@ int main()
 ```
 * insert[link insert.md]
 
-###出力
+### 出力
 ```
 0
 1
 ```
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??

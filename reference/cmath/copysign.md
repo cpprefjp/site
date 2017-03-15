@@ -1,4 +1,4 @@
-#copysign
+# copysign
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -15,21 +15,21 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 `x`の絶対値に`y`の符号が付いた値を生成する。
 
 
-##戻り値
+## 戻り値
 `x`の絶対値に`y`の符号が付いた値を返す。
 
 `x`の値がNaNである場合、`y`の符号が付いたNaNを返す。
 
 
-##備考
+## 備考
 符号付きゼロを表現するが負のゼロを取り扱わない実装では、この関数はゼロを正と見なす。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -45,19 +45,19 @@ int main()
 ```
 * std::copysign[color ff0000]
 
-###出力
+### 出力
 ```
 1
 -1
 ```
 
-###備考
+### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上
 
 
-##実装例
+## 実装例
 ```cpp
 namespace std {
   float copysign(float x, float y)
@@ -91,11 +91,11 @@ namespace std {
 * quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3
 - [ICC](/implementation.md#icc): ??

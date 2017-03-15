@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * regex[meta header]
 * std[meta namespace]
 * regex_token_iterator[meta class]
@@ -9,19 +9,19 @@
 bool operator!=(const regex_token_iterator& right) const;
 ```
 
-##概要
+## 概要
 `regex_token_iterator` の非等値比較を行う。
 
 
-##戻り値
+## 戻り値
 `!(*this == right)`
 
 
-##備考
+## 備考
 - 本メンバ関数が `true` を返したとしても、イテレータの指す文字列が等しくないとは限らないことに注意すること。（下記の例を参照）
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iterator>
@@ -56,7 +56,7 @@ int main()
 * std::advance[link /reference/iterator/advance.md]
 * str()[link /reference/regex/sub_match/str.md]
 
-###出力
+### 出力
 ```
 true
 match range = (9, 20), str = 'enumerator1'
@@ -64,11 +64,11 @@ match range = (31, 42), str = 'enumerator1'
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -
@@ -77,7 +77,7 @@ match range = (31, 42), str = 'enumerator1'
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 | 名前                                       | 説明           | 対応バージョン |
 |--------------------------------------------|----------------|----------------|
 | [`operator*`](op_deref.md)                 | 間接参照       | C++11          |

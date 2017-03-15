@@ -1,4 +1,4 @@
-#equal_range
+# equal_range
 * unordered_set[meta header]
 * std[meta namespace]
 * unordered_multiset[meta class]
@@ -11,19 +11,19 @@ std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 ```
 * pair[link /reference/utility/pair.md]
 
-##概要
+## 概要
 指定したキーの範囲を取得する
 
 
-##戻り値
+## 戻り値
 キー値が引数 `k` と等価な要素を全て含む範囲。そのような要素が無い場合には、[`make_pair`](/reference/utility/make_pair.md)`(`[`end`](end.md)`(),` [`end`](end.md)`())`。
 
 
-##計算量
+## 計算量
 平均的なケースでは O([`count`](count.md)`(k)`)。最悪のケースでは O([`size`](size.md)`()`)。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -66,18 +66,18 @@ int main()
 * first[link /reference/utility/pair.md]
 * second[link /reference/utility/pair.md]
 
-###出力
+### 出力
 ```
 9, 9, 7, 7, 5, 5, 1, 1, 3, 3,
 equal_range(5): [4, 6)
 equal_range(8): [10, 10)
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1
 - [GCC](/implementation.md#gcc): -
@@ -85,7 +85,7 @@ equal_range(8): [10, 10)
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 - [`find`](find.md)
 - [`count`](count.md)
 

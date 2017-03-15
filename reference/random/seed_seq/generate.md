@@ -1,4 +1,4 @@
-#generate
+# generate
 * random[meta header]
 * std[meta namespace]
 * seed_seq[meta class]
@@ -10,13 +10,13 @@ template <class RandomAccessIterator>
 void generate(RandomAccessIterator begin, RandomAccessIterator end);
 ```
 
-##概要
+## 概要
 シード列を生成する。  
 この関数は、擬似乱数生成器の、シード列を受け取るコンストラクタおよび`seed()`メンバ関数内で使用される。  
 `seed_seq`のコンストラクタで渡されたシード列を元に、32ビット整数の範囲内で偏りがないようにシード値を分布させる。  
 
 
-##戻り値
+## 戻り値
 以下のアルゴリズムで、シード列の値を分布させる。  
 このアルゴリズムは、メルセンヌ・ツイスター法を考案した松本眞氏と西村拓士氏によるシーケンス初期化を、斎藤睦夫氏が改善したものである( 参照：『[An Application of Finite Field: Design and Implementation of 128-bit Instruction-Based Fast Pseudorandom Number Generator](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/M062821.pdf)』 )。
 
@@ -59,11 +59,11 @@ for (size_t k = m; k < m + n; ++k) {
 ```
 
 
-##例外
+## 例外
 - C++14 : `RandomAccessIterator`要件のオブジェクト`begin`、`end`への操作が、例外を投げる可能性がある
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -85,7 +85,7 @@ int main()
 * seeds.end()[link /reference/vector/end.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 
-###出力
+### 出力
 ```
 4069278582
 1003217515
@@ -99,11 +99,11 @@ int main()
 770742192
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -111,7 +111,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
-##参照
+## 参照
 - [LWG Issue 2180. Exceptions from `std::seed_seq` operations](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2180)
 
 

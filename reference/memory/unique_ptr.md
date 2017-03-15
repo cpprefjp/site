@@ -1,4 +1,4 @@
-#unique_ptr
+# unique_ptr
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -17,7 +17,7 @@ namespace std {
 ```
 * default_delete[link /reference/memory/default_delete.md]
 
-##概要
+## 概要
 `unique_ptr`は指定されたリソースへのポインタの所有権(ownership)を唯一(unique)持っているように振舞うスマートポインタである。`auto_ptr`を置き換えるものとしてC++に追加された。
 
 `unique_ptr`はコピー不可能なクラスである。代わりにムーブによって所有権を他の`unique_ptr` へ譲渡することができる。また、[`shared_ptr`](/reference/memory/shared_ptr.md)は`unique_ptr`を受け取るムーブコンストラクタとムーブ代入演算子を持つ。
@@ -28,7 +28,7 @@ namespace std {
 - `unique_ptr`自体も`T[]`時には部分特殊化され、`operator[]`によるアクセスを提供している。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------|--------------------------------------------------|-------|
@@ -43,7 +43,7 @@ namespace std {
 | [`operator bool`](unique_ptr/op_bool.md)    | 有効なリソースを所有しているかを判定する         | C++11 |
 
 
-###単一オブジェクト版(unique_ptr<T>)固有のメンバ関数
+### 単一オブジェクト版(unique_ptr<T>)固有のメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|----------------|-------|
@@ -51,14 +51,14 @@ namespace std {
 | [`operator->`](unique_ptr/op_arrow.md) | メンバアクセス | C++11 |
 
 
-###配列版(unique_ptr<T[ ]>)固有のメンバ関数
+### 配列版(unique_ptr<T[ ]>)固有のメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------|----------------------------|-------|
 | [`operator[]`](unique_ptr/op_at.md) | 任意の位置の要素にアクセス | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|---------------------------------|-------|
@@ -67,7 +67,7 @@ namespace std {
 | `deleter_type` | デリータの型`D` | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|-------------------------------------------|-------|
@@ -80,7 +80,7 @@ namespace std {
 | [`swap`](unique_ptr/swap_free.md)              | 2つの`unique_ptr`オブジェクトを入れ替える | C++11 |
 | [`make_unique`](make_unique.md)                | `unique_ptr`を構築するヘルパ関数          | C++14 |
 
-##ハッシュサポート
+## ハッシュサポート
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------|------------------------------------------|-------|
@@ -88,7 +88,7 @@ namespace std {
 | `template <class T, class D> struct hash<unique_ptr<N>>;` | `hash`クラスの`unique_ptr`に対する特殊化 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <memory>
 #include <iostream>
@@ -115,17 +115,17 @@ int main() {
 * std::move[link /reference/utility/move.md]
 * std::abort[link /reference/cstdlib/abort.md]
 
-###出力
+### 出力
 ```
 hoge::hoge()
 hoge::~hoge()
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4, 4.7.2
@@ -133,7 +133,7 @@ hoge::~hoge()
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 - [Rvalue Reference Recommendations for Chapter 20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1856.html)
     - `unique_ptr`の追加と`auto_ptr`の非推奨が提案された文書。

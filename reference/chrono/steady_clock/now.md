@@ -1,4 +1,4 @@
-#now
+# now
 * chrono[meta header]
 * std::chrono[meta namespace]
 * steady_clock[meta class]
@@ -10,19 +10,19 @@ static time_point now() noexcept;
 ```
 * time_point[link /reference/chrono/time_point.md]
 
-##概要
+## 概要
 現在日時を取得する
 
 
-##戻り値
+## 戻り値
 現在日時を指す[`time_point`](/reference/chrono/time_point.md)。
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <chrono>
@@ -43,16 +43,16 @@ int main()
 * duration_cast[link /reference/chrono/duration_cast.md]
 * count()[link /reference/chrono/duration/count.md]
 
-###出力
+### 出力
 ```
 3
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 	- 11.0, 12.0は逆行が起こり得る、すなわち正しくない実装であった。

@@ -1,4 +1,4 @@
-#max_size
+# max_size
 * regex[meta header]
 * std[meta namespace]
 * match_results[meta class]
@@ -9,19 +9,19 @@
 size_type max_size() const;
 ```
 
-##概要
+## 概要
 `*this` に格納できるサブマッチの最大数を返す。
 
 
-##戻り値
+## 戻り値
 `*this` に格納できるサブマッチの最大数
 
 
-##備考
+## 備考
 - 本メンバ関数は [`ready`](ready.md)`() == false` でも呼び出すことが可能である。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -35,17 +35,17 @@ int main()
 * max_size()[color ff0000]
 * std::cmatch[link ../match_results.md]
 
-###出力例
+### 出力例
 ```
 max_size = 768614336404564650
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

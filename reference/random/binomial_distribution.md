@@ -1,4 +1,4 @@
-#binomial_distribution
+# binomial_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `binomial_distribution`は、離散確率分布の一種である二項分布を表すクラスである。  
 成功する確率pの事象をn回施行し、成功した回数を求める。  
 
@@ -26,8 +26,8 @@ namespace std {
 - `IntType` : 成功した回数を表す整数型。
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|--------------------|-------|
@@ -36,14 +36,14 @@ namespace std {
 | [`reset`](binomial_distribution/reset.md)                         | 状態をリセットする | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|----------------|-------|
 | [`operator()`](binomial_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------|-------|
@@ -54,7 +54,7 @@ namespace std {
 | [`max`](binomial_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|---------------------------------|-------|
@@ -62,7 +62,7 @@ namespace std {
 | `param_type`  | 分布パラメータの型。未規定。    | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
@@ -72,7 +72,7 @@ namespace std {
 | [`operator>>`](binomial_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <random>
@@ -96,17 +96,17 @@ int main()
 * seed_gen()[link random_device/op_call.md]
 * dist(engine)[link binomial_distribution/op_call.md]
 
-###出力例
+### 出力例
 ```
 2
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
@@ -114,6 +114,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [二項分布 - Wikipedia](https://ja.wikipedia.org/wiki/二項分布)
 

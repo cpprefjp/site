@@ -1,4 +1,4 @@
-#terminate
+# terminate
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -9,14 +9,14 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `terminate()`は、プログラムを異常終了させる関数である。
 
 この関数は、特定の状況で呼び出されることが規定されている。
 
 もちろん、ユーザーが任意に呼び出すこともできる。
 
-##この関数が呼び出される状況
+## この関数が呼び出される状況
 以下のいずれかに該当する場合、この`terminate()`関数が呼び出される。
 
 - 以下の場合で例外送出により脱出しようとした
@@ -36,7 +36,7 @@ namespace std {
 - join可能な`thread`（[`thread::joinable()`](../thread/thread/joinable.md)が`true`であるもの）に対して、デストラクタまたは代入演算子が実行された
 
 
-##効果
+## 効果
 終了ハンドラを呼び出す。
 
 終了ハンドラは[`set_terminate()`](set_terminate.md)で指定できる。
@@ -44,15 +44,15 @@ namespace std {
 デフォルトの終了ハンドラは[`abort()`](/reference/cstdlib/abort.md)を呼び出すことと規定されている。
 
 
-##戻り値
+## 戻り値
 なし
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <exception>
@@ -68,14 +68,14 @@ int main()
 ```
 * std::terminate[color ff0000]
 
-###出力例
+### 出力例
 ```
 This application has requested the Runtime to terminate it in an unusual way.
 Please contact the application's support team for more information.
 terminate called without an active exception
 ```
 
-##参照
+## 参照
 - 関係する関数
 	- [`get_terminate`](get_terminate.md)
 	- [`set_terminate`](set_terminate.md)

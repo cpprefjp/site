@@ -1,4 +1,4 @@
-#size_t
+# size_t
 * cstddef[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -14,7 +14,7 @@ namespace std {
 この型はそのほかに、コンテナの要素数やインデックス値を表すために使用される。
 
 
-##例
+## 例
 ```cpp
 #include <cstddef>
 #include <cassert>
@@ -28,7 +28,7 @@ int main()
 * std::size_t[color ff0000]
 
 
-###出力
+### 出力
 ```
 ```
 

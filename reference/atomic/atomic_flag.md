@@ -1,4 +1,4 @@
-#atomic_flag
+# atomic_flag
 * atomic[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,11 +10,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `atomic_flag`クラスは、フラグを表現するためのアトミッククラスである。このクラスは、シンプルなtest-and-set (TAS)機能を提供し、セットとクリアの2状態のみを持つ。このクラスに対する操作はロックフリーであることが保証される。（機能的には[`atomic<bool>`](atomic.md)クラスよりも貧弱だが、`atomic_flag`クラスの操作は必ずロックフリーである点が異なる。）
 
 
-###メンバ関数
+### メンバ関数
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|--------------------------|-------|
 | [`(constructor)`](atomic_flag/op_constructor.md) | コンストラクタ           | C++11 |
@@ -24,7 +24,7 @@ namespace std {
 | [`clear`](atomic_flag/clear.md)               | フラグをクリアする       | C++11 |
 
 
-###例
+### 例
 ```cpp
 // スピンロックの実装
 #include <iostream>
@@ -88,18 +88,18 @@ int main()
 * test_and_set[color ff0000]
 * clear[color ff0000]
 
-###出力例
+### 出力例
 ```
 2
 1
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -108,5 +108,5 @@ int main()
 	- Visual C++ 11.0はコピーコンストラクタと代入演算子のdelete宣言が存在しない。
 
 
-###参照
+### 参照
 

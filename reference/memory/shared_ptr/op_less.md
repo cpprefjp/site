@@ -1,4 +1,4 @@
-#operator<
+# operator<
 * memory[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -18,13 +18,13 @@ namespace std {
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
-##概要
+## 概要
 `shared_ptr`において、左辺が右辺より小さいかを判定する。
 
 比較対象は、`shared_ptr`が指す値ではなく、`shared_ptr`が保持するポインタ値。これは「値ベース(value-based)な比較」と呼ばれる。「所有権ベース(ownership-based)な比較」は、[`owner_before()`](owner_before.md)を参照。
 
 
-##戻り値
+## 戻り値
 - (1) : [`std::common_type`](/reference/type_traits/common_type.md)`<T*, U*>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/less.md)`<CT>(a.`[`get()`](get.md), b.`[`get()`](get.md)`)`で比較した結果を返す。
 
 - (2) : [`std::less`](/reference/functional/less.md)`<T*>()(x.`[`get()`](get.md)`, nullptr)`で比較した結果を返す。
@@ -32,7 +32,7 @@ namespace std {
 - (3) : [`std::less`](/reference/functional/less.md)`<T*>()(nullptr, x.`[`get()`](get.md)`)`で比較した結果を返す。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <memory>
@@ -55,18 +55,18 @@ int main()
 }
 ```
 
-###出力例
+### 出力例
 ```
 false
 false
 true
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.3.6 (`nullptr`バージョン以外), 4.7.4
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0 (`nullptr`バージョン以外), 3.3
 - [ICC](/implementation.md#icc): ?
@@ -74,6 +74,6 @@ true
 	- Visual C++ 11.0までは`nullptr`バージョンがない。
 
 
-##参照
+## 参照
 - [N2637 Revisiting `std::shared_ptr` comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 

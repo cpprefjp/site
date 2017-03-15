@@ -1,4 +1,4 @@
-#pow
+# pow
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
@@ -17,11 +17,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 累乗を得る。pow は power（累乗、指数）の略。
 
 
-##戻り値
+## 戻り値
 - (1) : 以下のコードと同等のことを行う：
 
 ```cpp
@@ -58,11 +58,11 @@ return result;
 * pow[link /reference/cmath/pow.md]
 
 
-##備考
+## 備考
 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <valarray>
@@ -102,7 +102,7 @@ int main()
 ```
 * pow[color ff0000]
 
-###出力
+### 出力
 ```
 valarray-valarray : {8,81,1024}
 valarray-float : {8,27,64}

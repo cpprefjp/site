@@ -1,4 +1,4 @@
-#cend(size_type)
+# cend(size_type)
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_map[meta class]
@@ -9,25 +9,25 @@
 const_local_iterator cend(size_type n) const;
 ```
 
-##概要
+## 概要
 インデックス（添え字）で指定したバケット内の最後の要素の次を指す読み取り専用イテレータを取得する。
 
 `unordered_map` は非順序連想コンテナであるため「最後」に特に意味はないが、[`cbegin(size_type)`](cbegin-size_type.md) で得られたイテレータを `cend(size_type)` まで `operator++()` でイテレートすることで当該バケットの要素を漏れなくダブりなく走査することができる。
 
 
-##要件
+## 要件
 パラメータ `n` は `[0,` [`bucket_count`](bucket_count.md)`())` の範囲でなければならない。
 
 
-##戻り値
+## 戻り値
 インデックス（添え字） `n` で指定したバケット内の最後の要素の次を指すイテレータ
 
 
-##計算量
+## 計算量
 定数
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <unordered_map>
@@ -64,7 +64,7 @@ int main()
 * for_each[link /reference/algorithm/for_each.md]
 * cend[link cend-size_type.md]
 
-###出力例
+### 出力例
 ```
 bucket_count() = 11
 bucket = 0, bucket_size = 1, keys = { B, }
@@ -80,11 +80,11 @@ bucket = 9, bucket_size = 0, keys = { }
 bucket = 10, bucket_size = 1, keys = { A, }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): -
@@ -92,7 +92,7 @@ bucket = 10, bucket_size = 1, keys = { A, }
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-##参照
+## 参照
 
 | 名前                                         | 説明 |
 |----------------------------------------------|--------------------------------|

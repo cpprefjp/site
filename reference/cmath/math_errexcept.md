@@ -1,19 +1,19 @@
-#MATH_ERREXCEPT
+# MATH_ERREXCEPT
 * cmath[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
-#define MATH_ERREXCEPT 2
+# define MATH_ERREXCEPT 2
 ```
 
-##概要
+## 概要
 `MATH_ERREXCEPT`は、[`<cmath>`](../cmath.md)内で浮動小数点例外が発生したかを表す整数定数マクロである。
 
 この定数と[`math_errhandling`](math_errhandling.md)でビットANDをとった結果がゼロでないか比較することにより、浮動小数点例外が発生したか否かを判定できる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -59,17 +59,17 @@ int main()
 * std::feclearexcept[link ../cfenv/feclearexcept.md]
 * std::fetestexcept[link ../cfenv/fetestexcept.md]
 
-###出力例
+### 出力例
 ```
 FE_DIVBYZERO
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3
 - [ICC](/implementation.md#icc): ??

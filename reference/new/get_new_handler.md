@@ -1,4 +1,4 @@
-#get_new_handler
+# get_new_handler
 * new[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -11,11 +11,11 @@ namespace std {
 ```
 * new_handler[link /reference/new/new_handler.md]
 
-##概要
+## 概要
 `new`失敗時に呼ばれる関数を取得する
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <new>
@@ -47,16 +47,16 @@ int main()
 * std::set_new_handler[link set_new_handler.md]
 * std::abort()[link /reference/cstdlib/abort.md]
 
-###出力
+### 出力
 ```
 メモリ確保に失敗した
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 

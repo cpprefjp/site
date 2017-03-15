@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * iterator[meta header]
 * std[meta namespace]
 * reverse_iterator[meta class]
@@ -11,7 +11,7 @@ template <class U>
 reverse_iterator& operator=(const reverse_iterator<U>& u);
 ```
 
-##概要
+## 概要
 - `reverse_iterator& operator=(const reverse_iterator<U>& u);`
 
 `u.base()`をメンバ変数`current`に保持する。
@@ -19,11 +19,11 @@ reverse_iterator& operator=(const reverse_iterator<U>& u);
 要件： `U`が`Iterator`に変換可能であること
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -53,13 +53,13 @@ int main()
 * it2 = it1[color ff0000]
 * it3  = it2[color ff0000]
 
-###出力
+### 出力
 ```
 3
 2
 1
 ```
 
-##参照
+## 参照
 
 

@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * string[meta header]
 * std[meta namespace]
 * basic_string[meta class]
@@ -40,7 +40,7 @@ basic_string(basic_string&& str, const Allocator&);      // (12) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
-##概要
+## 概要
 - (1) : デフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
 - (2) : アロケータを受け取るデフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
 - (3) : コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
@@ -55,7 +55,7 @@ basic_string(basic_string&& str, const Allocator&);      // (12) C++11
 - (12) : アロケータを受け取るムーブコンストラクタ。
 
 
-##要件
+## 要件
 - (6)
     - C++03 : `s`がヌルポインタではないこと。`n < npos`であること。
     - C++14 : `s`は、`charT`型の要素を少なくても`n`個を持つ配列を指していること。
@@ -64,11 +64,11 @@ basic_string(basic_string&& str, const Allocator&);      // (12) C++11
     - C++14 : `s`は、`charT`型の要素を少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個持つ配列を指していること。
 
 
-##例外
+## 例外
 - (12) : `alloc == str.`[`get_allocator()`](get_allocator.md)の場合、例外を投げない。
 
 
-##備考
+## 備考
 - C++14 では、`explicit basic_string(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
     これは、デフォルトコンストラクタに `explicit` が付いていると、
 
@@ -79,7 +79,7 @@ std::basic_string<char> s = {};
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -129,7 +129,7 @@ int main()
 * s4.begin()[link begin.md]
 * s4.end()[link end.md]
 
-###出力
+### 出力
 ```
 s1 : 
 s2 : hello
@@ -142,7 +142,7 @@ s8 : hello
 s9 : hello
 ```
 
-##参照
+## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (10)の経緯となる提案文書
 - [LWG Issue 2069. Inconsistent exception spec for `basic_string` move constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2069)

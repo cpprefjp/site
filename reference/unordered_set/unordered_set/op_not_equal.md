@@ -1,4 +1,4 @@
-#operator!=
+# operator!=
 * unordered_set[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -12,11 +12,11 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `unordered_set` オブジェクトを非等値比較する。
 
 
-##要件
+## 要件
 - `a.`[`hash_function`](hash_function.md)`()` と `b.`[`hash_function`](hash_function.md)`()` は同じふるまいをすること。
 
 - `a.`[`key_eq`](key_eq.md)`()` と `b.`[`key_eq`](key_eq.md)`()` は同じふるまいをすること。
@@ -24,21 +24,21 @@ namespace std {
 - `key_type` の等値比較演算子（`operator==`）で等値と判定された 2 つのオブジェクトは、[`key_eq`](key_eq.md)`()` でも等値と判定されること。
 
 
-##戻り値
+## 戻り値
 `!(a` [`==`](op_equal.md) `b)` と同等
 
 
-##計算量
+## 計算量
 平均的には O(`n`) だが、最悪のケースでは O(`n`<sup>2</sup>)。ここで、`n = a.`[`size`](size.md)`()`。
 
 
-##備考
+## 備考
 - 本関数は、コンテナ内の要素の比較に [`key_eq`](key_eq.md)`()` で返されるキー比較用関数オブジェクトを使用しないことに注意。
 
 - 本関数は、標準コンテナの要件を満たさない。これは、標準コンテナの要件が `iterator` と `std::`[`equal`](/reference/algorithm/equal.md) を用いて定義されているためである。しかし、本関数の戻り値は、`!(a` [`==`](op_equal.md) `b)` という意味においては、標準コンテナと同様とも考えることができる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -81,7 +81,7 @@ int main()
 * end[link /reference/iterator/end.md]
 * ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
-###出力
+### 出力
 ```
 us1:3, 2, 1,
 us2:6, 5, 4,
@@ -93,11 +93,11 @@ us1 != us3:false
 注：[`unordered_set`](/reference/unordered_set/unordered_set.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1
 - [GCC](/implementation.md#gcc): -
@@ -106,7 +106,7 @@ us1 != us3:false
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
-##実装例
+## 実装例
 ```cpp
 namespace std {
   template <class Key, class Hash, class Pred, class Allocator>
@@ -119,7 +119,7 @@ namespace std {
 ```
 * ==[link op_equal.md]
 
-##参照
+## 参照
 
 | | |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|------------|

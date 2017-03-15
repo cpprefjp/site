@@ -1,4 +1,4 @@
-#weibull_distribution
+# weibull_distribution
 * random[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -12,7 +12,7 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `weibull_distribution`は、確率分布の一種であるワイブル分布を表すクラスである。  
 ワイブル分布は、物体の劣化、寿命、強度、破壊といったものを記述するために考案された分布法である。  
 ワイブル分布は、以下の確率密度関数に基いて、浮動小数点数の値を生成する：
@@ -27,8 +27,8 @@ $$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \ex
 - `RealType` : 生成する実数の型。
 
 
-##メンバ関数
-###構築・リセット
+## メンバ関数
+### 構築・リセット
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------------|--------------------|-------|
@@ -37,14 +37,14 @@ $$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \ex
 | [`reset`](weibull_distribution/reset.md)                        | 状態をリセットする | C++11 |
 
 
-###生成
+### 生成
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|----------------|-------|
 | [`operator()`](weibull_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-###プロパティ
+### プロパティ
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------------------------|-------|
@@ -55,7 +55,7 @@ $$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \ex
 | [`max`](weibull_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
 
-##メンバ型
+## メンバ型
 
 | 型 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
@@ -63,7 +63,7 @@ $$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \ex
 | `param_type`  | 分布パラメータの型。未規定。 | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------|----------------------|-------|
@@ -73,7 +73,7 @@ $$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \ex
 | [`operator>>`](weibull_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <random>
 #include <fstream>
@@ -107,7 +107,7 @@ int main()
 * dist1(engine)[link weibull_distribution/op_call.md]
 * dist2(engine)[link weibull_distribution/op_call.md]
 
-###出力
+### 出力
 ```
 ```
 
@@ -118,18 +118,18 @@ int main()
 この図において、破線はdist1(a = 1.0, b = 1.0)、実線はdist2(a = 1.0, b = 2.0)を意味する。
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 
-###参考
+### 参考
 - [ワイブル分布 - Wikipedia](https://ja.wikipedia.org/wiki/ワイブル分布)
 - [ワイブル分布 = NtRand](http://www.ntrand.com/jp/weibull-distribution/)
 - [疲労や破壊現象とワイブル分布](http://www.mogami-wire.co.jp/notes/weibull.html)

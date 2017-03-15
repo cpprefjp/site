@@ -1,4 +1,4 @@
-#size
+# size
 * stack[meta header]
 * std[meta namespace]
 * stack[meta class]
@@ -8,23 +8,23 @@
 size_type size() const;
 ```
 
-##概要
+## 概要
 `stack` に格納されている要素の個数を返す。
 
 内部のコンテナの `size()` メンバ関数を呼ぶ。
 
 
-##効果
+## 効果
 ```cpp
 return c.size();
 ```
 
 
-##戻り値
+## 戻り値
 `stack` の内部のコンテナに含まれている要素の個数。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <stack>
@@ -53,18 +53,18 @@ int main()
 * size()[color ff0000]
 * st.push[link push.md]
 
-###出力
+### 出力
 ```
 1
 6
 ```
 
-##実装例
+## 実装例
 ```cpp
 size_type size() const { return c.size(); }
 ```
 
-##関連項目
+## 関連項目
 
 | 名前 | 説明 |
 |-----------------------|--------------------------------|

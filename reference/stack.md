@@ -1,4 +1,4 @@
-#stack
+# stack
 * stack[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -11,7 +11,7 @@ namespace std {
 ```
 * deque[link /reference/deque.md]
 
-##概要
+## 概要
 `stack` はコンテナアダプタであり、LIFO (last-in first-out) の動作――コンテナの一方から要素が挿入され、挿入された側から要素を取り出す――を実現する目的で設計されている。要素をコンテナの `back()` 側から挿入し、同じく `back()` 側から取り出す。
 
 `stack` は、所定のメンバ関数を持つコンテナのオブジェクトを内部実装として用いており、標準のコンテナ、もしくは独自に実装したコンテナを指定することができる。
@@ -30,7 +30,7 @@ namespace std {
 - `Container`: 要素へのアクセス・保存に用いる内部実装のコンテナクラス
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------|----------------------------|-------|
@@ -46,14 +46,14 @@ namespace std {
 | [`swap`](stack/swap.md)            | 他の `stack` オブジェクトと値を入れ替える | C++11 |
 
 
-##protectedメンバ変数
+## protectedメンバ変数
 
 | 変数名 | 型 | 対応バージョン |
 |--------|-------------|-------|
 | `c`    | `Container` | |
 
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|---------------------|-------|
@@ -64,7 +64,7 @@ namespace std {
 | `const_reference` | `Container::const_reference` | C++11 |
 
 
-##非メンバ関数
+## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|--------------------------------------|-------|
@@ -77,7 +77,7 @@ namespace std {
 | [`swap`](stack/swap_free.md)              | 2つの`stack`オブジェクトを入れ替える | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <stack>
@@ -102,11 +102,11 @@ int main ()
 * st.empty()[link stack/empty.md]
 * st.pop()[link stack/pop.md]
 
-###出力
+### 出力
 ```
 3 2 1 
 ```
 
-###参照
+### 参照
 
 

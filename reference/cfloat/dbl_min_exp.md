@@ -1,25 +1,25 @@
-#DBL_MIN_EXP
+# DBL_MIN_EXP
 * cfloat[meta header]
 * macro[meta id-type]
 * [mathjax enable]
 
 ```cpp
-#define DBL_MIN_EXP implementation-defined
+# define DBL_MIN_EXP implementation-defined
 ```
 
-##概要
+## 概要
 [`FLT_RADIX`](flt_radix.md) の $n - 1$ 乗が、`double` の正規化数として表現可能であるような、最小の整数値 $n$ を表すマクロ。  
 [`<cfloat>`](../cfloat.md) のモデルにおける $e_{\rm min}$。
 
 [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`min_exponent`](/reference/limits/numeric_limits/min_exponent.md) と等しい。
 
 
-##備考
+## 備考
 - 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
 - `DBL_MIN_EXP` は DouBLe MINimum EXPonent（minimum：最小値、exponent：指数）に由来する。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <iomanip>
@@ -49,7 +49,7 @@ int main()
 * std::pow[link ../cmath/pow.md]
 * std::isnormal[link ../cmath/isnormal.md]
 
-##出力例
+## 出力例
 ```
 -1021
 2.2250738585072e-308, true

@@ -1,4 +1,4 @@
-#min
+# min
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,17 +12,17 @@ static T min() throw();
 static constexpr T min() noexcept;
 ```
 
-##概要
+## 概要
 型ごとの値の最小値を取得する
 
 
-##戻り値
+## 戻り値
 指定された型の最小値
 
 浮動小数点型については正の正規化数のうち最小のものを返す。
 
 
-##備考
+## 備考
 `is_specialized == false`の場合は`T()`が返される。
 
 対応するマクロを次の表に挙げる。
@@ -58,7 +58,7 @@ static constexpr T min() noexcept;
 | `long double`                                          | [`LDBL_MIN`](/reference/cfloat/ldbl_min.md) |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -74,7 +74,7 @@ int main()
 ```
 * min()[color ff0000]
 
-###出力例
+### 出力例
 ```
 -2147483648
 2.22507e-308

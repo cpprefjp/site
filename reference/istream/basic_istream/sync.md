@@ -1,4 +1,4 @@
-#sync
+# sync
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
@@ -8,21 +8,21 @@
 int sync();
 ```
 
-##概要
+## 概要
 ストリームバッファに対し、同期処理を指示する。
 
-##効果
+## 効果
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. `rdbuf()->pubsync()`を呼び出す。ただし、`rdbuf()`がヌルポインタなら何もしない。
 1. `rdbuf()->pubsync()`が`-1`を返した場合、`setstate(badbit)`を呼び出す。
 
-##戻り値
+## 戻り値
 - 成功した場合`0`。
 - 失敗した場合`-1`。
     - `rdbuf()`がヌルポインタの場合。
     - `rdbuf()->pubsync()`が`-1`を返した場合。
 
-##実装例
+## 実装例
 ```cpp
 int sync() {
   try {
@@ -51,10 +51,10 @@ int sync() {
 * badbit[link /reference/ios/ios_base/type-iostate.md]
 * exceptions()[link /reference/ios/basic_ios/exceptions.md]
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 
 - `basic_streambuf::pubsync`

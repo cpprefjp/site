@@ -1,4 +1,4 @@
-#rbegin
+# rbegin
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
@@ -10,7 +10,7 @@ const_reverse_iterator rbegin() const noexcept;
 ```
 
 
-##概要
+## 概要
 `set` コンテナ内の最後の要素を指す逆イテレータを返す。
 
 内部的に、`set` コンテナは各要素を下位から上位へと並べており、従って `rbegin()` は最上位のキーにあたる値を返す。
@@ -18,17 +18,17 @@ const_reverse_iterator rbegin() const noexcept;
 `rbegin()` は [`end()`](end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
 
-##戻り値
+## 戻り値
 反転したシーケンスの先頭を指す逆イテレータ。
 
 `reverse_iterator` と `const_reverse_iterator` はともにメンバ型である。`set` クラステンプレートにおいて、これらは双方向イテレータであり、それぞれ `reverse_iterator<iterator>`, `reverse_iterator<const_iterator>` と定義される。
 
 
-##計算量
+## 計算量
 定数時間。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <set>
@@ -54,12 +54,12 @@ int main()
 * insert[link insert.md]
 * rend()[link rend.md]
 
-###出力
+### 出力
 ```
 9 5 4 2 1 0 
 ```
 
-##関連項目
+## 関連項目
 
 | 名前                  | 説明                             |
 |-----------------------|----------------------------------|

@@ -1,4 +1,4 @@
-#readsome
+# readsome
 * istream[meta header]
 * std[meta namespace]
 * basic_istream[meta class]
@@ -8,12 +8,12 @@
 streamsize readsome(char_type* s, streamsize n);
 ```
 
-##概要
+## 概要
 
 （非書式化入力関数）ストリームから指定した数の文字を入力する。
 ただし、その時点でストリームバッファに読み込まれているデータのみを読み取り対象とし、指定サイズちょうどのデータが得られる保証されない点が[`read`](read.md)と異なる。
 
-##効果
+## 効果
 1. `sentry`オブジェクトを構築する。
 1. `good()`メンバ関数を呼び出して`false`であったら、`setstate(failbit)`を呼び出して終了する。
 1. `rebuf()->in_avail()`の値により以下のように処理を進める。
@@ -21,10 +21,10 @@ streamsize readsome(char_type* s, streamsize n);
     - `0`なら何もしない。
     - `1`以上なら`min(rebuf()->in_avail(), n)`だけの文字を読み込む（`n`は仮引数）。
 
-##戻り値
+## 戻り値
 `s`に読み込まれた文字数。
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <string>
@@ -44,17 +44,17 @@ int main() {
 * readsome[color ff0000]
 * std::istringstream[link /reference/sstream/basic_istringstream.md]
 
-###出力
+### 出力
 ```
 12345678
 ```
 
-##実装例
+## 実装例
 TBD
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 
-##参照
+## 参照
 - [`read`](read.md)

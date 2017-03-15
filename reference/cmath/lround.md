@@ -1,4 +1,4 @@
-#lround
+# lround
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -17,24 +17,24 @@ namespace std {
 ```
 * Integral[italic]
 
-##概要
+## 概要
 引数 `x` を四捨五入により丸めた整数値を`long`型として得る。  
 ここで引数 `x` の四捨五入とは、`x` を最も近い整数に丸めるが、`x` の小数部分が `0.5` の場合には、`x` の符号が正負のいずれであってもゼロから遠い方向に丸めることを指す。  
 具体例は下記の出力例を参照。
 
 
-##戻り値
+## 戻り値
 引数 `x` を四捨五入により丸めた整数値を、`long`型の範囲に収めて返す。
 
 
-##備考
+## 備考
 - 本関数は、C99 の規格にある `lround`（より正確には `math.h` ヘッダの `lround`、`lroundf`、`lroundl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
 - [`round`](round.md)関数と違い、本関数において戻り値が非整数型引数 `x` と異なる場合に、例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) を発生させる必要はない。
 - 戻り値が`long`型の範囲を超えた場合、定義域エラーが起こる可能性がある。その際の挙動については、[`<cmath>`](../cmath.md) を参照。
 - なお、本関数の挙動は、現在の丸めモードには依存しない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -59,7 +59,7 @@ int main()
 ```
 * std::lround[color ff0000]
 
-###出力
+### 出力
 ```
 lround(2) = 2
 lround(2.1) = 2
@@ -71,11 +71,11 @@ lround(-2.5) = -3
 lround(-2.9) = -3
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??

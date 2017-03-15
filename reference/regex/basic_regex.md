@@ -1,4 +1,4 @@
-#basic_regex
+# basic_regex
 * regex[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -17,7 +17,7 @@ namespace std {
 ```
 * regex_traits[link regex_traits.md]
 
-##概要
+## 概要
 
 `basic_regex`クラステンプレートは、`charT`型の文字列から構築する正規表現を表す。
 `charT`は、`char`型、`wchar_t`型のような文字型である。
@@ -30,43 +30,43 @@ namespace std {
 このクラス中で発生したエラーは、正規表現アルゴリズムが[`regex_error`](regex_error.md)型の例外を送出することで通知される。
 
 
-##メンバ関数
+## メンバ関数
 
-###構築
+### 構築
 
 | 名前                                             | 説明           | 対応バージョン |
 |--------------------------------------------------|----------------|----------------|
 | [`(constructor)`](basic_regex/op_constructor.md) | コンストラクタ | C++11          |
 | [`(destructor)`](basic_regex/op_destructor.md)   | デストラクタ   | C++11          |
 
-###代入
+### 代入
 
 | 名前                                    | 説明               | 対応バージョン |
 |-----------------------------------------|--------------------|----------------|
 | [`operator=`](basic_regex/op_assign.md) | 正規表現を代入する | C++11          |
 | [`assign`](basic_regex/assign.md)       | 正規表現を代入する | C++11          |
 
-###定数操作
+### 定数操作
 
 | 名前                                      | 説明                                     | 対応バージョン |
 |-------------------------------------------|------------------------------------------|----------------|
 | [`mark_count`](basic_regex/mark_count.md) | 正規表現内のキャプチャグループの数を返す | C++11          |
 | [`flags`](basic_regex/flags.md)           | 最後に設定された正規表現フラグを返す     | C++11          |
 
-###ロケール
+### ロケール
 
 | 名前                              | 説明                 | 対応バージョン |
 |-----------------------------------|----------------------|----------------|
 | [`imbue`](basic_regex/imbue.md)   | ロケールを設定する   | C++11          |
 | [`getloc`](basic_regex/getloc.md) | 現在のロケールを得る | C++11          |
 
-###交換
+### 交換
 
 | 名前                          | 説明                           | 対応バージョン |
 |-------------------------------|--------------------------------|----------------|
 | [`swap`](basic_regex/swap.md) | 正規表現オブジェクトを交換する | C++11          |
 
-##メンバ定数
+## メンバ定数
 
 静的メンバ定数は利便性のために`std::regex_constants`で定義される定数の同義語として提供される。
 
@@ -83,7 +83,7 @@ namespace std {
 | `grep`       | `static constexpr regex_constants::syntax_option_type grep       = regex_constants::grep;`       | C++11 |
 | `egrep`      | `static constexpr regex_constants::syntax_option_type egrep      = regex_constants::egrep;`      | C++11 |
 
-##メンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 | ---- | ---- | -------------- |
@@ -93,7 +93,7 @@ namespace std {
 | `flag_type`   | `regex_constants::syntax_option_type` | C++11 |
 | `locale_type` | `traits::locale_type` | C++11 |
 
-##非メンバ関数
+## 非メンバ関数
 
 ### 交換
 
@@ -102,7 +102,7 @@ namespace std {
 | [`swap`](basic_regex/swap_free.md) | 二つの正規表現オブジェクトを交換する | C++11          |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <regex>
@@ -126,17 +126,17 @@ int main()
 * std::regex[color ff0000]
 * std::regex_match[link regex_match.md]
 
-###出力
+### 出力
 ```
 全て数字です
 ```
 
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): -
 - [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): -

@@ -1,4 +1,4 @@
-#operator=
+# operator=
 * memory[meta header]
 * std[meta namespace]
 * unique_ptr[meta class]
@@ -17,21 +17,21 @@ unique_ptr& operator=(const unique_ptr&) = delete;    // (4) 単一オブジェ�
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
-##概要
+## 概要
 - (1) : 自身が保持しているリソースを解放し、`u`から`*this`に所有権を譲渡する。
 - (2) : 自身が保持しているリソースを解放し、変換可能な`u`から`*this`に所有権を譲渡する
 - (3) : 自身が保持しているリソースを解放する。
 - (4) : コピー代入禁止。
 
 
-##要件
+## 要件
 - (1) : デリータの型`D`が、例外を投げずにムーブ構築可能であること。
 - (2) : 以下の条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
     - `unique_ptr<U, E>::pointer`が、`pointer`に暗黙変換可能な型であること。
     - `U`が配列型ではないこと。
 
 
-##効果
+## 効果
 - (1), (2) :
 
 ```cpp
@@ -47,15 +47,15 @@ d_ = std::forward<E>(u.get_deleter());
 - (3) : [`reset()`](reset.md)
 
 
-##戻り値
+## 戻り値
 `*this`
 
 
-##例外
+## 例外
 投げない
 
 
-##例
+## 例
 ```cpp
 #include <cassert>
 #include <memory>
@@ -84,15 +84,15 @@ int main()
 ```
 * std::move[link /reference/utility/move.md]
 
-###出力
+### 出力
 ```
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7 (nullptr_tのオーバーロード以外), 4.6.4
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
@@ -100,7 +100,7 @@ int main()
 	- Visual C++ 10.0にはnullptr_tのオーバーロードがない。
 	- Visual C++ 11.0までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
-##参照
+## 参照
 - [LWG Issue 2047. Incorrect "mixed" move-assignment semantics of `unique_ptr`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2047)
 - [LWG 2246. `unique_ptr` assignment effects w.r.t. deleter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2246)
 

@@ -1,4 +1,4 @@
-#tinyness_before
+# tinyness_before
 * limits[meta header]
 * std[meta namespace]
 * numeric_limits[meta class]
@@ -12,11 +12,11 @@ static const bool tinyness_before;
 static constexpr bool tinyness_before;
 ```
 
-##概要
+## 概要
 浮動小数点数型において、型`T`が丸めが行われる前に小さな値になることを検出できる場合は`true`、そうでなければ`false`となる。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <limits>
@@ -33,7 +33,7 @@ int main()
 ```
 * tinyness_before[color ff0000]
 
-###出力例
+### 出力例
 ```
 float : false
 double : false

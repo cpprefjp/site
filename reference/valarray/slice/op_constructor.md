@@ -1,4 +1,4 @@
-#コンストラクタ
+# コンストラクタ
 * valarray[meta header]
 * std[meta namespace]
 * slice[meta class]
@@ -15,7 +15,7 @@ slice(const slice&);  // (3)
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
-##`slice`オブジェクトの構築
+## `slice`オブジェクトの構築
 
 `slice`オブジェクトを次に示す通りの要素で初期化する。
 
@@ -26,7 +26,7 @@ slice(const slice&);  // (3)
 - (3) : コピーコンストラクタ。コピー元の`slice`オブジェクトと同じ初期位置、要素数、間隔でスライスする`slice`オブジェクトを構築する。
 
 
-##パラメータ
+## パラメータ
 - `start`
     - スライスする初期位置。
 - `length`
@@ -34,7 +34,7 @@ slice(const slice&);  // (3)
 - `stride`
     - スライスする間隔。
 
-##例
+## 例
 ```cpp
 #include <valarray>
 #include <iostream>
@@ -63,7 +63,7 @@ auto main()
 }
 ```
 
-###出力
+### 出力
 ```
 0x7fffe0c71c98: 0 0 0
 0x7fffe0c71c70: 3 5 7
@@ -71,6 +71,6 @@ auto main()
 ```
 
 
-##参照
+## 参照
 - [LWG Issue 543. `valarray` `slice` default constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#543)
 

@@ -1,4 +1,4 @@
-#operator>
+# operator>
 * vector[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -10,19 +10,19 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `vector`において、左辺が右辺より大きいかを判定する。
 
 
-##戻り値
+## 戻り値
 `y` [`<`](op_less.md) `x`
 
 
-##計算量
+## 計算量
 線形時間
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <vector>
@@ -38,11 +38,11 @@ int main ()
 }
 ```
 
-###出力
+### 出力
 ```
 true
 ```
 
-##参照
+## 参照
 
 

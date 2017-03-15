@@ -1,14 +1,14 @@
-#DECIMAL_DIG
+# DECIMAL_DIG
 * cfloat[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
 * [mathjax enable]
 
 ```cpp
-#define DECIMAL_DIG implementation-defined
+# define DECIMAL_DIG implementation-defined
 ```
 
-##概要
+## 概要
 精度が一番高い浮動小数点型の数値を10進数で正確に表すのに必要な有効数字の桁数を表すマクロ。  
 より正確には、精度が一番高い浮動小数点型のあらゆる数値を、$n$ 桁の10進数に変換し、また元に戻した場合に値が変わらないような最小の整数値 $n$ を表すマクロ。  
 以下の式で表される。
@@ -27,7 +27,7 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
 `T` を精度が一番高い浮動小数点型とすると、[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`max_digits10`](/reference/limits/numeric_limits/max_digits10.md) と等しい。
 
-##備考
+## 備考
 - 規格で 10 以上であることが規定されている。
 - 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
 - `DEDIMAL_DIG` は DECIMAL DIGits（decimal：10進数、digit：桁）に由来する。
@@ -35,7 +35,7 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 	C11 には各型毎の桁数を示すマクロ（`DBL_DECIMAL_DIG`、`FLT_DECILAL_DIG`、`LDBL_DECIMAL_DIG`）が導入されたが、現時点（C++1z）では C++ には導入されていない。
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <cfloat>
@@ -62,17 +62,17 @@ int main()
 * std::ceil[link ../cmath/ceil.md]
 * std::modf[link ../cmath/modf.md]
 
-##出力例
+## 出力例
 ```
 21
 21
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): ?
 - [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?

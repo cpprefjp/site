@@ -1,4 +1,4 @@
-#operator<<
+# operator<<
 * ostream[meta header]
 * std[meta namespace]
 * basic_ostream[meta class]
@@ -30,7 +30,7 @@ basic_ostream<CharT, Traits>& operator<<(const void* p);
 basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 ```
 
-##概要
+## 概要
 
 ストリームへの出力またはマニピュレータの実行を行う。
 
@@ -38,13 +38,13 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 - 数値型（`bool`も含む）と`void*`に対するオーバーロードは、書式化出力関数である。
 - `basic_streambuf`に対するオーバーロードは、非書式化出力関数である。
 
-##効果
+## 効果
 
-###マニピュレータの実行
+### マニピュレータの実行
 
 1. `pf(*this)`を呼び出す。
 
-###bool値・数値・ポインタの書式化出力
+### bool値・数値・ポインタの書式化出力
 
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. `num_put::put`を使用して入力のパース・数値への変換を行う。実引数を渡すに際し、一部の型では以下のように型変換を行う。
@@ -58,7 +58,7 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 	- `float`: `static_cast<double>(n)`
 1. `num_put::put`から得られた`iostate`値を実引数にして`setstate`関数を呼び出す。
 
-###ストリームバッファの非書式化出力
+### ストリームバッファの非書式化出力
 
 別のストリームバッファからの入力をストリームに出力する。
 
@@ -72,13 +72,13 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 入力がなされなかった場合、`setstate(failbit)`を呼び出す。
 
 
-##戻り値
+## 戻り値
 
 `*this`
 
-##備考
+## 備考
 
-##例
+## 例
 ```cpp
 #include <iostream>
 
@@ -87,21 +87,21 @@ int main() {
 }
 ```
 
-###出力例
+### 出力例
 ```
 101
 ```
 
-##実装例
+## 実装例
 TBD
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++98
 - C++11: `long long`、`unsigned long long`を実引数として受け取るものが追加された
 
 
-##関連項目
+## 関連項目
 
 - このほかの`<<`演算子関数
 	- [文字・文字列の書式化出力、および、右辺値ストリームに対する出力](op_ostream_free.md)
@@ -141,5 +141,5 @@ TBD
 	- [`basic_streambuf`](../../streambuf/basic_streambuf.md)
 
 
-##参照
+## 参照
 - [N2114 `long long` Goes to the Library, Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2114.html)

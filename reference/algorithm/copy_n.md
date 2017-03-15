@@ -1,4 +1,4 @@
-#copy_n
+# copy_n
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -12,23 +12,23 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 指定された数の要素をコピーする。
 
 
-##効果
+## 効果
 0 以上 `n` 未満であるそれぞれの `i` について、`*(result + i) = *(first + i)` を行う。
 
 
-##戻り値
+## 戻り値
 `result + n`
 
 
-##計算量
+## 計算量
 正確に `n` 回代入が行われる。
 
 
-##例
+## 例
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -42,7 +42,7 @@ int main() {
 ```
 * std::copy_n[color ff0000]
 
-###出力
+### 出力
 ```
 3
 1
@@ -52,7 +52,7 @@ int main() {
 ```
 
 
-##実装例
+## 実装例
 ```cpp
 template<class InputIterator, class Size, class OutputIterator>
 OutputIterator copy_n(InputIterator first, Size n, OutputIterator result) {
@@ -62,11 +62,11 @@ OutputIterator copy_n(InputIterator first, Size n, OutputIterator result) {
 }
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
@@ -74,7 +74,7 @@ OutputIterator copy_n(InputIterator first, Size n, OutputIterator result) {
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
-##参照
+## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 

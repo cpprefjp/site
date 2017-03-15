@@ -1,4 +1,4 @@
-#error_code
+# error_code
 * system_error[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -10,13 +10,13 @@ namespace std {
 }
 ```
 
-##概要
+## 概要
 `error_code`は、OSのAPIで発生するエラー値およびそのエラーメッセージを扱うクラスである。
 
 このクラス主に、[`system_error`](system_error.md)例外クラスに付加する情報として使用する。
 
 
-##メンバ関数
+## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -32,7 +32,7 @@ namespace std {
 | [`explicit operator bool`](error_code/op_bool.md) | エラーかどうかを判定する | C++11 |
 
 
-##例
+## 例
 ```cpp
 #include <iostream>
 #include <system_error>
@@ -63,17 +63,17 @@ int main()
 * ec.value()[link error_code/value.md]
 * ec.message()[link error_code/message.md]
 
-###出力
+### 出力
 ```
 22
 Invalid argument
 ```
 
-##バージョン
-###言語
+## バージョン
+### 言語
 - C++11
 
-###処理系
+### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
@@ -81,5 +81,5 @@ Invalid argument
 - [Visual C++](/implementation.md#visual_cpp) 10.0
 
 
-##参照
+## 参照
 
