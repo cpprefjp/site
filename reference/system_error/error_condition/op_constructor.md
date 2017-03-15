@@ -91,6 +91,11 @@ int main()
   }
 }
 ```
+* ec.value()[link value.md]
+* ec.category()[link category.md]
+* name()[link /reference/system_error/error_category/name.md]
+* std::errc::invalid_argument[link /reference/system_error/errc.md]
+* std::generic_category()[link /reference/system_error/generic_category.md]
 
 ###出力
 ```

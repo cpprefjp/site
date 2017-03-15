@@ -57,6 +57,10 @@ int main()
   std::cout << ec.category().name() << std::endl;
 }
 ```
+* std::errc::invalid_argument[link /reference/system_error/errc.md]
+* ec.value()[link value.md]
+* ec.category()[link category.md]
+* name()[link /reference/system_error/error_category/name.md]
 
 ###出力
 ```

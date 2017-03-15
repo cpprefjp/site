@@ -34,7 +34,9 @@ int main()
   std::cout << ec.value() << std::endl;
 }
 ```
-* value[color ff0000]
+* value()[color ff0000]
+* std::errc::invalid_argument[link /reference/system_error/errc.md]
+* std::generic_category()[link /reference/system_error/generic_category.md]
 
 ###出力
 ```

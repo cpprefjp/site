@@ -48,7 +48,12 @@ int main()
   std::cout << ec.category().name() << std::endl;
 }
 ```
-* clear[color ff0000]
+* clear()[color ff0000]
+* std::errc::invalid_argument[link /reference/system_error/errc.md]
+* std::generic_category()[link /reference/system_error/generic_category.md]
+* ec.value()[link value.md]
+* ec.category()[link category.md]
+* name()[link /reference/system_error/error_category/name.md]
 
 ###出力
 ```
