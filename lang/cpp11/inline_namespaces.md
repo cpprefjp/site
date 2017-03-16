@@ -28,111 +28,111 @@ int main()
 - 名前空間の`inline`指定は、名前付き名前空間と無名名前空間の定義で使用できる。`inline`指定された名前空間を「インライン名前空間 (inline namespace)」と呼ぶ
 
     ```cpp
-inline namespace my_namespace {}
-inline namespace {}
-```
+    inline namespace my_namespace {}
+    inline namespace {}
+    ```
 
 - インライン名前空間のメンバは、その外側の名前空間 (the enclosing namespace, それを取り囲む名前空間) のメンバとして使用できる
 - インライン名前空間とその外側の名前空間は、引数依存の名前探索で探索される「関連ある名前空間(associated namespace)」となる
 
     ```cpp
-#include <iostream>
+    #include <iostream>
 
-namespace ns1 {
-  class X {};
+    namespace ns1 {
+      class X {};
 
-  inline namespace ns2 {
-    class Y {};
+      inline namespace ns2 {
+        class Y {};
 
-    void f(X)
-    {
-      std::cout << "call f()" << std::endl;
+        void f(X)
+        {
+          std::cout << "call f()" << std::endl;
+        }
+      }
+
+      void g(Y)
+      {
+        std::cout << "call g()" << std::endl;
+      }
     }
-  }
 
-  void g(Y)
-  {
-    std::cout << "call g()" << std::endl;
-  }
-}
-
-int main()
-{
-  f(ns1::X());      // 「call f()」が出力される
-  g(ns1::Y());      // 「call g()」が出力される
-  g(ns1::ns2::Y()); // 「call g()」が出力される
-}
-```
+    int main()
+    {
+      f(ns1::X());      // 「call f()」が出力される
+      g(ns1::Y());      // 「call g()」が出力される
+      g(ns1::ns2::Y()); // 「call g()」が出力される
+    }
+    ```
 
 - インライン名前空間の外側の名前空間をusingディレクティブに指定することで、インライン名前空間のメンバがその外側の名前空間のメンバとして暗黙的に挿入される
 
     ```cpp
-#include <iostream>
+    #include <iostream>
 
-namespace ns1 {
-  inline namespace ns2 {
-    void f()
-    {
-      std::cout << "call f()" << std::endl;
+    namespace ns1 {
+      inline namespace ns2 {
+        void f()
+        {
+          std::cout << "call f()" << std::endl;
+        }
+      }
     }
-  }
-}
 
-int main()
-{
-  using namespace ns1;
-  f();
-}
-```
+    int main()
+    {
+      using namespace ns1;
+      f();
+    }
+    ```
 
 - インライン名前空間のメンバは、外側の名前空間で外側の名前空間のメンバであるかのように、明示的にインスタンス化、および明示的に特殊化できる
 
     ```cpp
-#include <iostream>
+    #include <iostream>
 
-namespace ns1 {
-  inline namespace ns2 {
-    template <class T>
-    struct X {
-      static constexpr int value = 0;
-    };
-  }
+    namespace ns1 {
+      inline namespace ns2 {
+        template <class T>
+        struct X {
+          static constexpr int value = 0;
+        };
+      }
 
-  // インライン名前空間で定義されたクラステンプレートを
-  // 明示的にインスタンス化
-  template struct X<int>;
+      // インライン名前空間で定義されたクラステンプレートを
+      // 明示的にインスタンス化
+      template struct X<int>;
 
-  // インライン名前空間で定義されたクラステンプレートを
-  // 明示的に特殊化
-  template <>
-  struct X<void> {
-    static constexpr int value = 1;
-  };
-}
+      // インライン名前空間で定義されたクラステンプレートを
+      // 明示的に特殊化
+      template <>
+      struct X<void> {
+        static constexpr int value = 1;
+      };
+    }
 
-int main()
-{
-  std::cout << ns1::X<int>::value << std::endl;       // 0が出力される
-  std::cout << ns1::X<void>::value << std::endl;      // 1が出力される
-  std::cout << ns1::ns2::X<void>::value << std::endl; // 1が出力される
-}
-```
+    int main()
+    {
+      std::cout << ns1::X<int>::value << std::endl;       // 0が出力される
+      std::cout << ns1::X<void>::value << std::endl;      // 1が出力される
+      std::cout << ns1::ns2::X<void>::value << std::endl; // 1が出力される
+    }
+    ```
 
 - インライン名前空間の外側の名前空間の機能に、明示的な名前空間修飾付きでアクセスした場合でも、インライン名前空間をusingディレクティブしたのと同様にそのインライン名前空間の機能が外側の名前空間に持ち込まれる。これは、外側の名前空間とインライン名前空間で同名のメンバが定義されたときに、名前衝突による曖昧さが発生することを意味する
 
     ```cpp
-namespace ns1 {
-  inline namespace ns2 {
-    int a;
-  }
-  int a;
-}
+    namespace ns1 {
+      inline namespace ns2 {
+        int a;
+      }
+      int a;
+    }
 
-int main()
-{
-  ns1::a = 0; // ns2で同名の変数が定義されているため、曖昧になる
-}
-```
+    int main()
+    {
+      ns1::a = 0; // ns2で同名の変数が定義されているため、曖昧になる
+    }
+    ```
 
 - 翻訳単位は、`std`名前空間をインライン名前空間として宣言してはならない
 

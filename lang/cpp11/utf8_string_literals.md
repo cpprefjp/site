@@ -21,9 +21,9 @@ char t[] = u8"\U00020BB7野家"; // 𠮷野家
 - UTF-8の文字列リテラルとワイド文字列リテラルが隣接していた場合、文字列は連結されずに、プログラムは不適格となる。
 
     ```cpp
-wchar_t ws[] = "hello" L" world";     // OK : L"hello world"
-//wchar_t ws[] = u8"hello" L" world"; // コンパイルエラー！
-```
+    wchar_t ws[] = "hello" L" world";     // OK : L"hello world"
+    //wchar_t ws[] = u8"hello" L" world"; // コンパイルエラー！
+    ```
 
 - 文字列リテラルのなかには、UCS／Unicodeのユニバーサルキャラクタ名を直接記述できる。たとえば、UTF-8文字列リテラル`u8"\u215A"`は[U+215A](http://www.charbase.com/215a-unicode-vulgar-fraction-five-sixths)コードポイントを含む文字列である`"⅚"` (VULGAR FRACTION FIVE SIXTHS) を表す。`\u`の場合は16進数で4桁固定のユニバーサルキャラクタ名を、`\U`の場合は16進数で8桁固定のユニバーサルキャラクタ名を記述する。
 - 文字リテラルに`u8`プレフィックスは使用できない。

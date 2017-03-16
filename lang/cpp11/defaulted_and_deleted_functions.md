@@ -77,34 +77,34 @@ int main()
 - `= default`は「明示的なデフォルト定義 (explicity-defaulted definition)」と呼ばれる機能である。この機能は、暗黙定義される非インライン、かつ非仮想の特殊メンバ関数の挙動をそのままにして、実装に対してより効率的な定義の使用を求めることを許可するものである：
 
     ```cpp
-struct sometype {
-  sometype();
+    struct sometype {
+      sometype();
 
-  // デフォルト動作のコピーコンストラクタを使用する
-  sometype(const sometype &) = default;
+      // デフォルト動作のコピーコンストラクタを使用する
+      sometype(const sometype &) = default;
 
-  // デフォルト動作のデストラクタを使用する。
-  // ただし、このデストラクタは仮想関数とする。
-  virtual ~sometype() = default;
-};
+      // デフォルト動作のデストラクタを使用する。
+      // ただし、このデストラクタは仮想関数とする。
+      virtual ~sometype() = default;
+    };
 
-// デフォルト動作のデフォルトコンストラクタを使用する
-sometype::sometype() = default;
+    // デフォルト動作のデフォルトコンストラクタを使用する
+    sometype::sometype() = default;
 
-// デストラクタをインライン関数にする
-inline sometype::~sometype() = default;
+    // デストラクタをインライン関数にする
+    inline sometype::~sometype() = default;
 ```
 
 
 - `= delete`は「削除定義 (deleted definition)」と呼ばれる機能である。暗黙定義される特殊メンバ関数を含む任意の関数の最初の宣言に対して`= delete`が指定された場合、その関数は呼び出せなくなる。最初の宣言以外に対して`= delete`が指定された場合、そのプログラムは不適格となる。
 
     ```cpp
-struct sometype {
-    sometype();
-};
+    struct sometype {
+        sometype();
+    };
 
-// コンパイルエラー！= deleteはここではなく、最初の宣言に対して指定しなければならない
-sometype::somtype() = delete;
+    // コンパイルエラー！= deleteはここではなく、最初の宣言に対して指定しなければならない
+    sometype::somtype() = delete;
 ```
 
     - 削除定義された関数は、暗黙的にインラインとなる。もしその関数が外部リンケージを持ち、ひとつの翻訳単位で削除定義された場合、全ての翻訳単位で削除定義される。削除定義された関数は、

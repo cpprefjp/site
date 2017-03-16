@@ -86,89 +86,89 @@ hello
 - パラメータパックは複数のパラメータがまとめられた状態となっているため、そのままでは個々のパラメータを取り出せない。それらを取り出すには、パラメータパックを「展開 (expansion)」する必要がある。パラメータパックの展開には、パラメータパック名に続いて「`...`」を記述する。例：
 
     ```cpp
-template <class... Args>
-void f(Args... args)
-{
-  g(args...); // パラメータパックargsを...で展開して、
-              // 関数g()にそれらのパラメータを転送する
-}
-```
+    template <class... Args>
+    void f(Args... args)
+    {
+      g(args...); // パラメータパックargsを...で展開して、
+                  // 関数g()にそれらのパラメータを転送する
+    }
+    ```
 
 - パラメータパックの宣言、および展開に使用する「`...`」は、「省略記号 (ellipsis, エリプシス)」という
 - パラメータパックには、ゼロ個以上のパラメータが含まれる
 
     ```cpp
-template <class... Args>
-struct X {};
+    template <class... Args>
+    struct X {};
 
-int main()
-{
-  X<int, char, double> a; // OK
-  X<> b;                  // OK
-}
-```
-
-    ```cpp
-template <class... Args>
-struct X {};
-
-// パラメータパックが0要素だった場合の特殊化
-template <>
-struct X<> {};
-```
+    int main()
+    {
+      X<int, char, double> a; // OK
+      X<> b;                  // OK
+    }
+    ```
 
     ```cpp
-template <class... Args>
-void f(Args... args) {}
+    template <class... Args>
+    struct X {};
 
-int main()
-{
-  f(1, 3.14f, "hello"); // OK
-  f();                  // OK
-}
-```
+    // パラメータパックが0要素だった場合の特殊化
+    template <>
+    struct X<> {};
+    ```
+
+    ```cpp
+    template <class... Args>
+    void f(Args... args) {}
+
+    int main()
+    {
+      f(1, 3.14f, "hello"); // OK
+      f();                  // OK
+    }
+    ```
 
 - パラメータパックの宣言をする際、パラメータパックはパラメータリストの最後になければならない
 
     ```cpp
-// OK
-template <class Head, class... Tail>
-struct X {};
+    // OK
+    template <class Head, class... Tail>
+    struct X {};
 
-// コンパイルエラー！パラメータパックは最後に置かなければならない
-template <class... Init, class Last>
-struct Y {};
-```
+    // コンパイルエラー！パラメータパックは最後に置かなければならない
+    template <class... Init, class Last>
+    struct Y {};
+    ```
 
 - 関数パラメータパックは、型推論の補助として、パラメータパックの全ての型に対して共通の修飾を付加できる：
 
     ```cpp
-// パラメータパックArgsに含まれる全ての型のパラメータを、
-// const左辺値参照として受け取る
-template <class... Args>
-void f(const Args&... args) {}
-```
+    // パラメータパックArgsに含まれる全ての型のパラメータを、
+    // const左辺値参照として受け取る
+    template <class... Args>
+    void f(const Args&... args) {}
+    ```
 
 - `sizeof...(identifier)`演算子にパラメータパックを指定することで、パラメータパックに含まれるパラメータの要素数を取得できる：
 
     ```cpp
-#include <cstddef>
+    #include <cstddef>
 
-template <class... Args>
-void f(Args... args)
-{
-  constexpr std::size_t template_parameter_pack_size = sizeof...(Args);
-  constexpr std::size_t function_parameter_pack_size = sizeof...(args);
+    template <class... Args>
+    void f(Args... args)
+    {
+      constexpr std::size_t template_parameter_pack_size = sizeof...(Args);
+      constexpr std::size_t function_parameter_pack_size = sizeof...(args);
 
-  static_assert(template_parameter_pack_size == 3, "");
-  static_assert(function_parameter_pack_size == 3, "");
-}
+      static_assert(template_parameter_pack_size == 3, "");
+      static_assert(function_parameter_pack_size == 3, "");
+    }
 
-int main()
-{
-  f(1, 'a', "hello");
-}
-```
+    int main()
+    {
+      f(1, 'a', "hello");
+    }
+    ```
 * <cstddef>[link /reference/cstddef.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 * constexpr[link constexpr.md]
@@ -181,30 +181,30 @@ int main()
 - 関数のパラメータ
 
     ```cpp
-template <class... Args>
-void f(Args... args); // ここ
+    template <class... Args>
+    void f(Args... args); // ここ
 
-f(1, 'a', "hello");
-```
+    f(1, 'a', "hello");
+    ```
 
     ```cpp
-#include <tuple>
+    #include <tuple>
 
-template <class... ResultTypes>
-void f(ResultTypes(*...funcs)(int, char))
-{
-  // t is std::tuple<int, float>{1, 1.23f}
-  auto t = std::make_tuple(funcs(3, 'a')...);
-}
+    template <class... ResultTypes>
+    void f(ResultTypes(*...funcs)(int, char))
+    {
+      // t is std::tuple<int, float>{1, 1.23f}
+      auto t = std::make_tuple(funcs(3, 'a')...);
+    }
 
-int a(int, char) { return 1; }
-float b(int, char) { return 1.23f; }
+    int a(int, char) { return 1; }
+    float b(int, char) { return 1.23f; }
 
-int main()
-{
-  f(a, b);
-}
-```
+    int main()
+    {
+      f(a, b);
+    }
+    ```
 * <tuple>[link /reference/tuple.md]
 * std::tuple[link /reference/tuple/tuple.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
@@ -212,30 +212,30 @@ int main()
 - テンプレートパラメータ
 
     ```cpp
-template <class... Args>
-struct X {};
+    template <class... Args>
+    struct X {};
 
-X<int, char, double> x;
-```
+    X<int, char, double> x;
+    ```
 
     ```cpp
-template <int... Args>
-struct Y {};
+    template <int... Args>
+    struct Y {};
 
-Y<3, 1, 4, 5, 2, 6> y;
-```
+    Y<3, 1, 4, 5, 2, 6> y;
+    ```
 
 - テンプレートテンプレートパラメータ
 
     ```cpp
-template <template <class...> class Container>
-struct ContainerHolder {
-  Container<int> cont;
-};
+    template <template <class...> class Container>
+    struct ContainerHolder {
+      Container<int> cont;
+    };
 
-ContainerHolder<std::vector> v;
-ContainerHolder<std::list> ls;
-```
+    ContainerHolder<std::vector> v;
+    ContainerHolder<std::list> ls;
+    ```
 * std::list[link /reference/list.md]
 
 
@@ -245,28 +245,28 @@ ContainerHolder<std::list> ls;
 - 関数の引数
 
     ```cpp
-f(args...);
-```
+    f(args...);
+    ```
 
 - テンプレートの引数
 
     ```cpp
-std::tuple<Args...> t;
-```
+    std::tuple<Args...> t;
+    ```
 * std::tuple[link /reference/tuple/tuple.md]
 
 - 初期化子
 
     ```cpp
-int ar[] = { args... };
+    int ar[] = { args... };
 
-struct Person {
-  int id;
-  std::string name;
-  int age;
-};
-Person person = { args... };
-```
+    struct Person {
+      int id;
+      std::string name;
+      int age;
+    };
+    Person person = { args... };
+    ```
 
 - 継承時の基本クラスリストの指定
 
@@ -278,91 +278,91 @@ class Derived : Bases...;
 - コンストラクタのメンバ初期化子
 
     ```cpp
-template <class... Bases>
-class Derived : Bases... {
-  Derived(Bases... bases)
-    : Bases(bases)... {}
-};
-```
+    template <class... Bases>
+    class Derived : Bases... {
+      Derived(Bases... bases)
+        : Bases(bases)... {}
+    };
+    ```
 
 - 動的例外仕様
 
     ```cpp
-template <class... ExceptionList>
-void f() throw(ExceptionList...);
-```
+    template <class... ExceptionList>
+    void f() throw(ExceptionList...);
+    ```
 
 ### パラメータパックの拡張
 - パラメータパックは、`f(args...)`のように省略記号で展開するほかに、`f(g(args)...)`のようにパラメータパックの各要素に共通の処理を適用する式を書くこともできる。これをパラメータパックの「拡張 (extend)」という
     - この例の場合、`args`パラメータパックの各要素に関数`g()`を適用してパラメータパックの要素に対して値と型の変換を行った結果のパラメータパックを生成し、その結果となるパラメータパックを関数`f()`に渡している
 
     ```cpp
-#include <iostream>
-#include <string>
-#include <sstream>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
 
-template <class T>
-std::string to_std_string(const T& x)
-{
-  std::stringstream ss;
-  ss << x;
+    template <class T>
+    std::string to_std_string(const T& x)
+    {
+      std::stringstream ss;
+      ss << x;
 
-  std::string result;
-  ss >> result;
-  return result;
-}
+      std::string result;
+      ss >> result;
+      return result;
+    }
 
-void print(std::string a, std::string b, std::string c)
-{
-  std::cout << a << std::endl;
-  std::cout << b << std::endl;
-  std::cout << c << std::endl;
-}
+    void print(std::string a, std::string b, std::string c)
+    {
+      std::cout << a << std::endl;
+      std::cout << b << std::endl;
+      std::cout << c << std::endl;
+    }
 
-template <class... Args>
-void f(Args&&... args)
-{
-  // パラメータパックの各要素を文字列に変換してから
-  // print()関数に渡す
-  print(to_std_string(args)...);
-}
+    template <class... Args>
+    void f(Args&&... args)
+    {
+      // パラメータパックの各要素を文字列に変換してから
+      // print()関数に渡す
+      print(to_std_string(args)...);
+    }
 
-int main()
-{
-  f(1, 'a', "hello");
-}
-```
+    int main()
+    {
+      f(1, 'a', "hello");
+    }
+    ```
 * <sstream>[link /reference/sstream.md]
 * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 
 - 複数のパラメータパックに対して拡張を行う場合、それらのパラメータパックは同じ要素数でなければならない。そうでない場合、プログラムは不適格となる
 
     ```cpp
-#include <utility>
-#include <tuple>
-#include <type_traits>
+    #include <utility>
+    #include <tuple>
+    #include <type_traits>
 
-// 2つの型リストを綴じ合わせる
-template <class... Args1>
-struct zip {
-  template <class... Args2>
-  struct with {
-    using type = std::tuple<std::pair<Args1, Args2>...>;
-  };
-};
+    // 2つの型リストを綴じ合わせる
+    template <class... Args1>
+    struct zip {
+      template <class... Args2>
+      struct with {
+        using type = std::tuple<std::pair<Args1, Args2>...>;
+      };
+    };
 
-int main()
-{
-  static_assert(std::is_same<
-    zip<int, long, long long>::with<float, double, long double>::type,
-    std::tuple<
-      std::pair<int, float>,
-      std::pair<long, double>,
-      std::pair<long long, long double>
-    >
-  >::value, ""); // OK
-}
-```
+    int main()
+    {
+      static_assert(std::is_same<
+        zip<int, long, long long>::with<float, double, long double>::type,
+        std::tuple<
+          std::pair<int, float>,
+          std::pair<long, double>,
+          std::pair<long long, long double>
+        >
+      >::value, ""); // OK
+    }
+    ```
 * <utility>[link /reference/utility.md]
 * <tuple>[link /reference/tuple.md]
 * <type_traits>[link /reference/type_traits.md]

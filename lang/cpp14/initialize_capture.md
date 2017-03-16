@@ -24,19 +24,19 @@ int main()
 - 変数をムーブによってキャプチャする
 
     ```cpp
-std::vector<T> v; // 巨大な配列
-auto f = [x = std::move(v)] { /* … */ };
-```
+    std::vector<T> v; // 巨大な配列
+    auto f = [x = std::move(v)] { /* … */ };
+    ```
 * std::move[link /reference/utility/move.md]
 
 - ひとつの変数に対して、コピーキャプチャと参照キャプチャを同時に行う
 
     ```cpp
-int a = 3;
-auto f = [b = a, &c = a] {
-  // このラムダ式内で、変数bはaのコピー、変数cはaへの参照
-};
-```
+    int a = 3;
+    auto f = [b = a, &c = a] {
+      // このラムダ式内で、変数bはaのコピー、変数cはaへの参照
+    };
+    ```
 
 
 ## 仕様

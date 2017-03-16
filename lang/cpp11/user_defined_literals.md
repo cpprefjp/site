@@ -39,19 +39,19 @@ auto x = "hello"s; // xの型はstd::string
 - リテラル演算子のサフィックス名として、ユニバーサルキャラクタ名を使用することができる。
 
     ```cpp
-namespace literals {
-  // _ + ギリシャ文字の小文字の pi
-  float operator"" _\u03C0(unsigned long long count)
-  {
-    return 3.141592f * count;
-  }
-}
+    namespace literals {
+      // _ + ギリシャ文字の小文字の pi
+      float operator"" _\u03C0(unsigned long long count)
+      {
+        return 3.141592f * count;
+      }
+    }
 
-using namespace literals;
+    using namespace literals;
 
-float x = 2_\u03C0; // OK
-float y = 2_π;     // OK（ただし、π がソースファイル文字として許されている場合のみ）
-```
+    float x = 2_\u03C0; // OK
+    float y = 2_π;     // OK（ただし、π がソースファイル文字として許されている場合のみ）
+    ```
 
 - 論理値型に対しては、リテラル演算子を定義できない
 - リテラル演算子とリテラル演算子テンプレートは、Cリンケージを持ってはならない
@@ -64,24 +64,24 @@ float y = 2_π;     // OK（ただし、π がソースファイル文字とし�
 整数に対するリテラル演算子は、以下のいずれかとなる。
 
 1. `unsigned long long` 型のパラメータをひとつだけ持つリテラル演算子  
-	```cpp
-戻り値型 operator"" サフィックス名(unsigned long long 整数リテラル);
-```
+    ```cpp
+    戻り値型 operator"" サフィックス名(unsigned long long 整数リテラル);
+    ```
 
 	ここで、`整数リテラル` にはユーザー定義リテラルのサフィックス名を削除した部分が `unsigned long long` 型で渡される。
 
 2. `const char*` 型のパラメータをひとつだけ持つリテラル演算子  
-	```cpp
-戻り値型 operator"" サフィックス名(const char* 整数リテラル);
-```
+    ```cpp
+    戻り値型 operator"" サフィックス名(const char* 整数リテラル);
+    ```
 
 	ここで、`整数リテラル` にはユーザー定義リテラルのサフィックス名を削除した部分が `const char*` 型（`'\0'` で終端された C 文字列）で渡される。
 
 3. `char` 型のテンプレートパラメータパックを一つだけ持ち、パラメータの無いリテラル演算子テンプレート  
-	```cpp
-template <char... 整数リテラル>
-戻り値型 operator"" サフィックス名();
-```
+    ```cpp
+    template <char... 整数リテラル>
+    戻り値型 operator"" サフィックス名();
+    ```
 
 	ここで、`整数リテラル` にはユーザー定義リテラルのサフィックス名を削除した部分の各文字が `char` 型のテンプレートパラメータパックで渡される。
 
@@ -137,24 +137,24 @@ int minus_distance = -123_kmi;
 浮動小数点数に対するリテラル演算子は、以下のいずれかとなる。
 
 1. `long double` 型のパラメータをひとつだけ持つリテラル演算子  
-	```cpp
-戻り値型 operator"" サフィックス名(long double 浮動小数点リテラル);
-```
+    ```cpp
+    戻り値型 operator"" サフィックス名(long double 浮動小数点リテラル);
+    ```
 
 	ここで、`浮動小数点リテラル` にはユーザー定義リテラルのサフィックス名を削除した部分が `long double` 型で渡される。
 
 2. `const char*` 型のパラメータをひとつだけ持つリテラル演算子  
-	```cpp
-戻り値型 operator"" サフィックス名(const char* 浮動小数点リテラル);
-```
+    ```cpp
+    戻り値型 operator"" サフィックス名(const char* 浮動小数点リテラル);
+    ```
 
 	ここで、`浮動小数点リテラル` にはユーザー定義リテラルのサフィックス名を削除した部分が `const char*` 型（`'\0'` で終端された C 文字列）で渡される。
 
 3. `char` 型のテンプレートパラメータパックを一つだけ持ち、パラメータの無いリテラル演算子テンプレート  
-	```cpp
-template <char... 浮動小数点リテラル>
-戻り値型 operator"" サフィックス名();
-```
+    ```cpp
+    template <char... 浮動小数点リテラル>
+    戻り値型 operator"" サフィックス名();
+    ```
 
 	ここで、`浮動小数点リテラル` にはユーザー定義リテラルのサフィックス名を削除した部分の各文字が `char` 型のテンプレートパラメータパックで渡される。
 

@@ -42,15 +42,15 @@ using FunctionPointer = int(*)(int, int);
 - エイリアステンプレートによって付けられた型の別名と元の型は同等と見なされ、それらの間でオーバーロードはできない
 
     ```cpp
-template <class T>
-using Vec = std::vector<T>;
+    template <class T>
+    using Vec = std::vector<T>;
 
-template <class T>
-void f(const Vec<T>&) {}
+    template <class T>
+    void f(const Vec<T>&) {}
 
-template <class T>
-void f(const std::vector<T>&) {} // コンパイルエラー！再定義と見なされる
-```
+    template <class T>
+    void f(const std::vector<T>&) {} // コンパイルエラー！再定義と見なされる
+    ```
 
 - エイリアステンプレートに対しては、明示的な特殊化、および部分特殊化を許可しない
 

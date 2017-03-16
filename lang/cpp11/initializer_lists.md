@@ -78,57 +78,57 @@ int main()
 - 変数定義での初期化子リストによる初期化
 
     ```cpp
-struct X {
-  X(std::initializer_list<int>) {}
-};
+    struct X {
+      X(std::initializer_list<int>) {}
+    };
 
-X x1 {1, 2, 3};   // 直接初期化して変数定義
-X {1, 2, 3};      // 直接初期化して一時オブジェクトを定義
-X x2 = {1, 2, 3}; // コピー初期化して変数定義
+    X x1 {1, 2, 3};   // 直接初期化して変数定義
+    X {1, 2, 3};      // 直接初期化して一時オブジェクトを定義
+    X x2 = {1, 2, 3}; // コピー初期化して変数定義
 ```
 * std::initializer_list[link /reference/initializer_list.md]
 
 - `new`式での初期化子リストによる初期化
 
     ```cpp
-new X {1, 2, 3}; // 動的記憶域でXオブジェクトを直接初期化
-```
+    new X {1, 2, 3}; // 動的記憶域でXオブジェクトを直接初期化
+    ```
 
 - `return`文
 
     ```cpp
-X f()
-{
-  return {1, 2, 3};
-}
-```
+    X f()
+    {
+      return {1, 2, 3};
+    }
+    ```
 
 - 関数の引数
 
     ```cpp
-void f(X) {}
-f({1, 2, 3});
-```
+    void f(X) {}
+    f({1, 2, 3});
+    ```
 
 - 式の一部
 
     ```cpp
-std::vector<X> xs {
-  {1, 2, 3}, // 初期化子リストのなかでさらに初期化子リストを使用する
-  {4, 5, 6}
-};
-```
+    std::vector<X> xs {
+      {1, 2, 3}, // 初期化子リストのなかでさらに初期化子リストを使用する
+      {4, 5, 6}
+    };
+    ```
 
 - 基本クラスやメンバの初期化子
 
     ```cpp
-struct Y : X {
-  std::vector<int> values;
+    struct Y : X {
+      std::vector<int> values;
 
-  Y()
-    : X {1, 2, 3}, values {4, 5, 6} {}
-};
-```
+      Y()
+        : X {1, 2, 3}, values {4, 5, 6} {}
+    };
+    ```
 
 - 代入演算子の右辺
 
@@ -147,25 +147,25 @@ x = {1, 2, 3};
 - 初期化子リストに縮小変換が要求された場合、プログラムは不適格となる
 
     ```cpp
-struct X {
-  X(std::initializer_list<int>) {}
-};
+    struct X {
+      X(std::initializer_list<int>) {}
+    };
 
-X x1 = {1, 2, 3}; // OK
-//X x2 = {1, 2, 3.0}; // コンパイルエラー！3.0をint型に縮小変換できない
-```
+    X x1 = {1, 2, 3}; // OK
+    //X x2 = {1, 2, 3.0}; // コンパイルエラー！3.0をint型に縮小変換できない
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
 - 縮小変換以外の型変換は許可される
 
     ```cpp
-struct X {
-  X(std::initializer_list<double>) {}
-};
+    struct X {
+      X(std::initializer_list<double>) {}
+    };
 
-X x1 = {1, 2, 3};   // OK
-X x2 = {1, 2, 3.0}; // OK
-```
+    X x1 = {1, 2, 3};   // OK
+    X x2 = {1, 2, 3.0}; // OK
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
 
@@ -180,62 +180,62 @@ X x2 = {1, 2, 3.0}; // OK
 - デフォルトコンストラクタと初期化子リストコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
 
     ```cpp
-#include <iostream>
-#include <initializer_list>
+    #include <iostream>
+    #include <initializer_list>
 
-struct X {
-  X()
-  {
-    std::cout << "default constructor" << std::endl;
-  }
+    struct X {
+      X()
+      {
+        std::cout << "default constructor" << std::endl;
+      }
 
-  X(std::initializer_list<int>)
-  {
-    std::cout << "initializer-list constructor" << std::endl;
-  }
-};
+      X(std::initializer_list<int>)
+      {
+        std::cout << "initializer-list constructor" << std::endl;
+      }
+    };
 
-int main()
-{
-  X x = {}; // 「default constructor」が出力される
-}
-```
+    int main()
+    {
+      X x = {}; // 「default constructor」が出力される
+    }
+    ```
 * <initializer_list>[link /reference/initializer_list.md]
 * std::initializer_list[link /reference/initializer_list.md]
 
 - 初期化子リストコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、初期化子リストコンストラクタが優先して呼び出される。そのような状況では、丸カッコでのコンストラクタ呼び出しが必要となる
 
     ```cpp
-struct X {
-  X(std::initializer_list<double>) {
-    std::cout << 1 << std::endl;
-  }
-  X(double d) {
-    std::cout << 2 << std::endl;
-  }
-};
+    struct X {
+      X(std::initializer_list<double>) {
+        std::cout << 1 << std::endl;
+      }
+      X(double d) {
+        std::cout << 2 << std::endl;
+      }
+    };
 
-X x1 = {3.0}; // 「1」が出力される
-```
+    X x1 = {3.0}; // 「1」が出力される
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
 - 異なる要素型を持つ`std::initializer_list`型同士でオーバーロードができる
 
     ```cpp
-struct X {
-  X(std::initializer_list<int>)
-  {
-    std::cout << 1 << std::endl;
-  }
+    struct X {
+      X(std::initializer_list<int>)
+      {
+        std::cout << 1 << std::endl;
+      }
 
-  X(std::initializer_list<double>)
-  {
-    std::cout << 2 << std::endl;
-  }
-};
+      X(std::initializer_list<double>)
+      {
+        std::cout << 2 << std::endl;
+      }
+    };
 
-X {1, 2, 3};       // 「1」が出力される
-X {1.0, 2.0, 3.0}; // 「2」が出力される
+    X {1, 2, 3};       // 「1」が出力される
+    X {1.0, 2.0, 3.0}; // 「2」が出力される
 ```
 * std::initializer_list[link /reference/initializer_list.md]
 
@@ -244,20 +244,20 @@ X {1.0, 2.0, 3.0}; // 「2」が出力される
 - 初期化子リストが暗黙的に`std::initializer_list<E>`に型変換される際、実装は`E`型の要素を`N`個持つ配列を確保するかのように振る舞う。変換された`std::initializer_list<E>`オブジェクトは、元となった初期化子リストの配列を参照する。以下のような初期化子リストの引数渡しがあった場合、
 
     ```cpp
-struct X {
-  X(std::initializer_list<double>) {}
-};
+    struct X {
+      X(std::initializer_list<double>) {}
+    };
 
-X x = {1, 2, 3};
-```
+    X x = {1, 2, 3};
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
     実装は以下と同等の初期化を行う (実装が用意した`std::initializer_list`クラスがポインタの組を受け取れると仮定する)：
 
     ```cpp
-double __a[3] = {double{1}, double{2}, double{3}};
-X x(std::initializer_list<double>(__a, __a+3));
-```
+    double __a[3] = {double{1}, double{2}, double{3}};
+    X x(std::initializer_list<double>(__a, __a+3));
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
     元となった配列の寿命は、変換先の`std::initializer_list`オブジェクトと同じとなる
@@ -267,37 +267,37 @@ X x(std::initializer_list<double>(__a, __a+3));
 - 初期化リストを`auto`で受けた場合、`std::initializer_list`型に推論される。ただし、空の初期化子リストは推論に失敗する
 
     ```cpp
-auto x1 = {1, 2, 3}; // x1の型はstd::initializer_list<int>
-//auto x2 = {};      // コンパイルエラー！x2の型を推論できない
-```
+    auto x1 = {1, 2, 3}; // x1の型はstd::initializer_list<int>
+    //auto x2 = {};      // コンパイルエラー！x2の型を推論できない
+    ```
 
 - 単一要素の初期化子リストを`auto`で受けた場合、C++11では`std::initializer_list<T>`型に推論されるが、C++1zでは`T`型に推論されるよう仕様が変更される予定なので注意
 
     ```cpp
-auto x = {1}; // C++11ではxの型はstd::initializer_list<int>。
-              // C++1zではxの型はintになる予定
-```
+    auto x = {1}; // C++11ではxの型はstd::initializer_list<int>。
+                  // C++1zではxの型はintになる予定
+    ```
 
 - 関数テンプレートのパラメータとして初期化子リストを受けとった場合は、`std::initializer_list`型には推論されない
 
     ```cpp
-template <class T>
-void f(T) {}
+    template <class T>
+    void f(T) {}
 
-int main()
-{
-  f({1, 2, 3}); // コンパイルエラー！Tの型を推論できない
-}
-```
+    int main()
+    {
+      f({1, 2, 3}); // コンパイルエラー！Tの型を推論できない
+    }
+    ```
 
 - `std::initializer_list`の要素型のみを関数テンプレートで推論させることはできる
 
     ```cpp
-template <class T>
-void f(std::initializer_list<T>) {}
+    template <class T>
+    void f(std::initializer_list<T>) {}
 
-f({1, 2, 3}); // OK : Tはint
-```
+    f({1, 2, 3}); // OK : Tはint
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
 
@@ -305,32 +305,32 @@ f({1, 2, 3}); // OK : Tはint
 - 初期化子リストに列挙した要素は、先頭から順番に評価されることが保証される
 
     ```cpp
-#include <iostream>
-#include <initializer_list>
+    #include <iostream>
+    #include <initializer_list>
 
-int f()
-{
-  std::cout << 1 << std::endl;
-  return 1;
-}
+    int f()
+    {
+      std::cout << 1 << std::endl;
+      return 1;
+    }
 
-int g()
-{
-  std::cout << 2 << std::endl;
-  return 2;
-}
+    int g()
+    {
+      std::cout << 2 << std::endl;
+      return 2;
+    }
 
-int h()
-{
-  std::cout << 3 << std::endl;
-  return 3;
-}
+    int h()
+    {
+      std::cout << 3 << std::endl;
+      return 3;
+    }
 
-int main()
-{
-  std::initializer_list<int> init = { f(), g(), h() }; // 1, 2, 3の順で出力される
-}
-```
+    int main()
+    {
+      std::initializer_list<int> init = { f(), g(), h() }; // 1, 2, 3の順で出力される
+    }
+    ```
 * <initializer_list>[link /reference/initializer_list.md]
 * std::initializer_list[link /reference/initializer_list.md]
 

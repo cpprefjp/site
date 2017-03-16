@@ -34,21 +34,21 @@ int main()
 - コンストラクタのメンバ初期化子で明示的にメンバ変数の初期化が行われた場合、そのメンバ変数に対する非静的メンバ変数の初期化子で指定した初期化処理は実行されない：
 
     ```cpp
-class X {
-  int id_ = 3;
-  std::string data_ = "hello";
-public:
-  // id_は4で初期化され、data_は"hello"で初期化される。
-  // 「id_ = 3」の初期化式は実行されない
-  X() : id_(4) {}
+    class X {
+      int id_ = 3;
+      std::string data_ = "hello";
+    public:
+      // id_は4で初期化され、data_は"hello"で初期化される。
+      // 「id_ = 3」の初期化式は実行されない
+      X() : id_(4) {}
 
-  // id_はパラメータidで初期化され、data_は"world"で初期化される。
-  // 「id_ = 3」の初期化式は実行されない。
-  // 「data_ = "hello"」の初期化式は実行されない
-  X(int id)
-    : id_(id), data_("world") {}
-};
-```
+      // id_はパラメータidで初期化され、data_は"world"で初期化される。
+      // 「id_ = 3」の初期化式は実行されない。
+      // 「data_ = "hello"」の初期化式は実行されない
+      X(int id)
+        : id_(id), data_("world") {}
+    };
+    ```
 
 
 ## 参照

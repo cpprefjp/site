@@ -75,84 +75,84 @@ int main()
 - 関数テンプレートのパラメータとして波カッコの初期化子リストを渡して型推論させることはできない。波カッコの初期化子リストを受ける側で構築する型が確定しないためである
 
     ```cpp
-template <class T>
-void f(T) {}
+    template <class T>
+    void f(T) {}
 
-int main()
-{
-  f({1, 'a'}); // コンパイルエラー！Tの型を推論できない
-}
-```
+    int main()
+    {
+      f({1, 'a'}); // コンパイルエラー！Tの型を推論できない
+    }
+    ```
 
 - 関数のパラメータ型が確定している場合、波カッコによる初期化子リストを渡せる
 
     ```cpp
-struct X {
-  X(int, char) {}
-};
+    struct X {
+      X(int, char) {}
+    };
 
-void f(X) {}
+    void f(X) {}
 
-int main()
-{
-  f({1, 'a'}); // OK
-}
-```
+    int main()
+    {
+      f({1, 'a'}); // OK
+    }
+    ```
 
 - 関数の戻り値型が確定している場合、波カッコによる初期化子リストを`return`文で返せる。確定していない場合は返せない
 
     ```cpp
-struct X {
-  X(int, char) {}
-};
+    struct X {
+      X(int, char) {}
+    };
 
-int main()
-{
-  auto f = []() -> X { return {3, 'a'}; }; // OK
-//auto g = []() { return {3, 'a'}; };      // コンパイルエラー！戻り値の型を推論できない
-}
-```
+    int main()
+    {
+      auto f = []() -> X { return {3, 'a'}; }; // OK
+    //auto g = []() { return {3, 'a'}; };      // コンパイルエラー！戻り値の型を推論できない
+    }
+    ```
 
 - [`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタとデフォルトコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
 
     ```cpp
-#include <iostream>
-#include <initializer_list>
+    #include <iostream>
+    #include <initializer_list>
 
-struct X {
-  X()
-  {
-    std::cout << "default constructor" << std::endl;
-  }
+    struct X {
+      X()
+      {
+        std::cout << "default constructor" << std::endl;
+      }
 
-  X(std::initializer_list<int>)
-  {
-    std::cout << "initializer-list constructor" << std::endl;
-  }
-};
+      X(std::initializer_list<int>)
+      {
+        std::cout << "initializer-list constructor" << std::endl;
+      }
+    };
 
-int main()
-{
-  X x = {}; // 「default constructor」が出力される
-}
-```
+    int main()
+    {
+      X x = {}; // 「default constructor」が出力される
+    }
+    ```
 * <initializer_list>[link /reference/initializer_list.md]
 * std::initializer_list[link /reference/initializer_list.md]
 
 - [`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、[`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタが優先して呼び出される。そのような状況で非[`std::initializer_list`](/reference/initializer_list.md)のコンストラクタを呼び出す場合は、丸カッコでのコンストラクタ呼び出しが必要となる
 
     ```cpp
-struct X {
-  X(std::initializer_list<double>) {
-    std::cout << 1 << std::endl;
-  }
-  X(double d) {
-    std::cout << 2 << std::endl;
-  }
-};
+    struct X {
+      X(std::initializer_list<double>) {
+        std::cout << 1 << std::endl;
+      }
+      X(double d) {
+        std::cout << 2 << std::endl;
+      }
+    };
 
-X x1 = {3.0}; // 「1」が出力される
-```
+    X x1 = {3.0}; // 「1」が出力される
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
 
@@ -160,36 +160,36 @@ X x1 = {3.0}; // 「1」が出力される
 - 波カッコによるコンストラクタ呼び出しで渡す引数は、先頭から順番に評価されることが保証される
 
     ```cpp
-#include <iostream>
+    #include <iostream>
 
-int f()
-{
-  std::cout << 1 << std::endl;
-  return 1;
-}
+    int f()
+    {
+      std::cout << 1 << std::endl;
+      return 1;
+    }
 
-int g()
-{
-  std::cout << 2 << std::endl;
-  return 2;
-}
+    int g()
+    {
+      std::cout << 2 << std::endl;
+      return 2;
+    }
 
-int h()
-{
-  std::cout << 3 << std::endl;
-  return 3;
-}
+    int h()
+    {
+      std::cout << 3 << std::endl;
+      return 3;
+    }
 
-struct X {
-  X(int, int, int) {}
-};
+    struct X {
+      X(int, int, int) {}
+    };
 
-int main()
-{
-  X x1 { f(), g(), h() }; // 1, 2, 3の順で出力される
-  X x2(f(), g(), h());    // 1, 2, 3が順不同で出力される
-}
-```
+    int main()
+    {
+      X x1 { f(), g(), h() }; // 1, 2, 3の順で出力される
+      X x2(f(), g(), h());    // 1, 2, 3が順不同で出力される
+    }
+    ```
 
 
 ## 関連項目

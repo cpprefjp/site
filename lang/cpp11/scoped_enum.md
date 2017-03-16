@@ -22,11 +22,11 @@ int color = static_cast<int>(Color::Red);
 - 列挙型には、型名の後ろにコロン `:` 区切りで、基底の整数型を指定できる。基底型として指定した整数型のCV修飾は無視される
 
     ```cpp
-// 基底型をintとする
-enum class Color : int {
-  Red, Green, Blue
-};
-```
+    // 基底型をintとする
+    enum class Color : int {
+      Red, Green, Blue
+    };
+    ```
 
     - 列挙子の値が基底型の範囲に収まらない場合、プログラムは不適格となる
     - 列挙型の基底型を取得するには、[`<type_traits>`](/reference/type_traits.md)ヘッダで定義される[`std::underlying_type`](/reference/type_traits/underlying_type.md)を使用する
