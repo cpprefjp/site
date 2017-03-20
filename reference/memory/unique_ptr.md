@@ -95,8 +95,8 @@ namespace std {
 #include <iostream>
 
 struct hoge {
-  hoge() { std::cout << "hoge::hoge()" << std::endl; };
-  ~hoge() { std::cout << "hoge::~hoge()" << std::endl; };
+  hoge() { std::cout << "hoge::hoge()" << std::endl; }
+  ~hoge() { std::cout << "hoge::~hoge()" << std::endl; }
 };
 
 int main() {
