@@ -90,6 +90,7 @@ namespace std {
 
 ## 例
 ```cpp
+#include <cstdlib>
 #include <memory>
 #include <iostream>
 
