@@ -29,7 +29,7 @@ namespace std {
 ## 例外
 - 数値への変換が行われなかった場合、`std::invalid_argument`が送出される。
 - 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
-    - `std::strtoull()`関数が`std::errno`変数に`ERANGE`を設定した場合
+    - `std::strtoull()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を設定した場合
     - 結果が範囲外の値になった場合 (C++14)
 
 
