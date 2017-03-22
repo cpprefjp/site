@@ -32,17 +32,17 @@ namespace std {
 
 int main()
 {
-  std::thread th1([]{ /*...*/ });
-  std::thread th2;
+  std::thread t1([]{ /*...*/ });
+  std::thread t2;
 
-  std::swap(th1, th2);
+  std::swap(t1, t2);
 
-  th2.join();
+  t2.join();
 
   return 0;
 }
 ```
-* swap[color ff0000]
+* std::swap[color ff0000]
 
 
 ### 出力

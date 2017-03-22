@@ -45,20 +45,19 @@ join操作に失敗した場合、[`system_error`](/reference/system_error/syste
 int main()
 {
   int x = 0;
-  std::thread thd([&]{ ++x; });
+  std::thread t([&]{ ++x; });
 
   // ここでxにアクセスするとdata raceにより未定義動作
 
-  thd.join();
+  t.join();
 
   // 別スレッド上で行われた全処理が完了している
   assert(x == 1);
- 
+
   return 0;
 }
 ```
-* join[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* join()[color ff0000]
 
 ### 出力
 ```

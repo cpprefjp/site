@@ -8,7 +8,7 @@
 ```cpp
 id get_id() const noexcept;
 ```
-* id[link /reference/thread/thread/id.md]
+* id[link id.md]
 
 
 ## 概要
@@ -16,7 +16,7 @@ id get_id() const noexcept;
 
 
 ## 戻り値
-`thread`オブジェクトがスレッドに関連付けられている場合は、そのスレッドのスレッド識別子。そうでなければデフォルトコンストラクトされた[`thread::id`](/reference/thread/thread/id.md)オブジェクト。
+`thread`オブジェクトがスレッドに関連付けられている場合は、そのスレッドのスレッド識別子。そうでなければデフォルトコンストラクトされた[`thread::id`](id.md)オブジェクト。
 
 
 ## 例外
@@ -30,18 +30,18 @@ id get_id() const noexcept;
 
 int main()
 {
-  std::thread th0;
-  assert( th0.get_id() == std::thread::id() );
+  std::thread t1;
+  assert( t1.get_id() == std::thread::id() );
 
-  std::thread th1([]{ /*...*/ });
-  assert( th1.get_id() != std::thread::id() );
+  std::thread t2([]{ /*...*/ });
+  assert( t2.get_id() != std::thread::id() );
 
-  th1.join();
+  t2.join();
   return 0;
 }
 ```
-* get_id[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* get_id()[color ff0000]
+* std::thread::id[link id.md]
 
 ### 出力
 ```

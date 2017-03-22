@@ -48,8 +48,8 @@ std::future<int> start_async(int x, int y)
   auto ftr = task.get_future();
 
   // 新しいスレッド作成後にdetach操作
-  std::thread th(std::move(task));
-  th.detach();
+  std::thread t(std::move(task));
+  t.detach();
 
   return ftr;
   // 変数thにはスレッドが紐付いていないため破棄可能
@@ -63,9 +63,12 @@ int main()
   std::cout << result.get() << std::endl;
 }
 ```
-* detach[color ff0000]
-* future[link /reference/future/future.md]
-* packaged_task[link /reference/future/packaged_task.md]
+* detach()[color ff0000]
+* std::future[link /reference/future/future.md]
+* std::packaged_task[link /reference/future/packaged_task.md]
+* task.get_future()[link /reference/future/packaged_task/get_future.md]
+* std::move[link /reference/utility/move.md]
+* result.get()[link /reference/future/future/get.md]
 
 ### 出力
 ```

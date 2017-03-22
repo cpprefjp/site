@@ -60,6 +60,7 @@ thread(thread&&) noexcept;              // (4)
 ```cpp
 #include <memory>
 #include <thread>
+#include <utility>
 #include <cassert>
 
 int func(int v, int& ri, std::shared_ptr<int> sp, std::unique_ptr<int> up)
@@ -79,9 +80,9 @@ int main()
   std::shared_ptr<int> sp0 = std::make_shared<int>(5);
   std::unique_ptr<int> up0(new int(2));
 
-  std::thread thd( func, i1,  std::ref(i2), sp0, std::move(up0) );
+  std::thread t( func, i1,  std::ref(i2), sp0, std::move(up0) );
   // ...
-  thd.join();
+  t.join();
 
   assert(i1 == 0 && i2 == 42);
 
@@ -91,7 +92,7 @@ int main()
 * std::shared_ptr[link /reference/memory/shared_ptr.md]
 * std::make_shared[link /reference/memory/make_shared.md]
 * std::unique_ptr[link /reference/memory/unique_ptr.md]
-* assert[link /reference/cassert/assert.md]
+* std::move[link /reference/utility/move.md]
 
 ### 出力
 ```

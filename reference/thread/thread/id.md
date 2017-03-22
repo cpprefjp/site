@@ -81,6 +81,7 @@ int main()
 }
 ```
 * std::thread::id[color ff0000]
+* std::this_thread::get_id()[link /reference/thread/this_thread/get_id.md]
 
 ### 出力例
 ```

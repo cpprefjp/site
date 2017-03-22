@@ -45,7 +45,8 @@ int main()
 }
 ```
 * std::this_thread::sleep_until[color ff0000]
-* std::chrono::system_clock::now[link /reference/chrono/system_clock/now.md]
+* std::chrono::system_clock[link /reference/chrono/system_clock.md]
+* now()[link /reference/chrono/system_clock/now.md]
 * std::chtono::seconds[link /reference/chrono/seconds.md]
 
 ### 出力

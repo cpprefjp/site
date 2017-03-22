@@ -27,12 +27,12 @@ void swap(thread& x) noexcept;
 
 int main()
 {
-  std::thread th1([]{ /*...*/ });
-  std::thread th2;
+  std::thread t1([]{ /*...*/ });
+  std::thread t2;
 
-  th1.swap(th2);
+  t1.swap(t2);
 
-  th2.join();
+  t2.join();
 
   return 0;
 }

@@ -38,19 +38,19 @@ thread& operator=(thread&& x) noexcept;
 
 int main()
 {
-  std::thread th1([]{ /*...*/ });
-  std::thread th2;
-  assert(th1.joinable() && !th2.joinable());
+  std::thread t1([]{ /*...*/ });
+  std::thread t2;
+  assert(t1.joinable() && !t2.joinable());
 
   // th1からth2へムーブ代入
-  th2 = std::move(th1);
-  assert(!th1.joinable() && th2.joinable());
+  t2 = std::move(t1);
+  assert(!t1.joinable() && t2.joinable());
 
-  th2.join();
+  t2.join();
 }
 ```
 * th2 = std::move(th1);[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* joinable()[link joinable.md]
 
 ### 出力
 ```

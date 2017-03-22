@@ -24,7 +24,7 @@
 int main()
 {
   {
-    std::thread thd([]{ /*...*/ });
+    std::thread t([]{ /*...*/ });
     // thdに対してjoin()もdetach()も行わない。
 
     // thdのデストラクタ呼び出しでプログラム終了!

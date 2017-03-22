@@ -43,7 +43,7 @@ int result;
 
 int main()
 {
-  std::thread th([]{
+  std::thread t([]{
     // 別スレッド上での処理...
     result = 42;
     done = true;
@@ -57,10 +57,11 @@ int main()
 
   std::cout << "result=" << result << std::endl;
 
-  th.join();
+  t.join();
 }
 ```
-* std::this_thread::yield[color ff0000]
+* std::this_thread::yield()[color ff0000]
+* std::atomic[link /reference/atomic/atomic.md]
 
 ### 出力
 ```

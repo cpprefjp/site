@@ -80,15 +80,14 @@ int main()
 {
   int x = 0, y = 0;
 
-  std::thread thd([&]{ ++x; });
+  std::thread t([&]{ ++x; });
   --y;
-  thd.join();
+  t.join();
 
   assert(x == 1 && y == -1);
   return 0;
 }
 ```
-* assert[link /reference/cassert/assert.md]
 
 ### 出力
 ```

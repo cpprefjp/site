@@ -28,16 +28,15 @@ bool joinable() const noexcept;
 
 int main()
 {
-  std::thread thd([]{ /*...*/ });
-  assert(thd.joinable());
+  std::thread t([]{ /*...*/ });
+  assert(t.joinable());
 
-  thd.join();
-  assert(!thd.joinable());
+  t.join();
+  assert(!t.joinable());
   return 0;
 }
 ```
-* joinable[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* joinable()[color ff0000]
 
 ### 出力
 ```

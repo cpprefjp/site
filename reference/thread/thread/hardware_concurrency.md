@@ -36,7 +36,7 @@ int main()
   return 0;
 }
 ```
-* hardware_concurrency[color ff0000]
+* hardware_concurrency()[color ff0000]
 
 ### 出力例
 ```
