@@ -45,7 +45,7 @@ namespace std {
     ```c
 #include <math.h>
 #include <fenv.h>
-# pragma STDC FENV_ACCESS ON
+#pragma STDC FENV_ACCESS ON
 double fmod(double x, double y)
 {
   double result;

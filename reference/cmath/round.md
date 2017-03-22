@@ -38,7 +38,7 @@ namespace std {
 	```c
 #include <math.h>
 #include <fenv.h>
-# pragma STDC FENV_ACCESS ON
+#pragma STDC FENV_ACCESS ON
 double round(double x)
 {
   double result;
