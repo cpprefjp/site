@@ -85,7 +85,7 @@ int main()
     X x1 {1, 2, 3};   // 直接初期化して変数定義
     X {1, 2, 3};      // 直接初期化して一時オブジェクトを定義
     X x2 = {1, 2, 3}; // コピー初期化して変数定義
-```
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
 - `new`式での初期化子リストによる初期化
@@ -236,7 +236,7 @@ x = {1, 2, 3};
 
     X {1, 2, 3};       // 「1」が出力される
     X {1.0, 2.0, 3.0}; // 「2」が出力される
-```
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
 
