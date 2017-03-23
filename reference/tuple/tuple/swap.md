@@ -47,7 +47,7 @@ int main()
 }
 ```
 * swap[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* std::make_tuple[link /reference/tuple/make_tuple.md]
 
 ### 出力
 ```

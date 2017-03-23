@@ -45,7 +45,8 @@ int main()
   std::tuple<int&, char&, std::string&> t2 = std::forward_as_tuple(a, b, c);
 }
 ```
-* forward_as_tuple[color ff0000]
+* std::forward_as_tuple[color ff0000]
+* std::tuple[link tuple.md]
 
 ### 出力
 ```

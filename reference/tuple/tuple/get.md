@@ -94,11 +94,11 @@ int main()
 
     std::cout << i << std::endl;
     std::cout << c << std::endl;
-    std::cout << s << std::endl;    
+    std::cout << s << std::endl;
   }
 }
 ```
-* get[color ff0000]
+* std::get[color ff0000]
 
 ### 出力
 ```

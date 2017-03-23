@@ -107,7 +107,7 @@ tuple(allocator_arg_t, const Alloc& a,
 ```cpp
 #include <tuple>
 #include <string>
-#include <utility> // std::move
+#include <utility>
 
 int main()
 {
@@ -134,6 +134,9 @@ int main()
                                         1, 'a', "hello");
 }
 ```
+* std::move[link /reference/utility/move.md]
+* std::allocator_arg[link /reference/memory/allocator_arg_t.md]
+* std::allocator[link /reference/memory/allocator.md]
 
 ### 出力
 ```

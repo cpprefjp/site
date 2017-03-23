@@ -53,7 +53,8 @@ int main()
   static_assert(std::tuple_size<const volatile std::tuple<int, int, int>>::value == 3, "");
 }
 ```
-* tuple_size[color ff0000]
+* std::tuple_size[color ff0000]
+* std::tuple[link tuple.md]
 
 ### 出力
 ```

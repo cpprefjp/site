@@ -16,7 +16,7 @@ namespace std {
 * tuple[link /reference/tuple/tuple.md]
 
 ## 概要
-パラメータの参照からなる[`tuple`](../tuple.md)を生成する。 
+パラメータの参照からなる[`tuple`](../tuple.md)を生成する。
 
 本関数は、[`tuple`](../tuple.md)のオブジェクトから要素をまとめて取り出すために使用することができる。
 
@@ -75,7 +75,9 @@ int main()
   }
 }
 ```
-* tie[color ff0000]
+* std::tie[color ff0000]
+* std::ignore[link ignore.md]
+* std::tuple[link tuple.md]
 
 ### 出力
 ```

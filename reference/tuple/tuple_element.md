@@ -86,7 +86,9 @@ int main()
                 >::value, "");
 }
 ```
-* tuple_element[color ff0000]
+* std::tuple_element[color ff0000]
+* std::tuple[link tuple.md]
+* std::is_same[link /reference/type_traits/is_same.md]
 
 ### 出力
 ```

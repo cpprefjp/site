@@ -26,7 +26,7 @@ namespace std {
 ```cpp
 #include <tuple>
 #include <string>
-#include <functional> // ref, cref
+#include <functional>
 
 int main()
 {
@@ -47,7 +47,10 @@ int main()
   std::tuple<int, char&, const std::string&> t4 = std::make_tuple(a, std::ref(b), std::cref(c));
 }
 ```
-* make_tuple[color ff0000]
+* std::make_tuple[color ff0000]
+* std::tuple[link tuple.md]
+* std::ref[link /reference/functional/ref.md]
+* std::cref[link /reference/functional/cref.md]
 
 ### 出力
 ```

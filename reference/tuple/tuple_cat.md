@@ -54,7 +54,9 @@ int main()
   std::cout << std::get<4>(result) << std::endl;
 }
 ```
-* tuple_cat[color ff0000]
+* std::tuple_cat[color ff0000]
+* std::tuple[link tuple.md]
+* std::get[link tuple/get.md]
 
 ### 出力
 ```
