@@ -133,13 +133,13 @@ int main()
 - 代入演算子の右辺
 
     ```cpp
-struct X {
-  X& operator=(std::initializer_list<int>) { return *this; }
-};
+    struct X {
+      X& operator=(std::initializer_list<int>) { return *this; }
+    };
 
-X x;
-x = {1, 2, 3};
-```
+    X x;
+    x = {1, 2, 3};
+    ```
 * std::initializer_list[link /reference/initializer_list.md]
 
 

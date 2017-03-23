@@ -271,9 +271,9 @@ hello
 - 継承時の基本クラスリストの指定
 
     ```cpp
-template <class... Bases>
-class Derived : Bases...;
-```
+    template <class... Bases>
+    class Derived : Bases...;
+    ```
 
 - コンストラクタのメンバ初期化子
 
