@@ -64,7 +64,7 @@ int main()
 ```
 * clear[color ff0000]
 * std::atomic_flag[link /reference/atomic/atomic_flag.md]
-* ATOMIC_FLAG_INIT[link /reference/atomic_atomic_flag_init.md]
+* ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
 * x.test_and_set()[link test_and_set.md]
 
 ### 出力

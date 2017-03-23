@@ -38,7 +38,7 @@ int main()
 ```
 * std::noskipws[color ff0000]
 * std::istringstream[link /reference/sstream/basic_istringstream.md]
-* s.seekg[link /reference/istream/basic_istream/seek_g.md]
+* s.seekg[link /reference/istream/basic_istream/seekg.md]
 * std::ios_base[link ios_base.md]
 * beg[link ios_base/type-seekdir.md]
 * std::skipws[link skipws.md]

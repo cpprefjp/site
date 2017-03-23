@@ -85,7 +85,7 @@ int main()
 * assert[link /reference/cassert/assert.md]
 * ls2.begin()[link begin.md]
 * ls2.end()[link end.md]
-* init.begin()[link /reference/initializer_List/begin.md]
+* init.begin()[link /reference/initializer_list/begin.md]
 
 ### 出力
 ```

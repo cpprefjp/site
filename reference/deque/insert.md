@@ -80,7 +80,7 @@ int main()
 }
 ```
 * insert[color ff0000]
-* c.begin()[link begin.mc]
+* c.begin()[link begin.md]
 
 ### 出力
 ```

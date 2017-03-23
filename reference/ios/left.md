@@ -35,7 +35,7 @@ int main()
 * std::left[color ff0000]
 * std::internal[link internal.md]
 * std::right[link right.md]
-* std::setw[link /reference/iomanip/setw.md]
+* std::setw[link /reference/iomanip/setw.md.nolink]
 
 ### 出力
 ```

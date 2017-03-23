@@ -107,7 +107,7 @@ int main()
 * que.push[link priority_queue/push.md]
 * que.empty()[link priority_queue/empty.md]
 * que.top()[link priority_queue/top.md]
-* que.pop()[link priority_queue.pop.md]
+* que.pop()[link priority_queue/pop.md]
 
 ### 出力
 ```

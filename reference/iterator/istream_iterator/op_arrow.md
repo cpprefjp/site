@@ -38,7 +38,7 @@ int main()
 }
 ```
 * it->c_str()[color ff0000]
-* std::stringstream[link /reference/sstream/basic_stringstream.md]
+* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 
 ### 出力
 ```
