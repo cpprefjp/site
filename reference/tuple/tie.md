@@ -32,6 +32,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp
 #include <iostream>
 #include <tuple>
@@ -88,6 +89,59 @@ Hello
 1
 Hello
 ```
+
+
+### 順序付きの大小比較
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <tuple>
+
+struct File {
+  std::string type;
+  std::string name;
+
+  File(const std::string& type, const std::string& name)
+      : type(type), name(name) {}
+};
+
+bool operator<(const File& a, const File& b)
+{
+  // ファイル種別、ファイル名の順番で優先順位を付けて比較
+  // 1. typeを比較する
+  // 2. typeでどちらかが小さいか判断できればその結果を返す
+  // 3. typeが等値であれば、nameを比較する
+  return std::tie(a.type, a.name) < std::tie(b.type, b.name);
+}
+
+int main()
+{
+  std::vector<File> files = {
+    {"text", "b.txt"},
+    {"application", "b.exe"},
+    {"application", "a.exe"},
+    {"text", "a.txt"}
+  };
+
+  // 並べ替え
+  std::sort(files.begin(), files.end());
+
+  for (const File& file : files) {
+    std::cout << file.type << ", " << file.name << std::endl;
+  }
+}
+```
+
+#### 出力
+```
+application, a.exe
+application, b.exe
+text, a.txt
+text, b.txt
+```
+
 
 ## バージョン
 ### 言語
