@@ -80,7 +80,7 @@ int main()
 * std::ignore[link ignore.md]
 * std::tuple[link tuple.md]
 
-### 出力
+#### 出力
 ```
 1
 a
