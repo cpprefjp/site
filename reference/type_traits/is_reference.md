@@ -43,6 +43,7 @@ static_assert(std::is_reference<int&& ()>::value == false, "int&& () is not refe
 
 int main(){}
 ```
+* std::is_reference[color ff0000]
 
 ### 出力
 ```

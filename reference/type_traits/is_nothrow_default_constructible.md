@@ -61,6 +61,7 @@ static_assert(std::is_nothrow_default_constructible<void>::value == false, "void
 
 int main(){}
 ```
+* std::is_nothrow_default_constructible[color ff0000]
 
 ### 出力
 ```

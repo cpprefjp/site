@@ -48,14 +48,16 @@ static_assert(std::is_scalar<std::nullptr_t>::value == true, "std::nullptr_t is 
 
 struct s
 {
-  int member_object;                      // decltype(&s::member_object) は int s::*
-  void member_function(){};               // decltype(&s::member_function) は void (s::*)()
+  int member_object;        // decltype(&s::member_object) は int s::*
+  void member_function(){}; // decltype(&s::member_function) は void (s::*)()
 };
 static_assert(std::is_scalar<int s::*>::value == true, "int s::* is scalar");
 static_assert(std::is_scalar<void (s::*)()>::value == true, "void (s::*)() is scalar");
 
 int main(){}
 ```
+* std::is_scalar[color ff0000]
+* std::nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ### 出力
 ```

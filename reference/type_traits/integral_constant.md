@@ -40,6 +40,7 @@ static_assert(int_zero() == 0, "int_zero() == 0");
 
 int main(){}
 ```
+* std::integral_constant[color ff0000]
 
 ### 出力
 ```

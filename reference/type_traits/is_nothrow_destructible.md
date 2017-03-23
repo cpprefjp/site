@@ -57,6 +57,7 @@ static_assert(
 
 int main() {}
 ```
+* std::is_nothrow_destructible[color ff0000]
 
 ### 出力
 ```

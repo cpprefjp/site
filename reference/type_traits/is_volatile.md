@@ -42,6 +42,7 @@ static_assert(std::is_volatile<volatile int&>::value == false, "value == true, v
 
 int main(){}
 ```
+* std::is_volatile[color ff0000]
 
 ### 出力
 ```

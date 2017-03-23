@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  template <class T> 
+  template <class T>
   struct is_null_pointer;
 }
 ```
@@ -40,6 +40,8 @@ static_assert(std::is_null_pointer<int>::value == false,
 
 int main(){}
 ```
+* std::is_null_pointer[color ff0000]
+* std::nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ### 出力
 ```

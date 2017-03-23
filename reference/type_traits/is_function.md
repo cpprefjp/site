@@ -45,6 +45,7 @@ static_assert(std::is_function<f&&>::value == false, "f&& is not function");
 
 int main(){}
 ```
+* std::is_function[color ff0000]
 
 ### 出力
 ```

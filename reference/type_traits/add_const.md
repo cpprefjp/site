@@ -21,8 +21,8 @@ namespace std {
 
 
 ## 効果
-`add_const`は、型`T`に`const`修飾を付加した型を、メンバ型`type`として定義する。  
-型`T`が参照、関数、すでに最上位が`const`修飾された型である場合は、型`T`をそのままメンバ型`type`として定義する。  
+- `add_const`は、型`T`に`const`修飾を付加した型を、メンバ型`type`として定義する。
+- 型`T`が参照、関数、すでに最上位が`const`修飾された型である場合は、型`T`をそのままメンバ型`type`として定義する。
 
 
 ## 例
@@ -36,6 +36,7 @@ static_assert(std::is_same<std::add_const<const int>::type, const int>::value, "
 
 int main() {}
 ```
+* std::add_const[color ff0000]
 
 ### 出力
 ```

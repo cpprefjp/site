@@ -21,8 +21,8 @@ namespace std {
 
 
 ## 効果
-`add_cv`は、型`T`に`const`修飾および`volatile`修飾両方を付加した型を、メンバ型`type`として定義する。  
-型`T`が参照、関数、すでに最上位が`const-volatile`修飾された型である場合は、型`T`をそのままメンバ型`type`として定義する。  
+- `add_cv`は、型`T`に`const`修飾および`volatile`修飾両方を付加した型を、メンバ型`type`として定義する。
+- 型`T`が参照、関数、すでに最上位が`const-volatile`修飾された型である場合は、型`T`をそのままメンバ型`type`として定義する。
 
 
 ## 例
@@ -55,6 +55,7 @@ static_assert(std::is_same<
 
 int main() {}
 ```
+* std::add_cv[color ff0000]
 
 ### 出力
 ```

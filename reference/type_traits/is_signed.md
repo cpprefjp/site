@@ -48,6 +48,7 @@ static_assert(std::is_signed<c>::value == false, "value == true, class is not si
 
 int main(){}
 ```
+* std::is_signed[color ff0000]
 
 ### 出力
 ```

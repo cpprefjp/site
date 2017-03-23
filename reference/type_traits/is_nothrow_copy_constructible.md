@@ -76,6 +76,7 @@ static_assert(std::is_nothrow_copy_constructible<void>::value == false, "void is
 
 int main(){}
 ```
+* std::is_nothrow_copy_constructible[color ff0000]
 
 ### 出力
 ```

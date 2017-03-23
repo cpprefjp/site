@@ -31,6 +31,7 @@ static_assert(std::rank<int[3][4]>::value == 2, "int[3][4] rank is 2");
 
 int main() {}
 ```
+* std::rank[color ff0000]
 
 ### 出力
 ```

@@ -26,6 +26,7 @@ static_assert(std::true_type() == true, "true_type() == true");
 
 int main(){}
 ```
+* std::true_type[color ff0000]
 
 ### 出力
 ```

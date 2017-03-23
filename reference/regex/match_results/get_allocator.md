@@ -90,7 +90,6 @@ int main()
 * get_allocator()[color ff0000]
 * operator new[link ../../new/op_new.md]
 * operator delete[link ../../new/op_delete.md]
-* std::true_type[link ../../type_traits/true_type.md]
 * swap[link swap_free.md]
 * std::match_results[link ../match_results.md]
 * std::sub_match[link ../sub_match.md]

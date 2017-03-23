@@ -48,6 +48,7 @@ static_assert(std::is_unsigned<c>::value == false, "value == true, class is not 
 
 int main(){}
 ```
+* std::is_unsigned[color ff0000]
 
 ### 出力
 ```

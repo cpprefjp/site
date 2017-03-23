@@ -64,6 +64,7 @@ static_assert(std::is_move_constructible<int ()>::value == false, "int () is not
 
 int main(){}
 ```
+* std::is_move_constructible[color ff0000]
 
 ### 出力
 ```

@@ -53,6 +53,7 @@ static_assert(std::is_nothrow_constructible<void>::value == false, "ctor void() 
 
 int main(){}
 ```
+* std::is_nothrow_constructible[color ff0000]
 
 ### 出力
 ```

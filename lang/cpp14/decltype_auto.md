@@ -54,8 +54,6 @@ int main()
   static_assert(std::is_same<decltype(c), int&>::value, "");
 }
 ```
-* <type_traits>[link /reference/type_traits.md]
-* std::is_same[link /reference/type_traits/is_same.md]
 
 ## 出力
 ```

@@ -53,6 +53,7 @@ static_assert(std::is_pod<non_POD_struct>::value == false, "value == true, non_P
 
 int main(){}
 ```
+* std::is_pod[color ff0000]
 
 ### 出力
 ```

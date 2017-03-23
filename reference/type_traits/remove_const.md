@@ -60,6 +60,7 @@ static_assert(std::is_same<
 
 int main() {}
 ```
+* std::remove_const[color ff0000]
 
 ### 出力
 ```

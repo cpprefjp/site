@@ -17,12 +17,13 @@ namespace std {
 ```
 
 ## 概要
-コンパイル時条件式。  
+コンパイル時条件式。
+
 条件式が`true`か`false`かによって、使用する型を切り替える。
 
 
 ## 効果
-`conditional`は、条件式`B`が`true`であれば型`T`を、そうでなければ型`F`を、メンバ型`type`として定義する。  
+`conditional`は、条件式`B`が`true`であれば型`T`を、そうでなければ型`F`を、メンバ型`type`として定義する。
 
 
 ## 例
@@ -34,6 +35,7 @@ static_assert(std::is_same<std::conditional<false, int, char>::type, char>::valu
 
 int main() {}
 ```
+* std::conditional[color ff0000]
 
 ### 出力
 ```

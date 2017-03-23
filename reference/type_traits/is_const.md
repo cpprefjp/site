@@ -42,6 +42,7 @@ static_assert(std::is_const<const int&>::value == false, "value == true, const i
 
 int main(){}
 ```
+* std::is_const[color ff0000]
 
 ### 出力
 ```

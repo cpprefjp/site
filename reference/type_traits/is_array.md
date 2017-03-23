@@ -50,6 +50,7 @@ static_assert(std::is_array<void (int (&)[9])>::value == false, "void (int (&)[9
 
 int main(){}
 ```
+* std::is_array[color ff0000]
 
 ### 出力
 ```

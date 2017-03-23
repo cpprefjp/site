@@ -46,6 +46,7 @@ static_assert(std::is_convertible<B, A>::value == true, "B convertible to A");
 
 int main() {}
 ```
+* std::is_convertible[color ff0000]
 
 ### 出力
 ```

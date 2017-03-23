@@ -48,6 +48,8 @@ static_assert(std::is_object<std::nullptr_t>::value == true, "std::nullptr_t is 
 
 int main(){}
 ```
+* std::is_object[color ff0000]
+* std::nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ### 出力
 ```

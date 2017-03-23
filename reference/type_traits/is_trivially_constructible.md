@@ -68,6 +68,7 @@ static_assert(
 
 int main() {}
 ```
+* std::is_trivially_constructible[color ff0000]
 
 ### 出力
 ```

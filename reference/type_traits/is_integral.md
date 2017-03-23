@@ -61,6 +61,7 @@ static_assert(std::is_integral<float>::value == false, "float is not integral");
 
 int main(){}
 ```
+* std::is_integral[color ff0000]
 
 ### 出力
 ```

@@ -45,6 +45,7 @@ static_assert(std::is_union<u ()>::value == false, "u () is not union");
 
 int main(){}
 ```
+* std::is_union[color ff0000]
 
 ### 出力
 ```

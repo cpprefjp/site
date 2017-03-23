@@ -101,7 +101,6 @@ int main()
 ```
 * is_error_code_enum[link /reference/system_error/is_error_code_enum.md]
 * std::errc[link /reference/system_error/errc.md]
-* std::true_type[link /reference/type_traits/true_type.md]
 * ec.value()[link value.md]
 * ec.category()[link category.md]
 * name()[link /reference/system_error/error_category/name.md]

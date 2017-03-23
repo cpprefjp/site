@@ -75,6 +75,7 @@ static_assert(
 
 int main() {}
 ```
+* std::is_trivially_move_constructible[color ff0000]
 
 ### 出力
 ```

@@ -56,7 +56,7 @@ static_assert(std::is_member_function_pointer<void (*)()>::value == false, "void
 
 int main(){}
 ```
-
+* std::is_member_function_pointer[color ff0000]
 
 ### 出力
 ```

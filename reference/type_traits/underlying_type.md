@@ -44,7 +44,7 @@ enum class IntColor {
 
 
 ## 効果
-`underlying_type`は、列挙型`T`の基底型を、メンバ型`type`として定義する。  
+`underlying_type`は、列挙型`T`の基底型を、メンバ型`type`として定義する。
 
 
 ## 例
@@ -65,6 +65,7 @@ static_assert(std::is_integral<std::underlying_type<E4>::type>::value == true, "
 
 int main() {}
 ```
+* std::underlying_type[color ff0000]
 
 ### 出力
 ```

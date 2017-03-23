@@ -58,6 +58,7 @@ static_assert(std::is_default_constructible<int ()>::value == false, "int () is 
 
 int main(){}
 ```
+* std::is_default_constructible[color ff0000]
 
 ### 出力
 ```

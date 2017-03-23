@@ -34,6 +34,7 @@ static_assert(std::is_same<std::remove_reference<int&&>::type, int>::value, "tra
 
 int main() {}
 ```
+* std::remove_reference[color ff0000]
 
 ### 出力
 ```

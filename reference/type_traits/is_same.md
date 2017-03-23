@@ -49,6 +49,7 @@ static_assert(std::is_same<int, my_type>::value == false, "int != my_type");
 
 int main(){}
 ```
+* std::is_same[color ff0000]
 
 ### 出力
 ```

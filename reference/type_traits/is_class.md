@@ -57,6 +57,7 @@ static_assert(std::is_class<u>::value == false, "u is not class");
 
 int main(){}
 ```
+* std::is_class[color ff0000]
 
 ### 出力
 ```

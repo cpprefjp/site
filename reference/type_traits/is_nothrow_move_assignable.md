@@ -79,6 +79,7 @@ static_assert(
 
 int main() {}
 ```
+* std::is_nothrow_move_assignable[color ff0000]
 
 ### 出力
 ```

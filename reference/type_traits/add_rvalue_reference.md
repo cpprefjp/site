@@ -21,7 +21,8 @@ namespace std {
 
 
 ## 効果
-`add_rvalue_reference`は、オブジェクト型もしくは関数型`T`の名前に`&&`修飾を付加した型を、メンバ型`type`として定義する。そうでない場合は、型`T`をそのままメンバ型`type`として定義する。  
+`add_rvalue_reference`は、オブジェクト型もしくは関数型`T`の名前に`&&`修飾を付加した型を、メンバ型`type`として定義する。そうでない場合は、型`T`をそのままメンバ型`type`として定義する。
+
 ※`T&`は`T&&`にはならず、`T&`のままとなる。
 
 
@@ -35,6 +36,7 @@ static_assert(std::is_same<std::add_rvalue_reference<int&&>::type, int&&>::value
 
 int main() {}
 ```
+* std::add_rvalue_reference[color ff0000]
 
 ### 出力
 ```

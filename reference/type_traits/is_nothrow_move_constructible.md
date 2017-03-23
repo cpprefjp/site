@@ -78,6 +78,7 @@ static_assert(
 
 int main() {}
 ```
+* std::is_nothrow_move_constructible[color ff0000]
 
 ### 出力
 ```

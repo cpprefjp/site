@@ -51,6 +51,7 @@ static_assert(std::is_polymorphic<polymorphic_class&>::value == false, "value ==
 
 int main(){}
 ```
+* std::is_polymorphic[color ff0000]
 
 ### 出力
 ```

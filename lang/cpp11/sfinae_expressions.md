@@ -173,11 +173,7 @@ int main()
   static_assert(!is_addable<int, X>::value, "int + X is invalid");
 }
 ```
-* <utility>[link /reference/utility.md]
-* <type_traits>[link /reference/type_traits.md]
 * std::declval[link /reference/utility/declval.md]
-* std::true_type[link /reference/type_traits/true_type.md]
-* std::false_type[link /reference/type_traits/false_type.md]
 * nullptr[link nullptr.md]
 * static_assert[link static_assert.md]
 * decltype[link decltype.md]
@@ -215,9 +211,6 @@ int main()
   static_assert(!is_complete_type<B>::value, "B is incomplete type");
 }
 ```
-* <type_traits>[link /reference/type_traits.md]
-* std::true_type[link /reference/type_traits/true_type.md]
-* std::false_type[link /reference/type_traits/false_type.md]
 * nullptr[link nullptr.md]
 * static_assert[link static_assert.md]
 * decltype[link decltype.md]
@@ -260,17 +253,10 @@ int main()
                 "f is not callable with int type one argument");
 }
 ```
-* <type_traits>[link /reference/type_traits.md]
-* <utility>[link /reference/utility.md]
 * std::declval[link /reference/utility/declval.md]
-* std::true_type[link /reference/type_traits/true_type.md]
-* std::false_type[link /reference/type_traits/false_type.md]
 * nullptr[link nullptr.md]
 * static_assert[link static_assert.md]
 * decltype[link decltype.md]
-* std::string[link /reference/string/basic_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 #### 出力
 ```

@@ -21,7 +21,7 @@ namespace std {
 
 
 ## 効果
-`remove_pointer`は、型`T`が何らかの型`U`への(cv修飾された)ポインタである場合、型に含まれるポインタを除去した型`U`を、メンバ型`type`として定義する。そうでなければ、型`T`をそのままメンバ型`type`として定義する。  
+`remove_pointer`は、型`T`が何らかの型`U`への(cv修飾された)ポインタである場合、型に含まれるポインタを除去した型`U`を、メンバ型`type`として定義する。そうでなければ、型`T`をそのままメンバ型`type`として定義する。
 
 
 ## 例
@@ -36,6 +36,7 @@ static_assert(std::is_same<std::remove_pointer<int*&>::type, int*&>::value, "tra
 
 int main() {}
 ```
+* std::remove_pointer[color ff0000]
 
 ### 出力
 ```

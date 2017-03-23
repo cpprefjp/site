@@ -45,6 +45,7 @@ static_assert(std::is_floating_point<long double[1]>::value == false, "long doub
 
 int main(){}
 ```
+* std::is_floating_point[color ff0000]
 
 ### 出力
 ```

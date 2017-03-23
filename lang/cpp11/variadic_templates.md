@@ -363,12 +363,7 @@ hello
       >::value, ""); // OK
     }
     ```
-* <utility>[link /reference/utility.md]
-* <tuple>[link /reference/tuple.md]
-* <type_traits>[link /reference/type_traits.md]
 * std::tuple[link /reference/tuple/tuple.md]
-* std::pair[link /reference/utility/pair.md]
-* std::is_same[link /reference/type_traits/is_same.md]
 * static_assert[link static_assert.md]
 
 

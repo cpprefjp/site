@@ -25,7 +25,7 @@ namespace std {
 
 
 ## 効果
-`common_type`は、`Types...`に含まれる全ての型が暗黙変換可能な型を、メンバ型`type`として定義する。  
+`common_type`は、`Types...`に含まれる全ての型が暗黙変換可能な型を、メンバ型`type`として定義する。
 
 
 ## 例
@@ -53,6 +53,7 @@ int main()
   std::cout << x << std::endl;
 }
 ```
+* std::common_type[color ff0000]
 
 ### 出力
 ```

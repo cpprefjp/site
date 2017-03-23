@@ -55,6 +55,7 @@ static_assert(std::is_trivial<non_trivial_class&>::value == false, "value == tru
 
 int main(){}
 ```
+* std::is_trivial[color ff0000]
 
 ### 出力
 ```

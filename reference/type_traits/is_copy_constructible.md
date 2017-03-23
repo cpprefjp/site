@@ -65,6 +65,7 @@ static_assert(std::is_copy_constructible<int ()>::value == false, "int () is not
 
 int main(){}
 ```
+* std::is_copy_constructible[color ff0000]
 
 ### 出力
 ```

@@ -59,6 +59,7 @@ static_assert(std::is_trivially_copyable<C2>::value == false, "C2 isn't triviall
 
 int main() {}
 ```
+* std::is_trivially_copyable[color ff0000]
 
 ### 出力
 ```

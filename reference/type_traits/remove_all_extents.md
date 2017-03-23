@@ -54,6 +54,7 @@ static_assert(std::is_same<
 
 int main() {}
 ```
+* std::remove_all_extents[color ff0000]
 
 ### 出力
 ```

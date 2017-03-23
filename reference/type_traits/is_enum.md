@@ -48,9 +48,10 @@ static_assert(std::is_enum<e [1]>::value == false, "e [1] is not enum");
 
 int main(){}
 ```
+* std::is_enum[color ff0000]
 
 ### 出力
-```cpp
+```
 ```
 
 ## バージョン

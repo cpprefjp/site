@@ -58,6 +58,7 @@ static_assert(std::is_empty<empty_class&>::value == false, "value == true, empty
 
 int main(){}
 ```
+* std::is_empty[color ff0000]
 
 ### 出力
 ```

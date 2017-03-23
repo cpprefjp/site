@@ -49,6 +49,7 @@ static_assert(std::is_lvalue_reference<void (int&)>::value == false, "void (int&
 
 int main(){}
 ```
+* std::is_lvalue_reference[color ff0000]
 
 ### 出力
 ```

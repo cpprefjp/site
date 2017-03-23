@@ -64,9 +64,10 @@ static_assert(std::is_destructible<std::ctype<char>>::value == false, "std::ctyp
 
 int main(){}
 ```
+* std::is_destructible[color ff0000]
 
 ### 出力
-```cpp
+```
 ```
 
 ## バージョン

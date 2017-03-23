@@ -46,7 +46,7 @@ static_assert(std::is_arithmetic<int[1]>::value == false, "int[1] is not arithme
 
 int main(){}
 ```
-
+* std::is_arithmetic[color ff0000]
 
 ### 出力
 ```

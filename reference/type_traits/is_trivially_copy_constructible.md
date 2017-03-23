@@ -75,6 +75,7 @@ static_assert(
 
 int main() {}
 ```
+* std::is_trivially_copy_constructible[color ff0000]
 
 ### 出力
 ```

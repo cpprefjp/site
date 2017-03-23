@@ -53,6 +53,7 @@ static_assert(std::is_abstract<abstract_class&>::value == false, "value == true,
 
 int main(){}
 ```
+* std::is_abstract[color ff0000]
 
 ### 出力
 ```

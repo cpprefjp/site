@@ -112,6 +112,9 @@ int main()
   std::cout << result4 << std::endl;
 }
 ```
+* std::result_of[color ff0000]
+* std::bind[link /reference/functional/bind.md]
+* std::move[link /reference/utility/move.md]
 
 ### 出力
 ```

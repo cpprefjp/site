@@ -21,7 +21,7 @@ namespace std {
 
 
 ## 効果
-`add_pointer`は、型[`remove_reference`](remove_reference.md)`<T>::type*`を、メンバ型`type`として定義する。  
+`add_pointer`は、型[`remove_reference`](remove_reference.md)`<T>::type*`を、メンバ型`type`として定義する。
 
 
 ## 例
@@ -35,6 +35,7 @@ static_assert(std::is_same<std::add_pointer<int*&>::type, int**>::value, "transf
 
 int main() {}
 ```
+* std::add_pointer[color ff0000]
 
 ### 出力
 ```

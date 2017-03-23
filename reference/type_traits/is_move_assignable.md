@@ -68,6 +68,7 @@ static_assert(std::is_move_assignable<void>::value == false, "void is not move a
 
 int main(){}
 ```
+* std::is_move_assignable[color ff0000]
 
 ### 出力
 ```

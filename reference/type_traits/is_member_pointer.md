@@ -51,6 +51,7 @@ static_assert(std::is_member_function_pointer<const int* (s::*)()>::value == tru
 
 int main(){}
 ```
+* std::is_member_object_pointer[color ff0000]
 
 ### 出力
 ```

@@ -48,6 +48,8 @@ int main()
   f("hello");
 }
 ```
+* std::enable_if[color ff0000]
+* std::is_integral[link is_integral.md]
 
 ### 出力
 ```

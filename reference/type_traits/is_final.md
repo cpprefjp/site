@@ -42,6 +42,7 @@ static_assert(std::is_final<int>::value == false, "int is a not final class");
 
 int main(){}
 ```
+* std::is_final[color ff0000]
 
 ### 出力
 ```

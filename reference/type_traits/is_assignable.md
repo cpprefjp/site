@@ -54,6 +54,7 @@ static_assert(std::is_assignable<int&&, int&&>::value == false, "int&& is not as
 
 int main(){}
 ```
+* std::is_assignable[color ff0000]
 
 ### 出力
 ```

@@ -54,6 +54,7 @@ static_assert(std::is_literal_type<X>::value, "X is literal type");
 
 int main() {}
 ```
+* std::is_literal_type[color ff0000]
 
 ### 出力
 ```

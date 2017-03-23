@@ -62,7 +62,6 @@ int main()
 }
 ```
 - std::pointer_traits[color ff0000]
-* std::is_same[link /reference/type_traits/is_same.md]
 
 ### 出力
 ```

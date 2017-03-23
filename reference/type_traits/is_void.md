@@ -42,6 +42,7 @@ static_assert(std::is_void<void ()>::value == false, "a function returning void 
 
 int main(){}
 ```
+* std::is_void[color ff0000]
 
 ### 出力
 ```

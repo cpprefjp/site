@@ -21,8 +21,8 @@ namespace std {
 
 
 ## 効果
-`add_volatile`は、型`T`に`volatile`修飾を付加した型を、メンバ型`type`として定義する。  
-型`T`が参照、関数、すでに最上位が`volatile`修飾された型である場合は、型`T`をそのままメンバ型`type`として定義する。  
+- `add_volatile`は、型`T`に`volatile`修飾を付加した型を、メンバ型`type`として定義する。
+- 型`T`が参照、関数、すでに最上位が`volatile`修飾された型である場合は、型`T`をそのままメンバ型`type`として定義する。
 
 
 ## 例
@@ -36,6 +36,7 @@ static_assert(std::is_same<std::add_volatile<volatile int>::type, volatile int>:
 
 int main() {}
 ```
+* std::add_volatile[color ff0000]
 
 ### 出力
 ```

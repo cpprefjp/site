@@ -51,6 +51,7 @@ static_assert(std::is_trivially_destructible<C2>::value == false, "C2 isn't triv
 
 int main() {}
 ```
+* std::is_trivially_destructible[color ff0000]
 
 ### 出力
 ```

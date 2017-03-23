@@ -51,6 +51,8 @@ static_assert(std::is_compound<std::nullptr_t>::value == false, "std::nullptr_t 
 
 int main(){}
 ```
+* std::is_compound[color ff0000]
+* std::nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ### 出力
 ```

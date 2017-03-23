@@ -58,6 +58,7 @@ static_assert(
 
 int main() {}
 ```
+* std::is_standard_layout[color ff0000]
 
 ### 出力
 ```

@@ -68,6 +68,7 @@ static_assert(std::is_copy_assignable<void>::value == false, "void is not copy a
 
 int main(){}
 ```
+* std::is_copy_assignable[color ff0000]
 
 ### 出力
 ```

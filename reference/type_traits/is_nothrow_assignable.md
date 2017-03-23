@@ -51,6 +51,7 @@ static_assert(
 
 int main() {}
 ```
+* std::is_nothrow_assignable[color ff0000]
 
 ### 出力
 ```

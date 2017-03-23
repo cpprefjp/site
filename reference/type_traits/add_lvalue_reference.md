@@ -21,9 +21,9 @@ namespace std {
 
 
 ## 効果
-`add_lvalue_reference`は、型`T`の名前に`&`修飾を付加した型を、メンバ型`type`として定義する。  
-型`T`が何らかのオブジェクト型もしくは関数型`U`への左辺値参照型である場合は、型`U&`をメンバ型`type`として定義する。  
-型`T`が何らかのオブジェクト型もしくは関数型`U`への右辺値参照型である場合は、型`U&`をメンバ型`type`として定義する。  
+- `add_lvalue_reference`は、型`T`の名前に`&`修飾を付加した型を、メンバ型`type`として定義する。
+- 型`T`が何らかのオブジェクト型もしくは関数型`U`への左辺値参照型である場合は、型`U&`をメンバ型`type`として定義する。
+- 型`T`が何らかのオブジェクト型もしくは関数型`U`への右辺値参照型である場合は、型`U&`をメンバ型`type`として定義する。
 
 
 ## 例
@@ -36,6 +36,7 @@ static_assert(std::is_same<std::add_lvalue_reference<int&&>::type, int&>::value,
 
 int main() {}
 ```
+* std::add_lvalue_reference[color ff0000]
 
 ### 出力
 ```

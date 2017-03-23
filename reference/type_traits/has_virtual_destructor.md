@@ -46,6 +46,7 @@ static_assert(std::has_virtual_destructor<void>::value == false, "void hasn't vi
 
 int main() {}
 ```
+* std::has_virtual_destructor[color ff0000]
 
 ### 出力
 ```

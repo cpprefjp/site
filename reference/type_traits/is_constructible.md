@@ -43,6 +43,7 @@ static_assert(std::is_constructible<s, int*>() == false, "is_constructible<s, in
 
 int main(){}
 ```
+* std::is_constructible[color ff0000]
 
 ### 出力
 ```

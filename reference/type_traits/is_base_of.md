@@ -48,6 +48,7 @@ static_assert(std::is_base_of<int, char>::value == false, "int is not base of ch
 
 int main() {}
 ```
+* std::is_base_of[color ff0000]
 
 ### 出力
 ```

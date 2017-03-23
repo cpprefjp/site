@@ -64,7 +64,6 @@ int main()
 ```
 * is_error_code_enum[link /reference/system_error/is_error_code_enum.md]
 * std::errc[link /reference/system_error/errc.md]
-* std::true_type[link /reference/type_traits/true_type.md]
 * std::errc::invalid_argument[link /reference/system_error/errc.md]
 * ec.value()[link value.md]
 * ec.category()[link category.md]
