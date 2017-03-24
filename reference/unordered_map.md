@@ -62,8 +62,9 @@ namespace std {
                     const unordered_multimap<Key, T, Hash, Pred, Allocator>& b);
 }
 ```
-* initializer_list[link /reference/initializer_list.md]
-* pair[link /reference/utility/pair.md]
+* std::hash[link /reference/functional/hash.md]
+* std::equal_to[link /reference/functional/equal_to.md]
+* std::allocator[link /reference/memory/allocator.md]
 
 ## バージョン
 ### 言語
