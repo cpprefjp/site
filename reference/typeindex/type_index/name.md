@@ -36,7 +36,7 @@ int main()
   std::cout << t3.name() << std::endl;
 }
 ```
-* name[color ff0000]
+* name()[color ff0000]
 
 ### 出力例
 ```

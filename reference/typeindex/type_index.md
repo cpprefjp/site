@@ -56,10 +56,8 @@ int main()
   std::cout << m.at(typeid(char)) << std::endl;
 }
 ```
-* std::type_index, int> m[color ff0000]
-* typeid(int)[color ff0000]
-* typeid(double)[color ff0000]
-* typeid(char)[color ff0000]
+* std::type_index[color ff0000]
+* m.at[link /reference/map/map/at.md]
 
 ### 出力
 ```

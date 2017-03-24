@@ -41,9 +41,9 @@ int main()
   {
     // ハッシュ表であるunordered_mapでtype_indexをキーにできる
     std::unordered_map<std::type_index, int> m = {
-        { typeid(int),    3},
-        { typeid(double), 1},
-        { typeid(char),   4}
+      { typeid(int),    3},
+      { typeid(double), 1},
+      { typeid(char),   4}
     };
 
     std::cout << m.at(typeid(int))    << std::endl;
@@ -52,7 +52,8 @@ int main()
   }
 }
 ```
-* hash_code[color ff0000]
+* hash_code()[color ff0000]
+* m.at[link /reference/unordered_map/unordered_map/at.md]
 
 ### 出力例
 ```

@@ -54,6 +54,10 @@ int main()
 }
 ```
 * std::less_equal<std::type_index>[color ff0000]
+* std::greater_equal<std::type_index>[color ff0000]
+* s.insert[link /reference/set/set/insert.md]
+* s.begin()[link /reference/set/set/begin.md]
+* s.end()[link /reference/set/set/end.md]
 
 ### 出力例
 ```
