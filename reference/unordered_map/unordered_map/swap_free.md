@@ -13,8 +13,9 @@ namespace std {
 ```
 
 ## 概要
-2つの `unordered_map` オブジェクトである `x` と 'y'が保持するコンテンツを交換する。サイズは異なる場合もある。 
-このメンバ関数の呼び出しの後、呼び出し前に 'x' にあった要素は `y` へ、`y` 内にあった要素は `x` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。 
+2つの `unordered_map` オブジェクトである `x` と 'y'が保持するコンテンツを交換する。サイズは異なる場合もある。
+
+このメンバ関数の呼び出しの後、呼び出し前に 'x' にあった要素は `y` へ、`y` 内にあった要素は `x` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。
 
 
 ## 効果
@@ -23,6 +24,7 @@ namespace std {
 
 ## 戻り値
 なし
+
 
 ## 例外
 投げない。
@@ -49,28 +51,29 @@ void print(const char* name, const Map& m)
 
 int main()
 {
-  std::unordered_map<int, char> c1;
-  c1.insert(std::make_pair(10,'a'));
-  c1.insert(std::make_pair(20,'b'));
-  c1.insert(std::make_pair(30,'c'));
+  std::unordered_map<int, char> um1;
+  um1.insert(std::make_pair(10,'a'));
+  um1.insert(std::make_pair(20,'b'));
+  um1.insert(std::make_pair(30,'c'));
 
-  std::unordered_map<int, char> c2;
-  c2.insert(std::make_pair(5,'d'));
-  c2.insert(std::make_pair(15,'e'));
+  std::unordered_map<int, char> um2;
+  um2.insert(std::make_pair(5,'d'));
+  um2.insert(std::make_pair(15,'e'));
 
   // c1とc2を入れ替える
-  std::swap(c1, c2);
+  std::swap(um1, um2);
 
-  print("c1", c1);
-  print("c2", c2);
-
+  print("um1", um1);
+  print("um2", um2);
 }
 ```
+* std::swap[color ff0000]
+* insert[link insert.md]
 
 ### 出力
 ```
-c1 : {[5,d], [15,e], }
-c2 : {[10,a], [20,b], [30,c], }
+um1 : {[5,d], [15,e], }
+um2 : {[10,a], [20,b], [30,c], }
 ```
 
 ## バージョン

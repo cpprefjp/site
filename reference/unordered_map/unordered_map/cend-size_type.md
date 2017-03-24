@@ -56,13 +56,10 @@ int main()
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* algorithm[link /reference/algorithm.md]
-* bucket_count[link bucket_count.md]
-* bucket_size[link bucket_size.md]
-* for_each[link /reference/algorithm/for_each.md]
-* cend[link cend-size_type.md]
+* cend[color ff0000]
+* cbegin[link cbegin-size_type.md]
+* um.bucket_count()[link bucket_count.md]
+* um.bucket_size[link bucket_size.md]
 
 ### 出力例
 ```

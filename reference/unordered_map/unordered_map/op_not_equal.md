@@ -26,27 +26,27 @@ namespace std {
 
 
 ## 計算量
-平均: [`size()`](size.md) に対して線形時間  
-最悪: [`size()`](size.md) に対して二乗時間
+- 平均: [`size()`](size.md) に対して線形時間
+- 最悪: [`size()`](size.md) に対して二乗時間
 
 
 ## 例
 ```cpp
 #include <iostream>
-#include <map>
+#include <unordered_map>
 
 int main()
 {
-  std::map<int,char> c1;
-  c1[0] = 'a';
+  std::unordered_map<int,char> um1;
+  um1[0] = 'a';
 
-  auto c2 = c1;
+  auto um2 = um1;
 
-  std::cout << (c1 != c2) << std::endl;
+  std::cout << (um1 != um2) << std::endl;
 
-  c2[0] = 'b';
+  um2[0] = 'b';
 
-  std::cout << (c1 != c2) << std::endl;
+  std::cout << (um1 != um2) << std::endl;
 
   return 0;
 }

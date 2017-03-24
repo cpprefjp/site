@@ -32,7 +32,8 @@ int main()
   std::allocator<std::pair<const char, int>> result = um.get_allocator();
 }
 ```
-* get_allocator[color ff0000]
+* get_allocator()[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
 
 ### 出力
 ```

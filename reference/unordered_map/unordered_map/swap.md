@@ -32,7 +32,7 @@ void swap(unordered_map& v);
 
 
 ## 例外
-コンテナの `key_equal` と　`hasher` のオブジェクト（それぞれ [`key_eq`](key_eq.md)`()` と [`hash_function`](hash_function.md)`()` が返すオブジェクト）の [`swap`](/reference/utility/swap.md)`()` が例外を投げなければ、例外を投げない。
+コンテナの `key_equal` と `hasher` のオブジェクト（それぞれ [`key_eq`](key_eq.md)`()` と [`hash_function`](hash_function.md)`()` が返すオブジェクト）の [`swap`](/reference/utility/swap.md)`()` が例外を投げなければ、例外を投げない。
 
 
 ## 計算量
@@ -74,16 +74,10 @@ int main()
   print("um2 after", um2);
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* ostream[link /reference/ostream.md]
-* for_each[link /reference/algorithm/for_each.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
 * swap[color ff0000]
+* std::ostream[link /reference/ostream.md]
+* c.cbegin()[link cbegin.md]
+* c.cend()[link cend.md]
 
 ### 出力
 ```

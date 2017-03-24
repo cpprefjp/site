@@ -25,8 +25,8 @@ size_type count(const key_type& x) const;
 投げない。
 
 ## 計算量
-平均： O(`count(k)`)  
-最悪： [`size`](size.md) について線形時間。
+- 平均： O(`count(k)`)
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 例
@@ -36,15 +36,17 @@ size_type count(const key_type& x) const;
 
 int main()
 {
-  std::unordered_map<int, char> c;
-  c[4] = 'D';
+  std::unordered_map<int, char> um;
+  um[4] = 'D';
 
-  std::cout << c.count(0) << std::endl;
-  std::cout << c.count(4) << std::endl;
+  std::cout << um.count(0) << std::endl;
+  std::cout << um.count(4) << std::endl;
 
   return 0;
 }
 ```
+* count[color ff0000]
+* um[4][link op_at.md]
 
 ### 出力
 ```

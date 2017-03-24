@@ -51,9 +51,7 @@ int main()
   std::cout << um.empty() << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_map[link /reference/unordered_map.md]
+* empty()[color ff0000]
 * emplace[link emplace.md]
 * clear[link clear.md]
 

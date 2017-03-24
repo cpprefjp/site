@@ -9,6 +9,7 @@
 pair<iterator,iterator> equal_range(const key_type& x);
 pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 ```
+* pair[link /reference/utility/pair.md]
 
 ## 概要
 コンテナ内の、`x` と等しい全てのキー要素を含む範囲の境界を返す。`unordered_map` コンテナではキーの重複は無いため、この範囲は最大一つの要素を含む。 
@@ -24,12 +25,12 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 `pair` を返す。
 `pair::first` は 範囲の下境界にあたり、
 `pair::second` は 範囲の上境界にあたる。
-`iterator` はメンバ型であり `map` において双方向イテレータとして定義される。
+`iterator` はメンバ型であり `unordered_map` において双方向イテレータとして定義される。
 
 
 ## 計算量
-平均： 定数時間  
-最悪： [`size`](size.md) について線形時間。
+- 平均： 定数時間
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 例
@@ -39,27 +40,30 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 
 int main()
 {
-  std::unordered_map<int,char> c;
+  std::unordered_map<int,char> um;
 
-  c.insert(std::make_pair(1,'a'));
-  c.insert(std::make_pair(2,'b'));
-  c.insert(std::make_pair(3,'c'));
-  c.insert(std::make_pair(4,'d'));
-  c.insert(std::make_pair(5,'e'));
+  um.insert(std::make_pair(1,'a'));
+  um.insert(std::make_pair(2,'b'));
+  um.insert(std::make_pair(3,'c'));
+  um.insert(std::make_pair(4,'d'));
+  um.insert(std::make_pair(5,'e'));
 
   using it_t = std::unordered_map<int,char>::iterator;
-  std::pair<it_t, it_t> ret = c.equal_range(3);
+  std::pair<it_t, it_t> ret = um.equal_range(3);
 
   std::cout << "low: " << ret.first->first << " " << ret.first->second << std::endl;
   std::cout << "up: " << ret.second->first << " " << ret.second->second << std::endl;
 
-  std::pair<it_t, it_t> ret2 = c.equal_range(0);
-  std::cout << "low:" << ( ret2.first == c.end() )  << std::endl;
-  std::cout << "up:" << ( ret2.second == c.end() )  << std::endl;
+  std::pair<it_t, it_t> ret2 = um.equal_range(0);
+  std::cout << "low:" << ( ret2.first == um.end() )  << std::endl;
+  std::cout << "up:" << ( ret2.second == um.end() )  << std::endl;
 
-  return(0);
+  return 0;
 }
 ```
+* equal_range[color ff0000]
+* um.insert[link insert.md]
+* um.end()[link end.md]
 
 ### 出力
 ```

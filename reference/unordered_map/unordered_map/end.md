@@ -12,6 +12,7 @@ const_iterator end() const noexcept;
 
 ## 概要
 最終の要素の次を指すイテレータを取得する。
+
 `unordered_map` は非順序連想コンテナであるため「最終」に特に意味はないが、[`begin`](begin.md)`()` で得られたイテレータを `end()` まで `operator++()` でイテレートすることで当該コンテナの要素を漏れなくダブりなく走査できる。
 
 
@@ -55,13 +56,8 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* algorithm[link /reference/algorithm.md]
-* utility[link /reference/utility.md]
-* unordered_map[link /reference/unordered_map.md]
-* for_each[link /reference/algorithm/for_each.md]
-* begin[link /reference/unordered_map/unordered_map/begin.md]
+* end()[color ff0000]
+* begin()[link begin.md]
 
 ### 出力
 ```

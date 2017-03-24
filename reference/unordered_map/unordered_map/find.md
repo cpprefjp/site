@@ -27,8 +27,8 @@ const_iterator find(const key_type& x) const;
 
 
 ## 計算量
-平均： 定数時間  
-最悪： [`size`](size.md) について線形時間。
+- 平均： 定数時間
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 例
@@ -38,16 +38,18 @@ const_iterator find(const key_type& x) const;
 
 int main()
 {
-  std::unordered_map<int, char> c;
+  std::unordered_map<int, char> um;
 
-  c.insert(std::make_pair(1,'a'));
+  um.insert(std::make_pair(1,'a'));
 
-  std::cout << (c.find(1) != c.end()) << std::endl;
-  std::cout << (c.find(2) != c.end()) << std::endl;
+  std::cout << (um.find(1) != c.end()) << std::endl;
+  std::cout << (um.find(2) != c.end()) << std::endl;
 
   return 0;
 }
 ```
+* find[color ff0000]
+* um.insert[link insert.md]
 
 ### 出力
 ```

@@ -20,8 +20,8 @@ const T& at(const key_type & x) const;
 オブジェクトが存在しないときは、out_of_range例外を投げる。
 
 ## 計算量
-平均： 定数時間  
-最悪： [`size`](size.md) について線形時間。
+- 平均： 定数時間
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 例
@@ -42,15 +42,17 @@ void at_wrap(Container &c, T v) {
 
 int main()
 {
-  std::unordered_map<int,char> s1;
-  s1.insert(std::make_pair(1,'a'));
+  std::unordered_map<int, char> um;
+  um.insert(std::make_pair(1,'a'));
 
-  at_wrap(s1, 1);
-  at_wrap(s1, 2);
+  at_wrap(um, 1);
+  at_wrap(um, 2);
 
   return 0;
 }
 ```
+* um.insert[link insert.md]
+* c.at[link at.md]
 
 ### 出力
 ```

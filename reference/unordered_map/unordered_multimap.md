@@ -14,10 +14,9 @@ namespace std {
   class unordered_multimap;
 }
 ```
-* hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/equal_to.md]
-* allocator[link /reference/memory/allocator.md]
-* pair[link /reference/utility/pair.md]
+* std::hash[link /reference/functional/hash.md]
+* std::equal_to[link /reference/functional/equal_to.md]
+* std::allocator[link /reference/memory/allocator.md]
 
 ## 概要
 `unordered_multimap` は、同一キーの要素を複数格納できる、格納順が規定されていないコンテナである。
@@ -202,18 +201,11 @@ int main()
   print(um);
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* ostream[link /reference/ostream.md]
-* for_each[link /reference/algorithm/for_each.md]
-* begin[link /reference/iterator/begin.md]
-* end[link /reference/iterator/end.md]
-* emplace[link unordered_multimap/emplace.md]
-* insert[link unordered_multimap/insert.md]
-* erase[link unordered_multimap/erase.md]
+* std::unordered_map[color ff0000]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* um.emplace[link unordered_multimap/emplace.md]
+* um.insert[link unordered_multimap/insert.md]
+* um.erase[link unordered_multimap/erase.md]
 
 
 ### 出力

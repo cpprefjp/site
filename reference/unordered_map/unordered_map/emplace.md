@@ -9,6 +9,7 @@
 template <class... Args>
 pair<iterator, bool> emplace(Args&&... args);
 ```
+* pair[link /reference/utility/pair.md]
 
 ## 概要
 コンテナ内へ要素を直接構築する
@@ -72,8 +73,8 @@ pair<iterator, bool> emplace(Args&&... args);
 #include <string>
 #include <complex>
 #include <tuple>
-#include <utility>    // for std::pair
-#include <algorithm>  // for std::for_each
+#include <utility>
+#include <algorithm>
 
 // サンプルで使用する型の別名
 using sc = std::pair<const std::string, std::complex<double>>;
@@ -105,20 +106,12 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* string[link /reference/string.md]
-* complex[link /reference/complex.md]
-* tuple[link /reference/tuple.md]
-* utility[link /reference/utility.md]
-* pair[link /reference/utility/pair.md]
-* algorithm[link /reference/algorithm.md]
-* for_each[link /reference/algorithm/for_each.md]
-* piecewise_construct[link /reference/utility/piecewise_construct.md]
-* forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
 * emplace[color ff0000]
+* std::complex[link /reference/complex/complex.md]
+* std::piecewise_construct[link /reference/utility/piecewise_construct.md]
+* std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
+* um.cbegin()[link cbegin.md]
+* um.cend()[link cend.md]
 
 ### 出力
 ```

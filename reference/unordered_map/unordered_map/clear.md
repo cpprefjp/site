@@ -44,18 +44,16 @@ void clear() noexcept;
 
 int main()
 {
-  std::unordered_map<std::string, int> us{ {"1st", 1}, {"2nd", 2}, {"3rd", 3}, {"4th", 4}, {"5th", 5}, };
+  std::unordered_map<std::string, int> um{ {"1st", 1}, {"2nd", 2}, {"3rd", 3}, {"4th", 4}, {"5th", 5}, };
 
   std::cout << std::boolalpha;
-  std::cout << us.empty() << std::endl;
-  us.clear();
-  std::cout << us.empty() << std::endl;
+  std::cout << um.empty() << std::endl;
+  um.clear();
+  std::cout << um.empty() << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* empty[link empty.md]
-* clear[color ff0000]
+* clear()[color ff0000]
+* um.empty()[link empty.md]
 
 ### 出力
 ```

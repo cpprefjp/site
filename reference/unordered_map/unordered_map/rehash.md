@@ -46,41 +46,37 @@ void rehash(size_type n);
 
 int main()
 {
-  std::unordered_map<int,int> m;
+  std::unordered_map<int,int> um;
 
-  m.emplace( 0, 0 );
-  m.emplace( 1, 1 );
-  m.emplace( 2, 2 );
-  m.emplace( 3, 3 );
+  um.emplace( 0, 0 );
+  um.emplace( 1, 1 );
+  um.emplace( 2, 2 );
+  um.emplace( 3, 3 );
 
-  m.max_load_factor( 2.0f );
+  um.max_load_factor( 2.0f );
 
-  std::cout << "current max_load_factor: " << m.max_load_factor() << std::endl;
-  std::cout << "current size: " << m.size() << std::endl;
-  std::cout << "current bucket_count: " << m.bucket_count() << std::endl;
-  std::cout << "current load_factor: " << m.load_factor() << std::endl;
+  std::cout << "current max_load_factor: " << um.max_load_factor() << std::endl;
+  std::cout << "current size: " << um.size() << std::endl;
+  std::cout << "current bucket_count: " << um.bucket_count() << std::endl;
+  std::cout << "current load_factor: " << um.load_factor() << std::endl;
   std::cout << std::endl;
 
-  m.rehash(20);
+  um.rehash(20);
   std::cout << "m.rehash(20)" << std::endl;
   std::cout << std::endl;
 
-  std::cout << "new max_load_factor: " << m.max_load_factor() << std::endl; 
-  std::cout << "new size: " << m.size() << std::endl;
+  std::cout << "new max_load_factor: " << um.max_load_factor() << std::endl;
+  std::cout << "new size: " << um.size() << std::endl;
   std::cout << "new bucket_count: " << m.bucket_count() << std::endl;
   std::cout << "new load_factor: " << m.load_factor() << std::endl;
 }
 ```
-* <iostream>[link ../../iostream.md]
-* <unordered_map>[link ../../unordered_map.md]
 * rehash[color ff0000]
-* size[link size.md]
-* max_load_factor[link max_load_factor.md]
-* load_factor[link load_factor.md]
-* bucket_count[link bucket_count.md]
-* emplace[link emplace.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* um.size()[link size.md]
+* um.max_load_factor()[link max_load_factor.md]
+* um.load_factor()[link load_factor.md]
+* um.bucket_count()[link bucket_count.md]
+* um.emplace[link emplace.md]
 
 ### 出力例
 ```

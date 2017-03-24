@@ -79,9 +79,9 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 #include <string>
 #include <complex>
 #include <tuple>
-#include <utility>    // for std::pair
-#include <algorithm>  // for std::for_each
-#include <iterator>   // for std::next
+#include <utility>
+#include <algorithm>
+#include <iterator>
 
 int main()
 {
@@ -104,23 +104,14 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* string[link /reference/string.md]
-* complex[link /reference/complex.md]
-* tuple[link /reference/tuple.md]
-* utility[link /reference/utility.md]
-* pair[link /reference/utility/pair.md]
-* algorithm[link /reference/algorithm.md]
-* for_each[link /reference/algorithm/for_each.md]
-* iterator[link /reference/iterator.md]
-* next[link /reference/iterator/next.md]
-* distance[link /reference/iterator/distance.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
-* piecewise_construct[link /reference/utility/piecewise_construct.md]
-* forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * emplace_hint[color ff0000]
+* std::complex[link /reference/complex/complex.md]
+* std::next[link /reference/iterator/next.md]
+* std::distance[link /reference/iterator/distance.md]
+* um.cbegin()[link cbegin.md]
+* um.cend()[link cend.md]
+* std::piecewise_construct[link /reference/utility/piecewise_construct.md]
+* std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
 ### 出力
 ```

@@ -55,9 +55,7 @@ int main()
   std::cout << "hash(\"2nd\") = " << hash("2nd") << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_map[link /reference/unordered_map.md]
+* hash_function()[color ff0000]
 
 ### 出力例
 ```

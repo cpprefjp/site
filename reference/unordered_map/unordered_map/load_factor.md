@@ -13,15 +13,20 @@ float load_factor() const noexcept;
 現在の負荷率（バケットあたりの要素数の平均）を取得する。
 
 ## 戻り値
-現在の負荷率　:[`size`](size.md) / [`bucket_count`](bucket_count.md)
+現在の負荷率として、以下を返す：
 
+```cpp
+size() / bucket_count()
+```
+* size()[link size.md]
+* bucket_count()[link bucket_count.md]
 
 ## 例外
 投げない。
 
 
 ## 計算量
-定数時間  
+定数時間
 
 
 ## 例
@@ -31,22 +36,27 @@ float load_factor() const noexcept;
 
 int main()
 {
-  std::unordered_map<int,int> m;
+  std::unordered_map<int,int> um;
 
   for( int n=0; n<4; n++ )
   {
-    m.emplace( n, n );
+    um.emplace( n, n );
   }
 
-  std::cout << "current max_load_factor: " << m.max_load_factor() << std::endl;
-  std::cout << "current size: " << m.size() << std::endl;
-  std::cout << "current bucket_count: " << m.bucket_count() << std::endl;
-  std::cout << "current load_factor: " << m.load_factor() << std::endl;				// (size / bucket_count)
+  std::cout << "current max_load_factor: " << um.max_load_factor() << std::endl;
+  std::cout << "current size: " << um.size() << std::endl;
+  std::cout << "current bucket_count: " << um.bucket_count() << std::endl;
+  std::cout << "current load_factor: " << um.load_factor() << std::endl; // (size / bucket_count)
   std::cout << std::endl;
 
   return 0;
 }
 ```
+* load_factor()[color ff0000]
+* um.emplace[link emplace.md]
+* um.max_load_factor()[link max_load_factor.md]
+* um.size()[link size.md]
+* um.bucket_count()[link bucket_count.md]
 
 ### 出力例 (MSVC-11.0)
 ```

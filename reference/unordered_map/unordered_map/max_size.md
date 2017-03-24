@@ -39,9 +39,7 @@ int main()
   std::cout << s << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_map[link /reference/unordered_map.md]
+* max_size()[color ff0000]
 
 ### 出力例
 ```cpp

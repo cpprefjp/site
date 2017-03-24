@@ -44,8 +44,7 @@ int main()
   std::cout << "bucket count is " << um.bucket_count() << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
+* bucket_count()[color ff0000]
 
 ### 出力例
 ```

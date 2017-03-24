@@ -22,8 +22,8 @@ T& operator[](const key_type&& x);
 
 
 ## 計算量
-平均： 定数時間  
-最悪： [`size`](size.md) について線形時間。  
+- 平均： 定数時間
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 例
@@ -39,19 +39,22 @@ void at_wrap(Container &c, T v) {
 
 int main()
 {
-  std::unordered_map<int,char> s1;
-  s1.insert(std::make_pair(1,'a'));
+  std::unordered_map<int, char> um;
+  um.insert(std::make_pair(1,'a'));
 
-  std::cout << "size=" << s1.size() << std::endl;
+  std::cout << "size=" << um.size() << std::endl;
 
-  at_wrap(s1, 1);
-  at_wrap(s1, 2);
+  at_wrap(um, 1);
+  at_wrap(um, 2);
 
-  std::cout << "size=" << s1.size() << std::endl;
+  std::cout << "size=" << um.size() << std::endl;
 
   return 0;
 }
 ```
+* c[v][color ff0000]
+* um.insert[link insert.md]
+* um.size()[link size.md]
 
 ### 出力
 ```

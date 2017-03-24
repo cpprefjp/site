@@ -45,13 +45,8 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* algorithm[link /reference/algorithm.md]
-* utility[link /reference/utility.md]
-* unordered_map[link /reference/unordered_map.md]
-* for_each[link /reference/algorithm/for_each.md]
-* cend[link /reference/unordered_map/unordered_map/cend.md]
+* cbegin()[color ff0000]
+* cend()[link cend.md]
 
 ### 出力例
 ```

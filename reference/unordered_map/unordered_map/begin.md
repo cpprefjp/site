@@ -57,13 +57,8 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* algorithm[link /reference/algorithm.md]
-* utility[link /reference/utility.md]
-* unordered_map[link /reference/unordered_map.md]
-* for_each[link /reference/algorithm/for_each.md]
-* end[link /reference/unordered_map/unordered_map/end.md]
+* begin()[color ff0000]
+* end[link end.md]
 
 
 ### 出力例
