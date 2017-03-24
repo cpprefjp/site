@@ -20,9 +20,8 @@ bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_o
 
 
 ## 要件
-`failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと。
-
-`failure`が`success`よりも強くないこと。
+- `failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと。
+- `failure`が`success`よりも強くないこと。
 
 
 ## 効果
