@@ -43,7 +43,7 @@ namespace std {
 
 
 ## 備考
-この関数は、値が交換可能な場合でもCAS操作が失敗する可能性がある。
+この関数は、値が交換可能な場合でもCAS (compare-and-swap)操作が失敗する可能性がある。
 
 [`atomic_compare_exchange_strong_explicit()`](atomic_compare_exchange_strong_explicit.md)はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
 

@@ -39,7 +39,7 @@ bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_o
 
 
 ## 備考
-この関数は、値が交換可能な場合でもCAS操作が失敗する可能性がある(Spurious Failure)。
+この関数は、値が交換可能な場合でもCAS (compare-and-swap)操作が失敗する可能性がある(Spurious Failure)。
 
 [`compare_exchange_strong`](compare_exchange_strong.md)()はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
 
