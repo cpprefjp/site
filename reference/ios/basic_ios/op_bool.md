@@ -23,7 +23,7 @@ explicit operator bool() const;
 // C++03 まではコンパイル可能だが C++11 からはコンパイルエラーになる例
 bool b1 = std::cout;
 bool b2 = std::cout == NULL;
-	```
+```
 
 
 ## 実装例

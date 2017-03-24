@@ -90,8 +90,8 @@ namespace std {
 
     ```cpp
 regex_iterator<BidirectionalIterator, charT, traits> i(first, last, e, flags)
-    ```
-    * regex_iterator[link regex_iterator.md]
+```
+* regex_iterator[link regex_iterator.md]
 
     として構築する。  
 
