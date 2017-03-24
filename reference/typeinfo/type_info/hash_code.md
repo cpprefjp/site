@@ -36,7 +36,7 @@ int main()
   std::cout << typeid(char).hash_code() << std::endl;
 }
 ```
-* hash_code[color ff0000]
+* hash_code()[color ff0000]
 
 ### 出力例
 ```

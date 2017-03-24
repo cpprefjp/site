@@ -72,6 +72,8 @@ int main() {
             << (typeid(polyderived) == typeid(*ppolybase)) << std::endl;
 }
 ```
+* typeid[color ff0000]
+* name()[link type_info/name.md]
 
 ### 出力例
 ```

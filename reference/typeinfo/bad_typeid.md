@@ -39,7 +39,7 @@ int main()
     // オブジェクトpは Polymorphic* 型
     std::cout << "1: " << typeid(p).name() << std::endl;
 
-    // ヌルポインタを指すオブジェクトを間接参照してtypeid演算子に渡す...
+    // ヌルポインタを指すオブジェクトを間接参照してtypeid演算子に渡す…
     std::cout << "2: " << typeid(*p).name() << std::endl;
   }
   catch (std::bad_typeid& e) {

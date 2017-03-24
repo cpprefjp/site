@@ -38,7 +38,7 @@ int main()
   std::cout << typeid(char).name() << std::endl;
 }
 ```
-* name[color ff0000]
+* name()[color ff0000]
 
 ### 出力
 ```
