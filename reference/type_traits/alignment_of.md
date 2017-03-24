@@ -22,7 +22,7 @@ namespace std {
 
 
 ## 効果
-`alignof(T)`で得られた[`std::size_t`](/reference/cstddef/size_t.md])型の値を、メンバ定数`value`として定義する。
+`alignof(T)`で得られた[`std::size_t`](/reference/cstddef/size_t.md)型の値を、メンバ定数`value`として定義する。
 
 
 ## 例
