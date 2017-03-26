@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-template <class T>
+  template <class T>
   constexpr add_const_t<T>& as_const(T& t) noexcept;
 
   template <class T>
@@ -67,11 +67,11 @@ const
 - C++17
 
 ## 処理系
-- [Clang, C++14 mode](/implementation.md#clang): 3.8
-- [GCC, C++14 mode](/implementation.md#gcc): ??
+- [Clang, C++17 mode](/implementation.md#clang): 3.8
+- [GCC, C++17 mode](/implementation.md#gcc): 7.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0 Update2
 
 
 ## 参照
-- [p0007r1 Constant View: A proposal for a std::as_const helper function template](http://open-std.org/JTC1/SC22/WG21/docs/papers/2015/p0007r1.html)
+- [P0007R1 Constant View: A proposal for a `std::as_const` helper function template](http://open-std.org/JTC1/SC22/WG21/docs/papers/2015/p0007r1.html)
