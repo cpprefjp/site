@@ -55,6 +55,7 @@ int main()
   std::as_const(a).f(); // f() constが呼ばれる
 }
 ```
+* std::as_const[color ff0000]
 
 ### 出力
 ```
