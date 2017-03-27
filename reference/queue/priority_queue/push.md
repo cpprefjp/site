@@ -17,20 +17,20 @@ void push(value_type&& x);      // (2) C++11
 - (1) :
 
     ```cpp
-c.push_back(x);
-push_heap(c.begin(), c.end(), comp);
-```
-* push_heap[link /reference/algorithm/push_heap.md]
+    c.push_back(x);
+    push_heap(c.begin(), c.end(), comp);
+    ```
+    * push_heap[link /reference/algorithm/push_heap.md]
 
 
 - (2) :
 
     ```cpp
-c.push_back(move(x));
-push_heap(c.begin(), c.end(), comp);
-```
-* move[link /reference/utility/move.md]
-* push_heap[link /reference/algorithm/push_heap.md]
+    c.push_back(move(x));
+    push_heap(c.begin(), c.end(), comp);
+    ```
+    * move[link /reference/utility/move.md]
+    * push_heap[link /reference/algorithm/push_heap.md]
 
 
 ## 戻り値
