@@ -73,8 +73,8 @@ forward_list(initializer_list<T> il,
     これは、デフォルトコンストラクタに `explicit` が付いていると、
 
     ```cpp
-std::forward_list<int> fl = {};
-```
+    std::forward_list<int> fl = {};
+    ```
 
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
@@ -83,20 +83,20 @@ std::forward_list<int> fl = {};
     具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
     ```cpp
-#include <list>
-#include <forward_list>
-#include <scoped_allocator>
+    #include <list>
+    #include <forward_list>
+    #include <scoped_allocator>
 
-int main()
-{
-  using fli = std::forward_list<int>;
-  std::list<fli, std::scoped_allocator_adaptor<std::allocator<fli>>> l;
-  l.emplace_back(10u);
-}
-```
-* std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-* std::allocator[link ../memory/allocator.md]
-* emplace_back[link ../list/emplace_back.md]
+    int main()
+    {
+      using fli = std::forward_list<int>;
+      std::list<fli, std::scoped_allocator_adaptor<std::allocator<fli>>> l;
+      l.emplace_back(10u);
+    }
+    ```
+    * std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
+    * std::allocator[link ../memory/allocator.md]
+    * emplace_back[link ../list/emplace_back.md]
 
 
 ## 例
