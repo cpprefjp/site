@@ -204,8 +204,8 @@ unordered_set(initializer_list<value_type> il,
     これは、デフォルトコンストラクタに `explicit` が付いていると、
 
     ```cpp
-std::unordered_set<int> m = {};
-```
+    std::unordered_set<int> m = {};
+    ```
 
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
