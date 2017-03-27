@@ -89,9 +89,9 @@ namespace std {
 - (1)、(2) [`regex_iterator`](regex_iterator.md) 型のオブジェクト `i` を
 
     ```cpp
-regex_iterator<BidirectionalIterator, charT, traits> i(first, last, e, flags)
-```
-* regex_iterator[link regex_iterator.md]
+    regex_iterator<BidirectionalIterator, charT, traits> i(first, last, e, flags)
+    ```
+    * regex_iterator[link regex_iterator.md]
 
     として構築する。  
 
@@ -99,9 +99,9 @@ regex_iterator<BidirectionalIterator, charT, traits> i(first, last, e, flags)
         `flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
 
         ```cpp
-out = copy(first, last, out)
-```
-* copy[link ../algorithm/copy.md]
+        out = copy(first, last, out)
+        ```
+        * copy[link ../algorithm/copy.md]
 
         を呼び出す。
 
@@ -112,38 +112,38 @@ out = copy(first, last, out)
 
         - `flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、
             ```cpp
-out = copy(m.prefix().first, m.prefix().second, out)
-```
-* copy[link ../algorithm/copy.md]
-* prefix[link match_results/prefix.md]
+            out = copy(m.prefix().first, m.prefix().second, out)
+            ```
+            * copy[link ../algorithm/copy.md]
+            * prefix[link match_results/prefix.md]
 
             を呼び出す。  
 
         - その後、(1) の形式であれば
 
             ```cpp
-out = m.format(out, fmt, flags)
-```
-* format[link match_results/format.md]
+            out = m.format(out, fmt, flags)
+            ```
+            * format[link match_results/format.md]
 
             を、(2) の形式であれば
 
             ```cpp
-out = m.format(out, fmt, fmt + char_traits<charT>::length(fmt), flags)
-```
-* format[link match_results/format.md]
-* char_traits[link ../string/char_traits.md]
-* length[link ../string/char_traits/length.md]
+            out = m.format(out, fmt, fmt + char_traits<charT>::length(fmt), flags)
+            ```
+            * format[link match_results/format.md]
+            * char_traits[link ../string/char_traits.md]
+            * length[link ../string/char_traits/length.md]
 
             を呼び出す。
 
         最後に、`flags &` [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が `0` であれば、最後のマッチの `m` のコピーを `last_m` として
 
         ```cpp
-out = copy(last_m.suffix().first, last_m.suffix().second, out)
-```
-* copy[link ../algorithm/copy.md]
-* suffix[link match_results/suffix.md]
+        out = copy(last_m.suffix().first, last_m.suffix().second, out)
+        ```
+        * copy[link ../algorithm/copy.md]
+        * suffix[link match_results/suffix.md]
 
         を呼び出す。
 
