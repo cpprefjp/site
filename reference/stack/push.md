@@ -17,14 +17,14 @@ void push(value_type&& x);      // (2) C++11
 - (1) :
 
     ```cpp
-c.push_back(x);
-```
+    c.push_back(x);
+    ```
 
 - (2) :
 
     ```cpp
-c.push_back(std::move(x));
-```
+    c.push_back(std::move(x));
+    ```
 * std::move[link /reference/utility/move.md]
 
 
