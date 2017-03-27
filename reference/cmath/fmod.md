@@ -43,17 +43,17 @@ namespace std {
     また、`double` バージョンの本関数は、以下の実装のように振る舞う。
 
     ```c
-#include <math.h>
-#include <fenv.h>
-#pragma STDC FENV_ACCESS ON
-double fmod(double x, double y)
-{
-  double result;
-  result = remainder(fabs(x), (y = fabs(y)));
-  if (signbit(result)) result += y;
-  return copysign(result, x);
-}
-```
+    #include <math.h>
+    #include <fenv.h>
+    #pragma STDC FENV_ACCESS ON
+    double fmod(double x, double y)
+    {
+      double result;
+      result = remainder(fabs(x), (y = fabs(y)));
+      if (signbit(result)) result += y;
+      return copysign(result, x);
+    }
+    ```
 * remainder[link remainder.md]
 * fabs[link fabs.md]
 * signbit[link signbit.md]
