@@ -199,6 +199,7 @@ C++17は、2017年に策定予定の、C++14に対するメジャーバージョ
     - [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2015/06/19/c111417-features-in-vs-2015-rtm/)
     - [C++14/17 Features and STL Fixes in VS “15” Preview 4 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/08/24/c1417-features-and-stl-fixes-in-vs-15-preview-4/)
     - [C++14/17 Features and STL Fixes in VS “15” Preview 5 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/10/11/c1417-features-and-stl-fixes-in-vs-15-preview-5/)
+    - [Visual C++ Language Conformance](https://docs.microsoft.com/en-us/cpp/visual-cpp-language-conformance)
 
 [gcc]: ./implementation.md#gcc
 [clang]: ./implementation.md#clang
