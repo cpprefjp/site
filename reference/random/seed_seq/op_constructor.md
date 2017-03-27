@@ -35,21 +35,21 @@ seed_seq(const seed_seq&) = delete;               // (4)
 - (2) : (3)のオーバーロードに転送する。
 
     ```cpp
-seed_seq(il.begin(), il.end());
-```
-* il.begin()[link /reference/initializer_list/begin.md]
-* il.end()[link /reference/initializer_list/end.md]
+    seed_seq(il.begin(), il.end());
+    ```
+    * il.begin()[link /reference/initializer_list/begin.md]
+    * il.end()[link /reference/initializer_list/end.md]
 
 
 - (3) : 以下のアルゴリズムで、シード列を構築する。
 
     ```cpp
-for (InputIterator s = begin; s != end; ++s) {
-  v.push_back((*s) % pow(2, 32)); // 32ビット整数の範囲に収める
-}
+    for (InputIterator s = begin; s != end; ++s) {
+      v.push_back((*s) % pow(2, 32)); // 32ビット整数の範囲に収める
+    }
 
-// ※ `v`は、メンバ変数として保持される、`vector<result_type>`型のシード列オブジェクトである。
-```
+    // ※ `v`は、メンバ変数として保持される、`vector<result_type>`型のシード列オブジェクトである。
+    ```
 
 
 ## 例外
