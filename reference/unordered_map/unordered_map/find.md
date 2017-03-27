@@ -42,14 +42,15 @@ int main()
 
   um.insert(std::make_pair(1,'a'));
 
-  std::cout << (um.find(1) != c.end()) << std::endl;
-  std::cout << (um.find(2) != c.end()) << std::endl;
+  std::cout << (um.find(1) != um.end()) << std::endl;
+  std::cout << (um.find(2) != um.end()) << std::endl;
 
   return 0;
 }
 ```
 * find[color ff0000]
 * um.insert[link insert.md]
+* um.end()[link end.md]
 
 ### 出力
 ```
