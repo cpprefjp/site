@@ -54,10 +54,10 @@ namespace std {
       return copysign(result, x);
     }
     ```
-* remainder[link remainder.md]
-* fabs[link fabs.md]
-* signbit[link signbit.md]
-* copysign[link copysign.md]
+    * remainder[link remainder.md]
+    * fabs[link fabs.md]
+    * signbit[link signbit.md]
+    * copysign[link copysign.md]
 
 
 ## 例
