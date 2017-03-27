@@ -25,7 +25,7 @@ void push(value_type&& x);      // (2) C++11
     ```cpp
     c.push_back(std::move(x));
     ```
-* std::move[link /reference/utility/move.md]
+    * std::move[link /reference/utility/move.md]
 
 
 ## 戻り値
