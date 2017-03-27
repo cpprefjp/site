@@ -61,13 +61,13 @@ namespace std {
 - (2) : 出力結果の範囲`[result, result + (last - first))`には、以下が書き込まれる：
 
     ```
-*firstが書き込まれる                             // (1)
-binary_op(*first, *(first + 1))が書き込まれる    // (2)
-binary_op((2)の結果, *(first + 2))が書き込まれる // (3)
-binary_op((3)の結果, *(first + 3))が書き込まれる // (4)
-…
-binary_op((N-2)の結果, *(first + (N-1)))が書き込まれる
-```
+    *firstが書き込まれる                             // (1)
+    binary_op(*first, *(first + 1))が書き込まれる    // (2)
+    binary_op((2)の結果, *(first + 2))が書き込まれる // (3)
+    binary_op((3)の結果, *(first + 3))が書き込まれる // (4)
+    …
+    binary_op((N-2)の結果, *(first + (N-1)))が書き込まれる
+    ```
 
 ## 戻り値
 `result + (last - first)`
