@@ -62,25 +62,25 @@
 
 	各関数の個別ページでは、上記のオーバーロード関数をコードで示す際には、引数や返値の型を斜体で示す。
 	```cpp
-  Integral      // 任意の整数型
-  Arithmetic    // 任意の算術型
-  Promoted      // 決定された返値型
-```
-* Integral[italic]
-* Arithmetic[italic]
-* Promoted[italic]
+	Integral      // 任意の整数型
+	Arithmetic    // 任意の算術型
+	Promoted      // 決定された返値型
+	```
+	* Integral[italic]
+	* Arithmetic[italic]
+	* Promoted[italic]
 
 	複数の引数がある場合には、数字のサフィックスで区別する。
 	例を以下に示す。
 	```cpp
-  double atan(Integral x);
+	double atan(Integral x);
 
-  Promoted atan2(Arithmetic1 y, Arithmetic2 x);
-```
-* Integral[italic]
-* Arithmetic1[italic]
-* Arithmetic2[italic]
-* Promoted[italic]
+	Promoted atan2(Arithmetic1 y, Arithmetic2 x);
+	```
+	* Integral[italic]
+	* Arithmetic1[italic]
+	* Arithmetic2[italic]
+	* Promoted[italic]
 
 
 ## <a name="error-handling" href="#error-handling">エラーの扱い</a>
