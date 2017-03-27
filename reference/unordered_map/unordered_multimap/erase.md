@@ -24,30 +24,30 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ## 効果
-- (1)	`position` で指定された要素を削除する。
-- (2)	`k` と等価なキーの要素を削除する。
-- (3)	`[first, last)` の範囲にある要素を全て削除する。
+- (1) : `position` で指定された要素を削除する。
+- (2) : `k` と等価なキーの要素を削除する。
+- (3) : `[first, last)` の範囲にある要素を全て削除する。
 
 
 ## 戻り値
-- (1)	「削除前に、削除された要素の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`std::`[`next`](/reference/iterator/next.md)`(position)` と同じ位置を指す `iterator` である。  
+- (1) : 「削除前に、削除された要素の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`std::`[`next`](/reference/iterator/next.md)`(position)` と同じ位置を指す `iterator` である。  
 	なお、`position` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。
-- (2)	削除した要素数。
-- (3)	 「削除前に、削除された要素の範囲の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`last` と同じ位置を指す `iterator` である。  
+- (2) : 削除した要素数。
+- (3) :  「削除前に、削除された要素の範囲の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`last` と同じ位置を指す `iterator` である。  
 	なお、`first` 及び `last` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。  
 	また、要件に示したように `first` が間接参照可能である必要がなかった場合にも、他の種類のコンテナの戻り値と照らし合わせると、`last` と同じ位置を指す `iterator` を返すのが適切であるものと思われる。
 
 
 ## 例外
-- (1)	投げない。
-- (2)	コンテナの `key_equal` と `hasher` のオブジェクト（それぞれ `key_eq()` と `hash_function()` が返すオブジェクト）が例外を投げなければ、例外を投げない。
-- (3)	投げない。
+- (1) : 投げない。
+- (2) : コンテナの `key_equal` と `hasher` のオブジェクト（それぞれ `key_eq()` と `hash_function()` が返すオブジェクト）が例外を投げなければ、例外を投げない。
+- (3) : 投げない。
 
 
 ## 計算量
-- (1)	平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
-- (2)	平均的なケースでは削除された要素数に比例（O([`count`](count.md)`(k)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
-- (3)	平均的なケースでは指定された範囲の要素数に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
+- (1) : 平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
+- (2) : 平均的なケースでは削除された要素数に比例（O([`count`](count.md)`(k)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
+- (3) : 平均的なケースでは指定された範囲の要素数に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
 
 
 ## 備考
@@ -122,17 +122,11 @@ int main()
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* ostream[link /reference/ostream/basic_ostream.md]
-* for_each[link /reference/algorithm/for_each.md]
-* next[link /reference/iterator/next.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
 * erase[color ff0000]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* std::next[link /reference/iterator/next.md]
+* cbegin()[link cbegin.md]
+* cend()[link cend.md]
 
 ### 出力
 ```

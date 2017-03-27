@@ -38,8 +38,7 @@ int main()
   std::cout << "max bucket count is " << um.max_bucket_count() << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
+* max_bucket_count()[color ff0000]
 
 ### 出力例
 ```

@@ -53,21 +53,21 @@ void insert(initializer_list<value_type> il);                  // (6)
 
 
 ## 効果
-- (1)	引数 `v` で指定した値の要素を追加する。
-- (2)	引数 `obj` から構築されたオブジェクト `v` を追加する。
+- (1) : 引数 `v` で指定した値の要素を追加する。
+- (2) : 引数 `obj` から構築されたオブジェクト `v` を追加する。
     - このバージョンの動作は、[`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))`を呼び出した場合と同等である。
-- (3)	引数 `v` で指定した値の要素を追加する。  
+- (3) : 引数 `v` で指定した値の要素を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-- (4)	引数 `obj` から構築されたオブジェクト `v` を追加する。  
+- (4) : 引数 `obj` から構築されたオブジェクト `v` を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
     - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))`を呼び出した場合と同等である。
-- (5)	範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と同等である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）。
-- (6)	(5)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
+- (5) : 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と同等である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）。
+- (6) : (5)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
 
 
 ## 戻り値
-- (1)から(4)	追加された要素を指すイテレータ。
-- (5)、(6)	なし
+- (1)から(4) : 追加された要素を指すイテレータ。
+- (5)、(6) : なし
 
 
 ## 例外
@@ -187,16 +187,12 @@ int main()
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* forward_list[link /reference/forward_list.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* for_each[link /reference/algorithm/for_each.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
-* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * insert[color ff0000]
+* um.cbegin()[link cbegin.md]
+* um.cend()[link cend.md]
+* std::forward_list[link /reference/forward_list.md]
+* fl.cbegin()[link /reference/forward_list/cbegin.md]
+* fl.cend()[link /reference/forward_list/cend.md]
 
 ### 出力
 ```

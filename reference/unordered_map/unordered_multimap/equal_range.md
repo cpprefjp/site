@@ -9,9 +9,10 @@
 pair<iterator,iterator> equal_range(const key_type& x);
 pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 ```
+* pair[link /reference/utility/pair.md]
 
 ## 概要
-コンテナ内の、`x` と等しい全てのキー要素を含む範囲の境界を返す。 
+コンテナ内の、`x` と等しい全てのキー要素を含む範囲の境界を返す。
 
 もし `x` がコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは [`end`](end.md) を指す。
 
@@ -28,8 +29,8 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 
 
 ## 計算量
-平均： 定数時間  
-最悪： [`size`](size.md) について線形時間。
+- 平均： 定数時間
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 例
@@ -46,26 +47,29 @@ void disp( std::pair<const int,char>& p) {
 
 int main()
 {
-  std::unordered_multimap<int,char> c;
+  std::unordered_multimap<int,char> um;
 
-  c.insert(std::make_pair(1,'a'));
-  c.insert(std::make_pair(1,'b'));
-  c.insert(std::make_pair(1,'c'));
+  um.insert(std::make_pair(1,'a'));
+  um.insert(std::make_pair(1,'b'));
+  um.insert(std::make_pair(1,'c'));
 
-  std::pair<it_t, it_t> ret = c.equal_range(1);
+  std::pair<it_t, it_t> ret = um.equal_range(1);
 
   std::cout << "--- ret" << std::endl;
   std::for_each(ret.first, ret.second, disp);
 
 
-  std::pair<it_t, it_t> ret2 = c.equal_range(0);
+  std::pair<it_t, it_t> ret2 = um.equal_range(0);
   std::cout << "--- ret2" << std::endl;
-  std::cout << "first:" << ( ret2.first == c.end() )  << std::endl;
-  std::cout << "second:" << ( ret2.second == c.end() )  << std::endl;
- 
-  return(0);
+  std::cout << "first:" << ( ret2.first == um.end() )  << std::endl;
+  std::cout << "second:" << ( ret2.second == um.end() )  << std::endl;
+
+  return 0;
 }
 ```
+* equal_range[color ff0000]
+* um.insert[link insert.md]
+* um.end()[link end.md]
 
 ### 出力
 ```

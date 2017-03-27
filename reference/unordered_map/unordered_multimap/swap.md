@@ -74,17 +74,10 @@ int main()
   print("um2 after", um2);
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* ostream[link /reference/ostream.md]
-* for_each[link /reference/algorithm/for_each.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
-* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
 * swap[color ff0000]
+* std::ostream[link /reference/ostream.md]
+* c.cbegin()[link cbegin.md]
+* c.cend()[link cend.md]
 
 ### 出力
 ```

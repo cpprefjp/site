@@ -59,10 +59,10 @@ int main()
   std::unordered_map<int,int> um;
 
   // バケット数+1個の要素生成。 load_factor > 1.0f になる。
-  int c = um.bucket_count()+1;
+  int c = um.bucket_count() + 1;
   for( int n=0; n<c; n++ )
   {
-    um.emplace( n, n );
+    um.emplace(n, n);
   }
 
   std::cout << "current max_load_factor: " << um.max_load_factor() << std::endl;   // (1)
@@ -75,10 +75,10 @@ int main()
   um.clear();
 
   // max_load_factor を 上記の load_factor()より大きな値に設定する
-  um.max_load_factor( 2.5f );                       // (2)
+  um.max_load_factor((2.5f);                       // (2)
   for( int n=0; n<c; n++ )
   {
-    um.emplace( n, n );
+    um.emplace(n, n);
   }
 
   std::cout << "new max_load_factor: " << um.max_load_factor() << std::endl;

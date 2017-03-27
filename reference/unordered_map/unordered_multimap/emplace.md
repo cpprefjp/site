@@ -63,8 +63,8 @@ iterator emplace(Args&&... args);
 #include <iostream>
 #include <unordered_map>
 #include <string>
-#include <utility>    // for std::pair
-#include <algorithm>  // for std::for_each
+#include <utility>
+#include <algorithm>
 
 // サンプルで使用する型の別名
 using is = std::pair<const int, std::string>;
@@ -92,19 +92,9 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* string[link /reference/string.md]
-* utility[link /reference/utility.md]
-* pair[link /reference/utility/pair.md]
-* algorithm[link /reference/algorithm.md]
-* copy[link /reference/algorithm/copy.md]
-* iterator[link /reference/iterator.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
 * emplace[color ff0000]
+* um.cbegin[link cbegin.md]
+* um.cend[link cend.md]
 
 ### 出力
 ```

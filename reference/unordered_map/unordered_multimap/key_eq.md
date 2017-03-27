@@ -53,9 +53,7 @@ int main()
   std::cout << "eq(\"1st\", \"2nd\") = " << eq("1st", "1st") << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_map[link /reference/unordered_map.md]
+* key_eq()[color ff0000]
 
 ### 出力
 ```

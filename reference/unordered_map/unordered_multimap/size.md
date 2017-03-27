@@ -42,13 +42,10 @@ int main()
   std::cout << std::distance(um.begin(), um.end()) << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_map[link /reference/unordered_map.md]
-* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
-* distance[link /reference/iterator/distance.md]
-* begin[link begin.md]
-* end[link end.md]
+* size()[color ff0000]
+* std::distance[link /reference/iterator/distance.md]
+* um.begin()[link begin.md]
+* um.end()[link end.md]
 
 ### 出力
 ```

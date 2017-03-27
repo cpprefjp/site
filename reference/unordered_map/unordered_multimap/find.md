@@ -6,8 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator find ( const key_type& k );
-const_iterator find ( const key_type& k ) const;
+iterator find(const key_type& k);
+const_iterator find(const key_type& k) const;
 ```
 
 ## 概要
@@ -29,8 +29,8 @@ const_iterator find ( const key_type& k ) const;
 
 
 ## 計算量
-平均： 定数時間  
-最悪： [`size`](size.md) について線形時間。
+- 平均： 定数時間
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 例
@@ -40,16 +40,19 @@ const_iterator find ( const key_type& k ) const;
 
 int main()
 {
-  std::unordered_multimap<int,char> c;
+  std::unordered_multimap<int, char> um;
 
-  c.insert(std::make_pair(1,'a'));
+  um.insert(std::make_pair(1, 'a'));
 
-  std::cout << (c.find(1) != c.end()) << std::endl;
-  std::cout << (c.find(2) != c.end()) << std::endl;
+  std::cout << (um.find(1) != um.end()) << std::endl;
+  std::cout << (um.find(2) != um.end()) << std::endl;
 
-  return(0);
+  return 0;
 }
 ```
+* find[color ff0000]
+* um.insert[link insert.md]
+* um.end()[link end.md]
 
 ### 出力
 ```

@@ -11,8 +11,8 @@ void max_load_factor(float z);          // (2)
 ```
 
 ## 概要
-- (1)	負荷率（バケットあたりの要素数の平均）の最大値を取得する。
-- (2)	負荷率（バケットあたりの要素数の平均）の最大値を設定する。
+- (1) : 負荷率（バケットあたりの要素数の平均）の最大値を取得する。
+- (2) : 負荷率（バケットあたりの要素数の平均）の最大値を設定する。
 
 
 ## 要件
@@ -20,13 +20,13 @@ void max_load_factor(float z);          // (2)
 
 
 ## 効果
-- (1)	なし。
-- (2)	引数 `z` を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。
+- (1) : なし。
+- (2) : 引数 `z` を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。
 
 
 ## 戻り値
-- (1)	負荷率（バケットあたりの要素数の平均）の最大値
-- (2)	なし
+- (1) : 負荷率（バケットあたりの要素数の平均）の最大値
+- (2) : なし
 
 ## 例外
 投げない。
@@ -37,7 +37,7 @@ void max_load_factor(float z);          // (2)
 
 
 ## 備考
-- `max_load_factor` の初期値は1.0 である。  
+- `max_load_factor` の初期値は1.0 である。
 
 - `max_load_factor` はその名前の通り、[`load_factor`](load_factor.md) の最大値（上限）を定義する。  
 	従って、[`insert`](insert.md)、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md) で要素が追加された際、および、[`operator=`](op_assign.md) による [`initializer_list`](/reference/initializer_list.md) からの代入で要素数が増加した際には、[`load_factor`](load_factor.md) が `max_load_factor()` 以下になるように、必要に応じてバケット数が調整される。  
@@ -56,52 +56,47 @@ void max_load_factor(float z);          // (2)
 
 int main()
 {
-  std::unordered_multimap<int,int> m;
+  std::unordered_multimap<int,int> um;
 
   // バケット数+1個の要素生成。 load_factor > 1.0f になる。
-  int c = m.bucket_count();
-  m.emplace( 1, 1 );
+  int c = um.bucket_count();
+  um.emplace(1, 1);
   for( int n=0; n<c; n++ )
   {
-    m.emplace( n, n );
+    um.emplace(n, n);
   }
 
-  std::cout << "current max_load_factor: " << m.max_load_factor() << std::endl;   // (1)
-  std::cout << "current size: " << m.size() << std::endl;
-  std::cout << "current bucket_count: " << m.bucket_count() << std::endl;
-  std::cout << "current load_factor: " << m.load_factor() << std::endl;
+  std::cout << "current max_load_factor: " << um.max_load_factor() << std::endl;   // (1)
+  std::cout << "current size: " << um.size() << std::endl;
+  std::cout << "current bucket_count: " << um.bucket_count() << std::endl;
+  std::cout << "current load_factor: " << um.load_factor() << std::endl;
   std::cout << std::endl;
 
   // 初期化
-  m.clear();
+  um.clear();
 
   // max_load_factor を 上記の load_factor()より大きな値に設定する
-  m.max_load_factor ( 2.5f );                       // (2)
-  m.emplace( 1, 1 );
+  um.max_load_factor(2.5f);                       // (2)
+  um.emplace(1, 1);
   for( int n=0; n<c; n++ )
   {
-    m.emplace( n, n );
+    um.emplace(n, n);
   }
 
-  std::cout << "new max_load_factor: " << m.max_load_factor() << std::endl;
-  std::cout << "new size: " << m.size() << std::endl;
-  std::cout << "new bucket_count: " << m.bucket_count() << std::endl;
-  std::cout << "new load_factor: " << m.load_factor() << std::endl;
+  std::cout << "new max_load_factor: " << um.max_load_factor() << std::endl;
+  std::cout << "new size: " << um.size() << std::endl;
+  std::cout << "new bucket_count: " << um.bucket_count() << std::endl;
+  std::cout << "new load_factor: " << um.load_factor() << std::endl;
 
   return 0;
 }
 ```
-* <iostream>[link ../../iostream.md]
-* <unordered_map>[link ../../unordered_map.md]
-* unordered_multimap[link ../unordered_multimap.md]
 * max_load_factor[color ff0000]
-* load_factor[link load_factor.md]
-* size[link size.md]
-* bucket_count[link bucket_count.md]
-* emplace[link emplace.md]
-* clear[link clear.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* um.load_factor()[link load_factor.md]
+* um.size()[link size.md]
+* um.bucket_count()[link bucket_count.md]
+* um.emplace[link emplace.md]
+* um.clear()[link clear.md]
 
 ### 出力例(MSVC-11.0)
 ```

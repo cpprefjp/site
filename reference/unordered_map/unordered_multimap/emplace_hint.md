@@ -71,9 +71,9 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 #include <iostream>
 #include <unordered_map>
 #include <string>
-#include <utility>    // for std::pair
-#include <algorithm>  // for std::for_each
-#include <iterator>   // for std::next
+#include <utility>
+#include <algorithm>
+#include <iterator>
 
 // サンプルで使用する型の別名
 using is = std::pair<const int, std::string>;
@@ -112,23 +112,12 @@ int main()
   print("after", um.cbegin(), um.cend());
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* string[link /reference/string.md]
-* utility[link /reference/utility.md]
-* pair[link /reference/utility/pair.md]
-* algorithm[link /reference/algorithm.md]
-* copy[link /reference/algorithm/copy.md]
-* iterator[link /reference/iterator.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* hash[link /reference/functional/hash.md]
-* ostream[link /reference/ostream/basic_ostream.md]
-* unordered_multimap[link /reference/unordered_map/unordered_multimap.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
-* equal_range[link /reference/unordered_set/unordered_multiset/equal_range.md]
-* next[link /reference/iterator/next.md]
 * emplace_hint[color ff0000]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* um.cbegin[link cbegin.md]
+* um.cend[link cend.md]
+* um.equal_range[link equal_range.md]
+* std::next[link /reference/iterator/next.md]
 
 ### 出力
 - libstdc++ の出力例（4.7.3 現在）  

@@ -62,7 +62,7 @@ int main()
   std::cout << std::endl;
 
   um.rehash(20);
-  std::cout << "m.rehash(20)" << std::endl;
+  std::cout << "um.rehash(20)" << std::endl;
   std::cout << std::endl;
 
   std::cout << "new max_load_factor: " << um.max_load_factor() << std::endl;

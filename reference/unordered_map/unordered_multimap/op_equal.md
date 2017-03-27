@@ -29,8 +29,8 @@ namespace std {
 
 
 ## 計算量
-平均: [`size()`](size.md) に対して線形時間  
-最悪: [`size()`](size.md) に対して二乗時間
+- 平均: [`size()`](size.md) に対して線形時間
+- 最悪: [`size()`](size.md) に対して二乗時間
 
 
 ## 例
@@ -40,28 +40,29 @@ namespace std {
 
 int main()
 {
-  std::unordered_multimap<int,char> c1;
-  c1.insert(std::make_pair(10,'a'));
-  c1.insert(std::make_pair(20,'b'));
-  c1.insert(std::make_pair(30,'c'));
-  c1.insert(std::make_pair(30,'d'));
+  std::unordered_multimap<int,char> um1;
+  um1.insert(std::make_pair(10,'a'));
+  um1.insert(std::make_pair(20,'b'));
+  um1.insert(std::make_pair(30,'c'));
+  um1.insert(std::make_pair(30,'d'));
 
 
-  std::unordered_multimap<int,char> c2;
-  c2.insert(std::make_pair(30,'c'));
-  c2.insert(std::make_pair(10,'a'));
-  c2.insert(std::make_pair(30,'d'));
-  c2.insert(std::make_pair(20,'b'));
+  std::unordered_multimap<int,char> um2;
+  um2.insert(std::make_pair(30,'c'));
+  um2.insert(std::make_pair(10,'a'));
+  um2.insert(std::make_pair(30,'d'));
+  um2.insert(std::make_pair(20,'b'));
 
-  std::cout << (c1 == c2) << std::endl;
+  std::cout << (um1 == um2) << std::endl;
 
-  c2.insert(std::make_pair(30,'e'));
+  um2.insert(std::make_pair(30,'e'));
 
-  std::cout << (c1 == c2) << std::endl;
+  std::cout << (um1 == um2) << std::endl;
 
   return 0;
 }
 ```
+* insert[link insert.md]
 
 ### 出力
 ```

@@ -64,10 +64,9 @@ int main()
   std::cout << "key = " << k << ", bucket = " << b << ", bucket_size = " << s << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_map[link /reference/unordered_map.md]
-* bucket_count[link bucket_count.md]
-* bucket_size[link bucket_size.md]
+* bucket[color ff0000]
+* um.bucket_count()[link bucket_count.md]
+* um.bucket_size[link bucket_size.md]
 
 ### 出力
 ```

@@ -25,8 +25,8 @@ size_type count(const key_type& x) const;
 投げない。
 
 ## 計算量
-平均： O(`count(k)`)  
-最悪： [`size`](size.md) について線形時間
+- 平均： O(`count(k)`)
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 例
@@ -36,17 +36,19 @@ size_type count(const key_type& x) const;
 
 int main()
 {
-  std::unordered_multimap<int,char> c;
+  std::unordered_multimap<int, char> um;
 
-  c.insert(std::make_pair(1,'a'));
-  c.insert(std::make_pair(1,'b'));
+  um.insert(std::make_pair(1, 'a'));
+  um.insert(std::make_pair(1, 'b'));
 
-  std::cout << c.count(1) << std::endl;
-  std::cout << c.count(2) << std::endl;
+  std::cout << um.count(1) << std::endl;
+  std::cout << um.count(2) << std::endl;
 
-  return(0);
+  return 0;
 }
 ```
+* count[color ff0000]
+* um.insert[link insert.md]
 
 ### 出力
 ```

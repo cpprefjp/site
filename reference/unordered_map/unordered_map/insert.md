@@ -198,7 +198,6 @@ int main()
 * insert[color ff0000]
 * um.cbegin()[link cbegin.md]
 * um.cend()[link cend.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * std::forward_list[link /reference/forward_list.md]
 * fl.cbegin()[link /reference/forward_list/cbegin.md]
 * fl.cend()[link /reference/forward_list/cend.md]
