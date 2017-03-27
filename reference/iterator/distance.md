@@ -19,23 +19,23 @@ namespace std {
 - [`std::find()`](/reference/algorithm/find.md)や[`std::find_if()`](/reference/algorithm/find_if.md)で検索し、見つかった要素が先頭から何番目かを調べる。
 
     ```cpp
-std::vector<int> v = { … };
-auto it = std::find_if(v.begin(), v.end(), pred);
-std::size_t index = std::distance(v.begin(), it);
-```
-* std::distance[color ff0000]
-* std::find_if[link /reference/algorithm/find_if.md]
+    std::vector<int> v = { … };
+    auto it = std::find_if(v.begin(), v.end(), pred);
+    std::size_t index = std::distance(v.begin(), it);
+    ```
+    * std::distance[color ff0000]
+    * std::find_if[link /reference/algorithm/find_if.md]
 
 - [`std::forward_list`](/reference/forward_list.md)のような、要素数を直接取得できないコンテナに対して、イテレータ範囲で要素数を求める。
 
     ```cpp
-std::forward_list<int> ls = { … };
-std::size_t size = std::distance(ls.begin(), ls.end());
-```
-* std::distance[color ff0000]
-* std::forward_list[link /reference/forward_list.md]
-* ls.begin()[link /reference/forward_list/begin.md]
-* ls.end()[link /reference/forward_list/end.md]
+    std::forward_list<int> ls = { … };
+    std::size_t size = std::distance(ls.begin(), ls.end());
+    ```
+    * std::distance[color ff0000]
+    * std::forward_list[link /reference/forward_list.md]
+    * ls.begin()[link /reference/forward_list/begin.md]
+    * ls.end()[link /reference/forward_list/end.md]
 
 
 ## 要件
