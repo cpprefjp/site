@@ -169,10 +169,10 @@ hello
       f(1, 'a', "hello");
     }
     ```
-* <cstddef>[link /reference/cstddef.md]
-* std::size_t[link /reference/cstddef/size_t.md]
-* constexpr[link constexpr.md]
-* static_assert[link static_assert.md]
+    * <cstddef>[link /reference/cstddef.md]
+    * std::size_t[link /reference/cstddef/size_t.md]
+    * constexpr[link constexpr.md]
+    * static_assert[link static_assert.md]
 
 
 ### パラメータパックの宣言ができる場所
@@ -205,9 +205,9 @@ hello
       f(a, b);
     }
     ```
-* <tuple>[link /reference/tuple.md]
-* std::tuple[link /reference/tuple/tuple.md]
-* std::make_tuple[link /reference/tuple/make_tuple.md]
+    * <tuple>[link /reference/tuple.md]
+    * std::tuple[link /reference/tuple/tuple.md]
+    * std::make_tuple[link /reference/tuple/make_tuple.md]
 
 - テンプレートパラメータ
 
@@ -236,7 +236,7 @@ hello
     ContainerHolder<std::vector> v;
     ContainerHolder<std::list> ls;
     ```
-* std::list[link /reference/list.md]
+    * std::list[link /reference/list.md]
 
 
 ### パラメータパックの展開ができる場所
@@ -253,7 +253,7 @@ hello
     ```cpp
     std::tuple<Args...> t;
     ```
-* std::tuple[link /reference/tuple/tuple.md]
+    * std::tuple[link /reference/tuple/tuple.md]
 
 - 初期化子
 
@@ -332,8 +332,8 @@ hello
       f(1, 'a', "hello");
     }
     ```
-* <sstream>[link /reference/sstream.md]
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+    * <sstream>[link /reference/sstream.md]
+    * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 
 - 複数のパラメータパックに対して拡張を行う場合、それらのパラメータパックは同じ要素数でなければならない。そうでない場合、プログラムは不適格となる
 
@@ -363,8 +363,8 @@ hello
       >::value, ""); // OK
     }
     ```
-* std::tuple[link /reference/tuple/tuple.md]
-* static_assert[link static_assert.md]
+    * std::tuple[link /reference/tuple/tuple.md]
+    * static_assert[link static_assert.md]
 
 
 ## この機能が必要になった背景・経緯
