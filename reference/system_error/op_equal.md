@@ -23,43 +23,43 @@ namespace std {
 - (1) :
 
     ```cpp
-lhs.category() == rhs.category() && lhs.value() == rhs.value()
-```
-* category()[link error_code/category.md]
-* value()[link error_code/value.md]
+    lhs.category() == rhs.category() && lhs.value() == rhs.value()
+    ```
+    * category()[link error_code/category.md]
+    * value()[link error_code/value.md]
 
 
 - (2) :
 
     ```cpp
-lhs.category().equivalent(lhs.value(), rhs) || rhs.category().equivalent(lhs, rhs.value())
-```
-* lhs.category()[link error_code/category.md]
-* rhs.category()[link error_condition/category.md]
-* equivalent[link error_category/equivalent.md]
-* lhs.value()[link error_code/value.md]
-* rhs.value()[link error_condition/value.md]
+    lhs.category().equivalent(lhs.value(), rhs) || rhs.category().equivalent(lhs, rhs.value())
+    ```
+    * lhs.category()[link error_code/category.md]
+    * rhs.category()[link error_condition/category.md]
+    * equivalent[link error_category/equivalent.md]
+    * lhs.value()[link error_code/value.md]
+    * rhs.value()[link error_condition/value.md]
 
 
 - (3) :
 
     ```cpp
-rhs.category().equivalent(rhs.value(), lhs) || lhs.category().equivalent(rhs, lhs.value())
-```
-* lhs.category()[link error_condition/category.md]
-* rhs.category()[link error_code/category.md]
-* equivalent[link error_category/equivalent.md]
-* lhs.value()[link error_condition/value.md]
-* rhs.value()[link error_code/value.md]
+    rhs.category().equivalent(rhs.value(), lhs) || lhs.category().equivalent(rhs, lhs.value())
+    ```
+    * lhs.category()[link error_condition/category.md]
+    * rhs.category()[link error_code/category.md]
+    * equivalent[link error_category/equivalent.md]
+    * lhs.value()[link error_condition/value.md]
+    * rhs.value()[link error_code/value.md]
 
 
 - (4) :
 
     ```cpp
-lhs.category() == rhs.category() && lhs.value() == rhs.value()
-```
-* category()[link error_condition/category.md]
-* value()[link error_condition/value.md]
+    lhs.category() == rhs.category() && lhs.value() == rhs.value()
+    ```
+    * category()[link error_condition/category.md]
+    * value()[link error_condition/value.md]
 
 
 ## 例外
