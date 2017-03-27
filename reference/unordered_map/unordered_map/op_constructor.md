@@ -199,8 +199,8 @@ unordered_map(initializer_list<value_type> il,
     これは、デフォルトコンストラクタに `explicit` が付いていると、
 
     ```cpp
-std::unordered_map<int, char> m = {};
-```
+    std::unordered_map<int, char> m = {};
+    ```
 
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
