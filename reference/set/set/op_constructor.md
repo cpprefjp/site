@@ -70,8 +70,8 @@ set(initializer_list<value_type> init,
     これは、デフォルトコンストラクタに `explicit` が付いていると、
 
     ```cpp
-std::set<int> s = {};
-```
+    std::set<int> s = {};
+    ```
 
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
@@ -80,23 +80,23 @@ std::set<int> s = {};
     具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
     ```cpp
-#include <list>
-#include <set>
-#include <scoped_allocator>
-#include <iterator>
-#include <memory>
+    #include <list>
+    #include <set>
+    #include <scoped_allocator>
+    #include <iterator>
+    #include <memory>
 
-int main()
-{
-  using sii = std::set<int>;
-  std::list<sii, std::scoped_allocator_adaptor<std::allocator<sii>>> ls;
-  int a[] = {1, 2, 3};
-  ls.emplace_back(std::begin(a), std::end(a));
-}
-```
-* std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
-* std::allocator[link ../../memory/allocator.md]
-* ls.emplace_back[link ../../list/emplace_back.md]
+    int main()
+    {
+      using sii = std::set<int>;
+      std::list<sii, std::scoped_allocator_adaptor<std::allocator<sii>>> ls;
+      int a[] = {1, 2, 3};
+      ls.emplace_back(std::begin(a), std::end(a));
+    }
+    ```
+    * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
+    * std::allocator[link ../../memory/allocator.md]
+    * ls.emplace_back[link ../../list/emplace_back.md]
 
     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
     （`set(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `set` が構築され、`alloc` と共に (9) の形式に引き渡される）
