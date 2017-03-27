@@ -86,7 +86,7 @@ int main()
     X {1, 2, 3};      // 直接初期化して一時オブジェクトを定義
     X x2 = {1, 2, 3}; // コピー初期化して変数定義
     ```
-* std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
 - `new`式での初期化子リストによる初期化
 
@@ -140,7 +140,7 @@ int main()
     X x;
     x = {1, 2, 3};
     ```
-* std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
 
 ### <a name="narrow-conversion" href="#narrow-conversion">縮小変換</a>
@@ -154,7 +154,7 @@ int main()
     X x1 = {1, 2, 3}; // OK
     //X x2 = {1, 2, 3.0}; // コンパイルエラー！3.0をint型に縮小変換できない
     ```
-* std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
 - 縮小変換以外の型変換は許可される
 
@@ -166,7 +166,7 @@ int main()
     X x1 = {1, 2, 3};   // OK
     X x2 = {1, 2, 3.0}; // OK
     ```
-* std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
 
 ### <a name="initializer-list-constructor" href="#initializer-list-constructor">初期化子リストコンストラクタ</a>
@@ -200,8 +200,8 @@ int main()
       X x = {}; // 「default constructor」が出力される
     }
     ```
-* <initializer_list>[link /reference/initializer_list.md]
-* std::initializer_list[link /reference/initializer_list.md]
+    * <initializer_list>[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
 - 初期化子リストコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、初期化子リストコンストラクタが優先して呼び出される。そのような状況では、丸カッコでのコンストラクタ呼び出しが必要となる
 
@@ -217,7 +217,7 @@ int main()
 
     X x1 = {3.0}; // 「1」が出力される
     ```
-* std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
 - 異なる要素型を持つ`std::initializer_list`型同士でオーバーロードができる
 
@@ -237,7 +237,7 @@ int main()
     X {1, 2, 3};       // 「1」が出力される
     X {1.0, 2.0, 3.0}; // 「2」が出力される
     ```
-* std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
 
 ### <a name="life-time" href="#life-time">初期化子リストオブジェクトの寿命</a>
@@ -250,7 +250,7 @@ int main()
 
     X x = {1, 2, 3};
     ```
-* std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
     実装は以下と同等の初期化を行う (実装が用意した`std::initializer_list`クラスがポインタの組を受け取れると仮定する)：
 
@@ -258,7 +258,7 @@ int main()
     double __a[3] = {double{1}, double{2}, double{3}};
     X x(std::initializer_list<double>(__a, __a+3));
     ```
-* std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
     元となった配列の寿命は、変換先の`std::initializer_list`オブジェクトと同じとなる
 
@@ -298,7 +298,7 @@ int main()
 
     f({1, 2, 3}); // OK : Tはint
     ```
-* std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
 
 ### <a name="evaluation-order" href="#evaluation-order">評価順序</a>
@@ -331,8 +331,8 @@ int main()
       std::initializer_list<int> init = { f(), g(), h() }; // 1, 2, 3の順で出力される
     }
     ```
-* <initializer_list>[link /reference/initializer_list.md]
-* std::initializer_list[link /reference/initializer_list.md]
+    * <initializer_list>[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list.md]
 
 
 ## この機能が必要になった背景・経緯
