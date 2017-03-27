@@ -97,8 +97,8 @@ C++14は、C++11のバグフィックス + マイナーアップデートが行�
     - [Intel (R) Parallel Studio XE 2016 Beta program has begun](https://software.intel.com/en-us/forums/topic/549502)
 
 
-## <a name="cpp1z" href="#cpp1z">C++1z言語機能の実装状況</a>
-C++1zは、2017年に策定予定の、C++14に対するメジャーバージョンアップである。
+## <a name="cpp17" href="#cpp17">C++17言語機能の実装状況</a>
+C++17は、2017年に策定予定の、C++14に対するメジャーバージョンアップである。
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|
@@ -189,7 +189,7 @@ C++1zは、2017年に策定予定の、C++14に対するメジャーバージョ
 [P0522R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0522r0.html
 
 
-各処理系のC++1z実装状況ページ：
+各処理系のC++17実装状況ページ：
 
 - GCC: [C++1z Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx1z)
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)

@@ -24,7 +24,7 @@
     - GNU拡張を有効にする`-std=gnu++14`オプションもある。
 
 
-### C++1zの機能を有効にする
+### C++17の機能を有効にする
 - Clang 3.5以降は、`-std=c++1z`オプションを使用する。
     - GNU拡張を有効にする`-std=gnu++1z`オプションもある。
 
@@ -55,7 +55,7 @@
 - GCC 6.1以降は、C++14がデフォルトとなる。デフォルトバージョンのコンパイルオプションは`-std=gnu++14`
 
 
-### C++1zの機能を有効にする
+### C++17の機能を有効にする
 - GCC 6.1以降は、`-std=c++1z`オプションを使用する。
     - GNU拡張を有効にする`-std=gnu++1z`オプションもある。
 
@@ -113,8 +113,12 @@
 - 14.0 Update 3からは、`/std:c++14`オプションを使用する。とくに指定しない場合はデフォルトでC++14が有効となる
 
 
+### C++17の機能を有効にする
+- 14.1からは、`/std:c++latest`オプションを使用する
+
+
 ### 最新バージョンの言語機能を有効にする
-- 14.0 Update 3からは、`/std:c++latest`オプションを使用する。
+- 14.0 Update 3からは、`/std:c++latest`オプションを使用する
 
 
 - [Standards version switches in the compiler](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/standards-version-switches-in-the-compiler/)
