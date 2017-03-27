@@ -41,7 +41,8 @@ int main()
 
   mymap um{ { "1st", 1 }, { "2nd", 2 }, { "3rd", 3 }, };
 
-  std::for_each(um.cbegin(), um.cend(), [](mymap::value_type p) { std::cout << '{' << p.first << ',' << p.second << "}, "; });
+  std::for_each(um.cbegin(), um.cend(), [](mymap::value_type p)
+    { std::cout << '{' << p.first << ',' << p.second << "}, "; });
   std::cout << std::endl;
 }
 ```
