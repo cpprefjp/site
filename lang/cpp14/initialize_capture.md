@@ -27,7 +27,7 @@ int main()
     std::vector<T> v; // 巨大な配列
     auto f = [x = std::move(v)] { /* … */ };
     ```
-* std::move[link /reference/utility/move.md]
+    * std::move[link /reference/utility/move.md]
 
 - ひとつの変数に対して、コピーキャプチャと参照キャプチャを同時に行う
 
