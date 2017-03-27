@@ -107,7 +107,7 @@ int main()
 }
 ```
 * emplace[color ff0000]
-* std::complex[link /reference/complex/complex.md]
+* std::complex[link /reference/complex.md]
 * std::piecewise_construct[link /reference/utility/piecewise_construct.md]
 * std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * um.cbegin()[link cbegin.md]
