@@ -35,17 +35,17 @@ void resize(size_type sz, T c = T());  // (1) + (2) C++03
 - (2) :
     - C++11まで
 
-    ```cpp
-    if (sz > size())
-      insert(end(), sz - size(), c);
-    else if (sz < size())
-      erase(begin() + sz, end());
-    ```
-    * size()[link size.md]
-    * insert[link insert.md]
-    * end()[link end.md]
-    * erase[link erase.md]
-    * begin()[link begin.md]
+        ```cpp
+        if (sz > size())
+          insert(end(), sz - size(), c);
+        else if (sz < size())
+          erase(begin() + sz, end());
+        ```
+        * size()[link size.md]
+        * insert[link insert.md]
+        * end()[link end.md]
+        * erase[link erase.md]
+        * begin()[link begin.md]
 
     - C++14以降
         - もし`sz`が現在のコンテナの[`size()`](size.md)より小さい場合、[`pop_back()`](pop_back.md)関数を[`size()`](size.md) `- sz`回呼ぶ
