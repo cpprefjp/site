@@ -73,8 +73,8 @@ basic_string(basic_string&& str, const Allocator&);      // (12) C++11
     これは、デフォルトコンストラクタに `explicit` が付いていると、
 
     ```cpp
-std::basic_string<char> s = {};
-```
+    std::basic_string<char> s = {};
+    ```
 
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
