@@ -49,10 +49,12 @@ int main()
   mymap um{ { "1st", 1 }, { "2nd", 2 }, { "3rd", 3 }, };
   const mymap cum{um};
 
-  std::for_each(um.begin(), um.end(), [](mymap::value_type p) { std::cout << '{' << p.first << ',' << p.second << "}, "; });
+  std::for_each(um.begin(), um.end(), [](mymap::value_type p)
+    { std::cout << '{' << p.first << ',' << p.second << "}, "; });
   std::cout << std::endl;
 
-  std::for_each(cum.begin(), cum.end(), [](mymap::value_type p) { std::cout << '{' << p.first << ',' << p.second << "}, "; });
+  std::for_each(cum.begin(), cum.end(), [](mymap::value_type p)
+    { std::cout << '{' << p.first << ',' << p.second << "}, "; });
   std::cout << std::endl;
 }
 ```
