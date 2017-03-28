@@ -79,9 +79,9 @@ deque(initializer_list<T> il,
 - C++14 では、`explicit deque(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
 	これは、デフォルトコンストラクタに `explicit` が付いていると、
 
-	```cpp
-	std::deque<int> d = {};
-	```
+    ```cpp
+    std::deque<int> d = {};
+    ```
 
 	のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
@@ -89,21 +89,21 @@ deque(initializer_list<T> il,
 	これは、変更されないと `n` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
 	具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
-	```cpp
-	#include <list>
-	#include <deque>
-	#include <scoped_allocator>
+    ```cpp
+    #include <list>
+    #include <deque>
+    #include <scoped_allocator>
 
-	int main()
-	{
-	  using di = std::deque<int>;
-	  std::list<di, std::scoped_allocator_adaptor<std::allocator<di>>> l;
-	  l.emplace_back(10u);
-	}
-	```
-	* std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-	* std::allocator[link ../memory/allocator.md]
-	* emplace_back[link ../list/emplace_back.md]
+    int main()
+    {
+      using di = std::deque<int>;
+      std::list<di, std::scoped_allocator_adaptor<std::allocator<di>>> l;
+      l.emplace_back(10u);
+    }
+    ```
+    * std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
+    * std::allocator[link ../memory/allocator.md]
+    * emplace_back[link ../list/emplace_back.md]
 
 
 ## 例
