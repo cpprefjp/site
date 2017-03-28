@@ -73,9 +73,9 @@ vector(initializer_list<T> il,
 - C++14 では、`explicit vector(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
 	これは、デフォルトコンストラクタに `explicit` が付いていると、
 
-	```cpp
-	std::vector<int> v = {};
-	```
+    ```cpp
+    std::vector<int> v = {};
+    ```
 
 	のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
@@ -83,24 +83,24 @@ vector(initializer_list<T> il,
 	これは、変更されないと `n` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
 	具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
-	```cpp
-	#include <list>
-	#include <vector>
-	#include <scoped_allocator>
+    ```cpp
+    #include <list>
+    #include <vector>
+    #include <scoped_allocator>
 
-	int main()
-	{
-	  using vi = std::vector<int>;
-	  std::list<vi, std::scoped_allocator_adaptor<std::allocator<vi>>> l;
-	  l.emplace_back(10u);
-	}
-	```
-	* list[link ../list.md]
-	* vector[link ../vector.md]
-	* scoped_allocator[link ../scoped_allocator.md]
-	* scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-	* allocator[link ../memory/allocator.md]
-	* emplace_back[link ../list/emplace_back.md]
+    int main()
+    {
+      using vi = std::vector<int>;
+      std::list<vi, std::scoped_allocator_adaptor<std::allocator<vi>>> l;
+      l.emplace_back(10u);
+    }
+    ```
+    * list[link ../list.md]
+    * vector[link ../vector.md]
+    * scoped_allocator[link ../scoped_allocator.md]
+    * scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
+    * allocator[link ../memory/allocator.md]
+    * emplace_back[link ../list/emplace_back.md]
 
 
 ## 例
