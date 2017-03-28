@@ -22,7 +22,7 @@ namespace std {
 - C++03 :
 
     ```cpp
-    x.size() == y.size() && equal()(x.begin(), x.end(), y.begin());
+    x.size() == y.size() && equal(x.begin(), x.end(), y.begin());
     ```
     * size()[link size.md]
     * equal[link /reference/algorithm/equal.md]
