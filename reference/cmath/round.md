@@ -35,31 +35,31 @@ namespace std {
 
 	また、`double` バージョンの本関数は、以下の実装のように振る舞う。
 
-	```c
-	#include <math.h>
-	#include <fenv.h>
-	#pragma STDC FENV_ACCESS ON
-	double round(double x)
-	{
-	  double result;
-	  fenv_t save_env;
-	  feholdexcept(&save_env);
-	  result = rint(x);
-	  if (fetestexcept(FE_INEXACT)) {
-	    fesetround(FE_TOWARDZERO);
-	    result = rint(copysign(0.5 + fabs(x), x));
-	  }
-	  feupdateenv(&save_env);
-	  return result;
-	}
-	```
-	* feholdexcept[link ../cfenv.md]
-	* rint[link rint.md]
-	* fetestexcept[link ../cfenv/fetestexcept.md]
-	* FE_INEXACT[link ../cfenv/fe_inexact.md]
-	* copysign[link copysign.md]
-	* fabs[link fabs.md]
-	* feupdateenv[link ../cfenv/feupdateenv.md.nolink]
+    ```c
+    #include <math.h>
+    #include <fenv.h>
+    #pragma STDC FENV_ACCESS ON
+    double round(double x)
+    {
+      double result;
+      fenv_t save_env;
+      feholdexcept(&save_env);
+      result = rint(x);
+      if (fetestexcept(FE_INEXACT)) {
+        fesetround(FE_TOWARDZERO);
+        result = rint(copysign(0.5 + fabs(x), x));
+      }
+      feupdateenv(&save_env);
+      return result;
+    }
+    ```
+    * feholdexcept[link ../cfenv.md]
+    * rint[link rint.md]
+    * fetestexcept[link ../cfenv/fetestexcept.md]
+    * FE_INEXACT[link ../cfenv/fe_inexact.md]
+    * copysign[link copysign.md]
+    * fabs[link fabs.md]
+    * feupdateenv[link ../cfenv/feupdateenv.md.nolink]
 
 	ただし、本関数において戻り値が引数 `x` と異なる場合に、上記の実装のように例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) が発生するか否かは実装依存である。  
 	なお、本関数の挙動は、現在の丸めモードには依存しない。
