@@ -144,22 +144,22 @@ int main()
 - libstdc++ の出力例（4.7.3 現在）  
 	追加した要素 (1,4th) はヒントを無視して (1,2nd) と (1,1st) よりも前に追加されている。
 
-	```
-	before : (2,3rd), (1,2nd), (1,1st), 
-	equal_range : (1,2nd), (1,1st), 
-	emplace_hint : (1,4th)
-	after : (2,3rd), (1,4th), (1,2nd), (1,1st), 
-	```
+    ```
+    before : (2,3rd), (1,2nd), (1,1st), 
+    equal_range : (1,2nd), (1,1st), 
+    emplace_hint : (1,4th)
+    after : (2,3rd), (1,4th), (1,2nd), (1,1st), 
+    ```
 
 - libc++ の出力例（2013/11/22 現在）  
 	追加した要素 (1,4th) がヒントで指定した通り (1,1st) と (1,2nd) の間に追加されている。
 
-	```
-	before : (2,3rd), (1,1st), (1,2nd), 
-	equal_range : (1,1st), (1,2nd), 
-	emplace_hint : (1,4th)
-	after : (2,3rd), (1,1st), (1,4th), (1,2nd), 
-	```
+    ```
+    before : (2,3rd), (1,1st), (1,2nd), 
+    equal_range : (1,1st), (1,2nd), 
+    emplace_hint : (1,4th)
+    after : (2,3rd), (1,1st), (1,4th), (1,2nd), 
+    ```
 
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
