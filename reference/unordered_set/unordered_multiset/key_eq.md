@@ -40,21 +40,15 @@ int main()
 {
   std::cout << std::boolalpha;
 
-  std::unordered_multiset<int> um{ 1, 2, 3, 4, 5, 6, };
+  std::unordered_multiset<int> ums{ 1, 2, 3, 4, 5, 6, };
 
-  decltype(um)::key_equal eq{ um.key_eq() };
+  decltype(um)::key_equal eq{ ums.key_eq() };
 
   std::cout << "eq(1, 2) = " << eq(1, 2) << std::endl;
   std::cout << "eq(1, 1) = " << eq(1, 1) << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link ../unordered_multiset.md]
-* boolalpha[link ../../ios/boolalpha.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
-* key_eq[color ff0000]
+* key_eq()[color ff0000]
 
 ### 出力
 ```

@@ -15,7 +15,6 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 
 ## 要件
-
 - このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。  
 	ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
@@ -77,9 +76,9 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 #include <iostream>
 #include <unordered_set>
 #include <string>
-#include <utility>    // for std::pair
-#include <algorithm>  // for std::copy
-#include <iterator>   // for std::ostream_iterator
+#include <utility>
+#include <algorithm>
+#include <iterator>
 
 // サンプル用クラス
 struct is : std::pair<int, std::string> {
@@ -122,20 +121,12 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* string[link /reference/string.md]
-* utility[link /reference/utility.md]
-* pair[link /reference/utility/pair.md]
-* algorithm[link /reference/algorithm.md]
-* copy[link /reference/algorithm/copy.md]
-* iterator[link /reference/iterator.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* hash[link /reference/functional/hash.md]
-* ostream[link /reference/ostream/basic_ostream.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
 * emplace_hint[color ff0000]
+* hash[link /reference/functional/hash.md]
+* size_t[link /reference/cstddef/size_t.md]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* us.cbegin()[link cbegin.md]
+* us.cend()[link cend.md]
 
 ### 出力
 ```

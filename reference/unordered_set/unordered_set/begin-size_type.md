@@ -57,16 +57,10 @@ int main()
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* bucket_count[link bucket_count.md]
-* bucket_size[link bucket_size.md]
-* copy[link /reference/algorithm/copy.md]
+* begin[color ff0000]
+* us.bucket_count()[link bucket_count.md]
+* us.bucket_size[link bucket_size.md]
 * end[link end-size_type.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ### 出力
 ```

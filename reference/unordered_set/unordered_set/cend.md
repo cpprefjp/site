@@ -42,14 +42,8 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* unordered_set[link /reference/unordered_set.md]
-* copy[link /reference/algorithm/copy.md]
-* cbegin[link cbegin.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* cend[color ff0000]
+* cend()[color ff0000]
+* us.cbegin()[link cbegin.md]
 
 ### 出力
 ```

@@ -32,21 +32,18 @@ size_type size() const noexcept;
 
 int main()
 {
-  std::unordered_multiset<int> um{ 3, 1, 4, 5, 2, 3, 1, 4, 5, 2, };
+  std::unordered_multiset<int> ums{ 3, 1, 4, 5, 2, 3, 1, 4, 5, 2, };
 
   // 要素数を出力
-  std::cout << um.size() << std::endl;
+  std::cout << ums.size() << std::endl;
 
   // 以下も要素数を出力するが、計算量は定数ではない（線形時間）
-  std::cout << std::distance(um.begin(), um.end()) << std::endl;
+  std::cout << std::distance(ums.begin(), ums.end()) << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link ../unordered_multiset.md]
-* distance[link /reference/iterator/distance.md]
-* begin[link begin.md]
-* end[link end.md]
+* size()[color ff0000]
+* ums.begin()[link begin.md]
+* ums.end()[link end.md]
 
 ### 出力
 ```

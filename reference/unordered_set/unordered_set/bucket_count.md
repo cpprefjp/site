@@ -37,8 +37,7 @@ int main()
   std::cout << "bucket count is " << us.bucket_count() << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
+* bucket_count()[color ff0000]
 
 ### 出力例
 ```

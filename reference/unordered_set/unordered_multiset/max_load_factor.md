@@ -11,8 +11,8 @@ void max_load_factor(float z);          // (2)
 ```
 
 ## 概要
-- (1)	負荷率（バケットあたりの要素数の平均）の最大値を取得する。
-- (2)	負荷率（バケットあたりの要素数の平均）の最大値を設定する。
+- (1) : 負荷率（バケットあたりの要素数の平均）の最大値を取得する。
+- (2) : 負荷率（バケットあたりの要素数の平均）の最大値を設定する。
 
 
 ## 要件
@@ -20,13 +20,13 @@ void max_load_factor(float z);          // (2)
 
 
 ## 効果
-- (1)	なし。
-- (2)	引数 `z` を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。
+- (1) : なし。
+- (2) : 引数 `z` を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。
 
 
 ## 戻り値
-- (1)	負荷率（バケットあたりの要素数の平均）の最大値
-- (2)	なし
+- (1) : 負荷率（バケットあたりの要素数の平均）の最大値
+- (2) : なし
 
 
 ## 例外
@@ -59,52 +59,49 @@ void print(const C& c)
 
 int main()
 {
-  std::unordered_multiset<int> um(12);
+  std::unordered_multiset<int> ums(12);
 
-  std::cout << "max_load_factor is " << um.max_load_factor() << "\n\n"; // (1) の形式。max_load_factor のデフォルトは 1.0f。
-  print(um);
+  std::cout << "max_load_factor is " << ums.max_load_factor() << "\n\n"; // (1) の形式。max_load_factor のデフォルトは 1.0f。
+  print(ums);
 
-  um.max_load_factor(2.0f); // (2) の形式。max_load_factor を 2.0f に設定。
+  ums.max_load_factor(2.0f); // (2) の形式。max_load_factor を 2.0f に設定。
 
-  float z = um.max_load_factor(); // (1) の形式。上記で設定した値。
+  float z = ums.max_load_factor(); // (1) の形式。上記で設定した値。
   std::cout << "max_load_factor is " << z << "\n\n";
-  print(um);
+  print(ums);
 
-  decltype(um)::size_type b = um.bucket_count();
+  decltype(ums)::size_type b = ums.bucket_count();
   float limit = static_cast<float>(b) * z;
 
   // max_load_factor を超えるちょっと前まで要素を追加。
-  decltype(um)::size_type i = 1;
+  decltype(ums)::size_type i = 1;
   for (; i < limit; ++i) {
-    um.emplace(i);
+    ums.emplace(i);
   }
 
   // max_load_factor を超えて bucket_count が変わるまで、状態を出力しつつ要素を追加。
-  for (; um.bucket_count() == b; ++i) {
-    print(um);
-    um.emplace(i);
+  for (; ums.bucket_count() == b; ++i) {
+    print(ums);
+    ums.emplace(i);
   }
 
   // bucket_count が変わった直後の状態を出力。
-  print(um);
+  print(ums);
 
-  um.max_load_factor(um.load_factor() / 2.0f); // (2) の形式。max_load_factor を現在の値の 1/2 を引数にして呼び出し。
+  ums.max_load_factor(ums.load_factor() / 2.0f); // (2) の形式。max_load_factor を現在の値の 1/2 を引数にして呼び出し。
 
-  z = um.max_load_factor(); // (1) の形式。上記で設定した値。
+  z = ums.max_load_factor(); // (1) の形式。上記で設定した値。
   std::cout << "max_load_factor is " << z << "\n\n";
 
   // 最終的な状態を出力。
-  print(um);
+  print(ums);
 }
 ```
 * max_load_factor[color ff0000]
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* size[link size.md]
-* bucket_count[link bucket_count.md]
-* load_factor[link load_factor.md]
-* unordered_multiset[link ../unordered_multiset.md]
-* emplace[link emplace.md]
+* size()[link size.md]
+* bucket_count()[link bucket_count.md]
+* load_factor()[link load_factor.md]
+* ums.emplace[link emplace.md]
 
 ### 出力
 libstdc++ の出力例（4.7.2 現在）

@@ -13,9 +13,9 @@ namespace std {
   class unordered_set;
 }
 ```
-* hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/equal_to.md]
-* allocator[link /reference/memory/allocator.md]
+* std::hash[link /reference/functional/hash.md]
+* std::equal_to[link /reference/functional/equal_to.md]
+* std::allocator[link /reference/memory/allocator.md]
 
 ## 概要
 `unordered_set` は、同一キーの要素を複数格納できず、格納順が規定されていないコンテナである。
@@ -195,18 +195,10 @@ int main()
   print(us);
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* ostream[link /reference/ostream.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link /reference/iterator/begin.md]
-* end[link /reference/iterator/end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* emplace[link unordered_set/emplace.md]
-* erase[link unordered_set/erase.md]
+* std::unordered_set[color ff0000]
+* std::ostream[link /reference/ostream.md]
+* us.emplace[link unordered_set/emplace.md]
+* us.erase[link unordered_set/erase.md]
 
 ### 出力
 ```

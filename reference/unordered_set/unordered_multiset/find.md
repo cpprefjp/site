@@ -36,35 +36,29 @@ const_iterator find(const key_type& k) const;
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
+  std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
 
-  std::copy(um.begin(), um.end(), std::ostream_iterator<int>(std::cout, ", "));
+  std::copy(ums.begin(), ums.end(), std::ostream_iterator<int>(std::cout, ", "));
   std::cout << std::endl;
 
-  auto it1 = um.find(5);
-  if (it1 == um.end()) {
+  auto it1 = ums.find(5);
+  if (it1 == ums.end()) {
     std::cout << "not found" << std::endl;
   } else {
-    std::cout << "found " << *it1 << " at " << std::distance(um.begin(), it1) << std::endl;
+    std::cout << "found " << *it1 << " at " << std::distance(ums.begin(), it1) << std::endl;
   }
 
-  auto it2 = um.find(8);
-  if (it2 == um.end()) {
+  auto it2 = ums.find(8);
+  if (it2 == ums.end()) {
     std::cout << "not found" << std::endl;
   } else {
-    std::cout << "found " << *it2 << " at " << std::distance(um.begin(), it2) << std::endl;
+    std::cout << "found " << *it2 << " at " << std::distance(ums.begin(), it2) << std::endl;
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* unordered_multiset[link ../unordered_multiset.md]
-* begin[link begin.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* distance[link /reference/iterator/distance.md]
+* find[color ff0000]
+* ums.begin()[link begin.md]
+* ums.end()[link end.md]
 
 ### 出力
 ```

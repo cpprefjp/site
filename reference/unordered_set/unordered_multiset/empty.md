@@ -34,27 +34,25 @@ int main()
 {
   std::cout << std::boolalpha;
 
-  std::unordered_multiset<int> um;
+  std::unordered_multiset<int> ums;
 
   // 空
-  std::cout << um.empty() << std::endl;
+  std::cout << ums.empty() << std::endl;
 
-  um.insert(1);
+  ums.insert(1);
 
   // 空ではない
-  std::cout << um.empty() << std::endl;
+  std::cout << ums.empty() << std::endl;
 
-  um.clear();
+  ums.clear();
 
   // 空
-  std::cout << um.empty() << std::endl;
+  std::cout << ums.empty() << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* insert[link /reference/unordered_set/unordered_multiset/insert.md]
-* clear[link /reference/unordered_set/unordered_multiset/clear.md]
+* empty()[color ff0000]
+* ums.insert[link insert.md]
+* ums.clear()[link clear.md]
 
 ### 出力
 ```
@@ -82,9 +80,9 @@ inline bool unordered_multiset<Key, Hash, Pred, Allocator>::empty() const noexce
   return size() == 0; // begin() == end() でも OK
 }
 ```
-* size[link /reference/unordered_set/unordered_multiset/size.md]
-* begin[link /reference/unordered_set/unordered_multiset/begin.md]
-* end[link /reference/unordered_set/unordered_multiset/end.md]
+* size()[link size.md]
+* begin()[link begin.md]
+* end()[link end.md]
 
 ## 参照
 

@@ -12,6 +12,7 @@ const_iterator begin() const noexcept;
 
 ## 概要
 先頭の要素を指すイテレータを取得する。
+
 `unordered_multiset` は非順序連想コンテナであるため「先頭」に特に意味はないが、`begin()` で得られたイテレータを [`end`](end.md)`()` まで `operator++()` でイテレートすることで当該コンテナの要素を漏れなくダブりなく走査することができる。
 
 
@@ -42,24 +43,18 @@ const_iterator begin() const noexcept;
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 2, 3, 1, 2, 3, };
-  const std::unordered_multiset<int> cum{um};
+  std::unordered_multiset<int> ums{ 1, 2, 3, 1, 2, 3, };
+  const std::unordered_multiset<int> cums{ums};
 
-  copy(um.begin(), um.end(), std::ostream_iterator<int>(std::cout, " "));
+  std::copy(ums.begin(), ums.end(), std::ostream_iterator<int>(std::cout, " "));
   std::cout << std::endl;
 
-  copy(cum.begin(), cum.end(), std::ostream_iterator<int>(std::cout, " "));
+  std::copy(cums.begin(), cums.end(), std::ostream_iterator<int>(std::cout, " "));
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* unordered_set[link /reference.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* copy[link /reference/algorithm/copy.md]
-* end[link /reference/unordered_set/unordered_multiset/end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* begin()[color ff0000]
+* end()[link end.md]
 
 ### 出力例
 ```

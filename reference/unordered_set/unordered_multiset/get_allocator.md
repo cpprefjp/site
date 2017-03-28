@@ -61,34 +61,29 @@ using myumset = std::unordered_multiset<Key, std::hash<Key>, std::equal_to<Key>,
 
 int main()
 {
-  myumset<int> um1{ my_alloc<int>(1) };
-  myumset<int> um2{ my_alloc<int>(2) };
+  myumset<int> ums1{ my_alloc<int>(1) };
+  myumset<int> ums2{ my_alloc<int>(2) };
 
-  std::cout << um1.get_allocator().no << ',' << um2.get_allocator().no << std::endl;
-  swap(um1, um2);
+  std::cout << ums1.get_allocator().no << ',' << ums2.get_allocator().no << std::endl;
+  swap(ums1, ums2);
 
   // my_alloc は propagate_on_container_swap を true_type としているので、
   // アロケータも swap される。
-  std::cout << um1.get_allocator().no << ',' << um2.get_allocator().no << std::endl;
-  um1 = um2;
+  std::cout << ums1.get_allocator().no << ',' << ums2.get_allocator().no << std::endl;
+  ums1 = ums2;
 
   // my_alloc は propagate_on_container_copy_assignment を true_type としていないので、
   // アロケータは copy されない。
-  std::cout << um1.get_allocator().no << ',' << um2.get_allocator().no << std::endl;
+  std::cout << ums1.get_allocator().no << ',' << ums2.get_allocator().no << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* memory[link /reference/memory.md]
-* unordered_set[link /reference/unordered_set.md]
-* type_traits[link /reference/type_traits.md]
-* operator new[link /reference/new/op_new.md]
-* operator delete[link /reference/new/op_delete.md]
-* true_type[link /reference/type_traits/true_type.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/equal_to.md]
+* get_allocator()[color ff0000]
+* ::operator new[link /reference/new/op_new.md]
+* ::operator delete[link /reference/new/op_delete.md]
+* std::true_type[link /reference/type_traits/true_type.md]
+* std::hash[link /reference/functional/hash.md]
+* std::equal_to[link /reference/functional/equal_to.md]
 * swap[link swap_free.md]
-* =[link op_assign.md]
 
 ### 出力
 ```

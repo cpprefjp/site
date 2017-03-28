@@ -36,22 +36,17 @@ const_iterator cend() const noexcept;
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 2, 3, 1, 2, 3, };
+  std::unordered_multiset<int> ums{ 1, 2, 3, 1, 2, 3, };
 
-  copy(um.cbegin(), um.cend(), std::ostream_iterator<int>(std::cout, " "));
+  std::copy(ums.cbegin(), ums.cend(), std::ostream_iterator<int>(std::cout, " "));
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* cbegin[link /reference/unordered_set/unordered_multiset/cbegin.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* cend()[color ff0000]
+* ums.cbegin()[link cbegin.md]
 
 ### 出力
-```cpp
+```
 3 3 2 2 1 1
 ```
 

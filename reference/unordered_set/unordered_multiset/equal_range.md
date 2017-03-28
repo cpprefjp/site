@@ -9,7 +9,6 @@
 std::pair<iterator, iterator> equal_range(const key_type& k);
 std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 指定したキーの範囲を取得する
@@ -39,30 +38,22 @@ void print_range(const std::string& label, Iter begin, Iter it1, Iter it2, std::
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
+  std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
 
-  std::copy(um.begin(), um.end(), std::ostream_iterator<int>(std::cout, ", "));
+  std::copy(ums.begin(), ums.end(), std::ostream_iterator<int>(std::cout, ", "));
   std::cout << std::endl;
 
-  auto p1 = um.equal_range(5);
-  print_range("equal_range(5)", um.begin(), p1.first, p1.second);
+  auto p1 = ums.equal_range(5);
+  print_range("equal_range(5)", ums.begin(), p1.first, p1.second);
 
-  auto p2 = um.equal_range(8);
-  print_range("equal_range(8)", um.begin(), p2.first, p2.second);
+  auto p2 = ums.equal_range(8);
+  print_range("equal_range(8)", ums.begin(), p2.first, p2.second);
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* ostream[link /reference/ostream.md]
-* distance[link /reference/iterator/distance.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link begin.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* equal_range[color ff0000]
+* std::ostream[link /reference/ostream.md]
+* ums.begin()[link begin.md]
+* ums.end()[link end.md]
 * first[link /reference/utility/pair.md]
 * second[link /reference/utility/pair.md]
 

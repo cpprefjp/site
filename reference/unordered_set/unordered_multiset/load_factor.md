@@ -14,7 +14,13 @@ float load_factor() const noexcept;
 
 
 ## 戻り値
-現在の負荷率（バケットあたりの要素数の平均：[`size`](size.md)`() /` [`bucket_count`](bucket_count.md)`()`）
+現在の負荷率として、以下を返す：
+
+```cpp
+size() / bucket_count()
+```
+* size()[link size.md]
+* bucket_count()[link bucket_count.md]
 
 
 ## 例外
@@ -41,27 +47,22 @@ void print(const C& c, std::ostream& os = std::cout)
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
+  std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
 
-  print(um);
+  print(ums);
 
-  um.insert({ 2, 4, 6, 8, 10, 2, 4, 6, 8, 10, });
+  ums.insert({ 2, 4, 6, 8, 10, 2, 4, 6, 8, 10, });
 
-  print(um);
+  print(ums);
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link begin.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* size[link size.md]
-* bucket_count[link bucket_count.md]
-* unordered_multiset[link ../unordered_multiset.md]
-* insert[link insert.md]
+* load_factor()[color ff0000]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* c.begin()[link begin.md]
+* c.end()[link end.md]
+* c.size()[link size.md]
+* c.bucket_count()[link bucket_count.md]
+* ums.insert[link insert.md]
 
 ### 出力
 ```

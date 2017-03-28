@@ -15,7 +15,6 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 
 ## 要件
-
 - このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。  
 	ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
@@ -71,9 +70,9 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 #include <iostream>
 #include <unordered_set>
 #include <string>
-#include <utility>    // for std::pair
-#include <algorithm>  // for std::copy
-#include <iterator>   // for std::ostream_iterator
+#include <utility>
+#include <algorithm>
+#include <iterator>
 
 // サンプル用クラス
 struct is : std::pair<int, std::string> {
@@ -116,40 +115,30 @@ void print(const char* label, Iterator begin, Iterator end, std::ostream& os = s
 
 int main()
 {
-  std::unordered_multiset<is> um{ {1, "1st"}, {1, "2nd"}, {2, "3rd"}, };
+  std::unordered_multiset<is> ums{ {1, "1st"}, {1, "2nd"}, {2, "3rd"}, };
 
   // 初期状態の出力
-  print("before", um.cbegin(), um.cend());
+  print("before", ums.cbegin(), ums.cend());
 
   // 追加するデータと等価な範囲を取得
-  auto p = um.equal_range(is(1, "4th"));
+  auto p = ums.equal_range(is(1, "4th"));
   print("equal_range", p.first, p.second);
 
   // 等価な要素の間に emplace_hint でデータを追加
-  auto it = um.emplace_hint(std::next(p.first), 1, "4th");
+  auto it = ums.emplace_hint(std::next(p.first), 1, "4th");
   std::cout << "emplace_hint : " << *it << '\n';
 
   // 追加結果の出力
-  print("after", um.cbegin(), um.cend());
+  print("after", ums.cbegin(), ums.cend());
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* string[link /reference/string.md]
-* utility[link /reference/utility.md]
-* pair[link /reference/utility/pair.md]
-* algorithm[link /reference/algorithm.md]
-* copy[link /reference/algorithm/copy.md]
-* iterator[link /reference/iterator.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* hash[link /reference/functional/hash.md]
-* ostream[link /reference/ostream/basic_ostream.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
-* equal_range[link /reference/unordered_set/unordered_multiset/equal_range.md]
-* next[link /reference/iterator/next.md]
 * emplace_hint[color ff0000]
+* hash[link /reference/functional/hash.md]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* ums.cbegin()[link cbegin.md]
+* ums.cend()[link cend.md]
+* ums.equal_range[link equal_range.md]
+* std::next[link /reference/iterator/next.md]
 
 ### 出力
 - libstdc++ の出力例（4.7.3 現在）  

@@ -58,37 +58,27 @@ int main()
 {
   std::cout << std::boolalpha;
 
-  std::unordered_multiset<int> um1{ 1, 2, 3, 1, 2, 3, };
-  std::unordered_multiset<int> um2{ 4, 5, 6, 4, 5, 6, };
-  std::unordered_multiset<int> um3{ 1, 2, 3, 1, 2, 3, };
+  std::unordered_multiset<int> ums1{ 1, 2, 3, 1, 2, 3, };
+  std::unordered_multiset<int> ums2{ 4, 5, 6, 4, 5, 6, };
+  std::unordered_multiset<int> ums3{ 1, 2, 3, 1, 2, 3, };
 
-  print("um1", um1);
-  print("um2", um2);
-  print("um3", um3);
+  print("ums1", ums1);
+  print("ums2", ums2);
+  print("ums3", ums3);
 
-  std::cout << "um1 != um2:" << (um1 != um2) << std::endl;
-  std::cout << "um1 != um3:" << (um1 != um3) << std::endl;
+  std::cout << "ums1 != ums2:" << (ums1 != ums2) << std::endl;
+  std::cout << "ums1 != ums3:" << (ums1 != ums3) << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* ostream[link /reference/ostream.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link /reference/iterator/begin.md]
-* end[link /reference/iterator/end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link ../unordered_multiset.md]
+* std::ostream[link /reference/ostream/basic_ostream.md]
 
 ### 出力
 ```
-um1:3, 3, 2, 2, 1, 1,
-um2:6, 6, 5, 5, 4, 4,
-um3:3, 3, 2, 2, 1, 1,
-um1 != um2:true
-um1 != um3:false
+ums1:3, 3, 2, 2, 1, 1,
+ums2:6, 6, 5, 5, 4, 4,
+ums3:3, 3, 2, 2, 1, 1,
+ums1 != ums2:true
+ums1 != ums3:false
 ```
 
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意

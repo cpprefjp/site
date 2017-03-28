@@ -60,7 +60,9 @@ namespace std {
                     const unordered_multiset<Key, Hash, Pred, Allocator>& b);
 }
 ```
-* initializer_list[link /reference/initializer_list.md]
+* std::hash[link /reference/functional/hash.md]
+* std::equal_to[link /reference/functional/equal_to.md]
+* std::allocator[link /reference/memory/allocator.md]
 
 ## バージョン
 ### 言語

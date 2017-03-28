@@ -42,34 +42,25 @@ void print(const std::string& label, const C& c, std::ostream& os = std::cout)
 
 int main()
 {
-  std::unordered_multiset<int> um1{ 1, 2, 3, 1, 2, 3, };
-  std::unordered_multiset<int> um2{ 4, 5, 6, 4, 5, 6, };
+  std::unordered_multiset<int> ums1{ 1, 2, 3, 1, 2, 3, };
+  std::unordered_multiset<int> ums2{ 4, 5, 6, 4, 5, 6, };
 
-  print("um1 before", um1);
-  print("um2 before", um2);
-  swap(um1, um2);
-  print("um1 after", um1);
-  print("um2 after", um2);
+  print("ums1 before", ums1);
+  print("ums2 before", ums2);
+  swap(ums1, ums2);
+  print("ums1 after", ums1);
+  print("ums2 after", ums2);
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* ostream[link /reference/ostream.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link /reference/iterator/begin.md]
-* end[link /reference/iterator/end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link ../unordered_multiset.md]
+* swap[color ff0000]
+* std::ostream[link /reference/ostream/basic_ostream.md]
 
 ### 出力
 ```
-um1 before:3, 3, 2, 2, 1, 1,
-um2 before:6, 6, 5, 5, 4, 4,
-um1 after:6, 6, 5, 5, 4, 4,
-um2 after:3, 3, 2, 2, 1, 1,
+ums1 before:3, 3, 2, 2, 1, 1,
+ums2 before:6, 6, 5, 5, 4, 4,
+ums1 after:6, 6, 5, 5, 4, 4,
+ums2 after:3, 3, 2, 2, 1, 1,
 ```
 
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意

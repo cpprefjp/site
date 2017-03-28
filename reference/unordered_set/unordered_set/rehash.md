@@ -65,15 +65,10 @@ int main()
   std::cout << "bucket_count is " << us.bucket_count() << std::endl;
 }
 ```
-* <iostream>[link /reference/iostream.md]
-* <unordered_set>[link /reference/unordered_set.md]
 * rehash[color ff0000]
-* unordered_set[link ../unordered_set.md]
-* size[link size.md]
-* max_load_factor[link max_load_factor.md]
-* bucket_count[link bucket_count.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* us.size()[link size.md]
+* us.max_load_factor()[link max_load_factor.md]
+* us.bucket_count()[link bucket_count.md]
 
 ### 出力例
 ```

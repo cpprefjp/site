@@ -43,24 +43,18 @@ const_iterator end() const noexcept;
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 2, 3, 1, 2, 3, };
-  const std::unordered_multiset<int> cum{um};
+  std::unordered_multiset<int> ums{ 1, 2, 3, 1, 2, 3, };
+  const std::unordered_multiset<int> cums{ums};
 
-  copy(um.begin(), um.end(), std::ostream_iterator<int>(std::cout, " "));
+  std::copy(ums.begin(), ums.end(), std::ostream_iterator<int>(std::cout, " "));
   std::cout << std::endl;
 
-  copy(cum.begin(), cum.end(), std::ostream_iterator<int>(std::cout, " "));
+  std::copy(cums.begin(), cums.end(), std::ostream_iterator<int>(std::cout, " "));
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link /reference/unordered_set/unordered_multiset/begin.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* end()[color ff0000]
+* begin()[link begin.md]
 
 ### 出力
 ```

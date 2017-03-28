@@ -32,14 +32,12 @@ size_type bucket_count() const noexcept;
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
+  std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };
 
-  std::cout << "bucket count is " << um.bucket_count() << std::endl;
+  std::cout << "bucket count is " << ums.bucket_count() << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
+* bucket_count()[color ff0000]
 
 ### 出力例
 ```

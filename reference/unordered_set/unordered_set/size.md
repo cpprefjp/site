@@ -41,12 +41,9 @@ int main()
   std::cout << std::distance(us.begin(), us.end()) << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* distance[link /reference/iterator/distance.md]
-* begin[link begin.md]
-* end[link end.md]
-* size[color ff0000]
+* size()[color ff0000]
+* us.begin()[link begin.md]
+* us.end()[link end.md]
 
 ### 出力
 ```

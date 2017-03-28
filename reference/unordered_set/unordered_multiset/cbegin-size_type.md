@@ -37,30 +37,23 @@ const_local_iterator cbegin(size_type n) const;
 
 int main()
 {
-  std::unordered_multiset<std::string> um{ "A", "B", "C", "D", "E", "A", "B", "C", "D", "E", };
+  std::unordered_multiset<std::string> ums{ "A", "B", "C", "D", "E", "A", "B", "C", "D", "E", };
 
-  decltype(um)::size_type c = um.bucket_count();
+  decltype(ums)::size_type c = ums.bucket_count();
   std::cout << "bucket_count() = " << c << std::endl;
 
-  for (decltype(um)::size_type b = 0; b < c; ++b) {
-    decltype(um)::size_type s = um.bucket_size(b);
+  for (decltype(ums)::size_type b = 0; b < c; ++b) {
+    decltype(ums)::size_type s = ums.bucket_size(b);
     std::cout << "bucket = " << b << ", bucket_size = " << s << ", keys = { ";
-    std::copy(um.cbegin(b), um.cend(b), std::ostream_iterator<std::string>(std::cout, ", "));
+    std::copy(ums.cbegin(b), ums.cend(b), std::ostream_iterator<std::string>(std::cout, ", "));
     std::cout << "}" << std::endl;
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* bucket_count[link /reference/unordered_set/unordered_multiset/bucket_count.md]
-* bucket_size[link /reference/unordered_set/unordered_multiset/bucket_size.md]
-* copy[link /reference/algorithm/copy.md]
-* cend[link /reference/unordered_set/unordered_multiset/cend-size_type.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* cbegin[color ff0000]
+* ums.bucket_count()[link bucket_count.md]
+* ums.bucket_size[link bucket_size.md]
+* ums.cend[link cend-size_type.md]
 
 ### 出力
 ```

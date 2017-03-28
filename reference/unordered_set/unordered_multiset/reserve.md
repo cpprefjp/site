@@ -46,34 +46,29 @@ void reserve(size_type n);
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, };
+  std::unordered_multiset<int> ums{ 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, };
 
-  std::cout << "size is " << um.size() << ", max_load_factor is " << um.max_load_factor() << std::endl;
+  std::cout << "size is " << ums.size() << ", max_load_factor is " << ums.max_load_factor() << std::endl;
 
-  std::cout << "bucket_count is " << um.bucket_count() << std::endl;
+  std::cout << "bucket_count is " << ums.bucket_count() << std::endl;
 
   // 現在の要素数より大きな値を指定する。
-  um.reserve(100);
-  std::cout << "bucket_count is " << um.bucket_count() << std::endl;
+  ums.reserve(100);
+  std::cout << "bucket_count is " << ums.bucket_count() << std::endl;
 
   // 現在の要素数よりは大きく、現在のバケット数 / max_load_factor() よりは小さい値を指定する。
-  um.reserve(20);
-  std::cout << "bucket_count is " << um.bucket_count() << std::endl;
+  ums.reserve(20);
+  std::cout << "bucket_count is " << ums.bucket_count() << std::endl;
 
   // 現在の要素数より小さい値を指定する。
-  um.reserve(1);
-  std::cout << "bucket_count is " << um.bucket_count() << std::endl;
+  ums.reserve(1);
+  std::cout << "bucket_count is " << ums.bucket_count() << std::endl;
 }
 ```
-* <iostream>[link /reference/iostream.md]
-* <unordered_set>[link /reference/unordered_set.md]
 * reserve[color ff0000]
-* unordered_multiset[link ../unordered_multiset.md]
-* size[link size.md]
-* max_load_factor[link max_load_factor.md]
-* bucket_count[link bucket_count.md]
-* cout[link ../../iostream/cout.md]
-* endl[link ../../ostream/endl.md]
+* ums.size()[link size.md]
+* ums.max_load_factor()[link max_load_factor.md]
+* ums.bucket_count()[link bucket_count.md]
 
 ### 出力例
 ```

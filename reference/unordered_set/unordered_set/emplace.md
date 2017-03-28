@@ -77,9 +77,9 @@ pair<iterator, bool> emplace(Args&&... args);
 #include <iostream>
 #include <unordered_set>
 #include <string>
-#include <utility>    // for std::pair
-#include <algorithm>  // for std::copy
-#include <iterator>   // for std::ostream_iterator
+#include <utility>
+#include <algorithm>
+#include <iterator>
 
 // サンプル用クラス
 struct is : std::pair<int, std::string> {
@@ -116,7 +116,7 @@ int main()
   auto p3 = us.emplace(1, "1st");
   std::cout << *p3.first << ' ' << p3.second << '\n';
 
-  //以下はコピー&ムーブコンストラクタが無いのでエラーになる
+  //以下はコピー&ムーブコンストラクタが無いのでコンパイルエラーになる
   //auto p4 = us.insert(is(3, "3rd"));
   //std::cout << *p4.first << ' ' << p4.second << '\n';
 
@@ -125,21 +125,13 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* string[link /reference/string.md]
-* utility[link /reference/utility.md]
-* pair[link /reference/utility/pair.md]
-* algorithm[link /reference/algorithm.md]
-* copy[link /reference/algorithm/copy.md]
-* iterator[link /reference/iterator.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* hash[link /reference/functional/hash.md]
-* ostream[link /reference/ostream/basic_ostream.md]
-* insert[link insert.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
 * emplace[color ff0000]
+* hash[link /reference/functional/hash.md]
+* size_t[link /reference/cstddef/size_t.md]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* us.insert[link insert.md]
+* us.cbegin()[link cbegin.md]
+* us.cend()[link cend.md]
 
 ### 出力例
 ```

@@ -14,7 +14,13 @@ float load_factor() const noexcept;
 
 
 ## 戻り値
-現在の負荷率（バケットあたりの要素数の平均：[`size`](size.md)`() /` [`bucket_count`](bucket_count.md)`()`）
+現在の負荷率として、以下を返す：
+
+```cpp
+size() / bucket_count()
+```
+* size()[link size.md]
+* bucket_count()[link bucket_count.md]
 
 
 ## 例外
@@ -50,17 +56,13 @@ int main()
   print(us);
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link begin.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* size[link size.md]
-* bucket_count[link bucket_count.md]
-* insert[link insert.md]
+* load_factor()[color ff0000]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* c.begin()[link begin.md]
+* c.end()[link end.md]
+* c.size()[link size.md]
+* c.bucket_count()[link bucket_count.md]
+* us.insert[link insert.md]
 
 ### 出力
 ```

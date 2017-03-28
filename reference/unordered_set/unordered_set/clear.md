@@ -52,10 +52,8 @@ int main()
   std::cout << us.empty() << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* empty[link empty.md]
-* clear[color ff0000]
+* clear()[color ff0000]
+* us.empty()[link empty.md]
 
 ### 出力
 ```

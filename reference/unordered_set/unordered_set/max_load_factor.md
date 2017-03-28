@@ -11,8 +11,8 @@ void max_load_factor(float z);          // (2)
 ```
 
 ## 概要
-- (1)	負荷率（バケットあたりの要素数の平均）の最大値を取得する。
-- (2)	負荷率（バケットあたりの要素数の平均）の最大値を設定する。
+- (1) : 負荷率（バケットあたりの要素数の平均）の最大値を取得する。
+- (2) : 負荷率（バケットあたりの要素数の平均）の最大値を設定する。
 
 
 ## 要件
@@ -20,13 +20,14 @@ void max_load_factor(float z);          // (2)
 
 
 ## 効果
-- (1)	なし。
-- (2)	引数 `z` を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。
+- (1) : なし。
+- (2) : 引数 `z` を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。
 
 
 ## 戻り値
-- (1)	負荷率（バケットあたりの要素数の平均）の最大値
-- (2)	なし
+- (1) : 負荷率（バケットあたりの要素数の平均）の最大値
+- (2) : なし
+
 
 ## 例外
 投げない。
@@ -97,12 +98,10 @@ int main()
 }
 ```
 * max_load_factor[color ff0000]
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* size[link size.md]
-* bucket_count[link bucket_count.md]
-* load_factor[link load_factor.md]
-* emplace[link emplace.md]
+* size()[link size.md]
+* bucket_count()[link bucket_count.md]
+* load_factor()[link load_factor.md]
+* us.emplace[link emplace.md]
 
 ### 出力
 libstdc++ の出力例（4.7.2 時点）

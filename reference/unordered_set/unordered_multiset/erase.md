@@ -24,30 +24,30 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ## 効果
-- (1)	`position` で指定された要素を削除する。
-- (2)	`k` と等価なキーの要素を削除する。
-- (3)	`[first, last)` の範囲にある要素を全て削除する。
+- (1) : `position` で指定された要素を削除する。
+- (2) : `k` と等価なキーの要素を削除する。
+- (3) : `[first, last)` の範囲にある要素を全て削除する。
 
 
 ## 戻り値
-- (1)	「削除前に、削除された要素の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`std::`[`next`](/reference/iterator/next.md)`(position)` と同じ位置を指す `iterator` である。  
+- (1) : 「削除前に、削除された要素の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`std::`[`next`](/reference/iterator/next.md)`(position)` と同じ位置を指す `iterator` である。  
 	なお、`position` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。
-- (2)	削除した要素数。
-- (3)	 「削除前に、削除された要素の範囲の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`last` と同じ位置を指す `iterator` である。  
+- (2) : 削除した要素数。
+- (3) : 「削除前に、削除された要素の範囲の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`last` と同じ位置を指す `iterator` である。  
 	なお、`first` 及び `last` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。  
 	また、要件に示したように `first` が間接参照可能である必要がなかった場合にも、他の種類のコンテナの戻り値と照らし合わせると、`last` と同じ位置を指す `iterator` を返すのが適切であるものと思われる。
 
 
 ## 例外
-- (1)	投げない。
-- (2)	コンテナの `key_equal` と `hasher` のオブジェクト（それぞれ `key_eq()` と `hash_function()` が返すオブジェクト）が例外を投げなければ、例外を投げない。
-- (3)	投げない。
+- (1) : 投げない。
+- (2) : コンテナの `key_equal` と `hasher` のオブジェクト（それぞれ `key_eq()` と `hash_function()` が返すオブジェクト）が例外を投げなければ、例外を投げない。
+- (3) : 投げない。
 
 
 ## 計算量
-- (1)	平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
-- (2)	平均的なケースでは削除された要素数に比例（O([`count`](count.md)`(k)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
-- (3)	平均的なケースでは指定された範囲の要素数に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
+- (1) : 平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
+- (2) : 平均的なケースでは削除された要素数に比例（O([`count`](count.md)`(k)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
+- (3) : 平均的なケースでは指定された範囲の要素数に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last)`)）だが、最悪のケースではコンテナの要素数に比例（O([`size`](size.md)`()`)）
 
 
 ## 備考
@@ -74,59 +74,52 @@ int main()
 {
   // 指定した位置にある要素を削除（(1)の形式）
   {
-    std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 3, };
-    print("(1) erase(const_iterator) before", um);
+    std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 3, };
+    print("(1) erase(const_iterator) before", ums);
 
-    auto it1 = std::next(um.cbegin(), 3);
+    auto it1 = std::next(ums.cbegin(), 3);
     std::cout << "argument: " << *it1 << '\n';
-    auto it2 = um.erase(it1);
+    auto it2 = ums.erase(it1);
     std::cout << "return value: " << *it2 << '\n';
-    print("after", um);
+    print("after", ums);
     std::cout << std::endl;
   }
 
   // 指定したキーと等価な要素を削除（(2)の形式）
   {
-    std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 3, };
-    print("(2) erase(const value_type&) before", um);
+    std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 3, };
+    print("(2) erase(const value_type&) before", ums);
 
-    auto count1 = um.erase(5);
-    auto count2 = um.erase(8);
-    auto count3 = um.erase(3);
+    auto count1 = ums.erase(5);
+    auto count2 = ums.erase(8);
+    auto count3 = ums.erase(3);
     std::cout << "argument: 5, 8, 3" << '\n';
     std::cout << "return value: " << count1 << ", " << count2 << ", " << count3 << std::endl;
-    print("after", um);
+    print("after", ums);
     std::cout << std::endl;
   }
 
   // 指定した位置にある要素を削除（(3)の形式）
   {
-    std::unordered_multiset<int> um{ 1, 3, 5, 7, 9, 3, };
-    print("(3) erase(const_iterator, const_iterator) before", um);
+    std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 3, };
+    print("(3) erase(const_iterator, const_iterator) before", ums);
 
-    auto it1 = std::next(um.cbegin());
+    auto it1 = std::next(ums.cbegin());
     auto it2 = std::next(it1, 2);
     std::cout << "arguments: " << *it1 << ", " << *it2 << '\n';
-    auto it3 = um.erase(it1, it2);
+    auto it3 = ums.erase(it1, it2);
     std::cout << "return value: " << *it3 << '\n';
-    print("after", um);
+    print("after", ums);
     std::cout << std::endl;
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* ostream[link /reference/ostream/basic_ostream.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link begin.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link ../unordered_multiset.md]
-* next[link /reference/iterator/next.md]
-* cbegin[link cbegin.md]
+* erase[color ff0000]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* ums.begin()[link begin.md]
+* ums.end()[link end.md]
+* std::next[link /reference/iterator/next.md]
+* ums.cbegin()[link cbegin.md]
 
 ### 出力
 ```

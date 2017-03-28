@@ -39,31 +39,28 @@ size_type bucket(const key_type& k) const;
 
 int main()
 {
-  std::unordered_multiset<std::string> um{ "A", "B", "C", "D", "E", "A", "B", "C", "D", "E", };
+  std::unordered_multiset<std::string> ums{ "A", "B", "C", "D", "E", "A", "B", "C", "D", "E", };
 
-  decltype(um)::size_type c = um.bucket_count();
+  decltype(ums)::size_type c = ums.bucket_count();
   std::cout << "bucket_count() = " << c << std::endl;
 
   // 全てのキーに対するバケットのインデックスとそのバケットの要素数を取得
-  for (decltype(um)::key_type k : um) {
-    decltype(um)::size_type b = um.bucket(k);
-    decltype(um)::size_type s = um.bucket_size(b);
+  for (decltype(ums)::key_type k : ums) {
+    decltype(ums)::size_type b = ums.bucket(k);
+    decltype(ums)::size_type s = ums.bucket_size(b);
     std::cout << "key = " << k << ", bucket = " << b << ", bucket_size = " << s << std::endl;
   }
 
   // 存在しないキーに対するバケットのインデックスとそのバケットの要素数を取得
-  decltype(um)::key_type k = "H";
-  decltype(um)::size_type b = um.bucket(k);
-  decltype(um)::size_type s = um.bucket_size(b);
+  decltype(ums)::key_type k = "H";
+  decltype(ums)::size_type b = ums.bucket(k);
+  decltype(ums)::size_type s = ums.bucket_size(b);
   std::cout << "key = " << k << ", bucket = " << b << ", bucket_size = " << s << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* bucket_count[link /reference/unordered_set/unordered_multiset/bucket_count.md]
-* bucket_size[link /reference/unordered_set/unordered_multiset/bucket_size.md]
+* bucket[color ff0000]
+* us.bucket_count()[link bucket_count.md]
+* us.bucket_size[link bucket_size.md]
 
 ### 出力
 ```

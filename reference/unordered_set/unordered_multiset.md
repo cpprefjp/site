@@ -13,9 +13,9 @@ namespace std {
   class unordered_multiset;
 }
 ```
-* hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/equal_to.md]
-* allocator[link /reference/memory/allocator.md]
+* std::hash[link /reference/functional/hash.md]
+* std::equal_to[link /reference/functional/equal_to.md]
+* std::allocator[link /reference/memory/allocator.md]
 
 ## 概要
 `unordered_multiset` は、同一キーの要素を複数格納できる、格納順が規定されていないコンテナである。
@@ -184,32 +184,23 @@ void print(const C& c, std::ostream& os = std::cout)
 
 int main()
 {
-  std::unordered_multiset<std::string> um{ "1st element", "2nd element", "3rd element", };
+  std::unordered_multiset<std::string> ums{ "1st element", "2nd element", "3rd element", };
 
-  print(um);
+  print(ums);
 
-  um.insert({"2nd element", "4th element"});
+  ums.insert({"2nd element", "4th element"});
 
-  print(um);
+  print(ums);
 
-  um.erase("2nd element");
+  ums.erase("2nd element");
 
-  print(um);
+  print(ums);
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* ostream[link /reference/ostream.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link /reference/iterator/begin.md]
-* end[link /reference/iterator/end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link unordered_multiset.md]
-* insert[link unordered_multiset/insert.md]
-* erase[link unordered_multiset/erase.md]
+* std::unordered_multiset[color ff0000]
+* std::ostream[link /reference/ostream.md]
+* us.insert[link unordered_multiset/insert.md]
+* us.erase[link unordered_multiset/erase.md]
 
 ### 出力
 ```

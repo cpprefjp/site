@@ -49,18 +49,18 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 
 ## 効果
-- (1)	引数 `v`、あるいは `rv` で指定した値の要素を追加する。
-- (2)	引数 `v`、あるいは `rv` で指定した値の要素を追加する。  
+- (1) : 引数 `v`、あるいは `rv` で指定した値の要素を追加する。
+- (2) : 引数 `v`、あるいは `rv` で指定した値の要素を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-- (3)	範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と同等である。
-- (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
+- (3) : 範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と同等である。
+- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
 
 
 ## 戻り値
-- (1)	追加された要素を指すイテレータ。
-- (2)	追加された要素を指すイテレータ。
-- (3)	なし
-- (4)	なし
+- (1) : 追加された要素を指すイテレータ。
+- (2) : 追加された要素を指すイテレータ。
+- (3) : なし
+- (4) : なし
 
 
 ## 例外
@@ -68,10 +68,10 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 
 ## 計算量
-- (1)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
-- (2)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
-- (3)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
-- (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
+- (1) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
+- (2) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
+- (3) : 平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
+- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
 
 
 ## 備考
@@ -108,56 +108,51 @@ int main()
 {
   // 一つの要素を挿入（(1)の形式）
   {
-    std::unordered_multiset<int> um{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
+    std::unordered_multiset<int> ums{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
 
-    auto it1 = um.insert(6); // 重複のないケース
+    auto it1 = ums.insert(6); // 重複のないケース
     std::cout << *it1 << ' ';
-    auto it2 = um.insert(2); // 重複のあるケース
+    auto it2 = ums.insert(2); // 重複のあるケース
     std::cout << *it2 << std::endl;
-    print("insert one element", um);
+    print("insert one element", ums);
   }
 
   // 一つの要素を挿入（(2)の形式）
   {
-    std::unordered_multiset<int> um{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
+    std::unordered_multiset<int> ums{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
 
-    auto it1 = um.insert(um.cbegin(), 6); // 重複のないケース
+    auto it1 = ums.insert(ums.cbegin(), 6); // 重複のないケース
     std::cout << *it1 << ' ';
-    auto it2 = um.insert(um.cbegin(), 2); // 重複のあるケース
+    auto it2 = ums.insert(ums.cbegin(), 2); // 重複のあるケース
     std::cout << *it2 << std::endl;
-    print("insert one element with hint", um);
+    print("insert one element with hint", ums);
   }
 
   // 複数の要素を挿入（(3)の形式）
   {
-    std::unordered_multiset<int> um{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
+    std::unordered_multiset<int> ums{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
 
     std::forward_list<int> fl{ 5, 6, 0, 8, 7, };
-    um.insert(fl.cbegin(), fl.cend()); // forward_list の要素を全部
-    print("insert range", um);
+    ums.insert(fl.cbegin(), fl.cend()); // forward_list の要素を全部
+    print("insert range", ums);
   }
 
   // 複数の要素を挿入（(4)の形式）
   {
-    std::unordered_multiset<int> um{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
+    std::unordered_multiset<int> ums{ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, };
 
-    um.insert({ 5, 6, 0, 8, 7, });
-    print("insert initializer_list", um);
+    ums.insert({ 5, 6, 0, 8, 7, });
+    print("insert initializer_list", ums);
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* forward_list[link /reference/forward_list.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* copy[link /reference/algorithm/copy.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
 * insert[color ff0000]
+* c.cbegin()[link cbegin.md]
+* c.cend()[link cend.md]
+* ums.cbegin()[link cbegin.md]
+* ums.cend()[link cend.md]
+* fl.cbegin()[link /reference/forward_list/cbegin.md]
+* fl.cend()[link /reference/forward_list/cend.md]
 
 ### 出力
 ```
@@ -209,14 +204,15 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(InputIterator
 }
 
 template <class Key, class Hash, class Pred, class Allocator>
-inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(initializer_list<Key> il);
+inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(std::initializer_list<Key> il);
 {
   insert(il.begin(), il.end());
 }
 ```
-* move[link /reference/utility/move.md]
-* initializer_list[link /reference/initializer_list.md]
 * insert[color ff0000]
+* std::move[link /reference/utility/move.md]
+* il.begin()[link /reference/initializer_list/begin.md]
+* il.end()[link /reference/initializer_list/end.md]
 
 
 ## 関連項目

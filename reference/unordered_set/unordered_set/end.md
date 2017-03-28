@@ -53,14 +53,8 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* unordered_set[link /reference/unordered_set.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link begin.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* end[color ff0000]
+* end()[color ff0000]
+* begin()[link begin.md]
 
 ### 出力
 ```

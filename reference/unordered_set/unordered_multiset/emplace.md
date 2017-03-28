@@ -65,9 +65,9 @@ iterator emplace(Args&&... args);
 #include <iostream>
 #include <unordered_set>
 #include <string>
-#include <utility>    // for std::pair
-#include <algorithm>  // for std::copy
-#include <iterator>   // for std::ostream_iterator
+#include <utility>
+#include <algorithm>
+#include <iterator>
 
 // サンプル用クラス
 struct is : std::pair<int, std::string> {
@@ -92,40 +92,31 @@ std::ostream& operator<<(std::ostream& os, const is& p)
 
 int main()
 {
-  std::unordered_multiset<is> um;
+  std::unordered_multiset<is> ums;
 
-  auto it1 = um.emplace(1, "1st");
+  auto it1 = ums.emplace(1, "1st");
   std::cout << *it1 << '\n';
-  auto it2 = um.emplace(2, "2nd");
+  auto it2 = ums.emplace(2, "2nd");
   std::cout << *it2 << '\n';
-  auto it3 = um.emplace(1, "1st");
+  auto it3 = ums.emplace(1, "1st");
   std::cout << *it3 << '\n';
 
-  //以下はコピー&ムーブコンストラクタが無いのでエラーになる
-  //auto it4 = um.insert(is(3, "3rd"));
+  //以下はコピー&ムーブコンストラクタが無いのでコンパイルエラーになる
+  //auto it4 = ums.insert(is(3, "3rd"));
   //std::cout << *it4 << '\n';
 
   // 追加結果の出力
-  std::copy(um.cbegin(), um.cend(), std::ostream_iterator<is>(std::cout, ", "));
+  std::copy(ums.cbegin(), ums.cend(), std::ostream_iterator<is>(std::cout, ", "));
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* string[link /reference/string.md]
-* utility[link /reference/utility.md]
-* pair[link /reference/utility/pair.md]
-* algorithm[link /reference/algorithm.md]
-* copy[link /reference/algorithm/copy.md]
-* iterator[link /reference/iterator.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* hash[link /reference/functional/hash.md]
-* ostream[link /reference/ostream/basic_ostream.md]
-* unordered_multiset[link /reference/unordered_set/unordered_multiset.md]
-* insert[link insert.md]
-* cbegin[link cbegin.md]
-* cend[link cend.md]
 * emplace[color ff0000]
+* hash[link /reference/functional/hash.md]
+* size_t[link /reference/cstddef/size_t.md]
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* ums.insert[link insert.md]
+* ums.cbegin()[link cbegin.md]
+* ums.cend()[link cend.md]
 
 ### 出力
 ```

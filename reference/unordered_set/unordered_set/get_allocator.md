@@ -77,17 +77,13 @@ int main()
   std::cout << us1.get_allocator().no << ',' << us2.get_allocator().no << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* memory[link /reference/memory.md]
-* unordered_set[link /reference/unordered_set.md]
-* type_traits[link /reference/type_traits.md]
-* operator new[link /reference/new/op_new.md]
-* operator delete[link /reference/new/op_delete.md]
-* true_type[link /reference/type_traits/true_type.md]
-* hash[link /reference/functional/hash.md]
-* equal_to[link /reference/functional/equal_to.md]
+* get_allocator()[color ff0000]
+* ::operator new[link /reference/new/op_new.md]
+* ::operator delete[link /reference/new/op_delete.md]
+* std::true_type[link /reference/type_traits/true_type.md]
+* std::hash[link /reference/functional/hash.md]
+* std::equal_to[link /reference/functional/equal_to.md]
 * swap[link swap_free.md]
-* get_allocator[color ff0000]
 
 ### 出力
 ```

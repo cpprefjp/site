@@ -38,9 +38,7 @@ int main()
   std::cout << s << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* max_size[color ff0000]
+* max_size()[color ff0000]
 
 ### 出力例
 ```

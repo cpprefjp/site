@@ -50,11 +50,9 @@ int main()
   std::cout << us.empty() << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* insert[link insert.md]
-* clear[link clear.md]
-* empty[color ff0000]
+* empty()[color ff0000]
+* us.insert[link insert.md]
+* us.clear()[link clear.md]
 
 ### 出力
 ```
@@ -82,9 +80,9 @@ inline bool unordered_set<Key, Hash, Pred, Allocator>::empty() const noexcept {
   return size() == 0; // begin() == end() でも OK
 }
 ```
-* size[link size.md]
-* begin[link begin.md]
-* end[link end.md]
+* size()[link size.md]
+* begin()[link begin.md]
+* end()[link end.md]
 
 ## 参照
 

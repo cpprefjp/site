@@ -42,17 +42,15 @@ hasher hash_function() const;
 
 int main()
 {
-  std::unordered_multiset<int> um{ 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, };
+  std::unordered_multiset<int> ums{ 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, };
 
-  decltype(um)::hasher hash{ um.hash_function() };
+  decltype(um)::hasher hash{ ums.hash_function() };
 
   std::cout << "hash(1) = " << hash(1) << std::endl;
   std::cout << "hash(2) = " << hash(2) << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link ../unordered_multiset.md]
+* hash_function()[color ff0000]
 
 ### 出力
 ```

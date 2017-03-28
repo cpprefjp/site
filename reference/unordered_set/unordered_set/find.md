@@ -55,14 +55,9 @@ int main()
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* begin[link begin.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* distance[link /reference/iterator/distance.md]
+* find[color ff0000]
+* us.begin()[link begin.md]
+* us.end()[link end.md]
 
 ### 出力
 ```

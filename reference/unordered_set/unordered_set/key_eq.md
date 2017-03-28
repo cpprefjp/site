@@ -48,8 +48,7 @@ int main()
   std::cout << "eq(1, 1) = " << eq(1, 1) << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
+* key_eq()[color ff0000]
 
 ### 出力
 ```

@@ -32,15 +32,13 @@ size_type max_size() const noexcept;
 
 int main()
 {
-  std::unordered_multiset<int> um;
-  std::unordered_multiset<int>::size_type s = um.max_size();
+  std::unordered_multiset<int> ums;
+  std::unordered_multiset<int>::size_type s = ums.max_size();
 
   std::cout << s << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* unordered_multiset[link ../unordered_multiset.md]
+* max_size()[color ff0000]
 
 ### 出力例
 ```

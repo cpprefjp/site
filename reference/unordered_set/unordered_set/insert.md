@@ -50,20 +50,20 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 
 ## 効果
-- (1)	引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
-- (2)	引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
+- (1) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
+- (2) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-- (3)	範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と同等である。
-- (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
+- (3) : 範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と同等である。
+- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
 
 
 ## 戻り値
-- (1)	[`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。  
+- (1) : [`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。  
 	[`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
-- (2)	新たな要素が追加された場合、その追加された要素を指すイテレータ。  
+- (2) : 新たな要素が追加された場合、その追加された要素を指すイテレータ。  
 	新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
-- (3)	なし
-- (4)	なし
+- (3) : なし
+- (4) : なし
 
 
 ## 例外
@@ -71,10 +71,10 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 
 ## 計算量
-- (1)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
-- (2)	平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
-- (3)	平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
-- (4)	(3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
+- (1) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
+- (2) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
+- (3) : 平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
+- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
 
 
 ## 備考
@@ -152,21 +152,15 @@ int main()
   }
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* forward_list[link /reference/forward_list.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* string[link /reference/string.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link begin.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* insert[color ff0000]
+* c.begin()[link begin.md]
+* c.end()[link end.md]
+* us.begin()[link begin.md]
+* us.end()[link end.md]
 * second[link /reference/utility/pair.md]
 * first[link /reference/utility/pair.md]
-* cbegin[link /reference/forward_list/cbegin.md]
-* cend[link /reference/forward_list/cend.md]
-* insert[color ff0000]
+* fl.cbegin()[link /reference/forward_list/cbegin.md]
+* fl.cend()[link /reference/forward_list/cend.md]
 
 ### 出力
 ```
@@ -223,9 +217,10 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
   insert(il.begin(), il.end());
 }
 ```
-* move[link /reference/utility/move.md]
-* initializer_list[link /reference/initializer_list.md]
 * insert[color ff0000]
+* std::move[link /reference/utility/move.md]
+* il.begin()[link /reference/initializer_list/begin.md]
+* il.end()[link /reference/initializer_list/end.md]
 
 
 ## 関連項目

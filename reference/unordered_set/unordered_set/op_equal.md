@@ -25,9 +25,9 @@ namespace std {
 
 ## 戻り値
 以下の両方を満たす場合 `true`、そうでない場合 `false`。
-  
+
 - `a.`[`size`](size.md)`() == b.`[`size`](size.md)`()` である。
-  
+
 - 一方のコンテナの全ての要素が、他方のコンテナにも存在する。ここで、存在するとは、`key_type` の等値比較演算子（`operator==`）で等値と判定されるということである。
 
 
@@ -73,16 +73,7 @@ int main()
   std::cout << "us1 == us3:" << (us1 == us3) << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
-* iterator[link /reference/iterator.md]
-* algorithm[link /reference/algorithm.md]
-* ostream[link /reference/ostream.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link /reference/iterator/begin.md]
-* end[link /reference/iterator/end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::ostream[link /reference/ostream/basic_ostream.md]
 
 ### 出力
 ```

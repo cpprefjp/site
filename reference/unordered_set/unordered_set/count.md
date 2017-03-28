@@ -20,8 +20,8 @@ size_type count(const key_type& k) const;
 
 
 ## 計算量
-平均： O(`count(k)`)  
-最悪： [`size`](size.md) について線形時間
+- 平均： O(`count(k)`)
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 例
@@ -45,13 +45,9 @@ int main()
   std::cout << "count of 8:" << c2 << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* unordered_set[link /reference/unordered_set.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* begin[link begin.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* count[color ff0000]
+* us.begin()[link begin.md]
+* us.end()[link end.md]
 
 ### 出力
 ```

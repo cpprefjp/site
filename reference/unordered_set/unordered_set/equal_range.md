@@ -9,7 +9,6 @@
 std::pair<iterator, iterator> equal_range(const key_type& k);
 std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 指定したキーの範囲を取得する
@@ -54,17 +53,10 @@ int main()
   print_range("equal_range(8)", us.begin(), p2.first, p2.second);
 }
 ```
-* iostream[link /reference/iostream.md]
-* string[link /reference/string.md]
-* unordered_set[link /reference/unordered_set.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* ostream[link /reference/ostream.md]
-* distance[link /reference/iterator/distance.md]
-* copy[link /reference/algorithm/copy.md]
-* begin[link begin.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* equal_range[color ff0000]
+* std::ostream[link /reference/ostream.md]
+* us.begin()[link begin.md]
+* us.end()[link end.md]
 * first[link /reference/utility/pair.md]
 * second[link /reference/utility/pair.md]
 

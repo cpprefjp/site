@@ -12,6 +12,7 @@ const_iterator begin() const noexcept;
 
 ## 概要
 先頭の要素を指すイテレータを取得する。
+
 `unordered_set` は非順序連想コンテナであるため「先頭」に特に意味はないが、`begin()` で得られたイテレータを [`end`](end.md)`()` まで `operator++()` でイテレートすることで当該コンテナの要素を漏れなくダブりなく走査することができる。
 
 
@@ -52,14 +53,8 @@ int main()
   std::cout << std::endl;
 }
 ```
-* iostream[link /reference/iostream.md]
-* algorithm[link /reference/algorithm.md]
-* iterator[link /reference/iterator.md]
-* unordered_set[link /reference/unordered_set.md]
-* copy[link /reference/algorithm/copy.md]
-* end[link end.md]
-* ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* begin[color ff0000]
+* begin()[color ff0000]
+* end()[link end.md]
 
 ### 出力
 ```
