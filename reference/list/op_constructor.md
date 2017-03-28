@@ -67,9 +67,9 @@ list オブジェクトの構築
 - C++14 では、(1) の形式と (2) の形式がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
 	これは、デフォルトコンストラクタに `explicit` が付いていると、
 
-	```cpp
-	std::list<int> l = {};
-	```
+    ```cpp
+    std::list<int> l = {};
+    ```
 
 	のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
@@ -77,21 +77,21 @@ list オブジェクトの構築
 	これは、変更されないと `n` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
 	具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
-	```cpp
-	#include <list>
-	#include <vector>
-	#include <scoped_allocator>
+    ```cpp
+    #include <list>
+    #include <vector>
+    #include <scoped_allocator>
 
-	int main()
-	{
-	  using li = std::list<int>;
-	  std::vector<li, std::scoped_allocator_adaptor<std::allocator<li>>> v;
-	  v.emplace_back(10u);
-	}
-	```
-	* std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-	* std::allocator[link ../memory/allocator.md]
-	* emplace_back[link ../vector/emplace_back.md]
+    int main()
+    {
+      using li = std::list<int>;
+      std::vector<li, std::scoped_allocator_adaptor<std::allocator<li>>> v;
+      v.emplace_back(10u);
+    }
+    ```
+    * std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
+    * std::allocator[link ../memory/allocator.md]
+    * emplace_back[link ../vector/emplace_back.md]
 
 
 ## 例
