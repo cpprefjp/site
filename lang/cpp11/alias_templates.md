@@ -28,12 +28,18 @@ int main()
 `using`キーワードによる型の別名付けは、非テンプレートに対しても使用できる。この機能を「エイリアス宣言 (alias declaration)」という：
 
 ```cpp
+int f(int, int) { return 0; }
+
 // int型にIntegerという別名を付ける
 using Integer = int;
 
 // int型を2つパラメータとしてとり、int型を返す関数ポインタに、
 // FunctionPointerという名前を付ける
 using FunctionPointer = int(*)(int, int);
+
+// decltypeと組み合わせることで、
+// 特定関数への関数ポインタの型をより簡単に取得できる
+using FunctionPointerByDecltype = decltype(&f);
 ```
 
 
