@@ -275,7 +275,7 @@ C++17では以下のTSが採用された：
     - `ios_base::streampos`の代わりに、`char_traits<CharT>::pos_type`もしくは`basic_ios<CharT>::pos_type`を使用すること ([`<iosfwd>`](/reference/iosfwd.md.nolink)で定義されている`std::streampos`は残る)
     - `basic_streambuf::stossc()`メンバ関数を削除。`sbumpc()`の単なる別名
     - `ios_base`クラスの別名型が削除されることにともない、それらの型をパラメータにとるオーバーロードを削除
-    - `ios_base`クラスの別名型が削除されることにともない、それらの型をパラメータにとる関数が削除されます。
+    - `ios_base`クラスの別名型が削除されることにともない、それらの型をパラメータにとる関数が削除
 
 
 ### 機能の非推奨化
