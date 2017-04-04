@@ -150,7 +150,7 @@ C++17では以下のTSが採用された：
 ### コンテナ
 - コンテナのコピー・ムーブ、`swap`操作に`noexcept`を追加
 - コンテナの要素情報にアクセスする非メンバ関数として、[`<iterator>`](/reference/iterator.md)に[`size()`](/reference/iterator/size.md.nolink), [`empty()`](/reference/iterator/empty.md.nolink), [`data()`](/reference/iterator/data.md.nolink)関数を追加
-- コンテナに不完全型の最小サポートを追加。[`vector`](/reference/vector.md), [`list`](/reference/list.md), [`forward_list`](/reference/forward_list/forward_list.md)の要素型に、不完全型の指定を許可。ただし、これらのコンテナのなんらかのメンバ関数を呼び出す前には、要素型が完全型になっていること
+- コンテナに不完全型の最小サポートを追加。[`vector`](/reference/vector.md), [`list`](/reference/list.md), [`forward_list`](/reference/forward_list.md)の要素型に、不完全型の指定を許可。ただし、これらのコンテナのなんらかのメンバ関数を呼び出す前には、要素型が完全型になっていること
 - 多相アロケータとメモリプール。[`<memory_resource>`](/reference/memory_resource.md.nolink)が新設され、アロケートする型を規定しないアロケータと、それを利用したメモリプールの仕組みが導入される
 - 標準イテレータ全般と[`array`](/reference/array.md)の変更操作に`constexpr`を追加
 - `emplace_front()`と`emplace_back()`メンバ関数で、追加された要素を返すようにする
@@ -177,7 +177,7 @@ C++17では以下のTSが採用された：
 - [`<string_view>`](/reference/string_view.md.nolink)クラスを新設し、所有権を持たない文字列クラスである[`basic_string_view`](/reference/string_view/basic_string_view.md.nolink)を追加
 - [`basic_string::data()`](/reference/string/basic_string/data.md)メンバ関数の非`const`版を追加
 - 文字列検索アルゴリズムとして、「ボイヤー・ムーア法 (Boyer-Moore)」と「ボイヤー・ムーア・ホースプール法 (Boyer-Moore-Horspool)」を追加。[`std::search()`](/reference/algorithm/search.md)関数のポリシーとして、検索アルゴリズムを指定する
-- ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換関数として、[`to_chars()`](/reference/utility/to_chars.md.nolink)と[`from_chars()`](/reference/utility/from_chars.md)を追加
+- ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換関数として、[`to_chars()`](/reference/utility/to_chars.md.nolink)と[`from_chars()`](/reference/utility/from_chars.md.nolink)を追加
 - [`char_traits`](/reference/string/char_traits.md)クラスを`constexpr`に対応
 
 
@@ -235,13 +235,13 @@ C++17では以下のTSが採用された：
 - 型特性クラスを定義しやすくするために、[`void_t`](/reference/type_traits/void_t.md.nolink)を追加
 - `bool`定数を表す[`bool_constant`](/reference/type_traits/bool_constant.md.nolink)を追加
 - コンパイル時条件の論理演算のために、論理積である[`conjunction`](/reference/type_traits/conjunction.md.nolink)、論理和である[`disjunction`](/reference/type_traits/disjunction.md.nolink)、否定である[`negation`](/reference/type_traits/negation.md.nolink)を追加
-- `swap`可能かを判定する型特性クラスとして、[`is_swappable_with`](/reference/type_traits/is_swappable_with.md)、[`is_swappable`](/reference/type_traits/is_swappable.md.nolink)、[`is_nothrow_swappable_with`](/reference/type_traits/is_nothrow_swappable_with.md.nolink)、[`is_nothrow_swappable`](/reference/type_traits/is_nothrow_swappable.md.nolink)を追加
+- `swap`可能かを判定する型特性クラスとして、[`is_swappable_with`](/reference/type_traits/is_swappable_with.md.nolink)、[`is_swappable`](/reference/type_traits/is_swappable.md.nolink)、[`is_nothrow_swappable_with`](/reference/type_traits/is_nothrow_swappable_with.md.nolink)、[`is_nothrow_swappable`](/reference/type_traits/is_nothrow_swappable.md.nolink)を追加
 - 関数が呼び出し可能かを判定する型特性として、[`is_callable`](/reference/type_traits/is_callable.md.nolink)、[`is_nothrow_callable`](/reference/type_traits/is_nothrow_callable.md.nolink)を追加
 - 自動的にハッシュ値が求められる型かを判定するために[`has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md.nolink)型特性を追加
 
 
 ### 時間演算
-- [`duration`](/reference/chrono/duration.md)の丸め演算として、切り下げをする[`floor()`](/reference/chrono/duration/floor.md.nolink)、切り上げをする[`ceil()`](/reference/chrono/duration/ceil.md.nolink)、最近接遇数への丸めをする[`round()`](/reference/chrono/duration/round.md.nolink)、絶対値を求める[`abs()`](/reference/chrono/duration/abs.md)を追加
+- [`duration`](/reference/chrono/duration.md)の丸め演算として、切り下げをする[`floor()`](/reference/chrono/duration/floor.md.nolink)、切り上げをする[`ceil()`](/reference/chrono/duration/ceil.md.nolink)、最近接遇数への丸めをする[`round()`](/reference/chrono/duration/round.md.nolink)、絶対値を求める[`abs()`](/reference/chrono/duration/abs.md.nolink)を追加
 - [`time_point`](/reference/chrono/time_point.md)の丸め演算として、切り下げをする[`floor()`](/reference/chrono/time_point/floor.md.nolink)、切り上げをする[`ceil()`](/reference/chrono/time_point/ceil.md.nolink)、最近接遇数への丸めをする[`round()`](/reference/chrono/time_point/round.md.nolink)を追加
 - [`duration`](/reference/chrono/duration.md)クラスと[`time_point`](/reference/chrono/time_point.md)クラスの変更操作を`constexpr`に対応
 
@@ -252,7 +252,7 @@ C++17では以下のTSが採用された：
 
 
 ### エラーハンドリング
-- 現在発生している例外の数を取得する[`uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md)関数を追加
+- 現在発生している例外の数を取得する[`uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md.nolink)関数を追加
 
 
 ### 取り決め
@@ -298,10 +298,10 @@ C++17では以下のTSが採用された：
 - 一時的なメモリ確保のための`std::get_temporary_buffer()`関数と`std::return_temporary_buffer()`関数を非推奨化。これらは関数内での一時的なメモリ確保のために、最適化されたメモリ確保の仕組みを提供することを期待して定義されたが、実際にはどの実装も特別視せず、それゆえに便利に使われてはこなかった。将来的にスタックからのメモリ確保をする機能を作る予定だが、これらの関数は例外安全性やRAIIが考慮されていないため、これらの関数の実装・仕様のみを入れ替えるような改訂はできない
 - [`raw_storage_iterator`](/reference/memory/raw_storage_iterator.md)クラスを非推奨化。アロケータとの連携ができず、限られた用途にしか使用できなかった
 - [`not_fn()`](/reference/functional/not_fn.md.nolink)の追加にともない、古くなった以下の機能を非推奨化：
-    - [`not1()`](/reference/functional/not1.md)関数
-    - [`not2()`](/reference/functional/not2.md)関数
-    - [`unary_negate`](/reference/functional/unary_negate.md)クラス
-    - [`binary_nagate`](/reference/functional/binary_negate.md)クラス
+    - [`not1()`](/reference/functional/negators.md)関数
+    - [`not2()`](/reference/functional/negators.md)関数
+    - [`unary_negate`](/reference/functional/negators.md)クラス
+    - [`binary_nagate`](/reference/functional/negators.md)クラス
     - 標準関数オブジェクトの`result_type`、`argument_type`、`first_argument_type`、`second_argument_type`型
 - デバッグ用途にしか使用しない、[`shared_ptr`](/reference/memory/shared_ptr.md)`::`[`unique()`](/reference/memory/shared_ptr/unique.md)を非推奨化
 - [`memory_order_consume`](/reference/atomic/memory_order.md)を一時的に非推奨化。「その定義が現実に即していない」「acquire/releaseより弱いから使いにくい」といった理由から、より良い定義に変更するまでの間、非推奨とする
