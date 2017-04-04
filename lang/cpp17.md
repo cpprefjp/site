@@ -237,7 +237,7 @@ C++17では以下のTSが採用された：
 - `bool`定数を表す[`bool_constant`](/reference/type_traits/bool_constant.md.nolink)を追加
 - コンパイル時条件の論理演算のために、論理積である[`conjunction`](/reference/type_traits/conjunction.md.nolink)、論理和である[`disjunction`](/reference/type_traits/disjunction.md.nolink)、否定である[`negation`](/reference/type_traits/negation.md.nolink)を追加
 - `swap`可能かを判定する型特性クラスとして、[`is_swappable_with`](/reference/type_traits/is_swappable_with.md.nolink)、[`is_swappable`](/reference/type_traits/is_swappable.md.nolink)、[`is_nothrow_swappable_with`](/reference/type_traits/is_nothrow_swappable_with.md.nolink)、[`is_nothrow_swappable`](/reference/type_traits/is_nothrow_swappable.md.nolink)を追加
-- 関数が呼び出し可能かを判定する型特性として、[`is_invocable`](/reference/type_traits/is_invocable.md.nolink)、[`is_invocable_r`](/reference/type_traits/is_invocable_r.md)、[`is_nothrow_invocable`](/reference/type_traits/is_nothrow_invocable.md.nolink)、[`is_nothrow_invocable_r`](/reference/type_traits/is_nothrow_invocable_r.md.nolink)を追加
+- 関数が呼び出し可能かを判定する型特性として、[`is_invocable`](/reference/type_traits/is_invocable.md.nolink)、[`is_invocable_r`](/reference/type_traits/is_invocable_r.md.nolink)、[`is_nothrow_invocable`](/reference/type_traits/is_nothrow_invocable.md.nolink)、[`is_nothrow_invocable_r`](/reference/type_traits/is_nothrow_invocable_r.md.nolink)を追加
 - 自動的にハッシュ値が求められる型かを判定するために[`has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md.nolink)型特性を追加
 - [`invoke()`](/reference/functional/invoke.md.nolink)の追加にともない、関数の戻り値型を取得する型特性[`invoke_result`](/reference/type_traits/invoke_result.md.nolink)を追加。これまでの[`result_of`](/reference/type_traits/result_of.md)と違って関数型のテンプレート引数を使用しないため、それによって起こっていた厄介な問題を回避する
 
