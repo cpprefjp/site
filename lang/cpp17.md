@@ -179,6 +179,7 @@ C++17では以下のTSが採用された：
 - 文字列検索アルゴリズムとして、「ボイヤー・ムーア法 (Boyer-Moore)」と「ボイヤー・ムーア・ホースプール法 (Boyer-Moore-Horspool)」を追加。[`std::search()`](/reference/algorithm/search.md)関数のポリシーとして、検索アルゴリズムを指定する
 - ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換関数として、[`to_chars()`](/reference/utility/to_chars.md.nolink)と[`from_chars()`](/reference/utility/from_chars.md.nolink)を追加
 - [`char_traits`](/reference/string/char_traits.md)クラスを`constexpr`に対応
+- バイトデータを表す[`byte`](/reference/cstddef/byte.md.nolink)型を追加
 
 
 ### 並行処理
@@ -236,8 +237,9 @@ C++17では以下のTSが採用された：
 - `bool`定数を表す[`bool_constant`](/reference/type_traits/bool_constant.md.nolink)を追加
 - コンパイル時条件の論理演算のために、論理積である[`conjunction`](/reference/type_traits/conjunction.md.nolink)、論理和である[`disjunction`](/reference/type_traits/disjunction.md.nolink)、否定である[`negation`](/reference/type_traits/negation.md.nolink)を追加
 - `swap`可能かを判定する型特性クラスとして、[`is_swappable_with`](/reference/type_traits/is_swappable_with.md.nolink)、[`is_swappable`](/reference/type_traits/is_swappable.md.nolink)、[`is_nothrow_swappable_with`](/reference/type_traits/is_nothrow_swappable_with.md.nolink)、[`is_nothrow_swappable`](/reference/type_traits/is_nothrow_swappable.md.nolink)を追加
-- 関数が呼び出し可能かを判定する型特性として、[`is_callable`](/reference/type_traits/is_callable.md.nolink)、[`is_nothrow_callable`](/reference/type_traits/is_nothrow_callable.md.nolink)を追加
+- 関数が呼び出し可能かを判定する型特性として、[`is_invocable`](/reference/type_traits/is_invocable.md.nolink)、[`is_invocable_r`](/reference/type_traits/is_invocable_r.md)、[`is_nothrow_invocable`](/reference/type_traits/is_nothrow_invocable.md.nolink)、[`is_nothrow_invocable_r`](/reference/type_traits/is_nothrow_invocable_r.md.nolink)を追加
 - 自動的にハッシュ値が求められる型かを判定するために[`has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md.nolink)型特性を追加
+- [`invoke()`](/reference/functional/invoke.md.nolink)の追加にともない、関数の戻り値型を取得する型特性[`invoke_result`](/reference/type_traits/invoke_result.md.nolink)を追加。これまでの[`result_of`](/reference/type_traits/result_of.md)と違って関数型のテンプレート引数を使用しないため、それによって起こっていた厄介な問題を回避する
 
 
 ### 時間演算
@@ -304,6 +306,8 @@ C++17では以下のTSが採用された：
     - [`binary_nagate`](/reference/functional/negators.md)クラス
     - 標準関数オブジェクトの`result_type`、`argument_type`、`first_argument_type`、`second_argument_type`型
 - デバッグ用途にしか使用しない、[`shared_ptr`](/reference/memory/shared_ptr.md)`::`[`unique()`](/reference/memory/shared_ptr/unique.md)を非推奨化
+- [`result_of`](/reference/type_traits/result_of.md)を非推奨化。代わりに[`invoke_result`](/reference/type_traits/invoke_result.md.nolink)を使用すること
+- [`<codecvt>`](/reference/codecvt.md)を非推奨化。適切なエラーハンドリングの方法がなかったため、セキュリティ上攻撃の可能性があった
 - [`memory_order_consume`](/reference/atomic/memory_order.md)を一時的に非推奨化。「その定義が現実に即していない」「acquire/releaseより弱いから使いにくい」といった理由から、より良い定義に変更するまでの間、非推奨とする
 
 
