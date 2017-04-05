@@ -266,7 +266,7 @@ C++17では以下のTSが採用された：
     - 引数を束縛する`bind1st()`関数、`bind2nd()`関数、`binder1st`クラス、`binder2nd`クラスを削除。代わりに[`bind()`](/reference/functional/bind.md)関数や[ラムダ式](/lang/cpp11/lambda_expressions.md)を使用すること
     - 関数ポインタから関数オブジェクトに変換するための`ptr_fun()`関数、`pointer_to_unary_function`クラス、`pointer_to_binary_function`クラスを削除。`first_argument_type`や`second_argument_type`といった型が必要なくなったため、これらの機能は必要なくなった
     - メンバ関数から関数オブジェクトへの変換をするための`mem_fun()`関数、`mem_fun_ref()`関数、`mem_fun_t`クラス、`mem_fun1_t`クラス、`mem_fun_ref_t`クラス、`mem_fun1_ref_t`クラス、`const_mem_fun_t`クラス、`const_mem_fun1_t`クラス、`const_mem_fun_ref_t`クラス、`const_mem_fun1_ref_t`クラスを削除。代わりに[`mem_fn()`](/reference/functional/mem_fn.md)、[`bind()`](/reference/functional/bind.md)関数や[ラムダ式](/lang/cpp11/lambda_expressions.md)を使用すること
-- `function`クラスのアロケータサポートを削除。コンパイラが実装していなかったり、不完全な実装だったりしていた
+- [`function`](/reference/functional/function.md)クラスのアロケータサポートを削除。コンパイラが実装していなかったり、不完全な実装だったりしていた
 - C++98から非推奨だったiostreamのエイリアスを削除
     - `ios_base::io_state`の代わりに[`ios_base::iostate`](/reference/ios/ios_base/type-iostate.md)を使用すること
     - `ios_base::open_mode`の代わりに[`ios_base::openmode`](/reference/ios/ios_base/type-openmode.md)を使用すること
