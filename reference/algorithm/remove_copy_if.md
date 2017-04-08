@@ -17,7 +17,7 @@ namespace std {
 
 
 ## 要件
-- `[first,last)` と `[result,result + (last - first9)` は重なってはならない。
+- `[first,last)` と `[result,result + (last - first)` は重なってはならない。
 - `*result = *first` という式が有効でなければならない。
 
 
