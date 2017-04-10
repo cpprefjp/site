@@ -36,6 +36,9 @@ void f(int n) {
 (対応コンパイラがあれば、コンパイル結果を後ほど記述)
 ```
 
+## 関連項目
+- [C++11 属性構文](/lang/cpp11/attributes.md)
+
 ## 参照
 - [P0068R0 Proposal of [[unused]], [[nodiscard]] and [[fallthrough]] attributes.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0068r0.pdf)
 - [P0188R1 Wording for [[fallthrough]] attribute.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0188r1.pdf)
