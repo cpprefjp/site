@@ -36,8 +36,17 @@ void test_missiles() {
 ```
 
 ### 出力
+
+clang++ 5.0.0 にて実行した場合。
+
 ```
-(対応コンパイラがあれば、コンパイル結果を後ほど記述)
+nodiscard.cpp:12:3: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  safety_mode(); //無視してはいけない型を無視したため、警告が発生するだろう
+  ^~~~~~~~~~~
+nodiscard.cpp:15:3: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  check_mode(); //戻り値を無視しているため、警告が発生するだろう
+  ^~~~~~~~~~
+2 warnings generated.
 ```
 
 ## 関連項目
