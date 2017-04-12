@@ -41,7 +41,7 @@ void g(bool thing3, bool thing4) {
 
 ### 出力
 
-clang++ 5.0.0 にて実行した場合。
+clang++ 5.0.0 にてコンパイルした場合。
 
 ```
 $ clang++ -std=c++1z -Wall -DNDEBUG maybe_unused.cpp -c

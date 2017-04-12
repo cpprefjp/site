@@ -33,7 +33,7 @@ void f(int n) {
 
 ### 出力
 
-clang++ 5.0.0 にて実行した場合。
+clang++ 5.0.0 にてコンパイルした場合。
 
 ```
 fallthrough.cpp:12:5: error: fallthrough annotation does not directly precede switch label

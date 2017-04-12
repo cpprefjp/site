@@ -37,7 +37,7 @@ void test_missiles() {
 
 ### 出力
 
-clang++ 5.0.0 にて実行した場合。
+clang++ 5.0.0 にてコンパイルした場合。
 
 ```
 nodiscard.cpp:12:3: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
