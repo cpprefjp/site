@@ -25,16 +25,31 @@
 ```cpp
 #include <cassert>
 
+//警告が発生しない
 [[maybe_unused]] void f([[maybe_unused]] bool thing1,
                         [[maybe_unused]] bool thing2) {
   [[maybe_unused]] bool b = thing1 && thing2;
   assert(b);
 }
+
+//警告が発生する場合がある
+void g(bool thing3, bool thing4) {
+  bool b2 = thing3 && thing4;
+  assert(b2);
+}
 ```
 
 ### 出力
+
+clang++ 5.0.0 にて実行した場合。
+
 ```
-(対応コンパイラがあれば、コンパイル結果を後ほど記述)
+$ clang++ -std=c++1z -Wall -DNDEBUG maybe_unused.cpp -c
+
+maybe_unused.cpp:12:8: warning: unused variable 'b2' [-Wunused-variable]
+  bool b2 = thing3 && thing4;
+       ^
+1 warning generated.
 ```
 
 ## 検討されたほかの選択肢
