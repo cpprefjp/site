@@ -32,8 +32,14 @@ void f(int n) {
 ```
 
 ### 出力
+
+clang++ 5.0.0 にて実行した場合。
+
 ```
-(対応コンパイラがあれば、コンパイル結果を後ほど記述)
+fallthrough.cpp:12:5: error: fallthrough annotation does not directly precede switch label
+    [[fallthrough]]; //最後のcaseには記述できない、コンパイルエラーになる
+    ^
+1 error generated.
 ```
 
 ## 関連項目
