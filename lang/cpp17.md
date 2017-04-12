@@ -262,6 +262,12 @@ C++17では以下のTSが採用された：
 ### 機能の削除
 - C++11から非推奨だった古いスマートポインタである`auto_ptr`を削除。代わりに[`shared_ptr`](/reference/memory/shared_ptr.md)か[`unique_ptr`](/reference/memory/unique_ptr.md)を使用すること
 - C++14から非推奨だった配列をランダムに入れ替える[`random_shuffle()`](/reference/algorithm/random_shuffle.md)関数を削除。代わりに[`shuffle()`](/reference/algorithm/shuffle.md)を使用すること
+- C++11から非推奨だった`throw`キーワードによる古い例外仕様に関連する、以下のライブラリ機能を削除する
+    - [`unexpected()`](/reference/exception/unexpected.md)
+    - [`set_unexpected()`](/reference/exception/set_unexpected.md)
+    - [`get_unexpected()`](/reference/exception/get_unexpected.md)
+    - [`unexpected_handler`](/reference/exception/set_unexpected.md)
+    - `noexcept`による例外仕様では、例外を送出しないはずの関数から例外が送出された場合、[`terminate()`](/reference/exception/terminate.md)関数によって即座にプログラムが異常終了するため、想定されていない例外が送出された場合のハンドリングは機能しない
 - C++11から非推奨だった古い[`<functional>`](/reference/functional.md)の機能を削除
     - 引数を束縛する`bind1st()`関数、`bind2nd()`関数、`binder1st`クラス、`binder2nd`クラスを削除。代わりに[`bind()`](/reference/functional/bind.md)関数や[ラムダ式](/lang/cpp11/lambda_expressions.md)を使用すること
     - 関数ポインタから関数オブジェクトに変換するための`ptr_fun()`関数、`pointer_to_unary_function`クラス、`pointer_to_binary_function`クラスを削除。`first_argument_type`や`second_argument_type`といった型が必要なくなったため、これらの機能は必要なくなった
