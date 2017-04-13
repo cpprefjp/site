@@ -42,6 +42,39 @@ fallthrough.cpp:12:5: error: fallthrough annotation does not directly precede sw
 1 error generated.
 ```
 
+## 検討されたほかの選択肢
+
+* キーワードではなく属性である理由
+
+`fallthrough`をキーワードとして定義した場合、他の制御構文キーワード`continue`や`break`と揃う利点があるが、`fallthrough`を関数名、変数名に使用しているプログラムがあった場合、過去との互換性を壊す可能性がある。
+
+* caseラベルに属性を指定せず、単独で記述する理由
+
+下記のように`case`内に分岐があって分岐の中で`break`を記述している場合に、バグを見逃してしまう場合がある。
+
+```cpp
+switch (n) {
+case 2:
+  if (c1) {
+    f();
+    break;
+  } else if (c2) {
+    g(); // 警告、case 3にフォールスルーするがバグではないか？
+  } else if (c3) {
+    h();
+    break;
+  } else if (c4) {
+    g();
+    h();
+    [[fallthrough]]; // case 3にフォールスルーするのは意図的である
+  }
+case 3:
+  // もしcaseに属性を指定する仕様だったら、
+  // if (c2) のフォールスルーは正しいことになり、バグだった場合に見逃す
+  h();
+}
+```
+
 ## 関連項目
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 
