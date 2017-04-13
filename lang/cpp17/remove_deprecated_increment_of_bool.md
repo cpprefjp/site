@@ -1,8 +1,5 @@
-# 非推奨だったoperator++(bool)の除去
-
-* cpp17removed[meta cpp]
-
-<!-- markdownlint-disable MD004 MD009 MD031 MD032 MD040 -->
+# 非推奨だった`bool`型に対するインクリメント演算子を削除
+* cpp17[meta cpp]
 
 ## 概要
 
@@ -13,62 +10,61 @@ bool型に対する前置および後置の`operator ++`とはC++98の時点で�
 具体的にどのような働きをするのかというと、以下のように値をtrueに書き換える機能をもつ。
 
 ```cpp
-
 int main()
 {
-    bool b = false;
-    ++b; // => true
-    ++b; // => true
+  bool b = false;
+  ++b; // => true
+  ++b; // => true
 }
 ```
 
-ここで、前置の`operator ++`は
+ここで、前置の`operator ++`は、以下のように置き換えられる：
 
 ```cpp
-
 int main()
 {
-    bool b = false;
-    b = true; // => true
-    b = true; // => true
+  bool b = false;
+  b = true; // => true
+  b = true; // => true
 }
 ```
 
-のように書き換えられる。
-
-一方後置の`operator ++`を使う次のようなコードは
+一方後置の`operator ++`を使う次のようなコードは、以下のようにC++14で標準ライブラリに導入された[`std::exchange()`](/reference/utility/exchange.md)を利用して書き換えることができる。
 
 ```cpp
 #include <iostream>
+
 void f(bool b)
 {
-    std::cout << ((b) ? "true" : "false") << std::endl;
+  std::cout << ((b) ? "true" : "false") << std::endl;
 }
+
 int main()
 {
-    bool b = false;
-    // 関数fには変数bの現在の値であるfalseの値が渡される
-    f(b++); // => false
-    std::cout << ((b) ? "true" : "false") << std::endl; // => true
+  bool b = false;
+  // 関数fには変数bの現在の値であるfalseの値が渡される
+  f(b++); // => false
+  std::cout << ((b) ? "true" : "false") << std::endl; // => true
 }
 ```
 
 ```cpp
 #include <iostream>
 #include <utility>
+
 void f(bool b)
 {
-    std::cout << ((b) ? "true" : "false") << std::endl;
+  std::cout << ((b) ? "true" : "false") << std::endl;
 }
 int main()
 {
-    bool b = false;
-    f(std::exchange(b, true)); // => false
-    std::cout << ((b) ? "true" : "false") << std::endl; // => true
+  bool b = false;
+  f(std::exchange(b, true)); // => false
+  std::cout << ((b) ? "true" : "false") << std::endl; // => true
 }
 ```
+* std::exchange[link /reference/utility/exchange.md]
 
-のようにC++14で標準ライブラリに導入された[`std::exchange()`](/reference/utility/exchange.md)を利用して書き換えることができる。
 
 ## 仕様
 
@@ -79,9 +75,11 @@ C++17ではこれらが削除され、`opeartor ++`の定義(§ 5.2.6 / § 5.3.2
 
 また、組み込みのoperatorのリストの`operator ++`に関する文面に、bool型を除く、という例外規定が追加された(§ 13.6)。
 
+
 ## 関連項目
 
 - [`std::exchange()`](/reference/utility/exchange.md)
+
 
 ## 参照
 
