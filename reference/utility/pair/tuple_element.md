@@ -46,7 +46,7 @@ int main()
                 >::value, "");
 }
 ```
-* tuple_element[color ff0000]
+* std::tuple_element[color ff0000]
 
 ### 出力
 ```

@@ -88,9 +88,9 @@ int main()
     p4 = std::move(p);
     print("p4", p4);
   }
-
 }
 ```
+* std::move[link /reference/utility/move.md]
 
 ### 出力
 ```

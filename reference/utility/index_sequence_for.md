@@ -10,7 +10,6 @@ namespace std {
   using index_sequence_for = make_index_sequence<sizeof...(T)>;
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 * make_index_sequence[link make_index_sequence.md]
 
 ## 概要
@@ -50,9 +49,8 @@ int main()
   f(std::make_tuple(1, 'a', "Hello"));
 }
 ```
+* std::index_sequence_for[color ff0000]
 * std::integer_sequence[link integer_sequence.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * std::tuple[link /reference/tuple/tuple.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 

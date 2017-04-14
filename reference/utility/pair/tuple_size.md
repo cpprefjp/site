@@ -40,7 +40,7 @@ int main()
   static_assert(std::tuple_size<std::pair<int, int>>::value == 2, "");
 }
 ```
-* tuple_size[color ff0000]
+* std::tuple_size[color ff0000]
 
 ### 出力
 ```

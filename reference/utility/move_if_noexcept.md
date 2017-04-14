@@ -75,7 +75,7 @@ int main()
   B b1 = std::move_if_noexcept(b);
 }
 ```
-* move_if_noexcept[color ff0000]
+* std::move_if_noexcept[color ff0000]
 
 ### 出力
 ```

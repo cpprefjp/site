@@ -93,6 +93,7 @@ int main()
   std::cout << p.second << std::endl;
 }
 ```
+* std::pair[color ff0000]
 
 ### 出力
 ```

@@ -35,7 +35,10 @@ C++11以降の場合、結果型の`V1`および`V2`は以下のような型と�
 
 
 ## 戻り値
-[`pair`](/reference/utility/pair.md)`<V1, V2>(`[`forward`](/reference/utility/forward.md)`<T1>(x),` [`forward`](/reference/utility/forward.md)`<T2>(y))`
+```cpp
+std::pair<V1, V2>(std::forward<T1>(x), std::forward<T2>(y));
+```
+* std::forward[link forward.md]
 
 
 ## 例
@@ -55,7 +58,8 @@ int main()
   std::pair<int*, char&> p2 = std::make_pair(ar, std::ref(c));
 }
 ```
-* make_pair[color ff0000]
+* std::make_pair[color ff0000]
+* std::ref[link /reference/functional/ref.md]
 
 ### 出力
 ```

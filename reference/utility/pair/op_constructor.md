@@ -154,12 +154,16 @@ int main()
   // (8) first_typeとsecond_typeのコンストラクタ引数を受け取って構築
   {
     std::pair<X, Y> p8(std::piecewise_construct,
-	                   std::make_tuple(1, 2, 3),
+                       std::make_tuple(1, 2, 3),
                        std::make_tuple(4, 5));
     print("p8", p8);
   }
 }
 ```
+* std::ostream[link /reference/ostream/basic_ostream.md]
+* std::move[link /reference/utility/move.md]
+* std::piecewise_construct[link /reference/utility/piecewise_construct.md]a
+* std::make_tuple[link /reference/tuple/make_tuple.md]
 
 ### 出力
 ```

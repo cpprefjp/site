@@ -13,6 +13,7 @@ namespace std {
   };
 }
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 `integer_sequence`は、任意の整数型のシーケンスをコンパイル時に表現するクラスである。
@@ -42,8 +43,7 @@ int main()
   f(std::integer_sequence<int, 0, 1, 2>());
 }
 ```
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* std::integer_sequence[color ff0000]
 
 ## 出力
 ```

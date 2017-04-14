@@ -44,9 +44,8 @@ int main()
   f(std::make_index_sequence<3>());
 }
 ```
+* std::make_index_sequence[color ff0000]
 * std::integer_sequence[link integer_sequence.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ## 出力
 ```

@@ -35,12 +35,13 @@ void swap(T& a, T& b) {
   b = std::move(t);
 }
 ```
+* std::move[link move.md]
 
 配列版の振る舞いは、以下のコードと等価である：
 ```cpp
 template <class T, size_t N>
 void swap(T (&a)[N], T (&b)[N]) {
-  for (size_t i = 0; i < N; ++i) {
+  for (std::size_t i = 0; i < N; ++i) {
     swap(a[i], b[i]);
   }
 }

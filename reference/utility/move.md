@@ -60,7 +60,7 @@ int main()
   A a2 = std::move(a);  // A(A&&)が呼ばれる
 }
 ```
-* move[color ff0000]
+* std::move[color ff0000]
 
 ### 出力
 ```

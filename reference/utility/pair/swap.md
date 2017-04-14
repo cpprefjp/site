@@ -17,9 +17,10 @@ void swap(pair& p) noexcept(下記参照);
 
 
 ## 効果
-`swap(this->first, p.first);`
-
-`swap(this->second, p.second);`
+```cpp
+swap(this->first, p.first);
+swap(this->second, p.second);
+```
 
 
 ## 戻り値

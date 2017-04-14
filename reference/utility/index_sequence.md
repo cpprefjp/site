@@ -40,9 +40,8 @@ int main()
   f(std::index_sequence<0, 1, 2>());
 }
 ```
-* std::size_t[link /reference/cstddef/size_t.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
+* std::index_sequence[color ff0000]
+* std::integer_sequence[link integer_sequence.md]
 
 ## 出力
 ```

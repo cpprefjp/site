@@ -51,7 +51,7 @@ int main()
   print("p2", p2);
 }
 ```
-* swap[color ff0000]
+* std::swap[color ff0000]
 
 ### 出力
 ```

@@ -25,8 +25,8 @@ T old_val = std::move(obj);
 obj = std::forward<U>(new_val);
 return old_val;
 ```
-* move[link move.md]
-* forward[link forward.md]
+* std::move[link move.md]
+* std::forward[link forward.md]
 
 
 ## 戻り値
@@ -51,6 +51,7 @@ int main()
   std::cout << "before : " << before << std::endl;
 }
 ```
+* std::exchange[color ff0000]
 
 ### 出力
 ```

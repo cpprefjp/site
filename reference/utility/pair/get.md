@@ -72,7 +72,7 @@ int main()
   std::cout << c << std::endl;
 }
 ```
-* get[color ff0000]
+* std::get[color ff0000]
 
 ### 出力
 ```

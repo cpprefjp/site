@@ -88,7 +88,7 @@ int main()
   std::shared_ptr<A> sp2 = factory<A>(i, 1.414);  // OK
 }
 ```
-* forward[color ff0000]
+* std::forward[color ff0000]
 
 ### 出力
 ```

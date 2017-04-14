@@ -8,9 +8,10 @@
 namespace std {
   template <class T>
   typename add_rvalue_reference<T>::type
-    declval() noexcept; // as unevaluated operand
+    declval() noexcept;
 }
 ```
+* add_rvalue_reference[link /reference/type_traits/add_rvalue_reference.md]
 
 ## 概要
 指定された型の値を得る。
@@ -66,7 +67,8 @@ int main()
   std::cout << d << std::endl;
 }
 ```
-* declval[color ff0000]
+* std::declval[color ff0000]
+* std::forward[link forward.md]
 
 ### 出力
 ```
