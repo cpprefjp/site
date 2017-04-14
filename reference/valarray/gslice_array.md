@@ -63,9 +63,9 @@ namespace std {
 ## 例
 ```cpp
 #include <iostream>
-#include <iomanip> // setw
+#include <iomanip>
 #include <valarray>
-#include <numeric> // iota
+#include <numeric>
 
 const std::size_t x_size = 4;
 const std::size_t y_size = 4;
@@ -99,6 +99,10 @@ int main()
   }
 }
 ```
+* std::gslice[color ff0000]
+* std::valarray[link valarray.md]
+* std::iota[link /reference/numeric/iota.md]
+* std::setw[link /reference/iomanip/setw.md.nolink]
 
 ### 出力
 ```

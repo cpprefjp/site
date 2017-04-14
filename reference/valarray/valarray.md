@@ -20,7 +20,7 @@ int a[N];
 int b[N];
 int c[N];
 
-for (size_t i = 0; i < N; ++i) {
+for (std::size_t i = 0; i < N; ++i) {
   c[i] = a[i] + b[i];
 }
 ```
@@ -259,6 +259,9 @@ int main()
 }
 ```
 * std::valarray[color ff0000]
+* std::sin[link valarray/sin.md]
+* std::cos[link valarray/cos.md]
+* std::slice[link slice.md]
 
 ### 出力
 ```

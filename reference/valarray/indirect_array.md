@@ -81,7 +81,9 @@ int main()
   }
 }
 ```
-
+* std::indirect_array[color ff0000]
+* std::valarray[link valarray.md]
+* mask.size()[link valarray/size.md]
 
 ### 出力
 ```
