@@ -6,12 +6,12 @@
 
 ```cpp
 private:
-  gslice_array();                   // (1) C++03
-  gslice_array(const slice_array&)  // (2) C++03
+  gslice_array();                    // (1) C++03
+  gslice_array(const gslice_array&)  // (2) C++03
 
 public:
-  gslice_array() = delete;          // (1) C++11
-  gslice_array(const slice_array&); // (2) C++11
+  gslice_array() = delete;           // (1) C++11
+  gslice_array(const gslice_array&); // (2) C++11
 ```
 
 ## slice_arrayオブジェクトの構築
@@ -39,14 +39,14 @@ int main()
   std::valarray<int> va = {1, 2, 3, 4, 5, 6};
 
   const std::size_t start = 1u;
-  const std::size_t length = 3u;
-  const std::size_t stride = 2u;
+  const std::valarray<std::size_t> lengths = {3u};
+  const std::valarray<std::size_t> strides = {2u};
 
-  std::slice_array<int> result = va[std::slice(start, length, stride)];
+  std::gslice_array<int> result = va[std::gslice(start, lengths, strides)];
 
   // (2)
   // copyとresultが、同じvalarrayオブジェクトを参照する
-  std::slice_array<int> copy = result;
+  std::gslice_array<int> copy = result;
 
   // 抽出した要素を書き換える
   copy = 99;
@@ -56,6 +56,8 @@ int main()
   }
 }
 ```
+* std::valarray[link /reference/valarray/valarray.md]
+* std::gslice[link /reference/valarray/gslice.md]
 
 ### 出力
 ```

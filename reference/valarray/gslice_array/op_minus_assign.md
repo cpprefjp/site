@@ -7,6 +7,7 @@
 ```cpp
 void operator-=(const valarray<T>& xs) const;
 ```
+* std::valarray[link /reference/valarray/valarray.md]
 
 ## 概要
 減算の複合演算を行う。
@@ -29,8 +30,8 @@ void operator-=(const valarray<T>& xs) const;
 ```cpp
 #include <iostream>
 #include <valarray>
-#include <numeric> // accumulate
-#include <functional> // multiplies
+#include <numeric>
+#include <functional>
 
 std::size_t product(const std::valarray<std::size_t>& va)
 {
@@ -58,6 +59,12 @@ int main()
   }
 }
 ```
+* std::valarray[link /reference/valarray/valarray.md]
+* std::gslice[link /reference/valarray/gslice.md]
+* std::accumulate[link /reference/numeric/accumulate.md]
+* std::begin[link /reference/valarray/valarray/begin_free.md]
+* std::end[link /reference/valarray/valarray/end_free.md]
+* std::multiplies[link /reference/functional/multiplies.md]
 
 ### 出力
 ```

@@ -13,6 +13,7 @@ public:
   void operator=(const valarray<T>& ar) const;                 // (2)
   void operator=(const T& value) const;                        // (3)
 ```
+* std::valarray[link /reference/valarray/valarray.md]
 
 ## 概要
 - (1) : 元となる`valarray`オブジェクトから参照によって抽出した各要素に、`ar`が参照する各要素を代入する
@@ -38,8 +39,8 @@ public:
 ```cpp
 #include <iostream>
 #include <valarray>
-#include <numeric> // accumulate
-#include <functional> // multiplies
+#include <numeric>
+#include <functional>
 
 std::size_t product(const std::valarray<std::size_t>& va)
 {
@@ -96,6 +97,12 @@ int main()
   print("assign value", va);
 }
 ```
+* std::valarray[link /reference/valarray/valarray.md]
+* std::gslice[link /reference/valarray/gslice.md]
+* std::accumulate[link /reference/numeric/accumulate.md]
+* std::begin[link /reference/valarray/valarray/begin_free.md]
+* std::end[link /reference/valarray/valarray/end_free.md]
+* std::multiplies[link /reference/functional/multiplies.md]
 
 ### 出力
 ```

@@ -36,6 +36,8 @@ auto main()
   std::cout << std::flush;
 }
 ```
+* size()[color ff0000]
+* std::valarray[link /reference/valarray/valarray.md]
 
 ### 出力
 ```
