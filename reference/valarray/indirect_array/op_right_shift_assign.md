@@ -52,7 +52,7 @@ int main()
 }
 ```
 * std::valarray[link /reference/valarray/valarray.md]
-* mask.size()[link /reference/valarray/size.md]
+* mask.size()[link /reference/valarray/valarray/size.md]
 * std::bitset[link /reference/bitset.md]
 * to_string()[link /reference/bitset/to_string.md]
 

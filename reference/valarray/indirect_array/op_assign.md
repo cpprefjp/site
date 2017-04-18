@@ -85,7 +85,7 @@ int main()
 }
 ```
 * std::valarray[link /reference/valarray/valarray.md]
-* mask.size()[link /reference/valarray/size.md]
+* mask.size()[link /reference/valarray/valarray/size.md]
 
 ### 出力
 ```
