@@ -7,6 +7,7 @@
 ```cpp
 void operator*=(const valarray<T>& xs) const;
 ```
+* std::valarray[link /reference/valarray/valarray.md]
 
 ## 概要
 乗算の複合代入を行う。
@@ -44,6 +45,8 @@ int main()
   }
 }
 ```
+* std::valarray[link /reference/valarray/valarray.md]
+* mask.size()[link /reference/valarray/size.md]
 
 ### 出力
 ```
