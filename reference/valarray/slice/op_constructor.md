@@ -62,6 +62,9 @@ auto main()
   print( s2 );
 }
 ```
+* s.start()[link start.md]
+* s.size()[link size.md]
+* s.stride()[link stride.md]
 
 ### 出力
 ```

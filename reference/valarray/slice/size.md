@@ -33,6 +33,7 @@ auto main()
   std::cout << s.size();
 }
 ```
+* size()[color ff0000]
 
 ### 出力
 ```

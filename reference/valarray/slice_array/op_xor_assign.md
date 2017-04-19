@@ -7,6 +7,7 @@
 ```cpp
 void operator^=(const valarray<T>& xs) const;
 ```
+* valarray[link /reference/valarray/valarray.md]
 
 ## 概要
 排他的論理和の複合代入を行う。
@@ -52,6 +53,10 @@ int main()
   }
 }
 ```
+* std::valarray[link /reference/valarray/valarray.md]
+* std::slice[link /reference/valarray/slice.md]
+* std::bitset[link /reference/bitset.md]
+* to_string()[link /reference/bitset/to_string.md]
 
 ### 出力
 ```

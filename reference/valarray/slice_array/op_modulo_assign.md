@@ -7,6 +7,7 @@
 ```cpp
 void operator%=(const valarray<T>& xs) const;
 ```
+* valarray[link /reference/valarray/valarray.md]
 
 ## 概要
 剰余算の複合代入を行う。
@@ -47,6 +48,8 @@ int main()
   }
 }
 ```
+* std::valarray[link /reference/valarray/valarray.md]
+* std::slice[link /reference/valarray/slice.md]
 
 ### 出力
 ```

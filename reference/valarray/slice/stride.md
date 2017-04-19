@@ -34,6 +34,7 @@ auto main()
   std::cout << s.stride();
 }
 ```
+* stride()[color ff0000]
 
 ### 出力
 ```

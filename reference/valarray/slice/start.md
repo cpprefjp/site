@@ -34,6 +34,7 @@ auto main()
   std::cout << s.start();
 }
 ```
+* start()[color ff0000]
 
 ### 出力
 ```

@@ -13,6 +13,7 @@ public:
   void operator=(const valarray<T>& ar) const;               // (2)
   void operator=(const T& value) const;                      // (3)
 ```
+* valarray[link /reference/valarray/valarray.md]
 
 ## 概要
 - (1) : 元となる`valarray`オブジェクトから参照によって抽出した各要素に、`ar`が参照する各要素を代入する
@@ -85,6 +86,8 @@ int main()
   print("assign value", va);
 }
 ```
+* std::valarray[link /reference/valarray/valarray.md]
+* std::slice[link /reference/valarray/slice.md]
 
 ### 出力
 ```
