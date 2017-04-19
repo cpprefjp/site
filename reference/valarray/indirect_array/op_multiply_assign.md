@@ -7,7 +7,7 @@
 ```cpp
 void operator*=(const valarray<T>& xs) const;
 ```
-* std::valarray[link /reference/valarray/valarray.md]
+* valarray[link /reference/valarray/valarray.md]
 
 ## 概要
 乗算の複合代入を行う。
