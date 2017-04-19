@@ -7,6 +7,7 @@
 ```cpp
 void operator-=(const valarray<T>& xs) const;
 ```
+* std::valarray[link /reference/valarray/valarray.md]
 
 ## 概要
 減算の複合演算を行う。
@@ -45,6 +46,7 @@ int main()
   }
 }
 ```
+* std::valarray[link /reference/valarray/valarray.md]
 
 ### 出力
 ```

@@ -7,6 +7,7 @@
 ```cpp
 void operator&=(const valarray<T>& xs) const;
 ```
+* std::valarray[link /reference/valarray/valarray.md]
 
 ## 概要
 論理積の複合代入を行う。
@@ -50,6 +51,9 @@ int main()
   }
 }
 ```
+* std::valarray[link /reference/valarray/valarray.md]
+* std::bitset[link /reference/bitset.md]
+* to_string()[link /reference/bitset/to_string.md]
 
 ### 出力
 ```
