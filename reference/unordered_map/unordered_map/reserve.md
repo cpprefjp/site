@@ -114,7 +114,7 @@ new load_factor: 0.25
 | [`bucket_count`](bucket_count.md)       | バケット数の取得 |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
 | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
-| [`rehash`](reserve.md)                  | 最小バケット数指定によるバケット数の調整 |
+| [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
 | [`insert`](insert.md)                   | 要素の追加 |
 | [`emplace`](emplace.md)                 | コンテナ内への要素の直接構築 |
 | [`emplace_hint`](emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
