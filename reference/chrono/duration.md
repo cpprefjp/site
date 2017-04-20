@@ -26,8 +26,8 @@ namespace chrono {
 | [`microseconds`](/reference/chrono/microseconds.md) | マイクロ秒 | C++11          |
 | [`milliseconds`](/reference/chrono/milliseconds.md) | ミリ秒     | C++11          |
 | [`seconds`](/reference/chrono/seconds.md)           | 秒         | C++11          |
-| [`minites`](/reference/chrono/minutes.md)           | 分         | C++11          |
-| [`hour`](/reference/chrono/hours.md)                | 時         | C++11          |
+| [`minutes`](/reference/chrono/minutes.md)           | 分         | C++11          |
+| [`hours`](/reference/chrono/hours.md)               | 時         | C++11          |
 
 
 ## メンバ関数
