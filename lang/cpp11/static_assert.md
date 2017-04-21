@@ -78,6 +78,10 @@ Boost Static Assertion Libraryが開発されたときに、コンパイル時�
 コンパイル時アサートのために`BOOST_STATIC_ASSERT`や`STATIC_CHECK`のようなマクロを使用することは、名前空間を汚染する問題があるが、コア言語にその機能を追加することでその問題は解消される。
 
 
+## 関連項目
+- [C++17 `static_assert`](lang/cpp17/extending_static_assert.md)
+
+
 ## 参照
 - [N1381 Proposal to Add Static Assertions to the Core Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1381.htm)
 - [N1604 Proposal to Add Static Assertions to the Core Language (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1604.html)
