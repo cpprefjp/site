@@ -79,7 +79,7 @@ Boost Static Assertion Libraryが開発されたときに、コンパイル時�
 
 
 ## 関連項目
-- [C++17 `static_assert`](lang/cpp17/extending_static_assert.md)
+- [C++17 `static_assert`](/lang/cpp17/extending_static_assert.md)
 
 
 ## 参照
