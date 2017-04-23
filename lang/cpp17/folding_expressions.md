@@ -30,6 +30,7 @@
     4. 二項左畳み込みは `(((init op arg1) op arg2) op ...) op argN`
 
     ただし `argi` はパラメータパックの i 番目の要素
+
 * 機能テストマクロは `__cpp_fold_expressions`
 
 
@@ -193,6 +194,7 @@ template<typename BinaryFunction> struct empty_fold
 それらは特殊化されなかった場合 `identity_element` にフォールバックする。
 
 この方法は可能な限りジェネリックであるが、以下のような問題があった:
+
 * 空のパラメータパックは型付けされていないが、返り値の型は他の型に文脈的に変換可能である (暗黙の型変換につながり得る)
 * テンプレート特殊化だけのために関数をオブジェクトしなければならない
 * サポートする演算子と等価な関数オブジェクト間のマッピングを用意しなければならない
@@ -210,6 +212,7 @@ auto res =  (std::string(args) + ...);
 
 これは [N4072 Fixed Size Parameter Packs](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4072.html)
 と適合するが、以下のような問題があった:
+
 * 空の単項畳み込みの型が必ずしも正しく推論されない
 * 単位元を持つ演算でしか機能しない
 
