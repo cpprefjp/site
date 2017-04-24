@@ -57,6 +57,7 @@ int main()
   print("b", b);
 }
 ```
+* std::swap[color ff0000]
 
 ### 出力
 ```

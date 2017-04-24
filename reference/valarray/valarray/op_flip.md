@@ -17,11 +17,12 @@ valarray<T> operator~() const;
 
 ```cpp
 valarray<T> result(size());
-for (size_t i = 0; i < size(); ++i) {
+for (std::size_t i = 0; i < size(); ++i) {
   result[i] = ~(*this)[i];
 }
 return result;
 ```
+* size()[link size.md]
 
 
 ## 例
@@ -54,7 +55,10 @@ int main()
   )));
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::uint8_t[link /reference/cstdint/uint8_t.md]
+* std::all_of[link /reference/algorithm/all_of.md]
+* std::begin[link begin_free.md]
+* std::end[link end_free.md]
 
 ### 出力
 ```

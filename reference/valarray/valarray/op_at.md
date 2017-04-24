@@ -140,7 +140,7 @@ int main()
     std::valarray<int> result = va[std::gslice(start, lengths, strides)];
 
     assert(result[0] == 1);
-    assert(result[1] == 4); 
+    assert(result[1] == 4);
     assert(result[2] == 6);
     assert(result[3] == 9);
     assert(result[4] == 11);
@@ -252,7 +252,15 @@ int main()
   }
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::slice[link /reference/valarray/slice.md]
+* std::slice_array[link /reference/valarray/slice_array.md]
+* std::gslice[link /reference/valarray/gslice.md]
+* std::gslice_array[link /reference/valarray/gslice_array.md]
+* std::iota[link /reference/numeric/iota.md]
+* std::begin[link begin_free.md]
+* std::end[link end_free.md]
+* std::mask_array[link /reference/valarray/mask_array.md]
+* std::indirect_array[link /reference/valarray/indirect_array.md]
 
 ### 出力
 ```

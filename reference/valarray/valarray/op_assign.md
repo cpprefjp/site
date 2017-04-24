@@ -121,6 +121,9 @@ int main()
   print("va8", va8);
 }
 ```
+* std::move[link /reference/utility/move.md]
+* std::slice[link /reference/valarray/slice.md]
+* std::gslice[link /reference/valarray/gslice.md]
 
 ### 出力
 ```

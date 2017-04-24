@@ -31,7 +31,8 @@ for (std::size_t i = 0; i < result.size(); ++i) {
 }
 return result;
 ```
-* atan2[link /reference/cmath/atan2.md]
+* size()[link size.md]
+* std::atan2[link /reference/cmath/atan2.md]
 
 
 - (2) : 以下のコードと同等のことを行う：
@@ -43,7 +44,8 @@ for (std::size_t i = 0; i < result.size(); ++i) {
 }
 return result;
 ```
-* atan2[link /reference/cmath/atan2.md]
+* size()[link size.md]
+* std::atan2[link /reference/cmath/atan2.md]
 
 
 - (3) : 以下のコードと同等のことを行う：
@@ -55,7 +57,8 @@ for (std::size_t i = 0; i < result.size(); ++i) {
 }
 return result;
 ```
-* atan2[link /reference/cmath/atan2.md]
+* size()[link size.md]
+* std::atan2[link /reference/cmath/atan2.md]
 
 
 ## 備考
@@ -100,7 +103,7 @@ int main()
   print("float-valarray", result3);
 }
 ```
-* atan2[color ff0000]
+* std::atan2[color ff0000]
 
 ### 出力
 ```

@@ -53,6 +53,7 @@ int main()
   print("right_shift_result", right_shift_result);
 }
 ```
+* shift[color ff0000]
 
 ### 出力
 ```

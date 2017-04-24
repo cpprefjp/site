@@ -7,6 +7,7 @@
 ```cpp
 size_t size() const;
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 要素数を取得する。

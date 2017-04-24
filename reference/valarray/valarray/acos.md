@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::acos));
 ```
 * apply[link apply.md]
-* acos[link /reference/cmath/acos.md]
+* std::acos[link /reference/cmath/acos.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* acos[color ff0000]
+* std::acos[color ff0000]
 
 ### 出力
 ```

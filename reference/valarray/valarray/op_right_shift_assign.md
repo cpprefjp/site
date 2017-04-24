@@ -20,18 +20,20 @@ valarray<T>& operator>>=(const T& x);            // (2)
 - (1) : 以下のコードと同等のことを行う：
 
 ```cpp
-for (size_t i = 0; i < size(); ++i) {
+for (std::size_t i = 0; i < size(); ++i) {
   (*this)[i] >>= xs[i];
 }
 ```
+* size()[link size.md]
 
 - (2) : 以下のコードと同等のことを行う：
 
 ```cpp
-for (size_t i = 0; i < size(); ++i) {
+for (std::size_t i = 0; i < size(); ++i) {
   (*this)[i] >>= x;
 }
 ```
+* size()[link size.md]
 
 
 ## 戻り値
@@ -83,7 +85,10 @@ int main()
   assert((equal_valarray(result2, expected)));
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::uint8_t[link /reference/cstdint/uint8_t.md]
+* std::all_of[link /reference/algorithm/all_of.md]
+* std::begin[link begin_free.md]
+* std::end[link end_free.md]
 
 ### 出力
 ```

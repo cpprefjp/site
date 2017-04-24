@@ -20,18 +20,20 @@ valarray<T>& operator/=(const T& x);            // (2)
 - (1) : 以下のコードと同等のことを行う：
 
 ```cpp
-for (size_t i = 0; i < size(); ++i) {
+for (std::size_t i = 0; i < size(); ++i) {
   (*this)[i] /= xs[i];
 }
 ```
+* size()[link size.md]
 
 - (2) : 以下のコードと同等のことを行う：
 
 ```cpp
-for (size_t i = 0; i < size(); ++i) {
+for (std::size_t i = 0; i < size(); ++i) {
   (*this)[i] /= x;
 }
 ```
+* size()[link size.md]
 
 
 ## 戻り値

@@ -35,33 +35,36 @@ namespace std {
 
 ```cpp
 valarray<bool> result(xs.size());
-for (size_t i = 0; i < result.size(); ++i) {
+for (std::size_t i = 0; i < result.size(); ++i) {
   result[i] = xs[i] || ys[i];
 }
 return result;
 ```
+* size()[link size.md]
 
 
 - (2) : 以下のコードと同等のことを行う：
 
 ```cpp
 valarray<bool> result(xs.size());
-for (size_t i = 0; i < result.size(); ++i) {
+for (std::size_t i = 0; i < result.size(); ++i) {
   result[i] = xs[i] || y;
 }
 return result;
 ```
+* size()[link size.md]
 
 
 - (3) : 以下のコードと同等のことを行う：
 
 ```cpp
 valarray<bool> result(ys.size());
-for (size_t i = 0; i < result.size(); ++i) {
+for (std::size_t i = 0; i < result.size(); ++i) {
   result[i] = x || ys[i];
 }
 return result;
 ```
+* size()[link size.md]
 
 
 ## 備考
@@ -94,7 +97,6 @@ int main()
   assert(result3[2]);
 }
 ```
-* assert[link /reference/cassert/assert.md]
 
 ### 出力
 ```

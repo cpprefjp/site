@@ -17,11 +17,12 @@ valarray<bool> operator!() const;
 
 ```cpp
 valarray<bool> result(size());
-for (size_t i = 0; i < size(); ++i) {
+for (std::size_t i = 0; i < size(); ++i) {
   result[i] = !(*this)[i];
 }
 return result;
 ```
+* size()[link size.md]
 
 
 ## 例
@@ -39,7 +40,6 @@ int main()
   assert(!result[2]);
 }
 ```
-* assert[link /reference/cassert/assert.md]
 
 ### 出力
 ```

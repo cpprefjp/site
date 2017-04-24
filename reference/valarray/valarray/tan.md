@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::tan));
 ```
 * apply[link apply.md]
-* tan[link /reference/cmath/tan.md]
+* std::tan[link /reference/cmath/tan.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* tan[color ff0000]
+* std::tan[color ff0000]
 
 ### 出力
 ```

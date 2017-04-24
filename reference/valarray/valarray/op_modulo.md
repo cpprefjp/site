@@ -49,11 +49,12 @@ return result;
 
 ```cpp
 valarray<T> result(ys.size());
-for (size_t i = 0; i < result.size(); ++i) {
+for (std::size_t i = 0; i < result.size(); ++i) {
   result[i] = x % ys[i];
 }
 return result;
 ```
+* size()[link size.md]
 
 
 ## 備考

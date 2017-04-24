@@ -31,7 +31,8 @@ for (std::size_t i = 0; i < result.size(); ++i) {
 }
 return result;
 ```
-* pow[link /reference/cmath/pow.md]
+* size()[link size.md]
+* std::pow[link /reference/cmath/pow.md]
 
 
 - (2) : 以下のコードと同等のことを行う：
@@ -43,7 +44,8 @@ for (std::size_t i = 0; i < result.size(); ++i) {
 }
 return result;
 ```
-* pow[link /reference/cmath/pow.md]
+* size()[link size.md]
+* std::pow[link /reference/cmath/pow.md]
 
 
 - (3) : 以下のコードと同等のことを行う：
@@ -55,7 +57,8 @@ for (std::size_t i = 0; i < result.size(); ++i) {
 }
 return result;
 ```
-* pow[link /reference/cmath/pow.md]
+* size()[link size.md]
+* std::pow[link /reference/cmath/pow.md]
 
 
 ## 備考
@@ -100,7 +103,7 @@ int main()
   print("float-valarray", result3);
 }
 ```
-* pow[color ff0000]
+* std::pow[color ff0000]
 
 ### 出力
 ```

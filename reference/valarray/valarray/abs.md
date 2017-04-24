@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::abs));
 ```
 * apply[link apply.md]
-* abs[link /reference/cmath/abs.md]
+* std::abs[link /reference/cmath/abs.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* abs[color ff0000]
+* std::abs[color ff0000]
 
 ### 出力
 ```

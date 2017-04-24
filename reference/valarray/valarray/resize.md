@@ -55,7 +55,7 @@ int main()
   std::cout << std::endl;
 }
 ```
-
+* resize[color ff0000]
 
 ### 出力
 ```

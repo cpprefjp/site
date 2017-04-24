@@ -46,7 +46,8 @@ int main()
   });
 }
 ```
-* begin[color ff0000]
+* std::begin[color ff0000]
+* std::end[link end_free.md]
 
 ### 出力
 ```

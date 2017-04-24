@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::exp));
 ```
 * apply[link apply.md]
-* exp[link /reference/cmath/exp.md]
+* std::exp[link /reference/cmath/exp.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* exp[color ff0000]
+* std::exp[color ff0000]
 
 ### 出力
 ```

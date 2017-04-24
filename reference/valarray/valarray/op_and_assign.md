@@ -83,7 +83,10 @@ int main()
   assert((equal_valarray(result2, expected)));
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::uint8_t[link /reference/cstdint/uint8_t.md]
+* std::all_of[link /reference/algorithm/all_of.md]
+* std::begin[link begin_free.md]
+* std::end[link end_free.md]
 
 ### 出力
 ```

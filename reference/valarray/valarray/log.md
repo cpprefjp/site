@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::log));
 ```
 * apply[link apply.md]
-* log[link /reference/cmath/log.md]
+* std::log[link /reference/cmath/log.md]
 
 
 ## 例
@@ -60,7 +60,8 @@ int main()
   print("log_result", log_result);
 }
 ```
-* log[color ff0000]
+* std::log[color ff0000]
+* std::exp[link exp.md]
 
 ### 出力
 ```

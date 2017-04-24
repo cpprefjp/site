@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::log10));
 ```
 * apply[link apply.md]
-* log10[link /reference/cmath/log10.md]
+* std::log10[link /reference/cmath/log10.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* log10[color ff0000]
+* std::log10[color ff0000]
 
 ### 出力
 ```

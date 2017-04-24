@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::sqrt));
 ```
 * apply[link apply.md]
-* sqrt[link /reference/cmath/sqrt.md]
+* std::sqrt[link /reference/cmath/sqrt.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* sqrt[color ff0000]
+* std::sqrt[color ff0000]
 
 ### 出力
 ```

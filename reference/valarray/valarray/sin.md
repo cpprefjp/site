@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::sin));
 ```
 * apply[link apply.md]
-* sin[link /reference/cmath/sin.md]
+* std::sin[link /reference/cmath/sin.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* sin[color ff0000]
+* std::sin[color ff0000]
 
 ### 出力
 ```

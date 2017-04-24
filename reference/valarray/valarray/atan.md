@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::atan));
 ```
 * apply[link apply.md]
-* atan[link /reference/cmath/atan.md]
+* std::atan[link /reference/cmath/atan.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* atan[color ff0000]
+* std::atan[color ff0000]
 
 ### 出力
 ```

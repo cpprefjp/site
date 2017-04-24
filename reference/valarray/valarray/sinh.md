@@ -22,7 +22,7 @@ namespace std {
 return v.apply(static_cast<T(*)(T)>(std::sinh));
 ```
 * apply[link apply.md]
-* sinh[link /reference/cmath/sinh.md]
+* std::sinh[link /reference/cmath/sinh.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* sinh[color ff0000]
+* std::sinh[color ff0000]
 
 ### 出力
 ```

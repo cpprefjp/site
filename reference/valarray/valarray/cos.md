@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::cos));
 ```
 * apply[link apply.md]
-* cos[link /reference/cmath/cos.md]
+* std::cos[link /reference/cmath/cos.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* cos[color ff0000]
+* std::cos[color ff0000]
 
 ### 出力
 ```

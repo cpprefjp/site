@@ -22,7 +22,7 @@ namespace std {
 return va.apply(static_cast<T(*)(T)>(std::cosh));
 ```
 * apply[link apply.md]
-* cosh[link /reference/cmath/cosh.md]
+* std::cosh[link /reference/cmath/cosh.md]
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   }
 }
 ```
-* cosh[color ff0000]
+* std::cosh[color ff0000]
 
 ### 出力
 ```

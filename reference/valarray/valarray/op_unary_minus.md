@@ -17,11 +17,12 @@ valarray<T> operator-() const;
 
 ```cpp
 valarray<T> result(size());
-for (size_t i = 0; i < size(); ++i) {
+for (std::size_t i = 0; i < size(); ++i) {
   result[i] = -(*this)[i];
 }
 return result;
 ```
+* size()[link size.md]
 
 
 ## 例
