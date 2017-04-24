@@ -89,6 +89,7 @@
 ## 例
 ```cpp
 #include <iostream>
+#include <string>
 
 // 単項右畳み込みで和を計算
 template<typename... Args> auto sum(Args... args)
@@ -96,7 +97,7 @@ template<typename... Args> auto sum(Args... args)
   return (args + ...);
 }
 
-// 二項右畳み込みで和を計算、フォールバック値 0
+// 二項右畳み込みで和を計算、フォールバック値 0 (算術型に対しては sum と同じ値を返すだろう)
 template<typename... Args> auto sum0(Args... args)
 {
   return (args + ... + 0);
@@ -109,18 +110,21 @@ template<typename... Args> bool all(Args... args)
 }
 
 // 二項左畳み込みで引数を出力
-template<typename ...Args> void print_all(std::ostream& os, Args... args)
+template<typename... Args> void print_all(std::ostream& os, Args... args)
 {
   (os << ... << args);
 }
 
 int main()
 {
+  using namespace std::string_literals;
   std::cout << std::boolalpha;
-  std::cout << sum(1, 2, 3, 4, 5) << '\n';
-  //std::cout << sum() << '\n';  // 不適格: 引数が必要
-  std::cout << sum0() << '\n';   // 引数がないので設定した 0 にフォールバック
-  std::cout << all() << '\n';    // 引数がないので true にフォールバック
+  std::cout << sum(1, 2, 3, 4, 5) << '\n';       // int の和
+  std::cout << sum("a"s, "b"s, "c"s) << '\n';    // std::string の連結
+  //std::cout << sum() << '\n';                  // 不適格: 引数が必要
+  //std::cout << sum0("a"s, "b"s, "c"s) << '\n'; // 不適格: std::string + int
+  std::cout << sum0() << '\n';                   // 引数がないので設定した 0 にフォールバック
+  std::cout << all() << '\n';                    // 引数がないので true にフォールバック
   print_all(std::cout, 1, 2, 3, '\n');
 }
 ```
@@ -128,6 +132,7 @@ int main()
 ### 出力
 ```
 15
+abc
 0
 true
 123
