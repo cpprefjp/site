@@ -1,4 +1,4 @@
-# `static_assert` のメッセージ省略を許可
+# static_assert のメッセージ省略を許可
 * cpp17[meta cpp]
 
 ## 概要
