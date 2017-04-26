@@ -2,7 +2,7 @@
 * cpp17[meta cpp]
 
 ## 概要
-`static_assert` は C++11 で導入されたが、第2引数に診断メッセージを指定しなければならなかった。
+`static_assert` は [C++11](/lang/cpp11/static_assert.md) で導入されたが、第2引数に診断メッセージを指定しなければならなかった。
 C++17 ではこれを省略できるようになった。
 
 
@@ -13,7 +13,7 @@ static_assert(定数式); // C++17 以降
 ```
 
 * `文字列リテラル`が与えられた場合、診断メッセージは`文字列リテラル`を含む。それ以外の場合、診断メッセージは未規定
-* その他の点は C++11 と同じ
+* その他の点は [C++11](/lang/cpp11/static_assert.md) と同じ
 * 推奨される機能テストマクロは `__cpp_static_assert_extended`, `__cpp_static_assert_optional`, または `__cpp_static_assert_optional_message`
 
 ## 例
