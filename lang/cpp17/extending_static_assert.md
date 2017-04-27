@@ -12,7 +12,8 @@ static_assert(定数式, 文字列リテラル); // C++11
 static_assert(定数式); // C++17 以降
 ```
 
-* `文字列リテラル`が与えられた場合、診断メッセージは`文字列リテラル`を含む。それ以外の場合、診断メッセージは未規定
+* 「『`文字列リテラル`が与えられた場合、』診断メッセージは`文字列リテラル`を含む」と文面が改められた  
+    それ以外の場合の診断メッセージは未規定
 * その他の点は [C++11](/lang/cpp11/static_assert.md) と同じ
 * 推奨される機能テストマクロは `__cpp_static_assert_extended`, `__cpp_static_assert_optional`, または `__cpp_static_assert_optional_message`
 
@@ -46,7 +47,7 @@ example_static_assert.cpp:5:3: error: static_assert failed
 
 [Boost.StaticAssert](http://www.boost.org/doc/libs/release/doc/html/boost_staticassert.html) は以下のような `BOOST_STATIC_ASSERT` マクロを提供しており、
 `static_assert` の診断メッセージを省略できた:
-```
+```cpp
 #define BOOST_STATIC_ASSERT(B) static_assert(B, #B)
 ```
 
@@ -54,11 +55,14 @@ example_static_assert.cpp:5:3: error: static_assert failed
 
 
 ## 検討されたほかの選択肢
-`BOOST_STATIC_ASSERT` のようなマクロで`定数式`をテキスト化することには反対意見があり、以下の案が検討された。
+`BOOST_STATIC_ASSERT` のようなマクロで`定数式`をテキスト化することには反対意見があり、以下の案が検討された
+(『』内は追加された箇所):
 
-* `文字列リテラル`が与えられた場合、診断メッセージは`文字列リテラル`を含む。それ以外の場合、診断メッセージは`定数式`のテキストからなる
-* `文字列リテラル`が与えられた場合、診断メッセージは`文字列リテラル`を含む。それ以外の場合、診断メッセージは実装依存
-* `static_assert` は1つ以上の`定数式`を取り、診断メッセージはテキストに変換した`定数式`を含む
+* 『`文字列リテラル`が与えられた場合、』診断メッセージは`文字列リテラル`を含む  
+    『それ以外の場合、診断メッセージは`定数式`のテキストからなる』
+* 『`文字列リテラル`が与えられた場合、』診断メッセージは`文字列リテラル`を含む  
+    『それ以外の場合、診断メッセージは実装依存』
+* 『`static_assert` は1つ以上の`定数式`を取り、診断メッセージはテキストに変換した`定数式`を含む』
 
 
 ## 関連項目
