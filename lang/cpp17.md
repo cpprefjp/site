@@ -166,7 +166,7 @@ C++17では以下のTSが採用された：
 - ランダムサンプリングアルゴリズムとして、[`sample()`](/reference/algorithm/sample.md.nolink)を追加
 - 値を範囲内に収める[`clamp()`](/reference/algorithm/clamp.md.nolink)関数を追加
 - `bool`を返す関数オブジェクトの結果を反転させる[`not_fn()`](/reference/functional/not_fn.md.nolink)関数を追加
-- INVOKEコンセプトに従った関数呼び出しをする[`invoke()`](/reference/functional/invoke.md)関数を追加
+- INVOKEコンセプトに従った関数呼び出しをする[`invoke()`](/reference/functional/invoke.md.nolink)関数を追加
 - [`reference_wrapper`](/reference/functional/reference_wrapper.md)がTriviallyCopyableであることを保証
 - オブジェクトを`const`にする[`as_const()`](/reference/utility/as_const.md)関数を追加
 - 未初期化メモリのアルゴリズムと、デストラクタ呼び出しの関数として、以下の関数を追加： [`destroy_at()`](/reference/memory/destroy_at.md.nolink), [`destroy()`](/reference/memory/destroy.md.nolink), [`destroy_n()`](/reference/memory/destroy_n.md.nolink), [`uninitialized_move()`](/reference/memory/uninitialized_move.md.nolink), [`uninitialized_move_n()`](/reference/memory/uninitialized_move_n.md.nolink), [`uninitialized_value_construct()`](/reference/memory/uninitialized_value_construct.md.nolink), [`uninitialized_value_construct_n()`](/reference/memory/uninitialized_value_construct_n.md.nolink), [`uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md.nolink), [`uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md.nolink)
@@ -238,7 +238,7 @@ C++17では以下のTSが採用された：
 - `swap`可能かを判定する型特性クラスとして、[`is_swappable_with`](/reference/type_traits/is_swappable_with.md.nolink)、[`is_swappable`](/reference/type_traits/is_swappable.md.nolink)、[`is_nothrow_swappable_with`](/reference/type_traits/is_nothrow_swappable_with.md.nolink)、[`is_nothrow_swappable`](/reference/type_traits/is_nothrow_swappable.md.nolink)を追加
 - 関数が呼び出し可能かを判定する型特性として、[`is_invocable`](/reference/type_traits/is_invocable.md.nolink)、[`is_invocable_r`](/reference/type_traits/is_invocable_r.md.nolink)、[`is_nothrow_invocable`](/reference/type_traits/is_nothrow_invocable.md.nolink)、[`is_nothrow_invocable_r`](/reference/type_traits/is_nothrow_invocable_r.md.nolink)を追加
 - 自動的にハッシュ値が求められる型かを判定するために[`has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md.nolink)型特性を追加
-- [`invoke()`](/reference/functional/invoke.md)の追加にともない、関数の戻り値型を取得する型特性[`invoke_result`](/reference/type_traits/invoke_result.md.nolink)を追加。これまでの[`result_of`](/reference/type_traits/result_of.md)と違って関数型のテンプレート引数を使用しないため、それによって起こっていた厄介な問題を回避する
+- [`invoke()`](/reference/functional/invoke.md.nolink)の追加にともない、関数の戻り値型を取得する型特性[`invoke_result`](/reference/type_traits/invoke_result.md.nolink)を追加。これまでの[`result_of`](/reference/type_traits/result_of.md)と違って関数型のテンプレート引数を使用しないため、それによって起こっていた厄介な問題を回避する
 
 
 ### 時間演算
