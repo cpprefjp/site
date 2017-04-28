@@ -57,7 +57,7 @@ int main()
   assert(result4 == 3);
 }
 ```
-* std::function[link function.md]
+* std::function[link /reference/functional/function.md]
 
 ### 出力
 ```
