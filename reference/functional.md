@@ -140,7 +140,7 @@ struct doubler {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|--------------------------|-------|
-| [`Callable`](functional/callable.md) | 関数呼び出し可能な型 | C++11 |
-| [`INVOKE`](functional/invoke.md) | 関数呼び出しの式 | C++11 |
+| [`Callable`](concepts/callable.md) | 関数呼び出し可能な型 | C++11 |
+| [`INVOKE`](concepts/invoke.md) | 関数呼び出しの式 | C++11 |
 
 
