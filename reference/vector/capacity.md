@@ -23,23 +23,23 @@ size_type capacity() const;
 
 int main()
 {
-    // 確保した領域を確認
-    {
-        std::vector<int> v;
-        v.reserve(3);
+  // 確保した領域を確認
+  {
+    std::vector<int> v;
+    v.reserve(3);
 
-        std::size_t cap = v.capacity();
-        std::cout << cap << std::endl;
-    }
+    std::size_t cap = v.capacity();
+    std::cout << cap << std::endl;
+  }
 
-    // 要素を削除しただけでは領域は解放されない
-    {
-        std::vector<int> v = {3, 1, 4};
-        v.erase(v.begin());
+  // 要素を削除しただけでは領域は解放されない
+  {
+    std::vector<int> v = {3, 1, 4};
+    v.erase(v.begin());
 
-        std::size_t cap = v.capacity();
-        std::cout << cap << std::endl;
-    }
+    std::size_t cap = v.capacity();
+    std::cout << cap << std::endl;
+  }
 }
 ```
 * capacity[color ff0000]
