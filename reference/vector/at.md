@@ -22,11 +22,11 @@ reference at(size_type n);
 
 
 ## 例外
-`n >= a.size()`の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+`n >=` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 
 
 ## 備考
-`a.at(n)` は `*(a.begin() + n)` と同じ結果になる。`at()`の場合はコンテナの要素数に対して境界チェックを行う。
+`at(n)` は `*(begin() + n)` と同じ結果となるが、イテレータを使用したランダムアクセスや[`operator[]`](op_at.md)と違い、コンテナの要素数に対して境界チェックを行う。
 
 
 ## 例
