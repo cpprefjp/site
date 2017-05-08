@@ -44,7 +44,7 @@ int main()
 ```
 * capacity[color ff0000]
 
-### 出力
+### 出力例
 ```
 3
 3
