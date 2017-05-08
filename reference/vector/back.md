@@ -16,7 +16,17 @@ const_reference back() const;
 ## 戻り値
 末尾の要素への参照を返す。
 
-`a.back()` は `{ auto tmp = a.end(); --tmp; return *tmp; }` と同じ結果になる。
+
+## 備考
+この関数の効果は、以下と同等になる：
+
+```cpp
+{
+  auto tmp = end();
+  --tmp;
+  return *tmp;
+}
+```
 
 
 ## 計算量
