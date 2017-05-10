@@ -22,7 +22,7 @@ const_reference operator[](size_type n) const;
 
 
 ## 備考
-`a[n]` と `*(a.begin() + n)` は同じ結果になる。
+`vector`型のオブジェクト`v`に対して、`v[n]` と `*(v.begin() + n)` は同じ結果になる。
 
 
 ## 例
