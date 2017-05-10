@@ -43,28 +43,46 @@ iterator erase(const_iterator first, const_iterator last); // (2) C++11
 #include <iostream>
 #include <vector>
 
-int main ()
+void print(const char* name, const std::vector<int>& v)
 {
-  unsigned int i;
-  std::vector<unsigned int> myvector;
+  std::cout << name << " : {";
 
-  // set some values (from 1 to 10)
-  for (i=1; i<=10; i++) myvector.push_back(i);
-  
-  // erase the 6th element
-  myvector.erase(myvector.begin()+5);
+  bool first = true;
+  for (int x : v) {
+    if (first) {
+      first = false;
+    }
+    else {
+      std::cout << ", ";
+    }
 
-  // erase the first 3 elements:
-  myvector.erase(myvector.begin(),myvector.begin()+3);
+    std::cout << x;
+  }
+  std::cout << "}" << std::endl;
+}
 
-  std::cout << "myvector contains:";
-  for (i=0; i<myvector.size(); i++)
-    std::cout << " " << myvector[i];
-  std::cout << std::endl;
+int main()
+{
+  // (1)
+  {
+    std::vector<int> v = {1, 2, 3, 4, 5};
 
-  return 0;
+    // 2番目の単一要素(値3)を削除
+    v.erase(v.begin() + 2);
+    print("(1)", v);
+  }
+
+  // (2)
+  {
+    std::vector<int> v = {1, 2, 3, 4, 5};
+
+    // 範囲[v.begin(), v.begin() + 2)の要素を削除
+    v.erase(v.begin(), v.begin() + 2);
+    print("(2)", v);
+  }
 }
 ```
+* erase[color ff0000]
 
 ### 出力
 ```
