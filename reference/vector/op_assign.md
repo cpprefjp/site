@@ -48,7 +48,8 @@ vector& operator=(initializer_list<T>); // (3) C++11
 ```cpp
 #include <cassert>
 #include <vector>
-#include <algorithm> // std::equal
+#include <algorithm>
+#include <utility>
 
 int main()
 {
@@ -67,9 +68,10 @@ int main()
     std::vector<int> v1 = {1, 2, 3};
     std::vector<int> v2;
 
-    v2 = std::vector<int>(v1);
+    std::vector<int> copied_v1 = v1;
+    v2 = std::move(v1);
 
-    assert(v1 == v2);
+    assert(copied_v1 == v2);
   }
 
   // 初期化子リストからのコピー代入
@@ -87,7 +89,10 @@ int main()
   }
 }
 ```
-* assert[link /reference/cassert/assert.md]
+* std::move[link /reference/utility/move.md]
+* init.size()[link /reference/initializer_list/size.md]
+* init.begin()[link /reference/initializer_list/begin.md]
+* std::equal[link /reference/algorithm/equal.md]
 
 ### 出力
 ```
