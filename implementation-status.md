@@ -121,6 +121,7 @@
 | [ラムダ式を`constexpr`として使用できるようにする][P0170R1] | ラムダ式の関数オブジェクトが定数式の文脈で使用された場合に、それがコンパイル時に評価されるようにする | 7 | No | No | 14.1 Update 3 |
 | [範囲for文のための`begin()`と`end()`関数が、異なる型を返すことを許可][P0184R0] | `begin()`と`end()`が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする | 6 | 3.9 | No | 14.1 |
 | [ラムダ式での`*this`のコピーキャプチャ][P0018R3] | キャプチャリストに`*this`を指定することで、`*this`をコピーキャプチャする | 7 | 3.8 | No | 14.1 Update 3 |
+| [`enum class`変数の初期値として整数を指定する際の規則を調整][P0138R2] | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 | 7 | 1.9 | No | 14.1 Update 3 |
 | [浮動小数点数の16進数リテラル][P0245R1] | `hexfloat`マニピュレータや`printf()`の16進数出力に合わせて、浮動小数点数のリテラルも16進数表記できるようにする | 3.0 | 3.0 | No | No |
 | [属性の名前空間指定に繰り返しをなくす][P0028R4] | `[[using CC: opt(1), debug]]`のように属性の名前空間宣言をまとめて行う | 7 | 3.9 | No | 14.1 Update 3 |
 | [アライメント指定されたデータの動的メモリ確保時][P0035R4] | `operator new`と`operator delete`でアライメント値を取得できるようにする | 7 | 4 | No | No |
@@ -164,6 +165,7 @@
 [P0170R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0170r1.pdf
 [P0184R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0184r0.html
 [P0018R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0018r3.html
+[P0138R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0138r2.pdf
 [P0245R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0245r1.html
 [P0028R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0028r4.html
 [P0035R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0035r4.html
