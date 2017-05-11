@@ -42,7 +42,9 @@ int main()
   }
 }
 ```
-* capacity[color ff0000]
+* capacity()[color ff0000]
+* v.reserve[link reserve.md]
+* v.erase[link erase.md]
 
 ### 出力例
 ```

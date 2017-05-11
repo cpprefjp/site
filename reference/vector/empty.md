@@ -49,7 +49,7 @@ int main()
   }
 }
 ```
-* empty[color ff0000]
+* empty()[color ff0000]
 
 ### 出力
 ```

@@ -22,7 +22,7 @@ const_reference front() const;
 
 
 ## 備考
-`a.front()` と `*a.begin()` は同じ結果になる。
+式 `*begin()` と同等の効果となる。
 
 
 ## 例
@@ -38,6 +38,7 @@ int main()
   std::cout << x << std::endl;
 }
 ```
+* front()[color ff0000]
 
 ### 出力
 ```

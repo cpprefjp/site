@@ -21,10 +21,6 @@ allocator_type get_allocator() const noexcept; // C++11
 投げない
 
 
-## 備考
-noexcept修飾はC++11で追加された。
-
-
 ## 例
 ```cpp
 #include <cassert>
@@ -40,8 +36,8 @@ int main()
   assert(result == alloc);
 }
 ```
-* get_allocator[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* get_allocator()[color ff0000]
+* std::allocator[link /reference/memory/allocator.md]
 
 ### 出力
 ```

@@ -68,7 +68,8 @@ int main()
 }
 ```
 * assign[color ff0000]
-
+* data.begin()[link /reference/array/begin.md]
+* data.end()[link /reference/array/end.md]
 
 ### 出力
 ```

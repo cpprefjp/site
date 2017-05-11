@@ -55,8 +55,8 @@ int main()
   assert(v.capacity() == v.size());
 }
 ```
-* shrink_to_fit[color ff0000]
-* assert[link /reference/cassert/assert.md]
+* shrink_to_fit()[color ff0000]
+* v.capacity()[link capacity.md]
 
 ### 出力
 ```

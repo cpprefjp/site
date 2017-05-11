@@ -172,14 +172,8 @@ int main()
 * v[1][link vector/op_at.md]
 * v.push_back[link vector/push_back.md]
 * v.insert[link vector/insert.md]
-* v.begin()[link vector/begin.md]
 * v.data()[link vector/data.md]
-* v.size()[link vector/size.md]
-* std::size_t[link /reference/cstddef/size_t.md]
-* assert[link /reference/cassert/assert.md]
 * for[link /lang/cpp11/range_based_for.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```

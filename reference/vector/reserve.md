@@ -60,10 +60,7 @@ int main()
 }
 ```
 * capacity()[link capacity.md]
-* assert[link /reference/cassert/assert.md]
 * push_back[link push_back.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ## 出力
 ```

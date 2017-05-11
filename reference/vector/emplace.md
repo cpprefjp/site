@@ -58,6 +58,7 @@ int main()
 }
 ```
 * emplace[color ff0000]
+* v.insert[link insert.md]
 
 ### 出力
 ```

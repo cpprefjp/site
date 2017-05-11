@@ -56,6 +56,7 @@ int main()
 }
 ```
 * emplace_back[color ff0000]
+* v.push_back[link push_back.md]
 
 ### 出力
 ```

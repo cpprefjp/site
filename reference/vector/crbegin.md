@@ -45,7 +45,8 @@ int main()
   });
 }
 ```
-* crbegin[color ff0000]
+* crbegin()[color ff0000]
+* v.crend()[link crend.md]
 
 ### 出力
 ```

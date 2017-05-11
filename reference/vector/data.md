@@ -41,7 +41,7 @@ int main()
   std::cout << *p << std::endl;
 }
 ```
-* data[color ff0000]
+* data()[color ff0000]
 
 ### 出力
 ```

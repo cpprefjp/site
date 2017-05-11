@@ -95,21 +95,17 @@ vector(initializer_list<T> il,
       l.emplace_back(10u);
     }
     ```
-    * list[link ../list.md]
-    * vector[link ../vector.md]
-    * scoped_allocator[link ../scoped_allocator.md]
-    * scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-    * allocator[link ../memory/allocator.md]
+    * std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
+    * std::allocator[link ../memory/allocator.md]
     * emplace_back[link ../list/emplace_back.md]
 
 
 ## 例
 ```cpp
 #include <vector>
-
 #include <iostream>
 #include <string>
-#include <algorithm> // std::for_each
+#include <algorithm>
 
 template <class T>
 void print(const std::string& name, const std::vector<T>& v)
@@ -119,12 +115,12 @@ void print(const std::string& name, const std::vector<T>& v)
   std::cout << "}" << std::endl;
 }
 
-int main ()
+int main()
 {
-  std::vector<int> first;                               			// int型の空のvectorを構築
-  std::vector<int> second(4, 100);                      			// 4個のint値からなるvectorを構築し、全ての値を100で初期化
-  std::vector<int> third(std::begin(second), std::end(second));		// secondのイテレータ範囲からvectorを構築
-  std::vector<int> fourth(third);                       			// thirdをコピー
+  std::vector<int> first;                                           // int型の空のvectorを構築
+  std::vector<int> second(4, 100);                                  // 4個のint値からなるvectorを構築し、全ての値を100で初期化
+  std::vector<int> third(std::begin(second), std::end(second));     // secondのイテレータ範囲からvectorを構築
+  std::vector<int> fourth(third);                                  // thirdをコピー
 
   // 組み込み配列からvectorを構築
   int myints[] = {16,2,77,29};
@@ -142,15 +138,6 @@ int main ()
   print("sixth", sixth);
 }
 ```
-* vector[link ../vector.md]
-* iostream[link ../iostream.md]
-* string[link ../string.md]
-* algorithm[link ../algorithm.md]
-* cout[link ../iostream/cout.md]
-* for_each[link ../algorithm/for_each.md]
-* endl[link ../ostream/endl.md]
-* begin[link ../iterator/begin.md]
-* end[link ../iterator/end.md]
 
 ### 出力
 ```

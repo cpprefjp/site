@@ -44,7 +44,7 @@ int main()
   std::cout << *ci << std::endl;
 }
 ```
-* rbegin[color ff0000]
+* rbegin()[color ff0000]
 
 ### 出力
 ```
