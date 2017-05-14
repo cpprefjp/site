@@ -30,6 +30,7 @@ C++17 で規則が変更され、前者は `T`，後者は不適格となった�
 
 
 ## 例
+
 ```cpp
 #include <initializer_list>
 #include <iostream>
@@ -54,6 +55,7 @@ int main()
 ```
 
 ### 出力例
+
 ```
 St16initializer_listIiE
 St16initializer_listIiE
@@ -65,6 +67,7 @@ i
 
 [ラムダ式の初期化キャプチャ](/lang/cpp14/initialize_capture.md) で変数をリストによって直接初期化した場合、
 `std::initializer_list` に型が推論された:
+
 ```cpp
 [n{0}]() {};    // 直接初期化; n は std::initializer_list<int>
 [n = {0}]() {}; // コピー初期化; n は std::initializer_list<int>
