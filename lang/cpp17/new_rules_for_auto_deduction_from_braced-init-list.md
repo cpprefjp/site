@@ -4,7 +4,7 @@
 ## 概要
 
 これまでは `auto var{arg};` (単一要素), `auto var{arg1, arg2,...};` (複数要素) で `var` はいずれも
-`std::initilizer_list<T>` に推論されたが、
+[`std::initializer_list<T>`](/reference/initializer_list.md) に推論されたが、
 C++17 で規則が変更され、前者は `T`，後者は不適格となった。
 
 
@@ -17,7 +17,7 @@ C++17 で規則が変更され、前者は `T`，後者は不適格となった�
 
 リストによるコピー初期化 (copy-list-initialization) の型推論の規則や非 `auto` の初期化セマンティクスに変更はない。
 
-従来通り `initilizer_list` を使いたい場合はコピー初期化を利用する。
+従来通り `initializer_list` を使いたい場合はコピー初期化を利用する。
 
 **推論される型**
 
@@ -37,13 +37,13 @@ C++17 で規則が変更され、前者は `T`，後者は不適格となった�
 int main()
 {
   // リストによるコピー初期化の型推論はこれまで通り
-  auto assign_brace_single = {0};      // std::initilizer_list<int>
-  auto assign_brace_multi  = {0, 1};   // std::initilizer_list<int>
+  auto assign_brace_single = {0};      // std::initializer_list<int>
+  auto assign_brace_multi  = {0, 1};   // std::initializer_list<int>
   // auto assign_brace_bad = {0, 1.0}; // 不適格: int と double からは推論できない
 
   // リストによる直接初期化の型推論の規則が変更された
-  auto brace_init_single{0};           // C++17 までは std::initilizer_list<int>, C++17 からは int
-  // auto brace_init_multi{0, 1};      // C++17 までは std::initilizer_list<int>, C++17 からは 不適格
+  auto brace_init_single{0};           // C++17 までは std::initializer_list<int>, C++17 からは int
+  // auto brace_init_multi{0, 1};      // C++17 までは std::initializer_list<int>, C++17 からは 不適格
 
   std::cout << typeid(assign_brace_single).name() << '\n';
   std::cout << typeid(assign_brace_multi).name() << '\n';
@@ -65,8 +65,8 @@ i
 [ラムダ式の初期化キャプチャ](/lang/cpp14/initialize_capture.md) で変数をリストによって直接初期化した場合、
 `std::initializer_list` に型が推論された:
 ```cpp
-[n{0}]() {};    // 直接初期化; n は std::initilizer_list<int>
-[n = {0}]() {}; // コピー初期化; n は std::initilizer_list<int>
+[n{0}]() {};    // 直接初期化; n は std::initializer_list<int>
+[n = {0}]() {}; // コピー初期化; n は std::initializer_list<int>
 ```
 
 これは不便だと考えられたため、直接初期化での型推論の規則が変更された。
