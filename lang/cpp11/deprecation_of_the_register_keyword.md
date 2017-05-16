@@ -19,7 +19,7 @@ register int v = 42;
 
 ## 関連項目
 
-- [非推奨だったregisterキーワードを削除(C++17)](/lang/cpp17/removedeprecation_of_the_register_keyword.md)
+- [非推奨だったregisterキーワードを削除(C++17)](/lang/cpp17/remove_deprecated_use_of_the_register_keyword.md)
 
 
 ## 参照
