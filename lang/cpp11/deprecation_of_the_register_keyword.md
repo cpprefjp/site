@@ -17,6 +17,11 @@ register int v = 42;
 `register`はよく使われる英単語であるため、将来的にこのキーワードをほかの用途に再利用することを目標とする。
 
 
+## 関連項目
+
+- [非推奨だったregisterキーワードを削除(C++17)](/lang/cpp17/removedeprecation_of_the_register_keyword.md)
+
+
 ## 参照
 - [CWG Issue 809. Deprecation of the `register` keyword](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#809)
 
