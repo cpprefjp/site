@@ -20,7 +20,7 @@ static int compare(const char_type* s1, const char_type* s2, size_t n);
 
 
 ## 計算量
-定数時間
+線形時間
 
 
 ## 例
