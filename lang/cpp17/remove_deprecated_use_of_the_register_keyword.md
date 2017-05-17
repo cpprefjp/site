@@ -19,7 +19,7 @@ register int v = 42;
 
 ## 関連項目
 
-- [registerキーワードを非推奨化(C++11)](/lang/cpp11/deprecation_of_the_register_keyword.md)
+- [C++11 registerキーワードを非推奨化](/lang/cpp11/deprecation_of_the_register_keyword.md)
 
 ## 参照
 
