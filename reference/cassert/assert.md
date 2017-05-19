@@ -28,6 +28,11 @@
 - 無効な場合:
     - パラメータの式は評価はされず、何もしない。
 
+このマクロの使用は、以下の条件で定数式となる (C++17)：
+
+- `assert`が定義あるいは再定義される時点で`NDEBUG`が定義されている、もしくは
+- 式が`bool`型に変換可能で、その値が`true`に評価される
+
 
 ## 備考
 有効・無効に関わらず`void`型の式となる（文などにはならない）ので、カンマ演算子と組み合わせるなどして、式が書けるところならどこにでも記述することができる。
@@ -40,6 +45,7 @@
 
 
 ## 例
+### assertマクロの基本的な使い方
 ```cpp
 #include <cassert>
 
@@ -59,9 +65,31 @@ int main()
 ```
 
 
-### 出力例
+#### 出力例
 ```
 prog.exe: prog.cc:6: void f(int): Assertion `x >= 0' failed.
+```
+
+
+### 定数式としてassertマクロを使用する (C++17)
+```cpp
+#include <cassert>
+
+constexpr int f(int x)
+{
+  assert(x >= 0); // constexpr関数内に式としてassertマクロを使用する
+  return x + 1;
+}
+
+int main()
+{
+  constexpr int a = f(1);
+//constexpr int b = f(-1); // コンパイルエラー！
+}
+```
+
+### 出力
+```
 ```
 
 
@@ -70,3 +98,5 @@ prog.exe: prog.cc:6: void f(int): Assertion `x >= 0' failed.
   ただしC++としての規定はほとんど無く、ほぼ参照規格であるISO C 7.2の規定によるものとなっている。
 - [What does it mean for C++ that assert takes a scalar argument?](https://groups.google.com/a/isocpp.org/d/topic/std-discussion/6EHDRo1A2EE/discussion)
   パラメータの式の型についての要件は参照規格であるCの規定によるものであり、「スカラ型」が[C++におけるスカラ型](/reference/type_traits/is_scalar.md)となるのか、あるいはCにおけるスカラ型の範囲に限定されるのか、少なくともC++14時点でははっきりしていない。
+- [LWG Issue 2234. `assert()` should allow usage in constant expressions](http://wg21.cmeerw.net/lwg/issue2234)
+
