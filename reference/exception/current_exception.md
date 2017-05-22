@@ -16,9 +16,12 @@ namespace std {
 
 
 ## 戻り値
-現在処理中の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す。
-
-処理中の例外オブジェクトがない場合は、ヌルを指す[`exception_ptr`](exception_ptr.md)を返す。
+- 現在処理中の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す
+- 処理中の例外オブジェクトがない場合は、ヌルを指す[`exception_ptr`](exception_ptr.md)を返す
+- この関数がメモリ確保する必要があり、それに失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す
+- この関数を2回以上呼び出した場合に、同じオブジェクトを指す[`exception_ptr`](exception_ptr.md)が返るとは限らない。(呼び出しのたびに例外オブジェクトを作る可能性がある)
+- 例外オブジェクトをコピーする際に例外が送出された場合、送出された例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す
+    - ただし、無限再帰を回避するために、[`bad_exception`](bad_exception.md)オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返すことが実装に許可される
 
 
 ## 例外
