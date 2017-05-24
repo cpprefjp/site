@@ -9,9 +9,9 @@
 | [`exception`](exception/exception.md)         | 標準例外の基本クラス(class) | |
 | [`bad_exception`](exception/bad_exception.md) | 関数で例外の型を制限し、指定外の方が送出された場合に発生させる(class) | |
 | [`nested_exception`](exception/nested_exception.md) | 例外構造をネストさせる場合に利用する例外クラス(class) | C++11 |
-| [`set_unexpected`](exception/set_unexpected.md) | 予想外の例外が発生した場合の処理を行う関数を設定する(function) | |
-| [`get_unexpected`](exception/get_unexpected.md) | 予想外の例外が発生した場合の処理を行う関数を取得する(function) | C++11 |
-| [`unexpected`](exception/unexpected.md) | 予想外の例外が発生した場合の処理を呼び出す(function) | |
+| [`set_unexpected`](exception/set_unexpected.md) | 予想外の例外が発生した場合の処理を行う関数を設定する(function) | C++11から非推奨<br/> C++17で削除 |
+| [`get_unexpected`](exception/get_unexpected.md) | 予想外の例外が発生した場合の処理を行う関数を取得する(function) | C++11<br/> C++11から非推奨<br/> C++17で削除 |
+| [`unexpected`](exception/unexpected.md) | 予想外の例外が発生した場合の処理を呼び出す(function) | C++11から非推奨<br/> C++17で削除 |
 | [`set_terminate`](exception/set_terminate.md) | 例外が処理されなかった場合の処理を行う関数を設定する(function) | |
 | [`get_terminate`](exception/get_terminate.md) | 例外が処理されなかった場合の処理を行う関数を取得する(function) | | C++11 |
 | [`terminate`](exception/terminate.md) | 例外が処理されなかった場合の処理を行う関数を呼び出す(function) | |

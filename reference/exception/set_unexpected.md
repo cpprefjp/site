@@ -3,6 +3,7 @@
 * std[meta namespace]
 * function[meta id-type]
 * cpp11deprecated[meta cpp]
+* cpp17removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -11,7 +12,7 @@ namespace std {
 }
 ```
 
-この関数はC++11から非推奨である。`throw`キーワードの代わりに使用する[`noexcept`キーワード](/lang/cpp11/noexcept.md)では、指定外の例外が発生することによるエラーは起こらない。
+この関数はC++11から非推奨となり、C++17で削除された。`throw`キーワードの代わりに使用する[`noexcept`キーワード](/lang/cpp11/noexcept.md)では、指定外の例外が発生することによるエラーは起こらない。
 
 ## 概要
 例外指定のある関数内で、指定外の例外が発生した時に呼び出される例外ハンドラを設定する。
@@ -72,4 +73,4 @@ bad_exception.
 ```
 
 ## 参照
-
+- [C++17 非推奨だった古い例外仕様を削除](/lang/cpp17/remove_deprecated_exception_specifications.md)
