@@ -22,7 +22,7 @@ void f() noexcept(false);
 void f();
 ```
 
-動的例外仕様は「指定された例外以外が送出された場合、[`std::unexpected()`](/reference/exception/unexpected.md)関数が呼び出されるが、noexcept例外仕様では即座に[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
+動的例外仕様では指定された例外以外が送出された場合、[`std::unexpected()`](/reference/exception/unexpected.md)関数が呼び出されるが、noexcept例外仕様では即座に[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
 
 `void f() throw();`という「この関数は例外を送出しない」指定については、C++17から`noexcept`を指定したものと同じ意味論に変更され、非推奨の機能として維持される。非推奨の機能ではあるため、削除までの猶予期間の間に`noexcept`例外仕様への移行が必要となる。
 また、動的例外仕様に関連したライブラリ機能として、非推奨となっていた以下の機能も削除される：
