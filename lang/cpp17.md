@@ -89,7 +89,7 @@ C++17では以下のTSが採用された：
 | 言語機能 | 説明 |
 |----------|------|
 | [例外仕様を型システムの一部にする](cpp17/exception_spec_be_part_of_the_type_system.md.nolink) | 関数の型に例外仕様が含まれるようにする |
-| 非推奨だった古い例外仕様を削除   | `throw`キーワードによる例外仕様を削除。`throw()`は残る |
+| [非推奨だった古い例外仕様を削除](cpp17/remove_deprecated_exception_specifications.md) | `throw`キーワードによる例外仕様を削除。`throw()`は残る |
 
 
 ### 属性
