@@ -115,7 +115,7 @@ C++17では以下のTSが採用された：
 
 | 言語機能 | 説明 |
 |----------|------|
-| トライグラフを削除                     | 現代では使用する必要がなくなったトライグラフ機能を削除 |
+| [トライグラフの削除](cpp17/removing_trigraphs.md) | 現代では使用する必要がなくなったトライグラフ機能を削除 |
 | [非推奨だった`register`キーワードを削除](cpp17/remove_deprecated_use_of_the_register_keyword.md) | コンパイラから単に無視されていた`register`キーワードを削除。予約語は残る |
 | [非推奨だった`bool`型に対するインクリメント演算子を削除](cpp17/remove_deprecated_increment_of_bool.md) | `bool`変数に対して`++`すると`true`になる仕様を削除 |
 | [非推奨だった古い例外仕様を削除](cpp17/remove_deprecated_exception_specifications.md) | `throw`キーワードによる例外仕様を削除。`throw()`は残る |
