@@ -1,6 +1,6 @@
 # page_title (ページのタイトルです)
 * header_name[meta header]
-* cpp11[meta cpp]
+* cpp17[meta cpp]
 
 <!-- `[meta header]`は、所属ヘッダを表すメタ情報 -->
 <!-- `[meta cpp]`は、機能が追加・非推奨・削除されたバージョンを表すメタ情報。改行して複数指定ができる。 -->

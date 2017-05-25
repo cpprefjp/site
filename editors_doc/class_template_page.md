@@ -2,7 +2,7 @@
 * header_name[meta header]
 * class[meta id-type]
 * std[meta namespace]
-* cpp11[meta cpp]
+* cpp17[meta cpp]
 
 <!-- `[meta header]`は、所属ヘッダを表すメタ情報 -->
 <!-- `[meta id-type]`は、識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, type-alias, macro, namespace -->
