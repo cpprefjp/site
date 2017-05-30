@@ -179,6 +179,7 @@ int main()
 - [`is_nothrow_copy_assignable`](/reference/type_traits/is_nothrow_copy_assignable.md)
 - [`is_nothrow_move_assignable`](/reference/type_traits/is_nothrow_move_assignable.md)
 - [`is_nothrow_destructible`](/reference/type_traits/is_nothrow_destructible.md)
+- [C++17 非推奨だった古い例外仕様を削除](/lang/cpp17/remove_deprecated_exception_specifications.md)
 
 
 ## 参照
