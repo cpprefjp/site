@@ -180,6 +180,7 @@ int main()
 - [`is_nothrow_move_assignable`](/reference/type_traits/is_nothrow_move_assignable.md)
 - [`is_nothrow_destructible`](/reference/type_traits/is_nothrow_destructible.md)
 - [C++17 非推奨だった古い例外仕様を削除](/lang/cpp17/remove_deprecated_exception_specifications.md)
+- [C++17 例外仕様を型システムの一部にする](/lang/cpp17/exception_spec_be_part_of_the_type_system.md)
 
 
 ## 参照

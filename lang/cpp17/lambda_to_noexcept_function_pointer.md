@@ -30,7 +30,7 @@ int main()
 
 
 ## 関連項目
-- [C++17 例外仕様を型システムの一部にする](exception_spec_be_part_of_the_type_system.md.nolink)
+- [C++17 例外仕様を型システムの一部にする](exception_spec_be_part_of_the_type_system.md)
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
 - [C++14 ジェネリックラムダ](/lang/cpp14/generic_lambdas.md)
 
