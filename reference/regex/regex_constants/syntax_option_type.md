@@ -8,6 +8,7 @@
 namespace std {
 namespace regex_constants {
   using syntax_option_type = implementation-defined;
+
   constexpr syntax_option_type icase = unspecified;
   constexpr syntax_option_type nosubs = unspecified;
   constexpr syntax_option_type optimize = unspecified;
@@ -18,6 +19,7 @@ namespace regex_constants {
   constexpr syntax_option_type awk = unspecified;
   constexpr syntax_option_type grep = unspecified;
   constexpr syntax_option_type egrep = unspecified;
+  constexpr syntax_option_type multiline = unspecified; // C++17
 }}
 ```
 * unspecified[italic]
@@ -38,6 +40,7 @@ namespace regex_constants {
 | `awk`        | POSIXユーティリティのawkと同じ構文を使用する | C++11 |
 | `grep`       | POSIXユーティリティのgrepと同じ構文を使用する | C++11 |
 | `egrep`      | POSIXユーティリティのgrepに`-E`オプションを指定した場合と同じ構文を使用する | C++11 |
+| `multiline`  | 複数行モードを有効にする。このオプションはECMAScript構文でのみ使用できる。このオプションを有効にした場合、行頭マッチの`^`が先頭行の行頭にマッチし、行末マッチの`$`が最終行の行末にマッチするようになる | C++17 |
 
 
 ## 備考
@@ -61,4 +64,6 @@ namespace regex_constants {
 - [LWG Issue 2053. Errors in regex bitmask types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2053)
     - 定数定義に不要な`static`が付いていたため、C++14で削除
 - [LWG Issue 2330. regex("meow", regex::icase) is technically forbidden but should be permitted](http://cplusplus.github.io/LWG/lwg-defects.html#2330)
-	- [`regex`](../basic_regex.md)`("meow", regex::icase)` のような指定を許可する
+    - [`regex`](../basic_regex.md)`("meow", regex::icase)` のような指定を許可する
+- [LWG Issue 2503. `multiline` option should be added to `syntax_option_type`](https://wg21.cmeerw.net/lwg/issue2503)
+    - C++17で`multiline`オプションを追加
