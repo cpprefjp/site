@@ -26,7 +26,7 @@
 1. サフィックス: `[flFL]+`
     * `f`, `F`, `l`, `L` のいずれか (任意)
 
-`0xSIGpEXP` は $(\mathrm{SIG})_{16} \times 2^{(\mathrm{EXP})_{10}}$ である。
+`0xSIGpEXP` は $(\text{SIG})\_{16} \times 2^{(\text{EXP})\_{10}}$ である。
 たとえば `0xABCp-3` は十進数で $(10 \times 16^2 + 11 \times 16 + 12) \times 2^{-3} = 343.5$ である。
 
 十六進浮動小数点数リテラルには [桁区切り文字](/lang/cpp14/digit_separators.md)を使用できる。
