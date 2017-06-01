@@ -9,7 +9,7 @@
 
 ## 仕様
 
-名前空間に属性を付加する場合`[[namespace]]`の直後に属性を記述する。列挙型の場合`[[enum]]`の列挙子の直後に属性を記述する。
+名前空間に属性を付加する場合`namespace`の直後に属性を記述する。列挙型の場合`enum`/`enum class`の列挙子の直後に属性を記述する。
 
 ## 例
 ```cpp
@@ -62,4 +62,5 @@ namespace [[deprecated]] bar {
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 
 ## 参照
-- [N4266 Attributes for namespaces and enumerators.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4266.html)
+- [N4196 Attributes for namespaces and enumerators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4196.html)
+- [N4266 Attributes for namespaces and enumerators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4266.html)
