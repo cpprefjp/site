@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float fdim(float x, float y);
-
   double fdim(double x, double y);
-
   long double fdim(long double x, long double y);
 
   Promoted fdim(Arithmetic1 x, Arithmetic2 y);
+
+  float fdimf(float x, float y);                   // C++17 から
+  long double fdiml(long double x, long double y); // C++17 から
 }
 ```
 * Promoted[italic]

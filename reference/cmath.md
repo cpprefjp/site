@@ -362,4 +362,5 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 
 ## 参照
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
-
+- [P00175R0 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r0.html)
+    - C++17 から`f`、`l`サフィックス付きのC関数を導入

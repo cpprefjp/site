@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float log10(float x);
-
   double log10(double x);
-
   long double log10(long double x);
 
-  double log10(Integral x);   // C++11
+  double log10(Integral x);          // C++11 から
+
+  float log10f(float x);             // C++17 から
+  long double log10l(long double x); // C++17 から
 }
 ```
 * Integral[italic]

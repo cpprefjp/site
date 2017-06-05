@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float trunc(float x);
-
   double trunc(double x);
-
   long double trunc(long double x);
 
-  double trunc(Integral x);			// C++11 から
+  double trunc(Integral x);
+
+  float truncf(float x);             // C++17 から
+  long double truncl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

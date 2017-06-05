@@ -8,12 +8,13 @@
 ```cpp
 namespace std {
   float cbrt(float x);
-
   double cbrt(double x);
-
   long double cbrt(long double x);
 
   double cbrt(Integral x);
+
+  float cbrtf(float x);             // C++17 から
+  long double cbrtl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

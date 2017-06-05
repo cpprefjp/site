@@ -10,10 +10,10 @@ namespace std {
   double nexttoward(double x, long double y);
   long double nexttoward(long double x, long double y);
 
-  float nexttowardf(float x, long double y);
-  long double nexttowardl(long double x, long double y);
-
   Promoted nexttoward(Integral x, long double y);
+
+  float nexttowardf(float x, long double y);             // C++17 から
+  long double nexttowardl(long double x, long double y); // C++17 から
 }
 ```
 * Integral[italic]

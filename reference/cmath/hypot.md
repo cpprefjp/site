@@ -8,12 +8,13 @@
 ```cpp
 namespace std {
   float hypot(float x, float y);
-
   double hypot(double x, double y);
-
   long double hypot(long double x, long double y);
 
   Promoted hypot(Arithmetic1 x, Arithmetic2 y);
+
+  float hypotf(float x, float y);                   // C++17 から
+  long double hypotl(long double x, long double y); // C++17 から
 }
 ```
 * Promoted[italic]

@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   double remquo(double x, double y, int* quo);
-
   float remquo(float x, float y, int* quo);
-
   long double remquo(long double x, long double y, int* quo);
 
   Integral remquo(Integral x, Integral y, int* quo);
+
+  float remquof(float x, float y, int* quo);                   // C++17 から
+  long double remquol(long double x, long double y, int* quo); // C++17 から
 }
 ```
 * Integral[italic]

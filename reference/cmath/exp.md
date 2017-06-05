@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float exp(float x);
-
   double exp(double x);
-
   long double exp(long double x);
 
-  double exp(Integral x);   // C++11
+  double exp(Integral x);          // C++11 から
+
+  float expf(float x);             // C++17 から
+  long double expl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

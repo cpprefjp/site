@@ -10,10 +10,10 @@ namespace std {
   double nextafter(double x, double y);
   long double nextafter(long double x, long double y);
 
-  float nextafterf(float x, float y);
-  long double nextafterl(long double x, long double y);
-
   Promoted nextafter(Arithmetic1 x, Arithmetic2 y);
+
+  float nextafterf(float x, float y);                   // C++17 から
+  long double nextafterl(long double x, long double y); // C++17 から
 }
 ```
 * Arithmetic1[italic]

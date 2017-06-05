@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   long lrint(float x);
-
   long lrint(double x);
-
   long lrint(long double x);
 
   long lrint(Integral x);
+
+  long int lrintf(float x);       // C++17 から
+  long int lrintl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

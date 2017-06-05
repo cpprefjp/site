@@ -7,16 +7,17 @@
 ```cpp
 namespace std {
   float pow(float x, float y);
-
   double pow(double x, double y);
-
   long double pow(long double x, long double y);
 
-  Promoted pow(Arithmetic1 x, Arithmetic2 y);   // C++11 から
+  float pow(float x, int y);                      // C++03 まで
+  double pow(double x, int y);                    // C++03 まで
+  long double pow(long double x, int y);          // C++03 まで
 
-  float pow(float x, int y);                    // C++03 まで
-  double pow(double x, int y);                  // C++03 まで
-  long double pow(long double x, int y);        // C++03 まで
+  Promoted pow(Arithmetic1 x, Arithmetic2 y);     // C++11 から
+
+  float powf(float x, float y);                   // C++17 から
+  long double powl(long double x, long double y); // C++17 から
 }
 ```
 * Promoted[italic]

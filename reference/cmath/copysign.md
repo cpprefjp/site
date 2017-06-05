@@ -11,6 +11,9 @@ namespace std {
   long double copysign(long double x, long double y);
 
   Integral copysign(Integral x, Integral y);
+
+  float copysignf(float x, float y);                   // C++17 から
+  long double copysignl(long double x, long double y); // C++17 から
 }
 ```
 * Integral[italic]

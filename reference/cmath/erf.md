@@ -8,12 +8,13 @@
 ```cpp
 namespace std {
   float erf(float x);
-
   double erf(double x);
-
   long double erf(long double x);
 
   double erf(Integral x);
+
+  float erff(float x);             // C++17 から
+  long double erfl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

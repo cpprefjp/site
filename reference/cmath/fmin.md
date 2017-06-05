@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float fmin(float x, float y);
-
   double fmin(double x, double y);
-
   long double fmin(long double x, long double y);
 
   Promoted fmin(Arithmetic1 x, Arithmetic2 y);
+
+  float fminf(float x, float y);                   // C++17 から
+  long double fminl(long double x, long double y); // C++17 から
 }
 ```
 * Promoted[italic]

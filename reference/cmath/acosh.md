@@ -8,12 +8,13 @@
 ```cpp
 namespace std {
   float acosh(float x);
-
   double acosh(double x);
-
   long double acosh(long double x);
 
-  double acosh(Integral x);
+  double acosh(Integral x);          // C++11 から
+
+  float acoshf(float x);             // C++17 から
+  long double acoshl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

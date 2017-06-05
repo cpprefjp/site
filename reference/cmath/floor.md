@@ -6,12 +6,13 @@
 ```cpp
 namespace std {
   float floor(float x);
-
   double floor(double x);
-
   long double floor(long double x);
 
-  double floor(Integral x);			// C++11 から
+  double floor(Integral x);          // C++11 から
+
+  float floorf(float x);             // C++17 から
+  long double floorl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

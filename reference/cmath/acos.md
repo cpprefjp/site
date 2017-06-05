@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float acos(float x);
-
   double acos(double x);
-
   long double acos(long double x);
 
-  double acos(Integral x);   // C++11
+  double acos(Integral x);          // C++11 から
+
+  float acosf(float x);             // C++17 から
+  long double acosl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

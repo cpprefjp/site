@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   long long llround(float x);
-
   long long llround(double x);
-
   long long llround(long double x);
 
   long long llround(Integral x);
+
+  long long int llroundf(float x);       // C++17 から
+  long long int llroundl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

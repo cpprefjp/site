@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float fabs(float x);
-
   double fabs(double x);
-
   long double fabs(long double x);
 
-  double fabs(Integral x);   // C++11
+  double fabs(Integral x);          // C++11 から
+
+  float fabsf(float x);             // C++17 から
+  long double fabsl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float nearbyint(float x);
-
   double nearbyint(double x);
-
   long double nearbyint(long double x);
 
   double nearbyint(Integral x);
+
+  float nearbyintf(float x);             // C++17 から
+  long double nearbyintl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

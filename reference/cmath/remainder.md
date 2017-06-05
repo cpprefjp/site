@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   double remainder(double x, double y);
-
   float remainder(float x, float y);
-
   long double remainder(long double x, long double y);
 
   Integral remainder(Integral x, Integral y);
+
+  float remainderf(float x, float y);                   // C++17 から
+  long double remainderl(long double x, long double y); // C++17 から
 }
 ```
 * Integral[italic]

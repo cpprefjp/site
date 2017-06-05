@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float tan(float x);
-
   double tan(double x);
-
   long double tan(long double x);
 
-  double tan(Integral x);   // C++11
+  double tan(Integral x);          // C++11 から
+
+  float tanf(float x);             // C++17 から
+  long double tanl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

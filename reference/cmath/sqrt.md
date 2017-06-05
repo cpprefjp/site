@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float sqrt(float x);
-
   double sqrt(double x);
-
   long double sqrt(long double x);
 
   double sqrt(Integral x);          // C++11 から
+
+  float sqrtf(float x);             // C++17 から
+  long double sqrtl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

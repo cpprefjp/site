@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float cosh(float x);
-
   double cosh(double x);
-
   long double cosh(long double x);
 
-  double cosh(Integral x);   // C++11
+  double cosh(Integral x);          // C++11 から
+
+  float coshf(float x);             // C++17 から
+  long double coshl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float fmax(float x, float y);
-
   double fmax(double x, double y);
-
   long double fmax(long double x, long double y);
 
   Promoted fmax(Arithmetic1 x, Arithmetic2 y);
+
+  float fmaxf(float x, float y);                   // C++17 から
+  long double fmaxl(long double x, long double y); // C++17 から
 }
 ```
 * Promoted[italic]

@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float asin(float x);
-
   double asin(double x);
-
   long double asin(long double x);
 
-  double asin(Integral x);   // C++11
+  double asin(Integral x);          // C++11
+
+  float asinf(float x);             // C++17 から
+  long double asinl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

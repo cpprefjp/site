@@ -7,12 +7,14 @@
 ```cpp
 namespace std {
   float abs(float x);
-
   double abs(double x);
-
   long double abs(long double x);
 
-  double abs(Integral x);   // C++11
+  double abs(Integral x);     // C++11 から C++14 まで
+
+  int abs(int x);             // C++17 から
+  long abs(long int x);       // C++17 から
+  long long abs(long long x); // C++17 から
 }
 ```
 * Integral[italic]

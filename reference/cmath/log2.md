@@ -8,12 +8,13 @@
 ```cpp
 namespace std {
   float log2(float x);
-
   double log2(double x);
-
   long double log2(long double x);
 
   double log2(Integral x);
+
+  float log2f(float x);             // C++17 から
+  long double log2l(long double x); // C++17 から
 }
 ```
 * Integral[italic]

@@ -8,12 +8,13 @@
 ```cpp
 namespace std {
   float tgamma(float x);
-
   double tgamma(double x);
-
   long double tgamma(long double x);
 
   double tgamma(Integral x);
+
+  float tgammaf(float x);             // C++17 から
+  long double tgammal(long double x); // C++17 から
 }
 ```
 * Integral[italic]

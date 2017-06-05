@@ -8,12 +8,13 @@
 ```cpp
 namespace std {
   float asinh(float x);
-
   double asinh(double x);
-
   long double asinh(long double x);
 
-  double asinh(Integral x);
+  double asinh(Integral x);          // C++11 から
+
+  float asinhf(float x);             // C++17 から
+  long double asinhl(long double x); // C++17 から
 }
 ```
 * Integral[italic]

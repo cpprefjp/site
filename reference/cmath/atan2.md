@@ -7,12 +7,13 @@
 ```cpp
 namespace std {
   float atan2(float y, float x);
-
   double atan2(double y, double x);
-
   long double atan2(long double y, long double x);
 
-  Promoted atan2(Arithmetic1 y, Arithmetic2 x);   // C++11
+  Promoted atan2(Arithmetic1 y, Arithmetic2 x);     // C++11 から
+
+  float atan2f(float y, float x);                   // C++17 から
+  long double atan2l(long double y, long double x); // C++17 から
 }
 ```
 * Promoted[italic]

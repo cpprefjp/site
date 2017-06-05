@@ -6,12 +6,13 @@
 ```cpp
 namespace std {
   float ceil(float x);
-
   double ceil(double x);
-
   long double ceil(long double x);
 
-  double ceil(Integral x);			// C++11 から
+  double ceil(Integral x);          // C++11 から
+
+  float ceilf(float x);             // C++17 から
+  long double ceill(long double x); // C++17 から
 }
 ```
 * Integral[italic]
