@@ -21,6 +21,57 @@
 * 列挙型の宣言
 * 列挙子
 
+### クラス宣言での指定
+クラス宣言では、`class`／`struct`キーワードとクラス名の間に`[[maybe_unused]]`属性を指定する。
+
+```cpp
+class [[maybe_unused]] X;
+```
+
+### 型の別名宣言での指定
+`using`キーワードによる型の別名宣言の場合は、`=`の前に`[[maybe_unused]]`属性を指定する。
+
+```cpp
+using integer [[maybe_unused]] = int;
+```
+
+`typedef`キーワードによる型の別名宣言の場合は、`typedef`キーワードの前に`[[maybe_unused]]`属性を指定する。
+
+```cpp
+[[maybe_unused]] typedef int integer;
+```
+
+### 変数宣言での指定
+変数宣言では、先頭に`[[maybe_unused]]`属性を指定する。これは、型、CV修飾、記憶域指定よりも前である。
+
+```cpp
+[[maybe_unused]] int x = 0;
+```
+
+### 関数宣言での指定
+関数宣言では、先頭に`[[maybe_unused]]`属性を指定する。これは、戻り値の型、リンケージ指定よりも前である。ただし、関数テンプレートの場合には、テンプレートパラメータ宣言の後ろに`[[maybe_unused]]`属性を指定する。
+
+```cpp
+[[maybe_unused]] void f();
+
+template <class T>
+[[maybe_unused]]
+inline void f();
+```
+
+### 列挙型と列挙子での指定
+列挙型では、クラスと同様に`enum`／`enum class`と型名の間に`[[maybe_unused]]`属性を指定する。
+
+列挙子では、列挙子の識別子とカンマの間に`[[maybe_unused]]`属性を指定する。
+
+```cpp
+enum class [[maybe_unused]] E {
+  A [[maybe_unused]],
+  B
+};
+```
+
+
 ## 例
 ```cpp
 #include <cassert>
