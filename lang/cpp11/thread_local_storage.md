@@ -34,7 +34,7 @@ t2.join();
 
 ## 仕様
 - `thread_local`キーワードを記憶域として指定された変数は、「スレッド記憶域の有効期間 (thread storage duration)」を持つ。この記憶域を持つ変数は、スレッドの開始から終了までの有効期間を持つ。
-- `thread_local`キーワードは、`static`、`extern`、`register`といった他の記憶域キーワードと同時には使用できない。
+- `thread_local`キーワードは、`static`と`extern`を除き、`register`といった他の記憶域キーワードと同時には使用できない。
 - スレッド終了時には、スレッド記憶域を持つ変数のデストラクタが呼び出される。
 - スレッド記憶域を持つ変数のデストラクタ、もしくは名前空間スコープを持つスレッド記憶域変数のコンストラクタで例外が送出された場合、スレッドを初期化する関数の関数tryブロックでは、その例外を捕捉できない。
 - プログラム終了時の動作は、[`std::exit()`](/reference/cstdlib/exit.md)関数と[`std::quick_exit()`](/reference/cstdlib/quick_exit.md)関数のページを参照。
