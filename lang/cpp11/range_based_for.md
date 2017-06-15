@@ -80,7 +80,7 @@ C++03のfor文と異なりセミコロンではなくコロンで区切ること
 従って概要で挙げた例は以下のように展開される：
 
 ```cpp
-for (auto& e : vec) {
+for (const auto& e : vec) {
   std::cout << e << std::endl;
 }
 ```
@@ -90,7 +90,7 @@ for (auto& e : vec) {
   auto && __range = vec;
 
   for (auto __begin = begin(__range), __end = end(__range); __begin != __end; ++__begin) {
-    auto& e = *__begin;
+    const auto& e = *__begin;
 
     std::cout << e << std::endl;
   }
