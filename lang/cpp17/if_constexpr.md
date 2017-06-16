@@ -36,7 +36,7 @@ struct X {
 };
 ```
 
-また条件付きコンパイルではないので、例えばVisual C++の独自拡張機能である[`__if_exists`](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)は以下のような書き方が可能であるが、`if constexpr`文でこれを再現することはできない。
+`if constexpr`文はスコープを作るので、例えばVisual C++の独自拡張機能である[`__if_exists`](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)は以下のような書き方が可能であるが、`if constexpr`文でこれを再現することはできない。
 
 ```cpp
 struct A {
@@ -49,6 +49,20 @@ int main() {
   __if_not_exists(A::get) {
     "not found";
   }
+}
+```
+
+同様にD言語の`static if`とは違いスコープを作るので、D言語で合法な次のようなことは`if constexpr`文で再現できない。
+
+```D
+const int i = 3;
+class C {
+  const int k = 5;
+
+  static if (i == 3) // D言語ではok
+    int x;
+  else
+    long x;
 }
 ```
 
