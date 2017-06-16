@@ -29,7 +29,7 @@ if (status_code c = bar(); c != SUCCESS) {
 }
 //この時点で c は無効
 
-switch (Foo gadget(args); auto s = gadget.status()) {
+switch (Foo gadget{args}; auto s = gadget.status()) {
 case OK:
   //正常
   gadget.zip();
