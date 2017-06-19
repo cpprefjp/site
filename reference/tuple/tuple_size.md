@@ -39,6 +39,10 @@ namespace std {
 
     `std::tuple`の要素数を取得できるようにするための部分特殊化。
 
+- 型`T`がタプルと見なせない型であった場合、
+    - C++11 : 仕様で明確に規定されてはいないが、直接的にコンパイルエラーとなる
+    - C++17 : メンバ`value`が定義されない (SFINAEと組み合わせて扱える)
+
 
 ## 例
 
@@ -73,3 +77,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2770. `tuple_size<const T>` specialization is not SFINAE compatible and breaks decomposition declarations](https://wg21.cmeerw.net/lwg/issue2770)
+    - C++17で[構造化束縛](/lang/cpp17/structured_bindings.md)機能が導入されたことに合わせて、`tuple_size`がSFINAEと組み合わせて使用できるようになった
