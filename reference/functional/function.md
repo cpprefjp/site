@@ -19,7 +19,7 @@ namespace std {
 このクラスは、以下のように使用する：
 
 ```cpp
-int add(int x) { return x; }
+int add(int x) { return x + 1; }
 
 // 関数を変数に保持する
 function<int(int)> f = add;
