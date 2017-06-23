@@ -95,8 +95,13 @@ a
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
+
+## 関連項目
+- [`get - std::tuple`](/reference/tuple/tuple/get.md)
+- [`get - std::array`](/reference/array/get.md)
+
+
 ## 参照
-- [`get - <tuple>`](/reference/tuple/tuple/get.md)
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
 - [LWG Issue 2485. `get()` should be overloaded for `const tuple&&`](https://wg21.cmeerw.net/lwg/issue2485)

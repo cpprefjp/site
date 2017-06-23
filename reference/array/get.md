@@ -124,6 +124,11 @@ int main()
 GCC 4.7の`std::get()`は、`I`の境界チェックがない。
 
 
+## 関連項目
+- [`get - std::tuple`](/reference/tuple/tuple/get.md)
+- [`get - std::pair`](/reference/utility/pair/get.md)
+
+
 ## 参照
 - [N3470 Constexpr Library Additions: containers, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3470.html)
 - [LWG Issue 2485. `get()` should be overloaded for `const tuple&&`](https://wg21.cmeerw.net/lwg/issue2485)

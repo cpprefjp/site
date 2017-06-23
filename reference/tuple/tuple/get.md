@@ -155,6 +155,11 @@ Hello
 - [Visual C++](/implementation.md#visual_cpp) ??
 
 
+## 関連項目
+- [`get - std::pair`](/reference/utility/pair/get.md)
+- [`get - std::array`](/reference/array/get.md)
+
+
 ## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
