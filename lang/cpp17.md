@@ -42,7 +42,7 @@ C++17では以下のTSが採用された：
 |----------|------|
 | [`if`文と`switch`文の条件式と初期化を分離](cpp17/selection_statements_with_initializer.md) | `if (init; condition)`のように初期化と条件式を分けて記述できるようにする |
 | [`[[fallthrough]]`属性](cpp17/fallthrough.md)                    | フォールスルー時の警告を抑制する |
-| `if constexpr`文                         | `if constexpr(cond)`とすることで、その`if`文はコンパイル時に処理される |
+| [`if constexpr`文](cpp17/if_constexpr.md)     | `if constexpr(cond)`とすることで、その`if`文はコンパイル時に処理される |
 | [範囲 `for` ループの制限緩和](cpp17/generalizing_the_range-based_for_loop.md) | 範囲 `for` 文の `begin()` と `end()` が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする |
 
 
