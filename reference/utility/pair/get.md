@@ -29,6 +29,10 @@ namespace std {
   template <size_t I, class T1, class T2>
   constexpr const tuple_element_t<I, pair<T1, T2>>&
     get(const pair<T1, T2>&) noexcept;                 // (3) C++14
+
+  template<size_t I, class T1, class T2>
+  constexpr const tuple_element_t<I, pair<T1, T2>>&&
+    get(const pair<T1, T2>&& p) noexcept;              // (4) C++17
 }
 ```
 * tuple_element[link tuple_element.md]
@@ -95,4 +99,4 @@ a
 - [`get - <tuple>`](/reference/tuple/tuple/get.md)
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
-
+- [LWG Issue 2485. `get()` should be overloaded for `const tuple&&`](https://wg21.cmeerw.net/lwg/issue2485)

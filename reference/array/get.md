@@ -7,28 +7,32 @@
 ```cpp
 namespace std {
   template <size_t I, class T, size_t N>
-  T& get(array<T, N>& x) noexcept;                       // (1) C++11
+  T& get(array<T, N>& x) noexcept;                         // (1) C++11
 
   template <size_t I, class T, size_t N>
-  constexpr T& get(array<T, N>& x) noexcept;             // (1) C++14
+  constexpr T& get(array<T, N>& x) noexcept;               // (1) C++14
 
   template <size_t I, class T, size_t N>
-  T&& get(array<T, N>&& x) noexcept;                     // (2) C++11
+  T&& get(array<T, N>&& x) noexcept;                       // (2) C++11
 
   template <size_t I, class T, size_t N>
-  T&& get(array<T, N>&& x) noexcept;                     // (2) C++14
+  T&& get(array<T, N>&& x) noexcept;                       // (2) C++14
 
   template <size_t I, class T, size_t N>
-  const T& get(const array<T, N>& x) noexcept;           // (3) C++11
+  const T& get(const array<T, N>& x) noexcept;             // (3) C++11
 
   template <size_t I, class T, size_t N>
-  constexpr const T& get(const array<T, N>& x) noexcept; // (3) C++14
+  constexpr const T& get(const array<T, N>& x) noexcept;   // (3) C++14
+
+  template <size_t I, class T, size_t N>
+  constexpr const T&& get(const array<T, N>&& x) noexcept; // (4) C++17
 }
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 タプルと見なせる型から指定した位置の要素を取得する。
+
 `<array>`ヘッダでは、`array`クラスに関するオーバーロードを定義する。
 
 
@@ -53,6 +57,11 @@ namespace std {
 #include <cassert>
 #include <array>
 #include <utility>
+
+const std::array<int, 3> make()
+{
+  return {3, 1, 4};
+}
 
 int main()
 {
@@ -83,6 +92,12 @@ int main()
     assert(front == 3);
     assert(back == 4);
   }
+
+  // const右辺値参照版
+  {
+    int front = std::get<0>(make());
+    assert(front == 3);
+  }
 }
 ```
 * std::get[color ff0000]
@@ -111,4 +126,4 @@ GCC 4.7の`std::get()`は、`I`の境界チェックがない。
 
 ## 参照
 - [N3470 Constexpr Library Additions: containers, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3470.html)
-
+- [LWG Issue 2485. `get()` should be overloaded for `const tuple&&`](https://wg21.cmeerw.net/lwg/issue2485)
