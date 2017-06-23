@@ -47,7 +47,7 @@ namespace std {
 
 
 ## 要件
-テンプレートパラメータIが、[`pair`](/reference/utility/pair.md)の要素数よりも小さいこと。
+テンプレートパラメータ`I`が、[`pair`](/reference/utility/pair.md)の要素数よりも小さいこと。
 
 この要件を満たさない場合はコンパイルエラーとなる。
 
