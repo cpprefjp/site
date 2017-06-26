@@ -28,8 +28,8 @@ void reserve(size_type n);
 
 ## 備考
 - C++11 : リハッシュされずに引数 `n` で指定された要素数が格納できるように意図されているはずが、 `n - 1` しか格納することができない場合がある（少なくとも、事後条件を満たすだけでは確実に `n` 要素を格納できる保証はない）。
-    - この問題については、Issue 「[2156. Unordered containers' reserve(n) reserves for n-1 elements](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2156)」を参照。
-- C++17 : リハッシュされずに引数 `n` で指定された要素数が格納できるようになる。
+    - この問題については、Issue 「[2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)」を参照。
+- C++17 : リハッシュされずに引数 `n` で指定された要素数以上が格納できるようになる。
 - リハッシュされる条件については、[`insert`](insert.md)`()`、[`emplace`](emplace.md)`()`、[`emplace_hint`](emplace_hint.md)`()` も参照。
 - リハッシュが行われた場合、
     - 全てのイテレータが無効になる。
