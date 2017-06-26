@@ -26,7 +26,8 @@ get() != nullptr
 
 
 ## 備考
-型`T`が`void`の場合、この関数が定義されるかどうかは未規定。定義される場合、その戻り値は未規定。
+- C++11 : 型`T`が (CV修飾された) `void`の場合、この関数が定義されるかどうかは未規定。定義される場合、その戻り値は未規定
+- C++17 : 型`T`が (CV修飾された) `void`の場合、この関数が定義されるかどうかは未規定。定義される場合、その戻り値は未規定
 
 
 ## 例
@@ -57,3 +58,8 @@ int main()
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
+
+
+## 参照
+- [LWG Issue 2572. The remarks for `shared_ptr::operator*` should apply to cv-qualified void as well](https://wg21.cmeerw.net/lwg/issue2572)
+    - C++17から、型`T`がCV修飾された`void`に対応した
