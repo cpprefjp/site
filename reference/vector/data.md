@@ -10,15 +10,18 @@ T* data() noexcept;
 const T* data() const noexcept;
 ```
 
-## 効果
+## 概要
 配列の先頭へのポインタを返す。
 
 `vector`が空の場合であっても、この関数の呼び出し自体は問題なく行える。ただし、その戻り値については規定されていないため、間接参照を行うと未定義動作になる。
 
+
 ## 戻り値
 `[data(), data() + size())` が適正な範囲になるようなポインタ。
 
-空ではない`vector`に対しては`data() == &front()`となる。
+- C++11 : 空ではない`vector`に対しては`data() == &`[`front()`](front.md)となる
+- C++17 : 空ではない`vector`に対しては`data() ==` [`addressof`](/reference/memory/addressof.md)`(`[`front()`](front.md)`)`となる
+
 
 ## 計算量
 定数時間
@@ -66,4 +69,5 @@ gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が�
 
 
 ## 参照
-- [LWG Issue 464. Suggestion for new member functions in standard containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#464)
+- [LWG Issue 464. Suggestion for new member functions in standard containers](https://wg21.cmeerw.net/lwg/issue464)
+- [LWG Issue 2596. `vector::data()` should use addressof](https://wg21.cmeerw.net/lwg/issue2596)
