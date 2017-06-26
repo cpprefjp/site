@@ -30,7 +30,7 @@ pm->lock();
 
 
 ## 例外
-この関数は、`pm->lock()` 関数内で投げられうるあらゆる例外を投げる可能性がある。 
+この関数は、`pm->lock()` 関数内で投げられうるあらゆる例外を投げる可能性がある。
 
 そのほかに、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
