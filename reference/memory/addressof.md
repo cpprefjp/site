@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T>
-  T* addressof(T& r) noexcept;
+  T* addressof(T& r) noexcept;           // C++11
+
+  template <class T>
+  constexpr T* addressof(T& r) noexcept; // C++17
 }
 ```
 
@@ -74,4 +77,4 @@ int main()
 
 ## 参照
 - [`boost::addressof()` - Boost C++ Libraries](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#addressof)
-
+- [LWG Issue 2296. `std::addressof` should be `constexpr`](https://wg21.cmeerw.net/lwg/issue2296)
