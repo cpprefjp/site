@@ -74,8 +74,6 @@ namespace std {
 | `atomic_intptr_t`  | [`intptr_t`](/reference/cstdint/intptr_t.md)   | C++11 |
 | `atomic_uintptr_t` | [`uintptr_t`](/reference/cstdint/uintptr_t.md) | C++11 |
 
-`void*`に対する特殊化の別名として、`atomic_address`型が提供される。
-
 
 ### 共通メンバ関数
 | 名前 | 説明 |
