@@ -170,6 +170,10 @@
 | [`result_of`](type_traits/result_of.md) | 関数の戻り値の型を取得する (class template) | C++11 |
 
 
+## 備考
+- このヘッダで定義されるテンプレートは、ユーザーが特殊化を追加することを禁止している
+
+
 ## バージョン
 ### 言語
 - C++11
@@ -179,4 +183,5 @@
 - [N1424 A Proposal to add Type Traits to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1424.htm)
 - [Boost Type Traits Library](http://www.boost.org/doc/libs/release/libs/type_traits/doc/html/index.html)
 - [型特性 - Boost逆引きリファレンス](https://boostjp.github.io/tips/type_traits.html)
-
+- [LWG Issue 2581. Specialization of `<type_traits>` variable templates should be prohibited](https://wg21.cmeerw.net/lwg/issue2581)
+    - C++14までは`<type_traits>`で定義されるクラステンプレートの特殊化を禁止していたが、C++17で定義される変数テンプレートも特殊化の禁止対象とされた
