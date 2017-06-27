@@ -7,10 +7,13 @@
 ```cpp
 namespace std {
   template <class T>
-  T* addressof(T& r) noexcept;           // C++11
+  T* addressof(T& r) noexcept;                 // (1) C++11
 
   template <class T>
-  constexpr T* addressof(T& r) noexcept; // C++17
+  constexpr T* addressof(T& r) noexcept;       // (1) C++17
+
+  template <class T>
+  const T* addressof(const T&& elem) = delete; // (2) C++17
 }
 ```
 
@@ -28,6 +31,10 @@ namespace std {
 
 ## 例外
 投げない
+
+
+## 備考
+- (2) : このオーバーロードは、`addressof<const int>(0)`のような明示的型指定によって一時オブジェクトのアドレス取得ができてしまう問題を回避するためのもの
 
 
 ## 例
@@ -78,3 +85,4 @@ int main()
 ## 参照
 - [`boost::addressof()` - Boost C++ Libraries](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#addressof)
 - [LWG Issue 2296. `std::addressof` should be `constexpr`](https://wg21.cmeerw.net/lwg/issue2296)
+- [LWG Issue 2598. `addressof` works on temporaries](https://wg21.cmeerw.net/lwg/issue2598)
