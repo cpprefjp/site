@@ -17,49 +17,62 @@ namespace std {
 ## 概要
 `atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラステンプレートを使用する場合、型`T`は[trivially copyable](/reference/type_traits/is_trivially_copyable.md)である必要がある。特殊化された整数型および`bool`型には、それぞれ`atomic_T`という型の別名が提供される。
 
-| 名前付きアトミック型 | テンプレート引数となる整数型 |
-|--------------------------------|--------------------------------------------|
-| `atomic_char`     | `char` |
-| `atomic_schar`    | `signed char` |
-| `atomic_uchar`    | `unsigned char` |
-| `atomic_short`    | `short` |
-| `atomic_ushort`   | `unsigned short` |
-| `atomic_int`      | `int` |
-| `atomic_long`     | `long` |
-| `atomic_ulong`    | `unsigned long` |
-| `atomic_llong`    | [`long long`](/lang/cpp11/long_long_type.md) |
-| `atomic_ullong`   | [`unsigned long long`](/lang/cpp11/long_long_type.md) |
-| `atomic_char16_t` | [`char16_t`](/lang/cpp11/char16_32.md) |
-| `atomic_char32_t` | [`char32_t`](/lang/cpp11/char16_32.md) |
-| `atomic_wchar_t`  | `wchar_t` |
-| `atomic_bool`     | `bool` |
+| 名前付きアトミック型 | テンプレート引数となる整数型 | 対応バージョン |
+|-----|-----|-----|
+| `atomic_char`     | `char`           | C++11 |
+| `atomic_schar`    | `signed char`    | C++11 |
+| `atomic_uchar`    | `unsigned char`  | C++11 |
+| `atomic_short`    | `short`          | C++11 |
+| `atomic_ushort`   | `unsigned short` | C++11 |
+| `atomic_int`      | `int`            | C++11 |
+| `atomic_long`     | `long`           | C++11 |
+| `atomic_ulong`    | `unsigned long`  | C++11 |
+| `atomic_llong`    | [`long long`](/lang/cpp11/long_long_type.md) | C++11 |
+| `atomic_ullong`   | [`unsigned long long`](/lang/cpp11/long_long_type.md) | C++11 |
+| `atomic_char16_t` | [`char16_t`](/lang/cpp11/char16_32.md) | C++11 |
+| `atomic_char32_t` | [`char32_t`](/lang/cpp11/char16_32.md) | C++11 |
+| `atomic_wchar_t`  | `wchar_t` | C++11 |
+| `atomic_bool`     | `bool`    | C++11 |
 
 また、[`<cstdint>`](/reference/cstdint.md)で定義される整数型に対する以下の別名も提供される。
 
-| 名前付きアトミック型 | テンプレート引数となる整数型 |
-|------------------------------------|--------------------------------------------|
-| `atomic_int_least8_t`   | [`int_least8_t`](/reference/cstdint/int_least8_t.md) |
-| `atomic_uint_least8_t`  | [`uint_least8_t`](/reference/cstdint/uint_least8_t.md) |
-| `atomic_int_least16_t`  | [`int_least16_t`](/reference/cstdint/int_least16_t.md) |
-| `atomic_uint_least16_t` | [`uint_least16_t`](/reference/cstdint/uint_least16_t.md) |
-| `atomic_int_least32_t`  | [`int_least32_t`](/reference/cstdint/int_least32_t.md) |
-| `atomic_uint_least32_t` | [`uint_least32_t`](/reference/cstdint/uint_least32_t.md) |
-| `atomic_int_least64_t`  | [`int_least64_t`](/reference/cstdint/int_least64_t.md) |
-| `atomic_uint_least64_t` | [`uint_least64_t`](/reference/cstdint/uint_least64_t.md) |
-| `atomic_int_fast8_t`    | [`int_fast8_t`](/reference/cstdint/int_fast8_t.md) |
-| `atomic_uint_fast8_t`   | [`uint_fast8_t`](/reference/cstdint/uint_fast8_t.md) |
-| `atomic_int_fast16_t`   | [`int_fast16_t`](/reference/cstdint/int_fast16_t.md) |
-| `atomic_uint_fast16_t`  | [`uint_fast16_t`](/reference/cstdint/uint_fast16_t.md) |
-| `atomic_int_fast32_t`   | [`int_fast32_t`](/reference/cstdint/int_fast32_t.md) |
-| `atomic_uint_fast32_t`  | [`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md) |
-| `atomic_int_fast64_t`   | [`int_fast64_t`](/reference/cstdint/int_fast64_t.md) |
-| `atomic_uint_fast64_t`  | [`uint_fast64_t`](/reference/cstdint/uint_fast64_t.md) |
-| `atomic_intptr_t`       | [`intptr_t`](/reference/cstdint/intptr_t.md) |
-| `atomic_uintptr_t`      | [`uintptr_t`](/reference/cstdint/uintptr_t.md) |
-| `atomic_size_t`         | [`size_t`](/reference/cstddef/size_t.md) |
-| `atomic_ptrdiff_t`      | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) |
-| `atomic_intmax_t`       | [`intmax_t`](/reference/cstdint/intmax_t.md) |
-| `atomic_uintmax_t`      | [`uintmax_t`](/reference/cstdint/uintmax_t.md) |
+| 名前付きアトミック型 | テンプレート引数となる整数型 | 対応バージョン |
+|-----|-----|-----|
+| `atomic_int_least8_t`   | [`int_least8_t`](/reference/cstdint/int_least8_t.md)     | C++11 |
+| `atomic_uint_least8_t`  | [`uint_least8_t`](/reference/cstdint/uint_least8_t.md)   | C++11 |
+| `atomic_int_least16_t`  | [`int_least16_t`](/reference/cstdint/int_least16_t.md)   | C++11 |
+| `atomic_uint_least16_t` | [`uint_least16_t`](/reference/cstdint/uint_least16_t.md) | C++11 |
+| `atomic_int_least32_t`  | [`int_least32_t`](/reference/cstdint/int_least32_t.md)   | C++11 |
+| `atomic_uint_least32_t` | [`uint_least32_t`](/reference/cstdint/uint_least32_t.md) | C++11 |
+| `atomic_int_least64_t`  | [`int_least64_t`](/reference/cstdint/int_least64_t.md)   | C++11 |
+| `atomic_uint_least64_t` | [`uint_least64_t`](/reference/cstdint/uint_least64_t.md) | C++11 |
+| `atomic_int_fast8_t`    | [`int_fast8_t`](/reference/cstdint/int_fast8_t.md)       | C++11 |
+| `atomic_uint_fast8_t`   | [`uint_fast8_t`](/reference/cstdint/uint_fast8_t.md)     | C++11 |
+| `atomic_int_fast16_t`   | [`int_fast16_t`](/reference/cstdint/int_fast16_t.md)     | C++11 |
+| `atomic_uint_fast16_t`  | [`uint_fast16_t`](/reference/cstdint/uint_fast16_t.md)   | C++11 |
+| `atomic_int_fast32_t`   | [`int_fast32_t`](/reference/cstdint/int_fast32_t.md)     | C++11 |
+| `atomic_uint_fast32_t`  | [`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md)   | C++11 |
+| `atomic_int_fast64_t`   | [`int_fast64_t`](/reference/cstdint/int_fast64_t.md)     | C++11 |
+| `atomic_uint_fast64_t`  | [`uint_fast64_t`](/reference/cstdint/uint_fast64_t.md)   | C++11 |
+| `atomic_size_t`         | [`size_t`](/reference/cstddef/size_t.md)                 | C++11 |
+| `atomic_ptrdiff_t`      | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)           | C++11 |
+| `atomic_intmax_t`       | [`intmax_t`](/reference/cstdint/intmax_t.md)             | C++11 |
+| `atomic_uintmax_t`      | [`uintmax_t`](/reference/cstdint/uintmax_t.md)           | C++11 |
+
+[`<cstdint>`](/reference/cstdint.md)で定義される整数型に対する以下の別名は、元の整数型が定義される場合のみ定義される。
+
+| 名前付きアトミック型 | テンプレート引数となる整数型 | 対応バージョン |
+|-----|-----|-----|
+| `atomic_int8_t`    | [`int8_t`](/reference/cstdint/int8_t.md)       | C++17 |
+| `atomic_uint8_t`   | [`uint8_t`](/reference/cstdint/uint8_t.md)     | C++17 |
+| `atomic_int16_t`   | [`int16_t`](/reference/cstdint/int16_t.md)     | C++17 |
+| `atomic_uint16_t`  | [`uint16_t`](/reference/cstdint/uint16_t.md)   | C++17 |
+| `atomic_int32_t`   | [`int32_t`](/reference/cstdint/int32_t.md)     | C++17 |
+| `atomic_uint32_t`  | [`uint32_t`](/reference/cstdint/uint32_t.md)   | C++17 |
+| `atomic_int64_t`   | [`int64_t`](/reference/cstdint/int64_t.md)     | C++17 |
+| `atomic_uint64_t`  | [`uint64_t`](/reference/cstdint/uint64_t.md)   | C++17 |
+| `atomic_intptr_t`  | [`intptr_t`](/reference/cstdint/intptr_t.md)   | C++11 |
+| `atomic_uintptr_t` | [`uintptr_t`](/reference/cstdint/uintptr_t.md) | C++11 |
 
 `void*`に対する特殊化の別名として、`atomic_address`型が提供される。
 
@@ -202,4 +215,4 @@ int main()
 - [N2145 C++ Atomic Types and Operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2145.html)
 - [N2547 Allow atomics use in signal handlers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2547.htm)
 - [アトミックオブジェクトを含むクラスのコピーとムーブ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20130110/1357808183)
-
+- [LWG Issue 2441. Exact-width atomic `typedef`s should be provided](https://wg21.cmeerw.net/lwg/issue2441)
