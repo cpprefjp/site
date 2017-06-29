@@ -73,7 +73,7 @@ C++17では以下のTSが採用された：
 |------------------------|------|
 | [`static_assert`のメッセージ省略を許可](cpp17/extending_static_assert.md) | 第2引数だった診断メッセージの省略を許可する |
 | `constexpr`ラムダ                     | ラムダ式の関数オブジェクトが定数式の文脈で使用された場合に、それがコンパイル時に評価されるようにする |
-| `if constexpr`文                      | `if constexpr(cond)`とすることで、その`if`文はコンパイル時に処理される |
+| [`if constexpr`文](cpp17/if_constexpr.md) | `if constexpr(cond)`とすることで、その`if`文はコンパイル時に処理される |
 
 
 ### 名前空間
