@@ -46,6 +46,7 @@ int main()
 }
 ```
 * is_modulo[color ff0000]
+* max()[link max.md]
 
 ### 出力例
 ```
