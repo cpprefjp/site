@@ -16,6 +16,10 @@ T fetch_xor(T operand, memory_order order = memory_order_seq_cst) noexcept;
 XOR演算を行う
 
 
+## 要件
+- C++17 : 型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
+
+
 ## 効果
 `order`で指定されたメモリオーダーにしたがって、現在の値に`operand`をXORした値でアトミックに置き換える
 
@@ -78,5 +82,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)

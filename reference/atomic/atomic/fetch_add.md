@@ -6,14 +6,18 @@
 * cpp11[meta cpp]
 
 ```cpp
-T fetch_add(T operand, memory_order order = memory_order_seq_cst) volatile noexcept;
-T fetch_add(T operand, memory_order order = memory_order_seq_cst) noexcept;
+T fetch_add(difference_type operand, memory_order order = memory_order_seq_cst) volatile noexcept;
+T fetch_add(difference_type operand, memory_order order = memory_order_seq_cst) noexcept;
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 ## 概要
 加算を行う
+
+
+## 要件
+- C++17 : 型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
 
 
 ## 効果

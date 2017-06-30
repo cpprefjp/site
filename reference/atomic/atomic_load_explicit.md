@@ -7,10 +7,14 @@
 ```cpp
 namespace std {
   template <class T>
-  T atomic_load_explicit(const volatile atomic<T>* object, memory_order order) noexcept;
+  T atomic_load_explicit(
+      const volatile atomic<T>* object,
+      memory_order order) noexcept;     // (1)
 
   template <class T>
-  T atomic_load_explicit(const atomic<T>* object, memory_order order) noexcept;
+  T atomic_load_explicit(
+      const atomic<T>* object,
+      memory_order order) noexcept;     // (2)
 }
 ```
 * atomic[link atomic.md]
@@ -79,5 +83,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)

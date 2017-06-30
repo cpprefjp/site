@@ -7,10 +7,20 @@
 ```cpp
 namespace std {
   template <class T>
-  void atomic_init(volatile atomic<T>* object, T desired) noexcept;
+  void atomic_init(volatile atomic<T>* object,
+                   T desired) noexcept;                              // (1) C++11
 
   template <class T>
-  void atomic_init(atomic<T>* object, T desired) noexcept;
+  void atomic_init(volatile atomic<T>* object,
+                   typename atomic<T>::value_type desired) noexcept; // (1) C++17
+
+  template <class T>
+  void atomic_init(atomic<T>* object,
+                   T desired) noexcept;                              // (2) C++11
+
+  template <class T>
+  void atomic_init(atomic<T>* object,
+                   typename atomic<T>::value_type desired) noexcept; // (2) C++17
 }
 ```
 * atomic[link /reference/atomic/atomic.md]
@@ -69,9 +79,6 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
-#### 備考
-
 
 ## 参照
-
-
+- [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)

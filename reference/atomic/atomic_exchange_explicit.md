@@ -7,10 +7,28 @@
 ```cpp
 namespace std {
   template <class T>
-  T atomic_exchange_explicit(volatile atomic<T>* object, T desired, memory_order order) noexcept;
+  T atomic_exchange_explicit(
+      volatile atomic<T>* object,
+      T desired,
+      memory_order order) noexcept;           // (1) C++11
 
   template <class T>
-  T atomic_exchange_explicit(atomic<T>* object, T desired, memory_order order) noexcept;
+  T atomic_exchange_explicit(
+      volatile atomic<T>* object,
+      typename atomic<T>::value_type desired,
+      memory_order order) noexcept;           // (1) C++17
+
+  template <class T>
+  T atomic_exchange_explicit(
+      atomic<T>* object,
+      T desired,
+      memory_order order) noexcept;           // (2) C++11
+
+  template <class T>
+  T atomic_exchange_explicit(
+      atomic<T>* object,
+      typename atomic<T>::value_type desired,
+      memory_order order) noexcept;           // (2) C++17
 ]
 ```
 * atomic[link atomic.md]
@@ -76,5 +94,4 @@ replaced 1 by 2
 
 
 ## 参照
-
-
+- [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)

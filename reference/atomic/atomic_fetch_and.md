@@ -7,16 +7,34 @@
 ```cpp
 namespace std {
   template <class T>
-  T atomic_fetch_and(volatile atomic<T>* object, T operand) noexcept;
+  T atomic_fetch_and(
+      volatile atomic<T>* object,
+      T operand) noexcept;                              // (1) C++11
 
   template <class T>
-  T atomic_fetch_and(atomic<T>* object, T operand) noexcept;
+  T atomic_fetch_and(
+      volatile atomic<T>* object,
+      typename atomic<T>::value_type operand) noexcept; // (1) C++17
+
+  template <class T>
+  T atomic_fetch_and(
+      atomic<T>* object,
+      T operand) noexcept;                              // (2) C++11
+
+  template <class T>
+  T atomic_fetch_and(
+      atomic<T>* object,
+      typename atomic<T>::value_type operand) noexcept; // (2) C++11
 }
 ```
 * atomic[link atomic.md]
 
 ## 概要
 アトミックにAND演算を行う
+
+
+## 要件
+- C++17 : 型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
 
 
 ## 効果
@@ -81,5 +99,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)

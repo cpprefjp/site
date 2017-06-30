@@ -6,14 +6,18 @@
 * cpp11[meta cpp]
 
 ```cpp
-T fetch_sub(T operand, memory_order order = memory_order_seq_cst) volatile noexcept;
-T fetch_sub(T operand, memory_order order = memory_order_seq_cst) noexcept;
+T fetch_sub(difference_type operand, memory_order order = memory_order_seq_cst) volatile noexcept;
+T fetch_sub(difference_type operand, memory_order order = memory_order_seq_cst) noexcept;
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 ## 概要
 減算を行う
+
+
+## 要件
+- C++17 : 型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
 
 
 ## 効果
@@ -67,5 +71,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)

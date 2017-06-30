@@ -7,10 +7,28 @@
 ```cpp
 namespace std {
   template <class T>
-  bool atomic_compare_exchange_strong(volatile atomic<T>* object, T* expected, T desired) noexcept;
+  bool atomic_compare_exchange_strong(
+         volatile atomic<T>* object,
+         T* expected,
+         T desired) noexcept;                              // (1) C++11
 
   template <class T>
-  bool atomic_compare_exchange_strong(atomic<T>* object, T* expected, T desired) noexcept;
+  bool atomic_compare_exchange_strong(
+         volatile atomic<T>* object,
+         typename atomic<T>::value_type* expected,
+         typename atomic<T>::value_type desired) noexcept; // (1) C++17
+
+  template <class T>
+  bool atomic_compare_exchange_strong(
+         atomic<T>* object,
+         T* expected,
+         T desired) noexcept;                              // (2) C++11
+
+  template <class T>
+  bool atomic_compare_exchange_strong(
+         atomic<T>* object,
+         typename atomic<T>::value_type* expected,
+         typename atomic<T>::value_type desired) noexcept; // (2) C++17
 }
 ```
 * atomic[link atomic.md]
@@ -100,3 +118,4 @@ false 3 3
 - [cbloom rants: 07-14-11 - compare_exchange_strong vs compare_exchange_weak](http://cbloomrants.blogspot.jp/2011/07/07-14-11-compareexchangestrong-vs.html)
 - [What does 'spurious failure' on a CAS mean? - StackOverflow](http://stackoverflow.com/q/355365/463412)
 - [“Strong” and “weak” hardware memory models - Sutter’s Mill](https://herbsutter.com/2012/08/02/strong-and-weak-hardware-memory-models/)
+- [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)

@@ -76,46 +76,68 @@ namespace std {
 
 
 ### 共通メンバ関数
-| 名前 | 説明 |
-|-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| [`(constructor)`](atomic/op_constructor.md) | コンストラクタ |
-| `~atomic() = default` | デストラクタ |
-| [`operator=`](atomic/op_assign.md) | 代入演算子 |
-| [`is_lock_free`](atomic/is_lock_free.md) | オブジェクトがロックフリーに振る舞えるかを判定する |
-| [`store`](atomic/store.md) | 値を書き込む |
-| [`load`](atomic/load.md) | 値を読み込む |
-| [`operator T`](atomic/op_t.md) | 型Tへの変換演算子 |
-| [`exchange`](atomic/exchange.md) | 値を入れ替える |
-| [`compare_exchange_weak`](atomic/compare_exchange_weak.md) | 弱い比較で値を入れ替える |
-| [`compare_exchange_strong`](atomic/compare_exchange_strong.md) | 強い比較で値を入れ替える |
+| 名前 | 説明 | 対応バージョン |
+|------|------|-----|
+| [`(constructor)`](atomic/op_constructor.md) | コンストラクタ | C++11 |
+| `~atomic() = default`                       | デストラクタ | C++11 |
+| [`operator=`](atomic/op_assign.md)          | 代入演算子 | C++11 |
+| [`is_lock_free`](atomic/is_lock_free.md)    | オブジェクトがロックフリーに振る舞えるかを判定する | C++11 |
+| [`store`](atomic/store.md)                  | 値を書き込む | C++11 |
+| [`load`](atomic/load.md)                    | 値を読み込む | C++11 |
+| [`operator T`](atomic/op_t.md)              | 型Tへの変換演算子 | C++11 |
+| [`exchange`](atomic/exchange.md)            | 値を入れ替える | C++11 |
+| [`compare_exchange_weak`](atomic/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++11 |
+| [`compare_exchange_strong`](atomic/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++11 |
+
+
+### 共通メンバ型
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `value_type` | 要素型となるテンプレートパラメータの型`T` | C++17 |
 
 
 ### atomic<integral>専用メンバ関数
-| 名前 | 説明 |
-|----------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`fetch_add`](atomic/fetch_add.md) | 加算 |
-| [`fetch_sub`](atomic/fetch_sub.md) | 減算 |
-| [`fetch_and`](atomic/fetch_and.md) | AND演算 |
-| [`fetch_or`](atomic/fetch_or.md) | OR演算 |
-| [`fetch_xor`](atomic/fetch_xor.md) | XOR演算 |
-| [`operator++`](atomic/op_increment.md) | インクリメント |
-| [`operator--`](atomic/op_decrement.md) | デクリメント |
-| [`operator+=`](atomic/op_plus_assign.md) | 加算 |
-| [`operator-=`](atomic/op_minus_assign.md) | 減算 |
-| [`operator&=`](atomic/op_and_assign.md) | AND演算 |
-| <code>[operator&#x7C;=](atomic/op_or_assign.md)</code> | OR演算 |
-| [`operator^=`](atomic/op_xor_assign.md) | XOR演算 |
+整数型に対する特殊化。
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`fetch_add`](atomic/fetch_add.md)        | 加算           | C++11 |
+| [`fetch_sub`](atomic/fetch_sub.md)        | 減算           | C++11 |
+| [`fetch_and`](atomic/fetch_and.md)        | AND演算        | C++11 |
+| [`fetch_or`](atomic/fetch_or.md)          | OR演算         | C++11 |
+| [`fetch_xor`](atomic/fetch_xor.md)        | XOR演算        | C++11 |
+| [`operator++`](atomic/op_increment.md)    | インクリメント | C++11 |
+| [`operator--`](atomic/op_decrement.md)    | デクリメント   | C++11 |
+| [`operator+=`](atomic/op_plus_assign.md)  | 加算           | C++11 |
+| [`operator-=`](atomic/op_minus_assign.md) | 減算           | C++11 |
+| [`operator&=`](atomic/op_and_assign.md)   | AND演算        | C++11 |
+| <code>[operator&#x7C;=](atomic/op_or_assign.md)</code> | OR演算 | C++11 |
+| [`operator^=`](atomic/op_xor_assign.md)   | XOR演算 | C++11 |
+
+
+### atomic<integral>専用メンバ型
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `difference_type` | 2つの値の差を表す整数型`value_type` | C++17 |
 
 
 ### atomic<T*>専用メンバ関数
-| 名前 | 説明 |
-|----------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [`fetch_add`](atomic/fetch_add.md) | 加算 |
-| [`fetch_sub`](atomic/fetch_sub.md) | 減算 |
-| [`operator++`](atomic/op_increment.md) | インクリメント |
-| [`operator--`](atomic/op_decrement.md) | デクリメント |
-| [`operator+=`](atomic/op_plus_assign.md) | 加算 |
-| [`operator-=`](atomic/op_minus_assign.md) | 減算 |
+ポインタ型に対する特殊化。
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`fetch_add`](atomic/fetch_add.md)        | 加算 | C++11 |
+| [`fetch_sub`](atomic/fetch_sub.md)        | 減算 | C++11 |
+| [`operator++`](atomic/op_increment.md)    | インクリメント | C++11 |
+| [`operator--`](atomic/op_decrement.md)    | デクリメント | C++11 |
+| [`operator+=`](atomic/op_plus_assign.md)  | 加算 | C++11 |
+| [`operator-=`](atomic/op_minus_assign.md) | 減算 | C++11 |
+
+
+### atomic<T*>専用メンバ型
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `difference_type` | 2つの値の差を表す整数型[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) | C++17 |
 
 
 ### 例
@@ -214,3 +236,4 @@ int main()
 - [N2547 Allow atomics use in signal handlers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2547.htm)
 - [アトミックオブジェクトを含むクラスのコピーとムーブ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20130110/1357808183)
 - [LWG Issue 2441. Exact-width atomic `typedef`s should be provided](https://wg21.cmeerw.net/lwg/issue2441)
+- [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
