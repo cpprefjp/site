@@ -5,19 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-ostream_iterator(ostream_type& s);
-ostream_iterator(ostream_type& s, const CharT* delimiter);
-ostream_iterator(const ostream_iterator<T, CharT, Traits>& x) = default;
+ostream_iterator(ostream_type& s);                                       // (1)
+ostream_iterator(ostream_type& s, const CharT* delimiter);               // (2)
+ostream_iterator(const ostream_iterator<T, CharT, Traits>& x) = default; // (3)
 ```
 
-## ostream_iteratorオブジェクトの構築
-- `ostream_iterator(ostream_type& s)`
-
-出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列はヌルとなる。
-
-- `ostream_iterator(ostream_type& s, const CharT* delimiter)`
-
-出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列を受け取り、メンバ変数に保持する。
+## 概要
+- (1) : 出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列はヌルとなる。
+- (2) : 出力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。区切り文字列を受け取り、メンバ変数に保持する。
 
 
 ## 例

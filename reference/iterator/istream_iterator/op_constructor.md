@@ -5,14 +5,15 @@
 * function[meta id-type]
 
 ```cpp
-istream_iterator();
-istream_iterator(istream_type& s);
-istream_iterator(const istream_iterator& x) = default;
+istream_iterator();                                    // (1)
+istream_iterator(istream_type& s);                     // (2)
+istream_iterator(const istream_iterator& x) = default; // (3)
 ```
 
-## istream_iteratorの構築
-- `istream_iterator()`<br/>デフォルトコンストラクタ。メンバ変数として保持する入力ストリームへのポインタをヌル初期化する。デフォルトコンストラクタで構築された`istream_iterator`オブジェクトは、イテレータの終端値として使用できる。
-- `istream_iterator(istream_type& s)`<br/>入力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。`operator*()`で現在参照している値を返すために、この段階で入力ストリームから値を読み取り、メンバ変数に値を保持する。
+## 概要
+- (1) : デフォルトコンストラクタ。メンバ変数として保持する入力ストリームへのポインタをヌル初期化する。デフォルトコンストラクタで構築された`istream_iterator`オブジェクトは、イテレータの終端値として使用できる。
+- (2) : 入力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。`operator*()`で現在参照している値を返すために、この段階で入力ストリームから値を読み取り、メンバ変数に値を保持する。
+- (3) : コピーコンストラクタ
 
 
 ## 例
@@ -20,7 +21,7 @@ istream_iterator(const istream_iterator& x) = default;
 #include <iostream>
 #include <iterator>
 #include <sstream>
-#include <algorithm> // for_each
+#include <algorithm>
 
 int main()
 {
