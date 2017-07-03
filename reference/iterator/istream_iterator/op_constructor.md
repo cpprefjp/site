@@ -48,5 +48,4 @@ int main()
 ```
 
 ## 参照
-
-
+- [LWG Issue 2576. `istream_iterator` and `ostream_iterator` should use `std::addressof`](https://wg21.cmeerw.net/lwg/issue2576)
