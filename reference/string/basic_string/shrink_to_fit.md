@@ -13,14 +13,19 @@ void shrink_to_fit();
 領域をコンテナのサイズまで切り詰める
 
 
+## 効果
+- [`capacity`](capacity.md)`()`を[`size`](size.md)`()`に縮小させるリクエストを行う。
+    - 実装依存の最適化を許可するために、縮小するという動作は仕様上強制されない。
+- C++17 : この関数によって[`capacity()`](capacity.md)が増えることはない。
+- C++17 : [`capacity()`](capacity.md)の縮小が起こる際に、メモリの再割り当てが発生する場合がある。その際、文字列の要素に対する参照、ポインタ、およびイテレータとそれが指す要素への参照は無効となる。
+
+
 ## 戻り値
 なし
 
 
-## 備考
-[`capacity`](capacity.md)`()`を[`size`](size.md)`()`に縮小させるリクエストを行う。
-
-実装依存の最適化を許可するために、縮小するという動作は仕様上強制されない。
+## 計算量
+- C++17 : 最大で、要素数に対して線形時間
 
 
 ## 例
@@ -75,8 +80,12 @@ void basic_string::shrink_to_fit() {
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0
 
 
+## 関連項目
+- [`std::vector<>::shrink_to_fit`](../../vector/shrink_to_fit.md)
+- [`std::deque<>::shrink_to_fit`](../../deque/shrink_to_fit.md)
+
+
 ## 参照
 - 『[Effective STL - STLを効果的に使いこなす50の鉄則](https://www.amazon.co.jp/dp/4894714108)』 第17項 余分な容量を取り除くには「swap技法」を使おう
 - [LWG Issue 755. `std::vector` and `std:string` lack explicit shrink-to-fit operations]
-- [std::vector<>::shrink_to_fit](../../vector/shrink_to_fit.md)
-- [std::deque<>::shrink_to_fit](../../deque/shrink_to_fit.md)
+- [LWG Issue 2223. `shrink_to_fit` effect on iterator validity](https://wg21.cmeerw.net/lwg/issue2223)

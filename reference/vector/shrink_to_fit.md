@@ -14,7 +14,15 @@ void shrink_to_fit();
 
 
 ## 要件
-- 型`T`が`*this`に対してムーブ挿入可能であること (C++14)
+- C++14 : 型`T`が`*this`に対してムーブ挿入可能であること
+
+
+## 効果
+- [`capacity()`](capacity.md)を[`size()`](size.md)に縮小させるというリクエストを行う。
+    - 実装依存の最適化を許可するために、縮小するという動作は仕様上強制されない。
+- C++17 : この関数によって[`capacity()`](capacity.md)が増えることはない。
+- C++17 : [`capacity()`](capacity.md)の縮小が起こる際に、メモリの再割り当てが発生する場合がある。その際、コンテナの要素に対する参照、ポインタ、およびイテレータとそれが指す要素への参照は無効となる。
+- C++14 : 非コピー挿入可能な型`T`のムーブコンストラクタが例外を送出した場合、この関数は何もしない。
 
 
 ## 戻り値
@@ -22,15 +30,7 @@ void shrink_to_fit();
 
 
 ## 計算量
-最大で、要素数に対して線形時間 (C++14)
-
-
-## 備考
-[`capacity`](capacity.md)`()`を[`size`](size.md)`()`に縮小させるというリクエストを行う。
-
-実装依存の最適化を許可するために、縮小するという動作は仕様上強制されない。
-
-非コピー挿入可能な型`T`のムーブコンストラクタが例外を送出した場合、この関数は何もしない。 (C++14)
+- C++14 : 最大で、要素数に対して線形時間
 
 
 ## 例
@@ -81,5 +81,4 @@ int main()
 - 『[Effective STL - STLを効果的に使いこなす50の鉄則](https://www.amazon.co.jp/dp/4894714108)』 第17項 余分な容量を取り除くには「swap技法」を使おう
 - [LWG Issue 755. `std::vector` and `std:string` lack explicit shrink-to-fit operations](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#755)
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
-
-
+- [LWG Issue 2223. `shrink_to_fit` effect on iterator validity](https://wg21.cmeerw.net/lwg/issue2223)
