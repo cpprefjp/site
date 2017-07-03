@@ -25,17 +25,19 @@ basic_ostream<CharT, Traits>& operator<<(float f);
 basic_ostream<CharT, Traits>& operator<<(double f);
 basic_ostream<CharT, Traits>& operator<<(long double f);
 basic_ostream<CharT, Traits>& operator<<(const void* p);
+basic_ostream<charT, traits>& operator<<(nullptr_t);            // C++17
 
 // ストリームバッファの非書式化出力
 basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 ```
+* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 
 ストリームへの出力またはマニピュレータの実行を行う。
 
 - マニピュレータを実行するオーバーロードそれ自体は、書式化出力関数・非書式化出力関数いずれにも該当しない。
-- 数値型（`bool`も含む）と`void*`に対するオーバーロードは、書式化出力関数である。
+- 数値型（`bool`も含む）とポインタに対するオーバーロードは、書式化出力関数である。
 - `basic_streambuf`に対するオーバーロードは、非書式化出力関数である。
 
 ## 効果
@@ -57,6 +59,12 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 	- `unsigned short`、`unsigned int`: `static_cast<unsigned long>(n)`
 	- `float`: `static_cast<double>(n)`
 1. `num_put::put`から得られた`iostate`値を実引数にして`setstate`関数を呼び出す。
+
+
+### `nullptr_t`の出力
+
+- C++17 : 実装定義の出力文字列`s`を、`return operator<<(s)`として渡した場合と同等である。
+
 
 ### ストリームバッファの非書式化出力
 
@@ -143,3 +151,4 @@ TBD
 
 ## 参照
 - [N2114 `long long` Goes to the Library, Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2114.html)
+- [LWG Issue 2221. No formatted output operator for `nullptr`](https://wg21.cmeerw.net/lwg/issue2221)
