@@ -15,28 +15,37 @@ basic_string(basic_string&& str) noexcept;               // (4) C++11
 basic_string(const basic_string& str,
              size_type pos,
              size_type n = npos,
-             const Allocator& a = Allocator());          // (5)
+             const Allocator& a = Allocator());          // (5) C++14まで
+
+basic_string(const basic_string& str,
+             size_type pos,
+             size_type n,
+             const Allocator& a = Allocator());          // (5) C++17
+
+basic_string(const basic_string& str,
+             size_type pos,
+             const Allocator& a = Allocator());          // (6) C++17
 
 basic_string(const charT* s,
              size_type n,
-             const Allocator& a = Allocator());          // (6)
+             const Allocator& a = Allocator());          // (7)
 
 basic_string(const charT* s,
-             const Allocator& a = Allocator());          // (7)
+             const Allocator& a = Allocator());          // (8)
 
 basic_string(size_type n,
              charT c,
-             const Allocator& a = Allocator());          // (8)
+             const Allocator& a = Allocator());          // (9)
 
 template <class InputIterator>
 basic_string(InputIterator begin, InputIterator end,
-             const Allocator& a = Allocator());          // (9)
+             const Allocator& a = Allocator());          // (10)
 
 basic_string(initializer_list<charT> init,
-             const Allocator& = Allocator());            // (10) C++11
+             const Allocator& = Allocator());            // (11) C++11
 
-basic_string(const basic_string& str, const Allocator&); // (11) C++11
-basic_string(basic_string&& str, const Allocator&);      // (12) C++11
+basic_string(const basic_string& str, const Allocator&); // (12) C++11
+basic_string(basic_string&& str, const Allocator&);      // (13) C++11
 ```
 * initializer_list[link /reference/initializer_list.md]
 
@@ -45,27 +54,29 @@ basic_string(basic_string&& str, const Allocator&);      // (12) C++11
 - (2) : アロケータを受け取るデフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
 - (3) : コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
 - (4) : ムーブコンストラクタ。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
-- (5) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
-- (6) : 文字配列`s`の先頭`n`文字からなる部分文字列のコピーから`basic_string`オブジェクトを構築する。
-- (7) : 文字配列`s`のコピーから`basic_string`オブジェクトを構築する。
-- (8) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
-- (9) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
-- (10) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
-- (11) : アロケータを受け取るコピーコンストラクタ。
-- (12) : アロケータを受け取るムーブコンストラクタ。
+- (5) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。`n == npos`の場合、`pos`番目から末尾までの部分文字列がコピーされる。
+- (6) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から末尾までの部分文字列がコピーされる。
+- (7) : 文字配列`s`の先頭`n`文字からなる部分文字列のコピーから`basic_string`オブジェクトを構築する。
+- (8) : 文字配列`s`のコピーから`basic_string`オブジェクトを構築する。
+- (9) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
+- (10) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
+- (11) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
+- (12) : アロケータを受け取るコピーコンストラクタ。
+- (13) : アロケータを受け取るムーブコンストラクタ。
 
 
 ## 要件
-- (6)
+- (7)
     - C++03 : `s`がヌルポインタではないこと。`n < npos`であること。
     - C++14 : `s`は、`charT`型の要素を少なくても`n`個を持つ配列を指していること。
-- (7)
+- (8)
     - C++03 : `s`がヌルポインタではないこと。
     - C++14 : `s`は、`charT`型の要素を少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個持つ配列を指していること。
 
 
 ## 例外
-- (12) : `alloc == str.`[`get_allocator()`](get_allocator.md)の場合、例外を投げない。
+- (5), (6) : `pos > str.`[`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (13) : `alloc == str.`[`get_allocator()`](get_allocator.md)の場合、例外を投げない。
 
 
 ## 備考
@@ -144,10 +155,10 @@ s9 : hello
 
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
-    - (10)の経緯となる提案文書
-- [LWG Issue 2069. Inconsistent exception spec for `basic_string` move constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2069)
-- [LWG Issue 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
-    `explicit basic_string(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
-- [LWG Issue 2235. Undefined behavior without proper requirements on `basic_string` constructors](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2235)
-    - C++14で、(6)と(7)の要件を見直した。
-
+    - (11)の経緯となる提案文書
+- [LWG Issue 2069. Inconsistent exception spec for `basic_string` move constructor](https://wg21.cmeerw.net/lwg/issue2069)
+- [LWG Issue 2193. Default constructors for standard library containers are explicit](https://wg21.cmeerw.net/lwg/issue2193)
+    - `explicit basic_string(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
+- [LWG Issue 2235. Undefined behavior without proper requirements on `basic_string` constructors](https://wg21.cmeerw.net/lwg/issue2235)
+    - C++14で、(7)と(8)の要件を見直した。
+- [LWG Issue 2583. There is no way to supply an allocator for `basic_string(str, pos)`](https://wg21.cmeerw.net/lwg/issue2583)
