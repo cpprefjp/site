@@ -84,7 +84,12 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 
 `*this`
 
+
 ## 備考
+
+- このクラスにはメンバ関数版の`operator<<`と非メンバ関数版の`operator<<`があるが、ロケールに依存して出力が変わる型へのオーバーロードが、メンバ関数版として定義される設計となっている。
+    - 参照 : [N0470 A Draft for the Specification of the IOStream Classes](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1994/N0470.asc)
+
 
 ## 例
 ```cpp
