@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T>
-  struct owner_less; // 先行宣言
+  struct owner_less; // C++11 先行宣言
+
+  template <class T=void>
+  struct owner_less; // C++17 void版プライマリテンプレート
 
   template <class T>
   struct owner_less<shared_ptr<T>>;
@@ -28,8 +31,8 @@ namespace std {
 ## shared_ptr版
 ### メンバ関数
 
-| 名前                                    | 説明               | 対応バージョン |
-|-----------------------------------------|--------------------|-------|
+| 名前                                  | 説明               | 対応バージョン |
+|---------------------------------------|--------------------|-------|
 | [`operator()`](owner_less/op_call.md) | 関数呼び出し演算子 | C++11 |
 
 
@@ -45,8 +48,8 @@ namespace std {
 ## weak_ptr版
 ### メンバ関数
 
-| 名前                                    | 説明               | 対応バージョン |
-|-----------------------------------------|--------------------|-------|
+| 名前                                  | 説明               | 対応バージョン |
+|---------------------------------------|--------------------|-------|
 | [`operator()`](owner_less/op_call.md) | 関数呼び出し演算子 | C++11 |
 
 
@@ -59,7 +62,22 @@ namespace std {
 | `second_argument_type` | 第2引数型[`weak_ptr`](/reference/memory/weak_ptr.md)`<T>` | C++11 |
 
 
+## void版
+### メンバ関数
+
+| 名前                                  | 説明               | 対応バージョン |
+|---------------------------------------|--------------------|-------|
+| [`operator()`](owner_less/op_call.md) | 関数呼び出し演算子 | C++17 |
+
+### メンバ型
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------|-----------------------------------------------------------|-------|
+| `is_transparent` | `operator()` が関数テンプレートである事を示すタグ型。<br/>実装依存の型であるがあくまでタグ型であり、型そのものには意味はない。 | C++17 |
+
+
 ## 例
+### 基本的な使い方
 ```cpp
 #include <iostream>
 #include <memory>
@@ -102,11 +120,44 @@ int main()
 * std::owner_less[color ff0000]
 * m.at[link /reference/map/map/at.md]
 
-### 出力
+#### 出力
 ```
 Alice
 Carol
 Carol
+```
+
+### void版のユースケース
+```cpp
+#include <iostream>
+#include <memory>
+
+int main()
+{
+  std::shared_ptr<int> sp1;
+  std::shared_ptr<void> sp2;
+  std::shared_ptr<long> sp3;
+  std::weak_ptr<int> wp1;
+
+  std::owner_less<void> cmp;
+
+  // 異なる要素型同士の比較
+  std::cout << std::boolalpha;
+  std::cout << cmp(sp1, sp2) << std::endl; // void版以外ではコンパイルエラー
+  std::cout << cmp(sp1, wp1) << std::endl;
+  std::cout << cmp(sp1, sp3) << std::endl; // void版以外ではコンパイルエラー
+  std::cout << cmp(wp1, sp1) << std::endl;
+  std::cout << cmp(wp1, wp1) << std::endl; // void版以外ではコンパイルエラー
+}
+```
+
+#### 出力
+```
+false
+false
+false
+false
+false
 ```
 
 ## バージョン
@@ -126,4 +177,4 @@ Carol
 
 ## 参照
 - [N2637 Revisiting `std::shared_ptr` comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
-
+- [P0074R0 Making `std::owner_less` more flexible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0074r0.html)

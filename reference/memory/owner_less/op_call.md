@@ -21,6 +21,16 @@ bool operator()(const shared_ptr<T>& a, const weak_ptr<T>& b) const;            
 bool operator()(const shared_ptr<T>& a, const weak_ptr<T>& b) const noexcept;   // (5) C++17
 bool operator()(const weak_ptr<T>& a, const shared_ptr<T>& b) const;            // (6) C++11
 bool operator()(const weak_ptr<T>& a, const shared_ptr<T>& b) const noexcept;   // (6) C++17
+
+// void特殊化版
+template<class T, class U>
+bool operator()(const shared_ptr<T>&, const shared_ptr<U>&) const noexcept;     // (7) C++17
+template<class T, class U>
+bool operator()(const shared_ptr<T>&, const weak_ptr<U>&) const noexcept;       // (8) C++17
+template<class T, class U>
+bool operator()(const weak_ptr<T>&, const shared_ptr<U>&) const noexcept;       // (9) C++17
+template<class T, class U>
+bool operator()(const weak_ptr<T>&, const weak_ptr<U>&) const noexcept;         // (10) C++17
 ```
 * shared_ptr[link /reference/memory/shared_ptr.md]
 * weak_ptr[link /reference/memory/weak_ptr.md]
@@ -47,3 +57,4 @@ a.owner_before(b)
 
 ## 参照
 - [LWG Issue 2873. Add `noexcept` to several `shared_ptr` related functions](https://wg21.cmeerw.net/lwg/issue2873)
+- [P0074R0 Making `std::owner_less` more flexible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0074r0.html)
