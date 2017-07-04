@@ -20,7 +20,8 @@ namespace std {
 
 
 ## 効果
-`is_constructible`は、`T( Args... )`の形式のコンストラクタ呼出しが適格であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+- `is_constructible`は、`T( Args... )`の形式のコンストラクタ呼出しが適格であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+- C++17 : 型`T`が`void(int, char)`のような関数型、もしくは(CV修飾された)`void`である場合、[`false_type`](false_type.md)から派生する。
 
 
 ## 例
@@ -65,3 +66,5 @@ int main(){}
 
 ## 参照
 - [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
+- [LWG Issue 2560. `is_constructible` underspecified when applied to a function type](https://wg21.cmeerw.net/lwg/issue2560)
+- [LWG Issue 2738. `is_constructible` with `void` types](https://wg21.cmeerw.net/lwg/issue2738)
