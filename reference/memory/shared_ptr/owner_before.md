@@ -7,10 +7,16 @@
 
 ```cpp
 template <class U>
-bool owner_before(const shared_ptr<U>& b) const; // (1)
+bool owner_before(const shared_ptr<U>& b) const;          // (1) C++11
 
 template <class U>
-bool owner_before(const weak_ptr<U>& b) const;   // (2)
+bool owner_before(const shared_ptr<U>& b) const noexcept; // (1) C++17
+
+template <class U>
+bool owner_before(const weak_ptr<U>& b) const;            // (2) C++11
+
+template <class U>
+bool owner_before(const weak_ptr<U>& b) const noexcept;   // (2) C++17
 ```
 * weak_ptr[link /reference/memory/weak_ptr.md]
 
@@ -90,9 +96,13 @@ false
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
 
-## 参照
+
+## 関連項目
 - [`owner_less`](/reference/memory/owner_less.md)
+
+
+## 参照
 - [N1590 Smart Pointer Comparison Operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1590.html)
 - [N2637 Revisiting std::shared_ptr comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 - [LWG Issue 1406. Support hashing smart-pointers based on owner](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#1406)
-
+- [LWG Issue 2873. Add `noexcept` to several `shared_ptr` related functions](https://wg21.cmeerw.net/lwg/issue2873)
