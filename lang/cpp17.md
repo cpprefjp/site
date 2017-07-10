@@ -130,6 +130,7 @@ C++17では以下のTSが採用された：
 | 言語機能 | 説明 |
 |----------|------|
 | [更新された定義済みマクロ](cpp17/predefined_macros.md) | 標準規格で定義されたマクロの更新 |
+| [機能テストマクロ](cpp17/feature_test_macros.md)       | C++17 の機能がサポートされているかどうかをテストするためのマクロ |
 | [`noexcept`付きのラムダ式から変換する関数ポインタに`noexcept`を付加する](cpp17/lambda_to_noexcept_function_pointer.md) | キャプチャを持たない非ジェネリックラムダに`noexcept`を付加した場合、変換した関数ポインタに`noexcept`を付加する |
 
 
