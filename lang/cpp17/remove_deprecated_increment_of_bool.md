@@ -104,7 +104,7 @@ int main()
   //append elements to v
   int flag = 0;
   for(auto&& i : v){
-    if(flag++) std:cout << ',';
+    if(flag++) std::cout << ',';
     std::cout << i << std::endl;
   }
 }
