@@ -124,13 +124,10 @@ Therac-25はカナダ原子力公社(AECL)とフランスCGR-MeV社によって�
 
 C++14で`std::exchange()`が導入されたことにより、唯一使いみちのあった後置の`operator++`の必要性もなくなり、C++17で削除されたと推測される。
 
+
 ## 関連項目
 
 - [`std::exchange()`](/reference/utility/exchange.md)
-- [history - Why does the boolean type in C++ support ++ but not --? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/230928/why-does-the-boolean-type-in-c-support-but-not)
-- [An Investigation of Therac-25 Accidents - I](http://courses.cs.vt.edu/professionalism/Therac_25/Therac_1.html)
-- [Therac-25 - III](http://courses.cs.vt.edu/professionalism/Therac_25/Therac_3.html)
-- [Therac-25 - Wikipedia](https://en.wikipedia.org/wiki/Therac-25)
 
 
 ## 参照
@@ -139,3 +136,7 @@ C++14で`std::exchange()`が導入されたことにより、唯一使いみち�
 - [P0002R0: Remove Deprecated operator++(bool)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0002r0.html)
 - [Core issue 1653: Removing deprecated increment of bool](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4192.html#1653)
 - [N3668: exchange() utility function, revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3668)
+- [history - Why does the boolean type in C++ support ++ but not --? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/230928/why-does-the-boolean-type-in-c-support-but-not)
+- [An Investigation of Therac-25 Accidents - I](http://courses.cs.vt.edu/professionalism/Therac_25/Therac_1.html)
+- [Therac-25 - III](http://courses.cs.vt.edu/professionalism/Therac_25/Therac_3.html)
+- [Therac-25 - Wikipedia](https://en.wikipedia.org/wiki/Therac-25)
