@@ -24,8 +24,8 @@ namespace std {
 
 ## 備考
 - Windows以外のClang (libc++) とGCC (libstdc++)の実装では、デフォルトで`/dev/urandom`から値を読み取る実装になっている。コンストラクタに`/dev/random`を指定すると、そちらから読み取れる
-- WindowsでのClangの実装では、暗号論的な乱数である `rand_s()` を使用する
-- WindowsでのGCCの実装では、擬似乱数による実装になっている。使用を推奨しない。詳細は処理系の備考欄を参照
+- WindowsでのClangの実装では、暗号論的な乱数である [`rand_s()`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) を使用する
+- WindowsでのGCCの実装では、擬似乱数による実装になっているため**使用を推奨しない**。詳細は処理系の備考欄を参照
 
 
 ## メンバ関数
