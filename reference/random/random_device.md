@@ -16,8 +16,16 @@ namespace std {
 `random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
 
 予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといったものから乱数を生成する。
+パフォーマンスとして、非決定的な乱数は擬似乱数よりも遅くなる。再現性が必要なく、速度が遅くても問題ない状況で使用すること。
 
 実装の制限によって予測不能な乱数生成器を定義できない場合、このクラスは擬似乱数生成器で定義される可能性がある。
+
+
+
+## 備考
+- Windows以外のClang (libc++) とGCC (libstdc++)の実装では、デフォルトで`/dev/urandom`から値を読み取る実装になっている。コンストラクタに`/dev/random`を指定すると、そちらから読み取れる
+- WindowsでのClangの実装では、暗号論的な乱数である `rand_s()` を使用する
+- WindowsでのGCCの実装では、擬似乱数による実装になっている。使用を推奨しない。詳細は処理系の備考欄を参照
 
 
 ## メンバ関数
@@ -156,11 +164,15 @@ jyiasder
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
+- [Clang, C++11 mode](/implementation.md#clang): 3.2
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
+
+
+### 備考
+- Windows版のGCC (MinGW, libstdc++) では、`random_device`クラスは擬似乱数生成器である[`mt19937`](mt19937.md)で実装されている。その環境のデフォルトでは固定の乱数列が生成されてしまうので注意すること。コンストラクタの引数としてシード値を文字列化して渡せば`mt19937`のシードとして扱われるが、非決定的な乱数として振る舞わないことは変わらない。この環境では`random_device`の使用は推奨しない
+
 
 ## 参照
 - [/dev/random - Wikipedia](https://ja.wikipedia.org/wiki//dev/random)
