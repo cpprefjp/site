@@ -175,6 +175,12 @@ jyiasder
 ### 備考
 - Windows版のGCC (MinGW, libstdc++) では、`random_device`クラスは擬似乱数生成器である[`mt19937`](mt19937.md)で実装されている。その環境のデフォルトでは固定の乱数列が生成されてしまうので注意すること。コンストラクタの引数としてシード値を文字列化して渡せば`mt19937`のシードとして扱われるが、非決定的な乱数として振る舞わないことは変わらない。この環境では`random_device`の使用は推奨しない
 
+#### 代替
+- クロスプラットフォーム
+    - CPU が提供する `RDRAND` 命令
+- Windows
+    - [`CryptGenRandom`](https://msdn.microsoft.com/en-us/library/aa379942.aspx) 関数
+    - [`RtlGenRandom`](https://msdn.microsoft.com/en-us/library/aa387694.aspx) 関数
 
 ## 参照
 - GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)
