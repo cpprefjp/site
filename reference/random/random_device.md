@@ -182,7 +182,7 @@ jyiasder
 
 - [/dev/random - Wikipedia](https://ja.wikipedia.org/wiki//dev/random)
 - [Man page of RANDOM](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)
-- [CryptoGenRandom function - MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)
+- [CryptGenRandom function - MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)
 - [random_deviceの実装（再訪） - 煙人計画](http://vaporoid.hateblo.jp/entry/2014/07/25/154852)
 - [Replacing `/dev/urandom` May 4, 2016 - Security](https://lwn.net/Articles/685371/)
 - [gccをwindowsで使うならstd::random_deviceを使ってはいけない - Qiita](http://qiita.com/nanashi/items/f94b78398a6c79d939e1)
