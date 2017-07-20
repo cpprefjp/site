@@ -14,28 +14,30 @@ namespace std {
 `random_device`クラスは、非決定的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。
 
 `random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
+実装の制限によって予測不能な乱数生成器を定義できない場合、このクラスは**擬似乱数生成器で定義される可能性がある**ため、特にクロスプラットフォームなコードを書く場合は注意すること。
 
-予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといったものから乱数を生成する。
-パフォーマンスとして、非決定的な乱数は擬似乱数よりも遅くなる。再現性が必要なく、速度が遅くても問題ない状況で使用すること。
+予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといった環境ノイズをエントロピープールとして乱数を生成する。
+非決定的な乱数生成器のパフォーマンスは擬似乱数生成器よりも悪く、特にエントロピープールが枯渇すると著しく悪化する。
+再現性が必要なく、速度が遅くても問題ない状況で使用すること。
 
-実装の制限によって予測不能な乱数生成器を定義できない場合、このクラスは擬似乱数生成器で定義される可能性がある。
-
-
-
-## 備考
-- Windows以外のClang (libc++) とGCC (libstdc++)の実装では、デフォルトで`/dev/urandom`から値を読み取る実装になっている。コンストラクタに`/dev/random`を指定すると、そちらから読み取れる
-- WindowsでのClangの実装では、暗号論的な乱数である [`rand_s()`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) を使用する
-- WindowsでのGCCの実装では、擬似乱数による実装になっているため**使用を推奨しない**。詳細は処理系の備考欄を参照
+## 実装
+- Windows
+    - Visual C++: 外部デバイスを用いており、暗号学的に安全で非決定論的
+    - Clang: 暗号論的な乱数である [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) を使用する
+    - GCC (MinGW): 擬似乱数生成器 [`mt19937`](mt19937.md) を用いるため**使用を推奨しない**。詳細は処理系の備考欄を参照
+- UNIX 系
+    - Clang (libc++): `/dev/urandom` (デフォルト) または `/dev/random` から値を読み取る
+    - GCC (libstdc++): CPU の `RDRAND` 命令を使う (デフォルト) か、`/dev/urandom` (`RDRAND` が使用できないときのデフォルト) または `/dev/random` から値を読み取る
 
 
 ## メンバ関数
 ### 構築
 
 | 名前 | 説明 | 対応バージョン |
-|-------------------------------------------------------|----------------------|-------|
-| [`(constructor)`](random_device/op_constructor.md)  | コンストラクタ       | C++11 |
-| `~random_device() = default;`                         | デストラクタ         | C++11 |
-| `void operator()(const random_device&) = delete;`     | 代入演算子。代入不可 | C++11 |
+|----------------------------------------------------|----------------|-------|
+| [`(constructor)`](random_device/op_constructor.md) | コンストラクタ | C++11 |
+| `~random_device() = default;`                      | デストラクタ   | C++11 |
+| `void operator()(const random_device&) = delete;`  | コピーコンストラクタ。コピー不可 | C++11 |
 
 
 ### 生成
@@ -175,6 +177,9 @@ jyiasder
 
 
 ## 参照
+- GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)
+- Microdoft Visual Studio 2017: [random\_device Class](https://docs.microsoft.com/en-us/cpp/standard-library/random-device-class)
+
 - [/dev/random - Wikipedia](https://ja.wikipedia.org/wiki//dev/random)
 - [Man page of RANDOM](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)
 - [CryptoGenRandom function - MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)
