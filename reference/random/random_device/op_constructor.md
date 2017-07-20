@@ -68,7 +68,6 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
-    - 14.1までにおいて、仮引数`token`の値が使用されることは無く、何を指定しても同じ結果となる。
 
 
 ## 参照
