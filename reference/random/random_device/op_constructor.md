@@ -18,6 +18,17 @@ random_device(const random_device&) = delete;                         // (2)
 - (2) : コピーコンストラクタ。コピー禁止。
     - これによって、ムーブコンストラクタも自動生成されない。
 
+### 有効なトークン
+- Windows
+    - Visual C++: 無視される
+    - Clang: `"/dev/urandom"` (これ以外を与えると例外が送出される)  
+      ただし [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) に使われることはないので指定する必要はない
+    - GCC (MinGW): 文字列化した整数  
+      ただし実体は [`mt19937`](../mt19937.md) なので**使用を推奨しない**
+- Unix 系
+    - Clang (libc++): `"/dev/urandom"` (デフォルト) または `"/dev/random"`
+    - GCC (libstdc++): `"default"` (デフォルト)、`"/dev/urandom"` または `"/dev/random"`  
+      デフォルトでは、CPU の `RDRAND` 命令が使用できれば (`_GLIBCXX_X86_RDRAND` が定義されていれば) それを、そうでなければ `/dev/urandom` から値を取得する
 
 ## 例外
 - (1) : 乱数生成器を初期化できなかった場合、[`exception`](/reference/exception/exception.md)から派生した実装定義の例外オブジェクトを送出する
