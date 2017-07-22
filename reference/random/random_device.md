@@ -177,10 +177,11 @@ jyiasder
 
 #### 代替
 - クロスプラットフォーム
-    - CPU が提供する `RDRAND` 命令
+    - CPU が提供する [`RDRAND`, `RDSEED` 命令](https://www.cryptopp.com/wiki/RDRAND)
 - Windows
-    - [`CryptGenRandom`](https://msdn.microsoft.com/en-us/library/aa379942.aspx) 関数
     - [`RtlGenRandom`](https://msdn.microsoft.com/en-us/library/aa387694.aspx) 関数
+    - [`CryptGenRandom`](https://msdn.microsoft.com/en-us/library/aa379942.aspx) 関数
+    - [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s)
 
 ## 参照
 - GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)
