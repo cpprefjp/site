@@ -37,7 +37,7 @@ namespace std {
 |----------------------------------------------------|----------------|-------|
 | [`(constructor)`](random_device/op_constructor.md) | コンストラクタ | C++11 |
 | `~random_device() = default;`                      | デストラクタ   | C++11 |
-| `void operator()(const random_device&) = delete;`  | コピーコンストラクタ。コピー不可 | C++11 |
+| `void operator=(const random_device& ) = delete;`  | 代入演算子。代入不可 | C++11 |
 
 
 ### 生成
