@@ -22,7 +22,7 @@ namespace std {
 
 ## 実装
 - Windows
-    - Visual C++: 外部デバイスを用いており、暗号学的に安全で非決定論的
+    - Visual C++: 外部デバイスを用いており、暗号学的に安全で非決定論的 ([`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s))
     - Clang: 暗号論的な乱数である [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) を使用する
     - GCC (MinGW): 擬似乱数生成器 [`mt19937`](mt19937.md) を用いるため**使用を推奨しない**。詳細は処理系の備考欄を参照
 - UNIX 系
@@ -179,9 +179,9 @@ jyiasder
 - クロスプラットフォーム
     - CPU が提供する [`RDRAND`, `RDSEED` 命令](https://www.cryptopp.com/wiki/RDRAND)
 - Windows
-    - [`RtlGenRandom`](https://msdn.microsoft.com/en-us/library/aa387694.aspx) 関数
+    - [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) (`CryptGenRandom` のラッパー)
+    - [`RtlGenRandom`](https://msdn.microsoft.com/en-us/library/aa387694.aspx) 関数 (替わりに `CryptGenRandom` を使用することを推奨)
     - [`CryptGenRandom`](https://msdn.microsoft.com/en-us/library/aa379942.aspx) 関数
-    - [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s)
 
 ## 参照
 - GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)
