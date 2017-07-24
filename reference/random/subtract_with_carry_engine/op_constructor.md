@@ -4,6 +4,7 @@
 * subtract_with_carry_engine[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
+* [mathjax enable]
 
 ```cpp
 explicit subtract_with_carry_engine(result_type value = default_seed);     // (1)
