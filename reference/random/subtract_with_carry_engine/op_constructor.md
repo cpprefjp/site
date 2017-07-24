@@ -16,6 +16,7 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (4
 ## 概要
 - (1) : シード値を受け取って状態シーケンスを構築する
     - シード値が指定されない場合は、固定のシード値でデフォルト構築される
+    - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil 32 / \mathtt{w} \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
     - ※ シード値には、初期状態の予測不可能性を高めるために、UNIX時間(エポックからの経過時間)や、非決定的な乱数を指定するのがよい。
 - (2) : シードのシーケンスを受け取って状態シーケンスを構築する
 - (3) : コピーコンストラクタ。状態シーケンスをコピーする
@@ -23,7 +24,7 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (4
 
 
 ## 計算量
-- (1), (3) : O(n)
+- (1) : 正確に $n \times \mathtt{r}$ 回 (`r` は `subtract_with_carry_engine::long_lag`) [`linear_congruential_engine` を呼ぶ](../linear_congruential_engine/op_call.md)
 
 
 ## 例

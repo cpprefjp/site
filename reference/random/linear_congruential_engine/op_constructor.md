@@ -23,8 +23,7 @@ linear_congruential_engine(linear_congruential_engine&& e) = default;      // (4
 
 
 ## 計算量
-- (1) : O(n)
-- (3) : O(n)
+- (1) : O(1)
 
 
 ## 例
