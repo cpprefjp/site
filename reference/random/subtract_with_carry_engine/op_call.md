@@ -48,7 +48,7 @@ int main()
 * std::ranlux24_base[link /reference/random/ranlux24_base.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 
-### 出力例
+### 出力
 ```
 15039276
 16323925

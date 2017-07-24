@@ -92,7 +92,7 @@ int main()
 * seeds.begin()[link /reference/array/begin.md]
 * seeds.end()[link /reference/array/end.md]
 
-### 出力
+### 出力例
 ```
 15039276
 13643873
