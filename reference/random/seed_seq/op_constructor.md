@@ -77,8 +77,8 @@ int main()
     for (std::uint32_t x : result) {
       std::cout << x << ", ";
     }
+    std::cout << std::endl;
   }
-  std::cout << std::endl;
 
   // 初期化子リストによる構築
   {
@@ -90,8 +90,8 @@ int main()
     for (std::uint32_t x : result) {
       std::cout << x << ", ";
     }
+    std::cout << std::endl;
   }
-  std::cout << std::endl;
 
   // イテレータ範囲による構築
   {
@@ -110,6 +110,7 @@ int main()
     for (std::uint64_t x : result) {
       std::cout << x << ", ";
     }
+    std::cout << std::endl;
   }
 }
 ```
@@ -120,8 +121,9 @@ int main()
 * seed_data.begin()[link /reference/vector/begin.md]
 * seed_data.end()[link /reference/vector/end.md]
 
-### 出力例
+### 出力
 ```
+
 1, 2, 3, 
 1, 2, 4294967295, 
 ```
