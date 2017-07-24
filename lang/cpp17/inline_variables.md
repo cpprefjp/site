@@ -14,8 +14,8 @@ C++14までは関数のみインライン指定ができたが、C++17では関�
 
 // ヘッダ
 struct X {
-    // ソースで変数fooを定義する必要がない
-    static inline int foo;
+  // ソースで変数fooを定義する必要がない
+  static inline int foo;
 };
 
 
