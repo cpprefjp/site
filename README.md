@@ -18,4 +18,4 @@ cpprefjpは、以下のコアメンバが運営を行っています。
 * [melpon](https://github.com/melpon)
 
 
-cpprefjpでは、2015年1月現在の現行バージョンであるC++14(ISO/IEC 14882:2014)への対応を行っています。
+cpprefjpでは、C++の最新バージョンに随時対応しています。
