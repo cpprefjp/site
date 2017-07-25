@@ -529,6 +529,7 @@ for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
 - [C++11 ローカル型と無名型を、テンプレート引数として使用することを許可](local_and_unnamed_type_as_template_arguments.md)
 - [C++14 ジェネリックラムダ](/lang/cpp14/generic_lambdas.md)
 - [C++14 ラムダ式の初期化キャプチャ](/lang/cpp14/initialize_capture.md)
+- [C++17 ラムダ式での`*this`のコピーキャプチャ](/lang/cpp17/lambda_capture_of_this_by_value.md)
 
 
 ## 参照
