@@ -64,6 +64,7 @@ int main()
 
 ## 関連項目
 - [C++11 `char16_t`と`char32_t`](char16_32.md)
+- [C++17 UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md)
 
 
 ## 参照
