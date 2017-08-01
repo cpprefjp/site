@@ -39,7 +39,7 @@ namespace std {
 | [`swap`](weak_ptr/swap.md)              | 他の`weak_ptr`オブジェクトとデータを入れ替える                 | C++11 |
 | [`reset`](weak_ptr/reset.md)            | `weak_ptr`オブジェクトと監視対象とのリンクをクリアする                          | C++11 |
 | [`use_count`](weak_ptr/use_count.md)    | 監視している`shared_ptr`オブジェクトの所有者数を取得する       | C++11 |
-| [`expired`](weak_ptr/expired.md)        | 監視している`shared_ptr`オブジェクトの寿命が切れている場合、または`weak_ptr`オブジェクトの監視対象とのリンクが切れている場合はint型の1を返し、そうでない場合は0を返す | C++11 |
+| [`expired`](weak_ptr/expired.md)        | 監視対象の寿命切れやリンク切れを判定する 　　　　　　　　　　　　　| C++11 |
 | [`lock`](weak_ptr/lock.md)              | 監視している`shared_ptr`オブジェクトを取得する                 | C++11 |
 | [`owner_before`](weak_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                            | C++11 |
 
