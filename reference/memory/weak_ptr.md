@@ -37,9 +37,9 @@ namespace std {
 | [`(destructor)`](weak_ptr/op_destructor.md) | デストラクタ                                                   | C++11 |
 | [`operator=`](weak_ptr/op_assign.md)    | 代入演算子                                                     | C++11 |
 | [`swap`](weak_ptr/swap.md)              | 他の`weak_ptr`オブジェクトとデータを入れ替える                 | C++11 |
-| [`reset`](weak_ptr/reset.md)            | 監視対象をクリアする                                           | C++11 |
+| [`reset`](weak_ptr/reset.md)            | `weak_ptr`オブジェクトそれ自身をクリアする                          | C++11 |
 | [`use_count`](weak_ptr/use_count.md)    | 監視している`shared_ptr`オブジェクトの所有者数を取得する       | C++11 |
-| [`expired`](weak_ptr/expired.md)        | 監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する | C++11 |
+| [`expired`](weak_ptr/expired.md)        | 監視している`shared_ptr`オブジェクトの寿命、または`weak_ptr`オブジェクトそれ自身の寿命が切れている場合はint型の1を返し、そうでない場合は0を返す | C++11 |
 | [`lock`](weak_ptr/lock.md)              | 監視している`shared_ptr`オブジェクトを取得する                 | C++11 |
 | [`owner_before`](weak_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                            | C++11 |
 
