@@ -10,7 +10,7 @@ bool expired() const noexcept;
 ```
 
 ## 概要
-監視している`shared_ptr`オブジェクトの寿命が切れたかを判定する。
+監視している`shared_ptr`オブジェクトの寿命・リンクが切れたかを判定する。
 
 
 ## 戻り値
@@ -32,6 +32,10 @@ use_count() == 0
 int main()
 {
   std::weak_ptr<int> wp;
+
+  // 監視対象とリンクしていない
+  assert(wp.expired());
+
   {
     std::shared_ptr<int> sp(new int(3));
 
