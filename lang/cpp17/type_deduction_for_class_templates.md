@@ -77,6 +77,7 @@ int main()
   v.print();// 1, 2, 3が順に出力される
 }
 ```
+* std::iterator_traits[link /reference/iterator/iterator_traits.md]
 
 コンストラクタのパラメータ型から、直接あるいは間接的にクラステンプレートの引数を求められない場合は、推論できない。
 
