@@ -59,7 +59,7 @@ int main()
 
   // (2)
   // 組からのタプルの構築
-  std::tuple t2 = std::pair {3, "Hello"};
+  std::tuple t2 = std::pair{3, "Hello"};
   static_assert(std::is_same_v<
     decltype(t2),
     std::tuple<int, const char*>
