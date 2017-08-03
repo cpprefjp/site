@@ -40,6 +40,7 @@ namespace std {
 
 ## 備考
 - (1) : パラメータの型が`const UTypes&...`や`UTypes&&...`ではなくコピーで受け取るようにしているため、[配列からポインタへの変換、関数から関数ポインタへの変換](/reference/type_traits/decay.md)が起こる
+- (1) : [`std::make_tuple()`](/reference/tuple/make_tuple.md)関数と違って、`std::reference_wrapper<T>`を`T&`に展開はしない
 
 
 ## 例

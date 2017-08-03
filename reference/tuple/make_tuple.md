@@ -19,7 +19,12 @@ namespace std {
 
 
 ## 戻り値
-パラメータパックの値からなる`tuple`オブジェクト。
+パラメータパックの値からなる`tuple`オブジェクトを返す。
+
+`Types...`の各型`T`において、
+
+- [`std::decay`](/reference/type_traits/decay.md)`<T>::type`の結果型を使用し、
+- かつ型`T`が[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)型であった場合`T&`型を使用する
 
 
 ## 例

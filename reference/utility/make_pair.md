@@ -30,8 +30,8 @@ C++11以降の場合、結果型の`V1`および`V2`は以下のような型と�
 
 `T1`と`T2`それぞれの型`T`において、
 
-- `decay<T>::type`の結果型を使用し、
-- かつ`T`が`reference_wrapper`型であった場合`T&`型を使用する
+- [`std::decay`](/reference/type_traits/decay.md)`<T>::type`の結果型を使用し、
+- かつ型`T`が[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)型であった場合`T&`型を使用する
 
 
 ## 戻り値
