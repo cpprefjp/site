@@ -123,6 +123,10 @@ int main()
 ```
 
 
+## 関連項目
+- [`std::tuple`の推論補助](/reference/tuple/tuple/op_deduction_guide.md)
+
+
 ## 参照
 - [P0091R3 Template argument deduction for class templates (Rev. 6)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0091r3.html)
 - [P0620R0 Drafting for class template argument deduction issues](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0620r0.html)
