@@ -77,6 +77,13 @@ namespace std {
 | [`get`](pair/get.md)                     | `pair`の`i`番目の要素を参照する(function template) | C++11 |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](pair/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ```cpp
 #include <iostream>
