@@ -126,6 +126,7 @@ int main()
 
 
 ## 関連項目
+- [`std::pair`の推論補助](/reference/utility/pair/op_deduction_guide.md)
 - [`std::tuple`の推論補助](/reference/tuple/tuple/op_deduction_guide.md)
 
 
