@@ -128,6 +128,9 @@ int main()
 ## 関連項目
 - [`std::pair`の推論補助](/reference/utility/pair/op_deduction_guide.md)
 - [`std::tuple`の推論補助](/reference/tuple/tuple/op_deduction_guide.md)
+    - `std::pair`と`std::tuple`の推論補助の例からは、[`std::make_pair()`](/reference/utility/make_pair.md)のようなヘルパ関数の必要性が薄くなることと、標準ライブラリ内のヘルパ関数と推論補助で、小さな機能的差異があることがわかる
+- [`std::array`の推論補助](/reference/array/op_deduction_guide.md)
+    - `std::array`の推論補助からは、非自明なコンストラクタを持たないクラステンプレートであっても、推論補助を定義できることがわかる。ただし、配列の要素型を推論するためには、推論しない場合とは違った制限が必要となる
 
 
 ## 参照

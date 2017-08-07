@@ -112,6 +112,14 @@ namespace std {
 | [`tuple_element`](array/tuple_element.md) | 静的な要素の型取得(class template) | C++11 |
 | [`get`](array/get.md)                     | 要素を取得する(function template)  | C++11 |
 
+
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](array/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ```cpp
 #include <iostream>
