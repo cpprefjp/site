@@ -129,6 +129,8 @@ int main()
 - [`std::pair`の推論補助](/reference/utility/pair/op_deduction_guide.md)
 - [`std::tuple`の推論補助](/reference/tuple/tuple/op_deduction_guide.md)
     - `std::pair`と`std::tuple`の推論補助の例からは、[`std::make_pair()`](/reference/utility/make_pair.md)のようなヘルパ関数の必要性が薄くなることと、標準ライブラリ内のヘルパ関数と推論補助で、小さな機能的差異があることがわかる
+- [`std::shared_ptr`の推論補助](/reference/memory/shared_ptr/op_deduction_guide.md)
+    - `std::shared_ptr`は、生ポインタからの推論を許可しない。`std::shared_ptr`には単一要素版と配列版があるが、生ポインタの値と型からは、どちらに振り分けるべきかが定まらないためである
 - [`std::array`の推論補助](/reference/array/op_deduction_guide.md)
     - `std::array`の推論補助からは、非自明なコンストラクタを持たないクラステンプレートであっても、推論補助を定義できることがわかる。ただし、配列の要素型を推論するためには、推論しない場合とは違った制限が必要となる
 
