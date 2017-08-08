@@ -26,6 +26,11 @@ namespace std {
 ## 備考
 - 生ポインタから`std::shared_ptr`への変換は推論できない。コンストラクタが `template <class Y> explicit shared_ptr(Y* p);` のようにクラステンプレートパラメータ`T`を直接使用しておらず、推論補助も定義されないからである
 - ([`std::unique_ptr`](/reference/memory/unique_ptr.md)の推論補助ページがないためここに書くが、) 生ポインタから`std::unique_ptr`への変換も推論できない。これは、クラス内で`using pointer = T*;`のように`T*`の別名を付けたうえで、コンストラクタが`explicit unique_ptr(pointer);`のように、`T*`を直接使用せず、別名を使用しているためである
+- これらは、生ポインタが配列か単一要素かを、一意に決められないためである。`std::shared_ptr`と[`std::unique_ptr`](/reference/memory/unique_ptr.md)には、単一要素版と配列版が定義されるが、推論補助では、引数からどちらを使用するかを決められない
+    ```cpp
+    int* p = new int[5];
+    std::shared_ptr sp {p}; // 単一版か配列版かを決められないため、エラーとなるべき
+    ```
 
 
 ## 例
