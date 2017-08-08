@@ -110,6 +110,13 @@ namespace std {
 | `template <class T> struct hash<shared_ptr<N>>;` | `hash`クラスの`shared_ptr`に対する特殊化 | C++11 |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](shared_ptr/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ### shared_ptrの基本的な使い方
 ```cpp

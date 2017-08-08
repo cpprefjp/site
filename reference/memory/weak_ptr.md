@@ -58,6 +58,13 @@ namespace std {
 | [`swap`](weak_ptr/swap_free.md) | 2つの`weak_ptr`オブジェクトを入れ替える | C++11 |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](shared_ptr/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ```cpp
 #include <memory>
