@@ -91,6 +91,13 @@ namespace std {
 | [`operator!=`](scoped_allocator_adaptor/op_not_equal.md) | 非等値比較 | C++11 |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](scoped_allocator_adaptor/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例1 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる
 ```cpp
 #include <iostream>
