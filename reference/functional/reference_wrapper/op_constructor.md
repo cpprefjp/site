@@ -6,17 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-reference_wrapper(T& t) noexcept;
-reference_wrapper(T&&) = delete;
-reference_wrapper(const reference_wrapper<T>& x) noexcept;
+reference_wrapper(T& t) noexcept;                       // (1)
+reference_wrapper(T&&) = delete;                        // (2)
+reference_wrapper(const reference_wrapper& x) noexcept; // (3)
 ```
 
 ## 概要
 与えられた参照で、参照オブジェクトを構築する。
 
-## 各オーバーロードの詳細
-- `reference_wrapper(T& t) noexcept;`<br/>`t`への参照を保持する`reference_wrapper`オブジェクトを構築する
-- `reference_wrapper(const reference_wrapper<T>& x) noexcept;`<br/>`x.`[`get()`](/reference/functional/reference_wrapper/get.md)への参照を保持する`reference_wrapper`オブジェクトを構築する
+- (1) : `t`への参照を保持する`reference_wrapper`オブジェクトを構築する
+- (2) : 右辺値参照は受け取れない
+- (3) : `x.`[`get()`](/reference/functional/reference_wrapper/get.md)への参照を保持する`reference_wrapper`オブジェクトを構築する
 
 
 
@@ -29,11 +29,13 @@ int main()
 {
   int x = 3;
 
+  // (1)
   // xへの参照を保持する
   std::reference_wrapper<int> r(x);
   r.get() += 1;
   std::cout << x << std::endl;
 
+  // (2)
   // 参照ラッパーrが指すxへの参照を保持する
   std::reference_wrapper<int> r2(r);
   r2.get() += 1;
