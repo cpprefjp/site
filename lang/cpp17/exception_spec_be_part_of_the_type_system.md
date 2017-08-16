@@ -44,6 +44,34 @@ int x = f(g1, g2); // コンパイルエラー : g1とg2の型が一致しない
 ```
 
 
+## 例
+### 関数テンプレートで受け取った関数ポインタがnoexceptか否かを取得する
+```cpp
+#include <iostream>
+
+template <class R, class... Args, bool IsNoExcept>
+void g(R(*f)(Args...) noexcept(IsNoExcept))
+{
+  std::cout << std::boolalpha << IsNoExcept << std::endl;
+}
+
+void h(int, char) noexcept {}
+void i(int, char) noexcept(false) {}
+
+int main()
+{
+  g(h);
+  g(i);
+}
+```
+
+#### 出力
+```
+true
+false
+```
+
+
 ## この機能が必要になった背景・経緯
 C++11で[`noexcept`](/lang/cpp11/noexcept.md)が導入されたことにより、コンパイラに最適化の機会を増やすことにつながった。この機能はそれに関連して、さらなる最適化の機会を与えることを主目的としている。
 
