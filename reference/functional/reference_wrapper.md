@@ -45,6 +45,13 @@ namespace std {
 | [`cref`](cref.md) | `const T&`に対応する`reference_wrapper`オブジェクトの生成 | C++11 |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](reference_wrapper/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ```cpp
 #include <iostream>
