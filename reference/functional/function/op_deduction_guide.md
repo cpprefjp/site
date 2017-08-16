@@ -27,8 +27,8 @@ namespace std {
 
 ## 例
 ```cpp
-#include <iostream>
 #include <functional>
+#include <type_traits>
 
 int foo(int, char) { return 0; }
 
