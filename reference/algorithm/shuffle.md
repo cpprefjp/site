@@ -35,6 +35,7 @@ namespace std {
 
 
 ## 例
+### 整数の配列をシャッフルする
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -66,10 +67,37 @@ int main() {
 * seed_gen[link /reference/random/random_device/op_call.md]
 * std::mt19937[link /reference/random/mt19937.md]
 
-### 出力
+#### 出力例
 ```
 before: 0123456789
  after: 5803429716
+```
+
+### 文字列をシャッフルする
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <random>
+
+int main() {
+  std::string input = "0123456789abcdef";
+
+  std::cout << "before: " << input << std::endl;;
+
+  // シャッフル
+  std::random_device seed_gen;
+  std::mt19937 engine(seed_gen());
+  std::shuffle(input.begin(), input.end(), engine);
+
+  std::cout << " after: " << input << std::endl;
+}
+```
+
+#### 出力例
+```
+before: 0123456789abcdef
+ after: 49e351b8f0ad62c7
 ```
 
 ## 実装例
