@@ -53,6 +53,8 @@ int main()
   static_assert(std::is_same_v<decltype(s5), std::basic_string<char>>);
 }
 ```
+* s1.begin()[link begin.md]
+* s1.end()[link end.md]
 
 ### 出力
 ```
