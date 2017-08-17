@@ -52,7 +52,9 @@ int main() {
   std::cout << std::endl;
 
   // シャッフル
-  std::shuffle(v.begin(), v.end(), std::mt19937());
+  std::random_device seed_gen;
+  std::mt19937 engine(seed_gen());
+  std::shuffle(v.begin(), v.end(), engine);
 
   std::cout << " after: ";
   std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout));
@@ -60,6 +62,8 @@ int main() {
 }
 ```
 * std::shuffle[color ff0000]
+* std::random_device[link /reference/random/random_device.md]
+* seed_gen[link /reference/random/random_device/op_call.md]
 * std::mt19937[link /reference/random/mt19937.md]
 
 ### 出力
