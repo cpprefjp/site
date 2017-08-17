@@ -172,6 +172,13 @@ namespace std {
 | [`s`](basic_string/op_s.md) | `basic_string`のリテラル | C++14 |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](basic_string/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ```cpp
 #include <iostream>
