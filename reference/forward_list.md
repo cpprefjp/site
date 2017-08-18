@@ -135,6 +135,13 @@ namespace std {
 | [`swap`](forward_list/swap_free.md)              | 2つの`forward_list`オブジェクトを入れ替える | C++11 |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](forward_list/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ```cpp
 #include <iostream>

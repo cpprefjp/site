@@ -142,6 +142,13 @@ namespace std {
 | [`swap`](vector/swap_free.md)              | 2つの`vector`オブジェクトを入れ替える | |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](vector/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例 (C++11)
 ```cpp
 #include <iostream>
