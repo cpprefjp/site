@@ -23,7 +23,7 @@ namespace std {
     -> priority_queue<typename Container::value_type, Container, Compare>; // (3)
 }
 ```
-* iterator_traits[link reference/iterator/iterator_traits.md]
+* iterator_traits[link /reference/iterator/iterator_traits.md]
 * less[link /reference/functional/less.md]
 * vector[link /reference/vector.md]
 
