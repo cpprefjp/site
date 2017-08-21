@@ -55,6 +55,7 @@ int main()
   static_assert(std::is_same_v<decltype(pque2), std::priority_queue<int>>);
 }
 ```
+* std::less[link /reference/functional/less.md]
 
 ### 出力
 ```
