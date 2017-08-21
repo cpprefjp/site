@@ -80,6 +80,13 @@ namespace std {
 | [`swap`](queue/swap_free.md)              | 2つの`queue`オブジェクトを入れ替える | C++11          |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](queue/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ```cpp
 #include <iostream>
