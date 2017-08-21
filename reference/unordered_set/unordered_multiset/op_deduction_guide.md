@@ -1,7 +1,7 @@
 # 推論補助
 * unordered_set[meta header]
 * std[meta namespace]
-* unordered_set[meta class]
+* unordered_multiset[meta class]
 * cpp17[meta cpp]
 
 ```cpp
