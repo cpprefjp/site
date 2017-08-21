@@ -167,6 +167,13 @@ namespace std {
 | [`operator!=`](unordered_multiset/op_not_equal.md) | 非等値比較 | C++11 |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](unordered_multiset/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ```cpp
 #include <iostream>
