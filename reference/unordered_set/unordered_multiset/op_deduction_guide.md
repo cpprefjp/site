@@ -93,6 +93,9 @@ int main()
   assert(ums3.size() == 3);
 }
 ```
+* ums1.begin()[link begin.md]
+* ums1.end()[link end.md]
+* ums3.size()[link size.md]
 
 ### 出力
 ```

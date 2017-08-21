@@ -65,6 +65,9 @@ int main()
   assert(s3.size() == 3);
 }
 ```
+* s1.begin()[link begin.md]
+* s1.end()[link end.md]
+* s3.size()[link size.md]
 
 ### 出力
 ```
