@@ -102,6 +102,13 @@ namespace std {
 | [`swap`](basic_regex/swap_free.md) | 二つの正規表現オブジェクトを交換する | C++11          |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](basic_regex/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ## 例
 ```cpp
 #include <iostream>
