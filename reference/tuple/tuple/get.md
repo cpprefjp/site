@@ -129,7 +129,7 @@ const std::tuple<int, std::string, double> f()
 
 int main()
 {
-  // f()の戻り値型がconst tuple&&がとなるので、
+  // f()の戻り値型がconst tuple&&となるので、
   // tuple&&をとるオーバーロードでは受け取れない
   std::string s = std::get<1>(f());
 
