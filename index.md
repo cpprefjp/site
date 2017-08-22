@@ -63,3 +63,6 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 
 ![](https://i.creativecommons.org/l/by/3.0/88x31.png)
 
+cpprefjpサイトのアイコン・ロゴ画像に関しては、[クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja)の下に提供しています。
+
+![](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)
