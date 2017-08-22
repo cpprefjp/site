@@ -24,7 +24,7 @@ namespace std {
 - Windows
     - Visual C++: 外部デバイスを用いており、暗号学的に安全で非決定論的 ([`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s))
     - Clang: 暗号論的な乱数である [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) を使用する
-    - GCC (MinGW): 擬似乱数生成器 [`mt19937`](mt19937.md) を用いるため**使用を推奨しない**。詳細は処理系の備考欄を参照
+    - GCC (MinGW): 擬似乱数生成器 [`mt19937`](mt19937.md) を用いるため**使用を推奨しない**。詳細は備考欄を参照
 - UNIX 系
     - Clang (libc++): `/dev/urandom` (デフォルト) または `/dev/random` から値を読み取る
     - GCC (libstdc++): CPU の `RDRAND` 命令を使う (デフォルト) か、`/dev/urandom` (`RDRAND` が使用できないときのデフォルト) または `/dev/random` から値を読み取る
@@ -173,15 +173,121 @@ jyiasder
 
 
 ## 備考
-- Windows版のGCC (MinGW, libstdc++) では、`random_device`クラスは擬似乱数生成器である[`mt19937`](mt19937.md)で実装されている。その環境のデフォルトでは固定の乱数列が生成されてしまうので注意すること。コンストラクタの引数としてシード値を文字列化して渡せば`mt19937`のシードとして扱われるが、非決定論的な乱数として振る舞わないことは変わらない。この環境では`random_device`の使用は推奨しない
+### MinGW GCC(libstdc++)
 
-### 代替
+Windows版のGCC (MinGW, libstdc++) では、`random_device`クラスは擬似乱数生成器である[`mt19937`](mt19937.md)で実装されている。その環境のデフォルトでは固定の乱数列が生成されてしまうので注意すること。コンストラクタの引数としてシード値を文字列化して渡せば`mt19937`のシードとして扱われるが、非決定論的な乱数として振る舞わないことは変わらない。この環境では`random_device`の使用は推奨しない
+
+##### 代替
 - クロスプラットフォーム
     - CPU が提供する [`RDRAND`, `RDSEED` 命令](https://www.cryptopp.com/wiki/RDRAND)
 - Windows
     - [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) (`CryptGenRandom` のラッパー)
     - [`RtlGenRandom`](https://msdn.microsoft.com/en-us/library/aa387694.aspx) 関数 (替わりに `CryptGenRandom` を使用することを推奨)
     - [`CryptGenRandom`](https://msdn.microsoft.com/en-us/library/aa379942.aspx) 関数
+
+##### Workaround
+
+ワークアラウンドとして次のコードが利用できる。`rand_s`ではなく`CryptGenRandom`を用いているのは、`rand_s`を利用するには`Windows.h`をincludeする前に`_CRT_RAND_S`のdefineが必要でworkaroundには向かないため。
+
+```cpp
+#include <random>
+#if defined(__MINGW32__) && defined(__GNUC__) && !defined(__clang__)
+#include <system_error>
+#include <limits>
+#include <string>
+#include <Windows.h>
+#include <wincrypt.h>
+namespace workaround_mingw_gcc {
+class random_device {
+private:
+  class crypt_context {
+  private:
+    HCRYPTPROV prov_;
+  public:
+    crypt_context(DWORD prov_type, LPCTSTR container = nullptr, LPCTSTR provider = nullptr, DWORD flags = 0)
+    {
+      using std::system_category;
+      using std::system_error;
+      const auto er = ::CryptAcquireContext(&this->prov_, container, provider, prov_type, flags);
+      if(!er) {
+        throw system_error(
+          std::error_code(::GetLastError(), system_category()),
+          "CryptAcquireContext:(" + std::to_string(er) + ')'
+        );
+      }
+    }
+    crypt_context(const crypt_context&) = delete;
+    void operator=(const crypt_context&) = delete;
+    ~crypt_context() noexcept
+    {
+      ::CryptReleaseContext(this->prov_, 0);
+    }
+    //HCRYPTPROV& get() noexcept { return this->prov_; }
+    const HCRYPTPROV& get() const noexcept { return this->prov_; }
+  };
+  crypt_context prov_;
+public:
+  using result_type = unsigned int;
+  explicit random_device(const std::string& /*token*/ = "workaround_mingw_gcc ")
+  : prov_(PROV_RSA_FULL)
+  {}
+  random_device(const random_device&) = delete;
+  void operator=(const random_device&) = delete;
+  //~random_device() = default;
+  double entropy() const noexcept { return 0.0; }
+  result_type operator()()
+  {
+    using std::system_category;
+    using std::system_error;
+    result_type re;
+    const auto er = ::CryptGenRandom(this->prov_.get(), sizeof(re), reinterpret_cast<BYTE*>(&re));
+    if(!er) {
+      throw system_error(
+        std::error_code(::GetLastError(), system_category()),
+        "CryptGenRandom:(" + std::to_string(er) + ')'
+      );
+    }
+    return re;
+  }
+  static constexpr result_type min() { return std::numeric_limits<result_type>::min(); }
+  static constexpr result_type max() { return std::numeric_limits<result_type>::max(); }
+};
+}
+namespace cpprefjp {
+  using workaround_mingw_gcc::random_device;
+}
+#else //defined(__MINGW32__) && defined(__GNUC__) && !defined(__clang__)
+namespace cpprefjp {
+  using std::random_device;
+}
+#endif //defined(__MINGW32__) && defined(__GNUC__) && !defined(__clang__)
+```
+
+使用例は次の通り。上記コードを`random_device.hpp`というファイル名で保存していると仮定する。`cpprefjp::random_device`が`std::random_device`のworkaroundで、C++11標準規格の要求を満たしたクラス。
+
+```cpp
+#include "random_device.hpp"
+#include <iostream>
+#include <vector>
+#include <functional>
+#include <algorithm>
+using seed_v_t = std::vector<cpprefjp::random_device::result_type>;
+seed_v_t create_seed_v()
+{
+  cpprefjp::random_device rnd;
+  seed_v_t sed_v(9);
+  std::generate(sed_v.begin(), sed_v.end(), std::ref(rnd));
+  return sed_v;
+}
+int main()
+{
+  const auto sed_v = create_seed_v();
+  std::seed_seq seq(sed_v.begin(), sed_v.end());
+  std::mt19937 engine(seq);
+  std::uniform_int_distribution<int> dist(1, 32);
+  for(int i = 0; i < 10; ++i) std::cout << dist(engine) << std::endl;
+}
+```
 
 ## 参照
 - GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)
@@ -193,4 +299,5 @@ jyiasder
 - [random_deviceの実装（再訪） - 煙人計画](http://vaporoid.hateblo.jp/entry/2014/07/25/154852)
 - [Replacing `/dev/urandom` May 4, 2016 - Security](https://lwn.net/Articles/685371/)
 - [gccをwindowsで使うならstd::random_deviceを使ってはいけない - Qiita](http://qiita.com/nanashi/items/f94b78398a6c79d939e1)
+- [MSC30-C. 疑似乱数の生成に rand() 関数を使用しない](https://www.jpcert.or.jp/sc-rules/c-msc30-c.html)
 
