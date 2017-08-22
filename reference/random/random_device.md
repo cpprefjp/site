@@ -262,20 +262,20 @@ namespace cpprefjp {
 }
 #endif //defined(__MINGW32__) && defined(__GNUC__) && !defined(__clang__)
 ```
-* HCRYPTPROV [link https://msdn.microsoft.com/en-us/library/windows/desktop/aa382471%28v=vs.85%29.aspx]
-* BYTE [link https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx#BYTE]
-* DWORD [link https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx#DWORD]
-* LPCTSTR [link https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx#LPCTSTR]
-* PROV_RSA_FULL [link https://msdn.microsoft.com/en-us/library/windows/desktop/aa387448(v=vs.85).aspx]
-* <wincrypt.h> [link https://msdn.microsoft.com/en-us/library/ms867086.aspx]
-* CryptAcquireContext [link https://msdn.microsoft.com/en-us/library/aa379886.aspx]
-* GetLastError [link https://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx]
-* CryptReleaseContext [link https://msdn.microsoft.com/en-us/library/aa380268.aspx]
-* CryptGenRandom [link https://msdn.microsoft.com/en-us/library/aa379942.aspx]
-* std::system_category [link /reference/system_error/system_category.md]
-* std::system_error [link /reference/system_error/system_error.md]
-* std::error_code [link /reference/system_error/error_code.md]
-* std::to_string [link /reference/string/to_string.md]
+* HCRYPTPROV[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa382471%28v=vs.85%29.aspx]
+* BYTE[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx#BYTE]
+* DWORD[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx#DWORD]
+* LPCTSTR[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx#LPCTSTR]
+* PROV_RSA_FULL[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa387448(v=vs.85).aspx]
+* <wincrypt.h>[link https://msdn.microsoft.com/en-us/library/ms867086.aspx]
+* CryptAcquireContext[link https://msdn.microsoft.com/en-us/library/aa379886.aspx]
+* GetLastError[link https://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx]
+* CryptReleaseContext[link https://msdn.microsoft.com/en-us/library/aa380268.aspx]
+* CryptGenRandom[link https://msdn.microsoft.com/en-us/library/aa379942.aspx]
+* std::system_category[link /reference/system_error/system_category.md]
+* std::system_error[link /reference/system_error/system_error.md]
+* std::error_code[link /reference/system_error/error_code.md]
+* std::to_string[link /reference/string/to_string.md]
 
 使用例は次の通り。上記コードを`random_device.hpp`というファイル名で保存していると仮定する。`cpprefjp::random_device`が`std::random_device`のworkaroundで、C++11標準規格の要求を満たしたクラス。
 
@@ -302,14 +302,14 @@ int main()
   for(int i = 0; i < 10; ++i) std::cout << dist(engine) << std::endl;
 }
 ```
-* std::generate [link /reference/algorithm/generate.md]
-* std::ref [link /reference/functional/ref.md]
-* std::seed_seq [link /reference/random/seed_seq.md]
-* std::mt19937 [link /reference/random/mt19937.md]
-* std::uniform_int_distribution [link /reference/random/uniform_int_distribution.md]
-* dist(engine) [link /reference/random/uniform_int_distribution/op_call.md]
-* sed_v.begin() [link /reference/vector/begin.md]
-* sed_v.end() [link /reference/vector/end.md]
+* std::generate[link /reference/algorithm/generate.md]
+* std::ref[link /reference/functional/ref.md]
+* std::seed_seq[link /reference/random/seed_seq.md]
+* std::mt19937[link /reference/random/mt19937.md]
+* std::uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
+* dist(engine)[link /reference/random/uniform_int_distribution/op_call.md]
+* sed_v.begin()[link /reference/vector/begin.md]
+* sed_v.end()[link /reference/vector/end.md]
 
 ## 参照
 - GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)
