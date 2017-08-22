@@ -138,3 +138,4 @@ int main()
 ## 参照
 - [P0091R3 Template argument deduction for class templates (Rev. 6)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0091r3.html)
 - [P0620R0 Drafting for class template argument deduction issues](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0620r0.html)
+- [LWG Issue 2981. Remove redundant deduction guides from standard library](https://wg21.cmeerw.net/lwg/issue2981)
