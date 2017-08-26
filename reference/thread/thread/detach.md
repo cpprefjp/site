@@ -52,7 +52,7 @@ std::future<int> start_async(int x, int y)
   t.detach();
 
   return ftr;
-  // 変数thにはスレッドが紐付いていないため破棄可能
+  // 変数tにはスレッドが紐付いていないため破棄可能
 }
 
 int main()
