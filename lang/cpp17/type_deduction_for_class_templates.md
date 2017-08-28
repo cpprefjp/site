@@ -124,6 +124,7 @@ int main()
 #include <set>
 #include <complex>
 #include <functional>
+#include <memory>
 #include <future>
 
 int main()
@@ -141,6 +142,13 @@ int main()
   // std::function<int(int, double)>に推論される
   std::function f = [](int, double) { return 0; };
 
+  // スマートポインタの型推論。
+  // std::shared_ptrとstd::unique_ptrは生ポインタからの推論を許可しない。
+  // std::shared_ptrからstd::weak_ptrとその逆は推論できる
+  std::shared_ptr<int> sp {new int(3)};
+  std::weak_ptr wp = sp;
+  std::shared_ptr locked_sp = wp.lock();
+
   // promiseから取得するfutureで、結果型を推論。
   // std::future<int>に推論される
   std::promise<int> p;
@@ -149,6 +157,8 @@ int main()
 ```
 * std::complex[link /reference/complex.md]
 * std::function[link /reference/functional/function.md]
+* std::weak_ptr[link /reference/memory/weak_ptr.md]
+* wp.lock()[link /reference/memory/weak_ptr/lock.md]
 * std::promise[link /reference/future/promise.md]
 * p.get_future()[link /reference/future/promise/get_future.md]
 * std::future[link /reference/future/future.md]
