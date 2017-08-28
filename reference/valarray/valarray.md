@@ -158,6 +158,13 @@ valarray<int> c = a + b;
 | [<code>operator&#x7C;&#x7C;</code>](valarray/op_logical_or.md) | 条件式の論理和                   | |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](valarray/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
 ### 数学関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -178,7 +185,6 @@ valarray<int> c = a + b;
 | [`pow`](valarray/pow.md)     | 累乗を求める                  | |
 | [`sqrt`](valarray/sqrt.md)   | 平方根を求める                | |
 | [`abs`](valarray/abs.md)     | 絶対値を求める                | |
-
 
 
 ## 例
