@@ -204,7 +204,7 @@ int main()
 - 関数テンプレートでは引数の型からテンプレートパラメータの型を推論できるにも関わらず、クラステンプレートのコンストラクタでは`pair<int, double>(2, 4.5)`の`<int, double>`のように冗長な指定をする必要があった
 - 生成関数は、単に引数の型を推論するだけではない場合があった。例として、[`std::make_pair()`](/reference/utility/make_pair.md)や[`make_tuple()`](/reference/tuple/make_tuple.md)といった関数は、型が[`std::reference_wrapper<T>`](/reference/functional/reference_wrapper.md)であった場合に、それを`T&`に展開する機能がある。単に引数の型を推論するだけの生成関数なのか、より複雑なことをする生成関数なのかをドキュメントで調査する必要があり、そうしない場合に予期せぬバグが発生することがあった
 - 生成関数を持たない場合、たとえばラムダ式を使用する際に、その型を記述できない問題があった
-- [`std::lock_guard`](/reference/mutex/lock_guard.md)のようにコピーもムーブもできない型は、生成関数を作るために「[コピー省略](guarantee_copy_elision.md)」のような難解な機能を使用する必要があった
+- [`std::lock_guard`](/reference/mutex/lock_guard.md)のようにコピーもムーブもできない型は、生成関数を作るために「[コピー省略](guarantee_copy_elision.md.nolink)」のような難解な機能を使用する必要があった
 - 循環的な複雑さ (Cyclomatic complexity) を軽減するために大きな関数をクラスで置き換える便利な手法が、関数テンプレートでは使用できなかった
 
 
