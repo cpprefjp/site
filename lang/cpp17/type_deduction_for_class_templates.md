@@ -125,6 +125,7 @@ int main()
 #include <complex>
 #include <functional>
 #include <memory>
+#include <utility>
 #include <future>
 
 int main()
@@ -149,16 +150,23 @@ int main()
   std::weak_ptr wp = sp;
   std::shared_ptr locked_sp = wp.lock();
 
+  // std::pairとstd::tupleの型推論。
+  // std::make_pair()やstd::make_tuple()のような単純なヘルパ関数が不要となる例
+  std::pair p {1, "Hello"};        // std::pair<int, const char*>に推論される
+  std::tuple t {1, 3.14, "Hello"}; // std::tuple<int, double, const char*>に推論される
+
   // promiseから取得するfutureで、結果型を推論。
   // std::future<int>に推論される
-  std::promise<int> p;
-  std::future fut = p.get_future();
+  std::promise<int> pro;
+  std::future fut = pro.get_future();
 }
 ```
 * std::complex[link /reference/complex.md]
 * std::function[link /reference/functional/function.md]
 * std::weak_ptr[link /reference/memory/weak_ptr.md]
 * wp.lock()[link /reference/memory/weak_ptr/lock.md]
+* std::tuple[link /reference/tuple/tuple.md]
+* std::make_tuple[link /reference/tuple/make_tuple.md]
 * std::promise[link /reference/future/promise.md]
 * p.get_future()[link /reference/future/promise/get_future.md]
 * std::future[link /reference/future/future.md]
