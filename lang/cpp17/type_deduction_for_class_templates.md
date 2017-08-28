@@ -127,38 +127,57 @@ int main()
 #include <memory>
 #include <utility>
 #include <future>
+#include <mutex>
 
 int main()
 {
   // 初期化子リストからコンテナの要素型を推論
-  std::vector v = {1, 2, 3}; // std::vector<int>に推論される
-  std::array ar = {4, 5, 6}; // std::array<int, 3>に推論される
-  std::set s = {7, 8, 9};    // std::set<int>に推論される
+  {
+    std::vector v = {1, 2, 3}; // std::vector<int>に推論される
+    std::array ar = {4, 5, 6}; // std::array<int, 3>に推論される
+    std::set s = {7, 8, 9};    // std::set<int>に推論される
+  }
 
   // 複素数の要素型を推論
-  std::complex c {1.0, 2.0};    // std::complex<double>に推論される
-  std::complex cf {1.0f, 2.0f}; // std::complex<float>に推論される
+  {
+    std::complex c {1.0, 2.0};    // std::complex<double>に推論される
+    std::complex cf {1.0f, 2.0f}; // std::complex<float>に推論される
+  }
 
-  // 関数ポインタ・関数オブジェクトからstd::functionのシグニチャを推論。
-  // std::function<int(int, double)>に推論される
-  std::function f = [](int, double) { return 0; };
+  // 関数ポインタ・関数オブジェクトからstd::functionのシグニチャを推論
+  {
+    // std::function<int(int, double)>に推論される
+    std::function f = [](int, double) { return 0; };
+  }
 
-  // スマートポインタの型推論。
-  // std::shared_ptrとstd::unique_ptrは生ポインタからの推論を許可しない。
-  // std::shared_ptrからstd::weak_ptrとその逆は推論できる
-  std::shared_ptr<int> sp {new int(3)};
-  std::weak_ptr wp = sp;
-  std::shared_ptr locked_sp = wp.lock();
+  // スマートポインタの型推論
+  {
+    // std::shared_ptrとstd::unique_ptrは生ポインタからの推論を許可しない。
+    // std::shared_ptrからstd::weak_ptrとその逆は推論できる
+    std::shared_ptr<int> sp {new int(3)};
+    std::weak_ptr wp = sp;
+    std::shared_ptr locked_sp = wp.lock();
+  }
 
-  // std::pairとstd::tupleの型推論。
-  // std::make_pair()やstd::make_tuple()のような単純な生成関数が不要となる例
-  std::pair p {1, "Hello"};        // std::pair<int, const char*>に推論される
-  std::tuple t {1, 3.14, "Hello"}; // std::tuple<int, double, const char*>に推論される
+  // std::pairとstd::tupleの型推論
+  {
+    // std::make_pair()やstd::make_tuple()のような単純な生成関数が不要となる例
+    std::pair p {1, "Hello"};        // std::pair<int, const char*>に推論される
+    std::tuple t {1, 3.14, "Hello"}; // std::tuple<int, double, const char*>に推論される
+  }
 
-  // promiseから取得するfutureで、結果型を推論。
-  // std::future<int>に推論される
-  std::promise<int> pro;
-  std::future fut = pro.get_future();
+  // std::lock_guardが管理するミューテックスの型を推論
+  {
+    std::mutex mut;
+    std::lock_guard lk {mut}; // std::lock_guard<std::mutex>に推論される
+  }
+
+  // promiseから取得するfutureで、結果型を推論
+  {
+    // std::future<int>に推論される
+    std::promise<int> pro;
+    std::future fut = pro.get_future();
+  }
 }
 ```
 * std::complex[link /reference/complex.md]
