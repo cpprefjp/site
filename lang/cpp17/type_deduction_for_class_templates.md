@@ -117,10 +117,43 @@ int main()
 
 
 ## 例
+### 標準ライブラリでの使用例
 ```cpp
-```
+#include <vector>
+#include <array>
+#include <set>
+#include <complex>
+#include <functional>
+#include <future>
 
-### 出力
+int main()
+{
+  // 初期化子リストからコンテナの要素型を推論
+  std::vector v = {1, 2, 3}; // std::vector<int>に推論される
+  std::array ar = {4, 5, 6}; // std::array<int, 3>に推論される
+  std::set s = {7, 8, 9};    // std::set<int>に推論される
+
+  // 複素数の要素型を推論
+  std::complex c {1.0, 2.0};    // std::complex<double>に推論される
+  std::complex cf {1.0f, 2.0f}; // std::complex<float>に推論される
+
+  // 関数ポインタ・関数オブジェクトからstd::functionのシグニチャを推論。
+  // std::function<int(int, double)>に推論される
+  std::function f = [](int, double) { return 0; };
+
+  // promiseから取得するfutureで、結果型を推論。
+  // std::future<int>に推論される
+  std::promise<int> p;
+  std::future fut = p.get_future();
+}
+```
+* std::complex[link /reference/complex.md]
+* std::function[link /reference/functional/function.md]
+* std::promise[link /reference/future/promise.md]
+* p.get_future()[link /reference/future/promise/get_future.md]
+* std::future[link /reference/future/future.md]
+
+#### 出力
 ```
 ```
 
