@@ -41,6 +41,22 @@ namespace std {
 * `b, c, d` : 調律ビットマスクのパラメータ。生成アルゴリズムによって使用される、ごちゃ混ぜ処理のビットマスク値。`1u << w`以下にするのがよい。
 * `f` : 初期化の乗数。ひとつの値をシードとする際の、状態シーケンスのシードとして使用する初期化乗数。
 
+これらは以下の関係式を満たなければならない:
+
+* `0 < m`
+* `m <= n`
+* `2u < w`
+* `r <= w`
+* `u <= w`
+* `s <= w`
+* `t <= w`
+* `l <= w`
+* `w <= `[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)
+* `a <= (1u << w) - 1u`
+* `b <= (1u << w) - 1u`
+* `c <= (1u << w) - 1u`
+* `d <= (1u << w) - 1u`
+* `f <= (1u << w) - 1u`
 
 ## メンバ関数
 ### 構築・シード
