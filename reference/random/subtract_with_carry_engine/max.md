@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-static constexpr result_type max() { return m - 1; }
+static constexpr result_type max();
 ```
 
 ## 概要
@@ -14,7 +14,7 @@ static constexpr result_type max() { return m - 1; }
 
 
 ## 戻り値
-パラメータ`m - 1`を返す。
+`2^w - 1`を返す。
 
 
 ## 計算量
