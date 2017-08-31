@@ -14,7 +14,7 @@ static constexpr result_type max() { return m - 1u; }
 
 
 ## 戻り値
-パラメータ`m - 1u`を返す。
+`m - 1u` (テンプレートパラメータ `m` は法) を返す。
 
 
 ## 計算量
