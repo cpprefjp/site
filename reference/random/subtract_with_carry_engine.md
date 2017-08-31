@@ -23,6 +23,12 @@ namespace std {
 ## 概要
 `subtract_with_carry_engine`クラスは、[キャリー付き減算法](https://en.wikipedia.org/wiki/Subtract_with_carry)による擬似乱数生成エンジンである。
 
+テンプレートパラメータの意味は以下の通り:
+
+* `UIntType`: 生成する符号なし整数の型。
+* `w`: ワードサイズ。`0 < w <= `[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md) でなければならない。
+* `s`: 短いラグ。`0 < s < r` でなければならない。
+* `r`: 長いラグ。
 
 キャリー付き減算法は、以下の特徴を持つ：
 
