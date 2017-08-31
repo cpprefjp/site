@@ -1,6 +1,5 @@
 # Callable
 * concepts[meta header]
-* std[meta namespace]
 * cpp11[meta cpp]
 
 
