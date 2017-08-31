@@ -24,6 +24,7 @@ namespace std {
 $$x_{n+1}= (a \times x_n + c) \bmod m$$
 
 テンプレートパラメータの意味は以下の通り:
+
 * `a`: 乗数。`m` が非 0 の場合 `a < m` でなければならない。
 * `c`: 増分。`m` が非 0 の場合 `c < m` でなければならない。
 * `m`: 法。0 の場合 [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<result_type>::`[`max()`](/reference/limits/numeric_limits/max.md)。
