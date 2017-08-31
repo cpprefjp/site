@@ -13,7 +13,7 @@ linear_congruential_engine(const linear_congruential_engine& e) = default; // (3
 linear_congruential_engine(linear_congruential_engine&& e) = default;      // (4)
 ```
 
-## `linear_congruential_engine`オブジェクトの構築
+## 概要
 - (1) : シード値を受け取って状態シーケンスを構築する
     - シード値が指定されない場合はデフォルトのシード値 (`linear_congruential_engine::default_seed`) で構築される
 - (2) : シードのシーケンスを受け取って状態シーケンスを構築する
