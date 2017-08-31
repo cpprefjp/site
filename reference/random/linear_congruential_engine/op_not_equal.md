@@ -6,10 +6,10 @@
 
 ```cpp
 namespace std {
-  template <class UIntType, UIntType A, UIntType C, UIntType M>
+  template <class UIntType, UIntType a, UIntType c, UIntType m>
   bool operator!=(
-    const linear_congruential_engine<UIntType, A, C, M>& x,
-    const linear_congruential_engine<UIntType, A, C, M>& y);
+    const linear_congruential_engine<UIntType, a, c, m>& x,
+    const linear_congruential_engine<UIntType, a, c, m>& y);
 }
 ```
 

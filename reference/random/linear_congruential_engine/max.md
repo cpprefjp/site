@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-static constexpr result_type max() { return M - 1u; }
+static constexpr result_type max() { return m - 1u; }
 ```
 
 ## 概要
@@ -14,7 +14,7 @@ static constexpr result_type max() { return M - 1u; }
 
 
 ## 戻り値
-パラメータ`M - 1u`を返す。
+パラメータ`m - 1u`を返す。
 
 
 ## 計算量

@@ -7,7 +7,7 @@
 
 ```cpp
 namespace std {
-  template <class UIntType, UIntType A, UIntType C, UIntType M>
+  template <class UIntType, UIntType a, UIntType c, UIntType m>
   class linear_congruential_engine;
 
   using minstd_rand0 = …;
@@ -19,9 +19,9 @@ namespace std {
 
 ## 概要
 `linear_congruential_engine`クラスは、線形合同法による擬似乱数生成エンジンである。  
-前の擬似乱数と定数A、定数C、定数Mを保持し、以下の漸化式により次の擬似乱数を生成する。 
+前の擬似乱数と定数a、定数c、定数mを保持し、以下の漸化式により次の擬似乱数を生成する。
 
-$$X_{n+1}= (A \times X_n + C) \bmod M$$
+$$x_{n+1}= (a \times x_n + c) \bmod m$$
 
 線形合同法は、以下の特徴を持つ：
 
@@ -75,9 +75,9 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 
 | 定数 | 説明 | 対応バージョン |
 |---------------|-------------------|---------|
-| `static constexpr result_type multiplier`   | 乗項A。テンプレートパラメータ`A`。 | C++11 |
-| `static constexpr result_type increment`    | 増分項C。状態シーケンスの要素数。テンプレートパラメータ`C`。 | C++11 |
-| `static constexpr result_type modulus`      | 剰余項M。テンプレートパラメータ`M`。 | C++11 |
+| `static constexpr result_type multiplier`   | 乗項a。テンプレートパラメータ`a`。 | C++11 |
+| `static constexpr result_type increment`    | 増分項c。状態シーケンスの要素数。テンプレートパラメータ`c`。 | C++11 |
+| `static constexpr result_type modulus`      | 剰余項m。テンプレートパラメータ`m`。 | C++11 |
 | `static constexpr result_type default_seed` | デフォルトのシード値。`1u` | C++11 |
 
 
