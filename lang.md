@@ -5,6 +5,7 @@
 - [C++11](lang/cpp11.md)
 - [C++14](lang/cpp14.md)
 - [C++17](lang/cpp17.md)
+- [C++20](lang/cpp20.md)
 - [言語拡張](lang/extension.md.nolink)
 
 
