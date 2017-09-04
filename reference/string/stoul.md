@@ -57,67 +57,92 @@ namespace std {
 int main()
 {
   // 10進法での変換
-  std::cout << "---- base = 10" << std::endl;
+  {
+    std::cout << "---- base = 10" << std::endl;
 
-  unsigned long a = std::stoul("10"); // std::stoul("10", nullptr, 10);
-  std::cout << a << std::endl;
+    unsigned long x = std::stoul("10"); // std::stoul("10", nullptr, 10);
+    std::cout << x << std::endl;
 
-  unsigned long aw = std::stoul(L"11"); // std::stoul(L"11", nullptr, 10);
-  std::cout << aw << std::endl;
+    unsigned long xw = std::stoul(L"11"); // std::stoul(L"11", nullptr, 10);
+    std::cout << xw << std::endl;
+  }
+
+  // 2進法での変換
+  {
+    std::cout << "---- base = 2" << std::endl;
+
+    unsigned long x = std::stoul("1001", nullptr, 2);
+    std::cout << x << std::endl;
+
+    unsigned long xw = std::stoul(L"01001", nullptr, 2); // 先頭に0が付いていてもよい
+    std::cout << xw << std::endl;
+  }
 
   // 8進法での変換
-  std::cout << "---- base = 8" << std::endl;
+  {
+    std::cout << "---- base = 8" << std::endl;
 
-  unsigned long b = std::stoul("10", nullptr, 8);
-  std::cout << b << std::endl;
+    unsigned long x = std::stoul("10", nullptr, 8);
+    std::cout << x << std::endl;
 
-  unsigned long bw = std::stoul(L"10", nullptr, 8);
-  std::cout << bw << std::endl;
+    unsigned long xw = std::stoul(L"10", nullptr, 8);
+    std::cout << xw << std::endl;
+  }
 
   // 16進法での変換
-  std::cout << "---- base = 16" << std::endl;
+  {
+    std::cout << "---- base = 16" << std::endl;
 
-  unsigned long c = std::stoul("10", nullptr, 16);
-  std::cout << c << std::endl;
+    unsigned long x = std::stoul("10", nullptr, 16);
+    std::cout << x << std::endl;
 
-  unsigned long cw = std::stoul(L"11", nullptr, 16);
-  std::cout << cw << std::endl;
+    unsigned long xw = std::stoul(L"11", nullptr, 16);
+    std::cout << xw << std::endl;
+  }
 
   // 16進法での変換（プレフィックス付き）
-  unsigned long d = std::stoul("0x20", nullptr, 16);
-  std::cout << d << std::endl;
+  {
+    unsigned long x = std::stoul("0x20", nullptr, 16);
+    std::cout << x << std::endl;
 
-  unsigned long dw = std::stoul(L"0x21", nullptr, 16);
-  std::cout << dw << std::endl;
+    unsigned long xw = std::stoul(L"0x21", nullptr, 16);
+    std::cout << xw << std::endl;
+  }
 
   // base = 0による10進法・8進法・16進法の自動判別
-  std::cout << "---- base = 0" << std::endl;
+  {
+    std::cout << "---- base = 0" << std::endl;
 
-  std::cout << std::stoul("100", nullptr, 0) << std::endl;
-  std::cout << std::stoul("0100", nullptr, 0) << std::endl;
-  std::cout << std::stoul("0x100", nullptr, 0) << std::endl;
+    std::cout << std::stoul("100", nullptr, 0) << std::endl;
+    std::cout << std::stoul("0100", nullptr, 0) << std::endl;
+    std::cout << std::stoul("0x100", nullptr, 0) << std::endl;
 
-  std::cout << std::stoul(L"100", nullptr, 0) << std::endl;
-  std::cout << std::stoul(L"0100", nullptr, 0) << std::endl;
-  std::cout << std::stoul(L"0x100", nullptr, 0) << std::endl;
+    std::cout << std::stoul(L"100", nullptr, 0) << std::endl;
+    std::cout << std::stoul(L"0100", nullptr, 0) << std::endl;
+    std::cout << std::stoul(L"0x100", nullptr, 0) << std::endl;
+  }
 
   // 2番目の仮引数の使用例
-  std::cout << "---- use of idx parameter" << std::endl;
+  {
+    std::cout << "---- use of idx parameter" << std::endl;
 
-  std::string es = "30%";
-  std::size_t ei;
-  unsigned long e = std::stoul(es, &ei);
-  std::cout << e << ' ' << es[ei] << std::endl;
+    std::string s = "30%";
+    std::size_t i;
+    unsigned long x = std::stoul(s, &i);
+    std::cout << x << ' ' << s[i] << std::endl;
 
-  std::wstring ews = L"31%";
-  std::size_t ewi;
-  unsigned long ew = std::stoul(ews, &ewi);
-  std::cout << ew << ' ' << ewi << std::endl;
+    std::wstring ws = L"31%";
+    std::size_t wi;
+    unsigned long xw = std::stoul(ws, &wi);
+    std::cout << xw << ' ' << wi << std::endl;
+  }
 
   // 文字列先頭に空白がある場合
-  std::cout << "---- space character before number" << std::endl;
-  std::cout << std::stoul("    1") << std::endl;
-  std::cout << std::stoul(L"    2") << std::endl;
+  {
+    std::cout << "---- space character before number" << std::endl;
+    std::cout << std::stoul("    1") << std::endl;
+    std::cout << std::stoul(L"    2") << std::endl;
+  }
 }
 ```
 * std::stoul[color ff0000]
@@ -128,12 +153,17 @@ int main()
 ---- base = 10
 10
 11
+---- base = 2
+9
+9
 ---- base = 8
 8
-9
+8
 ---- base = 16
 16
 17
+32
+33
 ---- base = 0
 100
 64
@@ -143,7 +173,7 @@ int main()
 256
 ---- use of idx parameter
 30 %
-31 index: 2
+31 2
 ---- space character before number
 1
 2
