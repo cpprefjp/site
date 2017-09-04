@@ -67,7 +67,7 @@ int main()
     std::cout << xw << std::endl;
   }
 
-  // 2進数での変換
+  // 2進法での変換
   {
     std::cout << "---- base = 2" << std::endl;
 
