@@ -60,8 +60,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang):
-- [GCC, C++11 mode](/implementation.md#gcc):
+- [Clang, C++20 mode](/implementation.md#clang):
+- [GCC, C++20 mode](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
