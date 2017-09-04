@@ -20,6 +20,6 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ## ライブラリ更新の概要
 
-- [`<type_traits>`](/reference/type_traits.md)にエンディアンを表す列挙型として[`std::endian`](/reference/type_traits/endian.md.nolink)を追加
+- [`<type_traits>`](/reference/type_traits.md)にエンディアンを表す列挙型として[`std::endian`](/reference/type_traits/endian.md)を追加
 - [`std::make_shared()`](/reference/memory/make_shared.md)と[`std::allocate_shared()`](/reference/memory/allocate_shared.md)を配列に対応
 
