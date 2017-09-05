@@ -34,5 +34,9 @@ int main()
 ```
 
 
+## 関連項目
+- [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
+
+
 ## 参照
 - [P0409R2 Allow lambda capture `[=, this]`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0409r2.html)
