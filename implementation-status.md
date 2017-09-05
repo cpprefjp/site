@@ -208,7 +208,7 @@
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|
 | [ビットフィールドのメンバ変数初期化][P0683] | | | | |
-| [ラムダ式のキャプチャとして`[=, this]`を許可する][P0704] | | | | | |
+| [ラムダ式のキャプチャとして`[=, this]`を許可する](/lang/cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする | | | | |
 | [メンバポインタの`const`修飾を修正][P0409] | |
 | [関数呼び出しの最後のカンマを無視する][P0306] | | | | | |
 | [指示付き初期化][P0329] | | | | | |
@@ -216,7 +216,6 @@
 | [コンセプト][P0734] | | | | | |
 
 [P0683]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0683r1.html
-[P0704]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0704r1.html
 [P0409]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0409r2.html
 [P0306]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0306r4.html
 [P0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
