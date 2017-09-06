@@ -531,6 +531,7 @@ for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
 - [C++14 ラムダ式の初期化キャプチャ](/lang/cpp14/initialize_capture.md)
 - [C++17 ラムダ式での`*this`のコピーキャプチャ](/lang/cpp17/lambda_capture_of_this_by_value.md)
 - [C++20 ラムダ式のキャプチャとして`[=, this]`を許可する](/lang/cpp20/allow_lambda_capture_equal_this.md)
+- [C++20 ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md)
 
 
 ## 参照
