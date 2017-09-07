@@ -104,6 +104,10 @@ int main()
 ```
 
 
+## 関連項目
+- [C++20 `const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md)
+
+
 ## 参照
 - [N1784 A proposal to add l-value member function qualifier](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1784.htm)
 - [N1821 Extending Move Semantics To `*this` (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1821.htm)
