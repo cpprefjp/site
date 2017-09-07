@@ -69,6 +69,11 @@ f1 : 1 2 3
 f2
 ```
 
+
+## 関連項目
+- [C++20 可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md)
+
+
 ## 参照
 - [N1653 Working draft changes for C99 preprocessor synchronization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1653.htm)
 
