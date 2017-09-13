@@ -33,9 +33,12 @@ namespace std {
 キャリー付き減算法は、以下の特徴を持つ：
 
 * [メルセンヌ・ツイスター](mersenne_twister_engine.md)より周期が短い(10<sup>171</sup>)が軽量。
+* シードを系統的に選ぶ (例えばスレッド ID) と、特に初期において生成した値の間に線型の相関 (nearly affine dependence) がみられる。これを避けるには
+    * [`random_device`](random_device.md) 等の非決定論的な乱数をシードとして使う
+    * [最初の方の値を捨てる](subtract_with_carry_engine/discard.md)
 
 
-この生成法は、RANLUX(LUXury RANdom numbers)法の実装にも使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
+この生成法は、RANLUX (LUXury RANdom numbers) 法の実装にも使われる。
 
 
 ## メンバ関数
@@ -149,4 +152,4 @@ int main()
 ## 参照
 - [Subtract with carry - Wikipedia](https://en.wikipedia.org/wiki/Subtract_with_carry)
 - [A New Class of Random Number Generators](http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoap/1177005878), George Marsaglia and Arif Zaman, The Annals of Applied Probability, Vol. 1, No. 3, 1991
-
+- [M. Matsumoto, et al., Common Defects in Initialization of Pseudorandom Number Generators, *ACM Trans. Model. Comput. Simul.* **17**, 15 (2007)](https://doi.org/10.1145/1276927.1276928)

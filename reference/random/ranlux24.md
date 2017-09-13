@@ -17,7 +17,9 @@ namespace std {
 RANLUX法は、以下の特徴を持つ：
 
 - 低速だが、高品質な乱数を生成する
-- 異なるシードのジェネレータ間では、乱数列が重複しない
+- シードを系統的に選ぶ (例えばスレッド ID) と、特に初期において生成した値の間に線型の相関 (nearly affine dependence) がみられる。これを避けるには
+    - [`random_device`](random_device.md) 等の非決定論的な乱数をシードとして使う
+    - [最初の方の値を捨てる](discard_block_engine/discard.md) (少なくとも 2 × 23 = 46 個)
 
 
 RANLUX法は、0から4までの贅沢さレベル(luxury level)が選択可能である。  
@@ -101,4 +103,4 @@ int main()
 ## 参照
 - [N1398 A Proposal to Add an Extensible Random Number Facility to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1398.html)
 - [Uniform Random Numbers of Guaranteed Quality](http://wwwasdoc.web.cern.ch/wwwasdoc/shortwrupsdir/v115/top.html)
-
+- [M. Matsumoto, et al., Common Defects in Initialization of Pseudorandom Number Generators, *ACM Trans. Model. Comput. Simul.* **17**, 15 (2007)](https://doi.org/10.1145/1276927.1276928)
