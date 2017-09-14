@@ -6,7 +6,6 @@
 * cpp11[meta cpp]
 
 ```cpp
-// since C++11
 template <class... Args>
 iterator emplace_hint(const_iterator hint, Args&&... args);
 ```
@@ -33,19 +32,18 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 #include <iostream>
 #include <map>
 #include <utility>
-#include <tuple>
 
 int main()
 {
   std::multimap<int, char> m;
 
-  m.emplace( std::piecewise_construct, std::make_tuple(1), std::make_tuple('A') );
-  m.emplace_hint( m.end(), std::piecewise_construct, std::make_tuple(2), std::make_tuple('B') );
-  m.emplace_hint( m.end(), std::piecewise_construct, std::make_tuple(3), std::make_tuple('C') );
-  m.emplace_hint( m.end(), std::piecewise_construct, std::make_tuple(4), std::make_tuple('D') );
+  m.emplace( 1, 'A' );
+
+  // キー2の要素が最後尾に追加されることが事前にわかっているので、m.end()をヒントとして与える
+  m.emplace_hint( m.end(), 2, 'B' );
 
   for( const auto& pr : m ) {
-    std::cout << std::get<0>( pr) << " " << std::get<1>( pr ) << std::endl;
+    std::cout << std::get<0>( pr ) << " " << std::get<1>( pr ) << std::endl;
   }
 
   return 0;
@@ -54,16 +52,12 @@ int main()
 * emplace_hint[color ff0000]
 * m.emplace[link emplace.md]
 * m.end()[link end.md]
-* std::piecewise_construct[link /reference/utility/piecewise_construct.md]
-* std::make_tuple[link /reference/tuple/make_tuple.md]
 * std::get[link /reference/utility/pair/get.md]
 
 ### 出力
 ```
 1 A
 2 B
-3 C
-4 D
 ```
 
 
@@ -72,11 +66,10 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [GCC, C++11 mode](/implementation.md#gcc): ??
+- [Clang, C++11 mode](/implementation.md#clang): 3.2
+- [GCC, C++11 mode](/implementation.md#gcc): 4.8.5
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??, 11.0
+- [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
 ## 関連項目

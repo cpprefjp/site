@@ -9,6 +9,7 @@
 template <class... Args>
 pair<iterator, bool> emplace(Args&&... args);
 ```
+* pair[link /reference/utility/pair.md]
 
 ## 概要
 コンテナに新しい要素を挿入する。要素は直接構築される（コピーもムーブもされない）。要素のコンストラクタはこの関数に渡された引数を与えることによって呼ばれる。
@@ -26,32 +27,76 @@ pair<iterator, bool> emplace(Args&&... args);
 
 
 ## 例
+### 単純なキー・値を挿入する例
 ```cpp
 #include <iostream>
 #include <map>
-#include <utility>
-#include <tuple>
 
 int main()
 {
   std::map<int, char> m;
 
-  m.emplace( std::piecewise_construct, std::make_tuple(1), std::make_tuple('A') );
+  // キーと値の組を作ることなく挿入できる
+  m.emplace(3, 'A'); // キー3と、値'A'を挿入
+  m.emplace(1, 'B');
+  m.emplace(4, 'C');
 
-  std::cout << std::get<0>( *m.begin() ) << " " << std::get<1>( *m.begin() ) << std::endl;
+  for (const auto& x : m) {
+    std::cout << x.first << " : " << x.second << std::endl;
+  }
+}
+```
+* emplace[color ff0000]
 
-  return 0;
+#### 出力
+```
+1 : B
+3 : A
+4 : C
+```
+
+### キーと値もそれぞれコンストラクタ引数を渡す例
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+#include <tuple>
+
+struct Point {
+  int x, y;
+  Point(int x, int y) : x(x), y(y) {}
+};
+
+int main()
+{
+  std::map<std::string, Point> m;
+
+  m.emplace(std::piecewise_construct,
+            std::forward_as_tuple(3, 'C'), // キーの型std::stringのコンストラクタ引数を渡す
+            std::forward_as_tuple(1, 2));  // 値の型Pointのコンストラクタ引数を渡す
+
+  m.emplace(std::piecewise_construct,
+            std::forward_as_tuple(3, 'A'),
+            std::forward_as_tuple(3, 4));
+
+  m.emplace(std::piecewise_construct,
+            std::forward_as_tuple(3, 'B'),
+            std::forward_as_tuple(5, 6));
+
+  for (const auto& x : m) {
+    std::cout << x.first << " : (" << x.second.x << ", " << x.second.y << ')' << std::endl;
+  }
 }
 ```
 * emplace[color ff0000]
 * std::piecewise_construct[link /reference/utility/piecewise_construct.md]
-* std::make_tuple[link /reference/tuple/make_tuple.md]
-* std::get[link /reference/utility/pair/get.md]
-* m.begin()[link begin.md]
+* std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
-### 出力
+#### 出力
 ```
-1 A
+AAA : (3, 4)
+BBB : (5, 6)
+CCC : (1, 2)
 ```
 
 ## バージョン
@@ -59,9 +104,8 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.2 3.3
-- [GCC](/implementation.md#gcc): ??
-- [GCC, C++11 mode](/implementation.md#gcc): ??
+- [Clang, C++11 mode](/implementation.md#clang): 3.2 3.3
+- [GCC, C++11 mode](/implementation.md#gcc): 4.8.5
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??, 11.0
 
