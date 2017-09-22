@@ -5,21 +5,18 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
-static T min() throw();
-
-// C++11
-static constexpr T min() noexcept;
+static T min() throw();            // C++03
+static constexpr T min() noexcept; // C++11
 ```
 
 ## 概要
-型ごとの値の最小値を取得する
+型ごとの値の最小値を取得する。
 
 
 ## 戻り値
 指定された型の最小値
 
-浮動小数点型については正の正規化数のうち最小のものを返す。
+浮動小数点型については正の正規化数のうち最小のものを返す。負の最小値が必要な場合は、[`lowest()`](lowest.md)を使用すること
 
 
 ## 備考
@@ -81,3 +78,6 @@ int main()
 ```
 
 
+## 関連項目
+- [`std::numeric_limits::lowest()`](lowest.md)
+- [`std::numeric_limits::max()`](max.md)

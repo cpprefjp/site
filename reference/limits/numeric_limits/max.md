@@ -5,11 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
-static T max() throw();
-
-// C++11
-static constexpr T max() noexcept;
+static T max() throw();            // C++03
+static constexpr T max() noexcept; // C++11
 ```
 
 ## 概要
@@ -105,3 +102,6 @@ int main()
 ```
 
 
+## 関連項目
+- [`std::numeric_limits::lowest()`](lowest.md)
+- [`std::numeric_limits::min()`](min.md)

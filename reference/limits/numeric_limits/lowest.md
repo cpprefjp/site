@@ -10,7 +10,9 @@ static constexpr T lowest() noexcept;
 ```
 
 ## 概要
-型ごとの値の最小値を取得する
+型ごとの値の最小値を取得する。
+
+浮動小数点数において、[`min()`](min.md)は非ゼロの正の値の最小値が返されるが、この関数では負の値の最小値が返される。
 
 
 ## 戻り値
@@ -23,7 +25,8 @@ static constexpr T lowest() noexcept;
 
 
 ## 備考
-`is_specialized == false`の場合は`T()`が返される。
+- `is_specialized == false`の場合は`T()`が返される
+- 戻り値が`-`[`max()`](max.md)と等しい必要はない
 
 
 ## 例
@@ -59,6 +62,13 @@ int main()
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
 
+
+## 関連項目
+- [`std::numeric_limits::min()`](min.md)
+- [`std::numeric_limits::max()`](max.md)
+
+
 ## 参照
+- [N1880 A proposal to extend `numeric_limits` for consistent range query (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1880.htm)
 - [N2348 Wording for `std::numeric_limits<T>::lowest()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2348.pdf)
 

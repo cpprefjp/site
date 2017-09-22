@@ -46,7 +46,7 @@ namespace std {
 |--------------------------------------------------------------|--------------------------------------------------------|-------|
 | [`min()`](numeric_limits/min.md)                           | 最小値を返す。 浮動小数点型については最小の正の正規化数を返す。 | |
 | [`max()`](numeric_limits/max.md)                           | 最大値を返す。 | |
-| [`lowest()`](numeric_limits/lowest.md)                     | 最小値を返す。`-max()`と等しい必要は無い | C++11 |
+| [`lowest()`](numeric_limits/lowest.md)                     | 最小値を返す。 | C++11 |
 | [`digits`](numeric_limits/digits.md)                       | 基数 **radix** において表現できる桁数を示す。 整数型であれば、符号ビット以外のビット数である。 | |
 | [`digits10`](numeric_limits/digits10.md)                   | 10進数において表現できる桁数を示す。 | |
 | [`max_digits10`](numeric_limits/max_digits10.md)           | 浮動小数点数の10進数表現における正確さを損なわない最大の桁数を示す | C++11 |
