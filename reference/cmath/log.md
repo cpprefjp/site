@@ -10,10 +10,10 @@ namespace std {
   double log(double x);
   long double log(long double x);
 
-  double log(Integral x);            // C++11 から
+  double log(Integral x);          // C++11 から
 
-  float log10f(float x);             // C++17 から
-  long double log10l(long double x); // C++17 から
+  float logf(float x);             // C++17 から
+  long double logl(long double x); // C++17 から
 }
 ```
 * Integral[italic]
