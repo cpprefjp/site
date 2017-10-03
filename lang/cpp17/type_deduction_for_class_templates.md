@@ -114,6 +114,13 @@ int main()
 - 同じ翻訳単位に2つの推論補助がある場合、それらの推論補助は、同じパラメータリストを持ってはならない
 - 推論補助には、先頭に`explicit`を任意に付けられる。しかし、`noexcept`や属性といった修飾は付けられない
 - コンストラクタの引数を、コンストラクタに渡される前の状態 (配列からポインタへの変換などが行われる前の状態) で推論補助に転送したとして推論が行われる。そのため、推論補助はクラスのコンストラクタと同一のシグニチャである必要はない
+- この機能にともなって、デフォルトテンプレート引数のみを持つクラステンプレートは、インスタンス化時に山カッコを省略できる
+    ```cpp
+    template <class=int>
+    struct X {};
+
+    auto x = X{}; // X<>{}; と書く必要がない
+    ```
 
 
 ## 例
@@ -195,6 +202,59 @@ int main()
 ```
 
 
+### クラステンプレートの型推論を回避する例
+```cpp
+template <class T>
+struct X {
+  using T_ = T;
+
+  // テンプレートパラメータを直接使用せず、型の別名を付けてから使用する。
+  // これによって、テンプレート引数を明示的に指定させられる
+  X(T_) {}
+};
+
+int main()
+{
+//X x{1};      // コンパイルエラー！テンプレート引数を推論できない
+  X<int> y{1}; // OK
+}
+```
+
+#### 出力
+```
+```
+
+
+### デフォルトテンプレート引数のみを持つクラステンプレートの使用例
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <functional>
+
+int main()
+{
+  std::vector v = {3, 1, 4};
+
+  // デフォルトテンプレート引数が使用され、std::greater<void>{}となる。
+  // std::greater<>{}のように山カッコを書く必要がない
+  std::sort(v.begin(), v.end(), std::greater{});
+
+  for (auto x : v) {
+    std::cout << x << std::endl;
+  }
+}
+```
+* std::greater[link /reference/functional/greater.md]
+
+#### 出力
+```
+4
+3
+1
+```
+
+
 ## この機能が必要になった背景・経緯
 
 この機能は、以下のような問題を解決するために導入された：
@@ -223,3 +283,4 @@ int main()
 - [P0620R0 Drafting for class template argument deduction issues](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0620r0.html)
 - [LWG Issue 2981. Remove redundant deduction guides from standard library](https://wg21.cmeerw.net/lwg/issue2981)
 - [P0702R1 Language support for Constructor Template Argument Deduction](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0702r1.html)
+- [Class Template Argument Deduction - A New Abstraction - Zhihao Yuan - CppCon 2017](https://github.com/CppCon/CppCon2017/raw/master/Presentations/Class%20Template%20Argument%20Deduction%20-%20A%20New%20Abstraction/Class%20Template%20Argument%20Deduction%20-%20A%20New%20Abstraction%20-%20Zhihao%20Yuan%20-%20CppCon%202017.pdf)
