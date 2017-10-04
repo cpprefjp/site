@@ -38,6 +38,10 @@ namespace std {
 高々`(last - first)/2`回の要素の交換
 
 
+## 備考
+全ての順列を取得したい場合は、この関数に最初に与える範囲が、降順にソート済みになっていること。
+
+
 ## 例
 ```cpp
 #include <iostream>
@@ -54,6 +58,7 @@ void print(const std::vector<int>& v)
 
 int main ()
 {
+  // 降順にソート済みの入力
   std::vector<int> v = {3, 2, 1};
 
   do {
