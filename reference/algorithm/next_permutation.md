@@ -121,6 +121,7 @@ bool next_permutation(BidirectionalIterator first, BidirectionalIterator last)
 * std::iterator_traits[link /reference/iterator/iterator_traits.md]
 * std::less[link /reference/functional/less.md]
 
-## 参照
 
+## 関連項目
+- [`std::prev_permutation()`](prev_permutation.md)
 
