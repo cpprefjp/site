@@ -35,7 +35,7 @@ basic_ostream<CharT, Traits>* tie(basic_ostream<CharT, Traits>* tiestr);    // (
     なお、この動作は、[`basic_istream`](../../istream/basic_istream.md)`::`[`sentry`](../../istream/basic_istream/sentry.md)`::`[`sentry`](../../istream/basic_istream/sentry/op_constructor.md)、および、[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`sentry`](../../ostream/basic_ostream/sentry.md)`::`[`sentry`](../../ostream/basic_ostream/sentry/op_constructor.md) によって引き起こされる。
 - 上記の要件欄の記載は C++11 で追加されたが、これは、[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力であることによる。  
     （[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が `tie()` で指定された出力ストリームのフラッシュを引き起こし、それが次のフラッシュを引き起こし…となり、無限ループを引き起こしてしまうため）  
-    したがって、明記はされていないものの C++03 以前でも必要な要件であるものと思われる。（C++03 では、[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力ではない旨の記載が追加されたが、これは誤りということで C++11 で修正された）  
+    したがって、明記はされていないものの C++03 まででも必要な要件であるものと思われる。（C++03 では、[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力ではない旨の記載が追加されたが、これは誤りということで C++11 で修正された）  
     なお、この要件は「`tie` に設定した後でこのようになってはいけない」という意味であるものと思われる。（さもないと、設定したことによって無限ループが生じることを防げない）
 - 標準入出力ストリームは、以下のような設定が行われている。
     - [`cin`](../../iostream/cin.md)`.tie() == &`[`cout`](../../iostream/cout.md)

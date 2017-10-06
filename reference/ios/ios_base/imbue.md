@@ -18,7 +18,7 @@ locale imbue(const locale& loc);
 
 
 ## 戻り値
-[`getloc`](getloc.md)`()` の以前の値
+[`getloc`](getloc.md)`()` の変更前の値
 
 
 ## 備考
