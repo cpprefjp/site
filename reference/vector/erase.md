@@ -6,7 +6,7 @@
 
 ```cpp
 iterator erase(iterator position);       // (1) C++03
-iterator erase(const_iterator position); // (2) C++11
+iterator erase(const_iterator position); // (1) C++11
 
 iterator erase(iterator first, iterator last);             // (2) C++03
 iterator erase(const_iterator first, const_iterator last); // (2) C++11
