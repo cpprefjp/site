@@ -66,7 +66,7 @@
 | ヘッダ                               | 説明                 | 対応バージョン |
 |--------------------------------------|----------------------|----------------|
 | [`<locale>`](/reference/locale.md)   | ロケール             |                |
-| [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11          |
+| [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11<br/> C++17から非推奨 |
 
 
 ## <a name="container" href="#container">コンテナライブラリ</a>
