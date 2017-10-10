@@ -80,6 +80,10 @@
 - ICC 16.0からは、Windowsでは`/Qstd:c++14`オプション、Linux/OS Xでは`-std=c++14`オプションを使用する。
 
 
+### C++17の機能を有効にする
+- ICC 17.0からは、Windowsでは`/Qstd:c++17`オプション、Linux/OS Xでは`-std=c++17`オプションを使用する。
+
+
 ## <a name="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a>
 このサイトでは Visual C++ と呼ぶ。
 
