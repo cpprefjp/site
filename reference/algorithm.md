@@ -104,7 +104,7 @@ return distance(a, b);
 | [`reverse_copy`](algorithm/reverse_copy.md)       | 要素の並びを逆にし、その結果を出力の範囲へコピーする | |
 | [`rotate`](algorithm/rotate.md)                   | 要素の並びを回転させる | |
 | [`rotate_copy`](algorithm/rotate_copy.md)         | 要素の並びを回転させ、その結果を出力の範囲へコピーする | |
-| [`random_shuffle`](algorithm/random_shuffle.md)   | それぞれの要素をランダムな位置に移動させる | |
+| [`random_shuffle`](algorithm/random_shuffle.md)   | それぞれの要素をランダムな位置に移動させる | C++14から非推奨</br> C++17で削除 |
 | [`shuffle`](algorithm/shuffle.md)                 | それぞれの要素をランダムな位置に移動させる | C++11 |
 | [`is_partitioned`](algorithm/is_partitioned.md)   | 与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する | C++11 |
 | [`partition`](algorithm/partition.md)             | 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する | |

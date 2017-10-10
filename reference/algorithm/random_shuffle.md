@@ -3,6 +3,7 @@
 * std[meta namespace]
 * function template[meta id-type]
 * cpp14deprecated[meta cpp]
+* cpp17removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -22,7 +23,7 @@ namespace std {
 }
 ```
 
-この関数は、C++14から非推奨である。代わりに[`shuffle()`](shuffle.md)関数を使用すること。
+この関数は、C++14から非推奨となり、C++17で削除された。代わりに[`shuffle()`](shuffle.md)関数を使用すること。
 
 
 ## 概要
@@ -43,7 +44,7 @@ namespace std {
 最初の形式がC互換ライブラリの `std::rand()`関数を使うかどうかは実装依存である。
 
 
-## 非推奨の詳細(C++14)
+## 非推奨・削除の詳細(C++14)
 C++14では、C互換ライブラリの乱数生成関数である`std::rand()`と`std::srand()`が非推奨となった。
 
 これらの関数には、以下のような問題があった：
@@ -117,4 +118,4 @@ void random_shuffle(RandomAccessIterator first, RandomAccessIterator last, Rando
 ## 参照
 - [rand() Considered Harmful - Going Native 2013](https://channel9.msdn.com/Events/GoingNative/2013/rand-Considered-Harmful)
 - [N3924 Discouraging rand() in C++14, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3924.pdf)
-
+- [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
