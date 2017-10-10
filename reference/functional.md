@@ -107,33 +107,33 @@ struct doubler {
 | [`not2`](functional/negators.md)          | 二項の述語を論理反転する (function template) | |
 
 
-## 古い関数オブジェクトアダプタ(C++11から非推奨)
+## 古い関数オブジェクトアダプタ (C++11から非推奨, C++17で削除)
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|--------------------------|-------|
-| `unary_function`             | 単項関数オブジェクト(class template) | |
-| `binary_function`            | 二項関数オブジェクト(class template) | |
-| `pointer_to_unary_function`  | 単項関数ポインタを関数オブジェクトに変換するアダプタ(class template) | |
-| `pointer_to_binary_function` | 二項関数ポインタを関数オブジェクトに変換するアダプタ(class template) | |
-| `ptr_fun`                    | 関数ポインタを関数オブジェクトに変換する(function template) | |
-| `mem_fun_t`                  | メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへのポインタに対してメンバ関数を呼び出す。(class template) | |
-| `mem_fun1_t`                 | 単項メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへのポインタに対してメンバ関数を呼び出す。(class template) | |
-| `mem_fun_ref_t`              | メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへの参照に対してメンバ関数を呼び出す。(class template) | |
-| `mem_fun1_ref_t`             | 単項メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへの参照に対してメンバ関数を呼び出す。(class template) | |
-| `const_mem_fun_t`            | メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへのconstポインタに対してメンバ関数を呼び出す。(class template) | |
-| `const_mem_fun1_t`           | 単項メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへのconstポインタに対してメンバ関数を呼び出す。(class template) | |
-| `mem_fun`                    | メンバ関数ポインタを関数オブジェクトに変換する。 返される関数オブジェクトは、オブジェクトへのポインタを引数にとる。(function template) | |
-| `mem_fun_ref`                | メンバ関数ポインタを関数オブジェクトに変換する。 返される関数オブジェクトは、オブジェクトへの参照を引数にとる。(function template) | |
+| `unary_function`             | 単項関数オブジェクト(class template) | C++11から非推奨<br/> C++17で削除 |
+| `binary_function`            | 二項関数オブジェクト(class template) | C++11から非推奨<br/> C++17で削除 |
+| `pointer_to_unary_function`  | 単項関数ポインタを関数オブジェクトに変換するアダプタ(class template) | C++11から非推奨<br/> C++17で削除 |
+| `pointer_to_binary_function` | 二項関数ポインタを関数オブジェクトに変換するアダプタ(class template) | C++11から非推奨<br/> C++17で削除 |
+| `ptr_fun`                    | 関数ポインタを関数オブジェクトに変換する(function template) | C++11から非推奨<br/> C++17で削除 |
+| `mem_fun_t`                  | メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへのポインタに対してメンバ関数を呼び出す。(class template) | C++11から非推奨<br/> C++17で削除 |
+| `mem_fun1_t`                 | 単項メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへのポインタに対してメンバ関数を呼び出す。(class template) | C++11から非推奨<br/> C++17で削除 |
+| `mem_fun_ref_t`              | メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへの参照に対してメンバ関数を呼び出す。(class template) | C++11から非推奨<br/> C++17で削除 |
+| `mem_fun1_ref_t`             | 単項メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへの参照に対してメンバ関数を呼び出す。(class template) | C++11から非推奨<br/> C++17で削除 |
+| `const_mem_fun_t`            | メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへのconstポインタに対してメンバ関数を呼び出す。(class template) | C++11から非推奨<br/> C++17で削除 |
+| `const_mem_fun1_t`           | 単項メンバ関数ポインタを関数オブジェクトに変換するアダプタ。 オブジェクトへのconstポインタに対してメンバ関数を呼び出す。(class template) | C++11から非推奨<br/> C++17で削除 |
+| `mem_fun`                    | メンバ関数ポインタを関数オブジェクトに変換する。 返される関数オブジェクトは、オブジェクトへのポインタを引数にとる。(function template) | C++11から非推奨<br/> C++17で削除 |
+| `mem_fun_ref`                | メンバ関数ポインタを関数オブジェクトに変換する。 返される関数オブジェクトは、オブジェクトへの参照を引数にとる。(function template) | C++11から非推奨<br/> C++17で削除 |
 
 
-## 古い関数バインダ(C++11から非推奨)
+## 古い関数バインダ (C++11から非推奨, C++17で削除)
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|--------------------------|-------|
-| `binder1st` | 第1引数を部分適用する関数オブジェクト(class template) | |
-| `bind1st` | 第1引数を部分適用する(function template) | |
-| `binder2nd` | 第2引数を部分適用する関数オブジェクト(class template) | |
-| `bind2nd` | 第2引数を部分適用する関数オブジェクト(function template) | |
+| `binder1st` | 第1引数を部分適用する関数オブジェクト(class template) | C++11から非推奨<br/> C++17で削除 |
+| `bind1st` | 第1引数を部分適用する(function template) | C++11から非推奨<br/> C++17で削除 |
+| `binder2nd` | 第2引数を部分適用する関数オブジェクト(class template) | C++11から非推奨<br/> C++17で削除 |
+| `bind2nd` | 第2引数を部分適用する関数オブジェクト(function template) | C++11から非推奨<br/> C++17で削除 |
 
 
 ## コンセプト
@@ -144,3 +144,5 @@ struct doubler {
 | [`INVOKE`](concepts/Invoke.md) | 関数呼び出しの式 | C++11 |
 
 
+## 参照
+- [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
