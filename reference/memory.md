@@ -42,9 +42,8 @@
 | [`unique_ptr`](memory/unique_ptr.md) | 専有方式スマートポインタ(class template) | C++11 |
 | [`make_unique`](memory/make_unique.md) | `unique_ptr`を構築するヘルパ関数(function template) | C++14 |
 | [`default_delete`](memory/default_delete.md) | `unique_ptr`のデフォルトの削除子(class template) | C++11 |
-| `auto_ptr` | 古い専有方式スマートポインタ(class template) | C++11から非推奨 |
+| `auto_ptr` | 古い専有方式スマートポインタ(class template) | C++11から非推奨<br/> C++17で削除 |
 
-`auto_ptr`の代わりに`unique_ptr`を推奨する。
 
 ## ガベージコレクション支援
 
@@ -67,4 +66,5 @@
 | [`align`](memory/align.md)                   | アライメント調整された領域を得る(function)      | C++11 |
 
 
-
+## 参照
+- [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)

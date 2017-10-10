@@ -41,6 +41,8 @@ explicit shared_ptr(const weak_ptr<Y>& r);         // (12)
 
 template <class Y>
 shared_ptr(auto_ptr<Y>&& r);                       // (13)
+                                                   // C++11から非推奨
+                                                   // C++17で削除
 
 template <class Y, class Deleter>
 shared_ptr(unique_ptr<Y, Deleter>&& r);            // (14)
@@ -242,8 +244,8 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6 (unique_ptr, nullptr以外), 4.4.7 (nullptr以外), 4.6.4
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
-	- Visual C++ 9.0は(1), (2), (3), (4), (8), (9), (12), (13)のみ
-	- Visual C++ 9.0, 1.0の(13)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
+    - Visual C++ 9.0は(1), (2), (3), (4), (8), (9), (12), (13)のみ
+    - Visual C++ 9.0, 1.0の(13)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
 
 ## 参照
 - (4), (5) : [nullptrを所有するshared_ptr - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120623/p1)
@@ -252,4 +254,5 @@ int main()
     - (7)の経緯となる提案文書
 - [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
     - (15)の経緯となる提案文書
+- [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
 

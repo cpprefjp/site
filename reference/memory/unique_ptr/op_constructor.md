@@ -18,6 +18,8 @@ unique_ptr(unique_ptr<U, E>&& u) noexcept;   // (7) 単一オブジェクト
 
 template <class U>
 unique_ptr(auto_ptr<U>&& u) noexcept;        // (8) 単一オブジェクト
+                                             // C++11から非推奨
+                                             // C++17で削除
 
 unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、配列
 ```
@@ -126,4 +128,5 @@ int main()
 ## 参照
 - [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
     - (6)の経緯となる提案文書
+- [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
 

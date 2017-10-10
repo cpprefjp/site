@@ -18,6 +18,8 @@ shared_ptr& operator=(shared_ptr<Y>&& r) noexcept;      // (4)
 
 template <class Y>
 shared_ptr& operator=(auto_ptr<Y>&& r);                 // (5)
+                                                        // C++11から非推奨
+                                                        // C++17で削除
 
 template <class Y, class D>
 shared_ptr& operator=(unique_ptr<Y, D>&& r);            // (6)
@@ -135,3 +137,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
 	- Visual C++ 9.0は(1), (2), (5)変形のみ
 	- Visual C++ 9.0, 1.0の(5)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
+
+
+## 参照
+- [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
