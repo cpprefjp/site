@@ -73,15 +73,15 @@
 
 
 ### C++11の機能を有効にする
-- Windowsでは`/Qstd:c++11`、Linux/OS Xでは`-std=c++11`オプションを使用する。
+- Windowsでは`/Qstd:c++11`、Linux/macOSでは`-std=c++11`オプションを使用する。
 
 
 ### C++14の機能を有効にする
-- ICC 16.0からは、Windowsでは`/Qstd:c++14`オプション、Linux/OS Xでは`-std=c++14`オプションを使用する。
+- ICC 16.0からは、Windowsでは`/Qstd:c++14`オプション、Linux/macOSでは`-std=c++14`オプションを使用する。
 
 
 ### C++17の機能を有効にする
-- ICC 17.0からは、Windowsでは`/Qstd:c++17`オプション、Linux/OS Xでは`-std=c++17`オプションを使用する。
+- ICC 17.0からは、Windowsでは`/Qstd:c++17`オプション、Linux/macOSでは`-std=c++17`オプションを使用する。
 
 
 ## <a name="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a>
