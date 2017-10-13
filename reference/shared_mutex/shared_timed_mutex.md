@@ -26,6 +26,7 @@ namespace std {
 - [`lock_guard`](/reference/mutex/lock_guard.md)クラス／[`unique_lock`](/reference/mutex/unique_lock.md)クラス：書き込み用のロックを自動的に手放す
 - [`shared_lock`](/reference/shared_mutex/shared_lock.md)：読み込み用のロックを自動的に手放す
 
+このクラスは、[`shared_mutex`](shared_mutex.md)クラスの機能に加えて、タイムアウト指定の機能を持つ。
 
 ## メンバ関数
 ### 構築・破棄
@@ -173,6 +174,10 @@ int main()
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0
+
+
+## 関連項目
+- [`std::shared_mutex`](shared_mutex.md)
 
 
 ## 参照
