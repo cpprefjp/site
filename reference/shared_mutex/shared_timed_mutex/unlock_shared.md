@@ -51,9 +51,9 @@ public:
   {
     int result = 0;
     mtx_.lock_shared(); // 共有ロックを取得する
-	result = value_;
-	mtx_.unlock_shared(); // 共有ロックを手放す
-	return result;
+    result = value_;
+    mtx_.unlock_shared(); // 共有ロックを手放す
+    return result;
   }
 };
 
