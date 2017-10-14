@@ -186,7 +186,7 @@ C++17では以下のTSが採用された：
 
 
 ### 並行処理
-- タイムアウト機能がないReaders-writer lockのミューテックスとして、[`shared_mutex`](/reference/shared_mutex/shared_mutex.md.nolink)クラスを追加
+- タイムアウト機能がないReaders-writer lockのミューテックスとして、[`shared_mutex`](/reference/shared_mutex/shared_mutex.md)クラスを追加
 - スコープ付きロックの可変引数版として、[`scoped_lock`](/reference/mutex/scoped_lock.md.nolink)クラスを追加
 - [`atomic`](/reference/atomic/atomic.md)クラスに、指定された要素型に対するアトミック操作がロックフリー(非ミューテックス)に振る舞うかを判定するために`is_always_lock_free`定数を追加
 - false sharingとtrue sharingを制御するための機能として、[`hardware_destructive_interference_size`](/reference/new/hardware_destructive_interference_size.md.nolink)定数と、[`hardware_constructive_interference_size`](/reference/new/hardware_constructive_interference_size.md.nolink)定数を追加
