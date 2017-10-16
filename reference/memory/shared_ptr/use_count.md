@@ -19,6 +19,14 @@ long use_count() const noexcept;
 `0`が返る場合、`*this`は空の状態となる。
 
 
+## 同期
+しない
+
+
+## 備考
+複数スレッドが`use_count()`の戻り値に影響を与える場合、その戻り値は、おおよその値として扱われるべきである。この関数はスレッド間での同期をしないため、正確な値を求めてはならない。
+
+
 ## 例
 ```cpp
 #include <iostream>
@@ -49,3 +57,7 @@ int main()
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
+
+
+## 参照
+- [P0521R0 Proposed Resolution for CA 14 (`shared_ptr` `use_count`/`unique`)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0521r0.html)
