@@ -51,6 +51,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |----------------|-----------------------------|-------|
 | `element_type` | 管理するインスタンスの型`T` | C++11 |
+| `weak_type`    | 弱参照ポインタの型[`weak_ptr`](weak_ptr.md)`<T>` | C++17 |
 
 
 ## 非メンバ関数
@@ -211,4 +212,4 @@ Y dtor
 
 ## 参照
 - [動的削除子 (dynamic deleter) - 意外と知られていない？ `boost::shared_ptr` の側面](http://d.hatena.ne.jp/Cryolite/20060108#p1)
-
+- [P0163R0 `shared_ptr::weak_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0163r0.html)
