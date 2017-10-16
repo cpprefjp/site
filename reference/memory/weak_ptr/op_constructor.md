@@ -32,7 +32,8 @@ weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++14
 - (6) : 変換可能な`weak_ptr`からのムーブコンストラクタ。監視対象を`r`から`*this`に移動する。
 
 ## 要件
-- (3), (4), (6) : `Y*`が`T*`に暗黙変換可能であること。そうでない場合、これらはオーバーロード解決の候補から外れる。
+- (3), (4), (6) C++11 : `Y*`が`T*`に暗黙変換可能であること。そうでない場合、これらはオーバーロード解決の候補から外れる。
+- (3), (4), (6) C++17 : `Y*`が`T*`と互換であること。そうでない場合、これらはオーバーロード解決の候補から外れる。
 
 
 ## 効果
@@ -137,3 +138,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2315. `weak_ptr` should be movable](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2315)
+- [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)

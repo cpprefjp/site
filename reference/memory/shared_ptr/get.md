@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-T* get() const noexcept;
+T* get() const noexcept;            // (1) C++11
+element_type* get() const noexcept; // (1) C++17
 ```
 
 ## 概要
@@ -51,3 +52,7 @@ int main()
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
+
+
+## 参照
+- [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)

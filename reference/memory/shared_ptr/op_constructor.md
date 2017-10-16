@@ -24,7 +24,10 @@ template <class Deleter, class Alloc>
 shared_ptr(nullptr_t p, Deleter d, Alloc a);       // (6)
 
 template<class Y>
-shared_ptr(const shared_ptr<Y>& r, T* p) noexcept; // (7)
+shared_ptr(const shared_ptr<Y>& r, T* p) noexcept; // (7) C++11
+
+template<class Y>
+shared_ptr(const shared_ptr<Y>& r, element_type* p) noexcept; // (7) C++17
 
 shared_ptr(const shared_ptr& r) noexcept;          // (8)
 
@@ -70,17 +73,33 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 
 
 ## 要件
-- (2) : `p`が`T*`に変換可能であること。`Y`が完全型であり、式`delete p`が妥当であること。
+- (2) C++11 :
+    - `p`が`T*`に変換可能であること。
+    - `Y`が完全型であること。
+    - 式`delete p`が妥当であること。
+- (2) C++17 :
+    - `p`が`T*`と互換があること。
+    - `Y`が完全型であること。
+    - 型`T`が非配列である場合、式`delete p`が妥当であること。
+    - 型`T`が配列である場合、式`delete[] p`が妥当であること。
+    - 型`T`が`U[N]`形式である場合、関数ポインタ配列`Y(*)[N]`は`T*`に変換可能である。
+    - 型`T`が`U[]`形式である場合、関数ポインタ配列`Y(*)[]`は`T*`に変換可能である。
 - (3), (4), (5), (6) : `p`が`T*`に変換可能であること。`Deleter`がコピー構築可能な型であり、そのコピーコンストラクタとデストラクタが例外を投げないこと。`d(p)`という式が妥当であること。
-- (9) : `Y*`が`T*`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される。
+    - C++17 : 型`T`が配列である場合、式`delete[] p`が妥当であること。型`T`が`U[N]`形式である場合、関数ポインタ配列`Y(*)[N]`は`T*`に変換可能である。
+- (9) C++11 : `Y*`が`T*`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される。
+- (9) C++17 : `Y*`が`T*`と互換でない場合、この関数はオーバーロード解決から除外される。
 - (11) : `Y*`が`T*`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される。
-- (12) : `Y*`が`T*`に変換可能であること。
+- (12) C++11 : `Y*`が`T*`に変換可能であること。
+- (12) C++17 : `Y*`が`T*`と互換であること。
 - (13) : `r.release()`によって返されるポインタ値が、`T*`に変換可能であること。`Y`が完全型であり、式`delete r.release()`が妥当であること。
+- (14) C++11 : `unique_ptr<Y, Deleter>::pointer`が`T*`に変換可能でない場合、この関数はオーバーロード解決から除外される。
+- (14) C++17 : `Y*`が`T*`と互換でなく、`unique_ptr<Y, Deleter>::pointer`が`element_type*`に変換可能でない場合、この関数はオーバーロード解決から除外される。
 
 
 ## 効果
 - (1) : 空の`shared_ptr`オブジェクトを構築する。
-- (2) : ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。
+- (2) C++11 : ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。
+- (2) C++17 : 型`T`が配列ではない場合、ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。そうではない場合、ポインタ`p`と、`delete[] p`を実行するデリータを所有する`shared_ptr`オブジェクトを構築する。
 - (3) : リソースを破棄する際に使用する関数オブジェクト`d`を受け取り、ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。
 - (4) : リソースを破棄する際に使用する関数オブジェクト`d`を受け取り、ポインタ`p`を所有する`shared_ptr`オブジェクトを構築する。アロケータオブジェクト`a`のコピーを、内部のメモリ確保に使用する。
 - (5) : リソースを破棄する際に使用する関数オブジェクト`d`を受け取り、ヌルポインタを所有する`shared_ptr`オブジェクトを構築する。
@@ -255,4 +274,5 @@ int main()
 - [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
     - (15)の経緯となる提案文書
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
-
+- [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
+- [P0497R0 Fixes to `shared_ptr` support for arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0497r0.html)

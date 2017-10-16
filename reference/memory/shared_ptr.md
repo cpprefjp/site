@@ -40,6 +40,7 @@ namespace std {
 | [`get`](shared_ptr/get.md)                   | リソースを取得する                               | C++11 |
 | [`operator*`](shared_ptr/op_deref.md)        | 間接参照                                         | C++11 |
 | [`operator->`](shared_ptr/op_arrow.md)       | メンバアクセス                                   | C++11 |
+| [`operator[]`](shared_ptr/op_at.md)          | 添字による要素アクセス                           | C++17 |
 | [`use_count`](shared_ptr/use_count.md)       | 所有権を持つユーザー数を取得する                 | C++11 |
 | [`unique`](shared_ptr/unique.md)             | 所有権を持つユーザーが一人だけかを判定する       | C++11<br/> C++17から非推奨 |
 | [`operator bool`](shared_ptr/op_bool.md)     | 有効なリソースを所有しているかを判定する         | C++11 |
@@ -50,7 +51,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|-----------------------------|-------|
-| `element_type` | 管理するインスタンスの型`T` | C++11 |
+| `element_type` | 管理するインスタンスの型<br/> C++11 : `T`<br/> C++17 : [`remove_extent_t`](/reference/type_traits/remove_extent.md)`<T>` | C++11 |
 | `weak_type`    | 弱参照ポインタの型[`weak_ptr`](weak_ptr.md)`<T>` | C++17 |
 
 
@@ -213,3 +214,4 @@ Y dtor
 ## 参照
 - [動的削除子 (dynamic deleter) - 意外と知られていない？ `boost::shared_ptr` の側面](http://d.hatena.ne.jp/Cryolite/20060108#p1)
 - [P0163R0 `shared_ptr::weak_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0163r0.html)
+- [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
