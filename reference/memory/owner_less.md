@@ -17,6 +17,9 @@ namespace std {
 
   template <class T>
   struct owner_less<weak_ptr<T>>;
+
+  template <>
+  struct owner_less<void>;
 }
 ```
 * shared_ptr[link /reference/memory/shared_ptr.md]
