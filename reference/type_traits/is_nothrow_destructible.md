@@ -8,6 +8,10 @@
 namespace std {
   template <class T>
   struct is_nothrow_destructible;
+
+  template <class T>
+  constexpr bool is_nothrow_destructible_v
+    = is_nothrow_destructible<T>::value;   // C++17
 }
 ```
 
@@ -74,3 +78,5 @@ int main() {}
 	- 11.0は、正しく実装されていない。常に`true_type`になっている。
 
 
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

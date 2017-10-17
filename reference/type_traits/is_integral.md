@@ -8,6 +8,9 @@
 namespace std {
   template <class T>
   struct is_integral;
+
+  template <class T>
+  constexpr bool is_integral_v = is_integral<T>::value; // C++17
 }
 ```
 
@@ -79,3 +82,5 @@ int main(){}
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。
 
 
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

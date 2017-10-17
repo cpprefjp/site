@@ -8,6 +8,10 @@
 namespace std {
   template <class T>
   struct is_trivially_default_constructible;
+
+  template <class T>
+  constexpr bool is_trivially_default_constructible_v
+    = is_trivially_default_constructible<T>::value;   // C++17
 }
 ```
 
@@ -83,3 +87,6 @@ int main() {}
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
+
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

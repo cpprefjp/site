@@ -8,6 +8,10 @@
 namespace std {
   template <class T>
   struct is_default_constructible;
+
+  template <class T>
+  constexpr bool is_default_constructible_v
+    = is_default_constructible<T>::value;   // C++17
 }
 ```
 
@@ -81,4 +85,4 @@ int main(){}
 
 ## 参照
 - [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
-
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

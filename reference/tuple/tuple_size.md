@@ -15,6 +15,9 @@ namespace std {
   template <class... Types>
   class tuple_size<tuple<Types...>>
     : public integral_constant<size_t, sizeof...(Types)> {};
+
+  template <class T>
+  constexpr size_t tuple_size_v = tuple_size<T>::value; // C++17
 }
 ```
 * tuple[link tuple.md]
@@ -79,3 +82,4 @@ int main()
 ## 参照
 - [LWG Issue 2770. `tuple_size<const T>` specialization is not SFINAE compatible and breaks decomposition declarations](https://wg21.cmeerw.net/lwg/issue2770)
     - C++17で[構造化束縛](/lang/cpp17/structured_bindings.md)機能が導入されたことに合わせて、`tuple_size`がSFINAEと組み合わせて使用できるようになった
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

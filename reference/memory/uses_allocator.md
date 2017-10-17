@@ -8,6 +8,9 @@
 namespace std {
   template <class T, class Alloc>
   struct uses_allocator;
+
+  template <class T, class Alloc>
+  constexpr bool uses_allocator_v = uses_allocator<T, Alloc>::value; // C++17
 }
 ```
 
@@ -66,3 +69,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
+
+
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

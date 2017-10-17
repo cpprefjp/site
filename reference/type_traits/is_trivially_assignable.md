@@ -8,6 +8,10 @@
 namespace std {
   template <class T, class U>
   struct is_trivially_assignable;
+
+  template <class T, class U>
+  constexpr bool is_trivially_assignable_v
+    = is_trivially_assignable<T, U>::value; // C++17
 }
 ```
 
@@ -85,3 +89,5 @@ int main() {}
 	- 11.0は、`is_assignable<T, U>`と同一の実装になっている。
 
 
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

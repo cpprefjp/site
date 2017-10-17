@@ -8,6 +8,10 @@
 namespace std {
   template <class T>
   struct is_trivially_destructible;
+
+  template <class T>
+  constexpr bool is_trivially_destructible_v
+    = is_trivially_destructible<T>::value;   // C++17
 }
 ```
 
@@ -67,3 +71,5 @@ int main() {}
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 
 
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

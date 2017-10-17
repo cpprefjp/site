@@ -11,6 +11,10 @@ namespace std {
 
   template <>
   struct is_error_condition_enum<errc> : true_type {};
+
+  template <class T>
+  constexpr bool is_error_condition_enum_v
+    = is_error_condition_enum<T>::value;    // C++17
 }
 ```
 * false_type[link /reference/type_traits/false_type.md]
@@ -62,10 +66,14 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp)
 
 
-## 参照
+## 関連項目
 - [`error_condition`](error_condition.md)
 - [`error_condition`](error_condition.md)`::`[`error_condition`](error_condition/op_constructor.md)
 - [`error_condition`](error_condition.md)`::`[`operator=`](error_condition/op_assign.md)
 * [`errc`](errc.md)
 - [`error_code`](error_code.md)
 - [`is_error_code_enum`](is_error_code_enum.md)
+
+
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

@@ -8,6 +8,10 @@
 namespace std {
   template <class R1, class R2>
   struct ratio_less_equal;
+
+  template <class R1, class R2>
+  constexpr bool ratio_less_equal_v
+    = ratio_less_equal<R1, R2>::value; // C++17
 }
 ```
 
@@ -48,3 +52,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

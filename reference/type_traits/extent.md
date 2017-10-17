@@ -10,6 +10,9 @@ namespace std {
   struct extent {
     static constexpr std::size_t value = …;
   };
+
+  template <class T, unsigned I = 0>
+  constexpr std::size_t extent_v = extent<T, I>::value; // C++17
 }
 ```
 
@@ -50,3 +53,5 @@ int main() {}
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
 
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

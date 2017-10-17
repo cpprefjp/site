@@ -8,6 +8,9 @@
 namespace std {
   template <class T, class U>
   struct is_same;
+
+  template <class T, class U>
+  constexpr bool is_same_v = is_same<T, U>::value; // C++17
 }
 ```
 
@@ -64,3 +67,5 @@ int main(){}
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
 
 
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

@@ -8,8 +8,11 @@
 namespace std {
   template <class T>
   struct rank {
-    using type = …;
+    static constexpr std::size_t value = …;
   };
+
+  template <class T>
+  constexpr std::size_t rank_v = rank<T>::value; // C++17
 }
 ```
 
@@ -47,3 +50,5 @@ int main() {}
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
 
 
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

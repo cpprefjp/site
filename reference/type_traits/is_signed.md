@@ -8,6 +8,9 @@
 namespace std {
   template <class T>
   struct is_signed;
+
+  template <class T>
+  constexpr bool is_signed_v = is_signed<T>::value; // C++17
 }
 ```
 
@@ -69,4 +72,4 @@ int main(){}
 
 ## 参照
 - [LWG Issue 2197. Specification of `is_[un]signed` unclear for non-arithmetic types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2197)
-
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

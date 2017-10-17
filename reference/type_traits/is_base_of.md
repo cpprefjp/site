@@ -8,6 +8,9 @@
 namespace std {
   template <class Base, class Derived>
   struct is_base_of;
+
+  template <class Base, class Derived>
+  constexpr bool is_base_of_v = is_base_of<Base, Derived>::value; // C++17
 }
 ```
 
@@ -67,4 +70,4 @@ int main() {}
 ## 参照
 - [LWG Issue 2015. Incorrect pre-conditions for some type traits]
     - C++11では要件が「`Base`と`Derived`がクラスであり、異なる型である場合(cv修飾は無視される)、`Derived`は完全型でなければならない。」であったが、共用体を意図せず許容していたため、C++14で「`Base`と`Derived`が**非共用体**のクラスであり、異なる型である場合(cv修飾は無視される)、`Derived`は完全型でなければならない。」に変更した。
-
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

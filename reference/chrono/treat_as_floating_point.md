@@ -10,6 +10,10 @@ namespace chrono {
   template <class Rep>
   struct treat_as_floating_point
     : is_floating_point<Rep> { };
+
+  template <class Rep>
+  constexpr bool treat_as_floating_point_v
+    = treat_as_floating_point<Rep>::value; // C++17
 }}
 ```
 * is_floating_point[link /reference/type_traits/is_floating_point.md]
@@ -58,3 +62,7 @@ int main()
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+
+
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

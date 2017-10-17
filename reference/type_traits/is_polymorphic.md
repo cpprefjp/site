@@ -8,6 +8,9 @@
 namespace std {
   template <class T>
   struct is_polymorphic;
+
+  template <class T>
+  constexpr bool is_polymorphic_v = is_polymorphic<T>::value; // C++17
 }
 ```
 
@@ -72,4 +75,4 @@ int main(){}
 ## 参照
 - [LWG Issue 2015. Incorrect pre-conditions for some type traits](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2015)
     - C++11では要件が「型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。」だったが、これは間違いであるため、C++14で「型`T`が非共用体のクラスである場合、その型は完全型でなければならない。」に変更された。
-
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

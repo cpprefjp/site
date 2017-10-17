@@ -8,6 +8,9 @@
 namespace std {
   template <class T>
   struct is_error_code_enum : public false_type {};
+
+  template <class T>
+  constexpr bool is_error_code_enum_v = is_error_code_enum<T>::value; // C++17
 }
 ```
 * false_type[link /reference/type_traits/false_type.md]
@@ -65,7 +68,7 @@ int main()
 GCC では、4.4 から `is_error_code_enum` が提供されているものの、[`future_errc`](../future/future_errc.md) は 4.5 から、[`io_errc`](../ios/io_errc.md) は 5.1 からのサポートである。
 
 
-## 参照
+## 関連項目
 - [`error_code`](error_code.md)
 - [`error_code`](error_code.md)`::`[`error_code`](error_code/op_constructor.md)
 - [`error_code`](error_code.md)`::`[`operator=`](error_code/op_assign.md)
@@ -73,3 +76,7 @@ GCC では、4.4 から `is_error_code_enum` が提供されているものの�
 * [`io_errc`](../ios/io_errc.md)
 - [`error_condition`](error_condition.md)
 - [`is_error_condition_enum`](is_error_condition_enum.md)
+
+
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

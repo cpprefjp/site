@@ -8,6 +8,10 @@
 namespace std {
   template <class T>
   struct is_destructible;
+
+  template <class T>
+  constexpr bool is_destructible_v
+    = is_destructible<T>::value;   // C++17
 }
 ```
 
@@ -93,4 +97,4 @@ revision 188080以降のClang 3.4ならばエラーが出ない。
 
 ## 参照
 - [LWG Issue 2049. `is_destructible` is underspecified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2049)
-
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

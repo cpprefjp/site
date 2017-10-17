@@ -8,6 +8,10 @@
 namespace std {
   template <class T>
   struct is_nothrow_default_constructible;
+
+  template <class T>
+  constexpr bool is_nothrow_default_constructible_v
+    = is_nothrow_default_constructible<T>::value;   // C++17
 }
 ```
 
@@ -78,3 +82,6 @@ int main(){}
 	- 11.0は`void`において、誤って`false_type`になっている。
 	- 12.0までは`std::is_default_constructible<int[]>`のような要素数の指定がない配列型において、誤って`false_type`になっている。
 
+
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

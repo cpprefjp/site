@@ -8,6 +8,9 @@
 namespace std {
   template <class T>
   struct is_final;
+
+  template <class T>
+  constexpr bool is_final_v = is_final<T>::value; // C++17
 }
 ```
 
@@ -60,4 +63,4 @@ int main(){}
 
 ## 参照
 - [LWG issue 2112. User-defined classes that cannot be derived from](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2112)
-
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

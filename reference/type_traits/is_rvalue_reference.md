@@ -8,6 +8,9 @@
 namespace std {
   template <class T>
   struct is_rvalue_reference;
+
+  template <class T>
+  constexpr bool is_rvalue_reference_v = is_rvalue_reference<T>::value; // C++17
 }
 ```
 
@@ -66,3 +69,7 @@ int main(){}
 
 #### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラにバグがあるために関数への右辺値参照型を `is_rvalue_reference` へ渡すと `is_rvalue_reference` は `false_type` から派生してしまいエラーになる。
+
+
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

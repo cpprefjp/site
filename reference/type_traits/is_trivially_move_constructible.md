@@ -8,6 +8,10 @@
 namespace std {
   template <class T>
   struct is_trivially_move_constructible;
+
+  template <class T>
+  constexpr bool is_trivially_move_constructible_v
+    = is_trivially_move_constructible<T>::value;   // C++17
 }
 ```
 
@@ -97,4 +101,4 @@ Clang 3.0から3.2は、上記例の`Y`クラスがトリビアルにムーブ�
 ## 参照
 - [LWG Issue 2196. Specification of `is_*[copy/move]_[constructible/assignable]` unclear for non-referencable types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2196)
     - C++11では、この型特性が参照型に対してどのような振る舞いになるのか不明確であったため、C++14で明確化された。
-
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

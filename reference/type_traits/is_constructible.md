@@ -8,6 +8,10 @@
 namespace std {
   template <class T, class... Args>
   struct is_constructible;
+
+  template <class T, class... Args>
+  constexpr bool is_constructible_v
+    = is_constructible<T, Args...>::value; // C++17
 }
 ```
 
@@ -68,3 +72,4 @@ int main(){}
 - [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
 - [LWG Issue 2560. `is_constructible` underspecified when applied to a function type](https://wg21.cmeerw.net/lwg/issue2560)
 - [LWG Issue 2738. `is_constructible` with `void` types](https://wg21.cmeerw.net/lwg/issue2738)
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)

@@ -8,6 +8,10 @@
 namespace std {
   template <class T, class... Args>
   struct is_nothrow_constructible;
+
+  template <class T, class... Args>
+  constexpr bool is_nothrow_constructible_v
+    = is_nothrow_constructible<T, Args...>::value; // C++17
 }
 ```
 
@@ -68,3 +72,6 @@ int main(){}
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
 	- 11.0は、可変引数テンプレートに対応していないため、不完全な実装である。
 
+
+## 参照
+- [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
