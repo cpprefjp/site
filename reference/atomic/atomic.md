@@ -96,6 +96,13 @@ namespace std {
 | `value_type` | 要素型となるテンプレートパラメータの型`T` | C++17 |
 
 
+### 共通メンバ定数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `static constexpr bool is_always_lock_free` | 型`T`に対するアトミック操作が常にロックフリー (非ミューテックス) で動作する場合は`true`、そうでなければ`false` | C++17 |
+
+
 ### atomic<integral>専用メンバ関数
 整数型に対する特殊化。
 
@@ -237,3 +244,4 @@ int main()
 - [アトミックオブジェクトを含むクラスのコピーとムーブ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20130110/1357808183)
 - [LWG Issue 2441. Exact-width atomic `typedef`s should be provided](https://wg21.cmeerw.net/lwg/issue2441)
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
+- [P0152R1 `constexpr atomic<T>::is_always_lock_free`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0152r1.html)

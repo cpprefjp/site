@@ -58,6 +58,10 @@ atomic<int> is lock-free
 - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
 
 
+## 関連項目
+- [`std::atomic`](atomic.md)クラスの`is_always_lock_free`メンバ定数
+
+
 ## 参照
 [N2992 More Collected Issues with Atomics - Lock Free](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2992.htm#lockfree)
 
