@@ -12,6 +12,7 @@
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|-------------------------------|-------|
 | [`integral_constant`](type_traits/integral_constant.md) | 定数を表す型 (class template) | C++11 |
+| [`bool_constant`](type_traits/bool_constant.md)         | 真理値型の定数を表す型 (class template) | C++17 |
 | [`true_type`](type_traits/true_type.md)                 | `true`を表す型 (type-alias) | C++11 |
 | [`false_type`](type_traits/false_type.md)               | `false`を表す型 (type-alias) | C++11 |
 

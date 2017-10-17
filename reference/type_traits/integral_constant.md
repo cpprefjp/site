@@ -63,6 +63,7 @@ int main(){}
 
 
 ## 関連項目
+- [`bool_constant`](bool_constant.md)
 - [`true_type`](true_type.md)
 - [`false_type`](false_type.md)
 
