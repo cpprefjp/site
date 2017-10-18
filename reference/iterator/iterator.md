@@ -2,6 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -21,6 +22,9 @@ namespace std {
 ```
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
+この機能は、C++17から非推奨となった。
+
+
 ## 概要
 `std::iterator`クラスは、イテレータを定義するための基本クラスである。
 
@@ -34,6 +38,10 @@ namespace std {
 | `Distance`  | イテレータ間の差を表す不動あり整数型。 デフォルトは`std::ptrdiff_t` |
 | `Pointer`   | イテレータが指す値のポインタ型 デフォルトは`T*` |
 | `Reference` | イテレータが指す値の参照型 デフォルトは`T&` |
+
+
+## 非推奨の詳細
+この機能はイテレータを自作する際に使用するが、このクラスを使用したとしても、イテレータの定義は容易にならなかった。また、このクラスを使用してイテレータを実装することで、ほかの問題も発生していたため、この機能は非推奨となった。
 
 
 ## 例
@@ -115,4 +123,4 @@ int main()
 
 ## 参照
 - `std::iterator`は型定義のみを簡略化するが、これを発展させた[Boost Iterators Library](http://www.boost.org/doc/libs/release/libs/iterator/doc/index.html)は、演算子定義も簡略化する機能を提供している。
-
+- [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
