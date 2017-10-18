@@ -2,6 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -12,6 +13,9 @@ namespace std {
 ```
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
+
+この機能は、C++17から非推奨となった。未初期化メモリをイテレートしながら構築する場合は、アロケータと適切に連携するプログラムを組むこと。
+
 
 ## 概要
 `raw_storage_iterator`は、未初期化領域のイテレータをラップし、構築しながら値を出力していく出力イテレータクラスである。
@@ -45,6 +49,10 @@ namespace std {
 | `value_type`        | 値の型。 `void` |
 | `iterator_category` | イテレータ種別。 [`output_iterator_tag`](/reference/iterator/iterator_tag.md) |
 | `reference`         | 参照型。 `void` |
+
+
+## 非推奨の詳細
+未初期化メモリからオブジェクトを構築していくのであれば、アロケータとの連携ができることが重要となるが、このクラスはその用途に適さなかったため、非推奨となった。
 
 
 ## 例
@@ -103,4 +111,4 @@ int main()
 - [`uninitialized_copy_n`](uninitialized_copy_n.md)
 - [`uninitialized_fill`](uninitialized_fill.md)
 - [`uninitialized_fill_n`](uninitialized_fill_n.md)
-
+- [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
