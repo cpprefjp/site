@@ -5,11 +5,11 @@
 
 ```cpp
 namespace std {
-  template<class T>
+  template <class T>
   class allocator;
 
-  template<>
-  class allocator<void> {
+  template <>
+  class allocator<void> { // C++17から非推奨
     using pointer       = void*;
     using const_pointer = const void*;
     using value_type    = void;
@@ -39,30 +39,30 @@ C++11から：
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------|-------|
-| [`(constructor)`](allocator/op_constructor.md) | コンストラクタ                               | |
-| [`(destructor)`](allocator/op_destructor.md) | デストラクタ                                 | |
-| `operator=(const allocator&) = default`     | 代入演算子                                   | |
-| [`address`](allocator/address.md)         | 変数のアドレスを取得する                     | |
+| [`(constructor)`](allocator/op_constructor.md) | コンストラクタ                          | |
+| [`(destructor)`](allocator/op_destructor.md) | デストラクタ                              | |
+| `operator=(const allocator&) = default`   | 代入演算子                                   | |
 | [`allocate`](allocator/allocate.md)       | メモリを確保する                             | |
 | [`deallocate`](allocator/deallocate.md)   | メモリを解放する                             | |
-| [`max_size`](allocator/max_size.md)       | 一度に確保可能なメモリの最大サイズを取得する | |
-| [`construct`](allocator/construct.md)     | 引数を元にインスタンスを構築する             | |
-| [`destroy`](allocator/destroy.md)         | インスタンスを破棄する                       | |
+| [`address`](allocator/address.md)         | 変数のアドレスを取得する                     | C++17から非推奨 |
+| [`max_size`](allocator/max_size.md)       | 一度に確保可能なメモリの最大サイズを取得する | C++17から非推奨 |
+| [`construct`](allocator/construct.md)     | 引数を元にインスタンスを構築する             | C++17から非推奨 |
+| [`destroy`](allocator/destroy.md)         | インスタンスを破棄する                       | C++17から非推奨 |
 
 
 ## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|----------------------------------------------|-------|
-| `size_type`       | 要素数を表す符号なし整数型 `size_t`          | |
-| `difference_type` | ポインタの差を表す符号あり整数型 `ptrdiff_t` | |
-| `pointer`         | 要素のポインタ型 `T*`                        | |
-| `const_pointer`   | 読み取り専用の要素のポインタ型 `const T*`    | |
-| `reference`       | 要素の参照型 `T&`                            | |
-| `const_reference` | 読み取り専用の要素の参照型 `const T&`        | |
 | `value_type`      | 要素の型 `T`                                 | |
-| `rebind<U>`       | 型`U`を確保するように再束縛する              | |
 | `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータの状態を伝搬するか。 [`true_type`](/reference/type_traits/true_type.md) | C++14 |
+| `size_type`       | 要素数を表す符号なし整数型 `size_t`          | C++17から非推奨 |
+| `difference_type` | ポインタの差を表す符号あり整数型 `ptrdiff_t` | C++17から非推奨 |
+| `pointer`         | 要素のポインタ型 `T*`                        | C++17から非推奨 |
+| `const_pointer`   | 読み取り専用の要素のポインタ型 `const T*`    | C++17から非推奨 |
+| `reference`       | 要素の参照型 `T&`                            | C++17から非推奨 |
+| `const_reference` | 読み取り専用の要素の参照型 `const T&`        | C++17から非推奨 |
+| `rebind<U>`       | 型`U`を確保するように再束縛する              | C++17から非推奨 |
 
 
 ## 非メンバ関数
@@ -71,6 +71,10 @@ C++11から：
 |---------------------------------------------|-------------------------------|-------|
 | [`operator==`](allocator/op_equal.md)     | 等値比較。常に`true`を返す    | |
 | [`operator!=`](allocator/op_not_equal.md) | 非等値比較。常に`false`を返す | |
+
+
+## 非推奨の詳細
+C++17から、`void`の特殊化版が非推奨となった。代わりに[`std::allocator_traits`](allocator_traits.md)クラスの`rebind`機能を使用すること。
 
 
 ## 例
@@ -123,4 +127,4 @@ int main(int argc, char** argv) {
 - [LWG #2103 - std::allocator_traits<std::allocator<T>>::propagate_on_container_move_assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2103)
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
 - [AllocatorAwareContainer: Introduction and pitfalls of `propagate_on_container_XXX` defaults](http://foonathan.github.io/blog/2015/10/05/allocatorawarecontainer-propagation-pitfalls.html)
-
+- [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)

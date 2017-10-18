@@ -3,6 +3,7 @@
 * std[meta namespace]
 * allocator[meta class]
 * function[meta id-type]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 // C++03
@@ -14,6 +15,9 @@ pointer address(reference x) const noexcept;
 const_pointer address(const_reference x) const noexcept;
 ```
 
+この関数は、C++17から非推奨となった。オブジェクトから直接アドレスを取得すること。
+
+
 ## 概要
 変数のアドレスを取得する。
 
@@ -21,6 +25,12 @@ const_pointer address(const_reference x) const noexcept;
 ## 戻り値
 - C++03 : `&x`
 - C++11 : `operator&`がオーバーロードされていたとしても、`x`が参照するオブジェクトのアドレスを返す。
+
+
+## 非推奨の詳細
+オブジェクトからのアドレス取得は、アロケータの実装に依存せず、オブジェクト`x`に対して式`&x`もしくは[`std::addressof`](/reference/memory/addressof.md)`(x)`の方法を使用すればよかった。
+
+この関数は必要なかったため、非推奨となった。
 
 
 ## 例
@@ -52,3 +62,5 @@ int main()
 ```
 
 
+## 参照
+- [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)

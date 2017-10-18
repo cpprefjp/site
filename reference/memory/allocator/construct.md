@@ -3,6 +3,7 @@
 * std[meta namespace]
 * allocator[meta class]
 * function[meta id-type]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 // C++03
@@ -12,6 +13,9 @@ void construct(pointer p, const T& val);
 template <class U, class... Args>
 void construct(U* p, Args&&... args);
 ```
+
+この関数は、C++17から非推奨となった。代わりに[`std::allocator_traits`](/reference/memory/allocator_traits.md)`::`[`construct()`](/reference/memory/allocator_traits/construct.md)関数を使用すること。
+
 
 ## 概要
 引数を元にインスタンスを構築する。
@@ -24,6 +28,14 @@ void construct(U* p, Args&&... args);
 
 ## 戻り値
 なし
+
+
+## 非推奨の詳細
+多くのメンバ関数は、アロケータの実装によらず、共通に定義できるものだった。そのため、アロケータの中間インタフェースである[`std::allocator_traits`](/reference/memory/allocator_traits.md)クラスに、共通のデフォルト実装を定義することとなった。
+
+特殊なアロケータの実装では、この関数を独自に実装する必要があるかもしれない。その場合は[`std::allocator_traits`](/reference/memory/allocator_traits.md)のデフォルト機能を使用せずに、この関数を独自アロケータのインタフェースとして定義すれば、[`std::allocator_traits`](/reference/memory/allocator_traits.md)クラスを介してインタフェースにアクセスしたとしても、その独自実装が使用される。
+
+少なくとも、`std::allocator`クラスのあらゆる標準ライブラリの実装において、この関数は特殊な動作をする必要がないため、[`std::allocator_traits`](/reference/memory/allocator_traits.md)クラスのデフォルト実装に任せることとなった。
 
 
 ## 例
@@ -69,4 +81,4 @@ int main()
 
 ## 参照
 - [N2345 Placement Insert for Containers (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2345.pdf)
-
+- [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)

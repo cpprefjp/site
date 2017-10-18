@@ -5,7 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-pointer allocate(size_type n, allocator<void>::const_pointer hint = 0);
+pointer allocate(size_type n);                         // (1)
+pointer allocate(size_type n,
+                 allocator<void>::const_pointer hint); // (2) C++17から非推奨
 ```
 
 ## 概要
@@ -14,7 +16,9 @@ pointer allocate(size_type n, allocator<void>::const_pointer hint = 0);
 
 ## 戻り値
 適切にアライメント配置された`n * sizeof(T)`サイズのストレージの配列の、最初の要素へのポインタを返す。  
-ストレージは、[`::operator new(std::size_t)`](/reference/new/op_new.md)の呼び出しによって取得される。この関数の呼び出し頻度やヒントの扱いは未規定。
+ストレージは、[`::operator new(std::size_t)`](/reference/new/op_new.md)の呼び出しによって取得される。
+
+この関数の呼び出し頻度やヒントの扱いは未規定。
 
 
 ## 例外
@@ -23,6 +27,10 @@ pointer allocate(size_type n, allocator<void>::const_pointer hint = 0);
 
 ## 備考
 コンテナのメンバ関数でこの関数を使用する場合には、隣接要素のアドレスをヒントとして渡すのが適している。
+
+
+## 非推奨の詳細
+ヒントパラメータは、アロケータ実装者に使われなかったため、非推奨となった。
 
 
 ## 例
@@ -49,3 +57,5 @@ int main()
 ```
 
 
+## 参照
+- [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
