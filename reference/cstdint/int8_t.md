@@ -31,3 +31,7 @@ namespace std {
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
+
+
+## 参照
+- [`CHAR_BIT`](/reference/climits/char_bit.md)
