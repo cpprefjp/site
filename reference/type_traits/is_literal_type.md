@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp11[meta cpp]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -13,6 +14,8 @@ namespace std {
   constexpr bool is_literal_type_v = is_literal_type<T>::value; // C++17
 }
 ```
+
+この関数は、C++17から非推奨となった。
 
 ## 概要
 型`T`がリテラル型か調べる。
@@ -38,6 +41,12 @@ namespace std {
 - `void` (C++14から)
 
 リテラル型は、`constexpr`関数のパラメータおよび戻り値の型に対する制約として使用されている。
+
+
+## 非推奨の詳細
+この型特性は、ジェネリックコードにおいて特定の型が`constexpr`に振る舞えるかを判定する機能を持つが、ユーザー定義型の場合には「少なくとも一つ以上の`constexpr`コンストラクタを持つこと」という条件になっていた。しかし、いずれかのコンストラクタが`constexpr`で、それ以外が`constexpr`コンストラクタではなく、それに意味がある場合に、この型特性は使いにくかった。
+
+実際に必要となるのは、特定の型が`constexpr`に振る舞えるかではなく、特定の構築処理で定数初期化ができるかであるため、リテラル型という考え方は廃止すべきである、という結論になった。
 
 
 ## 例
@@ -81,3 +90,4 @@ Clang 3.0では、上記サンプルにおける`X`型が、リテラル型と�
 - [LWG Issue 2015. Incorrect pre-conditions for some type traits](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2015)
     - C++11では要件が「型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。」だったが、これは間違いであるため、C++14で「型[`remove_all_extents`](remove_all_extents.md)`<T>::type`は、完全型か、`const`/`volatile`修飾された(あるいはされていない)`void`でなければならない。」に変更された。
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
+- [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
