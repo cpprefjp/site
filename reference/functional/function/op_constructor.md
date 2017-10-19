@@ -15,19 +15,19 @@ template <class F>
 function(F f);                // (5)
 
 template <class Alloc>
-function(allocator_arg_t, const Alloc& alloc) noexcept;            // (6)
+function(allocator_arg_t, const Alloc& alloc) noexcept;            // (6) C++17で削除
 
 template <class Alloc>
-function(allocator_arg_t, const Alloc& alloc, nullptr_t) noexcept; // (7)
+function(allocator_arg_t, const Alloc& alloc, nullptr_t) noexcept; // (7) C++17で削除
 
 template <class Alloc>
-function(allocator_arg_t, const Alloc& alloc, const function& f);  // (8)
+function(allocator_arg_t, const Alloc& alloc, const function& f);  // (8) C++17で削除
 
 template <class Alloc>
-function(allocator_arg_t, const Alloc& alloc, function&& f);       // (9)
+function(allocator_arg_t, const Alloc& alloc, function&& f);       // (9) C++17で削除
 
 template <class F, class Alloc>
-function(allocator_arg_t, const Alloc& alloc, F f);                // (10)
+function(allocator_arg_t, const Alloc& alloc, F f);                // (10) C++17で削除
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
@@ -57,6 +57,10 @@ function(allocator_arg_t, const Alloc& alloc, F f);                // (10)
 ## 備考
 - (5), (10) : 
     - C++14 : `F`が、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトでない場合、この関数はオーバーロード解決から除外される。
+
+
+## 削除の詳細
+- (6)-(10) : このクラスのメモリアロケータサポートは、ほとんどの標準ライブラリ実装で使用されず、メモリアロケータを使用する必要がなかった。そのため、実装もされなかったことでユーザーにも使われてこなかったため、この機能を削除した。
 
 
 ## 例
@@ -235,4 +239,4 @@ int main()
 - [N2308 Adding allocator support to `std::function` for C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2308.html)
 - [LWG Issue 2132. `std::function` ambiguity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132)
     - C++14から、(5)と(10)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。
-
+- [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
