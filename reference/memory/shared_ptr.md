@@ -211,6 +211,13 @@ Y dtor
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
 
 
+## 関連項目
+- [`std::enable_shared_from_this`](enable_shared_from_this.md)
+    - `this`ポインタを`shared_ptr`として使用する場合は、この機能を使用する
+- [`std::unique_ptr`](unique_ptr.md)
+    - 所有権を共有する必要がない場合は、この機能を使用する
+
+
 ## 参照
 - [動的削除子 (dynamic deleter) - 意外と知られていない？ `boost::shared_ptr` の側面](http://d.hatena.ne.jp/Cryolite/20060108#p1)
 - [P0163R0 `shared_ptr::weak_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0163r0.html)
