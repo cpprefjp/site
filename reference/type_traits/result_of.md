@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp11[meta cpp]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -17,6 +18,9 @@ namespace std {
   using result_of_t = typename result_of<T>::type;
 }
 ```
+
+この機能はC++17から非推奨となった。代わりに[`std::invoke_result`](invoke_result.md.nolink)を使用すること。
+
 
 ## 概要
 関数の戻り値の型を取得する。
@@ -40,6 +44,16 @@ decltype(INVOKE(declval<Fn>(), declval<ArgTypes>()...))
 * INVOKE[link /reference/functional/invoke.md]
 
 C++14以降では、上記メンバ型`type`の型定義が有効な式でない場合、メンバ型`type`は定義されない。
+
+
+## 非推奨の詳細
+C++17で特定のシグニチャで関数呼び出しが可能かを判定する`is_callable`を導入する予定だったが、[`std::invoke()`](/reference/functional/invoke.md.nolink)関数を導入する際に、`result_of`も含めて命名規則を統一することとなった。
+
+`is_callable`は[`std::is_invocable`](is_invocable.md.nolink)という名前で導入された。
+
+`result_of`は、シグニチャであることをわかりやすくするために、関数型でユーザーにテンプレート引数を指定させていたが、これは混乱の元であった。
+
+そのため、[`std::invoke_result`](invoke_result.md.nolink)に名称変更することとなった。
 
 
 ## 例
@@ -145,4 +159,4 @@ Hello World
     - C++11では、テンプレートパラメータが有効な関数の式にならない場合に`static_assert`でコンパイルエラーにしていたが、C++14ではその時点でコンパイルエラーにせず、SFINAEを働かせるようにした。
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
-
+- [P0604R0 Resolving GB 55, US 84, US 85, US 86](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html)
