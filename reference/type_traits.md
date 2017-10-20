@@ -60,7 +60,7 @@
 | [`is_trivially_copyable`](type_traits/is_trivially_copyable.md) | 型がトリビアルコピー可能か調べる (class template) | C++11 |
 | [`is_standard_layout`](type_traits/is_standard_layout.md) | 型がスタンダードレイアウト型か調べる (class template) | C++11 |
 | [`is_pod`](type_traits/is_pod.md)           | 型がPOD型か調べる (class template) | C++11 |
-| [`is_literal_type`](type_traits/is_literal_type.md) | 型がリテラル型か調べる (class template) | C++11 |
+| [`is_literal_type`](type_traits/is_literal_type.md) | 型がリテラル型か調べる (class template) | C++11<br/> C++17から非推奨 |
 | [`is_empty`](type_traits/is_empty.md)       | 型が空のクラスか調べる (class template) | C++11 |
 | [`is_polymorphic`](type_traits/is_polymorphic.md) | 型が多相的クラスか調べる (class template) | C++11 |
 | [`is_abstract`](type_traits/is_abstract.md) | 型が抽象クラスか調べる (class template) | C++11 |

@@ -19,13 +19,13 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|--------------------------------------------|-------|
-| [`raw_storage_iterator`](memory/raw_storage_iterator.md) | 未初期化領域に書き込むための出力イテレータ(class template) | |
+| [`raw_storage_iterator`](memory/raw_storage_iterator.md) | 未初期化領域に書き込むための出力イテレータ(class template) | C++17から非推奨 |
 | [`uninitialized_copy`](memory/uninitialized_copy.md) | 未初期化領域の範囲を配置`new`で初期化して出力する(function template) | |
 | [`uninitialized_copy_n`](memory/uninitialized_copy_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化して出力する(function template) | C++11 |
 | [`uninitialized_fill`](memory/uninitialized_fill.md) | 未初期化領域の範囲を、指定された値で配置`new`する(function template) | |
 | [`uninitialized_fill_n`](memory/uninitialized_fill_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を指定された値で配置`new`する(function template) | |
-| [`get_temporary_buffer`](memory/get_temporary_buffer.md) | 短期的なメモリ領域を確保する(function template) | |
-| [`return_temporary_buffer`](memory/return_temporary_buffer.md) | `get_temporary_buffer()`で確保された領域を解放する(function) | |
+| [`get_temporary_buffer`](memory/get_temporary_buffer.md) | 短期的なメモリ領域を確保する(function template) | C++17から非推奨 |
+| [`return_temporary_buffer`](memory/return_temporary_buffer.md) | `get_temporary_buffer()`で確保された領域を解放する(function) | C++17から非推奨 |
 
 
 ## スマートポインタ

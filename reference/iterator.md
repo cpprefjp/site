@@ -15,7 +15,7 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|------------------------------------------|-------|
 | [`iterator_traits`](iterator/iterator_traits.md) | イテレータに関する型情報(class template) | |
-| [`iterator`](iterator/iterator.md) | イテレータを定義するための基本クラス(class template) | |
+| [`iterator`](iterator/iterator.md) | イテレータを定義するための基本クラス(class template) | C++17から非推奨 |
 | [`input_iterator_tag`](iterator/iterator_tag.md) | 入力イテレータを表すタグ(class) | |
 | [`output_iterator_tag`](iterator/iterator_tag.md) | 出力イテレータを表すタグ(class) | |
 | [`forward_iterator_tag`](iterator/iterator_tag.md) | 前方向イテレータを表すタグ(class) | |
