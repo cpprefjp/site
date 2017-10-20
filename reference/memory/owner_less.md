@@ -43,9 +43,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|---------------------------------------------------------------|-------|
-| `result_type`          | 戻り値型`bool`                                                | C++11 |
-| `first_argument_type`  | 第1引数型[`shared_ptr`](/reference/memory/shared_ptr.md)`<T>` | C++11 |
-| `second_argument_type` | 第2引数型[`shared_ptr`](/reference/memory/shared_ptr.md)`<T>` | C++11 |
+| `result_type`          | 戻り値型`bool`                                                | C++11<br/> C++17から非推奨 |
+| `first_argument_type`  | 第1引数型[`shared_ptr`](/reference/memory/shared_ptr.md)`<T>` | C++11<br/> C++17から非推奨 |
+| `second_argument_type` | 第2引数型[`shared_ptr`](/reference/memory/shared_ptr.md)`<T>` | C++11<br/> C++17から非推奨 |
 
 
 ## weak_ptr版
@@ -60,9 +60,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-----------------------------------------------------------|-------|
-| `result_type`          | 戻り値型`bool`                                            | C++11 |
-| `first_argument_type`  | 第1引数型[`weak_ptr`](/reference/memory/weak_ptr.md)`<T>` | C++11 |
-| `second_argument_type` | 第2引数型[`weak_ptr`](/reference/memory/weak_ptr.md)`<T>` | C++11 |
+| `result_type`          | 戻り値型`bool`                                            | C++11<br/> C++17から非推奨 |
+| `first_argument_type`  | 第1引数型[`weak_ptr`](/reference/memory/weak_ptr.md)`<T>` | C++11<br/> C++17から非推奨 |
+| `second_argument_type` | 第2引数型[`weak_ptr`](/reference/memory/weak_ptr.md)`<T>` | C++11<br/> C++17から非推奨 |
 
 
 ## void版
@@ -181,3 +181,4 @@ false
 ## 参照
 - [N2637 Revisiting `std::shared_ptr` comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 - [P0074R0 Making `std::owner_less` more flexible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0074r0.html)
+- [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)

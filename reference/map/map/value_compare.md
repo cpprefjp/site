@@ -35,9 +35,9 @@ namespace std {
 
 | 名前                   | 説明                                                                                 | 対応バージョン |
 |------------------------|--------------------------------------------------------------------------------------|----------------|
-| `result_type`          | 関数オブジェクトとしての戻り型。`bool` の別名                                        |                |
-| `first_argument_type`  | 関数オブジェクトとしての第一引数の型。[`map`](../../map.md)`::value_type` の別名     |                |
-| `second_argument_type` | 関数オブジェクトとしての第二引数の型。[`map`](../../map.md)`::value_type` の別名     |                |
+| `result_type`          | 関数オブジェクトとしての戻り型。`bool` の別名                                        | C++17から非推奨 |
+| `first_argument_type`  | 関数オブジェクトとしての第一引数の型。[`map`](../../map.md)`::value_type` の別名     | C++17から非推奨 |
+| `second_argument_type` | 関数オブジェクトとしての第二引数の型。[`map`](../../map.md)`::value_type` の別名     | C++17から非推奨 |
 
 これらのメンバ型は、C++03 までは [`binary_function`](../../functional/binary_function.md.nolink)`<value_type, value_type, bool>` を
 public 継承することによって定義していたが、C++11 から [`binary_function`](../../functional/binary_function.md.nolink) 等が非推奨になったことから
@@ -67,3 +67,7 @@ int main()
 ```
 true
 ```
+
+
+## 参照
+- [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)

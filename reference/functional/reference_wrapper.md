@@ -31,10 +31,10 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `type` | 参照される型 (テンプレートパラメータ `T`) | C++11 |
-| `result_type` | 型`T`を関数・関数オブジェクトとして扱った時の戻り値型 | C++11 |
-| `argument_type` | 型`T`を一引数の関数・関数オブジェクトとして扱った時の引数型 | C++11 |
-| `first_argument_type` | 型`T`を二引数の関数・関数オブジェクトとして扱った時の第一引数型 | C++11 |
-| `second_argument_type` | 型`T`を二引数の関数・関数オブジェクトとして扱った時の第二引数型 | C++11 |
+| `result_type` | 型`T`を関数・関数オブジェクトとして扱った時の戻り値型 | C++11<br/> C++17から非推奨 |
+| `argument_type` | 型`T`を一引数の関数・関数オブジェクトとして扱った時の引数型 | C++11<br/> C++17から非推奨 |
+| `first_argument_type` | 型`T`を二引数の関数・関数オブジェクトとして扱った時の第一引数型 | C++11<br/> C++17から非推奨 |
+| `second_argument_type` | 型`T`を二引数の関数・関数オブジェクトとして扱った時の第二引数型 | C++11<br/> C++17から非推奨 |
 
 
 ## 非メンバ関数
@@ -102,4 +102,4 @@ int main()
 
 ## 参照
 - [参照を保持するコンテナ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20110519/1305789940)
-
+- [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)

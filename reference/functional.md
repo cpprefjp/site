@@ -101,10 +101,11 @@ struct doubler {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|--------------------------|-------|
-| [`unary_negate`](functional/negators.md)  | 単項の論理反転 (class template) | |
-| [`not1`](functional/negators.md)          | 単項の述語を論理反転する (function template) | |
-| [`binary_negate`](functional/negators.md) | 二項の論理反転 (class template) | |
-| [`not2`](functional/negators.md)          | 二項の述語を論理反転する (function template) | |
+| [`not_fn`](functional/not_fn.md)          | 任意個数の引数をとる関数オブジェクトを論理反転する (function template) | C++17 |
+| [`unary_negate`](functional/negators.md)  | 単項の論理反転 (class template) | C++17から非推奨 |
+| [`not1`](functional/negators.md)          | 単項の述語を論理反転する (function template) | C++17から非推奨 |
+| [`binary_negate`](functional/negators.md) | 二項の論理反転 (class template) | C++17から非推奨 |
+| [`not2`](functional/negators.md)          | 二項の述語を論理反転する (function template) | C++17から非推奨 |
 
 
 ## 古い関数オブジェクトアダプタ (C++11から非推奨, C++17で削除)

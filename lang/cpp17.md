@@ -169,7 +169,7 @@ C++17では以下のTSが採用された：
 ### アルゴリズム
 - ランダムサンプリングアルゴリズムとして、[`sample()`](/reference/algorithm/sample.md.nolink)を追加
 - 値を範囲内に収める[`clamp()`](/reference/algorithm/clamp.md.nolink)関数を追加
-- `bool`を返す関数オブジェクトの結果を反転させる[`not_fn()`](/reference/functional/not_fn.md.nolink)関数を追加
+- `bool`を返す関数オブジェクトの結果を反転させる[`not_fn()`](/reference/functional/not_fn.md)関数を追加
 - INVOKEコンセプトに従った関数呼び出しをする[`invoke()`](/reference/functional/invoke.md.nolink)関数を追加
 - [`reference_wrapper`](/reference/functional/reference_wrapper.md)がTriviallyCopyableであることを保証
 - オブジェクトを`const`にする[`as_const()`](/reference/utility/as_const.md)関数を追加

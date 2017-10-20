@@ -2,6 +2,7 @@
 * functional[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -44,6 +45,9 @@ namespace std {
   constexpr binary_negate<Pred> not2(const Pred& pred); // C++14
 }
 ```
+
+これらの機能は、C++17から非推奨となった。代わりに[`std::not_fn()`](not_fn.md)関数を使用すること。
+
 
 ## 概要
 述語関数オブジェクトの結果を反転する関数オブジェクトアダプタ。`unary_negate` は1引数述語用、`binary_negate` は2引数述語用。
@@ -105,4 +109,4 @@ false
 
 ## 参照
 - [N3789 Constexpr Library Additions: functional](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3789.htm)
-
+- [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
