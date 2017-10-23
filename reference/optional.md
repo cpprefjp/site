@@ -10,7 +10,7 @@
 | [`make_optional`](optional/make_optional.md.nolink) | `optional`オブジェクトを生成するヘルパー関数 (function template) | C++17 |
 | [`nullopt_t`](optional/nullopt_t.md.nolink) | 統一的な無効値を表す値の型 (class) | C++17 |
 | [`nullopt`](optional/nullopt_t.md.nolink) | 統一的な無効値を表す値 (constant value) | C++17 |
-| [`bad_optional_access`](optional/bad_optional_access.md.nolink) | 無効な値にアクセスした場合に発生する例外 (class) | C++17 |
+| [`bad_optional_access`](optional/bad_optional_access.md) | 無効な値にアクセスした場合に発生する例外 (class) | C++17 |
 
 
 ## バージョン

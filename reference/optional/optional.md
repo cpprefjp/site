@@ -41,7 +41,7 @@ namespace std {
 | `operator->` | メンバアクセス | C++17 |
 | `operator bool` | 有効な値を保持しているかを判定する | C++17 |
 | `has_value` | 有効な値を保持しているかを判定する | C++17 |
-| `value` | 有効値を取得する | C++17 |
+| [`value`](optional/value.md) | 有効値を取得する | C++17 |
 | `value_or` | 有効値もしくは指定された無効値を取得する | C++17 |
 
 
@@ -94,8 +94,8 @@ namespace std {
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang): ??
-- [GCC, C++17 mode](/implementation.md#gcc): ??
+- [Clang, C++17 mode](/implementation.md#clang): 4.0.1
+- [GCC, C++17 mode](/implementation.md#gcc): 7.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
