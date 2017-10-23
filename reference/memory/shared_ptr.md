@@ -109,7 +109,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|------------------------------------------|-------|
 | `template <class T> struct hash;`                | `hash`クラスの先行宣言                   | C++11 |
-| `template <class T> struct hash<shared_ptr<N>>;` | `hash`クラスの`shared_ptr`に対する特殊化 | C++11 |
+| `template <class T> struct hash<shared_ptr<T>>;` | `hash`クラスの`shared_ptr`に対する特殊化 | C++11 |
 
 
 ## 推論補助
