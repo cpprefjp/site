@@ -139,7 +139,7 @@ C++17では以下のTSが採用された：
 ### 新ライブラリ
 - [`<filesystem>`](/reference/filesystem.md.nolink)ヘッダを新設し、ファイルシステムライブラリを追加。ファイル、ディレクトリなどを扱う
 - [`<algorithm>`](/reference/algorithm.md)や[`<numeric>`](/reference/numeric.md)のアルゴリズムに、並列実行のオプションを追加
-- [`<optional>`](/reference/optional.md.nolink)ヘッダを新設し、統一的な有効値と無効値の表現をもつ[`optional`](/reference/optional/optional.md.nolink)クラスを追加
+- [`<optional>`](/reference/optional.md)ヘッダを新設し、統一的な有効値と無効値の表現をもつ[`optional`](/reference/optional/optional.md)クラスを追加
 - [`<variant>`](/reference/variant.md.nolink)ヘッダを新設し、型安全な共用体[`variant`](/reference/variant/variant.md.nolink)クラスを追加
 - [`<any>`](/reference/any.md.nolink)ヘッダを新設し、なんでも代入できる[`any`](/reference/any/any.md.nolink)クラスを追加
 - 標準ライブラリの参照をC11に更新

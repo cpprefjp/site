@@ -46,6 +46,7 @@
 | [`<bitset>`](/reference/bitset.md)           | ビットの固定サイズシーケンス |                |
 | [`<ratio>`](/reference/ratio.md)             | コンパイル時有理数           | C++11          |
 | [`<tuple>`](/reference/tuple.md)             | タプル                       | C++11          |
+| [`<optional>`](/reference/optional.md)       | 任意で値を持たせられるオブジェクト | C++17 |
 | [`<type_traits>`](/reference/type_traits.md) | 型特性                       | C++11          |
 | [`<functional>`](/reference/functional.md)   | 関数オブジェクト             |                |
 | [`<memory>`](/reference/memory.md)           | メモリ                       |                |
