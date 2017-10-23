@@ -75,9 +75,9 @@ namespace std {
 ## ハッシュサポート
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------------------------|------------------------------------------|-------|
-| `template <class T> struct hash;`              | `hash`クラスの先行宣言                   | C++17 |
-| `template <class T> struct hash<optional<T>>;` | `hash`クラスの`shared_ptr`に対する特殊化 | C++17 |
+|------------------------------------------------|----------------------------------------|-------|
+| `template <class T> struct hash;`              | `hash`クラスの先行宣言                 | C++17 |
+| `template <class T> struct hash<optional<T>>;` | `hash`クラスの`optional`に対する特殊化 | C++17 |
 
 
 ## 例
