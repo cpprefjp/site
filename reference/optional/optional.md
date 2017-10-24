@@ -38,7 +38,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator*`](optional/op_deref.md)    | 間接参照 | C++17 |
-| `operator->` | メンバアクセス | C++17 |
+| [`operator->`](optional/op_arrow.md)   | メンバアクセス | C++17 |
 | [`operator bool`](optional/op_bool.md) | 有効な値を保持しているかを判定する | C++17 |
 | [`has_value`](optional/has_value.md)   | 有効な値を保持しているかを判定する | C++17 |
 | [`value`](optional/value.md)           | 有効値を取得する | C++17 |
