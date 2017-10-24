@@ -42,7 +42,7 @@ namespace std {
 | [`operator bool`](optional/op_bool.md) | 有効な値を保持しているかを判定する | C++17 |
 | [`has_value`](optional/has_value.md)   | 有効な値を保持しているかを判定する | C++17 |
 | [`value`](optional/value.md)           | 有効値を取得する | C++17 |
-| `value_or` | 有効値もしくは指定された無効値を取得する | C++17 |
+| [`value_or`](optional/value_or.md)     | 有効値もしくは指定された無効値を取得する | C++17 |
 
 
 ## 非メンバ関数
