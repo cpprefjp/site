@@ -49,7 +49,7 @@ int main()
   std::cout << result2 << std::endl;
 }
 ```
-* value_or()[color ff0000]
+* value_or[color ff0000]
 
 ### 出力
 ```
