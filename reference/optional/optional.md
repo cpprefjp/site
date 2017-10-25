@@ -30,7 +30,7 @@ namespace std {
 | `operator=` | 代入演算子 | C++17 |
 | `emplace`   | 要素型のコンストラクタ引数から直接構築する | C++17 |
 | `swap`      | 他の`optional`オブジェクトとデータを入れ替える | C++17 |
-| `reset`     | 無効値を保持した状態にする | C++17 |
+| [`reset`](optional/reset.md) | 有効値を保持していない状態にする | C++17 |
 
 
 ### 値の観測
