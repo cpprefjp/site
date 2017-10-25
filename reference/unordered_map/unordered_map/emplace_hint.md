@@ -110,7 +110,7 @@ int main()
 * std::distance[link /reference/iterator/distance.md]
 * um.cbegin()[link cbegin.md]
 * um.cend()[link cend.md]
-* std::piecewise_construct[link /reference/utility/piecewise_construct.md]
+* std::piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 * std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
 ### 出力

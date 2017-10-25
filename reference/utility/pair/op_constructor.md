@@ -37,6 +37,7 @@ pair(piecewise_construct_t,
      tuple<Args1...> first_args,
      tuple<Args2...> second_args);        // (8) C++11
 ```
+* piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 
 ## pairの構築
 
@@ -162,7 +163,7 @@ int main()
 ```
 * std::ostream[link /reference/ostream/basic_ostream.md]
 * std::move[link /reference/utility/move.md]
-* std::piecewise_construct[link /reference/utility/piecewise_construct.md]a
+* std::piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 
 ### 出力

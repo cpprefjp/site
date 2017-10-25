@@ -42,8 +42,8 @@
 |-------------------------------------------------------------|----------------------------------------|----------------|
 | [`pair`](utility/pair.md)                                 | 異なる型の二つの値の組(class template) | |
 | [`make_pair`](utility/make_pair.md)                       | `pair`を構築するヘルパ関数(function template) | |
-| [`piecewise_construct_t`](utility/piecewise_construct.md) | `pair`や`tuple`の要素型のコンストラクタ引数を直接受け取って構築するためのタグ型(class) | C++11 |
-| [`piecewise_construct`](utility/piecewise_construct.md)   | `pair`や`tuple`の要素型のコンストラクタ引数を直接受け取って構築するためのタグ値(constant variable) | C++11 |
+| [`piecewise_construct_t`](utility/piecewise_construct_t.md) | `pair`や`tuple`の要素型のコンストラクタ引数を直接受け取って構築するためのタグ型(class) | C++11 |
+| [`piecewise_construct`](utility/piecewise_construct_t.md)   | `pair`や`tuple`の要素型のコンストラクタ引数を直接受け取って構築するためのタグ値(constant variable) | C++11 |
 | `tuple`                                                     | `tuple`型の先行宣言(class template) | C++11 |
 
 
