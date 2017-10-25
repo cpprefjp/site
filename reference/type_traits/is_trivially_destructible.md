@@ -73,3 +73,5 @@ int main() {}
 
 ## 参照
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
+- [An Example that Omits Destructor Calls For Types with Trivial Destructors](http://www.boost.org/doc/libs/1_65_1/libs/type_traits/doc/html/boost_typetraits/examples/destruct.html)
+    - デストラクタを呼び出す必要のない型の配列に対して、デストラクタを呼び出すループを省略する最適化の例
