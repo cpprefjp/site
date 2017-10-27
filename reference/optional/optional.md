@@ -28,7 +28,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator=`](optional/op_assign.md) | 代入演算子 | C++17 |
-| `emplace`   | 要素型のコンストラクタ引数から直接構築する | C++17 |
+| [`emplace`](optional/emplace.md)     | 要素型のコンストラクタ引数から直接構築する | C++17 |
 | `swap`      | 他の`optional`オブジェクトとデータを入れ替える | C++17 |
 | [`reset`](optional/reset.md) | 有効値を保持していない状態にする | C++17 |
 
