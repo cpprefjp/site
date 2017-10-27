@@ -53,6 +53,8 @@
 |------|------|----------------|
 | [`in_place_t`](utility/in_place_t.md) | 要素型のコンストラクタ引数を直接受け取って構築するためのタグ型 (class) | C++17 |
 | [`in_place`](utility/in_place_t.md)   | 要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable) | C++17 |
+| `in_place_type_t` | 指定した要素型のコンストラクタ引数を直接受け取って構築するためのタグ型 (class) | C++17 |
+| `in_place_type`   | 指定した要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable) | C++17 |
 | `in_place_index_t` | 指定位置にある要素型のコンストラクタ引数を直接受け取って構築するためのタグ型 (class) | C++17 |
 | `in_place_index`   | 指定位置にある要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable) | C++17 |
 
