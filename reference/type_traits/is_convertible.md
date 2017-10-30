@@ -16,7 +16,7 @@ namespace std {
 ```
 
 ## 概要
-型`From`から型`To`に変換可能か調べる。
+型`From`から型`To`に、暗黙的に変換可能か調べる。
 
 
 ## 要件
@@ -24,7 +24,11 @@ namespace std {
 
 
 ## 効果
-`is_convertible`は、型`From`から型`To`に変換可能であれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+`is_convertible`は、型`From`から型`To`に暗黙的に変換可能であれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+
+
+## 備考
+return文による型変換、および非explicitなコンストラクタによる型変換は、暗黙的に変換可能であるとみなされる。explicitなコンストラクタによる明示的な型変換は、暗黙的に変換可能であるとは見なされない。
 
 
 ## 例
@@ -34,6 +38,10 @@ namespace std {
 class A {};
 struct B {
   operator A() { return A(); }
+};
+
+struct C {
+  explicit C(int) {}
 };
 
 static_assert(std::is_convertible<int, double>::value == true, "int convertible to double");
@@ -47,6 +55,9 @@ static_assert(std::is_convertible<const int&, long>::value == true, "const int& 
 static_assert(std::is_convertible<int, int>::value == true, "int convertible to int");
 
 static_assert(std::is_convertible<B, A>::value == true, "B convertible to A");
+
+// explicitなコンストラクタによる明示的な型変換は、変換可能とみなされない
+static_assert(std::is_convertible<int, C>::value == false, "int not convertible to C");
 
 int main() {}
 ```
