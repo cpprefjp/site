@@ -20,7 +20,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](optional/op_constructor.md) | コンストラクタ | C++17 |
-| `(destructor)` | デストラクタ | C++17 |
+| [`(destructor)`](optional/op_destructor.md)   | デストラクタ | C++17 |
 
 
 ### 代入
