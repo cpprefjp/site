@@ -57,7 +57,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `make_optional` | 有効な値を保持する`optional`オブジェクトを構築する | C++17 |
+| [`make_optional`](make_optional.md) | 有効な値を保持する`optional`オブジェクトを構築する | C++17 |
 
 
 ### 値の入れ替え
