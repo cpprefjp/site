@@ -70,7 +70,7 @@ int main()
 }
 ```
 * std::make_optional[color ff0000]
-* p.value()[link value.md]
+* p.value()[link optional/value.md]
 
 ### 出力
 ```
