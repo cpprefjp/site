@@ -19,6 +19,7 @@ namespace std {
   constexpr bool operator!=(const U& x, const optional<T>& y);           // (5)
 }
 ```
+* nullopt_t[link /reference/optional/nullopt_t.md]
 
 ## 概要
 `optional`オブジェクトの非等値比較を行う。
@@ -77,6 +78,7 @@ int main()
   }
 }
 ```
+* std::nullopt[link /reference/optional/nullopt_t.md]
 
 ### 出力
 ```
