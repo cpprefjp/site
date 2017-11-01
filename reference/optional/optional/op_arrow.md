@@ -66,3 +66,7 @@ int main()
 
 ## 関連項目
 - [`optional::value()`](value.md)
+
+
+## 参照
+- [LWG Issue 2740. `constexpr optional<T>::operator->`](https://wg21.cmeerw.net/lwg/issue2740)

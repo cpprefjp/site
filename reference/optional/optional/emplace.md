@@ -107,4 +107,5 @@ int main()
 
 ## 参照
 - [N3406 A proposal to add a utility class to represent optional objects (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3406.html)
+- [LWG Issue 2857. {`variant`,`optional`,`any`}`::emplace` should return the constructed value](https://wg21.cmeerw.net/lwg/issue2857)
 - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)

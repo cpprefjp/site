@@ -151,3 +151,7 @@ int main()
 - [Clang, C++17 mode](/implementation.md#clang): 4.0.1
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 2756. `optional<T>` should `forward` `T`'s implicit conversions](https://wg21.cmeerw.net/lwg/issue2756)

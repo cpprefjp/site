@@ -57,3 +57,7 @@ exception : bad optional access
 - [GCC, C++11 mode](/implementation.md#gcc): 7.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 2806. Base class of `bad_optional_access`](https://wg21.cmeerw.net/lwg/issue2806)
