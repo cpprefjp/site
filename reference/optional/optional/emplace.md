@@ -21,7 +21,7 @@ T& emplace(std::initializer_list<U> il, Args&&... args); // (2)
 
 
 ## 要件
-- (1) : [`is_constructible_v](/reference/type_traits/is_constructible.md)`<T, Args&&...> == true`であること
+- (1) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, Args&&...> == true`であること
 
 
 ## 効果
