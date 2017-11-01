@@ -75,7 +75,7 @@ int main()
   um.clear();
 
   // max_load_factor を 上記の load_factor()より大きな値に設定する
-  um.max_load_factor((2.5f);                       // (2)
+  um.max_load_factor((2.5f));                      // (2)
   for( int n=0; n<c; n++ )
   {
     um.emplace(n, n);
