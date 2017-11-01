@@ -12,6 +12,29 @@ namespace std {
 ```
 
 ## 概要
+`optional`クラスは、任意の型`T`の値を有効値として、あらゆる型に共通の無効値状態を表現できる型である。
+
+このクラスを使用しない場合、従来の方法として有効値と無効値は、以下のように表現されていた：
+
+- `int`型の場合、0以上の値を有効な値とし、エラーが起きたら負数を代入する
+- ポインタの場合、オブジェクトへのポインタを有効な値とし、どこも差さないヌルポインタを無効値として代入する
+
+このような有効値と無効値の表現は、変数単位もしくはAPI・ライブラリ単位での仕様である。`optional`クラスでは、[`nullopt`](nullopt_t.md)という特殊な定数を無効値とし、あらゆる型に共通の無効状態を持たせられるようになっている。
+
+
+## 要件
+型`T`が以下のいずれかに該当してはならない：
+
+- 参照型
+- CV修飾された型
+- [`std::in_place_t`](/reference/utility/in_place_t.md)
+- [`std::nullopt_t`](nullopt_t.md)
+
+
+## 備考
+このクラスの前身となった[Boost Optional Library](boost.org/libs/optional)では、`optional<int&>`のように左辺値参照を要素型とした場合に、無効値の領域を最適化する機能が入っていた。
+
+標準ライブラリの`optional`クラスには現在、参照を持たせることはできない。
 
 
 ## メンバ関数
@@ -96,10 +119,44 @@ namespace std {
 
 ## 例
 ```cpp
+#include <iostream>
+#include <optional>
+
+// 除算をする関数。
+// ゼロ割りを試みた場合、無効値が返る
+std::optional<int> safe_divide(int a, int b)
+{
+  if (b == 0)
+    return std::nullopt;
+
+  return a / b;
+}
+
+int main()
+{
+  // 9/3を計算する
+  std::optional<int> result1 = safe_divide(9, 3);
+  if (result1) { // 計算に成功した場合、有効値が返る
+    int x = result1.value(); // 有効値を取り出す
+    std::cout << x << std::endl;
+  }
+
+  // 3/0の計算を試みる
+  std::optional<int> result2 = safe_divide(3, 0);
+  if (!result2) { // 計算に失敗した場合、無効値が返る
+    std::cout << "error" << std::endl;
+  }
+}
 ```
+* std::nullopt[link nullopt_t.md]
+* if (result1)[link optional/op_bool.md]
+* if (!result2)[link optional/op_bool.md]
+* result1.value()[link optional/value.md]
 
 ### 出力
 ```
+3
+error
 ```
 
 
