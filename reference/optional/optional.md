@@ -73,7 +73,7 @@ namespace std {
 |------|------|----------------|
 | [`operator==`](optional/op_equal.md)     | 等値比較 | C++17 |
 | [`operator!=`](optional/op_not_equal.md) | 非等値比較 | C++17 |
-| `operator<`  | 左辺が右辺より小さいかを判定する | C++17 |
+| [`operator<`](optional/op_less.md)       | 左辺が右辺より小さいかを判定する | C++17 |
 | `operator<=` | 左辺が右辺以下かを判定する | C++17 |
 | `operator>`  | 左辺が右辺より大きいかを判定する | C++17 |
 | `operator>=` | 左辺が右辺以上かを判定する | C++17 |
