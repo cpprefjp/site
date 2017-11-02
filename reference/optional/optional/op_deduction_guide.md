@@ -6,8 +6,10 @@
 * cpp17[meta cpp]
 
 ```cpp
-template <class T>
-optional(T) -> optional<T>;
+namespace std {
+  template <class T>
+  optional(T) -> optional<T>;
+}
 ```
 
 ## 概要
