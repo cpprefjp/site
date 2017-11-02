@@ -21,6 +21,8 @@ namespace std {
 
 このような有効値と無効値の表現は、変数単位もしくはAPI・ライブラリ単位での仕様である。`optional`クラスでは、[`nullopt`](nullopt_t.md)という特殊な定数を無効値とし、あらゆる型に共通の無効状態を持たせられるようになっている。
 
+このクラスは、ヒープからの動的メモリ確保を行わない。実装は配置newや[`std::aligned_storage`](/reference/type_traits/aligned_storage.md)のような機能によって、スタック領域のメモリのみを使用する。
+
 
 ## 要件
 型`T`が以下のいずれかに該当してはならない：
