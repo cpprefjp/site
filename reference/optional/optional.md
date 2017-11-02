@@ -30,6 +30,8 @@ namespace std {
 - [`std::in_place_t`](/reference/utility/in_place_t.md)
 - [`std::nullopt_t`](nullopt_t.md)
 
+また、型`T`は[破棄可能](/reference/concepts/Destructible.md)であること。
+
 
 ## 備考
 このクラスの前身となった[Boost Optional Library](boost.org/libs/optional)では、`optional<int&>`のように左辺値参照を要素型とした場合に、無効値の領域を最適化する機能が入っていた。
