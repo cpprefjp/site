@@ -1,4 +1,5 @@
 * implementation-defined[italic]
+* SFINAE[link /lang/cpp11/sfinae_expressions.md]
 * thread_local[link /lang/cpp11/thread_local_storage.md]
 * decltype(auto)[link /lang/cpp14/decltype_auto.md]
 * <algorithm>[link /reference/algorithm.md]
