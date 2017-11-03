@@ -72,6 +72,7 @@
     * std::accumulate[link /reference/numeric/accumulate.md]
     * std::iota[link /reference/numeric/iota.md]
 * <optional>[link /reference/optional.md]
+    * std::optional[link /reference/optional/optional.md]
 * <ostream>[link /reference/ostream.md]
     * std::endl[link /reference/ostream/endl.md]
 * <queue>[link /reference/queue.md]
