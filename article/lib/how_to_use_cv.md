@@ -71,7 +71,7 @@ std::condition_variable cv;
 ```cpp
 // 条件変数を誤用した同期処理
 std::mutex mtx;
-std::condition_varialbe cv;
+std::condition_variable cv;
 ```
 
 ```cpp
