@@ -1,5 +1,6 @@
 * implementation-defined[italic]
 * thread_local[link /lang/cpp11/thread_local_storage.md]
+* decltype(auto)[link /lang/cpp14/decltype_auto.md]
 * <algorithm>[link /reference/algorithm.md]
     * std::copy[link /reference/algorithm/copy.md]
     * std::for_each[link /reference/algorithm/for_each.md]
