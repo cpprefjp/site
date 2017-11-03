@@ -104,7 +104,7 @@ std::condition_variable cv;
 // 条件変数による正しい同期処理
 bool notify = false;
 std::mutex mtx;
-std::condition_varialbe cv;
+std::condition_variable cv;
 ```
 
 ```cpp
