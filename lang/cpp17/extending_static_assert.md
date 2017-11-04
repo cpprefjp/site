@@ -29,8 +29,7 @@ int main()
 * static_assert[color ff0000]
 
 ### 出力
-```
-```
+不適格。
 
 ### 備考
 clang++ 5.0.0 にてコンパイルした場合、
