@@ -74,6 +74,7 @@ enum class [[maybe_unused]] E {
 
 ## 例
 ```cpp
+#define NDEBUG
 #include <cassert>
 
 //警告は発生しない
