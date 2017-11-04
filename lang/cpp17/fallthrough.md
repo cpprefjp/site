@@ -15,64 +15,40 @@ switch-case文において意図しないフォールスルーによってバグ
 
 ## 例
 ```cpp
-void f(int n) {
-  void g(), h(), i();
+#include <iostream>
+
+int main() {
+  int n = 3;
   switch (n) {
   case 1:
   case 2: //caseの間に1つも文がなければフォールスルーは警告されない
-    g();
+    std::cout << "case 2\n";
     [[fallthrough]];
   case 3: //[[fallthrough]]属性の記述によりフォールスルー警告は無効化される
-    h();
+    std::cout << "case 3\n";
   case 4: //コンパイラがフォールスルーを警告する
-    i();
-    [[fallthrough]]; //最後のcaseには記述できない、コンパイルエラーになる
+    std::cout << "case 4\n";
+    //[[fallthrough]]; //最後のcaseには記述できない、コンパイルエラーになる
   }
 }
 ```
 
 ### 出力
-
-clang++ 5.0.0 にてコンパイルした場合。
-
 ```
-fallthrough.cpp:12:5: error: fallthrough annotation does not directly precede switch label
-    [[fallthrough]]; //最後のcaseには記述できない、コンパイルエラーになる
-    ^
-1 error generated.
+case 3
+case 4
 ```
 
-## 検討されたほかの選択肢
-
-* キーワードではなく属性である理由
-
-`fallthrough`をキーワードとして定義した場合、他の制御構文キーワード`continue`や`break`と揃う利点があるが、`fallthrough`を関数名、変数名に使用しているプログラムがあった場合、過去との互換性を壊す可能性がある。
-
-* caseラベルに属性を指定せず、単独で記述する理由
-
-下記のように`case`内に分岐があって分岐の中で`break`を記述している場合に、バグを見逃してしまう場合がある。
-
-```cpp
-switch (n) {
-case 2:
-  if (c1) {
-    f();
-    break;
-  } else if (c2) {
-    g(); // 警告、case 3にフォールスルーするがバグではないか？
-  } else if (c3) {
-    h();
-    break;
-  } else if (c4) {
-    g();
-    h();
-    [[fallthrough]]; // case 3にフォールスルーするのは意図的である
-  }
-case 3:
-  // もしcaseに属性を指定する仕様だったら、
-  // if (c2) のフォールスルーは正しいことになり、バグだった場合に見逃す
-  h();
-}
+### 警告例
+g++ 7.1.0、`-Wextra` オプションでコンパイルした場合:
+```
+fallthrough.cpp: In function ‘int main()’:
+fallthrough.cpp:11:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     std::cout << "case 3\n";
+     ~~~~~~~~~~^~~~~~~~~~~~~
+fallthrough.cpp:12:3: note: here
+   case 4: //コンパイラがフォールスルーを警告する
+   ^~~~
 ```
 
 ## 関連項目

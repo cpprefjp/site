@@ -76,27 +76,32 @@ enum class [[maybe_unused]] E {
 ```cpp
 #include <cassert>
 
-//警告が発生しない
-[[maybe_unused]] void f([[maybe_unused]] bool thing1,
-                        [[maybe_unused]] bool thing2) {
-  [[maybe_unused]] bool b = thing1 && thing2;
+//警告は発生しない
+[[maybe_unused]] void f([[maybe_unused]] bool flag1,
+                        [[maybe_unused]] bool flag2) {
+  [[maybe_unused]] bool b = flag1 && flag2;
   assert(b);
 }
 
 //警告が発生する場合がある
-void g(bool thing3, bool thing4) {
-  bool b2 = thing3 && thing4;
+void g(bool flag3, bool flag4) {
+  bool b2 = flag3 && flag4;
   assert(b2);
+}
+
+int main() {
+  f(true, true);
+  g(true, true);
 }
 ```
 
 ### 出力
-
-clang++ 5.0.0 にてコンパイルした場合。
-
 ```
-$ clang++ -std=c++1z -Wall -DNDEBUG maybe_unused.cpp -c
+```
 
+### 警告例
+clang++ 5.0.0、`-Wall -DNDEBUG` オプションでコンパイルした場合:
+```
 maybe_unused.cpp:12:8: warning: unused variable 'b2' [-Wunused-variable]
   bool b2 = thing3 && thing4;
        ^

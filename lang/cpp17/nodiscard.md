@@ -19,33 +19,32 @@
 ## 例
 ```cpp
 //無視してはいけないデータ型
-struct [[nodiscard]] error_info { /*...*/ };
+struct [[nodiscard]] error_info {};
 
-error_info safety_mode();
-void launch();
+error_info f() { return error_info{}; }
 
 //関数の戻り値を必ず使用すること
-[[nodiscard]] int check_mode();
+[[nodiscard]] int g() { return 0; }
 
-void test_missiles() {
-  safety_mode(); //無視してはいけない型を無視したため、警告が発生するだろう
-  launch();
-
-  check_mode(); //戻り値を無視しているため、警告が発生するだろう
+int main() {
+  f(); //無視してはいけない型を無視したため、警告が発生するだろう
+  g(); //戻り値を無視したため、警告が発生するだろう
 }
 ```
 
 ### 出力
-
-clang++ 5.0.0 にてコンパイルした場合。
-
 ```
-nodiscard.cpp:12:3: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
-  safety_mode(); //無視してはいけない型を無視したため、警告が発生するだろう
-  ^~~~~~~~~~~
-nodiscard.cpp:15:3: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
-  check_mode(); //戻り値を無視しているため、警告が発生するだろう
-  ^~~~~~~~~~
+```
+
+### 警告例
+clang++ 5.0.0 でコンパイルした場合:
+```
+nodiscard.cpp:10:3: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  f(); //無視してはいけない型を無視したため、警告が発生するだろう
+  ^
+nodiscard.cpp:11:3: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  g(); //戻り値を無視しているため、警告が発生するだろう
+  ^
 2 warnings generated.
 ```
 
