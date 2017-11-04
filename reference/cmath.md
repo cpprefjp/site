@@ -12,6 +12,7 @@
 - [仮数と指数](#fraction-and-exponent-functions)
 - [累乗・冪根と絶対値](#power-and-absolute-value-functions)
 - [誤差関数とガンマ関数](#error-and-gamma-functions)
+- [その他特殊関数](#mathematical-special-functions)
 - [最近傍整数](#nearest-integer-functions)
 - [剰余](#remainder-functions)
 - [浮動小数点操作](#manipulation-functions)
@@ -238,6 +239,31 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`tgamma`](cmath/tgamma.md) | ガンマ関数           | C++11 |
 | [`lgamma`](cmath/lgamma.md) | ガンマ関数の自然対数 | C++11 |
 
+## <a name="mathematical-special-functions" href="mathematical-special-functions">その他特殊関数</a>
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`assoc_laguerre`](cmath/assoc_laguerre.md.nolink) | ラゲール陪多項式       | C++17 |
+| [`assoc_legendre`](cmath/assoc_legendre.md.nolink) | ルジャンドル陪関数     | C++17 |
+| [`beta`](cmath/beta.md.nolink)                     | ベータ関数             | C++17 |
+| [`comp_ellint_1`](cmath/comp_ellint_1.md.nolink)   | 第一種完全楕円積分     | C++17 |
+| [`comp_ellint_2`](cmath/comp_ellint_2.md.nolink)   | 第二種完全楕円積分     | C++17 |
+| [`comp_ellint_3`](cmath/comp_ellint_3.md.nolink)   | 第三種完全楕円積分     | C++17 |
+| [`cyl_bessel_i`](cmath/cyl_bessel_i.md.nolink)     | 第一種変形ベッセル関数 | C++17 |
+| [`cyl_bessel_j`](cmath/cyl_bessel_j.md.nolink)     | 第一種ベッセル関数     | C++17 |
+| [`cyl_bessel_k`](cmath/cyl_bessel_k.md.nolink)     | 第二種変形ベッセル関数 | C++17 |
+| [`cyl_neumann`](cmath/cyl_neumann.md.nolink)       | ノイマン関数           | C++17 |
+| [`ellint_1`](cmath/ellint_1.md.nolink)             | 第一種不完全楕円積分   | C++17 |
+| [`ellint_2`](cmath/ellint_2.md.nolink)             | 第二種不完全楕円積分   | C++17 |
+| [`ellint_3`](cmath/ellint_3.md.nolink)             | 第三種不完全楕円積分   | C++17 |
+| [`expint`](cmath/expint.md.nolink)                 | 指数積分               | C++17 |
+| [`hermite`](cmath/hermite.md.nolink)               | エルミート多項式       | C++17 |
+| [`laguerre`](cmath/laguerre.md.nolink)             | ラゲール多項式         | C++17 |
+| [`legendre`](cmath/legendre.md.nolink)             | ルジャンドル多項式     | C++17 |
+| [`riemann_zeta`](cmath/riemann_zeta.md.nolink)     | リーマンのゼータ関数   | C++17 |
+| [`sph_bessel`](cmath/sph_bessel.md.nolink)         | 第一種球ベッセル関数   | C++17 |
+| [`sph_legendre`](cmath/sph_legendre.md.nolink)     | 球面ルジャンドル関数   | C++17 |
+| [`sph_neumann`](cmath/sph_neumann.md.nolink)       | 球ノイマン関数         | C++17 |
 
 ## <a name="nearest-integer-functions" href="#nearest-integer-functions">最近傍整数</a>
 
