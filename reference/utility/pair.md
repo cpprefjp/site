@@ -1,7 +1,7 @@
 # pair
 * utility[meta header]
 * std[meta namespace]
-* function template[meta id-type]
+* class template[meta id-type]
 
 ```cpp
 namespace std {
