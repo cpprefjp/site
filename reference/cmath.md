@@ -239,7 +239,11 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`tgamma`](cmath/tgamma.md) | ガンマ関数           | C++11 |
 | [`lgamma`](cmath/lgamma.md) | ガンマ関数の自然対数 | C++11 |
 
-## <a name="mathematical-special-functions" href="mathematical-special-functions">その他特殊関数</a>
+## <a name="mathematical-special-functions" href="#mathematical-special-functions">その他特殊関数</a>
+
+以下の関数は
+* 引数に NaN が渡された場合 NaN を返すが定義域エラーを報告しない
+* 引数が関数の定義域外の場合、定義域エラーを報告する
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
