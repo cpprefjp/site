@@ -242,6 +242,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 ## <a name="mathematical-special-functions" href="#mathematical-special-functions">その他特殊関数</a>
 
 以下の関数は
+
 * 引数に NaN が渡された場合 NaN を返すが定義域エラーを報告しない
 * 引数が関数の定義域外の場合、定義域エラーを報告する
 
@@ -262,7 +263,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`ellint_3`](cmath/ellint_3.md.nolink)             | 第三種不完全楕円積分   | C++17 |
 | [`expint`](cmath/expint.md.nolink)                 | 指数積分               | C++17 |
 | [`hermite`](cmath/hermite.md.nolink)               | エルミート多項式       | C++17 |
-| [`laguerre`](cmath/laguerre.md.nolink)             | ラゲール多項式         | C++17 |
+| [`laguerre`](cmath/laguerre.md)             | ラゲール多項式         | C++17 |
 | [`legendre`](cmath/legendre.md.nolink)             | ルジャンドル多項式     | C++17 |
 | [`riemann_zeta`](cmath/riemann_zeta.md.nolink)     | リーマンのゼータ関数   | C++17 |
 | [`sph_bessel`](cmath/sph_bessel.md.nolink)         | 第一種球ベッセル関数   | C++17 |
