@@ -7,9 +7,9 @@
 
 ```cpp
 namespace std {
-  float betaf(float x, float y);
-  double beta(double x, double y);
-  long double betal(long double x, long double y);
+float betaf(float x, float y);
+double beta(double x, double y);
+long double betal(long double x, long double y);
 }
 ```
 
@@ -18,7 +18,7 @@ namespace std {
 
 ## 戻り値
 引数 `x`, `y` のベータ関数
-$$ \mathrm{B}(x, y) = \int_0^1 dt t^{x-1} (1-t)^{y-1} = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)} ~ \text{for} x > 0, y > 0 $$
+$$ \mathrm{B}(x, y) = \int_0^1 dt ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)} ~ \text{ for } x > 0, y > 0 $$
 を返す。
 
 `x <= 0 || y <= 0` の場合定義域エラーを報告する。
