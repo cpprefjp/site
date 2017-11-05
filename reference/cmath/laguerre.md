@@ -64,7 +64,7 @@ laguerre(2, 2) = -1
 
 ## 実装例
 
-$$ L_n(x) = sum_{j=0}^n \binom{n}{k} \frac{(-1)^k}{k!} x^k $$
+$$ L_n(x) = \sum_{j=0}^n {}_n\mathrm{C}_k \frac{(-1)^k}{k!} x^k $$
 
 あるいは漸化式
 $$ L_{n}(x) = \frac{(2n - 1 - x) L_{n-1}(x) - (n-1) L_{n-2}(x)}{n - 2}; L_0(x) = 1, L_1(x) = -x + 1 $$
