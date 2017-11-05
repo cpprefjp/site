@@ -264,7 +264,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`expint`](cmath/expint.md.nolink)                 | 指数積分               | C++17 |
 | [`hermite`](cmath/hermite.md)               | エルミート多項式       | C++17 |
 | [`laguerre`](cmath/laguerre.md)             | ラゲール多項式         | C++17 |
-| [`legendre`](cmath/legendre.md.nolink)             | ルジャンドル多項式     | C++17 |
+| [`legendre`](cmath/legendre.md)             | ルジャンドル多項式     | C++17 |
 | [`riemann_zeta`](cmath/riemann_zeta.md.nolink)     | リーマンのゼータ関数   | C++17 |
 | [`sph_bessel`](cmath/sph_bessel.md.nolink)         | 第一種球ベッセル関数   | C++17 |
 | [`sph_legendre`](cmath/sph_legendre.md.nolink)     | 球面ルジャンドル関数   | C++17 |
