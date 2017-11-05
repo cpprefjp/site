@@ -24,7 +24,6 @@ $$ L_n(x) = \frac{e^x}{n!} \frac{\mathrm{d}^n}{\mathrm{d}x^n} (x^n e^{-x}) \text
 `x < 0` の場合定義域エラーを報告する。
 
 ## 備考
-
 `n >= 128` の場合、この関数の呼び出しの効果は実装定義である。
 
 ## 例
@@ -63,7 +62,6 @@ laguerre(2, 2) = -1
 - [ISO/IEC 29124:2010 Information technology -- Programming languages, their environments and system software interfaces -- Extensions to the C++ Library to support mathematical special functions](https://www.iso.org/standard/50511.html)
 
 ## 実装例
-
 $$ L_n(x) = \sum_{j=0}^n {}_n\mathrm{C}_j \frac{(-1)^j}{j!} x^j $$
 
 あるいは漸化式
