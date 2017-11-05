@@ -7,9 +7,9 @@
 
 ```cpp
 namespace std {
-float hermitef(float x);
-double hermite(double x);
-long double hermitel(long double x);
+float hermitef(unsigned n, float x);
+double hermite(unsigned n, double x);
+long double hermitel(unsigned n, long double x);
 }
 ```
 
