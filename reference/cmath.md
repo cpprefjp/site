@@ -245,7 +245,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 |------|------|----------------|
 | [`assoc_laguerre`](cmath/assoc_laguerre.md.nolink) | ラゲール陪多項式       | C++17 |
 | [`assoc_legendre`](cmath/assoc_legendre.md.nolink) | ルジャンドル陪関数     | C++17 |
-| [`beta`](cmath/beta.md.nolink)                     | ベータ関数             | C++17 |
+| [`beta`](cmath/beta.md)                     | ベータ関数             | C++17 |
 | [`comp_ellint_1`](cmath/comp_ellint_1.md.nolink)   | 第一種完全楕円積分     | C++17 |
 | [`comp_ellint_2`](cmath/comp_ellint_2.md.nolink)   | 第二種完全楕円積分     | C++17 |
 | [`comp_ellint_3`](cmath/comp_ellint_3.md.nolink)   | 第三種完全楕円積分     | C++17 |
