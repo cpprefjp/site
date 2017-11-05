@@ -3,7 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 
-```
+```cpp
 namespace std {
   template <class CharT, class Traits = char_traits<CharT> >
   class ostreambuf_iterator
