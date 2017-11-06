@@ -63,7 +63,7 @@ legendre(2, 0.5) = -0.125
 - [ISO/IEC 29124:2010 Information technology -- Programming languages, their environments and system software interfaces -- Extensions to the C++ Library to support mathematical special functions](https://www.iso.org/standard/50511.html)
 
 ## 実装例
-$$ P_l(x) = \frac{1}{2^l} \sum_{j=0}^l ( {}_n\mathrm{C}_k )^2 (x - 1)^{l - j} (x + 1)^j $$
+$$ P_l(x) = \frac{1}{2^l} \sum_{j=0}^l ( {}_l\mathrm{C}_j )^2 (x - 1)^{l - j} (x + 1)^j $$
 
 あるいは漸化式
 $$ P_l(x) = \frac{2l-1}{l}xP_{l-1}(x) - \frac{l-1}{l}P_{l-2}(x); P_0(x) = 1, P_1(x) = x $$
