@@ -2,7 +2,7 @@
 * typeindex[meta header]
 * std[meta namespace]
 * type_index[meta class]
-* class template[meta id-type]
+* function[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
