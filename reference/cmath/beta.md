@@ -29,20 +29,20 @@ $$ \mathrm{B}(x, y) = \int_0^1 \mathrm{d}t ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(
 #include <iostream>
 
 int main() {
-  std::cout << "beta(0, 0)     = " << std::beta(0, 0) << std::endl;     // domain error
-  std::cout << "beta(0.5, 0.5) = " << std::beta(0.5, 0.5) << std::endl; // pi
-  std::cout << "beta(1, 1)     = " << std::beta(1, 1) << std::endl;     // 1
-  std::cout << "beta(2, 4)     = " << std::beta(2, 4) << std::endl;     // 1 / 20
+  std::cout << "beta(0, 0)      = " << std::beta(0, 0) << std::endl;      // 定義域エラー; 不定形
+  std::cout << "beta(-0.5, 1.5) = " << std::beta(-0.5, 1.5) << std::endl; // 定義域エラー; pi
+  std::cout << "beta(1, 1)      = " << std::beta(1, 1) << std::endl;      // 1
+  std::cout << "beta(2, 4)      = " << std::beta(2, 4) << std::endl;      // 1 / 20
 }
 ```
 * std::beta[color ff0000]
 
 ### 出力例
 ```
-beta(0, 0)     = -nan
-beta(0.5, 0.5) = 3.14159
-beta(1, 1)     = 1
-beta(2, 4)     = 0.05
+beta(0, 0)      = -nan
+beta(-0.5, 1.5) = 3.14159
+beta(1, 1)      = 1
+beta(2, 4)      = 0.05
 ```
 
 ## バージョン
