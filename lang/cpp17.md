@@ -211,7 +211,7 @@ C++17では以下のTSが採用された：
 
 
 ### 数学
-- [`<cmath>`](/reference/cmath.md)に数学の特殊関数を追加
+- [`<cmath>`](/reference/cmath.md)に[数学の特殊関数](/reference/cmath.md#mathematical-special-functions)を追加
 - [`hypot()`](/reference/cmath/hypot.md)関数の3引数版を追加
 - 最大公約数と最小公倍数の関数として、[`gcd()`](/reference/numeric/gcd.md.nolink)と[`lcm()`](/reference/numeric/lcm.md.nolink)を追加
 
