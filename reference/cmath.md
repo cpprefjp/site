@@ -271,7 +271,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`ellint_1`](cmath/ellint_1.md.nolink)             | 第一種不完全楕円積分   | C++17 |
 | [`ellint_2`](cmath/ellint_2.md.nolink)             | 第二種不完全楕円積分   | C++17 |
 | [`ellint_3`](cmath/ellint_3.md.nolink)             | 第三種不完全楕円積分   | C++17 |
-| [`expint`](cmath/expint.md.nolink)                 | 指数積分               | C++17 |
+| [`expint`](cmath/expint.md)                 | 指数積分               | C++17 |
 | [`hermite`](cmath/hermite.md)               | エルミート多項式       | C++17 |
 | [`laguerre`](cmath/laguerre.md)             | ラゲール多項式         | C++17 |
 | [`legendre`](cmath/legendre.md)             | ルジャンドル多項式     | C++17 |
