@@ -17,9 +17,9 @@ template <class M, class N> constexpr common_type_t<M, N> gcd(M m, N n);
 
 
 ## 要件
-* `M` および `N` が `bool` 以外の整数型であること  
+1. `M` および `N` が `bool` 以外の整数型であること  
   満足しない場合プログラムは不適格となる
-* `|m|` および `|n|` が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること  
+2. `|m|` および `|n|` が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること  
   満足しない場合の挙動は未定義
 
 
@@ -53,10 +53,19 @@ int main() {
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
+- [Clang](/implementation.md#clang): 4.0.0
 - [GCC](/implementation.md#gcc): 7.1.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+### 備考
+#### Clang (libc++)
+要件 2 を満たすかどうかチェックしない。
+要件 2 を満たさない場合、オーバーフローにより戻り値が負になることがある。
+
+#### GCC (libstdc++)
+要件 2 を満たすかどうかチェックしない。
+要件 2 を満たさない場合、オーバーフローにより戻り値が負になることがある。
 
 
 ## 参照
