@@ -3,6 +3,7 @@
 * function[meta id-type]
 * std[meta namespace]
 * cpp17[meta cpp]
+* [mathjax enable]
 
 ```cpp
 namespace std {
@@ -17,12 +18,16 @@ template <class M, class N> constexpr common_type_t<M, N> gcd(M m, N n);
 
 ## 要件
 * `|m|` および `|n|` が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること
-* `M` および `N` が `bool` 以外の整数型であること
+* `M` および `N` が `bool` 以外の整数型であること (満足しない場合プログラムは不適格となる)
 
 
 ## 戻り値
 * `m` および `n` が 0 の場合 0 を返す
 * それ以外の場合引数 `|m|` と `|n|` の最大公約数を返す
+
+
+## 例外
+投げない。
 
 
 ## 例
@@ -57,3 +62,10 @@ int main() {
 * [WG21 N3913 Greatest Common Divisor and Least Common Multiple, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3913.pdf)
 * [WG21 N4061 Greatest Common Divisor and Least Common Multiple, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4061.pdf)
 * [WG21 P0295R0 Adopt Selected Library Fundamentals V2 Components for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0295r0.pdf)
+
+
+## 実装例
+$$ \mathrm{gcd}(m, n) = \begin{cases}
+  |m| & \text{if } n = 0 \\
+  \mathrm{gcd}(n, m \bmod n) & \text{otherwise}
+\end{cases} $$
