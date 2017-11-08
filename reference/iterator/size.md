@@ -21,7 +21,7 @@ namespace std {
 ## 戻り値
 
 - (1) : `return c.size();`
-- (2) : `return ;`
+- (2) : `return N;`
 
 ## 備考
 
@@ -57,6 +57,7 @@ int main()
 ### 出力
 
 ```
+4
 10
 7
 7
