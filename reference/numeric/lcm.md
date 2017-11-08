@@ -17,9 +17,10 @@ template <class M, class N> constexpr common_type_t<M, N> lcm(M m, N n);
 
 
 ## 要件
-* `|m|` および `|n|` が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること
-* `|m|` と `|n|` の最小公倍数が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること
-* `M` および `N` が `bool` 以外の整数型であること (満足しない場合プログラムは不適格となる)
+* `M` および `N` が `bool` 以外の整数型であること  
+  満足しない場合プログラムは不適格となる
+* `|m|`, `|n|`, ならびに `|m|` と `|n|` の最小公倍数が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること  
+  満足しない場合の挙動は未定義
 
 
 ## 戻り値
