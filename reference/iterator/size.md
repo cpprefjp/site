@@ -37,18 +37,18 @@ namespace std {
 
 int main()
 {
-    int arr[4] = {};
-    std::cout << std::size(arr) << std::endl;
+  int arr[4] = {};
+  std::cout << std::size(arr) << std::endl;
 
-    std::cout << std::size(u8"arikitari") << std::endl;
+  std::cout << std::size(u8"arikitari") << std::endl;
 
-    std::vector<int> v = { 1,1,2,3,5,8 };
-    int hoge = 13;
-    v.push_back(hoge);
-    std::cout << std::size(v) << std::endl;
-    //変数vの型はstd名前空間にあるクラス型なので
-    //ADLの影響で `std::`がなくとも発見できてしまう
-    std::cout << size(v) << std::endl;
+  std::vector<int> v = { 1,1,2,3,5,8 };
+  int hoge = 13;
+  v.push_back(hoge);
+  std::cout << std::size(v) << std::endl;
+  //変数vの型はstd名前空間にあるクラス型なので
+  //ADLの影響で `std::`がなくとも発見できてしまう
+  std::cout << size(v) << std::endl;
 }
 ```
 * std::size[color ff0000]
