@@ -36,17 +36,29 @@ template <class M, class N> constexpr common_type_t<M, N> lcm(M m, N n);
 
 ## 例
 ```cpp
+#include <cmath>
+#include <iostream>
+#include <limits>
 #include <numeric>
 
 int main() {
   static_assert(std::lcm(0, 1) == 0);
   static_assert(std::lcm(4u, -6l) == 12);
+
+  // オーバーフローする例
+  auto max = std::numeric_limits<uint32_t>::max();
+  auto n = max - 1;
+  std::cout << "lcm(" << max << ", " << n << ")      " << std::lcm(max, n) << std::endl;
+  auto g = std::gcd(max, n);  // 1
+  std::cout << "true lcm(" << max << ", " << n << ") " << std::fabs(max) * std::fabs(n / g) << std::endl;
 }
 ```
 * lcm[color ff0000]
 
-### 出力
+### 出力例
 ```
+lcm(4294967295, 4294967294)      2
+true lcm(4294967295, 4294967294) 1.84467e+19
 ```
 
 
@@ -66,11 +78,11 @@ int main() {
 
 `_LIBCPP_DEBUG` マクロが `0` 以上の場合、要件 3 を満たさなければ [`abort`](/reference/cstdlib/abort.md) する。
 ただし 4 系では [`<limits>`](/reference/limits.md) を `<numeric>` より先に include しなければならない。
-それ以外の場合（デフォルト）、オーバーフローにより戻り値が負になることがある。
+それ以外の場合（デフォルト）、オーバーフローにより戻り値が不正になることがある。
 
 #### GCC (libstdc++)
 要件 2, 3 を満たすかどうかチェックしない。
-要件 3 を満たさない場合、オーバーフローにより戻り値が負になることがある。
+要件 3 を満たさない場合、オーバーフローにより戻り値が不正になることがある。
 
 
 ## 参照
@@ -78,6 +90,10 @@ int main() {
 * [WG21 N3913 Greatest Common Divisor and Least Common Multiple, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3913.pdf)
 * [WG21 N4061 Greatest Common Divisor and Least Common Multiple, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4061.pdf)
 * [WG21 P0295R0 Adopt Selected Library Fundamentals V2 Components for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0295r0.pdf)
+
+
+## 関連項目
+* [`gcd`](gcd.md)
 
 
 ## 実装例

@@ -34,17 +34,33 @@ template <class M, class N> constexpr common_type_t<M, N> gcd(M m, N n);
 
 ## 例
 ```cpp
+#include <iostream>
+#include <limits>
 #include <numeric>
+#include <type_traits>
 
 int main() {
   static_assert(std::gcd(0, 0) == 0);
   static_assert(std::gcd(3u, -7l) == 1);
+
+  // 符号付き整数の場合戻り値が負になることがある
+  using T = int32_t;
+  constexpr auto min = std::numeric_limits<T>::min();
+  const auto gs = std::gcd<T, T>(min, min);  // -min が int32_t で表せないと min < 0 になる
+  std::cout << "gcd<int32_t, int32_t>(" << min << ", " << min << ")   " << gs << std::endl;
+
+  // 符号なし整数にすれば戻り値は正
+  using U = std::make_unsigned<T>::type;  // uint32_t
+  const auto gu = std::gcd<U, U>(min, min);
+  std::cout << "gcd<uint32_t, uint32_t>(" << min << ", " << min << ") " << gu << std::endl;
 }
 ```
 * gcd[color ff0000]
 
-### 出力
+### 出力例
 ```
+gcd<int32_t, int32_t>(-2147483648, -2147483648)   -2147483648
+gcd<uint32_t, uint32_t>(-2147483648, -2147483648) 2147483648
 ```
 
 
@@ -60,11 +76,11 @@ int main() {
 
 ### 備考
 #### Clang (libc++)
-要件 2 を満たすかどうかチェックしない。
+要件 2 を満たすかどうかチェックしないが、戻り値を `constexpr` 指定するとオーバーフロー時にコンパイルエラーとなることがある。
 要件 2 を満たさない場合、オーバーフローにより戻り値が負になることがある。
 
 #### GCC (libstdc++)
-要件 2 を満たすかどうかチェックしない。
+要件 2 を満たすかどうかチェックしないが、戻り値を `constexpr` 指定するとオーバーフロー時にコンパイルエラーとなることがある。
 要件 2 を満たさない場合、オーバーフローにより戻り値が負になることがある。
 
 
@@ -73,6 +89,10 @@ int main() {
 * [WG21 N3913 Greatest Common Divisor and Least Common Multiple, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3913.pdf)
 * [WG21 N4061 Greatest Common Divisor and Least Common Multiple, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4061.pdf)
 * [WG21 P0295R0 Adopt Selected Library Fundamentals V2 Components for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0295r0.pdf)
+
+
+## 関連項目
+* [`lcm`](lcm.md)
 
 
 ## 実装例
