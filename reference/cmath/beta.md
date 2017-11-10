@@ -16,6 +16,7 @@ long double betal(long double x, long double y);
 ## 概要
 ベータ関数 (beta function) を求める。
 
+
 ## 戻り値
 引数 `x`, `y` のベータ関数
 $$ \mathrm{B}(x, y) = \int_0^1 \mathrm{d}t ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)} ~ \text{ for } x > 0, y > 0 $$
@@ -23,14 +24,15 @@ $$ \mathrm{B}(x, y) = \int_0^1 \mathrm{d}t ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(
 
 `x <= 0 || y <= 0` の場合定義域エラーを報告する。
 
+
 ## 例
 ```cpp
 #include <cmath>
 #include <iostream>
 
 int main() {
-  std::cout << "beta(0, 0)      = " << std::beta(0, 0) << std::endl;      // 定義域エラー; 不定形
-  std::cout << "beta(-0.5, 1.5) = " << std::beta(-0.5, 1.5) << std::endl; // 定義域エラー; pi
+  std::cout << "beta(0, 0)      = " << std::beta(0, 0) << std::endl;      // 定義域エラー; 特異点
+  std::cout << "beta(-0.5, 1.5) = " << std::beta(-0.5, 1.5) << std::endl; // 定義域エラー; 解析接続すれば -pi
   std::cout << "beta(1, 1)      = " << std::beta(1, 1) << std::endl;      // 1
   std::cout << "beta(2, 4)      = " << std::beta(2, 4) << std::endl;      // 1 / 20
 }
@@ -45,6 +47,7 @@ beta(1, 1)      = 1
 beta(2, 4)      = 0.05
 ```
 
+
 ## バージョン
 ### 言語
 - C++17
@@ -54,6 +57,14 @@ beta(2, 4)      = 0.05
 - [GCC](/implementation.md#gcc): 7.1.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+#### 備考
+##### GCC (libstdc++)
+GCC 7.1.0–8.0.0 では `beta` は [`exp`](exp.md) と [`lgamma`](lgamma.md) を用いて
+$ \exp (\ln |\mathrm{B}(x, y)|) = \ln |\Gamma(x) \Gamma(y) / \Gamma(x + y)|) $
+を計算する。
+したがって定義域エラーを報告しなければならない `x < 0 || y < 0` でも値を返すが、
+返り値は必ず正になる。
 
 
 ## 参照
