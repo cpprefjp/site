@@ -245,7 +245,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 NaN を返さなければならないが定義域エラーを報告してはならない。
 引数が NaN ではないが次の条件を一つでも満たす場合、定義域エラーを報告しなければならない:
 
-* 規格が関数の定義域を明示していて、その定義域内にない
+* 規格が関数の定義域を明示していて (各解説ページを参照)、その定義域内にない
 * 数学関数の値の虚部が 0 でない
 * 数学関数が数学的に定義されていない
 
@@ -277,7 +277,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`legendre`](cmath/legendre.md)             | ルジャンドル多項式     | C++17 |
 | [`riemann_zeta`](cmath/riemann_zeta.md.nolink)     | リーマンのゼータ関数   | C++17 |
 | [`sph_bessel`](cmath/sph_bessel.md.nolink)         | 第一種球ベッセル関数   | C++17 |
-| [`sph_legendre`](cmath/sph_legendre.md.nolink)     | 球面ルジャンドル関数   | C++17 |
+| [`sph_legendre`](cmath/sph_legendre.md.nolink)     | 球面調和関数の絶対値   | C++17 |
 | [`sph_neumann`](cmath/sph_neumann.md.nolink)       | 球ノイマン関数         | C++17 |
 
 ## <a name="nearest-integer-functions" href="#nearest-integer-functions">最近傍整数</a>

@@ -21,10 +21,10 @@ long double laguerrel(unsigned n, long double x);
 $$ L_n(x) = \frac{e^x}{n!} \frac{\mathrm{d}^n}{\mathrm{d}x^n} (x^n e^{-x}) \text{ for } x \ge 0 $$
 を返す。
 
-`x < 0` の場合定義域エラーを報告する。
 
 ## 備考
 `n >= 128` の場合、この関数の呼び出しの効果は実装定義である。
+
 
 ## 例
 ```cpp
@@ -46,6 +46,7 @@ laguerre(1, 1) = 0
 laguerre(2, 2) = -1
 ```
 
+
 ## バージョン
 ### 言語
 - C++17
@@ -57,17 +58,19 @@ laguerre(2, 2) = -1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
-#### GCC
-7.1.0, 7.2.0, 8.0.0 では定義域エラーが発生したときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
+#### GCC (libstdc++)
+GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
+
 
 ## 参照
 - [N3060 JTC1.22.29124 Programming Language C++ — Special Math Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3060.pdf)
 - [WG21 P0226R1 Mathematical Special Functions for C++17, v5](https://isocpp.org/files/papers/P0226R1.pdf)
 - [ISO/IEC 29124:2010 Information technology -- Programming languages, their environments and system software interfaces -- Extensions to the C++ Library to support mathematical special functions](https://www.iso.org/standard/50511.html)
 
+
 ## 実装例
 $$ L_n(x) = \sum_{j=0}^n {}_n\mathrm{C}_j \frac{(-1)^j}{j!} x^j $$
 
 あるいは漸化式
 $$ L_{n}(x) = \frac{(2n - 1 - x) L_{n-1}(x) - (n-1) L_{n-2}(x)}{n - 2}; L_0(x) = 1, L_1(x) = -x + 1 $$
-を用いることもできる。
+を用いる。

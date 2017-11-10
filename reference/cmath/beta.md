@@ -22,8 +22,6 @@ long double betal(long double x, long double y);
 $$ \mathrm{B}(x, y) = \int_0^1 \mathrm{d}t ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)} ~ \text{ for } x > 0, y > 0 $$
 を返す。$\Gamma$ はガンマ関数 ([`tgamma`](tgamma.md))。
 
-`x <= 0 || y <= 0` の場合定義域エラーを報告する。
-
 
 ## 例
 ```cpp
@@ -63,8 +61,7 @@ beta(2, 4)      = 0.05
 GCC 7.1.0–8.0.0 では `beta` は [`exp`](exp.md) と [`lgamma`](lgamma.md) を用いて
 $ \exp (\ln |\mathrm{B}(x, y)|) = \ln |\Gamma(x) \Gamma(y) / \Gamma(x + y)|) $
 を計算する。
-したがって定義域エラーを報告しなければならない `x < 0 || y < 0` でも値を返すが、
-返り値は必ず正になる。
+`x < 0 || y < 0` でも定義域エラーを報告せずに値を返すが、返り値は必ず正になる。
 
 
 ## 参照
