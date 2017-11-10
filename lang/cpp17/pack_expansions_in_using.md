@@ -162,6 +162,15 @@ int main()
 }
 ```
 
+### 出力
+
+```
+ForAll2:20
+ForLong:200
+ForString:hello2
+```
+
+
 この問題を解決するためC++17では`using`でパック展開ができるようになった。
 
 
