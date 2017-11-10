@@ -45,17 +45,19 @@ int main() {
 
   // 符号付き整数の場合戻り値が負になることがある
   using T = int32_t;
-  constexpr auto min = std::numeric_limits<T>::min();
-  const auto gs = std::gcd<T, T>(min, min);  // -min が int32_t で表せないと min < 0 になる
-  std::cout << "gcd<int32_t, int32_t>(" << min << ", " << min << ")   " << gs << std::endl;
+  constexpr auto m = std::numeric_limits<T>::min();
+  const auto gs = std::gcd<T, T>(m, m);  // -m が int32_t で表せないと m < 0 になる
+  std::cout << "gcd<int32_t, int32_t>(" << m << ", " << m << ")   " << gs << std::endl;
 
   // 符号なし整数にすれば戻り値は正
   using U = std::make_unsigned<T>::type;  // uint32_t
-  const auto gu = std::gcd<U, U>(min, min);
-  std::cout << "gcd<uint32_t, uint32_t>(" << min << ", " << min << ") " << gu << std::endl;
+  const auto gu = std::gcd<U, U>(m, m);
+  std::cout << "gcd<uint32_t, uint32_t>(" << m << ", " << m << ") " << gu << std::endl;
 }
 ```
-* gcd[color ff0000]
+* std::gcd[color ff0000]
+* min[link /reference/limits/numeric_limits/min.md]
+* std::make_unsigned[link /reference/type_traits/make_unsigned.md]
 
 ### 出力例
 ```

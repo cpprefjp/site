@@ -46,14 +46,16 @@ int main() {
   static_assert(std::lcm(4u, -6l) == 12);
 
   // オーバーフローする例
-  auto max = std::numeric_limits<uint32_t>::max();
-  auto n = max - 1;
-  std::cout << "lcm(" << max << ", " << n << ")      " << std::lcm(max, n) << std::endl;
-  auto g = std::gcd(max, n);  // 1
-  std::cout << "true lcm(" << max << ", " << n << ") " << std::fabs(max) * std::fabs(n / g) << std::endl;
+  auto m = std::numeric_limits<uint32_t>::max();
+  auto n = m - 1;
+  std::cout << "lcm(" << m << ", " << n << ")      " << std::lcm(m, n) << std::endl;
+  auto g = std::gcd(m, n);  // 1
+  std::cout << "true lcm(" << m << ", " << n << ") " << std::fabs(m) * std::fabs(n / g) << std::endl;
 }
 ```
-* lcm[color ff0000]
+* std::lcm[color ff0000]
+* max[link /reference/limits/numeric_limits/max.md]
+* std::fabs[link /reference/cmath/fabs.md]
 
 ### 出力例
 ```
@@ -76,7 +78,8 @@ true lcm(4294967295, 4294967294) 1.84467e+19
 #### Clang (libc++)
 要件 2 を満たすかどうかチェックしない。
 
-`_LIBCPP_DEBUG` マクロが `0` 以上の場合、要件 3 を満たさなければ [`abort`](/reference/cstdlib/abort.md) する。
+[`_LIBCPP_DEBUG`](http://releases.llvm.org/5.0.0/projects/libcxx/docs/DesignDocs/DebugMode.html#using-debug-mode) マクロが
+`0` 以上の場合、要件 3 を満たさなければ [`abort`](/reference/cstdlib/abort.md) する。
 ただし 4 系では [`<limits>`](/reference/limits.md) を `<numeric>` より先に include しなければならない。
 それ以外の場合（デフォルト）、オーバーフローにより戻り値が不正になることがある。
 
