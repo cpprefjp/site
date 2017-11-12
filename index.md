@@ -62,6 +62,10 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 
 本サイトは、サイトの改善のためにGoogleアナリティクスを使用しています。本サイトをご利用中のブラウザは、Googleに特定の情報を自動的に送信します。本サイトは、この分析のためにCookieを使用します。利用者は、本サイトを利用することで、この目的においてCookieを使用することを許可したものとみなします。
 
+Googleによるデータ使用の詳細は、以下のURLで確認することができます。
+
+https://www.google.com/intl/ja/policies/privacy/partners/
+
 
 ## ライセンスについて
 本サイトの情報は、[クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)](https://creativecommons.org/licenses/by/3.0/)の下に提供しています。
