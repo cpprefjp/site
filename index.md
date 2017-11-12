@@ -64,7 +64,7 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 
 Googleによるデータ使用の詳細は、以下のURLで確認することができます。
 
-https://www.google.com/intl/ja/policies/privacy/partners/
+<https://www.google.com/intl/ja/policies/privacy/partners/>
 
 
 ## ライセンスについて
