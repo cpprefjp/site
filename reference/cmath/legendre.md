@@ -19,7 +19,7 @@ long double legendrel(unsigned l, long double x);
 
 ## 戻り値
 引数 `l`, `x` のルジャンドル多項式
-$$ P_l(x) = \frac{1}{2^l l!} \frac{\mathrm{d}^l}{\mathrm{d}x^l} (x^2 - 1)^l \text{ for } |x| \le 1 $$
+$$ P_l(x) = \frac{1}{2^l l!} \frac{\mathrm{d}^l}{\mathrm{d}x^l} (x^2 - 1)^l \quad \text{for } |x| \le 1 $$
 を返す。
 
 
@@ -32,19 +32,39 @@ $$ P_l(x) = \frac{1}{2^l l!} \frac{\mathrm{d}^l}{\mathrm{d}x^l} (x^2 - 1)^l \tex
 #include <cmath>
 #include <iostream>
 
+void p(unsigned n) {
+  for (double x : {-1, 0, 1})
+    std::cout << "legendre(" << n << ", " << x << ") = " << std::legendre(n, x) << "\n";
+  std::cout << "\n";
+}
+
 int main() {
-  std::cout << "legendre(0, 0.5) = " << std::legendre(0, 0.5) << std::endl; // P0 = 1
-  std::cout << "legendre(1, 0.5) = " << std::legendre(1, 0.5) << std::endl; // P1 = x
-  std::cout << "legendre(2, 0.5) = " << std::legendre(2, 0.5) << std::endl; // P2 = (3/2) x^2 - 1/2
+  p(0); // P0 = 1
+  p(1); // P1 = x
+  p(2); // P2 = (3x^2 - 1) / 2
+  p(3); // P3 = (5x^3 - 3x) / 2
 }
 ```
 * std::legendre[color ff0000]
 
 ### 出力例
 ```
-legendre(0, 0.5) = 1
-legendre(1, 0.5) = 0.5
-legendre(2, 0.5) = -0.125
+legendre(0, -1) = 1
+legendre(0, 0) = 1
+legendre(0, 1) = 1
+
+legendre(1, -1) = -1
+legendre(1, 0) = 0
+legendre(1, 1) = 1
+
+legendre(2, -1) = 1
+legendre(2, 0) = -0.5
+legendre(2, 1) = 1
+
+legendre(3, -1) = -1
+legendre(3, 0) = 0
+legendre(3, 1) = 1
+
 ```
 
 
@@ -60,7 +80,7 @@ legendre(2, 0.5) = -0.125
 
 ### 備考
 #### GCC (libstdc++)
-7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
+GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
 
 
 ## 参照
@@ -70,8 +90,8 @@ legendre(2, 0.5) = -0.125
 
 
 ## 実装例
+### 閉形式
 $$ P_l(x) = \frac{1}{2^l} \sum_{j=0}^l ( {}_l\mathrm{C}_j )^2 (x - 1)^{l - j} (x + 1)^j $$
 
-あるいは漸化式
-$$ P_l(x) = \frac{2l-1}{l}xP_{l-1}(x) - \frac{l-1}{l}P_{l-2}(x); P_0(x) = 1, P_1(x) = x $$
-を用いる。
+### 漸化式
+$$ P_l(x) = \frac{(2l-1) xP_{l-1}(x) - (l-1) P_{l-2}(x)}{l}; P_0(x) = 1, P_1(x) = x $$

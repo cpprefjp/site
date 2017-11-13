@@ -19,7 +19,7 @@ long double betal(long double x, long double y);
 
 ## 戻り値
 引数 `x`, `y` のベータ関数
-$$ \mathrm{B}(x, y) = \int_0^1 \mathrm{d}t ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)} ~ \text{ for } x > 0, y > 0 $$
+$$ \mathrm{B}(x, y) = \int_0^1 \mathrm{d}t ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)} \quad \text{for } x > 0, y > 0 $$
 を返す。$\Gamma$ はガンマ関数 ([`tgamma`](tgamma.md))。
 
 
@@ -56,10 +56,10 @@ beta(2, 4)      = 0.05
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-#### 備考
-##### GCC (libstdc++)
+### 備考
+#### GCC (libstdc++)
 GCC 7.1.0–8.0.0 では `beta` は [`exp`](exp.md) と [`lgamma`](lgamma.md) を用いて
-$ \exp (\ln |\mathrm{B}(x, y)|) = \ln |\Gamma(x) \Gamma(y) / \Gamma(x + y)|) $
+$ |\mathrm{B}(x, y)| = \exp(\ln |\Gamma(x) \Gamma(y) / \Gamma(x + y)|)) $
 を計算する。
 `x < 0 || y < 0` でも定義域エラーを報告せずに値を返すが、返り値は必ず正になる。
 
