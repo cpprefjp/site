@@ -83,6 +83,10 @@ laguerre(3, 2) = -0.333333
 GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
 
 
+## 関連項目
+* [`assoc_laguerre`](assoc_laguerre.md)
+
+
 ## 参照
 - [N3060 JTC1.22.29124 Programming Language C++ — Special Math Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3060.pdf)
 - [WG21 P0226R1 Mathematical Special Functions for C++17, v5](https://isocpp.org/files/papers/P0226R1.pdf)
@@ -91,7 +95,7 @@ GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain
 
 ## 実装例
 ### 閉形式
-$$ L_n(x) = \sum_{j=0}^n {}_n\mathrm{C}_j \frac{(-1)^j}{j!} x^j $$
+$$ L_n(x) = \sum_{j=0}^n \frac{n!}{j! (n-j)!} \frac{(-x)^j}{j!} $$
 
 ### 漸化式
 $$ L_{n}(x) = \frac{(2n - 1 - x) L_{n-1}(x) - (n-1) L_{n-2}(x)}{n}; L_0(x) = 1, L_1(x) = -x + 1 $$
