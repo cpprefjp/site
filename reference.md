@@ -113,17 +113,18 @@
 
 ## <a name="io" href="#io">入出力ライブラリ</a>
 
-| ヘッダ                                   | 説明                         | 対応バージョン |
-|------------------------------------------|------------------------------|----------------|
-| `<iosfwd>`                               | 先行宣言                     |                |
-| [`<iostream>`](/reference/iostream.md)   | 標準`iostream`オブジェクト   |                |
-| [`<ios>`](/reference/ios.md)             | `iostream`基底クラス         |                |
-| [`<streambuf>`](/reference/streambuf.md) | ストリームバッファ           |                |
-| [`<istream>`](/reference/istream.md)     | 入力ストリーム               |                |
-| [`<ostream>`](/reference/ostream.md)     | 出力ストリーム               |                |
-| [`<iomanip>`](/reference/iomanip.md)     | フォーマットとマニピュレータ |                |
-| [`<sstream>`](/reference/sstream.md)     | 文字列ストリーム             |                |
-| [`<fstream>`](/reference/fstream.md)     | ファイルストリーム           |                |
+| ヘッダ                                     | 説明                         | 対応バージョン |
+|--------------------------------------------|------------------------------|----------------|
+| `<iosfwd>`                                 | 先行宣言                     |                |
+| [`<iostream>`](/reference/iostream.md)     | 標準`iostream`オブジェクト   |                |
+| [`<ios>`](/reference/ios.md)               | `iostream`基底クラス         |                |
+| [`<streambuf>`](/reference/streambuf.md)   | ストリームバッファ           |                |
+| [`<istream>`](/reference/istream.md)       | 入力ストリーム               |                |
+| [`<ostream>`](/reference/ostream.md)       | 出力ストリーム               |                |
+| [`<iomanip>`](/reference/iomanip.md)       | フォーマットとマニピュレータ |                |
+| [`<sstream>`](/reference/sstream.md)       | 文字列ストリーム             |                |
+| [`<fstream>`](/reference/fstream.md)       | ファイルストリーム           |                |
+| [`<filesystem>`](/reference/filesystem.md) | ファイルシステム             | C++17          |
 
 
 ## <a name="regular-expressions" href="#regular-expressions">正規表現ライブラリ</a>
