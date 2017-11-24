@@ -22,7 +22,7 @@ long double assoc_legendrel(unsigned l, unsigned m, long double x);
 $$
 P_l^m(x) = (1 - x^2)^{m/2} \frac{\mathrm d^m}{\mathrm dx^m} P_l(x) \quad \text{for } |x| \le 1
 $$
-を返す。
+を返す。$P_l$ はルジャンドル多項式 ([`legendre`](legendre.md))。
 
 
 ## 備考
@@ -112,12 +112,12 @@ GCC 7.1.0–8.0.0 では $(-1)^m$ 倍された値を返す。
 ## 実装例
 ### 閉形式
 $$
-P_l^m = \frac{(-1)^m}{2^l l!} (1-x^2)^{m/2}
+P_l^m(x) = \frac{(-1)^m}{2^l l!} (1-x^2)^{m/2}
 \sum_{j=0}^{\lfloor (l-m)/2 \rfloor} (-1)^j \frac{l! (2l-2j)!}{j! (l-j)! (l-m-2j)!} x^{l-m-2j}
 $$
 
 ### 漸化式
 $$
-P_l^m = \frac{(2l-1) x P_{l-1}^m - (l+m-1) P_{l-2}^m}{l-m};
-P_{m-1}^m = 0, P_m^m = (2m-1)!! (1 - x^2)^{m/2}
+P_l^m(x) = \frac{(2l-1) x P_{l-1}^m(x) - (l+m-1) P_{l-2}^m}{l-m}(x);
+P_{m-1}^m(x) = 0, P_m^m(x) = (2m-1)!! (1 - x^2)^{m/2}
 $$
