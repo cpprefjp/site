@@ -83,6 +83,10 @@ legendre(3, 1) = 1
 GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
 
 
+## 関連項目
+* [`assoc_legendre`](assoc_legendre.md)
+
+
 ## 参照
 - [N3060 JTC1.22.29124 Programming Language C++ — Special Math Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3060.pdf)
 - [WG21 P0226R1 Mathematical Special Functions for C++17, v5](https://isocpp.org/files/papers/P0226R1.pdf)
@@ -91,7 +95,7 @@ GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain
 
 ## 実装例
 ### 閉形式
-$$ P_l(x) = \frac{1}{2^l} \sum_{j=0}^l ( {}_l\mathrm{C}_j )^2 (x - 1)^{l - j} (x + 1)^j $$
+$$ P_l(x) = \frac{1}{2^l l!} \sum_{j=0}^{\lfloor l/2 \rfloor} (-1)^j \frac{l! (2l-2j)!}{j! (l-j)! (l-2j)!} x^{l-2j} $$
 
 ### 漸化式
 $$ P_l(x) = \frac{(2l-1) xP_{l-1}(x) - (l-1) P_{l-2}(x)}{l}; P_0(x) = 1, P_1(x) = x $$
