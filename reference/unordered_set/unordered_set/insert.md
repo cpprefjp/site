@@ -92,7 +92,7 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_set>
 #include <forward_list>

@@ -41,7 +41,7 @@ namespace std {
 
 ## 例
 ## 基本的な使い方
-```cpp
+```cpp example
 #include <cmath>
 #include <limits>
 #include <iostream>
@@ -67,7 +67,7 @@ log2(-1.0) = nan
 ```
 
 ### Nが2の何乗か調べる
-```cpp
+```cpp example
 #include <iostream>
 #include <cmath>
 

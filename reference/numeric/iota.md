@@ -41,7 +41,7 @@ namespace std{
 
 
 ## 例
-```cpp
+```cpp example
 #include <numeric>
 #include <iostream>
 #include <array>

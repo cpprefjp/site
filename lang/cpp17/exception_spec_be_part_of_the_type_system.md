@@ -46,7 +46,7 @@ int x = f(g1, g2); // コンパイルエラー : g1とg2の型が一致しない
 
 ## 例
 ### 関数テンプレートで受け取った関数ポインタがnoexceptか否かを取得する
-```cpp
+```cpp example
 #include <iostream>
 
 template <class R, class... Args, bool IsNoExcept>

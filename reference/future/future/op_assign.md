@@ -32,7 +32,7 @@ future& operator=(future&& rhs) noexcept;      // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <future>
 
 int main()

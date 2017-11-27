@@ -18,7 +18,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 
 int main()

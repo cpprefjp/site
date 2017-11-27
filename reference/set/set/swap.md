@@ -23,7 +23,7 @@ void swap(set& st);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <set>
 

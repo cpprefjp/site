@@ -28,7 +28,7 @@ $$ L_n(x) = \frac{e^x}{n!} \frac{\mathrm{d}^n}{\mathrm{d}x^n} (x^n e^{-x}) \quad
 
 
 ## 例
-```cpp
+```cpp example
 #include <cmath>
 #include <iostream>
 

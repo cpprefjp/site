@@ -31,7 +31,7 @@ static_assert(定数式, 文字列リテラル);
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 template <class T>

@@ -43,7 +43,7 @@ void reserve(size_type n);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_set>
 

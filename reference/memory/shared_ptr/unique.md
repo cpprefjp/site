@@ -33,7 +33,7 @@ use_count() == 1
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

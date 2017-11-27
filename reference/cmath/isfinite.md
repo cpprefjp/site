@@ -28,7 +28,7 @@ C標準ライブラリでは`isfinite`は関数マクロとして定義される
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cassert>
 #include <cmath>

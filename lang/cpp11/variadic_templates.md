@@ -45,7 +45,7 @@ f(3, 'a', "hello");
 
 パラメータパックを最初の要素から順番に処理していきたい場合には、「任意の型のパラメータをひとつと、任意の個数の任意の型のパラメータを受け取る」というような形式のパラメータリストとし、再帰によって処理をする：
 
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 
@@ -151,7 +151,7 @@ hello
 
 - `sizeof...(identifier)`演算子にパラメータパックを指定することで、パラメータパックに含まれるパラメータの要素数を取得できる：
 
-    ```cpp
+    ```cpp example
     #include <cstddef>
 
     template <class... Args>
@@ -187,7 +187,7 @@ hello
     f(1, 'a', "hello");
     ```
 
-    ```cpp
+    ```cpp example
     #include <tuple>
 
     template <class... ResultTypes>
@@ -296,7 +296,7 @@ hello
 - パラメータパックは、`f(args...)`のように省略記号で展開するほかに、`f(g(args)...)`のようにパラメータパックの各要素に共通の処理を適用する式を書くこともできる。これをパラメータパックの「拡張 (extend)」という
     - この例の場合、`args`パラメータパックの各要素に関数`g()`を適用してパラメータパックの要素に対して値と型の変換を行った結果のパラメータパックを生成し、その結果となるパラメータパックを関数`f()`に渡している
 
-    ```cpp
+    ```cpp example
     #include <iostream>
     #include <string>
     #include <sstream>
@@ -337,7 +337,7 @@ hello
 
 - 複数のパラメータパックに対して拡張を行う場合、それらのパラメータパックは同じ要素数でなければならない。そうでない場合、プログラムは不適格となる
 
-    ```cpp
+    ```cpp example
     #include <utility>
     #include <tuple>
     #include <type_traits>

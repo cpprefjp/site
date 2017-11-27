@@ -72,7 +72,7 @@ unique_ptr<T, D&> p(new T(), deleter); // pはdeleterへの参照を保持する
 ```
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <memory>
 

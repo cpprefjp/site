@@ -30,7 +30,7 @@ void reverse() noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 

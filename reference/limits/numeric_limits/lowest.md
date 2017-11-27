@@ -30,7 +30,7 @@ static constexpr T lowest() noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

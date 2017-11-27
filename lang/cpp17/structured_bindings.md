@@ -50,7 +50,7 @@ std::cout << message << std::endl; // 「Hello」が出力される
 
 ## 例
 ### 組・タプルを分解する例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 #include <tuple>
@@ -123,7 +123,7 @@ hello, world
 ```
 
 ### 配列を分解する
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
@@ -172,7 +172,7 @@ int main()
 ```
 
 ### 非静的データメンバを持つクラスを分解する
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 #include <tuple>
@@ -212,7 +212,7 @@ Hello
 ```
 
 ### mapを範囲for文で走査する
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <string>
@@ -243,7 +243,7 @@ Carol : 4
 ```
 
 ### map::insert()の戻り値を分解する
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <string>

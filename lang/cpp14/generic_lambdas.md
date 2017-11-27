@@ -69,7 +69,7 @@ auto operator()(T1 a, T2 b) const
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

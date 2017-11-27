@@ -28,14 +28,14 @@ const_reference operator[](size_type n) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 
 int main()
 {
   const char s[] = " abc 0123 defgh ";
-  const std::regex re("(\\w+) (\\d+) (?:(\\d+)|(\\w+))");
+  const std::regex re("(\w+) (\d+) (?:(\d+)|(\w+))");
 
   std::cmatch m;
   std::cout << std::boolalpha;

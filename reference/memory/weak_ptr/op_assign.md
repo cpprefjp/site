@@ -56,7 +56,7 @@ weak_ptr(move(r)).swap(*this)
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <iostream>
 #include <memory>

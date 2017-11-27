@@ -57,7 +57,7 @@ basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

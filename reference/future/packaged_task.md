@@ -66,7 +66,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <thread>
 #include <future>

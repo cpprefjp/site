@@ -31,7 +31,7 @@ basic_string<CharT, Traits, Allocator>
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

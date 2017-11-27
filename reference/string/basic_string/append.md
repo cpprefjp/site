@@ -102,7 +102,7 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

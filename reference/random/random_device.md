@@ -72,7 +72,7 @@ namespace std {
 
 ## 例
 ### 基本的な使い方
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 
@@ -107,7 +107,7 @@ int main()
 
 
 ### パスワードを生成する
-```cpp
+```cpp example
 #include <iostream>
 #include <cassert>
 #include <string>
@@ -283,7 +283,7 @@ using std::random_device;
 
 使用例は次の通り。上記コードを`random_device.hpp`というファイル名で保存していると仮定する。`cpprefjp::random_device`が`std::random_device`のworkaroundで、C++11標準規格の要求を満たしたクラス。
 
-```cpp
+```cpp example
 #include "random_device.hpp"
 #include <iostream>
 #include <vector>

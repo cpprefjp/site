@@ -28,7 +28,7 @@ const_local_iterator cbegin(size_type n) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_map>
 #include <algorithm>

@@ -19,7 +19,7 @@ regex_traits(regex_traits&&) = default;      // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 
 int main()

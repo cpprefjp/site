@@ -43,7 +43,7 @@ pm->try_lock();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <thread>
 #include <mutex>

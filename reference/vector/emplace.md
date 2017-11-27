@@ -38,7 +38,7 @@ iterator vector<bool>::emplace(const_iterator position, Args&&... args); // C++1
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <utility>

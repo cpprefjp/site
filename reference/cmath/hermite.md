@@ -28,7 +28,7 @@ $$ H_n(x) = (-1)^n \exp(x^2) \frac{\mathrm{d}^n}{\mathrm{d}x^n} \exp(-x^2) $$
 
 
 ## 例
-```cpp
+```cpp example
 #include <cmath>
 #include <iostream>
 

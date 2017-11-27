@@ -82,7 +82,7 @@ int result = f(1); // result == 2
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

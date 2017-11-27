@@ -66,7 +66,7 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 	従って、そのような期待はすべきではない。（下記の出力例も参照）
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_set>
 #include <string>

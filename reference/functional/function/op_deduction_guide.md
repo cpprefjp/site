@@ -26,7 +26,7 @@ namespace std {
 - このクラスの推論補助は、将来のバージョンで変更される可能性がある
 
 ## 例
-```cpp
+```cpp example
 #include <functional>
 #include <type_traits>
 

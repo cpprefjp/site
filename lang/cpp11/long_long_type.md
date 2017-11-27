@@ -30,7 +30,7 @@ C99互換として、`long long`整数型が追加された。
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

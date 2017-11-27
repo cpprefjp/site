@@ -28,7 +28,7 @@ pointer release() noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 
 int main()

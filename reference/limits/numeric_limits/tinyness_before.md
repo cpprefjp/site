@@ -17,7 +17,7 @@ static constexpr bool tinyness_before;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

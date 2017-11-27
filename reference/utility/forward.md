@@ -67,7 +67,7 @@ void good(T&& x)
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <utility>
 

@@ -16,7 +16,7 @@ ostream_iterator(const ostream_iterator<T, CharT, Traits>& x) = default; // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <algorithm>

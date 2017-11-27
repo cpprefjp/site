@@ -62,7 +62,7 @@ insert(begin(), init.begin(), init.end());
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 #include <string>

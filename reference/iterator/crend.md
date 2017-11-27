@@ -24,7 +24,7 @@ std::rend(c);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <iterator>

@@ -26,7 +26,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <system_error>
 #include <ios>
 #include <future>

@@ -18,7 +18,7 @@ const_reverse_iterator rend() const noexcept;
 `reverse_iterator` と `const_reverse_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、それぞれ `reverse_iterator<iterator>`, `reverse_iterator<const_iterator>` と定義される。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

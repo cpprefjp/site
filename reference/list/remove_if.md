@@ -31,7 +31,7 @@ void remove_if(Predicate pred);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 

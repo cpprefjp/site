@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <ratio>
 
 int main()
@@ -42,7 +42,7 @@ int main()
 ```
 
 ## 乗算で大きいduration型を定義する例
-```cpp
+```cpp example
 #include <iostream>
 #include <ratio>
 #include <chrono>

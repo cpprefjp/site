@@ -33,7 +33,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 以下は、`off_type`と`seekdir`を使用する例。
 `pos_type`のみを引数に取るオーバーロードの例は、[`tellg`](tellg.md)を参照。
 
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 

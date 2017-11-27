@@ -135,7 +135,7 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <memory>
 

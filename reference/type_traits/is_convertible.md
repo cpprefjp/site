@@ -32,7 +32,7 @@ return文による型変換、および非explicitなコンストラクタによ
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 class A {};

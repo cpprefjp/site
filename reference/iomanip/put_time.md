@@ -50,7 +50,7 @@ void f(basic_ios<CharT, Traits>& out, const struct tm* tmb, const CharT* fmt)
 * badbit[link /reference/ios/ios_base/type-iostate.md]
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 #include <ctime>

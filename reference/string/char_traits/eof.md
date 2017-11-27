@@ -29,7 +29,7 @@ static constexpr int_type eof() noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

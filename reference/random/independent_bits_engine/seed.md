@@ -33,7 +33,7 @@ template<class Sseq> void seed(Sseq& q); // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <cstdint>

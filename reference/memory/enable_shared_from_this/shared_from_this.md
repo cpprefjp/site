@@ -24,7 +24,7 @@ shared_ptr<const T> shared_from_this() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <memory>
 

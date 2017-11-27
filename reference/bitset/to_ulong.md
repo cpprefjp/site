@@ -21,7 +21,7 @@ unsigned long to_ulong() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

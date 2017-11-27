@@ -67,7 +67,7 @@ return true;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <condition_variable>
 #include <mutex>

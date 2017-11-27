@@ -21,7 +21,7 @@ string_type lookup_collatename(
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 #include <string>

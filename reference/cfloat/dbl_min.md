@@ -26,7 +26,7 @@ $b$ や $e_{\rm min}$ については [`<cfloat>`](../cfloat.md) のモデルも
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 #include <cfloat>

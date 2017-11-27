@@ -30,7 +30,7 @@ fmtflags flags(fmtflags fmtfl);     // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

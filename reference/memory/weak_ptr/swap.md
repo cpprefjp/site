@@ -26,7 +26,7 @@ void swap(weak_ptr& r) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

@@ -62,14 +62,14 @@ format(const char_type* fmt,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 
 int main()
 {
   const char s[] = " 000 abc 123 def 999 ";
-  const std::regex re("(\\w+) (\\d+) (\\w+)");
+  const std::regex re("(\w+) (\d+) (\w+)");
   std::cmatch m;
   if (std::regex_search(s, m, re)) {
     std::cout << m.format("$1$3 [$2]") << std::endl;

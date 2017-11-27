@@ -34,7 +34,7 @@ os << p.get();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

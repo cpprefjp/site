@@ -66,7 +66,7 @@ shared_lock(shared_lock&& u) noexcept;                            // (9)
 
 
 ## 例
-```cpp
+```cpp example
 #include <shared_mutex>
 #include <chrono>
 #include <utility> // move

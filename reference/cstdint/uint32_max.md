@@ -17,7 +17,7 @@
 なお、このマクロは [`uint32_t`](uint32_t.md) が定義されていない場合には定義されない。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cstdint>
 

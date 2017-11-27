@@ -22,7 +22,7 @@ namespace std {
 実引数の`str`オブジェクト。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 

@@ -34,7 +34,7 @@ static constexpr int digits10;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

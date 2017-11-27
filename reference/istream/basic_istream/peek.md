@@ -20,7 +20,7 @@ int_type peek();
 - `good() == false`なら、`Traits::eof()`。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <locale>
 #include <string>

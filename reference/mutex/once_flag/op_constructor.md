@@ -16,7 +16,7 @@ once_flag(const once_flag&) = delete; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <mutex>
 
 int main()

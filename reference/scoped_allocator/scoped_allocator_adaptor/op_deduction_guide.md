@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <scoped_allocator>
 #include <string>

@@ -26,7 +26,7 @@ O(`bucket_size(n)`)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_map>
 #include <algorithm>

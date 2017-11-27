@@ -23,7 +23,7 @@ namespace std {
 ヒント: ユーザ定義の型に対して `is_placeholder` を特殊化してプレースホルダとして扱わせることも可能である。
 
 ## 例
-```cpp
+```cpp example
 #include <functional>
 
 static_assert(std::is_placeholder<decltype(std::placeholders::_1)>::value, "a placeholder");

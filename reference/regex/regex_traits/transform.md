@@ -30,7 +30,7 @@ return use_facet<collate<char_type>>(getloc())
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 #include <cassert>
 

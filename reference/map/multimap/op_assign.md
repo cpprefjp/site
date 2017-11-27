@@ -39,7 +39,7 @@ multimap& operator=(initializer_list<value_type> init); // (3) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

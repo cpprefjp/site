@@ -19,7 +19,7 @@ locale_type getloc() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 #include <cassert>
 

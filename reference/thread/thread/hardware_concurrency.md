@@ -26,7 +26,7 @@ static unsigned int hardware_concurrency() noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <thread>
 

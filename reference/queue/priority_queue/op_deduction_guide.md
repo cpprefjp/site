@@ -36,7 +36,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <queue>
 #include <type_traits>
 

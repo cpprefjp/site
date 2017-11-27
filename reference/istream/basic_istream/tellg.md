@@ -24,7 +24,7 @@ pos_type tellg();
 - `fail() == true`であれば、`pos_type(-1)`。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 

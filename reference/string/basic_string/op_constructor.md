@@ -91,7 +91,7 @@ basic_string(basic_string&& str, const Allocator&);      // (13) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <utility>

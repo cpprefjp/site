@@ -41,7 +41,7 @@ const_iterator upper_bound(const K& x) const;        // (4) C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <set>

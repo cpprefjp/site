@@ -45,7 +45,7 @@ explicit discrete_distribution(const param_type& parm);           // (5)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <vector>

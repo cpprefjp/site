@@ -27,7 +27,7 @@ complex<long double>{0.0L, static_cast<long double>(d)}
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <complex>
 

@@ -38,7 +38,7 @@ C++11時点での標準ライブラリでは、文字列と整数の変換を行
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

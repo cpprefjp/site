@@ -28,7 +28,7 @@ Visual C++は言語拡張として、`__FUNCTION__`識別子、`__FUNCDNAME__`�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 class S {

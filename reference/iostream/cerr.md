@@ -16,7 +16,7 @@ namespace std {
 [`clog`](clog.md)と異なる点は、[`unitbuf`](/reference/ios/unitbuf.md)フラグが指定されていることである。そのため、出力操作のたびにバッファの吐き出しが行われる。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 

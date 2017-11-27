@@ -28,7 +28,7 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (4
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <array>

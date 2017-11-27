@@ -31,7 +31,7 @@ iterator emplace_after(const_iterator position, Args&&... args);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 #include <iterator>

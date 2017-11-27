@@ -51,7 +51,7 @@ bool compare_exchange_strong(T& expected, T desired, memory_order order = memory
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 

@@ -46,7 +46,7 @@ for (std::size_t i = 0; i < size(); ++i) {
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <valarray>
 #include <cstdint>

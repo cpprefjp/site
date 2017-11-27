@@ -39,7 +39,7 @@ function& operator=(reference_wrapper<F> f) noexcept; // (5)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

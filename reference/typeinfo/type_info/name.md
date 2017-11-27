@@ -28,7 +28,7 @@ GCC(libstdc++)は、少なくても4.7時点まではマングリングされた
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <typeinfo>
 

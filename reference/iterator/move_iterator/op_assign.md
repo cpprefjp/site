@@ -20,7 +20,7 @@ move_iterator& operator=(move_iterator&&) = default;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <memory>

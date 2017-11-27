@@ -26,7 +26,7 @@ bool operator>=(const multimap<Key,T, Compare,Allocator>& x, const multimap<Key,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

@@ -39,7 +39,7 @@ iterator erase(const_iterator position,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 #include <iterator>

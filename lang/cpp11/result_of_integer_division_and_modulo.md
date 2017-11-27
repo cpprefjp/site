@@ -18,7 +18,7 @@ C++11では、C99との互換性のために、上記規定を置き換えて、
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 
 int main()

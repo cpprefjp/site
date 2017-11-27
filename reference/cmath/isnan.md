@@ -28,7 +28,7 @@ C標準ライブラリでは`isnan`は関数マクロとして定義されるが
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <cmath>
 #include <limits>

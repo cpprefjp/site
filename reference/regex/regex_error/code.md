@@ -19,7 +19,7 @@ regex_constants::error_type code() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 
 int main()

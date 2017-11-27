@@ -52,7 +52,7 @@ return cd(cd(lhs).count() % cd(rhs).count());
 * count[link /reference/chrono/duration/count.md]
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

@@ -27,7 +27,7 @@ independent_bits_engine(independent_bits_engine&& e) = default;      // (7)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <cstdint>

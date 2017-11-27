@@ -26,7 +26,7 @@ locale imbue(const locale& loc);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <locale>
 

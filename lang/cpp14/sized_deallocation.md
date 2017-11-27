@@ -47,7 +47,7 @@ void operator delete[](void* ptr, std::size_t size,
 
 
 ## 例
-```cpp
+```cpp example
 #include <cstdio>
 #include <cstdlib>
 #include <new>

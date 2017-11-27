@@ -35,7 +35,7 @@ all_of(first, last, not1(pred));
 
 
 ## 例
-```cpp
+```cpp example
 #include <algorithm>
 #include <iostream>
 #include <vector>

@@ -20,7 +20,7 @@ string_type transform_primary(ForwardIterator first, ForwardIterator last) const
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 #include <cassert>
 

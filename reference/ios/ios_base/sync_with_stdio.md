@@ -31,7 +31,7 @@ static bool sync_with_stdio(bool sync = true);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cstdio>
 

@@ -74,7 +74,7 @@ $$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \ex
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

@@ -67,7 +67,7 @@ pair<iterator, bool> emplace(Args&&... args);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_map>
 #include <string>

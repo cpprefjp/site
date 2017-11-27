@@ -20,7 +20,7 @@ std::string json = R"({"user_id": 123, "name": "Alice"})";
 
 そのほか、改行を含む文章を文字列リテラルで記述する場合にも、生文字列リテラルは使用できる：
 
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 
@@ -63,7 +63,7 @@ encoding-prefixとは、`u8`、`u`、`U`、`L`といった、文字列リテラ�
 
 丸カッコの前後`d-char-sequence`には、生文字列の範囲を明確にするための文字列を指定する。これは前後で同じ文字列を指定する必要がある。これは、文字列リテラルのなかにダブルクォーテーションや閉じ丸カッコが指定されるような状況で必要となる：
 
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 
@@ -92,7 +92,7 @@ int main()
 
 ## 例
 ### JSON文字列を構築する
-```cpp
+```cpp example
 #include <iostream>
 #include <cstdio>
 #include <string>
@@ -144,7 +144,7 @@ int main()
 
 
 ### ファイルパスを入力する
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 
@@ -163,7 +163,7 @@ C:\language\cpp\main.cpp
 
 
 ### バックスラッシュを含む正規表現を入力する
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 #include <string>
@@ -172,8 +172,8 @@ int main()
 {
   // 「英数字、バックスラッシュ、英数字」の順に
   // なっていることを要求する正規表現。
-  // 生文字列リテラルを使わない場合は"\\w\\\\\\w"となる。
-  std::regex rex(R"(\w\\\w)");
+  // 生文字列リテラルを使わない場合は"\w\\\w"となる。
+  std::regex rex(R"(\w\\w)");
 
   std::string input = R"(a\b)";
   if (std::regex_match(input, rex)) {
@@ -195,7 +195,7 @@ matched
 
 
 ### 雛形のHTMLを処理する
-```cpp
+```cpp example
 #include <fstream>
 #include <string>
 #include <regex>

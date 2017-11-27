@@ -21,7 +21,7 @@ void pop_front();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 

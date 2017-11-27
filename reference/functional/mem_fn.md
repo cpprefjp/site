@@ -28,7 +28,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <functional>
 #include <memory>
 #include <iostream>

@@ -33,7 +33,7 @@ shared_future& operator=(shared_future&& rhs) noexcept; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <future>
 #include <utility>

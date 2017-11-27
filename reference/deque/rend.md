@@ -27,7 +27,7 @@ const_reverse_iterator rend() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 

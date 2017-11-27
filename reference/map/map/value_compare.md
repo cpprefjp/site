@@ -45,7 +45,7 @@ public 継承することによって定義していたが、C++11 から [`bina
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

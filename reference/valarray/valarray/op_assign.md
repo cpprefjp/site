@@ -45,7 +45,7 @@ valarray& operator=(const indirect_array<T>& x); // (8)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

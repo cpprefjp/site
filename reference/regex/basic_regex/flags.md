@@ -22,7 +22,7 @@ flag_type flags() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 
@@ -44,7 +44,7 @@ void print(std::regex_constants::syntax_option_type f)
 
 int main()
 {
-  std::regex re("(\\w+) (\\d+) (\\w+)", std::regex_constants::icase | std::regex_constants::optimize);
+  std::regex re("(\w+) (\d+) (\w+)", std::regex_constants::icase | std::regex_constants::optimize);
   print(re.flags());
 }
 ```

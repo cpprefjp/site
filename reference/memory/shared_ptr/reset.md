@@ -34,7 +34,7 @@ void reset(Y* p, Deleter d, Allocator a);           // (4)
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 
 int main()

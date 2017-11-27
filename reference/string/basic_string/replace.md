@@ -96,7 +96,7 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

@@ -34,7 +34,7 @@ namespace std {
 - 理想的には `fmin(-0.0, +0.0)` は `-0` を返す。
 
 ## 例
-```cpp
+```cpp example
 #include <cmath>
 #include <iostream>
 

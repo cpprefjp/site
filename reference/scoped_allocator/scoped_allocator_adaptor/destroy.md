@@ -29,7 +29,7 @@ OUTERMOST_ALLOC_TRAITS(*this)::destroy(OUTERMOST(*this), p)
 * destroy[link /reference/memory/allocator_traits/destroy.md]
 
 ## 例
-```cpp
+```cpp example
 #include <vector>
 #include <string>
 #include <scoped_allocator>

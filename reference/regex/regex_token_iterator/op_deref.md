@@ -28,7 +28,7 @@ const value_type& operator*() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>
@@ -45,7 +45,42 @@ int main()
     // 間接参照した結果を参照型のローカル変数 m に代入（m の型は const value_type&）
     auto&& m = *it;
     std::cout << "match range = (" << m.first - std::begin(s) << ", " << m.second - std::begin(s) << "), "
-                 "str = '" << m.str() << '\'' << std::endl;
+                 "str = '" << m.str() << '```
+* std::regex[link /reference/regex/basic_regex.md]
+* m.str()[link /reference/regex/sub_match/str.md]
+
+### 出力
+```
+match range = (9, 20), str = 'enumerator1'
+match range = (23, 29), str = 'value1'
+match range = (31, 42), str = 'enumerator2'
+match range = (45, 51), str = 'value2'
+match range = (53, 64), str = 'enumerator3'
+match range = (67, 73), str = 'value3'
+```
+
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+| 名前                                       | 説明           | 対応バージョン |
+|--------------------------------------------|----------------|----------------|
+| [`operator->`](op_arrow.md)                | メンバアクセス | C++11          |
+| [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
+| [`operator++`](op_increment.md)            | インクリメント | C++11          |
+| [`operator==`](op_equal.md)                | 等値比較       | C++11          |
+' << std::endl;
   }
 }
 ```

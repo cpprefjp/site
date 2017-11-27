@@ -23,7 +23,7 @@ virtual error_condition default_error_condition(int ev) const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 #include <string>

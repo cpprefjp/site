@@ -36,7 +36,7 @@ namespace std {
 
 ## 例
 ### 整数の配列をシャッフルする
-```cpp
+```cpp example
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -74,7 +74,7 @@ before: 0123456789
 ```
 
 ### 文字列をシャッフルする
-```cpp
+```cpp example
 #include <algorithm>
 #include <iostream>
 #include <string>

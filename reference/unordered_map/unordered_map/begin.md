@@ -36,7 +36,7 @@ const_iterator begin() const noexcept;
 
 ## 例
 
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <algorithm>

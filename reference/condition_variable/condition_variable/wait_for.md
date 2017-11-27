@@ -77,7 +77,7 @@ return wait_until(lock, chrono::steady_clock::now() + rel_time, std::move(pred))
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <condition_variable>
 #include <mutex>

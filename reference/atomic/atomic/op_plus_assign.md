@@ -27,7 +27,7 @@ T operator+=(T operand) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 

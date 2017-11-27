@@ -133,7 +133,7 @@ priority_queue(priority_queue&& que,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <queue>
 #include <vector>

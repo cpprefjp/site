@@ -22,7 +22,7 @@ void swap(multimap<Key,T, Compare,Allocator>& st);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

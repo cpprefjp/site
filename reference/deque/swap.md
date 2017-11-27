@@ -29,7 +29,7 @@ swapされるコンテナの要素を指す参照、ポインタ、イテレー�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 

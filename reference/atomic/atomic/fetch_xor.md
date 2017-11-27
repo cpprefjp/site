@@ -38,7 +38,7 @@ XOR演算を行う
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 #include <bitset>

@@ -33,7 +33,7 @@ void imag(T val);				// (2) C++11 から
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <complex>
 

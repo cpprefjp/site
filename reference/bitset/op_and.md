@@ -32,7 +32,7 @@ return bitset<N>(lhs) &= rhs;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

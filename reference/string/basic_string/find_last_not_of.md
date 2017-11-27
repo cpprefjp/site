@@ -53,7 +53,7 @@ size_type find_last_not_of(charT c, size_type pos = npos) const;                
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

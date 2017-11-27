@@ -11,7 +11,7 @@
 具体的な値は実装依存であるが、`8` 以上であることが規格で定められている。
 
 ## 例
-```cpp
+```cpp example
 #include <climits>
 #include <iostream>
 

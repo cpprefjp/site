@@ -31,7 +31,7 @@ time_point<Clock, ToDuration>(duration_cast<ToDuration>(t.time_since_epoch()));
 * time_since_epoch[link /reference/chrono/time_point/time_since_epoch.md]
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

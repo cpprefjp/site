@@ -24,7 +24,7 @@ bool operator<=(const type_index& rhs) const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <typeindex>
 #include <set>

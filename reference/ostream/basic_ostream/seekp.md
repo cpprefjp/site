@@ -35,7 +35,7 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir); // (2)
 以下は、`off_type` と `seekdir` を使用する例。
 `pos_type` のみを引数に取るオーバーロードの例は、[`tellp`](tellp.md) を参照。
 
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 

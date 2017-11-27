@@ -30,7 +30,7 @@ void swap(tuple& rhs) noexcept(下記参照);
 
 
 ## 例
-```cpp
+```cpp example
 #include <string>
 #include <tuple>
 #include <cassert>

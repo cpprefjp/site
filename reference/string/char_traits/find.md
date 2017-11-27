@@ -23,7 +23,7 @@ static const char_type* find(const char_type* s, size_t n,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

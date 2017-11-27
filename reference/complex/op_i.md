@@ -27,7 +27,7 @@ complex<double>{0.0, static_cast<double>(d)}
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <complex>
 

@@ -83,7 +83,7 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6)
 - (6) : 以下と同等の動作を行う。 `construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`(x.first)),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`(x.second)))`
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <vector>
 #include <string>

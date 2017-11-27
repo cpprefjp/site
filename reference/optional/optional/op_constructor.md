@@ -89,7 +89,7 @@ EXPLICIT optional(optional<U>&& rhs);                    // (9)
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <optional>
 #include <string>

@@ -33,7 +33,7 @@ namespace std {
 また、`Types...`全ての厳格なアライメント値を、[`std::size_t`](/reference/cstddef/size_t.md)型の静的メンバ定数`alignment_value`として定義する。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <type_traits>

@@ -57,7 +57,7 @@ C++17で特定のシグニチャで関数呼び出しが可能かを判定する
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <type_traits>

@@ -48,7 +48,7 @@ struct bound_function_type {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

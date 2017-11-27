@@ -47,7 +47,7 @@ tuple& operator=(pair<U1, U2>&&);             // (6)
 
 
 ## 例
-```cpp
+```cpp example
 #include <string>
 #include <tuple>
 

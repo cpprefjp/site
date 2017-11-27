@@ -23,7 +23,7 @@ element_type* get() const noexcept; // (1) C++17
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

@@ -24,7 +24,7 @@ size_t converted() const noexcept; // C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <locale>

@@ -18,7 +18,7 @@ constexpr duration operator+() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

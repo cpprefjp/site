@@ -19,7 +19,7 @@ vector<result_type> densities() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <random>

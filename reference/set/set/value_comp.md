@@ -24,7 +24,7 @@ value_compare value_comp() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <set>
 

@@ -30,7 +30,7 @@ long& iword(int idx);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <sstream>

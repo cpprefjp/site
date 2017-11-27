@@ -22,7 +22,7 @@ char narrow(char_type c, char def) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

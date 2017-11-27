@@ -24,7 +24,7 @@ T area_of_circle_with_radius(T r)
 
 そのほかの用途としては、関数呼び出しの丸カッコを省略できるため、2文字ではあるがより短いコードを書けるようにできる、というものもある。たとえば、型`T`が整数型か判定する[`std::is_integral`](/reference/type_traits/is_integral.md)型特性は、以下のように、`::value`を付けるか、クラスのインスタンスを作成して`bool`への変換演算子を呼び出す必要がある：
 
-```cpp
+```cpp example
 #include <type_traits>
 
 int main()
@@ -38,7 +38,7 @@ int main()
 
 変数テンプレートを使用することで、以下のように記述できる：
 
-```cpp
+```cpp example
 template <class T>
 constexpr bool is_integral_v = false;
 

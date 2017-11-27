@@ -64,7 +64,7 @@ for (size_t k = m; k < m + n; ++k) {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

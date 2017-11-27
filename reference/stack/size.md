@@ -25,7 +25,7 @@ return c.size();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <stack>
 

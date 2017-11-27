@@ -33,7 +33,7 @@ namespace std {
 
 
 ## 使用例
-```cpp
+```cpp example
 #include <algorithm>
 #include <iostream>
 #include <string>

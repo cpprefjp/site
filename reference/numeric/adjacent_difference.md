@@ -55,7 +55,7 @@ result + (last - first)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <numeric>
 #include <vector>

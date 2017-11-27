@@ -32,7 +32,7 @@ public:
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <vector>
 #include <cassert>

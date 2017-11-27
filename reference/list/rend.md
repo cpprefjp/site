@@ -24,7 +24,7 @@ const_reverse_iterator rend() const noexcept; // (2) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 

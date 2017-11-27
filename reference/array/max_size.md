@@ -27,7 +27,7 @@ constexpr size_type max_size() const noexcept; // C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <array>
 

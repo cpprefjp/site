@@ -120,7 +120,7 @@ void g()
 | `[this]`       | `*this`のメンバを参照して、ラムダ式のなかで使用する |
 | `[this, x]`    | `*this`のメンバを参照し、変数`x`のみコピーして、ラムダ式のなかで使用する |
 
-```cpp
+```cpp example
 #include <iostream>
 
 // コピーキャプチャの例
@@ -164,7 +164,7 @@ int main()
 
 `this`をキャプチャした場合、ラムダ式によって定義された関数オブジェクトは`this`のクラスの`friend`という扱いとなり、`private`メンバにもアクセスできる。
 
-```cpp
+```cpp example
 #include <iostream>
 
 class X {
@@ -209,7 +209,7 @@ result : 8
 
 ラムダ式がひとつ以上の変数を参照キャプチャしている場合、参照している変数の寿命が切れたあとの、ラムダ式のコピーと呼び出しの動作は未定義。
 
-```cpp
+```cpp example
 #include <functional>
 
 std::function<int(int)> foo()
@@ -318,7 +318,7 @@ int main()
 ### <a name="convert-to-function-pointers" href="#convert-to-function-pointers">関数ポインタへの変換</a>
 キャプチャを含まない(つまり状態を持たない)ラムダ式によって生成されたクロージャオブジェクトは、同じパラメータ型と戻り値型のシグニチャを持つ関数ポインタに変換できる。
 
-```cpp
+```cpp example
 #include <iostream>
 
 void foo(int(*fp)(int, int))
@@ -341,7 +341,7 @@ int main()
 
 ## 例
 ### アルゴリズムの引数として関数を渡す
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -372,7 +372,7 @@ int main()
 ```
 
 ### 処理が完了したことが通知されるハンドラを引数として渡す
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

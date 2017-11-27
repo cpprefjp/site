@@ -22,7 +22,7 @@ valarray<T> cshift(int n) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

@@ -18,7 +18,7 @@ static constexpr bool has_signaling_NaN;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

@@ -55,7 +55,7 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_set>
 #include <iterator>

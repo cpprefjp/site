@@ -71,7 +71,7 @@ bitset(
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

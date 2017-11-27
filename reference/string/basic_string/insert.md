@@ -79,7 +79,7 @@ iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11„Å
 
 
 ## ‰æã
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

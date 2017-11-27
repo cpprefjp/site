@@ -34,7 +34,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <type_traits>
 #include <utility>

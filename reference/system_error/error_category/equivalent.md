@@ -26,7 +26,7 @@ virtual bool equivalent(const error_code& code, int condition) const noexcept;  
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 #include <string>

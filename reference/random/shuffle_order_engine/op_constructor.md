@@ -27,7 +27,7 @@ shuffle_order_engine(shuffle_order_engine&& e) = default;      // (7)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <array>

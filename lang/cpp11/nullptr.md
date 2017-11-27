@@ -45,7 +45,7 @@ C++03まで、ヌルポインタを表すために`0`数値リテラルや[`NULL
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

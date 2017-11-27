@@ -57,7 +57,7 @@ struct A : T... {
 この例では`long`や`std::string`を引数として渡すと`ForAll::operator()(int)`ではなく、
 `using`宣言した`ForLong::operator()(long)`や`ForString::operator()(cons std::string&)`が呼び出される。
 
-```cpp
+```cpp example
 #include <iostream>
 
 struct ForLong {
@@ -116,7 +116,7 @@ struct ForAll2 : T... {
 このためクラステンプレートが基本クラスと派生クラスでメンバ関数をオーバーロードする場合、
 実装が煩雑になってしまう問題があった。
 
-```cpp
+```cpp example
 #include <iostream>
 
 struct ForLong {

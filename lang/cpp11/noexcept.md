@@ -92,7 +92,7 @@ constexpr bool isNoexprF = noexcept(x.f());
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <stack>
 #include <deque>

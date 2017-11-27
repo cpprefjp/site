@@ -34,7 +34,7 @@ namespace this_thread {
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 
 int main()

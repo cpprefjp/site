@@ -77,7 +77,7 @@ namespace std {
 | `wssub_match` | `sub_match<`[`wstring`](../string/basic_string.md)`::const_iterator>` の別名 | C++11          |
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>
@@ -93,7 +93,33 @@ int main()
       std::ssub_match sub = m[i];
       if (sub.matched) {
         std::cout << i << ":range = [" << (sub.first - std::begin(s)) << ", " << (sub.second - std::begin(s)) << "), "
-                     "length() = " << sub.length() << ", str() = '" << sub.str() << '\'' << std::endl;
+                     "length() = " << sub.length() << ", str() = '" << sub.str() << '```
+* std::ssub_match[color ff0000]
+* std::regex[link basic_regex.md]
+* sub.length()[link sub_match/length.md]
+* sub.str()[link sub_match/str.md]
+* std::regex_search[link regex_search.md]
+* std::smatch[link match_results.md]
+
+### 出力
+```
+0:range = [1, 5), length() = 4, str() = 'abc '
+1:not participate
+2:range = [1, 4), length() = 3, str() = 'abc'
+```
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+' << std::endl;
       } else {
         std::cout << i << ":not participate" << std::endl;
       }

@@ -20,7 +20,7 @@ ostreambuf_iterator(streambuf_type* s) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <algorithm>

@@ -101,7 +101,7 @@ for (const auto& e : vec) {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 

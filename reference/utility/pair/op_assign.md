@@ -44,7 +44,7 @@ pair& operator=(pair<U, V>&& p);              // (4) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 #include <string>

@@ -27,7 +27,7 @@ basic_istream<CharT, Traits>& unget();
 この関数は1文字も入力を行わないため、この後の`gcount()`は`0`を返す。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <locale>
 #include <sstream>

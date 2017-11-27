@@ -18,7 +18,7 @@ void deallocate(pointer p, size_type n);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>

@@ -54,7 +54,7 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

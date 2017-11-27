@@ -27,7 +27,7 @@ result_type operator()(URNG& g, const param_type& parm); // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

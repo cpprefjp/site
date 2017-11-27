@@ -81,7 +81,7 @@ namespace std {
 
 ## 例
 ### 基本的な使い方
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 #include <map>
@@ -131,7 +131,7 @@ Carol
 ```
 
 ### void版のユースケース
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

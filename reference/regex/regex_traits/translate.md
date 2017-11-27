@@ -21,7 +21,7 @@ char_type translate(char_type c) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 

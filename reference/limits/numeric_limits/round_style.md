@@ -19,7 +19,7 @@ static constexpr float_round_style round_style;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 #include <stdexcept>

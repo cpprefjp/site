@@ -52,7 +52,7 @@
 ## 例
 ここでは、簡単な例外処理の例を示す。
 
-```cpp
+```cpp example
 #include <stdexcept>
 #include <iostream>
 #include <cstdlib>

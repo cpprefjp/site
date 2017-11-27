@@ -27,7 +27,7 @@ istream_iterator<T, CharT, Traits, Distance> operator++(int);
 ※`in_stream`は、メンバ変数として保持している入力ストリームオブジェクトへのポインタ
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <sstream>

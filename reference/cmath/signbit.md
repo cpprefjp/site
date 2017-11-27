@@ -28,7 +28,7 @@ C標準ライブラリでは`signbit`は関数マクロとして定義される�
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <cmath>
 

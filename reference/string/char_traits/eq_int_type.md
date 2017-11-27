@@ -24,7 +24,7 @@ static constexpr bool eq_int_type(int_type c1, int_type c2) noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

@@ -48,7 +48,7 @@ char_class_type lookup_classname(ForwardIterator first,
 [ctype_base]: /reference/locale/ctype_base.md
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 #include <string>

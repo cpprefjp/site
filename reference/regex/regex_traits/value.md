@@ -23,7 +23,7 @@ int value(char_type ch, int radix) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 #include <cassert>
 

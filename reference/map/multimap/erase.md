@@ -41,7 +41,7 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

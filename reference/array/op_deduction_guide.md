@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <array>
 #include <type_traits>
 

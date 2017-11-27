@@ -15,7 +15,7 @@ C++17では`[*this]`のようにキャプチャすることで、キャプチャ
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <thread>
 #include <atomic>

@@ -39,7 +39,7 @@ void construct(U* p, Args&&... args);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 #include <utility>

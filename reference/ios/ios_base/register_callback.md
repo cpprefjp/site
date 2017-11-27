@@ -34,7 +34,7 @@ void register_callback(event_callback fn, int index);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 #include <locale>

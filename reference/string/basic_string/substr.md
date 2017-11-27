@@ -30,7 +30,7 @@ basic_string substr(size_type pos = 0, size_type n = npos) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

@@ -116,7 +116,7 @@ namespace std {
 | `wsregex_token_iterator` | `regex_token_iterator<wstring::const_iterator>` の別名 | C++11          |
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>
@@ -132,7 +132,48 @@ void f(T submatch)
   for (std::sregex_token_iterator it(std::begin(s), std::end(s), re, submatch), end; it != end; ++it) {
     auto&& m = *it;
     std::cout << "match range = (" << m.first - std::begin(s) << ", " << m.second - std::begin(s) << "), "
-                 "str = '" << m.str() << '\'' << std::endl;
+                 "str = '" << m.str() << '```
+* std::sregex_token_iterator[color ff0000]
+* std::regex[link basic_regex.md]
+
+### 出力
+```
+match range = (9, 20), str = 'enumerator1'
+match range = (31, 42), str = 'enumerator2'
+match range = (53, 64), str = 'enumerator3'
+
+match range = (23, 29), str = 'value1'
+match range = (45, 51), str = 'value2'
+match range = (67, 73), str = 'value3'
+
+match range = (0, 9), str = 'enum E { '
+match range = (29, 31), str = ', '
+match range = (51, 53), str = ', '
+match range = (73, 77), str = ', };'
+
+match range = (9, 20), str = 'enumerator1'
+match range = (23, 29), str = 'value1'
+match range = (31, 42), str = 'enumerator2'
+match range = (45, 51), str = 'value2'
+match range = (53, 64), str = 'enumerator3'
+match range = (67, 73), str = 'value3'
+```
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): ?
+
+ただし、Clang と GCC の 4.9.1 までのバージョンには、長さ 0 の文字列にマッチした時の挙動に問題があるため、注意が必要。
+（特に、Clang は長さ 0 の文字列にマッチするとそこから先に進まなくなってしまう）
+' << std::endl;
   }
   std::cout << std::endl;
 }

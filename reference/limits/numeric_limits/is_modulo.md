@@ -28,7 +28,7 @@ static constexpr bool is_modulo;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cassert>
 #include <limits>

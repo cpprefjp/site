@@ -29,7 +29,7 @@ streamsize width(streamsize wide);              // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 

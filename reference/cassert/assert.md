@@ -43,7 +43,7 @@
 
 ## 例
 ### assertマクロの基本的な使い方
-```cpp
+```cpp example
 #include <cassert>
 
 void f(int x)
@@ -69,7 +69,7 @@ prog.exe: prog.cc:6: void f(int): Assertion `x >= 0' failed.
 
 
 ### 定数式としてassertマクロを使用する (C++17)
-```cpp
+```cpp example
 #include <cassert>
 
 constexpr int f(int x)

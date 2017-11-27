@@ -25,7 +25,7 @@ basic_streambuf<CharT, Traits>* rdbuf(basic_streambuf<CharT, Traits>* sb);      
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 

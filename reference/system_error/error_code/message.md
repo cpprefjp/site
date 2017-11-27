@@ -18,7 +18,7 @@ string message() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 #include <string>

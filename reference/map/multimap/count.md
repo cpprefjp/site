@@ -28,7 +28,7 @@ size_type count(const K& x) const;        // (2) C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <string>

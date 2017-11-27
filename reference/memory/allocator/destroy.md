@@ -39,7 +39,7 @@ void destroy(U* p);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 #include <utility>

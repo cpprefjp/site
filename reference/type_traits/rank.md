@@ -25,7 +25,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::rank<int>::value == 0, "int rank is 0");

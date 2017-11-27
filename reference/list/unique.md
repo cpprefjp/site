@@ -46,7 +46,7 @@ void unique(BinaryPredicate pred); // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 

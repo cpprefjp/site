@@ -28,7 +28,7 @@ $$ P_l(x) = \frac{1}{2^l l!} \frac{\mathrm{d}^l}{\mathrm{d}x^l} (x^2 - 1)^l \qua
 
 
 ## 例
-```cpp
+```cpp example
 #include <cmath>
 #include <iostream>
 

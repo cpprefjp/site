@@ -40,7 +40,7 @@ wide_string from_bytes(const char* first,
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <string>
 #include <locale>

@@ -28,7 +28,7 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <utility>

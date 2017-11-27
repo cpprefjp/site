@@ -28,7 +28,7 @@ size_type size() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 
@@ -36,7 +36,7 @@ int main()
 {
   const char s1[] = " abc 012 def ";
   const char s2[] = " 012 abc 345 ";
-  const std::regex re("(\\d+) (\\w+) (\\d+)");
+  const std::regex re("(\d+) (\w+) (\d+)");
 
   std::cout << std::boolalpha << "mark_count = " << re.mark_count() << std::endl;
 

@@ -37,7 +37,7 @@ decltype(auto) f(int& r)
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 int main()

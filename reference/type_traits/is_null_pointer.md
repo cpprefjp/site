@@ -23,7 +23,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::is_null_pointer<std::nullptr_t>::value == true,

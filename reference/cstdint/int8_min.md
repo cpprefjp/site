@@ -17,7 +17,7 @@
 なお、このマクロは [`int8_t`](int8_t.md) が定義されていない場合には定義されない。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cstdint>
 

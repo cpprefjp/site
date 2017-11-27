@@ -75,7 +75,7 @@ $$ f(x, y) = \sqrt{x^2 + y^2} $$
 
 ## 例
 ### 基本的な使い方
-```cpp
+```cpp example
 #include <cmath>
 #include <limits>
 #include <iostream>
@@ -110,7 +110,7 @@ hypot(3.0, 4.0, 2.0) = 5.385165
 ```
 
 ### ベクトルの長さを求める
-```cpp
+```cpp example
 #include <iostream>
 #include <cmath>
 

@@ -41,7 +41,7 @@ const_iterator find(const K& x) const;        // (4) C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <string>

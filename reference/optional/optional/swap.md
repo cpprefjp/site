@@ -38,7 +38,7 @@ void swap(optional& rhs) noexcept(see below);
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <optional>
 

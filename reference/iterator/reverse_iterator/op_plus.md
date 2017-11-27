@@ -21,7 +21,7 @@ namespace std {
 `reverse_iterator<Iterator>(x.current - n)`
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <iterator>

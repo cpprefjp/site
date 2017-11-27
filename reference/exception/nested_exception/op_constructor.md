@@ -19,7 +19,7 @@ nested_exception(const nested_exception&) noexcept = default; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <exception>
 #include <iostream>
 

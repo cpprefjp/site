@@ -32,7 +32,7 @@ swap(this->second, p.second);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 #include <string>

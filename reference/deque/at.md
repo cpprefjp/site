@@ -32,7 +32,7 @@ const_reference at(size_type n) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 #include <stdexcept>

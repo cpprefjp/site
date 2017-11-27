@@ -176,7 +176,7 @@ MSDNライブラリの[setlocale、_wsetlocale](https://msdn.microsoft.com/ja-jp
 
 使用したプログラム
 
-```cpp
+```cpp example
 #include <array>
 #include <codecvt>
 #include <iostream>

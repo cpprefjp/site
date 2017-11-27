@@ -58,7 +58,7 @@ seed_seq(const seed_seq&) = delete;               // (4)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <vector>

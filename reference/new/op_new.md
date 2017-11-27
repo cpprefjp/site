@@ -77,7 +77,7 @@ void* operator new(std::size_t size, void* ptr) noexcept;               // (3) C
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <new>
 #include <complex>

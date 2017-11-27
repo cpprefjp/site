@@ -48,7 +48,7 @@ regex_token_iterator operator++(int); // (2) 後置形式
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>

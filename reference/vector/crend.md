@@ -30,7 +30,7 @@ const_reverse_iterator crend() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <algorithm>

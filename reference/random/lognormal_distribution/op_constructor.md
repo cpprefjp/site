@@ -20,7 +20,7 @@ explicit lognormal_distribution(const param_type& param);            // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

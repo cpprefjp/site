@@ -25,7 +25,7 @@ size_type size() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <queue>
 

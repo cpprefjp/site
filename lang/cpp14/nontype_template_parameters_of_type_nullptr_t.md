@@ -6,7 +6,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <cstddef>
 
 template <std::nullptr_t P>

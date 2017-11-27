@@ -34,7 +34,7 @@ void lock();
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <shared_mutex>
 

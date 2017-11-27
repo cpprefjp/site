@@ -25,7 +25,7 @@ use_count() == 0
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <memory>
 

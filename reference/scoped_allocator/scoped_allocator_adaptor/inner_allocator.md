@@ -21,7 +21,7 @@ const inner_allocator_type& inner_allocator() const noexcept; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>

@@ -27,7 +27,7 @@ static constexpr int max_exponent10;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

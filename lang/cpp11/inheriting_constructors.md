@@ -6,7 +6,7 @@
 
 継承コンストラクタは、`using`キーワードに続いて、基本クラス名とそのコンストラクタ名を`::`区切りで記述する：
 
-```cpp
+```cpp example
 #include <string>
 
 struct Base1 {

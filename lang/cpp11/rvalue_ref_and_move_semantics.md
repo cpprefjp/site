@@ -109,7 +109,7 @@ int main()
 ということを明示したにすぎないということである。  
 ムーブは実際に[`std::move()`](/reference/utility/move.md)した変数を、後述するムーブコンストラクタ・ムーブ代入演算子に渡した際に行われる。
 
-```cpp
+```cpp example
 #include <string>
 #include <utility>
 
@@ -135,7 +135,7 @@ int main()
 所有権は唯一であるので、コピーが禁止されている。
 しかし、別の変数にムーブ代入することはできる。
 
-```cpp
+```cpp example
 #include <utility>
 #include <memory>
 
@@ -163,7 +163,7 @@ int main()
 ムーブセマンティクスが必要とされる場面として、コピーに高いコストがかかる場合をあげる。  
 コピーコンストラクタ、コピー代入に高いコストがかかる以下のクラスで説明する。
 
-```cpp
+```cpp example
 #include <algorithm>
 
 class large_class

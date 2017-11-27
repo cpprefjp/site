@@ -33,7 +33,7 @@ template <class M, class N> constexpr common_type_t<M, N> gcd(M m, N n);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 #include <numeric>

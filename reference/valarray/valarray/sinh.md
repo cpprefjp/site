@@ -26,7 +26,7 @@ return v.apply(static_cast<T(*)(T)>(std::sinh));
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

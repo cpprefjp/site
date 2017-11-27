@@ -41,7 +41,7 @@ forward_list& operator=(initializer_list<T>);   // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <forward_list>
 #include <algorithm>

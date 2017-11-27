@@ -31,7 +31,7 @@ namespace std {
 メモリの確保にユーザー定義のアロケータを使用したい場合には、 [`allocate_shared()`](allocate_shared.md) を使用する。
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <iostream>
 

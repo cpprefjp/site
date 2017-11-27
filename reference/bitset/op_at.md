@@ -31,7 +31,7 @@ reference operator[](size_t pos);            // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

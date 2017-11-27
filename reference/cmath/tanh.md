@@ -34,7 +34,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <cmath>
 #include <iostream>
 

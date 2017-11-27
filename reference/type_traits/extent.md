@@ -26,7 +26,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::extent<int[3][2], 0>::value == 3, "0th element count is 3");

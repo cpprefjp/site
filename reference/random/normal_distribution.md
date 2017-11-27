@@ -78,7 +78,7 @@ $$ p(x \mid \mu, \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \exp \left( - \frac{(x
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

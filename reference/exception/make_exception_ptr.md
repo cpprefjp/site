@@ -36,7 +36,7 @@ try {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <exception>
 #include <stdexcept>

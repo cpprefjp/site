@@ -46,7 +46,7 @@ iterator insert_after(const_iterator position,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 #include <string>

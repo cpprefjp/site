@@ -37,7 +37,7 @@ IEC 60559で要求された`x REM y`を計算して返す。
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cmath>
 

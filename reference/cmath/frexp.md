@@ -43,7 +43,7 @@ C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std:
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cmath>
 

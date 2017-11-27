@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <deque>
 #include <type_traits>
 #include <cassert>

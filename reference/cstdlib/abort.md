@@ -33,7 +33,7 @@ raise(SIGABRT);
 
 
 ## 例
-```cpp
+```cpp example
 #include <cstdlib>
 
 int main()

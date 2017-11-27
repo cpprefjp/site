@@ -34,7 +34,7 @@ bitset<N>& set(size_t pos, bool val = true); // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

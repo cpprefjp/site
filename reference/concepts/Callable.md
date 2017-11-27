@@ -18,7 +18,7 @@
 ## 例
 [`std::function`](/reference/functional/function.md)クラスは、`Callable`に該当するあらゆる型のオブジェクトを代入できる仕様になっている。
 
-```cpp
+```cpp example
 #include <cassert>
 #include <functional>
 

@@ -18,7 +18,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::false_type::value == false, "value == false");

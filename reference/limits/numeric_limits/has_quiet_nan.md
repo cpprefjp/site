@@ -20,7 +20,7 @@ static constexpr bool has_quiet_NaN;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

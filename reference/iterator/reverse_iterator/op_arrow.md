@@ -17,7 +17,7 @@ pointer operator->() const;
 - C++14 : [`addressof`](/reference/memory/addressof.md)`(operator*())`
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <iterator>

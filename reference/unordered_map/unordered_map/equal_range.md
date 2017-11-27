@@ -34,7 +34,7 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_map>
 

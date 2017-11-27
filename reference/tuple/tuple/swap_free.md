@@ -33,7 +33,7 @@ x.swap(y);
 
 
 ## 例
-```cpp
+```cpp example
 #include <string>
 #include <tuple>
 #include <cassert>

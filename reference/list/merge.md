@@ -42,7 +42,7 @@ template <class Compare> void merge(list&& x, Compare comp); // (4) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 

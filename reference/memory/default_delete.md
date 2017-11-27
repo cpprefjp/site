@@ -41,7 +41,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 
 // default_deleteはunique_ptrのデフォルト引数として自動的に渡されるため、

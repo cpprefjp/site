@@ -77,7 +77,7 @@ list オブジェクトの構築
 	これは、変更されないと `n` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
 	具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
-    ```cpp
+    ```cpp example
     #include <list>
     #include <vector>
     #include <scoped_allocator>

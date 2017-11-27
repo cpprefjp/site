@@ -19,7 +19,7 @@ const std::type_info& target_type() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

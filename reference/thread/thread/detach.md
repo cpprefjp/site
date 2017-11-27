@@ -34,7 +34,7 @@ detachされたスレッドは、他のスレッドから直接アクセスす�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <thread>
 #include <future>

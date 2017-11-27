@@ -50,7 +50,7 @@ Point ar[] = { // 配列の初期化子リストで、要素ごとの初期化�
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 #include <array>
 

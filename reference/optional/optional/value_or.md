@@ -33,7 +33,7 @@ return has_value() ? value() : static_cast<T>(std::forward<U>(v));
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <optional>
 

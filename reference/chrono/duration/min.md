@@ -17,7 +17,7 @@ static constexpr duration min();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

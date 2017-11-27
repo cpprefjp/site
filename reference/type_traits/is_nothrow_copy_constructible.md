@@ -38,7 +38,7 @@ namespace std {
 [`is_nothrow_constructible`](is_nothrow_constructible.md)`<T, T&>::value`では判断できないので注意。
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 struct s {

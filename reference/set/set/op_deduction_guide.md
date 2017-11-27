@@ -41,7 +41,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <set>
 #include <type_traits>
 #include <cassert>

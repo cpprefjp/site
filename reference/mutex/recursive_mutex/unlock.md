@@ -36,7 +36,7 @@ unlockにより所有権カウントが0になったとき、ミューテック�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <mutex>
 #include <thread>

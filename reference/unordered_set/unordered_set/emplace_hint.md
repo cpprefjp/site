@@ -72,7 +72,7 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 	通常は、[`emplace`](emplace.md) を使用した方が良いだろう。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_set>
 #include <string>

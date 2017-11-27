@@ -95,7 +95,7 @@ function-specifier:
 
 ## 例
 
-```cpp
+```cpp example
 //inline_variable.hpp
 #include <iostream>
 

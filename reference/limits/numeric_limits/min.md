@@ -56,7 +56,7 @@ static constexpr T min() noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

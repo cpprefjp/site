@@ -34,7 +34,7 @@ bool try_lock();
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <mutex>
 #include <system_error>

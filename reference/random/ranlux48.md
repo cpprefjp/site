@@ -53,7 +53,7 @@ RANLUX法は、0から4までの贅沢さレベル(luxury level)が選択可能�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

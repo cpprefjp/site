@@ -43,7 +43,7 @@ namespace chrono {
 
 
 ## 例
-```cpp
+```cpp example
 #include <chrono>
 #include <iostream>
 #include <thread>

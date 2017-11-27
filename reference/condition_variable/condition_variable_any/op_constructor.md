@@ -23,7 +23,7 @@ condition_variable_any(const condition_variable_any&) = delete; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <condition_variable>
 
 int main()

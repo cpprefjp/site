@@ -36,7 +36,7 @@ return os << s.str();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <complex>
 

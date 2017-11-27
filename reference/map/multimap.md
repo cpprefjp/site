@@ -152,7 +152,7 @@ namespace std {
 
 ## 例
 ### C++03版
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <utility>
@@ -186,7 +186,7 @@ int main()
 * m.equal_range[link multimap/equal_range.md]
 
 ### C++11版
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <utility>

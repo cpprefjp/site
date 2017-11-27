@@ -14,7 +14,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cmath>
 #include <cerrno>

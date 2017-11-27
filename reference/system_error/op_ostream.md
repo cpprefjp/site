@@ -32,7 +32,7 @@ os << ec.category().name() << ':' << ec.value();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 

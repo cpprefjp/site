@@ -28,7 +28,7 @@ size_type length() const noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

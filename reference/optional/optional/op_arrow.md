@@ -31,7 +31,7 @@ constexpr T* operator->();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <optional>
 #include <string>

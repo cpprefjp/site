@@ -22,7 +22,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::is_floating_point<float>::value == true, "value == true, float is floating point");

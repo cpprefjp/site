@@ -69,7 +69,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <unordered_set>
 #include <type_traits>
 #include <cassert>

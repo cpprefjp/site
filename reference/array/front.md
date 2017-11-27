@@ -25,7 +25,7 @@ constexpr const_reference front() const; // (2) C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <array>
 

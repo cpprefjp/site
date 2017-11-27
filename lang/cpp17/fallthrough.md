@@ -14,7 +14,7 @@ switch-case文において意図しないフォールスルーによってバグ
 `[[fallthrough]]`属性はフォールスルーしたい各`case`の最後の式に記述する。ただし最後の`case`/`default`に記述するとコンパイルエラーとなる。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main() {

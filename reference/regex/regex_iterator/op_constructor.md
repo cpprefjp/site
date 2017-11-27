@@ -46,7 +46,7 @@ regex_iterator(const regex_iterator&);                                          
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>
@@ -54,7 +54,7 @@ regex_iterator(const regex_iterator&);                                          
 
 int main()
 {
-  std::regex re("\\d+");
+  std::regex re("\d+");
   std::string s("This compiler supports the C++11 standard.");
   std::sregex_iterator it(std::begin(s), std::end(s), re);
   if (it != std::sregex_iterator()) {

@@ -38,7 +38,7 @@ join操作に失敗した場合、[`system_error`](/reference/system_error/syste
 
 ## 例
 
-```cpp
+```cpp example
 #include <cassert>
 #include <thread>
 

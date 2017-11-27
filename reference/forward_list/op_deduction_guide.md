@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <forward_list>
 #include <type_traits>
 

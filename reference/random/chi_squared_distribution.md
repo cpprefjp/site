@@ -80,7 +80,7 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 
 
 ## 例
-```cpp
+```cpp example
 #include <fstream>
 #include <random>
 

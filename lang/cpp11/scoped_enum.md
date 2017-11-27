@@ -49,7 +49,7 @@ int color = static_cast<int>(Color::Red);
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <type_traits>
 

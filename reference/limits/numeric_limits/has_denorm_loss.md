@@ -17,7 +17,7 @@ static constexpr bool has_denorm_loss;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

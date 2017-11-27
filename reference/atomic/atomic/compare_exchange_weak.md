@@ -53,7 +53,7 @@ bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_o
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 

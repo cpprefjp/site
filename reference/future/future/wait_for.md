@@ -31,7 +31,7 @@ future_status wait_for(const chrono::duration<Rep, Period>& rel_time) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>

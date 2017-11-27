@@ -26,7 +26,7 @@ future<R> get_future();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 

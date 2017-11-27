@@ -40,7 +40,7 @@ basic_string& operator=(initializer_list<charT> il);  // (5) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

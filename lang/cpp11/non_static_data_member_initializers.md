@@ -4,7 +4,7 @@
 ## 概要
 非静的メンバ変数の定義時に、`=`演算子もしくは`{ }`波カッコ初期化子によるコンストラクタ構文で、初期化式を記述できる。
 
-```cpp
+```cpp example
 #include <string>
 #include <cassert>
 

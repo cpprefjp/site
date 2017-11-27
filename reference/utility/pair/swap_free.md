@@ -29,7 +29,7 @@ x.swap(y);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 #include <string>

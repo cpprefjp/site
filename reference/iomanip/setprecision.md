@@ -29,7 +29,7 @@ void f(std::ios_base& str, int n) {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 #include <limits>

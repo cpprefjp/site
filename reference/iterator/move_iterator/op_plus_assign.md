@@ -23,7 +23,7 @@ move_iterator& operator+=(difference_type n);
 `return *this;`
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <memory>

@@ -53,7 +53,7 @@ size_type find_first_not_of(charT c, size_type pos = 0) const;                  
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

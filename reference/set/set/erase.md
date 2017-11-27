@@ -71,7 +71,7 @@ it = set_object.erase(it);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <set>
 

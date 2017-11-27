@@ -34,7 +34,7 @@ copy(v.begin(), v.end(), dest);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <vector>

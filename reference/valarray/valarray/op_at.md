@@ -61,7 +61,7 @@ indirect_array<T> operator[](const valarray<size_t>& mask); // (10)
 - (7), (8) : [`size()`](size.md) `!= mask.`[`size()`](size.md)の場合、その挙動は未定義。
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <numeric>
 #include <valarray>

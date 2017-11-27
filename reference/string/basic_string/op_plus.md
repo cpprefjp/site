@@ -101,7 +101,7 @@ basic_string<charT, traits, Allocator>
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

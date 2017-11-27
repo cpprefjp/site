@@ -28,7 +28,7 @@ C標準ライブラリでは`isinf`は関数マクロとして定義されるが
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <cmath>
 #include <limits>

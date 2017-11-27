@@ -65,7 +65,7 @@ optional& operator=(optional<U>&& rhs);                  // (6)
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <optional>
 #include <utility>

@@ -28,7 +28,7 @@ namespace this_thread {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <thread>
 

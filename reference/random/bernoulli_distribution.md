@@ -69,7 +69,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

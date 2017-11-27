@@ -25,7 +25,7 @@ static constexpr T denorm_min() noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

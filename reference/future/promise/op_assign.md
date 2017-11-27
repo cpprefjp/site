@@ -24,7 +24,7 @@ promise& operator=(const promise& rhs) = delete; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <utility>
 #include <future>
 

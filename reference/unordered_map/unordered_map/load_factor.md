@@ -30,7 +30,7 @@ size() / bucket_count()
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_map>
 

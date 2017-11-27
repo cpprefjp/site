@@ -13,7 +13,7 @@
 このマクロは、全ての浮動小数点例外をクリアしたり、全ての浮動小数点例外の状態を取得するような状況で使用する。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cfenv>
 

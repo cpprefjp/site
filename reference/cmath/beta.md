@@ -24,7 +24,7 @@ $$ \mathrm{B}(x, y) = \int_0^1 \mathrm{d}t ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(
 
 
 ## 例
-```cpp
+```cpp example
 #include <cmath>
 #include <iostream>
 

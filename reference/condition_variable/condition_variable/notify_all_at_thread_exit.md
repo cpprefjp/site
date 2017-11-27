@@ -42,7 +42,7 @@ cond.notify_all();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <condition_variable>
 #include <mutex>

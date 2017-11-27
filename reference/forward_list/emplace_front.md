@@ -25,7 +25,7 @@ void emplace_front(Args&&... args);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 #include <utility>

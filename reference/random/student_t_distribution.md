@@ -78,7 +78,7 @@ $$ p(x \mid n) = \frac{1}{\sqrt{n \pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

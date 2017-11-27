@@ -26,7 +26,7 @@ void swap(stack& s) noexcept(noexcept(swap(c, s.c)));
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <stack>
 

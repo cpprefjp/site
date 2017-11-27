@@ -22,7 +22,7 @@ const_reference front() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 

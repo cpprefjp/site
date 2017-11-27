@@ -26,7 +26,7 @@ constexpr time_point(const time_point<clock, Duration2>& t); // (3) C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

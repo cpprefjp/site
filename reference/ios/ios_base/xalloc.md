@@ -34,7 +34,7 @@ return index++;
 
 
 ## 例
-```cpp
+```cpp example
 // 値を16進数で出力するIOマニピュレータを作成する
 #include <iostream>
 #include <string>

@@ -19,7 +19,7 @@ virtual string message(int ev) const = 0;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 #include <string>

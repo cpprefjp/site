@@ -24,7 +24,7 @@ char_traits<char_type>::length(p)
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 #include <iostream>
 

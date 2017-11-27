@@ -18,7 +18,7 @@ result_type alpha() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

@@ -25,7 +25,7 @@ namespace std {
 
 
 ### 例
-```cpp
+```cpp example
 // スピンロックの実装
 #include <iostream>
 #include <atomic>

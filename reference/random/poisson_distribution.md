@@ -80,7 +80,7 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

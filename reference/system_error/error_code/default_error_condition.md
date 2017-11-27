@@ -32,7 +32,7 @@ category().default_error_condition(value())
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 #include <string>

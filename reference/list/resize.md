@@ -28,7 +28,7 @@ void resize(size_type sz, T c = T());           // (1), (2) C++03。C++11で削�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 #include <algorithm>

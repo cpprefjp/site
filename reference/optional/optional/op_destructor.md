@@ -18,7 +18,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <optional>
 
 struct A {

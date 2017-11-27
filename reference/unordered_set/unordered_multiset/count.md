@@ -23,7 +23,7 @@ size_type count(const key_type& k) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_set>
 #include <algorithm>

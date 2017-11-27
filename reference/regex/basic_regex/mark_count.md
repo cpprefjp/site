@@ -26,13 +26,13 @@ unsigned int mark_count() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 
 int main()
 {
-  std::regex re("(\\w+) (\\d+) (\\w+)");
+  std::regex re("(\w+) (\d+) (\w+)");
   std::cout << re.mark_count() << std::endl;
 }
 ```

@@ -26,7 +26,7 @@ SDEF(bar, 1, 2, 3); // S bar = {1, 2, 3}; に展開される
 
 
 ## 例
-```cpp
+```cpp example
 #include <cstdio>
 
 #define DEBUG_LOG(msg, ...) std::printf("[debug] " msg "\n" __VA_OPT__(,) __VA_ARGS__)

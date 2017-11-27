@@ -29,7 +29,7 @@ size_type max_size() const noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

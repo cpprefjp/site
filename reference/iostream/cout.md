@@ -14,7 +14,7 @@ namespace std {
 すなわち、`<cstdio>`の`stdout`オブジェクトに結びつけられたストリームオブジェクトである。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

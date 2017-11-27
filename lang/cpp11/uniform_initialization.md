@@ -50,7 +50,7 @@ int main()
 }
 ```
 
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <iterator>
@@ -115,7 +115,7 @@ int main()
 
 - [`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタとデフォルトコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
 
-    ```cpp
+    ```cpp example
     #include <iostream>
     #include <initializer_list>
 
@@ -159,7 +159,7 @@ int main()
 ### <a name="evaluation-order" href="#evaluation-order">評価順序</a>
 - 波カッコによるコンストラクタ呼び出しで渡す引数は、先頭から順番に評価されることが保証される
 
-    ```cpp
+    ```cpp example
     #include <iostream>
 
     int f()

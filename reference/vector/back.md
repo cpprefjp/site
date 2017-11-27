@@ -34,7 +34,7 @@ const_reference back() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 

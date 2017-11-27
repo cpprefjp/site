@@ -27,7 +27,7 @@ void push(value_type&& x);      // (2) C++11から
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <queue>
 

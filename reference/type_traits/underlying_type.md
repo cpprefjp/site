@@ -48,7 +48,7 @@ enum class IntColor {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 enum E1 : char {};

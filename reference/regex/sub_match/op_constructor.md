@@ -22,7 +22,7 @@ constexpr sub_match();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 

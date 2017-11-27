@@ -26,7 +26,7 @@ return va.apply(static_cast<T(*)(T)>(std::sin));
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

@@ -22,7 +22,7 @@ allocator_type get_allocator() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 #include <regex>

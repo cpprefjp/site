@@ -24,7 +24,7 @@ namespace std {
 
 ## 例
 
-```cpp
+```cpp example
 #include <functional>
 
 static_assert(

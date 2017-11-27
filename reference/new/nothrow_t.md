@@ -16,7 +16,7 @@ namespace std {
 `nothrow`は、`std::nothrow_t`型の定数であり、`new`キーワードに指定するタグとして使用する。
 
 
-```cpp
+```cpp example
 #include <iostream>
 #include <new>
 

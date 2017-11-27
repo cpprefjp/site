@@ -15,7 +15,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <cstddef>
 #include <cassert>
 

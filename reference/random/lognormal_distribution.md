@@ -79,7 +79,7 @@ $$ p(x \mid m, s) = \frac{1}{sx \sqrt{2 \pi} } \cdot \exp \left( - \frac{(\ln x 
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

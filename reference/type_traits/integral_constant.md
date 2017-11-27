@@ -28,7 +28,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 using int_zero = std::integral_constant<int, 0>;

@@ -22,7 +22,7 @@ mutex_type* mutex() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 // libstdc++(pthread)
 #include <iostream>
 #include <mutex>

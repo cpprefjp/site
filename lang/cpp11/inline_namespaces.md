@@ -35,7 +35,7 @@ int main()
 - インライン名前空間のメンバは、その外側の名前空間 (the enclosing namespace, それを取り囲む名前空間) のメンバとして使用できる
 - インライン名前空間とその外側の名前空間は、引数依存の名前探索で探索される「関連ある名前空間(associated namespace)」となる
 
-    ```cpp
+    ```cpp example
     #include <iostream>
 
     namespace ns1 {
@@ -66,7 +66,7 @@ int main()
 
 - インライン名前空間の外側の名前空間をusingディレクティブに指定することで、インライン名前空間のメンバがその外側の名前空間のメンバとして暗黙的に挿入される
 
-    ```cpp
+    ```cpp example
     #include <iostream>
 
     namespace ns1 {
@@ -87,7 +87,7 @@ int main()
 
 - インライン名前空間のメンバは、外側の名前空間で外側の名前空間のメンバであるかのように、明示的にインスタンス化、および明示的に特殊化できる
 
-    ```cpp
+    ```cpp example
     #include <iostream>
 
     namespace ns1 {
@@ -182,7 +182,7 @@ int main()
 
 これによって、バイナリ互換性を保つバージョニングをしやすくする。
 
-```cpp
+```cpp example
 #include <iostream>
 
 namespace my_namespace {

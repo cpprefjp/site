@@ -35,7 +35,7 @@ template <class M, class N> constexpr common_type_t<M, N> lcm(M m, N n);
 
 
 ## 例
-```cpp
+```cpp example
 #include <cmath>
 #include <iostream>
 #include <limits>

@@ -18,7 +18,7 @@ scoped_allocator_adaptor select_on_container_copy_construction() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>

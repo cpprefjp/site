@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::is_same<std::add_rvalue_reference<int>::type, int&&>::value, "transform int to int&&");

@@ -33,7 +33,7 @@ static_cast<typename std::remove_reference<T>::type &&>(t)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 

@@ -31,7 +31,7 @@ static char_type* assign(char_type* s, size_t n, char_type a);   // (2)
 - (2) 線形時間
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

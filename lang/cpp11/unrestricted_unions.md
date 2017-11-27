@@ -4,7 +4,7 @@
 ## 概要
 共用体のメンバ変数として、クラスオブジェクトを保持できるようになった：
 
-```cpp
+```cpp example
 #include <iostream>
 #include <complex>
 #include <string>

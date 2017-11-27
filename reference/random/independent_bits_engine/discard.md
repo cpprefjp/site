@@ -33,7 +33,7 @@ for (unsigned long long i = 0; i < z; ++i) {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <cstdint>

@@ -121,7 +121,7 @@ namespace std {
 
 ## 例
 ### shared_ptrの基本的な使い方
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 
@@ -160,7 +160,7 @@ int main()
 ### shared_ptr<void>に、あらゆる型のポインタを格納する
 `void`をテンプレート引数とする`shared_ptr`に対してどんな型のポインタを代入したとしても、代入した型のデストラクタは、正しく実行される。通常、`void*`に型変換して代入されたポインタは、`delete`演算子を呼んだとしても元の型のデストラクタは呼び出されない。しかし`shared_ptr`の場合は、代入されたポインタの型が持つデストラクタが正しく実行されることが保証される。保証の文面は[デストラクタ](shared_ptr/op_destructor.md)のページを参照。
 
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

@@ -23,7 +23,7 @@ const error_category& category() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 

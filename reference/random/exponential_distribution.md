@@ -79,7 +79,7 @@ $$ p(x \mid \lambda) = \lambda e^{-\lambda x} $$
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

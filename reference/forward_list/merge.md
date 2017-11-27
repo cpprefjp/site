@@ -49,7 +49,7 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 #include <utility>

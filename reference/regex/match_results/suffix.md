@@ -32,7 +32,7 @@ const_reference suffix() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>
@@ -51,7 +51,7 @@ int main()
   std::cout << "regex_match" << std::endl;
   {
     const std::string s = "0123";
-    const std::regex re("\\d+");
+    const std::regex re("\d+");
 
     std::smatch m;
     if (std::regex_match(s, m, re)) {
@@ -67,7 +67,7 @@ int main()
   std::cout << "regex_search" << std::endl;
   {
     const std::string s = " abc 0123 defgh ";
-    const std::regex re("\\d+");
+    const std::regex re("\d+");
 
     std::smatch m;
     if (std::regex_search(s, m, re)) {
@@ -83,7 +83,7 @@ int main()
   std::cout << "regex_iterator" << std::endl;
   {
     const std::string s = "abc 0123";
-    const std::regex re("\\w+");
+    const std::regex re("\w+");
 
     for (std::sregex_iterator it(std::begin(s), std::end(s), re), end; it != end; ++it) {
       auto&& m = *it;

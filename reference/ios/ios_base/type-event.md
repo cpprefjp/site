@@ -22,7 +22,7 @@ enum event { erase_event, imbue_event, copyfmt_event };
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 #include <locale>

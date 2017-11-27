@@ -20,7 +20,7 @@ class Y;
 
 
 ## 例
-```cpp
+```cpp example
 #include <vector>
 
 template <template <typename...> typename Container>

@@ -36,7 +36,7 @@ void future<void>::get();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>
@@ -78,7 +78,7 @@ int main()
 ```
 
 ## 例：`std::future<R&>`
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>
@@ -136,7 +136,7 @@ int main()
 ```
 
 ## 例：`std::future<void>`
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>

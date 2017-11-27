@@ -22,7 +22,7 @@ static void deallocate(Alloc& a, pointer p, size_type n);
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 
 int main()

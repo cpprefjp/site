@@ -10,7 +10,7 @@
 
 定数式の例として、パラメータの値を2乗して返す関数`square()`は、以下のように記述する：
 
-```cpp
+```cpp example
 #include <cassert>
 
 constexpr int square(int x)

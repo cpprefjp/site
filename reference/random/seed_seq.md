@@ -52,7 +52,7 @@ namespace std {
 ## 例
 以下は、メルセンヌ・ツイスター法による擬似乱数生成器を、状態シーケンスのサイズ分のシード列で初期化する例である。
 
-```cpp
+```cpp example
 #include <iostream>
 #include <array>
 #include <algorithm>

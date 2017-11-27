@@ -25,7 +25,7 @@ static time_point from_time_t(time_t t) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 #include <ctime>

@@ -22,7 +22,7 @@ static size_t length(const char_type* s);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

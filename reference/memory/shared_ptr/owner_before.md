@@ -54,7 +54,7 @@ shared_ptr(const shared_ptr<Y>& r, T* p) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

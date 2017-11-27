@@ -9,7 +9,7 @@
 ## 分布クラスのサンプルコード
 分布クラスのサンプルコードは、生成された乱数の値を、TSV(タブ区切り)テキストとして出力する形にします。`std::uniform_int_distribution`のサンプルコードは、例として以下のようになっています。
 
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

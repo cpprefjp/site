@@ -31,7 +31,7 @@ int main()
 
 より複雑な例として、コンストラクタがクラスのテンプレートパラメータ型の値を直接受け取らない場合は、「推論補助 (deduction guide)」をクラス外に記述する。
 
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <list>
@@ -125,7 +125,7 @@ int main()
 
 ## 例
 ### 標準ライブラリでの使用例
-```cpp
+```cpp example
 #include <vector>
 #include <array>
 #include <set>
@@ -226,7 +226,7 @@ int main()
 
 
 ### デフォルトテンプレート引数のみを持つクラステンプレートの使用例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <algorithm>

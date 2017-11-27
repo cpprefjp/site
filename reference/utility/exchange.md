@@ -38,7 +38,7 @@ return old_val;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 
@@ -61,7 +61,7 @@ before : 1
 
 
 ## コンテナを出力する例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 #include <vector>

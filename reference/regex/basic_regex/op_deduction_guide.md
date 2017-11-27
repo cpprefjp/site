@@ -22,7 +22,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 #include <type_traits>
 

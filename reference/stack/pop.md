@@ -27,7 +27,7 @@ c.pop_back();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <stack>
 

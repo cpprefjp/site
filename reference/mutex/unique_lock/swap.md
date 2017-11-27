@@ -26,7 +26,7 @@ void swap(unique_lock& u) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <mutex>
 #include <utility>
 

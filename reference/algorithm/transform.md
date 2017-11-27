@@ -52,7 +52,7 @@ namespace std {
 
 
 ## (1)の例
-```cpp
+```cpp example
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -83,7 +83,7 @@ int main() {
 
 
 ## (2)の例
-```cpp
+```cpp example
 #include <algorithm>
 #include <iostream>
 #include <vector>

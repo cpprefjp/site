@@ -79,7 +79,7 @@ $$ p(x \mid a, b) = \left( \pi b \left(1 + \left( \frac{x-a}{b} \right) ^2 \righ
 
 
 ## 例
-```cpp
+```cpp example
 #include <fstream>
 #include <random>
 

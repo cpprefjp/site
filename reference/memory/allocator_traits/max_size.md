@@ -24,7 +24,7 @@ std::numeric_limits<value_type>::max() / sizeof(value_type)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

@@ -37,7 +37,7 @@ capacityを変更する
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cassert>
 #include <vector>

@@ -34,7 +34,7 @@ T fetch_sub(difference_type operand, memory_order order = memory_order_seq_cst) 
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 

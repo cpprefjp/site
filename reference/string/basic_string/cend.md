@@ -26,7 +26,15 @@ const_iterator cend() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+int main()
+{
+  std::string s = "hello";
+  s.insert(s.begin() + 2, '```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -39,6 +47,30 @@ int main()
   // 文字列オブジェクトsに含まれる、ヌル文字を除く全ての要素を出力
   std::for_each(s.cbegin(), s.cend(), [](char c) {
     if (c != '\0')
+      std::cout << c << std::endl;
+  });
+}
+');
+
+  // 文字列オブジェクトsに含まれる、ヌル文字を除く全ての要素を出力
+  std::for_each(s.cbegin(), s.cend(), [](char c) {
+    if (c != '```cpp
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+int main()
+{
+  std::string s = "hello";
+  s.insert(s.begin() + 2, '\0');
+
+  // 文字列オブジェクトsに含まれる、ヌル文字を除く全ての要素を出力
+  std::for_each(s.cbegin(), s.cend(), [](char c) {
+    if (c != '\0')
+      std::cout << c << std::endl;
+  });
+}
+')
       std::cout << c << std::endl;
   });
 }

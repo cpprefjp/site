@@ -80,7 +80,7 @@ $$ p(x \mid \alpha, \beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\al
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

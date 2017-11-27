@@ -25,7 +25,7 @@ void swap(basic_string& str);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

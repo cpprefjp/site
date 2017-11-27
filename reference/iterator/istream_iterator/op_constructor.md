@@ -17,7 +17,7 @@ istream_iterator(const istream_iterator& x) = default; // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <sstream>

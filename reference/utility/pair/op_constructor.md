@@ -66,7 +66,7 @@ pair(piecewise_construct_t,
 - (8) : `is_constructible<first_type, Args1&&...>::value && is_constructible<second_type, Args2&&...>::value`であること
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 #include <string>

@@ -22,7 +22,7 @@ allocator_type get_allocator() const noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <vector>
 

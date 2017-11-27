@@ -16,7 +16,7 @@ ReturnType operator""_suffix(const char*); // OK
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

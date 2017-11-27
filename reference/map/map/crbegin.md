@@ -25,7 +25,7 @@ const_reverse_iterator crbegin() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

@@ -23,7 +23,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::is_arithmetic<int>::value == true, "value == true, int is arithmetic");

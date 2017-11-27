@@ -15,7 +15,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 // 標準C++の浮動小数点例外を、
 // Visual C++での浮動小数点例外の形式に変換する
 #include <iostream>

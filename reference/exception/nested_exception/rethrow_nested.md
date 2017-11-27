@@ -26,7 +26,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <exception>
 #include <iostream>
 

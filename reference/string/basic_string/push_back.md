@@ -17,7 +17,7 @@ void push_back(charT c);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

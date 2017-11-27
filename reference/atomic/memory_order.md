@@ -18,7 +18,7 @@ namespace std {
 この問題への対処として、C++11では各スレッドの実行に順序付けをするための"happens before"(先行発生)という関係を定義し、それによってあるスレッドでの操作が他スレッドから可視になるか否かを定めている。
 atomic変数においては、"release"操作によって書き込まれた値を"acquire"操作によって別のスレッドが読み出した場合に、そのrelease操作とacquire操作の間に順序付けが行われる。以下に例を挙げる。
 
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 #include <thread>

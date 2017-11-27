@@ -28,7 +28,7 @@ atomic_flag(FOR_ATOMIC_FLAG_INIT);        // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 

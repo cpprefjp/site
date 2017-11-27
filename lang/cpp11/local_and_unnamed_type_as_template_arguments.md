@@ -6,7 +6,7 @@
 
 これにより、関数内で用意した列挙型と列挙子を、関数テンプレートやクラステンプレートに渡せるようになった。
 
-```cpp
+```cpp example
 #include <iostream>
 
 template <class T>

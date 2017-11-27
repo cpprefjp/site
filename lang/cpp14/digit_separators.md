@@ -30,7 +30,7 @@ int binary_value = 0b1000'1111;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

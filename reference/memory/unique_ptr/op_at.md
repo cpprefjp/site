@@ -23,7 +23,7 @@ T& operator[](size_t i) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

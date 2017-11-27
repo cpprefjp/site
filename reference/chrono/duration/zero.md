@@ -17,7 +17,7 @@ static constexpr duration zero();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

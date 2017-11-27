@@ -31,7 +31,7 @@ C++17 で規則が変更され、前者は `T`，後者は不適格となった�
 
 ## 例
 
-```cpp
+```cpp example
 #include <initializer_list>
 #include <iostream>
 #include <typeindex>

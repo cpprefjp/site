@@ -24,7 +24,7 @@ unitbufの効果を取り消すことを指示するマニピュレータ。
 初期状態として`std::ios_base::unitbuf`が設定されている。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

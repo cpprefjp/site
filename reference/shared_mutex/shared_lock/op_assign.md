@@ -28,7 +28,7 @@ shared_lock& operator=(shared_lock&& u) noexcept;    // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <shared_mutex>
 #include <utility>
 

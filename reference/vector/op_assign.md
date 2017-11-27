@@ -45,7 +45,7 @@ vector& operator=(initializer_list<T>); // (3) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <vector>
 #include <algorithm>

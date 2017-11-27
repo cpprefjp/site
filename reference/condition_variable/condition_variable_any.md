@@ -33,7 +33,7 @@ namespace std {
 | [`wait_until`](condition_variable_any/wait_until.md)                | 絶対時間のタイムアウトを指定して、起床されるまで待機する | C++11 |
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <condition_variable>
 #include <mutex>

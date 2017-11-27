@@ -30,7 +30,7 @@ packaged_task& operator=(packaged_task&& rhs) noexcept;  // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <future>
 #include <utility>
 

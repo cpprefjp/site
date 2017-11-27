@@ -24,7 +24,7 @@ static constexpr int_type not_eof(int_type c) noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

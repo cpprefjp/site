@@ -26,7 +26,7 @@ $b$ や $p$、$e_{\rm max}$ については [`<cfloat>`](../cfloat.md) のモデ
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 #include <cfloat>

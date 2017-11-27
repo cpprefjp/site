@@ -31,7 +31,7 @@ void clear() noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cassert>
 #include <list>

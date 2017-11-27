@@ -23,7 +23,7 @@ void push_front(T&& x);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 #include <string>

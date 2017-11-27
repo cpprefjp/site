@@ -30,7 +30,7 @@ void resize(size_t sz, T c = T());
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

@@ -29,7 +29,7 @@ mutex_type* release() noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <shared_mutex>
 
 int main()

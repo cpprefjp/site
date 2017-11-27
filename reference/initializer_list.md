@@ -47,7 +47,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <initializer_list>
 #include <vector>
 

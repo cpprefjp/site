@@ -22,7 +22,7 @@ condition_variable(const condition_variable&) = delete; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <condition_variable>
 
 int main()

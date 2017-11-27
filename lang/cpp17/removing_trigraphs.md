@@ -29,7 +29,7 @@ C++17 でトライグラフは削除され、`??=` 等は置換されなくな�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

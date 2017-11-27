@@ -29,7 +29,7 @@ C99互換として、可変引数マクロ(variadic macros)が導入された。
 
 
 ## 例
-```cpp
+```cpp example
 #include <cstdio>
 
 // 可変個のパラメータを受け取り、std::printf()関数の引数として転送する

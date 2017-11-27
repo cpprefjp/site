@@ -48,7 +48,7 @@ T& emplace(std::initializer_list<U> il, Args&&... args); // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <optional>
 #include <string>

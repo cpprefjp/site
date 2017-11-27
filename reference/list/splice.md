@@ -70,7 +70,7 @@ void splice(const_iterator position, list&& x,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 #include <utility> // move

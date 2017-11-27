@@ -85,7 +85,7 @@ map(initializer_list<value_type> init,
     これは、イテレータ範囲 `[first, last)` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
     具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
-    ```cpp
+    ```cpp example
     #include <list>
     #include <map>
     #include <scoped_allocator>
@@ -109,7 +109,7 @@ map(initializer_list<value_type> init,
     （`map(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `map` が構築され、`alloc` と共に (9) の形式に引き渡される）
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <utility>

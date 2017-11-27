@@ -18,7 +18,7 @@ string_type str() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 
@@ -30,9 +30,109 @@ int main()
   if (std::regex_search(s, m, re)) {
     std::csub_match sub = m[0];
     if (sub.matched) {
-      std::cout << '\'' << sub.str() << '\'' << std::endl;
+      std::cout << '```
+* str()[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* std::csub_match[link ../sub_match.md]
+
+### 出力
+```
+'123'
+''
+```
+
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+' << sub.str() << '```
+* str()[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* std::csub_match[link ../sub_match.md]
+
+### 出力
+```
+'123'
+''
+```
+
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+' << std::endl;
       sub.matched = false;
-      std::cout << '\'' << sub.str() << '\'' << std::endl;
+      std::cout << '```
+* str()[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* std::csub_match[link ../sub_match.md]
+
+### 出力
+```
+'123'
+''
+```
+
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+' << sub.str() << '```
+* str()[color ff0000]
+* std::regex[link ../basic_regex.md]
+* std::cmatch[link ../match_results.md]
+* std::regex_search[link ../regex_search.md]
+* std::csub_match[link ../sub_match.md]
+
+### 出力
+```
+'123'
+''
+```
+
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+' << std::endl;
     } else {
       std::cout << "not participate" << std::endl;
     }

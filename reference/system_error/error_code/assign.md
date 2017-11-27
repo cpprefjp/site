@@ -27,7 +27,7 @@ void assign(int val, const error_category& cat) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 

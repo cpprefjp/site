@@ -39,7 +39,7 @@ atomic_compare_exchange_weak_explicit(
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

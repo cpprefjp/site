@@ -28,7 +28,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cfloat>
 #include <cfenv>

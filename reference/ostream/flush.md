@@ -23,7 +23,7 @@ namespace std {
 本関数は、直接呼ぶのではなく、マニピュレータ関数へのポインタを引数に取る出力演算子（[`operator<<`](basic_ostream/op_ostream.md)、挿入演算子、インサータとも呼ばれる）を通じて呼び出されるのが一般的である。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main() {

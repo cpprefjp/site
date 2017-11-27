@@ -26,7 +26,7 @@ basic_fstream(basic_fstream&& rhs); // (5) C++11
 
 ## 例
 
-```cpp
+```cpp example
 #include <iostream>
 #include <fstream>
 

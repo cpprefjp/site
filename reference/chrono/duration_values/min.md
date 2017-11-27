@@ -24,7 +24,7 @@ numeric_limits<Rep>::lowest()
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

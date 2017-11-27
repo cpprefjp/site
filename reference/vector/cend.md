@@ -30,7 +30,7 @@ const_iterator end() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <algorithm>

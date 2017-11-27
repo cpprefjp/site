@@ -28,7 +28,7 @@ const value_type* operator->() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>
@@ -44,7 +44,42 @@ int main()
   for (std::sregex_token_iterator it(std::begin(s), std::end(s), re, { 1, 2 }), end; it != end; ++it) {
     // イテレータから直接参照先オブジェクトのメンバにアクセス
     std::cout << "match range = (" << it->first - std::begin(s) << ", " << it->second - std::begin(s) << "), "
-                 "str = '" << it->str() << '\'' << std::endl;
+                 "str = '" << it->str() << '```
+* std::regex[link /reference/regex/basic_regex.md]
+* str()[link /reference/regex/sub_match/str.md]
+
+### 出力
+```
+match range = (9, 20), str = 'enumerator1'
+match range = (23, 29), str = 'value1'
+match range = (31, 42), str = 'enumerator2'
+match range = (45, 51), str = 'value2'
+match range = (53, 64), str = 'enumerator3'
+match range = (67, 73), str = 'value3'
+```
+
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+| 名前                                       | 説明           | 対応バージョン |
+|--------------------------------------------|----------------|----------------|
+| [`operator*`](op_deref.md)                 | 間接参照       | C++11          |
+| [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
+| [`operator++`](op_increment.md)            | インクリメント | C++11          |
+| [`operator==`](op_equal.md)                | 等値比較       | C++11          |
+' << std::endl;
   }
 }
 ```

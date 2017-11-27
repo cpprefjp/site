@@ -53,7 +53,7 @@ valarray(initializer_list<T> init);   // (11) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

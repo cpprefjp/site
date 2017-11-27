@@ -50,7 +50,7 @@ void max_load_factor(float z);          // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_map>
 

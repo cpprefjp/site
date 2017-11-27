@@ -28,7 +28,7 @@ lock_guard(lock_guard const&) = delete;  // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <mutex>
 

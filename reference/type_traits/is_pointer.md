@@ -27,7 +27,7 @@ namespace std {
 - `nullptr`はポインタ型へ変換できるが，[`nullptr_t`](/reference/cstddef/nullptr_t.md)型はポインタ型ではない。
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 #include <cstddef>
 

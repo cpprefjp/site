@@ -175,7 +175,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_map>
 #include <iterator>

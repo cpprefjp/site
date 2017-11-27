@@ -36,7 +36,7 @@ VC10、GCC 4.6.1では[`generic_category()`](generic_category.md)と[`system_cat
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 

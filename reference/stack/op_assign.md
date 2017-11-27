@@ -26,7 +26,7 @@ stack& operator=(stack&& st);      // (2) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <stack>
 

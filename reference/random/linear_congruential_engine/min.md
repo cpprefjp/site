@@ -22,7 +22,7 @@ static constexpr result_type min() { return c == 0u ? 1u: 0u; }
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

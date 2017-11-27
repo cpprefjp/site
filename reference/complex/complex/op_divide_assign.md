@@ -32,7 +32,7 @@ complex<T>& operator/=(const complex<X>& rhs);	// (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <complex>
 

@@ -17,7 +17,7 @@ static constexpr int radix;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

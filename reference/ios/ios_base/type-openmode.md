@@ -27,7 +27,7 @@ using openmode = T3;
 
 ## 例
 ### stringstream の例
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 
@@ -68,7 +68,7 @@ test1TE2ST3
 	どちらの出力が正しいのかは確認できていない。
 
 ### fstream の例
-```cpp
+```cpp example
 #include <iostream>
 #include <fstream>
 #include <string>

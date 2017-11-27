@@ -57,7 +57,7 @@ thread(thread&&) noexcept;              // (4)
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <thread>
 #include <utility>

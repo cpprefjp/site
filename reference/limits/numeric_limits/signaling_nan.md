@@ -29,7 +29,7 @@ static constexpr T signaling_NaN() noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

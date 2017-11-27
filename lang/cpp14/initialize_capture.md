@@ -69,7 +69,7 @@ auto f = [a = x + 1,            // 式x + 1の結果を変数名aとして、ラ
 
 ## 例
 ### unique_ptrの所有権を移動させる
-```cpp
+```cpp example
 #include <memory>
 #include <utility>
 
@@ -97,7 +97,7 @@ int main()
 
 
 ### promiseの所有権を別なスレッドに移動させる
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 #include <thread>

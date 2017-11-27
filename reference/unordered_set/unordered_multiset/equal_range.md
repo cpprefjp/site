@@ -23,7 +23,7 @@ std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <unordered_set>

@@ -18,7 +18,7 @@ constexpr bool has_value() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <optional>
 

@@ -83,7 +83,7 @@ namespace std {
 ## 例
 
 ### (1)、(2)、(6)、(7) の例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 
@@ -112,7 +112,7 @@ cpprefjp++
 ```
 
 ### (3)～(5)、(8)～(10) の例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 
@@ -144,7 +144,7 @@ cpprefjp++
 ```
 
 ### (11) の例
-```cpp
+```cpp example
 #include <fstream>
 #include <string>
 #include <iostream>

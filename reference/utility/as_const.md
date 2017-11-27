@@ -32,7 +32,7 @@ add_const_t<T>&(t)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 

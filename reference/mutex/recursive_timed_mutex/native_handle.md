@@ -27,7 +27,7 @@ native_handle_type native_handle();
 
 
 ## 例
-```cpp
+```cpp example
 // libstdc++(pthread)環境での、ミューテックスの優先順位上限取得
 #include <iostream>
 #include <mutex>

@@ -29,7 +29,7 @@ recursive_timed_mutex(const recursive_timed_mutex&) = delete; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <mutex>
 
 int main()

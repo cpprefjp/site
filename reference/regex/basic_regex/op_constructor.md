@@ -75,7 +75,7 @@ basic_regex(initializer_list<charT> il,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 #include <string>
@@ -88,7 +88,7 @@ int main()
   const std::regex re1;                                                 // (1) の形式
   std::cout << std::regex_search(s, re1) << std::endl;
 
-  std::regex re4("\\w+");                                               // (4) の形式
+  std::regex re4("\w+");                                               // (4) の形式
   std::cout << std::regex_search(s, re4) << std::endl;
 
   const std::regex re2(re4);                                            // (2) の形式
@@ -97,7 +97,7 @@ int main()
   const std::regex re3(std::move(re4));                                 // (3) の形式
   std::cout << std::regex_search(s, re3) << std::endl;
 
-  const std::regex re5("ABC\\d+", 3, std::regex_constants::icase);      // (5) の形式
+  const std::regex re5("ABC\d+", 3, std::regex_constants::icase);      // (5) の形式
   std::cout << std::regex_search(s, re5) << std::endl;
 
   const std::string restr("ABC");
@@ -108,7 +108,7 @@ int main()
   const std::regex re7(std::begin(p), std::end(p));                     // (7) の形式
   std::cout << std::regex_search(s, re7) << std::endl;
 
-  const std::regex re8{ '\\', 'd', '+' };                               // (8) の形式
+  const std::regex re8{ '\', 'd', '+' };                               // (8) の形式
   std::cout << std::regex_search(s, re8) << std::endl;
 }
 ```

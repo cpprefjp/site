@@ -32,7 +32,7 @@ C++03版の仕様は、以下の2点で問題があった：
 
 
 ## 例
-```cpp
+```cpp example
 #include <algorithm>
 #include <iostream>
 #include <vector>

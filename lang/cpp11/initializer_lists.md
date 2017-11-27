@@ -18,7 +18,7 @@ v2 = {4, 5, 6};
 
 ユーザー定義型に対してリスト初期化を許可するためには、[`<initializer_list>`](/reference/initializer_list.md)ヘッダで定義される[`std::initializer_list`](/reference/initializer_list.md)クラスのオブジェクトをパラメータとして、コンストラクタや代入演算子をオーバーロードする：
 
-```cpp
+```cpp example
 #include <vector>
 #include <initializer_list>
 
@@ -43,7 +43,7 @@ int main()
 
 リスト初期化用のコンストラクタに`explicit`を付けた場合、代入演算子によるリスト初期化は許可せず、代入演算子を伴わないリスト初期化のみが許可される：
 
-```cpp
+```cpp example
 #include <vector>
 #include <initializer_list>
 
@@ -179,7 +179,7 @@ int main()
 ### <a name="overload-resolution" href="#overload-resolution">オーバーロード解決</a>
 - デフォルトコンストラクタと初期化子リストコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
 
-    ```cpp
+    ```cpp example
     #include <iostream>
     #include <initializer_list>
 
@@ -304,7 +304,7 @@ int main()
 ### <a name="evaluation-order" href="#evaluation-order">評価順序</a>
 - 初期化子リストに列挙した要素は、先頭から順番に評価されることが保証される
 
-    ```cpp
+    ```cpp example
     #include <iostream>
     #include <initializer_list>
 

@@ -31,7 +31,7 @@ T operator++(int) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 

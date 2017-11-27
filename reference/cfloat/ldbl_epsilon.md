@@ -25,7 +25,7 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 #include <cfloat>

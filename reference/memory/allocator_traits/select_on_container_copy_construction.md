@@ -22,7 +22,7 @@ static Alloc select_on_container_copy_construction(const Alloc& a);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

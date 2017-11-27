@@ -37,7 +37,7 @@ error: requested alignment is not a positive power of 2
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 struct test {

@@ -32,7 +32,7 @@ size_type copy(charT* s, size_type n, size_type pos = 0) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

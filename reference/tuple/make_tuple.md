@@ -28,7 +28,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <tuple>
 #include <string>
 #include <functional>

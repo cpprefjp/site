@@ -39,7 +39,7 @@ int main() {
 Markdown:
 
 ````
-```cpp
+```cpp example
 #include <iostream>
 
 int x = 10;
@@ -51,7 +51,7 @@ int main() {
 
 結果:
 
-```cpp
+```cpp example
 #include <iostream>
 
 int x = 10;
@@ -67,7 +67,7 @@ int main() {
 Markdown:
 
 ````
-```cpp
+```cpp example
 #include <iostream>
 
 int x = 10;
@@ -81,7 +81,7 @@ int main() {
 
 結果:
 
-```cpp
+```cpp example
 #include <iostream>
 
 int x = 10;
@@ -119,7 +119,7 @@ int main() {
 
 例えば `<vector>`, `<iostream>`, `<algorithm>`, `<iterator>`, `std::vector`, `v.begin()`, `v.end()` `std::copy`, `std::ostream_iterator` 等はグローバル修飾されるため、特に修飾を書かなくてもリンクになります。
 
-```cpp
+```cpp example
 #include <vector>
 #include <iostream>
 #include <algorithm>

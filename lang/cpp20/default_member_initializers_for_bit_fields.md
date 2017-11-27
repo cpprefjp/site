@@ -45,7 +45,7 @@ struct X {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 struct X {

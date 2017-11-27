@@ -19,7 +19,7 @@ constexpr size_t size() const noexcept; // C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

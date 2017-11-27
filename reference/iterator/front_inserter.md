@@ -24,7 +24,7 @@ front_insert_iterator<Container>(x)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 #include <iterator>

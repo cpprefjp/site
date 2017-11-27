@@ -22,7 +22,7 @@ bool operator!=(const allocator<T>&, const allocator<U>&) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

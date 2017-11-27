@@ -26,7 +26,7 @@ return result;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

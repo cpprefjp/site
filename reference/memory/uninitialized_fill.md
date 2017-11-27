@@ -32,7 +32,7 @@ for (; first != last; ++first)
 
 
 ### 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 #include <algorithm>

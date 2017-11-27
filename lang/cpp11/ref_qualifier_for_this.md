@@ -28,7 +28,7 @@ int main()
 
 参照修飾子は、CV修飾子と組み合わせて使用できる：
 
-```cpp
+```cpp example
 #include <iostream>
 
 struct X {
@@ -69,7 +69,7 @@ int main()
 
 
 ## 例
-```cpp
+```cpp example
 #include <vector>
 #include <utility>
 

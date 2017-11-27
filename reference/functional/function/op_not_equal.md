@@ -24,7 +24,7 @@ bool operator!=(nullptr_t, const function<R(ArgTypes...)>& f) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

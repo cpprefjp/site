@@ -26,7 +26,7 @@ void swap(packaged_task& other) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 

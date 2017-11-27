@@ -22,7 +22,7 @@ void swap(thread& x) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 
 int main()

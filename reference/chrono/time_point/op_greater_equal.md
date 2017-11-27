@@ -30,7 +30,7 @@ return lhs.time_since_epoch() < rhs.time_since_poch();
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <chrono>
 

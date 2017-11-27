@@ -32,7 +32,7 @@ thread& operator=(thread&& x) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <cassert>
 

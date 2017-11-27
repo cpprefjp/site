@@ -24,7 +24,7 @@ const T& at(const key_type & x) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <stdexcept>

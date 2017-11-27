@@ -23,7 +23,7 @@ static void construct(Alloc& a, T* p, Args&&... args);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 #include <utility>

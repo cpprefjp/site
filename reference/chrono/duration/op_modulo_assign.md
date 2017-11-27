@@ -21,7 +21,7 @@ duration& operator%=(const duration& rhs);
 `*this`
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

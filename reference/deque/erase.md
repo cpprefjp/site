@@ -32,7 +32,7 @@ iterator erase(const_iterator first, const_iterator last); // (2) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 

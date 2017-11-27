@@ -34,7 +34,7 @@ inline namespace string_literals {
 
 
 ## 例
-```cpp
+```cpp example
 #include <string>
 
 int main()

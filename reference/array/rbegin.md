@@ -28,7 +28,7 @@ const_reverse_iterator rbegin() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <array>
 

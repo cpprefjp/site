@@ -24,7 +24,7 @@ reverse_iterator& operator=(const reverse_iterator<U>& u);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <iterator>

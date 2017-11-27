@@ -19,7 +19,7 @@ constexpr duration time_since_epoch() const; // C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

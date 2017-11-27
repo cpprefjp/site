@@ -64,7 +64,7 @@ basic_istream<CharT, Traits>& get(basic_streambuf<char_type, Traits>& sb, char_t
 - `basic_istream<CharT, Traits>&`を返すものについては`*this`。
 
 ## 例（文字）
-```cpp
+```cpp example
 #include <iostream>
 #include <locale>
 #include <string>

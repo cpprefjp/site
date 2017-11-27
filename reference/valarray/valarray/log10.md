@@ -26,7 +26,7 @@ return va.apply(static_cast<T(*)(T)>(std::log10));
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

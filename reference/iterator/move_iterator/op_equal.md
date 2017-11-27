@@ -20,7 +20,7 @@ namespace std {
 `return x.`[`base`](base.md)`() == y.`[`base`](base.md)`();`
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <memory>

@@ -22,7 +22,7 @@ void reset() noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <memory>
 

@@ -22,7 +22,7 @@ duration& operator/=(const rep& rhs);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

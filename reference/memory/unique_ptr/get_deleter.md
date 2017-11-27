@@ -19,7 +19,7 @@ const deleter_type& get_deleter() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

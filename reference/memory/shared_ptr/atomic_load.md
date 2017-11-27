@@ -32,7 +32,7 @@ atomic_load_explicit(p, memory_order_seq_cst)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

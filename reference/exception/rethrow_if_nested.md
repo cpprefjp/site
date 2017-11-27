@@ -33,7 +33,7 @@ dynamic_cast<const nested_exception&>(e).rethrow_nested()
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <exception>
 #include <memory>

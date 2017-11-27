@@ -24,7 +24,7 @@ explicit uniform_int_distribution(const param_type& parm);                     /
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

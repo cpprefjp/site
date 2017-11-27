@@ -31,7 +31,7 @@ for (; n--; ++first)
 
 
 ### 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 #include <algorithm>

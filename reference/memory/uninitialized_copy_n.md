@@ -34,7 +34,7 @@ for ( ; n > 0; ++result, ++first, --n) {
 
 
 ### 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

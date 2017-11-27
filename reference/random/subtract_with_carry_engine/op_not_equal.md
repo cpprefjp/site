@@ -26,7 +26,7 @@ O(状態シーケンスのサイズ)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

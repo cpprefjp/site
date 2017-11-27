@@ -17,7 +17,7 @@ namespace chrono {
 分単位を表現する[`duration`](duration.md)の別名
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

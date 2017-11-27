@@ -79,7 +79,7 @@ $$ p(x \mid a, b) = \frac{1}{b} \cdot \exp \left( \frac{a-x}{b} - \exp \left( \f
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 #include <fstream>
 

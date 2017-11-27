@@ -22,13 +22,13 @@ char_type widen(char c) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
 {
   const wchar_t c1 = std::wcout.widen('0');
-  const wchar_t c2 = std::wcout.widen('\\');
+  const wchar_t c2 = std::wcout.widen('\');
   std::wcout << c1 << L", " << c2 << L'\n';
 }
 ```

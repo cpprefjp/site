@@ -33,7 +33,7 @@ void make_ready_at_thread_exit(ArgTypes... args);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>

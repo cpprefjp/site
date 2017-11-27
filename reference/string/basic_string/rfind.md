@@ -58,7 +58,7 @@ size_type rfind(charT c, size_type pos = npos) const;                          /
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

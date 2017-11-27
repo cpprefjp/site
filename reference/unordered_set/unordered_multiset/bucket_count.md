@@ -26,7 +26,7 @@ size_type bucket_count() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_set>
 

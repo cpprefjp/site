@@ -22,7 +22,7 @@ allocator_type get_allocator() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <unordered_map>
 
 int main()

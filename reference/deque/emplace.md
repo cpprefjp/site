@@ -35,7 +35,7 @@ iterator emplace(const_iterator position, Args&&... args);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 #include <utility>

@@ -39,7 +39,7 @@ pm->try_lock_shared();
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <system_error>
 #include <shared_mutex>

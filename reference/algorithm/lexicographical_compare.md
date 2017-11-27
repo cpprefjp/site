@@ -46,7 +46,7 @@ return first1 == last1 && first2 != last2;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <algorithm>

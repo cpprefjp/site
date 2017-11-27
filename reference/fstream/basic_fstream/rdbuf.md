@@ -21,7 +21,7 @@ basic_filebuf<CharT, Traits>* rdbuf() const;
 - `*this`が内部で保有しているストリームバッファ（[`basic_filebuf`](../basic_filebuf.md)）オブジェクトへのポインタ。
 
 ## 例
-```cpp
+```cpp example
 #include <istream> // std::iostream用
 #include <fstream>
 

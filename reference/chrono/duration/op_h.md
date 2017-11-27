@@ -40,7 +40,7 @@ using namespace literals::chrono_literals;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

@@ -31,7 +31,7 @@ A<X>Y> b;   // コンパイルエラー
 
 ただしこの仕様により、C++03までの以下のようなプログラムの動作が変更となる：
 
-```cpp
+```cpp example
 #include <iostream>
 
 template<int I> struct X {
@@ -66,7 +66,7 @@ C++11での出力：
 
 
 ## 例
-```cpp
+```cpp example
 #include <vector>
 #include <string>
 

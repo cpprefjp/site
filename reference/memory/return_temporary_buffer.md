@@ -41,7 +41,7 @@ void return_temporary_buffer(T* p);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

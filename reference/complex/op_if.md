@@ -27,7 +27,7 @@ complex<float>{0.0f, static_cast<float>(d)}
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <complex>
 

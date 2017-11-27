@@ -33,7 +33,7 @@ char_type fill(char_type fillch);       // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 

@@ -27,7 +27,7 @@ return move_iterator<Iterator>(i);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <memory>

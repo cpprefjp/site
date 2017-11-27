@@ -32,7 +32,7 @@ const_reference operator[](size_type n) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 

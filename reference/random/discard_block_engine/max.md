@@ -22,7 +22,7 @@ static constexpr result_type max() { return Engine::max(); }
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

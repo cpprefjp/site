@@ -35,7 +35,7 @@ error_code(ErrorCodeEnum e) noexcept;                    // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 

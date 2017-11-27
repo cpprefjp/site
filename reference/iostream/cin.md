@@ -16,7 +16,7 @@ namespace std {
 その他の状態は、[`basic_ios`](../ios/basic_ios.md)`<char>::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

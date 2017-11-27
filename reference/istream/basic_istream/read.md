@@ -28,7 +28,7 @@ basic_istream<CharT, Traits>& read(char_type* s, streamsize n);
 `*this`
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main() {

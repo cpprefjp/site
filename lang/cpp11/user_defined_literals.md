@@ -301,7 +301,7 @@ auto t4 =  "Bjarne "   U"Stroustrup"_t;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

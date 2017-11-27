@@ -22,7 +22,7 @@ static constexpr int_type to_int_type(char_type c) noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

@@ -41,7 +41,7 @@ pair<const_iterator, const_iterator>
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <set>

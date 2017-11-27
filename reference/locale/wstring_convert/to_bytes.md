@@ -40,7 +40,7 @@ byte_string to_bytes(const Elem* first,
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <string>
 #include <locale>

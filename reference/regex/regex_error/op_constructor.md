@@ -15,7 +15,7 @@ explicit regex_error(regex_constants::error_type ecode);
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 
 int main()

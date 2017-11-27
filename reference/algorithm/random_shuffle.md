@@ -61,7 +61,7 @@ C++14では、C互換ライブラリの乱数生成関数である`std::rand()`�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <algorithm>

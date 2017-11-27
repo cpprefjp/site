@@ -26,7 +26,7 @@ allocator_type get_allocator() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 #include <unordered_set>

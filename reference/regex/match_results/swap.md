@@ -22,7 +22,7 @@ void swap(const match_results& that);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 

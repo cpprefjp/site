@@ -44,7 +44,7 @@ namepsace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <cstdlib>
 #include <memory>
 #include <iostream>

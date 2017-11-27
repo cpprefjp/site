@@ -23,7 +23,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <string>
 #include <type_traits>
 

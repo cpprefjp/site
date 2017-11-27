@@ -32,7 +32,7 @@ n番目の要素を参照する。
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <array>
 

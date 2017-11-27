@@ -24,7 +24,7 @@ using seekdir = T4;
 
 ## 例
 ### stringstream の例
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 
@@ -63,7 +63,7 @@ ABCrefjpYZ
 ```
 
 ### fstream の例
-```cpp
+```cpp example
 #include <iostream>
 #include <fstream>
 #include <string>

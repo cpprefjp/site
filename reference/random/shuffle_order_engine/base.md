@@ -18,7 +18,7 @@ const Engine& base() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

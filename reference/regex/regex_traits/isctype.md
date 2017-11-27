@@ -19,7 +19,7 @@ bool isctype(char_type c, char_class_type f) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 #include <string>

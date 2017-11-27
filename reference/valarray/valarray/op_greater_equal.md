@@ -68,7 +68,7 @@ return result;
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <valarray>
 #include <algorithm>

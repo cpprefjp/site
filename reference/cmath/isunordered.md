@@ -34,7 +34,7 @@ NaNに対する順序付けはされないため、`x`と`y`のいずれかがNa
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cmath>
 #include <limits>

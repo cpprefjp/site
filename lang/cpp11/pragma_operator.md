@@ -27,7 +27,7 @@ _Pragma (文字列リテラル)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 // OpenMPの言語拡張を使用して、for文を並列実行する

@@ -20,7 +20,7 @@ type_index(const type_info& rhs) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <typeindex>
 

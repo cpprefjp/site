@@ -141,7 +141,7 @@ namespace std {
 `*this`
 
 ## 例（数値）
-```cpp
+```cpp example
 #include <iostream>
 
 int main() {
@@ -165,7 +165,7 @@ int main() {
 ```
 
 ## 例（文字列）
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 

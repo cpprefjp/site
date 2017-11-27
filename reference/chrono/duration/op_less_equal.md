@@ -30,7 +30,7 @@ return ct(lhs).count() <= ct(rhs).count();
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <chrono>
 

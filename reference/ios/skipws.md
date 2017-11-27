@@ -19,7 +19,7 @@ namespace std {
 実引数のstrオブジェクト。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 

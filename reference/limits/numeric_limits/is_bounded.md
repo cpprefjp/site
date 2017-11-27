@@ -19,7 +19,7 @@ static constexpr bool is_bounded;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

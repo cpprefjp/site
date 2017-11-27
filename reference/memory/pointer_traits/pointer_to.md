@@ -20,7 +20,7 @@ static pointer pointer_traits<T*>::pointer_to(element_type& r) noexcept; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <iostream>
 

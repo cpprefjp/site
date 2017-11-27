@@ -28,7 +28,7 @@ atomic(const atomic&) = delete;       // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 

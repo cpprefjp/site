@@ -75,7 +75,7 @@ basic_regex& assign(initializer_list<charT> il,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 #include <string>
@@ -86,20 +86,20 @@ int main()
   std::regex re;
   std::cout << std::boolalpha;
 
-  const std::regex re1("\\w+");
+  const std::regex re1("\w+");
   re = re1;                                             // (1) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = std::regex("\\d+");                              // (2) の形式
+  re = std::regex("\d+");                              // (2) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = "\\w+";                                          // (3) の形式
+  re = "\w+";                                          // (3) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = { '\\', 'd', '+' };                              // (4) の形式
+  re = { '\', 'd', '+' };                              // (4) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 
-  const std::string p = "\\w+";
+  const std::string p = "\w+";
   re = p;                                               // (5) の形式
   std::cout << std::regex_search(s, re) << std::endl;
 }

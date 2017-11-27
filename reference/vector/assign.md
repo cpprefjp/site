@@ -38,7 +38,7 @@ void assign(initializer_list<T>);                     // (3) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <array>
 #include <vector>
 #include <iostream>

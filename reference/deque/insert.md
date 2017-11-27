@@ -63,7 +63,7 @@ iterator insert(const_iterator position, initializer_list<T> init); // (5) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 

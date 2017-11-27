@@ -21,7 +21,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <stack>
 #include <type_traits>

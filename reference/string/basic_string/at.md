@@ -22,7 +22,7 @@ reference at(size_type pos);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <stdexcept>

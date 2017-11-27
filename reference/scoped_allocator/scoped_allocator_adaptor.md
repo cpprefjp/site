@@ -99,7 +99,7 @@ namespace std {
 
 
 ## 例1 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <forward_list>
@@ -177,7 +177,7 @@ int main()
 ```
 
 ## 例2 全ての要素にアロケータオブジェクトの状態を伝搬させる
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <forward_list>

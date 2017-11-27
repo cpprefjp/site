@@ -79,7 +79,7 @@ set(initializer_list<value_type> init,
     これは、イテレータ範囲 `[first, last)` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
     具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
-    ```cpp
+    ```cpp example
     #include <list>
     #include <set>
     #include <scoped_allocator>
@@ -103,7 +103,7 @@ set(initializer_list<value_type> init,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <set>
 

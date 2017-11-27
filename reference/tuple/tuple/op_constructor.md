@@ -104,7 +104,7 @@ tuple(allocator_arg_t, const Alloc& a,
 
 
 ## 例
-```cpp
+```cpp example
 #include <tuple>
 #include <string>
 #include <utility>

@@ -32,7 +32,7 @@ mutex(const mutex&) = delete; // (2)
 以下の例は`constexpr`が付加されていない場合にはおそらく動作しない。
 
 ## 例
-```cpp
+```cpp example
 // file a.cpp
 #include <iostream>
 #include <mutex>

@@ -25,7 +25,7 @@ basic_ostream<CharT, Traits>& flush();
 本関数は、直接呼ぶのではなく、同名のマニピュレータ [`flush`](../flush.md)、あるいは改行を伴うマニピュレータ [`endl`](../endl.md) から間接的に呼び出されるのが一般的である。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main() {

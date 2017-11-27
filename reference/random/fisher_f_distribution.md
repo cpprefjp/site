@@ -77,7 +77,7 @@ $$ p(x \mid m, n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \cdot \le
 
 
 ## 例
-```cpp
+```cpp example
 #include <fstream>
 #include <random>
 

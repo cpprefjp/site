@@ -8,7 +8,7 @@
 
 しかしC++03において、SFINAEによって「型`T`に関する任意の式が有効かどうかを判定できるか」は仕様として曖昧だった。C++11ではこの曖昧さが取り除かれ、任意の式が有効かどうかでSFINAEが処理されることとなった。
 
-```cpp
+```cpp example
 #include <iostream>
 
 template <class T1, class T2>
@@ -142,7 +142,7 @@ int i2 = f<int,1>(0); // 1からint*に変換できない
 
 ## 例
 ### is_addableのメタ関数版
-```cpp
+```cpp example
 #include <utility>
 #include <type_traits>
 
@@ -184,7 +184,7 @@ int main()
 
 
 ### 型が完全型かを判定するメタ関数is_complete_type
-```cpp
+```cpp example
 #include <type_traits>
 
 struct is_complete_type_impl {
@@ -221,7 +221,7 @@ int main()
 
 
 ### 関数が特定の引数で呼び出し可能かを判定するメタ関数is_callable
-```cpp
+```cpp example
 #include <type_traits>
 #include <utility>
 

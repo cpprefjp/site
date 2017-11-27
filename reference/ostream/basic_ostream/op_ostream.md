@@ -92,7 +92,7 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main() {

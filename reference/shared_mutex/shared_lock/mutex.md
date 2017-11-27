@@ -22,7 +22,7 @@ mutex_type* mutex() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <shared_mutex>
 
 int main()

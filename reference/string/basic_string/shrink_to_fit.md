@@ -29,7 +29,7 @@ void shrink_to_fit();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

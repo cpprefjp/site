@@ -44,7 +44,7 @@ void swap(unordered_map& v);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_map>
 #include <algorithm>

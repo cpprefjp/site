@@ -78,7 +78,7 @@ C++17から、`void`の特殊化版が非推奨となった。代わりに[`std:
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <iostream>
 #include <algorithm>

@@ -33,7 +33,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <system_error>
 
 enum class user_defined_error {

@@ -32,7 +32,7 @@ template <class Alloc> queue(queue&& que, const Alloc& alloc);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <queue>
 #include <deque>

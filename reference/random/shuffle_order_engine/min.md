@@ -22,7 +22,7 @@ static constexpr result_type min() { return Engine::min(); }
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

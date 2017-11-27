@@ -29,7 +29,7 @@ return lhs.time_since_epoch() < rhs.time_since_poch();
 * time_since_spoch[link /reference/chrono/time_point/time_since_epoch.md]
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <chrono>
 

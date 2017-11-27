@@ -72,7 +72,7 @@ basic_string& assign(initializer_list<charT>);     // (8) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

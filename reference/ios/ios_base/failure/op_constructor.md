@@ -26,7 +26,7 @@ explicit failure(const char* msg, const error_code& ec = io_errc::stream);      
 
 ## 例
 ### C++03 までの例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
@@ -46,7 +46,7 @@ error message
 
 
 ### C++11 からの例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 

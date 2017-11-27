@@ -23,7 +23,7 @@ constexpr const E* end() const noexcept; // C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <initializer_list>
 #include <algorithm>

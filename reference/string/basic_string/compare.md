@@ -48,7 +48,7 @@ int compare(size_type pos1, size_type n1,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

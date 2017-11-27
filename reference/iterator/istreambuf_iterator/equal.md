@@ -17,7 +17,7 @@ bool equal(const istreambuf_iterator& b) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <sstream>

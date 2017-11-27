@@ -28,7 +28,7 @@ il.end()
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <initializer_list>
 #include <algorithm>

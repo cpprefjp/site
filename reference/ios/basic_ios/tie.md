@@ -45,7 +45,7 @@ basic_ostream<CharT, Traits>* tie(basic_ostream<CharT, Traits>* tiestr);    // (
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <fstream>
 #include <string>

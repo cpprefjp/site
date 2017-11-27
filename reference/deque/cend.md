@@ -30,7 +30,7 @@ const_iterator cend() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 #include <algorithm>

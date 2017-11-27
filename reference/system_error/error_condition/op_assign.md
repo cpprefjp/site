@@ -36,7 +36,7 @@ error_condition& operator=(ErrorConditionEnum e) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 

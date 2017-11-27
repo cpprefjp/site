@@ -36,7 +36,7 @@ namespace std {
         - 参照修飾されている型
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 #include <string>
 

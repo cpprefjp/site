@@ -15,7 +15,7 @@ type_info(const type_info& rhs) = delete;
 
 
 ## 例
-```cpp
+```cpp example
 #include <typeinfo>
  
 int main()

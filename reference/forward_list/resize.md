@@ -29,7 +29,7 @@ void resize(size_type sz, const value_type& c);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 #include <algorithm>

@@ -24,7 +24,7 @@ void exceptions(iostate except);    // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cstddef>
 

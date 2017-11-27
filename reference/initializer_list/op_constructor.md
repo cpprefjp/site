@@ -15,7 +15,7 @@ constexpr initializer_list() noexcept; // C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <initializer_list>
 

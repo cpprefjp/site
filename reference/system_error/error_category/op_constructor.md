@@ -16,7 +16,7 @@ error_category(const error_category&) = delete; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 #include <string>

@@ -38,7 +38,7 @@ bool try_lock_shared_until(const chrono::time_point<Clock, Duration>& abs_time);
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <shared_mutex>
 

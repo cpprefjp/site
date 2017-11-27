@@ -27,7 +27,7 @@ mersenne_twister_engine(mersenne_twister_engine&& e) = default;      // (4)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <array>

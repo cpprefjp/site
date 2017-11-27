@@ -26,7 +26,7 @@ C99の`DECIMAL_DIG`は、サポートされている浮動小数点数型の`max
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 #include <sstream>

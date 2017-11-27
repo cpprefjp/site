@@ -67,7 +67,7 @@ sizeof(uint_fast32_t)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

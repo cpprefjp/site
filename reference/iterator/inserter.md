@@ -24,7 +24,7 @@ insert_iterator<Container>(x, i)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <set>
 #include <iterator>

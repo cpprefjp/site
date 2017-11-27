@@ -6,7 +6,7 @@ C++17では、[変数テンプレート](/lang/cpp14/variable_templates.md)の�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 // x変数テンプレートは、テンプレートパラメータTの

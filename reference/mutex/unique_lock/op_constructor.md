@@ -66,7 +66,7 @@ unique_lock(unique_lock&& u) noexcept;                            // (9)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <mutex>
 #include <chrono>

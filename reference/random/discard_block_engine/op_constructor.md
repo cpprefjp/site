@@ -27,7 +27,7 @@ discard_block_engine(discard_block_engine&& e) = default;      // (7)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <array>

@@ -26,7 +26,7 @@ R operator()(ArgTypes... args) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

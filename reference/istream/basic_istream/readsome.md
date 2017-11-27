@@ -25,7 +25,7 @@ streamsize readsome(char_type* s, streamsize n);
 `s`に読み込まれた文字数。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <sstream>

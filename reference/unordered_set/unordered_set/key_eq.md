@@ -32,7 +32,7 @@ key_equal key_eq() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <unordered_set>
 

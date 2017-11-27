@@ -26,7 +26,7 @@ namespace std {
 | `virtual const char* what() const noexcept;`             | エラー内容を取得する。文字列`"bad_weak_ptr"`が返される | C++11 |
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <iostream>
 

@@ -28,7 +28,7 @@ namespace std {
 終了ハンドラは、呼び出し元に戻らずに異常終了すべきと規定されている。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <exception>
 

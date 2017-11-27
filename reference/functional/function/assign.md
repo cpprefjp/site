@@ -33,7 +33,7 @@ function(allocator_arg, alloc, std::forward<F>(f)).swap(*this)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

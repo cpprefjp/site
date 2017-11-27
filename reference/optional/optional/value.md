@@ -31,7 +31,7 @@ constexpr const T&& value() const&&; // (4)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <optional>
 

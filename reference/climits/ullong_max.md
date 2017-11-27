@@ -16,7 +16,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <climits>
 #include <iostream>
 

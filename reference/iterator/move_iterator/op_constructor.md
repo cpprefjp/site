@@ -32,7 +32,7 @@ move_iterator(move_iterator&&) noexcept = default;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <memory>

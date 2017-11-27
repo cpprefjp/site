@@ -30,7 +30,7 @@ void unlock_shared();
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <shared_mutex>
 

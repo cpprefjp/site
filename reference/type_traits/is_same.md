@@ -23,7 +23,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 using same = std::is_same<int, int>;

@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::is_same<std::conditional<true, int, char>::type, int>::value, "select int");

@@ -107,7 +107,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>
@@ -116,11 +116,39 @@ namespace std {
 int main()
 {
   std::string s("a01da123456da999d");
-  std::regex re("\\d+");
+  std::regex re("\d+");
 
   for (std::sregex_iterator it(std::begin(s), std::end(s), re), end; it != end; ++it) {
     std::match_results&& m = *it;
-    std::cout << "position = " << m.position() << ", length = " << m.length() << ", str = '" << m.str() << '\'' << std::endl;
+    std::cout << "position = " << m.position() << ", length = " << m.length() << ", str = '" << m.str() << '```
+* std::sregex_iterator[color ff0000]
+* std::regex[link basic_regex.md]
+* m.position()[link match_results/position.md]
+* m.length()[link match_results/length.md]
+* m.str()[link match_results/length.md]
+
+### 出力
+```
+position = 1, length = 2, str = '01'
+position = 5, length = 6, str = '123456'
+position = 13, length = 3, str = '999'
+```
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): ?
+
+ただし、Clang と GCC の 4.9.1 までのバージョンには、長さ 0 の文字列にマッチした時の挙動に問題があるため、注意が必要。
+（特に、Clang は長さ 0 の文字列にマッチするとそこから先に進まなくなってしまう）
+' << std::endl;
   }
 }
 ```

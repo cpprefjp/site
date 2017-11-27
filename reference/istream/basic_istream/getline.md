@@ -31,7 +31,7 @@ basic_istream<CharT, Traits>& getline(char_type* s, streamsize n, char_type deli
 - 仮引数`is`。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main() {

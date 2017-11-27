@@ -58,7 +58,7 @@ iterator insert(const_iterator position, initializer_list<T> il); // (5) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>

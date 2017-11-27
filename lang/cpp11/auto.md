@@ -103,7 +103,7 @@ void f(std::initializer_list<U> p);
 
 ## 例
 ### 例１（名前空間スコープ、new 式の型名指定部、for 文の初期化文、if 文の条件部）
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 #include <initializer_list>
@@ -144,7 +144,7 @@ int main()
 ```
 
 ### 例２（ブロックスコープ、for 文の初期化文、および、条件部）
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
@@ -167,7 +167,7 @@ C, +, +,
 ```
 
 ### 例３（範囲 for 文の宣言部）
-```cpp
+```cpp example
 #include <iostream>
 #include <initializer_list>
 
@@ -191,7 +191,7 @@ int main()
 
 ### 例４（クラス定義内の静的メンバ、switch 文の条件部）
 
-```cpp
+```cpp example
 #include <iostream>
 
 // リテラル型の定義

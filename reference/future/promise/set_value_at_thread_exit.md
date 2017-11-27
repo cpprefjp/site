@@ -45,7 +45,7 @@ void promise<void>::set_value_at_thread_exit();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>
@@ -92,7 +92,7 @@ int main()
 ```
 
 ## 例：`promise<R&>`
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>
@@ -155,7 +155,7 @@ int main()
 ```
 
 ## 例：`promise<void>`
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>

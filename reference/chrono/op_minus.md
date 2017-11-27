@@ -71,7 +71,7 @@ return lhs.time_since_epoch() - rhs.time_since_epoch();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

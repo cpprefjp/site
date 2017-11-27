@@ -23,7 +23,7 @@ exception_ptr nested_ptr() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <exception>
 #include <iostream>
 

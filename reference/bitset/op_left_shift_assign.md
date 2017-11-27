@@ -25,7 +25,7 @@ bitset<N>& operator<<=(size_t pos) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

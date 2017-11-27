@@ -40,7 +40,7 @@ auto 関数名(パラメータリスト) CV修飾 opt 参照修飾 opt 例外仕
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 // 関数オブジェクトfを呼び出した結果の型を、関数g()の戻り値型にする

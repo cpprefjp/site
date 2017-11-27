@@ -32,7 +32,7 @@ void remove(const T& value);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 

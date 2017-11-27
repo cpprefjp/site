@@ -72,7 +72,7 @@ constexpr complex(const complex<double>& other);								// (3)' C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <complex>
 

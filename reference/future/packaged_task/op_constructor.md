@@ -52,7 +52,7 @@ packaged_task(packaged_task&& rhs) noexcept;       // (5)
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <future>
 #include <utility>

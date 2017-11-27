@@ -35,7 +35,7 @@ random_device(const random_device&) = delete;                         // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <random>
 
 int main()

@@ -103,7 +103,7 @@ void f()
 
 `if constexpr`文の条件式内は実体化が起きる。したがって実体化するとコンパイルエラーになるものは書いてはいけない。
 
-```cpp
+```cpp example
 #include <type_traits>
 #include <iostream>
 

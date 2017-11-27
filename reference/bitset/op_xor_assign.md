@@ -26,7 +26,7 @@ bitset<N>& operator^=(const bitset<N>& rhs) noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

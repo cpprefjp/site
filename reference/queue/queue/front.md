@@ -24,7 +24,7 @@ const value_type& front() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <queue>
 

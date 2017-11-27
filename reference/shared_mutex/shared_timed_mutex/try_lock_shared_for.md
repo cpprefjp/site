@@ -38,7 +38,7 @@ bool try_lock_shared_for(const chrono::duration<Rep, Period>& rel_time);
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <shared_mutex>
 

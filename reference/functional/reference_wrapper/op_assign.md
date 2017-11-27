@@ -21,7 +21,7 @@ reference_wrapper& operator=(const reference_wrapper<T>& x) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

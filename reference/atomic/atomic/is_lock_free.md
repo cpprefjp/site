@@ -21,7 +21,7 @@ bool is_lock_free() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 

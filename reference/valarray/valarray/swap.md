@@ -22,7 +22,7 @@ void swap(valarray& v) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

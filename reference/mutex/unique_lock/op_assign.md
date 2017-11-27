@@ -29,7 +29,7 @@ unique_lock& operator=(unique_lock&& u);             // (2) C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <mutex>
 #include <utility>
 

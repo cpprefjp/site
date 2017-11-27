@@ -26,7 +26,7 @@ noexcept修飾はC++11で追加された。
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <string>
 

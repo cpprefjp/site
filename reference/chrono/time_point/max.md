@@ -21,7 +21,7 @@ time_point(duration::max())
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

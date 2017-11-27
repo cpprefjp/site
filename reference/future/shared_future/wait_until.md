@@ -31,7 +31,7 @@ future_status wait_until(const chrono::time_point<Clock, Duration>& abs_time) co
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>

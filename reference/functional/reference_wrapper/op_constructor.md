@@ -21,7 +21,7 @@ reference_wrapper(const reference_wrapper& x) noexcept; // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

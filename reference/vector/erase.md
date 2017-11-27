@@ -39,7 +39,7 @@ iterator erase(const_iterator first, const_iterator last); // (2) C++11
 コピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入演算子が例外を投げる場合を除いて、この関数は例外を投げない。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 

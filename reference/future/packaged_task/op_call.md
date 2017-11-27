@@ -31,7 +31,7 @@ void operator()(ArgTypes... args);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <stdexcept>

@@ -35,7 +35,7 @@ void sort(Compare comp); // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 

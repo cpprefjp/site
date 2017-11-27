@@ -52,7 +52,7 @@ stack(stack&& st, const Allocator& alloc);            // (10) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 #include <vector>

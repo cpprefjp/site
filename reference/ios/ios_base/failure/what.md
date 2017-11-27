@@ -22,7 +22,7 @@ virtual const char* what() const throw();                   // C++03 まで
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

@@ -26,7 +26,7 @@ typename result_of<T&(ArgTypes&&...)>::type operator ()(ArgTypes&&... args) cons
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <functional>
 

@@ -37,7 +37,7 @@ Unicode以外のShift_JISやBig5といった文字コードの利用が急激に
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <codecvt>

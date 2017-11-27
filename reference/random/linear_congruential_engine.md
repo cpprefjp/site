@@ -98,7 +98,7 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

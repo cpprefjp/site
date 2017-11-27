@@ -41,7 +41,7 @@ return cd(cd(d).count() * s);
 * count[link /reference/chrono/duration/count.md]
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <chrono>
 

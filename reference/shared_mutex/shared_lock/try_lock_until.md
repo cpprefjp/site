@@ -41,7 +41,7 @@ pm->try_lock_until_shared(abs_time);
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <system_error>
 #include <chrono>

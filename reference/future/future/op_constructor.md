@@ -25,7 +25,7 @@ future(const future& rhs) = delete; // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <future>
 
 int main()

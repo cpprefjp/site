@@ -31,7 +31,7 @@ bool owner_before(const weak_ptr<U>& b) const noexcept;   // (2) C++17
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <memory>
 

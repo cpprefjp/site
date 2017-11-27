@@ -25,7 +25,7 @@ return count() == size();
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <bitset>
 

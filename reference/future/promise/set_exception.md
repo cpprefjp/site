@@ -30,7 +30,7 @@ void set_exception(exception_ptr p);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>

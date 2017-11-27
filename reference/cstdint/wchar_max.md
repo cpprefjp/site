@@ -13,7 +13,7 @@
 `wchar_t`が符号あり整数型として定義される場合、このマクロの値は127以上となる。そうでない場合、このマクロの値は255以上となる。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cstdint>
 

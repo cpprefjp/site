@@ -50,7 +50,7 @@ weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++14
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <iostream>
 #include <memory>

@@ -28,7 +28,7 @@ promise(const promise& rhs) = delete;         // (4)
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 #include <future>
 

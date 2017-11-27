@@ -41,7 +41,7 @@ pm->try_lock_for_shared(rel_time);
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <system_error>
 #include <chrono>

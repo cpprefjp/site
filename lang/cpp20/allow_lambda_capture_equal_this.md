@@ -8,7 +8,7 @@ C++20では、`[=, this]`のキャプチャ指定を許可する。これは、�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 struct X {

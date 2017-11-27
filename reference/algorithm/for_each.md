@@ -40,7 +40,7 @@ namespace std {
 
 
 ## 例(C++03バージョン)
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -90,7 +90,7 @@ int main() {
 
 
 ## 例(C++11バージョン)
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <algorithm>

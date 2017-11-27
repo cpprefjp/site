@@ -24,7 +24,7 @@ reverse_iterator<Iterator>(i)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <algorithm>

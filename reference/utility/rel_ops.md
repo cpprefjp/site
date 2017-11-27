@@ -44,7 +44,7 @@ namespace rel_ops {
 
 
 ## 例
-```cpp
+```cpp example
 #include <utility>
 
 struct X {

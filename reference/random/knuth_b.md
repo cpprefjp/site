@@ -56,7 +56,7 @@ Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volu
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 

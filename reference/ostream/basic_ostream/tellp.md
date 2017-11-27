@@ -20,7 +20,7 @@ pos_type tellp();
 C++11 から、本関数の処理開始時に [`sentry`](sentry.md) オブジェクトを構築するようになった。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 

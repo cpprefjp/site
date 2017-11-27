@@ -20,7 +20,7 @@ pointer allocate(size_type n, const_void_pointer hint); // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>

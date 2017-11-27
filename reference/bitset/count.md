@@ -19,7 +19,7 @@ size_t count() const noexcept; // C++11
 
 ## 例
 ### 基本操作
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 
@@ -37,7 +37,7 @@ int main()
 ```
 
 ### 値が2の乗数かを判定する
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 #include <cstdint>

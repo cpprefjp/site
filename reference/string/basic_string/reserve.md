@@ -26,7 +26,7 @@ void reserve(size_type res_arg = 0);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

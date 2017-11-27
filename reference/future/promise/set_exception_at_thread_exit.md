@@ -30,7 +30,7 @@ void set_exception_at_thread_exit(exception_ptr p);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>

@@ -73,7 +73,7 @@ enum class [[maybe_unused]] E {
 
 
 ## 例
-```cpp
+```cpp example
 #define NDEBUG
 #include <cassert>
 

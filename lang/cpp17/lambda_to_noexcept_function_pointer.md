@@ -12,7 +12,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

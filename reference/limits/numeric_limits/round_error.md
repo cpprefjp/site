@@ -17,7 +17,7 @@ static constexpr T round_error() noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

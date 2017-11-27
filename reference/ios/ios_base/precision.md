@@ -32,7 +32,7 @@ streamsize presision(streamsize prec);              // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 

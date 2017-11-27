@@ -24,7 +24,7 @@ static constexpr float_denorm_style has_denorm;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 #include <stdexcept>

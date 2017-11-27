@@ -150,7 +150,7 @@ namespace std {
 
 
 ## 例 (C++11)
-```cpp
+```cpp example
 #include <iostream>
 #include <cassert>
 #include <vector>
@@ -227,7 +227,7 @@ public:
 
 
 ### `vector<bool>`の基本操作：
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <algorithm>

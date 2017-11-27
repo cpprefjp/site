@@ -24,7 +24,7 @@ const_iterator cend() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <set>
 #include <algorithm>

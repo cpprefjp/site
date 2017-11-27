@@ -33,7 +33,7 @@ element_type& operator[](ptrdiff_t i) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <memory>
 
 int main()

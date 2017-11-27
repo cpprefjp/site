@@ -19,7 +19,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <cstddef>
 #include <iostream>
 

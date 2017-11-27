@@ -45,7 +45,7 @@ decltype(s)::U l{};                     // l は S::U 型（つまり int 型）
 
 ## 例
 ### 関数の戻り型での使用例
-```cpp
+```cpp example
 #include <iostream>
 
 template<typename T, typename U>
@@ -70,7 +70,7 @@ int main()
 ```
 
 ### 変数の型としての使用例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
@@ -91,7 +91,7 @@ int main()
 ```
 
 ### ネストした名前の指定子としての使用例
-```cpp
+```cpp example
 #include <iostream>
 
 struct S {
@@ -113,7 +113,7 @@ int main()
 ```
 
 ### new 式の型、キャスト、および、明示的デストラクタ呼び出しの一部としての使用例
-```cpp
+```cpp example
 #include <iostream>
 
 struct S {
@@ -152,7 +152,7 @@ deallocate
 ```
 
 ### 変換演算子の型としての使用例
-```cpp
+```cpp example
 #include <iostream>
 
 struct S {
@@ -175,7 +175,7 @@ int main()
 ```
 
 ### template 型引数としての使用例（下記の例は C++14 以降でのみコンパイル可能）
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 

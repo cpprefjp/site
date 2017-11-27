@@ -26,7 +26,7 @@ c.emplace_back(std::forward<Args>(args)...);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <stack>
 #include <string>

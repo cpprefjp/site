@@ -19,7 +19,7 @@ bool値を文字列として入出力することを指示するマニピュレ�
 実引数のstrオブジェクト。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

@@ -33,7 +33,7 @@ const_iterator before_begin() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 #include <algorithm>

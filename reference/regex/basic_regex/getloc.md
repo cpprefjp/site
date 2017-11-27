@@ -29,14 +29,14 @@ locale_type getloc() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <locale>
 #include <regex>
 
 int main()
 {
-  std::regex re("\\w+");
+  std::regex re("\w+");
   auto loc = re.getloc();
   std::cout << std::boolalpha << (loc == std::locale()) << std::endl;
 }

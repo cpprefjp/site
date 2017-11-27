@@ -31,7 +31,7 @@ O(log(`last - first`)) のオーダーで `pred` が適用される。
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <algorithm>

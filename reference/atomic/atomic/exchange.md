@@ -29,7 +29,7 @@ T exchange(T desired, memory_order order = memory_order_seq_cst) noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 

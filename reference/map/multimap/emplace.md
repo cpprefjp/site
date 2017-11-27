@@ -25,7 +25,7 @@ iterator emplace(Args&&... args);
 
 ## 例
 ### 単純なキー・値を挿入する例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 
@@ -53,7 +53,7 @@ int main()
 ```
 
 ### キーと値もそれぞれコンストラクタ引数を渡す例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 #include <string>

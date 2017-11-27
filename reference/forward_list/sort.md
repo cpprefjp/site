@@ -37,7 +37,7 @@ template <class Compare> void sort(Compare comp);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 

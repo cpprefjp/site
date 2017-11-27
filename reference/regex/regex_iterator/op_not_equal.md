@@ -22,7 +22,7 @@ bool operator!=(const regex_iterator& right) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>
@@ -30,7 +30,7 @@ bool operator!=(const regex_iterator& right) const;
 
 int main()
 {
-  std::regex re("\\d+");
+  std::regex re("\d+");
   std::string s("+1-1+1-");
 
   // 2 つのイテレータを同一引数で生成する

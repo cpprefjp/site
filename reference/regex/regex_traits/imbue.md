@@ -23,7 +23,7 @@ locale_type imbue(locale_type loc);
 
 
 ## 例
-```cpp
+```cpp example
 #include <regex>
 
 int main()

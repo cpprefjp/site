@@ -27,7 +27,7 @@ int compare(const value_type* s) const;  // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 #include <string>

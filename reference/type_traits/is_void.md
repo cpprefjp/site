@@ -23,7 +23,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::is_void<void>::value == true, "value == true, void is void");

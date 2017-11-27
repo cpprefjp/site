@@ -22,7 +22,7 @@ key_compare key_comp() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

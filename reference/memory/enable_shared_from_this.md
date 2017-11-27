@@ -61,7 +61,7 @@ ptr->func();
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <memory>
 

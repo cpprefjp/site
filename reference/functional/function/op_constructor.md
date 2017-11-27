@@ -64,7 +64,7 @@ function(allocator_arg_t, const Alloc& alloc, F f);                // (10) C++17
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <iostream>
 #include <functional>

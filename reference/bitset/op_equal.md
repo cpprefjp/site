@@ -22,7 +22,7 @@ bool operator==(const bitset<N>& rhs) const noexcept; // C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

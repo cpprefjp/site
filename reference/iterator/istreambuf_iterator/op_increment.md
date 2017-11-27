@@ -27,7 +27,7 @@ proxy operator++(int);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <sstream>

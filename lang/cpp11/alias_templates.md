@@ -6,7 +6,7 @@
 
 エイリアステンプレートによる型の別名付けには、`typedef`キーワードではなく`using`キーワードを使用する：
 
-```cpp
+```cpp example
 #include <vector>
 
 // 型std::vectorに別名Vecを付ける。

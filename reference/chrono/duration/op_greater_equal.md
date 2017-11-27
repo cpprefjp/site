@@ -29,7 +29,7 @@ return ct(lhs).count() < ct(rhs).count();
 * count[link /reference/chrono/duration/count.md]
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <chrono>
 

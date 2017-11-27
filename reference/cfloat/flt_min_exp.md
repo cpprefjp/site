@@ -20,7 +20,7 @@
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 #include <cfloat>

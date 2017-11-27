@@ -91,7 +91,7 @@ assert(i == 1 || j == 1); // すなわち、i と j が共に0となることは
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <atomic>
 #include <thread>

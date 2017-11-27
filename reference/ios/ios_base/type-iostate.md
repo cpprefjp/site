@@ -31,7 +31,7 @@ using iostate = T2;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <sstream>
 #include <string>

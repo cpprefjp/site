@@ -54,7 +54,7 @@ size_type find(charT c, size_type pos = 0) const noexcept;                 // (4
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 

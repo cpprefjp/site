@@ -25,7 +25,7 @@ namespace chrono {
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <chrono>
 

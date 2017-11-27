@@ -51,7 +51,7 @@ using fmtflags = T1;
 
 
 ## 例 boolalpha
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
@@ -73,7 +73,7 @@ true, false
 ```
 
 ## 例 showpos
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
@@ -97,7 +97,7 @@ int main()
 
 
 ## 例 showpoint
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
@@ -121,7 +121,7 @@ int main()
 
 
 ## 例 整数の基数指定
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
@@ -167,7 +167,7 @@ a
 ```
 
 ## 例 浮動小数点数のフォーマット
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
@@ -219,7 +219,7 @@ int main()
 ```
 
 
-```cpp
+```cpp example
 #include <iostream>
 
 int main()

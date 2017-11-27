@@ -50,7 +50,7 @@ shared_ptr& operator=(unique_ptr<Y, D>&& r);            // (6)
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <memory>
 

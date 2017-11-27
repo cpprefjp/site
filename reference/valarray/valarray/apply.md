@@ -20,7 +20,7 @@ valarray<T> apply(T func(const T&)) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <valarray>
 

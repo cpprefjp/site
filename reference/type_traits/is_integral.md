@@ -36,7 +36,7 @@ namespace std {
 `enum`は整数型とは判定されない。
 
 ## 例
-```cpp
+```cpp example
 #include <type_traits>
 
 static_assert(std::is_integral<int>::value == true, "value == true, int is integral");

@@ -28,7 +28,7 @@ const_iterator cbegin() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <algorithm>
 #include <iterator>

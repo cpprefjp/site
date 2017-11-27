@@ -118,23 +118,140 @@ namespace std {
 | [`swap`](match_results/swap_free.md)          | 2 つの `match_results` オブジェクトの内容を交換する | C++11          |
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 
 int main()
 {
   const char s[] = "The C++11 is very cool!!";
-  const std::regex re("(\\w+) is (\\w+)");
+  const std::regex re("(\w+) is (\w+)");
 
   std::cmatch m;
   if (std::regex_search(s, m, re)) {
     std::cout << "ready = " << std::boolalpha << m.ready() << ", empty = " << m.empty() << std::endl << std::endl;
-    std::cout << "prefix:'" << m.prefix() << '\'' << std::endl;
+    std::cout << "prefix:'" << m.prefix() << '```
+* std::cmatch[color ff0000]
+* std::regex[link basic_regex.md]
+* std::regex_search[link regex_search.md]
+* m.ready()[link match_results/ready.md]
+* m.empty()[link match_results/empty.md]
+* m.size()[link match_results/size.md]
+* m.prefix()[link match_results/prefix.md]
+* m.suffix()[link match_results/suffix.md]
+* m.str()[link match_results/str.md]
+* m.position[link match_results/position.md]
+* m.length[link match_results/length.md]
+* m.format[link match_results/format.md]
+
+### 出力
+```
+ready = true, empty = false
+
+prefix:'The C++'
+0:'11 is very', position = 7, length = 10
+1:'11', position = 7, length = 2
+2:'very', position = 13, length = 4
+suffix:' cool!!'
+
+The C++14 is very cool!!
+```
+
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+' << std::endl;
     for (std::size_t i = 0, n = m.size(); i < n; ++i) {
-      std::cout << i << ":'" << m.str(i) << "\', position = " << m.position(i) << ", length = " << m.length(i) << std::endl;
+      std::cout << i << ":'" << m.str(i) << "```
+* std::cmatch[color ff0000]
+* std::regex[link basic_regex.md]
+* std::regex_search[link regex_search.md]
+* m.ready()[link match_results/ready.md]
+* m.empty()[link match_results/empty.md]
+* m.size()[link match_results/size.md]
+* m.prefix()[link match_results/prefix.md]
+* m.suffix()[link match_results/suffix.md]
+* m.str()[link match_results/str.md]
+* m.position[link match_results/position.md]
+* m.length[link match_results/length.md]
+* m.format[link match_results/format.md]
+
+### 出力
+```
+ready = true, empty = false
+
+prefix:'The C++'
+0:'11 is very', position = 7, length = 10
+1:'11', position = 7, length = 2
+2:'very', position = 13, length = 4
+suffix:' cool!!'
+
+The C++14 is very cool!!
+```
+
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+, position = " << m.position(i) << ", length = " << m.length(i) << std::endl;
     }
-    std::cout << "suffix:'" << m.suffix() << '\'' << std::endl << std::endl;
+    std::cout << "suffix:'" << m.suffix() << '```
+* std::cmatch[color ff0000]
+* std::regex[link basic_regex.md]
+* std::regex_search[link regex_search.md]
+* m.ready()[link match_results/ready.md]
+* m.empty()[link match_results/empty.md]
+* m.size()[link match_results/size.md]
+* m.prefix()[link match_results/prefix.md]
+* m.suffix()[link match_results/suffix.md]
+* m.str()[link match_results/str.md]
+* m.position[link match_results/position.md]
+* m.length[link match_results/length.md]
+* m.format[link match_results/format.md]
+
+### 出力
+```
+ready = true, empty = false
+
+prefix:'The C++'
+0:'11 is very', position = 7, length = 10
+1:'11', position = 7, length = 2
+2:'very', position = 13, length = 4
+suffix:' cool!!'
+
+The C++14 is very cool!!
+```
+
+
+## バージョン
+### 言語
+- C++11
+
+### 処理系
+- [Clang](/implementation.md#clang): -
+- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+- [GCC](/implementation.md#gcc): -
+- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+' << std::endl << std::endl;
     std::cout << m.format("$`14 is $2$'") << std::endl;
   } else {
     std::cout << "not match" << std::endl;

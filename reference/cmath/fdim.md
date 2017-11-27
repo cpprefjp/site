@@ -29,7 +29,7 @@ namespace std {
 `x - y > 0` の場合は `x - y` を、それ以外の場合は `+0` を返す。
 
 ## 例
-```cpp
+```cpp example
 #include <cmath>
 #include <iostream>
 

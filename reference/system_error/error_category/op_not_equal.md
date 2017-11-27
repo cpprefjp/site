@@ -24,7 +24,7 @@ bool operator!=(const error_category& rhs) const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <system_error>
 

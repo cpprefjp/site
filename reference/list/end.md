@@ -24,7 +24,7 @@ const_iterator end() const noexcept; // (2) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 

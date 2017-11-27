@@ -23,14 +23,14 @@ const_iterator begin() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 
 int main()
 {
   const char s[] = " abc 0123 defgh ";
-  const std::regex re("(\\w+) (\\d+) (\\w+)");
+  const std::regex re("(\w+) (\d+) (\w+)");
 
   std::cmatch m;
   if (std::regex_search(s, m, re)) {

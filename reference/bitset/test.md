@@ -25,7 +25,7 @@ bool test(size_t pos) const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <bitset>
 

@@ -18,7 +18,7 @@ difference_type length() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 #include <string>

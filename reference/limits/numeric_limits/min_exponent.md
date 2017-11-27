@@ -27,7 +27,7 @@ static constexpr int min_exponent;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

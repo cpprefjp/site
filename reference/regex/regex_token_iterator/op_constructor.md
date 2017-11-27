@@ -81,7 +81,7 @@ regex_token_iterator(const regex_token_iterator&);                              
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iterator>
 #include <regex>

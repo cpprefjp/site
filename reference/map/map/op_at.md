@@ -22,7 +22,7 @@ T& operator[](key_type&& x);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

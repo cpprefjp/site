@@ -80,7 +80,7 @@ C++03バージョンは`constexpr`ではないため、非定数式となる。
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <limits>
 

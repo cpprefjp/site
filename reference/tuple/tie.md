@@ -33,7 +33,7 @@ namespace std {
 
 ## 例
 ### 基本的な使い方
-```cpp
+```cpp example
 #include <iostream>
 #include <tuple>
 #include <string>
@@ -92,7 +92,7 @@ Hello
 
 
 ### 順序付きの大小比較
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <vector>

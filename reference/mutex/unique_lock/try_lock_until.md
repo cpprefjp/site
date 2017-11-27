@@ -45,7 +45,7 @@ pm->try_lock_until(abs_time);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <thread>
 #include <mutex>

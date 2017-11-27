@@ -27,7 +27,7 @@ native_handle_type native_handle();
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <iostream>
 #include <windows.h>

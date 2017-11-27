@@ -23,7 +23,7 @@ bool before(const type_info& rhs) const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <typeinfo>
 

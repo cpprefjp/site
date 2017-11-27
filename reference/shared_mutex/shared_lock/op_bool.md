@@ -21,7 +21,7 @@ explicit operator bool() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <cassert>
 #include <shared_mutex>

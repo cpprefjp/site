@@ -18,7 +18,7 @@ static constexpr bool is_integer;
 
 
 ## 例
-```cpp
+```cpp example
 #include <limits>
 
 int main()

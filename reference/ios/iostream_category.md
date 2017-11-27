@@ -31,7 +31,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream> // 自動的に<ios>もインクルードされる
 #include <string>
 

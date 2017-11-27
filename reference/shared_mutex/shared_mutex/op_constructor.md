@@ -25,7 +25,7 @@ shared_mutex(const shared_mutex&) = delete; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <shared_mutex>
 
 int main()

@@ -26,7 +26,7 @@ std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
 [`unordered_set`](/reference/unordered_set/unordered_set.md) の場合には、等価なキーはたかだか1つであるため、[`find`](find.md) ほど有用ではないと思われる。
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <unordered_set>

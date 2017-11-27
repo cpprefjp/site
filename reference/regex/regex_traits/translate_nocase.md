@@ -25,7 +25,7 @@ use_facet<ctype<char_type>>(getloc()).tolower(c)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <regex>
 

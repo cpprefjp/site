@@ -31,7 +31,7 @@ int main()
 
 一方後置の`operator ++`を使う次のようなコードは、以下のようにC++14で標準ライブラリに導入された[`std::exchange()`](/reference/utility/exchange.md)を利用して書き換えることができる。
 
-```cpp
+```cpp example
 #include <iostream>
 
 void f(bool b)
@@ -48,7 +48,7 @@ int main()
 }
 ```
 
-```cpp
+```cpp example
 #include <iostream>
 #include <utility>
 
@@ -95,7 +95,7 @@ int main(void)
 
 つまり、非0を`true`、0を`false`として扱う。ここで次のようなコードを見てみよう。
 
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 int main()

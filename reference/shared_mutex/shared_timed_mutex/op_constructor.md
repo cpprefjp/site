@@ -25,7 +25,7 @@ shared_timed_mutex(const shared_timed_mutex&) = delete; // (2)
 
 
 ## 例
-```cpp
+```cpp example
 #include <shared_mutex>
 
 int main()

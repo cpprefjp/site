@@ -24,7 +24,7 @@ id get_id() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <cassert>
 

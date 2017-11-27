@@ -30,7 +30,7 @@ void unlock();
 
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <mutex>
 

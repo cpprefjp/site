@@ -39,7 +39,7 @@ basic_ios& copyfmt(const basic_ios& rhs);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 #include <cstddef>

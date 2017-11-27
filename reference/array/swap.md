@@ -36,7 +36,7 @@ void swap(array& other) noexcept(noexcept(swap(declval<T&>(), declval<T&>())));
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <array>
 

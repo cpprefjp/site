@@ -12,7 +12,7 @@ C++03まで、テンプレート外で`typename`と`template`を付けるとコ�
 
 
 ## 例
-```cpp
+```cpp example
 #include <vector>
 
 struct X {

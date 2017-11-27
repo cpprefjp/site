@@ -33,7 +33,7 @@ C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched
 Visual C++では、Windows APIの[`Sleep()`](https://msdn.microsoft.com/en-us/library/windows/desktop/ms686298.aspx)関数を使った実装となっている。ただし、12.0でWindowsストア向けアプリケーションを対象とする場合は、`Sleep()`関数が許可されていないため、`WaitForSingleObject()`関数のタイムアウト時間に最小値1ミリ秒を指定して呼び出す実装となっている。
 
 ## 例
-```cpp
+```cpp example
 #include <thread>
 #include <atomic>
 #include <iostream>

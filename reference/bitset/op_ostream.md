@@ -32,7 +32,7 @@ os << x.template to_string<CharT, Traits, allocator<CharT>>(
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <bitset>
 

@@ -58,7 +58,7 @@ void resize(size_type sz, const T& c = T()); // (1) + (2) : C++03
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 

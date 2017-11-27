@@ -35,7 +35,7 @@ C++11 からの挙動については [`c_str`](c_str.md) を参照のこと。
 
 
 ## 例
-```cpp
+```cpp example
 #include <string>
 #include <cstdio>
 #include <cstring>

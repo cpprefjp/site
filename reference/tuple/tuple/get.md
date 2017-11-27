@@ -70,7 +70,7 @@ namespace std {
 
 ## 例
 ### 基本的な使い方
-```cpp
+```cpp example
 #include <iostream>
 #include <tuple>
 #include <string>
@@ -117,7 +117,7 @@ hello
 ```
 
 ### const右辺値参照版が必要な状況 (4)
-```cpp
+```cpp example
 #include <iostream>
 #include <tuple>
 #include <string>

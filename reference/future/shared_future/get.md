@@ -30,7 +30,7 @@ void shared_future<void>::get() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>
@@ -73,7 +73,7 @@ int main()
 ```
 
 ## 例：`shared_future<void>`
-```cpp
+```cpp example
 #include <iostream>
 #include <future>
 #include <thread>

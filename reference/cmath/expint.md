@@ -22,7 +22,7 @@ $$ \mathrm{Ei}(x) = - \int_{-x}^\infty \mathrm{d}t \frac{e^{-t}}{t} = - \int_{-\
 を返す。
 
 ## 例
-```cpp
+```cpp example
 #include <cmath>
 #include <iostream>
 #include <limits>

@@ -18,7 +18,7 @@ size_type max_size() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>

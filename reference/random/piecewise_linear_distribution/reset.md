@@ -25,7 +25,7 @@ void reset();
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <random>
 #include <array>

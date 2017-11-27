@@ -43,7 +43,7 @@ namespace std {
 
 例えば、以下のようなケースで問題になる。
 
-```cpp
+```cpp example
 #include <type_traits>
 #include <future>
 #include <thread>
@@ -87,7 +87,7 @@ int main() {
 
 これは `*_at_thread_exit` 系の関数を利用することで修正できる。
 
-```cpp
+```cpp example
 #include <type_traits>
 #include <future>
 #include <thread>

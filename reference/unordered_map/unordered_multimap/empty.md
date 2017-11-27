@@ -26,7 +26,7 @@ bool empty() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <string>
 #include <unordered_map>

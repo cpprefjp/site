@@ -35,7 +35,7 @@ get<i>(t) < get<i>(u) || !(get<i>(u) < get<i>(t)) && get<i+N...>(t) < get<i+N...
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <tuple>
 #include <string>

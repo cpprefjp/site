@@ -28,7 +28,7 @@ C++14段階では、整数を2進数表記で文字列化もしくはストリ�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 
 int main()
