@@ -21,7 +21,7 @@ namespace std {
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------------|-----------------------|
+|----------------------------------|-----------------------|---|
 | [`(constructor)`](ostream_iterator/op_constructor.md) | コンストラクタ | |
 | `~ostream_iterator() = default`                         | デストラクタ | |
 | [`operator=`](ostream_iterator/op_assign.md)          | 代入演算子 | |
@@ -32,7 +32,7 @@ namespace std {
 ## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------------|-----------------------|
+|----------------------------------|-----------------------|---|
 | `char_type` | `CharT` (デフォルトは`char`) | |
 | `traits_type` | `Traits` (デフォルトは`char_traits<CharT>`) | |
 | `ostream_type` | [`basic_ostream<CharT, Traits>`](../ostream/basic_ostream.md) | |

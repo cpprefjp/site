@@ -25,7 +25,7 @@ namespace std {
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------------------------------|-----------------------------------------------|-------||
+|----------------------------------------------------|-----------------------------------------------|-------|
 | [`(constructor)`](istream_iterator/op_constructor.md) | コンストラクタ | |
 | `~istream_iterator() = default` | デストラクタ | |
 | `operator=(const istream_iterator&) = default<br/> operator=(istream_iterator&&) = default` | 代入演算子 | |
