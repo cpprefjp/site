@@ -26,7 +26,7 @@ $$
 
 
 ## 備考
-`l >= 128` の場合，この関数の呼び出しの効果は実装定義である。
+`l >= 128` の場合、この関数の呼び出しの効果は実装定義である。
 
 
 ## 例
@@ -36,8 +36,7 @@ $$
 
 void p(unsigned l, unsigned m) {
   for (double x : {-1, 0, 1})
-    std::cout << "assoc_legendre(" << l << ", " << m << ", " << x << ") = "
-      << std::assoc_legendre(l, m, x) << "\n";
+    std::cout << "assoc_legendre(" << l << ", " << m << ", " << x << ") = " << std::assoc_legendre(l, m, x) << "\n";
   std::cout << "\n";
 }
 
@@ -112,7 +111,7 @@ GCC 7.1.0–8.0.0 では $(-1)^m$ 倍された値を返す。
 ## 実装例
 ### 閉形式
 $$
-P_l^m(x) = \frac{(-1)^m}{2^l l!} (1-x^2)^{m/2}
+P_l^m(x) = \frac{1}{2^l l!} (1-x^2)^{m/2}
 \sum_{j=0}^{\lfloor (l-m)/2 \rfloor} (-1)^j \frac{l! (2l-2j)!}{j! (l-j)! (l-m-2j)!} x^{l-m-2j}
 $$
 

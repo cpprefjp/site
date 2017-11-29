@@ -36,8 +36,7 @@ $$
 
 void p(unsigned n, unsigned m) {
   for (double x : {0, 1, 2})
-    std::cout << "assoc_laguerre(" << n << ", " << m << ", " << x << ") = "
-      << std::assoc_laguerre(n, m, x) << "\n";
+    std::cout << "assoc_laguerre(" << n << ", " << m << ", " << x << ") = " << std::assoc_laguerre(n, m, x) << "\n";
   std::cout << "\n";
 }
 
