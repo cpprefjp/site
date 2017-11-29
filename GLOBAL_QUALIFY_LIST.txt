@@ -38,6 +38,8 @@
 * <deque>[link /reference/deque.md]
     * std::deque[link /reference/deque.md]
 * <exception>[link /reference/exception.md]
+* <filesystem>[link /reference/filesystem.md]
+    * fs::path[link /reference/filesystem/path.md]
 * <forward_list>[link /reference/forward_list.md]
     * std::forward_list[link /reference/forward_list.md]
 * <fstream>[link /reference/fstream.md]
