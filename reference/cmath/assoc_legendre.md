@@ -99,7 +99,7 @@ GCC 7.1.0–8.0.0 では $(-1)^m$ 倍された値を返す。
 
 ## 関連項目
 * [`legendre`](legendre.md)
-* [`sph_legendre`](sph_legendre.md.nolink)
+* [`sph_legendre`](sph_legendre.md)
 
 
 ## 参照
