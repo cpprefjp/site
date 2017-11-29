@@ -184,7 +184,6 @@ https://qiita.com/Chironian/items/1432eb8b59eb2eefcd2d
 ### 最新バージョンの言語機能を有効にする
 
 - 14.0 Update 3からは、`/std:c++latest`オプションを使用する
-
 - [-std (Specify Language Standard Version) | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/build/reference/std-specify-language-standard-version)
 - [Predefined Macros | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros)
 - [Standards version switches in the compiler](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/standards-version-switches-in-the-compiler/)
