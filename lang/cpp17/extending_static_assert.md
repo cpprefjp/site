@@ -15,7 +15,7 @@ static_assert(定数式); // C++17 以降
 * 「『`文字列リテラル`が与えられた場合、』診断メッセージは`文字列リテラル`を含む」と文面が改められた  
     それ以外の場合の診断メッセージは未規定
 * その他の点は [C++11](/lang/cpp11/static_assert.md) と同じ
-* 推奨される機能テストマクロは `__cpp_static_assert_extended`, `__cpp_static_assert_optional`, または `__cpp_static_assert_optional_message`
+* 機能テストマクロは `__cpp_static_assert` (`201411`)
 
 ## 例
 ```cpp
