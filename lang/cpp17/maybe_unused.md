@@ -111,9 +111,7 @@ maybe_unused.cpp:12:8: warning: unused variable 'b2' [-Wunused-variable]
 
 ## 検討されたほかの選択肢
 
-P0068R0では`[[unused]]`という名前で提案されたが、最終的に採用された名前は`[[maybe_unused]]`である。
-
-(理由は未調査)
+P0068R0では`[[unused]]`という名前で提案されたが、いわゆる自転車置き場の議論の末の投票によって、採用された名前は`[[maybe_unused]]`になった。
 
 ## 関連項目
 - [C++11 属性構文](/lang/cpp11/attributes.md)
