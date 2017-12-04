@@ -215,9 +215,31 @@
 | [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | | | | |
 | [指示付き初期化][P0329] | | | | | |
 | [コンセプト][P0734] | | | | | |
+| [範囲for文で初期化式を記述できるようにする][p0614] | | | | | |
+| [暗黙のラムダキャプチャを簡略化][[p0588]] | | | | | |
+| [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正][p0846] | | | | | |
+| [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正][p0641] | | | | | |
+| [評価されない文脈で`constexpr`関数が定数式評価されることを規定][p0859] | | | | | |
+| [一貫性ある比較][p0515] | | | | | |
+| [ラムダ式の制約][p0857] | | | | | |
+| [特殊化のアクセスチェック][p0692] | | | | | |
+| [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする][p0624] | | | | | |
+| [PODを非推奨化][p0767] | | | | | |
+| [評価されない文脈でのラムダ式][p0315] | | | | | |
 
-[P0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
-[P0734]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf
+[p0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
+[p0734]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf
+[p0614]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0614r1.html
+[p0588]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0588r1.html
+[p0846]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0846r0.html
+[p0641]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0641r2.html
+[p0859]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0859r0.html
+[p0515]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0515r3.pdf
+[p0857]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0857r0.html
+[p0692]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0692r1.html
+[p0624]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0624r2.pdf
+[p0767]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html
+[p0315]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0315r4.pdf
 
 
 [gcc]: ./implementation.md#gcc
