@@ -172,10 +172,6 @@
 - <a name="cite-2"></a>\[^2]: Visual Studio 2017では製品バージョンとVisual C++のバージョンが一致しない。  
   https://qiita.com/Chironian/items/1432eb8b59eb2eefcd2d
 
-<!--
-[\[^1\]]: #cite-1
-[\[^2\]]: #cite-2
--->
 
 ### C++14の機能を有効にする
 
