@@ -107,6 +107,9 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 14.0
 
+## 関連項目
+
+- [非推奨だった bool 型に対するインクリメント演算子を削除](/lang/cpp17/remove_deprecated_increment_of_bool.md)
 
 ## 参照
 - [N3511 exchange() utility function](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3511.html)
