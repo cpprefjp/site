@@ -106,7 +106,7 @@
 | Visual Studio 2017                            | 15.4.5         | 14.1                  | 1911     | 191125547     |
 | Visual Studio 2017                            | 15.4.4         | 14.1                  | 1911     | 191125542     |
 | Visual Studio 2017                            | 15.3.3         | 14.1                  | 1911     | 191125507     |
-| Visual Studio 2017 [^2]                       | 15.0           | 14.1                  | 1910     | 191025017     |
+| Visual Studio 2017 [\[^2\]]                    | 15.0           | 14.1                  | 1910     | 191025017     |
 | Visual Studio 2017 RC                         |                | 14.1                  | 1910     | 191024930     |
 | Visual Studio 2015 Update3                    | 14.0           | 14.0                  | 1900     | 190024210     |
 | Visual Studio 2015 Update2                    | 14.0           | 14.0                  | 1900     | 190023918     |
@@ -120,7 +120,7 @@
 | Visual Studio 2013 Update3                    | 12.0           | 12.0                  | 1800     | 180030723     |
 | Visual Studio 2013 Update2                    | 12.0           | 12.0                  | 1800     | 180030501     |
 | Visual Studio 2013 Update2 RC                 | 12.0           | 12.0                  | 1800     | 180030324     |
-| Visual Studio 2013 Update1 [^1]               | 12.0           | 12.0                  | 1800     | 180021005     |
+| Visual Studio 2013 Update1 [\[^1\]]            | 12.0           | 12.0                  | 1800     | 180021005     |
 | Visual Studio 2013 RTM                        | 12.0           | 12.0                  | 1800     | 180021005     |
 | Visual Studio 2013 RC                         | 12.0           | 12.0                  | 1800     | 180020827     |
 | Visual Studio 2013 Preview                    | 12.0           | 12.0                  | 1800     | 180020617     |
@@ -166,11 +166,15 @@
 | C/C++ Compiler 7.0                            |                |                       | 700      |               |
 | C Compiler 6.0                                |                |                       | 600      |               |
 
-[^1]: Visual Studio 2013 Update1では`_MSC_FULL_VER`は変更されなかった。  
-https://blogs.msdn.microsoft.com/bharry/2014/01/20/vs-2013-1-update-1-is-available/#div-comment-125661
 
-[^2]: Visual Studio 2017では製品バージョンとVisual C++のバージョンが一致しない。  
-https://qiita.com/Chironian/items/1432eb8b59eb2eefcd2d
+- <a name="cite-1"></a>\[^1]: Visual Studio 2013 Update1では`_MSC_FULL_VER`は変更されなかった。  
+  https://blogs.msdn.microsoft.com/bharry/2014/01/20/vs-2013-1-update-1-is-available/#div-comment-125661
+- <a name="cite-2"></a>\[^2]: Visual Studio 2017では製品バージョンとVisual C++のバージョンが一致しない。  
+  https://qiita.com/Chironian/items/1432eb8b59eb2eefcd2d
+
+
+[\[^1\]]: #cite-1
+[\[^2\]]: #cite-2
 
 ### C++14の機能を有効にする
 
@@ -187,3 +191,5 @@ https://qiita.com/Chironian/items/1432eb8b59eb2eefcd2d
 - [-std (Specify Language Standard Version) | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/build/reference/std-specify-language-standard-version)
 - [Predefined Macros | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros)
 - [Standards version switches in the compiler](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/standards-version-switches-in-the-compiler/)
+
+
