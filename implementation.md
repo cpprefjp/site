@@ -168,9 +168,9 @@
 
 
 - <a name="cite-1"></a>\[^1]: Visual Studio 2013 Update1では`_MSC_FULL_VER`は変更されなかった。  
-  https://blogs.msdn.microsoft.com/bharry/2014/01/20/vs-2013-1-update-1-is-available/#div-comment-125661
+  <https://blogs.msdn.microsoft.com/bharry/2014/01/20/vs-2013-1-update-1-is-available/#div-comment-125661>
 - <a name="cite-2"></a>\[^2]: Visual Studio 2017では製品バージョンとVisual C++のバージョンが一致しない。  
-  https://qiita.com/Chironian/items/1432eb8b59eb2eefcd2d
+  <https://qiita.com/Chironian/items/1432eb8b59eb2eefcd2d>
 
 
 ### C++14の機能を有効にする
