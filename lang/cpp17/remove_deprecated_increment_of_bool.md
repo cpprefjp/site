@@ -81,7 +81,7 @@ C++17ではこれらが削除され、`opeartor ++`の定義(§ 8.2.6 expr.post.
 
 もともとC++の前身であるC言語(ANSI C89)には`bool`型は存在しなかった。そのために、真理値を`int`型で代用する例が見られた。
 
-```c example
+```c
 int main(void)
 {
   int flag = 0;
@@ -95,7 +95,7 @@ int main(void)
 
 つまり、非0を`true`、0を`false`として扱う。ここで次のようなコードを見てみよう。
 
-```cpp example
+```cpp
 #include <iostream>
 #include <vector>
 int main()
