@@ -10,6 +10,8 @@
 
 ## 例
 ```cpp
+#include <iostream>
+
 // 新機能: C++17 で可能となる入れ子名前空間の定義
 namespace aaa::bbb:ccc
 {
@@ -25,7 +27,7 @@ namespace aaa
     namespace ccc
     {
       void g()
-      { std::cout << "a legacy nested namespace definition is workded.\n" }
+      { std::cout << "a legacy nested namespace definition is workded.\n"; }
     }
   }
 }
