@@ -18,7 +18,7 @@ static_assert(定数式); // C++17 以降
 * 機能テストマクロは `__cpp_static_assert` (`201411`)
 
 ## 例
-```cpp
+```cpp example
 int main()
 {
   constexpr bool flag = false;
