@@ -67,6 +67,8 @@ has-include-expression:
 #else
 #  warning "fuga" is not found
 #endif
+
+int main() {}
 ```
 
 ### 出力

@@ -40,6 +40,8 @@ attribute-using-prefix:
 
 [[using CC: CC::opt(1)]] void j() {}
   //間違い、usingと名前空間の指定は混在できない
+
+int main() {}
 ```
 
 ### 出力
