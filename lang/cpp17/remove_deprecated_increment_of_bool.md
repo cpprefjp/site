@@ -36,7 +36,7 @@ int main()
 
 void f(bool b)
 {
-  std::cout << ((b) ? "true" : "false") << std::endl;
+  std::cout << std::boolalpha << b << std::endl;
 }
 
 int main()
@@ -44,9 +44,10 @@ int main()
   bool b = false;
   // 関数fには変数bの現在の値であるfalseの値が渡される
   f(b++); // => false
-  std::cout << ((b) ? "true" : "false") << std::endl; // => true
+  std::cout << std::boolalpha << b << std::endl; // => true
 }
 ```
+* std::exchange[link /reference/ios/boolalpha.md]
 
 ```cpp example
 #include <iostream>
@@ -54,16 +55,17 @@ int main()
 
 void f(bool b)
 {
-  std::cout << ((b) ? "true" : "false") << std::endl;
+  std::cout << std::boolalpha << b << std::endl;
 }
 int main()
 {
   bool b = false;
   f(std::exchange(b, true)); // => false
-  std::cout << ((b) ? "true" : "false") << std::endl; // => true
+  std::cout << std::boolalpha << b << std::endl; // => true
 }
 ```
 * std::exchange[link /reference/utility/exchange.md]
+* std::exchange[link /reference/ios/boolalpha.md]
 
 
 ## 仕様
@@ -95,7 +97,7 @@ int main(void)
 
 つまり、非0を`true`、0を`false`として扱う。ここで次のようなコードを見てみよう。
 
-```cpp example
+```cpp
 #include <iostream>
 #include <vector>
 int main()
