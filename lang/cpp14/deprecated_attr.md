@@ -93,7 +93,11 @@ int main()
 }
 ```
 
-### 出力例
+### 出力
+```
+```
+
+### 警告例
 ```
 prog.cc:33:3: warning: 'old_class' is deprecated: please use new_class class
 prog.cc:34:3: warning: 'old_type' is deprecated: please use new_type type
