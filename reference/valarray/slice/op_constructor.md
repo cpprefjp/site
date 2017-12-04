@@ -35,7 +35,7 @@ slice(const slice&);  // (3)
     - スライスする間隔。
 
 ## 例
-```cpp
+```cpp example
 #include <valarray>
 #include <iostream>
 

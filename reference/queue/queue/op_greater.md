@@ -21,7 +21,7 @@ x.c > y.c
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <queue>
 

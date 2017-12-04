@@ -12,7 +12,7 @@
 名前空間に属性を付加する場合`namespace`の直後に属性を記述する。列挙型の場合`enum`/`enum class`の列挙子の直後に属性を記述する。
 
 ## 例
-```cpp
+```cpp example
 namespace foo {
   int var_a;
 }

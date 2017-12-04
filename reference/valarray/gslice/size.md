@@ -18,7 +18,7 @@ valarray<size_t> size() const;
 スライスを生成する要素数群。
 
 ## 例
-```cpp
+```cpp example
 #include <valarray>
 #include <iostream>
 

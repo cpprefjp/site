@@ -77,7 +77,7 @@ C++14より前の規格でも使用できた関数テンプレートを変数に
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <iomanip>
 #include <limits>

@@ -17,7 +17,7 @@
 * クラスもしくは列挙型の宣言
 
 ## 例
-```cpp
+```cpp example
 //無視してはいけないデータ型
 struct [[nodiscard]] error_info {};
 

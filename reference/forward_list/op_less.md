@@ -35,7 +35,7 @@ lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <forward_list>
 

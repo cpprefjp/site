@@ -80,7 +80,7 @@ void insert(initializer_list<value_type> init);                // (6) C++11か�
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <map>
 

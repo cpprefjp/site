@@ -43,7 +43,7 @@ has-include-expression:
 誤解を恐れず言えば`#include`の後に指定できるトークンと、同様のトークンが`__has_include`にも指定できる。
 
 ## 例
-```cpp
+```cpp example
 #if __has_include(<has_include.hpp>)
 #  warning <has_include.hpp> is found
 #else

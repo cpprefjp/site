@@ -26,7 +26,7 @@ C++ での構造体の機能的拡張のため、`offsetof` の利用は、C の
 
 
 ## 例
-```cpp
+```cpp example
 #include <cstdio>
 #include <cstddef>
 

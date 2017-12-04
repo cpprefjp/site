@@ -31,7 +31,7 @@ swap(comp, q.comp);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <queue>
 

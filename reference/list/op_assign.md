@@ -34,7 +34,7 @@ list& operator=(initializer_list<T> x); // (3) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <cassert>
 #include <list>
 #include <algorithm>
