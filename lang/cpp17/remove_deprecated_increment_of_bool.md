@@ -47,7 +47,6 @@ int main()
   std::cout << std::boolalpha << b << std::endl; // => true
 }
 ```
-* std::exchange[link /reference/ios/boolalpha.md]
 
 ```cpp example
 #include <iostream>
@@ -65,7 +64,6 @@ int main()
 }
 ```
 * std::exchange[link /reference/utility/exchange.md]
-* std::exchange[link /reference/ios/boolalpha.md]
 
 
 ## 仕様
@@ -83,7 +81,7 @@ C++17ではこれらが削除され、`opeartor ++`の定義(§ 8.2.6 expr.post.
 
 もともとC++の前身であるC言語(ANSI C89)には`bool`型は存在しなかった。そのために、真理値を`int`型で代用する例が見られた。
 
-```c
+```c example
 int main(void)
 {
   int flag = 0;
@@ -97,7 +95,7 @@ int main(void)
 
 つまり、非0を`true`、0を`false`として扱う。ここで次のようなコードを見てみよう。
 
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 int main()
