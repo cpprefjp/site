@@ -283,7 +283,7 @@ using std::random_device;
 
 使用例は次の通り。上記コードを`random_device.hpp`というファイル名で保存していると仮定する。`cpprefjp::random_device`が`std::random_device`のworkaroundで、C++11標準規格の要求を満たしたクラス。
 
-```cpp example
+```cpp
 #include "random_device.hpp"
 #include <iostream>
 #include <vector>
