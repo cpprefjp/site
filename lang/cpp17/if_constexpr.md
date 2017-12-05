@@ -68,7 +68,7 @@ class C {
 
 `if constexpr`文で、実行されない方の`statement`は`discarded statement`(破棄文)となり、文の実体化を防ぐ。言い換えると、Two Phase Name Look-upにおける`dependent name`(依存名)は、`discarded statement`の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。
 
-```cpp
+```cpp example
 #include <type_traits>
 
 template<typename T>
@@ -81,11 +81,16 @@ void f()
     static_assert(false) ;
   }
 }
+int main()
+{
+  f(2.4);
+  f(3);
+}
 ```
 
 なぜならば`discarded statement`はテンプレートの実体化を防ぐ(依存名の検証をしない)だけで、被依存名は検証されるからである。この例の[`static_assert`](https://cpprefjp.github.io/lang/cpp11/static_assert.html)に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。言い換えれば`static_assert`に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせる事ができる。
 
-```cpp
+```cpp example
 #include <type_traits>
 
 template <typename T>
@@ -98,6 +103,11 @@ void f()
     // Tがintのときのみ発動する
     static_assert(false_v<T>);
   }
+}
+int main()
+{
+  f(2.4);
+  f(3);
 }
 ```
 
