@@ -318,7 +318,6 @@ int main()
 ## 参照
 - GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)
 - Microdoft Visual Studio 2017: [random\_device Class](https://docs.microsoft.com/en-us/cpp/standard-library/random-device-class)
-
 - [/dev/random - Wikipedia](https://ja.wikipedia.org/wiki//dev/random)
 - [Man page of RANDOM](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)
 - [CryptGenRandom function - MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)
