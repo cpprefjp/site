@@ -25,7 +25,7 @@ void assign(initializer_list<T> init);                // (3) C++11
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 

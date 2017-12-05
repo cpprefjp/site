@@ -23,7 +23,7 @@ size_type max_size() const noexcept;
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <set>
 

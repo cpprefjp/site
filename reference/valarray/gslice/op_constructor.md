@@ -38,7 +38,7 @@ gslice(const slice&);             // (3)
 
 
 ## 例
-```cpp
+```cpp example
 #include <valarray>
 #include <iostream>
 #include <sstream>

@@ -18,7 +18,7 @@ size_t stride() const;
 
 
 ## 例
-```cpp
+```cpp example
 #include <valarray>
 #include <iostream>
 

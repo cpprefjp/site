@@ -107,7 +107,7 @@ deque(initializer_list<T> il,
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <deque>
 #include <utility>

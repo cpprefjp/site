@@ -95,7 +95,7 @@ list オブジェクトの構築
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <list>
 #include <string>

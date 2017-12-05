@@ -44,7 +44,7 @@ int main()
 
 
 ## 例
-```cpp
+```cpp example
 // 非推奨なクラス
 class [[deprecated("please use new_class class")]] old_class {};
 

@@ -26,7 +26,7 @@ void swap(queue& q) noexcept(noexcept(swap(c, q.c)))
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <queue>
 

@@ -64,7 +64,7 @@ class AAA {
 ```
 
 ## 例
-```cpp
+```cpp example
 //基底クラス
 class base {
   virtual void func_final() final;

@@ -24,7 +24,7 @@ arrayにおいて、左辺が右辺より大きいかを判定する。
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <array>
 

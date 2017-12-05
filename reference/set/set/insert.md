@@ -52,7 +52,7 @@ void insert(initializer_list<value_type> init);                // (6)
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <set>
 

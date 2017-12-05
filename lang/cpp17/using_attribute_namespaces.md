@@ -25,7 +25,7 @@ attribute-using-prefix:
 `using`で名前空間を指定した場合は、続く属性の名前に名前空間は指定できない。`using`で複数の名前空間を指定することもできない。
 
 ## 例
-```cpp
+```cpp example
 [[CC::opt(1)]] [[CC::debug]] void f() {}
   //正しい
 

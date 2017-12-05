@@ -29,7 +29,7 @@ push_heap(c.begin(), c.end(), comp);
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <queue>
 #include <string>

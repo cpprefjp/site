@@ -9,7 +9,7 @@ C++11では、型の別名定義、テンプレートパラメータ、および
 
 ## 例
 ### 基本例
-```cpp
+```cpp example
 int main()
 {
   typedef int& ir;
