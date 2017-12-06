@@ -41,6 +41,7 @@
 | [`vector`](/reference/vector.md) | O(n) | O(n) | - | O(1) | O(1) | O(1) | *数と位置に応じて* O(n) | O(n) *(破棄)* |
 | [`deque`](/reference/deque.md) | O(n) | O(n) | - | O(1) | O(1) | O(1) | O(n) *(構築)* + O(n) *(内部伸長)* | O(n) *(破棄)* + O(n) *(内部収縮)*  |
 | [`list`](/reference/list.md) | O(n) | O(n) | - | O(1) | __不可__  | O(1)| O(1) | O(1) |
+| [`forward_list`](/reference/forward_list.md) | O(n) | O(n) | - | O(1) | __不可__  | __不可__ | O(1) | O(1) |
 | [`set`](/reference/set.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | O(log n) | - | - | - | O(log n) | O(log n) |
 | [`unordered_set`](/reference/unordered_set.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ |  *平均：* O(1) <br> *最悪：* __O(n)__ | - | - | - | *平均：* O(1) <br> *最悪：* O(n) | *平均：* O(1) <br> *最悪：* O(n) |
 | [`map`](/reference/map.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | O(log n) | - | - | - | O(log n)  | O(log n) |
@@ -54,6 +55,7 @@
 -  [`std::array`](/reference/stack.md) 以外のコンテナにおける `swap` 操作の計算量は、 O(1) である。
 -  [`std::stack`](/reference/stack.md) 、 [`std::queue`](/reference/queue/queue.md) 、 [`std::priority_queue`](/reference/queue/priority_queue.md) 等のコンテナアダプタの計算量は、内部実装の計算量に準じる。
 -  重複要素を許容する連想コンテナの計算量は、重複要素を許容しない連想コンテナの計算量に準じる。
+-  [`std::forward_list`](/reference/forward_list.md) はゼロオーバーヘッドを重視した設計のため、コンテナの要素数を O(1) で取得することはできない。
 
 
 ## アルゴリズムの計算量
