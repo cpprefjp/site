@@ -104,24 +104,31 @@ int main(void)
 
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <limits>
 
-//説明の都合上using aliasではなくあえてtypedefを使用します
-typedef unsigned char my_bool;
+void test_firepower() {
+  // 最大出力で火力を試す
+  std::cout << "最大火力" << std::endl;
+}
+void fire() {
+  // 通常の火力で ”処理” をする
+}
+
 int main()
 {
-  std::vector<short> v(static_cast<std::size_t>(std::numeric_limits<my_bool>::max()) + 3);
-  my_bool flag = 0;
-  for(auto&& i : v){
-    if(flag++) std::cout << ',';
-    std::cout << i << std::endl;
+  int tested = 0;
+  while (true) {
+    if (!tested) {
+      test_firepower();
+    } else {
+      fire();
+    }
+    tested++;
   }
 }
 ```
 
-これは、最初の要素以外のときは`,`という文字を要素の出力の前に行うことを期待している。しかし期待通りには動かない。  
-`flag`が`unsigned char`型の最大値になったときif文の条件評価が行われることを考えよう。`flag`のインクリメントはオーバーフローするので未定義動作になるが、殆どの環境で2の補数表現を使っているため、`unsigned char`型の最小値になる。すると、`flag`の値が再び0まで加算された際にカンマが出力されない。
+これはループのはじめのみ`test_firepower`関数が呼び出されることを期待している。しかし期待通りには動かない。  
+`tested`が`int`型の最大値になったときif文の条件評価が行われることを考えよう。`tested`のインクリメントはオーバーフローするので未定義動作になるが、殆どの環境で2の補数表現を使っているため、`int`型の最小値になる。すると、`tested`の値が再び0まで加算された際にカンマが出力されない。
 
 これに起因するバグで少なくとも6つの過度の放射線被曝事故を引き起こし、3人が死亡した例がある。  
 Therac-25はカナダ原子力公社(AECL)とフランスCGR-MeV社によって開発・製造された放射線療法機器である。  
