@@ -58,7 +58,7 @@
 -  [`std::stack`](/reference/stack.md) 、 [`std::queue`](/reference/queue/queue.md) 、 [`std::priority_queue`](/reference/queue/priority_queue.md) 等のコンテナアダプタの計算量は、内部実装の計算量に準じる。
 -  重複要素を許容する連想コンテナの計算量は、重複要素を許容しない連想コンテナの計算量に準じる。
 -  [`std::forward_list`](/reference/forward_list.md) はゼロオーバーヘッドを重視した設計のため、コンテナの要素数を O(1) で取得することはできない。
-- [`std::valarray`](/reference/valarray.md) は処理系定義の最適化（自動ベクトル化やSIMD命令の使用）によって効率化されることが期待されているため、本記事では解説しない。専ら数値計算を目的としてプログラムの最適化を行う場合は、空間計算量やハードウェアとの相性を考慮した選択を行うことが望ましい。
+- [`std::valarray`](/reference/valarray.md) は専ら数値演算を目的として処理系定義の最適化が行われる可能性が高く、厳密な計算量の定義が難しいため、本記事では解説しない。
 
 
 ## アルゴリズムの計算量
