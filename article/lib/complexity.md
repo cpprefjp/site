@@ -1,37 +1,37 @@
-# C++�ɂ�����v�Z�ʂ̃I�[�_�[
+# C++における計算量のオーダー
 * [mathjax enable]
 
-���̋L���ł͎�ɁA�W�����C�u�����̃R���e�i�ƃA���S���Y���̌v�Z�ʂɂ��ĉ������B
+この記事では主に、標準ライブラリのコンテナとアルゴリズムの計算量について解説する。
 
-## ��{�I�Ȍv�Z�ʂƁAC++�ɂ������\��
+## 基本的な計算量と、C++における代表例
 
-- �v�f���Ɉˑ����Ȃ��������F $O\left(1\right)$
-- �v�f���Ɉˑ������������i�v�f�������炩�ȏꍇ�j: $O\left(n\right)$
-- �v�f���Ɉˑ������������i�v�f�����v�Z����K�v������ꍇ�j: $O\left(\log n\right)$
-- �\�[�g�𔺂�������: $O\left(n \log n\right)$
+- 要素数に依存しない初期化： $O\left(1\right)$
+- 要素数に依存した初期化（要素数が明らかな場合）: $O\left(n\right)$
+- 要素数に依存した初期化（要素数を計算する必要がある場合）: $O\left(\log n\right)$
+- ソートを伴う初期化: $O\left(n \log n\right)$
 
-| �v�Z�ʁi���Ȃ����j | ���� | C++�ɂ������\�� |
+| 計算量（少ない順） | 名称 | C++における代表例 |
 |---|---|---|
-| $O\left(1\right)$ | �萔����<br>(*constant*) | �f�t�H���g�R���X�g���N�^<br>�f�t�H���g�f�X�g���N�^<br>�f�X�g���N�^�i�q�v�f���������́j<br>���[�u�R���X�g���N�^<br>`swap` ����<br>���z��̓Y�����A�N�Z�X<br> *�i���ɋK�肪�Ȃ��ꍇ�̌v�Z�ʂƃ������g�p�ʂƂ��đz��ł�����́j* |
-| - | ���p�萔����<br>(*amortized constant*) | [`std::vector::push_back`](/reference/vector/push_back.md) <br> *�i���܂ɔ��ɒ������Ԃ������邪�ʏ�͒Z�����ԂŊ������邽�߂ɁA���ϓI�ɂ͒萔���ԂƂ݂Ȃ�����́j* |
-| $O\left(\log n\right)$ | �ΐ�����<br>(*logarithmic*) | ������͈͂̍Čv�Z<br> *�i�O�����C�e���[�^�v���𖞂����Ȃ��C�e���[�^�͈͂ɂ�鏉�����ɂ����郁�����Ċm�ہj* |
-| $O\left(n\right)$ | ���`����<br>(*linear*) | �f�X�g���N�^�i�S�Ă̗v�f��j������K�v��������́j<br>�R�s�[�R���X�g���N�^<br>[`std::unordered_set` ���m�̓��l��r](/reference/unordered_set/unordered_set/op_equal.md) *�i���όv�Z���ԁj* |
-| $O\left(n \log n\right)$ | ���`�ΐ�����<br>(*log-linear*) | [`std::sort`](/reference/algorithm/sort.md) <br> ��ʓI�� __����__ �Ƃ����\�[�g *�i���όv�Z���ԁj* |
-| $O\left({n^2}\right)$ | ��掞��<br>(*quadratic*) | ��d���[�v<br>��ʓI�� __�x��__ �Ƃ����\�[�g *�i�ň��v�Z���ԁj*<br>[`std::unordered_set` ���m�̓��l��r](/reference/unordered_set/unordered_set/op_equal.md) *�i�ň��v�Z���ԁj* |
-| $O\left({n^c}\right), \exist c\ge 1$ | ����������<br>(*polynomial*) | ���d���[�v<br>�s��v�Z |
-| ${2^O\left(n\right)}$ | �w������<br>(*exponential*) | *�i�x�����邽�ߎ��p�I�łȂ��j* |
-| $O\left(n!\right)$ | �K�掞��<br>(*factorial*) | *�i�x�����邽�ߎ��p�I�łȂ��j* |
+| $O\left(1\right)$ | 定数時間<br>(*constant*) | デフォルトコンストラクタ<br>デフォルトデストラクタ<br>デストラクタ（子要素が無いもの）<br>ムーブコンストラクタ<br>`swap` 操作<br>生配列の添え字アクセス<br> *（時に規定がない場合の計算量とメモリ使用量として想定できるもの）* |
+| - | 償却定数時間<br>(*amortized constant*) | [`std::vector::push_back`](/reference/vector/push_back.md) <br> *（たまに非常に長い時間がかかるが通常は短い時間で完了するために、平均的には定数時間とみなせるもの）* |
+| $O\left(\log n\right)$ | 対数時間<br>(*logarithmic*) | 距離や範囲の再計算<br> *（前方向イテレータ要件を満たさないイテレータ範囲による初期化におけるメモリ再確保）* |
+| $O\left(n\right)$ | 線形時間<br>(*linear*) | デストラクタ（全ての要素を破棄する必要があるもの）<br>コピーコンストラクタ<br>[`std::unordered_set` 同士の等値比較](/reference/unordered_set/unordered_set/op_equal.md) *（平均計算時間）* |
+| $O\left(n \log n\right)$ | 線形対数時間<br>(*log-linear*) | [`std::sort`](/reference/algorithm/sort.md) <br> 一般的に __速い__ とされるソート *（平均計算時間）* |
+| $O\left({n^2}\right)$ | 二乗時間<br>(*quadratic*) | 二重ループ<br>一般的に __遅い__ とされるソート *（最悪計算時間）*<br>[`std::unordered_set` 同士の等値比較](/reference/unordered_set/unordered_set/op_equal.md) *（最悪計算時間）* |
+| $O\left({n^c}\right), \exist c\ge 1$ | 多項式時間<br>(*polynomial*) | 多重ループ<br>行列計算 |
+| ${2^O\left(n\right)}$ | 指数時間<br>(*exponential*) | *（遅すぎるため実用的でない）* |
+| $O\left(n!\right)$ | 階乗時間<br>(*factorial*) | *（遅すぎるため実用的でない）* |
 
 
-## �R���e�i�̌v�Z��
+## コンテナの計算量
 
-�i���M���j
+（執筆中）
 
-�����ł́A�������Ċm�ۂ��N����Ȃ��ꍇ�̒ʏ�̌v�Z�ʂ��L�ڂ���B�����ȏ����ɂ��ẮA�ʃy�[�W���Q�Ƃ��邱�ƁB
+ここでは、メモリ再確保が起こらない場合の通常の計算量を記載する。厳密な条件については、個別ページを参照すること。
 
-`std::stack` �A `std::queue` �A `std::priority_queue` ���̃R���e�i�A�_�v�^�̌v�Z�ʂ́A���������̌v�Z�ʂɏ�����B
+`std::stack` 、 `std::queue` 、 `std::priority_queue` 等のコンテナアダプタの計算量は、内部実装の計算量に準じる。
 
-| �R���e�i | N�v�f�̏����� | �R�s�[ | �擾 | �擪 | ���� | ���� | �}�� | �폜 | 
+| コンテナ | N要素の初期化 | コピー | 取得 | 先頭 | 中間 | 末尾 | 挿入 | 削除 | 
 |---|---|---|---|---|---|---|---|---|
 | [`array`](/reference/array.md) <a href="site-1">[^1]</a> | | | | | | | | |
 | [`vector`](/reference/vector.md) | | | | | | | | |
@@ -46,9 +46,9 @@
 | [`multimap`](/reference/multimap.md) | | | | | | | | |
 | [`unordered_multimap`](/reference/unordered_multimap.md) | | | | | | | | |
 
-- <a name="site-1"></a>[^1]: `std::array` �� `swap` �̌v�Z�ʂ��萔���ԂłȂ����߁A�R���e�i�̗v���𖞂����Ȃ��i����ȊO�̃R���e�i�́A�S�Ē萔���Ԃł���j�B
+- <a name="site-1"></a>[^1]: `std::array` は `swap` の計算量が定数時間でないため、コンテナの要件を満たさない（それ以外のコンテナは、全て定数時間である）。
 
 
-## �A���S���Y���̌v�Z��
+## アルゴリズムの計算量
 
-�i���M���j
+（執筆中）
