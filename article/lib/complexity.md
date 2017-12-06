@@ -49,7 +49,9 @@
 
 ### 備考
 
--  [`std::array`](/reference/stack.md) 以外のコンテナにおける `swap` 操作の計算量は、全て定数時間。
+- 先頭または末尾への１要素の挿入／削除が特別にサポートされているコンテナでは、その操作の計算量は基本的に O(1) である。
+- [`std::vector::push_back`](/reference/vector/push_back.md) の計算量は、 __償却定数時間__ である。
+-  [`std::array`](/reference/stack.md) 以外のコンテナにおける `swap` 操作の計算量は、 O(1) である。
 -  [`std::stack`](/reference/stack.md) 、 [`std::queue`](/reference/queue/queue.md) 、 [`std::priority_queue`](/reference/queue/priority_queue.md) 等のコンテナアダプタの計算量は、内部実装の計算量に準じる。
 -  重複要素を許容する連想コンテナの計算量は、重複要素を許容しない連想コンテナの計算量に準じる。
 
