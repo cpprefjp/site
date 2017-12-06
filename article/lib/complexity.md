@@ -25,28 +25,33 @@
 
 ## コンテナの計算量
 
-（執筆中）
+ここでは、以下に示すような通常の条件下での計算量を記載する。
 
-ここでは、メモリ再確保が起こらない場合の通常の計算量を記載する。厳密な条件については、個別ページを参照すること。
+- メモリ再確保が起こらない
+- 要素自体はムーブ構築される
+- 挿入／削除する際の位置は、キーに応じて再計算するものとする
+- 挿入／削除操作の場合、要素数は１つ
+- 挿入／削除時のヒントは無し（限定された条件下で正しく指定すると、計算量は下がる）
 
-`std::stack` 、 `std::queue` 、 `std::priority_queue` 等のコンテナアダプタの計算量は、内部実装の計算量に準じる。
+特殊な条件下における厳密な計算量については、個別ページを参照すること。
 
-| コンテナ | N要素の初期化 | コピー | 取得 | 先頭 | 中間 | 末尾 | 挿入 | 削除 | 
-|---|---|---|---|---|---|---|---|---|
-| [`array`](/reference/array.md) <a href="site-1">[^1]</a> | | | | | | | | |
-| [`vector`](/reference/vector.md) | | | | | | | | |
-| [`deque`](/reference/deque.md) | | | | | | | | |
-| [`list`](/reference/list.md) | | | | | | | | |
-| [`set`](/reference/set.md) | | | | | | | | |
-| [`unordered_set`](/reference/unordered_set.md) | | | | | | | | |
-| [`multiset`](/reference/multiset.md) | | | | | | | | |
-| [`unordered_multiset`](/reference/unordered_multiset.md) | | | | | | | | |
-| [`map`](/reference/map.md) | | | | | | | | |
-| [`unordered_map`](/reference/unordered_map.md) | | | | | | | | |
-| [`multimap`](/reference/multimap.md) | | | | | | | | |
-| [`unordered_multimap`](/reference/unordered_multimap.md) | | | | | | | | |
 
-- <a name="site-1"></a>[^1]: `std::array` は `swap` の計算量が定数時間でないため、コンテナの要件を満たさない（それ以外のコンテナは、全て定数時間である）。
+| コンテナ | N要素の初期化 | コピー | 参照/検索 | 先頭 | 中間 | 末尾 | 挿入（１要素） | 削除（１要素） |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| [`vector`](/reference/vector.md) | O(n) | O(n) | - | O(1) | O(1) | O(1) | *数と位置に応じて* O(n) | O(n) *(破棄)* |
+| [`deque`](/reference/deque.md) | O(n) | O(n) | - | O(1) | O(1) | O(1) | O(n) *(構築)* + O(n) *(内部伸長)* | O(n) *(破棄)* + O(n) *(内部収縮)*  |
+| [`list`](/reference/list.md) | O(n) | O(n) | - | O(1) | __不可__  | O(1)| O(1) | O(1) |
+| [`set`](/reference/set.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | O(log n) | - | - | - | O(log n) | O(log n) |
+| [`unordered_set`](/reference/unordered_set.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ |  *平均：* O(1) <br> *最悪：* __O(n)__ | - | - | - | *平均：* O(1) <br> *最悪：* O(n) | *平均：* O(1) <br> *最悪：* O(n) |
+| [`map`](/reference/map.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | O(log n) | - | - | - | O(log n)  | O(log n) |
+| [`unordered_map`](/reference/unordered_map.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ |  *平均：* O(1) <br> *最悪：* __O(n)__ | - | - | - | *平均：* O(1) <br> *最悪：* O(n)  | *平均：* O(1) <br> *最悪：* O(n) |
+
+
+### 備考
+
+-  [`std::array`](/reference/stack.md) 以外のコンテナにおける `swap` 操作の計算量は、全て定数時間。
+-  [`std::stack`](/reference/stack.md) 、 [`std::queue`](/reference/queue/queue.md) 、 [`std::priority_queue`](/reference/queue/priority_queue.md) 等のコンテナアダプタの計算量は、内部実装の計算量に準じる。
+-  重複要素を許容する連想コンテナの計算量は、重複要素を許容しない連想コンテナの計算量に準じる。
 
 
 ## アルゴリズムの計算量
