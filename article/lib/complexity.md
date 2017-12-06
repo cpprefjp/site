@@ -19,7 +19,7 @@
 | $O(n \log n)$ | 線形対数時間<br>(*log-linear*) | [`std::sort`](/reference/algorithm/sort.md) <br> 一般的に __速い__ とされるソート *（平均計算時間）* |
 | $O({n^2})$ | 二乗時間<br>(*quadratic*) | 二重ループ<br>一般的に __遅い__ とされるソート *（最悪計算時間）*<br>[`std::unordered_set` 同士の等値比較](/reference/unordered_set/unordered_set/op_equal.md) *（最悪計算時間）* |
 | $O({n^c}), \exists c\ge 1$ | 多項式時間<br>(*polynomial*) | 多重ループ<br>行列計算 |
-| $2^{O(n)}$ | 指数時間<br>(*exponential*) | *（遅すぎるため実用的でない）* |
+| $O({c^n}), \exists c\ge 1$ | 指数時間<br>(*exponential*) | *（遅すぎるため実用的でない）* |
 | $O(n!)$ | 階乗時間<br>(*factorial*) | *（遅すぎるため実用的でない）* |
 
 
