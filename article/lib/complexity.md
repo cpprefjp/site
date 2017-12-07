@@ -63,7 +63,7 @@
 | 連想コンテナ | <nobr>O(log n)</nobr> | <nobr>O(log n)</nobr>  | <nobr>O(log n)</nobr> | __O(log n)__, n = size() |
 | ハッシュセット | *平均：* O(1) <br> *最悪：* __O(n)__  | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() | *平均：* O(1) <br> *最悪：* __O(n)__ | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() |
 | ハッシュマップ | （同上） | *平均：* O(1) <br> *最悪：* __O(n)__ | （同上） | （同上） |
-| その他のコンテナ | - | - | - |
+| その他のコンテナ | - | - | - | - |
 
 
 
