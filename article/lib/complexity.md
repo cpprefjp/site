@@ -17,8 +17,8 @@
 | - | 償却定数時間<br>(*amortized constant*) | [`std::vector::push_back`](/reference/vector/push_back.md) <br> *（たまに非常に長い時間がかかるが通常は短い時間で完了するために、平均的には定数時間とみなせるもの）* |
 | $O(\log n)$ | 対数時間<br>(*logarithmic*) | 距離や範囲の再計算<br> *（前方向イテレータ要件を満たさないイテレータ範囲による初期化におけるメモリ再確保）* |
 | $O(n)$ | 線形時間<br>(*linear*) | デストラクタ（全ての要素を破棄する必要があるもの）<br>コピーコンストラクタ<br>[`std::unordered_set` 同士の等値比較](/reference/unordered_set/unordered_set/op_equal.md) *（平均計算時間）* |
-| $O(n \log n)$ | 線形対数時間<br>(*log-linear*) | [`std::sort`](/reference/algorithm/sort.md) <br> 一般的に __速い__ とされるソート *（平均計算時間）* |
-| $O({n^2})$ | 二乗時間<br>(*quadratic*) | 二重ループ<br>一般的に __遅い__ とされるソート *（最悪計算時間）*<br>[`std::unordered_set` 同士の等値比較](/reference/unordered_set/unordered_set/op_equal.md) *（最悪計算時間）* |
+| $O(n \log n)$ | 線形対数時間<br>(*log-linear*) | [`std::sort`](/reference/algorithm/sort.md) <br> 一般的に **速い** とされるソート *（平均計算時間）* |
+| $O({n^2})$ | 二乗時間<br>(*quadratic*) | 二重ループ<br>一般的に **遅い** とされるソート *（最悪計算時間）*<br>[`std::unordered_set` 同士の等値比較](/reference/unordered_set/unordered_set/op_equal.md) *（最悪計算時間）* |
 | $O({n^c}), \exists c\ge 1$ | 多項式時間<br>(*polynomial*) | 多重ループ<br>行列計算 |
 | $O({c^n}), \exists c\ge 1$ | 指数時間<br>(*exponential*) | *（遅すぎるため実用的でない）* |
 | $O(n!)$ | 階乗時間<br>(*factorial*) | *（遅すぎるため実用的でない）* |
@@ -42,16 +42,16 @@
 
 | セマンティクス | N要素の初期化 | コピー | 先頭 | 絶対位置 | 末尾 | 位置挿入 | 位置削除 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| コンテナ __`C`__ | <nobr>__`C c{first, last};`__</nobr> | <nobr>__`C c2{c1};`__</nobr><br><nobr>__`auto c2 = c1;`__</nobr> | <nobr>__`e = c.front();`__</nobr> | <nobr>__`e = c[i];`__</nobr><br><nobr>__`e = c.at(i);`__</nobr> | <nobr>__` e = c.back();`__</nobr> | <nobr>__`c.insert(pos, e);`__</nobr> | <nobr>__`c.erase(pos);`__</nobr> |
-| __生配列__<br>[`array`](/reference/array.md) | O(n) | O(n) | O(1) | O(1) | O(1) | - | - |
+| コンテナ **`C`** | <nobr>**`C c{first, last};`**</nobr> | <nobr>**`C c2{c1};`**</nobr><br><nobr>**`auto c2 = c1;`**</nobr> | <nobr>**`e = c.front();`**</nobr> | <nobr>**`e = c[i];`**</nobr><br><nobr>**`e = c.at(i);`**</nobr> | <nobr>**` e = c.back();`**</nobr> | <nobr>**`c.insert(pos, e);`**</nobr> | <nobr>**`c.erase(pos);`**</nobr> |
+| **生配列**<br>[`array`](/reference/array.md) | O(n) | O(n) | O(1) | O(1) | O(1) | - | - |
 | [`vector`](/reference/vector.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（※数と位置に応じて）* | O(n)<br>*(※破棄コスト)* |
 | [`deque`](/reference/deque.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（※構築 n + 伸長 n）* | O(n)<br>*（※破棄 n + 収縮 n）*  |
 | [`list`](/reference/list.md) | O(n) | O(n) | O(1) | - | O(1)| O(1) | O(1)<br>*(※破棄 n）* |
 | [`forward_list`](/reference/forward_list.md) | O(n) | O(n) | O(1) | - | - | O(1) | O(1)<br>*(※破棄 n）* |
-| [`set`](/reference/set.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | - | - | __ヒント付__ | __ヒント付__ |
-| [`unordered_set`](/reference/unordered_set.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | - | - | __ヒント付__ | __ヒント付__ |
-| [`map`](/reference/map.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | O(log n) | - | __ヒント付__ | __ヒント付__ |
-| [`unordered_map`](/reference/unordered_map.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | *平均:* O(1)<br>*最悪:* __O(n)__ | - | __ヒント付__ | __ヒント付__ |
+| [`set`](/reference/set.md) | *ソート済：* O(n)<br> *未ソート：* **O(n log n)** | O(n) | - | - | - | **ヒント付** | **ヒント付** |
+| [`unordered_set`](/reference/unordered_set.md) | *平均：* O(n) <br> *最悪：* **O(n^2)** | *平均：* O(n) <br> *最悪：* **O(n^2)** | - | - | - | **ヒント付** | **ヒント付** |
+| [`map`](/reference/map.md) | *ソート済：* O(n)<br> *未ソート：* **O(n log n)** | O(n) | - | O(log n) | - | **ヒント付** | **ヒント付** |
+| [`unordered_map`](/reference/unordered_map.md) | *平均：* O(n) <br> *最悪：* **O(n^2)** | *平均：* O(n) <br> *最悪：* **O(n^2)** | - | *平均:* O(1)<br>*最悪:* **O(n)** | - | **ヒント付** | **ヒント付** |
 
 
 
@@ -59,37 +59,37 @@
 
 | セマンティクス | 検索 | 一致範囲 | 指定挿入 | 指定削除 |
 |:---:|:---:|:---:|:---:|:---:|
-| （コンテナの種類） | <nobr>__`it = c.find(k);`__</nobr> | <nobr>__`b = c.equal_range(k);`__</nobr> | <nobr>__`c.insert(e);`__</nobr><br><nobr>__`c.insert({k, v});`__</nobr> | <nobr>__`c.erase(k);`__</nobr> |
-| 連想コンテナ | <nobr>O(log n)</nobr> | <nobr>O(log n)</nobr>  | <nobr>O(log n)</nobr> | __O(log n)__, n = size() |
-| ハッシュセット | *平均：* O(1) <br> *最悪：* __O(n)__  | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() | *平均：* O(1) <br> *最悪：* __O(n)__ | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() |
-| ハッシュマップ | （同上） | *平均：* O(1) <br> *最悪：* __O(n)__ | （同上） | （同上） |
+| （コンテナの種類） | <nobr>**`it = c.find(k);`**</nobr> | <nobr>**`b = c.equal_range(k);`**</nobr> | <nobr>**`c.insert(e);`**</nobr><br><nobr>**`c.insert({k, v});`**</nobr> | <nobr>**`c.erase(k);`**</nobr> |
+| 連想コンテナ | <nobr>O(log n)</nobr> | <nobr>O(log n)</nobr>  | <nobr>O(log n)</nobr> | **O(log n)**, n = size() |
+| ハッシュセット | *平均：* O(1) <br> *最悪：* **O(n)**  | <nobr>*平均：* **O(n)**, n = count(k)</nobr><br>*最悪：* O(n), n = size() | *平均：* O(1) <br> *最悪：* **O(n)** | <nobr>*平均：* **O(n)**, n = count(k)</nobr><br>*最悪：* O(n), n = size() |
+| ハッシュマップ | （同上） | *平均：* O(1) <br> *最悪：* **O(n)** | （同上） | （同上） |
 | その他のコンテナ | - | - | - | - |
 
 
 
 ### 凡例
 
-- __`C`__  
+- **`C`**  
   コンテナのクラス
-- __`c`__, __`c1`__, __`c2`__  
+- **`c`**, **`c1`**, **`c2`**  
   *`C`* クラスのオブジェクト
-- __`e`__  
+- **`e`**  
   要素（通常は *`C::value_type`*）
-- __`first`__, __`last`__  
+- **`first`**, **`last`**  
   `InputIterator` コンセプトを満たす [*first*, *last*) 範囲のイテレータ
-- __`it`__  
+- **`it`**  
   検索結果の要素の位置を示すイテレータ（通常は *`C::const_iterator`*）
-- __`b`__  
+- **`b`**  
   下境界と上境界のペア（通常は *`std::pair<C::const_iterator, C::const_iterator>`*）
-- __`pos`__  
+- **`pos`**  
   挿入位置を示すイテレータ（通常は *`C::const_iterator`*）
-- __`k`__  
+- **`k`**  
   連想コンテナにおけるキー（通常は *`C::key_type const&`* ）
-- __`i`__  
+- **`i`**  
   添え字（通常は *`std::size_t`*）
-- __`count(k)`__  
+- **`count(k)`**  
   操作の対象となった要素数
-- __`size()`__  
+- **`size()`**  
   コンテナの全要素数
 - *連想コンテナ*  
   C++に古くからあるコンテナ。  
@@ -99,9 +99,9 @@
   C++11から入った、内部実装にハッシュテーブルを用いるコンテナ。  
   重複要素は許容されず、格納順も規定されない。  
    [`unordered_set`](/reference/unordered_set.md) 、 [`unordered_map`](/reference/unordered_map.md)
-- __「-」__ （半角ハイフン）  
+- **「-」** （半角ハイフン）  
   そのセマンティクスが対象のコンテナに存在しないことを示す。
-- __「ヒント付」__  
+- **「ヒント付」**  
   限定された条件下の操作でヒントを正しく指定すると、計算量は大幅に減る。  
   詳細については、各メンバ関数のリファレンスを参照すること。
 
@@ -116,7 +116,7 @@
 - 操作対象の要素数より全要素数の方が、結果的にプログラムの実行時間に与える影響が大きいことがある。
 - 先頭または末尾への１要素の挿入／削除が特別にサポートされているコンテナでは、その操作の計算量は基本的に O(1) である。  
   （例： [`std::queue::push_front`](/reference/queue/push_front.md) 、 [`std::queue::pop_back`](/reference/queue/pop_back.md) ）
-- 前項の例外として、 [`std::vector::push_back`](/reference/vector/push_back.md) の計算量は、定数時間ではなく、 __償却定数時間__ である。
+- 前項の例外として、 [`std::vector::push_back`](/reference/vector/push_back.md) の計算量は、定数時間ではなく、 **償却定数時間** である。
 -  [`std::array`](/reference/stack.md) 以外のコンテナにおける `swap` 操作の計算量は、 O(1) である。
 -  [`std::stack`](/reference/stack.md) 、 [`std::queue`](/reference/queue/queue.md) 、 [`std::priority_queue`](/reference/queue/priority_queue.md) 等のコンテナアダプタの計算量は、内部実装の計算量に準じる。
 -  重複要素を許容する連想コンテナの計算量は、重複要素を許容しない連想コンテナの計算量に準じる。
