@@ -47,13 +47,15 @@
   `InputIterator` コンセプトを満たす [*first*, *last*) 範囲のイテレータ
 - __`it`__  
   検索結果の要素の位置を示すイテレータ（通常は *`C::const_iterator`*）
+- __`b`__  
+  下境界と上境界のペア（通常は *`std::pair<C::const_iterator, C::const_iterator>`*）
 - __`pos`__  
   挿入位置を示すイテレータ（通常は *`C::const_iterator`*）
 - __`k`__  
   連想コンテナにおけるキー（通常は *`C::key_type const&`* ）
 - __`i`__  
   添え字（通常は *`std::size_t`*）
-- __n__, __`count(k)`__  
+- __`count(k)`__  
   操作の対象となった要素数
 - __`size()`__  
   コンテナの全要素数
@@ -61,7 +63,7 @@
   C++に古くからあるコンテナ。  
   重複要素を許容するものと許容しないものがあり、格納順が規定されている。  
    [`set`](/reference/set.md) 、 [`map`](/reference/map.md)
-- *ハッシュコンテナ*  
+- *ハッシュコンテナ、ハッシュセット、ハッシュマップ*  
   C++11から入った、内部実装にハッシュテーブルを用いるコンテナ。  
   重複要素は許容されず、格納順も規定されない。  
    [`unordered_set`](/reference/unordered_set.md) 、 [`unordered_map`](/reference/unordered_map.md)
@@ -85,7 +87,7 @@
 本項ではセマンティクス全体の数学的な計算量を記載する。ただし内部実装による複数回の計算が明らかでかつ直感と反する場合は、これを併記する。
 
 
-| セマンティクス | N要素の初期化 | コピー | 先頭 | 中間 | 末尾 | 位置挿入 | 位置削除 |
+| セマンティクス | N要素の初期化 | コピー | 先頭 | 絶対位置 | 末尾 | 位置挿入 | 位置削除 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | コンテナ __`C`__ | <nobr>__`C c{first, last};`__</nobr> | <nobr>__`C c2{c1};`__</nobr><br><nobr>__`auto c2 = c1;`__</nobr> | <nobr>__`e = c.front();`__</nobr> | <nobr>__`e = c[i];`__</nobr><br><nobr>__`e = c.at(i);`__</nobr> | <nobr>__` e = c.back();`__</nobr> | <nobr>__`c.insert(pos, e);`__</nobr> | <nobr>__`c.erase(pos);`__</nobr> |
 | __生配列__<br>[`array`](/reference/array.md) | O(n) | O(n) | O(1) | O(1) | O(1) | - | - |
@@ -95,18 +97,19 @@
 | [`forward_list`](/reference/forward_list.md) | O(n) | O(n) | O(1) | - | - | O(1) | O(1)<br>*(※破棄 n）* |
 | [`set`](/reference/set.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | - | - | __ヒント付__ | __ヒント付__ |
 | [`unordered_set`](/reference/unordered_set.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | - | - | __ヒント付__ | __ヒント付__ |
-| [`map`](/reference/map.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | - | - | __ヒント付__ | __ヒント付__ |
-| [`unordered_map`](/reference/unordered_map.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | - | - | __ヒント付__ | __ヒント付__ |
+| [`map`](/reference/map.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | O(log n) | - | __ヒント付__ | __ヒント付__ |
+| [`unordered_map`](/reference/unordered_map.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | *平均:* O(1)<br>*最悪:* __O(n)__ | - | __ヒント付__ | __ヒント付__ |
 
 
 
 ### 特別なセマンティクスと計算量
 
-| セマンティクス | 検索 | 指定挿入 | 指定削除 |
-|:---:|:---:|:---:|:---:|
-| （コンテナの種類） | <nobr>__`it = c.find(k);`__</nobr> | <nobr>__`c.insert(e);`__</nobr><br><nobr>__`c.insert({k, v});`__</nobr> | <nobr>__`c.erase(k);`__</nobr> |
-| 連想コンテナ | O(log n) | O(log n) | __O(log size())__ |
-| ハッシュコンテナ | *平均：* O(1) <br> *最悪：* __O(size())__  | *平均：* O(1) <br> *最悪：* __O(size())__ | *平均：* __O(count(k))__<br>*最悪：* O(size()) |
+| セマンティクス | 検索 | 一致範囲 | 指定挿入 | 指定削除 |
+|:---:|:---:|:---:|:---:|:---:|
+| （コンテナの種類） | <nobr>__`it = c.find(k);`__</nobr> | <nobr>__`b = c.equal_range(k);`__</nobr> | <nobr>__`c.insert(e);`__</nobr><br><nobr>__`c.insert({k, v});`__</nobr> | <nobr>__`c.erase(k);`__</nobr> |
+| 連想コンテナ | <nobr>O(log n)</nobr> | <nobr>O(log n)</nobr>  | <nobr>O(log n)</nobr> | __O(log n), n = size()__ |
+| ハッシュセット | *平均：* O(1) <br> *最悪：* __O(n)__  | *平均：* __O(n)__, n = count(k)<br>*最悪：* O(n), n = size() | *平均：* O(1) <br> *最悪：* __O(n)__ | *平均：* __O(n)__, n = count(k)<br>*最悪：* O(n), n = size() |
+| ハッシュマップ | （同上） | *平均：* O(1) <br> *最悪：* __O(n)__ | （同上） | （同上） |
 | その他のコンテナ | - | - | - |
 
 
