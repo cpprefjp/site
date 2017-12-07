@@ -63,7 +63,7 @@
   C++11から入った、内部実装にハッシュテーブルを用いるコンテナ。  
   重複要素は許容されず、格納順も規定されない。  
    [`unordered_set`](/reference/unordered_set.md) 、 [`unordered_map`](/reference/unordered_map.md)
-- __「無し」__  
+- __「-」__ （半角ハイフン）  
   そのセマンティクスが対象のコンテナに存在しないことを示す。
 - __「ヒント付」__  
   限定された条件下の操作でヒントを正しく指定すると、計算量は大幅に減る。  
@@ -86,11 +86,11 @@
 | セマンティクス | N要素の初期化 | コピー | 先頭 | 中間 | 末尾 | 位置挿入 | 位置削除 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | コンテナ __`C`__ | <nobr>__`C c{first, last};`__</nobr> | <nobr>__`C c2{c1};`__</nobr><br><nobr>__`auto c2 = c1;`__</nobr> | <nobr>__`e = c.front();`__</nobr> | <nobr>__`e = c[i];`__</nobr><br><nobr>__`e = c.at(i);`__</nobr> | <nobr>__` e = c.back();`__</nobr> | <nobr>__`c.insert(pos, e);`__</nobr> | <nobr>__`c.erase(pos);`__</nobr> |
-| __生配列__ / [`array`](/reference/array.md) | O(n) | O(n) | O(1) | O(1) | O(1) | __無し__ | __無し__ |
-| [`vector`](/reference/vector.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（ただし 数と位置に応じて）* | O(n)<br>*(ただし 破棄コスト)* |
-| [`deque`](/reference/deque.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（ただし 構築 n + 伸長 n）* | O(n)<br>*（ただし 破棄 n + 収縮 n）*  |
-| [`list`](/reference/list.md) | O(n) | O(n) | O(1) | __無し__  | O(1)| O(1) | O(1)<br>*(ただし 破棄 n）* |
-| [`forward_list`](/reference/forward_list.md) | O(n) | O(n) | O(1) | __無し__  | __無し__ | O(1) | O(1)<br>*(ただし 破棄 n）* |
+| __生配列__<br>[`array`](/reference/array.md) | O(n) | O(n) | O(1) | O(1) | O(1) | - | - |
+| [`vector`](/reference/vector.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（※数と位置に応じて）* | O(n)<br>*(※破棄コスト)* |
+| [`deque`](/reference/deque.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（※構築 n + 伸長 n）* | O(n)<br>*（※破棄 n + 収縮 n）*  |
+| [`list`](/reference/list.md) | O(n) | O(n) | O(1) | - | O(1)| O(1) | O(1)<br>*(※破棄 n）* |
+| [`forward_list`](/reference/forward_list.md) | O(n) | O(n) | O(1) | - | - | O(1) | O(1)<br>*(※破棄 n）* |
 | [`set`](/reference/set.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | - | - | __ヒント付__ | __ヒント付__ |
 | [`unordered_set`](/reference/unordered_set.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | - | - | __ヒント付__ | __ヒント付__ |
 | [`map`](/reference/map.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | - | - | __ヒント付__ | __ヒント付__ |
@@ -105,7 +105,7 @@
 | （コンテナの種類） | <nobr>__`it = c.find(k);`__</nobr> | <nobr>__`c.insert(e);`__</nobr><br><nobr>__`c.insert({k, v});`__</nobr> | <nobr>__`c.erase(k);`__</nobr> |
 | 連想コンテナ | O(log n) | O(log n) | __O(log size())__ |
 | ハッシュコンテナ | *平均：* O(1) <br> *最悪：* __O(size())__  | *平均：* O(1) <br> *最悪：* __O(size())__ | *平均：* __O(count(k))__<br>*最悪：* O(size()) |
-| その他のコンテナ | __無し__ | __無し__ | __無し__ |
+| その他のコンテナ | - | - | - |
 
 
 
