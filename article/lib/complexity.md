@@ -84,7 +84,7 @@
 - **`pos`**  
   挿入位置を示すイテレータ（通常は *`C::const_iterator`*）
 - **`k`**  
-  連想コンテナにおけるキー（通常は *`C::key_type const&`* ）
+  連想コンテナにおけるキー（通常は *`const C::key_type&`* ）
 - **`i`**  
   添え字（通常は *`std::size_t`*）
 - **`count(k)`**  
