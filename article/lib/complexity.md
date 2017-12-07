@@ -107,8 +107,8 @@
 | セマンティクス | 検索 | 一致範囲 | 指定挿入 | 指定削除 |
 |:---:|:---:|:---:|:---:|:---:|
 | （コンテナの種類） | <nobr>__`it = c.find(k);`__</nobr> | <nobr>__`b = c.equal_range(k);`__</nobr> | <nobr>__`c.insert(e);`__</nobr><br><nobr>__`c.insert({k, v});`__</nobr> | <nobr>__`c.erase(k);`__</nobr> |
-| 連想コンテナ | <nobr>O(log n)</nobr> | <nobr>O(log n)</nobr>  | <nobr>O(log n)</nobr> | __O(log n), n = size()__ |
-| ハッシュセット | *平均：* O(1) <br> *最悪：* __O(n)__  | *平均：* __O(n)__, n = count(k)<br>*最悪：* O(n), n = size() | *平均：* O(1) <br> *最悪：* __O(n)__ | *平均：* __O(n)__, n = count(k)<br>*最悪：* O(n), n = size() |
+| 連想コンテナ | <nobr>O(log n)</nobr> | <nobr>O(log n)</nobr>  | <nobr>O(log n)</nobr> | __O(log n)__, n = size() |
+| ハッシュセット | *平均：* O(1) <br> *最悪：* __O(n)__  | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() | *平均：* O(1) <br> *最悪：* __O(n)__ | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() |
 | ハッシュマップ | （同上） | *平均：* O(1) <br> *最悪：* __O(n)__ | （同上） | （同上） |
 | その他のコンテナ | - | - | - |
 
