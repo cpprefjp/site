@@ -85,7 +85,7 @@
 
 | コンテナ | N要素の初期化 | コピー | 先頭 | 中間 | 末尾 | 位置挿入 | 位置削除 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| __（セマンティクス→）__ | <nobr>__`C c{first, last};`__</nobr> | <nobr>__`C c2{c1};`__</nobr><br><nobr>__`auto c2 = c1;`__</nobr> | <nobr>__`e = c.front();`__</nobr> | <nobr>__`e = c[i];`__</nobr><br><nobr>__`e = c.at(i);`__</nobr> | <nobr>__` e = c.back()`__</nobr> | <nobr>__`c.insert(pos, e);`__</nobr> | <nobr>__`c.erase(pos);`__</nobr> |
+| __（セマンティクス→）__ | <nobr>__`C c{first, last};`__</nobr> | <nobr>__`C c2{c1};`__</nobr><br><nobr>__`auto c2 = c1;`__</nobr> | <nobr>__`e = c.front();`__</nobr> | <nobr>__`e = c[i];`__</nobr><br><nobr>__`e = c.at(i);`__</nobr> | <nobr>__` e = c.back();`__</nobr> | <nobr>__`c.insert(pos, e);`__</nobr> | <nobr>__`c.erase(pos);`__</nobr> |
 | __生配列__ / [`array`](/reference/array.md) | O(n) | O(n) | O(1) | O(1) | O(1) | __無し__ | __無し__ |
 | [`vector`](/reference/vector.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（ただし 数と位置に応じて）* | O(n)<br>*(ただし 破棄コスト)* |
 | [`deque`](/reference/deque.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（ただし 構築 n + 伸長 n）* | O(n)<br>*（ただし 破棄 n + 収縮 n）*  |
