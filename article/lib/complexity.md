@@ -115,7 +115,7 @@
 - あるセマンティクスの全体の計算量が $O(n)$ でも、内部では線形時間未満の複数の操作が行われることがある。
 - 操作対象の要素数より全要素数の方が、結果的にプログラムの実行時間に与える影響が大きいことがある。
 - 先頭または末尾への１要素の挿入／削除が特別にサポートされているコンテナでは、その操作の計算量は基本的に O(1) である。  
-  （例： [`std::queue::push_front`](/reference/queue/push_front.md) 、 [`std::queue::pop_back`](/reference/queue/pop_back.md) ）
+  （例： [`std::deque::push_front`](/reference/deque/push_front.md) 、 [`std::deque::pop_back`](/reference/deque/pop_back.md) ）
 - 前項の例外として、 [`std::vector::push_back`](/reference/vector/push_back.md) の計算量は、定数時間ではなく、 **償却定数時間** である。
 -  [`std::array`](/reference/stack.md) 以外のコンテナにおける `swap` 操作の計算量は、 O(1) である。
 -  [`std::stack`](/reference/stack.md) 、 [`std::queue`](/reference/queue/queue.md) 、 [`std::priority_queue`](/reference/queue/priority_queue.md) 等のコンテナアダプタの計算量は、内部実装の計算量に準じる。
