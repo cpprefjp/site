@@ -83,9 +83,9 @@
 本項ではセマンティクス全体の数学的な計算量を記載する。ただし内部実装による複数回の計算が明らかでかつ直感と反する場合は、これを併記する。
 
 
-| コンテナ | N要素の初期化 | コピー | 先頭 | 中間 | 末尾 | 位置挿入 | 位置削除 |
+| セマンティクス | N要素の初期化 | コピー | 先頭 | 中間 | 末尾 | 位置挿入 | 位置削除 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| __（セマンティクス→）__ | <nobr>__`C c{first, last};`__</nobr> | <nobr>__`C c2{c1};`__</nobr><br><nobr>__`auto c2 = c1;`__</nobr> | <nobr>__`e = c.front();`__</nobr> | <nobr>__`e = c[i];`__</nobr><br><nobr>__`e = c.at(i);`__</nobr> | <nobr>__` e = c.back();`__</nobr> | <nobr>__`c.insert(pos, e);`__</nobr> | <nobr>__`c.erase(pos);`__</nobr> |
+| コンテナ __`C`__ | <nobr>__`C c{first, last};`__</nobr> | <nobr>__`C c2{c1};`__</nobr><br><nobr>__`auto c2 = c1;`__</nobr> | <nobr>__`e = c.front();`__</nobr> | <nobr>__`e = c[i];`__</nobr><br><nobr>__`e = c.at(i);`__</nobr> | <nobr>__` e = c.back();`__</nobr> | <nobr>__`c.insert(pos, e);`__</nobr> | <nobr>__`c.erase(pos);`__</nobr> |
 | __生配列__ / [`array`](/reference/array.md) | O(n) | O(n) | O(1) | O(1) | O(1) | __無し__ | __無し__ |
 | [`vector`](/reference/vector.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（ただし 数と位置に応じて）* | O(n)<br>*(ただし 破棄コスト)* |
 | [`deque`](/reference/deque.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（ただし 構築 n + 伸長 n）* | O(n)<br>*（ただし 破棄 n + 収縮 n）*  |
@@ -100,9 +100,9 @@
 
 ### 特別なセマンティクスと計算量
 
-| 対象のコンテナの種類 | 検索 | 指定挿入 | 指定削除 |
+| セマンティクス | 検索 | 指定挿入 | 指定削除 |
 |:---:|:---:|:---:|:---:|
-| __（セマンティクス→）__ | <nobr>__`it = c.find(k);`__</nobr> | <nobr>__`c.insert(e);`__</nobr><br><nobr>__`c.insert({k, v});`__</nobr> | <nobr>__`c.erase(k);`__</nobr> |
+| （コンテナの種類） | <nobr>__`it = c.find(k);`__</nobr> | <nobr>__`c.insert(e);`__</nobr><br><nobr>__`c.insert({k, v});`__</nobr> | <nobr>__`c.erase(k);`__</nobr> |
 | 連想コンテナ | O(log n) | O(log n) | __O(log size())__ |
 | ハッシュコンテナ | *平均：* O(1) <br> *最悪：* __O(size())__  | *平均：* O(1) <br> *最悪：* __O(size())__ | *平均：* __O(count(k))__<br>*最悪：* O(size()) |
 | その他のコンテナ | __無し__ | __無し__ | __無し__ |
