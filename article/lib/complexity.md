@@ -94,8 +94,7 @@
 - *連想コンテナ*  
   C++に古くからあるコンテナ。  
   重複要素を許容するものと許容しないものがあり、格納順が規定されている。  
-   [`set`](/reference/set/set.md) 、 [`multiset`](/reference/set/multiset.md) 、  
-   [`map`](/reference/map/map.md) 、 [`multimap`](/reference/map/multimap.md)
+   [`set`](/reference/set/set.md) 、 [`multiset`](/reference/set/multiset.md) 、 [`map`](/reference/map/map.md) 、 [`multimap`](/reference/map/multimap.md)
 - *ハッシュコンテナ、ハッシュセット、ハッシュマップ*  
   C++11から入った、内部実装にハッシュテーブルを用いるコンテナ。  
   重複要素は許容されず、格納順も規定されない。  
