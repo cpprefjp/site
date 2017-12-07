@@ -35,6 +35,38 @@
 限定された条件下における厳密な計算量については、各メンバ関数のリファレンスを参照すること。
 
 
+### 一般的なセマンティクスと計算量
+
+本項ではセマンティクス全体の数学的な計算量を記載する。ただし内部実装による複数回の計算が明らかでかつ直感と反する場合は、これを併記する。
+
+
+| セマンティクス | N要素の初期化 | コピー | 先頭 | 絶対位置 | 末尾 | 位置挿入 | 位置削除 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| コンテナ __`C`__ | <nobr>__`C c{first, last};`__</nobr> | <nobr>__`C c2{c1};`__</nobr><br><nobr>__`auto c2 = c1;`__</nobr> | <nobr>__`e = c.front();`__</nobr> | <nobr>__`e = c[i];`__</nobr><br><nobr>__`e = c.at(i);`__</nobr> | <nobr>__` e = c.back();`__</nobr> | <nobr>__`c.insert(pos, e);`__</nobr> | <nobr>__`c.erase(pos);`__</nobr> |
+| __生配列__<br>[`array`](/reference/array.md) | O(n) | O(n) | O(1) | O(1) | O(1) | - | - |
+| [`vector`](/reference/vector.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（※数と位置に応じて）* | O(n)<br>*(※破棄コスト)* |
+| [`deque`](/reference/deque.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（※構築 n + 伸長 n）* | O(n)<br>*（※破棄 n + 収縮 n）*  |
+| [`list`](/reference/list.md) | O(n) | O(n) | O(1) | - | O(1)| O(1) | O(1)<br>*(※破棄 n）* |
+| [`forward_list`](/reference/forward_list.md) | O(n) | O(n) | O(1) | - | - | O(1) | O(1)<br>*(※破棄 n）* |
+| [`set`](/reference/set.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | - | - | __ヒント付__ | __ヒント付__ |
+| [`unordered_set`](/reference/unordered_set.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | - | - | __ヒント付__ | __ヒント付__ |
+| [`map`](/reference/map.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | O(log n) | - | __ヒント付__ | __ヒント付__ |
+| [`unordered_map`](/reference/unordered_map.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | *平均:* O(1)<br>*最悪:* __O(n)__ | - | __ヒント付__ | __ヒント付__ |
+
+
+
+### 特別なセマンティクスと計算量
+
+| セマンティクス | 検索 | 一致範囲 | 指定挿入 | 指定削除 |
+|:---:|:---:|:---:|:---:|:---:|
+| （コンテナの種類） | <nobr>__`it = c.find(k);`__</nobr> | <nobr>__`b = c.equal_range(k);`__</nobr> | <nobr>__`c.insert(e);`__</nobr><br><nobr>__`c.insert({k, v});`__</nobr> | <nobr>__`c.erase(k);`__</nobr> |
+| 連想コンテナ | <nobr>O(log n)</nobr> | <nobr>O(log n)</nobr>  | <nobr>O(log n)</nobr> | __O(log n)__, n = size() |
+| ハッシュセット | *平均：* O(1) <br> *最悪：* __O(n)__  | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() | *平均：* O(1) <br> *最悪：* __O(n)__ | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() |
+| ハッシュマップ | （同上） | *平均：* O(1) <br> *最悪：* __O(n)__ | （同上） | （同上） |
+| その他のコンテナ | - | - | - |
+
+
+
 ### 凡例
 
 - __`C`__  
@@ -74,48 +106,14 @@
   詳細については、各メンバ関数のリファレンスを参照すること。
 
 
-### 注意
+
+### 備考
+
 
 - O(*size()*) と O(*N*) はどちらも $O(n)$ である。ここで、  
   *size()* はコンテナ自身の要素数、 *N* は操作の対象となった要素数。
 - あるセマンティクスの全体の計算量が $O(n)$ でも、内部では線形時間未満の複数の操作が行われることがある。
 - 操作対象の要素数より全要素数の方が、結果的にプログラムの実行時間に与える影響が大きいことがある。
-
-
-### 一般的なセマンティクスと計算量
-
-本項ではセマンティクス全体の数学的な計算量を記載する。ただし内部実装による複数回の計算が明らかでかつ直感と反する場合は、これを併記する。
-
-
-| セマンティクス | N要素の初期化 | コピー | 先頭 | 絶対位置 | 末尾 | 位置挿入 | 位置削除 |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| コンテナ __`C`__ | <nobr>__`C c{first, last};`__</nobr> | <nobr>__`C c2{c1};`__</nobr><br><nobr>__`auto c2 = c1;`__</nobr> | <nobr>__`e = c.front();`__</nobr> | <nobr>__`e = c[i];`__</nobr><br><nobr>__`e = c.at(i);`__</nobr> | <nobr>__` e = c.back();`__</nobr> | <nobr>__`c.insert(pos, e);`__</nobr> | <nobr>__`c.erase(pos);`__</nobr> |
-| __生配列__<br>[`array`](/reference/array.md) | O(n) | O(n) | O(1) | O(1) | O(1) | - | - |
-| [`vector`](/reference/vector.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（※数と位置に応じて）* | O(n)<br>*(※破棄コスト)* |
-| [`deque`](/reference/deque.md) | O(n) | O(n) | O(1) | O(1) | O(1) | O(n)<br>*（※構築 n + 伸長 n）* | O(n)<br>*（※破棄 n + 収縮 n）*  |
-| [`list`](/reference/list.md) | O(n) | O(n) | O(1) | - | O(1)| O(1) | O(1)<br>*(※破棄 n）* |
-| [`forward_list`](/reference/forward_list.md) | O(n) | O(n) | O(1) | - | - | O(1) | O(1)<br>*(※破棄 n）* |
-| [`set`](/reference/set.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | - | - | __ヒント付__ | __ヒント付__ |
-| [`unordered_set`](/reference/unordered_set.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | - | - | __ヒント付__ | __ヒント付__ |
-| [`map`](/reference/map.md) | *ソート済：* O(n)<br> *未ソート：* __O(n log n)__ | O(n) | - | O(log n) | - | __ヒント付__ | __ヒント付__ |
-| [`unordered_map`](/reference/unordered_map.md) | *平均：* O(n) <br> *最悪：* __O(n^2)__ | *平均：* O(n) <br> *最悪：* __O(n^2)__ | - | *平均:* O(1)<br>*最悪:* __O(n)__ | - | __ヒント付__ | __ヒント付__ |
-
-
-
-### 特別なセマンティクスと計算量
-
-| セマンティクス | 検索 | 一致範囲 | 指定挿入 | 指定削除 |
-|:---:|:---:|:---:|:---:|:---:|
-| （コンテナの種類） | <nobr>__`it = c.find(k);`__</nobr> | <nobr>__`b = c.equal_range(k);`__</nobr> | <nobr>__`c.insert(e);`__</nobr><br><nobr>__`c.insert({k, v});`__</nobr> | <nobr>__`c.erase(k);`__</nobr> |
-| 連想コンテナ | <nobr>O(log n)</nobr> | <nobr>O(log n)</nobr>  | <nobr>O(log n)</nobr> | __O(log n)__, n = size() |
-| ハッシュセット | *平均：* O(1) <br> *最悪：* __O(n)__  | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() | *平均：* O(1) <br> *最悪：* __O(n)__ | <nobr>*平均：* __O(n)__, n = count(k)</nobr><br>*最悪：* O(n), n = size() |
-| ハッシュマップ | （同上） | *平均：* O(1) <br> *最悪：* __O(n)__ | （同上） | （同上） |
-| その他のコンテナ | - | - | - |
-
-
-
-### 備考
-
 - 先頭または末尾への１要素の挿入／削除が特別にサポートされているコンテナでは、その操作の計算量は基本的に O(1) である。  
   （例： [`std::queue::push_front`](/reference/queue/push_front.md) 、 [`std::queue::pop_back`](/reference/queue/pop_back.md) ）
 - 前項の例外として、 [`std::vector::push_back`](/reference/vector/push_back.md) の計算量は、定数時間ではなく、 __償却定数時間__ である。
