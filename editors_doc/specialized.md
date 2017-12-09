@@ -60,6 +60,32 @@ int main() {
 }
 ```
 
+## exampleタグ
+
+includeとmain関数を含む**原則すべてのC/C++言語のコードブロック**には`example`タグをつけてください。  
+`example`タグが付いたコードブロックはその場で実際にコンパイル・実行することができるようになります。  
+たとえコンパイルエラーになる場合でも、利用者がその場でコードを書き換えて試行することを容易にするために原則つけてください。
+
+````
+```cpp example
+#include <iostream>
+
+int main()
+{
+  std::cout << "arikitari_na_world" << std::endl;
+}
+```
+````
+
+つけない例としては次のような宣言が書いてあるのみのものが挙げられます。
+
+```cpp
+namespace std {
+  template <class T, class Allocator = allocator<T>>
+  class vector;
+}
+```
+
 ## プログラムの修飾
 
 コードブロックの直後に特定の構文で記述することで、コードブロックの一部を修飾できます。
