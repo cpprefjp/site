@@ -1,5 +1,3 @@
-(サンプルコードが必要な場合は`example`タグを付け、コンパイル・実行可能にすることを検討してください。(ref: [cppref特有の拡張構文](specialized.md)))
-
 # page_title (ページのタイトルです)
 * header_name[meta header]
 * function[meta id-type]
@@ -30,6 +28,8 @@ void definition(); // 関数・変数・定数の宣言を記述します。
 
 ## 概要
 (ここには、関数・変数・定数の概要を記述します。必須事項です。)
+
+(サンプルコードが必要な場合は`example`タグを付け、コンパイル・実行可能にすることを検討してください。(ref: [cppref特有の拡張構文](specialized.md)))
 
 (必要な項目を省略する場合には、「(執筆中)」と書いておいてください。)
 
