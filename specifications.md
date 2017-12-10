@@ -55,26 +55,24 @@
 
 ### 処理系の性質
 
-- **合法** (legal) 処理系が適合することを指す。
-- **違法** (illegal) 処理系が適合しないことを指す。
-- **QoI** (quality of implementation; QOI) 処理系の実装品質のこと。適合する処理系であっても処理系依存な部分で粗末な動作をするものが考えうる。
+- **合法** (legal): 処理系が適合することを指す。
+- **違法** (illegal): 処理系が適合しないことを指す。
+- **QoI** (quality of implementation; QOI): 処理系の実装品質のこと。適合する処理系であっても処理系依存な部分で粗末な動作をするものが考えうる。
 
-### プログラムの性質
-
-- **合法** (legal) ?
-- **違法** (illegal) ?
+合法・違法はプログラムに対しても慣用されるが、具体的な意味は明確でない。プログラムの正しさには複数の水準があるためである。
+適格、またはすべての規則を満たす、または未定義の動作を含まないなどが考えられる。曖昧さを避けるため、このサイトではプログラムに対して合法・違法という語は用いない。
 
 ### 標準規格を定める組織
 
-- **C++標準化委員会** (C++ Standards Committee) C++ の国際標準規格を策定する団体。
+- **C++標準化委員会** (C++ Standards Committee): C++ の国際標準規格を策定する団体。
   組織としての位置づけはISO/IEC JTC1/SC22/WG21になる。
-  **国際標準化機構** (ISO; international organization for standardization) および**国際電気標準会議** (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
-  **第一合同技術委員会** (JTC1; Joint Technical Committee 1) は ISO/IEC の下で情報技術の標準化を行う団体である。
+  **国際標準化機構** (ISO; international organization for standardization): および**国際電気標準会議** (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
+  **第一合同技術委員会** (JTC1; Joint Technical Committee 1): は ISO/IEC の下で情報技術の標準化を行う団体である。
   下部組織の SC22 はプログラム言語の標準化を行う**副委員会** (SC; subcommittee) である。
   C++標準化委員会は WG21 という**作業グループ (WG; working group) である。
-- **CWG** (Core working group) C++標準化委員会の内、コア言語機能の策定を行う作業グループ
-- **LWG** (Library working group) C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ
-- **NB** (national body) または**MB/NC** (member body/national committee) C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。
+- **CWG** (Core working group): C++標準化委員会の内、コア言語機能の策定を行う作業グループ
+- **LWG** (Library working group): C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ
+- **NB** (national body): または**MB/NC** (member body/national committee) C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。
 
 ### 標準規格の文書
 

@@ -22,7 +22,7 @@ else
 
 `else`文には`constexpr`書かない。`if`の後に`constexpr`を書く以外では実行時`if`文と構文に差はない。
 
-プリプロセス時`if`文と異なり、`if constexpr`文は条件付きコンパイルをすることはできない。例えば次の例は違法である。
+プリプロセス時`if`文と異なり、`if constexpr`文は条件付きコンパイルをすることはできない。例えば次の例は不適格である。
 
 ```cpp
 struct X {
@@ -52,7 +52,7 @@ int main() {
 }
 ```
 
-同様にD言語の`static if`とは違いスコープを作るので、D言語で合法な次のようなことは`if constexpr`文で再現できない。
+同様にD言語の`static if`とは違いスコープを作るので、D言語で可能な次のようなことは`if constexpr`文で再現できない。
 
 ```D
 const int i = 3;
