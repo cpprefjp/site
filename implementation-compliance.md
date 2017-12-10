@@ -3,7 +3,7 @@
 ## 処理系の適合(implementation compliance)
 
 「処理系(implementation)」または「実装」とはプログラムの「翻訳(translation)」と「実行(execution)」をする一連の仕組みのことである。
-「標準規格(standard)」または「規格」は、C++の「適合する処理系(conforming implementation)」が満たすべき要件を記述する。
+「標準規格(standard)」または「規格」は、C++の「適合する処理系(conforming implementation)」が満たすべき「要件(requirement)」を記述する。
 
 ### 動作
 
@@ -22,7 +22,7 @@
 
 ### 規則
 
-標準規格の定める要件は、処理系(抽象機械)に対する直接の要件と、処理系が受け入れるべきプログラムが満たす「規則(rule)」から構成される。
+標準規格の定める要件は、処理系(抽象機械)に対する直接の要件と、処理系が受け入れるべきプログラムが満たす「規則(rule)」で構成される。
 規則は「構文規則(syntactic rule, syntax rule)」と「意味規則(semantic rule)」に分類される。C言語には加えて「制約(constraints)」という分類がある。
 C++の標準規格内ではこれらの分類方法については明確に述べられていないが、C言語に倣えば以下の解釈になる。
 
@@ -41,7 +41,7 @@ C++の標準規格内ではこれらの分類方法については明確に述�
 
 - 規則を全て満たすプログラムをそのリソースの範囲で正しく実行する必要がある。
 - 診断対象規則に違反するプログラムに対してエラーメッセージまたは警告を出力する必要がある。
-  エラーメッセージまたは警告などを「診断情報(diagnostic message)」と総称し、その内容は処理系定義である。
+  エラーメッセージまたは警告などを「診断情報(diagnostic message)」または「診断メッセージ」と総称し、その内容は処理系定義である。
 - 診断不要な規則に違反するプログラムの翻訳・実行について、標準規格によって如何なる要件もおかれない。
 
 ## 規格に関連する慣用語
@@ -62,7 +62,7 @@ C++の標準規格内ではこれらの分類方法については明確に述�
 - 「C++標準化委員会(C++ Standards Committee)」C++の国際標準規格を策定する団体。
   組織としての位置づけはISO/IEC JTC1/SC22/WG21になる。
   「国際標準化機構(ISO; international organization for standardization)」および「国際電気標準会議(IEC; International Electronics Commission)」はそれぞれ様々な規格の標準化団体である。
-  「第一合同技術委員会(JTC1; Joint Technical Committee 1)」は情報技術の標準化を行う団体である。
+  「第一合同技術委員会(JTC1; Joint Technical Committee 1)」はISO/IECの下で情報技術の標準化を行う団体である。
   下部組織のSC22はプログラム言語の標準化を行う「副委員会(SC; subcommittee)」である。
   C++標準化委員会はWG21という「作業グループ(WG; working group)」である。
 - 「CWG(Core working group)」C++標準化委員会の内、コア言語機能の策定を行う作業グループ
@@ -71,7 +71,7 @@ C++の標準規格内ではこれらの分類方法については明確に述�
 
 ### 標準規格の文書
 
-- 「提案(proposal)」新しい機能の提案文書
+- 「提案(proposal)」標準規格の変更についての提案文書
 - 「欠陥(defect)」C++標準規格に含まれるいわば "バグ" のこと
 - 「DR(defect report, defect resolution)」欠陥の報告または欠陥の修正のこと
 - 「WD(working draft)」作業原案
@@ -81,7 +81,7 @@ C++の標準規格内ではこれらの分類方法については明確に述�
 - 「FDIS(final draft international standard)」最終国際規格案
 - 「IS(international standard)」国際規格
 - 「TR(technical report)」技術報告書。用例 TR1, TR2
-- 「TS(technical specifications)」技術仕様書。用例: Concepts-TS
+- 「TS(technical specifications)」技術仕様書。用例: Concepts TS
 
 ## 参照
 - [ISO/IEC JTC1/SC22/WG21 - The C++ Standards Committee - ISOCPP](http://www.open-std.org/jtc1/sc22/wg21/)
