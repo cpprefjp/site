@@ -10,7 +10,7 @@
 適合する処理系は標準規格が定める**抽象機械** (abstract machine) の**外から見た動作** (observable behavior) を**模倣** (emulate) しなければならない。
 外から見た動作は
 
-- `volatile` glvalue を通した抽象機械の読み書き操作
+- `volatile` glvalue[link /lang/cpp11/rvalue_ref_and_move_semantics.md] を通した抽象機械の読み書き操作
 - 実行終了後の、ファイルに出力された内容
 - 対話的な装置の読み書きの順序
 
