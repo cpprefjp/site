@@ -118,7 +118,7 @@ C++ の標準規格は ISO/IEC による**国際標準規格** (international st
   **国際標準化機構** (ISO; international organization for standardization): および**国際電気標準会議** (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
   **第一合同技術委員会** (JTC1; Joint Technical Committee 1): は ISO/IEC の下で情報技術の標準化を行う団体である。
   下部組織の SC22 はプログラム言語の標準化を行う**副委員会** (SC; subcommittee) である。
-  C++標準化委員会は WG21 という**作業グループ (WG; working group) である。
+  C++標準化委員会は WG21 という**作業グループ** (WG; working group) である。
 - **CWG** (Core working group): C++標準化委員会の内、コア言語機能の策定を行う作業グループ
 - **LWG** (Library working group): C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ
 - **NB** (national body): または**MB/NC** (member body/national committee) C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。
