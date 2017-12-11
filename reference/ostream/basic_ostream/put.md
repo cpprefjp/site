@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-basic_ostream<CharT, Traits>& write(const char_type* s, streamsize n);
+basic_ostream<CharT, Traits>& put(char_type c);
 ```
 
 ## 概要
