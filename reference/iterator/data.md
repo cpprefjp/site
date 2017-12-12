@@ -41,6 +41,7 @@ namespace std {
 ```cpp example
 #include <vector>
 #include <iostream>
+#include <iterator>
 
 void some_c_like_api_function(const int* arr, std::size_t arr_size)
 {

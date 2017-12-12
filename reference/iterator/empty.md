@@ -47,6 +47,7 @@ namespace std {
 ```cpp example
 #include <vector>
 #include <iostream>
+#include <iterator>
 
 int main()
 {
