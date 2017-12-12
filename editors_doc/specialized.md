@@ -117,7 +117,7 @@ int main() {
 全てのコードブロックでは、デフォルトの修飾が実行されます。
 これを **グローバル修飾** と呼びます。
 
-例えば `<vector>`, `<iostream>`, `<algorithm>`, `<iterator>`, `std::vector`, `v.begin()`, `v.end()` `std::copy`, `std::ostream_iterator` 等はグローバル修飾されるため、特に修飾を書かなくてもリンクになります。
+例えば `<vector>`, `<iostream>`, `<algorithm>`, `<iterator>`, `std::vector`, `v.begin()`, `v.end()`, `std::copy`, `std::ostream_iterator` 等はグローバル修飾されるため、特に修飾を書かなくてもリンクになります。
 
 ```cpp example
 #include <vector>
