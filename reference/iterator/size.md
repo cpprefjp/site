@@ -9,7 +9,7 @@ namespace std {
   template <class C>
   constexpr auto size(const C& c) -> decltype(c.size());    // (1)
 
-  template <class T, size_t N>
+  template <class T, std::size_t N>
   constexpr std::size_t size(const T (&array)[N]) noexcept; // (2)
 }
 ```

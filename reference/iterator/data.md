@@ -12,7 +12,7 @@ namespace std {
   template <class C>
   constexpr auto data(const C& c) -> decltype(c.data());    // (2) C++17
 
-  template <class T, size_t N>
+  template <class T, std::size_t N>
   constexpr T* data(T (&array)[N]) noexcept;                // (3) C++17
 
   template <class E>

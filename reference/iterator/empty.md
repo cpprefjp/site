@@ -12,10 +12,10 @@ namespace std {
   template <class C>
   [[nodiscard]] constexpr auto empty(const C& c) -> decltype(c.empty());     // (1) C++20
 
-  template <class T, size_t N>
+  template <class T, std::size_t N>
   constexpr std::size_t empty(const T (&array)[N]) noexcept;                 // (2) C++17
 
-  template <class T, size_t N>
+  template <class T, std::size_t N>
   [[nodiscard]] constexpr std::size_t empty(const T (&array)[N]) noexcept;   // (2) C++20
 
   template <class E>
