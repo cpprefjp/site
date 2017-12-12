@@ -54,7 +54,7 @@ namespace std {
 - `initializer_list`バージョンは高々`(3/2) * t.size()`回の述語適用。
 
 ## 備考
-- (1), (2) : 引数に右辺値を与えた場合、`minmax`の呼び出しを含む式の評価が終わった時点で、返された参照はダングリングすることに注意：
+- (1), (2) : 引数に右辺値を与えた場合、`minmax`の呼び出しを含む式の評価が終わった時点で、返された参照は寿命が切れていることに注意：
 ```cpp example
 #include <cassert>
 #include <algorithm>
@@ -62,13 +62,14 @@ namespace std {
 int main()
 {
   int x = 10;
-  auto result1 = std::minmax(x, 11);   // typeof(result1) == std::pair<const int&, const int&>
-  assert(result1.first == 10);         // ok: result1.first は xを参照している
-  assert(result1.second == 11);        // 不定: result1.secondは 消失した右辺値を参照している
+  auto result1 = std::minmax(x, 11); // decltype(result1) == std::pair<const int&, const int&>
+  assert(result1.first == 10);       // ok: result1.first は xを参照している
+  //assert(result1.second == 11);    // 未定義動作 : result1.secondは寿命が尽きたオブジェクトを指しているため、
+                                     // そのオブジェクトにアクセスしてはならない
 
   std::pair<int, int> result2 = std::minmax(x, 11);
-  assert(result2.first == 10);         // ok: result2.first は xのコピーを持っている
-  assert(result2.second == 11);        // ok: result2.second は 右辺値11のコピーを持っている
+  assert(result2.first == 10);       // ok: result2.first は xのコピーを持っている
+  assert(result2.second == 11);      // ok: result2.second は 右辺値11のコピーを持っている
 }
 ```
 
