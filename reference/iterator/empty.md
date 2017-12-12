@@ -61,7 +61,7 @@ int main()
   v.push_back(13);
   std::cout << std::boolalpha << std::empty(v) << std::endl;
   //変数vの型はstd名前空間にあるクラス型なので
-  //ADLの影響で `std::`がなくとも発見できてしまう
+  //ADLによって `std::`がなくとも発見できる
   std::cout << std::boolalpha << empty(v) << std::endl;
 }
 ```

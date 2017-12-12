@@ -46,8 +46,9 @@ int main()
   int hoge = 13;
   v.push_back(hoge);
   std::cout << std::size(v) << std::endl;
+
   //変数vの型はstd名前空間にあるクラス型なので
-  //ADLの影響で `std::`がなくとも発見できてしまう
+  //ADLによって `std::`がなくとも発見できる
   std::cout << size(v) << std::endl;
 }
 ```
