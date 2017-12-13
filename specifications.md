@@ -1,13 +1,13 @@
 # C++標準規格
 
-## 標準規格と処理系
+## <a href="#implementation" id="implementation">標準規格と処理系</a>
 
-### 処理系の適合 (implementation compliance)
+### <a href="#implementation-compliance" id="implementation-compliance">処理系の適合 (implementation compliance)</a>
 
 **処理系** (implementation) または**実装**とはプログラムの**翻訳** (translation) と**実行** (execution) をする一連のソフトウェアのことである。
 **標準規格** (standard) または**規格**は、C++ の**適合する処理系** (conforming implementation) が満たすべき**要件** (requirement) を記述する。
 
-### 動作
+### <a href="#behavior" id="behavior">動作</a>
 
 適合する処理系は標準規格が定める**抽象機械** (abstract machine) の**外から見た動作** (observable behavior) を**模倣** (emulate) しなければならない。
 外から見た動作は
@@ -23,7 +23,7 @@
 - **未定義の動作** (undefined behavior; 通称 UB) は、処理系が実際に行う動作について標準規格が如何なる要件もおかないことを表す。
 - **文化圏固有動作** (locale-specific behavior) に対しては、処理系は現地の国家・文化・言語の風習に依存した動作を行う。処理系はその動作を説明書に記述する必要がある。
 
-### 規則
+### <a href="#rule" id="rule">規則</a>
 
 標準規格の定める要件は、処理系 (抽象機械) に対する直接の要件と、処理系が受け入れるべきプログラムが満たす**規則** (rule) で構成される。
 規則には幾つかの分類があるが、C++ の標準規格内では具体的な分類基準は示されていない。C言語に倣えば以下の解釈になる。
@@ -48,23 +48,23 @@
 - 診断対象規則に違反するプログラムに対して診断情報を出力する必要がある。
 - 診断不要な規則に違反するプログラムの翻訳・実行について、標準規格によって如何なる要件もおかれない。
 
-### 条件付き対応の構成
+### <a href="#conditionally-supported" id="conditionally-supported">条件付き対応の構成</a>
 
 一部の C++ の機能は**条件付き対応の構成** (conditionally-supported constructs) とされ、処理系はこれに対応しなくても良い。
 対応する場合にはその動作は処理系定義である。
 
-### 処理系限界
+### <a href="#implementation-limit" id="implementation-limit">処理系限界</a>
 
 変数名の最大の長さや仮引数の最大の数など、処理系が対応する様々なプログラムの大きさのことを**処理系限界** (implementation limit, implementation quantity) と呼ぶ。
 処理系は処理系限界についての情報を説明書に記述する必要がある。
 
-### 規則違反と動作の包含関係
+### <a href="#relations" id="relations">規則違反と動作の包含関係</a>
 
 各規則に違反したときの処理系の動作の包含関係についての俯瞰図を以下に示す。
 
 ![俯瞰図](https://camo.githubusercontent.com/d1662f12cb1b52b3dab66580305deb4eeaea1545/68747470733a2f2f63616d6f2e716969746175736572636f6e74656e742e636f6d2f623764303231346233386231303162373964396565653636386530643839313562393964653132632f3638373437343730373333613266326637313639363937343631326436393664363136373635326437333734366637323635326537333333326536313664363137613666366536313737373332653633366636643266333032663336333333343333333932663332363333303333363136323330333332643331333733323335326433363334333233373264333233353339333632643330363433323335363433363631333736343338333533303265373036653637)
 
-### 慣用語
+### <a href="#informal-terms" id="informal-terms">慣用語</a>
 
 処理系の性質についての慣用語
 
@@ -83,7 +83,7 @@
   適格、またはすべての規則を満たす、または未定義の動作を含まないなどが考えられる。
   曖昧さを避けるため、このサイトではプログラムに対して合法・違法という語は用いない。
 
-### 参照
+### <a href="#implementation-reference" id="implementation-reference">参照</a>
 
 - [C++er は“合法”だとか“違法”だとか言いたくて仕方がないけれど、結局どういう意味? それより適合・適格・○○動作・○○規則・診断不要いろいろの関係が謎 - Qiita](https://qiita.com/akinomyoga/items/592e5a3b8438a0c8556b)
 - [処理系定義の動作](http://www.c-lang.org/detail/implementation_defined_behavior.html)
@@ -91,7 +91,7 @@
 - [未規定の動作](http://www.c-lang.org/detail/unspecified_behavior.html)
 - [文化圏固有動作](http://www.c-lang.org/detail/locale_specific_behavior.html)
 
-## 「鼻から悪魔」とプログラムの可搬性
+## <a href="#nasal-demon" id="nasal-demon">「鼻から悪魔」とプログラムの可搬性</a>
 
 プログラムが
 
@@ -108,32 +108,32 @@
 更に、処理系定義の動作や未規定の動作が、外から見える動作として現れて問題を起こさないようにする必要がある。
 余裕があれば、文化圏固有動作や条件付き対応の構成についても気を配ると良い。
 
-### 参照
+### <a href="#nasal-demon-reference" id="nasal-demon-reference">参照</a>
 
 - [nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)
 - [本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)
 - [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
 - [MSC15-C. 未定義の動作に依存しない](https://www.jpcert.or.jp/sc-rules/c-msc15-c.html)
 
-## 文化圏固有動作の一覧
+## <a href="#list-of-locale-specific" id="list-of-locale-specific">文化圏固有動作の一覧</a>
 
 ToDo
 
-## 条件付き対応の一覧
+## <a href="#list-of-conditionally-supported" id="list-of-conditionally-supported">条件付き対応の一覧</a>
 
 ToDo
 
-## 処理系限界の一覧
+## <a href="#list-of-implementation-limit" id="list-of-implementation-limit">処理系限界の一覧</a>
 
 ToDo
 
-## 国際標準規格と日本工業規格
+## <a href="#standards" id="standards">国際標準規格と日本工業規格</a>
 
 C++ の標準規格は ISO/IEC による**国際標準規格** (international standard) の他に、各国の規格化団体によって定められている。
 最新の国際標準規格は「ISO/IEC 14882:2017 Programming Languages -- C++」(通称 C++17) である。
 日本では日本工業標準調査会 (JISC) により「JIS X 3014:2003 プログラム言語C++」が定められているが古い (C++03 相当)。
 
-### 国際標準規格の一覧
+### <a href="#list-of-iso-cpp" id="list-of-iso-cpp">国際標準規格の一覧</a>
 
 | 通称† | 名称 | 最終規格案 | 規格案・原案 | `__cplusplus` |
 |:--|:--|:--|:--|:--|
@@ -147,7 +147,7 @@ C++ の標準規格は ISO/IEC による**国際標準規格** (international st
 - † 括弧内は策定時に用いられた通称
 
 
-### 国際標準規格を定める組織
+### <a href="#iso-cpp-committee" id="iso-cpp-committee">国際標準規格を定める組織</a>
 
 - **C++標準化委員会** (C++ Standards Committee): C++ の国際標準規格を策定する団体。
   組織としての位置づけはISO/IEC JTC1/SC22/WG21になる。
@@ -159,7 +159,7 @@ C++ の標準規格は ISO/IEC による**国際標準規格** (international st
 - **LWG** (Library working group): C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ
 - **NB** (national body): または**MB/NC** (member body/national committee) C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。
 
-### 国際標準規格の文書
+### <a href="#iso-cpp-documents" id="iso-cpp-documents">国際標準規格の文書</a>
 
 - **提案** (proposal): 標準規格の変更についての提案文書
 - **欠陥** (defect): C++標準規格に含まれるいわば "バグ" のこと
@@ -173,7 +173,7 @@ C++ の標準規格は ISO/IEC による**国際標準規格** (international st
 - **TR** (technical report): 技術報告書。用例: TR1, TR2
 - **TS** (technical specifications): 技術仕様書。用例: Concepts TS
 
-### 参照
+### <a href="#standards-reference" id="standards-reference">参照</a>
 
 - 標準規格
   - [ISO/IEC 14882:2017 - Programming languages -- C++](https://www.iso.org/standard/68564.html)
@@ -190,4 +190,3 @@ C++ の標準規格は ISO/IEC による**国際標準規格** (international st
 - [国際電気標準会議 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E9%9B%BB%E6%B0%97%E6%A8%99%E6%BA%96%E4%BC%9A%E8%AD%B0)
 - [ISO/IEC JTC 1 - Wikipedia](https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1)
 - [ISO/IEC JTC 1/SC 22 - Wikipedia](https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1/SC_22)
-
