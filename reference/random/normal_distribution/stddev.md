@@ -10,7 +10,7 @@ result_type stddev() const;
 ```
 
 ## 概要
-分布の標準偏差を取得する。
+分布の標準偏差を取得する。stddevは、standard deviation (標準偏差) の略。
 
 
 ## 戻り値
