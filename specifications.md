@@ -91,6 +91,42 @@
 - [未規定の動作](http://www.c-lang.org/detail/unspecified_behavior.html)
 - [文化圏固有動作](http://www.c-lang.org/detail/locale_specific_behavior.html)
 
+## 「鼻から悪魔」とプログラムの可搬性
+
+プログラムが
+
+- 未定義の動作 (UB) を引き起こすとき、
+- または診断不要 (NDR) の規則に違反している
+
+とき、標準規格は適合する処理系に対して何らの要件も課さない。
+つまり、UB または NDR 違反を含むプログラムに対して処理系がいかなる動作をしても規格には抵触しないということを表す。
+例えば、処理系が鼻から悪魔を出しても、それはプログラムの作者の責任であり、その処理系を責めることはできない。
+この冗談を**鼻から悪魔** (nasal demons) と呼ぶ。鼻から悪魔を出す処理系は今のところ実在しないが、
+実際の未定義の動作として[最適化の過程で或る種の「タイムトラベル」を起こす](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)処理系は実在する。
+
+可搬なプログラムを書くためには、未定義の動作を引き起こさずかつ診断不要の規則に違反しないプログラムを書くように心懸ける必要がある。
+更に、処理系定義の動作や未規定の動作が、外から見える動作として現れて問題を起こさないようにする必要がある。
+余裕があれば、文化圏固有動作や条件付き対応の構成についても気を配ると良い。
+
+### 参照
+
+- [nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)
+- [本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)
+- [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
+- [MSC15-C. 未定義の動作に依存しない](https://www.jpcert.or.jp/sc-rules/c-msc15-c.html)
+
+## 文化圏固有動作の一覧
+
+ToDo
+
+## 条件付き対応の一覧
+
+ToDo
+
+## 処理系限界の一覧
+
+ToDo
+
 ## 国際標準規格と日本工業規格
 
 C++ の標準規格は ISO/IEC による**国際標準規格** (international standard) の他に、各国の規格化団体によって定められている。
@@ -155,38 +191,3 @@ C++ の標準規格は ISO/IEC による**国際標準規格** (international st
 - [ISO/IEC JTC 1 - Wikipedia](https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1)
 - [ISO/IEC JTC 1/SC 22 - Wikipedia](https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1/SC_22)
 
-## 「鼻から悪魔」とプログラムの可搬性
-
-プログラムが
-
-- 未定義の動作 (UB) を引き起こすとき、
-- または診断不要 (NDR) の規則に違反している
-
-とき、標準規格は適合する処理系に対して何らの要件も課さない。
-つまり、UB または NDR 違反を含むプログラムに対して処理系がいかなる動作をしても規格には抵触しないということを表す。
-例えば、処理系が鼻から悪魔を出しても、それはプログラムの作者の責任であり、その処理系を責めることはできない。
-この冗談を**鼻から悪魔** (nasal demons) と呼ぶ。鼻から悪魔を出す処理系は今のところ実在しないが、
-実際の未定義の動作として[最適化の過程で或る種の「タイムトラベル」を起こす](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)処理系は実在する。
-
-可搬なプログラムを書くためには、未定義の動作を引き起こさずかつ診断不要の規則に違反しないプログラムを書くように心懸ける必要がある。
-更に、処理系定義の動作や未規定の動作が、外から見える動作として現れて問題を起こさないようにする必要がある。
-余裕があれば、文化圏固有動作や条件付き対応の構成についても気を配ると良い。
-
-### 参照
-
-- [nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)
-- [本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)
-- [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
-- [MSC15-C. 未定義の動作に依存しない](https://www.jpcert.or.jp/sc-rules/c-msc15-c.html)
-
-## 文化圏固有動作の一覧
-
-ToDo
-
-## 条件付き対応の一覧
-
-ToDo
-
-## 処理系限界の一覧
-
-ToDo
