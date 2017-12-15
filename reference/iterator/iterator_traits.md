@@ -18,14 +18,17 @@ namespace std {
   template <class T>
   struct iterator_traits<T*> {
     using difference_type   = ptrdiff_t;
-    using value_type        = T;
+
+    using value_type        = T;              // C++03
+    using value_type        = remove_cv_t<T>; // C++17
+
     using pointer           = T*;
     using reference         = T&;
     using iterator_category = random_access_iterator_tag;
   };
 
-  template<class T>
-  struct iterator_traits<const T*> {
+  template <class T>
+  struct iterator_traits<const T*> { // C++14まで
     using difference_type   = ptrdiff_t;
     using value_type        = T;
     using pointer           = const T*;
@@ -101,5 +104,5 @@ int main()
 ```
 
 ## 参照
-
-
+- [LWG 2952. `iterator_traits` should work for pointers to cv `T`](https://wg21.cmeerw.net/lwg/issue2952)
+    - C++17から、`const T*`の部分特殊化が、`T*`の部分特殊化に統合され、`volatile`付きのポインタもこのクラスで扱えるようになった
