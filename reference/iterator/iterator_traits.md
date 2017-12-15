@@ -39,6 +39,7 @@ namespace std {
 ```
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 * random_access_iterator_tag[link /reference/iterator/iterator_tag.md]
+* remove_cv_t[link /reference/type_traits/remove_cv.md]
 
 ## 概要
 `iterator_traits`は、イテレータに関する型情報を取得するためのクラスである。
