@@ -11,7 +11,6 @@ void operator delete[](void* ptr, std::size_t size) noexcept;                   
 // 単純な配列の記憶域の解放（例外をスローしない）
 void operator delete[](void* ptr, const std::nothrow_t&) throw();                       // (3) C++03 まで
 void operator delete[](void* ptr, const std::nothrow_t&) noexcept;                      // (3) C++11 から
-void operator delete[](void* ptr, std::size_t size, const std::nothrow_t&) noexcept;    // (4) C++14 から
 
 // replacement-new による配列の記憶域の確保
 void operator delete[](void* ptr, void*) throw();                                       // (5) C++03 まで
@@ -56,4 +55,4 @@ int main()
 
 ## 参照
 - [C++14 サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)
-
+- [LWG 2458. N3778 and new library deallocation signatures](https://wg21.cmeerw.net/lwg/issue2458)
