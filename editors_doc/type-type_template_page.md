@@ -1,3 +1,10 @@
+([cpprefjpを編集するには](start_editing.md) および [cpprefjp特有の拡張構文](specialized.md) を先に読んで下さい。)
+
+(
+  サンプルコードは文章中のどの部分で書いても大丈夫です。閲覧者の理解を助けるために必要だと感じたところで入れてください。
+  その際拡張構文である`example`タグをルールに従って付け、コンパイル・実行可能にすることを検討してください。
+)
+
 # page_title (ページタイトルです)
 * header_name[meta header]
 * type-alias[meta id-type]
