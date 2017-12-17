@@ -1,3 +1,5 @@
+# page_title (ページのタイトルです)
+
 ([cpprefjpを編集するには](start_editing.md) および [cpprefjp特有の拡張構文](specialized.md) を先に読んで下さい。)
 
 (
@@ -5,7 +7,6 @@
   その際拡張構文である`example`タグをルールに従って付け、コンパイル・実行可能にすることを検討してください。
 )
 
-# page_title (ページのタイトルです)
 * header_name[meta header]
 * class[meta id-type]
 * std[meta namespace]
