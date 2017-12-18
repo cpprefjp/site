@@ -169,7 +169,7 @@ float stof(const std::wstring& str, std::size_t* idx = nullptr) {
 - [GCC](/implementation.md#gcc): ?
 - [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 
 ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
 

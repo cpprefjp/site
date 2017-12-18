@@ -120,7 +120,7 @@ int main(int argc, char** argv) {
 - `propagate_on_container_move_assignment`
     - [Clang, C++1y mode](/implementation.md#clang): 3.4
     - [GCC, C++1y mode](/implementation.md#gcc): 
-    - [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
+    - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 ## 参照
 - [A visitor’s guide to C++ allocators](https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html)

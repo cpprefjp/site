@@ -40,7 +40,7 @@ namespace std {
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 
 ## 参照
 - [C++0x ガベージコレクションと到達可能性ベースリーク検知の最小支援 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081117/1226913980)

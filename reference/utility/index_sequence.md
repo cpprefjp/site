@@ -56,7 +56,7 @@ int main()
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2015
 
 ### 備考
 - GCC 4.9.2で、`std::index_sequence`を関数のパラメータとして受け取るとコンパイルエラーになる問題がある([Bug 65790](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65790))

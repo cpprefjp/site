@@ -90,7 +90,7 @@ int main()
 - [Clang](/implementation.md#clang): 3.6
 - [GCC](/implementation.md#gcc): 6.1
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2015
 
 
 ## 参照

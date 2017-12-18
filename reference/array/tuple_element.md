@@ -62,7 +62,7 @@ int main()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012
 
 #### 備考
 GCC 4.7、およびVisual C++ 10.0の`array`に対する`tuple_element`の特殊化では、`I`の境界チェックがない。

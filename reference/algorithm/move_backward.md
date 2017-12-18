@@ -102,7 +102,7 @@ BidirectionalIterator2 move_backward(BidirectionalIterator1 first, Bidirectional
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
 
 
 ## 参照

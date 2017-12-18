@@ -134,9 +134,9 @@ int main()
 - [GCC](/implementation.md#gcc): 4.3.6(unique_ptr以外), 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
-	- Visual C++ 9.0は(1), (2), (5)変形のみ
-	- Visual C++ 9.0, 10.0の(5)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
+	- Visual C++ 2008は(1), (2), (5)変形のみ
+	- Visual C++ 2008, 2010の(5)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
 
 
 ## 参照

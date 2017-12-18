@@ -53,8 +53,8 @@ int main()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-    - 11.0, 12.0は`constexpr`が実装されていないため、代わりに`adopt_lock`には`const`が修飾されている。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+    - 2012, 2013は`constexpr`が実装されていないため、代わりに`adopt_lock`には`const`が修飾されている。
 
 
 ## 参照

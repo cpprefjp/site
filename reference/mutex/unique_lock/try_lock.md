@@ -101,8 +101,8 @@ terminate called after throwing an instance of 'std::system_error'
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-    - 11.0, 12.0は、例外の節で説明している`system_error`を投げる処理が実装されていない。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+    - 2012, 2013は、例外の節で説明している`system_error`を投げる処理が実装されていない。
 
 
 ## 参照

@@ -53,7 +53,7 @@ c
 - [Clang](/implementation.md#clang): ?
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
 
 
 ## 参照

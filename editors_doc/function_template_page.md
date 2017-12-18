@@ -99,7 +99,7 @@ int main()
 - [GCC](/implementation.md#gcc): 3.4.6, 4.2.4, 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
 - [ICC](/implementation.md#icc): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation.md#visual_cpp): 7.1, 8.0, 9.0, 10.0, 11.0
+- [Visual C++](/implementation.md#visual_cpp): 2003, 2005, 2008, 2010, 2012
 
 (ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)  
 (これらの項目を削除した場合、C++03のあらゆる環境で使用できることを意味します。)

@@ -82,9 +82,9 @@ int main()
 
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-	- 11.0, 12.0は逆行が起こり得る、すなわち正しくない実装であった。
-	- 14.0からは、Windows APIの`QueryPerformanceCounter`関数を使用した実装である。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+	- 2012, 2013は逆行が起こり得る、すなわち正しくない実装であった。
+	- 2015からは、Windows APIの`QueryPerformanceCounter`関数を使用した実装である。
 		- MSDNライブラリ: [QueryPerformanceCounter](https://msdn.microsoft.com/en-us/library/windows/desktop/ms644904.aspx)
 
 ## 参照

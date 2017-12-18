@@ -230,7 +230,7 @@ int main()
 ### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.2
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 ### 備考
 - GCC 4.9.2まで、アライメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修正された。([Bug 65147](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147))

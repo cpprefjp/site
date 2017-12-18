@@ -97,7 +97,7 @@ main=824a30
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc):
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 ## 参照
 - [LWG Issue 783. `thread::id` reuse](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#783)

@@ -230,7 +230,7 @@ long long stoll(const std::wstring& str, std::size_t* idx = nullptr, long long b
 - [GCC](/implementation.md#gcc): ?
 - [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 
 ## 参照
 - [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)

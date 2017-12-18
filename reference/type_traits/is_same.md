@@ -64,7 +64,7 @@ int main(){}
 
 ### 処理系
 - GCC, C++11 mode: 4.3.4, 4.6.1
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
 
 
 ## 参照

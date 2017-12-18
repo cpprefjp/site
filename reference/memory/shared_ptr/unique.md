@@ -69,7 +69,7 @@ non unique
 - [GCC](/implementation.md#gcc): 4.4.7
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
 
 
 ## 参照

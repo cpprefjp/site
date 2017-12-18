@@ -104,8 +104,8 @@ int main()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
-	- Visual C++ 11.0はコピーコンストラクタと代入演算子のdelete宣言が存在しない。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+	- Visual C++ 2012はコピーコンストラクタと代入演算子のdelete宣言が存在しない。
 
 
 ### 参照

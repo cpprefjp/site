@@ -91,7 +91,7 @@ int main() {}
 ### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.3
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 ### 備考
 Clang 3.0から3.2は、上記例の`Y`クラスがトリビアルにムーブ代入可能と判定される。Clang 3.3から修正されている。

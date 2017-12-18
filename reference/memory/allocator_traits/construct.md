@@ -66,5 +66,5 @@ int main()
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
-	- Visual C++ 11.0までは、可変引数テンプレートに対応していないため、不完全な実装である。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+	- Visual C++ 2012までは、可変引数テンプレートに対応していないため、不完全な実装である。

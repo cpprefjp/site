@@ -74,8 +74,8 @@ int main() {}
 ### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.8.1
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-	- 11.0は、正しく実装されていない。常に`true_type`になっている。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+	- 2012は、正しく実装されていない。常に`true_type`になっている。
 
 
 ## 参照

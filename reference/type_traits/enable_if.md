@@ -64,8 +64,8 @@ Tは整数型以外
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
-	- `enable_if_t`は、12.0から。
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+	- `enable_if_t`は、2013から。
 
 
 ## 参照

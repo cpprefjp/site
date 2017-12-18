@@ -121,7 +121,7 @@ FE_INEXACT = true
 - [GCC](/implementation.md#gcc): -
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 5.0.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2013, 2015
 
 ### 備考
 本関数は C++11 で追加されたが、Clang(libc++) では C++11 モードでなくても使用可能である。

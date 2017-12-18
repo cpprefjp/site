@@ -102,9 +102,9 @@ int main()
 - [GCC](/implementation.md#gcc): -
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7, 4.5.3, 4.6.3, 4.7.0
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
-	- 10.0は、`noexcept`が修飾されていない。
-	- 11.0, 12.0は、`noexcept`が実装されていないため、`throw()`が修飾されている。
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+	- 2010は、`noexcept`が修飾されていない。
+	- 2012, 2013は、`noexcept`が実装されていないため、`throw()`が修飾されている。
 
 ### 備考
 libstdc++ の `unordered_set` では、アロケータの `select_on_container_copy_construction`、`propagate_on_container_copy_assignment`、`propagate_on_container_move_assignment`、および、`propagate_on_container_swap` を正しく扱っていないため、`get_allocator` で返されるアロケータオブジェクトは予期せぬものになる可能性がある。

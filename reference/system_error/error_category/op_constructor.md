@@ -62,7 +62,7 @@ user defined error
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 10.0(ただしnoexceptは使用不可)
+- [Visual C++](/implementation.md#visual_cpp): 2010 (ただしnoexceptは使用不可)
 
 
 ## 参照

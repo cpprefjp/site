@@ -85,6 +85,6 @@ um2 : {[10,a], [20,b], [30,c], }
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??, 11.0
+- [Visual C++](/implementation.md#visual_cpp): ??, 2012
 
 

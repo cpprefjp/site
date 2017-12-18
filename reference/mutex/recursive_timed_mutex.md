@@ -130,8 +130,8 @@ count == 2
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-    - 11.0, 12.0は、(2)での実引数の受け渡しにムーブを使用しない問題がある。上記の例でも、`std::unique_ptr<int>`の実引数でコンパイルエラーになる。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+    - 2012, 2013は、(2)での実引数の受け渡しにムーブを使用しない問題がある。上記の例でも、`std::unique_ptr<int>`の実引数でコンパイルエラーになる。
 
 ## 参照
 

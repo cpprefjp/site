@@ -20,7 +20,7 @@
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.3, 4.7.0
      GCC／pthread環境でスレッドサポートを有効化するには -pthread オプション指定が必要。（GCC 4.7.0で確認）
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 ## 参照
 - [The cpp-threads Archives](https://www.decadent.org.uk/pipermail/cpp-threads/)

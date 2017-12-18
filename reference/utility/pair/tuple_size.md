@@ -55,7 +55,7 @@ int main()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
 
 ## 参照
 - [LWG Issue 2313. `tuple_size` should always derive from `integral_constant<size_t, N>`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2313)
