@@ -136,7 +136,7 @@ int main()
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 9.0 (TR1), 10.0, 11.0, 12.0
 	- Visual C++ 9.0は(1), (2), (5)変形のみ
-	- Visual C++ 9.0, 1.0の(5)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
+	- Visual C++ 9.0, 10.0の(5)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
 
 
 ## 参照
