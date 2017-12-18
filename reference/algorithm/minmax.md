@@ -149,7 +149,7 @@ std::pair<T, T> minmax(std::initializer_list<T> init, Compare comp)
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2013, 2015
 
 
 ## 参照

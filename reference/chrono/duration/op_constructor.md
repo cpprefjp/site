@@ -75,7 +75,7 @@ d5 : 3000
 ### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 
 ## 参照

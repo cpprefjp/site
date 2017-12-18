@@ -122,7 +122,7 @@ int main()
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp):
+- [Visual C++](/implementation.md#visual_cpp): 
 
 ### 参考
 - [正規分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)

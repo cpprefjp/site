@@ -83,7 +83,7 @@
 - [Clang, C++11 mode](/implementation.md#clang): ?
 - [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 12.0, 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2013, 2015
 
 ## 関連項目
 - [`<cmath>`](/reference/cmath.md)

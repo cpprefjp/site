@@ -53,7 +53,7 @@ int main()
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 ## 参照
 - [LWG Issue 2162. `allocator_traits::max_size` missing `noexcept`](https://wg21.cmeerw.net/lwg/issue2162)

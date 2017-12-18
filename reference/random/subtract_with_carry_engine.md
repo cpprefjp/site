@@ -146,8 +146,8 @@ int main()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): 
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
-	- 9.0には、`std::tr1::subtract_with_carry`が存在する。
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+	- 2008には、`std::tr1::subtract_with_carry`が存在する。
 
 ## 参照
 - [Subtract with carry - Wikipedia](https://en.wikipedia.org/wiki/Subtract_with_carry)

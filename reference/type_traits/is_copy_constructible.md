@@ -81,12 +81,12 @@ int main(){}
 
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-	- 11.0～12.0には、提案時の名前である`has_copy_constructor`も存在する。
-	- 11.0は、`is_copy_constructible<void>`が誤って`true_type`になっている。
-	- 11.0～12.0は、C++11の定義に基づく実装となっている。
-		- 11.0～12.0は、上記例のうち`is_copy_constructible<s>`に関するものにおいて、誤った結果になる。これは、[`is_constructible`](is_constructible.md)の不具合に由来する。
-		- 11.0は、左辺値参照型において`true_type`になっている。具体的には、上記例のうち`is_copy_constructible<int&>`が該当する。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+	- 2012～2013には、提案時の名前である`has_copy_constructor`も存在する。
+	- 2012は、`is_copy_constructible<void>`が誤って`true_type`になっている。
+	- 2012～2013は、C++11の定義に基づく実装となっている。
+		- 2012～2013は、上記例のうち`is_copy_constructible<s>`に関するものにおいて、誤った結果になる。これは、[`is_constructible`](is_constructible.md)の不具合に由来する。
+		- 2012は、左辺値参照型において`true_type`になっている。具体的には、上記例のうち`is_copy_constructible<int&>`が該当する。
 
 
 ## 参照

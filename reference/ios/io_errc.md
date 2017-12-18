@@ -38,7 +38,7 @@ namespace std {
 - [GCC](/implementation.md#gcc):
 - [GCC, C++11 mode](/implementation.md#gcc): 5.1.0, 5.2.0, 6.0.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0 (ただし、10.0はenum class非対応のため不完全)
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012 (ただし、10.0はenum class非対応のため不完全)
 
 
 ## 参照

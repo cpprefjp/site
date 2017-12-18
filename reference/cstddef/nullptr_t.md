@@ -55,7 +55,7 @@ is_class<nullptr_t>: 0
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 
 #### 備考
 Visual C++ 2010, 2012では[`is_scalar`](../type_traits/is_scalar.md)`<nullptr_t>`が`false_type`（からの派生クラス）となっているバグがある。

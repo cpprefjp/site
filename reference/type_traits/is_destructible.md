@@ -81,8 +81,8 @@ int main(){}
 ### 処理系
 - [Clang](/implementation.md#clang) 3.1, 3.2, 3.3, 3.4(revision 188080)
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3, 4.8.0, 4.8.1
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-	- 11.0～12.0は、`delete`定義されたデストラクタを持つクラスにおいて、誤って`std::true_type`になっている。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+	- 2012～2013は、`delete`定義されたデストラクタを持つクラスにおいて、誤って`std::true_type`になっている。
 
 #### 備考
 Clang 3.1 - 3.3 では以下のようなエラーが出るが、これは[Clang付属のlibc++のバグ](https://llvm.org/bugs/show_bug.cgi?id=16839)である。

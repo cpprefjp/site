@@ -89,4 +89,4 @@ locked
 - [Clang, C++14 mode](/implementation.md#clang): 3.5
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2015

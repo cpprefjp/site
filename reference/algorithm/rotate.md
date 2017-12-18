@@ -177,8 +177,8 @@ swapping 0x1806043(1) <-> 0x1806045(5)
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 8.0, 9.0, 10.0, 11.0, 12.0, 14.0
-    - C++11への対応（戻り値の変更）は10.0から。
+- [Visual C++](/implementation.md#visual_cpp): 2005, 2008, 2010, 2012, 2013, 2015
+    - C++11への対応（戻り値の変更）は2010から。
 
 
 ## 参照

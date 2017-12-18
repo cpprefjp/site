@@ -154,7 +154,7 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1,
 - [Clang, C++14 mode](/implementation.md#clang): 3.4
 - [GCC, C++14 mode](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 14.0
+- [Visual C++](/implementation.md#visual_cpp): 2015
 
 ## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)

@@ -65,9 +65,9 @@ int main ()
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 7.0, 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 14.1
-	- 11.0, 12.0は、`noexcept`が実装されていないため、`throw()`が修飾されている。
-	- 14.0からは、`noexcept`が修飾されている。
+- [Visual C++](/implementation.md#visual_cpp): 2002, 2003, 2005, 2008, 2010, 2012, 2013, 2015, 2017
+	- 2012, 2013は、`noexcept`が実装されていないため、`throw()`が修飾されている。
+	- 2015からは、`noexcept`が修飾されている。
 
 ## 参照
 

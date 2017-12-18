@@ -131,8 +131,8 @@ insert initializer_list : 1 2 3 4 5 6
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
-	- (5) `initializer_list<T>`を仮引数に持つものは、12.0から。
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+	- (5) `initializer_list<T>`を仮引数に持つものは、2013から。
 
 
 ## 参照

@@ -71,7 +71,7 @@ const
 - [Clang, C++17 mode](/implementation.md#clang): 3.8
 - [GCC, C++17 mode](/implementation.md#gcc): 7.1
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 14.0 Update2
+- [Visual C++](/implementation.md#visual_cpp): 2015 Update 2
 
 
 ## 参照

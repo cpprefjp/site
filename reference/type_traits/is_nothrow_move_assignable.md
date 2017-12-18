@@ -96,9 +96,9 @@ int main() {}
 ### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-	- 11.0～12.0には、提案時の名前である`has_nothrow_move_assign`も存在する。
-	- 11.0は、`int`などの組込型において、誤って`false_type`になっている。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+	- 2012～2013には、提案時の名前である`has_nothrow_move_assign`も存在する。
+	- 2012は、`int`などの組込型において、誤って`false_type`になっている。
 
 
 ## 参照

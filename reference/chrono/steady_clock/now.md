@@ -54,5 +54,5 @@ int main()
 - C++11
 
 ### 処理系
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-	- 11.0, 12.0は逆行が起こり得る、すなわち正しくない実装であった。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+	- 2012, 2013は逆行が起こり得る、すなわち正しくない実装であった。

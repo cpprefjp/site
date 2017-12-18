@@ -41,7 +41,7 @@ int main(){}
 ### 処理系
 - [Clang, C++11 mode](/implementation.md#clang): 3.2
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 10.0
+- [Visual C++](/implementation.md#visual_cpp): 2010
 
 #### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator value_type()` を持っていないためエラーになる。

@@ -67,8 +67,8 @@ int main(){}
 
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
-	- 11.0までは、テンプレート実引数に`std::nullptr_t`やそのCV修飾を渡した場合、誤って`true_type`からの派生になっている。
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
+	- 2012までは、テンプレート実引数に`std::nullptr_t`やそのCV修飾を渡した場合、誤って`true_type`からの派生になっている。
 
 #### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool` を持っていないためエラーになる。

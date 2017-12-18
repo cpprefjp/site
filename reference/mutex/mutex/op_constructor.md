@@ -102,9 +102,9 @@ A
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-    - 11.0, 12.0, 14.0は、デフォルトコンストラクタに`constexpr`が修飾されていない。
-    - 11.0はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+    - 2012, 2013, 2015は、デフォルトコンストラクタに`constexpr`が修飾されていない。
+    - 2012はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
 ## 参照

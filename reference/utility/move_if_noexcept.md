@@ -92,8 +92,8 @@ copy
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0, 14.0
-	- 11.0は正しく実装されていないと思われる。上記「例」のコードにおいて、ともにmoveしてしまう結果となる。
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+	- 2012は正しく実装されていないと思われる。上記「例」のコードにおいて、ともにmoveしてしまう結果となる。
 
 
 ## 関連項目

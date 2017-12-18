@@ -148,8 +148,8 @@ std::string to_string(long double val)
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.4
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0, 14.1
-	- 10.0は、不完全な実装。以下の型のみ多重定義されている。
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+	- 2010は、不完全な実装。以下の型のみ多重定義されている。
 		- `long long`
 		- `unsigned long long`
 		- `long double`

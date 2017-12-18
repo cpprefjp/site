@@ -61,8 +61,8 @@ int main(){}
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.3, 4.6.1, 4.7.0
 - [Clang](/implementation.md#clang) 3.1, 3.2, 3.3
-- [Visual C++](/implementation.md#visual_cpp): 9.0 (std::tr1), 10.0, 11.0, 12.0, 14.0
-	- 10.0までは、関数への右辺値参照型をテンプレート実引数に渡すとコンパイルエラーになる。上記例では、`std::is_function<f&&>`の場合が該当する。
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
+	- 2010までは、関数への右辺値参照型をテンプレート実引数に渡すとコンパイルエラーになる。上記例では、`std::is_function<f&&>`の場合が該当する。
 
 #### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラのバグのために関数への右辺値参照を用いるとエラーになる。

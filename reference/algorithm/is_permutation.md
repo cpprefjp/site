@@ -192,8 +192,8 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 10.0, 11.0, 12.0, 14.0
-    - C++14で追加されたオーバーロードは14.0から実装されている。
+- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+    - C++14で追加されたオーバーロードは2015から実装されている。
 
 ## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)

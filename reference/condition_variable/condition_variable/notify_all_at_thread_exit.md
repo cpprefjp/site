@@ -122,7 +122,7 @@ data is ready: true
 - [Clang, C++11 mode](/implementation.md#clang): 3.1, 3.2, 3.3, 3.4
 - [GCC, C++11 mode](/implementation.md#gcc): 5.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 11.0, 12.0
+- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 
 ## 参照
