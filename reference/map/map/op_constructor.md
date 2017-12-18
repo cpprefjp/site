@@ -137,7 +137,7 @@ Size of c2: 2
 - [GCC](/implementation.md#gcc): ??
 - [GCC, C++11 mode](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??, 11.0
+- [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
 ## 関連項目

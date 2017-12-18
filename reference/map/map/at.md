@@ -65,7 +65,7 @@ exception std::out_of_range
 - [Clang, C++11 mode](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??, 11.0
+- [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
 ## 関連項目

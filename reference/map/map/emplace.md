@@ -107,7 +107,7 @@ CCC : (1, 2)
 - [Clang, C++11 mode](/implementation.md#clang): 3.2 3.3
 - [GCC, C++11 mode](/implementation.md#gcc): 4.8.5
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??, 11.0
+- [Visual C++](/implementation.md#visual_cpp): 11.0
 
 
 ## 関連項目
