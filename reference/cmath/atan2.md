@@ -97,7 +97,7 @@ atan2(-1.0, 1.0)  = -0.785398
 - [GCC](/implementation.md#gcc): 3.4.6, 4.2.4, 4.3.5, 4.4.5, 4.5.1, 4.5.2, 4.6.1, 4.7.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 - [ICC](/implementation.md#icc): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation.md#visual_cpp) 7.1, 8.0, 9.0, 10.0
+- [Visual C++](/implementation.md#visual_cpp): 7.1, 8.0, 9.0, 10.0
 
 #### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）

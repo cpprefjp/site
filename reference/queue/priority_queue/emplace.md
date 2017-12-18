@@ -70,7 +70,7 @@ int main ()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
 - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)

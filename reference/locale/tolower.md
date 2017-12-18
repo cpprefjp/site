@@ -53,7 +53,7 @@ a
 - [GCC](/implementation.md#gcc): 3.4.6, 4.2.4, 4.3.5, 4.4.5, 4.5.2, 4.6.3, 4.7.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.3, 4.7.0
 - [ICC](/implementation.md#icc): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation.md#visual_cpp) 7.1, 8.0, 9.0, 10.0, 11.0
+- [Visual C++](/implementation.md#visual_cpp): 7.1, 8.0, 9.0, 10.0, 11.0
 
 
 ## 実装例

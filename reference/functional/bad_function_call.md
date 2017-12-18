@@ -50,7 +50,7 @@ bad function call
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4, 4.7.2(what()が"std::bad_weak_ptr"を返すので規格違反。バグ報告済み: [#55847](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847)。4.7.3で修正されている。)
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) 10.0
+- [Visual C++](/implementation.md#visual_cpp): 10.0
 
 
 ### 参照
