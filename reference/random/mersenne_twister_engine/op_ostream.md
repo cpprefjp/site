@@ -62,7 +62,7 @@ int main()
 - [GCC](/implementation.md#gcc): 
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp) ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
 GCC(libstdc++) では、出力が誤っている。（C++ 標準では状態の数だけ出力されることになっているが、GCC では状態の数より出力される数の方が一つ多い）。
