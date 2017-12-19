@@ -96,7 +96,7 @@ int main()
 * um.emplace[link emplace.md]
 * um.clear()[link clear.md]
 
-### 出力例(MSVC-11.0)
+### 出力例 (Visual C++ 2012)
 ```
 current max_load_factor: 1
 current size: 9

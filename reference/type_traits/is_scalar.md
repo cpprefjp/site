@@ -76,7 +76,7 @@ int main(){}
 	- 2010～2012は、`is_scalar<`[`nullptr_t`](../cstddef/nullptr_t.md)`>`が`false_type`からの派生クラスとなっている
 
 #### 備考
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
 
 
 ## 参照

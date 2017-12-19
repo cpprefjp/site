@@ -28,7 +28,7 @@ category().default_error_condition(value())
 
 
 ## 備考
-構築される[`error_condition`](../error_condition.md)オブジェクトの[`value()`](../error_condition/value.md)および[`category()`](../error_condition/category.md)は、`default_error_condition()`関数内において対応するエラー値、カテゴリに変換される可能性がある(VC10, GCC 4.6.1では同じエラー値、同じカテゴリとなる)。
+構築される[`error_condition`](../error_condition.md)オブジェクトの[`value()`](../error_condition/value.md)および[`category()`](../error_condition/category.md)は、`default_error_condition()`関数内において対応するエラー値、カテゴリに変換される可能性がある(Visual C++ 2010, GCC 4.6.1では同じエラー値、同じカテゴリとなる)。
 
 
 ## 例

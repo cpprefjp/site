@@ -72,7 +72,7 @@ int main(){}
 	- 2012までは、テンプレート実引数に`std::nullptr_t`やそのCV修飾を渡した場合、誤って`true_type`からの派生になっている。
 
 #### 備考
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
 
 
 ## 参照

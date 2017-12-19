@@ -67,7 +67,7 @@ int main(){}
 	- 2008は、TR1の定義に基づく実装となっている。すなわち、`T`が整数型でなければ必ず`false_type`になる。上記例では`std::is_signed<float>`が該当する。
 
 #### 備考
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
 
 
 ## 参照

@@ -59,7 +59,7 @@ int main()
 * um.size()[link size.md]
 * um.bucket_count()[link bucket_count.md]
 
-### 出力例 (MSVC-11.0)
+### 出力例 (Visual C++ 2012)
 ```
 current max_load_factor: 1
 current size: 4

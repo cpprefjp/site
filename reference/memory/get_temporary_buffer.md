@@ -42,7 +42,7 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 
 この関数は、短期的なメモリ領域のため、たとえば実装が保持している空き領域リストからサイズの照合を省いて領域を返すなど、実装が最適化されている可能性がある。[`std::allocator`](allocator.md)`::`[`allocate()`](allocator/allocate.md)を長期的に使用するメモリとして使用することで、この関数との使い分けができるだろう。
 
-ただし、Visual C++ 12.0、GCC 4.8 (libstdc++)、Clang 3.4 (libc++)は単に[`new`](/reference/new/op_new.md)を呼んでいるだけで、最適化はとくに行っていない。
+ただし、Visual C++ 2013、GCC 4.8 (libstdc++)、Clang 3.4 (libc++)は単に[`new`](/reference/new/op_new.md)を呼んでいるだけで、最適化はとくに行っていない。
 
 
 ## 非推奨の詳細

@@ -31,7 +31,7 @@ namespace std {
 
 - GCC 4.9 (libstdc++)
 - Clang 3.4 (libc++)
-- Visual C++ 12.0
+- Visual C++ 2013
 
 
 ## 例

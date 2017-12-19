@@ -65,7 +65,7 @@ int main(){}
 	- 2010までは、関数への右辺値参照型をテンプレート実引数に渡すとコンパイルエラーになる。上記例では、`std::is_function<f&&>`の場合が該当する。
 
 #### 備考
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 10.0 はコンパイラのバグのために関数への右辺値参照を用いるとエラーになる。
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、Visual C++ 2010 はコンパイラのバグのために関数への右辺値参照を用いるとエラーになる。
 
 Clang 3.1 - 3.3 では以下のような警告が出るが、これは[Clangのバグ](https://llvm.org/bugs/show_bug.cgi?id=16654)である。
 

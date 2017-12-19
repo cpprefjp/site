@@ -12,7 +12,7 @@ void reserve(size_type n);
 ## 概要
 コンテナが、リハッシュされずに少なくとも引数 `n` で指定された要素数格納できるようにバケット数を調整（リハッシュ）する。  
 実際には 引数を `n /` [`max_load_factor`](max_load_factor.md)`()` にし [`rehash`](rehash.md)`()` を呼ぶ。  
-( VC11の実装では `n /` [`max_load_factor`](max_load_factor.md)`() + 0.5f`   で呼んでいる)
+( Visual C++ 2012の実装では `n /` [`max_load_factor`](max_load_factor.md)`() + 0.5f` で呼んでいる)
 
 ## 戻り値
 なし

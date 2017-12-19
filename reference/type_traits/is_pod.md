@@ -73,7 +73,7 @@ int main(){}
 	- 2013のみは、組込型への参照において、誤って`false_type`になっている。
 
 #### 備考
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 10.0 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
 
 
 ## 参照
