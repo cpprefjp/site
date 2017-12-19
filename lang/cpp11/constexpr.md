@@ -175,7 +175,7 @@ GCCとClangでは、`-fconstexpr-depth=`オプションで設定できる：
 g++ main.cpp -fconstexpr-depth=1024
 ```
 
-MSVC 14.0では、`/constexpr:depth`オプションで設定できる：
+Visual C++ 2015では、`/constexpr:depth`オプションで設定できる：
 
 ```
 cl.exe /constexpr:depth1024 main.cpp
@@ -183,7 +183,7 @@ cl.exe /constexpr:depth1024 main.cpp
 
 ここの`1024`を任意の値に変更することで、再帰回数の上限を設定できる。
 
-GCC 5.2、Clang 3.7、MSVC 14.0時点で、3つともデフォルトは512回。
+GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512回。
 
 
 ## この機能が必要になった背景・経緯
