@@ -83,48 +83,48 @@ int main()
 #include <future>
 #include <thread>
 #include <utility>
- 
+
 class Calculator {
   int sum_ = 0;
   std::future<int&> async_calc;
- 
+
 public:
   void start()
   {
     std::promise<int&> p;
     async_calc = p.get_future();
- 
+
     std::thread t(&Calculator::calc, this, std::move(p));
     t.detach();
   }
- 
+
   int get()
   {
     return async_calc.get(); // 結果値への参照を取得する
   }
- 
+
   void calc(std::promise<int&> p)
   {
     int sum = 0;
     for (int i = 0; i < 10; ++i) {
       sum += i + 1;
     }
- 
+
     sum_ = sum;
     p.set_value(sum_); // メンバ変数への参照を結果値として書き込む
   }
 };
- 
+
 int main()
 {
   Calculator c;
- 
+
   // 非同期に計算を開始する
   c.start();
- 
+
   // 計算結果を取得する
   int result = c.get();
- 
+
   std::cout << result << std::endl;
 }
 ```
@@ -141,50 +141,50 @@ int main()
 #include <future>
 #include <thread>
 #include <utility>
- 
+
 class Calculator {
   int sum_ = 0;
   std::future<void> async_calc;
- 
+
 public:
   void start()
   {
     std::promise<void> p;
     async_calc = p.get_future();
- 
+
     std::thread t(&Calculator::calc, this, std::move(p));
     t.detach();
   }
- 
+
   int get()
   {
     async_calc.get(); // 終了待機のみを行う
     return sum_;
   }
- 
+
   void calc(std::promise<void> p)
   {
     int sum = 0;
     for (int i = 0; i < 10; ++i) {
       sum += i + 1;
     }
- 
+
     // メンバ変数として結果を保持し、promiseでは計算終了の通知のみ行う
     sum_ = sum;
     p.set_value();
   }
 };
- 
+
 int main()
 {
   Calculator c;
- 
+
   // 非同期に計算を開始する
   c.start();
- 
+
   // 計算結果を取得する
   int result = c.get();
- 
+
   std::cout << result << std::endl;
 }
 ```
