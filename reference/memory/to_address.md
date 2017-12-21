@@ -18,6 +18,10 @@ namespace std {
 ポインタと見なせるオブジェクトからアドレスを取得する。
 
 
+## 要件
+- (2) : 型`T`が関数ではないこと
+
+
 ## 戻り値
 - (1) : 式[`pointer_traits`](pointer_traits.md)`<Ptr>::to_address(p)`が有効であればその戻り値を返す。そうでなければ、`to_address(p.operator->())`を返す
 - (2) : `p`を返す
