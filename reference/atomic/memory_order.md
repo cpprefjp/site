@@ -6,10 +6,22 @@
 
 ```cpp
 namespace std {
+  // C++11
   enum memory_order {
     memory_order_relaxed, memory_order_consume, memory_order_acquire,
     memory_order_release, memory_order_acq_rel, memory_order_seq_cst
   };
+
+  // C++20
+  enum class memory_order {
+    relaxed, consume, acquire, release, acq_rel, seq_cst
+  };
+  inline constexpr memory_order memory_order_relaxed = memory_order::relaxed;
+  inline constexpr memory_order memory_order_consume = memory_order::consume;
+  inline constexpr memory_order memory_order_acquire = memory_order::acquire;
+  inline constexpr memory_order memory_order_release = memory_order::release;
+  inline constexpr memory_order memory_order_acq_rel = memory_order::acq_rel;
+  inline constexpr memory_order memory_order_seq_cst = memory_order::seq_cst;
 }
 ```
 
@@ -63,12 +75,12 @@ int main()
 
 | 列挙値 | 説明 |
 |--------|------|
-| `memory_order_relaxed` | スレッド間の順序付けの効果は一切持たない。 |
-| `memory_order_consume` | acquire操作と似ているが、それより弱い順序付けでの読み込みを行うことを指示する。acquire操作は後続の全ての操作に対して順序付けを行うのに対し、consume操作は読み込まれた値に依存(ただし条件分岐による依存は除く)する操作のみに順序付けを保証する点が異なる。[store()](atomic/store.md)など、書き込みのみを行う操作に対しては指定できない。(仕様検討中のため、一時的に非推奨) |
-| `memory_order_acquire` | aquire操作としての読み込みを行うことを指示する。[store()](atomic/store.md)など、書き込みのみを行う操作に対しては指定できない。 |
-| `memory_order_release` | release操作としての書き込みを行うことを指示する。[load()](atomic/load.md)など、読み込みのみを行う操作に対しては指定できない。 |
-| `memory_order_acq_rel` | 読み込みと書き込みを同時に行う操作(Read-Modify-Write操作)に対してのみ指定することができ、acquireとreleaseを合わせた効果を持つ。 |
-| `memory_order_seq_cst` | aquire(読み込み操作の場合)、release(書き込み操作の場合)、acq_rel(Read-Modify-Write操作の場合)としての効果を持つ。さらに、同じseq_cstが指定されている他のatomic操作との間での順序一貫性も保証する。これは最も強い保証であり、標準のatomic操作におけるデフォルトのメモリオーダーとして使用される。「seq_cst」は「sequential consistency(順序一貫性)」を意味する。 |
+| `relaxed` | スレッド間の順序付けの効果は一切持たない。 |
+| `consume` | acquire操作と似ているが、それより弱い順序付けでの読み込みを行うことを指示する。acquire操作は後続の全ての操作に対して順序付けを行うのに対し、consume操作は読み込まれた値に依存(ただし条件分岐による依存は除く)する操作のみに順序付けを保証する点が異なる。[store()](atomic/store.md)など、書き込みのみを行う操作に対しては指定できない。(仕様検討中のため、一時的に非推奨) |
+| `acquire` | aquire操作としての読み込みを行うことを指示する。[store()](atomic/store.md)など、書き込みのみを行う操作に対しては指定できない。 |
+| `release` | release操作としての書き込みを行うことを指示する。[load()](atomic/load.md)など、読み込みのみを行う操作に対しては指定できない。 |
+| `acq_rel` | 読み込みと書き込みを同時に行う操作(Read-Modify-Write操作)に対してのみ指定することができ、acquireとreleaseを合わせた効果を持つ。 |
+| `seq_cst` | aquire(読み込み操作の場合)、release(書き込み操作の場合)、acq_rel(Read-Modify-Write操作の場合)としての効果を持つ。さらに、同じseq_cstが指定されている他のatomic操作との間での順序一貫性も保証する。これは最も強い保証であり、標準のatomic操作におけるデフォルトのメモリオーダーとして使用される。「seq_cst」は「sequential consistency(順序一貫性)」を意味する。 |
 
 
 ## バージョン
@@ -92,3 +104,4 @@ int main()
 - [The Purpose of memory_order_consume in C++11](http://preshing.com/20140709/the-purpose-of-memory_order_consume-in-cpp11/)
 - [（抄訳）N4215 `memory_order_consume`の利用と実装に向けて［§5-6のみ］](http://d.hatena.ne.jp/yohhoy/20141115/p1)
 - [P0371R1 Temporarily discourage `memory_order_consume`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0371r1.html)
+- [P0439R0 Make `std::memory_order` a scoped enumeration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0439r0.html)

@@ -38,8 +38,9 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md.nolink)を追加
 - ポインタを生ポインタに変換する[`std::to_address()`](/reference/memory/to_address.md)を追加
 - [`<algorithm>`](/reference/algorithm.md)の検索、ソート関係に`constexpr`を追加
+- [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
 - [`std::exchange()`](/reference/utility/exchange.md)関数に`constexpr`を追加
 - [`std::complex`](/reference/complex.md)クラスを`constexpr`に対応
 - [`std::atomic`](/reference/atomic/atomic.md)クラスのスマートポインタに対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
-- [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
+- [`std::memory_order`](/reference/atomic/memory_order.md)の列挙子にスコープをもたせた
