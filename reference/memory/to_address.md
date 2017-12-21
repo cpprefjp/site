@@ -63,7 +63,7 @@ int main()
 
 ### 処理系
 - [Clang, C++20 mode](/implementation.md#clang): 6.0
-- [GCC, C++11 mode](/implementation.md#gcc): 8.1
+- [GCC, C++20 mode](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
