@@ -56,12 +56,13 @@ namespace fs = std::filesystem;
 
 int main()
 {
-  fs::path p = "C:\\Program Files\a.txt";
+  fs::path p = "C:/Program Files/a.txt";
   fs::path root_name = p.root_name();
 
   std::cout << root_name << std::endl;
 }
 ```
+* root_name()[color ff0000]
 
 #### 出力
 ```
