@@ -36,7 +36,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<type_traits>`](/reference/type_traits.md)に、型のCV修飾と参照を除去する型特性クラスとして[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)を追加
 - [`std::make_shared()`](/reference/memory/make_shared.md)と[`std::allocate_shared()`](/reference/memory/allocate_shared.md)を配列に対応
 - 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md.nolink)を追加
-- ポインタを生ポインタに変換する[`std::to_address()`](/reference/memory/to_address.md.nolink)を追加
+- ポインタを生ポインタに変換する[`std::to_address()`](/reference/memory/to_address.md)を追加
 - [`<algorithm>`](/reference/algorithm.md)の検索、ソート関係に`constexpr`を追加
 - [`std::exchange()`](/reference/utility/exchange.md)関数に`constexpr`を追加
 - [`std::complex`](/reference/complex.md)クラスを`constexpr`に対応

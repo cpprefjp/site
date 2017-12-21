@@ -62,6 +62,7 @@
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|-------------------------------------------------|-------|
 | [`pointer_traits`](memory/pointer_traits.md) | ポインタの型特性(class template)                | C++11 |
+| [`to_address`](memory/to_address.md)         | ポインタと見なせるオブジェクトからアドレスを取得する (function template) | C++20 |
 | [`addressof`](memory/addressof.md)           | 変数のアドレスを必ず取得する(function template) | C++11 |
 | [`align`](memory/align.md)                   | アライメント調整された領域を得る(function)      | C++11 |
 
