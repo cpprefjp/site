@@ -1,4 +1,4 @@
-# page_title (ページのタイトルです)
+# page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください)
 
 ([cpprefjpを編集するには](start_editing.md) および [cpprefjp特有の拡張構文](specialized.md) を先に読んで下さい。)
 
