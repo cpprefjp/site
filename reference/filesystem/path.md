@@ -88,7 +88,7 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `root_name` | ルート名を取得する | C++17 |
+| [`root_name`](path/root_name.md) | ルート名を取得する | C++17 |
 | `root_directory` | ルートディレクトリを取得する | C++17 |
 | `root_path` | ルートパスを取得する | C++17 |
 | `relative_path` | ルートパスからの相対パスを取得する | C++17 |
