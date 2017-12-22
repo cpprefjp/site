@@ -69,7 +69,7 @@ int main()
 ### C
 C99 で十六進浮動小数リテラルが採用された。
 
-### <a name="notes-iostreams"></a>iostream の問題
+### <a id="notes-iostreams"></a>iostream の問題
 [`std::strtod`](/reference/string/stod.md) は `pP` を認識しないため、十六進表記で浮動小数点数を受け取って適切に変換することができない
 ([LWG issue 2381](http://cplusplus.github.io/LWG/lwg-active.html#2381))。
 

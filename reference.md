@@ -19,7 +19,7 @@
 
 ***
 
-## <a name="language-support" href="#language-support-library">言語サポートライブラリ</a>
+## <a id="language-support" href="#language-support-library">言語サポートライブラリ</a>
 
 | ヘッダ                                                 | 説明                  | 対応バージョン |
 |--------------------------------------------------------|-----------------------|----------------|
@@ -30,7 +30,7 @@
 | [`<initializer_list>`](/reference/initializer_list.md) | 初期化子リスト        | C++11          |
 
 
-## <a name="diagnostics" href="#diagnostics">診断ライブラリ</a>
+## <a id="diagnostics" href="#diagnostics">診断ライブラリ</a>
 
 | ヘッダ                                         | 説明                          | 対応バージョン |
 |------------------------------------------------|-------------------------------|----------------|
@@ -38,7 +38,7 @@
 | [`<system_error>`](/reference/system_error.md) | システムエラーサポート        | C++11          |
 
 
-## <a name="general-utils" href="#general-utils">汎用的なユーティリティライブラリ</a>
+## <a id="general-utils" href="#general-utils">汎用的なユーティリティライブラリ</a>
 
 | ヘッダ                                       | 説明                         | 対応バージョン |
 |----------------------------------------------|------------------------------|----------------|
@@ -55,14 +55,14 @@
 | [`<typeindex>`](/reference/typeindex.md)     | 型のインデックス          | C++11          |
 
 
-## <a name="strings" href="#strings">文字列ライブラリ</a>
+## <a id="strings" href="#strings">文字列ライブラリ</a>
 
 | ヘッダ                             | 説明                     | 対応バージョン |
 |------------------------------------|--------------------------|----------------|
 | [`<string>`](/reference/string.md) | 文字列クラスと、文字特性 |                |
 
 
-## <a name="localization" href="#localization">ローカライズライブラリ</a>
+## <a id="localization" href="#localization">ローカライズライブラリ</a>
 
 | ヘッダ                               | 説明                 | 対応バージョン |
 |--------------------------------------|----------------------|----------------|
@@ -70,7 +70,7 @@
 | [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11<br/> C++17から非推奨 |
 
 
-## <a name="container" href="#container">コンテナライブラリ</a>
+## <a id="container" href="#container">コンテナライブラリ</a>
 
 | ヘッダ                                           | 説明                  | 対応バージョン |
 |--------------------------------------------------|-----------------------|----------------|
@@ -87,21 +87,21 @@
 | [`<unordered_set>`](/reference/unordered_set.md) | 非順序集合            | C++11          |
 
 
-## <a name="iterator" href="#iterator">イテレータライブラリ</a>
+## <a id="iterator" href="#iterator">イテレータライブラリ</a>
 
 | ヘッダ                                 | 説明             | 対応バージョン |
 |----------------------------------------|------------------|----------------|
 | [`<iterator>`](/reference/iterator.md) | イテレータの定義 |                |
 
 
-## <a name="algorithm" href="#algorithm">アルゴリズムライブラリ</a>
+## <a id="algorithm" href="#algorithm">アルゴリズムライブラリ</a>
 
 | ヘッダ                                   | 説明         | 対応バージョン |
 |------------------------------------------|--------------|----------------|
 | [`<algorithm>`](/reference/algorithm.md) | アルゴリズム |                |
 
 
-## <a name="numerics" href="#numerics">数値ライブラリ</a>
+## <a id="numerics" href="#numerics">数値ライブラリ</a>
 
 | ヘッダ                                 | 説明             | 対応バージョン |
 |----------------------------------------|------------------|----------------|
@@ -111,7 +111,7 @@
 | [`<numeric>`](/reference/numeric.md)   | 一般的な数値操作 |                |
 
 
-## <a name="io" href="#io">入出力ライブラリ</a>
+## <a id="io" href="#io">入出力ライブラリ</a>
 
 | ヘッダ                                     | 説明                         | 対応バージョン |
 |--------------------------------------------|------------------------------|----------------|
@@ -127,21 +127,21 @@
 | [`<filesystem>`](/reference/filesystem.md) | ファイルシステム             | C++17          |
 
 
-## <a name="regular-expressions" href="#regular-expressions">正規表現ライブラリ</a>
+## <a id="regular-expressions" href="#regular-expressions">正規表現ライブラリ</a>
 
 | ヘッダ                           | 説明            | 対応バージョン |
 |----------------------------------|-----------------|----------------|
 | [`<regex>`](/reference/regex.md) | 正規表現        | C++11          |
 
 
-## <a name="atomic-operations" href="#atomic-operations">アトミック操作ライブラリ</a>
+## <a id="atomic-operations" href="#atomic-operations">アトミック操作ライブラリ</a>
 
 | ヘッダ                             | 説明                                            | 対応バージョン |
 |------------------------------------|-------------------------------------------------|----------------|
 | [`<atomic>`](/reference/atomic.md) | アトミックアクセスのためのコンポーネント        | C++11          |
 
 
-## <a name="thread-support" href="#thread-support">スレッドサポートライブラリ</a>
+## <a id="thread-support" href="#thread-support">スレッドサポートライブラリ</a>
 
 | ヘッダ                                                     | 説明                  | 対応バージョン |
 |------------------------------------------------------------|-----------------------|----------------|
@@ -152,7 +152,7 @@
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
 
 
-## <a name="clib-facilities" href="#clib-facilities">C言語互換ライブラリ</a>
+## <a id="clib-facilities" href="#clib-facilities">C言語互換ライブラリ</a>
 
 | ヘッダ                               | 説明                                | 対応バージョン |
 |--------------------------------------|-------------------------------------|----------------|

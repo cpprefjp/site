@@ -15,7 +15,7 @@
 - ユーザーは任意の属性を定義できない。属性の定義は、標準およびベンダーが行う。
 
 
-### <a name="noreturn" href="#noreturn">`[[noreturn]]`属性</a>
+### <a id="noreturn" href="#noreturn">`[[noreturn]]`属性</a>
 `[[noreturn]]`は、関数が決して返らないことを示すための属性である。
 
 この属性を指定することで、「関数が返らない」という情報を使用してコンパイラが任意の最適化を行える。また、返らない処理をラップした関数に`[[noreturn]]`属性を付けることで、「関数が返らないパスが存在する」というコンパイラからの警告を抑制するためにも使用できる：
@@ -51,7 +51,7 @@ int main()
 `[[noreturn]]`属性を付けた関数が返った場合、その動作は未定義。
 
 
-### <a name="carries_dependency" href="#carries_dependency">`[[carries_dependency]]`属性</a>
+### <a id="carries_dependency" href="#carries_dependency">`[[carries_dependency]]`属性</a>
 `[[carries_dependency]]`は、並行プログラミングのアトミック操作において、値に依存した順序付け [`memory_order_consume`](/reference/atomic/memory_order.md)を、関数をまたいで伝搬することを明示するための属性である。
 
 以下は、[`memory_order_consume`](/reference/atomic/memory_order.md)を使用した順序付けの例である：
