@@ -4,7 +4,7 @@
 - [Intel C++ Compiler](#icc)
 - [Microsoft Visual C++](#visual_cpp)
 
-## <a name="clang" href="#clang">Clang</a>
+## <a id="clang" href="#clang">Clang</a>
 このサイトでは Clang と呼ぶ。「クラン(グ)」と読む。
 
 - ["clang" C Language Family Frontend for LLVM](http://clang.llvm.org/)
@@ -31,7 +31,7 @@
     - GNU拡張を有効にする`-std=gnu++17`オプションもある。
 
 
-## <a name="gcc" href="#gcc">GNU Compiler Collection</a>
+## <a id="gcc" href="#gcc">GNU Compiler Collection</a>
 このサイトでは GCC と呼ぶ
 
 - [GCC, the GNU Compiler Collection - GNU Project - Free Software Foundation (FSF)](https://gcc.gnu.org/)
@@ -62,7 +62,7 @@
     - GNU拡張を有効にする`-std=gnu++1z`オプションもある。
 
 
-## <a name="icc" href="#icc">Intel C++ Compiler</a>
+## <a id="icc" href="#icc">Intel C++ Compiler</a>
 このサイトでは ICC と呼ぶ。
 
 - [XLsoft エクセルソフト : インテル C++ Composer XE Linux 版/インテル C++ コンパイラー XE Linux 版 製品紹介](https://www.xlsoft.com/jp/products/intel/compilers/ccl/index.html?tab=0)
@@ -86,7 +86,7 @@
 - ICC 17.0からは、Windowsでは`/Qstd:c++17`オプション、Linux/macOSでは`-std=c++17`オプションを使用する。
 
 
-## <a name="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a>
+## <a id="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a>
 このサイトでは Visual C++ と呼ぶ。
 
 - [Visual Studio - Microsoft Developer Tools](https://www.visualstudio.com/ja-jp/visual-studio-homepage-vs.aspx): Visual C++を含む統合開発環境。
@@ -98,7 +98,7 @@
 - MSVC
 - cl
 
-### <a name="visual_cpp_ver" href="#visual_cpp_ver">バージョンの表記</a>
+### <a id="visual_cpp_ver" href="#visual_cpp_ver">バージョンの表記</a>
 
 このサイトでは Visual C++ 2015 Update 5 のように、製品の西暦バージョン + アップデート番号で表記する。
 
@@ -169,9 +169,9 @@
 | C Compiler 6.0                                |                |                       | 600      |               |
 
 
-- <a name="cite-1"></a>\[^1]: Visual Studio 2013 Update1では`_MSC_FULL_VER`は変更されなかった。  
+- <a id="cite-1"></a>\[^1]: Visual Studio 2013 Update1では`_MSC_FULL_VER`は変更されなかった。  
   <https://blogs.msdn.microsoft.com/bharry/2014/01/20/vs-2013-1-update-1-is-available/#div-comment-125661>
-- <a name="cite-2"></a>\[^2]: Visual Studio 2017では製品バージョンとVisual C++のバージョンが一致しない。  
+- <a id="cite-2"></a>\[^2]: Visual Studio 2017では製品バージョンとVisual C++のバージョンが一致しない。  
   <https://qiita.com/Chironian/items/1432eb8b59eb2eefcd2d>
 
 

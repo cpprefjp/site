@@ -124,7 +124,7 @@ return distance(a, b);
 
 `Compare` を取るアルゴリズムには全て、代わりに `operator<` を使うバージョンもある。  
 つまり、`comp(*i, *j) != false` はデフォルトで `*i < *j != false` である。  
-<a name="strict-weak-ordering"></a>
+<a id="strict-weak-ordering"></a>
 [二分探索](#alg.binary.search)以外のアルゴリズムでは、`comp` は「狭義の弱順序 (strict weak ordering) 」を示さなければならない。  
 
 ここでの用語「狭義 (strict) 」 は非反射関係 (irreflexive relation) (全ての `x` について `!comp(x,x)` である）の要求を示し、用語「弱 (weak) 」は全順序 (total ordering) ほど強くはないが半順序 (partial ordering) よりは強い要求を示す。`!comp(a, b) && !comp(b, a)` として `equiv(a, b)` を定義する場合、用語「弱」の要求は `comp` と `equiv` の両方が以下のように推移的関係 (transitive relations) となることである。  
@@ -138,10 +138,10 @@ return distance(a, b);
   - `comp` は `equiv` によって決まる同値類の間での明確な関係を示す
   - その示される関係は狭義の全順序 (strict total ordering) である
 
-<a name="sequence-is-sorted"></a>
+<a id="sequence-is-sorted"></a>
 あるシーケンスを指す任意のイテレータ `i` と、`i + n` がそのシーケンス上の要素を指す有効なイテレータであるような任意の非負整数 `n` について、`comp(*(i + n), *i) == false` であれば、そのシーケンスは比較関数 (comparator) `comp` によってソートされているという。  
 
-<a name="sequence-is-partitioned"></a>
+<a id="sequence-is-partitioned"></a>
 あるシーケンス `[start,finish)` があり、`0 <= i < (finish - start)` 内の全ての整数 `i` について、`i < n` の時かつその時に限り `f(*(start + i))` が `true` となるような整数 `n` が存在するなら、そのシーケンス `[start,finish)` は式 `f(e)` によって区分化されているという。  
 
 - 「区分化されている」と「ソートされている」との関係  
@@ -174,7 +174,7 @@ return distance(a, b);
 | [`nth_element`](algorithm/nth_element.md) | 基準となる要素よりも小さい要素が、前に来るよう並べ替える | |
 
 
-### <a name="alg.binary.search"></a>二分探索
+### <a id="alg.binary.search"></a>二分探索
 
 これらのアルゴリズムは全て二分探索を行う。これらは探索されるシーケンスが検索キーを比較関数（暗黙の `operator <` 、または明示的に渡された `Compare comp` ）の引数として部分適用することで得られる式によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていると仮定している。  
 これらはランダムアクセスイテレータでない場合でも最小の比較回数で動作する。  

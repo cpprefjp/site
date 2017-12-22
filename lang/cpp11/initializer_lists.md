@@ -72,7 +72,7 @@ int main()
 - 初期化子リストは、空であってもよい
 
 
-### <a name="initializer-list-contexts" href="#initializer-list-contexts">初期化子リストを使用できる文脈</a>
+### <a id="initializer-list-contexts" href="#initializer-list-contexts">初期化子リストを使用できる文脈</a>
 初期化子リストは、以下の文脈で使用できる：
 
 - 変数定義での初期化子リストによる初期化
@@ -143,7 +143,7 @@ int main()
     * std::initializer_list[link /reference/initializer_list.md]
 
 
-### <a name="narrow-conversion" href="#narrow-conversion">縮小変換</a>
+### <a id="narrow-conversion" href="#narrow-conversion">縮小変換</a>
 - 初期化子リストに縮小変換が要求された場合、プログラムは不適格となる
 
     ```cpp
@@ -169,14 +169,14 @@ int main()
     * std::initializer_list[link /reference/initializer_list.md]
 
 
-### <a name="initializer-list-constructor" href="#initializer-list-constructor">初期化子リストコンストラクタ</a>
+### <a id="initializer-list-constructor" href="#initializer-list-constructor">初期化子リストコンストラクタ</a>
 以下の条件を満たすコンストラクタを、「初期化子リストコンストラクタ (initializer-list constructor)」と呼ぶ：
 
 - 任意の型`E`を要素とする`std::initializer_list<E>`型のパラメータをひとつだけとり、そのほかのパラメータを持たない
 - もしくは、`std::initializer_list<E>`型のパラメータおよび、それ以降にデフォルト引数を持つ
 
 
-### <a name="overload-resolution" href="#overload-resolution">オーバーロード解決</a>
+### <a id="overload-resolution" href="#overload-resolution">オーバーロード解決</a>
 - デフォルトコンストラクタと初期化子リストコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
 
     ```cpp example
@@ -240,7 +240,7 @@ int main()
     * std::initializer_list[link /reference/initializer_list.md]
 
 
-### <a name="life-time" href="#life-time">初期化子リストオブジェクトの寿命</a>
+### <a id="life-time" href="#life-time">初期化子リストオブジェクトの寿命</a>
 - 初期化子リストが暗黙的に`std::initializer_list<E>`に型変換される際、実装は`E`型の要素を`N`個持つ配列を確保するかのように振る舞う。変換された`std::initializer_list<E>`オブジェクトは、元となった初期化子リストの配列を参照する。以下のような初期化子リストの引数渡しがあった場合、
 
     ```cpp
@@ -263,7 +263,7 @@ int main()
     元となった配列の寿命は、変換先の`std::initializer_list`オブジェクトと同じとなる
 
 
-### <a name="type-deduction" href="#type-deduction">型推論</a>
+### <a id="type-deduction" href="#type-deduction">型推論</a>
 - 初期化リストを`auto`で受けた場合、`std::initializer_list`型に推論される。ただし、空の初期化子リストは推論に失敗する
 
     ```cpp
@@ -301,7 +301,7 @@ int main()
     * std::initializer_list[link /reference/initializer_list.md]
 
 
-### <a name="evaluation-order" href="#evaluation-order">評価順序</a>
+### <a id="evaluation-order" href="#evaluation-order">評価順序</a>
 - 初期化子リストに列挙した要素は、先頭から順番に評価されることが保証される
 
     ```cpp example

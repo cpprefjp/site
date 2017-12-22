@@ -26,7 +26,7 @@
 - [その他のマクロ](#other-macros)
 
 
-## <a name="difference-from-c" href="#difference-from-c">標準Cライブラリとの差異</a>
+## <a id="difference-from-c" href="#difference-from-c">標準Cライブラリとの差異</a>
 `<cmath>`は基本的には、標準 C ライブラリの `<math.h>` に準拠しているが、いくつかの変更点がある。
 
 ### C++03のC90との差異
@@ -84,7 +84,7 @@
     * Promoted[italic]
 
 
-## <a name="error-handling" href="#error-handling">エラーの扱い</a>
+## <a id="error-handling" href="#error-handling">エラーの扱い</a>
 `<cmath>` で提供される各関数は、特に明記されていない限り、引数の型が表現できる全ての値についての挙動が定義されている。
 なお、ここで言う「挙動が定義されている」とは、未定義動作を引き起こさないというだけで、エラーが発生したり、実装依存の挙動となる場合がある事に注意。
 
@@ -103,7 +103,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 なお、エラーが発生しなかった場合でも浮動小数点状態フラグがクリアされる事は無いので、エラー発生の有無を浮動小数点状態フラグで判断するためにはあらかじめ [`feclearexcept`](cfenv/feclearexcept.md) で浮動小数点状態フラグをクリアしておく必要がある。
 
 
-## <a name="error-kind" href="#error-kind">エラーの種類</a>
+## <a id="error-kind" href="#error-kind">エラーの種類</a>
 `<cmath>` で提供される各関数で発生するエラーは、以下の 5 種類ある。
 
 ### 定義域エラー（domain error）
@@ -168,7 +168,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 特に、[`fesetround`](cfenv/fesetround.md) で設定した丸め方式に従うとは限らないため、注意が必要である。
 
 
-## <a name="trigonometric-functions" href="#trigonometric-functions">三角関数</a>
+## <a id="trigonometric-functions" href="#trigonometric-functions">三角関数</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------|----------------------------------------------|-------|
@@ -180,7 +180,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`atan`](cmath/atan.md)   | 逆正接関数（アークタンジェント） | |
 | [`atan2`](cmath/atan2.md) | 対辺と隣辺からの逆正接関数（アークタンジェント） | |
 
-## <a name="hyperbolic-functions" href="#hyperbolic-functions">双曲線関数</a>
+## <a id="hyperbolic-functions" href="#hyperbolic-functions">双曲線関数</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------|----------------------------------------------|-------|
@@ -192,7 +192,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`atanh`](cmath/atanh.md) | 逆双曲線正接関数（エリアハイパボリックタンジェント） | C++11 |
 
 
-## <a name="exponential-and-logarithmic-functions" href="#exponential-and-logarithmic-functions">指数関数と対数関数</a>
+## <a id="exponential-and-logarithmic-functions" href="#exponential-and-logarithmic-functions">指数関数と対数関数</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------|-----------------------------------|-------|
@@ -205,7 +205,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`log2`](cmath/log2.md)   | 2 を底とする二進対数 | C++11 |
 
 
-## <a name="fraction-and-exponent-functions" href="#fraction-and-exponent-functions">仮数と指数</a>
+## <a id="fraction-and-exponent-functions" href="#fraction-and-exponent-functions">仮数と指数</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-----------|----------------------------------|-------|
@@ -218,7 +218,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`scalbln`](cmath/scalbn.md) | 内部表現の基数 (`FLT_RADIX`) の累乗との乗算 | C++11 |
 
 
-## <a name="power-and-absolute-value-functions" href="#power-and-absolute-value-functions">累乗・冪根と絶対値</a>
+## <a id="power-and-absolute-value-functions" href="#power-and-absolute-value-functions">累乗・冪根と絶対値</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------|----------------|-------|
@@ -230,7 +230,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`fabs`](cmath/fabs.md)   | 絶対値         | |
 
 
-## <a name="error-and-gamma-functions" href="#error-and-gamma-functions">誤差関数とガンマ関数</a>
+## <a id="error-and-gamma-functions" href="#error-and-gamma-functions">誤差関数とガンマ関数</a>
 
 | 名前 | 説明 | 対応バージョン |
 |----------|----------------------|-------|
@@ -239,7 +239,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 | [`tgamma`](cmath/tgamma.md) | ガンマ関数           | C++11 |
 | [`lgamma`](cmath/lgamma.md) | ガンマ関数の自然対数 | C++11 |
 
-## <a name="mathematical-special-functions" href="#mathematical-special-functions">その他特殊関数</a>
+## <a id="mathematical-special-functions" href="#mathematical-special-functions">その他特殊関数</a>
 
 以下の関数は引数に NaN が渡された場合、
 NaN を返さなければならないが定義域エラーを報告してはならない。
@@ -280,7 +280,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`sph_legendre`](cmath/sph_legendre.md)     | 球面調和関数の *θ* 成分 | C++17 |
 | [`sph_neumann`](cmath/sph_neumann.md.nolink)       | 球ノイマン関数         | C++17 |
 
-## <a name="nearest-integer-functions" href="#nearest-integer-functions">最近傍整数</a>
+## <a id="nearest-integer-functions" href="#nearest-integer-functions">最近傍整数</a>
 
 | 名前                              | 説明                                         | 対応バージョン |
 |-----------------------------------|----------------------------------------------|----------------|
@@ -296,7 +296,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`llrint`](cmath/llrint.md)       | `long long` 型への現在の丸めモードによる丸め | C++11          |
 
 
-## <a name="remainder-functions" href="#remainder-functions">剰余</a>
+## <a id="remainder-functions" href="#remainder-functions">剰余</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-------------|--------------------------|-------|
@@ -305,7 +305,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`remquo`](cmath/remquo.md)       | 商と浮動小数点剰余       | C++11 |
 
 
-## <a name="manipulation-functions" href="#manipulation-functions">浮動小数点操作</a>
+## <a id="manipulation-functions" href="#manipulation-functions">浮動小数点操作</a>
 
 | 名前 | 説明 | 対応バージョン |
 |--------------|-------------------------------|-------|
@@ -317,7 +317,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`nexttoward`](cmath/nexttoward.md) | 指定方向への次の表現可能な値  | C++11 |
 
 
-## <a name="maximum-minimum-and-positive-difference-functions" href="#maximum-minimum-and-positive-difference-functions">最大値・最小値と正の差</a>
+## <a id="maximum-minimum-and-positive-difference-functions" href="#maximum-minimum-and-positive-difference-functions">最大値・最小値と正の差</a>
 
 | 名前 | 説明 | 対応バージョン |
 |--------|--------|-------|
@@ -326,14 +326,14 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`fdim`](cmath/fdim.md) | 正の差 | C++11 |
 
 
-## <a name="floating-multiply-add" href="#floating-multiply-add">乗算-加算</a>
+## <a id="floating-multiply-add" href="#floating-multiply-add">乗算-加算</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------|------------------|-------|
 | [`fma`](cmath/fma.md) | 乗算と加算の合成 | C++11 |
 
 
-## <a name="classification-functions" href="#classification-functions">数値分類</a>
+## <a id="classification-functions" href="#classification-functions">数値分類</a>
 
 | 名前 | 説明 | 対応バージョン |
 |--------------|------------------|-------|
@@ -345,7 +345,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`signbit`](cmath/signbit.md)   | 数値の符号が負であるか判定  | C++11 |
 
 
-## <a name="comparison-functions" href="#comparison-functions">数値比較</a>
+## <a id="comparison-functions" href="#comparison-functions">数値比較</a>
 
 | 名前             | 説明                                                   | 対応バージョン |
 |------------------|--------------------------------------------------------|----------------|
@@ -357,7 +357,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`isunordered`](cmath/isunordered.md)       | 第 1 引数と第 2 引数が順序付けられていないか判定       | C++11 |
 
 
-## <a name="types" href="#types">型</a>
+## <a id="types" href="#types">型</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------|-------------------------------|-------|
@@ -365,7 +365,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`double_t`](cmath/double_t.md) | `double` 以上の浮動小数点数型 | C++11 |
 
 
-## <a name="value-macros" href="#value-macros">数値のマクロ</a>
+## <a id="value-macros" href="#value-macros">数値のマクロ</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|------------------------------|-------|
@@ -376,7 +376,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`NAN`](cmath/nan.md)             | `float` 型の `quiet NaN`     | C++11 |
 
 
-## <a name="classification-macros" href="#classification-macros">数値分類のマクロ</a>
+## <a id="classification-macros" href="#classification-macros">数値分類のマクロ</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|---------------------------------------------|-------|
@@ -387,7 +387,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`FP_ZERO`](cmath/fp_zero.md)           | 数値分類で浮動小数点数の 0 を表す整数定数式 | C++11 |
 
 
-## <a name="other-macros" href="#other-macros">その他のマクロ</a>
+## <a id="other-macros" href="#other-macros">その他のマクロ</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|---------------------------------------------|-------|

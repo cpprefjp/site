@@ -8,7 +8,7 @@
 - [C++17](#cpp17)
 - [C++20](#cpp20)
 
-## <a name="cpp11" href="#cpp11">C++11言語機能の実装状況</a>
+## <a id="cpp11" href="#cpp11">C++11言語機能の実装状況</a>
 
 | 言語機能                         | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------------------------------|------|-----|-------|-----|------|
@@ -69,7 +69,7 @@
 - Visual C++ (MSVC): [Compiler improvements in VS 2015 Update 3 RC - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/compiler-improvements-in-vs-2015-update-3-rc/)
 
 
-## <a name="cpp14" href="#cpp14">C++14言語機能の実装状況</a>
+## <a id="cpp14" href="#cpp14">C++14言語機能の実装状況</a>
 
 | 言語機能                     | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |------------------------------|------|-----|-------|-----|------|
@@ -100,7 +100,7 @@
     - [Intel (R) Parallel Studio XE 2016 Beta program has begun](https://software.intel.com/en-us/forums/topic/549502)
 
 
-## <a name="cpp17" href="#cpp17">C++17言語機能の実装状況</a>
+## <a id="cpp17" href="#cpp17">C++17言語機能の実装状況</a>
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|
@@ -208,7 +208,7 @@
 - ICC: [C++17 Features Supported by Intel C++ Compiler](https://software.intel.com/en-us/articles/c17-features-supported-by-intel-c-compiler)
 
 
-## <a name="cpp20" href="#cpp20">C++20言語機能の実装状況</a>
+## <a id="cpp20" href="#cpp20">C++20言語機能の実装状況</a>
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|

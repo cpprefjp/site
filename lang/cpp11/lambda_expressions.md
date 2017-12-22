@@ -62,7 +62,7 @@ void g()
 
 
 ## 仕様
-### <a name="syntax" href="#syntax">構文</a>
+### <a id="syntax" href="#syntax">構文</a>
 ```
 [キャプチャリスト](パラメータリスト) mutable 例外仕様 属性 -> 戻り値の型 { 関数の本体 }
 ```
@@ -86,7 +86,7 @@ void g()
 ラムダ式の記述に関する制限として、「ラムダ式は、評価されないオペランドに現れてはならない」というものがある。そのため、`decltype`、`sizeof`、`noexcept`、[`alignas`](alignas.md)のオペランドにはラムダ式を指定できない。
 
 
-### <a name="closure-object" href="#closure-object">クロージャオブジェクト</a>
+### <a id="closure-object" href="#closure-object">クロージャオブジェクト</a>
 ラムダ式は、その場に関数オブジェクトのクラスを定義し、その一時オブジェクトを生成する。関数オブジェクトのクラスを「クロージャ型(closure type)」、その一時オブジェクトを「クロージャオブジェクト(closure object)」という。これらには、以下の特徴がある：
 
 - ラムダ式ごとに、一意な名前の関数オブジェクトが定義される
@@ -104,7 +104,7 @@ void g()
 - クロージャオブジェクトのサイズは未規定
 
 
-### <a name="capture" href="#capture">キャプチャ</a>
+### <a id="capture" href="#capture">キャプチャ</a>
 ラムダ式には、ラムダ式の外にある自動変数を、ラムダ式内で参照できるようにする「キャプチャ(capture)」という機能がある。キャプチャは、ラムダ導入子(lambda-introducer)と呼ばれる、ラムダ式の先頭にある`[ ]`ブロックのなかで指定する。
 
 キャプチャには、コピーキャプチャと参照キャプチャがあり、デフォルトでどの方式でキャプチャし、個別の変数をどの方式でキャプチャするかを指定できる。
@@ -257,11 +257,11 @@ void foo(Args... args)
 ```
 
 
-### <a name="parameter-constraints" href="#parameter-constraints">パラメータリストの制限</a>
+### <a id="parameter-constraints" href="#parameter-constraints">パラメータリストの制限</a>
 ラムダ式のパラメータには、テンプレートは使用できない。そのため、具体的な型を指定する必要がある。
 
 
-### <a name="mutable" href="#mutable">mutable</a>
+### <a id="mutable" href="#mutable">mutable</a>
 キャプチャした変数はクロージャオブジェクトのメンバ変数と見なされ、クロージャオブジェクトの関数呼び出し演算子は、デフォルトで`const`修飾される。そのため、コピーキャプチャした変数をラムダ式のなかで書き換えることはできない。
 
 ```cpp
@@ -277,7 +277,7 @@ int rate = 2;
 ```
 
 
-### <a name="return-type-deduction" href="#return-type-deduction">戻り値型の推論</a>
+### <a id="return-type-deduction" href="#return-type-deduction">戻り値型の推論</a>
 戻り値の型を省略した場合、その戻り値型は、関数本体の`return`文から推論される。
 
 `return`文がない場合、および、`return`文にオペランドが無い場合は、戻り値の型は`void`になる。
@@ -315,7 +315,7 @@ int main()
 ```
 
 
-### <a name="convert-to-function-pointers" href="#convert-to-function-pointers">関数ポインタへの変換</a>
+### <a id="convert-to-function-pointers" href="#convert-to-function-pointers">関数ポインタへの変換</a>
 キャプチャを含まない(つまり状態を持たない)ラムダ式によって生成されたクロージャオブジェクトは、同じパラメータ型と戻り値型のシグニチャを持つ関数ポインタに変換できる。
 
 ```cpp example

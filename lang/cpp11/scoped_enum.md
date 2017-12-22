@@ -39,7 +39,7 @@ int color = static_cast<int>(Color::Red);
 - 列挙子に値を指定しない場合、最初の列挙子には定数値`0`が設定される。2つ目以降の列挙子は、ひとつ前の値を`1`進めた値を持つ
 
 
-### <a name="extended-unscoped-enum" href="#extended-unscoped-enum">スコープを持つ列挙型に合わせた、enumの拡張</a>
+### <a id="extended-unscoped-enum" href="#extended-unscoped-enum">スコープを持つ列挙型に合わせた、enumの拡張</a>
 スコープを持つ列挙型の導入に合わせて、スコープを持たない列挙型もC++11で以下の機能拡張が行われた
 
 - 先行宣言ができるようになった
