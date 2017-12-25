@@ -90,7 +90,31 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
   適格、またはすべての規則を満たす、または未定義の動作を含まないなどが考えられる。
   曖昧さを避けるため、このサイトではプログラムに対して合法・違法という語は用いない。
 
-### <a href="#nasal-demon" id="nasal-demon">「鼻から悪魔」とプログラムの可搬性</a>
+### <a href="#implementation-reference" id="implementation-reference">参照</a>
+
+- [C++er は“合法”だとか“違法”だとか言いたくて仕方がないけれど、結局どういう意味? それより適合・適格・○○動作・○○規則・診断不要いろいろの関係が謎 - Qiita](https://qiita.com/akinomyoga/items/592e5a3b8438a0c8556b)
+- [処理系定義の動作](http://www.c-lang.org/detail/implementation_defined_behavior.html) - C言語の処理系定義の動作の一覧
+- [未定義の動作](http://www.c-lang.org/detail/undefined_behavior.html) - C言語の未定義の動作の一覧
+- [未規定の動作](http://www.c-lang.org/detail/unspecified_behavior.html) - C言語の未規定の動作の一覧
+- [文化圏固有動作](http://www.c-lang.org/detail/locale_specific_behavior.html) - C言語の文化圏固有動作の一覧
+
+### <a href="#translation-note" id="translation-note">註: 訳語について</a>
+
+ここでは、規格で定義される各用語の日本語訳については、できるだけ JIS C++ に倣った。
+
+- <a href="#note1-src" id="note1">^1</a> no diagnostics required: JIS C++ では一定の訳は与えられず、登場する度に異なる翻訳のされ方をしている。
+  ここでは "診断不要" という語を割り当てることにする。
+- <a href="#note2-src" id="note2">^2</a> diagnostic message: JIS C++ では "診断情報" としている。
+  JIS C言語 では "診断メッセージ" としている。
+- <a href="#note3-src" id="note3">^3</a> conditionally-supported constructs: C++11 で導入されたものなので、JIS C++ には対応訳は存在しない。
+  ここでは "条件付き対応の構成" と訳す。
+  JIS C++ では constructs は "構文" と訳している。
+  現に C++98/03 で constructs という単語が使われているのは構文に対してのみである。
+  しかし conditionally-supported constructs が導入された今、
+  constructs という単語は構文とは言い難いものにも使われている。
+  因みに、本来 constructs というのは構成要素というぐらいの意味である。
+
+## <a href="#nasal-demon" id="nasal-demon">「鼻から悪魔」とプログラムの可搬性</a>
 
 プログラムが
 
@@ -108,33 +132,12 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 更に、処理系定義の動作や未規定の動作は、(内部的に起こしても良いが) 外から見える動作として現れて問題を起こさないようにする必要がある。
 余裕があれば、文化圏固有動作や条件付き対応の構成についても気を配ると良い。
 
-### <a href="#implementation-reference" id="implementation-reference">参照</a>
+### <a href="#reference-for-UB" id="reference-for-UB">参照</a>
 
-- [C++er は“合法”だとか“違法”だとか言いたくて仕方がないけれど、結局どういう意味? それより適合・適格・○○動作・○○規則・診断不要いろいろの関係が謎 - Qiita](https://qiita.com/akinomyoga/items/592e5a3b8438a0c8556b)
-- [処理系定義の動作](http://www.c-lang.org/detail/implementation_defined_behavior.html) - C言語の処理系定義の動作の一覧
-- [未定義の動作](http://www.c-lang.org/detail/undefined_behavior.html) - C言語の未定義の動作の一覧
-- [未規定の動作](http://www.c-lang.org/detail/unspecified_behavior.html) - C言語の未規定の動作の一覧
-- [文化圏固有動作](http://www.c-lang.org/detail/locale_specific_behavior.html) - C言語の文化圏固有動作の一覧
 - [nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)
 - [本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)
 - [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
 - [MSC15-C. 未定義の動作に依存しない](https://www.jpcert.or.jp/sc-rules/c-msc15-c.html)
-
-### <a href="#translation-note" id="translation-note">註: 訳語について</a>
-
-ここでは、規格で定義される各用語の日本語訳については、できるだけ JIS C++ に倣った。
-
-- <a href="#note1-src" id="note1">^1</a> no diagnostics required: JIS C++ では一定の訳は与えられず、登場する度に異なる翻訳のされ方をしている。
-  ここでは "診断不要" という語を割り当てることにする。
-- <a href="#note2-src" id="note2">^2</a> diagnostic message: JIS C++ では "診断情報" としている。
-  JIS C言語 では "診断メッセージ" としている。
-- <a href="#note3-src" id="note3">^3</a> conditionally-supported constructs: C++11 で導入されたものなので、JIS C++ には対応訳は存在しない。
-  ここでは "条件付き対応の構成" と訳す。
-  JIS C++ では constructs は "構文" と訳している。
-  現に C++98/03 で constructs という単語が使われているのは構文に対してのみである。
-  しかし conditionally-supported constructs が導入された今、
-  constructs という単語は構文とは言い難いものにも使われている。
-  因みに、本来 constructs というのは構成要素というぐらいの意味である。
 
 ## <a href="#list-of-locale-specific" id="list-of-locale-specific">文化圏固有動作の一覧</a>
 
