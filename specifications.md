@@ -4,8 +4,9 @@
 
 ### <a href="#implementation-compliance" id="implementation-compliance">処理系の適合 (implementation compliance)</a>
 
-**処理系** (implementation) または**実装**とはプログラムの**翻訳** (translation) と**実行** (execution) をする一連のソフトウェアのことである。
-**標準規格** (standard) または**規格**は、C++ の**適合する処理系** (conforming implementation) が満たすべき**要件** (requirement) を記述する。
+**処理系** (implementation) または**実装**とはプログラムの**翻訳** (translation) と**実行** (execution) をする一連の枠組み・ソフトウェアのことである。
+C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレーティングシステムから構成されるのが普通だが、後者は前提として特に前者を処理系と考えることも多い。
+**標準規格** (standard) または**規格**とは、C++ の**適合する処理系** (conforming implementation) が満たすべき**要件** (requirement) を取り決めた文書である。
 
 ### <a href="#behavior" id="behavior">動作</a>
 
@@ -22,6 +23,8 @@
 - **未規定の動作** (unspecified behavior) とされた動作に対しては、処理系は考えられる動作の内の1つを行って良い。処理系は説明書にその動作を定義しなくて良い。
 - **未定義の動作** (undefined behavior; 通称 UB) は、処理系が実際に行う動作について標準規格が如何なる要件もおかないことを表す。
 - **文化圏固有動作** (locale-specific behavior) に対しては、処理系は現地の国家・文化・言語の風習に依存した動作を行う。処理系はその動作を説明書に記述する必要がある。
+
+これらの用語は処理系が取りうる動作の範囲を示すものであって、例えば "未定義の動作" という名前の具体的な動作がある訳ではないことに注意する。
 
 ### <a href="#rule" id="rule">規則</a>
 
@@ -108,10 +111,10 @@
 ### <a href="#implementation-reference" id="implementation-reference">参照</a>
 
 - [C++er は“合法”だとか“違法”だとか言いたくて仕方がないけれど、結局どういう意味? それより適合・適格・○○動作・○○規則・診断不要いろいろの関係が謎 - Qiita](https://qiita.com/akinomyoga/items/592e5a3b8438a0c8556b)
-- [処理系定義の動作](http://www.c-lang.org/detail/implementation_defined_behavior.html)
-- [未定義の動作](http://www.c-lang.org/detail/undefined_behavior.html)
-- [未規定の動作](http://www.c-lang.org/detail/unspecified_behavior.html)
-- [文化圏固有動作](http://www.c-lang.org/detail/locale_specific_behavior.html)
+- [処理系定義の動作](http://www.c-lang.org/detail/implementation_defined_behavior.html) - C言語の処理系定義の動作の一覧
+- [未定義の動作](http://www.c-lang.org/detail/undefined_behavior.html) - C言語の未定義の動作の一覧
+- [未規定の動作](http://www.c-lang.org/detail/unspecified_behavior.html) - C言語の未規定の動作の一覧
+- [文化圏固有動作](http://www.c-lang.org/detail/locale_specific_behavior.html) - C言語の文化圏固有動作の一覧
 - [nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)
 - [本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)
 - [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
