@@ -13,7 +13,7 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 適合する処理系は標準規格が定める**抽象機械** (abstract machine) の**外から見た動作** (observable behavior) を**模倣** (emulate) しなければならない。
 外から見た動作は
 
-- `volatile` glvalue[link /lang/cpp11/rvalue_ref_and_move_semantics.md] を通した抽象機械の読み書き操作
+- `volatile` [glvalue](lang/cpp11/rvalue_ref_and_move_semantics.md) を通した抽象機械の読み書き操作
 - 実行終了後の、ファイルに出力された内容
 - 対話的な入出力装置の読み書きの順序
 
