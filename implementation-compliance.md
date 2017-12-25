@@ -35,7 +35,7 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 - **制約** (constraints): C言語において構文記法によって表現しきれない構文的な制限を文章で述べたもの。C++ には現れない
 - **意味規則** (semantic rule): 構文規則と制約のどちらでもないプログラムに対する規則
 
-各規則には**診断不要** (no diagnostics required; 通称 NDR) や「違反すると未定義の動作になる」などの属性が明記されることがあり、
+各規則には**診断不要**<sup><a href="#note1" id="note1-src">1</a></sup> (no diagnostics required; 通称 NDR) や「違反すると未定義の動作になる」などの属性が明記されることがあり、
 診断不要とも未定義の動作になるとも明記されない規則を**診断対象規則** (diagnosable rule) と呼ぶ。
 **単一定義規則** (ODR; one definition rule) は "使用される変数・関数・クラスについてただ1つの定義を与えなければならない" という一連の規則である。
 
@@ -43,7 +43,7 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 - **不適格** (ill-formed) とはプログラムが適格でないことである
 
 プログラムが規則に違反するとき、処理系はエラーメッセージまたは警告などを出力する。
-この出力を総称して**診断情報** (diagnostic message) または**診断メッセージ** (JIS C言語での名称) と呼び、その内容は処理系定義である。
+この出力を総称して**診断情報** (diagnostic message) または**診断メッセージ** <sup><a href="#note2" id="note2-src">2</a></sup> と呼び、その内容は処理系定義である。
 
 適合する処理系は、
 
@@ -53,7 +53,7 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 
 ### <a href="#conditionally-supported" id="conditionally-supported">条件付き対応の構成</a>
 
-一部の C++ の機能は**条件付き対応の構成** (conditionally-supported constructs) とされ、処理系はこれに対応しなくても良い。
+一部の C++ の機能は**条件付き対応の構成**<sup><a href="#note3" id="note3-src">3</a></sup> (conditionally-supported constructs) とされ、処理系はこれに対応しなくても良い。
 対応する場合にはその動作は処理系定義である。
 
 ### <a href="#implementation-limit" id="implementation-limit">処理系限界</a>
@@ -119,6 +119,22 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 - [本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)
 - [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
 - [MSC15-C. 未定義の動作に依存しない](https://www.jpcert.or.jp/sc-rules/c-msc15-c.html)
+
+### <a href="#translation-note" id="translation-note">註: 訳語について</a>
+
+ここでは、規格で定義される各用語の日本語訳については、できるだけ JIS C++ に倣った。
+
+- <a href="#note1-src" id="note1">^1</a> no diagnostics required: JIS C++ では一定の訳は与えられず、登場する度に異なる翻訳のされ方をしている。
+  ここでは "診断不要" という語を割り当てることにする。
+- <a href="#note2-src" id="note2">^2</a> diagnostic message: JIS C++ では "診断情報" としている。
+  JIS C言語 では "診断メッセージ" としている。
+- <a href="#note3-src" id="note3">^3</a> conditionally-supported constructs: C++11 で導入されたものなので、JIS C++ には対応訳は存在しない。
+  ここでは "条件付き対応の構成" と訳す。
+  JIS C++ では constructs は "構文" と訳している。
+  現に C++98/03 で constructs という単語が使われているのは構文に対してのみである。
+  しかし conditionally-supported constructs が導入された今、
+  constructs という単語は構文とは言い難いものにも使われている。
+  因みに、本来 constructs というのは構成要素というぐらいの意味である。
 
 ## <a href="#list-of-locale-specific" id="list-of-locale-specific">文化圏固有動作の一覧</a>
 
