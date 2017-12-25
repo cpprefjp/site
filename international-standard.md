@@ -36,15 +36,18 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 ## <a href="#iso-cpp-documents" id="iso-cpp-documents">用語: 国際標準規格の文書</a>
 
 - **提案** (proposal): 標準規格の変更についての提案文書
+- **問題** (issue): C++標準規格の問題や課題のこと
 - **欠陥** (defect): C++標準規格に含まれるいわば "バグ" のこと
-- **DR** (defect report, defect resolution): 欠陥の報告または欠陥の修正のこと
+  - **DR** (defect report, defect resolution): 委員会で承認された欠陥の報告または欠陥の修正のこと
+  - **NAD** (not a defect): 委員会により標準規格の欠陥ではないとされた問題のこと
+  - **DRWP**: 最新の規格原案に取り込み済みの DR のこと
 - **WD** (working draft): 作業原案
 - **CD** (committee draft): 委員会原案
 - **FCD** (final committee draft): 最終委員会原案
 - **DIS** (draft international standard): 国際規格案
 - **FDIS** (final draft international standard): 最終国際規格案
 - **IS** (international standard): 国際規格
-- **TR** (technical report): 技術報告書。用例: TR1, TR2
+- **TR** (technical report): 技術報告書。用例: TR1
 - **TS** (technical specifications): 技術仕様書。用例: Concepts TS
 
 ## <a href="#standards-reference" id="standards-reference">参照</a>
