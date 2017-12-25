@@ -77,21 +77,13 @@
 プログラムの性質についての慣用語
 
 - **処理系依存** (implementation-dependent): プログラムの動作が処理系によって異なりうること。
-  条件付き対応の機能を使用している場合や、処理系定義の動作・未規定の動作・未定義の動作・文化圏固有動作を起こす場合、処理系限界を超える場合を含む。
+  条件付き対応の機能を使用している場合や、処理系定義の動作・未規定の動作・未定義の動作・文化圏固有動作を起こす場合、処理系限界を超える場合、規則に違反している場合を含む。
 - **合法** (legal)・**違法** (illegal): これらの語はプログラムに対しても慣用されるが、具体的な意味は明確でない。
   プログラムの正しさには複数の水準があるためである。
   適格、またはすべての規則を満たす、または未定義の動作を含まないなどが考えられる。
   曖昧さを避けるため、このサイトではプログラムに対して合法・違法という語は用いない。
 
-### <a href="#implementation-reference" id="implementation-reference">参照</a>
-
-- [C++er は“合法”だとか“違法”だとか言いたくて仕方がないけれど、結局どういう意味? それより適合・適格・○○動作・○○規則・診断不要いろいろの関係が謎 - Qiita](https://qiita.com/akinomyoga/items/592e5a3b8438a0c8556b)
-- [処理系定義の動作](http://www.c-lang.org/detail/implementation_defined_behavior.html)
-- [未定義の動作](http://www.c-lang.org/detail/undefined_behavior.html)
-- [未規定の動作](http://www.c-lang.org/detail/unspecified_behavior.html)
-- [文化圏固有動作](http://www.c-lang.org/detail/locale_specific_behavior.html)
-
-## <a href="#nasal-demon" id="nasal-demon">「鼻から悪魔」とプログラムの可搬性</a>
+### <a href="#nasal-demon" id="nasal-demon">「鼻から悪魔」とプログラムの可搬性</a>
 
 プログラムが
 
@@ -100,16 +92,22 @@
 
 とき、標準規格は適合する処理系に対して何らの要件も課さない。
 つまり、UB または NDR 違反を含むプログラムに対して処理系がいかなる動作をしても規格には抵触しないということを表す。
-例えば、処理系が鼻から悪魔を出しても、それはプログラムの作者の責任であり、その処理系を責めることはできない。
+例えば、このことで処理系が鼻から悪魔を出しても、それはプログラムの作者の責任であり、その処理系を責めることはできない。
 この冗談を**鼻から悪魔** (nasal demons) と呼ぶ。鼻から悪魔を出す処理系は今のところ実在しないが、
 実際の未定義の動作として[最適化の過程で或る種の「タイムトラベル」を起こす](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)処理系は実在する。
 
+処理系依存のプログラムは、たとえ或る処理系の上で期待する動作をしたとしても、他の処理系でも正しく動作することは保証されない。
 可搬なプログラムを書くためには、未定義の動作を引き起こさずかつ診断不要の規則に違反しないプログラムを書くように心懸ける必要がある。
-更に、処理系定義の動作や未規定の動作が、外から見える動作として現れて問題を起こさないようにする必要がある。
+更に、処理系定義の動作や未規定の動作は、(内部的に起こしても良いが) 外から見える動作として現れて問題を起こさないようにする必要がある。
 余裕があれば、文化圏固有動作や条件付き対応の構成についても気を配ると良い。
 
-### <a href="#nasal-demon-reference" id="nasal-demon-reference">参照</a>
+### <a href="#implementation-reference" id="implementation-reference">参照</a>
 
+- [C++er は“合法”だとか“違法”だとか言いたくて仕方がないけれど、結局どういう意味? それより適合・適格・○○動作・○○規則・診断不要いろいろの関係が謎 - Qiita](https://qiita.com/akinomyoga/items/592e5a3b8438a0c8556b)
+- [処理系定義の動作](http://www.c-lang.org/detail/implementation_defined_behavior.html)
+- [未定義の動作](http://www.c-lang.org/detail/undefined_behavior.html)
+- [未規定の動作](http://www.c-lang.org/detail/unspecified_behavior.html)
+- [文化圏固有動作](http://www.c-lang.org/detail/locale_specific_behavior.html)
 - [nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)
 - [本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)
 - [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
@@ -127,11 +125,13 @@ ToDo
 
 ToDo
 
-## <a href="#standards" id="standards">国際標準規格と日本工業規格</a>
+## <a href="#iso-cpp" id="iso-cpp">国際標準規格</a>
 
-C++ の標準規格は ISO/IEC による**国際標準規格** (international standard) の他に、各国の規格化団体によって定められている。
+C++ の標準規格の実例として ISO/IEC による**国際標準規格** (international standard) がある。
 最新の国際標準規格は「ISO/IEC 14882:2017 Programming Languages -- C++」(通称 C++17) である。
+C++ の標準規格は、他にも各国の規格化団体によって国際標準規格に等価なものが定められている。
 日本では日本工業標準調査会 (JISC) により「JIS X 3014:2003 プログラム言語C++」が定められているが古い (C++03 相当)。
+ここでは特に国際標準規格について取り扱う。
 
 ### <a href="#list-of-iso-cpp" id="list-of-iso-cpp">国際標準規格の一覧</a>
 
@@ -146,7 +146,6 @@ C++ の標準規格は ISO/IEC による**国際標準規格** (international st
 
 - † 括弧内は策定時に用いられた通称
 
-
 ### <a href="#iso-cpp-committee" id="iso-cpp-committee">国際標準規格を定める組織</a>
 
 - **C++標準化委員会** (C++ Standards Committee): C++ の国際標準規格を策定する団体。
@@ -157,7 +156,7 @@ C++ の標準規格は ISO/IEC による**国際標準規格** (international st
   C++標準化委員会は WG21 という**作業グループ** (WG; working group) である。
 - **CWG** (Core working group): C++標準化委員会の内、コア言語機能の策定を行う作業グループ
 - **LWG** (Library working group): C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ
-- **NB** (national body): または**MB/NC** (member body/national committee) C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。
+- **NB** (national body) または**MB/NC** (member body/national committee): C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。
 
 ### <a href="#iso-cpp-documents" id="iso-cpp-documents">国際標準規格の文書</a>
 
@@ -182,6 +181,7 @@ C++ の標準規格は ISO/IEC による**国際標準規格** (international st
   - [ISO/IEC 14882:2003 - Programming languages -- C++](https://www.iso.org/standard/38110.html)
   - [ISO/IEC 14882:1998 - Programming languages -- C++](https://www.iso.org/standard/25845.html)
   - [JIS X 3014:2003 プログラム言語Ｃ＋＋／Information Technology -- Programming languages -- C++ 日本規格協会 JSA Webdesk](https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS%20X%203014:2003)
+- [Experimental C++ Features - cppreference.com](http://en.cppreference.com/w/cpp/experimental)
 - [c++ - Which draft is closest to the C++14 standard? - Stack Overflow](https://stackoverflow.com/questions/29115656/which-draft-is-closest-to-the-c14-standard)
 - [Where do I find the current C or C++ standard documents? - Stack Overflow](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents)
 - [c++ - How are the __cplusplus directive defined in various compilers? - Stack Overflow](https://stackoverflow.com/questions/11053960/how-are-the-cplusplus-directive-defined-in-various-compilers)
