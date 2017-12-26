@@ -100,12 +100,12 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 
 ### <a href="#translation-note" id="translation-note">註: 訳語について</a>
 
-ここでは、規格で定義される各用語の日本語訳については、できるだけ JIS C++ に倣った。但し、以下のものについては註記する必要がある。
+ここでは、規格で定義される各用語の日本語訳については、できるだけ JIS C++ (JIS X 3014:2003) に倣った。但し、以下のものについては注意が必要である。
 
 - <a href="#note1-src" id="note1">^1</a> no diagnostics required: JIS C++ では一定の訳は与えられず、登場する度に異なる翻訳のされ方をしている。
   ここでは "診断不要" という語を割り当てることにする。
 - <a href="#note2-src" id="note2">^2</a> diagnostic message: JIS C++ では "診断情報" としている。
-  JIS C言語 では "診断メッセージ" としている。
+  JIS C言語 (JIS X 3010:2003) では "診断メッセージ" としている。
 - <a href="#note3-src" id="note3">^3</a> conditionally-supported constructs: C++11 で導入されたものなので、JIS C++ には対応訳は存在しない。
   ここでは "条件付き対応の構成" と訳す。
   因みに JIS C++ では constructs は "構文" と訳している。
