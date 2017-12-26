@@ -12,7 +12,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`path`](filesystem/path.md) | ファイルシステムのパスを扱うクラス (class) | C++17 |
-| [`filesystem_error`](filesystem/filesystem_error.md.nolink) | ファイルシステム操作で起きたエラーを表す例外クラス (class) | C++17 |
+| [`filesystem_error`](filesystem/filesystem_error.md) | ファイルシステム操作で起きたエラーを表す例外クラス (class) | C++17 |
 | [`directory_entry`](filesystem/directory_entry.md.nolink) | ディレクトリエントリを表すクラス (class) | C++17 |
 | [`directory_iterator`](filesystem/directory_iterator.md.nolink) | ディレクトリ内を走査するイテレータクラス (class) | C++17 |
 | [`recursive_directory_iterator`](filesystem/recursive_directory_iterator.md.nolink) | ディレクトリ内を再帰的に走査するイテレータクラス (class) | C++17 |
