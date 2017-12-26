@@ -136,7 +136,7 @@ namespace std::filesystem {
 | `value_type` | パスを表現するシステム依存のエンコード文字型。<br/>POSIXベースのシステムでは`char`<br/> Windowsベースのシステムでは`wchar_t` | C++17 |
 | `string_type` | パス文字列型 [`basic_string`](/reference/string/basic_string.md)`<value_type>` | C++17 |
 | `format` | パスフォーマットの列挙型 | C++17 |
-| `iterator` | ディレクトリ区切りの要素を走査するイテレータ | C++17 |
+| [`iterator`](path/iterator.md) | ディレクトリ区切りの要素を走査するイテレータ | C++17 |
 | `const_iterator` | `iterator`の別名 | C++17 |
 
 
