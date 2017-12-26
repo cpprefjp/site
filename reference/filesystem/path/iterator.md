@@ -83,6 +83,33 @@ int main()
 Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
+### パスの最後がディレクトリ区切り文字の場合の例
+```cpp example
+#include <iostream>
+#include <filesystem>
+
+namespace fs = std::filesystem;
+
+int main()
+{
+  fs::path p = "/a/b/c/";
+
+  for (const fs::path& element : p) {
+    std::cout << element << std::endl;
+  }
+}
+```
+
+#### 出力
+```
+"/"
+"a"
+"b"
+"c"
+""
+```
+
+
 ## バージョン
 ### 言語
 - C++17
