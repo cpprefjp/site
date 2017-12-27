@@ -174,7 +174,7 @@ size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load
 
 ## 関連項目
 
-| | |
+| 名前 | 説明 |
 |---------------------------------------|------------|
 | [`operator=`](op_assign.md)         | 代入演算子 |
 | [`emplace`](emplace.md)             | コンテナ内への要素の直接構築 |
