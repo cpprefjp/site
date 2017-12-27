@@ -75,4 +75,4 @@ C++にはこの表に含まれない演算子もいくつかあるが、ここ�
 
 
 ## その他、例外的なページファイル名
-- [`std::_Exit()`](https://cpprefjp.github.io/reference/cstdlib/exit_.html)は、ページファイル名を先頭アンダースコアしたところ、Chromeブラウザで404 Not Page Foundとなったため、回避策として末尾にアンダースコアを付けている
+- [`std::_Exit()`](https://cpprefjp.github.io/reference/cstdlib/exit_.html)は、ページファイル名を先頭アンダースコアしたところ、Chromeブラウザで404 Page Not Foundとなったため、回避策として末尾にアンダースコアを付けている
