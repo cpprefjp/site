@@ -40,7 +40,7 @@ locale_type imbue(locale_type loc);
 int main()
 {
   const char s[] = " abc ";
-  std::regex re("\w+");
+  std::regex re("\\w+");
   std::cout << std::boolalpha;
 
   std::cout << std::regex_search(s, re) << std::endl;
@@ -48,7 +48,7 @@ int main()
   auto loc = re.imbue(std::locale::classic());
   std::cout << std::regex_search(s, re) << std::endl;
 
-  re = "\w+";
+  re = "\\w+";
   std::cout << std::regex_search(s, re) << std::endl;
 }
 ```

@@ -166,249 +166,51 @@ int main()
   {
     // (1) の形式
     const std::list<char> s = { 'a', 'b', 'c', '0', '1', '2', 'd', 'e', 'f' };
-    const std::regex re("\d+");
+    const std::regex re("\\d+");
     const std::string fmt = "[$&]";
     std::cout << "(1) '";
     std::regex_replace(std::ostream_iterator<char>(std::cout), std::begin(s), std::end(s), re, fmt);
-    std::cout << '```
-* std::regex_replace[color ff0000]
-* std::regex[link basic_regex.md]
-* std::regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_no_copy[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
-
-### 出力
-```
-(1) 'abc[012]def'
-(2) '[012]'
-(3) 'abc[123]def[456]ghi'
-(3) 'abc[123]def456ghi'
-(5) 'abc[321]def[654]ghi'
-(6) 'abc[321]def[654]ghi'
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 参照
-* [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)
-' << std::endl;
+    std::cout << '\'' << std::endl;
   }
   {
     // (2) の形式
     const std::list<char> s = { 'a', 'b', 'c', '0', '1', '2', 'd', 'e', 'f' };
-    const std::regex re("\d+");
+    const std::regex re("\\d+");
     const char fmt[] = "[$&]";
     const std::regex_constants::match_flag_type flags = std::regex_constants::format_no_copy;
     std::cout << "(2) '";
     std::regex_replace(std::ostream_iterator<char>(std::cout), std::begin(s), std::end(s), re, fmt, flags);
-    std::cout << '```
-* std::regex_replace[color ff0000]
-* std::regex[link basic_regex.md]
-* std::regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_no_copy[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
-
-### 出力
-```
-(1) 'abc[012]def'
-(2) '[012]'
-(3) 'abc[123]def[456]ghi'
-(3) 'abc[123]def456ghi'
-(5) 'abc[321]def[654]ghi'
-(6) 'abc[321]def[654]ghi'
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 参照
-* [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)
-' << std::endl;
+    std::cout << '\'' << std::endl;
   }
   {
     // (3) の形式
     const std::string s = "abc123def456ghi";
-    const std::regex re("\d+");
+    const std::regex re("\\d+");
     const std::string fmt = "[$&]";
-    std::cout << "(3) '" << std::regex_replace(s, re, fmt) << '```
-* std::regex_replace[color ff0000]
-* std::regex[link basic_regex.md]
-* std::regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_no_copy[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
-
-### 出力
-```
-(1) 'abc[012]def'
-(2) '[012]'
-(3) 'abc[123]def[456]ghi'
-(3) 'abc[123]def456ghi'
-(5) 'abc[321]def[654]ghi'
-(6) 'abc[321]def[654]ghi'
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 参照
-* [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)
-' << std::endl;
+    std::cout << "(3) '" << std::regex_replace(s, re, fmt) << '\'' << std::endl;
   }
   {
     // (4) の形式
     const std::string s = "abc123def456ghi";
-    const std::regex re("\d+");
+    const std::regex re("\\d+");
     const char fmt[] = "[$&]";
     const std::regex_constants::match_flag_type flags = std::regex_constants::format_first_only;
-    std::cout << "(4) '" << std::regex_replace(s, re, fmt, flags) << '```
-* std::regex_replace[color ff0000]
-* std::regex[link basic_regex.md]
-* std::regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_no_copy[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
-
-### 出力
-```
-(1) 'abc[012]def'
-(2) '[012]'
-(3) 'abc[123]def[456]ghi'
-(3) 'abc[123]def456ghi'
-(5) 'abc[321]def[654]ghi'
-(6) 'abc[321]def[654]ghi'
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 参照
-* [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)
-' << std::endl;
+    std::cout << "(4) '" << std::regex_replace(s, re, fmt, flags) << '\'' << std::endl;
   }
   {
     // (5) の形式
     const char s[] = "abc123def456ghi";
-    const std::regex re("(\d)(\d)(\d)");
+    const std::regex re("(\\d)(\\d)(\\d)");
     const std::string fmt = "[$3$2$1]";
-    std::cout << "(5) '" << std::regex_replace(s, re, fmt) << '```
-* std::regex_replace[color ff0000]
-* std::regex[link basic_regex.md]
-* std::regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_no_copy[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
-
-### 出力
-```
-(1) 'abc[012]def'
-(2) '[012]'
-(3) 'abc[123]def[456]ghi'
-(3) 'abc[123]def456ghi'
-(5) 'abc[321]def[654]ghi'
-(6) 'abc[321]def[654]ghi'
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 参照
-* [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)
-' << std::endl;
+    std::cout << "(5) '" << std::regex_replace(s, re, fmt) << '\'' << std::endl;
   }
   {
     // (6) の形式
     const char s[] = "abc123def456ghi";
-    const std::regex re("(\d)(\d)(\d)");
-    const char fmt[] = "[\3\2\1]";
+    const std::regex re("(\\d)(\\d)(\\d)");
+    const char fmt[] = "[\\3\\2\\1]";
     const std::regex_constants::match_flag_type flags = std::regex_constants::format_sed;
-    std::cout << "(6) '" << std::regex_replace(s, re, fmt, flags) << '```
-* std::regex_replace[color ff0000]
-* std::regex[link basic_regex.md]
-* std::regex_constants::match_flag_type[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_no_copy[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_first_only[link /reference/regex/regex_constants/match_flag_type.md]
-* std::regex_constants::format_sed[link /reference/regex/regex_constants/match_flag_type.md]
-
-### 出力
-```
-(1) 'abc[012]def'
-(2) '[012]'
-(3) 'abc[123]def[456]ghi'
-(3) 'abc[123]def456ghi'
-(5) 'abc[321]def[654]ghi'
-(6) 'abc[321]def[654]ghi'
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 参照
-* [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)
-' << std::endl;
+    std::cout << "(6) '" << std::regex_replace(s, re, fmt, flags) << '\'' << std::endl;
   }
 }
 ```

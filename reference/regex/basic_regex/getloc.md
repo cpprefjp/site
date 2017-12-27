@@ -36,7 +36,7 @@ locale_type getloc() const;
 
 int main()
 {
-  std::regex re("\w+");
+  std::regex re("\\w+");
   auto loc = re.getloc();
   std::cout << std::boolalpha << (loc == std::locale()) << std::endl;
 }

@@ -32,7 +32,7 @@ unsigned int mark_count() const;
 
 int main()
 {
-  std::regex re("(\w+) (\d+) (\w+)");
+  std::regex re("(\\w+) (\\d+) (\\w+)");
   std::cout << re.mark_count() << std::endl;
 }
 ```

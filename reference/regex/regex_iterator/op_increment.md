@@ -65,52 +65,7 @@ int main()
   std::string s("aaabbbccc");
 
   for (std::sregex_iterator it(std::begin(s), std::end(s), re), end; it != end; ++it) {
-    std::cout << "position = " << it->position() << ", length = " << it->length() << ", str = '" << it->str() << "', prefix = '" << it->prefix() << '```
-* ++it[color ff0000]
-* std::regex[link /reference/regex/basic_regex.md]
-* position()[link /reference/regex/match_results/position.md]
-* length()[link /reference/regex/match_results/length.md]
-* str()[link /reference/regex/match_results/str.md]
-* prefix()[link /reference/regex/match_results/prefix.md]
-
-### 出力
-```
-position = 0, length = 3, str = 'aaa', prefix = ''
-position = 3, length = 0, str = '', prefix = ''
-position = 3, length = 3, str = 'bbb', prefix = ''
-position = 6, length = 0, str = '', prefix = ''
-position = 6, length = 3, str = 'ccc', prefix = ''
-position = 9, length = 0, str = '', prefix = ''
-```
-
-注意：Clang & libc++ では正常に実行されない（終了しなくなってしまう）。また、GCC & libstdc++ の 4.9.1 までのバージョンでは、結果が正しくない。
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-### 備考
-Clang & libc++ と GCC & libstdc++ の 4.9.1 までのバージョンには、長さ 0 の文字列にマッチした時の挙動に問題があるため、注意が必要。
-（特に、Clang は長さ 0 の文字列にマッチするとそこから先に進まなくなってしまう。例を参照）
-
-
-## 関連項目
-| 名前                                 | 説明           | 対応バージョン |
-|--------------------------------------|----------------|----------------|
-| [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
-| [`operator*`](op_deref.md)           | 間接参照       | C++11          |
-| [`operator->`](op_arrow.md)          | メンバアクセス | C++11          |
-| [`operator==`](op_equal.md)          | 等値比較       | C++11          |
-' << std::endl;
+    std::cout << "position = " << it->position() << ", length = " << it->length() << ", str = '" << it->str() << "', prefix = '" << it->prefix() << '\'' << std::endl;
   }
 }
 ```

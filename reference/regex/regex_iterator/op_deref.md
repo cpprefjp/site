@@ -36,45 +36,12 @@ const value_type& operator*() const;
 
 int main()
 {
-  std::regex re("\d+");
+  std::regex re("\\d+");
   std::string s("abc123def456ghi");
 
   for (std::sregex_iterator it(std::begin(s), std::end(s), re), end; it != end; ++it) {
     auto&& match = *it;
-    std::cout << "prefix = '" << match.prefix() << "', str = '" << match.str() << "', suffix = '" << match.suffix() << '```
-* std::regex[link /reference/regex/basic_regex.md]
-* match.prefix()[link /reference/regex/match_results/prefix.md]
-* match.str()[link /reference/regex/match_results/str.md]
-* match.suffix()[link /reference/regex/match_results/suffix.md]
-
-### 出力
-```
-prefix = 'abc', str = '123', suffix = 'def456ghi'
-prefix = 'def', str = '456', suffix = 'ghi'
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 関連項目
-| 名前                                 | 説明           | 対応バージョン |
-|--------------------------------------|----------------|----------------|
-| [`operator->`](op_arrow.md)          | メンバアクセス | C++11          |
-| [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
-| [`operator++`](op_increment.md)      | インクリメント | C++11          |
-| [`operator==`](op_equal.md)          | 等値比較       | C++11          |
-' << std::endl;
+    std::cout << "prefix = '" << match.prefix() << "', str = '" << match.str() << "', suffix = '" << match.suffix() << '\'' << std::endl;
   }
 }
 ```

@@ -69,44 +69,8 @@ int main()
   // "Welcome" 以降で ",.+" を検索すると、"C++" の 1 文字目の "+" が見つかる
   std::cout << s.find_first_of(",.+", 14) << std::endl;
 
-  // basic_string は NULL 終端されていないので、'```cpp
-#include <iostream>
-#include <string>
-
-int main()
-{
-  const std::string s("Hello, world. Welcome to C++ world.");
-  const std::string str("world");
-
-  // "Welcome" 以降で "world" を検索すると、"Welcome" の 3 文字目の "l" が見つかる
-  std::cout << s.find_first_of(str, 14) << std::endl;
-
-  // "Welcome" 以降で ",.+" を検索すると、"C++" の 1 文字目の "+" が見つかる
-  std::cout << s.find_first_of(",.+", 14) << std::endl;
-
   // basic_string は NULL 終端されていないので、'\0' を検索しても見つからない
   std::cout << std::boolalpha << (s.find_first_of('\0') == std::string::npos) << std::endl;
-}
-' を検索しても見つからない
-  std::cout << std::boolalpha << (s.find_first_of('```cpp
-#include <iostream>
-#include <string>
-
-int main()
-{
-  const std::string s("Hello, world. Welcome to C++ world.");
-  const std::string str("world");
-
-  // "Welcome" 以降で "world" を検索すると、"Welcome" の 3 文字目の "l" が見つかる
-  std::cout << s.find_first_of(str, 14) << std::endl;
-
-  // "Welcome" 以降で ",.+" を検索すると、"C++" の 1 文字目の "+" が見つかる
-  std::cout << s.find_first_of(",.+", 14) << std::endl;
-
-  // basic_string は NULL 終端されていないので、'\0' を検索しても見つからない
-  std::cout << std::boolalpha << (s.find_first_of('\0') == std::string::npos) << std::endl;
-}
-') == std::string::npos) << std::endl;
 }
 ```
 * find_first_of[color ff0000]

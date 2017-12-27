@@ -172,8 +172,8 @@ int main()
 {
   // 「英数字、バックスラッシュ、英数字」の順に
   // なっていることを要求する正規表現。
-  // 生文字列リテラルを使わない場合は"\w\\\w"となる。
-  std::regex rex(R"(\w\\w)");
+  // 生文字列リテラルを使わない場合は"\\w\\\\\\w"となる。
+  std::regex rex(R"(\w\\\w)");
 
   std::string input = R"(a\b)";
   if (std::regex_match(input, rex)) {

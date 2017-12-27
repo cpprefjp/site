@@ -46,98 +46,14 @@ int main()
       it1 = it2;
     }
     std::cout << "match range = (" << it2->first - std::begin(s) << ", " << it2->second - std::begin(s) << "), "
-                 "str = '" << it2->str() << '```
-* std::regex[link /reference/regex/basic_regex.md]
-* str()[link /reference/regex/sub_match/str.md]
-
-### 出力
-```
-match range = (9, 20), str = 'enumerator1'
-match range = (23, 29), str = 'value1'
-match range = (31, 42), str = 'enumerator2'
-match range = (45, 51), str = 'value2'
-match range = (53, 64), str = 'enumerator3'
-match range = (67, 73), str = 'value3'
-
-match range = (45, 51), str = 'value2'
-match range = (53, 64), str = 'enumerator3'
-match range = (67, 73), str = 'value3'
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-
-### 備考
-GCC & libstdc++ では、コピー直後のオブジェクトの参照先が誤っている。
-
-
-## 関連項目
-| 名前                                       | 説明           | 対応バージョン |
-|--------------------------------------------|----------------|----------------|
-| [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
-| [`operator==`](op_equal.md)                | 等値比較       | C++11          |
-| [`operator++`](op_increment.md)            | インクリメント | C++11          |
-' << std::endl;
+                 "str = '" << it2->str() << '\'' << std::endl;
   }
   std::cout << std::endl;
 
   // it2 を途中でコピーしたイテレータで、1 番目と 2 番目のサブマッチを順に繰り返す
   for (std::sregex_token_iterator end; it1 != end; ++it1) {
     std::cout << "match range = (" << it1->first - std::begin(s) << ", " << it1->second - std::begin(s) << "), "
-                 "str = '" << it1->str() << '```
-* std::regex[link /reference/regex/basic_regex.md]
-* str()[link /reference/regex/sub_match/str.md]
-
-### 出力
-```
-match range = (9, 20), str = 'enumerator1'
-match range = (23, 29), str = 'value1'
-match range = (31, 42), str = 'enumerator2'
-match range = (45, 51), str = 'value2'
-match range = (53, 64), str = 'enumerator3'
-match range = (67, 73), str = 'value3'
-
-match range = (45, 51), str = 'value2'
-match range = (53, 64), str = 'enumerator3'
-match range = (67, 73), str = 'value3'
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-
-### 備考
-GCC & libstdc++ では、コピー直後のオブジェクトの参照先が誤っている。
-
-
-## 関連項目
-| 名前                                       | 説明           | 対応バージョン |
-|--------------------------------------------|----------------|----------------|
-| [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
-| [`operator==`](op_equal.md)                | 等値比較       | C++11          |
-| [`operator++`](op_increment.md)            | インクリメント | C++11          |
-' << std::endl;
+                 "str = '" << it1->str() << '\'' << std::endl;
   }
 }
 ```

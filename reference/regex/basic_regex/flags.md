@@ -44,7 +44,7 @@ void print(std::regex_constants::syntax_option_type f)
 
 int main()
 {
-  std::regex re("(\w+) (\d+) (\w+)", std::regex_constants::icase | std::regex_constants::optimize);
+  std::regex re("(\\w+) (\\d+) (\\w+)", std::regex_constants::icase | std::regex_constants::optimize);
   print(re.flags());
 }
 ```

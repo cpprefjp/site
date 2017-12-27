@@ -63,53 +63,7 @@ struct EndOfDelimitedString
 {
   bool operator()(std::string::iterator it)
   {
-    return *it != delimiter && *it != '```cpp
-#include <iostream>
-#include <string>
-
-// delimiter や終端に到達したかどうか判定する述語
-template<char delimiter>
-struct EndOfDelimitedString
-{
-  bool operator()(std::string::iterator it)
-  {
     return *it != delimiter && *it != '\0';
-  }
-};
-
-template<char delimiter>
-struct DelimitedString
-{
-  std::string str;
-
-  // DelimitedString::begin と DelimitedString::end の型は異なる
-  std::string::iterator begin() { return str.begin(); }
-  EndOfDelimitedString<delimiter> end() const { return EndOfDelimitedString<delimiter>(); }
-};
-
-template<char delimiter>
-bool operator!=(std::string::iterator it, EndOfDelimitedString<delimiter> e)
-{
-  return e(it);
-}
-
-int main()
-{
-  std::string str{"ABCDE, abcde|12345"};
-
-  for (auto c : str)
-    std::cout << c;
-  std::cout << '\n';
-
-  for (auto c : DelimitedString<','>{str})
-    std::cout << c;
-  std::cout << '\n';
-
-  for (auto c : DelimitedString<'|'>{str})
-    std::cout << c;
-  std::cout << '\n';
-}
-';
   }
 };
 

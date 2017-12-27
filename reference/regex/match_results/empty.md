@@ -34,7 +34,7 @@ int main()
 {
   const char s1[] = " abc ";
   const char s2[] = " 012 ";
-  const std::regex re("\d+");
+  const std::regex re("\\d+");
 
   std::cmatch m;
   // regex_search 実行前

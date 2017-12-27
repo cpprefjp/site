@@ -61,170 +61,11 @@ void print(const std::cmatch& m)
 {
   std::cout << "ready:" << std::boolalpha << m.ready() << std::endl;
   if (m.ready()) {
-    std::cout << "prefix:'" << m.prefix() << '```
-* m.size()[link size.md]
-* std::regex[link ../basic_regex.md]
-* m.prefix()[link prefix.md]
-* m.suffix()[link suffix.md]
-* m.str[link str.md]
-* m.ready()[link ready.md]
-* std::cmatch[link ../match_results.md]
-* std::regex_search[link ../regex_search.md]
-* std::move[link ../../utility/move.md]
-
-### 出力
-```
-ready:true
-prefix:' '
-0:'abc 123 def'
-1:'abc'
-2:'123'
-3:'def'
-suffix:' '
-
-ready:true
-prefix:' '
-0:'abc 123 def'
-1:'abc'
-2:'123'
-3:'def'
-suffix:' '
-
-ready:true
-prefix:' '
-0:'abc 123 def'
-1:'abc'
-2:'123'
-3:'def'
-suffix:' '
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-### 備考
-GCC(libstdc++) の 4.9.2 までは、アロケータが上記の備考欄のようには設定されず、また、[`regex_iterator`](../regex_iterator.md) を間接参照した結果を代入した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。
-' << std::endl;
+    std::cout << "prefix:'" << m.prefix() << '\'' << std::endl;
     for (std::size_t i = 0, n = m.size(); i < n; ++i) {
-      std::cout << i << ":'" << m.str(i) << '```
-* m.size()[link size.md]
-* std::regex[link ../basic_regex.md]
-* m.prefix()[link prefix.md]
-* m.suffix()[link suffix.md]
-* m.str[link str.md]
-* m.ready()[link ready.md]
-* std::cmatch[link ../match_results.md]
-* std::regex_search[link ../regex_search.md]
-* std::move[link ../../utility/move.md]
-
-### 出力
-```
-ready:true
-prefix:' '
-0:'abc 123 def'
-1:'abc'
-2:'123'
-3:'def'
-suffix:' '
-
-ready:true
-prefix:' '
-0:'abc 123 def'
-1:'abc'
-2:'123'
-3:'def'
-suffix:' '
-
-ready:true
-prefix:' '
-0:'abc 123 def'
-1:'abc'
-2:'123'
-3:'def'
-suffix:' '
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-### 備考
-GCC(libstdc++) の 4.9.2 までは、アロケータが上記の備考欄のようには設定されず、また、[`regex_iterator`](../regex_iterator.md) を間接参照した結果を代入した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。
-' << std::endl;
+      std::cout << i << ":'" << m.str(i) << '\'' << std::endl;
     }
-    std::cout << "suffix:'" << m.suffix() << '```
-* m.size()[link size.md]
-* std::regex[link ../basic_regex.md]
-* m.prefix()[link prefix.md]
-* m.suffix()[link suffix.md]
-* m.str[link str.md]
-* m.ready()[link ready.md]
-* std::cmatch[link ../match_results.md]
-* std::regex_search[link ../regex_search.md]
-* std::move[link ../../utility/move.md]
-
-### 出力
-```
-ready:true
-prefix:' '
-0:'abc 123 def'
-1:'abc'
-2:'123'
-3:'def'
-suffix:' '
-
-ready:true
-prefix:' '
-0:'abc 123 def'
-1:'abc'
-2:'123'
-3:'def'
-suffix:' '
-
-ready:true
-prefix:' '
-0:'abc 123 def'
-1:'abc'
-2:'123'
-3:'def'
-suffix:' '
-```
-
-
-## バージョン
-### 言語
-- C++11
-
-### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang, C++11 mode](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
-
-### 備考
-GCC(libstdc++) の 4.9.2 までは、アロケータが上記の備考欄のようには設定されず、また、[`regex_iterator`](../regex_iterator.md) を間接参照した結果を代入した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。
-' << std::endl;
+-    std::cout << "suffix:'" << m.suffix() << '\'' << std::endl;
   }
   std::cout << std::endl;
 }
@@ -232,7 +73,7 @@ GCC(libstdc++) の 4.9.2 までは、アロケータが上記の備考欄のよ�
 int main()
 {
   const char s[] = " abc 123 def ";
-  const std::regex re("(\w+) (\d+) (\w+)");
+  const std::regex re("(\\w+) (\\d+) (\\w+)");
 
   std::cmatch m1, m2, m3;
 

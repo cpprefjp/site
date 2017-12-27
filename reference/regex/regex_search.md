@@ -127,45 +127,45 @@ int main()
     // (1) の形式
     const std::list<char> s = { 'a', 'b', 'c', '1', '2', '3', 'd', 'e', 'f' };
     std::match_results<std::list<char>::const_iterator> m;
-    std::cout << "(1) " << std::regex_search(std::begin(s), std::end(s), m, std::regex("\d+")) << std::endl;
+    std::cout << "(1) " << std::regex_search(std::begin(s), std::end(s), m, std::regex("\\d+")) << std::endl;
     std::cout << "str = '" << m.str() << "', position = " << m.position() << std::endl;
   }
   {
     // (2) の形式
     std::cmatch m;
-    std::cout << "(2) " << std::regex_search("abc123def", m, std::regex("\d+")) << std::endl;
+    std::cout << "(2) " << std::regex_search("abc123def", m, std::regex("\\d+")) << std::endl;
     std::cout << "str = '" << m.str() << "', position = " << m.position() << std::endl;
   }
   {
     // (3) の形式
     const std::string s = "abc123def";
     std::smatch m;
-    std::cout << "(3) " << std::regex_search(s, m, std::regex("\d+")) << std::endl;
+    std::cout << "(3) " << std::regex_search(s, m, std::regex("\\d+")) << std::endl;
     std::cout << "str = '" << m.str() << "', position = " << m.position() << std::endl;
   }
   {
     // (4) の形式（コメントアウトを外すと C++14 ではエラーになる）
     //std::smatch m;
-    //std::cout << "(4) " << std::regex_search(std::string("abc123def"), m, std::regex("\d+")) << std::endl;
+    //std::cout << "(4) " << std::regex_search(std::string("abc123def"), m, std::regex("\\d+")) << std::endl;
     //std::cout << "str = '" << m.str() << "', position = " << m.position() << std::endl;
   }
   {
     // (5) の形式
     const std::list<char> s = { 'a', 'b', 'c', '1', '2', '3', 'd', 'e', 'f' };
-    std::cout << "(5) " << std::regex_search(std::begin(s), std::end(s), std::regex("\d+")) << std::endl;
+    std::cout << "(5) " << std::regex_search(std::begin(s), std::end(s), std::regex("\\d+")) << std::endl;
   }
   {
     // (6) の形式
-    std::cout << "(6) " << std::regex_search("abc123def", std::regex("\d+")) << std::endl;
+    std::cout << "(6) " << std::regex_search("abc123def", std::regex("\\d+")) << std::endl;
   }
   {
     // (7) の形式、その１
     const std::string s = "abc123def";
-    std::cout << "(7)-1 " << std::regex_search(s, std::regex("\d+")) << std::endl;
+    std::cout << "(7)-1 " << std::regex_search(s, std::regex("\\d+")) << std::endl;
   }
   {
     // (7) の形式、その２（C++14 でもエラーにならない）
-    std::cout << "(7)-2 " << std::regex_search(std::string("abc123def"), std::regex("\d+")) << std::endl;
+    std::cout << "(7)-2 " << std::regex_search(std::string("abc123def"), std::regex("\\d+")) << std::endl;
   }
 }
 ```

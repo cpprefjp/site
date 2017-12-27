@@ -59,20 +59,7 @@ int main()
   std::string s("Hello, world!");
   std::puts(s.c_str());
 
-  s[5] = '```cpp
-#include <string>
-#include <cstdio>
-#include <cstring>
-
-int main()
-{
-  std::string s("Hello, world!");
-  std::puts(s.c_str());
-
   s[5] = '\0';
-  std::puts(s.c_str());  // ',' 以降は出力されない
-}
-';
   std::puts(s.c_str());  // ',' 以降は出力されない
 }
 ```

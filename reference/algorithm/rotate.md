@@ -80,45 +80,7 @@ tatero
 class Elem
 {
 public:
-  Elem() : c_('```cpp
-#include <iostream>
-#include <algorithm>
-#include <iterator>
-#include <vector>
-#include <utility>
-
-class Elem
-{
-public:
   Elem() : c_('\0') {}
-  explicit Elem(char c) : c_(c) {}
-  Elem& operator=(const char c) { c_ = c; return *this; }
-  operator char() const { return c_; }
-private:
-  char c_;
-};
-
-std::vector<Elem> seq;
-
-void swap(Elem& lhs, Elem& rhs)
-{
-  // std::rotate内部で実行されるswapを可視化できる。
-  // ライブラリの実装によってスワップの順番が異なることがある。
-  std::cout << "swapping "
-            << &lhs << "(" << lhs << ") <-> "
-            << &rhs << "(" << rhs << ")" << std::endl;
-  std::swap(lhs, rhs);
-  std::copy(seq.begin(), seq.end(), std::ostream_iterator<char>(std::cout));
-  std::cout << "\n\n";
-}
-
-int main()
-{
-  char str[] = "012345";
-  seq.assign(str, str + sizeof(str) - 1);
-  std::rotate(seq.begin(), seq.begin() + 2, seq.end());
-}
-') {}
   explicit Elem(char c) : c_(c) {}
   Elem& operator=(const char c) { c_ = c; return *this; }
   operator char() const { return c_; }
