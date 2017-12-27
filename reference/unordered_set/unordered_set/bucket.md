@@ -85,7 +85,7 @@ key = H, bucket = 2, bucket_size = 0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++:](/implementation.md#visual_cpp) ?
 
-## 参照
+## 関連項目
 
 
 | | |

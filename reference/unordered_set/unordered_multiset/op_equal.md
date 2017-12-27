@@ -131,7 +131,7 @@ namespace std {
 * distance[link /reference/iterator/distance.md]
 * is_permutation[link /reference/algorithm/is_permutation.md]
 
-## 参照
+## 関連項目
 
 | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|

@@ -86,7 +86,7 @@ size is 10, bucket_count is 11, load_factor is 0.909091
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-## 参照
+## 関連項目
 
 | | |
 |-------------------------------------------|------------------------------------------|

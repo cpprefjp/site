@@ -84,7 +84,7 @@ inline bool unordered_map<Key, Hash, Pred, Allocator>::empty() const noexcept {
 * begin[link /reference/unordered_map/unordered_map/begin.md]
 * end[link /reference/unordered_map/unordered_map/end.md]
 
-## 参照
+## 関連項目
 
 | | |
 |-----------------------------|------------------------------|

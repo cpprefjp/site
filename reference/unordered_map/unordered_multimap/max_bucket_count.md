@@ -57,7 +57,7 @@ max bucket count is 576460752303423487
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-## 参照
+## 関連項目
 
 | | |
 |----------------------------------------------|------------------|

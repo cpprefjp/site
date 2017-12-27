@@ -62,7 +62,7 @@ libstdc++ では、コンテナのアロケータ `allocator_type` にメンバ�
 （`allocator_type::max_size` を `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::max_size` 経由ではなく直接使用しているため。）
 
 
-## 参照
+## 関連項目
 
 | | |
 |-----------------------|----------------------------|

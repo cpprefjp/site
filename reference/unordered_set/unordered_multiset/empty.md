@@ -84,7 +84,7 @@ inline bool unordered_multiset<Key, Hash, Pred, Allocator>::empty() const noexce
 * begin()[link begin.md]
 * end()[link end.md]
 
-## 参照
+## 関連項目
 
 | | |
 |-----------------------------|------------------------------|

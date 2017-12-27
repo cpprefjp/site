@@ -78,7 +78,7 @@ position = 15, length = 3, str = '333', prefix = '+++', suffix = '---'
 GCC & libstdc++ では、コピー後のオブジェクトの `match.`[`position`](../match_results/position.md)`(i)` が補正されずに誤っている。（補正については [`operator++`](op_increment.md) の「効果」を参照）
 
 
-## 参照
+## 関連項目
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
@@ -125,7 +125,7 @@ position = 15, length = 3, str = '333', prefix = '+++', suffix = '---'
 GCC & libstdc++ では、コピー後のオブジェクトの `match.`[`position`](../match_results/position.md)`(i)` が補正されずに誤っている。（補正については [`operator++`](op_increment.md) の「効果」を参照）
 
 
-## 参照
+## 関連項目
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
@@ -170,7 +170,7 @@ position = 15, length = 3, str = '333', prefix = '+++', suffix = '---'
 GCC & libstdc++ では、コピー後のオブジェクトの `match.`[`position`](../match_results/position.md)`(i)` が補正されずに誤っている。（補正については [`operator++`](op_increment.md) の「効果」を参照）
 
 
-## 参照
+## 関連項目
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
