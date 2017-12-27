@@ -45,7 +45,7 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 - **不適格** (ill-formed) とはプログラムが適格でないことである
 
 プログラムが規則に違反するとき、処理系はエラーメッセージまたは警告などを出力する。
-この出力を総称して**診断情報** (diagnostic message) または**診断メッセージ** <sup><a href="#note-2" id="note_ref-2">[注2]</a></sup> と呼び、その内容は処理系定義である。
+この出力を総称して**診断情報** (diagnostic message) または**診断メッセージ**<sup><a href="#note-2" id="note_ref-2">[注2]</a></sup> と呼び、その内容は処理系定義である。
 
 適合する処理系は、
 
@@ -102,20 +102,13 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 とき、標準規格は適合する処理系に対して何らの要件も課さない。
 つまり、UB または NDR 違反を含むプログラムに対して処理系がいかなる動作をしても規格には抵触しないということを表す。
 例えば、このことで処理系が鼻から悪魔を出しても、それはプログラムの作者の責任であり、その処理系を責めることはできない。
-この冗談を**鼻から悪魔** (nasal demons) と呼ぶ。鼻から悪魔を出す処理系は今のところ実在しないが、
-実際の未定義の動作として[最適化の過程で或る種の「タイムトラベル」を起こす](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)処理系は実在する。
+この冗談を**鼻から悪魔** (nasal demons)<sup><a href="#cite-1" id="cite_ref-1">[1]</a></sup><sup><a href="#cite-2" id="cite_ref-2">[2]</a></sup> と呼ぶ。鼻から悪魔を出す処理系は今のところ実在しないが、
+実際の未定義の動作として最適化の過程で或る種の「タイムトラベル」を起こす処理系は実在する<sup><a href="#cite-3" id="cite_ref-3">[3]</a></sup>。
 
 処理系依存のプログラムは、たとえ或る処理系の上で期待する動作をしたとしても、他の処理系でも正しく動作することは保証されない。
 可搬なプログラムを書くためには、未定義の動作を引き起こさずかつ診断不要の規則に違反しないプログラムを書くように心懸ける必要がある。
 更に、処理系定義の動作や未規定の動作は、(内部的に起こしても良いが) 外から見える動作として現れて問題を起こさないようにする必要がある。
 余裕があれば、文化圏固有動作や条件付き対応の構成についても気を配ると良い。
-
-### <a href="#reference-for-UB" id="reference-for-UB">参照</a>
-
-- [nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)
-- [本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)
-- [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
-- [MSC15-C. 未定義の動作に依存しない](https://www.jpcert.or.jp/sc-rules/c-msc15-c.html)
 
 ## <a href="#list-of-locale-specific" id="list-of-locale-specific">文化圏固有動作の一覧</a>
 
@@ -136,6 +129,14 @@ ToDo
 - [未定義の動作](http://www.c-lang.org/detail/undefined_behavior.html) - C言語の未定義の動作の一覧
 - [未規定の動作](http://www.c-lang.org/detail/unspecified_behavior.html) - C言語の未規定の動作の一覧
 - [文化圏固有動作](http://www.c-lang.org/detail/locale_specific_behavior.html) - C言語の文化圏固有動作の一覧
+- [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
+- [MSC15-C. 未定義の動作に依存しない](https://www.jpcert.or.jp/sc-rules/c-msc15-c.html)
+
+## 出典
+
+1. <a href="#cite_ref-1" id="cite-1">**^**</a> [nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)
+2. <a href="#cite_ref-2" id="cite-2">**^**</a> [本の虫: C++0x本：鼻から悪魔](https://cpplover.blogspot.jp/2010/01/c0x_14.html)
+3. <a href="#cite_ref-3" id="cite-3">**^**</a> [本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）](https://cpplover.blogspot.jp/2014/06/old-new-thing.html)
 
 ## 注釈
 
