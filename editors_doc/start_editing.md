@@ -98,6 +98,7 @@ Markdown形式では、htmlのタグも併用できますが、cpprefjpサイト
 
 ## その他、cpprefjpを編集するにあたってのドキュメント
 
+* [ページファイル名の付け方](/editors_doc/page_names.md)
 * [乱数分布の図を作る方法](/editors_doc/random_figure.md)
 
 
