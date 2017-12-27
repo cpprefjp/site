@@ -261,7 +261,7 @@ inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(initializer_l
 
 ## 関連項目
 
-|                                           |                                                        |
+| 名前                                      | 説明                                                   |
 |-------------------------------------------|--------------------------------------------------------|
 | [`emplace`](emplace.md)                 | コンテナ内への要素の直接構築                           |
 | [`emplace_hint`](emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |

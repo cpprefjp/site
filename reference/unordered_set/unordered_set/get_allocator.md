@@ -112,7 +112,7 @@ libstdc++ の `unordered_set` では、アロケータの `select_on_container_c
 
 ## 関連項目
 
-|                                                             |                            |
+| 名前                                                        | 説明                       |
 |-------------------------------------------------------------|----------------------------|
 | [`(constructor)`](op_constructor.md)                      | コンストラクタ             |
 | [`operator=`](op_assign.md)                               | 代入演算子                 |

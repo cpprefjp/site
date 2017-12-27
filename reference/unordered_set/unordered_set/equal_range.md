@@ -80,8 +80,8 @@ equal_range(8): [5, 5)
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 ## 関連項目
-|ページ|概要|
-|------|----|
+| 名前 | 説明 |
+|------|------|
 |[`find`](find.md)|指定したキーの位置を検索|
 |[`count`](count.md)|指定したキーの要素数を取得|
 

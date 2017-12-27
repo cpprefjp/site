@@ -77,7 +77,7 @@ unordered_set& operator=(initializer_list<value_type> il); // (3)
 
 ## 関連項目
 
-|                                        |                |
+| 名前                                   | 説明           |
 |----------------------------------------|----------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ |
 | [`(destructor)`](op_destructor.md)   | デストラクタ   |
