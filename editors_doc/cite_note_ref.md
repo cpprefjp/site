@@ -27,7 +27,7 @@ HTMLタグのうち、`a`, `sup`, `cite`タグを利用して実現する。
 
 ## 出典
 
-1. **<a id="cite-1" href="#cite_ref-1">^</a>** <cite>[【Minecraft】ありきたりな工業と魔術S2 Part01【ゆっくり実況】 - ニコニコ動画](http://www.nicovideo.jp/watch/sm25261912)</cite>
+1. **<a id="cite-1" href="#cite_ref-1">^</a>** <cite>[【Minecraft】ありきたりな工業と魔術S2 Part01【ゆっくり実況】 - ニコニコ動画](http://www.nicovideo.jp/watch/sm25261912)</cite>、再生位置 0:07 (2017-12-28 2:08 JST 閲覧)
 ```
 
 >ありきたりな世界、と私がよく書くが、この元ネタは、
@@ -39,7 +39,7 @@ HTMLタグのうち、`a`, `sup`, `cite`タグを利用して実現する。
 >
 >## 出典
 >
->1. **<a id="cite-1" href="#cite_ref-1">^</a>** <cite>[【Minecraft】ありきたりな工業と魔術S2 Part01【ゆっくり実況】 - ニコニコ動画](http://www.nicovideo.jp/watch/sm25261912)</cite>
+>1. **<a id="cite-1" href="#cite_ref-1">^</a>** <cite>[【Minecraft】ありきたりな工業と魔術S2 Part01【ゆっくり実況】 - ニコニコ動画](http://www.nicovideo.jp/watch/sm25261912)</cite>、再生位置 0:07 (2017-12-28 2:08 JST 閲覧)
 
 ## 節ごとの注釈・出典記法
 
@@ -132,4 +132,4 @@ HTMLタグのうち、`a`, `sup`, `cite`タグを利用して実現する。
 
 のようにする。
 
-出典の本文は`cite`タグで囲う。
+出典のページタイトル・書籍タイトルなどは`cite`タグで囲う。
