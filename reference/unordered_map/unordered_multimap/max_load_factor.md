@@ -135,7 +135,7 @@ new load_factor: 1.125
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2012
 
-## 参照
+## 関連項目
 
 | | |
 |---------------------------------------|------------|

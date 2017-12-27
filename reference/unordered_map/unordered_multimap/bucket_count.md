@@ -63,7 +63,7 @@ bucket count is 11
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-## 参照
+## 関連項目
 
 | 名前                                         | 説明 |
 |----------------------------------------------|----------------------|

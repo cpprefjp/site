@@ -79,7 +79,7 @@ equal_range(8): [5, 5)
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-## 参照
+## 関連項目
 |ページ|概要|
 |------|----|
 |[`find`](find.md)|指定したキーの位置を検索|

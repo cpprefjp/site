@@ -73,7 +73,7 @@ it2:'1'(1, 2)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 |                             |          |
 |-----------------------------|----------|
 | [`operator==`](op_equal.md) | 等値比較 |

@@ -110,7 +110,7 @@ int main()
 libstdc++ の `unordered_set` では、アロケータの `select_on_container_copy_construction`、`propagate_on_container_copy_assignment`、`propagate_on_container_move_assignment`、および、`propagate_on_container_swap` を正しく扱っていないため、`get_allocator` で返されるアロケータオブジェクトは予期せぬものになる可能性がある。
 
 
-## 参照
+## 関連項目
 
 |                                                             |                            |
 |-------------------------------------------------------------|----------------------------|

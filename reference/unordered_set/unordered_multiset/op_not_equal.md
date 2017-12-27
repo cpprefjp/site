@@ -110,7 +110,7 @@ namespace std {
 ```
 * ==[link op_equal.md]
 
-## 参照
+## 関連項目
 
 
 | | |

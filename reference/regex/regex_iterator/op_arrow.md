@@ -66,7 +66,7 @@ prefix = 'def', str = '456', suffix = 'ghi'
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`operator*`](op_deref.md)           | 間接参照       | C++11          |
@@ -102,7 +102,7 @@ prefix = 'def', str = '456', suffix = 'ghi'
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 | 名前                                 | 説明           | 対応バージョン |
 |--------------------------------------|----------------|----------------|
 | [`operator*`](op_deref.md)           | 間接参照       | C++11          |

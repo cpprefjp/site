@@ -89,7 +89,7 @@ bucket = 10, bucket_size = 1, keys = { A, }
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-## 参照
+## 関連項目
 
 | 名前                                         | 説明 |
 |----------------------------------------------|--------------------------------|

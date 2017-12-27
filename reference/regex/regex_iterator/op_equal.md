@@ -83,7 +83,7 @@ it2:'1'(3, 4)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 |                                 |            |
 |---------------------------------|------------|
 | [`operator!=`](op_not_equal.md) | 非等値比較 |
