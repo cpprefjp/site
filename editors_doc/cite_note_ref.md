@@ -120,7 +120,6 @@ HTMLタグのうち、`a`, `sup`, `cite`タグを利用して実現する。
 >| std::list | (O(n)<sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup>) | O(1) |
 >| bar | O(1) | O(1) |
 >| baz | O(1) | O(1) |
->| hoge | (O(n)†) | (O(n)†) |
 >
 >1. **<a id="note-t1-1" href="#note_ref-t1-1">^</a>** 直接はサポートされないが、`std::distance`, etc を用いて実現可能
 
