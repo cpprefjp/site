@@ -192,12 +192,6 @@ int main()
 ```
 
 
-## 参照
-- `vector`のメモリ効率について
-    - [２倍だけじゃない - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_2334100705)
-    - [それでも２倍だ - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_1001100720)
-
-
 ## `vector<bool>`特殊化
 `vector`は`bool`型に対して特殊化されている。
 
@@ -274,6 +268,9 @@ v[3] : 0
 
 
 ## 参照
+- `vector`のメモリ効率について
+    - [２倍だけじゃない - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_2334100705)
+    - [それでも２倍だ - Derive Your Dreams](http://www.kmonos.net/wlog/111.html#_1001100720)
 - [LWG Issue 69. Must elements of a `vector` be contiguous?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#69)
     - C++03から、`vector`の要素のメモリが連続していることが保証された。
 - [N1211 - `vector<bool>`: More Problems, Better Solutions](http://www.gotw.ca/publications/N1211.pdf)

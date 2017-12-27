@@ -104,10 +104,6 @@ int main ()
 - [Visual C++](/implementation.md#visual_cpp): 2012
 
 
-## 参照
-- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
-
-
 ## 関連項目
 
 | 名前 | 説明 |
@@ -117,6 +113,7 @@ int main ()
 
 
 ## 参照
+- [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
 - [LWG Issue 2005. `unordered_map::insert(T&&)` protection should apply to `map` too](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2005)
     - C++14から、(2)と(4)の仕様の書き方が、`unordered_map::insert()`のものと統一された。
