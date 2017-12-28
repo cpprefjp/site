@@ -93,6 +93,9 @@ relative_path : "Program Files\a.txt"
 has relative path from root path
 ```
 
+Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
+
+
 ## バージョン
 ### 言語
 - C++17
