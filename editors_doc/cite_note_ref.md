@@ -76,7 +76,7 @@ HTMLタグのうち、`a`, `sup`, `cite`タグを利用して実現する。
 
 ### 注釈
 
-1. <a id="note-define-graph-1">^</a> <sup>[**a**](#note_ref-define-graph-1-a)</sup> <sup>[**b**](#note_ref-define-graph-1-b)</sup>
+1. <a id="note-define-graph-1">^</a> <sup>[**a**](#note_ref-define-graph-1-a)</sup> <sup>[**b**](#note_ref-define-graph-1-b)</sup> 有向グラフ、無向グラフについては、[基本的なグラフ理論の復習](https://boostjp.github.io/archive/boost_docs/libs/graph/graph_theory_review.html)を参照
 ```
 
 ### 表示例
@@ -95,7 +95,7 @@ HTMLタグのうち、`a`, `sup`, `cite`タグを利用して実現する。
 >
 >### 注釈
 >
->1. <a id="note-define-graph-1">^</a> <sup>[**a**](#note_ref-define-graph-1-a)</sup> <sup>[**b**](#note_ref-define-graph-1-b)</sup> 有向グラフ、無向グラフについては、[基本的なグラフ理論の復習](../archive/boost_docs/libs/graph/graph_theory_review.md)を参照
+>1. <a id="note-define-graph-1">^</a> <sup>[**a**](#note_ref-define-graph-1-a)</sup> <sup>[**b**](#note_ref-define-graph-1-b)</sup> 有向グラフ、無向グラフについては、[基本的なグラフ理論の復習](https://boostjp.github.io/archive/boost_docs/libs/graph/graph_theory_review.html)を参照
 
 ## 表に対する注釈記法
 
