@@ -38,9 +38,9 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 - **提案** (proposal): 標準規格の変更についての提案文書
 - **問題** (issue): C++標準規格の問題や課題のこと
 - **欠陥** (defect): C++標準規格に含まれるいわば "バグ" のこと
-  - **DR** (defect report, defect resolution): 委員会で承認された欠陥の報告または欠陥の修正のこと
-  - **NAD** (not a defect): 委員会により標準規格の欠陥ではないとされた問題のこと
-  - **DRWP**: 最新の規格原案に取り込み済みの DR のこと
+    - **DR** (defect report, defect resolution): 委員会で承認された欠陥の報告または欠陥の修正のこと
+    - **NAD** (not a defect): 委員会により標準規格の欠陥ではないとされた問題のこと
+    - **DRWP**: 最新の規格原案に取り込み済みの DR のこと
 - **WD** (working draft): 作業原案
 - **CD** (committee draft): 委員会原案
 - **FCD** (final committee draft): 最終委員会原案
@@ -53,12 +53,12 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 ## 参照
 
 - 標準規格
-  - [ISO/IEC 14882:2017 - Programming languages -- C++](https://www.iso.org/standard/68564.html)
-  - [ISO/IEC 14882:2014 - Information technology -- Programming languages -- C++](https://www.iso.org/standard/64029.html)
-  - [ISO/IEC 14882:2011 - Information technology -- Programming languages -- C++](https://www.iso.org/standard/50372.html)
-  - [ISO/IEC 14882:2003 - Programming languages -- C++](https://www.iso.org/standard/38110.html)
-  - [ISO/IEC 14882:1998 - Programming languages -- C++](https://www.iso.org/standard/25845.html)
-  - [JIS X 3014:2003 プログラム言語Ｃ＋＋／Information Technology -- Programming languages -- C++ 日本規格協会 JSA Webdesk](https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS%20X%203014:2003)
+    - [ISO/IEC 14882:2017 - Programming languages -- C++](https://www.iso.org/standard/68564.html)
+    - [ISO/IEC 14882:2014 - Information technology -- Programming languages -- C++](https://www.iso.org/standard/64029.html)
+    - [ISO/IEC 14882:2011 - Information technology -- Programming languages -- C++](https://www.iso.org/standard/50372.html)
+    - [ISO/IEC 14882:2003 - Programming languages -- C++](https://www.iso.org/standard/38110.html)
+    - [ISO/IEC 14882:1998 - Programming languages -- C++](https://www.iso.org/standard/25845.html)
+    - [JIS X 3014:2003 プログラム言語Ｃ＋＋／Information Technology -- Programming languages -- C++ 日本規格協会 JSA Webdesk](https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS%20X%203014:2003)
 - [Experimental C++ Features - cppreference.com](http://en.cppreference.com/w/cpp/experimental)
 - [c++ - Which draft is closest to the C++14 standard? - Stack Overflow](https://stackoverflow.com/questions/29115656/which-draft-is-closest-to-the-c14-standard)
 - [Where do I find the current C or C++ standard documents? - Stack Overflow](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents)
