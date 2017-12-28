@@ -102,10 +102,10 @@ namespace std::filesystem {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`empty`](path/empty.md) | パスが空か判定する | C++17 |
-| `has_root_name` | ルート名が含まれているか判定する | C++17 |
-| `has_root_directory` | ルートディレクトリが含まれているか判定する | C++17 |
-| `has_root_path` | ルートパスが含まれているか判定する | C++17 |
-| `has_relative_path` | 相対パスが含まれているか判定する | C++17 |
+| [`has_root_name`](path/has_root_name.md) | ルート名が含まれているか判定する | C++17 |
+| [`has_root_directory`](path/has_root_directory.md) | ルートディレクトリが含まれているか判定する | C++17 |
+| [`has_root_path`](path/has_root_path.md) | ルートパスが含まれているか判定する | C++17 |
+| [`has_relative_path`](path/has_relative_path.md) | ルートパスからの相対パスが含まれているか判定する | C++17 |
 | `has_parent_path` | 親のパスが含まれているか判定する | C++17 |
 | `has_filename` | ファイル名が含まれているか判定する | C++17 |
 | `has_stem` | 拡張子を除いたファイル名が含まれているか判定する | C++17 |
