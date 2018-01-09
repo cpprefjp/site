@@ -5,15 +5,17 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
-allocator() throw();
-allocator(const allocator&) throw();
-template <class U> allocator(const allocator<U>&) throw();
+allocator() throw();  // (1) C++03
+allocator() noexcept; // (2) C++11
 
-// C++11
-allocator() noexcept;
-allocator(const allocator&) noexcept;
-template <class U> allocator(const allocator<U>&) noexcept;
+allocator(const allocator&) throw();  // (2) C++03
+allocator(const allocator&) noexcept; // (2) C++11
+
+template <class U>
+allocator(const allocator<U>&) throw();  // (3) C++03
+
+template <class U>
+allocator(const allocator<U>&) noexcept; // (3) C++11
 ```
 
 ## 概要

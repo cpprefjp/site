@@ -6,13 +6,11 @@
 * cpp17deprecated[meta cpp]
 
 ```cpp
-// C++03
-pointer address(reference x) const;
-const_pointer address(const_reference x) const;
+pointer address(reference x) const;                      // (1) C++03
+pointer address(reference x) const noexcept;             // (1) C++11
 
-// C++11
-pointer address(reference x) const noexcept;
-const_pointer address(const_reference x) const noexcept;
+const_pointer address(const_reference x) const;          // (2) C++03
+const_pointer address(const_reference x) const noexcept; // (2) C++11
 ```
 
 この関数は、C++17から非推奨となった。オブジェクトから直接アドレスを取得すること。
