@@ -30,8 +30,8 @@
 | `isgraph` | 図形文字の判定(function) | |
 | [`toupper`](locale/toupper.md) | 英大文字への変換(function) | |
 | [`tolower`](locale/tolower.md) | 英子文字への変換(function) | |
-| [`wstring_convert`](locale/wstring_convert.md) | `codecvt`による文字列変換(class template) | C++11 |
-| [`wbuffer_convert`](locale/wbuffer_convert.md) | `codecvt`によるストリームバッファ変換(class template) | C++11 |
+| [`wstring_convert`](locale/wstring_convert.md) | `codecvt`による文字列変換(class template) | C++11<br/> C++17から非推奨 |
+| [`wbuffer_convert`](locale/wbuffer_convert.md) | `codecvt`によるストリームバッファ変換(class template) | C++11<br/> C++17から非推奨 |
 | [`ctype_base`](locale/ctype_base.md) | 文字分類のための基本クラス(class) | |
 | [`ctype`](locale/ctype.md) | 文字の分類(class template) | |
 | [`ctype_byname`](locale/ctype_byname.md) | 名前による文字の分類(class template) | |
