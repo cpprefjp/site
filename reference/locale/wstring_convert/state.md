@@ -4,10 +4,13 @@
 * wstring_convert[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 state_type state() const;
 ```
+
+このクラスはC++17から非推奨となった。
 
 ## 概要
 変換の状態を取得する。

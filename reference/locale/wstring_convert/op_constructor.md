@@ -4,6 +4,7 @@
 * wstring_convert[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 wstring_convert(Codecvt* pcvt = new Codecvt);          // (1) C++11
@@ -20,6 +21,8 @@ explicit wstring_convert(
 
 wstring_convert(const wstring_convert&) = delete;      // (4) C++14
 ```
+
+このクラスはC++17から非推奨となった。
 
 ## 概要
 - (1) : デフォルトコンストラクタ。

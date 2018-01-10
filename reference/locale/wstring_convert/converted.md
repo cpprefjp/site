@@ -4,12 +4,15 @@
 * wstring_convert[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 size_t converted() const;          // C++11
 size_t converted() const noexcept; // C++14
 ```
 * size_t[link /reference/cstddef/size_t.md]
+
+このクラスはC++17から非推奨となった。
 
 ## 概要
 変換した要素数を取得する。

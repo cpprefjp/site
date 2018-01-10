@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp11[meta cpp]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -42,6 +43,16 @@ namespace std {
 [std-string]: /reference/string/basic_string.md
 [utf8-16]: /reference/codecvt/codecvt_utf8_utf16.md
 [utf8]: /reference/codecvt/codecvt_utf8.md
+
+
+## 非推奨の詳細
+Unicodeの文字コード変換を行うこれらのクラスは、不正なコードポイントに対する安全なエラー処理の方法を提供していなかったため、セキュリティ上の欠陥があった。
+
+仕様もあいまいであったため、不正なコードポイントに対してどのように振る舞うかも不明であった。
+
+Unicode以外のShift_JISやBig5といった文字コードの利用が急激に減少している。標準ライブラリでの現代的なUnicodeの変換機能は非常に必要とされているが、[`<codecvt>`](/reference/codecvt.md)とそれに関連する機能の設計はお粗末なものだった。将来より良いものを作るために、これらの機能は非推奨とする。
+
+標準ライブラリにUnicodeの文字コード変換をする代替機能はないため、他の専門特化した文字コード変換のライブラリを使用すること。
 
 
 ## メンバ関数
@@ -110,4 +121,4 @@ int main()
 
 ## 参照
 - [N2007 Proposed Library Additions for Code Conversion](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2007.html)
-
+- [P0618R0 Deprecating `<codecvt>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0618r0.html)

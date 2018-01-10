@@ -4,6 +4,7 @@
 * wstring_convert[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 byte_string to_bytes(Elem wchar);              // (1)
@@ -12,6 +13,8 @@ byte_string to_bytes(const wide_string& wstr); // (3)
 byte_string to_bytes(const Elem* first,
                      const Elem* last);        // (4)
 ```
+
+このクラスはC++17から非推奨となった。
 
 ## 概要
 ワイド文字列からバイト文字列に変換する。

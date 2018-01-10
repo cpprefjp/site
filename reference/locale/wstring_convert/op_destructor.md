@@ -4,10 +4,13 @@
 * wstring_convert[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 ~wstring_convert();
 ```
+
+このクラスはC++17から非推奨となった。
 
 ## 概要
 `Codecvt`型のインスタンスを破棄する。

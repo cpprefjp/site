@@ -4,6 +4,7 @@
 * wstring_convert[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp17deprecated[meta cpp]
 
 ```cpp
 wide_string from_bytes(char byte);              // (1)
@@ -12,6 +13,8 @@ wide_string from_bytes(const byte_string& str); // (3)
 wide_string from_bytes(const char* first,
                        const char* last);       // (4)
 ```
+
+このクラスはC++17から非推奨となった。
 
 ## 概要
 バイト文字列からワイド文字列に変換する。
