@@ -95,4 +95,4 @@
 ## 参照
 - [P0218R1 Adopt the File System TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0218r1.html)
 - [P0219R1 Relative Paths for Filesystem](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0219r1.html)
-
+- [P0492R2 Proposed Resolution of C++17 National Body Comments for Filesystems(R2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0492r2.html)
