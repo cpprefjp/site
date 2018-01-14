@@ -17,6 +17,9 @@ void clear();
 ## 戻り値
 なし
 
+## 例外
+
+投げない
 
 ## 事後条件
 [`empty()`](empty.md) `== true`

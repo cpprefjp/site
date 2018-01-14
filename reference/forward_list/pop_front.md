@@ -20,6 +20,9 @@ void pop_front();
 ## 戻り値
 なし
 
+## 例外
+
+投げない
 
 ## 例
 ```cpp example

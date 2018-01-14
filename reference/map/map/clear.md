@@ -15,6 +15,9 @@ void clear() noexcept;
 ## 計算量
 線形時間
 
+## 例外
+
+投げない
 
 ## 例
 ```cpp example
