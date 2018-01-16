@@ -20,13 +20,13 @@ long double ellint_2l(long double x, long double phi);
 ## 戻り値
 引数 `k`, `phi` の第二種不完全楕円積分
 $$
-E(k, \phi) = \int_0^\phi \mathrm d\theta ~ \sqrt{1 - k^2 \sin^2 \theta}} \text{ for } |k| \le 1
+E(k, \phi) = \int_0^\phi \mathrm d\theta ~ \sqrt{1 - k^2 \sin^2 \theta} \text{ for } |k| \le 1
 $$
 を返す。
 
 
 ## 備考
-$ E(k, pi/2) = E(k) $ (第二種完全楕円積分 [`comp_ellint_2`](comp_ellint_2.md))。
+$ E(k, \pi/2) = E(k) $ (第二種完全楕円積分 [`comp_ellint_2`](comp_ellint_2.md))。
 
 
 ## 例
