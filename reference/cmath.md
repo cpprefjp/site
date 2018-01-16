@@ -261,7 +261,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`assoc_laguerre`](cmath/assoc_laguerre.md) | ラゲール陪多項式       | C++17 |
 | [`assoc_legendre`](cmath/assoc_legendre.md) | ルジャンドル陪関数     | C++17 |
 | [`beta`](cmath/beta.md)                     | ベータ関数             | C++17 |
-| [`comp_ellint_1`](cmath/comp_ellint_1.md.nolink)   | 第一種完全楕円積分     | C++17 |
+| [`comp_ellint_1`](cmath/comp_ellint_1.md)   | 第一種完全楕円積分     | C++17 |
 | [`comp_ellint_2`](cmath/comp_ellint_2.md.nolink)   | 第二種完全楕円積分     | C++17 |
 | [`comp_ellint_3`](cmath/comp_ellint_3.md.nolink)   | 第三種完全楕円積分     | C++17 |
 | [`cyl_bessel_i`](cmath/cyl_bessel_i.md.nolink)     | 第一種変形ベッセル関数 | C++17 |
