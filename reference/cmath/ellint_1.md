@@ -34,36 +34,36 @@ $ F(k, \pi/2) = K(k)$ (第一種完全楕円積分 [`comp_ellint_1`](comp_ellint
 #include <cmath>
 #include <iostream>
 
-constexpr double pi = 3.14159265358979323846;
+constexpr double pi = 3.141592653589793;
 
 void p(double k) {
   for (double q : {0., 0.25, 0.5}) {
-    std::cout << "ellint_1(" << k << ", " << q << "pi) = " << std::ellint_1(k, q * pi) << "\n";
+    std::cout << "ellint_1(" << k << ", " << q << " pi) = " << std::ellint_1(k, q * pi) << "\n";
   }
   std::cout << "\n";
 }
 
 int main() {
-  p(0);
+  p(0);   // ellint_1(0, phi) = phi
   p(0.5);
-  p(1);
+  p(1);   // ellint_1(1, phi) = log(tan(phi) + 1 / cos(phi)) for phi ∈ (-π/2, π/2)
 }
 ```
 * std::ellint_1[color ff0000]
 
 ### 出力例
 ```
-ellint_1(0, 0pi) = 0
-ellint_1(0, 0.25pi) = 0.785398
-ellint_1(0, 0.5pi) = 1.5708
+ellint_1(0, 0 pi) = 0
+ellint_1(0, 0.25 pi) = 0.785398
+ellint_1(0, 0.5 pi) = 1.5708
 
-ellint_1(0.5, 0pi) = 0
-ellint_1(0.5, 0.25pi) = 0.804366
-ellint_1(0.5, 0.5pi) = 1.68575
+ellint_1(0.5, 0 pi) = 0
+ellint_1(0.5, 0.25 pi) = 0.804366
+ellint_1(0.5, 0.5 pi) = 1.68575
 
-ellint_1(1, 0pi) = 0
-ellint_1(1, 0.25pi) = 0.881374
-ellint_1(1, 0.5pi) = nan
+ellint_1(1, 0 pi) = 0
+ellint_1(1, 0.25 pi) = 0.881374
+ellint_1(1, 0.5 pi) = nan
 
 ```
 
