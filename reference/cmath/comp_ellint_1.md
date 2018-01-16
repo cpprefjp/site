@@ -23,6 +23,7 @@ $$
 K(k) = F(k, \pi/2) = \int_0^{\pi/2} \frac{\mathrm d\theta}{\sqrt{1 - k^2 \sin^2 \theta}} \text{ for } |k| \le 1
 $$
 を返す。
+$ F(k, \phi) $ は第一種不完全楕円積分 ([`ellint_1`](ellint_1.md))。
 
 
 ## 例
@@ -58,7 +59,7 @@ comp_ellint_1(1)   = nan
 
 
 ## 関連項目
-* [`ellint_1`](ellint_1.md.nolink)
+* [`ellint_1`](ellint_1.md)
 
 
 ## 参照
