@@ -93,7 +93,7 @@ namespace std::filesystem {
 | [`root_path`](path/root_path.md) | ルートパスを取得する | C++17 |
 | [`relative_path`](path/relative_path.md) | ルートパスからの相対パスを取得する | C++17 |
 | [`parent_path`](path/parent_path.md) | 親のパスを取得する | C++17 |
-| `filename` | ファイル名を取得する | C++17 |
+| [`filename`](path/filename.md) | ファイル名を取得する | C++17 |
 | `stem` | 拡張子を除いたファイル名を取得する | C++17 |
 | `extension` | 拡張子を取得する | C++17 |
 
@@ -107,7 +107,7 @@ namespace std::filesystem {
 | [`has_root_path`](path/has_root_path.md) | ルートパスが含まれているか判定する | C++17 |
 | [`has_relative_path`](path/has_relative_path.md) | ルートパスからの相対パスが含まれているか判定する | C++17 |
 | [`has_parent_path`](path/has_parent_path.md) | 親のパスが含まれているか判定する | C++17 |
-| `has_filename` | ファイル名が含まれているか判定する | C++17 |
+| [`has_filename`](path/has_filename.md) | ファイル名が含まれているか判定する | C++17 |
 | `has_stem` | 拡張子を除いたファイル名が含まれているか判定する | C++17 |
 | `has_extension` | 拡張子が含まれているか判定する | C++17 |
 | `is_absolute` | 絶対パスかを判定する | C++17 |
