@@ -7,9 +7,9 @@
 
 ```cpp
 namespace std {
-float ellint_2f(float x, float phi);
-double ellint_2(double x, double phi);
-long double ellint_2l(long double x, long double phi);
+float ellint_2f(float k, float phi);
+double ellint_2(double k, double phi);
+long double ellint_2l(long double k, long double phi);
 }
 ```
 
