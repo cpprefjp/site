@@ -1,4 +1,4 @@
-# comp_ellint_2
+# ellint_2
 * cmath[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -7,23 +7,26 @@
 
 ```cpp
 namespace std {
-float comp_ellint_2f(float k);
-double comp_ellint_2(double k);
-long double comp_ellint_2l(long double k);
+float ellint_2f(float x, float phi);
+double ellint_2(double x, double phi);
+long double ellint_2l(long double x, long double phi);
 }
 ```
 
 ## 概要
-第二種完全楕円積分 (complete elliptic integral of the second kind) を計算する。
+第二種不完全楕円積分 (incomplete elliptic integral of the second kind) を計算する。
 
 
 ## 戻り値
-引数 `k` の第二種完全楕円積分
+引数 `k`, `phi` の第二種不完全楕円積分
 $$
-E(k) = E(k, \pi/2) = \int_0^{\pi/2} \mathrm d\theta ~ \sqrt{1 - k^2 \sin^2 \theta} \text{ for } |k| \le 1
+E(k, \phi) = \int_0^\phi \mathrm d\theta ~ \sqrt{1 - k^2 \sin^2 \theta}} \text{ for } |k| \le 1
 $$
 を返す。
-$ E(k, \phi) $ は第二種不完全楕円積分 ([`ellint_2`](ellint_2.md))。
+
+
+## 備考
+$ E(k, pi/2) = E(k) $ (第二種完全楕円積分 [`comp_ellint_2`](comp_ellint_2.md))。
 
 
 ## 例
@@ -31,19 +34,37 @@ $ E(k, \phi) $ は第二種不完全楕円積分 ([`ellint_2`](ellint_2.md))。
 #include <cmath>
 #include <iostream>
 
+constexpr double pi = 3.141592653589793;
+
+void p(double k) {
+  for (double q : {0., 0.25, 0.5}) {
+    std::cout << "ellint_2(" << k << ", " << q << " pi) = " << std::ellint_2(k, q * pi) << "\n";
+  }
+  std::cout << "\n";
+}
+
 int main() {
-  std::cout << "comp_ellint_2(0)   = " << std::comp_ellint_2(0) << "\n";    // pi / 2
-  std::cout << "comp_ellint_2(0.5) = " << std::comp_ellint_2(0.5) << "\n";  // 1.46746
-  std::cout << "comp_ellint_2(1)   = " << std::comp_ellint_2(1) << "\n";    // 1
+  p(0);   // ellint_2(0, phi) = phi
+  p(0.5);
+  p(1);   // ellint_2(1, phi) = sin(phi) for phi ∈ (-π/2, π/2)
 }
 ```
-* std::comp_ellint_2[color ff0000]
+* std::ellint_2[color ff0000]
 
 ### 出力例
 ```
-comp_ellint_2(0)   = 1.5708
-comp_ellint_2(0.5) = 1.46746
-comp_ellint_2(1)   = 1
+ellint_2(0, 0 pi) = 0
+ellint_2(0, 0.25 pi) = 0.785398
+ellint_2(0, 0.5 pi) = 1.5708
+
+ellint_2(0.5, 0 pi) = 0
+ellint_2(0.5, 0.25 pi) = 0.767196
+ellint_2(0.5, 0.5 pi) = 1.46746
+
+ellint_2(1, 0 pi) = 0
+ellint_2(1, 0.25 pi) = 0.707107
+ellint_2(1, 0.5 pi) = 1
+
 ```
 
 
@@ -63,7 +84,7 @@ GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain
 
 
 ## 関連項目
-* [`ellint_2`](ellint_2.md)
+* [`comp_ellint_2`](comp_ellint_2.md)
 
 
 ## 参照
