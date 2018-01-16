@@ -20,7 +20,7 @@ long double comp_ellint_2l(long double k);
 ## 戻り値
 引数 `k` の第二種完全楕円積分
 $$
-E(k) = E(k, \pi/2) = \int_0^{\pi/2} \mathrm d\theta ~ \sqrt{1 - k^2 \sin^2 \theta}} \text{ for } |k| \le 1
+E(k) = E(k, \pi/2) = \int_0^{\pi/2} \mathrm d\theta ~ \sqrt{1 - k^2 \sin^2 \theta} \text{ for } |k| \le 1
 $$
 を返す。
 
@@ -55,6 +55,10 @@ comp_ellint_2(1)   = 1
 - [GCC](/implementation.md#gcc): 7.1.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+### 備考
+#### GCC (libstdc++)
+GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
 
 
 ## 関連項目
