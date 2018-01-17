@@ -64,6 +64,7 @@ int main()
   std::cout << p << std::endl;
 }
 ```
+* make_preferred()[color ff0000]
 
 #### 出力
 ```
