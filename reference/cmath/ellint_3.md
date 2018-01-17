@@ -27,9 +27,9 @@ $$
 
 
 ## 備考
-$ Pi(\nu, k, \pi/2) = \Pi(\nu, k) $ (第三種完全楕円積分 [`comp_ellint_3`](comp_ellint_3.md))。
+$ \Pi(\nu, k, \pi/2) = \Pi(\nu, k) $ (第三種完全楕円積分 [`comp_ellint_3`](comp_ellint_3.md))。
 
-$ Pi(0, k, \phi) = \F(k, \phi) $ (第一種不完全楕円積分 [`ellint_1`](ellint_1.md))。
+$ \Pi(0, k, \phi) = F(k, \phi) $ (第一種不完全楕円積分 [`ellint_1`](ellint_1.md))。
 
 
 ## 例
