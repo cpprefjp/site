@@ -24,6 +24,7 @@ $$
 = \int_0^{\pi/2} \frac{\mathrm d\theta}{(1 - \nu \sin^2 \theta) \sqrt{1 - k^2 \sin^2 \theta}} \text{ for } |k| \le 1
 $$
 を返す。
+$ \Pi(\nu, k) $ は第三種不完全楕円積分 ([`ellint_3`](ellint_3.md))。
 
 
 ## 備考
@@ -80,7 +81,7 @@ GCC 7.1.0–8.0.0 では
 
 
 ## 関連項目
-* [`ellint_3`](ellint_3.md.nolink)
+* [`ellint_3`](ellint_3.md)
 
 
 ## 参照
