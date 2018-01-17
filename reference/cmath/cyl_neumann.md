@@ -1,4 +1,4 @@
-# cyl_bessel_k
+# cyl_neumann
 * cmath[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -7,29 +7,24 @@
 
 ```cpp
 namespace std {
-float cyl_bessel_kf(float nu, float x);
-double cyl_bessel_k(double nu, double x);
-long double cyl_bessel_kl(long double nu, long double x);
+float cyl_neumannf(float nu, float x);
+double cyl_neumann(double nu, double x);
+long double cyl_neumannl(long double nu, long double x);
 }
 ```
 
 ## 概要
-第二種変形ベッセル関数 (modified Bessel functions of the second kind) を求める。
+第二種ベッセル関数 (Bessel functions of the second kind)、ノイマン関数 (Neumann functions) を求める。
 
 
 ## 戻り値
-引数 `nu`, `x` の第二種変形ベッセル関数
+引数 `x` の第二種ベッセル関数
 $$
-K_\nu(x) = \frac{\pi}{2} i^{\nu + 1} \left( J_\nu(ix) + i N_\nu(ix) \right)
-= \frac{\pi}{2} \frac{I_{-\nu}(x) - I_{\nu}(x)}{\sin \nu \pi}
+N_\nu(x) = \frac{J_{\nu}(x) \cos \nu \pi - J_{-\nu}(x)}{\sin \nu \pi}
 \text{ for } x \ge 0
 $$
 を返す。
-$I$, $J$, $N$ はそれぞれ
-第一種変形ベッセル関数 ([`cyl_bessel_i`](cyl_bessel_i.md))、
-第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md))、
-第二種ベッセル関数 ([`cyl_neumann`](cyl_neumann.md))
-である。
+$ J $ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
 
 
 ## 備考
@@ -43,7 +38,7 @@ $I$, $J$, $N$ はそれぞれ
 
 void p(double nu) {
   for (double x : {0, 1, 2}) {
-    std::cout << "cyl_bessel_k(" << nu << ", " << x << ") = " << std::cyl_bessel_k(nu, x) << "\n";
+    std::cout << "cyl_neumann(" << nu << ", " << x << ") = " << std::cyl_neumann(nu, x) << "\n";
   }
   std::cout << "\n";
 }
@@ -54,21 +49,21 @@ int main() {
   p(2);
 }
 ```
-* std::cyl_bessel_k[color ff0000]
+* std::cyl_neumann[color ff0000]
 
 ### 出力例
 ```
-cyl_bessel_k(0, 0) = inf
-cyl_bessel_k(0, 1) = 0.421024
-cyl_bessel_k(0, 2) = 0.113894
+cyl_neumann(0, 0) = -inf
+cyl_neumann(0, 1) = 0.088257
+cyl_neumann(0, 2) = 0.510376
 
-cyl_bessel_k(1, 0) = inf
-cyl_bessel_k(1, 1) = 0.601907
-cyl_bessel_k(1, 2) = 0.139866
+cyl_neumann(1, 0) = -inf
+cyl_neumann(1, 1) = -0.781213
+cyl_neumann(1, 2) = -0.107032
 
-cyl_bessel_k(2, 0) = inf
-cyl_bessel_k(2, 1) = 1.62484
-cyl_bessel_k(2, 2) = 0.25376
+cyl_neumann(2, 0) = -inf
+cyl_neumann(2, 1) = -1.65068
+cyl_neumann(2, 2) = -0.617408
 
 ```
 
@@ -90,9 +85,8 @@ GCC 7.1.0–8.0.0 では `nu < 0` のときに [`std::domain_error`](/reference/
 
 
 ## 関連項目
-* 第一種変形ベッセル関数 [`cyl_bessel_i`](cyl_bessel_i.md)
 * 第一種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
-* 第二種ベッセル関数 [`cyl_neumann`](cyl_neumann.md)
+* 第二種変形ベッセル関数 [`cyl_bessel_k`](cyl_bessel_k.md)
 
 
 ## 参照
