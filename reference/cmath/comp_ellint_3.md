@@ -37,16 +37,24 @@ $\Pi(0, k) = K(k)$ ($K$ は第一種完全楕円積分 [`comp_ellint_1`](comp_el
 #include <iostream>
 
 void p(double k, double nu) {
-  std::cout << "comp_ellint_3(" << k << ", " << nu << ") = " << std::comp_ellint_3(k, nu) << "\n";
+  std::cout << "comp_ellint_3(" << k << ", " << nu << ") = ";
+  try {
+    std::cout << std::comp_ellint_3(k, nu) << "\n";
+  } catch(const std::domain_error& e) {
+    std::cout << "(domain_error)\n";
+  }
 }
 
 int main() {
   p(0, -1);   // pi / 2 √2
   p(0.5, -1); // 1.17745
+  p(1, -1);   // ∞
   p(0, 0);    // pi / 2
   p(0.5, 0);  // 1.68575
+  p(1, 0);    // ∞
   p(0, 1);    // ∞
   p(0.5, 1);  // ∞
+  p(1, 1);    // ∞
 }
 ```
 * std::comp_ellint_3[color ff0000]
@@ -55,10 +63,13 @@ int main() {
 ```
 comp_ellint_3(0, -1) = 1.11072
 comp_ellint_3(0.5, -1) = 1.17745
+comp_ellint_3(1, -1) = (domain_error)
 comp_ellint_3(0, 0) = 1.5708
 comp_ellint_3(0.5, 0) = 1.68575
+comp_ellint_3(1, 0) = (domain_error)
 comp_ellint_3(0, 1) = inf
 comp_ellint_3(0.5, 1) = inf
+comp_ellint_3(1, 1) = inf
 ```
 
 
