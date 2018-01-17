@@ -90,10 +90,6 @@ assoc_laguerre(2, 1, 2) = -1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-### 備考
-#### GCC (libstdc++)
-GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
-
 
 ## 関連項目
 * [`laguerre`](laguerre.md)

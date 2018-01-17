@@ -81,7 +81,7 @@ ellint_1(1, 0.5 pi) = nan
 
 ### 備考
 #### GCC (libstdc++)
-GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
+GCC 7.1.0–8.0.0 では `|k| == 1 && |phi| >= π / 2` の場合 `nan` を返す。
 
 
 ## 関連項目

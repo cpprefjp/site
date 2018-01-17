@@ -92,7 +92,7 @@ assoc_legendre(2, 2, 1) = 0
 
 ### 備考
 #### GCC (libstdc++)
-GCC 7.1.0–8.0.0 では定義域エラーが発生したときや `l < m` の場合 ($P_l^m = 0$)、 [`std::domain_error`](/reference/stdexcept.md) を送出する。
+GCC 7.1.0–8.0.0 では `l < m` の場合 ($P_l^m = 0$) [`std::domain_error`](/reference/stdexcept.md) を送出する。
 
 GCC 7.1.0–8.0.0 では $(-1)^m$ 倍された値を返す。
 

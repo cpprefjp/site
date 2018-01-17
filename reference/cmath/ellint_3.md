@@ -104,10 +104,7 @@ ellint_3(0.5, 1, 0.5 pi) = (domain_error)
 
 ### 備考
 #### GCC (libstdc++)
-GCC 7.1.0–8.0.0 では
-
-* `|k| > 1` のときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
-* `1 - nu * sin^2(phi) < 0` のときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
+GCC 7.1.0–8.0.0 では `1 - nu * sin^2(phi) < 0` のときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
 
 
 ## 関連項目
