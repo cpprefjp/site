@@ -111,7 +111,7 @@ GCC 7.1.0–8.0.0 では
 
 
 ## 関連項目
-* [`comp_ellint_3`](comp_ellint_3.md)
+* 第三種完全楕円積分 [`comp_ellint_3`](comp_ellint_3.md)
 
 
 ## 参照

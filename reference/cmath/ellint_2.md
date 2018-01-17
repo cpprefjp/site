@@ -84,7 +84,7 @@ GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain
 
 
 ## 関連項目
-* [`comp_ellint_2`](comp_ellint_2.md)
+* 第二種完全楕円積分 [`comp_ellint_2`](comp_ellint_2.md)
 
 
 ## 参照

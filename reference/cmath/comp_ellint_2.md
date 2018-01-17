@@ -63,7 +63,7 @@ GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::domain
 
 
 ## 関連項目
-* [`ellint_2`](ellint_2.md)
+* 第二種不完全楕円積分 [`ellint_2`](ellint_2.md)
 
 
 ## 参照
