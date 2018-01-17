@@ -60,7 +60,7 @@ comp_ellint_1(1)   = nan
 
 ### 備考
 #### GCC (libstdc++)
-GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::numeric_limits::quiet_NaN`](/reference//limits/numeric_limits/quiet_nan.md) を返す。
+GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::numeric_limits::quiet_NaN`](/reference/limits/numeric_limits/quiet_nan.md) を返す。
 
 
 ## 関連項目
