@@ -21,12 +21,7 @@ long double cyl_bessel_kl(long double nu, long double x);
 引数 `nu`, `x` の第二種変形ベッセル関数
 $$
 K_\nu(x) = (\pi / 2) i^{\nu + 1} (J_\nu(ix) + i N_\nu(ix))
-= \begin{cases}
-  \displaystyle
-  \frac{\pi}{2} \frac{I_{-\nu}(x) - I_{\nu}(x)}{\sin \nu \pi} & \text{for } x \ge 0 \text{ and non-integral } \nu \\[+3ex]
-  \displaystyle
-  \frac{\pi}{2} \lim_{\mu \to \nu} \frac{I_{-\mu}(x) - I_{\mu}(x)}{\sin \mu \pi} & \text{for } x \ge 0 \text{ and integral } \nu \\
-\end{cases}
+= \frac{\pi}{2} \frac{I_{-\nu}(x) - I_{\nu}(x)}{\sin \nu \pi} & \text{for } x \ge 0 \text{ and non-integral } \nu
 $$
 を返す。
 $I$, $J$, $N$ はそれぞれ
