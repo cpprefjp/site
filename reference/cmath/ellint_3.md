@@ -21,7 +21,7 @@ long double ellint_3l(long double k, long double nu, long double phi);
 引数 `k`, `nu`, `phi` の第三種不完全楕円積分
 $$
 \Pi(\nu, k, \phi)
-= \int_0^\phi \frac{\mathrm d\theta}{(1 - \nu sin^2 \theta) \sqrt{1 - k^2 \sin^2 \theta}} \text{ for } |k| \le 1
+= \int_0^\phi \frac{\mathrm d\theta}{(1 - \nu \sin^2 \theta) \sqrt{1 - k^2 \sin^2 \theta}} \text{ for } |k| \le 1
 $$
 を返す。
 
