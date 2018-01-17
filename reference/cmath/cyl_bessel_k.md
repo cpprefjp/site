@@ -20,7 +20,7 @@ long double cyl_bessel_kl(long double nu, long double x);
 ## 戻り値
 引数 `nu`, `x` の第二種変形ベッセル関数
 $$
-K_\nu(x) = (\pi / 2) i^{\nu + 1} (J_\nu(ix) + i N_\nu(ix))
+K_\nu(x) = \frac{\pi}{2} i^{\nu + 1} \left( J_\nu(ix) + i N_\nu(ix) \right)
 = \frac{\pi}{2} \frac{I_{-\nu}(x) - I_{\nu}(x)}{\sin \nu \pi}
 \text{ for } x \ge 0
 $$
@@ -86,7 +86,7 @@ cyl_bessel_k(2, 2) = 0.25376
 
 ### 備考
 #### GCC (libstdc++)
-GCC 7.1.0–8.0.0 では `nu < 0` のときに [`std::domain_error`](/reference/stdexcept.md) を送出する
+GCC 7.1.0–8.0.0 では `nu < 0` のときに [`std::domain_error`](/reference/stdexcept.md) を送出する。
 
 
 ## 関連項目
