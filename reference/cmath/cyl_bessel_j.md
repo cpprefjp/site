@@ -1,4 +1,4 @@
-# cyl_bessel_i
+# cyl_bessel_j
 * cmath[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -7,24 +7,23 @@
 
 ```cpp
 namespace std {
-float cyl_bessel_if(float nu, float x);
-double cyl_bessel_i(double nu, double x);
-long double cyl_bessel_il(long double nu, long double x);
+float cyl_bessel_jf(float nu, float x);
+double cyl_bessel_j(double nu, double x);
+long double cyl_bessel_jl(long double nu, long double x);
 }
 ```
 
 ## 概要
-第一種変形ベッセル関数 (modified Bessel functions of the first kind) を求める。
+第一種ベッセル関数 (Bessel functions of the first kind) を求める。
 
 
 ## 戻り値
-引数 `nu`, `x` の第一種変形ベッセル関数
+引数 `nu`, `x` の第一種ベッセル関数
 $$
-I_\nu(x) = i^{-\nu} J_\nu(ix) = \sum_{k=0}^\infty \frac{1}{k! \Gamma(\nu + k + 1)} \left( \frac{x}{2} \right)^{\nu + 2k}
+J_\nu(x) = \sum_{k=0}^\infty \frac{(-1)^k}{k! \Gamma(\nu + k + 1)} \left( \frac{x}{2} \right)^{\nu + 2k}
 \text{ for } x \ge 0
 $$
 を返す。
-$ J $ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
 
 
 ## 備考
@@ -38,7 +37,7 @@ $ J $ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) であ�
 
 void p(double nu) {
   for (double x : {0, 1, 2}) {
-    std::cout << "cyl_bessel_i(" << nu << ", " << x << ") = " << std::cyl_bessel_i(nu, x) << "\n";
+    std::cout << "cyl_bessel_j(" << nu << ", " << x << ") = " << std::cyl_bessel_j(nu, x) << "\n";
   }
   std::cout << "\n";
 }
@@ -49,21 +48,21 @@ int main() {
   p(2);
 }
 ```
-* std::cyl_bessel_i[color ff0000]
+* std::cyl_bessel_j[color ff0000]
 
 ### 出力例
 ```
-cyl_bessel_i(0, 0) = 1
-cyl_bessel_i(0, 1) = 1.26607
-cyl_bessel_i(0, 2) = 2.27959
+cyl_bessel_j(0, 0) = 1
+cyl_bessel_j(0, 1) = 0.765198
+cyl_bessel_j(0, 2) = 0.223891
 
-cyl_bessel_i(1, 0) = 0
-cyl_bessel_i(1, 1) = 0.565159
-cyl_bessel_i(1, 2) = 1.59064
+cyl_bessel_j(1, 0) = 0
+cyl_bessel_j(1, 1) = 0.440051
+cyl_bessel_j(1, 2) = 0.576725
 
-cyl_bessel_i(2, 0) = 0
-cyl_bessel_i(2, 1) = 0.135748
-cyl_bessel_i(2, 2) = 0.688948
+cyl_bessel_j(2, 0) = 0
+cyl_bessel_j(2, 1) = 0.114903
+cyl_bessel_j(2, 2) = 0.352834
 
 ```
 
@@ -85,7 +84,7 @@ GCC 7.1.0–8.0.0 では `nu < 0` のときに [`std::domain_error`](/reference/
 
 
 ## 関連項目
-* 第一種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
+* 第一種変形ベッセル関数 [`cyl_bessel_i`](cyl_bessel_i.md)
 
 
 ## 参照
