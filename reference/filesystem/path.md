@@ -110,8 +110,8 @@ namespace std::filesystem {
 | [`has_filename`](path/has_filename.md) | ファイル名が含まれているか判定する | C++17 |
 | [`has_stem`](path/has_stem.md) | 拡張子を除いたファイル名が含まれているか判定する | C++17 |
 | [`has_extension`](path/has_extension.md) | 拡張子が含まれているか判定する | C++17 |
-| `is_absolute` | 絶対パスかを判定する | C++17 |
-| `is_relative` | 相対パスかを判定する | C++17 |
+| [`is_absolute`](path/is_absolute.md) | 絶対パスかを判定する | C++17 |
+| [`is_relative`](path/is_relative.md) | 相対パスかを判定する | C++17 |
 
 ### 文字列レベルのパス生成
 
