@@ -21,7 +21,7 @@ long double cyl_bessel_jl(long double nu, long double x);
 引数 `nu`, `x` の第一種ベッセル関数
 $$
 J_\nu(x) = \sum_{k=0}^\infty \frac{(-1)^k}{k! \Gamma(\nu + k + 1)} \left( \frac{x}{2} \right)^{\nu + 2k}
-\text{ for } x \ge 0
+\quad \text{for } x \ge 0
 $$
 を返す。
 
@@ -36,9 +36,8 @@ $$
 #include <iostream>
 
 void p(double nu) {
-  for (double x : {0, 1, 2}) {
+  for (double x : {0, 1, 2})
     std::cout << "cyl_bessel_j(" << nu << ", " << x << ") = " << std::cyl_bessel_j(nu, x) << "\n";
-  }
   std::cout << "\n";
 }
 

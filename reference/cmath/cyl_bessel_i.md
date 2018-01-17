@@ -21,10 +21,10 @@ long double cyl_bessel_il(long double nu, long double x);
 引数 `nu`, `x` の第一種変形ベッセル関数
 $$
 I_\nu(x) = i^{-\nu} J_\nu(ix) = \sum_{k=0}^\infty \frac{1}{k! \Gamma(\nu + k + 1)} \left( \frac{x}{2} \right)^{\nu + 2k}
-\text{ for } x \ge 0
+\quad \text{for } x \ge 0
 $$
 を返す。
-$ J $ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
+$J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
 
 
 ## 備考
@@ -37,9 +37,8 @@ $ J $ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) であ�
 #include <iostream>
 
 void p(double nu) {
-  for (double x : {0, 1, 2}) {
+  for (double x : {0, 1, 2})
     std::cout << "cyl_bessel_i(" << nu << ", " << x << ") = " << std::cyl_bessel_i(nu, x) << "\n";
-  }
   std::cout << "\n";
 }
 

@@ -80,7 +80,7 @@ legendre(3, 1) = 1
 
 
 ## 関連項目
-* [`assoc_legendre`](assoc_legendre.md)
+* ルジャンドル陪関数 [`assoc_legendre`](assoc_legendre.md)
 
 
 ## 参照

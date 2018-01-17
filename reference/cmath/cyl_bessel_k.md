@@ -22,7 +22,7 @@ long double cyl_bessel_kl(long double nu, long double x);
 $$
 K_\nu(x) = \frac{\pi}{2} i^{\nu + 1} \left( J_\nu(ix) + i N_\nu(ix) \right)
 = \frac{\pi}{2} \frac{I_{-\nu}(x) - I_{\nu}(x)}{\sin \nu \pi}
-\text{ for } x \ge 0
+\quad \text{for } x \ge 0
 $$
 を返す。
 $I$, $J$, $N$ はそれぞれ
@@ -42,9 +42,8 @@ $I$, $J$, $N$ はそれぞれ
 #include <iostream>
 
 void p(double nu) {
-  for (double x : {0, 1, 2}) {
+  for (double x : {0, 1, 2})
     std::cout << "cyl_bessel_k(" << nu << ", " << x << ") = " << std::cyl_bessel_k(nu, x) << "\n";
-  }
   std::cout << "\n";
 }
 

@@ -21,10 +21,10 @@ long double sph_bessell(unsigned n, long double x);
 引数 `n`, `x` の第一種球ベッセル関数
 $$
 j_n(x) = \sqrt{\frac{\pi}{2x}} J_{n + 1/2}(x)
-\text{ for } x \ge 0
+\quad \text{for } x \ge 0
 $$
 を返す。
-$J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
+$J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md))。
 
 
 ## 備考
@@ -37,9 +37,8 @@ $J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である
 #include <iostream>
 
 void p(unsigned n) {
-  for (double x : {0, 1, 2}) {
+  for (double x : {0, 1, 2})
     std::cout << "sph_bessel(" << n << ", " << x << ") = " << std::sph_bessel(n, x) << "\n";
-  }
   std::cout << "\n";
 }
 

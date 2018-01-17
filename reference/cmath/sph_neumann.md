@@ -21,10 +21,10 @@ long double sph_neumannl(unsigned n, long double x);
 引数 `n`, `x` の第二種球ベッセル関数
 $$
 n_n(x) = \sqrt{\frac{\pi}{2x}} N_{n + 1/2}(x)
-\text{ for } x \ge 0
+\quad \text{for } x \ge 0
 $$
 を返す。
-$N$ は第二種ベッセル関数 ([`cyl_neumann`](cyl_neumann.md)) である。
+$N$ は第二種ベッセル関数 ([`cyl_neumann`](cyl_neumann.md))。
 
 
 ## 備考
@@ -37,9 +37,8 @@ $N$ は第二種ベッセル関数 ([`cyl_neumann`](cyl_neumann.md)) である�
 #include <iostream>
 
 void p(unsigned n) {
-  for (double x : {0, 1, 2}) {
+  for (double x : {0, 1, 2})
     std::cout << "sph_neumann(" << n << ", " << x << ") = " << std::sph_neumann(n, x) << "\n";
-  }
   std::cout << "\n";
 }
 

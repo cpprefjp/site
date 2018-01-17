@@ -19,7 +19,10 @@ long double betal(long double x, long double y);
 
 ## 戻り値
 引数 `x`, `y` のベータ関数
-$$ \mathrm{B}(x, y) = \int_0^1 \mathrm{d}t ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)} \quad \text{for } x > 0, y > 0 $$
+$$
+\mathrm{B}(x, y) = \int_0^1 \mathrm{d}t ~ t^{x-1} (1-t)^{y-1} = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)}
+\quad \text{for } x > 0, y > 0
+$$
 を返す。$\Gamma$ はガンマ関数 ([`tgamma`](tgamma.md))。
 
 

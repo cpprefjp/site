@@ -21,10 +21,10 @@ long double cyl_neumannl(long double nu, long double x);
 引数 `x` の第二種ベッセル関数
 $$
 N_\nu(x) = \frac{J_{\nu}(x) \cos \nu \pi - J_{-\nu}(x)}{\sin \nu \pi}
-\text{ for } x \ge 0
+\quad \text{for } x \ge 0
 $$
 を返す。
-$ J $ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
+$J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
 
 
 ## 備考
@@ -37,9 +37,8 @@ $ J $ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) であ�
 #include <iostream>
 
 void p(double nu) {
-  for (double x : {0, 1, 2}) {
+  for (double x : {0, 1, 2})
     std::cout << "cyl_neumann(" << nu << ", " << x << ") = " << std::cyl_neumann(nu, x) << "\n";
-  }
   std::cout << "\n";
 }
 

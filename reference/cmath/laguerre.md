@@ -80,7 +80,7 @@ laguerre(3, 2) = -0.333333
 
 
 ## 関連項目
-* [`assoc_laguerre`](assoc_laguerre.md)
+* ラゲール陪多項式 [`assoc_laguerre`](assoc_laguerre.md)
 
 
 ## 参照

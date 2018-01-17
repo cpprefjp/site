@@ -20,9 +20,11 @@ long double assoc_laguerrel(unsigned n, unsigned m, long double x);
 ## 戻り値
 引数 `n`, `m`, `x` のラゲール陪多項式
 $$
-L_n^m(x) = (-1)^m \frac{\mathrm d^m}{\mathrm dx^m} L_{m+n}(x) \quad \text{for } x \ge 0
+L_n^m(x) = (-1)^m \frac{\mathrm d^m}{\mathrm dx^m} L_{m+n}(x)
+\quad \text{for } x \ge 0
 $$
 を返す。
+右辺の $L$ はラゲール多項式 ([`laguerre`](laguerre.md))。
 
 
 ## 備考
@@ -41,12 +43,12 @@ void p(unsigned n, unsigned m) {
 }
 
 int main() {
-  p(0, 0); // L_0^0 = 1
-  p(0, 1); // L_0^1 = 1
-  p(1, 0); // L_1^0 = - x + 1
-  p(1, 1); // L_1^1 = - x + 2
-  p(2, 0); // L_2^0 = (x^2 - 4x + 2) / 2
-  p(2, 1); // L_2^1 = (x^2 - 6x + 6) / 2
+  p(0, 0); // L_0^0(x) = 1
+  p(0, 1); // L_0^1(x) = 1
+  p(1, 0); // L_1^0(x) = - x + 1
+  p(1, 1); // L_1^1(x) = - x + 2
+  p(2, 0); // L_2^0(x) = (x^2 - 4x + 2) / 2
+  p(2, 1); // L_2^1(x) = (x^2 - 6x + 6) / 2
 }
 ```
 * std::assoc_laguerre[color ff0000]
@@ -92,7 +94,7 @@ assoc_laguerre(2, 1, 2) = -1
 
 
 ## 関連項目
-* [`laguerre`](laguerre.md)
+* ラゲール多項式 [`laguerre`](laguerre.md)
 
 
 ## 参照

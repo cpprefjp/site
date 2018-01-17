@@ -20,7 +20,8 @@ long double ellint_2l(long double k, long double phi);
 ## 戻り値
 引数 `k`, `phi` の第二種不完全楕円積分
 $$
-E(k, \phi) = \int_0^\phi \mathrm d\theta ~ \sqrt{1 - k^2 \sin^2 \theta} \text{ for } |k| \le 1
+E(k, \phi) = \int_0^\phi \mathrm d\theta ~ \sqrt{1 - k^2 \sin^2 \theta}
+\quad \text{for } |k| \le 1
 $$
 を返す。
 
@@ -37,9 +38,8 @@ $ E(k, \pi/2) = E(k) $ (第二種完全楕円積分 [`comp_ellint_2`](comp_ellin
 constexpr double pi = 3.141592653589793;
 
 void p(double k) {
-  for (double q : {0., 0.25, 0.5}) {
+  for (double q : {0., 0.25, 0.5})
     std::cout << "ellint_2(" << k << ", " << q << " pi) = " << std::ellint_2(k, q * pi) << "\n";
-  }
   std::cout << "\n";
 }
 

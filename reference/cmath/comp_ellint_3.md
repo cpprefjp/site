@@ -21,14 +21,15 @@ long double comp_ellint_3l(long double k, long double nu);
 引数 `k`, `nu` の第三種完全楕円積分
 $$
 \Pi(\nu, k) = \Pi(\nu, k, \pi/2)
-= \int_0^{\pi/2} \frac{\mathrm d\theta}{(1 - \nu \sin^2 \theta) \sqrt{1 - k^2 \sin^2 \theta}} \text{ for } |k| \le 1
+= \int_0^{\pi/2} \frac{\mathrm d\theta}{(1 - \nu \sin^2 \theta) \sqrt{1 - k^2 \sin^2 \theta}}
+\quad \text{for } |k| \le 1
 $$
 を返す。
 $ \Pi(\nu, k) $ は第三種不完全楕円積分 ([`ellint_3`](ellint_3.md))。
 
 
 ## 備考
-$\Pi(0, k) = K(k)$ ($K$ は第一種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md))。
+$\Pi(0, k) = K(k)$ (第一種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md))。
 
 
 ## 例

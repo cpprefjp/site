@@ -115,7 +115,7 @@ GCC 7.1.0–8.0.0 では `l < m` の場合 ($Y_l^m = 0$) [`std::domain_error`](/
 
 
 ## 関連項目
-* [`assoc_legendre`](assoc_legendre.md)
+* ルジャンドル陪関数 [`assoc_legendre`](assoc_legendre.md)
 
 
 ## 参照

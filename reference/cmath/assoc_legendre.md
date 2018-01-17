@@ -20,7 +20,8 @@ long double assoc_legendrel(unsigned l, unsigned m, long double x);
 ## 戻り値
 引数 `l`, `m`, `x` のルジャンドル陪関数
 $$
-P_l^m(x) = (1 - x^2)^{m/2} \frac{\mathrm d^m}{\mathrm dx^m} P_l(x) \quad \text{for } |x| \le 1
+P_l^m(x) = (1 - x^2)^{m/2} \frac{\mathrm d^m}{\mathrm dx^m} P_l(x)
+\quad \text{for } |x| \le 1
 $$
 を返す。$P_l$ はルジャンドル多項式 ([`legendre`](legendre.md))。
 
@@ -41,12 +42,12 @@ void p(unsigned l, unsigned m) {
 }
 
 int main() {
-  p(0, 0); // P_0^0 = 1
-  p(1, 0); // P_1^0 = x
-  p(1, 1); // P_1^1 = (1 - x^2)^(1/2)
-  p(2, 0); // P_2^0 = (3x^2 - 1) / 2
-  p(2, 1); // P_2^1 = 3x (1 - x^2)^(1/2)
-  p(2, 2); // P_2^2 = 3 (1 - x^2)
+  p(0, 0); // P_0^0(x) = 1
+  p(1, 0); // P_1^0(x) = x
+  p(1, 1); // P_1^1(x) = (1 - x^2)^(1/2)
+  p(2, 0); // P_2^0(x) = (3x^2 - 1) / 2
+  p(2, 1); // P_2^1(x) = 3x (1 - x^2)^(1/2)
+  p(2, 2); // P_2^2(x) = 3 (1 - x^2)
 }
 ```
 * std::assoc_legendre[color ff0000]
@@ -98,8 +99,8 @@ GCC 7.1.0–8.0.0 では $(-1)^m$ 倍された値を返す。
 
 
 ## 関連項目
-* [`legendre`](legendre.md)
-* [`sph_legendre`](sph_legendre.md)
+* ルジャンドル多項式 [`legendre`](legendre.md)
+* 球面調和関数の *θ* 成分 [`sph_legendre`](sph_legendre.md)
 
 
 ## 参照

@@ -20,7 +20,8 @@ long double comp_ellint_1l(long double k);
 ## 戻り値
 引数 `k` の第一種完全楕円積分
 $$
-K(k) = F(k, \pi/2) = \int_0^{\pi/2} \frac{\mathrm d\theta}{\sqrt{1 - k^2 \sin^2 \theta}} \text{ for } |k| \le 1
+K(k) = F(k, \pi/2) = \int_0^{\pi/2} \frac{\mathrm d\theta}{\sqrt{1 - k^2 \sin^2 \theta}}
+\quad \text{for } |k| \le 1
 $$
 を返す。
 $ F(k, \phi) $ は第一種不完全楕円積分 ([`ellint_1`](ellint_1.md))。
