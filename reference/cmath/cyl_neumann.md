@@ -87,6 +87,7 @@ GCC 7.1.0–8.0.0 では `nu < 0` のときに [`std::domain_error`](/reference/
 ## 関連項目
 * 第一種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
 * 第二種変形ベッセル関数 [`cyl_bessel_k`](cyl_bessel_k.md)
+* 第二種球ベッセル関数 [`sph_neumann`](sph_neumann.md)
 
 
 ## 参照

@@ -278,7 +278,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`riemann_zeta`](cmath/riemann_zeta.md.nolink)     | リーマンのゼータ関数   | C++17 |
 | [`sph_bessel`](cmath/sph_bessel.md)         | 第一種球ベッセル関数   | C++17 |
 | [`sph_legendre`](cmath/sph_legendre.md)     | 球面調和関数の *θ* 成分 | C++17 |
-| [`sph_neumann`](cmath/sph_neumann.md.nolink)       | 球ノイマン関数         | C++17 |
+| [`sph_neumann`](cmath/sph_neumann.md)       | 第二種球ベッセル関数   | C++17 |
 
 ## <a id="nearest-integer-functions" href="#nearest-integer-functions">最近傍整数</a>
 
