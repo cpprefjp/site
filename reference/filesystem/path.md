@@ -48,7 +48,7 @@ namespace std::filesystem {
 |------|------|----------------|
 | [`clear`](path/clear.md) | パスを空にする | C++17 |
 | [`make_preferred`](path/make_preferred.md) | ディレクトリの区切り文字を推奨する形式に変換する | C++17 |
-| `remove_filename` | パスからファイル名を除去する | C++17 |
+| [`remove_filename`](path/remove_filename.md) | パスからファイル名を除去する | C++17 |
 | `replace_filename` | パスに含まれるファイル名を置き換える | C++17 |
 | `replace_extension` | パスに含まれる拡張子を置き換える | C++17 |
 | `swap` | 他の`path`オブジェクトとデータを入れ替える | C++17 |
