@@ -51,7 +51,7 @@ namespace std::filesystem {
 | [`remove_filename`](path/remove_filename.md) | パスからファイル名を除去する | C++17 |
 | [`replace_filename`](path/replace_filename.md) | パスに含まれるファイル名を置き換える | C++17 |
 | [`replace_extension`](path/replace_extension.md) | パスに含まれる拡張子を置き換える | C++17 |
-| `swap` | 他の`path`オブジェクトとデータを入れ替える | C++17 |
+| [`swap`](path/swap.md) | 他の`path`オブジェクトとデータを入れ替える | C++17 |
 
 ### 文字コード
 
@@ -153,7 +153,7 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `swap` | 2つの`path`オブジェクトを入れ替える | C++17 |
+| [`swap`](path/swap_free.md) | 2つの`path`オブジェクトを入れ替える | C++17 |
 | `hash_value` | パスのハッシュ値を取得する | C++17 |
 
 ### 比較演算子
