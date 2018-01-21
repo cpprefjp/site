@@ -72,3 +72,10 @@ GCC 7.1.0–8.0.0 では定義域エラーが発生したときに [`std::numeri
 - [N3060 JTC1.22.29124 Programming Language C++ — Special Math Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3060.pdf)
 - [WG21 P0226R1 Mathematical Special Functions for C++17, v5](https://isocpp.org/files/papers/P0226R1.pdf)
 - [ISO/IEC 29124:2010 Information technology -- Programming languages, their environments and system software interfaces -- Extensions to the C++ Library to support mathematical special functions](https://www.iso.org/standard/50511.html)
+
+
+## 実装例
+### 級数
+$$
+K(k) = \frac{\pi}{2} \sum_{n=0}^\infty \left[ \frac{(2n-1)!!}{(2n)!!} \right]^2 k^{2n}
+$$
