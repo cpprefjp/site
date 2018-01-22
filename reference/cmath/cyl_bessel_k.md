@@ -42,15 +42,15 @@ $I$, $J$, $N$ はそれぞれ
 #include <iostream>
 
 void p(double nu) {
-  for (double x : {0, 1, 2})
+  for (double x : {0., 1., 2.})
     std::cout << "cyl_bessel_k(" << nu << ", " << x << ") = " << std::cyl_bessel_k(nu, x) << "\n";
   std::cout << "\n";
 }
 
 int main() {
-  p(0);
-  p(1);
-  p(2);
+  p(0.0);
+  p(0.5); // cyl_bessel_k(1/2, x) = sqrt(π / 2x) * exp(-x)
+  p(1.0);
 }
 ```
 * std::cyl_bessel_k[color ff0000]
@@ -61,13 +61,13 @@ cyl_bessel_k(0, 0) = inf
 cyl_bessel_k(0, 1) = 0.421024
 cyl_bessel_k(0, 2) = 0.113894
 
+cyl_bessel_k(0.5, 0) = inf
+cyl_bessel_k(0.5, 1) = 0.461069
+cyl_bessel_k(0.5, 2) = 0.119938
+
 cyl_bessel_k(1, 0) = inf
 cyl_bessel_k(1, 1) = 0.601907
 cyl_bessel_k(1, 2) = 0.139866
-
-cyl_bessel_k(2, 0) = inf
-cyl_bessel_k(2, 1) = 1.62484
-cyl_bessel_k(2, 2) = 0.25376
 
 ```
 

@@ -36,33 +36,35 @@ $J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である
 #include <cmath>
 #include <iostream>
 
+constexpr double pi = 3.141592653589793;
+
 void p(double nu) {
-  for (double x : {0, 1, 2})
-    std::cout << "cyl_neumann(" << nu << ", " << x << ") = " << std::cyl_neumann(nu, x) << "\n";
+  for (double r : {0., 1./3., 2./3.})
+    std::cout << "cyl_neumann(" << nu << ", " << r << " pi) = " << std::cyl_neumann(nu, r * pi) << "\n";
   std::cout << "\n";
 }
 
 int main() {
-  p(0);
-  p(1);
-  p(2);
+  p(0.0);
+  p(0.5); // cyl_neumann(1/2, x) = -sqrt(2 / πx) * cos(x)
+  p(1.0);
 }
 ```
 * std::cyl_neumann[color ff0000]
 
 ### 出力例
 ```
-cyl_neumann(0, 0) = -inf
-cyl_neumann(0, 1) = 0.088257
-cyl_neumann(0, 2) = 0.510376
+cyl_neumann(0, 0 pi) = -inf
+cyl_neumann(0, 0.333333 pi) = 0.124174
+cyl_neumann(0, 0.666667 pi) = 0.517996
 
-cyl_neumann(1, 0) = -inf
-cyl_neumann(1, 1) = -0.781213
-cyl_neumann(1, 2) = -0.107032
+cyl_neumann(0.5, 0 pi) = -inf
+cyl_neumann(0.5, 0.333333 pi) = -0.389848
+cyl_neumann(0.5, 0.666667 pi) = 0.275664
 
-cyl_neumann(2, 0) = -inf
-cyl_neumann(2, 1) = -1.65068
-cyl_neumann(2, 2) = -0.617408
+cyl_neumann(1, 0 pi) = -inf
+cyl_neumann(1, 0.333333 pi) = -0.741089
+cyl_neumann(1, 0.666667 pi) = -0.054725
 
 ```
 

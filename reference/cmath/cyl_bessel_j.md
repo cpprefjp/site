@@ -35,33 +35,35 @@ $$
 #include <cmath>
 #include <iostream>
 
+constexpr double pi = 3.141592653589793;
+
 void p(double nu) {
-  for (double x : {0, 1, 2})
-    std::cout << "cyl_bessel_j(" << nu << ", " << x << ") = " << std::cyl_bessel_j(nu, x) << "\n";
+  for (double r : {0., 1./3., 2./3.})
+    std::cout << "cyl_bessel_j(" << nu << ", " << r << " pi) = " << std::cyl_bessel_j(nu, r * pi) << "\n";
   std::cout << "\n";
 }
 
 int main() {
-  p(0);
-  p(1);
-  p(2);
+  p(0.0);
+  p(0.5); // cyl_bessel_j(1/2, x) = sqrt(2 / πx) * sin(x)
+  p(1.0);
 }
 ```
 * std::cyl_bessel_j[color ff0000]
 
 ### 出力例
 ```
-cyl_bessel_j(0, 0) = 1
-cyl_bessel_j(0, 1) = 0.765198
-cyl_bessel_j(0, 2) = 0.223891
+cyl_bessel_j(0, 0 pi) = 1
+cyl_bessel_j(0, 0.333333 pi) = 0.744072
+cyl_bessel_j(0, 0.666667 pi) = 0.169794
 
-cyl_bessel_j(1, 0) = 0
-cyl_bessel_j(1, 1) = 0.440051
-cyl_bessel_j(1, 2) = 0.576725
+cyl_bessel_j(0.5, 0 pi) = 0
+cyl_bessel_j(0.5, 0.333333 pi) = 0.675237
+cyl_bessel_j(0.5, 0.666667 pi) = 0.477465
 
-cyl_bessel_j(2, 0) = 0
-cyl_bessel_j(2, 1) = 0.114903
-cyl_bessel_j(2, 2) = 0.352834
+cyl_bessel_j(1, 0 pi) = 0
+cyl_bessel_j(1, 0.333333 pi) = 0.455031
+cyl_bessel_j(1, 0.666667 pi) = 0.568869
 
 ```
 

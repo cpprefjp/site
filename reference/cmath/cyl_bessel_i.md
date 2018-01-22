@@ -37,15 +37,15 @@ $J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である
 #include <iostream>
 
 void p(double nu) {
-  for (double x : {0, 1, 2})
+  for (double x : {0., 1., 2.})
     std::cout << "cyl_bessel_i(" << nu << ", " << x << ") = " << std::cyl_bessel_i(nu, x) << "\n";
   std::cout << "\n";
 }
 
 int main() {
-  p(0);
-  p(1);
-  p(2);
+  p(0.0);
+  p(0.5); // cyl_bessel_i(1/2, x) = sqrt(2 / πx) * sinh(x)
+  p(1.0);
 }
 ```
 * std::cyl_bessel_i[color ff0000]
@@ -56,13 +56,13 @@ cyl_bessel_i(0, 0) = 1
 cyl_bessel_i(0, 1) = 1.26607
 cyl_bessel_i(0, 2) = 2.27959
 
+cyl_bessel_i(0.5, 0) = 0
+cyl_bessel_i(0.5, 1) = 0.937675
+cyl_bessel_i(0.5, 2) = 2.04624
+
 cyl_bessel_i(1, 0) = 0
 cyl_bessel_i(1, 1) = 0.565159
 cyl_bessel_i(1, 2) = 1.59064
-
-cyl_bessel_i(2, 0) = 0
-cyl_bessel_i(2, 1) = 0.135748
-cyl_bessel_i(2, 2) = 0.688948
 
 ```
 
