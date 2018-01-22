@@ -33,16 +33,16 @@ $$ L_n(x) = \frac{e^x}{n!} \frac{\mathrm{d}^n}{\mathrm{d}x^n} (x^n e^{-x}) \quad
 #include <iostream>
 
 void p(unsigned n) {
-  for (double x : {0, 1, 2})
+  for (double x : {0., 1., 2.})
     std::cout << "laguerre(" << n << ", " << x << ") = " << std::laguerre(n, x) << "\n";
   std::cout << "\n";
 }
 
 int main() {
-  p(0); // L0 = 1
-  p(1); // L1 = -x + 1
-  p(2); // L2 = (x^2 - 4x + 2) / 2
-  p(3); // L3 = (-x^3 + 9x^2 - 18x + 6) / 6
+  p(0); // L0(x) = 1
+  p(1); // L1(x) = -x + 1
+  p(2); // L2(x) = (x^2 - 4x + 2) / 2
+  p(3); // L3(x) = (-x^3 + 9x^2 - 18x + 6) / 6
 }
 ```
 * std::laguerre[color ff0000]

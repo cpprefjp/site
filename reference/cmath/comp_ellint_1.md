@@ -33,7 +33,7 @@ $ F(k, \phi) $ は第一種不完全楕円積分 ([`ellint_1`](ellint_1.md))。
 #include <iostream>
 
 int main() {
-  std::cout << "comp_ellint_1(0)   = " << std::comp_ellint_1(0) << "\n";    // pi / 2
+  std::cout << "comp_ellint_1(0)   = " << std::comp_ellint_1(0) << "\n";    // π / 2
   std::cout << "comp_ellint_1(0.5) = " << std::comp_ellint_1(0.5) << "\n";  // 1.68575
   std::cout << "comp_ellint_1(1)   = " << std::comp_ellint_1(1) << "\n";    // ∞
 }

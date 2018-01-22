@@ -40,7 +40,7 @@ constexpr double pi = 3.141592653589793;
 
 void p(unsigned n) {
   for (double r : {0., 0.25, 0.5})
-    std::cout << "sph_neumann(" << n << ", " << r << ") = " << std::sph_neumann(n, r * pi) << "\n";
+    std::cout << "sph_neumann(" << n << ", " << r << " pi) = " << std::sph_neumann(n, r * pi) << "\n";
   std::cout << "\n";
 }
 

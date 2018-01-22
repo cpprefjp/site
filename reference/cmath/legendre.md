@@ -33,16 +33,16 @@ $$ P_l(x) = \frac{1}{2^l l!} \frac{\mathrm{d}^l}{\mathrm{d}x^l} (x^2 - 1)^l \qua
 #include <iostream>
 
 void p(unsigned n) {
-  for (double x : {-1, 0, 1})
+  for (double x : {-1., 0., 1.})
     std::cout << "legendre(" << n << ", " << x << ") = " << std::legendre(n, x) << "\n";
   std::cout << "\n";
 }
 
 int main() {
-  p(0); // P0 = 1
-  p(1); // P1 = x
-  p(2); // P2 = (3x^2 - 1) / 2
-  p(3); // P3 = (5x^3 - 3x) / 2
+  p(0); // P0(x) = 1
+  p(1); // P1(x) = x
+  p(2); // P2(x) = (3x^2 - 1) / 2
+  p(3); // P3(x) = (5x^3 - 3x) / 2
 }
 ```
 * std::legendre[color ff0000]

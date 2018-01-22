@@ -23,7 +23,7 @@ $$
 P_l^m(x) = (1 - x^2)^{m/2} \frac{\mathrm d^m}{\mathrm dx^m} P_l(x)
 \quad \text{for } |x| \le 1
 $$
-を返す。$P_l$ はルジャンドル多項式 ([`legendre`](legendre.md))。
+を返す。右辺の $P$ はルジャンドル多項式 ([`legendre`](legendre.md))。
 
 
 ## 備考
@@ -36,7 +36,7 @@ $$
 #include <iostream>
 
 void p(unsigned l, unsigned m) {
-  for (double x : {-1, 0, 1})
+  for (double x : {-1., 0., 1.})
     std::cout << "assoc_legendre(" << l << ", " << m << ", " << x << ") = " << std::assoc_legendre(l, m, x) << "\n";
   std::cout << "\n";
 }

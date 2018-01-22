@@ -33,7 +33,7 @@ $ E(k, \phi) $ は第二種不完全楕円積分 ([`ellint_2`](ellint_2.md))。
 #include <iostream>
 
 int main() {
-  std::cout << "comp_ellint_2(0)   = " << std::comp_ellint_2(0) << "\n";    // pi / 2
+  std::cout << "comp_ellint_2(0)   = " << std::comp_ellint_2(0) << "\n";    // π / 2
   std::cout << "comp_ellint_2(0.5) = " << std::comp_ellint_2(0.5) << "\n";  // 1.46746
   std::cout << "comp_ellint_2(1)   = " << std::comp_ellint_2(1) << "\n";    // 1
 }

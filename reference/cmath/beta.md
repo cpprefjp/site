@@ -33,7 +33,7 @@ $$
 
 int main() {
   std::cout << "beta(0, 0)      = " << std::beta(0, 0) << std::endl;      // 定義域エラー; 特異点
-  std::cout << "beta(-0.5, 1.5) = " << std::beta(-0.5, 1.5) << std::endl; // 定義域エラー; 解析接続すれば -pi
+  std::cout << "beta(-0.5, 1.5) = " << std::beta(-0.5, 1.5) << std::endl; // 定義域エラー; 解析接続すれば -π
   std::cout << "beta(1, 1)      = " << std::beta(1, 1) << std::endl;      // 1
   std::cout << "beta(2, 4)      = " << std::beta(2, 4) << std::endl;      // 1 / 20
 }

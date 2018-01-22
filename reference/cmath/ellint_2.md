@@ -46,7 +46,7 @@ void p(double k) {
 int main() {
   p(0);   // ellint_2(0, phi) = phi
   p(0.5);
-  p(1);   // ellint_2(1, phi) = sin(phi) for phi ∈ (-π/2, π/2)
+  p(1);   // ellint_2(1, phi) = sin(phi) for phi ∈ [-π/2, π/2]
 }
 ```
 * std::ellint_2[color ff0000]

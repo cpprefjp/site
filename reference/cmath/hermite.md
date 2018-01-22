@@ -39,10 +39,10 @@ void p(unsigned n) {
 }
 
 int main() {
-  p(0); // H0 = 1
-  p(1); // H1 = 2x
-  p(2); // H2 = 4x^2 - 2
-  p(3); // H3 = 8x^3 - 12x
+  p(0); // H0(x) = 1
+  p(1); // H1(x) = 2x
+  p(2); // H2(x) = 4x^2 - 2
+  p(3); // H3(x) = 8x^3 - 12x
 }
 ```
 * std::hermite[color ff0000]
