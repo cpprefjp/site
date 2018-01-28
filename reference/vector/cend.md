@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-const_iterator end() const noexcept;
+const_iterator cend() const noexcept;
 ```
 
 ## 概要
