@@ -60,7 +60,7 @@ namespace std {
 - 書式化入力関数は、`sentry`コンストラクタの2番目の仮引数`noskipws`に`false`を渡す。
 - 非書式化入力関数は、`sentry`コンストラクタの2番目の仮引数`noskipws`に`true`を渡す。
 
-構築した`sentry`オブジェクトが`explict operator bool`関数で`true`に変換できる場合のみ、実際の入力処理（各関数の「効果」として記載した処理）が実行される。
+構築した`sentry`オブジェクトが`explicit operator bool`関数で`true`に変換できる場合のみ、実際の入力処理（各関数の「効果」として記載した処理）が実行される。
 
 関数内部で例外が送出された場合、`ios_base::badbit`をセットする。
 そして、`(exceptions() & badbit) != 0`であれば例外を再送出する。
