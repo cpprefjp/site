@@ -54,6 +54,6 @@ void user2()
 
 
 ## 参照
-- [N1448 Controling Implicit Template Instantiation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1448.pdf)
+- [N1448 Controlling Implicit Template Instantiation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1448.pdf)
 - [N1987 Adding "extern template" (version 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1987.htm)
 
