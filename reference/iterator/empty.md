@@ -7,22 +7,22 @@
 ```cpp
 namespace std {
   template <class C>
-  constexpr auto empty(const C& c) -> decltype(c.empty());                   // (1) C++17
+  constexpr auto empty(const C& c) -> decltype(c.empty());               // (1) C++17
 
   template <class C>
-  [[nodiscard]] constexpr auto empty(const C& c) -> decltype(c.empty());     // (1) C++20
+  [[nodiscard]] constexpr auto empty(const C& c) -> decltype(c.empty()); // (1) C++20
 
   template <class T, std::size_t N>
-  constexpr std::size_t empty(const T (&array)[N]) noexcept;                 // (2) C++17
+  constexpr bool empty(const T (&array)[N]) noexcept;                    // (2) C++17
 
   template <class T, std::size_t N>
-  [[nodiscard]] constexpr std::size_t empty(const T (&array)[N]) noexcept;   // (2) C++20
+  [[nodiscard]] constexpr bool empty(const T (&array)[N]) noexcept;      // (2) C++20
 
   template <class E>
-  constexpr bool empty(initializer_list<E> il) noexcept;                     // (3) C++17
+  constexpr bool empty(initializer_list<E> il) noexcept;                 // (3) C++17
 
   template <class E>
-  [[nodiscard]] constexpr bool empty(initializer_list<E> il) noexcept;       // (3) C++20
+  [[nodiscard]] constexpr bool empty(initializer_list<E> il) noexcept;   // (3) C++20
 }
 ```
 * initializer_list[link /reference/initializer_list.md]
