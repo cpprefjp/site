@@ -28,8 +28,9 @@ void resize(size_type sz, const T& c = T()); // (1) + (2) : C++03
 ## 効果
 - (1) :
     - もし`sz`が現在のコンテナの[`size()`](size.md)より小さい場合、以下の動作をする：
-        - [`erase`](erase.md)`(`[`begin()`](begin.md) `+ sz,` [`end()`](end.md)`);` (C++11まで)
-        - [`pop_back()`](pop_back.md)関数を[`size()`](size.md) `- sz`回呼ぶ (C++14以降)
+        - C++11まで : [`erase`](erase.md)`(`[`begin()`](begin.md) `+ sz,` [`end()`](end.md)`);`
+        - C++14 : [`pop_back()`](pop_back.md)関数を[`size()`](size.md) `- sz`回呼ぶ
+        - C++17 : 後ろから[`size()`](size.md) `- sz`個の要素を削除する
     - もし`sz`が現在のコンテナの[`size()`](size.md)より大きい場合、`sz -` [`size()`](size.md)個だけ値初期化された`T`型オブジェクトのコピーを追加する。
 
 
@@ -48,10 +49,12 @@ void resize(size_type sz, const T& c = T()); // (1) + (2) : C++03
     * erase[link erase.md]
     * begin()[link begin.md]
 
-    - C++14以降
+    - C++14
         - もし`sz`が現在のコンテナの[`size()`](size.md)より小さい場合、[`pop_back()`](pop_back.md)関数を[`size()`](size.md) `- sz`回呼ぶ
         - もし`sz`が現在のコンテナの[`size()`](size.md)より大きい場合、`sz -` [`size()`](size.md)個だけオブジェクト`c`のコピーを追加する。
-
+    - C++17以降
+        - もし`sz`が現在のコンテナの[`size()`](size.md)より小さい場合、後ろから[`size()`](size.md) `- sz`個の要素を削除する
+        - そうでなければ、`sz -` [`size()`](size.md)個だけオブジェクト`c`のコピーを追加する。
 
 ## 戻り値
 なし
@@ -102,6 +105,7 @@ int main()
 ## 参照
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
 - [LWG Issue 2323. `vector::resize(n, t)`'s specification should be simplified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2323)
+- [LWG Issue 2160. Unintended destruction ordering-specification of `resize`](https://wg21.cmeerw.net/lwg/issue2160)
 
 
 ## 関連項目
