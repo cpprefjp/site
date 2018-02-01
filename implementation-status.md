@@ -195,7 +195,7 @@
 
 各処理系のC++17実装状況ページ：
 
-- GCC: [C++1z Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx1z)
+- GCC: [C++17 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx17)
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libc++ : [libc++ C++1z Status](http://libcxx.llvm.org/cxx1z_status.html)
 - Visual C++ (MSVC):
