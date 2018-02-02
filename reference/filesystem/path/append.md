@@ -67,6 +67,7 @@ int main()
   }
 }
 ```
+* append[color ff0000]
 
 #### 出力
 ```
@@ -158,6 +159,7 @@ int main()
   }
 }
 ```
+* append[color ff0000]
 
 #### 出力
 ```
