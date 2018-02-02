@@ -27,6 +27,7 @@ cpprefjpサイトでは、ページファイル名の付け方について、い
 | `operator-=`  | 減算の複合代入 | `op_minus_assign` | |
 | `operator*=`  | 乗算の複合代入 | `op_multiply_assign` | |
 | `operator/=`  | 除算の複合代入 | `op_divide_assign` | |
+| `operator/=`  | パス要素加算の複合代入 | `op_append_assign` | この演算子はファイルシステムの文脈で特殊な意味を持つ。<br/> 対応するメンバ関数`append()`と合わせた命名 |
 | `operator%=`  | 剰余の複合代入 | `op_modulo_assign` | |
 | `operator<<=` | 左ビットシフトの複合代入 | `op_left_shift_assign` | |
 | `operator>>=` | 右ビットシフトの複合代入 | `op_right_shift_assign` | |
@@ -49,6 +50,7 @@ cpprefjpサイトでは、ページファイル名の付け方について、い
 | `operator-` (二項) | 減算演算子  | `op_minus`         | |
 | `operator*` (二項) | 乗算演算子  | `op_multiply`      | |
 | `operator/` (二項) | 除算演算子  | `op_divide`        | |
+| `operator/` (二項) | パス要素加算の演算子  | `op_append` | この演算子はファイルシステムの文脈で特殊な意味を持つ |
 | `operator%` (二項) | 剰余演算子  | `op_modulo`        | |
 | `operator&` | ビット論理積演算子 | `op_and` | |
 | `operator`<code>&#x7C;</code> | ビット論理和演算子 | `op_or` | |
