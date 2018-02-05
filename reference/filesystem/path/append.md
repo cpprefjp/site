@@ -1,4 +1,4 @@
-# operator/=
+# append
 * filesystem[meta header]
 * std::filesystem[meta namespace]
 * path[meta class]
