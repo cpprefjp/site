@@ -39,8 +39,8 @@ namespace std::filesystem {
 |------|------|----------------|
 | [`operator/=`](path/op_append_assign.md) | パス要素を加算する | C++17 |
 | [`append`](path/append.md) | パス要素を加算する | C++17 |
-| `operator+=` | パス文字列を加算する | C++17 |
-| `concat`     | パス文字列を加算する | C++17 |
+| [`operator+=`](path/op_plus_assign.md) | パス文字列を加算する | C++17 |
+| [`concat`](path/concat.md) | パス文字列を加算する | C++17 |
 
 ### パスの変更
 
