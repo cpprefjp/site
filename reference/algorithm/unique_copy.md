@@ -6,28 +6,37 @@
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator>
-  OutputIterator unique_copy(InputIterator first, InputIterator last,
-                             OutputIterator result);
+  OutputIterator unique_copy(InputIterator first,
+                             InputIterator last,
+                             OutputIterator result); // (1)
 
-  template <class InputIterator, class OutputIterator, class BinaryPredicate>
-  OutputIterator unique_copy(InputIterator first, InputIterator last,
-                             OutputIterator result, BinaryPredicate pred);
+  template <class InputIterator, class OutputIterator,
+            class BinaryPredicate>
+  OutputIterator unique_copy(InputIterator first,
+                             InputIterator last,
+                             OutputIterator result,
+                             BinaryPredicate pred);  // (2)
 }
 ```
 
 ## 概要
-重複した要素を取り除き、その結果を出力の範囲へコピーする。
+隣り合った重複要素を取り除き、その結果を出力の範囲へコピーする。
 
 
 ## 要件
-- 比較関数は等価関係を持っていなければならない。
-- `[first,last)` と `[result,result + (last - first))` は重なっていてはならない。
-- `*result = *first` は有効な式でなければならない。
-- `InputIterator` と `OutputIterator` のどちらも forward iterator の要求を満たしていない場合、`InputIterator` の value type は `CopyConstructible` かつ `CopyAssignable` でなければならない。そうでない場合は `CopyConstructible` は要求されない。
+- 二項関数オブジェクト`pred`は、ふたつの値の等値性を判定できなければならない
+- `[first,last)` と `[result,result + (last - first))` は重なっていてはならない
+- `*result = *first` は有効な式でなければならない
+- `InputIterator` と `OutputIterator` のどちらも forward iterator の要求を満たしていない場合、`InputIterator` の値型は [`CopyConstructible`](/reference/concepts/CopyConstructible.md) かつ [`CopyAssignable`](/reference/concepts/CopyAssignable.md) でなければならない。そうでない場合は [`CopyConstructible`](/reference/concepts/CopyConstructible.md) は要求されない
 
 
 ## 効果
-`[first,last)` 内のイテレータ `i` について、`*(i - 1) == *i` もしくは `pred(*(i - 1), *i) != false` による等値の比較によって連続したグループに分け、それぞれのグループの先頭を `result` へコピーする。
+`[first,last)` 内のイテレータ `i` について、
+
+- (1) では `*(i - 1) == *i`
+- (2) では `pred(*(i - 1), *i) != false`
+
+による等値の比較によって連続したグループに分け、それぞれのグループの先頭を `result` へコピーする。
 
 
 ## 戻り値
@@ -45,23 +54,53 @@ namespace std {
 #include <vector>
 #include <iterator>
 
+void print(const char* tag, const std::vector<int>& v) {
+  std::cout << tag << " : ";
+  bool first = true;
+  for (int x : v) {
+    if (first) {
+      first = false;
+    }
+    else {
+      std::cout << ',';
+    }
+    std::cout << x;
+  }
+  std::cout << std::endl;
+}
+
 int main() {
-  std::vector<int> v = { 2,5,3,3,1,2,4,2,1,1,4,4,3,3,3 };
-  std::vector<int> uniqued;
+  // 入力の配列がソート済みではない場合、
+  // 隣り合った重複要素が取り除かれる
+  {
+    std::vector<int> v = { 2,5,3,3,1,2,4,2,1,1,4,4,3,3,3 };
+    std::vector<int> uniqued;
 
-  // 連続した値を削除してコピーする
-  std::unique_copy(v.begin(), v.end(), std::back_inserter(uniqued));
+    // 重複を除いた要素がuniquedに追加されていく
+    std::unique_copy(v.begin(), v.end(), std::back_inserter(uniqued));
 
-  std::for_each(uniqued.begin(), uniqued.end(), [](int x) { std::cout << x << ","; });
+    print("unsorted unique", uniqued);
+  }
+
+  // 入力の配列がソート済みである場合、
+  // 重複している全ての要素が取り除かれて一意になる
+  {
+    std::vector<int> v = { 2,5,3,3,1,2,4,2,1,1,4,4,3,3,3 };
+    std::vector<int> uniqued;
+
+    std::sort(v.begin(), v.end());
+    std::unique_copy(v.begin(), v.end(), std::back_inserter(uniqued));
+
+    print("sorted unique", uniqued);
+  }
 }
 ```
 * std::unique_copy[color ff0000]
-* uniqued.begin()[link /reference/vector/begin.md]
-* uniqued.end()[link /reference/vector/end.md]
 
 ### 出力
 ```
-2,5,3,1,2,4,2,1,4,3,
+unsorted unique : 2,5,3,1,2,4,2,1,4,3
+sorted unique : 1,2,3,4,5
 ```
 
 
