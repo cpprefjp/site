@@ -7,9 +7,9 @@
 
 ```cpp
 template <class EcharT,
-          class traits = char_traits<EcharT>,
-          class Allocator = allocator<EcharT>>
-basic_string<EcharT, traits, Allocator>
+          class traits = std::char_traits<EcharT>,
+          class Allocator = std::allocator<EcharT>>
+std::basic_string<EcharT, traits, Allocator>
   string(const Allocator& a = Allocator()) const; // (1)
 
 std::string string() const;                       // (2)
