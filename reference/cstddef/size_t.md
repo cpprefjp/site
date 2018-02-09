@@ -32,3 +32,6 @@ int main()
 ```
 ```
 
+
+## 参照
+- [CWG Issue 1122. Circular definition of `std::size_t`](https://wg21.cmeerw.net/cwg/issue1122)
