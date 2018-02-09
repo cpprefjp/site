@@ -60,7 +60,7 @@ namespace std::filesystem {
 | [`native`](path/native.md) | システムの文字コードとしてパス文字列を取得する | C++17 |
 | [`c_str`](path/c_str.md) | システムの文字コードとしてC言語の文字列表現を取得する | C++17 |
 | [`operator string_type`](path/op_string_type.md) | システムの文字コードとして文字列型に変換する | C++17 |
-| `string` | システムのマルチバイト文字コードとしてパス文字列を取得する | C++17 |
+| [`string`](path/string.md) | システムのマルチバイト文字コードとしてパス文字列を取得する | C++17 |
 | `wstring` | システムのワイド文字コードとしてパス文字列を取得する | C++17 |
 | `u8string` | UTF-8エンコードとしてパス文字列を取得する | C++17 |
 | `u16string` | UTF-16エンコードでパス文字列を取得する | C++17 |
