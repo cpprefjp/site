@@ -53,7 +53,7 @@ namespace std::filesystem {
 | [`replace_extension`](path/replace_extension.md) | パスに含まれる拡張子を置き換える | C++17 |
 | [`swap`](path/swap.md) | 他の`path`オブジェクトとデータを入れ替える | C++17 |
 
-### 文字コード
+### システムのパスフォーマット
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
