@@ -65,7 +65,7 @@ int main()
   }
 }
 ```
-* p.string()[color ff0000]
+* p.string[color ff0000]
 
 #### 出力
 ```
