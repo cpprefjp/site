@@ -71,10 +71,10 @@ namespace std::filesystem {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`generic_string`](path/generic_string.md) | システムのマルチバイト文字コードとして、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
-| `generic_wstring` | システムのワイド文字コードとして、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
-| `generic_u8string` | UTF-8エンコードで、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
-| `generic_u16string` | UTF-16エンコードで、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
-| `generic_u32string` | UTF-32エンコードで、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
+| [`generic_wstring`](path/generic_wstring.md) | システムのワイド文字コードとして、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
+| [`generic_u8string`](path/generic_u8string.md) | UTF-8エンコードで、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
+| [`generic_u16string`](path/generic_u16string.md) | UTF-16エンコードで、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
+| [`generic_u32string`](path/generic_u32string.md) | UTF-32エンコードで、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
 
 
 ### 比較
