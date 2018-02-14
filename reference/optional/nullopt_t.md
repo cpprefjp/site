@@ -17,7 +17,7 @@ namespace std {
 
 この型の値を持つ`nullopt`定数を[`std::optional`](/reference/optional/optional.md)クラスのオブジェクトに代入することで、有効な値を保持していない状態にできる。
 
-`nullopt_t`クラスは、デフォルトコンストラクタを持たない。これは、`nullopt`変数を`nullopt_t`型の唯一の値とするためである。また、`nullopt_t`は[集成体](/reference/type_traits/is_aggregate.md)ではない。
+`nullopt_t`クラスは、デフォルトコンストラクタおよび初期化子リストコンストラクタを持たない。これは、`nullopt`変数を`nullopt_t`型の唯一の値とするためである。また、`nullopt_t`は[集成体](/reference/type_traits/is_aggregate.md)ではない。これは`optional<T> opt = {};`を曖昧にしないためである。
 
 
 ## 例
@@ -56,3 +56,7 @@ int main()
 
 ## 関連項目
 - [`std::optional`](/reference/optional/optional.md)クラス
+
+
+## 参照
+- [LWG Issue 2736. `nullopt_t` insufficiently constrained](https://wg21.cmeerw.net/lwg/issue2736)
