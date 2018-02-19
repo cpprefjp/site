@@ -160,7 +160,7 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `operator==` | 等値比較 | C++17 |
+| [`operator==`](path/op_equal.md) | 等値比較 | C++17 |
 | `operator!=` | 非等値比較 | C++17 |
 | `operator<` | 左辺が右辺より小さいかの判定を行う | C++17 |
 | `operator<=` | 左辺が右辺以下かの判定を行う | C++17 |
