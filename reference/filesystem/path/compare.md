@@ -23,6 +23,7 @@ int compare(const value_type* s) const;             // (4)
 
 ## 例
 ```cpp example
+#include <cassert>
 #include <iostream>
 #include <filesystem>
 
@@ -36,6 +37,12 @@ int main()
   std::cout << a.compare(b) << std::endl;
   std::cout << b.compare(a) << std::endl;
   std::cout << a.compare(a) << std::endl;
+
+  // 正規化は考慮されない。
+  // ファイルシステムとしてのパスの同等性ではなく、
+  // パス文字列の同値性が比較されれる
+  fs::path c = "a/../b/c";
+  assert(a.compare(c) != 0);
 }
 ```
 * compare[color ff0000]
