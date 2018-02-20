@@ -161,11 +161,11 @@ namespace std::filesystem {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator==`](path/op_equal.md) | 等値比較 | C++17 |
-| `operator!=` | 非等値比較 | C++17 |
-| `operator<` | 左辺が右辺より小さいかの判定を行う | C++17 |
-| `operator<=` | 左辺が右辺以下かの判定を行う | C++17 |
-| `operator>` | 左辺が右辺より大きいかの判定を行う | C++17 |
-| `operator>=` | 左辺が右辺以上かの判定を行う | C++17 |
+| [`operator!=`](path/op_not_equal.md) | 非等値比較 | C++17 |
+| [`operator<`](path/op_less.md) | 左辺が右辺より小さいかの判定を行う | C++17 |
+| [`operator<=`](path/op_less_equal.md) | 左辺が右辺以下かの判定を行う | C++17 |
+| [`operator>`](path/op_greater.md) | 左辺が右辺より大きいかの判定を行う | C++17 |
+| [`operator>=`](path/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++17 |
 
 ### パスの連結
 
