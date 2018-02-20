@@ -37,6 +37,7 @@ int main()
 }
 ```
 * a >= b[color ff0000]
+* a >= a[color ff0000]
 
 ### 出力
 ```
