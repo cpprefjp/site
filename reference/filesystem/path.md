@@ -177,8 +177,8 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `operator<<` | ストリームへの出力 | C++17 |
-| `operator>>` | ストリームからの入力 | C++17 |
+| [`operator<<`](path/op_ostream.md) | ストリームへの出力 | C++17 |
+| [`operator>>`](path/op_istream.md) | ストリームからの入力 | C++17 |
 
 ### 生成関数
 
