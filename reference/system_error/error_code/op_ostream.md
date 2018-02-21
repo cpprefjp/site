@@ -21,9 +21,9 @@ namespace std {
 ```cpp
 os << ec.category().name() << ':' << ec.value();
 ```
-* category()[link error_code/category.md]
-* name()[link error_category/name.md]
-* value()[link error_code/value.md]
+* category()[link category.md]
+* name()[link /reference/system_error/error_category/name.md]
+* value()[link value.md]
 
 
 ## 戻り値
@@ -42,9 +42,8 @@ int main()
   std::cout << ec << std::endl;
 }
 ```
-* std::error_code[link error_code.md]
-* std::make_error_code[link make_error_code.md]
-* std::errc::invalid_argument[link errc.md]
+* std::make_error_code[link /reference/system_error/make_error_code.md]
+* std::errc::invalid_argument[link /reference/system_error/errc.md]
 
 ### 出力
 ```
