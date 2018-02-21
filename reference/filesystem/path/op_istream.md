@@ -55,6 +55,7 @@ int main()
   assert(p.native() == "a/b/c");
 }
 ```
+* p.native()[link native.md]
 
 #### 出力
 ```
@@ -78,6 +79,7 @@ int main()
   assert(p.native() == "a\\b\\c");
 }
 ```
+* p.native()[link native.md]
 
 #### 出力
 ```
