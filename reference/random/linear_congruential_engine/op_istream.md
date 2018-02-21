@@ -8,12 +8,11 @@
 namespace std {
   template <class CharT, class Traits,
             class UIntType, UIntType a, UIntType c, UIntType m>
-  basic_istream<CharT, Traits>& operator>>(
-    basic_istream<CharT, Traits>& os
+  std::basic_istream<CharT, Traits>& operator>>(
+    std::basic_istream<CharT, Traits>& os
     linear_congruential_engine<UIntType, a, c, m>& x);
 }
 ```
-* basic_istream[link /reference/istream/basic_istream.md]
 
 ## 概要
 ストリームからの入力を行う。

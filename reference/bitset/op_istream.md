@@ -6,11 +6,10 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits, size_t N>
-  basic_istream<CharT, Traits>&
-    operator>>(basic_istream<CharT, Traits>& is, bitset<N>& x);
+  std::basic_istream<CharT, Traits>&
+    operator>>(std::basic_istream<CharT, Traits>& is, bitset<N>& x);
 }
 ```
-* basic_istream[link /reference/istream/basic_istream.md]
 
 ## 概要
 2進数表記でストリームから入力する。

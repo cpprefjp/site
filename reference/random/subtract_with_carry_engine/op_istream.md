@@ -8,12 +8,11 @@
 namespace std {
   template <class CharT, class Traits,
             class UIntType, size_t w, size_t s, size_t r>
-  basic_istream<CharT, Traits>& operator>>(
-    basic_istream<CharT, Traits>& os
+  std::basic_istream<CharT, Traits>& operator>>(
+    std::basic_istream<CharT, Traits>& os
     subtract_with_carry_engine<UIntType, w, s, r>& x);
 }
 ```
-* basic_istream[link /reference/istream/basic_istream.md]
 
 ## 概要
 ストリームからの入力を行う。

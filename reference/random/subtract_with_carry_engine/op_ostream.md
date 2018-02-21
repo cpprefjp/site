@@ -8,12 +8,11 @@
 namespace std {
   template <class CharT, class Traits,
             class UIntType, size_t w, size_t s, size_t r>
-  basic_ostream<CharT, Traits>& operator<<(
-    basic_ostream<CharT, Traits>& os
+  std::basic_ostream<CharT, Traits>& operator<<(
+    std::basic_ostream<CharT, Traits>& os
     const subtract_with_carry_engine<UIntType, w, s, t>& x);
 }
 ```
-* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
 ストリームへの出力を行う。

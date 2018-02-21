@@ -11,12 +11,11 @@ namespace std {
             UIntType a, size_t u, UIntType d, size_t s,
             UIntType b, size_t t,
             UIntType c, size_t l, UIntType f>
-  basic_istream<CharT, Traits>& operator>>(
-    basic_istream<CharT, Traits>& os
+  std::basic_istream<CharT, Traits>& operator>>(
+    std::basic_istream<CharT, Traits>& os
     mersenne_twister_engine<UIntType, w, n, m, r, a, u, d, s, b, t, c, l, f>& x);
 }
 ```
-* basic_istream[link /reference/istream/basic_istream.md]
 
 ## 概要
 ストリームからの入力を行う。

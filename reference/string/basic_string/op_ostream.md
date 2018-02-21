@@ -6,8 +6,8 @@
 ```cpp
 namespace std {
   template<class CharT, class Traits, class Allocator>
-  basic_ostream<CharT, Traits>&
-    operator<<(basic_ostream<CharT, Traits>& os,
+  std::basic_ostream<CharT, Traits>&
+    operator<<(std::basic_ostream<CharT, Traits>& os,
                const basic_string<CharT, Traits, Allocator>& s);
 }
 ```

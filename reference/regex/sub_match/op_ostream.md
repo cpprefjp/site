@@ -7,10 +7,11 @@
 ```cpp
 namespace std {
   template <class charT, class ST, class BiIter>
-    basic_ostream<charT, ST>& operator<<(basic_ostream<charT, ST>& os, const sub_match<BiIter>& m);
+  std::basic_ostream<charT, ST>& operator<<(
+    std::basic_ostream<charT, ST>& os,
+    const sub_match<BiIter>& m);
 }
 ```
-* basic_ostream[link ../../ostream/basic_ostream.md]
 * sub_match[link ../sub_match.md]
 
 ## 概要

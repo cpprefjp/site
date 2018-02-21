@@ -6,11 +6,10 @@
 ```cpp
 namespace std {
   template <class T, class CharT, class Traits>
-  basic_istream<CharT, Traits>&
-    operator>>(basic_istream<CharT, Traits>& is, complex<T>& x);
+  std::basic_istream<CharT, Traits>&
+    operator>>(std::basic_istream<CharT, Traits>& is, complex<T>& x);
 }
 ```
-* basic_istream[link /reference/istream/basic_istream.md]
 
 ## 概要
 ストリームからの入力。

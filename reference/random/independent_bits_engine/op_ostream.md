@@ -8,12 +8,11 @@
 namespace std {
   template <class CharT, class Traits,
             class Engine, size_t W, class UIntType>
-  basic_ostream<CharT, Traits>& operator<<(
-    basic_ostream<CharT, Traits>& os
+  std::basic_ostream<CharT, Traits>& operator<<(
+    std::basic_ostream<CharT, Traits>& os
     const independent_bits_engine<Engine, W, UIntType>& x);
 }
 ```
-* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
 ストリームへの出力を行う。

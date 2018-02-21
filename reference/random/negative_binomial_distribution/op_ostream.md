@@ -7,12 +7,11 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits, class IntType>
-  basic_ostream<CharT, Traits>& operator<<(
-    basic_ostream<CharT, Traits>& os
+  std::basic_ostream<CharT, Traits>& operator<<(
+    std::basic_ostream<CharT, Traits>& os
     const negative_binomial_distribution<IntType>& x);
 }
 ```
-* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
 ストリームへの出力を行う。

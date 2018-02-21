@@ -7,12 +7,11 @@
 ```cpp
 namespace std {
   template <class charT, class traits>
-  basic_ostream<charT,traits>&
-    operator<<(basic_ostream<charT,traits>& os, const error_code& ec);
+  std::basic_ostream<charT,traits>&
+    operator<<(std::basic_ostream<charT,traits>& os, const error_code& ec);
 }
 ```
 * error_code[link error_code.md]
-* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
 左辺の`basic_ostream`オブジェクトに`error_code`オブジェクトを出力する

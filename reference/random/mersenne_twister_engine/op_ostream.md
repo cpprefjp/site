@@ -11,12 +11,11 @@ namespace std {
             UIntType a, size_t u, UIntType d, size_t s,
             UIntType b, size_t t,
             UIntType c, size_t l, UIntType f>
-  basic_ostream<CharT, Traits>& operator<<(
-    basic_ostream<CharT, Traits>& os
+  std::basic_ostream<CharT, Traits>& operator<<(
+    std::basic_ostream<CharT, Traits>& os
     const mersenne_twister_engine<UIntType, w, n, m, r, a, u, d, s, b, t, c, l, f>& x);
 }
 ```
-* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
 ストリームへの出力を行う。

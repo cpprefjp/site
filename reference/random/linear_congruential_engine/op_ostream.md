@@ -8,12 +8,11 @@
 namespace std {
   template <class CharT, class Traits,
             class UIntType, UIntType a, UIntType c, UIntType m>
-  basic_ostream<CharT, Traits>& operator<<(
-    basic_ostream<CharT, Traits>& os
+  std::basic_ostream<CharT, Traits>& operator<<(
+    std::basic_ostream<CharT, Traits>& os
     const linear_congruential_engine<UIntType, a, c, m>& x);
 }
 ```
-* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
 ストリームへの出力を行う。

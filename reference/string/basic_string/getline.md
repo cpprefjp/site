@@ -6,27 +6,26 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits, class Allocator>
-  basic_istream<CharT, Traits>&
-    getline(basic_istream<CharT, Traits>& is,
+  std::basic_istream<CharT, Traits>&
+    getline(std::basic_istream<CharT, Traits>& is,
             basic_string<CharT, Traits, Allocator>& str);              // (1)
 
   template <class CharT, class Traits, class Allocator>
-  basic_istream<CharT, Traits>&
-    getline(basic_istream<CharT, Traits>&& is,
+  std::basic_istream<CharT, Traits>&
+    getline(std::basic_istream<CharT, Traits>&& is,
             basic_string<CharT, Traits, Allocator>& str);              // (2) C++11から
 
   template <class CharT, class Traits, class Allocator>
-  basic_istream<CharT, Traits>&
-    getline(basic_istream<CharT, Traits>& is,
+  std::basic_istream<CharT, Traits>&
+    getline(std::basic_istream<CharT, Traits>& is,
             basic_string<CharT, Traits, Allocator>& str, CharT delim); // (3)
 
   template <class CharT, class Traits, class Allocator>
-  basic_istream<CharT, Traits>&
-    getline(basic_istream<CharT, Traits>&& is,
+  std::basic_istream<CharT, Traits>&
+    getline(std::basic_istream<CharT, Traits>&& is,
             basic_string<CharT, Traits, Allocator>& str, CharT delim); // (4) C++11から
 }
 ```
-* basic_istream[link ../../istream/basic_istream.md]
 
 ## 概要
 ストリームから改行文字が現れるまで（1行すべて）あるいは仮引数`delim`で指定された文字までの文字列を入力する。

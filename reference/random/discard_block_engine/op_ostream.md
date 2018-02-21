@@ -8,8 +8,8 @@
 namespace std {
   template <class CharT, class Traits,
             class Engine, size_t p, size_t r>
-  basic_ostream<CharT, Traits>& operator<<(
-    basic_ostream<CharT, Traits>& os
+  std::basic_ostream<CharT, Traits>& operator<<(
+    std::basic_ostream<CharT, Traits>& os
     const discard_block_engine<Engine, p, r>& x);
 }
 ```

@@ -19,8 +19,8 @@ namespace std {
   bool operator>(thread::id x, thread::id y) noexcept;
   bool operator>=(thread::id x, thread::id y) noexcept;
 
-  template<class charT, class traits>
-  basic_ostream<charT, traits>& operator<<(basic_ostream<charT, traits>& out, thread::id id);
+  template<class CharT, class Traits>
+  std::basic_ostream<CharT, Traits>& operator<<(std::basic_ostream<CharT, Traits>& out, thread::id id);
 
   template <class T> struct hash;
   template <> struct hash<thread::id>;
