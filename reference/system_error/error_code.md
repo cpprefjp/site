@@ -32,6 +32,24 @@ namespace std {
 | [`explicit operator bool`](error_code/op_bool.md) | エラーかどうかを判定する | C++11 |
 
 
+## 非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator==`](op_equal.md) | 等値比較 | C++11 |
+| [`operator!=`](op_not_equal.md) | 非等値比較 | C++11 |
+| [`operator<`](error_code/op_less.md) | 左辺が右辺より小さいか判定する | C++11 |
+| [`operator<<`](error_code/op_ostream.md) | ストリームへ出力 | C++11 |
+| [`make_error_code`](make_error_code.md) | `errc`から`error_code`オブジェクトを生成する | C++11 |
+
+
+## その他
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `hash` | `error_code`での特殊化 | C++11 |
+
+
 ## 例
 ```cpp example
 #include <iostream>
