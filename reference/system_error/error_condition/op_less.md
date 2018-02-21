@@ -9,7 +9,6 @@ namespace std {
   bool operator<(const error_condition& lhs, const error_condition& rhs) noexcept;
 }
 ```
-* error_condition[link error_condition.md]
 
 ## 概要
 `error_condition`において、左辺が右辺より小さいかの比較を行う。

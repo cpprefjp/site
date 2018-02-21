@@ -11,7 +11,6 @@ namespace std {
     operator<<(std::basic_ostream<charT,traits>& os, const error_code& ec);
 }
 ```
-* error_code[link error_code.md]
 
 ## 概要
 左辺の`basic_ostream`オブジェクトに`error_code`オブジェクトを出力する
