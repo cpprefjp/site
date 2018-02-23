@@ -309,7 +309,7 @@ C++17では以下のTSが採用された：
 - `constexpr`の機能拡張によって扱える型が増えている。将来的にほとんどの型が`constexpr`で扱えるようになるため、`constexpr`で扱える型の分類である[`is_literal_type`](/reference/type_traits/is_literal_type.md)型特性を非推奨化
 - 一時的なメモリ確保のための`std::get_temporary_buffer()`関数と`std::return_temporary_buffer()`関数を非推奨化。これらは関数内での一時的なメモリ確保のために、最適化されたメモリ確保の仕組みを提供することを期待して定義されたが、実際にはどの実装も特別視せず、それゆえに便利に使われてはこなかった。将来的にスタックからのメモリ確保をする機能を作る予定だが、これらの関数は例外安全性やRAIIが考慮されていないため、これらの関数の実装・仕様のみを入れ替えるような改訂はできない
 - [`raw_storage_iterator`](/reference/memory/raw_storage_iterator.md)クラスを非推奨化。アロケータとの連携ができず、限られた用途にしか使用できなかった
-- [`not_fn()`](/reference/functional/not_fn.md.nolink)の追加にともない、古くなった以下の機能を非推奨化：
+- [`not_fn()`](/reference/functional/not_fn.md)の追加にともない、古くなった以下の機能を非推奨化：
     - [`not1()`](/reference/functional/negators.md)関数
     - [`not2()`](/reference/functional/negators.md)関数
     - [`unary_negate`](/reference/functional/negators.md)クラス
