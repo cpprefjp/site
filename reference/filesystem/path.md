@@ -118,7 +118,7 @@ namespace std::filesystem {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`lexically_normal`](path/lexically_normal.md) | 文字列レベルで正規化する | C++17 |
-| `lexically_relative` | 文字列レベルで相対パスに変換する | C++17 |
+| [`lexically_relative`](path/lexically_relative.md) | 文字列レベルで相対パスに変換する | C++17 |
 | `lexically_proximate` | 文字列レベルで相対パスに変換する | C++17 |
 
 ### イテレータ
