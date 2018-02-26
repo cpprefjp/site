@@ -63,10 +63,9 @@
 - Clang： [C++98 and C++11 Support in Clang](http://clang.llvm.org/cxx_status.html)
     - [C++ Defect Report Support in Clang](http://clang.llvm.org/cxx_dr_status.html)
 - ICC : [C++11 Features Supported by Intel&#174; C++ Compiler](https://software.intel.com/en-us/articles/c0x-features-supported-by-intel-c-compiler)
-- Visual C++ (MSVC): [C++11/14/17 の機能のサポート (Modern C++)](https://msdn.microsoft.com/ja-jp/library/hh567368.aspx)
-- Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/b/vcblog/archive/2015/06/19/c-11-14-17-features-in-vs-2015-rtm.aspx)
-- Visual C++ (MSVC): [Visual Studio 2015 Update 1 RC Available](https://blogs.msdn.microsoft.com/vcblog/2015/10/29/visual-studio-2015-update-1-rc-available/)
-- Visual C++ (MSVC): [Compiler improvements in VS 2015 Update 3 RC - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/compiler-improvements-in-vs-2015-update-3-rc/)
+- Visual C++ (MSVC):
+    - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
+    - [C++17 Progress in VS 2017 15.5 and 15.6 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/12/19/c17-progress-in-vs-2017-15-5-and-15-6/)
 
 
 ## <a id="cpp14" href="#cpp14">C++14言語機能の実装状況</a>
@@ -82,7 +81,7 @@
 | [宣言時のメンバ初期化を持つ型の集成体初期化を許可](/lang/cpp14/brace_elision_in_array_temporary_initialization.md) | 一様初期化と初期化子リストを組み合わせた際、二重に波カッコが必要となっていた仕様を緩和し、波カッコを省略できるようにする | 5.1 | 3.3 | 16.0 | 2017 |
 | [`[[deprecated]]`属性](/lang/cpp14/deprecated_attr.md) | 非推奨の機能であることを示す属性。 | 4.9 | 3.4 | 15.0<br/> (Linux/Mac OS) | 2015<br/>それ以前は`__declspec(deprecated)`で代替可能 |
 | [数値リテラルの桁区切り文字](/lang/cpp14/digit_separators.md) | シングルクォーテーションで数値リテラルを桁区切りする。 | 4.9 | 3.4 | 16.0 | 2015 |
-| [サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md) | サイズをとる`delete`演算子のオーバーロードを許可する。 | 5.1 | 3.4 | 16.0 | 2017 (partial) |
+| [サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md) | サイズをとる`delete`演算子のオーバーロードを許可する。 | 5.1 | 3.4 | 16.0 | 2015 |
 
 
 各処理系のC++14実装状況ページ：
@@ -91,11 +90,9 @@
 - libstdc++: [C++ 2014](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2014)
 - Clang: [C++98, C++11, and C++14 Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libc++: [libc++ C++1Y Status](http://libcxx.llvm.org/cxx1y_status.html)
-- Visual C++ (MSVC): [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/hh567368%28v=vs.140%29.aspx)
-- Visual C++ (MSVC): [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2015/06/19/c111417-features-in-vs-2015-rtm/)
-    - [Compiler improvements in VS 2015 Update 2 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/02/11/compiler-improvements-in-vs-2015-update-2/)
-    - [C++14/17 Features and STL Fixes in VS “15” Preview 4 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/08/24/c1417-features-and-stl-fixes-in-vs-15-preview-4/)
-    - [C++14/17 Features and STL Fixes in VS “15” Preview 5 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/10/11/c1417-features-and-stl-fixes-in-vs-15-preview-5/)
+- Visual C++ (MSVC):
+    - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
+    - [C++17 Progress in VS 2017 15.5 and 15.6 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/12/19/c17-progress-in-vs-2017-15-5-and-15-6/)
 - ICC: [C++14 Features Supported by Intel C++ Compiler](https://software.intel.com/en-us/articles/c14-features-supported-by-intel-c-compiler)
     - [Intel (R) Parallel Studio XE 2016 Beta program has begun](https://software.intel.com/en-us/forums/topic/549502)
 
@@ -105,7 +102,7 @@
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|
 | [メッセージなしの`static_assert`][n3928] | デフォルトの表明メッセージを使用する | 6 | 3.5 | 18.0 | 2017 |
-| [トライグラフを削除][n4086] | | 5.1 | 3.5 | No | 2013 |
+| [トライグラフを削除][n4086] | | 5.1 | 3.5 | No | 2010 |
 | [テンプレートテンプレートパラメータに`typename`を許可][n4051] | `class`キーワードしか使用できなかった部分に、`typename`を許可 | 5.0 | 3.5 | 17.0 | 2015 |
 | [単一要素初期化子リストを`auto`で受け取った場合の型を変更][n3922] | `initializer_list<T>`だったのを`T`に変更 | 5 | 3.8 | 17.0 | 2015 |
 | [畳み込み式][n4295] | パラメータパックに対する2項演算の集積処理 | 6 | 3.6 | No | 2017 Update 5 |
@@ -145,7 +142,7 @@
 | [using宣言でのパック展開][P0195R2] | パラメータパックの型を基本クラスとして指定した場合に、`using`宣言に基本クラスのパラメータパックを指定できるようにする | 7 | 4 | No | No |
 | [クラステンプレート引数の推論仕様を調整][P0512R0] | | No | No | No | No |
 | [Committee Draftに対するNational Body Commentへの対応][P0490R0] | | - | - | - | - |
-| [テンプレートテンプレート引数のマッチングにおいて、互換性のあるテンプレートを除外][P0522R0] | | 7 | 4 (partial) | No | No |
+| [テンプレートテンプレート引数のマッチングにおいて、互換性のあるテンプレートを除外][P0522R0] | | 7 | 4 (partial) | No | 2017 Update 5 |
 
 
 [n3928]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3928.pdf
@@ -199,12 +196,8 @@
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libc++ : [libc++ C++1z Status](http://libcxx.llvm.org/cxx1z_status.html)
 - Visual C++ (MSVC):
-    - [Support For C++11/14/17 Features (Modern C++)](https://msdn.microsoft.com/en-us/library/vstudio/hh567368%28v=vs.140%29.aspx)
-    - [C++11/14/17 Features In VS 2015 RTM - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2015/06/19/c111417-features-in-vs-2015-rtm/)
-    - [C++14/17 Features and STL Fixes in VS “15” Preview 4 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/08/24/c1417-features-and-stl-fixes-in-vs-15-preview-4/)
-    - [C++14/17 Features and STL Fixes in VS “15” Preview 5 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2016/10/11/c1417-features-and-stl-fixes-in-vs-15-preview-5/)
-    - [Visual C++ Language Conformance](https://docs.microsoft.com/en-us/cpp/visual-cpp-language-conformance)
-    - [C++17 Features In Visual Studio 2017 Version 15.3 Preview - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/05/10/c17-features-in-vs-2017-3/)
+    - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
+    - [C++17 Progress in VS 2017 15.5 and 15.6 - Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/12/19/c17-progress-in-vs-2017-15-5-and-15-6/)
 - ICC: [C++17 Features Supported by Intel C++ Compiler](https://software.intel.com/en-us/articles/c17-features-supported-by-intel-c-compiler)
 
 
