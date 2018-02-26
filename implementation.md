@@ -104,15 +104,15 @@
 
 | 製品名                                        | 製品バージョン | Visual C++ バージョン | `_MSC_VER` | `_MSC_FULL_VER` |
 |-----------------------------------------------|----------------|-----------------------|----------|---------------|
-| Visual Studio 2017                            | 15.5.7         | 14.1                  | 1912     | 191225835     |
-| Visual Studio 2017                            | 15.5.6         | 14.1                  | 1912     | 191225835     |
-| Visual Studio 2017                            | 15.5.4         | 14.1                  | 1912     | 191225834     |
-| Visual Studio 2017                            | 15.5.2         | 14.1                  | 1912     | 191225831     |
-| Visual Studio 2017                            | 15.4.5         | 14.1                  | 1911     | 191125547     |
-| Visual Studio 2017                            | 15.4.4         | 14.1                  | 1911     | 191125542     |
-| Visual Studio 2017                            | 15.3.3         | 14.1                  | 1911     | 191125507     |
-| Visual Studio 2017 <sup><a id="note_ref-visual_cpp_ver-1" href="#note-visual_cpp_ver-1">[§注1]</a></sup> | 15.0           | 14.1                  | 1910     | 191025017     |
-| Visual Studio 2017 RC                         |                | 14.1                  | 1910     | 191024930     |
+| Visual Studio 2017 Update5                    | 15.5.7         | 14.12                 | 1912     | 191225835     |
+| Visual Studio 2017 Update5                    | 15.5.6         | 14.12                 | 1912     | 191225835     |
+| Visual Studio 2017 Update5                    | 15.5.4         | 14.12                 | 1912     | 191225834     |
+| Visual Studio 2017 Update5                    | 15.5.2         | 14.12                 | 1912     | 191225831     |
+| Visual Studio 2017 Update4                    | 15.4.5         | 14.11                 | 1911     | 191125547     |
+| Visual Studio 2017 Update4                    | 15.4.4         | 14.11                 | 1911     | 191125542     |
+| Visual Studio 2017 Update3                    | 15.3.3         | 14.11                 | 1911     | 191125507     |
+| Visual Studio 2017 <sup><a id="note_ref-visual_cpp_ver-1" href="#note-visual_cpp_ver-1">[§注1]</a></sup> | 15.0           | 14.10                 | 1910     | 191025017     |
+| Visual Studio 2017 RC                         |                | 14.10                 | 1910     | 191024930     |
 | Visual Studio 2015 Update3                    | 14.0           | 14.0                  | 1900     | 190024210     |
 | Visual Studio 2015 Update2                    | 14.0           | 14.0                  | 1900     | 190023918     |
 | Visual Studio 2015 Update2 RC                 | 14.0           | 14.0                  | 1900     | 190023824     |
@@ -178,18 +178,23 @@
 2. **<a id="note-visual_cpp_ver-2" href="#note_ref-visual_cpp_ver-2">^</a>**  Visual Studio 2013 Update1では`_MSC_FULL_VER`は変更されなかった。  
   <https://blogs.msdn.microsoft.com/bharry/2014/01/20/vs-2013-1-update-1-is-available/#div-comment-125661>
 
+### C++11の機能を有効にする
+
+- 全ての機能が常に有効となっている
+
 ### C++14の機能を有効にする
 
-- 14.0 Update 2までは、言語のバージョンを切り替える機能はなく、そのリリース時の最新言語バージョンが有効となる
-- 14.0 Update 3からは、`/std:c++14`オプションを使用する。とくに指定しない場合はデフォルトでC++14が有効となる。この時`_MSVC_LANG`マクロが`201402`になる
+- 全ての機能が常に有効となっている
+- 2015 Update 3から`/std:c++14`オプションが導入されたが既定値でありC++14を無効化する機能は提供されていない。`_MSVC_LANG`マクロの値は`201402`になる
 
 ### C++17の機能を有効にする
 
-- 15.3からは、`/std:c++17`オプションを使用する。この時`_MSVC_LANG`マクロが`201703`になる
+- 2015 Update 2までに実装された機能については、互換性の観点から常に有効となっている
+- 2015 Update 3以降に実装された機能については、`/std:c++17`オプションを使用する。`_MSVC_LANG`マクロの値は`201703`になる
 
 ### 最新バージョンの言語機能を有効にする
 
-- 14.0 Update 3からは、`/std:c++latest`オプションを使用する
+- 2015 Update 3で導入された`/std:c++latest`オプションを使用する
 - [-std (Specify Language Standard Version) | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/build/reference/std-specify-language-standard-version)
 - [Predefined Macros | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros)
 - [Standards version switches in the compiler](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/standards-version-switches-in-the-compiler/)
