@@ -180,21 +180,21 @@
 
 ### C++11の機能を有効にする
 
-- 全ての機能が常に有効となっている
+- C++11は常に有効である
 
 ### C++14の機能を有効にする
 
-- 全ての機能が常に有効となっている
+- C++14は常に有効である
 - 2015 Update 3から`/std:c++14`オプションが導入されたが既定値でありC++14を無効化する機能は提供されていない。`_MSVC_LANG`マクロの値は`201402`になる
 
 ### C++17の機能を有効にする
 
-- 2015 Update 2までに実装された機能については、互換性の観点から常に有効となっている
+- 2015 Update 2以前に実装された機能については、互換性の観点から常に有効である
 - 2015 Update 3以降に実装された機能については、`/std:c++17`オプションを使用する。`_MSVC_LANG`マクロの値は`201703`になる
 
 ### 最新バージョンの言語機能を有効にする
 
-- 2015 Update 3で導入された`/std:c++latest`オプションを使用する
+- 2015 Update 3以降は`/std:c++latest`オプションを使用する
 - [-std (Specify Language Standard Version) | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/build/reference/std-specify-language-standard-version)
 - [Predefined Macros | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros)
 - [Standards version switches in the compiler](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/standards-version-switches-in-the-compiler/)
