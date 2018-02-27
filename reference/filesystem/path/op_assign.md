@@ -133,6 +133,8 @@ int main()
   }
 }
 ```
+* std::move[link /reference/utility/move.md]
+* p.generic_string()[link generic_string.md]
 
 #### 出力
 ```
