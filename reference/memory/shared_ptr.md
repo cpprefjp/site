@@ -91,17 +91,17 @@ namespace std {
 | [`atomic_compare_exchange_weak_explicit`][exchange_weak_ex] | 弱い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
 | [`atomic_compare_exchange_strong_explicit`][exchange_strong_ex] | 強い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
 
-[is_lock_free]: ./shared_ptr/atomic_is_lock_free.md
-[store]: ./shared_ptr/atomic_store.md
-[store_ex]: ./shared_ptr/atomic_store_explicit.md
-[load]: ./shared_ptr/atomic_load.md
-[load_ex]: ./shared_ptr/atomic_load_explicit.md
-[exchange]: ./shared_ptr/atomic_exchange.md
-[exchange_ex]: ./shared_ptr/atomic_exchange_explicit.md
-[exchange_weak]: ./shared_ptr/atomic_compare_exchange_weak.md
-[exchange_strong]: ./shared_ptr/atomic_compare_exchange_strong.md
-[exchange_weak_ex]: ./shared_ptr/atomic_compare_exchange_weak_explicit.md
-[exchange_strong_ex]: ./shared_ptr/atomic_compare_exchange_strong_explicit.md
+[is_lock_free]: shared_ptr/atomic_is_lock_free.md
+[store]: shared_ptr/atomic_store.md
+[store_ex]: shared_ptr/atomic_store_explicit.md
+[load]: shared_ptr/atomic_load.md
+[load_ex]: shared_ptr/atomic_load_explicit.md
+[exchange]: shared_ptr/atomic_exchange.md
+[exchange_ex]: shared_ptr/atomic_exchange_explicit.md
+[exchange_weak]: shared_ptr/atomic_compare_exchange_weak.md
+[exchange_strong]: shared_ptr/atomic_compare_exchange_strong.md
+[exchange_weak_ex]: shared_ptr/atomic_compare_exchange_weak_explicit.md
+[exchange_strong_ex]: shared_ptr/atomic_compare_exchange_strong_explicit.md
 
 
 ## ハッシュサポート
