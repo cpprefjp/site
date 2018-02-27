@@ -59,7 +59,7 @@ atomic<int> is lock-free
 
 
 ## 関連項目
-- [`std::atomic`](atomic.md)クラスの`is_always_lock_free`メンバ定数
+- [`std::atomic`](/reference/atomic/atomic.md)クラスの`is_always_lock_free`メンバ定数
 
 
 ## 参照
