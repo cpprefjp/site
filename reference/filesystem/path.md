@@ -30,7 +30,7 @@ namespace std::filesystem {
 | [`(constructor)`](path/op_constructor.md.nolink) | コンストラクタ | C++17 |
 | [`(destructor)`](path/op_destructor.md.nolink)   | デストラクタ | C++17 |
 | [`operator=`](path/op_assign.md)          | 代入演算子 | C++17 |
-| [`assign`](path/assign.md.nolink)                | 代入 | C++17 |
+| [`assign`](path/assign.md)                | 代入 | C++17 |
 
 
 ### パスの加算・追加
