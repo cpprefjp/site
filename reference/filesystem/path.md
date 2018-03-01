@@ -188,19 +188,106 @@ namespace std::filesystem {
 
 
 ## 例
+### POSIXベースシステムの例
 ```cpp example
+#include <iostream>
+#include <filesystem>
+
+namespace fs = std::filesystem;
+
+int main()
+{
+  fs::path p = "/a/b/c.txt";
+
+  // パスから、ファイル名を除いたディレクトリ、ファイル名、
+  // 拡張子を除いたファイル名、拡張子を抽出
+  std::cout << "directory : " << p.parent_path() << std::endl;
+  std::cout << "filename  : " << p.filename() << std::endl;
+  std::cout << "stem      : " << p.stem() << std::endl;
+  std::cout << "extension : " << p.extension() << std::endl;
+
+  // パスが絶対パスか相対パスか判定
+  if (p.is_absolute()) {
+    std::cout << p << "は絶対パス" << std::endl;
+  }
+  else {
+    std::cout << p << "は相対パス" << std::endl;
+  }
+}
+```
+* p.parent_path()[link path/parent_path.md]
+* p.filename()[link path/filename.md]
+* p.stem()[link path/stem.md]
+* p.extension()[link path/extension.md]
+* p.is_absolute()[link path/is_absolute.md]
+
+#### 出力
+```
+directory : "/a/b"
+filename  : "c.txt"
+stem      : "c"
+extension : ".txt"
+"/a/b/c.txt"は絶対パス
 ```
 
-### 出力例
+### Windowsの例
+```cpp example
+#include <iostream>
+#include <filesystem>
+
+namespace fs = std::filesystem;
+
+int main()
+{
+  fs::path p = "C:/a\\b/c.txt";
+
+  // パスから、ファイル名を除いたディレクトリ、ファイル名、
+  // 拡張子を除いたファイル名、拡張子を抽出
+  std::cout << "directory : " << p.parent_path() << std::endl;
+  std::cout << "filename  : " << p.filename() << std::endl;
+  std::cout << "stem      : " << p.stem() << std::endl;
+  std::cout << "extension : " << p.extension() << std::endl;
+
+  // システム依存のパスフォーマットと、システム非依存のパスフォーマット
+  std::cout << "native format  : " << p.native() << std::endl;
+  std::cout << "generic format : " << p.generic_string() << std::endl;
+
+  // パスが絶対パスか相対パスか判定
+  if (p.is_absolute()) {
+    std::cout << p << "は絶対パス" << std::endl;
+  }
+  else {
+    std::cout << p << "は相対パス" << std::endl;
+  }
+}
 ```
+* p.parent_path()[link path/parent_path.md]
+* p.filename()[link path/filename.md]
+* p.stem()[link path/stem.md]
+* p.extension()[link path/extension.md]
+* p.native()[link path/native.md]
+* p.generic_string()[link path/generic_string.md]
+* p.is_absolute()[link path/is_absolute.md]
+
+#### 出力
 ```
+directory : "C:\a\b"
+filename  : "c.txt"
+stem      : "c"
+extension : ".txt"
+native format : C:\a\b\c.txt
+generic format : C:/a/b/c.txt
+"C:\a\b\c.txt"は絶対パス
+```
+
+Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 ## バージョン
 ### 言語
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang): ??
-- [GCC, C++17 mode](/implementation.md#gcc): ??
+- [Clang, C++17 mode](/implementation.md#clang):
+- [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp):
