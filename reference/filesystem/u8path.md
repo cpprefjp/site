@@ -56,6 +56,8 @@ int main()
 }
 ```
 * fs::u8path[color ff0000]
+* raw_path.begin()[link /reference/string/basic_string/begin.md]
+* raw_path.end()[link /reference/string/basic_string/end.md]
 
 ### 出力
 ```
