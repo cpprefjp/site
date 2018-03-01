@@ -134,6 +134,7 @@ int main()
 * p1_base.begin()[link /reference/string/basic_string/begin.md]
 * p1_base.end()[link /reference/string/basic_string/end.md]
 * length[link /reference/string/char_traits/length.md]
+* std::filesystem::u8path()[link /reference/filesystem/u8path.md]
 
 #### 出力
 ```
