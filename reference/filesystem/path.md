@@ -28,7 +28,7 @@ namespace std::filesystem {
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
 | [`(constructor)`](path/op_constructor.md) | コンストラクタ | C++17 |
-| [`(destructor)`](path/op_destructor.md.nolink)   | デストラクタ | C++17 |
+| `~path();`                                | デストラクタ | C++17 |
 | [`operator=`](path/op_assign.md)          | 代入演算子 | C++17 |
 | [`assign`](path/assign.md)                | 代入 | C++17 |
 
