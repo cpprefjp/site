@@ -275,7 +275,7 @@ directory : "C:\a\b"
 filename  : "c.txt"
 stem      : "c"
 extension : ".txt"
-native format : C:\a\b\c.txt
+native format  : C:\a\b\c.txt
 generic format : C:/a/b/c.txt
 "C:\a\b\c.txt"は絶対パス
 ```
