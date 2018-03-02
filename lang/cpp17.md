@@ -168,7 +168,7 @@ C++17では以下のTSが採用された：
 
 
 ### アルゴリズム
-- ランダムサンプリングアルゴリズムとして、[`sample()`](/reference/algorithm/sample.md.nolink)を追加
+- ランダムサンプリングアルゴリズムとして、[`sample()`](/reference/algorithm/sample.md)を追加
 - 値を範囲内に収める[`clamp()`](/reference/algorithm/clamp.md.nolink)関数を追加
 - `bool`を返す関数オブジェクトの結果を反転させる[`not_fn()`](/reference/functional/not_fn.md)関数を追加
 - INVOKEコンセプトに従った関数呼び出しをする[`invoke()`](/reference/functional/invoke.md.nolink)関数を追加
@@ -253,7 +253,7 @@ C++17では以下のTSが採用された：
 
 
 ### 乱数
-- ランダムサンプリングアルゴリズムとして、[`sample()`](/reference/algorithm/sample.md.nolink)を追加
+- ランダムサンプリングアルゴリズムとして、[`sample()`](/reference/algorithm/sample.md)を追加
 - 乱数用語を変更。乱数生成器のコンセプトに 「URNG (Uniform Random Number Generator, 一様乱数生成器)」という用語を使用していたが、一般的なURNGの用語とは異なり、C++の乱数生成器は一度の呼び出しで、(32ビットを超えるような) より多くのビットを単一の符号なし整数にパックして返すという動作が許可されている。動作の誤解を避けるために、「URBG (Uniform Random Bit Generator)」という用語に変更する
 
 
