@@ -124,6 +124,5 @@ bcd
 - [Three `<random>`-related Proposals, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3742.pdf)
 - [N3842 A `sample` Proposal](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3842.pdf)
 - [N4531 `std::rand` replacement, revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4531.html)
-    - C++1zではいまのところ、この提案は`sample`のデフォルト乱数生成器インタフェースだけ採択されている
 - [P0220R0 Adopt Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r0.html)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
