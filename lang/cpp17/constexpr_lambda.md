@@ -1,4 +1,4 @@
-# constexpr ラムダ式
+# constexpr ラムダ
 
 * cpp17[meta cpp]
 
@@ -38,8 +38,11 @@ int main(){
 ```
 
 ラムダ式にconstexpr修飾をつけることができる。
+
 修飾を書く場所はmutableを書いていたところである。
+
 mutableとconstexprはどちらを先に書いてもよい。
+
 constexpr修飾するとラムダ式のoperator()がconstexprとして扱われる。
 
 ```cpp example
@@ -53,7 +56,11 @@ int main(){
 }
 ```
 
-constexpr修飾されていないラムダ式のoperator()はラムダ式がconstexpr関数としての条件を満たす場合（つまりラムダ式のキャプチャが全てコンパイル時定数とき）、自動的にconstexpr指定される。
+constexpr修飾されていないラムダ式のoperator()はラムダ式がconstexpr関数としての条件を満たす場合
+
+（つまりラムダ式のキャプチャが全てコンパイル時定数とき）
+
+自動的にconstexpr指定される。
 
 ```cpp example
 int main(){
@@ -64,6 +71,7 @@ int main(){
 ```
 
 ラムダ式の関数ポインタへの変換もコンパイル時に行える。
+
 変換された関数ポインタもコンパイル時に呼び出せる。
 
 ```cpp example
@@ -75,6 +83,7 @@ int main(){
 ```
 
 constexpr lambdaはSFINAEの文脈で用いる事はできない。
+
 以下のような記述を許可してしまうとあらゆる文や式が実体化に成功するかをチェックでてしまうため、禁止されている。
 
 ```cpp
@@ -95,6 +104,7 @@ void f()
 ## 備考
 
 [機能テストマクロ](../../lang/cpp17/feature_test_macros.md)は__cpp_constexprで、値は201603。
+
 （__cpp_constexprマクロの値は、C++11では200704、C++14では201304だった。）
 
 ## 例
@@ -126,6 +136,7 @@ int main(){
 ## この機能が必要になった背景・経緯
 
 C++14まではラムダ式をconstexprの文脈で使うことが出来なかった。
+
 つまり、以下のようなコードが動かなかった。
 
 ```cpp
