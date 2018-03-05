@@ -242,6 +242,7 @@ return distance(a, b);
 | [`min_element`](algorithm/min_element.md)       | 範囲内の最小要素へのイテレータを取得する | |
 | [`max_element`](algorithm/max_element.md)       | 範囲内の最大要素へのイテレータを取得する | |
 | [`minmax_element`](algorithm/minmax_element.md) | 範囲内の最小要素と最大要素へのイテレータを取得する | C++11 |
+| [`clamp`](algorithm/clamp.md)                   | 値を範囲内に収める | C++17 |
 
 
 ### 辞書式比較
