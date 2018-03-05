@@ -18,7 +18,7 @@ path& concat(InputIterator first, InputIterator last); // (2)
 
 
 ## 効果
-- (1) : `path(x).`[`native()`](native.md.nolink)を、`*this`が保持するパス文字列に加算する
+- (1) : `path(x).`[`native()`](native.md)を、`*this`が保持するパス文字列に加算する
 - (2) : `return *this += path(first, last)`と同等
 
 

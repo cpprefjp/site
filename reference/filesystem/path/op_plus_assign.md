@@ -26,7 +26,7 @@ path& operator+=(EcharT x);                        // (7)
 
 
 ## 効果
-`path(x).`[`native()`](native.md.nolink)を、`*this`が保持するパス文字列に加算する。
+`path(x).`[`native()`](native.md)を、`*this`が保持するパス文字列に加算する。
 
 
 ## 戻り値
