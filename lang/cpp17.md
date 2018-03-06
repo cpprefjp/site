@@ -183,7 +183,7 @@ C++17では以下のTSが採用された：
 - 文字列検索アルゴリズムとして、「ボイヤー・ムーア法 (Boyer-Moore)」と「ボイヤー・ムーア・ホースプール法 (Boyer-Moore-Horspool)」を追加。[`std::search()`](/reference/algorithm/search.md)関数のポリシーとして、検索アルゴリズムを指定する
 - ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換関数として、[`to_chars()`](/reference/utility/to_chars.md.nolink)と[`from_chars()`](/reference/utility/from_chars.md.nolink)を追加
 - [`char_traits`](/reference/string/char_traits.md)クラスを`constexpr`に対応
-- バイトデータを表す[`byte`](/reference/cstddef/byte.md.nolink)型を追加
+- バイトデータを表す[`byte`](/reference/cstddef/byte.md)型を追加
 
 
 ### 並行処理

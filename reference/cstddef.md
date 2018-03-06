@@ -11,6 +11,7 @@
 | [`size_t`](cstddef/size_t.md)       | 符号なし整数型         | |
 | [`nullptr_t`](cstddef/nullptr_t.md) | `nullptr`の型       | C++11 |
 | [`max_align_t`](cstddef/max_align_t.md) | 最大のアライメントを要求する型 | C++11 |
+| [`byte`](cstddef/byte.md) | バイトデータを表す型 | C++17 |
 
 
 ## 関数マクロ
