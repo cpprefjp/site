@@ -81,6 +81,15 @@ int main()
 ```
 ```
 
+## バージョン
+### 言語
+- C++17
+
+### 処理系
+- [Clang, C++17 mode](/implementation.md#clang): 5.0
+- [GCC, C++17 mode](/implementation.md#gcc): 7.1
+- [Visual C++](/implementation.md#visual_cpp): ??
+
 
 ## 関連項目
 - [C++17 `enum class`変数の初期値として整数を指定する際の規則を調整](/lang/cpp17/construction_enum_class_values.md)
