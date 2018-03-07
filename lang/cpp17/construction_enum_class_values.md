@@ -18,7 +18,7 @@ enum class byte : unsigned char { };
 
 int main()
 {
-  // C++14
+  // C++14
   byte aa { (byte)42 };
   byte ab = (byte)42;
   byte ac = static_cast<byte>(42);
