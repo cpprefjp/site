@@ -48,6 +48,7 @@ int main()
   assert(result_uc == 0b0000'1010);
 }
 ```
+* std::to_integer[color ff0000]
 
 ### 出力
 ```
