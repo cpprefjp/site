@@ -72,6 +72,9 @@ int main()
   assert(result_u8 == 0b0000'1010);
 }
 ```
+* std::byte[color ff0000]
+* a & b[link byte/op_and.md]
+* std::to_integer[link byte/to_integer.md]
 
 
 ### 出力
