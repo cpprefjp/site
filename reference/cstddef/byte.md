@@ -49,6 +49,28 @@ namespace std {
 
 ## 例
 ```cpp example
+#include <cassert>
+#include <cstddef>
+#include <cstdint>
+
+int main()
+{
+  // 整数値を代入する際は、波カッコ {} で囲むか、
+  // static_cast<std::byte>(0b1010)のようにする
+  std::byte a{0b1010'1010};
+  std::byte b{0b0000'1111};
+
+  // ビット論理積
+  std::byte result = a & b;
+
+  // 基底型に変換
+  unsigned char result_uc = static_cast<unsigned char>(result);
+  assert(result_uc == 0b0000'1010);
+
+  // 任意の整数型に変換
+  std::uint8_t result_u8 = std::to_integer<std::uint8_t>(result);
+  assert(result_u8 == 0b0000'1010);
+}
 ```
 
 
