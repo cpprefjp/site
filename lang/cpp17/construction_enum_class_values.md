@@ -98,6 +98,7 @@ C++17ではスコープを持つ列挙型の初期化ルールを緩和し、簡
 
 ## 関連項目
 - [C++11 スコープを持つ列挙型](/lang/cpp11/scoped_enum.md)
+- [`std::byte`](/reference/cstddef/byte.md)
 
 ## 参照
 - [P0138R2 Construction Rules for enum class Values.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0138r2.pdf)
