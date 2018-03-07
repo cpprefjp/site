@@ -27,24 +27,24 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<=`](byte/op_left_shift_assign.md.nolink) | 左ビットシフトの複合代入 | C++17 |
-| [`operator<<`](byte/op_left_shift.md.nolink)  | 左ビットシフト | C++17 |
-| [`operator>>=`](byte/op_right_shift_assign.md.nolink) | 右ビットシフトの複合代入 | C++17 |
-| [`operator>>`](byte/op_right_shift.md.nolink)  | 右ビットシフト | C++17 |
-| <code>[operator&#x7C;=](byte/op_or_assign.md.nolink)</code> | ビット論理和の複合代入 | C++17 |
-| <code>[operator&#x7C;](byte/op_or.md.nolink)</code> | ビット論理和 | C++17 |
-| [`operator&=`](byte/op_and_assign.md.nolink) | ビット論理積の複合代入 | C++17 |
-| [`operator&`](byte/op_and.md.nolink) | ビット論理積 | C++17 |
-| [`operator^=`](byte/op_xor_assign.md.nolink) | ビット排他的論理和の複合代入 | C++17 |
-| [`operator^`](byte/op_xor.md.nolink) | ビット排他的論理和 | C++17 |
-| [`operator~`](byte/op_not.md.nolink) | ビット反転 | C++17 |
+| [`operator<<=`](byte/op_left_shift_assign.md)  | 左ビットシフトの複合代入 | C++17 |
+| [`operator<<`](byte/op_left_shift.md)          | 左ビットシフト | C++17 |
+| [`operator>>=`](byte/op_right_shift_assign.md) | 右ビットシフトの複合代入 | C++17 |
+| [`operator>>`](byte/op_right_shift.md)         | 右ビットシフト | C++17 |
+| <code>[operator&#x7C;=](byte/op_or_assign.md)</code> | ビット論理和の複合代入 | C++17 |
+| <code>[operator&#x7C;](byte/op_or.md)</code>         | ビット論理和 | C++17 |
+| [`operator&=`](byte/op_and_assign.md) | ビット論理積の複合代入 | C++17 |
+| [`operator&`](byte/op_and.md)         | ビット論理積 | C++17 |
+| [`operator^=`](byte/op_xor_assign.md) | ビット排他的論理和の複合代入 | C++17 |
+| [`operator^`](byte/op_xor.md)         | ビット排他的論理和 | C++17 |
+| [`operator~`](byte/op_flip.md)        | ビット反転 | C++17 |
 
 
 ### その他
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`to_integer`](byte/to_integer.md.nolink) | 任意の整数型に変換する | C++17 |
+| [`to_integer`](byte/to_integer.md) | 任意の整数型に変換する | C++17 |
 
 
 ## 例
