@@ -23,7 +23,7 @@ namespace std {
 以下の式と同等の効果をもつ：
 
 ```cpp
-return byte(static_cast<unsigned char>(b) << shift);
+return static_cast<byte>(static_cast<unsigned char>(static_cast<unsigned int>(b) << shift));
 ```
 
 
@@ -57,3 +57,7 @@ int main()
 - [Clang, C++17 mode](/implementation.md#clang): 5.0
 - [GCC, C++17 mode](/implementation.md#gcc): 7.1
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 2950. `std::byte` operations are misspecified](https://wg21.cmeerw.net/lwg/issue2950)
