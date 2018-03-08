@@ -150,11 +150,44 @@ namespace std {
 
 ## 例
 ```cpp example
+#include <iostream>
+#include <string_view>
+
+int main()
+{
+  // 文字列リテラルから部分文字列を取得する。
+  // その際、メモリアロケートは発生しない
+  std::cout << std::string_view("Hello World").substr(0, 5) << std::endl;
+
+  // 文字列リテラル内から特定の文字列を検索する。
+  // この例でも、メモリアロケートや文字列オブジェクトのコピーなどは発生しない
+  std::string_view sv = "Hello World";
+  std::size_t pos = sv.find("rl");
+  if (pos != std::string_view::npos) {
+    std::cout << "found" << std::endl;
+  }
+}
 ```
+* std::string_view[color ff0000]
+* substr[basic_string_view/substr.md.nolink]
+* sv.find[link basic_string_view/find.md.nolink]
 
 ### 出力
 ```
+Hello
+found
 ```
+
+## バージョン
+### 言語
+- C++17
+
+### 処理系
+- [Clang, C++17 mode](/implementation.md#clang): 4.0
+- [GCC, C++17 mode](/implementation.md#gcc): 7.1
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
 
 ## 参照
 - [N3334 Proposing `array_ref<T>` and `string_ref`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3334.html)
