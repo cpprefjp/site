@@ -18,7 +18,7 @@ namespace std::filesystem {
 ## 概要
 UTF-8エンコードされた文字列からパスオブジェクトを構築する。
 
-- (1) : UTF-8エンコードされた`char`配列、[`std::string`](/reference/string/basic_string.md)、[`std::string_view`](/reference/string_view/basic_string_view.md.nolink)オブジェクトからパスオブジェクトを構築する
+- (1) : UTF-8エンコードされた`char`配列、[`std::string`](/reference/string/basic_string.md)、[`std::string_view`](/reference/string_view/basic_string_view.md)オブジェクトからパスオブジェクトを構築する
 - (2) : UTF-8エンコードされた`char`要素の範囲から、パスオブジェクトを構築する
 
 

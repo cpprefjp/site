@@ -45,7 +45,7 @@ path(InputIterator first, InputIterator last,
 - 文字型`char`、`wchar_t`、`char16_t`、`char32_t`を`EcharT`として、
 - (5), (7) : `Source`型は、以下の要件を満たすこと
     - [`std::basic_string`](/reference/string/basic_string.md)<EcharT, traits, Allocator>`
-    - [`std::basic_string_view`](/reference/string_view/basic_string_view.md.nolink)`<EcharT, traits>`
+    - [`std::basic_string_view`](/reference/string_view/basic_string_view.md)`<EcharT, traits>`
     - `ECharT`型を要素とする文字配列と、文字配列へのポインタ
     - これらの要件を満たさない場合、この関数はオーバーロード解決の候補から除外される
     - `source`はヌルポインタであってはならない
