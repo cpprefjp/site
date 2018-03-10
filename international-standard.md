@@ -25,8 +25,8 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 
 - **C++標準化委員会** (C++ Standards Committee): C++ の国際標準規格を策定する団体。
   組織としての位置づけはISO/IEC JTC1/SC22/WG21になる。
-  **国際標準化機構** (ISO; international organization for standardization): および**国際電気標準会議** (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
-  **第一合同技術委員会** (JTC1; Joint Technical Committee 1): は ISO/IEC の下で情報技術の標準化を行う団体である。
+  **国際標準化機構** (ISO; international organization for standardization) および**国際電気標準会議** (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
+  **第一合同技術委員会** (JTC1; Joint Technical Committee 1) は ISO/IEC の下で情報技術の標準化を行う団体である。
   下部組織の SC22 はプログラム言語の標準化を行う**副委員会** (SC; subcommittee) である。
   C++標準化委員会は WG21 という**作業グループ** (WG; working group) である。
 - **CWG** (Core working group): C++標準化委員会の内、コア言語機能の策定を行う作業グループ
