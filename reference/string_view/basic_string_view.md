@@ -35,7 +35,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|----------------|------|
-| [`(constructor)`](basic_string_view/op_constructor.md.nolink) | コンストラクタ | C++17 |
+| [`(constructor)`](basic_string_view/op_constructor.md) | コンストラクタ | C++17 |
 | `~basic_string_view() = default;` | デストラクタ | C++17 |
 | `basic_string_view& operator=(const basic_string_view&) = default;`<br/> `basic_string_view& operator=(basic_string_view&&) = default;` | 代入演算子 | C++17 |
 
