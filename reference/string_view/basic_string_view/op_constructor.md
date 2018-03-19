@@ -21,7 +21,7 @@ constexpr basic_string_view(const CharT* str, size_type len); // (4)
 
 
 ## 要件
-- (3) : 範囲`[str, str + Traits::length(str))`が妥当であること (アクセス可能であること)
+- (3) : 範囲`[str, str + Traits::`[`length`](/reference/string/char_traits/length.md)`(str))`が妥当であること (アクセス可能であること)
 - (4) : 範囲`[str, str + len)`が妥当であること
 
 
