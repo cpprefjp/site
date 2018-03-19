@@ -26,7 +26,7 @@ constexpr basic_string_view(const CharT* str, size_type len); // (4)
 
 
 ## 効果
-メンバ変数として、参照する文字配列へのポインタを`CharT* data_`、文字数を`size_type size_`があるものとして、
+メンバ変数として、参照する文字配列へのポインタを`const CharT* data_`、文字数を`size_type size_`があるものとして、
 
 - (1) : `data_ = nullptr;`および`size_ = 0;`とする
 - (3) : `data_ = str;`および`size_ = Traits::`[`length`](/reference/string/char_traits/length.md)`(str);`とする
