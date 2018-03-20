@@ -80,7 +80,7 @@ int main()
 }
 ```
 * sv.data()[link data.md.nolink]
-* sv.size()[link size.md.nolink]
+* sv.size()[link size.md]
 
 ### 出力
 ```
