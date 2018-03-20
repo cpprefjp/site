@@ -60,8 +60,8 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 |---------------------------------------------|------------------------------------|----------------|
 | [`size`](basic_string_view/size.md)         | 文字列の長さを取得する             | C++17          |
 | [`length`](basic_string_view/length.md)     | 文字列の長さを取得する             | C++17          |
-| [`max_size`](basic_string_view/max_size.md.nolink) | 格納可能な最大の文字列長を取得する | C++17          |
-| [`empty`](basic_string_view/empty.md.nolink)       | 文字列が空かどうかを判定する       | C++17          |
+| [`max_size`](basic_string_view/max_size.md) | 参照可能な最大の文字列長を取得する | C++17          |
+| [`empty`](basic_string_view/empty.md)       | 文字列が空かどうかを判定する       | C++17          |
 
 
 ### 要素アクセス
