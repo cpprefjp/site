@@ -68,10 +68,10 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 | 名前                                       | 説明                       | 対応バージョン |
 |--------------------------------------------|----------------------------|----------------|
-| [`operator[]`](basic_string_view/op_at.md.nolink) | 任意の位置の要素を取得する | C++17          |
-| [`at`](basic_string_view/at.md.nolink)            | 任意の位置の要素を取得する | C++17          |
-| [`front`](basic_string_view/front.md.nolink)      | 先頭要素を取得する         | C++17          |
-| [`back`](basic_string_view/back.md.nolink)        | 末尾要素を取得する         | C++17          |
+| [`operator[]`](basic_string_view/op_at.md) | 任意の位置の文字を取得する | C++17          |
+| [`at`](basic_string_view/at.md)            | 任意の位置の文字を取得する | C++17          |
+| [`front`](basic_string_view/front.md)      | 先頭文字を取得する         | C++17          |
+| [`back`](basic_string_view/back.md)        | 末尾文字を取得する         | C++17          |
 | [`data`](basic_string_view/data.md)        | 文字配列表現を取得する     | C++17          |
 
 
