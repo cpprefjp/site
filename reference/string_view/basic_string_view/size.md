@@ -44,7 +44,7 @@ int main()
 }
 ```
 * size()[color ff0000]
-* sv1.substr[link substr.md.nolink]
+* sv1.substr[link substr.md]
 
 ### 出力
 ```

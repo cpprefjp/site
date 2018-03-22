@@ -22,7 +22,7 @@ constexpr const_pointer data() const noexcept;
 
 
 ## 備考
-文字列長は[`substr()`](substr.md.nolink)メンバ関数やコンストラクタなどで変更できるが、それらは参照の範囲を限定するのみである。この関数によって返される文字配列へのポインタは、参照範囲の終端にヌル文字は挿入しないので注意すること。
+文字列長は[`substr()`](substr.md)メンバ関数やコンストラクタなどで変更できるが、それらは参照の範囲を限定するのみである。この関数によって返される文字配列へのポインタは、参照範囲の終端にヌル文字は挿入しないので注意すること。
 
 
 ## 例
@@ -44,7 +44,7 @@ int main()
 }
 ```
 * data()[color ff0000]
-* sv.substr[link substr.md.nolink]
+* sv.substr[link substr.md]
 
 ### 出力
 ```

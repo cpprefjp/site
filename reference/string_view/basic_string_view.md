@@ -26,6 +26,7 @@ namespace std {
 string_view sv = "Hello World"; // この式の評価がおわったあとも、文字列リテラル "Hello World" の寿命は尽きない
 string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 ```
+* sv.substr[link substr.md]
 
 このクラスの実装としては、文字配列の参照する先頭文字へのポインタと、文字数の2つをメンバ変数として持つ。これらの変数を変動させることによって、部分文字列の抽出や、限定された範囲内での検索といったことを実現する。
 
@@ -89,7 +90,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`copy`](basic_string_view/copy.md.nolink)                           | 他の文字列にコピーする                         | C++17 |
-| [`substr`](basic_string_view/substr.md.nolink)                       | 部分文字列を取得する                           | C++17 |
+| [`substr`](basic_string_view/substr.md)                       | 部分文字列を取得する                           | C++17 |
 | [`compare`](basic_string_view/compare.md.nolink)                     | 他の文字列との比較を行う                       | C++17 |
 | [`find`](basic_string_view/find.md.nolink)                           | 指定文字列を検索する                           | C++17 |
 | [`rfind`](basic_string_view/rfind.md.nolink)                         | 最後に現れる指定文字列を検索する               | C++17 |
@@ -176,7 +177,7 @@ int main()
 }
 ```
 * std::string_view[color ff0000]
-* substr[basic_string_view/substr.md.nolink]
+* substr[basic_string_view/substr.md]
 * sv.find[link basic_string_view/find.md.nolink]
 
 ### 出力
