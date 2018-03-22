@@ -79,7 +79,7 @@ int main()
   }
 }
 ```
-* sv.data()[link data.md.nolink]
+* sv.data()[link data.md]
 * sv.size()[link size.md]
 
 ### 出力

@@ -72,7 +72,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 | [`at`](basic_string_view/at.md.nolink)            | 任意の位置の要素を取得する | C++17          |
 | [`front`](basic_string_view/front.md.nolink)      | 先頭要素を取得する         | C++17          |
 | [`back`](basic_string_view/back.md.nolink)        | 末尾要素を取得する         | C++17          |
-| [`data`](basic_string_view/data.md.nolink)        | 文字配列表現を取得する     | C++17          |
+| [`data`](basic_string_view/data.md)        | 文字配列表現を取得する     | C++17          |
 
 
 ### 文字列の変更
