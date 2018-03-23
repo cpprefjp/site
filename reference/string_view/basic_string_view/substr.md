@@ -34,14 +34,21 @@ int main()
 
   std::cout << "1 : [" << ret1 << ']' << std::endl;
   std::cout << "2 : [" << ret2 << ']' << std::endl;
+
+  // substrはデータを切り取るのではなく、参照位置と参照サイズを変更するだけなので、
+  // 生ポインタを返せば全体の文字列を復元することはできる。
+  const char* ret3 = ret1.data() - 5;
+  std::cout << "3 : [" << ret3 << ']' << std::endl;
 }
 ```
 * substr[color ff0000]
+* ret1.data()[link data.md]
 
 ### 出力
 ```
 1 : [is a pen]
 2 : [is]
+3 : [This is a pen]
 ```
 
 
