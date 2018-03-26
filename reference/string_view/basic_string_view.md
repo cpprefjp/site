@@ -82,7 +82,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 |------|------|----------------|
 | [`remove_prefix`](basic_string_view/remove_prefix.md) | 先頭のN文字を削除する | C++17 |
 | [`remove_suffix`](basic_string_view/remove_suffix.md) | 末尾のN文字を削除する | C++17 |
-| [`swap`](basic_string_view/swap.md.nolink)                   | 他の`basic_string`オブジェクトとデータを入れ替える | C++17 |
+| [`swap`](basic_string_view/swap.md)                   | 他の`basic_string_view`オブジェクトとデータを入れ替える | C++17 |
 
 
 ### 文字列の操作
