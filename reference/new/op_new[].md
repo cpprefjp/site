@@ -6,10 +6,13 @@
 // 単純な配列の記憶域の確保
 void* operator new[](std::size_t size) throw(std::bad_alloc);                   // (1) C++03 まで
 void* operator new[](std::size_t size);                                         // (1) C++11 から
+void* operator new[](std::size_t size, std::align_val_t alignment);             // (1) C++17 から
 
 // 単純な配列の記憶域の確保（例外をスローしない）
 void* operator new[](std::size_t size, const std::nothrow_t&) throw();          // (2) C++03 まで
 void* operator new[](std::size_t size, const std::nothrow_t&) noexcept;         // (2) C++11 から
+void* operator new[](std::size_t size, std::align_val_t alignment,
+                     const std::nothrow_t&) noexcept;                           // (2) C++17 から
 
 // 配置newによる配列の記憶域の確保
 void* operator new[](std::size_t size, void* ptr) throw();                      // (3) C++03 まで
@@ -17,6 +20,7 @@ void* operator new[](std::size_t size, void* ptr) noexcept;                     
 ```
 * bad_alloc[link bad_alloc.md]
 * nothrow_t[link nothrow_t.md]
+* align_val_t[link align_val_t.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 
 
@@ -25,7 +29,7 @@ void* operator new[](std::size_t size, void* ptr) noexcept;                     
 
 
 ## 効果
-- (1) [`operator new`](op_new.md)`(size)` を呼び出す。
+- (1) [`operator new`](op_new.md)`(size)` を呼び出す。アライメントに関しては単一オブジェクト版と同様に動作する。
 - (2) C++03 までと C++11 からで異なる。  
     - C++03 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` を呼び出す。  
     - C++11 から：(1) の形式を `operator new[](size)` で呼び出す。ただし、記憶域の確保に失敗しても例外をスローしない。
@@ -46,6 +50,12 @@ void* operator new[](std::size_t size, void* ptr) noexcept;                     
 
 - (1)、および、(2) の形式は、利用者がこれらとおなじシグネチャの関数を用意することで、標準ライブラリの提供している関数を置き換えることができる。  
     なお、(3) の形式については、置き換えることはできない（許可されていない）。
+
+- (1)、および、(2) の形式は、C++17以降、デフォルトの `new` が保証するアライメントよりも大きなアライメントを要求する型については自動的に [`std::align_val_t`](align_val_t.md) を取るオーバーロードを選択する。
+    このとき、`align_val_t(alignof(T))` が引数として渡される。この閾値は定義済みマクロ `__STDCPP_DEFAULT_NEW_ALIGNMENT__` で提供される。
+    既存のコードを利用する観点から、利用者が `operator new` を置き換えていた場合は、その型がデフォルトより大きなアライメントを要求していたとしても、ユーザーが置き換えた関数が使用される。
+
+- (1)、および、(2) の形式において、`alignment` に無効な値を渡した場合、その動作は未定義である。
 
 - (1) の形式の `operator new[]` を呼び出すだけであれば、（`new` 式から間接的に呼ばれる場合も含めて）`new` ヘッダをインクルードする必要はない。
 
