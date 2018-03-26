@@ -80,8 +80,8 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`remove_prefix`](basic_string_view/remove_prefix.md.nolink) | 先頭のN文字を削除する | C++17 |
-| [`remove_suffix`](basic_string_view/remove_suffix.md.nolink) | 末尾のN文字を削除する | C++17 |
+| [`remove_prefix`](basic_string_view/remove_prefix.md) | 先頭のN文字を削除する | C++17 |
+| [`remove_suffix`](basic_string_view/remove_suffix.md) | 末尾のN文字を削除する | C++17 |
 | [`swap`](basic_string_view/swap.md.nolink)                   | 他の`basic_string`オブジェクトとデータを入れ替える | C++17 |
 
 
