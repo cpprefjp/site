@@ -20,7 +20,7 @@ void* operator new(std::size_t size, void* ptr) noexcept;               // (3) C
 ```
 * bad_alloc[link bad_alloc.md]
 * nothrow_t[link nothrow_t.md]
-* nothrow_t[link align_val_t.md]
+* align_val_t[link align_val_t.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 
 
