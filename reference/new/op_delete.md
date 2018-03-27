@@ -16,8 +16,8 @@ void operator delete(void* ptr, std::align_val_t alignment, const std::nothrow_t
 void operator delete(void* ptr, void*) throw();                                     // (7) C++03 まで
 void operator delete(void* ptr, void*) noexcept;                                    // (7) C++11 から
 ```
-* nothrow_t[link /reference/new/nothrow_t.md]
-* align_val_t[link /reference/new/align_val_t.md]
+* std::nothrow_t[link nothrow_t.md]
+* std::align_val_t[link align_val_t.md]
 
 ## 概要
 動的に確保された単一オブジェクトの記憶域を解放する。
@@ -67,6 +67,8 @@ int main()
 }
 ```
 * delete[color ff0000]
+* std::nothrow[link nothrow_t.md]
+* std::bad_alloc[link bad_alloc.md]
 
 ### 出力
 ```
