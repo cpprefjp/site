@@ -19,10 +19,8 @@ C++17において、動的メモリ確保時のアライメント指定がサポ
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++17 mode](/implementation.md#gcc): 7
-- [ICC](/implementation.md#icc): ??
+- [Clang, C++17 mode](/implementation.md#clang): 4.0
+- [GCC, C++17 mode](/implementation.md#gcc): 7.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
