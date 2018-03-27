@@ -3,19 +3,16 @@
 * function[meta id-type]
 
 ```cpp
-// 単純な配列の記憶域の解放
 void operator delete[](void* ptr) throw();                                                // (1) C++03 まで
 void operator delete[](void* ptr) noexcept;                                               // (1) C++11 から
 void operator delete[](void* ptr, std::size_t size) noexcept;                             // (2) C++14 から
 void operator delete[](void* ptr, std::align_val_t alignment) noexcept;                   // (3) C++17 から
 void operator delete[](void* ptr, std::size_t size, std::align_val_t alignment) noexcept; // (4) C++17 から
 
-// 単純な配列の記憶域の解放（例外をスローしない）
 void operator delete[](void* ptr, const std::nothrow_t&) throw();                              // (5) C++03 まで
 void operator delete[](void* ptr, const std::nothrow_t&) noexcept;                             // (6) C++11 から
 void operator delete[](void* ptr, std::align_val_t alignment, const std::nothrow_t&) noexcept; // (7) C++17 から
 
-// replacement-new による配列の記憶域の確保
 void operator delete[](void* ptr, void*) throw();                                       // (8) C++03 まで
 void operator delete[](void* ptr, void*) noexcept;                                      // (8) C++11 から
 ```
