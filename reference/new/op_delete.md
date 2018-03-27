@@ -3,34 +3,44 @@
 * function[meta id-type]
 
 ```cpp
-// 単純な記憶域の解放
 void operator delete(void* ptr) throw();                                                // (1) C++03 まで
 void operator delete(void* ptr) noexcept;                                               // (1) C++11 から
 void operator delete(void* ptr, std::size_t size) noexcept;                             // (2) C++14 から
-void operator delete(void* ptr, std::align_val_t alignment) noexcept;                   // (4) C++17 から
+void operator delete(void* ptr, std::align_val_t alignment) noexcept;                   // (3) C++17 から
 void operator delete(void* ptr, std::size_t size, std::align_val_t alignment) noexcept; // (4) C++17 から
 
-// 単純な記憶域の解放（例外をスローしない）
-void operator delete(void* ptr, const std::nothrow_t&) throw();                              // (3) C++03 まで
-void operator delete(void* ptr, const std::nothrow_t&) noexcept;                             // (3) C++11 から
-void operator delete(void* ptr, std::align_val_t alignment, const std::nothrow_t&) noexcept; // (4) C++17 から
+void operator delete(void* ptr, const std::nothrow_t&) throw();                              // (5) C++03 まで
+void operator delete(void* ptr, const std::nothrow_t&) noexcept;                             // (5) C++11 から
+void operator delete(void* ptr, std::align_val_t alignment, const std::nothrow_t&) noexcept; // (6) C++17 から
 
-// replacement-new に対応する記憶域の解放
-void operator delete(void* ptr, void*) throw();                                     // (5) C++03 まで
-void operator delete(void* ptr, void*) noexcept;                                    // (5) C++11 から
+void operator delete(void* ptr, void*) throw();                                     // (7) C++03 まで
+void operator delete(void* ptr, void*) noexcept;                                    // (7) C++11 から
 ```
 * nothrow_t[link /reference/new/nothrow_t.md]
 * align_val_t[link /reference/new/align_val_t.md]
+
+## 概要
+動的に確保された単一オブジェクトの記憶域を解放する。
+
+- (1) : 単純な記憶域の解放
+- (2) : オブジェクトサイズが判明している場合の、単一オブジェクトの記憶域の解放
+- (3) : デフォルトより大きいアライメント要求の、単一オブジェクトの記憶域の解放
+- (4) : オブジェクトサイズが判明している場合の、デフォルトより大きいアライメント要求の、単一オブジェクトの記憶域の解放
+- (5) : 単純な記憶域の解放。例外を送出しない設定で記憶域を確保されたオブジェクトに対する、単一オブジェクトの記憶域の解放
+- (6) : 単純な記憶域の解放。例外を送出しない設定で記憶域を確保されたオブジェクトに対する、デフォルトより大きいアライメント要求の、単一オブジェクトの記憶域の解放
+- (7) : 配置newで確保された記憶域の解放
+
 
 ## 効果
 [`new`](op_new.md)演算子によって動的に確保した記憶域を解放する。
 
 `nothrow`版の`delete`演算子は、`nothrow`版の[`new`](op_new.md)演算子によって生成されたオブジェクトのコンストラクタが例外を送出した場合に呼び出される。
 
-## 備考
 
+## 備考
 - `alignment` 引数を取らない `delete` 演算子に渡される `ptr` は、 `alignment` 引数を取らない `new` 演算子によって確保されたものでなければならない。
 - `alignment` 引数を取る `delete` 演算子に渡される `ptr` は、同じ `alignment` の値を取った `alignment` 版 `new` 演算子によって確保されたものでなければならない。
+
 
 ## 例
 ```cpp example
