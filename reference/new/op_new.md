@@ -6,10 +6,13 @@
 // 単純な記憶域の確保
 void* operator new(std::size_t size) throw(std::bad_alloc);             // (1) C++03 まで
 void* operator new(std::size_t size);                                   // (1) C++11 から
+void* operator new(std::size_t size, std::align_val_t alignment);       // (1) C++17 から
 
 // 単純な記憶域の確保（例外をスローしない）
 void* operator new(std::size_t size, const std::nothrow_t&) throw();    // (2) C++03 まで
 void* operator new(std::size_t size, const std::nothrow_t&) noexcept;   // (2) C++11 から
+void* operator new(std::size_t size, std::align_val_t alignment,
+                   const std::nothrow_t&) noexcept;                     // (2) C++17 から
 
 // 配置newによる記憶域の確保
 void* operator new(std::size_t size, void* ptr) throw();                // (3) C++03 まで
@@ -17,6 +20,7 @@ void* operator new(std::size_t size, void* ptr) noexcept;               // (3) C
 ```
 * bad_alloc[link bad_alloc.md]
 * nothrow_t[link nothrow_t.md]
+* align_val_t[link align_val_t.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 
 
@@ -26,10 +30,10 @@ void* operator new(std::size_t size, void* ptr) noexcept;               // (3) C
 
 ## 効果
 - (1) `size` で指定したサイズ（バイト）の記憶域を確保する。  
-    確保された記憶域の先頭アドレスは、`size` バイトのあらゆるオブジェクトのアライメント要求を満たしている。  
+    確保された記憶域の先頭アドレスは、`size` バイトのあらゆるオブジェクトのアライメント要求を満たしている。それより大きいアライメントが`alignment` によって要求される場合、指定したアライメント要求を満たす。  
     確保に失敗した場合、[`bad_alloc`](bad_alloc.md) 例外をスローする。
-- (2) `size` で指定したサイズ（バイト）記憶域を確保する。  
-    確保された記憶域の先頭アドレスは、`size` バイトのあらゆるオブジェクトのアライメント要求を満たしている。  
+- (2) `size` で指定したサイズ（バイト）の記憶域を確保する。  
+    確保された記憶域の先頭アドレスは、`size` バイトのあらゆるオブジェクトのアライメント要求を満たしている。それより大きいアライメントが`alignment` によって要求される場合、指定したアライメント要求を満たす。  
     確保に失敗した場合でも例外をスローしない。
 - (3) 何もしない。
 
@@ -48,10 +52,16 @@ void* operator new(std::size_t size, void* ptr) noexcept;               // (3) C
 - (1)、および、(2) の形式は、利用者がこれらとおなじシグネチャの関数を用意することで、標準ライブラリの提供している関数を置き換えることができる。  
     なお、(3) の形式については、置き換えることはできない（許可されていない）。
 
+- (1)、および、(2) の形式は、C++17以降、デフォルトの `new` が保証するアライメントよりも大きなアライメントを要求する型については自動的に [`std::align_val_t`](align_val_t.md) を取るオーバーロードを選択する。
+    このとき、`align_val_t(alignof(T))` が引数として渡される。この閾値は定義済みマクロ `__STDCPP_DEFAULT_NEW_ALIGNMENT__` で提供される。
+    既存のコードを利用する観点から、利用者が `operator new` を置き換えていた場合は、その型がデフォルトより大きなアライメントを要求していたとしても、ユーザーが置き換えた関数が使用される。
+
+- (1)、および、(2) の形式において、`alignment` に無効な値を渡した場合、その動作は未定義である。
+
 - (1) の形式の `operator new` を呼び出すだけであれば、（`new` 式から間接的に呼ばれる場合も含めて）`new` ヘッダをインクルードする必要はない。
 
 - (1) の形式の詳細な正確な挙動は以下の通りである。
-    - `size` で指定したサイズ（バイト）の記憶域を確保しようとする。なお、記憶域の確保に C 言語のライブラリ関数 `malloc` を用いるか否かは規定されていない。
+    - `size` で指定したサイズ（バイト）の記憶域を確保しようとする。なお、記憶域の確保に C 言語のライブラリ関数 `malloc` や `aligned_alloc` を用いるか否かは規定されていない。
     - もし、記憶域を確保できた場合、確保した先頭アドレスを返す。
     - もし、確保できなかった場合、
         - 現在の [`new_handler`](new_handler.md) が ヌルポインタであれば、[`bad_alloc`](bad_alloc.md) 例外をスローする。
