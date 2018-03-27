@@ -22,9 +22,9 @@ namespace std {
 ## 要件
 - `PopulationIterator` は `InputIterator` の要件を満たしていること
 - `SampleIterator` は `OutputIterator` の要件を満たしていること
-- `PopulationIteratorが `ForwardIterator` の要件を満たさない限り、`SampleIterator`は`RandomAccessIterator`の要件を満たさなければならない
+- `PopulationIterator`が `ForwardIterator` の要件を満たさない限り、`SampleIterator`は`RandomAccessIterator`の要件を満たさなければならない
 - `PopulationIterator`の値型は`out`に対して書き込めなければならない
-- `Distance`は整数型だえること
+- `Distance`は整数型であること
 - `UniformRandomBitGenerator` は uniform random bit generator の要件を満たさなければならず、その戻り値の型は`Distance`型へ変換可能でなければならない
 - `out`は範囲`[first, last)`に含まれてはならない
 
