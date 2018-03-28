@@ -117,7 +117,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 | `const_pointer` | `const`ポインタ型 `const value_type*` | C++17 |
 | `reference` | 参照型 `value_type&` | C++17 |
 | `const_reference` | `const`参照型 `const value&` | C++17 |
-| `const_iterator` | 読み取り専用イテレータ。実装定義 | C++17 |
+| `const_iterator` | 読み取り専用イテレータ。実装定義。<br/> 要素の型は`value_type`。<br/> ランダムアクセスイテレータと連続イテレータの要件を満たす | C++17 |
 | `iterator` | イテレータ `const_iterator` | C++17 |
 | `const_reverse_iterator` | 読み取り専用逆イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | C++17 |
 | `reverse_iterator` | 逆順イテレータ `const_reverse_iterator` | C++17 |
