@@ -36,8 +36,8 @@ int main()
   });
 }
 ```
-* begin()[color ff0000]
-* sv.end()[link end.md]
+* end()[color ff0000]
+* sv.begin()[link begin.md]
 
 ### 出力
 ```
