@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-static size_t length(const char_type* s);
+static size_t length(const char_type* s);           // C++14まで
+static constexpr size_t length(const char_type* s); // C++17から
 ```
 * size_t[link /reference/cstddef/size_t.md]
 

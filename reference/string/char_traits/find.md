@@ -6,7 +6,9 @@
 
 ```cpp
 static const char_type* find(const char_type* s, size_t n,
-                             const char_type& a);
+                             const char_type& a);                    // C++14まで
+static constexpr const char_type* find(const char_type* s, size_t n,
+                                  const char_type& a);               // C++17から
 ```
 * size_t[link /reference/cstddef/size_t.md]
 

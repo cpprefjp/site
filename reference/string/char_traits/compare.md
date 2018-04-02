@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-static int compare(const char_type* s1, const char_type* s2, size_t n);
+static int compare(const char_type* s1, const char_type* s2, size_t n);           // C++14まで
+static constexpr int compare(const char_type* s1, const char_type* s2, size_t n); // C++17から
 ```
 * size_t[link /reference/cstddef/size_t.md]
 
