@@ -54,4 +54,4 @@ c
 ```
 
 ## 参照
-
+- [P0426R0 - Constexpr for `std::char_traits`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0426r0.html)
