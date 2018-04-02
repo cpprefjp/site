@@ -41,7 +41,6 @@ void f(Args... args)
 f(3, 'a', "hello");
 ```
 * std::tuple[link /reference/tuple/tuple.md]
-* std::string[link /reference/string/basic_string.md]
 
 パラメータパックを最初の要素から順番に処理していきたい場合には、「任意の型のパラメータをひとつと、任意の個数の任意の型のパラメータを受け取る」というような形式のパラメータリストとし、再帰によって処理をする：
 
@@ -68,7 +67,6 @@ int main()
   print(1, 'a', "hello");
 }
 ```
-* <utility>[link /reference/utility.md]
 * std::move[link /reference/utility/move.md]
 
 出力：
@@ -169,8 +167,6 @@ hello
       f(1, 'a', "hello");
     }
     ```
-    * <cstddef>[link /reference/cstddef.md]
-    * std::size_t[link /reference/cstddef/size_t.md]
     * constexpr[link constexpr.md]
     * static_assert[link static_assert.md]
 
@@ -205,7 +201,6 @@ hello
       f(a, b);
     }
     ```
-    * <tuple>[link /reference/tuple.md]
     * std::tuple[link /reference/tuple/tuple.md]
     * std::make_tuple[link /reference/tuple/make_tuple.md]
 
@@ -236,7 +231,6 @@ hello
     ContainerHolder<std::vector> v;
     ContainerHolder<std::list> ls;
     ```
-    * std::list[link /reference/list.md]
 
 
 ### パラメータパックの展開ができる場所
@@ -332,7 +326,6 @@ hello
       f(1, 'a', "hello");
     }
     ```
-    * <sstream>[link /reference/sstream.md]
     * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 
 - 複数のパラメータパックに対して拡張を行う場合、それらのパラメータパックは同じ要素数でなければならない。そうでない場合、プログラムは不適格となる

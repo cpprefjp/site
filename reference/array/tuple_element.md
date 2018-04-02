@@ -6,16 +6,15 @@
 
 ```cpp
 namespace std {
-  template <size_t I, class T> class tuple_element; // 先行宣言
+  template <std::size_t I, class T> class tuple_element; // 先行宣言
 
-  template <size_t I, class T, size_t N>
+  template <std::size_t I, class T, std::size_t N>
   struct tuple_element<I, array<T, N>> {
     static_assert(I < N, implementation-defined);
     using type = T;
   }
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 `tuple_element`は、タプルとして見なせる型から、`I`番目の要素型を取得するためのクラスである。

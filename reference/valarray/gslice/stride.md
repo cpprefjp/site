@@ -5,9 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-valarray<size_t> stride() const;
+valarray<std::size_t> stride() const;
 ```
-* size_t[link /reference/cstddef/size_t.md]
 * valarray[link /reference/valarray/valarray.md]
 
 ## 概要

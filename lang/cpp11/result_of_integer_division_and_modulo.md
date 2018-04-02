@@ -28,7 +28,6 @@ int main()
   assert(-7 / -2 == +3 && -7 % -2 == -1); // C++03 までは商 +4 余り +1 となる実装も規格適合
 }
 ```
-* assert[link /reference/cassert/assert.md]
 
 ### 出力
 ```

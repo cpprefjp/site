@@ -69,12 +69,8 @@ int main()
   }
 }
 ```
-* <thread>[link /reference/thread.md]
-* std::thread[link /reference/thread/thread.md]
 * push_back[link /reference/vector/push_back.md]
 * std::move[link /reference/utility/move.md]
-* join()[link /reference/thread/thread/join.md]
-* assert[link /reference/cassert/assert.md]
 
 ### 出力
 ```

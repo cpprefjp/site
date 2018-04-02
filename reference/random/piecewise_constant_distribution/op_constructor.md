@@ -14,19 +14,17 @@ piecewise_constant_distribution(InputIteratorB firstB,
                                 InputIteratorW firstW);           // (2)
 
 template <class UnaryOperation>
-piecewise_constant_distribution(initializer_list<RealType> bl,
+piecewise_constant_distribution(std::initializer_list<RealType> bl,
                                 UnaryOperation fw);               // (3)
 
 template <class UnaryOperation>
-piecewise_constant_distribution(size_t nw,
+piecewise_constant_distribution(std::size_t nw,
                                 RealType xmin,
                                 RealType xmax,
                                 UnaryOperation fw);               // (4)
 
 explicit piecewise_constant_distribution(const param_type& parm); // (5)
 ```
-* initializer_list[link /reference/initializer_list.md]
-* size_t[link /reference/cstddef/size_t.md]
 
 ## piecewise_constant_distributionオブジェクトの構築
 - (1) : デフォルトコンストラクタ。区間数列を`{0.0, 1.0}`、重み数列を`{1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。

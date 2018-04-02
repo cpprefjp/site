@@ -54,10 +54,6 @@ int main()
 }
 ```
 * std::codecvt_utf8[link /reference/codecvt/codecvt_utf8.md]
-* std::string[link /reference/string/basic_string.md]
-* std::u32string[link /reference/string/basic_string.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * std::mbstate_t[link /reference/cwchar/mbstate_t.md.nolink]
 * std::mbsinit[link /reference/cwchar/mbsinit.md.nolink]
 

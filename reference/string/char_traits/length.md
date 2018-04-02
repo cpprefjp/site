@@ -5,10 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-static size_t length(const char_type* s);           // C++14まで
-static constexpr size_t length(const char_type* s); // C++17から
+static std::size_t length(const char_type* s);           // C++14まで
+static constexpr std::size_t length(const char_type* s); // C++17から
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 文字列の長さを取得する。

@@ -6,11 +6,10 @@
 
 ```cpp
 namespace std {
-  template<class RealType, size_t bits, class URNG>
+  template<class RealType, std::size_t bits, class URNG>
   RealType generate_canonical(URNG& g);
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 実数区間\[0.0, 1.0\)に展開（事実上正規化）された一様分布乱数を得るための関数テンプレート。

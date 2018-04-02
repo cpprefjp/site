@@ -9,11 +9,10 @@ namespace std {
   template <class T, T... I>
   struct integer_sequence {
     using value_type = T;
-    static constexpr size_t size() noexcept { return sizeof...(I); }
+    static constexpr std::size_t size() noexcept { return sizeof...(I); }
   };
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 `integer_sequence`は、任意の整数型のシーケンスをコンパイル時に表現するクラスである。

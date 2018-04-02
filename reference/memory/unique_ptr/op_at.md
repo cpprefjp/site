@@ -6,9 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-T& operator[](size_t i) const;
+T& operator[](std::size_t i) const;
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 任意の位置の要素にアクセスする。

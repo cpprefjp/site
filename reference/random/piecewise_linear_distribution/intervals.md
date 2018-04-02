@@ -6,9 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-vector<result_type> intervals() const;
+std::vector<result_type> intervals() const;
 ```
-* vector[link /reference/vector.md]
 
 ## 概要
 区間の数列を取得する。

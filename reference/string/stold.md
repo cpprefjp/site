@@ -6,11 +6,10 @@
 
 ```cpp
 namespace std {
-  double stold(const string& str, size_t* idx = nullptr);
-  long double stold(const wstring& str, size_t* idx = nullptr);
+  double stold(const std::string& str, std::size_t* idx = nullptr);
+  long double stold(const std::wstring& str, std::size_t* idx = nullptr);
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 文字列`str`を数値として読み取って、`long double`型の値に変換する。
@@ -99,7 +98,6 @@ int main()
 }
 ```
 * std::stold[color ff0000]
-* std::wstring[link basic_string.md]
 
 ### 出力例
 ```

@@ -146,15 +146,10 @@ int main()
   std::cout << password << std::endl;
 }
 ```
-* std::string[link /reference/string/basic_string.md]
-* std::size_t[link /reference/cstddef/size_t.md]
 * uniform_int_distribution[link uniform_int_distribution.md]
 * candidate_chars.size()[link /reference/string/basic_string/size.md]
 * dist(engine)[link uniform_int_distribution/op_call.md]
 * password += random_char[link /reference/string/basic_string/op_plus_assign.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* assert[link /reference/cassert/assert.md]
 
 #### 出力例
 ```

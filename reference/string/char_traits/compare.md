@@ -5,10 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-static int compare(const char_type* s1, const char_type* s2, size_t n);           // C++14まで
-static constexpr int compare(const char_type* s1, const char_type* s2, size_t n); // C++17から
+static int compare(const char_type* s1, const char_type* s2, std::size_t n);           // C++14まで
+static constexpr int compare(const char_type* s1, const char_type* s2, std::size_t n); // C++17から
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 2つの文字列を比較する。

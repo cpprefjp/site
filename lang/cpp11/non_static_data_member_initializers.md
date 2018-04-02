@@ -23,7 +23,6 @@ int main()
   assert(p.description == "Hello everyone.");
 }
 ```
-* assert[link /reference/cassert/assert.md]
 
 
 ## 仕様

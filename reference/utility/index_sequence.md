@@ -6,11 +6,10 @@
 
 ```cpp
 namespace std {
-  template <size_t... I>
-  using index_sequence = integer_sequence<size_t, I...>;
+  template <std::size_t... I>
+  using index_sequence = integer_sequence<std::size_t, I...>;
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 * integer_sequence[link integer_sequence.md]
 
 ## 概要

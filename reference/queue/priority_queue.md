@@ -6,12 +6,11 @@
 ```cpp
 namespace std {
   template <class T,
-            class Container = vector<T>,
+            class Container = std::vector<T>,
             class Compare = less<typename Container::value_type>>
   class priority_queue;
 }
 ```
-* vector[link /reference/vector.md]
 * less[link /reference/functional/less.md]
 
 ## 概要

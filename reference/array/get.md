@@ -6,29 +6,28 @@
 
 ```cpp
 namespace std {
-  template <size_t I, class T, size_t N>
+  template <std::size_t I, class T, std::size_t N>
   T& get(array<T, N>& x) noexcept;                         // (1) C++11
 
-  template <size_t I, class T, size_t N>
+  template <std::size_t I, class T, std::size_t N>
   constexpr T& get(array<T, N>& x) noexcept;               // (1) C++14
 
-  template <size_t I, class T, size_t N>
+  template <std::size_t I, class T, std::size_t N>
   T&& get(array<T, N>&& x) noexcept;                       // (2) C++11
 
-  template <size_t I, class T, size_t N>
+  template <std::size_t I, class T, std::size_t N>
   T&& get(array<T, N>&& x) noexcept;                       // (2) C++14
 
-  template <size_t I, class T, size_t N>
+  template <std::size_t I, class T, std::size_t N>
   const T& get(const array<T, N>& x) noexcept;             // (3) C++11
 
-  template <size_t I, class T, size_t N>
+  template <std::size_t I, class T, std::size_t N>
   constexpr const T& get(const array<T, N>& x) noexcept;   // (3) C++14
 
-  template <size_t I, class T, size_t N>
+  template <std::size_t I, class T, std::size_t N>
   constexpr const T&& get(const array<T, N>&& x) noexcept; // (4) C++17
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 タプルと見なせる型から指定した位置の要素を取得する。

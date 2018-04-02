@@ -44,7 +44,6 @@ std::vector<int> v, vv;
 v = vv;                  // 代入式1
 v = std::vector<int>(100, 0); // 代入式2
 ```
-* std::vector[link /reference/vector.md]
 
 上記コードはC++03では、代入式1,2とも右辺の型は `vector<int> const&` になる。  
 代入処理の中では、右辺の値をコピーし、左辺の値と置き換えられる。  
@@ -123,7 +122,6 @@ int main()
   std::string y = std::move(x);
 }
 ```
-* <utility>[link /reference/utility.md]
 * std::move[link /reference/utility/move.md]
 
 #### 所有権の移動
@@ -148,9 +146,6 @@ int main()
   std::unique_ptr<int> q = std::move(p);
 }
 ```
-* <utility>[link /reference/utility.md]
-* <memory>[link /reference/memory.md]
-* std::unique_ptr[link /reference/memory/unique_ptr.md]
 * std::move[link /reference/utility/move.md]
 
 他には、[`<iostream>`](/reference/iostream.md)も所有権の移動に対応している。

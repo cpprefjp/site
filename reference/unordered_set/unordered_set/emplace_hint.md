@@ -88,8 +88,10 @@ struct is : std::pair<int, std::string> {
 // サンプル用クラスのために std::hash を特殊化
 namespace std {
   template <>
-  struct hash<is> : private hash<int>, private hash<string> {
-    size_t operator()(const is& v) const { return hash<int>::operator()(v.first) ^ hash<string>::operator()(v.second); }
+  struct hash<is> : private hash<int>, private hash<std::string> {
+    std::size_t operator()(const is& v) const {
+      return hash<int>::operator()(v.first) ^ hash<string>::operator()(v.second);
+    }
   };
 }
 
@@ -123,7 +125,6 @@ int main()
 ```
 * emplace_hint[color ff0000]
 * hash[link /reference/functional/hash.md]
-* size_t[link /reference/cstddef/size_t.md]
 * std::ostream[link /reference/ostream/basic_ostream.md]
 * us.cbegin()[link cbegin.md]
 * us.cend()[link cend.md]

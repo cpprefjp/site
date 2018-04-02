@@ -5,13 +5,12 @@
 * ios_base::failure[meta class]
 
 ```cpp
-explicit failure(const string& msg);                                            // (1) C++03 まで
+explicit failure(const std::string& msg);                                            // (1) C++03 まで
 
-explicit failure(const string& msg, const error_code& ec = io_errc::stream);    // (2) C++11 から
+explicit failure(const std::string& msg, const error_code& ec = io_errc::stream);    // (2) C++11 から
 
 explicit failure(const char* msg, const error_code& ec = io_errc::stream);      // (3) C++11 から
 ```
-* string[link ../../../string/basic_string.md]
 * error_code[link ../../../system_error/error_code.md]
 * io_errc[link ../../io_errc.md]
 
@@ -58,14 +57,10 @@ int main()
   std::cout << f2.what() << std::endl;
 }
 ```
-* iostream[link ../../../iostream.md]
-* system_error[link ../../../system_error.md]
 * failure[link ../failure.md]
-* make_error_code[link ../../../system_error/make_error_code.md]
-* errc[link ../../../system_error/errc.md]
-* cout[link ../../../iostream/cout.md]
-* endl[link ../../../ostream/endl.md]
-* ios_base[link ../../ios_base.md]
+* std::make_error_code[link ../../../system_error/make_error_code.md]
+* std::errc[link ../../../system_error/errc.md]
+* std::ios_base[link ../../ios_base.md]
 * what[color ff0000]
 
 ### 出力例

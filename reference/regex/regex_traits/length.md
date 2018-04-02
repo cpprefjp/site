@@ -8,7 +8,6 @@
 ```cpp
 static std::size_t length(const char_type* p);
 ```
-* std::size_t[link /reference/cstddef/size_t.md]
 
 
 ## 概要

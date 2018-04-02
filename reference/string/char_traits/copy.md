@@ -5,9 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-static char_type* copy(char_type* s1, const char_type* s2, size_t n);
+static char_type* copy(char_type* s1, const char_type* s2, std::size_t n);
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 文字列`s1`に文字列`s2`をコピーする。

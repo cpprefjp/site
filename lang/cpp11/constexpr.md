@@ -27,7 +27,6 @@ int main()
   assert(runtime_result == 9);
 }
 ```
-* assert[link /reference/cassert/assert.md]
 
 関数`square()`の先頭に`constexpr`キーワードを付けることで、その関数は、コンパイル時と実行時、両方で呼び出せる関数となる。
 

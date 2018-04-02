@@ -7,10 +7,9 @@
 * cpp17deprecated[meta cpp]
 
 ```cpp
-size_t converted() const;          // C++11
-size_t converted() const noexcept; // C++14
+std::size_t converted() const;          // C++11
+std::size_t converted() const noexcept; // C++14
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 このクラスはC++17から非推奨となった。
 
@@ -54,11 +53,7 @@ int main()
 }
 ```
 * std::codecvt_utf8[link /reference/codecvt/codecvt_utf8.md]
-* std::string[link /reference/string/basic_string.md]
-* std::u32string[link /reference/string/basic_string.md]
 * size()[link /reference/string/basic_string/size.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```

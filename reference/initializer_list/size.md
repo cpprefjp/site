@@ -6,10 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-size_t size() const noexcept;           // C++11
-constexpr size_t size() const noexcept; // C++14
+std::size_t size() const noexcept;           // C++11
+constexpr std::size_t size() const noexcept; // C++14
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 要素数を取得する。

@@ -20,7 +20,6 @@ operator delete(void*, std::size_t, const std::nothrow_t&)   // C++14から追�
 operator delete[](void*, std::size_t)                        // C++14から追加
 operator delete[](void*, std::size_t, const std::nothrow_t&) // C++14から追加（ただし、備考を参照）
 ```
-* std::size_t[link /reference/cstddef/size_t.md]
 * std::nothrow_t[link /reference/new/nothrow_t.md]
 
 
@@ -35,7 +34,6 @@ void operator delete[](void* ptr, std::size_t size) noexcept;
 void operator delete[](void* ptr, std::size_t size,
                        const std::nothrow_t&) noexcept;         // ただし、備考を参照
 ```
-* std::size_t[link /reference/cstddef/size_t.md]
 * std::nothrow_t[link /reference/new/nothrow_t.md]
 
 この機能を有効活用することで、メモリアロケータのパフォーマンスを向上できる可能性がある。
@@ -79,8 +77,6 @@ int main()
 }
 ```
 * <cstdio>[link /reference/cstdio.md.nolink]
-* <cstdlib>[link /reference/cstdlib.md]
-* <new>[link /reference/new.md]
 * std::printf[link /reference/cstdio/printf.md.nolink]
 * std::malloc[link /reference/cstdlib/malloc.md.nolink]
 

@@ -6,9 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-vector<result_type> densities() const;
+std::vector<result_type> densities() const;
 ```
-* vector[link /reference/vector.md]
 
 ## 概要
 重みの数列を取得する。

@@ -6,11 +6,10 @@
 
 ```cpp
 namespace std {
-  long stol(const string& str, size_t* idx = nullptr, long base = 10);
-  long stol(const wstring& str, size_t* idx = nullptr, long base = 10);
+  long stol(const std::string& str, std::size_t* idx = nullptr, long base = 10);
+  long stol(const std::wstring& str, std::size_t* idx = nullptr, long base = 10);
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 文字列`str`を数値として読み取って、`long`型の値に変換する。
@@ -146,7 +145,6 @@ int main()
 }
 ```
 * std::stol[color ff0000]
-* std::wstring[link basic_string.md]
 
 ### 出力
 ```

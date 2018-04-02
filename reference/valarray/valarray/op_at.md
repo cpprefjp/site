@@ -5,24 +5,23 @@
 * function[meta id-type]
 
 ```cpp
-T operator[](size_t n) const;                               // (1) C++03
-const T& operator[](size_t n) const;                        // (1) C++11
+T operator[](std::size_t n) const;                               // (1) C++03
+const T& operator[](std::size_t n) const;                        // (1) C++11
 
-T& operator[](size_t n);                                    // (2)
+T& operator[](std::size_t n);                                    // (2)
 
-valarray<T> operator[](slice ar) const;                     // (3)
-slice_array<T> operator[](slice ar);                        // (4)
+valarray<T> operator[](slice ar) const;                          // (3)
+slice_array<T> operator[](slice ar);                             // (4)
 
-valarray<T> operator[](const gslice& ar) const;             // (5)
-gslice_array<T> operator[](const gslice& ar);               // (6)
+valarray<T> operator[](const gslice& ar) const;                  // (5)
+gslice_array<T> operator[](const gslice& ar);                    // (6)
 
-valarray<T> operator[](const valarray<bool>& mask) const;   // (7)
-mask_array<T> operator[](const valarray<bool>& mask);       // (8)
+valarray<T> operator[](const valarray<bool>& mask) const;        // (7)
+mask_array<T> operator[](const valarray<bool>& mask);            // (8)
 
-valarray<T> operator[](const valarray<size_t>& mask) const; // (9)
-indirect_array<T> operator[](const valarray<size_t>& mask); // (10)
+valarray<T> operator[](const valarray<std::size_t>& mask) const; // (9)
+indirect_array<T> operator[](const valarray<std::size_t>& mask); // (10)
 ```
-* size_t[link /reference/cstddef/size_t.md]
 * slice_array[link /reference/valarray/slice_array.md]
 * slice[link /reference/valarray/slice.md]
 * gslice_array[link /reference/valarray/gslice_array.md]

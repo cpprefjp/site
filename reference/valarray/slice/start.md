@@ -5,9 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-size_t start() const;
+std::size_t start() const;
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 スライスを生成する初期位置を取得する。

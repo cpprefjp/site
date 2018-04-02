@@ -6,9 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-size_t size() const;
+std::size_t size() const;
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 シード列の要素数を取得する。

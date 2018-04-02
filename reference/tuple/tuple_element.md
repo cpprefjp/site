@@ -6,24 +6,23 @@
 
 ```cpp
 namespace std {
-  template <size_t I, class T> class tuple_element; // 宣言のみで定義なし
+  template <std::size_t I, class T> class tuple_element; // 宣言のみで定義なし
 
-  template <size_t I, class T> class tuple_element<I, const T>;
-  template <size_t I, class T> class tuple_element<I, volatile T>;
-  template <size_t I, class T> class tuple_element<I, const volatile T>;
+  template <std::size_t I, class T> class tuple_element<I, const T>;
+  template <std::size_t I, class T> class tuple_element<I, volatile T>;
+  template <std::size_t I, class T> class tuple_element<I, const volatile T>;
 
-  template <size_t I, class... Types>
+  template <std::size_t I, class... Types>
   class tuple_element<I, tuple<Types...>> {
   public:
     using type = TI;
   };
 
-  template <size_t I, class T>
+  template <std::size_t I, class T>
   using tuple_element_t = typename tuple_element<I, T>::type; // C++14
 }
 ```
 * tuple[link tuple.md]
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 `tuple_element`は、タプルとして見なせる型から、I番目の要素型を取得するためのクラスである。

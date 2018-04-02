@@ -5,9 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void resize(size_t sz, T c = T());
+void resize(std::size_t sz, T c = T());
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 要素数を変更する。

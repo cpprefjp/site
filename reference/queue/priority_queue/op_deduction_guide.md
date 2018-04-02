@@ -12,7 +12,7 @@ namespace std {
 
   template <class InputIterator,
             class Compare = less<typename iterator_traits<InputIterator>::value_type>,
-            class Container = vector<typename iterator_traits<InputIterator>::value_type>>
+            class Container = std::vector<typename iterator_traits<InputIterator>::value_type>>
   priority_queue(InputIterator, InputIterator, Compare = Compare(), Container = Container())
     -> priority_queue<
          typename iterator_traits<InputIterator>::value_type,
@@ -25,7 +25,6 @@ namespace std {
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * less[link /reference/functional/less.md]
-* vector[link /reference/vector.md]
 
 ## 概要
 `std::priority_queue`クラステンプレートの型推論補助。

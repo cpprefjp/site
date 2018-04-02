@@ -62,7 +62,7 @@ int main()
     std::string u8result = converter.to_bytes(input);
     assert(!u8result.empty());
   }
-    
+
   // (2)
   // ワイド文字配列からバイト文字列に変換
   {
@@ -70,7 +70,7 @@ int main()
     std::string u8result = converter.to_bytes(input);
     assert(!u8result.empty());
   }
-    
+
   // (3)
   // ワイド文字列からバイト文字列に変換
   {
@@ -78,7 +78,7 @@ int main()
     std::string u8result = converter.to_bytes(input);
     assert(!u8result.empty());
   }
-    
+
   // (4)
   // ワイド文字の範囲からバイト文字列に変換
   {
@@ -89,9 +89,6 @@ int main()
 }
 ```
 * std::codecvt_utf8[link /reference/codecvt/codecvt_utf8.md]
-* std::string[link /reference/string/basic_string.md]
-* std::u32string[link /reference/string/basic_string.md]
-* assert[link /reference/cassert/assert.md]
 * empty()[link /reference/string/basic_string/empty.md]
 * std::begin[link /reference/iterator/begin.md]
 * std::end[link /reference/iterator/end.md]

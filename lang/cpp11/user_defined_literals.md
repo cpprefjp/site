@@ -19,7 +19,6 @@ std::string operator"" s(const char* str, std::size_t length)
 
 auto x = "hello"s; // xの型はstd::string
 ```
-* std::size_t[link /reference/cstddef/size_t.md]
 
 `operator"" サフィックス名`は、「リテラル演算子 (literal operator)」という。
 
@@ -241,8 +240,6 @@ assert(str.size() == 9);
 ```
 * std::u32string[link /reference/string/basic_string.md]
 * str.size()[link /reference/string/basic_string/size.md]
-* std::size_t[link /reference/cstddef/size_t.md]
-* assert[link /reference/cassert/assert.md]
 
 
 ### 文字に対するリテラル演算子
@@ -321,7 +318,6 @@ int main()
   std::cout << x << std::endl;
 }
 ```
-* std::size_t[link /reference/cstddef/size_t.md]
 
 ### 出力
 ```

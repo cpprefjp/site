@@ -6,11 +6,10 @@
 
 ```cpp
 namespace std {
-  template <size_t N>
-  using make_index_sequence = make_integer_sequence<size_t, N>;
+  template <std::size_t N>
+  using make_index_sequence = make_integer_sequence<std::size_t, N>;
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 * make_integer_sequence[link make_integer_sequence.md]
 
 

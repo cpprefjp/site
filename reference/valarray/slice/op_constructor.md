@@ -5,15 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-slice();              // (1)
+slice();                   // (1)
 
-slice(size_t start,
-      size_t length,
-      size_t stride); // (2)
+slice(std::size_t start,
+      std::size_t length,
+      std::size_t stride); // (2)
 
-slice(const slice&);  // (3)
+slice(const slice&);       // (3)
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## `slice`オブジェクトの構築
 

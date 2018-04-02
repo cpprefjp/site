@@ -14,19 +14,17 @@ piecewise_linear_distribution(InputIteratorB firstB,
                               InputIteratorW firstW);           // (2)
 
 template <class UnaryOperation>
-piecewise_linear_distribution(initializer_list<RealType> bl,
+piecewise_linear_distribution(std::initializer_list<RealType> bl,
                               UnaryOperation fw);               // (3)
 
 template <class UnaryOperation>
-piecewise_linear_distribution(size_t nw,
+piecewise_linear_distribution(std::size_t nw,
                               RealType xmin,
                               RealType xmax,
                               UnaryOperation fw);               // (4)
 
 explicit piecewise_linear_distribution(const param_type& parm); // (5)
 ```
-* initializer_list[link /reference/initializer_list.md]
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。区間数列を`{0.0, 1.0}`、重み数列を`{1.0, 1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。

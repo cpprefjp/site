@@ -80,7 +80,9 @@ struct is : std::pair<int, std::string> {
 namespace std {
   template <>
   struct hash<is> : private hash<int>, private hash<string> {
-    size_t operator()(const is& v) const { return hash<int>::operator()(v.first) ^ hash<string>::operator()(v.second); }
+    std::size_t operator()(const is& v) const {
+      return hash<int>::operator()(v.first) ^ hash<string>::operator()(v.second);
+    }
   };
 }
 
@@ -112,7 +114,6 @@ int main()
 ```
 * emplace[color ff0000]
 * hash[link /reference/functional/hash.md]
-* size_t[link /reference/cstddef/size_t.md]
 * std::ostream[link /reference/ostream/basic_ostream.md]
 * ums.insert[link insert.md]
 * ums.cbegin()[link cbegin.md]

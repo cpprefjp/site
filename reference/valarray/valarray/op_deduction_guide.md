@@ -6,11 +6,10 @@
 
 ```cpp
 namespace std {
-  template <class T, size_t cnt>
-  valarray(const T(&)[cnt], size_t) -> valarray<T>;
+  template <class T, std::size_t cnt>
+  valarray(const T(&)[cnt], std::size_t) -> valarray<T>;
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 `std::valarray`クラステンプレートの型推論補助。配列と使用する要素数から推論する。

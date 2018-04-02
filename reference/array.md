@@ -6,11 +6,10 @@
 
 ```cpp
 namespace std {
-  template <class T, size_t N>
+  template <class T, std::size_t N>
   struct array;
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 `array`は固定長のオブジェクトを保持するシーケンスコンテナで、各要素は連続して格納される。従来のCスタイルの配列のパフォーマンスを保ったまま、シーケンスのサイズの取得、要素の代入のサポートなど、標準コンテナの恩恵を受ける事ができる。また、境界チェック（範囲外の要素にアクセスしようとしていないかのチェック）付きの要素アクセスもサポートしている。

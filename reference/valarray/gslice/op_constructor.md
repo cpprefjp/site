@@ -5,15 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-gslice();                         // (1)
+gslice();                              // (1)
 
-gslice(size_t start,
-       valarray<size_t> lengths,
-       valarray<size_t> strides); // (2)
+gslice(std::size_t start,
+       valarray<std::size_t> lengths,
+       valarray<std::size_t> strides); // (2)
 
-gslice(const slice&);             // (3)
+gslice(const slice&);                  // (3)
 ```
-* size_t[link /reference/cstddef/size_t.md]
 * valarray[link /reference/valarray/valarray.md]
 
 ## `gslice`オブジェクトの構築

@@ -6,11 +6,10 @@
 
 ```cpp
 namespace std {
-  float stof(const string& str, size_t* idx = nullptr);
-  float stof(const wstring& str, size_t* idx = nullptr);
+  float stof(const std::string& str, std::size_t* idx = nullptr);
+  float stof(const std::wstring& str, std::size_t* idx = nullptr);
 }
 ```
-* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 文字列`str`を数値として読み取って、`float`型の値に変換する。
@@ -99,7 +98,6 @@ int main()
 }
 ```
 * std::stof[color ff0000]
-* std::wstring[link basic_string.md]
 
 ### 出力例
 ```
