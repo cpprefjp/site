@@ -50,6 +50,19 @@ auto operator()(T1 a, T2 b) const
     auto plus = [](const auto& a, const auto& b) { return a + b; };
     ```
 
+- `auto`などに続いて「`...`」を記述することにより、関数パラメーターパックを宣言できる：
+
+    ```cpp
+    auto f = [](auto... args) {} // argsは関数パラメーターパック
+    ```
+
+    ```cpp
+    struct F {
+      template <class... Args>
+      auto operator()(Args... args) const {}
+    };
+    ```
+
 - 関数テンプレートと違い、ラムダ式の`auto`パラメータは、パラメータのテンプレートパラメータを推論する目的には使用できない：
 
     ```cpp
