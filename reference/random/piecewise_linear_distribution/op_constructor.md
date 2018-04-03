@@ -124,9 +124,6 @@ int main()
   }
 }
 ```
-* std::random_device[link /reference/random/random_device.md]
-* seed_gen()[link /reference/random/random_device/op_call.md]
-* std::default_random_engine[link /reference/random/default_random_engine.md]
 * intervals.begin()[link /reference/array/begin.md]
 * intervals.end()[link /reference/array/end.md]
 * densities.begin()[link /reference/array/begin.md]

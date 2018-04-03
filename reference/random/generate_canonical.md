@@ -48,9 +48,6 @@ int main()
 }
 ```
 * std::generate_canonical[color ff0000]
-* std::random_device[link random_device.md]
-* seed_gen()[link random_device/op_call.md]
-* std::mt19937[link mt19937.md]
 * digits[link /reference/limits/numeric_limits/digits.md]
 
 ### 出力

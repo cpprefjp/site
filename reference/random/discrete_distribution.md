@@ -105,9 +105,6 @@ int main()
 }
 ```
 * std::discrete_distribution[color ff0000]
-* std::random_device[link random_device.md]
-* seed_gen()[link random_device/op_call.md]
-* std::mt19937[link mt19937.md]
 * probabilities.begin()[link /reference/vector/begin.md]
 * probabilities.end()[link /reference/vector/end.md]
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]

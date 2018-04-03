@@ -89,9 +89,6 @@ int main()
 }
 ```
 * std::negative_binomial_distribution[color ff0000]
-* std::random_device[link random_device.md]
-* std::default_random_engine[link default_random_engine.md]
-* seed_gen()[link random_device/op_call.md]
 * dist(engine)[link negative_binomial_distribution/op_call.md]
 
 ### 出力例

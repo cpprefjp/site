@@ -74,8 +74,6 @@ int main()
 }
 ```
 * thread_local[color ff0000]
-* std::random_device[link /reference/random/random_device.md]
-* std::mt19937[link /reference/random/mt19937.md]
 * std::uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
 * std::to_string[link /reference/string/to_string.md]
 

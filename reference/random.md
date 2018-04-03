@@ -161,8 +161,6 @@ int main()
   }
 }
 ```
-* std::random_device[link random/random_device.md]
-* std::mt19937[link random/mt19937.md]
 * seed_gen()[link random/random_device/op_call.md]
 * std::uniform_real_distribution[link random/uniform_real_distribution.md]
 * std::normal_distribution[link random/normal_distribution.md]

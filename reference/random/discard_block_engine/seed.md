@@ -90,7 +90,6 @@ int main()
 * seed(seq)[color ff0000]
 * std::ranlux24[link /reference/random/ranlux24.md]
 * std::seed_seq[link /reference/random/seed_seq.md]
-* std::random_device[link /reference/random/random_device.md]
 * seeds.begin()[link /reference/array/begin.md]
 * seeds.end()[link /reference/array/end.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]

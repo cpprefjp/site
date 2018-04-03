@@ -91,9 +91,6 @@ int main()
 }
 ```
 * std::piecewise_linear_distribution[color ff0000]
-* std::random_device[link random_device.md]
-* std::default_random_engine[link default_random_engine.md]
-* seed_gen()[link random_device/op_call.md]
 * intervals.begin()[link /reference/array/begin.md]
 * intervals.end()[link /reference/array/end.md]
 * densities.begin()[link /reference/array/begin.md]

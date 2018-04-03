@@ -86,7 +86,6 @@ int main()
 * seed(seq)[color ff0000]
 * std::minstd_rand[link /reference/random/minstd_rand.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
-* std::random_device[link /reference/random/random_device.md]
 * seeds.begin()[link /reference/array/begin.md]
 * seeds.end()[link /reference/array/end.md]
 
