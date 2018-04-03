@@ -223,7 +223,6 @@ int main()
   foo()(2); // 未定義の振る舞い
 }
 ```
-* <functional>[link /reference/functional.md]
 * std::function[link /reference/functional/function.md]
 
 ラムダ式がデフォルト引数に現れる場合、いかなるキャプチャもしてはならない。
@@ -395,7 +394,6 @@ int main()
   });
 }
 ```
-* <functional>[link /reference/functional.md]
 * std::function[link /reference/functional/function.md]
 
 #### 出力

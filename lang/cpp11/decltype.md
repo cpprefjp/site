@@ -202,8 +202,7 @@ int main()
   std::cout << l(S::g) << '\n';
 }
 ```
-* utility[link ../../reference/utility.md]
-* forward[link ../../reference/utility/forward.md]
+* std::forward[link ../../reference/utility/forward.md]
 * decltype[color ff0000]
 
 #### 出力

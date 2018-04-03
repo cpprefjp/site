@@ -136,9 +136,6 @@ int main()
   }
 }
 ```
-* <stack>[link /reference/stack.md]
-* <deque>[link /reference/deque.md]
-* <type_traits>[link /reference/type_traits.md]
 * std::stack[link /reference/stack.md]
 * std::deque[link /reference/deque.md]
 * std::is_nothrow_default_constructible[link /reference/type_traits/is_nothrow_default_constructible.md]
@@ -148,8 +145,6 @@ int main()
 * base::empty()[link /reference/stack/empty.md]
 * base::top()[link /reference/stack/top.md]
 * base::pop()[link /reference/stack/pop.md]
-* std::pair[link /reference/utility/pair.md]
-* std::make_pair[link /reference/utility/make_pair.md]
 * s.push[link /reference/stack/push.md]
 * s.empty()[link /reference/stack/empty.md]
 

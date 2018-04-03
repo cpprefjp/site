@@ -28,8 +28,6 @@ std::thread t2([]{
 t1.join();
 t2.join();
 ```
-* std::thread[link /reference/thread/thread.md]
-* join()[link /reference/thread/thread/join.md]
 
 
 ## 仕様
@@ -76,13 +74,9 @@ int main()
 }
 ```
 * thread_local[color ff0000]
-* <thread>[link /reference/thread.md]
-* <random>[link /reference/random.md]
 * std::random_device[link /reference/random/random_device.md]
 * std::mt19937[link /reference/random/mt19937.md]
 * std::uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
-* std::thread[link /reference/thread/thread.md]
-* join()[link /reference/thread/thread/join.md]
 * std::to_string[link /reference/string/to_string.md]
 
 ### 出力例

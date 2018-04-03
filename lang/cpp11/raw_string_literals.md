@@ -126,8 +126,6 @@ int main()
   std::cout << json << std::endl;
 }
 ```
-* <cstdio>[link /reference/cstdio.md.nolink]
-* <sstream>[link /reference/sstream.md]
 * c_str()[link /reference/string/basic_string/c_str.md]
 * std::streambuf[link /reference/streambuf/basic_streambuf.md]
 * rdbuf[link /reference/ios/basic_ios/rdbuf.md]
@@ -184,7 +182,6 @@ int main()
   }
 }
 ```
-* <regex>[link /reference/regex.md]
 * std::regex[link /reference/regex/basic_regex.md]
 * std::regex_match[link /reference/regex/regex_match.md]
 
@@ -226,8 +223,6 @@ int main()
   file.write(html.data(), html.size());
 }
 ```
-* <fstream>[link /reference/fstream.md]
-* <regex>[link /reference/regex.md]
 * std::regex[link /reference/regex/basic_regex.md]
 * std::regex_replace[link /reference/regex/regex_replace.md]
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]

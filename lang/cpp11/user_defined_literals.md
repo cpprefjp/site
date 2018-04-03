@@ -238,7 +238,6 @@ using namespace literals;
 auto str = UR"(こんにちは"世界")"_s;
 assert(str.size() == 9);
 ```
-* std::u32string[link /reference/string/basic_string.md]
 * str.size()[link /reference/string/basic_string/size.md]
 
 

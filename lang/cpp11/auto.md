@@ -14,12 +14,8 @@ auto q = std::make_shared<int>(42); // q は std::shared_ptr<int> 型
 auto z = { 1.0, 2.0, 3.0, };        // z は std::initializer_list<double> 型
 auto f = []{};                      // f は 引数を取らずに値を返さない operator() を持つユニークなクロージャ型
 ```
-* make_pair[link ../../reference/utility/make_pair.md]
-* pair[link ../../reference/utility/pair.md]
-* make_shared[link ../../reference/memory/make_shared.md]
-* shared_ptr[link ../../reference/memory/shared_ptr.md]
-* initializer_list[link ../../reference/initializer_list.md]
 * auto[color ff0000]
+* std::make_shared[link ../../reference/memory/make_shared.md]
 
 型推論のための `auto` は、基本的には糖衣構文であり具体的な型で書き替えることが可能であるが、上記のクロージャ型のように書き換えが不可能なケースも存在する。  
 この機能の追加に伴って、C++03 までの `auto` に存在した、自動変数である事を意味する記憶クラス指定子としての使用はできなくなった。
@@ -94,7 +90,6 @@ void f(const U& p);
 template <typename U>
 void f(std::initializer_list<U> p);
 ```
-* initializer_list[link ../../reference/initializer_list.md]
 
 なお、`auto p{ 初期化子1, 初期化子2, ... 初期化子n };` のような直接リスト初期化の場合、C++11 ではコピーリスト初期化と同様とされている。  
 しかし、この（直接リスト初期化の）挙動は C++17 で変更される予定であるため、注意が必要である。  
@@ -131,9 +126,6 @@ int main()
   std::cout << '\n';
 }
 ```
-* memory[link ../../reference/memory.md]
-* initializer_list[link ../../reference/initializer_list.md]
-* unique_ptr[link ../../reference/memory/unique_ptr.md]
 * begin[link ../../reference/initializer_list/begin.md]
 * nullptr[link nullptr.md]
 * auto[color ff0000]
@@ -180,7 +172,6 @@ int main()
   std::cout << '\n';
 }
 ```
-* initializer_list[link ../../reference/initializer_list.md]
 * auto[color ff0000]
 
 #### 出力３
@@ -246,7 +237,6 @@ int foo(const std::unordered_map<T, std::unordered_map<T, T>>& m) {
   …
 }
 ```
-* unordered_map[link ../../reference/unordered_map/unordered_map.md]
 * begin[link ../../reference/unordered_map/unordered_map/begin.md]
 
 C++11 で導入された [`decltype`](decltype.md) を使用すれば以下のように簡潔に書く事が出来る。
@@ -257,7 +247,6 @@ int foo(const std::unordered_map<T, std::unordered_map<T, T>>& m) {
   decltype(m.begin()) it = m.begin();
 }
 ```
-* unordered_map[link ../../reference/unordered_map/unordered_map.md]
 * begin[link ../../reference/unordered_map/unordered_map/begin.md]
 * decltype[link decltype.md]
 
@@ -332,8 +321,6 @@ for (auto it = m.begin(), e = m.end(); it != e; ++it) {
   …
 }
 ```
-* string[link ../../reference/string/basic_string.md]
-* unordered_map[link ../../reference/unordered_map/unordered_map.md]
 * begin[link ../../reference/unordered_map/unordered_map/begin.md]
 * end[link ../../reference/unordered_map/unordered_map/end.md]
 

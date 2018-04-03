@@ -78,7 +78,6 @@ int main()
   static_cast<const std::basic_string<char>>(str); // OK
 }
 ```
-* std::basic_string[link /reference/string/basic_string.md]
 
 
 ## この機能が必要になった背景・経緯

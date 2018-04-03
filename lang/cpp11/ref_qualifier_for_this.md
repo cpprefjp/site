@@ -96,7 +96,6 @@ int main()
   std::vector<int> v2 = X().data();
 }
 ```
-* <utility>[link /reference/utility.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力
