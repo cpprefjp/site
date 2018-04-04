@@ -178,7 +178,7 @@ int main()
 ```
 * std::string_view[color ff0000]
 * substr[link basic_string_view/substr.md]
-* sv.find[link basic_string_view/find.md.nolink]
+* sv.find[link basic_string_view/find.md]
 
 ### 出力
 ```
