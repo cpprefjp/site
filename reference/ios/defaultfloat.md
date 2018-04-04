@@ -43,7 +43,7 @@ int main()
 ```
 * std::defaultfloat[color ff00000]
 * std::right[link right.md]
-* std::setw[link /reference/iomanip/setw.md.nolink]
+* std::setw[link /reference/iomanip/setw.md]
 * std::fixed[link fixed.md]
 * std::scientific[link scientific.md]
 * std::hexfloat[link hexfloat.md]

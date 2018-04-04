@@ -25,7 +25,7 @@ streamsize width(streamsize wide);              // (2)
 
 
 ## 備考
-他のフラグや [`precision`](precision.md) 等と異なり、フィールドの幅は次の書式化出力の後にリセットされるため、本関数よりマニピュレータ（[`setw`](../../iomanip/setw.md.nolink)`()`）を使用した方が便利だろう。
+他のフラグや [`precision`](precision.md) 等と異なり、フィールドの幅は次の書式化出力の後にリセットされるため、本関数よりマニピュレータ（[`setw`](../../iomanip/setw.md)`()`）を使用した方が便利だろう。
 
 
 ## 例
@@ -47,7 +47,7 @@ int main()
 }
 ```
 * width[color ff0000]
-* std::setw[link ../../iomanip/setw.md.nolink]
+* std::setw[link ../../iomanip/setw.md]
 
 ### 出力例
 ```
@@ -72,4 +72,4 @@ int main()
 ## 参照
 - [`ios_base`](../ios_base.md)`::`[`precision`](precision.md)
 - [`setprecision`](../../iomanip/setprecision.md)
-- [`setw`](../../iomanip/setw.md.nolink)
+- [`setw`](../../iomanip/setw.md)

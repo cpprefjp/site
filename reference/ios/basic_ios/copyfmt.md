@@ -58,8 +58,8 @@ int main()
 * std::hex[link ../hex.md]
 * std::showbase[link ../showbase.md]
 * std::internal[link ../internal.md]
-* std::setw[link ../../iomanip/setw.md.nolink]
-* std::setfill[link ../../iomanip/setfill.md.nolink]
+* std::setw[link ../../iomanip/setw.md]
+* std::setfill[link ../../iomanip/setfill.md]
 
 ### 出力
 ```
