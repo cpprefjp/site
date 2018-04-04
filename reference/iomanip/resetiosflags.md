@@ -35,11 +35,11 @@ void f(std::ios_base& str, std::ios_base::fmtflags mask) {
 
 int main()
 {
-    const double f = 1234.56789;
-    std::cout << std::scientific << f << '\n';
-    std::cout << f << '\n';
-    std::cout << std::resetiosflags(std::ios_base::floatfield);
-    std::cout << f << '\n';
+  const double f = 1234.56789;
+  std::cout << std::scientific << f << '\n';
+  std::cout << f << '\n';
+  std::cout << std::resetiosflags(std::ios_base::floatfield);
+  std::cout << f << '\n';
 }
 ```
 * std::setw[color ff0000]
