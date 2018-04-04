@@ -12,7 +12,6 @@ size_type find(const charT* s, size_type pos, size_type n) const;          // (2
 size_type find(const charT* s, size_type pos = 0) const;                   // (3)
 
 size_type find(charT c, size_type pos = 0) const;                          // (4) C++11
-size_type find(charT c, size_type pos = 0) const noexcept;                 // (4) C++14
 ```
 
 ## 概要
@@ -36,9 +35,6 @@ size_type find(charT c, size_type pos = 0) const noexcept;                 // (4
 
 ## 例外
 - (1) 投げない
-- (2) -
-- (3) -
-- (4) 投げない（但し、備考参照）
 
 
 ## 備考
@@ -47,10 +43,6 @@ size_type find(charT c, size_type pos = 0) const noexcept;                 // (4
 	* `pos <= xpos` かつ `xpos + str.size() <= size()`
 	* `0 <= I` かつ `I < str.size()` を満たす全ての `I` について、`traits_type::eq(at(xpos + I), str.at(I))`
 - (3) の形式の場合、`s` の文字列長は `traits_type::length(s)` で求められる。
-- C++03 では、例外指定は無い。
-- C++11 では、(4) の形式には `noexcept` が付いているが、下記の実装例のような実装を許すために C++14 では削除されるかもしれない。  
-	（そのような実装では新たな `std::basic_string` が割り当てられるため、メモリのアロケーションが行われる）
-- コンテナに対して同様の検索を行う関数は [`algorithm`](/reference/algorithm.md) ヘッダの [`search`](/reference/algorithm/search.md)（検索対象がシーケンスの場合）、あるいは [`find`](/reference/algorithm/find.md)（検索対象が単一の値の場合）であるが、これらがイテレータベースであるのに対して、本メンバ関数は添字ベースであることに注意。
 
 
 ## 例
@@ -98,7 +90,7 @@ size_type basic_string<charT, traits, Allocator>::find(const charT* s, size_type
 
 // (4)
 template <class charT, class traits, class Allocator>
-size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 0) const noexcept
+size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 0) const
 {
   return find(std::basic_string(1, c), pos);
 }
@@ -114,6 +106,4 @@ size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 
 
 
 ## 参照
-- [LWG2064 - More noexcept issues in basic_string](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2064)
-
-
+- [LWG2064 - More `noexcept` issues in `basic_string`](https://wg21.cmeerw.net/lwg/issue2064)

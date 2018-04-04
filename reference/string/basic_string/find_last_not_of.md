@@ -11,8 +11,7 @@ size_type find_last_not_of(const basic_string& str, size_type pos = npos) const 
 size_type find_last_not_of(const charT* s, size_type pos, size_type n) const;             // (2)
 size_type find_last_not_of(const charT* s, size_type pos = npos) const;                   // (3)
 
-size_type find_last_not_of(charT c, size_type pos = npos) const noexcept;                 // (4) C++11
-size_type find_last_not_of(charT c, size_type pos = npos) const;                          // (4) C++14
+size_type find_last_not_of(charT c, size_type pos = npos) const;                          // (4) C++11
 ```
 
 ## 概要
@@ -36,9 +35,6 @@ size_type find_last_not_of(charT c, size_type pos = npos) const;                
 
 ## 例外
 - (1) 投げない
-- (2) -
-- (3) -
-- (4) 投げない（但し、備考参照）
 
 
 ## 備考
@@ -47,9 +43,6 @@ size_type find_last_not_of(charT c, size_type pos = npos) const;                
 	* `xpos <= pos` かつ `xpos < size()`
 	* `0 <= I` かつ `I < str.size()` を満たす全ての `I` について、`!traits_type::eq(at(xpos), str.at(I))`
 - (3) の形式の場合、`s` の文字列長は `traits_type::length(s)` で求められる。
-- C++03 では、例外指定は無い。
-- C++11 では、(4) の形式には `noexcept` が付いているが、下記の実装例のような実装を許すために C++14 では削除されるかもしれない。  
-	（そのような実装では新たな `std::basic_string` が割り当てられるため、メモリのアロケーションが行われる）
 
 
 ## 例
@@ -101,12 +94,11 @@ size_type basic_string<charT, traits, Allocator>::find_last_not_of(const charT* 
 
 // (4)
 template <class charT, class traits, class Allocator>
-size_type basic_string<charT, traits, Allocator>::find_last_not_of(charT c, size_type pos = npos) const noexcept
+size_type basic_string<charT, traits, Allocator>::find_last_not_of(charT c, size_type pos = npos) const
 {
   return find_last_not_of(std::basic_string(1, c), pos);
 }
 ```
 
 ## 参照
-- [LWG2064 - More noexcept issues in basic_string](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2064)
-
+- [LWG2064 - More `noexcept` issues in `basic_string`](https://wg21.cmeerw.net/lwg/issue2064)

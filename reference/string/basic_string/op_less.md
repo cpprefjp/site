@@ -11,7 +11,7 @@ namespace std {
 
   template <class CharT, class Traits, class Allocator>
   bool operator<(const CharT* a,
-                 const basic_string<CharT, Traits, Allocator>& b) noexcept; // (2)
+                 const basic_string<CharT, Traits, Allocator>& b);          // (2)
 
   template <class CharT, class Traits, class Allocator>
   bool operator<(const basic_string<CharT, Traits, Allocator>& a,
@@ -50,3 +50,4 @@ true
 ```
 
 ## 参照
+- [LWG2064 - More `noexcept` issues in `basic_string`](https://wg21.cmeerw.net/lwg/issue2064)
