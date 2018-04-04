@@ -39,7 +39,7 @@ void forward_to_f(Args&&... args)
 ```cpp
 auto forward_to_f = [](auto&&... args)
 {
-    f(std::forward<decltype(args)>(args)...);
+  f(std::forward<decltype(args)>(args)...);
 };
 ```
 
