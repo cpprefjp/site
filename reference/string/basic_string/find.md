@@ -42,7 +42,7 @@ size_type find(charT c, size_type pos = 0) const noexcept;                 // (4
 
 
 ## 備考
-- 文字列の一致は、文字列の各文字について `traits_type::eq` を用いて検査される。  
+- 文字列の一致は、文字列の各文字について `traits_type::eq()` を用いて検査される。  
 	例えば、(1) の形式の場合、以下のような条件を満たす最小の `xpos` を求める。
 	* `pos <= xpos` かつ `xpos + str.size() <= size()`
 	* `0 <= I` かつ `I < str.size()` を満たす全ての `I` について、`traits_type::eq(at(xpos + I), str.at(I))`
