@@ -15,7 +15,7 @@ size_type rfind(charT c, size_type pos = npos) const;                          /
 ```
 
 ## 概要
-指定した文字列を検索する。
+最後に現れる指定文字列を検索する。
 
 
 ## 要件
