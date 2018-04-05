@@ -6,15 +6,15 @@
 
 ```cpp
 namespace std {
-  string to_wstring(int val);
-  string to_wstring(unsigned int val);
-  string to_wstring(long val);
-  string to_wstring(unsigned long val);
-  string to_wstring(long long val);
-  string to_wstring(unsigned long long val);
-  string to_wstring(float val);
-  string to_wstring(double val);
-  string to_wstring(long double val);
+  wstring to_wstring(int val);
+  wstring to_wstring(unsigned int val);
+  wstring to_wstring(long val);
+  wstring to_wstring(unsigned long val);
+  wstring to_wstring(long long val);
+  wstring to_wstring(unsigned long long val);
+  wstring to_wstring(float val);
+  wstring to_wstring(double val);
+  wstring to_wstring(long double val);
 }
 ```
 
