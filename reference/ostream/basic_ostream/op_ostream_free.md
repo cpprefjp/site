@@ -100,8 +100,8 @@ int main()
 ```
 * std::wcout[link ../../iostream/wcout.md.nolink]
 * std::left[link ../../ios/left.md]
-* std::setfill[link ../../iomanip/setfill.md.nolink]
-* std::setw[link ../../iomanip/setw.md.nolink]
+* std::setfill[link ../../iomanip/setfill.md]
+* std::setw[link ../../iomanip/setw.md]
 
 ### 出力
 ```
@@ -130,8 +130,8 @@ int main()
 }
 ```
 * std::left[link ../../ios/left.md]
-* std::setfill[link ../../iomanip/setfill.md.nolink]
-* std::setw[link ../../iomanip/setw.md.nolink]
+* std::setfill[link ../../iomanip/setfill.md]
+* std::setw[link ../../iomanip/setw.md]
 
 ### 出力
 ```

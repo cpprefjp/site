@@ -83,4 +83,4 @@ int main()
 ## 参照
 - [`ios_base`](../ios_base.md)`::`[`width`](width.md)
 - [`setprecision`](../../iomanip/setprecision.md)
-- [`setw`](../../iomanip/setw.md.nolink)
+- [`setw`](../../iomanip/setw.md)

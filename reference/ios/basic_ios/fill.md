@@ -26,7 +26,7 @@ char_type fill(char_type fillch);       // (2)
 
 
 ## 備考
-- 設定後に戻す必要が無いような場合には、本関数よりマニピュレータ（[`setfill`](../../iomanip/setfill.md.nolink)`()`）を使用した方が便利だろう。
+- 設定後に戻す必要が無いような場合には、本関数よりマニピュレータ（[`setfill`](../../iomanip/setfill.md)`()`）を使用した方が便利だろう。
 - 埋め文字が使用される位置は、出力されるデータの型、[`ios_base`](../ios_base.md)`::`[`adjustfield`](../ios_base/type-fmtflags.md) の設定に依存する。  
     [`ios_base`](../ios_base.md)`::`[`adjustfield`](../ios_base/type-fmtflags.md) が [`ios_base`](../ios_base.md)`::`[`left`](../ios_base/type-fmtflags.md)、および、[`ios_base`](../ios_base.md)`::`[`right`](../ios_base/type-fmtflags.md) の場合には、型によらずそれぞれ値の右側、および、左側に出力される。  
     [`ios_base`](../ios_base.md)`::`[`adjustfield`](../ios_base/type-fmtflags.md) が [`ios_base`](../ios_base.md)`::`[`internal`](../ios_base/type-fmtflags.md) の場合、ほとんどの型では [`ios_base`](../ios_base.md)`::`[`right`](../ios_base/type-fmtflags.md) の場合と同様、値の左側に出力されるが、数値型の場合、符号・あるいは基数表示と数値の間に出力される。
@@ -49,8 +49,8 @@ int main()
 }
 ```
 * fill[color ff0000]
-* std::setw[link ../../iomanip/setw.md.nolink]
-* std::setfill[link ../../iomanip/setfill.md.nolink]
+* std::setw[link ../../iomanip/setw.md]
+* std::setfill[link ../../iomanip/setfill.md]
 * width[link ../ios_base/width.md]
 
 ### 出力
@@ -66,8 +66,8 @@ int main()
 - C++98
 
 ## 参照
-- [`setfill`](../../iomanip/setfill.md.nolink)
-- [`setw`](../../iomanip/setw.md.nolink)
+- [`setfill`](../../iomanip/setfill.md)
+- [`setw`](../../iomanip/setw.md)
 - [`left`](../left.md)
 - [`right`](../right.md)
 - [`internal`](../internal.md)

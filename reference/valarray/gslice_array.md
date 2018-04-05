@@ -102,7 +102,7 @@ int main()
 * std::gslice[color ff0000]
 * std::valarray[link valarray.md]
 * std::iota[link /reference/numeric/iota.md]
-* std::setw[link /reference/iomanip/setw.md.nolink]
+* std::setw[link /reference/iomanip/setw.md]
 
 ### 出力
 ```
