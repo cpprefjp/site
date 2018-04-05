@@ -25,6 +25,8 @@ void f(std::basic_ios<charT, traits>& str, charT c) {
 * std::basic_ios[link /reference/ios/basic_ios.md]
 * fill[link /reference/ios/basic_ios/fill.md]
 
+このマニピュレータは、出力ストリームにしか適用できない。
+
 ## 例
 ```cpp example
 #include <iostream>
