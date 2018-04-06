@@ -69,7 +69,7 @@ int main()
 * rfind[color ff0000]
 
 ### 出力
-```cpp
+```
 29
 7
 14
