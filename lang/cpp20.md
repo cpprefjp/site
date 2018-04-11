@@ -39,16 +39,42 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ## ライブラリ更新の概要
-
-- [`<type_traits>`](/reference/type_traits.md)に、エンディアンを表す列挙型として[`std::endian`](/reference/type_traits/endian.md)を追加
-- [`<type_traits>`](/reference/type_traits.md)に、型のCV修飾と参照を除去する型特性クラスとして[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)を追加
-- [`std::make_shared()`](/reference/memory/make_shared.md)と[`std::allocate_shared()`](/reference/memory/allocate_shared.md)を配列に対応
+### 新ライブラリ
+- [`<version>`](/reference/version.md.nolink)ヘッダを新設する。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される
+- [`<chrono>`](/reference/chrono.md)ヘッダに、カレンダーとタイムゾーンの機能を拡張
+- 任意のシーケンスの部分シーケンスを参照するライブラリとして[`<span>`](/reference/span.md.nolink)を追加
 - 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md.nolink)を追加
-- ポインタを生ポインタに変換する[`std::to_address()`](/reference/memory/to_address.md)を追加
+
+
+### 取り決め
+- `std`名前空間以下の関数テンプレートをユーザーが特殊化することを禁止する (参照 : [P0551R3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0551r3.pdf))
+
+
+### アルゴリズム
 - [`<algorithm>`](/reference/algorithm.md)の検索、ソート関係に`constexpr`を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
-- [`std::exchange()`](/reference/utility/exchange.md)関数に`constexpr`を追加
-- [`std::complex`](/reference/complex.md)クラスを`constexpr`に対応
+
+
+### 並行処理
 - [`std::atomic`](/reference/atomic/atomic.md)クラスのスマートポインタに対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
 - [`std::memory_order`](/reference/atomic/memory_order.md)の列挙子にスコープをもたせた
+
+
+### 入出力
+- 同期ストリームの追加にともなって、[`<ostream>`](/reference/ostream.md)に、同期ストリーム関係の出力マニピュレータを追加
+
+
+### スマートポインタ
+- [`std::make_shared()`](/reference/memory/make_shared.md)と[`std::allocate_shared()`](/reference/memory/allocate_shared.md)を配列に対応
+- ポインタを生ポインタに変換する[`std::to_address()`](/reference/memory/to_address.md)を追加
+
+
+### ユーティリティ
+- [`std::exchange()`](/reference/utility/exchange.md)関数に`constexpr`を追加
+- [`std::complex`](/reference/complex.md)クラスを`constexpr`に対応
+
+
+### 型特性
+- [`<type_traits>`](/reference/type_traits.md)に、エンディアンを表す列挙型として[`std::endian`](/reference/type_traits/endian.md)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、型のCV修飾と参照を除去する型特性クラスとして[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)を追加
