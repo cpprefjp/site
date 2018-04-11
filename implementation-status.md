@@ -223,6 +223,14 @@
 | [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする][p0624] | | | | | |
 | [PODを非推奨化][p0767] | | | | | |
 | [評価されない文脈でのラムダ式][p0315] | | | | | |
+| [空オブジェクトを言語サポート][p0840] | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | | | | |
+| [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和][p0962] | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく | | | | |
+| [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可][p0969] | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする | | | | |
+| [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和][p0961] | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく | | | | |
+| [型の文脈で`typename`の省略を許可][p0634] | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする | | | | |
+| [ラムダ式の初期化キャプチャでのパック展開を許可][p0780] | `[...args = std::move(args)]`のようなキャプチャを許可 | | | | |
+| [当たる確率が高い分岐と、当たる確率が低い分岐をコンパイラに伝える属性を追加][p0479] | コンパイラが分岐予測するためのヒントとする | | | | |
+| [宇宙船演算子に対称性をもたせる][p0905] | `a <=> b`が妥当であれば`b <=> a`も妥当とする | | | | |
 
 [p0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
 [p0734]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf
@@ -237,7 +245,14 @@
 [p0624]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0624r2.pdf
 [p0767]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html
 [p0315]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0315r4.pdf
-
+[p0840]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0840r2.html
+[p0962]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0962r1.html
+[p0969]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0969r0.pdf
+[p0961]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0961r1.html
+[p0634]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0634r3.html
+[p0780]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0780r2.html
+[p0479]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0479r5.html
+[p0905]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0905r1.html
 
 [gcc]: ./implementation.md#gcc
 [clang]: ./implementation.md#clang
