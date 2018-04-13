@@ -137,11 +137,12 @@ Range TS (technical specification) では `Sentinel` (番兵) 等の範囲の終
 
 [Boost.Foreach](http://boost.org/libs/foreach) のようなマクロは避けるべきだとされた。
 
-## 関連項目
 
-* [C++11 範囲 for 文](/lang/cpp11/range_based_for.md)
+## 関連項目
+- [C++11 範囲 for 文](/lang/cpp11/range_based_for.md)
+- [C++20 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)
+
 
 ## 参照
-
-* [P0184R0 Generalizing the Range-Based For Loop](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0184r0.html)
-* [N4128 Ranges for the Standard Library, Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4128.html)
+- [P0184R0 Generalizing the Range-Based For Loop](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0184r0.html)
+- [N4128 Ranges for the Standard Library, Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4128.html)
