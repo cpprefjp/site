@@ -42,6 +42,7 @@ int main()
   }
 }
 ```
+* std::istream_iterator[link /reference/iterator/istream_iterator.md]
 
 ### 出力
 ```
@@ -54,7 +55,6 @@ o
 
 
 ## 関連項目
-- [C++11 範囲for文](/lang/cpp11/range_base_for.md)
 - [C++11 範囲for文](/lang/cpp11/range_based_for.md)
 - [C++17 範囲forの制限緩和 — `begin` と `end` の型が異なることを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md)
 
