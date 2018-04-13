@@ -310,6 +310,10 @@ auto { w, {x, y}, z } = f(); // このような、tuple内にあるpairを同時
 * std::tuple[link /reference/tuple/tuple.md]
 
 
+## 関連項目
+- [C++20 friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md)
+
+
 ## 参照
 - [P0144R0 Structured Bindings](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0144r0.pdf)
 - [P0144R1 Structured Bindings](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0144r1.pdf)

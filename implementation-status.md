@@ -225,7 +225,7 @@
 | [評価されない文脈でのラムダ式][p0315] | | | | | |
 | [空オブジェクトを言語サポート][p0840] | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | | | | |
 | [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく | | | | |
-| [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可][p0969] | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする | | | | |
+| [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする | | | | |
 | [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和][p0961] | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく | | | | |
 | [型の文脈で`typename`の省略を許可][p0634] | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする | | | | |
 | [ラムダ式の初期化キャプチャでのパック展開を許可][p0780] | `[...args = std::move(args)]`のようなキャプチャを許可 | | | | |
@@ -247,7 +247,6 @@
 [p0315]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0315r4.pdf
 [p0840]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0840r2.html
 [p0962]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0962r1.html
-[p0969]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0969r0.pdf
 [p0961]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0961r1.html
 [p0634]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0634r3.html
 [p0780]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0780r2.html
