@@ -40,7 +40,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ## ライブラリ更新の概要
 ### 新ライブラリ
-- [`<version>`](/reference/version.md.nolink)ヘッダを新設する。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される
+- [`<version>`](/reference/version.md)ヘッダを新設する。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される
 - [`<chrono>`](/reference/chrono.md)ヘッダに、カレンダーとタイムゾーンの機能を拡張
 - 任意のシーケンスの部分シーケンスを参照するライブラリとして[`<span>`](/reference/span.md.nolink)を追加
 - 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md.nolink)を追加

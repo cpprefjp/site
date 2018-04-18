@@ -21,13 +21,14 @@
 
 ## <a id="language-support" href="#language-support-library">言語サポートライブラリ</a>
 
-| ヘッダ                                                 | 説明                  | 対応バージョン |
-|--------------------------------------------------------|-----------------------|----------------|
-| [`<limits>`](/reference/limits.md)                     | 実装プロパティ        |                |
-| [`<new>`](/reference/new.md)                           | 動的メモリ管理        |                |
-| [`<typeinfo>`](/reference/typeinfo.md)                 | 型情報                |                |
-| [`<exception>`](/reference/exception.md)               | 例外ハンドリング      |                |
-| [`<initializer_list>`](/reference/initializer_list.md) | 初期化子リスト        | C++11          |
+| ヘッダ                                                 | 説明                     | 対応バージョン |
+|--------------------------------------------------------|--------------------------|----------------|
+| [`<limits>`](/reference/limits.md)                     | 実装プロパティ           |                |
+| [`<version>`](/reference/version.md)                   | 実装依存のバージョン情報 | C++20          |
+| [`<new>`](/reference/new.md)                           | 動的メモリ管理           |                |
+| [`<typeinfo>`](/reference/typeinfo.md)                 | 型情報                   |                |
+| [`<exception>`](/reference/exception.md)               | 例外ハンドリング         |                |
+| [`<initializer_list>`](/reference/initializer_list.md) | 初期化子リスト           | C++11          |
 
 
 ## <a id="diagnostics" href="#diagnostics">診断ライブラリ</a>
