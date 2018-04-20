@@ -7,9 +7,9 @@
 
 ```cpp
 constexpr size_type find_first_of(basic_string_view sv, size_type pos = 0) const noexcept; // (1)
-constexpr size_type find_first_of(CharT c, size_type pos = 0) const noexcept;             // (2)
-constexpr size_type find_first_of(const CharT* s, size_type pos, size_type n) const;      // (3)
-constexpr size_type find_first_of(const CharT* s, size_type pos = 0) const;               // (4)
+constexpr size_type find_first_of(CharT c, size_type pos = 0) const noexcept;              // (2)
+constexpr size_type find_first_of(const CharT* s, size_type pos, size_type n) const;       // (3)
+constexpr size_type find_first_of(const CharT* s, size_type pos = 0) const;                // (4)
 ```
 
 ## 概要
