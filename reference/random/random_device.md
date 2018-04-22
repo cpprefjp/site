@@ -281,22 +281,30 @@ using std::random_device;
 ```cpp
 #include "random_device.hpp"
 #include <iostream>
-#include <vector>
+#include <array>
 #include <functional>
 #include <algorithm>
-using seed_v_t = std::vector<cpprefjp::random_device::result_type>;
+using seed_v_t = std::array<cpprefjp::random_device::result_type, sizeof(std::mt19937)/sizeof(cpprefjp::random_device::result_type)>;
 seed_v_t create_seed_v()
 {
   cpprefjp::random_device rnd;
-  seed_v_t sed_v(9);
+  seed_v_t sed_v;
   std::generate(sed_v.begin(), sed_v.end(), std::ref(rnd));
   return sed_v;
 }
-int main()
+std::mt19937 create_random_engine()
 {
   const auto sed_v = create_seed_v();
   std::seed_seq seq(sed_v.begin(), sed_v.end());
-  std::mt19937 engine(seq);
+  return std::mt19937(seq);
+}
+std::mt19937& random_engine() {
+  static thread_local std::mt19937 engine = create_random_engine();
+  return engine;
+}
+int main()
+{
+  std::mt19937& engine = random_engine();
   std::uniform_int_distribution<int> dist(1, 32);
   for(int i = 0; i < 10; ++i) std::cout << dist(engine) << std::endl;
 }
@@ -307,8 +315,8 @@ int main()
 * std::mt19937[link /reference/random/mt19937.md]
 * std::uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
 * dist(engine)[link /reference/random/uniform_int_distribution/op_call.md]
-* sed_v.begin()[link /reference/vector/begin.md]
-* sed_v.end()[link /reference/vector/end.md]
+* sed_v.begin()[link /reference/array/begin.md]
+* sed_v.end()[link /reference/array/end.md]
 
 ## 参照
 - GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)
