@@ -87,6 +87,9 @@ int main()
 
 ### 出力
 ```
+(1) : 6 [ world. Welcome to C++ world.]
+(2) : 25 [C++ world.]
+(3) : 5 [, world. Welcome to C++ world.]
 ```
 
 
