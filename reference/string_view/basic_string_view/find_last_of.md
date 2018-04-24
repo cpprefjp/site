@@ -71,6 +71,7 @@ int main()
 }
 ```
 * find_last_of[color ff0000]
+* sv.substr[link substr.md]
 
 ### 出力
 ```

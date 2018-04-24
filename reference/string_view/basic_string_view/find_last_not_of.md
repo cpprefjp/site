@@ -84,6 +84,7 @@ int main()
 }
 ```
 * find_last_not_of[color ff0000]
+* sv.substr[link substr.md]
 
 ### 出力
 ```
