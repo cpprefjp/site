@@ -97,7 +97,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 | [`find_first_of`](basic_string_view/find_first_of.md)         | 最初に現れる指定文字を検索する                 | C++17 |
 | [`find_last_of`](basic_string_view/find_last_of.md)           | 最後に現れる指定文字を検索する                 | C++17 |
 | [`find_first_not_of`](basic_string_view/find_first_not_of.md) | 先頭から、指定文字が見つからない位置を検索する | C++17 |
-| [`find_last_nof_of`](basic_string_view/find_last_not_of.md.nolink)   | 末尾から、指定文字が見つからない位置を検索する | C++17 |
+| [`find_last_nof_of`](basic_string_view/find_last_not_of.md)   | 末尾から、指定文字が見つからない位置を検索する | C++17 |
 
 
 ### メンバ定数
