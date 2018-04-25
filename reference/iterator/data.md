@@ -42,6 +42,7 @@ namespace std {
      - [`<regex>`](../regex.md)
      - [`<set>`](../set.md)
      - [`<string>`](../string.md)
+     - [`<string_view>`](../string_view.md) (C++20)
      - [`<unordered_map>`](../unordered_map.md)
      - [`<unordered_set>`](../unordered_set.md)
      - [`<vector>`](../vector.md)
@@ -90,3 +91,4 @@ false
 
 ## 参照
 - [N4280: Non-member `data()` and more (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4280.pdf)
+- [LWG Issue 3009. Including `<string_view>` doesn't provide `std::size/empty/data`](https://wg21.cmeerw.net/lwg/issue3009)

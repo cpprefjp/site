@@ -48,6 +48,7 @@ namespace std {
      - [`<regex>`](../regex.md)
      - [`<set>`](../set.md)
      - [`<string>`](../string.md)
+     - [`<string_view>`](../string_view.md) (C++20)
      - [`<unordered_map>`](../unordered_map.md)
      - [`<unordered_set>`](../unordered_set.md)
      - [`<vector>`](../vector.md)
@@ -101,3 +102,4 @@ false
 - [`boost::empty()` - Boost Range Library](http://www.boost.org/doc/libs/release/libs/range/doc/html/range/reference/concept_implementation/semantics/functions.html)
 - [N4280: Non-member `empty()` and more (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4280.pdf)
 - [P0600R1: `[[nodiscard]]` in the library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+- [LWG Issue 3009. Including `<string_view>` doesn't provide `std::size/empty/data`](https://wg21.cmeerw.net/lwg/issue3009)
