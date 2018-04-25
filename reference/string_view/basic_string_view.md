@@ -142,7 +142,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 | 名前                          | 説明                     | 対応バージョン |
 |-------------------------------|--------------------------|----------------|
-| [`sv`](basic_string_view/op_sv.md.nolink) | `basic_string_view`のリテラル | C++17 |
+| [`sv`](basic_string_view/op_sv.md) | `basic_string_view`のリテラル | C++17 |
 
 
 ## ハッシュサポート
