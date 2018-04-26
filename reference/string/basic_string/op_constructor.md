@@ -5,47 +5,50 @@
 * function[meta id-type]
 
 ```cpp
-basic_string();                                          // (1) C++14
-explicit basic_string(const Allocator&);                 // (2) C++14
-explicit basic_string(const Allocator& a = Allocator()); // (1) + (2) C++03
+basic_string();                                                 // (1) C++14
+explicit basic_string(const Allocator&);                        // (2) C++14
+explicit basic_string(const Allocator& a = Allocator());        // (1) + (2) C++03
 
-basic_string(const basic_string& str);                   // (3)
-basic_string(basic_string&& str) noexcept;               // (4) C++11
+basic_string(const basic_string& str);                          // (3)
+basic_string(basic_string&& str) noexcept;                      // (4) C++11
 
 basic_string(const basic_string& str,
              size_type pos,
              size_type n = npos,
-             const Allocator& a = Allocator());          // (5) C++14まで
+             const Allocator& a = Allocator());                 // (5) C++14まで
 
 basic_string(const basic_string& str,
              size_type pos,
              size_type n,
-             const Allocator& a = Allocator());          // (5) C++17
+             const Allocator& a = Allocator());                 // (5) C++17
 
 basic_string(const basic_string& str,
              size_type pos,
-             const Allocator& a = Allocator());          // (6) C++17
+             const Allocator& a = Allocator());                 // (6) C++17
 
 basic_string(const charT* s,
              size_type n,
-             const Allocator& a = Allocator());          // (7)
+             const Allocator& a = Allocator());                 // (7)
 
 basic_string(const charT* s,
-             const Allocator& a = Allocator());          // (8)
+             const Allocator& a = Allocator());                 // (8)
 
 basic_string(size_type n,
              charT c,
-             const Allocator& a = Allocator());          // (9)
+             const Allocator& a = Allocator());                 // (9)
 
 template <class InputIterator>
 basic_string(InputIterator begin, InputIterator end,
-             const Allocator& a = Allocator());          // (10)
+             const Allocator& a = Allocator());                 // (10)
 
 basic_string(initializer_list<charT> init,
-             const Allocator& = Allocator());            // (11) C++11
+             const Allocator& = Allocator());                   // (11) C++11
 
-basic_string(const basic_string& str, const Allocator&); // (12) C++11
-basic_string(basic_string&& str, const Allocator&);      // (13) C++11
+basic_string(const basic_string& str, const Allocator&);        // (12) C++11
+basic_string(basic_string&& str, const Allocator&);             // (13) C++11
+
+explicit basic_string(std::basic_string_view<charT, traits> sv,
+                      const Allocator& a = Allocator());        // (14) C++17
 ```
 * initializer_list[link /reference/initializer_list.md]
 
@@ -63,6 +66,7 @@ basic_string(basic_string&& str, const Allocator&);      // (13) C++11
 - (11) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
 - (12) : アロケータを受け取るコピーコンストラクタ。
 - (13) : アロケータを受け取るムーブコンストラクタ。
+- (14) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換コンストラクタ。`sv`が参照する範囲の文字列を`*this`にコピーする
 
 
 ## 要件
@@ -134,6 +138,11 @@ int main()
   // 文字の初期化子リストから構築
   std::string s9 = {'h', 'e', 'l', 'l', 'o'};
   std::cout << "s9 : " << s9 << std::endl;
+
+  // string_viewからの変換
+  auto sv = std::string_view{"Hello World"}.substr(0, 5);
+  std::string s14 {sv};
+  std::cout << "s14 : " << s14 << std::endl;
 }
 ```
 * std::move[link /reference/utility/move.md]
@@ -151,6 +160,7 @@ s6 : hel
 s7 : aaa
 s8 : hello
 s9 : hello
+s14 : Hello
 ```
 
 ## 参照
@@ -162,3 +172,4 @@ s9 : hello
 - [LWG Issue 2235. Undefined behavior without proper requirements on `basic_string` constructors](https://wg21.cmeerw.net/lwg/issue2235)
     - C++14で、(7)と(8)の要件を見直した。
 - [LWG Issue 2583. There is no way to supply an allocator for `basic_string(str, pos)`](https://wg21.cmeerw.net/lwg/issue2583)
+- [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
