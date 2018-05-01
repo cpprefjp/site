@@ -5,29 +5,35 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& assign(const basic_string& str);     // (1)
+basic_string& assign(const basic_string& str);                  // (1)
 
-basic_string& assign(basic_string&& str) noexcept; // (2) C++11
-
-basic_string& assign(const basic_string& str,
-                     size_type pos,
-                     size_type n);                 // (3) C++03
+basic_string& assign(basic_string&& str) noexcept;              // (2) C++11
 
 basic_string& assign(const basic_string& str,
                      size_type pos,
-                     size_type n = npos);          // (3) C++14
+                     size_type n);                              // (3) C++03
 
-basic_string& assign(const charT* s, size_type n); // (4)
+basic_string& assign(const basic_string& str,
+                     size_type pos,
+                     size_type n = npos);                       // (3) C++14
 
-basic_string& assign(const charT* s);              // (5)
+basic_string& assign(const charT* s, size_type n);              // (4)
 
-basic_string& assign(size_type n, charT c);        // (6)
+basic_string& assign(const charT* s);                           // (5)
+
+basic_string& assign(size_type n, charT c);                     // (6)
 
 template <class InputIterator>
 basic_string& assign(InputIterator first,
-                     InputIterator last);          // (7)
+                     InputIterator last);                       // (7)
 
-basic_string& assign(initializer_list<charT>);     // (8) C++11
+basic_string& assign(initializer_list<charT>);                  // (8) C++11
+
+basic_string& assign(std::basic_string_view<charT, traits> sv); // (9) C++17
+
+basic_string& assign(std::basic_string_view<charT, traits> sv,
+                     size_type pos,
+                     size_type n = npos);                       // (10) C++17
 ```
 * initializer_list[link /reference/initializer_list.md]
 
@@ -48,7 +54,7 @@ basic_string& assign(initializer_list<charT>);     // (8) C++11
     - `assign(str, 0, npos)`と同等。
 - (2) : ムーブ代入。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
 - (3) : `str`オブジェクトの部分文字列のコピーから構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
-    - 追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
+    - 文字列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
     - `assign(str.data() + pos, rlen)`を呼び出す。
 - (4) : 文字配列`s`の先頭`n`文字からなる部分文字列のコピーから構築する。
 - (5) : 文字配列`s`のコピーから構築する。
@@ -59,6 +65,11 @@ basic_string& assign(initializer_list<charT>);     // (8) C++11
     - `assign(basic_string(first, last))`と同等。
 - (8) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
     - `assign(il.begin(), il.end())`を呼び出す。
+- (9) : `std::basic_string_view`オブジェクトが参照する範囲をコピーして、`basic_string`オブジェクトを構築する。
+    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md`),` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と同等。
+- (10) : `std::basic_string_view`オブジェクトが参照する文字列を範囲指定でコピーして、`basic_string`オブジェクトを構築する。
+    - 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
+    - `assign(`[`sv.data()](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。
 
 
 ## 戻り値
@@ -68,6 +79,7 @@ basic_string& assign(initializer_list<charT>);     // (8) C++11
 ## 例外
 - (3) : `pos > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
 - (4) : `n >` [`max_size()`](max_size.md)である場合、[`length_error`](/reference/stdexcept.md)例外を送出する
+- (10) : `pos >` [`sv.size()`](/reference/string_view/basic_string_view/size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
 
 
 
@@ -119,6 +131,16 @@ int main()
   std::string s8;
   s8.assign({'h', 'e', 'l', 'l', 'o'});
   std::cout << "s8 : " << s8 << std::endl;
+
+  // (9) std::basic_string_viewオブジェクトを代入
+  std::string s9;
+  s9.assign(std::string_view{"Hello World"}.substr(0, 5));
+  std::cout << "s9 : " << s9 << std::endl;
+
+  // (10) std::basic_string_viewオブジェクトを範囲指定して代入
+  std::string s10;
+  s10.assign(std::string_view{"Hello World"}, 0, 5);
+  std::cout << "s10 : " << s10 << std::endl;
 }
 ```
 * assign[color ff0000]
@@ -133,6 +155,8 @@ s5 : hello
 s6 : aaa
 s7 : hello
 s8 : hello
+s9 : Hello
+s10 : Hello
 ```
 
 ## 参照
@@ -140,4 +164,4 @@ s8 : hello
     - (7)の経緯となる提案文書
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(3)のオーバーロードに、`n = npos`のデフォルト引数を追加。
-
+- [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)

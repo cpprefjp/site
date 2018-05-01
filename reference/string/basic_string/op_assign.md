@@ -5,11 +5,12 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& operator=(const basic_string& str);     // (1)
-basic_string& operator=(basic_string&& str) noexcept; // (2) C++11
-basic_string& operator=(const charT* s);              // (3)
-basic_string& operator=(charT c);                     // (4)
-basic_string& operator=(initializer_list<charT> il);  // (5) C++11
+basic_string& operator=(const basic_string& str);                  // (1)
+basic_string& operator=(basic_string&& str) noexcept;              // (2) C++11
+basic_string& operator=(const charT* s);                           // (3)
+basic_string& operator=(charT c);                                  // (4)
+basic_string& operator=(initializer_list<charT> il);               // (5) C++11
+basic_string& operator=(std::basic_string_view<charT, traits> sv); // (6) C++17
 ```
 * initializer_list[link /reference/initializer_list.md]
 
@@ -19,6 +20,7 @@ basic_string& operator=(initializer_list<charT> il);  // (5) C++11
 - (3) : `*this = basic_string(s);` と等価。
 - (4) : `*this = basic_string(1, c);` と等価。
 - (5) : `*this = basic_string(il);` と等価。
+- (6) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換。`return` [`assign`](assign.md)`(sv)` と等価。
 
 
 ## 効果
@@ -74,6 +76,11 @@ int main()
     s = {'h', 'e', 'l', 'l', 'o'};
   }
 
+  // (6) std::basic_string_viewを代入
+  {
+    s = std::string_view{"Hello World"}.substr(0, 5);
+  }
+
   std::cout << s << std::endl;
 }
 ```
@@ -85,3 +92,4 @@ hello
 
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+- [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
