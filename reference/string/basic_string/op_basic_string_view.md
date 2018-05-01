@@ -41,7 +41,7 @@ int main()
   std::cout << s << std::endl;
 }
 ```
-* sv.substr[link /reference/string_view/basic_string/substr.md]
+* sv.substr[link /reference/string_view/basic_string_view/substr.md]
 
 ### 出力
 ```
