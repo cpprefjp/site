@@ -66,10 +66,10 @@ basic_string& assign(std::basic_string_view<charT, traits> sv,
 - (8) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
     - `assign(il.begin(), il.end())`を呼び出す。
 - (9) : `std::basic_string_view`オブジェクトが参照する範囲をコピーして、`basic_string`オブジェクトを構築する。
-    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md`),` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と同等。
+    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md),` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と同等。
 - (10) : `std::basic_string_view`オブジェクトが参照する文字列を範囲指定でコピーして、`basic_string`オブジェクトを構築する。
     - 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
-    - `assign(`[`sv.data()](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。
+    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。
 
 
 ## 戻り値
