@@ -7,6 +7,7 @@
 ```cpp
 operator basic_string_view<charT, traits>() const noexcept;
 ```
+* basic_string_view[link /reference/string_view/basic_string_view.md]
 
 ## 概要
 [`std::basic_string_view`](/reference/string_view/basic_string_view.md)型に変換する。
