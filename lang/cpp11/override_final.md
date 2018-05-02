@@ -410,6 +410,10 @@ struct D explicit : B
 - 以上の経緯を経てC++11では、`override`と`final`コンテキスト依存キーワードの追加のみが行われた。
 
 
+## 関連項目
+- [`is_final`](/reference/type_traits/is_final.md)
+
+
 ## 参照
 - [N1827 An Explicit Override Syntax for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1827.htm)
 - [N2108 Explicit Virtual Overrides](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2108.html)
