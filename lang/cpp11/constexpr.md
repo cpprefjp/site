@@ -36,7 +36,7 @@ int main()
 
 `constexpr`関数もまた、その内部で変数の書き換えはできず、戻り値の型を`void`にすることもできない。変数の書き換えをせずに、計算した結果を返す必要がある。また、`constexpr`関数には、その本体において、`return`文ひとつのみで処理を行わなければならない、という制限がある。そのため、条件分岐には`if`文の代わりに条件演算子を、ループには`while`文や`for`文の代わりに再帰を使用する必要がある。
 
-```cpp sample
+```cpp example
 constexpr int min(int a, int b)
 {
   // 条件分岐には条件演算子?:を使用する
@@ -63,7 +63,7 @@ int main()
 
 ユーザー定義のクラスで、コンストラクタを定義する場合には、`constexpr`をコンストラクタの宣言に付ける。メンバ関数も、コンパイル時に呼び出す必要がある場合には、`constexpr`修飾する。この時C++14でも適格なコードであるためには`const`メンバ関数である必要がある。メンバ変数の宣言に`constexpr`を付ける必要はない。
 
-```cpp sample
+```cpp example
 class Integer {
   int value_;
 public:
