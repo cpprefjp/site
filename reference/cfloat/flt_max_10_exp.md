@@ -37,10 +37,10 @@ int main()
 {
   std::cout << FLT_MAX_10_EXP << '\n';
 
-  // 以下の式と同一
+  // 以下の式と同等
   std::cout << std::floor(std::log10(FLT_MAX)) << '\n';
 
-  // 以下の式とも同一（std::pow((float)FLT_RADIX, FLT_MAX_EXP) は float の最大値を超えてしまうため、式を調整してある）
+  // 以下の式とも同等（std::pow((float)FLT_RADIX, FLT_MAX_EXP) は float の最大値を超えてしまうため、式を調整してある）
   std::cout << std::floor(std::log10((1 - std::pow((float)FLT_RADIX, -FLT_MANT_DIG)) * std::pow((float)FLT_RADIX, FLT_MAX_EXP - 1) * FLT_RADIX)) << '\n';
 
   std::cout << std::boolalpha;

@@ -36,7 +36,7 @@ namespace std {
 
 ## 備考
 - 本関数は、C99 の規格にある `fma`（より正確には `math.h` ヘッダの `fma`、`fmaf`、`fmal` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
-- C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
+- C99 では、処理系が ISO IEC 60559（IEEE 754 と同等）に準拠している場合、以下のように規定されている。
 
 	- `x`、または `y` のいずれか一方が無限でもう一方がゼロで、かつ、`z` が NaN の場合、NaN を返す。この際、[`FE_INVALID`](../cfenv/fe_invalid.md) が発生するか否かは処理系定義である。
 	- `x`、または `y` のいずれか一方が無限でもう一方がゼロで、かつ、`z` が NaN 以外の場合、NaN を返す。この際、[`FE_INVALID`](../cfenv/fe_invalid.md) が発生する。

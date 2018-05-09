@@ -36,7 +36,7 @@ int main()
   std::cout << std::setprecision(FLT_DIG);
   std::cout << FLT_EPSILON << '\n';
 
-  // 以下の式と同一
+  // 以下の式と同等
   std::cout << std::pow(FLT_RADIX, 1 - FLT_MANT_DIG) << '\n';
 }
 ```

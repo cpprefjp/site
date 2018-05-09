@@ -37,10 +37,10 @@ int main()
 {
   std::cout << FLT_MIN_10_EXP << '\n';
 
-  // 以下の式と同一
+  // 以下の式と同等
   std::cout << std::ceil(std::log10(FLT_MIN)) << '\n';
 
-  // 以下の式とも同一
+  // 以下の式とも同等
   std::cout << std::ceil(std::log10(std::pow((float)FLT_RADIX, (float)(FLT_MIN_EXP - 1)))) << '\n';
 }
 ```

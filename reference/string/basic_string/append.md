@@ -46,32 +46,32 @@ basic_string& append(std::basic_string_view<charT, traits> sv,
 
 ## 効果
 - (1) 対象オブジェクトの末尾に `str` の値が追加（コピー）される。
-    * C++03 まで：`append(str, 0, npos)` と同一。
-    * C++11 から：`append(str.`[`data`](data.md)`(), str.`[`size`](size.md)`())` と同一。
+    * C++03 まで：`append(str, 0, npos)` と同等。
+    * C++11 から：`append(str.`[`data`](data.md)`(), str.`[`size`](size.md)`())` と同等。
 
 - (2) 対象オブジェクトの末尾に `str` の `pos` 以降の文字が追加される。
     追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
     * C++03 まで：対象オブジェクトの末尾に `str` の `pos` 番目からの `rlen` 文字を追加（コピー）する。
-    * C++11 から：`append(str.`[`data`](data.md)`() + pos, rlen)` と同一。
+    * C++11 から：`append(str.`[`data`](data.md)`() + pos, rlen)` と同等。
 
 - (3) 対象オブジェクトの末尾に `s` が指す長さ `n` の文字列が追加（コピー）される。
-    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s, n))` と同一。
+    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s, n))` と同等。
     * C++11 から：対象オブジェクトの末尾に `s` からの `n` 文字を追加（コピー）する。
 
 - (4) 対象オブジェクトの末尾に `s` が指す NULL 終端された文字列が追加（コピー）される。
-    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s))` と同一。
-    * C++11 から：`append(s, traits_type::length(s))` と同一。
+    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s))` と同等。
+    * C++11 から：`append(s, traits_type::length(s))` と同等。
 
 - (5) 対象オブジェクトの末尾に、文字 `c` が `n` 文字が追加（コピー）される。
-    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と同一。
+    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と同等。
 
 - (6) 対象オブジェクトの末尾に、範囲 `[first, last)` の文字列が追加（コピー）される。
-    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と同一。
+    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と同等。
 
 - (7) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。
-    * `append(il.begin(), il.end())` と同一。
+    * `append(il.begin(), il.end())` と同等。
 - (8) 対象オブジェクトの末尾に、`sv`が参照する範囲の文字列が追加される。
-    * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と同一。
+    * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と同等。
 - (9) 対象オブジェクトの末尾に、`sv`の指定された範囲の文字列が追加される。
     * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
     * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。

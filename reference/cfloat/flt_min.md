@@ -37,7 +37,7 @@ int main()
   std::cout << std::setprecision(FLT_DIG);
   std::cout << FLT_MIN << '\n';
 
-  // 以下の式と同一
+  // 以下の式と同等
   std::cout << std::pow((float)FLT_RADIX, (float)(FLT_MIN_EXP - 1)) << '\n';
 }
 ```
