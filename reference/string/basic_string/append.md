@@ -5,26 +5,31 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& append(const basic_string& str);                 // (1)
+basic_string& append(const basic_string& str);                  // (1)
 
 basic_string& append(const basic_string& str,
                      size_type pos,
-                     size_type n);                             // (2) C++03
+                     size_type n);                              // (2) C++03
 
 basic_string& append(const basic_string& str,
                      size_type pos,
-                     size_type n = npos);                      // (2) C++14
+                     size_type n = npos);                       // (2) C++14
 
-basic_string& append(const charT* s, size_type n);             // (3)
+basic_string& append(const charT* s, size_type n);              // (3)
 
-basic_string& append(const charT* s);                          // (4)
+basic_string& append(const charT* s);                           // (4)
 
-basic_string& append(size_type n, charT c);                    // (5)
+basic_string& append(size_type n, charT c);                     // (5)
 
 template <class InputIterator>
-basic_string& append(InputIterator first, InputIterator last); // (6)
+basic_string& append(InputIterator first, InputIterator last);  // (6)
 
-basic_string& append(initializer_list<charT> il);              // (7) C++11 から
+basic_string& append(initializer_list<charT> il);               // (7) C++11
+
+basic_string& append(std::basic_string_view<charT, traits> sv); // (8) C++17
+basic_string& append(std::basic_string_view<charT, traits> sv,
+                     size_type pos,
+                     size_type n = npos);                       // (9) C++17
 ```
 * initializer_list[link /reference/initializer_list.md]
 
@@ -34,11 +39,8 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
 
 ## 要件
 - (2) では、`pos <=` [`size`](size.md)`()` であること。
-
 - (3) では、`s` は少なくとも `n` の長さを持つ `charT` 型の配列を指していること。
-
 - (4) では、`s` は少なくとも `traits_type::length(s) + 1` の長さを持つ `charT` 型の配列を指していること。
-
 - (6) では、`[first, last)` が有効な範囲であること。
 
 
@@ -60,14 +62,19 @@ basic_string& append(initializer_list<charT> il);              // (7) C++11 か�
     * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s))` と同一。
     * C++11 から：`append(s, traits_type::length(s))` と同一。
 
-- (5) 対象オブジェクトの末尾に、文字 `c` が `n` 文字が追加（コピー）される。  
-    `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と同一。
+- (5) 対象オブジェクトの末尾に、文字 `c` が `n` 文字が追加（コピー）される。
+    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と同一。
 
-- (6) 対象オブジェクトの末尾に、範囲 `[first, last)` の文字列が追加（コピー）される。  
-    `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と同一。
+- (6) 対象オブジェクトの末尾に、範囲 `[first, last)` の文字列が追加（コピー）される。
+    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と同一。
 
-- (7) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。  
-    `append(il.begin(), il.end())` と同一。
+- (7) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。
+    * `append(il.begin(), il.end())` と同一。
+- (8) 対象オブジェクトの末尾に、`sv`が参照する範囲の文字列が追加される。
+    * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と同一。
+- (9) 対象オブジェクトの末尾に、`sv`の指定された範囲の文字列が追加される。
+    * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
+    * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。
 
 
 ## 戻り値
@@ -111,18 +118,27 @@ int main()
   std::string s1("Hello");
   std::cout << s1 << '\n';
 
+  // (2)
   std::string s2("Hell, world!");
   s1.append(s2, 4, 2);
   std::cout << s1 << '\n';
 
+  // (2)
   s1.append("worldworldworld", 5);
   std::cout << s1 << '\n';
 
+  // (5)
   s1.append(2, '!');
   std::cout << s1 << '\n';
 
+  // (7)
   s1.append({ ' ', ':', ')' });
   std::cout << s1 << '\n';
+
+  // (8)
+  std::string s8 = "Hello";
+  s8.append(std::string_view{"Hi, world"}.substr(2));
+  std::cout << s8 << std::endl;
 }
 ```
 * append[color ff0000]
@@ -134,6 +150,7 @@ Hello,
 Hello, world
 Hello, world!!
 Hello, world!! :)
+Hello, world
 ```
 
 ## 関連項目
@@ -151,4 +168,4 @@ Hello, world!! :)
     - (7)の経緯となる提案文書
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
-
+- [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
