@@ -133,22 +133,22 @@
 | 2012 Update 2 | Visual Studio 2012 Update 2 [11.0]     | 11.0            | 1700       | 170060315       |
 | 2012 Update 1 | Visual Studio 2012 Update 1 [11.0]     | 11.0            | 1700       | 170051106       |
 | 2012          | Visual Studio 2012          [11.0]     | 11.0            | 1700       | 170050727       |
-| 2010 SP1      | Visual Studio 2010 SP1      [10.0]     | 10.0            | 1600       | 160040219       |
-| 2010          | Visual Studio 2010          [10.0]     | 10.0            | 1600       | 160030319       |
-| 2008 SP1      | Visual Studio 2008 SP1      [9.0]      | 9.0             | 1500       | 150030729       |
-| 2008          | Visual Studio 2008          [9.0]      | 9.0             | 1500       | 150021022       |
-| 2005 SP1      | Visual Studio 2005 SP1      [8.0]      | 8.0             | 1400       | 140050727       |
-| 2005          | Visual Studio 2005          [8.0]      | 8.0             | 1400       | 140050320       |
-|               | Windows Server 2003 SP1 DDK (for AMD64)|                 | 1400       | 140040310       |
-| 2003 SP1      | Visual Studio .NET 2003 SP1 [7.1]      | 7.1             | 1310       | 13106030        |
-|               | Windows Server 2003 SP1 DDK            |                 | 1310       | 13104035        |
-| 2003          | Visual Studio .NET 2003     [7.1]      | 7.1             | 1310       | 13103077        |
-|               | Visual Studio Toolkit 2003  [7.1]      | 7.1             | 1310       | 13103052        |
-|               | Windows Server 2003 DDK                |                 | 1310       | 13102179        |
-| 2002          | Visual Studio .NET (2002) [7.0]<br/>Visual C++ .NET [7.0] | 7.0 | 1300 | 13009466       |
+| 2010 SP1      | Visual Studio 2010 SP1      [10.0]<br/>Visual C++ 2010 SP1     [10.0] | 10.0 | 1600 | 160040219 |
+| 2010          | Visual Studio 2010          [10.0]<br/>Visual C++ 2010         [10.0] | 10.0 | 1600 | 160030319 |
+| 2008 SP1      | Visual Studio 2008 SP1      [9.0] <br/>Visual C++ 2008 SP1     [9.0]  | 9.0  | 1500 | 150030729 |
+| 2008          | Visual Studio 2008          [9.0] <br/>Visual C++ 2008         [9.0]  | 9.0  | 1500 | 150021022 |
+| 2005 SP1      | Visual Studio 2005 SP1      [8.0] <br/>Visual C++ 2005 SP1     [8.0]  | 8.0  | 1400 | 140050727 |
+| 2005          | Visual Studio 2005          [8.0] <br/>Visual C++ 2005         [8.0]  | 8.0  | 1400 | 140050320 |
+|               | Windows Server 2003 SP1 DDK (for AMD64)                               |      | 1400 | 140040310 |
+| 2003 SP1      | Visual Studio .NET 2003 SP1 [7.1]<br/>Visual C++ .NET 2003 SP1 [7.1]  | 7.1  | 1310 | 13106030  |
+|               | Windows Server 2003 SP1 DDK                                           |      | 1310 | 13104035  |
+| 2003          | Visual Studio .NET 2003     [7.1]<br/>Visual C++ .NET 2003     [7.1]  | 7.1  | 1310 | 13103077  |
+|               | Visual Studio Toolkit 2003  [7.1]                                     | 7.1  | 1310 | 13103052  |
+|               | Windows Server 2003 DDK                                               |      | 1310 | 13102179  |
+| 2002          | Visual Studio .NET (2002)   [7.0]<br/>Visual C++ .NET 2002     [7.0]  | 7.0  | 1300 | 13009466  |
 |               | Windows XP SP1 DDK                     |                 | 1300       | 13009176        |
 |               | Visual Studio 6.0 SP6 <br/>Visual C++ 6.0 SP5 | 6.0      | 1200       | 12008804        |
-|               | Visual Studio 97 [5.0]<br/>Visual C++ 5.0 | 5.0          | 1100       |                 |
+|               | Visual Studio 97 [5.0]<br/>Visual C++ 5.0     | 5.0      | 1100       |                 |
 |               | Visual C++ 4.2                         | 4.2             | 1020       |                 |
 |               | Visual C++ 4.1                         | 4.1             | 1010       |                 |
 |               | Visual C++ 4.0                         | 4.0             | 1000       |                 |
@@ -190,5 +190,3 @@
 - [-std (Specify Language Standard Version) | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/build/reference/std-specify-language-standard-version)
 - [Predefined Macros | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros)
 - [Standards version switches in the compiler](https://blogs.msdn.microsoft.com/vcblog/2016/06/07/standards-version-switches-in-the-compiler/)
-
-
