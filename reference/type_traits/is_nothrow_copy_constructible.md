@@ -94,7 +94,7 @@ int main(){}
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0, 4.8.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012～2013には、提案時の名前である`has_nothrow_copy`, `has_nothrow_copy_constructor`も存在する。
-	- 2012は、すべてのクラス型において`true_type`になるかのような挙動を示した。上記例のうち`s`, `t`, `u`で`true_type`となった。ただし、Visual C++ 2013で非対応の構文については適宜変更の上で試した。
+	- 2012は、すべてのクラス型において`true_type`になるかのような挙動を示した。上記例のうち`s`, `t`, `u`で`true_type`となった。ただし、2013で非対応の構文については適宜変更の上で試した。
 	- 2013は、C++11に準拠する実装となっている。
 
 

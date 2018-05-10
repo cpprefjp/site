@@ -62,7 +62,7 @@ std::bad_weak_ptr
 - [GCC, C++11 mode](/implementation.md#gcc): 4.4, 4.7.2(`what()`が`"std::bad_weak_ptr"`を返すので規格違反。バグ報告済み。[#55847](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847))
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
-    - Visual C++ 2010までは`what()`が`"tr1::bad_weak_ptr"`を返す。
+    - 2010までは`what()`が`"tr1::bad_weak_ptr"`を返す。
 
 ## 参照
 
