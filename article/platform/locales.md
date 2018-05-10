@@ -11,7 +11,7 @@ MSDNライブラリの[setlocale、_wsetlocale](https://msdn.microsoft.com/ja-jp
 - `""`
 - `NULL`
 
-`lang`（言語）、`contory_region`（地域）、`code_page`（コードページ）の3要素として指定できる項目を明確にすることが本記事の目的である。
+`lang`（言語）、`country_region`（地域）、`code_page`（コードページ）の3要素として指定できる項目を明確にすることが本記事の目的である。
 
 （以下、制作中につき、構成が変化する可能性があります）
 
@@ -201,4 +201,3 @@ int main()
     }, LOCALE_NEUTRALDATA, 0, nullptr);
 }
 ```
-
