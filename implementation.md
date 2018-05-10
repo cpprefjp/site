@@ -107,7 +107,7 @@
 
 以下に当サイトにおけるバージョン表記と、製品・バージョン等の対応を示す。
 
-| 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-visual_cpp_ver-1" href="#note-visual_cpp_ver-1">[§注1]</a></sup> | VC++ バージョン <sup><a id="note_ref-visual_cpp_ver-2" href="#note-visual_cpp_ver-2">[§注2]</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
+| 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
 | 2017 Update 7 | Visual Studio 2017 バージョン 15.7     | 14.14           | 1914       | 191426428       |
 | 2017 Update 6 | Visual Studio 2017 バージョン 15.6     | 14.13           | 1913       | 191326128       |
@@ -117,7 +117,7 @@
 | 2017 Update 4 | Visual Studio 2017 バージョン 15.4.5   | 14.11           | 1911       | 191125547       |
 |               | Visual Studio 2017 バージョン 15.4.4   | 14.11           | 1911       | 191125542       |
 | 2017 Update 3 | Visual Studio 2017 バージョン 15.3.3   | 14.11           | 1911       | 191125507       |
-| 2017          | Visual Studio 2017 バージョン 15.0 <sup><a id="note_ref-visual_cpp_ver-3" href="#note-visual_cpp_ver-3">[§注3]</a></sup> | 14.10 | 1910 | 191025017 |
+| 2017          | Visual Studio 2017 バージョン 15.0 <sup><a id="note_ref-t1-3" href="#note-t1-3">†3</a></sup> | 14.10 | 1910 | 191025017 |
 | 2015 Update 3 | Visual Studio 2015 Update 3 [14.0]     | 14.0            | 1900       | 190024210       |
 | 2015 Update 2 | Visual Studio 2015 Update 2 [14.0]     | 14.0            | 1900       | 190023918       |
 | 2015 Update 1 | Visual Studio 2015 Update 1 [14.0]     | 14.0            | 1900       | 190023506       |
@@ -126,7 +126,7 @@
 | 2013 Update 4 | Visual Studio 2013 Update 4 [12.0]     | 12.0            | 1800       | 180031101       |
 | 2013 Update 3 | Visual Studio 2013 Update 3 [12.0]     | 12.0            | 1800       | 180030723       |
 | 2013 Update 2 | Visual Studio 2013 Update 2 [12.0]     | 12.0            | 1800       | 180030501       |
-| 2013 Update 1 | Visual Studio 2013 Update 1 <sup><a id="note_ref-visual_cpp_ver-4" href="#note-visual_cpp_ver-4">[§注4]</a></sup> [12.0] | 12.0 | 1800 | 180021005 |
+| 2013 Update 1 | Visual Studio 2013 Update 1 <sup><a id="note_ref-t1-4" href="#note-t1-4">†4</a></sup> [12.0] | 12.0 | 1800 | 180021005 |
 | 2013          | Visual Studio 2013          [12.0]     | 12.0            | 1800       | 180021005       |
 | 2012 Update 4 | Visual Studio 2012 Update 4 [11.0]     | 11.0            | 1700       | 170061030       |
 | 2012 Update 3 | Visual Studio 2012 Update 3 [11.0]     | 11.0            | 1700       | 170060610       |
@@ -157,18 +157,17 @@
 |               | Microsoft C/C++ 7.0                    |                 | 700        |                 |
 |               | Microsoft C 6.0                        |                 | 600        |                 |
 
+1. **<a id="note-t1-1" href="#note_ref-t1-1">^</a>** 製品名の列にはVisual C++コンパイラを含む実際に入手する製品の名称を示す。製品のエディション (Express/Standard/Professional/Enterprise/Community 他) は省略する。Visual Studioの製品バージョンは、製品名に現れていないときは `[ ～ ]` 内に記す。製品バージョンは、2017以降、メインメニューの [ヘルプ]-[Microsoft Visual Studio のバージョン情報] から確認できるものを指す。
+2. **<a id="note-t1-2" href="#note_ref-t1-2">^</a>** VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。
+3. **<a id="note-t1-3" href="#note_ref-t1-3">^</a>** Visual C++ 2017はVisual C++ 2015とバイナリ互換が保たれているためメジャーバージョンアップは行われなかった。その結果、製品バージョンとVisual C++バージョンが一致しなくなった。
+  [Binary Compatibility and Pain-free Upgrade: Why Moving to Visual Studio 2017 is almost “too easy”](https://blogs.msdn.microsoft.com/vcblog/2017/03/07/binary-compatibility-and-pain-free-upgrade-why-moving-to-visual-studio-2017-is-almost-too-easy/)
+4. **<a id="note-t1-4" href="#note_ref-t1-4">^</a>** Visual Studio 2013 Update1ではIDEのみ修正され、コンパイラ、ヘッダー、ライブラリ等は一切変更されなかった。
+
 - 2015以降、Visual Studioの既定のインストールではVisual C++は入らなくなった。Visual StudioのインストーラでVisual C++コンポーネントを選択する必要がある。
   [Visual Studio 2015 の Visual C++](https://msdn.microsoft.com/ja-jp/library/60k1461a.aspx) の [警告] を参照。
 - 2017 Update 5からside-by-sideがサポートされ、一つの製品内で同時に複数のVisual C++ツールセットを選択できるようになった。
   [Side-by-side minor version MSVC toolsets in Visual Studio 2017 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/11/15/side-by-side-minor-version-msvc-toolsets-in-visual-studio-2017/)
 
-#### 注釈
-
-1. **<a id="note-visual_cpp_ver-1" href="#note_ref-visual_cpp_ver-1">^</a>**  製品名の列にはVisual C++コンパイラを含む実際に入手する製品の名称を示す。製品のエディション (Express/Standard/Professional/Enterprise/Community 他) は省略する。Visual Studioの製品バージョンは、製品名に現れていないときは `[ ～ ]` 内に記す。製品バージョンは、2017以降、メインメニューの [ヘルプ]-[Microsoft Visual Studio のバージョン情報] から確認できるものを指す。
-2. **<a id="note-visual_cpp_ver-2" href="#note_ref-visual_cpp_ver-2">^</a>**  VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。
-3. **<a id="note-visual_cpp_ver-3" href="#note_ref-visual_cpp_ver-3">^</a>**  Visual C++ 2017はVisual C++ 2015とバイナリ互換が保たれているためメジャーバージョンアップは行われなかった。その結果、製品バージョンとVisual C++バージョンが一致しなくなった。
-  [Binary Compatibility and Pain-free Upgrade: Why Moving to Visual Studio 2017 is almost “too easy”](https://blogs.msdn.microsoft.com/vcblog/2017/03/07/binary-compatibility-and-pain-free-upgrade-why-moving-to-visual-studio-2017-is-almost-too-easy/)
-4. **<a id="note-visual_cpp_ver-4" href="#note_ref-visual_cpp_ver-4">^</a>**  Visual Studio 2013 Update1ではIDEのみ修正され、コンパイラ、ヘッダー、ライブラリ等は一切変更されなかった。
 
 ### C++11の機能を有効にする
 
