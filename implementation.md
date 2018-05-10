@@ -92,7 +92,7 @@
 
 
 ## <a id="visual_cpp" href="#visual_cpp">Microsoft Visual C++</a>
-このサイトでは Visual C++ と呼ぶ。Visual Studio .NET 2003 以降、Visual C++はVisual Studioに統合され独立した製品ではなくなったが、当サイトでは製品に含まれているコンポーネント名としてのVisual C++を採用する。
+このサイトでは Visual C++ と呼ぶ。Visual Studio 2012 以降、Visual C++は独立した製品名ではなくなり製品Visual Studioのみに含まれるようになったが、当サイトでは製品に含まれているコンポーネント名としてのVisual C++を採用する。
 
 - [Visual Studio - Microsoft Developer Tools](https://www.visualstudio.com/ja-jp/visual-studio-homepage-vs.aspx): Visual C++を含む統合開発環境。
 - [Visual C++ Build Tools](http://landinghub.visualstudio.com/visual-cpp-build-tools): コンパイラおよび関連ツールのみのパッケージ。
