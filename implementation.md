@@ -159,7 +159,7 @@
 
 1. **<a id="note-t1-1" href="#note_ref-t1-1">^</a>** 製品名の列にはVisual C++コンパイラを含む実際に入手する製品の名称を示す。製品のエディション (Express/Standard/Professional/Enterprise/Community 他) は省略する。Visual Studioの製品バージョンは、製品名に現れていないときは `[ ～ ]` 内に記す。製品バージョンは、2017以降、メインメニューの [ヘルプ]-[Microsoft Visual Studio のバージョン情報] から確認できるものを指す。
 2. **<a id="note-t1-2" href="#note_ref-t1-2">^</a>** VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。
-3. **<a id="note-t1-3" href="#note_ref-t1-3">^</a>** Visual C++ 2017はVisual C++ 2015とバイナリ互換が保たれているためメジャーバージョンアップは行われなかった。その結果、製品バージョンとVisual C++バージョンが一致しなくなった。
+3. **<a id="note-t1-3" href="#note_ref-t1-3">^</a>** 2017は2015とバイナリ互換が保たれているためメジャーバージョンアップは行われなかった。その結果、製品バージョンとVisual C++バージョンが一致しなくなった。
   [Binary Compatibility and Pain-free Upgrade: Why Moving to Visual Studio 2017 is almost “too easy”](https://blogs.msdn.microsoft.com/vcblog/2017/03/07/binary-compatibility-and-pain-free-upgrade-why-moving-to-visual-studio-2017-is-almost-too-easy/)
 4. **<a id="note-t1-4" href="#note_ref-t1-4">^</a>** Visual Studio 2013 Update1ではIDEのみ修正され、コンパイラ、ヘッダー、ライブラリ等は一切変更されなかった。
 
