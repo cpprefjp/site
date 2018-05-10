@@ -147,13 +147,13 @@
 |               | Windows Server 2003 DDK                                               |      | 1310 | 13102179  |
 | 2002          | Visual Studio .NET (2002)   [7.0]<br/>Visual C++ .NET 2002     [7.0]  | 7.0  | 1300 | 13009466  |
 |               | Windows XP SP1 DDK                     |                 | 1300       | 13009176        |
-|               | Visual Studio 6.0 SP6 <br/>Visual C++ 6.0 SP5 | 6.0      | 1200       | 12008804        |
-|               | Visual Studio 97 [5.0]<br/>Visual C++ 5.0     | 5.0      | 1100       |                 |
-|               | Visual C++ 4.2                         | 4.2             | 1020       |                 |
-|               | Visual C++ 4.1                         | 4.1             | 1010       |                 |
-|               | Visual C++ 4.0                         | 4.0             | 1000       |                 |
-|               | Visual C++ 2.0                         | 2.0             | 900        |                 |
-|               | Visual C++ 1.0                         | 1.0             | 800        |                 |
+| 6.0           | Visual Studio 6.0 SP6 <br/>Visual C++ 6.0 SP5 | 6.0      | 1200       | 12008804        |
+| 5.0           | Visual Studio 97 [5.0]<br/>Visual C++ 5.0     | 5.0      | 1100       |                 |
+| 4.2           | Visual C++ 4.2                         | 4.2             | 1020       |                 |
+| 4.1           | Visual C++ 4.1                         | 4.1             | 1010       |                 |
+| 4.0           | Visual C++ 4.0                         | 4.0             | 1000       |                 |
+| 2.0           | Visual C++ 2.0                         | 2.0             | 900        |                 |
+| 1.0           | Visual C++ 1.0                         | 1.0             | 800        |                 |
 |               | Microsoft C/C++ 7.0                    |                 | 700        |                 |
 |               | Microsoft C 6.0                        |                 | 600        |                 |
 
