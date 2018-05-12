@@ -125,6 +125,8 @@
 | 2017 Update 4 | Visual Studio 2017 バージョン 15.4.5   | 14.11           | 1911       | 191125547       |
 | 2017 Update 4 | Visual Studio 2017 バージョン 15.4.4   | 14.11           | 1911       | 191125542       |
 | 2017 Update 3 | Visual Studio 2017 バージョン 15.3.3   | 14.11           | 1911       | 191125507       |
+| 2017 Update 2 | Visual Studio 2017 バージョン 15.2     | 14.10           | 1910       | 191025017       |
+| 2017 Update 1 | Visual Studio 2017 バージョン 15.1     | 14.10           | 1910       | 191025017       |
 | 2017          | Visual Studio 2017 バージョン 15.0 <sup><a id="note_ref-t1-3" href="#note-t1-3">†3</a></sup> | 14.10 | 1910 | 191025017 |
 | 2015 Update 3 | Visual Studio 2015 Update 3 [14.0]     | 14.0            | 1900       | 190024210       |
 | 2015 Update 2 | Visual Studio 2015 Update 2 [14.0]     | 14.0            | 1900       | 190023918       |
