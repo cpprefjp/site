@@ -125,9 +125,9 @@
 | 2017 Update 4 | Visual Studio 2017 バージョン 15.4.5   | 14.11           | 1911       | 191125547       |
 | 2017 Update 4 | Visual Studio 2017 バージョン 15.4.4   | 14.11           | 1911       | 191125542       |
 | 2017 Update 3 | Visual Studio 2017 バージョン 15.3.3   | 14.11           | 1911       | 191125507       |
-| 2017 Update 2 | Visual Studio 2017 バージョン 15.2     | 14.10           | 1910       | 191025017       |
-| 2017 Update 1 | Visual Studio 2017 バージョン 15.1     | 14.10           | 1910       | 191025017       |
-| 2017          | Visual Studio 2017 バージョン 15.0 <sup><a id="note_ref-t1-3" href="#note-t1-3">†3</a></sup> | 14.10 | 1910 | 191025017 |
+| 2017 Update 2 <sup><a id="note_ref-t1-4-a" href="#note-t1-4">†4</a></sup> | Visual Studio 2017 バージョン 15.2     | 14.10           | 1910       | 191025017       |
+| 2017 Update 1 <sup><a id="note_ref-t1-4-b" href="#note-t1-4">†4</a></sup> | Visual Studio 2017 バージョン 15.1     | 14.10           | 1910       | 191025017       |
+| 2017          | Visual Studio 2017 バージョン 15.0     | 14.10 <sup><a id="note_ref-t1-3" href="#note-t1-3">†3</a></sup> | 1910       | 191025017       |
 | 2015 Update 3 | Visual Studio 2015 Update 3 [14.0]     | 14.0            | 1900       | 190024210       |
 | 2015 Update 2 | Visual Studio 2015 Update 2 [14.0]     | 14.0            | 1900       | 190023918       |
 | 2015 Update 1 | Visual Studio 2015 Update 1 [14.0]     | 14.0            | 1900       | 190023506       |
@@ -136,7 +136,7 @@
 | 2013 Update 4 | Visual Studio 2013 Update 4 [12.0]     | 12.0            | 1800       | 180031101       |
 | 2013 Update 3 | Visual Studio 2013 Update 3 [12.0]     | 12.0            | 1800       | 180030723       |
 | 2013 Update 2 | Visual Studio 2013 Update 2 [12.0]     | 12.0            | 1800       | 180030501       |
-| 2013 Update 1 | Visual Studio 2013 Update 1 <sup><a id="note_ref-t1-4" href="#note-t1-4">†4</a></sup> [12.0] | 12.0 | 1800 | 180021005 |
+| 2013 Update 1 <sup><a id="note_ref-t1-4-c" href="#note-t1-4">†4</a></sup> | Visual Studio 2013 Update 1 [12.0]     | 12.0            | 1800       | 180021005       |
 | 2013          | Visual Studio 2013          [12.0]     | 12.0            | 1800       | 180021005       |
 | 2012 Update 4 | Visual Studio 2012 Update 4 [11.0]     | 11.0            | 1700       | 170061030       |
 | 2012 Update 3 | Visual Studio 2012 Update 3 [11.0]     | 11.0            | 1700       | 170060610       |
@@ -172,7 +172,9 @@
 2. **<a id="note-t1-2" href="#note_ref-t1-2">^</a>** VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。
 3. **<a id="note-t1-3" href="#note_ref-t1-3">^</a>** 2017は2015とバイナリ互換が保たれているためメジャーバージョンアップは行われなかった。その結果、製品バージョンとVisual C++バージョンが一致しなくなった。
   [Binary Compatibility and Pain-free Upgrade: Why Moving to Visual Studio 2017 is almost “too easy”](https://blogs.msdn.microsoft.com/vcblog/2017/03/07/binary-compatibility-and-pain-free-upgrade-why-moving-to-visual-studio-2017-is-almost-too-easy/)
-4. **<a id="note-t1-4" href="#note_ref-t1-4">^</a>** Visual Studio 2013 Update1ではIDEのみ修正され、コンパイラ、ヘッダー、ライブラリ等は一切変更されなかった。
+4. <a id="note-t1-4">^</a> <sup>[**a**](#note_ref-t1-4-a)</sup> <sup>[**b**](#note_ref-t1-4-b)</sup> <sup>[**c**](#note_ref-t1-4-c)</sup> IDEのみ修正され、コンパイラ、ヘッダー、ライブラリ等は変更されなかった。
+	- [C++17 Features And STL Fixes In VS 2017 15.3 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/08/11/c17-features-and-stl-fixes-in-vs-2017-15-3/) - "*After VS 2017 RTM, the 15.1 and 15.2 updates improved the IDE. The 15.3 update improves both the IDE and the toolset.*"
+	- [Description of Visual Studio 2013 Update 1](https://support.microsoft.com/en-us/help/2911573/description-of-visual-studio-2013-update-1)
 
 - 2015以降、Visual Studioの既定のインストールではVisual C++は入らなくなった。Visual StudioのインストーラでVisual C++コンポーネントを選択する必要がある。
   [Visual Studio 2015 の Visual C++](https://msdn.microsoft.com/ja-jp/library/60k1461a.aspx) の [警告] を参照。
