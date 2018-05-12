@@ -149,24 +149,24 @@
 | 2008          | Visual Studio 2008          [9.0] <br/>Visual C++ 2008         [9.0]  | 9.0  | 1500 | 150021022 |
 | 2005 SP1      | Visual Studio 2005 SP1      [8.0] <br/>Visual C++ 2005 SP1     [8.0]  | 8.0  | 1400 | 140050727 |
 | 2005          | Visual Studio 2005          [8.0] <br/>Visual C++ 2005         [8.0]  | 8.0  | 1400 | 140050320 |
-| WinServer2003 SP1 DDK x64 | Windows Server 2003 SP1 DDK (for AMD64)                   |      | 1400 | 140040310 |
+|               | Windows Server 2003 SP1 DDK (for AMD64)                               |      | 1400 | 140040310 |
 | 2003 SP1      | Visual Studio .NET 2003 SP1 [7.1]<br/>Visual C++ .NET 2003 SP1 [7.1]  | 7.1  | 1310 | 13106030  |
-| WinServer2003 SP1 DDK     | Windows Server 2003 SP1 DDK                               |      | 1310 | 13104035  |
+|               | Windows Server 2003 SP1 DDK                                           |      | 1310 | 13104035  |
 | 2003          | Visual Studio .NET 2003     [7.1]<br/>Visual C++ .NET 2003     [7.1]  | 7.1  | 1310 | 13103077  |
-| 2003 Toolkit  | Visual Studio Toolkit 2003  [7.1]                                     | 7.1  | 1310 | 13103052  |
-| WinServer2003 DDK         | Windows Server 2003 DDK                                   |      | 1310 | 13102179  |
+|               | Visual Studio Toolkit 2003  [7.1]                                     | 7.1  | 1310 | 13103052  |
+|               | Windows Server 2003 DDK                                               |      | 1310 | 13102179  |
 | 2002          | Visual Studio .NET (2002)   [7.0]<br/>Visual C++ .NET 2002     [7.0]  | 7.0  | 1300 | 13009466  |
-| WinXP SP1 DDK             | Windows XP SP1 DDK                                        |      | 1300 | 13009176  |
+|               | Windows XP SP1 DDK                                                    |      | 1300 | 13009176  |
 | 6.0           | Visual Studio 6.0 SP6                     | 6.0          | 1200       | 12008804        |
 | 6.0           | Visual Studio 6.0 SP5                     | 6.0          | 1200       | 12008804        |
-| 5.0           | Visual Studio 97 [5.0]<br/>Visual C++ 5.0 | 5.0          | 1100       |                 |
-| 4.2           | Visual C++ 4.2                         | 4.2             | 1020       |                 |
-| 4.1           | Visual C++ 4.1                         | 4.1             | 1010       |                 |
-| 4.0           | Visual C++ 4.0                         | 4.0             | 1000       |                 |
-| 2.0           | Visual C++ 2.0                         | 2.0             | 900        |                 |
-| 1.0           | Visual C++ 1.0                         | 1.0             | 800        |                 |
-| C/C++ 7.0     | Microsoft C/C++ 7.0                    |                 | 700        |                 |
-| C 6.0         | Microsoft C 6.0                        |                 | 600        |                 |
+|               | Visual Studio 97 [5.0]<br/>Visual C++ 5.0 | 5.0          | 1100       |                 |
+|               | Visual C++ 4.2                         | 4.2             | 1020       |                 |
+|               | Visual C++ 4.1                         | 4.1             | 1010       |                 |
+|               | Visual C++ 4.0                         | 4.0             | 1000       |                 |
+|               | Visual C++ 2.0                         | 2.0             | 900        |                 |
+|               | Visual C++ 1.0                         | 1.0             | 800        |                 |
+|               | Microsoft C/C++ 7.0                    |                 | 700        |                 |
+|               | Microsoft C 6.0                        |                 | 600        |                 |
 
 1. **<a id="note-t1-1" href="#note_ref-t1-1">^</a>** 製品名の列にはVisual C++コンパイラを含む実際に入手する製品の名称を示す。製品のエディション (Express/Standard/Professional/Enterprise/Community 他) は省略する。Visual Studioの製品バージョンは、製品名に現れていないときは `[ ～ ]` 内に記す。製品バージョンは、2017以降、メインメニューの [ヘルプ]-[Microsoft Visual Studio のバージョン情報] から確認できるものを指す。
 2. **<a id="note-t1-2" href="#note_ref-t1-2">^</a>** VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。
