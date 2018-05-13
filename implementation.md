@@ -157,8 +157,8 @@
 |               | Windows Server 2003 DDK                                               |      | 1310 | 13102179  |
 | 2002          | Visual Studio .NET (2002)   [7.0]<br/>Visual C++ .NET 2002     [7.0]  | 7.0  | 1300 | 13009466  |
 |               | Windows XP SP1 DDK                                                    |      | 1300 | 13009176  |
-| 6.0           | Visual Studio 6.0 SP6                     | 6.0          | 1200       | 12008804        |
-| 6.0           | Visual Studio 6.0 SP5                     | 6.0          | 1200       | 12008804        |
+| 6.0 SP6       | Visual Studio 6.0 SP6<br/>Visual C++ 6.0 SP6 | 6.0       | 1200       | 12008804        |
+| 6.0 SP5       | Visual Studio 6.0 SP5<br/>Visual C++ 6.0 SP5 | 6.0       | 1200       | 12008804        |
 |               | Visual Studio 97 [5.0]<br/>Visual C++ 5.0 | 5.0          | 1100       |                 |
 |               | Visual C++ 4.2                         | 4.2             | 1020       |                 |
 |               | Visual C++ 4.1                         | 4.1             | 1010       |                 |
