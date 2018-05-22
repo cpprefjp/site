@@ -12,6 +12,9 @@ size_type find_first_not_of(const charT* s, size_type pos, size_type n) const;  
 size_type find_first_not_of(const charT* s, size_type pos = 0) const;                   // (3)
 
 size_type find_first_not_of(charT c, size_type pos = 0) const;                          // (4) C++11
+
+size_type find_first_not_of(std::basic_string_view<charT, traits> sv,
+                            size_type pos = 0) const noexcept;                          // (5) C++17
 ```
 
 ## 概要
@@ -27,6 +30,7 @@ size_type find_first_not_of(charT c, size_type pos = 0) const;                  
 - (2) `pos` 以降で最初に `s` 内に存在しない文字の位置を返す。`s` は長さ `n` の文字列へのポインタである。
 - (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
 - (4) `pos` 以降で最初に `c` と一致しない文字の位置を返す。
+- (5) `pos` 以降で最初に `sv` 内に存在しない文字の位置を返す。
 
 
 ## 戻り値
@@ -35,6 +39,7 @@ size_type find_first_not_of(charT c, size_type pos = 0) const;                  
 
 ## 例外
 - (1) 投げない
+- (5) 投げない
 
 
 ## 備考
@@ -102,3 +107,4 @@ size_type basic_string<charT, traits, Allocator>::find_first_not_of(charT c, siz
 
 ## 参照
 - [LWG2064 - More `noexcept` issues in `basic_string`](https://wg21.cmeerw.net/lwg/issue2064)
+- [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
