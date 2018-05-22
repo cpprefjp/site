@@ -68,7 +68,7 @@ p doesn't have resource
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
-    - Visual C++ 2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
+    - 2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
 ## 参照

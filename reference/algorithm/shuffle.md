@@ -29,9 +29,9 @@ namespace std {
 ## 備考
 以下の実装では、[フィッシャー - イェーツのシャッフル](https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A3%E3%83%BC_-_%E3%82%A4%E3%82%A7%E3%83%BC%E3%83%84%E3%81%AE%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB)アルゴリズムが使用されている：
 
-- GCC 4.9 (libstdc++)
-- Clang 3.4 (libc++)
-- Visual C++ 2013
+- GCC: 4.9 (libstdc++)
+- Clang: 3.4 (libc++)
+- Visual C++: 2013
 
 
 ## 例
