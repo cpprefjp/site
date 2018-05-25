@@ -14,6 +14,8 @@ namespace std {
 ## 概要
 `reference_wrapper`は、コピー・代入可能なオブジェクトとして持ちまわれる参照オブジェクトを提供する。コピー不可なクラス (例：`std::istream`) をポインタで保持する代わりに`reference_wrapper`で保持することができる。また、`reference_wrapper`クラスは、関数テンプレートに変数を参照として渡すためにも使用できる。
 
+C++17からは、このクラスは[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)であると規定された。
+
 
 ## メンバ関数
 
@@ -96,3 +98,4 @@ int main()
 ## 参照
 - [参照を保持するコンテナ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20110519/1305789940)
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
+- [N4277 TriviallyCopyable `reference_wrapper` (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4277.html)
