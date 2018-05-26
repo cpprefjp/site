@@ -18,7 +18,7 @@ namespace std {
 ```
 
 ## 概要
-`middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の範囲の要素を回転させる。
+`middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の要素の並びを回転させる。
 
 
 ## 要件
