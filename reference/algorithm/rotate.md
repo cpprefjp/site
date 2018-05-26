@@ -35,7 +35,7 @@ namespace std {
 - C++03 まで  
 	無し
 - C++11 から  
-	回転前の先頭の要素を指すイテレータ`first + (last - middle)`を返す
+	回転前の先頭の要素を指すイテレータ`first + (last - middle)`
 
 
 ## 備考
