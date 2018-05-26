@@ -14,7 +14,7 @@ namespace std {
 ```
 
 ## 概要
-要素の並びを回転させ、その結果を出力の範囲へコピーする。
+`middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の要素の並びを回転させ、その結果を出力の範囲へコピーする。
 
 
 ## 要件
@@ -26,7 +26,7 @@ namespace std {
 
 
 ## 戻り値
-`result + (last - first)`
+回転前の先頭の要素を指すイテレータ`result + (last - first)`
 
 
 ## 計算量
