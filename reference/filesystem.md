@@ -24,7 +24,7 @@
 |------|------|----------------|
 | [`file_status`](filesystem/file_status.md.nolink) | ファイル状態を表すクラス (class) | C++17 |
 | [`space_info`](filesystem/space_info.md.nolink) | ディスク容量を表すクラス (class) | C++17 |
-| [`file_type`](filesystem/file_type.md.nolink) | ファイル種別を表す列挙型 (enum) | C++17 |
+| [`file_type`](filesystem/file_type.md) | ファイル種別を表す列挙型 (enum) | C++17 |
 | [`perms`](filesystem/perms.md.nolink) | 権限を表す列挙型 (enum) | C++17 |
 | [`perm_options`](filesystem/perm_options.md.nolink) | 権限オプションを表す列挙型 (enum) | C++17 |
 | [`copy_options`](filesystem/copy_options.md.nolink) | コピーオプションを表す列挙型 (enum) | C++17 |
