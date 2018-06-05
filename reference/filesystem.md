@@ -22,7 +22,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`file_status`](filesystem/file_status.md.nolink) | ファイル状態を表すクラス (class) | C++17 |
+| [`file_status`](filesystem/file_status.md) | ファイル状態を表すクラス (class) | C++17 |
 | [`space_info`](filesystem/space_info.md.nolink) | ディスク容量を表すクラス (class) | C++17 |
 | [`file_type`](filesystem/file_type.md) | ファイル種別を表す列挙型 (enum) | C++17 |
 | [`perms`](filesystem/perms.md) | 権限を表す列挙型 (enum) | C++17 |

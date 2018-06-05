@@ -94,8 +94,8 @@ int main()
 ```
 * fs::file_type[color ff0000]
 * fs::status[link status.md.nolink]
-* fs::file_status[link file_status.md.nolink]
-* status.type()[link file_status/type.md.nolink]
+* fs::file_status[link file_status.md]
+* status.type()[link file_status/type.md]
 
 ### 出力
 ```
