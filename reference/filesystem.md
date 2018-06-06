@@ -84,7 +84,7 @@
 | [`last_write_time`](filesystem/last_write_time.md.nolink) | エンティティの最終更新日を取得・更新する (function) | C++17 |
 | [`space`](filesystem/space.md.nolink) | 残り容量を取得する (function) | C++17 |
 | [`status`](filesystem/status.md) | ファイル状態を取得する (function) | C++17 |
-| [`symlink_status`](filesystem/status.md.nolink) | シンボリックリンクの状態を取得する (function) | C++17 |
+| [`symlink_status`](filesystem/symlink_status.md) | シンボリックリンクの状態を取得する (function) | C++17 |
 | [`status_known`](filesystem/status_known.md.nolink) | ファイルが既知の状態かを確認する (function) | C++17 |
 
 

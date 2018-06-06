@@ -1,4 +1,4 @@
-# status
+# symlink_status
 * filesystem[meta header]
 * std::filesystem[meta namespace]
 * function[meta id-type]
@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std::filesystem {
-  file_status status(const path& p);                          // (1)
-  file_status status(const path& p, error_code& ec) noexcept; // (2)
+  file_status symlink_status(const path& p);                          // (1)
+  file_status symlink_status(const path& p, error_code& ec) noexcept; // (2)
 }
 ```
 * path[link path.md]
@@ -15,9 +15,9 @@ namespace std::filesystem {
 * error_code[link /reference/system_error/error_code.md]
 
 ## 概要
-ファイル状態を取得する。
+シンボリックリンクの状態を取得する。
 
-パスがシンボリックリンクを指している場合、シンボリックリンクが指すファイルの状態を取得する。シンボリックリンク自体の状態を取得する場合は、[`std::filesystem::symlink_status()`](symlink_status.md)関数を使用すること。
+[`std::filesystem::status()`](status.md)関数にシンボリックリンクのパスを指定した場合、シンボリックリンクが指すファイルの状態を取得するが、この関数はリンク自体の状態を取得する。シンボリックリンク以外のファイルに対しては、[`std::filesystem::status()`](status.md)関数と同じ動作をする。
 
 
 ## 効果
@@ -25,7 +25,7 @@ namespace std::filesystem {
 
 ```cpp
 error_code ec;
-file_status result = status(p, ec);
+file_status result = symlink_status(p, ec);
 if (result.type() == file_type::none)
     throw filesystem_error(実装定義のメッセージ, p, ec);
 
@@ -38,23 +38,19 @@ return result;
 * filesystem_error[link filesystem_error.md]
 
 - (2) :
-    - 可能なら、ファイルパス`p`が指すファイルの属性を決定する
-        - POSIX環境であれば[`stat()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)関数を使用する
+    - 可能なら、ファイルパス`p`が指すシンボリックリンクファイルの属性を決定する
+        - POSIX環境であれば[`lstat()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)関数を使用する
     - OSのファイルシステムAPIによってエラーが報告された場合、`ec`にエラー情報が設定される。そうでなければ、[`ec.clear()`](/reference/system_error/error_code/clear.md)を呼び出し、エラー情報をクリアする
 
 
 ## 戻り値
-- (1) : ファイルパス`p`が指すファイルの状態を返す
+- (1) : ファイルパス`p`が指すシンボリックリンクファイルの状態を返す
 - (2) :
     - `ec`にエラー情報が設定された場合、
         - ファイルパス`p`が見つからなかった場合、[`file_status`](file_status.md)`{`[`file_type::not_found`](file_type.md)`,` [`perms::unknown`]`}`が返る
         - ファイルパス`p`は見つかったが属性を決定できなかった場合、[`file_status`](file_status.md)`{`[`file_type::unknown`](file_type.md)`,` [`perms::unknown`]`}`が返る
         - そのいずれでもなければ、[`file_status`](file_status.md)`{`[`file_type::none`](file_type.md)`,` [`perms::unknown`]`}`が返る
-    - 正常にファイル属性を取得できた場合、ファイル種別とファイル権限が設定された[`file_status`](file_status.md)オブジェクトが返る
-
-
-## 備考
-- ファイルパスの解決でシンボリックリンクが検出された場合、シンボリックリンクのリンク先を使用してファイルパスの解決が継続される
+    - 正常にファイル属性を取得できた場合、ファイル種別として[`file_type::symlink`](file_type.md)と、ファイル権限が設定された[`file_status`](file_status.md)オブジェクトが返る
 
 
 ## 例外
@@ -74,12 +70,13 @@ namespace fs = std::filesystem;
 int main()
 {
   std::ofstream{"a.txt"};
+  fs::create_symlink("a.txt", "a_symlink.txt");
 
   // (1)
   {
     try {
-      fs::file_status status = fs::status("a.txt");
-      assert(status.type() == fs::file_type::regular);
+      fs::file_status status = fs::symlink_status("a_symlink.txt");
+      assert(status.type() == fs::file_type::symlink);
       assert((status.permissions() & fs::perms::owner_write) != fs::perms::none);
     }
     catch (fs::filesystem_error& fe) {
@@ -90,18 +87,19 @@ int main()
   // (2)
   {
     std::error_code ec;
-    fs::file_status status = fs::status("a.txt", ec);
+    fs::file_status status = fs::symlink_status("a_symlink.txt", ec);
     if (ec) {
       std::cout << ec.message() << std::endl;
     }
     else {
-      assert(status.type() == fs::file_type::regular);
+      assert(status.type() == fs::file_type::symlink);
       assert((status.permissions() & fs::perms::owner_write) != fs::perms::none);
     }
   }
 }
 ```
-* fs::status[color ff0000]
+* fs::symlink_status[color ff0000]
+* fs::create_symlink[link create_symlink.md.nolink]
 * fs::file_status[link file_status.md]
 * status.type()[link file_status/type.md]
 * status.permissions()[link file_status/permissions.md]
