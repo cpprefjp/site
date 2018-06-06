@@ -80,7 +80,7 @@ int main()
 }
 ```
 * fs::perms[color ff0000]
-* fs::status[link status.md.nolink]
+* fs::status[link status.md]
 * fs::file_status[link file_status.md]
 * status.permissions()[link file_status/permissions.md]
 

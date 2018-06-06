@@ -51,7 +51,7 @@ int main()
 }
 ```
 * fs::file_status[color ff0000]
-* fs::status[link status.md.nolink]
+* fs::status[link status.md]
 * status.type()[link file_status/type.md]
 * status.permissions()[link file_status/permissions.md]
 * fs::file_type[link file_type.md]
