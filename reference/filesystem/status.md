@@ -47,9 +47,9 @@ return result;
 - (1) : ファイルパス`p`が指すファイルの状態を返す
 - (2) :
     - `ec`にエラー情報が設定された場合、
-        - ファイルパス`p`が見つからなかった場合、[`file_status`](file_status.md)`{`[`file_type::not_found`](file_type.md)`,` [`perms::unknown`]`}`が返る
-        - ファイルパス`p`は見つかったが属性を決定できなかった場合、[`file_status`](file_status.md)`{`[`file_type::unknown`](file_type.md)`,` [`perms::unknown`]`}`が返る
-        - そのいずれでもなければ、[`file_status`](file_status.md)`{`[`file_type::none`](file_type.md)`,` [`perms::unknown`]`}`が返る
+        - ファイルパス`p`が見つからなかった場合、[`file_status`](file_status.md)`{`[`file_type::not_found`](file_type.md)`,` [`perms::unknown`](perms.md)`}`が返る
+        - ファイルパス`p`は見つかったが属性を決定できなかった場合、[`file_status`](file_status.md)`{`[`file_type::unknown`](file_type.md)`,` [`perms::unknown`](perms.md)`}`が返る
+        - そのいずれでもなければ、[`file_status`](file_status.md)`{`[`file_type::none`](file_type.md)`,` [`perms::unknown`](perms.md)`}`が返る
     - 正常にファイル属性を取得できた場合、ファイル種別とファイル権限が設定された[`file_status`](file_status.md)オブジェクトが返る
 
 
