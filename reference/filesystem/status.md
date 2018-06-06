@@ -55,6 +55,11 @@ return result;
 - ファイルパスの解決でシンボリックリンクが検出された場合、シンボリックリンクのリンク先を使用してファイルパスの解決が継続される
 
 
+## 例外
+- (1) : ファイルが見つからない場合、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (2) : 投げない
+
+
 ## 例
 ```cpp example
 #include <iostream>
