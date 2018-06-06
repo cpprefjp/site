@@ -43,7 +43,7 @@ namespace std {
 
 
 ## 備考
-このクラスの前身となった[Boost Optional Library](boost.org/libs/optional)では、`optional<int&>`のように左辺値参照を要素型とした場合に、無効値の領域を最適化する機能が入っていた。
+このクラスの前身となった[Boost Optional Library](https://boost.org/libs/optional)では、`optional<int&>`のように左辺値参照を要素型とした場合に、無効値の領域を最適化する機能が入っていた。
 
 標準ライブラリの`optional`クラスには現在、参照を持たせることはできない。
 

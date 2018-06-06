@@ -53,7 +53,7 @@ namespace std::filesystem {
 | `set_gid`      | `02000`            | `S_ISGID`           | 実行するグループIDを設定 |
 | `sticky_bit`   | `01000`            | `S_ISVTX`           | OS依存の権限 |
 | `mask`         | `07777`            |                     | とりうる値が収まるビットマスク値 |
-| `unknown`      | `0xFFFF`           |                     | 権限を指定せずに[`file_status`](/file_status.md)オブジェクトを生成した際の、権限不明の状態 |
+| `unknown`      | `0xFFFF`           |                     | 権限を指定せずに[`file_status`](file_status.md)オブジェクトを生成した際の、権限不明の状態 |
 
 
 ## 例

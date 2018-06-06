@@ -119,7 +119,7 @@ TBD
 - このほかの`<<`演算子関数
 	- [文字・文字列の書式化出力、および、右辺値ストリームに対する出力](op_ostream_free.md)
 	- [`std::sub_match`に関するもの](../../regex/sub_match/op_ostream.md)
-	- [`std::system_error`に関するもの](../../system_error/op_ostream.md)
+	- [`std::error_code`に関するもの](../../system_error/error_code/op_ostream.md)
 	- [`std::complex`に関するもの](../../complex/op_ostream.md)
 	- [`std::bitset`に関するもの](../../bitset/op_ostream.md)
 	- [`std::basic_string`に関するもの](../../string/basic_string/op_ostream.md)

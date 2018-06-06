@@ -43,7 +43,7 @@ namespace std {
 
 ## 要件
 - 関数オブジェクト`F`および`Args...`の各型が、[`is_move_construcitble`](/reference/type_traits/is_move_constructible.md)`<T>::value == true`であること。
-- [`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)`が可能であること。
+- [`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)`が可能であること。
 
 ## 効果
 この関数は、パラメータ`policy`で指定された実行ポリシーの値によって振る舞いを変える。
@@ -53,7 +53,7 @@ namespace std {
 各実行ポリシーの振る舞いは以下のようになる：
 
 - `policy & launch::async`が`0`じゃない場合、新たなスレッドで関数オブジェクト`f`に`args...`を渡して実行する
-    - ( [`INVOKE`](/reference/functional/invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)` )
+    - ( [`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)` )
     - 関数オブジェクト`f`の戻り値が、この関数の戻り値である[`future`](future.md)オブジェクトとの共有状態に書き込まれる。
     - 関数オブジェクト`f`の内部で例外が投げられた場合は、共有状態に投げられた例外が設定される。
 - `policy & launch::deferred`が`0`じゃない場合、関数オブジェクト`f`をその場では実行せず、遅延状態にする

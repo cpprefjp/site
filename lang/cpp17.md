@@ -171,7 +171,7 @@ C++17では以下のTSが採用された：
 - ランダムサンプリングアルゴリズムとして、[`sample()`](/reference/algorithm/sample.md)を追加
 - 値を範囲内に収める[`clamp()`](/reference/algorithm/clamp.md)関数を追加
 - `bool`を返す関数オブジェクトの結果を反転させる[`not_fn()`](/reference/functional/not_fn.md)関数を追加
-- INVOKEコンセプトに従った関数呼び出しをする[`invoke()`](/reference/functional/invoke.md.nolink)関数を追加
+- [*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しをする[`invoke()`](/reference/functional/invoke.md.nolink)関数を追加
 - [`reference_wrapper`](/reference/functional/reference_wrapper.md)がTriviallyCopyableであることを保証
 - オブジェクトを`const`にする[`as_const()`](/reference/utility/as_const.md)関数を追加
 - 未初期化メモリのアルゴリズムと、デストラクタ呼び出しの関数として、以下の関数を追加： [`destroy_at()`](/reference/memory/destroy_at.md.nolink), [`destroy()`](/reference/memory/destroy.md.nolink), [`destroy_n()`](/reference/memory/destroy_n.md.nolink), [`uninitialized_move()`](/reference/memory/uninitialized_move.md.nolink), [`uninitialized_move_n()`](/reference/memory/uninitialized_move_n.md.nolink), [`uninitialized_value_construct()`](/reference/memory/uninitialized_value_construct.md.nolink), [`uninitialized_value_construct_n()`](/reference/memory/uninitialized_value_construct_n.md.nolink), [`uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md.nolink), [`uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md.nolink)
