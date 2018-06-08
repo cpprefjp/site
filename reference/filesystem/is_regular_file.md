@@ -39,7 +39,8 @@ namespace std::filesystem {
     ```
     * file_status[link file_status.md]
     * status[link status.md]
-    * status_known[link status_known.md]
+    * file_type[link file_type.md]
+    * s.type()[link file_status/type.md]
     * ec.clear()[link /reference/system_error/error_code/clear.md]
 
 
