@@ -1,5 +1,4 @@
 # Swappable
-* concepts[meta header]
 
 ## 概要
 Swappableは、任意の型`T`のオブジェクトと任意の型`U`のオブジェクトが入れ替え可能かを表す要件である。

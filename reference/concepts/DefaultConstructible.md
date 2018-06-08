@@ -1,5 +1,4 @@
 # DefaultConstructible
-* concepts[meta header]
 
 ## 概要
 DefaultConstructibleは、任意の型`T`がデフォルト構築可能であること表す要件である。

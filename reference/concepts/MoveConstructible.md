@@ -1,5 +1,4 @@
 # MoveConstructible
-* concepts[meta header]
 
 ## 概要
 MoveConstructibleは、任意の型`T`がムーブ構築可能であることを表す要件である。

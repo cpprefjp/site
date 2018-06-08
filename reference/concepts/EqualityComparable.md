@@ -1,5 +1,4 @@
 # EqualityComparable
-* concepts[meta header]
 
 ## 概要
 EqualityComparableは、2つのオブジェクト`a`と`b`が`==`演算子で等価関係にあるかを表す要件である。

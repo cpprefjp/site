@@ -1,5 +1,4 @@
 # CopyInsertable
-* container_concepts[meta header]
 
 ## 概要
 CopyInsertableは、任意のコンテナ`X`に対して、その要素型オブジェクトをコピー挿入可能かを表す要件である。
