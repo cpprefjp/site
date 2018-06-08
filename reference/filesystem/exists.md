@@ -12,6 +12,7 @@ namespace std::filesystem {
 }
 ```
 * file_status[link file_status.md]
+* path[link path.md]
 
 ## 概要
 ファイルが存在するか確認する。
