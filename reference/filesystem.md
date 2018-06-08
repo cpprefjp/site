@@ -69,7 +69,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`exists`](filesystem/exists.md.nolink) | パスが存在するか確認する (function) | C++17 |
+| [`exists`](filesystem/exists.md) | ファイルが存在するか確認する (function) | C++17 |
 | [`equivalent`](filesystem/equivalent.md.nolink) | 2つのエンティティが同等かを確認する (function) | C++17 |
 | [`file_size`](filesystem/file_size.md.nolink) | ファイルサイズを取得する (function) | C++17 |
 | [`hard_link_count`](filesystem/hard_link_count.md.nolink) | ハードリンク数を取得する (function) | C++17 |
