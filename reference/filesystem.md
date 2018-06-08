@@ -85,7 +85,7 @@
 | [`space`](filesystem/space.md.nolink) | 残り容量を取得する (function) | C++17 |
 | [`status`](filesystem/status.md) | ファイル状態を取得する (function) | C++17 |
 | [`symlink_status`](filesystem/symlink_status.md) | シンボリックリンクの状態を取得する (function) | C++17 |
-| [`status_known`](filesystem/status_known.md.nolink) | ファイルが既知の状態かを確認する (function) | C++17 |
+| [`status_known`](filesystem/status_known.md) | ファイルが既知の状態かを確認する (function) | C++17 |
 
 
 ## バージョン
