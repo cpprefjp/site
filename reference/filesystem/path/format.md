@@ -2,7 +2,7 @@
 * filesystem[meta header]
 * std::filesystem[meta namespace]
 * path[meta class]
-* class[meta id-type]
+* enum[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp
