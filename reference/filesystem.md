@@ -74,7 +74,7 @@
 | [`file_size`](filesystem/file_size.md.nolink) | ファイルサイズを取得する (function) | C++17 |
 | [`hard_link_count`](filesystem/hard_link_count.md.nolink) | ハードリンク数を取得する (function) | C++17 |
 | [`is_regular_file`](filesystem/is_regular_file.md) | 指定されたパスが通常ファイルを指しているかを確認する (function) | C++17 |
-| [`is_directory`](filesystem/is_directory.md.nolink) | 指定されたパスがディレクトリを指しているかを確認する (function) | C++17 |
+| [`is_directory`](filesystem/is_directory.md) | 指定されたパスがディレクトリを指しているかを確認する (function) | C++17 |
 | [`is_symlink`](filesystem/is_symlink.md.nolink) | 指定されたパスがシンボリックリンクを指しているかを確認する (function) | C++17 |
 | [`is_block_file`](filesystem/is_block_file.md.nolink) | 指定されたパスがブロックデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
 | [`is_character_file`](filesystem/is_character_file.md.nolink) | 指定されたパスがキャラクタデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
