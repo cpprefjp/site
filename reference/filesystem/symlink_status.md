@@ -70,7 +70,7 @@ namespace fs = std::filesystem;
 int main()
 {
   std::ofstream{"a.txt"};
-  fs::create_symlink("a.txt", "a_symlink.txt");
+  fs::create_symlink("a_symlink.txt", "a.txt");
 
   // (1)
   {

@@ -61,6 +61,7 @@ namespace fs = std::filesystem;
 int main()
 {
   std::ofstream{"regular.txt"};
+  fs::create_symlink("regular.txt", "regular.symlink");
   fs::create_directory("dir");
 
   // (1)
@@ -68,8 +69,10 @@ int main()
   assert(fs::is_regular_file(fs::status("regular.txt")));
 
   // (2)
-  // パスを指定して、通常ファイルかを確認
+  // パスを指定して、通常ファイルかを確認。
+  // シンボリックリンクはリンク先ファイルで判定される
   assert(fs::is_regular_file("regular.txt"));
+  assert(fs::is_regular_file("regular.symlink"));
   assert(!fs::is_regular_file("dir"));
 
   // (3)
@@ -81,6 +84,7 @@ int main()
 }
 ```
 * fs::is_regular_file[color ff0000]
+* fs::create_symlink[link create_symlink.md.nolink]
 * fs::create_directory[link create_directory.md.nolink]
 * fs::status[link status.md]
 
