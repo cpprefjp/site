@@ -60,14 +60,17 @@ int main()
 {
   std::ofstream{"regular.txt"};
   fs::create_directory("dir");
+  fs::create_directory_symlink("dir", "dir_symlink");
 
   // (1)
   // 取得済みのファイル状態を使用して、ディレクトリかを確認
   assert(fs::is_directory(fs::status("dir")));
 
   // (2)
-  // パスを指定して、ディレクトリかを確認
+  // パスを指定して、ディレクトリかを確認。
+  // シンボリックリンクはリンク先ファイルで判定される
   assert(fs::is_directory("dir"));
+  assert(fs::is_directory("dir_symlink"));
   assert(!fs::is_directory("regular.txt"));
 
   // (3)
@@ -80,6 +83,7 @@ int main()
 ```
 * fs::is_directory[color ff0000]
 * fs::create_directory[link create_directory.md.nolink]
+* fs::create_directory_symlink[link create_directory_symlink.md.nolink]
 * fs::status[link status.md]
 
 ### 出力
