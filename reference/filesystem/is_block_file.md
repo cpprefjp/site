@@ -56,7 +56,6 @@ Linux環境においては、`/dev/disk0`、`/dev/sda`、`/dev/loop0`などが�
 ### Linux環境の例
 ```cpp example
 #include <cassert>
-#include <fstream>
 #include <filesystem>
 
 namespace fs = std::filesystem;
