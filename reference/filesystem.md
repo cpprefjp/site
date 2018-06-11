@@ -61,7 +61,7 @@
 | [`create_symlink`](filesystem/create_symlink.md.nolink) | シンボリックリンクを作成する (function) | C++17 |
 | [`permissions`](filesystem/permissions.md.nolink) | 権限を設定する (function) | C++17 |
 | [`remove`](filesystem/remove.md.nolink) | エンティティを削除する (function) | C++17 |
-| [`rename`](filesystem/remove.md.nolink) | エンティティを名称変更・移動する (function) | C++17 |
+| [`rename`](filesystem/rename.md.nolink) | エンティティを名称変更・移動する (function) | C++17 |
 | [`resize_file`](filesystem/resize_file.md.nolink) | ファイルサイズを変更する (function) | C++17 |
 
 
@@ -80,7 +80,7 @@
 | [`is_character_file`](filesystem/is_character_file.md) | 指定されたパスがキャラクタデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
 | [`is_fifo`](filesystem/is_fifo.md.nolink) | 指定されたパスがFIFOもしくはパイプを指しているかを確認する (function) | C++17 |
 | [`is_socket`](filesystem/is_socket.md.nolink) | 指定されたパスがソケットを指しているかを確認する (function) | C++17 |
-| [`is_other`](filesystem/is_socket.md.nolink) | 指定されたパスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する (function) | C++17 |
+| [`is_other`](filesystem/is_other.md.nolink) | 指定されたパスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する (function) | C++17 |
 | [`last_write_time`](filesystem/last_write_time.md.nolink) | エンティティの最終更新日を取得・更新する (function) | C++17 |
 | [`space`](filesystem/space.md.nolink) | 残り容量を取得する (function) | C++17 |
 | [`status`](filesystem/status.md) | ファイル状態を取得する (function) | C++17 |
