@@ -35,7 +35,7 @@ namespace std::filesystem {
       return false;
     }
     ec.clear();
-    return is_regular_file(s);
+    return is_symlink(s);
     ```
     * file_status[link file_status.md]
     * symlink_status[link symlink_status.md]
