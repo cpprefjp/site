@@ -77,7 +77,7 @@
 | [`is_directory`](filesystem/is_directory.md) | 指定されたパスがディレクトリを指しているかを確認する (function) | C++17 |
 | [`is_symlink`](filesystem/is_symlink.md) | 指定されたパスがシンボリックリンクを指しているかを確認する (function) | C++17 |
 | [`is_block_file`](filesystem/is_block_file.md) | 指定されたパスがブロックデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
-| [`is_character_file`](filesystem/is_character_file.md.nolink) | 指定されたパスがキャラクタデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
+| [`is_character_file`](filesystem/is_character_file.md) | 指定されたパスがキャラクタデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
 | [`is_fifo`](filesystem/is_fifo.md.nolink) | 指定されたパスがFIFOもしくはパイプを指しているかを確認する (function) | C++17 |
 | [`is_socket`](filesystem/is_socket.md.nolink) | 指定されたパスがソケットを指しているかを確認する (function) | C++17 |
 | [`is_other`](filesystem/is_socket.md.nolink) | 指定されたパスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する (function) | C++17 |
