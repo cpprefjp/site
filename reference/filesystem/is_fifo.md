@@ -81,6 +81,7 @@ int main()
 }
 ```
 * fs::is_fifo[color ff0000]
+* fs::perms[link perms.md]
 * fs::status[link status.md]
 
 #### 出力
