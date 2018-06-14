@@ -23,7 +23,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`file_status`](filesystem/file_status.md) | ファイル状態を表すクラス (class) | C++17 |
-| [`space_info`](filesystem/space_info.md.nolink) | ディスク容量を表すクラス (class) | C++17 |
+| [`space_info`](filesystem/space_info.md) | 指定されたパスの容量を表すクラス (class) | C++17 |
 | [`file_type`](filesystem/file_type.md) | ファイル種別を表す列挙型 (enum) | C++17 |
 | [`perms`](filesystem/perms.md) | 権限を表す列挙型 (enum) | C++17 |
 | [`perm_options`](filesystem/perm_options.md.nolink) | 権限オプションを表す列挙型 (enum) | C++17 |
@@ -83,7 +83,7 @@
 | [`is_other`](filesystem/is_other.md) | 指定されたパスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する (function) | C++17 |
 | [`is_empty`](filesystem/is_empty.md) | 指定されたパスが空のファイル・ディレクトかを確認する (function) | C++17 |
 | [`last_write_time`](filesystem/last_write_time.md.nolink) | エンティティの最終更新日を取得・更新する (function) | C++17 |
-| [`space`](filesystem/space.md.nolink) | 残り容量を取得する (function) | C++17 |
+| [`space`](filesystem/space.md) | 指定されたパスの残り容量を取得する (function) | C++17 |
 | [`status`](filesystem/status.md) | ファイル状態を取得する (function) | C++17 |
 | [`symlink_status`](filesystem/symlink_status.md) | シンボリックリンクの状態を取得する (function) | C++17 |
 | [`status_known`](filesystem/status_known.md) | ファイルが既知の状態かを確認する (function) | C++17 |
