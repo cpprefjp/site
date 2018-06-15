@@ -29,7 +29,7 @@
 | [`perm_options`](filesystem/perm_options.md.nolink) | 権限オプションを表す列挙型 (enum) | C++17 |
 | [`copy_options`](filesystem/copy_options.md.nolink) | コピーオプションを表す列挙型 (enum) | C++17 |
 | [`directory_options`](filesystem/directory_options.md.nolink) | ディレクトリオプションを表す列挙型 (enum) | C++17 |
-| `file_time_type` | ファイル情報で使用する時間の型 [`chrono::time_point`](/reference/chrono/time_point.md)`<実装定義のクロック型>;` | C++17 |
+| [`file_time_type`](filesystem/file_time_type.md) | ファイル情報で使用する時間の型 (type alias) | C++17 |
 
 
 ## ファイルシステム操作
@@ -82,7 +82,7 @@
 | [`is_socket`](filesystem/is_socket.md) | 指定されたパスがソケットを指しているかを確認する (function) | C++17 |
 | [`is_other`](filesystem/is_other.md) | 指定されたパスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する (function) | C++17 |
 | [`is_empty`](filesystem/is_empty.md) | 指定されたパスが空のファイル・ディレクトかを確認する (function) | C++17 |
-| [`last_write_time`](filesystem/last_write_time.md.nolink) | エンティティの最終更新日を取得・更新する (function) | C++17 |
+| [`last_write_time`](filesystem/last_write_time.md) | エンティティの最終更新日を取得・更新する (function) | C++17 |
 | [`space`](filesystem/space.md) | 指定されたパスの残り容量を取得する (function) | C++17 |
 | [`status`](filesystem/status.md) | ファイル状態を取得する (function) | C++17 |
 | [`symlink_status`](filesystem/symlink_status.md) | シンボリックリンクの状態を取得する (function) | C++17 |
