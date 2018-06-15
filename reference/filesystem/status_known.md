@@ -30,7 +30,6 @@ return s.type() != file_type::none;
 ## 例
 ```cpp example
 #include <cassert>
-#include <cassert>
 #include <fstream>
 #include <filesystem>
 
