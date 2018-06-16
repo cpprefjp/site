@@ -57,7 +57,7 @@ int main()
 ### 出力
 ```
 a
-exception std::out_of_ranget
+exception std::out_of_range
 ```
 
 
