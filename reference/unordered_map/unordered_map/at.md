@@ -36,7 +36,7 @@ void at_wrap(Container &c, T v) {
     std::cout << c.at(v) << std::endl;
   }
   catch(std::out_of_range&) {
-    std::cout << "exception std::out_of_ranget" << std::endl;
+    std::cout << "exception std::out_of_range" << std::endl;
   }
 }
 
