@@ -1,7 +1,6 @@
 # swap (非メンバ関数)
 * optional[meta header]
 * std[meta namespace]
-* optional[meta class]
 * function[meta id-type]
 * cpp17[meta cpp]
 

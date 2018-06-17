@@ -1,7 +1,6 @@
 # end (非メンバ関数)
 * valarray[meta header]
 * std[meta namespace]
-* valarray[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
 
