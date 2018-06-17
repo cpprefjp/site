@@ -1,4 +1,4 @@
-# try_lock_shared
+# try_lock
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_lock[meta class]
@@ -6,7 +6,7 @@
 * cpp14[meta cpp]
 
 ```cpp
-bool try_lock_shared();
+bool try_lock();
 ```
 
 ## 概要
