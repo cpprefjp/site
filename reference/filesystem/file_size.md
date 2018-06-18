@@ -31,6 +31,8 @@ namespace std::filesystem {
 
 ## 備考
 - libstdc++では、通常ファイル、シンボリックリンク以外のファイル種別はエラー
+- ファイルサイズの取得方法として、ファイルのseekを使用するものがあるが、その方法は推奨されていない。本関数を使用すること
+    - [FIO19-C. ファイルサイズの計算に `fseek()` および `ftell()` を使用しない](https://www.jpcert.or.jp/sc-rules/c-fio19-c.html)
 
 
 ## 例
