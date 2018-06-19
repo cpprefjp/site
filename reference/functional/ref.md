@@ -1,7 +1,6 @@
 # ref
 * functional[meta header]
 * std[meta namespace]
-* reference_wrapper[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
 
