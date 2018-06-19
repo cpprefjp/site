@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std::filesystem {
-  std::uintmax_t hard_link_count(const path& p);
-  std::uintmax_t hard_link_count(const path& p, std::error_code& ec) noexcept;
+  std::uintmax_t hard_link_count(const path& p);                               // (1)
+  std::uintmax_t hard_link_count(const path& p, std::error_code& ec) noexcept; // (2)
 }
 ```
 * path[link path.md]
