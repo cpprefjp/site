@@ -62,7 +62,7 @@
 | [`permissions`](filesystem/permissions.md.nolink) | 権限を設定する (function) | C++17 |
 | [`remove`](filesystem/remove.md.nolink) | エンティティを削除する (function) | C++17 |
 | [`rename`](filesystem/rename.md.nolink) | エンティティを名称変更・移動する (function) | C++17 |
-| [`resize_file`](filesystem/resize_file.md.nolink) | ファイルサイズを変更する (function) | C++17 |
+| [`resize_file`](filesystem/resize_file.md) | ファイルサイズを変更する (function) | C++17 |
 
 
 ### エンティティ情報
