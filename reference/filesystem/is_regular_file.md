@@ -85,7 +85,7 @@ int main()
 ```
 * fs::is_regular_file[color ff0000]
 * fs::create_symlink[link create_symlink.md.nolink]
-* fs::create_directory[link create_directory.md.nolink]
+* fs::create_directory[link create_directory.md]
 * fs::status[link status.md]
 
 ### 出力

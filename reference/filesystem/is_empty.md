@@ -62,7 +62,7 @@ int main()
 }
 ```
 * fs::is_empty[color ff0000]
-* fs::create_directory[link create_directory.md.nolink]
+* fs::create_directory[link create_directory.md]
 * fs::status[link status.md]
 
 ### 出力
