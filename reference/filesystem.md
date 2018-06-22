@@ -55,7 +55,7 @@
 | [`copy_file`](filesystem/copy_file.md.nolink) | ファイルをコピーする (function) | C++17 |
 | [`copy_symlink`](filesystem/copy_symlink.md.nolink) | シンボリックリンクをコピーする (function) | C++17 |
 | [`create_directory`](filesystem/create_directory.md) | ディレクトリを作成する (function) | C++17 |
-| [`create_directories`](filesystem/create_directories.md.nolink) | ディレクトリ階層を作成する (function) | C++17 |
+| [`create_directories`](filesystem/create_directories.md) | ディレクトリ階層を作成する (function) | C++17 |
 | [`create_directory_symlink`](filesystem/create_directory_symlink.md.nolink) | ディレクトリのシンボリックリンクを作成する (function) | C++17 |
 | [`create_hard_link`](filesystem/create_hard_link.md.nolink) | ハードリンクを作成する (function) | C++17 |
 | [`create_symlink`](filesystem/create_symlink.md.nolink) | シンボリックリンクを作成する (function) | C++17 |

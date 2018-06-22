@@ -43,7 +43,7 @@ namespace std::filesystem {
 
 
 ## 備考
-- 作成するディレクトリとして`"a/b/c"`を指定した場合、`a/b`ディレクトリがなければ、この関数はエラーとなる。ディレクトリ階層を作成する場合は、[`create_directories()`](create_directories.md.nolink)関数を使用すること
+- 作成するディレクトリとして`"a/b/c"`を指定した場合、`a/b`ディレクトリがなければ、この関数はエラーとなる。ディレクトリ階層を作成する場合は、[`create_directories()`](create_directories.md)関数を使用すること
 
 
 ## 例
