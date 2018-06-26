@@ -53,6 +53,7 @@ int main()
 }
 ```
 * fs::create_directory_symlink[color ff0000]
+* fs::create_directory[link create_directory.md]
 * fs::exists[link exists.md]
 * fs::is_symlink[link is_symlink.md]
 
