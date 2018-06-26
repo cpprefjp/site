@@ -99,7 +99,7 @@ int main()
 }
 ```
 * fs::symlink_status[color ff0000]
-* fs::create_symlink[link create_symlink.md.nolink]
+* fs::create_symlink[link create_symlink.md]
 * fs::file_status[link file_status.md]
 * status.type()[link file_status/type.md]
 * status.permissions()[link file_status/permissions.md]

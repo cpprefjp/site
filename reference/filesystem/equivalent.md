@@ -60,10 +60,10 @@ int main()
 }
 ```
 * fs::equivalent[color ff0000]
-* fs::create_symlink[link create_symlink.md.nolink]
+* fs::create_symlink[link create_symlink.md]
 * fs::create_hard_link[link create_hard_link.md.nolink]
 * fs::create_directory[link create_directory.md]
-* fs::create_directory_symlink[link create_directory_symlink.md.nolink]
+* fs::create_directory_symlink[link create_directory_symlink.md]
 
 ### 出力
 ```
