@@ -26,7 +26,7 @@
 | [`space_info`](filesystem/space_info.md) | 指定されたパスの容量を表すクラス (class) | C++17 |
 | [`file_type`](filesystem/file_type.md) | ファイル種別を表す列挙型 (enum) | C++17 |
 | [`perms`](filesystem/perms.md) | 権限を表す列挙型 (enum) | C++17 |
-| [`perm_options`](filesystem/perm_options.md.nolink) | 権限オプションを表す列挙型 (enum) | C++17 |
+| [`perm_options`](filesystem/perm_options.md) | 権限オプションを表す列挙型 (enum) | C++17 |
 | [`copy_options`](filesystem/copy_options.md.nolink) | コピーオプションを表す列挙型 (enum) | C++17 |
 | [`directory_options`](filesystem/directory_options.md.nolink) | ディレクトリオプションを表す列挙型 (enum) | C++17 |
 | [`file_time_type`](filesystem/file_time_type.md) | ファイル情報で使用する時間の型 (type alias) | C++17 |
@@ -59,7 +59,7 @@
 | [`create_directory_symlink`](filesystem/create_directory_symlink.md) | ディレクトリに対するシンボリックリンクを作成する (function) | C++17 |
 | [`create_hard_link`](filesystem/create_hard_link.md) | ハードリンクを作成する (function) | C++17 |
 | [`create_symlink`](filesystem/create_symlink.md) | シンボリックリンクを作成する (function) | C++17 |
-| [`permissions`](filesystem/permissions.md.nolink) | 権限を設定する (function) | C++17 |
+| [`permissions`](filesystem/permissions.md) | 権限を設定する (function) | C++17 |
 | [`remove`](filesystem/remove.md.nolink) | エンティティを削除する (function) | C++17 |
 | [`rename`](filesystem/rename.md.nolink) | エンティティを名称変更・移動する (function) | C++17 |
 | [`resize_file`](filesystem/resize_file.md) | ファイルサイズを変更する (function) | C++17 |
