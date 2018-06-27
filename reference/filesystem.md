@@ -57,7 +57,7 @@
 | [`create_directory`](filesystem/create_directory.md) | ディレクトリを作成する (function) | C++17 |
 | [`create_directories`](filesystem/create_directories.md) | ディレクトリ階層を作成する (function) | C++17 |
 | [`create_directory_symlink`](filesystem/create_directory_symlink.md) | ディレクトリに対するシンボリックリンクを作成する (function) | C++17 |
-| [`create_hard_link`](filesystem/create_hard_link.md.nolink) | ハードリンクを作成する (function) | C++17 |
+| [`create_hard_link`](filesystem/create_hard_link.md) | ハードリンクを作成する (function) | C++17 |
 | [`create_symlink`](filesystem/create_symlink.md) | シンボリックリンクを作成する (function) | C++17 |
 | [`permissions`](filesystem/permissions.md.nolink) | 権限を設定する (function) | C++17 |
 | [`remove`](filesystem/remove.md.nolink) | エンティティを削除する (function) | C++17 |

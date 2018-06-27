@@ -48,7 +48,7 @@ int main()
 }
 ```
 * fs::hard_link_count[color ff0000]
-* fs::create_hard_link[link create_hard_link.md.nolink]
+* fs::create_hard_link[link create_hard_link.md]
 
 ### 出力
 ```
