@@ -60,8 +60,8 @@
 | [`create_hard_link`](filesystem/create_hard_link.md) | ハードリンクを作成する (function) | C++17 |
 | [`create_symlink`](filesystem/create_symlink.md) | シンボリックリンクを作成する (function) | C++17 |
 | [`permissions`](filesystem/permissions.md) | 権限を設定する (function) | C++17 |
-| [`remove`](filesystem/remove.md.nolink) | エンティティを削除する (function) | C++17 |
-| [`remove_all`](filesystem/remove_all.md.nolink) | 再帰的にエンティティを削除する (function) | C++17 |
+| [`remove`](filesystem/remove.md) | ファイル・ディレクトリを削除する (function) | C++17 |
+| [`remove_all`](filesystem/remove_all.md) | 再帰的にファイル・ディレクトリを削除する (function) | C++17 |
 | [`rename`](filesystem/rename.md.nolink) | エンティティを名称変更・移動する (function) | C++17 |
 | [`resize_file`](filesystem/resize_file.md) | ファイルサイズを変更する (function) | C++17 |
 
