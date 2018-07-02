@@ -62,7 +62,7 @@
 | [`permissions`](filesystem/permissions.md) | 権限を設定する (function) | C++17 |
 | [`remove`](filesystem/remove.md) | ファイル・ディレクトリを削除する (function) | C++17 |
 | [`remove_all`](filesystem/remove_all.md) | 再帰的にファイル・ディレクトリを削除する (function) | C++17 |
-| [`rename`](filesystem/rename.md.nolink) | エンティティを名称変更・移動する (function) | C++17 |
+| [`rename`](filesystem/rename.md) | ファイル・ディレクトリを名称変更・移動する (function) | C++17 |
 | [`resize_file`](filesystem/resize_file.md) | ファイルサイズを変更する (function) | C++17 |
 
 
