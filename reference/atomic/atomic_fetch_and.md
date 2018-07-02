@@ -75,7 +75,7 @@ int main()
 ```
 * std::atomic_fetch_and[color ff0000]
 * x.load()[link /reference/atomic/atomic/load.md]
-* to_string()[link /reference/bitset/to_string.md]
+* to_string()[link /reference/bitset/bitset/to_string.md]
 
 
 ### 出力
