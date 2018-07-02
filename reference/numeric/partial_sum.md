@@ -115,9 +115,9 @@ int main()
 }
 ```
 * std::partial_sum[color ff0000]
-* ar.begin()[link /reference/array/begin.md]
-* ar.end()[link /reference/array/end.md]
-* result.begin()[link /reference/array/begin.md]
+* ar.begin()[link /reference/array/array/begin.md]
+* ar.end()[link /reference/array/array/end.md]
+* result.begin()[link /reference/array/array/begin.md]
 
 ### 出力
 ```

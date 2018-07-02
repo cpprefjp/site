@@ -20,7 +20,7 @@ n番目の要素を参照する。
 
 
 ## 例外
-`n >= a.`[`size()`](/reference/array/size.md)だった場合には[`out_of_range`](/reference/stdexcept.md)例外を投げる。
+`n >= a.`[`size()`](size.md)だった場合には[`out_of_range`](/reference/stdexcept.md)例外を投げる。
 
 
 ## 計算量
@@ -28,7 +28,7 @@ n番目の要素を参照する。
 
 
 ## 備考
-`a.at(n)` は `*(a.`[`begin()`](/reference/array/begin.md) `+ n)` と同じ結果になる。
+`a.at(n)` は `*(a.`[`begin()`](begin.md) `+ n)` と同じ結果になる。
 
 
 ## 例

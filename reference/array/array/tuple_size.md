@@ -27,7 +27,7 @@ namespace std {
 
 要素数は、[`integral_constant`](/reference/type_traits/integral_constant.md)の機能を利用してコンパイル時の定数値として取得できる。
 
-`<array>`ヘッダでは、[`array`](/reference/array.md)クラスに関する特殊化を定義する。
+`<array>`ヘッダでは、[`array`](/reference/array/array.md)クラスに関する特殊化を定義する。
 
 
 ## 例

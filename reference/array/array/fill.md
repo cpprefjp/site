@@ -14,7 +14,7 @@ void fill(const T& u);
 
 
 ## 効果
-[`fill_n`](/reference/algorithm/fill_n.md)`(`[`begin`](/reference/array/begin.md)`(), N, u)`
+[`fill_n`](/reference/algorithm/fill_n.md)`(`[`begin`](begin.md)`(), N, u)`
 
 
 ## 戻り値

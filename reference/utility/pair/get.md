@@ -97,7 +97,7 @@ a
 
 ## 関連項目
 - [`get - std::tuple`](/reference/tuple/tuple/get.md)
-- [`get - std::array`](/reference/array/get.md)
+- [`get - std::array`](/reference/array/array/get.md)
 
 
 ## 参照

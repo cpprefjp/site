@@ -10,7 +10,7 @@ namespace std {
   void swap(array<T, N>& x, array<T, N>& y) noexcept(noexcept(x.swap(y)));
 }
 ```
-* swap[link /reference/array/swap.md]
+* swap[link swap.md]
 
 ## 概要
 2つのarrayオブジェクトを入れ替える。

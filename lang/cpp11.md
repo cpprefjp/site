@@ -124,7 +124,7 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 
 ### コンテナ
 
-- 固定長配列クラス[`std::array`](/reference/array.md)を追加
+- 固定長配列クラス[`std::array`](/reference/array/array.md)を追加
 - 単方向リンクリストの実装である[`std::forward_list`](/reference/forward_list.md)を追加
 - ハッシュ表の連想コンテナである[`std::unordered_map`](/reference/unordered_map/unordered_map.md)クラス、[`std::unordered_set`](/reference/unordered_set/unordered_set.md)クラス、およびその重複を許可するバージョンを追加
 - コンテナ全般がムーブセマンティクスに対応

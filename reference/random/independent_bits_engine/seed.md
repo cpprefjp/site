@@ -92,8 +92,8 @@ int main()
 * std::uint64_t[link /reference/cstdint/uint64_t.md]
 * std::seed_seq[link /reference/random/seed_seq.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
-* seeds.begin()[link /reference/array/begin.md]
-* seeds.end()[link /reference/array/end.md]
+* seeds.begin()[link /reference/array/array/begin.md]
+* seeds.end()[link /reference/array/array/end.md]
 
 ### 出力
 ```

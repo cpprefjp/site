@@ -28,7 +28,7 @@ namespace std {
 
 
 ## 備考
-実装によっては、`Tuples...` パラメータパックに含めることのできる型として、他のタプルライクな型（[`pair`](/reference/utility/pair.md)や[`array`](/reference/array.md)のような）を追加的にサポートする可能性がある。
+実装によっては、`Tuples...` パラメータパックに含めることのできる型として、他のタプルライクな型（[`pair`](/reference/utility/pair.md)や[`array`](/reference/array/array.md)のような）を追加的にサポートする可能性がある。
 
 
 ## 例
