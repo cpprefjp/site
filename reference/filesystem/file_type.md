@@ -23,7 +23,11 @@ namespace std::filesystem {
 ```
 
 ## 概要
-ファイル種別を表す列挙型。それぞれの列挙子は、以下の意味を持つ：
+ファイル種別を表す列挙型。
+
+それぞれの列挙子の値は未規定だが、異なる値を持つ。
+
+各列挙子は、以下の意味を持つ：
 
 | 列挙子 | 説明 |
 |--------|------|
@@ -110,3 +114,7 @@ regular file
 - [Clang](/implementation.md#clang):
 - [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 2851. `std::filesystem` enum classes are now underspecified](https://wg21.cmeerw.net/lwg/issue2851)

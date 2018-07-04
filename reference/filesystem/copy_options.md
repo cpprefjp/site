@@ -22,7 +22,11 @@ namespace std::filesystem {
 ```
 
 ## 概要
-コピーオプションを表す、ビットマスクの列挙型。以下に、オプションのグループごとに列挙子の意味を記載する：
+コピーオプションを表す、ビットマスクの列挙型。
+
+それぞれの列挙子の値は未規定だが、異なる値を持つ。`none`は空のビットマスク値を表す。
+
+以下に、オプションのグループごとに列挙子の意味を記載する：
 
 ### `copy_file()`関数での、存在するファイルに対する動作
 
@@ -64,3 +68,7 @@ TODO
 - [Clang](/implementation.md#clang):
 - [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 2851. `std::filesystem` enum classes are now underspecified](https://wg21.cmeerw.net/lwg/issue2851)
