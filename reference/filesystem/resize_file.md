@@ -27,10 +27,6 @@ namespace std::filesystem {
 - (2) : 投げない
 
 
-## 事後条件
-- [`file_size`](file_size.md)`(p) == new_size`
-
-
 ## 備考
 - POSIX環境では、ファイルサイズを縮小する場合は末尾のデータが切り詰められる。ファイルサイズを伸長する場合は延ばした領域がヌルバイト (`'\0'`) で埋められる
 - 通常ファイル (とそのファイルへのシンボリックリンク) 以外に対してこの関数を実行した場合の動作は未規定
@@ -78,3 +74,7 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 2816. `resize_file` has impossible postcondition](https://wg21.cmeerw.net/lwg/issue2816)
