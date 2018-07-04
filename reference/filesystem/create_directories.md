@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std::filesystem {
-  bool create_directories(const path& p);                               // (1)
-  bool create_directories(const path& p, std::error_code& ec) noexcept; // (2)
+  bool create_directories(const path& p);                      // (1)
+  bool create_directories(const path& p, std::error_code& ec); // (2)
 }
 ```
 * path[link path.md]
@@ -29,7 +29,7 @@ namespace std::filesystem {
 
 ## 例外
 - (1) : ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
-- (2) : 投げない
+- (2) : ディレクトリを走査する際にメモリ確保に失敗した場合、例外を送出する可能性がある
 
 
 ## 例
@@ -68,3 +68,7 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 3014. More `noexcept` issues with filesystem operations](https://wg21.cmeerw.net/lwg/issue3014)
