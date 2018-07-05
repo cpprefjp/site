@@ -19,6 +19,8 @@ C++17では以下のTSが採用された：
 | Filesystem TS | ファイルシステムのライブラリ |
 | Parallelism TS | 並列ライブラリ。`<algorithm>`や`<numeric>`に並列アルゴリズムが追加される |
 
+C++17以降、言語の策定にship train modelというリリース体制が設けられた。これは、3年ごとの定期的な言語アップデートを提供するために、「仕様が完成したらリリース」ではなく「完成した仕様から順次リリースに含める」という体制である。これにより、メジャーアップデート／マイナーアップデートというバージョンアップはなくなった。
+
 
 ## 言語機能
 ### 変数・データ構造関係
@@ -323,4 +325,4 @@ C++17では以下のTSが採用された：
 
 ## 参照
 - [P0636R0 Changes between C++14 and C++17 DIS](https://isocpp.org/files/papers/p0636r0.html)
-
+- [TOTAL RETARDATION in C++ - ISO C++ Standard - Future Proposals](https://groups.google.com/a/isocpp.org/d/msg/std-proposals/qd3L1-bGg1A/ut0Fu2ODCwAJ)
