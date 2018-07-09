@@ -52,7 +52,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`copy`](filesystem/copy.md.nolink) | コピーする (function) | C++17 |
-| [`copy_file`](filesystem/copy_file.md.nolink) | ファイルをコピーする (function) | C++17 |
+| [`copy_file`](filesystem/copy_file.md) | ファイルをコピーする (function) | C++17 |
 | [`copy_symlink`](filesystem/copy_symlink.md) | シンボリックリンクをコピーする (function) | C++17 |
 | [`create_directory`](filesystem/create_directory.md) | ディレクトリを作成する (function) | C++17 |
 | [`create_directories`](filesystem/create_directories.md) | ディレクトリ階層を作成する (function) | C++17 |

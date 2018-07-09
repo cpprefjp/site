@@ -51,7 +51,7 @@ int main()
 ```
 * fs::filesystem_error[color ff0000]
 * fs::exists[link /reference/filesystem/exists.md]
-* fs::copy_file[link /reference/filesystem/copy_file.md.nolink]
+* fs::copy_file[link /reference/filesystem/copy_file.md]
 
 ### 出力例
 ```
