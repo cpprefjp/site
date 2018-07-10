@@ -39,6 +39,7 @@ namespace std::filesystem {
         - `(options &` [`copy_options::overwrite_existing`](copy_options.md)`) !=` [`copy_options::none`](copy_options.md)
         - `(options &` [`copy_options::update_existing`](copy_options.md)`) !=` [`copy_options::none`](copy_options.md)、かつパス`from`のファイルが、パス`to`のファイルよりも最終更新日時が新しい
     - そうでない場合、なにもしない
+- (4) : (3)でエラーが発生した場合に、`false`を返し、エラー情報を`ec`に設定する
 
 
 ## 戻り値
