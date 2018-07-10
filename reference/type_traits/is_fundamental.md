@@ -15,7 +15,7 @@ namespace std {
 ```
 
 ## 概要
-型`T`が単純型 (3.9.1 Fundamental types) か調べる単純型は、算術型、`void`、`std::nullptr_t`、およびそれらのcv修飾を含む。
+型`T`が単純型 (3.9.1 Fundamental types) か調べる。単純型は、算術型、`void`、`std::nullptr_t`、およびそれらのcv修飾を含む。
 
 
 ## 効果
