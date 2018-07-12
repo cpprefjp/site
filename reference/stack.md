@@ -9,7 +9,7 @@ namespace std {
   class stack;
 }
 ```
-* deque[link /reference/deque.md]
+* deque[link /reference/deque/deque.md]
 
 ## 概要
 `stack` はコンテナアダプタであり、LIFO (last-in first-out) の動作――コンテナの一方から要素が挿入され、挿入された側から要素を取り出す――を実現する目的で設計されている。要素をコンテナの `back()` 側から挿入し、同じく `back()` 側から取り出す。
@@ -22,7 +22,7 @@ namespace std {
 - `pop_back()`
 - `emplace_back()` (C++11)
 
-この要件を満たすものとしては [`vector`](/reference/vector.md) 、[`deque`](/reference/deque.md) 、[`list`](/reference/list.md) があり、デフォルトでは [`deque`](/reference/deque.md) が使用される。
+この要件を満たすものとしては [`vector`](/reference/vector.md) 、[`deque`](/reference/deque/deque.md) 、[`list`](/reference/list.md) があり、デフォルトでは [`deque`](/reference/deque/deque.md) が使用される。
 
 `stack` は2つのテンプレートパラメータを持つ。各テンプレートパラメータの意味は以下の通りである。
 

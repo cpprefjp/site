@@ -89,7 +89,7 @@ world
         - `vector`の`push_back()` (C++03から)
         - `vector`の[`emplace_back()`](emplace_back.md) (C++14から)
         - `vector`の終端へ単一要素を挿入する[`insert()`](insert.md)と[`emplace()`](emplace.md) (C++14から)
-        - `deque`の[`push_back()`](/reference/deque/push_back.md)と[`push_front()`](/reference/deque/push_front.md) (C++03から)
-        - `deque`の[`emplace_back()`](/reference/deque/emplace_back.md)と[`emplace_front()`](/reference/deque/emplace_front.md) (C++14から)
-        - `deque`の両端へ単一要素を挿入する[`insert()`](/reference/deque/insert.md)と[`emplace()`](/reference/deque/emplace.md) (C++14)
+        - `deque`の[`push_back()`](/reference/deque/deque/push_back.md)と[`push_front()`](/reference/deque/deque/push_front.md) (C++03から)
+        - `deque`の[`emplace_back()`](/reference/deque/deque/emplace_back.md)と[`emplace_front()`](/reference/deque/deque/emplace_front.md) (C++14から)
+        - `deque`の両端へ単一要素を挿入する[`insert()`](/reference/deque/deque/insert.md)と[`emplace()`](/reference/deque/deque/emplace.md) (C++14)
 

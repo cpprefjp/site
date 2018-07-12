@@ -56,7 +56,7 @@ int main() {
   }
 }
 ```
-* s.push_back[link /reference/deque/push_back.md]
+* s.push_back[link /reference/deque/deque/push_back.md]
 * std::move[link /reference/utility/move.md]
 * que.empty()[link empty.md]
 * que.front()[link front.md]
