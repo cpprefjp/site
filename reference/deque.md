@@ -1,6 +1,5 @@
 # deque
 * deque[meta header]
-* std[meta namespace]
 
 
 `deque`（通常、"デック"のように発音する）は<b>d</b>ouble-<b>e</b>nded <b>q</b>ueue （二重終端キュー）の頭文字をとったものである。double-ended queue はシーケンスコンテナの一種である。要素は厳密な線形シーケンスに従って並べられる。
