@@ -9,7 +9,7 @@ namespace std {
   class queue;
 }
 ```
-* deque[link /reference/deque.md]
+* deque[link /reference/deque/deque.md]
 
 ## 概要
 `queue`はコンテナアダプタであり、FIFO (first-in first-out) の動作――コンテナの一方から要素が挿入され、反対側から要素を取り出す――を実現する目的で設計されている。要素をコンテナの `back()` 側から挿入し、`front()` 側から取り出す。
@@ -24,7 +24,7 @@ namespace std {
 - `pop_front()`
 - `emplace_back()` (C++11)
 
-この要件を満たすものとしては [`deque`](/reference/deque.md) と [`list`](/reference/list.md) があり、デフォルトでは[`deque`](/reference/deque.md)が使用される。
+この要件を満たすものとしては [`deque`](/reference/deque/deque.md) と [`list`](/reference/list.md) があり、デフォルトでは[`deque`](/reference/deque/deque.md)が使用される。
 
 `queue`は2つのテンプレート引数を持つ。各テンプレートパラメータの意味は以下の通りである。
 

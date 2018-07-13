@@ -43,9 +43,9 @@ int main()
 }
 ```
 * std::front_inserter[color ff0000]
-* std::deque[link /reference/deque.md]
-* src.begin()[link /reference/deque/begin.md]
-* src.end()[link /reference/deque/end.md]
+* std::deque[link /reference/deque/deque.md]
+* src.begin()[link /reference/deque/deque/begin.md]
+* src.end()[link /reference/deque/deque/end.md]
 
 ### 出力
 ```

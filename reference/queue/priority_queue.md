@@ -25,7 +25,7 @@ namespace std {
 - `pop_back()`
 - `emplace_back()` (C++11)
 
-この要件を満たすものとしては[`vector`](/reference/vector.md)と[`deque`](/reference/deque.md)があり、デフォルトでは[`vector`](/reference/vector.md)が使用される。
+この要件を満たすものとしては[`vector`](/reference/vector.md)と[`deque`](/reference/deque/deque.md)があり、デフォルトでは[`vector`](/reference/vector.md)が使用される。
 
 `queue`は2つのテンプレート引数を持つ。
 
