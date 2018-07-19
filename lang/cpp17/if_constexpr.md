@@ -134,12 +134,13 @@ int main()
 }
 ```
 
-なお型情報のifが欲しいならば、`std::conditional`がある。
+なお型情報のifが欲しいならば、[`std::conditional`](/reference/type_traits/conditional.md) がある。
 
 ```cpp example
 #include <type_traits>
 #include <random>
 #include <cstdint>
+#include <iostream>
 // C++11
 template<typename Integer>
 using mt = typename std::conditional<std::is_same<Integer, std::uint32_t>::value, std::mt19937, std::mt19937_64>::type;
@@ -152,6 +153,9 @@ int main()
   std::cout << m1() << std::endl;
 }
 ```
+* std::conditional[link /reference/type_traits/conditional.md]
+* std::conditional_t[link /reference/type_traits/conditional.md]
+* std::mt19937_64[link /reference/random/mt19937_64.md]
 
 ## 参照
 
