@@ -142,3 +142,6 @@ hoge::~hoge()
     - `unique_ptr<void, Deleter>`を許可するために、インタフェースを改良した経緯
 - [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)
 
+## 関連項目
+
+- [`std::shared_ptr`の推論補助](/reference/memory/shared_ptr/op_deduction_guide.md)
