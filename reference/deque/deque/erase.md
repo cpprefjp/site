@@ -13,7 +13,7 @@ iterator erase(const_iterator first, const_iterator last); // (2) C++11
 ```
 
 ## 概要
-指定した要素を削除する。`deque`は、シーケンスの終端または先頭からの要素の削除(と追加)が効果的となるよう設計されている。他の位置からの削除は通常、[`list`](/reference/list.md)コンテナよりも効率で劣る。
+指定した要素を削除する。`deque`は、シーケンスの終端または先頭からの要素の削除(と追加)が効果的となるよう設計されている。他の位置からの削除は通常、[`list`](/reference/list/list.md)コンテナよりも効率で劣る。
 
 
 ## 効果

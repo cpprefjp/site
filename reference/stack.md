@@ -22,7 +22,7 @@ namespace std {
 - `pop_back()`
 - `emplace_back()` (C++11)
 
-この要件を満たすものとしては [`vector`](/reference/vector.md) 、[`deque`](/reference/deque/deque.md) 、[`list`](/reference/list.md) があり、デフォルトでは [`deque`](/reference/deque/deque.md) が使用される。
+この要件を満たすものとしては [`vector`](/reference/vector.md) 、[`deque`](/reference/deque/deque.md) 、[`list`](/reference/list/list.md) があり、デフォルトでは [`deque`](/reference/deque/deque.md) が使用される。
 
 `stack` は2つのテンプレートパラメータを持つ。各テンプレートパラメータの意味は以下の通りである。
 

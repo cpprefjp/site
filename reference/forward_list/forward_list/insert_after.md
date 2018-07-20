@@ -24,7 +24,7 @@ iterator insert_after(const_iterator position,
 ## 概要
 任意の位置に新たな要素を挿入する。
 
-[`list`](/reference/list.md)の`insert()`は指定された要素の前に挿入するが、`forward_list`は指定された要素の後に挿入する。
+[`list`](/reference/list/list.md)の`insert()`は指定された要素の前に挿入するが、`forward_list`は指定された要素の後に挿入する。
 
 - (1), (2) : 新たな要素をひとつ挿入する
 - (3) : 新たな要素`x`のコピーを`n`個挿入する
