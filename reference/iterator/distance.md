@@ -26,16 +26,16 @@ namespace std {
     * std::distance[color ff0000]
     * std::find_if[link /reference/algorithm/find_if.md]
 
-- [`std::forward_list`](/reference/forward_list.md)のような、要素数を直接取得できないコンテナに対して、イテレータ範囲で要素数を求める。
+- [`std::forward_list`](/reference/forward_list/forward_list.md)のような、要素数を直接取得できないコンテナに対して、イテレータ範囲で要素数を求める。
 
     ```cpp
     std::forward_list<int> ls = { … };
     std::size_t size = std::distance(ls.begin(), ls.end());
     ```
     * std::distance[color ff0000]
-    * std::forward_list[link /reference/forward_list.md]
-    * ls.begin()[link /reference/forward_list/begin.md]
-    * ls.end()[link /reference/forward_list/end.md]
+    * std::forward_list[link /reference/forward_list/forward_list.md]
+    * ls.begin()[link /reference/forward_list/forward_list/begin.md]
+    * ls.end()[link /reference/forward_list/forward_list/end.md]
 
 
 ## 要件

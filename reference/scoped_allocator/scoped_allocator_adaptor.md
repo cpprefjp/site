@@ -252,7 +252,7 @@ int main()
 * std::allocator[link /reference/memory/allocator.md]
 * v.push_back[link /reference/vector/push_back.md]
 * v.get_allocator()[link /reference/vector/get_allocator.md]
-* x.get_allocator()[link /reference/forward_list/get_allocator.md]
+* x.get_allocator()[link /reference/forward_list/forward_list/get_allocator.md]
 
 ### 出力
 ```
