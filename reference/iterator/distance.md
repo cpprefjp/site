@@ -34,8 +34,8 @@ namespace std {
     ```
     * std::distance[color ff0000]
     * std::forward_list[link /reference/forward_list/forward_list.md]
-    * ls.begin()[link /reference/forward_list/begin.md]
-    * ls.end()[link /reference/forward_list/end.md]
+    * ls.begin()[link /reference/forward_list/forward_list/begin.md]
+    * ls.end()[link /reference/forward_list/forward_list/end.md]
 
 
 ## 要件

@@ -159,8 +159,8 @@ int main()
 * us.end()[link end.md]
 * second[link /reference/utility/pair.md]
 * first[link /reference/utility/pair.md]
-* fl.cbegin()[link /reference/forward_list/cbegin.md]
-* fl.cend()[link /reference/forward_list/cend.md]
+* fl.cbegin()[link /reference/forward_list/forward_list/cbegin.md]
+* fl.cend()[link /reference/forward_list/forward_list/cend.md]
 
 ### 出力
 ```
