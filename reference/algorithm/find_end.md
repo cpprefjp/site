@@ -61,7 +61,7 @@ int main() {
 ```
 * std::find_end[color ff0000]
 * ls.begin()[link /reference/list/list/begin.md]
-* ls.end()[link ｓ/end.md]
+* ls.end()[link /reference/list/list/end.md]
 
 ### 出力
 ```
