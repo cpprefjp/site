@@ -58,9 +58,9 @@ int main() {
 }
 ```
 * std::copy_backward[color ff0000]
-* ls.begin()[link /reference/list/begin.md]
+* ls.begin()[link /reference/list/list/begin.md]
 * std::next[link /reference/iterator/next.md]
-* ls.end()[link /reference/list/end.md]
+* ls.end()[link /reference/list/list/end.md]
 
 ### 出力
 ```
