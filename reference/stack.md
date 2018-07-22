@@ -15,5 +15,5 @@
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|--------------------------------------------|-------|
-| [`stack`](stack/stack.md)           | LIFOキュー(class template) |  |
+| [`stack`](stack/stack.md)           | LIFOスタック(class template) |  |
 
