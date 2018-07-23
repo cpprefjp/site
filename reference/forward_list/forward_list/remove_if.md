@@ -2,7 +2,7 @@
 * forward_list[meta header]
 * std[meta namespace]
 * forward_list[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

@@ -2,7 +2,7 @@
 * bitset[meta header]
 * std[meta namespace]
 * bitset[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 
 ```cpp
 // C++03

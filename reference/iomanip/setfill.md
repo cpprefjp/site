@@ -1,7 +1,7 @@
 # setfill
 * iomanip[meta header]
 * std[meta namespace]
-* function template[meta id-type]
+* function[meta id-type]
 
 ```cpp
 namespace std {

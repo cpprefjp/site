@@ -2,7 +2,7 @@
 * tuple[meta header]
 * std[meta namespace]
 * tuple[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

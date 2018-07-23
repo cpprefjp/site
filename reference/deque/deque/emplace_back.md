@@ -2,7 +2,7 @@
 * deque[meta header]
 * std[meta namespace]
 * deque[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

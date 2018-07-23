@@ -2,7 +2,7 @@
 * list[meta header]
 * std[meta namespace]
 * list[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 
 ```cpp
 template <class Predicate>

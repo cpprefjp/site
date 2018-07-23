@@ -2,7 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

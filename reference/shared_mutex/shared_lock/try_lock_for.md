@@ -2,7 +2,7 @@
 * shared_mutex[meta header]
 * std[meta namespace]
 * shared_lock[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp14[meta cpp]
 
 ```cpp

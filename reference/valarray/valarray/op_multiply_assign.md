@@ -2,7 +2,7 @@
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 
 ```cpp
 valarray<T>& operator*=(const valarray<T>& xs); // (1)
