@@ -52,7 +52,7 @@ forward_list(initializer_list<T> il,
 - (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `forward_list` オブジェクトを構築する。
 - (8) : アロケータを指定したコピーコンストラクタ  
 - (9) : アロケータを指定したムーブコンストラクタ  
-- (10) : 初期化子リストを受け取るコンストラクタ。`forward_list(il.`[`begin`](../initializer_list/begin.md)`(), il.`[`end`](../initializer_list/end.md)`(), a)` と同等。
+- (10) : 初期化子リストを受け取るコンストラクタ。`forward_list(il.`[`begin`](../../initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/end.md)`(), a)` と同等。
 
 
 ## 計算量
@@ -94,9 +94,9 @@ forward_list(initializer_list<T> il,
       l.emplace_back(10u);
     }
     ```
-    * std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-    * std::allocator[link ../memory/allocator.md]
-    * emplace_back[link ../list/emplace_back.md]
+    * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
+    * std::allocator[link ../../memory/allocator.md]
+    * emplace_back[link ../../list/list/emplace_back.md]
 
 
 ## 例
@@ -148,7 +148,7 @@ int main()
 ```
 * begin[link begin.md]
 * end[link end.md]
-* std::move[link ../utility/move.md]
+* std::move[link ../../utility/move.md]
 
 ### 出力
 ```

@@ -47,7 +47,7 @@ list オブジェクトの構築
 - (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `list` を構築する。
 - (8) : アロケータを指定したコピーコンストラクタ。
 - (9) : アロケータを指定したムーブコンストラクタ。
-- (10) : 初期化子リストを受け取るコンストラクタ。`list(il.`[`begin`](../initializer_list/begin.md)`(), il.`[`end`](../initializer_list/end.md)`(), a)` と同等。
+- (10) : 初期化子リストを受け取るコンストラクタ。`list(il.`[`begin`](../../initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/end.md)`(), a)` と同等。
 
 
 ## 計算量
@@ -89,9 +89,9 @@ list オブジェクトの構築
       v.emplace_back(10u);
     }
     ```
-    * std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-    * std::allocator[link ../memory/allocator.md]
-    * emplace_back[link ../vector/emplace_back.md]
+    * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
+    * std::allocator[link ../../memory/allocator.md]
+    * emplace_back[link ../../vector/emplace_back.md]
 
 
 ## 例
@@ -142,7 +142,7 @@ int main ()
   print("ls7", ls7);
 }
 ```
-* std::move[link ../utility/move.md]
+* std::move[link ../../utility/move.md]
 * ls3.begin()[link begin.md]
 * ls3.end()[link end.md]
 

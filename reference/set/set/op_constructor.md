@@ -96,7 +96,7 @@ set(initializer_list<value_type> init,
     ```
     * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
     * std::allocator[link ../../memory/allocator.md]
-    * ls.emplace_back[link ../../list/emplace_back.md]
+    * ls.emplace_back[link ../../list/list/emplace_back.md]
 
     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
     （`set(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `set` が構築され、`alloc` と共に (9) の形式に引き渡される）

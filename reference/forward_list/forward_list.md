@@ -21,7 +21,7 @@ namespace std {
     - `size()`メンバ関数は全てのコンテナにO(1)計算量を要求するため、単方向リストの実装ではサイズのためのメンバ変数が必要になる。`forward_list`では、サイズメンバ変数を内部に持たないことを示すために`size()`メンバ関数は提供しない。要素数が必要な場合は[`distance()`](/reference/iterator/distance.md)を使用して取得する。
 
 - `insert()/emplace()/erase()`メンバ関数を提供しない。
-    - 双方向リンクリストである[`list`](/reference/list.md)の[`insert()`](/reference/list/insert.md)／[`emplace()`](/reference/list/emplace.md)／[`erase()`](/reference/list/erase.md)はinsert-before方式をとっておりO(1)計算量だが、単方向リストの典型的なinsert-beforeの実装ではO(N)計算量になってしまう。
+    - 双方向リンクリストである[`list`](/reference/list/list.md)の[`insert()`](/reference/list/list/insert.md)／[`emplace()`](/reference/list/list/emplace.md)／[`erase()`](/reference/list/list/erase.md)はinsert-before方式をとっておりO(1)計算量だが、単方向リストの典型的なinsert-beforeの実装ではO(N)計算量になってしまう。
     - `forward_list`では、単方向リンクリストでO(1)計算量であるinsert-after方式を使用することを示す[`insert_after()`](forward_list/insert_after.md)／[`emplace_after()`](forward_list/emplace_after.md)／[`erase_after()`](forward_list/erase_after.md)メンバ関数を提供する。先頭に挿入するために[`before_begin()`](forward_list/before_begin.md)メンバ関数を提供する。
 
 `forward_list`は、C言語で単方向リンクリストを実装する場合と比べ、空間的にもパフォーマンス的にもゼロオーバーヘッドであるよう設計されている。  

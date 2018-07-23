@@ -54,7 +54,7 @@ deque(initializer_list<T> il,
 - (7) : ムーブコンストラクタ。ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
 - (8) : コピーコンストラクタ。アロケータに `a` を使用して、`x` と同じ要素を保持した `deque` を構築する。
 - (9) : ムーブコンストラクタ。アロケータに `a` を使用して、ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
-- (10) : 初期化子リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../initializer_list/begin.md)`(), il.`[`end`](../initializer_list/end.md)`(), a)` と同等。
+- (10) : 初期化子リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../../initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/end.md)`(), a)` と同等。
 
 
 ## 計算量
@@ -101,9 +101,9 @@ deque(initializer_list<T> il,
       l.emplace_back(10u);
     }
     ```
-    * std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-    * std::allocator[link ../memory/allocator.md]
-    * emplace_back[link ../list/emplace_back.md]
+    * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
+    * std::allocator[link ../../memory/allocator.md]
+    * emplace_back[link ../../list/list/emplace_back.md]
 
 
 ## 例
