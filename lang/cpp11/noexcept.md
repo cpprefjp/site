@@ -141,11 +141,11 @@ int main()
 * std::is_nothrow_move_constructible[link /reference/type_traits/is_nothrow_move_constructible.md]
 * static_assert[link static_assert.md]
 * std::move[link /reference/utility/move.md]
-* base::empty()[link /reference/stack/empty.md]
-* base::top()[link /reference/stack/top.md]
-* base::pop()[link /reference/stack/pop.md]
-* s.push[link /reference/stack/push.md]
-* s.empty()[link /reference/stack/empty.md]
+* base::empty()[link /reference/stack/stack/empty.md]
+* base::top()[link /reference/stack/stack/top.md]
+* base::pop()[link /reference/stack/stack/pop.md]
+* s.push[link /reference/stack/stack/push.md]
+* s.empty()[link /reference/stack/stack/empty.md]
 
 ### 出力
 ```
