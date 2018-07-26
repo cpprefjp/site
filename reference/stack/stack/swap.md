@@ -2,7 +2,7 @@
 * stack[meta header]
 * std[meta namespace]
 * stack[meta class]
-* function template[meta id-type]
+* function[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

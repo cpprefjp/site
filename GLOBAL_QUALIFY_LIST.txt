@@ -98,7 +98,7 @@
     * std::set[link /reference/set/set.md]
 * <shared_mutex>[link /reference/shared_mutex.md]
 * <sstream>[link /reference/sstream.md]
-* <stack>[link /reference/stack/stack.md]
+* <stack>[link /reference/stack.md]
 * <stdexcept>[link /reference/stdexcept.md]
 * <streambuf>[link /reference/streambuf.md]
 * <string>[link /reference/string.md]
