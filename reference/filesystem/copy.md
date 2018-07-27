@@ -51,6 +51,7 @@ namespace std::filesystem {
         * copy_options[link copy_options.md]
         * symlink_status[link symlink_status.md]
         * status[link status.md]
+
     - `f.`[`type()`](file_status/type.md)もしくは`t.`[`type()`](file_status/type.md)が実装定義のファイル種別であった場合、その効果は実装定義となる
     - 以下のいずれかの場合、エラーを報告する。(3)の場合は例外、(4)の場合は`ec`にエラー情報を設定することでエラー報告とする：
         - `!`[`exists`](exists.md)`(f)`
