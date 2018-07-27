@@ -13,7 +13,7 @@ basic_string& operator+=(charT c);                    // (3)
 
 basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 指定された文字列、文字、あるいは初期化リストを追加する。

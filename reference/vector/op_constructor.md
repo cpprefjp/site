@@ -30,7 +30,7 @@ vector(vector&& x, const Allocator& a);              // (9) C++11
 vector(initializer_list<T> il,
        const Allocator& a = Allocator());            // (10) C++11
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 `vector`オブジェクトを次に示す通りの要素で初期化する。

@@ -32,7 +32,7 @@ deque(deque&& y, const Allocator& a);             // (9) C++11 から
 deque(initializer_list<T> il,
       const Allocator& a = Allocator());          // (10) C++11 から
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 
 ## 概要

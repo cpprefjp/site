@@ -10,7 +10,7 @@ unordered_set& operator=(const unordered_set& v);          // (1)
 unordered_set& operator=(unordered_set&& rv);              // (2)
 unordered_set& operator=(initializer_list<value_type> il); // (3)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 `unordered_set` オブジェクトを代入する

@@ -16,7 +16,7 @@ seed_seq(InputIterator begin, InputIterator end); // (3)
 
 seed_seq(const seed_seq&) = delete;               // (4)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。空のシード列を構築する。
@@ -37,8 +37,8 @@ seed_seq(const seed_seq&) = delete;               // (4)
     ```cpp
     seed_seq(il.begin(), il.end());
     ```
-    * il.begin()[link /reference/initializer_list/begin.md]
-    * il.end()[link /reference/initializer_list/end.md]
+    * il.begin()[link /reference/initializer_list/initializer_list/begin.md]
+    * il.end()[link /reference/initializer_list/initializer_list/end.md]
 
 
 - (3) : 以下のアルゴリズムで、シード列を構築する。

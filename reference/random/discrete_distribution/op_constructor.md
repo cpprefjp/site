@@ -20,7 +20,7 @@ discrete_distribution(size_t nw,
 
 explicit discrete_distribution(const param_type& parm);           // (5)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。確率列の要素数を1、0番目の確率を1で初期化する。

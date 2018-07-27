@@ -47,7 +47,7 @@
 * <functional>[link /reference/functional.md]
 * <future>[link /reference/future.md]
 * <initializer_list>[link /reference/initializer_list.md]
-    * std::initializer_list[link /reference/initializer_list.md]
+    * std::initializer_list[link /reference/initializer_list/initializer_list.md]
 * <iomanip>[link /reference/iomanip.md]
 * <ios>[link /reference/ios.md]
     * std::boolalpha[link /reference/ios/boolalpha.md]

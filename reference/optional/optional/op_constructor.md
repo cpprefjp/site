@@ -31,7 +31,7 @@ EXPLICIT optional(optional<U>&& rhs);                    // (9)
 ```
 * nullopt_t[link /reference/optional/nullopt_t.md]
 * in_place_t[link /reference/utility/in_place_t.md]
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 - (1), (2) : 有効値を保持していない状態にする
@@ -75,7 +75,7 @@ EXPLICIT optional(optional<U>&& rhs);                    // (9)
     - [`std::in_place_t`](/reference/utility/in_place_t.md)はオーバーロードに機能名を付けるためにあり、その型による動的な処理内容への影響はない。このオーバーロードを選択したい場合は、事前定義されている定数[`std::in_place`](/reference/utility/in_place_t.md)を第1引数として指定すること
 - (6) :
     - 型`T`の選択されたコンストラクタが`constexpr`であれば、このコンストラクタも`constexpr`となる
-    - 型`T`が引数の型[`initializer_list`](/reference/initializer_list.md)`<U>&`と`Args&&...`から構築可能でなければ、このオーバーロードはオーバーロード解決の候補から除外される
+    - 型`T`が引数の型[`initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&`と`Args&&...`から構築可能でなければ、このオーバーロードはオーバーロード解決の候補から除外される
 - (7) :
     - 型`T`の選択されたコンストラクタが`constexpr`であれば、このコンストラクタも`constexpr`となる
     - 型`U`から型`T`がムーブ構築可能でなければ、このオーバーロードはオーバーロード解決の候補から除外される

@@ -12,7 +12,7 @@ void assign(size_type n, const T& u);                 // (2)
 
 void assign(initializer_list<T>);                     // (3) C++11
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 コンテナの再代入。

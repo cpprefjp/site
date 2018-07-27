@@ -39,7 +39,7 @@ basic_string& insert(size_type pos1,
                      size_type pos2,
                      size_type n = npos);                         // (11) C++17
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 文字／文字列を挿入する。
@@ -66,7 +66,7 @@ basic_string& insert(size_type pos1,
 - (6) : イテレータ`p`が指す要素の前に、文字`c`のコピーを挿入する。
 - (7) : イテレータ`p`が指す要素の前に、文字`c`のコピーを`n`個挿入する。
 - (8) : `insert(p -` [`begin()`](begin.md)`, basic_string(first, last))`と同等の効果を持つ。
-- (9) : `insert(p, il.`[`begin()`](/reference/initializer_list/begin.md)`, il.`[`end()`](/reference/initializer_list/end.md)`)`
+- (9) : `insert(p, il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md)`, il.`[`end()`](/reference/initializer_list/initializer_list/end.md)`)`
 - (10) : `return insert(pos1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と同等の効果を持つ。
 - (11) :
     - `sv.`[`size()`](/reference/string_view/basic_string_view/size.md) `- pos2`と`n`のうち小さい方を`rlen`とする

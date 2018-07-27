@@ -10,7 +10,7 @@ forward_list& operator=(const forward_list& x); // (1)
 forward_list& operator=(forward_list&& x);      // (2)
 forward_list& operator=(initializer_list<T>);   // (3)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 - (1) : コピー代入
@@ -84,7 +84,7 @@ int main()
 ```
 * ls2.begin()[link begin.md]
 * ls2.end()[link end.md]
-* init.begin()[link /reference/initializer_list/begin.md]
+* init.begin()[link /reference/initializer_list/initializer_list/begin.md]
 
 ### 出力
 ```

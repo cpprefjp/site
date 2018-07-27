@@ -21,7 +21,7 @@ void insert(InputIterator first, InputIterator last);          // (5)
 
 void insert(initializer_list<value_type> il);                  // (6)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 コンテナに要素を追加する。
@@ -255,7 +255,7 @@ inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(initializer_l
 }
 ```
 * forward[link /reference/utility/forward.md]
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 * insert[color ff0000]
 
 

@@ -35,7 +35,7 @@ basic_string& assign(std::basic_string_view<charT, traits> sv,
                      size_type pos,
                      size_type n = npos);                       // (10) C++17
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 文字列の再代入を行う。

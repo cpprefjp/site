@@ -84,7 +84,7 @@ namespace std {
 * hash[link /reference/functional/hash.md]
 * equal_to[link /reference/functional/equal_to.md]
 * allocator[link /reference/memory/allocator.md]
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 `std::unordered_map`クラステンプレートの型推論補助。

@@ -29,7 +29,7 @@ namespace std {
 * less[link /reference/functional/less.md]
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * allocator[link /reference/memory/allocator.md]
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 `std::set`クラステンプレートの型推論補助。

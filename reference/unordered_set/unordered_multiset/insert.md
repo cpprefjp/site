@@ -17,7 +17,7 @@ void insert(InputIterator first, InputIterator last);          // (3)
 
 void insert(initializer_list<value_type> il);                  // (4)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 コンテナに要素を追加する。
@@ -211,8 +211,8 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(std::initiali
 ```
 * insert[color ff0000]
 * std::move[link /reference/utility/move.md]
-* il.begin()[link /reference/initializer_list/begin.md]
-* il.end()[link /reference/initializer_list/end.md]
+* il.begin()[link /reference/initializer_list/initializer_list/begin.md]
+* il.end()[link /reference/initializer_list/initializer_list/end.md]
 
 
 ## 関連項目

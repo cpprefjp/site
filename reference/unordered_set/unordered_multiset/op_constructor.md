@@ -70,7 +70,7 @@ unordered_multiset(initializer_list<value_type> il,
                    const hasher& hf, 
                    const allocator_type& a);                              // (15) C++14
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 `unordered_multiset` オブジェクトを構築する

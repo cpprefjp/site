@@ -28,7 +28,7 @@
 | [`<new>`](/reference/new.md)                           | 動的メモリ管理           |                |
 | [`<typeinfo>`](/reference/typeinfo.md)                 | 型情報                   |                |
 | [`<exception>`](/reference/exception.md)               | 例外ハンドリング         |                |
-| [`<initializer_list>`](/reference/initializer_list.md) | 初期化子リスト           | C++11          |
+| [`<initializer_list>`](/reference/initializer_list/initializer_list.md) | 初期化子リスト           | C++11          |
 
 
 ## <a id="diagnostics" href="#diagnostics">診断ライブラリ</a>
