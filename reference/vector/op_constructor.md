@@ -51,7 +51,7 @@ vector(initializer_list<T> il,
 - (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `vector` オブジェクトを構築する。
 - (8) : アロケータを別で受け取り、`vector` オブジェクトをコピー構築する。
 - (9) : アロケータを別で受け取り、`vector` オブジェクトをムーブ構築する。
-- (10) : 初期化子リストを受け取るコンストラクタ。`vector(il.`[`begin`](../initializer_list/begin.md)`(), li.`[`end`](../initializer_list/end.md)`(), a)` と等価。
+- (10) : 初期化子リストを受け取るコンストラクタ。`vector(il.`[`begin`](../initializer_list/initializer_list/begin.md)`(), li.`[`end`](../initializer_list/initializer_list/end.md)`(), a)` と等価。
 
 
 ## 計算量
@@ -62,7 +62,7 @@ vector(initializer_list<T> il,
 - (7) : 定数時間
 - (8) : `x.`[`size`](size.md)`()` に対して線形時間
 - (9) : 定数時間。ただし、`a == x.`[`get_allocator`](get_allocator.md)`()` でなければ `x.`[`size`](size.md)`()` に対して線形時間。
-- (10) : `il.`[`size`](../initializer_list/size.md)`()` に対して線形時間
+- (10) : `il.`[`size`](../initializer_list/initializer_list/size.md)`()` に対して線形時間
 
 
 ## 備考

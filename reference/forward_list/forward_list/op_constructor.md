@@ -52,7 +52,7 @@ forward_list(initializer_list<T> il,
 - (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `forward_list` オブジェクトを構築する。
 - (8) : アロケータを指定したコピーコンストラクタ  
 - (9) : アロケータを指定したムーブコンストラクタ  
-- (10) : 初期化子リストを受け取るコンストラクタ。`forward_list(il.`[`begin`](../../initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/end.md)`(), a)` と同等。
+- (10) : 初期化子リストを受け取るコンストラクタ。`forward_list(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と同等。
 
 
 ## 計算量
