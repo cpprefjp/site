@@ -133,7 +133,7 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 - 要素追加のためのメンバ関数として、クラステンプレートのパラメータ`T`のコンストラクタ引数を受け取り、一時オブジェクトの生成コストを減らせるものが追加された。これらは、以下のように命名されたメンバ関数である：`emplace()`、`emplace_back()`、`emplace_front()`
 - コンテナのメモリアロケータが状態を持てるようになった
 - 初期化子リストでコンテナを初期化できるようになった
-- 初期化子リストをパラメータで受け取れるようにするためのクラス[`std::initializer_list`](/reference/initializer_list.md)を追加
+- 初期化子リストをパラメータで受け取れるようにするためのクラス[`std::initializer_list`](/reference/initializer_list/initializer_list.md)を追加
 - 型情報型を連想コンテナのキーとして使用するための[`std::type_index`](/reference/typeindex/type_index.md)クラスを追加
 
 

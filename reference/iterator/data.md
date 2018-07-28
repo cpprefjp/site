@@ -19,7 +19,7 @@ namespace std {
   constexpr const E* data(initializer_list<E> il) noexcept; // (4) C++17
 }
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 コンテナの要素が格納されたメモリ領域へのポインタを返す

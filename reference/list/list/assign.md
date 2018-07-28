@@ -11,7 +11,7 @@ void assign(InputIterator first, InputIterator last); // (1)
 void assign(size_type n, const T& t);  // (2)
 void assign(initializer_list<T> init); // (3) C++11
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 コンテナの再代入
@@ -53,8 +53,8 @@ insert(begin(), init.begin(), init.end());
 * clear[link clear.md]
 * insert[link insert.md]
 * begin[link begin.md]
-* init.begin[link /reference/initializer_list/begin.md]
-* init.end[link /reference/initializer_list/end.md]
+* init.begin[link /reference/initializer_list/initializer_list/begin.md]
+* init.end[link /reference/initializer_list/initializer_list/end.md]
 
 
 ## 戻り値

@@ -31,7 +31,7 @@ basic_string& append(std::basic_string_view<charT, traits> sv,
                      size_type pos,
                      size_type n = npos);                       // (9) C++17
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 指定された文字列、文字、あるいは初期化リストを追加する。
@@ -101,7 +101,7 @@ basic_string& append(std::basic_string_view<charT, traits> sv,
 - (6) C++03 まで：[`size`](size.md)`() >= npos -` [`distance`](/reference/iterator/distance.md)`(first, last)` の場合、`length_error` が送出される。  
     C++11 から：[`size`](size.md)`() +` [`distance`](/reference/iterator/distance.md)`(first, last) >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (7) [`size`](size.md)`() + il.`[`size`](/reference/initializer_list.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
+- (7) [`size`](size.md)`() + il.`[`size`](/reference/initializer_list/initializer_list.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 
 ## 備考

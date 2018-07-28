@@ -13,7 +13,7 @@ void assign(size_type n, const T& t);                 // (2)
 
 void assign(initializer_list<T> init);                // (3)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 
@@ -53,8 +53,8 @@ insert_after(before_begin(), n, t);
 ```cpp
 assign(init.begin(), init.end());
 ```
-* begin()[link /reference/initializer_list/begin.md]
-* end()[link /reference/initializer_list/end.md]
+* begin()[link /reference/initializer_list/initializer_list/begin.md]
+* end()[link /reference/initializer_list/initializer_list/end.md]
 
 
 ## 戻り値

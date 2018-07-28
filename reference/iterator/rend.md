@@ -20,7 +20,7 @@ namespace std {
 }
 ```
 * reverse_iterator[link reverse_iterator.md]
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 範囲の先頭の前を指す逆イテレータを取得する。
@@ -35,7 +35,7 @@ namespace std {
 - (1) : `c.rend();`
 - (2) : `c.rend();`
 - (3) : [`reverse_iterator`](reverse_iterator.md)`<T*>(array)`
-- (4) : [`reverse_iterator`](reverse_iterator.md)`<const E*>(`[`il.begin()`](/reference/initializer_list/begin.md)`)`
+- (4) : [`reverse_iterator`](reverse_iterator.md)`<const E*>(`[`il.begin()`](/reference/initializer_list/initializer_list/begin.md)`)`
 
 
 ## 例

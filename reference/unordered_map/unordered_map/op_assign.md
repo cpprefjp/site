@@ -10,7 +10,7 @@ unordered_map& operator=(const unordered_map& v);          // (1)
 unordered_map& operator=(unordered_map&& rv);              // (2)
 unordered_map& operator=(initializer_list<value_type> il); // (3)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 `unordered_map` オブジェクトを代入する

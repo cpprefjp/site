@@ -9,7 +9,7 @@ list& operator=(const list& x);         // (1)
 list& operator=(list&& x);              // (2) C++11
 list& operator=(initializer_list<T> x); // (3) C++11
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 - (1) : コピー代入。
@@ -78,7 +78,7 @@ int main ()
 * std::equal[link /reference/algorithm/equal.md]
 * ls2.begin()[link begin.md]
 * ls2.end()[link end.md]
-* init.begin()[link /reference/initializer_list/begin.md]
+* init.begin()[link /reference/initializer_list/initializer_list/begin.md]
 
 ### 出力
 ```

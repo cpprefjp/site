@@ -19,7 +19,7 @@ iterator insert_after(const_iterator position,
 iterator insert_after(const_iterator position,
                       initializer_list<T> il);              // (5)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 任意の位置に新たな要素を挿入する。

@@ -25,7 +25,7 @@ namespace std {
   [[nodiscard]] constexpr bool empty(initializer_list<E> il) noexcept;   // (3) C++20
 }
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 コンテナが空かを返す

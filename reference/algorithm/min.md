@@ -30,17 +30,17 @@ namespace std {
   constexpr T min(initializer_list<T> t, Compare comp);         // (4) C++14
 }
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-同じ型の2つの値、もしくは[`initializer_list`](/reference/initializer_list.md)によるN個の値のうち、最小値を取得する。
+同じ型の2つの値、もしくは[`initializer_list`](/reference/initializer_list/initializer_list.md)によるN個の値のうち、最小値を取得する。
 
 最後の引数`comp`は、2項の述語関数オブジェクトであり、これを使用して比較演算をカスタマイズすることができる。
 
 
 ## 要件
 - 型`T`が`operator<`による比較が可能であること。
-- [`initializer_list`](/reference/initializer_list.md)バージョンはそれに加えて、要素数が1以上であり、`T`がコピーコンストラクト可能であること。
+- [`initializer_list`](/reference/initializer_list/initializer_list.md)バージョンはそれに加えて、要素数が1以上であり、`T`がコピーコンストラクト可能であること。
 
 
 ## 戻り値

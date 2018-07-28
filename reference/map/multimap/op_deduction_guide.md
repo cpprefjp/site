@@ -44,7 +44,7 @@ namespace std {
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 `std::multimap`クラステンプレートの型推論補助。

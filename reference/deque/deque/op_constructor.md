@@ -32,7 +32,7 @@ deque(deque&& y, const Allocator& a);             // (9) C++11 から
 deque(initializer_list<T> il,
       const Allocator& a = Allocator());          // (10) C++11 から
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 
 ## 概要
@@ -54,7 +54,7 @@ deque(initializer_list<T> il,
 - (7) : ムーブコンストラクタ。ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
 - (8) : コピーコンストラクタ。アロケータに `a` を使用して、`x` と同じ要素を保持した `deque` を構築する。
 - (9) : ムーブコンストラクタ。アロケータに `a` を使用して、ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
-- (10) : 初期化子リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../../initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/end.md)`(), a)` と同等。
+- (10) : 初期化子リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と同等。
 
 
 ## 計算量

@@ -21,7 +21,7 @@ valarray(initializer_list<T> init);   // (11) C++11
 * gslice_array[link /reference/valarray/gslice_array.md]
 * mask_array[link /reference/valarray/mask_array.md]
 * indirect_array[link /reference/valarray/indirect_array.md]
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## `valarray`オブジェクトの構築
 - (1) : デフォルトコンストラクタ
