@@ -54,12 +54,6 @@ namespace std::filesystem {
 | `create_hard_links` | ファイルのコピーをする代わりに、ハードリンクを作成する |
 
 
-## 例
-TODO
-
-### 出力
-
-
 ## バージョン
 ### 言語
 - C++17
@@ -68,6 +62,11 @@ TODO
 - [Clang](/implementation.md#clang):
 - [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 関連項目
+- [`copy_file()`](copy_file.md)
+- [`copy()`](copy.md)
 
 
 ## 参照
