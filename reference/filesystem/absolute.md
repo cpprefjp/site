@@ -30,6 +30,7 @@ namespace std::filesystem {
 
 ## 例外
 - (1) : ファイルシステムがエラーを報告する場合がある。それに加えて、指定されたファイルが存在しない場合もエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (2) : 仕様上は未規定だが、パスのメモリ確保で例外が発生する可能性がある
 
 
 ## 備考
