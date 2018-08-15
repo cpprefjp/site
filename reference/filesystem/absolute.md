@@ -34,7 +34,7 @@ namespace std::filesystem {
 
 ## 備考
 - エラーが発生しない限り、この関数によって返されたパス`rp`は、`rp.`[`is_absolute()`](path/is_absolute.md) `== true`である
-- シンボリックリンクの解決や、セカンダリ・ハードディスクへのクエリが必要な場合には、[`canonical()`](canonical.md.nolink)関数の使用を検討すること
+- シンボリックリンクの解決や、セカンダリ・ハードディスクへのクエリが必要な場合には、[`canonical()`](canonical.md)関数の使用を検討すること
 - 実装に対して、パス`p`にファイルが存在することをチェックしないよう強く推奨しており、`!`[`exists`](exists.md)`(p)`であってもエラーにはならない
 - POSIXベースシステムでの実装は、単純に[`current_path()`](current_path.md)`/p`となる。Windowsの場合は、`GetFullPathNameW()`関数と同じ意味論となる
 
