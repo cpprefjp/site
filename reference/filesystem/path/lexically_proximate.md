@@ -14,7 +14,7 @@ path lexically_proximate(const path& base) const;
 
 この関数は、`*this`が保持するパス文字列を、パス`base`からの相対パスに変換する。[`lexically_relative()`](lexically_relative.md)メンバ関数と違い、相対パスの解決に失敗した場合に、空のパスの代わりに`*this`のパスが返る。
 
-ファイルシステムを介した相対パスへの変換を行う場合は、[`std::filesystem::proximate()`](/reference/filesystem/proximate.md.nolink)関数を使用すること。
+ファイルシステムを介した相対パスへの変換を行う場合は、[`std::filesystem::proximate()`](/reference/filesystem/proximate.md)関数を使用すること。
 
 
 ## 戻り値
