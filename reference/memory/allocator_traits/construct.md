@@ -15,7 +15,7 @@ static void construct(Alloc& a, T* p, Args&&... args);
 
 
 ## 効果
-`a.construct(p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...)`という式が有効ならそれを呼び出し、そうでなければデフォルト実装として`::new(static_cast<void*>(p) T(`[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`を呼び出す。
+`a.construct(p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...)`という式が有効ならそれを呼び出し、そうでなければデフォルト実装として`::new(static_cast<void*>(p)) T(`[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`を呼び出す。
 
 
 ## 戻り値
