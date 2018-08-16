@@ -17,7 +17,7 @@ namespace std::filesystem {
 
 この関数は、オペレーティング・システムのファイルシステムを介して、パスの正規化を行う。ファイルシステムを使用せず、文字列処理として正規化したい場合は、[`path::lexically_normal()`](path/lexically_normal.md)関数を使用する。
 
-この関数は、正規化対象となるパスが指すファイルが存在していなければならない。存在しないファイルのパスを正規化したい場合は、[`weakly_canonical()`](weakly_canonical.md.nolink)関数を使用する。
+この関数は、正規化対象となるパスが指すファイルが存在していなければならない。存在しないファイルのパスを正規化したい場合は、[`weakly_canonical()`](weakly_canonical.md)関数を使用する。
 
 
 ## 効果

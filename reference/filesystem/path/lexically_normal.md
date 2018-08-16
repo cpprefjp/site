@@ -12,7 +12,7 @@ path lexically_normal() const;
 ## 概要
 文字列レベルで正規化する。
 
-この関数は、ファイルシステムを介することのないパスの正規化を行う。そのため、親ディレクトリの参照を解決できない場合がある。ファイルシステムを介した正規化を行う場合は、[`std::filesystem::canonical()`](/reference/filesystem/canonical.md)や[`std::filesystem::weakly_canonical()`](/reference/filesystem/weakly_canonical.md.nolink)関数を使用すること。
+この関数は、ファイルシステムを介することのないパスの正規化を行う。そのため、親ディレクトリの参照を解決できない場合がある。ファイルシステムを介した正規化を行う場合は、[`std::filesystem::canonical()`](/reference/filesystem/canonical.md)や[`std::filesystem::weakly_canonical()`](/reference/filesystem/weakly_canonical.md)関数を使用すること。
 
 
 ## 戻り値

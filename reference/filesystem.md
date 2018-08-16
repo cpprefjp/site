@@ -41,7 +41,7 @@
 | [`temp_directory_path`](filesystem/temp_directory_path.md) | 一時ファイル用ディレクトリのパスを取得する (function) | C++17 |
 | [`absolute`](filesystem/absolute.md) | パスを絶対パスに変換する (function) | C++17 |
 | [`canonical`](filesystem/canonical.md) | パスを正規化する (function) | C++17 |
-| [`weakly_canonical`](filesystem/weakly_canonical.md.nolink) | `canonical`よりも弱い要件でパスを正規化する (function) | C++17 |
+| [`weakly_canonical`](filesystem/weakly_canonical.md) | `canonical`よりも弱い要件でパスを正規化する (function) | C++17 |
 | [`read_symlink`](filesystem/read_symlink.md) | シンボリックリンクが指すパスを取得する (function) | C++17 |
 | [`relative`](filesystem/relative.md.nolink) | パスを現在の作業ディレクトリからの相対パスに変換する (function) | C++17 |
 | [`proximate`](filesystem/proximate.md.nolink) | パスを現在の作業ディレクトリからの相対パスに変換する (function) | C++17 |
