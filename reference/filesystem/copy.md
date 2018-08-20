@@ -78,7 +78,7 @@ namespace std::filesystem {
             copy(x.path(), to/x.path().filename(), options | copy_options::in-recursive-copy)
         ```
         * directory_entry[link directory_entry.md.nolink]
-        * directory_iterator[link directory_iterator.md.nolink]
+        * directory_iterator[link directory_iterator.md]
         * x.path()[link directory_entry/path.md.nolink]
         * filename()[link path/filename.md]
         * copy_options[link copy_options.md]
