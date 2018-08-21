@@ -52,8 +52,8 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
-| [`operator==`](directory_iterator/op_equal.md.nolink)     | 等値比較 | C++11 |
-| [`operator!=`](directory_iterator/op_not_equal.md.nolink) | 非等値比較 | C++11 |
+| [`operator==`](directory_iterator/op_equal.md.nolink)     | 等値比較 | C++17 |
+| [`operator!=`](directory_iterator/op_not_equal.md.nolink) | 非等値比較 | C++17 |
 
 
 ## 例
