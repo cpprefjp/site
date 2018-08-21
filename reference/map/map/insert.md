@@ -114,6 +114,7 @@ int main ()
 4
 ```
 
+## バージョン
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
@@ -124,10 +125,12 @@ int main ()
 
 ## 関連項目
 
-| 名前 | 説明 |
-|-------------------------------------------------------------------------------------|--------------------------------------|
-| [`map::erase`](/reference/map/map/erase.md) | 要素を削除する |
-| [`map::find`](/reference/map/map/find.md) | 指定したキーで要素を探す |
+| 名前                                           | 説明                                       |
+|------------------------------------------------|--------------------------------------------|
+| [`map::insert_or_assign`](insert_or_assign.md) | 要素を挿入、あるいは代入する               |
+| [`map::emplace`](emplace.md)                   | 要素を直接構築する                         |
+| [`map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |
+| [`map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
 
 
 ## 参照

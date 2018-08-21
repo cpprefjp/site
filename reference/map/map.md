@@ -81,14 +81,16 @@ namespace std {
 
 ## コンテナの変更
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------------------------|----------------------------------|-------|
-| [`clear`](map/clear.md)               | 全ての要素を削除する             | |
-| [`insert`](map/insert.md)             | 要素を挿入する                   | |
-| [`emplace`](map/emplace.md)           | 要素を直接構築する               | C++11 |
-| [`emplace_hint`](map/emplace_hint.md) | ヒントを使って要素を直接構築する | C++11 |
-| [`erase`](map/erase.md)               | 要素を削除する |                 | |
-| [`swap`](map/swap.md)                 | コンテンツを交換する             | |
+| 名前                                          | 説明                                       | 対応バージョン |
+|-----------------------------------------------|--------------------------------------------|----------------|
+| [`clear`](map/clear.md)                       | 全ての要素を削除する                       |                |
+| [`insert`](map/insert.md)                     | 要素を挿入する                             |                |
+| [`insert_or_assign`](map/insert_or_assign.md) | 要素を挿入、あるいは代入する               | C++17          |
+| [`emplace`](map/emplace.md)                   | 要素を直接構築する                         | C++11          |
+| [`emplace_hint`](map/emplace_hint.md)         | ヒントを使って要素を直接構築する           | C++11          |
+| [`try_emplace`](map/try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する | C++17          |
+| [`erase`](map/erase.md)                       | 要素を削除する                             |                |
+| [`swap`](map/swap.md)                         | コンテンツを交換する                       |                |
 
 
 ## 要素アクセス
