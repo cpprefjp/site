@@ -5,15 +5,18 @@
 
 ```cpp
 namespace std {
-  istream cin;
+  extern istream cin;
+  extern wistream wcin;
 }
 ```
 
 ## 概要
-`cin` は、標準入力に対するマルチバイト入力ストリームオブジェクトである。
-すなわち、`<cstdio>` の `stdin` オブジェクトに結びつけられたストリームオブジェクトである。  
+`cin` は、標準入力に対する入力ストリームオブジェクトである。
+
+すなわち、[`std::basic_streambuf`](../streambuf/basic_streambuf.md)から派生していて`<cstdio>`の`stdin`オブジェクトに結びつけられているストリームバッファから入力を受ける。
+
 本オブジェクトは、初期化が完了すると [`tie`](../ios/basic_ios/tie.md)`()` が `&`[`cout`](cout.md) を返すようになる。  
-その他の状態は、[`basic_ios`](../ios/basic_ios.md)`<char>::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
+その他の状態は、[`basic_ios`](../ios/basic_ios.md)`::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
 
 ## 例
 ```cpp example
@@ -33,10 +36,14 @@ int main()
 ```
 * std::cin[color ff0000]
 
+## 名前の由来
+
+`cin`は`character input`を意味する。また`wcin`は`wide character input`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
+
 ## バージョン
 ### 言語
 - C++98
 
-## 参照
-- [`wcin`](wcin.md.nolink)
+## 出典
 
+1. **<a id="cite-1" href="#cite_ref-1">^</a>** <cite>[Stroustrup: C++ Style and Technique FAQ](http://www.stroustrup.com/bs_faq2.html#cout)</cite>(2018-08-21 17:01 JST 閲覧)

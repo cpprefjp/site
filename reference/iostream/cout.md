@@ -5,13 +5,15 @@
 
 ```cpp
 namespace std {
-  ostream cout;
+  extern ostream cout;
+  extern wostream wcout;
 }
 ```
 
 ## 概要
-`cout`は、標準出力に対するマルチバイト出力ストリームオブジェクトである。
-すなわち、`<cstdio>`の`stdout`オブジェクトに結びつけられたストリームオブジェクトである。
+`cout`も`wcout`も、標準出力に対する出力ストリームオブジェクトである。
+
+すなわち、[`std::basic_streambuf`](../streambuf/basic_streambuf.md)から派生していて`<cstdio>`の`stdout`オブジェクトに結びつけられているストリームバッファに出力する。
 
 ## 例
 ```cpp example
@@ -29,9 +31,17 @@ int main()
 Hello world
 ```
 
+## 名前の由来
+
+`cout`は`character output`を意味する。また`wcout`は`wide character output`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
+
 ## バージョン
 ### 言語
 - C++98
+
+## 出典
+
+1. **<a id="cite-1" href="#cite_ref-1">^</a>** <cite>[Stroustrup: C++ Style and Technique FAQ](http://www.stroustrup.com/bs_faq2.html#cout)</cite>(2018-08-21 17:01 JST 閲覧)
 
 ## 参照
 - [`wcout`](wcout.md.nolink)
