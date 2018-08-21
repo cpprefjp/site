@@ -35,6 +35,72 @@ Hello world
 
 `cout`は`character output`を意味する。また`wcout`は`wide character output`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
 
+## wcoutについての注意点
+`wcout`は規格上実装しなければならないが、実装されていなかったり、まともに動かない事がある。
+
+### localeの設定
+望む出力を得るためにlocaleを再設定しなければならない場合がある。
+
+例えばVisual Studioでは
+
+```cpp example
+#include <iostream>
+
+int main()
+{
+  std::wcout.imbue(std::locale(""));
+  //std::wcout.imbue(std::locale("ja"));
+  //std::wcout.imbue(std::locale("japanese"));
+  std::wcout << L"ありきたりな世界" << std::endl;
+}
+```
+* std::wcout[color ff0000]
+* imbue[link /reference/streambuf/imbue.md]
+
+のようにして設定しないと何も表示されない。
+
+一方でこのコードはmingwやlinuxでコンパイルして実行するとロケールが`"C"`になってしまったり
+
+```plain
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  locale::facet::_S_create_c_locale name not valid
+
+Aborted
+```
+
+のような例外を実行時に吐くことがある。
+
+一方
+
+```cpp example
+#include <iostream>
+
+int main()
+{
+  std::ios_base::sync_with_stdio(false);
+  std::locale default_loc("");
+  std::locale::global(default_loc);
+  std::locale ctype_default(std::locale::classic(), default_loc, std::locale::ctype); //※
+  std::wcout.imbue(ctype_default);
+  std::wcout << L"ありきたりな世界" << std::endl;
+}
+```
+* std::wcout[color ff0000]
+* imbue[link /reference/streambuf/imbue.md]
+
+のようなコードなら求める結果が得られる処理系もある。
+
+このように求める結果を得るためのlocaleの設定は処理系によって大きく異なる。
+
+### 端末のロケールなど
+
+`wcout`は結局`stdout`に出力するので、その標準出力を受け取って表示する端末のロケールやフォントなどの設定も考える必要がある。
+
+#### Windows
+WindowsではコマンドプロンプトのデフォルトのロケールがUTF-8(65001)ではない事が多い(日本語利用者なら932になっている事が多い)ため、そのロケールで対応していないUnicodeコードポイントは当然変換できないので文字化けする。
+
+またWindows10 1709より前では、`chcp 65001`などでUTF-8にしたときのフォントの指定に制約があり、実質日本語を表示することは不可能だった。
+
 ## バージョン
 ### 言語
 - C++98
@@ -44,4 +110,8 @@ Hello world
 1. **<a id="cite-1" href="#cite_ref-1">^</a>** <cite>[Stroustrup: C++ Style and Technique FAQ](http://www.stroustrup.com/bs_faq2.html#cout)</cite>(2018-08-21 17:01 JST 閲覧)
 
 ## 参照
-- [`wcout`](wcout.md.nolink)
+
+- [使用できるロケール文字列](../../article/platform/locales.md)
+- [標準出力に書き込む | 株式会社きじねこ](http://www.kijineko.co.jp/tech/cppsamples/stdout.html)
+- [c++で日本語の処理（ロケール周り） 7/8追記 - nullnull7の日記](http://nullnull.hatenablog.com/entry/20120629/1340935277)
+- [std::locale constructor modifies global locale via "setlocale()" | Microsoft Connect](http://web.archive.org/web/20100328154628/http://connect.microsoft.com:80/VisualStudio/feedback/details/492128/std-locale-constructor-modifies-global-locale-via-setlocale)
