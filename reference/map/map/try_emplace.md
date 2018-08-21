@@ -84,6 +84,8 @@ int main()
 }
 ```
 * try_emplace[color ff0000]
+* get[link /reference/memory/unique_ptr/get.md]
+* std::move[link /reference/utility/move.md]
 
 #### 出力
 ```
