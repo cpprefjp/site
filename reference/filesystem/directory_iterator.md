@@ -34,10 +34,10 @@ namespace std::filesystem {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `iterator_category` | イテレータ種別 [`input_iterator_tag`](/reference/iterator/iterator_tag.md) | C++17 |
-| `value_type` | 要素型 [`directory_entry`](directory_entry.md.nolink) | C++17 |
+| `value_type` | 要素型 [`directory_entry`](directory_entry.md) | C++17 |
 | `difference_type` | イテレータの差を表す符号あり整数型 [`std::ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) | C++17 |
-| `pointer` | 要素へのポインタ型 `const` [`directory_entry`](directory_entry.md.nolink)`*` | C++17 |
-| `reference` | 要素へのポインタ型 `const` [`directory_entry`](directory_entry.md.nolink)`&` | C++17 |
+| `pointer` | 要素へのポインタ型 `const` [`directory_entry`](directory_entry.md)`*` | C++17 |
+| `reference` | 要素へのポインタ型 `const` [`directory_entry`](directory_entry.md)`&` | C++17 |
 
 
 ## 非メンバ関数
