@@ -7,21 +7,34 @@
 
 ```cpp
 template <class... Args>
-void emplace_front(Args&&... args);
+void emplace_front(Args&&... args);         // C++14 まで
+
+template <class... Args>
+reference emplace_front(Args&&... args);    // C++17 から
 ```
 
 ## 概要
 直接構築で新たな要素を先頭に追加する。
 
-この関数の引数`args...`は、要素型`T`のコンストラクタ引数である。当関数の内部で要素型`T`のコンストラクタを呼び出し、追加する要素を構築する。
+この関数の引数 `args...` は、要素型 `value_type` のコンストラクタ引数である。当関数の内部で要素型 `value_type` のコンストラクタを呼び出し、追加する要素を構築する。
+
+
+## 要件
+`value_type` は、コンテナに対して `args` から [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) であること。
 
 
 ## 戻り値
-なし
+- C++14 まで：なし
+- C++17 から：構築した要素への参照
 
 
 ## 計算量
 定数時間
+
+
+## 備考
+- この関数の呼び出し後、全てのイテレータは無効化されない。
+- 操作中に例外が発生した場合、副作用は発生しない。
 
 
 ## 例
@@ -69,7 +82,17 @@ int main()
 	- 2012は、可変引数テンプレートに対応していないため、不完全な実装である。
 
 
+## 関連項目
+
+| 名前                                | 説明                                 |
+|-------------------------------------|--------------------------------------|
+| [`push_front`](push_front.md)       | 先頭に要素を追加する                 |
+| [`emplace_after`](emplace_after.md) | 任意の位置への直接構築による要素挿入 |
+| [`insert_after`](insert_after.md)   | 任意の位置への要素挿入               |
+
+
 ## 参照
 - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
-
-
+- [P0084R0 Emplace Return Type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0084r0.pdf)
+- [P0084R1 Emplace Return Type (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf)
+- [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
