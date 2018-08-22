@@ -83,7 +83,7 @@ int main()
 | 名前                                | 説明                           |
 |-------------------------------------|--------------------------------|
 | [`emplace_front`](emplace_front.md) | 先頭に要素を直接構築で追加する |
-| [`push_front`](push_back.md)        | 先頭に要素を追加する           |
+| [`push_front`](push_front.md)       | 先頭に要素を追加する           |
 | [`push_back`](push_back.md)         | 末尾に要素を追加する           |
 | [`insert`](insert.md)               | 任意の位置に要素を追加する     |
 
