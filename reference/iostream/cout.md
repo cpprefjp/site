@@ -15,6 +15,8 @@ namespace std {
 
 すなわち、[`std::basic_streambuf`](../streambuf/basic_streambuf.md)から派生していて`<cstdio>`の`stdout`オブジェクトに結びつけられているストリームバッファに出力する。
 
+`cout`は`character output`を意味する。また`wcout`は`wide character output`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -30,10 +32,6 @@ int main()
 ```
 Hello world
 ```
-
-## 名前の由来
-
-`cout`は`character output`を意味する。また`wcout`は`wide character output`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
 
 ## wcoutについての注意点
 `wcout`は規格上実装しなければならないが、実装されていなかったり、まともに動かない事がある。

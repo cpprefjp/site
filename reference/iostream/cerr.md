@@ -21,6 +21,8 @@ namespace std {
 
 その他の状態は、[`basic_ios`](../ios/basic_ios.md)`::`[`init`](../ios/basic_ios/init.md) の事後条件と同様である。
 
+`cerr`は`character error (stream)`を意味する。また`wcerr`は`wide character error (stream)`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -49,10 +51,6 @@ int main()
 ```
 
 出力内容は環境により異なる。
-
-## 名前の由来
-
-`cerr`は`character error (stream)`を意味する。また`wcerr`は`wide character error (stream)`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
 
 ## バージョン
 ### 言語

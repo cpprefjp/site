@@ -15,6 +15,8 @@ namespace std {
 
 すなわち、[`std::basic_streambuf`](../streambuf/basic_streambuf.md)から派生していて`<cstdio>`の`stderr`オブジェクトに結びつけられているストリームバッファに出力する。
 
+`clog`は`character log`を意味する。また`wclog`は`wide character log`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -57,10 +59,6 @@ int main(int argc, char** argv)
 ## バージョン
 ### 言語
 - C++98
-
-## 名前の由来
-
-`clog`は`character log`を意味する。また`wclog`は`wide character log`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
 
 ## 出典
 
