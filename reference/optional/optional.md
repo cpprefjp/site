@@ -35,9 +35,8 @@ namespace std {
 型`T`が以下のいずれかに該当してはならない：
 
 - 参照型
-- CV修飾された型
-- [`std::in_place_t`](/reference/utility/in_place_t.md)
-- [`std::nullopt_t`](nullopt_t.md)
+- (CV修飾された)[`std::in_place_t`](/reference/utility/in_place_t.md)
+- (CV修飾された)[`std::nullopt_t`](nullopt_t.md)
 
 また、型`T`は[破棄可能](/reference/concepts/Destructible.md)であること。
 
