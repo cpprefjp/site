@@ -59,7 +59,7 @@ int main()
 
 一方でこのコードはmingwやlinuxでコンパイルして実行するとロケールが`"C"`になってしまったり
 
-```plain
+```
 terminate called after throwing an instance of 'std::runtime_error'
   what():  locale::facet::_S_create_c_locale name not valid
 
