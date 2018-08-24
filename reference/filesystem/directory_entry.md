@@ -11,6 +11,9 @@ namespace std::filesystem {
 ```
 
 ## 概要
+`directory_entry`は、[`directory_iterator`](directory_iterator.md)クラスもしくは[`recursive_directory_iterator`](recursive_directory_iterator.md.nolink)クラスによってディレクトリ走査をした際に取得できる、ディレクトリ内要素を表すクラスである。
+
+ディレクトリの走査では、オペレーティングシステムのファイルシステムごとに、異なる追加の属性が取得できる。このクラスは、オペレーティングシステムごとの差異を吸収し、ディレクトリ走査を効率的に行えるようさまざまな属性をキャッシュする。
 
 
 ## メンバ関数
