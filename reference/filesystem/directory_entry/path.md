@@ -49,7 +49,7 @@ int main()
 ```
 "dir/inner_dir"
 "dir/a.txt"
-````
+```
 
 ## バージョン
 ### 言語
