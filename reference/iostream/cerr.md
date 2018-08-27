@@ -9,6 +9,8 @@ namespace std {
   extern wostream wcerr;
 }
 ```
+* ostream[link ../ostream/basic_ostream.md]
+* wostream[link ../ostream/basic_ostream.md]
 
 ## 概要
 `cerr`も`wcerr`も、標準エラー出力に対する出力ストリームオブジェクトである。

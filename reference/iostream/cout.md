@@ -9,6 +9,8 @@ namespace std {
   extern wostream wcout;
 }
 ```
+* ostream[link ../ostream/basic_ostream.md]
+* wostream[link ../ostream/basic_ostream.md]
 
 ## 概要
 `cout`も`wcout`も、標準出力に対する出力ストリームオブジェクトである。

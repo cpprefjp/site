@@ -9,6 +9,8 @@ namespace std {
   extern wostream wclog;
 }
 ```
+* ostream[link ../ostream/basic_ostream.md]
+* wostream[link ../ostream/basic_ostream.md]
 
 ## 概要
 `clog`も`wclog`も、標準エラー出力に対する出力ストリームオブジェクトである。

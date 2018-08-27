@@ -9,6 +9,8 @@ namespace std {
   extern wistream wcin;
 }
 ```
+* istream[link ../istream/basic_istream.md]
+* wistream[link ../istream/basic_istream.md]
 
 ## 概要
 `cin` は、標準入力に対する入力ストリームオブジェクトである。
