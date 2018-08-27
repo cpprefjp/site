@@ -91,6 +91,7 @@ int main()
 ```
 * fs::directory_entry[color ff0000]
 * fs::create_directory[link create_directory.md]
+* fs::directory_iterator[link directory_iterator.md]
 * x.path()[link directory_entry/path.md.nolink]
 
 ### 出力例
