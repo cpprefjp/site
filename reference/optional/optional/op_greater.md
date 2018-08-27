@@ -34,8 +34,8 @@ namespace std {
 - (1) : `x`と`y`がどちらも有効値を持っていれば、有効値同士を`>`演算子で比較した結果を返す。`x`が有効値を持っていなければ`false`を返す。`y`が有効値を持っていなければ`true`を返す
 - (2) : `x.`[`has_value()`](has_value.md)を返す
 - (3) : `false`を返す
-- (4) : `return x.`[`has_value()`](has_value.md) `? x.`[`value()`](value.md) `> v : false;`
-- (5) : `return x.`[`has_value()`](has_value.md) `? v > x.`[`value()`](value.md) `: true;`
+- (4) : `return x.`[`has_value()`](has_value.md) `? x.`[`value()`](value.md) `> y : false;`
+- (5) : `return y.`[`has_value()`](has_value.md) `? x > y.`[`value()`](value.md) `: true;`
 
 
 ## 例
