@@ -79,7 +79,7 @@ namespace std::filesystem {
         ```
         * directory_entry[link directory_entry.md]
         * directory_iterator[link directory_iterator.md]
-        * x.path()[link directory_entry/path.md.nolink]
+        * x.path()[link directory_entry/path.md]
         * filename()[link path/filename.md]
         * copy_options[link copy_options.md]
         * in-recursive-copy[italic]

@@ -39,8 +39,8 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`path`](directory_entry/path.md.nolink) | パスを取得する | C++17 |
-| [`operator const path&`](directory_entry/op_path.md.nolink) | `path`型に変換する | C++17 |
+| [`path`](directory_entry/path.md) | パスを取得する | C++17 |
+| [`operator path`](directory_entry/op_path.md) | `path`型に変換する | C++17 |
 | [`exists`](directory_entry/exists.md.nolink) | パスが存在するか確認する | C++17 |
 | [`file_size`](directory_entry/file_size.md.nolink) | ファイルサイズを取得する | C++17 |
 | [`hard_link_count`](directory_entry/hard_link_count.md.nolink) | ハードリンク数を取得する | C++17 |
@@ -92,7 +92,7 @@ int main()
 * fs::directory_entry[color ff0000]
 * fs::create_directory[link create_directory.md]
 * fs::directory_iterator[link directory_iterator.md]
-* x.path()[link directory_entry/path.md.nolink]
+* x.path()[link directory_entry/path.md]
 
 ### 出力例
 ```
