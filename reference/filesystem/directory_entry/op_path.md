@@ -41,8 +41,8 @@ int main()
   }
 }
 ```
-* fs::create_directory[link create_directory.md]
-* fs::directory_iterator[link directory_iterator.md]
+* fs::create_directory[link /reference/filesystem/create_directory.md]
+* fs::directory_iterator[link /reference/filesystem/directory_iterator.md]
 
 ### 出力例
 ```
