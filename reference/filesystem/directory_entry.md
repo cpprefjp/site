@@ -71,10 +71,32 @@ namespace std::filesystem {
 
 ## 例
 ```cpp example
-```
+#include <iostream>
+#include <filesystem>
+#include <fstream>
 
-### 出力
+namespace fs = std::filesystem;
+
+int main()
+{
+  fs::create_directory("dir");
+  fs::create_directory("dir/inner_dir");
+  std::ofstream{"dir/a.txt"};
+
+  // dirディレクトリ内のファイルを列挙する
+  for (const fs::directory_entry& x : fs::directory_iterator("dir")) {
+    std::cout << x.path() << std::endl;
+  }
+}
 ```
+* fs::directory_entry[color ff0000]
+* fs::create_directory[link create_directory.md]
+* x.path()[link directory_entry/path.md.nolink]
+
+### 出力例
+```
+"dir/inner_dir"
+"dir/a.txt"
 ```
 
 ## バージョン
