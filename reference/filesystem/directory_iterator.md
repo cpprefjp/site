@@ -15,6 +15,8 @@ namespace std::filesystem {
 
 このイテレータは、指定されたディレクトリ内のファイルを走査するが、ディレクトリ内のディレクトリをさらに走査はしない。再帰的にディレクトリを走査する場合は、[`std::filesystem::recursive_directory_iterator`](recursive_directory_iterator.md.nolink)クラスを使用する。
 
+ファイルの走査順序は未規定であり、ファイル名の辞書順に走査される保証はない。
+
 
 ## メンバ関数
 
