@@ -58,7 +58,7 @@ int main()
 }
 ```
 * std::wcout[color ff0000]
-* imbue[link /reference/streambuf/imbue.md]
+* imbue[link /reference/ios/basic_ios/imbue.md]
 
 のようにして設定しないと何も表示されない。
 
@@ -89,7 +89,7 @@ int main()
 }
 ```
 * std::wcout[color ff0000]
-* imbue[link /reference/streambuf/imbue.md]
+* imbue[link /reference/ios/basic_ios/imbue.md]
 
 このように求める結果を得るためのlocaleの設定は処理系によって大きく異なる。
 
