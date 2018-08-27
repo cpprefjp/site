@@ -24,20 +24,22 @@ iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);        
 引数 `k` と同等のキーを持つ要素が存在しない場合、コンテナに新しい要素を挿入する。要素は引数からコンテナ内に直接構築されるため、構築されたオブジェクトはコピーもムーブもされない。  
 なお、本メンバ関数は [`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) 等と異なり、引数 `k` と同等のキーを持つ要素が既に存在する場合には、`k` や `args` がムーブされてしまうことはない。
 
+引数 `hint` は、`k` を検索する際のヒントに使用される。
+
 
 ## 要件
 - (1)、(3) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から `map` に [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) であること。
-- (2)、(4) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`move`](/reference/utility/move.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から `map` に [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) であること。
+- (2)、(4) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から `map` に [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) であること。
+
+なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な読み取り専用イテレータである必要があるものと思われる。
 
 
 ## 効果
 - (1)、(3) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
-- (2)、(4) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`move`](/reference/utility/move.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (2)、(4) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
 
 
 ## 戻り値
-挿入されたかどうかを示す `bool` と、挿入された要素へのイテレータからなる `pair` を返す。挿入されなかったときは、既存要素へのイテレータを返す。
-
 - (1)、(2) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
     - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
     - 挿入されなかった場合には、`first` に `k` と同等のキーを持つ既存の要素へのイテレータ、`second` に `false` が設定される。
