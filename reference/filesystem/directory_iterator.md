@@ -13,7 +13,7 @@ namespace std::filesystem {
 ## 概要
 `directory_iterator`は、ディレクトリ内を走査する入力イテレータクラスである。
 
-このイテレータは、指定されたディレクトリ内のファイルを操作するが、ディレクトリ内のディレクトリは読み飛ばす。再帰的にディレクトリを走査する場合は、[`std::filesystem::recursive_directory_iterator`](recursive_directory_iterator.md.nolink)クラスを使用する。
+このイテレータは、指定されたディレクトリ内のファイルを走査するが、ディレクトリ内のディレクトリをさらに走査はしない。再帰的にディレクトリを走査する場合は、[`std::filesystem::recursive_directory_iterator`](recursive_directory_iterator.md.nolink)クラスを使用する。
 
 
 ## メンバ関数
