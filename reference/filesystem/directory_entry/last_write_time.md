@@ -9,6 +9,7 @@
 file_time_type last_write_time() const;                             // (1)
 file_time_type last_write_time(std::error_code& ec) const noexcept; // (2)
 ```
+* file_time_type[link /reference/filesystem/file_time_type.md]
 
 ## 概要
 最終更新日時を取得する。
@@ -22,7 +23,7 @@ file_time_type last_write_time(std::error_code& ec) const noexcept; // (2)
 
 
 ## 例外
-- (1) : [`std::filesystem::last_write_time()`](/reference/filesystem/last_write_time.md)`関数が例外を送出する可能性がある
+- (1) : [`std::filesystem::last_write_time()`](/reference/filesystem/last_write_time.md)関数が例外を送出する可能性がある
 - (2) : 投げない
 
 
@@ -64,8 +65,8 @@ int main()
 * x.path()[link path.md]
 * fs::create_directory[link /reference/filesystem/create_directory.md]
 * fs::directory_iterator[link /reference/filesystem/directory_iterator.md]
-* fs::file_time_type[link file_time_type.md]
-* fs::create_directory[link create_directory.md]
+* fs::file_time_type[link /reference/filesystem/file_time_type.md]
+* fs::create_directory[link /reference/filesystem/create_directory.md]
 * chrono::duration_cast[link /reference/chrono/duration_cast.md]
 * chrono::seconds[link /reference/chrono/seconds.md]
 * tp.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
