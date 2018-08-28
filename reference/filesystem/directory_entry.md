@@ -52,7 +52,7 @@ namespace std::filesystem {
 | [`is_fifo`](directory_entry/is_fifo.md.nolink) | FIFOまたはパイプを指しているか確認する | C++17 |
 | [`is_socket`](directory_entry/is_socket.md.nolink) | ソケットを指しているか確認する | C++17 |
 | [`is_other`](directory_entry/is_other.md.nolink) | パスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する | C++17 |
-| [`last_write_time`](directory_entry/last_write_time.md.nolink) | 最終更新日時を取得する | C++17 |
+| [`last_write_time`](directory_entry/last_write_time.md) | 最終更新日時を取得する | C++17 |
 | [`status`](directory_entry/status.md.nolink) | ファイル状態を取得する | C++17 |
 | [`symlink_status`](directory_entry/symlink_status.md.nolink) | シンボリックリンクの状態を取得する | C++17 |
 
