@@ -41,20 +41,20 @@ namespace std::filesystem {
 |------|------|-------|
 | [`path`](directory_entry/path.md) | パスを取得する | C++17 |
 | [`operator path`](directory_entry/op_path.md) | `path`型に変換する | C++17 |
-| [`exists`](directory_entry/exists.md.nolink) | パスが存在するか確認する | C++17 |
-| [`file_size`](directory_entry/file_size.md.nolink) | ファイルサイズを取得する | C++17 |
-| [`hard_link_count`](directory_entry/hard_link_count.md.nolink) | ハードリンク数を取得する | C++17 |
-| [`is_regular_file`](directory_entry/is_regular_file.md.nolink) | 通常ファイルを指しているか確認する | C++17 |
-| [`is_directory`](directory_entry/is_directory.md.nolink) | ディレクトリを指しているか確認する | C++17 |
-| [`is_symlink`](directory_entry/is_symlink.md.nolink) | シンボリックリンクを指しているか確認する | C++17 |
-| [`is_block_file`](directory_entry/is_block_file.md.nolink) | ブロックデバイスのスペシャルファイルを指しているか確認する | C++17 |
-| [`is_character_file`](directory_entry/is_character_file.md.nolink) | キャラクタデバイスのスペシャルファイル指しているか確認する | C++17 |
-| [`is_fifo`](directory_entry/is_fifo.md.nolink) | FIFOまたはパイプを指しているか確認する | C++17 |
-| [`is_socket`](directory_entry/is_socket.md.nolink) | ソケットを指しているか確認する | C++17 |
-| [`is_other`](directory_entry/is_other.md.nolink) | パスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する | C++17 |
+| [`exists`](directory_entry/exists.md) | パスが存在するか確認する | C++17 |
+| [`file_size`](directory_entry/file_size.md) | ファイルサイズを取得する | C++17 |
+| [`hard_link_count`](directory_entry/hard_link_count.md) | ハードリンク数を取得する | C++17 |
+| [`is_regular_file`](directory_entry/is_regular_file.md) | 通常ファイルを指しているか確認する | C++17 |
+| [`is_directory`](directory_entry/is_directory.md) | ディレクトリを指しているか確認する | C++17 |
+| [`is_symlink`](directory_entry/is_symlink.md) | シンボリックリンクを指しているか確認する | C++17 |
+| [`is_block_file`](directory_entry/is_block_file.md) | ブロックデバイスのスペシャルファイルを指しているか確認する | C++17 |
+| [`is_character_file`](directory_entry/is_character_file.md) | キャラクタデバイスのスペシャルファイル指しているか確認する | C++17 |
+| [`is_fifo`](directory_entry/is_fifo.md) | FIFOまたはパイプを指しているか確認する | C++17 |
+| [`is_socket`](directory_entry/is_socket.md) | ソケットを指しているか確認する | C++17 |
+| [`is_other`](directory_entry/is_other.m) | パスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する | C++17 |
 | [`last_write_time`](directory_entry/last_write_time.md) | 最終更新日時を取得する | C++17 |
-| [`status`](directory_entry/status.md.nolink) | ファイル状態を取得する | C++17 |
-| [`symlink_status`](directory_entry/symlink_status.md.nolink) | シンボリックリンクの状態を取得する | C++17 |
+| [`status`](directory_entry/status.md) | ファイル状態を取得する | C++17 |
+| [`symlink_status`](directory_entry/symlink_status.md) | シンボリックリンクの状態を取得する | C++17 |
 
 
 ### 比較演算子
