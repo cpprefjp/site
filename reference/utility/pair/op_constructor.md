@@ -60,7 +60,9 @@ pair(piecewise_construct_t,
 
 
 ## 注記
-- (5) : (C++14まで) `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+- (5) :
+    - (C++14まで) `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+    - (C++17から) `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、このコンストラクタは`explicit`になる
 - (6) : `const U&`が`first_type`に暗黙変換可能でない場合、もしくは`const V&`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
 - (7) : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
 - (8) : `is_constructible<first_type, Args1&&...>::value && is_constructible<second_type, Args2&&...>::value`であること
