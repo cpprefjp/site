@@ -24,7 +24,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_transparent_operators`            | `201510` | [`std::owner_less`](/reference/memory/owner_less.md) の柔軟性向上 | [`<functional>`](/reference/functional.md), [`<memory>`](/reference/memory.md) |
 | `__cpp_lib_type_trait_variable_templates`    | `201510` | 型トレイト変数テンプレート (`some_trait_v<T> = some_trait<T>::value`) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_uncaught_exceptions`              | `201411` | [`std::uncaught_exceptions`](/reference/exception/uncaught_exceptions.md.nolink) | [`<exception>`](/reference/exception.md) |
-| `__cpp_lib_unordered_map_try_emplace`        | `201411` | [`std::unordered_map::try_emplace`](/reference/unordered_map/unordered_map/try_emplace.md.nolink) | [`<unordered_map>`](/reference/unordered_map.md) |
+| `__cpp_lib_unordered_map_try_emplace`        | `201411` | [`std::unordered_map::try_emplace`](/reference/unordered_map/unordered_map/try_emplace.md) | [`<unordered_map>`](/reference/unordered_map.md) |
 | `__cpp_lib_void_t`                           | `201411` | [`std::void_t`](/reference/type_traits/void_t.md.nolink) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_namespace_attributes`                 | `201411` | [名前空間への属性付加を許可](attributes_for_namespaces_and_enumerators.md) | predefined |
 | `__cpp_nested_namespace_definitions`         | `201411` | [入れ子名前空間の定義](nested_namespace.md) | predefined |
