@@ -31,7 +31,7 @@ namespace std::filesystem {
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
 | [`assign`](directory_entry/assign.md.nolink) | 再代入 | C++17 |
-| [`replace_filename`](directory_entry/replace_filename.md.nolink) | ファイル名を置き換える | C++17 |
+| [`replace_filename`](directory_entry/replace_filename.md) | ファイル名を置き換える | C++17 |
 | [`refresh`](directory_entry/refresh.md) | キャッシュを更新する | C++17 |
 
 
