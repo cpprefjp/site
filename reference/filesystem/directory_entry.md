@@ -21,16 +21,16 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`(constructor)`](directory_entry/op_constructor.md.nolink) | コンストラクタ | C++17 |
-| `~directory_entry();`                                | デストラクタ | C++17 |
-| [`operator=`](directory_entry/op_assign.md.nolink)          | 代入演算子 | C++17 |
+| [`(constructor)`](directory_entry/op_constructor.md) | コンストラクタ | C++17 |
+| `~directory_entry();` | デストラクタ | C++17 |
+| `directory_entry& operator=(const directory_entry&) = default;`<br/> `directory_entry& operator=(directory_entry&&) noexcept = default;` | 代入演算子 | C++17 |
 
 
 ### 変更
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`assign`](directory_entry/assign.md.nolink) | 再代入 | C++17 |
+| [`assign`](directory_entry/assign.md) | パスを再代入する | C++17 |
 | [`replace_filename`](directory_entry/replace_filename.md) | ファイル名を置き換える | C++17 |
 | [`refresh`](directory_entry/refresh.md) | キャッシュを更新する | C++17 |
 
