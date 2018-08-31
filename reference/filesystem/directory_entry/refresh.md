@@ -21,7 +21,7 @@ void refresh(std::error_code& ec) noexcept; // (2)
 
 
 ## 例外
-- (1) : ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (1) : ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、[`std::filesystem::filesystem_error`](/reference/filesystem/filesystem_error.md)例外を送出する
 - (2) : 投げない
 
 
