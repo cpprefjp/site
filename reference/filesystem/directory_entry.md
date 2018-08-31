@@ -32,7 +32,7 @@ namespace std::filesystem {
 |------|------|-------|
 | [`assign`](directory_entry/assign.md.nolink) | 再代入 | C++17 |
 | [`replace_filename`](directory_entry/replace_filename.md.nolink) | ファイル名を置き換える | C++17 |
-| [`refresh`](directory_entry/refresh.md.nolink) | キャッシュを更新する | C++17 |
+| [`refresh`](directory_entry/refresh.md) | キャッシュを更新する | C++17 |
 
 
 ### 観測
