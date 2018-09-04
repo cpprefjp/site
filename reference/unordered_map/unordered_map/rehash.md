@@ -37,7 +37,7 @@ void rehash(size_type n);
 	- 要素へのポインタや参照は無効に**ならない**。
 - 現在のバケット数が `n` 以上の場合の動作は、標準では特に規定されていない。
 - 事後条件の前半は、C++14 までは等号が入っていなかったため、最大負荷率の定義と不整合だった。  
-	C++17 では、規格の誤りとして等号が入る形に変更されたが、。
+	これは規格の誤りとして C++17 で修正されたが、使用する処理系やそのバージョンによっては以前の等号が入らない形で実装されている可能性があるため、注意が必要である。
 
 
 ## 例
@@ -68,8 +68,8 @@ int main()
 
   std::cout << "new max_load_factor: " << um.max_load_factor() << std::endl;
   std::cout << "new size: " << um.size() << std::endl;
-  std::cout << "new bucket_count: " << m.bucket_count() << std::endl;
-  std::cout << "new load_factor: " << m.load_factor() << std::endl;
+  std::cout << "new bucket_count: " << um.bucket_count() << std::endl;
+  std::cout << "new load_factor: " << um.load_factor() << std::endl;
 }
 ```
 * rehash[color ff0000]
