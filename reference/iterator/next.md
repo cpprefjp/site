@@ -8,17 +8,17 @@
 namespace std {
   template <class ForwardIterator>
   ForwardIterator next(ForwardIterator x,
-                       typename std::iterator_traits<ForwardIterator>::difference_type n = 1); // C++11
+                       typename std::iterator_traits<ForwardIterator>::difference_type n = 1);  // C++11 から C++14 まで
 
   template <class InputIterator>
-  InputIterator next(InputIterator x,
-                     typename std::iterator_traits<InputIterator>::difference_type n = 1);     // C++17
+  constexpr InputIterator next(InputIterator x,
+                     typename std::iterator_traits<InputIterator>::difference_type n = 1);      // C++17 から
 }
 ```
 * iterator_traits[link iterator_traits.md]
 
 ## 概要
-`n`回進めたイテレータを返す。
+`n`回前方に進めたイテレータを返す。
 
 [`advance()`](/reference/iterator/advance.md)と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回進んだイテレータのコピーを返す。
 
@@ -28,11 +28,11 @@ namespace std {
 advance(x, n);
 return x;
 ```
-* advance[link /reference/iterator/advance.md]
+* advance[link advance.md]
 
 
 ## 戻り値
-引数として渡されたイテレータを`n`回進めたイテレータのコピー
+引数として渡されたイテレータを`n`回前方に進めたイテレータのコピー
 
 
 ## 例
@@ -74,8 +74,15 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+
+| 名前                      | 説明                              |
+|---------------------------|-----------------------------------|
+| [`prev()`](prev.md)       | `n`回後方に進めたイテレータを返す |
+| [`advance()`](advance.md) | `n`回イテレータを進める           |
+
+
 ## 参照
 - [boost::next() - Boost Utility Library](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#functions_next_prior)
 - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
 - [LWG Issue 2353. `std::next` is over-constrained](https://wg21.cmeerw.net/lwg/issue2353)
-- [`advance()`](/reference/iterator/advance.md)

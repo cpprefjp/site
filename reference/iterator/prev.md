@@ -8,16 +8,19 @@
 namespace std {
   template <class BidirectionalIterator>
   BidirectionalIterator prev(BidirectionalIterator x,
-                             typename std::iterator_traits<BidirectionalIterator>::difference_type n = 1);
+                             typename std::iterator_traits<BidirectionalIterator>::difference_type n = 1);  // C++11 から C++14 まで
+
+  template <class BidirectionalIterator>
+  constexpr BidirectionalIterator prev(BidirectionalIterator x,
+                             typename std::iterator_traits<BidirectionalIterator>::difference_type n = 1);  // C++17 から
 }
 ```
 * iterator_traits[link iterator_traits.md]
 
 ## 概要
-`n`回逆に進めたイテレータを返す。
+`n`回後方に進めたイテレータを返す。
 
-[`advance()`](/reference/iterator/advance.md)と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回逆に進んだイテレータのコピーを返す。
-
+[`advance()`](/reference/iterator/advance.md)と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回後方に進んだイテレータのコピーを返す。
 
 
 ## 効果
@@ -25,11 +28,11 @@ namespace std {
 advance(x, -n);
 return x;
 ```
-* advance[link /reference/iterator/advance.md]
+* advance[link advance.md]
 
 
 ## 戻り値
-引数として渡されたイテレータを`n`回逆に進めたイテレータのコピー
+引数として渡されたイテレータを`n`回後方に進めたイテレータのコピー
 
 
 ## 例
@@ -71,8 +74,15 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+
+| 名前                      | 説明                              |
+|---------------------------|-----------------------------------|
+| [`next()`](next.md)       | `n`回前方に進めたイテレータを返す |
+| [`advance()`](advance.md) | `n`回イテレータを進める           |
+
+
 ## 参照
 - [boost::prior() - Boost Utility Library](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#functions_next_prior)
 - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
-
-
+- [LWG Issue 2353. `std::next` is over-constrained](https://wg21.cmeerw.net/lwg/issue2353)
