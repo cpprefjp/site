@@ -10,9 +10,13 @@ void reserve(size_type n);
 ```
 
 ## 概要
-コンテナが、リハッシュされずに少なくとも引数 `n` で指定された要素数格納できるようにバケット数を調整（リハッシュ）する。  
-実際には 引数を `n /` [`max_load_factor`](max_load_factor.md)`()` にし [`rehash`](rehash.md)`()` を呼ぶ。  
+コンテナが、リハッシュされずに少なくとも引数 `n` で指定された要素数格納できるようにバケット数を調整（リハッシュ）する。
+
+
+## 効果
+引数を [`ceil`](/reference/cmath/ceil.md)`(n /` [`max_load_factor`](max_load_factor.md)`())` にした [`rehash`](rehash.md)`()` と同等である。  
 ( Visual C++ 2012の実装では `n /` [`max_load_factor`](max_load_factor.md)`() + 0.5f` で呼んでいる)
+
 
 ## 戻り値
 なし
@@ -27,9 +31,9 @@ void reserve(size_type n);
 
 
 ## 備考
-- C++11 : リハッシュされずに引数 `n` で指定された要素数が格納できるように意図されているはずが、 `n - 1` しか格納することができない場合がある（少なくとも、事後条件を満たすだけでは確実に `n` 要素を格納できる保証はない）。
-    - この問題については、Issue 「[2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)」を参照。
-- C++17 : リハッシュされずに引数 `n` で指定された要素数以上が格納できるようになる。
+- C++14 までの規格の記載では、要素挿入時のリハッシュ条件に誤りがあったため、効果に記載の処理内容では `n - 1` 要素しか格納することができない場合があった。  
+	C++17 でリハッシュ条件が修正され、確実に `n` 要素格納できるようになったが、処理系によっては現在でも `n - 1` 要素しか格納できない可能性があるため、注意が必要である。  
+	下記のバージョンの記載も参照のこと。
 - リハッシュされる条件については、[`insert`](insert.md)`()`、[`emplace`](emplace.md)`()`、[`emplace_hint`](emplace_hint.md)`()` も参照。
 - リハッシュが行われた場合、
     - 全てのイテレータが無効になる。
@@ -103,11 +107,16 @@ new load_factor: 0.25
 
 ### 処理系
 - [Clang](/implementation.md#clang): -
-- [Clang, C++11 mode](/implementation.md#clang): ??
+- [Clang, C++11 mode](/implementation.md#clang): 3.2
 - [GCC](/implementation.md#gcc): -
-- [GCC, C++11 mode](/implementation.md#gcc): ??
+- [GCC, C++11 mode](/implementation.md#gcc): 4.5.4
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2012
+
+### 備考
+- Clang 3.3 以降は C++17 モードでなくても C++17 の条件でのリハッシュとなっている。
+- GCC は 8.2.0 時点でまだ C++17 の条件でのリハッシュとなっていない。また、バージョンによってリハッシュ条件が微妙に異なるため注意。
+
 
 ## 関連項目
 
@@ -122,3 +131,5 @@ new load_factor: 0.25
 | [`emplace`](emplace.md)                 | コンテナ内への要素の直接構築 |
 | [`emplace_hint`](emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
 
+## 参照
+- [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)

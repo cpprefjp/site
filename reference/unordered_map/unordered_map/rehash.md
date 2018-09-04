@@ -14,7 +14,7 @@ void rehash(size_type n);
 
 
 ## 事後条件
-[`bucket_count`](bucket_count.md)`() >` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` かつ、[`bucket_count`](bucket_count.md)`() >= n`。
+[`bucket_count`](bucket_count.md)`() >=` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` かつ、[`bucket_count`](bucket_count.md)`() >= n`。
 
 
 ## 戻り値
@@ -36,7 +36,8 @@ void rehash(size_type n);
 	- 要素の格納されているバケットが変更になる。
 	- 要素へのポインタや参照は無効に**ならない**。
 - 現在のバケット数が `n` 以上の場合の動作は、標準では特に規定されていない。
-- 標準では、事後条件が [`bucket_count`](bucket_count.md)`() >` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` となっている（等号がない）が、[`load_factor`](load_factor.md)`()`（`=` [`size`](size.md)`() /` [`bucket_count`](bucket_count.md)`()`）の条件は [`max_load_factor`](max_load_factor.md)`() >=` [`load_factor`](load_factor.md)`()` である（等号がある）ため、[`bucket_count`](bucket_count.md)`() >=` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` の（等号がある）方が適切であると思われる。
+- 事後条件の前半は、C++14 までは等号が入っていなかったため、最大負荷率の定義と不整合だった。  
+	C++17 では、規格の誤りとして等号が入る形に変更されたが、。
 
 
 ## 例
@@ -103,11 +104,16 @@ new load_factor: 0.125
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [Clang, C++11 mode](/implementation.md#clang): ??
+- [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): ??
-- [GCC, C++11 mode](/implementation.md#gcc): ??
+- [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2012
+
+### 備考
+- Clang 3.3 以降は C++17 モードでなくても C++17 の条件でのリハッシュとなっている。
+- GCC は 8.2.0 時点でまだ C++17 の条件でのリハッシュとなっていない。また、バージョンによってリハッシュ条件が微妙に異なるため注意。
+
 
 ## 関連項目
 
@@ -119,3 +125,6 @@ new load_factor: 0.125
 | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整 |
 
+
+## 参照
+- [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
