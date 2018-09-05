@@ -28,7 +28,7 @@
 | [`perms`](filesystem/perms.md) | 権限を表す列挙型 (enum) | C++17 |
 | [`perm_options`](filesystem/perm_options.md) | 権限オプションを表す列挙型 (enum) | C++17 |
 | [`copy_options`](filesystem/copy_options.md) | コピーオプションを表す列挙型 (enum) | C++17 |
-| [`directory_options`](filesystem/directory_options.md.nolink) | ディレクトリオプションを表す列挙型 (enum) | C++17 |
+| [`directory_options`](filesystem/directory_options.md) | ディレクトリオプションを表す列挙型 (enum) | C++17 |
 | [`file_time_type`](filesystem/file_time_type.md) | ファイル情報で使用する時間の型 (type alias) | C++17 |
 
 
