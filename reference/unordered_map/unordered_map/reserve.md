@@ -50,29 +50,28 @@ void reserve(size_type n);
 
 int main()
 {
-  std::unordered_map<int,int> m;
+  std::unordered_map<int, int> um;
 
-  m.emplace( 0, 0 );
-  m.emplace( 1, 1 );
-  m.emplace( 2, 2 );
-  m.emplace( 3, 3 );
+  um.max_load_factor(2.0F);
 
-  m.max_load_factor( 2.0f );
+  um.emplace(0, 0);
+  um.emplace(1, 1);
+  um.emplace(2, 2);
+  um.emplace(3, 3);
 
-  std::cout << "current max_load_factor: " << m.max_load_factor() << std::endl;
-  std::cout << "current size: " << m.size() << std::endl;
-  std::cout << "current bucket_count: " << m.bucket_count() << std::endl;
-  std::cout << "current load_factor: " << m.load_factor() << std::endl;
-  std::cout << std::endl;
+  std::cout << "current max_load_factor: " << um.max_load_factor() << '\n';
+  std::cout << "current size: " << um.size() << '\n';
+  std::cout << "current bucket_count: " << um.bucket_count() << '\n';
+  std::cout << "current load_factor: " << um.load_factor() << '\n';
+  std::cout << '\n';
 
-  m.reserve(20);
-  std::cout << "m.reserve(20)" << std::endl;
-  std::cout << std::endl;
+  um.reserve(22);
+  std::cout << "um.reserve(22)\n\n";
 
-  std::cout << "new max_load_factor: " << m.max_load_factor() << std::endl;
-  std::cout << "new size: " << m.size() << std::endl;
-  std::cout << "new bucket_count: " << m.bucket_count() << std::endl;
-  std::cout << "new load_factor: " << m.load_factor() << std::endl;
+  std::cout << "new max_load_factor: " << um.max_load_factor() << '\n';
+  std::cout << "new size: " << um.size() << '\n';
+  std::cout << "new bucket_count: " << um.bucket_count() << '\n';
+  std::cout << "new load_factor: " << um.load_factor() << '\n';
 }
 ```
 * reserve[color ff0000]
@@ -86,20 +85,20 @@ int main()
 ```
 current max_load_factor: 2
 current size: 4
-current bucket_count: 8
-current load_factor: 0.5
+current bucket_count: 2
+current load_factor: 2
 
-m.reserve(20)
+um.reserve(22)
 
 new max_load_factor: 2
 new size: 4
-new bucket_count: 16
-new load_factor: 0.25
+new bucket_count: 11
+new load_factor: 0.363636
 ```
 
 ### 考察
-`reserve(20)` により  
-[`bucket_count`](bucket_count.md)`() > n /` [`max_load_factor`](max_load_factor.md)`()` を満たしている
+`reserve(22)` により  
+[`bucket_count`](bucket_count.md)`() >= n /` [`max_load_factor`](max_load_factor.md)`()` を満たしている
 
 ## バージョン
 ### 言語
