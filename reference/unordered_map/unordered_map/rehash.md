@@ -62,8 +62,8 @@ int main()
   std::cout << "current load_factor: " << um.load_factor() << '\n';
   std::cout << '\n';
 
-  um.rehash(20);
-  std::cout << "um.rehash(20)\n\n";
+  um.rehash(11);
+  std::cout << "um.rehash(11)\n\n";
 
   std::cout << "new max_load_factor: " << um.max_load_factor() << '\n';
   std::cout << "new size: " << um.size() << '\n';
