@@ -41,7 +41,7 @@ int main()
 
   fs::create_directory("dir_b");
   std::ofstream{"dir_b/b.txt"};
-  fs::create_directory_symlink("dir_a", "dir_b/dir_a");
+  fs::create_directory_symlink("../dir_a", "dir_b/dir_a");
 
   for (const fs::directory_entry& x : fs::recursive_directory_iterator(
                                         "dir_b",
@@ -72,7 +72,3 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC, C++17 mode](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp):
-
-#### 備考
-- GCC 8.2では、シンボリックリンクのディレクトリが走査されないバグがある ([Bug 87226](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=87226))
-- Clang 7.0では、シンボリックリンクのディレクトリを走査すると`std::errc::too_many_symbolic_link_levels`がエラーとして報告されるバグがある ([Bug 38837](https://bugs.llvm.org/show_bug.cgi?id=38837))
