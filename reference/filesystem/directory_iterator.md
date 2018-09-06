@@ -60,10 +60,35 @@ namespace std::filesystem {
 
 ## 例
 ```cpp example
-```
+#include <iostream>
+#include <filesystem>
+#include <fstream>
 
-### 出力
+namespace fs = std::filesystem;
+
+int main()
+{
+  fs::create_directory("dir_a");
+  std::ofstream{"dir_a/a.txt"};
+
+  fs::create_directory("dir_a/dir_b");
+  std::ofstream{"dir_a/dir_b/b.txt"};
+
+  // dir_aディレクトリ直下に含まれる全ファイルを出力
+  for (const fs::directory_entry& x : fs::directory_iterator("dir_a")) {
+    std::cout << x.path() << std::endl;
+  }
+}
 ```
+* fs::directory_iterator[color ff0000]
+* fs::directory_entry[link directory_entry.md]
+* x.path()[link directory_entry/path.md]
+* fs::create_directory[link create_directory.md]
+
+### 出力例
+```
+"dir_a/a.txt"
+"dir_a/dir_b"
 ```
 
 ## バージョン
@@ -71,7 +96,7 @@ namespace std::filesystem {
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang):
+- [Clang, C++17 mode](/implementation.md#clang): 7.0
 - [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp):
