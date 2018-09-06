@@ -43,6 +43,7 @@ int main()
   std::ofstream{"dir_b/b.txt"};
   fs::create_directory_symlink("../dir_a", "dir_b/dir_a");
 
+  // シンボリックリンクのディレクトリも走査する
   for (const fs::directory_entry& x : fs::recursive_directory_iterator(
                                         "dir_b",
                                         fs::directory_options::follow_directory_symlink)) {
@@ -69,6 +70,6 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang):
-- [GCC, C++17 mode](/implementation.md#gcc):
+- [Clang](/implementation.md#clang): 7.0
+- [GCC, C++17 mode](/implementation.md#gcc): 8.2
 - [Visual C++](/implementation.md#visual_cpp):
