@@ -22,7 +22,7 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`(constructor)`](directory_iterator/op_constructor.md.nolink) | コンストラクタ | C++17 |
+| [`(constructor)`](directory_iterator/op_constructor.md) | コンストラクタ | C++17 |
 | `~directory_iterator();`                                | デストラクタ | C++17 |
 | [`operator=`](directory_iterator/op_assign.md.nolink)          | 代入演算子 | C++17 |
 | [`operator*`](directory_iterator/op_deref.md.nolink)    | 間接参照演算子 | C++17 |
