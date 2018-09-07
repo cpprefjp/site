@@ -59,7 +59,7 @@ void print(Head&& head, Tail&&... tail)
   std::cout << head << std::endl;
 
   // パラメータパックtailをさらにheadとtailに分割する
-  print(std::move(tail)...);
+  print(std::forward<Tail>(tail)...);
 }
 
 int main()
@@ -67,7 +67,7 @@ int main()
   print(1, 'a', "hello");
 }
 ```
-* std::move[link /reference/utility/move.md]
+* std::forward[link /reference/utility/forward.md]
 
 出力：
 
