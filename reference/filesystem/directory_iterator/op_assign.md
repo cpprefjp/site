@@ -16,10 +16,10 @@ directory_iterator& operator=(directory_iterator&& rhs) noexcept; // (2)
 
 
 ## 効果
-`rhs`の所有権を`*this`に移動する。`rhs`と`*this`が同じオブジェクトである場合はなにもしない
+`rhs`と`*this`が同じオブジェクトである場合はなにもしない
 
-- (1) : `rhs`を`*this`にコピーする
-- (2) : `rhs`を`*this`にムーブする
+- (1) : `rhs`が保持するデータを`*this`にコピーする
+- (2) : `rhs`が保持するデータを`*this`にムーブする
 
 
 ## 戻り値
