@@ -17,6 +17,8 @@ directory_iterator operator++(int);
 ## 効果
 コンストラクタで指定された[`std::filesystem::directory_options`](/reference/filesystem/directory_options.md)の値に基づいて、次のファイルを指すようイテレータを進める。
 
+例外が発生した場合は、終端を指す状態になる。
+
 
 ## 戻り値
 - (1) : 進めたあとのイテレータ自身への参照を返す
