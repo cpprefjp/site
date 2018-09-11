@@ -47,8 +47,8 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`begin`](directory_iterator/begin_free.md.nolink) | 先頭要素へのイテレータを取得する | C++17 |
-| [`end`](directory_iterator/end_free.md.nolink) | 最後尾要素の次を指すイテレータを取得する | C++17 |
+| [`begin`](directory_iterator/begin_free.md) | 先頭要素へのイテレータを取得する | C++17 |
+| [`end`](directory_iterator/end_free.md)     | 最後尾要素の次を指すイテレータを取得する | C++17 |
 
 ### 比較演算子
 
