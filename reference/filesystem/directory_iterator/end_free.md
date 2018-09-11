@@ -48,7 +48,9 @@ int main()
 ```
 * fs::end[color ff0000]
 * fs::create_directory[link /reference/filesystem/create_directory.md]
-* fs::begin[link end_free.md]
+* fs::begin[link end_free.md
+* first->path()[link /reference/filesystem/directory_entry/path.md]
+
 
 ### 出力例
 ```
