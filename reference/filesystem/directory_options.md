@@ -54,7 +54,7 @@ int main()
 * fs::directory_options[color ff0000]
 * fs::create_directory[link create_directory.md]
 * fs::create_directory_symlink[link create_directory_symlink.md]
-* fs::recursive_directory_iterator[link recursive_directory_iterator.md.nolink]
+* fs::recursive_directory_iterator[link recursive_directory_iterator.md]
 * fs::directory_entry[link directory_entry.md]
 * x.path()[link directory_entry/path.md]
 
