@@ -27,6 +27,7 @@ namespace std {
   template <> struct hash<float>;
   template <> struct hash<double>;
   template <> struct hash<long double>;
+  template <> struct hash<nullptr_t>;  // C++17
   template<class T> struct hash<T*>;
 }
 ```
@@ -60,6 +61,7 @@ namespace std {
 | `long double`        | C++11          |
 | 全ての型へのポインタ | C++11          |
 | 全ての列挙型         | C++14          |
+| `nullptr_t`          | C++17          |
 
 
 ## メンバ関数
