@@ -1,7 +1,7 @@
 # swap (非メンバ関数)
 * mutex[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

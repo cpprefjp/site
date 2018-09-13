@@ -24,7 +24,7 @@ namespace std {
 エラー報告について、このクラスを使用しない場合、従来の方法として有効値と無効値は、以下のように表現されていた：
 
 - `int`型の場合、0以上の値を有効な値とし、エラーが起きたら負数を代入する
-- ポインタの場合、オブジェクトへのポインタを有効な値とし、どこも差さないヌルポインタを無効値として代入する
+- ポインタの場合、オブジェクトへのポインタを有効な値とし、どこも指さないヌルポインタを無効値として代入する
 
 このような有効値と無効値の表現は、変数単位もしくはAPI・ライブラリ単位での仕様である。`optional`クラスでは、[`nullopt`](nullopt_t.md)という特殊な定数を無効値とし、あらゆる型に共通の無効状態を持たせられるようになっている。
 
@@ -35,15 +35,14 @@ namespace std {
 型`T`が以下のいずれかに該当してはならない：
 
 - 参照型
-- CV修飾された型
-- [`std::in_place_t`](/reference/utility/in_place_t.md)
-- [`std::nullopt_t`](nullopt_t.md)
+- (CV修飾された)[`std::in_place_t`](/reference/utility/in_place_t.md)
+- (CV修飾された)[`std::nullopt_t`](nullopt_t.md)
 
 また、型`T`は[破棄可能](/reference/concepts/Destructible.md)であること。
 
 
 ## 備考
-このクラスの前身となった[Boost Optional Library](boost.org/libs/optional)では、`optional<int&>`のように左辺値参照を要素型とした場合に、無効値の領域を最適化する機能が入っていた。
+このクラスの前身となった[Boost Optional Library](https://boost.org/libs/optional)では、`optional<int&>`のように左辺値参照を要素型とした場合に、無効値の領域を最適化する機能が入っていた。
 
 標準ライブラリの`optional`クラスには現在、参照を持たせることはできない。
 

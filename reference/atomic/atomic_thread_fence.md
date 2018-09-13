@@ -1,7 +1,7 @@
 # atomic_thread_fence
 * atomic[meta header]
 * std[meta namespace]
-* function template[meta id-type]
+* function[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

@@ -58,7 +58,7 @@ map(initializer_list<value_type> init,
 - (7) アロケータ `alloc` を指定したコピーコンストラクタ。`x` の要素のコピーで `map` オブジェクトを構築する。
 - (8) ムーブコンストラクタ。`y` の要素をムーブすることで `map` オブジェクトを構築する。アロケータは `y` に属しているアロケータをムーブして取得する。（C++11 から）
 - (9) アロケータ `alloc` を指定したムーブコンストラクタ。`y` の要素をムーブすることで `map` オブジェクトを構築する。（C++11 から）
-- (10) 比較オブジェクト `comp`、アロケータ `alloc` 、および初期化リスト `init` の要素で `map` オブジェクトを構築する。`map(init.`[`begin`](../../initializer_list/begin.md)`(), init.`[`end`](../../initializer_list/end.md)`(), comp, alloc)` と同等。（C++11 から）
+- (10) 比較オブジェクト `comp`、アロケータ `alloc` 、および初期化リスト `init` の要素で `map` オブジェクトを構築する。`map(init.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), init.`[`end`](../../initializer_list/initializer_list/end.md)`(), comp, alloc)` と同等。（C++11 から）
 - (11) アロケータ `alloc` 、および初期化リスト `init` の要素で `map` オブジェクトを構築する。`map(init, Compare(), alloc)` と同等。（C++14 から）
 
 
@@ -103,7 +103,7 @@ map(initializer_list<value_type> init,
     ```
     * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
     * std::allocator[link ../../memory/allocator.md]
-    * ls.emplace_back[link ../../list/emplace_back.md]
+    * ls.emplace_back[link ../../list/list/emplace_back.md]
 
     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
     （`map(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `map` が構築され、`alloc` と共に (9) の形式に引き渡される）

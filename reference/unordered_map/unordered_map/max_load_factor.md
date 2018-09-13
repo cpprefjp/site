@@ -40,7 +40,7 @@ void max_load_factor(float z);          // (2)
 - `max_load_factor` の初期値は1.0 である。
 
 - `max_load_factor` はその名前の通り、[`load_factor`](load_factor.md) の最大値（上限）を定義する。  
-	従って、[`insert`](insert.md)、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md) で要素が追加された際、および、[`operator=`](op_assign.md) による [`initializer_list`](/reference/initializer_list.md) からの代入で要素数が増加した際には、[`load_factor`](load_factor.md) が `max_load_factor()` 以下になるように、必要に応じてバケット数が調整される。  
+	従って、[`insert`](insert.md)、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md) で要素が追加された際、および、[`operator=`](op_assign.md) による [`initializer_list`](/reference/initializer_list/initializer_list.md) からの代入で要素数が増加した際には、[`load_factor`](load_factor.md) が `max_load_factor()` 以下になるように、必要に応じてバケット数が調整される。  
 	なお、`min_load_factor` のようなものはないので、[`erase`](erase.md) で要素が削除された際にも、バケット数の調整は行われない。  
 	（標準では、[`erase`](erase.md) が呼び出された際に、削除された要素を指すイテレータ、および、参照以外は無効にならないと規定されているため、調整できないと思われる）
 

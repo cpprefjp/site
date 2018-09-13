@@ -1,7 +1,8 @@
 # operator<=
 * optional[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
+* cpp17[meta cpp]
 
 ```cpp
 namespace std {
@@ -34,7 +35,7 @@ namespace std {
 - (2) : `!x.`[`has_value()`](has_value.md)を返す
 - (3) : `true`を返す
 - (4) : `return x.`[`has_value()`](has_value.md) `? x.`[`value()`](value.md) `<= v : true;`
-- (5) : `return x.`[`has_value()`](has_value.md) `? v <= x.`[`value()`](value.md) `: false;`
+- (5) : `return y.`[`has_value()`](has_value.md) `? x <= y.`[`value()`](value.md) `: false;`
 
 
 ## 例

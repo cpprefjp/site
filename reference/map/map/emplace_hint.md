@@ -2,7 +2,7 @@
 * map[meta header]
 * std[meta namespace]
 * map[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
@@ -25,6 +25,10 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 
 ## 計算量
 一般にコンテナのサイズについて対数時間だが、新しい要素が `hint` の前に挿入された場合は償却定数時間。
+
+
+## 備考
+C++17 で導入された [`try_emplace`](try_emplace.md) と異なり、たとえ要素が挿入されなかった場合でも `value_type` 型のオブジェクトが構築される可能性があり、結果として引数 `args` が [`move`](/reference/utility/move.md) の対象となって変更されてしまっている可能性があるため、注意が必要である。
 
 
 ## 例
@@ -74,10 +78,12 @@ int main()
 
 ## 関連項目
 
-| 名前 | 説明 |
-|-----------------------------------------------------------------------------------------|-----------------------------|
-| [`map::emplace`](/reference/map/map/emplace.md) | 要素を直接構築する |
-| [`map::insert`](/reference/map/map/insert.md) | 要素を挿入する |
+| 名前                                           | 説明                                       |
+|------------------------------------------------|--------------------------------------------|
+| [`map::insert`](insert.md)                     | 要素を挿入する                             |
+| [`map::insert_or_assign`](insert_or_assign.md) | 要素を挿入、あるいは代入する               |
+| [`map::emplace`](emplace.md)                   | 要素を直接構築する                         |
+| [`map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
 
 
 ## 参照

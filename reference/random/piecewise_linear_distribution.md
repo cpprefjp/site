@@ -91,9 +91,9 @@ int main()
 }
 ```
 * std::piecewise_linear_distribution[color ff0000]
-* intervals.begin()[link /reference/array/begin.md]
-* intervals.end()[link /reference/array/end.md]
-* densities.begin()[link /reference/array/begin.md]
+* intervals.begin()[link /reference/array/array/begin.md]
+* intervals.end()[link /reference/array/array/end.md]
+* densities.begin()[link /reference/array/array/begin.md]
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
 * dist(engine)[link piecewise_linear_distribution/op_call.md]
 

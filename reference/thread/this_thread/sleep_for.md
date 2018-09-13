@@ -1,7 +1,7 @@
 # sleep_for
 * thread[meta header]
 * std::this_thread[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

@@ -16,7 +16,7 @@ void make_ready_at_thread_exit(ArgTypes... args);
 
 
 ## 効果
-メンバ変数として保持している関数オブジェクト`f`に対して[`INVOKE`](/reference/functional/invoke.md)`(f, args..., R)`によって関数呼び出しを行い、その戻り値を[`future`](../future.md)との共有状態に格納する。関数`f`の内部で例外が送出された場合は、共有状態に送出された例外が格納される。
+メンバ変数として保持している関数オブジェクト`f`に対して[`INVOKE`](/reference/concepts/Invoke.md)`(f, args..., R)`によって関数呼び出しを行い、その戻り値を[`future`](../future.md)との共有状態に格納する。関数`f`の内部で例外が送出された場合は、共有状態に送出された例外が格納される。
 
 現在のスレッドが終了し、スレッドローカル記憶域を持つ全てのオブジェクトを破棄したあと、準備完了状態([`future_status::ready`](../future_status.md))にする。
 

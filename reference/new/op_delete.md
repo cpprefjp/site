@@ -1,6 +1,7 @@
 # operator delete
 * new[meta header]
 * function[meta id-type]
+* [meta namespace]
 
 ```cpp
 void operator delete(void* ptr) throw();                                                // (1) C++03 まで

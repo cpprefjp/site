@@ -31,6 +31,8 @@ namespace std {
 
 全てのスカラ型のサイズが1である場合、バイト順に意味はないため`little`、`big`、`native`は同じ値を持つ。そうでなければ、`little`と`big`は異なる値を持つ。
 
+全てのスカラ型がビッグエンディアンである場合、`native == big`。全てのスカラ型がリトルエンディアンである場合、`native == little`。そのどちらでもなければ、`native`は`big`でも`little`でもない値となる (mixed endian、PDPエンディアン、ミドルエンディアンなどと呼ばれるエンディアン方式)。
+
 
 ## 例
 ```cpp example
@@ -42,13 +44,17 @@ int main()
   if (std::endian::native == std::endian::little) {
     std::cout << "実行環境はリトルエンディアンを使用する" << std::endl;
   }
-  else {
+  else if (std::endian::native == std::endian::big) {
     std::cout << "実行環境はビッグエンディアンを使用する" << std::endl;
+  }
+  else {
+    std::cout << "実行環境はリトルでもビッグでもないエンディアンを使用する" << std::endl;
   }
 }
 ```
 * std::endian::native[color ff0000]
 * std::endian::little[color ff0000]
+* std::endian::big[color ff0000]
 
 ### 出力例
 ```

@@ -1,8 +1,7 @@
 # inserter
 * iterator[meta header]
 * std[meta namespace]
-* insert_iterator[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 
 ```cpp
 namespace std {

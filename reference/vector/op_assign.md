@@ -9,7 +9,7 @@ vector& operator=(const vector& x);     // (1) C++03
 vector& operator=(vector&& x);          // (2) C++11
 vector& operator=(initializer_list<T>); // (3) C++11
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 - (1) : コピー代入
@@ -90,8 +90,8 @@ int main()
 }
 ```
 * std::move[link /reference/utility/move.md]
-* init.size()[link /reference/initializer_list/size.md]
-* init.begin()[link /reference/initializer_list/begin.md]
+* init.size()[link /reference/initializer_list/initializer_list/size.md]
+* init.begin()[link /reference/initializer_list/initializer_list/begin.md]
 * std::equal[link /reference/algorithm/equal.md]
 
 ### 出力

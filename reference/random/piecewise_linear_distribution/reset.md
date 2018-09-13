@@ -51,9 +51,9 @@ int main()
 }
 ```
 * reset()[color ff0000]
-* intervals.begin()[link /reference/array/begin.md]
-* intervals.end()[link /reference/array/end.md]
-* densities.begin()[link /reference/array/begin.md]
+* intervals.begin()[link /reference/array/array/begin.md]
+* intervals.end()[link /reference/array/array/end.md]
+* densities.begin()[link /reference/array/array/begin.md]
 
 ### 出力例
 ```

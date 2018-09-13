@@ -1,8 +1,7 @@
 # front_inserter
 * iterator[meta header]
 * std[meta namespace]
-* front_insert_iterator[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 
 ```cpp
 namespace std {
@@ -44,9 +43,9 @@ int main()
 }
 ```
 * std::front_inserter[color ff0000]
-* std::deque[link /reference/deque.md]
-* src.begin()[link /reference/deque/begin.md]
-* src.end()[link /reference/deque/end.md]
+* std::deque[link /reference/deque/deque.md]
+* src.begin()[link /reference/deque/deque/begin.md]
+* src.end()[link /reference/deque/deque/end.md]
 
 ### 出力
 ```

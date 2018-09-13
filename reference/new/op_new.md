@@ -1,6 +1,7 @@
 # operator new
 * new[meta header]
 * function[meta id-type]
+* [meta namespace]
 
 ```cpp
 void* operator new(std::size_t size) throw(std::bad_alloc);             // (1) C++03 まで

@@ -1,7 +1,7 @@
 # operator>
 * memory[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
@@ -69,4 +69,4 @@ false
 - [Clang libc++, C++11 mode](/implementation.md#clang): 3.0 (`nullptr`バージョン以外), 3.3
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
-	- Visual C++ 2012までは`nullptr`バージョンがない。
+	- 2012までは`nullptr`バージョンがない。

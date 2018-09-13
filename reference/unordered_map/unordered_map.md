@@ -85,14 +85,16 @@ namespace std {
 
 ### コンテナの変更
 
-| 名前 | 説明 | 対応バージョン |
-|------|------|----------------|
-| [`emplace`](unordered_map/emplace.md)           | コンテナ内への要素の直接構築                           | C++11 |
-| [`emplace_hint`](unordered_map/emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 | C++11 |
-| [`insert`](unordered_map/insert.md)             | 要素の追加                                             | C++11 |
-| [`erase`](unordered_map/erase.md)               | 要素の削除                                             | C++11 |
-| [`clear`](unordered_map/clear.md)               | 全要素の削除                                           | C++11 |
-| [`swap`](unordered_map/swap.md)                 | 内容の交換                                             | C++11 |
+| 名前                                                    | 説明                                                   | 対応バージョン |
+|---------------------------------------------------------|--------------------------------------------------------|----------------|
+| [`emplace`](unordered_map/emplace.md)                   | コンテナ内への要素の直接構築                           | C++11          |
+| [`emplace_hint`](unordered_map/emplace_hint.md)         | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 | C++11          |
+| [`try_emplace`](unordered_map/try_emplace.md)           | キーが存在しない場合のみコンテナ内への要素の直接構築   | C++11          |
+| [`insert`](unordered_map/insert.md)                     | 要素の追加                                             | C++11          |
+| [`insert_or_assign`](unordered_map/insert_or_assign.md) | 要素の追加、あるいは代入                               | C++17          |
+| [`erase`](unordered_map/erase.md)                       | 要素の削除                                             | C++11          |
+| [`clear`](unordered_map/clear.md)                       | 全要素の削除                                           | C++11          |
+| [`swap`](unordered_map/swap.md)                         | 内容の交換                                             | C++11          |
 
 
 ### オブザーバー

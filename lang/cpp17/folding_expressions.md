@@ -224,7 +224,7 @@ auto res =  (std::string(args) + ...);
 ルールが多い割に利点があまりないため採用されなかった。
 
 
-### `~`
+### ビット反転演算子 `~`
 
 `~` も畳み込み式の演算子として
 [N4191](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4191.html),
@@ -233,8 +233,8 @@ auto res =  (std::string(args) + ...);
 
 
 ## 関連項目
-
-* [`std::accumulate`](/reference/numeric/accumulate.md) — イテレータの範囲について累積的に二項演算を行う
+- [C++11 可変引数テンプレート](/lang/cpp11/variadic_templates.md)
+- [`std::accumulate`](/reference/numeric/accumulate.md) — イテレータの範囲について累積的に二項演算を行う
 
 
 ## 参照

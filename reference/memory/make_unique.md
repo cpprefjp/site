@@ -1,7 +1,7 @@
 # make_unique
 * memory[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp14[meta cpp]
 
 ```cpp
@@ -85,3 +85,6 @@ int main()
 - [N3588 make_unique](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3588.htm)
 - [N3656 make_unique (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3656.htm)
 
+## 関連項目
+
+- [`std::shared_ptr`の推論補助](/reference/memory/shared_ptr/op_deduction_guide.md)

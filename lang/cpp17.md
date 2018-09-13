@@ -19,6 +19,8 @@ C++17では以下のTSが採用された：
 | Filesystem TS | ファイルシステムのライブラリ |
 | Parallelism TS | 並列ライブラリ。`<algorithm>`や`<numeric>`に並列アルゴリズムが追加される |
 
+C++17以降、言語の策定にship train modelというリリース体制が設けられた。これは、3年ごとの定期的な言語アップデートを提供するために、「仕様が完成したらリリース」ではなく「完成した仕様から順次リリースに含める」という体制である。これにより、メジャーアップデート／マイナーアップデートというバージョンアップはなくなった。
+
 
 ## 言語機能
 ### 変数・データ構造関係
@@ -154,15 +156,15 @@ C++17では以下のTSが採用された：
 ### コンテナ
 - コンテナのコピー・ムーブ、`swap`操作に`noexcept`を追加
 - コンテナの要素情報にアクセスする非メンバ関数として、[`<iterator>`](/reference/iterator.md)に [`size()`](/reference/iterator/size.md), [`empty()`](/reference/iterator/empty.md), [`data()`](/reference/iterator/data.md)関数を追加
-- コンテナに不完全型の最小サポートを追加。[`vector`](/reference/vector.md), [`list`](/reference/list.md), [`forward_list`](/reference/forward_list.md)の要素型に、不完全型の指定を許可。ただし、これらのコンテナのなんらかのメンバ関数を呼び出す前には、要素型が完全型になっていること
+- コンテナに不完全型の最小サポートを追加。[`vector`](/reference/vector.md), [`list`](/reference/list/list.md), [`forward_list`](/reference/forward_list/forward_list.md)の要素型に、不完全型の指定を許可。ただし、これらのコンテナのなんらかのメンバ関数を呼び出す前には、要素型が完全型になっていること
 - 多相アロケータとメモリプール。[`<memory_resource>`](/reference/memory_resource.md.nolink)が新設され、アロケートする型を規定しないアロケータと、それを利用したメモリプールの仕組みが導入される
-- 標準イテレータ全般と[`array`](/reference/array.md)の変更操作に`constexpr`を追加
+- 標準イテレータ全般と[`array`](/reference/array/array.md)の変更操作に`constexpr`を追加
 - `emplace_front()`と`emplace_back()`メンバ関数で、追加された要素を返すようにする
 - 連想コンテナの接合機能を追加。ほかのコンテナに要素を移すために抽出する`extract()`メンバ関数、抽出された要素をほかのコンテナに移すための`insert()`メンバ関数のオーバーロード、2つの連想コンテナをまるごと接合する`merge()`メンバ関数を追加
 - `map`と`unordered_map`に、挿入失敗時の動作を規定した新たなメンバ関数として、`try_emplace()`と`insert_or_assign()`を追加
 - イテレータの分類に「隣接イテレータ (contiguous iterator)」を追加。要素間のメモリが隣接していることを表す。以下のコンテナのイテレータは、隣接イテレータであることが規定される：
     - [`basic_string`](/reference/string/basic_string.md)
-    - [`array`](/reference/array.md)
+    - [`array`](/reference/array/array.md)
     - `bool`以外を要素型とする[`vector`](/reference/vector.md)
     - [`valarray`](/reference/valarray/valarray.md) (の非メンバ関数である[`std::begin()`](/reference/valarray/valarray/begin_free.md)、[`std::end()`](/reference/valarray/valarray/end_free.md)で返されるイテレータは隣接イテレータ)
 
@@ -171,7 +173,7 @@ C++17では以下のTSが採用された：
 - ランダムサンプリングアルゴリズムとして、[`sample()`](/reference/algorithm/sample.md)を追加
 - 値を範囲内に収める[`clamp()`](/reference/algorithm/clamp.md)関数を追加
 - `bool`を返す関数オブジェクトの結果を反転させる[`not_fn()`](/reference/functional/not_fn.md)関数を追加
-- INVOKEコンセプトに従った関数呼び出しをする[`invoke()`](/reference/functional/invoke.md.nolink)関数を追加
+- [*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しをする[`invoke()`](/reference/functional/invoke.md.nolink)関数を追加
 - [`reference_wrapper`](/reference/functional/reference_wrapper.md)がTriviallyCopyableであることを保証
 - オブジェクトを`const`にする[`as_const()`](/reference/utility/as_const.md)関数を追加
 - 未初期化メモリのアルゴリズムと、デストラクタ呼び出しの関数として、以下の関数を追加： [`destroy_at()`](/reference/memory/destroy_at.md.nolink), [`destroy()`](/reference/memory/destroy.md.nolink), [`destroy_n()`](/reference/memory/destroy_n.md.nolink), [`uninitialized_move()`](/reference/memory/uninitialized_move.md.nolink), [`uninitialized_move_n()`](/reference/memory/uninitialized_move_n.md.nolink), [`uninitialized_value_construct()`](/reference/memory/uninitialized_value_construct.md.nolink), [`uninitialized_value_construct_n()`](/reference/memory/uninitialized_value_construct_n.md.nolink), [`uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md.nolink), [`uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md.nolink)
@@ -323,4 +325,4 @@ C++17では以下のTSが採用された：
 
 ## 参照
 - [P0636R0 Changes between C++14 and C++17 DIS](https://isocpp.org/files/papers/p0636r0.html)
-
+- [TOTAL RETARDATION in C++ - ISO C++ Standard - Future Proposals](https://groups.google.com/a/isocpp.org/d/msg/std-proposals/qd3L1-bGg1A/ut0Fu2ODCwAJ)

@@ -2,7 +2,6 @@
 * optional[meta header]
 * std[meta namespace]
 * optional[meta class]
-* function[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp

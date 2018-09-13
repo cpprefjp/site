@@ -10,7 +10,7 @@ unordered_multiset& operator=(const unordered_multiset& v);     // (1)
 unordered_multiset& operator=(unordered_multiset&& rv);         // (2)
 unordered_multiset& operator=(initializer_list<value_type> il); // (3)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 `unordered_multiset` オブジェクトを代入する

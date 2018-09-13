@@ -1,8 +1,7 @@
 # begin (非メンバ関数)
 * valarray[meta header]
 * std[meta namespace]
-* valarray[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

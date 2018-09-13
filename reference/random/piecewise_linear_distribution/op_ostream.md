@@ -1,7 +1,7 @@
 # operator<<
 * random[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
@@ -49,9 +49,9 @@ int main()
   std::cout << dist << std::endl;
 }
 ```
-* intervals.begin()[link /reference/array/begin.md]
-* intervals.end()[link /reference/array/end.md]
-* densities.begin()[link /reference/array/begin.md]
+* intervals.begin()[link /reference/array/array/begin.md]
+* intervals.end()[link /reference/array/array/end.md]
+* densities.begin()[link /reference/array/array/begin.md]
 
 ### 出力例
 ```

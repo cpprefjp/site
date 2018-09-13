@@ -63,7 +63,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
-	- Visual C++ 2012はコピー代入演算子のdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
+	- 2012はコピー代入演算子のdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
 ## 参照

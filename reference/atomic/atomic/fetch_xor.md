@@ -59,7 +59,7 @@ int main()
 ```
 * fetch_xor[color ff0000]
 * x.load()[link load.md]
-* to_string()[link /reference/bitset/to_string.md]
+* to_string()[link /reference/bitset/bitset/to_string.md]
 
 ### 出力
 ```

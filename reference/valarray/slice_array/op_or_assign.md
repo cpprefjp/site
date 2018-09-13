@@ -55,8 +55,7 @@ int main()
 ```
 * std::valarray[link /reference/valarray/valarray.md]
 * std::slice[link /reference/valarray/slice.md]
-* std::bitset[link /reference/bitset.md]
-* to_string()[link /reference/bitset/to_string.md]
+* to_string()[link /reference/bitset/bitset/to_string.md]
 
 ### 出力
 ```

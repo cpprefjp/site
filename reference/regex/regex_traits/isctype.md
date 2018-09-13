@@ -1,4 +1,4 @@
-# istype
+# isctype
 * regex[meta header]
 * std[meta namespace]
 * regex_traits[meta class]

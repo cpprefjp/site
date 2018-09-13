@@ -71,7 +71,7 @@ int main()
 
 
 ## 仕様
-- 波カッコによる初期化子リストを`auto`で受けた場合、そのオブジェクトは[`std::initializer_list`](/reference/initializer_list.md)型に推論される
+- 波カッコによる初期化子リストを`auto`で受けた場合、そのオブジェクトは[`std::initializer_list`](/reference/initializer_list/initializer_list.md)型に推論される
 - 関数テンプレートのパラメータとして波カッコの初期化子リストを渡して型推論させることはできない。波カッコの初期化子リストを受ける側で構築する型が確定しないためである
 
     ```cpp
@@ -113,7 +113,7 @@ int main()
     }
     ```
 
-- [`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタとデフォルトコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
+- [`std::initializer_list`](/reference/initializer_list/initializer_list.md)型を受け取るコンストラクタとデフォルトコンストラクタがある場合、空の初期化子リストが渡された際にはデフォルトコンストラクタが呼び出される
 
     ```cpp example
     #include <iostream>
@@ -137,7 +137,7 @@ int main()
     }
     ```
 
-- [`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、[`std::initializer_list`](/reference/initializer_list.md)型を受け取るコンストラクタが優先して呼び出される。そのような状況で非[`std::initializer_list`](/reference/initializer_list.md)のコンストラクタを呼び出す場合は、丸カッコでのコンストラクタ呼び出しが必要となる
+- [`std::initializer_list`](/reference/initializer_list/initializer_list.md)型を受け取るコンストラクタと、その初期化子リストの要素型と同じ型のパラメータリストを受け取るコンストラクタでは、[`std::initializer_list`](/reference/initializer_list/initializer_list.md)型を受け取るコンストラクタが優先して呼び出される。そのような状況で非[`std::initializer_list`](/reference/initializer_list/initializer_list.md)のコンストラクタを呼び出す場合は、丸カッコでのコンストラクタ呼び出しが必要となる
 
     ```cpp
     struct X {

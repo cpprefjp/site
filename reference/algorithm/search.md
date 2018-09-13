@@ -60,8 +60,8 @@ int main() {
 }
 ```
 * std::search[color ff0000]
-* ls.begin()[link /reference/list/begin.md]
-* ls.end()[link /reference/list/end.md]
+* ls.begin()[link /reference/list/list/begin.md]
+* ls.end()[link /reference/list/list/end.md]
 
 ### 出力
 ```

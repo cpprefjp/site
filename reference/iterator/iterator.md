@@ -35,7 +35,7 @@ namespace std {
 |-------------|-----------------|
 | `Category`  | イテレータの分類。 (参照： [iterator tag](/reference/iterator/iterator_tag.md)) |
 | `T`         | イテレータが指す値型 |
-| `Distance`  | イテレータ間の差を表す不動あり整数型。 デフォルトは`std::ptrdiff_t` |
+| `Distance`  | イテレータ間の差を表す符号あり整数型。 デフォルトは[`std::ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) |
 | `Pointer`   | イテレータが指す値のポインタ型 デフォルトは`T*` |
 | `Reference` | イテレータが指す値の参照型 デフォルトは`T&` |
 

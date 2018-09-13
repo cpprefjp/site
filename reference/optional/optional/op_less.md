@@ -1,7 +1,8 @@
 # operator<
 * optional[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
+* cpp17[meta cpp]
 
 ```cpp
 namespace std {
@@ -33,8 +34,8 @@ namespace std {
 - (1) : `x`と`y`がどちらも有効値を持っていれば、有効値同士を`<`演算子で比較した結果を返す。`y`が有効値を持っていなければ`false`を返す。`x`が有効値を持っていなければ`true`を返す
 - (2) : `false`を返す
 - (3) : `y`が有効値を持っていれば`true`、そうでなければ`false`を返す
-- (4) : `return x.`[`has_value()`](has_value.md) `? x.`[`value()`](value.md) `< v : true;`
-- (5) : `return x.`[`has_value()`](has_value.md) `? v < x.`[`value()`](value.md) `: false;`
+- (4) : `return x.`[`has_value()`](has_value.md) `? x.`[`value()`](value.md) `< y : true;`
+- (5) : `return y.`[`has_value()`](has_value.md) `? x < y.`[`value()`](value.md) `: false;`
 
 
 ## 例

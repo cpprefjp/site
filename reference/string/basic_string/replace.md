@@ -10,10 +10,10 @@ basic_string& replace(size_type pos1, size_type n1,
 
 basic_string& replace(size_type pos1, size_type n1,
                       const basic_string& str,
-                      size_type pos2, size_type n2);                // (2) C++11まで
+                      size_type pos2, size_type n2);                // (2) C++11
 basic_string& replace(size_type pos1, size_type n1,
                       const basic_string& str,
-                      size_type pos2, size_type n2 = npos);         // (2) C++14から
+                      size_type pos2, size_type n2 = npos);         // (2) C++14
 
 basic_string& replace(size_type pos, size_type n1, const charT* s,
                       size_type n2);                                // (3)
@@ -22,34 +22,48 @@ basic_string& replace(size_type pos, size_type n1, size_type n2,
                       charT c);                                     // (5)
 
 basic_string& replace(iterator i1, iterator i2,
-                      const basic_string& str);                     // (6) C++03まで
+                      const basic_string& str);                     // (6) C++03
 basic_string& replace(const_iterator i1, const_iterator i2,
-                      const basic_string& str);                     // (6) C++11から
+                      const basic_string& str);                     // (6) C++11
 
 basic_string& replace(iterator i1, iterator i2,
-                      const charT* s, size_type n);                 // (7) C++03まで
+                      const charT* s, size_type n);                 // (7) C++03
 basic_string& replace(const_iterator i1, const_iterator i2,
-                      const charT* s, size_type n);                 // (7) C++11から
+                      const charT* s, size_type n);                 // (7) C++11
 
 basic_string& replace(iterator i1, iterator i2,
-                      const charT* s);                              // (8) C++03まで
+                      const charT* s);                              // (8) C++03
 basic_string& replace(const_iterator i1, const_iterator i2,
-                      const charT* s);                              // (8) C++11から
+                      const charT* s);                              // (8) C++11
 
 basic_string& replace(iterator i1, iterator i2,
-                      size_type n, charT c);                        // (9) C++03まで
+                      size_type n, charT c);                        // (9) C++03
 basic_string& replace(const_iterator i1, const_iterator i2,
-                      size_type n, charT c);                        // (9) C++11から
+                      size_type n, charT c);                        // (9) C++11
 
 template <class InputIterator>
 basic_string& replace(iterator i1, iterator i2,
-                      InputIterator j1, InputIterator j2);          // (10) C++03まで
+                      InputIterator j1, InputIterator j2);          // (10) C++03
 template <class InputIterator>
 basic_string& replace(const_iterator i1, const_iterator i2,
-                      InputIterator j1, InputIterator j2);          // (10) C++11から
+                      InputIterator j1, InputIterator j2);          // (10) C++11
 
 basic_string& replace(const_iterator i1, const_iterator i2,
-                      initializer_list<charT> il);                  // (11) C++11から
+                      initializer_list<charT> il);                  // (11) C++11
+
+basic_string& replace(size_type pos1,
+                      size_type n1,
+                      std::basic_string_view<charT, traits> sv);    // (12) C++17
+
+basic_string& replace(size_type pos1,
+                      size_type n1,
+                      std::basic_string_view<charT, traits> sv,
+                      size_type pos2,
+                      size_type n2 = npos);                         // (13) C++17
+
+basic_string& replace(const_iterator i1,
+                      const_iterator i2,
+                      std::basic_string_view<charT, traits> sv);    // (14) C++17
 ```
 
 ## 概要
@@ -67,6 +81,7 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 - (9) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
 - (10) : `[`[`begin()`](begin.md)`, i1)`、`[i1, i2)`、および`[j1, j2)`が有効は範囲であること。
 - (11) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
+- (14) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
 
 
 ## 効果
@@ -82,7 +97,12 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 - (8) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, s,` [`traits::length`](/reference/string/char_traits.md)`(s))`を呼び出す。
 - (9) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, basic_string(n, c))`を呼び出す。
 - (10) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, basic_string(j1, j2))`を呼び出す。
-- (11) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, il.`[`begin()`](/reference/initializer_list/begin.md)`, il.`[`size()`](/reference/initializer_list/size.md)`)`を呼び出す。
+- (11) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md)`, il.`[`size()`](/reference/initializer_list/initializer_list/size.md)`)`を呼び出す。
+- (12) : `return replace(pos1, n1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`);` と同等
+- (13) :
+    - `n2`と`sv.`[`size()`](/reference/string_view/basic_string_view/size.md) `- pos2`のうち小さい方を`rlen`とする。
+    - `replace(pos1, n1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos2, rlen)` を呼び出す
+- (14) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, sv)` を呼び出す
 
 
 ## 戻り値
@@ -91,8 +111,9 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 
 ## 例外
 - (1) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
-- (2) : `pos1 >` [`size()`](size.md)もしくは`pos1 > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (2) : `pos1 >` [`size()`](size.md)もしくは`pos2 > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 - (3) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。また、置き換え結果の文字列が`max_size()`を超えた場合、[`length_error`](/reference/stdexcept.md)例外を送出する。
+- (13) : `pos1 >` [`size()`](size.md)もしくは`pos2 > sv.`[`size()`](/reference/string_view/basic_string_view/size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 
 
 ## 例
@@ -211,6 +232,39 @@ int main()
 
     std::cout << "(11) : " << s << std::endl;
   }
+
+  // (12) 指定した範囲を、basic_string_viewが参照する文字列範囲で置き換える
+  {
+    std::string s1 = "12345";
+    std::string_view sv2 = std::string_view{"XXXabcdeYYY"}.substr(3, 5);
+
+    // 1番目から2文字を、sv2文字列で置き換える
+    s1.replace(1, 2, sv2);
+
+    std::cout << "(12) : " << s1 << std::endl;
+  }
+
+  // (13) 指定した範囲を、basic_string_viewの指定された範囲で置き換える
+  {
+    std::string s1 = "12345";
+    std::string_view sv2 = "XXXabcdeYYY";
+
+    // 1番目から2文字を、sv2文字列で置き換える
+    s1.replace(1, 2, sv2, 3, 5);
+
+    std::cout << "(13) : " << s1 << std::endl;
+  }
+
+  // (14) 指定したイテレータ範囲を、basic_string_viewが参照する文字列範囲で置き換える
+  {
+    std::string s1 = "12345";
+    std::string_view sv2 = std::string_view{"XXXabcdeYYY"}.substr(3, 5);
+
+    // 1番目から2文字を、sv2文字列で置き換える
+    s1.replace(s1.begin() + 1, s1.begin() + 3, sv2);
+
+    std::cout << "(14) : " << s1 << std::endl;
+  }
 }
 ```
 * replace[color ff0000]
@@ -230,6 +284,9 @@ int main()
 (9) : 1xxx45
 (10) : 1abcde45
 (11) : 1abcde45
+(12) : 1abcde45
+(13) : 1abcde45
+(14) : 1abcde45
 ```
 
 
@@ -238,4 +295,4 @@ int main()
     - (11)の経緯となる提案文書
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
-
+- [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)

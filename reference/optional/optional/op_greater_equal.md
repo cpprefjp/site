@@ -1,7 +1,8 @@
 # operator>=
 * optional[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
+* cpp17[meta cpp]
 
 ```cpp
 namespace std {
@@ -22,7 +23,7 @@ namespace std {
 * nullopt_t[link /reference/optional/nullopt_t.md]
 
 ## 概要
-`optional`において、左辺が右辺より小さいかの判定を行う。
+`optional`において、左辺が右辺以上かの判定を行う。
 
 
 ## 要件
@@ -30,11 +31,11 @@ namespace std {
 
 
 ## 戻り値
-- (1) : `x`と`y`がどちらも有効値を持っていれば、有効値同士を`>=`演算子で比較した結果を返す。`x`が有効値を持っていなければ`true`を返す。`x`が有効値を持っていなければ`false`を返す
+- (1) : `x`と`y`がどちらも有効値を持っていれば、有効値同士を`>=`演算子で比較した結果を返す。`y`が有効値を持っていなければ`true`を返す。`x`が有効値を持っていなければ`false`を返す
 - (2) : `true`を返す
 - (3) : `!x.`[`has_value()`](has_value.md)を返す
-- (4) : `return x.`[`has_value()`](has_value.md) `? x.`[`value()`](value.md) `>= v : false;`
-- (5) : `return x.`[`has_value()`](has_value.md) `? v >= x.`[`value()`](value.md) `: true;`
+- (4) : `return x.`[`has_value()`](has_value.md) `? x.`[`value()`](value.md) `>= y : false;`
+- (5) : `return y.`[`has_value()`](has_value.md) `? x >= y.`[`value()`](value.md) `: true;`
 
 
 ## 例

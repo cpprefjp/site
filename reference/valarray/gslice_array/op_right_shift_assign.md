@@ -69,8 +69,7 @@ int main()
 * std::begin[link /reference/valarray/valarray/begin_free.md]
 * std::end[link /reference/valarray/valarray/end_free.md]
 * std::multiplies[link /reference/functional/multiplies.md]
-* std::bitset[link /reference/bitset.md]
-* to_string()[link /reference/bitset/to_string.md]
+* to_string()[link /reference/bitset/bitset/to_string.md]
 
 ### 出力
 ```

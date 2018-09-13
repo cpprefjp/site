@@ -77,8 +77,8 @@ int main()
 * std::ranlux24_base[link /reference/random/ranlux24_base.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 * std::seed_seq[link /reference/random/seed_seq.md]
-* seeds.begin()[link /reference/array/begin.md]
-* seeds.end()[link /reference/array/end.md]
+* seeds.begin()[link /reference/array/array/begin.md]
+* seeds.end()[link /reference/array/array/end.md]
 
 ### 出力例
 ```

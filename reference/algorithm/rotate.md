@@ -18,7 +18,7 @@ namespace std {
 ```
 
 ## 概要
-要素の並びを回転させる。
+`middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の要素の並びを回転させる。
 
 
 ## 要件
@@ -35,7 +35,7 @@ namespace std {
 - C++03 まで  
 	無し
 - C++11 から  
-	`first + (last - middle)`
+	回転前の先頭の要素を指すイテレータ`first + (last - middle)`
 
 
 ## 備考

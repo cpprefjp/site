@@ -80,7 +80,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
-    - Visual C++ 2012はマニュアル（MSDNライブラリ）に記載がないものの、実装されている。
+    - 2012はマニュアル（MSDNライブラリ）に記載がないものの、実装されている。
 
 ## 参照
 - [`boost::addressof()` - Boost C++ Libraries](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#addressof)

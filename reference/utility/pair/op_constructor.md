@@ -60,7 +60,9 @@ pair(piecewise_construct_t,
 
 
 ## 注記
-- (5) : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+- (5) :
+    - (C++14まで) `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+    - (C++17から) `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、このコンストラクタは`explicit`になる
 - (6) : `const U&`が`first_type`に暗黙変換可能でない場合、もしくは`const V&`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
 - (7) : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
 - (8) : `is_constructible<first_type, Args1&&...>::value && is_constructible<second_type, Args2&&...>::value`であること
@@ -196,3 +198,5 @@ p8 : (X(1 2 3),Y(4 5))
 - [N2345 Placement Insert for Containers (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2345.pdf)
     - (8)の最初の提案
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
+- [N4387 Improving Pair and Tuple (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4387)
+    - (5)の制限緩和

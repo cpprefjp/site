@@ -1,7 +1,7 @@
 # tuple_cat
 * tuple[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
@@ -28,7 +28,7 @@ namespace std {
 
 
 ## 備考
-実装によっては、`Tuples...` パラメータパックに含めることのできる型として、他のタプルライクな型（[`pair`](/reference/utility/pair.md)や[`array`](/reference/array.md)のような）を追加的にサポートする可能性がある。
+実装によっては、`Tuples...` パラメータパックに含めることのできる型として、他のタプルライクな型（[`pair`](/reference/utility/pair.md)や[`array`](/reference/array/array.md)のような）を追加的にサポートする可能性がある。
 
 
 ## 例

@@ -88,7 +88,7 @@ int main()
 }
 ```
 
-なぜならば`discarded statement`はテンプレートの実体化を防ぐ(依存名の検証をしない)だけで、被依存名は検証されるからである。この例の[`static_assert`](https://cpprefjp.github.io/lang/cpp11/static_assert.html)に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。言い換えれば`static_assert`に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせる事ができる。
+なぜならば`discarded statement`はテンプレートの実体化を防ぐ(依存名の検証をしない)だけで、非依存名は検証されるからである。この例の[`static_assert`](/lang/cpp11/static_assert.html)に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。言い換えれば`static_assert`に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせる事ができる。
 
 ```cpp example
 #include <type_traits>
@@ -134,6 +134,29 @@ int main()
 }
 ```
 
+なお型情報のifが欲しいならば、[`std::conditional`](/reference/type_traits/conditional.md) がある。
+
+```cpp example
+#include <type_traits>
+#include <random>
+#include <cstdint>
+#include <iostream>
+// C++11
+template<typename Integer>
+using mt = typename std::conditional<std::is_same<Integer, std::uint32_t>::value, std::mt19937, std::mt19937_64>::type;
+// C++14 or later
+// template<typename Integer>
+// using mt = std::conditional_t<std::is_same<Integer, std::uint32_t>::value, std::mt19937, std::mt19937_64>;
+int main()
+{
+  mt<std::uint32_t> m1 {37};
+  std::cout << m1() << std::endl;
+}
+```
+* std::conditional[link /reference/type_traits/conditional.md]
+* std::conditional_t[link /reference/type_traits/conditional.md]
+* std::mt19937_64[link /reference/random/mt19937_64.md]
+
 ## 参照
 
 - [N3322 A Preliminary Proposal for a Static if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3322.pdf)
@@ -146,3 +169,7 @@ int main()
 - [`__if_exists` Statement | Microsoft Docs](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)
 - [if constexprを使うとき、特定条件時にコンパイルを失敗させる - Qiita](http://qiita.com/saka1_p/items/e8c4dfdbfa88449190c5)
 - [本の虫: constexpr ifの落とし穴](https://cpplover.blogspot.jp/2017/05/constexpr-if.html)
+
+## 関連項目
+
+- [`std::conditional`](/reference/type_traits/conditional.md)

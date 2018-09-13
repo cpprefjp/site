@@ -124,7 +124,7 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 
 ### コンテナ
 
-- 固定長配列クラス[`std::array`](/reference/array.md)を追加
+- 固定長配列クラス[`std::array`](/reference/array/array.md)を追加
 - 単方向リンクリストの実装である[`std::forward_list`](/reference/forward_list.md)を追加
 - ハッシュ表の連想コンテナである[`std::unordered_map`](/reference/unordered_map/unordered_map.md)クラス、[`std::unordered_set`](/reference/unordered_set/unordered_set.md)クラス、およびその重複を許可するバージョンを追加
 - コンテナ全般がムーブセマンティクスに対応
@@ -133,7 +133,7 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 - 要素追加のためのメンバ関数として、クラステンプレートのパラメータ`T`のコンストラクタ引数を受け取り、一時オブジェクトの生成コストを減らせるものが追加された。これらは、以下のように命名されたメンバ関数である：`emplace()`、`emplace_back()`、`emplace_front()`
 - コンテナのメモリアロケータが状態を持てるようになった
 - 初期化子リストでコンテナを初期化できるようになった
-- 初期化子リストをパラメータで受け取れるようにするためのクラス[`std::initializer_list`](/reference/initializer_list.md)を追加
+- 初期化子リストをパラメータで受け取れるようにするためのクラス[`std::initializer_list`](/reference/initializer_list/initializer_list.md)を追加
 - 型情報型を連想コンテナのキーとして使用するための[`std::type_index`](/reference/typeindex/type_index.md)クラスを追加
 
 

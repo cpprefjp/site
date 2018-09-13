@@ -4,7 +4,7 @@
 ## 概要
 
 これまでは `auto var{arg};` (単一要素), `auto var{arg1, arg2,...};` (複数要素) で `var` はいずれも
-[`std::initializer_list<T>`](/reference/initializer_list.md) に推論されたが、
+[`std::initializer_list<T>`](/reference/initializer_list/initializer_list.md) に推論されたが、
 C++17 で規則が変更され、前者は `T`，後者は不適格となった。
 
 

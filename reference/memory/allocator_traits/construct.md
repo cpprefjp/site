@@ -2,7 +2,7 @@
 * memory[meta header]
 * std[meta namespace]
 * allocator_traits[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
@@ -15,7 +15,7 @@ static void construct(Alloc& a, T* p, Args&&... args);
 
 
 ## 効果
-`a.construct(p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...)`という式が有効ならそれを呼び出し、そうでなければデフォルト実装として`::new(static_cast<void*>(p) T(`[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`を呼び出す。
+`a.construct(p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...)`という式が有効ならそれを呼び出し、そうでなければデフォルト実装として`::new(static_cast<void*>(p)) T(`[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`を呼び出す。
 
 
 ## 戻り値
@@ -67,4 +67,4 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
-	- Visual C++ 2012までは、可変引数テンプレートに対応していないため、不完全な実装である。
+	- 2012までは、可変引数テンプレートに対応していないため、不完全な実装である。

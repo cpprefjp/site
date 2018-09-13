@@ -116,10 +116,10 @@ namespace std {
 int main()
 {
   std::string s("a01da123456da999d");
-  std::regex re("\d+");
+  std::regex re("\\d+");
 
   for (std::sregex_iterator it(std::begin(s), std::end(s), re), end; it != end; ++it) {
-    std::match_results&& m = *it;
+    auto&& m = *it;
     std::cout << "position = " << m.position() << ", length = " << m.length() << ", str = '" << m.str() << '\'' << std::endl;
   }
 }

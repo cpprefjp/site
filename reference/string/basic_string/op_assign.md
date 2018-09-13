@@ -12,7 +12,7 @@ basic_string& operator=(charT c);                                  // (4)
 basic_string& operator=(initializer_list<charT> il);               // (5) C++11
 basic_string& operator=(std::basic_string_view<charT, traits> sv); // (6) C++17
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 - (1) : `str` を `*this` へコピーする。`*this` と `str` が同一オブジェクトである場合は何も行わない。

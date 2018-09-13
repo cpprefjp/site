@@ -13,11 +13,12 @@ C++17から、ラムダ式をconstexpr関数として使えるようになった
 ラムダ式のキャプチャが全てコンパイル時定数とき、そのラムダ式をconstexprの文脈で使うことができる。
 
 ```cpp example
+constexpr int add_one(int n){
+  // nがコンパイル時定数ならラムダ式をconstexprの文脈で使える
+  return [n]{ return n + 1; }();
+}
+
 int main(){
-  constexpr int add_one(int n){
-    // nがコンパイル時定数ならラムダ式をconstexprの文脈で使える
-    return [n]{ return n + 1; }();
-  }
   static_assert( add_one(1) == 2 );
 }
 ```
@@ -25,14 +26,15 @@ int main(){
 ラムダ式が生成するクロージャオブジェクトは、ラムダ式のキャプチャが全てコンパイル時定数のとき、リテラル型として扱われる。
 
 ```cpp example
+constexpr auto add_one(int n){
+  // nがコンパイル時定数ならラムダ式はリテラル型
+  auto f = [n]{ return n + 1; };
+  // nがコンパイル時定数ならfはリテラル型なのでgもリテラル型
+  auto g = [f]{ return f(); };
+  return g;
+}
+
 int main(){
-  constexpr auto add_one(int n){
-    // nがコンパイル時定数ならラムダ式はリテラル型
-    auto f = [n]{ return n + 1; };
-    // nがコンパイル時定数ならfはリテラル型なのでgもリテラル型
-    auto g = [f]{ return f(); };
-    return g;
-  }
   static_assert( add_one(1)() == 2 );
 }
 ```
@@ -116,7 +118,7 @@ int main(){
   static_assert([](int a, int b){ return a + b; }(1, 2) == 3);
 
   // ちょっと複雑なconstexpr変数の初期化にも使える
-  constexpr arr = []{
+  constexpr auto arr = []{
     std::array<int,100> a{};
     int i{};
     for(auto& e: a) e = ++i;
@@ -173,7 +175,9 @@ int main(){
   auto factorial = [=](unsigned n) {
     return fact_impl(fact_impl, n);
   };
-  return factorial(4);
+    
+  constexpr int value = factorial(4);
+  static_assert(value == 24);
 }
 ```
 

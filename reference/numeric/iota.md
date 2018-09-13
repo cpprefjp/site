@@ -1,7 +1,7 @@
 # iota
 * numeric[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
@@ -61,8 +61,8 @@ int main()
 }
 ```
 * std::iota[color ff0000]
-* ar.begin()[link /reference/array/begin.md]
-* ar.end()[link /reference/array/end.md]
+* ar.begin()[link /reference/array/array/begin.md]
+* ar.end()[link /reference/array/array/end.md]
 
 ### 出力
 ```

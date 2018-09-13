@@ -42,7 +42,7 @@ int main()
 {
   std::cout << LDBL_DIG << '\n';
 
-  // 以下の式と同一
+  // 以下の式と同等
   double log10b = std::log10(FLT_RADIX);
   double intpart;
   if (std::modf(log10b, &intpart) == 0.0) {

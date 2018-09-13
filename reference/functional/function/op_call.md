@@ -14,7 +14,7 @@ R operator()(ArgTypes... args) const;
 
 
 ## 効果
-`*this`が保持している関数ポインタまたは関数オブジェクト`f`に対して、[`INVOKE`](/reference/functional/invoke.md)`(f, std::`[`forward`](/reference/utility/forward.md)`<ArgTypes>(args)..., R)`を行う。
+`*this`が保持している関数ポインタまたは関数オブジェクト`f`に対して、[`INVOKE`](/reference/concepts/Invoke.md)`(f, std::`[`forward`](/reference/utility/forward.md)`<ArgTypes>(args)..., R)`を行う。
 
 
 ## 戻り値

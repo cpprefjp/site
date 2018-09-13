@@ -1,7 +1,7 @@
 # endl
 * ostream[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 
 ```cpp
 namespace std {
@@ -9,6 +9,7 @@ namespace std {
   basic_ostream<CharT, Traits>& endl(basic_ostream<CharT, Traits>& os);
 }
 ```
+* basic_ostream[link basic_ostream.md]
 
 ## 概要
 改行を出力し、バッファをフラッシュする。
@@ -53,7 +54,7 @@ namespace std {
 ```
 * basic_ostream[link basic_ostream.md]
 * put[link basic_ostream/put.md]
-* flush()[link basic_ostream/flush.md]
+* flush[link basic_ostream/flush.md]
 * widen[link ../ios/basic_ios/widen.md]
 
 ## バージョン

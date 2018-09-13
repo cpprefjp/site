@@ -11,7 +11,7 @@
 | [`DefaultConstructible`](concepts/DefaultConstructible.md) |
 | [`Destructible`](concepts/Destructible.md)                 |
 | [`EqualityComparable`](concepts/EqualityComparable.md)     |
-| [`Invoke`](concepts/Invoke.md)                             |
+| [`INVOKE`](concepts/Invoke.md)                             |
 | [`LessThanComparable`](concepts/LessThanComparable.md)     |
 | [`MoveAssignable`](concepts/MoveAssignable.md)             |
 | [`MoveConstructible`](concepts/MoveConstructible.md)       |

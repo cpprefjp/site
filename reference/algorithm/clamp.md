@@ -2,6 +2,7 @@
 * algorithm[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp17[meta cpp]
 
 ```cpp
 namespace std {
@@ -16,7 +17,7 @@ namespace std {
 ## 概要
 値を範囲内に収める。
 
-この関数は、`v`の値を範囲`[low, high]`に丸める。
+この関数は、`v`の値を範囲`[low, high]`に収める。
 
 
 ## 要件
@@ -31,7 +32,7 @@ namespace std {
 
 
 ## 備考
-- `clamp(v, high, low)`は[`min`](min.md)`(`[`max`](max.md)`(v, low), high)`と同等
+- `clamp(v, low, high)`は[`min`](min.md)`(`[`max`](max.md)`(v, low), high)`と同等
 
 
 ## 例

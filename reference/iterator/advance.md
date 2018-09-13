@@ -6,13 +6,17 @@
 ```cpp
 namespace std {
   template <class InputIterator, class Distance>
-  void advance(InputIterator& i, Distance n);
+  void advance(InputIterator& i, Distance n);               // C++14 まで
+
+  template <class InputIterator, class Distance>
+  constexpr void advance(InputIterator& i, Distance n);     // C++17 から
 }
 ```
 
 ## 概要
 イテレータを`n`回進める。
 
+[`next()`](next.md)や[`prev()`](prev.md)と違い、引数として渡されたイテレータへの参照を書き換える。
 
 ## 要件
 双方向イテレータもしくはランダムアクセスイテレータの場合のみ、`n`が負数であることを許可する。
@@ -98,6 +102,10 @@ void advance(Iterator& i, Distance n)
 * std::bidirectional_iterator_tag[link iterator_tag.md]
 * std::random_access_iterator_tag[link iterator_tag.md]
 
-## 参照
 
+## 関連項目
 
+| 名前                | 説明                              |
+|---------------------|-----------------------------------|
+| [`next()`](next.md) | `n`回前方に進めたイテレータを返す |
+| [`prev()`](prev.md) | `n`回後方に進めたイテレータを返す |

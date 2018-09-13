@@ -54,7 +54,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013
-    - Visual C++ 2012はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
+    - 2012はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 ## 参照
 - [LWG Issue 2159. `atomic_flag` initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2159)

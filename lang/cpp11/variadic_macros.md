@@ -71,6 +71,7 @@ f2
 
 
 ## 関連項目
+- [C++11 可変引数テンプレート](variadic_templates.md)
 - [C++20 可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md)
 
 

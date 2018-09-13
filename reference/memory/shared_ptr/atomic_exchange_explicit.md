@@ -1,7 +1,7 @@
 # atomic_exchange_explicit
 * memory[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp

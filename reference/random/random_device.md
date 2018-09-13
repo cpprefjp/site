@@ -315,8 +315,8 @@ int main()
 * std::mt19937[link /reference/random/mt19937.md]
 * std::uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
 * dist(engine)[link /reference/random/uniform_int_distribution/op_call.md]
-* sed_v.begin()[link /reference/array/begin.md]
-* sed_v.end()[link /reference/array/end.md]
+* sed_v.begin()[link /reference/array/array/begin.md]
+* sed_v.end()[link /reference/array/array/end.md]
 
 ## 参照
 - GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)

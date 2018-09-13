@@ -14,7 +14,7 @@ void rehash(size_type n);
 
 
 ## 事後条件
-[`bucket_count`](bucket_count.md)`() >` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` かつ、[`bucket_count`](bucket_count.md)`() >= n`。
+[`bucket_count`](bucket_count.md)`() >=` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` かつ、[`bucket_count`](bucket_count.md)`() >= n`。
 
 
 ## 戻り値
@@ -36,7 +36,8 @@ void rehash(size_type n);
 	- 要素の格納されているバケットが変更になる。
 	- 要素へのポインタや参照は無効に**ならない**。
 - 現在のバケット数が `n` 以上の場合の動作は、標準では特に規定されていない。
-- 標準では、事後条件が [`bucket_count`](bucket_count.md)`() >` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` となっている（等号がない）が、[`load_factor`](load_factor.md)`()`（`=` [`size`](size.md)`() /` [`bucket_count`](bucket_count.md)`()`）の条件は [`max_load_factor`](max_load_factor.md)`() >=` [`load_factor`](load_factor.md)`()` である（等号がある）ため、[`bucket_count`](bucket_count.md)`() >=` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` の（等号がある）方が適切であると思われる。
+- 事後条件の前半は、C++14 までは等号が入っていなかったため、最大負荷率の定義と不整合だった。  
+	これは規格の誤りとして C++17 で修正されたが、使用する処理系やそのバージョンによっては以前の等号が入らない形で実装されている可能性があるため、注意が必要である。
 
 
 ## 例
@@ -46,29 +47,28 @@ void rehash(size_type n);
 
 int main()
 {
-  std::unordered_map<int,int> um;
+  std::unordered_multimap<int, int> um;
 
-  um.emplace( 1, 1 );
-  um.emplace( 1, 1 );
-  um.emplace( 2, 2 );
-  um.emplace( 3, 3 );
+  um.max_load_factor(2.0F);
 
-  um.max_load_factor( 2.0f );
+  um.emplace(1, 0);
+  um.emplace(1, 1);
+  um.emplace(2, 2);
+  um.emplace(2, 3);
 
-  std::cout << "current max_load_factor: " << um.max_load_factor() << std::endl;
-  std::cout << "current size: " << um.size() << std::endl;
-  std::cout << "current bucket_count: " << um.bucket_count() << std::endl;
-  std::cout << "current load_factor: " << um.load_factor() << std::endl;
-  std::cout << std::endl;
+  std::cout << "current max_load_factor: " << um.max_load_factor() << '\n';
+  std::cout << "current size: " << um.size() << '\n';
+  std::cout << "current bucket_count: " << um.bucket_count() << '\n';
+  std::cout << "current load_factor: " << um.load_factor() << '\n';
+  std::cout << '\n';
 
-  um.rehash(20);
-  std::cout << "um.rehash(20)" << std::endl;
-  std::cout << std::endl;
+  um.rehash(11);
+  std::cout << "um.rehash(11)\n\n";
 
-  std::cout << "new max_load_factor: " << um.max_load_factor() << std::endl;
-  std::cout << "new size: " << um.size() << std::endl;
-  std::cout << "new bucket_count: " << um.bucket_count() << std::endl;
-  std::cout << "new load_factor: " << um.load_factor() << std::endl;
+  std::cout << "new max_load_factor: " << um.max_load_factor() << '\n';
+  std::cout << "new size: " << um.size() << '\n';
+  std::cout << "new bucket_count: " << um.bucket_count() << '\n';
+  std::cout << "new load_factor: " << um.load_factor() << '\n';
 }
 ```
 * rehash[color ff0000]
@@ -82,20 +82,20 @@ int main()
 ```
 current max_load_factor: 2
 current size: 4
-current bucket_count: 8
-current load_factor: 0.5
+current bucket_count: 2
+current load_factor: 2
 
-m.rehash(20)
+um.rehash(11)
 
 new max_load_factor: 2
 new size: 4
-new bucket_count: 32
-new load_factor: 0.125
+new bucket_count: 11
+new load_factor: 0.363636
 ```
 
 ### 検証
-`rehash(20)` により  
-[`bucket_count`](bucket_count.md)`() > n`  を満たしている
+`rehash(11)` により  
+[`bucket_count`](bucket_count.md)`() >= n`  を満たしている
 
 ## バージョン
 ### 言語
@@ -103,11 +103,16 @@ new load_factor: 0.125
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [Clang, C++11 mode](/implementation.md#clang): ??
+- [Clang, C++11 mode](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): ??
-- [GCC, C++11 mode](/implementation.md#gcc): ??
+- [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2012
+
+### 備考
+- Clang 3.3 以降は C++17 モードでなくても C++17 の条件でのリハッシュとなっている。
+- GCC は 8.2.0 時点でまだ C++17 の条件でのリハッシュとなっていない。また、バージョンによってリハッシュ条件が微妙に異なるため注意。
+
 
 ## 関連項目
 
@@ -119,3 +124,6 @@ new load_factor: 0.125
 | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整 |
 
+
+## 参照
+- [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)

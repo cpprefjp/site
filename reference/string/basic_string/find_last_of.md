@@ -12,6 +12,9 @@ size_type find_last_of(const charT* s, size_type pos, size_type n) const;       
 size_type find_last_of(const charT* s, size_type pos = npos) const;                   // (3)
 
 size_type find_last_of(charT c, size_type pos = npos) const;                          // (4) C++11
+
+size_type find_last_of(std::basic_string_view<charT, traits> sv,
+                       size_type pos = npos) const noexcept;                          // (5) C++17
 ```
 
 ## 概要
@@ -27,6 +30,7 @@ size_type find_last_of(charT c, size_type pos = npos) const;                    
 - (2) `pos` より前で最後に `s` 内に存在する文字の位置を返す。`s` は長さ `n` の文字列へのポインタである。
 - (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
 - (4) `pos` より前で最後に `c` と一致する文字の位置を返す。
+- (5) `pos` より前で最後に `sv` 内に存在する文字の位置を返す。
 
 
 ## 戻り値
@@ -35,6 +39,7 @@ size_type find_last_of(charT c, size_type pos = npos) const;                    
 
 ## 例外
 - (1) 投げない
+- (5) 投げない
 
 
 ## 備考
@@ -102,3 +107,4 @@ size_type basic_string<charT, traits, Allocator>::find_last_of(charT c, size_typ
 
 ## 参照
 - [LWG2064 - More `noexcept` issues in `basic_string`](https://wg21.cmeerw.net/lwg/issue2064)
+- [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)

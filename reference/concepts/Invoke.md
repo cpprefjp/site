@@ -1,5 +1,4 @@
 # INVOKE
-* concepts[meta header]
 * cpp11[meta cpp]
 
 ## 用語定義

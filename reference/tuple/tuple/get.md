@@ -2,7 +2,7 @@
 * tuple[meta header]
 * std[meta namespace]
 * tuple[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
@@ -157,7 +157,7 @@ Hello
 
 ## 関連項目
 - [`get - std::pair`](/reference/utility/pair/get.md)
-- [`get - std::array`](/reference/array/get.md)
+- [`get - std::array`](/reference/array/array/get.md)
 
 
 ## 参照

@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 要件
-- C++11まで : 型`F`は、関数または関数オブジェクトであること。もしくは、型`F`は、関数または関数オブジェクトへの参照であること。`INVOKE(declval<Fn>(), declval<ArgTypes>()...)`が有効な式であること。
+- C++11まで : 型`F`は、関数または関数オブジェクトであること。もしくは、型`F`は、関数または関数オブジェクトへの参照であること。[`INVOKE`](/reference/concepts/Invoke.md)`(declval<Fn>(), declval<ArgTypes>()...)`が有効な式であること。
 - C++14から : 型`F`および`ArgsTypes...`パラメータパックの全ての型が、完全型であること。もしくは`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型であること。
     - このバージョンでは要件が緩和され、関数呼び出しが可能であることが要件から外れた。これにより、有効でない関数オブジェクト、引数を指定した場合に、`static_assert`でコンパイルエラーにならず、テンプレートの置き換え失敗によりSFINAEが働くようになった。
 
@@ -41,7 +41,7 @@ namespace std {
 decltype(INVOKE(declval<Fn>(), declval<ArgTypes>()...))
 ```
 * declval[link /reference/utility/declval.md]
-* INVOKE[link /reference/functional/invoke.md]
+* INVOKE[link /reference/concepts/Invoke.md]
 
 C++14以降では、上記メンバ型`type`の型定義が有効な式でない場合、メンバ型`type`は定義されない。
 

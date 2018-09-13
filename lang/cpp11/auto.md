@@ -84,7 +84,7 @@ void f(const U& p);
 なお、`const auto& p(式リスト);` のような直接初期化を伴う変数宣言の場合の推論も同様であるが、変数の型を式リストから推論する関係で（当然ではあるが）式リストに複数の式を書くことはできない。  
 （通常の直接初期化のような `auto s('c', 42);` といった書き方では型推論ができないのでエラーとなる）
 
-変数宣言がコピーリスト初期化を伴う、例えば `auto p = { 初期化子1, 初期化子2, ... 初期化子n };` の場合、`auto` をテンプレート型パラメータ `U` そのものへ置き換えたものではなく、`std::`[`initializer_list`](../../reference/initializer_list.md)`<U>` へ置き換えた以下のような関数を考えて、上記と同様の型推論を行う。  
+変数宣言がコピーリスト初期化を伴う、例えば `auto p = { 初期化子1, 初期化子2, ... 初期化子n };` の場合、`auto` をテンプレート型パラメータ `U` そのものへ置き換えたものではなく、`std::`[`initializer_list`](../../reference/initializer_list/initializer_list.md)`<U>` へ置き換えた以下のような関数を考えて、上記と同様の型推論を行う。  
 
 ```cpp
 template <typename U>
@@ -126,7 +126,7 @@ int main()
   std::cout << '\n';
 }
 ```
-* begin[link ../../reference/initializer_list/begin.md]
+* begin[link ../../reference/initializer_list/initializer_list/begin.md]
 * nullptr[link nullptr.md]
 * auto[color ff0000]
 

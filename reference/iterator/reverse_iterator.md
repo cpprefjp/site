@@ -3,7 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 
-```
+```cpp
 namespace std {
   template <class Iterator>
   class reverse_iterator

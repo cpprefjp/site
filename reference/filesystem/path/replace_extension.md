@@ -12,7 +12,7 @@ path& replace_extension(const path& replacement = path());
 ## 概要
 パスに含まれる拡張子を置き換える。
 
-この関数は、ファイルシステム上のファイル名は変更しない。そのようなことをする場合は、[`std::filesystem::rename()`](/reference/filesystem/rename.md.nolink)関数を使用すること。
+この関数は、ファイルシステム上のファイル名は変更しない。そのようなことをする場合は、[`std::filesystem::rename()`](/reference/filesystem/rename.md)関数を使用すること。
 
 
 ## 効果

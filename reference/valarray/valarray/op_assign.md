@@ -14,7 +14,7 @@ valarray& operator=(const gslice_array<T>& x);   // (6)
 valarray& operator=(const mask_array<T>& x);     // (7)
 valarray& operator=(const indirect_array<T>& x); // (8)
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 * slice_array[link /reference/valarray/slice_array.md]
 * gslice_array[link /reference/valarray/gslice_array.md]
 * mask_array[link /reference/valarray/mask_array.md]

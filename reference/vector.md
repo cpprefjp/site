@@ -26,7 +26,7 @@ namespace std {
 
 これらの挙動は配列と同じパフォーマンス特性を示し、加えてストレージサイズの変更が非常に簡単である。ただし、`vector`は実際の要素数より少し余分にメモリを確保する(これは拡張に備え、パフォーマンス特性を満足するための仕様である)。
 
-他の標準シーケンスコンテナと比べ、`vector`は要素アクセスと(末尾に対する)追加・削除において一般的に最高の性能を誇る。末尾以外に対する挿入・削除は[`deque`](/reference/deque.md)や[`list`](/reference/list.md)に劣り、イテレータや要素への参照の安定性(無効になる操作の数)では[`list`](/reference/list.md)に劣る。
+他の標準シーケンスコンテナと比べ、`vector`は要素アクセスと(末尾に対する)追加・削除において一般的に最高の性能を誇る。末尾以外に対する挿入・削除は[`deque`](/reference/deque/deque.md)や[`list`](/reference/list/list.md)に劣り、イテレータや要素への参照の安定性(無効になる操作の数)では[`list`](/reference/list/list.md)に劣る。
 
 内部的には、`vector`は(他のすべてのコンテナと同じように)サイズ用のメンバ変数を持ち、格納されている要素数を管理している。しかし`vector`の場合は、さらに確保済みのメモリサイズを管理するキャパシティ用のメンバ変数を持ち、これは常に[`size()`](vector/size.md)と同じか大きい値となる。確保済みの領域の余計な部分は、要素数の増加に備えて確保しているものである。この動作のおかげで、要素を追加するたびにメモリを再確保する必要が無くなり、単に確保済みの領域を初期化するだけでよくなる(再確保は要素数の対数の頻度で発生する)。
 
@@ -269,7 +269,7 @@ v[3] : 0
 - [LWG Issue 69. Must elements of a `vector` be contiguous?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#69)
     - C++03から、`vector`の要素のメモリが連続していることが保証された。
 - [N1211 - `vector<bool>`: More Problems, Better Solutions](http://www.gotw.ca/publications/N1211.pdf)
-- ビット配列に関しては、[`bitset`](/reference/bitset.md)(ビットを格納する固定長コンテナ)も参照。
+- ビット配列に関しては、[`bitset`](/reference/bitset/bitset.md)(ビットを格納する固定長コンテナ)も参照。
 - 可変長のビット配列の実装としては、Boost C++ Librariesの[`dynamic_bitset`](http://www.boost.org/doc/libs/release/libs/dynamic_bitset/dynamic_bitset.html)がある。
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
 

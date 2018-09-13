@@ -2,7 +2,7 @@
 * functional[meta header]
 * std[meta namespace]
 * reference_wrapper[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
@@ -15,11 +15,11 @@ typename result_of<T&(ArgTypes&&...)>::type operator ()(ArgTypes&&... args) cons
 
 
 ## 要件
-型`T`が関数呼び出し可能な型([`Callable`](/reference/functional/callable.md))であること
+型`T`が関数呼び出し可能な型([*Callable*](/reference/concepts/Callable.md))であること
 
 
 ## 戻り値
-[`INVOKE`](/reference/functional/invoke.md)`(`[`get()`](/reference/functional/reference_wrapper/get.md)`, std::`[`forward`](/reference/utility/forward.md)`<ArgTypes>(args)...)`
+[`INVOKE`](/reference/concepts/Invoke.md)`(`[`get()`](/reference/functional/reference_wrapper/get.md)`, std::`[`forward`](/reference/utility/forward.md)`<ArgTypes>(args)...)`
 
 ## 備考
 `operator()`は`reference_wrapper`クラスの直接のメンバ関数とする必要は無い(たとえば、基底クラスからの継承など)。

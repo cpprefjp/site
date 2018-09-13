@@ -2,7 +2,7 @@
 * ios[meta header]
 * class[meta id-type]
 * std[meta namespace]
-* ios_base::Init[meta class]
+* ios_base[meta class]
 
 ```cpp
 namespace std {

@@ -19,8 +19,9 @@ double entropy() const noexcept;
 
 
 ## 備考
-- GCC(libstdc++)とClang(libc++)は常に`0.0`を返す。
-- Visual C++は常に`32`を返す。
+- GCC (libstdc++) は、バージョン7系までは常に`0.0`を返す。8.1からは、GNU/Linux環境でカーネルのエントロピー数にアクセスできればその値を返す
+- Clang (libc++) は、常に`0.0`を返す。
+- Visual C++は、常に`32`を返す。
 - Boost.Randomの`random_device::entropy()`は常に`10`を返す。
 
 
@@ -57,5 +58,4 @@ int main()
 
 
 ## 参照
-
-
+- [GCC 8 Release Series - Changes, New Features, and Fixes](https://gcc.gnu.org/gcc-8/changes.html)

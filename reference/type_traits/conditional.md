@@ -26,6 +26,25 @@ namespace std {
 `conditional`は、条件式`B`が`true`であれば型`T`を、そうでなければ型`F`を、メンバ型`type`として定義する。
 
 
+## 備考
+- この機能が標準ライブラリに導入される前、Boost C++ Librariesでは、`boost::mpl::if_c`や`boost::mpl::if_`という機能が使われていた。`if_c`が現在の`conditional`であり、`bool`定数 (constantのc) を条件式としてとり、使用する型を分岐する。`if_`は`static const bool value`をメンバとして持つ型をパラメータとしてとる高階メタ関数であり、標準ライブラリに直接採用されてはいない
+- `conditional`や`boost::mpl::if_c`を使う以外に、テンプレートの特殊化を使用する方法もあり、`conditional`や`boost::mpl::if_c`はその手法を一般化したものである。
+    ```cpp
+    template <bool>
+    struct Conditional;
+
+    template <>
+    struct Conditional<true> {
+      using type = int;
+    };
+
+    template <>
+    struct Conditional<false> {
+      using type = char;
+    };
+    ```
+
+
 ## 例
 ```cpp example
 #include <type_traits>
@@ -49,7 +68,11 @@ int main() {}
 - [Clang](/implementation.md#clang): 3.0
 - [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
-	- `conditional_t`は、2013から。
+    - `conditional_t`は、2013から。
+
+
+## 関連項目
+- [C++17 if constexpr文](/lang/cpp17/if_constexpr.md)
 
 
 ## 参照

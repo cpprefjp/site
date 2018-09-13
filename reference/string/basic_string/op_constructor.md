@@ -50,7 +50,7 @@ basic_string(basic_string&& str, const Allocator&);             // (13) C++11
 explicit basic_string(std::basic_string_view<charT, traits> sv,
                       const Allocator& a = Allocator());        // (14) C++17
 ```
-* initializer_list[link /reference/initializer_list.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。

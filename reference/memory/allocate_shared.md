@@ -57,7 +57,7 @@ int main() {
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3, 4.8.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
-    - Visual C++ 2012までは、可変引数テンプレートに対応していないため、不完全な実装である。
+    - 2012までは、可変引数テンプレートに対応していないため、不完全な実装である。
 
 ## 関連項目
 - [`std::make_shared`](/reference/memory/make_shared.md)

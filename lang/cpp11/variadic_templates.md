@@ -59,7 +59,7 @@ void print(Head&& head, Tail&&... tail)
   std::cout << head << std::endl;
 
   // パラメータパックtailをさらにheadとtailに分割する
-  print(std::move(tail)...);
+  print(std::forward<Tail>(tail)...);
 }
 
 int main()
@@ -67,7 +67,7 @@ int main()
   print(1, 'a', "hello");
 }
 ```
-* std::move[link /reference/utility/move.md]
+* std::forward[link /reference/utility/forward.md]
 
 出力：
 
@@ -380,6 +380,11 @@ void f(const T1& t1, const T2& t2, const T3& t3);
 ```
 
 この問題を解決するために、任意の数だけ任意の型のパラメータを受け取る機能が必要とされ、可変引数テンプレートが導入された。
+
+
+## 関連項目
+- [C++11 可変引数マクロ](variadic_macros.md)
+- [C++17 畳み込み式](/lang/cpp17/folding_expressions.md)
 
 
 ## 参照

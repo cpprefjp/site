@@ -16,7 +16,7 @@ std::vector<int> v2 {1, 2, 3};
 v2 = {4, 5, 6};
 ```
 
-ユーザー定義型に対してリスト初期化を許可するためには、[`<initializer_list>`](/reference/initializer_list.md)ヘッダで定義される[`std::initializer_list`](/reference/initializer_list.md)クラスのオブジェクトをパラメータとして、コンストラクタや代入演算子をオーバーロードする：
+ユーザー定義型に対してリスト初期化を許可するためには、[`<initializer_list>`](/reference/initializer_list/initializer_list.md)ヘッダで定義される[`std::initializer_list`](/reference/initializer_list/initializer_list.md)クラスのオブジェクトをパラメータとして、コンストラクタや代入演算子をオーバーロードする：
 
 ```cpp example
 #include <vector>
@@ -36,8 +36,8 @@ int main()
   MyVector<int> v = {1, 2, 3};
 }
 ```
-* init.begin()[link /reference/initializer_list/begin.md]
-* init.end()[link /reference/initializer_list/end.md]
+* init.begin()[link /reference/initializer_list/initializer_list/begin.md]
+* init.end()[link /reference/initializer_list/initializer_list/end.md]
 
 リスト初期化用のコンストラクタに`explicit`を付けた場合、代入演算子によるリスト初期化は許可せず、代入演算子を伴わないリスト初期化のみが許可される：
 
@@ -60,8 +60,8 @@ int main()
    MyVector<int> v {1, 2, 3};   // OK
 }
 ```
-* init.begin()[link /reference/initializer_list/begin.md]
-* init.end()[link /reference/initializer_list/end.md]
+* init.begin()[link /reference/initializer_list/initializer_list/begin.md]
+* init.end()[link /reference/initializer_list/initializer_list/end.md]
 
 
 ## 仕様
@@ -328,7 +328,7 @@ int ar[N] = {1, 2, 3};
 std::vector<int> v(ar, ar + N);
 ```
 
-この問題を解決するために、波カッコによるリスト初期化をユーザー定義型でオーバーロードする機能が求められ、[`std::initializer_list`](/reference/initializer_list.md)クラスとオーバーロード機能が導入された。
+この問題を解決するために、波カッコによるリスト初期化をユーザー定義型でオーバーロードする機能が求められ、[`std::initializer_list`](/reference/initializer_list/initializer_list.md)クラスとオーバーロード機能が導入された。
 
 
 ## 関連項目

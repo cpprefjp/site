@@ -37,7 +37,7 @@ int main()
   std::cout << std::setprecision(LDBL_DIG);
   std::cout << LDBL_MAX << '\n';
 
-  // 以下の式と同一（std::pow((long double)FLT_RADIX, LDBL_MAX_EXP) は long double の最大値を超えてしまうため、式を調整してある）
+  // 以下の式と同等（std::pow((long double)FLT_RADIX, LDBL_MAX_EXP) は long double の最大値を超えてしまうため、式を調整してある）
   std::cout << (1 - std::pow((long double)FLT_RADIX, -LDBL_MANT_DIG)) * std::pow((long double)FLT_RADIX, LDBL_MAX_EXP - 1) * FLT_RADIX << '\n';
 }
 ```

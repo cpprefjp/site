@@ -2,7 +2,7 @@
 * unordered_map[meta header]
 * std[meta namespace]
 * unordered_multimap[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
@@ -15,11 +15,7 @@ iterator emplace(Args&&... args);
 
 
 ## 要件
-このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。
-
-ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の lvalue、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
-
-`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
+このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) でなければならない。
 
 
 ## 効果
@@ -43,10 +39,19 @@ iterator emplace(Args&&... args);
 ## 備考
 - この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。  
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
-- この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
+
+- この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わらなかった（＝リハッシュが発生しなかった）場合、当該コンテナを指すイテレータは無効にはならない。  
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
-	コンテナのバケット数が変わらない場合とは、要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった場合である。
-	なお、条件が「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md)`()` も参照。
+	コンテナのバケット数が変わらない条件は、
+
+	* この関数を呼び出した後の要素数が、呼び出す前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）以下である。
+
+	となっている。  
+	なお、この条件は C++14 までは「以下」ではなく「よりも小さい」だったため、最大負荷率の定義と不整合だった。  
+	これは規格の誤りとして C++17 で修正されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
+
+- これらの関数が呼ばれた後、たとえ呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わった（＝リハッシュが発生した）場合でも、等価なキーの要素同士の相対的な順序は変わらない。
+
 - このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace_hint` も含めた一覧を以下に示す。
 
@@ -120,6 +125,10 @@ int main()
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
+### 備考
+- Clang 3.3 以降は C++17 モードでなくても C++17 の条件でのリハッシュとなっている。
+- GCC は 8.2.0 時点でまだ C++17 の条件でのリハッシュとなっていない。また、バージョンによってリハッシュ条件が微妙に異なるため注意。
+
 
 ## 関連項目
 
@@ -139,4 +148,6 @@ int main()
 
 ## 参照
 - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
-
+- [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](https://wg21.cmeerw.net/lwg/issue518)
+    - 安定性の保証が規定された経緯のレポート
+- [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
