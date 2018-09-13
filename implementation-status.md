@@ -101,90 +101,59 @@
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|
-| [メッセージなしの`static_assert`][n3928] | デフォルトの表明メッセージを使用する | 6 | 3.5 | 18.0 | 2017 |
-| [トライグラフを削除][n4086] | | 5.1 | 3.5 | No | 2010 |
-| [テンプレートテンプレートパラメータに`typename`を許可][n4051] | `class`キーワードしか使用できなかった部分に、`typename`を許可 | 5.0 | 3.5 | 17.0 | 2015 |
-| [単一要素初期化子リストを`auto`で受け取った場合の型を変更][n3922] | `initializer_list<T>`だったのを`T`に変更 | 5 | 3.8 | 17.0 | 2015 |
-| [畳み込み式][n4295] | パラメータパックに対する2項演算の集積処理 | 6 | 3.6 | No | 2017 Update 5 |
-| [UTF-8文字リテラル][n4267] | 文字列リテラルだけでなく、文字リテラルにもUTF-8指定できるようにする | 6 | 3.6 | 17.0 | 2015 |
-| [入れ子名前空間の定義][n4230] | `namespace A::B {}`のように、入れ子の名前空間を簡単に定義できるようにする | 6 | 3.6 | 17.0 | 2015 Update 3 |
-| [名前空間と列挙子に属性の付加を許可][n4266] | 名前空間の定義と、列挙型の各要素の定義に、属性を付けられるようにする | 名前空間は4.0<br/>列挙子は6 | 3.6 | 17.0 | 2015 |
+| [メッセージなしの`static_assert`](/lang/cpp17/extending_static_assert.md) | デフォルトの表明メッセージを使用する | 6 | 3.5 | 18.0 | 2017 |
+| [トライグラフを削除](/lang/cpp17/removing_trigraphs.md) | | 5.1 | 3.5 | No | 2010 |
+| [テンプレートテンプレートパラメータに`typename`を許可](/lang/cpp17/allow_typename_in_a_template_template_parameter.md) | `class`キーワードしか使用できなかった部分に、`typename`を許可 | 5.0 | 3.5 | 17.0 | 2015 |
+| [単一要素初期化子リストを`auto`で受け取った場合の型を変更](/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md) | `initializer_list<T>`だったのを`T`に変更 | 5 | 3.8 | 17.0 | 2015 |
+| [畳み込み式](/lang/cpp17/folding_expressions.md) | パラメータパックに対する2項演算の集積処理 | 6 | 3.6 | No | 2017 Update 5 |
+| [UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md) | 文字列リテラルだけでなく、文字リテラルにもUTF-8指定できるようにする | 6 | 3.6 | 17.0 | 2015 |
+| [入れ子名前空間の定義](/lang/cpp17/nested_namespace.md) | `namespace A::B {}`のように、入れ子の名前空間を簡単に定義できるようにする | 6 | 3.6 | 17.0 | 2015 Update 3 |
+| [名前空間と列挙子に属性の付加を許可](/lang/cpp17/attributes_for_namespaces_and_enumerators.md) | 名前空間の定義と、列挙型の各要素の定義に、属性を付けられるようにする | 名前空間は4.0<br/>列挙子は6 | 3.6 | 17.0 | 2015 |
 | [非型テンプレートパラメータの定数式を評価する][n4268] | `nullptr`から任意の型のポインタへの変換等をテンプレート引数の指定時に行う | 6 | 3.6 | No | 2017 Update 5 |
-| [非推奨だった`register`キーワードを削除][P0001R1] | | 7 | 3.8 | 18.0 | 2017 Update 3 |
-| [非推奨だった`bool`型オブジェクトに対するインクリメントの仕様を削除][P0002R1] | | 7 | 3.8 | 18.0 | 2017 Update 3 |
-| [例外仕様を型システムの一部にする][P0012R1] | | 7 | 4 | No | 2017 Update 5 |
-| [プリプロセッサでの条件式`__has_include`][P0061R1] | 対象のインクルードファイルが存在するかをプリプロセス時に判定する | 5.0 | 3.0 | 18.0 | 2017 Update 3 |
+| [非推奨だった`register`キーワードを削除](/lang/cpp17/remove_deprecated_use_of_the_register_keyword.md) | | 7 | 3.8 | 18.0 | 2017 Update 3 |
+| [非推奨だった`bool`型オブジェクトに対するインクリメントの仕様を削除](/lang/cpp17/remove_deprecated_increment_of_bool.md) | | 7 | 3.8 | 18.0 | 2017 Update 3 |
+| [例外仕様を型システムの一部にする](/lang/cpp17/exception_spec_be_part_of_the_type_system.md) | | 7 | 4 | No | 2017 Update 5 |
+| [プリプロセッサでの条件式`__has_include`](/lang/cpp17/has_include.md) | 対象のインクルードファイルが存在するかをプリプロセス時に判定する | 5.0 | 3.0 | 18.0 | 2017 Update 3 |
 | [継承コンストラクタの新仕様][P0136R1] | デフォルト引数を引き継ぐようにした | 7 | 3.9 | No | No |
-| [`[[fallthrough]]`属性][P0188R1] | `case`節で`break`や`return`を書かなかった場合に、それが意図したフォールスルーであることをコンパイラに伝える属性 | 7 | 3.9 | 18.0 | 2017 |
-| [`[[nodiscard]]`属性][P0189R1] | 関数の戻り値を無視してはならないことをユーザーに伝える属性 | 4.8からは`[[gnu::warn_unused_result]]`を使用すること<br/> 7からサポート | 3.9 | 18.0 | 2017 Update 3 |
-| [`[[maybe_unused]]`属性][P0212R1] | 使用しない可能性がある変数であることをコンパイラに伝える属性 | 4.8からは`[[gnu::unused]]`を使用すること<br/> 7からサポート | 3.9 | 18.0 | 2017 Update 3 |
+| [`[[fallthrough]]`属性](/lang/cpp17/fallthrough.md) | `case`節で`break`や`return`を書かなかった場合に、それが意図したフォールスルーであることをコンパイラに伝える属性 | 7 | 3.9 | 18.0 | 2017 |
+| [`[[nodiscard]]`属性](/lang/cpp17/nodiscard.md) | 関数の戻り値を無視してはならないことをユーザーに伝える属性 | 4.8からは`[[gnu::warn_unused_result]]`を使用すること<br/> 7からサポート | 3.9 | 18.0 | 2017 Update 3 |
+| [`[[maybe_unused]]`属性](/lang/cpp17/maybe_unused.md) | 使用しない可能性がある変数であることをコンパイラに伝える属性 | 4.8からは`[[gnu::unused]]`を使用すること<br/> 7からサポート | 3.9 | 18.0 | 2017 Update 3 |
 | [基本クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする][P0017R1] | 基本クラスのメンバを集成体初期化するために、`derived d {{42}};`の代わりに`derived d {42};`と書けるようにする | 7 | 3.9 | No | No |
-| [ラムダ式を`constexpr`として使用できるようにする][P0170R1] | ラムダ式の関数オブジェクトが定数式の文脈で使用された場合に、それがコンパイル時に評価されるようにする | 7 | 5 | No | 2017 Update 3 |
-| [範囲for文のための`begin()`と`end()`関数が、異なる型を返すことを許可][P0184R0] | `begin()`と`end()`が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする | 6 | 3.9 | 18.0 | 2017 |
-| [ラムダ式での`*this`のコピーキャプチャ][P0018R3] | キャプチャリストに`*this`を指定することで、`*this`をコピーキャプチャする | 7 | 3.8 | No | 2017 Update 3 |
-| [`enum class`変数の初期値として整数を指定する際の規則を調整][P0138R2] | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 | 7 | 1.9 | No | 2017 Update 3 |
-| [浮動小数点数の16進数リテラル][P0245R1] | `hexfloat`マニピュレータや`printf()`の16進数出力に合わせて、浮動小数点数のリテラルも16進数表記できるようにする | 3.0 | 3.0 | 18.0 | 2017 Update 5 |
-| [属性の名前空間指定に繰り返しをなくす][P0028R4] | `[[using CC: opt(1), debug]]`のように属性の名前空間宣言をまとめて行う | 7 | 3.9 | 18.0 | 2017 Update 3 |
+| [ラムダ式を`constexpr`として使用できるようにする](/lang/cpp17/constexpr_lambda.md) | ラムダ式の関数オブジェクトが定数式の文脈で使用された場合に、それがコンパイル時に評価されるようにする | 7 | 5 | No | 2017 Update 3 |
+| [範囲for文のための`begin()`と`end()`関数が、異なる型を返すことを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md) | `begin()`と`end()`が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする | 6 | 3.9 | 18.0 | 2017 |
+| [ラムダ式での`*this`のコピーキャプチャ](/lang/cpp17/lambda_capture_of_this_by_value.md) | キャプチャリストに`*this`を指定することで、`*this`をコピーキャプチャする | 7 | 3.8 | No | 2017 Update 3 |
+| [`enum class`変数の初期値として整数を指定する際の規則を調整](/lang/cpp17/construction_enum_class_values.md) | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 | 7 | 1.9 | No | 2017 Update 3 |
+| [浮動小数点数の16進数リテラル](/lang/cpp17/hexadecimal_floating_literals.md) | `hexfloat`マニピュレータや`printf()`の16進数出力に合わせて、浮動小数点数のリテラルも16進数表記できるようにする | 3.0 | 3.0 | 18.0 | 2017 Update 5 |
+| [属性の名前空間指定に繰り返しをなくす](/lang/cpp17/using_attribute_namespaces.md) | `[[using CC: opt(1), debug]]`のように属性の名前空間宣言をまとめて行う | 7 | 3.9 | 18.0 | 2017 Update 3 |
 | [アライメント指定されたデータの動的メモリ確保][P0035R4] | `operator new`と`operator delete`でアライメント値を取得できるようにする | 7 | 4 | No | 2017 Update 5 |
-| [クラステンプレートのテンプレート引数推論][P0091R3] | コンストラクタの引数からクラスのテンプレート引数を推論できるようにする | 7 | 5 | No | No |
+| [クラステンプレートのテンプレート引数推論](/lang/cpp17/type_deduction_for_class_templates.md) | コンストラクタの引数からクラスのテンプレート引数を推論できるようにする | 7 | 5 | No | No |
 | [非型テンプレート引数の`auto`宣言][P0127R2] | `template <typename T, T x>`という冗長なコードを`template <auto x>`のようにして受けられるようにし、<br/> `X<3>; X<true>; X<'a'>`のように定数を簡潔に渡せるようにする | 7 | 4 | No | No |
 | [値のコピー省略を保証][P0135R1] | 一時オブジェクトをコピーする際に、単純な値を持つクラスであればコピーが省略されることを保証する | 7 | 4 | No | 2017 Update 6 |
-| 厳密な式の評価順 [P0145R3][P0145R3] [P0400R0][P0400R0] | 式の項が評価される順序を厳密に規定する。<br/> `b = a;`の式が右から順番(a, bの順)に評価される | 7 | 4 | No | No |
-| [不明な属性を無視する][P0283R2] | 実装が知らない名前空間の属性は無視する | 4.8 | 3.0 | 18.0 | No |
-| [if constexpr文][P0292R2] | `if constexpr(cond)`とすることで、そのif文はコンパイル時に処理される | 7 | 3.9 | No | 2017 Update 3 |
-| [処理の進行保証][P0296R1] | 並行処理に関して「処理の進行」を明確に定義<br/> (TODO:言葉の定義だけなので実装状況ページからは取り除く) | No | No | No | No |
-| [インライン変数][P0386R2] | インライン指定を関数だけでなく変数にも指定できるようにする | 7 | 3.9 | No | 2017 Update 5 |
+| [厳密な式の評価順](/lang/cpp17/expression_evaluation_order.md) | 式の項が評価される順序を厳密に規定する。<br/> `b = a;`の式が右から順番(a, bの順)に評価される | 7 | 4 | No | No |
+| [不明な属性を無視する](/lang/cpp17/non_standard_attributes.md) | 実装が知らない名前空間の属性は無視する | 4.8 | 3.0 | 18.0 | No |
+| [if constexpr文](/lang/cpp17/if_constexpr.md) | `if constexpr(cond)`とすることで、そのif文はコンパイル時に処理される | 7 | 3.9 | No | 2017 Update 3 |
+| [処理の進行保証][P0296R2] | 並行処理に関して「処理の進行」を明確に定義<br/> (TODO:言葉の定義だけなので実装状況ページからは取り除く) | No | No | No | No |
+| [インライン変数](/lang/cpp17/inline_variables.md) | インライン指定を関数だけでなく変数にも指定できるようにする | 7 | 3.9 | No | 2017 Update 5 |
 | [templated entityという用語を導入][P0391R0] | (TODO:言葉の定義だけなので実装状況ページからは取り除く) | - | - | - | - |
-| [構造化束縛][P0217R3] | タプルやユーザー定義型を分解して受け取れるようにする<br/> `tuple<int, string> f();` <br/> `const auto [a, b] = f(); // aはintの値、bはstringの値` | 7 | 4 | 18.0 | 2017 Update 3 |
-| [if文とswitch文の条件式と初期化を分離][P0305R1] | `if (init; condition)`のように初期化と条件式を分けて記述できるようにする | 7 | 3.9 | 18.0 | 2017 Update 3 |
+| [構造化束縛](/lang/cpp17/structured_bindings.md) | タプルやユーザー定義型を分解して受け取れるようにする<br/> `tuple<int, string> f();` <br/> `const auto [a, b] = f(); // aはintの値、bはstringの値` | 7 | 4 | 18.0 | 2017 Update 3 |
+| [if文とswitch文の条件式と初期化を分離](/lang/cpp17/selection_statements_with_initializer.md) | `if (init; condition)`のように初期化と条件式を分けて記述できるようにする | 7 | 3.9 | 18.0 | 2017 Update 3 |
 | [参照メンバをもつクラスの置き換え][P0137R1] | 参照型メンバや`const`データメンバを含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする | No | No | No | No |
-| [非推奨だった例外仕様を削除][P0003R4] | `noexcept`が入ったことによって非推奨になった`throw`キーワードによる例外仕様を削除 | 7 | 4 | No | 2017 Update 5 |
-| [using宣言でのパック展開][P0195R2] | パラメータパックの型を基本クラスとして指定した場合に、`using`宣言に基本クラスのパラメータパックを指定できるようにする | 7 | 4 | No | No |
+| [非推奨だった例外仕様を削除](/lang/cpp17/remove_deprecated_exception_specifications.md) | `noexcept`が入ったことによって非推奨になった`throw`キーワードによる例外仕様を削除 | 7 | 4 | No | 2017 Update 5 |
+| [using宣言でのパック展開](/lang/cpp17/pack_expansions_in_using.md) | パラメータパックの型を基本クラスとして指定した場合に、`using`宣言に基本クラスのパラメータパックを指定できるようにする | 7 | 4 | No | No |
 | [クラステンプレート引数の推論仕様を調整][P0512R0] | | No | No | No | No |
 | [Committee Draftに対するNational Body Commentへの対応][P0490R0] | | - | - | - | - |
 | [テンプレートテンプレート引数のマッチングにおいて、互換性のあるテンプレートを除外][P0522R0] | | 7 | 4 (partial) | No | 2017 Update 5 |
 
 
-[n3928]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3928.pdf
-[n4086]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4086.html
-[n4051]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4051.html
-[n3922]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3922.html
-[n4295]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4295.html
-[n4267]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4267.html
-[n4230]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4230.html
-[n4266]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4266.html
 [n4268]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4268.html
-[P0001R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0001r1.html
-[P0002R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0002r1.html
-[P0012R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0012r1.html
-[P0061R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0061r1.html
 [P0136R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0136r1.html
-[P0188R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0188r1.pdf
-[P0189R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0189r1.pdf
-[P0212R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0212r1.pdf
 [P0017R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0017r1.html
-[P0170R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0170r1.pdf
-[P0184R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0184r0.html
-[P0018R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0018r3.html
-[P0138R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0138r2.pdf
-[P0245R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0245r1.html
-[P0028R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0028r4.html
 [P0035R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0035r4.html
-[P0091R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0091r3.html
 [P0127R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r2.html
 [P0135R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html
-[P0145R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0145r3.pdf
-[P0283R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0283r2.html
-[P0292R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r2.html
-[P0296R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0296r2.html
-[P0386R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0386r2.pdf
+[P0296R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0296r2.html
 [P0391R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0391r0.html
-[P0217R3]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0217r3.html
-[P0305R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0305r1.html
 [P0137R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html
-[P0400R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0400r0.html
-[P0003R4]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0003r4.html
-[P0195R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0195r2.html
 [P0512R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0512r0.pdf
 [P0490R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0490r0.html
 [P0522R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0522r0.html
