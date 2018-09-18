@@ -193,3 +193,4 @@ C++14まではラムダ式がコンパイル時に呼び出せないため、
 ## 参照
 
 (執筆中)
+- [P0170R1 Wording for Constexpr Lambda](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0170r1.pdf)
