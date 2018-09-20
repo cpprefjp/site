@@ -51,7 +51,7 @@ int main()
 * it.disable_recursion_pending()[color ff0000]
 * fs::create_directory[link /reference/filesystem/create_directory.md]
 * it->path()[link /reference/filesystem/directory_entry/path.md]
-* it.disable_recursion_pending()[link recursion_pending.md]
+* it.recursion_pending()[link recursion_pending.md]
 
 ### 出力例
 ```
