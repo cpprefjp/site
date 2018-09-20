@@ -13,7 +13,7 @@ namespace std::filesystem {
 ## 概要
 `recursive_directory_iterator`は、ディレクトリ内を再帰的に走査する入力イテレータクラスである。
 
-[`std::filesystem::directory_iterator`](directory_iterator.md)クラスは、指定されたディレクトリ直下のファイルを走査するが、このイテレータは、ディレクトリ内のディレクトリも再帰的に走査する。
+[`std::filesystem::directory_iterator`](directory_iterator.md)クラスは指定されたディレクトリ直下のファイルを走査するが、このイテレータはディレクトリ内のディレクトリも再帰的に走査する。
 
 ファイルの走査順序は未規定であり、ファイル名の辞書順に走査される保証はない。
 
