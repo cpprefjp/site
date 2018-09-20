@@ -25,16 +25,16 @@ namespace std::filesystem {
 |------|------|-------|
 | [`(constructor)`](recursive_directory_iterator/op_constructor.md) | コンストラクタ | C++17 |
 | `~recursive_directory_iterator();`                                | デストラクタ | C++17 |
-| [`operator=`](recursive_directory_iterator/op_assign.md.nolink)          | 代入演算子 | C++17 |
+| [`operator=`](recursive_directory_iterator/op_assign.md)          | 代入演算子 | C++17 |
 
 
 ### 観測
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`options`](recursive_directory_iterator/options.md.nolink) | 観測オプションを取得する | C++17 |
-| [`depth`](recursive_directory_iterator/depth.md.nolink) | ディレクトリの深さを取得する | C++17 |
-| [`recursion_pending`](recursive_directory_iterator/recursion_pending.md.nolink) | 再帰を止めた状態かを確認する | C++17 |
+| [`options`](recursive_directory_iterator/options.md) | 走査オプションを取得する | C++17 |
+| [`depth`](recursive_directory_iterator/depth.md) | ディレクトリの深さを取得する | C++17 |
+| [`recursion_pending`](recursive_directory_iterator/recursion_pending.md) | 再帰しないかどうかが未決定かを確認する | C++17 |
 
 
 ### 変更
@@ -46,7 +46,7 @@ namespace std::filesystem {
 | [`operator++`](recursive_directory_iterator/op_increment.md.nolink) | イテレータを進める | C++17 |
 | [`increment`](recursive_directory_iterator/increment.md.nolink)     | イテレータを進める | C++17 |
 | [`pop`](recursive_directory_iterator/pop.md.nolink)                 | そのディレクトリの走査を中断する | C++17 |
-| [`disable_recursion_pending`](recursive_directory_iterator/disable_recursion_pending.md.nolink) | 再帰を止める | C++17 |
+| [`disable_recursion_pending`](recursive_directory_iterator/disable_recursion_pending.md) | 再帰を止める | C++17 |
 
 
 ## メンバ型
