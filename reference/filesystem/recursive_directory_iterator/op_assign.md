@@ -30,7 +30,7 @@ recursive_directory_iterator& operator=(recursive_directory_iterator&& rhs) noex
 - (1) :
     - `this->`[`options()`](options.md) `== rhs.`[`options()`](options.md) であること
     - `this->`[`depth()`](depth.md) `== rhs.`[`depth()`](depth.md) であること
-    - `this->`[`recursion_pending()`](recursion_pending.md) `== rhs.`[`recursion_pending`](recursion_pending.md) であること
+    - `this->`[`recursion_pending()`](recursion_pending.md) `== rhs.`[`recursion_pending()`](recursion_pending.md) であること
 - (2) : [`options()`](options.md)、[`depth()`](depth.md)、[`recursion_pending()`](recursion_pending.md)の値が、この関数を呼び出す前の`rhs.`[`options()`](options.md)、`rhs.`[`depth()`](depth.md)、`rhs.`[`recursion_pending()`](recursion_pending.md)の値を持つこと
 
 
