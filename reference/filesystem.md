@@ -94,6 +94,12 @@
 ### 言語
 - C++17
 
+### 備考
+- いくつかの処理系バージョンでは、ファイルシステムライブラリを別途リンクする必要がある
+    - GCC 8.1では、リンクオプションとして`-lstdc++fs`が必要
+    - Clang 7.0では、リンクオプションとして`-lc++fs`が必要
+
+
 ## 参照
 - [P0218R1 Adopt the File System TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0218r1.html)
 - [P0219R1 Relative Paths for Filesystem](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0219r1.html)
