@@ -37,6 +37,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 | [厳密な式の評価順](cpp17/expression_evaluation_order.md) | 式の評価順を規定する |
 | 参照メンバをもつクラスの置き換え | 参照型メンバや`const`データメンバを含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする |
 | [`enum class`変数の初期値として整数を指定する際の規則を調整](cpp17/construction_enum_class_values.md) | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 |
+| [アライメント指定されたデータの動的メモリ確保](cpp17/dynamic_memory_allocation_for_over-aligned_data.md) | `operator new`と`operator delete`でアライメント値を取得できるようにする |
 
 
 ### 制御構文
