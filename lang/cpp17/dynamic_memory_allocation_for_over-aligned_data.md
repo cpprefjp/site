@@ -10,7 +10,7 @@
 ```cpp
 // 16バイト境界にアライメントされるべきクラス
 class alignas(16) float4 {
-    float f[4];
+  float f[4];
 };
 
 float4  v; // C++11でも適切にアライメントされる
@@ -25,7 +25,7 @@ C++17以前で適切にアライメントされたメモリ領域を動的に確
 
 ```cpp
 namespace std {
-    enum class align_val_t : std::size_t {};
+  enum class align_val_t : std::size_t {};
 }
 void* operator new(std::size_t size, std::align_val_t alignment);
 ```
