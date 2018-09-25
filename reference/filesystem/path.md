@@ -287,7 +287,7 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang):
+- [Clang, C++17 mode](/implementation.md#clang): 7.0
 - [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp):
