@@ -82,7 +82,7 @@
 | [`is_fifo`](filesystem/is_fifo.md) | 指定されたパスがFIFOもしくはパイプを指しているかを確認する (function) | C++17 |
 | [`is_socket`](filesystem/is_socket.md) | 指定されたパスがソケットを指しているかを確認する (function) | C++17 |
 | [`is_other`](filesystem/is_other.md) | 指定されたパスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する (function) | C++17 |
-| [`is_empty`](filesystem/is_empty.md) | 指定されたパスが空のファイル・ディレクトかを確認する (function) | C++17 |
+| [`is_empty`](filesystem/is_empty.md) | 指定されたパスが空のファイル・ディレクトリかを確認する (function) | C++17 |
 | [`last_write_time`](filesystem/last_write_time.md) | エンティティの最終更新日を取得・更新する (function) | C++17 |
 | [`space`](filesystem/space.md) | 指定されたパスの残り容量を取得する (function) | C++17 |
 | [`status`](filesystem/status.md) | ファイル状態を取得する (function) | C++17 |
