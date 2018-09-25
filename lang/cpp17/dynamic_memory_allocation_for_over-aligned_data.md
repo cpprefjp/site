@@ -35,7 +35,7 @@ void* operator new(std::size_t size, std::align_val_t alignment);
 `new T`の呼び出しが[`align_val_t`](/reference/new/align_val_t.md)を取る[`new`](/reference/new/op_new.md)で解決される場合、`align_val_t`の値は`alignof(T)`の結果になる。
 
 ## 関連項目
-- [new](/reference/new.md)
+- [`<new>`](/reference/new.md)
 - [`std::align`](/reference/memory/align.md)
 - [C++11 alignas](/lang/cpp11/alignas.md)
 - [C++11 alignof](/lang/cpp11/alignof.md)
