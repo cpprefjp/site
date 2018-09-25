@@ -37,6 +37,7 @@ recursive_directory_iterator(directory_iterator&& rhs) noexcept; // (7)
 - (3), (5) :
     - (2), (4)に加えて、
     - パス`p`へのアクセスが拒否された場合、`options`として[`directory_options::skip_permission_denied`](/reference/filesystem/directory_options.md)が指定されていれば、エラー報告をせず、終端イテレータを構築する
+    - `options`として[`directory_options::follow_directory_symlink`](/reference/filesystem/directory_options.md)が指定されていれば、シンボリックリンクになっているディレクトリ内も走査する
 - (6) : `rhs`を`*this`にコピーする。`rhs`と`*this`が同じオブジェクトである場合はなにもしない
 - (7) : `rhs`の所有権を`*this`に移動する。`rhs`と`*this`が同じオブジェクトである場合はなにもしない
 
