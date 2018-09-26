@@ -26,7 +26,7 @@ recursive_directory_iterator operator++(int);
 
 
 ## 例外
-ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、[`std::filesystem::filesystem_error`](../filesystem_error.md)例外を送出する
 
 
 ## 例
