@@ -16,7 +16,7 @@ namespace std {
 このクラスは、離散一様分布(Discrete Uniform Distribution)の整数に特化したバージョンである。実数が必要な場合は、[`uniform_real_distribution`](uniform_real_distribution.md)クラスを使用する。
 
 
-一様性数分布は、以下のような用途で使用できる：
+一様分布の整数は、以下のような用途で使用できる：
 
 - サイコロを振る
 - カードデッキから1枚を選ぶ
