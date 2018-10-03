@@ -66,8 +66,8 @@ int main ()
 }
 ```
 * std::is_permutation[color ff0000]
-* good.begin()[link /reference/vector/begin.md]
-* bad.begin()[link /reference/vector/begin.md]
+* good.begin()[link /reference/vector/vector/begin.md]
+* bad.begin()[link /reference/vector/vector/begin.md]
 
 ### 出力
 ```

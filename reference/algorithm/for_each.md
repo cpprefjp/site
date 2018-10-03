@@ -75,7 +75,7 @@ int main() {
 }
 ```
 * std::for_each[color ff0000]
-* v.push_back[link /reference/vector/push_back.md]
+* v.push_back[link /reference/vector/vector/push_back.md]
 
 ### 出力
 ```

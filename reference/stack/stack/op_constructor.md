@@ -77,7 +77,7 @@ int main()
   }
 }
 ```
-* v.push_back[link /reference/vector/push_back.md]
+* v.push_back[link /reference/vector/vector/push_back.md]
 * std::move[link /reference/utility/move.md]
 * st.empty()[link empty.md]
 * st.top()[link top.md]

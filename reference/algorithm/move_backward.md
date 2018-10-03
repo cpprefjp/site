@@ -66,7 +66,7 @@ int main() {
 }
 ```
 * std::move_backward[color ff0000]
-* v.emplace_back[link /reference/vector/emplace_back.md]
+* v.emplace_back[link /reference/vector/vector/emplace_back.md]
 * std::move[link move.md]
 
 ### 出力

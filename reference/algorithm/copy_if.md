@@ -61,7 +61,7 @@ int main() {
 }
 ```
 * std::copy_if[color ff0000]
-* result.begin()[link /reference/vector/begin.md]
+* result.begin()[link /reference/vector/vector/begin.md]
 
 ### 出力
 ```

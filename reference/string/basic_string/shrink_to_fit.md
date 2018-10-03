@@ -81,7 +81,7 @@ void basic_string::shrink_to_fit() {
 
 
 ## 関連項目
-- [`std::vector<>::shrink_to_fit`](../../vector/shrink_to_fit.md)
+- [`std::vector<>::shrink_to_fit`](../../vector/vector/shrink_to_fit.md)
 - [`std::deque<>::shrink_to_fit`](../../deque/deque/shrink_to_fit.md)
 
 

@@ -107,8 +107,8 @@ int main()
   }
 }
 ```
-* probabilities.begin()[link /reference/vector/begin.md]
-* probabilities.end()[link /reference/vector/end.md]
+* probabilities.begin()[link /reference/vector/vector/begin.md]
+* probabilities.end()[link /reference/vector/vector/end.md]
 
 ### 出力例
 ```

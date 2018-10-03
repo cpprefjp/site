@@ -60,5 +60,5 @@ int main()
 
 
 ## 関連項目
-- [`std::vector`クラスのデストラクタ](/reference/vector/op_destructor.md)
+- [`std::vector`クラスのデストラクタ](/reference/vector/vector/op_destructor.md)
 - [`std::is_trivially_destructible`](/reference/type_traits/is_trivially_destructible.md)

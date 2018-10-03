@@ -110,9 +110,9 @@ int main()
 }
 ```
 * std::rotate[color ff0000]
-* seq.begin()[link /reference/vector/begin.md]
-* seq.end[link /reference/vector/end.md]
-* seq.assign[link /reference/vector/assign.md]
+* seq.begin()[link /reference/vector/vector/begin.md]
+* seq.end[link /reference/vector/vector/end.md]
+* seq.assign[link /reference/vector/vector/assign.md]
 * std::swap[link /reference/utility/swap.md]
 
 #### 出力例

@@ -73,10 +73,10 @@ int main()
 }
 ```
 * std::back_inserter[color ff0000]
-* dest.reserve[link /reference/vector/reserve.md]
-* src.size()[link /reference/vector/size.md]
-* src.begin()[link /reference/vector/begin.md]
-* src.end()[link /reference/vector/end.md]
+* dest.reserve[link /reference/vector/vector/reserve.md]
+* src.size()[link /reference/vector/vector/size.md]
+* src.begin()[link /reference/vector/vector/begin.md]
+* src.end()[link /reference/vector/vector/end.md]
 
 ### 出力
 ```

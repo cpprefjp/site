@@ -88,7 +88,7 @@ int main()
 }
 ```
 * std::make_move_iterator[color ff0000]
-* v.emplace_back[link /reference/vector/emplace_back.md]
+* v.emplace_back[link /reference/vector/vector/emplace_back.md]
 
 ### 出力
 ```

@@ -105,8 +105,8 @@ int main()
 }
 ```
 * std::discrete_distribution[color ff0000]
-* probabilities.begin()[link /reference/vector/begin.md]
-* probabilities.end()[link /reference/vector/end.md]
+* probabilities.begin()[link /reference/vector/vector/begin.md]
+* probabilities.end()[link /reference/vector/vector/end.md]
 * std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
 * dist(engine)[link discrete_distribution/op_call.md]
 
