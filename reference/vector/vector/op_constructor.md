@@ -51,18 +51,18 @@ vector(initializer_list<T> il,
 - (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `vector` オブジェクトを構築する。
 - (8) : アロケータを別で受け取り、`vector` オブジェクトをコピー構築する。
 - (9) : アロケータを別で受け取り、`vector` オブジェクトをムーブ構築する。
-- (10) : 初期化子リストを受け取るコンストラクタ。`vector(il.`[`begin`](../initializer_list/initializer_list/begin.md)`(), li.`[`end`](../initializer_list/initializer_list/end.md)`(), a)` と等価。
+- (10) : 初期化子リストを受け取るコンストラクタ。`vector(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), li.`[`end`](/reference/initializer_list/initializer_list/end.md)`(), a)` と等価。
 
 
 ## 計算量
 - (1), (2) : 定数時間
 - (3), (4) : `n` に対して線形時間
-- (5) : [`distance`](../iterator/distance.md)`(first, last)` に対して線形時間。`InputIter` が前方向イテレータの要件を満たさない場合はあらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。
+- (5) : [`distance`](/reference/iterator/distance.md)`(first, last)` に対して線形時間。`InputIter` が前方向イテレータの要件を満たさない場合はあらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。
 - (6) : `x.`[`size`](size.md)`()` に対して線形時間
 - (7) : 定数時間
 - (8) : `x.`[`size`](size.md)`()` に対して線形時間
 - (9) : 定数時間。ただし、`a == x.`[`get_allocator`](get_allocator.md)`()` でなければ `x.`[`size`](size.md)`()` に対して線形時間。
-- (10) : `il.`[`size`](../initializer_list/initializer_list/size.md)`()` に対して線形時間
+- (10) : `il.`[`size`](/reference/initializer_list/initializer_list/size.md)`()` に対して線形時間
 
 
 ## 備考
@@ -95,9 +95,9 @@ vector(initializer_list<T> il,
       l.emplace_back(10u);
     }
     ```
-    * std::scoped_allocator_adaptor[link ../scoped_allocator/scoped_allocator_adaptor.md]
-    * std::allocator[link ../memory/allocator.md]
-    * emplace_back[link ../list/list/emplace_back.md]
+    * std::scoped_allocator_adaptor[link /reference/scoped_allocator/scoped_allocator_adaptor.md]
+    * std::allocator[link /reference/memory/allocator.md]
+    * emplace_back[link /reference/list/list/emplace_back.md]
 
 
 ## 例
