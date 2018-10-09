@@ -40,7 +40,7 @@ int main()
   std::cout << **it2.base() << std::endl;
 }
 ```
-* v.emplace_back[link /reference/vector/emplace_back.md]
+* v.emplace_back[link /reference/vector/vector/emplace_back.md]
 * it2.base()[link base.md]
 
 ### 出力

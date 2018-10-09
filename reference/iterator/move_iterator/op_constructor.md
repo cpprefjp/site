@@ -60,7 +60,7 @@ int main()
   std::cout << *p << std::endl;
 }
 ```
-* v.emplace_back[link /reference/vector/emplace_back.md]
+* v.emplace_back[link /reference/vector/vector/emplace_back.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力

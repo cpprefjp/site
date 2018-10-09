@@ -29,8 +29,8 @@ std::vector<std::string> w;
 f(v); // Tの型はint
 f(w); // Tの型はstd::string
 ```
-* v.empty()[link /reference/vector/empty.md]
-* v.front()[link /reference/vector/front.md]
+* v.empty()[link /reference/vector/vector/empty.md]
+* v.front()[link /reference/vector/vector/front.md]
 
 
 ## 仕様

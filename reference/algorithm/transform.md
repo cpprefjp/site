@@ -104,8 +104,8 @@ int main() {
 }
 ```
 * std::transform[color ff0000]
-* result.begin()[link /reference/vector/begin.md]
-* result.end()[link /reference/vector/end.md]
+* result.begin()[link /reference/vector/vector/begin.md]
+* result.end()[link /reference/vector/vector/end.md]
 * std::to_string[link /reference/string/to_string.md]
 
 ### 出力

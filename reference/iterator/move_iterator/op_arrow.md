@@ -37,7 +37,7 @@ int main()
 }
 ```
 * it->get()[color ff0000]
-* v.emplace_back[link /reference/vector/emplace_back.md]
+* v.emplace_back[link /reference/vector/vector/emplace_back.md]
 
 
 ### 出力

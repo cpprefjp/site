@@ -96,7 +96,7 @@ int main() {
 }
 ```
 * std::unique[color ff0000]
-* v.erase[link /reference/vector/erase.md]
+* v.erase[link /reference/vector/vector/erase.md]
 
 ### 出力
 ```

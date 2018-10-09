@@ -44,7 +44,7 @@ int main()
 }
 ```
 * it -= 2[color ff0000]
-* v.emplace_back[link /reference/vector/emplace_back.md]
+* v.emplace_back[link /reference/vector/vector/emplace_back.md]
 * std::make_move_iterator[link /reference/iterator/make_move_iterator.md]
 
 ### 出力

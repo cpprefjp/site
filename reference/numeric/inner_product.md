@@ -74,7 +74,7 @@ int main()
 }
 ```
 * std::inner_product[color ff0000]
-* u.begin()[link /reference/vector/begin.md]
+* u.begin()[link /reference/vector/vector/begin.md]
 
 ### 出力
 ```

@@ -62,8 +62,8 @@ int main()
 }
 ```
 * std::partial_sort_copy[color ff0000]
-* result.begin()[link /reference/vector/begin.md]
-* result.end()[link /reference/vector/end.md]
+* result.begin()[link /reference/vector/vector/begin.md]
+* result.end()[link /reference/vector/vector/end.md]
 
 ### 出力
 ```

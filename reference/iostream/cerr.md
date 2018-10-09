@@ -44,7 +44,7 @@ int main()
 }
 ```
 * std::cerr[color ff0000]
-* v.at[link /reference/vector/at.md]
+* v.at[link /reference/vector/vector/at.md]
 * std::exception[link /reference/exception/exception.md]
 
 ### 出力例

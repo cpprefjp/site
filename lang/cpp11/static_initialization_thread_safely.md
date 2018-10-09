@@ -69,7 +69,7 @@ int main()
   }
 }
 ```
-* push_back[link /reference/vector/push_back.md]
+* push_back[link /reference/vector/vector/push_back.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力
