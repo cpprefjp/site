@@ -36,7 +36,7 @@ namespace std {
 
 
 ## 戻り値
-`lhs.`[`real`](complex/real.md)`() == rhs.`[`real`](complex/real.md)`() && lhs.`[`imag`](complex/imag.md)`() == rhs.`[`imag`](complex/imag.md)`()`
+`lhs.`[`real`](real.md)`() == rhs.`[`real`](real.md)`() && lhs.`[`imag`](imag.md)`() == rhs.`[`imag`](imag.md)`()`
 
 
 ## 備考
@@ -78,6 +78,6 @@ int main()
 | 名前                            | 説明                                           |
 |---------------------------------|------------------------------------------------|
 | [`operator!=`](op_not_equal.md) | 非等値比較を行う。                             |
-| [`real`](complex/real.md)       | 実部を取得、あるいは、設定する。（メンバ関数） |
-| [`imag`](complex/imag.md)       | 虚部を取得、あるいは、設定する。（メンバ関数） |
+| [`real`](real.md)               | 実部を取得、あるいは、設定する。（メンバ関数） |
+| [`imag`](imag.md)               | 虚部を取得、あるいは、設定する。（メンバ関数） |
 

@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 戻り値
-`complex<T>(-lhs.`[`real`](complex/real.md)`(), -lhs.`[`imag`](complex/imag.md)`())`
+`complex<T>(-lhs.`[`real`](real.md)`(), -lhs.`[`imag`](imag.md)`())`
 
 
 ## 例

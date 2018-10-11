@@ -21,13 +21,13 @@ namespace std {
 
 
 ## 戻り値
-`complex<T>(lhs)` [`-=`](complex/op_minus_assign.md) `rhs`  
-（`lhs` を基に新たな `complex<T>` 型のオブジェクトを作成し、そのオブジェクトから [`operator-=`](complex/op_minus_assign.md) を用いて `rhs` を引いた上で当該オブジェクトを返す）
+`complex<T>(lhs)` [`-=`](op_minus_assign.md) `rhs`  
+（`lhs` を基に新たな `complex<T>` 型のオブジェクトを作成し、そのオブジェクトから [`operator-=`](op_minus_assign.md) を用いて `rhs` を引いた上で当該オブジェクトを返す）
 
 
 ## 備考
 `lhs` と `rhs` の両辺に現れる型 `T` は（残念ながら）同じ型でなければならない。（`complex<double>` と `complex<float>` の減算や、`complex<double>` と `float` の減算などを行うことはできない。）  
-特に、これらの演算子は関数テンプレートであるため、[`operator-=`](complex/op_minus_assign.md) の場合と異なり、暗黙の型変換は行われないことに注意。
+特に、これらの演算子は関数テンプレートであるため、[`operator-=`](op_minus_assign.md) の場合と異なり、暗黙の型変換は行われないことに注意。
 
 
 ## 例
@@ -55,13 +55,13 @@ int main()
 
 
 ## 関連項目
-| 名前                                          | 説明                                 |
-|-----------------------------------------------|--------------------------------------|
-| [`operator=`](complex/op_assign.md)           | 代入する。                           |
-| [`operator+=`](complex/op_plus_assign.md)     | 複素数の加算を行う。                 |
-| [`operator-=`](complex/op_minus_assign.md)    | 複素数の減算を行う。                 |
-| [`operator*=`](complex/op_multiply_assign.md) | 複素数の乗算を行う。                 |
-| [`operator/=`](complex/op_divide_assign.md)   | 複素数の除算を行う。                 |
-| [`operator+`](op_plus.md)                     | 複素数の加算を行う。（非メンバ関数） |
-| [`operator*`](op_multiply.md)                 | 複素数の乗算を行う。（非メンバ関数） |
-| [`operator/`](op_divide.md)                   | 複素数の除算を行う。（非メンバ関数） |
+| 名前                                  | 説明                                 |
+|---------------------------------------|--------------------------------------|
+| [`operator=`](op_assign.md)           | 代入する。                           |
+| [`operator+=`](op_plus_assign.md)     | 複素数の加算を行う。                 |
+| [`operator-=`](op_minus_assign.md)    | 複素数の減算を行う。                 |
+| [`operator*=`](op_multiply_assign.md) | 複素数の乗算を行う。                 |
+| [`operator/=`](op_divide_assign.md)   | 複素数の除算を行う。                 |
+| [`operator+`](op_plus.md)             | 複素数の加算を行う。（非メンバ関数） |
+| [`operator*`](op_multiply.md)         | 複素数の乗算を行う。（非メンバ関数） |
+| [`operator/`](op_divide.md)           | 複素数の除算を行う。（非メンバ関数） |

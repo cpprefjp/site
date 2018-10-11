@@ -31,17 +31,17 @@ namespace std {
 
 ## メンバ関数
 
-| 名前                                                  | 説明                           | 対応バージョン |
-|-------------------------------------------------------|--------------------------------|----------------|
-| [`(constructor)`](complex/complex/op_constructor.md)         | コンストラクタ                 |                |
-| `~complex() = default;`                               | デストラクタ                   |                |
-| [`real`](complex/complex/real.md)                     | 複素数値の実部を取得／設定する |                |
-| [`imag`](complex/complex/imag.md)                     | 複素数値の虚部を取得／設定する |                |
-| [`operator=`](complex/complex/op_assign.md)           | 複素数値のコピー               |                |
-| [`operator+=`](complex/complex/op_plus_assign.md)     | 複素数値の加算                 |                |
-| [`operator-=`](complex/complex/op_minus_assign.md)    | 複素数値の減算                 |                |
-| [`operator*=`](complex/complex/op_multiply_assign.md) | 複素数値の乗算                 |                |
-| [`operator/=`](complex/complex/op_divide_assign.md)   | 複素数値の除算                 |                |
+| 名前                                          | 説明                           | 対応バージョン |
+|-----------------------------------------------|--------------------------------|----------------|
+| [`(constructor)`](complex/op_constructor.md)  | コンストラクタ                 |                |
+| `~complex() = default;`                       | デストラクタ                   |                |
+| [`real`](complex/real.md)                     | 複素数値の実部を取得／設定する |                |
+| [`imag`](complex/imag.md)                     | 複素数値の虚部を取得／設定する |                |
+| [`operator=`](complex/op_assign.md)           | 複素数値のコピー               |                |
+| [`operator+=`](complex/op_plus_assign.md)     | 複素数値の加算                 |                |
+| [`operator-=`](complex/op_minus_assign.md)    | 複素数値の減算                 |                |
+| [`operator*=`](complex/op_multiply_assign.md) | 複素数値の乗算                 |                |
+| [`operator/=`](complex/op_divide_assign.md)   | 複素数値の除算                 |                |
 
 
 ## メンバ型
@@ -54,16 +54,16 @@ namespace std {
 ## 非メンバ関数
 ### 複素数の値
 
-| 名前                        | 説明                                                 | 対応バージョン |
-|-----------------------------|------------------------------------------------------|----------------|
-| [`real`](complex/real.md)   | 実部を取得する                                       |                |
-| [`imag`](complex/imag.md)   | 虚部を取得する                                       |                |
-| [`abs`](complex/abs.md)     | 複素数の絶対値を得る                                 |                |
-| [`arg`](complex/arg.md)     | 複素数の偏角を得る                                   |                |
-| [`norm`](complex/norm.md)   | 複素数体のノルムを得る                               |                |
-| [`conj`](complex/conj.md)   | 共役複素数を得る                                     |                |
-| [`proj`](complex/proj.md)   | リーマン球面への射影を得る                           | C++11          |
-| [`polar`](complex/polar.md) | 複素数を極形式で指定して作る                         |                |
+| 名前                           | 説明                         | 対応バージョン |
+|--------------------------------|------------------------------|----------------|
+| [`real`](complex/real_free.md) | 実部を取得する               |                |
+| [`imag`](complex/imag_free.md) | 虚部を取得する               |                |
+| [`abs`](complex/abs.md)        | 複素数の絶対値を得る         |                |
+| [`arg`](complex/arg.md)        | 複素数の偏角を得る           |                |
+| [`norm`](complex/norm.md)      | 複素数体のノルムを得る       |                |
+| [`conj`](complex/conj.md)      | 共役複素数を得る             |                |
+| [`proj`](complex/proj.md)      | リーマン球面への射影を得る   | C++11          |
+| [`polar`](complex/polar.md)    | 複素数を極形式で指定して作る |                |
 
 
 ### 演算子
@@ -156,8 +156,8 @@ int main()
 }
 ```
 * std::complex[color ff0000]
-* c.real()[link complex/complex/real.md]
-* c.imag()[link complex/complex/imag.md]
+* c.real()[link complex/real.md]
+* c.imag()[link complex/imag.md]
 * std::abs[link complex/abs.md]
 * std::arg[link complex/arg.md]
 * std::norm[link complex/norm.md]
