@@ -38,7 +38,7 @@ int main()
    x.m3.~basic_string<char>();
 }
 ```
-* std::complex[link /reference/complex.md]
+* std::complex[link /reference/complex/complex.md]
 
 出力：
 

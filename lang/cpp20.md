@@ -72,7 +72,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### ユーティリティ
 - [`std::exchange()`](/reference/utility/exchange.md)関数に`constexpr`を追加
-- [`std::complex`](/reference/complex.md)クラスを`constexpr`に対応
+- [`std::complex`](/reference/complex/complex.md)クラスを`constexpr`に対応
 
 
 ### 型特性
