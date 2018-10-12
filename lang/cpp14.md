@@ -91,10 +91,10 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 	- 秒単位を表す[`s`リテラル](/reference/chrono/duration/op_s.md)
 	- 分単位を表す[`min`リテラル](/reference/chrono/duration/op_min.md)
 	- 時単位を表す[`h`リテラル](/reference/chrono/duration/op_h.md)
-- [`std::complex`](/reference/complex.md)の、各要素型を表す、以下のリテラルを追加
-    - `std::complex<double>`を表す[`i`リテラル](/reference/complex/op_i.md)
-	- `std::complex<float>`を表す[`if`リテラル](/reference/complex/op_if.md)
-	- `std::complex<long double>`を表す[`il`リテラル](/reference/complex/op_il.md)
+- [`std::complex`](/reference/complex/complex.md)の、各要素型を表す、以下のリテラルを追加
+    - `std::complex<double>`を表す[`i`リテラル](/reference/complex/complex/op_i.md)
+	- `std::complex<float>`を表す[`if`リテラル](/reference/complex/complex/op_if.md)
+	- `std::complex<long double>`を表す[`il`リテラル](/reference/complex/complex/op_il.md)
 
 
 ### 並行処理

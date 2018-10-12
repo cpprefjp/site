@@ -131,7 +131,7 @@ int main()
 }
 ```
 * new[color ff0000]
-* std::complex[link /reference/complex.md]
+* std::complex[link /reference/complex/complex.md]
 * std::nothrow[link nothrow_t.md]
 * std::bad_alloc[link bad_alloc.md]
 

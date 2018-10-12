@@ -187,7 +187,7 @@ int main()
   }
 }
 ```
-* std::complex[link /reference/complex.md]
+* std::complex[link /reference/complex/complex.md]
 * std::function[link /reference/functional/function.md]
 * std::weak_ptr[link /reference/memory/weak_ptr.md]
 * wp.lock()[link /reference/memory/weak_ptr/lock.md]
