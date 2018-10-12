@@ -359,9 +359,9 @@ DecimalFloat f = 12.34df;
 ## 関連項目
 - [C++14 リテラル演算子のスペースを省略可能とする](/lang/cpp14/no_whitespace_literal_operators.md)
 - [`std::basic_string`の文字列リテラル`s`](/reference/string/basic_string/op_s.md)
-- [`std::complex<float>`の浮動小数点数リテラル`if`](/reference/complex/op_if.md)
-- [`std::complex<double>`の浮動小数点数リテラル`i`](/reference/complex/op_i.md)
-- [`std::complex<long double>`の浮動小数点数リテラル`il`](/reference/complex/op_il.md)
+- [`std::complex<float>`の浮動小数点数リテラル`if`](/reference/complex/complex/op_if.md)
+- [`std::complex<double>`の浮動小数点数リテラル`i`](/reference/complex/complex/op_i.md)
+- [`std::complex<long double>`の浮動小数点数リテラル`il`](/reference/complex/complex/op_il.md)
 - [`std::chrono::nanoseconds`の数値リテラル`ns`](/reference/chrono/duration/op_ns.md)
 - [`std::chrono::microseconds`の数値リテラル`us`](/reference/chrono/duration/op_us.md)
 - [`std::chrono::milliseconds`の数値リテラル`ms`](/reference/chrono/duration/op_ms.md)

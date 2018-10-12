@@ -228,9 +228,9 @@ v2
 - 文字列オブジェクトのリテラル
     - [`operator"" s`](/reference/string/basic_string/op_s.md)
 - 複素数オブジェクトのリテラル
-    - [`operator"" i`](/reference/complex/op_i.md)
-    - [`operator"" if`](/reference/complex/op_if.md)
-    - [`operator"" il`](/reference/complex/op_il.md)
+    - [`operator"" i`](/reference/complex/complex/op_i.md)
+    - [`operator"" if`](/reference/complex/complex/op_if.md)
+    - [`operator"" il`](/reference/complex/complex/op_il.md)
 
 
 ## 参照
