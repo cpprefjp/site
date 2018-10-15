@@ -187,7 +187,7 @@ TBD
     - [`bool`値・数値・ポインタ、ストリームバッファ、マニピュレータに対するもの](op_ostream.md)
 	- [`std::sub_match`に関するもの](../../regex/sub_match/op_ostream.md)
 	- [`std::error_code`に関するもの](../../system_error/error_code/op_ostream.md)
-	- [`std::complex`に関するもの](../../complex/op_ostream.md)
+	- [`std::complex`に関するもの](../../complex/complex/op_ostream.md)
 	- [`std::bitset`に関するもの](../../bitset/bitset/op_ostream.md)
 	- [`std::basic_string`に関するもの](../../string/basic_string/op_ostream.md)
 	- [`std::shared_ptr`に関するもの](../../memory/shared_ptr/op_ostream.md)

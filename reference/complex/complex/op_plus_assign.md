@@ -64,7 +64,7 @@ c = (10,5), d = (2,3)
 | [`operator-=`](op_minus_assign.md)    | 複素数の減算を行う。                 |
 | [`operator*=`](op_multiply_assign.md) | 複素数の乗算を行う。                 |
 | [`operator/=`](op_divide_assign.md)   | 複素数の除算を行う。                 |
-| [`operator+`](../op_plus.md)          | 複素数の加算を行う。（非メンバ関数） |
-| [`operator-`](../op_minus.md)         | 複素数の減算を行う。（非メンバ関数） |
-| [`operator*`](../op_multiply.md)      | 複素数の乗算を行う。（非メンバ関数） |
-| [`operator/`](../op_divide.md)        | 複素数の除算を行う。（非メンバ関数） |
+| [`operator+`](op_plus.md)             | 複素数の加算を行う。（非メンバ関数） |
+| [`operator-`](op_minus.md)            | 複素数の減算を行う。（非メンバ関数） |
+| [`operator*`](op_multiply.md)         | 複素数の乗算を行う。（非メンバ関数） |
+| [`operator/`](op_divide.md)           | 複素数の除算を行う。（非メンバ関数） |

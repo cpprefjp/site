@@ -62,7 +62,7 @@ int main() {
 }
 ```
 * std::sph_legendre[color ff0000]
-* std::polar[link /reference/complex/polar.md]
+* std::polar[link /reference/complex/complex/polar.md]
 
 ### 出力例
 ```
