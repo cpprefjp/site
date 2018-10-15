@@ -1,4 +1,4 @@
-# real
+# real (非メンバ関数)
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
