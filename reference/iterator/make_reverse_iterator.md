@@ -7,7 +7,12 @@
 ```cpp
 namespace std {
   template <class Iterator>
-  reverse_iterator<Iterator> make_reverse_iterator(Iterator i);
+  reverse_iterator<Iterator>
+    make_reverse_iterator(Iterator i); // C++03
+
+  template <class Iterator>
+  constexpr reverse_iterator<Iterator>
+    make_reverse_iterator(Iterator i); // C++17
 }
 ```
 * reverse_iterator[link reverse_iterator.md]
@@ -64,4 +69,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2285. `make_reverse_iterator`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2285)
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator operator-(difference_type n) const;
+reverse_iterator operator-(difference_type n) const;           // C++03
+constexpr reverse_iterator operator-(difference_type n) const; // C++17
 ```
 
 ## 概要
@@ -42,5 +43,4 @@ int main()
 ```
 
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

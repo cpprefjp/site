@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator& operator--();
-reverse_iterator operator--(int);
+reverse_iterator& operator--();             // (1) C++03
+constexpr reverse_iterator& operator--();   // (1) C++17
+
+reverse_iterator operator--(int);           // (2) C++03
+constexpr reverse_iterator operator--(int); // (2) C++17
 ```
 
 ## 概要
@@ -57,5 +60,4 @@ int main()
 ```
 
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

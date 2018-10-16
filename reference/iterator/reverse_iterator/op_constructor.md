@@ -5,26 +5,29 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator();
-explicit reverse_iterator(Iterator x);
-template <class U> reverse_iterator(const reverse_iterator<U>& u);
+reverse_iterator();                                       // (1) C++03
+constexpr reverse_iterator();                             // (1) C++17
+
+explicit reverse_iterator(Iterator x);                    // (2) C++03
+constexpr explicit reverse_iterator(Iterator x);          // (2) C++17
+
+template <class U>
+reverse_iterator(const reverse_iterator<U>& u);           // (3) C++03
+
+template <class U>
+constexpr reverse_iterator(const reverse_iterator<U>& u); // (3) C++17
 ```
 
-## reverse_iteratorの構築
-`reverse_iterator`オブジェクトを、次に示す通りの要素で初期化する。
-- `reverse_iterator()`
+## 概要
+`reverse_iterator`オブジェクトを構築する。
 
-デフォルトコンストラクタ。内容する元となるイテレータである`current`メンバ変数を、`Iterator`の初期化された値を使用して初期化する。
+- (1) : デフォルトコンストラクタ。内容する元となるイテレータである`current`メンバ変数を、`Iterator`の初期化された値を使用して初期化する。
+- (2) : 元となるイテレータ`x`を受け取り、メンバ変数`current`に保持する。
+- (3) : `u.current`をメンバ変数`current`に保持する。
 
-- `explicit reverse_iterator(Iterator x)`
 
-元となるイテレータ`x`を受け取り、メンバ変数`current`に保持する。
-
-- `reverse_iterator(const reverse_iterator<U>& u)`
-
-`u.current`をメンバ変数`current`に保持する。
-
-要件： `U`が`Iterator`に変換可能であること
+## 要件
+- (3) : `U`が`Iterator`に変換可能であること
 
 
 ## 例
@@ -55,5 +58,4 @@ int main()
 ```
 
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

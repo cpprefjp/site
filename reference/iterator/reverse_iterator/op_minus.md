@@ -8,12 +8,17 @@ namespace std {
   template<class Iterator1, class Iterator2>
   typename reverse_iterator<Iterator>::difference_type
   operator-(const reverse_iterator<Iterator1>& x,
-            const reverse_iterator<Iterator2>& y);     // C++03まで
+            const reverse_iterator<Iterator2>& y);               // C++03
 
   template <class Iterator1, class Iterator2>
   auto operator-(const reverse_iterator<Iterator1>& x,
                  const reverse_iterator<Iterator2>& y)
-    -> decltype(y.current - x.current);                // C++11から
+    -> decltype(y.current - x.current);                          // C++11
+
+  template <class Iterator1, class Iterator2>
+  constexpr auto operator-(const reverse_iterator<Iterator1>& x,
+                           const reverse_iterator<Iterator2>& y)
+    -> decltype(y.current - x.current);                          // C++17
 }
 ```
 
@@ -52,5 +57,4 @@ int main()
 
 ## 参照
 - [LWG Issue 685. `reverse_iterator`/`move_iterator` difference has invalid signatures](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#685)
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

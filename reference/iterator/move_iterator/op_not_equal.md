@@ -8,7 +8,11 @@
 namespace std {
   template <class Iterator1, class Iterator2>
   bool operator!=(const move_iterator<Iterator1>& x,
-                  const move_iterator<Iterator2>& y);
+                  const move_iterator<Iterator2>& y);           // C++11
+
+  template <class Iterator1, class Iterator2>
+  constexpr bool operator!=(const move_iterator<Iterator1>& x,
+                            const move_iterator<Iterator2>& y); // C++17
 }
 ```
 
@@ -67,5 +71,4 @@ not equal
 
 
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

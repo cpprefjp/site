@@ -9,7 +9,12 @@ namespace std {
   template <class Iterator1, class Iterator2>
   auto operator-(const move_iterator<Iterator1>& x,
                  const move_iterator<Iterator2>& y)
-    -> decltype(x.base() - y.base());
+    -> decltype(x.base() - y.base());                         // C++11
+
+  template <class Iterator1, class Iterator2>
+  constexpr auto operator-(const move_iterator<Iterator1>& x,
+                           const move_iterator<Iterator2>& y)
+    -> decltype(x.base() - y.base());                         // C++17
 }
 ```
 * base[link /reference/iterator/move_iterator/base.md]
@@ -66,5 +71,4 @@ int main()
 
 ## 参照
 - [LWG Issue 685. `reverse_iterator`/`move_iterator` difference has invalid signatures](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#685)
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

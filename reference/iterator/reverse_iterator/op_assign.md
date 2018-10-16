@@ -5,18 +5,21 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator& operator=(const reverse_iterator& u) = default;
+reverse_iterator& operator=(const reverse_iterator& u) = default;           // (1) C++03
+constexpr reverse_iterator& operator=(const reverse_iterator& u) = default; // (1) C++17
 
 template <class U>
-reverse_iterator& operator=(const reverse_iterator<U>& u);
+reverse_iterator& operator=(const reverse_iterator<U>& u);                  // (2) C++03
+template <class U>
+constexpr reverse_iterator& operator=(const reverse_iterator<U>& u);        // (2) C++17
 ```
 
 ## 概要
-- `reverse_iterator& operator=(const reverse_iterator<U>& u);`
+- (2) : `u.base()`をメンバ変数`current`に保持する。
 
-`u.base()`をメンバ変数`current`に保持する。
 
-要件： `U`が`Iterator`に変換可能であること
+## 要件
+- (2) : `U`が`Iterator`に変換可能であること
 
 
 ## 戻り値
@@ -61,5 +64,4 @@ int main()
 ```
 
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

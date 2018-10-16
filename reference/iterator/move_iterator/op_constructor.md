@@ -6,29 +6,31 @@
 * cpp11[meta cpp]
 
 ```cpp
-move_iterator();
+move_iterator();                                             // (1) C++11
+constexpr move_iterator();                                   // (1) C++17
 
-explicit move_iterator(Iterator i);
-template <class U> move_iterator(const move_iterator<U>& u);
-move_iterator(move_iterator&&) noexcept = default;
+explicit move_iterator(Iterator i);                          // (2) C++11
+constexpr explicit move_iterator(Iterator i);                // (2) C++17
+
+template <class U>
+move_iterator(const move_iterator<U>& u);                    // (3) C++11
+template <class U>
+constexpr move_iterator(const move_iterator<U>& u);          // (3) C++17
+
+move_iterator(move_iterator&&) noexcept = default;           // (4) C++11
+constexpr move_iterator(move_iterator&&) noexcept = default; // (4) C++17
 ```
 
-## move_iteratorの構築
-`move_iterator`オブジェクトを、次に示す通りの要素で初期化する。
+## 概要
+`move_iterator`オブジェクトを構築する。
 
-- `move_iterator()`
+- (1) : デフォルトコンストラクタ。内容する元となるイテレータの値を、`Iterator`の初期化された値を使用して初期化する。
+- (2) : 元となるイテレータを受け取り、メンバ変数に保持する。
+- (3) : `u.base()`をメンバ変数に保持する。
 
-デフォルトコンストラクタ。内容する元となるイテレータの値を、`Iterator`の初期化された値を使用して初期化する。
 
-- `explicit move_iterator(Iterator i)`
-
-元となるイテレータを受け取り、メンバ変数に保持する。
-
-- `move_iterator(const move_iterator<U>& u)`
-
-`u.base()`をメンバ変数に保持する。
-
-要件： `U`が`Iterator`に変換可能であること
+## 要件
+- (3) : `U`が`Iterator`に変換可能であること
 
 
 ## 例
@@ -81,5 +83,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

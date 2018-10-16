@@ -7,7 +7,11 @@
 namespace std {
   template <class InputIterator>
   typename iterator_traits<InputIterator>::difference_type
-              distance(InputIterator first, InputIterator last);
+    distance(InputIterator first, InputIterator last);     // C++03
+
+  template <class InputIterator>
+  constexpr typename iterator_traits<InputIterator>::difference_type
+    distance(InputIterator first, InputIterator last);     // C++17
 }
 ```
 
@@ -125,6 +129,6 @@ typename std::iterator_traits<InputIterator>::difference_type
 * std::input_iterator_tag[link iterator_tag.md]
 * std::random_access_iterator_tag[link iterator_tag.md]
 
+
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

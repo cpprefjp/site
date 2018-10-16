@@ -6,8 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-move_iterator& operator--();
-move_iterator operator--(int);
+move_iterator& operator--();             // C++11
+constexpr move_iterator& operator--();   // C++17
+
+move_iterator operator--(int);           // C++11
+constexpr move_iterator operator--(int); // C++17
 ```
 
 ## 概要
@@ -75,5 +78,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

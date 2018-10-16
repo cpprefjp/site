@@ -7,16 +7,28 @@
 ```cpp
 namespace std {
   template <class C>
-  auto rend(C& c) -> decltype(c.rend());                   // (1)
+  auto rend(C& c) -> decltype(c.rend());                             // (1) C++14
 
   template <class C>
-  auto rend(const C& c) -> decltype(c.rend());             // (2)
+  constexpr auto rend(C& c) -> decltype(c.rend());                   // (1) C++17
+
+  template <class C>
+  auto rend(const C& c) -> decltype(c.rend());                       // (2) C++14
+
+  template <class C>
+  constexpr auto rend(const C& c) -> decltype(c.rend());             // (2) C++17
 
   template <class T, size_t N>
-  reverse_iterator<T*> rend(T (&array)[N]);                // (3)
+  reverse_iterator<T*> rend(T (&array)[N]);                          // (3) C++14
+
+  template <class T, size_t N>
+  constexpr reverse_iterator<T*> rend(T (&array)[N]);                // (3) C++17
 
   template <class E>
-  reverse_iterator<const E*> rend(initializer_list<E> il); // (4)
+  reverse_iterator<const E*> rend(initializer_list<E> il);           // (4) C++14
+
+  template <class E>
+  constexpr reverse_iterator<const E*> rend(initializer_list<E> il); // (4) C++17
 }
 ```
 * reverse_iterator[link reverse_iterator.md]
@@ -109,4 +121,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2128. Absence of global functions `cbegin`/`cend`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2128)
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

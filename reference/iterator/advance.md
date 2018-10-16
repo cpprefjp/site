@@ -6,10 +6,10 @@
 ```cpp
 namespace std {
   template <class InputIterator, class Distance>
-  void advance(InputIterator& i, Distance n);               // C++14 まで
+  void advance(InputIterator& i, Distance n);               // C++03
 
   template <class InputIterator, class Distance>
-  constexpr void advance(InputIterator& i, Distance n);     // C++17 から
+  constexpr void advance(InputIterator& i, Distance n);     // C++17
 }
 ```
 
@@ -109,3 +109,7 @@ void advance(Iterator& i, Distance n)
 |---------------------|-----------------------------------|
 | [`next()`](next.md) | `n`回前方に進めたイテレータを返す |
 | [`prev()`](prev.md) | `n`回後方に進めたイテレータを返す |
+
+
+## 参照
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

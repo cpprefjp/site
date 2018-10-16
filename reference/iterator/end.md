@@ -7,16 +7,22 @@
 ```cpp
 namespace std {
   template <class C>
-  auto end(C& c) -> decltype(c.end());       // (1)
+  auto end(C& c) -> decltype(c.end());                 // (1) C++11
 
   template <class C>
-  auto end(const C& c) -> decltype(c.end()); // (2)
+  constexpr auto end(C& c) -> decltype(c.end());       // (1) C++17
+
+  template <class C>
+  auto end(const C& c) -> decltype(c.end());           // (2) C++11
+
+  template <class C>
+  constexpr auto end(const C& c) -> decltype(c.end()); // (2) C++17
 
   template <class T, size_t N>
-  T* end(T (&array)[N]);                     // (3) C++11
+  T* end(T (&array)[N]);                               // (3) C++11
 
   template <class T, size_t N>
-  constexpr T* end(T (&array)[N]) noexcept;  // (3) C++14
+  constexpr T* end(T (&array)[N]) noexcept;            // (3) C++14
 }
 ```
 
@@ -92,4 +98,4 @@ int main()
 
 ## 参照
 - [LWG2280 - begin/end for arrays should be constexpr and noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2280)
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

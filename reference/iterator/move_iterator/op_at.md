@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-unspecified operator[](difference_type n) const;
+unspecified operator[](difference_type n) const;           // C++11
+constexpr unspecified operator[](difference_type n) const; // C++17
 ```
 * unspecified[italic]
 
@@ -59,5 +60,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

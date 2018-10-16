@@ -7,8 +7,14 @@
 ```cpp
 namespace std {
   template <class Iterator>
-  move_iterator<Iterator> operator+(typename move_iterator<Iterator>::difference_type n,
-                                    const move_iterator<Iterator>& x);
+  move_iterator<Iterator> operator+(
+    typename move_iterator<Iterator>::difference_type n,
+    const move_iterator<Iterator>& x);                   // C++11
+
+  template <class Iterator>
+  constexpr move_iterator<Iterator> operator+(
+    typename move_iterator<Iterator>::difference_type n,
+    const move_iterator<Iterator>& x);                   // C++17
 }
 ```
 
@@ -62,5 +68,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)

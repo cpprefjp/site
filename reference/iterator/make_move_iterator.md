@@ -7,10 +7,16 @@
 ```cpp
 namespace std {
   template <class Iterator>
-  move_iterator<Iterator> make_move_iterator(const Iterator& i); // C++11
+  move_iterator<Iterator>
+    make_move_iterator(const Iterator& i); // C++11
 
   template <class Iterator>
-  move_iterator<Iterator> make_move_iterator(Iterator i);        // C++14
+  move_iterator<Iterator>
+    make_move_iterator(Iterator i);        // C++14
+
+  template <class Iterator>
+  constexpr move_iterator<Iterator>
+    make_move_iterator(Iterator i);        // C++17
 }
 ```
 * move_iterator[link move_iterator.md]
@@ -67,4 +73,4 @@ int main()
 ## 参照
 - [LWG Issue 2061. `make_move_iterator` and arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2061)
     - C++11ではパラメータが`const Iterator&`だったが、C++14では`Iterator`に変更された。これは、組み込み配列を渡された際に、ポインタに型推論(decay)させるため。
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
