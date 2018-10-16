@@ -6,7 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-reference back();                       // (1)
+reference back();                       // (1) C++11
+constexpr reference back();             // (1) C++17
+
 const_reference back() const;           // (2) C++11
 constexpr const_reference back() const; // (2) C++14
 ```
@@ -63,4 +65,4 @@ int main()
 
 ## 参照
 - [N3470 Constexpr Library Additions: containers, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3470.html)
-
+- [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
