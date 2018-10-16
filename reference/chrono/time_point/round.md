@@ -75,3 +75,7 @@ int main()
 | [`time_point_cast`](/reference/chrono/time_point_cast.md) | ゼロ方向への丸め |
 | [`floor`](floor.md)                                       | 負の無限大方向への丸め |
 | [`ceil`](ceil.md)                                         | 正の無限大方向への丸め |
+
+
+## 参照
+- [P0092R1 Polishing `<chrono>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0092r1.html)
