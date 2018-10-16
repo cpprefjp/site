@@ -19,6 +19,10 @@ namespace std::chrono {
 `d`から最も近い偶数値を返す。
 
 
+## 備考
+- [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<typename ToDuration::rep>::value == true`である場合、この関数はオーバーロード解決の候補から外れる
+
+
 ## 例
 ```cpp example
 #include <iostream>

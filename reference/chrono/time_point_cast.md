@@ -19,7 +19,9 @@ namespace chrono {
 * time_point[link /reference/chrono/time_point.md]
 
 ## 概要
-分解能の低い[`duration`](/reference/chrono/duration.md)型を内部表現として持つ[`time_point`](/reference/chrono/time_point.md)への変換
+分解能の低い[`duration`](/reference/chrono/duration.md)型を内部表現として持つ[`time_point`](/reference/chrono/time_point.md)へ変換する。
+
+その際の丸めは、ゼロ方向への丸め (切り捨て、truncate) が行われる。
 
 
 ## 戻り値
@@ -70,6 +72,16 @@ int main()
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+
+
+## 関連項目
+
+| 名前 | 説明 |
+|------|------|
+| [`floor`](time_point/floor.md) | 負の無限大方向への丸め |
+| [`ceil`](time_point/ceil.md)   | 正の無限大方向への丸め |
+| [`round`](time_point/round.md) | 偶数方向への丸め |
+
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
