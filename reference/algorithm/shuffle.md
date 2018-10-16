@@ -7,9 +7,9 @@
 
 ```cpp
 namespace std {
-  template <class RandomAccessIterator, class UniformRandomNumberGenerator>
+  template <class RandomAccessIterator, class UniformRandomBitGenerator>
   void shuffle(RandomAccessIterator first, RandomAccessIterator last,
-               UniformRandomNumberGenerator&& g);
+               UniformRandomBitGenerator&& g);
 }
 ```
 
@@ -19,7 +19,7 @@ namespace std {
 
 ## 要件
 - `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
-- `UniformRandomNumberGenerator` は uniform random number generator の要件を満たさなければならず、その戻り値の型は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
+- `UniformRandomBitGenerator` は uniform random bit generator の要件を満たさなければならず、その戻り値の型は [`iterator_traits`](/reference/iterator/iterator_traits.md)`<RandomAccessIterator>::difference_type` へ変換可能でなければならない。
 
 
 ## 計算量
@@ -108,8 +108,8 @@ before: 0123456789abcdef
 
 ## 実装例
 ```cpp
-template <class RandomAccessIterator, class UniformRandomNumberGenerator>
-void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRandomNumberGenerator&& g) {
+template <class RandomAccessIterator, class UniformRandomBitGenerator>
+void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRandomBitGenerator&& g) {
   if (first == last) return;
 
   using distance_type   = typename iterator_traits<RandomAccessIterator>::difference_type;
@@ -127,3 +127,7 @@ void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRando
 * uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
 * iter_swap[link iter_swap.md]
 
+
+## 参照
+- [P0346R1 A `<random>` Nomenclature Tweak](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0346r1.pdf)
+    - URNGをURBGに変更

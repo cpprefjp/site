@@ -6,11 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-template <class URNG>
-result_type operator()(URNG& g);                         // (1)
+template <class URBG>
+result_type operator()(URBG& g);                         // (1)
 
-template <class URNG>
-result_type operator()(URNG& g, const param_type& parm); // (2)
+template <class URBG>
+result_type operator()(URBG& g, const param_type& parm); // (2)
 ```
 
 ## 概要
@@ -110,5 +110,5 @@ int main()
 
 
 ## 参照
-
-
+- [P0346R1 A `<random>` Nomenclature Tweak](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0346r1.pdf)
+    - URNGをURBGに変更

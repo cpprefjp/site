@@ -6,27 +6,27 @@
 
 ```cpp
 namespace std {
-  template<class RealType, std::size_t bits, class URNG>
-  RealType generate_canonical(URNG& g);
+  template<class RealType, std::size_t bits, class URBG>
+  RealType generate_canonical(URBG& g);
 }
 ```
 
 ## 概要
 実数区間\[0.0, 1.0\)に展開（事実上正規化）された一様分布乱数を得るための関数テンプレート。
-テンプレート引数に与える `RealType` 型について、 `bits` だけの分解能を持つ仮数部を `URNG g`を必要な回数だけ繰り返し呼び出して生成する。
+テンプレート引数に与える `RealType` 型について、 `bits` だけの分解能を持つ仮数部を `URBG g`を必要な回数だけ繰り返し呼び出して生成する。
 
 
 ## テンプレートパラメータ
 - `class RealType` : 生成する実数の型。
 - `size_t bits` : 生成する実数における仮数部への分解能の最低要求。最大値は `std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<RealType>::`[`digits`](/reference/limits/numeric_limits/digits.md) 。
-- `class URNG` : 一様乱数生成器の型。
+- `class URBG` : 一様乱数生成器の型。
 
 ## 関数パラメータ
-- URNG& g : 一様乱数生成器。
+- URBG& g : 一様乱数生成器。
 
 
 ## 例外
-`URNG g` が例外を送出する場合はそれに準ずる。
+`URBG g` が例外を送出する場合はそれに準ずる。
 
 
 ## 例
@@ -81,3 +81,7 @@ int main()
 ### 参考
 - N3337 p.909 §26.5.7.2
 
+
+## 参照
+- [P0346R1 A `<random>` Nomenclature Tweak](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0346r1.pdf)
+    - URNGをURBGに変更
