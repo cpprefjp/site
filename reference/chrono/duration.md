@@ -80,21 +80,36 @@ namespace chrono {
 
 
 ## 非メンバ関数
+### 丸め演算
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`duration_cast`](duration_cast.md) | ゼロ方向への丸め       | C++11 |
+| [`floor`](duration/floor.md)        | 負の無限大方向への丸め | C++17 |
+| [`ceil`](duration/ceil.md)          | 正の無限大方向への丸め | C++17 |
+| [`round`](duration/round.md)        | 偶数方向への丸め       | C++17 |
+
+
+### 算術演算
+
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------|-------------------------|-------|
+| [`operator+`](op_plus.md)              | 加算 | C++11 |
+| [`operator-`](op_minus.md)             | 減算 | C++11 |
+| [`operator*`](duration/op_multiply.md) | 乗算 | C++11 |
+| [`operator/`](duration/op_divide.md)   | 除算 | C++11 |
+| [`operator%`](duration//op_modulo.md)  | 剰余算 | C++11 |
+
+### 比較演算
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------|-------|
-| [`operator+`](op_plus.md)                    | 加算(function template) | C++11 |
-| [`operator-`](op_minus.md)                   | 減算(function template) | C++11 |
-| [`operator*`](duration/op_multiply.md)       | 乗算(function template) | C++11 |
-| [`operator/`](duration/op_divide.md)         | 除算(function template) | C++11 |
-| [`operator%`](duration//op_modulo.md)        | 剰余算(function template) | C++11 |
-| [`operator==`](duration/op_equal.md)         | 等値判定を行う(function template) | C++11 |
-| [`operator!=`](duration/op_not_equal.md)     | 非等値判定を行う(function template) | C++11 |
-| [`operator<`](duration/op_less.md)           | 左辺が右辺より小さいか判定を行う(function template) | C++11 |
-| [`operator<=`](duration/op_less_equal.md)    | 左辺が右辺以下かの判定を行う(function template) | C++11 |
-| [`operator>`](duration/op_greater.md)        | 左辺が右辺より大きいか判定を行う(function template) | C++11 |
-| [`operator>=`](duration/op_greater_equal.md) | 左辺が右辺以上かの判定を行う(function template) | C++11 |
-
+| [`operator==`](duration/op_equal.md)         | 等値判定を行う | C++11 |
+| [`operator!=`](duration/op_not_equal.md)     | 非等値判定を行う | C++11 |
+| [`operator<`](duration/op_less.md)           | 左辺が右辺より小さいか判定を行う | C++11 |
+| [`operator<=`](duration/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++11 |
+| [`operator>`](duration/op_greater.md)        | 左辺が右辺より大きいか判定を行う | C++11 |
+| [`operator>=`](duration/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++11 |
 
 ### リテラル
 

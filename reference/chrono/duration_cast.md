@@ -14,7 +14,9 @@ namespace chrono {
 * duration[link /reference/chrono/duration.md]
 
 ## 概要
-分解能が低い[`duration`](/reference/chrono/duration.md)への変換
+分解能が低い[`duration`](/reference/chrono/duration.md)への変換。
+
+その際の丸めは、ゼロ方向への丸め (切り捨て、truncate) が行われる。
 
 
 ## 戻り値
@@ -54,3 +56,12 @@ int main()
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+
+
+## 関連項目
+
+| 名前 | 説明 |
+|------|------|
+| [`floor`](duration/floor.md) | 負の無限大方向への丸め |
+| [`ceil`](duration/ceil.md)   | 正の無限大方向への丸め |
+| [`round`](duration/round.md) | 偶数方向への丸め |
