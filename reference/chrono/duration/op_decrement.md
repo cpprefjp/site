@@ -6,8 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-duration& operator--();
-duration operator--(int);
+duration& operator--();             // (1) C++11
+constexpr duration& operator--();   // (1) C++17
+
+duration operator--(int);           // (2) C++11
+constexpr duration operator--(int); // (2) C++17
 ```
 
 ## 概要
@@ -17,6 +20,7 @@ duration operator--(int);
 ## 戻り値
 - `duration& opertor--()` : `--rep_; return *this`;
 - `duration operator--(int)` : `return duration(rep_--);`
+
 ※ `rep_`は内部で保持している値。メンバ変数名は説明用のもの。
 
 
@@ -67,3 +71,7 @@ int main()
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.1, 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+
+
+## 参照
+- [P0505R0 Wording for GB 50](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0505r0.html)

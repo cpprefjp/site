@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-time_point& operator+=(const duration& d);
+time_point& operator+=(const duration& d);           // C++11
+constexpr time_point& operator+=(const duration& d); // C++17
 ```
 
 ## 概要
@@ -57,3 +58,7 @@ int main()
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+
+
+## 参照
+- [P0505R0 Wording for GB 50](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0505r0.html)
