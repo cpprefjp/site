@@ -65,9 +65,10 @@ int main()
 
 
 ### 備考
-gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が空の場合に `data()` を呼び出すと未定義動作になる。([Bug 59829](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=59829))
+gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が空の場合に `data()` を呼び出すと未定義動作になる。([Bug 59829](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=59829))。gcc 4.9.0で修正されている。
 
 
 ## 参照
 - [LWG Issue 464. Suggestion for new member functions in standard containers](https://wg21.cmeerw.net/lwg/issue464)
 - [LWG Issue 2596. `vector::data()` should use addressof](https://wg21.cmeerw.net/lwg/issue2596)
+- [[gcc] Revision 207241](https://gcc.gnu.org/viewcvs/gcc?view=revision&revision=207241)
