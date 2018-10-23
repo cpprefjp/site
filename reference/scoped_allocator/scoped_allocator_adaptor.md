@@ -22,11 +22,11 @@ namespace std {
 図1 コンテナ、および各要素がそれぞれに別個のアロケータオブジェクトを持つ
 
 
-![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
+![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
 
 図2 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる(例1)
 
-![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
+![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
 
 図3 全ての要素にアロケータオブジェクトの状態を伝搬させる(例2)
 
