@@ -25,3 +25,12 @@
 | [`operator new[]`](new/op_new[].md)         | 動的に配列の記憶域を確保する(function)         |                |
 | [`operator delete`](new/op_delete.md)       | 動的に確保した記憶域を解放する(function)       |                |
 | [`operator delete[]`](new/op_delete[].md)   | 動的に確保した配列の記憶域を解放する(function) |                |
+
+
+## 干渉サイズ
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`hardware_destructive_interference_size`](new/hardware_destructive_interference_size.md) | 2つのオブジェクトに並行アクセスする際に、パフォーマンス低下を避けられる最小アライメントサイズ (variable) | C++17 |
+| [`hardware_constructive_interference_size`](new/hardware_constructive_interference_size.md.nolink) | 2つのオブジェクトに一時局所的にアクセスできる最大サイズ (variable) | C++17 |
+
