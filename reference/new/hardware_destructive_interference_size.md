@@ -40,7 +40,6 @@ struct keep_apart {
 ## 例
 ```cpp
 #include <iostream>
-#include <atomic>
 #include <new>
 #include <thread>
 #include <vector>
@@ -99,7 +98,7 @@ int main()
   }
 }
 ```
-* hardware_destructive_interference_size[color ff0000]
+* std::hardware_destructive_interference_size[color ff0000]
 * threads.push_back[link /reference/vector/vector/push_back.md]
 
 
