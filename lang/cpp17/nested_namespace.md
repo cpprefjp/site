@@ -13,7 +13,7 @@
 #include <iostream>
 
 // 新機能: C++17 で可能となる入れ子名前空間の定義
-namespace aaa::bbb:ccc
+namespace aaa::bbb::ccc
 {
   void f()
   { std::cout << "a new nested namespace definition is worked!\n"; }
