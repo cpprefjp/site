@@ -23,6 +23,7 @@
 | [`try_to_lock`](mutex/try_to_lock.md) | `try_lock`のためのタグ (class) | C++11 |
 | [`adopt_lock`](mutex/adopt_lock.md)   | ロック済みミューテックスを受け取るためのタグ (class) | C++11 |
 | [`lock_guard`](mutex/lock_guard.md)   | スコープロック (class template) | C++11 |
+| [`scoped_lock`](mutex/scoped_lock.md) | 可変個のミューテックスを管理するスコープロック (class template) | C++17 |
 | [`unique_lock`](mutex/unique_lock.md) | 単一ロック (class template) | C++11 |
 | [`try_lock`](mutex/try_lock.md)       | 複数ミューテックスに対する`try_lock`操作 (function template) | C++11 |
 | [`lock`](mutex/lock.md)               | 複数ミューテックスに対する`lock`操作 (function template) | C++11 |
