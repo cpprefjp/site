@@ -5,8 +5,8 @@
 * ios_base[meta class]
 
 ```cpp
-streamsize presision(); const                       // (1)
-streamsize presision(streamsize prec);              // (2)
+streamsize precision(); const                       // (1)
+streamsize precision(streamsize prec);              // (2)
 ```
 * streamsize[link ../type-streamsize.md]
 
