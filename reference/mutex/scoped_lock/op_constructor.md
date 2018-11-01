@@ -59,8 +59,9 @@ int main()
   } // ロックを手放す
 }
 ```
+* std::timed_mutex[link /reference/mutex/timed_mutex.md]
 * m1.lock()[link /reference/mutex/mutex/lock.md]
-* m2.lock()[link /reference/mutex/mutex/lock.md]
+* m2.lock()[link /reference/mutex/timed_mutex/lock.md]
 * std::adopt_lock[link /reference/mutex/adopt_lock.md]
 
 ### 出力

@@ -14,7 +14,7 @@ namespace std {
 ## 概要
 `scoped_lock`は、複数のミューテックスに対するロック取得と解放を、コンストラクタとデストラクタで確実に実行するためのクラスである。
 
-[`lock_guard`]クラスは単一のミューテックスのみを扱うが、このクラスは複数のミューテックスを一括して管理する。
+[`lock_guard`](lock_guard.md)クラスは単一のミューテックスのみを扱うが、このクラスは複数のミューテックスを一括して管理する。
 
 
 ## メンバ関数
@@ -54,6 +54,7 @@ int main()
 }
 ```
 * std::scoped_lock[color ff0000]
+* std::timed_mutex[link timed_mutex.md]
 
 ### 出力
 ```
