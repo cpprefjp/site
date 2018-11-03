@@ -22,6 +22,12 @@ const_iterator begin() const noexcept;
 `iterator` と `const_iterator` はともにメンバ型である。`set` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
+## 備考
+`const` 版ではない `begin` が返す `iterator` も読み取り専用イテレータである。
+
+（が、`iterator` と `const_iterator` が同じ型とは限らない）
+
+
 ## 計算量
 定数時間。
 
