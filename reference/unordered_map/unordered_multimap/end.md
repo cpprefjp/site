@@ -27,12 +27,6 @@ const_iterator end() const noexcept;
 定数
 
 
-## 備考
-`const` 版ではない `end()` が返す `iterator` も読み取り専用イテレータである。
-
-（が、`iterator` と `const_iterator` が同じ型とは限らない）
-
-
 ## 例
 ```cpp example
 #include <iostream>

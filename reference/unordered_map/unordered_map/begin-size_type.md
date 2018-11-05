@@ -28,12 +28,6 @@ const_local_iterator begin(size_type n) const;
 定数
 
 
-## 備考
-`const` 版ではない `begin` が返す `local_iterator` も読み取り専用イテレータである。
-
-（が、`local_iterator` と `const_local_iterator` が同じ型とは限らないと思われる）
-
-
 ## 例
 ```cpp example
 #include <iostream>

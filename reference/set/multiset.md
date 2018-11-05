@@ -109,7 +109,7 @@ namespace std {
 | `allocator_type`         | アロケータの型。テンプレートパラメータ `Allocator`。 | |
 | `reference`              | 要素`value_type`への参照型。`value_type&`。 | |
 | `const_reference`        | 要素`value_type`への`const`参照型。`const value_type&`。 | |
-| `iterator`               | 双方向イテレータ | |
+| `iterator`               | "読み取り専用"双方向イテレータ。<br/>`const_iterator` と同じ型か否かは実装依存である。<br/>従って、ODR（One Definition Rule）に違反しないようにするため、関数のパラメータ型には常に `const_iterator` を使用したほうが良いだろう。 | |
 | `const_iterator`         | 読み取り専用双方向イテレータ。 | |
 | `size_type`              | 要素数を表す符号なし整数型。`difference_type` で表現可能な非負整数（0以上の整数）を表すことが可能。(通常は [`size_t`](/reference/cstddef/size_t.md)) | |
 | `difference_type`        | 同一のコンテナを指す `iterator` の差を表す符号付き整数型(通常は [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) <br/>`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<iterator>::difference_type`、および、`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<const_iterator>::difference_type` と同じ。 | |
