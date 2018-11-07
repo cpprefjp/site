@@ -145,7 +145,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 - [`<algorithm>`](/reference/algorithm.md)や[`<numeric>`](/reference/numeric.md)のアルゴリズムに、並列実行のオプションを追加
 - [`<optional>`](/reference/optional.md)ヘッダを新設し、統一的な有効値と無効値の表現をもつ[`optional`](/reference/optional/optional.md)クラスを追加
 - [`<variant>`](/reference/variant.md.nolink)ヘッダを新設し、型安全な共用体[`variant`](/reference/variant/variant.md.nolink)クラスを追加
-- [`<any>`](/reference/any.md.nolink)ヘッダを新設し、なんでも代入できる[`any`](/reference/any/any.md.nolink)クラスを追加
+- [`<any>`](/reference/any.md)ヘッダを新設し、なんでも代入できる[`any`](/reference/any/any.md)クラスを追加
 - 標準ライブラリの参照をC11に更新
     - [`<cfloat>`](/reference/cfloat.md)に、非正規化数の有無を判定するマクロ、10進数の桁数を表すマクロ、正の最小数を表すマクロを追加
     - [`<cstdlib>`](/reference/cstdlib.md)に、[`aligned_alloc()`](/reference/cstdlib/aligned_alloc.md.nolink)関数を追加

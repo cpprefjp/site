@@ -5,6 +5,7 @@
     * std::copy[link /reference/algorithm/copy.md]
     * std::for_each[link /reference/algorithm/for_each.md]
     * std::sort[link /reference/algorithm/sort.md]
+* <any>[link /reference/any.md]
 * <array>[link /reference/array.md]
     * std::array[link /reference/array/array.md]
 * <atomic>[link /reference/atomic.md]
