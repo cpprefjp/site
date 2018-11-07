@@ -69,10 +69,41 @@ namespace std {
 
 ## 例
 ```cpp example
-```
+#include <iostream>
+#include <any>
 
-### 出力
+int main()
+{
+  // int型の値を代入して取り出す
+  std::any x = 3;
+  int n = std::any_cast<int>(x);
+
+  std::cout << n << std::endl;
+
+  // 文字列を再代入して取り出す
+  x = "Hello";
+  const char* s = std::any_cast<const char*>(x);
+
+  std::cout << s << std::endl;
+
+  // 間違った型で取り出そうとすると例外が送出される
+  try {
+    std::any_cast<double>(x);
+  }
+  catch (std::bad_any_cast& e) {
+    std::cout << e.what() << std::endl;
+  }
+}
 ```
+* std::any[color ff0000]
+* std::any_cast[link any_cast.md.nolink]
+* std::bad_any_cast[link bad_any_cast.md.nolink]
+
+### 出力例
+```
+3
+Hello
+bad any_cast
 ```
 
 
@@ -81,6 +112,6 @@ namespace std {
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang): ??
-- [GCC, C++17 mode](/implementation.md#gcc): ??
+- [Clang, C++17 mode](/implementation.md#clang): 4.0.1
+- [GCC, C++17 mode](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
