@@ -20,8 +20,8 @@ namespace std {
 
 
 ## 要件
-- 値版型`T`は`MoveConstructible`かつ`MoveAssignable`でなければならない。
-- 配列版範囲`[0, N)`内の全ての`i`において、`a[i]`と`b[i]`は`Swappable`でなければならない。
+- 値版：型`T`は`MoveConstructible`かつ`MoveAssignable`でなければならない。
+- 配列版：範囲`[0, N)`内の全ての`i`において、`a[i]`と`b[i]`は`Swappable`でなければならない。
 
 
 ## 効果
@@ -66,8 +66,8 @@ swap(a, b);
 
 
 ## 例外
-- 値版`noexcept`中の式は、以下と等価である：`is_nothrow_move_constructible<T>::value && is_nothrow_move_assignable<T>::value`
-- 配列版配列の要素型`T`に対する`swap()`操作が例外を投げない場合、この関数もまた例外を投げない
+- 値版：`noexcept`中の式は、以下と等価である：`is_nothrow_move_constructible<T>::value && is_nothrow_move_assignable<T>::value`
+- 配列版：配列の要素型`T`に対する`swap()`操作が例外を投げない場合、この関数もまた例外を投げない
 
 
 ## 例
