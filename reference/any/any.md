@@ -34,15 +34,15 @@ namespace std {
 | [`operator=`](any/op_assign.md.nolink) | 代入演算子 | C++17 |
 | [`emplace`](any/emplace.md.nolink)     | 要素型のコンストラクタ引数から直接構築する | C++17 |
 | [`swap`](any/swap.md.nolink)           | 他の`any`オブジェクトとデータを入れ替える | C++17 |
-| [`reset`](any/reset.md.nolink)         | 有効値を保持していない状態にする | C++17 |
+| [`reset`](any/reset.md)         | 有効値を保持していない状態にする | C++17 |
 
 
 ### 値の観測
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`has_value`](any/has_value.md.nolink) | 有効な値を保持しているかを判定する | C++17 |
-| [`type`](any/type.md.nolink)           | 保持している値の型情報を取得する | C++17 |
+| [`has_value`](any/has_value.md) | 有効な値を保持しているかを判定する | C++17 |
+| [`type`](any/type.md)           | 保持している値の型情報を取得する | C++17 |
 
 
 ## 非メンバ関数
