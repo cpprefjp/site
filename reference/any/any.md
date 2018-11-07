@@ -33,7 +33,7 @@ namespace std {
 |------|------|----------------|
 | [`operator=`](any/op_assign.md.nolink) | 代入演算子 | C++17 |
 | [`emplace`](any/emplace.md.nolink)     | 要素型のコンストラクタ引数から直接構築する | C++17 |
-| [`swap`](any/swap.md.nolink)           | 他の`any`オブジェクトとデータを入れ替える | C++17 |
+| [`swap`](any/swap.md)           | 他の`any`オブジェクトとデータを入れ替える | C++17 |
 | [`reset`](any/reset.md)         | 有効値を保持していない状態にする | C++17 |
 
 
@@ -64,7 +64,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](any/swap_free.md.nolink) | 2つの`any`オブジェクトを入れ替える | C++17 |
+| [`swap`](any/swap_free.md) | 2つの`any`オブジェクトを入れ替える | C++17 |
 
 
 ## 例
