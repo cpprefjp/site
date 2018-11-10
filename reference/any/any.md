@@ -97,7 +97,7 @@ int main()
 ```
 * std::any[color ff0000]
 * std::any_cast[link any_cast.md.nolink]
-* std::bad_any_cast[link bad_any_cast.md.nolink]
+* std::bad_any_cast[link bad_any_cast.md]
 
 ### 出力例
 ```
