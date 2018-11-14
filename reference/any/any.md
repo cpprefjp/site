@@ -57,7 +57,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`any_cast`](any_cast.md.nolink) | 値を取り出す | C++17 |
+| [`any_cast`](any_cast.md) | 値を取り出す | C++17 |
 
 
 ### 値の入れ替え
@@ -96,7 +96,7 @@ int main()
 }
 ```
 * std::any[color ff0000]
-* std::any_cast[link any_cast.md.nolink]
+* std::any_cast[link any_cast.md]
 * std::bad_any_cast[link bad_any_cast.md]
 
 ### 出力例
