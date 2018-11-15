@@ -148,4 +148,4 @@ xor : 10100000
 ```
 
 ### 参照
-
+- [N0075 Proposal for a Bitset Class](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1991/WG21%201991/X3J16_91-0142%20WG21_N0075.pdf)
