@@ -128,7 +128,7 @@ int main()
 * std::regex[link basic_regex.md]
 * m.position()[link match_results/position.md]
 * m.length()[link match_results/length.md]
-* m.str()[link match_results/length.md]
+* m.str()[link match_results/str.md]
 
 ### 出力
 ```
