@@ -12,7 +12,7 @@ namespace std {
 * bad_cast[link /reference/typeinfo/bad_cast.md]
 
 ## 概要
-`std::bad_any_cast`は、[`std::any_cast`](any_cast.md.nolink)関数の失敗時に発生する例外である。
+`std::bad_any_cast`は、[`std::any_cast`](any_cast.md)関数の失敗時に発生する例外である。
 
 
 ## メンバ関数
