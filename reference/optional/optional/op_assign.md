@@ -6,9 +6,10 @@
 * cpp17[meta cpp]
 
 ```cpp
-optional<T>& operator=(nullopt_t) noexcept;              // (1)
+optional<T>& operator=(nullopt_t rhs) noexcept;          // (1)
 
 optional& operator=(const optional& rhs);                // (2)
+
 optional& operator=(optional&& rhs) noexcept(see below); // (3)
 
 template <class U = T>
@@ -32,13 +33,20 @@ optional& operator=(optional<U>&& rhs);                  // (6)
 
 
 ## 効果
-まず、共通の動作として、[`reset()`](reset.md)メンバ関数を呼び出す
+いずれのオーバーロードでも、`*this` と `rhs` が有効な値を持っているか否かによって以下のような挙動となる。
 
-- (2) : `rhs`が有効な値を含んでいれば、`rhs.`[`value()`(value.md)を有効値として`*this`にコピー代入する
-- (3) : `rhs`が有効な値を含んでいれば、`rhs.`[`value()`(value.md)を有効値として`*this`にムーブ代入する
-- (4) : `rhs`を有効値として`*this`にムーブ代入する
-- (5) : `rhs`が有効な値を含んでいれば、`rhs.`[`value()`(value.md)を有効値として`*this`にコピー代入する
-- (6) : `rhs`が有効な値を含んでいれば、`rhs.`[`value()`(value.md)を有効値として`*this`にムーブ代入する
+|                                    | `*this` が有効な値を持っている                                        | `*this` が有効な値を持っていない                                     |
+|------------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|
+| **`rhs` が有効な値を持っている**   | 値の代入が行われる。                                                  | 値の構築が行われる。[`has_value()`](has_value.md) は `true` となる。 |
+| **`rhs` が有効な値を持っていない** | 値の破棄が行われる。[`has_value()`](has_value.md) は `false` となる。 | 何も行われない。                                                     |
+
+なお、(1) では `rhs` は常に有効な値を持っていないとみなされ、また、(4) では `rhs` は常に有効な値を持っているとみなされる。
+
+また、`rhs` が有効な値を持っている場合に `operator=`（代入の場合）、あるいは、コンストラクタ（構築の場合）を呼び出す際の引数は以下となる。
+
+- (2), (5): `*rhs`
+- (3), (6): [`std::move`](../../utility/move.md)`(*rhs)`
+- (4): [`std::forward`](../../utility/forward.md)`<U>(rhs)`
 
 
 ## 戻り値
