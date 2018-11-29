@@ -6,32 +6,40 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr const T& operator*() const&;   // (1)
-constexpr T& operator*() &;              // (2)
-constexpr T&& operator*() &&;            // (3)
-constexpr const T&& operator*() const&&; // (4)
+constexpr T& operator*() &;                 // (1)
+constexpr T&& operator*() &&;               // (2)
+constexpr const T& operator*() const&;      // (3)
+constexpr const T&& operator*() const&&;    // (4)
 ```
 
 ## 概要
 有効値を取得する。
 
-- (1) : `*this`が`const`左辺値である場合に、有効値への`const`左辺値参照を返す
-- (2) : `*this`が非`const`左辺値である場合に、有効値への非`const`左辺値参照を返す
-- (3) : `*this`が右辺値である場合に、有効値への右辺値参照を返す
-- (4) : `*this`が`const`右辺値である場合に、有効値への`const`右辺値参照を返す
+- (1) : `*this` が非 `const` 左辺値である場合に、有効値への非 `const` 左辺値参照を返す
+- (2) : `*this` が非 `const` 右辺値である場合に、有効値への非 `const` 右辺値参照を返す
+- (3) : `*this` が `const` 左辺値である場合に、有効値への `const` 左辺値参照を返す
+- (4) : `*this` が `const` 右辺値である場合に、有効値への `const` 右辺値参照を返す
 
 
-## 効果
-- (1), (2) : 有効値を保持している場合、有効値への参照を返す
-- (3), (4) : 有効値を保持している場合、有効値をムーブして返す
+## 要件
+[`has_value()`](has_value.md) `== true` であること。
+
+
+## 戻り値
+- (1) : 有効値への非 `const` 左辺値参照
+- (2) : 有効値への非 `const` 右辺値参照
+- (3) : 有効値への `const` 左辺値参照
+- (4) : 有効値への `const` 右辺値参照
 
 
 ## 例外
-- (1), (2) : 投げない
+- 投げない
 
 
 ## 備考
-`optional`クラスはスマートポインタとしても見なせるため、この演算子のようなポインタのインタフェースを持つ。非ポインタインタフェースである[`value()`](value.md)の使用も検討するとよい。
+`optional` クラスはスマートポインタとしても見なせるため、この演算子のようなポインタのインタフェースを持つ。  
+非ポインタインタフェースである [`value()`](value.md) の方がより明示的な（視覚的に目立つ）アクセス方法ではあるが、本演算子は [`value()`](value.md) とは異なり [`has_value()`](has_value.md) `!= true` の場合に使用すると未定義動作となる。（[`value()`](value.md) は [`bad_optional_access`](/reference/optional/bad_optional_access.md) 例外を送出する）  
+逆に言えば、ライブラリ実装は本演算子の実装時に [`has_value()`](has_value.md) ` == true` であることのチェックを行う必要が無いため、あらかじめ [`has_value()`](has_value.md) `== true` であることが分かっている場合には、おそらく [`value()`](value.md) よりも本演算子の方が速度的には有利だろう。（ただし、規格でチェックを禁止されているわけではない）
 
 
 ## 例
@@ -43,8 +51,12 @@ int main()
 {
   std::optional<int> p = 3;
   if (p) {
-    int result = *p; // 保持している値を取得する
-    std::cout << result << std::endl;
+    // 保持している値を取得する
+    std::cout << *p << '\n';
+
+    // 参照なので変更も可能
+    *p = 42;
+    std::cout << *p << '\n';
   }
 }
 ```
@@ -53,6 +65,7 @@ int main()
 ### 出力
 ```
 3
+42
 ```
 
 ## バージョン
