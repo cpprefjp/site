@@ -19,7 +19,7 @@ std::cout << id << std::endl;      // 「3」が出力される
 std::cout << message << std::endl; // 「Hello」が出力される
 ```
 
-この機能は、他の言語では「多重代入 (mutiple assignment, Python言語やRuby言語)」や「分割代入 (Destructuring assignment, JavaScript言語)」といった名称で知られている。
+この機能は、他の言語では「多重代入 (Multiple assignment, Python言語やRuby言語)」や「分割代入 (Destructuring assignment, JavaScript言語)」といった名称で知られている。
 
 構造化束縛は、多値を返す関数の戻り値を、受け取りやすくするための機能である。構造の各要素を受け取るための変数宣言と構造の分解を同時に行う。
 
