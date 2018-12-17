@@ -71,6 +71,7 @@ namespace std {
 | [`static_pointer_cast`](shared_ptr/static_pointer_cast.md)   | `shared_ptr`の静的キャスト                | C++11 |
 | [`dynamic_pointer_cast`](shared_ptr/dynamic_pointer_cast.md) | `shared_ptr`の動的キャスト                | C++11 |
 | [`const_pointer_cast`](shared_ptr/const_pointer_cast.md)     | `shared_ptr`の`const`修飾キャスト         | C++11 |
+| [`reinterpret_pointer_cast`](shared_ptr/reinterpret_pointer_cast.md) | `shared_ptr`の再解釈キャスト      | C++17 |
 | [`make_shared`](make_shared.md)                              | `shared_ptr`を構築するヘルパ関数          | C++11 |
 | [`allocate_shared`](allocate_shared.md)                      | アロケータを指定して`shared_ptr`を構築するヘルパ関数 | C++11 |
 
