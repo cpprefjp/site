@@ -58,6 +58,7 @@ ptr->func();
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|----------------------------------------|-------|
 | [`shared_from_this`](enable_shared_from_this/shared_from_this.md) | `this`ポインタを`shared_ptr`に変換する | C++11 |
+| [`weak_from_this`](enable_shared_from_this/weak_from_this.md) | `this`ポインタを`weak_ptr`に変換する | C++17 |
 
 
 ## 例
