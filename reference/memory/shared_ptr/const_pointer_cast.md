@@ -1,7 +1,6 @@
 # const_pointer_cast
 * memory[meta header]
 * std[meta namespace]
-* shared_ptr[meta class]
 * function template[meta id-type]
 * cpp11[meta cpp]
 
