@@ -44,6 +44,8 @@ int main()
   assert(p == q.lock());
 }
 ```
+* std::weak_ptr[link /reference/memory/weak_ptr.md]
+* q.lock()[link /reference/memory/weak_ptr/lock.md]
 
 ### 出力
 ```
