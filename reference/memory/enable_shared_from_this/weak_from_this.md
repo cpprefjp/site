@@ -3,7 +3,7 @@
 * std[meta namespace]
 * enable_shared_from_this[meta class]
 * function[meta id-type]
-* cpp11[meta cpp]
+* cpp17[meta cpp]
 
 ```cpp
 weak_ptr<T> weak_from_this() noexcept;
