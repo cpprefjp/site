@@ -24,7 +24,10 @@ size_type count(const K& x) const;        // (2) C++14
 
 
 ## 計算量
-[`size()`](/reference/map/multimap/size.md) について対数時間
+```
+log(b.size()) + b.count(k)
+```
+* b.size()[link size.md]
 
 
 ## 例
