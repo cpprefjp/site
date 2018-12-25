@@ -199,6 +199,13 @@
 | [ラムダ式の初期化キャプチャでのパック展開を許可][p0780] | `[...args = std::move(args)]`のようなキャプチャを許可 | | | | |
 | [当たる確率が高い分岐と、当たる確率が低い分岐をコンパイラに伝える属性を追加][p0479] | コンパイラが分岐予測するためのヒントとする | | | | |
 | [宇宙船演算子に対称性をもたせる][p0905] | `a <=> b`が妥当であれば`b <=> a`も妥当とする | | | | |
+| [`[=]`による`this`の暗黙のキャプチャを非推奨化][p0806] | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする | 9 | | | |
+| [抽象型のチェック][p0929] | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | | | | |
+| [非型テンプレートパラメータとしてクラス型を許可する][p0732] | `std::strong_equality`に変換可能な非メンバ関数`<=>`をもつ型を、非型テンプレートパラメータとして使用できるようにする | 9 | | | |
+| [可変長データを扱うクラスの効率的な`delete`][p0722] | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | | | |
+| [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止][p1008] | コンストラクタが`delete`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | | | |
+| [契約に基づくプログラミング][p0542] | 事前条件、事後条件、表明を宣言する新たな属性構文を追加 | | | | |
+| [コンストラクタを条件付きで`explicit`にする構文を追加][p0892] | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | | | |
 
 [p0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
 [p0734]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf
@@ -219,6 +226,13 @@
 [p0780]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0780r2.html
 [p0479]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0479r5.html
 [p0905]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0905r1.html
+[p0806]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0806r2.html
+[p0929]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0929r2.html
+[p0732]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0732r2.pdf
+[p0722]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0722r1.html
+[p1008]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1008r1.pdf
+[p0542]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html
+[p0892]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html
 
 各処理系のC++17実装状況ページ：
 
