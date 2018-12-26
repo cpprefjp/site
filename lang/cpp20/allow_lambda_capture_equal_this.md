@@ -36,6 +36,7 @@ int main()
 
 ## 関連項目
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
+- [C++20 `[=]`による`this`の暗黙のキャプチャを非推奨化](deprecate_implicit_capture_of_this_via_defcopy.md)
 
 
 ## 参照

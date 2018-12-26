@@ -175,6 +175,7 @@
 |----------|------|-----|-------|-----|------|
 | [ビットフィールドのメンバ変数初期化](/lang/cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する | 8 | 6.0 | |
 | [ラムダ式のキャプチャとして`[=, this]`を許可する](/lang/cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする | 8 | 6.0 | | |
+| [`[=]`による`this`の暗黙のキャプチャを非推奨化](/lang/cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする | 9 | | | |
 | [ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする | | | | |
 | [`const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する | 8 | 6.0 | | |
 | [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0 | | |
@@ -199,7 +200,6 @@
 | [ラムダ式の初期化キャプチャでのパック展開を許可][p0780] | `[...args = std::move(args)]`のようなキャプチャを許可 | | | | |
 | [当たる確率が高い分岐と、当たる確率が低い分岐をコンパイラに伝える属性を追加][p0479] | コンパイラが分岐予測するためのヒントとする | | | | |
 | [宇宙船演算子に対称性をもたせる][p0905] | `a <=> b`が妥当であれば`b <=> a`も妥当とする | | | | |
-| [`[=]`による`this`の暗黙のキャプチャを非推奨化][p0806] | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする | 9 | | | |
 | [抽象型のチェック][p0929] | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | | | | |
 | [非型テンプレートパラメータとしてクラス型を許可する][p0732] | `std::strong_equality`に変換可能な非メンバ関数`<=>`をもつ型を、非型テンプレートパラメータとして使用できるようにする | 9 | | | |
 | [可変長データを扱うクラスの効率的な`delete`][p0722] | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | | | |
@@ -226,7 +226,6 @@
 [p0780]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0780r2.html
 [p0479]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0479r5.html
 [p0905]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0905r1.html
-[p0806]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0806r2.html
 [p0929]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0929r2.html
 [p0732]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0732r2.pdf
 [p0722]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0722r1.html
