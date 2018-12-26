@@ -194,6 +194,7 @@ GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512
 ## 関連項目
 - [C++11 ユーザー定義リテラル](user_defined_literals.md)
 - [C++14 `constexpr`の制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md)
+- [C++20 定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md)
 
 
 ## 参照
