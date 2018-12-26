@@ -31,7 +31,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [コンストラクタを条件付きで`explicit`にする構文を追加](cpp20/explicit_bool.md.nolink) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする |
 
 
-## テンプレート
+### テンプレート
 
 | 言語機能 | 説明 |
 |----------|------|
@@ -41,7 +41,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | 関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正 | |
 
 
-## 定数式
+### 定数式
 
 | 言語機能 | 説明 |
 |----------|------|
@@ -49,7 +49,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [定数式からの仮想関数の呼び出しを許可](cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 |
 
 
-## ラムダ式
+### ラムダ式
 
 | 言語機能 | 説明 |
 |----------|------|
@@ -63,7 +63,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [ラムダ式の初期化キャプチャでのパック展開を許可](cpp20/allow_pack_expansion_in_lambda_init_capture.md.nolink) | `[...args = std::move(args)]`のようなキャプチャを許可 |
 
 
-## 機能の非推奨化
+### 機能の非推奨化
 
 | 言語機能 | 説明 |
 |----------|------|
@@ -71,7 +71,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [`[=]`による`this`の暗黙のキャプチャを非推奨化](cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする |
 
 
-## 機能の削除
+### 機能の削除
 
 | 言語機能 | 説明 |
 |----------|------|
@@ -96,7 +96,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - `std`名前空間以下の関数テンプレートをユーザーが特殊化することを禁止する (参照 : [P0551R3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0551r3.pdf))
 
 
-## コンテナ
+### コンテナ
 - 連想コンテナに、要素がコンテナに含まれているかを判定する`contains()`メンバ関数を追加
 - [`std::forward_list`](/reference/forward_list/forward_list.md)と[`std::list`](/reference/list/list.md)のメンバ関数`remove()`、`remove_if()`、`unique()`の戻り値型を、`void`から`Container::size_type`に変更
 
@@ -135,7 +135,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<type_traits>`](/reference/type_traits.md)に、例外送出せずに暗黙の型変換が可能かを判定する[`std::is_nothrow_convertible`](/reference/type_traits/is_nothrow_convertible.md.nolink)を追加
 
 
-## 機能の削除
+### 機能の削除
 - C++11で[`allocator_traits`](/reference/memory/allocator_traits.md)クラスが導入されたことでC++17から非推奨化されていた、[`allocator`](/reference/memory/allocator.md)の以下のメンバを削除：
     - `size_type`型
     - `difference_type`型
