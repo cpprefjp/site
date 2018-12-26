@@ -322,6 +322,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 - [`result_of`](/reference/type_traits/result_of.md)を非推奨化。代わりに[`invoke_result`](/reference/type_traits/invoke_result.md.nolink)を使用すること
 - [`<codecvt>`](/reference/codecvt.md)と関連する機能を非推奨化。適切なエラーハンドリングの方法がなかったため、セキュリティ上攻撃の可能性があった
 - [`memory_order_consume`](/reference/atomic/memory_order.md)を一時的に非推奨化。「その定義が現実に即していない」「acquire/releaseより弱いから使いにくい」といった理由から、より良い定義に変更するまでの間、非推奨とする
+- [`uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md.nolink)の追加にともない、古くなった[`uncaught_exception()`]((/reference/exception/uncaught_exception.md)を非推奨化
 
 
 ## 参照
