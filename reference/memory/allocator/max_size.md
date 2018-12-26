@@ -4,13 +4,14 @@
 * allocator[meta class]
 * function[meta id-type]
 * cpp17deprecated[meta cpp]
+* cpp20removed[meta cpp]
 
 ```cpp
 size_type max_size() const throw();  // C++03
 size_type max_size() const noexcept; // C++11
 ```
 
-この関数は、C++17から非推奨となった。代わりに[`std::allocator_traits`](/reference/memory/allocator_traits.md)`::`[`max_size()`](/reference/memory/allocator_traits/max_size.md)関数を使用すること。
+この関数は、C++17から非推奨となり、C++20で削除された。代わりに[`std::allocator_traits`](/reference/memory/allocator_traits.md)`::`[`max_size()`](/reference/memory/allocator_traits/max_size.md)関数を使用すること。
 
 ## 概要
 一度に確保可能なメモリの最大サイズを取得する。
@@ -20,7 +21,7 @@ size_type max_size() const noexcept; // C++11
 [`allocate`](allocate.md)`(N, 0)`が成功するであろう最大の`N`を返す。
 
 
-## 非推奨の詳細
+## 非推奨・削除の詳細
 多くのメンバ関数は、アロケータの実装によらず、共通に定義できるものだった。そのため、アロケータの中間インタフェースである[`std::allocator_traits`](/reference/memory/allocator_traits.md)クラスに、共通のデフォルト実装を定義することとなった。
 
 特殊なアロケータの実装では、この関数を独自に実装する必要があるかもしれない。その場合は[`std::allocator_traits`](/reference/memory/allocator_traits.md)のデフォルト機能を使用せずに、この関数を独自アロケータのインタフェースとして定義すれば、[`std::allocator_traits`](/reference/memory/allocator_traits.md)クラスを介してインタフェースにアクセスしたとしても、その独自実装が使用される。
@@ -50,3 +51,4 @@ int main()
 
 ## 参照
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

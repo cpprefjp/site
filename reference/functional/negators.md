@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp17deprecated[meta cpp]
+* cpp20removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -46,7 +47,7 @@ namespace std {
 }
 ```
 
-これらの機能は、C++17から非推奨となった。代わりに[`std::not_fn()`](not_fn.md)関数を使用すること。
+これらの機能は、C++17から非推奨となり、C++20で削除された。代わりに[`std::not_fn()`](not_fn.md)関数を使用すること。
 
 
 ## 概要
@@ -110,3 +111,4 @@ false
 ## 参照
 - [N3789 Constexpr Library Additions: functional](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3789.htm)
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

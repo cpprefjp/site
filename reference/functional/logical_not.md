@@ -27,6 +27,19 @@ namespace std {
       -> decltype(!std::forward<T>(t));
     using is_transparent = unspecified;
   };
+
+  // C++20
+  template <class T = void>
+  struct logical_not {
+    bool constexpr operator()(const T& x) const;
+  };
+
+  template <>
+  struct logical_not<void> {
+    template <class T> constexpr auto operator()(T&& t) const
+      -> decltype(!std::forward<T>(t));
+    using is_transparent = unspecified;
+  };
 }
 ```
 * unspecified[italic]
@@ -49,8 +62,8 @@ namespace std {
 
 | 名前 | 説明 |
 |--------------------------------------|-------------------------------|
-| `argument_type`  | `operator()` の引数の型。`T` と等価（`T` が `void` 以外の場合のみ）  | C++17から非推奨 |
-| `result_type`          | `operator()` の戻り値の型。`bool` と等価（`T` が `void` 以外の場合のみ）   | C++17から非推奨 |
+| `argument_type`  | `operator()` の引数の型。`T` と等価（`T` が `void` 以外の場合のみ）  | C++17から非推奨<br/> C++20で削除 |
+| `result_type`          | `operator()` の戻り値の型。`bool` と等価（`T` が `void` 以外の場合のみ）   | C++17から非推奨<br/> C++20で削除 |
 | `is_transparent`       | `operator()` が関数テンプレートである事を示すタグ型。<br/>実装依存の型であるがあくまでタグ型であり、型そのものには意味はない。（`T` が `void` の場合のみ） | C++14          |
 
 
@@ -76,3 +89,4 @@ true
 - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
 - [N3789 Constexpr Library Additions: functional](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3789.htm)
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

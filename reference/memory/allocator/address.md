@@ -4,6 +4,7 @@
 * allocator[meta class]
 * function[meta id-type]
 * cpp17deprecated[meta cpp]
+* cpp20removed[meta cpp]
 
 ```cpp
 pointer address(reference x) const;                      // (1) C++03
@@ -13,7 +14,7 @@ const_pointer address(const_reference x) const;          // (2) C++03
 const_pointer address(const_reference x) const noexcept; // (2) C++11
 ```
 
-この関数は、C++17から非推奨となった。オブジェクトから直接アドレスを取得すること。
+この関数は、C++17から非推奨となり、C++20で削除された。オブジェクトから直接アドレスを取得すること。
 
 
 ## 概要
@@ -25,7 +26,7 @@ const_pointer address(const_reference x) const noexcept; // (2) C++11
 - C++11 : `operator&`がオーバーロードされていたとしても、`x`が参照するオブジェクトのアドレスを返す。
 
 
-## 非推奨の詳細
+## 非推奨・削除の詳細
 オブジェクトからのアドレス取得は、アロケータの実装に依存せず、オブジェクト`x`に対して式`&x`もしくは[`std::addressof`](/reference/memory/addressof.md)`(x)`の方法を使用すればよかった。
 
 この関数は必要なかったため、非推奨となった。
@@ -62,3 +63,4 @@ int main()
 
 ## 参照
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

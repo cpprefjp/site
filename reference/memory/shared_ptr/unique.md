@@ -5,12 +5,13 @@
 * function[meta id-type]
 * cpp11[meta cpp]
 * cpp17deprecated[meta cpp]
+* cpp20removed[meta cpp]
 
 ```cpp
 bool unique() const noexcept;
 ```
 
-この関数は、C++17から非推奨となった。代わりに[`use_count()`](use_count.md)関数を使用すること。
+この関数は、C++17から非推奨となり、C++20で削除された。代わりに[`use_count()`](use_count.md)関数を使用すること。
 
 ## 概要
 有効なリソースを所有しているかを判定する。
@@ -28,7 +29,7 @@ use_count() == 1
 この関数は、[`use_count()`](use_count.md)を使用するよりも高速である可能性がある。
 
 
-## 非推奨の詳細
+## 非推奨・削除の詳細
 所有権を持つユーザー数を複数スレッドの状況で取得した場合、その値は参考程度にしかならない。そのため、[`use_count()`](use_count.md)は参考値として使用できるが、この関数は厳密な値を要求してしまう。そのために、複数スレッドで危険なこの関数は非推奨とし、[`use_count()`](use_count.md)を推奨する。
 
 
@@ -74,3 +75,4 @@ non unique
 
 ## 参照
 - [P0521R0 Proposed Resolution for CA 14 (`shared_ptr` `use_count`/`unique`)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0521r0.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

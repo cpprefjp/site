@@ -33,10 +33,10 @@ C++17からは、このクラスは[トリビアルコピー可能](/reference/t
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `type` | 参照される型 (テンプレートパラメータ `T`) | C++11 |
-| `result_type` | 型`T`を関数・関数オブジェクトとして扱った時の戻り値型 | C++11<br/> C++17から非推奨 |
-| `argument_type` | 型`T`を一引数の関数・関数オブジェクトとして扱った時の引数型 | C++11<br/> C++17から非推奨 |
-| `first_argument_type` | 型`T`を二引数の関数・関数オブジェクトとして扱った時の第一引数型 | C++11<br/> C++17から非推奨 |
-| `second_argument_type` | 型`T`を二引数の関数・関数オブジェクトとして扱った時の第二引数型 | C++11<br/> C++17から非推奨 |
+| `result_type` | 型`T`を関数・関数オブジェクトとして扱った時の戻り値型 | C++11<br/> C++17から非推奨<br/> C++20で削除 |
+| `argument_type` | 型`T`を一引数の関数・関数オブジェクトとして扱った時の引数型 | C++11<br/> C++17から非推奨<br/> C++20で削除 |
+| `first_argument_type` | 型`T`を二引数の関数・関数オブジェクトとして扱った時の第一引数型 | C++11<br/> C++17から非推奨<br/> C++20で削除 |
+| `second_argument_type` | 型`T`を二引数の関数・関数オブジェクトとして扱った時の第二引数型 | C++11<br/> C++17から非推奨<br/> C++20で削除 |
 
 
 ## 非メンバ関数
@@ -99,3 +99,4 @@ int main()
 - [参照を保持するコンテナ - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20110519/1305789940)
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
 - [N4277 TriviallyCopyable `reference_wrapper` (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4277.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

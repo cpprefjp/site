@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp17deprecated[meta cpp]
+* cpp20removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -14,7 +15,7 @@ namespace std {
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
-この機能は、C++17から非推奨となった。未初期化メモリをイテレートしながら構築する場合は、アロケータと適切に連携するプログラムを組むこと。
+この機能は、C++17から非推奨となり、C++20で削除された。未初期化メモリをイテレートしながら構築する場合は、アロケータと適切に連携するプログラムを組むこと。
 
 
 ## 概要
@@ -51,7 +52,7 @@ namespace std {
 | `reference`         | 参照型。 `void` |
 
 
-## 非推奨の詳細
+## 非推奨・削除の詳細
 未初期化メモリからオブジェクトを構築していくのであれば、アロケータとの連携ができることが重要となるが、このクラスはその用途に適さなかったため、非推奨となった。
 
 
@@ -106,9 +107,13 @@ int main()
 3
 ```
 
-## 参照
+## 関連項目
 - [`uninitialized_copy`](uninitialized_copy.md)
 - [`uninitialized_copy_n`](uninitialized_copy_n.md)
 - [`uninitialized_fill`](uninitialized_fill.md)
 - [`uninitialized_fill_n`](uninitialized_fill_n.md)
+
+
+## 参照
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

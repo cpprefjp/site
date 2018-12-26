@@ -53,9 +53,9 @@ int result = f(1); // result == 2
 | 名前 | 説明 | 対応バージョン |
 |------------------------|---------------------------------------------|-------|
 | `result_type`          | 関数の戻り値の型(テンプレートパラメータ`R`) | C++11 |
-| `argument_type`        | 第1引数の型(引数が1つの場合のみ定義される)  | C++11<br/> C++17から非推奨 |
-| `first_argument_type`  | 第1引数の型(引数が2つの場合のみ定義される)  | C++11<br/> C++17から非推奨 |
-| `second_argument_type` | 第2引数の型(引数が2つの場合のみ定義される)  | C++11<br/> C++17から非推奨 |
+| `argument_type`        | 第1引数の型(引数が1つの場合のみ定義される)  | C++11<br/> C++17から非推奨<br/> C++20で削除 |
+| `first_argument_type`  | 第1引数の型(引数が2つの場合のみ定義される)  | C++11<br/> C++17から非推奨<br/> C++20で削除 |
+| `second_argument_type` | 第2引数の型(引数が2つの場合のみ定義される)  | C++11<br/> C++17から非推奨<br/> C++20で削除 |
 
 
 ## 非メンバ関数
@@ -116,3 +116,4 @@ int main()
 ## 参照
 - [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

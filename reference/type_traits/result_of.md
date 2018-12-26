@@ -4,6 +4,7 @@
 * class template[meta id-type]
 * cpp11[meta cpp]
 * cpp17deprecated[meta cpp]
+* cpp20removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -19,7 +20,7 @@ namespace std {
 }
 ```
 
-この機能はC++17から非推奨となった。代わりに[`std::invoke_result`](invoke_result.md.nolink)を使用すること。
+この機能はC++17から非推奨となり、C++20で削除された。代わりに[`std::invoke_result`](invoke_result.md.nolink)を使用すること。
 
 
 ## 概要
@@ -46,7 +47,7 @@ decltype(INVOKE(declval<Fn>(), declval<ArgTypes>()...))
 C++14以降では、上記メンバ型`type`の型定義が有効な式でない場合、メンバ型`type`は定義されない。
 
 
-## 非推奨の詳細
+## 非推奨・削除の詳細
 C++17で特定のシグニチャで関数呼び出しが可能かを判定する`is_callable`を導入する予定だったが、[`std::invoke()`](/reference/functional/invoke.md.nolink)関数を導入する際に、`result_of`も含めて命名規則を統一することとなった。
 
 `is_callable`は[`std::is_invocable`](is_invocable.md.nolink)という名前で導入された。
@@ -160,3 +161,4 @@ Hello World
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 - [P0604R0 Resolving GB 55, US 84, US 85, US 86](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

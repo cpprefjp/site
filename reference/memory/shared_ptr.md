@@ -42,7 +42,7 @@ namespace std {
 | [`operator->`](shared_ptr/op_arrow.md)       | メンバアクセス                                   | C++11 |
 | [`operator[]`](shared_ptr/op_at.md)          | 添字による要素アクセス                           | C++17 |
 | [`use_count`](shared_ptr/use_count.md)       | 所有権を持つユーザー数を取得する                 | C++11 |
-| [`unique`](shared_ptr/unique.md)             | 所有権を持つユーザーが一人だけかを判定する       | C++11<br/> C++17から非推奨 |
+| [`unique`](shared_ptr/unique.md)             | 所有権を持つユーザーが一人だけかを判定する       | C++11<br/> C++17から非推奨<br/> C++20で削除 |
 | [`operator bool`](shared_ptr/op_bool.md)     | 有効なリソースを所有しているかを判定する         | C++11 |
 | [`owner_before`](shared_ptr/owner_before.md) | 所有権ベースでの小なり比較を行う                 | C++11 |
 
@@ -223,3 +223,4 @@ Y dtor
 - [動的削除子 (dynamic deleter) - 意外と知られていない？ `boost::shared_ptr` の側面](http://d.hatena.ne.jp/Cryolite/20060108#p1)
 - [P0163R0 `shared_ptr::weak_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0163r0.html)
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

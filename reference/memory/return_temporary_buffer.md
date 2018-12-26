@@ -3,13 +3,14 @@
 * std[meta namespace]
 * function template[meta id-type]
 * cpp17deprecated[meta cpp]
+* cpp20removed[meta cpp]
 
 ```cpp
 template <class T>
 void return_temporary_buffer(T* p);
 ```
 
-この機能は、C++17から非推奨となった。短期的な用途のメモリ領域確保には、[`alloca()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)のようなスタックからメモリを確保するなど、他の機能を使用すること。
+この機能は、C++17から非推奨となり、C++20で削除された。短期的な用途のメモリ領域確保には、[`alloca()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)のようなスタックからメモリを確保するなど、他の機能を使用すること。
 
 
 ## 概要
@@ -32,7 +33,7 @@ void return_temporary_buffer(T* p);
 - 投げない
 
 
-## 非推奨の詳細
+## 非推奨・削除の詳細
 `std::get_temporary_buffer()`関数と[`std::return_temporary_buffer()`](return_temporary_buffer.md)関数は、関数内での一時的なメモリ確保のために、最適化されたメモリ確保の仕組みを提供することを期待して定義されたが、実際にはどの実装も特別なメモリ確保を行わず、そのために使われてこなかった。
 
 将来的にスタックからメモリ確保をする仕組みが検討されているが、これらの関数は設計として例外安全性やRAIIといったものが考慮されていない。スタックからメモリ確保する機能が入ったとしても、これらの関数の内部を改善することはできないと判断され、非推奨となった。
@@ -87,3 +88,4 @@ int main()
 - [LWG2072 Unclear wording about capacity of temporary buffers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2072)
   [`get_temporary_buffer()`](get_temporary_buffer.md)の容量についての規定と併せて、二重解放が未定義動作になること、例外を投げないこと（いずれもC++14まで暗黙的に期待されていたこと）が明確化されている。
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

@@ -2,6 +2,8 @@
 * exception[meta header]
 * std[meta namespace]
 * function[meta id-type]
+* cpp17deprecated[meta cpp]
+* cpp20removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -9,6 +11,8 @@ namespace std {
   bool uncaught_exception() noexcept; // C++11
 }
 ```
+
+この機能はC++17から非推奨となり、C++20で削除された。代わりに[`std::uncaught_exceptions()`](uncaught_exceptions.md.nolink)を使用すること。
 
 ## 概要
 キャッチされていない例外があるかどうかを判定する。
@@ -62,4 +66,4 @@ catch
 ## 参照
 - [GotW #47 Uncaught Exceptions](http://www.gotw.ca/gotw/047.htm)
 - [CWG Issue 475. When is `std::uncaught_exception()` true? (take 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#475)
-
+- [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
