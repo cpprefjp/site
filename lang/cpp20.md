@@ -46,20 +46,38 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [コンストラクタを条件付きで`explicit`にする構文を追加](cpp20/explicit_bool.md.nolink) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする |
 
 
+## 機能の削除
+
+| 言語機能 | 説明 |
+|----------|------|
+| `throw()`による例外送出しない指定を削除 | 代わりに`noexcept`を使用すること |
+
+
+
 ## ライブラリ更新の概要
 ### 新ライブラリ
 - [`<version>`](/reference/version.md)ヘッダを新設する。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される
 - [`<chrono>`](/reference/chrono.md)ヘッダに、カレンダーとタイムゾーンの機能を拡張
 - 任意のシーケンスの部分シーケンスを参照するライブラリとして[`<span>`](/reference/span.md.nolink)を追加
 - 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md.nolink)を追加
+- [`<bit>`](/reference/bit.md.nolink)ヘッダを新設する
+    - Struct Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md.nolink)関数を追加
+    - 2の累乗関係の関数として、整数値が2の累乗かを判定する[`std::ispow2()`](/reference/bit/ispow2.md.nolink)関数、整数値を2の累乗値に切り上げる[`std::ceil2()`](/reference/bit/ceil2.md.nolink)関数、整数値を2の累乗値に切り下げる[`std::floor2()`](/reference/bit/floor2.md.nolink)関数、2を底とした整数値の対数を求める[`std::log2p1()`](/reference/bit/log2p1.md.nolink)関数を追加
+- 型制約のための要件ライブラリとして[`<concepts>`](/reference/concepts.md)を追加
 
 
 ### 取り決め
 - `std`名前空間以下の関数テンプレートをユーザーが特殊化することを禁止する (参照 : [P0551R3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0551r3.pdf))
 
 
+## コンテナ
+- 連想コンテナに、要素がコンテナに含まれているかを判定する`contains()`メンバ関数を追加
+- [`std::forward_list`](/reference/forward_list/forward_list.md)と[`std::list`](/reference/list/list.md)のメンバ関数`remove()`、`remove_if()`、`unique()`の戻り値型を、`void`から`Container::size_type`に変更
+
+
 ### アルゴリズム
 - [`<algorithm>`](/reference/algorithm.md)の検索、ソート関係に`constexpr`を追加
+- [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md)、[`std::shift_right()`](/reference/algorithm/shift_right.md)を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
 
 
@@ -67,6 +85,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`std::atomic`](/reference/atomic/atomic.md)クラスのスマートポインタに対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
 - [`std::memory_order`](/reference/atomic/memory_order.md)の列挙子にスコープをもたせた
+- 非アトミックな型にアトミック操作を適用するためのクラス[`std::atomic_ref`](/reference/atomic/atomic_ref.md.nolink)を追加
 
 
 ### 入出力
@@ -86,3 +105,35 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### 型特性
 - [`<type_traits>`](/reference/type_traits.md)に、エンディアンを表す列挙型として[`std::endian`](/reference/type_traits/endian.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、型のCV修飾と参照を除去する型特性クラスとして[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、受け取った型をそのまま返す[`std::type_identity`](/reference/type_traits/type_identity.md.nolink)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、例外送出せずに暗黙の型変換が可能かを判定する[`std::is_nothrow_convertible`](/reference/type_traits/is_nothrow_convertible.md.nolink)を追加
+
+
+## 機能の削除
+- C++11で[`allocator_traits`](/reference/memory/allocator_traits.md)クラスが導入されたことでC++17から非推奨化されていた、[`allocator`](/reference/memory/allocator.md)の以下のメンバを削除：
+    - `size_type`型
+    - `difference_type`型
+    - `pointer`型
+    - `const_pointer`型
+    - `reference`型
+    - `const_reference`型
+    - `rebind`型
+    - [`address()`](/reference/memory/allocator/address.md)メンバ関数
+    - [`allocate()`](/reference/memory/allocator/allocate.md)メンバ関数の`hint`パラメータ
+    - [`max_size()`](/reference/memory/allocator/max_size.md)メンバ関数
+    - [`construct()`](/reference/memory/allocator/construct.md)メンバ関数
+    - [`destroy()`](/reference/memory/allocator/destroy.md)メンバ関数
+- C++11で[`allocator_traits`](/reference/memory/allocator_traits.md)クラスが導入されたことでC++17から非推奨化されていた、要素型を再束縛するための`allocator<void>`特殊化を非推奨化
+- C++17で非推奨化されていた、`constexpr`で扱える型の分類である[`is_literal_type`](/reference/type_traits/is_literal_type.md)型特性を削除
+- C++17で非推奨化されていた、一時的なメモリ確保のための[`std::get_temporary_buffer()`](/reference/memory/get_temporary_buffer.md)関数と[`std::return_temporary_buffer()`](/reference/memory/return_temporary_buffer.md)関数を削除
+- C++17で非推奨化されていた[`raw_storage_iterator`](/reference/memory/raw_storage_iterator.md)クラスを削除
+- [`not_fn()`](/reference/functional/not_fn.md)の追加にともない、C++17から非推奨化されていた以下の機能を削除：
+    - [`not1()`](/reference/functional/negators.md)関数
+    - [`not2()`](/reference/functional/negators.md)関数
+    - [`unary_negate`](/reference/functional/negators.md)クラス
+    - [`binary_nagate`](/reference/functional/negators.md)クラス
+    - 標準関数オブジェクトの`result_type`、`argument_type`、`first_argument_type`、`second_argument_type`型
+- C++17から非推奨化されていた[`shared_ptr`](/reference/memory/shared_ptr.md)`::`[`unique()`](/reference/memory/shared_ptr/unique.md)を削除
+- [`invoke_result`](/reference/type_traits/invoke_result.md.nolink)の追加にともない、C++17から非推奨化されていた[`result_of`](/reference/type_traits/result_of.md)を削除
+- C++17での[`uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md.nolink)の追加にともない、非推奨化していた[`uncaught_exception()`]((/reference/exception/uncaught_exception.md)を削除
+
