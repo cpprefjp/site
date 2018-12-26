@@ -77,7 +77,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### アルゴリズム
 - [`<algorithm>`](/reference/algorithm.md)の検索、ソート関係に`constexpr`を追加
-- [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md)、[`std::shift_right()`](/reference/algorithm/shift_right.md)を追加
+- [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md.nolink)、[`std::shift_right()`](/reference/algorithm/shift_right.md.nolink)を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
 
 
