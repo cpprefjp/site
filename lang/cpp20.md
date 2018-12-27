@@ -86,6 +86,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<chrono>`](/reference/chrono.md)ヘッダに、カレンダーとタイムゾーンの機能を拡張
 - 任意のシーケンスの部分シーケンスを参照するライブラリとして[`<span>`](/reference/span.md.nolink)を追加
 - 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md.nolink)を追加
+- [`<compare>`](/reference/compare.md)ヘッダを新設する。ここでは、一貫比較 (宇宙船演算子) をサポートするための型と比較関数が定義される
 - [`<bit>`](/reference/bit.md.nolink)ヘッダを新設する
     - Struct Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md.nolink)関数を追加
     - 2の累乗関係の関数として、整数値が2の累乗かを判定する[`std::ispow2()`](/reference/bit/ispow2.md.nolink)関数、整数値を2の累乗値に切り上げる[`std::ceil2()`](/reference/bit/ceil2.md.nolink)関数、整数値を2の累乗値に切り下げる[`std::floor2()`](/reference/bit/floor2.md.nolink)関数、2を底とした整数値の対数を求める[`std::log2p1()`](/reference/bit/log2p1.md.nolink)関数を追加
@@ -104,6 +105,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### アルゴリズム
 - [`<algorithm>`](/reference/algorithm.md)の検索、ソート関係に`constexpr`を追加
 - [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md.nolink)、[`std::shift_right()`](/reference/algorithm/shift_right.md.nolink)を追加
+- 一貫比較への対応のため、[`<algorithm>`](/reference/algorithm.md)に[`std::lexicographical_compare_3way()`](/reference/algorithm/lexicographical_compare_3way.md.nolink)および[`std::compare_3way()`](/reference/algorithm/compare_3way.md.nolink)を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
 
 
