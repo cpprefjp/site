@@ -16,7 +16,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | 指示付き初期化 | |
 | 範囲for文で初期化式を記述できるようにする | |
 | デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正 | |
-| 一貫性ある比較 | |
+| [一貫比較](cpp20/consistent_comparison.md.nolink) | |
 | 特殊化のアクセスチェック | |
 | [空オブジェクトを言語サポート](cpp20/language_support_for_empty_objects.md.nolink) | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する |
 | [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく |
@@ -135,6 +135,10 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<type_traits>`](/reference/type_traits.md)に、型のCV修飾と参照を除去する型特性クラスとして[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、受け取った型をそのまま返す[`std::type_identity`](/reference/type_traits/type_identity.md.nolink)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、例外送出せずに暗黙の型変換が可能かを判定する[`std::is_nothrow_convertible`](/reference/type_traits/is_nothrow_convertible.md.nolink)を追加
+
+
+### 機能の非推奨化
+- 一貫比較機能にとって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
 
 
 ### 機能の削除

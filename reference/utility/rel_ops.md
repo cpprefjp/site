@@ -1,7 +1,8 @@
 # rel_ops
 * utility[meta header]
-* std::rel_ops[meta namespace]
-* function template[meta id-type]
+* std[meta namespace]
+* namespace[meta id-type]
+* cpp20deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -13,8 +14,9 @@ namespace rel_ops {
 }}
 ```
 
-## 概要
+この機能は、C++20から非推奨となった。代わりに[一貫比較](/lang/cpp20/consistent_comparison.md.nolink)機能を使用すること。
 
+## 概要
 `std::rel_ops`名前空間は、関係演算子を自動的に定義する。
 
 `operator!=()`は、`operator==()`によって定義され、`operator>()`、`operator<=()`、`operator>=()`は、`operator<()`によって定義される。
@@ -41,6 +43,9 @@ namespace rel_ops {
 
 すなわち、型`T`は`operator<()`による比較が可能であり、その比較は[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)でなければならない。
 
+
+## 非推奨の詳細
+C++20で[一貫比較演算子](/lang/cpp20/consistent_comparison.md.nolink)が追加された。この機能によって比較演算子を容易に定義できるようになったため、比較演算子の簡潔な定義をサポートする本機能は不要になった。
 
 
 ## 例
@@ -106,8 +111,7 @@ int main()
 ```
 
 ## 参照
-このライブラリを使う場合、 Boost Operators Libraryの使用も検討すべきである。
-
-- [Boost Operators Library](http://www.boost.org/doc/libs/release/libs/utility/operators.htm)
-- [演算子を自動定義する - Boost逆引きリファレンス](https://boostjp.github.io/tips/operators.html)
-
+- このライブラリを使う場合、 Boost Operators Libraryの使用も検討すべきである。
+    - [Boost Operators Library](http://www.boost.org/doc/libs/release/libs/utility/operators.htm)
+    - [演算子を自動定義する - Boost逆引きリファレンス](https://boostjp.github.io/tips/operators.html)
+- [P0768R1 Library Support for the Spaceship (Comparison) Operator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0768r1.pdf)
