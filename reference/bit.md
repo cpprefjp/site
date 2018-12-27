@@ -8,7 +8,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`bit_cast`](bit/bit_cast.md.nolink) | ビットレベルの再解釈キャスト (functional template) | C++20 |
+| [`bit_cast`](bit/bit_cast.md) | ビットレベルの再解釈キャスト (functional template) | C++20 |
 
 
 ## 2の累乗整数
