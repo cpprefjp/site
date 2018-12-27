@@ -18,7 +18,7 @@ namespace std {
 
 
 ## 要件
-以下の条件をいずれかの満たさない場合、この関数はオーバーロード解決の候補から除外される：
+以下の条件のいずれかを満たさない場合、この関数はオーバーロード解決の候補から除外される：
 
 - `sizeof(To) == sizeof(From)`であること
 - [`std::is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<To> == true`であること
