@@ -109,6 +109,7 @@
 | ヘッダ                                 | 説明             | 対応バージョン |
 |----------------------------------------|------------------|----------------|
 | [`<complex>`](/reference/complex.md)   | 複素数           |                |
+| [`<bit>`](/reference/bit.md)           | ビット操作       | C++20          |
 | [`<random>`](/reference/random.md)     | 乱数生成         | C++11          |
 | [`<valarray>`](/reference/valarray.md) | 数値の配列       |                |
 | [`<numeric>`](/reference/numeric.md)   | 一般的な数値操作 |                |
