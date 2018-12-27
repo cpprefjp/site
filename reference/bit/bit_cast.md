@@ -27,7 +27,7 @@ namespace std {
 型`To`と`From`、およびその全てのサブオブジェクトが以下の条件を全て満たす場合、本関数は`constexpr`関数として評価される：
 
 - [`std::is_union_v`](/reference/type_traits/is_union.md)`<T> == false`
-- [`std::is_pointer_v`](/reference/type_traits/is_pointer.md)`<T>` == false`
+- [`std::is_pointer_v`](/reference/type_traits/is_pointer.md)`<T> == false`
 - [`std::is_member_pointer_v`](/reference/type_traits/is_member_pointer.md)`<T> == false`
 - [`std::is_volatile_v`](/reference/type_traits/is_volatile.md)`<T> == false`
 - `T`が参照の非静的メンバ変数を持たないこと
