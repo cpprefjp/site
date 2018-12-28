@@ -197,7 +197,7 @@ if (it != m.end()) { return it->size(); }
 
 
 ## 関連項目
-- [C++20 範囲for文で初期化式を記述できるようにする](/lang/cpp20/range-based_for_statements_with_initializer.md)
+- [C++20 初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md)
 
 
 ## 参照
