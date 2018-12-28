@@ -196,5 +196,9 @@ if (it != m.end()) { return it->size(); }
 新しい概念を教えたり広めたりするコストが掛かる。さらに`for`文と文法の一貫性を取れる機会が失われてしまう問題がある。
 
 
+## 関連項目
+- [C++20 範囲for文で初期化式を記述できるようにする](/lang/cpp20/range-based_for_statements_with_initializer.md)
+
+
 ## 参照
 - [P0305R1 Selection statements with initializer.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0305r1.html)

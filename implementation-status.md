@@ -181,7 +181,7 @@
 | [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0 | | |
 | [指示付き初期化][P0329] | | 8 | 6.0 (partial) | | |
 | [コンセプト][P0734] | | | | | |
-| [範囲for文で初期化式を記述できるようにする][p0614] | | | | | |
+| [範囲for文で初期化式を記述できるようにする](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | | | |
 | [暗黙のラムダキャプチャを簡略化][p0588] | | 8 | | | |
 | [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正][p0846] | | | | | |
 | [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正][p0641] | | | | | |
@@ -210,7 +210,6 @@
 
 [p0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
 [p0734]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf
-[p0614]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0614r1.html
 [p0588]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0588r1.html
 [p0846]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0846r0.html
 [p0641]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0641r2.html
