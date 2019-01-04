@@ -8,7 +8,7 @@
 |------|------|----------------|
 | [`any`](any/any.md) | あらゆる型の値を保持できる記憶域型 (class) | C++17 |
 | [`bad_any_cast`](any/bad_any_cast.md) | 間違った型に変換した場合に発生する例外 (class) | C++17 |
-| [`make_any`](any/make_any.md.nolink) | `any`オブジェクトを生成するヘルパ関数 (function template) | C++17 |
+| [`make_any`](any/make_any.md) | `any`オブジェクトを生成するヘルパ関数 (function template) | C++17 |
 | [`any_cast`](any/any_cast.md) | `any`オブジェクトが保持している値を取り出す (function template) | C++17 |
 
 

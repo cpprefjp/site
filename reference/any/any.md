@@ -50,7 +50,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`make_any`](make_any.md.nolink) | `any`オブジェクトを構築する | C++17 |
+| [`make_any`](make_any.md) | `any`オブジェクトを構築する | C++17 |
 
 
 ### 値の取り出し
