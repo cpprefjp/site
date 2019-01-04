@@ -11,11 +11,32 @@ namespace std {
 ```
 
 ## 概要
+`any`クラスは、あらゆる型の値を保持できる記憶域型である。保持する値と型は動的に切り替えることができる。
+
+```cpp
+std::any x = 3; // int型の値3で初期化
+x = std::string("Hello"); // std::string型の値"Hello"を再代入
+
+// 値を取り出す
+std::string s = std::any_cast<std::string>(x);
+assert(s == "Hello");
+```
+* std::any_cast[link any_cast.md]
+
+`any`クラスは、古くからあった`void*`をより便利にし、オブジェクトの寿命管理と実行時型情報の機能が付加された型であると言える。
+
+このクラスと同様のことは、たとえば[`std::shared_ptr`](/reference/memory/shared_ptr.md)`<void>`でも行えるが、その場合はポインタの意味論で値を保持することになり、`any`の場合は値の意味論で値を保持することになる。また、[`std::variant`](/reference/variant/variant.md.nolink)クラスも似たようなことができるが、その違いは、`variant`が代入されうる型の候補が静的に既知であることに対し、`any`はその候補を実行時まで遅らせることができるということである。同じことを実現するためにどの設計を採用するかはプログラマに委ねられる。
+
+使用例：
+
+- イベントハンドラに渡されるパラメータの型として使用する
+    - `list<function<void(any)>>`のようなイベントのリストを保持しておき、たとえば0番目のイベントハンドラにはマウスクリック、1番目のイベントハンドラにはボタンクリックに使用すると想定する
+    - マウスクリックにはイベントの引数としてクリックした位置情報 (xとy) が渡され、ボタンクリックにはイベントの引数としてボタンのIDが渡される、というような、イベントの種類ごとに引数の型が異なるという状況がでてくる
+    - イベントの種類ごとに異なるイベント変数 (`function<void(Point)>`と`function<void(ButtonID)>`) を用意するかまとめて扱うかで設計選択があるが、そこで`any`を使用するという選択肢がありうる
 
 
-
-## 要件
-
+## 備考
+- 実装は、小さなオブジェクトを保持するためには動的メモリ確保を回避するべきである。そのようなsmall-object optimizationは、代入される型`T`が[`std::is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> == true`の場合にのみ適用されること
 
 
 ## メンバ関数
