@@ -58,8 +58,8 @@ explicit any(in_place_type_t<T>,
 
 ## 備考
 - (4) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<`[`std::decay_t`](/reference/type_traits/decay.md)`<T>> == true`でない場合、この関数はオーバーロード解決の候補から除外される
-- (5) : `usint VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT, Args...> == true`でない場合、この関数はオーバーロード解決の候補から除外される
-- (6) : `usint VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT,` [`std::initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`でない場合、この関数はオーバーロード解決の候補から除外される
+- (5) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT, Args...> == true`でない場合、この関数はオーバーロード解決の候補から除外される
+- (6) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT,` [`std::initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`でない場合、この関数はオーバーロード解決の候補から除外される
 
 
 ## 例
