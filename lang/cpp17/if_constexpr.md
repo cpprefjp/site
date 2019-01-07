@@ -96,7 +96,7 @@ int main()
 template <typename T>
 constexpr bool false_v = false;
 template<typename T>
-void f()
+void f(T)
 {
   if constexpr (std::is_same_v<T, int>)
   {
