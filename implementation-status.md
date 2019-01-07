@@ -204,9 +204,16 @@
 | [非型テンプレートパラメータとしてクラス型を許可する][p0732] | `std::strong_equality`に変換可能な非メンバ関数`<=>`をもつ型を、非型テンプレートパラメータとして使用できるようにする | 9 | | | |
 | [可変長データを扱うクラスの効率的な`delete`][p0722] | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | | | |
 | [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | | | |
+| [定数式での`dynamic_cast`、多態的な`typeid`を許可][p1327] | 定数式での動的多態を許可 | 9 | | | |
+| [constexpr関数内でのtry-catchブロックを許可][p1002] | constexpr関数内での例外の捕捉を許可する | | | | |
+| [即時関数][p1073] | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | | | | |
+| [定数式内での共用体のアクティブメンバの変更を許可][p1330] | 共用体メンバの書き換えを定数式内で行えるようにする | | | | |
 | [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止][p1008] | コンストラクタが`delete`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | | | |
 | [契約に基づくプログラミング][p0542] | 事前条件、事後条件、表明を宣言する新たな属性構文を追加 | | | | |
 | [コンストラクタを条件付きで`explicit`にする構文を追加][p0892] | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | | | |
+| [符号付き整数型が2の補数表現であることを規定][p1236] | 処理系が2の補数以外をサポートしていなかったこともあり、現実に即した規定とする | 9 | | | |
+| [UTF-8エンコーディングされた文字の型として`char8_t`を追加][p0486] | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | | 7 (`-fchar8_t`オプションが必要) | | |
+| [入れ子名前空間定義でのインライン名前空間][p1094] | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | | | |
 
 [p0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
 [p0734]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf
@@ -232,6 +239,13 @@
 [p1008]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1008r1.pdf
 [p0542]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html
 [p0892]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html
+[p1002]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1002r1.pdf
+[p1327]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1327r1.html
+[p1236]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1236r1.html
+[p0486]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r6.html
+[p1073]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html
+[p1094]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1094r2.html
+[p1330]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1330r0.pdf
 
 各処理系のC++17実装状況ページ：
 

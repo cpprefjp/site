@@ -25,6 +25,20 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [可変長データを扱うクラスの効率的な`delete`](cpp20/efficient_sized_delete_for_variable_sized_classes.md.nolink) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 |
 
 
+### 整数
+
+| 言語機能 | 説明 |
+|----------|------|
+| [符号付き整数型が2の補数表現であることを規定](cpp20/signed_integers_are_twos_complement.md.nolink) | 処理系が2の補数以外をサポートしていなかったこともあり、現実に即した規定とする |
+
+
+### 文字列
+
+| 言語機能 | 説明 |
+|----------|------|
+| [UTF-8エンコーディングされた文字の型として`char8_t`を追加](cpp20/char8_t.md.nolink) | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする |
+
+
 ### 制御構文
 
 | 言語機能 | 説明 |
@@ -50,6 +64,10 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | 評価されない文脈で`constexpr`関数が定数式評価されることを規定 | |
 | [定数式からの仮想関数の呼び出しを許可](cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 |
+| [定数式での`dynamic_cast`、多態的な`typeid`を許可](cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md.nolink) | 定数式での動的多態を許可 |
+| [constexpr関数内でのtry-catchブロックを許可](cpp20/try-catch_blocks_in_constexpr_functions.md.nolink) | constexpr関数内での例外の捕捉を許可する |
+| [即時関数](cpp20/immediate_functions.md.nolink) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする |
+| [定数式内での共用体のアクティブメンバの変更を許可](cpp20/changing_the_active_member_of_a_union_inside_constexpr.md.nolink) | 共用体メンバの書き換えを定数式内で行えるようにする |
 
 
 ### ラムダ式
@@ -64,6 +82,13 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | 状態を持たないラムダ式を、デフォルト構築可能、代入可能とする | |
 | 評価されない文脈でのラムダ式 | |
 | [ラムダ式の初期化キャプチャでのパック展開を許可](cpp20/allow_pack_expansion_in_lambda_init_capture.md.nolink) | `[...args = std::move(args)]`のようなキャプチャを許可 |
+
+
+### 名前空間
+
+| 言語機能 | 説明 |
+|----------|------|
+| [入れ子名前空間定義でのインライン名前空間](cpp20/nested_inline_mamespaces.md.nolink) | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする |
 
 
 ### プリプロセッサ
@@ -153,6 +178,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### 型特性
+- [`<type_traits>`](/reference/type_traits.md)に、constexpr関数が定数式評価されたかを判定する特殊な関数[`std::is_constant_evaluated()`](/reference/type_traits/is_constant_evaluated.md.nolink)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、エンディアンを表す列挙型として[`std::endian`](/reference/type_traits/endian.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、型のCV修飾と参照を除去する型特性クラスとして[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、受け取った型をそのまま返す[`std::type_identity`](/reference/type_traits/type_identity.md.nolink)を追加
