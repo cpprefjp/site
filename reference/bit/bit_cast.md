@@ -14,7 +14,7 @@ namespace std {
 ## 概要
 ビットレベルの再解釈キャストを行う。
 
-低レイヤーのプログラムでは、同じビットを維持してほかの型に解釈し直すことが必要とされる。その際、`reinterpret_cast`や共用体を使用すると、Struct Aliasing規則に抵触してしまい未定義動作になってしまう。そのような目的には[`std::aligned_storage`](/reference/type_traits/aligned_storage.md)と`std::memcpy()`を組み合わせて使用することになるが、それを簡単に使用できるようにしたのが本関数である。
+低レイヤーのプログラムでは、同じビットを維持してほかの型に解釈し直すことが必要とされる。その際、`reinterpret_cast`や共用体を使用すると、Strict Aliasing規則に抵触してしまい未定義動作になってしまう。そのような目的には[`std::aligned_storage`](/reference/type_traits/aligned_storage.md)と`std::memcpy()`を組み合わせて使用することになるが、それを簡単に使用できるようにしたのが本関数である。
 
 
 ## 要件
