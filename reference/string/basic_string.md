@@ -121,6 +121,8 @@ namespace std {
 | [`find_last_nof_of`](basic_string/find_last_not_of.md)               | 末尾から、指定文字が見つからない位置を検索する |                |
 | [`substr`](basic_string/substr.md)                                   | 部分文字列を取得する                           |                |
 | [`compare`](basic_string/compare.md)                                 | 他の文字列との比較を行う                       |                |
+| [`starts_with`](basic_string/starts_with.md)                         | 指定の文字列で始まるかを判定する               | C++20          |
+| [`ends_with`](basic_string/ends_with.md)                             | 指定の文字列で終わるかを判定する               | C++20          |
 
 
 ### メンバ定数

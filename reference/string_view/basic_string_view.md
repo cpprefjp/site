@@ -89,9 +89,17 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`copy`](basic_string_view/copy.md)                           | 他の文字列に、自身の文字列をコピーする         | C++17 |
-| [`substr`](basic_string_view/substr.md)                       | 部分文字列を取得する                           | C++17 |
-| [`compare`](basic_string_view/compare.md)                     | 他の文字列との比較を行う                       | C++17 |
+| [`copy`](basic_string_view/copy.md)               | 他の文字列に、自身の文字列をコピーする         | C++17 |
+| [`substr`](basic_string_view/substr.md)           | 部分文字列を取得する                           | C++17 |
+| [`compare`](basic_string_view/compare.md)         | 他の文字列との比較を行う                       | C++17 |
+| [`starts_with`](basic_string_view/starts_with.md) | 指定の文字列で始まるかを判定する               | C++20 |
+| [`ends_with`](basic_string_view/ends_with.md)     | 指定の文字列で終わるかを判定する               | C++20 |
+
+
+### 検索
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
 | [`find`](basic_string_view/find.md)                           | 指定文字列を検索する                           | C++17 |
 | [`rfind`](basic_string_view/rfind.md)                         | 最後に現れる指定文字列を検索する               | C++17 |
 | [`find_first_of`](basic_string_view/find_first_of.md)         | 最初に現れる指定文字を検索する                 | C++17 |
