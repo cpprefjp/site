@@ -131,7 +131,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md.nolink)を追加
 - [`<compare>`](/reference/compare.md.nolink)ヘッダを新設する。ここでは、一貫比較 (宇宙船演算子) をサポートするための型と比較関数が定義される
 - [`<bit>`](/reference/bit.md)ヘッダを新設する
-    - Struct Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md)関数を追加
+    - Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md)関数を追加
     - 2の乗数関係の関数として、整数値が2の累乗かを判定する[`std::ispow2()`](/reference/bit/ispow2.md)関数、整数値を2の累乗値に切り上げる[`std::ceil2()`](/reference/bit/ceil2.md)関数、整数値を2の累乗値に切り下げる[`std::floor2()`](/reference/bit/floor2.md)関数、2を底とした整数値の対数を求めて1を足す[`std::log2p1()`](/reference/bit/log2p1.md)関数を追加
 - 型制約のための要件ライブラリとして[`<concepts>`](/reference/concepts.md)を追加
 
