@@ -66,19 +66,19 @@ class C {
 }
 ```
 
-`if constexpr`文で、実行されない方の`statement`は`discarded statement`(破棄文)となり、文の実体化を防ぐ。言い換えると、Two Phase Name Look-upにおける`dependent name`(依存名)は、`discarded statement`の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。
+`if constexpr`文で、実行されない方の`statement`は`discarded statement`(破棄文)となり、文の実体化を防ぐ。言い換えると、Two Phase Name Look-upにおける`dependent name`(以下、依存名)は、`discarded statement`の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。
 
 ```cpp example
 #include <type_traits>
 
-template<typename T>
+template <typename T>
 void f()
 {
   if constexpr (std::is_same_v<T, int>)
   {
-    // Tがintのときのみ発動してほしい
-    // 実際は常に発動する
-    static_assert(false) ;
+    // Tがintのときのみ評価されてほしい
+    // 実際は常に評価される
+    static_assert(false);
   }
 }
 int main()
@@ -88,22 +88,24 @@ int main()
 }
 ```
 
-なぜならば`discarded statement`はテンプレートの実体化を防ぐ(依存名の検証をしない)だけで、非依存名は検証されるからである。この例の[`static_assert`](/lang/cpp11/static_assert.html)に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。言い換えれば`static_assert`に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせる事ができる。
+なぜならば`discarded statement`はテンプレートの実体化を防ぐ (依存名の検証をしない) だけで、非依存名は検証されるからである。この例の[`static_assert`](/lang/cpp11/static_assert.md)に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。言い換えれば`static_assert`に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。
 
 ```cpp example
 #include <type_traits>
 
 template <typename T>
 constexpr bool false_v = false;
-template<typename T>
+
+template <typename T>
 void f(T)
 {
   if constexpr (std::is_same_v<T, int>)
   {
-    // Tがintのときのみ発動する
+    // Tがintのときのみ評価される
     static_assert(false_v<T>);
   }
 }
+
 int main()
 {
   f(2.4);
@@ -111,19 +113,21 @@ int main()
 }
 ```
 
-上の例では`false_v`を作ったが、lambda式でも同様のことができる。lambda式はそれが記述された位置から見て最小のスコープ(ブロックスコープ/クラススコープ/名前空間スコープ)で宣言されるクラスとして扱われる。例えば、下の例では`f`というテンプレート関数内で宣言される。テンプレート関数内のクラスは依存名になるため、テンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせる事ができる。
+上の例では`false_v`を作ったが、ラムダ式でも同様のことができる。ラムダ式はそれが記述された位置から見て最小のスコープ (ブロックスコープ／クラススコープ／名前空間スコープ) で宣言されるクラスとして扱われる。例えば、下の例では`f()`という関数テンプレート内で宣言される。関数テンプレート内のクラスは依存名になるため、テンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。
 
 ```cpp example
 #include <type_traits>
-template<typename T>
+
+template <typename T>
 void f(T)
 {
   if constexpr (std::is_same_v<T, int>)
   {
-    // Tがintのときのみ発動する
+    // Tがintのときのみ評価される
     static_assert([]{return false;}());
   }
 }
+
 int main()
 {
   f(2.4);
@@ -141,16 +145,17 @@ struct Hoge {
   using type = int;
 };
 
-template<typename T>
+template <typename T>
 void f()
 {
   if constexpr (std::is_same_v<T::type, int> || std::is_same_v<T::value_type, int>) {
     std::cout << "is int" << std::endl;
   }
 }
+
 int main()
 {
-  f<Hoge>();//error: Hoge::value_typeは存在しないのでif constexpr文の条件式がコンパイルエラーになる
+  f<Hoge>(); //error: Hoge::value_typeは存在しないのでif constexpr文の条件式がコンパイルエラーになる
 }
 ```
 
@@ -161,12 +166,15 @@ int main()
 #include <random>
 #include <cstdint>
 #include <iostream>
+
 // C++11
 template<typename Integer>
 using mt = typename std::conditional<std::is_same<Integer, std::uint32_t>::value, std::mt19937, std::mt19937_64>::type;
-// C++14 or later
+
+// C++14以降
 // template<typename Integer>
 // using mt = std::conditional_t<std::is_same<Integer, std::uint32_t>::value, std::mt19937, std::mt19937_64>;
+
 int main()
 {
   mt<std::uint32_t> m1 {37};
@@ -176,6 +184,12 @@ int main()
 * std::conditional[link /reference/type_traits/conditional.md]
 * std::conditional_t[link /reference/type_traits/conditional.md]
 * std::mt19937_64[link /reference/random/mt19937_64.md]
+
+
+## 関連項目
+
+- [`std::conditional`](/reference/type_traits/conditional.md)
+
 
 ## 参照
 
@@ -189,7 +203,3 @@ int main()
 - [`__if_exists` Statement | Microsoft Docs](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)
 - [if constexprを使うとき、特定条件時にコンパイルを失敗させる - Qiita](http://qiita.com/saka1_p/items/e8c4dfdbfa88449190c5)
 - [本の虫: constexpr ifの落とし穴](https://cpplover.blogspot.jp/2017/05/constexpr-if.html)
-
-## 関連項目
-
-- [`std::conditional`](/reference/type_traits/conditional.md)
