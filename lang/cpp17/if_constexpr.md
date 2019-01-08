@@ -27,11 +27,11 @@ else
 ```cpp
 struct X {
   if constexpr (cond) {
-      void f();
-      using int32 = int;
+    void f();
+    using int32 = int;
   }
   else {
-      void g();
+    void g();
   }
 };
 ```
@@ -40,7 +40,7 @@ struct X {
 
 ```cpp
 struct A {
-    static float get() { return 1.2f;  }
+  static float get() { return 1.2f; }
 };
 int main() {
   auto a = __if_exists(A::get) {
@@ -138,7 +138,7 @@ int main()
 #include <iostream>
 
 struct Hoge {
-    using type = int;
+  using type = int;
 };
 
 template<typename T>
