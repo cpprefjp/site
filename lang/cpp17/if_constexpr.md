@@ -111,6 +111,26 @@ int main()
 }
 ```
 
+上の例では`false_v`を作ったが、lambda式でも同様のことができる。lambda式はそれが記述された位置から見て最小のスコープ(ブロックスコープ/クラススコープ/名前空間スコープ)で宣言されるクラスとして扱われる。例えば、下の例では`f`というテンプレート関数内で宣言される。テンプレート関数内のクラスは依存名になるため、テンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせる事ができる。
+
+```cpp example
+#include <type_traits>
+template<typename T>
+void f(T)
+{
+  if constexpr (std::is_same_v<T, int>)
+  {
+    // Tがintのときのみ発動する
+    static_assert([]{return false;}());
+  }
+}
+int main()
+{
+  f(2.4);
+  f(3);
+}
+```
+
 `if constexpr`文の条件式内は実体化が起きる。したがって実体化するとコンパイルエラーになるものは書いてはいけない。
 
 ```cpp example
