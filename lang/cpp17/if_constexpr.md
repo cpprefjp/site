@@ -81,6 +81,7 @@ void f()
     static_assert(false);
   }
 }
+
 int main()
 {
   f(2.4);
