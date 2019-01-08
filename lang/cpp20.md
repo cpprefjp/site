@@ -142,7 +142,10 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### コンテナ
 - 連想コンテナに、要素がコンテナに含まれているかを判定する`contains()`メンバ関数を追加
+- 順序付き連想コンテナと同様に、非順序連想コンテナのルックアップ処理で、一時オブジェクトが生成されるコストを抑える拡張を追加
+- 各コンテナの非メンバ関数として、要素を削除する`std::erase()`関数と`std::erase_if()`関数を追加
 - [`std::forward_list`](/reference/forward_list/forward_list.md)と[`std::list`](/reference/list/list.md)のメンバ関数`remove()`、`remove_if()`、`unique()`の戻り値型を、`void`から`Container::size_type`に変更
+- [`std::array`](/reference/array/array.md)クラスの比較演算子、[`fill()`](/reference/array/array/fill.md)メンバ関数、[`swap()`](/reference/array/array/swap.md)メンバ関数、[`swap()`](/reference/array/array/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
 
 
 ### アルゴリズム
@@ -152,8 +155,13 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
 
 
+### イテレータ
+- [`std::back_insert_iterator`](/reference/iterator/back_insert_iterator.md)クラス、[`std::front_insert_iterator`](/reference/iterator/front_insert_iterator.md)クラス、[`std::insert_iterator`](/reference/iterator/insert_iterator.md)クラスのコンストラクタ、代入演算子、間接参照演算子、インクリメント演算子、および[`std::back_inserter()`](/reference/iterator/back_inserter.md)、[`std::front_inserter()`](/reference/iterator/front_inserter.md)、[`std::inserter()`](/reference/iterator/inserter.md)に`constexpr`を追加。これらのクラスのメンバ関数はすべて`constexpr`に対応した
+
+
 ### 文字列
 - [`std::basic_string`](/reference/string/basic_string.md)クラスと[`std::basic_string_view`](/reference/string_view/basic_string_view.md)クラスに、先頭の部分文字列を判定する`starts_with()`メンバ関数、末尾の部分文字列を判定する`ends_with()`メンバ関数を追加
+- [`std::char_traits`](/reference/string/char_traits.md)クラスの[`move()`](/reference/string/char_traits/move.md)、[`copy()`](/reference/string/char_traits/copy.md)、[`assign()`](/reference/string/char_traits/assign.md)静的メンバ関数に`constexpr`を追加
 
 
 ### 並行処理
@@ -165,16 +173,29 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### 入出力
 - 同期ストリームの追加にともなって、[`<ostream>`](/reference/ostream.md)に、同期ストリーム関係の出力マニピュレータを追加
+- [`operator>>`](/reference/istream/basic_istream/op_istream_free.md)`(basic_istream&, CharT*)`を`operator>>(basic_istream&, CharT (&)[N])`に修正
 
 
 ### スマートポインタ
 - [`std::make_shared()`](/reference/memory/make_shared.md)と[`std::allocate_shared()`](/reference/memory/allocate_shared.md)を配列に対応
+- スマートポインタをデフォルト初期化で構築するヘルパ関数として、[`std::make_unique_default_init()`](/reference/memory/make_unique_default_init.md.nolink)、[`std::make_shared_default_init()`](/reference/memory/make_shared_default_init.md.nolink)、[`std::allocate_shared_default_init()`](/reference/memory/allocate_shared_default_init.md.nolink)を追加
 - ポインタを生ポインタに変換する[`std::to_address()`](/reference/memory/to_address.md)を追加
+- [`std::pointer_traits`](/reference/memory/pointer_traits.md)`::`[`pointer_to()`](/reference/memory/pointer_traits/pointer_to.md)関数に`constexpr`を追加
+
+
+### メモリ
+- [`<memory>`](/reference/memory.md)に、Nバイトアライメントされたポインタであることをコンパイラに伝える[`std::assume_aligned()`](/reference/memory/assume_aligned.md.nolink)関数を追加
+- [`<memory>`](/reference/memory.md)に、uses allocator構築をサポートするユーティリティ関数として、[`std::uses_allocator_construction_args()`](/reference/memory/uses_allocator_construction_args.md.nolink)、[`std::make_obj_using_allocator()`](/reference/memory/make_obj_using_allocator.md.nolink)、[`std::uninitialized_construct_using_allocator()`](/reference/memory/uninitialized_construct_using_allocator.md.nolink)を追加
 
 
 ### ユーティリティ
 - [`std::exchange()`](/reference/utility/exchange.md)関数に`constexpr`を追加
 - [`std::complex`](/reference/complex/complex.md)クラスを`constexpr`に対応
+- [`std::pair`](/reference/utility/pair.md)クラスの[コンストラクタ](/reference/utility/pair/op_constructor.md)、[代入演算子](/reference/utility/pair/op_assign.md)、[`swap()`](/reference/utility/pair/swap.md)メンバ関数、[`swap()`](/reference/utility/pair/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
+- [`std::tuple`](/reference/tuple/tuple.md)クラスの[コンストラクタ](/reference/tuple/tuple/op_constructor.md)、[代入演算子](/reference/tuple/tuple/op_assign.md)、[`swap()`](/reference/tuple/tuple/swap.md)メンバ関数、[`swap()`](/reference/tuple/tuple/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
+- [`<functional>`](/reference/functional.md)に、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型をアンラップする[`std::unwrap_reference`](/reference/functional/unwrap_reference.md.nolink)型特性、[`std::decay`](/reference/type_traits/decay.md) + [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型のアンラップをする[`std::unwrap_ref_decay`](/reference/functional/unwrap_ref_decay.md.nolink)型特性を追加
+- [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)クラス、[`std::ref()`](/reference/functional/ref.md)関数、[`std::cref()`](/reference/functional/cref.md)関数のテンプレートパラメータ`T`型に不完全型を指定することを許可
+- 関数の部分適用をかんたんにするために、[`std::bind_front()`](/reference/functional/bind_front.md.nolink)関数を追加
 
 
 ### 型特性
