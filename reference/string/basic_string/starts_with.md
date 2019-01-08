@@ -27,7 +27,7 @@ return std::basic_string_view<charT, traits>(data(), size()).starts_with(x);
 ```
 * data()[link data.md]
 * size()[link size.md]
-* starts_with()[link /reference/string_view/basic_string_view/starts_with.md]
+* starts_with[link /reference/string_view/basic_string_view/starts_with.md]
 
 
 ## 例外
