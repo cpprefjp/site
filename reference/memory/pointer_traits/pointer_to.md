@@ -6,8 +6,12 @@
 * cpp11[meta cpp]
 
 ```cpp
-static pointer pointer_traits::pointer_to(element_type& r);              // (1)
-static pointer pointer_traits<T*>::pointer_to(element_type& r) noexcept; // (2)
+static pointer pointer_traits::pointer_to(element_type& r);           // (1) C++11
+static constexpr pointer pointer_traits::pointer_to(element_type& r); // (1) C++20
+
+
+static pointer pointer_traits<T*>::pointer_to(element_type& r) noexcept;           // (2) C++11
+static constexpr pointer pointer_traits<T*>::pointer_to(element_type& r) noexcept; // (2) C++20
 ```
 
 ## 概要
@@ -49,3 +53,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+
+
+## 参照
+- [P1006R1 Constexpr in `std::pointer_traits`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1006r1.pdf)
