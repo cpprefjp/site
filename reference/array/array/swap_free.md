@@ -7,10 +7,15 @@
 ```cpp
 namespace std {
   template <class T, size_t N>
-  void swap(array<T, N>& x, array<T, N>& y) noexcept(noexcept(x.swap(y)));
+  void swap(array<T, N>& x, array<T, N>& y)
+                 noexcept(noexcept(x.swap(y))); // C++11
+
+  template <class T, size_t N>
+  constexpr void swap(array<T, N>& x, array<T, N>& y)
+                 noexcept(noexcept(x.swap(y))); // C++20
 }
 ```
-* swap[link swap.md]
+* x.swap[link swap.md]
 
 ## 概要
 2つのarrayオブジェクトを入れ替える。
@@ -77,4 +82,4 @@ y : {4 5 6 }
 
 
 ## 参照
-
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

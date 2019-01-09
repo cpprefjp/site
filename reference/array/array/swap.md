@@ -6,9 +6,12 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(array& other) noexcept(noexcept(swap(declval<T&>(), declval<T&>())));
+void swap(array& other)
+         noexcept(noexcept(swap(declval<T&>(), declval<T&>()))); // C++11
+
+constexpr void swap(array& other)
+         noexcept(noexcept(swap(declval<T&>(), declval<T&>()))); // C++20
 ```
-* swap[link /reference/utility/swap.md]
 * declval[link /reference/utility/declval.md]
 
 ## 概要
@@ -86,4 +89,4 @@ y : 1 2 3
 
 
 ## 参照
-
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

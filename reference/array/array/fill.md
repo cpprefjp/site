@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void fill(const T& u);
+void fill(const T& u);           // C++11
+constexpr void fill(const T& u); // C++20
 ```
 
 ## 概要
@@ -63,4 +64,4 @@ int main()
 ## 参照
 - [LWG Issue 776. Undescribed `assign` function of `std::array`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#776)
     - `assign()`という名前だったメンバ関数が`fill()`に改名された経緯のレポート
-
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T, size_t N>
-  bool operator!=(const array<T, N>& x, const array<T, N>& y);
+  bool operator!=(const array<T, N>& x, const array<T, N>& y);           // C++11
+
+  template <class T, size_t N>
+  constexpr bool operator!=(const array<T, N>& x, const array<T, N>& y); // C++20
 }
 ```
 
@@ -65,4 +68,4 @@ equal
 
 
 ## 参照
-
+- [P1023R0 `constexpr` comparison operators for `std::array`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1023r0.pdf)
