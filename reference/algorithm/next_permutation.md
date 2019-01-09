@@ -5,14 +5,23 @@
 
 ```cpp
 namespace std {
-  template<class BidirectionalIterator>
+  template <class BidirectionalIterator>
   bool next_permutation(BidirectionalIterator first,
-                        BidirectionalIterator last);
+                        BidirectionalIterator last);           // (1) C++03
 
-  template<class BidirectionalIterator, class Compare>
+  template <class BidirectionalIterator>
+  constexpr bool next_permutation(BidirectionalIterator first,
+                                  BidirectionalIterator last); // (1) C++20
+
+  template <class BidirectionalIterator, class Compare>
   bool next_permutation(BidirectionalIterator first,
                         BidirectionalIterator last,
-                        Compare comp);
+                        Compare comp);                         // (2) C++03
+
+  template <class BidirectionalIterator, class Compare>
+  constexpr bool next_permutation(BidirectionalIterator first,
+                                  BidirectionalIterator last,
+                                  Compare comp);               // (2) C++20
 }
 ```
 
@@ -130,3 +139,6 @@ bool next_permutation(BidirectionalIterator first, BidirectionalIterator last)
 ## 関連項目
 - [`std::prev_permutation()`](prev_permutation.md)
 
+
+## 参照
+- [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

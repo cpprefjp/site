@@ -16,6 +16,12 @@ namespace std {
     partition(ForwardIterator first,
               ForwardIterator last,
               Predicate pred);                            // C++11
+
+  template <class ForwardIterator, class Predicate>
+  constexpr ForwardIterator
+    partition(ForwardIterator first,
+              ForwardIterator last,
+              Predicate pred);                            // C++20
 }
 ```
 
@@ -102,3 +108,4 @@ ForwardIterator partition(ForwardIterator first, ForwardIterator last, Predicate
 
 ## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+- [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

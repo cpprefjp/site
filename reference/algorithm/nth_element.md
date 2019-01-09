@@ -6,12 +6,26 @@
 ```cpp
 namespace std {
   template <class RandomAccessIterator>
-  void nth_element(RandomAccessIterator first, RandomAccessIterator nth,
-                   RandomAccessIterator last);
+  void nth_element(RandomAccessIterator first,
+                   RandomAccessIterator nth,
+                   RandomAccessIterator last);           // (1) C++03
+
+  template <class RandomAccessIterator>
+  constexpr void nth_element(RandomAccessIterator first,
+                             RandomAccessIterator nth,
+                             RandomAccessIterator last); // (1) C++20
 
   template <class RandomAccessIterator, class Compare>
-  void nth_element(RandomAccessIterator first, RandomAccessIterator nth,
-                   RandomAccessIterator last, Compare comp);
+  void nth_element(RandomAccessIterator first,
+                   RandomAccessIterator nth,
+                   RandomAccessIterator last,
+                   Compare comp);                        // (2) C++03
+
+  template <class RandomAccessIterator, class Compare>
+  constexpr void nth_element(RandomAccessIterator first,
+                             RandomAccessIterator nth,
+                             RandomAccessIterator last,
+                             Compare comp);              // (2) C++20
 }
 ```
 
@@ -76,4 +90,4 @@ int main()
 - [LWG Issue 2163. `nth_element` requires inconsistent post-conditions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2163)
     - C++11まで、この関数を呼び出したあとの状態について「`!(*i > *j)`」と記載していたが、並べ替えには`operator<()`を使用するので、C++14で「`!(*j < *i)`」に訂正。
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
-
+- [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

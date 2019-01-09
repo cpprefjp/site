@@ -6,7 +6,10 @@
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>
-  void iter_swap(ForwardIterator1 a, ForwardIterator2 b);
+  void iter_swap(ForwardIterator1 a, ForwardIterator2 b);           // C++03
+
+  template <class ForwardIterator1, class ForwardIterator2>
+  constexpr void iter_swap(ForwardIterator1 a, ForwardIterator2 b); // C++20
 }
 ```
 
@@ -75,4 +78,4 @@ void iter_swap(ForwardIterator1 a, ForwardIterator2 b) {
 ## 参照
 - [LWG Issue 187. `iter_swap` underspecified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#187)
     - C++03での効果を見直す経緯となったIssue
-
+- [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

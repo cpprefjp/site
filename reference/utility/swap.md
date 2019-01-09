@@ -7,10 +7,18 @@
 ```cpp
 namespace std {
   template <class T>
-  void swap(T& a, T& b) noexcept(see below);
+  void swap(T& a, T& b) noexcept(see below);           // (1) C++03
+
+  template <class T>
+  constexpr void swap(T& a, T& b) noexcept(see below); // (1) C++20
 
   template <class T, size_t N>
-  void swap(T (&a)[N], T (&b)[N]) noexcept(noexcept(swap(*a, *b))); // C++11
+  void swap(T (&a)[N], T (&b)[N])
+                     noexcept(noexcept(swap(*a, *b))); // (2) C++11
+
+  template <class T, size_t N>
+  constexpr void swap(T (&a)[N], T (&b)[N])
+                     noexcept(noexcept(swap(*a, *b))); // (2) C++20
 }
 ```
 * see below[italic]
@@ -143,5 +151,4 @@ int main()
 ## 参照
 - [LWG Issue 809. `std::swap` should be overloaded for array types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#809)
     - C++11で、配列に対するオーバーロードが追加された経緯のレポート
-
-
+- [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

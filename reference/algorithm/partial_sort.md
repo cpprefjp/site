@@ -8,13 +8,24 @@ namespace std {
   template <class RandomAccessIterator>
   void partial_sort(RandomAccessIterator first,
                     RandomAccessIterator middle,
-                    RandomAccessIterator last);
+                    RandomAccessIterator last);            // (1) C++03
 
-  template<class RandomAccessIterator, class Compare>
+  template <class RandomAccessIterator>
+  constexpr void partial_sort(RandomAccessIterator first,
+                              RandomAccessIterator middle,
+                              RandomAccessIterator last);  // (1) C++20
+
+  template <class RandomAccessIterator, class Compare>
   void partial_sort(RandomAccessIterator first,
                     RandomAccessIterator middle,
                     RandomAccessIterator last,
-                    Compare comp);
+                    Compare comp);                         // (2) C++03
+
+  template <class RandomAccessIterator, class Compare>
+  constexpr void partial_sort(RandomAccessIterator first,
+                              RandomAccessIterator middle,
+                              RandomAccessIterator last,
+                              Compare comp);               // (2) C++20
 }
 ```
 
@@ -71,3 +82,5 @@ int main()
 ```
 
 
+## 参照
+- [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

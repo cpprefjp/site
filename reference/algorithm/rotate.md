@@ -8,12 +8,17 @@ namespace std {
   template <class ForwardIterator>
   void rotate(ForwardIterator first,
               ForwardIterator middle,
-              ForwardIterator last);             // C++03 まで
+              ForwardIterator last);                       // C++03
 
   template <class ForwardIterator>
   ForwardIterator rotate(ForwardIterator first,
                          ForwardIterator middle,
-                         ForwardIterator last);  // C++11 から
+                         ForwardIterator last);            // C++11
+
+  template <class ForwardIterator>
+  constexpr ForwardIterator rotate(ForwardIterator first,
+                                   ForwardIterator middle,
+                                   ForwardIterator last);  // C++20
 }
 ```
 
@@ -146,3 +151,4 @@ swapping 0x1806043(1) <-> 0x1806045(5)
 ## 参照
 - [LWG DR488. rotate throws away useful information](http://cplusplus.github.io/LWG/lwg-defects.html#488)  
 	戻り値が追加されるきっかけとなったレポート
+- [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

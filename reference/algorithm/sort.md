@@ -6,11 +6,22 @@
 ```cpp
 namespace std {
   template <class RandomAccessIterator>
-  void sort(RandomAccessIterator first, RandomAccessIterator last);
+  void sort(RandomAccessIterator first,
+            RandomAccessIterator last);           // (1) C++03
+
+  template <class RandomAccessIterator>
+  constexpr void sort(RandomAccessIterator first,
+                      RandomAccessIterator last); // (1) C++20
 
   template <class RandomAccessIterator, class Compare>
-  void sort(RandomAccessIterator first, RandomAccessIterator last,
-            Compare comp);
+  void sort(RandomAccessIterator first,
+            RandomAccessIterator last,
+            Compare comp);                        // (2) C++03
+
+  template <class RandomAccessIterator, class Compare>
+  constexpr void sort(RandomAccessIterator first,
+                      RandomAccessIterator last,
+                      Compare comp);              // (2) C++20
 }
 ```
 
@@ -74,4 +85,4 @@ int main()
 ## 参照
 - [LWG Issue 713. `sort()` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#713)
     - C++11で、イントロソートアルゴリズムを考慮して、計算量の規定が見直された経緯のレポート
-
+- [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

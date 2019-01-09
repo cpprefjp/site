@@ -6,10 +6,22 @@
 ```cpp
 namespace std {
   template <class RandomAccessIterator>
-  void make_heap(RandomAccessIterator first, RandomAccessIterator last);
+  void make_heap(RandomAccessIterator first,
+                 RandomAccessIterator last);           // (1) C++03
+
+  template <class RandomAccessIterator>
+  constexpr void make_heap(RandomAccessIterator first,
+                           RandomAccessIterator last); // (1) C++20
 
   template <class RandomAccessIterator, class Compare>
-  void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+  void make_heap(RandomAccessIterator first,
+                 RandomAccessIterator last,
+                 Compare comp);                        // (2) C++03
+
+  template <class RandomAccessIterator, class Compare>
+  constexpr void make_heap(RandomAccessIterator first,
+                           RandomAccessIterator last,
+                           Compare comp);              // (2) C++20
 }
 ```
 
@@ -130,3 +142,7 @@ void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
 }
 ```
 * std::push_heap[link push_heap.md]
+
+
+## 参照
+- [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
