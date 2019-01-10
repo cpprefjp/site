@@ -6,14 +6,23 @@
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>
-  ForwardIterator2 swap_ranges(ForwardIterator1 first1,
-                               ForwardIterator1 last1,
-                               ForwardIterator2 first2);           // C++03
+  ForwardIterator2
+    swap_ranges(ForwardIterator1 first1,
+                ForwardIterator1 last1,
+                ForwardIterator2 first2); // (1) C++03
 
   template <class ForwardIterator1, class ForwardIterator2>
-  constexpr ForwardIterator2 swap_ranges(ForwardIterator1 first1,
-                                         ForwardIterator1 last1,
-                                         ForwardIterator2 first2); // C++20
+  constexpr ForwardIterator2
+    swap_ranges(ForwardIterator1 first1,
+                ForwardIterator1 last1,
+                ForwardIterator2 first2); // (1) C++20
+
+  template<class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
+  ForwardIterator2
+    swap_ranges(ExecutionPolicy&& exec,
+                ForwardIterator1 first1,
+                ForwardIterator1 last1,
+                ForwardIterator2 first2); // (2) C++17
 }
 ```
 

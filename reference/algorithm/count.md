@@ -7,11 +7,22 @@
 namespace std {
   template <class InputIterator, class T>
   typename iterator_traits<InputIterator>::difference_type
-    count(InputIterator first, InputIterator last, const T& value); // C++03
+    count(InputIterator first,
+          InputIterator last,
+          const T& value);     // (1) C++03
 
   template <class InputIterator, class T>
   constexpr typename iterator_traits<InputIterator>::difference_type
-    count(InputIterator first, InputIterator last, const T& value); // C++20
+    count(InputIterator first,
+          InputIterator last,
+          const T& value);     // (1) C++20
+
+  template<class ExecutionPolicy, class ForwardIterator, class T>
+  typename iterator_traits<ForwardIterator>::difference_type
+    count(ExecutionPolicy&& exec,
+          ForwardIterator first,
+          ForwardIterator last,
+          const T& value);     // (2) C++17
 }
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]

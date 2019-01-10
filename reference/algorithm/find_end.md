@@ -32,6 +32,22 @@ namespace std {
                                       ForwardIterator2 first2,
                                       ForwardIterator2 last2,
                                       BinaryPredicate pred);   // (2) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
+  ForwardIterator1 find_end(ExecutionPolicy&& exec,
+                            ForwardIterator1 first1,
+                            ForwardIterator1 last1,
+                            ForwardIterator2 first2,
+                            ForwardIterator2 last2);           // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator1,
+            class ForwardIterator2, class BinaryPredicate>
+  ForwardIterator1 find_end(ExecutionPolicy&& exec,
+                            ForwardIterator1 first1,
+                            ForwardIterator1 last1,
+                            ForwardIterator2 first2,
+                            ForwardIterator2 last2,
+                            BinaryPredicate pred);             // (4) C++17
 }
 ```
 

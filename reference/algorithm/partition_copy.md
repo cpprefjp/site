@@ -15,7 +15,7 @@ namespace std {
                    InputIterator last,
                    OutputIterator1 out_true,
                    OutputIterator2 out_false,
-                   Predicate pred);           // C++11
+                   Predicate pred);            // (1) C++11
 
   template <class InputIterator,
             class OutputIterator1,
@@ -26,7 +26,20 @@ namespace std {
                    InputIterator last,
                    OutputIterator1 out_true,
                    OutputIterator2 out_false,
-                   Predicate pred);           // C++20
+                   Predicate pred);            // (1) C++20
+
+  template <class ExecutionPolicy,
+            class ForwardIterator,
+            class ForwardIterator1,
+            class ForwardIterator2,
+            class Predicate>
+  pair<ForwardIterator1, ForwardIterator2>
+    partition_copy(ExecutionPolicy&& exec,
+                   ForwardIterator first,
+                   ForwardIterator last,
+                   ForwardIterator1 out_true,
+                   ForwardIterator2 out_false,
+                   Predicate pred);            // (2) C++17
 }
 ```
 * pair[link /reference/utility/pair.md]

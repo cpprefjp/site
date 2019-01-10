@@ -11,13 +11,21 @@ namespace std {
   OutputIterator
     copy_n(InputIterator first,
            Size n,
-           OutputIterator result); // C++11
+           OutputIterator result);   // (1) C++11
 
   template <class InputIterator, class Size, class OutputIterator>
   constexpr OutputIterator
     copy_n(InputIterator first,
            Size n,
-           OutputIterator result); // C++20
+           OutputIterator result);   // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class Size,
+            class ForwardIterator2>
+  ForwardIterator2
+    copy_n(ExecutionPolicy&& exec,
+           ForwardIterator1 first,
+           Size n,
+           ForwardIterator2 result); // (2) C++17
 }
 ```
 

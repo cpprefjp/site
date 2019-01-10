@@ -22,6 +22,17 @@ namespace std {
   constexpr void sort(RandomAccessIterator first,
                       RandomAccessIterator last,
                       Compare comp);              // (2) C++20
+
+  template <class ExecutionPolicy, class RandomAccessIterator>
+  void sort(ExecutionPolicy&& exec,
+            RandomAccessIterator first,
+            RandomAccessIterator last);           // (3) C++17
+
+  template <class ExecutionPolicy, class RandomAccessIterator, class Compare>
+  void sort(ExecutionPolicy&& exec,
+            RandomAccessIterator first,
+            RandomAccessIterator last,
+            Compare comp);                        // (4) C++17
 }
 ```
 

@@ -14,7 +14,7 @@ namespace std {
                     InputIterator last,
                     OutputIterator result,
                     Predicate pred,
-                    const T& new_value);   // C++03
+                    const T& new_value);     // (1) C++03
 
   template <class InputIterator,
             class OutputIterator,
@@ -25,7 +25,19 @@ namespace std {
                     InputIterator last,
                     OutputIterator result,
                     Predicate pred,
-                    const T& new_value);   // C++20
+                    const T& new_value);     // (1) C++20
+
+  template <class ExecutionPolicy,
+            class ForwardIterator1,
+            class ForwardIterator2,
+            class Predicate, class T>
+  ForwardIterator2
+    replace_copy_if(ExecutionPolicy&& exec,
+                    ForwardIterator1 first,
+                    ForwardIterator1 last,
+                    ForwardIterator2 result,
+                    Predicate pred,
+                    const T& new_value);     // (2) C++17
 }
 ```
 

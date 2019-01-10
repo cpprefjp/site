@@ -34,6 +34,24 @@ namespace std {
                       RandomAccessIterator result_first,
                       RandomAccessIterator result_last,
                       Compare comp);                     // (2) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator, class RandomAccessIterator>
+  RandomAccessIterator
+    partial_sort_copy(ExecutionPolicy&& exec,
+                      ForwardIterator first,
+                      ForwardIterator last,
+                      RandomAccessIterator result_first,
+                      RandomAccessIterator result_last); // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator, class RandomAccessIterator,
+            class Compare>
+  RandomAccessIterator
+    partial_sort_copy(ExecutionPolicy&& exec,
+                      ForwardIterator first,
+                      ForwardIterator last,
+                      RandomAccessIterator result_first,
+                      RandomAccessIterator result_last,
+                      Compare comp);                     // (4) C++17
 }
 ```
 

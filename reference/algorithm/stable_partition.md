@@ -6,9 +6,17 @@
 ```cpp
 namespace std {
   template<class BidirectionalIterator, class Predicate>
-  BidirectionalIterator stable_partition(BidirectionalIterator first,
-                                         BidirectionalIterator last,
-                                         Predicate pred);
+  BidirectionalIterator
+    stable_partition(BidirectionalIterator first,
+                     BidirectionalIterator last,
+                     Predicate pred);             // (1) C++03
+
+  template <class ExecutionPolicy, class BidirectionalIterator, class Predicate>
+  BidirectionalIterator
+    stable_partition(ExecutionPolicy&& exec,
+                     BidirectionalIterator first,
+                     BidirectionalIterator last,
+                     Predicate pred);             // (2) C++17
 }
 ```
 

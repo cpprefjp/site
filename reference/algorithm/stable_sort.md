@@ -6,11 +6,24 @@
 ```cpp
 namespace std {
   template <class RandomAccessIterator>
-  void stable_sort(RandomAccessIterator first, RandomAccessIterator last);
+  void stable_sort(RandomAccessIterator first,
+                  RandomAccessIterator last);  // (1) C++03
 
   template <class RandomAccessIterator, class Compare>
-  void stable_sort(RandomAccessIterator first, RandomAccessIterator last,
-                   Compare comp);
+  void stable_sort(RandomAccessIterator first,
+                   RandomAccessIterator last,
+                   Compare comp);              // (2) C++03
+
+  template<class ExecutionPolicy, class RandomAccessIterator>
+  void stable_sort(ExecutionPolicy&& exec,
+                   RandomAccessIterator first,
+                   RandomAccessIterator last); // (3) C++17
+
+  template <class ExecutionPolicy, class RandomAccessIterator, class Compare>
+  void stable_sort(ExecutionPolicy&& exec,
+                   RandomAccessIterator first,
+                   RandomAccessIterator last,
+                   Compare comp);              // (4) C++17
 }
 ```
 

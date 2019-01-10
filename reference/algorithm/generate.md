@@ -8,12 +8,18 @@ namespace std {
   template <class ForwardIterator, class Generator>
   void generate(ForwardIterator first,
                 ForwardIterator last,
-                Generator gen);                  // C++03
+                Generator gen);                  // (1) C++03
 
   template <class ForwardIterator, class Generator>
   constexpr void generate(ForwardIterator first,
                           ForwardIterator last,
-                          Generator gen);        // C++20
+                          Generator gen);        // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator, class Generator>
+  void generate(ExecutionPolicy&& exec,
+                ForwardIterator first,
+                ForwardIterator last,
+                Generator gen);                  // (2) C++17
 }
 ```
 

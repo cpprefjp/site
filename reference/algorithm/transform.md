@@ -36,6 +36,25 @@ namespace std {
               InputIterator2 first2,
               OutputIterator result,
               BinaryOperation binary_op); // (2) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class UnaryOperation>
+  ForwardIterator2
+    transform(ExecutionPolicy&& exec,
+              ForwardIterator1 first,
+              ForwardIterator1 last,
+              ForwardIterator2 result,
+              UnaryOperation op);         // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class ForwardIterator, class BinaryOperation>
+  ForwardIterator
+    transform(ExecutionPolicy&& exec,
+              ForwardIterator1 first1,
+              ForwardIterator1 last1,
+              ForwardIterator2 first2,
+              ForwardIterator result,
+              BinaryOperation binary_op); // (4) C++17
 }
 ```
 

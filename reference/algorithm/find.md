@@ -8,12 +8,18 @@ namespace std {
   template <class InputIterator, class T>
   InputIterator find(InputIterator first,
                      InputIterator last,
-                     const T& value);               // C++03
+                     const T& value);               // (1) C++03
 
   template <class InputIterator, class T>
   constexpr InputIterator find(InputIterator first,
                                InputIterator last,
-                               const T& value);     // C++20
+                               const T& value);     // (1) C++20
+
+  template<class ExecutionPolicy, class ForwardIterator, class T>
+  ForwardIterator find(ExecutionPolicy&& exec,
+                       ForwardIterator first,
+                       ForwardIterator last,
+                       const T& value);             // (2) C++17
 }
 ```
 

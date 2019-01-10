@@ -9,19 +9,26 @@ namespace std {
   void
     generate_n(OutputIterator first,
                Size n,
-               Generator gen);       // C++03
+               Generator gen);       // (1) C++03
 
   template <class OutputIterator, class Size, class Generator>
   OutputIterator
     generate_n(OutputIterator first,
                Size n,
-               Generator gen);       // C++11
+               Generator gen);       // (1) C++11
 
   template <class OutputIterator, class Size, class Generator>
   constexpr OutputIterator
     generate_n(OutputIterator first,
                Size n,
-               Generator gen);       // C++20
+               Generator gen);       // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator, class Size, class Generator>
+  ForwardIterator
+    generate_n(ExecutionPolicy&& exec,
+               ForwardIterator first,
+               Size n,
+               Generator gen);       // (2) C++17
 }
 ```
 

@@ -10,14 +10,22 @@ namespace std {
     rotate_copy(ForwardIterator first,
                 ForwardIterator middle,
                 ForwardIterator last,
-                OutputIterator result); // C++03
+                OutputIterator result);   // (1) C++03
 
   template <class ForwardIterator, class OutputIterator>
   constexpr OutputIterator
     rotate_copy(ForwardIterator first,
                 ForwardIterator middle,
                 ForwardIterator last,
-                OutputIterator result); // C++20
+                OutputIterator result);   // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
+  ForwardIterator2
+    rotate_copy(ExecutionPolicy&& exec,
+                ForwardIterator1 first,
+                ForwardIterator1 middle,
+                ForwardIterator1 last,
+                ForwardIterator2 result); // (2) C++17
 }
 ```
 

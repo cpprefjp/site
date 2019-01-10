@@ -10,14 +10,14 @@ namespace std {
          InputIterator1 first1,
          InputIterator1 last1,
          InputIterator2 first2,
-         InputIterator2 last2); // (1) C++03
+         InputIterator2 last2);   // (1) C++03
 
   template <class InputIterator1, class InputIterator2>
   constexpr bool lexicographical_compare(
          InputIterator1 first1,
          InputIterator1 last1,
          InputIterator2 first2,
-         InputIterator2 last2); // (1) C++20
+         InputIterator2 last2);   // (1) C++20
 
   template <class InputIterator1, class InputIterator2, class Compare>
   bool lexicographical_compare(
@@ -25,7 +25,7 @@ namespace std {
          InputIterator1 last1,
          InputIterator2 first2,
          InputIterator2 last2,
-         Compare comp);         // (2) C++03
+         Compare comp);           // (2) C++03
 
   template <class InputIterator1, class InputIterator2, class Compare>
   constexpr bool lexicographical_compare(
@@ -33,7 +33,25 @@ namespace std {
          InputIterator1 last1,
          InputIterator2 first2,
          InputIterator2 last2,
-         Compare comp);         // (2) C++20
+         Compare comp);           // (2) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
+  bool lexicographical_compare(
+         ExecutionPolicy&& exec,
+         ForwardIterator1 first1,
+         ForwardIterator1 last1,
+         ForwardIterator2 first2,
+         ForwardIterator2 last2); // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class Compare>
+  bool lexicographical_compare(
+         ExecutionPolicy&& exec,
+         ForwardIterator1 first1,
+         ForwardIterator1 last1,
+         ForwardIterator2 first2,
+         ForwardIterator2 last2,
+         Compare comp);           // (4) C++17
 }
 ```
 

@@ -6,19 +6,29 @@
 ```cpp
 namespace std {
   template <class ForwardIterator>
-  void rotate(ForwardIterator first,
-              ForwardIterator middle,
-              ForwardIterator last);                       // C++03
+  void
+    rotate(ForwardIterator first,
+           ForwardIterator middle,
+           ForwardIterator last);  // (1) C++03
 
   template <class ForwardIterator>
-  ForwardIterator rotate(ForwardIterator first,
-                         ForwardIterator middle,
-                         ForwardIterator last);            // C++11
+  ForwardIterator
+    rotate(ForwardIterator first,
+           ForwardIterator middle,
+           ForwardIterator last);  // (1) C++11
 
   template <class ForwardIterator>
-  constexpr ForwardIterator rotate(ForwardIterator first,
-                                   ForwardIterator middle,
-                                   ForwardIterator last);  // C++20
+  constexpr ForwardIterator
+    rotate(ForwardIterator first,
+           ForwardIterator middle,
+           ForwardIterator last);  // (1) C++20
+
+  template<class ExecutionPolicy, class ForwardIterator>
+  ForwardIterator
+    rotate(ExecutionPolicy&& exec,
+           ForwardIterator first,
+           ForwardIterator middle,
+           ForwardIterator last);  // (2) C++17
 }
 ```
 

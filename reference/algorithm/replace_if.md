@@ -9,13 +9,20 @@ namespace std {
   void replace_if(ForwardIterator first,
                   ForwardIterator last,
                   Predicate pred,
-                  const T& new_value);             // C++03
+                  const T& new_value);             // (1) C++03
 
   template <class ForwardIterator, class Predicate, class T>
   constexpr void replace_if(ForwardIterator first,
                             ForwardIterator last,
                             Predicate pred,
-                            const T& new_value);   // C++20
+                            const T& new_value);   // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator, class Predicate, class T>
+  void replace_if(ExecutionPolicy&& exec,
+                  ForwardIterator first,
+                  ForwardIterator last,
+                  Predicate pred,
+                  const T& new_value);             // (2) C++17
 }
 ```
 

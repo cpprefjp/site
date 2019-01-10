@@ -8,12 +8,18 @@ namespace std {
   template <class InputIterator, class Function>
   Function for_each(InputIterator first,
                     InputIterator last,
-                    Function f);                   // C++03
+                    Function f);                   // (1) C++03
 
   template <class InputIterator, class Function>
   constexpr Function for_each(InputIterator first,
                               InputIterator last,
-                              Function f);         // C++20
+                              Function f);         // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator, class Function>
+  void for_each(ExecutionPolicy&& exec,
+                ForwardIterator first,
+                ForwardIterator last,
+                Function f);                       // (2) C++17
 }
 ```
 

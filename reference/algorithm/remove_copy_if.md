@@ -10,14 +10,23 @@ namespace std {
     remove_copy_if(InputIterator first,
                    InputIterator last,
                    OutputIterator result,
-                   Predicate pred);       // C++03
+                   Predicate pred);         // (1) C++03
 
   template <class InputIterator, class OutputIterator, class Predicate>
   constexpr OutputIterator
     remove_copy_if(InputIterator first,
                    InputIterator last,
                    OutputIterator result,
-                   Predicate pred);       // C++20
+                   Predicate pred);         // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class Predicate>
+  ForwardIterator2
+    remove_copy_if(ExecutionPolicy&& exec,
+                   ForwardIterator1 first,
+                   ForwardIterator1 last,
+                   ForwardIterator2 result,
+                   Predicate pred);         // (2) C++17
 }
 ```
 

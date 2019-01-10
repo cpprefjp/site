@@ -10,13 +10,21 @@ namespace std {
   OutputIterator
     move(InputIterator first,
          InputIterator last,
-         OutputIterator result); // C++11
+         OutputIterator result);   // (1) C++11
 
   template <class InputIterator, class OutputIterator>
   constexpr OutputIterator
     move(InputIterator first,
          InputIterator last,
-         OutputIterator result); // C++20
+         OutputIterator result);   // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1,
+            class ForwardIterator2>
+  ForwardIterator2
+    move(ExecutionPolicy&& exec,
+         ForwardIterator1 first,
+         ForwardIterator1 last,
+         ForwardIterator2 result); // (2) C++17
 }
 ```
 

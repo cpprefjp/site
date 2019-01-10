@@ -26,6 +26,19 @@ namespace std {
     adjacent_find(ForwardIterator first,
                   ForwardIterator last,
                   BinaryPredicate pred); // (2) C++20
+
+  template<class ExecutionPolicy, class ForwardIterator>
+  ForwardIterator
+    adjacent_find(ExecutionPolicy&& exec,
+                  ForwardIterator first,
+                  ForwardIterator last); // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator, class BinaryPredicate>
+  ForwardIterator
+    adjacent_find(ExecutionPolicy&& exec,
+                  ForwardIterator first,
+                  ForwardIterator last,
+                  BinaryPredicate pred); // (4) C++17
 }
 ```
 

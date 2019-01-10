@@ -42,6 +42,27 @@ namespace std {
                              InputIterator2 last2,
                              OutputIterator result,
                              Compare comp);          // (2) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class ForwardIterator>
+  ForwardIterator
+    set_symmetric_difference(ExecutionPolicy&& exec,
+                             ForwardIterator1 first1,
+                             ForwardIterator1 last1,
+                             ForwardIterator2 first2,
+                             ForwardIterator2 last2,
+                             ForwardIterator result); // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class ForwardIterator, class Compare>
+  ForwardIterator
+    set_symmetric_difference(ExecutionPolicy&& exec,
+                             ForwardIterator1 first1,
+                             ForwardIterator1 last1,
+                             ForwardIterator2 first2,
+                             ForwardIterator2 last2,
+                             ForwardIterator result,
+                             Compare comp);           // (4) C++17
 }
 ```
 

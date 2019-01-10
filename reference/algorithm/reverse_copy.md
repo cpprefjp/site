@@ -9,13 +9,20 @@ namespace std {
   OutputIterator
     reverse_copy(BidirectionalIterator first,
                  BidirectionalIterator last,
-                 OutputIterator result);      // C++03
+                 OutputIterator result);      // (1) C++03
 
   template <class BidirectionalIterator, class OutputIterator>
   constexpr OutputIterator
     reverse_copy(BidirectionalIterator first,
                  BidirectionalIterator last,
-                 OutputIterator result);      // C++20
+                 OutputIterator result);      // (1) C++20
+
+  template <class ExecutionPolicy, class BidirectionalIterator, class ForwardIterator>
+  ForwardIterator
+    reverse_copy(ExecutionPolicy&& exec,
+                 BidirectionalIterator first,
+                 BidirectionalIterator last,
+                 ForwardIterator result);     // (2) C++17
 }
 ```
 

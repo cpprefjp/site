@@ -10,14 +10,23 @@ namespace std {
     remove_copy(InputIterator first,
                 InputIterator last,
                 OutputIterator result,
-                const T& value);        // C++03
+                const T& value);         // (1) C++03
 
   template <class InputIterator, class OutputIterator, class T>
   constexpr OutputIterator
     remove_copy(InputIterator first,
                 InputIterator last,
                 OutputIterator result,
-                const T& value);        // C++20
+                const T& value);         // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class T>
+  ForwardIterator2
+    remove_copy(ExecutionPolicy&& exec,
+                ForwardIterator1 first,
+                ForwardIterator1 last,
+                ForwardIterator2 result,
+                const T& value);         // (2) C++17
 }
 ```
 

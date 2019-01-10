@@ -9,19 +9,26 @@ namespace std {
   BidirectionalIterator
     partition(BidirectionalIterator first,
               BidirectionalIterator last,
-              Predicate pred);                            // C++03
+              Predicate pred);              // (1) C++03
 
   template <class ForwardIterator, class Predicate>
   ForwardIterator
     partition(ForwardIterator first,
               ForwardIterator last,
-              Predicate pred);                            // C++11
+              Predicate pred);              // (1) C++11
 
   template <class ForwardIterator, class Predicate>
   constexpr ForwardIterator
     partition(ForwardIterator first,
               ForwardIterator last,
-              Predicate pred);                            // C++20
+              Predicate pred);              // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator, class Predicate>
+  ForwardIterator
+    partition(ExecutionPolicy&& exec,
+              ForwardIterator first,
+              ForwardIterator last,
+              Predicate pred);              // (2) C++17
 }
 ```
 

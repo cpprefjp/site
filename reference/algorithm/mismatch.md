@@ -50,6 +50,40 @@ namespace std {
   mismatch(InputIterator1 first1, InputIterator1 last1,
            InputIterator2 first2, InputIterator2 last2,
            BinaryPredicate pred);                         // (4) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
+  pair<ForwardIterator1, ForwardIterator2>
+    mismatch(ExecutionPolicy&& exec,
+             ForwardIterator1 first1,
+             ForwardIterator1 last1,
+             ForwardIterator2 first2);                    // (5) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class BinaryPredicate>
+  pair<ForwardIterator1, ForwardIterator2>
+    mismatch(ExecutionPolicy&& exec,
+             ForwardIterator1 first1,
+             ForwardIterator1 last1,
+             ForwardIterator2 first2,
+             BinaryPredicate pred);                       // (6) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
+  pair<ForwardIterator1, ForwardIterator2>
+    mismatch(ExecutionPolicy&& exec,
+             ForwardIterator1 first1,
+             ForwardIterator1 last1,
+             ForwardIterator2 first2,
+             ForwardIterator2 last2);                     // (7) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class BinaryPredicate>
+  pair<ForwardIterator1, ForwardIterator2>
+    mismatch(ExecutionPolicy&& exec,
+             ForwardIterator1 first1,
+             ForwardIterator1 last1,
+             ForwardIterator2 first2,
+             ForwardIterator2 last2,
+             BinaryPredicate pred);                       // (8) C++17
 }
 ```
 * pair[link /reference/utility/pair.md]

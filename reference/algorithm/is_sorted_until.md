@@ -27,6 +27,19 @@ namespace std {
     is_sorted_until(ForwardIterator first,
                     ForwardIterator last,
                     Compare comp);         // (2) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator>
+  ForwardIterator
+    is_sorted_until(ExecutionPolicy&& exec,
+                    ForwardIterator first,
+                    ForwardIterator last); // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator, class Compare>
+  ForwardIterator
+    is_sorted_until(ExecutionPolicy&& exec,
+                    ForwardIterator first,
+                    ForwardIterator last,
+                    Compare comp);         // (4) C++17
 }
 ```
 

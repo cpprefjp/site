@@ -6,11 +6,28 @@
 ```cpp
 namespace std {
   template<class ForwardIterator>
-  ForwardIterator max_element(ForwardIterator first, ForwardIterator last);
+  ForwardIterator
+    max_element(ForwardIterator first,
+                ForwardIterator last); // (1) C++03
 
   template<class ForwardIterator, class Compare>
-  ForwardIterator max_element(ForwardIterator first, ForwardIterator last,
-                              Compare comp);
+  ForwardIterator
+    max_element(ForwardIterator first,
+                ForwardIterator last,
+                Compare comp);         // (2) C++03
+
+  template <class ExecutionPolicy, class ForwardIterator>
+  ForwardIterator
+    max_element(ExecutionPolicy&& exec,
+                ForwardIterator first,
+                ForwardIterator last); // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator, class Compare>
+  ForwardIterator
+    max_element(ExecutionPolicy&& exec,
+                ForwardIterator first,
+                ForwardIterator last,
+                Compare comp);         // (4) C++17
 }
 ```
 

@@ -9,19 +9,27 @@ namespace std {
   void
     fill_n(OutputIterator first,
            Size n,
-           const T& value);      // C++03
+           const T& value);        // (1) C++03
 
   template <class OutputIterator, class Size, class T>
   OutputIterator
     fill_n(OutputIterator first,
            Size n,
-           const T& value);      // C++11
+           const T& value);        // (1) C++11
 
   template <class OutputIterator, class Size, class T>
   constexpr OutputIterator
     fill_n(OutputIterator first,
            Size n,
-           const T& value);      // C++20
+           const T& value);        // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator,
+            class Size, class T>
+  ForwardIterator
+    fill_n(ExecutionPolicy&& exec,
+           ForwardIterator first,
+           Size n,
+           const T& value);        // (2) C++17
 }
 ```
 

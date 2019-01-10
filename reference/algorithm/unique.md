@@ -26,6 +26,19 @@ namespace std {
     unique(ForwardIterator first,
            ForwardIterator last,
            BinaryPredicate pred); // (2) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator>
+  ForwardIterator
+    unique(ExecutionPolicy&& exec,
+           ForwardIterator first,
+           ForwardIterator last); // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator, class BinaryPredicate>
+  ForwardIterator
+    unique(ExecutionPolicy&& exec,
+           ForwardIterator first,
+           ForwardIterator last,
+           BinaryPredicate pred);  // (4) C++17
 }
 ```
 

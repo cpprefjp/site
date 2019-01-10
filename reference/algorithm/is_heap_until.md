@@ -27,6 +27,19 @@ namespace std {
     is_heap_until(RandomAccessIterator first,
                   RandomAccessIterator last,
                   Compare comp);              // (2) C++20
+
+  template <class ExecutionPolicy, class RandomAccessIterator>
+  RandomAccessIterator
+    is_heap_until(ExecutionPolicy&& exec,
+                  RandomAccessIterator first,
+                  RandomAccessIterator last); // (3) C++17
+
+  template <class ExecutionPolicy, class RandomAccessIterator, class Compare>
+  RandomAccessIterator
+    is_heap_until(ExecutionPolicy&& exec,
+                  RandomAccessIterator first,
+                  RandomAccessIterator last,
+                  Compare comp);              // (4) C++17
 }
 ```
 

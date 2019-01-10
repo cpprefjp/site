@@ -23,6 +23,17 @@ namespace std {
   constexpr bool is_heap(RandomAccessIterator first,
                          RandomAccessIterator last,
                          Compare comp);              // (2) C++20
+
+  template <class ExecutionPolicy, class RandomAccessIterator>
+  bool is_heap(ExecutionPolicy&& exec,
+               RandomAccessIterator first,
+               RandomAccessIterator last);           // (3) C++17
+
+  template <class ExecutionPolicy, class RandomAccessIterator, class Compare>
+  bool is_heap(ExecutionPolicy&& exec,
+               RandomAccessIterator first,
+               RandomAccessIterator last,
+               Compare comp);                        // (4) C++17
 }
 ```
 

@@ -9,13 +9,20 @@ namespace std {
   OutputIterator
     copy(InputIterator first,
          InputIterator last,
-         OutputIterator result); // C++03
+         OutputIterator result);   // (1) C++03
 
   template <class InputIterator, class OutputIterator>
   constexpr OutputIterator
     copy(InputIterator first,
          InputIterator last,
-         OutputIterator result); // C++20
+         OutputIterator result);   // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
+  ForwardIterator2
+    copy(ExecutionPolicy&& exec,
+         ForwardIterator1 first,
+         ForwardIterator1 last,
+         ForwardIterator2 result); // (2) C++17
 }
 ```
 

@@ -8,11 +8,27 @@
 namespace std {
   template<class ForwardIterator>
   pair<ForwardIterator, ForwardIterator>
-    minmax_element(ForwardIterator first, ForwardIterator last);
+    minmax_element(ForwardIterator first,
+                   ForwardIterator last); // (1) C++11
 
   template<class ForwardIterator, class Compare>
   pair<ForwardIterator, ForwardIterator>
-    minmax_element(ForwardIterator first, ForwardIterator last, Compare comp);
+    minmax_element(ForwardIterator first,
+                   ForwardIterator last,
+                   Compare comp);         // (2) C++11
+
+  template <class ExecutionPolicy, class ForwardIterator>
+  pair<ForwardIterator, ForwardIterator>
+    minmax_element(ExecutionPolicy&& exec,
+                   ForwardIterator first,
+                   ForwardIterator last); // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator, class Compare>
+  pair<ForwardIterator, ForwardIterator>
+    minmax_element(ExecutionPolicy&& exec,
+                   ForwardIterator first,
+                   ForwardIterator last,
+                   Compare comp);         // (4) C++17
 }
 ```
 * pair[link /reference/utility/pair.md]

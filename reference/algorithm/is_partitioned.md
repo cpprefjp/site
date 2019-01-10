@@ -9,12 +9,18 @@ namespace std {
   template <class InputIterator, class Predicate>
   bool is_partitioned(InputIterator first,
                       InputIterator last,
-                      Predicate pred);               // C++11
+                      Predicate pred);               // (1) C++11
 
   template <class InputIterator, class Predicate>
   constexpr bool is_partitioned(InputIterator first,
                                 InputIterator last,
-                                Predicate pred);     // C++20
+                                Predicate pred);     // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator, class Predicate>
+  bool is_partitioned(ExecutionPolicy&& exec,
+                      ForwardIterator first,
+                      ForwardIterator last,
+                      Predicate pred);               // (2) C++17
 }
 ```
 

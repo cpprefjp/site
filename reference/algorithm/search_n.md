@@ -34,6 +34,24 @@ namespace std {
              Size count,
              const T& value,
              BinaryPredicate pred); // (2) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator, class Size, class T>
+  ForwardIterator
+    search_n(ExecutionPolicy&& exec,
+             ForwardIterator first,
+             ForwardIterator last,
+             Size count,
+             const T& value);       // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator, class Size, class T,
+            class BinaryPredicate>
+  ForwardIterator
+    search_n(ExecutionPolicy&& exec,
+             ForwardIterator first,
+             ForwardIterator last,
+             Size count,
+             const T& value,
+             BinaryPredicate pred); // (4) C++17
 }
 ```
 

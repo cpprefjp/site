@@ -8,13 +8,26 @@ namespace std {
   template <class BidirectionalIterator>
   void inplace_merge(BidirectionalIterator first,
                      BidirectionalIterator middle,
-                     BidirectionalIterator last);
+                     BidirectionalIterator last);  // (1) C++03
 
   template <class BidirectionalIterator, class Compare>
   void inplace_merge(BidirectionalIterator first,
                      BidirectionalIterator middle,
                      BidirectionalIterator last,
-                     Compare comp);
+                     Compare comp);                // (2) C++03
+
+  template <class ExecutionPolicy, class BidirectionalIterator>
+  void inplace_merge(ExecutionPolicy&& exec,
+                     BidirectionalIterator first,
+                     BidirectionalIterator middle,
+                     BidirectionalIterator last);  // (3) C++17
+
+  template <class ExecutionPolicy, class BidirectionalIterator, class Compare>
+  void inplace_merge(ExecutionPolicy&& exec,
+                     BidirectionalIterator first,
+                     BidirectionalIterator middle,
+                     BidirectionalIterator last,
+                     Compare comp);                // (4) C++17
 }
 ```
 

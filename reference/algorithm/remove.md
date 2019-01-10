@@ -9,13 +9,20 @@ namespace std {
   ForwardIterator
     remove(ForwardIterator first,
            ForwardIterator last,
-           const T& value);       // C++03
+           const T& value);        // (1) C++03
 
   template <class ForwardIterator, class T>
   constexpr ForwardIterator
     remove(ForwardIterator first,
            ForwardIterator last,
-           const T& value);       // C++20
+           const T& value);        // (1) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator, class T>
+  ForwardIterator
+    remove(ExecutionPolicy&& exec,
+           ForwardIterator first,
+           ForwardIterator last,
+           const T& value);        // (2) C++17
 }
 ```
 

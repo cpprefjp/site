@@ -26,6 +26,19 @@ namespace std {
                               RandomAccessIterator middle,
                               RandomAccessIterator last,
                               Compare comp);               // (2) C++20
+
+  template <class ExecutionPolicy, class RandomAccessIterator>
+  void partial_sort(ExecutionPolicy&& exec,
+                    RandomAccessIterator first,
+                    RandomAccessIterator middle,
+                    RandomAccessIterator last);            // (3) C++17
+
+  template <class ExecutionPolicy, class RandomAccessIterator, class Compare>
+  void partial_sort(ExecutionPolicy&& exec,
+                    RandomAccessIterator first,
+                    RandomAccessIterator middle,
+                    RandomAccessIterator last,
+                    Compare comp);                         // (4) C++17
 }
 ```
 

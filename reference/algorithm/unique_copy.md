@@ -9,13 +9,13 @@ namespace std {
   OutputIterator
     unique_copy(InputIterator first,
                 InputIterator last,
-                OutputIterator result); // (1) C++03
+                OutputIterator result);    // (1) C++03
 
   template <class InputIterator, class OutputIterator>
   constexpr OutputIterator
     unique_copy(InputIterator first,
                 InputIterator last,
-                OutputIterator result); // (1) C++20
+                OutputIterator result);    // (1) C++20
 
   template <class InputIterator, class OutputIterator,
             class BinaryPredicate>
@@ -23,7 +23,7 @@ namespace std {
     unique_copy(InputIterator first,
                 InputIterator last,
                 OutputIterator result,
-                BinaryPredicate pred);  // (2) C++03
+                BinaryPredicate pred);     // (2) C++03
 
   template <class InputIterator, class OutputIterator,
             class BinaryPredicate>
@@ -31,7 +31,23 @@ namespace std {
     unique_copy(InputIterator first,
                 InputIterator last,
                 OutputIterator result,
-                BinaryPredicate pred);  // (2) C++20
+                BinaryPredicate pred);     // (2) C++20
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
+  ForwardIterator2
+     unique_copy(ExecutionPolicy&& exec,
+                 ForwardIterator1 first,
+                 ForwardIterator1 last,
+                 ForwardIterator2 result); // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class BinaryPredicate>
+  ForwardIterator2
+    unique_copy(ExecutionPolicy&& exec,
+                ForwardIterator1 first,
+                ForwardIterator1 last,
+                ForwardIterator2 result,
+                BinaryPredicate pred);     // (4) C++17
 }
 ```
 
