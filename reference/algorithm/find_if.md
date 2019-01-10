@@ -8,7 +8,12 @@ namespace std {
   template <class InputIterator, class Predicate>
   InputIterator find_if(InputIterator first,
                         InputIterator last,
-                        Predicate pred);
+                        Predicate pred);               // C++03
+
+  template <class InputIterator, class Predicate>
+  constexpr InputIterator find_if(InputIterator first,
+                                  InputIterator last,
+                                  Predicate pred);     // C++20
 }
 ```
 
@@ -59,3 +64,6 @@ InputIterator find_if(InputIterator first, InputIterator last, Predicate pred) {
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

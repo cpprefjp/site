@@ -6,10 +6,18 @@
 ```cpp
 namespace std {
   template <class ForwardIterator, class OutputIterator>
-  OutputIterator rotate_copy(ForwardIterator first,
-                             ForwardIterator middle,
-                             ForwardIterator last,
-                             OutputIterator result);
+  OutputIterator
+    rotate_copy(ForwardIterator first,
+                ForwardIterator middle,
+                ForwardIterator last,
+                OutputIterator result); // C++03
+
+  template <class ForwardIterator, class OutputIterator>
+  constexpr OutputIterator
+    rotate_copy(ForwardIterator first,
+                ForwardIterator middle,
+                ForwardIterator last,
+                OutputIterator result); // C++20
 }
 ```
 
@@ -71,3 +79,6 @@ OutputIterator rotate_copy(ForwardIterator first,
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

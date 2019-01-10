@@ -7,9 +7,16 @@
 ```cpp
 namespace std {
   template <class ForwardIterator, class Predicate>
-  ForwardIterator partition_point(ForwardIterator first,
-                                  ForwardIterator last,
-                                  Predicate pred);
+  ForwardIterator
+    partition_point(ForwardIterator first,
+                    ForwardIterator last,
+                    Predicate pred);       // C++11
+
+  template <class ForwardIterator, class Predicate>
+  constexpr ForwardIterator
+    partition_point(ForwardIterator first,
+                    ForwardIterator last,
+                    Predicate pred);       // C++20
 }
 ```
 
@@ -107,4 +114,4 @@ partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
 ## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

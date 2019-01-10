@@ -8,13 +8,24 @@ namespace std {
   template <class ForwardIterator, class T>
   bool binary_search(ForwardIterator first,
                      ForwardIterator last,
-                     const T& value);
+                     const T& value);                 // (1) C++03
+
+  template <class ForwardIterator, class T>
+  constexpr bool binary_search(ForwardIterator first,
+                               ForwardIterator last,
+                               const T& value);       // (1) C++20
 
   template <class ForwardIterator, class T, class Compare>
   bool binary_search(ForwardIterator first,
                      ForwardIterator last,
                      const T& value,
-                     Compare comp);
+                     Compare comp);                   // (2) C++03
+
+  template <class ForwardIterator, class T, class Compare>
+  constexpr bool binary_search(ForwardIterator first,
+                               ForwardIterator last,
+                               const T& value,
+                               Compare comp);         // (2) C++20
 }
 ```
 
@@ -93,4 +104,4 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
 ## 参照
 - [LWG Issue 787. complexity of `binary_search`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#787)
     - C++03までの計算量が間違っていたので、C++11で修正。
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

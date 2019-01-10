@@ -6,10 +6,22 @@
 ```cpp
 namespace std {
   template <class OutputIterator, class Size, class T>
-  void fill_n(OutputIterator first, Size n, const T& value);           // C++03 まで
+  void
+    fill_n(OutputIterator first,
+           Size n,
+           const T& value);      // C++03
 
   template <class OutputIterator, class Size, class T>
-  OutputIterator fill_n(OutputIterator first, Size n, const T& value); // C++11 から
+  OutputIterator
+    fill_n(OutputIterator first,
+           Size n,
+           const T& value);      // C++11
+
+  template <class OutputIterator, class Size, class T>
+  constexpr OutputIterator
+    fill_n(OutputIterator first,
+           Size n,
+           const T& value);      // C++20
 }
 ```
 
@@ -86,3 +98,4 @@ fill_n(OutputIterator first, Size n, const T& value) {
 ## 参照
 - [LWG DR865. More algorithms that throw away information](http://cplusplus.github.io/LWG/lwg-defects.html#865)  
 	戻り値が追加されるきっかけとなったレポート
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

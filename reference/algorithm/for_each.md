@@ -8,7 +8,12 @@ namespace std {
   template <class InputIterator, class Function>
   Function for_each(InputIterator first,
                     InputIterator last,
-                    Function f);
+                    Function f);                   // C++03
+
+  template <class InputIterator, class Function>
+  constexpr Function for_each(InputIterator first,
+                              InputIterator last,
+                              Function f);         // C++20
 }
 ```
 
@@ -142,3 +147,6 @@ Function for_each(InputIterator first, InputIterator last, Function f) {
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

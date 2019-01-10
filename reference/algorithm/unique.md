@@ -6,11 +6,26 @@
 ```cpp
 namespace std {
   template <class ForwardIterator>
-  ForwardIterator unique(ForwardIterator first, ForwardIterator last); // (1)
+  ForwardIterator
+    unique(ForwardIterator first,
+           ForwardIterator last); // (1) C++03
+
+  template <class ForwardIterator>
+  constexpr ForwardIterator
+    unique(ForwardIterator first,
+           ForwardIterator last); // (1) C++20
 
   template <class ForwardIterator, class BinaryPredicate>
-  ForwardIterator unique(ForwardIterator first, ForwardIterator last,
-                         BinaryPredicate pred);                        // (2)
+  ForwardIterator
+    unique(ForwardIterator first,
+           ForwardIterator last,
+           BinaryPredicate pred); // (2) C++03
+
+  template <class ForwardIterator, class BinaryPredicate>
+  constexpr ForwardIterator
+    unique(ForwardIterator first,
+           ForwardIterator last,
+           BinaryPredicate pred); // (2) C++20
 }
 ```
 
@@ -143,3 +158,6 @@ ForwardIterator unique(ForwardIterator first, ForwardIterator last, BinaryPredic
 ```
 * move[link /reference/utility/move.md]
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

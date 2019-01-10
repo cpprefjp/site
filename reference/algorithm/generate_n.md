@@ -6,10 +6,22 @@
 ```cpp
 namespace std {
   template <class OutputIterator, class Size, class Generator>
-  void generate_n(OutputIterator first, Size n, Generator gen);           // C++03 まで
+  void
+    generate_n(OutputIterator first,
+               Size n,
+               Generator gen);       // C++03
 
   template <class OutputIterator, class Size, class Generator>
-  OutputIterator generate_n(OutputIterator first, Size n, Generator gen); // C++11 から
+  OutputIterator
+    generate_n(OutputIterator first,
+               Size n,
+               Generator gen);       // C++11
+
+  template <class OutputIterator, class Size, class Generator>
+  constexpr OutputIterator
+    generate_n(OutputIterator first,
+               Size n,
+               Generator gen);       // C++20
 }
 ```
 
@@ -93,3 +105,4 @@ generate_n(OutputIterator first, Size n, Generator gen) {
 ## 参照
 - [LWG DR865. More algorithms that throw away information](http://cplusplus.github.io/LWG/lwg-defects.html#865)  
 	戻り値が追加されるきっかけとなったレポート
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

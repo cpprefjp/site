@@ -6,12 +6,30 @@
 ```cpp
 namespace std {
   template<class ForwardIterator, class T>
-  ForwardIterator upper_bound(ForwardIterator first, ForwardIterator last,
-                              const T& value);
+  ForwardIterator
+    upper_bound(ForwardIterator first,
+                ForwardIterator last,
+                const T& value);       // (1) C++03
+
+  template<class ForwardIterator, class T>
+  constexpr ForwardIterator
+    upper_bound(ForwardIterator first,
+                ForwardIterator last,
+                const T& value);       // (1) C++20
 
   template<class ForwardIterator, class T, class Compare>
-  ForwardIterator upper_bound(ForwardIterator first, ForwardIterator last,
-                              const T& value, Compare comp);
+  ForwardIterator
+    upper_bound(ForwardIterator first,
+                ForwardIterator last,
+                const T& value,
+                Compare comp);         // (2) C++03
+
+  template<class ForwardIterator, class T, class Compare>
+  constexpr ForwardIterator
+    upper_bound(ForwardIterator first,
+                ForwardIterator last,
+                const T& value,
+                Compare comp);         // (2) C++20
 }
 ```
 
@@ -119,3 +137,4 @@ upper_bound(ForwardIterator first, ForwardIterator last, const T& value)
 ## 参照
 - [LWG Issue 384. `equal_range` has unimplementable runtime complexity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384)
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

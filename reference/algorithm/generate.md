@@ -6,7 +6,14 @@
 ```cpp
 namespace std {
   template <class ForwardIterator, class Generator>
-  void generate(ForwardIterator first, ForwardIterator last, Generator gen);
+  void generate(ForwardIterator first,
+                ForwardIterator last,
+                Generator gen);                  // C++03
+
+  template <class ForwardIterator, class Generator>
+  constexpr void generate(ForwardIterator first,
+                          ForwardIterator last,
+                          Generator gen);        // C++20
 }
 ```
 
@@ -59,3 +66,6 @@ void generate(ForwardIterator first, ForwardIterator last, Generator gen) {
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

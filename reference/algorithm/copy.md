@@ -6,7 +6,16 @@
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator>
-  OutputIterator copy(InputIterator first, InputIterator last, OutputIterator result);
+  OutputIterator
+    copy(InputIterator first,
+         InputIterator last,
+         OutputIterator result); // C++03
+
+  template <class InputIterator, class OutputIterator>
+  constexpr OutputIterator
+    copy(InputIterator first,
+         InputIterator last,
+         OutputIterator result); // C++20
 }
 ```
 
@@ -75,3 +84,6 @@ OutputIterator copy(InputIterator first, InputIterator last, OutputIterator resu
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

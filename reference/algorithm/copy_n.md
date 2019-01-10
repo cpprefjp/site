@@ -8,7 +8,16 @@
 ```cpp
 namespace std {
   template <class InputIterator, class Size, class OutputIterator>
-  OutputIterator copy_n(InputIterator first, Size n, OutputIterator result);
+  OutputIterator
+    copy_n(InputIterator first,
+           Size n,
+           OutputIterator result); // C++11
+
+  template <class InputIterator, class Size, class OutputIterator>
+  constexpr OutputIterator
+    copy_n(InputIterator first,
+           Size n,
+           OutputIterator result); // C++20
 }
 ```
 
@@ -77,4 +86,4 @@ OutputIterator copy_n(InputIterator first, Size n, OutputIterator result) {
 ## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

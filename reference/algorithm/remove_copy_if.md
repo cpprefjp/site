@@ -6,9 +6,18 @@
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator, class Predicate>
-  OutputIterator remove_copy_if(InputIterator first, InputIterator last,
-                                OutputIterator result, Predicate pred);
+  OutputIterator
+    remove_copy_if(InputIterator first,
+                   InputIterator last,
+                   OutputIterator result,
+                   Predicate pred);       // C++03
 
+  template <class InputIterator, class OutputIterator, class Predicate>
+  constexpr OutputIterator
+    remove_copy_if(InputIterator first,
+                   InputIterator last,
+                   OutputIterator result,
+                   Predicate pred);       // C++20
 }
 ```
 
@@ -73,3 +82,6 @@ OutputIterator remove_copy_if(InputIterator first, InputIterator last,
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

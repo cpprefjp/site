@@ -9,11 +9,23 @@ namespace std {
             class OutputIterator,
             class Predicate,
             class T>
-  OutputIterator replace_copy_if(InputIterator first,
-                                 InputIterator last,
-                                 OutputIterator result,
-                                 Predicate pred,
-                                 const T& new_value);
+  OutputIterator
+    replace_copy_if(InputIterator first,
+                    InputIterator last,
+                    OutputIterator result,
+                    Predicate pred,
+                    const T& new_value);   // C++03
+
+  template <class InputIterator,
+            class OutputIterator,
+            class Predicate,
+            class T>
+  constexpr OutputIterator
+    replace_copy_if(InputIterator first,
+                    InputIterator last,
+                    OutputIterator result,
+                    Predicate pred,
+                    const T& new_value);   // C++20
 }
 ```
 
@@ -72,3 +84,6 @@ OutputIterator replace_copy_if(InputIterator first, InputIterator last, OutputIt
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

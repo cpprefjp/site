@@ -6,10 +6,16 @@
 ```cpp
 namespace std {
   template <class BidirectionalIterator1, class BidirectionalIterator2>
-  BidirectionalIterator2 copy_backward(BidirectionalIterator1 first,
-                                       BidirectionalIterator1 last,
-                                       BidirectionalIterator2 result);
+  BidirectionalIterator2
+    copy_backward(BidirectionalIterator1 first,
+                  BidirectionalIterator1 last,
+                  BidirectionalIterator2 result); // C++03
 
+  template <class BidirectionalIterator1, class BidirectionalIterator2>
+  constexpr BidirectionalIterator2
+    copy_backward(BidirectionalIterator1 first,
+                  BidirectionalIterator1 last,
+                  BidirectionalIterator2 result); // C++20
 }
 ```
 
@@ -81,3 +87,5 @@ BidirectionalIterator2 copy_backward(BidirectionalIterator1 first,
 ```
 
 
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

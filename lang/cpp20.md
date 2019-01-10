@@ -149,7 +149,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### アルゴリズム
-- [`<algorithm>`](/reference/algorithm.md)の検索、ソート関係に`constexpr`を追加
+- [`<algorithm>`](/reference/algorithm.md)の多くの関数に`constexpr`を追加
 - [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md.nolink)、[`std::shift_right()`](/reference/algorithm/shift_right.md.nolink)を追加
 - 一貫比較への対応のため、[`<algorithm>`](/reference/algorithm.md)に[`std::lexicographical_compare_3way()`](/reference/algorithm/lexicographical_compare_3way.md.nolink)および[`std::compare_3way()`](/reference/algorithm/compare_3way.md.nolink)を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
@@ -189,6 +189,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### ユーティリティ
+- [`std::swap()`](/reference/utility/swap.md)関数に`constexpr`を追加
 - [`std::exchange()`](/reference/utility/exchange.md)関数に`constexpr`を追加
 - [`std::complex`](/reference/complex/complex.md)クラスを`constexpr`に対応
 - [`std::pair`](/reference/utility/pair.md)クラスの[コンストラクタ](/reference/utility/pair/op_constructor.md)、[代入演算子](/reference/utility/pair/op_assign.md)、[`swap()`](/reference/utility/pair/swap.md)メンバ関数、[`swap()`](/reference/utility/pair/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した

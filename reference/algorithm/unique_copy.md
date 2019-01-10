@@ -6,16 +6,32 @@
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator>
-  OutputIterator unique_copy(InputIterator first,
-                             InputIterator last,
-                             OutputIterator result); // (1)
+  OutputIterator
+    unique_copy(InputIterator first,
+                InputIterator last,
+                OutputIterator result); // (1) C++03
+
+  template <class InputIterator, class OutputIterator>
+  constexpr OutputIterator
+    unique_copy(InputIterator first,
+                InputIterator last,
+                OutputIterator result); // (1) C++20
 
   template <class InputIterator, class OutputIterator,
             class BinaryPredicate>
-  OutputIterator unique_copy(InputIterator first,
-                             InputIterator last,
-                             OutputIterator result,
-                             BinaryPredicate pred);  // (2)
+  OutputIterator
+    unique_copy(InputIterator first,
+                InputIterator last,
+                OutputIterator result,
+                BinaryPredicate pred);  // (2) C++03
+
+  template <class InputIterator, class OutputIterator,
+            class BinaryPredicate>
+  constexpr OutputIterator
+    unique_copy(InputIterator first,
+                InputIterator last,
+                OutputIterator result,
+                BinaryPredicate pred);  // (2) C++20
 }
 ```
 
@@ -141,3 +157,6 @@ OutputIterator unique_copy(InputIterator first, InputIterator last,
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

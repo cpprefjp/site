@@ -6,8 +6,16 @@
 ```cpp
 namespace std {
   template <class ForwardIterator, class Predicate, class T>
-  void replace_if(ForwardIterator first, ForwardIterator last,
-                  Predicate pred, const T& new_value);
+  void replace_if(ForwardIterator first,
+                  ForwardIterator last,
+                  Predicate pred,
+                  const T& new_value);             // C++03
+
+  template <class ForwardIterator, class Predicate, class T>
+  constexpr void replace_if(ForwardIterator first,
+                            ForwardIterator last,
+                            Predicate pred,
+                            const T& new_value);   // C++20
 }
 ```
 
@@ -63,3 +71,6 @@ void replace_if(ForwardIterator first, ForwardIterator last,
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

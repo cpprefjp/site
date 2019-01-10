@@ -7,7 +7,11 @@
 namespace std {
   template <class InputIterator, class T>
   typename iterator_traits<InputIterator>::difference_type
-    count(InputIterator first, InputIterator last, const T& value);
+    count(InputIterator first, InputIterator last, const T& value); // C++03
+
+  template <class InputIterator, class T>
+  constexpr typename iterator_traits<InputIterator>::difference_type
+    count(InputIterator first, InputIterator last, const T& value); // C++20
 }
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]
@@ -58,3 +62,5 @@ typename iterator_traits<InputIterator>::difference_type
 ```
 
 
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

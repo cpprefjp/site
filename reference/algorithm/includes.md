@@ -6,13 +6,30 @@
 ```cpp
 namespace std {
   template <class InputIterator1, class InputIterator2>
-  bool includes(InputIterator1 first1, InputIterator1 last1,
-                InputIterator2 first2, InputIterator2 last2);
+  bool includes(InputIterator1 first1,
+                InputIterator1 last1,
+                InputIterator2 first2,
+                InputIterator2 last2);           // (1) C++03
+
+  template <class InputIterator1, class InputIterator2>
+  constexpr bool includes(InputIterator1 first1,
+                          InputIterator1 last1,
+                          InputIterator2 first2,
+                          InputIterator2 last2); // (1) C++20
 
   template <class InputIterator1, class InputIterator2, class Compare>
-  bool includes(InputIterator1 first1, InputIterator1 last1,
-                InputIterator2 first2, InputIterator2 last2,
-                Compare comp);
+  bool includes(InputIterator1 first1,
+                InputIterator1 last1,
+                InputIterator2 first2,
+                InputIterator2 last2,
+                Compare comp);                   // (2) C++03
+
+  template <class InputIterator1, class InputIterator2, class Compare>
+  constexpr bool includes(InputIterator1 first1,
+                          InputIterator1 last1,
+                          InputIterator2 first2,
+                          InputIterator2 last2,
+                          Compare comp);         // (2) C++20
 }
 ```
 
@@ -84,3 +101,7 @@ bool includes(InputIterator1 first1, InputIterator1 last1,
   return true;
 }
 ```
+
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

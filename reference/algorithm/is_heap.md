@@ -8,12 +8,21 @@
 namespace std {
   template <class RandomAccessIterator>
   bool is_heap(RandomAccessIterator first,
-               RandomAccessIterator last); // (1)
+               RandomAccessIterator last);           // (1) C++11
+
+  template <class RandomAccessIterator>
+  constexpr bool is_heap(RandomAccessIterator first,
+                         RandomAccessIterator last); // (1) C++20
 
   template <class RandomAccessIterator, class Compare>
   bool is_heap(RandomAccessIterator first,
                RandomAccessIterator last,
-               Compare comp);              // (2)
+               Compare comp);                        // (2) C++11
+
+  template <class RandomAccessIterator, class Compare>
+  constexpr bool is_heap(RandomAccessIterator first,
+                         RandomAccessIterator last,
+                         Compare comp);              // (2) C++20
 }
 ```
 
@@ -70,3 +79,4 @@ before: is heap? false
 
 ## 参照
 - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

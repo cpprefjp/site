@@ -6,22 +6,49 @@
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>
-  ForwardIterator1 find_first_of(ForwardIterator1 first1, ForwardIterator1 last1,
-                                 ForwardIterator2 first2, ForwardIterator2 last2); // (1) C++03
+  ForwardIterator1
+    find_first_of(ForwardIterator1 first1,
+                  ForwardIterator1 last1,
+                  ForwardIterator2 first2,
+                  ForwardIterator2 last2); // (1) C++03
 
   template <class InputIterator, class ForwardIterator>
-  InputIterator find_first_of(InputIterator first1, InputIterator last1,
-                              ForwardIterator first2, ForwardIterator last2);      // (1) C++11
+  InputIterator
+    find_first_of(InputIterator first1,
+                  InputIterator last1,
+                  ForwardIterator first2,
+                  ForwardIterator last2);  // (1) C++11
+
+  template <class InputIterator, class ForwardIterator>
+  constexpr InputIterator
+    find_first_of(InputIterator first1,
+                  InputIterator last1,
+                  ForwardIterator first2,
+                  ForwardIterator last2);  // (1) C++20
 
   template <class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
-  ForwardIterator1 find_first_of(ForwardIterator1 first1, ForwardIterator1 last1,
-                                 ForwardIterator2 first2, ForwardIterator2 last2,
-                                 BinaryPredicate pred);                            // (2) C++03
+  ForwardIterator1
+    find_first_of(ForwardIterator1 first1,
+                  ForwardIterator1 last1,
+                  ForwardIterator2 first2,
+                  ForwardIterator2 last2,
+                  BinaryPredicate pred);   // (2) C++03
 
   template <class InputIterator, class ForwardIterator, class BinaryPredicate>
-  InputIterator find_first_of(InputIterator first1, InputIterator last1,
-                              ForwardIterator first2, ForwardIterator last2,
-                              BinaryPredicate pred);                               // (2) C++11
+  InputIterator
+    find_first_of(InputIterator first1,
+                  InputIterator last1,
+                  ForwardIterator first2,
+                  ForwardIterator last2,
+                  BinaryPredicate pred);   // (2) C++11
+
+  template <class InputIterator, class ForwardIterator, class BinaryPredicate>
+  constexpr InputIterator
+    find_first_of(InputIterator first1,
+                  InputIterator last1,
+                  ForwardIterator first2,
+                  ForwardIterator last2,
+                  BinaryPredicate pred);   // (2) C++20
 }
 ```
 
@@ -94,4 +121,4 @@ InputIterator find_first_of(InputIterator first1, InputIterator last1,
 ## 参照
 - [LWG Issue 576. `find_first_of` is overconstrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#576)
     - C++11から、パラメータのイテレータ型に対する制約が緩和され、`ForwardIterator`から`InputIterator`に変更になった経緯のレポート
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

@@ -6,13 +6,32 @@
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>
-  ForwardIterator1 find_end(ForwardIterator1 first1, ForwardIterator1 last1,
-                            ForwardIterator2 first2, ForwardIterator2 last2);
+  ForwardIterator1 find_end(ForwardIterator1 first1,
+                            ForwardIterator1 last1,
+                            ForwardIterator2 first2,
+                            ForwardIterator2 last2);           // (1) C++03
 
-  template <class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
-  ForwardIterator1 find_end(ForwardIterator1 first1, ForwardIterator1 last1,
-                            ForwardIterator2 first2, ForwardIterator2 last2,
-                            BinaryPredicate pred);
+  template <class ForwardIterator1, class ForwardIterator2>
+  constexpr ForwardIterator1 find_end(ForwardIterator1 first1,
+                                      ForwardIterator1 last1,
+                                      ForwardIterator2 first2,
+                                      ForwardIterator2 last2); // (1) C++20
+
+  template <class ForwardIterator1, class ForwardIterator2,
+            class BinaryPredicate>
+  ForwardIterator1 find_end(ForwardIterator1 first1,
+                            ForwardIterator1 last1,
+                            ForwardIterator2 first2,
+                            ForwardIterator2 last2,
+                            BinaryPredicate pred);             // (2) C++03
+
+  template <class ForwardIterator1, class ForwardIterator2,
+            class BinaryPredicate>
+  constexpr ForwardIterator1 find_end(ForwardIterator1 first1,
+                                      ForwardIterator1 last1,
+                                      ForwardIterator2 first2,
+                                      ForwardIterator2 last2,
+                                      BinaryPredicate pred);   // (2) C++20
 }
 ```
 
@@ -103,4 +122,4 @@ ForwardIterator1 find_end(ForwardIterator1 first1, ForwardIterator1 last1,
 
 ## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

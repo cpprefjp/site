@@ -15,7 +15,18 @@ namespace std {
                    InputIterator last,
                    OutputIterator1 out_true,
                    OutputIterator2 out_false,
-                   Predicate pred);
+                   Predicate pred);           // C++11
+
+  template <class InputIterator,
+            class OutputIterator1,
+            class OutputIterator2,
+            class Predicate>
+  constexpr pair<OutputIterator1, OutputIterator2>
+    partition_copy(InputIterator first,
+                   InputIterator last,
+                   OutputIterator1 out_true,
+                   OutputIterator2 out_false,
+                   Predicate pred);           // C++20
 }
 ```
 * pair[link /reference/utility/pair.md]
@@ -101,4 +112,4 @@ odds : 1,3,5,
 ## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

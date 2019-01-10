@@ -6,15 +6,40 @@
 ```cpp
 namespace std {
   template <class InputIterator1, class InputIterator2, class OutputIterator>
-  OutputIterator set_union(InputIterator1 first1, InputIterator1 last1,
-                           InputIterator2 first2, InputIterator2 last2,
-                           OutputIterator result);
+  OutputIterator
+    set_union(InputIterator1 first1,
+              InputIterator1 last1,
+              InputIterator2 first2,
+              InputIterator2 last2,
+              OutputIterator result); // (1) C++03
+
+  template <class InputIterator1, class InputIterator2, class OutputIterator>
+  constexpr OutputIterator
+    set_union(InputIterator1 first1,
+              InputIterator1 last1,
+              InputIterator2 first2,
+              InputIterator2 last2,
+              OutputIterator result); // (1) C++20
 
   template <class InputIterator1, class InputIterator2, class OutputIterator,
             class Compare>
-  OutputIterator set_union(InputIterator1 first1, InputIterator1 last1,
-                           InputIterator2 first2, InputIterator2 last2,
-                           OutputIterator result, Compare comp);
+  OutputIterator
+    set_union(InputIterator1 first1,
+              InputIterator1 last1,
+              InputIterator2 first2,
+              InputIterator2 last2,
+              OutputIterator result,
+              Compare comp);          // (2) C++03
+
+  template <class InputIterator1, class InputIterator2, class OutputIterator,
+            class Compare>
+  constexpr OutputIterator
+    set_union(InputIterator1 first1,
+              InputIterator1 last1,
+              InputIterator2 first2,
+              InputIterator2 last2,
+              OutputIterator result,
+              Compare comp);          // (2) C++20
 }
 ```
 
@@ -122,3 +147,7 @@ OutputIterator set_union(InputIterator1 first1, InputIterator1 last1,
 }
 ```
 * std::copy[link copy.md]
+
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

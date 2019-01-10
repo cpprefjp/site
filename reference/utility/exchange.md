@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T, class U=T>
-  T exchange(T& obj, U&& new_val);
+  T exchange(T& obj, U&& new_val);           // C++14
+
+  template <class T, class U=T>
+  constexpr T exchange(T& obj, U&& new_val); // C++20
 }
 ```
 
@@ -115,5 +118,4 @@ int main()
 - [N3511 exchange() utility function](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3511.html)
 - [N3608 exchange() utility function, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3608.html)
 - [N3668 exchange() utility function, revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3668.html)
-
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

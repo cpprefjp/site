@@ -7,22 +7,52 @@
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>
-  bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
-                      ForwardIterator2 first2);
-
-  template <class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
-  bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
-                      ForwardIterator2 first2,
-                      BinaryPredicate pred);
+  bool is_permutation(ForwardIterator1 first1,
+                      ForwardIterator1 last1,
+                      ForwardIterator2 first2);           // (1) C++11
 
   template <class ForwardIterator1, class ForwardIterator2>
-  bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
-                      ForwardIterator2 first2, ForwardIterator2 last2);             // C++14 から
+  constexpr bool is_permutation(ForwardIterator1 first1,
+                                ForwardIterator1 last1,
+                                ForwardIterator2 first2); // (1) C++20
 
   template <class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
-  bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
-                      ForwardIterator2 first2, ForwardIterator2 last2,
-                      BinaryPredicate pred);                                        // C++14 から
+  bool is_permutation(ForwardIterator1 first1,
+                      ForwardIterator1 last1,
+                      ForwardIterator2 first2,
+                      BinaryPredicate pred);              // (2) C++11
+
+  template <class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
+  constexpr bool is_permutation(ForwardIterator1 first1,
+                                ForwardIterator1 last1,
+                                ForwardIterator2 first2,
+                                BinaryPredicate pred);    // (2) C++20
+
+  template <class ForwardIterator1, class ForwardIterator2>
+  bool is_permutation(ForwardIterator1 first1,
+                      ForwardIterator1 last1,
+                      ForwardIterator2 first2,
+                      ForwardIterator2 last2);            // (3) C++14
+
+  template <class ForwardIterator1, class ForwardIterator2>
+  constexpr bool is_permutation(ForwardIterator1 first1,
+                                ForwardIterator1 last1,
+                                ForwardIterator2 first2,
+                                ForwardIterator2 last2);  // (3) C++20
+
+  template <class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
+  bool is_permutation(ForwardIterator1 first1,
+                      ForwardIterator1 last1,
+                      ForwardIterator2 first2,
+                      ForwardIterator2 last2,
+                      BinaryPredicate pred);              // (4) C++14
+
+  template <class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
+  constexpr bool is_permutation(ForwardIterator1 first1,
+                                ForwardIterator1 last1,
+                                ForwardIterator2 first2,
+                                ForwardIterator2 last2,
+                                BinaryPredicate pred);    // (4) C++20
 }
 ```
 
@@ -198,3 +228,4 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 ## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
     - C++14から追加された、`last2`を受け取るオーバーロードの提案文書
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

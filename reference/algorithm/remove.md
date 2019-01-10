@@ -6,9 +6,16 @@
 ```cpp
 namespace std {
   template <class ForwardIterator, class T>
-  ForwardIterator remove(ForwardIterator first,
-                         ForwardIterator last,
-                         const T& value);
+  ForwardIterator
+    remove(ForwardIterator first,
+           ForwardIterator last,
+           const T& value);       // C++03
+
+  template <class ForwardIterator, class T>
+  constexpr ForwardIterator
+    remove(ForwardIterator first,
+           ForwardIterator last,
+           const T& value);       // C++20
 }
 ```
 
@@ -95,7 +102,7 @@ ForwardIterator remove(ForwardIterator first, ForwardIterator last, const T& val
 
 
 ## 参照
+- [More C++ Idioms/消去・削除(Erase-Remove)](https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove))
 - [LWG Issue 2110. `remove` can't swap but note says it might](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2110)
     - C++11までのこのアルゴリズムは、要素の移動にswap操作が行われるかもしれない、と書いていた。だが、このアルゴリズムの要件は`MoveAssignable`のみであるため、swapはできない。そのため、C++14からは、ムーブのみで要素の移動が行われるようになった。
-- [More C++ Idioms/消去・削除(Erase-Remove)](https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove))
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

@@ -6,12 +6,34 @@
 ```cpp
 namespace std {
   template<class ForwardIterator, class Size, class T>
-  ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
-                           Size count, const T& value);
+  ForwardIterator
+    search_n(ForwardIterator first,
+             ForwardIterator last,
+             Size count,
+             const T& value);       // (1) C++03
+
+  template<class ForwardIterator, class Size, class T>
+  constexpr ForwardIterator
+    search_n(ForwardIterator first,
+             ForwardIterator last,
+             Size count,
+             const T& value);       // (1) C++20
 
   template<class ForwardIterator, class Size, class T, class BinaryPredicate>
-  ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
-                           Size count, const T& value, BinaryPredicate pred);
+  ForwardIterator
+    search_n(ForwardIterator first,
+             ForwardIterator last,
+             Size count,
+             const T& value,
+             BinaryPredicate pred); // (2) C++03
+
+  template<class ForwardIterator, class Size, class T, class BinaryPredicate>
+  constexpr ForwardIterator
+    search_n(ForwardIterator first,
+             ForwardIterator last,
+             Size count,
+             const T& value,
+             BinaryPredicate pred); // (2) C++20
 }
 ```
 
@@ -130,4 +152,4 @@ ForwardIterator search_n(ForwardIterator first, ForwardIterator last,
 ## 参照
 - [LWG Issue 714. `search_n` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#714)
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

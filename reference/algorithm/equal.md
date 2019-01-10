@@ -6,21 +6,52 @@
 ```cpp
 namespace std {
   template <class InputIterator1, class InputIterator2>
-  bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2);                       // (1)
-
-  template <class InputIterator1, class InputIterator2, class BinaryPredicate>
-  bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2, BinaryPredicate pred); // (2)
+  bool equal(InputIterator1 first1,
+             InputIterator1 last1,
+             InputIterator2 first2);           // (1) C++03
 
   template <class InputIterator1, class InputIterator2>
-  bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2, InputIterator2 last2); // (3) C++14 から
+  constexpr bool equal(InputIterator1 first1,
+                       InputIterator1 last1,
+                       InputIterator2 first2); // (1) C++20
 
   template <class InputIterator1, class InputIterator2, class BinaryPredicate>
-  bool equal(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2, InputIterator2 last2,
-             BinaryPredicate pred);                        // (4) C++14 から
+  bool equal(InputIterator1 first1,
+             InputIterator1 last1,
+             InputIterator2 first2,
+             BinaryPredicate pred);            // (2) C++03
+
+  template <class InputIterator1, class InputIterator2, class BinaryPredicate>
+  constexpr bool equal(InputIterator1 first1,
+                       InputIterator1 last1,
+                       InputIterator2 first2,
+                       BinaryPredicate pred);  // (2) C++20
+
+  template <class InputIterator1, class InputIterator2>
+  bool equal(InputIterator1 first1,
+             InputIterator1 last1,
+             InputIterator2 first2,
+             InputIterator2 last2);            // (3) C++14
+
+  template <class InputIterator1, class InputIterator2>
+  constexpr bool equal(InputIterator1 first1,
+                       InputIterator1 last1,
+                       InputIterator2 first2,
+                       InputIterator2 last2);  // (3) C++20
+
+  template <class InputIterator1, class InputIterator2, class BinaryPredicate>
+  bool equal(InputIterator1 first1,
+             InputIterator1 last1,
+             InputIterator2 first2,
+             InputIterator2 last2,
+             BinaryPredicate pred);            // (4) C++14
+
+  template <class InputIterator1, class InputIterator2, class BinaryPredicate>
+  constexpr bool equal(InputIterator1 first1,
+                       InputIterator1 last1,
+                       InputIterator2 first2,
+                       InputIterator2 last2,
+                       BinaryPredicate pred);  // (4) C++20
 }
 ```
 
@@ -156,7 +187,8 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1,
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2015
 
+
 ## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
     - C++14から追加された、`last2`を受け取るオーバーロードの提案文書
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

@@ -7,8 +7,18 @@
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator, class Predicate>
-  OutputIterator copy_if(InputIterator first, InputIterator last,
-                         OutputIterator result, Predicate pred);
+  OutputIterator
+    copy_if(InputIterator first,
+            InputIterator last,
+            OutputIterator result,
+            Predicate pred);       // C++11
+
+  template <class InputIterator, class OutputIterator, class Predicate>
+  constexpr OutputIterator
+    copy_if(InputIterator first,
+            InputIterator last,
+            OutputIterator result,
+            Predicate pred);       // C++20
 }
 ```
 
@@ -99,4 +109,4 @@ OutputIterator copy_if(InputIterator first, InputIterator last,
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 - [LWG Issue 2039. Issues with `std::reverse` and `std::copy_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2039)
     - C++11まで、戻り値の仕様がなかった。C++14で追加。
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

@@ -6,7 +6,14 @@
 ```cpp
 namespace std {
   template <class ForwardIterator, class T>
-  void fill(ForwardIterator first, ForwardIterator last, const T& value);
+  void fill(ForwardIterator first,
+            ForwardIterator last,
+            const T& value);                  // C++03
+
+  template <class ForwardIterator, class T>
+  constexpr void fill(ForwardIterator first,
+                      ForwardIterator last,
+                      const T& value);        // C++20
 }
 ```
 
@@ -58,3 +65,6 @@ void fill(ForwardIterator first, ForwardIterator last, const T& value) {
 }
 ```
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

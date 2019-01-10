@@ -8,18 +8,34 @@ namespace std {
   template <class InputIterator1, class InputIterator2>
   pair<InputIterator1, InputIterator2>
     mismatch(InputIterator1 first1, InputIterator1 last1,
-             InputIterator2 first2);                      // (1)
+             InputIterator2 first2);                      // (1) C++03
+
+  template <class InputIterator1, class InputIterator2>
+  constexpr pair<InputIterator1, InputIterator2>
+    mismatch(InputIterator1 first1, InputIterator1 last1,
+             InputIterator2 first2);                      // (1) C++20
 
   template <class InputIterator1, class InputIterator2,
             class BinaryPredicate>
   pair<InputIterator1, InputIterator2>
   mismatch(InputIterator1 first1, InputIterator1 last1,
-           InputIterator2 first2, BinaryPredicate pred);  // (2)
+           InputIterator2 first2, BinaryPredicate pred);  // (2) C++03
+
+  template <class InputIterator1, class InputIterator2,
+            class BinaryPredicate>
+  constexpr pair<InputIterator1, InputIterator2>
+  mismatch(InputIterator1 first1, InputIterator1 last1,
+           InputIterator2 first2, BinaryPredicate pred);  // (2) C++20
 
   template <class InputIterator1, class InputIterator2>
   pair<InputIterator1, InputIterator2>
   mismatch(InputIterator1 first1, InputIterator1 last1,
            InputIterator2 first2, InputIterator2 last2);  // (3) C++14
+
+  template <class InputIterator1, class InputIterator2>
+  constexpr pair<InputIterator1, InputIterator2>
+  mismatch(InputIterator1 first1, InputIterator1 last1,
+           InputIterator2 first2, InputIterator2 last2);  // (3) C++20
 
   template <class InputIterator1, class InputIterator2,
             class BinaryPredicate>
@@ -27,6 +43,13 @@ namespace std {
   mismatch(InputIterator1 first1, InputIterator1 last1,
            InputIterator2 first2, InputIterator2 last2,
            BinaryPredicate pred);                         // (4) C++14
+
+  template <class InputIterator1, class InputIterator2,
+            class BinaryPredicate>
+  constexpr pair<InputIterator1, InputIterator2>
+  mismatch(InputIterator1 first1, InputIterator1 last1,
+           InputIterator2 first2, InputIterator2 last2,
+           BinaryPredicate pred);                         // (4) C++20
 }
 ```
 * pair[link /reference/utility/pair.md]
@@ -138,4 +161,4 @@ std::pair<InputIterator1, InputIterator2> mismatch(
 ## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
     - C++14から、`last2`を受け取るオーバーロードを追加。
-
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

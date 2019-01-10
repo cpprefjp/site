@@ -7,9 +7,16 @@
 ```cpp
 namespace std {
   template <class BidirectionalIterator1, class BidirectionalIterator2>
-  BidirectionalIterator2 move_backward(BidirectionalIterator1 first,
-                                       BidirectionalIterator1 last,
-                                       BidirectionalIterator2 result);
+  BidirectionalIterator2
+    move_backward(BidirectionalIterator1 first,
+                  BidirectionalIterator1 last,
+                  BidirectionalIterator2 result); // C++11
+
+  template <class BidirectionalIterator1, class BidirectionalIterator2>
+  constexpr BidirectionalIterator2
+    move_backward(BidirectionalIterator1 first,
+                  BidirectionalIterator1 last,
+                  BidirectionalIterator2 result); // C++20
 }
 ```
 
@@ -105,6 +112,9 @@ BidirectionalIterator2 move_backward(BidirectionalIterator1 first, Bidirectional
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
 
 
-## 参照
+## 関連項目
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 
+
+## 参照
+- [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
