@@ -58,7 +58,7 @@ public:
   coreoptional(const T& t) 
    : payload(t) { 
      p = &payload; 
-   } 
+  }
   template<typename... Args> 
   void emplace(Args&&... args) { 
     payload.~T(); 
