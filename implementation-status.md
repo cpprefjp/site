@@ -137,7 +137,7 @@
 | [templated entityという用語を導入][P0391R0] | (TODO:言葉の定義だけなので実装状況ページからは取り除く) | - | - | - | - |
 | [構造化束縛](/lang/cpp17/structured_bindings.md) | タプルやユーザー定義型を分解して受け取れるようにする<br/> `tuple<int, string> f();` <br/> `const auto [a, b] = f(); // aはintの値、bはstringの値` | 7 | 4 | 18.0 | 2017 Update 3 |
 | [if文とswitch文の条件式と初期化を分離](/lang/cpp17/selection_statements_with_initializer.md) | `if (init; condition)`のように初期化と条件式を分けて記述できるようにする | 7 | 3.9 | 18.0 | 2017 Update 3 |
-| [参照メンバをもつクラスの置き換え][P0137R1] | 参照型メンバや`const`データメンバを含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする | No | No | No | 2017 Update 7 |
+| [参照メンバをもつクラスの置き換え](/lang/cpp17/replacement_of_class_objects_containing_reference_members.md) | 参照型メンバや`const`データメンバを含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする | No | No | No | 2017 Update 7 |
 | [非推奨だった例外仕様を削除](/lang/cpp17/remove_deprecated_exception_specifications.md) | `noexcept`が入ったことによって非推奨になった`throw`キーワードによる例外仕様を削除 | 7 | 4 | No | 2017 Update 5 |
 | [using宣言でのパック展開](/lang/cpp17/pack_expansions_in_using.md) | パラメータパックの型を基本クラスとして指定した場合に、`using`宣言に基本クラスのパラメータパックを指定できるようにする | 7 | 4 | No | 2017 Update 7 |
 | [クラステンプレート引数の推論仕様を調整][P0512R0] | | No | No | No | 2017 Update 7 |
@@ -152,7 +152,6 @@
 [P0135R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html
 [P0296R2]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0296r2.html
 [P0391R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0391r0.html
-[P0137R1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html
 [P0512R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0512r0.pdf
 [P0490R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0490r0.html
 [P0522R0]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0522r0.html
