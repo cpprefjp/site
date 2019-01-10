@@ -25,7 +25,7 @@ const int c = std::launder(p)->n;  // OK
 struct X 
 {
   int& n;
-  explicit X(int i) : n(i) {}
+  explicit X(int& i) : n(i) {}
 };
 
 int main()
