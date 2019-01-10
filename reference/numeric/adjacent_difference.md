@@ -6,15 +6,33 @@
 ```cpp
 namespace std {
   template <class InputIterator, class OutputIterator>
-    OutputIterator adjacent_difference(
-      InputIterator first, InputIterator last,
-      OutputIterator result);      // (1)
+  OutputIterator
+    adjacent_difference(InputIterator first,
+                        InputIterator last,
+                        OutputIterator result);     // (1) C++03
 
   template <class InputIterator, class OutputIterator, class BinaryOperation>
-    OutputIterator adjacent_difference(
-      InputIterator first, InputIterator last,
-      OutputIterator result,
-      BinaryOperation binary_op);  // (2)
+  OutputIterator
+    adjacent_difference(InputIterator first,
+                        InputIterator last,
+                        OutputIterator result,
+                        BinaryOperation binary_op); // (2) C++03
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
+  ForwardIterator2
+    adjacent_difference(ExecutionPolicy&& exec,
+                        ForwardIterator1 first,
+                        ForwardIterator1 last,
+                        ForwardIterator2 result);   // (3) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
+            class BinaryOperation>
+  ForwardIterator2
+    adjacent_difference(ExecutionPolicy&& exec,
+                        ForwardIterator1 first,
+                        ForwardIterator1 last,
+                        ForwardIterator2 result,
+                        BinaryOperation binary_op); // (4) C++17
 }
 ```
 
