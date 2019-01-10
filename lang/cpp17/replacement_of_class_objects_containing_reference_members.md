@@ -3,7 +3,7 @@
 * cpp17[meta cpp]
 
 ## 概要
-`placement new`を使用して、参照型や`const`データメンバを含む構造体/クラスを置き換える際、オブジェクト生存期間(lifetime)に基づいた最適化の抑止をコンパイラに伝える関数`std::launder`を用いることで、未定義となるような文脈で参照型や`const`データメンバへのアクセスができるようになった。
+`placement new`を使用して、参照型や`const`データメンバを含む構造体/クラスを置き換える際、オブジェクト生存期間(lifetime)に基づいた最適化の抑止をコンパイラに伝える関数`std::launder`を用いることで、未定義動作となるような文脈で参照型や`const`データメンバへのアクセスができます。
 
 ## 仕様
 [n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf) [ptr.launder]/5より
@@ -12,8 +12,8 @@
 struct X { const int n; };
 X *p = new X{3};
 const int a = p->n;
-new (p) X{5};  // X::nはconstなので、pは新しいオブジェクトを指していません。
-const int b = p->n;  // 未定義の動作
+new (p) X{5};  // X::nはconstなので、pは新しいオブジェクトを指していません
+const int b = p->n;  // 未定義動作
 const int c = std::launder(p)->n;  // OK
 ```
 
@@ -32,8 +32,8 @@ int main()
 {
   X *p = new X(3);
   const int a = p->n;
-  new (p) X(5);  // X::nはconstなので、pは新しいオブジェクトを指していません。
-  // const int b = p->n;  // 未定義の動作
+  new (p) X(5);
+  // const int b = p->n;  // 未定義動作
   const int c = std::launder(p)->n;  // OK
   std::cout << a << " " << c << std::endl;
 }
@@ -53,7 +53,7 @@ class coreoptional
 { 
 private: 
   T payload; 
-  T* p;  // 配置newの戻り値を使えるようにする
+  T* p;  // placement newの戻り値を使えるようにする
 public: 
   coreoptional(const T& t) 
    : payload(t) { 
@@ -65,8 +65,8 @@ public:
     p = ::new (&payload) T(std::forward<Args>(args)...); 
   } 
   const T& operator*() const & { 
-    return *p;  // don’t use payload here!
-  } 
+    return *p;  // ここで payload を使わないでください!
+  }
 };
 ```
 
