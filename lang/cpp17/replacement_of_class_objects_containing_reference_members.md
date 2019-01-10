@@ -2,7 +2,7 @@
 * cpp17[meta cpp]
 
 ## 概要
-`placement new`を使用して、参照型や`const`データメンバを含む構造体/クラスを置き換える際、オブジェクト生存期間(lifetime)に基づいた最適化の抑止をコンパイラに伝える関数`std::launder`を用いることで、未定義動作となるような文脈で参照型や`const`データメンバへのアクセスができる。
+`placement new`を使用して、参照型や`const`データメンバを含む構造体/クラスを置き換える際、オブジェクト生存期間(lifetime)に基づいた最適化の抑止をコンパイラに伝える関数[`std::launder()`](/reference/new/launder.md.nolink)を用いることで、未定義動作となるような文脈で参照型や`const`データメンバへのアクセスができる。
 
 ## 仕様
 [n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf) [ptr.launder]/5より
@@ -15,6 +15,7 @@ new (p) X{5};  // X::nはconstなので、pは新しいオブジェクトを指�
 const int b = p->n;  // 未定義動作
 const int c = std::launder(p)->n;  // OK
 ```
+* std::launder[link /reference/new/launder.md.nolink]
 
 ## 例
 ```cpp example
@@ -37,6 +38,7 @@ int main()
   std::cout << a << " " << c << std::endl;
 }
 ```
+* std::launder[link /reference/new/launder.md.nolink]
 
 ### 出力
 ```
@@ -44,37 +46,38 @@ int main()
 ```
 
 ## この機能が必要になった背景・経緯
-以前は、`placement new`の戻り値を用いることで未定義動作を起こさないようにすることができた。そして、`std::optional`のようなクラスでは、次のように`placement new`の戻り値を保持するために、メンバにポインタを追加する必要があった。
+以前は、`placement new`の戻り値を用いることで未定義動作を起こさないようにすることができた。そして、[`std::optional`](/reference/optional/optional.md)のようなクラスでは、次のように`placement new`の戻り値を保持するために、メンバにポインタを追加する必要があった。
 
 ```cpp
 template <typename T> 
-class coreoptional 
-{ 
-private: 
-  T payload; 
+class coreoptional
+{
+private:
+  T payload;
   T* p;  // placement newの戻り値を使えるようにする
-public: 
-  coreoptional(const T& t) 
-   : payload(t) { 
-     p = &payload; 
+public:
+  coreoptional(const T& t)
+   : payload(t) {
+     p = &payload;
   }
-  template<typename... Args> 
-  void emplace(Args&&... args) { 
-    payload.~T(); 
-    p = ::new (&payload) T(std::forward<Args>(args)...); 
-  } 
-  const T& operator*() const & { 
+  template<typename... Args>
+  void emplace(Args&&... args) {
+    payload.~T();
+    p = ::new (&payload) T(std::forward<Args>(args)...);
+  }
+  const T& operator*() const & {
     return *p;  // ここで payload を使わないでください!
   }
 };
 ```
+* std::forward[link /reference/utility/forward.md]
 
-このオーバーヘッドを避けるために`std::launder`が導入された。
+このオーバーヘッドを避けるために`std::launder()`関数が導入された。
 
 ## 参照
 - [std::launder関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20170817/p1)
 - [［C++］メンバに参照型を持つクラス（構造体）の取り扱い - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2018/10/23/010840)
-- [p0532r0](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0532r0.pdf)
+- [P0532R0 On `launder()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0532r0.pdf)
 - [Core Issue 1776: Replacement of class objects containing reference members](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html)
 - [ std :: launder  -  cppreference.com ](https://translate.googleusercontent.com/translate_c?depth=1&hl=ja&rurl=translate.google.com&sl=en&sp=nmt4&tl=ja&u=https://en.cppreference.com/w/cpp/utility/launder&xid=17259,15700021,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhhMzC3zGFnlq6UBLNSPrRqUFR4OFA)
 - [Pointer safety and placement new](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4303.html)
