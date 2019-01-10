@@ -25,24 +25,30 @@ const int c = std::launder(p)->n;  // OK
 struct X 
 {
   int& n;
-  explicit X(int& i) : n(i) {}
 };
 
 int main()
 {
-  X *p = new X(3);
-  const int a = p->n;
-  new (p) X(5);
-  // const int b = p->n;  // 未定義動作
-  const int c = std::launder(p)->n;  // OK
-  std::cout << a << " " << c << std::endl;
+  int n = 12;
+  X *p = new X{n};
+    
+  int m = 34;
+  new (p) X{m};
+    
+  n = 56;
+  m = 78;
+  
+  // const int a = p->n;  // 未定義動作
+  const int a = std::launder(p)->n;  // OK
+    
+  std::cout << a << std::endl;
 }
 ```
 * std::launder[link /reference/new/launder.md.nolink]
 
 ### 出力
 ```
-3 5
+78
 ```
 
 ## この機能が必要になった背景・経緯
