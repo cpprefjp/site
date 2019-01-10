@@ -6,8 +6,15 @@
 ```cpp
 namespace std {
   template <class ForwardIterator, class T>
-  void uninitialized_fill(ForwardIterator first, ForwardIterator last,
-                          const T& x);
+  void uninitialized_fill(ForwardIterator first,
+                          ForwardIterator last,
+                          const T& x);           // (1) C++03
+
+  template <class ExecutionPolicy, class ForwardIterator, class T>
+  void uninitialized_fill(ExecutionPolicy&& exec,
+                          ForwardIterator first,
+                          ForwardIterator last,
+                          const T& x);           // (2) C++17
 }
 ```
 

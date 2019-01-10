@@ -6,7 +6,17 @@
 ```cpp
 namespace std {
   template <class ForwardIterator, class Size, class T>
-  ForwardIterator uninitialized_fill_n(ForwardIterator first, Size n, const T& x);
+  ForwardIterator
+    uninitialized_fill_n(ForwardIterator first,
+                         Size n,
+                         const T& x);           // (1) C++03
+
+  template <class ExecutionPolicy, class ForwardIterator, class Size, class T>
+  ForwardIterator
+    uninitialized_fill_n(ExecutionPolicy&& exec,
+                         ForwardIterator first,
+                         Size n,
+                         const T& x);           // (2) C++17
 }
 ```
 

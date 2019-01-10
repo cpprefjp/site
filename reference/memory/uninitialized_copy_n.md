@@ -7,8 +7,16 @@
 ```cpp
 namespace std {
   template <class InputIterator, class Size, class ForwardIterator>
-  ForwardIterator uninitialized_copy_n(InputIterator first, Size n,
-                                       ForwardIterator result);
+  ForwardIterator
+    uninitialized_copy_n(InputIterator first,
+                         Size n,
+                         ForwardIterator result); // (1) C++03
+
+  template <class InputIterator, class Size, class ForwardIterator>
+  ForwardIterator
+    uninitialized_copy_n(InputIterator first,
+                         Size n,
+                         ForwardIterator result); // (2) C++17
 }
 ```
 

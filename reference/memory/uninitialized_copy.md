@@ -6,8 +6,17 @@
 ```cpp
 namespace std {
   template <class InputIterator, class ForwardIterator>
-  ForwardIterator uninitialized_copy(InputIterator first, InputIterator last,
-                                     ForwardIterator result);
+  ForwardIterator
+    uninitialized_copy(InputIterator first,
+                       InputIterator last,
+                       ForwardIterator result); // (1) C++03
+
+  template <class ExecutionPolicy, class InputIterator, class ForwardIterator>
+  ForwardIterator
+    uninitialized_copy(ExecutionPolicy&& exec,
+                       InputIterator first,
+                       InputIterator last,
+                       ForwardIterator result); // (2) C++17
 }
 ```
 
