@@ -44,7 +44,7 @@ namespace std::execution {
 
 ベクトル化は、ソフトウェアパイプライン化やSIMD命令などによるデータ並列のことを指す。
 
-この実行ポリシーでも`parallel_policy`と同様に、副作用をともなう処理でデータ競合が発生する可能性がある。ただし、マルチスレッド化だけでなくベクトル化も組み合わさるために、ミューテックスによる排他処理をした場合には、複数回ロックが取得されてデッドロックが発生する可能性がある。そのため、この実行ポリシーではアトミック操作によってデータ競合を回避する必要がある。
+この実行ポリシーでも`parallel_policy`と同様に、副作用をともなう処理でデータ競合が発生する可能性がある。ただし、マルチスレッド化だけでなくベクトル化も組み合わさるために、ミューテックスによる排他処理をした場合には、複数回ロックが取得されてデッドロックが発生する可能性がある。そのため、この実行ポリシーではLock-freeアトミック操作によってデータ競合を回避する必要がある。
 
 
 ## 例
@@ -115,8 +115,9 @@ int main()
     std::cout << std::endl;
   }
 
-  // マルチスレッド化 + ベクトル化の場合は、アトミック操作でデータ競合を回避する
+  // マルチスレッド化 + ベクトル化の場合は、Lock-freeアトミック操作でデータ競合を回避する
   {
+    static_assert(std::atomic<int>::is_always_lock_free);  // Lock-free保証を確認
     std::vector<int> v = {3, 1, 4, 5, 2};
     std::atomic<int> count {0}; // タスクが終了した数
 
@@ -130,6 +131,7 @@ int main()
 }
 ```
 * count.load[link /reference/atomic/atomic/load.md]
+* is_always_lock_free[link /reference/atomic/atomic/is_always_lock_free.md.nolink]
 
 #### 出力例
 ```
