@@ -7,7 +7,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`is_execution_policy`](execition/is_execution_policy.md) | 型が実行ポリシーかを判定する | C++17 |
+| [`is_execution_policy`](execution/is_execution_policy.md) | 型が実行ポリシーかを判定する | C++17 |
 | [`execution`](execution/execution.md)                     | 実行ポリシー用の名前空間 | C++17 |
 
 
