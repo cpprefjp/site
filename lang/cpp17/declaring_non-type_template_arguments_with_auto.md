@@ -1,0 +1,100 @@
+# 非型テンプレートパラメータのauto宣言
+
+* cpp17[meta cpp]
+
+## 概要
+C++14まで、以下のように書いていた「指定された型の定数を受け取る」意図の非型テンプレートパラメータ(non-type template parameter)だが、
+
+```cpp
+template <class T, T V>
+struct X;
+
+X<int, 3>;
+```
+
+C++17ではこの用途のためのシンタックスシュガー(糖衣構文、syntactic sugar)が導入される。そのためには、テンプレートパラメータを`auto`にして値を受け取るようにする。
+
+```cpp
+template <auto X>
+struct A {};
+
+A<3>;    // OK
+A<true>; // OK
+A<'a'>;  // OK
+A<3.14>; // コンパイルエラー (浮動小数点数は渡せない)
+```
+
+テンプレートの中では、`decltype`を使用すれば`X`の型を取得できる。
+
+この`auto`は、変数宣言の`auto`と同じくプレースホルダーという扱いになる。そのため、`template <auto* P>`や`template <auto& R>`のような推論補助もできる。
+
+## 仕様
+
+[n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf) [temp.param]/4より
+
+> 型ではないテンプレートパラメータは、次の（オプションのcv修飾）型のうちの1つを持たなければならない：
+> - 整数型または列挙型
+> - オブジェクトへのポインタまたは関数へのポインタ
+> - オブジェクトへの左辺値参照または関数への左辺値参照
+> - メンバーへのポインタ
+> -  [`std::nullptr_t`](/reference/cstddef/nullptr_t.md)
+> - プレースホルダタイプを含むタイプ　<-- この行が追加された
+
+なお、[temp.param]/4 は C++20 で変更予定である。[Working Draft, Standard](http://eel.is/c++draft/temp.param)を参照。
+
+この他にも変更点が多くある。[P0127R2 Declaring non-type template arguments with auto](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r2.html)を参照。
+
+## 例
+```cpp example
+#include <type_traits>
+
+template <auto* X>
+struct A {
+  using type = decltype(X);
+};
+
+int main()
+{
+  constexpr int* p = nullptr;
+  static_assert(std::is_same<A<p>::type, int*>{});
+}
+```
+* is_same[link ../../reference/type_traits/is_same.md]
+* decltype[link ../cpp11/decltype.md]
+
+### 出力
+```
+```
+
+## この機能が必要になった背景・経緯
+[P0127R1 Declaring non-type template arguments with auto](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r1.html)より引用。
+
+このペーパーでは、`auto`プレースホルダ型指定子を使用して型でないテンプレートパラメータを宣言できるようにすることを提案する。望ましい効果は、同様の構文が多態性ラムダに対して機能するのと同じように、対応する型ではないテンプレート引数の型が自動的に推定されることである。
+
+現在、型ではないテンプレートパラメータの型を明示的に指定しなければならない。これは、任意の型の定数引数を取ることを意図したテンプレートを書くときに不必要な冗長性と柔軟性の低下を招く。
+
+```cpp
+template <typename T, T v> struct S { }; // definition S<decltype(x), x> s; // instantiation
+template <typename T, T v> struct S { }; // definition S<decltype(x), x> s; // instantiation 
+```
+* decltype[link ../cpp11/decltype.md]
+
+この例では、`decltype`を使用して、`x`の型と値の両方を`S`に渡す前に、`x`の型（コンパイル時定数）を取得する。目的は、`x`の型を別のテンプレート引数として渡す必要がないように`S`の宣言を変更できるようにすることである。これにより、次のようなより簡単なインスタンス化が可能になる。
+
+```cpp
+S<x> s; // desired instantiation 
+```
+
+これは、テンプレートパラメータリストで`auto`キーワードを使用できるようにすることで実現できる。
+
+```cpp
+template <auto v> struct S; // type of v is deduced
+```
+
+## 関連項目
+- [全ての非型テンプレート引数の定数式評価を許可](/lang/cpp17/allow_constant_evaluation_for_all_non-type_template_arguments.md)
+
+## 参照
+- [P0127R1 Declaring non-type template arguments with auto](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r1.html)
+- [P0127R2 Declaring non-type template parameters with auto](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r2.html)
+- [C++1z 非型テンプレートパラメータのauto宣言 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/10/26/180406)
