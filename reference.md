@@ -55,6 +55,7 @@
 | [`<scoped_allocator>`](/reference/scoped_allocator.md) | スコープ付きアロケータ        | C++11          |
 | [`<chrono>`](/reference/chrono.md)           | 時間ユーティリティ        | C++11          |
 | [`<typeindex>`](/reference/typeindex.md)     | 型のインデックス          | C++11          |
+| [`<execution>`](/reference/execution.md)     | 実行ポリシー                 | C++17          |
 
 
 ## <a id="strings" href="#strings">文字列ライブラリ</a>

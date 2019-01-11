@@ -1,0 +1,153 @@
+# 実行ポリシー
+* execution[meta header]
+* std::execution[meta namespace]
+* class[meta id-type]
+* cpp17[meta cpp]
+
+```cpp
+namespace std::execution {
+  class sequenced_policy { unspecified };
+  class parallel_policy { unspecified };
+  class parallel_unsequenced_policy { unspecified };
+
+  inline constexpr sequenced_policy seq{ unspecified };
+  inline constexpr parallel_policy par{ unspecified };
+  inline constexpr parallel_unsequenced_policy par_unseq{ unspecified };
+}
+```
+* unspecified[italic]
+
+## 概要
+アルゴリズムの並列実行を許可するための実行ポリシーとして、ここでは以下を定義する。
+
+| 実行ポリシー名 | 説明 |
+|----------------|------|
+| `seq`          | 逐次処理を実行し、並列化を行わない |
+| `par`          | マルチスレッド化を許可する |
+| `par_unseq`    | マルチスレッド化および・もしくはベクトル化を許可する |
+
+いずれの実行ポリシーでも、実行中に例外が送出され、それが捕捉されなかった場合は、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
+
+
+### sequenced_policy / seq
+この逐次実行の実行ポリシーは、実行ポリシーを指定せずにアルゴリズムを実行することと同等である。
+
+
+### parallel_policy / par
+この実行ポリシーは、マルチスレッド化による並列実行を許可する。ただし、リソースが足りていない状況では、シングルスレッドで実行される可能性がある。
+
+この実行ポリシーでは、アルゴリズムに指定した関数オブジェクト内で副作用をともなう処理を実行した場合にデータ競合が発生する可能性があるため、ミューテックスによる排他処理やアトミック操作などをユーザーが管理して、データ競合を回避する必要がある。
+
+
+### parallel_unsequenced_policy / par_unseq
+この実行ポリシーは、マルチスレッド化および・もしくはベクトル化を許可する。
+
+ベクトル化は、ソフトウェアパイプライン化やSIMD命令などによるデータ並列のことを指す。
+
+この実行ポリシーでも`parallel_policy`と同様に、副作用をともなう処理でデータ競合が発生する可能性がある。ただし、マルチスレッド化だけでなくベクトル化も組み合わさるために、ミューテックスによる排他処理をした場合には、複数回ロックが取得されてデッドロックが発生する可能性がある。そのため、この実行ポリシーではアトミック操作によってデータ競合を回避する必要がある。
+
+
+## 例
+### 基本的な使い方
+```cpp example
+#include <iostream>
+#include <algorithm>
+#include <execution>
+#include <vector>
+
+int main()
+{
+  std::vector<int> v = {3, 1, 4, 5, 2, 6};
+
+  // これまで通りの逐次実行
+  std::sort(v.begin(), v.end());
+  std::sort(std::execution::seq, v.begin(), v.end());
+
+  // 並列実行
+  std::sort(std::execution::par, v.begin(), v.end());
+
+  // 並列化・ベクトル化
+  std::sort(std::execution::par_unseq, v.begin(), v.end());
+
+  for (int x : v) {
+    std::cout << x << std::endl;
+  }
+}
+```
+* std::execution::seq[color ff0000]
+* std::execution::par[color ff0000]
+* std::execution::par_unseq[color ff0000]
+
+#### 出力
+```
+1
+2
+3
+4
+5
+6
+```
+
+### データ競合を回避する例
+```cpp example
+#include <iostream>
+#include <algorithm>
+#include <execution>
+#include <vector>
+#include <mutex>
+
+int main()
+{
+  {
+    std::vector<int> a = {3, 1, 4, 5, 2, 6};
+    std::vector<int> b;
+
+    // マルチスレッド化の場合は、ミューテックスかアトミック操作でデータ競合を回避する
+    std::mutex m;
+    std::for_each(std::execution::par, a.begin(), b.end(), [&](int x) {
+      std::lock_guard lk{m};
+      b.push_back(x);
+    });
+
+    for (int x : b) {
+      std::cout << x << ' ';
+    }
+    std::cout << std::endl;
+  }
+
+  // マルチスレッド化 + ベクトル化の場合は、アトミック操作でデータ競合を回避する
+  {
+    std::vector<int> v = {3, 1, 4, 5, 2};
+    std::atomic<int> count {0}; // タスクが終了した数
+
+    std::for_each(std::execution::par_unseq, v.begin(), v.end(), [&count](int) {
+      // ...時間のかかる処理...
+      ++count;
+    });
+
+    std::cout << count.load() << std::endl;
+  }
+}
+```
+* count.load[link /reference/atomic/atomic/load.md]
+
+#### 出力例
+```
+3 4 1 2 5 6 
+5
+```
+
+## バージョン
+### 言語
+- C++17
+
+### 処理系
+- [Clang, C++17 mode](/implementation.md#clang):
+- [GCC, C++17 mode](/implementation.md#gcc):
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P0394R4: Hotel Parallelifornia: `terminate()` for Parallel Algorithms Exception Handling](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0394r4.html)
+- [P0336R1 Better Names for Parallel Execution Policies in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0336r1.pdf)
+- [P0502R0 Throwing out of a parallel algorithm terminates—but how?](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0502r0.html)
