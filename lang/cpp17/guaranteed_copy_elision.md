@@ -137,4 +137,4 @@ Foo x = foo(); // error Foo型のコピーコンストラクタが必要
 - [Guaranteed Copy Elision](https://jonasdevlieghere.com/guaranteed-copy-elision/)
 
 ## 注釈
-1. **<a id="note-1" href="#note_ref-1">^</a>** <cite>[右辺値、左辺値などの細かい定義 - Qiita](https://qiita.com/rinse_/items/cffa87016b7de49391ae)</cite>、[みんなlvalueとrvalueを難しく考えすぎちゃいないかい？ - Qiita](https://qiita.com/yumetodo/items/8eae5714a6cfe1c0407d)を参照
+1. **<a id="note-1" href="#note_ref-1">^</a>** <cite>[右辺値、左辺値などの細かい定義 - Qiita](https://qiita.com/rinse_/items/cffa87016b7de49391ae)</cite>を参照
