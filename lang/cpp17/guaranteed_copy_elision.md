@@ -129,6 +129,7 @@ Foo x = foo(); // error Foo型のコピーコンストラクタが必要
 ```
 
 ## 参照
+- [コピー省略 - cppreference.com](https://ja.cppreference.com/w/cpp/language/copy_elision)
 - [右辺値、左辺値などの細かい定義 - Qiita](https://qiita.com/rinse_/items/cffa87016b7de49391ae)
 - [C++1z 値のコピー省略を保証 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2017/01/24/161342)
 - [P0135R1 Wording for guaranteed copy elision through simplified value categories](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html)
