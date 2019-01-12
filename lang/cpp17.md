@@ -33,7 +33,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 | [波括弧初期化の型推論の新規則](cpp17/new_rules_for_auto_deduction_from_braced-init-list.md) | 波括弧初期化子が単一要素の場合は `T` に推論，複数要素の場合は不適格 |
 | [`[[maybe_unused]]`属性](cpp17/maybe_unused.md)       | 使用しない可能性のある変数に対する警告を抑制する |
 | [`[[nodiscard]]`属性](cpp17/nodiscard.md)             | 戻り値を捨ててはならないことを指定する |
-| [値のコピー省略を保証](cpp17/guarantee_copy_elision.md.nolink) | 右辺値を変数の初期化のために使用する場合、コピーもムーブも省略することを保証 |
+| [値のコピー省略を保証](cpp17/guaranteed_copy_elision.md) | 右辺値を変数の初期化のために使用する場合、コピーもムーブも省略することを保証 |
 | [厳密な式の評価順](cpp17/expression_evaluation_order.md) | 式の評価順を規定する |
 | [参照メンバをもつクラスの置き換え](cpp17/replacement_of_class_objects_containing_reference_members.md) | 参照型メンバや`const`データメンバを含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする |
 | [`enum class`変数の初期値として整数を指定する際の規則を調整](cpp17/construction_enum_class_values.md) | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 |
@@ -65,8 +65,8 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 | [畳み込み式](cpp17/folding_expressions.md)   | パラメータパックに対する二項演算の累積処理 |
 | [テンプレートテンプレートパラメータに`typename`キーワードの使用を許可](cpp17/allow_typename_in_a_template_template_parameter.md) | `class`キーワードしか使用できなかった部分に、`typename`を許可する |
 | [クラステンプレートのテンプレート引数推論](cpp17/type_deduction_for_class_templates.md) | コンストラクタの引数からクラスのテンプレート引数を推論できるようにする |
-| 非型テンプレートパラメータの`auto`宣言   | `template <auto x>`とすることで、`X<3>;` `X<true>;` `X<'a'>`のように定数を受け取りやすくする |
-| 全ての非型テンプレート引数の定数式評価を許可 | ポインタの定数式評価として、配列からポインタへの変換や、関数から関数ポインタへの変換などを許可 |
+| [非型テンプレートパラメータの`auto`宣言](cpp17/declaring_non-type_template_arguments_with_auto.md)   | `template <auto x>`とすることで、`X<3>;` `X<true>;` `X<'a'>`のように定数を受け取りやすくする |
+| [全ての非型テンプレート引数の定数式評価を許可](cpp17/allow_constant_evaluation_for_all_non-type_template_arguments.md) | ポインタの定数式評価として、配列からポインタへの変換や、関数から関数ポインタへの変換などを許可 |
 | [`using`宣言のパック展開](cpp17/pack_expansions_in_using.md) | パラメータパックの型を基本クラスとして指定した場合に、using宣言に基本クラスのパラメータパックを指定できるようにする |
 | [変数テンプレートのデフォルトテンプレート引数を許可](cpp17/allow_default_template_arguments_of_variable_templates.md) | 変数テンプレートのテンプレートパラメータがデフォルト引数を持つことを許可する |
 
