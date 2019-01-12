@@ -32,13 +32,13 @@ A<3.14>; // コンパイルエラー (浮動小数点数は渡せない)
 
 [n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf) [temp.param]/4より
 
-> 型ではないテンプレートパラメータは、次の（オプションのcv修飾）型のうちの1つを持たなければならない：
-> - 整数型または列挙型
-> - オブジェクトへのポインタまたは関数へのポインタ
-> - オブジェクトへの左辺値参照または関数への左辺値参照
-> - メンバーへのポインタ
-> -  [`std::nullptr_t`](/reference/cstddef/nullptr_t.md)
-> - プレースホルダタイプを含むタイプ　<-- この行が追加された
+型ではないテンプレートパラメータは、次の（オプションのcv修飾）型のうちの1つを持たなければならない：
+- 整数型または列挙型
+- オブジェクトへのポインタまたは関数へのポインタ
+- オブジェクトへの左辺値参照または関数への左辺値参照
+- メンバーへのポインタ
+-  [`std::nullptr_t`](/reference/cstddef/nullptr_t.md)
+- プレースホルダタイプを含むタイプ　<-- この行が追加された
 
 なお、[temp.param]/4 は C++20 で変更予定である。[Working Draft, Standard](http://eel.is/c++draft/temp.param)を参照。
 
@@ -74,8 +74,8 @@ int main()
 現在、型ではないテンプレートパラメータの型を明示的に指定しなければならない。これは、任意の型の定数引数を取ることを意図したテンプレートを書くときに不必要な冗長性と柔軟性の低下を招く。
 
 ```cpp
-template <typename T, T v> struct S { }; // definition S<decltype(x), x> s; // instantiation
-template <typename T, T v> struct S { }; // definition S<decltype(x), x> s; // instantiation 
+template <typename T, T v> struct S { };    // 定義
+S<decltype(x), x> s;                    // インスタンス化
 ```
 * decltype[link ../cpp11/decltype.md]
 
