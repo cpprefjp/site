@@ -6,15 +6,7 @@
 C++11で右辺値参照を導入するときに規定された「値カテゴリー (value category)」の仕様（C++17で更新）を利用し、[prvalue](../cpp11/rvalue_ref_and_move_semantics.md)<sup><a id="note_ref-1" href="#note-1">[注1]</a></sup>という一時オブジェクトを表すカテゴリーの値を、オブジェクトの初期化のために使用する場合に、コピーが省略される。
 
 ## 仕様
-[n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf)[conv.rval]/1 より。
-
-T型の[prvalue](../cpp11/rvalue_ref_and_move_semantics.md)は、T型の[xvalue](../cpp11/rvalue_ref_and_move_semantics.md)に変換できる。この変換はT型の一時的なオブジェクトを初期化する。この変換は、結果オブジェクトとしての一時オブジェクトを使用して[prvalue](../cpp11/rvalue_ref_and_move_semantics.md)を評価することによって、[prvalue](../cpp11/rvalue_ref_and_move_semantics.md)から型Tの一時オブジェクトを初期化し、その一時オブジェクトを示す[xvalue](../cpp11/rvalue_ref_and_move_semantics.md)を生成する。Tは完全型でなければならない。
- (注：Tがクラス型（またはその配列）の場合、アクセス可能な削除されていないデストラクタが必要)
-
-```cpp
-struct X { int n; };
-int k = X().n // X（）prvalueはxvalueに変換される
-```
+（執筆中）
 
 また、prvalueなどの値カテゴリー (value category)については、[n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf)[basic.lval]/1に定義されている。
 
