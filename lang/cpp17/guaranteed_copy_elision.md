@@ -6,9 +6,9 @@
 C++11で右辺値参照を導入するときに規定された「値カテゴリー (value category)」の仕様（C++17で更新）を利用し、[prvalue](../cpp11/rvalue_ref_and_move_semantics.md)<sup><a id="note_ref-1" href="#note-1">[注1]</a></sup>という一時オブジェクトを表すカテゴリーの値を、オブジェクトの初期化のために使用する場合に、コピーが省略される。
 
 ## 仕様
-（執筆中）
+（見つけることができなかった）
 
-また、prvalueなどの値カテゴリー (value category)については、[n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf)[basic.lval]/1に定義されている。
+prvalueなどの値カテゴリー (value category)については、[n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf)[basic.lval]/1に定義されている。
 
 ## 例
 [コピー省略 - cppreference.com](https://ja.cppreference.com/w/cpp/language/copy_elision)より引用した。
