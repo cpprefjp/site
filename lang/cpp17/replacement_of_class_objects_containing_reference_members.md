@@ -80,6 +80,9 @@ public:
 
 このオーバーヘッドを避けるために`std::launder()`関数が導入された。
 
+## 備考
+ストレージの再利用については、ほかにも追加された機能がある。ストレージを再利用する際は、[Lifetime - cppreference.com](https://en.cppreference.com/w/cpp/language/lifetime)を参照してもよいと思われる。
+
 ## 参照
 - [std::launder関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20170817/p1)
 - [［C++］メンバに参照型を持つクラス（構造体）の取り扱い - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2018/10/23/010840)
