@@ -19,7 +19,7 @@ struct X { int n; }
 int k = X().n; // ok, X() prvalue は xvalue に変換される
 ```
 
-つまり、`prvalue`は一時オブジェクトではない（C++17以降）。
+つまり、`prvalue`は一時オブジェクトではない（C++17以降）。`xvalue`になるときはじめて結果オブジェクトとして一時オブジェクトを使用して評価され、一時オブジェクトを表す`xvalue`に変換される。これは`temporary materialization conversion`である。
 
 そして[class.temporary]/2 に、次のような記述がある：
 
