@@ -3,12 +3,41 @@
 * cpp17[meta cpp]
 
 ## 概要
-C++11で右辺値参照を導入するときに規定された「値カテゴリー (value category)」の仕様（C++17で更新）を利用し、[prvalue](../cpp11/rvalue_ref_and_move_semantics.md)<sup><a id="note_ref-1" href="#note-1">[注1]</a></sup>という一時オブジェクトを表すカテゴリーの値を、オブジェクトの初期化のために使用する場合に、コピーが省略される。
+C++11で右辺値参照を導入するときに規定された「値カテゴリー (value category)」の仕様（C++17で更新）を利用し、[`prvalue`](../cpp11/rvalue_ref_and_move_semantics.md)<sup><a id="note_ref-1" href="#note-1">[注1]</a></sup>という一時オブジェクトを表すカテゴリーの値を、オブジェクトの初期化のために使用する場合に、コピーが省略される。
 
 ## 仕様
-（見つけることができなかった）
+まず、prvalueなどの値カテゴリー (value category)については、[n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf)[basic.lval]/1に定義されている。
 
-prvalueなどの値カテゴリー (value category)については、[n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf)[basic.lval]/1に定義されている。
+また、[conv.rval]/1 に、次のような記述がある：
+
+`T`型の`prvalue`は、`T`型の`xvalue`に変換できる。この変換では、一時オブジェクトを結果オブジェクトとして`prvalue`を評価することによって、`prvalue`から`T`型の一時オブジェクトを初期化し、その一時オブジェクトを表す`xvalue`を生成する。`T`は完全型でなければならない。
+[注：`T`がクラス型（またはその配列）の場合、アクセス可能な削除されていないデストラクタが必要である。]
+例:
+
+```cpp
+struct X { int n; }
+int k = X().n; // ok, X() prvalue は xvalue に変換される
+```
+
+つまり、`prvalue`は一時オブジェクトではない（C++17以降）。
+
+そして[class.temporary]/2 に、次のような記述がある：
+
+不必要な一時オブジェクトの作成を避けるために、一時オブジェクトの実体化は一般に可能な限り遅らせる。
+注：一時オブジェクトは次のとき実体化されている。
+  
+ - 参照を`prvalue`にバインドするとき
+ - クラス`prvalue`でメンバーアクセスを実行するとき
+ - 配列からポインタへの変換を実行するとき、または配列`prvalue`をサブスクライブするとき
+ -  `braced-init-list`から`std::initializer_list<T>`型のオブジェクトを初期化するとき
+ - 特定の未評価のオペランド、および`prvalue`が廃棄値式(`discarded-value expression`)として現れる場合
+
+とあるので、上の例は「このクラス`prvalue`でメンバーアクセスを実行するとき」にあたり、`xvalue`として一時オブジェクトを生成する。`prvalue`は一時オブジェクトになれるものにすぎず、一時オブジェクトではない（C++17以前では一時オブジェクトである）。また、`prvalue`から`prvalue`への変換は、一時オブジェクトの実体化は一般に可能な限り遅らせられることより、一時オブジェクトを実体化しない。また、関数の戻り値は値であり、一時オブジェクトではない。したがって、次の例における`prvalue`の`T`型の戻り値は、呼び出し元の`t`を直接初期化する。
+
+```cpp
+ T Func() {return T();} 
+ T t = Func(); // 直接初期化
+```
 
 ## 例
 [コピー省略 - cppreference.com](https://ja.cppreference.com/w/cpp/language/copy_elision)より引用した。
@@ -18,24 +47,24 @@ prvalueなどの値カテゴリー (value category)については、[n4659](htt
 #include <vector>
  
 struct Noisy {
-    Noisy() { std::cout << "constructed\n"; }
-    Noisy(const Noisy&) { std::cout << "copy-constructed\n"; }
-    Noisy(Noisy&&) { std::cout << "move-constructed\n"; }
-    ~Noisy() { std::cout << "destructed\n"; }
+  Noisy() { std::cout << "constructed\n"; }
+  Noisy(const Noisy&) { std::cout << "copy-constructed\n"; }
+  Noisy(Noisy&&) { std::cout << "move-constructed\n"; }
+  ~Noisy() { std::cout << "destructed\n"; }
 };
  
 std::vector<Noisy> f() {
-    std::vector<Noisy> v = std::vector<Noisy>(3); // v 初期化時、コピーは省略される
-    return v; // NRVO は、C++17でも保証されない
+  std::vector<Noisy> v = std::vector<Noisy>(3); // v 初期化時、コピーは省略される
+  return v; // NRVO は、C++17でも保証されない
 }             // 最適化されない場合、コピーコンストラクタがよばれる
  
 void g(std::vector<Noisy> arg) {
-    std::cout << "arg.size() = " << arg.size() << '\n';
+  std::cout << "arg.size() = " << arg.size() << '\n';
 }
  
 int main() {
-    std::vector<Noisy> v = f(); // v 初期化時、コピーは省略される
-    g(f());                     // g()の引数初期化時、コピーは省略される
+  std::vector<Noisy> v = f(); // v 初期化時、コピーは省略される
+  g(f());                     // g()の引数初期化時、コピーは省略される
 }
 ```
 * vector[link ../../reference/vector/vector.md]
@@ -69,7 +98,7 @@ struct Foo {};
 
 Foo foo()
 {
-    return Foo();
+  return Foo();
 }
 
 Foo x = foo(); // Foo型のコピーコンストラクタが動作することなくxが初期化される
@@ -81,9 +110,9 @@ struct Foo { int value = 0; };
 
 Foo foo()
 {
-    Foo y;
-    y.value = 42;
-    return y;
+  Foo y;
+  y.value = 42;
+  return y;
 }
 
 Foo x = foo(); // Foo型のコピーコンストラクタが動作することなくxが初期化される
@@ -96,15 +125,15 @@ C++17では、このようなコピー省略を保証する仕組みが導入さ
 ```cpp
 // C++17
 struct Foo {
-    // Fooはコピーもムーブもできない
-    Foo() = default;
-    Foo(const Foo&) = delete;
-    Foo(Foo&&) = delete;
+  // Fooはコピーもムーブもできない
+  Foo() = default;
+  Foo(const Foo&) = delete;
+  Foo(Foo&&) = delete;
 };
 
 Foo foo()
 {
-    return Foo();
+  return Foo();
 }
 
 Foo y = foo(); // OK
@@ -113,16 +142,16 @@ Foo y = foo(); // OK
 ```cpp
 // C++17
 struct Foo {
-    // Fooはコピーもムーブもできない
-    Foo() = default;
-    Foo(const Foo&) = delete;
-    Foo(Foo&&) = delete;
+  // Fooはコピーもムーブもできない
+  Foo() = default;
+  Foo(const Foo&) = delete;
+  Foo(Foo&&) = delete;
 };
 
 Foo foo()
 {
-    Foo y;
-    return y;
+  Foo y;
+  return y;
 }
 
 Foo x = foo(); // error Foo型のコピーコンストラクタが必要
@@ -130,6 +159,8 @@ Foo x = foo(); // error Foo型のコピーコンストラクタが必要
 
 ## 参照
 - [コピー省略 - cppreference.com](https://ja.cppreference.com/w/cpp/language/copy_elision)
+- [値のコピー省略の保証について｜teratail](https://teratail.com/questions/168515)
+- [c++ - How does guaranteed copy elision work? - Stack Overflow](https://stackoverflow.com/questions/38043319/how-does-guaranteed-copy-elision-work)
 - [右辺値、左辺値などの細かい定義 - Qiita](https://qiita.com/rinse_/items/cffa87016b7de49391ae)
 - [C++1z 値のコピー省略を保証 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2017/01/24/161342)
 - [P0135R1 Wording for guaranteed copy elision through simplified value categories](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html)
