@@ -82,7 +82,10 @@ namespace std {
 
 
 ## 計算量
-最大で `(last1 - first1) + (last2 - first2) - 1` 回比較する。
+`N = (last1 - first1) + (last2 - first2)`であるとして説明する。
+
+- (1), (2) : 最大でN - 1回比較する
+- (3), (4) : O(N)計算量で比較する
 
 
 ## 備考

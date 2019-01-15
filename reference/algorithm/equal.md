@@ -105,8 +105,10 @@ namespace std {
 
 
 ## 計算量
-`last2` が与えられている形式の場合、もし `InputIterator1` と `InputIterator2` が共にランダムアクセスイテレータの要件を満たす場合で、かつ、`last1 - first1 != last2 - first2` の場合、1 度も比較または述語は適用されない。  
-そうでない場合、最大で `last1 - first1` 回（`last2` が与えられていない形式の場合）、あるいは、`min(last1 - first1, last2 - first2)` 回（`last2` が与えられている形式の場合）の比較または述語が適用される。
+`last2` が与えられていない形式では、`last2 = first2 + (last1 - first1)`であるとして説明する。
+
+- (1), (2), (3), (4) : `InputIterator1` と `InputIterator2` が共にランダムアクセスイテレータの要件を満たす場合で、かつ、`last1 - first1 != last2 - first2` の場合、1 度も比較または述語は適用されない。そうでない場合、最大で `min(last1 - first1, last2 - first2)` 回の比較または述語が適用される。
+- (5), (6), (7), (8) : `ForwardIterator1` と `ForwardIterator2` が共にランダムアクセスイテレータの要件を満たす場合で、かつ、`last1 - first1 != last2 - first2` の場合、1 度も比較または述語は適用されない。そうでない場合、O(`min(last1 - first1, last2 - first2)`) の計算量で比較または述語が適用される。
 
 
 ## 備考

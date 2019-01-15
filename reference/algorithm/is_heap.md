@@ -42,8 +42,10 @@ namespace std {
 
 
 ## 戻り値
-- (1) : [`is_heap_until`](/reference/algorithm/is_heap_until.md)`(first, last) == last`
-- (2) : [`is_heap_until`](/reference/algorithm/is_heap_until.md)`(first, last, comp) == last`
+- (1) : [`is_heap_until`](is_heap_until.md)`(first, last) == last`
+- (2) : [`is_heap_until`](is_heap_until.md)`(first, last, comp) == last`
+- (3) : [`is_heap_until`](is_heap_until.md)`(`[`std::forward`](/reference/utility/forward.md)`<ExecutionPolicy>(exec), first, last) == last`
+- (4) : [`is_heap_until`](is_heap_until.md)`(`[`std::forward`](/reference/utility/forward.md)`<ExecutionPolicy>(exec), first, last, comp) == last`
 
 
 ## 例
