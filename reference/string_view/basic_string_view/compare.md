@@ -44,7 +44,11 @@ constexpr int compare(size_type pos1,
 ## 効果
 - (1) :
     - [`size()`](size.md)と`str.`[`size()`](size.md)のうち、小さい方を`rlen`とする
-    - `return Traits::`[`compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, sv.`[`data()`](data.md)`, rlen);`
+    - `int result = Traits::`[`compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, sv.`[`data()`](data.md)`, rlen);`
+    - `result != 0`であれば`result`を返す。そうでなければ、以下のように返す：
+        - `size() < str.size()`であれば0未満の値を返す
+        - `size() == str.size()`であれば0を返す
+        - `size() > str.size()`であれば0超の値を返す
 - (2) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv);` と同等
 - (3) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv.`[`substr`](substr.md)`(pos2, n2));` と同等
 - (4) : `return compare(basic_string_view(s));` と同等
