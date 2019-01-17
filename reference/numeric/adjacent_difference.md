@@ -41,25 +41,38 @@ namespace std {
 
 この関数に与えられた範囲`[first, last)`を`r`として、その範囲の隣接する要素同士の差を、`{r[0], r[1] - r[0], r[2] - r[1], r[3] - r[2], r[4] - r[3]}`のように演算して求められた新たな範囲を返す。
 
-- (1) : 各隣接要素`a`と`b`を`operator-(b, a)`で減算した結果を、`result`出力イテレータに書き込む
-- (2) : 各隣接要素`a`と`b`を`binary_op(b, a)`で減算した結果を、`result`出力イテレータに書き込む
+- (1), (3) : 各隣接要素`a`と`b`を`operator-(b, a)`で減算した結果を、`result`出力イテレータに書き込む
+- (2), (4) : 各隣接要素`a`と`b`を`binary_op(b, a)`で減算した結果を、`result`出力イテレータに書き込む
 
 
 ## 要件
-- C++03まで : `binary_op`は副作用を起こしてはならない
-- C++11から : `InputIterator`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
-- C++11から (1) : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`b - a`の結果が`result`出力イテレータに書き込めること
-- C++11から (2) : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b, a)`の結果が`result`出力イテレータに書き込めること
-- C++11から (2) : `binary_op`の呼び出しが、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更、イテレータの無効化をしてはならない
+- (1) :
+    - C++11から : `InputIterator`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
+    - C++11から : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`b - a`の結果が`result`出力イテレータに書き込めること
+- (2) 
+    - C++11から : `InputIterator`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
+    - C++11から : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b, a)`の結果が`result`出力イテレータに書き込めること
+    - C++03まで : 関数オブジェクト`binary_op`の呼び出しは、副作用を起こしてはならない
+    - C++11から : 関数オブジェクト`binary_op`の呼び出しが、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更、イテレータの無効化をしてはならない
+- (3) :
+    - `ForwardIterator1`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること
+    - `ForwardIterator1`が指す値の型のオブジェクト`a`と`b`において、式`b - a`の結果が、`ForwardIterator2`が指す値の型に対して代入できること
+- (4) :
+    - `ForwardIterator1`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること
+    - `ForwardIterator1`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b, a)`の結果が、`ForwardIterator2`が指す値の型に対して代入できること
 
 
 ## 効果
-非空の範囲`[first, last)`について、
-
-1. `*result = *first`で結果の初期値を書き込む
-2. 範囲`[first + 1, last)`の各イテレータを`i`、そのイテレータが指す値を`val`として定義する
-3. (1)であれば`val - acc`、(2)であれば`binary_op(val, acc)`の結果を`*result`に代入する
-4. `val`を`acc`にムーブ代入する
+- (1), (2) : 非空の範囲`[first, last)`について、
+    1. `*result = *first`で結果の初期値を書き込む。`acc = *first`としてひとつ前の位置の値を保持する
+    2. 範囲`[first + 1, last)`の各イテレータを`i`、そのイテレータが指す値を`val`として定義する
+    3. (1)であれば`val - acc`、(2)であれば`binary_op(val, acc)`で隣接値を求めて、その結果を`*result`に代入する
+    4. `val`を`acc`にムーブ代入し、ひとつ前の位置の値を更新する
+- (3), (4) : 非空の範囲`[first, last)`について、
+    1. `*result = *first`で結果の初期値を代入する
+    2. インデックス範囲`[1, last - first - 1]`のそれぞれの値`d`として定義する
+    3. (3)であれば`val = *(first + d) - *(first + d - 1)`、(4)であれば`val = binary_op(*(first + d), *(first + d - 1))`として、隣接値を求める
+    4. `*(result + d) = val`で各隣接値を出力する
 
 
 ## 戻り値
