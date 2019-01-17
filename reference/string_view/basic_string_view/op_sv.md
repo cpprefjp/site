@@ -39,6 +39,12 @@ inline namespace string_view_literals {
 - (4) : `wstring_view{str, len}`
 
 
+## 備考
+- 中間にヌル文字を含む文字列リテラルから`basic_string_view`オブジェクトを構築する場合、コンストラクタを使用するよりもこちらの関数を使用したほうがよい。
+    - `const char*`をとるコンストラクタは[`std::char_traits`](/reference/string/char_traits.md)`::`[`length()`](/reference/string/char_traits/length.md)関数を使用して文字列長を計算するため、ヌル終端となってしまう
+    - こちらの関数は文字列リテラルの長さを直接扱うため、文字列全体を参照する`basic_string_view`オブジェクトを構築できる
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -81,3 +87,7 @@ Hel
 - [GCC, C++17 mode](/implementation.md#gcc): 7.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [文字列リテラルからの`std::string_view`構築 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20171115/p1)
