@@ -47,10 +47,12 @@ namespace std {
 
 
 ## 備考
-`f` に戻り値がある場合、それは単に無視される。
+- `f` に戻り値がある場合、それは単に無視される
 
 
-## 例(C++03バージョン)
+
+## 例
+### C++03での例
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -88,7 +90,7 @@ int main() {
 * std::for_each[color ff0000]
 * v.push_back[link /reference/vector/vector/push_back.md]
 
-### 出力
+#### 出力
 ```
 3
 1
@@ -100,7 +102,8 @@ int main() {
 ```
 
 
-## 例(C++11バージョン)
+## 例
+### C++11での例
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -122,7 +125,7 @@ int main() {
 ```
 * std::for_each[color ff0000]
 
-### 出力
+#### 出力
 ```
 3
 1
