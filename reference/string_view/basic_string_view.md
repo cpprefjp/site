@@ -165,6 +165,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <string_view>
@@ -188,10 +189,53 @@ int main()
 * substr[link basic_string_view/substr.md]
 * sv.find[link basic_string_view/find.md]
 
-### 出力
+#### 出力
 ```
 Hello
 found
+```
+
+
+### stringとconst char*の共通インタフェースとして使用する
+```cpp example
+#include <iostream>
+#include <string>
+#include <string_view>
+
+// string, const char*、string_viewのどれでも受け取れる関数
+void f(std::string_view sv)
+{
+  std::cout << sv.substr(0, 4) << std::endl;
+}
+
+int main()
+{
+  // 文字列リテラル (char配列) を渡す
+  f("Hello");
+
+  // const char*を渡す
+  const char* chars = "Hello";
+  f(chars);
+
+  // 左辺値のstringを渡す
+  std::string s = "Hello";
+  f(s);
+
+  // stringの一時オブジェクトを渡す
+  // 関数f()内ではこの一時オブジェクトが生存しているので、
+  // string_view参照しても問題ない
+  f(std::string("Hello"));
+}
+```
+* std::string_view[color ff0000]
+* substr[link basic_string_view/substr.md]
+
+#### 出力
+```
+Hell
+Hell
+Hell
+Hell
 ```
 
 ## バージョン
