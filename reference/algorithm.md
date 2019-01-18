@@ -59,6 +59,7 @@ return distance(a, b);
 | [`any_of`](algorithm/any_of.md)               | どれかの要素が条件を満たしているかを調べる | C++11 |
 | [`none_of`](algorithm/none_of.md)             | 全ての要素が条件を満たしていないかを調べる | C++11 |
 | [`for_each`](algorithm/for_each.md)           | 全ての要素に対して処理を行う               | |
+| [`for_each_n`](algorithm/for_each_n.md)       | 範囲の先頭N個の要素に対して処理を行う      | C++17 |
 | [`find`](algorithm/find.md)                   | 指定された値を検索する                     | |
 | [`find_if`](algorithm/find_if.md)             | 条件を満たす最初の要素を検索する           | |
 | [`find_if_not`](algorithm/find_if_not.md)     | 条件を満たしていない最初の要素を検索する   | C++11 |
