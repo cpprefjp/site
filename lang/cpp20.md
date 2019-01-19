@@ -237,5 +237,5 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
     - 標準関数オブジェクトの`result_type`、`argument_type`、`first_argument_type`、`second_argument_type`型
 - C++17から非推奨化されていた[`shared_ptr`](/reference/memory/shared_ptr.md)`::`[`unique()`](/reference/memory/shared_ptr/unique.md)を削除
 - [`invoke_result`](/reference/type_traits/invoke_result.md.nolink)の追加にともない、C++17から非推奨化されていた[`result_of`](/reference/type_traits/result_of.md)を削除
-- C++17での[`uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md.nolink)の追加にともない、非推奨化していた[`uncaught_exception()`](/reference/exception/uncaught_exception.md)を削除
+- C++17での[`uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md)の追加にともない、非推奨化していた[`uncaught_exception()`](/reference/exception/uncaught_exception.md)を削除
 
