@@ -22,7 +22,6 @@ namespace std {
 
 ## 例外
 投げない
-
 ## 例
 ```cpp example
 #include <iostream>
@@ -76,3 +75,6 @@ catch exception 2
 ```
 
 ## 参照
+- [C++1z 現在発生している例外の数を取得するuncaught_exceptions()関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/06/22/171639)
+- [N4152 uncaught_exceptions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4152.pdf)
+- [N4259 Wording for std::uncaught_exceptions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4259.pdf)
