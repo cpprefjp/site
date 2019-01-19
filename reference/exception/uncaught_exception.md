@@ -12,7 +12,7 @@ namespace std {
 }
 ```
 
-この機能はC++17から非推奨となり、C++20で削除された。代わりに[`std::uncaught_exceptions()`](uncaught_exceptions.md.nolink)を使用すること。
+この機能はC++17から非推奨となり、C++20で削除された。代わりに[`std::uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md)を使用すること。
 
 ## 概要
 キャッチされていない例外があるかどうかを判定する。
