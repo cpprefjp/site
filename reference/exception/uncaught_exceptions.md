@@ -28,36 +28,36 @@ namespace std {
 #include <exception>
 
 struct CheckExcept {
-    ~CheckExcept() {
-        std::cout << std::uncaught_exceptions() << std::endl;
-    }
+  ~CheckExcept() {
+    std::cout << std::uncaught_exceptions() << std::endl;
+  }
 };
 
 struct ThrowAgain {
-    ~ThrowAgain() {
-        try {
-            CheckExcept two{};
-            
-            std::cout << "throw exception 2" << std::endl;
-            throw std::exception{};
-        } catch(...) {
-            std::cout << "catch exception 1" << std::endl;
-        }
+  ~ThrowAgain() {
+    try {
+      CheckExcept two{};
+
+      std::cout << "throw exception 2" << std::endl;
+      throw std::exception{};
+    } catch(...) {
+      std::cout << "catch exception 1" << std::endl;
     }
+  }
 };
 
 int main() {
-    CheckExcept zero{};
-    
-    try {
-        CheckExcept one{};
-        ThrowAgain two{};
-        
-        std::cout << "throw exception 1" << std::endl;
-        throw std::exception{};
-    } catch(...) {
-        std::cout << "catch exception 2" << std::endl;
-    }
+  CheckExcept zero{};
+
+  try {
+    CheckExcept one{};
+    ThrowAgain two{};
+
+    std::cout << "throw exception 1" << std::endl;
+    throw std::exception{};
+  } catch(...) {
+    std::cout << "catch exception 2" << std::endl;
+  }
 }
 ```
 * std::uncaught_exceptions[color ff0000]
