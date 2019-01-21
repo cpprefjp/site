@@ -127,8 +127,8 @@ int main()
 
   // (3) : 任意の二項演算を行う
   // ここでは、初期値を1として、全ての要素を掛け合わせている
-  int product = std::reduce(v.begin(), v.end(), 1, [](int init, int i) {
-    return init * i;
+  int product = std::reduce(v.begin(), v.end(), 1, [](int acc, int i) {
+    return acc * i;
   });
   std::cout << "product : " << product << std::endl;
 }
