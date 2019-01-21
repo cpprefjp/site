@@ -29,8 +29,8 @@ Traitはboolに変換可能なメンバ変数valueを持つこと。
 ```cpp example
 template <class Trait>
 struct negation : bool_constant<!Trait::value> {};
-
 ```
+
 ## 例
 ```cpp example
 #include <type_traits>
