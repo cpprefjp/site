@@ -158,6 +158,15 @@
 | [`remove_pointer`](type_traits/remove_pointer.md) | 型からポインタを除去する (class template) | C++11 |
 
 
+## 論理演算
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------|-------------------------------------------|-------|
+| [`conjunction`](type_traits/conjunction.md)       | 特性の論理積を求める (class template)   | C++17 |
+| [`disjunction`](type_traits/disjunction.md) | 特性の論理和を求める (class template) | C++17 |
+| [`negation`](type_traits/negation.md) | 特性の論理否定を求める (class template) | C++17 |
+
+
 ## その他の変換
 
 | 名前 | 説明 | 対応バージョン |
