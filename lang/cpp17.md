@@ -174,7 +174,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 - ランダムサンプリングアルゴリズムとして、[`sample()`](/reference/algorithm/sample.md)を追加
 - 並列アルゴリズムの追加にともない、[`<algorithm>`](/reference/algorithm.md)に[`for_each_n()`](/reference/algorithm/for_each_n.md)を追加
 - 並列アルゴリズムの追加にともない、[`<numeric>`](/reference/numeric.md)に以下を追加：
-    - [`accumulate()`](/reference/numeric/accumulate.md)の研鑽順序を規定しないバージョンである、[`reduce()`](/reference/numeric/reduce.md.nolink)を追加
+    - [`accumulate()`](/reference/numeric/accumulate.md)の研鑽順序を規定しないバージョンである、[`reduce()`](/reference/numeric/reduce.md)を追加
     - [`partial_sum()`](/reference/numeric/partial_sum.md)の先頭値を含む・含まないを分割し、[`inclusive_scan()`](/reference/numeric/inclusive_scan.md.nolink)と[`exclusive_scan()`](/reference/numeric/exclusive_scan.md.nolink)を追加
     - 値を変換しながら畳み込む[`transform_reduce()`](/reference/numeric/transform_reduce.md.nolink)を追加
     - 値を変換しながら先頭値を含む部分和を求める[`transform_inclusive_scan()`](/reference/numeric/transform_inclusive_scan.md.nolink)を追加

@@ -45,6 +45,10 @@ namespace std{
 範囲`[first, last)`の要素数に対して線形時間
 
 
+## 備考
+- この関数は並列アルゴリズムに対応していない。計算順序を規程せず、並列アルゴリズムに対応したバージョンとして[`std::reduce()`](reduce.md)関数が定義されている
+
+
 ## 例
 ```cpp example
 #include <iostream>
