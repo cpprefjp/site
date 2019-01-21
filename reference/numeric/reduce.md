@@ -95,7 +95,7 @@ namespace std{
 
 
 ## 計算量
-関数オブジェクト`binary_op`のO(`last - first`)計算量での適用
+関数オブジェクト`binary_op`をO(`last - first`)計算量で適用する
 
 
 ## 例
