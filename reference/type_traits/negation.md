@@ -25,11 +25,6 @@ Traitはboolに変換可能なメンバ変数valueを持つこと。
 
 すなわち、`Trait::value == true`ならば[`false_type`](false_type.md)から派生し、`Trait::value == false`ならば[`true_type`](true_type.md)から派生する。
 
-## 実装例
-```cpp example
-template <class Trait>
-struct negation : bool_constant<!Trait::value> {};
-```
 
 ## 例
 ```cpp example
@@ -56,6 +51,14 @@ int main()
 T::value = true
 T::value = false
 ```
+
+
+## 実装例
+```cpp
+template <class Trait>
+struct negation : bool_constant<!Trait::value> {};
+```
+
 
 ## バージョン
 ### 言語
