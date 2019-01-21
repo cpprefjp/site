@@ -53,7 +53,7 @@ namespace std{
 
 
 ## 要件
-- (2), (3), (5), (6) : 型`T`が[CopyConstructible](/reference/concepts/CopyConstructible.md)であること
+- (2), (3), (5), (6) : 型`T`が[MoveConstructible](/reference/concepts/MoveConstructible.md)であること
 - (3), (6) : 以下の全ての演算結果の型が、型`T`に変換可能であること
     - `binary_op(init, *first)`
     - `binary_op(*first, init)`
