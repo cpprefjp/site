@@ -61,7 +61,7 @@ int main()
 {
   int n = 1234;
   int* p = &n;
-  
+
   f(p);
   f(n);
   f(&s::member_object);
