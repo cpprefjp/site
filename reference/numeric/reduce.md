@@ -76,7 +76,7 @@ namespace std{
     ```
     * plus[link /reference/functional/plus.md]
 
-- (3), (6) : 範囲`[first, last)`について、リスト`[init, *first, *(first + 1), *(first + 2), ... *(first + (last - first - 1))]`を並列数Mで分割し、非可換に`binary_op(a, b)`を実行していき、それを実行していった結果同士も`binary_op(sum1, sum2)`のように集計して返す
+- (3), (6) : 範囲`[first, last)`について、リスト`[init, *first, *(first + 1), *(first + 2), ... *(first + (last - first - 1))]`を任意の部分リストへ分割し、各部分リストの要素を順不同に`binary_op(a, b)`を実行していき、それを実行していった結果同士も順不同に`binary_op(sum1, sum2)`のように集計して返す
 
 - (4) : 以下と同等
     ```cpp
@@ -115,10 +115,6 @@ int main()
   int sum = std::reduce(v.begin(), v.end());
   std::cout << "sum : " << sum << std::endl;
 
-  // (1) : 文字列のリストを連結する
-  std::string concatenate = std::reduce(v2.begin(), v2.end());
-  std::cout << "concat : " << concatenate << std::endl;
-
   // (2) : 合計値をlong long型として求める
   // reduceの第3引数がlong long型のゼロを表す0LLになっていることに注意
   // reduceの戻り値型は、第3引数の型となるため、変数sum_llの型はlong long
@@ -138,7 +134,6 @@ int main()
 ### 出力
 ```
 sum : 15
-concat : aaabbbccc
 sum_ll : 15
 product : 120
 ```
