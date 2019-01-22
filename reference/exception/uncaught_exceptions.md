@@ -22,6 +22,8 @@ namespace std {
 
 ## 例外
 投げない
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -73,6 +75,7 @@ catch exception 1
 catch exception 2
 0
 ```
+
 ## バージョン
 ### 言語
 - C++17
