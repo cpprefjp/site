@@ -247,7 +247,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 
 ### 型特性
 - 値を返す型特性クラスの`constexpr`変数テンプレート版を追加。変数テンプレート版は、末尾に`_v`が付く。`v`は`value` (値) を意味する
-- 型特性クラスを定義しやすくするために、[`void_t`](/reference/type_traits/void_t.md.nolink)を追加
+- 型特性クラスを定義しやすくするために、[`void_t`](/reference/type_traits/void_t.md)を追加
 - `bool`定数を表す[`bool_constant`](/reference/type_traits/bool_constant.md)を追加
 - コンパイル時条件の論理演算のために、論理積である[`conjunction`](/reference/type_traits/conjunction.md)、論理和である[`disjunction`](/reference/type_traits/disjunction.md)、否定である[`negation`](/reference/type_traits/negation.md)を追加
 - `swap`可能かを判定する型特性クラスとして、[`is_swappable_with`](/reference/type_traits/is_swappable_with.md.nolink)、[`is_swappable`](/reference/type_traits/is_swappable.md.nolink)、[`is_nothrow_swappable_with`](/reference/type_traits/is_nothrow_swappable_with.md.nolink)、[`is_nothrow_swappable`](/reference/type_traits/is_nothrow_swappable.md.nolink)を追加
