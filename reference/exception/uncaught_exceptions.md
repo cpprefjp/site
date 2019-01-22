@@ -73,6 +73,14 @@ catch exception 1
 catch exception 2
 0
 ```
+## バージョン
+### 言語
+- C++17
+
+### 処理系
+- [Clang](/implementation.md#clang): 6
+- [GCC, C++11 mode](/implementation.md#gcc): 3.7
+- [Visual C++](/implementation.md#visual_cpp): 2015, 2017
 
 ## 参照
 - [C++1z 現在発生している例外の数を取得するuncaught_exceptions()関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/06/22/171639)
