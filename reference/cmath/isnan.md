@@ -6,11 +6,11 @@
 
 ```cpp
 namespace std {
-  int isnan(float x);
-  int isnan(double x);
-  int isnan(long double x);
+  bool isnan(float x);
+  bool isnan(double x);
+  bool isnan(long double x);
 
-  int isnan(Integral x);
+  bool isnan(Integral x);
 }
 ```
 * Integral[italic]
@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 戻り値
-パラメータ`x`がNaNである場合、非ゼロを返す。そうでない場合、ゼロを返す。
+パラメータ`x`がNaNである場合、`true`を返す。そうでない場合、`false`を返す。
 
 
 ## 備考
