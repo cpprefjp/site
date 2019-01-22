@@ -180,6 +180,7 @@
 | [`common_type`](type_traits/common_type.md) | 変換可能な共通の型を取得する (class template) | C++11 |
 | [`underlying_type`](type_traits/underlying_type.md) | 列挙型の基底型を取得する (class template) | C++11 |
 | [`result_of`](type_traits/result_of.md) | 関数の戻り値の型を取得する (class template) | C++11 |
+| [`void_t`](type_traits/void_t.md) | 任意の型をvoidへ変換する (type-alias) | C++17 |
 
 
 ## エンディアン
