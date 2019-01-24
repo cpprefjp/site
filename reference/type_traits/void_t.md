@@ -75,7 +75,7 @@ int main()
 
   //等値比較可能かの検出
   std::cout << is_equality_comparable<int>::value << std::endl;
-  std::cout << is_equality_comparable<NonComparable>::value << std::endl;  
+  std::cout << is_equality_comparable<NonComparable>::value << std::endl;
 }
 ```
 * std::void[color ff0000]
