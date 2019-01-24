@@ -85,6 +85,11 @@ result + (last - first)
 ちょうど`(last - first) - 1`回の2項演算を適用する
 
 
+## 備考
+- (1), (2) : `result`は`first`と同値になるだろう
+- (3), (4) : 範囲`[first, last)`と範囲`[result, result + (last - first))`は重なってはならない
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -172,3 +177,6 @@ OutputIterator adjacent_difference(InputIterator first, InputIterator last, Outp
 * std::move[link /reference/utility/move.md]
 * std::minus[link /reference/functional/minus.md]
 
+
+## 参照
+- [P0623R0 Final C++17 Parallel Algorithms Fixes](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0623r0.html)
