@@ -102,13 +102,11 @@ namespace std{
 ```cpp example
 #include <iostream>
 #include <vector>
-#include <string>
 #include <numeric>
 
 int main()
 {
   const std::vector<int> v = {1, 2, 3, 4, 5};
-  const std::vector<std::string> v2 = {"aaa", "bbb", "ccc"};
 
   // (1) : 合計値を求める
   // イテレータの要素型で集計される
