@@ -68,10 +68,10 @@ using check_r = std::is_same<Expected, typename std::invoke_result<F, Args...>::
 
 int main()
 {
-  //has_member.*(has_member::*member_function, std::vector<char>) -> void
+  //has_member.*(has_member::*member_function, std::vector<char>) -> short
   static_assert(check_r<short, decltype(&has_member::member_function), has_member, std::vector<char>>::value);
 
-  //(*(has_member*)).*(has_member::*member_function, std::vector<char>) -> void
+  //(*(has_member*)).*(has_member::*member_function, std::vector<char>) -> short
   static_assert(check_r<short, decltype(&has_member::member_function), has_member*, std::vector<char>>::value);
 
   //has_member.*(has_member::*member_object) -> int&&
