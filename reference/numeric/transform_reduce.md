@@ -162,6 +162,14 @@ sum2 : 70
 sum3 : 30
 ```
 
+## バージョン
+### 言語
+- C++17
+
+### 処理系
+- [Clang](/implementation.md#clang): 5.0.0
+- [GCC](/implementation.md#gcc):
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
