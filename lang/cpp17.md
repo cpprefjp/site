@@ -253,7 +253,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 - `swap`可能かを判定する型特性クラスとして、[`is_swappable_with`](/reference/type_traits/is_swappable_with.md.nolink)、[`is_swappable`](/reference/type_traits/is_swappable.md.nolink)、[`is_nothrow_swappable_with`](/reference/type_traits/is_nothrow_swappable_with.md.nolink)、[`is_nothrow_swappable`](/reference/type_traits/is_nothrow_swappable.md.nolink)を追加
 - 関数が呼び出し可能かを判定する型特性として、[`is_invocable`](/reference/type_traits/is_invocable.md.nolink)、[`is_invocable_r`](/reference/type_traits/is_invocable_r.md.nolink)、[`is_nothrow_invocable`](/reference/type_traits/is_nothrow_invocable.md.nolink)、[`is_nothrow_invocable_r`](/reference/type_traits/is_nothrow_invocable_r.md.nolink)を追加
 - 自動的にハッシュ値が求められる型かを判定するために[`has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md.nolink)型特性を追加
-- [`invoke()`](/reference/functional/invoke.md.nolink)の追加にともない、関数の戻り値型を取得する型特性[`invoke_result`](/reference/type_traits/invoke_result.md.nolink)を追加。これまでの[`result_of`](/reference/type_traits/result_of.md)と違って関数型のテンプレート引数を使用しないため、それによって起こっていた厄介な問題を回避する
+- [`invoke()`](/reference/functional/invoke.md.nolink)の追加にともない、関数の戻り値型を取得する型特性[`invoke_result`](/reference/type_traits/invoke_result.md)を追加。これまでの[`result_of`](/reference/type_traits/result_of.md)と違って関数型のテンプレート引数を使用しないため、それによって起こっていた厄介な問題を回避する
 
 
 ### 時間演算
@@ -326,7 +326,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
     - [`binary_nagate`](/reference/functional/negators.md)クラス
     - 標準関数オブジェクトの`result_type`、`argument_type`、`first_argument_type`、`second_argument_type`型
 - デバッグ用途にしか使用しない、[`shared_ptr`](/reference/memory/shared_ptr.md)`::`[`unique()`](/reference/memory/shared_ptr/unique.md)を非推奨化
-- [`result_of`](/reference/type_traits/result_of.md)を非推奨化。代わりに[`invoke_result`](/reference/type_traits/invoke_result.md.nolink)を使用すること
+- [`result_of`](/reference/type_traits/result_of.md)を非推奨化。代わりに[`invoke_result`](/reference/type_traits/invoke_result.md)を使用すること
 - [`<codecvt>`](/reference/codecvt.md)と関連する機能を非推奨化。適切なエラーハンドリングの方法がなかったため、セキュリティ上攻撃の可能性があった
 - [`memory_order_consume`](/reference/atomic/memory_order.md)を一時的に非推奨化。「その定義が現実に即していない」「acquire/releaseより弱いから使いにくい」といった理由から、より良い定義に変更するまでの間、非推奨とする
 - [`uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md)の追加にともない、古くなった[`uncaught_exception()`](/reference/exception/uncaught_exception.md)を非推奨化

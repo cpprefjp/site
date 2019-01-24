@@ -49,7 +49,7 @@ private:
 ```
 * decay_t[link /reference/type_traits/decay.md]
 * declval[link /reference/utility/declval.md]
-* invoke_result_of_t[link /reference/type_traits/invoke_result_of_t.md.nolink]
+* invoke_result_of_t[link /reference/type_traits/invoke_result_of_t.md]
 
 このクラスのコンストラクタは、式`fd =` [`std::forward`](/reference/utility/forward.md)`<F>(f)`を実行する。この式が例外を送出する可能性がある。
 

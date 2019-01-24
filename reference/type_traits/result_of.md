@@ -20,7 +20,7 @@ namespace std {
 }
 ```
 
-この機能はC++17から非推奨となり、C++20で削除された。代わりに[`std::invoke_result`](invoke_result.md.nolink)を使用すること。
+この機能はC++17から非推奨となり、C++20で削除された。代わりに[`std::invoke_result`](invoke_result.md)を使用すること。
 
 
 ## 概要
@@ -54,7 +54,7 @@ C++17で特定のシグニチャで関数呼び出しが可能かを判定する
 
 `result_of`は、シグニチャであることをわかりやすくするために、関数型でユーザーにテンプレート引数を指定させていたが、これは混乱の元であった。
 
-そのため、[`std::invoke_result`](invoke_result.md.nolink)に名称変更することとなった。
+そのため、[`std::invoke_result`](invoke_result.md)に名称変更することとなった。
 
 
 ## 例
