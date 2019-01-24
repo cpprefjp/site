@@ -31,7 +31,6 @@ Traitはboolに変換可能なメンバ変数valueを持つこと。
 #include <type_traits>
 #include <iostream>
 
-
 template<typename T>
 void f() {
   std::cout << std::boolalpha << "T::value = " << T::value << std::endl;
@@ -65,8 +64,8 @@ struct negation : bool_constant<!Trait::value> {};
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC, C++11 mode](/implementation.md#gcc): ??
+- [Clang](/implementation.md#clang): 3.8
+- [GCC](/implementation.md#gcc): 6.3
 - [Visual C++](/implementation.md#visual_cpp): 2015 update3?, 2017
 	- `negation_v`は、2015 update3では定義されているが有効化されていない。
 

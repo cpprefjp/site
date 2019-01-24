@@ -94,8 +94,8 @@ false
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC, C++11 mode](/implementation.md#gcc): ??
+- [Clang](/implementation.md#clang): 3.6
+- [GCC](/implementation.md#gcc): 6.3
 - [Visual C++](/implementation.md#visual_cpp): 2015 update3?, 2017
 	- 2015 update3では備考にある複雑な実装になっている。
 
