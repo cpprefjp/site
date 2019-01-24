@@ -8,9 +8,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`accumulate`](numeric/accumulate.md)       | 範囲を集計する | |
-| [`reduce`](numeric/reduce.md)               | 範囲を集計する | C++17 |
-| [`transform_reduce`](numeric/transform_reduce.md.nolink) | 範囲の要素を変換しながら集計する | C++17 |
+| [`accumulate`](numeric/accumulate.md)             | 範囲を集計する | |
+| [`reduce`](numeric/reduce.md)                     | 範囲を集計する | C++17 |
+| [`transform_reduce`](numeric/transform_reduce.md) | 範囲の要素を変換しながら集計する | C++17 |
 
 
 ## 内積
