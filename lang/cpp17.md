@@ -175,10 +175,9 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 - 並列アルゴリズムの追加にともない、[`<algorithm>`](/reference/algorithm.md)に[`for_each_n()`](/reference/algorithm/for_each_n.md)を追加
 - 並列アルゴリズムの追加にともない、[`<numeric>`](/reference/numeric.md)に以下を追加：
     - [`accumulate()`](/reference/numeric/accumulate.md)の計算順序を規定しないバージョンである、[`reduce()`](/reference/numeric/reduce.md)を追加
-    - [`partial_sum()`](/reference/numeric/partial_sum.md)の先頭値を含む・含まないを分割し、[`inclusive_scan()`](/reference/numeric/inclusive_scan.md.nolink)と[`exclusive_scan()`](/reference/numeric/exclusive_scan.md.nolink)を追加
+    - 部分和を求める関数[`partial_sum()`](/reference/numeric/partial_sum.md)を、i番目の部分和を求める際にi番目の要素を含める・含めないで分割し、[`inclusive_scan()`](/reference/numeric/inclusive_scan.md.nolink)と[`exclusive_scan()`](/reference/numeric/exclusive_scan.md.nolink)を追加
     - 値を変換しながら畳み込む[`transform_reduce()`](/reference/numeric/transform_reduce.md)を追加
-    - 値を変換しながら先頭値を含む部分和を求める[`transform_inclusive_scan()`](/reference/numeric/transform_inclusive_scan.md.nolink)を追加
-    - 値を変換しながら先頭値を含まない部分和を求める[`transform_exclusive_scan()`](/reference/numeric/transform_exclusive_scan.md.nolink)を追加
+    - 値を変換しながら部分和を求める関数として、[`transform_inclusive_scan()`](/reference/numeric/transform_inclusive_scan.md.nolink)と[`transform_exclusive_scan()`](/reference/numeric/transform_exclusive_scan.md.nolink)を追加
 - 値を範囲内に収める[`clamp()`](/reference/algorithm/clamp.md)関数を追加
 - `bool`を返す関数オブジェクトの結果を反転させる[`not_fn()`](/reference/functional/not_fn.md)関数を追加
 - [*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しをする[`invoke()`](/reference/functional/invoke.md.nolink)関数を追加
