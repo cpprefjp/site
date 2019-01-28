@@ -65,6 +65,12 @@ namespace std {
 ## 戻り値
 非同期実行される関数オブジェクト`f`の結果値取得のための`future`オブジェクトを返す。
 
+[`launch::async`](launch.md)を指定してこの関数を呼び出した場合のみ、戻り値の`future`オブジェクトはそのデストラクタにおいて、指定された関数の終了を待機する。
+
+すなわち、[`launch::async`](launch.md)を指定した場合には戻り値を何かしらの形で受けておかないとこの関数は同期的に実行されているかのように振舞う。また、戻り値を何かしらの形で受けた場合でもそのスコープを抜ける際に指定された関数の終了を待機する。この挙動はクラスのメンバ変数に保存する等、外部スコープに持ち出したとしても変わらない。
+
+なお、この関数に[`launch::async`](launch.md)指定して得た`future`オブジェクトのみがデストラクタでの共有状態の完了待機を行う。その他の方法で取得した`future`オブジェクトはこのような振舞をしない。
+
 
 ## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](future_error.md)例外オブジェクトを送出する可能性がある：
@@ -149,4 +155,5 @@ foo() = 3
 - [LWG Issue 2120. What should `async` do if neither `async` nor `deferred` is set in policy?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2120)
 - [LWG Issue 2021. Further incorrect usages of `result_of`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2021)
     - C++14で、戻り値型の計算に`decay`を適用するようにした。
+- [async関数launch::asyncポリシーとfutureのちょっと特殊な動作 - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20120317/p1)
 
