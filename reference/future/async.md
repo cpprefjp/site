@@ -18,6 +18,14 @@ namespace std {
   > async(F&& f, Args&&... args);                // (1) C++14
 
   template <class F, class... Args>
+  future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
+    async(F&& f, Args&&... args);                // (1) C++17
+
+  template <class F, class... Args>
+  [[nodiscard]] future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
+    async(F&& f, Args&&... args);                // (1) C++20
+
+  template <class F, class... Args>
   future<typename result_of<F(Args...)>::type>
     async(launch policy, F&& f, Args&&... args); // (2) C++11
 
@@ -27,6 +35,14 @@ namespace std {
       typename decay<F>::type(typename decay<Args>::type...)
     >::type
   > async(launch policy, F&& f, Args&&... args); // (2) C++14
+
+  template <class F, class... Args>
+  future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
+    async(launch policy, F&& f, Args&&... args); // (2) C++17
+
+  template <class F, class... Args>
+  [[nodiscard]] future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
+    async(launch policy, F&& f, Args&&... args); // (2) C++20
 }
 ```
 * future[link future.md]
