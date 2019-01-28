@@ -174,4 +174,5 @@ foo() = 3
 - [LWG Issue 2021. Further incorrect usages of `result_of`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2021)
     - C++14で、戻り値型の計算に`decay`を適用するようにした。
 - [async関数launch::asyncポリシーとfutureのちょっと特殊な動作 - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20120317/p1)
-
+- [P0604R0 Resolving GB 55, US 84, US 85, US 86](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html)
+- [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
