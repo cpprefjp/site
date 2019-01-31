@@ -140,3 +140,4 @@ InputIterator find_first_of(InputIterator first1, InputIterator last1,
 - [LWG Issue 576. `find_first_of` is overconstrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#576)
     - C++11から、パラメータのイテレータ型に対する制約が緩和され、`ForwardIterator`から`InputIterator`に変更になった経緯のレポート
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)

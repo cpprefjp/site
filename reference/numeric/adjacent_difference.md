@@ -179,4 +179,5 @@ OutputIterator adjacent_difference(InputIterator first, InputIterator last, Outp
 
 
 ## 参照
+- [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
 - [P0623R0 Final C++17 Parallel Algorithms Fixes](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0623r0.html)

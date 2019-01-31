@@ -87,3 +87,4 @@ OutputIterator reverse_copy(BidirectionalIterator first,
 - [LWG Issue 2074. Off by one error in `std::reverse_copy`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3438.html#2074)
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
