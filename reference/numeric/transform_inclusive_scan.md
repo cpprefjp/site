@@ -84,8 +84,8 @@ namespace std{
 
 
 ## 効果
-- (1), (3) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、`{unary_op(*first), unary_op(*(first + 1)), unary_op(*(first + 2)), ..., last}`の`K`番目までの要素の合計値を順不同に代入する
-- (2), (4) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、初期値を`init`として`{unary_op(*first), unary_op(*(first + 1)), unary_op(*(first + 2)), ..., last}`の`K`番目までの要素の合計値を順不同に代入する
+- (1), (3) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、`{unary_op(*first), unary_op(*(first + 1)), unary_op(*(first + 2)), ..., unary_op(*(last - 1))}`の`K`番目までの要素の合計値を順不同に代入する
+- (2), (4) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、初期値を`init`として`{unary_op(*first), unary_op(*(first + 1)), unary_op(*(first + 2)), ..., unary_op(*(last - 1))}`の`K`番目までの要素の合計値を順不同に代入する
 
 
 ## 戻り値

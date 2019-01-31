@@ -97,9 +97,9 @@ namespace std{
     ```
     * plus[link /reference/functional/plus.md]
 
-- (2), (5) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、`{first, first + 1, first + 2, ..., last}`の`K`番目までの要素の合計値を順不同に代入する
+- (2), (5) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、`{*first, *(first + 1), *(first + 2), ..., *(last - 1)}`の`K`番目までの要素の合計値を順不同に代入する
 
-- (3), (6) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、初期値を`init`として`{first, first + 1, first + 2, ..., last}`の`K`番目までの要素の合計値を順不同に代入する
+- (3), (6) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、初期値を`init`として`{*first, *(first + 1), *(first + 2), ..., *(last - 1)}`の`K`番目までの要素の合計値を順不同に代入する
 
 - (4) : 以下と同等
     ```cpp
