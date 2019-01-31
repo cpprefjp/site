@@ -38,6 +38,8 @@ namespace std::execution {
 
 この実行ポリシーでは、アルゴリズムに指定した関数オブジェクト内で副作用をともなう処理を実行した場合にデータ競合が発生する可能性があるため、ミューテックスによる排他処理やアトミック操作などをユーザーが管理して、データ競合を回避する必要がある。
 
+シーケンスの要素はコピーが作られる可能性がある。
+
 
 ### parallel_unsequenced_policy / par_unseq
 この実行ポリシーは、マルチスレッド化および・もしくはベクトル化を許可する。
@@ -45,6 +47,8 @@ namespace std::execution {
 ベクトル化は、ソフトウェアパイプライン化やSIMD命令などによるデータ並列のことを指す。
 
 この実行ポリシーでも`parallel_policy`と同様に、副作用をともなう処理でデータ競合が発生する可能性がある。ただし、マルチスレッド化だけでなくベクトル化も組み合わさるために、ミューテックスによる排他処理をした場合には、複数回ロックが取得されてデッドロックが発生する可能性がある。そのため、この実行ポリシーではLock-freeアトミック操作によってデータ競合を回避する必要がある。
+
+シーケンスの要素はコピーが作られる可能性がある。
 
 
 ## 計算量
@@ -157,4 +161,5 @@ int main()
 - [P0394R4: Hotel Parallelifornia: `terminate()` for Parallel Algorithms Exception Handling](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0394r4.html)
 - [P0336R1 Better Names for Parallel Execution Policies in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0336r1.pdf)
 - [P0502R0 Throwing out of a parallel algorithm terminates—but how?](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0502r0.html)
+- [P0518R1 Allowing copies as arguments to function objects given to parallel algorithms in response to CH11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0518r1.html)
 - [P0523R1: Wording for CH 10: Complexity of parallel algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0523r1.html)
