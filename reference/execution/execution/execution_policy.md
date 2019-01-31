@@ -47,6 +47,10 @@ namespace std::execution {
 この実行ポリシーでも`parallel_policy`と同様に、副作用をともなう処理でデータ競合が発生する可能性がある。ただし、マルチスレッド化だけでなくベクトル化も組み合わさるために、ミューテックスによる排他処理をした場合には、複数回ロックが取得されてデッドロックが発生する可能性がある。そのため、この実行ポリシーではLock-freeアトミック操作によってデータ競合を回避する必要がある。
 
 
+## 計算量
+実行ポリシーをとらないアルゴリズムは「最大N回だけ関数`f()`を呼び出す」や「正確にN回だけ関数`f()`を呼び出す」のように計算量を規定する。実行ポリシーはそれを緩和し、ビッグオー記法を使用して「O(N)計算量で関数`f()`を呼び出す」のように表記する。
+
+
 ## 例
 ### 基本的な使い方
 ```cpp example
@@ -153,3 +157,4 @@ int main()
 - [P0394R4: Hotel Parallelifornia: `terminate()` for Parallel Algorithms Exception Handling](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0394r4.html)
 - [P0336R1 Better Names for Parallel Execution Policies in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0336r1.pdf)
 - [P0502R0 Throwing out of a parallel algorithm terminates—but how?](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0502r0.html)
+- [P0523R1: Wording for CH 10: Complexity of parallel algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0523r1.html)
