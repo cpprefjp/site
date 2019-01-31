@@ -27,7 +27,7 @@
 | [`partial_sum`](numeric/partial_sum.md)     | 範囲の部分和を計算する  | |
 | [`inclusive_scan`](numeric/inclusive_scan.md) | 範囲の部分和を計算する (i番目の部分和にi番目の要素を含む) | C++17 |
 | [`exclusive_scan`](numeric/exclusive_scan.md) | 範囲の部分和を計算する (i番目の部分和にi番目の要素を含めない) | C++17 |
-| [`transform_inclusive_scan`](numeric/transform_inclusive_scan.md.nolink) | 範囲の要素を変換しながら部分和を計算する (i番目の部分和にi番目の要素を含む) | C++17 |
+| [`transform_inclusive_scan`](numeric/transform_inclusive_scan.md) | 範囲の要素を変換しながら部分和を計算する (i番目の部分和にi番目の要素を含む) | C++17 |
 | [`transform_exclusive_scan`](numeric/transform_exclusive_scan.md) | 範囲の要素を変換しながら部分和を計算する (i番目の部分和にi番目の要素を含めない) | C++17 |
 
 
