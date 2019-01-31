@@ -104,6 +104,8 @@ int main()
 }
 ```
 * std::transform_exclusive_scan[color ff0000]
+* result.begin()[link /reference/vector/vector/begin.md]
+* std::stoi[link /reference/string/stoi.md]
 
 ### 出力
 ```
