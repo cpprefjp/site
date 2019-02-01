@@ -167,5 +167,6 @@ int main()
 ## 参照
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [P0574R1: Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
 - [Finding the number of occurrences of keys and the positions of first occurrences of keys by CUDA Thrust - StackOverflow](https://stackoverflow.com/questions/8792926/finding-the-number-of-occurrences-of-keys-and-the-positions-of-first-occurrences/)
     - この関数の用途として、[`std::multiset`](/reference/set/multiset.md)のような構成になっているシーケンスから、それぞれのキーがはじまるインデックスのリストを取得するために使用できる
