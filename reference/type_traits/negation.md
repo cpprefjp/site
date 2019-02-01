@@ -66,8 +66,8 @@ struct negation : bool_constant<!Trait::value> {};
 ### 処理系
 - [Clang](/implementation.md#clang): 3.8
 - [GCC](/implementation.md#gcc): 6.3
-- [Visual C++](/implementation.md#visual_cpp): 2015 update3?, 2017
-	- `negation_v`は、2015 update3では定義されているが有効化されていない。
+- [Visual C++](/implementation.md#visual_cpp): 2015 update2, 2017
+	- `negation_v`は、2015 update3までは定義されているが有効化されていない。
 
 
 ## 参照
