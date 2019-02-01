@@ -96,8 +96,8 @@ false
 ### 処理系
 - [Clang](/implementation.md#clang): 3.6
 - [GCC](/implementation.md#gcc): 6.3
-- [Visual C++](/implementation.md#visual_cpp): 2015 update3?, 2017
-	- 2015 update3では備考にある複雑な実装になっている。
+- [Visual C++](/implementation.md#visual_cpp): 2015, 2017
+	- 2015では備考にある複雑な実装になっている。
 
 ## 参照
 - [C++1z void_t - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/09/05/170810)
