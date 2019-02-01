@@ -19,11 +19,20 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|--------------------------------------------|-------|
-| [`raw_storage_iterator`](memory/raw_storage_iterator.md) | 未初期化領域に書き込むための出力イテレータ(class template) | C++17から非推奨<br/> C++20で削除 |
-| [`uninitialized_copy`](memory/uninitialized_copy.md) | 未初期化領域の範囲を配置`new`で初期化して出力する(function template) | |
-| [`uninitialized_copy_n`](memory/uninitialized_copy_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化して出力する(function template) | C++11 |
+| [`uninitialized_default_construct`](memory/uninitialized_default_construct.md.nolink) | 未初期化領域の範囲を配置`new`でデフォルト構築する(function template) | C++17 |
+| [`uninitialized_default_construct_n`](memory/uninitialized_default_construct_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`でデフォルト構築する(function template) | C++17 |
+| [`uninitialized_value_construct`](memory/uninitialized_value_construct.md.nolink) | 未初期化領域の範囲を配置`new`で値構築する(function template) | C++17 |
+| [`uninitialized_value_construct_n`](memory/uninitialized_value_construct_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で値構築する(function template) | C++17 |
+| [`uninitialized_copy`](memory/uninitialized_copy.md) | 未初期化領域の範囲を配置`new`で初期化してコピー出力する(function template) | |
+| [`uninitialized_copy_n`](memory/uninitialized_copy_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してコピー出力する(function template) | C++11 |
+| [`uninitialized_move`](memory/uninitialized_move.md.nolink) | 未初期化領域の範囲を配置`new`で初期化してムーブ出力する(function template) | |
+| [`uninitialized_move_n`](memory/uninitialized_move_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してムーブ出力する(function template) | C++11 |
 | [`uninitialized_fill`](memory/uninitialized_fill.md) | 未初期化領域の範囲を、指定された値で配置`new`する(function template) | |
 | [`uninitialized_fill_n`](memory/uninitialized_fill_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を指定された値で配置`new`する(function template) | |
+| [`destroy_at`](memory/destroy_at.md.nolink) | デストラクタを呼び出す | C++17 |
+| [`destroy`](memory/destroy.md.nolink) | 範囲の各要素に対してデストラクタを呼び出す | C++17 |
+| [`destroy_n`](memory/destroy_n.md.nolink) | 範囲のうち、先頭`N`個の要素に対してデストラクタを呼び出す | C++17 |
+| [`raw_storage_iterator`](memory/raw_storage_iterator.md) | 未初期化領域に書き込むための出力イテレータ(class template) | C++17から非推奨<br/> C++20で削除 |
 | [`get_temporary_buffer`](memory/get_temporary_buffer.md) | 短期的なメモリ領域を確保する(function template) | C++17から非推奨<br/> C++20で削除 |
 | [`return_temporary_buffer`](memory/return_temporary_buffer.md) | `get_temporary_buffer()`で確保された領域を解放する(function) | C++17から非推奨<br/> C++20で削除 |
 
