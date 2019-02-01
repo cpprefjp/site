@@ -167,6 +167,16 @@
 | [`negation`](type_traits/negation.md) | 特性の論理否定を求める (class template) | C++17 |
 
 
+## 関数呼び出しに関連した特性
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------|-------------------------------------------|-------|
+| [`is_invocable`](type_traits/is_invocable.md)       | 関数呼び出し可能かを調べる (class template)   | C++17 |
+| [`is_invocable_r`](type_traits/is_invocable_r.md) | 関数呼び出し可能でその戻り値型がある型へ変換可能かを調べる (class template) | C++17 |
+| [`is_nothrow_invocable`](type_traits/is_nothrow_invocable.md) | 例外を投げずに関数呼び出し可能かを調べる (class template) | C++17 |
+| [`is_nothrow_invocable_r`](type_traits/is_nothrow_invocable_r.md) | 例外を投げずに関数呼び出し可能でその戻り値型がある型へ変換可能かを調べる (class template) | C++17 |
+
+
 ## その他の変換
 
 | 名前 | 説明 | 対応バージョン |
