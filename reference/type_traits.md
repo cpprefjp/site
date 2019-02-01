@@ -171,6 +171,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
+| [`result_of`](type_traits/result_of.md) | 関数の戻り値の型を取得する (class template) | C++11 |
+| [`invoke_result`](type_traits/invoke_result.md) | 関数の戻り値の型を取得する (class template) | C++17 |
 | [`is_invocable`](type_traits/is_invocable.md)       | 関数呼び出し可能かを調べる (class template)   | C++17 |
 | [`is_invocable_r`](type_traits/is_invocable_r.md) | 関数呼び出し可能でその戻り値型がある型へ変換可能かを調べる (class template) | C++17 |
 | [`is_nothrow_invocable`](type_traits/is_nothrow_invocable.md) | 例外を投げずに関数呼び出し可能かを調べる (class template) | C++17 |
@@ -189,8 +191,6 @@
 | [`conditional`](type_traits/conditional.md) | コンパイル時条件式 (class template) | C++11 |
 | [`common_type`](type_traits/common_type.md) | 変換可能な共通の型を取得する (class template) | C++11 |
 | [`underlying_type`](type_traits/underlying_type.md) | 列挙型の基底型を取得する (class template) | C++11 |
-| [`result_of`](type_traits/result_of.md) | 関数の戻り値の型を取得する (class template) | C++11 |
-| [`invoke_result`](type_traits/invoke_result.md) | 関数の戻り値の型を取得する (class template) | C++17 |
 | [`void_t`](type_traits/void_t.md) | 任意の型をvoidへ変換する (type-alias) | C++17 |
 
 
