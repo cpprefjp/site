@@ -67,9 +67,9 @@ auto f(int) -> double {
 int main()
 {
   std::cout << std::boolalpha;
-  
+
   //trueとなる呼び出し
-  
+
   //has_member.*(has_member::*member_function, std::vector<char>)
   std::cout << std::is_invocable<decltype(&has_member::member_function), has_member, std::vector<char>>::value << std::endl;
 
@@ -90,16 +90,16 @@ int main()
 
   //f(int)
   std::cout << std::is_invocable<decltype(f), int>::value << std::endl;
-  
-  
+
+
   //falseとなる呼び出し（いずれも定義されていない）
-  
+
   //has_member.*(has_member::*member_function, int)
   std::cout << std::is_invocable<decltype(&has_member::member_function), has_member, int>::value << std::endl;
-  
+
   //functor::operator()(std::string)
   std::cout << std::is_invocable<functor, std::string>::value << std::endl;
-  
+
   //f(const char*)
   std::cout << std::is_invocable<decltype(f), const char*>::value << std::endl;
 }
