@@ -30,6 +30,8 @@ namespace std {
 ```cpp
 std::is_convertible_v<std::invoke_result_t<F, ArgsTypes...>, R>
 ```
+* std::is_convertible_v[link is_convertible.md]
+* std::invoke_result_t[link invoke_result.md]
 
 
 ## 例
