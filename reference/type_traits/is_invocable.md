@@ -104,7 +104,7 @@ int main()
   std::cout << std::is_invocable<decltype(f), const char*>::value << std::endl;
 }
 ```
-* std::is_­invocable[color ff0000]
+* std::is_invocable[color ff0000]
 
 ### 出力
 ```

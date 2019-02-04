@@ -60,7 +60,7 @@ int main()
   std::cout << std::is_invocable_r<char*, decltype(f), int>::value << std::endl;
 }
 ```
-* std::is_­invocable_r[color ff0000]
+* std::is_invocable_r[color ff0000]
 
 ### 出力
 ```
