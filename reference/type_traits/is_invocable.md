@@ -8,7 +8,7 @@
 namespace std {
   template <class F, class... ArgsTypes>
   struct is_invocable;
-  
+
   template <class F, class... ArgsTypes>
   constexpr bool is_invocable_v = std::is_invocable<F, ArgsTypes...>::value;
 }
