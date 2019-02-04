@@ -30,6 +30,7 @@ namespace std {
 ```cpp
 std::invoke(std::declval<F>(), std::declval<ArgsTypes>()...)
 ```
+* std::declval[link /reference/utility/declval.md]
 
 
 ## 例
