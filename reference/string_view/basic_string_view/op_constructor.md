@@ -16,7 +16,7 @@ constexpr basic_string_view(const CharT* str, size_type len); // (4)
 ## 概要
 - (1) : デフォルトコンストラクタ。空の`basic_string_view`オブジェクトを構築する
 - (2) : コピーコンストラクタ。コピー元と同じ文字列を参照する
-- (3) : 文字配列を受けとって、その文字配列の全体を参照する
+- (3) : 文字配列を受けとって、その文字配列の全体(ただしヌル文字列を含む場合はそこまで)を参照する
 - (4) : 文字配列と長さを受けとって、文字配列`str`の先頭`len`文字を参照する
 
 
@@ -36,6 +36,17 @@ constexpr basic_string_view(const CharT* str, size_type len); // (4)
 ## 計算量
 - (1), (4) : 定数時間
 - (3): 文字数に対して線形時間
+
+## 備考
+- `basic_string_view`のコンストラクタに`template<size_t N>basic_string_view(const charT (&str)[N])`タイプの配列を受け取るコンストラクタが無いのは次の使い方をしたとき`str`のサイズが`sizeof(buf)`となり、それは利用者の意図しない挙動になる可能性が高いと判断されたからである。
+
+```cpp example
+char buf[128];
+snprintf(buf, sizeof(buf), "abc");
+string_view str(buf);
+```
+
+- ヌル文字を含む文字列リテラル全体から`basic_string_view`を構築したい場合は[`std::string_view_literals::svリテラル`](reference/string_view/basic_string_view/op_sv.html)を用いる。
 
 
 ## 例
@@ -95,3 +106,6 @@ int main()
 - [GCC, C++17 mode](/implementation.md#gcc): 7.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 参照
+- [ISO/IEC JTC1 SC22 WG21 N3762](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3762.html#avoid-strlen)
