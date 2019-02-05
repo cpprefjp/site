@@ -20,7 +20,7 @@
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|--------------------------------------------|-------|
 | [`uninitialized_default_construct`](memory/uninitialized_default_construct.md) | 未初期化領域の範囲の各要素をデフォルト構築する(function template) | C++17 |
-| [`uninitialized_default_construct_n`](memory/uninitialized_default_construct_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素をデフォルト構築する(function template) | C++17 |
+| [`uninitialized_default_construct_n`](memory/uninitialized_default_construct_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素をデフォルト構築する(function template) | C++17 |
 | [`uninitialized_value_construct`](memory/uninitialized_value_construct.md.nolink) | 未初期化領域の範囲を配置`new`で値構築する(function template) | C++17 |
 | [`uninitialized_value_construct_n`](memory/uninitialized_value_construct_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で値構築する(function template) | C++17 |
 | [`uninitialized_copy`](memory/uninitialized_copy.md) | 未初期化領域の範囲を配置`new`で初期化してコピー出力する(function template) | |
