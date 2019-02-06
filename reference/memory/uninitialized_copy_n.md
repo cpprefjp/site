@@ -10,7 +10,7 @@ namespace std {
   ForwardIterator
     uninitialized_copy_n(InputIterator first,
                          Size n,
-                         ForwardIterator result); // (1) C++03
+                         ForwardIterator result); // (1) C++11
 
   template <class InputIterator, class Size, class ForwardIterator>
   ForwardIterator
@@ -27,14 +27,24 @@ namespace std {
 
 
 ## 効果
+- C++11 : 以下と同等
+    ```cpp
+    for ( ; n > 0; ++result, ++first, --n) {
+      ::new (static_cast<void*>(&*result))
+        typename iterator_traits<ForwardIterator>::value_type(*first);
+    }
+    ```
+    * iterator_traits[link /reference/iterator/iterator_traits.md]
 
-```cpp
-for ( ; n > 0; ++result, ++first, --n) {
-  ::new (static_cast<void*>(&*result))
-    typename iterator_traits<ForwardIterator>::value_type(*first);
-}
-```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
+- C++17 : 以下と同等
+    ```cpp
+    for ( ; n > 0; ++result, ++first, --n) {
+      ::new (static_cast<void*>(addressof(*result)))
+        typename iterator_traits<ForwardIterator>::value_type(*first);
+    }
+    ```
+    * iterator_traits[link /reference/iterator/iterator_traits.md]
+    * addressof[link addressof.md]
 
 
 ## 戻り値
@@ -104,4 +114,4 @@ int main()
 ## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
-
+- [LWG Issue 2433 `uninitialized_copy()`/etc. should tolerate overloaded `operator&`](https://wg21.cmeerw.net/lwg/issue2433)

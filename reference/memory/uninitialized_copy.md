@@ -27,13 +27,22 @@ namespace std {
 
 
 ## 効果
+- C++03 : 以下と同等
+    ```cpp
+    for (; first != last; ++result, ++first)
+      ::new (static_cast<void*>(&*result))
+        typename iterator_traits<ForwardIterator>::value_type(*first);
+    ```
+    * iterator_traits[link /reference/iterator/iterator_traits.md]
 
-```cpp
-for (; first != last; ++result, ++first)
-  ::new (static_cast<void*>(&*result))
-    typename iterator_traits<ForwardIterator>::value_type(*first);
-```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
+- C++17 : 以下と同等
+    ```cpp
+    for (; first != last; ++result, ++first)
+      ::new (static_cast<void*>(addressof(*result)))
+        typename iterator_traits<ForwardIterator>::value_type(*first);
+    ```
+    * iterator_traits[link /reference/iterator/iterator_traits.md]
+    * addressof[link addressof.md]
 
 
 ## 戻り値
@@ -90,3 +99,5 @@ int main()
 ```
 
 
+## 参照
+- [LWG Issue 2433 `uninitialized_copy()`/etc. should tolerate overloaded `operator&`](https://wg21.cmeerw.net/lwg/issue2433)
