@@ -93,6 +93,10 @@
 | [`is_nothrow_move_assignable`](type_traits/is_nothrow_move_assignable.md) | 型がムーブ代入でき、かつそのムーブ代入演算子が例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_destructible`](type_traits/is_nothrow_destructible.md) | 型が破棄でき、かつそのデストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`has_virtual_destructor`](type_traits/has_virtual_destructor.md) | 型が仮想デストラクタを持っているか調べる (class template) | C++11 |
+| [`is_swappable_with`](type_traits/is_swappable_with.md) | ある型とほかの型の値とがswap関数で入れ替え可能かを調べる (class template) | C++17 |
+| [`is_swappable`](type_traits/is_swappable.md) | ある型の値がswap関数で入れ替え可能かを調べる (class template) | C++17 |
+| [`is_nothrow_swappable_with`](type_traits/is_nothrow_swappable_with.md) | ある型とほかの型の値とが例外を投げずにswap関数で入れ替え可能かを調べる (class template) | C++17 |
+| [`is_nothrow_swappable`](type_traits/is_nothrow_swappable.md) | ある型の値が例外を投げずにswap関数で入れ替え可能かを調べる (class template) | C++17 |
 
 
 ## 型の特性についての問い合わせ
