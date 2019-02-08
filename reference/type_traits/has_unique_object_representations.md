@@ -86,7 +86,7 @@ int main()
   std::cout << std::has_unique_object_representations<not_unique_object_representations>::value << std::endl;
 }
 ```
-* std::is_swappable[color ff0000]
+* std::has_unique_object_representations[color ff0000]
 
 ### 出力
 ```
