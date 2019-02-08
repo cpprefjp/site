@@ -97,6 +97,7 @@
 | [`is_swappable`](type_traits/is_swappable.md) | ある型の値がswap関数で入れ替え可能かを調べる (class template) | C++17 |
 | [`is_nothrow_swappable_with`](type_traits/is_nothrow_swappable_with.md) | ある型とほかの型の値とが例外を投げずにswap関数で入れ替え可能かを調べる (class template) | C++17 |
 | [`is_nothrow_swappable`](type_traits/is_nothrow_swappable.md) | ある型の値が例外を投げずにswap関数で入れ替え可能かを調べる (class template) | C++17 |
+| [`has_unique_object_representations`](type_traits/has_unique_object_representations.md) | ある型のバイト表現をそのままハッシュとして利用できるかを調べる (class template) | C++17 |
 
 
 ## 型の特性についての問い合わせ
