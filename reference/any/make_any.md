@@ -19,15 +19,15 @@ namespace std {
 ## 概要
 `any`オブジェクトを生成するヘルパ関数。
 
-`any`のコンストラクタ呼び出しでこの関数と同等のことを行う場合、先頭の引数として[`std::in_place_type`](/reference/utility/in_place_type_t.md)タグを付加する必要があり冗長である。この関数は、その冗長さを回避するためにある。
+`any`のコンストラクタ呼び出しでこの関数と等価のことを行う場合、先頭の引数として[`std::in_place_type`](/reference/utility/in_place_type_t.md)タグを付加する必要があり冗長である。この関数は、その冗長さを回避するためにある。
 
 - (1) : 任意の型`T`のコンストラクタ引数`args...`をとり、この関数内部で`T`型オブジェクトを構築して保持する`any`オブジェクトを構築する
 - (2) : 任意の型`T`のコンストラクタ引数`il`と`args...`をとり、この関数内部で`T`型オブジェクトを構築して保持する`any`オブジェクトを構築する
 
 
 ## 効果
-- (1) : `return any(`[`in_place_type`](/reference/utility/in_place_type_t.md)`<T>,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);`と同等
-- (2) : `return any(`[`in_place_type`](/reference/utility/in_place_type_t.md)`<T>, il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);`と同等
+- (1) : `return any(`[`in_place_type`](/reference/utility/in_place_type_t.md)`<T>,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);`と等価
+- (2) : `return any(`[`in_place_type`](/reference/utility/in_place_type_t.md)`<T>, il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);`と等価
 
 
 ## 例

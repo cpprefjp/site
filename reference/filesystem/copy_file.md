@@ -32,7 +32,7 @@ namespace std::filesystem {
     - 以下のいずれか場合にエラーとなる：
         - `!`[`is_regular_file`](is_regular_file.md)`(from)` (コピー元のファイルが存在しない)
         - [`exists`](exists.md)`(to) && !`[`is_regular_file`](is_regular_file.md)`(to)` (コピー先に、通常ファイルではないファイルが存在している)
-        - [`exists`](exists.md)`(to) &&` [`equivalent`](equivalent.md)`(from, to)` (コピー先にファイルが存在しており、それがコピー元と同等)
+        - [`exists`](exists.md)`(to) &&` [`equivalent`](equivalent.md)`(from, to)` (コピー先にファイルが存在しており、それがコピー元と等価)
         - [`exists`](exists.md)`(to) && (options & (`[`copy_optons::skip_existing`](copy_options.md) `|` [`copy_optons::overwrite_existing`](copy_options.md) `|` [`copy_optons::update_existing`](copy_options.md)`)) ==` [`copy_optons::none`](copy_options.md) (コピー先にファイルが存在しており、その場合にエラーにならないオプションが指定されていない)
     - 以下の条件のいずれかに合致する場合、パス`from`が解決したファイルを、パス`to`が解決した先にコピーする
         - `!`[`exists`](exists.md)`(to)`
@@ -75,7 +75,7 @@ int main()
   assert(fs::exists("regular.txt"));
   assert(fs::exists("copy.txt"));
 
-  // 同じパスではなく、シンボリックリンク／ハードリンクでもないので、同等ではない
+  // 同じパスではなく、シンボリックリンク／ハードリンクでもないので、等価ではない
   assert(!fs::equivalent("regular.txt", "copy.txt"));
 }
 ```

@@ -14,14 +14,14 @@ namespace std::filesystem {
 * std::uintmax_t[link /reference/cstdint/uintmax_t.md]
 
 ## 概要
-2つのエンティティが同等かを確認する。
+2つのエンティティが等価かを確認する。
 
-2つのエンティティが、ファイルシステムとして同等かを確認する。2つが同じパスの場合は同等、それに加えてシンボリックリンクと元のファイルも同等、同じinodeを参照するハードリンクも同等と判断される。
+2つのエンティティが、ファイルシステムとして等価かを確認する。2つが同じパスの場合は等価、それに加えてシンボリックリンクと元のファイルも等価、同じinodeを参照するハードリンクも等価と判断される。
 
 
 ## 戻り値
 - [`status`](status.md)`(p1)`を`s1`、[`status`](status.md)`(p2)`を`s2`として、
-- `s1 == s2`かつ`p1`と`p2`がファイルシステムとして同等のエンティティに解決される場合、`true`を返し、そうでなければ`false`を返す
+- `s1 == s2`かつ`p1`と`p2`がファイルシステムとして等価のエンティティに解決される場合、`true`を返し、そうでなければ`false`を返す
 - `p1`と`p2`両方のエンティティが存在しない、`p1`と`p2`両方が[`is_other()`](is_other.md)で`true`を返す種別のエンティティである場合、およびファイルシステムでエラーが発生した場合、 (1) では[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出し、 (2) では`ec`にエラー情報が設定されて`false`が返る
 
 
@@ -47,15 +47,15 @@ int main()
   fs::create_directory("dir");
   fs::create_directory_symlink("dir", "dir_symlink");
 
-  // パスを正規化した結果として同等のパスを指している
+  // パスを正規化した結果として等価のパスを指している
   assert(fs::equivalent("regular.txt", "./regular.txt"));
 
-  // シンボリックリンクとその元は同等
+  // シンボリックリンクとその元は等価
   assert(fs::equivalent("regular.txt", "regular.symlink"));
   assert(fs::equivalent("regular-2.txt", "regular.symlink"));
   assert(fs::equivalent("dir", "dir_symlink"));
 
-  // 同じinodeを参照するハードリンクは同等
+  // 同じinodeを参照するハードリンクは等価
   assert(fs::equivalent("regular.txt", "regular-2.txt"));
 }
 ```

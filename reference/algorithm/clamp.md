@@ -32,7 +32,7 @@ namespace std {
 
 
 ## 備考
-- `clamp(v, low, high)`は[`min`](min.md)`(`[`max`](max.md)`(v, low), high)`と同等
+- `clamp(v, low, high)`は[`min`](min.md)`(`[`max`](max.md)`(v, low), high)`と等価
 
 
 ## 例

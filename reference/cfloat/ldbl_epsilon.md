@@ -36,7 +36,7 @@ int main()
   std::cout << std::setprecision(LDBL_DIG);
   std::cout << LDBL_EPSILON << '\n';
 
-  // 以下の式と同等
+  // 以下の式と等価
   std::cout << std::pow(FLT_RADIX, 1 - LDBL_MANT_DIG) << '\n';
 }
 ```

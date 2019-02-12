@@ -18,7 +18,7 @@ void replace_filename(const path& p, std::error_code& ec); // (2)
 ## 効果
 `*this`が保持している[`path`](/reference/filesystem/path.md)オブジェクトを`pathobject`として、
 
-- (1) : 以下と同等の処理を行う：
+- (1) : 以下と等価の処理を行う：
     ```cpp
     pathobject.replace_filename(p);
     refresh();
@@ -26,7 +26,7 @@ void replace_filename(const path& p, std::error_code& ec); // (2)
     * pathobject.replace_filename[link /reference/filesystem/path/replace_filename.md]
     * refresh()[link refresh.md]
 
-- (2) : 以下と同等の処理を行う：
+- (2) : 以下と等価の処理を行う：
     ```cpp
     pathobject.replace_filename(p);
     refresh(ec);

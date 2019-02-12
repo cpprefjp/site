@@ -49,11 +49,11 @@ constexpr int compare(size_type pos1,
         - `size() < str.size()`であれば0未満の値を返す
         - `size() == str.size()`であれば0を返す
         - `size() > str.size()`であれば0超の値を返す
-- (2) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv);` と同等
-- (3) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv.`[`substr`](substr.md)`(pos2, n2));` と同等
-- (4) : `return compare(basic_string_view(s));` と同等
-- (5) : `return` [`substr`](substr.md)`(pos1, n1).compare(basic_string_view(s));` と同等
-- (6) : `return` [`substr`](substr.md)`(pos1, n1).compare(basic_string_view(s, n2));` と同等
+- (2) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv);` と等価
+- (3) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv.`[`substr`](substr.md)`(pos2, n2));` と等価
+- (4) : `return compare(basic_string_view(s));` と等価
+- (5) : `return` [`substr`](substr.md)`(pos1, n1).compare(basic_string_view(s));` と等価
+- (6) : `return` [`substr`](substr.md)`(pos1, n1).compare(basic_string_view(s, n2));` と等価
 
 
 ## 戻り値

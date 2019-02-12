@@ -22,7 +22,7 @@ namespace std::filesystem {
 
 
 ## 効果
-以下と同等：
+以下と等価：
 
 ```cpp
 std::basic_string<CharT, Traits> tmp;

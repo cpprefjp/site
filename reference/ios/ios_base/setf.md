@@ -15,8 +15,8 @@ fmtflags setf(fmtflags fmtfl, fmtflags mask);       // (2)
 
 
 ## 効果
-- (1) [`flags`](flags.md)`()` に引数 `fmtfl` を設定する。[`flags`](flags.md)`(`[`flags`](flags.md)`() | fmtfl)` と同等。
-- (2) [`flags`](flags.md)`()` から引数 `mask` をクリアした後、引数 `fmtfl` を設定する。[`flags`](flags.md)`((`[`flags`](flags.md)`() & ~mask) | fmtfl)` と同等。
+- (1) [`flags`](flags.md)`()` に引数 `fmtfl` を設定する。[`flags`](flags.md)`(`[`flags`](flags.md)`() | fmtfl)` と等価。
+- (2) [`flags`](flags.md)`()` から引数 `mask` をクリアした後、引数 `fmtfl` を設定する。[`flags`](flags.md)`((`[`flags`](flags.md)`() & ~mask) | fmtfl)` と等価。
 
 
 ## 戻り値
@@ -47,7 +47,7 @@ int main()
   std::cout << 100 << '\n';
   std::cout.flags(old2);
 
-  // マニピュレータを使用して上記とほぼ同等の設定をした例（ただし、設定が戻っているわけでは無い）
+  // マニピュレータを使用して上記とほぼ等価の設定をした例（ただし、設定が戻っているわけでは無い）
   std::cout << std::boolalpha << true << std::noboolalpha << '\n';
   std::cout << std::hex << 100 << std::dec << '\n';
 }

@@ -14,7 +14,7 @@ void reserve(size_type n);
 
 
 ## 効果
-引数を [`ceil`](/reference/cmath/ceil.md)`(n /` [`max_load_factor`](max_load_factor.md)`())` にした [`rehash`](rehash.md)`()` と同等である。  
+引数を [`ceil`](/reference/cmath/ceil.md)`(n /` [`max_load_factor`](max_load_factor.md)`())` にした [`rehash`](rehash.md)`()` と等価である。  
 ( Visual C++ 2012の実装では `n /` [`max_load_factor`](max_load_factor.md)`() + 0.5f` で呼んでいる)
 
 

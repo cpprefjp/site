@@ -37,7 +37,7 @@ int main()
   std::cout << std::setprecision(FLT_DIG);
   std::cout << FLT_MAX << '\n';
 
-  // 以下の式と同等（std::pow((float)FLT_RADIX, (float)FLT_MAX_EXP) は float の最大値を超えてしまうため、式を調整してある）
+  // 以下の式と等価（std::pow((float)FLT_RADIX, (float)FLT_MAX_EXP) は float の最大値を超えてしまうため、式を調整してある）
   std::cout << (1 - std::pow((float)FLT_RADIX, (float)-FLT_MANT_DIG)) * std::pow((float)FLT_RADIX, (float)(FLT_MAX_EXP - 1)) * FLT_RADIX << '\n';
 }
 ```

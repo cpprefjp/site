@@ -66,7 +66,7 @@ EXPLICIT optional(optional<U>&& rhs);                    // (9)
     - 型`T`がコピー構築可能でなければ、このオーバーロードはdelete定義される
     - 型`T`がトリビアルにコピー構築可能であれば、このオーバーロードは`constexpr`となる
 - (4) :
-    - このオーバーロードの`noexcept`の値は、[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T>`の値と同等になる
+    - このオーバーロードの`noexcept`の値は、[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T>`の値と等価になる
     - 型`T`がムーブ構築可能でなければ、このオーバーロードはdelete定義される
     - 型`T`がトリビアルにムーブ構築可能であれば、このオーバーロードは`constexpr`となる
 - (5) :

@@ -31,11 +31,11 @@ basic_regex& operator=(const basic_string<charT, ST, SA>& p);   // (5)
 
 
 ## 効果
-- (1) コピー代入演算子。[`assign`](assign.md)`(e)` と同等。
-- (2) ムーブ代入演算子。[`assign`](assign.md)`(`[`move`](../../utility/move.md)`(e))` と同等。
-- (3) [`assign`](assign.md)`(ptr)` と同等。
-- (4) [`assign`](assign.md)`(il.begin(), il.end())` と同等。
-- (5) [`assign`](assign.md)`(p)` と同等。
+- (1) コピー代入演算子。[`assign`](assign.md)`(e)` と等価。
+- (2) ムーブ代入演算子。[`assign`](assign.md)`(`[`move`](../../utility/move.md)`(e))` と等価。
+- (3) [`assign`](assign.md)`(ptr)` と等価。
+- (4) [`assign`](assign.md)`(il.begin(), il.end())` と等価。
+- (5) [`assign`](assign.md)`(p)` と等価。
 
 
 ## 戻り値

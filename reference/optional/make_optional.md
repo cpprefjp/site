@@ -29,8 +29,8 @@ namespace std {
 
 ## 効果
 - (1) : `return optional<`[`decay_t`](/reference/type_traits/decay.md)`<T>>(`[`std::forward`](/reference/utility/forward.md)`<T>(v))`
-- (2) : `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と同等の処理を行う
-- (3) `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`, il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と同等の処理を行う
+- (2) : `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と等価の処理を行う
+- (3) `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`, il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と等価の処理を行う
 
 
 ## 例

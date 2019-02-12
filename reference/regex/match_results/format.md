@@ -42,7 +42,7 @@ format(const char_type* fmt,
 - (1) 書式文字列 `[fmt_first, fmt_last)` を出力イテレータ `out` にコピーする。
     コピーされる書式文字列内のエスケープシーケンスや書式指定子は、対応する文字や `*this` 内の対応する文字列に置換される。  
     書式文字列の形式は、ビットマスク `flags` で指定する。
-- (2) `return format(out, fmt.`[`data`](../../string/basic_string/data.md)`(), fmt.`[`data`](../../string/basic_string/data.md)`() + fmt.`[`size`](../../string/basic_string/size.md)`(), flags)` と同等。
+- (2) `return format(out, fmt.`[`data`](../../string/basic_string/data.md)`(), fmt.`[`data`](../../string/basic_string/data.md)`() + fmt.`[`size`](../../string/basic_string/size.md)`(), flags)` と等価。
 - (3) [`basic_string`](../../string/basic_string.md)`<char_type, ST, SA>` 型の空の文字列変数 `result` を構築し、`format(`[`back_inserter`](../../iterator/back_inserter.md)`(result), fmt, flags)` を呼び出す。
 - (4) `string_type` 型の空の文字列変数 `result` を構築し、`format(`[`back_inserter`](../../iterator/back_inserter.md)`(result), fmt, fmt +` [`char_traits`](../../string/char_traits.md)`<char_type>::`[`length`](../../string/char_traits/length.md)`(fmt), flags)` を呼び出す。
 

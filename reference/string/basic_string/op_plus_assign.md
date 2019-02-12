@@ -25,17 +25,17 @@ basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
 
 ## 効果
 - (1) 対象オブジェクトの末尾に `str` の値が追加（コピー）される。  
-	[`append`](append.md)`(str)` と同等。
+	[`append`](append.md)`(str)` と等価。
 
 - (2) 対象オブジェクトの末尾に `s` から始まる NULL で終端された文字列が追加される。  
-	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(s))`（C++03 まで）、あるいは、[`append`](append.md)`(s)`（C++11 から）と同等。  
+	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(s))`（C++03 まで）、あるいは、[`append`](append.md)`(s)`（C++11 から）と等価。  
 	なお、`s` から始まる NULL 終端された文字列の長さは、`traits_type::length(s)` で求められる。
 
 - (3) 対象オブジェクトの末尾に文字 `c` が追加される。  
-	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(1, c))` と同等。
+	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(1, c))` と等価。
 
 - (4) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。  
-	[`append`](append.md)`(il)` と同等。
+	[`append`](append.md)`(il)` と等価。
 
 
 ## 戻り値

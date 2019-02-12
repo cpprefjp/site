@@ -18,7 +18,7 @@ constexpr void remove_prefix(size_type n);
 
 
 ## 効果
-メンバ変数として、参照する文字配列へのポインタを`const CharT* data_`、文字数を`size_type size_`があるものとして、以下と同等：
+メンバ変数として、参照する文字配列へのポインタを`const CharT* data_`、文字数を`size_type size_`があるものとして、以下と等価：
 
 ```cpp
 data_ += n;

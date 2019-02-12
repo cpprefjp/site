@@ -22,7 +22,7 @@ namespace std {
 ## 備考
 - 分岐截断は負の実軸に沿っている。
 - 規格には、上記の戻り値の記載、および、分岐截断以外の規定・説明は無い。  
-	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `clog`、`clogf`、`clogl`の 3 つ。それぞれ C++ の `log<double>`、`log<float>`、`log<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
+	なお、C99 の規格にある本関数と等価の関数群（`complex.h` ヘッダの `clog`、`clogf`、`clogl`の 3 つ。それぞれ C++ の `log<double>`、`log<float>`、`log<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
 	- `log(`[`conj`](conj.md)`(x)) =` [`conj`](conj.md)`(log(x))`。
 	- `log(complex(-0, +0))` は `complex(-∞, +π)` を返し、ゼロ除算の浮動小数点例外（`FE_DIVBYZERO`）を引き起こす。
 	- `log(complex(+0, +0))` は `complex(-∞, +0)` を返し、ゼロ除算の浮動小数点例外（`FE_DIVBYZERO`）を引き起こす。

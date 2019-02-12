@@ -37,10 +37,10 @@ int main()
 {
   std::cout << DBL_MAX_10_EXP << '\n';
 
-  // 以下の式と同等
+  // 以下の式と等価
   std::cout << std::floor(std::log10(DBL_MAX)) << '\n';
 
-  // 以下の式とも同等（std::pow(FLT_RADIX, DBL_MAX_EXP) は double の最大値を超えてしまうため、式を調整してある）
+  // 以下の式とも等価（std::pow(FLT_RADIX, DBL_MAX_EXP) は double の最大値を超えてしまうため、式を調整してある）
   std::cout << std::floor(std::log10((1 - std::pow(FLT_RADIX, -DBL_MANT_DIG)) * std::pow(FLT_RADIX, DBL_MAX_EXP - 1) * FLT_RADIX)) << '\n';
 
   std::cout << std::boolalpha;

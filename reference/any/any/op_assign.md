@@ -24,8 +24,8 @@ any& operator=(T&& rhs);            // (3)
 
 
 ## 効果
-- (1) : `any(rhs).`[`swap`](swap.md)`(*this)`と同等。この効果自体では例外を送出しない
-- (2) : `any(`[`std::move`](/reference/utility/move.md)`(rhs)).`[`swap`](swap.md)`(*this)`と同等。この効果自体では例外を送出しない。`*this`の状態は、この関数を呼び出す前の`rhs`と同等の状態となり、`rhs`は有効だが未規定の状態を持つようになる
+- (1) : `any(rhs).`[`swap`](swap.md)`(*this)`と等価。この効果自体では例外を送出しない
+- (2) : `any(`[`std::move`](/reference/utility/move.md)`(rhs)).`[`swap`](swap.md)`(*this)`と等価。この効果自体では例外を送出しない。`*this`の状態は、この関数を呼び出す前の`rhs`と等価の状態となり、`rhs`は有効だが未規定の状態を持つようになる
 - (3) : [`std::forward`](/reference/utility/forward.md)`<T>(value)`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する`any`オブジェクト`tmp`を構築し、`tmp.`[`swap`](swap.md)`(*this)`する。この効果自体では例外を送出しない
 
 

@@ -18,8 +18,8 @@ path& append(InputIterator first, InputIterator last); // (2)
 
 
 ## 効果
-- (1) : `return operator/=(path(source))`と同等
-- (2) : `return operator/=(path(first, last))`と同等
+- (1) : `return operator/=(path(source))`と等価
+- (2) : `return operator/=(path(first, last))`と等価
 
 
 ## 戻り値

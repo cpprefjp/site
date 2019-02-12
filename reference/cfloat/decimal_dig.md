@@ -45,7 +45,7 @@ int main()
 {
   std::cout << DECIMAL_DIG << '\n';
 
-  // 精度が一番高い浮動小数点型が long double の場合、以下の式と同等
+  // 精度が一番高い浮動小数点型が long double の場合、以下の式と等価
   long double log10b = std::log10(FLT_RADIX);
   long double intpart;
   if (std::modf(log10b, &intpart) == 0.0) {

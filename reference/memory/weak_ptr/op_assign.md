@@ -29,7 +29,7 @@ weak_ptr& operator=(weak_ptr<Y>&& r) noexcept;        // (5) C++14
 
 
 ## 効果
-- (1), (2), (3) : 以下と同等の効果を持つ。
+- (1), (2), (3) : 以下と等価の効果を持つ。
 
 ```cpp
 weak_ptr(r).swap(*this)
@@ -37,7 +37,7 @@ weak_ptr(r).swap(*this)
 * weak_ptr[link op_constructor.md]
 * swap[link swap.md]
 
-- (4), (5) : 以下と同等の効果を持つ。
+- (4), (5) : 以下と等価の効果を持つ。
 
 ```cpp
 weak_ptr(move(r)).swap(*this)

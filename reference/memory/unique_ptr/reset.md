@@ -22,7 +22,7 @@ template <class U> void reset(U) = delete;  // (3)
     代入前に保持していたポインタ変数を`old_p`とし、それが`nullptr`でなければ、[`get_deleter()`](get_deleter.md)`(old_p)`によって、保持していたポインタを解放する。
 
 - (2) :
-    - C++14 : `reset(pointer())`と同等の効果を持つ。
+    - C++14 : `reset(pointer())`と等価の効果を持つ。
 
 - (3) : 他のポインタ型から`pointer`型への変換を禁止する。
 

@@ -47,7 +47,7 @@ list オブジェクトの構築
 - (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `list` を構築する。
 - (8) : アロケータを指定したコピーコンストラクタ。
 - (9) : アロケータを指定したムーブコンストラクタ。
-- (10) : 初期化子リストを受け取るコンストラクタ。`list(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と同等。
+- (10) : 初期化子リストを受け取るコンストラクタ。`list(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と等価。
 
 
 ## 計算量
@@ -60,7 +60,7 @@ list オブジェクトの構築
 
 
 ## 備考
-- (5) の形式は、C++03 までは `InputIterator` が整数型の場合には `list(static_cast<typename list::size_type>(first), static_cast<typename list::value_type>(last), a)` と同等とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- (5) の形式は、C++03 までは `InputIterator` が整数型の場合には `list(static_cast<typename list::size_type>(first), static_cast<typename list::value_type>(last), a)` と等価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、(3) の形式の引数 `value` に関するデフォルト引数が削除され、新たに (4) の形式が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`list` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `list` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
 

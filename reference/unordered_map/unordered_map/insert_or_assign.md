@@ -51,9 +51,9 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 
 
 ## 備考
-- 規格にはこの関数の例外安全性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と同等と考えて問題ないと思われる。
+- 規格にはこの関数の例外安全性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と等価と考えて問題ないと思われる。
 
-- 規格にはこの関数が呼ばれた後のイテレータや要素へのポインタ・参照の有効性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と同等と考えて問題ないと思われる。
+- 規格にはこの関数が呼ばれた後のイテレータや要素へのポインタ・参照の有効性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と等価と考えて問題ないと思われる。
 
 - このメンバ関数の[`機能テストマクロ`](/lang/cpp17/feature_test_macros.md)は以下の通り。
 

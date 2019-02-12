@@ -28,7 +28,7 @@ namespace std {
 
 ## 戻り値
 
-- (1) : 以下のコードと同等のことを行う：
+- (1) : 以下のコードと等価のことを行う：
 
 ```cpp
 valarray<T> result = xs;
@@ -38,7 +38,7 @@ return result;
 * &=[link op_and_assign.md]
 
 
-- (2) : 以下のコードと同等のことを行う：
+- (2) : 以下のコードと等価のことを行う：
 
 ```cpp
 valarray<T> result = xs;
@@ -49,7 +49,7 @@ return result;
 
 
 
-- (3) : 以下のコードと同等のことを行う：
+- (3) : 以下のコードと等価のことを行う：
 
 ```cpp
 valarray<T> result = ys;

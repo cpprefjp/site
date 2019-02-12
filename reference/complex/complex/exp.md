@@ -20,7 +20,7 @@ namespace std {
 
 ## 備考
 - 規格には、上記の戻り値に記載されている以上の規定・説明は無い。  
-	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `cexp`、`cexpf`、`cexpl`の 3 つ。それぞれ C++ の `exp<double>`、`exp<float>`、`exp<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
+	なお、C99 の規格にある本関数と等価の関数群（`complex.h` ヘッダの `cexp`、`cexpf`、`cexpl`の 3 つ。それぞれ C++ の `exp<double>`、`exp<float>`、`exp<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
 	- `exp(`[`conj`](conj.md)`(x)) =` [`conj`](conj.md)`(exp(x))`。
 	- `exp(complex(±0, +0))` は `complex(+1, +0)` を返す。
 	- 有限の `x` に対して、`exp(complex(x, +∞))` は `complex(NaN, NaN)` を返し、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす。

@@ -22,7 +22,7 @@ namespace std {
 
 
 ## 戻り値
-- (1) : 以下のコードと同等のことを行う：
+- (1) : 以下のコードと等価のことを行う：
 
 ```cpp
 std::valarray<T> result(ys.size());
@@ -35,7 +35,7 @@ return result;
 * std::atan2[link /reference/cmath/atan2.md]
 
 
-- (2) : 以下のコードと同等のことを行う：
+- (2) : 以下のコードと等価のことを行う：
 
 ```cpp
 std::valarray<T> result(ys.size());
@@ -48,7 +48,7 @@ return result;
 * std::atan2[link /reference/cmath/atan2.md]
 
 
-- (3) : 以下のコードと同等のことを行う：
+- (3) : 以下のコードと等価のことを行う：
 
 ```cpp
 std::valarray<T> result(xs.size());

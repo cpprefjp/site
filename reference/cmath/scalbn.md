@@ -31,7 +31,7 @@ namespace std {
 ## 概要
 `x` に、浮動小数点数の内部表現の基数 [`FLT_RADIX`](/reference/cfloat/flt_radix.md) の `n` 乗を掛けた値を効率的に（通常は [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<sup>n</sup> を明示的には計算せずに）計算する。scalbは「scale binary」を意味する。
 
-この関数は、[`FLT_RADIX`](/reference/cfloat/flt_radix.md) が `2` であるシステム上では、[`ldexp()`](ldexp.md) 関数と同等である。
+この関数は、[`FLT_RADIX`](/reference/cfloat/flt_radix.md) が `2` であるシステム上では、[`ldexp()`](ldexp.md) 関数と等価である。
 
 
 ## 戻り値
@@ -49,7 +49,7 @@ namespace std {
 	- `x = ±∞` の場合、戻り値は `±∞` となる。
 	- もしオーバーフローエラーやアンダーフローエラーを起こさなければ、結果は正確で現在の丸め方式には依存しない。
 
-- `scalbln()` 関数は、パラメータ `n` の型が `long int` であることを除いて、`scalbn()` 関数と同等である。
+- `scalbln()` 関数は、パラメータ `n` の型が `long int` であることを除いて、`scalbn()` 関数と等価である。
 
 
 ## 例

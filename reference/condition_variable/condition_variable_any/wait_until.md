@@ -35,7 +35,7 @@ bool wait_until(Lock& lock,
     - この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
     - この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
 
-- (2) : 以下と同等の処理を行う
+- (2) : 以下と等価の処理を行う
 
 ```cpp
 while (!pred()) {

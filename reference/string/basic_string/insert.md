@@ -61,13 +61,13 @@ basic_string& insert(size_type pos1,
 	- `str.`[`size()`](size.md) `- pos2`と`n`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](size.md)`() - pos2` が使用される。
 	- `insert(pos1, str.`[`data()`](data.md) `+ pos2, rlen)`を呼び出す。
 - (3) : `*this`の`pos`番目に、文字配列`s`の先頭`n`文字を挿入する。
-- (4) : `insert(pos, s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`と同等の効果を持つ。
-- (5) : `insert(pos, basic_string(n, c))`と同等の効果を持つ。
+- (4) : `insert(pos, s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`と等価の効果を持つ。
+- (5) : `insert(pos, basic_string(n, c))`と等価の効果を持つ。
 - (6) : イテレータ`p`が指す要素の前に、文字`c`のコピーを挿入する。
 - (7) : イテレータ`p`が指す要素の前に、文字`c`のコピーを`n`個挿入する。
-- (8) : `insert(p -` [`begin()`](begin.md)`, basic_string(first, last))`と同等の効果を持つ。
+- (8) : `insert(p -` [`begin()`](begin.md)`, basic_string(first, last))`と等価の効果を持つ。
 - (9) : `insert(p, il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md)`, il.`[`end()`](/reference/initializer_list/initializer_list/end.md)`)`
-- (10) : `return insert(pos1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と同等の効果を持つ。
+- (10) : `return insert(pos1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と等価の効果を持つ。
 - (11) :
     - `sv.`[`size()`](/reference/string_view/basic_string_view/size.md) `- pos2`と`n`のうち小さい方を`rlen`とする
     - `insert(pos1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos2, rlen)` を呼び出す

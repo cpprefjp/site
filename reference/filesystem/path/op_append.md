@@ -15,7 +15,7 @@ namespace std::filesystem {
 
 
 ## 効果
-以下と同等の効果を持つ：
+以下と等価の効果を持つ：
 
 ```cpp
 return path(lhs) /= rhs;

@@ -63,7 +63,7 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 
 ### `nullptr_t`の出力
 
-- C++17 : 実装定義の出力文字列`s`を、`return operator<<(s)`として渡した場合と同等である。
+- C++17 : 実装定義の出力文字列`s`を、`return operator<<(s)`として渡した場合と等価である。
 
 
 ### ストリームバッファの非書式化出力

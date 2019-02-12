@@ -21,7 +21,7 @@ namespace std {
 
 ## 備考
 - 本関数は実軸の区間 `[-1, +1]` の外側を分岐截断とする。
-- 本関数は、C99 の規格にある `catanh`（より正確には `complex.h` ヘッダの `catanh`、`catanhf`、`catanhl` の 3 つ。それぞれ C++ の `atanh<double>`、`atanh<float>`、`atanh<long double>` に相当）と同等である。  
+- 本関数は、C99 の規格にある `catanh`（より正確には `complex.h` ヘッダの `catanh`、`catanhf`、`catanhl` の 3 つ。それぞれ C++ の `atanh<double>`、`atanh<float>`、`atanh<long double>` に相当）と等価である。  
 	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
 	- `atanh(`[`conj`](conj.md)`(x)) = ` [`conj`](conj.md)`(atanh(x))`で、また、`atanh` は奇関数（つまり、`atanh(-x) = -atanh(x)`）。
 	- `atanh(complex(+0, +0))` は `complex(+0, +0)` を返す。

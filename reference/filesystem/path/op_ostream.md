@@ -19,7 +19,7 @@ namespace std::filesystem {
 
 
 ## 戻り値
-以下と同等：
+以下と等価：
 
 ```cpp
 return os << quoted(p.string<CharT, Traits>());

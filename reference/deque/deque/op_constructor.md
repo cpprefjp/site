@@ -54,7 +54,7 @@ deque(initializer_list<T> il,
 - (7) : ムーブコンストラクタ。ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
 - (8) : コピーコンストラクタ。アロケータに `a` を使用して、`x` と同じ要素を保持した `deque` を構築する。
 - (9) : ムーブコンストラクタ。アロケータに `a` を使用して、ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
-- (10) : 初期化子リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と同等。
+- (10) : 初期化子リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と等価。
 
 
 ## 計算量
@@ -72,7 +72,7 @@ deque(initializer_list<T> il,
 
 
 ## 備考
-- イテレータ範囲コンストラクタ `template <class InputIterator> deque(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、C++03 までは `InputIterator` が整数型の場合には `deque(static_cast<typename deque::size_type>(first), static_cast<typename deque::value_type>(last), a)` と同等とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- イテレータ範囲コンストラクタ `template <class InputIterator> deque(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、C++03 までは `InputIterator` が整数型の場合には `deque(static_cast<typename deque::size_type>(first), static_cast<typename deque::value_type>(last), a)` と等価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、`explicit deque(size_type n, const T& value = T(), const Allocator& a = Allocator())` の引数 `value` に関するデフォルト引数が削除され、新たなコンストラクタ `explicit deque(size_type n)` が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`deque` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `deque` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
 

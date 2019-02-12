@@ -20,19 +20,19 @@ constexpr bool ends_with(const CharT* x) const;               // (3)
 
 
 ## 戻り値
-- (1) : 以下と同等である
+- (1) : 以下と等価である
     ```cpp
     return size() >= x.size() && compare(size() - x.size(), npos, x) == 0;
     ```
     * size()[link size.md]
     * compare[link compare.md]
 
-- (2) : 以下と同等である
+- (2) : 以下と等価である
     ```cpp
     return ends_with(basic_string_view(&x, 1));
     ```
 
-- (3) : 以下と同等である
+- (3) : 以下と等価である
     ```cpp
     return ends_with(basic_string_view(x));
     ```

@@ -14,7 +14,7 @@ fmtflags unsetf(fmtflags mask);
 
 
 ## 効果
-[`flags`](flags.md)`()` から引数 `mask` をクリアする。[`flags`](flags.md)`(`[`flags`](flags.md)`() & ~mask)` と同等。
+[`flags`](flags.md)`()` から引数 `mask` をクリアする。[`flags`](flags.md)`(`[`flags`](flags.md)`() & ~mask)` と等価。
 
 
 ## 戻り値
@@ -53,7 +53,7 @@ int main()
   std::cout.unsetf(std::ios_base::floatfield);
   std::cout << 123.456 << '\n';
 
-  // マニピュレータを使用して上記と同等の設定をした例
+  // マニピュレータを使用して上記と等価の設定をした例
   std::cout << std::boolalpha << true << '\n';
   std::cout << std::noboolalpha << true << '\n';
   std::cout << std::scientific << 123.456 << '\n';

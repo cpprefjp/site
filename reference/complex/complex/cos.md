@@ -20,7 +20,7 @@ namespace std {
 
 ## 備考
 - 規格には、上記の戻り値に記載されている以上の規定・説明は無い。  
-	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `ccos`、`ccosf`、`ccosl` の 3 つ。それぞれ C++ の `cos<double>`、`cos<float>`、`cos<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`cos(x) = ` [`cosh`](cosh.md)`(`*i* `x)` であると規定されている（*i* は虚数単位）。
+	なお、C99 の規格にある本関数と等価の関数群（`complex.h` ヘッダの `ccos`、`ccosf`、`ccosl` の 3 つ。それぞれ C++ の `cos<double>`、`cos<float>`、`cos<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、`cos(x) = ` [`cosh`](cosh.md)`(`*i* `x)` であると規定されている（*i* は虚数単位）。
 - 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
 - 余弦の算出については、一部の算術型、および、[`valarray`](/reference/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。
 

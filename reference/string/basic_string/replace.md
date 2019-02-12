@@ -98,7 +98,7 @@ basic_string& replace(const_iterator i1,
 - (9) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, basic_string(n, c))`を呼び出す。
 - (10) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, basic_string(j1, j2))`を呼び出す。
 - (11) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md)`, il.`[`size()`](/reference/initializer_list/initializer_list/size.md)`)`を呼び出す。
-- (12) : `return replace(pos1, n1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`);` と同等
+- (12) : `return replace(pos1, n1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`);` と等価
 - (13) :
     - `n2`と`sv.`[`size()`](/reference/string_view/basic_string_view/size.md) `- pos2`のうち小さい方を`rlen`とする。
     - `replace(pos1, n1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos2, rlen)` を呼び出す

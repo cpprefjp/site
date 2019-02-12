@@ -30,7 +30,7 @@ namespace std::execution {
 
 
 ### sequenced_policy / seq
-この逐次実行の実行ポリシーは、実行ポリシーを指定せずにアルゴリズムを実行することと同等である。
+この逐次実行の実行ポリシーは、実行ポリシーを指定せずにアルゴリズムを実行することと等価である。
 
 
 ### parallel_policy / par

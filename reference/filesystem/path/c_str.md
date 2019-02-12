@@ -14,7 +14,7 @@ const value_type* c_str() const noexcept;
 
 
 ## 戻り値
-[`native()`](native.md)`.`[`c_str()`](/reference/string/basic_string/c_str.md)と同等
+[`native()`](native.md)`.`[`c_str()`](/reference/string/basic_string/c_str.md)と等価
 
 
 ## 例

@@ -30,7 +30,7 @@ void assign(initializer_list<T>);                     // (3) C++11
 ## 効果
 - (1) : `[first, last)`の範囲の要素のコピーで`*this`の要素を置き換える。
 - (2) : `*this`の要素をすべて`n`個の`u`のコピーに置き換える。
-- (3) : `assign(il.begin(), il.end())`と同等。
+- (3) : `assign(il.begin(), il.end())`と等価。
 
 
 ## 戻り値

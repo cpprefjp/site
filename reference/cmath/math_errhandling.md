@@ -25,7 +25,7 @@
 	なお、その場合でも `math_errhandling` の値はプログラムの実行中は定数であり、実行中に変わる事はない。
 - `math_errhandling &` [`MATH_ERRNO`](math_errno.md) がゼロの場合に [`errno`](../cerrno/errno.md) がどのようになるかは C99 規格（C++11、C++14 の参照規格）では明記されていないが、C11 では `math_errhandling &` [`MATH_ERRNO`](math_errno.md) が非ゼロの場合と同様に設定するか、全く変更しないかのいずれかである事が明記されている。
 - エラーが発生しなかった場合に [`errno`](../cerrno/errno.md) がどのようになるかは C99 規格（C++11、C++14 の参照規格）では明記されていないが、C11 では `math_errhandling` の値によらず変更されない事が明記されている。
-- C99（C++11、C++14 の参照規格）では、処理系が ISO IEC 60559（IEEE 754 と同等）に準拠している場合、`math_errhandling &` [`MATH_ERREXCEPT`](math_errexcept.md) は非ゼロと規定されている。
+- C99（C++11、C++14 の参照規格）では、処理系が ISO IEC 60559（IEEE 754 と等価）に準拠している場合、`math_errhandling &` [`MATH_ERREXCEPT`](math_errexcept.md) は非ゼロと規定されている。
 
 
 ## 例

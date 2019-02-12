@@ -240,7 +240,7 @@ int main()
     X x = {1, 2, 3};
     ```
 
-    実装は以下と同等の初期化を行う (実装が用意した`std::initializer_list`クラスがポインタの組を受け取れると仮定する)：
+    実装は以下と等価の初期化を行う (実装が用意した`std::initializer_list`クラスがポインタの組を受け取れると仮定する)：
 
     ```cpp
     double __a[3] = {double{1}, double{2}, double{3}};

@@ -19,7 +19,7 @@ path& concat(InputIterator first, InputIterator last); // (2)
 
 ## 効果
 - (1) : `path(x).`[`native()`](native.md)を、`*this`が保持するパス文字列に加算する
-- (2) : `return *this += path(first, last)`と同等
+- (2) : `return *this += path(first, last)`と等価
 
 
 ## 戻り値

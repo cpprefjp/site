@@ -51,7 +51,7 @@ basic_string& assign(std::basic_string_view<charT, traits> sv,
 
 ## 効果
 - (1) : コピー代入。`str`オブジェクトと同じ文字列を構築する。
-    - `assign(str, 0, npos)`と同等。
+    - `assign(str, 0, npos)`と等価。
 - (2) : ムーブ代入。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
 - (3) : `str`オブジェクトの部分文字列のコピーから構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
     - 文字列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
@@ -60,13 +60,13 @@ basic_string& assign(std::basic_string_view<charT, traits> sv,
 - (5) : 文字配列`s`のコピーから構築する。
     - `assign(s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`を呼び出す。
 - (6) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
-    - `assign(basic_string(n, c))`と同等。
+    - `assign(basic_string(n, c))`と等価。
 - (7) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
-    - `assign(basic_string(first, last))`と同等。
+    - `assign(basic_string(first, last))`と等価。
 - (8) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
     - `assign(il.begin(), il.end())`を呼び出す。
 - (9) : `std::basic_string_view`オブジェクトが参照する範囲をコピーして、`basic_string`オブジェクトを構築する。
-    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と同等。
+    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と等価。
 - (10) : `std::basic_string_view`オブジェクトが参照する文字列を範囲指定でコピーして、`basic_string`オブジェクトを構築する。
     - 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
     - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。

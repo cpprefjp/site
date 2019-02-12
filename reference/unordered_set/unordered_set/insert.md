@@ -53,8 +53,8 @@ void insert(initializer_list<value_type> il);                  // (4)
 - (1) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
 - (2) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-- (3) : 範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と同等である。
-- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等である。
+- (3) : 範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
+- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価である。
 
 
 ## 戻り値
@@ -74,7 +74,7 @@ void insert(initializer_list<value_type> il);                  // (4)
 - (1) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (2) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (3) : 平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
-- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と同等。
+- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価。
 
 
 ## 備考

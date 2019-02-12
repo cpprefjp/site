@@ -28,7 +28,7 @@ namespace std {
 
 
 ## 効果
-以下と同等：
+以下と等価：
 
 ```cpp
 for (; first != last; ++result, ++first)

@@ -22,7 +22,7 @@ const_reference front() const;
 
 
 ## 備考
-式 `*begin()` と同等の効果となる。
+式 `*begin()` と等価の効果となる。
 
 
 ## 例

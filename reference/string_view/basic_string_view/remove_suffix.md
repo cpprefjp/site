@@ -18,7 +18,7 @@ constexpr void remove_suffix(size_type n);
 
 
 ## 効果
-メンバ変数として、参照する文字配列の文字数`size_type size_`があるものとして、以下と同等：
+メンバ変数として、参照する文字配列の文字数`size_type size_`があるものとして、以下と等価：
 
 ```cpp
 size_ -= n;

@@ -54,7 +54,7 @@ basic_regex(initializer_list<charT> il,
     文字列 `p` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md) を投げる。
 - (7) 引数 `f` で指定されたフラグに従って、範囲 `[first, last)` で指定された文字列から `basic_regex` オブジェクトを構築する。  
     文字列 `[first, last)` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md) を投げる。
-- (8) `basic_regex(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), f)` と同等。
+- (8) `basic_regex(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), f)` と等価。
 
 
 ## 事後条件

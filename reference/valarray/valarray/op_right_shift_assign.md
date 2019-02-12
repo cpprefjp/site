@@ -17,7 +17,7 @@ valarray<T>& operator>>=(const T& x);            // (2)
 
 
 ## 効果
-- (1) : 以下のコードと同等のことを行う：
+- (1) : 以下のコードと等価のことを行う：
 
 ```cpp
 for (std::size_t i = 0; i < size(); ++i) {
@@ -26,7 +26,7 @@ for (std::size_t i = 0; i < size(); ++i) {
 ```
 * size()[link size.md]
 
-- (2) : 以下のコードと同等のことを行う：
+- (2) : 以下のコードと等価のことを行う：
 
 ```cpp
 for (std::size_t i = 0; i < size(); ++i) {

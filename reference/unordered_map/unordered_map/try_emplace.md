@@ -21,8 +21,8 @@ iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);        
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-引数 `k` と同等のキーを持つ要素が存在しない場合、コンテナに新しい要素を挿入する。要素は引数からコンテナ内に直接構築されるため、構築されたオブジェクトはコピーもムーブもされない。  
-なお、本メンバ関数は [`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) 等と異なり、引数 `k` と同等のキーを持つ要素が既に存在する場合には、`k` や `args` がムーブされてしまうことはない。
+引数 `k` と等価のキーを持つ要素が存在しない場合、コンテナに新しい要素を挿入する。要素は引数からコンテナ内に直接構築されるため、構築されたオブジェクトはコピーもムーブもされない。  
+なお、本メンバ関数は [`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) 等と異なり、引数 `k` と等価のキーを持つ要素が既に存在する場合には、`k` や `args` がムーブされてしまうことはない。
 
 引数 `hint` は、`k` を検索する際のヒントに使用される。（が、実際に使用されることはないものと思われる。[`emplace_hint`](emplace_hint.md) の備考を参照）
 
@@ -43,10 +43,10 @@ iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);        
 
 - (1)、(2) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
     - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
-    - 挿入されなかった場合には、`first` に `k` と同等のキーを持つ既存の要素へのイテレータ、`second` に `false` が設定される。
+    - 挿入されなかった場合には、`first` に `k` と等価のキーを持つ既存の要素へのイテレータ、`second` に `false` が設定される。
 - (3)、(4) :
     - 挿入された場合には、挿入された要素へのイテレータを返す。
-    - 挿入されなかった場合には、`k` と同等のキーを持つ既存の要素へのイテレータを返す。
+    - 挿入されなかった場合には、`k` と等価のキーを持つ既存の要素へのイテレータを返す。
 
 
 ## 計算量
@@ -55,12 +55,12 @@ iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);        
 
 
 ## 備考
-- 概要に記載されているように、本メンバ関数は指定されたキーと同等の要素が既に存在する場合には、引数に副作用が発生しない。  
+- 概要に記載されているように、本メンバ関数は指定されたキーと等価の要素が既に存在する場合には、引数に副作用が発生しない。  
     一方、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md)、[`insert`](insert.md) にはそのような規定は無く、挿入がされなかった場合でも引数に副作用（引数からのムーブ）が発生してしまう可能性があるため、注意が必要である。
 
-- 規格にはこの関数の例外安全性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) と同等と考えて問題ないと思われる。
+- 規格にはこの関数の例外安全性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) と等価と考えて問題ないと思われる。
 
-- 規格にはこの関数が呼ばれた後のイテレータや要素へのポインタ・参照の有効性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) と同等と考えて問題ないと思われる。
+- 規格にはこの関数が呼ばれた後のイテレータや要素へのポインタ・参照の有効性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) と等価と考えて問題ないと思われる。
 
 - このメンバ関数の[`機能テストマクロ`](/lang/cpp17/feature_test_macros.md)は以下の通り。
 

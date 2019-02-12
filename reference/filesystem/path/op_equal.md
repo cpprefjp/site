@@ -21,7 +21,7 @@ return !(lhs < rhs) && !(rhs < lhs);
 
 
 ## 備考
-`lhs.`[`compare`](compare.md)`(rhs) == 0`と同等
+`lhs.`[`compare`](compare.md)`(rhs) == 0`と等価
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
   assert(!(a == b));
 
   // 正規化は考慮されない。
-  // ファイルシステムとしてのパスの同等性ではなく、
+  // ファイルシステムとしてのパスの等価性ではなく、
   // パス文字列の同値性が比較されれる
   fs::path c = "a/../b/c";
   assert(!(a == c));

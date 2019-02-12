@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 効果
-以下の式と同等の効果をもつ：
+以下の式と等価の効果をもつ：
 
 ```cpp
 return IntType(b);

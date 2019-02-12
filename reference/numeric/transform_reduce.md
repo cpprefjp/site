@@ -92,7 +92,7 @@ namespace std{
 
 
 ## 効果
-- (1) : 以下と同等
+- (1) : 以下と等価
     ```cpp
     return transform_reduce(first1, last1, first2, init, plus<>(), multiplies<>);
     ```
@@ -103,7 +103,7 @@ namespace std{
 
 - (3), (6) : 範囲`[first, last)`について、リスト`[init, unary_op(*first), unary_op(*(first + 1)), unary_op(*(first + 2)), ... unary_op(*(first + (last - first - 1)))]`を任意の部分リストへ分割し、各部分リストの要素を順不同に`binary_op(a, b)`を実行していき、それを実行していった結果同士も順不同に`binary_op(sum1, sum2)`のように集計して返す
 
-- (4) : 以下と同等
+- (4) : 以下と等価
     ```cpp
     return transform_reduce(std::forward<ExecutionPolicy>(exec),
                             first1, last1, first2, init, plus<>(), multiplies<>());

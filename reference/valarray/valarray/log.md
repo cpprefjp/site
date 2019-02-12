@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 戻り値
-以下のコードと同等のことを行う：
+以下のコードと等価のことを行う：
 
 ```cpp
 return va.apply(static_cast<T(*)(T)>(std::log));

@@ -24,7 +24,7 @@ namespace std {
 
 この関数は、パラメータ`x`の値をパラメータ`y`の値の方向に対して、その環境で表現可能な最小の値だけ進める。
 
-この関数はパラメータ`y`の型が`long double`固定であることを除いて、[`std::nextafter()`](nextafter.md)関数と同等である。
+この関数はパラメータ`y`の型が`long double`固定であることを除いて、[`std::nextafter()`](nextafter.md)関数と等価である。
 
 
 ## 戻り値

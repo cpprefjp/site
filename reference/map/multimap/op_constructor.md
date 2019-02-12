@@ -51,7 +51,7 @@ multimap(initializer_list<value_type> init,
 
 
 ## 効果
-- (1) デフォルトコンストラクタ。空の `multimap` オブジェクトを構築する。`multimap(Compare())` と同等。（C++14 から）
+- (1) デフォルトコンストラクタ。空の `multimap` オブジェクトを構築する。`multimap(Compare())` と等価。（C++14 から）
 - (2) 比較オブジェクト `comp` とアロケータ `alloc` で空の `multimap` オブジェクトを構築する。（C++14 から）
 - (1) + (2) デフォルトコンストラクタ。比較オブジェクト `comp` とアロケータ `alloc` で空の `multimap` オブジェクトを構築する。（C++11 まで）
 - (3) アロケータ `alloc` で空の `multimap` オブジェクトを構築する。（C++11 から）
@@ -61,8 +61,8 @@ multimap(initializer_list<value_type> init,
 - (7) アロケータ `alloc` を指定したコピーコンストラクタ。`x` の要素のコピーで `multimap` オブジェクトを構築する。（C++11 から）
 - (8) ムーブコンストラクタ。`y` の要素をムーブすることで `multimap` オブジェクトを構築する。アロケータは `y` に属しているアロケータをムーブして取得する。（C++11 から）
 - (9) アロケータ `alloc` を指定したムーブコンストラクタ。`y` の要素をムーブすることでコンテナを構築する。（C++11 から）
-- (10) 比較オブジェクト `comp`、アロケータ `alloc`、および初期化リスト `init` の要素で `multimap` オブジェクトを構築する。`multimap(init.`[`begin`](../../initializer_list/initializer_list/begin.md)`, init.`[`end`](../../initializer_list/initializer_list/end.md)`, comp, alloc)` と同等。（C++11 から）
-- (11) アロケータ `alloc`、および初期化リスト `init` の要素で `multimap` オブジェクトを構築する。`multimap(init, Compare(), alloc)` と同等。（C++14 から）
+- (10) 比較オブジェクト `comp`、アロケータ `alloc`、および初期化リスト `init` の要素で `multimap` オブジェクトを構築する。`multimap(init.`[`begin`](../../initializer_list/initializer_list/begin.md)`, init.`[`end`](../../initializer_list/initializer_list/end.md)`, comp, alloc)` と等価。（C++11 から）
+- (11) アロケータ `alloc`、および初期化リスト `init` の要素で `multimap` オブジェクトを構築する。`multimap(init, Compare(), alloc)` と等価。（C++14 から）
 
 
 ## 計算量

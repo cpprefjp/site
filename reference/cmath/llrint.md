@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 備考
-- 本関数は、C99 の規格にある `llrint`（より正確には `math.h` ヘッダの `llrint`、`llrintf`、`llrintl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
+- 本関数は、C99 の規格にある `llrint`（より正確には `math.h` ヘッダの `llrint`、`llrintf`、`llrintl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と等価である。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- 丸めの結果が `long long` で表現不可能な場合、無効演算の浮動小数点例外（[`FE_INVALID`](../cfenv/fe_invalid.md)）が発生する。
 	- 他の例外が発生しておらず、引数 `x` が戻り値と異なってる場合、不正確結果の浮動小数点例外（[`FE_INEXACT`](../cfenv/fe_inexact.md)）が発生する。

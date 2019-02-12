@@ -29,7 +29,7 @@ namespace std {
 
 
 ## 備考
-- 本関数は、C99 の規格にある `round`（より正確には `math.h` ヘッダの `round`、`roundf`、`roundl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と同等である。
+- 本関数は、C99 の規格にある `round`（より正確には `math.h` ヘッダの `round`、`roundf`、`roundl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と等価である。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = ±0` の場合、`±0` を返す。
 	- `x = ±∞` の場合、`±∞` を返す。

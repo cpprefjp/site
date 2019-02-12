@@ -47,21 +47,21 @@ void insert(initializer_list<value_type> init);                // (6) C++11か�
 
 
 ## 効果
-- (1) : `x`を`*this`の要素としてコピー挿入する。ただし、`x`のキーと同等のキーを持つ要素が`*this`に存在する場合には、挿入されない。
-- (2) : [`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(x))`と同等。
-- (3) : `x`を`*this`の要素としてコピー挿入する。ただし、`x`のキーと同等のキーを持つ要素が`*this`に存在する場合には、挿入されない。可能であれば、挿入位置のヒントを表すイテレータ`position`のすぐ前に挿入する。
-- (4) : [`emplace_hint`](emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と同等。
-- (5) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。ただし、`*this`にすでに存在するキーと同等なキーを持つ要素については、挿入されない。
-- (6) : `insert(init.begin(), init.end())`と同等。
+- (1) : `x`を`*this`の要素としてコピー挿入する。ただし、`x`のキーと等価のキーを持つ要素が`*this`に存在する場合には、挿入されない。
+- (2) : [`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
+- (3) : `x`を`*this`の要素としてコピー挿入する。ただし、`x`のキーと等価のキーを持つ要素が`*this`に存在する場合には、挿入されない。可能であれば、挿入位置のヒントを表すイテレータ`position`のすぐ前に挿入する。
+- (4) : [`emplace_hint`](emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
+- (5) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。ただし、`*this`にすでに存在するキーと等価なキーを持つ要素については、挿入されない。
+- (6) : `insert(init.begin(), init.end())`と等価。
 
 
 ## 戻り値
 - (1), (2) : 戻り値としては、イテレータと`bool`値の組を返す。
     - 挿入された場合には、`first` に挿入された要素へのイテレータ、 `second` に `true` が設定される。
-    - 挿入されなかった場合には、 `first` に `x` と同等のキーを持つ要素へのイテレータ、 `second` に `false` が設定される。
+    - 挿入されなかった場合には、 `first` に `x` と等価のキーを持つ要素へのイテレータ、 `second` に `false` が設定される。
 - (3), (4) :
     - 挿入された場合には、新しく挿入された要素を指すイテレータを返す。
-    - 挿入されなかった場合には、`x`のキーと同等のキーを持つ要素へのイテレータを返す。
+    - 挿入されなかった場合には、`x`のキーと等価のキーを持つ要素へのイテレータを返す。
 
 
 ## 計算量

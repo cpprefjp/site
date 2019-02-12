@@ -37,7 +37,7 @@ int main()
   std::cout << std::setprecision(LDBL_DIG);
   std::cout << LDBL_MIN << '\n';
 
-  // 以下の式と同等
+  // 以下の式と等価
   std::cout << std::pow((long double)FLT_RADIX, LDBL_MIN_EXP - 1) << '\n';
 }
 ```

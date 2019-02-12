@@ -48,7 +48,7 @@ insert_after(before_begin(), n, t);
 * before_begin()[link before_begin.md]
 
 
-- (3) : 以下と同等
+- (3) : 以下と等価
 
 ```cpp
 assign(init.begin(), init.end());

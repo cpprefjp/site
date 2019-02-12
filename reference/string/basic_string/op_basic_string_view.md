@@ -14,7 +14,7 @@ operator basic_string_view<charT, traits>() const noexcept;
 
 
 ## 戻り値
-以下と同等：
+以下と等価：
 
 ```cpp
 return std::basic_string_view<charT, traits>(data(), size());

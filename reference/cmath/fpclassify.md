@@ -37,7 +37,7 @@ namespace std {
 
 
 ## 備考
-本関数は、C 言語の `fpclassify` マクロと同等の機能を持つ。
+本関数は、C 言語の `fpclassify` マクロと等価の機能を持つ。
 
 
 ## 例

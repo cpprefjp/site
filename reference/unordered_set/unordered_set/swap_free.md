@@ -17,7 +17,7 @@ namespace std {
 
 
 ## 効果
-`x.`[`swap`](swap.md)`(y)` と同等。
+`x.`[`swap`](swap.md)`(y)` と等価。
 
 
 ## 戻り値

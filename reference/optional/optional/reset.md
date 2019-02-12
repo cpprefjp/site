@@ -24,7 +24,7 @@ void reset() noexcept;
 ## 備考
 この関数は、スマートポインタとの統一インタフェースのためにある (例として、[`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスに[`reset()`](/reference/memory/shared_ptr/reset.md)メンバ関数がある)。
 
-効果としては、`std::optional`クラスのオブジェクトに[`std::nullopt`](/reference/optional/nullopt_t.md)を代入することと、同等である。
+効果としては、`std::optional`クラスのオブジェクトに[`std::nullopt`](/reference/optional/nullopt_t.md)を代入することと、等価である。
 
 
 ## 例

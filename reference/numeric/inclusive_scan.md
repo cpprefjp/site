@@ -91,7 +91,7 @@ namespace std{
 
 
 ## 効果
-- (1) : 以下と同等
+- (1) : 以下と等価
     ```cpp
     return inclusive_scan(first, last, result, plus<>());
     ```
@@ -101,7 +101,7 @@ namespace std{
 
 - (3), (6) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、初期値を`init`として`{*first, *(first + 1), *(first + 2), ..., *(last - 1)}`の`K`番目までの要素の合計値を順不同に代入する
 
-- (4) : 以下と同等
+- (4) : 以下と等価
     ```cpp
     return inclusive_scan(std::forward<ExecutionPolicy>(exec),
                           first, last, result, plus<>());

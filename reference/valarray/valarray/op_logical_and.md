@@ -31,7 +31,7 @@ namespace std {
 
 ## 戻り値
 
-- (1) : 以下のコードと同等のことを行う：
+- (1) : 以下のコードと等価のことを行う：
 
 ```cpp
 valarray<bool> result(xs.size());
@@ -43,7 +43,7 @@ return result;
 * size()[link size.md]
 
 
-- (2) : 以下のコードと同等のことを行う：
+- (2) : 以下のコードと等価のことを行う：
 
 ```cpp
 valarray<bool> result(xs.size());
@@ -55,7 +55,7 @@ return result;
 * size()[link size.md]
 
 
-- (3) : 以下のコードと同等のことを行う：
+- (3) : 以下のコードと等価のことを行う：
 
 ```cpp
 valarray<bool> result(ys.size());

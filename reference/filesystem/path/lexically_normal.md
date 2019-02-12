@@ -42,7 +42,7 @@ int main()
   assert(fs::path("foo/./bar/..").lexically_normal().generic_string() == "foo/");
 
   // ひとつ前の例とほぼ同じだが、 ./// のようにディレクトリ区切り文字がいくつあっても、
-  // ひとつと同等の意味を持つため、まとめて削除される
+  // ひとつと等価の意味を持つため、まとめて削除される
   assert(fs::path("foo/.///bar/../").lexically_normal().generic_string() == "foo/");
 
   // (ファイルシステムを介することのない) 文字列だけでは親ディレクトリを解決できないため、

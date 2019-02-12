@@ -24,7 +24,7 @@ namespace std {
 
 ## 戻り値
 `x` がゼロの場合は [`FP_ILOGB0`](fp_ilogb0.md) を、無限大の場合は [`INT_MAX`](/reference/climits/int_max.md) を、`NaN` の場合は [`FP_ILOGBNAN`](fp_ilogbnan.md) を返す。
-それ以外の場合は、[`logb`](logb.md)`(x)` の戻り値を `int` にキャストして返すことと同等。
+それ以外の場合は、[`logb`](logb.md)`(x)` の戻り値を `int` にキャストして返すことと等価。
 
 `x` がゼロ、無限大、あるいは `NaN` の場合には、処理系によっては定義域エラーか極エラーが発生する。（備考参照）
 

@@ -122,19 +122,19 @@ unordered_multimap(initializer_list<value_type> il,
     [`max_load_factor`](max_load_factor.md)`()` の値は `rv` からコピーされる。
     なお、`a == rv.`[`get_allocator`](get_allocator.md)`()` の場合、要素のムーブは個々に行われるのではなく、`unordered_multimap` 内部の構造ごと一括でムーブされるが、そうでない場合は要素ごとにムーブされる。
 
-- (9) : (3) の形式を `unordered_multimap(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と同等である。
+- (9) : (3) の形式を `unordered_multimap(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と等価である。
 
-- (10) : (2) の形式を `unordered_multimap(n, hasher(), key_equal(), a)` として呼び出した場合と同等である。
+- (10) : (2) の形式を `unordered_multimap(n, hasher(), key_equal(), a)` として呼び出した場合と等価である。
 
-- (11) : (2) の形式を `unordered_multimap(n, hf, key_equal(), a)` として呼び出した場合と同等である。
+- (11) : (2) の形式を `unordered_multimap(n, hf, key_equal(), a)` として呼び出した場合と等価である。
 
-- (12) : (3) の形式を `unordered_multimap(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と同等である。
+- (12) : (3) の形式を `unordered_multimap(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と等価である。
 
-- (13) : (3) の形式を `unordered_multimap(f, l, n, hf, key_equal(), a)` として呼び出した場合と同等である。
+- (13) : (3) の形式を `unordered_multimap(f, l, n, hf, key_equal(), a)` として呼び出した場合と等価である。
 
-- (14) : (5) の形式を `unordered_multimap(il, n, hasher(), key_equal(), a)` として呼び出した場合と同等である。
+- (14) : (5) の形式を `unordered_multimap(il, n, hasher(), key_equal(), a)` として呼び出した場合と等価である。
 
-- (15) : (5) の形式を `unordered_multimap(il, n, hf, key_equal(), a)` として呼び出した場合と同等である。
+- (15) : (5) の形式を `unordered_multimap(il, n, hf, key_equal(), a)` として呼び出した場合と等価である。
 
 
 ## 事後条件
@@ -187,13 +187,13 @@ unordered_multimap(initializer_list<value_type> il,
 - (7) : O(`v.`[`size`](size.md)`()`)
 - (8) : `a == rv.`[`get_allocator`](get_allocator.md)`()` の場合、定数。
     そうでない場合、O(`rv.`[`size`](size.md)`()`)。
-- (9) : (3)の形式を `unordered_multimap(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と同等。
-- (10) : (2) の形式を `unordered_multimap(n, hasher(), key_equal(), a)` として呼び出した場合と同等。
-- (11) : (2) の形式を `unordered_multimap(n, hf, key_equal(), a)` として呼び出した場合と同等。
-- (12) : (3) の形式を `unordered_multimap(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と同等。
-- (13) : (3) の形式を `unordered_multimap(f, l, n, hf, key_equal(), a)` として呼び出した場合と同等。
-- (14) : (5) の形式を `unordered_multimap(il, n, hasher(), key_equal(), a)` として呼び出した場合と同等。
-- (15) : (5) の形式を `unordered_multimap(il, n, hf, key_equal(), a)` として呼び出した場合と同等。
+- (9) : (3)の形式を `unordered_multimap(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と等価。
+- (10) : (2) の形式を `unordered_multimap(n, hasher(), key_equal(), a)` として呼び出した場合と等価。
+- (11) : (2) の形式を `unordered_multimap(n, hf, key_equal(), a)` として呼び出した場合と等価。
+- (12) : (3) の形式を `unordered_multimap(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と等価。
+- (13) : (3) の形式を `unordered_multimap(f, l, n, hf, key_equal(), a)` として呼び出した場合と等価。
+- (14) : (5) の形式を `unordered_multimap(il, n, hasher(), key_equal(), a)` として呼び出した場合と等価。
+- (15) : (5) の形式を `unordered_multimap(il, n, hf, key_equal(), a)` として呼び出した場合と等価。
 
 
 ## 備考

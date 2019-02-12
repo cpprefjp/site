@@ -44,12 +44,12 @@ basic_regex& assign(initializer_list<charT> il,
 ## 効果
 - (1) `that` を `*this` にコピーする。
 - (2) `that` を `*this` にムーブ代入する。
-- (3) `assign(string_type(ptr), f)` と同等。
-- (4) `assign(string_type(ptr, len), f)` と同等。
+- (3) `assign(string_type(ptr), f)` と等価。
+- (4) `assign(string_type(ptr, len), f)` と等価。
 - (5) 引数 `f` で指定されたフラグに従って、文字列 `p` で指定された正規表現を `*this` に代入する。文字列 `p` が有効な正規表現で無い場合には、例外 [`regex_error`](../regex_error.md) を投げる。  
     例外が投げられた場合、`*this` は変更されない。
-- (6) `assign(string_type(first, last), f)` と同等。
-- (7) `assign(il.begin(), il.end(), f)` と同等。
+- (6) `assign(string_type(first, last), f)` と等価。
+- (7) `assign(il.begin(), il.end(), f)` と等価。
 
 
 ## 事後条件

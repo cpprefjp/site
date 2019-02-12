@@ -37,10 +37,10 @@ int main()
 {
   std::cout << LDBL_MIN_10_EXP << '\n';
 
-  // 以下の式と同等
+  // 以下の式と等価
   std::cout << std::ceil(std::log10(LDBL_MIN)) << '\n';
 
-  // 以下の式とも同等
+  // 以下の式とも等価
   std::cout << std::ceil(std::log10(std::pow((long double)FLT_RADIX, LDBL_MIN_EXP - 1))) << '\n';
 }
 ```

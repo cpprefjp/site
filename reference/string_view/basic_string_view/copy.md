@@ -20,7 +20,7 @@ size_type copy(CharT* s, size_type n, size_type pos = 0) const;
 
 
 ## 効果
-以下と同等の処理を行う：
+以下と等価の処理を行う：
 
 ```cpp
 Traits::copy(s, data() + pos, rlen);

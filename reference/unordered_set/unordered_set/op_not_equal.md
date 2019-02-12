@@ -25,7 +25,7 @@ namespace std {
 
 
 ## 戻り値
-`!(a` [`==`](op_equal.md) `b)` と同等
+`!(a` [`==`](op_equal.md) `b)` と等価
 
 
 ## 計算量

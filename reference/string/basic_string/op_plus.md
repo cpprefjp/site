@@ -77,7 +77,7 @@ basic_string<charT, traits, Allocator>
 - (3) `std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, lhs))`
 
 - (4) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(rhs))`  
-	(`std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, lhs))` とも同等)
+	(`std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, lhs))` とも等価)
 
 - (5) [`basic_string`](op_constructor.md)`<charT, traits, Allocator>(lhs) + rhs`  
 

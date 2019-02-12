@@ -25,7 +25,7 @@ path& operator/=(const Source& source); // (2)
         2. `p`がルートディレクトリを持っておらず、絶対パスである、もしくはファイル名を持っている場合、環境推奨のディレクトリ区切り文字を`*this`に追加する
         3. [ルート名](root_name.md)を除いた`p`を`*this`に追加する
 - (2) :
-    - `return operator/=(path(source))`と同等
+    - `return operator/=(path(source))`と等価
 
 
 ## 戻り値

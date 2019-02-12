@@ -37,10 +37,10 @@ int main()
 {
   std::cout << LDBL_MAX_10_EXP << '\n';
 
-  // 以下の式と同等
+  // 以下の式と等価
   std::cout << std::floor(std::log10(LDBL_MAX)) << '\n';
 
-  // 以下の式とも同等（std::pow((long double)FLT_RADIX, LDBL_MAX_EXP) は long double の最大値を超えてしまうため、式を調整してある）
+  // 以下の式とも等価（std::pow((long double)FLT_RADIX, LDBL_MAX_EXP) は long double の最大値を超えてしまうため、式を調整してある）
   std::cout << std::floor(std::log10((1 - std::pow((long double)FLT_RADIX, -LDBL_MANT_DIG)) * std::pow((long double)FLT_RADIX, LDBL_MAX_EXP - 1) * FLT_RADIX)) << '\n';
 
   std::cout << std::boolalpha;

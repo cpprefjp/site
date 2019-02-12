@@ -20,18 +20,18 @@ constexpr bool starts_with(const CharT* x) const;               // (3)
 
 
 ## 戻り値
-- (1) : 以下と同等である
+- (1) : 以下と等価である
     ```cpp
     return compare(0, npos, x) == 0;
     ```
     * compare[link compare.md]
 
-- (2) : 以下と同等である
+- (2) : 以下と等価である
     ```cpp
     return starts_with(basic_string_view(&x, 1));
     ```
 
-- (3) : 以下と同等である
+- (3) : 以下と等価である
     ```cpp
     return starts_with(basic_string_view(x));
     ```

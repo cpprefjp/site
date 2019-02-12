@@ -21,7 +21,7 @@ namespace std {
 ## 備考
 - 分岐截断は負の実軸に沿っている。
 - 規格には、上記の戻り値の記載、および、分岐截断以外の規定・説明は無い。  
-	なお、C99 の規格にある本関数と同等の関数群（`complex.h` ヘッダの `csqrt`、`csqrtf`、`csqrtl` の 3 つ。それぞれ C++ の `sqrt<double>`、`sqrt<float>`、`sqrt<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
+	なお、C99 の規格にある本関数と等価の関数群（`complex.h` ヘッダの `csqrt`、`csqrtf`、`csqrtl` の 3 つ。それぞれ C++ の `sqrt<double>`、`sqrt<float>`、`sqrt<long double>` に相当）では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
 	- `sqrt(`[`conj`](conj.md)`(x)) =` [`conj`](conj.md)`(sqrt(x))` 。
 	- `sqrt(complex(±0, +0))` は `complex(+0, +0)` を返す。
 	- （`NaN` も含む）あらゆる `x` に対して、`sqrt(complex(x, +∞))` は `complex(+∞, +∞)` を返す。

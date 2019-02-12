@@ -20,7 +20,7 @@ bool ends_with(const charT* x) const;                                   // (3)
 
 
 ## 戻り値
-以下と同等である：
+以下と等価である：
 
 ```cpp
 return std::basic_string_view<CharT, Traits>(data(), size()).ends_with(x);
