@@ -8,7 +8,7 @@
 namespace std {
   template <class T>
   struct is_swappable;
-  
+
   template <class T>
   inline constexpr bool is_swappable_v = std::is_swappable<T>::value;
 }

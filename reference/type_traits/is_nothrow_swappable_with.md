@@ -8,7 +8,7 @@
 namespace std {
   template <class T, class U>
   struct is_nothrow_swappable_with;
-  
+
   template <class T, class U>
   inline constexpr bool is_nothrow_swappable_with_v = std::is_nothrow_swappable_with<T, U>::value;
 }

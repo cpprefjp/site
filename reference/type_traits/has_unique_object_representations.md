@@ -8,7 +8,7 @@
 namespace std {
   template <class T>
   struct has_unique_object_representations;
-  
+
   template <class T>
   inline constexpr bool has_unique_object_representations_v = std::has_unique_object_representations<T>::value;
 }
