@@ -64,7 +64,10 @@ C++11以降対応についてはC++11と明記します。バージョン表記�
 | effects                            | 効果                         |
 | emplace                            | 直接構築                     |
 | empty                              | 空                           |
-| equivalence relation               | 等価関係                     |
+| equal                              | 等値                         |
+| equivalence class                  | 同値分類 (数学的文脈)        |
+| equivalence relation               | 同値関係 (数学的文脈)        |
+| equivalent                         | 同値 (数学的文脈)、等価 (その他文脈) |
 | forward iterator                   | 前方向イテレータ             |
 | fundamental type                   | 単純型                       |
 | ill-formed                         | 不適格                       |
