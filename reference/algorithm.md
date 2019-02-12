@@ -136,9 +136,11 @@ return distance(a, b);
 
   これらの前提のもと、以下を示すことができる。
 
-  - `equiv` は等価関係 (equivalence relation) である
-  - `comp` は `equiv` によって決まる同値類の間での明確な関係を示す
+  - `equiv` は同値関係 (equivalence relation) である
+  - `comp` は `equiv` によって決まる同値類 (equivalence class) の間での明確な関係を示す
   - その示される関係は狭義の全順序 (strict total ordering) である
+
+数学用語の日本語訳として "equivalence relation" には「同値関係」 "equivalence class" には「同値類」が定着しており、同じく数学的な文脈では上記 `equiv` を満たす２つの値を「同値」 (equivalent) であると言う。しかし特に数学的でない文脈で「同値」と言った場合は `operator==` による "equal" の関係と誤解される可能性が高いと考えられるため、本サイトでは上記 `equiv` による "equivalent" の関係を「等価」 `operator==` による "equal" の関係を「等値」として区別する。
 
 <a id="sequence-is-sorted"></a>
 あるシーケンスを指す任意のイテレータ `i` と、`i + n` がそのシーケンス上の要素を指す有効なイテレータであるような任意の非負整数 `n` について、`comp(*(i + n), *i) == false` であれば、そのシーケンスは比較関数 (comparator) `comp` によってソートされているという。  
@@ -153,8 +155,8 @@ return distance(a, b);
   これにより、例えばソートされていない整数列 `[5, 1, 25, 13, 17]` に対しても `10` をキーとして [`lower_bound()`](algorithm/lower_bound.md) を用いることにより `10` より小さい範囲の境界を取り出すことが可能になっている。しかし `15` をキーとすることは不正である。  
   ただ、 C++03 の要件に合わない（特にソートされていない範囲に対する）二分探索を行いたい場合は、同じく C++11 で追加された [`partition_point()`](algorithm/partition_point.md) の使用も検討したほうがよい。  
 
-順序関係を扱う関数の説明において、この節では安定性 (stability) のようなコンセプトを説明するために等価性 (equivalence) の概念を頻繁に使う。  
-この節で参照する等価性は必ずしも `operator==` ではなく、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)によって示される等価関係である。つまりそれは、２つの要素 `a` と `b` は `!(a < b) && !(b < a)` の時かつその時に限り等価とみなされるということである。  
+順序関係を扱う関数の説明において、この節では安定性 (stability) のようなコンセプトを説明するために同値性 (equivalence) の概念を頻繁に使う。  
+この節で参照する同値性は必ずしも `operator==` ではなく、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)によって示される同値関係である。つまりそれは、２つの要素 `a` と `b` は `!(a < b) && !(b < a)` の時かつその時に限り同値とみなされるということである。  
 
 
 ### ソート

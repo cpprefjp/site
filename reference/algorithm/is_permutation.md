@@ -62,7 +62,7 @@ namespace std {
 
 ## 要件
 - `decltype(*first1)` と `decltype(*first2)` の型が同じであること。
-- `BinaryPredicate` は等価関係を持っていること。
+- `BinaryPredicate` は同値関係を持っていること。
 
 
 ## 戻り値
