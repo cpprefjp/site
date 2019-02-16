@@ -62,7 +62,7 @@ basic_string& append(std::basic_string_view<charT, traits> sv,
     * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s))` と等価。
     * C++11 から：`append(s, traits_type::length(s))` と等価。
 
-- (5) 対象オブジェクトの末尾に、文字 `c` が `n` 文字が追加（コピー）される。
+- (5) 対象オブジェクトの末尾に、文字 `c` が `n` 文字追加（コピー）される。
     * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と等価。
 
 - (6) 対象オブジェクトの末尾に、範囲 `[first, last)` の文字列が追加（コピー）される。
