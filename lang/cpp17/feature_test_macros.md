@@ -15,7 +15,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_bool_constant`                    | `201505` | [`std::bool_constant`](/reference/type_traits/bool_constant.md) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_chrono`                           | `201510` | [`<chrono>`](/reference/chrono.md) の改良 | [`<chrono>`](/reference/chrono.md) |
 | `__cpp_lib_incomplete_container_elements`    | `201505` | 標準コンテナについて不完全型を最小限サポート | headers ([`<forward_list>`](/reference/forward_list.md), [`<list>`](/reference/list.md), [`<vector>`](/reference/vector.md)) |
-| `__cpp_lib_invoke`                           | `201411` | [`std::invoke`](/reference/functional/invoke.md.nolink) | [`<functional>`](/reference/functional.md)  |
+| `__cpp_lib_invoke`                           | `201411` | [`std::invoke`](/reference/functional/invoke.md) | [`<functional>`](/reference/functional.md)  |
 | `__cpp_lib_scoped_lock`                      | `201510` | [可変長引数 `std::lock_guard`](/reference/mutex/lock_guard.md) | [`<mutex>`](/reference/mutex.md) |
 | `__cpp_lib_logical_traits`                   | `201510` | 論理演算子型トレイト ([`std::conjunction`](/reference/type_traits/conjunction.md), [`std::disjunction`](/reference/type_traits/disjunction.md), [`std::negation`](/reference/type_traits/negation.md)) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_map_try_emplace`                  | `201411` | [`std::map::try_emplace`](/reference/map/map/try_emplace.md), [`std::map::insert_or_assign`](/reference/map/map/insert_or_assign.md) | [`<map>`](/reference/map.md) |
