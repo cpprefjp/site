@@ -58,6 +58,14 @@ auto f(int) -> double {
   return 3.14159265359;
 }
 
+auto g(int) -> double {
+  return 2.71828182846;
+}
+
+auto g(int,int) -> double {
+  return 3.14159265359;
+}
+
 
 int main()
 {
