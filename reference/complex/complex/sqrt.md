@@ -2,6 +2,7 @@
 * complex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* [mathjax enable]
 
 ```cpp
 namespace std {
