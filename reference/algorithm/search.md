@@ -10,14 +10,14 @@ namespace std {
     search(ForwardIterator1 first1,
            ForwardIterator1 last1,
            ForwardIterator2 first2,
-           ForwardIterator2 last2); // (1) C++03
+           ForwardIterator2 last2);   // (1) C++03
 
   template<class ForwardIterator1, class ForwardIterator2>
   constexpr ForwardIterator1
     search(ForwardIterator1 first1,
            ForwardIterator1 last1,
            ForwardIterator2 first2,
-           ForwardIterator2 last2); // (1) C++20
+           ForwardIterator2 last2);   // (1) C++20
 
   template<class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
   ForwardIterator1
@@ -25,7 +25,7 @@ namespace std {
            ForwardIterator1 last1,
            ForwardIterator2 first2,
            ForwardIterator2 last2,
-           BinaryPredicate pred);   // (2) C++03
+           BinaryPredicate pred);     // (2) C++03
 
   template<class ForwardIterator1, class ForwardIterator2, class BinaryPredicate>
   constexpr ForwardIterator1
@@ -33,7 +33,7 @@ namespace std {
            ForwardIterator1 last1,
            ForwardIterator2 first2,
            ForwardIterator2 last2,
-           BinaryPredicate pred);   // (2) C++20
+           BinaryPredicate pred);     // (2) C++20
 
   template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
   ForwardIterator1
@@ -41,7 +41,7 @@ namespace std {
            ForwardIterator1 first1,
            ForwardIterator1 last1,
            ForwardIterator2 first2,
-           ForwardIterator2 last2); // (3) C++17
+           ForwardIterator2 last2);   // (3) C++17
 
   template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
             class BinaryPredicate>
@@ -51,7 +51,19 @@ namespace std {
            ForwardIterator1 last1,
            ForwardIterator2 first2,
            ForwardIterator2 last2,
-           BinaryPredicate pred);   // (4) C++17
+           BinaryPredicate pred);     // (4) C++17
+
+  template <class ForwardIterator, class Searcher>
+  ForwardIterator
+    search(ForwardIterator first,
+           ForwardIterator last,
+           const Searcher& searcher); // (5) C++17
+
+  template <class ForwardIterator, class Searcher>
+  constexpr ForwardIterator
+    search(ForwardIterator first,
+           ForwardIterator last,
+           const Searcher& searcher); // (5) C++20
 }
 ```
 
@@ -59,11 +71,25 @@ namespace std {
 ## 概要
 あるシーケンスの中から、特定のサブシーケンスを探す
 
+- (1) : 範囲`[first1, last1)`内からサブシーケンス`[first2, last2)`を検索する。各要素の等値比較として`operator==`を使用する
+- (2) : 範囲`[first1, last1)`内からサブシーケンス`[first2, last2)`を検索する。各要素の等値比較として二項述語関数オブジェクト`pred`を使用する
+- (3) : (1)の並列アルゴリズム版。第1パラメータとして実行ポリシーをとる
+- (4) : (2)の並列アルゴリズム版。第1パラメータとして実行ポリシーをとる
+- (5) : 対象となるサブシーケンスを包含する`sercher`関数オブジェクトを使用して、範囲`[first, last)`から対象のサブシーケンスを検索する。
+    - この関数は、[`<functional>`](/reference/functional.md)ヘッダで定義される[`std::boyer_moore_searcher`](/reference/functional/boyer_moore_searcher.md.nolink)関数オブジェクトのような検索器と合わせて使用する
+
 
 ## 戻り値
-`[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` もしくは `pred(*(i + n), *(first2 + n)) != false` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
-
-そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
+- (1), (3) :
+    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+    - そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
+- (2), (4) :
+    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+    - そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
+- (5) : 以下と等価
+    ```cpp
+    return searcher(first, last).first;
+    ```
 
 
 ## 計算量
@@ -71,10 +97,10 @@ namespace std {
 
 
 ## 備考
-`search()` と [`find_end()`](/reference/algorithm/find_end.md) は共にサブシーケンスを検索する関数だが、以下の点が異なる。
-
-* `search()` は見つかった最初のサブシーケンスを返すが [`find_end()`](/reference/algorithm/find_end.md) は見つかった最後のサブシーケンスを返す
-* `[first2,last2)` が空であるときに `search()` は `first1` を返すが、[`find_end()`](/reference/algorithm/find_end.md) は `last1` を返す
+- (1)〜(4) : `search()` と [`find_end()`](find_end.md) は共にサブシーケンスを検索する関数だが、以下の点が異なる。
+    - `search()` は見つかった最初のサブシーケンスを返すが [`find_end()`](find_end.md) は見つかった最後のサブシーケンスを返す
+    - `[first2,last2)` が空であるときに `search()` は `first1` を返すが、[`find_end()`](find_end.md) は `last1` を返す
+- (5) : `Searcher`は[CopyConstructible](/reference/concepts/CopyConstructible.md)要件を満たす必要はない
 
 
 ## 例
@@ -146,4 +172,7 @@ ForwardIterator1 search(ForwardIterator1 first1, ForwardIterator1 last1,
 
 ## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+- [N3905 Extending `std::search` to use Additional Searching Algorithms (Version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3905.html)
+- [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
+- [P0253R1 Fixing a design mistake in the searchers interface in Library Fundamentals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0253r1.pdf)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
