@@ -17,6 +17,7 @@ namespace std {
 ## 戻り値
 引数 `x` の平方根のうち、（複素平面の）右半平面の範囲の複素数値（つまり、実部は 0 以上）。もし、引数が負の実数の場合、戻り値は虚軸の正の範囲。
 
+つまり、複素数の平方根にも実数と同様に±の2つがあるがこの関数は常に正の平方根を返す。また、負の実数の平方根は常に純虚数（$\root{-x}i$）となる。
 
 ## 備考
 - 分岐截断は負の実軸に沿っている。
@@ -55,6 +56,20 @@ int main()
 
   std::complex<double> result = std::sqrt(c);
   std::cout << "sqrt( " << c << " ) = " << result << std::endl;
+  
+  std::cout << std::endl;
+  
+  std::cout << "sqrt( 1.0 + 0.0i) = " << std::sqrt(std::complex<double>{ 1.0,  0.0}) << std::endl;
+  std::cout << "sqrt(-1.0 + 0.0i) = " << std::sqrt(std::complex<double>{-1.0,  0.0}) << std::endl;
+  
+  std::cout << "sqrt( 0.0 + 1.0i) = " << std::sqrt(std::complex<double>{ 0.0,  1.0}) << std::endl;
+  std::cout << "sqrt( 0.0 - 1.0i) = " << std::sqrt(std::complex<double>{ 0.0, -1.0}) << std::endl;
+  
+  std::cout << "sqrt( 1.0 + 1.0i) = " << std::sqrt(std::complex<double>{ 1.0,  1.0}) << std::endl;
+  std::cout << "sqrt( 1.0 - 1.0i) = " << std::sqrt(std::complex<double>{ 1.0, -1.0}) << std::endl;
+  
+  std::cout << "sqrt(-1.0 + 1.0i) = " << std::sqrt(std::complex<double>{-1.0,  1.0}) << std::endl;
+  std::cout << "sqrt(-1.0 - 1.0i) = " << std::sqrt(std::complex<double>{-1.0, -1.0}) << std::endl;
 }
 ```
 * std::sqrt[color ff0000]
@@ -62,6 +77,15 @@ int main()
 ### 出力
 ```
 sqrt( (1,2) ) = (1.27202,0.786151)
+
+sqrt( 1.0 + 0.0i) = (1,0)
+sqrt(-1.0 + 0.0i) = (0,1)
+sqrt( 0.0 + 1.0i) = (0.707107,0.707107)
+sqrt( 0.0 - 1.0i) = (0.707107,-0.707107)
+sqrt( 1.0 + 1.0i) = (1.09868,0.45509)
+sqrt( 1.0 - 1.0i) = (1.09868,-0.45509)
+sqrt(-1.0 + 1.0i) = (0.45509,1.09868)
+sqrt(-1.0 - 1.0i) = (0.45509,-1.09868)
 ```
 
 
