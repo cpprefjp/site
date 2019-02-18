@@ -11,6 +11,8 @@ namespace std {
       noexcept(is_nothrow_invocable_v<F, Args...>);
 }
 ```
+* invoke_result_t[link /reference/type_traits/invoke_result.md]
+* is_nothrow_invocable_v[link /reference/type_traits/is_nothrow_invocable.md]
 
 ## 概要
 関数呼び出し可能なオブジェクト`f`とその引数`args...`の組み合わせで[*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しを行う。
