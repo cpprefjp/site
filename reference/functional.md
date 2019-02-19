@@ -120,7 +120,7 @@ struct doubler {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`default_searcher`](functional/default_searcher.md.nolink) | 二分探索による検索器 (class template) | C++17 |
-| [`boyer_moore_searcher`](functional/boyer_moore_searcher.md.nolink) | ボイヤー・ムーア法による検索器 (class template) | C++17 |
+| [`boyer_moore_searcher`](functional/boyer_moore_searcher.md) | ボイヤー・ムーア法による検索器 (class template) | C++17 |
 | [`boyer_moore_horspool_searcher`](functional/boyer_moore_horspool_searcher.md.nolink) | ボイヤー・ムーア・ホースプール法による検索器 (class template) | C++17 |
 
 

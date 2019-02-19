@@ -76,7 +76,7 @@ namespace std {
 - (3) : (1)の並列アルゴリズム版。第1パラメータとして実行ポリシーをとる
 - (4) : (2)の並列アルゴリズム版。第1パラメータとして実行ポリシーをとる
 - (5) : 対象となるサブシーケンスを包含する`sercher`関数オブジェクトを使用して、範囲`[first, last)`から対象のサブシーケンスを検索する。
-    - この関数は、[`<functional>`](/reference/functional.md)ヘッダで定義される[`std::boyer_moore_searcher`](/reference/functional/boyer_moore_searcher.md.nolink)関数オブジェクトのような検索器と合わせて使用する
+    - この関数は、[`<functional>`](/reference/functional.md)ヘッダで定義される[`std::boyer_moore_searcher`](/reference/functional/boyer_moore_searcher.md)関数オブジェクトのような検索器と合わせて使用する
 
 
 ## 戻り値
