@@ -21,6 +21,10 @@ const_iterator cend() const noexcept;
 投げない
 
 
+## 備考
+- この関数によって返されるイテレータは、`*this`が保持するいずれの要素も参照しない。その指す先は、不正な範囲となるだろう
+
+
 ## 例
 ```cpp example
 #include <iostream>

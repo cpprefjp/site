@@ -6,7 +6,6 @@
 * cpp11[meta cpp]
 
 ```cpp
-// since C++11
 const_iterator cend() const noexcept;
 ```
 
@@ -21,6 +20,10 @@ const_iterator cend() const noexcept;
 
 ## 計算量
 定数時間
+
+
+## 備考
+- この関数によって返されるイテレータは、`*this`が保持するいずれの要素も参照しない。その指す先は、不正な範囲となるだろう
 
 
 ## 例

@@ -22,6 +22,10 @@ const_iterator end() const noexcept;
 定数時間
 
 
+## 備考
+- この関数によって返されるイテレータは、`*this`が保持するいずれの要素も参照しない。その指す先は、不正な範囲となるだろう
+
+
 ## 例
 ```cpp example
 #include <iostream>
