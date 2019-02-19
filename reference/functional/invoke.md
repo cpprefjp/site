@@ -126,7 +126,11 @@ int main()
 
 
 ## 関連項目
-
+- [invoke_result](/reference/type_traits/invoke_result.md)
+- [is_invocable](/reference/type_traits/is_invocable.md)
+- [is_invocable_r](/reference/type_traits/is_invocable_r.md)
+- [is_nothrow_invocable](/reference/type_traits/is_nothrow_invocable.md)
+- [is_nothrow_invocable_r](/reference/type_traits/is_nothrow_invocable_r.md)
 
 ## 参照
 - [C++1z INVOKEコンセプトに従った関数呼び出しをするinvoke()関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/09/07/173344)
