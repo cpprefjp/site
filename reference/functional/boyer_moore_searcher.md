@@ -76,6 +76,7 @@ int main()
     std::cout << n << std::endl;
     std::cout << s << std::endl;
   }
+  // 見つからなかった
   else {
     std::cout << "not found" << std::endl;
   }
