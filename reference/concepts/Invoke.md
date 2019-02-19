@@ -9,7 +9,7 @@
 - *call-wrapper* は、 *call-wrapper-type* 型のオブジェクトである。
 - *target-object* とは、 *callable-object* に保持されているオブジェクトのことである。
 
-## 要件
+## 要件（C++14まで）
 1. 仮想操作 *INVOKE*`(f, t1, t2, ..., tN)` を次のように定義する。
 	- `f` が型 `T` のメンバ関数へのポインタであり、 `t1` が T 型のオブジェクトあるいは `T` または `T` を継承した型への参照であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `f` が型 `T` のメンバ関数へのポインタであり、 `t1` が上記の条件に当てはまらない場合、`((*t1).*f)(t2, ..., tN)` と同じ効果を持つ。
@@ -24,6 +24,31 @@
 	- どの条件にも当てはまらない場合、 `result_type` は定義されない。
 4. すべての *call-wrapper* は、*MoveAssignable* でなければならない。
 
+## 要件（C++17）
+1. 仮想操作 *INVOKE*`(f, t1, t2, ..., tN)` を次のように定義する。
+	- `f` が型 `T` のメンバ関数へのポインタであり、[`std::is_baseof_v`](/reference/type_traits/is_base_of.md)`<T, `[`std::decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
+	- `f` が型 `T` のメンバ関数へのポインタであり、[`std::decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>`が[`reference_­wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_­wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `(t1.get().*f)(t2, ..., tN)` と同じ効果を持つ。
+	- `f` が型 `T` のメンバ関数へのポインタであり、 `t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、`((*t1).*f)(t2, ..., tN)` と同じ効果を持つ。
+	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`std::is_baseof_v`](/reference/type_traits/is_base_of.md)`<T, `[`std::decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `t1.*f` と同じ効果を持つ。
+	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`std::decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>`が[`reference_­wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_­wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `t1.get().*f` と同じ効果を持つ。
+	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、`t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、 `(*t1).*f` と同じ効果を持つ。
+	- 上記の条件のどれにも当てはまらない場合、 `f(t1, t2, ..., tN)` と同じ効果を持つ。
+2. *INVOKE*`<R>(f, t1, t2, ..., tN)` を次のように定義する。
+	- `R`が`void`かそのcv修飾の場合は、`static_cast<void>(`*INVOKE*`(f, t1, t2, ..., tN))`。
+	- それ以外の場合は、*INVOKE*`(f, t1, t2, ..., tN)` の実行結果の戻り値が型 `R` に暗黙的に変換されること。
+3. すべての *call-wrapper* は、*MoveConstructible* でなければならない。
+
 ## まとめ
 [第1引数がメンバ関数へのポインタの場合でも非静的メンバデータへのポインタの場合でも，第2引数がクラスオブジェクトへの参照の場合でもポインタの場合でもポインタっぽいものの場合でも，なんか知らんけどそれっぽく上手くいく](https://twitter.com/Cryolite/status/216814363221303296) ように取り計らった操作のことである。
 
+## 関連項目
+- [invoke](/reference/functional/invoke.md)
+- [function](/reference/functional/function.md)
+- [reference_­wrapper](/reference/functional/reference_wrapper.md)
+- [bind](/reference/functional/bind.md)
+- [mem_fn](/reference/functional/mem_fn.md)
+- [not_fn](/reference/functional/not_fn.md)
+- [thread](/reference/thread/thread.md)
+- [async](/reference/future/async.md)
+- [packaged_task](/reference/future/packaged_task.md)
+- [call_once](/reference/mutex/call_once.md)
