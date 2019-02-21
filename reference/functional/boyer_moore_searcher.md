@@ -95,6 +95,15 @@ int main()
 abaa
 ```
 
+## バージョン
+### 言語
+- C++17
+
+### 処理系
+- [Clang](/implementation.md#clang):
+- [GCC](/implementation.md#gcc): 7.3
+- [Visual C++](/implementation.md#visual_cpp): ??
+
 ## 参照
 - [N3905 Extending `std::search` to use Additional Searching Algorithms (Version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3905.html)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
