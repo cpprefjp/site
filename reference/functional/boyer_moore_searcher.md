@@ -23,6 +23,8 @@ namespace std {
 
 このアルゴリズムは本来、文字列から部分文字列を高速に検索するためのアルゴリズムであるが、仕様として対象を文字列に限定してはいない。
 
+ボイヤー・ムーア法は、その簡略版であるボイヤー・ムーア・ホースプール法 ([`std::boyer_moore_horspool_searcher`](boyer_moore_horspool_searcher.md)) に比べて、メモリ使用量が多い代わりに性能がよい。
+
 
 ## 要件
 - `RandomAccessIterator1`が指す値型は、[DefaultConstructible](/reference/concepts/DefaultConstructible.md)、[CopyConstructible](/reference/concepts/CopyConstructible.md)、[CopyAssignable](/reference/concepts/CopyAssignable.md)の要件を満たすこと
