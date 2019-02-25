@@ -20,6 +20,7 @@
 | 名前                                          | 説明                                           | 対応バージョン |
 |-----------------------------------------------|------------------------------------------------|----------------|
 | [`get_new_handler`](new/get_new_handler.md) | `new`失敗時に呼ばれる関数を取得する(function)  | C++11          |
+| [`launder`](new/launder.md)   | 置き換えられたオブジェクトに適格にアクセスする(function) | C++17          |
 | [`set_new_handler`](new/set_new_handler.md) | `new`失敗時に呼ばれる関数を設定する(function)  |                |
 | [`operator new`](new/op_new.md)             | 動的に記憶域を確保する(function)               |                |
 | [`operator new[]`](new/op_new[].md)         | 動的に配列の記憶域を確保する(function)         |                |
