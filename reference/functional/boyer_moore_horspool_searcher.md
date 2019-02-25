@@ -39,8 +39,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](boyer_moore_horspool_searcher/op_constructor.md.nolink) | コンストラクタ | C++17 |
-| [`operator()`](boyer_moore_horspool_searcher/op_call.md.nolink) | 検索を実行する | C++17 |
+| [`(constructor)`](boyer_moore_horspool_searcher/op_constructor.md) | コンストラクタ | C++17 |
+| [`operator()`](boyer_moore_horspool_searcher/op_call.md) | 検索を実行する | C++17 |
 
 
 ## 例
