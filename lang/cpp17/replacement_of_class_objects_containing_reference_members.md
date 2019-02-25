@@ -2,7 +2,7 @@
 * cpp17[meta cpp]
 
 ## 概要
-`placement new`を使用して、参照型や`const`データメンバを含む構造体/クラスを置き換える際、オブジェクト生存期間(lifetime)に基づいた最適化の抑止をコンパイラに伝える関数[`std::launder()`](/reference/new/launder.md.nolink)を用いることで、未定義動作となるような文脈で参照型や`const`データメンバへのアクセスができる。
+`placement new`を使用して、参照型や`const`データメンバを含む構造体/クラスを置き換える際、オブジェクト生存期間(lifetime)に基づいた最適化の抑止をコンパイラに伝える関数[`std::launder()`](/reference/new/launder.md)を用いることで、未定義動作となるような文脈で参照型や`const`データメンバへのアクセスができる。
 
 ## 仕様
 [n4659](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf) [ptr.launder]/5より
@@ -15,7 +15,7 @@ new (p) X{5};  // X::nはconstなので、pは新しいオブジェクトを指�
 const int b = p->n;  // 未定義動作
 const int c = std::launder(p)->n;  // OK
 ```
-* std::launder[link /reference/new/launder.md.nolink]
+* std::launder[link /reference/new/launder.md]
 
 ## 例
 ```cpp example
@@ -44,7 +44,7 @@ int main()
   std::cout << a << std::endl;
 }
 ```
-* std::launder[link /reference/new/launder.md.nolink]
+* std::launder[link /reference/new/launder.md]
 
 ### 出力
 ```
