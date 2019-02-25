@@ -31,7 +31,7 @@ namespace std {
 
 
 ## 備考
-- このクラステンプレートは複数のテンプレート引数をもつが、それを容易に使用するためのヘルパ関数 (`make_boyer_moore_searcher()`) は定義されていない。これは、C++17で導入された[クラステンプレートパラメータの推論](/lang/cpp17/type_deduction_for_class_templates.md)機能と併用することを意図したものである
+- このクラステンプレートは複数のテンプレート引数をもつが、それを容易に使用するためのヘルパ関数 (`make_boyer_moore_horspool_searcher()`) は定義されていない。これは、C++17で導入された[クラステンプレートパラメータの推論](/lang/cpp17/type_deduction_for_class_templates.md)機能と併用することを意図したものである
 - このクラスは[`std::search()`](/reference/algorithm/search.md)アルゴリズムと併用することを意図して設計されているが、このクラス単体で使用できる
 
 
