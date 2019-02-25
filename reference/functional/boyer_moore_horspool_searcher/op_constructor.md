@@ -10,10 +10,10 @@ boyer_moore_horspool_searcher(
   RandomAccessIterator1 pat_first,
   RandomAccessIterator1 pat_last,
   Hash hf = Hash(),
-  BinaryPredicate pred = BinaryPredicate());                                // (1)
+  BinaryPredicate pred = BinaryPredicate());                                         // (1)
 
-boyer_moore_horspool_searcher(const boyer_moore_searcher& other) = default; // (2)
-boyer_moore_horspool_searcher(boyer_moore_searcher&& other) = default;      // (3)
+boyer_moore_horspool_searcher(const boyer_moore_horspool_searcher& other) = default; // (2)
+boyer_moore_horspool_searcher(boyer_moore_horspool_searcher&& other) = default;      // (3)
 ```
 
 ## 概要
