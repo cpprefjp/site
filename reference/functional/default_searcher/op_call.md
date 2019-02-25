@@ -1,7 +1,7 @@
 # operator()
 * functional[meta header]
 * std[meta namespace]
-* default_horspool_searcher[meta class]
+* default_searcher[meta class]
 * function[meta id-type]
 * cpp17[meta cpp]
 
