@@ -1,4 +1,4 @@
-# Destructible
+- [`is_destructible`](/reference/type_traits/is_destructible.md)# Destructible
 
 ## 概要
 Destructibleは、任意の型`T`が破棄可能であることを表す要件である。
@@ -15,5 +15,4 @@ u.~T()
 
 
 ## 関連項目
-- [`is_destructible`](/reference/type_traits/is_destructible.md)
-
+- [`is_nothrow_destructible`](/reference/type_traits/is_nothrow_destructible.md)
