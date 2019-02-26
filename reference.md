@@ -48,6 +48,7 @@
 | [`<ratio>`](/reference/ratio.md)             | コンパイル時有理数           | C++11          |
 | [`<tuple>`](/reference/tuple.md)             | タプル                       | C++11          |
 | [`<optional>`](/reference/optional.md)       | 任意で値を持たせられるオブジェクト | C++17 |
+| [`<variant>`](/reference/variant.md.nolink)         | 候補の型を切り替えながら保持できる記憶域型 | C++17 |
 | [`<any>`](/reference/any.md)                 | あらゆる型の値を保持できる記憶域型 | C++17 |
 | [`<type_traits>`](/reference/type_traits.md) | 型特性                       | C++11          |
 | [`<functional>`](/reference/functional.md)   | 関数オブジェクト             |                |
