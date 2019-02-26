@@ -244,7 +244,7 @@
 [p1094]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1094r2.html
 [p1330]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1330r0.pdf
 
-各処理系のC++17実装状況ページ：
+各処理系のC++20実装状況ページ：
 
 - GCC: [C++20 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx20)
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
