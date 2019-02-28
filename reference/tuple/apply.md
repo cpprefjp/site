@@ -13,7 +13,7 @@ namespace std {
 
 ## 概要
 タプルを展開し、関数の引数に適用してその関数を実行する。
- 
+
 
 ## 要件
 適用先の関数は`Collable`要件を満たす（[INVOKE](/reference/concepts/Invoke.md)操作が可能）。展開されるものは、[`std::tuple`](../tuple.md)、[`std::array`](/reference/array/array.md)または[`std::pair`](/reference/utility/pair.md)のように、[`std::get`](/reference/array/array/get.md)と[`std::tuple_size`](/reference/array/array/tuple_size.md)をサポートする必要がある。
@@ -25,7 +25,7 @@ namespace std {
 ```cpp
 template<class F, class Tuple, size_t... I>
 constexpr decltype(auto) apply-impl(F&& f, Tuple&& t, std::index_sequence<I...>) {
-  return std::invoke(std::forward<F>(f), std::get<I>(std::forward<Tuple>(t))...); 
+  return std::invoke(std::forward<F>(f), std::get<I>(std::forward<Tuple>(t))...);
 }
 ```
 * std::index_sequence[link /reference/utility/index_sequence.md]
