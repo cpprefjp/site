@@ -38,22 +38,55 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 
 | マクロ名 | 値 | 機能 | ヘッダ |
 |----------|----|------|--------|
-| `__cpp_lib_allocator_traits_is_always_equal` | `201411` | ライブラリー内の `noexcept` のクリーンアップ | [`<deque>`](/reference/deque.md), [`<forward_list>`](/reference/forward_list.md), [`<list>`](/reference/list.md), [`<map>`](/reference/map.md), [`<memory>`](/reference/memory.md), [`<scoped_allocator>`](/reference/scoped_allocator.md), [`<set>`](/reference/set.md), [`<string>`](/reference/string.md), [`<unordered_map>`](/reference/unordered_map.md), [`<unordered_set>`](/reference/unordered_set.md), [`<vector>`](/reference/vector.md) |
-| `__cpp_lib_as_const`                         | `201510` | [`std::as_const`](/reference/utility/as_const.md) | [`<utility>`](/reference/utility.md) |
-| `__cpp_lib_bool_constant`                    | `201505` | [`std::bool_constant`](/reference/type_traits/bool_constant.md) | [`<type_traits>`](/reference/type_traits.md) |
-| `__cpp_lib_chrono`                           | `201510` | [`<chrono>`](/reference/chrono.md) の改良 | [`<chrono>`](/reference/chrono.md) |
-| `__cpp_lib_incomplete_container_elements`    | `201505` | 標準コンテナについて不完全型を最小限サポート | headers ([`<forward_list>`](/reference/forward_list.md), [`<list>`](/reference/list.md), [`<vector>`](/reference/vector.md)) |
-| `__cpp_lib_invoke`                           | `201411` | [`std::invoke`](/reference/functional/invoke.md) | [`<functional>`](/reference/functional.md)  |
-| `__cpp_lib_scoped_lock`                      | `201510` | [可変長引数 `std::lock_guard`](/reference/mutex/lock_guard.md) | [`<mutex>`](/reference/mutex.md) |
-| `__cpp_lib_logical_traits`                   | `201510` | 論理演算子型トレイト ([`std::conjunction`](/reference/type_traits/conjunction.md), [`std::disjunction`](/reference/type_traits/disjunction.md), [`std::negation`](/reference/type_traits/negation.md)) | [`<type_traits>`](/reference/type_traits.md) |
-| `__cpp_lib_map_try_emplace`                  | `201411` | [`std::map::try_emplace`](/reference/map/map/try_emplace.md), [`std::map::insert_or_assign`](/reference/map/map/insert_or_assign.md) | [`<map>`](/reference/map.md) |
-| `__cpp_lib_nonmember_container_access`       | `201411` | 非メンバー関数 `std::size`, `std::empty`, `std::data` | [`<array>`](/reference/array.md), [`<deque>`](/reference/deque.md), [`<forward_list>`](/reference/forward_list.md), [`<iterator>`](/reference/iterator.md), [`<list>`](/reference/list.md), [`<map>`](/reference/map.md), [`<regex>`](/reference/regex.md), [`<set>`](/reference/set.md), [`<string>`](/reference/string.md), [`<unordered_map>`](/reference/unordered_map.md), [`<unordered_set>`](/reference/unordered_set.md), [`<vector>`](/reference/vector.md) |
-| `__cpp_lib_shared_mutex`                     | `201505` | [`std::shared_mutex`](/reference/shared_mutex/shared_mutex.md) | [`<shared_mutex>`](/reference/shared_mutex.md) |
-| `__cpp_lib_transparent_operators`            | `201510` | [`std::owner_less`](/reference/memory/owner_less.md) の柔軟性向上 | [`<functional>`](/reference/functional.md), [`<memory>`](/reference/memory.md) |
-| `__cpp_lib_type_trait_variable_templates`    | `201510` | 型トレイト変数テンプレート (`some_trait_v<T> = some_trait<T>::value`) | [`<type_traits>`](/reference/type_traits.md) |
-| `__cpp_lib_uncaught_exceptions`              | `201411` | [`std::uncaught_exceptions`](/reference/exception/uncaught_exceptions.md) | [`<exception>`](/reference/exception.md) |
-| `__cpp_lib_unordered_map_try_emplace`        | `201411` | [`std::unordered_map::try_emplace`](/reference/unordered_map/unordered_map/try_emplace.md), [`std::unordered_map::insert_or_assign`](/reference/unordered_map/unordered_map/insert_or_assign.md) | [`<unordered_map>`](/reference/unordered_map.md) |
-| `__cpp_lib_void_t`                           | `201411` | [`std::void_t`](/reference/type_traits/void_t.md) | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_byte`                              | `201603` | [`std::byte`](/reference/cstddef/byte.md) | [`<cstddef>`](/reference/cstddef.md) |
+| `__cpp_lib_hardware_interference_size`        | `201703` | [`std::hardware_destructive_interference_size`](/reference/new/hardware_destructive_interference_size.md)と[`std::hardware_constructive_interference_size`](/reference/new/hardware_constructive_interference_size.md) | [`<new>`](/reference/new.md) |
+| `__cpp_lib_launder`                           | `201606` | [`std::launder()`](/reference/new/launder.md) | | [`<new>`](/reference/new.md) |
+| `__cpp_lib_uncaught_exceptions`               | `201411` | [`std::uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md) | [`<exception>`](/reference/exception.md) |
+| `__cpp_lib_as_const`                          | `201510` | [`std::as_const()`](/reference/utility/as_const.md) | [`<utility>`](/reference/utility.md) |
+| `__cpp_lib_make_from_tuple`                   | `201606` | [`std::make_from_tuple()`](/reference/utility/make_from_tuple.md.nolink) | [`<utility>`](/reference/utility.md) |
+| `__cpp_lib_apply`                             | `201603` | [`std::apply()`](/reference/tuple/apply.md.nolink) | [`<tuple>`](/reference/tuple.md) |
+| `__cpp_lib_optional`                          | `201606` | [`std::optional`](/reference/optional/optional.md) | [`<optional>`](/reference/optional.md) |
+| `__cpp_lib_any`                               | `201606` | [`std::any`](/reference/any/any.md) | [`<any>`](/reference/any.md) |
+| `__cpp_lib_variant`                           | `201606` | [`std::variant`](/reference/variant/variant.md) | [`<variant>`](/reference/variant.md) |
+| `__cpp_lib_memory_resource`                   | `201603` | [`std::memory_resource`](/reference/memory_resource/memory_resource.md)と関連する機能 | [`<memory_resource>`](/reference/memory_resource.md) |
+| `__cpp_lib_boyer_moore_searcher`              | `201603` | [`std::boyer_morre_searcher`](/reference/functional/boyer_moore_searcher.md)と関連する機能 | [`<functional>`](/reference/functional/functional.md) |
+| `__cpp_lib_string_view`                       | `201606` | [`std::string_view`](/reference/string_view/basic_string_view.md) | [`<string_view>`](/reference/string_view.md) |
+| `__cpp_lib_sample`                            | `201603` | [`std::sample()`](/reference/algorithm/sample.md) | [`<algorithm>`](/reference/algorithm.md) |
+| `__cpp_lib_addressof_constexpr`               | `201603` | [`std::addressof()`](/reference/memory/addressof.md) | [`<memory>`](/reference/memory.md) |
+| `__cpp_lib_raw_memory_algorithms`             | `201606` | [`std::uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md)と関連する機能 | [`<memory>`](/reference/memory.md) |
+| `__cpp_lib_transparent_operators`             | `201510` | [`std::owner_less`](/reference/memory/owner_less.md) の柔軟性向上 | [`<functional>`](/reference/functional.md), [`<memory>`](/reference/memory.md) |
+| `__cpp_lib_enable_shared_from_this`           | `201603` | [`std::enable_shared_from_this`](/reference/memory/enable_shared_from_this.md) | [`<memory>`](/reference/memory.md) |
+| `__cpp_lib_shared_ptr_weak_type`              | `201606` | [`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスのメンバ型`weak_type` | [`<memory>`](/reference/memory.md) |
+| `__cpp_lib_shared_ptr_arrays`                 | `201611` | [`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスの配列サポート | [`<memory>`](/reference/memory.md) |
+| `__cpp_lib_invoke`                            | `201411` | [`std::invoke()`](/reference/functional/invoke.md) | [`<functional>`](/reference/functional.md) |
+| `__cpp_lib_not_fn`                            | `201603` | [`std::not_fn()`](/reference/functional/not_fn.md) | [`<functional>`](/reference/functional.md) |
+| `__cpp_lib_void_t`                            | `201411` | [`std::void_t`](/reference/type_traits/void_t.md) | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_bool_constant`                     | `201505` | [`std::bool_constant`](/reference/type_traits/bool_constant.md) | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_type_trait_variable_templates`     | `201510` | 型トレイト変数テンプレート (`some_trait_v<T> = some_trait<T>::value`) | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_logical_traits`                    | `201510` | 論理演算子型トレイト ([`std::conjunction`](/reference/type_traits/conjunction.md), [`std::disjunction`](/reference/type_traits/disjunction.md), [`std::negation`](/reference/type_traits/negation.md)) | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_is_swappable`                      | `201603` | [`std::is_swappable`](/reference/type_traits/is_swappable.md)と関連する機能 | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_is_invocable`                      | `201703` | [`std::is_invocable`](/reference/type_traits/is_invocable.md)と関連する機能 | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_has_unique_object_representations` | `201606` | [`std::has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md) | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_is_aggregate`                      | `201703` | [`std::is_aggregate`](/reference/type_traits/is_aggregate.md) | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_chrono`                            | `201510` | [`<chrono>`](/reference/chrono.md) の改良 | [`<chrono>`](/reference/chrono.md) |
+| `__cpp_lib_execution`                         | `201603` | [`<execution>`](/reference/execution) の追加 | [`<execution>`](/reference/execution) |
+| `__cpp_lib_parallel_algorithm`                | `201603` | 並列アルゴリズム | [`<algorithm>`](/reference/algorithm.md), [`<numeric>`](/reference/numeric.md), [`<memory>`](/reference/memory.md) |
+| `__cpp_lib_to_chars`                          | `201611` | [`std::to_chars()`](/reference/utility/to_chars.md.nolink)と[`std::from_chars()`](/reference/utility/from_chars.md.nolink) | [`<utility>`](/reference/utility.md) |
+| `__cpp_lib_allocator_traits_is_always_equal`  | `201411` | ライブラリ内の `noexcept` のクリーンアップ | [`<deque>`](/reference/deque.md), [`<forward_list>`](/reference/forward_list.md), [`<list>`](/reference/list.md), [`<map>`](/reference/map.md), [`<memory>`](/reference/memory.md), [`<scoped_allocator>`](/reference/scoped_allocator.md), [`<set>`](/reference/set.md), [`<string>`](/reference/string.md), [`<unordered_map>`](/reference/unordered_map.md), [`<unordered_set>`](/reference/unordered_set.md), [`<vector>`](/reference/vector.md) |
+| `__cpp_lib_incomplete_container_elements`     | `201505` | 標準コンテナについて不完全型を最小限サポート | [`<forward_list>`](/reference/forward_list.md), [`<list>`](/reference/list.md), [`<vector>`](/reference/vector.md) |
+| `__cpp_lib_map_try_emplace`                   | `201411` | [`std::map::try_emplace()`](/reference/map/map/try_emplace.md), [`std::map::insert_or_assign()`](/reference/map/map/insert_or_assign.md) | [`<map>`](/reference/map.md) |
+| `__cpp_lib_unordered_map_try_emplace`         | `201411` | [`std::unordered_map::try_emplace()`](/reference/unordered_map/unordered_map/try_emplace.md), [`std::unordered_map::insert_or_assign()`](/reference/unordered_map/unordered_map/insert_or_assign.md) | [`<unordered_map>`](/reference/unordered_map.md) |
+| `__cpp_lib_node_extract`                      | `201606` | 連想コンテナのsplice | [`<map>`](/reference/map.md), [`<set>`](/reference/set.md), [`<unordered_map>`](/reference/unordered_map.md), [`<unordered_set>`](/reference/unordered_set.md) |
+| `__cpp_lib_array_constexpr`                   | `201603` | 配列関係のランダムアクセスに`constexpr`を追加 | [`<array>`](/reference/array.md), [`<iterator>`](/reference/iterator.md) |
+| `__cpp_lib_nonmember_container_access`        | `201411` | 非メンバ関数 [`std::size()`](/reference/iterator/size.md), [`std::empty()`](/reference/iterator/empty.md), [`std::data()`](/reference/iterator/data.md) | [`<iterator>`](/reference/iterator.md) |
+| `__cpp_lib_clamp`                             | `201603` | [`std::clamp()`](/reference/algorithm/clamp.md) | [`<algorithm>`](/reference/algorithm.md) |
+| `__cpp_lib_gcd_lcm`                           | `201606` | [`std::gcd()`](/reference/numeric/gcd.md)と[`std::lcm()`](/reference/numeric/lcm.md) | [`<numeric>`](/reference/numeric.md) |
+| `__cpp_lib_hypot`                             | `201603` | 3引数版の[`std::hypot()`](/reference/cmath/hypot.md) | [`<cmath>`](/reference/cmath.md) |
+| `__cpp_lib_math_special_functions`            | `201603` | 数学の特殊関数 | [`<cmath>`](/reference/cmath.md) |
+| `__cpp_lib_filesystem`                        | `201703` | ファイルシステムライブラリ | [`<filesystem>`](/reference/filesystem.md) |
+| `__cpp_lib_atomic_is_always_lock_free`        | `201603` | [`std::atomic`](/reference/atomic/atomic.md)クラスの静的メンバ定数`is_always_lock_free` | [`<atomic>`](/reference/atomic.md) |
+| `__cpp_lib_shared_mutex`                      | `201505` | [`std::shared_mutex`](/reference/shared_mutex/shared_mutex.md) | [`<shared_mutex>`](/reference/shared_mutex.md) |
+| `__cpp_lib_scoped_lock`                       | `201703` | 可変個のミューテックスのロック管理するで[`std::scoped_lock`](/reference/mutex/scoped_lock.md) | [`<mutex>`](/reference/mutex.md) |
 
 
 ## 参照
