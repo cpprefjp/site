@@ -10,8 +10,8 @@ namespace std {
   struct ratio_less;
 
   template <class R1, class R2>
-  constexpr bool ratio_less_v
-    = ratio_less<R1, R2>::value; // C++17
+  inline constexpr bool ratio_less_v
+    = ratio_less<R1, R2>::value;     // C++17
 }
 ```
 

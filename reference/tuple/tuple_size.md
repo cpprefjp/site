@@ -17,7 +17,7 @@ namespace std {
     : public integral_constant<size_t, sizeof...(Types)> {};
 
   template <class T>
-  constexpr size_t tuple_size_v = tuple_size<T>::value; // C++17
+  inline constexpr size_t tuple_size_v = tuple_size<T>::value; // C++17
 }
 ```
 * tuple[link tuple.md]

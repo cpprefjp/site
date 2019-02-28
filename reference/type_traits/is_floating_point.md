@@ -10,7 +10,7 @@ namespace std {
   struct is_floating_point;
 
   template <class T>
-  constexpr bool is_floating_point_v = is_floating_point<T>::value; // C++17
+  inline constexpr bool is_floating_point_v = is_floating_point<T>::value; // C++17
 }
 ```
 

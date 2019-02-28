@@ -10,7 +10,7 @@ namespace std {
   struct is_volatile;
 
   template <class T>
-  constexpr bool is_volatile_v = is_volatile<T>::value; // C++17
+  inline constexpr bool is_volatile_v = is_volatile<T>::value; // C++17
 }
 ```
 

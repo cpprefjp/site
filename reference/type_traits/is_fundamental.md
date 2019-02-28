@@ -10,7 +10,7 @@ namespace std {
   struct is_fundamental;
 
   template <class T>
-  constexpr bool is_fundamental_v = is_fundamental<T>::value; // C++17
+  inline constexpr bool is_fundamental_v = is_fundamental<T>::value; // C++17
 }
 ```
 

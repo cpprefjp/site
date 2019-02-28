@@ -10,7 +10,7 @@ namespace std {
   struct is_compound;
 
   template <class T>
-  constexpr bool is_compound_v = is_compound<T>::value; // C++17
+  inline constexpr bool is_compound_v = is_compound<T>::value; // C++17
 }
 ```
 

@@ -10,8 +10,8 @@ namespace std {
   struct is_assignable;
 
   template <class T, class U>
-  constexpr bool is_assignable_v
-    = is_assignable<T, U>::value; // C++17
+  inline constexpr bool is_assignable_v
+    = is_assignable<T, U>::value;       // C++17
 }
 ```
 

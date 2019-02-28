@@ -9,6 +9,7 @@ namespace std {
 namespace regex_constants {
   using syntax_option_type = implementation-defined;
 
+  // C++11
   constexpr syntax_option_type icase = unspecified;
   constexpr syntax_option_type nosubs = unspecified;
   constexpr syntax_option_type optimize = unspecified;
@@ -19,7 +20,19 @@ namespace regex_constants {
   constexpr syntax_option_type awk = unspecified;
   constexpr syntax_option_type grep = unspecified;
   constexpr syntax_option_type egrep = unspecified;
-  constexpr syntax_option_type multiline = unspecified; // C++17
+
+  //C++17
+  inline constexpr syntax_option_type icase = unspecified;
+  inline constexpr syntax_option_type nosubs = unspecified;
+  inline constexpr syntax_option_type optimize = unspecified;
+  inline constexpr syntax_option_type collate = unspecified;
+  inline constexpr syntax_option_type ECMAScript = unspecified;
+  inline constexpr syntax_option_type basic = unspecified;
+  inline constexpr syntax_option_type extended = unspecified;
+  inline constexpr syntax_option_type awk = unspecified;
+  inline constexpr syntax_option_type grep = unspecified;
+  inline constexpr syntax_option_type egrep = unspecified;
+  inline constexpr syntax_option_type multiline = unspecified;
 }}
 ```
 * unspecified[italic]

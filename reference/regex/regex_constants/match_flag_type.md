@@ -8,6 +8,8 @@
 namespace std {
 namespace regex_constants{
   using match_flag_type = implementation-defined;
+
+  // C++11
   constexpr match_flag_type match_default = {};
   constexpr match_flag_type match_not_bol = unspecified;
   constexpr match_flag_type match_not_eol = unspecified;
@@ -21,6 +23,21 @@ namespace regex_constants{
   constexpr match_flag_type format_sed = unspecified;
   constexpr match_flag_type format_no_copy = unspecified;
   constexpr match_flag_type format_first_only = unspecified;
+
+  //C++17
+  inline constexpr match_flag_type match_default = {};
+  inline constexpr match_flag_type match_not_bol = unspecified;
+  inline constexpr match_flag_type match_not_eol = unspecified;
+  inline constexpr match_flag_type match_not_bow = unspecified;
+  inline constexpr match_flag_type match_not_eow = unspecified;
+  inline constexpr match_flag_type match_any = unspecified;
+  inline constexpr match_flag_type match_not_null = unspecified;
+  inline constexpr match_flag_type match_continuous = unspecified;
+  inline constexpr match_flag_type match_prev_avail = unspecified;
+  inline constexpr match_flag_type format_default = {};
+  inline constexpr match_flag_type format_sed = unspecified;
+  inline constexpr match_flag_type format_no_copy = unspecified;
+  inline constexpr match_flag_type format_first_only = unspecified;
 }}
 ```
 * unspecified[italic]

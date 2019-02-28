@@ -10,7 +10,7 @@ namespace std {
   struct is_arithmetic;
 
   template <class T>
-  constexpr bool is_arithmetic_v = is_arithmetic<T>::value; // C++17
+  inline constexpr bool is_arithmetic_v = is_arithmetic<T>::value; // C++17
 }
 ```
 

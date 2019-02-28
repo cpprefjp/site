@@ -10,7 +10,7 @@ namespace std {
   struct is_abstract;
 
   template <class T>
-  constexpr bool is_abstract_v = is_abstract<T>::value; // C++17
+  inline constexpr bool is_abstract_v = is_abstract<T>::value; // C++17
 }
 ```
 

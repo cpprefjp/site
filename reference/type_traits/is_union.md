@@ -10,7 +10,7 @@ namespace std {
   struct is_union;
 
   template <class T>
-  constexpr bool is_union_v = is_union<T>::value; // C++17
+  inline constexpr bool is_union_v = is_union<T>::value; // C++17
 }
 ```
 

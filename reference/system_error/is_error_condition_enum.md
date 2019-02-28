@@ -13,7 +13,7 @@ namespace std {
   struct is_error_condition_enum<errc> : true_type {};
 
   template <class T>
-  constexpr bool is_error_condition_enum_v
+  inline constexpr bool is_error_condition_enum_v
     = is_error_condition_enum<T>::value;    // C++17
 }
 ```

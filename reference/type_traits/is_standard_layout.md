@@ -10,8 +10,8 @@ namespace std {
   struct is_standard_layout;
 
   template <class T>
-  constexpr bool is_standard_layout_v
-    = is_standard_layout<T>::value;   // C++17
+  inline constexpr bool is_standard_layout_v
+    = is_standard_layout<T>::value;          // C++17
 }
 ```
 

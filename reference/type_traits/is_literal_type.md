@@ -12,7 +12,7 @@ namespace std {
   struct is_literal_type;
 
   template <class T>
-  constexpr bool is_literal_type_v = is_literal_type<T>::value; // C++17
+  inline constexpr bool is_literal_type_v = is_literal_type<T>::value; // C++17
 }
 ```
 

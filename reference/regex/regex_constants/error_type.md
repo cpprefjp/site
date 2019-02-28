@@ -8,6 +8,8 @@
 namespace std {
 namespace regex_constants {
   using error_type = implementation-defined;
+
+  // C++11
   constexpr error_type error_collate = unspecified;
   constexpr error_type error_ctype = unspecified;
   constexpr error_type error_escape = unspecified;
@@ -21,6 +23,21 @@ namespace regex_constants {
   constexpr error_type error_badrepeat = unspecified;
   constexpr error_type error_complexity = unspecified;
   constexpr error_type error_stack = unspecified;
+
+  //C++17
+  inline constexpr error_type error_collate = unspecified;
+  inline constexpr error_type error_ctype = unspecified;
+  inline constexpr error_type error_escape = unspecified;
+  inline constexpr error_type error_backref = unspecified;
+  inline constexpr error_type error_brack = unspecified;
+  inline constexpr error_type error_paren = unspecified;
+  inline constexpr error_type error_brace = unspecified;
+  inline constexpr error_type error_badbrace = unspecified;
+  inline constexpr error_type error_range = unspecified;
+  inline constexpr error_type error_space = unspecified;
+  inline constexpr error_type error_badrepeat = unspecified;
+  inline constexpr error_type error_complexity = unspecified;
+  inline constexpr error_type error_stack = unspecified;
 }}
 ```
 * unspecified[italic]

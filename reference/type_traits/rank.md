@@ -12,7 +12,7 @@ namespace std {
   };
 
   template <class T>
-  constexpr std::size_t rank_v = rank<T>::value; // C++17
+  inline constexpr std::size_t rank_v = rank<T>::value; // C++17
 }
 ```
 

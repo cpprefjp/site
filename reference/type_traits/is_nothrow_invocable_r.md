@@ -10,7 +10,8 @@ namespace std {
   struct is_nothrow_invocable_r;
 
   template <class R, class F, class... ArgsTypes>
-  constexpr bool is_nothrow_invocable_r_v = std::is_nothrow_invocable_r<R, F, ArgsTypes...>::value;
+  inline constexpr bool is_nothrow_invocable_r_v 
+    = std::is_nothrow_invocable_r<R, F, ArgsTypes...>::value;
 }
 ```
 

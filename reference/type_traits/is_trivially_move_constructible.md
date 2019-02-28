@@ -10,8 +10,8 @@ namespace std {
   struct is_trivially_move_constructible;
 
   template <class T>
-  constexpr bool is_trivially_move_constructible_v
-    = is_trivially_move_constructible<T>::value;   // C++17
+  inline constexpr bool is_trivially_move_constructible_v
+    = is_trivially_move_constructible<T>::value;          // C++17
 }
 ```
 

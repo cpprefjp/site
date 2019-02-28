@@ -10,7 +10,7 @@ namespace std {
   struct is_scalar;
 
   template <class T>
-  constexpr bool is_scalar_v = is_scalar<T>::value; // C++17
+  inline constexpr bool is_scalar_v = is_scalar<T>::value; // C++17
 }
 ```
 

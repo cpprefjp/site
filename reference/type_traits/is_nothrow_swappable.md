@@ -10,7 +10,8 @@ namespace std {
   struct is_nothrow_swappable;
 
   template <class T>
-  inline constexpr bool is_nothrow_swappable_v = std::is_nothrow_swappable<T>::value;
+  inline constexpr bool is_nothrow_swappable_v 
+    = std::is_nothrow_swappable<T>::value;
 }
 ```
 

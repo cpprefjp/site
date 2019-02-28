@@ -10,7 +10,7 @@ namespace std {
   struct is_same;
 
   template <class T, class U>
-  constexpr bool is_same_v = is_same<T, U>::value; // C++17
+  inline constexpr bool is_same_v = is_same<T, U>::value; // C++17
 }
 ```
 

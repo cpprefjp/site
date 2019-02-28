@@ -10,7 +10,7 @@ namespace std {
   struct conjunction;
 
   template <class... Traits>
-  constexpr bool conjunction_v = conjunction<Traits...>::value;
+  inline constexpr bool conjunction_v = conjunction<Traits...>::value;
 }
 ```
 

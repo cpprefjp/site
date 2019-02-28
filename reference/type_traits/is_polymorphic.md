@@ -10,7 +10,7 @@ namespace std {
   struct is_polymorphic;
 
   template <class T>
-  constexpr bool is_polymorphic_v = is_polymorphic<T>::value; // C++17
+  inline constexpr bool is_polymorphic_v = is_polymorphic<T>::value; // C++17
 }
 ```
 

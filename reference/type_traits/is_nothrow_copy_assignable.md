@@ -10,8 +10,8 @@ namespace std {
   struct is_nothrow_copy_assignable;
 
   template <class T>
-  constexpr bool is_nothrow_copy_assignable_v
-    = is_nothrow_copy_assignable<T>::value;   // C++17
+  inline constexpr bool is_nothrow_copy_assignable_v
+    = is_nothrow_copy_assignable<T>::value;          // C++17
 }
 ```
 

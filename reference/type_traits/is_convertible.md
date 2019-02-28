@@ -10,7 +10,7 @@ namespace std {
   struct is_convertible;
 
   template <class From, class To>
-  constexpr bool is_convertible_v
+  inline constexpr bool is_convertible_v
     = is_convertible<From, To>::value; // C++17
 }
 ```

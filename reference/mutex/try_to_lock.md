@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   struct try_to_lock_t { };
-  constexpr try_to_lock_t try_to_lock { };
+  constexpr try_to_lock_t try_to_lock { };        // C++11
+  inline constexpr try_to_lock_t try_to_lock { }; // C++17
 }
 ```
 

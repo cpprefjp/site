@@ -10,7 +10,7 @@ namespace std {
   struct is_nothrow_assignable;
 
   template <class T, class U>
-  constexpr bool is_nothrow_assignable_v
+  inline constexpr bool is_nothrow_assignable_v
     = is_nothrow_assignable<T, U>::value; // C++17
 }
 ```

@@ -10,7 +10,7 @@ namespace std {
   struct is_error_code_enum : public false_type {};
 
   template <class T>
-  constexpr bool is_error_code_enum_v = is_error_code_enum<T>::value; // C++17
+  inline constexpr bool is_error_code_enum_v = is_error_code_enum<T>::value; // C++17
 }
 ```
 * false_type[link /reference/type_traits/false_type.md]

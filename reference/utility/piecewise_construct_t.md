@@ -6,8 +6,11 @@
 
 ```cpp
 namespace std {
-  struct piecewise_construct_t { };
-  constexpr piecewise_construct_t piecewise_construct = piecewise_construct_t();
+  struct piecewise_construct_t { };                                              // (1) C++11
+  struct piecewise_construct_t { explicit piecewise_construct_t() = default; };  // (1) C++17
+
+  constexpr piecewise_construct_t piecewise_construct = piecewise_construct_t(); // (2) C++11
+  inline constexpr piecewise_construct_t piecewise_construct{};                  // (2) C++17
 }
 ```
 

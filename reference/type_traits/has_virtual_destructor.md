@@ -10,8 +10,8 @@ namespace std {
   struct has_virtual_destructor;
 
   template <class T>
-  constexpr bool has_virtual_destructor_v
-    = has_virtual_destructor<T>::value;   // C++17
+  inline constexpr bool has_virtual_destructor_v
+    = has_virtual_destructor<T>::value;          // C++17
 }
 ```
 

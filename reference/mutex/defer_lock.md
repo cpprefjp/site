@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   struct defer_lock_t { };
-  constexpr defer_lock_t defer_lock { };
+  constexpr defer_lock_t defer_lock { };        // C++11
+  inline constexpr defer_lock_t defer_lock { }; // C++17
 }
 ```
 
