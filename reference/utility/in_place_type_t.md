@@ -12,9 +12,7 @@ namespace std {
   };
 
   template <class T>
-  inline constexpr in_place_type_t<T> in_place_type{}; // C++11
-  template <class T>
-  constexpr in_place_type_t<T> in_place_type{};        // C++17
+  inline constexpr in_place_type_t<T> in_place_type{};
 }
 ```
 
