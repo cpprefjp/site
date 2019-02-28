@@ -1,4 +1,4 @@
-﻿# make_from_tuple
+# make_from_tuple
 * tuple[meta header]
 * function template[meta id-type]
 * std[meta namespace]
