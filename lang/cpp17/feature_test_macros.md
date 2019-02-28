@@ -48,8 +48,8 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_optional`                          | `201606` | [`std::optional`](/reference/optional/optional.md) | [`<optional>`](/reference/optional.md) |
 | `__cpp_lib_any`                               | `201606` | [`std::any`](/reference/any/any.md) | [`<any>`](/reference/any.md) |
 | `__cpp_lib_variant`                           | `201606` | [`std::variant`](/reference/variant/variant.md) | [`<variant>`](/reference/variant.md) |
-| `__cpp_lib_memory_resource`                   | `201603` | [`std::memory_resource`](/reference/memory_resource/memory_resource.md)と関連する機能 | [`<memory_resource>`](/reference/memory_resource.md) |
-| `__cpp_lib_boyer_moore_searcher`              | `201603` | [`std::boyer_morre_searcher`](/reference/functional/boyer_moore_searcher.md)と関連する機能 | [`<functional>`](/reference/functional/functional.md) |
+| `__cpp_lib_memory_resource`                   | `201603` | [`std::memory_resource`](/reference/memory_resource/memory_resource.md.nolink)と関連する機能 | [`<memory_resource>`](/reference/memory_resource.md.nolink) |
+| `__cpp_lib_boyer_moore_searcher`              | `201603` | [`std::boyer_morre_searcher`](/reference/functional/boyer_moore_searcher.md)と関連する機能 | [`<functional>`](/reference/functional.md) |
 | `__cpp_lib_string_view`                       | `201606` | [`std::string_view`](/reference/string_view/basic_string_view.md) | [`<string_view>`](/reference/string_view.md) |
 | `__cpp_lib_sample`                            | `201603` | [`std::sample()`](/reference/algorithm/sample.md) | [`<algorithm>`](/reference/algorithm.md) |
 | `__cpp_lib_addressof_constexpr`               | `201603` | [`std::addressof()`](/reference/memory/addressof.md) | [`<memory>`](/reference/memory.md) |
@@ -69,7 +69,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_has_unique_object_representations` | `201606` | [`std::has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_is_aggregate`                      | `201703` | [`std::is_aggregate`](/reference/type_traits/is_aggregate.md) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_chrono`                            | `201510` | [`<chrono>`](/reference/chrono.md) の改良 | [`<chrono>`](/reference/chrono.md) |
-| `__cpp_lib_execution`                         | `201603` | [`<execution>`](/reference/execution) の追加 | [`<execution>`](/reference/execution) |
+| `__cpp_lib_execution`                         | `201603` | [`<execution>`](/reference/execution.md) の追加 | [`<execution>`](/reference/execution.md) |
 | `__cpp_lib_parallel_algorithm`                | `201603` | 並列アルゴリズム | [`<algorithm>`](/reference/algorithm.md), [`<numeric>`](/reference/numeric.md), [`<memory>`](/reference/memory.md) |
 | `__cpp_lib_to_chars`                          | `201611` | [`std::to_chars()`](/reference/utility/to_chars.md.nolink)と[`std::from_chars()`](/reference/utility/from_chars.md.nolink) | [`<utility>`](/reference/utility.md) |
 | `__cpp_lib_allocator_traits_is_always_equal`  | `201411` | ライブラリ内の `noexcept` のクリーンアップ | [`<deque>`](/reference/deque.md), [`<forward_list>`](/reference/forward_list.md), [`<list>`](/reference/list.md), [`<map>`](/reference/map.md), [`<memory>`](/reference/memory.md), [`<scoped_allocator>`](/reference/scoped_allocator.md), [`<set>`](/reference/set.md), [`<string>`](/reference/string.md), [`<unordered_map>`](/reference/unordered_map.md), [`<unordered_set>`](/reference/unordered_set.md), [`<vector>`](/reference/vector.md) |
