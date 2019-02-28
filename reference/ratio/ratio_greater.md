@@ -10,8 +10,8 @@ namespace std {
   struct ratio_greater;
 
   template <class R1, class R2>
-  constexpr bool ratio_greater_v
-    = ratio_greater<R1, R2>::value; // C++17
+  inline constexpr bool ratio_greater_v
+    = ratio_greater<R1, R2>::value;     // C++17
 }
 ```
 

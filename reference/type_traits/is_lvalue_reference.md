@@ -10,7 +10,8 @@ namespace std {
   struct is_lvalue_reference;
 
   template <class T>
-  constexpr bool is_lvalue_reference_v = is_lvalue_reference<T>::value; // C++17
+  inline constexpr bool is_lvalue_reference_v
+    = is_lvalue_reference<T>::value;          // C++17
 }
 ```
 

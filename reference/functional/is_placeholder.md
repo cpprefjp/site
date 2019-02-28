@@ -10,7 +10,7 @@ namespace std {
   struct is_placeholder;
 
   template <class T>
-  constexpr int is_placeholder_v = is_placeholder<T>::value; // C++17
+  inline constexpr int is_placeholder_v = is_placeholder<T>::value; // C++17
 }
 ```
 

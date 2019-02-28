@@ -10,8 +10,8 @@ namespace std {
   struct is_trivially_destructible;
 
   template <class T>
-  constexpr bool is_trivially_destructible_v
-    = is_trivially_destructible<T>::value;   // C++17
+  inline constexpr bool is_trivially_destructible_v
+    = is_trivially_destructible<T>::value;          // C++17
 }
 ```
 

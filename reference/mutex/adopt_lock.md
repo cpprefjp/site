@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   struct adopt_lock_t { };
-  constexpr adopt_lock_t adopt_lock { };
+  constexpr adopt_lock_t adopt_lock { };        // C++11
+  inline constexpr adopt_lock_t adopt_lock { }; // C++17
 }
 ```
 

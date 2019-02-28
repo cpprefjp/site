@@ -10,7 +10,7 @@ namespace std {
   struct is_pod;
 
   template <class T>
-  constexpr bool is_pod_v = is_pod<T>::value; // C++17
+  inline constexpr bool is_pod_v = is_pod<T>::value; // C++17
 }
 ```
 

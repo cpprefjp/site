@@ -10,7 +10,7 @@ namespace std {
   struct uses_allocator;
 
   template <class T, class Alloc>
-  constexpr bool uses_allocator_v = uses_allocator<T, Alloc>::value; // C++17
+  inline constexpr bool uses_allocator_v = uses_allocator<T, Alloc>::value; // C++17
 }
 ```
 

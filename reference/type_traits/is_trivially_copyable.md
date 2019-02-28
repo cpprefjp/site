@@ -10,8 +10,8 @@ namespace std {
   struct is_trivially_copyable;
 
   template <class T>
-  constexpr bool is_trivially_copyable_v
-    = is_trivially_copyable<T>::value;   // C++17
+  inline constexpr bool is_trivially_copyable_v
+    = is_trivially_copyable<T>::value;          // C++17
 }
 ```
 

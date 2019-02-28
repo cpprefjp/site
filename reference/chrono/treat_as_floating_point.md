@@ -12,8 +12,8 @@ namespace chrono {
     : is_floating_point<Rep> { };
 
   template <class Rep>
-  constexpr bool treat_as_floating_point_v
-    = treat_as_floating_point<Rep>::value; // C++17
+  inline constexpr bool treat_as_floating_point_v
+    = treat_as_floating_point<Rep>::value;        // C++17
 }}
 ```
 * is_floating_point[link /reference/type_traits/is_floating_point.md]

@@ -10,8 +10,8 @@ namespace std {
   struct is_member_function_pointer;
 
   template <class T>
-  constexpr bool is_member_function_pointer_v
-    = is_member_function_pointer<T>::value;   // C++17
+  inline constexpr bool is_member_function_pointer_v
+    = is_member_function_pointer<T>::value;          // C++17
 }
 ```
 

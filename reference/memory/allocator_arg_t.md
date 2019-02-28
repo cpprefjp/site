@@ -6,8 +6,11 @@
 
 ```cpp
 namespace std {
-  struct allocator_arg_t {};
-  constexpr allocator_arg_t allocator_arg = allocator_arg_t();
+  struct allocator_arg_t {};                                        // (1) C++11
+  struct allocator_arg_t { explicit allocator_arg_t() = default; }; // (1) C++17
+
+  constexpr allocator_arg_t allocator_arg = allocator_arg_t();      // (2) C++11
+  inline constexpr allocator_arg_t allocator_arg{};                 // (2) C++17
 }
 ```
 

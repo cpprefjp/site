@@ -10,7 +10,7 @@ namespace std {
   struct negation;
 
   template <class Trait>
-  constexpr bool negation_v = negation<Trait>::value;
+  inline constexpr bool negation_v = negation<Trait>::value;
 }
 ```
 

@@ -10,7 +10,7 @@ namespace std {
   struct is_null_pointer;
 
   template <class T>
-  constexpr bool is_null_pointer_v = is_null_pointer<T>::value; // C++17
+  inline constexpr bool is_null_pointer_v = is_null_pointer<T>::value; // C++17
 }
 ```
 

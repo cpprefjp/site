@@ -10,7 +10,7 @@ namespace std {
   struct is_destructible;
 
   template <class T>
-  constexpr bool is_destructible_v
+  inline constexpr bool is_destructible_v
     = is_destructible<T>::value;   // C++17
 }
 ```

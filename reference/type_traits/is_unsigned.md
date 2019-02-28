@@ -10,7 +10,7 @@ namespace std {
   struct is_unsigned;
 
   template <class T>
-  constexpr bool is_unsigned_v = is_unsigned<T>::value; // C++17
+  inline constexpr bool is_unsigned_v = is_unsigned<T>::value; // C++17
 }
 ```
 

@@ -6,7 +6,8 @@
 
 ```cpp
 namespace std {
-  const unspecified ignore;
+  const unspecified ignore;            // C++11
+  inline constexpr unspecified ignore; // C++17
 }
 ```
 * unspecified[italic]

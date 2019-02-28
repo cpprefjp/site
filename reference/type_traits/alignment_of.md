@@ -12,7 +12,7 @@ namespace std {
   };
 
   template <class T>
-  constexpr std::size_t alignment_of_v = alignment_of<T>::value; // C++17
+  inline constexpr std::size_t alignment_of_v = alignment_of<T>::value; // C++17
 }
 ```
 

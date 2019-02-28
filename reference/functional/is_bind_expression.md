@@ -10,7 +10,7 @@ namespace std {
   struct is_bind_expression;
 
   template <class T>
-  constexpr bool is_bind_expression_v = is_bind_expression<T>::value; // C++17
+  inline constexpr bool is_bind_expression_v = is_bind_expression<T>::value; // C++17
 }
 ```
 

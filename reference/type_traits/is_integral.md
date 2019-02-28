@@ -10,7 +10,7 @@ namespace std {
   struct is_integral;
 
   template <class T>
-  constexpr bool is_integral_v = is_integral<T>::value; // C++17
+  inline constexpr bool is_integral_v = is_integral<T>::value; // C++17
 }
 ```
 

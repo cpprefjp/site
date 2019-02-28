@@ -10,7 +10,7 @@ namespace std {
   struct is_final;
 
   template <class T>
-  constexpr bool is_final_v = is_final<T>::value; // C++17
+  inline constexpr bool is_final_v = is_final<T>::value; // C++17
 }
 ```
 

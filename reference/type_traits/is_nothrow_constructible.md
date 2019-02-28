@@ -10,7 +10,7 @@ namespace std {
   struct is_nothrow_constructible;
 
   template <class T, class... Args>
-  constexpr bool is_nothrow_constructible_v
+  inline constexpr bool is_nothrow_constructible_v
     = is_nothrow_constructible<T, Args...>::value; // C++17
 }
 ```

@@ -10,7 +10,7 @@ namespace std {
   struct is_const;
 
   template <class T>
-  constexpr bool is_const_v = is_const<T>::value; // C++17
+  inline constexpr bool is_const_v = is_const<T>::value; // C++17
 }
 ```
 

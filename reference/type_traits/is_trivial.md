@@ -10,7 +10,7 @@ namespace std {
   struct is_trivial;
 
   template <class T>
-  constexpr bool is_trivial_v = is_trivial<T>::value; // C++17
+  inline constexpr bool is_trivial_v = is_trivial<T>::value; // C++17
 }
 ```
 

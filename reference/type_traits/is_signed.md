@@ -10,7 +10,7 @@ namespace std {
   struct is_signed;
 
   template <class T>
-  constexpr bool is_signed_v = is_signed<T>::value; // C++17
+  inline constexpr bool is_signed_v = is_signed<T>::value; // C++17
 }
 ```
 

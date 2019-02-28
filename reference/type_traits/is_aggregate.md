@@ -10,7 +10,7 @@ namespace std {
   struct is_aggregate;
 
   template <class T>
-  constexpr bool is_aggregate_v = is_aggregate<T>::value;
+  inline constexpr bool is_aggregate_v = is_aggregate<T>::value;
 }
 ```
 
