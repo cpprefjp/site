@@ -26,7 +26,7 @@
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------|--------------------------|-------|
 | [`apply`](tuple/apply.md) | タプルを展開して関数呼び出しする | C++17 |
-| [`make_from_tuple`](tuple/make_from_tuple.md.nolink) | タプルを任意の型に変換する | C++17 |
+| [`make_from_tuple`](tuple/make_from_tuple.md) | タプル内の値を使って任意の型を構築する | C++17 |
 
 
 ## タプルヘルパクラス
