@@ -105,6 +105,7 @@ int main()
 }
 ```
 * std::variant_alternative[color ff0000]
+* std::variant_alternative_t[color ff0000]
 * std::variant[link variant.md]
 
 ### 出力
