@@ -16,12 +16,12 @@ tuple-likeな型`Tuple`のオブジェクトに含まれる値から型`T`のオ
 
 ## 要件
 型`T`のコンストラクタの内のいずれか一つが、型`Tuple`に含まれる全ての値をその順番通りに受け入れ可能であること。それができない場合はコンパイルエラーとなる。  
-また、型`T`の初期化はそのコンストラクタで行われ集成体初期化は考慮されない（これは、型`T`は集成体（aggregate）であってはならない、という事と等値である）。
+また、型`T`の初期化はそのコンストラクタで行われ集成体初期化は考慮されない。これは、型`T`は集成体（aggregate）であってはならない、という事と等値である（C++17まで）。
 
 ## 引数
 - `t` -- tuple-likeな型`Tuple`のオブジェクト
 
-tuple-likeな型とは主に[`std::tuple`](../tuple.md)の事であるが、[`std::pair`](/reference/utility/pair.md)や[`std::array`](/reference/array/array.md)のように[`std::tuple`](../tuple.md)と同じような扱いができる型のことである。  
+tuple-likeな型とは主に[`std::tuple`](../tuple.md)の事であるが、[`std::pair`](/reference/utility/pair.md)や[`std::array`](/reference/array/array.md)のように[`std::tuple`](../tuple.md)と同じような扱いができる型も含んでいる。  
 より詳細には、[`std::get`](/reference/array/array/get.md)（インデックス指定）と[`std::tuple_size`](/reference/array/array/tuple_size.md)が適用可能である型である。
 
 ## 戻り値
@@ -32,6 +32,8 @@ tuple-likeな型とは主に[`std::tuple`](../tuple.md)の事であるが、[`st
 
 ## 備考
 構築したい型`T`は引数からの推論ができないので、明示的に指定する必要がある。
+
+また、[値のコピー省略保証](/lang/cpp17/guaranteed_copy_elision.md)に対応するコンパイラであれば型`T`はムーブ可能である必要はない（戻り値の`T`のオブジェクトは呼び出し元で構築される）。
 
 ## 実装例
 ```cpp
@@ -49,8 +51,6 @@ constexpr T make_from_tuple(Tuple&& t) {
 * std::make_index_sequence[link /reference/utility/make_index_sequence.md]
 * std::index_sequence[link /reference/utility/index_sequence.md]
 * std::decay_t[link /reference/type_traits/decay.md]
-
-このような実装の場合、[値のコピー省略保証](/lang/cpp17/guaranteed_copy_elision.md)に対応するコンパイラであれば型`T`はムーブ可能である必要がない（戻り値の`T`のオブジェクトは呼び出し元で構築される）。
 
 ## 例
 
@@ -91,7 +91,7 @@ int main()
   {
     auto p = std::make_pair(30, 40.0);
 
-    //std::pari<int, double>からの構築
+    //std::pair<int, double>からの構築
     auto s = std::make_from_tuple<sample>(std::move(p));
   }
 
@@ -123,7 +123,7 @@ int main()
 
 
 ## 関連項目
-- [apply](../apply.md)
+- [apply](../tuple/apply.md)
 
 ## 参照
 - [C++1z タプルを任意の型のオブジェクトに変換するmake_from_tuple関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/08/19/173946)
