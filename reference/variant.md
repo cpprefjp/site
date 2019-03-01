@@ -7,7 +7,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`variant`](variant/variant.md) | 候補の型を切り替えながら保持できる記憶域型 (class template) | C++17 |
-| [`variant_size`](variant/variant_size.md.nolink) | 候補型の数を取得する (class template) | C++17 |
+| [`variant_size`](variant/variant_size.md) | 候補型の数を取得する (class template) | C++17 |
 | [`variant_alternative`](variant/variant_alternative.md.nolink) | 候補型のi番目の型を取得する (class template) | C++17 |
 | [`variant_npos`](variant/variant_npos.md.nolink) | 候補型の無効なインデックス値 (variable) | C++17 |
 | [`hold_alternative`](variant/hold_alternative.md.nolink) | `variant`オブジェクトがi番目の候補型を現在保持しているかを判定する (function template) | C++17 |
