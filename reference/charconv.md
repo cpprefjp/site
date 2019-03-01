@@ -2,7 +2,15 @@
 * charconv[meta header]
 * cpp17[meta cpp]
 
-`<tuple>`ヘッダでは、異なる型を格納できる固定サイズコレクションであるタプル型を提供する。2要素のみ格納可能な[`pair`](/reference/utility/pair.md)とは違い、[`tuple`](tuple/tuple.md)は任意の数の要素を格納できる。
+`<charconv>`ヘッダでは、ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換を提供する。
+
+これらの変換は以下のような特徴がある。
+
+- フォーマットは引数で指定し、入力値のフォーマットを実行時に解析することはない
+- 動的にメモリ確保を行わない
+- ロケールを考慮しない（Cロケール (POSIXロケール) 固定）
+- バッファオーバーランしない
+- 例外を投げない（エラーは戻り値で表現、エラーと有効値は区別可能）
 
 ## クラス
 
@@ -12,7 +20,7 @@
 | [`to_chars_result`](charconv/to_chars_result.md.nolink) | [`to_chars`](charconv/to_chars.md.nolink)の結果型 | C++17 |
 | [`from_chars_result`](charconv/from_chars_result.md.nolink) | [`from_chars`](charconv/from_chars.md.nolink)の結果型 | C++17 |
 
-## 文字列⇔数値変換関数
+## 文字列 ⇔ 数値変換関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
