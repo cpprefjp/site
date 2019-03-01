@@ -86,6 +86,7 @@ hello
 
 
 ## 関連項目
+- [make_from_tuple](../tuple/make_from_tuple.md)
 - [`std::tuple`](../tuple.md)
 - [INVOKE](/reference/concepts/Invoke.md)
 
