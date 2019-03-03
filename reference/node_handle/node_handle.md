@@ -86,7 +86,7 @@ class node-handle;
 
 int main()
 {
-  // charをキー、intを値として扱う連想配列
+  // char をキー、int を値として扱う連想配列
   std::map<char, int> m1, m2;
 
   // m1 へ挿入
@@ -95,6 +95,7 @@ int main()
   m1.insert(std::make_pair('c', 30));
 
   // ノードを取得(要素は、コピーもムーブもされない)
+  // なお、node_type は node-handle の特殊化である
   std::map<char, int>::node_type node = m1.extract('c');
 
   // m2 へ挿入(要素は、コピーもムーブもされない)
