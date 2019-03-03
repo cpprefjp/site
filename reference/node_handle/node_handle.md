@@ -1,14 +1,11 @@
 # node_handle
 * article[meta id-type]
-* std[meta namespace]
 * cpp17[meta cpp]
 
 
 ```cpp
-namespace std {
-  template<unspecified>
-  class node-handle;
-}
+template<unspecified>
+class node-handle;
 ```
 
 ## 概要
