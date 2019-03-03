@@ -103,14 +103,14 @@ int main()
 
   // m2 へ挿入(要素は、コピーもムーブもされない)
   m2.insert(std::move(node));
-  
+
   std::cout << "m1 :" << std::endl;
-  
+
   for (const auto& [key, value] : m1)
     std::cout << "[" << key << ", " << value << "]" << std::endl;
-    
+
   std::cout << "\n" << "m2 :" << std::endl;
-    
+
   for (const auto& [key, value] : m2)
     std::cout << "[" << key << ", " << value << "]" << std::endl;
 }
