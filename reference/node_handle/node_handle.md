@@ -1,5 +1,5 @@
 # node_handle
-* class[meta id-type]
+* article[meta id-type]
 * std[meta namespace]
 * cpp17[meta cpp]
 
