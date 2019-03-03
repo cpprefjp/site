@@ -27,10 +27,10 @@ namespace std {
 | `map<K, T, C1, A>` | `multimap<K, T, C2, A>` |
 | `set<K, C1, A>` | `set<K, C2, A>` |
 | `set<K, C1, A>` | `multiset<K, C2, A>` |
-| `unordered_­map<K, T, H1, E1, A>` | `unordered_­map<K, T, H2, E2, A>` |
-| `unordered_­map<K, T, H1, E1, A>` | `unordered_­multimap<K, T, H2, E2, A>` |
-| `unordered_­set<K, H1, E1, A>` | `unordered_­set<K, H2, E2, A>` |
-| `unordered_­set<K, H1, E1, A>` | `unordered_­multiset<K, H2, E2, A>` |
+| `unordered_map<K, T, H1, E1, A>` | `unordered_map<K, T, H2, E2, A>` |
+| `unordered_map<K, T, H1, E1, A>` | `unordered_multimap<K, T, H2, E2, A>` |
+| `unordered_set<K, H1, E1, A>` | `unordered_set<K, H2, E2, A>` |
+| `unordered_set<K, H1, E1, A>` | `unordered_multiset<K, H2, E2, A>` |
 
 ノードハンドルが空でない場合は、要素が抽出されたときのコンテナのアロケータと等しいアロケータが含まれる。ノードハンドルが空の場合、アロケータは含まれない。
 
