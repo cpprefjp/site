@@ -1,5 +1,4 @@
 # node_handle
-* article[meta id-type]
 * cpp17[meta cpp]
 
 
