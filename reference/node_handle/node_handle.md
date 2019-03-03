@@ -73,7 +73,7 @@ key_type を K、 mapped_type を T としたとき、`std::pair<K, T>`または
 |-----------------|----------------|----------------|
 | `key_type` | テンプレートパラメータ `Key`。 | C++17 |
 | `value_type`(set) | テンプレートパラメータ `Key`。 | C++17 |
-| `value_type`(map) | 要素の型。`std::`[`pair`](/reference/utility/pair.md.nolink)`<const Key, T>`。 | C++17 |
+| `value_type`(map) | 要素の型。`std::`[`pair`](/reference/utility/pair.md)`<const Key, T>`。 | C++17 |
 | `mapped_type`(map) | 値の型。テンプレートパラメータ `T`。 | C++17 |
 | `allocator_type` | アロケータの型。 | C++17 |
 
@@ -117,7 +117,6 @@ int main()
 ```
 * node_type[color ff0000]
 
-(コードブロック中の識別子に、文字色を付ける例です。)
 
 ### 出力
 ```
