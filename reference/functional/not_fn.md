@@ -32,16 +32,16 @@ public:
   call_wrapper(call_wrapper const&) = default;
 
   template <class... Args>
-  auto operator()(Args&&...) & -> decltype(!declval<invoke_result_of_t<FD&, Args&&...>>());
+  auto operator()(Args&&...) & -> decltype(!declval<invoke_result_t<FD&, Args&&...>>());
 
   template <class... Args>
-  auto operator()(Args&&...) const& -> decltype(!declval<invoke_result_of_t<FD const&, Args&&...>>());
+  auto operator()(Args&&...) const& -> decltype(!declval<invoke_result_t<FD const&, Args&&...>>());
 
   template <class... Args>
-  auto operator()(Args&&...) && -> decltype(!declval<invoke_result_of_t<FD, Args&&...>>());
+  auto operator()(Args&&...) && -> decltype(!declval<invoke_result_t<FD, Args&&...>>());
 
   template <class... Args>
-  auto operator()(Args&&...) const&& -> decltype(!declval<invoke_result_of_t<FD const, Args&&...>>());
+  auto operator()(Args&&...) const&& -> decltype(!declval<invoke_result_t<FD const, Args&&...>>());
 
 private:
   FD fd;
@@ -49,7 +49,7 @@ private:
 ```
 * decay_t[link /reference/type_traits/decay.md]
 * declval[link /reference/utility/declval.md]
-* invoke_result_of_t[link /reference/type_traits/invoke_result_of_t.md]
+* invoke_result_t[link /reference/type_traits/invoke_result.md]
 
 このクラスのコンストラクタは、式`fd =` [`std::forward`](/reference/utility/forward.md)`<F>(f)`を実行する。この式が例外を送出する可能性がある。
 
