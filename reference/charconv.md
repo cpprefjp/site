@@ -11,21 +11,28 @@
 - ロケールを考慮しない（Cロケール (POSIXロケール) 固定）
 - バッファオーバーランしない
 - 例外を投げない（エラーは戻り値で表現、エラーと有効値は区別可能）
+- 使用可能なフォーマットは最小限
+    - `+`符号の指定はできない
+    - 文字列中のスペースは許容されない
+    - `#`による小数点以下の桁数指定はできない
+    - ゼロ埋めはできない
+    - 小文字のみ許容し、大文字は扱えない
+    - 16進数に`0x`は付けられない
 
 ## クラス
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`chars_­format`](charconv/chars_­format.md.nolink) | 変換時の浮動小数点フォーマット指定のための列挙体 | C++17 |
-| [`to_chars_result`](charconv/to_chars_result.md.nolink) | [`to_chars`](charconv/to_chars.md.nolink)の結果型 | C++17 |
-| [`from_chars_result`](charconv/from_chars_result.md.nolink) | [`from_chars`](charconv/from_chars.md.nolink)の結果型 | C++17 |
+| [`chars_­format`](charconv/chars_­format.md) | 変換時の浮動小数点フォーマット指定のための列挙体 | C++17 |
+| [`to_chars_result`](charconv/to_chars_result.md) | [`to_chars`](charconv/to_chars.md)の結果型 | C++17 |
+| [`from_chars_result`](charconv/from_chars_result.md) | [`from_chars`](charconv/from_chars.md)の結果型 | C++17 |
 
 ## 文字列 ⇔ 数値変換関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`to_chars`](charconv/to_chars.md.nolink) | 数値 → 文字列の変換 | C++17 |
-| [`from_chars`](charconv/from_chars.md.nolink) | 文字列 → 数値の変換 | C++17 |
+| [`to_chars`](charconv/to_chars.md) | 数値 → 文字列の変換 | C++17 |
+| [`from_chars`](charconv/from_chars.md) | 文字列 → 数値の変換 | C++17 |
 
 ## バージョン
 ### 言語
@@ -34,8 +41,13 @@
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017 15.7
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 7, update 9(full suport)
 
 ## 参照
-- [P0067R5: Elementary string conversions, revision 5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html)
+- [P0067R0 Elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0067r0.html)
+- [P0067R1 Elementary string conversions, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r1.html)
+- [P0067R2 Elementary string conversions, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r2.html)
+- [P0067R3 Elementary string conversions, revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r3.html)
+- [P0067R4 Elementary string conversions, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r4.html)
+- [P0067R5 Elementary string conversions, revision 5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html)
 - [P0682R1: Repairing elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html)
