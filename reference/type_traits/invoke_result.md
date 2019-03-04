@@ -8,7 +8,7 @@
 namespace std {
   template <class F, class... ArgsTypes>
   struct invoke_result;
-  
+
   template <class F, class... ArgsTypes>
   using invoke_result_t = typename invoke_result<F, ArgsTypes...>::type;
 }
