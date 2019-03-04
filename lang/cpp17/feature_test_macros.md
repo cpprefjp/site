@@ -43,7 +43,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_launder`                           | `201606` | [`std::launder()`](/reference/new/launder.md) | | [`<new>`](/reference/new.md) |
 | `__cpp_lib_uncaught_exceptions`               | `201411` | [`std::uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md) | [`<exception>`](/reference/exception.md) |
 | `__cpp_lib_as_const`                          | `201510` | [`std::as_const()`](/reference/utility/as_const.md) | [`<utility>`](/reference/utility.md) |
-| `__cpp_lib_make_from_tuple`                   | `201606` | [`std::make_from_tuple()`](/reference/utility/make_from_tuple.md) | [`<utility>`](/reference/utility.md) |
+| `__cpp_lib_make_from_tuple`                   | `201606` | [`std::make_from_tuple()`](/reference/tuple/make_from_tuple.md) | [`<utility>`](/reference/utility.md) |
 | `__cpp_lib_apply`                             | `201603` | [`std::apply()`](/reference/tuple/apply.md) | [`<tuple>`](/reference/tuple.md) |
 | `__cpp_lib_optional`                          | `201606` | [`std::optional`](/reference/optional/optional.md) | [`<optional>`](/reference/optional.md) |
 | `__cpp_lib_any`                               | `201606` | [`std::any`](/reference/any/any.md) | [`<any>`](/reference/any.md) |
