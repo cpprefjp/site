@@ -104,7 +104,7 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 6.0
 - [GCC](/implementation.md#gcc): 7.3
-- [Visual C++](/implementation.md#visual_cpp): 2017 15.3
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 3
 
 ## 参照
 - [P0604R0 Resolving GB 55, US 84, US 85, US 86](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html)
