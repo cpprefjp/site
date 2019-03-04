@@ -1,5 +1,4 @@
 # swap (非メンバ関数)
-* cpp17[meta cpp]
 
 ```cpp
 friend void swap(node-handle& x, node-handle& y) noexcept(noexcept(x.swap(y)));
