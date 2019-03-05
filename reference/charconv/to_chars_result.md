@@ -8,7 +8,7 @@
 namespace std {
   struct to_chars_result {
     char* ptr;
-    error_code ec;
+    errc ec;
   };
 }
 ```
@@ -21,7 +21,7 @@ namespace std {
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | ptr | 成功した場合、書き込まれた最後の文字の次の位置を指すポインタ。 | C++17 |
-| ec | `bool(ec) == false`なら成功、`bool(ec) == true`なら失敗を表す[`error_code`](/reference/system_error/error_code.md)。 | C++17 |
+| ec | 成功なら`ec == errc{}`、失敗ならば`errc::value_too_large`を表す[`errc`](/reference/system_error/errc.md)の値。 | C++17 |
 
 ## バージョン
 ### 言語
@@ -38,3 +38,4 @@ namespace std {
 
 ## 参照
 - [P0067R5: Elementary string conversions, revision 5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html)
+- [P0682R1: Repairing elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html)

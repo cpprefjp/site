@@ -14,9 +14,15 @@ namespace std {
 ## 概要
 
 ## 要件
+- 全て : 出力範囲`[fisrt, last)`は有効な範囲であること（charのオブジェクトが構築済みであり、連続していること）。
 
 ## 引数
-- `t` -- tuple-likeな型`Tuple`のオブジェクト
+- `first` -- 
+- `last` -- 
+- `value` -- 
+- `fmt` -- 
+
+## 効果
 
 ## 戻り値
 
@@ -60,3 +66,4 @@ int main()
 
 ## 参照
 - [P0067R5: Elementary string conversions, revision 5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html)
+- [P0682R1: Repairing elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html)
