@@ -91,6 +91,8 @@ namespace std {
 | [`try_emplace`](map/try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する | C++17          |
 | [`erase`](map/erase.md)                       | 要素を削除する                             |                |
 | [`swap`](map/swap.md)                         | コンテンツを交換する                       |                |
+| [`extract`](map/extract.md)                   | ノードハンドルを取得する                    | C++17          |
+
 
 
 ### 要素アクセス
