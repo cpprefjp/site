@@ -1,4 +1,5 @@
 # node_handle
+* node_handle[meta header]
 
 このページでは、連想コンテナのsplice操作をサポートするための説明用の型について記載する。
 
