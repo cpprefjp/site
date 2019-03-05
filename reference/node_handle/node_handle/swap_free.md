@@ -76,7 +76,7 @@ node2 : [10, a]
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 5
 
 ## 関連項目
-- [node_handle](reference/node_handle/node_handle.md)
+- [node_handle](/reference/node_handle/node_handle.md)
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
