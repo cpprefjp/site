@@ -79,7 +79,7 @@ class node-handle;
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`swap`](node_handle/swap_free.md.nolink) | 2つの`node_handle`オブジェクトを入れ替える | C++17 |
+| [`swap`](node_handle/swap_free.md) | 2つの`node_handle`オブジェクトを入れ替える | C++17 |
 
 ## 例
 ```cpp example
