@@ -139,13 +139,13 @@ m2 :
 
 ## 関連項目
 - [`std::set`](/reference/set/set.md)
-- [`std::multiset`](/reference/multiset/multiset.md)
+- [`std::multiset`](/reference/set/multiset.md)
 - [`std::map`](/reference/map/map.md)
-- [`std::multimap`](/reference/multimap/multimap.md)
+- [`std::multimap`](/reference/map/multimap.md)
 - [`std::unordered_set`](/reference/unordered_set/unordered_set.md)
-- [`std::unordered_multiset`](/reference/unordered_multiset/unordered_multiset.md)
+- [`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)
 - [`std::unordered_map`](/reference/unordered_map/unordered_map.md)
-- [`std::unordered_multimap`](/reference/unordered_multimap/unordered_multimap.md)
+- [`std::unordered_multimap`](/reference/unordered_map/unordered_multimap.md)
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
