@@ -72,6 +72,7 @@ int main()
 }
 ```
 * std::variant_size[color ff0000]
+* std::variant_size_v[color ff0000]
 * std::variant[link variant.md]
 
 ### 出力

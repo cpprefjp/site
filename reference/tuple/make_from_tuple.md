@@ -15,14 +15,14 @@ namespace std {
 tuple-likeな型`Tuple`のオブジェクトに含まれる値から型`T`のオブジェクトを構築する。
 
 ## 要件
-型`T`のコンストラクタの内のいずれか一つが、型`Tuple`に含まれる全ての値をその順番通りに受け入れ可能であること。それができない場合はコンパイルエラーとなる。  
-また、型`T`の初期化はそのコンストラクタで行われ集成体初期化は考慮されない。つまり、`Tuple`に含まれる型が空かただ一つの`T`でない場合、型`T`は集成体（aggregate）であってはならない。
+型`T`のコンストラクタの内のいずれか一つが、型`Tuple`に含まれる全ての型の値をその順番通りに受け入れ可能であること。それができない場合はコンパイルエラーとなる。  
+また、型`T`の初期化はそのコンストラクタで行われ集成体初期化は考慮されない。つまり、`Tuple`に含まれる型が空かただ一つの`T`でない場合、型`T`は集成体（aggregate）であってはならない（C++17のみ、C++20以降はok）。
 
 ## 引数
 - `t` -- tuple-likeな型`Tuple`のオブジェクト
 
 tuple-likeな型とは主に[`std::tuple`](../tuple.md)の事であるが、[`std::pair`](/reference/utility/pair.md)や[`std::array`](/reference/array/array.md)のように[`std::tuple`](../tuple.md)と同じような扱いができる型も含んでいる。  
-より詳細には、[`std::get`](/reference/array/array/get.md)（インデックス指定）と[`std::tuple_size`](/reference/array/array/tuple_size.md)が適用可能である型である。
+より詳細には、[`std::get`](/reference/array/array/get.md)（インデックス指定）と[`std::tuple_size`](/reference/array/array/tuple_size.md)が適用可能な型である。
 
 ## 戻り値
 `Tuple`に含まれる型の値をその順番通りに型`T`のコンストラクタに[`std::forward`](`/reference/utility/forward.md`)して構築された`T`のオブジェクト。
@@ -104,6 +104,7 @@ int main()
 }
 ```
 * std::make_from_tuple[color ff0000]
+* std::make_tuple[link ../tuple/make_tuple.md]
 
 ### 出力
 ```

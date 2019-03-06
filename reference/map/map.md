@@ -70,7 +70,7 @@ namespace std {
 | [`crend`](map/rend.md)     | 先頭を指す読み取り専用逆イテレータを取得する | C++11 |
 
 
-## 領域
+### 領域
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|------------------------------------|-------|
@@ -79,7 +79,7 @@ namespace std {
 | [`max_size`](map/max_size.md) | 格納可能な最大の要素数を取得する   | |
 
 
-## コンテナの変更
+### コンテナの変更
 
 | 名前                                          | 説明                                       | 対応バージョン |
 |-----------------------------------------------|--------------------------------------------|----------------|
@@ -91,9 +91,11 @@ namespace std {
 | [`try_emplace`](map/try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する | C++17          |
 | [`erase`](map/erase.md)                       | 要素を削除する                             |                |
 | [`swap`](map/swap.md)                         | コンテンツを交換する                       |                |
+| [`extract`](map/extract.md)                   | ノードハンドルを取得する                    | C++17          |
 
 
-## 要素アクセス
+
+### 要素アクセス
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------|--------------------------------------------|-------|
@@ -105,7 +107,7 @@ namespace std {
 | [`lower_bound`](map/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを取得する | |
 | [`upper_bound`](map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを取得する       | |
 
-## オブザーバー
+### オブザーバー
 
 | 名前                                | 説明                                   | 対応バージョン |
 |-------------------------------------|----------------------------------------|----------------|
@@ -133,6 +135,7 @@ namespace std {
 | `const pointer`                         | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。                                                                                                                              |                |
 | `reverse_iterator`                      | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。                                                                                                                                                                                                                                     |                |
 | `const_reverse_iterator`                | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。                                                                                                                                                                                                                   |                |
+| `node_type`                             | [`node-handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。                                                                                                                                                                                                                   | C++17          |
 
 
 ## 非メンバ関数

@@ -44,11 +44,11 @@ X を指す`T*`型の値。これは、引数の値と同じであると考え�
 - 元のオブジェクトの型が`const`修飾ではなく、クラス型の場合は、型が`const`修飾または参照型の非静的データメンバを含まない。
 - 元のオブジェクトも新しいオブジェクトも、潜在的に重複するサブオブジェクト(potentially-overlapping subobject)ではない。
 
-注：サブオブジェクトとは、メンバーサブオブジェクト、 基本クラスサブオブジェクト、または配列要素である。
+注：サブオブジェクトとは、あるオブジェクトに含まれている非staticメンバー変数、 基本クラス（基底クラス）及び基本クラスのサブオブジェクト、または配列要素、のそれぞれのオブジェクトのことである。
 
 注：潜在的に重複するサブオブジェクト(potentially-overlapping subobject)とは、基本クラスのサブオブジェクト、または no_unique_address 属性(C++20)で宣言された非静的データメンバのいずれかである。
 
-注：基本クラスサブオブジェクトについて、以下の例ではクラス`Derived2`のオブジェクトは、クラス`Derived`のサブオブジェクトを持ち、そのサブオブジェクトはクラス`Base`のサブオブジェクトを持つ。
+注：基本クラスのサブオブジェクトについて、以下の例ではクラス`Derived2`のオブジェクトは、クラス`Derived`のサブオブジェクト（`b`及び`Base`）を持ち、そのサブオブジェクトはクラス`Base`のサブオブジェクト（`a, b, c`）を持つ。
 
 ```cpp
 struct Base {
@@ -139,7 +139,7 @@ void tong() {
 - [Clang](/implementation.md#clang): 6.0.0
 - [GCC](/implementation.md#gcc): 7.1.0
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 7
 
 
 ## 関連項目
