@@ -23,13 +23,15 @@ namespace std {
 | ptr | （指定したフォーマットの）パターンにマッチしない最初の入力文字の位置を指すか、入力文字列の先頭を指すポインタ。 | C++17 |
 | ec | 成功なら`ec == errc{}`、失敗ならば`errc::invalid_argument`を表す[`errc`](/reference/system_error/errc.md)の値。 | C++17 |
 
+詳細は[`from_chars`](../charconv/from_chars.md)の戻り値の項を参照のこと。
+
 ## バージョン
 ### 言語
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [Clang](/implementation.md#clang): 7.0
+- [GCC](/implementation.md#gcc): 8.0
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 7
 
 ## 関連項目
