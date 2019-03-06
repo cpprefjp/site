@@ -39,9 +39,9 @@
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 7, update 9(full suport)
+- [Clang](/implementation.md#clang): 7.0(整数のみ)
+- [GCC](/implementation.md#gcc): 8.0(整数のみ)
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full suport)
 
 ## 参照
 - [P0067R0 Elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0067r0.html)
