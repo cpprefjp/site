@@ -92,7 +92,7 @@ namespace std {
 | [`erase`](map/erase.md)                       | 要素を削除する                             |                |
 | [`swap`](map/swap.md)                         | コンテンツを交換する                       |                |
 | [`extract`](map/extract.md)                   | ノードハンドルを取得する                    | C++17          |
-
+| [`merge`](map/merge.md)                       | 他のオブジェクトの要素をマージする           | C++17          |
 
 
 ### 要素アクセス
