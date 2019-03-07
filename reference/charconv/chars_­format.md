@@ -1,4 +1,4 @@
-# chars_­format
+# chars_format
 * charconv[meta header]
 * enum[meta id-type]
 * std[meta namespace]
@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  enum class chars_­format {
+  enum class chars_format {
     scientific = /*unspecified*/,
     fixed = /*unspecified*/,
     hex = /*unspecified*/,
