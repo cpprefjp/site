@@ -55,8 +55,8 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 - 全て : `value`の値を文字列へ変換し、結果文字列を`[fisrt, last)`に書き込む。
 - (1) : `base`の値をnとすると、整数値をn進数の文字列へ変換する（ `value`が負なら`-`が先頭に付く）。  
 10 < nの場合、10～36の値はアルファベットの小文字a～zがあてられる。
-- (2)(3)(4) : Cロケールで`printf`によって行われたかのように変換する。  
-フォーマット指定子は`%f,%e`どちらかを出力文字列が最も短くなるように（両者が同じなら`%f`が優先）、選択する。
+- (2)(3)(4) : Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
+フォーマット指定子は`%f,%e`どちらかを出力文字列が最も短くなるように（両者が同じなら`%f`が優先）選択する。
 - (5)(6)(7) : `fmt`によって指定されたフォーマット指定子を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
 出力文字列が最も短くなるように変換される。  
 `chars_format::general`が指定された場合は(2)(3)(4)と同等。
@@ -67,16 +67,18 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 
 なお、[`from_chars`](../charconv/from_chars.md)関数によって値を正確に復元できるのは両関数が同じ処理系で提供されているときにのみ保証される。
 
+全てのオーバーロードにおいて、変換に失敗した場合の`[fisrt, last)`の状態は未規定（利用する処理系のリファレンスを参照されたい）。
+
 ## 戻り値
 [`to_chars_result`](../charconv/to_chars_result.md)の値。
 - 成功した場合
   - `ptr` : 書き込まれた最後の文字の次の位置を指す（一般的なイテレータ範囲におけるendに相当）。
   - `ec` : `ec == errc{}`
 - 失敗した場合
-  - `ptr` : `ptr == last`、`[fisrt, last)`の状態は未規定。
+  - `ptr` : `ptr == last`
   - `ec` : `ec == ` [`errc::value_too_large`](/reference/system_error/errc.md)
 
-どちらの場合も`*ptr == '\0'`とはならない。すなわち、変換後文字列はnull終端されない。
+どちらの場合も`*ptr == '\0'`や`*(--ptr) == '\0'`は保証されない。すなわち、変換後文字列はnull終端されない。
 
 ## 例外
 投げない。
@@ -123,7 +125,7 @@ int main()
   //リウヴィル数 
   constexpr double l = 0.11000100000000000000000100000000000;
 
-  //(3)
+  //(3) 精度・フォーマット指定なしの浮動小数点数変換
   if (auto [ptr, ec] = std::to_chars(begin, end, l); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
@@ -131,21 +133,21 @@ int main()
     std::cout << "conversion failed." << std::endl;
   }
 
-  //(6)
+  //(6) 精度指定なしの浮動小数点数変換、指数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::scientific); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(6)
+  //(6) 精度指定なしの浮動小数点数変換、固定少数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::fixed); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(6)
+  //(6) 精度指定なしの浮動小数点数変換、16進指数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::hex); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
@@ -153,21 +155,21 @@ int main()
     std::cout << "conversion failed." << std::endl;
   }
 
-  //(9)
+  //(9) 精度指定ありの浮動小数点数変換、指数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::scientific, 16); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(9)
+  //(9) 精度指定ありの浮動小数点数変換、固定少数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::fixed, 16); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(9)
+  //(9) 精度指定ありの浮動小数点数変換、16進指数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::hex, 16); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
@@ -192,6 +194,7 @@ conversion failed.
 conversion failed.
 1.c29068986fcdf000p-4
 ```
+精度指定した16進指数表記以外の浮動小数点数変換に失敗するのはMSVC（VS2019 preview4.1）のバグと思われる。
 
 ## バージョン
 ### 言語
@@ -201,7 +204,6 @@ conversion failed.
 - [Clang](/implementation.md#clang): 7.0(整数のみ)
 - [GCC](/implementation.md#gcc): 8.0(整数のみ)
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full suport)
-
 
 ## 関連項目
 - [`chars_format`](../charconv/chars_format.md)

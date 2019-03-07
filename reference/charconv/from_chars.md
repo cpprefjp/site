@@ -41,17 +41,22 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 ## 効果
 - 全て : `[fisrt, last)`からパターンにマッチする文字列を探し、それを変換した数値を`value`に書き込む。
 - (1) : `base`の値をnとすると、n進数の数字列を10進整数値へ変換する。  
-`base`の値を基数としたCロケールによる`strtol`で変換する際と同様のパターンを用いる。  
-`value`の型が符号付である場合にのみ`-`は考慮されるが、`+`や16進数の`0x`等の他の記号は考慮されない。
+nを基数としたCロケールによる`strtol`で変換する際と同様のパターンを用いる。  
+ただし、`value`の型が符号付である場合にのみ`-`は考慮され、`+`や16進数の`0x`等の他の記号は考慮されない。
 - (2)～(4) : 浮動小数点数字列を浮動小数点数へ変換する。  
-Cロケールによる`strtod`で変換する際と同様のパターンを用いる。  
-数字の先頭の符号は`-`はのみが考慮され、`+`等は無視される。  
-結果の値は[`std::round_to_nearest`](/reference/limits/float_round_style.md)に従って丸めによって一つの値が選択される。  
-また、`fmt`に`chars_­format​::general`がセットされておらず（`​scientific`と`fixed`が同時にセットされておらず）
+Cロケールによる`strtod`で変換する際と同様のパターンを用いる。ただし、以下の違いがある。  
+数字の先頭の符号は`-`のみが考慮され、`+`等は無視される。  
+また、`fmt`に`chars_­format​::general`が（`​scientific`と`fixed`が同時に）セットされておらず
   - `fmt`に`chars_­format​::​scientific`がセットされているなら指数部は必須。そうでないならあっても無くてもいい。
   - `fmt`に`chars_­format​::fixed`がセットされているなら指数部は現れてはいけない。
   - `fmt`に`chars_­format​::hex`がセットされている場合に数字列の先頭に`0x, 0X`があると正しく変換されない  
   `0x123`という文字列が値`0`と残りの文字列`x123`としてパースされる。
+  
+  結果の値は[`std::round_to_nearest`](/reference/limits/float_round_style.md)に従った丸めによって一つの値が選択される。
+
+なお、[`to_chars`](../charconv/to_chars.md)関数によって値を正確に復元できるのは両関数が同じ処理系で提供されているときにのみ保証される。
+
+全てのオーバーロードにおいて、変換に失敗した場合に`value`の値は変更されない。
 
 ## 戻り値
 [`from_chars_result`](../charconv/from_chars_result.md)の値。
@@ -59,7 +64,7 @@ Cロケールによる`strtod`で変換する際と同様のパターンを用�
   - `ptr` : 指定されたパターンに一致しなかった文字列の最初の文字の位置。全てが一致した場合は`ptr == last`
   - `ec` : `ec == errc{}`
 - 失敗した場合
-  - `ptr` : `ptr == first`、`value`は変更されない。
+  - `ptr` : `ptr == first`
   - `ec` : 
     - パターンにマッチする文字列が見つからない場合、`ec == ` [`errc::invalid_­argument`](/reference/system_error/errc.md)
     - 変換した結果の値が`value`の型では表現できない場合、`ec == ` [`errc::result_­out_­of_­range`](/reference/system_error/errc.md)
@@ -78,14 +83,156 @@ Cロケールによる`strtod`で変換する際と同様のパターンを用�
 
 int main()
 {
+  {
+    const char str[] = "123456789 is decimal";
+    int value{};
+
+    //(1) 10進数文字列からintへ変換
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
+
+  {
+    const char str[] = "1111111111111111 is (65535)_10";
+    int value{};
+
+    //(1) 2進数文字列からintへ変換
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, 2); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
+
+  {
+    const char str[] = "z is (35)_10";
+    int value{};
+
+    //(1) 36進数文字列からintへ変換
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, 36); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
+
+  {
+    const char str[] = "255";
+    char value{};
+
+    //(1) 失敗する例 MSVCにおけるcharの範囲は-128～127
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, 2); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
+
+  std::cout << std::setprecision(16);
+
+  {
+    const char str[] = "3.1415926535897932384626433832795 is pi";
+    double value{};
+
+    //(3) 固定小数表記文字列からdoubleへ変換
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
+
+  {
+    const char str[] = "1.10001e-01 is Liouville number";
+    double value{};
+
+    //(3) 指数表記文字列からdoubleへ変換
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
+
+  {
+    const char str[] = "1.c29068986fcdf000p-4 is Liouville number";
+    double value{};
+
+    //(3) 16進指数表記文字列からdoubleへ変換
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, std::chars_format::hex); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
+
+  {
+    const char str[] = "                              3.1415926535897932384626433832795 is pi";
+    double value{};
+
+    //(3) ホワイトスペース読み飛ばし
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
+
+  {
+    const char str[] = "NaN";
+    double value{};
+
+    //(3) NaNの読み取り
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
+
+  {
+    const char str[] = "-INF";
+    double value{};
+
+    //(3) INFの読み取り
+    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
+      std::cout << value << std::endl;
+    }
+    else {
+      std::cout << "conversion failed." << std::endl;
+    }
+  }
 }
 ```
 * std::make_from_tuple[color ff0000]
 * std::make_tuple[link ../tuple/make_tuple.md]
 
-### 出力
+### 出力例（VS2019 preview4.1）
 ```
+123456789
+65535
+35
+conversion failed.
+3.141592653589793
+0.110001
+0.110001
+conversion failed.
+nan
+-inf
 ```
+ホワイトスペース読み飛ばしに失敗するのはMSVC（VS2019 preview4.1）のバグと思われる。
 
 ## バージョン
 ### 言語
