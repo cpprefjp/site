@@ -136,6 +136,7 @@ namespace std {
 | `reverse_iterator`                      | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。                                                                                                                                                                                                                                     |                |
 | `const_reverse_iterator`                | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。                                                                                                                                                                                                                   |                |
 | `node_type`                             | [`node-handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。                                                                                                                                                                                                                   | C++17          |
+| `insert_return_type`                    | ノードを挿入した結果を記述するために使用されるクラス型。少なくとも次の静的でないパブリックメンバ変数を含む：`bool inserted;`、`iterator position;`、`node_type node;`                                                                                                                                                                                                         | C++17          |
 
 
 ## 非メンバ関数
