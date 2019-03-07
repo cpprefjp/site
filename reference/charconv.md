@@ -13,10 +13,7 @@
 - 例外を投げない（エラーは戻り値で表現、エラーと有効値は区別可能）
 - 使用可能なフォーマットは最小限
     - `+`符号の指定はできない
-    - 文字列中のスペースは許容されない
     - `#`による小数点以下の桁数指定はできない
-    - ゼロ埋めはできない
-    - 小文字のみ許容し、大文字は扱えない
     - 16進数に`0x`は付けられない
 
 ## クラス
@@ -44,6 +41,7 @@
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full suport)
 
 ## 参照
+- [C++1z ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/08/24/181540)
 - [P0067R0 Elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0067r0.html)
 - [P0067R1 Elementary string conversions, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r1.html)
 - [P0067R2 Elementary string conversions, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r2.html)
