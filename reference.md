@@ -57,6 +57,7 @@
 | [`<chrono>`](/reference/chrono.md)           | 時間ユーティリティ        | C++11          |
 | [`<typeindex>`](/reference/typeindex.md)     | 型のインデックス          | C++11          |
 | [`<execution>`](/reference/execution.md)     | 実行ポリシー                 | C++17          |
+| [`<charconv>`](/reference/charconv.md)     | 高速な文字列 ⇔ 数値変換        | C++17          |
 
 
 ## <a id="strings" href="#strings">文字列ライブラリ</a>
