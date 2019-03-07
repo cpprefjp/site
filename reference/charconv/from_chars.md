@@ -218,8 +218,7 @@ int main()
   }
 }
 ```
-* std::make_from_tuple[color ff0000]
-* std::make_tuple[link ../tuple/make_tuple.md]
+* std::from_chars[color ff0000]
 
 ### 出力例（VS2019 preview4.1）
 ```
