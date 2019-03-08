@@ -190,7 +190,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 - [`<string_view>`](/reference/string_view.md)ヘッダを新設し、所有権を持たない文字列クラスである[`basic_string_view`](/reference/string_view/basic_string_view.md)を追加
 - [`basic_string::data()`](/reference/string/basic_string/data.md)メンバ関数の非`const`版を追加
 - 文字列検索アルゴリズムとして、「ボイヤー・ムーア法 (Boyer-Moore)」の[`std::boyer_moore_searcher`](/reference/functional/boyer_moore_searcher.md)関数オブジェクトと「ボイヤー・ムーア・ホースプール法 (Boyer-Moore-Horspool)」の[`std::boyer_moore_horspool_searcher`](/reference/functional/boyer_moore_horspool_searcher.md)関数オブジェクトを追加。[`std::search()`](/reference/algorithm/search.md)関数のポリシーとして、検索アルゴリズムを指定する
-- ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換関数として、[`to_chars()`](/reference/utility/to_chars.md.nolink)と[`from_chars()`](/reference/utility/from_chars.md.nolink)を追加
+- ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換関数として、[`to_chars()`](/reference/charconv/to_chars.md)と[`from_chars()`](/reference/charconv/from_chars.md)を追加
 - [`char_traits`](/reference/string/char_traits.md)クラスを`constexpr`に対応
 - バイトデータを表す[`byte`](/reference/cstddef/byte.md)型を追加
 
