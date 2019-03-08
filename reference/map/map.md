@@ -136,8 +136,16 @@ namespace std {
 | `reverse_iterator`                      | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。                                                                                                                                                                                                                                     |                |
 | `const_reverse_iterator`                | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。                                                                                                                                                                                                                   |                |
 | `node_type`                             | [`node-handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。                                                                                                                                                                                                                   | C++17          |
-| `insert_return_type`                    | ノードを挿入した結果を記述するために使用されるクラス型。次のテンプレートの特殊化である。<br/> template<class Iterator, class NodeType> <br/>struct insert-return-type <br/>{ <br/>&nbsp;&nbsp;Iterator position; <br/>&nbsp;&nbsp;bool     inserted; <br/>&nbsp;&nbsp;NodeType node; <br/>}; <br/> ただし、`insert-return-type`の名前は説明用であり、未規定である。| C++17          |
+| `insert_return_type`                    | ノードを挿入した結果を記述するために使用されるクラス型。以下に示す`insert-return-type`テンプレートの特殊化である。ただし、これは説明用のクラスであり、実装定義である。| C++17          |
 
+```cpp
+template <class Iterator, class NodeType>
+struct insert-return-type {
+  Iterator position;
+  bool inserted;
+  NodeType node;
+};
+```
 
 ## 非メンバ関数
 
