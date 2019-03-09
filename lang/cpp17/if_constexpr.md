@@ -1,9 +1,9 @@
-# if constexpr 文
+# constexpr if 文
 * cpp17[meta cpp]
 
 ## 概要
 
-`if constexpr`文とは、コンパイル時に条件分岐する文である。
+`constexpr if`文とは、コンパイル時に条件分岐する文である。
 
 ```
 if constepxr ( condition )
@@ -12,17 +12,17 @@ else
   statement
 ```
 
-`if constexpr`文の導入によってC++の`if`系の条件分岐文は3種類になった。
+`constexpr if`文の導入によってC++の`if`系の条件分岐文は3種類になった。
 
 - プリプロセス時`if`: `#if`
-- コンパイル時`if`: `if constexpr`
+- コンパイル時`if`: `constexpr if`
 - 実行時`if`: `if`
 
 `condition`はコンパイル時にコンテキスト依存のbool型への変換が起こる式である。例えば`constexpr`指定された`explicit operator bool()`は評価できる。
 
 `else`文には`constexpr`書かない。`if`の後に`constexpr`を書く以外では実行時`if`文と構文に差はない。
 
-プリプロセス時`if`文と異なり、`if constexpr`文は条件付きコンパイルをすることはできない。例えば次の例は不適格である。
+プリプロセス時`if`文と異なり、`constexpr if`文は条件付きコンパイルをすることはできない。例えば次の例は不適格である。
 
 ```cpp
 struct X {
@@ -36,7 +36,7 @@ struct X {
 };
 ```
 
-`if constexpr`文はスコープを作るので、例えばVisual C++の独自拡張機能である[`__if_exists`](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)は以下のような書き方が可能であるが、`if constexpr`文でこれを再現することはできない。
+`constexpr if`文はスコープを作るので、例えばVisual C++の独自拡張機能である[`__if_exists`](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)は以下のような書き方が可能であるが、`constexpr if`文でこれを再現することはできない。
 
 ```cpp
 struct A {
@@ -52,7 +52,7 @@ int main() {
 }
 ```
 
-同様にD言語の`static if`とは違いスコープを作るので、D言語で可能な次のようなことは`if constexpr`文で再現できない。
+同様にD言語の`static if`とは違いスコープを作るので、D言語で可能な次のようなことは`constexpr if`文で再現できない。
 
 ```D
 const int i = 3;
@@ -66,7 +66,7 @@ class C {
 }
 ```
 
-`if constexpr`文で、実行されない方の`statement`は`discarded statement`(破棄文)となり、文の実体化を防ぐ。言い換えると、Two Phase Name Look-upにおける`dependent name`(以下、依存名)は、`discarded statement`の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。
+`constexpr if`文で、実行されない方の`statement`は`discarded statement`(破棄文)となり、文の実体化を防ぐ。言い換えると、Two Phase Name Look-upにおける`dependent name`(以下、依存名)は、`discarded statement`の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。
 
 ```cpp example
 #include <type_traits>
@@ -136,7 +136,7 @@ int main()
 }
 ```
 
-`if constexpr`文の条件式内は実体化が起きる。したがって実体化するとコンパイルエラーになるものは書いてはいけない。
+`constexpr if`文の条件式内は実体化が起きる。したがって実体化するとコンパイルエラーになるものは書いてはいけない。
 
 ```cpp example
 #include <type_traits>
