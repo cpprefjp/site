@@ -64,7 +64,7 @@ iterator           insert(const_iterator hint, node_type&& nh); // (8) C++17か�
 - (7) : `nh`が空の場合、効果はない。
 それ以外の場合、`nh.key()`と同等のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
 - (8) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。
-それ以外の場合、`nh.key()`と同等のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。一意のキーを持つコンテナにnh.key（）と同等のキーを持つ要素がない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と同等のキーの要素を指すイテレータを常に返す。
+それ以外の場合、`nh.key()`と同等のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。一意のキーを持つコンテナに`nh.key()`と同等のキーを持つ要素がない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と同等のキーの要素を指すイテレータを常に返す。
 要素は、`p`の直前の位置のできるだけ近くに挿入される。
 
 
@@ -161,4 +161,6 @@ int main ()
     - (6)の経緯となる提案文書
 - [LWG Issue 2005. `unordered_map::insert(T&&)` protection should apply to `map` too](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2005)
     - C++14から、(2)と(4)の仕様の書き方が、`unordered_map::insert()`のものと統一された。
+- [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+    - (7), (8)経緯となる提案文書
 
