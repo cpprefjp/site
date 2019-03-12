@@ -45,7 +45,7 @@ protected:
 struct my_struct // ムーブオンリーな型
   : private noncopyable {
   int value;
-  constexpr my_struct(int i) noexcept : value(i) {};
+  constexpr explicit my_struct(int i) noexcept : value(i) {};
   bool operator < (const my_struct &rhs) const noexcept {return this->value < rhs.value;}
 };
 
