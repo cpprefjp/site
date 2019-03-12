@@ -20,7 +20,7 @@
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`chars_­format`](charconv/chars_­format.md) | 変換時の浮動小数点フォーマット指定のための列挙体 | C++17 |
+| [`chars_format`](charconv/chars_format.md) | 変換時の浮動小数点フォーマット指定のための列挙体 | C++17 |
 | [`to_chars_result`](charconv/to_chars_result.md) | [`to_chars`](charconv/to_chars.md)の結果型 | C++17 |
 | [`from_chars_result`](charconv/from_chars_result.md) | [`from_chars`](charconv/from_chars.md)の結果型 | C++17 |
 
