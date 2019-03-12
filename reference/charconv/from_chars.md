@@ -62,6 +62,7 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 
 ## 戻り値
 [`from_chars_result`](../charconv/from_chars_result.md)の値。
+
 - 成功した場合
     - `ptr` : 指定されたパターンに一致しなかった文字列の最初の文字の位置。全てが一致した場合は`ptr == last`
     - `ec` : `ec == errc{}`
