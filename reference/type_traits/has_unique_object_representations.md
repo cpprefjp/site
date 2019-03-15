@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 効果
-型`T`が[*TriviallyCopyable*](is_trivially_copyable.md)であり、`T`の任意の2つの値が等価であるならバイト表現が等値となる場合に
+型`T`が[*TriviallyCopyable*](is_trivially_copyable.md)であり、`T`の任意の2つの値が等価（equivalent）であるならバイト表現が等値（equal）となる場合に
 [`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 以下、もう少し詳細な解説。
@@ -42,7 +42,7 @@ namespace std {
 
 ビットフィールドも処理系によってバイト表現が異なるため処理系定義となる（主に、Itenium ABIとMSVC ABI間で異なる）。
 
-`T`型の二つのオブジェクトが同じ値を持つとは、以下の場合である：
+`T`型の二つのオブジェクトが同じ値を持つ（`operator==`による比較が`true`となる）とは、以下の場合である：
 
 - `T`型の二つのオブジェクトが同じオブジェクト表現を持っており、かつ 
     - `T`が配列なら、2つの配列のそれぞれの要素が同じ値を持つ
@@ -103,8 +103,8 @@ false
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [Clang](/implementation.md#clang): 6.0
+- [GCC](/implementation.md#gcc): 7.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 3
 
 ## 参照
