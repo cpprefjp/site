@@ -87,6 +87,8 @@ int main()
 }
 ```
 * valueless_by_exception()[color ff0000]
+* v.index()[link index.md.nolink]
+* std::variant_npos[link /reference/variant/variant_npos.md.nolink]
 
 ### 出力例
 ```
