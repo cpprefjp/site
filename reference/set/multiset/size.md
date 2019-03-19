@@ -1,0 +1,57 @@
+# size
+* set[meta header]
+* std[meta namespace]
+* multiset[meta class]
+* function[meta id-type]
+
+```cpp
+size_type size() const noexcept;
+```
+
+## 概要
+コンテナ内の要素の数を返す。
+
+
+## 戻り値
+`multiset` コンテナに格納されている要素の数を返す。  
+メンバ型 `size_type` は符号なし整数型である。
+
+
+## 計算量
+定数時間
+
+
+## 例
+```cpp example
+#include <iostream>
+#include <set>
+
+int main ()
+{
+  std::multiset<int> c;
+
+  std::cout << c.size() << std::endl;
+
+  c.insert(1);
+  c.insert(2);
+  c.insert(3);
+  c.insert(1);
+
+  std::cout << c.size() << std::endl;
+}
+```
+* size()[color ff0000]
+* insert[link insert.md]
+
+### 出力
+```
+0
+4
+```
+
+## 関連項目
+
+| 名前                        | 説明                               |
+|-----------------------------|------------------------------------|
+| [`max_size`](max_size.md) | 格納可能な最大の要素数を取得する   |
+| [`empty`](empty.md)       | コンテナが空であるかどうかを調べる |

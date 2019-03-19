@@ -1,7 +1,7 @@
 # equal_range
 * set[meta header]
 * std[meta namespace]
-* set[meta class]
+* multiset[meta class]
 * function[meta id-type]
 
 ```cpp
@@ -20,7 +20,7 @@ pair<const_iterator, const_iterator>
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-コンテナ内の、`x` と等しい全てのキー要素を含む範囲の境界を返す。`set` コンテナではキーの重複は無いため、この範囲は最大一つの要素を含む。 
+コンテナ内の、`x` と等しい全てのキー要素を含む範囲の境界を返す。
 
 もし `x` がコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは `x` より大きく最も近い値を指す。そうでない場合、`x` がコンテナ内の全ての要素よりも大きい場合は [`end`](end.md)`()` を指す。
 
@@ -29,7 +29,7 @@ pair<const_iterator, const_iterator>
 
 
 ## 戻り値
-この関数は [`pair`](../../utility/pair.md) を返す。ここで `pair::first` は [`lower_bound`](lower_bound.md)`(x)` が返すであろう値と同じ値で範囲の下境界にあたり、`pair::second` は [`upper_bound`](upper_bound.md)`(x)` が返すであろう値と同じ値で範囲の上境界にあたる。`iterator` はメンバ型であり `set` において双方向イテレータとして定義される。
+この関数は [`pair`](../../utility/pair.md) を返す。ここで `pair::first` は [`lower_bound`](lower_bound.md)`(x)` が返すであろう値と同じ値で範囲の下境界にあたり、`pair::second` は [`upper_bound`](upper_bound.md)`(x)` が返すであろう値と同じ値で範囲の上境界にあたる。`iterator` はメンバ型であり `multiset` において双方向イテレータとして定義される。
 
 
 ## 計算量
@@ -48,7 +48,7 @@ pair<const_iterator, const_iterator>
 
 int main()
 {
-  std::set<std::string> s = { "A", "B", "B", "C", "D" };
+  std::multiset<std::string> s = { "A", "B", "B", "C", "D" };
 
   using iterator = decltype(s)::iterator;
   std::pair<iterator, iterator> ret = s.equal_range("B");
@@ -62,6 +62,7 @@ int main()
 
 ### 出力
 ```
+B
 B
 ```
 
