@@ -77,6 +77,7 @@ namespace std {
 | [`emplace_hint`](multiset/emplace_hint.md) | ヒントを使って要素を直接構築する | C++11 |
 | [`erase`](multiset/erase.md)               | 要素を削除する                   |
 | [`swap`](multiset/swap.md)                 | コンテンツを交換する             |
+| [`extract`](multiset/extract.md)           | ノードハンドルを取得する         | C++17 |
 
 
 ### 要素アクセス
