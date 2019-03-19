@@ -39,7 +39,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`valueless_by_exception()`](variant/valueless_by_exception.md) | 例外によって値を持たない状態になっているかを判定する | C++17 |
+| [`valueless_by_exception`](variant/valueless_by_exception.md) | 例外によって値を持たない状態になっているかを判定する | C++17 |
 | [`index`](variant/index.md.nolink) | 候補型の何番目の型が代入されているかを取得する | C++17 |
 
 
