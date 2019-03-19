@@ -30,8 +30,8 @@ value_compare value_comp() const;
 
 int main()
 {
-  std::set<int> c;
-  std::set<int>::value_compare comp = c.value_comp();
+  std::multiset<int> c;
+  std::multiset<int>::value_compare comp = c.value_comp();
 
   std::cout << comp(1, 2) << std::endl;
   std::cout << comp(5, 3) << std::endl;
