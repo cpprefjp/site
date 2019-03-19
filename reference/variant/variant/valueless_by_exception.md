@@ -87,6 +87,7 @@ int main()
 }
 ```
 * valueless_by_exception()[color ff0000]
+* std::exception[link /reference/exception/exception.md]
 * v.index()[link index.md.nolink]
 * std::variant_npos[link /reference/variant/variant_npos.md.nolink]
 
