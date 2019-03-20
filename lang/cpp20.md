@@ -31,7 +31,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | 指示付き初期化 | |
 | [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md.nolink) | 記憶域指定子として`static`と`thread_local`の指定を許可 |
 | [構造化束縛したビットフィールドの参照キャプチャ](cpp20/reference_capture_of_structured_bindings.md.nolink) | ビットフィールドを含む構造化束縛をした場合にラムダ式で参照キャプチャできない規定を緩和し、ビットフィールドを直接参照キャプチャ、もしくはデフォルト参照キャプチャして使用しなければ適格とする |
-| [丸カッコの値リストからの集成体初期化を許可](cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md.nolink | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする |
+| [丸カッコの値リストからの集成体初期化を許可](cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md.nolink) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする |
 | [`new`式での配列要素数の推論](cpp20/array_size_deduction_in_new-expressions.md.nolink) | `double* p = new double[]{1,2,3};`を許可 |
 
 
