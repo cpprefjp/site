@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 戻り値
-型`T`の`Types...`でのインデックスと[`x.index()`](variant/index.md.nolink)が等値である場合に`true`を返し、そうでなければ`false`を返す。
+型`T`の`Types...`でのインデックスと[`x.index()`](variant/index.md)が等値である場合に`true`を返し、そうでなければ`false`を返す。
 
 
 ## 例
