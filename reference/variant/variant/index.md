@@ -16,7 +16,7 @@ constexpr std::size_t index() const noexcept;
 
 
 ## 戻り値
-[`valueless_by_exception()`](valueless_by_exception.md) `== true`の場合、[`std::variant_npos`](/reference/variant/variant_npos.md.nolink)を返す。そうでなければ、候補型のうち現在代入されている型が何番目かを、ゼロからはじまるインデックスとして返す。
+[`valueless_by_exception()`](valueless_by_exception.md) `== true`の場合、[`std::variant_npos`](/reference/variant/variant_npos.md)を返す。そうでなければ、候補型のうち現在代入されている型が何番目かを、ゼロからはじまるインデックスとして返す。
 
 
 ## 例
