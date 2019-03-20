@@ -10,7 +10,6 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### クラス
 | 言語機能 | 説明 |
 |----------|------|
-| 指示付き初期化 | |
 | [一貫比較](cpp20/consistent_comparison.md.nolink) | |
 | [契約に基づくプログラミング](cpp20/contract-based_programming.md.nolink) | 事前条件、事後条件、表明を宣言する新たな属性構文を追加 |
 | [ビットフィールドのメンバ変数初期化](cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する |
@@ -25,6 +24,17 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [可変長データを扱うクラスの効率的な`delete`](cpp20/efficient_sized_delete_for_variable_sized_classes.md.nolink) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 |
 
 
+### 変数
+
+| 言語機能 | 説明 |
+|----------|------|
+| 指示付き初期化 | |
+| [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md.nolink) | 記憶域指定子として`static`と`thread_local`の指定を許可 |
+| [構造化束縛したビットフィールドの参照キャプチャ](cpp20/reference_capture_of_structured_bindings.md.nolink) | ビットフィールドを含む構造化束縛をした場合にラムダ式で参照キャプチャできない規定を緩和し、ビットフィールドを直接参照キャプチャ、もしくはデフォルト参照キャプチャして使用しなければ適格とする |
+| [丸カッコの値リストからの集成体初期化を許可](cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md.nolink | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする |
+| [`new`式での配列要素数の推論](cpp20/array_size_deduction_in_new-expressions.md.nolink) | `double* p = new double[]{1,2,3};`を許可 |
+
+
 ### 整数
 
 | 言語機能 | 説明 |
@@ -37,6 +47,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [UTF-8エンコーディングされた文字の型として`char8_t`を追加](cpp20/char8_t.md.nolink) | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする |
+| [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](cpp20/make_char16t_char32t_string_literals_be_utf16_32.md.nolink) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する |
 
 
 ### 制御構文
@@ -91,6 +102,20 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [入れ子名前空間定義でのインライン名前空間](cpp20/nested_inline_mamespaces.md.nolink) | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする |
 
 
+### モジュール化
+
+| 言語機能 | 説明 |
+|----------|------|
+| [モジュール](cpp20/modules.md.nolink) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する |
+
+
+### 並行・並列処理
+
+| 言語機能 | 説明 |
+|----------|------|
+| [コルーチン](cpp20/coroutines.md) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する |
+
+
 ### プリプロセッサ
 
 | 言語機能 | 説明 |
@@ -134,6 +159,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
     - Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md)関数を追加
     - 2の乗数関係の関数として、整数値が2の累乗かを判定する[`std::ispow2()`](/reference/bit/ispow2.md)関数、整数値を2の累乗値に切り上げる[`std::ceil2()`](/reference/bit/ceil2.md)関数、整数値を2の累乗値に切り下げる[`std::floor2()`](/reference/bit/floor2.md)関数、2を底とした整数値の対数を求めて1を足す[`std::log2p1()`](/reference/bit/log2p1.md)関数を追加
 - 型制約のための要件ライブラリとして[`<concepts>`](/reference/concepts.md)を追加
+- 言語機能であるコルーチンを制御するライブラリとして[`<coroutine>`](/reference/coroutine.md.nolink)を追加
 
 
 ### 取り決め
