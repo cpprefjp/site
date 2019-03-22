@@ -22,6 +22,8 @@ namespace std {
 ## 概要
 `basic_string`において、左辺が右辺より小さいかの判定を行う。
 
+文字列の先頭からの辞書式比較（[lexicographical_compare](/reference/algorithm/lexicographical_compare.md)）によって比較を行う。  
+長さの短い方がより小さく、大文字と小文字は大文字の方が小さい。
 
 ## 戻り値
 - (1) `a.`[`compare`](compare.md)`(b) < 0`
