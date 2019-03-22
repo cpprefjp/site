@@ -186,7 +186,8 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### 数値計算
-- 数値とポインタを補完するための関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md.nolink)関数と、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md.nolink)関数を追加
+- 整数とポインタの中点を求める関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md.nolink)関数を追加
+- 浮動小数点数を線形補間する関数として、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md)関数を追加
 
 
 ### イテレータ
