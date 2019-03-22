@@ -55,8 +55,7 @@ int main()
   }
 }
 ```
-* std::abs[color ff0000]
-* std::fixed[link /reference/ios/fixed.md]
+* std::lerp[color ff0000]
 
 ### 出力
 ```
