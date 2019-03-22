@@ -84,7 +84,7 @@ int main()
 
 
 ## 関連項目
-- [`std::midpoint()`](/reference/numeric/midpoint.md.nolink)
+- [`std::midpoint()`](/reference/numeric/midpoint.md)
 
 
 ## 参照
