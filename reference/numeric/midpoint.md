@@ -15,10 +15,12 @@ namespace std {
 ```
 
 ## 概要
-数値とポインタの中点を求める。
+二点間の中点を求める。
 
-- (1) : 数値の中点を求める
-- (2) : ポインタの中点を求める
+- (1) : 数値型の中点を求める
+- (2) : ポインタ型の中点を求める
+
+この関数は、単純に計算する場合は`(a + b) / 2`となるが、オーバーフローが起こりにくいよう計算式に工夫が入る。例として、整数の場合は`a + (b - a) / 2`、浮動小数点数の場合は`a/2 + b/2`のように計算できる (実際は負数や非正規化数などをさらに考慮することになる)。
 
 
 ## 要件
@@ -44,6 +46,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <numeric>
@@ -87,7 +90,7 @@ int main()
 ```
 * std::midpoint[color ff0000]
 
-### 出力
+#### 出力
 ```
 a : 3
 b : 4
@@ -96,6 +99,42 @@ d : 2
 e : 2.25
 f : 2
 g : 4
+```
+
+### 2次元の二点間の中点を求める
+```cpp example
+#include <iostream>
+#include <numeric>
+
+// 2次元上の点を表す型
+struct Point {
+  float x, y;
+};
+
+// Point型用に中点を求める関数を定義する
+Point midpoint(const Point& a, const Point& b) noexcept
+{
+  return Point{
+    std::midpoint(a.x, b.x),
+    std::midpoint(a.y, b.y)
+  };
+}
+
+int main()
+{
+  const Point a{1.0f, 2.0f};
+  const Point b{5.0f, 3.0f};
+
+  // 点aと点bの中点を求める
+  const Point p = midpoint(a, b);
+  std::cout << '(' << p.x << ", " << p.y << ')' << std::endl;
+}
+```
+* std::midpoint[color ff0000]
+
+#### 出力
+```
+(3, 2.5)
 ```
 
 
