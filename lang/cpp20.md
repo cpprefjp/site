@@ -160,6 +160,8 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
     - 2の乗数関係の関数として、整数値が2の累乗かを判定する[`std::ispow2()`](/reference/bit/ispow2.md)関数、整数値を2の累乗値に切り上げる[`std::ceil2()`](/reference/bit/ceil2.md)関数、整数値を2の累乗値に切り下げる[`std::floor2()`](/reference/bit/floor2.md)関数、2を底とした整数値の対数を求めて1を足す[`std::log2p1()`](/reference/bit/log2p1.md)関数を追加
 - 型制約のための要件ライブラリとして[`<concepts>`](/reference/concepts.md)を追加
 - 言語機能であるコルーチンを制御するライブラリとして[`<coroutine>`](/reference/coroutine.md.nolink)を追加
+- イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリとして[`<ranges>`](/reference/ranges.md.nolink)を追加
+    - 既存のイテレータの組を扱うアルゴリズムは、`std::ranges`名前空間に範囲版アルゴリズムが追加される
 
 
 ### 取り決め
@@ -169,9 +171,11 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### コンテナ
 - 連想コンテナに、要素がコンテナに含まれているかを判定する`contains()`メンバ関数を追加
 - 順序付き連想コンテナと同様に、非順序連想コンテナのルックアップ処理で、一時オブジェクトが生成されるコストを抑える拡張を追加
+- 非順序連想コンテナの検索メンバ関数`find()`、`count()`、`contains()`、`equal_range()`に、事前計算したハッシュ値を指定するオーバーロードを追加。これによって、ハッシュ値をキャッシュして検索を高速化できる
 - 各コンテナの非メンバ関数として、要素を削除する`std::erase()`関数と`std::erase_if()`関数を追加
 - [`std::forward_list`](/reference/forward_list/forward_list.md)と[`std::list`](/reference/list/list.md)のメンバ関数`remove()`、`remove_if()`、`unique()`の戻り値型を、`void`から`Container::size_type`に変更
 - [`std::array`](/reference/array/array.md)クラスの比較演算子、[`fill()`](/reference/array/array/fill.md)メンバ関数、[`swap()`](/reference/array/array/swap.md)メンバ関数、[`swap()`](/reference/array/array/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
+- [`<iterator>`](/reference/iterator.md)に、符号付き整数としてコンテナの要素数を取得する[`std::ssize()`](/reference/iterator/ssize.md.nolink)関数を追加
 
 
 ### アルゴリズム
@@ -179,6 +183,10 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md.nolink)、[`std::shift_right()`](/reference/algorithm/shift_right.md.nolink)を追加
 - 一貫比較への対応のため、[`<algorithm>`](/reference/algorithm.md)に[`std::lexicographical_compare_3way()`](/reference/algorithm/lexicographical_compare_3way.md.nolink)および[`std::compare_3way()`](/reference/algorithm/compare_3way.md.nolink)を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
+
+
+### 数値計算
+- 数値とポインタを補完するための関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md.nolink)関数と、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md.nolink)関数を追加
 
 
 ### イテレータ
@@ -190,16 +198,18 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`std::char_traits`](/reference/string/char_traits.md)クラスの[`move()`](/reference/string/char_traits/move.md)、[`copy()`](/reference/string/char_traits/copy.md)、[`assign()`](/reference/string/char_traits/assign.md)静的メンバ関数に`constexpr`を追加
 
 
-### 並行処理
+### 並行・並列処理
 - [`std::atomic`](/reference/atomic/atomic.md)クラスのスマートポインタに対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
 - [`std::memory_order`](/reference/atomic/memory_order.md)の列挙子にスコープをもたせた
 - 非アトミックな型にアトミック操作を適用するためのクラス[`std::atomic_ref`](/reference/atomic/atomic_ref.md.nolink)を追加
+- ベクトル化の実行ポリシーとして、[`<execution>`](/reference/execution.md)に[`std::execution::unsequenced_policy`](/reference/execution/execution/execution_policy.md)型と[`std::execution::unseq`](/reference/execution/execution/execution_policy.md)タグを追加
 
 
 ### 入出力
 - 同期ストリームの追加にともなって、[`<ostream>`](/reference/ostream.md)に、同期ストリーム関係の出力マニピュレータを追加
 - [`operator>>`](/reference/istream/basic_istream/op_istream_free.md)`(basic_istream&, CharT*)`を`operator>>(basic_istream&, CharT (&)[N])`に修正
+- [`std::istream_iterator`](/reference/iterator/istream_iterator.md)について、要件の書き方を整理し、振る舞いをより明確化
 
 
 ### スマートポインタ
@@ -212,6 +222,10 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### メモリ
 - [`<memory>`](/reference/memory.md)に、Nバイトアライメントされたポインタであることをコンパイラに伝える[`std::assume_aligned()`](/reference/memory/assume_aligned.md.nolink)関数を追加
 - [`<memory>`](/reference/memory.md)に、uses allocator構築をサポートするユーティリティ関数として、[`std::uses_allocator_construction_args()`](/reference/memory/uses_allocator_construction_args.md.nolink)、[`std::make_obj_using_allocator()`](/reference/memory/make_obj_using_allocator.md.nolink)、[`std::uninitialized_construct_using_allocator()`](/reference/memory/uninitialized_construct_using_allocator.md.nolink)を追加
+- [`std::pmr::polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md.nolink)に、以下の変更を追加：
+    - クラステンプレートのデフォルトテンプレート引数を[`std::byte`](/reference/cstddef/byte.md)型とした
+    - `void*`のバイト列をメモリ確保する[`allocate_bytes()`](/reference/memory_resource/polymorphic_allocator/allocate_bytes.md.nolink)、解放する[`deallocate_bytes()`](/reference/memory_resource/polymorphic_allocator/deallocate_bytes.md.nolink)メンバ関数を追加
+    - 指定した型のメモリを確保する[`allocate_object()`](/reference/memory_resource/polymorphic_allocator/allocate_object.md.nolink)、解放する[`deallocate_object()`](/reference/memory_resource/polymorphic_allocator/deallocate_object.md.nolink)を追加
 
 
 ### ユーティリティ
@@ -225,12 +239,17 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - 関数の部分適用をかんたんにするために、[`std::bind_front()`](/reference/functional/bind_front.md.nolink)関数を追加
 
 
+### ファイルシステム
+- [`std::filesystem::create_directory()`](/reference/filesystem/create_directory.md)と[`std::filesystem::create_directories()`](/reference/filesystem/create_directories.md)の仕様が直感的ではなく、すでにディレクトリが存在している場合にエラーとなっていた。C++20ではその状況ではエラーにならないようにする (エラーではなく`false`が返る)
+
+
 ### 型特性
 - [`<type_traits>`](/reference/type_traits.md)に、constexpr関数が定数式評価されたかを判定する特殊な関数[`std::is_constant_evaluated()`](/reference/type_traits/is_constant_evaluated.md.nolink)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、エンディアンを表す列挙型として[`std::endian`](/reference/type_traits/endian.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、型のCV修飾と参照を除去する型特性クラスとして[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、受け取った型をそのまま返す[`std::type_identity`](/reference/type_traits/type_identity.md.nolink)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、例外送出せずに暗黙の型変換が可能かを判定する[`std::is_nothrow_convertible`](/reference/type_traits/is_nothrow_convertible.md.nolink)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、要素数が判明している配列型かを判定する[`std::is_bounded_array`](/reference/type_traits/is_bounded_array.md.nolink)、要素数が不明な配列型かを判定する[`std::unbounded_array`](/reference/type_traits/is_unbounded_array.md.nolink)を追加
 
 
 ### 機能の非推奨化
