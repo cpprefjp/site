@@ -36,6 +36,7 @@ return a + t * (b - a);
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <cmath>
@@ -57,7 +58,7 @@ int main()
 ```
 * std::lerp[color ff0000]
 
-### 出力
+#### 出力
 ```
 0
 1
@@ -70,6 +71,57 @@ int main()
 8
 9
 10
+```
+
+### 2次元上の二点間で線形補間する
+```cpp example
+#include <iostream>
+#include <cmath>
+
+// 2次元上の点を表す型
+struct Point {
+  float x, y;
+};
+
+// Point型用に線形補間の機能を定義する
+Point lerp(const Point& a, const Point& b, float t)
+{
+  return Point{
+    std::lerp(a.x, b.x, t),
+    std::lerp(a.y, b.y, t)
+  };
+}
+
+int main()
+{
+  const Point a{1.0f, 2.0f};
+  const Point b{5.0f, 3.0f};
+
+  // 点aから点bに向かって、10%ずつ位置を進める
+  float t = 0.1f;
+  for (int i = 0; i <= 10; ++i) {
+    const Point p = lerp(a, b, t);
+    std::cout << t << " : (" << p.x << ", " << p.y << ')' << std::endl;
+
+    t += 0.1f;
+  }
+}
+```
+* std::lerp[color ff0000]
+
+#### 出力
+```
+0.1 : (1.4, 2.1)
+0.2 : (1.8, 2.2)
+0.3 : (2.2, 2.3)
+0.4 : (2.6, 2.4)
+0.5 : (3, 2.5)
+0.6 : (3.4, 2.6)
+0.7 : (3.8, 2.7)
+0.8 : (4.2, 2.8)
+0.9 : (4.6, 2.9)
+1 : (5, 3)
+1.1 : (5.4, 3.1)
 ```
 
 ## バージョン
