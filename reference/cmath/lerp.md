@@ -46,12 +46,12 @@ int main()
   float start = 0.0f;
   float target = 10.0f;
 
-  float t = 0.0;
+  float t = 0.0f;
   for (int i = 0; i <= 10; ++i) {
     float r = std::lerp(start, target, t);
     std::cout << r << std::endl;
 
-    t += 0.1;
+    t += 0.1f;
   }
 }
 ```
