@@ -7,7 +7,8 @@
 
 ```cpp
 namespace std {
-template <class M, class N> constexpr common_type_t<M, N> lcm(M m, N n);
+  template <class M, class N>
+  constexpr common_type_t<M, N> lcm(M m, N n);
 }
 ```
 * common_type_t[link /reference/type_traits/common_type.md]
@@ -17,12 +18,12 @@ template <class M, class N> constexpr common_type_t<M, N> lcm(M m, N n);
 
 
 ## 要件
-1. `M` および `N` が `bool` 以外の整数型であること  
-  満足しない場合プログラムは不適格となる
-2. `|m|` および `|n|` が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること  
-  満足しない場合の挙動は未定義
-3. `|m|` と `|n|` の最小公倍数が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること  
-  満足しない場合の挙動は未定義
+- 型`M` および `N` が `bool` 以外の整数型であること  
+  この要件を満たさない場合、プログラムは不適格となる
+- `|m|` および `|n|` が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること  
+  この要件を満たさない場合の動作は未定義
+- `|m|` と `|n|` の最小公倍数が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること  
+  この要件を満たさない場合の動作は未定義
 
 
 ## 戻り値
