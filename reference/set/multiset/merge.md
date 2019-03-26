@@ -50,17 +50,11 @@ template<class C2>
 
 int main()
 {
-  std::multiset<int> s1;
-  std::multiset<int> s2 = { 1, 1, 2 };
+  std::multiset<int> s1 = { 10, 20, 30 };
+  std::multiset<int> s2 = { 10 };
 
-  // ノードを取得
-  std::multiset<int>::node_type node = s2.extract(1);
-
-  // 再確保なしに値を書き換える
-  node.value() = 15;
-
-  // ノードを転送
-  s1.insert(std::move(node));
+  // s1 の要素を s2 に merge
+  s2.merge(s1);
 
   if (s1.size() != 0) std::cout << "s1 = { ";
   else std::cout << "s1 = {}\n";
