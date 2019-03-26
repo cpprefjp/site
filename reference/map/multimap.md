@@ -88,6 +88,7 @@ namespace std {
 | [`emplace_hint`](multimap/emplace_hint.md) | ヒントを使って要素を直接構築する | C++11 |
 | [`erase`](multimap/erase.md)               | 要素を削除する |                 | |
 | [`swap`](multimap/swap.md)                 | コンテンツを交換する             | |
+| [`extract`](multimap/extract.md)           | ノードハンドルを取得する         | C++17 |
 
 
 ### 要素アクセス
