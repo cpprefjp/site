@@ -88,7 +88,7 @@ int main()
   // ノードを取得
   std::multiset<int>::node_type node = s2.extract(1);
 
-  // 再確保なしに値を書き換る
+  // 再確保なしに値を書き換える
   node.value() = 15;
 
   // ノードを転送
