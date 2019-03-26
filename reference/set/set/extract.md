@@ -90,11 +90,15 @@ int main()
   // ノードを転送
   s1.insert(std::move(node));
 
-  std::cout << "s1 = { ";
+  if (s1.size() != 0) std::cout << "s1 = { ";
+  else std::cout << "s1 = {}\n";
+
   for(auto&& itr = s1.begin(); itr != s1.end();)
     std::cout << *itr << (++itr != s1.end() ? ", " : " }\n");
 
-  std::cout << "s2 = { ";
+  if (s2.size() != 0) std::cout << "s2 = { ";
+  else std::cout << "s2 = {}\n";
+
   for(auto&& itr = s2.begin(); itr != s2.end();)
     std::cout << *itr << (++itr != s2.end() ? ", " : " }\n");
 }
