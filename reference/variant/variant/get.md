@@ -68,10 +68,114 @@ namespace std {
 
 ## 例
 ```cpp example
+#include <iostream>
+#include <variant>
+#include <string>
+
+std::variant<int, char, std::string> make()
+{
+  return std::string{"hello"};
+}
+
+const std::variant<int, char, std::string> const_make()
+{
+  return std::string{"hello"};
+}
+
+int main()
+{
+  // (1)
+  {
+    std::variant<int, char, std::string> v = 3;
+
+    // 保持している値の型はintなので、
+    // 0番目 (int, char, stringの先頭インデックス) を指定して値を取り出す
+    int& x = std::get<0>(v);
+    std::cout << "(1) : " << x << std::endl;
+  }
+
+  // (2)
+  {
+    // variantの一時オブジェクトから、
+    // 型のインデックスを指定して値を取り出す
+    std::string x = std::get<2>(make());
+
+    std::cout << "(2) : " << x << std::endl;
+  }
+
+  // (3)
+  {
+    const std::variant<int, char, std::string> v = 'a';
+
+    // const左辺値参照のvariantオブジェクトを渡すと、
+    // const左辺値参照の値が返る
+    const char& x = std::get<1>(v);
+    std::cout << "(3) : " << x << std::endl;
+  }
+
+  // (4)
+  {
+    // const付きのvariant一時オブジェクトを渡すと、
+    // const右辺値参照の値が返る
+    const std::string x = std::get<2>(const_make());
+
+    std::cout << "(4) : " << x << std::endl;
+  }
+
+  // (5)
+  {
+    std::variant<int, char, std::string> v = 3;
+
+    // 保持している型を指定して値を取り出す。
+    int& x = std::get<int>(v);
+    std::cout << "(5) : " << x << std::endl;
+
+    // 以下のコードはコンパイルエラーになる。
+    // variantのクラステンプレート引数に与えた型を、ここでは指定しなければならない
+    // const int& y = std::get<const int>(v);
+  }
+
+  // (6)
+  {
+    // variantの一時オブジェクトから、
+    // 型を指定して値を取り出す
+    std::string x = std::get<std::string>(make());
+
+    std::cout << "(6) : " << x << std::endl;
+  }
+
+  // (7)
+  {
+    const std::variant<int, char, std::string> v = 'a';
+
+    // const左辺値参照のvariantオブジェクトを渡すと、
+    // const左辺値参照の値が返る
+    const char& x = std::get<char>(v);
+    std::cout << "(7) : " << x << std::endl;
+  }
+
+  // (8)
+  {
+    // const付きのvariant一時オブジェクトを渡すと、
+    // const右辺値参照の値が返る
+    const std::string x = std::get<std::string>(const_make());
+
+    std::cout << "(8) : " << x << std::endl;
+  }
+}
 ```
+* std::get[color ff0000]
 
 ### 出力
 ```
+(1) : 3
+(2) : hello
+(3) : a
+(4) : hello
+(5) : 3
+(6) : hello
+(7) : a
+(8) : hello
 ```
 
 ## バージョン
@@ -79,6 +183,6 @@ namespace std {
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [Clang](/implementation.md#clang): 4.0.1
+- [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
