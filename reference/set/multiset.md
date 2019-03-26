@@ -78,6 +78,7 @@ namespace std {
 | [`erase`](multiset/erase.md)               | 要素を削除する                   |
 | [`swap`](multiset/swap.md)                 | コンテンツを交換する             |
 | [`extract`](multiset/extract.md)           | ノードハンドルを取得する         | C++17 |
+| [`merge`](multiset/merge.md)               | 他のオブジェクトの要素をマージする | C++17 |
 
 
 ### 要素アクセス
