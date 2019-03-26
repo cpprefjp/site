@@ -92,6 +92,7 @@ namespace std {
 | [`erase`](unordered_set/erase.md)               | 要素の削除                                             | C++11 |
 | [`clear`](unordered_set/clear.md)               | 全要素の削除                                           | C++11 |
 | [`swap`](unordered_set/swap.md)                 | 内容の交換                                             | C++11 |
+| [`extract`](unordered_set/extract.md)           | ノードハンドルを取得する                                | C++17 |
 
 
 ### オブザーバー

@@ -93,7 +93,7 @@ namespace std {
 | [`erase`](unordered_multimap/erase.md)               | 要素の削除                                             | C++11 |
 | [`clear`](unordered_multimap/clear.md)               | 全要素の削除                                           | C++11 |
 | [`swap`](unordered_multimap/swap.md)                 | 内容の交換                                             | C++11 |
-| [`extract`](unordered_multimap/extract.md)                | ノードハンドルを取得する                                | C++17 |
+| [`extract`](unordered_multimap/extract.md)           | ノードハンドルを取得する                                | C++17 |
 
 
 ### オブザーバー
