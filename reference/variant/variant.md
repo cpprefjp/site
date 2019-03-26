@@ -48,7 +48,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`get`](variant/get.md.nolink) | 保持している値を取得する | C++17 |
+| [`get`](variant/get.md) | 保持している値を取得する | C++17 |
 | [`get_if`](variant/get_if.md.nolink) | 保持している値を取得する。エラー時にヌルポインタを返す | C++17 |
 
 
