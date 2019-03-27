@@ -57,13 +57,13 @@ namespace std {
 
 
 ## 戻り値
-- (1), (2), (3), (4) : [`v.index()`](index.md)と`I`が等値である場合、`variant`オブジェクトに保持されている`I`番目の候補型の値を返す。そうでなければ、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md.nolink)例外を送出する
-- (5), (6), (7), (8) : `v`が`T`型の値を保持している場合、その値への参照を返す。そうでなければ、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md.nolink)例外を送出する
+- (1), (2), (3), (4) : [`v.index()`](index.md)と`I`が等値である場合、`variant`オブジェクトに保持されている`I`番目の候補型の値を返す。そうでなければ、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md)例外を送出する
+- (5), (6), (7), (8) : `v`が`T`型の値を保持している場合、その値への参照を返す。そうでなければ、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md)例外を送出する
 
 
 ## 例外
-- (1), (2), (3), (4) : 指定したインデックスの型が`v`オブジェクトに保持されていない場合、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md.nolink)例外を送出する
-- (5), (6), (7), (8) : 指定した型が`v`オブジェクトに保持されていない場合、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md.nolink)例外を送出する
+- (1), (2), (3), (4) : 指定したインデックスの型が`v`オブジェクトに保持されていない場合、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md)例外を送出する
+- (5), (6), (7), (8) : 指定した型が`v`オブジェクトに保持されていない場合、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md)例外を送出する
 
 
 ## 例
