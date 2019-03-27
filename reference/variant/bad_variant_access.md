@@ -19,8 +19,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `bad_variant_access();` | デフォルトコンストラクタ | C++17 |
-| `virtual const char* what() const noexcept;` | エラー理由となる実装依存文字列 | C++17 |
+| `bad_variant_access() noexcept;` | デフォルトコンストラクタ | C++17 |
+| `const char* what() const noexcept override;` | エラー理由となる実装依存文字列 | C++17 |
 
 
 ## 例
