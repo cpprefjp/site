@@ -25,13 +25,13 @@ variant& operator=(T&& rhs) noexcept(see below);                 // (3)
 - (1) :
     - `*this`と`rhs`がどちらも値を保持していない場合、なにもしない
     - `*this`が値を保持し、`rhs`が保持していない場合、`*this`が値を保持していない状態にする
-    - [`index()`](index.md) `== rhs.`[index()](index.md)である場合、`rhs`が保持している値を`*this`が保持する値としてコピー代入する (型の切り替えを行わない)
+    - [`index()`](index.md) `== rhs.`[`index()`](index.md)である場合、`rhs`が保持している値を`*this`が保持する値としてコピー代入する (型の切り替えを行わない)
     - `rhs.`[`index()`](index.md)を`j`、`Types...`の`j`番目の型を`Tj`として、[`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<Tj> == true`もしくは[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Tj> == false`である場合、[`emplace`](emplace.md.nolink)`<j>(`[`get`](get.md)`<j>(rhs))`と等価
     - いずれにも当てはまらない場合、`operator=(variant(rhs))`と等価
 - (2) :
     - `*this`と`rhs`がどちらも値を保持していない場合、なにもしない
     - `*this`が値を保持し、`rhs`が保持していない場合、`*this`が値を保持していない状態にする
-    - [`index()`](index.md) `== rhs.`[index()](index.md)である場合、`rhs`が保持している値を`*this`が保持する値としてムーブ代入する (型の切り替えを行わない)
+    - [`index()`](index.md) `== rhs.`[`index()`](index.md)である場合、`rhs`が保持している値を`*this`が保持する値としてムーブ代入する (型の切り替えを行わない)
     - いずれにも当てはまらない場合、`rhs.`[`index()`](index.md)を`j`として、[`emplace`](emplace.md.nolink)`<j>(`[`get`](get.md)`<j>(`[`std::move`](/reference/utility/move.md)`(rhs)))`と等価
 - (3) : TODO
 
