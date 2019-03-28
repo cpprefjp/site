@@ -48,7 +48,7 @@ namespace std {
 
 
 ## 備考
-- 等値な要素が 2 つ以上あった場合には、最も左の要素を返す。
+- 等価な要素が 2 つ以上あった場合には、最も左の要素を返す。
 - 型 `T` が `operator<` による比較が可能であることが要件になっているが、(2) と (4) の形式では当該要件を満たさなくても問題ないものと思われる。
 
 
@@ -86,13 +86,13 @@ int main()
 template <class T>
 const T& max(const T& a, const T& b)
 {
-  return b < a ? a : b;
+  return a < b ? b : a;
 }
 
 template <class T, class Compare>
 const T& max(const T& a, const T& b, Compare comp)
 {
-  return comp(b, a) ? a : b;
+  return comp(a, b) ? b : a;
 }
 
 template <class T>
@@ -107,7 +107,8 @@ T max(std::initializer_list<T> t, Compare comp)
   return *std::max_element(t.begin(), t.end(), comp);
 }
 ```
-* std::initializer_list[link ../initializer_list.md]
+* t.begin()[link /reference/initializer_list/begin.md]
+* t.end()[link /reference/initializer_list/end.md]
 * std::max_element[link max_element.md]
 
 
