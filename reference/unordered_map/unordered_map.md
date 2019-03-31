@@ -89,7 +89,7 @@ namespace std {
 |---------------------------------------------------------|--------------------------------------------------------|----------------|
 | [`emplace`](unordered_map/emplace.md)                   | コンテナ内への要素の直接構築                           | C++11          |
 | [`emplace_hint`](unordered_map/emplace_hint.md)         | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 | C++11          |
-| [`try_emplace`](unordered_map/try_emplace.md)           | キーが存在しない場合のみコンテナ内への要素の直接構築   | C++11          |
+| [`try_emplace`](unordered_map/try_emplace.md)           | キーが存在しない場合のみコンテナ内への要素の直接構築   | C++17          |
 | [`insert`](unordered_map/insert.md)                     | 要素の追加                                             | C++11          |
 | [`insert_or_assign`](unordered_map/insert_or_assign.md) | 要素の追加、あるいは代入                               | C++17          |
 | [`erase`](unordered_map/erase.md)                       | 要素の削除                                             | C++11          |
