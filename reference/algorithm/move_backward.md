@@ -43,7 +43,7 @@ namespace std {
 
 
 ## 備考
-`last` が `[result - (last-first),result)` の範囲内にあるときには、[`move()`](/reference/algorithm/move.md) の代わりに `move_backward()` を使うべきである。
+`last` が `[result - (last-first),result)` の範囲内にあるときには、[`move()`](move.md) の代わりに `move_backward()` を使うべきである。
 
 
 ## 例
@@ -64,11 +64,13 @@ int main() {
   for (int i = 0; i < 5; i++)
     v.emplace_back(new int(i));
 
-  // 1,2,3 の範囲を、3,4,5 の値のある範囲へムーブする
+  // 0,1,2 値がある範囲を、3,4,5 の値がある範囲へムーブする
   std::move_backward(v.begin(), v.begin() + 3, v.end());
 
-  // 以下のコードだと期待した結果にならないことを確認しよう
+  // 以下のコードだと期待した結果にならないことを確認しよう。
+  // 移動元の後方と移動先の前方で範囲が重なっている場合は、move_backwardを使わないといけない
   // std::move(v.begin(), v.begin() + 3, v.begin() + 2);
+
   std::for_each(v.begin(), v.end(), &print);
 }
 ```
