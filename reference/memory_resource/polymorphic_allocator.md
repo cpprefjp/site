@@ -6,51 +6,42 @@
 
 ```cpp
 namespace std::pmr {
+  template <class Tp>
   class polymorphic_allocator;
 }
 ```
 
 ## 概要
-(ここには、クラスの概要を記述します。必須事項です。)
+`polymorphic_allocator`は任意の[`memory_resource`](memory_resource.md)実装をアロケータ要求にアダプトするためのアダプタとなるクラスである。  
+通常の`allocator`に対する[`allocator_traits`](/reference/memory/allocator_traits.md)にほぼ相当する（ただし、コンテナ中では`allocator_traits<polymorphic_allocator<Tp>>`を介して利用される）。
 
-(必要な項目を省略する場合には、「(執筆中)」と書いておいてください。)
+このクラスと[`memory_resource`](memory_resource.md)の利用により、同じ静的型`polymorphic_allocator<Tp>`で実行時に異なるメモリの確保・解放動作をするアロケータの利用が可能になる。
 
 ## メンバ関数
-### 構築・破棄
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| `(constructor)` | コンストラクタ |                |
-| `(destructor)`  | デストラクタ   |                |
-| `operator=`     | 代入演算子     |                |
-| `function_name` | 説明           |                |
-
-## 静的メンバ関数
-
-| 名前            | 説明           | 対応バージョン |
-|-----------------|----------------|----------------|
-|                 |                |                |
-|                 |                |                |
-|                 |                |                |
-|                 |                |                |
-|                 |                |                |
+| [`(constructor)`](polymorphic_allocator/op_constructor.md) | コンストラクタ | C++17 |
+| `operator=(const polymorphic_allocator& rhs) = delete;`     | コピー代入演算子（コピー禁止）     | C++17 |
+| [`allocate`](polymorphic_allocator/allocate.md) | メモリを確保する | C++17 |
+| [`deallocate`](polymorphic_allocator/deallocate.md) | メモリを解放する | C++17 |
+| [`construct`](polymorphic_allocator/construct.md) | 指定された領域にオブジェクトを構築する | C++17 |
+| [`destroy`](polymorphic_allocator/destroy.md) | 指定された領域のオブジェクトを破棄する | C++17 |
+| [`select_on_container_copy_construction`](polymorphic_allocator/select_on_container_copy_construction.md) | コンテナのコピー構築時に新しい`polymorphic_allocator<Tp>`を取得する | C++17 |
+| [`resource`](polymorphic_allocator/resource.md) | 使用している`memory_resource`を取得する | C++17 |
 
 ## メンバ型
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-|                 |                |                |
-|                 |                |                |
-|                 |                |                |
-|                 |                |                |
-|                 |                |                |
+| `value_type` | 確保・解放を行う対象の型 | C++17 |
 
 ## 非メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| operator== | 等値比較 | C++17 |
-| operator!= | 非等値比較 | C++17 |
+| [`operator==`](polymorphic_allocator/op_equal.md) | 等値比較 | C++17 |
+| [`operator!=`](polymorphic_allocator/op_not_equal.md) | 非等値比較 | C++17 |
 
 ## 例
 ```cpp example
@@ -88,7 +79,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
-(ここには、その機能と関連のあるcpprefjpサイト内の項目へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)
+- [`memory_resource`](memory_resource.md)
 
 
 ## 参照
