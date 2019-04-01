@@ -54,7 +54,7 @@ namespace std {
 
 ## 計算量
 - (1), (2) : 与えられたシーケンスが空でない場合、正確に [`min`](/reference/algorithm/min.md)`((i - first) + 1, (last - first) - 1)` 回（`i` は `adjacent_find` の戻り値）の比較または述語が適用される
-- (3), (4) : O`(last - first)`の計算量で比較または述語が適用される
+- (3), (4) : O`(last - first)`の計算量の回数だけ比較または述語が適用される
 
 
 ## 例
