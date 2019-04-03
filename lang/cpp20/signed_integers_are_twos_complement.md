@@ -8,7 +8,7 @@ C++20では、符号付き整数型のビット表現を「2の補数 (Two's Com
 
 値`-0`は、`0`を意味する。
 
-符号付き整数型に対する右シフトは、符号拡張を行う。
+符号付き整数型に対する右シフトは「符号拡張 (sign extension)」を行い、符号ビットが右に伝播する。
 
 ただし、符号付き整数型のオーバーフロー時の動作は、これまでと変わらず未定義動作である。[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<符号付き整数型>::`[`is_modulo`](/reference/limits/numeric_limits/is_modulo.md)はデフォルトで`false`のままとなる。
 
@@ -21,6 +21,7 @@ C++20では、符号付き整数型のビット表現を「2の補数 (Two's Com
 
 int main()
 {
+  // 符号反転したビット値
   {
     std::int8_t x = 11;
     assert(x == 0b0000'1011);
@@ -29,12 +30,22 @@ int main()
     assert(y == (~x + 1)); // 負数は、ビット反転して+1した値
     assert(y == static_cast<std::int8_t>(0b1111'0101));
   }
+  // 0と-0は同じビット値
   {
     std::int8_t x = 0;
     std::int8_t y = -0;
 
     assert(x == static_cast<std::int8_t>(0b0000'0000));
     assert(y == static_cast<std::int8_t>(0b0000'0000));
+  }
+  // 右シフト時の符号拡張
+  {
+    std::int8_t x = -124;
+    assert(x == static_cast<std::int8_t>(0b1000'0100));
+
+    x >>= 2;
+
+    assert(x == static_cast<std::int8_t>(0b1110'0001));
   }
 }
 ```
