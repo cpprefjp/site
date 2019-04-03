@@ -1,4 +1,7 @@
 # LessThanComparable
+* concepts[meta header]
+* concept[meta id-type]
+* [meta namespace]
 
 ## 概要
 LessThanComparableは、2つのオブジェクト`a`と`b`が`<`演算子で大小関係にあるかを表す要件である。

@@ -1,4 +1,8 @@
 # MoveAssignable
+* concepts[meta header]
+* std[meta namespace]
+* concept[meta id-type]
+* cpp20[meta cpp]
 
 ## 概要
 MoveAssignableは、任意の型`T`がムーブ代入可能であることを表す要件である。
