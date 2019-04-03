@@ -95,6 +95,12 @@ int main()
 ```
 
 
+## この機能が必要になった背景・経緯
+Visual Studio、GCC、Clangといった主要な処理系が、2の補数以外をサポートしていなかった。
+
+C11規格は、2の補数のほかに、1の補数表現 (Ones' complement) と絶対値表現 (Signed magnitude) を許可しているが、C++では本文書の概要にも記載したように、ハッシュ値の一意性と全順序をサポートするため、2の補数に規定する。
+
+
 ## 関連項目
 - [`std::has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md)
 
