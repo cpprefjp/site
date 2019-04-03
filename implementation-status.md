@@ -208,7 +208,7 @@
 | [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止][p1008] | コンストラクタが`delete`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | | | |
 | [契約に基づくプログラミング][p0542] | 事前条件、事後条件、表明を宣言する新たな属性構文を追加 | | | | |
 | [コンストラクタを条件付きで`explicit`にする構文を追加][p0892] | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | | | |
-| [符号付き整数型が2の補数表現であることを規定][p1236] | 処理系が2の補数以外をサポートしていなかったこともあり、現実に即した規定とする | 9 | | | |
+| [符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する | 9 | | | |
 | [UTF-8エンコーディングされた文字の型として`char8_t`を追加][p0486] | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | | 7 (`-fchar8_t`オプションが必要) | | |
 | [入れ子名前空間定義でのインライン名前空間][p1094] | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | | | |
 | [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md.nolink) | 記憶域指定子として`static`と`thread_local`の指定を許可 | | | | |
@@ -217,7 +217,7 @@
 | [`new`式での配列要素数の推論](/lang/cpp20/array_size_deduction_in_new-expressions.md.nolink) | `double* p = new double[]{1,2,3};`を許可 | | | | |
 | [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](/lang/cpp20/make_char16t_char32t_string_literals_be_utf16_32.md.nolink) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する | | Yes | | |
 | [モジュール](/lang/cpp20/modules.md.nolink) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | | partial (`-fmodules`, `-fmodules-ts`が必要) | | |
-| [コルーチン](/lang/cpp20/coroutines.md) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | | partial | | |
+| [コルーチン](/lang/cpp20/coroutines.md.nolink) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | | partial | | |
 
 [p0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
 [p0734]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf
@@ -245,7 +245,6 @@
 [p0892]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html
 [p1002]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1002r1.pdf
 [p1327]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1327r1.html
-[p1236]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1236r1.html
 [p0486]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r6.html
 [p1073]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html
 [p1094]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1094r2.html
