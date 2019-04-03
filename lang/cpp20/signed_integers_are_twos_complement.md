@@ -121,3 +121,4 @@ C11規格は、2の補数のほかに、1の補数表現 (Ones' complement) と�
     - C++20に採択された提案文書
 - [P0907R3 Signed Integers are Two's Complement](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0907r3.html)
     - 元になった提案文書
+- [符号付き整数型の負数表現を 2 の補数と規定 (P1236R1) - cppmap](https://cppmap.github.io/standardization/cpp20/#2-p1236r1)
