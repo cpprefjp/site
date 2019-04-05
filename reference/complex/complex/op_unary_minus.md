@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> operator-(const complex<T>& lhs);
+  complex<T> operator-(const complex<T>& lhs);           // (1) C++03
+
+  template <class T>
+  constexpr complex<T> operator-(const complex<T>& lhs); // (1) C++20
 }
 ```
 
@@ -42,3 +45,7 @@ int main()
 | 名前                                   | 説明                                |
 |----------------------------------------|-------------------------------------|
 | [`operator+` (単項)](op_unary_plus.md) | 単項 `+` 演算（引数をそのまま返す） |
+
+
+## 参照
+- [P0415R1 Constexpr for `std::complex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0415r1.html)

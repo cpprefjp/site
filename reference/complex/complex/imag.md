@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-T imag() const;					// (1) C++11 まで
+T imag() const;             // (1) C++03
+constexpr T imag() const;   // (1) C++14
 
-constexpr T imag() const;		// (1) C++14 から
-
-void imag(T val);				// (2) C++11 から
+void imag(T val);           // (2) C++03
+constexpr void imag(T val); // (2) C++20
 ```
 
 ## 概要
@@ -54,10 +54,6 @@ int main()
 ```
 
 
-## 参照
-- [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
-
-
 ## 関連項目
 
 | 名前                   | 説明                             |
@@ -66,3 +62,7 @@ int main()
 | [`real`](real_free.md) | 実部を取得する。（非メンバ関数） |
 | [`imag`](imag_free.md) | 虚部を取得する。（非メンバ関数） |
 
+
+## 参照
+- [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
+- [P0415R1 Constexpr for `std::complex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0415r1.html)

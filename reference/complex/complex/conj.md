@@ -6,9 +6,12 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> conj(const complex<T>& x);
+  complex<T> conj(const complex<T>& x);           // (1) C++03
 
-  std::complex<Promoted> conj(Arithmetic x);	// 追加のオーバーロード：C++11 から
+  template <class T>
+  constexpr complex<T> conj(const complex<T>& x); // (1) C++20
+
+  std::complex<Promoted> conj(Arithmetic x);      // (2) C++11 追加のオーバーロード
 }
 ```
 * Promoted[italic]
@@ -73,3 +76,7 @@ conj( (1,2) ) = (1,-2)
 | [`norm`](norm.md)                  | 複素数体のノルムを得る。               |
 | [`proj`](proj.md)                  | リーマン球面への射影を得る。           |
 | [`polar`](polar.md)                | 指定した絶対値と偏角の複素数値を得る。 |
+
+
+## 参照
+- [P0415R1 Constexpr for `std::complex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0415r1.html)

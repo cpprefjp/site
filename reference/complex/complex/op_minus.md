@@ -6,13 +6,28 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> operator-(const complex<T>& lhs, const complex<T>& rhs);
+  complex<T>
+    operator-(const complex<T>& lhs, const complex<T>& rhs); // (1) C++03
 
   template <class T>
-  complex<T> operator-(const complex<T>& lhs, const T& rhs);
+  constexpr complex<T>
+    operator-(const complex<T>& lhs, const complex<T>& rhs); // (1) C++20
 
   template <class T>
-  complex<T> operator-(const T& lhs, const complex<T>& rhs);
+  complex<T>
+    operator-(const complex<T>& lhs, const T& rhs);          // (2) C++03
+
+  template <class T>
+  constexpr complex<T>
+    operator-(const complex<T>& lhs, const T& rhs);          // (2) C++20
+
+  template <class T>
+  complex<T>
+    operator-(const T& lhs, const complex<T>& rhs);          // (3) C++03
+
+  template <class T>
+  constexpr complex<T>
+    operator-(const T& lhs, const complex<T>& rhs);          // (3) C++20
 }
 ```
 
@@ -65,3 +80,7 @@ int main()
 | [`operator+`](op_plus.md)             | 複素数の加算を行う。（非メンバ関数） |
 | [`operator*`](op_multiply.md)         | 複素数の乗算を行う。（非メンバ関数） |
 | [`operator/`](op_divide.md)           | 複素数の除算を行う。（非メンバ関数） |
+
+
+## 参照
+- [P0415R1 Constexpr for `std::complex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0415r1.html)
