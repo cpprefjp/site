@@ -18,9 +18,11 @@ namespace std::execution {
 | [`sequenced_policy`](execution/execution_policy.md) | 逐次処理の実行ポリシー型 (class) | C++17 |
 | [`parallel_policy`](execution/execution_policy.md) | マルチスレッド化の実行ポリシー型 (class) | C++17 |
 | [`parallel_unsequenced_policy`](execution/execution_policy.md) | マルチスレッド化／ベクトル化の実行ポリシー型 (class) | C++17 |
+| [`unsequenced_policy`](execution/execution_policy.md) | ベクトル化の実行ポリシー型 (class) | C++17 |
 | [`seq`](execution/execution_policy.md) | 逐次処理の実行ポリシー値 (variable) | C++17 |
 | [`par`](execution/execution_policy.md) | マルチスレッド化の実行ポリシー値 (variable) | C++17 |
 | [`par_unseq`](execution/execution_policy.md) | マルチスレッド化／ベクトル化の実行ポリシー値 (variable) | C++17 |
+| [`unseq`](execution/execution_policy.md) | ベクトル化の実行ポリシー値 (variable) | C++17 |
 
 
 ## バージョン
