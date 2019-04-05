@@ -32,10 +32,6 @@ namespace std {
 - (2) : `return N;`
 
 
-## 備考
-- この関数は、符号付き整数型でインデックスと要素数を管理する[`std::span`](/reference/span/span.md.nolink)クラスに対応するために定義された
-
-
 ## 例
 ```cpp example
 #include <cassert>
