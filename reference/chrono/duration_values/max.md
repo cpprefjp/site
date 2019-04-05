@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-static constexpr Rep max()
+static constexpr Rep max();          // C++11
+static constexpr Rep max() noexcept; // C++20
 ```
 
 ## 概要
@@ -57,3 +58,7 @@ int main()
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+
+
+## 参照
+- [P0972R0 `<chrono>` `zero()`, `min()`, and `max()` should be `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0972r0.pdf)
