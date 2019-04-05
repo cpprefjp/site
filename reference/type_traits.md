@@ -68,6 +68,8 @@
 | [`is_aggregate`](type_traits/is_aggregate.md) | 型が集成体かを調べる (class template) | C++17 |
 | [`is_signed`](type_traits/is_signed.md)     | 型が符号付き算術型か調べる (class template) | C++11 |
 | [`is_unsigned`](type_traits/is_unsigned.md) | 型が符号無し算術型か調べる (class template) | C++11 |
+| [`is_bounded_array`](type_traits/is_bounded_array.md) | 型が要素数の判明している配列型かを調べる (class template) | C++20 |
+| [`is_unbounded_array`](type_traits/is_unbounded_array.md) | 型が要素数の不明な配列型かを調べる (class template) | C++20 |
 | [`is_constructible`](type_traits/is_constructible.md) | 型のコンストラクタ呼出しが適格か調べる (class template) | C++11 |
 | [`is_default_constructible`](type_traits/is_default_constructible.md) | 型がデフォルト構築可能か調べる (class template) | C++11 |
 | [`is_copy_constructible`](type_traits/is_copy_constructible.md) | 型がコピー構築可能か調べる (class template) | C++11 |
