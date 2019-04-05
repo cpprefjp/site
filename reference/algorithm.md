@@ -105,6 +105,8 @@ return distance(a, b);
 | [`reverse_copy`](algorithm/reverse_copy.md)       | 要素の並びを逆にし、その結果を出力の範囲へコピーする | |
 | [`rotate`](algorithm/rotate.md)                   | 要素の並びを回転させる | |
 | [`rotate_copy`](algorithm/rotate_copy.md)         | 要素の並びを回転させ、その結果を出力の範囲へコピーする | |
+| [`shift_left`](algorithm/shift_left.md)           | 要素を左にシフトさせる | C++20 |
+| [`shift_right`](algorithm/shift_right.md)         | 要素を右にシフトさせる | C++20 |
 | [`sample`](algorithm/sample.md)                   | 範囲から指定された個数の要素をランダムに抽出する | C++17 |
 | [`random_shuffle`](algorithm/random_shuffle.md)   | それぞれの要素をランダムな位置に移動させる | C++14から非推奨<br/> C++17で削除 |
 | [`shuffle`](algorithm/shuffle.md)                 | それぞれの要素をランダムな位置に移動させる | C++11 |
