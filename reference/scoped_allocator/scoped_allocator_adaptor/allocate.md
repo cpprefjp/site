@@ -6,8 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-pointer allocate(size_type n);                          // (1)
-pointer allocate(size_type n, const_void_pointer hint); // (2)
+pointer allocate(size_type n);                                        // (1) C++11
+[[nodiscard]] pointer allocate(size_type n);                          // (1) C++20
+
+pointer allocate(size_type n, const_void_pointer hint);               // (2) C++11
+[[nodiscard]] pointer allocate(size_type n, const_void_pointer hint); // (2) C++20
 ```
 
 ## 概要

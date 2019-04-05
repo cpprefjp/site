@@ -5,7 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-pointer allocate(size_type n);                         // (1)
+pointer allocate(size_type n);                         // (1) C++03
+[[nodiscard]] pointer allocate(size_type n);           // (1) C++20
+
 pointer allocate(size_type n,
                  allocator<void>::const_pointer hint); // (2) C++17から非推奨
 ```

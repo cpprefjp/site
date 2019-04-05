@@ -6,9 +6,13 @@
 * cpp11[meta cpp]
 
 ```cpp
-static pointer allocate(Alloc& a, size_type n);   // (1)
+static pointer allocate(Alloc& a, size_type n);                 // (1) C++11
+static [[nodiscard]] pointer allocate(Alloc& a, size_type n);   // (1) C++20
+
 static pointer allocate(Alloc& a, size_type n,
-                        const_void_pointer hint); // (2)
+                        const_void_pointer hint);               // (2) C++11
+static [[nodiscard]] pointer allocate(Alloc& a, size_type n,
+                                      const_void_pointer hint); // (2) C++20
 ```
 
 ## 概要

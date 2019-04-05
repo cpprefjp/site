@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-bool empty() const;
+bool empty() const;               // C++03
+[[nodiscard]] bool empty() const; // C++20
 ```
 
 ## 概要

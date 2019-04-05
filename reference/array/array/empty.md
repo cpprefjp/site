@@ -6,8 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-constexpr bool empty() noexcept;       // C++11
-constexpr bool empty() const noexcept; // C++14
+constexpr bool empty() noexcept;                     // C++11
+constexpr bool empty() const noexcept;               // C++14
+[[nodiscard]] constexpr bool empty() const noexcept; // C++20
 ```
 
 ## 概要

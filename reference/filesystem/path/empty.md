@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-bool empty() const noexcept;
+bool empty() const noexcept;               // C++17
+[[nodiscard]] bool empty() const noexcept; // C++20
 ```
 
 ## 概要
