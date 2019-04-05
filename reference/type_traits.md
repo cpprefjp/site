@@ -190,6 +190,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
+| [`type_identity`](type_traits/type_identity.md) | 受け取った型を返す (class template) | C++20 |
 | [`aligned_storage`](type_traits/aligned_storage.md) | アライメント調整された領域を作る (class template) | C++11 |
 | [`aligned_union`](type_traits/aligned_union.md) | アライメント調整された共用体領域を作る (class template) | C++11 |
 | [`remove_cvref`](type_traits/remove_cvref.md) | 型の`const-volatile`修飾と参照を除去する (class template) | C++20 |
