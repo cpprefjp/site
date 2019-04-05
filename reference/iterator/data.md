@@ -22,7 +22,7 @@ namespace std {
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-コンテナの要素が格納されたメモリ領域へのポインタを返す
+コンテナの要素が格納されたメモリ領域へのポインタを取得する。
 
 
 ## 戻り値
