@@ -75,7 +75,7 @@ int main()
   std::cout << std::endl;
 }
 ```
-* std::shift_left[color ff0000]
+* std::shift_right[color ff0000]
 
 ### 出力
 ```
