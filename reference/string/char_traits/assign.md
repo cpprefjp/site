@@ -8,7 +8,10 @@
 static void assign(char_type& c1, const char_type& c2);             // (1) C++03
 static void assign(char_type& c1, const char_type& c2) noexcept;    // (1) C++11
 
-static char_type* assign(char_type* s, std::size_t n, char_type a); // (2)
+static char_type*
+  assign(char_type* s, std::size_t n, char_type a);                 // (2) C++03
+static constexpr char_type*
+  assign(char_type* s, std::size_t n, char_type a);                 // (2) C++20
 ```
 
 ## 概要
@@ -50,4 +53,4 @@ b
 ```
 
 ## 参照
-
+- [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
