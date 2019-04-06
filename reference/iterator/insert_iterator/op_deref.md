@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-insert_iterator& operator*();
+insert_iterator& operator*();           // (1) C++03
+constexpr insert_iterator& operator*(); // (1) C++20
 ```
 
 ## 概要
@@ -20,12 +21,5 @@ insert_iterator& operator*();
 間接参照で返された型への代入で出力する必要があるので、この関数は自身を返す。
 
 
-## 例
-```cpp
-```
-
-### 出力
-```
-```
-
 ## 参照
+- [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
