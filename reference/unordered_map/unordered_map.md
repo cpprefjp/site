@@ -112,6 +112,7 @@ namespace std {
 |------|------|----------------|
 | [`find`](unordered_map/find.md)               | 指定したキーの位置を検索   | C++11 |
 | [`count`](unordered_map/count.md)             | 指定したキーの要素数を取得 | C++11 |
+| [`contains`](unordered_map/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
 | [`equal_range`](unordered_map/equal_range.md) | 指定したキーの範囲を取得   | C++11 |
 | [`operator[]`](unordered_map/op_at.md)        | 要素の値へのアクセス       | C++11 |
 | [`at`](unordered_map/at.md)                   | 要素の値へのアクセス       | C++11 |

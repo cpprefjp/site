@@ -103,6 +103,7 @@ namespace std {
 | [`at`](map/at.md)                   | 指定したキーを持つ要素を取得する           | C++11 |
 | [`count`](map/count.md)             | 指定したキーにマッチする要素の数を取得する | |
 | [`find`](map/find.md)               | 指定したキーで要素を探す                   | |
+| [`contains`](map/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
 | [`equal_range`](map/equal_range.md) | 指定したキーにマッチする要素範囲を取得する | |
 | [`lower_bound`](map/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを取得する | |
 | [`upper_bound`](map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを取得する       | |

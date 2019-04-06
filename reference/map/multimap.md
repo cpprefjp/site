@@ -98,6 +98,7 @@ namespace std {
 |---------------------------------------|--------------------------------------------|-------|
 | [`count`](multimap/count.md)             | 指定したキーにマッチする要素の数を取得する | |
 | [`find`](multimap/find.md)               | 指定したキーで要素を探す                   | |
+| [`contains`](multimap/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
 | [`equal_range`](multimap/equal_range.md) | 指定したキーにマッチする要素範囲を取得する | |
 | [`lower_bound`](multimap/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを取得する | |
 | [`upper_bound`](multimap/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを取得する       | |

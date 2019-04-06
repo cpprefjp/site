@@ -87,6 +87,7 @@ namespace std {
 |---------------------------------------|----------------------------------------|-------|
 | [`count`](multiset/count.md)             | 指定したキーにマッチする要素の数を返す | |
 | [`find`](multiset/find.md)               | 指定したキーで要素を探す | |
+| [`contains`](multiset/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
 | [`equal_range`](multiset/equal_range.md) | 指定したキーにマッチする要素範囲を返す | |
 | [`lower_bound`](multiset/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す | |
 | [`upper_bound`](multiset/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す | |

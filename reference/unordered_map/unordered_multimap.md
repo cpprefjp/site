@@ -110,6 +110,7 @@ namespace std {
 |------|------|----------------|
 | [`find`](unordered_multimap/find.md)               | 指定したキーの位置を検索   | C++11 |
 | [`count`](unordered_multimap/count.md)             | 指定したキーの要素数を取得 | C++11 |
+| [`contains`](unordered_multimap/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
 | [`equal_range`](unordered_multimap/equal_range.md) | 指定したキーの範囲を取得   | C++11 |
 
 

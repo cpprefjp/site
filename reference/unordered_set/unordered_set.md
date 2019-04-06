@@ -109,6 +109,7 @@ namespace std {
 |------|------|----------------|
 | [`find`](unordered_set/find.md)               | 指定したキーの位置を検索   | C++11 |
 | [`count`](unordered_set/count.md)             | 指定したキーの要素数を取得 | C++11 |
+| [`contains`](unordered_set/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
 | [`equal_range`](unordered_set/equal_range.md) | 指定したキーの範囲を取得   | C++11 |
 
 
