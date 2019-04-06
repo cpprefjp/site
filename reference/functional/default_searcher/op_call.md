@@ -8,7 +8,11 @@
 ```cpp
 template <class ForwardIterator2>
 std::pair<ForwardIterator2, ForwardIterator2>
-  operator()(ForwardIterator2 first, ForwardIterator2 last) const;
+  operator()(ForwardIterator2 first, ForwardIterator2 last) const; // (1) C++17
+
+template <class ForwardIterator2>
+constexpr std::pair<ForwardIterator2, ForwardIterator2>
+  operator()(ForwardIterator2 first, ForwardIterator2 last) const; // (1) C++20
 ```
 
 ## 概要
@@ -98,3 +102,4 @@ abaa
 
 ## 参照
 - [P0253R1 Fixing a design mistake in the searchers interface in Library Fundamentals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0253r1.pdf)
+- [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

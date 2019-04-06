@@ -8,10 +8,14 @@
 ```cpp
 default_searcher(ForwardIterator1 pat_first,
                  ForwardIterator1 pat_last,
-                 BinaryPredicate pred = BinaryPredicate()); // (1)
+                 BinaryPredicate pred = BinaryPredicate()); // (1) C++17
+constexpr default_searcher(
+                 ForwardIterator1 pat_first,
+                 ForwardIterator1 pat_last,
+                 BinaryPredicate pred = BinaryPredicate()); // (1) C++20
 
-default_searcher(const default_searcher& other) = default;  // (2)
-default_searcher(default_searcher&& other) = default;       // (3)
+default_searcher(const default_searcher& other) = default;  // (2) C++17
+default_searcher(default_searcher&& other) = default;       // (3) C++17
 ```
 
 ## 概要
@@ -73,3 +77,7 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
