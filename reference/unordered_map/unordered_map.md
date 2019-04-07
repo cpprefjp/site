@@ -96,6 +96,7 @@ namespace std {
 | [`clear`](unordered_map/clear.md)                       | 全要素の削除                                           | C++11          |
 | [`swap`](unordered_map/swap.md)                         | 内容の交換                                             | C++11          |
 | [`extract`](unordered_map/extract.md)                   | ノードハンドルを取得する                                | C++17            |
+| [`merge`](unordered_map/merge.md)                       | 他のオブジェクトの要素をマージする                       | C++17            |
 
 
 ### オブザーバー
