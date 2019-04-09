@@ -43,3 +43,7 @@
 
 ### 処理系
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+
+
+## 関連項目
+- [`<shared_mutex>`](shared_mutex.md)

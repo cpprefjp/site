@@ -48,3 +48,5 @@
 | `hash<wstring>`   | `hash`の`wstring`に対する特殊化   | C++11 |
 
 
+## 関連項目
+- [`<string_view>`](string_view.md)
