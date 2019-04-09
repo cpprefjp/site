@@ -24,8 +24,8 @@
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-|[`new_delete_resource`](memory_resource/new_delete_resource.md) |  | C++17 |
-|[`null_memory_resource`](memory_resource/null_memory_resource.md) |  | C++17 |
+|[`new_delete_resource`](memory_resource/new_delete_resource.md) | グローバルな`operator new`、`operator delete`を利用する`memory_resource`を取得 | C++17 |
+|[`null_memory_resource`](memory_resource/null_memory_resource.md) | 確保も開放も行わない`memory_resource`を取得 | C++17 |
 |[`set_default_resource`](memory_resource/set_default_resource.md) | 各コンテナでデフォルト使用されるメモリリソースの指定 | C++17 |
 |[`get_default_resource`](memory_resource/get_default_resource.md) | 各コンテナでデフォルト使用されるメモリリソースの取得 | C++17 |
 
