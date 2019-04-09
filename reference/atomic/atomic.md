@@ -9,10 +9,12 @@ namespace std {
   template<class T> struct atomic;
 
   template<> struct atomic<integral>;
+  template<> struct atomic<floating-point>; // C++20
   template<class T> struct atomic<T*>;
 }
 ```
 * integral[italic]
+* floating-point[italic]
 
 ## 概要
 `atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラステンプレートを使用する場合、型`T`は[trivially copyable](/reference/type_traits/is_trivially_copyable.md)である必要がある。特殊化された整数型および`bool`型には、それぞれ`atomic_T`という型の別名が提供される。
@@ -33,6 +35,8 @@ namespace std {
 | `atomic_char32_t` | [`char32_t`](/lang/cpp11/char16_32.md) | C++11 |
 | `atomic_wchar_t`  | `wchar_t` | C++11 |
 | `atomic_bool`     | `bool`    | C++11 |
+
+浮動小数点数型に対する別名は定義されていない。
 
 また、[`<cstdint>`](/reference/cstdint.md)で定義される整数型に対する以下の別名も提供される。
 
@@ -120,6 +124,23 @@ namespace std {
 | [`operator&=`](atomic/op_and_assign.md)   | AND演算        | C++11 |
 | <code>[operator&#x7C;=](atomic/op_or_assign.md)</code> | OR演算 | C++11 |
 | [`operator^=`](atomic/op_xor_assign.md)   | XOR演算 | C++11 |
+
+
+### atomic<integral>専用メンバ型
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `difference_type` | 2つの値の差を表す整数型`value_type` | C++17 |
+
+
+### atomic<floating-point>専用メンバ関数
+浮動小数点数型に対する特殊化。
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`fetch_add`](atomic/fetch_add.md)        | 加算 | C++20 |
+| [`fetch_sub`](atomic/fetch_sub.md)        | 減算 | C++20 |
+| [`operator+=`](atomic/op_plus_assign.md)  | 加算 | C++20 |
+| [`operator-=`](atomic/op_minus_assign.md) | 減算 | C++20 |
 
 
 ### atomic<integral>専用メンバ型
@@ -243,3 +264,4 @@ int main()
 - [LWG Issue 2441. Exact-width atomic `typedef`s should be provided](https://wg21.cmeerw.net/lwg/issue2441)
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
 - [P0152R1 `constexpr atomic<T>::is_always_lock_free`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0152r1.html)
+- [P0020R6 Floating Point Atomic](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0020r6.html)

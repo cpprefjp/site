@@ -18,6 +18,8 @@ T operator++(int) noexcept;
 
 
 ## 戻り値
+以下と等価：
+
 - 前置`operator++`：[`fetch_add`](fetch_add.md)`(1) + 1`
 - 後置`operator++`：[`fetch_add`](fetch_add.md)`(1)`
 

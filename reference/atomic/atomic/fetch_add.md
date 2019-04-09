@@ -33,12 +33,19 @@ T fetch_add(difference_type operand, memory_order order = memory_order_seq_cst) 
 
 
 ## 備考
-この関数は、`atomic`クラスの整数型およびポインタに対する特殊化で定義される。
-
-符号付き整数型に対しては、2の補数表現による演算が行われ、未定義動作はない。アドレス型に関しては結果として未定義アドレスになる場合があるが、それ以外の未定義動作はない。
+- この関数は、`atomic`クラスの整数型、浮動小数点数型 (C++20)、ポインタに対する特殊化で定義される
+- 整数型
+    - 符号付き整数型に対しては、2の補数表現による演算が行われ、未定義動作はない
+- 浮動小数点数型 (C++20)
+    - 演算結果が、その型で表現できない値であった場合、結果は未規定値になる。ただしその操作によって未定義動作は起こらない
+    - 浮動小数点数型に対する操作は[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<floating-point>`トレイトに準拠する
+    - 浮動小数点数型に対するアトミック操作の浮動小数点環境は、呼び出しスレッドの浮動小数点環境とは異なる可能性がある
+- ポインタ型
+    - 結果として未定義アドレスになる場合があるが、それ以外の未定義動作はない
 
 
 ## 例
+### 整数の例 (C++11)
 ```cpp example
 #include <iostream>
 #include <atomic>
@@ -57,10 +64,34 @@ int main()
 * x.load()[link load.md]
 
 
-### 出力
+#### 出力
 ```
 3
 5
+```
+
+### 浮動小数点数の例 (C++20)
+```cpp example
+#include <iostream>
+#include <atomic>
+
+int main()
+{
+  std::atomic<float> x{3.14f};
+
+  float before = x.fetch_add(1.25f);
+
+  std::cout << before << std::endl;
+  std::cout << x.load() << std::endl;
+}
+```
+* fetch_add[color ff0000]
+* x.load()[link load.md]
+
+#### 出力
+```
+3.14
+4.39
 ```
 
 ## バージョン
@@ -75,5 +106,4 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 ## 参照
-
-
+- [P0020R6 Floating Point Atomic](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0020r6.html)
