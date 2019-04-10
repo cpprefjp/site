@@ -50,6 +50,10 @@ return distance(a, b);
 
 を意味する。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<initializer_list>`](initializer_list.md) (C++11)
+
 
 ## シーケンスを変更しない操作
 

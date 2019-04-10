@@ -12,6 +12,10 @@
 
 `<unordered_set>` ヘッダでは、キーの重複を許さない `std::`[`unordered_set`](unordered_set/unordered_set.md) クラステンプレート、およびキーの重複を許す `std::`[`unordered_multiset`](unordered_set/unordered_multiset.md) クラステンプレートを提供する。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<initializer_list>`](initializer_list.md)
+
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|--------------------------------------------------------|-------|

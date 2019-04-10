@@ -9,6 +9,10 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/iterator/iterators.png)
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<concepts>`](concepts.md) (C++20)
+
 ## イテレータの情報
 
 | 名前 | 説明 | 対応バージョン |

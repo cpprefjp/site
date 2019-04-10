@@ -13,6 +13,11 @@
 
 この要件を満たすものとしては [`vector`](/reference/vector.md) 、[`deque`](/reference/deque/deque.md) 、[`list`](/reference/list/list.md) があり、デフォルトでは [`deque`](/reference/deque/deque.md) が使用される。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<initializer_list>`](initializer_list.md) (C++11)
+
+
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|--------------------------------------------|-------|
 | [`stack`](stack/stack.md)           | LIFOスタック(class template) |  |
