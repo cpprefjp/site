@@ -25,3 +25,6 @@
 | [`map`](map/map.md)           | キーの重複を許さない連想コンテナ(class template) |  |
 | [`multimap`](map/multimap.md) | キーの重複を許す連想コンテナ(class template)     |  |
 
+
+## 参照
+- [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)

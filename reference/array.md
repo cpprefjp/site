@@ -15,3 +15,7 @@
 |-----------------------------|----------------------------|-------|
 | [`array`](array/array.md) | 固定長配列(class template) | C++11 |
 
+
+## 参照
+- [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
+

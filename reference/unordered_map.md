@@ -78,3 +78,4 @@ namespace std {
 ## 参照
 - [クソザコ鳥頭が非順序連想コンテナに入門してみた](http://www.slideshare.net/kariya_mitsuru/ss-55842496)  
 	[Boost.勉強会 #19 東京](https://boostjp.github.io/study_meeting/study19.html)で使用した非順序連想コンテナの入門資料
+- [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)

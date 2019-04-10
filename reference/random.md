@@ -247,7 +247,9 @@ int main()
 * [N2423 Recommendations for Resolving Issues re \[rand\], Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2423.pdf)
 * [N2424 Recommendations for Resolving the 2007-09-21 Issues re \[rand\]](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2424.pdf)
 
+### その他
+- [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
+
 
 ## 編集者向けの参照
 * [乱数分布の図を作る方法](/editors_doc/random_figure.md)
-

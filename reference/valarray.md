@@ -37,3 +37,5 @@
 | [`indirect_array`](valarray/indirect_array.md) | `valarray`から`valarray<size_t>`を指定して要素抽出した結果となる配列クラス | |
 
 
+## 参照
+- [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)

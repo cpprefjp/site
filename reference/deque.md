@@ -14,3 +14,6 @@
 |-----------------------------|----------------------------|-------|
 | [`deque`](deque/deque.md) | 二重終端キュー(class template) | |
 
+
+## 参照
+- [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
