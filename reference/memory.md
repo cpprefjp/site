@@ -54,6 +54,25 @@
 | `auto_ptr` | 古い専有方式スマートポインタ(class template) | C++11から非推奨<br/> C++17で削除 |
 
 
+## スマートポインタのアトミック操作
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`template<class T> struct atomic<shared_ptr<T>>;`](memory/atomic.md.nolink) | `shared_ptr`に対する`atomic`クラスの特殊化 (class template) | C++20 |
+| [`template<class T> struct atomic<weak_ptr<T>>;`](memory/atomic.md.nolink)   | `weak_ptr`に対する`atomic`クラスの特殊化 (class template) | C++20 |
+| `atomic_is_lock_free` | `shared_ptr`に対するアトミック操作がロックフリーに振る舞うことができるかを調べる (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_load` | `shared_ptr`の値をアトミックに読み込む (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_load_explicit` | メモリオーダーを指定して、`shared_ptr`の値をアトミックに読み込む (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_store` | `shared_ptr`値をアトミックに書き込む (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_store_explicit` | メモリオーダーを指定して、`shared_ptr`の値をアトミックに書き込む (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_exchange` | `shared_ptr`の値をアトミックに入れ替える (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_exchange_explicit` | メモリオーダーを指定して、`shared_ptr`の値をアトミックに入れ替える (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_compare_exchange_weak` | 弱い比較で`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_compare_exchange_strong` | 強い比較で`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_compare_exchange_weak_explicit` | 弱い比較でメモリオーダーを指定して、`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_compare_exchange_strong_explicit` | 強い比較でメモリオーダーを指定して、`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
+
+
 ## ガベージコレクション支援
 
 | 名前 | 説明 | 対応バージョン |
@@ -78,3 +97,4 @@
 
 ## 参照
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
+- [P0718R2 Revising `atomic_shared_ptr` for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0718r2.html)
