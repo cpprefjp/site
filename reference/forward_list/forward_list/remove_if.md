@@ -7,7 +7,10 @@
 
 ```cpp
 template <class Predicate>
-void remove_if(Predicate pred);
+void remove_if(Predicate pred);      // (1) C++11
+
+template <class Predicate>
+size_type remove_if(Predicate pred); // (1) C++20
 ```
 
 ## 概要
@@ -21,7 +24,8 @@ void remove_if(Predicate pred);
 
 
 ## 戻り値
-なし
+- C++11 : なし
+- C++20 : 削除された要素数を返す
 
 
 ## 例外
@@ -69,5 +73,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)
