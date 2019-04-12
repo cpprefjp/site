@@ -257,6 +257,10 @@ int main()
 - GCC 4.9.2まで、アライメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修正された。([Bug 65147](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147))
 
 
+## 関連項目
+- [`std::shared_ptr`と`std::weak_ptr`に対する`atomic`クラスの特殊化](/reference/memory/atomic.md)
+
+
 ### 参照
 - [N2145 C++ Atomic Types and Operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2145.html)
 - [N2547 Allow atomics use in signal handlers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2547.htm)

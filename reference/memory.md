@@ -59,8 +59,8 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `template<class T> struct atomic` | `atomic`クラスの先行宣言 (class template) | C++20 |
-| [`template<class T> struct atomic<shared_ptr<T>>;`](memory/atomic.md.nolink) | `shared_ptr`に対する`atomic`クラスの特殊化 (class template) | C++20 |
-| [`template<class T> struct atomic<weak_ptr<T>>;`](memory/atomic.md.nolink)   | `weak_ptr`に対する`atomic`クラスの特殊化 (class template) | C++20 |
+| [`template<class T> struct atomic<shared_ptr<T>>;`](memory/atomic.md) | `atomic`クラスの`shared_ptr`に対する特殊化 (class template) | C++20 |
+| [`template<class T> struct atomic<weak_ptr<T>>;`](memory/atomic.md)   | `atomic`クラスの`weak_ptr`に対する特殊化 (class template) | C++20 |
 | `atomic_is_lock_free` | `shared_ptr`に対するアトミック操作がロックフリーに振る舞うことができるかを調べる (function template) | C++11<br/> C++20で非推奨 |
 | `atomic_load` | `shared_ptr`の値をアトミックに読み込む (function template) | C++11<br/> C++20で非推奨 |
 | `atomic_load_explicit` | メモリオーダーを指定して、`shared_ptr`の値をアトミックに読み込む (function template) | C++11<br/> C++20で非推奨 |

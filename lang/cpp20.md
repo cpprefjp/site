@@ -200,7 +200,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### 並行・並列処理
-- [`std::atomic`](/reference/atomic/atomic.md)クラスのスマートポインタに対する特殊化を追加
+- [`<memory>`](/reference/memory.md)に、[`std::atomic`](/reference/memory/atomic.md)クラスの[`std::shared_ptr`](/reference/memory/shared_ptr.md)と[`std::weak_ptr`](/reference/memory/weak_ptr.md)に対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
 - [`std::memory_order`](/reference/atomic/memory_order.md)の列挙子にスコープをもたせた
 - 非アトミックな型にアトミック操作を適用するためのクラス[`std::atomic_ref`](/reference/atomic/atomic_ref.md.nolink)を追加
