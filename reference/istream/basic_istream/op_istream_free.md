@@ -7,23 +7,29 @@
 namespace std {
   // 文字
   template<class CharT, class Traits>
-  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT& c);
+  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT& c);        // (1) C++03
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char& c);
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char& c); // (2) C++03
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char& c);
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char& c);   // (3) C++03
 
   // 文字列
   template<class CharT, class Traits>
-  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT* c);
+  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT* c);             // (4) C++03
+  template<class CharT, class Traits, std::size_t N>
+  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT (&s)[N]);        // (4) C++20
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char* c);
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char* c);      // (5) C++03
+  template<class Traits, std::size_t N>
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char (&s)[N]); // (5) C++20
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char* c);
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char* c);        // (6) C++03
+  template<class Traits, std::size_t N>
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char (&s)[N]);   // (6) C++20
 
-  // 右辺値参照ストリームからの入力 (C++11)
+  // 右辺値参照ストリームからの入力
   template<class CharT, class Traits, class T>
-  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>&& is, T& x);
+  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>&& is, T& x);           // (7) C++11
 }
 ```
 
@@ -48,7 +54,7 @@ namespace std {
 ### 文字
 
 文字型`CharT`への参照を実引数として受け取る。
-ただし、`CharT`がcharの場合に限り`unsigned char`および`signed char`への参照も受け付ける。
+ただし、`CharT`が`char`の場合に限り`unsigned char`および`signed char`への参照も受け付ける。
 
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクト構築が失敗を示した場合、何もしない。
 1. ストリームバッファから1文字取り出し、仮引数`c`に書き込む。
@@ -57,8 +63,9 @@ namespace std {
 
 ### 文字列
 
-文字型`CharT`の配列の要素を指し示すポインタを実引数として受け取る。
-ただし、`CharT`が`char`の場合に限り、`unsigned char`および`signed char`の配列の要素を指し示すポインタも受け付ける。
+- C++03 : 文字型`CharT`の配列の要素を指し示すポインタを実引数として受け取る
+    - ただし、`CharT`が`char`の場合に限り、`unsigned char`および`signed char`の配列の要素を指し示すポインタも受け付ける
+- C++20 : 文字型`CharT`の要素数が判明している配列への参照を受け取る
 
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクト構築が失敗を示した場合、何もしない。
 1. ストリームバッファから文字を読み取り、仮引数`s`が指し示す配列の要素に順に書き込む。これを以下いずれかを満たすまで繰り返す。
@@ -123,3 +130,6 @@ TBD
     - [`std::basic_string`に関するもの](../../string/basic_string/op_istream.md)
 - 入力対象の型
     - [`basic_streambuf`](../../streambuf/basic_streambuf.md)
+
+## 参照
+- [P0487R1 Fixing `operator>>(basic_istream&, CharT*)` (LWG 2499)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0487r1.html)
