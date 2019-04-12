@@ -84,6 +84,8 @@ int main()
 * std::atomic<std::shared_ptr<int>>[color ff0000]
 * resource.store[link /reference/atomic/atomic/store.md]
 * resource.exchange[link /reference/atomic/atomic/exchange.md]
+* consumer_thread.join()[link /reference/thread/thread/join.md]
+* producer_thread.join()[link /reference/thread/thread/join.md]
 
 ### 出力
 ```
