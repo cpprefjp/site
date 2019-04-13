@@ -6,11 +6,11 @@
 
 ```cpp
 namespace std {
-  int signbit(float x);
-  int signbit(double x);
-  int signbit(long double x);
+  bool signbit(float x);
+  bool signbit(double x);
+  bool signbit(long double x);
 
-  int signbit(Integral x);
+  bool signbit(Integral x);
 }
 ```
 * Integral[italic]

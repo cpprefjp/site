@@ -6,11 +6,11 @@
 
 ```cpp
 namespace std {
-  int isinf(float x);
-  int isinf(double x);
-  int isinf(long double x);
+  bool isinf(float x);
+  bool isinf(double x);
+  bool isinf(long double x);
 
-  int isinf(Integral x);
+  bool isinf(Integral x);
 }
 ```
 * Integral[italic]
