@@ -46,6 +46,7 @@ cpprefjpサイトでは、ページファイル名の付け方について、い
 | `operator>`   | 大なり演算子     | `op_greater`       | |
 | `operator<=`  | 以下演算子       | `op_less_equal`    | |
 | `operator>=`  | 以上演算子       | `op_greater_equal` | |
+| `operator<=>` | 三方比較演算子   | `op_compare_3way`  | |
 | `operator+` (二項) | 加算演算子  | `op_plus`          | |
 | `operator-` (二項) | 減算演算子  | `op_minus`         | |
 | `operator*` (二項) | 乗算演算子  | `op_multiply`      | |
