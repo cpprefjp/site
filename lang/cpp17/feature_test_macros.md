@@ -29,7 +29,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__has_cpp_attribute(nodiscard)`             | `true`   | [`[[nodiscard]]`属性](nodiscard.md) |
 | `__has_cpp_attribute(maybe_unused)`          | `true`   | [`[[maybe_unused]]`属性](maybe_unused.md) |
 | `__cpp_structured_bindings`                  | `201606` | [構造化束縛](structured_bindings.md) |
-| `__cpp_aggregate_bases`                      | `201603` | [集成体初期化の拡張](extension_to_aggregate_initialization.md.nolink) |
+| `__cpp_aggregate_bases`                      | `201603` | [集成体初期化の拡張](extension_to_aggregate_initialization.md) |
 | `__cpp_nontype_template_args`                | `201411` | [非型テンプレートパラメータの定数式を評価](allow_constant_evaluation_for_all_non-type_template_arguments.md) |
 | `__cpp_nested_namespace_definitions`         | `201411` | [入れ子名前空間の定義](nested_namespace.md) |
 
