@@ -1,27 +1,27 @@
-# erase (非メンバ関数)
-* list[meta header]
+# erase_if
+* forward_list[meta header]
 * std[meta namespace]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
 namespace std {
-  template <class T, class Allocator, class U>
-  void erase(list<T, Allocator>& c, const U& value);
+  template <class T, class Allocator, class Predicate>
+  void erase_if(list<T, Allocator>& c, Predicate pred);
 }
 ```
 
 ## 概要
-指定した値をもつ要素とその分の領域を、コンテナから削除する。
+指定した条件に合致する要素とその分の領域を、コンテナから削除する。
 
 
 ## 効果
 以下と等価：
 
 ```
-erase_if(c, [&](auto& elem) { return elem == value; });
+c.remove_if(pred);
 ```
-* erase_if[link erase_if_free.md]
+* c.remove_if[link remove_if.md]
 
 
 ## 戻り値
@@ -31,26 +31,26 @@ erase_if(c, [&](auto& elem) { return elem == value; });
 ## 例
 ```cpp example
 #include <iostream>
-#include <list>
+#include <forward_list>
 
 int main()
 {
-  std::list<int> ls = {3, 1, 4, 1, 5};
+  std::forward_list<int> ls = {3, 1, 4, 5, 2};
 
-  // コンテナlsから、値1をもつ要素をすべて削除する
-  std::erase(ls, 1);
+  // コンテナlsから、偶数をすべて削除する
+  std::erase_if(ls, [](int x) { return x % 2 == 0; });
 
   for (int x : ls) {
     std::cout << x << std::endl;
   }
 }
 ```
-* std::erase[color ff0000]
+* std::erase_if[color ff0000]
 
 ### 出力
 ```
 3
-4
+1
 5
 ```
 

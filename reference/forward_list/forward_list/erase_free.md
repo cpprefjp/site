@@ -1,5 +1,5 @@
 # erase (非メンバ関数)
-* list[meta header]
+* forward_list[meta header]
 * std[meta namespace]
 * function[meta id-type]
 * cpp20[meta cpp]
@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T, class Allocator, class U>
-  void erase(list<T, Allocator>& c, const U& value);
+  void erase(forward_list<T, Allocator>& c, const U& value);
 }
 ```
 
@@ -31,11 +31,11 @@ erase_if(c, [&](auto& elem) { return elem == value; });
 ## 例
 ```cpp example
 #include <iostream>
-#include <list>
+#include <forward_list>
 
 int main()
 {
-  std::list<int> ls = {3, 1, 4, 1, 5};
+  std::forward_list<int> ls = {3, 1, 4, 1, 5};
 
   // コンテナlsから、値1をもつ要素をすべて削除する
   std::erase(ls, 1);

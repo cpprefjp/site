@@ -37,7 +37,7 @@ int main()
 {
   std::list<int> ls = {3, 1, 4, 5, 2};
 
-  // コンテナvから、偶数をすべて削除する
+  // コンテナlsから、偶数をすべて削除する
   std::erase_if(ls, [](int x) { return x % 2 == 0; });
 
   for (int x : ls) {
