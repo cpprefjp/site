@@ -51,7 +51,7 @@ int main()
     {4, 'c'}
   };
 
-  // コンテナmから、キー'a'をもつ要素をすべて削除する
+  // コンテナmから、キー1をもつ要素をすべて削除する
   std::erase_if(m, [](const auto& x) { return x.first == 1; });
 
   for (const auto& [key, value] : m) {

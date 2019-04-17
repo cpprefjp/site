@@ -1,13 +1,13 @@
 # erase_if
-* map[meta header]
+* unordered_map[meta header]
 * std[meta namespace]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
 namespace std {
-  template <class Key, class T, class Compare, class Allocator, class Predicate>
-  void erase_if(map<Key, T, Compare, Allocator>& c, Predicate pred);
+  template <class K, class T, class H, class P, class A, class Predicate>
+  void erase_if(unordered_map<K, T, H, P, A>& c, Predicate pred);
 }
 ```
 
@@ -41,30 +41,30 @@ for (auto i = c.begin(), last = c.end(); i != last;) {
 ## 例
 ```cpp example
 #include <iostream>
-#include <map>
+#include <unordered_map>
 
 int main()
 {
-  std::map<int, char> m = {
+  std::unordered_map<int, char> um = {
     {3, 'a'},
     {1, 'b'},
     {4, 'c'}
   };
 
-  // コンテナmから、キー1をもつ要素をすべて削除する
-  std::erase_if(m, [](const auto& x) { return x.first == 1; });
+  // コンテナumから、キー1をもつ要素をすべて削除する
+  std::erase_if(um, [](const auto& x) { return x.first == 1; });
 
-  for (const auto& [key, value] : m) {
+  for (const auto& [key, value] : um) {
     std::cout << key << ':' << value << std::endl;
   }
 }
 ```
 * std::erase_if[color ff0000]
 
-### 出力
+### 出力例
 ```
-3:a
 4:c
+3:a
 ```
 
 ## バージョン
