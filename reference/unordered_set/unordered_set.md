@@ -171,12 +171,26 @@ struct insert-return-type {
 
 
 ## 非メンバ関数
+### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](unordered_set/swap_free.md)          | 内容の交換 | C++11 |
 | [`operator==`](unordered_set/op_equal.md)     | 等値比較   | C++11 |
 | [`operator!=`](unordered_set/op_not_equal.md) | 非等値比較 | C++11 |
+
+
+### 入れ替え
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------
+| [`swap`](unordered_set/swap_free.md) | 内容の交換 | C++11 |
+
+
+### 要素削除
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`erase_if`](unordered_set/erase_if_free.md) | 指定した条件に合致する要素とその分の領域を、コンテナから削除する | C++20 |
 
 
 ## 推論補助
