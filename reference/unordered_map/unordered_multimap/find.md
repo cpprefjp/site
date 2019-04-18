@@ -6,17 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator find(const key_type& k);                         // (1) C++11
-const_iterator find(const key_type& k) const;             // (2) C++11
+iterator find(const key_type& x);                         // (1) C++11
+const_iterator find(const key_type& x) const;             // (2) C++11
 
 template <class K> iterator       find(const K& k);       // (3) C++20
 template <class K> const_iterator find(const K& k) const; // (4) C++20
 ```
 
 ## 概要
-コンテナ内でキーが `x` である要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end`](end.md) （コンテナの最後の要素の次）を指すイテレータを返す。  
-キーが `x`である要素の範囲を取得するには [`equal_range`](equal_range.md)を用いる。  
-また、キーが `x` である要素が存在するかを調べる場合は [`count`](count.md) を用いる。
+コンテナ内で指定されたキーに合致する要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end`](end.md) （コンテナの最後の要素の次）を指すイテレータを返す。  
+指定されたキーに合致する要素の範囲を取得するには [`equal_range`](equal_range.md)を用いる。  
+また、指定されたキーに合致する要素が存在するかを調べる場合は [`count`](count.md) を用いる。
 
 - (1) : 非`const`な`*this`オブジェクトに対する検索
 - (2) : `const`な`*this`オブジェクトに対する検索

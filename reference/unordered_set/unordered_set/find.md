@@ -6,16 +6,26 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator find(const key_type& k);
-const_iterator find(const key_type& k) const;
+iterator find(const key_type& x);                         // (1) C++11
+const_iterator find(const key_type& x) const;             // (2) C++11
+
+template <class K> iterator       find(const K& k);       // (3) C++20
+template <class K> const_iterator find(const K& k) const; // (4) C++20
 ```
 
 ## 概要
-指定されたキーの位置を検索する。
+コンテナ内で指定されたキーに合致する要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end`](end.md) （コンテナの最後の要素の次）を指すイテレータを返す。
+
+- (1) : 非`const`な`*this`オブジェクトに対する検索
+- (2) : `const`な`*this`オブジェクトに対する検索
+- (3) : 非`const`な`*this`オブジェクトに対する透過的な検索
+- (4) : `const`な`*this`オブジェクトに対する透過的な検索
+
+(3)と(4)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.find("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## 戻り値
-パラメータ `k` と等価なキーの要素を指すイテレータを返す。そのような要素がない場合には、[`end`](end.md)`()`を返す。
+指定されたキーと等価なキーの要素を指すイテレータを返す。そのような要素がない場合には、[`end`](end.md)`()`を返す。
 
 
 ## 計算量
@@ -23,7 +33,8 @@ const_iterator find(const key_type& k) const;
 
 
 ## 備考
-コンテナが `const` の場合には `const_iterator`、そうでない場合には `iterator` が返るが、`unordered_set` の場合には、いずれにせよ読み取り専用イテレータである。
+- コンテナが `const` の場合には `const_iterator`、そうでない場合には `iterator` が返るが、`unordered_set` の場合には、いずれにせよ読み取り専用イテレータである。
+- (3), (4) : これらのオーバーロードは、`Hash::transparent_key_equal`型が定義される場合にのみ、オーバーロード解決に参加する
 
 
 ## 例
@@ -85,3 +96,6 @@ not found
 | [`count`](count.md)             | 指定したキーの要素数を取得 |
 | [`equal_range`](equal_range.md) | 指定したキーの範囲を取得   |
 
+
+## 参照
+- [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)

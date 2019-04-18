@@ -9,12 +9,17 @@
 bool contains(const key_type& x) const; // (1)
 
 template <class K>
-bool contains(const K& x) const;        // (2)
+bool contains(const K& k) const;        // (2)
 ```
 
 
 ## 概要
-指定されたキー`x`に一致する要素がコンテナに含まれているかを判定する。
+指定されたキーに一致する要素がコンテナに含まれているかを判定する。
+
+- (1) : キー`x`を検索し、合致する要素が含まれるかを判定する
+- (2) : キー`k`を透過的に検索し、合致する要素が含まれるかを判定する
+
+(2)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.contains("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## 戻り値
@@ -29,6 +34,10 @@ return find(x) != end();
 
 ## 計算量
 平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O([`size`](size.md)`()`)）。
+
+
+## 備考
+- (2) : このオーバーロードは、`Hash::transparent_key_equal`型が定義される場合にのみ、オーバーロード解決に参加する
 
 
 ## 例
