@@ -6,13 +6,16 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<bool> operator>(const valarray<T>& xs, const valarray<T>& ys); // (1)
+  valarray<bool> operator>(const valarray<T>& xs,
+                           const valarray<T>& ys);                     // (1)
 
   template <class T>
-  valarray<bool> operator>(const valarray<T>& xs, const T& y);            // (2)
+  valarray<bool> operator>(const valarray<T>& xs,
+                           const typename valarray<T>::value_type& y); // (2)
 
   template <class T>
-  valarray<bool> operator>(const T& x, const valarray<T>& ys);            // (3)
+  valarray<bool> operator>(const typename valarray<T>::value_type& x,
+                           const valarray<T>& ys);                     // (3)
 }
 ```
 
@@ -104,3 +107,5 @@ int main()
 ```
 
 
+## 参照
+- [LWG Issue 3074. Non-member functions for `valarray` should only deduce from the `valarray`](https://wg21.cmeerw.net/lwg/issue3074)

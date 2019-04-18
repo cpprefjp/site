@@ -7,13 +7,16 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> atan2(const valarray<T>& ys, const valarray<T>& xs); // (1)
+  valarray<T> atan2(const valarray<T>& ys,
+                    const valarray<T>& xs);                     // (1)
 
   template <class T>
-  valarray<T> atan2(const valarray<T>& ys, const T& x);            // (2)
+  valarray<T> atan2(const valarray<T>& ys,
+                    const typename valarray<T>::value_type& x); // (2)
 
   template <class T>
-  valarray<T> atan2(const T& y, const valarray<T>& xs);            // (3)
+  valarray<T> atan2(const typename valarray<T>::value_type& y,
+                    const valarray<T>& xs);                     // (3)
 }
 ```
 
@@ -113,3 +116,5 @@ float-valarray : {0.321751,0.463648,0.785398}
 ```
 
 
+## 参照
+- [LWG Issue 3074. Non-member functions for `valarray` should only deduce from the `valarray`](https://wg21.cmeerw.net/lwg/issue3074)
