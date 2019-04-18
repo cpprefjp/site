@@ -17,7 +17,14 @@ namespace std {
 * floating-point[italic]
 
 ## 概要
-`atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラステンプレートを使用する場合、型`T`は[trivially copyable](/reference/type_traits/is_trivially_copyable.md)である必要がある。特殊化された整数型および`bool`型には、それぞれ`atomic_T`という型の別名が提供される。
+`atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。組み込み型に対する特殊化が提供されており、それぞれに特化した演算が用意されている。
+
+組み込み型以外の任意の型を`atomic`クラステンプレートを使用する場合、型`T`は、以下の条件を満たすこと：
+
+- 型`T`は制約[`std::CopyConstructible`](/reference/concepts/CopyConstructible.md)および[`std::CopyAssignable`](/reference/concepts/CopyAssignable.md)を満たすこと
+- [`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> &&` [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T> &&` [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<T>`が`false`である場合、プログラムは不適格となる
+
+特殊化された整数型および`bool`型には、それぞれ`atomic_T`という型の別名が提供される。
 
 | 名前付きアトミック型 | テンプレート引数となる整数型 | 対応バージョン |
 |-----|-----|-----|
@@ -269,4 +276,5 @@ int main()
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
 - [P0152R1 `constexpr atomic<T>::is_always_lock_free`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0152r1.html)
 - [P0020R6 Floating Point Atomic](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0020r6.html)
-- [LWG 3045 `atomic` doesn't have `value_type` or `difference_type`](https://wg21.cmeerw.net/lwg/issue3045)
+- [LWG Issue 3045. `atomic` doesn't have `value_type` or `difference_type`](https://wg21.cmeerw.net/lwg/issue3045)
+- [LWG Issue 3012. `atomic` is unimplementable for non-`is_trivially_copy_constructible` `T`](https://wg21.cmeerw.net/lwg/issue3012)
