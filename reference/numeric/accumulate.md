@@ -34,7 +34,9 @@ namespace std{
 
 ## 効果
 - (1) : `binary_op`を`operator+`として (2) の効果を適用する
-- (2) : `acc = init`、`[first, last)`の各イテレータを`i`とし、`acc = binary_op(acc, *i)`を範囲の全要素に対して適用し、その結果となる`acc`を返す
+- (2) :
+    - C++03 : `acc = init`、`[first, last)`の各イテレータを`i`とし、`acc = binary_op(acc, *i)`を範囲の全要素に対して適用し、その結果となる`acc`を返す
+    - C++20 : `acc = init`、`[first, last)`の各イテレータを`i`とし、`acc = binary_op(`[`std::move`](/reference/utility/move.md)`(acc), *i)`を範囲の全要素に対して適用し、その結果となる`acc`を返す
 
 
 ## 戻り値
@@ -109,8 +111,12 @@ template <class InputIterator, class T, class BinaryOperation>
 T accumulate(InputIterator first, InputIterator last, T init,
              BinaryOperation binary_op) {
   while (first != last)
-    init = binary_op(init, *first++);
+    init = binary_op(std::move(init), *first++);
   return init;
 }
 ```
+* std::move[link /reference/utility/move.md]
 
+
+## 参照
+- [P0616R0 De-pessimize legacy `<numeric>` algorithms with `std::move`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0616r0.pdf)
