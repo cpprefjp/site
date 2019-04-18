@@ -6,20 +6,35 @@
 * cpp11[meta cpp]
 
 ```cpp
-size_type count(const key_type& k) const;
+size_type count(const key_type& x) const;             // (1) C++11
+template <class K> size_type count(const K& k) const; // (2) C++20
 ```
 
 ## 概要
-指定されたキーの要素数を数える。
+キーを検索し、コンテナ内に見つかった要素の数を返す。
+
+- (1) : キー`x`を検索し、合致する要素数を取得する
+- (2) : キー`k`を透過的に検索し、合致する要素数を取得する
+
+(2)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_multiset<string> s;`に対して`s.count("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## 戻り値
-引数 `k` と等価なキーの要素数を返す。
+指定されたキーと同じ値のキーの要素が見つかった要素数を返す。
+
+メンバ型 `size_type` は符号なし整数型である。
+
+## 例外
+投げない。
 
 
 ## 計算量
 - 平均： O(`count(k)`)
 - 最悪： [`size`](size.md) について線形時間
+
+
+## 備考
+- (2) : このオーバーロードは、`Hash::transparent_key_equal`型が定義される場合にのみ、オーバーロード解決に参加する
 
 
 ## 例
@@ -67,10 +82,6 @@ count of 8:0
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
-## 参照
-- [LWG Issue 2304. Complexity of `count` in unordered associative containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2304)
-
-
 ## 関連項目
 
 | 名前 | 説明 |
@@ -78,3 +89,7 @@ count of 8:0
 | [`find`](find.md)               | 指定したキーの位置を検索 |
 | [`equal_range`](equal_range.md) | 指定したキーの範囲を取得 |
 
+
+## 参照
+- [LWG Issue 2304. Complexity of `count` in unordered associative containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2304)
+- [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)

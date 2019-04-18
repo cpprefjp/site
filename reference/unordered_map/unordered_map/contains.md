@@ -9,7 +9,7 @@
 bool contains(const key_type& x) const; // (1)
 
 template <class K>
-bool contains(const K& x) const;        // (2)
+bool contains(const K& k) const;        // (2)
 ```
 
 
@@ -33,7 +33,8 @@ return find(x) != end();
 
 
 ## 計算量
-平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O([`size`](size.md)`()`)）。
+- 平均： 定数時間
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 備考

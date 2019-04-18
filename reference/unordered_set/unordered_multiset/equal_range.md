@@ -6,20 +6,45 @@
 * cpp11[meta cpp]
 
 ```cpp
-std::pair<iterator, iterator> equal_range(const key_type& k);
-std::pair<const_iterator, const_iterator> equal_range(const key_type& k) const;
+pair<iterator, iterator> equal_range(const key_type& x);                   // (1) C++11
+pair<const_iterator, const_iterator> equal_range(const key_type& x) const; // (2) C++11
+
+template <class K>
+pair<iterator, iterator> equal_range(const K& k);                          // (3) C++20
+
+template <class K>
+pair<const_iterator, const_iterator> equal_range(const K& k) const;        // (4) C++20
 ```
+* pair[link /reference/utility/pair.md]
 
 ## 概要
-指定したキーの範囲を取得する
+コンテナ内の、指定されたキーと等しい全てのキー要素を含む範囲の境界を返す。
+
+もし指定されたキーがコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは [`end`](end.md) を指す。
+
+- (1) : 非`const`な`this`に対してキー`x`を検索し、合致する全ての要素を含む範囲を取得する
+- (2) : `const`な`this`に対してキー`x`を検索し、合致する全ての要素を含む範囲を取得する
+- (3) : 非`const`な`this`に対してキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
+- (4) : `const`な`this`に対してキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
+
+(3)と(4)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_multiset<string> s;`に対して`s.equal_range("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## 戻り値
-キー値が引数 `k` と等価な要素を全て含む範囲。そのような要素が無い場合には、[`make_pair`](/reference/utility/make_pair.md)`(`[`end`](end.md)`(),` [`end`](end.md)`())`。
+合致する要素の範囲を表す `pair` オブジェクトを返す。`pair::first` は 範囲の下境界にあたり、`pair::second` は 範囲の上境界にあたる。
+
+そのような要素がない場合には、[`make_pair`](/reference/utility/make_pair.md)`(`[`end`](end.md)`(),` [`end`](end.md)`())`を返す。
+
+`iterator` はメンバ型であり `unordered_multiset` において双方向イテレータとして定義される。
 
 
 ## 計算量
-平均的なケースでは O([`count`](count.md)`(k)`)。最悪のケースでは O([`size`](size.md)`()`)。
+- 平均： 定数時間
+- 最悪： [`size`](size.md) について線形時間
+
+
+## 備考
+- (2) : このオーバーロードは、`Hash::transparent_key_equal`型が定義される場合にのみ、オーバーロード解決に参加する
 
 
 ## 例
@@ -76,7 +101,14 @@ equal_range(8): [10, 10)
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
-## 参照
-- [`find`](find.md)
-- [`count`](count.md)
 
+## 関連項目
+
+| 名前                | 説明                                   |
+|---------------------|----------------------------------------|
+| [`count`](count.md) | 指定したキーにマッチする要素の数を返す |
+| [`find`](find.md)   | 指定したキーで要素を探す               |
+
+
+## 参照
+- [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)

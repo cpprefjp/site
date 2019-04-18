@@ -29,7 +29,8 @@ template <class K> const_iterator find(const K& k) const; // (4) C++20
 
 
 ## 計算量
-平均的なケースでは定数（O(`1`)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O([`size`](size.md)`()`)）。
+- 平均： 定数時間
+- 最悪： [`size`](size.md) について線形時間
 
 
 ## 備考
