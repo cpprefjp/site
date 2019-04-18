@@ -29,7 +29,7 @@ namespace std {
             class Hash = hash<Key>,
             class Pred = equal_to<Key>,
             class Allocator = allocator<pair<const Key, T>>>
-  unordered_multimap(initializer_list<pair<const Key, T>>,
+  unordered_multimap(initializer_list<pair<Key, T>>,
                 typename see below::size_type = see below,
                 Hash = Hash(), Pred = Pred(), Allocator = Allocator())
     -> unordered_multimap<Key, T, Hash, Pred, Allocator>; // (2)
@@ -62,17 +62,17 @@ namespace std {
            Allocator>;                                    // (5)
 
   template <class Key, class T, typename Allocator>
-  unordered_multimap(initializer_list<pair<const Key, T>>, typename see below::size_type, Allocator)
+  unordered_multimap(initializer_list<pair<Key, T>>, typename see below::size_type, Allocator)
     -> unordered_multimap<Key, T, hash<Key>,
                           equal_to<Key>, Allocator>;      // (6)
 
   template <class Key, class T, typename Allocator>
-  unordered_multimap(initializer_list<pair<const Key, T>>, Allocator)
+  unordered_multimap(initializer_list<pair<Key, T>>, Allocator)
     -> unordered_multimap<Key, T, hash<Key>,
                           equal_to<Key>, Allocator>;      // (7)
 
   template <class Key, class T, class Hash, class Allocator>
-  unordered_multimap(initializer_list<pair<const Key, T>>, typename see below::size_type, Hash, Allocator)
+  unordered_multimap(initializer_list<pair<Key, T>>, typename see below::size_type, Hash, Allocator)
     -> unordered_multimap<Key, T, Hash,
                           equal_to<Key>, Allocator>;      // (8)
 }
@@ -127,4 +127,4 @@ namespace std {
 
 ## 参照
 - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
-
+- [LWG Issue 3025. Map-like container deduction guides should use `pair<Key, T>`, not `pair<const Key, T>`](https://wg21.cmeerw.net/lwg/issue3025)

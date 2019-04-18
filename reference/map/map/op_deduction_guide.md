@@ -25,7 +25,7 @@ namespace std {
             class T,
             class Compare = less<Key>,
             class Allocator = allocator<pair<const Key, T>>>
-  map(initializer_list<pair<const Key, T>>, Compare = Compare(), Allocator = Allocator())
+  map(initializer_list<pair<Key, T>>, Compare = Compare(), Allocator = Allocator())
     -> map<Key, T, Compare, Allocator>;                                               // (2)
 
   template <class InputIterator, class Allocator>
@@ -34,7 +34,7 @@ namespace std {
            less<iter_key_t<InputIterator>>, Allocator>;                               // (3)
 
   template <class Key, class T, class Allocator>
-  map(initializer_list<pair<const Key, T>>, Allocator)
+  map(initializer_list<pair<Key, T>>, Allocator)
     -> map<Key, T, less<Key>, Allocator>;                                             // (4)
 }
 ```
@@ -79,4 +79,4 @@ namespace std {
 
 ## 参照
 - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
-
+- [LWG Issue 3025. Map-like container deduction guides should use `pair<Key, T>`, not `pair<const Key, T>`](https://wg21.cmeerw.net/lwg/issue3025)
