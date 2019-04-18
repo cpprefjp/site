@@ -45,7 +45,7 @@ return cd(cd(d).count() / s);
 - (2)
 
 ```cpp
-using cd = typename common_type<Rep1, Rep2>::type;
+using cd = typename common_type<duration<Rep1, Period1>, duration<Rep2, Period2>>::type;
 return cd(lhs).count() / cd(rhs).count();
 ```
 * common_type[link /reference/type_traits/common_type.md]
@@ -99,3 +99,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2013でサンプルコードをコンパイルしたところ、dulation / dulationでコンパイルエラーになった。
+
+
+## 参照
+- [LWG Issue 3104. Fixing `duration` division](https://wg21.cmeerw.net/lwg/issue3104)
