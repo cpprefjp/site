@@ -170,7 +170,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### コンテナ
 - 連想コンテナに、要素がコンテナに含まれているかを判定する`contains()`メンバ関数を追加
-- 順序付き連想コンテナと同様に、非順序連想コンテナのルックアップ処理で、一時オブジェクトが生成されるコストを抑える拡張を追加
+- 順序付き連想コンテナと同様に、非順序連想コンテナの検索処理で、一時オブジェクトが生成されるコストを抑える拡張を追加。ハッシュ計算を行う関数オブジェクトに`transparent_key_equal`が定義されていれば、透過的な検索が使用できる。[`std::hash`](/reference/functional/hash.md)クラスのページを参照
 - 非順序連想コンテナの検索メンバ関数`find()`、`count()`、`contains()`、`equal_range()`に、事前計算したハッシュ値を指定するオーバーロードを追加。これによって、ハッシュ値をキャッシュして検索を高速化できる
 - 各コンテナの非メンバ関数として、要素を削除する`std::erase()`関数と`std::erase_if()`関数を追加
 - [`std::forward_list`](/reference/forward_list/forward_list.md)と[`std::list`](/reference/list/list.md)のメンバ関数`remove()`、`remove_if()`、`unique()`の戻り値型を、`void`から`Container::size_type`に変更
