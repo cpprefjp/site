@@ -6,8 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator find(const key_type& k);
-const_iterator find(const key_type& k) const;
+iterator find(const key_type& k);                         // (1) C++11
+const_iterator find(const key_type& k) const;             // (2) C++11
+
+template <class K> iterator       find(const K& k);       // (3) C++20
+template <class K> const_iterator find(const K& k) const; // (4) C++20
 ```
 
 ## 概要
@@ -15,9 +18,17 @@ const_iterator find(const key_type& k) const;
 キーが `x`である要素の範囲を取得するには [`equal_range`](equal_range.md)を用いる。  
 また、キーが `x` である要素が存在するかを調べる場合は [`count`](count.md) を用いる。
 
+- (1) : 非`const`な`*this`オブジェクトに対する検索
+- (2) : `const`な`*this`オブジェクトに対する検索
+- (3) : 非`const`な`*this`オブジェクトに対する透過的な検索
+- (4) : `const`な`*this`オブジェクトに対する透過的な検索
+
+(3)と(4)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_multimap<string, int> m;`に対して`m.find("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
+
 
 ## パラメータ
 - `x` : 検索するキー。`key_type` は `map` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータである。
+- `k` : 検索するキー。`key_type`と透過的に比較可能な型`K`型のキーである。
 
 
 ## 戻り値
@@ -31,6 +42,10 @@ const_iterator find(const key_type& k) const;
 ## 計算量
 - 平均： 定数時間
 - 最悪： [`size`](size.md) について線形時間
+
+
+## 備考
+- (3), (4) : これらのオーバーロードは、`Hash::transparent_key_equal`型が定義される場合にのみ、オーバーロード解決に参加する
 
 
 ## 例
@@ -80,3 +95,5 @@ int main()
 | [`equal_range`](equal_range.md) | 指定したキーにマッチする要素の範囲を返す |
 
 
+## 参照
+- [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
