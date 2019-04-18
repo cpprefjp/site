@@ -7,13 +7,13 @@
 ```cpp
 namespace std {
   template <class Key, class T, class Hash, class Pred, class Alloc>
-  bool operator== (const unordered_map<Key,T,Hash,Pred,Alloc>& x,
-                   const unordered_map<Key,T,Hash,Pred,Alloc>& y );
+  bool operator== (const unordered_map<Key,T,Hash,Pred,Alloc>& a,
+                   const unordered_map<Key,T,Hash,Pred,Alloc>& b);
 }
 ```
 
 ## 概要
-`x` が `y` と等しいかどうかの判定を行う。
+`unordered_map` オブジェクトを等値比較する。
 
 
 ## 要件
