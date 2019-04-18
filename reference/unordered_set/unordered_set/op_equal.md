@@ -16,10 +16,7 @@ namespace std {
 `unordered_set` オブジェクトを等値比較する。
 
 ## 要件
-- `a.`[`hash_function`](hash_function.md)`()` と `b.`[`hash_function`](hash_function.md)`()` は同じふるまいをすること。
-
 - `a.`[`key_eq`](key_eq.md)`()` と `b.`[`key_eq`](key_eq.md)`()` は同じふるまいをすること。
-
 - `key_type` の等値比較演算子（`operator==`）で等値と判定された 2 つのオブジェクトは、[`key_eq`](key_eq.md)`()` でも等値と判定されること。
 
 
@@ -27,17 +24,16 @@ namespace std {
 以下の両方を満たす場合 `true`、そうでない場合 `false`。
 
 - `a.`[`size`](size.md)`() == b.`[`size`](size.md)`()` である。
-
 - 一方のコンテナの全ての要素が、他方のコンテナにも存在する。ここで、存在するとは、`key_type` の等値比較演算子（`operator==`）で等値と判定されるということである。
 
 
 ## 計算量
-平均的には O(`n`) だが、最悪のケースでは O(`n`<sup>2</sup>)。ここで、`n = a.`[`size`](size.md)`()`。
+- 平均: [`size()`](size.md) に対して線形時間
+- 最悪: [`size()`](size.md) に対して二乗時間
 
 
 ## 備考
 - 本関数は、コンテナ内の要素の比較に [`key_eq`](key_eq.md)`()` で返されるキー比較用関数オブジェクトを使用しないことに注意。
-
 - 本関数は、標準コンテナの要件を満たさない。これは、標準コンテナの要件では `operator!=` が `iterator` と `std::`[`equal`](/reference/algorithm/equal.md) を用いて定義されているためである。しかし、本関数の戻り値は、両方のコンテナが同じ要素を保持しているという意味においては、標準コンテナと同様とも考えることができる。
 
 
@@ -131,3 +127,6 @@ namespace std {
 |---------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | [`operator!=`](op_not_equal.md) | 非等値比較 |
 
+
+## 参照
+- [P0809R0 Comparing Unordered Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0809r0.pdf)
