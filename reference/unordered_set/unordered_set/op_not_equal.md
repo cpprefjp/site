@@ -22,7 +22,12 @@ namespace std {
 
 
 ## 戻り値
-`!(a` [`==`](op_equal.md) `b)` と等価
+以下と等価：
+
+```cpp
+return !(a == b);
+```
+* ==[link op_equal.md]
 
 
 ## 計算量
