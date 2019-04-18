@@ -6,8 +6,14 @@
 * cpp11[meta cpp]
 
 ```cpp
-pair<iterator,iterator> equal_range(const key_type& x);
-pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
+pair<iterator, iterator> equal_range(const key_type& x);                   // (1) C++11
+pair<const_iterator, const_iterator> equal_range(const key_type& x) const; // (2) C++11
+
+template <class K>
+pair<iterator, iterator> equal_range(const K& k);                          // (3) C++20
+
+template <class K>
+pair<const_iterator, const_iterator> equal_range(const K& k) const;        // (4) C++20
 ```
 * pair[link /reference/utility/pair.md]
 
@@ -16,21 +22,32 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 
 もし `x` がコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは [`end`](end.md) を指す。
 
+- (1) : キー`x`を検索し、合致する全ての要素を含む範囲を取得する
+- (2) : キー`x`を透過的に検索し、合致する全ての要素を含む範囲を取得する
+
+(2)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_map<string, int> m;`に対して`m.equal_range("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
+
 
 ## パラメータ
 - `x` : 比較されるキー値。`key_type` はメンバ型であり、`map` コンテナ内で `Key` の別名として定義される。ここで `Key` は最初のテンプレートパラメータである。
+- `k` : 検索するキー。`key_type`と透過的に比較可能な型`K`型のキーである。
 
 
 ## 戻り値
 `pair` を返す。
 `pair::first` は 範囲の下境界にあたり、
 `pair::second` は 範囲の上境界にあたる。
+
 `iterator` はメンバ型であり `unordered_map` において双方向イテレータとして定義される。
 
 
 ## 計算量
 - 平均： 定数時間
 - 最悪： [`size`](size.md) について線形時間
+
+
+## 備考
+- (2) : このオーバーロードは、`Hash::transparent_key_equal`型が定義される場合にのみ、オーバーロード解決に参加する
 
 
 ## 例
@@ -88,10 +105,11 @@ up:1
 
 ## 関連項目
 
-
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | [`count`](count.md) | 指定したキーにマッチする要素の数を返す |
 | [`find`](find.md) | 指定したキーで要素を探す |
 
 
+## 参照
+- [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
