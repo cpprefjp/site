@@ -162,6 +162,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - 言語機能であるコルーチンを制御するライブラリとして[`<coroutine>`](/reference/coroutine.md.nolink)を追加
 - イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリとして[`<ranges>`](/reference/ranges.md.nolink)を追加
     - 既存のイテレータの組を扱うアルゴリズムは、`std::ranges`名前空間に範囲版アルゴリズムが追加される
+- 契約違反のハンドリングをするためのライブラリとして[`<contract>`](/reference/contract.md.nolink)を追加
 
 
 ### 取り決め
