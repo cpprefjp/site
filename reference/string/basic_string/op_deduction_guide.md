@@ -11,21 +11,44 @@ namespace std {
   basic_string(InputIterator, InputIterator, Allocator = Allocator())
     -> basic_string<typename iterator_traits<InputIterator>::value_type,
          char_traits<typename iterator_traits<InputIterator>::value_type>,
-         Allocator>;
+         Allocator>;                            // (1) C++17
+
+  template <class CharT,
+            class Traits,
+            class Allocator = allocator<CharT>>
+  explicit basic_string(basic_string_view<CharT, Traits>, const Allocator& = Allocator())
+    -> basic_string<CharT, Traits, Allocator>;  // (2) C++20
+
+  template <class CharT,
+            class Traits,
+            class Allocator = allocator<CharT>>
+  basic_string(basic_string_view<CharT, Traits>,
+               typename see below::size_type,
+               typename see below::size_type,
+               const Allocator& = Allocator())
+    -> basic_string<CharT, Traits, Allocator>;  // (3) C++20
 }
 ```
 * allocator[link /reference/memory/allocator.md]
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * char_traits[link /reference/string/char_traits.md]
+* basic_string_view[link /reference/string_view/basic_string_view.md]
 
 ## 概要
 `std::basic_string`クラステンプレートの型推論補助。イテレータ範囲から推論する。
 
 
+## 備考
+- (3) : `size_type`は、推論された`basic_string`型のメンバ型
+
+
 ## 例
 ```cpp example
 #include <string>
+#include <string_view>
 #include <type_traits>
+
+using namespace std::string_view_literals;
 
 int main()
 {
@@ -51,6 +74,10 @@ int main()
   // basic_string<decltype(s1)::iterator>型に推論されてしまうので注意
   std::basic_string s5(s1.begin(), s1.end());
   static_assert(std::is_same_v<decltype(s5), std::basic_string<char>>);
+
+  // string_viewからの推論
+  std::basic_string s6 = "Hello"sv;
+  static_assert(std::is_same_v<decltype(s6), std::basic_string<char>>);
 }
 ```
 * s1.begin()[link begin.md]
@@ -66,7 +93,7 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang):
+- [Clang, C++17 mode](/implementation.md#clang): 7.0
 - [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -77,4 +104,4 @@ int main()
 
 ## 参照
 - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
-
+- [LWG Issue 3075. `basic_string` needs deduction guides from `basic_string_view`](https://wg21.cmeerw.net/lwg/issue3075)
