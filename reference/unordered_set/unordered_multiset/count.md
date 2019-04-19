@@ -29,7 +29,9 @@ template <class K> size_type count(const K& k) const; // (2) C++20
 
 
 ## 計算量
-- 平均： O(`count(k)`)
+`x`と`k`を共通の変数`a`であるとして、
+
+- 平均： O(`count(a)`)
 - 最悪： [`size`](size.md) について線形時間
 
 

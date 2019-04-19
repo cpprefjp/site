@@ -34,10 +34,10 @@ bool contains(const K& k, size_t hash) const;        // (4)
 
 
 ## 戻り値
-以下と等価：
+`x`と`k`を共通の変数`a`であるとして、以下と等価：
 
 ```cpp
-return find(x) != end();
+return find(a) != end();
 ```
 * find[link find.md]
 * end()[link end.md]
