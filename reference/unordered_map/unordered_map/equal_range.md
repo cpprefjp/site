@@ -56,8 +56,8 @@ pair<const_iterator, const_iterator>
 
 
 ## 事前条件
-- (3), (4) : 値`hash`と、`hash_function()(x)`の戻り値が等値であること
-- (7), (8) : 値`hash`と、`hash_function()(k)`の戻り値が等値であること
+- (3), (4) : 値`hash`と、[`hash_function()`](hash_function.md)`(x)`の戻り値が等値であること
+- (7), (8) : 値`hash`と、[`hash_function()`](hash_function.md)`(k)`の戻り値が等値であること
 
 
 ## 戻り値

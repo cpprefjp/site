@@ -29,8 +29,8 @@ bool contains(const K& k, size_t hash) const;        // (4)
 
 
 ## 事前条件
-- (2) : 値`hash`と、`hash_function()(x)`の戻り値が等値であること
-- (4) : 値`hash`と、`hash_function()(k)`の戻り値が等値であること
+- (2) : 値`hash`と、[`hash_function()`](hash_function.md)`(x)`の戻り値が等値であること
+- (4) : 値`hash`と、[`hash_function()`](hash_function.md)`(k)`の戻り値が等値であること
 
 
 ## 戻り値
