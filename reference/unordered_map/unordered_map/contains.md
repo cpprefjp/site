@@ -83,7 +83,7 @@ int main()
 contain
 ```
 
-### 事前計算しておいたハッシュ値を使用する (C++20)
+### 事前計算しておいたハッシュ値を使用する
 ```cpp example
 #include <iostream>
 #include <unordered_map>
