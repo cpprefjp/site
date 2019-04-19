@@ -8,15 +8,21 @@
 namespace std {
   template <class T>
   valarray<T> atan2(const valarray<T>& ys,
-                    const valarray<T>& xs);                     // (1)
+                    const valarray<T>& xs);                     // (1) C++03
 
   template <class T>
   valarray<T> atan2(const valarray<T>& ys,
-                    const typename valarray<T>::value_type& x); // (2)
+                    const T& x);                                // (2) C++03
+  template <class T>
+  valarray<T> atan2(const valarray<T>& ys,
+                    const typename valarray<T>::value_type& x); // (2) C++20
 
   template <class T>
+  valarray<T> atan2(const T& y,
+                    const valarray<T>& xs);                     // (3) C++03
+  template <class T>
   valarray<T> atan2(const typename valarray<T>::value_type& y,
-                    const valarray<T>& xs);                     // (3)
+                    const valarray<T>& xs);                     // (3) C++20
 }
 ```
 
@@ -65,7 +71,8 @@ return result;
 
 
 ## 備考
-2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
+- (1) : 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
+- C++20での(2)と(3)は、`std::valarray<double>{} * 2`が型推論に失敗していたための変更
 
 
 ## 例

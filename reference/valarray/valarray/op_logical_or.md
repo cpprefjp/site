@@ -7,15 +7,21 @@
 namespace std {
   template <class T>
   valarray<bool> operator||(const valarray<T>& xs,
-                            const valarray<T>& ys);                     // (1)
+                            const valarray<T>& ys);                     // (1) C++03
 
   template <class T>
   valarray<bool> operator||(const valarray<T>& xs,
-                            const typename valarray<T>::value_type& y); // (2)
+                            const T& y);                                // (2) C++03
+  template <class T>
+  valarray<bool> operator||(const valarray<T>& xs,
+                            const typename valarray<T>::value_type& y); // (2) C++20
 
   template <class T>
+  valarray<bool> operator||(const T& x,
+                            const valarray<T>& ys);                     // (3) C++03
+  template <class T>
   valarray<bool> operator||(const typename valarray<T>::value_type& x,
-                            const valarray<T>& ys);                     // (3)
+                            const valarray<T>& ys);                     // (3) C++20
 }
 ```
 
@@ -71,7 +77,8 @@ return result;
 
 
 ## 備考
-2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
+- (1) : 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
+- C++20での(2)と(3)は、`std::valarray<double>{} * 2`が型推論に失敗していたための変更
 
 
 ## 例
