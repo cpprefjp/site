@@ -11,7 +11,7 @@ namespace std::pmr {
 ```
 
 ## 概要
-`memory_resource`はメモリの確保と解放を担うアロケータクラスのためのインターフェースである。
+`memory_resource`はメモリの確保・解放戦略と実際の処理を実装し、[`polymorphic_allocator`](polymorphic_allocator.md)から利用されるためのインターフェースである。
 
 ## メンバ関数
 ### 構築・破棄

@@ -12,10 +12,9 @@ namespace std::pmr {
 ```
 
 ## 概要
-`polymorphic_allocator`は任意の[`memory_resource`](memory_resource.md)実装をアロケータ要求にアダプトするためのアダプタとなるクラスである。  
-通常の`allocator`に対する[`allocator_traits`](/reference/memory/allocator_traits.md)にほぼ相当する（ただし、コンテナ中では`allocator_traits<polymorphic_allocator<Tp>>`を介して利用される）。
+`polymorphic_allocator`は任意の[`memory_resource`](memory_resource.md)実装によりメモリ確保・解放戦略に関わる実際の処理を動的に切り替えることのできるアロケータである。この様な設計は一般にStrategyパターンというデザインパターンの一つとして知られている。 
 
-このクラスと[`memory_resource`](memory_resource.md)の利用により、同じ静的型`polymorphic_allocator<Tp>`で実行時に異なるメモリの確保・解放動作をするアロケータの利用が可能になる。
+このクラスと[`memory_resource`](memory_resource.md)の利用により、同じ静的型`polymorphic_allocator<Tp>`で実行時に異なるメモリの確保・解放戦略をとるアロケータの利用が可能になる。
 
 ## メンバ関数
 

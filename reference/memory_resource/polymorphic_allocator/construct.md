@@ -30,15 +30,15 @@ void construct(pair<T1,T2>* p, pair<U, V>&& pr);        //(6)
 
 - (1) : 「アロケータを使用する構築」により`p`のメモリ領域に`args...`をコンストラクタ引数として、`T`のオブジェクトを構築する
 
-- (2) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`T1, T2`それぞれが「アロケータを使用する構築」により構築されるように、`x, y`内の要素を`T1, T2`それぞれのコンストラクタ引数として直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
+- (2) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`x, y`内の要素を`T1, T2`それぞれのコンストラクタ引数として、`T1, T2`それぞれが「アロケータを使用する構築」により構築されるように、直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
 
-- (3) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`T1, T2`それぞれのデフォルトコンストラクタにより直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
+- (3) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`T1, T2`それぞれが引数無しの「アロケータを使用する構築」により構築されるように、直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
 
-- (4) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`T1, T2`のコンストラクタ引数としてそれぞれ`x, y`を[`forward`](/reference/utility/forward.md)して直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
+- (4) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`T1, T2`のコンストラクタ引数としてそれぞれ`x, y`を[`forward`](/reference/utility/forward.md)して「アロケータを使用する構築」により構築されるように、直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
 
-- (5) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`T1, T2`のコンストラクタ引数としてそれぞれ`pr.first, pr.second`をコピーして直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
+- (5) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`T1, T2`のコンストラクタ引数としてそれぞれ`pr.first, pr.second`をコピーして「アロケータを使用する構築」により構築されるように、直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
 
-- (6) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`T1, T2`のコンストラクタ引数としてそれぞれ`pr.first, pr.second`を[`forward`](/reference/utility/forward.md)して直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
+- (6) : `p`のメモリ領域に`std::pair<T1, T2>`のオブジェクトを、`T1, T2`のコンストラクタ引数としてそれぞれ`pr.first, pr.second`を[`forward`](/reference/utility/forward.md)して「アロケータを使用する構築」により構築されるように、直接構築（[`piecewise construct`](/reference/utility/pair/op_constructor.md)）する
 
 
 ### アロケータを使用する構築（Uses-allocator construction）
@@ -57,7 +57,7 @@ void construct(pair<T1,T2>* p, pair<U, V>&& pr);        //(6)
 
 - それ以外の場合、要求された構築はill-formedである。
 
-すなわち、アロケータを利用するならば引数とアロケータを適切な順序でコンストラクタに与えて呼び出し、利用しないならば通常のコンストラクタ呼び出しを行う仕組みである。
+すなわち、構築したい型がアロケータを利用するならば引数とアロケータを適切な順序でコンストラクタに与えて呼び出し、利用しないならば通常のコンストラクタ呼び出しを行う仕組みである。
 
 ## 要件
 
@@ -84,22 +84,35 @@ void construct(pair<T1,T2>* p, pair<U, V>&& pr);        //(6)
 
 ## 効果
 
-- (1) : `T`のコンストラクタによって以下のいずれかのコンストラクタを呼び出して構築
-- (2) : `T1, T2`それぞれ以下のいずれかのコンストラクタを呼び出して`std::pair<T1, T2>`を直接構築
-- (3) : `this->construct(p, std::piecewise_construct, std::tuple<>(), std::tuple<>());`と等価
-- (4) : 以下と等価
+- (1) : `T`のコンストラクタによって（「アロケータを使用する構築」によって）以下のいずれかと等価  
+    - アロケータを受け取らない場合 :  `p = new(p) T(std::forward<Args>(args)...)`  
+    - アロケータを引数の先頭で受け取る場合 :  `p = new(p) T(allocator_­arg, this->resource(), std::forward<Args>(args)...)`  
+    - アロケータを引数の末尾で受け取る場合 :  `p = new(p) T(std::forward<Args>(args)..., this->resource())`
+
+- (2) : 以下と等価  
+        `p = new(p) std::pair<T1, T2>(piecewise_construct_t, xprime, yprime)`  
+        `xprime`は`T1`について（「アロケータを使用する構築」によって）以下のように定義する（`yprime`は`T2`について同様に定義する）  
+    - `T1`のコンストラクタがアロケータを受け取らない場合、`xprime`は`x`  
+    - `T1`のコンストラクタがアロケータを引数の先頭で受け取る場合、`xprime`は[`std::tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`std::make_tuple`](/reference/tuple/make_tuple.md)`(allocator_­arg, this->resource()), x)`  
+    - `T1`のコンストラクタがアロケータを引数の末尾で受け取る場合、`xprime`は[`std::tuple_cat`](/reference/tuple/tuple_cat.md)`(x, ` [`std::make_tuple`](/reference/tuple/make_tuple.md)`(this->resource()))`
+
+- (3) : `this->construct(p, std::piecewise_construct, std::tuple<>(), std::tuple<>());`と等価、すなわち(2)に移譲
+
+- (4) : 以下と等価、すなわち(2)に移譲
 ```cpp
 this->construct(p, std::piecewise_construct,
                 std::forward_as_tuple(std::forward<U>(x)),
                 std::forward_as_tuple(std::forward<V>(y)));
 ```
-- (5) : 以下と等価
+
+- (5) : 以下と等価、すなわち(2)に移譲
 ```cpp
 this->construct(p, std::piecewise_construct,
                 std::forward_as_tuple(pr.first),
                 std::forward_as_tuple(pr.second));
 ```
-- (6) : 以下と等価
+
+- (6) : 以下と等価、すなわち(2)に移譲
 ```cpp
 this->construct(p, std::piecewise_construct,
                 std::forward_as_tuple(std::forward<U>(pr.first)),
