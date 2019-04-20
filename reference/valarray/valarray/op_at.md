@@ -57,7 +57,9 @@ indirect_array<T> operator[](const valarray<std::size_t>& mask); // (10)
 
 
 ## 備考
+- (3), (5), (7), (9) : `valarray<T>`型のオブジェクトを返すこの関数を含むあらゆる関数は、`valarray`クラスと同じ`const`メンバ関数をもつほかの型を返すことが実装に許可される。例として複数の`valarray`操作をつなげて記述したときに最適化できるよう、式テンプレートを返す実装もある
 - (7), (8) : [`size()`](size.md) `!= mask.`[`size()`](size.md)の場合、その挙動は未定義。
+
 
 ## 例
 ```cpp example

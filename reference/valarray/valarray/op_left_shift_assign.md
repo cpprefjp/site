@@ -1,4 +1,4 @@
-# operator<script>alert("Hello")</script>
+# operator<<=
 * valarray[meta header]
 * std[meta namespace]
 * valarray[meta class]
