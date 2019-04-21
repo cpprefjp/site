@@ -17,6 +17,9 @@ template <class InputIterator>
 void insert(InputIterator first, InputIterator last);          // (5)
 
 void insert(initializer_list<value_type> init);                // (6)
+
+insert_return_type insert(node_type&& nh);                      // (7) C++17
+iterator           insert(const_iterator hint, node_type&& nh); // (8) C++17
 ```
 * pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -33,11 +36,20 @@ void insert(initializer_list<value_type> init);                // (6)
 - (4) : 新たな要素`y`をムーブ挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる
 - (5) : イテレータ範囲`[first, last)`の要素を挿入する
 - (6) : 初期化子リスト`init`の要素を挿入する
+- (7) : `nh`が空の場合、効果はない。
+それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
+- (8) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。
+それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。 `nh.key()`と同等のキーの要素を指すイテレータを常に返す。要素は、`p`の直前の位置のできるだけ近くに挿入される。
 
 
 ## 戻り値
 - (1), (2) : `first` に新しく挿入された要素またはすでに `set` に格納されていた同じ値の要素を指すイテレータを設定する。`second` には、要素が挿入されたときに `true` を、同じ値の要素が存在したときに `false` を設定する。
 - (3), (4) : 新しく挿入された要素またはすでに `set` に格納されていた同じ値の要素を指すイテレータを返す。
+- (5), (6) : なし
+- (7) : [`insert_return_type`](/reference/map/map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
+    - 挿入された場合には、空の[ノードハンドル](/reference/node_handle/node_handle.md)。
+    - 挿入されなかった場合には、`nh`の値である。 
+- (8) : `nh`が空の場合、`(*this).end()`を返す。そうではない場合、`nh`と等価のキーの要素を指すイテレータを常に返す。
 
 
 ## 計算量
@@ -45,11 +57,12 @@ void insert(initializer_list<value_type> init);                // (6)
 - (3), (4) : 一般に対数時間だが、`x` または `y` が `position` が指す要素の後に挿入された場合は償却定数時間
 - (5), (6) : 一般に N log(size + N)※ だが、`first` と `last` の間がコンテナで使われているものと同じ順序基準に従ってソート済みである場合は線形時間。
     - ※ ここで `N` は `first` と `last` の間の距離であり `size` は挿入前のコンテナの [`size()`](size.md)
+- (7) : 対数時間
+- (8) : 一般に対数時間だが、指定された新たな要素が `position` が指す要素の直前に挿入された場合は償却定数時間。
 
 
 ## 備考
-内部的に `set` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
-
+内部的に `set` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。 (7), (8) の場合、要素はコピーもムーブもされない。
 
 ## 例
 ```cpp example
@@ -96,3 +109,5 @@ int main ()
 ## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+- [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+    - (7), (8)経緯となる提案文書

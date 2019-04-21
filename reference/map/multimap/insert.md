@@ -73,6 +73,8 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 - (7) : コンテナのサイズの対数、`O(log(size()))`。
 - (8) : 挿入が `hint` の直前の位置に行われた場合、償却定数時間。 そうでなければ、コンテナのサイズの対数。
 
+## 備考
+(7), (8) の場合、要素はコピーもムーブもされない。
 
 ## 例
 ```cpp example
