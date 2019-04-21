@@ -12,7 +12,7 @@ class node-handle;
 ## 概要
 クラス`node-handle`の名前は未規定だが、説明のために名前`node-handle`を用いる。
 
-ノードハンドルは、連想コンテナ[`std::set`](/reference/set/set.md)、[`std::multiset`](/reference/multiset/multiset.md)、[`std::map`](/reference/map/map.md)、[`std::multimap`](/reference/multimap/multimap.md)またはunordered連想コンテナ[`std::unordered_set`](/reference/unordered_set/unordered_set.md)、[`std::unordered_multiset`](/reference/unordered_multiset/unordered_multiset.md)、[`std::unordered_map`](/reference/unordered_map/unordered_map.md)、[`std::unordered_multimap`](/reference/unordered_multimap/unordered_multimap.md)から単一要素の所有権を受け取るオブジェクトである。
+ノードハンドルは、連想コンテナ[`std::set`](/reference/set/set.md)、[`std::multiset`](/reference/set/multiset.md)、[`std::map`](/reference/map/map.md)、[`std::multimap`](/reference/map/multimap.md)またはunordered連想コンテナ[`std::unordered_set`](/reference/unordered_set/unordered_set.md)、[`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)、[`std::unordered_map`](/reference/unordered_map/unordered_map.md)、[`std::unordered_multimap`](/reference/unordered_map/unordered_multimap.md)から単一要素の所有権を受け取るオブジェクトである。
 
 互換性のあるノードを持つ別のコンテナにその所有権を移すために使用される。
 互換性のあるノードを持つコンテナは、同じノードハンドル型を持つ。
