@@ -29,7 +29,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-新しく一つの要素(引数 `x`, `y`を使う)、要素のシーケンス(入力イテレータまたは `initializer_list` を使う)、[ノードハンドル](/reference/node_handle/node_handle.md)を挿入することにより、 `multimap` コンテナを拡張する。
+新しく一つの要素(引数 `x`, `y`を使う)、要素のシーケンス(入力イテレータまたは `initializer_list` を使う)または[ノードハンドル](/reference/node_handle/node_handle.md)を挿入することにより、 `multimap` コンテナを拡張する。
 
 これは、挿入された要素の数だけコンテナの [`size()`](/reference/map/multimap/size.md) を増やす。
 
@@ -72,6 +72,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
     - ※ ここで `N` は `first` と `last` の間の距離であり `size` は挿入前のコンテナの [`size()`](size.md)
 - (7) : コンテナのサイズの対数、`O(log(size()))`。
 - (8) : 挿入が `hint` の直前の位置に行われた場合、償却定数時間。 そうでなければ、コンテナのサイズの対数。
+
 
 ## 例
 ```cpp example
