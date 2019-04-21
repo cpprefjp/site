@@ -7,11 +7,13 @@
 
 ```cpp
 pair<iterator, bool> insert(const value_type& v);              // (1)
+std::pair<iterator,bool> insert(value_type&& value);           // (1) C++17
 
 template <class P>
 pair<iterator, bool> insert(P&& obj);                          // (2)
 
 iterator insert(const_iterator position, const value_type& v); // (3)
+iterator insert(const_iterator hint, value_type&& value);      // (3) C++17
 
 template <class P>
 iterator insert(const_iterator position, P&& obj);             // (4)
@@ -20,6 +22,9 @@ template <class InputIterator>
 void insert(InputIterator first, InputIterator last);          // (5)
 
 void insert(initializer_list<value_type> il);                  // (6)
+
+insert_return_type insert(node_type&& nh);                     // (7) C++17
+iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 ```
 * pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -40,6 +45,8 @@ void insert(initializer_list<value_type> il);                  // (6)
 
 - (6)の形式では、`value_type` はこのコンテナに対して [`CopyInsertable`](/reference/container_concepts/CopyInsertable.md) でなければならない。
 
+- (7), (8)の形式では、 `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`でなければならない。
+
 
 ## 効果
 - (1) : `v.first` と等価なキーがこのコンテナに存在していなければ、当該要素を追加する。
@@ -52,6 +59,11 @@ void insert(initializer_list<value_type> il);                  // (6)
     - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である。
 - (5) : 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と等価である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）。
 - (6) : (5)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価である。
+- (7) : `nh`が空の場合、効果はない。
+それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
+- (8) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。
+それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と等価のキーの要素を指すイテレータを常に返す。
+要素は、`p`の直前の位置のできるだけ近くに挿入される。
 
 
 ## 戻り値
@@ -60,6 +72,10 @@ void insert(initializer_list<value_type> il);                  // (6)
 - (3)、(4) : 新たな要素が追加された場合、その追加された要素を指すイテレータ。  
 	新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
 - (5)、(6) : なし
+- (7) : [`insert_return_type`](/reference/map/map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
+    - 挿入された場合には、空の[ノードハンドル](/reference/node_handle/node_handle.md)。
+    - 挿入されなかった場合には、`nh`の値である。 
+- (8) : `nh`が空の場合、`(*this).end()`を返す。そうではない場合、`nh`と等価のキーの要素を指すイテレータを常に返す。
 
 
 ## 例外
@@ -70,6 +86,7 @@ void insert(initializer_list<value_type> il);                  // (6)
 - (1)から(4) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (5) : 平均的なケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size`](size.md)`()` に 1 加えたものの積に比例（O([`std::distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
 - (6) : (5)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価。
+- (7), (8) : 平均的なケースでは `O(1)`、最悪のケースでは `O(size())`。
 
 
 ## 備考
@@ -101,6 +118,8 @@ void insert(initializer_list<value_type> il);                  // (6)
 	実際、Clang(libc++) は `first`、および、`last` の参照先の要素が `value_type` 型でなくとも (5) の形式を使用可能である。
 
 - C++17 で追加された [`try_emplace`](try_emplace.md) と異なり、これらの関数ではキー重複によって要素の挿入が行われなかった場合に引数が不変である（引数からのムーブが発生しない）という**保証はない**ので、注意すること。
+
+- (7), (8) の場合、要素はコピーもムーブもされない。
 
 
 ## 例
@@ -295,3 +314,5 @@ inline void unordered_map<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 - [LWG Issue 2005. `unordered_map::insert(T&&)` protection should apply to `map` too](https://wg21.cmeerw.net/lwg/issue2005)
 - [LWG Issue 2540. unordered_multimap::insert hint iterator](https://wg21.cmeerw.net/lwg/issue2540)
 - [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
+- [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+    - (7), (8)経緯となる提案文書
