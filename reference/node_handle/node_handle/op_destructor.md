@@ -6,11 +6,11 @@
 * [meta namespace]
 
 ```cpp
-~node-handle();
+~node_handle();
 ```
 
 ## 概要
-`node-handle`オブジェクトを破棄する。
+`node_handle`オブジェクトを破棄する。
 
 
 ## 効果

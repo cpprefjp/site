@@ -5,7 +5,7 @@
 * [meta namespace]
 
 ```cpp
-friend void swap(node-handle& x, node-handle& y) noexcept(noexcept(x.swap(y)));
+friend void swap(node_handle& x, node_handle& y) noexcept(noexcept(x.swap(y)));
 ```
 
 ## 概要

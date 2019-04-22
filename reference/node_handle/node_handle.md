@@ -6,11 +6,11 @@
 
 ```cpp
 template<unspecified>
-class node-handle;
+class node_handle;
 ```
 
 ## 概要
-クラス`node-handle`の名前は未規定だが、説明のために名前`node-handle`を用いる。
+クラス`node_handle`の名前は未規定だが、説明のために名前`node_handle`を用いる。
 
 ノードハンドルは、連想コンテナ[`std::set`](/reference/set/set.md)、[`std::multiset`](/reference/set/multiset.md)、[`std::map`](/reference/map/map.md)、[`std::multimap`](/reference/map/multimap.md)またはunordered連想コンテナ[`std::unordered_set`](/reference/unordered_set/unordered_set.md)、[`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)、[`std::unordered_map`](/reference/unordered_map/unordered_map.md)、[`std::unordered_multimap`](/reference/unordered_map/unordered_multimap.md)から単一要素の所有権を受け取るオブジェクトである。
 
@@ -34,7 +34,7 @@ class node-handle;
 
 `key_type` を `K`、 `mapped_type` を `T` としたとき、`std::pair<K, T>`または`std::pair<const K, T>`に対するユーザー定義の特殊化が存在する場合、ノードハンドルを用いる操作は未定義である。
 
-また、`node-handle`はムーブオンリーである。
+また、`node_handle`はムーブオンリーである。
 
 
 ## メンバ関数
@@ -97,7 +97,7 @@ int main()
   m1.insert(std::make_pair('c', 30));
 
   // ノードを取得(要素は、コピーもムーブもされない)
-  // なお、node_type は node-handle の特殊化である
+  // なお、node_type は node_handle の特殊化である
   std::map<char, int>::node_type node = m1.extract('c');
 
   // m2 へ挿入(要素は、コピーもムーブもされない)

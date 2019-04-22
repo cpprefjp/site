@@ -6,7 +6,7 @@
 * [meta namespace]
 
 ```cpp
-void swap(node-handle&)
+void swap(node_handle&)
     noexcept(ator_traits::propagate_on_container_swap::value ||
              ator_traits::is_always_equal::value);
 ```

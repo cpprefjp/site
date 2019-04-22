@@ -159,7 +159,7 @@ namespace std {
 | `const_iterator`       | 読み取り専用前方向イテレータ | C++11 |
 | `local_iterator`       | 同一バケット内のみで有効なイテレータ。<br/>規格書に記載はないが、（`iterator` と同様）`const_local_iterator` と同じ型か否かは実装依存であるものと思われる。<br/>`iterator` と、`iterator_category`、`value_type`、`difference_type`、`pointer`、`reference` は同一である。 | C++11 |
 | `const_local_iterator` | 同一バケット内のみで有効な読み取り専用イテレータ。<br/>`const_iterator` と、`iterator_category`、`value_type`、`difference_type`、`pointer`、`reference` は同一である。 | C++11 |
-| `node_type`            | [`node-handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。 | C++17 |
+| `node_type`            | [`node_handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。 | C++17 |
 
 
 ## 非メンバ関数

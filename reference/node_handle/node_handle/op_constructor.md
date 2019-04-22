@@ -6,8 +6,8 @@
 * [meta namespace]
 
 ```cpp
-constexpr node-handle() noexcept : ptr_(), alloc_() {} // (1)
-node-handle(node-handle&& nh) noexcept;                // (2)
+constexpr node_handle() noexcept : ptr_(), alloc_() {} // (1)
+node_handle(node_handle&& nh) noexcept;                // (2)
 ```
 
 ## 概要

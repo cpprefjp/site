@@ -6,7 +6,7 @@
 * [meta namespace]
 
 ```cpp
-node-handle& operator=(node-handle&& nh);
+node_handle& operator=(node_handle&& nh);
 ```
 
 ## 概要
