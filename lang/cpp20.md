@@ -197,6 +197,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### 文字列
 - [`std::basic_string`](/reference/string/basic_string.md)クラスと[`std::basic_string_view`](/reference/string_view/basic_string_view.md)クラスに、先頭の部分文字列を判定する`starts_with()`メンバ関数、末尾の部分文字列を判定する`ends_with()`メンバ関数を追加
+- [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数の、メモリの縮小機能を削除し、伸長のみとする。
 - [`std::char_traits`](/reference/string/char_traits.md)クラスの[`move()`](/reference/string/char_traits/move.md)、[`copy()`](/reference/string/char_traits/copy.md)、[`assign()`](/reference/string/char_traits/assign.md)静的メンバ関数に`constexpr`を追加
 
 
@@ -256,6 +257,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### 機能の非推奨化
 - 一貫比較機能にとって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
+- [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨可
 
 
 ### 機能の削除
