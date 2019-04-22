@@ -5,9 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-valarray<T>& operator<<=(const valarray<T>& xs); // (1)
-valarray<T>& operator<<=(const T& x);            // (2)
+valarray<T>& operator<<=(const ValOrProxy<T>& xs); // (1)
+valarray<T>& operator<<=(const T& x);              // (2)
 ```
+* ValOrProxy[italic]
 
 ## 概要
 左シフトの複合代入を行う。
@@ -41,7 +42,9 @@ for (std::size_t i = 0; i < size(); ++i) {
 
 
 ## 備考
-2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
+- 引数の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
+- (1) : `*this` と `xs` の要素数が異なる場合、その挙動は未定義。
 
 
 ## 例

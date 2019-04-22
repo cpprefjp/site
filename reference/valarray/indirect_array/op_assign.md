@@ -6,24 +6,25 @@
 
 ```cpp
 private:
-  indirect_array& operator=(const indirect_array&); // (1) C++03 宣言のみ
+  indirect_array& ValOrProxy=(const indirect_array&);              // (1) C++03 まで（宣言のみ）
 
 public:
-  const indirect_array& operator=(const indirect_array& ar) const; // (1) C++11
-  void operator=(const valarray<T>& ar) const;                     // (2)
+* ValOrProxy[italic]
+  const indirect_array& operator=(const indirect_array& ar) const; // (1) C++11 から
+  void operator=(const ValOrProxy<T>& ar) const;                   // (2)
   void operator=(const T& value) const;                            // (3)
 ```
 * valarray[link /reference/valarray/valarray.md]
+* ValOrProxy[italic]
 
 ## 概要
-- (1) : 元となる`valarray`オブジェクトから参照によって抽出した各要素に、`ar`が参照する各要素を代入する
-- (2) : 元となる`valarray`オブジェクトから参照によって抽出した各要素に、`ar`の各要素を代入する
-- (3) : 元となる`valarray`オブジェクトから参照によって抽出した各要素に、`value`を代入する
+- (1) : 元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素に、`ar` が参照する各要素を代入する
+- (2) : 元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素に、`ar` の各要素を代入する
+- (3) : 元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素に、`value` を代入する
 
 
 ## 効果
 概要通り
-
 
 ## 戻り値
 - (1) : `*this`
@@ -31,8 +32,10 @@ public:
 
 
 ## 備考
+- 引数の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 - (1) : C++03まで、このオーバーロードは使用できなかった。
-- (2) : `valarray`から抽出した要素数と`ar`の要素数が異なる場合、その挙動は未定義。
+- [`valarray`](../valarray.md) から抽出した要素数と `ar` の要素数が異なる場合、その挙動は未定義。
 
 
 ## 例

@@ -1,30 +1,30 @@
 # atan2
 * valarray[meta header]
 * std[meta namespace]
-* valarray[meta class]
 * function template[meta id-type]
 
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> atan2(const valarray<T>& ys,
-                    const valarray<T>& xs);                     // (1) C++03
+  ValOrProxy<T> atan2(const ValOrProxy<T>& ys,
+                      const ValOrProxy<T>& xs);                     // (1)
 
   template <class T>
-  valarray<T> atan2(const valarray<T>& ys,
-                    const T& x);                                // (2) C++03
+  ValOrProxy<T> atan2(const ValOrProxy<T>& ys,
+                      const T& x);                                  // (2) C++17 まで
   template <class T>
-  valarray<T> atan2(const valarray<T>& ys,
-                    const typename valarray<T>::value_type& x); // (2) C++20
+  ValOrProxy<T> atan2(const ValOrProxy<T>& ys,
+                      const typename valarray<T>::value_type& x);   // (2) C++20 から
 
   template <class T>
-  valarray<T> atan2(const T& y,
-                    const valarray<T>& xs);                     // (3) C++03
+  ValOrProxy<T> atan2(const T& y,
+                      const ValOrProxy<T>& xs);                     // (3) C++17 まで
   template <class T>
-  valarray<T> atan2(const typename valarray<T>::value_type& y,
-                    const valarray<T>& xs);                     // (3) C++20
+  ValOrProxy<T> atan2(const typename valarray<T>::value_type& y,
+                      const ValOrProxy<T>& xs);                     // (3) C++20 から
 }
 ```
+* ValOrProxy[italic]
 
 ## 概要
 逆正接（アークタンジェント：arc tangent）を対辺と隣辺から求める。
@@ -71,9 +71,11 @@ return result;
 
 
 ## 備考
-- `valarray<T>`型のオブジェクトを返すこの関数を含むあらゆる関数は、`valarray`クラスと同じ`const`メンバ関数をもつほかの型を返すことが実装に許可される。例として複数の`valarray`操作をつなげて記述したときに最適化できるよう、式テンプレートを返す実装もある
-- (1) : 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
-- C++20での(2)と(3)は、`std::valarray<double>{} * 2`が型推論に失敗していたための変更
+- 引数、および、戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
+- (1) : 'ys' と 'xs' の要素数が異なる場合、その挙動は未定義。
+- C++20における(2)と(3)に対する変更は、`std::valarray<double>{} * 2` のような式が型推論に失敗しないようにするためである。  
+	なお、この変更は規格の誤り修正とみなされているため、処理系によっては C++17 以前でも使用可能となる。
 
 
 ## 例

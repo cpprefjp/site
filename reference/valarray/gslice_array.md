@@ -11,14 +11,14 @@ namespace std {
 ```
 
 ## 概要
-`gslice_array`クラスは、非`const`な[`valarray`](valarray.md)オブジェクトから[`gslice`](gslice.md)によって抽出した要素を、参照するためのクラスである。`gslice`は、`valarray`オブジェクトを行列指定で抽出する機能と見なせる。
+`gslice_array`クラスは、非`const`な[`valarray`](valarray.md)オブジェクトから[`gslice`](gslice.md)によって抽出した要素を、参照するためのクラスである。`gslice`は、[`valarray`](valarray.md)オブジェクトを行列指定で抽出する機能と見なせる。
 
 このクラスのオブジェクトは、[`valarray`](valarray.md)クラスの[`operator[]`](valarray/op_at.md)によって返される。
 
 
 テンプレートパラメータは、以下を意味する：
 
-- `T` : `valarray`クラスの要素型`T`と同じ型
+- `T` : [`valarray`](valarray.md)クラスの要素型`T`と同じ型
 
 
 ## メンバ関数

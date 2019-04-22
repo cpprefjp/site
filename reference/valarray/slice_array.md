@@ -18,7 +18,7 @@ namespace std {
 
 テンプレートパラメータは、以下を意味する：
 
-- `T` : `valarray`クラスの要素型`T`と同じ型
+- `T` : [`valarray`](valarray.md)クラスの要素型`T`と同じ型
 
 
 ## メンバ関数

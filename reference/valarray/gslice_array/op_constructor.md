@@ -6,17 +6,17 @@
 
 ```cpp
 private:
-  gslice_array();                    // (1) C++03
-  gslice_array(const gslice_array&)  // (2) C++03
+  gslice_array();                    // (1) C++03 まで
+  gslice_array(const gslice_array&)  // (2) C++03 まで
 
 public:
-  gslice_array() = delete;           // (1) C++11
-  gslice_array(const gslice_array&); // (2) C++11
+  gslice_array() = delete;           // (1) C++11 から
+  gslice_array(const gslice_array&); // (2) C++11 から
 ```
 
 ## slice_arrayオブジェクトの構築
 - (1) デフォルトコンストラクタ。使用不可。
-- (2) コピーコンストラクタ。引数の`gslice_array`と`*this`で、同じ`valarray`オブジェクトを参照する。
+- (2) コピーコンストラクタ。引数の `gslice_array` と `*this` で、同じ [`valarray`](../valarray.md) オブジェクトを参照する。
 
 
 ## 効果
@@ -26,7 +26,7 @@ public:
 ## 備考
 - (2) このオーバーロードには仕様がなかったため、問題を報告中(どこかに掲載されたらリンクを貼る)。
 	- ここに記載している仕様は、[libstdc++のドキュメント](https://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-4.3/a00937.html#9fbd1eb3ba4bb015446ecdc29692e658)およびlibc++とVisual C++の実装で確認できた挙動である。
-- これらオーバーロードのほかに、`valarray`オブジェクトからスライスするためのコンストラクタが実装として用意されるが、このクラスのユーザーはそれを使用することはできない。
+- これらオーバーロードのほかに、 [`valarray`](../valarray.md) オブジェクトからスライスするためのコンストラクタが実装として用意されるが、このクラスのユーザーはそれを使用することはできない。
 
 
 ## 例
@@ -73,3 +73,7 @@ int main()
 ### 備考
 - GCC 4.9.0時点のlibstdc++は、(2)のオーバーロードにおいて、ぶら下がり参照の問題が発生する実装のバグがある([Bug 62119](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=62119))
 
+
+## 参照
+- [LWG Issue 253. valarray helper functions are almost entirely useless](https://wg21.cmeerw.net/lwg/issue253)  
+	コピーコンストラクタが public に変更された経緯

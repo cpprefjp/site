@@ -39,8 +39,11 @@ namespace std {
     auto first = std::begin(c); // 変数cの型をautoではなく、
     auto last = std::end(c);    // std::valarray<double>にする必要がある
     ```
+    * std::begin[color ff0000]
+    * std::end[link end_free.md]
 
-    - これは、`std::valarray<T>`型を返すあらゆる関数は、式テンプレートによる最適化を考慮して、ほかの型を返すことが許可されているためである。その「ほかの型」は、`std::valarray`クラスの`const`メンバ関数と同等の機能を使用できる必要があるが、これら非メンバ関数が使えることは実装に求められていない
+    これは、[`std::valarray`](../valarray.md)`<T>` 型を返す関数（本リファレンスでは戻り値型を *`ValOrProxy`* と表記）は、式テンプレートによる最適化を考慮して、代理の型を返すことが許可されているが、`begin` と [`end`](end_free.md) 関数はその代理の型を受け取りが可能であることを求められていないためである。  
+    [`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

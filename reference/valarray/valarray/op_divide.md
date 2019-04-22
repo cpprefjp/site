@@ -6,31 +6,32 @@
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> operator/(const valarray<T>& xs,
-                        const valarray<T>& ys);                     // (1) C++03
+  ValOrProxy<T> operator/(const ValOrProxy<T>& xs,
+                          const ValOrProxy<T>& ys);                     // (1)
 
   template <class T>
-  valarray<T> operator/(const valarray<T>& xs,
-                        const T& y);                                // (2) C++03
+  ValOrProxy<T> operator/(const ValOrProxy<T>& xs,
+                          const T& y);                                  // (2) C++17 まで
   template <class T>
-  valarray<T> operator/(const valarray<T>& xs,
-                        const typename valarray<T>::value_type& y); // (2) C++20
+  ValOrProxy<T> operator/(const ValOrProxy<T>& xs,
+                          const typename valarray<T>::value_type& y);   // (2) C++20 から
 
   template <class T>
-  valarray<T> operator/(const T& x,
-                        const valarray<T>& ys);                     // (3) C++03
+  ValOrProxy<T> operator/(const T& x,
+                          const ValOrProxy<T>& ys);                     // (3) C++17 まで
   template <class T>
-  valarray<T> operator/(const typename valarray<T>::value_type& x,
-                        const valarray<T>& ys);                     // (3) C++20
+  ValOrProxy<T> operator/(const typename valarray<T>::value_type& x,
+                          const ValOrProxy<T>& ys);                     // (3) C++20 から
 }
 ```
+* ValOrProxy[italic]
 
 ## 概要
 `valarray`において、左辺と右辺を除算する。
 
-- (1) : `xs`の各要素と、`ys`の各要素を除算する。
-- (2) : `xs`の各要素と、`y`を除算する。
-- (3) : `x`と、`ys`の各要素を除算する。
+- (1) : `xs`の各要素を、`ys`の各要素で除算する。
+- (2) : `xs`の各要素を、`y`で除算する。
+- (3) : `x`を、`ys`の各要素で除算する。
 
 
 ## 戻り値
@@ -57,19 +58,20 @@ return result;
 - (3) : 以下のコードと等価のことを行う：
 
 ```cpp
-valarray<T> result(ys.size());
-for (std::size_t i = 0; i < result.size(); ++i) {
-  result[i] = x / ys[i];
-}
+valarray<T> result(x, ys.size());
+result /= ys;
 return result;
 ```
 * size()[link size.md]
+* /=[link op_divide_assign.md]
 
 
 ## 備考
-- `valarray<T>`型のオブジェクトを返すこの関数を含むあらゆる関数は、`valarray`クラスと同じ`const`メンバ関数をもつほかの型を返すことが実装に許可される。例として複数の`valarray`操作をつなげて記述したときに最適化できるよう、式テンプレートを返す実装もある
-- (1) : 2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
-- C++20での(2)と(3)は、`std::valarray<double>{} * 2`が型推論に失敗していたための変更
+- 引数、および、戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
+- (1) : 'xs' と 'ys' の要素数が異なる場合、その挙動は未定義。
+- C++20における(2)と(3)に対する変更は、`std::valarray<double>{} * 2` のような式が型推論に失敗しないようにするためである。  
+	なお、この変更は規格の誤り修正とみなされているため、処理系によっては C++17 以前でも使用可能となる。
 
 
 ## 例

@@ -5,23 +5,24 @@
 * function[meta id-type]
 
 ```cpp
-T operator[](std::size_t n) const;                               // (1) C++03
-const T& operator[](std::size_t n) const;                        // (1) C++11
+T operator[](std::size_t n) const;                                      // (1) C++03 まで
+const T& operator[](std::size_t n) const;                               // (1) C++11 から
 
-T& operator[](std::size_t n);                                    // (2)
+T& operator[](std::size_t n);                                           // (2)
 
-valarray<T> operator[](slice ar) const;                          // (3)
-slice_array<T> operator[](slice ar);                             // (4)
+ValOrProxy<T> operator[](slice ar) const;                               // (3)
+slice_array<T> operator[](slice ar);                                    // (4)
 
-valarray<T> operator[](const gslice& ar) const;                  // (5)
-gslice_array<T> operator[](const gslice& ar);                    // (6)
+ValOrProxy<T> operator[](const gslice& ar) const;                       // (5)
+gslice_array<T> operator[](const gslice& ar);                           // (6)
 
-valarray<T> operator[](const valarray<bool>& mask) const;        // (7)
-mask_array<T> operator[](const valarray<bool>& mask);            // (8)
+ValOrProxy<T> operator[](const ValOrProxy<bool>& mask) const;           // (7)
+mask_array<T> operator[](const ValOrProxy<bool>& mask);                 // (8)
 
-valarray<T> operator[](const valarray<std::size_t>& mask) const; // (9)
-indirect_array<T> operator[](const valarray<std::size_t>& mask); // (10)
+ValOrProxy<T> operator[](const ValOrProxy<std::size_t>& mask) const;    // (9)
+indirect_array<T> operator[](const ValOrProxy<std::size_t>& mask);      // (10)
 ```
+* ValOrProxy[italic]
 * slice_array[link /reference/valarray/slice_array.md]
 * slice[link /reference/valarray/slice.md]
 * gslice_array[link /reference/valarray/gslice_array.md]
@@ -57,6 +58,8 @@ indirect_array<T> operator[](const valarray<std::size_t>& mask); // (10)
 
 
 ## 備考
+- 引数、および、戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 - (3), (5), (7), (9) : `valarray<T>`型のオブジェクトを返すこの関数を含むあらゆる関数は、`valarray`クラスと同じ`const`メンバ関数をもつほかの型を返すことが実装に許可される。例として複数の`valarray`操作をつなげて記述したときに最適化できるよう、式テンプレートを返す実装もある
 - (7), (8) : [`size()`](size.md) `!= mask.`[`size()`](size.md)の場合、その挙動は未定義。
 
