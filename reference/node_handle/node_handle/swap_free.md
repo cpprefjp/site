@@ -53,8 +53,8 @@ int main()
 ```
 * std::swap[color ff0000]
 * extract[link reference/map/map/extract.md.nolink]
-* key[link key.md.nolink]
-* mapped[link mapped.md.nolink]
+* key[link key.md]
+* mapped[link mapped.md]
 
 ### 出力
 ```

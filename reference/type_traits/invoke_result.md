@@ -39,7 +39,7 @@ decltype(std::invoke(std::declval<F&>(), std::declval<ArgsTypes&>()...)
 `result_of`は、シグニチャであることをわかりやすくするために、関数型でユーザーにテンプレート引数を指定させていたが、これは混乱の元であった。  
 例えば`result_of<F(Args...)>::type`と書くと、指定している関数呼び出し可能な型`F`が戻り値型に見える、`F`として関数型や配列型（その参照ならok）を指定できない、`F, Args`に抽象クラスを指定できない、`Args`は`std::decay`を通したように変換される等の問題があり、規格書内で`result_of`を参照している個所に混乱やバグを導入してしまっていた。
 
-そのため、`result_of`のテンプレート引数型の変更が考えられていたが、[`std::invoke()`](/reference/functional/invoke.md.nolink)導入に当たって関連するメタ関数の命名規則が統一されたため、`result_of`は非推奨とされ`invoke_result`として本メタ関数が導入された。
+そのため、`result_of`のテンプレート引数型の変更が考えられていたが、[`std::invoke()`](/reference/functional/invoke.md)導入に当たって関連するメタ関数の命名規則が統一されたため、`result_of`は非推奨とされ`invoke_result`として本メタ関数が導入された。
 
 ## 例
 

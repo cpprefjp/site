@@ -31,7 +31,7 @@ namespace std {
 
 
 ## 要件
-- `*first`の型が[MoveAssignable](/reference/concepts/move_assignable.md)要件を満たすこと
+- `*first`の型が[MoveAssignable](/reference/concepts/MoveAssignable.md)要件を満たすこと
 
 
 ## 効果

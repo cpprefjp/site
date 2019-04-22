@@ -48,9 +48,9 @@ C++14以降では、上記メンバ型`type`の型定義が有効な式でない
 
 
 ## 非推奨・削除の詳細
-C++17で特定のシグニチャで関数呼び出しが可能かを判定する`is_callable`を導入する予定だったが、[`std::invoke()`](/reference/functional/invoke.md.nolink)関数を導入する際に、`result_of`も含めて命名規則を統一することとなった。
+C++17で特定のシグニチャで関数呼び出しが可能かを判定する`is_callable`を導入する予定だったが、[`std::invoke()`](/reference/functional/invoke.md)関数を導入する際に、`result_of`も含めて命名規則を統一することとなった。
 
-`is_callable`は[`std::is_invocable`](is_invocable.md.nolink)という名前で導入された。
+`is_callable`は[`std::is_invocable`](is_invocable.md)という名前で導入された。
 
 `result_of`は、シグニチャであることをわかりやすくするために、関数型でユーザーにテンプレート引数を指定させていたが、これは混乱の元であった。
 

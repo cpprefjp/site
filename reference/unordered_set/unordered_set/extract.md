@@ -110,7 +110,7 @@ int main()
 ```
 * extract[color ff0000]
 * node_type[link /reference/node_handle/node_handle.md]
-* value[link /reference/node_handle/node_handle/value.md.nolink]
+* value[link /reference/node_handle/node_handle/value.md]
 
 
 ### 出力

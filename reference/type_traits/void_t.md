@@ -79,7 +79,7 @@ int main()
 }
 ```
 * std::void[color ff0000]
-* std::declval[link reference/utility/declval.md]
+* std::declval[link /reference/utility/declval.md]
 
 ### 出力
 ```

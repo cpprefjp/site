@@ -64,8 +64,8 @@ int main()
 }
 ```
 * extract[color ff0000]
-* node_type[link /reference/node_handle/node_handle.md.nolink]
-* key[link /reference/node_handle/node_handle/key.md.nolink]
+* node_type[link /reference/node_handle/node_handle.md]
+* key[link /reference/node_handle/node_handle/key.md]
 
 
 ### 出力

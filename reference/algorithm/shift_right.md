@@ -31,8 +31,8 @@ namespace std {
 
 
 ## 要件
-- `*first`の型が[MoveAssignable](/reference/concepts/move_assignable.md)要件を満たすこと
-- `ForwardIterator`型が、Bidirectional Iteratorの要件もしくは[ValueSwappable](/reference/concepts/value_swappable.md)の要件を満たすこと
+- `*first`の型が[MoveAssignable](/reference/concepts/MoveAssignable.md)要件を満たすこと
+- `ForwardIterator`型が、Bidirectional Iteratorの要件もしくは[ValueSwappable](/reference/concepts/ValueSwappable.md)の要件を満たすこと
 
 
 ## 効果

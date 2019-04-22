@@ -108,8 +108,8 @@ T min(std::initializer_list<T> t, Compare comp)
 }
 ```
 * std::min_element[link min_element.md]
-* t.begin()[link /reference/initializer_list/begin.md]
-* t.end()[link /reference/initializer_list/end.md]
+* t.begin()[link /reference/initializer_list/initializer_list/begin.md]
+* t.end()[link /reference/initializer_list/initializer_list/end.md]
 
 
 ## initializer_listバージョンの使用可能状況
