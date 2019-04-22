@@ -15,14 +15,22 @@ size_type find(charT c, size_type pos = 0) const;                          // (4
 
 size_type find(std::basic_string_view<charT, traits> sv,
                size_type pos = 0) const noexcept;                          // (5) C++17
+template <class T>
+size_type find(const T& t, size_type pos = 0) const noexcept(see below);   // (5) C++20
 ```
 
 ## 概要
 指定した文字列を検索する。
 
 
-## 要件
-(3) の形式の場合、`s` は少なくとも `traits_type::length(s) + 1` の要素を持つ `charT` の配列を指していること。
+## テンプレートパラメータ制約
+- (5) :
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&,` [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>>`が`true`であること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*>`が`false`であること
+
+
+## 事前条件
+- (3) : `s` は少なくとも `traits_type::length(s) + 1` の要素を持つ `charT` の配列を指していること。
 
 
 ## 効果
@@ -30,7 +38,9 @@ size_type find(std::basic_string_view<charT, traits> sv,
 - (2) `pos` 以降で最初に `s` と一致する位置を返す。`s` は長さ `n` の文字列へのポインタである。
 - (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
 - (4) `pos` 以降で最初に `c` と一致する位置を返す。
-- (5) `pos` 以降で最初に `sv` と一致する位置を返す。
+- (5) :
+    - C++17 : `pos` 以降で最初に `sv` と一致する位置を返す。
+    - C++20 : `basic_string_view<charT, traits> sv = t;`として変数`sv`を作成し、`pos` 以降で最初に `sv` と一致する位置を返す。
 
 
 ## 戻り値
@@ -39,7 +49,14 @@ size_type find(std::basic_string_view<charT, traits> sv,
 
 ## 例外
 - (1) 投げない
-- (5) 投げない
+- (5) :
+    - C++17 : 投げない
+    - C++20 : `noexcept`内の式は、以下と等価である
+        ```cpp
+        is_nothrow_convertible_v<const T&, basic_string_view<charT, traits>>
+        ```
+        * is_nothrow_convertible_v[link /reference/type_traits/is_nothrow_convertible.md]
+        * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 
 ## 備考
@@ -113,3 +130,4 @@ size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 
 ## 参照
 - [LWG2064 - More `noexcept` issues in `basic_string`](https://wg21.cmeerw.net/lwg/issue2064)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [P0758R1 Implicit conversion traits and utility functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0758r1.html)
