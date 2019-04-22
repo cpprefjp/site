@@ -118,6 +118,7 @@
 | [`is_same`](type_traits/is_same.md)       | 二つの型が同じ型か調べる (class template) | C++11 |
 | [`is_base_of`](type_traits/is_base_of.md) | ある型が別の型の基底クラスか調べる (class template) | C++11 |
 | [`is_convertible`](type_traits/is_convertible.md) | ある型から別の型へ変換可能か調べる (class template) | C++11 |
+| [`is_nothrow_convertible`](type_traits/is_throw_convertible.md) | ある型から別の型へ、例外を投げずに変換可能か調べる (class template) | C++20 |
 
 
 ## const-volatile の変更
