@@ -24,6 +24,8 @@ namespace std::pmr {
 ## 備考
 この関数で取得した`memory_resource`を`p`、その他任意の`memory_resource`を`r`とすると、[`p->is_equal(r)`](memory_resource/is_equal.md)は`&r == p`を返す。
 
+実装クラスの型名は未規定。
+
 ## 例
 ```cpp example
 #include <iostream>

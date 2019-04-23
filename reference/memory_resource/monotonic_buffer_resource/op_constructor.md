@@ -50,8 +50,8 @@ monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;           
 
 ## 効果
 
-- (1) : `upstream`を上流`memory_resource`として設定し、初期メモリ領域を`nullptr`、次に補充するメモリサイズを実装定義の値に設定
-- (2) : `upstream`を上流`memory_resource`として設定し、初期メモリ領域を`nullptr`、`initial_size`を次に補充するメモリサイズに設定
+- (1) : `upstream`を上流`memory_resource`として設定し、初期メモリ領域を空（`nullptr`）、次に補充するメモリサイズを実装定義の値に設定
+- (2) : `upstream`を上流`memory_resource`として設定し、初期メモリ領域を空（`nullptr`）、次に補充するメモリサイズを`initial_size`に設定
 - (3) : `upstream`を上流`memory_resource`として設定し、`buffer`を初期メモリ領域、`buffer_size`に実装定義の増加分を足した値（整数とは限らない）を次に補充するメモリサイズに設定
 - (4) : [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(1)に渡し移譲
 - (5) : `initial_size`と[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(2)に渡し移譲
@@ -60,7 +60,7 @@ monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;           
 (4)(5)(6)のコンストラクタは上流メモリリソースとして[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を利用する。
 
 ## 備考
-どのコンストラクタの初期化においても、上流`memory_resource`の所有権を保持しない。
+どのコンストラクタの初期化においても、上流メモリリソースの所有権を保持しない。
 
 ## 例
 ```cpp example

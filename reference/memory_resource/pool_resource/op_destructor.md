@@ -2,20 +2,21 @@
 * memory_resource[meta header]
 * function[meta id-type]
 * std::pmr[meta namespace]
-* monotonic_buffer_resource[meta class]
+* pool_resource[meta class]
 * cpp17[meta cpp]
 
 ```cpp
-virtual ~monotonic_buffer_resource();
+virtual ~pool_resource();
 ```
 
 ## 概要
-
 管理しているすべてのメモリを解放する。
+
+クラス名を`pool_resource`としているのは説明のためのプレースホルダで、`synchronized_pool_resource`と`unsynchronized_pool_resource`で共通ということである。
 
 ## 効果
 
-[`this->release()`](release.md)を呼び出す。
+`this->release()`を呼び出す。
 
 ## バージョン
 ### 言語
@@ -25,6 +26,3 @@ virtual ~monotonic_buffer_resource();
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
-
-## 関連項目
-- [`release`](release.md)

@@ -22,17 +22,17 @@ pool_resource(const pool_resource&) = delete;                        //(5)
 
 ## 概要
 
-- (1) : `pool_options`による設定と上流[`memory_resource`](/reference/memory_resource/memory_resource.md)を受けて構築
+- (1) : [`pool_options`](pool_options.md)による設定と上流[`memory_resource`](/reference/memory_resource/memory_resource.md)を受けて構築
 - (2) : デフォルトコンストラクタ
 - (3) : 上流[`memory_resource`](/reference/memory_resource/memory_resource.md)を受けて構築
-- (4) : `pool_options`による設定を受けて構築
+- (4) : [`pool_options`](pool_options.md)による設定を受けて構築
 - (5) : コピーコンストラクタ、コピー禁止
 
 クラス名を`pool_resource`としているのは説明のためのプレースホルダで、`synchronized_pool_resource`と`unsynchronized_pool_resource`で共通ということである。
 
 ## 要件
 
-- (2) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
+- (1)(3) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
 
 ## 引数
 
@@ -40,16 +40,19 @@ pool_resource(const pool_resource&) = delete;                        //(5)
 - `upstream` -- 利用したい上流`memory_resource`へのポインタ
 
 ## 効果
-
-- (1) : [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)からデフォルトの`memory_resource`を取得して構築
-- (2) : `r`を`memory_resource`として構築
-- (3)(4) : [`other.resource()`](resource.md)から`memory_resource`を取得して構築
+- (1) : 内部のメモリプールを`opts`設定により調整し、上流メモリリソースとして`upstream`を利用する`pool_resource`を構築する。
+- (2) : デフォルト設定を使用し、 [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から上流メモリリソースを取得して構築。
+- (3) : デフォルト設定を使用し、上流メモリリソースとして`upstream`を利用する`pool_resource`を構築する。
+- (4) : 内部のメモリプールを`opts`設定により調整し、[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から上流メモリリソースを取得して構築。
 
 ## 例外
-- (1)(4) : 投げない
+`upstream->allocate()`が例外を投げないのならば、すべてのコンストラクタは例外を投げない。  
+ただし、これらのコンストラクタが`upstream->allocate()`を呼び出すかどうか、またはどの様な条件の下で`upstream->allocate()`を呼び出すかは未規定。
 
 ## 備考
 どのコンストラクタの初期化においても、上流`memory_resource`の所有権を保持しない。
+
+実装は必ずしも`opts`の設定を利用しない。
 
 ## 例
 ```cpp example
@@ -77,5 +80,5 @@ equal
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
-- [`pool_options`](pool_options.md)
-- [`memory_resource`](memory_resource/memory_resource.md)
+- [`pool_options`](/reference/memory_resource/pool_options.md)
+- [`memory_resource`](/reference/memory_resource/memory_resource.md)

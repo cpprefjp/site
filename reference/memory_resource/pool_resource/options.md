@@ -1,24 +1,22 @@
-# is_equal
+# options
 * memory_resource[meta header]
 * function[meta id-type]
 * std::pmr[meta namespace]
-* memory_resource[meta class]
+* pool_resource[meta class]
 * cpp17[meta cpp]
 
 ```cpp
-bool is_equal(const memory_resource& other) const noexcept;
+pool_options options() const;
 ```
 
 ## 概要
-今のオブジェクト（`this`）で確保（[`allocate`](allocate.md)）したメモリ領域が、`other`によって解放（[`deallocate`](deallocate.md)）でき、その逆も可能かをチェックする。
-
-## 引数
-- `other` -- チェックする`memory_resource`オブジェクト
+内部のメモリプールの設定を取得する。
 
 ## 戻り値
-`return this->do_is_equal(other);`
+内部のメモリプールを調整している値を保持した[`pool_options`](/reference/memory_resource/pool_options.md)。
 
-`this->allocate()`で確保したメモリ領域を`other.deallocate()`で問題なく解放でき、その逆も可能な場合に`true`となる。
+返される値はコンストラクタで設定した値と異なる可能性がある。  
+ゼロの値は実装定義のデフォルト値に置き換えられて返され、各サイズ指定は指定していない端数を持つ可能性がある（例えば、2のべき乗等）。
 
 ## 例
 ```cpp example
@@ -46,4 +44,4 @@ equal
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
-- [`do_is_equal`](do_is_equal.md)
+- [`pool_options`](/reference/memory_resource/pool_options.md)

@@ -16,6 +16,7 @@ virtual void* do_allocate(size_t bytes, size_t alignment) = 0;
 `alignment`は2のべき乗であること
 
 ## 引数
+
 - `bytes` -- 確保する領域のサイズ
 - `alignment` -- 確保領域のアライメント要求
 
@@ -27,7 +28,7 @@ virtual void* do_allocate(size_t bytes, size_t alignment) = 0;
 確保したメモリ領域の先頭ポインタ。
 
 ## 例外
-要求されたアライメントで`bytes`のメモリ領域を確保できない場合、例外をスローする。
+要求されたアライメントで`bytes`のメモリ領域を確保できない場合、例外を送出する。
 
 ## バージョン
 ### 言語
@@ -39,4 +40,5 @@ virtual void* do_allocate(size_t bytes, size_t alignment) = 0;
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
-- [`deallocate`](deallocate.md)`
+- [`do_deallocate`](do_deallocate.md)
+- [`allocate`](allocate.md)

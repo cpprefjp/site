@@ -26,7 +26,7 @@ polymorphic_allocator(const polymorphic_allocator<U>& other) noexcept;  //(4)
 - (2) : `r`がnullでないこと
 
 ## 引数
-- `r` -- 任意の利用したい`memory_resource`へのポインタ
+- `r` -- 任意の`memory_resource`へのポインタ
 - `other` -- コピーする他の`polymorphic_allocator`オブジェクト
 
 ## 効果
@@ -38,7 +38,7 @@ polymorphic_allocator(const polymorphic_allocator<U>& other) noexcept;  //(4)
 - (1)(4) : 投げない
 
 ## 備考
-どのコンストラクタ空の初期化においても、取得する`memory_resource`の所有権を保持しない。
+どのコンストラクタからの初期化においても、取得する`memory_resource`の所有権を保持しない。
 
 ## 例
 ```cpp example

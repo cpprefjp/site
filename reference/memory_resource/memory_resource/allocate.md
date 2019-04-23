@@ -27,7 +27,7 @@ void* allocate(size_t bytes, size_t alignment = alignof(std::max_align_t));
 `alignment`にアラインすることができない（処理系でサポートされない）場合、`alignof(std::max_align_t)`にアラインされる。
 
 ## 例外
-要求されたアライメントでサイズ`bytes`のメモリを確保できない場合、例外がスローされる。
+要求されたアライメントでサイズ`bytes`のメモリを確保できない場合、例外が送出される。
 
 ## 例
 ```cpp example

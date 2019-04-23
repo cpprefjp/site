@@ -12,32 +12,48 @@ namespace std::pmr {
 ```
 
 ## 概要
-`pool_resource`は幾つかのブロックサイズ毎のメモリプールを管理し、要求サイズ毎に最適なプールからメモリを割り当てる[`memory_resource`](memory_resource/memory_resource.md)実装である。 
+`pool_resource`は幾つかのブロックサイズ毎のメモリプールを管理し、要求サイズ毎に最適なプールからメモリを割り当てる[`memory_resource`](memory_resource/memory_resource.md)実装である。  
+メモリ割り当て要求に内部のメモリプールから応えられない場合（最大のブロックサイズを超える要求があった場合）は、上流のメモリリソースからメモリを割り当てる。ほとんどの場合、上流メモリリソースへの割り当て要求は内部プールへの割り当て要求よりも少ない。
 
-2つの`pool_resource`が提供される。
+以下2つの`pool_resource`が提供される。
+
 | `pool_resource`クラス名            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | `synchronized_pool_resource` | スレッドセーフな`pool_resource` |     C++17      |
 | `unsynchronized_pool_resource`  | スレッドセーフでない`pool_resource`   |     C++17      |
 
-`synchronized_pool_resource`は外部同期機構無しで複数のスレッドからスレッドセーフにアクセスできる`pool_resource`である。  
+`synchronized_pool_resource`は外部同期機構無しで複数のスレッドからスレッドセーフにアクセスできる。  
 実装によっては同期コストの削減のためにスレッド毎にメモリプールを持つ可能性がある。
 
-`unsynchronized_pool_resource`は複数スレッドからアクセスした際にスレッドセーフ性が保証されない`pool_resource`であるが、シングルスレッドで使用する場合に同期のためのオーバーヘッドを避けることができる。
+`unsynchronized_pool_resource`は複数スレッドからアクセスした際にスレッドセーフ性が保証されないが、シングルスレッドで使用する場合に同期のためのオーバーヘッドを避けることができる。
 
 ## `pool_resource`の性質
 
-## 構築・破棄
+- 内部管理メモリ領域は様々なブロックサイズのメモリプールに分かれている。
+- それぞれのブロックサイズ毎のメモリプールは幾つかのチャンクの集まりであり、各チャンクは均一なサイズ（ブロックサイズ）のブロックに順番に分割されている。
+- `do_allocate`によって返されるメモリはブロック単位で割り当てられる。
+- `do_allocate(bytes, alignment)`は、`bytes`以上で最小のブロックサイズのプールからメモリを割り当てる。
+  - `bytes`が最大ブロックサイズを超える場合、上流メモリリソースから直接割り当てられる。
+- あるプールが枯渇した場合、次の`do_allocate`時に上流メモリリソースからチャンク単位でプールを補充する。
+  - 補充の度に補充されるチャンクサイズは等比数列に従って増加する。
+  - 一定のチャンク毎に補充を行うことで連続した割り当てにおける参照局所性を高める狙いがある。
+- 最大チャンクサイズ及び最大ブロックサイズは[`pool_options`](pool_options.md)構造体をコンストラクタに渡して調整可能。
+- 管理メモリの解放時は`deallocate`が呼び出されていない領域があっても全てのメモリを解放する。
+
+
+## メンバ関数
+
+### 構築・破棄
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`(constructor)`](pool_resource/op_constructor.md) | コンストラクタ | C++17 |
-| `virtual ~pool_resource();`  | 仮想デストラクタ   | C++17 |
+| [`(destructor)`](pool_resource/op_destructor.md)  | デストラクタ   | C++17 |
 | `operator=(const pool_resource&) = delete;`     | コピー代入演算子（コピー禁止）     | C++17 |
 
 クラス名を`pool_resource`としているのは説明のためのプレースホルダで、`synchronized_pool_resource`と`unsynchronized_pool_resource`で共通ということである。
 
-## 共通メンバ関数
+### 共通メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
@@ -45,12 +61,27 @@ namespace std::pmr {
 | [`upstream_resource`](pool_resource/upstream_resource.md) | 利用している上流`memory_resource`を取得する | C++17 |
 | [`options`](pool_resource/options.md) | 適用されているプール設定を`pool_options`として取得する | C++17 |
 
-## protected オーバーライド関数
+### 非仮想インターフェース（NVI）
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| [`allocate`](memory_resource/allocate.md) | メモリを確保する | C++17 |
+| [`deallocate`](memory_resource/deallocate.md) | メモリを解放する | C++17 |
+| [`is_equal`](memory_resource/is_equal.md) | オブジェクトを超えてメモリ領域の解放を行えるかを調べる | C++17 |
+
+### protected オーバーライド関数
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`do_allocate`](pool_resource/do_allocate.md) | メモリを確保する | C++17 |
 | [`do_deallocate`](pool_resource/do_deallocate.md) | メモリを解放する | C++17 |
 | [`do_is_equal`](pool_resource/do_is_equal.md) | オブジェクトを超えてメモリ領域の解放を行えるかを調べる | C++17 |
+
+## 非メンバ関数
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| [`operator==`](memory_resource/op_equal.md) | 等値比較 | C++17 |
+| [`operator!=`](memory_resource/op_not_equal.md) | 非等値比較 | C++17 |
 
 ## バージョン
 ### 言語

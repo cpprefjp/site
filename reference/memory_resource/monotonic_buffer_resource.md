@@ -13,7 +13,7 @@ namespace std::pmr {
 
 ## 概要
 `monotonic_buffer_resource`はオブジェクトの破棄時にのみ管理しているメモリを全て開放すような [`memory_resource`](memory_resource/memory_resource.md)実装である。  
-少数のオブジェクトを構築するために割り当てを行い、`monotonic_buffer_resource`そのものの破棄時にまとめて開放するような、特殊な状況において高速なメモリ割り当てを行うことを目的としている。
+少数のオブジェクトを構築するために割り当てを行い`monotonic_buffer_resource`そのものの破棄時にまとめて開放するような、特殊な状況において高速なメモリ割り当てを行うことを目的としている。
 
 このクラスはスレッドセーフではない。
 
@@ -23,11 +23,13 @@ namespace std::pmr {
 - 外部で確保された領域を初期メモリ領域として設定可能
 - 上流メモリリソースを指定可能
 - 初期メモリが無いか使い果たされると、上流メモリリソースから補充する。
-- 補充されるメモリ領域サイズは以前の領域よりも大きくなり、そのサイズは等比数列に従って（補充の度に）増加する。
+- 補充されるメモリ領域サイズは以前の領域サイズよりも大きくなり、そのサイズは等比数列に従って（補充の度に）増加する。
 - 単一スレッドからアクセスされることを前提としており、`allocate`と`deallocate`は互いに非同期である。
-- 管理メモリの解放時は`deallocate`が呼び出されていない領域があっても全てのメモリを開放する。
+- 管理メモリの解放時は`deallocate`が呼び出されていない領域があっても全てのメモリを解放する。
 
-## 構築・破棄
+## メンバ関数
+
+### 構築・破棄
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
@@ -35,20 +37,34 @@ namespace std::pmr {
 | [`(destructor)`](monotonic_buffer_resource/op_destructor.md)  | デストラクタ   | C++17 |
 | `operator=(const monotonic_buffer_resource&) = delete;`     | コピー代入演算子（コピー禁止）     | C++17 |
 
-## 共通メンバ関数
+### 共通メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`release`](monotonic_buffer_resource/release.md) | 割り当てられている全てのメモリを解放する | C++17 |
+| [`release`](monotonic_buffer_resource/release.md) | 管理中の全てのメモリを解放する | C++17 |
 | [`upstream_resource`](monotonic_buffer_resource/upstream_resource.md) | 利用している上流`memory_resource`を取得する | C++17 |
-| [`options`](monotonic_buffer_resource/options.md) | 適用されているプール設定を`pool_options`として取得する | C++17 |
 
-## protected オーバーライド関数
+### 非仮想インターフェース（NVI）
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| [`allocate`](memory_resource/allocate.md) | メモリを確保する | C++17 |
+| [`deallocate`](memory_resource/deallocate.md) | メモリを解放する | C++17 |
+| [`is_equal`](memory_resource/is_equal.md) | オブジェクトを超えてメモリ領域の解放を行えるかを調べる | C++17 |
+
+### protected オーバーライド関数
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`do_allocate`](monotonic_buffer_resource/do_allocate.md) | メモリを確保する | C++17 |
 | [`do_deallocate`](monotonic_buffer_resource/do_deallocate.md) | メモリを解放する | C++17 |
 | [`do_is_equal`](monotonic_buffer_resource/do_is_equal.md) | オブジェクトを超えてメモリ領域の解放を行えるかを調べる | C++17 |
+
+## 非メンバ関数
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| [`operator==`](memory_resource/op_equal.md) | 等値比較 | C++17 |
+| [`operator!=`](memory_resource/op_not_equal.md) | 非等値比較 | C++17 |
 
 ## バージョン
 ### 言語

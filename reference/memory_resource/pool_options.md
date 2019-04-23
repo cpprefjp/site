@@ -20,10 +20,11 @@ namespace std::pmr {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| `max_blocks_per_chunk` | メモリプールを補充する際に上流`memory_resource`から1度に取得するブロックサイズ。<br>すなわち、サイズ毎のプール内の1チャンク辺りのブロック数。 | C++17 |
-| `largest_required_pool_block` | メモリプール中の最も大きなブロックのサイズ。<br>この値より大きなメモリの割り当て要求は上流の`memory_resource`から直接割り当てられる。 | C++17 |
+| `max_blocks_per_chunk` | メモリプールを補充する際に上流`memory_resource`から1度に取得するブロックサイズの最大値。<br>すなわち、サイズ毎のプール内の1チャンク辺りの最大ブロック数。<br>各メモリプールを補充する際はチャンク単位で補充されチャンクサイズはそのたびに増加するが、この値よりは大きくならない。 | C++17 |
+| `largest_required_pool_block` | 各メモリプールの最も大きなブロックのサイズ。<br>この値より大きなメモリの割り当て要求は上流の`memory_resource`から直接割り当てられる。 | C++17 |
 
-両変数共に、設定値が0もしくは実装定義の最大値を上回る場合は実装定義の最大値が利用される。
+両変数共に、設定値が0もしくは実装定義の最大値を上回る場合は実装定義の最大値が利用される。  
+また、それが各[`pool_resource`](pool_resource.md)のデフォルト設定となる。
 
 ## 備考
 
@@ -42,8 +43,8 @@ namespace std::pmr {
 
 ## 関連項目
 
-- [`synchronized_pool_resource`](synchronized_pool_resource.md)
-- [`unsynchronized_pool_resource`](unsynchronized_pool_resource.md)
+- [`synchronized_pool_resource`](pool_resource.md)
+- [`unsynchronized_pool_resource`](pool_resource.md)
 
 ## 参照
 

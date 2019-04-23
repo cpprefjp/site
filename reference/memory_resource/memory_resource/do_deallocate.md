@@ -37,4 +37,5 @@ virtual void do_deallocate(void* p, size_t bytes, size_t alignment) = 0;
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
-- [`allocate`](allocate.md)`
+- [`do_allocate`](do_allocate.md)
+- [`deallocate`](deallocate.md)

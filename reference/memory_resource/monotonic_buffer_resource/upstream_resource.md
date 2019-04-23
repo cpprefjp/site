@@ -1,24 +1,19 @@
-# is_equal
+# upstream_resource
 * memory_resource[meta header]
 * function[meta id-type]
 * std::pmr[meta namespace]
-* memory_resource[meta class]
+* monotonic_buffer_resource[meta class]
 * cpp17[meta cpp]
 
 ```cpp
-bool is_equal(const memory_resource& other) const noexcept;
+memory_resource* upstream_resource() const;
 ```
 
 ## 概要
-今のオブジェクト（`this`）で確保（[`allocate`](allocate.md)）したメモリ領域が、`other`によって解放（[`deallocate`](deallocate.md)）でき、その逆も可能かをチェックする。
-
-## 引数
-- `other` -- チェックする`memory_resource`オブジェクト
+利用中の上流メモリリソースを取得する。
 
 ## 戻り値
-`return this->do_is_equal(other);`
-
-`this->allocate()`で確保したメモリ領域を`other.deallocate()`で問題なく解放でき、その逆も可能な場合に`true`となる。
+コンストラクタで設定された上流[`memory_resource`](/reference/memory_resource/memory_resource.md)へのポインタを返す。
 
 ## 例
 ```cpp example
@@ -46,4 +41,4 @@ equal
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
-- [`do_is_equal`](do_is_equal.md)
+- [`memory_resource`](/reference/memory_resource/memory_resource.md)
