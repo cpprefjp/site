@@ -25,10 +25,11 @@ void* do_allocate(size_t bytes, size_t alignment) override;
 ## 効果
 `bytes`以上で最小のブロックサイズの内部メモリプールからメモリを割り当てる。  
 そのようなブロックサイズのプールが枯渇している場合、上流メモリリソースからプールを補充しメモリ割り当てを行う。  
-プールの補充はチャンク単位で行われ、補充の度にチャンクサイズは増加する。その上限はコンストラクタで渡した[`pool_options::max_blocks_per_chunk`](/reference/memory_resource/pool_options.md)か、実装定義の最大値が設定される。  
+プールの補充はチャンク単位で行われ、補充の度にチャンクサイズは増加する。その上限はコンストラクタで渡した[`pool_options::max_blocks_per_chunk`](/reference/memory_resource/pool_options.md)か、実装定義の最大値が設定される。
+
 また、`bytes`が設定されている最大のブロックサイズを超える場合は上流メモリリソースから直接メモリを割り当てる。
 
-そして、少なくとも`bytes`のメモリを割り当て、`alignment`にアラインすることができない場合は`alignof(std::max_align_t)`にアラインする。
+少なくとも`bytes`のメモリを割り当て、`alignment`にアラインすることができない場合は`alignof(std::max_align_t)`にアラインする。
 
 ## 戻り値
 割り当てた領域の先頭へのポインタ

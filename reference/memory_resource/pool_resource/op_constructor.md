@@ -22,10 +22,10 @@ pool_resource(const pool_resource&) = delete;                        //(5)
 
 ## 概要
 
-- (1) : [`pool_options`](pool_options.md)による設定と上流[`memory_resource`](/reference/memory_resource/memory_resource.md)を受けて構築
+- (1) : [`pool_options`](/reference/memory_resource/pool_options.md)による設定と上流[`memory_resource`](/reference/memory_resource/memory_resource.md)を受けて構築
 - (2) : デフォルトコンストラクタ
 - (3) : 上流[`memory_resource`](/reference/memory_resource/memory_resource.md)を受けて構築
-- (4) : [`pool_options`](pool_options.md)による設定を受けて構築
+- (4) : [`pool_options`](/reference/memory_resource/pool_options.md)による設定を受けて構築
 - (5) : コピーコンストラクタ、コピー禁止
 
 クラス名を`pool_resource`としているのは説明のためのプレースホルダで、`synchronized_pool_resource`と`unsynchronized_pool_resource`で共通ということである。
