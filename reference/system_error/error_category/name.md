@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-const char* name() const noexcept;
+virtual const char* name() const noexcept = 0;
 ```
 
 ## 概要
