@@ -31,6 +31,13 @@ namespace std {
 | [`operator!=`](error_category/op_not_equal.md) | 非等値比較 | C++11 |
 | [`operator<`](error_category/op_less.md) | 小なり比較 | C++11 |
 
+### 純粋仮想関数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`name`](error_category/name.md) | カテゴリ名を取得 | C++11 |
+| [`message`](error_category/message.md) | エラーコードに対応するメッセージを取得 | C++11 |
+
 
 ## 例
 ```cpp example
