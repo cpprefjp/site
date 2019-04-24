@@ -6,10 +6,9 @@
 
 ```cpp
 private:
-  indirect_array& ValOrProxy=(const indirect_array&);              // (1) C++03 まで（宣言のみ）
+  indirect_array& operator=(const indirect_array&);                // (1) C++03 まで（宣言のみ）
 
 public:
-* ValOrProxy[italic]
   const indirect_array& operator=(const indirect_array& ar) const; // (1) C++11 から
   void operator=(const ValOrProxy<T>& ar) const;                   // (2)
   void operator=(const T& value) const;                            // (3)

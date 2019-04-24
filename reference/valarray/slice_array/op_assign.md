@@ -14,6 +14,7 @@ public:
   void operator=(const T& value) const;                      // (3)
 ```
 * valarray[link /reference/valarray/valarray.md]
+* ValOrProxy[italic]
 
 ## 概要
 - (1) : 元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素に、`ar` が参照する各要素を代入する

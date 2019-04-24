@@ -36,8 +36,8 @@ valarray<int> c = a + b;
 
 処理系によっては、このような演算を、CPUのSIMD命令によって並列に計算するよう最適化する。
 
-さらに、式テンプレートの実装を可能とするため、任意の `valarray<T>` 型を返す関数は（メンバ関数、非メンバ関数とも）`valarray<T>` 型以外の型を返すことが規格で許可されている。
-`valarray<T>` の代わりに返される型がある場合、[`begin`](valarray/begin_free.md)、[`end`](valarray/end_free.md) を除くすべての `const valarray<T>&` を引数に取る関数の引数として使用可能である
+なお、戻り値型に *`ValOrProxy`* と表記している箇所は、[`valarray`](valarray.md)`<T>` か代理の型のいずれかであることを、引数型に *`ValOrProxy`* と表記している箇所は、[`valarray`](valarray.md)`<T>` と代理の型のいずれでも受け取ることが可能であることを表している。  
+[`<valarray>`](../valarray.md) の概要も参照のこと。
 
 
 テンプレートパラメータは、以下を意味する：
@@ -81,7 +81,7 @@ valarray<int> c = a + b;
 |------------------------------------------------------------|------------------------------------------|-------|
 | [`operator~` (単項)](valarray/op_flip.md)                | 単項 `~` 演算（ビット反転した要素を得る）| |
 | [`operator&=`](valarray/op_and_assign.md)                | 論理積の複合代入                         | |
-| [`operator|=`](valarray/op_or_assign.md)                 | 論理和の複合代入                         | |
+| [<code>operator&#x7C;=</code>](valarray/op_or_assign.md) | 論理和の複合代入                         | |
 | [`operator^=`](valarray/op_xor_assign.md)                | 排他的論理和の複合代入                   | |
 | [`operator<<=`](valarray/op_left_shift_assign.md)        | 左シフトの複合代入                       | |
 | [`operator>>=`](valarray/op_right_shift_assign.md)       | 右シフトの複合代入                       | |
@@ -143,7 +143,7 @@ valarray<int> c = a + b;
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|--------------|-------|
 | [`operator&`](valarray/op_and.md)                | 論理積       | |
-| [`operator|`](valarray/op_or.md)                 | 論理和       | |
+| [<code>operator&#x7C;</code>](valarray/op_or.md) | 論理和       | |
 | [`operator^`](valarray/op_xor.md)                | 排他的論理和 | |
 | [`operator<<`](valarray/op_left_shift.md)        | 左シフト     | |
 | [`operator>>`](valarray/op_right_shift.md)       | 右シフト     | |

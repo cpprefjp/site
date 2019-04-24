@@ -11,7 +11,7 @@
 	（ただし、[`begin`](valarray/valarray/begin_free.md) と [`end`](valarray/valarray/end_free.md) を除く）
 - 本ヘッダで提供される、`const` [`valarray`](valarray/valarray.md)`<T>&` を 2 つ引数に持つ全ての関数は、当該代理の型と [`valarray`](valarray/valarray.md)`<T>` の任意の組み合わせも引数として受け付ける。
 
-これらを踏まえ、本リファレンスではこれらの代理の型が使用されうる箇所は *`ValOrProxy`* として表記している。*`ValOrProxy`* を戻り値型として記載している箇所は、[`valarray`](valarray/valarray.md)`<T>` か代理の型のいずれかであることを、引数型として記載している箇所は、[`valarray`](valarray/valarray.md)`<T>` と代理の型のいずれでも受け取ることが可能であることを表している。
+これらを踏まえ、本リファレンスではこれらの代理の型が使用されうる箇所は *`ValOrProxy`* として表記している。戻り値型に *`ValOrProxy`* と表記している箇所は、[`valarray`](valarray/valarray.md)`<T>` か代理の型のいずれかであることを、引数型に *`ValOrProxy`* と表記している箇所は、[`valarray`](valarray/valarray.md)`<T>` と代理の型のいずれでも受け取ることが可能であることを表している。
 
 このヘッダでは、以下の標準ヘッダをインクルードする：
 
