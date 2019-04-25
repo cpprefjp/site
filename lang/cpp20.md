@@ -239,7 +239,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`std::tuple`](/reference/tuple/tuple.md)クラスの[コンストラクタ](/reference/tuple/tuple/op_constructor.md)、[代入演算子](/reference/tuple/tuple/op_assign.md)、[`swap()`](/reference/tuple/tuple/swap.md)メンバ関数、[`swap()`](/reference/tuple/tuple/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
 - [`<functional>`](/reference/functional.md)に、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型をアンラップする[`std::unwrap_reference`](/reference/functional/unwrap_reference.md.nolink)型特性、[`std::decay`](/reference/type_traits/decay.md) + [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型のアンラップをする[`std::unwrap_ref_decay`](/reference/functional/unwrap_ref_decay.md.nolink)型特性を追加
 - [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)クラス、[`std::ref()`](/reference/functional/ref.md)関数、[`std::cref()`](/reference/functional/cref.md)関数のテンプレートパラメータ`T`型に不完全型を指定することを許可
-- 関数の部分適用をかんたんにするために、[`std::bind_front()`](/reference/functional/bind_front.md.nolink)関数を追加
+- メンバ関数の部分適用をかんたんにするために、プレースホルダーの指定なく引数を先頭から順に束縛する[`std::bind_front()`](/reference/functional/bind_front.md)関数を追加
 
 
 ### ファイルシステム
