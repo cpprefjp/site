@@ -21,7 +21,7 @@ namespace std {
 using namespace std::placeholders;
 
 // 4引数をもつメンバ関数Strategy::process
-struct Strategy { double process(std:string, std::string, double, double); };
+struct Strategy { double process(std::string, std::string, double, double); };
 
 // 1. ラムダ式の場合、非constメンバ関数を呼び出すためにmutableを付けなければならないため、
 // シンプルなメンバ関数のラップができない。
@@ -44,6 +44,7 @@ auto f3 = bind_front(&Strategy::process, Strategy{});
 * _2[link placeholders.md]
 * _3[link placeholders.md]
 * _4[link placeholders.md]
+* std::forward[link /reference/utility/forward.md]
 
 ただし、この関数はメンバ関数とレシーバーを受け取る専用にはなっておらず、「引数を先頭から順に束縛する」という汎用的な機能になっているため、「メンバ関数ポインタのみを束縛」「関数と引数の一部を束縛」といった利用もできる。
 
