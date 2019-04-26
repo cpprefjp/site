@@ -53,6 +53,8 @@ struct doubler {
 | [`reference_wrapper`](functional/reference_wrapper.md) | テンプレートで参照を渡すためのラッパー(class template)  | C++11 |
 | [`ref`](functional/ref.md) | オブジェクトへの参照を構築する(function template) | C++11 |
 | [`cref`](functional/cref.md) | オブジェクトへのconst左辺値参照を構築する(function template) | C++11 |
+| [`unwrap_reference`](functional/unwrap_reference.md) | `reference_wrapper<T>`型を`T&`型に展開する (class template) | C++20 |
+| [`unwrap_ref_decay`](functional/unwrap_ref_decay.md.nolink) | `reference_wrapper<T>`型を`T&`型に展開し、型推論規則による型変換を行う (class template) | C++20 |
 
 
 ## ハッシュ関数
