@@ -34,23 +34,41 @@ namespace std::pmr {
 ## 例外
 投げない。
 
+## 備考
+この関数は受け取る`memory_resource`の所有権を保持しない。
+そのため、セットする`memory_resource`オブジェクトの寿命には注意する。
+
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
 int main()
 {
+  auto* mr = std::pmr::get_default_resource();
+
+	std::cout << std::boolalpha;
+	std::cout << (mr == std::pmr::new_delete_resource()) << std::endl;
+
+  //monotonic_buffer_resourceをセット
+	std::pmr::monotonic_buffer_resource mono_mr{};
+	auto* befor_mr = std::pmr::set_default_resource(&mono_mr);
+
+	std::cout << (mr == std::pmr::get_default_resource()) << std::endl;
+	std::cout << (mr == befor_mr) << std::endl;
 }
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* set_default_resource[color ff0000]
+* get_default_resource[link get_default_resource.md]
+* new_delete_resource[link new_delete_resource.md]
+* monotonic_buffer_resource[link monotonic_buffer_resource.md]
+
 
 ### 出力
 ```
-equal
+true
+false
+true
 ```
 
 ## バージョン

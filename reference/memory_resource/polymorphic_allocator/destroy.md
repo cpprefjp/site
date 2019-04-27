@@ -24,17 +24,44 @@ void destroy(T* p);
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
+int main()
+{
+  std::pmr::polymorphic_allocator<int> alloc{};
+
+  //メモリの確保
+  int* array = alloc.allocate(4);
+	
+  //要素を構築
+  for (int i = 0; i < 4; ++i) {
+    alloc.construct(array + i, i);
+  }
+
+  for (int i = 0; i < 4; ++i) {
+    std::cout << array[i] << std::endl;
+  }
+
+  //要素を破棄
+  for (int i = 0; i < 4; ++i) {
+    alloc.destroy(array + i);
+  }
+
+  //メモリの解放
+  alloc.deallocate(array, 4);
+}
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* destroy[color ff0000]
+* allocate[link allocate.md]
+* construct[link construct.md]
+* deallocate[link deallocate.md]
 
 ### 出力
 ```
-equal
+0
+1
+2
+3
 ```
 
 ## バージョン
@@ -45,6 +72,7 @@ equal
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
+    - 2017, 2019共にこの関数の実装だけが抜けている
 
 ## 関連項目
 - [`destroy`](/reference/memory/allocator_traits/destroy.md)

@@ -21,17 +21,37 @@ pool_options options() const;
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
-```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+int main() {
 
-### 出力
+  {
+    std::pmr::synchronized_pool_resource mr{ {4096, 4096} };
+    auto option = mr.options();
+
+    std::cout << option.max_blocks_per_chunk << std::endl;
+    std::cout << option.largest_required_pool_block << std::endl;
+  }
+
+  //異なる値が返ってくる例
+  {
+    std::pmr::synchronized_pool_resource mr{ {0, 0} };
+    auto option = mr.options();
+
+    std::cout << option.max_blocks_per_chunk << std::endl;
+    std::cout << option.largest_required_pool_block << std::endl;
+  }
+}
 ```
-equal
+* options[color ff0000]
+* synchronized_pool_resource[link /reference/memory_resource/synchronized_pool_resource.md]
+
+### 出力例（MSVC 2019 Preview2）
+```
+4096
+4096
+9223372036854775807
+576460752303423488
 ```
 
 ## バージョン

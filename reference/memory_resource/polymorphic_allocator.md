@@ -42,32 +42,6 @@ namespace std::pmr {
 | [`operator==`](polymorphic_allocator/op_equal.md) | 等値比較 | C++17 |
 | [`operator!=`](polymorphic_allocator/op_not_equal.md) | 非等値比較 | C++17 |
 
-## 例
-```cpp example
-// (ここには、クラスを解説するための、サンプルコードを記述します。)
-// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。そのようなコードブロックにはexampleタグを付けます。)
-
-#include <iostream>
-
-int main()
-{
-  int variable = 0;
-  std::cout << variable << std::endl;
-}
-```
-* variable[color ff0000]
-
-(コードブロック中の識別子に、文字色を付ける例です。)
-
-### 出力
-```
-0
-```
-
-(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)  
-(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)
-
-
 ## バージョン
 ### 言語
 - C++17

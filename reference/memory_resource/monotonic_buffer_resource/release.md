@@ -23,17 +23,27 @@ void release();
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
+int main() {
+
+  std::pmr::monotonic_buffer_resource mr{};
+
+  //メモリを確保
+  auto* p1 = mr.allocate(sizeof(int), alignof(int));
+  auto* p2 = mr.allocate(sizeof(int), alignof(int));
+
+  //解放せずにrelease
+  mr.release();
+  //以降、p1,p2の領域にアクセスしてはならない
+}
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* release[color ff0000]
+* allocate[link /reference/memory_resource/memory_resource/allocate.md]
+* monotonic_buffer_resource[link /reference/memory_resource/monotonic_buffer_resource.md]
 
 ### 出力
 ```
-equal
 ```
 
 ## バージョン

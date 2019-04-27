@@ -18,7 +18,7 @@
 |[`synchronized_pool_resource`](memory_resource/pool_resource.md) | スレッドセーフなメモリプール | C++17 |
 |[`unsynchronized_pool_resource`](memory_resource/pool_resource.md) | スレッドセーフではないメモリプール | C++17 |
 |[`monotonic_buffer_resource`](memory_resource/monotonic_buffer_resource.md) | 最後にまとめて領域を解放する`memory_resource` | C++17 |
-|[`pool_options`](memory_resource/pool_options.md) | 上記二つの`*_pool_resource`クラスのブロックサイズ上限設定のためのクラス | C++17 |
+|[`pool_options`](memory_resource/pool_options.md) | 上記二つの`pool_resource`クラスのブロックサイズ上限設定のためのクラス | C++17 |
 
 ## 関数
 

@@ -30,20 +30,23 @@ namespace std::pmr {
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
 int main()
 {
+  auto* mr = std::pmr::get_default_resource();
+	std::pmr::polymorphic_allocator<int> alloc(mr);
+
+	std::cout << std::boolalpha;
+	std::cout << (mr == std::pmr::new_delete_resource()) << std::endl;
 }
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* get_default_resource[color ff0000]
+* new_delete_resource[link new_delete_resource.md]
 
 ### 出力
 ```
-equal
+true
 ```
 
 ## バージョン

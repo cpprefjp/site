@@ -13,6 +13,7 @@ void* allocate(size_t bytes, size_t alignment = alignof(std::max_align_t));
 メモリを確保する。
 
 ## 要件
+呼び出す`do_allocate`の要件として  
 `alignment`は2のべき乗であること。
 
 ## 引数
@@ -32,17 +33,33 @@ void* allocate(size_t bytes, size_t alignment = alignof(std::max_align_t));
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
-```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+int main(){
+  std::pmr::memory_resource* mr = std::pmr::get_default_resource();
+  //int1つ分の領域をintのアライメント要求（多くの環境で共に4バイト）でメモリ確保
+  void* p = mr->allocate(sizeof(int), alignof(int));
+  //placement new して構築
+  int* p_int = new(p) int{ 256 };
 
-### 出力
+  std::cout << *p_int << std::endl;
+  //一応アドレスを出力
+  std::cout << p << std::endl;
+  std::cout << p_int << std::endl;
+
+  //メモリの解放
+  mr->deallocate(p, sizeof(int), alignof(int));
+}
 ```
-equal
+* allocate[color ff0000]
+* get_default_resource[link /reference/memory_resource/get_default_resource.md]
+* deallocate[link /reference/memory_resource/memory_resource/deallocate.md]
+
+### 出力例（VS2019 Preview2）
+```
+256
+000002373BB96970
+000002373BB96970
 ```
 
 ## バージョン

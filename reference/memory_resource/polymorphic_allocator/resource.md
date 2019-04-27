@@ -20,17 +20,22 @@ memory_resource* resource() const;
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
+int main() {
+  auto mr = std::pmr::monotonic_buffer_resource{};
+  std::pmr::polymorphic_allocator<int> alloc{ &mr };
+
+  std::cout << std::boolalpha;
+  std::cout << (*alloc.resource() == mr);
+}
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* resource[color ff0000]
+* monotonic_buffer_resource[link /reference/memory_resource/monotonic_buffer_resource.md]
 
 ### 出力
 ```
-equal
+true
 ```
 
 ## バージョン

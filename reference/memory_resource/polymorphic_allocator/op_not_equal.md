@@ -21,20 +21,29 @@ namespace std::pmr {
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
 int main()
 {
+  auto mr = std::pmr::monotonic_buffer_resource{};
+	std::pmr::polymorphic_allocator<int> alloc{ &mr };
+	std::pmr::polymorphic_allocator<int> alloc2{};
+	std::pmr::polymorphic_allocator<double> alloc3{ &mr };
+
+	std::cout << std::boolalpha;
+	std::cout << (alloc != alloc2) << std::endl;
+	std::cout << (alloc != alloc) << std::endl;
+	std::cout << (alloc != alloc3) << std::endl;
 }
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* !=[color ff0000]
+* monotonic_buffer_resource[link /reference/memory_resource/monotonic_buffer_resource.md]
 
 ### 出力
 ```
-equal
+true
+false
+false
 ```
 
 ## バージョン

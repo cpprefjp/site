@@ -23,20 +23,28 @@ namespace std::pmr {
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
 int main()
 {
+  std::pmr::memory_resource* def_mr = std::pmr::get_default_resource();
+  std::pmr::memory_resource* nul_mr = std::pmr::null_memory_resource();
+
+  std::cout << std::boolalpha;
+
+  //引数として参照を取ることに注意
+  std::cout << (*def_mr == *def_mr) << std::endl;
+  std::cout << (*def_mr == *nul_mr) << std::endl;
 }
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* ==[color ff0000]
+* get_default_resource[link /reference/memory_resource/get_default_resource.md]
+* null_memory_resource[link /reference/memory_resource/null_memory_resource.md]
 
 ### 出力
 ```
-equal
+true
+false
 ```
 
 ## バージョン
@@ -50,3 +58,4 @@ equal
 
 ## 関連項目
 - [`is_equal`](is_equal.md)
+- [`op_not_equal`](op_not_equal.md)

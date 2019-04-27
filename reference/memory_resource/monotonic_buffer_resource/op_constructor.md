@@ -64,18 +64,51 @@ monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;           
 
 ## 例
 ```cpp example
-#include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
+int main()
+{
+  //(1) 上流メモリリソースを受けて構築
+  {
+    std::pmr::synchronized_pool_resource pr{};
+    std::pmr::monotonic_buffer_resource mr{ &pr };
+  }
+
+  //(2) 初期サイズと上流メモリリソースを受けて構築
+  {
+    std::pmr::synchronized_pool_resource pr{};
+    std::pmr::monotonic_buffer_resource mr{ 1024, &pr };
+  }
+
+  //(3) 外部領域を初期メモリ領域として利用し、上流メモリリソースを受けて構築
+  {
+    char buf[1024]{};
+    std::pmr::synchronized_pool_resource pr{};
+    std::pmr::monotonic_buffer_resource mr{ buf, sizeof(buf), &pr };
+  }
+
+  //(4) デフォルト構築
+  {
+    std::pmr::monotonic_buffer_resource mr{};
+  }
+
+  //(5) 初期サイズのみを指定して構築
+  {
+    std::pmr::monotonic_buffer_resource mr{1024};
+  }
+
+  //(6) 外部領域を初期メモリ領域として利用し構築
+  {
+    char buf[1024]{};
+    std::pmr::monotonic_buffer_resource mr{ buf, sizeof(buf) };
+  }
+}
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* monotonic_buffer_resource[color ff0000]
+* synchronized_pool_resource[link /reference/memory_resource/pool_resource.md]
 
 ### 出力
 ```
-equal
 ```
 
 ## バージョン

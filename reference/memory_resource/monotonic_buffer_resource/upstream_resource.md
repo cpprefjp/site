@@ -18,17 +18,24 @@ memory_resource* upstream_resource() const;
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
+
+int main(){
+  std::pmr::synchronized_pool_resource pr{};
+  std::pmr::monotonic_buffer_resource mono_mr{ &pr };
+
+  std::cout << std::boolalpha;
+  std::cout << (*mono_mr.upstream_resource() == pr) << std::endl;
+}
 
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* upstream_resource[color ff0000]
+* monotonic_buffer_resource[link /reference/memory_resource/monotonic_buffer_resource.md]
+* synchronized_pool_resource[link /reference/memory_resource/pool_resource.md]
 
 ### 出力
 ```
-equal
+true
 ```
 
 ## バージョン

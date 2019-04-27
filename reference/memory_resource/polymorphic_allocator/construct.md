@@ -135,20 +135,168 @@ this->construct(p, std::piecewise_construct,
 
 - (1) : `T`のコンストラクタが例外を投げないならば、この関数も例外を投げない。
 
-## 例
+## (1)の例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
+int main()
+{
+  std::pmr::polymorphic_allocator<int> alloc{};
+
+  //メモリの確保
+  int* array = alloc.allocate(4);
+	
+  //要素を構築
+  for (int i = 0; i < 4; ++i) {
+    alloc.construct(array + i, i);
+  }
+
+  for (int i = 0; i < 4; ++i) {
+    std::cout << array[i] << std::endl;
+  }
+
+  //要素を破棄
+  for (int i = 0; i < 4; ++i) {
+    alloc.destroy(array + i);
+  }
+
+  //メモリの解放
+  alloc.deallocate(array, 4);
+}
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* construct[color ff0000]
+* allocate[link allocate.md]
+* deallocate[link deallocate.md]
+* destroy[link destroy.md]
 
 ### 出力
 ```
-equal
+0
+1
+2
+3
+```
+
+## `pair`関連のオーバーロードの例
+```cpp example
+#include <iostream>
+#include <memory_resource>
+
+int main()
+{
+  //intとpolymorphic_allocatorを用いるstringのpair
+  using pair = std::pair<int, std::pmr::string>;
+
+  //memory_resourceとしてmonotonic_buffer_resourceを使用
+  auto mr = std::pmr::monotonic_buffer_resource{};
+  std::pmr::polymorphic_allocator<pair> alloc{&mr};
+
+  std::cout << std::boolalpha;
+  std::cout << "(2)" << std::endl;
+    
+  //(2)
+  {
+    pair* p = alloc.allocate(1);
+
+    alloc.construct(p, std::piecewise_construct
+        , std::make_tuple(128)         //intを128で初期化
+		    , std::make_tuple("string", 3) //string("string", 3)で初期化（最初の3文字を保持する）
+	);
+        
+    std::cout << p->first << std::endl;
+    std::cout << p->second << std::endl;
+    //アロケータが伝搬している
+    std::cout << (p->second.get_allocator() == alloc) << std::endl;
+  }
+    
+  std::cout << "\n(3)" << std::endl;
+    
+  //(3)
+  {
+    pair* p = alloc.allocate(1);
+
+    alloc.construct(p);  //両要素をデフォルト構築
+        
+    std::cout << p->first << std::endl;
+    std::cout << p->second << std::endl;
+    //アロケータが伝搬している
+    std::cout << (p->second.get_allocator() == alloc) << std::endl;
+  }
+    
+  std::cout << "\n(4)" << std::endl;
+    
+  //(4)
+  {
+    pair* p = alloc.allocate(1);
+
+    alloc.construct(p, 128, "string");  //両要素をこれらの値からムーブ構築
+        
+    std::cout << p->first << std::endl;
+    std::cout << p->second << std::endl;
+    //アロケータが伝搬している
+    std::cout << (p->second.get_allocator() == alloc) << std::endl;
+  }
+    
+  std::cout << "\n(5)" << std::endl;
+    
+  //(5)
+  {
+    pair* p = alloc.allocate(1);
+        
+    const auto v = std::make_pair(128, "copy");
+    alloc.construct(p, v);  //両要素を変換可能なpairからコピー構築
+        
+    std::cout << p->first << std::endl;
+    std::cout << p->second << std::endl;
+    //アロケータが伝搬している
+    std::cout << (p->second.get_allocator() == alloc) << std::endl;
+  }
+    
+  std::cout << "\n(6)" << std::endl;
+    
+  //(6)
+  {
+    pair* p = alloc.allocate(1);
+
+    alloc.construct(p, std::make_pair(128, "move"));  //両要素を変換可能なpairからムーブ構築
+        
+    std::cout << p->first << std::endl;
+    std::cout << p->second << std::endl;
+    //アロケータが伝搬している
+    std::cout << (p->second.get_allocator() == alloc) << std::endl;
+  }
+}
+```
+* construct[color ff0000]
+* allocate[link allocate.md]
+
+### 出力
+```
+(2)
+128
+str
+true
+
+(3)
+0
+
+true
+
+(4)
+128
+string
+true
+
+(5)
+128
+copy
+true
+
+(6)
+128
+move
+true
 ```
 
 ## バージョン
@@ -159,6 +307,7 @@ equal
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
+    - 2017, 2019共に(1)以外のオーバーロードを提供していない（ただし、(1)が全てを兼ねるC++20の実装がなされている）
 
 ## 関連項目
 - [`construct`](/reference/memory/allocator_traits/construct.md)

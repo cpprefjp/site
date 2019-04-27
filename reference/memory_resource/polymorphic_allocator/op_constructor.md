@@ -42,18 +42,38 @@ polymorphic_allocator(const polymorphic_allocator<U>& other) noexcept;  //(4)
 
 ## 例
 ```cpp example
-#include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
+int main() {
+  //(1) デフォルト構築
+  {
+    std::pmr::polymorphic_allocator<int> alloc{};
+  }
+
+  //(2) memory_resourceを受けて構築
+  {
+    auto* rs = std::pmr::null_memory_resource();
+    std::pmr::polymorphic_allocator<int> alloc{rs};
+  }
+
+  //(3) 同じ型のpolymorphic_allocatorからコピー構築
+  {
+    std::pmr::polymorphic_allocator<int> alloc1{};
+    std::pmr::polymorphic_allocator<int> alloc{alloc1};
+  }
+
+  //(4) 変換可能な型のpolymorphic_allocatorからコピー構築
+  {
+    std::pmr::polymorphic_allocator<short> alloc1{};
+    std::pmr::polymorphic_allocator<int> alloc{alloc1};
+  }
+}
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* polymorphic_allocator[color ff0000]
+* null_memory_resource[link /reference/memory_resource/null_memory_resource.md]
 
 ### 出力
 ```
-equal
 ```
 
 ## バージョン

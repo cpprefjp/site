@@ -13,7 +13,7 @@ polymorphic_allocator select_on_container_copy_construction() const;
 `polymorphic_allocator`を利用しているクラスのコピー構築時に、新しい`polymorphic_allocator`オブジェクトを取得する。
 
 ## 戻り値
-[`polymorphic_allocator()`](op_constructor.md)
+`return` [`polymorphic_allocator();`](op_constructor.md)
 
 ## 備考
 すなわち、標準の`polymorphic_allocator`を利用しているクラス（主にコンテナ）のコピー構築時に、利用している`memory_resource`がコピーされる（伝播する）事は無い。
@@ -21,17 +21,25 @@ polymorphic_allocator select_on_container_copy_construction() const;
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <string>
+#include <memory_resource>
 
+int main()
+{
+  auto mr = std::pmr::monotonic_buffer_resource{};
+  std::pmr::polymorphic_allocator<int> alloc{ &mr };
+
+  auto alloc2 = alloc.select_on_container_copy_construction();
+
+  std::cout << std::boolalpha;
+  std::cout << (alloc == alloc2) << std::endl;
+}
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* select_on_container_copy_construction[color ff0000]
+* resource[link resource.md]
 
 ### 出力
 ```
-equal
+false
 ```
 
 ## バージョン

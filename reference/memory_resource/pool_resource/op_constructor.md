@@ -55,19 +55,40 @@ pool_resource(const pool_resource&) = delete;                        //(5)
 実装は必ずしも`opts`の設定を利用しない。
 
 ## 例
-```cpp example
-#include <iostream>
-#include <vector>
-#include <string>
+以下では`synchronized_pool_resource`で書いてあるが、`unsynchronized_pool_resource`も同様。
 
+```cpp example
+#include <memory_resource>
+
+int main() {
+  //(1) pool_optionsと上流メモリリソースを受けて構築
+  {
+    std::pmr::synchronized_pool_resource mr{ {1024, 4096}, std::pmr::new_delete_resource() };
+  }
+
+  //(2) デフォルト構築
+  {
+    std::pmr::synchronized_pool_resource mr{};
+  }
+
+  //(3) 上流メモリリソースだけを受けて構築
+  {
+    std::pmr::monotonic_buffer_resource mono_mr{};
+    std::pmr::synchronized_pool_resource mr{ &mono_mr };
+  }
+
+  //(4) pool_optionsだけを受けて構築
+  {
+    std::pmr::synchronized_pool_resource mr{ {4096, 4096} };
+  }
+}
 ```
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
+* synchronized_pool_resource[color ff0000]
+* new_delete_resource[link /reference/memory_resource/new_delete_resource.md]
+* monotonic_buffer_resource[link /reference/memory_resource/monotonic_buffer_resource.md]
 
 ### 出力
 ```
-equal
 ```
 
 ## バージョン
