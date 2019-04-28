@@ -13,6 +13,9 @@
 | [`allocator_arg_t`](memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(class) | C++11 |
 | [`allocator_arg`](memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(constant value) | C++11 |
 | [`uses_allocator`](memory/uses_allocator.md) | 型`T`がアロケータを使用するか調べる | C++11 |
+| [`uses_allocator_construction_args`](memory/uses_allocator_construction_args.md) | uses-allocator 構築のためのコンストラクタ引数を [`tuple`](tuple/tuple.md) 型にして返す | C++20 |
+| [`make_obj_using_allocator`](memory/make_obj_using_allocator.md) | uses-allocator 構築する | C++20 |
+| [`uninitialized_construct_using_allocator`](memory/uninitialized_construct_using_allocator.md) | 指定された領域に uses-allocator 構築する | C++20 |
 
 
 ## 未初期化領域に対する操作
