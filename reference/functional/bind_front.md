@@ -51,7 +51,7 @@ auto f3 = bind_front(&Strategy::process, Strategy{});
 
 ## テンプレートパラメータ制約
 [`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`、
-[`std::unwrap_ref_decay`](unwrap_ref_decay.md.nolink)`<Args>...`を適用した型パラメータパックを`BoundArgs`であるとして、
+[`std::unwrap_ref_decay`](unwrap_ref_decay.md)`<Args>...`を適用した型パラメータパックを`BoundArgs`であるとして、
 
 - `FD`が[`std::MoveConstructible`](/reference/concepts/MoveConstructible.md)要件を満たすこと
 - `BoundArgs`のそれぞれの型`Ti`が[オブジェクト型](/reference/type_traits/is_object.md)である場合、[`std::MoveConstructible`](/reference/concepts/MoveConstructible.md)要件を満たすこと

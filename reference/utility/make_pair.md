@@ -20,18 +20,16 @@ namespace std {
 ## 概要
 pairクラスのオブジェクトを構築する。
 
+結果型の`V1`および`V2`は以下のような型となる：
 
-C++03の場合、結果型の`V1`および`V2`は以下のような型となる：
-
-- `V1` : `T1`
-- `V2` : `T2`
-
-C++11以降の場合、結果型の`V1`および`V2`は以下のような型となる：
-
-`T1`と`T2`それぞれの型`T`において、
-
-- [`std::decay`](/reference/type_traits/decay.md)`<T>::type`の結果型を使用し、
-- かつ型`T`が[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)型であった場合`T&`型を使用する
+- C++03 :
+    - `V1` : `T1`
+    - `V2` : `T2`
+- C++11 : `T1`と`T2`それぞれの型`T`において、
+    - [`std::decay`](/reference/type_traits/decay.md)`<T>::type`の結果型を使用し、
+    - かつ型`T`が[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)型であった場合`T&`型を使用する
+- C++20 : `T1`と`T2`それぞれの型`T`において、
+    - [`std::unwrap_ref_decay_t`](/reference/functional/unwrap_ref_decay.md)`<T>`を適用した型
 
 
 ## 戻り値
@@ -68,3 +66,4 @@ int main()
 ## 参照
 - [N2244 Wording for `decay`, `make_pair` and `make_tuple`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2244.html)
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
+- [P0318R1 `unwrap_ref_decay` and `unwrap_reference`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0318r1.pdf)
