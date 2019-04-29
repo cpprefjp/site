@@ -307,7 +307,7 @@ true
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
-        - 2017, 2019共に(1)以外のオーバーロードを提供していない（ただし、(1)が全てを兼ねるC++20の実装がなされている）
+    - 2017, 2019共に(1)以外のオーバーロードを提供していない（ただし、(1)が全てを兼ねるC++20の実装がなされている）
 
 ## 関連項目
 - [`construct`](/reference/memory/allocator_traits/construct.md)
