@@ -54,6 +54,7 @@
 | [`<functional>`](/reference/functional.md)   | 関数オブジェクト             |                |
 | [`<memory>`](/reference/memory.md)           | メモリ                       |                |
 | [`<scoped_allocator>`](/reference/scoped_allocator.md) | スコープ付きアロケータ        | C++11          |
+| [`<memory_resource>`](/reference/memory_resource.md) | 多相アロケータ        | C++17          |
 | [`<chrono>`](/reference/chrono.md)           | 時間ユーティリティ        | C++11          |
 | [`<typeindex>`](/reference/typeindex.md)     | 型のインデックス          | C++11          |
 | [`<execution>`](/reference/execution.md)     | 実行ポリシー                 | C++17          |
