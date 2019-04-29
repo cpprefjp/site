@@ -16,6 +16,8 @@ memory_resource* upstream_resource() const;
 コンストラクタで設定された上流[`memory_resource`](/reference/memory_resource/memory_resource.md)へのポインタを返す。
 
 ## 例
+以下では`synchronized_pool_resource`で書いてあるが、`unsynchronized_pool_resource`も同様。
+
 ```cpp example
 #include <iostream>
 #include <memory_resource>

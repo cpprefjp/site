@@ -18,6 +18,8 @@ void release();
 `deallocate()`によって割り当て解除されていないメモリがあったとしても、全てのメモリが解放される。
 
 ## 例
+以下では`synchronized_pool_resource`で書いてあるが、`unsynchronized_pool_resource`も同様。
+
 ```cpp example
 #include <iostream>
 #include <memory_resource>

@@ -19,6 +19,8 @@ pool_options options() const;
 ゼロの値は実装定義のデフォルト値に置き換えられて返され、各サイズ指定は指定していない端数を持つ可能性がある（例えば、2のべき乗等）。
 
 ## 例
+以下では`synchronized_pool_resource`で書いてあるが、`unsynchronized_pool_resource`も同様。
+
 ```cpp example
 #include <iostream>
 #include <memory_resource>

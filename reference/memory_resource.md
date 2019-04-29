@@ -9,7 +9,7 @@
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 |[`memory_resource`](memory_resource/memory_resource.md) | アロケータ実装を抽象化するためのインターフェース | C++17 |
-|[`polymorphic_allocator`](memory_resource/polymorphic_allocator.md) | `memory_resource`実装をアロケータ要求にアダプトするアダプタ | C++17 |
+|[`polymorphic_allocator`](memory_resource/polymorphic_allocator.md) | 型によらないアロケータ実装を利用可能なアロケータ | C++17 |
 
 ## 標準`memory_resource`実装
 
