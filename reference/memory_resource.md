@@ -34,7 +34,7 @@
 このクラス導入以前のアロケータはPolicyベースデザインというパターンに基づく設計であったため、アロケータの型がそれを利用する型にも表れてしまっていた。  
 それによって、利用するアロケータが異なる型は異なるクラスとして扱われてしまいいくつか不便なところがあった。
 
-例えば自作のアロケータ`original_allocator`を作ったとすると
+例えば自作のアロケータ`original_allocator`を作り、利用しようとすると以下のような問題が生じる。
 ```cpp
 std::string str1 = "string";
 sstd::basic_string<char, std::char_traits<char>, original_allocator<char>> str2 = "string";
@@ -42,6 +42,7 @@ sstd::basic_string<char, std::char_traits<char>, original_allocator<char>> str2 
 //型が違うので比較不可
 auto r = str1 == str2;
 ```
+
 ```cpp
 std::vector<int> v1 = {1, 2, 3, 4};
 
