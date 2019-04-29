@@ -6,9 +6,13 @@
 * cpp11[meta cpp]
 
 ```cpp
-static pointer allocate(Alloc& a, size_type n);   // (1)
+static pointer allocate(Alloc& a, size_type n);                 // (1) C++11
+static [[nodiscard]] pointer allocate(Alloc& a, size_type n);   // (1) C++20
+
 static pointer allocate(Alloc& a, size_type n,
-                        const_void_pointer hint); // (2)
+                        const_void_pointer hint);               // (2) C++11
+static [[nodiscard]] pointer allocate(Alloc& a, size_type n,
+                                      const_void_pointer hint); // (2) C++20
 ```
 
 ## 概要
@@ -55,3 +59,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+
+
+## 参照
+- [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)

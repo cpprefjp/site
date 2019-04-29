@@ -7,9 +7,10 @@
 ```cpp
 namespace std {
   template <class T>
-    constexpr T* launder(T* p) noexcept; // c++17
-  template<class T> 
-    [[nodiscard]] constexpr T* launder(T* p) noexcept; // c++20
+    constexpr T* launder(T* p) noexcept; // C++17
+
+  template<class T>
+    [[nodiscard]] constexpr T* launder(T* p) noexcept; // C++20
 }
 ```
 
@@ -96,7 +97,7 @@ c1.f();                         // well-defined; c1はC型の新しいオブジ�
 ```cpp example
 #include <new>
 
-int main() 
+int main()
 {
   struct X { const int n; };
   X *p = new X{3};

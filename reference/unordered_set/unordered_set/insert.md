@@ -16,6 +16,9 @@ template <class InputIterator>
 void insert(InputIterator first, InputIterator last);          // (3)
 
 void insert(initializer_list<value_type> il);                  // (4)
+
+insert_return_type insert(node_type&& nh);                     // (5) C++17
+iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 ```
 * pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -48,6 +51,8 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 - (4)の形式では、`value_type` はコンテナに対してコピー挿入可能でなければならない。
 
+- (5), (6)の形式では、 `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`でなければならない。
+
 
 ## 効果
 - (1) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
@@ -55,6 +60,11 @@ void insert(initializer_list<value_type> il);                  // (4)
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
 - (3) : 範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
 - (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価である。
+- (5) : `nh`が空の場合、効果はない。
+それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
+- (6) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。
+それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と等価のキーの要素を指すイテレータを常に返す。
+要素は、`p`の直前の位置のできるだけ近くに挿入される。
 
 
 ## 戻り値
@@ -64,6 +74,10 @@ void insert(initializer_list<value_type> il);                  // (4)
 	新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
 - (3) : なし
 - (4) : なし
+- (5) : 戻り値としては、[`insert_return_type`](/reference/map/map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
+    - 挿入された場合には、空の[ノードハンドル](/reference/node_handle/node_handle.md)。
+    - 挿入されなかった場合には、`nh`の値である。 
+- (6) : `nh`が空の場合、`(*this).end()`を返す。そうではない場合、`nh`と等価のキーの要素を指すイテレータを常に返す。
 
 
 ## 例外
@@ -75,6 +89,8 @@ void insert(initializer_list<value_type> il);                  // (4)
 - (2) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (3) : 平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
 - (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価。
+
+- (5), (6) : 平均的なケースでは `O(1)`、最悪のケースでは `O(size())`。
 
 
 ## 備考
@@ -89,6 +105,8 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 	のいずれかである。  
 	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
+
+ - (5), (6) の場合、要素はコピーもムーブもされない。
 
 
 ## 例
@@ -243,4 +261,5 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (4)の経緯となる提案文書
-
+- [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+    - (5), (6)経緯となる提案文書

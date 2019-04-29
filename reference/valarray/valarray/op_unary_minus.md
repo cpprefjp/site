@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-valarray<T> operator-() const;
+ValOrProxy<T> operator-() const;
 ```
+* ValOrProxy[italic]
 
 ## 概要
 単項 `-` 演算（符号を反転した要素を得る）。
@@ -23,6 +24,11 @@ for (std::size_t i = 0; i < size(); ++i) {
 return result;
 ```
 * size()[link size.md]
+
+
+## 備考
+- 戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

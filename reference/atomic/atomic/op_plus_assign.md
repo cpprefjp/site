@@ -15,7 +15,12 @@ T operator+=(T operand) noexcept;
 
 
 ## 戻り値
-[`fetch_add`](fetch_add.md)`(operand) + operand`
+以下と等価の式により、演算結果の値が返る：
+
+```cpp
+return fetch_add(operand) + operand;
+```
+* fetch_add[link fetch_add.md]
 
 
 ## 例外
@@ -23,10 +28,19 @@ T operator+=(T operand) noexcept;
 
 
 ## 備考
-この関数は、`atomic`クラスの整数型およびポインタに対する特殊化で定義される。
+- この関数は、`atomic`クラスの整数型、浮動小数点数型 (C++20)、ポインタに対する特殊化で定義される
+- 整数型
+    - 符号付き整数型に対しては、2の補数表現による演算が行われ、未定義動作はない
+- 浮動小数点数型 (C++20)
+    - 演算結果が、その型で表現できない値であった場合、結果は未規定値になる。ただしその操作によって未定義動作は起こらない
+    - 浮動小数点数型に対する操作は[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<floating-point>`トレイトに準拠する
+    - 浮動小数点数型に対するアトミック操作の浮動小数点環境は、呼び出しスレッドの浮動小数点環境とは異なる可能性がある
+- ポインタ型
+    - 結果として未定義アドレスになる場合があるが、それ以外の未定義動作はない
 
 
 ## 例
+### 整数の例 (C++11)
 ```cpp example
 #include <iostream>
 #include <atomic>
@@ -43,9 +57,31 @@ int main()
 * x += 2;[color ff0000]
 * x.load()[link load.md]
 
-### 出力
+#### 出力
 ```
 5
+```
+
+### 浮動小数点数の例 (C++20)
+```cpp example
+#include <iostream>
+#include <atomic>
+
+int main()
+{
+  std::atomic<float> x{3.14f};
+
+  x += 1.25f;
+
+  std::cout << x.load() << std::endl;
+}
+```
+* x += 1.25f;[color ff0000]
+* x.load()[link load.md]
+
+#### 出力
+```
+4.39
 ```
 
 ## バージョン
@@ -61,5 +97,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0020R6 Floating Point Atomic](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0020r6.html)

@@ -17,24 +17,28 @@ namespace std {
 
 
 ## 要件
-- `a.`[`hash_function`](hash_function.md)`()` と `b.`[`hash_function`](hash_function.md)`()` は同じふるまいをすること。
-
 - `a.`[`key_eq`](key_eq.md)`()` と `b.`[`key_eq`](key_eq.md)`()` は同じふるまいをすること。
-
 - `key_type` の等値比較演算子（`operator==`）で等値と判定された 2 つのオブジェクトは、[`key_eq`](key_eq.md)`()` でも等値と判定されること。
 
 
 ## 戻り値
-`!(a` [`==`](op_equal.md) `b)` と等価
+以下と等価：
+
+```cpp
+return !(a == b);
+```
+* ==[link op_equal.md]
 
 
 ## 計算量
-平均的には O(Σ(E<sub>i</sub><sup>2</sup>)) だが、最悪のケースでは O(n<sup>2</sup>)。ここで、E<sub>i</sub> は `a` の `i` 番目の同値キーのグループの大きさ、`n = a.`[`size`](size.md)`()`。
+E<sub>i</sub> を `a` の `i` 番目の同値キーのグループの大きさ、`n = a.`[`size`](size.md)`()`であるとして、
+
+- 平均: O(Σ(E<sub>i</sub><sup>2</sup>))
+- 最悪: O(n<sup>2</sup>)
 
 
 ## 備考
 - 本関数は、コンテナ内の要素の比較に [`key_eq`](key_eq.md)`()` で返されるキー比較用関数オブジェクトを使用しないことに注意。
-
 - 本関数は、標準コンテナの要件を満たさない。これは、標準コンテナの要件が `iterator` と `std::`[`equal`](/reference/algorithm/equal.md) を用いて定義されているためである。しかし、本関数の戻り値は、`!(a` [`==`](op_equal.md) `b)` という意味においては、標準コンテナと同様とも考えることができる。
 
 
@@ -117,3 +121,6 @@ namespace std {
 |----------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | [`operator==`](op_equal.md) |等値比較 |
 
+
+## 参照
+- [P0809R0 Comparing Unordered Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0809r0.pdf)

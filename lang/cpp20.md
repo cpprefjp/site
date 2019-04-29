@@ -10,7 +10,6 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### クラス
 | 言語機能 | 説明 |
 |----------|------|
-| 指示付き初期化 | |
 | [一貫比較](cpp20/consistent_comparison.md.nolink) | |
 | [契約に基づくプログラミング](cpp20/contract-based_programming.md.nolink) | 事前条件、事後条件、表明を宣言する新たな属性構文を追加 |
 | [ビットフィールドのメンバ変数初期化](cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する |
@@ -25,11 +24,21 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [可変長データを扱うクラスの効率的な`delete`](cpp20/efficient_sized_delete_for_variable_sized_classes.md.nolink) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 |
 
 
+### 変数
+
+| 言語機能 | 説明 |
+|----------|------|
+| 指示付き初期化 | |
+| [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md.nolink) | 記憶域指定子として`static`と`thread_local`の指定を許可 |
+| [丸カッコの値リストからの集成体初期化を許可](cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md.nolink) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする |
+| [`new`式での配列要素数の推論](cpp20/array_size_deduction_in_new-expressions.md.nolink) | `double* p = new double[]{1,2,3};`を許可 |
+
+
 ### 整数
 
 | 言語機能 | 説明 |
 |----------|------|
-| [符号付き整数型が2の補数表現であることを規定](cpp20/signed_integers_are_twos_complement.md.nolink) | 処理系が2の補数以外をサポートしていなかったこともあり、現実に即した規定とする |
+| [符号付き整数型が2の補数表現であることを規定](cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する |
 
 
 ### 文字列
@@ -37,6 +46,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [UTF-8エンコーディングされた文字の型として`char8_t`を追加](cpp20/char8_t.md.nolink) | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする |
+| [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](cpp20/make_char16t_char32t_string_literals_be_utf16_32.md.nolink) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する |
 
 
 ### 制御構文
@@ -82,6 +92,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | 状態を持たないラムダ式を、デフォルト構築可能、代入可能とする | |
 | 評価されない文脈でのラムダ式 | |
 | [ラムダ式の初期化キャプチャでのパック展開を許可](cpp20/allow_pack_expansion_in_lambda_init_capture.md.nolink) | `[...args = std::move(args)]`のようなキャプチャを許可 |
+| [構造化束縛したビットフィールドの参照キャプチャ](cpp20/reference_capture_of_structured_bindings.md.nolink) | ビットフィールドを含む構造化束縛をした場合にラムダ式で参照キャプチャできない規定を緩和し、ビットフィールドを直接参照キャプチャ、もしくはデフォルト参照キャプチャして使用しなければ適格とする |
 
 
 ### 名前空間
@@ -89,6 +100,20 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [入れ子名前空間定義でのインライン名前空間](cpp20/nested_inline_mamespaces.md.nolink) | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする |
+
+
+### モジュール化
+
+| 言語機能 | 説明 |
+|----------|------|
+| [モジュール](cpp20/modules.md.nolink) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する |
+
+
+### 並行・並列処理
+
+| 言語機能 | 説明 |
+|----------|------|
+| [コルーチン](cpp20/coroutines.md.nolink) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する |
 
 
 ### プリプロセッサ
@@ -134,6 +159,10 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
     - Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md)関数を追加
     - 2の乗数関係の関数として、整数値が2の累乗かを判定する[`std::ispow2()`](/reference/bit/ispow2.md)関数、整数値を2の累乗値に切り上げる[`std::ceil2()`](/reference/bit/ceil2.md)関数、整数値を2の累乗値に切り下げる[`std::floor2()`](/reference/bit/floor2.md)関数、2を底とした整数値の対数を求めて1を足す[`std::log2p1()`](/reference/bit/log2p1.md)関数を追加
 - 型制約のための要件ライブラリとして[`<concepts>`](/reference/concepts.md)を追加
+- 言語機能であるコルーチンを制御するライブラリとして[`<coroutine>`](/reference/coroutine.md.nolink)を追加
+- イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリとして[`<ranges>`](/reference/ranges.md.nolink)を追加
+    - 既存のイテレータの組を扱うアルゴリズムは、`std::ranges`名前空間に範囲版アルゴリズムが追加される
+- 契約違反のハンドリングをするためのライブラリとして[`<contract>`](/reference/contract.md.nolink)を追加
 
 
 ### 取り決め
@@ -142,17 +171,24 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### コンテナ
 - 連想コンテナに、要素がコンテナに含まれているかを判定する`contains()`メンバ関数を追加
-- 順序付き連想コンテナと同様に、非順序連想コンテナのルックアップ処理で、一時オブジェクトが生成されるコストを抑える拡張を追加
+- 順序付き連想コンテナと同様に、非順序連想コンテナの検索処理で、一時オブジェクトが生成されるコストを抑える拡張を追加。ハッシュ計算を行う関数オブジェクトに`transparent_key_equal`が定義されていれば、透過的な検索が使用できる。[`std::hash`](/reference/functional/hash.md)クラスのページを参照
+- 非順序連想コンテナの検索メンバ関数`find()`、`count()`、`contains()`、`equal_range()`に、事前計算したハッシュ値を指定するオーバーロードを追加。これによって、ハッシュ値をキャッシュして検索を高速化できる
 - 各コンテナの非メンバ関数として、要素を削除する`std::erase()`関数と`std::erase_if()`関数を追加
 - [`std::forward_list`](/reference/forward_list/forward_list.md)と[`std::list`](/reference/list/list.md)のメンバ関数`remove()`、`remove_if()`、`unique()`の戻り値型を、`void`から`Container::size_type`に変更
 - [`std::array`](/reference/array/array.md)クラスの比較演算子、[`fill()`](/reference/array/array/fill.md)メンバ関数、[`swap()`](/reference/array/array/swap.md)メンバ関数、[`swap()`](/reference/array/array/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
+- [`<iterator>`](/reference/iterator.md)に、符号付き整数としてコンテナの要素数を取得する[`std::ssize()`](/reference/iterator/ssize.md)関数を追加
 
 
 ### アルゴリズム
 - [`<algorithm>`](/reference/algorithm.md)の多くの関数に`constexpr`を追加
-- [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md.nolink)、[`std::shift_right()`](/reference/algorithm/shift_right.md.nolink)を追加
+- [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md)、[`std::shift_right()`](/reference/algorithm/shift_right.md)を追加
 - 一貫比較への対応のため、[`<algorithm>`](/reference/algorithm.md)に[`std::lexicographical_compare_3way()`](/reference/algorithm/lexicographical_compare_3way.md.nolink)および[`std::compare_3way()`](/reference/algorithm/compare_3way.md.nolink)を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
+
+
+### 数値計算
+- 数値とポインタの中点を求める関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md)関数を追加
+- 浮動小数点数を線形補間する関数として、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md)関数を追加
 
 
 ### イテレータ
@@ -161,19 +197,22 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### 文字列
 - [`std::basic_string`](/reference/string/basic_string.md)クラスと[`std::basic_string_view`](/reference/string_view/basic_string_view.md)クラスに、先頭の部分文字列を判定する`starts_with()`メンバ関数、末尾の部分文字列を判定する`ends_with()`メンバ関数を追加
+- [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数の、メモリの縮小機能を削除し、伸長のみとする。
 - [`std::char_traits`](/reference/string/char_traits.md)クラスの[`move()`](/reference/string/char_traits/move.md)、[`copy()`](/reference/string/char_traits/copy.md)、[`assign()`](/reference/string/char_traits/assign.md)静的メンバ関数に`constexpr`を追加
 
 
-### 並行処理
-- [`std::atomic`](/reference/atomic/atomic.md)クラスのスマートポインタに対する特殊化を追加
+### 並行・並列処理
+- [`<memory>`](/reference/memory.md)に、[`std::atomic`](/reference/memory/atomic.md)クラスの[`std::shared_ptr`](/reference/memory/shared_ptr.md)と[`std::weak_ptr`](/reference/memory/weak_ptr.md)に対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
 - [`std::memory_order`](/reference/atomic/memory_order.md)の列挙子にスコープをもたせた
 - 非アトミックな型にアトミック操作を適用するためのクラス[`std::atomic_ref`](/reference/atomic/atomic_ref.md.nolink)を追加
+- ベクトル化の実行ポリシーとして、[`<execution>`](/reference/execution.md)に[`std::execution::unsequenced_policy`](/reference/execution/execution/execution_policy.md)型と[`std::execution::unseq`](/reference/execution/execution/execution_policy.md)タグを追加
 
 
 ### 入出力
 - 同期ストリームの追加にともなって、[`<ostream>`](/reference/ostream.md)に、同期ストリーム関係の出力マニピュレータを追加
 - [`operator>>`](/reference/istream/basic_istream/op_istream_free.md)`(basic_istream&, CharT*)`を`operator>>(basic_istream&, CharT (&)[N])`に修正
+- [`std::istream_iterator`](/reference/iterator/istream_iterator.md)について、要件の書き方を整理し、振る舞いをより明確化
 
 
 ### スマートポインタ
@@ -185,7 +224,11 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### メモリ
 - [`<memory>`](/reference/memory.md)に、Nバイトアライメントされたポインタであることをコンパイラに伝える[`std::assume_aligned()`](/reference/memory/assume_aligned.md.nolink)関数を追加
-- [`<memory>`](/reference/memory.md)に、uses allocator構築をサポートするユーティリティ関数として、[`std::uses_allocator_construction_args()`](/reference/memory/uses_allocator_construction_args.md.nolink)、[`std::make_obj_using_allocator()`](/reference/memory/make_obj_using_allocator.md.nolink)、[`std::uninitialized_construct_using_allocator()`](/reference/memory/uninitialized_construct_using_allocator.md.nolink)を追加
+- [`<memory>`](/reference/memory.md)に、uses allocator構築をサポートするユーティリティ関数として、[`std::uses_allocator_construction_args()`](/reference/memory/uses_allocator_construction_args.md)、[`std::make_obj_using_allocator()`](/reference/memory/make_obj_using_allocator.md)、[`std::uninitialized_construct_using_allocator()`](/reference/memory/uninitialized_construct_using_allocator.md)を追加
+- [`std::pmr::polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md.nolink)に、以下の変更を追加：
+    - クラステンプレートのデフォルトテンプレート引数を[`std::byte`](/reference/cstddef/byte.md)型とした
+    - `void*`のバイト列をメモリ確保する[`allocate_bytes()`](/reference/memory_resource/polymorphic_allocator/allocate_bytes.md.nolink)、解放する[`deallocate_bytes()`](/reference/memory_resource/polymorphic_allocator/deallocate_bytes.md.nolink)メンバ関数を追加
+    - 指定した型のメモリを確保する[`allocate_object()`](/reference/memory_resource/polymorphic_allocator/allocate_object.md.nolink)、解放する[`deallocate_object()`](/reference/memory_resource/polymorphic_allocator/deallocate_object.md.nolink)を追加
 
 
 ### ユーティリティ
@@ -194,21 +237,27 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`std::complex`](/reference/complex/complex.md)クラスを`constexpr`に対応
 - [`std::pair`](/reference/utility/pair.md)クラスの[コンストラクタ](/reference/utility/pair/op_constructor.md)、[代入演算子](/reference/utility/pair/op_assign.md)、[`swap()`](/reference/utility/pair/swap.md)メンバ関数、[`swap()`](/reference/utility/pair/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
 - [`std::tuple`](/reference/tuple/tuple.md)クラスの[コンストラクタ](/reference/tuple/tuple/op_constructor.md)、[代入演算子](/reference/tuple/tuple/op_assign.md)、[`swap()`](/reference/tuple/tuple/swap.md)メンバ関数、[`swap()`](/reference/tuple/tuple/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
-- [`<functional>`](/reference/functional.md)に、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型をアンラップする[`std::unwrap_reference`](/reference/functional/unwrap_reference.md.nolink)型特性、[`std::decay`](/reference/type_traits/decay.md) + [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型のアンラップをする[`std::unwrap_ref_decay`](/reference/functional/unwrap_ref_decay.md.nolink)型特性を追加
+- [`<functional>`](/reference/functional.md)に、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を`T&`型に展開する[`std::unwrap_reference`](/reference/functional/unwrap_reference.md)型特性、[`std::decay`](/reference/type_traits/decay.md) + [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型の展開をする[`std::unwrap_ref_decay`](/reference/functional/unwrap_ref_decay.md)型特性を追加
 - [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)クラス、[`std::ref()`](/reference/functional/ref.md)関数、[`std::cref()`](/reference/functional/cref.md)関数のテンプレートパラメータ`T`型に不完全型を指定することを許可
-- 関数の部分適用をかんたんにするために、[`std::bind_front()`](/reference/functional/bind_front.md.nolink)関数を追加
+- メンバ関数の部分適用をかんたんにするために、プレースホルダーの指定なく引数を先頭から順に束縛する[`std::bind_front()`](/reference/functional/bind_front.md)関数を追加
+
+
+### ファイルシステム
+- [`std::filesystem::create_directory()`](/reference/filesystem/create_directory.md)と[`std::filesystem::create_directories()`](/reference/filesystem/create_directories.md)の仕様が直感的ではなく、すでにディレクトリが存在している場合にエラーとなっていた。C++20ではその状況ではエラーにならないようにする (エラーではなく`false`が返る)
 
 
 ### 型特性
 - [`<type_traits>`](/reference/type_traits.md)に、constexpr関数が定数式評価されたかを判定する特殊な関数[`std::is_constant_evaluated()`](/reference/type_traits/is_constant_evaluated.md.nolink)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、エンディアンを表す列挙型として[`std::endian`](/reference/type_traits/endian.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、型のCV修飾と参照を除去する型特性クラスとして[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)を追加
-- [`<type_traits>`](/reference/type_traits.md)に、受け取った型をそのまま返す[`std::type_identity`](/reference/type_traits/type_identity.md.nolink)を追加
-- [`<type_traits>`](/reference/type_traits.md)に、例外送出せずに暗黙の型変換が可能かを判定する[`std::is_nothrow_convertible`](/reference/type_traits/is_nothrow_convertible.md.nolink)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、受け取った型をそのまま返す[`std::type_identity`](/reference/type_traits/type_identity.md)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、例外送出せずに暗黙の型変換が可能かを判定する[`std::is_nothrow_convertible`](/reference/type_traits/is_nothrow_convertible.md)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、要素数が判明している配列型かを判定する[`std::is_bounded_array`](/reference/type_traits/is_bounded_array.md)、要素数が不明な配列型かを判定する[`std::is_unbounded_array`](/reference/type_traits/is_unbounded_array.md)を追加
 
 
 ### 機能の非推奨化
 - 一貫比較機能にとって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
+- [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨可
 
 
 ### 機能の削除

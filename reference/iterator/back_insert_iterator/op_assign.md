@@ -6,11 +6,14 @@
 
 ```cpp
 back_insert_iterator&
-  operator=(const typename Container::value_type& value);
+  operator=(const typename Container::value_type& value); // (1) C++03
+constexpr back_insert_iterator&
+  operator=(const typename Container::value_type& value); // (1) C++20
 
-// C++11から
 back_insert_iterator&
-  operator=(typename Container::value_type&& value);
+  operator=(typename Container::value_type&& value);      // (2) C++11
+constexpr back_insert_iterator&
+  operator=(typename Container::value_type&& value);      // (2) C++20
 ```
 
 ## 概要
@@ -25,12 +28,6 @@ back_insert_iterator&
 ## 戻り値
 `*this`
 
-## 例
-```cpp
-```
-
-### 出力
-```
-```
 
 ## 参照
+- [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

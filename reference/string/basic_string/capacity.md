@@ -21,6 +21,10 @@ size_type capacity() const noexcept; // C++11
 投げない
 
 
+## 計算量
+定数時間
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -45,3 +49,4 @@ int main()
 ```
 
 ## 参照
+- [LWG Issue 3004. §[string.capacity] and §[vector.capacity] should specify time complexity for `capacity()`](https://wg21.cmeerw.net/lwg/issue3004)

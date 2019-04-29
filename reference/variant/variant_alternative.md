@@ -32,11 +32,11 @@ namespace std {
 `variant_alternative`は、[`std::variant`](variant.md)クラスの候補型のうち、i番目の型を取得するためのクラスである。
 
 - (1) : 先行宣言
-- (2) : `const`修飾付き[`std::variant`](variant)型の候補型のうち、i番目の型を取得する
-- (3) : `volatile`修飾付き[`std::variant`](variant)型の候補型のうち、i番目の型を取得する
-- (4) : `const volatile`修飾付き[`std::variant`](variant)型の候補型のうち、i番目の型を取得する
+- (2) : `const`修飾付き[`std::variant`](variant.md)型の候補型のうち、i番目の型を取得する
+- (3) : `volatile`修飾付き[`std::variant`](variant.md)型の候補型のうち、i番目の型を取得する
+- (4) : `const volatile`修飾付き[`std::variant`](variant.md)型の候補型のうち、i番目の型を取得する
 - (5) : `typename`と`::type`を省略するためのエイリアステンプレート版
-- (6) : 修飾なし[`std::variant`](variant)型の候補型のうち、i番目の型を取得する
+- (6) : 修飾なし[`std::variant`](variant.md)型の候補型のうち、i番目の型を取得する
 
 
 ## 要件

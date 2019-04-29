@@ -91,6 +91,11 @@ int main()
 ```
 
 
+## 関連項目
+- [`erase()` (非メンバ関数)](erase_free.md)
+- [`erase_if()` (非メンバ関数)](erase_if_free.md)
+
+
 ## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 

@@ -108,6 +108,11 @@ false
 - [GCC](/implementation.md#gcc): 7.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 3
 
+
+## 関連項目
+- [C++20 符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md)
+
+
 ## 参照
 - [C++1z has_unique_object_representations型特性 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/09/23/143031)
 - [What type will make “std::has_unique_object_representations” return false? - Stack Overflow](https://stackoverflow.com/questions/42855326/what-type-will-make-stdhas-unique-object-representations-return-false)

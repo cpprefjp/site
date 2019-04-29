@@ -21,10 +21,11 @@ namespace std {
 ## 戻り値
 パラメータパックの値からなる`tuple`オブジェクトを返す。
 
-`Types...`の各型`T`において、
-
-- [`std::decay`](/reference/type_traits/decay.md)`<T>::type`の結果型を使用し、
-- かつ型`T`が[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)型であった場合`T&`型を使用する
+- C++11 : `Types...`の各型`T`において、
+    - [`std::decay`](/reference/type_traits/decay.md)`<T>::type`の結果型を使用し、
+    - かつ型`T`が[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)型であった場合`T&`型を使用する
+- C++20 : `Types...`の各型`T`において、
+    - [`std::unwrap_ref_decay_t`](/reference/functional/unwrap_ref_decay.md)`<T>`を適用した型を使用する
 
 
 ## 例
@@ -75,4 +76,4 @@ int main()
 
 ## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
-
+- [P0318R1 `unwrap_ref_decay` and `unwrap_reference`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0318r1.pdf)

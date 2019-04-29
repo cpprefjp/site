@@ -29,8 +29,11 @@ constexpr bool ends_with(const CharT* x) const;               // (3)
 
 - (2) : 以下と等価である
     ```cpp
-    return ends_with(basic_string_view(&x, 1));
+    return !empty() && Traits::eq(back(), x);
     ```
+    * empty()[link empty.md]
+    * Traits::eq[link /reference/string/char_traits/eq.md]
+    * back()[link back.md]
 
 - (3) : 以下と等価である
     ```cpp
@@ -85,3 +88,4 @@ int main()
 
 ## 参照
 - [P0457R2 String Prefix and Suffix Checking](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0457r2.html)
+- [LWG Issue 3040. `basic_string_view::starts_with` Effects are incorrect](https://wg21.cmeerw.net/lwg/issue3040)

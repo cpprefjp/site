@@ -4,6 +4,11 @@
 
 `<regex>`ヘッダは、正規表現に関するクラス・関数を定義する。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<initializer_list>`](initializer_list.md)
+
+
 ## 正規表現クラス
 
 | 名前                                    | 説明                                  | 対応バージョン |
@@ -72,3 +77,7 @@
 ## バージョン
 ### 言語
 - C++11
+
+
+## 参照
+- [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)

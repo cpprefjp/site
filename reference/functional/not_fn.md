@@ -16,6 +16,19 @@ namespace std {
 任意個数の引数をとって`bool`型を返す関数オブジェクトを受け取り、戻り値を論理反転する関数オブジェクトに変換する。
 
 
+## テンプレートパラメータ制約
+[`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`として、
+
+- `FD`が[`std::MoveConstructible`](/reference/concepts/MoveConstructible.md)要件を満たすこと
+
+
+## 適格要件
+[`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`として、
+
+- [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<FD, F>`が`true`であること
+- [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<FD>`が`true`であること
+
+
 ## 効果
 説明用の関数オブジェクト`call_wrapper`があるものとして、`call_wrapper(`[`std::forward`](/reference/utility/forward.md)`<F>(f))`を返す。
 
@@ -57,6 +70,10 @@ private:
 
 - 左辺値参照版 : `return !`[`INVOKE`](/reference/concepts/Invoke.md)`(fd,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
 - 右辺値参照版 : `return !`[`INVOKE`](/reference/concepts/Invoke.md)`(`[`std::move`](/reference/utility/move.md)`(fd),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
+
+
+## 例外
+- 関数オブジェクト`f`のムーブによって任意の例外が送出される可能性がある
 
 
 ## 例
@@ -109,3 +126,4 @@ true
 ## 参照
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
 - [LWG Issue 2767. `not_fn` `call_wrapper` can form invalid types](https://wg21.cmeerw.net/lwg/issue2767)
+- [P0356R5 Simplified partial function application](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0356r5.html)

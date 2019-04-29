@@ -32,7 +32,7 @@ static constexpr T denorm_min() noexcept;
 int main()
 {
   constexpr float f = std::numeric_limits<float>::denorm_min();
-  constexpr float d = std::numeric_limits<double>::denorm_min();
+  constexpr double d = std::numeric_limits<double>::denorm_min();
 
   std::cout << "float : " << f << std::endl;
   std::cout << "double : " << d << std::endl;
@@ -43,7 +43,7 @@ int main()
 ### 出力例
 ```
 float : 1.4013e-045
-double : 0
+double : 4.94066e-324
 ```
 
 ## 参照

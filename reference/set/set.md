@@ -79,6 +79,7 @@ namespace std {
 | [`erase`](set/erase.md)               | 要素を削除する                   |
 | [`swap`](set/swap.md)                 | コンテンツを交換する             |
 | [`extract`](set/extract.md)           | ノードハンドルを取得する         | C++17 |
+| [`merge`](set/merge.md)               | 他のオブジェクトの要素をマージする | C++17 |
 
 
 ### 要素アクセス
@@ -87,6 +88,7 @@ namespace std {
 |---------------------------------------|----------------------------------------|-------|
 | [`count`](set/count.md)             | 指定したキーにマッチする要素の数を返す | |
 | [`find`](set/find.md)               | 指定したキーで要素を探す | |
+| [`contains`](set/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
 | [`equal_range`](set/equal_range.md) | 指定したキーにマッチする要素範囲を返す | |
 | [`lower_bound`](set/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す | |
 | [`upper_bound`](set/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す | |
@@ -119,9 +121,21 @@ namespace std {
 | `const pointer`          | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。 | |
 | `reverse_iterator` | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。 | |
 | `const_reverse_iterator` | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。 | |
+| `node_type`              | [`node_handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。 | C++17          |
+| `insert_return_type`     | ノードを挿入した結果を記述するために使用されるクラス型。以下に示す`insert-return-type`テンプレートの特殊化である。ただし、これは説明用のクラスであり、実装定義である。| C++17 |
+
+```cpp
+template <class Iterator, class NodeType>
+struct insert-return-type {
+  Iterator position;
+  bool inserted;
+  NodeType node;
+};
+```
 
 
 ## 非メンバ関数
+### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------------------|-------|
@@ -131,7 +145,20 @@ namespace std {
 | [`operator<=`](set/op_greater_equal.md) | 左辺が右辺より小さいか等しいかの判定を行う | |
 | [`operator>`](set/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
 | [`operator>=`](set/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
-| [`swap`](set/swap_free.md)              | 2つの`set`オブジェクトを入れ替える | |
+
+
+### 入れ替え
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`swap`](set/swap_free.md) | 2つの`set`オブジェクトを入れ替える | |
+
+
+### 要素削除
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`erase_if`](set/erase_if_free.md) | 指定した条件に合致する要素とその分の領域を、コンテナから削除する | C++20 |
 
 
 ## 推論補助

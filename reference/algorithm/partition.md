@@ -50,7 +50,7 @@ namespace std {
 
 ## 計算量
 - (1) : `ForwardIterator` が `BidirectionalIterator` の要求を満たしている場合、最大で `(last - first) / 2` 回 swap され、そうでない場合、最大で `last - first` 回 swap される。それに加えて、正確に `last - first` 回だけ述語が適用される
-- (2) : O(NlogN)計算量でswapが行われ、それに加えてO(N)計算量で述語が適用される
+- (2) : O(NlogN)計算量でswapが行われ、それに加えてO(N)計算量の回数だけ述語が適用される
 
 
 ## 例

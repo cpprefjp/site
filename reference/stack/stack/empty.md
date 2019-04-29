@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-bool empty() const;
+bool empty() const;               // C++03
+[[nodiscard]] bool empty() const; // C++20
 ```
 
 ## 概要
@@ -70,3 +71,6 @@ bool empty() const { return c.empty(); }
 |---------------------------------------------------------------------------------|-----------------------------------------------|
 | [`size`](size.md) | 要素数を返す |
 
+
+## 参照
+- [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)

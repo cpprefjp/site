@@ -5,7 +5,7 @@
 * [meta namespace]
 
 ```cpp
-friend void swap(node-handle& x, node-handle& y) noexcept(noexcept(x.swap(y)));
+friend void swap(node_handle& x, node_handle& y) noexcept(noexcept(x.swap(y)));
 ```
 
 ## 概要
@@ -53,8 +53,8 @@ int main()
 ```
 * std::swap[color ff0000]
 * extract[link reference/map/map/extract.md.nolink]
-* key[link key.md.nolink]
-* mapped[link mapped.md.nolink]
+* key[link key.md]
+* mapped[link mapped.md]
 
 ### 出力
 ```

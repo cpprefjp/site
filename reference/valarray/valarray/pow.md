@@ -1,21 +1,30 @@
 # pow
 * valarray[meta header]
 * std[meta namespace]
-* valarray[meta class]
 * function template[meta id-type]
 
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> pow(const valarray<T>& xs, const valarray<T>& ys);
+  ValOrProxy<T> pow(const ValOrProxy<T>& xs,
+                    const ValOrProxy<T>& ys);                     // (1)
 
   template <class T>
-  valarray<T> pow(const valarray<T>& xs, const T& y);
+  ValOrProxy<T> pow(const ValOrProxy<T>& xs,
+                    const T& y);                                  // (2) C++17 まで
+  template <class T>
+  ValOrProxy<T> pow(const ValOrProxy<T>& xs,
+                    const typename valarray<T>::value_type& y);   // (2) C++20 から
 
   template <class T>
-  valarray<T> pow(const T& x, const valarray<T>& ys);
+  ValOrProxy<T> pow(const T& x,
+                    const ValOrProxy<T>& ys);                     // (3) C++17 まで
+  template <class T>
+  ValOrProxy<T> pow(const typename valarray<T>::value_type& x,
+                    const ValOrProxy<T>& ys);                     // (3) C++20 から
 }
 ```
+* ValOrProxy[italic]
 
 ## 概要
 累乗を得る。pow は power（累乗、指数）の略。
@@ -62,7 +71,11 @@ return result;
 
 
 ## 備考
-2つの`valarray`オブジェクトの要素数が異なる場合、その挙動は未定義。
+- 引数、および、戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
+- (1) : `xs` と `ys` の要素数が異なる場合、その挙動は未定義。
+- C++20における(2)と(3)に対する変更は、`std::valarray<double>{} * 2` のような式が型推論に失敗しないようにするためである。  
+	なお、この変更は規格の誤り修正とみなされているため、処理系によっては C++17 以前でも使用可能となる。
 
 
 ## 例
@@ -113,3 +126,5 @@ float-valarray : {27,81,243}
 ```
 
 
+## 参照
+- [LWG Issue 3074. Non-member functions for `valarray` should only deduce from the `valarray`](https://wg21.cmeerw.net/lwg/issue3074)

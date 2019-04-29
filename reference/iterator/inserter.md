@@ -6,7 +6,12 @@
 ```cpp
 namespace std {
   template <class Container>
-  insert_iterator<Container> inserter(Container& x, typename Container::iterator i);
+  insert_iterator<Container>
+    inserter(Container& x, typename Container::iterator i); // (1) C++03
+
+  template <class Container>
+  constexpr insert_iterator<Container>
+    inserter(Container& x, typename Container::iterator i); // (1) C++20
 }
 ```
 * insert_iterator[link insert_iterator.md]
@@ -55,3 +60,4 @@ int main()
 ```
 
 ## 参照
+- [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

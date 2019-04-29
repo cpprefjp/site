@@ -22,7 +22,6 @@ namespace std {
 ## 概要
 `basic_string`において、左辺が右辺より小さいかの判定を行う。
 
-
 ## 戻り値
 - (1) `a.`[`compare`](compare.md)`(b) < 0`
 - (2) `b.`[`compare`](compare.md)`(a) > 0`

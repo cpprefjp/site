@@ -6,25 +6,65 @@
 * cpp11[meta cpp]
 
 ```cpp
-pair<iterator,iterator> equal_range(const key_type& x);
-pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
+pair<iterator, iterator>
+  equal_range(const key_type& x);                                    // (1) C++11
+pair<const_iterator,
+  const_iterator> equal_range(const key_type& x) const;              // (2) C++11
+
+pair<iterator, iterator>
+  equal_range(const key_type& x, size_t hash);                       // (3) C++20
+pair<const_iterator,
+  const_iterator> equal_range(const key_type& x, size_t hash) const; // (4) C++20
+
+template <class K>
+pair<iterator, iterator>
+  equal_range(const K& k);                                           // (5) C++20
+template <class K>
+pair<const_iterator, const_iterator>
+  equal_range(const K& k) const;                                     // (6) C++20
+
+template <class K>
+pair<iterator, iterator>
+  equal_range(const K& k, size_t hash);                              // (7) C++20
+template <class K>
+pair<const_iterator, const_iterator>
+  equal_range(const K& k, size_t hash) const;                        // (8) C++20
 ```
 * pair[link /reference/utility/pair.md]
+* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
-コンテナ内の、`x` と等しい全てのキー要素を含む範囲の境界を返す。`unordered_map` コンテナではキーの重複は無いため、この範囲は最大一つの要素を含む。 
+コンテナ内の、指定されたキーと等しい全てのキー要素を含む範囲の境界を返す。`unordered_map` コンテナではキーの重複は無いため、この範囲は最大一つの要素を含む。 
 
-もし `x` がコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは [`end`](end.md) を指す。
+もし指定されたキーがコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは [`end`](end.md) を指す。
+
+- (1) : 非`const`な`this`に対してキー`x`を検索し、合致する全ての要素を含む範囲を取得する
+- (2) : `const`な`this`に対してキー`x`を検索し、合致する全ての要素を含む範囲を取得する
+- (3) : 非`const`な`this`に対して、事前計算したハッシュ値をつけてキー`x`を検索し、合致する全ての要素を含む範囲を取得する
+- (4) : `const`な`this`に対して、事前計算したハッシュ値をつけてキー`x`を検索し、合致する全ての要素を含む範囲を取得する
+- (5) : 非`const`な`this`に対してキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
+- (6) : `const`な`this`に対してキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
+- (7) : 非`const`な`this`に対して、事前計算したハッシュ値をつけてキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
+- (8) : `const`な`this`に対して、事前計算したハッシュ値をつけてキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
+
+(5)、(6)、(7)、(8)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_map<string, int> m;`に対して`m.equal_range("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## パラメータ
 - `x` : 比較されるキー値。`key_type` はメンバ型であり、`map` コンテナ内で `Key` の別名として定義される。ここで `Key` は最初のテンプレートパラメータである。
+- `k` : 検索するキー。`key_type`と透過的に比較可能な型`K`型のキーである。
+
+
+## 事前条件
+- (3), (4) : 値`hash`と、[`hash_function()`](hash_function.md)`(x)`の戻り値が等値であること
+- (7), (8) : 値`hash`と、[`hash_function()`](hash_function.md)`(k)`の戻り値が等値であること
 
 
 ## 戻り値
-`pair` を返す。
-`pair::first` は 範囲の下境界にあたり、
-`pair::second` は 範囲の上境界にあたる。
+合致する要素の範囲を表す `pair` オブジェクトを返す。`pair::first` は 範囲の下境界にあたり、`pair::second` は 範囲の上境界にあたる。
+
+そのような要素がない場合には、[`make_pair`](/reference/utility/make_pair.md)`(`[`end`](end.md)`(),` [`end`](end.md)`())`を返す。
+
 `iterator` はメンバ型であり `unordered_map` において双方向イテレータとして定義される。
 
 
@@ -33,7 +73,14 @@ pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 - 最悪： [`size`](size.md) について線形時間
 
 
+## 備考
+- [`unordered_set`](/reference/unordered_set/unordered_set.md) の場合には、等価なキーはたかだか1つであるため、[`find()`](find.md) ほど有用ではないと考えられる
+- (5), (6), (7), (8) : これらのオーバーロードは、`Hash::transparent_key_equal`型が定義される場合にのみ、オーバーロード解決に参加する
+- (3), (4), (7), (8) : これらのオーバーロードは、キーに対するハッシュ値を事前に計算しておくことで、何度も同じキーで検索する場合に高速になる
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <unordered_map>
@@ -65,7 +112,7 @@ int main()
 * um.insert[link insert.md]
 * um.end()[link end.md]
 
-### 出力
+#### 出力
 ```
 low: 3 c
 up: 4 d
@@ -73,6 +120,43 @@ low:1
 up:1
 ```
 
+### 事前計算しておいたハッシュ値を使用する (C++20)
+```cpp example
+#include <iostream>
+#include <unordered_map>
+#include <string>
+
+int main()
+{
+  std::unordered_map<std::string, int> um = {
+    {"Alice", 3},
+    {"Bob", 1},
+    {"Carol", 4},
+  };
+
+  // ハッシュ値を事前計算
+  const char* key = "Alice";
+  std::size_t hash = um.hash_function()(key);
+
+  // 事前計算しておいたハッシュ値を、検索インタフェースにキーといっしょに渡すことで、
+  // 内部でのハッシュ値計算を省略できる
+  if (um.contains(key, hash)) {
+    auto p = um.equal_range(key, hash);
+    for (; p.first != p.second; ++p.first) {
+      auto it = p.first;
+      std::cout << it->first << ':' << it->second << std::endl;
+    }
+  }
+}
+```
+* equal_range[color ff0000]
+* um.hash_function()[link hash_function.md]
+* um.contains[link contains.md]
+
+#### 出力
+```
+Alice:3
+```
 
 ## バージョン
 ### 言語
@@ -88,10 +172,12 @@ up:1
 
 ## 関連項目
 
-
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | [`count`](count.md) | 指定したキーにマッチする要素の数を返す |
 | [`find`](find.md) | 指定したキーで要素を探す |
 
 
+## 参照
+- [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
+- [P0920R2 Precalculated hash values in lookup](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0920r2.html)

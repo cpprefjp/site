@@ -47,6 +47,11 @@ namespace std {
 最小値
 
 
+## 備考
+- 等価な要素が 2 つ以上あった場合には、最も左の要素を返す。
+- 型 `T` が `operator<` による比較が可能であることが要件になっているが、(2) と (4) の形式では当該要件を満たさなくても問題ないものと思われる。
+
+
 ## 例
 ```cpp example
 #include <cassert>
@@ -81,13 +86,13 @@ int main()
 template <class T>
 const T& min(const T& a, const T& b)
 {
-  return a < b ? a : b;
+  return b < a ? b : a;
 }
 
 template <class T, class Compare>
 const T& min(const T& a, const T& b, Compare comp)
 {
-  return comp(a, b) ? a : b;
+  return comp(b, a) ? b : a;
 }
 
 template <class T>
@@ -103,6 +108,8 @@ T min(std::initializer_list<T> t, Compare comp)
 }
 ```
 * std::min_element[link min_element.md]
+* t.begin()[link /reference/initializer_list/initializer_list/begin.md]
+* t.end()[link /reference/initializer_list/initializer_list/end.md]
 
 
 ## initializer_listバージョンの使用可能状況

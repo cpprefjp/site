@@ -5,7 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-bool empty() const noexcept;
+bool empty() const;                        // C++03
+bool empty() const noexcept;               // C++11
+[[nodiscard]] bool empty() const noexcept; // C++20
 ```
 
 ## 概要
@@ -27,6 +29,10 @@ bool empty() const noexcept;
 ## 計算量
 定数時間
 
+
+## 備考
+`a.empty()` と `a.begin() == a.end()` は同じ結果になる
+。
 
 ## 例
 ```cpp example
@@ -57,7 +63,6 @@ true
 false
 ```
 
-## 備考
-`a.empty()` と `a.begin() == a.end()` は同じ結果になる。
 
-
+## 参照
+- [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)

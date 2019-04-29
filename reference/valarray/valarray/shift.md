@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-valarray<T> shift(int n) const;
+ValOrProxy<T> shift(int n) const;
 ```
+* ValOrProxy[italic]
 
 ## 概要
 要素の位置をシフトする。
@@ -17,6 +18,11 @@ valarray<T> shift(int n) const;
 - `n`が負の値である場合、`n`個分だけ要素を後ろ(`size()`に向かう方向)に移動する。
 
 移動したことによって範囲外になった要素の値はなくなる。移動したことによって使用されなくなった要素の値は`0`で埋められる。
+
+
+## 備考
+- 戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

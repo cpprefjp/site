@@ -152,20 +152,46 @@ namespace std {
 
 
 ## 非メンバ関数
+### 文字列連結
 
-| 名前                                             | 説明                                        | 対応バージョン |
-|--------------------------------------------------|---------------------------------------------|----------------|
-| [`operator+`](basic_string/op_plus.md)           | 文字列の連結                                |                |
-| [`operator==`](basic_string/op_equal.md)         | 等値比較                                    |                |
-| [`operator!=`](basic_string/op_not_equal.md)     | 非等値比較                                  |                |
-| [`operator<`](basic_string/op_less.md)           | 左辺が右辺より小さいかの判定を行う          |                |
-| [`operator<=`](basic_string/op_less_equal.md)    | 左辺が右辺以下かの判定を行う                |                |
-| [`operator>`](basic_string/op_greater.md)        | 左辺が右辺より大きいかの判定を行う          |                |
-| [`operator>=`](basic_string/op_greater_equal.md) | 左辺が右辺以上かの判定を行う                |                |
-| [`operator<<`](basic_string/op_ostream.md)       | ストリームへの出力                          |                |
-| [`operator>>`](basic_string/op_istream.md)       | ストリームからの入力                        |                |
-| [`swap`](basic_string/swap_free.md)            | 2つの`basic_string`オブジェクトを入れ替える |                |
-| [`getline`](basic_string/getline.md)           | 入力ストリームから1行読み込む               |                |
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator+`](basic_string/op_plus.md) | 文字列の連結 | |
+
+### 比較演算子
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator==`](basic_string/op_equal.md)         | 等値比較                           | |
+| [`operator!=`](basic_string/op_not_equal.md)     | 非等値比較                         | |
+| [`operator<`](basic_string/op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
+| [`operator<=`](basic_string/op_less_equal.md)    | 左辺が右辺以下かの判定を行う       | |
+| [`operator>`](basic_string/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
+| [`operator>=`](basic_string/op_greater_equal.md) | 左辺が右辺以上かの判定を行う       | |
+
+
+### 入出力
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator<<`](basic_string/op_ostream.md) | ストリームへの出力            | |
+| [`operator>>`](basic_string/op_istream.md) | ストリームからの入力          | |
+| [`getline`](basic_string/getline.md)       | 入力ストリームから1行読み込む | |
+
+
+### 入れ替え
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`swap`](basic_string/swap_free.md) | 2つの`basic_string`オブジェクトを入れ替える | |
+
+
+### 要素削除
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`erase`](basic_string/erase_free.md) | 指定した値をもつ要素とその分の領域を、コンテナから削除する | C++20 |
+| [`erase_if`](basic_string/erase_if_free.md) | 指定した条件に合致する要素とその分の領域を、コンテナから削除する | C++20 |
 
 
 ### リテラル

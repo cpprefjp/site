@@ -70,7 +70,7 @@ before : 1
 #include <vector>
 
 template <class T>
-void print(const std::vector<T>& v)
+void print_1(const std::vector<T>& v)
 {
   // カンマ区切りでvectorを出力する。
   // 区切り文字は、各要素の後ではなく、前に置くと考える。
@@ -85,18 +85,35 @@ void print(const std::vector<T>& v)
     }
     std::cout << x;
   }
-  std::cout << '}';
+  std::cout << '}' << std::endl;
 }
+
+// 別な書き方
+template <class T>
+void print_2(const std::vector<T>& v)
+{
+  const char* delimiter = "";
+
+  std::cout << '{';
+  for (const T& x : v) {
+    std::cout << std::exchange(delimiter, ",") << x;
+  }
+  std::cout << '}' << std::endl;
+}
+
 
 int main()
 {
   const std::vector<int> v = {1, 2, 3};
-  print(v);
+  print_1(v);
+  print_2(v);
 }
 ```
+* std::exchange[color ff0000]
 
 ### 出力
 ```
+{1,2,3}
 {1,2,3}
 ```
 

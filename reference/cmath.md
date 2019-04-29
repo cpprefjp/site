@@ -18,6 +18,7 @@
 - [浮動小数点操作](#manipulation-functions)
 - [最大値・最小値と正の差](#maximum-minimum-and-positive-difference-functions)
 - [乗算・加算](#floating-multiply-add)
+- [線形補完](#linear-interpolation)
 - [数値分類](#classification-functions)
 - [数値比較](#comparison-functions)
 - [型](#types)
@@ -331,6 +332,13 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | 名前 | 説明 | 対応バージョン |
 |-------------------------|------------------|-------|
 | [`fma`](cmath/fma.md) | 乗算と加算の合成 | C++11 |
+
+
+## <a id="linear-interpolation" href="#linear-interpolation">線形補完</a>
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`lerp`](cmath/lerp.md) | 線形補間 | C++20 |
 
 
 ## <a id="classification-functions" href="#classification-functions">数値分類</a>

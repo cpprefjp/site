@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T, class U>
-  shared_ptr<T> reinterpret_pointer_cast(const shared_ptr<U>& r) noexcept;
+  shared_ptr<T> reinterpret_pointer_cast(const shared_ptr<U>& r) noexcept; // (1) C++17
+
+  template <class T, class U>
+  shared_ptr<T> reinterpret_pointer_cast(shared_ptr<U>&& r) noexcept;      // (2) C++20
 }
 ```
 
@@ -16,14 +19,23 @@ namespace std {
 
 
 ## 戻り値
-```cpp
-return shared_ptr<T>(r, reinterpret_cast<typename shared_ptr<T>::element_type*>(r.get()));
-```
-* r.get()[link get.md]
+- `r` が空であった場合、この関数は空の `shared_ptr<T>` を返却する。
+- (1) :
+    ```cpp
+    return shared_ptr<T>(r, reinterpret_cast<typename shared_ptr<T>::element_type*>(r.get()));
+    ```
+    * r.get()[link get.md]
+
+- (2) :
+    ```cpp
+    return shared_ptr<T>(std::move(r), reinterpret_cast<typename shared_ptr<T>::element_type*>(r.get()));
+    ```
+    * std::move[link /reference/utility/move.md]
+    * r.get()[link get.md]
 
 
 ## 備考
-`shared_ptr<T>(reinterpret_cast<T*>(r.get()))` という方法は動作未定義となるので使用しないこと。
+- `shared_ptr<T>(reinterpret_cast<T*>(r.get()))` という方法は動作未定義となるので使用しないこと。
 
 
 ## 例外
@@ -65,3 +77,6 @@ int main()
 - [GCC, C++17 mode](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [LWG Issue 2996. Missing rvalue overloads for `shared_ptr` operations](https://wg21.cmeerw.net/lwg/issue2996)

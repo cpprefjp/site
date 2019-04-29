@@ -52,10 +52,10 @@ declarator:
     - ptr-declarator, noptr-declarator：簡単に言うと、変数、関数の指定
     - parameters-and-qualifiers：引数リストの指定
     - trailing-return-type：[戻り値の型を後置する関数宣言構文](trailing_return_types.md)、`-> 型`のように書く
-- virt-specifier（省略可）：オーバーライドの指定、`override`または`final`
+- virt-specifier（省略可）：オーバーライドの指定、`override`および`final`
 - pure-specifier（省略可）：純粋仮想関数の指定、`= 0`のように書く
 
-すなわち`override`または`final`を書くことができる位置は、戻り値の型の後置の後、純粋仮想関数の指定の前となる。
+すなわち`override`および`final`を書くことができる位置は、戻り値の型の後置の後、純粋仮想関数の指定の前となる。
 
 ```cpp
 class AAA {

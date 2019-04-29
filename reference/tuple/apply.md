@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 要件
-適用先の関数は`Collable`要件を満たす（[INVOKE](/reference/concepts/Invoke.md)操作が可能）。展開されるものは、[`std::tuple`](../tuple.md)、[`std::array`](/reference/array/array.md)または[`std::pair`](/reference/utility/pair.md)のように、[`std::get`](/reference/array/array/get.md)と[`std::tuple_size`](/reference/array/array/tuple_size.md)をサポートする必要がある。
+適用先の関数は[`Callable`](/reference/concepts/Callable.md)要件を満たす（[INVOKE](/reference/concepts/Invoke.md)操作が可能）。展開されるものは、[`std::tuple`](../tuple.md)、[`std::array`](/reference/array/array.md)または[`std::pair`](/reference/utility/pair.md)のように、[`std::get`](/reference/array/array/get.md)と[`std::tuple_size`](/reference/array/array/tuple_size.md)をサポートする必要がある。
 
 
 ## 効果

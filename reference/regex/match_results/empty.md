@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-bool empty() const;
+bool empty() const;               // C++11
+[[nodiscard]] bool empty() const; // C++20
 ```
 
 ## 概要
@@ -80,3 +81,7 @@ match:ready = true, empty = false
 - [GCC, C++11 mode](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)

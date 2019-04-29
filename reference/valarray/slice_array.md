@@ -15,10 +15,12 @@ namespace std {
 
 このクラスのオブジェクトは、[`valarray`](valarray.md)クラスの[`operator[]`](valarray/op_at.md)によって返される。
 
+なお、メンバ関数の引数型に *`ValOrProxy`* と表記している箇所は、[`valarray`](valarray.md)`<T>` と代理の型のいずれでも受け取ることが可能であることを表している。  
+[`<valarray>`](../valarray.md) の概要も参照のこと。
 
 テンプレートパラメータは、以下を意味する：
 
-- `T` : `valarray`クラスの要素型`T`と同じ型
+- `T` : [`valarray`](valarray.md)クラスの要素型`T`と同じ型
 
 
 ## メンバ関数

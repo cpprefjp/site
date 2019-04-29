@@ -6,9 +6,12 @@
 ```cpp
 namespace std {
   template <class T>
-  T norm(const complex<T>& x);
+  T norm(const complex<T>& x);           // (1) C++03
 
-  Promoted norm(Arithmetic x);	// 追加のオーバーロード：C++11 から
+  template <class T>
+  constexpr T norm(const complex<T>& x); // (1) C++20
+
+  Promoted norm(Arithmetic x);           // (2) C++11 追加のオーバーロード
 }
 ```
 * Promoted[italic]
@@ -79,5 +82,8 @@ norm( (1,2) ) = 5
 | [`proj`](proj.md)                  | リーマン球面への射影を得る。           |
 | [`polar`](polar.md)                | 指定した絶対値と偏角の複素数値を得る。 |
 
+
+## 参照
 - [ノルム (体論) - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%83%A0_(%E4%BD%93%E8%AB%96))
 - [ノルム - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%83%A0)
+- [P0415R1 Constexpr for `std::complex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0415r1.html)

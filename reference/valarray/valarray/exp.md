@@ -1,15 +1,15 @@
 # exp
 * valarray[meta header]
 * std[meta namespace]
-* valarray[meta class]
 * function template[meta id-type]
 
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> exp(const valarray<T>& va);
+  ValOrProxy<T> exp(const ValOrProxy<T>& va);
 }
 ```
+* ValOrProxy[italic]
 
 ## 概要
 自然対数の底 e（ネイピア数）の累乗を得る。exp は exponent（指数）、あるいは、exponential function（指数関数）の略。
@@ -23,6 +23,11 @@ return va.apply(static_cast<T(*)(T)>(std::exp));
 ```
 * apply[link apply.md]
 * std::exp[link /reference/cmath/exp.md]
+
+
+## 備考
+- 引数、および、戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

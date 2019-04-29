@@ -3,6 +3,11 @@
 
 `<string>`ヘッダでは、文字列に関するクラス、関数、文字特性を定義する。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<initializer_list>`](initializer_list.md) (C++11)
+
+
 ## 文字特性
 
 | 名前 | 説明 | 対応バージョン |
@@ -48,3 +53,9 @@
 | `hash<wstring>`   | `hash`の`wstring`に対する特殊化   | C++11 |
 
 
+## 関連項目
+- [`<string_view>`](string_view.md)
+
+
+## 参照
+- [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)

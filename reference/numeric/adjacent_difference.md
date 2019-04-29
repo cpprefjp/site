@@ -48,10 +48,12 @@ namespace std {
 ## 要件
 - (1) :
     - C++11から : `InputIterator`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
-    - C++11から : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`b - a`の結果が`result`出力イテレータに書き込めること
+    - C++11からC++17まで : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`b - a`の結果が`result`出力イテレータに書き込めること
+    - C++20から : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`b -` [`std::move`](/reference/utility/move.md)`(a)`の結果が`result`出力イテレータに書き込めること
 - (2) 
     - C++11から : `InputIterator`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
-    - C++11から : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b, a)`の結果が`result`出力イテレータに書き込めること
+    - C++11からC++17まで : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b, a)`の結果が`result`出力イテレータに書き込めること
+    - C++20から : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b,` [`std::move`](/reference/utility/move.md)`(a))`の結果が`result`出力イテレータに書き込めること
     - C++03まで : 関数オブジェクト`binary_op`の呼び出しは、副作用を起こしてはならない
     - C++11から : 関数オブジェクト`binary_op`の呼び出しが、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更、イテレータの無効化をしてはならない
 - (3) :
@@ -66,7 +68,9 @@ namespace std {
 - (1), (2) : 非空の範囲`[first, last)`について、
     1. `*result = *first`で結果の初期値を書き込む。`acc = *first`としてひとつ前の位置の値を保持する
     2. 範囲`[first + 1, last)`の各イテレータを`i`、そのイテレータが指す値を`val`として定義する
-    3. (1)であれば`val - acc`、(2)であれば`binary_op(val, acc)`で隣接値を求めて、その結果を`*result`に代入する
+    3.
+        - C++17 : (1)であれば`val - acc`、(2)であれば`binary_op(val, acc)`で隣接値を求めて、その結果を`*result`に代入する
+        - C++20 : (1)であれば`val -` [`std::move`](/reference/utility/move.md)`(acc)`、(2)であれば`binary_op(val,` [`std::move`](/reference/utility/move.md)`d(acc))`で隣接値を求めて、その結果を`*result`に代入する
     4. `val`を`acc`にムーブ代入し、ひとつ前の位置の値を更新する
 - (3), (4) : 非空の範囲`[first, last)`について、
     1. `*result = *first`で結果の初期値を代入する
@@ -156,7 +160,7 @@ OutputIterator adjacent_difference(InputIterator first,
 
   while (first != last) {
     value_type val = *first;
-    *result = binary_op(val, acc);
+    *result = binary_op(val, std::move(acc));
     acc = std::move(val);
 
     ++result;
@@ -181,3 +185,4 @@ OutputIterator adjacent_difference(InputIterator first, InputIterator last, Outp
 ## 参照
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
 - [P0623R0 Final C++17 Parallel Algorithms Fixes](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0623r0.html)
+- [P0616R0 De-pessimize legacy `<numeric>` algorithms with `std::move`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0616r0.pdf)

@@ -9,13 +9,22 @@ namespace std {
   template<class T> struct atomic;
 
   template<> struct atomic<integral>;
+  template<> struct atomic<floating-point>; // C++20
   template<class T> struct atomic<T*>;
 }
 ```
 * integral[italic]
+* floating-point[italic]
 
 ## 概要
-`atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。整数型およびポインタに対する特殊化が提供されており、それぞれに特化した演算が用意されている。その他の型に`atomic`クラステンプレートを使用する場合、型`T`は[trivially copyable](/reference/type_traits/is_trivially_copyable.md)である必要がある。特殊化された整数型および`bool`型には、それぞれ`atomic_T`という型の別名が提供される。
+`atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。組み込み型に対する特殊化が提供されており、それぞれに特化した演算が用意されている。
+
+組み込み型以外の任意の型を`atomic`クラステンプレートを使用する場合、型`T`は、以下の条件を満たすこと：
+
+- 型`T`は制約[`std::CopyConstructible`](/reference/concepts/CopyConstructible.md)および[`std::CopyAssignable`](/reference/concepts/CopyAssignable.md)を満たすこと
+- [`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> &&` [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T> &&` [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<T>`が`false`である場合、プログラムは不適格となる
+
+特殊化された整数型および`bool`型には、それぞれ`atomic_T`という型の別名が提供される。
 
 | 名前付きアトミック型 | テンプレート引数となる整数型 | 対応バージョン |
 |-----|-----|-----|
@@ -33,6 +42,8 @@ namespace std {
 | `atomic_char32_t` | [`char32_t`](/lang/cpp11/char16_32.md) | C++11 |
 | `atomic_wchar_t`  | `wchar_t` | C++11 |
 | `atomic_bool`     | `bool`    | C++11 |
+
+浮動小数点数型に対する別名は定義されていない。
 
 また、[`<cstdint>`](/reference/cstdint.md)で定義される整数型に対する以下の別名も提供される。
 
@@ -120,6 +131,23 @@ namespace std {
 | [`operator&=`](atomic/op_and_assign.md)   | AND演算        | C++11 |
 | <code>[operator&#x7C;=](atomic/op_or_assign.md)</code> | OR演算 | C++11 |
 | [`operator^=`](atomic/op_xor_assign.md)   | XOR演算 | C++11 |
+
+
+### atomic<integral>専用メンバ型
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `difference_type` | 2つの値の差を表す整数型`value_type` | C++17 |
+
+
+### atomic<floating-point>専用メンバ関数
+浮動小数点数型に対する特殊化。
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`fetch_add`](atomic/fetch_add.md)        | 加算 | C++20 |
+| [`fetch_sub`](atomic/fetch_sub.md)        | 減算 | C++20 |
+| [`operator+=`](atomic/op_plus_assign.md)  | 加算 | C++20 |
+| [`operator-=`](atomic/op_minus_assign.md) | 減算 | C++20 |
 
 
 ### atomic<integral>専用メンバ型
@@ -236,6 +264,10 @@ int main()
 - GCC 4.9.2まで、アライメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修正された。([Bug 65147](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147))
 
 
+## 関連項目
+- [`std::shared_ptr`と`std::weak_ptr`に対する`atomic`クラスの特殊化](/reference/memory/atomic.md)
+
+
 ### 参照
 - [N2145 C++ Atomic Types and Operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2145.html)
 - [N2547 Allow atomics use in signal handlers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2547.htm)
@@ -243,3 +275,6 @@ int main()
 - [LWG Issue 2441. Exact-width atomic `typedef`s should be provided](https://wg21.cmeerw.net/lwg/issue2441)
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
 - [P0152R1 `constexpr atomic<T>::is_always_lock_free`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0152r1.html)
+- [P0020R6 Floating Point Atomic](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0020r6.html)
+- [LWG Issue 3045. `atomic` doesn't have `value_type` or `difference_type`](https://wg21.cmeerw.net/lwg/issue3045)
+- [LWG Issue 3012. `atomic` is unimplementable for non-`is_trivially_copy_constructible` `T`](https://wg21.cmeerw.net/lwg/issue3012)

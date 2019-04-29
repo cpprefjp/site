@@ -5,9 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-valarray<T> apply(T func(T)) const;
-valarray<T> apply(T func(const T&)) const;
+ValOrProxy<T> apply(T func(T)) const;
+ValOrProxy<T> apply(T func(const T&)) const;
 ```
+* ValOrProxy[italic]
 
 ## 概要
 各要素に任意の関数を適用する。
@@ -17,6 +18,11 @@ valarray<T> apply(T func(const T&)) const;
 `*this`の全ての要素に関数`func`を適用した`valarray`オブジェクトを新たに作って返す。
 
 返される`valarray`オブジェクトは、`*this`と同じ要素数、同じ要素型を持つ。
+
+
+## 備考
+- 戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

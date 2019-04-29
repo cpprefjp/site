@@ -231,13 +231,6 @@ auto trace(Func f, T t) -> decltype(f(t)) { std::cout << "Calling f"; return f(t
 ```
 * decltype[color ff0000]
 
-なお、C++14 では [`decltype(auto)`](../cpp14/decltype_auto.md) が導入されたため、更に簡潔に以下のように書くことができるようになっている。
-
-```cpp
-template <class Func, class T>
-decltype(auto) trace(Func f, T t) { std::cout << "Calling f"; return f(t); }
-```
-* decltype(auto)[color ff0000]
 
 ## 検討されたほかの選択肢
 

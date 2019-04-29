@@ -15,7 +15,12 @@ XOR演算を行う
 
 
 ## 戻り値
-[`fetch_xor`](fetch_xor.md)`(operand) ^ operand`
+以下と等価の式により、演算結果の値が返る：
+
+```cpp
+return fetch_xor(operand) ^ operand;
+```
+* fetch_xor[link fetch_xor.md]
 
 
 ## 例外

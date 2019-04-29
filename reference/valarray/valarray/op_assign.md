@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-valarray& operator=(const valarray<T>& x);       // (1)
+valarray& operator=(const ValOrProxy<T>& x);     // (1)
 valarray& operator=(valarray<T>&& x) noexcept;   // (2) C++11
 valarray& operator=(initializer_list<T> init);   // (3) C++11
 valarray& operator=(const T& value);             // (4)
@@ -14,6 +14,7 @@ valarray& operator=(const gslice_array<T>& x);   // (6)
 valarray& operator=(const mask_array<T>& x);     // (7)
 valarray& operator=(const indirect_array<T>& x); // (8)
 ```
+* ValOrProxy[italic]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * slice_array[link /reference/valarray/slice_array.md]
 * gslice_array[link /reference/valarray/gslice_array.md]
@@ -42,6 +43,11 @@ valarray& operator=(const indirect_array<T>& x); // (8)
 
 ## 計算量
 - (2) : 全要素のデストラクタを呼び出すために、線形時間
+
+
+## 備考
+- 引数の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

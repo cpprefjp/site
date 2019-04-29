@@ -16,6 +16,9 @@ template <class InputIterator>
 void insert(InputIterator first, InputIterator last);          // (3)
 
 void insert(initializer_list<value_type> il);                  // (4)
+
+iterator insert(node_type&& nh);                               // (5) C++17
+iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -47,6 +50,8 @@ void insert(initializer_list<value_type> il);                  // (4)
 
 - (4)の形式では、`value_type` はコンテナに対してコピー挿入可能でなければならない。
 
+- (5), (6)の形式では、 `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`でなければならない。
+
 
 ## 効果
 - (1) : 引数 `v`、あるいは `rv` で指定した値の要素を追加する。
@@ -54,6 +59,8 @@ void insert(initializer_list<value_type> il);                  // (4)
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
 - (3) : 範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
 - (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価である。
+- (5) : `nh`が空の場合、効果はない。そうでなければ、`nh`が所有する要素を挿入し、新しく挿入された要素を指すイテレータを返す。`nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
+- (6) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。そうでなければ、 `nh` によって所有されている要素をコンテナに挿入し、 `nh.key()` と等価なキーを持つ要素を指すイテレータを返す。 `nh.key()` と等しいキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。要素は、`p`の直前の位置のできるだけ近くに挿入される。
 
 
 ## 戻り値
@@ -61,6 +68,7 @@ void insert(initializer_list<value_type> il);                  // (4)
 - (2) : 追加された要素を指すイテレータ。
 - (3) : なし
 - (4) : なし
+- (5), (6) : `nh` が空の場合は終端イテレータ、そうでなければ挿入された要素を指すイテレータ。
 
 
 ## 例外
@@ -72,6 +80,7 @@ void insert(initializer_list<value_type> il);                  // (4)
 - (2) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (3) : 平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
 - (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価。
+- (5), (6) : 平均的なケースでは `O(1)`、最悪のケースでは `O(size())`。
 
 
 ## 備考
@@ -86,6 +95,7 @@ void insert(initializer_list<value_type> il);                  // (4)
 - `position` を引数にとる形式（(2)）の場合、本関数呼び出しで構築されるオブジェクト `t` と等価なキーの要素が既に存在する場合、`position` に応じて既存の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は存在しない。
 	従って、そのような期待はすべきではない。[`emplace_hint`](emplace_hint.md)も参照。
 
+- (5), (6) の場合、要素はコピーもムーブもされない。
 
 ## 例
 ```cpp example
@@ -236,5 +246,5 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(std::initiali
     - (4)の経緯となる提案文書
 - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#518)
     - 安定性の保証が規定された経緯のレポート
-
-
+- [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+    - (5), (6)経緯となる提案文書

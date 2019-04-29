@@ -13,6 +13,9 @@
 | [`allocator_arg_t`](memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(class) | C++11 |
 | [`allocator_arg`](memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(constant value) | C++11 |
 | [`uses_allocator`](memory/uses_allocator.md) | 型`T`がアロケータを使用するか調べる | C++11 |
+| [`uses_allocator_construction_args`](memory/uses_allocator_construction_args.md) | uses-allocator 構築のためのコンストラクタ引数を [`tuple`](tuple/tuple.md) 型にして返す | C++20 |
+| [`make_obj_using_allocator`](memory/make_obj_using_allocator.md) | uses-allocator 構築する | C++20 |
+| [`uninitialized_construct_using_allocator`](memory/uninitialized_construct_using_allocator.md) | 指定された領域に uses-allocator 構築する | C++20 |
 
 
 ## 未初期化領域に対する操作
@@ -54,6 +57,26 @@
 | `auto_ptr` | 古い専有方式スマートポインタ(class template) | C++11から非推奨<br/> C++17で削除 |
 
 
+## スマートポインタのアトミック操作
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `template<class T> struct atomic` | `atomic`クラスの先行宣言 (class template) | C++20 |
+| [`template<class T> struct atomic<shared_ptr<T>>;`](memory/atomic.md) | `atomic`クラスの`shared_ptr`に対する特殊化 (class template) | C++20 |
+| [`template<class T> struct atomic<weak_ptr<T>>;`](memory/atomic.md)   | `atomic`クラスの`weak_ptr`に対する特殊化 (class template) | C++20 |
+| `atomic_is_lock_free` | `shared_ptr`に対するアトミック操作がロックフリーに振る舞うことができるかを調べる (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_load` | `shared_ptr`の値をアトミックに読み込む (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_load_explicit` | メモリオーダーを指定して、`shared_ptr`の値をアトミックに読み込む (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_store` | `shared_ptr`値をアトミックに書き込む (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_store_explicit` | メモリオーダーを指定して、`shared_ptr`の値をアトミックに書き込む (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_exchange` | `shared_ptr`の値をアトミックに入れ替える (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_exchange_explicit` | メモリオーダーを指定して、`shared_ptr`の値をアトミックに入れ替える (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_compare_exchange_weak` | 弱い比較で`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_compare_exchange_strong` | 強い比較で`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_compare_exchange_weak_explicit` | 弱い比較でメモリオーダーを指定して、`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
+| `atomic_compare_exchange_strong_explicit` | 強い比較でメモリオーダーを指定して、`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
+
+
 ## ガベージコレクション支援
 
 | 名前 | 説明 | 対応バージョン |
@@ -74,7 +97,9 @@
 | [`to_address`](memory/to_address.md)         | ポインタと見なせるオブジェクトからアドレスを取得する (function template) | C++20 |
 | [`addressof`](memory/addressof.md)           | 変数のアドレスを必ず取得する(function template) | C++11 |
 | [`align`](memory/align.md)                   | アライメント調整された領域を得る(function)      | C++11 |
+| [`assume_aligned`](memory/assume_aligned.md) | コンパイラーへアライメントのヒントを与える(function template) | C++20 |
 
 
 ## 参照
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
+- [P0718R2 Revising `atomic_shared_ptr` for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0718r2.html)

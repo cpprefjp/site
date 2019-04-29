@@ -47,6 +47,13 @@
 | [`lcm`](numeric/lcm.md)                     | 最小公倍数を求める | C++17 |
 
 
+## 中点
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|-------|
+| [`midpoint`](numeric/midpoint.md) | 数値とポインタの中点を求める | C++20 |
+
+
 ## 関連項目
 - [`<algorithm>`](/reference/algorithm.md)
     - より汎用的なアルゴリズム

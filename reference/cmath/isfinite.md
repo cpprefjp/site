@@ -6,11 +6,11 @@
 
 ```cpp
 namespace std {
-  int isfinite(float x);
-  int isfinite(double x);
-  int isfinite(long double x);
+  bool isfinite(float x);
+  bool isfinite(double x);
+  bool isfinite(long double x);
 
-  int isfinite(Integral x);
+  bool isfinite(Integral x);
 }
 ```
 * Integral[italic]

@@ -6,8 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-constexpr bool empty() noexcept;       // C++11
-constexpr bool empty() const noexcept; // C++14
+constexpr bool empty() noexcept;                     // C++11
+constexpr bool empty() const noexcept;               // C++14
+[[nodiscard]] constexpr bool empty() const noexcept; // C++20
 ```
 
 ## 概要
@@ -67,4 +68,4 @@ empty_array : true
 
 ## 参照
 - [N3669 Fixing constexpr member functions without const](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3669.pdf)
-
+- [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)

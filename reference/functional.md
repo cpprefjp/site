@@ -38,6 +38,7 @@ struct doubler {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------------------------|-------|
+| [`bind_front`](functional/bind_front.md) | 関数の引数を先頭から順に部分適用する(function template) | C++20 |
 | [`bind`](functional/bind.md) | 関数の引数を部分適用する(function template) | C++11 |
 | [`is_bind_expression`](functional/is_bind_expression.md) | 型を`bind`の式と見なすか判定する(class template) | C++11 |
 | [`is_placeholder`](functional/is_placeholder.md) | 型がプレースホルダーかどうかを判定する(class template) | C++11 |
@@ -52,6 +53,8 @@ struct doubler {
 | [`reference_wrapper`](functional/reference_wrapper.md) | テンプレートで参照を渡すためのラッパー(class template)  | C++11 |
 | [`ref`](functional/ref.md) | オブジェクトへの参照を構築する(function template) | C++11 |
 | [`cref`](functional/cref.md) | オブジェクトへのconst左辺値参照を構築する(function template) | C++11 |
+| [`unwrap_reference`](functional/unwrap_reference.md) | `reference_wrapper<T>`型を`T&`型に展開する (class template) | C++20 |
+| [`unwrap_ref_decay`](functional/unwrap_ref_decay.md) | `reference_wrapper<T>`型を`T&`型に展開し、型推論規則による型変換を行う (class template) | C++20 |
 
 
 ## ハッシュ関数

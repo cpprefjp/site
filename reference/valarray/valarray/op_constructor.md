@@ -9,14 +9,15 @@ valarray();                           // (1)
 explicit valarray(size_t n);          // (2)
 valarray(const T& value, size_t n);   // (3)
 valarray(const T* first, size_t n);   // (4)
-valarray(const valarray& x);          // (5)
-valarray(valarray&& x) noexcept;      // (6) C++11
+valarray(const ValOrProxy<T>& x);     // (5)
+valarray(valarray&& x) noexcept;      // (6) C++11 から
 valarray(const slice_array<T>& x);    // (7)
 valarray(const gslice_array<T>& x);   // (8)
 valarray(const mask_array<T>& x);     // (9)
 valarray(const indirect_array<T>& x); // (10)
-valarray(initializer_list<T> init);   // (11) C++11
+valarray(initializer_list<T> init);   // (11) C++11 から
 ```
+* ValOrProxy[italic]
 * slice_array[link /reference/valarray/slice_array.md]
 * gslice_array[link /reference/valarray/gslice_array.md]
 * mask_array[link /reference/valarray/mask_array.md]
@@ -50,6 +51,11 @@ valarray(initializer_list<T> init);   // (11) C++11
 
 ## 計算量
 - (6) : 定数時間
+
+
+## 備考
+- 引数の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

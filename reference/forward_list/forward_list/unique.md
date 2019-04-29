@@ -6,10 +6,14 @@
 * cpp11[meta cpp]
 
 ```cpp
-void unique();
+void unique();                          // (1) C++11
+size_type unique();                     // (1) C++20
 
 template <class BinaryPredicate>
-void unique(BinaryPredicate pred);
+void unique(BinaryPredicate pred);      // (2) C++11
+
+template <class BinaryPredicate>
+size_type unique(BinaryPredicate pred); // (2) C++20
 ```
 
 ## 概要
@@ -23,24 +27,22 @@ void unique(BinaryPredicate pred);
 ## 効果
 範囲`[first + 1, last)`の全てのイテレータ`i`について、
 
-- `*i == *(i - 1)` ： 比較関数を指定しないバージョン
-- `pred(*i, *(i - 1))` ： 比較関数を指定するバージョン
+- (1) : `*i == *(i - 1)`
+- (2) : `pred(*i, *(i - 1))`
 
 が`true`となる要素を削除する。  
 削除された要素に対するイテレータおよび参照は無効となる。
 
 
 ## 戻り値
-なし
+- (1), (2) :
+    - C++11 : なし
+    - C++20 : 削除された要素数を返す
 
 
 ## 例外
-比較関数を指定しないバージョン：  
-型`T`の等値比較が例外を投げない場合、この関数は例外を投げない
-
-
-比較関数を指定するバージョン：  
-`pred`が例外を投げない場合、この関数は例外を投げない
+- (1) : 型`T`の等値比較が例外を投げない場合、この関数は例外を投げない
+- (2) : `pred`が例外を投げない場合、この関数は例外を投げない
 
 
 ## 計算量
@@ -87,5 +89,4 @@ int main()
 
 
 ## 参照
-
-
+- [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)

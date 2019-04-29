@@ -15,7 +15,12 @@ OR演算を行う
 
 
 ## 戻り値
-[`fetch_or`](fetch_or.md)`(operand) | operand`
+以下と等価の式により、演算結果の値が返る：
+
+```cpp
+return fetch_or(operand) | operand;
+```
+* fetch_or[link fetch_or.md]
 
 
 ## 例外

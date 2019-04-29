@@ -30,7 +30,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator=`](variant/op_assign.md.nolink) | 代入演算子 | C++17 |
+| [`operator=`](variant/op_assign.md) | 代入演算子 | C++17 |
 | [`emplace`](variant/emplace.md.nolink)     | 要素型のコンストラクタ引数から直接構築する | C++17 |
 | [`swap`](variant/swap.md.nolink)           | 他の`variant`オブジェクトとデータを入れ替える | C++17 |
 
@@ -40,7 +40,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`valueless_by_exception`](variant/valueless_by_exception.md) | 例外によって値を持たない状態になっているかを判定する | C++17 |
-| [`index`](variant/index.md.nolink) | 候補型の何番目の型が代入されているかを取得する | C++17 |
+| [`index`](variant/index.md) | 候補型の何番目の型が代入されているかを取得する | C++17 |
 
 
 ## 非メンバ関数
@@ -48,8 +48,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`get`](variant/get.md.nolink) | 保持している値を取得する | C++17 |
-| [`get_if`](variant/get_if.md.nolink) | 保持している値を取得する。エラー時にヌルポインタを返す | C++17 |
+| [`get`](variant/get.md) | 保持している値を取得する | C++17 |
+| [`get_if`](variant/get_if.md) | 保持している値を指すポインタを取得する。エラー時にヌルポインタを返す | C++17 |
 
 
 ### ビジター

@@ -123,6 +123,7 @@ namespace std {
 
 
 ## 非メンバ関数
+### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|----------|-------|
@@ -132,7 +133,22 @@ namespace std {
 | [`operator<=`](forward_list/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++11 |
 | [`operator>`](forward_list/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++11 |
 | [`operator>=`](forward_list/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++11 |
-| [`swap`](forward_list/swap_free.md)              | 2つの`forward_list`オブジェクトを入れ替える | C++11 |
+
+
+### 入れ替え
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`swap`](forward_list/swap_free.md) | 2つの`forward_list`オブジェクトを入れ替える | C++11 |
+
+
+### 要素削除
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`erase`](forward_list/erase_free.md) | 指定した値をもつ要素とその分の領域を、コンテナから削除する | C++20 |
+| [`erase_if`](forward_list/erase_if_free.md) | 指定した条件に合致する要素とその分の領域を、コンテナから削除する | C++20 |
+
 
 
 ## 推論補助

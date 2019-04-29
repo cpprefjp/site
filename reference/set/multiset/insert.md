@@ -17,12 +17,15 @@ template <class InputIterator>
 void insert(InputIterator first, InputIterator last);          // (5)
 
 void insert(initializer_list<value_type> init);                // (6)
+
+iterator insert(node_type&& nh);                               // (7) C++17
+iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 ```
 * pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入することにより、 `set` コンテナを拡張する。
+新しく一つの要素(引数 `x`, `y`を使う)、要素のシーケンス(入力イテレータまたは `initializer_list` を使う)または[ノードハンドル](/reference/node_handle/node_handle.md)を挿入することにより、 `set` コンテナを拡張する。
 
  `set` コンテナは重複した値を許さないため、挿入操作はそれぞれの要素が他のコンテナ内の既存要素と同じ値かどうかをチェックし、同じ要素がすでにあれば挿入されない。`multiset`の場合には、同じ値の要素でも挿入される。
 
@@ -33,11 +36,15 @@ void insert(initializer_list<value_type> init);                // (6)
 - (4) : 新たな要素`y`をムーブ挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる
 - (5) : イテレータ範囲`[first, last)`の要素を挿入する
 - (6) : 初期化子リスト`init`の要素を挿入する
+- (7) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`である。
+- (8) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`である。
 
 
 ## 戻り値
 - (1), (2) : `first` に新しく挿入された要素またはすでに `multiset` に格納されていた同じ値の要素を指すイテレータを設定する。`second` には、要素が挿入されたときに `true` を、同じ値の要素が存在したときに `false` を設定する。
 - (3), (4) : 新しく挿入された要素またはすでに `multiset` に格納されていた同じ値の要素を指すイテレータを返す。
+- (5), (6) : なし
+- (7), (8) : `nh` が空の場合は終端イテレータ、そうでなければ挿入された要素を指すイテレータ。
 
 
 ## 計算量
@@ -45,10 +52,12 @@ void insert(initializer_list<value_type> init);                // (6)
 - (3), (4) : 一般に対数時間だが、`x` または `y` が `position` が指す要素の後に挿入された場合は償却定数時間
 - (5), (6) : 一般に N log(size + N)※ だが、`first` と `last` の間がコンテナで使われているものと同じ順序基準に従ってソート済みである場合は線形時間。
     - ※ ここで `N` は `first` と `last` の間の距離であり `size` は挿入前のコンテナの [`size()`](size.md)
+- (7) : コンテナのサイズの対数、`O(log(size()))`。
+- (8) : 挿入が `hint` の直前の位置に行われた場合、償却定数時間。 そうでなければ、コンテナのサイズの対数。
 
 
 ## 備考
-内部的に `multiset` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
+内部的に `multiset` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。 (7), (8) の場合要素は、コピーもムーブもされない。
 
 
 ## 例
@@ -96,3 +105,5 @@ int main ()
 ## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+- [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+    - (7), (8)経緯となる提案文書

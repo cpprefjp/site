@@ -1,15 +1,15 @@
 # log
 * valarray[meta header]
 * std[meta namespace]
-* valarray[meta class]
 * function template[meta id-type]
 
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> log(const valarray<T>& va);
+  ValOrProxy<T> log(const ValOrProxy<T>& va);
 }
 ```
+* ValOrProxy[italic]
 
 ## 概要
 自然対数（ネイピア数 e を底とした対数）を得る。log は logarithm（対数）、あるいは、logarithmic function（対数関数）の略。
@@ -23,6 +23,11 @@ return va.apply(static_cast<T(*)(T)>(std::log));
 ```
 * apply[link apply.md]
 * std::log[link /reference/cmath/log.md]
+
+
+## 備考
+- 引数、および、戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

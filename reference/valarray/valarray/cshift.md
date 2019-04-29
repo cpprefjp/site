@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-valarray<T> cshift(int n) const;
+ValOrProxy<T> cshift(int n) const;
 ```
+* ValOrProxy[italic]
 
 ## 概要
 要素の位置を循環シフトする。
@@ -16,9 +17,14 @@ valarray<T> cshift(int n) const;
 
 ## 戻り値
 - `n`が正の値である場合、`n`個分だけ要素を前(`0`番目に向かう方向)に移動する。
-	- 移動したことによって範囲外となった要素は、配列の後ろに移動する。
+    - 移動したことによって範囲外となった要素は、配列の後ろに移動する。
 - `n`が負の値である場合、`n`個分だけ要素を後ろ(`size()`に向かう方向)に移動する。
-	- 移動したことによって範囲外となった要素は、配列の先頭に移動する。
+    - 移動したことによって範囲外となった要素は、配列の先頭に移動する。
+
+
+## 備考
+- 戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

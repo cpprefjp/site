@@ -5,7 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-static char_type* move(char_type* s1, const char_type* s2, std::size_t n);
+static char_type* move(char_type* s1,
+                       const char_type* s2,
+                       std::size_t n);                // (1) C++03
+
+static constexpr char_type* move(char_type* s1,
+                                 const char_type* s2,
+                                 std::size_t n);      // (1) C++20
 ```
 
 ## 概要
@@ -58,4 +64,4 @@ abcde
 ```
 
 ## 参照
-
+- [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

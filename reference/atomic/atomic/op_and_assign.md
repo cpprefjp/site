@@ -15,7 +15,12 @@ AND演算を行う
 
 
 ## 戻り値
-[`fetch_and`](/reference/atomic/atomic/fetch_and.md)`(operand) & operand`
+以下と等価の式により、演算結果の値が返る：
+
+```cpp
+return fetch_and(operand) & operand;
+```
+* fetch_and[link fetch_and.md]
 
 
 ## 例外

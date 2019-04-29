@@ -6,51 +6,54 @@
 * cpp11[meta cpp]
 
 ```cpp
-constexpr shared_ptr() noexcept;                   // (1)
+constexpr shared_ptr() noexcept;                         // (1)
 
 template <class Y>
-explicit shared_ptr(Y* p);                         // (2)
+explicit shared_ptr(Y* p);                               // (2)
 
 template <class Y, class Deleter>
-shared_ptr(Y* p, Deleter d);                       // (3)
+shared_ptr(Y* p, Deleter d);                             // (3)
 
 template <class Y, class Deleter, class Alloc>
-shared_ptr(Y* p, Deleter d, Alloc a);              // (4)
+shared_ptr(Y* p, Deleter d, Alloc a);                    // (4)
 
 template <class Deleter>
-shared_ptr(nullptr_t p, Deleter d);                // (5)
+shared_ptr(nullptr_t p, Deleter d);                      // (5)
 
 template <class Deleter, class Alloc>
-shared_ptr(nullptr_t p, Deleter d, Alloc a);       // (6)
+shared_ptr(nullptr_t p, Deleter d, Alloc a);             // (6)
 
 template<class Y>
-shared_ptr(const shared_ptr<Y>& r, T* p) noexcept; // (7) C++11
+shared_ptr(const shared_ptr<Y>& r, T* p) noexcept;            // (7) C++11
 
 template<class Y>
 shared_ptr(const shared_ptr<Y>& r, element_type* p) noexcept; // (7) C++17
 
-shared_ptr(const shared_ptr& r) noexcept;          // (8)
+shared_ptr(const shared_ptr& r) noexcept;                // (8)
 
 template <class Y>
-shared_ptr(const shared_ptr<Y>& r) noexcept;       // (9)
+shared_ptr(const shared_ptr<Y>& r) noexcept;             // (9)
 
-shared_ptr(shared_ptr&& r) noexcept;               // (10)
-
-template <class Y>
-shared_ptr(shared_ptr<Y>&& r) noexcept;            // (11)
+shared_ptr(shared_ptr&& r) noexcept;                     // (10)
 
 template <class Y>
-explicit shared_ptr(const weak_ptr<Y>& r);         // (12)
+shared_ptr(shared_ptr<Y>&& r) noexcept;                  // (11)
 
 template <class Y>
-shared_ptr(auto_ptr<Y>&& r);                       // (13)
-                                                   // C++11から非推奨
-                                                   // C++17で削除
+explicit shared_ptr(const weak_ptr<Y>& r);               // (12)
+
+template <class Y>
+shared_ptr(auto_ptr<Y>&& r);                             // (13)
+                                                         // C++11から非推奨
+                                                         // C++17で削除
 
 template <class Y, class Deleter>
-shared_ptr(unique_ptr<Y, Deleter>&& r);            // (14)
+shared_ptr(unique_ptr<Y, Deleter>&& r);                  // (14)
 
-constexpr shared_ptr(nullptr_t);                   // (15)
+constexpr shared_ptr(nullptr_t);                         // (15)
+
+template <class Y>
+shared_ptr(shared_ptr<Y>&& r, element_type* p) noexcept; // (16) C++20
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 * weak_ptr[link /reference/memory/weak_ptr.md]
@@ -70,6 +73,7 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 - (13) : `auto_ptr`オブジェクトから、リソースの所有権を移動する。
 - (14) : [`unique_ptr`](/reference/memory/unique_ptr.md)オブジェクトから、リソースの所有権を移動する。
 - (15) : (1)と同じく、所有権を持たない、空の`shared_ptr`オブジェクトを構築する。
+- (16) :  (7)の右辺値版。`Y`を`*this`にムーブしつつ、それのメンバへのポインタを共有する。
 
 
 ## 要件
@@ -117,11 +121,14 @@ constexpr shared_ptr(nullptr_t);                   // (15)
 - (1) : [`use_count()`](use_count.md) `== 0 &&` [`get()`](get.md) ` == nullptr`
 - (2), (3), (4) : [`use_count()`](use_count.md) `== 1 &&` [`get()`](get.md) ` == p`
 - (5), (6) : [`use_count()`](use_count.md) `== 1 &&` [`get()`](get.md) ` == nullptr`
-- (7) : [`get()`](get.md) `== p &&` [`use_count()`](use_count.md) `== r.`[`use_count()`](use_count.md)
+- (7) : [`get()`](get.md) `== p`
 - (8), (9) : [`get()`](get.md) `==` [`get()`](get.md) `&&` [`use_count()`](use_count.md) `== r.`[`use_count()`](use_count.md)
 - (10) : `*this`は`r`がこれまで持っていた値を持ち、`r`は空の状態になる。
 - (12) : [`use_count()`](use_count.md) `== r.`[`use_count()`](use_count.md)
 - (13) : [`use_count()`](use_count.md) `== 1 &&` `r.`[`get()`](get.md) `== nullptr`
+- (16) :
+    - [`get()`](get.md) `== p`
+    - `r`が空になり、`r.`[`get()`](get.md) `== nullptr`
 
 
 ## 例外
@@ -276,3 +283,4 @@ int main()
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
 - [P0497R0 Fixes to `shared_ptr` support for arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0497r0.html)
+- [LWG Issue 2996. Missing rvalue overloads for `shared_ptr` operations](https://wg21.cmeerw.net/lwg/issue2996)

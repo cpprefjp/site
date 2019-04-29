@@ -37,8 +37,12 @@ namespace std {
 
 
 ## 効果
-- (1) : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = acc + (*i) * (*j);` の演算を行い、`acc`を返す
-- (2) : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(acc, binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
+- (1) :
+    - C++03 : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = acc + (*i) * (*j);` の演算を行い、`acc`を返す
+    - C++20 : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc =` [`std::move`](/reference/utility/move.md)`(acc) + (*i) * (*j);` の演算を行い、`acc`を返す
+- (2) :
+    - C++03 : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(acc, binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
+    - C++20 : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(`[`std::move`](/reference/utility/move.md)`(acc), binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
 
 
 ## 戻り値
@@ -89,7 +93,7 @@ template <class InputIterator1, class InputIterator2, class T>
 T inner_product(InputIterator1 first1, InputIterator1 last1,
                 InputIterator2 first2, T init) {
   while (first1 != last1)
-    init = init + (*first1++ * *first2++);
+    init = std::move(init) + (*first1++ * *first2++);
   return init;
 }
 
@@ -101,8 +105,12 @@ T inner_product(InputIterator1 first1, InputIterator1 last1,
                 BinaryOperation1 binary_op1,
                 BinaryOperation2 binary_op2) {
   while (first1 != last1)
-    init = binary_op1(init, binary_op2(*first1++, *first2++));
+    init = binary_op1(std::move(init), binary_op2(*first1++, *first2++));
   return init;
 }
 ```
+* std::move[link /reference/utility/move.md]
 
+
+## 参照
+- [P0616R0 De-pessimize legacy `<numeric>` algorithms with `std::move`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0616r0.pdf)

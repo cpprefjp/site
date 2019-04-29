@@ -6,7 +6,10 @@
 ```cpp
 namespace std {
   template <class Container>
-  front_insert_iterator<Container> front_inserter(Container& x);
+  front_insert_iterator<Container> front_inserter(Container& x);           // (1) C++03
+
+  template <class Container>
+  constexpr front_insert_iterator<Container> front_inserter(Container& x); // (1) C++20
 }
 ```
 * front_insert_iterator[link front_insert_iterator.md]
@@ -55,3 +58,4 @@ int main()
 ```
 
 ## 参照
+- [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

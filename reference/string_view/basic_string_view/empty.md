@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr bool empty() const noexcept;
+constexpr bool empty() const noexcept;               // C++17
+[[nodiscard]] constexpr bool empty() const noexcept; // C++20
 ```
 
 ## 概要
@@ -53,3 +54,7 @@ int main()
 - [GCC, C++17 mode](/implementation.md#gcc): 7.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)

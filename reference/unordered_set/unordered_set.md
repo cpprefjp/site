@@ -92,6 +92,8 @@ namespace std {
 | [`erase`](unordered_set/erase.md)               | 要素の削除                                             | C++11 |
 | [`clear`](unordered_set/clear.md)               | 全要素の削除                                           | C++11 |
 | [`swap`](unordered_set/swap.md)                 | 内容の交換                                             | C++11 |
+| [`extract`](unordered_set/extract.md)           | ノードハンドルを取得する                                | C++17 |
+| [`merge`](unordered_set/merge.md)               | 他のオブジェクトの要素をマージする                       | C++17 |
 
 
 ### オブザーバー
@@ -108,6 +110,7 @@ namespace std {
 |------|------|----------------|
 | [`find`](unordered_set/find.md)               | 指定したキーの位置を検索   | C++11 |
 | [`count`](unordered_set/count.md)             | 指定したキーの要素数を取得 | C++11 |
+| [`contains`](unordered_set/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
 | [`equal_range`](unordered_set/equal_range.md) | 指定したキーの範囲を取得   | C++11 |
 
 
@@ -142,7 +145,7 @@ namespace std {
 | `key_type`             | キーの型。テンプレートパラメータ `Key`。 | C++11 |
 | `value_type`           | 要素の型。テンプレートパラメータ `Key`。 | C++11 |
 | `hasher`               | キーのハッシュ関数の型。テンプレートパラメータ `Hash`。 | C++11 |
-| `key_equal`            | キーが等値か否かを判断するための二項述語の型。テンプレートパラメータ `Pred`。 | C++11 |
+| `key_equal`            | キーが等値か否かを判断するための二項述語の型。<br/> C++11 : テンプレートパラメータ `Pred`。<br/> C++20 : `Hash::transparent_key_equal`が定義されていたらその別名、そうでなければテンプレートパラメータ`Pred`を使用する。`Hash::transparent_key_equal`が定義されている場合、`Hash::transparent_key_equal::is_transparent`が定義されていなければプログラムは不適格となる | C++11 |
 | `allocator_type`       | アロケータの型。テンプレートパラメータ `Allocator`。 | C++11 |
 | `pointer`              | 要素 `value_type`（`= Key`） へのポインタ。スマートポインタも可であるが、通常は `value_type*`。<br/>規格書では、`allocator_type::pointer` となっているが、これは規格書の誤りで、ドラフト [N3376](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3376.pdf) で既に `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer` に修正されている。<br/>（さもないと、必須である `allocator_type::value_type` のみを定義したユーザ定義のアロケータを使用することができないため） | C++11 |
 | `const_pointer`        | 要素 `value_type`（`= Key`） へのコンストポインタ。スマートポインタも可であるが、通常は `const value_type*`。<br/>規格書では、`allocator_type::const_pointer` となっているが、これは規格書の誤りで、ドラフト [N3376](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3376.pdf) で既に `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer` に修正されている。<br/>（さもないと、必須である `allocator_type::value_type` のみを定義したユーザ定義のアロケータを使用することができないため） | C++11 |
@@ -154,15 +157,40 @@ namespace std {
 | `const_iterator`       | 読み取り専用前方向イテレータ | C++11 |
 | `local_iterator`       | 同一バケット内のみで有効なイテレータ。<br/>規格書に記載はないが、（`iterator` と同様）`const_local_iterator` と同じ型か否かは実装依存であるものと思われる。<br/>`iterator` と、`iterator_category`、`value_type`、`difference_type`、`pointer`、`reference` は同一である。 | C++11 |
 | `const_local_iterator` | 同一バケット内のみで有効な読み取り専用イテレータ。<br/>`const_iterator` と、`iterator_category`、`value_type`、`difference_type`、`pointer`、`reference` は同一である。 | C++11 |
+| `node_type`            | [`node_handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。 | C++17 |
+| `insert_return_type`   | ノードを挿入した結果を記述するために使用されるクラス型。以下に示す`insert-return-type`テンプレートの特殊化である。ただし、これは説明用のクラスであり、実装定義である。| C++17 |
+
+```cpp
+template <class Iterator, class NodeType>
+struct insert-return-type {
+  Iterator position;
+  bool inserted;
+  NodeType node;
+};
+```
 
 
 ## 非メンバ関数
+### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](unordered_set/swap_free.md)          | 内容の交換 | C++11 |
 | [`operator==`](unordered_set/op_equal.md)     | 等値比較   | C++11 |
 | [`operator!=`](unordered_set/op_not_equal.md) | 非等値比較 | C++11 |
+
+
+### 入れ替え
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------
+| [`swap`](unordered_set/swap_free.md) | 内容の交換 | C++11 |
+
+
+### 要素削除
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`erase_if`](unordered_set/erase_if_free.md) | 指定した条件に合致する要素とその分の領域を、コンテナから削除する | C++20 |
 
 
 ## 推論補助
@@ -220,4 +248,5 @@ int main()
 
 ## 参照
 - [Unordered associative containers do not use allocator_traits to define member types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2050) （上記の `pointer`、`const_pointer`、`reference`、`const_reference` の問題に対する修正案）
+- [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
 

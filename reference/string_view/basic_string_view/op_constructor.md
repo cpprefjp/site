@@ -46,7 +46,7 @@ snprintf(buf, sizeof(buf), "abc");
 string_view str(buf);
 ```
 
-- ヌル文字を含む文字列リテラル全体から`basic_string_view`を構築したい場合は[`std::string_view_literals::svリテラル`](reference/string_view/basic_string_view/op_sv.html)を用いる。
+- ヌル文字を含む文字列リテラル全体から`basic_string_view`を構築したい場合は[`std::string_view_literals::svリテラル`](op_sv.html)を用いる。
 
 
 ## 例

@@ -1,15 +1,15 @@
 # sin
 * valarray[meta header]
 * std[meta namespace]
-* valarray[meta class]
 * function template[meta id-type]
 
 ```cpp
 namespace std {
   template <class T>
-  valarray<T> sin(const valarray<T>& va);
+  ValOrProxy<T> sin(const ValOrProxy<T>& va);
 }
 ```
+* ValOrProxy[italic]
 
 ## 概要
 正弦（サイン：sine）を得る。
@@ -23,6 +23,11 @@ return va.apply(static_cast<T(*)(T)>(std::sin));
 ```
 * apply[link apply.md]
 * std::sin[link /reference/cmath/sin.md]
+
+
+## 備考
+- 引数、および、戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
+	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 
 
 ## 例

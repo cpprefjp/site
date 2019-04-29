@@ -9,6 +9,10 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/iterator/iterators.png)
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<concepts>`](concepts.md) (C++20)
+
 ## イテレータの情報
 
 | 名前 | 説明 | 対応バージョン |
@@ -81,6 +85,7 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
-| [`size`](iterator/size.md)   | コンテナの要素数を返す (function)               | C++17          |
-| [`empty`](iterator/empty.md) | コンテナが空かどうかを返す (function)           | C++17          |
-| [`data`](iterator/data.md)   | コンテナの要素配列へのポインタを返す (function) | C++17          |
+| [`size`](iterator/size.md)   | コンテナの要素数を取得する (function)               | C++17          |
+| [`ssize`](iterator/ssize.md) | コンテナの要素数を、符号付き整数型で取得する (function) | C++20 |
+| [`empty`](iterator/empty.md) | コンテナが空かどうかを判定する (function)           | C++17          |
+| [`data`](iterator/data.md)   | コンテナの要素配列へのポインタを取得する (function) | C++17          |

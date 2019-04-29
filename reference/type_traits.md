@@ -68,6 +68,8 @@
 | [`is_aggregate`](type_traits/is_aggregate.md) | 型が集成体かを調べる (class template) | C++17 |
 | [`is_signed`](type_traits/is_signed.md)     | 型が符号付き算術型か調べる (class template) | C++11 |
 | [`is_unsigned`](type_traits/is_unsigned.md) | 型が符号無し算術型か調べる (class template) | C++11 |
+| [`is_bounded_array`](type_traits/is_bounded_array.md) | 型が要素数の判明している配列型かを調べる (class template) | C++20 |
+| [`is_unbounded_array`](type_traits/is_unbounded_array.md) | 型が要素数の不明な配列型かを調べる (class template) | C++20 |
 | [`is_constructible`](type_traits/is_constructible.md) | 型のコンストラクタ呼出しが適格か調べる (class template) | C++11 |
 | [`is_default_constructible`](type_traits/is_default_constructible.md) | 型がデフォルト構築可能か調べる (class template) | C++11 |
 | [`is_copy_constructible`](type_traits/is_copy_constructible.md) | 型がコピー構築可能か調べる (class template) | C++11 |
@@ -116,6 +118,7 @@
 | [`is_same`](type_traits/is_same.md)       | 二つの型が同じ型か調べる (class template) | C++11 |
 | [`is_base_of`](type_traits/is_base_of.md) | ある型が別の型の基底クラスか調べる (class template) | C++11 |
 | [`is_convertible`](type_traits/is_convertible.md) | ある型から別の型へ変換可能か調べる (class template) | C++11 |
+| [`is_nothrow_convertible`](type_traits/is_nothrow_convertible.md) | ある型から別の型へ、例外を投げずに変換可能か調べる (class template) | C++20 |
 
 
 ## const-volatile の変更
@@ -188,6 +191,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
+| [`type_identity`](type_traits/type_identity.md) | 受け取った型を返す (class template) | C++20 |
 | [`aligned_storage`](type_traits/aligned_storage.md) | アライメント調整された領域を作る (class template) | C++11 |
 | [`aligned_union`](type_traits/aligned_union.md) | アライメント調整された共用体領域を作る (class template) | C++11 |
 | [`remove_cvref`](type_traits/remove_cvref.md) | 型の`const-volatile`修飾と参照を除去する (class template) | C++20 |

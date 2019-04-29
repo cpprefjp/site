@@ -16,8 +16,15 @@
 
 このコンテナクラスは、双方向イテレータをサポートする。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<initializer_list>`](initializer_list.md) (C++11)
+
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|--------------------------------------------|-------|
 | [`set`](set/set.md)           | キーの重複を許可しない集合(class template) |  |
 | [`multiset`](set/multiset.md) | キーの重複を許可する集合(class template)   |  |
 
+
+## 参照
+- [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)

@@ -22,6 +22,8 @@ shared_ptr<const T> shared_from_this() const;
 ## 戻り値
 `this`ポインタを、`enable_shared_from_this`の派生クラス型`T`の[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトとして構築して返す。
 
+## 備考
+`enable_shared_from_this`の派生クラス型`T`のコンストラクタ内ではまだ`enable_shared_from_this`の管理する`weak_ptr`がセットされていないので、本関数によって`this`を指す`shared_ptr`を取得することはできない。
 
 ## 例
 ```cpp example

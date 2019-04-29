@@ -103,6 +103,7 @@ namespace std {
 | [`at`](map/at.md)                   | 指定したキーを持つ要素を取得する           | C++11 |
 | [`count`](map/count.md)             | 指定したキーにマッチする要素の数を取得する | |
 | [`find`](map/find.md)               | 指定したキーで要素を探す                   | |
+| [`contains`](map/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
 | [`equal_range`](map/equal_range.md) | 指定したキーにマッチする要素範囲を取得する | |
 | [`lower_bound`](map/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを取得する | |
 | [`upper_bound`](map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを取得する       | |
@@ -135,7 +136,7 @@ namespace std {
 | `const pointer`                         | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。                                                                                                                              |                |
 | `reverse_iterator`                      | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。                                                                                                                                                                                                                                     |                |
 | `const_reverse_iterator`                | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。                                                                                                                                                                                                                   |                |
-| `node_type`                             | [`node-handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。                                                                                                                                                                                                                   | C++17          |
+| `node_type`                             | [`node_handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。                                                                                                                                                                                                                   | C++17          |
 | `insert_return_type`                    | ノードを挿入した結果を記述するために使用されるクラス型。以下に示す`insert-return-type`テンプレートの特殊化である。ただし、これは説明用のクラスであり、実装定義である。| C++17          |
 
 ```cpp
@@ -148,6 +149,7 @@ struct insert-return-type {
 ```
 
 ## 非メンバ関数
+### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------------------|-------|
@@ -157,7 +159,20 @@ struct insert-return-type {
 | [`operator<=`](map/op_greater_equal.md) | 左辺が右辺より小さいか等しいかの判定を行う | |
 | [`operator>`](map/op_greater.md)        | 左辺が右辺より大きいかの判定を行う         | |
 | [`operator>=`](map/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
-| [`swap`](map/swap_free.md)              | 2つの`map`オブジェクトを入れ替える         | |
+
+
+### 入れ替え
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`swap`](map/swap_free.md) | 2つの`map`オブジェクトを入れ替える | |
+
+
+### 要素削除
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`erase_if`](map/erase_if_free.md) | 指定した条件に合致する要素とその分の領域を、コンテナから削除する | C++20 |
 
 
 ## 推論補助

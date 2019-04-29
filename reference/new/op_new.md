@@ -4,17 +4,33 @@
 * [meta namespace]
 
 ```cpp
-void* operator new(std::size_t size) throw(std::bad_alloc);             // (1) C++03 まで
-void* operator new(std::size_t size);                                   // (1) C++11 から
-void* operator new(std::size_t size, std::align_val_t alignment);       // (2) C++17 から
+void* operator new(std::size_t size) throw(std::bad_alloc);             // (1) C++03
+void* operator new(std::size_t size);                                   // (1) C++11
+[[nodiscard]] void* operator new(std::size_t size);                                   // (1) C++20
 
-void* operator new(std::size_t size, const std::nothrow_t&) throw();    // (3) C++03 まで
-void* operator new(std::size_t size, const std::nothrow_t&) noexcept;   // (3) C++11 から
-void* operator new(std::size_t size, std::align_val_t alignment,
-                   const std::nothrow_t&) noexcept;                     // (4) C++17 から
+void* operator new(std::size_t size,
+                   std::align_val_t alignment);                     // (2) C++17
+[[nodiscard]] void* operator new(std::size_t size,
+                                 std::align_val_t alignment);       // (2) C++20
 
-void* operator new(std::size_t size, void* ptr) throw();                // (5) C++03 まで
-void* operator new(std::size_t size, void* ptr) noexcept;               // (5) C++11 から
+void* operator new(std::size_t size,
+                   const std::nothrow_t&) throw();                  // (3) C++03
+void* operator new(std::size_t size,
+                   const std::nothrow_t&) noexcept;                 // (3) C++11
+[[nodiscard]] void* operator new(std::size_t size,
+                                 const std::nothrow_t&) noexcept;   // (3) C++20
+
+void* operator new(std::size_t size,
+                   std::align_val_t alignment,
+                   const std::nothrow_t&) noexcept;                 // (4) C++17
+[[nodiscard]]void* operator new(std::size_t size,
+                                std::align_val_t alignment,
+                                const std::nothrow_t&) noexcept;    // (4) C++17
+
+void* operator new(std::size_t size, void* ptr) throw();            // (5) C++03
+void* operator new(std::size_t size, void* ptr) noexcept;           // (5) C++11
+[[nodiscard]] void* operator new(std::size_t size,
+                                 void* ptr) noexcept;               // (5) C++20
 ```
 * std::bad_alloc[link bad_alloc.md]
 * std::nothrow_t[link nothrow_t.md]
@@ -137,3 +153,7 @@ int main()
 ### 出力
 ```
 ```
+
+
+## 参照
+- [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)

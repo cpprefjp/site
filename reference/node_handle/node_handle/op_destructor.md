@@ -1,0 +1,52 @@
+# デストラクタ
+* cpp17[meta cpp]
+* node_handle[meta header]
+* node_handle[meta class]
+* function template[meta id-type]
+* [meta namespace]
+
+```cpp
+~node_handle();
+```
+
+## 概要
+`node_handle`オブジェクトを破棄する。
+
+
+## 効果
+`ptr_！= nullptr` の場合、`std::allocator_traits<allocator_type>::destroy` を呼び出して `ptr_` が指す `container_node_type` オブジェクト内の `value_type` サブオブジェクトを破棄し、次に `std::allocator_traits<allocator_type>::template rebind_traits<container_node_type>::deallocate` を呼び出して `ptr_` の割り当てを解除する。
+
+
+## 戻り値
+なし
+
+
+## 例
+```cpp example
+#include <iostream>
+#include <set>
+
+int main()
+{
+  std::set<int>::node_type nh;
+} // 解放
+```
+
+### 出力
+```
+0
+```
+
+## バージョン
+### 言語
+- C++17
+
+### 処理系
+- [Clang](/implementation.md#clang): 7.0.0
+- [GCC](/implementation.md#gcc): 7.1.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 5
+
+
+## 参照
+- [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)

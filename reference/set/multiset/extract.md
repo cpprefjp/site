@@ -12,7 +12,7 @@ node_type extract(const key_type& x);       (2)
 
 ## 概要
 (1) `position`が指すノードを切り離し、その要素を所有する[ノードハンドル](/reference/node_handle/node_handle.md)を返す。  
-(2) `x`と等価なキーが見つかった場合、`x`が指す最初の要素を持つノードを切り離し、その要素を所有するノードハンドルを返す。それ以外の場合は空のノードハンドルを返す。 
+(2) `x`と等価なキーが見つかった場合、`x`が指す最初の要素を持つノードを切り離し、その要素を所有するノードハンドルを返す。それ以外の場合は空のノードハンドルを返す。
 
 
 ## 戻り値
@@ -88,7 +88,7 @@ int main()
   // ノードを取得
   std::multiset<int>::node_type node = s2.extract(1);
 
-  // 再確保なしに値を書き換る
+  // 再確保なしに値を書き換える
   node.value() = 15;
 
   // ノードを転送
@@ -105,7 +105,7 @@ int main()
 ```
 * extract[color ff0000]
 * node_type[link /reference/node_handle/node_handle.md]
-* value[link /reference/node_handle/node_handle/value.md.nolink]
+* value[link /reference/node_handle/node_handle/value.md]
 
 
 ### 出力

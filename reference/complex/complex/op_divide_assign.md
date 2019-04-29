@@ -5,10 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-complex<T>& operator/=(const T& rhs);			// (1)
+complex<T>& operator/=(const T& rhs);                    // (1) C++03
+constexpr complex<T>& operator/=(const T& rhs);          // (1) C++20
 
 template <class X>
-complex<T>& operator/=(const complex<X>& rhs);	// (2)
+complex<T>& operator/=(const complex<X>& rhs);           // (2) C++03
+template <class X>
+constexpr complex<T>& operator/=(const complex<X>& rhs); // (2) C++20
 ```
 
 ## 概要
@@ -68,3 +71,7 @@ c = (0.0879121,0.010989), d = (2,3)
 | [`operator-`](op_minus.md)            | 複素数の減算を行う。（非メンバ関数） |
 | [`operator*`](op_multiply.md)         | 複素数の乗算を行う。（非メンバ関数） |
 | [`operator/`](op_divide.md)           | 複素数の除算を行う。（非メンバ関数） |
+
+
+## 参照
+- [P0415R1 Constexpr for `std::complex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0415r1.html)

@@ -298,7 +298,8 @@ std::mt19937 create_random_engine()
   std::seed_seq seq(sed_v.begin(), sed_v.end());
   return std::mt19937(seq);
 }
-std::mt19937& random_engine() {
+std::mt19937& random_engine()
+{
   static thread_local std::mt19937 engine = create_random_engine();
   return engine;
 }

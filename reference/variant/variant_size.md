@@ -31,11 +31,11 @@ namespace std {
 要素数は、[`integral_constant`](/reference/type_traits/integral_constant.md)の機能を利用してコンパイル時の定数値として取得できる。
 
 - (1) : 先行宣言
-- (2) : `const`修飾付きの[`std::variant`](variant)型の、候補型の数を取得する
-- (3) : `volatile`修飾付きの[`std::variant`](variant)型の、候補型の数を取得する
-- (4) : `const volatile`修飾付きの[`std::variant`](variant)型の、候補型の数を取得する
+- (2) : `const`修飾付きの[`std::variant`](variant.md)型の、候補型の数を取得する
+- (3) : `volatile`修飾付きの[`std::variant`](variant.md)型の、候補型の数を取得する
+- (4) : `const volatile`修飾付きの[`std::variant`](variant.md)型の、候補型の数を取得する
 - (5) : 変数テンプレート版
-- (6) : 修飾なしの[`std::variant`](variant)型の、候補型の数を取得する
+- (6) : 修飾なしの[`std::variant`](variant.md)型の、候補型の数を取得する
 
 
 ## 例
