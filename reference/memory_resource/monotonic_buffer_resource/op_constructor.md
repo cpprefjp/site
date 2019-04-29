@@ -51,10 +51,15 @@ monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;           
 ## 効果
 
 - (1) : `upstream`を上流`memory_resource`として設定し、初期メモリ領域を空（`nullptr`）、次に補充するメモリサイズを実装定義の値に設定
+
 - (2) : `upstream`を上流`memory_resource`として設定し、初期メモリ領域を空（`nullptr`）、次に補充するメモリサイズを`initial_size`に設定
+
 - (3) : `upstream`を上流`memory_resource`として設定し、`buffer`を初期メモリ領域、`buffer_size`に実装定義の増加分を足した値（整数とは限らない）を次に補充するメモリサイズに設定
+
 - (4) : [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(1)に渡し移譲
+
 - (5) : `initial_size`と[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(2)に渡し移譲
+
 - (6) : `buffer`と`buffer_size`及び[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(3)に渡し移譲
 
 (4)(5)(6)のコンストラクタは上流メモリリソースとして[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を利用する。
@@ -94,7 +99,7 @@ int main()
 
   //(5) 初期サイズのみを指定して構築
   {
-    std::pmr::monotonic_buffer_resource mr{1024};
+    std::pmr::monotonic_buffer_resource mr{ 1024 };
   }
 
   //(6) 外部領域を初期メモリ領域として利用し構築
@@ -123,3 +128,8 @@ int main()
 ## 関連項目
 - [`pool_options`](pool_options.md)
 - [`memory_resource`](memory_resource/memory_resource.md)
+
+## 参照
+- [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
+- [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
+- [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)

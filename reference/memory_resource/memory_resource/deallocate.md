@@ -13,7 +13,7 @@ void deallocate(void* p, size_t bytes, size_t alignment = alignof(std::max_align
 [`allocate`](allocate.md)によって確保されたメモリを解放する。
 
 ## 要件
-呼び出す`do_allocate`の要件として  
+呼び出す`do_deallocate`の要件として  
 `p`の指すサイズ`bytes`のメモリ領域は、`*this`もしくは等しい`memory_resource`オブジェクト（`this->is_equal(other) == true`となるような`other`）の[`allocate`](allocate.md)`(bytes, alignment)`によって事前に確保された領域であること。  
 かつ、そのメモリ領域は未解放であること。
 
@@ -44,6 +44,9 @@ int main(){
   //一応アドレスを出力
   std::cout << p << std::endl;
   std::cout << p_int << std::endl;
+
+  //基本型以外では型に応じてこれが必要
+  //p_T->~T();
 
   //メモリの解放
   mr->deallocate(p, sizeof(int), alignof(int));

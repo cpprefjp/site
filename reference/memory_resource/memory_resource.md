@@ -60,67 +60,67 @@ struct stack_resource : public std::pmr::memory_resource {
   stack_resource(const stack_resource&) = delete;
   stack_resource& operator=(const stack_resource&) = delete;
 
-	void* do_allocate(size_t bytes, size_t alignment) override {
+  void* do_allocate(size_t bytes, size_t alignment) override {
     //空きがない
     if (N <= m_index) throw std::bad_alloc{};
 
-		//2のべき乗をチェック（AVX512のアライメント要求である64byteを最大としておく）
-		bool is_pow2 = false;
-		for (size_t pow2 = 1; pow2 <= size_t(64); pow2 *= 2) {
-			if (alignment == pow2) {
-				is_pow2 = true;
-				break;
-			}
-		}
+    //2のべき乗をチェック（AVX512のアライメント要求である64byteを最大としておく）
+    bool is_pow2 = false;
+    for (size_t pow2 = 1; pow2 <= size_t(64); pow2 *= 2) {
+      if (alignment == pow2) {
+        is_pow2 = true;
+        break;
+      }
+    }
 
-		//2のべきでないアライメント要求はalignof(std::max_align_t)へ
-		if (!is_pow2) {
-			alignment = alignof(std::max_align_t);
-		}
+    //2のべきでないアライメント要求はalignof(std::max_align_t)へ
+    if (!is_pow2) {
+      alignment = alignof(std::max_align_t);
+    }
 
-		auto addr = reinterpret_cast<uintptr_t>(&m_buffer[m_index]);
+    auto addr = reinterpret_cast<uintptr_t>(&m_buffer[m_index]);
 
-		//アライメント要求に合わせる
-		while ((addr & uintptr_t(alignment - 1)) != 0) {
-			++addr;
-			++m_index;
-		}
+    //アライメント要求に合わせる
+    while ((addr & uintptr_t(alignment - 1)) != 0) {
+      ++addr;
+      ++m_index;
+    }
 
-		m_index += bytes;
+    m_index += bytes;
 
-		//サイズが足りなくなったら
-		if (N <= m_index) throw std::bad_alloc{};
+    //サイズが足りなくなったら
+    if (N <= m_index) throw std::bad_alloc{};
 
-		return reinterpret_cast<void*>(addr);
-	}
+    return reinterpret_cast<void*>(addr);
+  }
 
-	void do_deallocate(void* p, size_t bytes, size_t alignment) override {
-		auto addr = static_cast<std::byte*>(p);
-		auto end = std::end(m_buffer);
+  void do_deallocate(void* p, size_t bytes, [[maybe_unused]] size_t alignment) override {
+    auto addr = static_cast<std::byte*>(p);
+    auto end = std::end(m_buffer);
 
-		if (m_buffer <= addr && addr < end) {
-			//当てた領域をゼロ埋めするだけ
-			for (int i = 0; i < bytes; ++i) {
-				if ((addr + i) < end) {
-					addr[i] = std::byte(0);
-				}
-			}
-		}
+    if (m_buffer <= addr && addr < end) {
+      //当てた領域をゼロ埋めするだけ
+      for (size_t i = 0; i < bytes; ++i) {
+        if ((addr + i) < end) {
+          addr[i] = std::byte(0);
+        }
+      }
+    }
 
-	}
+  }
 
-	bool do_is_equal(const memory_resource& other) const noexcept override {
-		return this == &other;
-	}
+  bool do_is_equal(const memory_resource& other) const noexcept override {
+    return this == &other;
+  }
 
 private:
-	std::byte m_buffer[N]{};
-	size_t m_index{};
+  std::byte m_buffer[N]{};
+  size_t m_index{};
 };
 
 int main(){
-	stack_resource<100> s{};
-	std::pmr::memory_resource* mr = &s;
+  stack_resource<100> s{};
+  std::pmr::memory_resource* mr = &s;
 
   //int1つ分の領域をintのアライメント要求（多くの環境で共に4バイト）でメモリ確保
   void* p = mr->allocate(sizeof(int), alignof(int));
@@ -132,12 +132,15 @@ int main(){
   std::cout << p << std::endl;
   std::cout << p_int << std::endl;
 
+  //基本型以外では型に応じてこれが必要
+  //p_T->~T();
+
   //メモリの解放
   mr->deallocate(p, sizeof(int), alignof(int));
 
   std::cout << std::boolalpha;
-
-	stack_resource<10> s2{};
+  
+  stack_resource<10> s2{};
   //自分以外とはtrueにならない
   std::cout << (*mr == s) << std::endl;
   std::cout << (*mr == s2) << std::endl;

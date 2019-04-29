@@ -26,14 +26,15 @@ namespace std::pmr {
 int main()
 {
   auto mr = std::pmr::monotonic_buffer_resource{};
-	std::pmr::polymorphic_allocator<int> alloc{ &mr };
-	std::pmr::polymorphic_allocator<int> alloc2{};
-	std::pmr::polymorphic_allocator<double> alloc3{ &mr };
+  std::pmr::polymorphic_allocator<int> alloc{ &mr };
+  std::pmr::polymorphic_allocator<int> alloc2{};
+  std::pmr::polymorphic_allocator<double> alloc3{ &mr };
 
-	std::cout << std::boolalpha;
-	std::cout << (alloc != alloc2) << std::endl;
-	std::cout << (alloc != alloc) << std::endl;
-	std::cout << (alloc != alloc3) << std::endl;
+  std::cout << std::boolalpha;
+  std::cout << (alloc != alloc2) << std::endl;
+  std::cout << (alloc != alloc) << std::endl;
+  //同じmemory_resourceを利用していればfalse
+  std::cout << (alloc != alloc3) << std::endl;
 }
 ```
 * !=[color ff0000]

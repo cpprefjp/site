@@ -35,10 +35,10 @@ namespace std::pmr {
 int main()
 {
   auto* mr = std::pmr::get_default_resource();
-	std::pmr::polymorphic_allocator<int> alloc(mr);
+  std::pmr::polymorphic_allocator<int> alloc(mr);
 
-	std::cout << std::boolalpha;
-	std::cout << (mr == std::pmr::new_delete_resource()) << std::endl;
+  std::cout << std::boolalpha;
+  std::cout << (mr == std::pmr::new_delete_resource()) << std::endl;
 }
 ```
 * get_default_resource[color ff0000]

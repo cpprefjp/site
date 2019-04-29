@@ -36,7 +36,7 @@ namespace std::pmr {
 
 ## 備考
 この関数は受け取る`memory_resource`の所有権を保持しない。
-そのため、セットする`memory_resource`オブジェクトの寿命には注意する。
+そのため、セットする`memory_resource`オブジェクトの寿命には注意する必要がある。
 
 ## 例
 ```cpp example
@@ -47,15 +47,15 @@ int main()
 {
   auto* mr = std::pmr::get_default_resource();
 
-	std::cout << std::boolalpha;
-	std::cout << (mr == std::pmr::new_delete_resource()) << std::endl;
+  std::cout << std::boolalpha;
+  std::cout << (mr == std::pmr::new_delete_resource()) << std::endl;
 
   //monotonic_buffer_resourceをセット
-	std::pmr::monotonic_buffer_resource mono_mr{};
-	auto* befor_mr = std::pmr::set_default_resource(&mono_mr);
+  std::pmr::monotonic_buffer_resource mono_mr{};
+  auto* befor_mr = std::pmr::set_default_resource(&mono_mr);
 
-	std::cout << (mr == std::pmr::get_default_resource()) << std::endl;
-	std::cout << (mr == befor_mr) << std::endl;
+  std::cout << (mr == std::pmr::get_default_resource()) << std::endl;
+  std::cout << (mr == befor_mr) << std::endl;
 }
 ```
 * set_default_resource[color ff0000]

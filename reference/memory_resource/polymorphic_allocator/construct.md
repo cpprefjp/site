@@ -146,7 +146,7 @@ int main()
 
   //メモリの確保
   int* array = alloc.allocate(4);
-	
+
   //要素を構築
   for (int i = 0; i < 4; ++i) {
     alloc.construct(array + i, i);
@@ -194,24 +194,24 @@ int main()
 
   std::cout << std::boolalpha;
   std::cout << "(2)" << std::endl;
-    
+
   //(2)
   {
     pair* p = alloc.allocate(1);
 
     alloc.construct(p, std::piecewise_construct
         , std::make_tuple(128)         //intを128で初期化
-		    , std::make_tuple("string", 3) //string("string", 3)で初期化（最初の3文字を保持する）
-	);
-        
+        , std::make_tuple("string", 3) //string("string", 3)で初期化（最初の3文字を保持する）
+    );
+
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
     //アロケータが伝搬している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
-    
+
   std::cout << "\n(3)" << std::endl;
-    
+
   //(3)
   {
     pair* p = alloc.allocate(1);
@@ -223,7 +223,7 @@ int main()
     //アロケータが伝搬している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
-    
+
   std::cout << "\n(4)" << std::endl;
     
   //(4)
@@ -307,8 +307,13 @@ true
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
-    - 2017, 2019共に(1)以外のオーバーロードを提供していない（ただし、(1)が全てを兼ねるC++20の実装がなされている）
+        - 2017, 2019共に(1)以外のオーバーロードを提供していない（ただし、(1)が全てを兼ねるC++20の実装がなされている）
 
 ## 関連項目
 - [`construct`](/reference/memory/allocator_traits/construct.md)
 - [`uses_allocator`](/reference/memory/uses_allocator.md)
+
+## 参照
+- [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
+- [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
+- [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
