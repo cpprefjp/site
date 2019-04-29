@@ -15,7 +15,7 @@ void do_deallocate(void* p, size_t bytes, size_t alignment) override;
 ## 効果
 何もしない。
 
-このクラスの管理メモリを解放するには、デストラクタか[`release`](monotonic_buffer_resource/release.md) を呼ぶ必要がある。
+このクラスの管理メモリを解放するには、デストラクタか[`release`](release.md) を呼ぶ必要がある。
 
 ## 例外
 投げない。
@@ -30,7 +30,7 @@ void do_deallocate(void* p, size_t bytes, size_t alignment) override;
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
-- [`release`](monotonic_buffer_resource/release.md)
+- [`release`](release.md)
 - [`memory_resource`](/reference/memory_resource/memory_resource.md)
 
 ## 参照

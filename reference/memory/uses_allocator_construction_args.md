@@ -243,7 +243,7 @@ tuple(piecewise_construct_t, tuple(allocator_arg_t, MyAlloc, 3, ), tuple(4, MyAl
 - [`uninitialized_construct_using_allocator`](uninitialized_construct_using_allocator.md)
 - [`uses_allocator`](uses_allocator.md)
 - [`scoped_allocator_adaptor`](../scoped_allocator/scoped_allocator_adaptor.md)
-- [`polymorphic_allocator`](../memory_resource/polymorphic_allocator.md.nolink)
+- [`polymorphic_allocator`](../memory_resource/polymorphic_allocator.md)
 - [`pair`](../utility/pair.md)
 
 

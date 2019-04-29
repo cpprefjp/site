@@ -12,7 +12,7 @@ namespace std::pmr {
 
 
 ## 概要
-`monotonic_buffer_resource`はオブジェクトの破棄時にのみ管理しているメモリを全て開放すような [`memory_resource`](memory_resource/memory_resource.md)実装である。  
+`monotonic_buffer_resource`はオブジェクトの破棄時にのみ管理しているメモリを全て開放すような [`memory_resource`](memory_resource.md)実装である。  
 少数のオブジェクトを構築するために割り当てを行い`monotonic_buffer_resource`そのものの破棄時にまとめて開放するような、特殊な状況において高速なメモリ割り当てを行うことを目的としている。
 
 このクラスはスレッドセーフではない。
@@ -76,7 +76,7 @@ namespace std::pmr {
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
-- [`memory_resource`](memory_resource/memory_resource.md)
+- [`memory_resource`](memory_resource.md)
 - [`pool_resource`](pool_resource.md)
 
 

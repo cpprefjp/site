@@ -22,7 +22,7 @@ namespace std::pmr {
 ## 戻り値
 現在設定されているデフォルトの`memory_resource`のポインタ。
 
-`set_default_resource`によって何も設定されていない場合、[`new_delete_resource()`](memory_resource/new_delete_resource.md)を返す。
+`set_default_resource`によって何も設定されていない場合、[`new_delete_resource()`](new_delete_resource.md)を返す。
 
 ## 例外
 投げない。

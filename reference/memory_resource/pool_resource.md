@@ -12,7 +12,7 @@ namespace std::pmr {
 ```
 
 ## 概要
-`pool_resource`は幾つかのブロックサイズ毎のメモリプールを管理し、要求サイズ毎に最適なプールからメモリを割り当てる[`memory_resource`](memory_resource/memory_resource.md)実装である。  
+`pool_resource`は幾つかのブロックサイズ毎のメモリプールを管理し、要求サイズ毎に最適なプールからメモリを割り当てる[`memory_resource`](memory_resource.md)実装である。  
 メモリ割り当て要求に内部のメモリプールから応えられない場合（最大のブロックサイズを超える要求があった場合）は、上流のメモリリソースからメモリを割り当てる。ほとんどの場合、上流メモリリソースへの割り当て要求は内部プールへの割り当て要求よりも少ない。
 
 以下2つの`pool_resource`が提供される。
@@ -104,7 +104,7 @@ namespace std::pmr {
 
 ## 関連項目
 - [`pool_options`](pool_options.md)
-- [`memory_resource`](memory_resource/memory_resource.md)
+- [`memory_resource`](memory_resource.md)
 
 
 ## 参照

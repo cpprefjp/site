@@ -240,7 +240,7 @@ int main()
 - [`make_obj_using_allocator`](/reference/memory/make_obj_using_allocator.md)
 - [`uninitialized_construct_using_allocator`](/reference/memory/uninitialized_construct_using_allocator.md)
 - [`uses_allocator`](/reference/memory/uses_allocator.md)
-- [`polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md.nolink)
+- [`polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md)
 - [`pair`](/reference/utility/pair.md)
 
 

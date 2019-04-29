@@ -46,7 +46,7 @@ int main() {
 }
 ```
 * options[color ff0000]
-* synchronized_pool_resource[link /reference/memory_resource/synchronized_pool_resource.md]
+* synchronized_pool_resource[link /reference/memory_resource/pool_resource.md]
 
 ### 出力例（MSVC 2019 Preview2）
 ```

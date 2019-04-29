@@ -29,7 +29,7 @@ namespace std {
 
 ## 備考
 - 本型トレイツは、主にスコープアロケータモデルを採用するアロケータで使用されることを意図している。  
-	標準ライブラリでは、[`scoped_allocator_adaptor`](/reference/scoped_allocator/scoped_allocator_adaptor.md)、[`polymorphic_allocator`](../memory_resource/polymorphic_allocator.md.nolink) クラステンプレートで使用されている。
+	標準ライブラリでは、[`scoped_allocator_adaptor`](/reference/scoped_allocator/scoped_allocator_adaptor.md)、[`polymorphic_allocator`](../memory_resource/polymorphic_allocator.md) クラステンプレートで使用されている。
 - 標準ライブラリで提供されるいくつかの型は本型トレイツの特殊化を提供している。（[`tuple`](../tuple/tuple.md)、[`promise`](../future/promise.md)、各種コンテナアダプタ等）  
 - [`pair`](../utility/pair.md) は [`tuple`](../tuple/tuple.md) と同列の機能と考えられるが、uses-allocator 構築をサポートしていない。このため、標準ライブラリで提供されるスコープアロケータモデルを採用したアロケータでは独自に [`pair`](../utility/pair.md) の各要素に対して uses-allocator 構築を適用している。  
 	スコープアロケータモデルを採用したアロケータを自作する場合には、同様の対応を行う方が良いだろう。  
@@ -80,7 +80,7 @@ int main()
 
 ## 関連項目
 - [`scoped_allocator_adaptor`](../scoped_allocator/scoped_allocator_adaptor.md)
-- [`polymorphic_allocator`](../memory_resource/polymorphic_allocator.md.nolink)
+- [`polymorphic_allocator`](../memory_resource/polymorphic_allocator.md)
 - [`tuple`](../tuple/tuple.md)
 - [`promise`](../future/promise.md)
 - [`uses_allocator_construction_args`](uses_allocator_construction_args.md)

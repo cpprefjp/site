@@ -159,7 +159,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 - コンテナのコピー・ムーブ、`swap`操作に`noexcept`を追加
 - コンテナの要素情報にアクセスする非メンバ関数として、[`<iterator>`](/reference/iterator.md)に [`size()`](/reference/iterator/size.md), [`empty()`](/reference/iterator/empty.md), [`data()`](/reference/iterator/data.md)関数を追加
 - コンテナに不完全型の最小サポートを追加。[`vector`](/reference/vector.md), [`list`](/reference/list/list.md), [`forward_list`](/reference/forward_list/forward_list.md)の要素型に、不完全型の指定を許可。ただし、これらのコンテナのなんらかのメンバ関数を呼び出す前には、要素型が完全型になっていること
-- 多相アロケータとメモリプール。[`<memory_resource>`](/reference/memory_resource.md.nolink)が新設され、アロケートする型を規定しないアロケータと、それを利用したメモリプールの仕組みが導入される
+- 多相アロケータとメモリプール。[`<memory_resource>`](/reference/memory_resource.md)が新設され、アロケートする型を規定しないアロケータと、それを利用したメモリプールの仕組みが導入される
 - 標準イテレータ全般と[`array`](/reference/array/array.md)の変更操作に`constexpr`を追加
 - `emplace_front()`と`emplace_back()`メンバ関数で、追加された要素を返すようにする
 - 連想コンテナの接合機能を追加。ほかのコンテナに要素を移すために抽出する`extract()`メンバ関数、抽出された要素をほかのコンテナに移すための`insert()`メンバ関数のオーバーロード、2つの連想コンテナをまるごと接合する`merge()`メンバ関数を追加

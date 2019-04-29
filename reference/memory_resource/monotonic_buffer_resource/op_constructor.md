@@ -126,8 +126,8 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
-- [`pool_options`](pool_options.md)
-- [`memory_resource`](memory_resource/memory_resource.md)
+- [`pool_options`](../pool_options.md)
+- [`memory_resource`](../memory_resource.md)
 
 ## 参照
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
