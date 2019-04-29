@@ -84,10 +84,10 @@ namespace std::pmr {
 | [`operator==`](memory_resource/op_equal.md) | 等値比較 | C++17 |
 | [`operator!=`](memory_resource/op_not_equal.md) | 非等値比較 | C++17 |
 
-## `unsynchronized_pool_resource`の処理系毎の実装
+## `synchronized_pool_resource`の処理系毎の実装
 
 ### MSVC 2017, 2019
-`synchronized_pool_resource`を継承し、アクセスを[`mutex`](/reference/mutex/mutex.md)で同期させている。  
+`unsynchronized_pool_resource`を継承し、アクセスを[`mutex`](/reference/mutex/mutex.md)で同期させている。  
 スレッド毎にプールを持たない。
 
 ### GCC 9.1
