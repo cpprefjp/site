@@ -15,7 +15,7 @@ static constexpr bool is_bounded;
 ## 概要
 型`T`の値のなす集合が有限かを判定する。  
 浮動小数点数は値として無限大を持つことがあるが、値の種類は有限個なので `is_bounded` は `true` である。  
-基本型(fundamental types)は全て有限である。
+単純型(fundamental types)は全て有限である。
 
 
 ## 例
