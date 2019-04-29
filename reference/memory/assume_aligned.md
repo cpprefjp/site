@@ -121,9 +121,10 @@ data[ 3 ] = 9
 この例2ではソースコードの後に通常の「出力」に代えて、 `assume_aligned` の効果を確認するため「逆アセンブル」の一部を示す。
 
 ```cpp example
-#include <iostream>
-#include <numeric>
+#include <memory>
 #include <xmmintrin.h>
+#include <numeric>
+#include <iostream>
 
 //#define MEMORY_ALLOCATE_ABNORMAL_ALIGNMENT
 //#define ASSUME_ALIGN_CPP20
