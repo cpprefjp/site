@@ -72,7 +72,7 @@ int main()
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
-        - 2017, 2019共にこの関数の実装だけが抜けている
+    - 2017, 2019共にこの関数の実装だけが抜けている
 
 ## 関連項目
 - [`destroy`](/reference/memory/allocator_traits/destroy.md)
