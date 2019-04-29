@@ -151,12 +151,12 @@ int main()
   constexpr auto N = 256;
 
 #ifdef MEMORY_ALLOCATE_ABNORMAL_ALIGNMENT
-  // A アラインで float 要素を N + 1 個の配列を確保するが、
+  // SSE_ALIGNMENT アライメントで float 要素を N + 1 個の配列を確保するが、
   // わざと 1-byte だけアドレスをずらした実験用の data 領域を定義
   alignas( SSE_ALIGNMENT ) f32x4 memory_pool[ N + 1 ];
   f32x4* packs =  (f32x4*)( (char*)&memory_pool[ 0 ] + 1 );
 #else
-  // 素直に A アラインで float 要素を N 個の配列を定義
+  // 素直に SSE_ALIGNMENT アライメントで float 要素を N 個の配列を定義
   alignas( SSE_ALIGNMENT ) f32x4 packs[ N ];
 #endif
   
