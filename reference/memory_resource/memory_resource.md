@@ -64,7 +64,7 @@ struct stack_resource : public std::pmr::memory_resource {
     //空きがない
     if (N <= m_index) throw std::bad_alloc{};
 
-    //2のべき乗をチェック（AVX512のアライメント要求である64byteを最大としておく）
+    //2の累乗をチェック（AVX512のアライメント要求である64byteを最大としておく）
     bool is_pow2 = false;
     for (size_t pow2 = 1; pow2 <= size_t(64); pow2 *= 2) {
       if (alignment == pow2) {

@@ -12,8 +12,8 @@ virtual void* do_allocate(std::size_t bytes, std::size_t alignment) = 0;
 ## 概要
 派生クラスでオーバライドし、メモリを確保する処理を実装する。
 
-## 要件
-`alignment`は2のべき乗であること
+## 事前条件
+`alignment`は2の累乗であること
 
 ## 引数
 

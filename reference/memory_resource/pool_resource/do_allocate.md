@@ -14,8 +14,8 @@ void* do_allocate(std::size_t bytes, std::size_t alignment) override;
 
 割り当てられた領域のサイズと配置・要件等は[`memory_resource::do_allocate()`](/reference/memory_resource/memory_resource/do_allocate.md)に従う。
 
-## 要件
-`alignment`は2のべき乗であること
+## 事前条件
+`alignment`は2の累乗であること
 
 ## 引数
 

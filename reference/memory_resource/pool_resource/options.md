@@ -17,7 +17,7 @@ pool_options options() const;
 内部のメモリプールを調整している値を保持した[`pool_options`](/reference/memory_resource/pool_options.md)。
 
 返される値はコンストラクタで設定した値と異なる可能性がある。  
-ゼロの値は実装定義のデフォルト値に置き換えられて返され、各サイズ指定は指定していない端数を持つ可能性がある（例えば、2のべき乗等）。
+ゼロの値は実装定義のデフォルト値に置き換えられて返され、各サイズ指定は指定していない端数を持つ可能性がある（例えば、2の累乗等）。
 
 ## 例
 以下では`synchronized_pool_resource`で書いてあるが、`unsynchronized_pool_resource`も同様。

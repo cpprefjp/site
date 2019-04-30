@@ -12,9 +12,9 @@ void* allocate(std::size_t bytes, std::size_t alignment = alignof(std::max_align
 ## 概要
 メモリを確保する。
 
-## 要件
+## 事前条件
 呼び出す`do_allocate`の要件として  
-`alignment`は2のべき乗であること。
+`alignment`は2の累乗であること。
 
 ## 引数
 - `bytes` -- 確保したい領域のサイズ
