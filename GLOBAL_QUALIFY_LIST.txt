@@ -80,6 +80,7 @@
     * std::allocator[link /reference/memory/allocator.md]
     * std::shared_ptr[link /reference/memory/shared_ptr.md]
     * std::unique_ptr[link /reference/memory/unique_ptr.md]
+* <memory_resource>[link /reference/memory_resource.md]
 * <mutex>[link /reference/mutex.md]
     * std::lock_guard[link /reference/mutex/lock_guard.md]
     * std::unique_lock[link /reference/mutex/unique_lock.md]
