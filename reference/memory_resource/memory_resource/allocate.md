@@ -6,9 +6,13 @@
 * cpp17[meta cpp]
 
 ```cpp
-void* allocate(std::size_t bytes, std::size_t alignment = alignof(std::max_align_t));
+void* allocate(size_t bytes, size_t alignment = alignof(max_align_t)); // (1) C++17
+
+[[nodiscard]]
+void* allocate(size_t bytes, size_t alignment = alignof(max_align_t)); // (1) C++20
 ```
-* std::max_align_t[link /reference/cstddef/max_align_t.md]
+* size_t[link /reference/cstddef/size_t.md]
+* max_align_t[link /reference/cstddef/max_align_t.md]
 
 ## 概要
 メモリを確保する。
@@ -79,3 +83,4 @@ int main(){
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
+- [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
