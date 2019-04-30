@@ -8,6 +8,7 @@
 ```cpp
 pool_options options() const;
 ```
+* pool_options[link /reference/memory_resource/pool_options.md]
 
 ## 概要
 内部のメモリプールの設定を取得する。

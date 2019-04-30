@@ -25,6 +25,9 @@ void construct(pair<T1,T2>* p, const pair<U, V>& pr);   //(5)
 template <class T1, class T2, class U, class V>
 void construct(pair<T1,T2>* p, pair<U, V>&& pr);        //(6)
 ```
+* pair[link /reference/utility/pair.md]
+* tuple[link /reference/tuple/tuple.md]
+* piecewise_construct_t[link /reference/utility/piecewise_construct_t.md]
 
 ## 概要
 指定された`p`のメモリ領域に`T`のオブジェクトを構築する。

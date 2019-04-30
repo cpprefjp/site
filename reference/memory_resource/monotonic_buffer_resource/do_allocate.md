@@ -6,7 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-void* do_allocate(size_t bytes, size_t alignment) override;
+void* do_allocate(std::size_t bytes, std::size_t alignment) override;
 ```
 
 ## 概要

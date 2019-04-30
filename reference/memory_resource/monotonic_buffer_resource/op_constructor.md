@@ -24,6 +24,7 @@ monotonic_buffer_resource(void *buffer, size_t buffer_size)
 
 monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;               //(7)
 ```
+* size_t[link /reference/cstddef/size_t.md]
 
 ## 概要
 

@@ -6,7 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-void deallocate(Tp* p, size_t n);
+void deallocate(Tp* p, std::size_t n);
 ```
 
 ## 概要

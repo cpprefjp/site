@@ -19,6 +19,8 @@ explicit pool_resource(const pool_options& opts)
 
 pool_resource(const pool_resource&) = delete;                        //(5)
 ```
+* pool_options[link /reference/memory_resource/pool_options.md]
+* get_default_resource()[link /reference/memory_resource/get_default_resource.md]
 
 ## 概要
 

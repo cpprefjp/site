@@ -6,7 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-void do_deallocate(void* p, size_t bytes, size_t alignment) override;
+void do_deallocate(void* p, std::size_t bytes, std::size_t alignment) override;
 ```
 
 ## 概要
@@ -15,7 +15,7 @@ void do_deallocate(void* p, size_t bytes, size_t alignment) override;
 ## 効果
 何もしない。
 
-このクラスの管理メモリを解放するには、デストラクタか[`release`](release.md) を呼ぶ必要がある。
+このクラスの管理メモリを解放するには、デストラクタか[`release()`](release.md) を呼ぶ必要がある。
 
 ## 例外
 投げない。

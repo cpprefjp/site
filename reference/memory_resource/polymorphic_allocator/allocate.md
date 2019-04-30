@@ -6,7 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-Tp* allocate(size_t n);
+Tp* allocate(std::size_t n);
 ```
 
 ## 概要

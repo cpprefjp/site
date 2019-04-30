@@ -7,8 +7,8 @@
 ```cpp
 namespace std::pmr {
   struct pool_options {
-    size_t max_blocks_per_chunk = 0;
-    size_t largest_required_pool_block = 0;
+    std::size_t max_blocks_per_chunk = 0;
+    std::size_t largest_required_pool_block = 0;
   };
 }
 ```

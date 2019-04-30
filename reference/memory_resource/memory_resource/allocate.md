@@ -6,7 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-void* allocate(size_t bytes, size_t alignment = alignof(std::max_align_t));
+void* allocate(std::size_t bytes, std::size_t alignment = alignof(std::max_align_t));
 ```
 
 ## 概要

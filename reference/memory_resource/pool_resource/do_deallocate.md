@@ -6,7 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-void do_deallocate(void* p, size_t bytes, size_t alignment) override;
+void do_deallocate(void* p, std::size_t bytes, std::size_t alignment) override;
 ```
 
 ## 概要
