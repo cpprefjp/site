@@ -52,7 +52,7 @@ namespace std::pmr {
 #include <cstddef>
 
 //スタック領域からメモリを割り当てるmemory_resource実装
-template<size_t N>
+template<std::size_t N>
 struct stack_resource : public std::pmr::memory_resource {
 
   stack_resource() = default;
@@ -60,7 +60,7 @@ struct stack_resource : public std::pmr::memory_resource {
   stack_resource(const stack_resource&) = delete;
   stack_resource& operator=(const stack_resource&) = delete;
 
-  void* do_allocate(size_t bytes, size_t alignment) override {
+  void* do_allocate(std::size_t bytes, std::size_t alignment) override {
     //空きがない
     if (N <= m_index) throw std::bad_alloc{};
 
@@ -73,15 +73,15 @@ struct stack_resource : public std::pmr::memory_resource {
       }
     }
 
-    //2のべきでないアライメント要求はalignof(std::max_align_t)へ
+    //2の累乗でないアライメント要求はalignof(std::max_align_t)へ
     if (!is_pow2) {
       alignment = alignof(std::max_align_t);
     }
 
-    auto addr = reinterpret_cast<uintptr_t>(&m_buffer[m_index]);
+    auto addr = reinterpret_cast<std::uintptr_t>(&m_buffer[m_index]);
 
     //アライメント要求に合わせる
-    while ((addr & uintptr_t(alignment - 1)) != 0) {
+    while ((addr & std::uintptr_t(alignment - 1)) != 0) {
       ++addr;
       ++m_index;
     }
@@ -94,13 +94,13 @@ struct stack_resource : public std::pmr::memory_resource {
     return reinterpret_cast<void*>(addr);
   }
 
-  void do_deallocate(void* p, size_t bytes, [[maybe_unused]] size_t alignment) override {
+  void do_deallocate(void* p, std::size_t bytes, [[maybe_unused]] std::size_t alignment) override {
     auto addr = static_cast<std::byte*>(p);
     auto end = std::end(m_buffer);
 
     if (m_buffer <= addr && addr < end) {
       //当てた領域をゼロ埋めするだけ
-      for (size_t i = 0; i < bytes; ++i) {
+      for (std::size_t i = 0; i < bytes; ++i) {
         if ((addr + i) < end) {
           addr[i] = std::byte(0);
         }
@@ -115,7 +115,7 @@ struct stack_resource : public std::pmr::memory_resource {
 
 private:
   std::byte m_buffer[N]{};
-  size_t m_index{};
+  std::size_t m_index{};
 };
 
 int main(){
@@ -146,9 +146,13 @@ int main(){
   std::cout << (*mr == s2) << std::endl;
 }
 ```
+* std::pmr::memory_resource[color ff0000]
 * std::byte[link /reference/cstddef/byte.md]
 * std::allocate[link /reference/memory_resource/memory_resource/allocate.md]
 * std::deallocate[link /reference/memory_resource/memory_resource/deallocate.md]
+* std::bad_alloc[link /reference/new/bad_alloc.md]
+* std::max_align_t[link /reference/cstddef/max_align_t.md]
+* std::uintptr_t[link /reference/cstdint/uintptr_t.md]
 
 ### 出力例（VS2019 Preview2）
 ```
