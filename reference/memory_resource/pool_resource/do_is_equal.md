@@ -16,12 +16,7 @@ bool do_is_equal(const memory_resource& other) const noexcept override;
 `other` -- 任意の`memory_resource`オブジェクト
 
 ## 戻り値
-
-- `synchronized_pool_resource`の場合  
-`return this == dynamic_cast<const synchronized_pool_resource*>(&other);`
-
-- `unsynchronized_pool_resource`の場合  
-`return this == dynamic_cast<const unsynchronized_pool_resource*>(&other);`
+`return this == &other;`
 
 ## 例外
 投げない。
@@ -42,3 +37,4 @@ bool do_is_equal(const memory_resource& other) const noexcept override;
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
+- [LWG Issue 3000. `monotonic_memory_resource::do_is_equal` uses `dynamic_cast` unnecessarily](https://wg21.cmeerw.net/lwg/issue3000)
