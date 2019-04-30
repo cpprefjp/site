@@ -6,8 +6,9 @@
 * cpp17[meta cpp]
 
 ```cpp
-void deallocate(void* p, size_t bytes, size_t alignment = alignof(std::max_align_t));
+void deallocate(void* p, std::size_t bytes, std::size_t alignment = alignof(std::max_align_t));
 ```
+* std::max_align_t[link /reference/cstddef/max_align_t.md]
 
 ## 概要
 [`allocate`](allocate.md)によって確保されたメモリを解放する。

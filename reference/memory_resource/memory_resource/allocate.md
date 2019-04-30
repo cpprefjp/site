@@ -8,6 +8,7 @@
 ```cpp
 void* allocate(std::size_t bytes, std::size_t alignment = alignof(std::max_align_t));
 ```
+* std::max_align_t[link /reference/cstddef/max_align_t.md]
 
 ## 概要
 メモリを確保する。
