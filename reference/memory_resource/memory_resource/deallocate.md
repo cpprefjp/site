@@ -46,8 +46,8 @@ int main(){
   std::cout << p << std::endl;
   std::cout << p_int << std::endl;
 
-  //基本型以外では型に応じてこれが必要
-  //p_T->~T();
+  //デストラクタを呼び出してオブジェクトを破棄
+  std::destroy_at(p_int);
 
   //メモリの解放
   mr->deallocate(p, sizeof(int), alignof(int));
