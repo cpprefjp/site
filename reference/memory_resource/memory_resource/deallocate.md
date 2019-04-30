@@ -24,7 +24,7 @@ void deallocate(void* p, std::size_t bytes, std::size_t alignment = alignof(std:
 - `alignment` -- `p`の確保時アライメント要求
 
 ## 効果
-`return this->deallocate(p, bytes, alignment);` と等価。
+`return this->do_deallocate(p, bytes, alignment);` と等価。
 
 ## 例外
 投げない
