@@ -132,8 +132,8 @@ int main(){
   std::cout << p << std::endl;
   std::cout << p_int << std::endl;
 
-  //基本型以外では型に応じてこれが必要
-  //p_T->~T();
+  //デストラクタを呼び出してオブジェクトを破棄
+  std::destroy_at(p_int);
 
   //メモリの解放
   mr->deallocate(p, sizeof(int), alignof(int));
@@ -153,6 +153,7 @@ int main(){
 * std::bad_alloc[link /reference/new/bad_alloc.md]
 * std::max_align_t[link /reference/cstddef/max_align_t.md]
 * std::uintptr_t[link /reference/cstdint/uintptr_t.md]
+* std::destroy_at[link /reference/memory/destroy_at.md]
 
 ### 出力例（VS2019 Preview2）
 ```
