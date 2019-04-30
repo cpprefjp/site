@@ -37,7 +37,7 @@
 例えば自作のアロケータ`original_allocator`を作り、利用しようとすると以下のような問題が生じる。
 ```cpp
 std::string str1 = "string";
-sstd::basic_string<char, std::char_traits<char>, original_allocator<char>> str2 = "string";
+std::basic_string<char, std::char_traits<char>, original_allocator<char>> str2 = "string";
 
 //型が違うので比較不可
 auto r = str1 == str2;
