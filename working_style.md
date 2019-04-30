@@ -109,11 +109,3 @@ C++11以降対応については対応バージョンを明記します。バー
 | well-formed                        | 適格                         |
 
 
-
-## 処理系のC++11対応状況の調べ方
-- 全体的な対応状況： [C++0xCompilerSupport](https://wiki.apache.org/stdcxx/C++0xCompilerSupport)
-- GCC： [C++0x/C++11 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx11)
-- VC++： [C++11/14/17 の機能のサポート (Modern C++)](https://msdn.microsoft.com/ja-jp/library/hh567368.aspx)
-- Clang： [C++98 and C++11 Support in Clang](http://clang.llvm.org/cxx_status.html)
-
-
