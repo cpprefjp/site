@@ -62,6 +62,7 @@ int main(){
 * allocate[color ff0000]
 * get_default_resource[link /reference/memory_resource/get_default_resource.md]
 * deallocate[link /reference/memory_resource/memory_resource/deallocate.md]
+* std::destroy_at[link /reference/memory/destroy_at.md]
 
 ### 出力例（VS2019 Preview2）
 ```
