@@ -24,7 +24,8 @@ Tp* allocate(std::size_t n);               // (1) C++17
 確保した領域の先頭へのポインタ。
 
 ## 例外
-指定されたサイズの領域が確保できない場合は例外を送出する。
+- [`SIZE_MAX`](/reference/cstdint/size_max.md) `/ sizeof(Tp) < n`である場合、[`std::length_error`](/reference/stdexcept.md)例外を送出する
+- 指定されたサイズの領域が確保できない場合は、任意の例外を送出する
 
 ## 例
 ```cpp example
@@ -87,3 +88,4 @@ int main()
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
 - [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+- [LWG Issue 3038. `polymorphic_allocator::allocate` should not allow integer overflow to create vulnerabilities](https://wg21.cmeerw.net/lwg/issue3038)
