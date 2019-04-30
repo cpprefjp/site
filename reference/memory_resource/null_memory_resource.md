@@ -43,6 +43,14 @@ int main()
 
   std::cout << mr << std::endl;
   std::cout << std::pmr::null_memory_resource() << std::endl;
+
+  try {
+    auto* p = mr->allocate(sizeof(int), alignof(int));
+  }
+  catch (const std::exception& except) {
+    //必ずここを通る
+    std::cout << except.what() << std::endl;
+  }
 }
 ```
 * null_memory_resource[color ff0000]
@@ -52,6 +60,7 @@ int main()
 ```
 00007FFCB3396270
 00007FFCB3396270
+bad allocation
 ```
 
 ## バージョン
