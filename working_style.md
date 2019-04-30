@@ -89,6 +89,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | overload                           | オーバーロード               |
 | partition                          | 区分化                       |
 | polymorphic                        | 多相的                       |
+| power of N                         | Nの累乗                      |
 | predicate                          | 述語                         |
 | random access iterator             | ランダムアクセスイテレータ   |
 | range                              | 範囲                         |
