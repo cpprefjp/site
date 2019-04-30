@@ -42,7 +42,7 @@ int main()
 
   //メモリの確保
   int* array = alloc.allocate(4);
-	
+
   //要素を構築
   for (int i = 0; i < 4; ++i) {
     alloc.construct(array + i, i);

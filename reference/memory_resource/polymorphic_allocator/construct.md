@@ -217,7 +217,7 @@ int main()
     pair* p = alloc.allocate(1);
 
     alloc.construct(p);  //両要素をデフォルト構築
-        
+
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
     //アロケータが伝搬している
@@ -225,42 +225,42 @@ int main()
   }
 
   std::cout << "\n(4)" << std::endl;
-    
+
   //(4)
   {
     pair* p = alloc.allocate(1);
 
     alloc.construct(p, 128, "string");  //両要素をこれらの値からムーブ構築
-        
+
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
     //アロケータが伝搬している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
-    
+
   std::cout << "\n(5)" << std::endl;
-    
+
   //(5)
   {
     pair* p = alloc.allocate(1);
-        
+
     const auto v = std::make_pair(128, "copy");
     alloc.construct(p, v);  //両要素を変換可能なpairからコピー構築
-        
+
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
     //アロケータが伝搬している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
-    
+
   std::cout << "\n(6)" << std::endl;
-    
+
   //(6)
   {
     pair* p = alloc.allocate(1);
 
     alloc.construct(p, std::make_pair(128, "move"));  //両要素を変換可能なpairからムーブ構築
-        
+
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
     //アロケータが伝搬している

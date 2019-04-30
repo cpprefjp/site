@@ -139,7 +139,7 @@ int main(){
   mr->deallocate(p, sizeof(int), alignof(int));
 
   std::cout << std::boolalpha;
-  
+
   stack_resource<10> s2{};
   //自分以外とはtrueにならない
   std::cout << (*mr == s) << std::endl;
