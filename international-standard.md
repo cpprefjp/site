@@ -10,17 +10,21 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 
 ## <a href="#list-of-iso-cpp" id="list-of-iso-cpp">国際標準規格の一覧</a>
 
-| 通称<sup><a href="#note-t1-1" id="note_ref-t1-1">†1</a></sup> | 名称 | 最終規格案 | 規格案・原案 | `__cplusplus` |
-|:--|:--|:--|:--|:--|
-| [C++20](lang/cpp20.md) (C++2a) | ISO/IEC 14882:2020 (予定) | -- | N4810 N4800 N4791 <del>N4788</del><sup><a href="#note-t1-2" id="note_ref-t1-2">†2</a></sup> N4778<br/>N4762 N4750 N4741 N4727 N4713<br/>N4700 N4687 | -- |
-| [C++17](lang/cpp17.md) (C++1z) | ISO/IEC 14882:2017 | N4660 | N4659 N4640 N4618 N4606 N4594<br/>N4582 N4567 N4527 N4431 N4296 | `201703L` |
-| [C++14](lang/cpp14.md) (C++1y) | ISO/IEC 14882:2014 | N4141 | N4140 N3937 N3936 N3797 N3691<br/>N3690 N3485 N3376 N3337 | `201402L` |
-| [C++11](lang/cpp11.md) (C++0x) | ISO/IEC 14882:2011 | N3290 | N3291 N3242 N3225 N3126 N3090<br/>N3035 N3000 N2960 N2914 N2857<br/>N2798 N2723 N2691 N2606 N2588<br/>N2521 N2461 N2369 N2315 N2284<br/>N2134 N2009 N1905 N1804 N1733<br/>N1655 | `201103L` |
-| C++03 | ISO/IEC 14882:2003 | N1577? | ? | `199711L`<br/>(C++98 と同じ) |
-| C++98 | ISO/IEC 14882:1998 | ? | ? | `199711L` |
+| 通称<sup><a href="#note-t1-1" id="note_ref-t1-1">†1</a></sup> | 名称 | 参照する規格案<sup><a href="#note-t1-2" id="note_ref-t1-2-a">†2</a></sup> | 最終国際規格案<sup><a href="#note-t1-2" id="note_ref-t1-2-b">†2</a></sup> | 規格案・原案 | `__cplusplus` |
+|:--|:--|:--|:--|:--|:--|
+| [C++20](lang/cpp20.md) (C++2a) | ISO/IEC 14882:2020 (予定) | -- | -- | N4810 N4800 N4791 <del>N4788</del><sup><a href="#note-t1-3" id="note_ref-t1-3">†3</a></sup> N4778<br/>N4762 N4750 N4741 N4727 N4713<br/>N4700 N4687 | -- |
+| [C++17](lang/cpp17.md) (C++1z) | ISO/IEC 14882:2017 | N4659([PDF](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf)/[HTML](https://timsong-cpp.github.io/cppwp/n4659/)) | N4660 | N4640 N4618 N4606 N4594<br/>N4582 N4567 N4527 N4431 N4296 | `201703L` |
+| [C++14](lang/cpp14.md) (C++1y) | ISO/IEC 14882:2014 | N4140([PDF](https://github.com/cplusplus/draft/blob/master/papers/n4140.pdf?raw=true)/[HTML](https://timsong-cpp.github.io/cppwp/n4140/)) | N4141 | N3937 N3936 N3797 N3691<br/>N3690 N3485 N3376 | `201402L` |
+| [C++11](lang/cpp11.md) (C++0x) | ISO/IEC 14882:2011 | N3337<sup><a href="#note-t1-4" id="note_ref-t1-4">†4</a></sup>([PDF](https://wg21.link/std11)/[HTML](https://timsong-cpp.github.io/cppwp/n3337/)) | N3290 | N3291 N3242 N3225 N3126 N3090<br/>N3035 N3000 N2960 N2914 N2857<br/>N2798 N2723 N2691 N2606 N2588<br/>N2521 N2461 N2369 N2315 N2284<br/>N2134 N2009 N1905 N1804 N1733<br/>N1655 | `201103L` |
+| C++03 | ISO/IEC 14882:2003 | N1577 | N1577? | ? | `199711L`<br/>(C++98 と同じ) |
+| C++98 | ISO/IEC 14882:1998 | ? | ? | ? | `199711L` |
 
 1. <a href="#note_ref-t1-1" id="note-t1-1">**^**</a> 括弧内は策定時・標準化前に一時的に用いられた通称
-2. <a href="#note_ref-t1-2" id="note-t1-2">**^**</a> N4788 は政治的事情により撤回された (参照 N4792)
+2. <a id="note-t1-2">^</a> <sup>[**a**](#note_ref-t1-2-a)</sup> <sup>[**b**](#note_ref-t1-2-b)</sup> 最終国際規格案は一般公開されていないかされていない時期があったため、それにほぼ同一の内容の規格案を参照する。
+3. <a href="#note_ref-t1-3" id="note-t1-3">**^**</a> N4788 は政治的事情により撤回された (参照 N4792)
+4. <a href="#note_ref-t1-4" id="note-t1-4">**^**</a> N3337は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、[N3338](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html)を参照。  
+(それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)
+
 
 ## <a href="#iso-cpp-committee" id="iso-cpp-committee">用語: 国際標準規格を定める組織</a>
 
