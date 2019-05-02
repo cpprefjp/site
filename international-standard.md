@@ -25,6 +25,9 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 4. <a href="#note_ref-t1-4" id="note-t1-4">**^**</a> N3337は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、[N3338](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html)を参照。  
 (それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)
 
+最新のDraftのHTML版は以下で公開されている。  
+[https://timsong-cpp.github.io/cppwp/](https://timsong-cpp.github.io/cppwp/)
+
 
 ## <a href="#iso-cpp-committee" id="iso-cpp-committee">用語: 国際標準規格を定める組織</a>
 
