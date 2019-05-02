@@ -28,6 +28,8 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 最新のDraftのHTML版は以下で公開されている。  
 [https://timsong-cpp.github.io/cppwp/](https://timsong-cpp.github.io/cppwp/)
 
+標準規格の文章はtexで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。  
+[https://github.com/cplusplus/draft](https://github.com/cplusplus/draft)
 
 ## <a href="#iso-cpp-committee" id="iso-cpp-committee">用語: 国際標準規格を定める組織</a>
 
