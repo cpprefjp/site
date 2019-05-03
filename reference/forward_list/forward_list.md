@@ -8,9 +8,15 @@
 namespace std {
   template <class T, class Allocator = allocator<T>>
   class forward_list;
+
+  namespace pmr {
+    template <class T>
+      using forward_list = std::forward_list<T, polymorphic_allocator<T>>;  // C++17から
+  }
 }
 ```
 * allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
 `<forward_list>`ヘッダでは、単方向リンクリストの実装である`forward_list`コンテナを提供する。

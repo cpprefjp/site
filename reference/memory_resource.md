@@ -58,7 +58,34 @@ auto r = v1 == v2;
 
 本ヘッダにはその多相アロケータに関連するクラスや関数群が定義されている。
 
-また、それに伴い各コンテナにデフォルトで`polymorphic_allocator`を利用するエイリアスが導入された。こちらは各コンテナ毎に定義される。
+またこれらの追加に伴い、標準ライブラリ内でアロケータを用いるクラスにデフォルトで`polymorphic_allocator`を利用するエイリアスが導入された。これは各クラスのヘッダ毎に宣言される。
+
+## `polymorphic_allocator`を用いるエイリアスが提供されるクラス
+
+以下は全て`std::pmr`名前空間配下に宣言されている。
+
+- [`basic_string`](/reference/string/basic_string.md)
+    - `string`
+    - `wstring`
+    - `u16string`
+    - `u32string`
+- [`deque`](/reference/deque/deque.md)
+- [`forward_list`](/reference/forward_list/forward_list.md)
+- [`list`](/reference/list/list.md)
+- [`vector`](/reference/vector/vector.md)
+- [`map`](/reference/map/map.md)
+- [`multimap`](/reference/map/multimap.md)
+- [`set`](/reference/set/set.md)
+- [`multiset`](/reference/set/multiset.md)
+- [`unordered_map`](/reference/unordered_map/unordered_map.md)
+- [`unordered_multimap`](/reference/unordered_map/unordered_multimap.md)
+- [`unordered_set`](/reference/unordered_set/unordered_set.md)
+- [`unordered_multiset`](/reference/unordered_set/unordered_multiset.md)
+- [`match_results`](/reference/regex/match_results.md)
+    - `cmatch`
+    - `wcmatch`
+    - `smatch`
+    - `wsmatch`
 
 ## バージョン
 ### 言語

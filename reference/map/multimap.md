@@ -12,11 +12,18 @@ namespace std {
         class Allocator = allocator<pair<const Key, T> >
   >
   class multimap;
+
+  namespace pmr {
+    template <class Key, class T, class Compare = less<Key>>
+      using multimap = std::multimap<Key, T, Compare,
+                                     polymorphic_allocator<pair<const Key, T>>>;  // C++17から
+  }
 }
 ```
 * less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
 * pair[link /reference/utility/pair.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 `multimap` コンテナは 4 つのテンプレートパラメータを取る。
 

@@ -47,6 +47,10 @@
 | [`wcmatch`](regex/match_results.md)       | [`match_results`](regex/match_results.md) クラスの `const wchar_t*` 型バージョン (type-alias)                                               | C++11          |
 | [`smatch`](regex/match_results.md)        | [`match_results`](regex/match_results.md) クラスの [`string`](/reference/string/basic_string.md)`::const_iterator` バージョン (type-alias)  | C++11          |
 | [`wsmatch`](regex/match_results.md)       | [`match_results`](regex/match_results.md) クラスの [`wstring`](/reference/string/basic_string.md)`::const_iterator` バージョン (type-alias) | C++11          |
+| [`pmr::cmatch`](regex/match_results.md)        | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる[`match_results`](regex/match_results.md) クラスの `const char*` 型バージョン (type-alias)                                                  | C++17          |
+| [`pmr::wcmatch`](regex/match_results.md)       | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる[`match_results`](regex/match_results.md) クラスの `const wchar_t*` 型バージョン (type-alias)                                               | C++17          |
+| [`pmr::smatch`](regex/match_results.md)        | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる[`match_results`](regex/match_results.md) クラスの [`string`](/reference/string/basic_string.md)`::const_iterator` バージョン (type-alias)  | C++17          |
+| [`pmr::wsmatch`](regex/match_results.md)       | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる[`match_results`](regex/match_results.md) クラスの [`wstring`](/reference/string/basic_string.md)`::const_iterator` バージョン (type-alias) | C++17          |
 
 
 ## アルゴリズム

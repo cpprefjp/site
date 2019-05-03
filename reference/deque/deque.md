@@ -7,9 +7,15 @@
 namespace std {
   template <class T, class Allocator = allocator<T>>
   class deque;
+
+  namespace pmr {
+    template <class T>
+      using deque = std::deque<T, polymorphic_allocator<T>>;  // C++17から
+  }
 }
 ```
 * allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
 `deque`（通常、"デック"のように発音する）は<b>d</b>ouble-<b>e</b>nded <b>q</b>ueue （二重終端キュー）の頭文字をとったものである。double-ended queue はシーケンスコンテナの一種である。要素は厳密な線形シーケンスに従って並べられる。

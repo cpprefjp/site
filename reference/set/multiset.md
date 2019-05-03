@@ -7,10 +7,17 @@
 namespace std {
   template <class Key, class Compare = less<Key>, class Allocator = allocator<Key>>
   class multiset;
+
+  namespace pmr {
+    template <class Key, class Compare = less<Key>>
+      using multiset = std::multiset<Key, Compare,
+                                     polymorphic_allocator<Key>>;  // C++17から
+  }
 }
 ```
 * less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 
 `multiset` は連想コンテナの一種であり、要素自身がキーとなる。

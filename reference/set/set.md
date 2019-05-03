@@ -7,10 +7,17 @@
 namespace std {
   template <class Key, class Compare = less<Key>, class Allocator = allocator<Key>>
   class set;
+
+  namespace pmr {
+    template <class Key, class Compare = less<Key>>
+      using set = std::set<Key, Compare,
+                           polymorphic_allocator<Key>>;  // C++17から
+  }
 }
 ```
 * less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 
 `set` はユニークな要素を格納する連想コンテナの一種であり、要素自身がキーとなる。

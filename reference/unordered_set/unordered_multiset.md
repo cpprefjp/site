@@ -11,11 +11,20 @@ namespace std {
             class Pred = std::equal_to<Key>,
             class Allocator = std::allocator<Key> >
   class unordered_multiset;
+
+  namespace pmr {
+    template <class Key,
+              class Hash = hash<Key>,
+              class Pred = equal_to<Key>>
+      using unordered_multiset = std::unordered_multiset<Key, Hash, Pred,
+                                                         polymorphic_allocator<Key>>;  // C++17から
+  }
 }
 ```
 * std::hash[link /reference/functional/hash.md]
 * std::equal_to[link /reference/functional/equal_to.md]
 * std::allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
 `unordered_multiset` は、同一キーの要素を複数格納できる、格納順が規定されていないコンテナである。

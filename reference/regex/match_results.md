@@ -14,12 +14,26 @@ namespace std {
   using wcmatch = match_results<const wchar_t*>;
   using smatch  = match_results<string::const_iterator>;
   using wsmatch = match_results<wstring::const_iterator>;
+
+
+  namespace pmr {  // C++17から
+    template <class BidirectionalIterator>
+      using match_results =
+        std::match_results<BidirectionalIterator,
+                           polymorphic_allocator<sub_match<BidirectionalIterator>>>;
+
+    using cmatch  = match_results<const char*>;
+    using wcmatch = match_results<const wchar_t*>;
+    using smatch  = match_results<string::const_iterator>;
+    using wsmatch = match_results<wstring::const_iterator>;
+  }
 }
 ```
 * allocator[link ../memory/allocator.md]
 * sub_match[link sub_match.md]
 * string[link ../string/basic_string.md]
 * wstring[link ../string/basic_string.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
 `match_results` は正規表現によるマッチ結果を格納するコンテナである。コンテナの要素はマッチ結果を表すサブマッチ（[`sub_match`](sub_match.md)）である。  

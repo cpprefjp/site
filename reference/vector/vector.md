@@ -7,9 +7,15 @@
 namespace std {
   template <class T, class Allocator = allocator<T>>
   class vector;
+
+  namespace pmr {
+    template <class T>
+      using vector = std::vector<T, polymorphic_allocator<T>>;  // C++17から
+  }
 }
 ```
 * allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 `vector`はシーケンスコンテナの一種で、各要素は線形に、順序を保ったまま格納される。
 

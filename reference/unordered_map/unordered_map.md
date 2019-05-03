@@ -12,11 +12,23 @@ namespace std {
             class Pred = std::equal_to<Key>,
             class Allocator = std::allocator<std::pair<const Key, T> > >
   class unordered_map;
+
+  namespace pmr {
+    template <class Key,
+              class T,
+              class Hash = hash<Key>,
+              class Pred = equal_to<Key>>
+      using unordered_map =
+        std::unordered_map<Key, T, Hash, Pred,
+                           polymorphic_allocator<pair<const Key, T>>>;  // C++17から
+
+  }
 }
 ```
 * std::hash[link /reference/functional/hash.md]
 * std::equal_to[link /reference/functional/equal_to.md]
 * std::allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
 `unordered_map` は、同一キーの要素を複数格納できず、格納順が規定されていないコンテナである。

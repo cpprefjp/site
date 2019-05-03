@@ -14,10 +14,23 @@ namespace std {
   using u16string = basic_string<char16_t>;  // C++11から
   using u32string = basic_string<char32_t>;  // C++11から
   using wstring   = basic_string<wchar_t>;
+
+
+  namespace pmr {  // C++17から
+    template <class charT, class traits = char_traits<charT>>
+      using basic_string =
+        std::basic_string<charT, traits, polymorphic_allocator<charT>>;
+
+    using string    = basic_string<char>;
+    using u16string = basic_string<char16_t>;
+    using u32string = basic_string<char32_t>;
+    using wstring   = basic_string<wchar_t>;
+  }
 }
 ```
 * char_traits[link char_traits.md]
 * allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
 `basic_string`クラスは、あらゆる文字型を使用できる文字列クラスである。  
@@ -29,6 +42,10 @@ namespace std {
 | `wstring`   | `wchar_t`型文字列。`wchar_t`が16ビットの環境で、UTF-16の文字列として使用する。   | |
 | `u16string` | `char16_t`型文字列。UTF-16の文字列として使用する。 | C++11 |
 | `u32string` | `char32_t`型文字列。UTF-32の文字列として使用する。 | C++11 |
+| `pmr::string`    | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる`string` | C++17 |
+| `pmr::wstring`   | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる`wstring`   | C++17 |
+| `pmr::u16string` | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる`u16string` | C++17 |
+| `pmr::u32string` | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる`u32string` | C++17 |
 
 `basic_string`文字列オブジェクトに含まれる各要素は、必ずしも1文字を表すわけではないことに注意が必要である。  
 このクラスが表すのは、文字型`charT`の動的配列であり、文字の動的配列ではない。  
