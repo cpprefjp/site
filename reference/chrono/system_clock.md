@@ -16,6 +16,9 @@ namespace chrono {
 
 このクラスは、`time_t`型と互換性がある。
 
+C++17 以前の場合、`system_clock` のエポックがどの時間を指しているかは未規定だが、ほとんどの処理系は Unix 時間（1970年1月1日0時0分0秒)を指している。
+
+C++20 以降の場合、`system_clock` のエポックは必ず Unix 時間を指す。
 
 ## メンバ関数
 
@@ -79,5 +82,6 @@ Tue Oct 16 15:00:08 2012
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 ## 参照
-- [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
 
+- [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
+- [P0355R7 Extending `<chrono>` to Calendars and Time Zones](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0355r7.html)
