@@ -1,7 +1,7 @@
 # memory_resource
 * memory_resource[meta header]
 * class[meta id-type]
-* std[meta namespace]
+* std::pmr[meta namespace]
 * cpp17[meta cpp]
 
 ```cpp
@@ -174,6 +174,11 @@ false
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
 
 ## 関連項目
+- [`synchronized_pool_resource`](/reference/memory_resource/pool_resource.md)
+- [`unsynchronized_pool_resource`](/reference/memory_resource/pool_resource.md)
+- [`monotonic_buffer_resource`](/reference/memory_resource/monotonic_buffer_resource.md)
+- [`new_delete_resource`](/reference/memory_resource/new_delete_resource.md)
+- [`null_memory_resource`](/reference/memory_resource/null_memory_resource.md)
 
 ## 参照
 - [C++1z 多相アロケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
