@@ -29,6 +29,7 @@ unique_ptr& operator=(const unique_ptr&) = delete;    // (4) 単一オブジェ�
 - (2) : 以下の条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
     - `unique_ptr<U, E>::pointer`が、`pointer`に暗黙変換可能な型であること。
     - `U`が配列型ではないこと。
+    - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<D&, E&&> == true`であること。
 
 
 ## 効果
@@ -103,4 +104,5 @@ int main()
 ## 参照
 - [LWG Issue 2047. Incorrect "mixed" move-assignment semantics of `unique_ptr`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2047)
 - [LWG 2246. `unique_ptr` assignment effects w.r.t. deleter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2246)
-
+- [LWG 2228: Missing SFINAE rule in unique_ptr templated assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4366)
+    - (2)のSFINAEルール不足の欠陥修正の提案文書
