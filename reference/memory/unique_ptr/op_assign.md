@@ -9,7 +9,7 @@
 unique_ptr& operator=(unique_ptr&& u) noexcept;       // (1) 単一オブジェクト、配列
 
 template <class U, class E>
-unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept; // (2) 単一オブジェクト
+unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept; // (2) 単一オブジェクト、配列
 
 unique_ptr& operator=(nullptr_t) noexcept;            // (3) 単一オブジェクト、配列
 
@@ -26,9 +26,15 @@ unique_ptr& operator=(const unique_ptr&) = delete;    // (4) 単一オブジェ�
 
 ## 要件
 - (1) : デリータの型`D`が、例外を投げずにムーブ構築可能であること。
-- (2) : 以下の条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
+- (2) 単一オブジェクト : 以下の条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
     - `unique_ptr<U, E>::pointer`が、`pointer`に暗黙変換可能な型であること。
     - `U`が配列型ではないこと。
+    - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<D&, E&&> == true`であること。
+- (2) 配列 : 以下の条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
+    - `U`は配列型であること。
+    - `*this`の型`UP`について、`UP::pointer`と`UP::element_type*`が同じ型であること。
+    - `u`の型`UP`について、`UP::pointer`と`UP::element_type*`が同じ型であること。
+    - `unique_ptr<U, D>::element_type(*)[]`から`unique_ptr<T[], D>::element_type(*)[]`へ変換可能であること。
     - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<D&, E&&> == true`であること。
 
 
