@@ -12,7 +12,7 @@ namespace std {
   template <class Key, class Compare, class Allocator>
   void swap(multiset<Key, Compare, Allocator>& x,
             multiset<Key, Compare, Allocator>& y)
-    noexcept(noexcept(x.swap(y)));
+    noexcept(noexcept(x.swap(y))); // C++17
 }
 ```
 
