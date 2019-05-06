@@ -7,6 +7,10 @@
 
 ```cpp
 void swap(unordered_multimap& v);
+void swap(unordered_multimap& x)
+  noexcept(allocator_traits<Allocator>::is_always_equal::value
+            && noexcept(swap(declval<Hash&>(),declval<Hash&>()))
+            && noexcept(swap(declval<Pred&>(),declval<Pred&>()))); // C++17
 ```
 
 ## 概要
@@ -114,3 +118,7 @@ um2 after : (7th, 7), (7th, 7), (5th, 5), (5th, 5), (9th, 9), (9th, 9), (3rd, 3)
 | [`erase`](erase.md)               | 要素の削除                                             |
 | [`clear`](clear.md)               | 全要素の削除                                           |
 
+
+## 参照
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

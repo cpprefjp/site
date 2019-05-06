@@ -8,6 +8,8 @@
 ```cpp
 forward_list& operator=(const forward_list& x); // (1)
 forward_list& operator=(forward_list&& x);      // (2)
+forward_list& operator=(forward_list&& x)
+  noexcept(allocator_traits<Allocator>::is_always_equal::value); // (2) C++ 17
 forward_list& operator=(initializer_list<T>);   // (3)
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -106,5 +108,5 @@ int main()
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (3)の経緯となる提案文書
-
-
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

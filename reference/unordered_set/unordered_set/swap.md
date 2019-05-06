@@ -7,6 +7,10 @@
 
 ```cpp
 void swap(unordered_set& v);
+void swap(unordered_set& x)
+  noexcept(allocator_traits<Allocator>::is_always_equal::value
+            && noexcept(swap(declval<Hash&>(),declval<Hash&>()))
+            && noexcept(swap(declval<Pred&>(),declval<Pred&>()))); // C++17
 ```
 
 ## 概要
@@ -111,3 +115,7 @@ us2 after : 9 7 5 3 1
 | [`erase`](erase.md)               | 要素の削除                                             |
 | [`clear`](clear.md)               | 全要素の削除                                           |
 
+
+## 参照
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

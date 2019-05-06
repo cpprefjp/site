@@ -8,6 +8,11 @@ namespace std {
   template <class Key, class Compare, class Allocator>
   void swap(multiset<Key, Compare, Allocator>& x,
             multiset<Key, Compare, Allocator>& y);
+
+  template <class Key, class Compare, class Allocator>
+  void swap(multiset<Key, Compare, Allocator>& x,
+            multiset<Key, Compare, Allocator>& y)
+    noexcept(noexcept(x.swap(y)));
 }
 ```
 
@@ -59,3 +64,7 @@ int main()
 ```
 5,15,
 ```
+
+## 参照
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

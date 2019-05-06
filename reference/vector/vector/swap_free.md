@@ -7,6 +7,10 @@
 namespace std {
   template <class T, class Allocator>
   void swap(vector<T, Allocator>& x, vector<T, Allocator>& y);
+
+  template <class T, class Allocator>
+  void swap(vector<T,Allocator>& x, vector<T,Allocator>& y)
+    noexcept(noexcept(x.swap(y)));                          // C++17
 }
 ```
 
@@ -59,5 +63,5 @@ v2 : {1 2 3 }
 ```
 
 ## 参照
-
-
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

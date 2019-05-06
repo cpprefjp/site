@@ -6,6 +6,7 @@
 
 ```cpp
 void swap(deque& other);
+void swap(deque& x) noexcept(allocator_traits<Allocator>::is_always_equal::value); // C++17
 ```
 
 ## 概要
@@ -65,5 +66,5 @@ c2 : {1 2 3 }
 ```
 
 ## 参照
-
-
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

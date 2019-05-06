@@ -6,7 +6,9 @@
 
 ```cpp
 vector();                                            // (1) C++14
+vector() noexcept(noexcept(Allocator())) : vector(Allocator()) { } // (1) C++17
 explicit vector(const Allocator& a);                 // (2) C++14
+explicit vector(const Allocator&) noexcept;          // (2) C++17
 explicit vector(const Allocator& a = Allocator());   // (1) + (2) C++03
 
 explicit vector(size_type n);                        // (3) C++11
@@ -25,6 +27,7 @@ vector(InputIter first, InputIter last,
 
 vector(const vector& x);                             // (6) C++03
 vector(vector&& x);                                  // (7) C++11
+vector(vector&& x); noexcept                         // (7) C++17
 vector(const vector& x, const Allocator& a);         // (8) C++11
 vector(vector&& x, const Allocator& a);              // (9) C++11
 vector(initializer_list<T> il,
@@ -158,3 +161,5 @@ sixth : {1 2 3 }
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
 	`explicit vector(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
 	なお、Discussion の例はアロケータの型が誤っているので注意
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

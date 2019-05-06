@@ -9,6 +9,11 @@ namespace std {
   template <class Key, class T, class Hash, class Pred, class Alloc>
   void swap (unordered_map<Key,T,Hash,Pred,Alloc>& x,
              unordered_map<Key,T,Hash,Pred,Alloc>& y);
+
+  template <class Key, class T, class Hash, class Pred, class Alloc>
+  void swap (unordered_map<Key,T,Hash,Pred,Alloc>& x,
+             unordered_map<Key,T,Hash,Pred,Alloc>& y)
+    noexcept(noexcept(x.swap(y))); // C++17
 }
 ```
 
@@ -88,3 +93,6 @@ um2 : {[10,a], [20,b], [30,c], }
 - [Visual C++](/implementation.md#visual_cpp): 2012
 
 
+## 参照
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

@@ -48,6 +48,7 @@ namespace std {
 | `propagate_on_container_copy_assignment` | コンテナのコピー代入時に、アロケータオブジェクトをコピー(伝搬)するか否か。<br/>`Alloc`がメンバ型`propagate_on_container_copy_assignment`を持っていればそれを使用し、そうでなければ[`false_type`](/reference/type_traits/false_type.md)を使用する。 | C++11 |
 | `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータオブジェクトをコピー(伝搬)するか否か。<br/>`Alloc`がメンバ型`propagate_on_container_move_assignment`を持っていればそれを使用し、そうでなければ[`false_type`](/reference/type_traits/false_type.md)を使用する。 | C++11 |
 | `propagate_on_container_swap` | コンテナの交換時に、アロケータオブジェクトをコピー(伝搬)するか否か。<br/>`Alloc`がメンバ型`propagate_on_container_swap`を持っていればそれを使用し、そうでなければ[`false_type`](/reference/type_traits/false_type.md)を使用する。 | C++11 |
+| `is_always_equal` | `Alloc::is_always_equal`が存在する場合は`Alloc::is_always_equal`。それ以外の場合は`is_empty<Alloc>::type`。 | C++17 |
 | `rebind_alloc<U>` | 型`U`を確保するようにアロケータ型を再束縛する。<br/> `Alloc::rebind<U>::other`が有効ならそれを使用し、そうでなければ`Alloc<U, Args`>を使用する。`Alloc`がクラステンプレートでない場合、`rebind_alloc`の使用は不適格となる。 | C++11 |
 | `rebind_traits<U>` | 再束縛した型`U`に対する`allocator_traits`。`allocator_traits<rebind_alloc<U>>` | C++11 |
 
@@ -122,4 +123,4 @@ int main()
 - [A visitor’s guide to C++ allocators](https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html)
 - [N2982 Allocators post Removal of C++ Concepts (Rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2982.pdf)
 - [AllocatorAwareContainer: Introduction and pitfalls of `propagate_on_container_XXX` defaults](http://foonathan.github.io/blog/2015/10/05/allocatorawarecontainer-propagation-pitfalls.html)
-
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)

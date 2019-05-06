@@ -7,6 +7,9 @@
 ```cpp
 basic_string& operator=(const basic_string& str);                  // (1)
 basic_string& operator=(basic_string&& str) noexcept;              // (2) C++11
+basic_string& operator=(basic_string&& str) noexcept
+  (allocator_traits<Allocator>::propagate_on_container_move_assignment::value
+    || allocator_traits<Allocator>::is_always_equal::value);       // (2) C++17
 basic_string& operator=(const charT* s);                           // (3)
 basic_string& operator=(charT c);                                  // (4)
 basic_string& operator=(initializer_list<charT> il);               // (5) C++11
@@ -93,3 +96,4 @@ hello
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)

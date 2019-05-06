@@ -8,6 +8,11 @@ namespace std {
   template <class Key, class T, class Compare, class Allocator>
   void swap(map<Key,T,Compare,Allocator>& x,
             map<Key,T,Compare,Allocator>& y);
+
+  template <class Key, class T, class Compare, class Allocator>
+  void swap(map<Key,T,Compare,Allocator>& x,
+            map<Key,T,Compare,Allocator>& y)
+    noexcept(noexcept(x.swap(y))); // C++17
 }
 ```
 
@@ -83,3 +88,6 @@ m2 : {[10,a], [20,b], [30,c], }
 - [Visual C++](/implementation.md#visual_cpp): 2012
 
 
+## 参照
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

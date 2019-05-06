@@ -9,6 +9,11 @@ namespace std {
   template <class Key, class Hash, class Pred, class Alloc>
   void swap(unordered_multiset<Key, Hash, Pred, Alloc>& x,
             unordered_multiset<Key, Hash, Pred, Alloc>& y);
+
+  template <class Key, class Hash, class Pred, class Alloc>
+  void swap(unordered_multiset<Key, Hash, Pred, Alloc>& x,
+            unordered_multiset<Key, Hash, Pred, Alloc>& y)
+    noexcept(noexcept(x.swap(y))); // C++17
 }
 ```
 
@@ -101,3 +106,7 @@ namespace std {
 | [`operator==`](op_equal.md) | 等値比較 |
 | [`operator!=`](op_not_equal.md) | 非等値比較 |
 
+
+## 参照
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

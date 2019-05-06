@@ -80,6 +80,7 @@ namespace std {
 | `propagate_on_container_copy_assignment` | コンテナのコピー代入でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_copy_assignment`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
 | `propagate_on_container_move_assignment` | コンテナのムーブ代入でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_move_assignment`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
 | `propagate_on_container_swap`            | コンテナの`swap`操作でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_swap`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
+| `is_always_equal` | OuterAlloc および InnerAlloc... のすべてのアロケータ A について `std::allocator_traits<A>::is_always_equal::value` が `true` であれば `std::true_type`。そうでなければ`std::false_type`。 | C++17 |
 | `rebind<U>` | 型`U`を確保するように再束縛する | C++11 |
 
 
@@ -276,4 +277,4 @@ element allocator : 2
 ## 参照
 - [N2554 The Scoped Allocator Model (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2554.pdf)
 - [Scoped allocators - C++11 FAQ](http://www.stroustrup.com/C++11FAQ.html#scoped-allocator)
-
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)

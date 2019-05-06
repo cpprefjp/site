@@ -7,6 +7,9 @@
 ```cpp
 map& operator=(const map& x);                      // (1) C++03
 map& operator=(map&& y);                           // (2) C++11
+map& operator=(map&& x)
+  noexcept(allocator_traits<Allocator>::is_always_equal::value
+            && is_nothrow_move_assignable<Compare>::value); (2) // C++17
 map& operator=(initializer_list<value_type> init); // (3) C++11
 ```
 
@@ -92,4 +95,5 @@ Size of m2: 5
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (3)の経緯となる提案文書
-
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+    - `noexcept` 追加の経緯となる提案文書

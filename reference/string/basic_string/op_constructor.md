@@ -7,6 +7,9 @@
 ```cpp
 basic_string();                                                 // (1) C++14
 explicit basic_string(const Allocator&);                        // (2) C++14
+basic_string() noexcept(noexcept(Allocator())) : basic_string(Allocator()) { } // (1) C++17
+explicit basic_string(const Allocator& a) noexcept;             // (2) C++17
+
 explicit basic_string(const Allocator& a = Allocator());        // (1) + (2) C++03
 
 basic_string(const basic_string& str);                          // (3)
@@ -173,3 +176,4 @@ s14 : Hello
     - C++14で、(7)と(8)の要件を見直した。
 - [LWG Issue 2583. There is no way to supply an allocator for `basic_string(str, pos)`](https://wg21.cmeerw.net/lwg/issue2583)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)

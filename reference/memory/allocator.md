@@ -63,6 +63,7 @@ C++11から：
 | `reference`       | 要素の参照型 `T&`                            | C++17から非推奨<br/> C++20で削除 |
 | `const_reference` | 読み取り専用の要素の参照型 `const T&`        | C++17から非推奨<br/> C++20で削除 |
 | `rebind<U>`       | 型`U`を確保するように再束縛する              | C++17から非推奨<br/> C++20で削除 |
+| `is_always_equal` | 同じ型のアロケータオブジェクトが2つある場合、それらが常に同値であるか。[`true_type`](/reference/type_traits/true_type.md) | C++17 |
 
 
 ## 非メンバ関数
@@ -129,3 +130,4 @@ int main(int argc, char** argv) {
 - [AllocatorAwareContainer: Introduction and pitfalls of `propagate_on_container_XXX` defaults](http://foonathan.github.io/blog/2015/10/05/allocatorawarecontainer-propagation-pitfalls.html)
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
+- [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
