@@ -12,7 +12,7 @@ namespace std {
   template <class Key, class T, class Compare, class Allocator>
   void swap(multimap<Key,T,Compare,Allocator>& x,
             multimap<Key,T,Compare,Allocator>& y)
-    noexcept(noexcept(x.swap(y)));
+    noexcept(noexcept(x.swap(y))); // C++17
 }
 ```
 
