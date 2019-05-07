@@ -92,6 +92,7 @@
 | [`<set>`](/reference/set.md)                     | 集合                  |                |
 | [`<unordered_map>`](/reference/unordered_map.md) | 非順序連想配列        | C++11          |
 | [`<unordered_set>`](/reference/unordered_set.md) | 非順序集合            | C++11          |
+| [`<span>`](/reference/span.md)                   | 部分シーケンスの参照  | C++20          |
 
 
 ## <a id="iterator" href="#iterator">イテレータライブラリ</a>
