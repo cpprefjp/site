@@ -26,7 +26,7 @@ namespace std {
 | `curr_symbol` | 通貨記号を取得する |
 | `positive_sign` | 正の金額を表す記号を取得する |
 | `negative_sign` | 負の金額を表す記号を取得する |
-| `frac_digits` | 金額の少数桁数 |
+| `frac_digits` | 金額の小数桁数 |
 | `pos_format` | 正の金額を出力するためのフォーマットを取得する |
 | `neg_format` | 負の金額を出力するためのフォーマットを取得する |
 
@@ -48,7 +48,7 @@ namespace std {
 | `do_curr_symbol` | 通貨記号を取得する |
 | `do_positive_sign` | 正の金額を表す記号を取得する |
 | `do_negative_sign` | 負の金額を表す記号を取得する |
-| `do_frac_digits` | 金額の少数桁数 |
+| `do_frac_digits` | 金額の小数桁数 |
 | `do_pos_format` | 正の金額を出力するためのフォーマットを取得する |
 | `do_neg_format` | 負の金額を出力するためのフォーマットを取得する |
 
