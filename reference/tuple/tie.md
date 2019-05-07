@@ -156,6 +156,7 @@ text, b.txt
 
 
 ## 関連項目
+- [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
 - [`std::ignore`](ignore.md)
 
 
