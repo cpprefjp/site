@@ -74,7 +74,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------|----------------|------|
-| `static constexpr index_type extent = Extent;` | 最大要素数 | C++20 |
+| `static constexpr index_type extent = Extent;` | 要素数。値が`-1`であれば動的な要素数、そうでなければ静的な固定要素数 | C++20 |
 
 
 ### メンバ型
