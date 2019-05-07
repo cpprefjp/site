@@ -145,7 +145,7 @@ int main()
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(6) 精度指定なしの浮動小数点数変換、固定少数表記
+  //(6) 精度指定なしの浮動小数点数変換、固定小数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::fixed); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
@@ -167,7 +167,7 @@ int main()
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(9) 精度指定ありの浮動小数点数変換、固定少数表記
+  //(9) 精度指定ありの浮動小数点数変換、固定小数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::fixed, 16); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
