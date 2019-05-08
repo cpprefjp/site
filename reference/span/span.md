@@ -66,8 +66,14 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`begin`](span/begin.md.nolink) | 先頭を指すイテレータを取得する | C++20 |
-| [`end`](span/end.md.nolink) | 末尾の次を指すイテレータを取得する | C++20 |
+| [`begin`](span/begin.md) | 先頭要素を指すイテレータを取得する | C++20 |
+| [`end`](span/end.md) | 末尾要素の次を指すイテレータを取得する | C++20 |
+| [`cbegin`](span/cbegin.md.nolink) | 先頭要素を指す読み取り専用イテレータを取得する | C++20 |
+| [`cend`](span/cend.md.nolink) | 末尾要素の次を指す読み取り専用イテレータを取得する | C++20 |
+| [`rbegin`](span/rbegin.md.nolink) | 末尾要素を指す逆順イテレータを取得する | C++20 |
+| [`rend`](span/rend.md.nolink) | 先頭要素の前を指す逆順イテレータを取得する | C++20 |
+| [`crbegin`](span/crbegin.md.nolink) | 末尾要素を指す読み取り専用逆順イテレータを取得する | C++20 |
+| [`crend`](span/crend.md.nolink) | 先頭要素の前を指す読み取り専用逆順イテレータを取得する | C++20 |
 
 
 ### メンバ定数
