@@ -23,6 +23,10 @@ friend constexpr iterator end(span s) noexcept; // (2)
 - (2) : `return s.end();`
 
 
+## 例外
+投げない
+
+
 ## 例
 ```cpp example
 #include <iostream>
