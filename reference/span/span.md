@@ -48,7 +48,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`size`](span/size.md)             | 参照している要素数を取得する           | C++20 |
-| [`size_bytes`](span/size_bytes.md.nolink) | 参照しているバイト数を取得する         | C++20 |
+| [`size_bytes`](span/size_bytes.md) | 参照している範囲のバイト数を取得する   | C++20 |
 | [`empty`](span/empty.md)           | 参照している範囲が空かどうかを判定する | C++20 |
 
 
