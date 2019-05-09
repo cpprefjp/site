@@ -28,7 +28,7 @@ constexpr span<element_type, dynamic_extent>
 
 
 ## 戻り値
-(1)であれば`Count`を`N`、(2)であれば`count`を`N`として、以下と同等：
+(1)であれば`Count`を`N`、(2)であれば`count`を`N`として、以下と等価：
 
 ```cpp
 return {data(), N};

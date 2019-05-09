@@ -14,7 +14,7 @@ constexpr index_type size_bytes() const noexcept;
 
 
 ## 戻り値
-以下と同等：
+以下と等価：
 
 ```cpp
 return size() * sizeof(element_type);
