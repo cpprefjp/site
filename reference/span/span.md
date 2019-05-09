@@ -39,7 +39,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`first`](span/first.md)     | 先頭N個の要素を参照する`span`オブジェクトを取得する | C++20 |
-| [`last`](span/last.md.nolink)       | 末尾N個の要素を参照する`span`オブジェクトを取得する | C++20 |
+| [`last`](span/last.md)       | 末尾N個の要素を参照する`span`オブジェクトを取得する | C++20 |
 | [`subspan`](span/subspan.md.nolink) | 任意の位置からN個の要素を参照する`span`オブジェクトを取得する | C++20 |
 
 
