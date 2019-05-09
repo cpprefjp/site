@@ -59,7 +59,7 @@ namespace std {
 | [`operator[]`](span/op_at.md.nolink) | 任意の位置の要素を取得する             | C++20 |
 | [`front`](span/front.md.nolink)      | 先頭要素を取得する                     | C++20 |
 | [`back`](span/back.md.nolink)        | 末尾要素を取得する                     | C++20 |
-| [`data`](span/data.md.nolink)        | 参照範囲の先頭を指すポインタを取得する | C++20 |
+| [`data`](span/data.md)        | 参照範囲の先頭を指すポインタを取得する | C++20 |
 
 
 ### イテレータ

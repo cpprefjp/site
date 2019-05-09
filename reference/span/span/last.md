@@ -33,7 +33,8 @@ constexpr span<element_type, dynamic_extent>
 ```cpp
 return {data() + (size() - N), N};
 ```
-* data()[link data.md.nolink]
+* data()[link data.md]
+* size()[link size.md]
 
 
 ## 例
