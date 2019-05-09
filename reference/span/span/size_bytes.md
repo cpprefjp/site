@@ -41,7 +41,7 @@ int main()
 }
 ```
 * size_bytes()[color ff0000]
-* first[link first.md.nolink]
+* first[link first.md]
 
 ### 出力
 ```

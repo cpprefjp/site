@@ -45,7 +45,7 @@ int main()
 }
 ```
 * empty()[color ff0000]
-* first[link first.md.nolink]
+* first[link first.md]
 * v.data()[link /reference/vector/vector/data.md]
 
 ### 出力

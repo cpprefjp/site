@@ -72,7 +72,7 @@ int main()
 * begin(s)[link begin.md]
 * std::begin[link /reference/iterator/begin.md]
 * std::end[link /reference/iterator/end.md]
-* first[link first.md.nolink]
+* first[link first.md]
 
 ### 出力
 ```
