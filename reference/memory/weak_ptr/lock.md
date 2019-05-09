@@ -44,7 +44,7 @@ if (int* r = wp.lock()) {
 ```
 * lock()[color ff0000]
 
-このコードの場合、ロックを取得した`if`文内で、`shared_ptr`オブジェクト`sp`に対して[`reset()`](/reference/memory/shared_ptr/reset.md)が呼ばれると、ポインタ`p`がダングリングポインタ(dangling pointer : 不正な領域を指すポインタ)になってしまう。
+このコードの場合、ロックを取得した`if`文内で、`shared_ptr`オブジェクト`sp`に対して[`reset()`](/reference/memory/shared_ptr/reset.md)が呼ばれると、ポインタ`r`がダングリングポインタ(dangling pointer : 不正な領域を指すポインタ)になってしまう。
 
 この関数が[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトを返す設計になっていることで、ロック取得したポインタがダングリングポインタになってしまう問題を回避できる。
 
