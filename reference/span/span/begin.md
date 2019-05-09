@@ -19,7 +19,7 @@ friend constexpr iterator begin(span s) noexcept; // (2)
 
 
 ## 戻り値
-- (1) : `span`オブジェクトが参照している範囲の、最初の要素を参照するイテレータを返す。[`empty()`](empty.md)が`true`である場合、[`end()`](end.md)が返る
+- (1) : `span`オブジェクトが参照している範囲の、最初の要素を参照するイテレータを返す。[`empty()`](empty.md)が`true`である場合、[`end()`](end.md)と同じ値が返る
 - (2) : `return s.begin();`
 
 
