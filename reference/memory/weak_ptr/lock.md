@@ -30,7 +30,7 @@ expired() ? shared_ptr<T>() : shared_ptr<T>(*this)
 
 
 ## 備考
-(この関数が`shared_ptr`オブジェクトではなく生ポインタを返す設計になっていない理由を解説する。以下のコードを考えてみよう：
+この関数が`shared_ptr`オブジェクトではなく生ポインタを返す設計になっていない理由を解説する。以下のコードを考えてみよう：
 
 ```cpp
 std::shared_ptr<int> sp(new int(3));
