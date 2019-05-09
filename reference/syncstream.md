@@ -9,14 +9,14 @@
 - [`<ostream>`](ostream.md)
 
 
-# クラス
+## クラス
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`basic_syncbuf`](syncstream/basic_syncbuf.md.nolink) | 同期化出力ストリームバッファラッパー | C++20 |
 | [`basic_osyncstream`](syncstream/basic_osyncstream.md.nolink) | 同期化出力ストリームラッパー | C++20 |
 
 
-# 型の別名
+## 型の別名
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | `syncbuf` | `basic_syncbuf<char>` | C++20 |
