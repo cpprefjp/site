@@ -39,7 +39,7 @@ int main()
 }
 ```
 * data()[color ff0000]
-* subspan[link subspan.md.nolink]
+* subspan[link subspan.md]
 
 ### 出力
 ```
