@@ -112,6 +112,7 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
     //std::span<int, 3> s1{v.data(), 0};  // コンパイルエラー : (2)と(3)があいまい
     std::span<int, 3> s2{v.data(), static_cast<std::size_t>(0)}; // OK
     ```
+    * v.data()[link /reference/vector/vector/data.md]
 
 - (3) : イテレータ範囲ではなく、ポインタ範囲であることに注意。(2)と同様に、イテレータを指定してはならない
 
