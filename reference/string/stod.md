@@ -171,10 +171,8 @@ double stod(const std::wstring& str, std::size_t* idx = nullptr) {
 
 ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
 
-## 参照
-- [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
-- [LWG Issue 2009. Reporting out-of-bound values on numeric string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009)
 
+## 関連リンク
 ### C標準ライブラリに由来する関数
 - `atof`: `stod`は`atof`を`std::string`および`std::wsting`に対応させたものと見なせる。
 - `strtod`, `wcstod`: `stod`は`strtod`および`wcstod`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
@@ -188,3 +186,11 @@ double stod(const std::wstring& str, std::size_t* idx = nullptr) {
 - [`stof`](stof.md): 戻り値の型が`float`となったもの。
 - (`stod`: この関数自身)
 - [`stold`](stold.md): 戻り値の型が`long double`となったもの。
+
+### ロケール依存しない高速な変換関数
+- [`from_chars`](/reference/charconv/from_chars.md)
+
+
+## 参照
+- [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
+- [LWG Issue 2009. Reporting out-of-bound values on numeric string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009)

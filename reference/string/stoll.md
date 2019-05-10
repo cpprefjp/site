@@ -230,10 +230,8 @@ long long stoll(const std::wstring& str, std::size_t* idx = nullptr, long long b
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 
-## 参照
-- [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
-- [LWG Issue 2009. Reporting out-of-bound values on numeric string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009)
 
+## 関連リンク
 ### C標準ライブラリに由来する関数
 - `atoll`: `stoll`は`atoll`を`std::string`および`std::wsting`に対応させたものと見なせる。
 - `strtoll`, `wcstlol`: `stoll`は`strtoll`および`wcstoll`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
@@ -247,3 +245,11 @@ long long stoll(const std::wstring& str, std::size_t* idx = nullptr, long long b
 - [`stof`](stof.md): 戻り値の型が`float`となったもの。
 - [`stod`](stod.md): 戻り値の型が`double`となったもの。
 - [`stold`](stold.md): 戻り値の型が`long double`となったもの。
+
+### ロケール依存しない高速な変換関数
+- [`from_chars`](/reference/charconv/from_chars.md)
+
+
+## 参照
+- [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
+- [LWG Issue 2009. Reporting out-of-bound values on numeric string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009)
