@@ -23,14 +23,14 @@ void* allocate(size_t bytes, size_t alignment = alignof(max_align_t)); // (1) C+
 
 ## 引数
 - `bytes` -- 確保したい領域のサイズ
-- `alignment` -- 確保領域に期待するアライメント要求。指定されたアライメントを満たせない場合は`alignof(std::max_align_t)`にアラインされる。
+- `alignment` -- 確保領域のアライメント要求
 
 ## 効果
 `return this->do_allocate(bytes, alignment);` と等価。  
+少なくとも`bytes`のメモリを確保し、`alignment`にアラインする。
 
 ## 戻り値
-少なくともサイズ`bytes`のメモリを確保した領域へのポインタ。  
-`alignment`にアラインすることができない（処理系でサポートされない）場合、`alignof(std::max_align_t)`にアラインされる。
+確保したメモリ領域の先頭ポインタ。
 
 ## 例外
 要求されたアライメントでサイズ`bytes`のメモリを確保できない場合、例外が送出される。
@@ -85,3 +85,4 @@ int main(){
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
 - [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+- [LWG Issue 2843. Unclear behavior of `std::pmr::memory_resource::do_allocate()`](https://wg21.cmeerw.net/lwg/issue2843) 
