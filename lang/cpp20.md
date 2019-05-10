@@ -153,7 +153,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<version>`](/reference/version.md)ヘッダを新設する。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される
 - [`<chrono>`](/reference/chrono.md)ヘッダに、カレンダーとタイムゾーンの機能を拡張
 - 任意のシーケンスの部分シーケンスを参照するライブラリとして[`<span>`](/reference/span.md)を追加
-- 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md.nolink)を追加
+- 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md)を追加
 - [`<compare>`](/reference/compare.md.nolink)ヘッダを新設する。ここでは、一貫比較 (宇宙船演算子) をサポートするための型と比較関数が定義される
 - [`<bit>`](/reference/bit.md)ヘッダを新設する
     - Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md)関数を追加
