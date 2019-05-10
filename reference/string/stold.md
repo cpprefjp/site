@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std {
-  double stold(const std::string& str, std::size_t* idx = nullptr);
-  long double stold(const std::wstring& str, std::size_t* idx = nullptr);
+  long double stold(const std::string& str, std::size_t* idx = nullptr);  // (1)
+  long double stold(const std::wstring& str, std::size_t* idx = nullptr); // (2)
 }
 ```
 

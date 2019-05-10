@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std {
-  float stof(const std::string& str, std::size_t* idx = nullptr);
-  float stof(const std::wstring& str, std::size_t* idx = nullptr);
+  float stof(const std::string& str, std::size_t* idx = nullptr);  // (1)
+  float stof(const std::wstring& str, std::size_t* idx = nullptr); // (2)
 }
 ```
 

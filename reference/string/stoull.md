@@ -6,8 +6,13 @@
 
 ```cpp
 namespace std {
-  unsigned long long stoull(const std::string& str, std::size_t* idx = nullptr, unsigned long long base = 10);
-  unsigned long long stoull(const std::wstring& str, std::size_t* idx = nullptr, unsigned long long base = 10);
+  unsigned long long stoull(const std::string& str,
+                            std::size_t* idx = nullptr,
+                            unsigned long long base = 10); // (1)
+
+  unsigned long long stoull(const std::wstring& str,
+                            std::size_t* idx = nullptr,
+                            unsigned long long base = 10); // (2)
 }
 ```
 

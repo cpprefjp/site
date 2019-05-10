@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std {
-  int stoi(const std::string& str, std::size_t* idx = nullptr, int base = 10);
-  int stoi(const std::wstring& str, std::size_t* idx = nullptr, int base = 10);
+  int stoi(const std::string& str, std::size_t* idx = nullptr, int base = 10);  // (1)
+  int stoi(const std::wstring& str, std::size_t* idx = nullptr, int base = 10); // (2)
 }
 ```
 

@@ -6,8 +6,13 @@
 
 ```cpp
 namespace std {
-  long long stoll(const std::string& str, std::size_t* idx = nullptr, long long base = 10);
-  long long stoll(const std::wstring& str, std::size_t* idx = nullptr, long long base = 10);
+  long long stoll(const std::string& str,
+                  std::size_t* idx = nullptr,
+                  long long base = 10);       // (1)
+
+  long long stoll(const std::wstring& str,
+                  std::size_t* idx = nullptr,
+                  long long base = 10);       // (2)
 }
 ```
 

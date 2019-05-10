@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std {
-  double stod(const std::string& str, std::size_t* idx = nullptr);
-  double stod(const std::wstring& str, std::size_t* idx = nullptr);
+  double stod(const std::string& str, std::size_t* idx = nullptr);  // (1)
+  double stod(const std::wstring& str, std::size_t* idx = nullptr); // (2)
 }
 ```
 
