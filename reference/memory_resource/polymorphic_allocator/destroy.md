@@ -75,6 +75,7 @@ int main()
     - 2017, 2019共にこの関数の実装だけが抜けている
 
 ## 関連項目
+- [`destroy_at`](/reference/memory/destroy_at.md)
 - [`destroy`](/reference/memory/allocator_traits/destroy.md)
 
 ## 参照
