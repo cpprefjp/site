@@ -13,7 +13,7 @@ namespace std {
   using wosyncstream = basic_osyncstream<wchar_t>;
 }
 ```
-* basic_ostream[link ../ostram/basic_ostram.md]
+* basic_ostream[link ../ostream/basic_ostream.md]
 
 
 ## 概要
@@ -27,7 +27,7 @@ namespace std {
 
 ## メンバ
 
-基底クラスである [`basic_ostream`](../ostram/basic_ostram.md) も参照のこと。
+基底クラスである [`basic_ostream`](../ostream/basic_ostream.md) も参照のこと。
 
 ## メンバ関数
 ### 構築・破棄
@@ -121,7 +121,7 @@ Goodbye, Planet!
 
 
 ## 関連項目
-- [`std::basic_ostream`](reference/ostream/basic_ostream.md)
+- [`basic_ostream`](../ostream/basic_ostream.md)
 - [`basic_syncbuf`](basic_syncbuf.md)
 
 ## 参照

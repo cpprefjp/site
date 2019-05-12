@@ -137,7 +137,7 @@ Goodbye, Planet!
 
 
 ## 関連項目
-- [`std::basic_streambuf`](reference/streambuf/basic_streambuf.md)
+- [`basic_streambuf`](../streambuf/basic_streambuf.md)
 - [`basic_osyncstream`](basic_osyncstream.md)
 
 
