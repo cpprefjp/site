@@ -101,6 +101,8 @@ void thread1()
 
 void thread2()
 {
+  // 同じバッファに行われる出力は、異なる std::basic_osyncstream(std::basic_syncbuf) の
+  // インスタンスからでも、アトミックに出力されることが保証される
   std::osyncstream(std::cout) << "Goodbye, " << "Planet!" << '\n';
 }
 
