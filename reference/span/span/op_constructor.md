@@ -47,6 +47,11 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
 - (8) : 指定された、`const`左辺値参照のメモリ連続性をもつコンテナの全体を参照する`span`オブジェクトを構築する
 - (9) : コピーコンストラクタ。`other`と同じ範囲を参照する`span`オブジェクトを構築する
 - (10) : ムーブコンストラクタ。`other`と同じ範囲を参照する`span`オブジェクトを構築する。コピーコンストラクタと同じ
+- (11) : テンプレートパラメータの異なる`span`オブジェクトを変換する。以下のような変換ができる：
+    - 静的な要素数をもつ`span`から動的な要素数をもつ`span`への変換。
+    - 動的な要素数をもつ`span`同士の変換
+    - `span<T>`から`span<const T>`への変換
+    - バイト数が同じ暗黙の型変換が可能な要素型をもつ`span`同士の変換
 
 
 ## テンプレートパラメータ制約
@@ -101,7 +106,6 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
 - (7), (8) : コンテナ型によっては、[`data`](/reference/iterator/data.md)`(cont)`と[`size`](/reference/iterator/size.md)`(cont)`の呼び出しがなんらかの例外を送出する可能性がある
 
 
-
 ## 備考
 - (2) : イテレータと要素数の組ではなく、ポインタと要素数の組であることに注意
     - 例として、[`std::vector`](/reference/vector/vector.md)や[`std::array`](/reference/array/array.md)のイテレータが環境・状況によってはポインタとして定義されるかもしれないため、イテレータを指定しても動作する可能性はある。しかし、それでは他の環境では動作しない可能性が高いため、イテレータではなくポインタを指定すること
@@ -119,7 +123,151 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
 
 ## 例
 ```cpp example
+#include <cassert>
+#include <span>
+#include <vector>
+#include <array>
+#include <string>
+
+int main()
+{
+  std::vector<int> v = {1, 2, 3, 4, 5};
+
+  // (1) デフォルトコンストラクタ
+  {
+    // 長さ0の参照範囲をもつspanオブジェクト
+    std::span<int, 0> s1;
+    assert(s1.empty());
+
+    // 以下はコンパイルエラーになる。
+    // 長さ1以上のspanは、参照範囲を設定しなければならない
+    //std::span<int, 1> s2{};
+  }
+
+  // (2) ポインタと要素数の組を指定
+  {
+    // vの先頭3要素を参照する。
+    // {v.begin(), 3}と書いてはならない
+    std::span<int> s{v.data(), 3};
+    assert(s.size() == 3);
+    assert(s[0] == 1);
+    assert(s[1] == 2);
+    assert(s[2] == 3);
+  }
+
+  // (3) ポインタ範囲を指定
+  {
+    // vの先頭3要素を参照する。
+    // {v.begin(), v.begin() + 3}と書いてはならない
+    std::span<int> s{v.data(), v.data() + 3};
+    assert(s.size() == 3);
+    assert(s[0] == 1);
+    assert(s[1] == 2);
+    assert(s[2] == 3);
+  }
+
+  // (4) 組み込み配列への参照を指定
+  {
+    int ar[] = {1, 2, 3, 4, 5};
+    std::span<int> s{ar};
+    assert(s.size() == 5);
+    assert(s.data() == ar); // 元の配列をコピーせず、参照している
+  }
+
+  // (5) std::arrayオブジェクトへの参照を指定
+  {
+    std::array ar = {1, 2, 3, 4, 5};
+    std::span<int> s{ar};
+    assert(s.size() == ar.size());
+    assert(s.data() == ar.data());
+  }
+
+  // (6) const std::arrayオブジェクトへの参照を指定
+  {
+    std::array ar = {1, 2, 3, 4, 5};
+    const auto& car = ar;
+    std::span<const int> s{car};
+
+    assert(s.size() == car.size());
+    assert(s.data() == car.data());
+  }
+
+  // (7) メモリの連続性をもつコンテナを参照させる
+  {
+    std::span<int> s1{v};
+    assert(s1.size() == v.size());
+    assert(s1.data() == v.data());
+
+    // std::string_viewの代わり
+    std::string str = "Hello";
+    std::span<char> s2{str};
+    assert(s2.size() == str.size());
+    assert(s2.data() == str.data());
+  }
+
+  // (8) メモリの連続性をもつconstコンテナを参照させる
+  {
+    const auto& cv = v;
+    std::span<const int> s{cv};
+    assert(s.size() == cv.size());
+    assert(s.data() == cv.data());
+  }
+
+  // (9) コピーコンストラクタ
+  {
+    std::span<int> s1{v};
+    std::span<int> s2 = s1;
+
+    // コピー元とコピー先が同じ範囲を参照する
+    assert(s1.data() == v.data());
+    assert(s2.data() == v.data());
+  }
+
+  // (10) ムーブコンストラクタ。コピーと同じ
+  {
+    std::span<int> s1{v};
+    std::span<int> s2 = std::move(s1);
+
+    // ムーブ元とムーブ先が同じ範囲を参照する
+    assert(s1.data() == v.data());
+    assert(s2.data() == v.data());
+  }
+
+  // (11) 変換コンストラクタ
+  {
+    int ar[] = {1, 2, 3};
+
+    std::span<int, 3> s1{ar};
+    std::span<int> s2 = s1;
+    std::span<int> s3 = s2.first(2);
+    std::span<const int> s4 = s3;
+
+    assert(s4.size() == 2);
+    assert(s4.data() == ar);
+  }
+}
 ```
+* s1.empty()[link empty.md]
+* s.size()[link size.md]
+* s.data()[link data.md]
+* s1.size()[link size.md]
+* s1.data()[link data.md]
+* s2.size()[link size.md]
+* s2.data()[link data.md]
+* s2.first[link first.md]
+* s4.size()[link size.md]
+* s4.data()[link data.md]
+* v.size()[link /reference/vector/vector/size.md]
+* v.data()[link /reference/vector/vector/data.md]
+* cv.size()[link /reference/vector/vector/size.md]
+* cv.data()[link /reference/vector/vector/data.md]
+* ar.size()[link /reference/array/array/size.md]
+* ar.data()[link /reference/array/array/data.md]
+* car.size()[link /reference/array/array/size.md]
+* car.data()[link /reference/array/array/data.md]
+* str.size()[link /reference/string/basic_string/size.md]
+* str.data()[link /reference/string/basic_string/data.md]
+* std::move[link /reference/utility/move.md]
 
 ### 出力
 ```
