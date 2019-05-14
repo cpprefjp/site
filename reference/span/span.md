@@ -114,8 +114,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`tuple_size`](span/tuple_size.md.nolink)       | 要素数を取得する (class template)           | C++20 |
-| [`tuple_element`](span/tuple_element.md.nolink) | `i`番目の要素型を取得する (class template)  | C++20 |
+| [`tuple_size`](span/tuple_size.md)       | 要素数を取得する (class template)           | C++20 |
+| [`tuple_element`](span/tuple_element.md) | `i`番目の要素型を取得する (class template)  | C++20 |
 | [`get`](span/get.md.nolink) | 任意の位置の要素を取得する | C++20 |
 
 
