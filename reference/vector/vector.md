@@ -41,7 +41,7 @@ namespace std {
 
 各テンプレートパラメータの意味は次の通りである。
 
-- `T`: 格納される要素の型
+- `T`: 格納される要素の型、C++17以降は不完全型をサポートしている
 - `Allocator`: メモリ確保に使用されるアロケータの型。デフォルトでは標準の[`allocator`](/reference/memory/allocator.md)クラスが使用される。
 
 リファレンス中では、これらの名前をテンプレートパラメータとして扱う。
@@ -210,6 +210,107 @@ int main()
 5
 ```
 
+### 不完全型を要素にする例 (C++17)
+
+不完全型を要素型に出来るようになった事で、階層構造や多分木などの再帰的データ構造を実装することが容易になる。  
+他にも、[`list`](/reference/list/list.md)と[`forward_list`](/reference/forward_list/forward_list.md)が不完全型をサポートしている。
+
+```cpp example
+#include <iostream>
+#include <vector>
+#include <string>
+
+//簡易なディレクトリ構造表現クラス
+class directory {
+
+  //不完全型（クラス定義内ではそのクラス自身は不完全）を要素型に指定
+  std::vector<directory> m_subdir{};
+  std::string m_name{};
+  
+public:
+
+  directory(const char* name) : m_name{name}
+  {}
+
+  //サブディレクトリ追加
+  template<typename Dir>
+  void add(Dir&& dir) {
+    m_subdir.emplace_back(std::forward<Dir>(dir));
+  }
+
+  //ディレクトリ名取得
+  auto get() const -> const std::string& {
+    return m_name;
+  }
+
+  auto begin() const {
+    return m_subdir.begin();
+  }
+
+  auto end() const {
+    return m_subdir.end();
+  }
+};
+
+//ルートより下のディレクトリについて整形して出力
+void recursive_out(const directory& dir, unsigned int depth) {
+
+  if (1 < depth) std::cout << "| ";
+  for (auto i = depth; 2 < i; --i) {
+    std::cout << " ";
+  }
+  if (2 < depth) std::cout << " ";
+
+  std::cout << "|-" << dir.get() << std::endl;
+
+  for (auto& subdir : dir) {
+    recursive_out(subdir, depth + 1);
+  }
+}
+
+//ディレクトリ構造を出力する
+void out_directorytree(const directory& dir) {
+  std::cout << dir.get() << std::endl;
+
+  for (auto& subdir : dir) {
+    recursive_out(subdir, 1);
+  }
+}
+
+int main() {
+  directory dir{"root"};
+  dir.add("sub1");
+
+  directory sub2{"sub2"};
+  sub2.add("sub2.1");
+
+  directory sub22{"sub2.2"};
+  sub22.add("sub2.2.1");
+
+  sub2.add(std::move(sub22));
+  
+  dir.add(std::move(sub2));
+  dir.add("sub3");
+  
+  out_directorytree(dir);
+}
+```
+* std::vector[color ff0000]
+* emplace_back[link vector/emplace_back.md]
+* begin[link vector/begin.md]
+* end[link vector/end.md]
+* for[link /lang/cpp11/range_based_for.md]
+
+### 出力
+```
+root
+|-sub1
+|-sub2
+| |-sub2.1
+| |-sub2.2
+|   |-sub2.2.1
+|-sub3
+```
 
 ## `vector<bool>`特殊化
 `vector`は`bool`型に対して特殊化されている。
@@ -291,5 +392,5 @@ v[3] : 0
 - ビット配列に関しては、[`bitset`](/reference/bitset/bitset.md)(ビットを格納する固定長コンテナ)も参照。
 - 可変長のビット配列の実装としては、Boost C++ Librariesの[`dynamic_bitset`](http://www.boost.org/doc/libs/release/libs/dynamic_bitset/dynamic_bitset.html)がある。
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
-
+- [N4510 Minimal incomplete type support for standard containers, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html)
 

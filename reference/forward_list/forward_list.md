@@ -35,7 +35,7 @@ namespace std {
 
 各テンプレートパラメータの意味は次の通りである。
 
-- `T`: 格納される要素の型
+- `T`: 格納される要素の型、C++17以降は不完全型をサポートしている
 - `Allocator`: メモリ確保に使用されるアロケータの型。無指定の場合は標準の[`allocator`](/reference/memory/allocator.md)クラスが使用される。
 
 
@@ -196,6 +196,109 @@ int main()
 1
 ```
 
+### 不完全型を要素にする例 (C++17)
+
+不完全型を要素型に出来るようになった事で、階層構造や多分木などの再帰的データ構造を実装することが容易になる。  
+他にも、[`vector`](/reference/vector/vector.md)と[`list`](/reference/list/list.md)が不完全型をサポートしている。
+
+```cpp example
+#include <iostream>
+#include <forward_list>
+#include <string>
+
+//簡易なディレクトリ構造表現クラス
+//forward_listの特性上出力が逆順になる
+class directory {
+
+  //不完全型（クラス定義内ではそのクラス自身は不完全）を要素型に指定
+  std::forward_list<directory> m_subdir{};
+  std::string m_name{};
+  
+public:
+
+  directory(const char* name) : m_name{name}
+  {}
+
+  //サブディレクトリ追加
+  template<typename Dir>
+  void add(Dir&& dir) {
+    m_subdir.emplace_front(std::forward<Dir>(dir));
+  }
+
+  //ディレクトリ名取得
+  auto get() const -> const std::string& {
+    return m_name;
+  }
+
+  auto begin() const {
+    return m_subdir.begin();
+  }
+
+  auto end() const {
+    return m_subdir.end();
+  }
+};
+
+//ルートより下のディレクトリについて整形して出力
+void recursive_out(const directory& dir, unsigned int depth) {
+
+  if (1 < depth) std::cout << "| ";
+  for (auto i = depth; 2 < i; --i) {
+    std::cout << " ";
+  }
+  if (2 < depth) std::cout << " ";
+
+  std::cout << "|-" << dir.get() << std::endl;
+
+  for (auto& subdir : dir) {
+    recursive_out(subdir, depth + 1);
+  }
+}
+
+//ディレクトリ構造を出力する
+void out_directorytree(const directory& dir) {
+  std::cout << dir.get() << std::endl;
+
+  for (auto& subdir : dir) {
+    recursive_out(subdir, 1);
+  }
+}
+
+int main() {
+  directory dir{"root"};
+  dir.add("sub1");
+
+  directory sub2{"sub2"};
+  sub2.add("sub2.1");
+
+  directory sub22{"sub2.2"};
+  sub22.add("sub2.2.1");
+
+  sub2.add(std::move(sub22));
+  
+  dir.add(std::move(sub2));
+  dir.add("sub3");
+  
+  out_directorytree(dir);
+}
+```
+* std::forward_list[color ff0000]
+* emplace_front[link forward_list/emplace_front.md]
+* begin[link forward_list/begin.md]
+* end[link forward_list/end.md]
+* for[link /lang/cpp11/range_based_for.md]
+
+### 出力
+```
+root
+|-sub3
+|-sub2
+| |-sub2.2
+|   |-sub2.2.1
+| |-sub2.1
+|-sub1
+```
+
 ## バージョン
 ### 言語
 - C++11
@@ -210,4 +313,4 @@ int main()
 
 ## 参照
 - [N2543 STL singly linked lists (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2543.htm) [[概要の日本語訳](http://faithandbrave.hateblo.jp/entry/20080905/1220611240)]
-
+- [N4510 Minimal incomplete type support for standard containers, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html)

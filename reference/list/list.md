@@ -24,7 +24,7 @@ namespace std {
 
 テンプレートパラメータは、以下を意味する：
 
-- `T`: 格納される要素の型
+- `T`: 格納される要素の型、C++17以降は不完全型をサポートしている
 - `Allocator`: メモリ確保に使用されるアロケータの型。デフォルトでは標準の[`allocator`](/reference/memory/allocator.md)クラスが使用される。
 
 
@@ -194,7 +194,110 @@ int main ()
 2 1 3 4 
 ```
 
+### 不完全型を要素にする例 (C++17)
+
+不完全型を要素型に出来るようになった事で、階層構造や多分木などの再帰的データ構造を実装することが容易になる。  
+他にも、[`vector`](/reference/vector/vector.md)と[`forward_list`](/reference/forward_list/forward_list.md)が不完全型をサポートしている。
+
+```cpp example
+#include <iostream>
+#include <list>
+#include <string>
+
+//簡易なディレクトリ構造表現クラス
+class directory {
+
+  //不完全型（クラス定義内ではそのクラス自身は不完全）を要素型に指定
+  std::list<directory> m_subdir{};
+  std::string m_name{};
+  
+public:
+
+  directory(const char* name) : m_name{name}
+  {}
+
+  //サブディレクトリ追加
+  template<typename Dir>
+  void add(Dir&& dir) {
+    m_subdir.emplace_back(std::forward<Dir>(dir));
+  }
+
+  //ディレクトリ名取得
+  auto get() const -> const std::string& {
+    return m_name;
+  }
+
+  auto begin() const {
+    return m_subdir.begin();
+  }
+
+  auto end() const {
+    return m_subdir.end();
+  }
+};
+
+//ルートより下のディレクトリについて整形して出力
+void recursive_out(const directory& dir, unsigned int depth) {
+
+  if (1 < depth) std::cout << "| ";
+  for (auto i = depth; 2 < i; --i) {
+    std::cout << " ";
+  }
+  if (2 < depth) std::cout << " ";
+
+  std::cout << "|-" << dir.get() << std::endl;
+
+  for (auto& subdir : dir) {
+    recursive_out(subdir, depth + 1);
+  }
+}
+
+//ディレクトリ構造を出力する
+void out_directorytree(const directory& dir) {
+  std::cout << dir.get() << std::endl;
+
+  for (auto& subdir : dir) {
+    recursive_out(subdir, 1);
+  }
+}
+
+int main() {
+  directory dir{"root"};
+  dir.add("sub1");
+
+  directory sub2{"sub2"};
+  sub2.add("sub2.1");
+
+  directory sub22{"sub2.2"};
+  sub22.add("sub2.2.1");
+
+  sub2.add(std::move(sub22));
+  
+  dir.add(std::move(sub2));
+  dir.add("sub3");
+  
+  out_directorytree(dir);
+}
+```
+* std::list[color ff0000]
+* emplace_back[link list/emplace_back.md]
+* begin[link list/begin.md]
+* end[link list/end.md]
+* for[link /lang/cpp11/range_based_for.md]
+
+### 出力
+```
+root
+|-sub1
+|-sub2
+| |-sub2.1
+| |-sub2.2
+|   |-sub2.2.1
+|-sub3
+```
+
 ## 参照
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
+- [N4510 Minimal incomplete type support for standard containers, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html)
 
 
