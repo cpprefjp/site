@@ -13,7 +13,7 @@ constexpr span<element_type, see below>
 constexpr span<element_type, dynamic_extent>
   subspan(index_type offset, index_type count = dynamic_extent) const; // (2)
 ```
-* dynamic_extent[link /reference/span/dynamic_extent.md.nolink]
+* dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ## 概要
 任意の位置からN個の要素を参照する`span`オブジェクトを取得する。
@@ -25,7 +25,7 @@ constexpr span<element_type, dynamic_extent>
 ## 事前条件
 (1)であれば`Offset`を`i`、`Count`を`N`とし、(2)であれば`offset`を`i`、`count`を`N`として、
 
-- `i <=` [`size()`](size.md) `&& (N ==` [`dynamic_extent`](/reference/span/dynamic_extent.md.nolink) `|| i + N <=` [`size()`](size.md)`)`が`true`であること
+- `i <=` [`size()`](size.md) `&& (N ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| i + N <=` [`size()`](size.md)`)`が`true`であること
 
 
 ## 戻り値
@@ -35,7 +35,7 @@ constexpr span<element_type, dynamic_extent>
         data() + Offset, Count != dynamic_extent ? Count : size() - Offset);
     ```
     * data()[link data.md]
-    * dynamic_extent[link /reference/span/dynamic_extent.md.nolink]
+    * dynamic_extent[link /reference/span/dynamic_extent.md]
     * size()[link size.md]
 
     - ここで戻り値の型の第2テンプレート引数は以下になる：
@@ -51,7 +51,7 @@ constexpr span<element_type, dynamic_extent>
     return {data() + offset, count == dynamic_extent ? size() - offset : count};
     ```
     * data()[link data.md]
-    * dynamic_extent[link /reference/span/dynamic_extent.md.nolink]
+    * dynamic_extent[link /reference/span/dynamic_extent.md]
     * size()[link size.md]
 
 
@@ -83,7 +83,7 @@ int main()
 }
 ```
 * subspan[color ff0000]
-* std::dynamic_extent[link /reference/span/dynamic_extent.md.nolink]
+* std::dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ### 出力
 ```

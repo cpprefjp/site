@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 * size_t[link /reference/cstddef/size_t.md]
-* dynamic_extent[link dynamic_extent.md.nolink]
+* dynamic_extent[link dynamic_extent.md]
 
 ## 概要
 `std::span`は、シーケンスの所有権を保持せず、部分シーケンスを参照するクラスである。
@@ -33,7 +33,7 @@ namespace std {
 メモリ連続性をもつクラスは、非メンバ関数[`data()`](/reference/iterator/data.md)によってポインタを取得でき、非メンバ関数[`size()`](/reference/iterator/size.md)によって要素数を取得できること。それらの関数は、ADLによって呼び出される。
 
 ### 静的な要素数と、動的な要素数
-`std::span`は、静的な要素数をもつ場合と、動的な要素数をもつ場合の両方をサポートする。それはテンプレートパラメータ`Extent`によって表される。動的な要素数をもつ場合は、`Extent`として[`std::dynamic_extent`](/reference/span/dynamic_extent.md.nolink)を指定する。動的な要素数は、[`std::vector`](/reference/vector/vector.md)を参照したり、ポインタと要素数の組を扱ったり、参照範囲を動的に変更したりする場合に必要となる。
+`std::span`は、静的な要素数をもつ場合と、動的な要素数をもつ場合の両方をサポートする。それはテンプレートパラメータ`Extent`によって表される。動的な要素数をもつ場合は、`Extent`として[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を指定する。動的な要素数は、[`std::vector`](/reference/vector/vector.md)を参照したり、ポインタと要素数の組を扱ったり、参照範囲を動的に変更したりする場合に必要となる。
 
 静的な要素数をもつ場合、メンバ定数`extent`に要素数が保持されるため、メンバ変数として要素数を保持する必要がなく、領域を節約する最適化を行える。また、静的な要素数をもつ`std::span`型に対しては、タプルインタフェースを適用できる。
 

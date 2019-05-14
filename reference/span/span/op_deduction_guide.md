@@ -33,8 +33,8 @@ namespace std {
 - (1) : 組み込み配列への参照から、要素型と静的な要素数を推論する
 - (2) : `std::array`型オブジェクトから、要素型と静的な要素数を推論する
 - (3) : `const`の`std::array`型オブジェクトから、要素型と静的な要素数を推論する
-- (4) : メモリ連続性をもつコンテナ型オブジェクトから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md.nolink)を使用する
-- (5) : メモリ連続性をもつ`const`のコンテナ型オブジェクトから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md.nolink)を使用する
+- (4) : メモリ連続性をもつコンテナ型オブジェクトから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を使用する
+- (5) : メモリ連続性をもつ`const`のコンテナ型オブジェクトから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を使用する
 
 なお、ポインタと要素数の組、およびポインタ範囲を指定するコンストラクタからは推論できない。
 
@@ -114,7 +114,7 @@ int main()
   }
 }
 ```
-* std::dynamic_extent[link /reference/span/dynamic_extent.md.nolink]
+* std::dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ### 出力
 ```

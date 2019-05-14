@@ -21,7 +21,7 @@ namespace std {
 
 
 ## 適格要件
-- `Extent !=` [`dynamic_extent`](/reference/span/dynamic_extent.md.nolink) `&& I < Extent`であること
+- `Extent !=` [`dynamic_extent`](/reference/span/dynamic_extent.md) `&& I < Extent`であること
 
 
 ## 戻り値

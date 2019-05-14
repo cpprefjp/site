@@ -13,7 +13,7 @@ constexpr span<element_type, Count>
 constexpr span<element_type, dynamic_extent>
   first(index_type count) const;              // (2)
 ```
-* dynamic_extent[link /reference/span/dynamic_extent.md.nolink]
+* dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ## 概要
 先頭N個の要素を参照する`span`オブジェクトを取得する。
@@ -65,7 +65,7 @@ int main()
 }
 ```
 * first[color ff0000]
-* std::dynamic_extent[link /reference/span/dynamic_extent.md.nolink]
+* std::dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ### 出力
 ```

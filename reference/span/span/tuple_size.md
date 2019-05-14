@@ -17,7 +17,7 @@ namespace std {
 }
 ```
 * integral_constant[link /reference/type_traits/integral_constant.md]
-* dynamic_extent[link /reference/span/dynamic_extent.md.nolink]
+* dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ## 概要
 `tuple_size`は、タプルとして見なせる型の要素数を取得するためのクラスである。
@@ -26,7 +26,7 @@ namespace std {
 
 `<span>`ヘッダでは、静的な要素数をもつ[`std::span`](/reference/span/span.md)クラスに関する特殊化を定義する。
 
-動的な要素数を表す[`std::dynamic_extent`](/reference/span/dynamic_extent.md.nolink)をもつ[`std::span`](/reference/span/span.md)型は、タプルとしては扱えない。
+動的な要素数を表す[`std::dynamic_extent`](/reference/span/dynamic_extent.md)をもつ[`std::span`](/reference/span/span.md)型は、タプルとしては扱えない。
 
 
 ## 例

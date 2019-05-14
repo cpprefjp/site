@@ -59,27 +59,27 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
     - `Extent <= 0`が`true`であること
         - 値`-1`はオーバーフローによって正の最大値になるので`false`
 - (4), (5), (6) :
-    - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md.nolink) `|| N == extent`が`true`であること
+    - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| N == extent`が`true`であること
     - [`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(`[`data`](/reference/iterator/data.md)`(arr)))>(*)[]`型が`ElementType(*)[]`型に変換可能であること
 - (7), (8) :
-    - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md.nolink)が`true`であること
+    - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)が`true`であること
     - `Container`が`span`型ではないこと
     - `Container`が[`array`](/reference/array/array.md)型ではないこと
     - [`is_array_v`](/reference/type_traits/is_array.md)`<Container>`が`false`であること (`Container`が組み込み配列型ではないこと)
     - 式[`data`](/reference/iterator/data.md)`(cont)`と式[`size`](/reference/iterator/size.md)`(size)`が妥当であること (メモリの連続性をもつコンテナであること)
     - [`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(`[`data`](/reference/iterator/data.md)`(arr)))>(*)[]`型が`ElementType(*)[]`型に変換可能であること
 - (11) :
-    - `Extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md.nolink) `|| Extent == OtherExtent`が`true`であること (受け取り側が[`dynamic_extent`](/reference/span/dynamic_extent.md.nolink)を持っていれば任意の`Extent`から変換できる)
+    - `Extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| Extent == OtherExtent`が`true`であること (受け取り側が[`dynamic_extent`](/reference/span/dynamic_extent.md)を持っていれば任意の`Extent`から変換できる)
     - `OtherElementType(*)[]`型が`ElementType(*)[]`型に変換可能であること
 
 
 ## 事前条件
 - (2) :
     - `[ptr, ptr + count)`が妥当な範囲であること
-    - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md.nolink)と等値ではない場合、`count`と`extent`が等値であること
+    - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`count`と`extent`が等値であること
 - (3) :
     - `[first, last)`が妥当な範囲であること
-    - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md.nolink)と等値ではない場合、`last - first`と`extent`が等値であること
+    - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`last - first`と`extent`が等値であること
 - (7), (8) :
     - `[`[`data`](/reference/iterator/data.md)`(cont),` [`data`](/reference/iterator/data.md)`(cont) +` [`size`](/reference/iterator/size.md)`(cont))`が妥当な範囲であること
 
