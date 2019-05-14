@@ -8,8 +8,8 @@
 namespace std {
   template <std::size_t I, class T> class tuple_element; // 先行宣言
 
-  template <std::size_t I, class ElementType, std::size_t N>
-  struct tuple_element<I, span<T, N>> {
+  template <std::size_t I, class ElementType, std::size_t Extent>
+  struct tuple_element<I, span<ElementType, Extent>> {
     static_assert(I < N, implementation-defined);
     using type = ElementType;
   }
@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 適格要件
-- `I < N`であること
+- `I < Extent`であること
 
 
 ## 例
