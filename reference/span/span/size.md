@@ -21,6 +21,10 @@ constexpr index_type size() const noexcept;
 投げない
 
 
+## 計算量
+定数時間
+
+
 ## 例
 ```cpp example
 #include <cassert>

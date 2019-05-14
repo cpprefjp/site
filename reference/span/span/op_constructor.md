@@ -106,6 +106,10 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
 - (7), (8) : コンテナ型によっては、[`data`](/reference/iterator/data.md)`(cont)`と[`size`](/reference/iterator/size.md)`(cont)`の呼び出しがなんらかの例外を送出する可能性がある
 
 
+## 計算量
+- (1)-(11) : 定数時間
+
+
 ## 備考
 - (2) : イテレータと要素数の組ではなく、ポインタと要素数の組であることに注意
     - 例として、[`std::vector`](/reference/vector/vector.md)や[`std::array`](/reference/array/array.md)のイテレータが環境・状況によってはポインタとして定義されるかもしれないため、イテレータを指定しても動作する可能性はある。しかし、それでは他の環境では動作しない可能性が高いため、イテレータではなくポインタを指定すること

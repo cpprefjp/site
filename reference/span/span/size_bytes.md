@@ -26,6 +26,10 @@ return size() * sizeof(element_type);
 投げない
 
 
+## 計算量
+定数時間
+
+
 ## 例
 ```cpp example
 #include <cassert>

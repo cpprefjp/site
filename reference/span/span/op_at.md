@@ -26,6 +26,10 @@ return *(data() + i);
 * data()[link data.md]
 
 
+## 計算量
+定数時間
+
+
 ## 例
 ```cpp example
 #include <cassert>

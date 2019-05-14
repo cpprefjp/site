@@ -26,6 +26,10 @@ return const_reverse_iterator(cend());
 投げない
 
 
+## 計算量
+定数時間
+
+
 ## 例
 ```cpp example
 #include <iostream>

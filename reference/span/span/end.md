@@ -27,6 +27,10 @@ friend constexpr iterator end(span s) noexcept; // (2)
 投げない
 
 
+## 計算量
+定数時間
+
+
 ## 例
 ```cpp example
 #include <iostream>

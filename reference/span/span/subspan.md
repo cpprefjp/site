@@ -55,6 +55,10 @@ constexpr span<element_type, dynamic_extent>
     * size()[link size.md]
 
 
+## 計算量
+定数時間
+
+
 ## 例
 ```cpp example
 #include <iostream>

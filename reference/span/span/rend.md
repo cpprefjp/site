@@ -26,6 +26,10 @@ return reverse_iterator(begin());
 投げない
 
 
+## 計算量
+定数時間
+
+
 ## 例
 ```cpp example
 #include <iostream>
