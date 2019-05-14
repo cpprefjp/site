@@ -6,9 +6,9 @@
 
 ```cpp
 namespace std {
-  constexpr float lerp(float a, float b, float t);
-  constexpr double lerp(double a, double b, double t);
-  constexpr long double lerp(long double a, long double b, long double t);
+  constexpr float lerp(float a, float b, float t) noexcept;
+  constexpr double lerp(double a, double b, double t) noexcept;
+  constexpr long double lerp(long double a, long double b, long double t) noexcept;
 }
 ```
 
@@ -24,6 +24,11 @@ namespace std {
 ```cpp
 return a + t * (b - a);
 ```
+
+
+## 例外
+投げない
+
 
 ## 備考
 - [`isfinite`](isfinite.md)`(a) &&` [`isfinite`](isfinite.md)`(b)`である場合、戻り値`r`は以下のようになる：
@@ -141,3 +146,4 @@ int main()
 
 ## 参照
 - [P0811R3 Well-behaved interpolation for numbers and pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0811r3.html)
+- [LWG Issue 3201. `lerp` should be marked as `noexcept`](https://cplusplus.github.io/LWG/lwg-active.html#3201)
