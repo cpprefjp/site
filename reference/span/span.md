@@ -16,12 +16,27 @@ namespace std {
 ## 概要
 `std::span`は、シーケンスの所有権を保持せず、部分シーケンスを参照するクラスである。
 
+このクラスは、[`std::vector`](/reference/vector/vector.md)や配列といったコンテナから一部の連続的な要素を抽出し、それらの要素にのみなんらかの処理を適用する、という目的に使用できる。
+
+文字列操作に特化したクラスとして[`std::basic_string_view`](/reference/string_view/basic_string_view.md)が定義されているが、こちらはメモリ連続性をもつあらゆるコンテナに適用できる。
+
+
+### メモリ連続性
 このクラスの対象は、メモリの連続性を持つシーケンスである。例として、以下は対象のシーケンスである：
 
 - 組み込み配列
 - 要素を指すポインタと要素数の組
+- 先頭要素を指すポインタと、末尾要素の次を指すポインタの組
 - [`std::array`](/reference/array/array.md)
 - [`std::vector`](/reference/vector/vector.md)
+
+メモリ連続性をもつクラスは、非メンバ関数[`data()`](/reference/iterator/data.md)によってポインタを取得でき、非メンバ関数[`size()`](/reference/iterator/size.md)によって要素数を取得できること。それらの関数は、ADLによって呼び出される。
+
+### 静的な要素数と、動的な要素数
+`std::span`は、静的な要素数をもつ場合と、動的な要素数をもつ場合の両方をサポートする。それはテンプレートパラメータ`Extent`によって表される。動的な要素数をもつ場合は、`Extent`として[`std::dynamic_extent`](/reference/span/dynamic_extent.md.nolink)を指定する。動的な要素数は、[`std::vector`](/reference/vector/vector.md)を参照したり、ポインタと要素数の組を扱ったり、参照範囲を動的に変更したりする場合に必要となる。
+
+静的な要素数をもつ場合、メンバ定数`extent`に要素数が保持されるため、メンバ変数として要素数を保持する必要がなく、領域を節約する最適化を行える。また、静的な要素数をもつ`std::span`型に対しては、タプルインタフェースを適用できる。
+
 
 
 ## メンバ関数
