@@ -38,6 +38,14 @@ namespace std {
 静的な要素数をもつ場合、メンバ定数`extent`に要素数が保持されるため、メンバ変数として要素数を保持する必要がなく、領域を節約する最適化を行える。また、静的な要素数をもつ`std::span`型に対しては、タプルインタフェースを適用できる。
 
 
+### テンプレートパラメータ制約
+- `ElementType`は、抽象型ではない完全オブジェクト型であること
+
+
+### 備考
+- `std::span`が参照する範囲`[s.`[`data()`](span/data.md)`, s.`[`data()`](span/data.md) `+ s.`[`size()`](span/size.md)`)`に含まれるポインタを無効にする操作を行った場合、`std::span`オブジェクトのメンバ関数から返されるその範囲のポインタ、イテレータ、`*this`以外の参照が無効になる
+
+
 
 ## メンバ関数
 ### 構築・破棄
@@ -165,3 +173,4 @@ namespace std {
 - [P1085R2 Should `span` be regular?](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1085r2.md)
 - [P1227R2 Signed `ssize()` functions, unsigned `size()` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1227r2.html)
 - [P1024R3 Usability enhancements for `std::span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1024r3.pdf)
+- [LWG Issue 3203. `span` element access invalidation](https://cplusplus.github.io/LWG/lwg-active.html#3203)
