@@ -210,7 +210,7 @@ int main()
 5
 ```
 
-### 不完全型を要素にする例 (C++17)
+## 不完全型を要素にする例 (C++17)
 
 不完全型を要素型に出来るようになった事で、階層構造や多分木などの再帰的データ構造を実装することが容易になる。  
 他にも、[`list`](/reference/list/list.md)と[`forward_list`](/reference/forward_list/forward_list.md)が不完全型をサポートしている。
