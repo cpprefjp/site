@@ -109,14 +109,13 @@ namespace std {
 | [`as_bytes`](span/as_bytes.md.nolink) | バイト列としてシーケンスを参照する | C++20 |
 | [`as_writable_bytes`](span/as_writable_bytes.md.nolink) | 書込み可能なバイト列としてシーケンスを参照する | C++20 |
 
-
 ## タプルインタフェース
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`tuple_size`](span/tuple_size.md)       | 要素数を取得する (class template)           | C++20 |
 | [`tuple_element`](span/tuple_element.md) | `i`番目の要素型を取得する (class template)  | C++20 |
-| [`get`](span/get.md.nolink) | 任意の位置の要素を取得する | C++20 |
+| [`get`](span/get.md)                     | 任意の位置の要素を取得する | C++20 |
 
 
 ## 推論補助
