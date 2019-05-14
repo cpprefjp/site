@@ -23,12 +23,19 @@ namespace std {
 この関数は、単純に計算する場合は`(a + b) / 2`となるが、オーバーフローが起こりにくいよう計算式に工夫が入る。例として、整数の場合は`a + (b - a) / 2`、浮動小数点数の場合は`a/2 + b/2`のように計算できる (実際は負数や非正規化数などをさらに考慮することになる)。
 
 
-## 要件
+## テンプレートパラメータ制約
 - (1) : 型`T` が `bool` 以外の[算術型](/reference/type_traits/is_arithmetic.md)であること
+- (2) : 型`T`はオブジェクト型であること
+
+
+## 適格要件
 - (2) : 型`T`は完全型であること
+
+
+## 事前条件
 - (2) : 期待することとして、`a`と`b`はそれぞれ、同じ配列`x`の`x[i]`と`x[j]`要素を指していること
-    - TODO : この項目は規格では契約のExpectsにあたる。本サイトの項目の書き方を考える必要がある
     - 配列要素でないオブジェクトが与えられた場合は、単一要素をもつ配列に属するものとみなす
+
 
 ## 戻り値
 - (1) : `a`と`b`を合計した値の1/2の数値を返す
@@ -154,3 +161,4 @@ int main()
 
 ## 参照
 - [P0811R3 Well-behaved interpolation for numbers and pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0811r3.html)
+- [LWG Issue 3200. `midpoint` should not constrain `T` is complete](https://cplusplus.github.io/LWG/lwg-active.html#3200)
