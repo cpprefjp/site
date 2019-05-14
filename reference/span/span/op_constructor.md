@@ -56,7 +56,7 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
 
 ## テンプレートパラメータ制約
 - (1) :
-    - `Extent <= 0`が`true`であること
+    - `Extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| Extent == 0`が`true`であること
         - 値`-1`はオーバーフローによって正の最大値になるので`false`
 - (4), (5), (6) :
     - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| N == extent`が`true`であること
@@ -139,9 +139,13 @@ int main()
     std::span<int, 0> s1;
     assert(s1.empty());
 
+    // 動的な要素数をもつspanオブジェクト
+    std::span<int> s2;
+    assert(s2.empty());
+
     // 以下はコンパイルエラーになる。
     // 長さ1以上のspanは、参照範囲を設定しなければならない
-    //std::span<int, 1> s2{};
+    //std::span<int, 1> s3{};
   }
 
   // (2) ポインタと要素数の組を指定
@@ -248,6 +252,7 @@ int main()
 }
 ```
 * s1.empty()[link empty.md]
+* s2.empty()[link empty.md]
 * s.size()[link size.md]
 * s.data()[link data.md]
 * s1.size()[link size.md]
@@ -281,3 +286,7 @@ int main()
 - [Clang](/implementation.md#clang): 9.0
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 3198. Bad constraint on `std::span::span()`](https://cplusplus.github.io/LWG/issue3198)
