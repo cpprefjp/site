@@ -150,10 +150,48 @@ namespace std {
 
 ## 例
 ```cpp example
+#include <iostream>
+#include <span>
+#include <vector>
+
+// メモリ連続性をもつあらゆる範囲を出力する関数。
+// std::spanオブジェクトはコピーで受け取るのが基本的な使い方
+template <class T, std::size_t Extent>
+void print(std::span<T, Extent> s)
+{
+  const char* delimiter = "";
+
+  std::cout << '{';
+  for (const T& x : s) {
+    std::cout << std::exchange(delimiter, ",") << x;
+  }
+  std::cout << '}' << std::endl;
+}
+
+int main()
+{
+  std::vector<int> v = {1, 2, 3, 4, 5};
+  int ar[] = {1, 2, 3, 4, 5};
+
+  // spanに変換してコンテナ全体を出力
+  print(std::span{v});
+
+  // コンテナの一部の要素を出力
+  print(std::span{v}.subspan(1, 3));
+
+  // ポインタと要素数を指定した範囲を参照して、
+  // 範囲for文を使用する
+  print(std::span<int>{ar, 3});
+}
 ```
+* std::exchange[link /reference/utility/exchange.md]
+* subspan[link span/subspan.md]
 
 ### 出力
 ```
+{1,2,3,4,5}
+{2,3,4}
+{1,2,3}
 ```
 
 
@@ -162,7 +200,7 @@ namespace std {
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 9.0
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
