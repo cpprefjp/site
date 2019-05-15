@@ -285,6 +285,7 @@ int main() {
 * begin[link list/begin.md]
 * end[link list/end.md]
 * for[link /lang/cpp11/range_based_for.md]
+* std::move[link /reference/utility/move.md]
 
 #### 出力
 ```
