@@ -149,10 +149,12 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <span>
 #include <vector>
+#include <utility>
 
 // メモリ連続性をもつあらゆる範囲を出力する関数。
 // std::spanオブジェクトはコピーで受け取るのが基本的な使い方
@@ -187,11 +189,68 @@ int main()
 * std::exchange[link /reference/utility/exchange.md]
 * subspan[link span/subspan.md]
 
-### 出力
+#### 出力
 ```
 {1,2,3,4,5}
 {2,3,4}
 {1,2,3}
+```
+
+
+### データのヘッダ情報とボディ情報をコピーなしで分割する
+```cpp example
+#include <iostream>
+#include <span>
+#include <vector>
+#include <utility>
+
+template <class T>
+void process_header(std::span<T> s)
+{
+  const char* delimiter = "";
+
+  std::cout << "[header] : ";
+  for (int x : s) {
+    std::cout << std::exchange(delimiter, ",") << x;
+  }
+  std::cout << std::endl;
+}
+
+template <class T>
+void process_body(std::span<T> s)
+{
+  const char* delimiter = "";
+
+  std::cout << "[body] : ";
+  for (int x : s) {
+    std::cout << std::exchange(delimiter, ",") << x;
+  }
+  std::cout << std::endl;
+}
+
+template <class T>
+void f(std::span<T> s)
+{
+  std::size_t header_size = 3;
+  process_header(s.first(header_size));
+  process_body(s.last(s.size() - header_size));
+}
+
+int main()
+{
+  std::vector<int> data = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  f(std::span{data});
+}
+```
+* s.first[link span/first.md]
+* s.last[link span/last.md]
+* s.size()[link span/size.md]
+* std::exchange[link /reference/utility/exchange.md]
+
+#### 出力
+```
+[header] : 1,2,3
+[body] : 4,5,6,7,8,9,10
 ```
 
 
