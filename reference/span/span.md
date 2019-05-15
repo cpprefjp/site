@@ -129,8 +129,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`as_bytes`](span/as_bytes.md.nolink) | バイト列としてシーケンスを参照する | C++20 |
-| [`as_writable_bytes`](span/as_writable_bytes.md.nolink) | 書込み可能なバイト列としてシーケンスを参照する | C++20 |
+| [`as_bytes`](span/as_bytes.md) | 読み取り専用バイト列としてシーケンスを参照する | C++20 |
+| [`as_writable_bytes`](span/as_writable_bytes.md) | 書込み可能なバイト列としてシーケンスを参照する | C++20 |
 
 ## タプルインタフェース
 
