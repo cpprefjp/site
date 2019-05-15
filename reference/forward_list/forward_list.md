@@ -165,6 +165,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <forward_list>
@@ -190,13 +191,13 @@ int main()
 * ls.cbegin()[link forward_list/cbegin.md]
 * ls.cend()[link forward_list/end.md]
 
-### 出力
+#### 出力
 ```
 3
 1
 ```
 
-## 不完全型を要素にする例 (C++17)
+### 不完全型を要素にする例 (C++17)
 
 不完全型を要素型に出来るようになった事で、階層構造や多分木などの再帰的データ構造を実装することが容易になる。  
 他にも、[`vector`](/reference/vector/vector.md)と[`list`](/reference/list/list.md)が不完全型をサポートしている。
@@ -213,7 +214,7 @@ class directory {
   //不完全型（クラス定義内ではそのクラス自身は不完全）を要素型に指定
   std::forward_list<directory> m_subdir{};
   std::string m_name{};
-  
+
 public:
 
   directory(const char* name) : m_name{name}
@@ -275,10 +276,10 @@ int main() {
   sub22.add("sub2.2.1");
 
   sub2.add(std::move(sub22));
-  
+
   dir.add(std::move(sub2));
   dir.add("sub3");
-  
+
   out_directorytree(dir);
 }
 ```
@@ -288,7 +289,7 @@ int main() {
 * end[link forward_list/end.md]
 * for[link /lang/cpp11/range_based_for.md]
 
-### 出力
+#### 出力
 ```
 root
 |-sub3

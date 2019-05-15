@@ -168,7 +168,36 @@ namespace std {
 | [`(deduction_guide)`](vector/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
 
 
-## 例 (C++11)
+## `vector<bool>`特殊化
+`vector`は`bool`型に対して特殊化されている。
+
+この特殊化はメモリ領域を最小化するために提供されていて、各要素は1bitの領域のみを必要とする。
+
+`vector<bool>::reference`は`bool`への参照ではなく、領域内の1bitを指す型であり、以下のようなインタフェースである。
+
+```cpp
+class vector<bool>::reference {
+  friend class vector;
+  reference();                              // コンストラクタは非公開
+public:
+  ~reference();
+  operator bool() const;                    // boolへの暗黙変換
+  reference& operator=(const bool x);       // boolからの代入
+  reference& operator=(const reference& x); // vector<bool>のビットからの代入
+  void flip();                              // ビットの反転
+}
+```
+
+## ハッシュサポート
+
+| 名前 | 説明 | 対応バージョン |
+|--------------------------------------------------------------------|------------------------------------------|-------|
+| `template <class T> struct hash;`                                  | `hash`クラスの先行宣言                   | C++11 |
+| `template <class Allocator> struct hash<vector<bool, Allocator>>;` | `hash`クラスの`vector<bool>`に対する特殊化 | C++11 |
+
+
+## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <cassert>
@@ -201,7 +230,7 @@ int main()
 * v.data()[link vector/data.md]
 * for[link /lang/cpp11/range_based_for.md]
 
-### 出力
+#### 出力
 ```
 1
 2
@@ -210,7 +239,7 @@ int main()
 5
 ```
 
-## 不完全型を要素にする例 (C++17)
+### 不完全型を要素にする例 (C++17)
 
 不完全型を要素型に出来るようになった事で、階層構造や多分木などの再帰的データ構造を実装することが容易になる。  
 他にも、[`list`](/reference/list/list.md)と[`forward_list`](/reference/forward_list/forward_list.md)が不完全型をサポートしている。
@@ -226,7 +255,7 @@ class directory {
   //不完全型（クラス定義内ではそのクラス自身は不完全）を要素型に指定
   std::vector<directory> m_subdir{};
   std::string m_name{};
-  
+
 public:
 
   directory(const char* name) : m_name{name}
@@ -288,10 +317,10 @@ int main() {
   sub22.add("sub2.2.1");
 
   sub2.add(std::move(sub22));
-  
+
   dir.add(std::move(sub2));
   dir.add("sub3");
-  
+
   out_directorytree(dir);
 }
 ```
@@ -301,7 +330,7 @@ int main() {
 * end[link vector/end.md]
 * for[link /lang/cpp11/range_based_for.md]
 
-### 出力
+#### 出力
 ```
 root
 |-sub1
@@ -312,35 +341,7 @@ root
 |-sub3
 ```
 
-## `vector<bool>`特殊化
-`vector`は`bool`型に対して特殊化されている。
-
-この特殊化はメモリ領域を最小化するために提供されていて、各要素は1bitの領域のみを必要とする。
-
-`vector<bool>::reference`は`bool`への参照ではなく、領域内の1bitを指す型であり、以下のようなインタフェースである。
-
-```cpp
-class vector<bool>::reference {
-  friend class vector;
-  reference();                              // コンストラクタは非公開
-public:
-  ~reference();
-  operator bool() const;                    // boolへの暗黙変換
-  reference& operator=(const bool x);       // boolからの代入
-  reference& operator=(const reference& x); // vector<bool>のビットからの代入
-  void flip();                              // ビットの反転
-}
-```
-
-### ハッシュサポート
-
-| 名前 | 説明 | 対応バージョン |
-|--------------------------------------------------------------------|------------------------------------------|-------|
-| `template <class T> struct hash;`                                  | `hash`クラスの先行宣言                   | C++11 |
-| `template <class Allocator> struct hash<vector<bool, Allocator>>;` | `hash`クラスの`vector<bool>`に対する特殊化 | C++11 |
-
-
-### `vector<bool>`の基本操作：
+### `vector<bool>`の基本操作
 ```cpp example
 #include <iostream>
 #include <vector>
