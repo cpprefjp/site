@@ -99,6 +99,27 @@ export {
 * `export`を付けた宣言が新たな名前を宣言していない場合は、エラーとなる。
 * 内部リンケージを持つ名前をエクスポートすると、エラーとなる。
 
+```cpp
+// "a.h"
+export int x;
+
+// 翻訳単位1
+module;
+#include "a.h"            // エラー: インクルードによって取り込まれたxの宣言がモジュールインターフェースの範囲にない
+export module M;
+export namespace {}       // エラー: 新たな名前を宣言していない
+export namespace {
+  int a1;                 // エラー: 内部リンケージを持つ名前はエクスポートできない
+}
+namespace {
+  export int a2;          // エラー: 内部リンケージを持つ名前はエクスポートできない
+}
+export static int b;      // エラー: 明示的にstaticで宣言されている名前はエクスポートできない
+export int f();           // OK
+export namespace N { }    // OK
+export using namespace N; // エラー: 新たな名前を宣言していない
+```
+
 #### モジュールリンケージ
 
 C++20では、新たにモジュールリンケージが追加された。
