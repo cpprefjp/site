@@ -25,8 +25,8 @@ import a; // aモジュールをインポート
 
 int main()
 {
-    foo(); // エラー、fooはエクスポートされていないので見えない
-    bar(); // OK、barはエクスポートされているので見える
+  foo(); // エラー、fooはエクスポートされていないので見えない
+  bar(); // OK、barはエクスポートされているので見える
 }
 ```
 
@@ -87,7 +87,7 @@ export template<class T> foobar(); // 関数テンプレートのエクスポー
 
 ```cpp
 export {
-    void f();
+  void f();
 }
 ```
 
@@ -181,7 +181,7 @@ import A;
 
 int main()
 {
-    foo();
+  foo();
 }
 ```
 
@@ -208,7 +208,7 @@ export module foo;
 #include "lib.h"    // "lib.h"中の宣言がモジュールfooに含まれてしまう(モジュールリンケージを持ってしまう)。
 
 void f() {
-    std::cout << "foo" << std::endl;
+  std::cout << "foo" << std::endl;
 }
 // 
 ```
@@ -246,8 +246,8 @@ export import "lib.h";
 import lib;
 
 int main() {
-    1 + f(); // OK
-    1 + NUM; // エラー: マクロは再エクスポートしても引き継がれない
+  1 + f(); // OK
+  1 + NUM; // エラー: マクロは再エクスポートしても引き継がれない
 }
 ```
 
