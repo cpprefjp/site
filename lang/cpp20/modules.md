@@ -51,12 +51,15 @@ export(opt) module モジュール名 属性(opt);
 ```cpp
 export module foo; // fooのモジュールインターフェースユニット
 ```
+
 ```cpp
 module foo; // fooのモジュールユニット
 ```
+
 ```cpp
 module foo.bar; // foo.barのモジュールユニット
 ```
+
 ```cpp
 export module bar [[deprecated]]; // 属性
 ```
@@ -141,6 +144,7 @@ export(opt) module モジュール名:モジュールパーティション名 �
 ```cpp
 export module lib:part; // libモジュールのモジュールインターフェースパーティションpart
 ```
+
 ```cpp
 module lib:internal; // libモジュールのモジュール実装パーティションinternal
 ```
