@@ -13,12 +13,14 @@ export module a; // aモジュールのインターフェース
 void foo(){}
 export void bar(); // 関数barをエクスポート
 ```
+
 ```cpp
 // a_impl.cpp
 module a;
 
 void bar(){ foo(); } // OK、fooはエクスポートされていないが、同じモジュールの中では見える
 ```
+
 ```cpp
 // main.cpp
 import a; // aモジュールをインポート
