@@ -170,12 +170,14 @@ export module A;
 
 export void foo(){}
 ```
+
 ```cpp
 // b.cpp
 export module B;
 
 export void foo(){}
 ```
+
 ```cpp
 import A;
 
