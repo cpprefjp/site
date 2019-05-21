@@ -1,3 +1,23 @@
+// a.h
+#define X 123 // #1
+#define Y 45  // #2
+#define Z a   // #3
+#undef X      // a.hではここで#2が無効になる
+
+// b.h
+import "a.h"; // b.hではここで#1, #2, #3が定義され、#1が無効になる
+#define X 456 // OK: #1で定義したXはすでに無効
+#define Y 6   // エラー: #2で定義したYが有効
+
+// c.h
+#define Y 45  // #4
+#define Z c   // #5
+
+// d.h
+import "a.h"; // d.hではここで#1, #2, #3が定義され、#1が無効になる
+import "c.h"; // d.hではここで#4, #5が定義される
+int a = Y;    // OK: #4は#2と同じ
+int c = Z;    // エラー: #5は#3を異なる値で再定義している
 # モジュール
 * cpp20[meta cpp]
 
@@ -7,30 +27,30 @@ C++20では、インクルードに代わる新たな仕組みとしてモジュ
 C++20では、プリプロセッサを用いずにプログラムを分割することができる：
 
 ```cpp
+// P1103R3より引用
+
 // a.cpp
-export module a; // aモジュールのインターフェース
+export module A; // モジュールAのインターフェース
 
-void foo(){}
-export void bar(); // 関数barをエクスポート
-```
+int foo() { return 1; } // エクスポートしていない関数foo
+export int bar();       // エクスポートしている関数bar
 
-```cpp
-// a_impl.cpp
-module a;
+// a-impl.cpp
+module A; // モジュールAの実装
 
-void bar(){ foo(); } // OK、fooはエクスポートされていないが、同じモジュールの中では見える
-```
+int bar() {
+  return foo() + 1; // OK: fooはエクスポートしていないが、モジュールAの中では見える。
+}
 
-```cpp
-// main.cpp
-import a; // aモジュールをインポート
+// unrelated.cpp
+import A;
 
-int main()
-{
-  foo(); // エラー、fooはエクスポートされていないので見えない
-  bar(); // OK、barはエクスポートされているので見える
+int main() {
+  bar(); // OK: barはAからエクスポートされているので見える
+  foo(); // エラー: fooはモジュールAの外では見えない
 }
 ```
+* P1103R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf]
 
 ## 仕様
 
@@ -100,12 +120,7 @@ export {
 * 内部リンケージを持つ名前をエクスポートすると、エラーとなる。
 
 ```cpp
-// "a.h"
-export int x;
-
-// 翻訳単位1
-module;
-#include "a.h"            // エラー: インクルードによって取り込まれたxの宣言がモジュールインターフェースの範囲にない
+// P1103R3より引用
 export module M;
 export namespace {}       // エラー: 新たな名前を宣言していない
 export namespace {
@@ -119,6 +134,7 @@ export int f();           // OK
 export namespace N { }    // OK
 export using namespace N; // エラー: 新たな名前を宣言していない
 ```
+* P1103R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf]
 
 #### モジュールリンケージ
 
@@ -179,13 +195,39 @@ module lib:internal; // libモジュールのモジュール実装パーティ�
 - インポートするとエクスポートしていない宣言も見えるようになる。
     - ただし、再エクスポートはできない。
 
+主となるモジュールのインターフェースとパーティションを区別する場合は、プライマリーモジュールインターフェースユニットという事がある。
+
 ```cpp
-export module foo;
-import :part;          // foo:partをインポート
-export import :part2;  // foo:part2を再エクスポート
-import bar:part3;      // エラー: 別のモジュールからはインポート不可
-import foo:part4;      // エラー: モジュール名を書くのは不可
+// P1103R3より引用
+// 翻訳単位1
+export module A;
+export import :Foo;
+export int baz();
+
+// 翻訳単位2
+export module A:Foo;
+import :Internals;
+export int foo() { return 2 * (bar() + 1); }
+
+// 翻訳単位3
+module A:Internals;
+int bar();
+
+// 翻訳単位4
+module A;
+import :Internals;
+int bar() { return baz() - 10; }
+int baz() { return 30; }
 ```
+* P1103R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf]
+
+このモジュールAは4つの翻訳単位からなる。上から順に、
+
+1. (プライマリー)モジュールインターフェースユニット
+2. モジュールインターフェースパーティション `:Foo`
+3. モジュール実装パーティション `:Internals`
+4. モジュール実装ユニット
+
 
 ### ODRの緩和
 
@@ -288,11 +330,12 @@ int main() {
     * ヘッダーユニットはモジュール宣言を持てない。ヘッダーユニット内の宣言はグローバルモジュールに属する。
 
 ```cpp
+// P1103R3より引用
 // a.h
 #define X 123 // #1
 #define Y 45  // #2
 #define Z a   // #3
-#undef X      // a.hではここで#2が無効になる
+#undef  X      // a.hではここで#1が無効になる
 
 // b.h
 import "a.h"; // b.hではここで#1, #2, #3が定義され、#1が無効になる
@@ -309,6 +352,7 @@ import "c.h"; // d.hではここで#4, #5が定義される
 int a = Y;    // OK: #4は#2と同じ
 int c = Z;    // エラー: #5は#3を異なる値で再定義している
 ```
+* P1103R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf]
 
 C++20では、`#include` プリプロセッサディレクティブがヘッダーユニットのインポートに置き換えられる場合がある。
 
