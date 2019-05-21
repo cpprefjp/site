@@ -1,23 +1,3 @@
-// a.h
-#define X 123 // #1
-#define Y 45  // #2
-#define Z a   // #3
-#undef X      // a.hではここで#2が無効になる
-
-// b.h
-import "a.h"; // b.hではここで#1, #2, #3が定義され、#1が無効になる
-#define X 456 // OK: #1で定義したXはすでに無効
-#define Y 6   // エラー: #2で定義したYが有効
-
-// c.h
-#define Y 45  // #4
-#define Z c   // #5
-
-// d.h
-import "a.h"; // d.hではここで#1, #2, #3が定義され、#1が無効になる
-import "c.h"; // d.hではここで#4, #5が定義される
-int a = Y;    // OK: #4は#2と同じ
-int c = Z;    // エラー: #5は#3を異なる値で再定義している
 # モジュール
 * cpp20[meta cpp]
 
