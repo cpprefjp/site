@@ -333,5 +333,5 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 
 
 ## 参照
-- [P0636R0 Changes between C++14 and C++17 DIS](https://isocpp.org/files/papers/p0636r0.html)
+- [P0636R3 Changes between C++14 and C++17 DIS](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0636r3.html)
 - [TOTAL RETARDATION in C++ - ISO C++ Standard - Future Proposals](https://groups.google.com/a/isocpp.org/d/msg/std-proposals/qd3L1-bGg1A/ut0Fu2ODCwAJ)
