@@ -25,7 +25,7 @@ variant& operator=(T&& rhs) noexcept(see below);                 // (3)
 - (2) :
     - `Types...`のすべての型`Ti`について、[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<Ti> &&` [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<Ti>`が`true`であること
 - (3) :
-    - ここで説明用の型として、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(rhs))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、代入してその後含まれる値の型を`Tj`とする
+    - ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(rhs))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、代入してその後含まれる値の型を`Tj`とする
     - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<T>, variant>`が`false`であること
     - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<Tj&, T> &&` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Tj, T>`が`true`であること
 
