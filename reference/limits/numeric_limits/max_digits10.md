@@ -21,7 +21,14 @@ static constexpr int max_digits10;
   `(Is radix power of 10) ? digits * log10(radix) : ceil(1 + digits * log10(radix))`
 
 
-C99の`DECIMAL_DIG`は、サポートされている浮動小数点数型の`max_digits10`の最大のものに相当する。  
+対応するマクロを次の表に挙げる。
+
+| 型            | 対応するマクロ |
+|---------------|----------------|
+| `float`       | [`FLT_DECIMAL_DIG`](/reference/cfloat/flt_decimal_dig.md)  |
+| `double`      | [`DBL_DECIMAL_DIG`](/reference/cfloat/dbl_decimal_dig.md)  |
+| `long double` | [`LDBL_DECIMAL_DIG`](/reference/cfloat/ldbl_decimal_dig.md) |
+
 なお、`is_specialized == false`もしくは浮動小数点数型以外の場合、`max_digits10`は`0`となる。
 
 

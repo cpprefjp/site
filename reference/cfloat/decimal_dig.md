@@ -31,8 +31,10 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 - 規格で 10 以上であることが規定されている。
 - 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
 - `DECIMAL_DIG` は DECIMAL DIGits（decimal：10進数、digit：桁）に由来する。
-- 浮動小数点型の各種パラメータを表す他の多くのマクロと異なり、型毎に分かれていないため注意。  
-	C11 には各型毎の桁数を示すマクロ（`DBL_DECIMAL_DIG`、`FLT_DECILAL_DIG`、`LDBL_DECIMAL_DIG`）が導入されたが、現時点（C++14）では C++ には導入されていない。
+- 各型毎の桁数を示すマクロも定義されている
+    - [`DBL_DECIMAL_DIG`](dbl_decimal_dig.md)
+    - [`FLT_DECILAL_DIG`](flt_decimal_dig.md)
+    - [`LDBL_DECIMAL_DIG`](ldbl_decimal_dig.md)
 
 
 ## 例
