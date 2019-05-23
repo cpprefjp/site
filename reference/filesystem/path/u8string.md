@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-std::string u8string() const;
+std::string u8string() const;   //C++17
+std::u8string u8string() const; //C++20
 ```
 
 ## 概要
