@@ -9,9 +9,10 @@ namespace std {
 inline namespace literals {
 inline namespace string_literals {
   string    operator""s(const char* str, size_t len);     // (1)
-  u16string operator""s(const char16_t* str, size_t len); // (2)
-  u32string operator""s(const char32_t* str, size_t len); // (3)
-  wstring   operator""s(const wchar_t* str, size_t len);  // (4)
+  u8string  operator""s(const char8_t* str, size_t len);  // (2) C++20
+  u16string operator""s(const char16_t* str, size_t len); // (3)
+  u32string operator""s(const char32_t* str, size_t len); // (4)
+  wstring   operator""s(const wchar_t* str, size_t len);  // (5)
 }}}
 ```
 
@@ -21,16 +22,18 @@ inline namespace string_literals {
 文字列リテラルを受け取り、各文字型の`basic_string`オブジェクトを構築する。
 
 - (1) : `string`型のリテラル
-- (2) : `u16string`型のリテラル
-- (3) : `u32string`型のリテラル
-- (4) : `wstring`型のリテラル
+- (2) : `u8string`型のリテラル
+- (3) : `u16string`型のリテラル
+- (4) : `u32string`型のリテラル
+- (5) : `wstring`型のリテラル
 
 
 ## 戻り値
 - (1) : `basic_string<char>{str, len}`
-- (2) : `basic_string<char16_t>{str, len}`
-- (3) : `basic_string<char32_t>{str, len}`
-- (4) : `basic_string<wchar_t>{str, len}`
+- (2) : `basic_string<char8_t>{str, len}`
+- (3) : `basic_string<char16_t>{str, len}`
+- (4) : `basic_string<char32_t>{str, len}`
+- (5) : `basic_string<wchar_t>{str, len}`
 
 
 ## 例
@@ -42,8 +45,11 @@ int main()
   using namespace std::literals::string_literals;
 
   std::string s1 = "hello"s;   // 文字コード未規定のstringリテラル
-  std::string s2 = u8"hello"s; // UTF-8のstringリテラル
-
+#if defined(__cpp_char8_t) && 201803L <= __cpp_char8_t
+  std::u8string s2 = u8"hello"s; // UTF-8のstringリテラル(C++20)
+#else
+  std::string s2 = u8"hello"s; // UTF-8のstringリテラル(C++11～C++17)
+#endif
   std::u16string s3 = u"hello"s; // u16stringリテラル
   std::u32string s4 = U"hello"s; // u32stringリテラル
 
