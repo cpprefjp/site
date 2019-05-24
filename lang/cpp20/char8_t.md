@@ -19,6 +19,10 @@ C++17で追加されたFilesystemの[`path`](/reference/filesystem/path.md)ク�
 
 `basic_ostream<char>::operator<<()`と`basic_istream<char>::operator>>()`に対して`char8_t`のoverloadは追加されない。これは現状`char16_t`/`char32_t`型に対しても存在していないためである。
 
+## 備考
+
+[機能テストマクロ](../../lang/cpp17/feature_test_macros.md)は`__cpp_constexpr`で、値は`201803`。
+
 ## 例
 ```cpp example
 
