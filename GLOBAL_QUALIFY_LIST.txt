@@ -38,6 +38,7 @@
 * <cstdint>[link /reference/cstdint.md]
     * std::uint8_t[link /reference/cstdint/uint8_t.md]
 * <cstdlib>[link /reference/cstdlib.md]
+* <ctime>[link /reference/ctime.md]
 * <deque>[link /reference/deque/deque.md]
     * std::deque[link /reference/deque/deque.md]
 * <exception>[link /reference/exception.md]

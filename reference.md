@@ -188,7 +188,7 @@
 | [`<cstdlib>`](/reference/cstdlib.md) | ユーティリティ関数                  |                |
 | `<cstring>`                          | 文字列操作                          |                |
 | `<ctgmath>`                          | ジェネリックな数学関数              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
-| `<ctime>`                            | 日付・時間                          |                |
+| [`<ctime>`](/reference/ctime.md)     | 日付・時間                          |                |
 | `<cuchar>`                           | ユニコード文字型                    | C++11 (C11)    |
 | `<cwchar>`                           | ワイド文字型                        |                |
 | `<cwctype>`                          | ワイド文字の種別と判定              |                |
