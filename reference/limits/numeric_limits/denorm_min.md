@@ -5,15 +5,20 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
-static T denorm_min() throw();
-
-// C++11
-static constexpr T denorm_min() noexcept;
+static T denorm_min() throw();            // (1) C++03
+static constexpr T denorm_min() noexcept; // (1) C++11
 ```
 
 ## 概要
 浮動小数点数型において、最小の正の非正規化数(denormalized value)を取得する。
+
+対応するマクロを次の表に挙げる。
+
+| 型            | 対応するマクロ |
+|---------------|----------------|
+| `float`       | [`FLT_TRUE_MIN`](/reference/cfloat/flt_true_min.md)  |
+| `double`      | [`DBL_TRUE_MIN`](/reference/cfloat/dbl_true_min.md)  |
+| `long double` | [`LDBL_TRUE_MIN`](/reference/cfloat/ldbl_true_min.md) |
 
 
 ## 戻り値

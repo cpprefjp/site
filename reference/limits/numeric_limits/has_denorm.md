@@ -22,6 +22,14 @@ static constexpr float_denorm_style has_denorm;
 | [`std::denorm_absent`](../float_denorm_style.md)        | 許可しない               |
 | [`std::denorm_present`](../float_denorm_style.md)       | 許可する                 |
 
+対応するマクロを次の表に挙げる。
+
+| 型            | 対応するマクロ |
+|---------------|----------------|
+| `float`       | [`FLT_HAS_SUBNORM`](/reference/cfloat/flt_has_subnorm.md)  |
+| `double`      | [`DBL_HAS_SUBNORM`](/reference/cfloat/dbl_has_subnorm.md)  |
+| `long double` | [`LDBL_HAS_SUBNORM`](/reference/cfloat/ldbl_has_subnorm.md) |
+
 
 ## 例
 ```cpp example
