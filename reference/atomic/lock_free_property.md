@@ -6,7 +6,10 @@
 ```cpp
 # define ATOMIC_BOOL_LOCK_FREE unspecified
 # define ATOMIC_CHAR_LOCK_FREE unspecified
+# define ATOMIC_CHAR8_T_LOCK_FREE unspecified
+// C++20から
 # define ATOMIC_CHAR16_T_LOCK_FREE unspecified
+
 # define ATOMIC_CHAR32_T_LOCK_FREE unspecified
 # define ATOMIC_WCHAR_T_LOCK_FREE unspecified
 # define ATOMIC_SHORT_LOCK_FREE unspecified
@@ -25,6 +28,7 @@
 |-------------------------------------------------|------------------------|
 |` ATOMIC_BOOL_LOCK_FREE` |` bool` |
 |` ATOMIC_CHAR_LOCK_FREE` |` char` |
+|` ATOMIC_CHAR8_T_LOCK_FREE`  |` char8_t`  |
 |` ATOMIC_CHAR16_T_LOCK_FREE` |` char16_t` |
 |` ATOMIC_CHAR32_T_LOCK_FREE` |` char32_t` |
 |` ATOMIC_WCHAR_T_LOCK_FREE` |` wchar_t` |
@@ -53,6 +57,7 @@ int main()
 {
   std::cout << "bool      : " << ATOMIC_BOOL_LOCK_FREE << std::endl;
   std::cout << "char      : " << ATOMIC_CHAR_LOCK_FREE << std::endl;
+  std::cout << "char8_t   : " << ATOMIC_CHAR8_T_LOCK_FREE << std::endl;
   std::cout << "char16_t  : " << ATOMIC_CHAR16_T_LOCK_FREE << std::endl;
   std::cout << "char32_t  : " << ATOMIC_CHAR32_T_LOCK_FREE << std::endl;
   std::cout << "wchar_t   : " << ATOMIC_WCHAR_T_LOCK_FREE << std::endl;
@@ -68,6 +73,7 @@ int main()
 ```
 bool      : 2
 char      : 2
+char8_t   : 2
 char16_t  : 2
 char32_t  : 2
 wchar_t   : 2

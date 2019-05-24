@@ -38,6 +38,7 @@ namespace std {
 | `atomic_ulong`    | `unsigned long`  | C++11 |
 | `atomic_llong`    | [`long long`](/lang/cpp11/long_long_type.md) | C++11 |
 | `atomic_ullong`   | [`unsigned long long`](/lang/cpp11/long_long_type.md) | C++11 |
+| `atomic_char8_t`  | [`char8_t`](/lang/cpp20/char8_t.md) | C++11 |
 | `atomic_char16_t` | [`char16_t`](/lang/cpp11/char16_32.md) | C++11 |
 | `atomic_char32_t` | [`char32_t`](/lang/cpp11/char16_32.md) | C++11 |
 | `atomic_wchar_t`  | `wchar_t` | C++11 |
