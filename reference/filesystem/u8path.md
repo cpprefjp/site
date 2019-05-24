@@ -3,6 +3,7 @@
 * std::filesystem[meta namespace]
 * function template[meta id-type]
 * cpp17[meta cpp]
+* cpp20deprecated[meta cpp]
 
 ```cpp
 namespace std::filesystem {
@@ -31,6 +32,9 @@ UTF-8エンコードされた文字列からパスオブジェクトを構築す
 - `path`クラスの`value_type`が`char`であれば (POSIX)、文字コード変換せずに`path`オブジェクトを構築して返す
 - そうでなければ、OSのファイルシステムが扱う文字コードに変換し (WindowsならUTF-16)、`path`オブジェクトを構築して返す
 
+## 非推奨の理由(C**20)
+
+C++20では[`char8_t`型が追加され](/lang/cpp20/char8_t.md)、[`path`クラスのコンストラクタ](/reference/filesystem/path/op_constructor.md)に`char8_t`版のoverloadを追加されたため、この関数は不要になった。
 
 ## 例
 ```cpp example
