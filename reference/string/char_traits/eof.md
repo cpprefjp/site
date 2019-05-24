@@ -20,6 +20,7 @@ static constexpr int_type eof() noexcept; // C++11
 
 - `char`： 定数値`EOF`を返す。
 - `char8_t`： UTF-8の文字単位として有効な、実装定義のEOFを表す定数値を返す。
+- `char16_t`： UTF-16の文字単位として有効な、実装定義のEOFを表す定数値を返す。
 - `char32_t`： Unicodeコードポイントとしての、実装定義のEOFを表す定数値を返す。
 - `wchar_t`： 定数値`WEOF`を返す。
 
