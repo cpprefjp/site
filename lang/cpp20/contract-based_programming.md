@@ -10,22 +10,22 @@ C++20では、いわゆる[契約プログラミング](https://ja.wikipedia.org
 #include <cmath>
 
 double sqrt_checked(double x)
-    [[expects: x > 0]]   // 引数に対する事前条件
-    [[ensures r: r > 0]] // 戻り値に対する事後条件
+  [[expects: x > 0]]   // 引数に対する事前条件
+  [[ensures r: r > 0]] // 戻り値に対する事後条件
 {
-    return std::sqrt(x);
+  return std::sqrt(x);
 }
 
 int main()
 {
-    double x;
-    std::cin >> x;
+  double x;
+  std::cin >> x;
 
-    [[assert: x > 0]]; // アサーション
+  [[assert: x > 0]]; // アサーション
 
-    double y = sqrt_checked(x);
+  double y = sqrt_checked(x);
     
-    std::cout << y << '\n';
+  std::cout << y << '\n';
 }
 ```
 
