@@ -22,7 +22,7 @@ path& assign(InputIterator first, InputIterator last); // (3)
 
 
 ## 要件
-- 文字型`char`、`wchar_t`、`char16_t`、`char32_t`を`EcharT`として、
+- 文字型`char`、`wchar_t`、`char8_t`、`char16_t`、`char32_t`を`EcharT`として、
 - (2) : `Source`型は、以下の要件を満たすこと
     - [`std::basic_string`](/reference/string/basic_string.md)<EcharT, traits, Allocator>`
     - [`std::basic_string_view`](/reference/string_view/basic_string_view.md)`<EcharT, traits>`

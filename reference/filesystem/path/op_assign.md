@@ -23,7 +23,7 @@ path& operator=(const Source& source); // (4)
 
 ## 要件
 - (4) : `Source`型は、以下の要件を満たすこと
-    - 文字型`char`、`wchar_t`、`char16_t`、`char32_t`を`EcharT`として、
+    - 文字型`char`、`wchar_t`、`char8_t`、`char16_t`、`char32_t`を`EcharT`として、
     - [`std::basic_string`](/reference/string/basic_string.md)<EcharT, traits, Allocator>`
     - [`std::basic_string_view`](/reference/string_view/basic_string_view.md)`<EcharT, traits>`
     - `ECharT`型を要素とする文字配列と、文字配列へのポインタ
