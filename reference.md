@@ -167,7 +167,7 @@
 | ヘッダ                               | 説明                                | 対応バージョン |
 |--------------------------------------|-------------------------------------|----------------|
 | [`<cassert>`](/reference/cassert.md) | アサート                            |                |
-| `<ccomplex>`                         | 複素数                              | C++11 (C99)<br/> C++20で削除 |
+| `<ccomplex>`                         | 複素数                              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | `<cctype>`                           | 文字種別の判定と変換                |                |
 | [`<cerrno>`](/reference/cerrno.md)   | エラー番号                          |                |
 | [`<cfenv>`](/reference/cfenv.md)     | 浮動小数点環境へのアクセス          | C++11 (C99)    |
@@ -179,15 +179,15 @@
 | [`<cmath>`](/reference/cmath.md)     | 数学関数                            |                |
 | `<csetjmp>`                          | ジャンプ処理                        |                |
 | `<csignal>`                          | シグナル                            |                |
-| `<cstdalign>`                        | アライメント操作のマクロ            | C++20で削除    |
+| `<cstdalign>`                        | アライメント操作のマクロ            | C++17で非推奨<br/> C++20で削除    |
 | `<cstdarg>`                          | 可変引数操作                        |                |
-| `<cstdbool>`                         | 真理値型の定義                      | C++11 (C99)<br/> C++20で削除 |
+| `<cstdbool>`                         | 真理値型の定義                      | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | [`<cstddef>`](/reference/cstddef.md) | 基本的な型、値、マクロの定義        |                |
 | [`<cstdint>`](/reference/cstdint.md) | 大きさが規定されている整数型        | C++11 (C99)    |
 | `<cstdio>`                           | 入出力                              |                |
 | [`<cstdlib>`](/reference/cstdlib.md) | ユーティリティ関数                  |                |
 | `<cstring>`                          | 文字列操作                          |                |
-| `<ctgmath>`                          | ジェネリックな数学関数              | C++11 (C99)<br/> C++20で削除 |
+| `<ctgmath>`                          | ジェネリックな数学関数              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | `<ctime>`                            | 日付・時間                          |                |
 | `<cuchar>`                           | ユニコード文字型                    | C++11 (C11)    |
 | `<cwchar>`                           | ワイド文字型                        |                |
