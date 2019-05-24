@@ -8,6 +8,7 @@ namespace std {
   template<class charT> struct char_traits;
 
   template<> struct char_traits<char>;
+  template<> struct char_traits<char8_t>;  // C++20から
   template<> struct char_traits<char16_t>; // C++11から
   template<> struct char_traits<char32_t>; // C++11から
   template<> struct char_traits<wchar_t>;
@@ -62,6 +63,15 @@ namespace std {
 | `pos_type`   | `streampos` | |
 | `state_type` | `mbstate_t` | |
 
+### char8_tによる特殊化のメンバ型定義 (C++11)
+
+| 名前         | 説明             | 対応バージョン |
+|--------------|------------------|----------------|
+| `char_type`  | `char8_t`       | C++11          |
+| `int_type`   | `unsigned int` | C++11          |
+| `off_type`   | `streamoff`      | C++11          |
+| `pos_type`   | `u8streampos`   | C++11          |
+| `state_type` | `mbstate_t`      | C++11          |
 
 ### char16_tによる特殊化のメンバ型定義 (C++11)
 
