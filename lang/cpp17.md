@@ -149,7 +149,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 - [`<any>`](/reference/any.md)ヘッダを新設し、なんでも代入できる[`any`](/reference/any/any.md)クラスを追加
 - 標準ライブラリの参照をC11に更新
     - [`<cfloat>`](/reference/cfloat.md)に、非正規化数の有無を判定するマクロ、10進数の桁数を表すマクロ、正の最小数を表すマクロを追加
-    - [`<cstdlib>`](/reference/cstdlib.md)に、[`aligned_alloc()`](/reference/cstdlib/aligned_alloc.md.nolink)関数を追加
+    - [`<cstdlib>`](/reference/cstdlib.md)に、[`aligned_alloc()`](/reference/cstdlib/aligned_alloc.md)関数を追加
     - [`<ctime>`](/reference/ctime.md.nolink)に、[`TIME_UTC`](/reference/ctime/time_utc.md.nolink)マクロ, [`timespec`](/reference/ctime/timespec.md.nolink)構造体, [`timespec_get()`](/reference/ctime/timespec_get.md.nolink)関数を追加
     - [`<cstdio>`](/reference/cstdio.md.nolink)に、[`vfscanf()`](/reference/cstdio/vfscanf.md.nolink)関数を追加
     - `<ccomplex>`, `<cstdalign>`, `<cstdbool>`, `<ctgmath>`を非推奨化
