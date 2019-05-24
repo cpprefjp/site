@@ -53,9 +53,15 @@
 |-------------------|-----------------------------------|-------|
 | `hash`            | 先行宣言(class template)          | C++11 |
 | `hash<string>`    | `hash`の`string`に対する特殊化    | C++11 |
+| `hash<u8string>`  | `hash`の`u8string`に対する特殊化  | C++20 |
 | `hash<u16string>` | `hash`の`u16string`に対する特殊化 | C++11 |
 | `hash<u32string>` | `hash`の`u32string`に対する特殊化 | C++11 |
 | `hash<wstring>`   | `hash`の`wstring`に対する特殊化   | C++11 |
+| `hash<pmr::string>`    | `hash`の`pmr::string`に対する特殊化    | C++17 |
+| `hash<pmr::u8string>`  | `hash`の`pmr::u8string`に対する特殊化  | C++20 |
+| `hash<pmr::u16string>` | `hash`の`pmr::u16string`に対する特殊化 | C++17 |
+| `hash<pmr::u32string>` | `hash`の`pmr::u32string`に対する特殊化 | C++17 |
+| `hash<pmr::wstring>`   | `hash`の`pmr::wstring`に対する特殊化   | C++17 |
 
 
 ## 関連項目
