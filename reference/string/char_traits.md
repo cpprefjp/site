@@ -63,15 +63,15 @@ namespace std {
 | `pos_type`   | `streampos` | |
 | `state_type` | `mbstate_t` | |
 
-### char8_tによる特殊化のメンバ型定義 (C++11)
+### char8_tによる特殊化のメンバ型定義 (C++20)
 
 | 名前         | 説明             | 対応バージョン |
 |--------------|------------------|----------------|
-| `char_type`  | `char8_t`       | C++11          |
-| `int_type`   | `unsigned int` | C++11          |
-| `off_type`   | `streamoff`      | C++11          |
-| `pos_type`   | `u8streampos`   | C++11          |
-| `state_type` | `mbstate_t`      | C++11          |
+| `char_type`  | `char8_t`       | C++20          |
+| `int_type`   | `unsigned int` | C++20          |
+| `off_type`   | `streamoff`      | C++20          |
+| `pos_type`   | `u8streampos`   | C++20          |
+| `state_type` | `mbstate_t`      | C++20          |
 
 ### char16_tによる特殊化のメンバ型定義 (C++11)
 
