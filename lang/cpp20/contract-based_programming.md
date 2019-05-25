@@ -103,11 +103,15 @@ C++20では、プログラムのコンパイルは次の3つのうちどれか�
 
 ## この機能が必要になった背景・経緯
 
-C++17までは、アサーションに関する標準が存在せず、様々な処理系やライブラリが独自のアサーション関数を提供していた。
-契約属性はアサーションを含む契約を記述する標準の方法として導入された。
+C++17までは、実行時のアサーションとしては[`assert`マクロ](/reference/cassert/assert.html)があるのみだった。
+契約属性はアサーションを含む契約を記述する、マクロを用いない新たな方法として導入された。
+
+特に、戻り値に対する契約は従来の[`assert`マクロ](/reference/cassert/assert.html)では簡潔に書くことができなかった。
 
 ## 関連項目
 - [C++11 属性構文](/lang/cpp11/attributes.html)
+- [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
+- [`assert`マクロ](/reference/cassert/assert.html)
 
 ## 参照
 - [P0542R5 Support for contract based programming in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html)
