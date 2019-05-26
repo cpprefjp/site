@@ -10,6 +10,7 @@ namespace std {
   class basic_string_view;
 
   using string_view = basic_string_view<char>;
+  using u8string_view = basic_string_view<char8_t>; // C++20から
   using u16string_view = basic_string_view<char16_t>;
   using u32string_view = basic_string_view<char32_t>;
   using wstring_view = basic_string_view<wchar_t>;
@@ -160,6 +161,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 | `template <class T> struct hash;`          | `hash`クラスの先行宣言                       | C++17 |
 | `template <> struct hash<string_view>;`    | `hash`クラスの`string_view`に対する特殊化    | C++17 |
 | `template <> struct hash<wstring_view>;`   | `hash`クラスの`wstring_view`に対する特殊化   | C++17 |
+| `template <> struct hash<u8string_view>;`  | `hash`クラスの`u8string_view`に対する特殊化  | C++20 |
 | `template <> struct hash<u16string_view>;` | `hash`クラスの`u16string_view`に対する特殊化 | C++17 |
 | `template <> struct hash<u32string_view>;` | `hash`クラスの`u32string_view`に対する特殊化 | C++17 |
 

@@ -11,6 +11,7 @@ namespace std {
   class basic_string;
 
   using string    = basic_string<char>;
+  using u8string = basic_string<char8_t>;    // C++20から
   using u16string = basic_string<char16_t>;  // C++11から
   using u32string = basic_string<char32_t>;  // C++11から
   using wstring   = basic_string<wchar_t>;
@@ -22,6 +23,7 @@ namespace std {
         std::basic_string<charT, traits, polymorphic_allocator<charT>>;
 
     using string    = basic_string<char>;
+    using u8string  = basic_string<char8_t>; // C++20から
     using u16string = basic_string<char16_t>;
     using u32string = basic_string<char32_t>;
     using wstring   = basic_string<wchar_t>;
@@ -40,10 +42,12 @@ namespace std {
 |-------------|------|----------------|
 | `string`    | `char`型文字列。ASCII、UTF-8等のマルチバイト文字列や、バイト配列として使用する。 | |
 | `wstring`   | `wchar_t`型文字列。`wchar_t`が16ビットの環境で、UTF-16の文字列として使用する。   | |
+| `u8string` | `char8_t`型文字列。UTF-8の文字列として使用する。 | C++20 |
 | `u16string` | `char16_t`型文字列。UTF-16の文字列として使用する。 | C++11 |
 | `u32string` | `char32_t`型文字列。UTF-32の文字列として使用する。 | C++11 |
 | `pmr::string`    | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる`string` | C++17 |
 | `pmr::wstring`   | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる`wstring`   | C++17 |
+| `pmr::u8string` | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる`u8string` | C++20 |
 | `pmr::u16string` | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる`u16string` | C++17 |
 | `pmr::u32string` | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる`u32string` | C++17 |
 

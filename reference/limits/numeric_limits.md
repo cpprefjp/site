@@ -11,6 +11,7 @@ namespace std {
   template<> class numeric_limits<char>;
   template<> class numeric_limits<signed char>;
   template<> class numeric_limits<unsigned char>;
+  template<> class numeric_limits<char8_t>;  // C++20から追加
   template<> class numeric_limits<char16_t>; // C++11から追加
   template<> class numeric_limits<char32_t>; // C++11から追加
   template<> class numeric_limits<wchar_t>;

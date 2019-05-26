@@ -30,6 +30,7 @@ std::string string() const;                       // (2)
 - (1) :
     - `ECharT`が`char`の場合、システムのマルチバイト文字コードとなる (POSIXベースシステムではUTF-8、Windowsの日本語環境ではCP932)
     - `ECharT`が`wchar_t`の場合、システムのワイド文字コードとなる (WindowsではUTF-16)
+    - `ECharT`が`char8_t`の場合、UTF-8エンコーディングとなる
     - `ECharT`が`char16_t`の場合、UTF-16エンコーディングとなる
     - `ECharT`が`char32_t`の場合、UTF-32エンコーディングとなる
 - (2) :

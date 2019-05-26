@@ -13,6 +13,7 @@ namespace std {
   template <> struct hash<char>;
   template <> struct hash<signed char>;
   template <> struct hash<unsigned char>;
+  template <> struct hash<char8_t>;    // C++20
   template <> struct hash<char16_t>;
   template <> struct hash<char32_t>;
   template <> struct hash<wchar_t>;
@@ -45,6 +46,7 @@ namespace std {
 | `char`               | C++11          |
 | `signed char`        | C++11          |
 | `unsigned char`      | C++11          |
+| `char8_t`            | C++20          |
 | `char16_t`           | C++11          |
 | `char32_t`           | C++11          |
 | `wchar_t`            | C++11          |
