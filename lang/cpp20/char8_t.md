@@ -9,7 +9,7 @@ UTF-8でエンコードされた文字を格納することを想定した型と
 
 `u8`プレフィックスの付いた文字/文字列リテラルの型も`char`/`const char [n]`から`char8_t`/`const char8_t [n]`に変更になる。
 
-[`<string>`](/reference/string.md)ヘッダには[`std::basic_string`](/reference/string/basic_string.md)`<char8_t>`の別名である[`std::u8string`](/reference/string/basic_string.md)型が追加される。同様にして[`<string_view>`](/reference/string_view.md)ヘッダには[`std::basic_string_view`](/reference/string_view/basic_string_view.md)<`char8_t>`の別名である[`std::u8string_view`](/reference/string_view/basic_string_view.md)型が追加される。
+[`<string>`](/reference/string.md)ヘッダには[`std::basic_string`](/reference/string/basic_string.md)`<char8_t>`の別名である[`std::u8string`](/reference/string/basic_string.md)型が追加される。同様にして[`<string_view>`](/reference/string_view.md)ヘッダには[`std::basic_string_view`](/reference/string_view/basic_string_view.md)`<char8_t>`の別名である[`std::u8string_view`](/reference/string_view/basic_string_view.md)型が追加される。
 
 [`std::filesystem::path`](/reference/filesystem/path.md)クラスのコンストラクタに`char8_t`版のオーバーロードが追加され、代わりに必要なくなった[`std::filesystem::u8path()`](/reference/filesystem/u8path.md)関数は非推奨となる。
 
