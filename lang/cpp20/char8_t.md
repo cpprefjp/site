@@ -13,7 +13,7 @@ UTF-8でエンコードされた文字を格納することを想定した型と
 
 [`std::filesystem::path`](/reference/filesystem/path.md)クラスのコンストラクタに`char8_t`版のオーバーロードが追加され、代わりに必要なくなった[`std::filesystem::u8path()`](/reference/filesystem/u8path.md)関数は非推奨となる。
 
-または破壊的変更として、以下の関数は、戻り値として`char`から`char8_t`の文字列を暑う買うよう変更される：
+または破壊的変更として、以下の関数は、戻り値として`char`から`char8_t`の文字列を扱うよう変更される：
 
 - [`std::filesystem::path::u8string()`](/reference/filesystem/path/u8string.md)
 - [`std::filesystem::path::generic_u8string()`](/reference/filesystem/path/generic_u8string.md)
