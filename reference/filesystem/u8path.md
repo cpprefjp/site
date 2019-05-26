@@ -16,6 +16,9 @@ namespace std::filesystem {
 ```
 * path[link path.md]
 
+この関数は、C++20で非推奨となった。UTF-8エンコードされたパス文字列は[`char8_t`](/lang/cpp20)型文字列として`path`クラスのコンストラクタに、指定すること。
+
+
 ## 概要
 UTF-8エンコードされた文字列からパスオブジェクトを構築する。
 
@@ -32,9 +35,9 @@ UTF-8エンコードされた文字列からパスオブジェクトを構築す
 - `path`クラスの`value_type`が`char`であれば (POSIX)、文字コード変換せずに`path`オブジェクトを構築して返す
 - そうでなければ、OSのファイルシステムが扱う文字コードに変換し (WindowsならUTF-16)、`path`オブジェクトを構築して返す
 
-## 非推奨の理由(C**20)
+## 非推奨の詳細 (C++20)
+C++20ではUTF-8エンコードされた文字には[`char8_t`](/lang/cpp20/char8_t.md)が型付けられ、`char`型とオーバーロードできるようになった。[`path`クラスのコンストラクタ](/reference/filesystem/path/op_constructor.md)に`char8_t`版のオーバーロードが追加されたため、この関数は不要になった。
 
-C++20では[`char8_t`型が追加され](/lang/cpp20/char8_t.md)、[`path`クラスのコンストラクタ](/reference/filesystem/path/op_constructor.md)に`char8_t`版のoverloadを追加されたため、この関数は不要になった。
 
 ## 例
 ```cpp example

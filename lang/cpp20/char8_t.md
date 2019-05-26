@@ -7,17 +7,23 @@ UTF-8でエンコードされた文字を格納することを想定した型と
 
 `char8_t`型は`unsigned char`型と同じ大きさ、アライメント、整数変換順位であるが、独立した型(=`char`や`unsigned char`などの他の型の別名ではない)で、overloadで区別される。
 
-`u8`prefixの付いた文字/文字列リテラルの型も`char`/`const char [n]`から`char8_t`/`const char8_t [n]`に変更になる。
+`u8`プレフィックスの付いた文字/文字列リテラルの型も`char`/`const char [n]`から`char8_t`/`const char8_t [n]`に変更になる。
 
-`<string>`ヘッダには`std::basic_string<char8_t>`とその別名である`std::u8string`型が追加される。同様にして`<string_view>`ヘッダーには`std::basic_string_view<char8_t>`とその別名である`std::u8string_view`型が追加される。
+[`<string>`](/reference/string.md)ヘッダには[`std::basic_string`](/reference/string/basic_string.md)`<char8_t>`の別名である[`std::u8string`](/reference/string/basic_string.md)型が追加される。同様にして[`<string_view>`](/reference/string_view.md)ヘッダには[`std::basic_string_view`](/reference/string_view/basic_string_view.md)<`char8_t>`の別名である[`std::u8string_view`](/reference/string_view/basic_string_view.md)型が追加される。
 
-C++17で追加されたFilesystemの[`path`](/reference/filesystem/path.md)クラスコンストラクタに`char8_t`版のoverloadが追加され、代わりに[`u8path`](/reference/filesystem/u8path.md)関数は非推奨になる。
+[`std::filesystem::path`](/reference/filesystem/path.md)クラスのコンストラクタに`char8_t`版のオーバーロードが追加され、代わりに必要なくなった[`std::filesystem::u8path()`](/reference/filesystem/u8path.md)関数は非推奨となる。
 
-[`path::u8string`](/reference/filesystem/path/u8string.md), [`path::generic_u8string`](/reference/filesystem/path/generic_u8string.md), [`operator ""s`](/reference/string/basic_string/op_s.md), [`operator ""sv`](/reference/string_view/basic_string_view/op_sv.md)の戻り値の型は`char8_t`を使うように変更される。
+または破壊的変更として、以下の関数は、戻り値として`char`から`char8_t`の文字列を暑う買うよう変更される：
 
-`char`系の(ナローマルチバイト)文字列と`char8_t`系の(UTF-8)文字列の変換のために`mbrtoc8`/`c8rtomb`関数が追加される。
+- [`std::filesystem::path::u8string()`](/reference/filesystem/path/u8string.md)
+- [`std::filesystem::path::generic_u8string()`](/reference/filesystem/path/generic_u8string.md)
+- [`std::basic_string`](/reference/string/basic_string.md)のリテラル演算子[`operator ""s`](/reference/string/basic_string/op_s.md)
+- [`std::basic_string_view`](/reference/string_view/basic_string_view.md)のリテラル演算子[`operator ""sv`](/reference/string_view/basic_string_view/op_sv.md)
 
-`basic_ostream<char>::operator<<()`と`basic_istream<char>::operator>>()`に対して`char8_t`のoverloadは追加されない。これは現状`char16_t`/`char32_t`型に対しても存在していないためである。
+`char`系の(ナローマルチバイト)文字列と`char8_t`系の(UTF-8)文字列の変換のために、`<cuchar>`ヘッダに`std::mbrtoc8()`/`std::c8rtomb()`関数が追加される。
+
+ただし、`basic_ostream<char>::operator<<()`と`basic_istream<char>::operator>>()`に対して`char8_t`のオーバーロードは追加されない。これは現状`char16_t`/`char32_t`型に対しても存在していないためである。正規表現も同様。
+
 
 ## 備考
 
@@ -25,14 +31,13 @@ C++17で追加されたFilesystemの[`path`](/reference/filesystem/path.md)ク�
 
 ## 例
 ```cpp example
-
-
 #include <iostream>
 
 template<typename> struct ct;
 template<> struct ct<char> {
   using type = char;
 };
+
 int main()
 {
 
@@ -77,49 +82,55 @@ C++11では`char16_t`/`char32_t`型が追加された。しかしこの時UTF-8�
 
 2017年11月にW3Techsによって行われた調査によれば90%を超えるWebサイトの文字エンコードにUTF-8が用いられるようになった。
 
-一方でC++でUTF-8を扱うには問題があった。UTF-8のcode unitの値域は128 (0x80)から255 (0xFF)の範囲にもかぶっている一方でC++の`char`型は符号が未規定である。結果として次のコードは意図した挙動を示さない可能性がある。
+一方でC++でUTF-8を扱うには問題があった。UTF-8のcode unitの値域は128 (0x80)から255 (0xFF)の範囲 (8ビット目) にも及んでいる一方で、C++の`char`型は符号の有無が未規定である。そのため、次のコードは意図した挙動を示さない可能性がある。
 
 ```cpp example
 #include <iostream>
+
 bool is_utf8_multibyte_code_unit(char c) {
   return c >= 0x80;
 }
+
 int main()
 {
-    std::cout << std::boolalpha << is_utf8_multibyte_code_unit(u8"あ"[0]) << std::endl;// => trueにならない可能性がある
+  std::cout << std::boolalpha << is_utf8_multibyte_code_unit(u8"あ"[0]) << std::endl;// => trueにならない可能性がある
 }
 ```
 
-つまりいちいち`static_cast`してあげる必要性がある。
+この問題を回避するため、UTF-8の8ビット目の範囲を扱う必要がある場合は、`static_cast`で符号なし文字型に変換して扱わなければならなかった。
 
 ```cpp example
 #include <iostream>
+
 bool is_utf8_multibyte_code_unit(char c) {
   return static_cast<unsigned char>(c) >= 0x80;
 }
+
 int main()
 {
     std::cout << std::boolalpha << is_utf8_multibyte_code_unit(u8"あ"[0]) << std::endl;// => true
 }
 ```
 
-またC++11で文字列リテラルに対して、C++17で文字リテラルに対して`u8`prefixが使えるようになり、これはUTF-8でエンコードされることを保証しているにもかかわらず、`char`型を使いまわした。`char`型ではどのようなエンコードの文字が格納されているか型レベルで判断できず、例えばC++17で追加されたFilesystemの`path`クラスではUTF-8でエンコードされた文字列を受け取るために`u8path`という関数をわざわざ追加せざるをえなかった。
+またC++11で文字列リテラルに対して、C++17で文字リテラルに対して`u8`プレフィックスが使えるようになり、これはUTF-8でエンコードされることを保証したが、その文字型としては依然として`char`型が使われた。`char`型ではどのようなエンコードの文字が格納されているか型レベルで判断できず、例としてC++17で追加されたファイルシステムライブラリの[`path`](/reference/filesystem/path.md)クラスでは、UTF-8でエンコードされたパス文字列を受け取るためにコンストラクタと代入演算子でオーバーロードができず、[`u8path()`](/reference/filesystem/u8path.md)という関数を追加せざるをえなかった。
 
-UTF-8の利用が広く一般的になる中で、C++でもUTF-8を扱う上での障害となる仕様を改める必要があった。そのために`char8_t`型が必要となった。
+UTF-8の利用が広く利用されていく中で、C++でもUTF-8を扱う上で障害となる仕様を改める必要があった。そのために`char8_t`型が必要となった。
+
 
 ## 検討されたほかの選択肢
 
 N3398提案では以下のように`char8_t`型を`unsigned char`型の別名にすることが提案されていた。
 
 ```cpp
-typedef unsigned char           char8_t;
+typedef unsigned char char8_t;
 ```
 
-以下のようにenum classを利用する選択肢もあったが、P0372R0提案は`char8_t`型を使うのにヘッダーのincludeが必要になることは望ましくないと述べている。
+以下のように`enum class`を利用する選択肢もあったが、P0372R0提案は`char8_t`型を使うためにヘッダのインクルードが必要になることは望ましくないと述べている。
 
 ```cpp
 enum class char8_t : unsigned char {};
 ```
+
 
 ## 関連項目
 
@@ -131,6 +142,7 @@ enum class char8_t : unsigned char {};
 - [`path::generic_u8string`](/reference/filesystem/path/generic_u8string.md)
 - [`operator ""s`](/reference/string/basic_string/op_s.md)
 - [`operator ""sv`](/reference/string_view/basic_string_view/op_sv.md)
+
 
 ## 参照
 
@@ -144,6 +156,7 @@ enum class char8_t : unsigned char {};
 - [P0482R3: char8_t: A type for UTF-8 characters and strings (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r3.html)
 - [P0482R4: char8_t: A type for UTF-8 characters and strings (Revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r4.html)
 - [P0482R5: char8_t: A type for UTF-8 characters and strings (Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r5.html)
+
 
 ### その他
 
