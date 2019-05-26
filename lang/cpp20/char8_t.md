@@ -27,7 +27,7 @@ UTF-8でエンコードされた文字を格納することを想定した型と
 
 ## 備考
 
-[機能テストマクロ](../../lang/cpp17/feature_test_macros.md)は`__cpp_constexpr`で、値は`201803`。
+[機能テストマクロ](../../lang/cpp17/feature_test_macros.md)は`__cpp_char8_t`で、値は`201803`。
 
 ## 例
 ```cpp example
