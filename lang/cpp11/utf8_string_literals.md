@@ -64,7 +64,7 @@ int main()
 ## 関連項目
 - [C++11 `char16_t`と`char32_t`](char16_32.md)
 - [C++17 UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md)
-- [C++20 UTF-8エンコーディングされた文字の型として`char8_t`を追加](/cpp20/lang/char8_t.md)
+- [C++20 UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md)
 
 
 ## 参照
