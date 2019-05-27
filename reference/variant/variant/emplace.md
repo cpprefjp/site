@@ -63,6 +63,7 @@ namespace std {
     return emplace<I>(il, std::forward<Args>(args)...);
     ```
     * std::forward[link /reference/utility/forward.md]
+
 - (3) :
     - 値を保持している場合、破棄する
     - `Types...`の`I`番目の型を`Ti`として、`Ti`型オブジェクトをコンストラクタ引数[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`で構築して保持する
