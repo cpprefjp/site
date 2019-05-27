@@ -91,8 +91,46 @@ variant& operator=(T&& rhs) noexcept(see below);                 // (3)
 
 int main()
 {
+  // (1) コピー代入
+  {
+    std::variant<int, char, double> v1 = 1;
+    std::variant<int, char, double> v2;
+    v2 = v1;
+
+    assert(std::holds_alternative<int>(v1));
+    assert(std::holds_alternative<int>(v2));
+    assert(std::get<int>(v1) == 1);
+    assert(std::get<int>(v2) == 1);
+  }
+
+  // (2) ムーブ代入
+  {
+    std::variant<int, char, double> v1 = 1;
+    std::variant<int, char, double> v2;
+    v2 = std::move(v1);
+
+    assert(std::holds_alternative<int>(v2));
+    assert(std::get<int>(v2) == 1);
+  }
+
+  // (3) 型と値の切り替え
+  {
+    std::variant<int, char, double> v = 1;
+
+    // 値を更新
+    v = 2;
+
+    // 保持する型を切り替え
+    v = 'a';
+
+    assert(std::holds_alternative<char>(v));
+    assert(std::get<char>(v) == 'a');
+  }
 }
 ```
+* std::holds_alternative[link /reference/variant/holds_alternative.md]
+* std::get[link get.md.nolink]
+* std::move[link /reference/utility/move.md]
 
 ### 出力
 ```
