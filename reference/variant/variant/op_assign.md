@@ -129,7 +129,7 @@ int main()
 }
 ```
 * std::holds_alternative[link /reference/variant/holds_alternative.md]
-* std::get[link get.md.nolink]
+* std::get[link get.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力
