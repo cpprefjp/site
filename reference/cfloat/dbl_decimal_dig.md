@@ -74,3 +74,8 @@ int main()
 - [Clang](/implementation.md#clang): 3.9
 - [GCC](/implementation.md#gcc): (9.1時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P0063R3 C++17 should refer to C11 instead of C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html)
+- [P0175R1 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html)

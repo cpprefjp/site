@@ -113,4 +113,5 @@ NaN とは非数（Not-a-Number）を表し、ほとんど全ての演算で浮�
 
 
 ## 参照
+- [P0063R3 C++17 should refer to C11 instead of C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html)
 - [P0175R1 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html)

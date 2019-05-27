@@ -65,4 +65,5 @@ int main()
 
 ## 参照
 - [`aligned_alloc`(3) - Linux man page](https://linux.die.net/man/3/aligned_alloc)
+- [P0063R3 C++17 should refer to C11 instead of C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html)
 - [P0175R1 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html)
