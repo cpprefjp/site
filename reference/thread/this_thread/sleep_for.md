@@ -36,6 +36,7 @@ namespace this_thread {
 ## 例
 ```cpp example
 #include <thread>
+#include <chrono>
 
 int main()
 {
