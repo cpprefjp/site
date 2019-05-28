@@ -32,7 +32,7 @@ namespace std {
 |------|------|----------------|
 | [`operator=`](variant/op_assign.md) | 代入演算子 | C++17 |
 | [`emplace`](variant/emplace.md)     | 要素型のコンストラクタ引数から直接構築する | C++17 |
-| [`swap`](variant/swap.md.nolink)           | 他の`variant`オブジェクトとデータを入れ替える | C++17 |
+| [`swap`](variant/swap.md)           | 他の`variant`オブジェクトとデータを入れ替える | C++17 |
 
 
 ### 値の観測
@@ -63,7 +63,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](variant/swap_free.md.nolink) | 2つの`variant`オブジェクトを入れ替える | C++17 |
+| [`swap`](variant/swap_free.md) | 2つの`variant`オブジェクトを入れ替える | C++17 |
 
 
 ### 比較演算子
