@@ -70,7 +70,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](variant/op_equal.md.nolink)         | 等値比較 | C++17 |
+| [`operator==`](variant/op_equal.md)         | 等値比較 | C++17 |
 | [`operator!=`](variant/op_not_equal.md.nolink)     | 非等値比較 | C++17 |
 | [`operator<`](variant/op_less.md.nolink)           | 左辺が右辺より小さいかを判定する | C++17 |
 | [`operator<=`](variant/op_less_equal.md.nolink)    | 左辺が右辺以下かを判定する | C++17 |
