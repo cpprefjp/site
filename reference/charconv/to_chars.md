@@ -211,7 +211,7 @@ conversion failed.
 ### 処理系
 - [Clang](/implementation.md#clang): 7.0(整数のみ)
 - [GCC](/implementation.md#gcc): 8.0(整数のみ)
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full suport)
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full support)
 
 ## 関連項目
 - [`chars_format`](../charconv/chars_format.md)

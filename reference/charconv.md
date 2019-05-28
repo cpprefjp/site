@@ -68,7 +68,7 @@ XMLやJSONに代表されるテキストベースのデータを利用するケ�
 ### 処理系
 - [Clang](/implementation.md#clang): 7.0(整数のみ)
 - [GCC](/implementation.md#gcc): 8.0(整数のみ)
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full suport)
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full support)
 
 ## 参照
 - [C++1z ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/08/24/181540)
