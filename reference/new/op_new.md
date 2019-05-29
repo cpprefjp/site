@@ -87,7 +87,7 @@ void* operator new(std::size_t size, void* ptr) noexcept;           // (5) C++11
 - (1)と(2) の形式の `operator new` を呼び出すだけであれば、（`new` 式から間接的に呼ばれる場合も含めて）`new` ヘッダをインクルードする必要はない。
 
 - (1)と(2) の形式の詳細な正確な挙動は以下の通りである。
-    - `size` で指定したサイズ（バイト）の記憶域を確保しようとする。なお、記憶域の確保に C 言語のライブラリ関数 `malloc` や `aligned_alloc` を用いるか否かは規定されていない。
+    - `size` で指定したサイズ（バイト）の記憶域を確保しようとする。なお、記憶域の確保に C 互換ライブラリ関数 `malloc()` や [`aligned_alloc()`](/reference/cstdlib/aligned_alloc.md) を用いるか否かは規定されていない。
     - もし、記憶域を確保できた場合、確保した先頭アドレスを返す。
     - もし、確保できなかった場合、
         - 現在の [`new_handler`](new_handler.md) が ヌルポインタであれば、[`bad_alloc`](bad_alloc.md) 例外をスローする。
