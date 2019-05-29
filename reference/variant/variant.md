@@ -71,11 +71,11 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator==`](variant/op_equal.md)         | 等値比較 | C++17 |
-| [`operator!=`](variant/op_not_equal.md.nolink)     | 非等値比較 | C++17 |
-| [`operator<`](variant/op_less.md.nolink)           | 左辺が右辺より小さいかを判定する | C++17 |
-| [`operator<=`](variant/op_less_equal.md.nolink)    | 左辺が右辺以下かを判定する | C++17 |
-| [`operator>`](variant/op_greater.md.nolink)        | 左辺が右辺より大きいかを判定する | C++17 |
-| [`operator>=`](variant/op_greater_equal.md.nolink) | 左辺が右辺以上かを判定する | C++17 |
+| [`operator!=`](variant/op_not_equal.md)     | 非等値比較 | C++17 |
+| [`operator<`](variant/op_less.md)           | 左辺が右辺より小さいかを判定する | C++17 |
+| [`operator<=`](variant/op_less_equal.md)    | 左辺が右辺以下かを判定する | C++17 |
+| [`operator>`](variant/op_greater.md)        | 左辺が右辺より大きいかを判定する | C++17 |
+| [`operator>=`](variant/op_greater_equal.md) | 左辺が右辺以上かを判定する | C++17 |
 
 
 ## ハッシュサポート
