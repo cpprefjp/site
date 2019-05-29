@@ -55,3 +55,7 @@ int main()
 - [Clang](/implementation.md#clang): 4.0.1
 - [GCC](/implementation.md#gcc): 7.2
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P0393R3 Making Variant Greater Equal](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0393r3.html)
