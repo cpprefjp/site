@@ -128,6 +128,8 @@ std::visit([](const auto& x) {
 - (1) : 式[`INVOKE`](/reference/concepts/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`を呼び出して返す。戻り値の型は、その呼び出しの戻り値の型となる
 - (2) : 式[`INVOKE`](/reference/concepts/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`を呼び出して返す
 
+`vars...`が空で、ビジターのみが指定された場合、引数なしのオーバーロードを呼び出して返す。
+
 
 ## 例外
 - `vars...`のいずれかの[`valueless_by_exception()`](variant/valueless_by_exception.md)が`true`である場合、[`bad_variant_access`](/reference/variant/bad_variant_access.md)例外が送出される
@@ -135,6 +137,10 @@ std::visit([](const auto& x) {
 
 ## 計算量
 - `sizeof...(Variants)`が1以下である場合、一度だけ対応する関数を呼び出す (定数時間)。そうでない場合、計算量は実装に要求しない
+
+
+## 備考
+- この関数は、[Boost Vairant Library](https://boost.org/libs/variant)では[`apply_visitor()`](https://www.boost.org/doc/libs/release/doc/html/boost/apply_visitor.html)という名前で定義される
 
 
 ## 例
