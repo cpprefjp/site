@@ -27,7 +27,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](variant/op_constructor.md.nolink) | コンストラクタ | C++17 |
+| [`(constructor)`](variant/op_constructor.md) | コンストラクタ | C++17 |
 | [`(destructor)`](variant/op_destructor.md.nolink)   | デストラクタ | C++17 |
 
 
