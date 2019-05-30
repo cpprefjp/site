@@ -145,11 +145,42 @@ std::visit([](const auto& x) {
 
 ## 例
 ```cpp example
+#include <iostream>
+#include <variant>
+#include <string>
+
+// 2倍にする。
+// 整数だったら数値を2倍にし、
+// 文字列だったら同じ文字列を2回繰り返す
+struct TimesTwoVisitor {
+  void operator()(int& n)
+  {
+    n *= 2;
+  }
+
+  void operator()(std::string& s)
+  {
+    s += s;
+  }
+};
+
+int main()
+{
+  std::variant<int, std::string> v = 2;
+  std::visit(TimesTwoVisitor{}, v);
+  std::visit([](const auto& x) { std::cout << x << std::endl; }, v);
+
+  v = std::string{"Hello"};
+  std::visit(TimesTwoVisitor{}, v);
+  std::visit([](const auto& x) { std::cout << x << std::endl; }, v);
+}
 ```
 * std::visit[color ff0000]
 
 ### 出力
 ```
+4
+HelloHello
 ```
 
 ## バージョン
