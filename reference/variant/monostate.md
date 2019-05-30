@@ -65,6 +65,7 @@ int main()
 }
 ```
 * std::monostate[color ff0000]
+* std::variant[link variant.md]
 * std::holds_alternative[link holds_alternative.md]
 
 ### 出力
