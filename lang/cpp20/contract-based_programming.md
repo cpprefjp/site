@@ -124,7 +124,7 @@ C++における契約と継承においてもこの原則に従う。
 struct base {
   virtual double f(int n)
     [[expects: n > 0]]
-    [[ensures r: r > 0]] = 0;
+    [[ensures r: r > 0.0]] = 0;
 
   virtual int g(int n)
     [[expects: n < 0]]
@@ -132,16 +132,16 @@ struct base {
 };
 
 struct derived : base {
-  //明示的にbase::f()と同じ契約条件を指定する
+  //明示的にbase::f()と同じ契約をする
   double f(int n) override
     [[expects: n > 0]]
-    [[ensures r: r > 0]]
+    [[ensures r: r > 0.0]]
   {
     return 1;
   }
   
-  //暗黙的にbase::g()と同じ契約条件を持つとみなされる
-  double g(int n) override {
+  //暗黙的にbase::g()と同じ契約がされているとみなされる
+  int g(int n) override {
     return -1;
   }
 }
