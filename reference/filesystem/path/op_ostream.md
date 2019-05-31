@@ -1,6 +1,7 @@
 # operator<<
 * filesystem[meta header]
 * std::filesystem[meta namespace]
+* path[meta class]
 * function template[meta id-type]
 * cpp17[meta cpp]
 
@@ -8,8 +9,12 @@
 namespace std::filesystem {
   template <class CharT, class Traits>
   std::basic_ostream<CharT, Traits>&
-    operator<<(std::basic_ostream<CharT, Traits>& os, const path& p);
+    operator<<(std::basic_ostream<CharT, Traits>& os, const path& p); // (1) C++17
 }
+
+template <class CharT, class Traits>
+friend std::basic_ostream<CharT, Traits>&
+  operator<<(std::basic_ostream<CharT, Traits>& os, const path& p);   // (2) C++20
 ```
 
 ## 概要
@@ -26,6 +31,10 @@ return os << quoted(p.string<CharT, Traits>());
 ```
 * quoted[link /reference/iomanip/quoted.md]
 * p.string[link string.md]
+
+
+## 備考
+- この関数は、C++20で非メンバ関数から、friendメンバ関数に変更された。そのため、`std::filesystem::operator<<`という完全名の指定では呼び出せず、ADLによって呼び出すことになる
 
 
 ## 例
@@ -77,3 +86,9 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 - [Clang](/implementation.md#clang):
 - [GCC, C++17 mode](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [P1601R0 Recommendations for Specifying "Hidden Friends"](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1601r0.pdf)
+- [Hidden Friends - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20190531/p1)
+- [LWG 2989. `path`'s stream insertion operator lets you insert everything under the sun](https://cplusplus.github.io/LWG/issue2989)
