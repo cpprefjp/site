@@ -51,9 +51,18 @@ constexpr explicit variant(in_place_index_t<I>,
 
 ## テンプレートパラメータ制約
 - 候補型`Types...`のi番目の型を`Ti`とする
-- (1) : [`is_default_constructible_v`](/reference/type_traits/is_default_constructible.md)`<T0>`であること
-- (2) : 全ての型`Ti`について、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<Ti>`が`true`であること
-- (3) : 全ての型`Ti`について、[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<Ti>`が`true`であること
+- (1) :
+    - [`is_default_constructible_v`](/reference/type_traits/is_default_constructible.md)`<T0>`であること
+- (2) :
+    - 全ての型`Ti`について、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<Ti>`が`true`であること
+- (3) :
+    - 全ての型`Ti`について、[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<Ti>`が`true`であること
+- (4) :
+    - ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(rhs))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
+    - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<T>, variant>`が`false`であること
+    - 型[`decay_t`](/reference/type_traits/decay.md)`<T>`が[`in_place_type_t`](/reference/utility/in_place_type_t.md)および[`in_place_index_t`](/reference/utility/in_place_index_t.md)の特殊化ではないこと
+    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Tj, T>`が`true`であること
+    - 式`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(x))`が適格であること
 
 
 ## 効果
@@ -64,13 +73,15 @@ constexpr explicit variant(in_place_index_t<I>,
 - (3) :
     - `other`が値を保持している場合、`other.`[`index()`](index.md)を`j`として、[`get`](get.md)`<j>(`[`std::move`](/reference/utility/move.md)`(other))`で得られた`other`が保持する値を直接初期化によって`*this`に保持する
     - そうでない場合、`*this`は値を保持しない
-- (4) : (執筆中)
+- (4) : [`std::forward`](/reference/utility/forward.md)`<T>(x)`によって`Tj`型を直接構築して`*this`に保持する
 
 
 ## 事後条件
 - (1) :
     - [`valueless_by_exception()`](valueless_by_exception.md)が`false`であること
     - [`index()`](index.md)が`0`であること
+- (4) :
+    - [`std::holds_alternative`](/reference/variant/holds_alternative.md)`<Tj>(*this)`が`true`であること
 
 
 ## 例外
@@ -82,12 +93,24 @@ constexpr explicit variant(in_place_index_t<I>,
 - (3) :
     - 全ての型`Ti`のムーブ構築が、任意の例外を送出する可能性がある
     - `noexcept`内の式は、全ての`Ti`についての[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Ti>`を論理積したものと等価
-
+- (4) :
+    - `Tj`の選択された初期化方法 (コンストラクタ) が任意の例外を送出する可能性がある
+    - `noexcept`内の式は、[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<Tj, T>`と等価となる
 
 ## 備考
-- (1) : `T0`型の値初期化が`constexpr`関数の要件を満たす場合、この関数は`constexpr`となる
-- (2) : 全ての`Ti`型について、[`is_trivially_copy_constructible_v`](/reference/type_traits/is_trivially_copy_constructible.md)`<Ti>`が`true`である場合、この関数は自明となる
-- (3) : 全ての`Ti`型について、[`is_trivially_move_constructible_v`](/reference/type_traits/is_trivially_move_constructible.md)`<Ti>`が`true`である場合、この関数は自明となる
+- (1) :
+    - `T0`型の値初期化が`constexpr`関数の要件を満たす場合、この関数は`constexpr`となる
+- (2) :
+    - 全ての`Ti`型について、[`is_trivially_copy_constructible_v`](/reference/type_traits/is_trivially_copy_constructible.md)`<Ti>`が`true`である場合、この関数は自明となる
+- (3) :
+    - 全ての`Ti`型について、[`is_trivially_move_constructible_v`](/reference/type_traits/is_trivially_move_constructible.md)`<Ti>`が`true`である場合、この関数は自明となる
+- (4) :
+    - 以下のコードは不適格となる。第1テンプレート引数の型をとるコンストラクタオーバーロードと、第2テンプレート引数の型をとるコンストラクタオーバーロードが定義されるため、曖昧になる：
+    ```cpp
+    std::variant<std::string, std::string> v("abc"); // コンパイルエラー！
+    ```
+
+    - 型`Tj`の選択された初期化方法 (コンストラクタ) が`constexpr`評価できる場合、この関数は`constexpr`となる
 
 
 ## 例
