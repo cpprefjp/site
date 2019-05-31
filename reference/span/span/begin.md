@@ -99,3 +99,4 @@ int main()
 ## 参照
 - [P0896R4 The One Ranges proposal](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P1601R0 Recommendations for Specifying "Hidden Friends"](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1601r0.pdf)
+- [Hidden Friends - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20190531/p1)
