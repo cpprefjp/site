@@ -81,7 +81,7 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`compare`](path/compare.md) | 他のパスと文字列レベルで比較する | C++17 |
+| [`compare`](path/compare.md) | 他のパスと、各パス要素を辞書順で比較する | C++17 |
 
 
 ### 抽出

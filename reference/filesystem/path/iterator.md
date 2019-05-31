@@ -43,6 +43,13 @@ int main()
   for (fs::path element : p) {
     std::cout << element << std::endl;
   }
+  std::cout << std::endl;
+
+  // 複数の連続したスラッシュはひとつとみなされる
+  fs::path p2 = "a////b";
+  for (fs::path element : p2) {
+    std::cout << element << std::endl;
+  }
 }
 ```
 
@@ -52,6 +59,9 @@ int main()
 "usr"
 "bin"
 "clang"
+
+"a"
+"b"
 ```
 
 
