@@ -18,6 +18,8 @@ namespace std {
 
 `lock_guard`は、非常にシンプルな機能「コンストラクタでロックを取得/ロック済みミューテックスを受け取る」「デストラクタでロックを手放す」しか提供しないが、使用メモリや実行時処理に関するオーバーヘッドは小さい（ほぼゼロ）。一方で、より高度なミューテックスのロック操作が必要な場合は[`unique_lock`](/reference/mutex/unique_lock.md)を利用する。
 
+なお、C++17では複数のミューテックスを正しく簡便に扱うために[`scoped_lock`](/reference/mutex/scoped_lock.md)が追加されている。
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -102,6 +104,6 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
+## 関連項目
 
-## 参照
-
+- [`scoped_lock`](/reference/mutex/scoped_lock.md)
