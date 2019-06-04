@@ -30,11 +30,57 @@ template <size_t I, class U, class... Args>
 constexpr explicit variant(in_place_index_t<I>,
                            initializer_list<U> il,
                            Args&&... args);              // (8)
+
+template <class Alloc>
+variant(allocator_arg_t,
+        const Alloc& a);                                 // (9)
+
+template <class Alloc>
+variant(allocator_arg_t,
+        const Alloc& a,
+        const variant& other);                           // (10)
+
+template <class Alloc>
+variant(allocator_arg_t,
+        const Alloc& a,
+        variant&& other);                                // (11)
+
+template <class Alloc, class T>
+variant(allocator_arg_t,
+        const Alloc& a,
+        T&& x);                                          // (12)
+
+template <class Alloc, class T, class... Args>
+variant(allocator_arg_t,
+        const Alloc& a,
+        in_place_type_t<T> il,
+        Args&&... args);                                 // (13)
+
+template <class Alloc, class T, class U, class... Args>
+variant(allocator_arg_t,
+        const Alloc& a,
+        in_place_type_t<T>,
+        initializer_list<U> il,
+        Args&&... args);                                 // (14)
+
+template <class Alloc, size_t I, class... Args>
+variant(allocator_arg_t,
+       const Alloc& a,
+       in_place_index_t<I>,
+       Args&&... args);                                  // (15)
+
+template <class Alloc, size_t I, class U, class... Args>
+variant(allocator_arg_t,
+        const Alloc& a,
+        in_place_index_t<I>,
+        initializer_list<U> il,
+        Args&&... args);                                 // (16)
 ```
 * size_t[link /reference/cstddef/size_t.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * in_place_type_t[link /reference/utility/in_place_type_t.md]
 * in_place_index_t[link /reference/utility/in_place_index_t.md]
+* allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 ## 概要
 `variant`オブジェクトを構築する。
@@ -63,17 +109,41 @@ constexpr explicit variant(in_place_index_t<I>,
     - 型[`decay_t`](/reference/type_traits/decay.md)`<T>`が[`in_place_type_t`](/reference/utility/in_place_type_t.md)および[`in_place_index_t`](/reference/utility/in_place_index_t.md)の特殊化ではないこと
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Tj, T>`が`true`であること
     - 式`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(x))`が適格であること
+- (5) :
+    - `Types...`内に`T`が一度だけ現れること
+    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, Args...>`が`true`であること
+- (6) :
+    - `Types...`内に`T`が一度だけ現れること
+    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T,` [`initializer_list`](/reference/initializer_list.md)`<U>&, Args...>`が`true`であること
+- (7) :
+    - `Types...`の`I`番目の型を`Ti`とする
+    - `I < sizeof...(Types)`であること
+    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Ti, Args...>`が`true`であること
+- (8) :
+    - `Types...`の`I`番目の型を`Ti`とする
+    - `I < sizeof...(Types)`であること
+    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Ti,` [`initializer_list`](/reference/initializer_list.md)`<U>&, Args...>`が`true`であること
 
 
 ## 効果
-- (1) : `T0`型を値初期化して保持する
+- (1) :
+    - `T0`型を値初期化して保持する
 - (2) :
     - `other`が値を保持している場合、`other.`[`index()`](index.md)を`j`として、[`get`](get.md)`<j>(other)`で得られた`other`が保持する値を直接初期化によって`*this`に保持する
     - そうでない場合、`*this`は値を保持しない
 - (3) :
     - `other`が値を保持している場合、`other.`[`index()`](index.md)を`j`として、[`get`](get.md)`<j>(`[`std::move`](/reference/utility/move.md)`(other))`で得られた`other`が保持する値を直接初期化によって`*this`に保持する
     - そうでない場合、`*this`は値を保持しない
-- (4) : [`std::forward`](/reference/utility/forward.md)`<T>(x)`によって`Tj`型を直接構築して`*this`に保持する
+- (4) :
+    - [`std::forward`](/reference/utility/forward.md)`<T>(x)`によって`Tj`型を直接構築して`*this`に保持する
+- (5) :
+    - [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`T`型オブジェクトを直接構築して`*this`に保持する
+- (6) :
+    - `il`と[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`T`型オブジェクトを直接構築して`*this`に保持する
+- (7) :
+    - [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`Ti`型オブジェクトを直接構築して`*this`に保持する
+- (8) :
+    - `il`と[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`Ti`型オブジェクトを直接構築して`*this`に保持する
 
 
 ## 事後条件
@@ -82,6 +152,10 @@ constexpr explicit variant(in_place_index_t<I>,
     - [`index()`](index.md)が`0`であること
 - (4) :
     - [`std::holds_alternative`](/reference/variant/holds_alternative.md)`<Tj>(*this)`が`true`であること
+- (5), (6) :
+    - [`std::holds_alternative`](/reference/variant/holds_alternative.md)`<T>(*this)`が`true`であること
+- (7), (8) :
+    - [`index()`](index.md)が`I`であること
 
 
 ## 例外
@@ -96,6 +170,11 @@ constexpr explicit variant(in_place_index_t<I>,
 - (4) :
     - `Tj`の選択された初期化方法 (コンストラクタ) が任意の例外を送出する可能性がある
     - `noexcept`内の式は、[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<Tj, T>`と等価となる
+- (5), (6) :
+    - 型`T`の選択されたコンストラクタが任意の例外を送出する可能性がある
+- (7), (8) :
+    - 型`Ti`の選択されたコンストラクタが任意の例外を送出する可能性がある
+
 
 ## 備考
 - (1) :
@@ -111,6 +190,10 @@ constexpr explicit variant(in_place_index_t<I>,
     ```
 
     - 型`Tj`の選択された初期化方法 (コンストラクタ) が`constexpr`評価できる場合、この関数は`constexpr`となる
+- (5), (6) :
+    - 型`T`の選択されたコンストラクタが`constexpr`評価できる場合、この関数は`constexpr`となる
+- (7), (8) :
+    - 型`Ti`の選択されたコンストラクタが`constexpr`評価できる場合、この関数は`constexpr`となる
 
 
 ## 例
