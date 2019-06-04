@@ -192,6 +192,7 @@ variant(allocator_arg_t,
     ```
 
     - 型`Tj`の選択された初期化方法 (コンストラクタ) が`constexpr`評価できる場合、この関数は`constexpr`となる
+
 - (5), (6) :
     - 型`T`の選択されたコンストラクタが`constexpr`評価できる場合、この関数は`constexpr`となる
 - (7), (8) :
