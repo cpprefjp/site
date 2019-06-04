@@ -66,6 +66,10 @@ namespace std {
 - (5), (6), (7), (8) : 指定した型が`v`オブジェクトに保持されていない場合、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md)例外を送出する
 
 
+## 備考
+- この関数がメンバ関数ではなく非メンバ関数として定義されているのは、ユーザーにtemplate限定子を指定させるのを避けるためである。メンバ関数にした場合、テンプレート内でその関数を使用すると、`v.template get<I>()`のようにtemplateキーワードをユーザーが指定しなければならない
+
+
 ## 例
 ```cpp example
 #include <iostream>
