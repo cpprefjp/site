@@ -318,6 +318,7 @@ int main()
 ```
 * index()[link index.md]
 * std::holds_alternative[link /reference/variant/holds_alternative.md]
+* std::get[link get.md]
 * std::move[link /reference/utility/move.md]
 * std::in_place_type[link /reference/utility/in_place_type_t.md]
 * std::in_place_index[link /reference/utility/in_place_index_t.md]
