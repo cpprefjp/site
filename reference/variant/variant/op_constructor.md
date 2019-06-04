@@ -144,6 +144,8 @@ variant(allocator_arg_t,
     - [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`Ti`型オブジェクトを直接構築して`*this`に保持する
 - (8) :
     - `il`と[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`Ti`型オブジェクトを直接構築して`*this`に保持する
+- (9)-(16) :
+    - uses-allocator構築すること以外は、対応するコンストラクタと等価
 
 
 ## 事後条件
