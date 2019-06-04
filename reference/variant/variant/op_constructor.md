@@ -201,7 +201,125 @@ variant(allocator_arg_t,
 
 ## 例
 ```cpp example
+#include <cassert>
+#include <variant>
+#include <string>
+
+int main()
+{
+  // (1)
+  // デフォルト構築
+  {
+    // 0番目の型 (ここではint) が値初期化される
+    std::variant<int, char, double> v;
+
+    assert(v.index() == 0);
+    assert(std::holds_alternative<int>(v));
+    assert(std::get<int>(v) == 0); // 値初期化されるのでゼロ初期化される (不定値にはならない)
+  }
+
+  // (2)
+  // コピー構築
+  {
+    std::variant<int, char, double> a = 1;
+    std::variant<int, char, double> b = a;
+
+    assert(a == b);
+    assert(std::holds_alternative<int>(a));
+    assert(std::holds_alternative<int>(b));
+  }
+
+  // (3)
+  // ムーブ構築
+  {
+    std::variant<int, char, double> a = 1;
+    std::variant<int, char, double> b = std::move(a);
+
+    assert(std::holds_alternative<int>(b));
+    assert(std::get<int>(b) == 1);
+  }
+
+  // (4)
+  // 候補型のうち、いずれかの型の値を代入
+  {
+    std::variant<int, char, double> v = 3.14;
+
+    assert(std::holds_alternative<double>(v));
+    assert(std::get<double>(v) == 3.14);
+  }
+
+  // (5)
+  // 候補型のうち、いずれかの型のコンストラクタ引数をとって、
+  // コンストラクタ内でその型のオブジェクトを構築して保持する
+  {
+    // コンストラクタ引数3と'a'を渡して、
+    // コンストラクタ内でstd::string型オブジェクトを構築する
+    std::variant<int, char, std::string> v{
+      std::in_place_type<std::string>,
+      3,
+      'a'
+    };
+
+    assert(std::holds_alternative<std::string>(v));
+    assert(std::get<std::string>(v) == "aaa");
+  }
+
+  // (6)
+  // (5) とほぼ同じ。コンストラクタ引数の先頭が初期化子リストの場合に、
+  // こちらが呼ばれる。
+  {
+    std::allocator<char> alloc;
+    std::variant<int, char, std::string> v{
+      std::in_place_type<std::string>,
+      {'H', 'e', 'l', 'l', 'o'},
+      alloc
+    };
+
+    assert(std::holds_alternative<std::string>(v));
+    assert(std::get<std::string>(v) == "Hello");
+  }
+
+  // (7)
+  // 候補型のうち、I番目の型のコンストラクタ引数をとって、
+  // コンストラクタ内でその型のオブジェクトを構築して保持する
+  {
+    // コンストラクタ引数3と'a'を渡して、
+    // コンストラクタ内で2番目の型 (std::string) のオブジェクトを構築する
+    std::variant<int, char, std::string> v{
+      std::in_place_index<2>,
+      3,
+      'a'
+    };
+
+    assert(v.index() == 2);
+    assert(std::holds_alternative<std::string>(v));
+    assert(std::get<std::string>(v) == "aaa");
+  }
+
+  // (7)
+  // (6) とほぼ同じ。コンストラクタ引数の先頭が初期化子リストの場合に、
+  // こちらが呼ばれる。
+  {
+    // コンストラクタ引数3と'a'を渡して、
+    // コンストラクタ内で2番目の型 (std::string) のオブジェクトを構築する
+    std::allocator<char> alloc;
+    std::variant<int, char, std::string> v{
+      std::in_place_index<2>,
+      {'H', 'e', 'l', 'l', 'o'},
+      alloc
+    };
+
+    assert(v.index() == 2);
+    assert(std::holds_alternative<std::string>(v));
+    assert(std::get<std::string>(v) == "Hello");
+  }
+}
 ```
+* index()[link index.md]
+* std::holds_alternative[link /reference/variant/holds_alternative.md]
+* std::move[link /reference/utility/move.md]
+* std::in_place_type[link /reference/utility/in_place_type_t.md]
+* std::in_place_index[link /reference/utility/in_place_index_t.md]
 
 ### 出力
 ```
