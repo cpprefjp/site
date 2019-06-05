@@ -174,6 +174,13 @@ int main()
   }
 }
 ```
+* std::priority_queue[color ff0000]
+* que.push[link priority_queue/push.md]
+* que.empty()[link priority_queue/empty.md]
+* que.top()[link priority_queue/top.md]
+* que.pop()[link priority_queue/pop.md]
+* std::greater[link /reference/functional/greater.md]
+* std::less[link /reference/functional/less.md]
 
 #### 出力
 ```
