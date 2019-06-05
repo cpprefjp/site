@@ -11,7 +11,7 @@ constexpr variant(const variant& other);                 // (2)
 constexpr variant(variant&& other) noexcept(see below);  // (3)
 
 template <class T>
-constexpr variant(T&& x) noexcept(see below);            // (4)
+constexpr variant(T&& t) noexcept(see below);            // (4)
 
 template <class T, class... Args>
 constexpr explicit variant(in_place_type_t<T>,
@@ -105,7 +105,8 @@ variant(allocator_arg_t,
 - (3) :
     - 全ての型`Ti`について、[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<Ti>`が`true`であること
 - (4) :
-    - ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(rhs))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
+    - C++17 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
+    - C++20 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`を、縮小変換を受け付けない型であり (`Ti x[] = {`[`std::forward`](/reference/utility/forward.md)`<T>(t)};`)、CV修飾付き`bool`の場合にCV修飾を外した`bool`型になるとして、その型に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
     - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<T>, variant>`が`false`であること
     - 型[`decay_t`](/reference/type_traits/decay.md)`<T>`が[`in_place_type_t`](/reference/utility/in_place_type_t.md)および[`in_place_index_t`](/reference/utility/in_place_index_t.md)の特殊化ではないこと
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Tj, T>`が`true`であること
@@ -136,7 +137,7 @@ variant(allocator_arg_t,
     - `other`が値を保持している場合、`other.`[`index()`](index.md)を`j`として、[`get`](get.md)`<j>(`[`std::move`](/reference/utility/move.md)`(other))`で得られた`other`が保持する値を直接初期化によって`*this`に保持する
     - そうでない場合、`*this`は値を保持しない
 - (4) :
-    - [`std::forward`](/reference/utility/forward.md)`<T>(x)`によって`Tj`型を直接構築して`*this`に保持する
+    - [`std::forward`](/reference/utility/forward.md)`<T>(t)`によって`Tj`型を直接構築して`*this`に保持する
 - (5) :
     - [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`T`型オブジェクトを直接構築して`*this`に保持する
 - (6) :
@@ -201,6 +202,7 @@ variant(allocator_arg_t,
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <cassert>
 #include <variant>
@@ -323,7 +325,40 @@ int main()
 * std::in_place_type[link /reference/utility/in_place_type_t.md]
 * std::in_place_index[link /reference/utility/in_place_index_t.md]
 
-### 出力
+#### 出力
+```
+```
+
+### あいまいになりそうな代入の例 (C++20)
+```cpp
+#include <cassert>
+#include <variant>
+#include <string>
+
+int main()
+{
+  // 縮小変換 (narrowing conversion) は行われないので、
+  // 0がfloat型に代入されたりはしない
+  {
+    std::variant<float, int> v = 0;
+    assert(std::holds_alternative<int>(v));
+  }
+
+  {
+    // 文字列リテラルは、C++17ではstd::stringよりもboolに優先的に変換されてしまう
+    std::variant<std::string, bool> v = "abc";
+    assert(std::holds_alternative<std::string>(v)); // C++17ではbool、C++20ではstd::string
+
+    std::variant<std::string> v2 = "abc";
+    assert(std::holds_alternative<std::string>(v2));
+
+    std::variant<std::string, bool> v3 = std::string("abc"); // C++17/C++20でstd::string
+    assert(std::holds_alternative<std::string>(v3));
+  }
+}
+```
+
+#### 出力
 ```
 ```
 

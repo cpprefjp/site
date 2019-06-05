@@ -6,11 +6,11 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr variant& operator=(const variant& rhs);                // (1)
-constexpr variant& operator=(variant&& rhs) noexcept(see below); // (2)
+constexpr variant& operator=(const variant& rhs);              // (1)
+constexpr variant& operator=(variant&& t) noexcept(see below); // (2)
 
 template <class T>
-variant& operator=(T&& rhs) noexcept(see below);                 // (3)
+variant& operator=(T&& rhs) noexcept(see below);               // (3)
 ```
 
 ## 概要
@@ -25,7 +25,8 @@ variant& operator=(T&& rhs) noexcept(see below);                 // (3)
 - (2) :
     - `Types...`のすべての型`Ti`について、[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<Ti> &&` [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<Ti>`が`true`であること
 - (3) :
-    - ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(rhs))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、代入してその後含まれる値の型を`Tj`とする
+    - C++17 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、代入してその後含まれる値の型を`Tj`とする
+    - C++20 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`を、縮小変換を受け付けない型であり (`Ti x[] = {`[`std::forward`](/reference/utility/forward.md)`<T>(t)};`)、CV修飾付き`bool`の場合にCV修飾を外した`bool`型になるとして、その型に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、代入してその後含まれる値の型を`Tj`とする
     - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<T>, variant>`が`false`であること
     - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<Tj&, T> &&` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Tj, T>`が`true`であること
 
@@ -38,10 +39,10 @@ variant& operator=(T&& rhs) noexcept(see below);                 // (3)
     - `rhs.`[`index()`](index.md)を`j`、`Types...`の`j`番目の型を`Tj`として、[`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<Tj> == true`もしくは[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Tj> == false`である場合、[`emplace`](emplace.md.nolink)`<j>(`[`get`](get.md)`<j>(rhs))`と等価
     - いずれにも当てはまらない場合、`operator=(variant(rhs))`と等価
 - (2) :
-    - `*this`と`rhs`がどちらも値を保持していない場合、なにもしない
-    - `*this`が値を保持し、`rhs`が保持していない場合、`*this`が値を保持していない状態にする
-    - [`index()`](index.md) `== rhs.`[`index()`](index.md)である場合、`rhs`が保持している値を`*this`が保持する値としてムーブ代入する (型の切り替えを行わない)
-    - いずれにも当てはまらない場合、`rhs.`[`index()`](index.md)を`j`として、[`emplace`](emplace.md.nolink)`<j>(`[`get`](get.md)`<j>(`[`std::move`](/reference/utility/move.md)`(rhs)))`と等価
+    - `*this`と`t`がどちらも値を保持していない場合、なにもしない
+    - `*this`が値を保持し、`t`が保持していない場合、`*this`が値を保持していない状態にする
+    - [`index()`](index.md) `== t.`[`index()`](index.md)である場合、`t`が保持している値を`*this`が保持する値としてムーブ代入する (型の切り替えを行わない)
+    - いずれにも当てはまらない場合、`t.`[`index()`](index.md)を`j`として、[`emplace`](emplace.md.nolink)`<j>(`[`get`](get.md)`<j>(`[`std::move`](/reference/utility/move.md)`(t)))`と等価
 - (3) :
     - `*this`が`Tj`型の値を保持している場合、[`std::forward`](/reference/utility/forward.md)`<T>(rhs)`の値を`*this`に代入する (型の切り替えを行わない)
     - [`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<Tj, T> || !`[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Tj>`が`true`である場合、[`emplace`](emplace.md.nolink)`<j>(`[`std::forward`](/reference/utility/forward.md)`<T>(rhs))`の呼び出しと等価
@@ -61,8 +62,8 @@ variant& operator=(T&& rhs) noexcept(see below);                 // (3)
 - (2) :
     - `noexcept`演算子内部の式は、以下と等価となる：
         - `Types...`のすべての型`Ti`について、[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Ti> &&` [`is_nothrow_move_assignable_v`](/reference/type_traits/is_nothrow_move_assignable.md)`<Ti>`
-    - `rhs.`[`index()`](index.md)を`j`、`Types...`の`j`番目の型を`Tj`として、型`Tj`のムーブ構築中に例外が発生した場合、その`variant`オブジェクトは値を保持しない状態になる
-    - `rhs.`[`index()`](index.md)を`j`、`Types...`の`j`番目の型を`Tj`として、型`Tj`のムーブ代入中に例外が発生した場合、型`Tj`のムーブ代入演算子が保証する例外安全性が定義する値の保持状態となり、`*this`の[`index()`](index.md)は`j`となる
+    - `t.`[`index()`](index.md)を`j`、`Types...`の`j`番目の型を`Tj`として、型`Tj`のムーブ構築中に例外が発生した場合、その`variant`オブジェクトは値を保持しない状態になる
+    - `t.`[`index()`](index.md)を`j`、`Types...`の`j`番目の型を`Tj`として、型`Tj`のムーブ代入中に例外が発生した場合、型`Tj`のムーブ代入演算子が保証する例外安全性が定義する値の保持状態となり、`*this`の[`index()`](index.md)は`j`となる
 - (3) :
     - `noexcept`演算子内部の式は、以下と等価となる：
         - [`is_nothrow_assignable_v`](/reference/type_traits/is_nothrow_assignable.md)`<Tj&, T> &&` [`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<Tj, T>`
@@ -85,6 +86,7 @@ variant& operator=(T&& rhs) noexcept(see below);                 // (3)
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <cassert>
 #include <variant>
@@ -132,7 +134,45 @@ int main()
 * std::get[link get.md]
 * std::move[link /reference/utility/move.md]
 
-### 出力
+#### 出力
+```
+```
+
+
+### あいまいになりそうな代入の例 (C++20)
+```cpp example
+#include <cassert>
+#include <variant>
+#include <string>
+
+int main()
+{
+  // 縮小変換 (narrowing conversion) は行われないので、
+  // 0がfloat型に代入されたりはしない
+  {
+    std::variant<float, int> v;
+    v = 0;
+    assert(std::holds_alternative<int>(v));
+  }
+
+  {
+    // 文字列リテラルは、C++17ではstd::stringよりもboolに優先的に変換されてしまう
+    std::variant<std::string, bool> v;
+    v = "abc";
+    assert(std::holds_alternative<std::string>(v)); // C++17ではbool、C++20ではstd::string
+
+    std::variant<std::string> v2;
+    v2 = "abc";
+    assert(std::holds_alternative<std::string>(v2));
+
+    std::variant<std::string, bool> v3;
+    v3 = std::string("abc"); // C++17/C++20でstd::string
+    assert(std::holds_alternative<std::string>(v3));
+  }
+}
+```
+
+#### 出力
 ```
 ```
 
@@ -144,3 +184,7 @@ int main()
 - [Clang](/implementation.md#clang): 4.0.1
 - [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P0608R3 A sane variant converting constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0608r3.html)
