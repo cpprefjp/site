@@ -171,6 +171,7 @@ int main()
   }
 }
 ```
+* std::holds_alternative[link /reference/variant/holds_alternative.md]
 
 #### 出力
 ```
