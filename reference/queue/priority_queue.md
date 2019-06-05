@@ -14,7 +14,7 @@ namespace std {
 * less[link /reference/functional/less.md]
 
 ## 概要
-`priority_queue`はコンテナアダプタであり、優先順位付きキューを実現する目的で設計されている。要素を`push()`で追加し、取り出す際に`top()`を呼び出すことで、`Compare`述語によって優先順に要素が取り出される。
+`priority_queue`はコンテナアダプタであり、優先順位付きキューを実現する目的で設計されている。要素を`push()`で追加し、取り出す際に`top()`を呼び出すことで、`Compare`述語によって優先順に要素が取り出される。デフォルトでは降順に処理される。
 
 `priority_queue`は、所定のメンバ関数を持つコンテナのオブジェクトを内部実装として用いており、標準のコンテナ、もしくは独自に実装したコンテナを指定することができる。
 
@@ -88,13 +88,15 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <queue>
 
 int main()
 {
-  // intを要素に持つ優先順位付きキュー
+  // intを要素に持つ優先順位付きキュー。
+  // 降順に処理する
   std::priority_queue<int> que;
 
   // データを追加する
@@ -102,7 +104,7 @@ int main()
   que.push(1);
   que.push(4);
 
-  // 中身の出力
+  // 処理順に出力する
   while (!que.empty()) {
     std::cout << que.top() << std::endl;
     que.pop();
@@ -115,12 +117,78 @@ int main()
 * que.top()[link priority_queue/top.md]
 * que.pop()[link priority_queue/pop.md]
 
-### 出力
+#### 出力
 ```
 4
 3
 1
 ```
 
-## 参照
 
+### 処理順をカスタマイズする (C++11)
+```cpp example
+#include <iostream>
+#include <queue>
+
+int main()
+{
+  // 昇順に処理する
+  {
+    std::priority_queue<
+      int,                // 要素の型はint
+      std::vector<int>,   // 内部コンテナはstd::vector (デフォルトのまま)
+      std::greater<int>   // 昇順 (デフォルトはstd::less<T>)
+    > que;
+
+    que.push(3);
+    que.push(1);
+    que.push(4);
+
+    while (!que.empty()) {
+      std::cout << que.top() << std::endl;
+      que.pop();
+    }
+  }
+  std::cout << std::endl;
+
+  // 処理順を表す比較関数オブジェクトにラムダ式を使用する
+  {
+    auto compare = [](int a, int b) {
+      return a < b;
+    };
+
+    std::priority_queue<
+      int,
+      std::vector<int>,
+      decltype(compare) // 比較関数オブジェクトを指定
+    > que;
+
+    que.push(3);
+    que.push(1);
+    que.push(4);
+
+    while (!que.empty()) {
+      std::cout << que.top() << std::endl;
+      que.pop();
+    }
+  }
+}
+```
+
+#### 出力
+```
+1
+3
+4
+
+4
+3
+1
+```
+
+
+## 関連項目
+- [`std::push_heap`](/reference/algorithm/push_heap.md)
+- [`std::pop_heap`](/reference/algorithm/pop_heap.md)
+- [`std::make_heap`](/reference/algorithm/make_heap.md)
+- [`std::sort_heap`](/reference/algorithm/sort_heap.md)
