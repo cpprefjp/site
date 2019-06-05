@@ -99,6 +99,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | reverse iterator                   | 逆イテレータ                 |
 | rvalue reference                   | 右辺値参照                   |
 | sequence container(s)              | シーケンスコンテナ           |
+| signed                             | 符号付き                     |
 | Spurious Failure                   | 見かけ上の失敗<br/> [https://togetter.com/li/430770](https://togetter.com/li/430770) |
 | strict weak ordering               | 狭義の弱順序                 |
 | synchronization                    | 同期                         |

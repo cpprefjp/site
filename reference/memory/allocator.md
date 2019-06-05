@@ -57,7 +57,7 @@ C++11から：
 | `value_type`      | 要素の型 `T`                                 | |
 | `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータの状態を伝搬するか。 [`true_type`](/reference/type_traits/true_type.md) | C++14 |
 | `size_type`       | 要素数を表す符号なし整数型 `size_t`          | C++17から非推奨<br/> C++20で削除 |
-| `difference_type` | ポインタの差を表す符号あり整数型 `ptrdiff_t` | C++17から非推奨<br/> C++20で削除 |
+| `difference_type` | ポインタの差を表す符号付き整数型 `ptrdiff_t` | C++17から非推奨<br/> C++20で削除 |
 | `pointer`         | 要素のポインタ型 `T*`                        | C++17から非推奨<br/> C++20で削除 |
 | `const_pointer`   | 読み取り専用の要素のポインタ型 `const T*`    | C++17から非推奨<br/> C++20で削除 |
 | `reference`       | 要素の参照型 `T&`                            | C++17から非推奨<br/> C++20で削除 |

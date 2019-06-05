@@ -117,7 +117,7 @@ namespace std {
 | `iterator`               | 双方向イテレータ | |
 | `const_iterator`         | 読み取り専用双方向イテレータ | |
 | `size_type`              | 符号なし整数型(通常は[`size_t`](/reference/cstddef/size_t.md)) | |
-| `difference_type`        | 符号あり整数型(通常は[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) | |
+| `difference_type`        | 符号付き整数型(通常は[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) | |
 | `value_type`             | `T` | |
 | `allocator_type`         | `Allocator` | |
 | `pointer`                | [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer` | |

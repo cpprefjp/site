@@ -12,7 +12,7 @@ namespace std {
 * signed-integer-type[italic]
 
 ## 概要
-ポインタサイズの符号あり整数型。
+ポインタサイズの符号付き整数型。
 
 この型を実装するかどうかは処理系定義。
 

@@ -31,7 +31,7 @@ namespace std {
 |----------------|----------------------------------------------|-------|
 | `pointer`      | ポインタと見なせる型 `Ptr` | C++11 |
 | `element_type` | ポインタが指す要素型。<br/> 型`Ptr`が`element_type`型を持っていればそれを使用する。型`Ptr`が要素型`T`と0個以上の他のパラメータをとるクラステンプレートであれば`T`を使用する。そうでなければ不適格となる。 | C++11 |
-| `difference_type` | ポインタの差を表す符号あり整数型。<br/> 型`Ptr`が`difference_type`型を持っていればそれを使用し、そうでなければ[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)型を使用する。 | C++11 |
+| `difference_type` | ポインタの差を表す符号付き整数型。<br/> 型`Ptr`が`difference_type`型を持っていればそれを使用し、そうでなければ[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)型を使用する。 | C++11 |
 | `rebind<U>`    | 型の再束縛。<br/> 型`Ptr`が`rebind<U>`を持っていればそれを使用する。型`Ptr`が型`T`と0個以上の他のパラメータをとるクラステンプレートであれば、型`U`で再束縛した`Ptr`型を使用する。どちらもなければ、`rebind<U>`のインスタンス化は不適格となる。 | C++11 |
 
 

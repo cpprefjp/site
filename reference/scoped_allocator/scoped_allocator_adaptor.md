@@ -72,7 +72,7 @@ namespace std {
 | `inner_allocator_type` | 内側のアロケータ。 `InnerAllocs`が空だったら`scoped_allocator_adaptor<OuterAlloc>`。空じゃなければ`scoped_allocator_adaptor<InnerAllocs...>`。 | C++11 |
 | `value_type`           | 要素型` allocator_traits<OuterAlloc>::value_type` | C++11 |
 | `size_type`            | 要素数を表す符号なし整数型 `allocator_traits<OuterAlloc>::size_type` | C++11 |
-| `difference_type`      | ポインタの差を表す符号あり整数型` allocator_traits<OuterAlloc>::difference_type` | C++11 |
+| `difference_type`      | ポインタの差を表す符号付き整数型` allocator_traits<OuterAlloc>::difference_type` | C++11 |
 | `pointer`              | 要素のポインタ型` allocator_traits<OuterAlloc>::pointer` | C++11 |
 | `const_pointer`        | 読み取り専用の要素のポインタ型 `allocator_traits<OuterAlloc>::const_pointer` | C++11 |
 | `void_pointer`         | `void`ポインタ型 `allocator_traits<OuterAlloc>::void_pointer` | C++11 |
