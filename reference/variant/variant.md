@@ -37,8 +37,8 @@ std::visit([](auto& x) {
   x.f();
 }, v);
 ```
-* std::holds_alternative[link /reference/variant/holds_alternative.md]
-* std::visit[link /reference/variant/visit.md]
+* std::holds_alternative[link holds_alternative.md]
+* std::visit[link visit.md]
 
 このクラスと同様のことは共用体を使用しても達成できるが、このクラスはより使いやすいよう設計されている。
 
@@ -139,10 +139,38 @@ std::visit([](auto& x) {
 
 ## 例
 ```cpp example
+#include <iostream>
+#include <variant>
+#include <string>
+
+int main()
+{
+  // int, char, std::stringのいずれかの型の値を保持できる型
+  std::variant<int, char, std::string> v = 3; // int型の値を代入
+
+  // 候補型の0番目の型 (int) を保持しているか
+  if (v.index() == 0) {
+    int& x = std::get<0>(v); // 型のインデックスを指定して、保持している値を取得
+    std::cout << x << std::endl;
+  }
+
+  v = std::string("Hello"); // std::string型オブジェクトを代入
+
+  // std::string型を保持しているか
+  if (std::holds_alternative<std::string>(v)) {
+    std::string& x = std::get<std::string>(v); // 型を指定して、保持している値を取得
+    std::cout << x << std::endl;
+  }
+}
 ```
+* v.index()[link variant/index.md]
+* std::holds_alternative[link holds_alternative.md]
+* std::get[link variant/get.md]
 
 ### 出力
 ```
+3
+Hello
 ```
 
 
@@ -151,8 +179,8 @@ std::visit([](auto& x) {
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [Clang](/implementation.md#clang): 4.0
+- [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
