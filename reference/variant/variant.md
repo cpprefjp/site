@@ -25,7 +25,7 @@ namespace std {
 ## テンプレートパラメータ制約
 - `Types...`の全ての型が、 (CV修飾された) [オブジェクト型](/reference/type_traits/is_object.md)であること
 - `Types...`の全ての型が、配列型ではないこと
-- `variant<`[`std::string`](/reference/string/basic_string.md)`,` [`std::string`](/reference/string/basic_string.md)`>`のように、同じ型が複数回現れてはならない
+- `variant<`[`std::string`](/reference/string/basic_string.md)`,` [`std::string`](/reference/string/basic_string.md)`>`のように、`Types...`内に同じ型が複数回現れてはならない
 
 
 ## 適格要件
