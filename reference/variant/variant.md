@@ -39,6 +39,7 @@ std::visit([](auto& x) {
 ```
 * std::holds_alternative[link holds_alternative.md]
 * std::visit[link visit.md]
+* std::get[link variant/get.md]
 
 このクラスと同様のことは共用体を使用しても達成できるが、このクラスはより使いやすいよう設計されている。
 
