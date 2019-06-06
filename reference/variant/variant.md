@@ -17,6 +17,11 @@ namespace std {
 このクラスは動的メモリ確保は行わず、スタック領域のみを使用する。
 
 
+### 備考
+- このクラスは[Boost Variant Library](https://boost.org/libs/variant)を元に設計されている
+- Boost Variant Libraryは、recursive variantによって再帰的なデータ構造を扱えるが、現時点の`std::variant`クラスではそのようなデータ構造は扱えない
+
+
 ## テンプレートパラメータ制約
 - `Types...`の全ての型が、 (CV修飾された) [オブジェクト型](/reference/type_traits/is_object.md)であること
 - `Types...`の全ての型が、配列型ではないこと
@@ -25,11 +30,6 @@ namespace std {
 
 ## 適格要件
 - `Types...`が空ではないこと
-
-
-### 備考
-- このクラスは[Boost Variant Library](https://boost.org/libs/variant)を元に設計されている
-- Boost Variant Libraryは、recursive variantによって再帰的なデータ構造を扱えるが、現時点の`std::variant`クラスではそのようなデータ構造は扱えない
 
 
 ## メンバ関数
