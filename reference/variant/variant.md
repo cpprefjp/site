@@ -17,6 +17,16 @@ namespace std {
 このクラスは動的メモリ確保は行わず、スタック領域のみを使用する。
 
 
+## テンプレートパラメータ制約
+- `Types...`の全ての型が、 (CV修飾された) [オブジェクト型](/reference/type_traits/is_object.md)であること
+- `Types...`の全ての型が、配列型ではないこと
+- `variant<`[`std::string`](/reference/string/basic_string.md)`,` [`std::string`](/reference/string/basic_string.md)`>`のように、同じ型が複数回現れてはならない
+
+
+## 適格要件
+- `Types...`が空ではないこと
+
+
 ### 備考
 - このクラスは[Boost Variant Library](https://boost.org/libs/variant)を元に設計されている
 - Boost Variant Libraryは、recursive variantによって再帰的なデータ構造を扱えるが、現時点の`std::variant`クラスではそのようなデータ構造は扱えない
@@ -116,3 +126,7 @@ namespace std {
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P0510R0 Disallowing references, incomplete types, arrays, and empty variants](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0510r0.html)
