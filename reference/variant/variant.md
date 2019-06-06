@@ -50,7 +50,8 @@ std::visit([](auto& x) {
 - このクラスは[Boost Variant Library](https://boost.org/libs/variant)を元に設計されている
 - Boost Variant Libraryは、recursive variantによって再帰的なデータ構造を扱えるが、現時点の`std::variant`クラスではそのようなデータ構造は扱えない
 - Boost Variant Libraryは、「[決して空にならない保証 ("Never-Empty" Guarantee)](https://www.boost.org/doc/libs/release/doc/html/variant/design.html#variant.design.never-empty)」を提供しており、たとえ代入中に例外が発生したとしても、候補型のいずれの型も代入されていない状況が起こらないよう設計・実装されていた。標準ライブラリに導入されたこのクラスは、代入中に例外が発生した場合に空になる可能性をもっている
-- このクラスは、他の言語で「代数データ型 (Algebraic data type)」「直和型 (Union type)」と呼ばれる機能の一部を表す。また、`Either`型として近しい機能が提供されている場合もある
+- このクラスは、他の言語で「代数データ型 (Algebraic data type)」「直和型 (Union type)」と呼ばれる機能の一部を表現できる。また、`Either`型として近しい機能が提供されている場合もある
+    - ただし、`Either`は`Either<String, String>`のように候補型に複数同じ型が現れてもよいが、このクラスでは禁止されている。`Either<String, String>`のようなことをしたい理由は、正常データかエラーメッセージかどちらかを代入できる型として利用し、正常データとエラーメッセージどちらも文字列であるという状況があるためである。`variant`で同様のことをしたい場合は、正常データかエラー型のどちらかを一段ラップして`variant<string, error<string>>`のように、別な型にすればよい
 
 
 ## テンプレートパラメータ制約
