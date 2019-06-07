@@ -58,6 +58,7 @@ std::visit([](auto& x) {
 - `Types...`の全ての型が、 (CV修飾された) [オブジェクト型](/reference/type_traits/is_object.md)であること
 - `Types...`の全ての型が、配列型ではないこと
 - コンストラクタや代入の制約として、`variant<`[`std::string`](/reference/string/basic_string.md)`,` [`std::string`](/reference/string/basic_string.md)`>`のように、`Types...`内に同じ型が複数回現れる指定をする場合は、型のインデックスを指定する形式の機能のみ使用できる
+    - こういった指定は、正常データかエラーデータどちらかが代入されるオブジェクトを用意する状況で、正常データとエラーデータがどちらも文字列、という場合に必要になる
 
 
 ## 適格要件
