@@ -160,9 +160,9 @@ int main()
   //v = "abc"; // コンパイルエラー！
 }
 ```
+* emplace[color ff0000]
 * std::get[link get.md]
 * std::holds_alternative[link /reference/variant/holds_alternative.md]
-* emplace[link emplace.md]
 * index()[link index.md]
 * std::in_place_index[link /reference/utility/in_place_index_t.md]
 
