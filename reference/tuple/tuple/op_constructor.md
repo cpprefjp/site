@@ -310,5 +310,6 @@ int main()
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N4387 Improving Pair and Tuple (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4387)
     - C++17での条件付き`explicit`の導入
+- [LWG Issue 2549. Tuple EXPLICIT constructor templates that take tuple parameters end up taking references to temporaries and will create dangling references](https://wg21.cmeerw.net/lwg/issue2549)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応
