@@ -159,7 +159,7 @@ struct pair {
 
 
 ## 関連項目
-- [`pair`のコンストラクタ](/reference/utility/pair/constructor.md)
+- [`pair`のコンストラクタ](/reference/utility/pair/op_constructor.md)
 - [`tuple`のコンストラクタ](/reference/tuple/tuple/op_constructor.md)
 - [`optional`のコンストラクタ](/reference/optional/optional/op_constructor.md)
 
