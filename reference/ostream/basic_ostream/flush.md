@@ -55,7 +55,7 @@ basic_ostream<CharT, Traits>& basic_ostream<CharT, Traits>::flush()
         }
       }
     } catch (...) {
-      // ここで、本ストリームの状態に ios_base::badbit をセットする（例外は投げない）
+      // ここで、本ストリームの状態に ios_base::badbit を設定する（例外は投げない）
       if ((this->exceptions() & ios_base::badbit) != 0) {
         throw;
       }
