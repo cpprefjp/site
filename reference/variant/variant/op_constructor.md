@@ -330,7 +330,7 @@ int main()
 ```
 
 ### あいまいになりそうな代入の例 (C++20)
-```cpp
+```cpp example
 #include <cassert>
 #include <variant>
 #include <string>
@@ -358,6 +358,44 @@ int main()
 }
 ```
 * std::holds_alternative[link /reference/variant/holds_alternative.md]
+
+#### 出力
+```
+```
+
+
+### 同じ型を複数指定できる状況の例
+```cpp example
+#include <cassert>
+#include <variant>
+#include <string>
+
+int main()
+{
+  // インデックスを指定した代入なら、同じ型が複数現れてもよい。
+  // 代入演算子、emplace<T>()、std::get<T>()、std::holds_alternative<T>()は使用できない。
+  // emplace<I>()、std::get<I>(), index()は使用できる
+  std::variant<std::string, std::string> v1 { // OK
+    std::in_place_index<0>,
+    "abc"
+  };
+  std::string& s = std::get<0>(v1);
+  assert(s == "abc");
+
+  //std::variant<std::string, std::string> v2 { // コンパイルエラー！
+  //  std::in_place_type<std::string>,
+  //  "abc"
+  //};
+
+  //std::variant<std::string, std::string> v3 = "abc"; // コンパイルエラー！
+}
+```
+* std::get[link get.md]
+* std::holds_alternative[link /reference/variant/holds_alternative.md]
+* std::in_place_type[link /reference/utility/in_place_type_t.md]
+* std::in_place_index[link /reference/utility/in_place_index_t.md]
+* emplace[link emplace.md]
+* index()[link index.md]
 
 #### 出力
 ```

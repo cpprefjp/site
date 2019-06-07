@@ -81,6 +81,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <cassert>
 #include <variant>
@@ -131,7 +132,37 @@ int main()
 * emplace[color ff0000]
 * std::get[link get.md]
 
-### 出力
+#### 出力
+```
+```
+
+### 同じ型を複数指定できる状況の例
+```cpp example
+#include <cassert>
+#include <variant>
+#include <string>
+
+int main()
+{
+  // インデックスを指定した代入なら、同じ型が複数現れてもよい。
+  // 代入演算子、emplace<T>()、std::get<T>()、std::holds_alternative<T>()は使用できない。
+  // in_place_index<I>を指定するコンストラクタ、emplace<I>()、std::get<I>(), index()は使用できる
+  std::variant<std::string, std::string> v;
+  v.emplace<0>("abc"); // OK
+  std::string& s = std::get<0>(v);
+  assert(s == "abc");
+
+  //v.emplace<std::string>("abc"); // コンパイルエラー！
+  //v = "abc"; // コンパイルエラー！
+}
+```
+* std::get[link get.md]
+* std::holds_alternative[link /reference/variant/holds_alternative.md]
+* emplace[link emplace.md]
+* index()[link index.md]
+* std::in_place_index[link /reference/utility/in_place_index_t.md]
+
+#### 出力
 ```
 ```
 
