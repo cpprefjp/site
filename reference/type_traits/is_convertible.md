@@ -77,5 +77,9 @@ int main() {}
 - [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
 
 
+## 関連項目
+- [C++20 関数を条件付きでexplicitにする構文を追加](/lang/cpp20/explicit_bool.md)
+
+
 ## 参照
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
