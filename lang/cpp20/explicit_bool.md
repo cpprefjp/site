@@ -2,7 +2,7 @@
 * cpp20[meta cpp]
 
 ## 概要
-C++20では、関数を条件付きで`explicit`にする構文が追加された。コンストラクタと変換演算子に指定する`explicit`指定子に、`explicit(true)`、`explicit(false)`のように`bool`に変換可能な定数式を指定する。`true`に評価される値を指定することで。その関数は`explicit`となる。
+C++20では、関数を条件付きで`explicit`にする構文が追加された。コンストラクタと変換演算子に指定する`explicit`指定子に、`explicit(true)`、`explicit(false)`のように`bool`に変換可能な定数式を指定する。`true`に評価される値を指定することで、その関数は`explicit`となる。
 
 ```cpp
 template <bool Cond>
