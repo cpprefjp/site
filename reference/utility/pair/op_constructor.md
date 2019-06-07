@@ -238,6 +238,11 @@ p8 : (X(1 2 3),Y(4 5))
 	- 2010までは、(8) `std::piecewise_construct`版が実装されていない。
 	- 2013までは、デフォルトコンストラクタに`constexpr`が付与されていない。
 
+
+## 関連項目
+- [C++20 関数を条件付きでexplicitにする構文を追加](/lang/cpp20/explicit_bool.md)
+
+
 ## 参照
 - [N2345 Placement Insert for Containers (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2345.pdf)
     - (8)の最初の提案

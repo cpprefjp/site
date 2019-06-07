@@ -306,6 +306,10 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 
 
 
+## 関連項目
+- [C++20 関数を条件付きでexplicitにする構文を追加](/lang/cpp20/explicit_bool.md)
+
+
 ## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N4387 Improving Pair and Tuple (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4387)
