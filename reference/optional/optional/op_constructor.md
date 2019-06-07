@@ -6,28 +6,34 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr optional() noexcept;                           // (1)
-constexpr optional(nullopt_t) noexcept;                  // (2)
-constexpr optional(const optional& rhs);                 // (3)
-constexpr optional(optional&& rhs) noexcept(see below);  // (4)
+constexpr optional() noexcept;                           // (1) C++17
+constexpr optional(nullopt_t) noexcept;                  // (2) C++17
+constexpr optional(const optional& rhs);                 // (3) C++17
+constexpr optional(optional&& rhs) noexcept(see below);  // (4) C++17
 
 template <class... Args>
-constexpr explicit optional(in_place_t, Args&&... args); // (5)
+constexpr explicit optional(in_place_t, Args&&... args); // (5) C++17
 
 template <class U, class... Args>
 constexpr explicit optional(
                      in_place_t,
                      initializer_list<U> il,
-                     Args&&... args);                    // (6)
+                     Args&&... args);                    // (6) C++17
 
 template <class U = T>
-EXPLICIT constexpr optional(U&& rhs);                    // (7)
+EXPLICIT constexpr optional(U&& rhs);                    // (7) C++17
+template <class U = T>
+explicit(see below) constexpr optional(U&& rhs);         // (7) C++20
 
 template <class U>
-EXPLICIT optional(const optional<U>& rhs);               // (8)
+EXPLICIT optional(const optional<U>& rhs);               // (8) C++17
+template <class U>
+explicit(see below) optional(const optional<U>& rhs);    // (8) C++20
 
 template <class U>
-EXPLICIT optional(optional<U>&& rhs);                    // (9)
+EXPLICIT optional(optional<U>&& rhs);                    // (9) C++17
+template <class U>
+explicit(see below) optional(optional<U>&& rhs);         // (9) C++20
 ```
 * nullopt_t[link /reference/optional/nullopt_t.md]
 * in_place_t[link /reference/utility/in_place_t.md]
@@ -199,3 +205,5 @@ int main()
 - [LWG Issue 2842. `in_place_t` check for `optional::optional(U&&)` should decay `U`](https://wg21.cmeerw.net/lwg/issue2842)
     - 説明の簡略化のため、このオーバーロードで`in_place_t`への言及は現在していない
 - [LWG Issue 2900. The copy and move constructors of `optional` are not `constexpr`](https://wg21.cmeerw.net/lwg/issue2900)
+- [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
+    - C++20での`explicit(bool)`構文への対応
