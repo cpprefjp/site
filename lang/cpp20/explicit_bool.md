@@ -30,7 +30,7 @@ int main()
 コンストラクタだけではなく、型変換演算子もまた、条件付き`explicit`にできる：
 
 ```cpp
-class X {
+struct X {
   explicit(true) operator bool() const { return true; }
 };
 ```
