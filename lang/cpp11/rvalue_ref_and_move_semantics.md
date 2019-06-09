@@ -230,6 +230,8 @@ int main()
   // ムーブ代入演算子
   large_class& operator=(large_class&& r)
   {
+    // 既存バッファの破棄
+    delete [] ptr;
     // ポインタの挿げ替え
     ptr = r.ptr;
     // 元のオブジェクトはnullptrに
