@@ -7,12 +7,26 @@
 ```cpp
 namespace std {
   template <class T, class... Args>
-  shared_ptr<T> make_shared(Args&&... args);
+  shared_ptr<T> make_shared(Args&&... args);                        // (1)
+
+  template <class T>
+  shared_ptr<T> make_shared(size_t N);                              // (2) C++20 から
+
+  template <class T>
+  shared_ptr<T> make_shared();                                      // (3) C++20 から
+
+  template <class T>
+  shared_ptr<T> make_shared(size_t N, const remove_extent_t<T>& u); // (4) C++20 から
+
+  template <class T>
+  shared_ptr<T> make_shared(const remove_extent_t<T>& u);           // (5) C++20 から
 }
 ```
+* shared_ptr[link shared_ptr.md]
+* remove_extent_t[link ../type_traits/remove_extent.md]
 
 ## 概要
-`shared_ptr`オブジェクトを構築する。
+[`shared_ptr`](shared_ptr.md) オブジェクトを構築する。
 
 
 ## 戻り値

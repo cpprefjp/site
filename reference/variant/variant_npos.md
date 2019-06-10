@@ -42,7 +42,7 @@ int main()
 }
 ```
 * std::variant_npos[color ff0000]
-* v.emplace[link variant/emplace.md.nolink]
+* v.emplace[link variant/emplace.md]
 * v.index()[link variant/index.md]
 
 ### 出力

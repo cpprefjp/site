@@ -119,14 +119,14 @@ std::visit([](const auto& x) {
 
 ## 適格要件
 - 全ての`vars...`に代入された[`size_t`](/reference/cstddef/size_t.md)型インデックスのパックを`m`とする
-- (1) : 全ての`m`の組み合わせについて、式[`INVOKE`](/reference/concepts/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`が適格であること
-- (2) : 全ての`m`の組み合わせについて、式[`INVOKE`](/reference/concepts/invoke.md)`<R>(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`が適格であること
+- (1) : 全ての`m`の組み合わせについて、式[`INVOKE`](/reference/concepts/Invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`が適格であること
+- (2) : 全ての`m`の組み合わせについて、式[`INVOKE`](/reference/concepts/Invoke.md)`<R>(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`が適格であること
 
 
 ## 戻り値
 - 現在全ての`vars...`に代入されている[`size_t`](/reference/cstddef/size_t.md)型インデックスのパックを`m`とする
-- (1) : 式[`INVOKE`](/reference/concepts/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`を呼び出して返す。戻り値の型は、その呼び出しの戻り値の型となる
-- (2) : 式[`INVOKE`](/reference/concepts/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`を呼び出して返す
+- (1) : 式[`INVOKE`](/reference/concepts/Invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`を呼び出して返す。戻り値の型は、その呼び出しの戻り値の型となる
+- (2) : 式[`INVOKE`](/reference/concepts/Invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`を呼び出して返す
 
 `vars...`が空で、ビジターのみが指定された場合、引数なしのオーバーロードを呼び出して返す。
 

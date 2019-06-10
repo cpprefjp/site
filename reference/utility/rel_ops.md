@@ -14,7 +14,7 @@ namespace rel_ops {
 }}
 ```
 
-この機能は、C++20から非推奨となった。代わりに[一貫比較](/lang/cpp20/consistent_comparison.md.nolink)機能を使用すること。
+この機能は、C++20から非推奨となった。代わりに[一貫比較](/lang/cpp20/consistent_comparison.md)機能を使用すること。
 
 ## 概要
 `std::rel_ops`名前空間は、関係演算子を自動的に定義する。
@@ -45,7 +45,7 @@ namespace rel_ops {
 
 
 ## 非推奨の詳細
-C++20で[一貫比較演算子](/lang/cpp20/consistent_comparison.md.nolink)が追加された。この機能によって比較演算子を容易に定義できるようになったため、比較演算子の簡潔な定義をサポートする本機能は不要になった。
+C++20で[一貫比較演算子](/lang/cpp20/consistent_comparison.md)が追加された。この機能によって比較演算子を容易に定義できるようになったため、比較演算子の簡潔な定義をサポートする本機能は不要になった。
 
 
 ## 例

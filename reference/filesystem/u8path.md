@@ -16,7 +16,7 @@ namespace std::filesystem {
 ```
 * path[link path.md]
 
-この関数は、C++20で非推奨となった。UTF-8エンコードされたパス文字列は[`char8_t`](/lang/cpp20)型文字列として`path`クラスのコンストラクタに、指定すること。
+この関数は、C++20で非推奨となった。UTF-8エンコードされたパス文字列は[`char8_t`](/lang/cpp20/char8_t.md)型文字列として`path`クラスのコンストラクタに、指定すること。
 
 
 ## 概要

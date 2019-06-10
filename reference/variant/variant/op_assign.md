@@ -36,16 +36,16 @@ variant& operator=(T&& rhs) noexcept(see below);               // (3)
     - `*this`と`rhs`がどちらも値を保持していない場合、なにもしない
     - `*this`が値を保持し、`rhs`が保持していない場合、`*this`が値を保持していない状態にする
     - [`index()`](index.md) `== rhs.`[`index()`](index.md)である場合、`rhs`が保持している値を`*this`が保持する値としてコピー代入する (型の切り替えを行わない)
-    - `rhs.`[`index()`](index.md)を`j`、`Types...`の`j`番目の型を`Tj`として、[`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<Tj> == true`もしくは[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Tj> == false`である場合、[`emplace`](emplace.md.nolink)`<j>(`[`get`](get.md)`<j>(rhs))`と等価
+    - `rhs.`[`index()`](index.md)を`j`、`Types...`の`j`番目の型を`Tj`として、[`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<Tj> == true`もしくは[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Tj> == false`である場合、[`emplace`](emplace.md)`<j>(`[`get`](get.md)`<j>(rhs))`と等価
     - いずれにも当てはまらない場合、`operator=(variant(rhs))`と等価
 - (2) :
     - `*this`と`t`がどちらも値を保持していない場合、なにもしない
     - `*this`が値を保持し、`t`が保持していない場合、`*this`が値を保持していない状態にする
     - [`index()`](index.md) `== t.`[`index()`](index.md)である場合、`t`が保持している値を`*this`が保持する値としてムーブ代入する (型の切り替えを行わない)
-    - いずれにも当てはまらない場合、`t.`[`index()`](index.md)を`j`として、[`emplace`](emplace.md.nolink)`<j>(`[`get`](get.md)`<j>(`[`std::move`](/reference/utility/move.md)`(t)))`と等価
+    - いずれにも当てはまらない場合、`t.`[`index()`](index.md)を`j`として、[`emplace`](emplace.md)`<j>(`[`get`](get.md)`<j>(`[`std::move`](/reference/utility/move.md)`(t)))`と等価
 - (3) :
     - `*this`が`Tj`型の値を保持している場合、[`std::forward`](/reference/utility/forward.md)`<T>(rhs)`の値を`*this`に代入する (型の切り替えを行わない)
-    - [`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<Tj, T> || !`[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Tj>`が`true`である場合、[`emplace`](emplace.md.nolink)`<j>(`[`std::forward`](/reference/utility/forward.md)`<T>(rhs))`の呼び出しと等価
+    - [`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<Tj, T> || !`[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Tj>`が`true`である場合、[`emplace`](emplace.md)`<j>(`[`std::forward`](/reference/utility/forward.md)`<T>(rhs))`の呼び出しと等価
     - いずれにも当てはまらない場合、`operator=(variant(`[`std::forward`](/reference/utility/forward.md)`<T>(rhs)))`呼び出しと等価
 
 

@@ -21,7 +21,7 @@ constexpr bool valueless_by_exception() const noexcept;
 
 ## 備考
 - このクラスの元となった[Boost Variant Library](https://boost.org/libs/variant)の`variant`クラスは、「決して空にならない保証 ("Never-Empty" Guarantee)」をもっているが、本クラスにはそのような保証がないため、新たな型の代入操作で例外が発生した場合に空になる可能性がある
-- `variant<int, float>`のように直接的に例外を送出しない型のみの場合でも、[`emplace()`](emplace.md.nolink)操作で例外が送出される可能性がある：
+- `variant<int, float>`のように直接的に例外を送出しない型のみの場合でも、[`emplace()`](emplace.md)操作で例外が送出される可能性がある：
     ```cpp
     struct S { operator int() { throw 42; }};
     variant<float, int> v = 12.f;
@@ -35,7 +35,7 @@ constexpr bool valueless_by_exception() const noexcept;
     }
     ```
     * v.valueless_by_exception()[color ff0000]
-    * v.emplace[link emplace.md.nolink]
+    * v.emplace[link emplace.md]
 
 
 ## 例
