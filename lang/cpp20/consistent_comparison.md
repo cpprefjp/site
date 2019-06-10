@@ -350,8 +350,6 @@ int main()
   std::cout << (s1 != s2) << std::endl;
 }
 ```
-* variable[color ff0000]
-(コードブロック中の識別子に、文字色を付ける例です。)
 
 ### 出力
 ```
