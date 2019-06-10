@@ -203,6 +203,7 @@ struct C {
 default宣言された`<=> ==`演算子はその基底クラスと非静的メンバを宣言順に比較していくことで実装される。
 
 その手順は以下のようになる（演算子`@`は`<=> ==`のどちらかとする）。
+
 1. 基底クラスの`@`を呼び出して比較を行う。その順番は継承順（`:`の後ろに書いてある型を左から右）、深さ優先で比較される。
     - この時、仮想基底クラスが複数回比較されるかは未規定。
 2. 宣言された順番（上から下）で非静的メンバを`@`によって比較する。
@@ -520,18 +521,18 @@ struct has_vector {
 
 - [`<compare>`](/reference/compare.md.nolink)
     - 比較カテゴリ型
-      - [`weak_equality`](/reference/compare/weak_equality.md.nolink)
-      - [`strong_equality`](/reference/compare/strong_equality.md.nolink)
-      - [`partial_ordering`](/reference/compare/weak_equality.md.nolink)
-      - [`weak_ordering`](/reference/compare/weak_equality.md.nolink)
-      - [`strong_ordering`](/reference/compare/weak_equality.md.nolink)
+        - [`weak_equality`](/reference/compare/weak_equality.md.nolink)
+        - [`strong_equality`](/reference/compare/strong_equality.md.nolink)
+        - [`partial_ordering`](/reference/compare/weak_equality.md.nolink)
+        - [`weak_ordering`](/reference/compare/weak_equality.md.nolink)
+        - [`strong_ordering`](/reference/compare/weak_equality.md.nolink)
     - [`common_comparison_category`](/reference/compare/common_comparison_category.md.nolink)
     - 比較関数
-      - [`strong_order`](/reference/compare/strong_order.md.nolink)
-      - [`weak_order`](/reference/compare/weak_order.md.nolink)
-      - [`partial_order`](/reference/compare/partial_order.md.nolink)
-      - [`strong_equal`](/reference/compare/strong_equal.md.nolink)
-      - [`weak_equal`](/reference/compare/weak_equal.md.nolink)
+        - [`strong_order`](/reference/compare/strong_order.md.nolink)
+        - [`weak_order`](/reference/compare/weak_order.md.nolink)
+        - [`partial_order`](/reference/compare/partial_order.md.nolink)
+        - [`strong_equal`](/reference/compare/strong_equal.md.nolink)
+        - [`weak_equal`](/reference/compare/weak_equal.md.nolink)
 - [`compare_3way`](/reference/algorithm/compare_3way.md.nolink)
 - [`lexicographical_compare_3way`](/reference/algorithm/lexicographical_compare_3way.md.nolink)
 
