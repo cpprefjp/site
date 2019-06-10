@@ -475,9 +475,10 @@ bool operator==(const std::vector<T>& lhs, const std::vector<T>& rhs)
 この様にしておけば、`vector`のオブジェクト同士の同値比較においては常に効率的な実装が選択される。
 
 ところで、当初の仕様では`== !=`も三方比較演算子から導出されており、その際に生成する式は以下のように規定されていた。
-| 呼び出す演算子 `a @ b` | オーバーロード候補                                                           |
+
+| 呼び出す演算子 `a @ b` | オーバーロード候補                                              |
 | :-------------: | :-----------------------------------------------------------------: |
-| `a == b`        | `a == b`<br>`(a <=> b) == 0`<br>`0 == (b <=> a)`                               |
+| `a == b`        | `a == b`<br>`(a <=> b) == 0`<br>`0 == (b <=> a)`  |
 | `a != b`        | `a != b`<br>`(a <=> b) != 0`<br>`0 != (b <=> a)`  |
 
 この前提の下で上記の効率的な`==`実装をした`vector`を保持する別の型を考えてみると困ったことが起こる。
@@ -519,34 +520,36 @@ struct has_vector {
 
 
 ## 関連項目
+
 - [`<compare>`](/reference/compare.md.nolink)
-  - 比較カテゴリ型
-    - [`weak_equality`](/reference/compare/weak_equality.md.nolink)
-    - [`strong_equality`](/reference/compare/strong_equality.md.nolink)
-    - [`partial_ordering`](/reference/compare/weak_equality.md.nolink)
-    - [`weak_ordering`](/reference/compare/weak_equality.md.nolink)
-    - [`strong_ordering`](/reference/compare/weak_equality.md.nolink)
-  - [`common_comparison_category`](/reference/compare/common_comparison_category.md.nolink)
-  - 比較関数
-    - [`strong_order`](/reference/compare/strong_order.md.nolink)
-    - [`weak_order`](/reference/compare/weak_order.md.nolink)
-    - [`partial_order`](/reference/compare/partial_order.md.nolink)
-    - [`strong_equal`](/reference/compare/strong_equal.md.nolink)
-    - [`weak_equal`](/reference/compare/weak_equal.md.nolink)
+    - 比較カテゴリ型
+      - [`weak_equality`](/reference/compare/weak_equality.md.nolink)
+      - [`strong_equality`](/reference/compare/strong_equality.md.nolink)
+      - [`partial_ordering`](/reference/compare/weak_equality.md.nolink)
+      - [`weak_ordering`](/reference/compare/weak_equality.md.nolink)
+      - [`strong_ordering`](/reference/compare/weak_equality.md.nolink)
+    - [`common_comparison_category`](/reference/compare/common_comparison_category.md.nolink)
+    - 比較関数
+      - [`strong_order`](/reference/compare/strong_order.md.nolink)
+      - [`weak_order`](/reference/compare/weak_order.md.nolink)
+      - [`partial_order`](/reference/compare/partial_order.md.nolink)
+      - [`strong_equal`](/reference/compare/strong_equal.md.nolink)
+      - [`weak_equal`](/reference/compare/weak_equal.md.nolink)
 - [`compare_3way`](/reference/algorithm/compare_3way.md.nolink)
 - [`lexicographical_compare_3way`](/reference/algorithm/lexicographical_compare_3way.md.nolink)
 
 ## 参照
+
 - C++20にて承認された提案文書
-  - [P0515R3 Consistent comparison](http://wg21.link/p0515)
-  - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
-  - [P1120R0 Consistency improvements for <=> and other comparison operators](http://wg21.link/p1120)
-  - [p1185R2 <=> != ==](http://wg21.link/p1185)
+    - [P0515R3 Consistent comparison](http://wg21.link/p0515)
+    - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
+    - [P1120R0 Consistency improvements for <=> and other comparison operators](http://wg21.link/p1120)
+    - [p1185R2 <=> != ==](http://wg21.link/p1185)
 - 以前に検討されていた提案文書
-  - [N3950 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html)
-  - [N4114 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4114.htm)
-  - [N4126 Explicitly defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4126.htm)
-  - [N4475 Default comparisons (R2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4475.pdf)
-  - [N4476 Thoughts about Comparisons (R2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4476.pdf)
-  - [P0221R2: Proposed wording for default comparisons, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0221r2.html)
-  - [P0100R2 Comparison in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0100r2.html)
+    - [N3950 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html)
+    - [N4114 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4114.htm)
+    - [N4126 Explicitly defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4126.htm)
+    - [N4475 Default comparisons (R2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4475.pdf)
+    - [N4476 Thoughts about Comparisons (R2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4476.pdf)
+    - [P0221R2: Proposed wording for default comparisons, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0221r2.html)
+    - [P0100R2 Comparison in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0100r2.html)
