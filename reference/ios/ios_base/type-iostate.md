@@ -27,7 +27,7 @@ using iostate = T2;
 
 ## 備考
 通常はこれらのフラグを直接使用することはあまり無く、サブクラスの [`basic_ios`](../basic_ios.md) に存在する対応する状態チェック用関数を使用することが一般的である。  
-ただし、[`fail`](../basic_ios/fail.md)`()` はその名前に反して（？）`failbit` と `badbit` のいずれかがセットされていれば `true` を返す事に注意が必要。
+ただし、[`fail`](../basic_ios/fail.md)`()` はその名前に反して（？）`failbit` と `badbit` のいずれかが設定されていれば `true` を返す事に注意が必要。
 
 
 ## 例

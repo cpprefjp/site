@@ -50,10 +50,10 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 - (2)～(4) : 浮動小数点数字列を浮動小数点数へ変換する。  
     Cロケールによる`strtod`で変換する際と同様のパターンを用いる。ただし、以下の違いがある。  
     数字の先頭の符号は`-`のみが考慮され、`+`等は考慮されない。  
-    また、`fmt`に`chars_format::general`がセットされておらず（`scientific`と`fixed`が同時にセットされておらず）
-    - `fmt`に`chars_format::scientific`がセットされているなら指数部は必須。そうでないならあっても無くてもいい。
-    - `fmt`に`chars_format::fixed`がセットされているなら指数部は現れてはいけない。
-    - `fmt`に`chars_format::hex`がセットされている場合に数字列の先頭に`0x, 0X`があると正しく変換されない  
+    また、`fmt`に`chars_format::general`が設定されておらず（`scientific`と`fixed`が同時にセットされておらず）
+    - `fmt`に`chars_format::scientific`が設定されているなら指数部は必須。そうでないならあっても無くてもいい。
+    - `fmt`に`chars_format::fixed`が設定されているなら指数部は現れてはいけない。
+    - `fmt`に`chars_format::hex`が設定されている場合に数字列の先頭に`0x, 0X`があると正しく変換されない  
         - `0x123`という文字列が値`0`と残りの文字列`x123`としてパースされる。
   
   結果の値は[`std::round_to_nearest`](/reference/limits/float_round_style.md)に従った丸めによって一つの値が選択される。

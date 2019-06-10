@@ -80,7 +80,12 @@ namespace std {
 - (1), (2), (3), (4) : 保持する値の初期化中に例外が発生する可能性があり、その後、`variant`オブジェクトは値を保持しない可能性がある
 
 
+## 備考
+- この関数は、テンプレート内で使用する場合に、`v.template emplace<T>(args...)`のようにtemplate限定子を指定する必要がある。
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <cassert>
 #include <variant>
@@ -131,7 +136,37 @@ int main()
 * emplace[color ff0000]
 * std::get[link get.md]
 
-### 出力
+#### 出力
+```
+```
+
+### 同じ型を複数指定できる状況の例
+```cpp example
+#include <cassert>
+#include <variant>
+#include <string>
+
+int main()
+{
+  // インデックスを指定した代入なら、同じ型が複数現れてもよい。
+  // 代入演算子、emplace<T>()、std::get<T>()、std::holds_alternative<T>()は使用できない。
+  // in_place_index<I>を指定するコンストラクタ、emplace<I>()、std::get<I>(), index()は使用できる
+  std::variant<std::string, std::string> v;
+  v.emplace<0>("abc"); // OK
+  std::string& s = std::get<0>(v);
+  assert(s == "abc");
+
+  //v.emplace<std::string>("abc"); // コンパイルエラー！
+  //v = "abc"; // コンパイルエラー！
+}
+```
+* emplace[color ff0000]
+* std::get[link get.md]
+* std::holds_alternative[link /reference/variant/holds_alternative.md]
+* index()[link index.md]
+* std::in_place_index[link /reference/utility/in_place_index_t.md]
+
+#### 出力
 ```
 ```
 

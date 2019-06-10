@@ -49,15 +49,16 @@ std::visit([](auto& x) {
 ### 備考
 - このクラスは[Boost Variant Library](https://boost.org/libs/variant)を元に設計されている
 - Boost Variant Libraryは、recursive variantによって再帰的なデータ構造を扱えるが、現時点の`std::variant`クラスではそのようなデータ構造は扱えない
+    - これは、JSONデータ形式のように値として数値・文字列・配列などを設定でき、配列の要素にもまた数値・文字列・配列などを設定できる、というようなデータの読み込み、書き込みで必要となる
 - Boost Variant Libraryは、「[決して空にならない保証 ("Never-Empty" Guarantee)](https://www.boost.org/doc/libs/release/doc/html/variant/design.html#variant.design.never-empty)」を提供しており、たとえ代入中に例外が発生したとしても、候補型のいずれの型も代入されていない状況が起こらないよう設計・実装されていた。標準ライブラリに導入されたこのクラスは、代入中に例外が発生した場合に空になる可能性をもっている
 - このクラスは、他の言語で「代数データ型 (Algebraic data type)」「直和型 (Union type)」と呼ばれる機能の一部を表現できる。また、`Either`型として近しい機能が提供されている場合もある
-    - ただし、`Either`は`Either<String, String>`のように候補型に複数同じ型が現れてもよいが、このクラスでは禁止されている。`Either<String, String>`のようなことをしたい理由は、正常データかエラーメッセージかどちらかを代入できる型として利用し、正常データとエラーメッセージがどちらも文字列であるという状況があるためである。`variant`で同様のことをしたい場合は、正常データかエラー型のどちらかを一段ラップして`variant<string, error<string>>`のように、別な型にすればよい
 
 
 ## テンプレートパラメータ制約
 - `Types...`の全ての型が、 (CV修飾された) [オブジェクト型](/reference/type_traits/is_object.md)であること
 - `Types...`の全ての型が、配列型ではないこと
-- `variant<`[`std::string`](/reference/string/basic_string.md)`,` [`std::string`](/reference/string/basic_string.md)`>`のように、`Types...`内に同じ型が複数回現れてはならない
+- コンストラクタや代入の制約として、`variant<`[`std::string`](/reference/string/basic_string.md)`,` [`std::string`](/reference/string/basic_string.md)`>`のように、`Types...`内に同じ型が複数回現れる指定をする場合は、型のインデックスを指定する形式の機能のみ使用できる
+    - こういった指定は、正常データかエラーデータどちらかが代入されるオブジェクトを用意する状況で、正常データとエラーデータがどちらも文字列、という場合に必要になる
 
 
 ## 適格要件
