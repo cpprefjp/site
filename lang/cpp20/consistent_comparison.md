@@ -101,8 +101,6 @@ bool is_equal = comp == 0.0;
 
 各比較カテゴリ型はその条件の強いものから弱いものへの暗黙変換が定義される。この方向は各カテゴリに対応する数学的な関係の包含関係によって定義されている。  
 ordering -> equalityに変換できてもequality -> orderingに変換できないのは、同値関係を満たしていても順序関係を満たさないような関係を考えることができるため。
-![](https://raw.github.com/cpprefjp/image/master/reference/lang/cpp20/consistent_comparison_01.png.nolink)
-
 これはつまり、各比較カテゴリ間の順序関係を示している。この順序は半順序となる。
 
 クラス型に対するdefaultな三方比較演算子の戻り値型は比較に参加するすべての型の`<=>`による比較の結果となるカテゴリ型から共通して変換できる最も強い型となる。そのような型を共通比較カテゴリ型（common comparison category type）と呼ぶ。
