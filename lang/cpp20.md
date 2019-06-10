@@ -10,7 +10,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### クラス
 | 言語機能 | 説明 |
 |----------|------|
-| [一貫比較](cpp20/consistent_comparison.md.nolink) | |
+| [一貫比較](cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする |
 | [契約に基づくプログラミング](cpp20/contract-based_programming.md) | 事前条件、事後条件、表明を宣言する新たな属性構文を追加 |
 | [ビットフィールドのメンバ変数初期化](cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する |
 | [関数を条件付きで`explicit`にする構文を追加](cpp20/explicit_bool.md) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする |
