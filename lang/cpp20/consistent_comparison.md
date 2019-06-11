@@ -126,7 +126,7 @@ ordering -> equalityに変換できてもequality -> orderingに変換できな�
 この共通比較カテゴリ型を求めるのは場合によっては困難なので、それを求めるために`<compare>`ヘッダにて[`common_comparison_category<Ts...>`](/reference/compare/common_comparison_category.md.nolink)というメタ関数が提供される。
 
 
-### `operator==`
+### operator==
 `<=>`のdefault宣言によって6つの関係演算子が導出されるが、実際には同値比較演算子（`== !=`）は`<=>`から導出される訳ではない。  
 `<=>`をdefault宣言した場合、同じアクセス指定で`==`が暗黙的にdefault宣言され、`!=`は`==`から導出される。そのような`==`の戻り値型は`bool`である。
 
