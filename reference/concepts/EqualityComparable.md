@@ -1,4 +1,8 @@
 # EqualityComparable
+* concepts[meta header]
+* std[meta namespace]
+* concept[meta id-type]
+* cpp20[meta cpp]
 
 ## 概要
 EqualityComparableは、2つのオブジェクト`a`と`b`が`==`演算子で同値関係にあるかを表す要件である。

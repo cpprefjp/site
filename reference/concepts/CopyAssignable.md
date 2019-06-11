@@ -1,4 +1,8 @@
 # CopyAssignable
+* concepts[meta header]
+* std[meta namespace]
+* concept[meta id-type]
+* cpp20[meta cpp]
 
 ## 概要
 CopyAssignableは、任意の型`T`が、コピー代入可能であることを表す要件である。

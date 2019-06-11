@@ -1,4 +1,7 @@
 # ValueSwappable
+* concepts[meta header]
+* concept[meta id-type]
+* [meta namespace]
 
 ## 概要
 ValueSwappableは、イテレータ要件を満たす型のオブジェクトが、間接参照した値で入れ替え可能かを表す要件である
