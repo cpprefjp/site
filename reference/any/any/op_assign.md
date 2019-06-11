@@ -19,8 +19,8 @@ any& operator=(T&& rhs);            // (3)
 - (3) : 任意の型の値を代入
 
 
-## 要件
-- (3) : [`std::decay_t<T>`](/reference/type_traits/decay.md)が[CopyConstructible](/reference/concepts/CopyConstructible.md)要件を満たすこと
+## テンプレートパラメータ制約
+- (3) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<`[`std::decay_t`](/reference/type_traits/decay.md)`<T>> == true`であること
 
 
 ## 効果
@@ -36,10 +36,6 @@ any& operator=(T&& rhs);            // (3)
 ## 例外
 - (1) : 保持するオブジェクトのコピーコンストラクタが任意の例外を送出する可能性がある
 - (3) : 型[`std::decay_t<T>`](/reference/type_traits/decay.md)の選択されたコンストラクタが、任意の例外を送出する可能性がある
-
-
-## 備考
-- (3) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<`[`std::decay_t`](/reference/type_traits/decay.md)`<T>> == true`でない場合、この関数はオーバーロード解決の候補から除外される
 
 
 ## 例

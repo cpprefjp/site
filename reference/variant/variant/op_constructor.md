@@ -180,25 +180,23 @@ variant(allocator_arg_t,
     - 型`Ti`の選択されたコンストラクタが任意の例外を送出する可能性がある
 
 
+## 自明定義される条件
+- (2) : 全ての`Ti`型について、[`is_trivially_copy_constructible_v`](/reference/type_traits/is_trivially_copy_constructible.md)`<Ti>`が`true`であること
+- (3) : 全ての`Ti`型について、[`is_trivially_move_constructible_v`](/reference/type_traits/is_trivially_move_constructible.md)`<Ti>`が`true`であること
+
+
+## 定数式に評価される条件
+- (1) : `T0`型の値初期化が`constexpr`関数の要件を満たすこと
+- (4) : 型`Tj`の選択された初期化方法 (コンストラクタ) が`constexpr`評価できること
+- (5), (6) : 型`T`の選択されたコンストラクタが`constexpr`評価できること
+- (7), (8) : 型`Ti`の選択されたコンストラクタが`constexpr`評価できること
+
+
 ## 備考
-- (1) :
-    - `T0`型の値初期化が`constexpr`関数の要件を満たす場合、この関数は`constexpr`となる
-- (2) :
-    - 全ての`Ti`型について、[`is_trivially_copy_constructible_v`](/reference/type_traits/is_trivially_copy_constructible.md)`<Ti>`が`true`である場合、この関数は自明となる
-- (3) :
-    - 全ての`Ti`型について、[`is_trivially_move_constructible_v`](/reference/type_traits/is_trivially_move_constructible.md)`<Ti>`が`true`である場合、この関数は自明となる
-- (4) :
-    - 以下のコードは不適格となる。第1テンプレート引数の型をとるコンストラクタオーバーロードと、第2テンプレート引数の型をとるコンストラクタオーバーロードが定義されるため、曖昧になる：
+- (4) : 以下のコードは不適格となる。第1テンプレート引数の型をとるコンストラクタオーバーロードと、第2テンプレート引数の型をとるコンストラクタオーバーロードが定義されるため、曖昧になる：
     ```cpp
     std::variant<std::string, std::string> v("abc"); // コンパイルエラー！
     ```
-
-    - 型`Tj`の選択された初期化方法 (コンストラクタ) が`constexpr`評価できる場合、この関数は`constexpr`となる
-
-- (5), (6) :
-    - 型`T`の選択されたコンストラクタが`constexpr`評価できる場合、この関数は`constexpr`となる
-- (7), (8) :
-    - 型`Ti`の選択されたコンストラクタが`constexpr`評価できる場合、この関数は`constexpr`となる
 
 
 ## 例

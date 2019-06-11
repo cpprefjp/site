@@ -71,14 +71,17 @@ variant& operator=(T&& rhs) noexcept(see below);               // (3)
     - 保持する値の初期化中に例外が発生した場合、`variant`オブジェクトは値を保持しない可能性がある
 
 
+## 自明定義される条件
+- (1) : `Types...`のすべての型`Ti`について、[`is_trivially_copy_constructible_v`](/reference/type_traits/is_trivially_copy_constructible.md)`<Ti> &&` [`is_trivially_copy_assignable_v`](/reference/type_traits/is_trivially_copy_assignable.md)`<Ti> &&` [`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<Ti>`が`true`であること
+- (2) : `Types...`のすべての型`Ti`について、[`is_trivially_move_constructible_v`](/reference/type_traits/is_trivially_move_constructible.md)`<Ti> &&` [`is_trivially_move_assignable_v`](/reference/type_traits/is_trivially_move_assignable.md)`<Ti> &&` [`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<Ti>`が`true`であること
+
+
+## delete定義される条件
+- (1) : `Types...`のすべての型`Ti`について、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<Ti> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<Ti>`が`true`でないこと
+
+
 ## 備考
-- (1) :
-    - `Types...`のすべての型`Ti`について、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<Ti> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<Ti>`が`true`でない場合、この演算子は`delete`定義される
-    - `Types...`のすべての型`Ti`について、[`is_trivially_copy_constructible_v`](/reference/type_traits/is_trivially_copy_constructible.md)`<Ti> &&` [`is_trivially_copy_assignable_v`](/reference/type_traits/is_trivially_copy_assignable.md)`<Ti> &&` [`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<Ti>`が`true`である場合、この演算子は自明となる
-- (2) :
-    - `Types...`のすべての型`Ti`について、[`is_trivially_move_constructible_v`](/reference/type_traits/is_trivially_move_constructible.md)`<Ti> &&` [`is_trivially_move_assignable_v`](/reference/type_traits/is_trivially_move_assignable.md)`<Ti> &&` [`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<Ti>`が`true`である場合、この演算子は自明となる
-- (3) :
-    - 以下のコードは不適格となる。第1テンプレート引数の型をとるコンストラクタオーバーロードと、第2テンプレート引数の型をとるコンストラクタオーバーロードが定義されるため、曖昧になる：
+- (3) : 以下のコードは不適格となる。第1テンプレート引数の型をとるコンストラクタオーバーロードと、第2テンプレート引数の型をとるコンストラクタオーバーロードが定義されるため、曖昧になる：
     ```cpp
     std::variant<std::string, std::string> v;
     v = "abc"; // コンパイルエラー！

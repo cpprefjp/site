@@ -34,8 +34,10 @@ explicit any(in_place_type_t<T>,
 - (6) : 任意の型`T`のコンストラクタ引数`il`と`args...`をとり、コンストラクタ内部で`T`型オブジェクトを構築して保持する
 
 
-## 要件
-- (4), (5), (6) : [`std::decay_t<T>`](/reference/type_traits/decay.md)が[CopyConstructible](/reference/concepts/CopyConstructible.md)要件を満たすこと
+## テンプレートパラメータ制約
+- (4) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<`[`std::decay_t`](/reference/type_traits/decay.md)`<T>> == true`であること
+- (5) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT, Args...> == true`であること
+- (6) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT,` [`std::initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`であること
 
 
 ## 効果
@@ -54,12 +56,6 @@ explicit any(in_place_type_t<T>,
 ## 例外
 - (2) : `other`が保持する型`T`のオブジェクトの選択されたコンストラクタが、任意の例外を送出する可能性がある
 - (4), (5), (6) : 型[`std::decay_t<T>`](/reference/type_traits/decay.md)の選択されたコンストラクタが、任意の例外を送出する可能性がある
-
-
-## 備考
-- (4) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<`[`std::decay_t`](/reference/type_traits/decay.md)`<T>> == true`でない場合、この関数はオーバーロード解決の候補から除外される
-- (5) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT, Args...> == true`でない場合、この関数はオーバーロード解決の候補から除外される
-- (6) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT,` [`std::initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`でない場合、この関数はオーバーロード解決の候補から除外される
 
 
 ## 例
