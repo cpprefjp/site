@@ -94,9 +94,9 @@ bool is_equal = comp == 0.0;
 |:---|:---:|:---:|
 |[`weak_equality`](/reference/compare/weak_equality.md.nolink)|同値関係|`== !=`|
 |[`strong_equality`](/reference/compare/strong_equality.md.nolink)|相等関係：最も細かい同値関係|`== !=`|
-|[`partial_ordering`](/reference/compare/weak_equality.md.nolink)|半順序|`== != < <= > >=`|
-|[`weak_ordering`](/reference/compare/weak_equality.md.nolink)|弱順序|`== != < <= > >=`|
-|[`strong_ordering`](/reference/compare/weak_equality.md.nolink)|全順序|`== != < <= > >=`|
+|[`partial_ordering`](/reference/compare/partial_ordering.md.nolink)|半順序|`== != < <= > >=`|
+|[`weak_ordering`](/reference/compare/weak_ordering.md.nolink)|弱順序|`== != < <= > >=`|
+|[`strong_ordering`](/reference/compare/strong_ordering.md.nolink)|全順序|`== != < <= > >=`|
 
 表にあるように5つの比較カテゴリ型はそれぞれ数学的な2項関係の一つと対応している。また、それによって（orderingでないカテゴリでは）、順序の4つの演算子が導出されない。
 
@@ -451,6 +451,7 @@ strong_ordering operator<=>(const std::vector<T>& lhs, const std::vector<T>& rhs
 * lhs.size()[link /reference/vector/vector/size.md]
 * rhs.size()[link /reference/vector/vector/size.md]
 * size_t[link /reference/cstddef/size_t.md]
+* strong_ordering[link /reference/compare/strong_ordering.md.nolink]
 * std::compare_3way[link /reference/algorithm/compare_3way.md.nolink]
 
 これは、保持する要素に対する辞書式比較を行う実装で既存の比較演算子と等価の処理である。  
@@ -542,9 +543,9 @@ struct has_vector {
     - 比較カテゴリ型
         - [`weak_equality`](/reference/compare/weak_equality.md.nolink)
         - [`strong_equality`](/reference/compare/strong_equality.md.nolink)
-        - [`partial_ordering`](/reference/compare/weak_equality.md.nolink)
-        - [`weak_ordering`](/reference/compare/weak_equality.md.nolink)
-        - [`strong_ordering`](/reference/compare/weak_equality.md.nolink)
+        - [`partial_ordering`](/reference/compare/partial_ordering.md.nolink)
+        - [`weak_ordering`](/reference/compare/weak_ordering.md.nolink)
+        - [`strong_ordering`](/reference/compare/strong_ordering.md.nolink)
     - [`common_comparison_category`](/reference/compare/common_comparison_category.md.nolink)
     - 比較関数
         - [`strong_order`](/reference/compare/strong_order.md.nolink)
