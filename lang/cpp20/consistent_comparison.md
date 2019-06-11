@@ -4,14 +4,19 @@
 ## 概要
 新しく三方比較演算子`<=>`が導入されることにより、順序付けと同値比較の6つの関係演算子（`<`, `<=`, `>`, `>=`, `==`, `!=`）を容易に実装することができるようになる。
 
-```cpp
+```cpp example
 #include <compare>  //<=>利用の場合必須
+#include <iostream>
+
+enum class E {
+  Three_way, Spaceship, UFO,
+};
 
 struct C {
   int x;
   int y;
   double v;
-  char str[32];
+  E e;
 
   //<=>をpublicで定義しておくことで、その他の演算子が導出される
   auto operator<=>(const C&) const = default;
@@ -19,8 +24,8 @@ struct C {
 
 
 int main() {
-  C c1 = {10, 20, 3.1415, "Three-way Comparison" };
-  C c2 = {10, 20, 3.1415, "Spaceship Operator" };
+  C c1 = {10, 20, 3.1415, E::Three_way };
+  C c2 = {10, 20, 3.1415, E::Spaceship };
 
   //三方比較演算子そのものによる比較
   std::cout << ((c1 <=> c2) == 0) << std::endl;
@@ -34,7 +39,7 @@ int main() {
   std::cout << (c1 >= c2) << std::endl;
   std::cout << (c1 == c2) << std::endl;
   std::cout << (c1 != c2) << std::endl;
-};
+}
 ```
 
 この様な三方比較の事を一貫比較（Consistent comparison）と言い、この演算子は三方比較演算子（Three-way comparison operator）と呼ぶ。また、演算子の見た目から宇宙船演算子と呼ばれることもある。
