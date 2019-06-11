@@ -313,6 +313,7 @@ struct C {
 ## C++17までの比較演算子実装の一例
 ```cpp example
 #include <iostream>
+#include <tuple>
 
 struct S  {
   int x;
@@ -361,6 +362,7 @@ int main()
   std::cout << (s1 != s2) << std::endl;
 }
 ```
+* std::tie[link /reference/tuple/tie.md]
 
 ### 出力
 ```
@@ -445,6 +447,11 @@ strong_ordering operator<=>(const std::vector<T>& lhs, const std::vector<T>& rhs
   return lhs.size() <=> rhs.size();
 }
 ```
+* std::min[link /reference/algorithm/min.md]
+* lhs.size()[link /reference/vector/vector/size.md]
+* rhs.size()[link /reference/vector/vector/size.md]
+* size_t[link /reference/cstddef/size_t.md]
+* std::compare_3way[link /reference/algorithm/compare_3way.md.nolink]
 
 これは、保持する要素に対する辞書式比較を行う実装で既存の比較演算子と等価の処理である。  
 実際の比較は[`compare_3way`](/reference/algorithm/compare_3way.md.nolink)に移譲しているが、これは`T`に`<=>`があればそれを利用し無ければ`<`と`==`を使って比較を行う関数である（C++20より利用可能）。
@@ -478,6 +485,9 @@ bool operator==(const std::vector<T>& lhs, const std::vector<T>& rhs)
   return !(lhs == rhs);
 }
 ```
+* lhs.size()[link /reference/vector/vector/size.md]
+* rhs.size()[link /reference/vector/vector/size.md]
+* size_t[link /reference/cstddef/size_t.md]
 
 この様にしておけば、`vector`のオブジェクト同士の同値比較においては常に効率的な実装が選択される。
 
