@@ -231,7 +231,7 @@ class D : Base1, Base2 {
 public:
   //auto operator<=>(const D&) const = default;
   auto operator<=>(const D& that) const {
-    if (auto comp = static_cast<const Base1&>(*this) <=> static_cast<const Base1&>(that); comp !=0) return comp; 
+    if (auto comp = static_cast<const Base1&>(*this) <=> static_cast<const Base1&>(that); comp !=0) return comp;
     if (auto comp = static_cast<const Base2&>(*this) <=> static_cast<const Base2&>(that); comp !=0) return comp;
     if (auto comp = x <=> that.x; comp !=0) return comp;
     if (auto comp = y <=> that.y; comp !=0) return comp;
@@ -241,9 +241,9 @@ public:
     return v <=> that.v;
    }
 
-   //auto operator==(const D&) const = default;
+  //auto operator==(const D&) const = default;
   auto operator==(const D& that) const {
-    if (auto comp = static_cast<const Base1&>(*this) == static_cast<const Base1&>(that); comp != true) return false; 
+    if (auto comp = static_cast<const Base1&>(*this) == static_cast<const Base1&>(that); comp != true) return false;
     if (auto comp = static_cast<const Base2&>(*this) == static_cast<const Base2&>(that); comp != true) return false;
     if (auto comp = x == that.x; comp != true) return false;
     if (auto comp = y == that.y; comp != true) return false;
@@ -352,7 +352,7 @@ int main()
   S s2 = {10, 0.1, "ABC"};
 
   std::cout << std::boolalpha;
-  
+
   std::cout << (s1 <  s2) << std::endl;
   std::cout << (s1 <= s2) << std::endl;
   std::cout << (s1 >  s2) << std::endl;
@@ -391,7 +391,7 @@ int main()
   S s2 = {10, 0.1, "ABC"};
 
   std::cout << std::boolalpha;
-  
+
   std::cout << (s1 <  s2) << std::endl;
   std::cout << (s1 <= s2) << std::endl;
   std::cout << (s1 >  s2) << std::endl;
@@ -511,7 +511,7 @@ struct has_vector {
   bool operator==(const has_vector& that) const {
     return vec == that.vec;
   }
- 
+
   bool operator!=(const has_vector& that) const {
     return vec != that.vec;
   }
