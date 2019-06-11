@@ -67,6 +67,8 @@ explicit(see below) constexpr tuple(pair<U1, U2>&&);      // (9) C++20
 // アロケータによる構築
 template <class Alloc>
 tuple(allocator_arg_t, const Alloc& a);                   // (10) C++11
+template <class Alloc>
+constexpr tuple(allocator_arg_t, const Alloc& a);         // (10) C++20
 
 template <class Alloc>
 tuple(allocator_arg_t,
@@ -77,9 +79,9 @@ EXPLICIT tuple(allocator_arg_t,
                const Alloc& a,
                const Types&...);                          // (11) C++17
 template <class Alloc>
-explicit(see below) tuple(allocator_arg_t,
-                          const Alloc& a,
-                          const Types&...);               // (11) C++20
+explicit(see below) constexpr tuple(allocator_arg_t,
+                                    const Alloc& a,
+                                    const Types&...);     // (11) C++20
 
 template <class Alloc, class... UTypes>
 tuple(allocator_arg_t,
@@ -90,19 +92,27 @@ EXPLICIT tuple(allocator_arg_t,
                const Alloc& a,
                UTypes&&...);                              // (12) C++17
 template <class Alloc, class... UTypes>
-explicit(see below) tuple(allocator_arg_t,
-                          const Alloc& a,
-                          UTypes&&...);                   // (12) C++20
+explicit(see below) constexpr tuple(allocator_arg_t,
+                                    const Alloc& a,
+                                    UTypes&&...);         // (12) C++20
 
 template <class Alloc>
 tuple(allocator_arg_t,
       const Alloc& a,
       const tuple&);                                      // (13) C++11
+template <class Alloc>
+constexpr tuple(allocator_arg_t,
+                const Alloc& a,
+                const tuple&);                            // (13) C++20
 
 template <class Alloc>
 tuple(allocator_arg_t,
       const Alloc& a,
       tuple&&);                                           // (14) C++11
+template <class Alloc>
+constexpr tuple(allocator_arg_t,
+                const Alloc& a,
+                tuple&&);                                 // (14) C++20
 
 template <class Alloc, class... UTypes>
 tuple(allocator_arg_t,
@@ -113,9 +123,10 @@ EXPLICIT tuple(allocator_arg_t,
                const Alloc& a,
                const tuple<UTypes...>&);                  // (15) C++17
 template <class Alloc, class... UTypes>
-explicit(see below) tuple(allocator_arg_t,
-                          const Alloc& a,
-                          const tuple<UTypes...>&);       // (15) C++20
+explicit(see below) constexpr
+  tuple(allocator_arg_t,
+        const Alloc& a,
+        const tuple<UTypes...>&);                         // (15) C++20
 
 template <class Alloc, class... UTypes>
 tuple(allocator_arg_t,
@@ -126,9 +137,10 @@ EXPLICIT tuple(allocator_arg_t,
                const Alloc& a,
                tuple<UTypes...>&&);                       // (16) C++17
 template <class Alloc, class... UTypes>
-explicit(see below) tuple(allocator_arg_t,
-                          const Alloc& a,
-                          tuple<UTypes...>&&);            // (16) C++20
+explicit(see below) constexpr
+  tuple(allocator_arg_t,
+        const Alloc& a,
+        tuple<UTypes...>&&);                              // (16) C++20
 
 template <class Alloc, class U1, class U2>
 tuple(allocator_arg_t,
@@ -139,9 +151,10 @@ EXPLICIT tuple(allocator_arg_t,
                const Alloc& a,
                const pair<U1, U2>&);                      // (17) C++17
 template <class Alloc, class U1, class U2>
-explicit(see below) tuple(allocator_arg_t,
-                          const Alloc& a,
-                          const pair<U1, U2>&);           // (17) C++20
+explicit(see below) constexpr
+  tuple(allocator_arg_t,
+        const Alloc& a,
+        const pair<U1, U2>&);                             // (17) C++20
 
 template <class Alloc, class U1, class U2>
 tuple(allocator_arg_t,
@@ -152,9 +165,10 @@ EXPLICIT tuple(allocator_arg_t,
                const Alloc& a,
                pair<U1, U2>&&);                           // (18) C++17
 template <class Alloc, class U1, class U2>
-explicit(see below) tuple(allocator_arg_t,
-                          const Alloc& a,
-                          pair<U1, U2>&&);                // (18) C++20
+explicit(see below) constexpr
+  tuple(allocator_arg_t,
+        const Alloc& a,
+        pair<U1, U2>&&);                                  // (18) C++20
 ```
 * pair[link /reference/utility/pair.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
@@ -315,5 +329,6 @@ int main()
 - [N4387 Improving Pair and Tuple (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4387)
     - C++17での条件付き`explicit`の導入
 - [LWG Issue 2549. Tuple EXPLICIT constructor templates that take tuple parameters end up taking references to temporaries and will create dangling references](https://wg21.cmeerw.net/lwg/issue2549)
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応

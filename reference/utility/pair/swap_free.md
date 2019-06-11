@@ -6,7 +6,11 @@
 ```cpp
 namespace std {
   template <class T1, class T2>
-  void swap(pair<T1,T2>& x, pair<T1,T2>& y) noexcept(noexcept(x.swap(y)));
+  void swap(pair<T1,T2>& x, pair<T1,T2>& y)
+    noexcept(noexcept(x.swap(y)));          // (1) C++03
+  template <class T1, class T2>
+  constexpr void swap(pair<T1,T2>& x, pair<T1,T2>& y)
+    noexcept(noexcept(x.swap(y)));          // (1) C++20
 }
 ```
 
@@ -59,5 +63,4 @@ p2 : (1,aaa)
 ```
 
 ## 参照
-
-
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

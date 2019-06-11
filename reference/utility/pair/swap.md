@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void swap(pair& p) noexcept(下記参照);
+void swap(pair& p) noexcept(see below);           // (1) C++03
+constexpr void swap(pair& p) noexcept(see below); // (1) C++20
 ```
 
 ## 概要
@@ -63,5 +64,4 @@ p2 : (1,aaa)
 ```
 
 ## 参照
-
-
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

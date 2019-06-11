@@ -5,15 +5,21 @@
 * function[meta id-type]
 
 ```cpp
-pair& operator=(const pair& p);               // (1)
+pair& operator=(const pair& p);                          // (1) C++03
+constexpr pair& operator=(const pair& p);                // (1) C++20
 
 template <class U, class V>
-pair& operator=(const pair<U, V>& p);         // (2)
+pair& operator=(const pair<U, V>& p);                    // (2) C++03
+template <class U, class V>
+constexpr pair& operator=(const pair<U, V>& p);          // (2) C++20
 
-pair& operator=(pair&& p) noexcept(下記参照); // (3) C++11
+pair& operator=(pair&& p) noexcept(see below);           // (3) C++11
+constexpr pair& operator=(pair&& p) noexcept(see below); // (3) C++20
 
 template <class U, class V>
-pair& operator=(pair<U, V>&& p);              // (4) C++11
+pair& operator=(pair<U, V>&& p);                         // (4) C++11
+template <class U, class V>
+constexpr pair& operator=(pair<U, V>&& p);               // (4) C++20
 ```
 
 ## 概要
@@ -113,3 +119,4 @@ p4 : (1,abc)
 	- (1), (2)はそれより前から実装されている。
 
 ## 参照
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

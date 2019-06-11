@@ -6,20 +6,31 @@
 * cpp11[meta cpp]
 
 ```cpp
-tuple& operator=(const tuple&);               // (1)
-tuple& operator=(tuple&&) noexcept(下記参照); // (2)
+tuple& operator=(const tuple&);                          // (1) C++11
+constexpr tuple& operator=(const tuple&);                // (1) C++20
+
+tuple& operator=(tuple&&) noexcept(see below);           // (2) C++11
+constexpr tuple& operator=(tuple&&) noexcept(see below); // (2) C++20
 
 template <class... UTypes>
-tuple& operator=(const tuple<UTypes...>&);    // (3)
+tuple& operator=(const tuple<UTypes...>&);               // (3) C++11
+template <class... UTypes>
+constexpr tuple& operator=(const tuple<UTypes...>&);     // (3) C++20
 
 template <class... UTypes>
-tuple& operator=(tuple<UTypes...>&&);         // (4)
+tuple& operator=(tuple<UTypes...>&&);                    // (4) C++11
+template <class... UTypes>
+constexpr tuple& operator=(tuple<UTypes...>&&);          // (4) C++20
 
 template <class U1, class U2>
-tuple& operator=(const pair<U1, U2>&);        // (5)
+tuple& operator=(const pair<U1, U2>&);                   // (5) C++11
+template <class U1, class U2>
+constexpr tuple& operator=(const pair<U1, U2>&);         // (5) C++20
 
 template <class U1, class U2>
-tuple& operator=(pair<U1, U2>&&);             // (6)
+tuple& operator=(pair<U1, U2>&&);                        // (6) C++11
+template <class U1, class U2>
+constexpr tuple& operator=(pair<U1, U2>&&);              // (6) C++20
 ```
 * pair[link /reference/utility/pair.md]
 
@@ -104,5 +115,4 @@ int main()
 
 
 ## 参照
-
-
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

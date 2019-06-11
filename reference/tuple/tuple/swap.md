@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(tuple& rhs) noexcept(下記参照);
+void swap(tuple& rhs) noexcept(see below);           // (1) C++11
+constexpr void swap(tuple& rhs) noexcept(see below); // (1) C++20
 ```
 
 ## 概要
@@ -65,5 +66,4 @@ int main()
 
 
 ## 参照
-
-
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

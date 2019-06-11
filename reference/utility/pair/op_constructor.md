@@ -49,7 +49,11 @@ explicit(see below) constexpr pair(pair<U, V>&& p);           // (7) C++20
 template <class... Args1, class... Args2>
 pair(piecewise_construct_t,
      tuple<Args1...> first_args,
-     tuple<Args2...> second_args);        // (8) C++11
+     tuple<Args2...> second_args);                            // (8) C++11
+template <class... Args1, class... Args2>
+constexpr pair(piecewise_construct_t,
+               tuple<Args1...> first_args,
+               tuple<Args2...> second_args);                  // (8) C++20
 ```
 * piecewise_construct_t[link /reference/utility/piecewise_construct_t.md]
 * tuple[link /reference/tuple/tuple.md]
@@ -249,5 +253,6 @@ p8 : (X(1 2 3),Y(4 5))
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N4387 Improving Pair and Tuple (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4387)
     - C++17での条件付き`explicit`の導入
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応

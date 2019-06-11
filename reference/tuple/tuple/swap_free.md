@@ -8,7 +8,10 @@
 namespace std {
   template <class... Types>
   void swap(tuple<Types...>& x, tuple<Types...>& y)
-    noexcept(noexcept(x.swap(y)));
+    noexcept(noexcept(x.swap(y)));                            // (1) C++11
+  template <class... Types>
+  constexpr void swap(tuple<Types...>& x, tuple<Types...>& y)
+    noexcept(noexcept(x.swap(y)));                            // (1) C++20
 }
 ```
 
@@ -67,5 +70,4 @@ int main()
 
 
 ## 参照
-
-
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
