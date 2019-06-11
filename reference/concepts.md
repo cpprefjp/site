@@ -75,8 +75,8 @@
 
 以下は、ライブラリとして提供はされていない要件をまとめる。
 
-| | |
-|--|--|--|
+| 名前 | 説明 |
+|--|--|
 | [`Callable`](concepts/Callable.md)                         | |
 | [`INVOKE`](concepts/Invoke.md)                             | |
 | [`LessThanComparable`](concepts/LessThanComparable.md)     | 小なり比較可能 |
