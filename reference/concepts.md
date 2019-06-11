@@ -76,7 +76,8 @@
 以下は、ライブラリとして提供はされていない要件をまとめる。
 
 | | |
+|--|--|--|
 | [`Callable`](concepts/Callable.md)                         | |
 | [`INVOKE`](concepts/Invoke.md)                             | |
-| [`LessThanComparable`](concepts/LessThanComparable.md)     | 小なり比較可能 | C++20 |
+| [`LessThanComparable`](concepts/LessThanComparable.md)     | 小なり比較可能 |
 | [`ValueSwappable`](concepts/ValueSwappable.md)             | 間接参照して入れ替え可能 |
