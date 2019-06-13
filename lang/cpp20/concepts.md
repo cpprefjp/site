@@ -168,9 +168,11 @@
 
     template <typename T>
     concept D = requires (T t) {
-      requires C<decltype (+t)>; // コンセプトを指定できる
+      requires C<decltype (+t)>;                   // コンセプトを指定できる
+      requires std::is_default_constructible_v<T>; // 判定系の型特性も指定できる
     };
     ```
+    * std::is_default_constructible_v[link /reference/type_traits/is_default_constructible.md]
 
 - 入れ子要件では、requires式で導入したローカルパラメータを使用できる。ただし、ローカルパラメータは特定の値を意味しない「その型のなんらかの値をもつオブジェクト」でしかないため、ローカルパラメータの値を参照しようとする式は不適格となる。ローカルパラメータを使用できるのは、値が評価されない文脈のみである (`sizeof`、`decltype`、`alignof`など)
     ```cpp
