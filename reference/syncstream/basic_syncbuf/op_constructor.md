@@ -14,15 +14,15 @@ basic_syncbuf(basic_syncbuf&& other);                             // (3)
 ```
 
 ## 概要
-- (1) : デフォルトコンストラクタ。ラップする[`basic_streambuf`](../../streambuf/basic_streambuf.md)へのポインタを受け取る。
+- (1) : デフォルトコンストラクタ。ラップする[`std::basic_streambuf`](../../streambuf/basic_streambuf.md)へのポインタを受け取る。
 - (2) : ラップする`std::basic_streambuf`へのポインタ、アロケータを受け取る。
 - (3) : ムーブコンストラクタ。
 
-ただし、これらは通常[`basic_osyncstream`](../basic_osyncstream.md)から呼ばれる。
+ただし、これらは通常[`std::basic_osyncstream`](../basic_osyncstream.md)から呼ばれる。
 
 
 ## 効果
-- (1), (2) : 同期時排出ポリシー([`sync()`](sync.md.nolink)が呼ばれたとき[`emit()`](emit.md.nolink)を呼び出すかどうか)を`false`に設定し、`basic_syncbuf`オブジェクトを作成し、ラップされたストリームバッファを`obuf`に設定する。`obuf`が、関連する出力の最終的な宛先になる。
+- (1), (2) : 同期時排出ポリシー([`sync()`](sync.md.nolink)が呼ばれたとき[`emit()`](emit.md.nolink)を呼び出すかどうか)を`false`に設定し、`std::basic_syncbuf`オブジェクトを作成し、ラップされたストリームバッファを`obuf`に設定する。`obuf`が、関連する出力の最終的な宛先になる。
 - (3) : 他のオブジェクトからムーブコンストラクトする。
 
 
@@ -31,7 +31,7 @@ basic_syncbuf(basic_syncbuf&& other);                             // (3)
 
 
 ## 事後条件
-- (1), (2) : `get_­wrapped() == obuf`と`get_­allocator() == allocator`が`true`となる。
+- (1), (2) : `get_wrapped() == obuf`と`get_allocator() == allocator`が`true`となる。
 - (3) : `this->get_wrapped()`によって返される値は、このコンストラクタを呼び出す前に`other.get_wrapped()`によって返される値である。
 このコンストラクタを呼び出す前に`other`に格納された出力は、`*this`に格納される。
 `other.rdbuf()->pbase() == other.rdbuf()->pptr()`と`other.get_wrapped() == nullptr`は`true`である。
