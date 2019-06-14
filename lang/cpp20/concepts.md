@@ -178,8 +178,49 @@
 
 
 ### 制約テンプレート
+(執筆中)
+
 ### requires節
-- 「requires節 (Requires clauses)」は、requires式を持てる
+- 「requires節 (Requires clauses)」は、テンプレートパラメータに対する制約を表明する構文である
+- requires節は、非テンプレートの関数宣言にも記述できる。これは、クラステンプレートの非テンプレートメンバ関数に対する制約として使用できる
+    - requires節は関数宣言のみに現れ、定義には現れてはならない
+    - 戻り値の型を前置する構文では、CV修飾や`noexcept`のうしろに記述する
+    - 戻り値の型を後置する構文では、戻り値型のうしろに記述する
+    ```cpp
+    void f1(int a) requires true;         // OK
+    auto f2(int a) -> bool requires true; // OK
+    auto f3(int a) requires true -> bool; // コンパイルエラー！requires節は戻り値型のうしろに記述すること
+
+    void (*pf)() requires true;      // コンパイルエラー！変数は制約できない
+    void g(int (*)() requires true); // コンパイルエラー！パラメータ宣言は制約できない
+
+    auto* p = new void(*)(char) requires true; // コンパイルエラー！関数宣言ではない
+                                               // (関数シグニチャの一部ではないため関数ポインタの宣言には現れない)
+    ```
+
+    - 非テンプレートの関数宣言に対するrequires節は、仮想関数に対しては記述できない
+    ```cpp
+    struct A {
+      virtual void f() requires true; // コンパイルエラー！仮想関数は制約できない
+    };
+    ```
+
+    - 非テンプレートの関数宣言に対するrequires節は、クラステンプレートの非テンプレートメンバ関数に対する制約として使用する
+    ```cpp
+    template <class T>
+    class MyVector {
+    public:
+      void push_back(const T&)
+        requires std::is_copy_constructible_v<T>;
+
+      void push_back(T&&)
+        requires std::MoveConstructible<T>;
+    };
+    ```
+    * std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
+    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
+
+- requires節は、requires式を持てる
     ```cpp
     template <typename T>
     requires requires (T x) { x + x; } // ひとつめのrequiresはrequires節
