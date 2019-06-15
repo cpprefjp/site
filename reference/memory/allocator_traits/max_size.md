@@ -18,7 +18,7 @@ static size_type max_size(const Alloc& a) noexcept; // C++14
 `a.max_size()`という式が有効ならその戻り値を返し、そうでなければデフォルト実装として以下を返す：
 
 ```cpp
-std::numeric_limits<value_type>::max() / sizeof(value_type)
+std::numeric_limits<size_type>::max() / sizeof(value_type)
 ```
 * max()[link /reference/limits/numeric_limits/max.md]
 
