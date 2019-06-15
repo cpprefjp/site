@@ -104,7 +104,7 @@ bool is_equal = comp == 0.0;
 各比較カテゴリ型はその条件の強いものから弱いものへの暗黙変換が定義される。この方向は各カテゴリに対応する数学的な関係の包含関係によって定義されている。  
 ordering -> equalityに変換できてもequality -> orderingに変換できないのは、同値関係を満たしていても順序関係を満たさないような関係を考えることができるため。
 
-![](https://github.com/cpprefjp/image/blob/master/lang/cpp20/consistent_comparison_01.png)  
+![]( https://raw.githubusercontent.com/cpprefjp/image/master/lang/cpp20/consistent_comparison_01.png)  
 図1 比較カテゴリ間の変換関係（[P0515R3](http://wg21.link/p0515)より引用）
 
 
