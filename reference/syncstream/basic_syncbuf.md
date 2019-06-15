@@ -37,7 +37,7 @@ namespace std {
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`(constructor)`](basic_syncbuf/op_constructor.md) | コンストラクタ | C++20 |
-| [`(destructor)`](basic_syncbuf/op_destructor.md.nolink)   | デストラクタ   | C++20 |
+| [`(destructor)`](basic_syncbuf/op_destructor.md)   | デストラクタ   | C++20 |
 
 ### 割り当てと交換
 
