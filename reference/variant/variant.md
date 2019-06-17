@@ -51,7 +51,7 @@ std::visit([](auto& x) {
 - Boost Variant Libraryは、recursive variantによって再帰的なデータ構造を扱えるが、現時点の`std::variant`クラスではそのようなデータ構造は扱えない
     - これは、JSONデータ形式のように値として数値・文字列・配列などを設定でき、配列の要素にもまた数値・文字列・配列などを設定できる、というようなデータの読み込み、書き込みで必要となる
 - Boost Variant Libraryは、「[決して空にならない保証 ("Never-Empty" Guarantee)](https://www.boost.org/doc/libs/release/doc/html/variant/design.html#variant.design.never-empty)」を提供しており、たとえ代入中に例外が発生したとしても、候補型のいずれの型も代入されていない状況が起こらないよう設計・実装されていた。標準ライブラリに導入されたこのクラスは、代入中に例外が発生した場合に空になる可能性をもっている
-- このクラスは、他の言語で「代数データ型 (Algebraic data type)」「直和型 (Union type)」と呼ばれる機能の一部を表現できる。また、`Either`型として近しい機能が提供されている場合もある
+- このクラスは、他の言語で「代数データ型 (Algebraic data type)」「直和型 (Union type, Sum type)」「タグ付き共用体 (Tagged union)」と呼ばれる機能の一部を表現できる。また、`Either`型として近しい機能が提供されている場合もある
 
 
 ## テンプレートパラメータ制約
