@@ -229,6 +229,47 @@
 
 (執筆中)
 
+### 関数オーバーロード
+- 同じ名前の2つの関数宣言が、同じスコープ、等価なパラメータ宣言、等価なrequires節を持つ場合、同じ関数を参照するものとする
+    - 同じ関数の再宣言と見なされ、オーバーロードにはならない
+- 関数のオーバーロードとしては、より制約が強い関数が選択される：
+    ```cpp
+    template <class T>
+    requires std::MoveConstructible<T>
+    void f(T)
+    {
+      std::cout << "move" << std::endl;
+    }
+
+    template <class T>
+    requires std::MoveConstructible<T> && std::CopyConstructible<T>
+    void f(T)
+    {
+      std::cout << "move&copy" << std::endl;
+    }
+
+    template <class T>
+    requires std::MoveConstructible<T> && std::CopyConstructible<T>
+    void g(T)
+    {
+      std::cout << "move&copy" << std::endl;
+    }
+
+    template <class T>
+    requires std::MoveConstructible<T>
+    void g(T)
+    {
+      std::cout << "move" << std::endl;
+    }
+
+    f(0); // move&copy
+    g(0); // move&copy
+    ```
+    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
+    * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
+
+- 満たされない制約を持つ全ての関数は、オーバーロード解決の候補から除外される
+
 
 ## 備考
 - GCC 9.1では、コンセプトが正式サポートされていないため、コンパイルオプションとして`-fconcepts`を付ける必要がある
