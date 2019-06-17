@@ -289,7 +289,7 @@ struct C {
 |[`浮動小数点型`](/reference/type_traits/is_floating_point.md)|`std::partial_ordering`|縮小変換が行われる場合は比較不可<br/>`NaN`や`±0.0`の存在のため半順序|
 |オブジェクトポインタ|`std::strong_ordering`|あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可<br/>配列と配列は比較不可|
 |関数/メンバポインタ|`std::strong_equality`|あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可|
-|`std::nullptr_t`|`std::strong_equality`||
+|[`std::nullptr_t`](/reference/cstddef/nullptr_t.md)|`std::strong_equality`||
 |列挙型|`std::strong_ordering`|スコープ有無に関わらず同じ列挙型同士でしか比較不可|
 
 なお、参照型に対する`<=>`による比較は参照先の型による比較になる。
