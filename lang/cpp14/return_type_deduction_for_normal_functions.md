@@ -54,6 +54,17 @@ int f(); // コンパイルエラー : 再宣言に別な関数宣言構文を�
 
 関数テンプレートの明示的な特殊化とインスタンス化の場合も、同じ関数宣言構文を使用する必要がある。
 
+この構文は、型変換演算子にも適用される：
+
+```cpp
+struct X {
+  operator auto() const {
+    return 1;
+  }
+};
+
+int x = X{};
+```
 
 ### 複数個のreturn文
 複数の`return`文がある場合には[それらの式に共通する型](/reference/type_traits/common_type.md)が戻り値の型となる。
