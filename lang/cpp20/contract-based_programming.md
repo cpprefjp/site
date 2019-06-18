@@ -33,7 +33,7 @@ int main()
 
 ### 契約属性
 
-契約は[属性](/lang/cpp11/attributes.html)として記述する。C++20では、次の3つの契約属性が導入された：
+契約は[属性](/lang/cpp11/attributes.md)として記述する。C++20では、次の3つの契約属性が導入された：
 
 * `[[expect: 述語]]`：関数に入る際に期待する事前条件を定義する。
 * `[[ensure: 述語]]`：関数から戻る際に期待する事後条件を定義する。
@@ -166,7 +166,7 @@ expect属性の述語は関数の本体を評価する直前に評価される�
 
 この属性は関数宣言の関数型に対して指定する。
 
-2番目の書式では、指定した識別子で関数の戻り値を参照できる。ただし、C++20の時点では[構造化束縛](/lang/cpp17/structured_bindings.html)はできない。
+2番目の書式では、指定した識別子で関数の戻り値を参照できる。ただし、C++20の時点では[構造化束縛](/lang/cpp17/structured_bindings.md)はできない。
 
 ```cpp
 // P0542R5より引用
@@ -241,17 +241,17 @@ struct derived : base {
 
 ## この機能が必要になった背景・経緯
 
-C++17までは、実行時のアサーションとしては[`assert`マクロ](/reference/cassert/assert.html)があるのみだった。
+C++17までは、実行時のアサーションとしては[`assert`マクロ](/reference/cassert/assert.md)があるのみだった。
 契約属性はアサーションを含む契約を記述する、マクロを用いない新たな方法として導入された。
 
-特に、戻り値に対する契約は従来の[`assert`マクロ](/reference/cassert/assert.html)では簡潔に書くことができなかった。
+特に、戻り値に対する契約は従来の[`assert`マクロ](/reference/cassert/assert.md)では簡潔に書くことができなかった。
 
 なお、[`assert`マクロ](/reference/cassert/assert.html)は関数形式のマクロなので、`[[assert]]`属性を置換してしまうことはない。
 
 ## 関連項目
-- [C++11 属性構文](/lang/cpp11/attributes.html)
+- [C++11 属性構文](/lang/cpp11/attributes.md)
 - [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
-- [`assert`マクロ](/reference/cassert/assert.html)
+- [`assert`マクロ](/reference/cassert/assert.md)
 
 ## 参照
 - [P0542R5 Support for contract based programming in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html)
