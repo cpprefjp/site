@@ -246,7 +246,7 @@ C++17までは、実行時のアサーションとしては[`assert`マクロ](/
 
 特に、戻り値に対する契約は従来の[`assert`マクロ](/reference/cassert/assert.md)では簡潔に書くことができなかった。
 
-なお、[`assert`マクロ](/reference/cassert/assert.html)は関数形式のマクロなので、`[[assert]]`属性を置換してしまうことはない。
+なお、[`assert`マクロ](/reference/cassert/assert.md)は関数形式のマクロなので、`[[assert]]`属性を置換してしまうことはない。
 
 ## 関連項目
 - [C++11 属性構文](/lang/cpp11/attributes.md)
