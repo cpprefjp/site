@@ -20,7 +20,7 @@ struct Y : public X {
 
 int main()
 {
-  constexpr Y y{};
+  static constexpr Y y{};
   constexpr const X& x = y;
 
   static_assert(x.f() == 1);
