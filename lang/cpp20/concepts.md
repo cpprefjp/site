@@ -178,10 +178,29 @@
 
 
 ### 制約テンプレート
+- テンプレートは、クラス、関数、変数、エイリアスに加えて、コンセプトに対して宣言でき、その全てに対して制約を適用できる
+    ```cpp
+    template <パラメータリスト...>
+    requires節
+    宣言;
+    ```
+
+- requires節による制約
+
 (執筆中)
+
 
 ### requires節
 - 「requires節 (Requires clauses)」は、テンプレートパラメータに対する制約を表明する構文である
+- requires節は、`&&` (AND条件)、`||` (OR条件) の論理演算子によって複合的に制約を指定できる
+    ```cpp
+    template <class T>
+    requires std::MoveConstructible<T> || std::CopyConstructible<T>
+    class MyVector;
+    ```
+    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
+    * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
+
 - requires節は、非テンプレートの関数宣言にも記述できる。これは、クラステンプレートの非テンプレートメンバ関数に対する制約として使用できる
     - requires節は関数宣言のみに現れ、定義には現れてはならない
     - 戻り値の型を前置する構文では、CV修飾や`noexcept`のうしろに記述する
