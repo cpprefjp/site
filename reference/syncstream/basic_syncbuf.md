@@ -44,7 +44,7 @@ namespace std {
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`operator=`](basic_syncbuf/op_assign.md) | 代入演算子 | C++20 |
-| [`swap`](basic_syncbuf/swap.md.nolink) | 他の`basic_syncbuf`オブジェクトと状態を交換する | C++20 |
+| [`swap`](basic_syncbuf/swap.md) | 他の`basic_syncbuf`オブジェクトと状態を交換する | C++20 |
 
 ### その他パブリックメンバ関数
 
