@@ -77,7 +77,7 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`swap`](basic_syncbuf/swap_free.md.nolink) | 2つの`basic_syncbuf`オブジェクトを入れ替える | C++20 |
+| [`swap`](basic_syncbuf/swap_free.md) | 2つの`basic_syncbuf`オブジェクトを入れ替える | C++20 |
 
 
 ## 例
