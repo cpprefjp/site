@@ -185,7 +185,62 @@
     宣言;
     ```
 
-- requires節による制約
+- テンプレートパラメータを「制約パラメータ (constrained parameter)」として宣言することで、requires節を指定することなくテンプレートパラメータを制約できる。制約パラメータを使用したテンプレートパラメータの宣言は、以下の構文である：
+    ```cpp
+    template <名前空間修飾付きのコンセプト名もしくはテンプレート引数付きコンセプト 識別子 デフォルトテンプレート引数(省略可)>
+    ```
+
+    - コンセプト名を指定した場合、指定されたテンプレート引数が自動的にコンセプトの第1テンプレート引数として渡される：
+    ```cpp
+    template <std::MoveConstructible T>
+    class X;
+
+    // 以下と等価
+    template <class T>
+    requires std::MoveConstructible<T>
+    class X;
+    ```
+    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
+
+    - 第1テンプレート引数を除いたコンセプトを制約パラメータとして指定することで、第1テンプレート引数以外のテンプレート引数を任意に指定することができる：
+    ```cpp
+    // 2つのテンプレートパラメータをもつコンセプト
+    template <class T, class U>
+    concept Addable = requires(T x, U y) {
+      x + y;
+    };
+
+    // Addableコンセプトの第1テンプレート引数としてTが渡され、
+    // 第2テンプレート引数としてintが渡される
+    template <Addable<int> T> // requires Addable<T, int> と等価
+    struct X {};
+
+    X<char> x; // requires Addable<char, int>
+    ```
+
+    - コンセプトのテンプレートパラメータが非型である場合、そのコンセプトを使用した制約テンプレートパラメータは非型になる：
+    ```cpp
+    template <int N>
+    concept C = N >= 0;
+
+    template <C N>
+    struct X {};
+
+    X<1> x;
+    //X<-1> y; // コンパイルエラー！制約を満たさない
+    ```
+
+    - 制約パラメータに省略記号がついている場合、パラメータパックと見なされる。単一パラメータのコンセプトをパラメータパックにした場合、パラメータパックの各テンプレートパラメータがそのコンセプトを満たすべきという制約になる。複数パラメータをとるコンセプトをパラメータパックにした場合、そのパラメータパックに渡された引数列がコンセプトに渡される：
+    ```cpp
+    template<typename T> concept C1 = true;
+    template<typename... Ts> concept C2 = true;
+    template<typename T, typename U> concept C3 = true;
+
+    template<C1 T> struct s1;      // requires C1<T>
+    template<C1... T> struct s2;   // requires (C1<T> && ...)
+    template<C2... T> struct s3;   // requires C2<T...>
+    template<C3<int> T> struct s4; // requires C3<T, int>
+    ```
 
 (執筆中)
 
