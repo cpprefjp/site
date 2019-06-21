@@ -18,6 +18,7 @@ namespace std {
 
 ## 備考
 - この変数の値は、`alignof(`[`max_align_t`](/reference/cstddef/max_align_t.md)`)`以上である
+- 実装上、`hardware_constructive_interference_size`と`hardware_destructive_interference_size`は同値になるはずだが、利用目的によって名前を使い分けるために分かれている
 
 
 ## 例
@@ -62,3 +63,6 @@ int main()
 - [N4523 `constexpr std::thread::hardware_{true,false}_sharing_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4523.html)
 - [P0154R0 `constexpr std::hardware_{constructive,destructive}_interference_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0154r0.html)
 - [P0154R1 `constexpr std::hardware_{constructive,destructive}_interference_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0154r1.html)
+- [Understanding `std::hardware_destructive_interference_size` and `std::hardware_constructive_interference_size` - Stack Overflow](https://stackoverflow.com/questions/39680206/understanding-stdhardware-destructive-interference-size-and-stdhardware-cons)
+    - 設計についての作者JF Bastien氏からのコメントがある
+    - WebAssemblyなどの仮想環境ではターゲットアーキテクチャが実行時に決まるため、実行時の値もあるとよいだろう、とのコメントもある
