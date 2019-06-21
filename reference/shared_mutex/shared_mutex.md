@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-`shared_mutex`クラスは、[Readers–writer lock](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)パターンをサポートするミューテックスクラスである。
+`shared_mutex`クラスは、[Readers-writer lock](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)パターンをサポートするミューテックスクラスである。
 
 このパターンは、「複数のユーザーによる読み込みと、単一ユーザーによる書き込み」の排他制御を効率的に行う、というものである。
 
@@ -25,6 +25,11 @@ namespace std {
 
 - [`lock_guard`](/reference/mutex/lock_guard.md)クラス／[`unique_lock`](/reference/mutex/unique_lock.md)クラス：書き込み用のロックを自動的に手放す
 - [`shared_lock`](/reference/shared_mutex/shared_lock.md)：読み込み用のロックを自動的に手放す
+
+
+## 備考
+- このクラスは現状、書き込みロックと読み込みロックについてのスケジューリング戦略を規定せず、カスタマイズもできない。そのため、書き込みロックがなかなか取得できない、読み込みロックがなかなか取得できないというスタベーションの問題が発生した場合に、ユーザーの状況に合わせて戦略を変更することができない。POSIXのReaders-writer lockの実装では、スケジューリングのオプションを指定できる
+    - [`pthread_rwlockattr_setkind_np()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/pthread_rwlockattr_setkind_np.3.html)
 
 
 ## メンバ関数
