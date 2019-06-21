@@ -16,6 +16,25 @@ namespace std {
 
 [`lock_guard`](lock_guard.md)クラスは単一のミューテックスのみを扱うが、このクラスは複数のミューテックスを一括して管理する。
 
+複数のミューテックスを使用する状況では、ロック取得の順番によってはデッドロックが発生する可能性がある：
+
+```cpp
+// デッドロックが発生するコード：
+// thread 1
+{
+  std::lock_guard<std::mutex> lk1{m1};
+  std::lock_guard<std::mutex> lk2{m2};
+}
+
+// thread 2
+{
+  std::lock_guard<std::mutex> lk1{m2}; // ロックの取得順に一貫性がない
+  std::lock_guard<std::mutex> lk2{m1};
+}
+```
+
+このような状況では、従来は[`std::lock()`](lock.md)関数によってロック取得を行い、ロック取得済みのミューテックスを[`std::adopt_lock`](adopt_lock.md)戦略でロックの生存期間管理をすることでデッドロックを回避できた。このクラスでは、可変個のミューテックスをデッドロックを回避しながらロック取得と解放を安全に行える。
+
 
 ## メンバ関数
 
