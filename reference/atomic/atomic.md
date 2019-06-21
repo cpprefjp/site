@@ -114,6 +114,8 @@ namespace std {
 |------|------|----------------|
 | `static constexpr bool is_always_lock_free` | 型`T`に対するアトミック操作が常にロックフリー (非ミューテックス) で動作する場合は`true`、そうでなければ`false` | C++17 |
 
+`is_always_lock_free == true`の場合、このクラスのオブジェクトをシグナルハンドラー内で使用できる。
+
 
 ### atomic<integral>専用メンバ関数
 整数型に対する特殊化。
