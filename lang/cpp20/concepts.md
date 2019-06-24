@@ -263,7 +263,7 @@
 
     template<template<C1 T> class X>
     struct S4 {
-      X<int> x; // コンパイルエラー！テンプレートテンプレートパラメータには制約チェックを要求できない
+      X<int> x; // コンパイルエラー！制約を満たさない
     };
 
     template<typename T> concept C2 = sizeof(T) == 1;
