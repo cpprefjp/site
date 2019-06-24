@@ -242,6 +242,37 @@
     template<C3<int> T> struct s4; // requires C3<T, int>
     ```
 
+- 制約された関数以外のテンプレート、もしくは制約されたテンプレートテンプレートパラメータ、ただし不明な特殊化のメンバテンプレート以外で、全てのテンプレート引数が依存名でない場合、その制約テンプレートの関連制約は全て満たされなければならない
+    ```cpp
+    template<typename T> concept C1 = sizeof(T) != sizeof(int);
+
+    template<C1 T> struct S1 {};
+    template<C1 T> using Ptr = T*;
+
+    S1<int>* p; // コンパイルエラー！制約を満たさない
+    Ptr<int> p; // コンパイルエラー！制約を満たさない
+
+    template<typename T>
+    struct S2 { Ptr<int> x; }; // コンパイルエラー！制約を満たさない
+                               // intは依存名ではないので、この定義段階で制約チェックされる
+
+    template<typename T>
+    struct S3 { Ptr<T> x; }; // OK。Tは依存名なので、この段階では制約チェックされない
+
+    S3<int> x; // コンパイルエラー！使用段階 (依存名でなくなった段階) で制約を満たさない
+
+    template<template<C1 T> class X>
+    struct S4 {
+      X<int> x; // コンパイルエラー！テンプレートテンプレートパラメータには制約チェックを要求できない
+    };
+
+    template<typename T> concept C2 = sizeof(T) == 1;
+    template<C2 T> struct S {};
+
+    template struct S<char[2]>;      // コンパイルエラー！テンプレート引数が制約を満たさない
+    template<> struct S<char[2]> {}; // コンパイルエラー！テンプレート引数が制約を満たさない
+    ```
+
 (執筆中)
 
 
