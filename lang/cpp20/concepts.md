@@ -397,6 +397,8 @@
     T add(T a, T b) { return a + b; }  // ふたつめのrequiresはrequires式
     ```
 
+- 非テンプレートのfriend宣言は、requires節を持ってはならない
+
 (執筆中)
 
 ### 関数オーバーロード
