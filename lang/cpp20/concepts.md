@@ -273,6 +273,47 @@
     template<> struct S<char[2]> {}; // コンパイルエラー！テンプレート引数が制約を満たさない
     ```
 
+- クラステンプレートのメンバを宣言と定義で分ける場合、制約テンプレートの宣言は等価でなければならない：
+    ```cpp
+    template<typename T> concept C = true;
+    template<typename T> concept D = true;
+
+    template<C T>
+    struct S {
+      void f();
+      void g();
+      void h();
+      template<D U> struct Inner;
+    };
+
+    template<C A> void S<A>::f() { }        // OK。テンプレート宣言が一致している
+    template<typename T> void S<T>::g() { } // コンパイルエラー！S<T>の宣言と一致していない
+
+    template<typename T>
+    requires C<T>
+    void S<T>::h() { }                      // コンパイルエラー！機能的には等価だが宣言が一致していない
+
+    template<C X> template<D Y> struct S<X>::Inner { }; // OK
+    ```
+
+    - メンバテンプレートも同様に、テンプレート宣言が宣言と定義で等価でなければならない：
+    ```cpp
+    template<typename T> concept C1 = true;
+    template<typename T> concept C2 = sizeof(T) <= 4;
+
+    template<C1 T>
+    struct S {
+      template<C2 U> void f(U);
+      template<C2 U> void g(U);
+    };
+
+    template<C1 T> template<C2 U>
+    void S<T>::f(U) { } // OK。テンプレート宣言が一致している
+
+    template<C1 T> template<typename U>
+    void S<T>::g(U) { } // コンパイルエラー！テンプレート宣言が一致していない
+    ```
+
 (執筆中)
 
 
@@ -323,6 +364,30 @@
     };
     ```
     * std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
+    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
+
+    - 関数宣言と関数定義を分ける場合、非テンプレートの関数宣言に対するrequires節は宣言と定義は等価でなければならない
+    ```cpp
+    template <class T>
+    class MyVector {
+    public:
+      void push_back(const T&)
+        requires std::CopyConstructible<T>;
+
+      void push_back(T&&)
+        requires std::MoveConstructible<T>;
+    };
+
+    template <class T>
+    void MyVector<T>::push_back(const T&)
+      requires CopyConstructible<T>
+    {}                                    // OK
+
+    template <class T>
+    void MyVector<T>::push_back(T&&)
+    {}                                    // コンパイルエラー！宣言と一致していない
+    ```
+    * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
     * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
 
 - requires節は、requires式を持てる
