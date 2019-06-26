@@ -43,6 +43,11 @@ namespace std {
 投げない
 
 
+## 備考
+- この関数は、型`To`にデフォルト構築可能であることの要求を行わない
+    - [`std::aligned_storage`](/reference/type_traits/aligned_storage.md)を介して`To`型オブジェクト用の領域を用意することで、要求の少ない関数となる
+
+
 ## 例
 ```cpp example
 #include <iostream>
