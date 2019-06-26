@@ -314,6 +314,28 @@
     void S<T>::g(U) { } // コンパイルエラー！テンプレート宣言が一致していない
     ```
 
+- クラステンプレートの部分特殊化も制約できる：
+    ```cpp
+    template<typename T> concept C = true;
+
+    template<typename T> struct X {};
+    template<typename T> struct X<T*> {}; // #1
+    template<C T> struct X<T> {};         // #2
+    ```
+
+    - この例において、#1 と #2 の部分特殊化はどちらも、プライマリテンプレートよりも特殊化されている。#1 の部分特殊化は成功するが、コンセプトによる制約の方がより特殊化されるため、`int*`型をテンプレート引数とした場合、#2 が選択される
+    ```cpp
+    template<typename T> concept C = requires (T t) { t.f(); };
+
+    template<typename T> struct S { }; // #1
+    template<C T> struct S<T> { };     // #2
+
+    struct Arg { void f(); };
+
+    S<int> s1; // #1 が選択される。#2 の制約を満たさない
+    S<Arg> s2; // #2 が選択される。両方の制約を満たすが、#2 の方がより特殊化されている
+    ```
+
 (執筆中)
 
 
