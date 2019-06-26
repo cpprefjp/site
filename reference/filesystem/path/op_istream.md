@@ -110,4 +110,5 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 ## 参照
 - [P1601R0 Recommendations for Specifying "Hidden Friends"](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1601r0.pdf)
 - [Hidden Friends - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20190531/p1)
+- [The Power of Hidden Friends in C++ - Just Software Solutions](https://www.justsoftwaresolutions.co.uk/cplusplus/hidden-friends.html)
 - [LWG 2989. `path`'s stream insertion operator lets you insert everything under the sun](https://cplusplus.github.io/LWG/issue2989)
