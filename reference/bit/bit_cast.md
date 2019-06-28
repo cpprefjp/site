@@ -46,7 +46,18 @@ namespace std {
 ## 備考
 - この関数は、型`To`にデフォルト構築可能であることの要求を行わない
     - [`std::aligned_storage`](/reference/type_traits/aligned_storage.md)を介して`To`型オブジェクト用の領域を用意することで、要求の少ない関数となる
-
+    ```cpp
+    template<typename To, typename From>
+    To bit_cast(const From& from) noexcept { // 実際には、さらに要件チェックが行われる
+      // To型のオブジェクトに直接memcpyするのではなく、アライメント調整した領域にmemcpyして、
+      // その領域をTo型に再解釈キャストする。
+      typename std::aligned_storage<sizeof(To), alignof(To)>::type storage;
+      std::memcpy(&storage, &from, sizeof(To));  // memcpyはconstexprではないため、
+                                                 // コンパイラが特殊な実装をする必要がある
+      return reinterpret_cast<To&>(storage);
+    }
+    ```
+    * std::aligned_storage[link /reference/type_traits/aligned_storage.md]
 
 ## 例
 ```cpp example
