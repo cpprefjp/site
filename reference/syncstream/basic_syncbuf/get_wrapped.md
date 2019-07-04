@@ -1,40 +1,49 @@
-# デストラクタ
+# get_wrapped
 * syncstream[meta header]
 * function[meta id-type]
 * std[meta namespace]
 * basic_syncbuf[meta class]
 * cpp20[meta cpp]
 
+
 ```cpp
-~basic_syncbuf();
+streambuf_type* get_wrapped() const noexcept;
 ```
 
 ## 概要
-デストラクタ。`basic_syncbuf`オブジェクトを破棄する。このとき、保留中の出力はラップされたストリームへ転送される。
+ラップされた[`std::basic_streambuf`](../../streambuf/basic_streambuf.md)へのポインタを取得する。
 
 
-## 効果
-保留中の出力を転送するため、[`emit()`](emit.md)を呼び出す。
+## 戻り値
+ラップされた`std::basic_streambuf`へのポインタを返す。
 
 
 ## 例外
-投げない。`emit()`から例外が投げられた場合は、その例外を捕捉して無視する。
+投げない。
 
 
 ## 例
 ```cpp example
-#include <iostream>
 #include <syncstream>
+#include <iostream>
 
 int main()
 {
-  std::osyncstream bout{std::cout};
-  bout << "Hello, World!";
-} // デストラクタは、通常 std::basic_osyncstream から呼ばれる。
+  std::osyncstream bout(std::cout);
+  bout1 << "Hello, ";
+  {
+    // 通常、std::osyncstream::get_wrapped() から呼ばれる。
+    std::osyncstream(bout.get_wrapped()) << "Goodbye, " << "Planet!" << '\n';
+  }
+  bout << "World!" << '\n';
+}
 ```
+* get_wrapped[color ff0000]
+
 
 ### 出力
 ```
+Goodbye, Planet!
 Hello, World!
 ```
 

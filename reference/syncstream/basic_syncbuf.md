@@ -50,16 +50,16 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`emit`](basic_syncbuf/emit.md.nolink) | ラップされたストリームバッファに出力をアトミックに転送する | C++20 |
-| [`get_wrapped`](basic_syncbuf/get_wrapped.md.nolink) | ラップされた streambuf のポインタを取得する | C++20 |
-| [`get_allocator`](basic_syncbuf/get_allocator.md.nolink) | アロケータを取得する | C++20 |
-| [`set_emit_on_sync`](basic_syncbuf/set_emit_on_sync.md.nolink) | `sync()`が呼ばれたとき`emit()`を呼び出すかどうかを設定する | C++20 |
+| [`emit`](basic_syncbuf/emit.md) | ラップされたストリームバッファに出力をアトミックに転送する | C++20 |
+| [`get_wrapped`](basic_syncbuf/get_wrapped.md) | ラップされた streambuf のポインタを取得する | C++20 |
+| [`get_allocator`](basic_syncbuf/get_allocator.md) | アロケータを取得する | C++20 |
+| [`set_emit_on_sync`](basic_syncbuf/set_emit_on_sync.md) | `sync()`が呼ばれたとき`emit()`を呼び出すかどうかを設定する | C++20 |
 
 ### プロテクテッドなオーバーライドされた仮想メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`sync`](basic_syncbuf/sync.md.nolink) | フラッシュが保留されていることを記録し、<br/>現在の同期時排出ポリシーに応じて`emit()`を呼び出す(デフォルトでは呼び出さない) | C++20 |
+| [`sync`](basic_syncbuf/sync.md) | フラッシュが保留されていることを記録し、<br/>現在の同期時排出ポリシーに応じて`emit()`を呼び出す(デフォルトでは呼び出さない) | C++20 |
 
 ## メンバ型
 

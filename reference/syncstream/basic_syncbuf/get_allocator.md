@@ -1,37 +1,41 @@
-# デストラクタ
+# get_allocator
 * syncstream[meta header]
 * function[meta id-type]
 * std[meta namespace]
 * basic_syncbuf[meta class]
 * cpp20[meta cpp]
 
+
 ```cpp
-~basic_syncbuf();
+allocator_type get_allocator() const noexcept;
 ```
 
 ## 概要
-デストラクタ。`basic_syncbuf`オブジェクトを破棄する。このとき、保留中の出力はラップされたストリームへ転送される。
+アロケータのコピーを取得する。
 
 
-## 効果
-保留中の出力を転送するため、[`emit()`](emit.md)を呼び出す。
+## 戻り値
+コンストラクタまたは代入演算子によって設定されたアロケータのコピーを返す。
 
 
 ## 例外
-投げない。`emit()`から例外が投げられた場合は、その例外を捕捉して無視する。
+投げない。
 
 
 ## 例
 ```cpp example
-#include <iostream>
 #include <syncstream>
+#include <iostream>
 
 int main()
 {
   std::osyncstream bout{std::cout};
   bout << "Hello, World!";
-} // デストラクタは、通常 std::basic_osyncstream から呼ばれる。
+  auto alloc = bout.rdbuf()->get_allocator();
+}
 ```
+* get_allocator[color ff0000]
+
 
 ### 出力
 ```

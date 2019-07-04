@@ -15,7 +15,7 @@ basic_syncbuf& operator=(basic_syncbuf&& rhs) noexcept;
 
 
 ## 効果
-保留中の出力を転送するために[`emit()`](emit.md.nolink)を呼び出した後、`rhs`から`*this`へムーブ代入を行う。
+保留中の出力を転送するために[`emit()`](emit.md)を呼び出した後、`rhs`から`*this`へムーブ代入を行う。
 
 
 ## 戻り値

@@ -22,7 +22,7 @@ basic_syncbuf(basic_syncbuf&& other);                             // (3)
 
 
 ## 効果
-- (1), (2) : 同期時排出ポリシー([`sync()`](sync.md.nolink)が呼ばれたとき[`emit()`](emit.md.nolink)を呼び出すかどうか)を`false`に設定し、`std::basic_syncbuf`オブジェクトを作成し、ラップされたストリームバッファを`obuf`に設定する。`obuf`が、関連する出力の最終的な宛先になる。
+- (1), (2) : 同期時排出ポリシー([`sync()`](sync.md)が呼ばれたとき[`emit()`](emit.md)を呼び出すかどうか)を`false`に設定し、`std::basic_syncbuf`オブジェクトを作成し、ラップされたストリームバッファを`obuf`に設定する。`obuf`が、関連する出力の最終的な宛先になる。
 - (3) : 他のオブジェクトからムーブコンストラクトする。
 
 
