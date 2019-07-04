@@ -32,8 +32,9 @@ bool emit();
 
 
 ## 同期
-同じストリームバッファオブジェクトに文字を転送するすべての`emit()`呼び出しは、「happens before」関係と一致する全順序で実行されるように見える。各`emit()`呼び出しは、その全順序で後続の`emit()`呼び出しと同期する。実際には、これは次の備考にあることを意味する。
+同じストリームバッファオブジェクトに文字を転送するすべての`emit()`呼び出しは、「happens before」関係と一致する全順序で実行されるように見える。各`emit()`呼び出しは、その全順序で後続の`emit()`呼び出しと同期する。実際には、これは下記の備考にあることを意味する。
 
+注：ここでは、happens before 関係は全順序関係になっていると考えられる。また、modification order と矛盾しないとも考えられる。下記の参照を参照のこと。
 
 ## 備考
 ラップされたストリームに一意に関連付けられたロックを保持しながら、ラップされたストリームのメンバ関数を呼び出すことができる。つまり、同じストリームを持つ他の`basic_syncbuf`オブジェクトに対してアトミックに転送することができる。
@@ -92,3 +93,7 @@ Goodbye, Planet!
 
 ## 参照
 - [P0053R7 C++ Synchronized Buffered Ostream](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0053r7.pdf)
+- [C++ メモリモデル メモ - Qiita](https://qiita.com/nojima/items/57da2c4098309386e26b#modification-order)
+- [C++のフェンス is 何 - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20130427/p1)
+- [半順序？弱順序？二項関係・順序関係まとめ - ぬぬろぐ](http://nunuki.hatenablog.com/entry/2016/12/23/182301)
+- [［C++］狭義の弱順序（strict weak orderings）とは？ - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2018/09/18/022130)
