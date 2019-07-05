@@ -22,12 +22,12 @@ basic_osyncstream(basic_osyncstream&& other) noexcept;                          
 
 
 ## 効果
-- (1) から (4) : 提供されるストリームバッファ、アロケータを使用してプライベートメンバの[`std::basic_syncbuf`](basic_syncbuf.md)を初期化し、そのポインタを用いて基底クラスである[`std::basic_ostream`](../../ostream/basic_ostream.md)を初期化する。
-- (5) : 対応する`other`のサブオブジェクトから基底クラスとプライベートメンバの[`std::basic_syncbuf`](../basic_syncbuf.md)をムーブ構築し、基底クラスの初期化を完了するために`std::basic_ostream<charT、traits>::set_rdbuf(addressof(sb))`を呼び出す。
+- (1) から (4) : 提供されるストリームバッファ、アロケータを使用してプライベートメンバの[`std::basic_syncbuf`](../basic_syncbuf.md)を初期化し、そのポインタを用いて基底クラスである[`std::basic_ostream`](../../ostream/basic_ostream.md)を初期化する。
+- (5) : 対応する`other`のサブオブジェクトから基底クラスとプライベートメンバの`std::basic_syncbuf`をムーブ構築し、基底クラスの初期化を完了するために`std::basic_ostream<charT、traits>::set_rdbuf(addressof(sb))`を呼び出す。
 
 
 ## 事後条件
-- (1) から (4) : `get_­wrapped() == buf`が`true`である。
+- (1) から (4) : `get_wrapped() == buf`が`true`である。
 - (5) : `get_wrapped()`によって返される値は、このコンストラクタを呼び出す前に`os.get_wrapped()`によって返される値である。また、`nullptr == other.get_wrapped()`が`true`である。
 
 
