@@ -14,7 +14,7 @@ void emit();
 
 
 ## 効果
-ラップしたストリームバッファの[`emit()`](emit.md)を呼び出す。  
+ラップしたストリームバッファの[`emit()`](../basic_syncbuf/emit.md)を呼び出す。  
 その呼び出しが`false`を返す場合は、`setstate(ios::badbit)`を呼び出す。  
 
 
