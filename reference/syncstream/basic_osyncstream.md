@@ -49,7 +49,7 @@ namespace std {
 |-----------------|----------------|----------------|
 | [`emit`](basic_osyncstream/emit.md) | ベースとなる[`basic_syncbuf`](basic_syncbuf.md)に対して`emit()`を呼び出す | C++20 |
 | [`get_wrapped`](basic_osyncstream/get_wrapped.md) | ベースとなる[`basic_syncbuf`](basic_syncbuf.md)に対して`get_wrapped()`を呼び出す | C++20 |
-| [`rdbuf`](basic_osyncstream/rdduf.md) | ベースとなる`std::basic_syncbuf`へのポインタを返す  | C++20 |
+| [`rdbuf`](basic_osyncstream/rdbuf.md) | ベースとなる`std::basic_syncbuf`へのポインタを返す  | C++20 |
 
 
 ## メンバ型
