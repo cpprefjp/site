@@ -34,22 +34,22 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`(constructor)`](basic_osyncstream/op_constructor.md.nolink) | コンストラクタ | C++20 |
-| [`(destructor)`](basic_osyncstream/op_destructor.md.nolink)   | デストラクタ   | C++20 |
+| [`(constructor)`](basic_osyncstream/op_constructor.md) | コンストラクタ | C++20 |
+| [`(destructor)`](basic_osyncstream/op_destructor.md)   | デストラクタ   | C++20 |
 
 ### 割り当て
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`operator=`](basic_osyncstream/op_assign.md.nolink) | 代入演算子 | C++20 |
+| [`operator=`](basic_osyncstream/op_assign.md) | 代入演算子 | C++20 |
 
 ### その他メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`emit`](basic_osyncstream/emit.md.nolink) | ベースとなる[`basic_syncbuf`](basic_syncbuf.md)に対して`emit()`を呼び出す | C++20 |
-| [`get_wrapped`](basic_osyncstream/get_wrapped.md.nolink) | ベースとなる[`basic_syncbuf`](basic_syncbuf.md)に対して`get_wrapped()`を呼び出す | C++20 |
-| [`rdbuf`](basic_osyncstream/rdduf.md.nolink) | ベースとなる`std::basic_syncbuf`へのポインタを返す  | C++20 |
+| [`emit`](basic_osyncstream/emit.md) | ベースとなる[`basic_syncbuf`](basic_syncbuf.md)に対して`emit()`を呼び出す | C++20 |
+| [`get_wrapped`](basic_osyncstream/get_wrapped.md) | ベースとなる[`basic_syncbuf`](basic_syncbuf.md)に対して`get_wrapped()`を呼び出す | C++20 |
+| [`rdbuf`](basic_osyncstream/rdduf.md) | ベースとなる`std::basic_syncbuf`へのポインタを返す  | C++20 |
 
 
 ## メンバ型
