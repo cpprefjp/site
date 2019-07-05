@@ -50,7 +50,7 @@ int main()
   aout << "Hello, ";
 
   std::osyncstream bout = std::move(aout); // 通常 std::basic_osyncstream から呼ばれる。
-                                           // また、ここで "Hello, " が出力される。
+                                           // また、ここで "Hello, " が転送される。
   bout << "World!";
 }
 ```

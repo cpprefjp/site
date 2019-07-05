@@ -33,6 +33,7 @@ int main()
   bout1 << "Hello, ";
   
   auto syncbuf_ptr = bout.rdbuf();
+  syncbuf_ptr->emit(); // 文字が転送される
   
   bout << "World!" << '\n';
 }

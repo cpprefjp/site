@@ -45,8 +45,8 @@ int main()
 
   std::swap(*aout.rdbuf(), *bout.rdbuf());
 
-  bout.emit(); // "Hello, "
-  aout.emit(); // "World!"
+  bout.emit(); // "Hello, " が転送される
+  aout.emit(); // "World!" が転送される
 }
 ```
 * swap[color ff0000]
