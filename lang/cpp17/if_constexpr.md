@@ -249,7 +249,7 @@ C++11における静的な条件によってコンパイルエラーを発生さ
 その拡張として静的な条件によって宣言を切り替えられる機能を考えるのは自然な発想である。
 N3322では、`static_assert`と同じように、
 名前空間スコープ・クラススコープ・ブロックスコープの何れでも使える`static_if`を提案している。
-次の提案 N3329 ではD言語における実装(2005年static if、2008年の条件付きの宣言)の実績を元に、
+次の提案 N3329 ではD言語における実装 [D0.124 `static if` (2005年)、D2.015 Template Constraints (2008年)] の実績を元に、
 より詳しい提案を行っている。
 
 これらの提案の目的は、従来使われた手法であるテンプレート特殊化、SFINAE、
@@ -279,14 +279,17 @@ AST(抽象構文木)を元にしたソースコードの静的解析ツールの
 実際のところ不便なのではないかという事、
 実際に複雑な処理を実装するのはライブラリ実装者であり、
 その様な者は従来の複雑な手法も理解していなければならないという事などが挙げられた。
+他に、関数の多重定義や従来のテンプレート特殊化・SFINAE技法と比べて自由度が小さいということ、
+更にそれらとの組み合わせよって起こる問題についても懸念があった。
 
 N4461, P0128R0, P0128R1 では批判を受けて静的な条件分岐の大幅な単純化が提案された。
 特に、静的な条件分岐は上記 (C) ブロックスコープに限定し、宣言の条件分岐には使えないこととした。
 また静的な条件分岐は通常の`if`文と同様に変数のスコープを作成しないということ、
 及び、discarded branchの構文解析もテンプレートの二段階名前解決と同様にして実施するということが提案された。
+また、テンプレートの中でしか静的な条件分岐は使えないということも提案された。
 
 P0292R0-P0292R2 では、静的な条件分岐のキーワードが `if constexpr` になった。
-また、テンプレートの外でも静的な条件分岐を許すように修正された。
+また、`static_assert` と同様に、テンプレートの外でも静的な条件分岐を許すように修正された。
 `auto`による関数の戻り値の型の推論で、棄却された分岐内の`return`文は参考にしない旨が明記され、
 C++17の規格原案N4606において変更が適用された。
 
@@ -305,6 +308,117 @@ C++17の規格原案N4606において変更が適用された。
 - [N4603 Editor's Report -- Committee Draft, Standard for Programming Language C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4603.html)
 
 ## 検討されたほかの選択肢
+
+N3322 では `static_assert` からの連想でキーワードとして `static_if` / `else` の組が提案された。
+N3329 ではD言語を参考にして `static if` / `else` の組が提案された。
+N3613 では `static if` の様な複合キーワードは間にコメントを挟めるのは分かりにくく問題であると指摘された。
+また、通常の`if`文と静的な条件分岐とが入れ子になっている時に`else`がどれに属しているのか分かりにくいとの指摘もあった。
+これを受けて P0128R0 では、静的な条件分岐がブロックスコープに制限されると共に、`constexpr_if` / `constexpr_else` となった。
+P0128R1 では、`constexpr if` / `constexpr_else` に改訂された。
+P0292R0 で現行の `if constexpr` / `else` が提案され、
+文法上は通常の`if`文に対する`constexpr`キーワードの修飾という形にまとめられた。
+`else` に関しては、通常の入れ子の`if`文と同様に一番近くの`if`/`if constexpr`文に属するとすれば曖昧さはないこと、
+また `if constexpr` を繋げた時の煩雑さから単に `else` とすることになった。
+
+```
+// N3322
+static_if (condition)
+  statement
+else static_if (condition)
+  statement
+else
+  statement
+
+// N3329
+static if (condition) {
+  statement
+} else static if (condition) {
+  statement
+} else {
+  statement
+}
+
+// P0128R0
+constexpr_if (condition)
+  statement
+constexpr_else
+  statement
+
+// P0128R0
+constexpr if (condition)
+  statement
+constexpr_else constexpr if (condition)
+  statement
+constexpr_else
+  statement
+```
+
+静的な条件分岐のsubstatementを囲む波括弧 `{ ... }` に関しては、
+discarded branch の構文解析を行わないN3329においては必須とされた。
+つまり、構文解析は行わずに単に括弧だけの対応を取ることによりsubstatementの終わりを調べる。
+しかし、N3613における批判により、結局はテンプレートの二段階名前解決と同様に、
+discarded branch でも構文解析は実施され、非依存名に関しては1段階目で検証されることとなった。
+
+```
+// N3329
+template<class T>
+void g() {
+  static if (false) {
+    static_assert(false); // 引っかからない (構文解析すら実施されない)
+  }
+}
+
+// P0292R0
+template<class T>
+void g() {
+  if constexpr (false)
+    static_assert(false); // 棄却された分岐内でも引っかかる (ill-formed NDR)
+}
+```
+
+静的な条件によって関数の宣言・実装を切り替える構文として、N3322およびN3329では以下のようなものも提案された。
+これは `requires` キーワードを用いる Concepts Lite が目的とする機能との類似性もあり、
+Concepts Lite の仕様が確定していない段階で、
+どのように棲み分けるのかや両方用いた時の振る舞いについての考察が問題になった。
+
+```
+// N3322
+template<typename T>
+void f()
+  static_if (condition) {
+    statement
+  } else static_if (condition) {
+    statement
+  } else {
+    statement
+  }
+
+// N3329 (cf D言語の Template Constraints)
+template<typename T> void f() if (condition);
+template<typename T>
+void f()
+  if (condition) {
+    statement
+  }
+```
+
+ブロックスコープでの静的な条件分岐について、
+ライブラリによる代替手段として以下のようなものも可能であることがP0128R0で指摘されている。
+つまり、ジェネリックラムダの実体化は実際に関数の呼び出しがある時に行われるので、
+実体化を遅延することができるのである。
+
+```
+// P0128R0
+template <int arg, typename ... Args> int do_something(Args... args) {
+    return static_if<sizeof...(args)>::get(
+        [](auto x, auto y) { return x+y; },
+        [](auto x) { return *x; })(args...);
+}
+```
+
+その他に、元々静的な条件分岐で置き換える目的だった、
+旧来のテンプレート特殊化・SFINAE・タグディスパッチ・EBO・再帰的な継承などの技法を用いた複雑な代替手段もあるが、
+それらを一つ一つここで紹介することは避ける。
 
 ## 関連項目
 
