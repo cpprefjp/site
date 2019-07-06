@@ -3,7 +3,7 @@
 
 ## 概要
 
-`constexpr if`文とは、コンパイル時に条件分岐する文である。
+constexpr if文とは、文を条件付きコンパイルすることを目的とした制御構文である。
 
 ```
 if constepxr ( condition )
@@ -12,59 +12,62 @@ else
   statement
 ```
 
-`constexpr if`文の導入によってC++の`if`系の条件分岐文は3種類になった。
+`condition`はコンパイル時に`bool`に評価できる式である。
+`condition`によって採用されなかった分岐は、二段階名前解決において、
+2段階目の依存式の解析(依存名解決およびテンプレートの実体化)の対象から除外される。
+ただし、どちらの分岐も1段階目の構文解析・意味解析の対象となる事に注意する。
 
-- プリプロセス時`if`: `#if`
-- コンパイル時`if`: `constexpr if`
-- 実行時`if`: `if`
+## 仕様
 
-`condition`はコンパイル時にコンテキスト依存のbool型への変換が起こる式である。例えば`constexpr`指定された`explicit operator bool()`は評価できる。
+constexpr if文は文法的には通常の`if`文において`(condition)`の前に`constexpr`があるだけである。
+条件`condition`は文脈的に`bool`に変換可能な定数式である
+(例えば`constexpr`指定された`explicit operator bool()`を持つ型の式)。
+条件が`false`の時最初のsubstatementがdiscarded statementとなり、`true`の時2つ目のsubstatementがdiscarded statementとなる。
+テンプレート実体化の後に条件が非依存式のとき、discarded statementは実体化されない。
 
-`else`文には`constexpr`書かない。`if`の後に`constexpr`を書く以外では実行時`if`文と構文に差はない。
+- discarded statementに現れるodr-usedな構成要素は定義されていなくても良い。
+- constexpr if文の中の`case`及び`default`ラベルは、同じsubstatementにある`switch`に対応している必要がある。
+- constexpr if文の中のラベルは、同じsubstatement内からしか参照してはならない。
+- 関数の戻り値の型の推論において、discarded statement内のreturn文は無視される。
 
-プリプロセス時`if`文と異なり、`constexpr if`文は条件付きコンパイルをすることはできない。例えば次の例は不適格である。
+constexpr if文を用いれば例えば以下の様なコードを書くことができる。
+constexpr if文の中にある `s += a1` や `s += a1.capacity()` 等のようなコードは、`A1`が特定の型の時にしか適格にならない。
+通常のif文を使うとこれをコンパイルする事はできないが、
+constexpr if文を用いれば特定の条件を満たした時にだけコードが実体化させることにより、以下のような記述を可能にする。
 
-```cpp
-struct X {
-  if constexpr (cond) {
-    void f();
-    using int32 = int;
-  }
-  else {
-    void g();
-  }
-};
 ```
+#include <vector>
+#include <string>
+#include <iostream>
 
-`constexpr if`文はスコープを作るので、例えばVisual C++の独自拡張機能である[`__if_exists`](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)は以下のような書き方が可能であるが、`constexpr if`文でこれを再現することはできない。
+template <typename Out, typename A1, typename A2>
+void f(Out& o, A1 const& a1, A2 const& a2)
+{
+  int s = 0;
+  if constexpr (std::is_same_v<A1, int>)
+    s += a1;
+  else if constexpr (std::is_same_v<A1, std::vector<int>>)
+    s += a1.capacity();
 
-```cpp
-struct A {
-  static float get() { return 1.2f; }
-};
-int main() {
-  auto a = __if_exists(A::get) {
-    A::get();
-  }
-  __if_not_exists(A::get) {
-    "not found";
-  }
+  if constexpr (std::is_same_v<A2, int>)
+    s += a2;
+  else if constexpr (std::is_same_v<A2, std::string>)
+    s += a2.size();
+
+  if constexpr (std::is_same_v<Out, int>)
+    o = s;
+  else if constexpr (std::is_same_v<Out, std::ostream>)
+    o << s;
 }
 ```
 
-同様にD言語の`static if`とは違いスコープを作るので、D言語で可能な次のようなことは`constexpr if`文で再現できない。
+この様な分岐は、従来はテンプレートの特殊化や推論規則(SFINAE)を利用した手法により実現されていたが、
+一つの関数の中に分岐が複数あると用意しなければならない特殊化・多重定義が指数関数的に増える。
+代わりに処理毎に分割してそれぞれにテンプレートを用意することが可能な場合もあるが、
+それでも記述が実際にしたい処理に比べて不必要に複雑になる。
+constexpr if文の導入によりそのような複雑な手法を用いずに素直に条件付きのコンパイルを実現できるようになった。
 
-```D
-const int i = 3;
-class C {
-  const int k = 5;
-
-  static if (i == 3) // D言語ではok
-    int x;
-  else
-    long x;
-}
-```
+### 二段階名前解決における注意点
 
 `constexpr if`文で、実行されない方の`statement`は`discarded statement`(破棄文)となり、文の実体化を防ぐ。言い換えると、Two Phase Name Look-upにおける`dependent name`(以下、依存名)は、`discarded statement`の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。
 
@@ -160,6 +163,58 @@ int main()
 }
 ```
 
+### 類似機能との比較
+
+`constexpr if`文の導入によってC++の`if`系の条件分岐文は3種類になった。
+
+- プリプロセス時`if`: `#if`
+- コンパイル時`if`: `constexpr if`
+- 実行時`if`: `if`
+
+プリプロセス時の`#if`指令と異なり、`constexpr if`文は宣言を条件付きでコンパイルをすることはできない。例えば次の例は不適格である。
+
+```cpp
+struct X {
+  if constexpr (cond) {
+    void f();
+    using int32 = int;
+  }
+  else {
+    void g();
+  }
+};
+```
+
+`constexpr if`文はスコープを作るので、例えばVisual C++の独自拡張機能である[`__if_exists`](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)は以下のような書き方が可能であるが、`constexpr if`文でこれを再現することはできない。
+
+```cpp
+struct A {
+  static float get() { return 1.2f; }
+};
+int main() {
+  auto a = __if_exists(A::get) {
+    A::get();
+  }
+  __if_not_exists(A::get) {
+    "not found";
+  }
+}
+```
+
+同様にD言語の`static if`とは違いスコープを作るので、D言語で可能な次のようなことは`constexpr if`文で再現できない。
+
+```D
+const int i = 3;
+class C {
+  const int k = 5;
+
+  static if (i == 3) // D言語ではok
+    int x;
+  else
+    long x;
+}
+```
+
 なお型情報のifが欲しいならば、[`std::conditional`](/reference/type_traits/conditional.md) がある。
 
 ```cpp example
@@ -186,6 +241,10 @@ int main()
 * std::conditional_t[link /reference/type_traits/conditional.md]
 * std::mt19937_64[link /reference/random/mt19937_64.md]
 
+
+## この機能が必要になった背景・経緯
+
+## 検討されたほかの選択肢
 
 ## 関連項目
 
