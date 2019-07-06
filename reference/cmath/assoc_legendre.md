@@ -23,7 +23,7 @@ $$
 P_l^m(x) = (1 - x^2)^{m/2} \frac{\mathrm d^m}{\mathrm dx^m} P_l(x)
 \quad \text{for } |x| \le 1
 $$
-を返す。右辺の $P$ はルジャンドル多項式 ([`legendre`](legendre.md))。
+を返す。右辺の $P_l(x)$ はルジャンドル多項式 ([`legendre`](legendre.md))。
 
 
 ## 備考
@@ -118,6 +118,6 @@ $$
 
 ### 漸化式
 $$
-P_l^m(x) = \frac{(2l-1) x P_{l-1}^m(x) - (l+m-1) P_{l-2}^m}{l-m}(x);
-P_{m-1}^m(x) = 0, P_m^m(x) = (2m-1)!! (1 - x^2)^{m/2}
+P_l^m(x) = \frac{(2l-1) x P_{l-1}^m(x) - (l+m-1) P_{l-2}^m(x)}{l-m};
+\quad P_{m-1}^m(x) = 0, \quad P_m^m(x) = (2m-1)!! (1 - x^2)^{m/2}
 $$
