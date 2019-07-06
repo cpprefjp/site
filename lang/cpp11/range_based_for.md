@@ -97,7 +97,7 @@ for (const auto& e : vec) {
 }
 ```
 
-展開されたコード内の`begin()`と`end()`が正確に何を呼びだすかについては、引数依存の名前検索（argument-dependent name lookup; ADL）を参照のこと。
+展開されたコード内の`begin()`と`end()`が正確に何を呼びだすかについては、引数依存の名前探索（argument-dependent name lookup; ADL）を参照のこと。
 
 
 ## 例
