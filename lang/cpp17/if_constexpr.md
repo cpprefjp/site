@@ -293,20 +293,6 @@ P0292R0-P0292R2 では、静的な条件分岐のキーワードが `if constexp
 `auto`による関数の戻り値の型の推論で、廃棄された分岐内の`return`文は参考にしない旨が明記され、
 C++17 の規格原案 N4606 において変更が適用された。
 
-静的な条件分岐の提案に関連する文書:
-
-- [[PDF] N3322: A Preliminary Proposal for a Static if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3322.pdf)
-- [[PDF] N3329: Proposal: `static if` declaration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3329.pdf)
-- [[PDF] N3576: SG8 Concepts Teleconference Minutes – 2013-03-12](https://isocpp.org/files/papers/N3576.pdf) §2.1
-- [[PDF] N3613: “Static If ” Considered](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3613.pdf)
-- [N4461: Static if resurrected](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4461.html)
-- [P0128R0: constexpr_if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0128r0.html)
-- [P0128R1: constexpr if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0128r1.html)
-- [P0292R0: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r0.html)
-- [P0292R1: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r1.html)
-- [P0292R2: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r2.html)
-- [N4603 Editor's Report -- Committee Draft, Standard for Programming Language C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4603.html)
-
 ## 検討されたほかの選択肢
 
 N3322 では `static_assert` からの連想でキーワードとして `static_if` / `else` の組が提案された。
@@ -427,15 +413,30 @@ template <int arg, typename ... Args> int do_something(Args... args) {
 
 ## 参照
 
-- [N3322 A Preliminary Proposal for a Static if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3322.pdf)
-- [N3329 Proposal: `static if` declaration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3329.pdf)
-- [N3613 “Static If ” Considered](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3613.pdf)
-- [Static If I Had a Hammer - Andrei Alexandrescu](https://channel9.msdn.com/Events/GoingNative/GoingNative-2012/Static-If-I-Had-a-Hammer)
-- [P0128R1 `constexpr if`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0128r1.html)
-- [P0292R2 `constexpr if`: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r2.html)
-- [Clang Developers - Clang getting involved](http://clang-developers.42468.n3.nabble.com/Clang-getting-involved-td4038330.html)
-- [`__if_exists` Statement | Microsoft Docs](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)
+### 関連する提案文書
+
+- [[PDF] N3322: A Preliminary Proposal for a Static if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3322.pdf)
+- [[PDF] N3329: Proposal: `static if` declaration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3329.pdf)
+- [[PDF] N3576: SG8 Concepts Teleconference Minutes – 2013-03-12](https://isocpp.org/files/papers/N3576.pdf) §2.1
+- [[PDF] N3613: “Static If ” Considered](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3613.pdf)
+- [N4461: Static if resurrected](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4461.html)
+- [P0128R0: constexpr_if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0128r0.html)
+- [P0128R1: constexpr if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0128r1.html)
+- [P0292R0: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r0.html)
+- [P0292R1: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r1.html)
+- [P0292R2: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r2.html)
+- [N4603 Editor's Report -- Committee Draft, Standard for Programming Language C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4603.html)
+
+### 2段階名前探索における注意点について
+
 - [if constexprを使うとき、特定条件時にコンパイルを失敗させる - Qiita](http://qiita.com/saka1_p/items/e8c4dfdbfa88449190c5)
 - [本の虫: constexpr ifの落とし穴](https://cpplover.blogspot.jp/2017/05/constexpr-if.html)
 - [`static_assert`の評価を実体化まで遅延させる簡単な方法 - Qiita](https://qiita.com/alphya/items/b3463d1a2f53687f6025)
 - [C++ - constexpr if と local struct の評価のタイミングについて｜teratail](https://teratail.com/questions/166409)
+
+### その他
+
+- [Static If I Had a Hammer - Andrei Alexandrescu](https://channel9.msdn.com/Events/GoingNative/GoingNative-2012/Static-If-I-Had-a-Hammer)
+- [C++1z if constexpr文 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/12/22/171238)
+- [Clang Developers - Clang getting involved](http://clang-developers.42468.n3.nabble.com/Clang-getting-involved-td4038330.html)
+- [`__if_exists` Statement | Microsoft Docs](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)
