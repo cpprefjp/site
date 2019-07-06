@@ -5,7 +5,7 @@
 
 constexpr if文とは、文を条件付きコンパイルすることを目的とした制御構文である。
 
-```
+```cpp
 if constepxr ( condition )
   statement
 else
@@ -35,7 +35,7 @@ constexpr if文の中にある `s += a1` や `s += a1.capacity()` 等のよう�
 通常のif文を使うとこれをコンパイルする事はできないが、
 constexpr if文を用いれば特定の条件を満たした時にだけコードが実体化させることにより、以下のような記述を可能にする。
 
-```
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -320,7 +320,7 @@ P0292R0 で現行の `if constexpr` / `else` が提案され、
 `else` に関しては、通常の入れ子の`if`文と同様に一番近くの`if`/`if constexpr`文に属するとすれば曖昧さはないこと、
 また `if constexpr` を繋げた時の煩雑さから単に `else` とすることになった。
 
-```
+```cpp
 // N3322
 static_if (condition)
   statement
@@ -359,7 +359,7 @@ constexpr_else
 しかし、N3613における批判により、結局はテンプレートの2段階名前探索と同様に、
 廃棄された分岐でも構文解析は実施され、非依存名に関しては1段階目で検証されることとなった。
 
-```
+```cpp
 // N3329
 template<class T>
 void g() {
@@ -381,7 +381,7 @@ void g() {
 Concepts Lite の仕様が確定していない段階で、
 どのように棲み分けるのかや両方用いた時の振る舞いについての考察が問題になった。
 
-```
+```cpp
 // N3322
 template<typename T>
 void f()
@@ -407,7 +407,7 @@ void f()
 つまり、ジェネリックラムダの実体化は実際に関数の呼び出しがある時に行われるので、
 実体化を遅延することができるのである。
 
-```
+```cpp
 // P0128R0
 template <int arg, typename ... Args> int do_something(Args... args) {
     return static_if<sizeof...(args)>::get(
