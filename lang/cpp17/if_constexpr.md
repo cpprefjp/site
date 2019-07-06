@@ -244,12 +244,71 @@ int main()
 
 ## この機能が必要になった背景・経緯
 
+一番最初の静的な条件分岐の提案 N3322 の直接のきっかけになったのは、
+C++11における静的な条件によってコンパイルエラーを発生させる`static_assert`の導入である。
+その拡張として静的な条件によって宣言を切り替えられる機能を考えるのは自然な発想である。
+N3322では、`static_assert`と同じように、
+名前空間スコープ・クラススコープ・ブロックスコープの何れでも使える`static_if`を提案している。
+次の提案 N3329 ではD言語における実装(2005年static if、2008年の条件付きの宣言)の実績を元に、
+より詳しい提案を行っている。
+
+これらの提案の目的は、従来使われた手法であるテンプレート特殊化、SFINAE、
+タグディスパッチなどの複雑な技法を単純化することであった。
+
+- (A) 関数やメンバ関数の静的な条件分岐については、従来はテンプレート特殊化やSFINAEが用いられた。
+  静的な条件分岐を用いればより自然に実装することが可能である。
+- (B) データメンバの静的な条件分岐については、従来は再帰的なクラスの派生とEBO(空基底最適化)の技法を用いた。
+  データメンバの条件分岐毎にクラスを派生させる必要があり、また派生による様々な制限を避けるために複雑になる。
+- (C) ブロックスコープにおける静的な条件分岐に関しては、従来は分岐毎に処理を新しいテンプレートを定義して委譲する必要があった。
+  処理の間で変数を明示的に共有するために処理が複雑になる。処理が複数箇所に分断されるため読みにくく、また記述も煩雑である。
+
+特にこれらの提案で特徴的だったのは、
+
+- 静的な条件分岐によって関数や変数の宣言自体を切り替えることができる。
+- 静的な条件分岐の構文は新しいスコープを作らない。つまり条件分岐内の宣言は外から直接見える。
+- 棄却された分岐(discarded branch)については構文解析すら実施しない (字句解析だけ行う)。
+
+一方で N3576 および N3613 において静的な条件分岐の機能は厳しい批判に晒されることになる。
+N3576 では Concepts Lite による条件付きの宣言を行う機能と、静的な条件分岐の機能の棲み分けが懸念された。
+両機能の矛盾が生じる懸念から少なくとも Concepts Lite の仕様が固まるまでは静的な条件分岐の議論は凍結するべきとの意見が強かった。
+更に、N3613ではN3322/N3329で提案された仕様に対する批判が行われた。
+分かりにくくメンテナンスしにくいという事と、Concepts Lite との棲み分けの問題の他に、
+AST(抽象構文木)を元にしたソースコードの静的解析ツールの開発を困難にするとの指摘があった。
+また、静的な条件分岐で記述が本当に簡単になるのかという点についても疑問を呈した。
+クラスメンバに対する静的な条件分岐に関しては、使用する側でも静的な条件分岐が毎回必要になるので、
+実際のところ不便なのではないかという事、
+実際に複雑な処理を実装するのはライブラリ実装者であり、
+その様な者は従来の複雑な手法も理解していなければならないという事などが挙げられた。
+
+N4461, P0128R0, P0128R1 では批判を受けて静的な条件分岐の大幅な単純化が提案された。
+特に、静的な条件分岐は上記 (C) ブロックスコープに限定し、宣言の条件分岐には使えないこととした。
+また静的な条件分岐は通常の`if`文と同様に変数のスコープを作成しないということ、
+及び、discarded branchの構文解析もテンプレートの二段階名前解決と同様にして実施するということが提案された。
+
+P0292R0-P0292R2 では、静的な条件分岐のキーワードが `if constexpr` になった。
+また、テンプレートの外でも静的な条件分岐を許すように修正された。
+`auto`による関数の戻り値の型の推論で、棄却された分岐内の`return`文は参考にしない旨が明記され、
+C++17の規格原案N4606において変更が適用された。
+
+静的な条件分岐の提案に関連する文書:
+
+- [[PDF] N3322: A Preliminary Proposal for a Static if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3322.pdf)
+- [[PDF] N3329: Proposal: `static if` declaration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3329.pdf)
+- [[PDF] N3576: SG8 Concepts Teleconference Minutes – 2013-03-12](https://isocpp.org/files/papers/N3576.pdf) §2.1
+- [[PDF] N3613: “Static If ” Considered](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3613.pdf)
+- [N4461: Static if resurrected](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4461.html)
+- [P0128R0: constexpr_if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0128r0.html)
+- [P0128R1: constexpr if](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0128r1.html)
+- [P0292R0: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r0.html)
+- [P0292R1: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r1.html)
+- [P0292R2: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r2.html)
+- [N4603 Editor's Report -- Committee Draft, Standard for Programming Language C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4603.html)
+
 ## 検討されたほかの選択肢
 
 ## 関連項目
 
 - [`std::conditional`](/reference/type_traits/conditional.md)
-
 
 ## 参照
 
