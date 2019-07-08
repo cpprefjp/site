@@ -398,9 +398,9 @@ void f()
 ```cpp
 // P0128R0
 template <int arg, typename ... Args> int do_something(Args... args) {
-    return static_if<sizeof...(args)>::get(
-        [](auto x, auto y) { return x+y; },
-        [](auto x) { return *x; })(args...);
+  return static_if<sizeof...(args)>::get(
+    [](auto x, auto y) { return x+y; },
+    [](auto x) { return *x; })(args...);
 }
 ```
 
