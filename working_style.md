@@ -95,6 +95,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | polymorphic                        | 多相的                       |
 | power of N                         | Nの累乗                      |
 | predicate                          | 述語                         |
+| pure virtual function              | 純粋仮想関数                 |
 | random access iterator             | ランダムアクセスイテレータ   |
 | range                              | 範囲                         |
 | remarks                            | 備考                         |
