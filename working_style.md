@@ -46,6 +46,7 @@ C++11以降対応については対応バージョンを明記します。バー
 - pgCC: 11.2
 
 それと、訳語表を随時更新していってください。
+
 ### 訳語表
 
 | 英語               | 日本語 |
@@ -55,6 +56,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | apply, application                 | 適用                         |
 | arithmetic type                    | 算術型                       |
 | associative container(s)           | 連想コンテナ                 |
+| base class                         | 基底クラス                   |
 | bidirectional iterator             | 双方向イテレータ             |
 | bucket                             | バケット                     |
 | complexity                         | 計算量                       |
