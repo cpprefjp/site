@@ -77,6 +77,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | fundamental type                   | 単純型                       |
 | ill-formed                         | 不適格                       |
 | implementation-defined             | 処理系定義                   |
+| inherited                          | 継承                         |
 | input iterator                     | 入力イテレータ               |
 | iterator                           | イテレータ                   |
 | literal type                       | リテラル型                   |
