@@ -65,6 +65,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | const reverse iterator             | 読み取り専用逆イテレータ     |
 | dereference                        | 間接参照                     |
 | dereferenceable                    | 間接参照可能                 |
+| derived class                      | 派生クラス                   |
 | effects                            | 効果                         |
 | emplace                            | 直接構築                     |
 | empty                              | 空                           |
