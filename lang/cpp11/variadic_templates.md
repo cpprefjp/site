@@ -262,7 +262,7 @@ hello
     Person person = { args... };
     ```
 
-- 継承時の基本クラスリストの指定
+- 継承時の基底クラスリストの指定
 
     ```cpp
     template <class... Bases>

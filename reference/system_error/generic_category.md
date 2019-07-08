@@ -25,7 +25,7 @@ namespace std {
 この関数によって返されるオブジェクトのクラスは以下の特徴を持つ：
 
 - [`name()`](error_category/name.md)関数によって返される文字列は`"generic"`
-- [`default_error_condition()`](error_category/default_error_condition.md)仮想関数および[`equivalent()`](error_category/equivalent.md)仮想関数の挙動は、基本クラスである[`error_category`](error_category.md)と同じである
+- [`default_error_condition()`](error_category/default_error_condition.md)仮想関数および[`equivalent()`](error_category/equivalent.md)仮想関数の挙動は、基底クラスである[`error_category`](error_category.md)と同じである
 
 
 ## 例外

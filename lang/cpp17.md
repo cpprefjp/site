@@ -38,7 +38,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 | [参照メンバをもつクラスの置き換え](cpp17/replacement_of_class_objects_containing_reference_members.md) | 参照型メンバや`const`データメンバを含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする |
 | [`enum class`変数の初期値として整数を指定する際の規則を調整](cpp17/construction_enum_class_values.md) | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 |
 | [アライメント指定されたデータの動的メモリ確保](cpp17/dynamic_memory_allocation_for_over-aligned_data.md) | `operator new`と`operator delete`でアライメント値を取得できるようにする |
-| [集成体初期化の拡張](cpp17/extension_to_aggregate_initialization.md) | 集成体初期化で基底型も入れ子に集成体初期化可能になる |
+| [集成体初期化の拡張](cpp17/extension_to_aggregate_initialization.md) | 集成体初期化で基底クラスも入れ子に集成体初期化可能になる |
 
 
 ### 制御構文
@@ -68,7 +68,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 | [クラステンプレートのテンプレート引数推論](cpp17/type_deduction_for_class_templates.md) | コンストラクタの引数からクラスのテンプレート引数を推論できるようにする |
 | [非型テンプレートパラメータの`auto`宣言](cpp17/declaring_non-type_template_arguments_with_auto.md)   | `template <auto x>`とすることで、`X<3>;` `X<true>;` `X<'a'>`のように定数を受け取りやすくする |
 | [全ての非型テンプレート引数の定数式評価を許可](cpp17/allow_constant_evaluation_for_all_non-type_template_arguments.md) | ポインタの定数式評価として、配列からポインタへの変換や、関数から関数ポインタへの変換などを許可 |
-| [`using`宣言のパック展開](cpp17/pack_expansions_in_using.md) | パラメータパックの型を基本クラスとして指定した場合に、using宣言に基本クラスのパラメータパックを指定できるようにする |
+| [`using`宣言のパック展開](cpp17/pack_expansions_in_using.md) | パラメータパックの型を基底クラスとして指定した場合に、using宣言に基底クラスのパラメータパックを指定できるようにする |
 | [変数テンプレートのデフォルトテンプレート引数を許可](cpp17/allow_default_template_arguments_of_variable_templates.md) | 変数テンプレートのテンプレートパラメータがデフォルト引数を持つことを許可する |
 
 
@@ -87,7 +87,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 |----------|------|
 | [入れ子名前空間の定義](cpp17/nested_namespace.md)               | `namespace A::B {}`のように、入れ子の名前空間を簡単に定義できるようにする |
 | [名前空間と列挙子への属性付加を許可](cpp17/attributes_for_namespaces_and_enumerators.md) | 名前空間の定義と、列挙型の各要素の定義に、属性を付けられるようにする |
-| [`using`宣言のパック展開](cpp17/pack_expansions_in_using.md) | パラメータパックの型を基本クラスとして指定した場合に、using宣言に基本クラスのパラメータパックを指定できるようにする |
+| [`using`宣言のパック展開](cpp17/pack_expansions_in_using.md) | パラメータパックの型を基底クラスとして指定した場合に、using宣言に基底クラスのパラメータパックを指定できるようにする |
 
 
 ### 例外

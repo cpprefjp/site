@@ -32,10 +32,10 @@
 | [`tolower`](locale/tolower.md) | 英子文字への変換(function) | |
 | [`wstring_convert`](locale/wstring_convert.md) | `codecvt`による文字列変換(class template) | C++11<br/> C++17から非推奨 |
 | [`wbuffer_convert`](locale/wbuffer_convert.md) | `codecvt`によるストリームバッファ変換(class template) | C++11<br/> C++17から非推奨 |
-| [`ctype_base`](locale/ctype_base.md) | 文字分類のための基本クラス(class) | |
+| [`ctype_base`](locale/ctype_base.md) | 文字分類のための基底クラス(class) | |
 | [`ctype`](locale/ctype.md) | 文字の分類(class template) | |
 | [`ctype_byname`](locale/ctype_byname.md) | 名前による文字の分類(class template) | |
-| [`codecvt_base`](locale/codecvt_base.md) | 文字コード変換のための基本クラス(class) | |
+| [`codecvt_base`](locale/codecvt_base.md) | 文字コード変換のための基底クラス(class) | |
 | [`codecvt`](locale/codecvt.md) | 文字コード変換(class template) | |
 | [`codevt_byname`](locale/codecvt_byname.md) | 名前による文字コード変換(class template) | |
 
@@ -62,7 +62,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
-| [`time_base`](locale/time_base.md)             | 日時解析のための基本クラス(class) | |
+| [`time_base`](locale/time_base.md)             | 日時解析のための基底クラス(class) | |
 | [`time_get`](locale/time_get.md)               | 日時の解析(class template) | |
 | [`time_get_byname`](locale/time_get_byname.md) | 名前による日時解析(class template) | |
 | [`time_put`](locale/time_put.md)               | 日時の出力(class template) | |
@@ -75,7 +75,7 @@
 |--------------------------------------------------|----------------------------|-------|
 | [`money_get`](locale/money_get.md) | 金額の解析(class template) | |
 | [`money_put`](locale/money_put.md) | 金額の出力(class template) | |
-| [`money_base`](locale/money_base.md) | 金額解析のための基本クラス(class) | |
+| [`money_base`](locale/money_base.md) | 金額解析のための基底クラス(class) | |
 | [`moneypunct`](locale/moneypunct.md) | 金額のフォーマット(class template) | |
 | [`moneypunct_byname`](locale/moneypunct_byname.md) | 名前による金額のフォーマット(class template) | |
 
@@ -84,7 +84,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
-| [`messages_base`](locale/messages_base.md) | メッセージ取得のための基本クラス(class) | |
+| [`messages_base`](locale/messages_base.md) | メッセージ取得のための基底クラス(class) | |
 | [`messages`](locale/messages.md) | メッセージカタログから対応する翻訳メッセージの取得(class template) | |
 | [`messages_byname`](locale/messages_byname.md) | 名前による翻訳メッセージの取得(class template) | |
 

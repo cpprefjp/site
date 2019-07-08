@@ -109,6 +109,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | trailing return type               | 後置戻り値型                 |
 | trait                              | トレイト                     |
 | trivial                            | 自明 (逆は非自明)            |
+| underlying type                    | 基底型                       |
 | unordered associative container(s) | 非順序連想コンテナ           |
 | unspecified                        | 未規定                       |
 | well-formed                        | 適格                         |

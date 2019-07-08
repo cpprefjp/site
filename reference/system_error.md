@@ -6,7 +6,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-----------------------------------------|-------|
-| [`error_category`](system_error/error_category.md) | エラーを分類するための基本クラス(class) | C++11 |
+| [`error_category`](system_error/error_category.md) | エラーを分類するための基底クラス(class) | C++11 |
 | [`generic_category`](system_error/generic_category.md) | 汎用のエラーに関する情報を返す(function) | C++11 |
 | [`system_category`](system_error/system_category.md) | 環境固有のエラーに関する情報を返す(function) | C++11 |
 | [`error_code`](system_error/error_code.md) | 環境依存のエラーコード(class) | C++11 |
