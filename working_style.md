@@ -91,6 +91,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | move assignment                    | ムーブ代入                   |
 | move constructor                   | ムーブコンストラクタ         |
 | mutable iterator                   | 可変イテレータ               |
+| non-virtual base class             | 非仮想基底クラス             |
 | note                               | 注                           |
 | output iterator                    | 出力イテレータ               |
 | overload                           | オーバーロード               |
