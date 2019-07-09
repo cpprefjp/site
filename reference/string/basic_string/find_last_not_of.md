@@ -11,7 +11,7 @@ size_type find_last_not_of(const basic_string& str, size_type pos = npos) const 
 size_type find_last_not_of(const charT* s, size_type pos, size_type n) const;             // (2)
 size_type find_last_not_of(const charT* s, size_type pos = npos) const;                   // (3)
 
-size_type find_last_not_of(charT c, size_type pos = npos) const;                          // (4) C++11
+size_type find_last_not_of(charT c, size_type pos = npos) const;                          // (4)
 
 size_type find_last_not_of(std::basic_string_view<charT, traits> sv,
                            size_type pos = npos) const noexcept;                          // (5) C++17
