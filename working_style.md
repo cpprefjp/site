@@ -51,6 +51,7 @@ C++11以降対応については対応バージョンを明記します。バー
 
 | 英語               | 日本語 |
 |--------------------|----------------------------------------------|
+| abstract class                     | 抽象クラス                   |
 | aggregate                          | 集成体型                     |
 | alignment                          | アライメント (表示位置ではなくメモリの文脈) |
 | apply, application                 | 適用                         |
@@ -63,8 +64,11 @@ C++11以降対応については対応バージョンを明記します。バー
 | compound type                      | 複合型                       |
 | const iterator                     | 読み取り専用イテレータ       |
 | const reverse iterator             | 読み取り専用逆イテレータ     |
+| covariant                          | 共変的                       |
 | dereference                        | 間接参照                     |
 | dereferenceable                    | 間接参照可能                 |
+| derived class                      | 派生クラス                   |
+| direct base class                  | 直接基底クラス               |
 | effects                            | 効果                         |
 | emplace                            | 直接構築                     |
 | empty                              | 空                           |
@@ -76,6 +80,8 @@ C++11以降対応については対応バージョンを明記します。バー
 | fundamental type                   | 単純型                       |
 | ill-formed                         | 不適格                       |
 | implementation-defined             | 処理系定義                   |
+| indirect base class                | 間接基底クラス               |
+| inherited                          | 継承                         |
 | input iterator                     | 入力イテレータ               |
 | iterator                           | イテレータ                   |
 | literal type                       | リテラル型                   |
@@ -86,6 +92,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | move assignment                    | ムーブ代入                   |
 | move constructor                   | ムーブコンストラクタ         |
 | mutable iterator                   | 可変イテレータ               |
+| non-virtual base class             | 非仮想基底クラス             |
 | note                               | 注                           |
 | output iterator                    | 出力イテレータ               |
 | overload                           | オーバーロード               |
@@ -93,6 +100,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | polymorphic                        | 多相的                       |
 | power of N                         | Nの累乗                      |
 | predicate                          | 述語                         |
+| pure virtual function              | 純粋仮想関数                 |
 | random access iterator             | ランダムアクセスイテレータ   |
 | range                              | 範囲                         |
 | remarks                            | 備考                         |
@@ -112,6 +120,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | underlying type                    | 基底型                       |
 | unordered associative container(s) | 非順序連想コンテナ           |
 | unspecified                        | 未規定                       |
+| virtual base class                 | 仮想基底クラス               |
 | well-formed                        | 適格                         |
 
 
