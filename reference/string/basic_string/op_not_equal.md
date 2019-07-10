@@ -7,7 +7,7 @@
 namespace std {
   template <class CharT, class Traits, class Allocator>
   bool operator!=(const basic_string<CharT, Traits, Allocator>& a,
-                  const basic_string<CharT, Traits, Allocator>& b); // (1) C++11
+                  const basic_string<CharT, Traits, Allocator>& b); // (1) C++03
 
   template <class CharT, class Traits, class Allocator>
   bool operator!=(const basic_string<CharT, Traits, Allocator>& a,
