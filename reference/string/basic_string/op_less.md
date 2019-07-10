@@ -7,7 +7,11 @@
 namespace std {
   template <class CharT, class Traits, class Allocator>
   bool operator<(const basic_string<CharT, Traits, Allocator>& a,
-                 const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1)
+                 const basic_string<CharT, Traits, Allocator>& b); // (1) C++03
+
+  template <class CharT, class Traits, class Allocator>
+  bool operator<(const basic_string<CharT, Traits, Allocator>& a,
+                 const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++14
 
   template <class CharT, class Traits, class Allocator>
   bool operator<(const CharT* a,
