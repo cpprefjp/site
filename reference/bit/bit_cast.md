@@ -54,6 +54,9 @@ namespace std {
       typename std::aligned_storage<sizeof(To), alignof(To)>::type storage;
       std::memcpy(&storage, &from, sizeof(To));  // memcpyはconstexprではないため、
                                                  // コンパイラが特殊な実装をする必要がある
+
+      // 以下のキャスト方法は、本来はString Aliasing規則に違反して未定義動作になるため、
+      // コンパイラが特殊な実装をする必要がある
       return reinterpret_cast<To&>(storage);
     }
     ```
