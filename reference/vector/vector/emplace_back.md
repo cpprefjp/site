@@ -7,16 +7,14 @@
 
 ```cpp
 template <class... Args>
-void emplace_back(Args&&... args);                      // C++14 まで
+void emplace_back(Args&&... args);                      // (1) C++11
+template <class... Args>
+reference emplace_back(Args&&... args);                 // (1) C++17
 
 template <class... Args>
-reference emplace_back(Args&&... args);                 // C++17 から
-
+void vector<bool>::emplace_back(Args&&... args);        // (2) C++11
 template <class... Args>
-void vector<bool>::emplace_back(Args&&... args);        // C++14 まで
-
-template <class... Args>
-reference vector<bool>::emplace_back(Args&&... args);   // C++17 から
+reference vector<bool>::emplace_back(Args&&... args);   // (2) C++17
 ```
 
 ## 概要

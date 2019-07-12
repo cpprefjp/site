@@ -5,11 +5,12 @@
 * function[meta id-type]
 
 ```cpp
-void swap(vector& x);
-void swap(vector& x)
+void swap(vector& x); // (1) C++03
+void swap(vector& x)  // (1) C++17
   noexcept(allocator_traits<Allocator>::propagate_on_container_swap::value 
-    || allocator_traits<Allocator>::is_always_equal::value); // C++17
+    || allocator_traits<Allocator>::is_always_equal::value);
 ```
+* allocator_traits[link /reference/memory/allocator_traits.md]
 
 ## 概要
 他の`vector`オブジェクトとデータを入れ替える。

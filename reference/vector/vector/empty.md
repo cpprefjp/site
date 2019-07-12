@@ -5,9 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-bool empty() const;                        // C++03
-bool empty() const noexcept;               // C++11
-[[nodiscard]] bool empty() const noexcept; // C++20
+bool empty() const;                        // (1) C++03
+bool empty() const noexcept;               // (1) C++11
+[[nodiscard]] bool empty() const noexcept; // (1) C++20
 ```
 
 ## 概要

@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-reference operator[](size_type n);
-const_reference operator[](size_type n) const;
+reference operator[](size_type n);             // (1)
+const_reference operator[](size_type n) const; // (2)
 ```
 
 ## 概要

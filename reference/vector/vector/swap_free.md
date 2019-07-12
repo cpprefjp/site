@@ -6,11 +6,11 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  void swap(vector<T, Allocator>& x, vector<T, Allocator>& y);
+  void swap(vector<T, Allocator>& x, vector<T, Allocator>& y); // (1) C++03
 
   template <class T, class Allocator>
   void swap(vector<T,Allocator>& x, vector<T,Allocator>& y)
-    noexcept(noexcept(x.swap(y)));                          // C++17
+    noexcept(noexcept(x.swap(y)));                             // (1) C++17
 }
 ```
 

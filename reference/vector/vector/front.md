@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-reference front();
-const_reference front() const;
+reference front();             // (1)
+const_reference front() const; // (2)
 ```
 
 ## 概要

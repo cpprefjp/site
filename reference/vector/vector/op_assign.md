@@ -13,6 +13,7 @@ vector& operator=(vector&& x) noexcept(
 vector& operator=(initializer_list<T>); // (3) C++11
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* allocator_traits[link /reference/memory/allocator_traits.md]
 
 ## 概要
 - (1) : コピー代入
