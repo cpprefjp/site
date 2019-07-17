@@ -14,7 +14,7 @@ namespace std {
 ## 概要
 ビットレベルの再解釈キャストを行う。
 
-低レイヤーのプログラムでは、同じビットを維持してほかの型に解釈し直すことが必要とされる。その際、`reinterpret_cast`や共用体を使用すると、Strict Aliasing規則に抵触してしまい未定義動作になってしまう。そのような目的には[`std::aligned_storage`](/reference/type_traits/aligned_storage.md)と`std::memcpy()`を組み合わせて使用することになるが、それを簡単に使用できるようにしたのが本関数である。
+低レイヤーのプログラムでは、同じビットを維持してほかの型に解釈し直したいことがある。その際、`reinterpret_cast`や共用体を使用すると、Strict Aliasing規則に抵触して未定義動作になってしまう。安全な方法としては`std::memcpy()`を使用するなどがあるが、面倒なことなどから前述の危険な方法が多く見られた。そこで、同等の操作を簡単で安全にできるようにしたのが本関数である。
 
 
 ## 要件
@@ -44,23 +44,17 @@ namespace std {
 
 
 ## 備考
-- この関数は、型`To`にデフォルト構築可能であることの要求を行わない
-    - [`std::aligned_storage`](/reference/type_traits/aligned_storage.md)を介して`To`型オブジェクト用の領域を用意することで、要求の少ない関数となる
+- この関数は、型`To`にデフォルト構築可能であることの要求を行わない。以下に実装イメージを示す：
     ```cpp
     template<typename To, typename From>
     To bit_cast(const From& from) noexcept { // 実際には、さらに要件チェックが行われる
-      // To型のオブジェクトに直接memcpyするのではなく、アライメント調整した領域にmemcpyして、
-      // その領域をTo型に再解釈キャストする。
-      typename std::aligned_storage<sizeof(To), alignof(To)>::type storage;
-      std::memcpy(&storage, &from, sizeof(To));  // memcpyはconstexprではないため、
-                                                 // コンパイラが特殊な実装をする必要がある
-
-      // 以下のキャスト方法は、本来はString Aliasing規則に違反して未定義動作になるため、
-      // コンパイラが特殊な実装をする必要がある
-      return reinterpret_cast<To&>(storage);
+      // この実装ではTo型がデフォルト構築可能である必要があるが、C++20のbit_castでは必要ない
+      To result;
+      std::memcpy(&result, &from, sizeof(To));  // memcpyはconstexprではないため、
+                                                // コンパイラが特殊な実装をする必要がある
+      return result;
     }
     ```
-    * std::aligned_storage[link /reference/type_traits/aligned_storage.md]
 
 ## 例
 ```cpp example
