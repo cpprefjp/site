@@ -35,6 +35,7 @@ namespace std {
 
 
 ## 例
+### スタック領域を使用するコンテナ実装の例 (C++11)
 ```cpp example
 #include <iostream>
 #include <type_traits>
@@ -46,13 +47,72 @@ class StackContainer {
   // でアライメント調整された領域を作る
   typename
     std::aligned_storage<sizeof(T) * Capacity, alignof(T)>::type
-  storage;
+  storage_;
+
+  T* ptr_ = nullptr;
+  std::size_t size_ = 0;
+
+public:
+  void push(T value)
+  {
+    // 未初期化領域に要素を作る
+    if (size_ <= 0) {
+      ptr_ = new (&storage_) T(value);
+    }
+    else {
+      new (ptr_ + size_) T(value);
+    }
+    ++size_;
+  }
+
+  T& front()
+  {
+    return *ptr_;
+  }
+
+  ~StackContainer()
+  {
+    for (std::size_t i = 0; i < size_; ++i) {
+      (ptr_ + i)->~T();
+    }
+  }
+};
+
+int main()
+{
+  StackContainer<int, 3> cont;
+  cont.push(1);
+
+  std::cout << cont.front() << std::endl;
+}
+```
+* std::aligned_storage[color ff0000]
+
+#### 出力
+```
+1
+```
+
+### スタック領域を使用するコンテナ実装の例 (C++17)
+```cpp
+#include <iostream>
+#include <type_traits>
+#include <new>
+
+template <class T, std::size_t Capacity>
+class StackContainer {
+  // 長さ：sizeof(T) * Count、
+  // アライメント：alignof(T)
+  // でアライメント調整された領域を作る
+  typename
+    std::aligned_storage<sizeof(T) * Capacity, alignof(T)>::type
+  storage_;
 
   std::size_t size_ = 0;
 
   T* data()
   {
-    return static_cast<T*>(static_cast<void*>(&storage));
+    return std::launder(reinterpret_cast<T*>(&storage_));
   }
 
 public:
@@ -85,8 +145,9 @@ int main()
 }
 ```
 * std::aligned_storage[color ff0000]
+* std::launder[link /reference/new/launder.md]
 
-### 出力
+#### 出力
 ```
 1
 ```
