@@ -5,14 +5,32 @@
 (執筆中)
 
 ## 仕様
-### concept
-- `concept`キーワードによって定義されたコンセプトは、`bool`型のprvalueを持つ定数式である：
+### コンセプト定義
+- 「コンセプト (concept)」は、テンプレート引数に対する制約を定義するテンプレートである。コンセプトは、以下の構文で定義する：
+    ```cpp
+    template <テンプレートパラメータ宣言>
+    concept コンセプト名 = requires式;
+    ```
+
+- コンセプトは、`bool`型のprvalueを持つ定数式である：
     ```cpp
     template <class T>
     concept C = true;
 
     static_assert(C<int>);
     ```
+
+- コンセプトは、関連制約を持ってはならない (条件によって定義が存在しないことは許可されない)
+    ```cpp
+    template <class T>
+    concept A = true;
+
+    template <A T> // コンパイルエラー！コンセプトは制約できない
+    concept B = true;
+    ```
+
+- コンセプトはインスタンス化されない。コンセプトを明示的にインスタンス化、明示的に特殊化、部分的に特殊化した場合、プログラムは不適格となる
+
 
 (執筆中)
 
