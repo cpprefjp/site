@@ -53,18 +53,9 @@ export(opt) module モジュール名 属性(opt);
     - `std`および`std`から始まるあらゆるモジュール名は、今後の規格や処理系のために予約されているので、ユーザー定義のモジュール名として使うことはできない。
 
 ```cpp
-export module foo; // fooのモジュールインターフェースユニット
-```
-
-```cpp
-module foo; // fooのモジュール実装ユニット
-```
-
-```cpp
-module foo.bar; // foo.barのモジュール実装ユニット
-```
-
-```cpp
+export module foo;                // fooのモジュールインターフェースユニット
+module foo;                       // fooのモジュール実装ユニット
+module foo.bar;                   // foo.barのモジュール実装ユニット
 export module bar [[deprecated]]; // 属性
 ```
 
