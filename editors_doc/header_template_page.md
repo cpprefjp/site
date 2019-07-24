@@ -16,6 +16,7 @@
 <!--    `cpp14[meta cpp]` : C++14で追加された機能 -->
 <!--    `cpp17[meta cpp]` : C++17で追加された機能 -->
 <!--    `cpp20[meta cpp]` : C++20で追加された機能 -->
+<!--    `cpp23[meta cpp]` : C++23で追加された機能 -->
 <!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 -->
 <!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 -->
 <!--    `cpp14removed[meta cpp]` : C++14で削除された機能 -->
@@ -23,6 +24,8 @@
 <!--    `cpp17removed[meta cpp]` : C++17で削除された機能 -->
 <!--    `cpp20deprecated[meta cpp]` : C++20で非推奨になった機能 -->
 <!--    `cpp20removed[meta cpp]` : C++20で削除された機能 -->
+<!--    `cpp23deprecated[meta cpp]` : C++23で非推奨になった機能 -->
+<!--    `cpp23removed[meta cpp]` : C++23で削除された機能 -->
 
 (ここには、このヘッダファイル(ライブラリ)の概要を記述します。必須事項です。)
 
