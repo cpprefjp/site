@@ -62,7 +62,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 - 乱数生成を行うアルゴリズム、`std::rand()`と[`std::random_shuffle()`](/reference/algorithm/random_shuffle.md)を非推奨とする。`std::rand()`の代わりに[`<random>`](/reference/random.md)ヘッダで定義される乱数生成器と分布クラスを、[`std::random_shuffle()`](/reference/algorithm/random_shuffle.md)の代わりに[`std::shuffle()`](/reference/algorithm/shuffle.md)を使用すること
 
 
-## メモリ管理
+### メモリ管理
 - [`std::unique_ptr`](/reference/memory/unique_ptr.md)を生成するヘルパ関数[`std::make_unique()`](/reference/memory/make_unique.md)を追加
 
 
