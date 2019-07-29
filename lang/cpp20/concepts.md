@@ -32,8 +32,6 @@
 - コンセプトはインスタンス化されない。コンセプトを明示的にインスタンス化、明示的に特殊化、部分的に特殊化した場合、プログラムは不適格となる
 
 
-(執筆中)
-
 ### requires式
 - 「requires式 (Requires expressions)」は、「型`T`がメンバ関数`f()`を持っていなければならない」「型`T`がメンバ型`value_type`を持っていなければならない」といったテンプレートパラメータの型がもつプロパティを検査し、要件を定義するための機能である
 - requires式の結果は、`bool`型のprvalueを持つ定数式である
@@ -361,13 +359,9 @@
     S<Arg> s2; // #2 が選択される。両方の制約を満たすが、#2 の方がより特殊化されている
     ```
 
-
-(執筆中)
-
-
 ### requires節
 - 「requires節 (Requires clauses)」は、テンプレートパラメータに対する制約を表明する構文である
-- requires節は、`&&` (AND条件)、`||` (OR条件) の論理演算子によって複合的に制約を指定できる
+- requires節は、`&&` (AND条件、conjunction、連言)、`||` (OR条件、disjunction、選言) の論理演算子によって複合的に制約を指定できる
     ```cpp
     template <class T>
     requires std::MoveConstructible<T> || std::CopyConstructible<T>
@@ -376,6 +370,7 @@
     * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
     * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
 
+- `&&`と`||`でつなげる個々の制約を「原子制約 (Atomic constraints)」という。制約単体、もしくは`&&`と`||`を含まない定数条件式が原子制約となる
 - requires節は、非テンプレートの関数宣言にも記述できる。これは、クラステンプレートの非テンプレートメンバ関数に対する制約として使用できる
     - requires節は関数宣言のみに現れ、定義には現れてはならない
     - 戻り値の型を前置する構文では、CV修飾や`noexcept`のうしろに記述する
@@ -447,8 +442,6 @@
 
 - 非テンプレートのfriend宣言は、requires節を持ってはならない
 
-(執筆中)
-
 ### 関数オーバーロード
 - 同じ名前の2つの関数宣言が、同じスコープ、等価なパラメータ宣言、等価なrequires節を持つ場合、同じ関数を参照するものとする
     - 同じ関数の再宣言と見なされ、オーバーロードにはならない
@@ -488,6 +481,10 @@
     * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
     * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
 
+- オーバーロードの優先順は、以下のようになる：
+    1. 非関数テンプレート
+    2. より強い制約を満たすオーバーロード
+    3. 関数テンプレート
 - 満たされない制約を持つ全ての関数は、オーバーロード解決の候補から除外される
 
 
