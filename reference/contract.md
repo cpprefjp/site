@@ -1,16 +1,16 @@
 # contract
 * contract[meta header]
-* cpp20[meta cpp]
+* cpp23[meta cpp]
 
-`<contract>`ヘッダでは、[契約違反](/lang/cpp20/contract-based_programming.md)のハンドリングのための機能を定義する。
+`<contract>`ヘッダでは、[契約違反](/lang/cpp23/contract-based_programming.md)のハンドリングのための機能を定義する。
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`contract_violation`](contract/contract_violation.md) | 契約違反に関する情報 (class) | C++20 |
+| [`contract_violation`](contract/contract_violation.md) | 契約違反に関する情報 (class) | C++23 |
 
 ## バージョン
 ### 言語
-- C++20
+- C++23
 
 ### 処理系
 - [Clang](/implementation.md#clang): 未実装
