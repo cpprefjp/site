@@ -83,4 +83,4 @@ int main()
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
 - [destroy: Missing member function of std::pmr::polymorphic_allocator - Developer Community](https://developercommunity.visualstudio.com/content/problem/394908/destroy-missing-member-function-of-stdpmrpolymorph.html)
-  - VC++においてこの関数の実装がされていない理由について
+    - VC++においてこの関数の実装がされていない理由について
