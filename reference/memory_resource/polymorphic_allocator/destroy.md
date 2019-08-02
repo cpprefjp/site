@@ -72,7 +72,7 @@ int main()
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
-    - 2017, 2019共にこの関数の実装だけが抜けている
+    - 2017, 2019共にこの関数は意図的に実装されていない（必要なら[`destroy_at`](/reference/memory/destroy_at.md)を利用する）
 
 ## 関連項目
 - [`destroy_at`](/reference/memory/destroy_at.md)
@@ -82,3 +82,5 @@ int main()
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
+- [destroy: Missing member function of std::pmr::polymorphic_allocator - Developer Community](https://developercommunity.visualstudio.com/content/problem/394908/destroy-missing-member-function-of-stdpmrpolymorph.html)
+  - VC++においてこの関数の実装がされていない理由について
