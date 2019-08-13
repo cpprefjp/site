@@ -13,10 +13,10 @@ typename result_of<T&(ArgTypes&&...)>::type operator ()(ArgTypes&&... args) cons
 ## 概要
 保持している参照に対して関数呼び出しを行う
 
-
 ## 要件
-型`T`が関数呼び出し可能な型([*Callable*](/reference/concepts/Callable.md))であること
+型`T`が関数呼び出し可能な型([*Callable*](/reference/concepts/Callable.md))であること。
 
+C++20から、型`T`は完全型であること。
 
 ## 戻り値
 [`INVOKE`](/reference/concepts/Invoke.md)`(`[`get()`](/reference/functional/reference_wrapper/get.md)`, std::`[`forward`](/reference/utility/forward.md)`<ArgTypes>(args)...)`
@@ -70,5 +70,5 @@ int main()
 
 
 ## 参照
-
-
+- [P0357R3 reference_wrapper for incomplete types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0357r3.html)
+    - テンプレートパラメータ`T`が完全型であるという要件が追加された経緯

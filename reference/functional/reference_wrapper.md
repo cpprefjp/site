@@ -15,7 +15,7 @@ namespace std {
 `reference_wrapper`は、コピー・代入可能なオブジェクトとして持ちまわれる参照オブジェクトを提供する。コピー不可なクラス (例：`std::istream`) をポインタで保持する代わりに`reference_wrapper`で保持することができる。また、`reference_wrapper`クラスは、関数テンプレートに変数を参照として渡すためにも使用できる。
 
 C++17からは、このクラスは[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)であると規定された。
-
+また、C++20からは、テンプレートパラメーター`T`は不完全型をサポートしている。
 
 ## メンバ関数
 
@@ -83,6 +83,39 @@ int main()
 4
 ```
 
+### 不完全型を保持する例
+
+```cpp example
+#include <functional>
+#include <iostream>
+
+struct my_struct;
+my_struct& get_my_struct();
+
+int main()
+{
+  [[maybe_unused]]
+  std::reference_wrapper<my_struct> s = get_my_struct(); // 不完全型 my_struct の使用
+}
+
+struct my_struct
+{
+  void hello() { std::cout << "Hello, world!"; }
+};
+
+my_struct& get_my_struct()
+{
+  static my_struct obj = my_struct{};
+  return obj;
+}
+```
+
+### 出力
+
+```
+0
+```
+
 ## バージョン
 ### 言語
 - C++11
@@ -100,3 +133,4 @@ int main()
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
 - [N4277 TriviallyCopyable `reference_wrapper` (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4277.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
+- [P0357R3 reference_wrapper for incomplete types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0357r3.html)

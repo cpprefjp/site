@@ -19,8 +19,9 @@ namespace std {
 * reference_wrapper[link reference_wrapper.md]
 
 ## 概要
-変数への`const`参照`t`を保持する`reference_wrapper`オブジェクトを生成する
+変数への`const`参照`t`を保持する`reference_wrapper`オブジェクトを生成する。
 
+C++20からは、テンプレートパラメーター`T`は不完全型をサポートしている。
 
 ## 戻り値
 - (1) : `t`を参照する`reference_wrapper<const T>`オブジェクトを返す。
@@ -71,5 +72,5 @@ int main()
 
 
 ## 参照
-
-
+- [P0357R3 reference_wrapper for incomplete types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0357r3.html)
+    - テンプレートパラメータ`T`に不完全型が許可された経緯
