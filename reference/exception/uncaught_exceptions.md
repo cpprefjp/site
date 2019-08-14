@@ -15,7 +15,7 @@ namespace std {
 
 
 ## 戻り値
-呼び出された時点での、スローされたがキャッチされていない例外オブジェクトの数を取得する。
+呼び出し時点の、そのスレッドにおいてスローされたがキャッチされていない例外オブジェクトの数を取得する。
 
 具体的には、`try`ブロック中で作られたオブジェクトのデストラクタや、スタック巻き戻し(unwind)中のデストラクタで1以上になる。
 
@@ -89,3 +89,4 @@ catch exception 2
 - [C++1z 現在発生している例外の数を取得するuncaught_exceptions()関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/06/22/171639)
 - [N4152 uncaught_exceptions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4152.pdf)
 - [N4259 Wording for std::uncaught_exceptions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4259.pdf)
+- [CWG 2098 Is uncaught_exceptions() per-thread?](https://wg21.cmeerw.net/cwg/issue2098)
