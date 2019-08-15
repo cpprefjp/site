@@ -369,7 +369,7 @@
     };
 
     // autoプレースホルダーによる簡略構文を使用したラムダ式のテンプレートパラメータを制約
-    auto g = [](auto C T1 t1, auto C T2 t2) {
+    auto g = [](C auto t1, C auto t2) {
         return t1 + t2;
     };
     ```
