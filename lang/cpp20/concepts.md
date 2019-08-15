@@ -359,6 +359,21 @@
     S<Arg> s2; // #2 が選択される。両方の制約を満たすが、#2 の方がより特殊化されている
     ```
 
+- ラムダ式においても、テンプレートパラメータを個別に制約できる：
+    ```cpp
+    template<typename T> concept C = true;
+
+    // テンプレート構文を使用したラムダ式のテンプレートパラメータを制約
+    auto f = []<typename T1, C T2> requires C<T1> (T1 t1, T2 t2) {
+        return t1 + t2;
+    };
+
+    // autoプレースホルダーによる簡略構文を使用したラムダ式のテンプレートパラメータを制約
+    auto g = [](auto C T1 t1, auto C T2 t2) {
+        return t1 + t2;
+    };
+    ```
+
 ### requires節
 - 「requires節 (Requires clauses)」は、テンプレートパラメータに対する制約を表明する構文である
 - requires節は、`&&` (AND条件、conjunction、連言)、`||` (OR条件、disjunction、選言) の論理演算子によって複合的に制約を指定できる
