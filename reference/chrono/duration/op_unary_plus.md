@@ -15,7 +15,7 @@ constexpr common_type_t<duration> operator+() const;
 
 
 ## 戻り値
-`*this`
+`common_type_t<duration>(*this)`
 
 
 ## 例
