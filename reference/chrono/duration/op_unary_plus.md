@@ -6,8 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-constexpr duration operator+() const;
+constexpr common_type_t<duration> operator+() const;
 ```
+* common_type_t[link /reference/type_traits/common_type.md]
 
 ## 概要
 正の`duration`を生成する
@@ -51,3 +52,6 @@ int main()
 ### 処理系
 - [GCC, C++11 mode](/implementation.md#gcc): 4.5.1, 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+
+### 参照
+- [P0548R1 : common_type and duration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0548r1.pdf)
