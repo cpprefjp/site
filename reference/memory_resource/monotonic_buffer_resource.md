@@ -12,8 +12,8 @@ namespace std::pmr {
 
 
 ## 概要
-`monotonic_buffer_resource`はオブジェクトの破棄時にのみ管理しているメモリを全て開放すような [`memory_resource`](memory_resource.md)実装である。  
-少数のオブジェクトを構築するために割り当てを行い`monotonic_buffer_resource`そのものの破棄時にまとめて開放するような、特殊な状況において高速なメモリ割り当てを行うことを目的としている。
+`monotonic_buffer_resource`はオブジェクトの破棄時にのみ管理しているメモリを全て開放する特殊な [`memory_resource`](memory_resource.md)実装である。  
+少数のオブジェクトを多数構築するために割り当てを行い、最後にまとめて開放するといった状況において高速なメモリ割り当てを行うことを目的としている。
 
 このクラスはスレッドセーフではない。
 
@@ -37,7 +37,7 @@ namespace std::pmr {
 | [`(destructor)`](monotonic_buffer_resource/op_destructor.md)  | デストラクタ   | C++17 |
 | `operator=(const monotonic_buffer_resource&) = delete;`     | コピー代入演算子（コピー禁止）     | C++17 |
 
-### 共通メンバ関数
+### メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
@@ -52,7 +52,7 @@ namespace std::pmr {
 | [`deallocate`](memory_resource/deallocate.md) | メモリを解放する | C++17 |
 | [`is_equal`](memory_resource/is_equal.md) | オブジェクトを超えてメモリ領域の解放を行えるかを調べる | C++17 |
 
-### protected オーバーライド関数
+### protected オーバーライド関数（`memory_resource`実装）
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`do_allocate`](monotonic_buffer_resource/do_allocate.md) | メモリを確保する | C++17 |
