@@ -1,5 +1,5 @@
 # endian
-* type_traits[meta header]
+* bit[meta header]
 * std[meta namespace]
 * enum[meta id-type]
 * cpp20[meta cpp]
@@ -36,7 +36,7 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <type_traits>
+#include <bit>
 #include <iostream>
 
 int main()
@@ -73,4 +73,4 @@ int main()
 
 ## 参照
 - [P0463R1 endian, Just endian](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0463r1.html)
-
+- [P1612R1 Relocate Endian's Specification](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1612r1.pdf)
