@@ -112,6 +112,10 @@ export namespace {
 namespace {
   export int a2;          // エラー: 内部リンケージを持つ名前はエクスポートできない
 }
+export namespace N {      // OK
+  int x;                  // OK: エクスポートされる
+  static_assert(1 == 1);  // エラー: 新たな名前を宣言していない
+}
 export static int b;      // エラー: 明示的にstaticで宣言されている名前はエクスポートできない
 export int f();           // OK
 export namespace N { }    // OK
@@ -121,7 +125,6 @@ export using namespace N; // エラー: 新たな名前を宣言していない
 
 また、波カッコに`export`をつけることで、その中の宣言をまとめてエクスポートできる。
 
-* 波カッコの中の宣言は、新たな名前を導入していなくてもよい
 * この波カッコはスコープを作らない
 
 ```cpp
@@ -137,7 +140,7 @@ export {
 - 明示的にexport宣言されている宣言
 - 明示的にexport宣言されている名前空間の定義の中にある宣言
 - エクスポートされる宣言を含む名前空間の定義
-- `export`ブロックの中にあって、新たな名前を導入する宣言
+- `export`ブロックの中にある宣言
 
 宣言は再宣言できるが、再宣言によってエクスポートの有無が変わることはない。すなわち、
 
@@ -468,5 +471,5 @@ int main() {
 - [P1502R0
 Standard library header units for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1502r0.html)
 - [P1703R0 Recognizing Header Unit Imports Requires Full Preprocessing](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1703r0.html)
-- [P1766R0
-Mitigating minor modules maladies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1766r0.html)
+- [P1766R1
+Mitigating minor modules maladies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1766r1.html)
