@@ -132,8 +132,8 @@ export using namespace N; // エラー: 新たな名前を宣言していない
 ```cpp
 export {
   struct Foo { /*...*/ };                           // エクスポートされる
-  static_assert(std::is_trivially_copyable_v<Foo>); // エクスポートされない
-  using namespase std;                              // エクスポートされない
+  static_assert(std::is_trivially_copyable_v<Foo>); // エラー: 新たな名前を宣言していない
+  using namespase std;                              // エラー: 新たな名前を宣言していない
 }
 ```
 
