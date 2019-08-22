@@ -174,14 +174,14 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ## ライブラリ更新の概要
 ### 新ライブラリ
-- [`<version>`](/reference/version.md)ヘッダを新設する。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される
-- [`<chrono>`](/reference/chrono.md)ヘッダに、カレンダーとタイムゾーンの機能を拡張
+- バージョン情報ライブラリとして[`<version>`](/reference/version.md)を追加。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される
+- [`<chrono>`](/reference/chrono.md)ライブラリに、カレンダーとタイムゾーンの機能を拡張
 - 任意のシーケンスの部分シーケンスを参照するライブラリとして[`<span>`](/reference/span.md)を追加
 - 文字列フォーマットライブラリとして[`<format>`](/reference/format.md.nolink)を追加
 - 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md)を追加
-- [`<compare>`](/reference/compare.md.nolink)ヘッダを新設する。ここでは、一貫比較 (宇宙船演算子) をサポートするための型と比較関数が定義される
+- 三方比較ライブラリとして[`<compare>`](/reference/compare.md.nolink)を追加
 - 数値ライブラリとして[`<numbers>`](/reference/numbers.md.nolink)を追加。数学定数が定義される
-- [`<bit>`](/reference/bit.md)ヘッダを新設する
+- ビット操作ライブラリとして[`<bit>`](/reference/bit.md)を追加
     - Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md)関数を追加
     - 2の乗数関係の関数として、整数値が2の累乗かを判定する[`std::ispow2()`](/reference/bit/ispow2.md)関数、整数値を2の累乗値に切り上げる[`std::ceil2()`](/reference/bit/ceil2.md)関数、整数値を2の累乗値に切り下げる[`std::floor2()`](/reference/bit/floor2.md)関数、2を底とした整数値の対数を求めて1を足す[`std::log2p1()`](/reference/bit/log2p1.md)関数を追加
     - 循環ビットシフトを行う[`std::rotl()`](/reference/bit/rotl.md.nolink)と[`std::rotr()`](/reference/bit/rotr.md.nolink)を追加
