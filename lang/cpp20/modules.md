@@ -168,12 +168,12 @@ import lib; // libのインポート
 ```
 
 モジュールインポート宣言は、モジュールのインターフェースユニットをインポートする。
-インポートされた翻訳単位でエクスポートされている名前は、名前探索の候補に挙がるようになる。
+
+インポートされた翻訳単位でエクスポートされている名前は、インポート宣言を記述した翻訳単位において**可視**(visible)となる。
+名前が可視であるとき、かつそのときに限り、名前は名前探索の候補となる。
 
 マクロや`using namespace`はエクスポートできないので、インポートによって取り込まれることはない。
 ヘッダーファイル中での `using namespace` はしばしば避けられるが、モジュールでは問題なく使うことができる。
-
-名前が名前探索で見つかるとき、**可視**(visible)であるという。
 
 #### 再エクスポート
 
@@ -208,17 +208,17 @@ C++20では、翻訳単位と宣言に対して到達可能という用語を使
 - 点Pから必然的に到達可能な翻訳単位
 - その他、点Pを含む翻訳単位がインターフェース依存を持つ翻訳単位であって、処理系が規定するもの
 
-宣言Dが点Pから到達可能あるいは必然的に到達可能とは、次のことをいう
+宣言Dが点Pから到達可能とは、次のことをいう
 
 - DがPと同じ翻訳単位にあり、Pに先立って宣言されている
-- または、DがPから到達可能あるいは必然的に到達可能な翻訳単位にあって、破棄(discard)されておらず、プライベートモジュールフラグメント内にもない
+- または、DがPから到達可能な翻訳単位にあって、破棄(discard)されておらず、プライベートモジュールフラグメント内にもない
 
 C++20までは到達可能という用語はなかったが、前者の条件を満たす宣言だけが参照できていた。
-宣言の意味論的な性質(semantic property)を使用するには、宣言が到達可能でなければならない。
+宣言が到達可能であるとき、かつそのときに限り、宣言の意味論的な性質(semantic property)を利用できる。
 
 例えば、クラス定義はクラスの完全性という性質を持っている。クラス定義が到達可能であるときそのクラスは完全である。
 
-エクスポートの有無とは関係なく、モジュールをインポートしただけでインターフェース依存が発生し、そのモジュールインターフェースユニットへ到達可能となる。
+エクスポートの有無とは関係なく、モジュールをインポートしただけでインターフェース依存が発生し、そのモジュールインターフェースユニットおよびその中の宣言へ到達可能となる。
 
 ### モジュールパーティション
 
@@ -283,37 +283,9 @@ int baz() { return 30; }
 3. モジュール実装パーティション `:Internals`
 4. モジュール実装ユニット
 
+### モジュールにおけるODR
 
-### ODRの緩和
-
-C++20では、複数の定義があっても必然的に到達可能でなければODR違反とならない。
-
-```cpp
-// a.cpp
-export module A;
-
-export void foo(){}
-```
-
-```cpp
-// b.cpp
-export module B;
-
-export void foo(){}
-```
-
-```cpp
-import A;
-
-int main()
-{
-  foo();
-}
-```
-
-このプログラムでは、関数`foo`をモジュールA,Bで2回定義しているが、モジュールA,Bを同時にインポートしていないのでODR違反とならない。
-
-一方、同じトークン列であれば再定義しても良いというODRの例外は、その定義が名前のあるモジュールに属する場合は適用されない。
+同じトークン列であれば再定義しても良いというODRの例外は、その定義が名前のあるモジュールに属する場合は適用されない。
 
 この例外はヘッダーファイルにクラス定義などを書いてインクルードした際にODR違反にならないための規定である。
 モジュールを定義する場合はヘッダーファイルは使わないから、実質的な影響はない。
@@ -332,7 +304,7 @@ int main()
 ```cpp
 module;             // グローバルモジュールフラグメントの宣言
 
-#include <iostream> // <iostream>中の宣言はモジュールfooに含まれない。
+#include "lib.h"    // "lib.h"中の宣言はモジュールfooに含まれない。
 
 export module foo;
 
@@ -471,7 +443,12 @@ int main() {
 ## 参照
 - [P1103R3 Merging Modules](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf)
 - [P1502R1
-Standard library header units for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1502r1.html)
-- [P1703R1 Recognizing Header Unit Imports Requires Full Preprocessing](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1703r1.html)
+Standard library header units for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1502r1.html)  
+  C++ライブラリヘッダーはインポータブルヘッダーとなった。
+- [P1703R1 Recognizing Header Unit Imports Requires Full Preprocessing](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1703r1.html)  
+  ヘッダーユニットのインポート宣言について、書き方が`#include`と同程度まで制限された。
 - [P1766R1
 Mitigating minor modules maladies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1766r1.html)
+- [P1811R0
+Relaxing redefinition restrictions for re-exportation robustness](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1811r0.html#problem)  
+  同時に到達可能とならなければODR違反にならないという仕様が削除された。また、インポータブルヘッダーの`#include`を`import`に置き換えるかは処理系定義となった。
