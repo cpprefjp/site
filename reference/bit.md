@@ -21,6 +21,25 @@
 | [`log2p1`](bit/log2p1.md) | 2を底とした整数値の対数を求めて1を足す (functional template) | C++20 |
 
 
+## 循環ビットシフト
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`rotl`](bit/rotl.md.nolink) | 左循環ビットシフト (function template) | C++20 |
+| [`rotr`](bit/rotr.md.nolink) | 右循環ビットシフト (function template) | C++20 |
+
+
+## ビットカウント
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`countl_zero`](bit/countl_zero.md.nolink) | 左から連続した0のビットを数える (function template) | C++20 |
+| [`countl_one`](bit/countl_one.md.nolink) | 左から連続した1のビットを数える (function template) | C++20 |
+| [`countr_zero`](bit/countr_zero.md.nolink) | 右から連続した0のビットを数える (function template) | C++20 |
+| [`countr_one`](bit/countr_one.md.nolink) | 右から連続した1のビットを数える (function template) | C++20 |
+| [`popcount`](bit/popcount.md.nolink) | 立っているビットを数える (function template) | C++20 |
+
+
 ## エンディアン
 
 | 名前 | 説明 | 対応バージョン |

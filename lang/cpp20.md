@@ -177,16 +177,24 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<version>`](/reference/version.md)ヘッダを新設する。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される
 - [`<chrono>`](/reference/chrono.md)ヘッダに、カレンダーとタイムゾーンの機能を拡張
 - 任意のシーケンスの部分シーケンスを参照するライブラリとして[`<span>`](/reference/span.md)を追加
+- 文字列フォーマットライブラリとして[`<format>`](/reference/format.md.nolink)を追加
 - 出力ストリームを同期するライブラリとして[`<syncstream>`](/reference/syncstream.md)を追加
 - [`<compare>`](/reference/compare.md.nolink)ヘッダを新設する。ここでは、一貫比較 (宇宙船演算子) をサポートするための型と比較関数が定義される
+- 数値ライブラリとして[`<numbers>`](/reference/numbers.md.nolink)を追加。数学定数が定義される
 - [`<bit>`](/reference/bit.md)ヘッダを新設する
     - Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md)関数を追加
     - 2の乗数関係の関数として、整数値が2の累乗かを判定する[`std::ispow2()`](/reference/bit/ispow2.md)関数、整数値を2の累乗値に切り上げる[`std::ceil2()`](/reference/bit/ceil2.md)関数、整数値を2の累乗値に切り下げる[`std::floor2()`](/reference/bit/floor2.md)関数、2を底とした整数値の対数を求めて1を足す[`std::log2p1()`](/reference/bit/log2p1.md)関数を追加
+    - 循環ビットシフトを行う[`std::rotl()`](/reference/bit/rotl.md.nolink)と[`std::rotr()`](/reference/bit/rotr.md.nolink)を追加
+    - 連続した0もしくは1のビットを数える[`std::countl_zero()`](/reference/bit/countl_zero.md.nolink)、[`std::countl_one()`](/reference/bit/countl_one.md.nolink)、[`std::countr_zero()`](/reference/bit/countr_zero.md.nolink)、[`std::countr_one()`](/reference/bit/countr_one.md.nolink)、および立っているビットを数える[`std::popcount()`](/reference/bit/popcount.md.nolink)を追加
     - エンディアンを表す列挙型として[`std::endian`](/reference/bit/endian.md)を追加
 - 型制約のための要件ライブラリとして[`<concepts>`](/reference/concepts.md)を追加
 - 言語機能であるコルーチンを制御するライブラリとして[`<coroutine>`](/reference/coroutine.md.nolink)を追加
+- スレッドの実行を停止させるメカニズムとして[`<stop_token>`](/reference/stop_token.md.nolink)を追加し、停止に対応したスレッドクラスとして[`<thread>`](/reference/thread.md)に[`std::jthread`](/reference/thread/jthread.md.nolink)クラスを追加
+- 軽量な同期プリミティブであるセマフォのライブラリとして[`<semaphore>`](/reference/semaphore.md.nolink)を追加
+- スレッド調整メカニズムとして、ラッチライブラリの[`<latch>`](/reference/latch.md.nolink)、バリアライブラリの[`<barrier>`](/reference/barrier.md.nolink)を追加
 - イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリとして[`<ranges>`](/reference/ranges.md.nolink)を追加
     - 既存のイテレータの組を扱うアルゴリズムは、`std::ranges`名前空間に範囲版アルゴリズムが追加される
+- ソースコードの位置を取得するライブラリとして[`<source_location>`](/reference/source_location.md.nolink)を追加
 
 
 ### 取り決め
@@ -196,11 +204,12 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### コンテナ
 - 連想コンテナに、要素がコンテナに含まれているかを判定する`contains()`メンバ関数を追加
 - 順序付き連想コンテナと同様に、非順序連想コンテナの検索処理で、一時オブジェクトが生成されるコストを抑える拡張を追加。ハッシュ計算を行う関数オブジェクトに`transparent_key_equal`が定義されていれば、透過的な検索が使用できる。[`std::hash`](/reference/functional/hash.md)クラスのページを参照
-- 非順序連想コンテナの検索メンバ関数`find()`、`count()`、`contains()`、`equal_range()`に、事前計算したハッシュ値を指定するオーバーロードを追加。これによって、ハッシュ値をキャッシュして検索を高速化できる
 - 各コンテナの非メンバ関数として、要素を削除する`std::erase()`関数と`std::erase_if()`関数を追加
 - [`std::forward_list`](/reference/forward_list/forward_list.md)と[`std::list`](/reference/list/list.md)のメンバ関数`remove()`、`remove_if()`、`unique()`の戻り値型を、`void`から`Container::size_type`に変更
 - [`std::array`](/reference/array/array.md)クラスの比較演算子、[`fill()`](/reference/array/array/fill.md)メンバ関数、[`swap()`](/reference/array/array/swap.md)メンバ関数、[`swap()`](/reference/array/array/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
+- 組み込み配列を[`std::array`](/reference/array/array.md)に変換する関数として[`std::to_array()`](/reference/array/to_array.md.nolink)を追加
 - [`<iterator>`](/reference/iterator.md)に、符号付き整数としてコンテナの要素数を取得する[`std::ssize()`](/reference/iterator/ssize.md)関数を追加
+- [`std::allocator`](/reference/memory/allocator.md)、および[`std::vector`](/reference/vector/vector.md)と[`std::basic_string`](/reference/string/basic_string.md)を`constexpr`対応
 
 
 ### アルゴリズム
@@ -210,13 +219,20 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
 
 
+### イテレータ
+- [`std::back_insert_iterator`](/reference/iterator/back_insert_iterator.md)クラス、[`std::front_insert_iterator`](/reference/iterator/front_insert_iterator.md)クラス、[`std::insert_iterator`](/reference/iterator/insert_iterator.md)クラスのコンストラクタ、代入演算子、間接参照演算子、インクリメント演算子、および[`std::back_inserter()`](/reference/iterator/back_inserter.md)、[`std::front_inserter()`](/reference/iterator/front_inserter.md)、[`std::inserter()`](/reference/iterator/inserter.md)に`constexpr`を追加。これらのクラスのメンバ関数はすべて`constexpr`に対応した
+
+
+### 関数オブジェクト
+- [`<functional>`](/reference/functional.md)に、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を`T&`型に展開する[`std::unwrap_reference`](/reference/functional/unwrap_reference.md)型特性、[`std::decay`](/reference/type_traits/decay.md) + [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型の展開をする[`std::unwrap_ref_decay`](/reference/functional/unwrap_ref_decay.md)型特性を追加
+- [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)クラス、[`std::ref()`](/reference/functional/ref.md)関数、[`std::cref()`](/reference/functional/cref.md)関数のテンプレートパラメータ`T`型に不完全型を指定することを許可
+- メンバ関数の部分適用をかんたんにするために、プレースホルダーの指定なく引数を先頭から順に束縛する[`std::bind_front()`](/reference/functional/bind_front.md)関数を追加
+- [`std::invoke()`](/reference/functional/invoke.md)、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)の各操作、[`std::not_fn()`](/reference/functional/not_fn.md)、[`std::bind()`](/reference/functional/bind.md)、[`std::mem_fn()`](/reference/functional/mem_fn.md)を`constexpr`対応
+
+
 ### 数値計算
 - 数値とポインタの中点を求める関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md)関数を追加
 - 浮動小数点数を線形補間する関数として、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md)関数を追加
-
-
-### イテレータ
-- [`std::back_insert_iterator`](/reference/iterator/back_insert_iterator.md)クラス、[`std::front_insert_iterator`](/reference/iterator/front_insert_iterator.md)クラス、[`std::insert_iterator`](/reference/iterator/insert_iterator.md)クラスのコンストラクタ、代入演算子、間接参照演算子、インクリメント演算子、および[`std::back_inserter()`](/reference/iterator/back_inserter.md)、[`std::front_inserter()`](/reference/iterator/front_inserter.md)、[`std::inserter()`](/reference/iterator/inserter.md)に`constexpr`を追加。これらのクラスのメンバ関数はすべて`constexpr`に対応した
 
 
 ### 文字列
@@ -228,7 +244,10 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### 並行・並列処理
 - [`<memory>`](/reference/memory.md)に、[`std::atomic`](/reference/memory/atomic.md)クラスの[`std::shared_ptr`](/reference/memory/shared_ptr.md)と[`std::weak_ptr`](/reference/memory/weak_ptr.md)に対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
+- アトミックな待機・起床操作として`wait()`、`notify_one()`、`notify_all()`を追加
+- ロックフリーであることが保証されたアトミック整数型の別名として[`atomic_signed_lock_free`](/reference/atomic/atomic.md)と[`atomic_unsigned_lock_free`](/reference/atomic/atomic.md)を追加
 - [`std::memory_order`](/reference/atomic/memory_order.md)の列挙子にスコープをもたせた
+- [`std::atomic_flag`](/reference/atomic/atomic_flag.md)の非メンバ関数操作として[`std::atomic_flag_test()`](/reference/atomic/atomic_flag_test.md.nolink)と[`std::atomic_flag_test_explicit()`](/reference/atomic/atomic_flag_test_explicit.md.nolink)を追加
 - 非アトミックな型にアトミック操作を適用するためのクラス[`std::atomic_ref`](/reference/atomic/atomic_ref.md.nolink)を追加
 - ベクトル化の実行ポリシーとして、[`<execution>`](/reference/execution.md)に[`std::execution::unsequenced_policy`](/reference/execution/execution/execution_policy.md)型と[`std::execution::unseq`](/reference/execution/execution/execution_policy.md)タグを追加
 
@@ -236,7 +255,9 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### 入出力
 - 同期ストリームの追加にともなって、[`<ostream>`](/reference/ostream.md)に、同期ストリーム関係の出力マニピュレータを追加
 - [`operator>>`](/reference/istream/basic_istream/op_istream_free.md)`(basic_istream&, CharT*)`を`operator>>(basic_istream&, CharT (&)[N])`に修正
+- [`operator<<`](/reference/ostream/basic_ostream/op_ostream_free.md)に、`wchar_t` (`char`版のみ)、`char8_t`、`char16_t`、`char32_t`のdelete宣言を追加
 - [`std::istream_iterator`](/reference/iterator/istream_iterator.md)について、要件の書き方を整理し、振る舞いをより明確化
+- `std::basic_stringbuf`、`std::basic_istringstream`、`std::basic_ostringstream`クラスに、アロケータを伝播させるためのインタフェースを追加
 
 
 ### スマートポインタ
@@ -261,9 +282,6 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`std::complex`](/reference/complex/complex.md)クラスを`constexpr`に対応
 - [`std::pair`](/reference/utility/pair.md)クラスの[コンストラクタ](/reference/utility/pair/op_constructor.md)、[代入演算子](/reference/utility/pair/op_assign.md)、[`swap()`](/reference/utility/pair/swap.md)メンバ関数、[`swap()`](/reference/utility/pair/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
 - [`std::tuple`](/reference/tuple/tuple.md)クラスの[コンストラクタ](/reference/tuple/tuple/op_constructor.md)、[代入演算子](/reference/tuple/tuple/op_assign.md)、[`swap()`](/reference/tuple/tuple/swap.md)メンバ関数、[`swap()`](/reference/tuple/tuple/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
-- [`<functional>`](/reference/functional.md)に、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を`T&`型に展開する[`std::unwrap_reference`](/reference/functional/unwrap_reference.md)型特性、[`std::decay`](/reference/type_traits/decay.md) + [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型の展開をする[`std::unwrap_ref_decay`](/reference/functional/unwrap_ref_decay.md)型特性を追加
-- [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)クラス、[`std::ref()`](/reference/functional/ref.md)関数、[`std::cref()`](/reference/functional/cref.md)関数のテンプレートパラメータ`T`型に不完全型を指定することを許可
-- メンバ関数の部分適用をかんたんにするために、プレースホルダーの指定なく引数を先頭から順に束縛する[`std::bind_front()`](/reference/functional/bind_front.md)関数を追加
 
 
 ### ファイルシステム
@@ -276,6 +294,11 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<type_traits>`](/reference/type_traits.md)に、受け取った型をそのまま返す[`std::type_identity`](/reference/type_traits/type_identity.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、例外送出せずに暗黙の型変換が可能かを判定する[`std::is_nothrow_convertible`](/reference/type_traits/is_nothrow_convertible.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、要素数が判明している配列型かを判定する[`std::is_bounded_array`](/reference/type_traits/is_bounded_array.md)、要素数が不明な配列型かを判定する[`std::is_unbounded_array`](/reference/type_traits/is_unbounded_array.md)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、レイアウト互換性、ポインタ変換可能性を判定する以下の型特性を追加：
+    - 2つの型にレイアウト互換があるかを判定する[`std::is_layout_compatible`](/reference/type_traits/is_layout_compatible.md.nolink)
+    - 基底クラスと派生クラスの間でポインタ変換可能かを判定する[`std::is_pointer_interconvertible_base_of`](/reference/type_traits/is_pointer_interconvertible_base_of.md.nolink)
+    - メンバポインタがクラスのポインタに変換可能かを判定する[`is_pointer_interconvertible_with_class()`](/reference/type_traits/is_pointer_interconvertible_with_class.md.nolink)
+    - 2つの互換レイアウトをもつメンバポインタが共通位置にあるかを判定する[`std::is_corresponding_member()`](/reference/type_traits/is_corresponding_member.md.nolink)
 
 
 ### 機能の非推奨化
