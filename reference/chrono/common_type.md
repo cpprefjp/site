@@ -6,15 +6,17 @@
 
 ```cpp
 namespace std {
+  // (1)
   template <class Rep1, class Period1, class Rep2, class Period2>
   struct common_type<chrono::duration<Rep1, Period1>, chrono::duration<Rep2, Period2>> {
     using type = chrono::duration<common_type_t<Rep1, Rep2>, Period/*下記参照*/>;                       
-  }
+  };
 
+  // (2)
   template <class Clock, class Duration1, class Duration2>
   struct common_type<chrono::time_point<Clock, Duration1>, chrono::time_point<Clock, Duration2>> {
     using type = chrono::time_point<Clock, common_type_t<Duration1, Duration2>>;
-  }
+  };
 }
 ```
 * common_type[link /reference/type_traits/common_type.md]
@@ -48,19 +50,23 @@ constexpr auto duraion_plus(const std::chrono::duration<Rep1, Period1>& d1, cons
   -> std::common_type_t<std::chrono::duration<Rep1, Period1>, std::chrono::duration<Rep2, Period2>>
 {
   using common_duration = std::common_type_t<std::chrono::duration<Rep1, Period1>, std::chrono::duration<Rep2, Period2>>;
-  
+
   return common_duration(d1) + common_duration(d2);
 }
 
 int main()
 {
   using namespace std::literals;
-  std::cout << duraion_plus(1ms, 10s);
+
+  std::cout << duraion_plus(1ms, 10s).count() << std::endl;
+  std::cout << duraion_plus(1us, 10ms).count() << std::endl;
 }
 ```
 
 ### 出力
 ```
+10001
+10001
 ```
 
 ## バージョン
@@ -72,8 +78,8 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012
 
-## 参照
-- [P0548R1 common_type and duration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0548r1.pdf)
-
 ## 関連項目
 - [common_type](/reference/type_traits/common_type.md)
+
+## 参照
+- [P0548R1 common_type and duration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0548r1.pdf)
