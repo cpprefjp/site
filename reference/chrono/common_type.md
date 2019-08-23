@@ -44,10 +44,10 @@ namespace std {
 #include <chrono>
 
 template<class Rep1, class Period1, class Rep2, class Period2>
-constexpr auto duraion_plus(const std::chrono::duratio<Rep1, Period1>& d1, const std::chrono::duratio<Rep2, Period2>& d2)
-  -> std::common_type_t<std::chrono::duratio<Rep1, Period1>, std::chrono::duratio<Rep2, Period2>>
+constexpr auto duraion_plus(const std::chrono::duration<Rep1, Period1>& d1, const std::chrono::duration<Rep2, Period2>& d2)
+  -> std::common_type_t<std::chrono::duration<Rep1, Period1>, std::chrono::duration<Rep2, Period2>>
 {
-  using common_duration = std::common_type_t<std::chrono::duratio<Rep1, Period1>, std::chrono::duratio<Rep2, Period2>>;
+  using common_duration = std::common_type_t<std::chrono::duration<Rep1, Period1>, std::chrono::duration<Rep2, Period2>>;
   
   return common_duration(d1) + common_duration(d2);
 }

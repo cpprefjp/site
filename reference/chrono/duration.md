@@ -105,7 +105,7 @@ namespace chrono {
 | [`operator-`](op_minus.md)             | 減算 | C++11 |
 | [`operator*`](duration/op_multiply.md) | 乗算 | C++11 |
 | [`operator/`](duration/op_divide.md)   | 除算 | C++11 |
-| [`operator%`](duration//op_modulo.md)  | 剰余算 | C++11 |
+| [`operator%`](duration/op_modulo.md)  | 剰余算 | C++11 |
 
 ### 比較演算
 
@@ -133,7 +133,7 @@ namespace chrono {
 
 | 名前  | 説明               | 対応バージョン |
 |-------|--------------------|----------------|
-| [`common_type`](duration/common_type.md)   | 異なる`duration`間の共通の型を求める | C++11 |
+| [`common_type`](common_type.md)   | 異なる`duration`間の共通の型を求める | C++11 |
 
 ## 例
 ```cpp example
