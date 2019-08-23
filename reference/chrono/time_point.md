@@ -94,7 +94,7 @@ namespace chrono {
 
 | 名前  | 説明               | 対応バージョン |
 |-------|--------------------|----------------|
-| [`common_type`](duration/common_type.md)   | 異なる`time_point`間の共通の型を求める | C++11 |
+| [`common_type`](common_type.md)   | 異なる`time_point`間の共通の型を求める | C++11 |
 
 
 ## 例
