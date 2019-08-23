@@ -90,6 +90,12 @@ namespace chrono {
 | [`operator>`](time_point/op_greater.md)        | 左辺が右辺より大きいか判定を行う | C++11 |
 | [`operator>=`](time_point/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++11 |
 
+### common_type特殊化
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| [`common_type`](duration/common_type.md)   | 異なる`time_point`間の共通の型を求める | C++11 |
+
 
 ## 例
 ```cpp example

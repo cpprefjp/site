@@ -129,6 +129,11 @@ namespace chrono {
 | [`min`](duration/op_min.md) | 分リテラル         | C++14 |
 | [`h`](duration/op_h.md)     | 時リテラル         | C++14 |
 
+### common_type特殊化
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| [`common_type`](duration/common_type.md)   | 異なる`duration`間の共通の型を求める | C++11 |
 
 ## 例
 ```cpp example
