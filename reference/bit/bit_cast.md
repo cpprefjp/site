@@ -17,20 +17,10 @@ namespace std {
 低レイヤーのプログラムでは、同じビットを維持してほかの型に解釈し直したいことがある。その際、`reinterpret_cast`や共用体を使用すると、Strict Aliasing規則に抵触して未定義動作になってしまう。安全な方法としては`std::memcpy()`を使用するなどがあるが、面倒なことなどから前述の危険な方法が多く見られた。そこで、同等の操作を簡単で安全にできるようにしたのが本関数である。
 
 
-## 要件
-以下の条件のいずれかを満たさない場合、この関数はオーバーロード解決の候補から除外される：
-
+## テンプレートパラメータ制約
 - `sizeof(To) == sizeof(From)`であること
 - [`std::is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<To> == true`であること
 - [`std::is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<From> == true`であること
-
-型`To`と`From`、およびその全てのサブオブジェクトが以下の条件を全て満たす場合、本関数は`constexpr`関数として評価される：
-
-- [`std::is_union_v`](/reference/type_traits/is_union.md)`<T> == false`
-- [`std::is_pointer_v`](/reference/type_traits/is_pointer.md)`<T> == false`
-- [`std::is_member_pointer_v`](/reference/type_traits/is_member_pointer.md)`<T> == false`
-- [`std::is_volatile_v`](/reference/type_traits/is_volatile.md)`<T> == false`
-- `T`が参照の非静的メンバ変数を持たないこと
 
 
 ## 戻り値
@@ -41,6 +31,16 @@ namespace std {
 
 ## 例外
 投げない
+
+
+## 定数式に評価される条件
+型`To`と`From`、およびその全てのサブオブジェクトが以下の条件を全て満たすこと：
+
+- [`std::is_union_v`](/reference/type_traits/is_union.md)`<T> == false`
+- [`std::is_pointer_v`](/reference/type_traits/is_pointer.md)`<T> == false`
+- [`std::is_member_pointer_v`](/reference/type_traits/is_member_pointer.md)`<T> == false`
+- [`std::is_volatile_v`](/reference/type_traits/is_volatile.md)`<T> == false`
+- `T`が参照の非静的メンバ変数を持たないこと
 
 
 ## 備考
