@@ -69,5 +69,5 @@ int main()
 ```
 
 
-## 参照
-
+## 関連項目
+- [`std::popcount()`](/reference/bit/popcount.md)

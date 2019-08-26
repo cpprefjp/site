@@ -62,5 +62,9 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [`std::bitset::count()`](/reference/bitset/bitset/count.md)
+
+
 ## 参照
 - [P0553R4 Bit operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0553r4.html)
