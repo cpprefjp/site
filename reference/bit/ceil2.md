@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  constexpr T ceil2(T x) noexcept;
+  constexpr T ceil2(T x);
 }
 ```
 
@@ -19,14 +19,24 @@ namespace std {
 - 型`T`が符号なし整数型であること
 
 
-## 戻り値
-[`ispow2`](ispow2.md)`(y) == true`および`y  >= x`となるような最小の`y`を求めて返す。
+## 事前条件
+- `x`以上となる最小の2の累乗値を`N`として、
+- 型`T`において値`N`が表現できること
 
-`y`が型`T`の値として表現できない場合、戻り値は未規定の値となる。
+## 戻り値
+`N`を返す
 
 
 ## 例外
 投げない
+
+
+## 定数式に評価される条件
+- 事前条件を満たすこと
+
+
+## 備考
+- 値`x`を累乗値に切り上げた値が型`T`の範囲内で表現できない場合、未定義動作となり、定数式にはならない
 
 
 ## 例
@@ -94,10 +104,11 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang, C++20 mode](/implementation.md#clang):
-- [GCC, C++20 mode](/implementation.md#gcc): 9.1
+- [Clang](/implementation.md#clang): 9.0
+- [GCC](/implementation.md#gcc): 9.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
 - [P0556R3 Integral power-of-2 operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0556r3.html)
+- [P1355R2 Exposing a narrow contract for `ceil2`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1355r2.html)
