@@ -25,8 +25,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`rotl`](bit/rotl.md.nolink) | 左循環ビットシフト (function template) | C++20 |
-| [`rotr`](bit/rotr.md.nolink) | 右循環ビットシフト (function template) | C++20 |
+| [`rotl`](bit/rotl.md) | 左循環ビットシフト (function template) | C++20 |
+| [`rotr`](bit/rotr.md) | 右循環ビットシフト (function template) | C++20 |
 
 
 ## ビットカウント
