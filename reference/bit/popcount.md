@@ -39,9 +39,9 @@ namespace std {
 
 int main()
 {
-  auto i = static_cast<std::uint32_t>(0b1010'1010'1010'1010'1010'1010'1010'1010u);
+  auto i = static_cast<std::uint32_t>(0b1000'0000'0000'1010'0000'0000'0000'1000u);
   int n = std::popcount(i);
-  assert(n == 16);
+  assert(n == 4);
 }
 ```
 * std::popcount[color ff0000]
