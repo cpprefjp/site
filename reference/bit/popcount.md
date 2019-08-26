@@ -29,6 +29,7 @@ namespace std {
 
 ## 備考
 - この関数は、ハードウェア機能として提供されている場合がある
+- GCCの組み込み関数として`__builtin_popcount()`、`__builtin_popcountl()`、`__builtin_popcountll()`が定義されていた
 
 
 ## 例

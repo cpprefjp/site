@@ -31,6 +31,7 @@ namespace std {
 
 ## 備考
 - この関数は、ハードウェア機能として提供されている場合がある
+- GCCの組み込み関数として`__builtin_ctz()`、`__builtin_ctzl()`、`__builtin_ctzll()`が定義されていた
 
 
 ## 例
