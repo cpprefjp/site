@@ -33,11 +33,11 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`countl_zero`](bit/countl_zero.md.nolink) | 左から連続した0のビットを数える (function template) | C++20 |
-| [`countl_one`](bit/countl_one.md.nolink) | 左から連続した1のビットを数える (function template) | C++20 |
-| [`countr_zero`](bit/countr_zero.md.nolink) | 右から連続した0のビットを数える (function template) | C++20 |
-| [`countr_one`](bit/countr_one.md.nolink) | 右から連続した1のビットを数える (function template) | C++20 |
-| [`popcount`](bit/popcount.md.nolink) | 立っているビットを数える (function template) | C++20 |
+| [`countl_zero`](bit/countl_zero.md) | 左から連続した0のビットを数える (function template) | C++20 |
+| [`countl_one`](bit/countl_one.md) | 左から連続した1のビットを数える (function template) | C++20 |
+| [`countr_zero`](bit/countr_zero.md) | 右から連続した0のビットを数える (function template) | C++20 |
+| [`countr_one`](bit/countr_one.md) | 右から連続した1のビットを数える (function template) | C++20 |
+| [`popcount`](bit/popcount.md) | 立っているビットを数える (function template) | C++20 |
 
 
 ## エンディアン
