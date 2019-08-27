@@ -6,7 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-T& get() const noexcept;
+T& get() const noexcept;            //C++11
+
+constexpr T& get() const noexcept;  //C++17
 ```
 
 ## 概要

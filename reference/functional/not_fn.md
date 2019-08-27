@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class F>
-  unspecified not_fn(F&& f);
+  unspecified not_fn(F&& f);            //C++17
+
+  template <class F>
+  constexpr unspecified not_fn(F&& f);  //C++20
 }
 ```
 * unspecified[italic]
@@ -127,3 +130,4 @@ true
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
 - [LWG Issue 2767. `not_fn` `call_wrapper` can form invalid types](https://wg21.cmeerw.net/lwg/issue2767)
 - [P0356R5 Simplified partial function application](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0356r5.html)
+- [P1065R2 constexpr INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1065r2.html)

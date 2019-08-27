@@ -6,9 +6,13 @@
 * cpp11[meta cpp]
 
 ```cpp
-reference_wrapper(T& t) noexcept;                       // (1)
-reference_wrapper(T&&) = delete;                        // (2)
-reference_wrapper(const reference_wrapper& x) noexcept; // (3)
+reference_wrapper(T& t) noexcept;                                 // (1) C++11
+constexpr reference_wrapper(T& t) noexcept;                       // (1) C++20
+
+reference_wrapper(T&&) = delete;                                  // (2)
+
+reference_wrapper(const reference_wrapper& x) noexcept;           // (3) C++11
+constexpr reference_wrapper(const reference_wrapper& x) noexcept; // (3) C++20
 ```
 
 ## 概要

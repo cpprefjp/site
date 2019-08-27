@@ -7,10 +7,16 @@
 ```cpp
 namespace std {
   template <class T>
-  reference_wrapper<const T> cref(const T& t) noexcept;             // (1)
+  reference_wrapper<const T> cref(const T& t) noexcept;             // (1) C++11
 
   template <class T>
-  reference_wrapper<const T> cref(reference_wrapper<T> t) noexcept; // (2)
+  constepxr reference_wrapper<const T> cref(const T& t) noexcept;   // (1) C++11
+
+  template <class T>
+  reference_wrapper<const T> cref(reference_wrapper<T> t) noexcept; // (2) C++11
+
+  template <class T>
+  constexpr reference_wrapper<const T> cref(reference_wrapper<T> t) noexcept; // (2) C++11
 
   template <class T>
   void cref(const T&&) = delete;                                    // (3)
@@ -74,3 +80,4 @@ int main()
 ## 参照
 - [P0357R3 reference_wrapper for incomplete types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0357r3.html)
     - テンプレートパラメータ`T`に不完全型が許可された経緯
+- [P1065R2 constexpr INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1065r2.html)

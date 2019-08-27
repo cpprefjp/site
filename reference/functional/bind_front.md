@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class F, class... Args>
-  unspecified bind_front(F&&, Args&&...);
+  constexpr unspecified bind_front(F&&, Args&&...);
 }
 ```
 * unspecified[italic]

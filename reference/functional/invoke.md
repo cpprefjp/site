@@ -7,8 +7,12 @@
 ```cpp
 namespace std {
   template <class F, class... Args>
-    invoke_result_t<F, Args...> invoke(F&& f, Args&&... args)
-      noexcept(is_nothrow_invocable_v<F, Args...>);
+  invoke_result_t<F, Args...> invoke(F&& f, Args&&... args)
+    noexcept(is_nothrow_invocable_v<F, Args...>);           //C++17
+
+  template <class F, class... Args>
+  constexpr invoke_result_t<F, Args...> invoke(F&& f, Args&&... args)
+    noexcept(is_nothrow_invocable_v<F, Args...>);           //C++20
 }
 ```
 * invoke_result_t[link /reference/type_traits/invoke_result.md]
@@ -134,4 +138,5 @@ int main()
 
 ## 参照
 - [C++1z INVOKEコンセプトに従った関数呼び出しをするinvoke()関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/09/07/173344)
-- [A proposal to add invoke function template (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4169.html)
+- [N4169 A proposal to add invoke function template (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4169.html)
+- [P1065R2 constexpr INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1065r2.html)

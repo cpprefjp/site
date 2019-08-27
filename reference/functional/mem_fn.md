@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class R, class T>
-  unspecified mem_fn(R T::* pm);
+  unspecified mem_fn(R T::* pm);            //C++11
+
+  template <class R, class T>
+  constexpr unspecified mem_fn(R T::* pm);  //C++20
 }
 ```
 * unspecified[italic]

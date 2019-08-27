@@ -6,7 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-operator T& () const noexcept;
+operator T& () const noexcept;            //C++11
+
+constexpr operator T& () const noexcept;  //C++20
 ```
 
 ## 概要

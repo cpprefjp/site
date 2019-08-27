@@ -6,7 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-reference_wrapper& operator=(const reference_wrapper<T>& x) noexcept;
+reference_wrapper& operator=(const reference_wrapper<T>& x) noexcept;           //C++11
+
+constexpr reference_wrapper& operator=(const reference_wrapper<T>& x) noexcept; //C++20
 ```
 
 ## 概要
