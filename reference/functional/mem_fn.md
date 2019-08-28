@@ -31,8 +31,9 @@ namespace std {
 `fn` の型には、必要に応じて型の別名 `argument_type`, `first_argument_type`, `second_argument_type`, `result_type` が定義される。
 
 ### C++20から
-`fn(call_args...)`の呼び出しが[`invoke`](/reference/functional/invoke.md)`(pmd,  call_args...)`を行うシンプルなcall wrapperオブジェクト `fn` を返す。  
-ここで、`pmd`は`R T::* pmd(pm)`のように初期化された`fn`が保持するメンバポインタ、`call_args...`は`pm`の関数呼び出しに必要となる引数リストである。
+`fn(call_args...)`の呼び出しが[`invoke`](/reference/functional/invoke.md)`(pmd,  call_args...)`を行う*simple call wrapper*オブジェクト `fn` を返す。  
+ここで、`pmd`は`R T::* pmd(pm)`のように初期化された`fn`が保持するメンバポインタ、`call_args...`は`pm`の関数呼び出しに必要となる引数リストである。  
+引数リスト`call_args...`は完全転送される。
 
 メンバポインタ呼び出しのためには`call_args...`の先頭に、`T`のオブジェクトもしくはそれを参照する何らかのものが無ければならない（詳細は[`INVOKE`](/reference/concepts/Invoke.md)を参照）。
 
