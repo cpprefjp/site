@@ -7,24 +7,24 @@
 
 ```cpp
 iterator insert(const value_type& v);                          // (1)
-iterator insert(value_type&& value);                           //	(1) C++17
+iterator insert(value_type&& v);                               // (2) C++17
 
 template <class P>
-iterator insert(P&& obj);                                      // (2)
+iterator insert(P&& obj);                                      // (3)
 
-iterator insert(const_iterator position, const value_type& v); // (3)
-iterator insert(const_iterator hint, value_type&& value);      // (3) C++17
+iterator insert(const_iterator position, const value_type& v); // (4)
+iterator insert(const_iterator hint, value_type&& v);          // (5) C++17
 
 template <class P>
-iterator insert(const_iterator position, P&& obj);             // (4)
+iterator insert(const_iterator position, P&& obj);             // (6)
 
 template <class InputIterator>
-void insert(InputIterator first, InputIterator last);          // (5)
+void insert(InputIterator first, InputIterator last);          // (7)
 
-void insert(initializer_list<value_type> il);                  // (6)
+void insert(initializer_list<value_type> il);                  // (8)
 
-iterator insert(node_type&& nh);                               // (7) C++17
-iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
+iterator insert(node_type&& nh);                               // (9) C++17
+iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -33,50 +33,62 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 
 
 ## 要件
-- `v` を引数にとる形式（(1)、(3)）では、`value_type` はこのコンテナに対して [`CopyInsertable`](/reference/container_concepts/CopyInsertable.md) でなければならない。  
-
-- `obj` を引数にとる形式（(2)、(4)）では、`value_type` は引数 `obj` からこのコンテナに対して [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) でなければならない。  
-
-- 引数 `position` は、このコンテナの有効な読み取り専用イテレータでなければならない。  
-
-- 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。  
-	また、`first`、および、`last` を引数にとる形式（(5)）では、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) でなければならない。  
-
-- (6)の形式では、`value_type` はこのコンテナに対して [`CopyInsertable`](/reference/container_concepts/CopyInsertable.md) でなければならない。
-
-- (7), (8)の形式では、 `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`でなければならない。
+- (1), (4) : `value_type` はこのコンテナに対してコピー挿入可能であること
+- (2), (5) : `value_type` はこのコンテナに対してムーブ挿入可能であること
+- (3), (6) :
+    - `value_type` は引数 `obj` からこのコンテナに対して直接構築可能であること
+    - 引数 `position` は、このコンテナの有効な読み取り専用イテレータであること
+    - [`std::constructible_from`](/reference/concepts/constructible_from.md)`<value_type, P&&>`要件を満たすこと
+        - なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。これは規格の誤りとして C++14 で修正されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である
+- (7) :
+    - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、範囲 `[first, last)` が当該コンテナ **以外を指す** 有効な範囲であること
+    - このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能であること
+- (8) : `value_type` はこのコンテナに対してコピー挿入可能であること
+- (9), (10)の形式では、 `nh` は空である、または、`(*this).get_­allocator() == nh.get_allocator()`でなければならない。
 
 
 ## 効果
-- (1) : 引数 `v` で指定した値の要素を追加する。
-- (2) : 引数 `obj` から構築されたオブジェクト `v` を追加する。
-    - このバージョンの動作は、[`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である。
-- (3) : 引数 `v` で指定した値の要素を追加する。  
-	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-- (4) : 引数 `obj` から構築されたオブジェクト `v` を追加する。  
-	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-    - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である。
-- (5) : 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と等価である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）。
-- (6) : (5)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価である。
-- (7) : `nh`が空の場合、効果はない。そうでなければ、`nh`が所有する要素を挿入し、新しく挿入された要素を指すイテレータを返す。`nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
-- (8) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。そうでなければ、 `nh` によって所有されている要素をコンテナに挿入し、 `nh.key()` と等価なキーを持つ要素を指すイテレータを返す。 `nh.key()` と等しいキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。要素は、`p`の直前の位置のできるだけ近くに挿入される。
+- (1), (2) :
+    - 引数 `v` で指定した値の要素を追加する
+- (3) :
+    - 引数 `obj` から構築されたオブジェクト `v` を追加する
+    - このバージョンの動作は、[`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である
+- (4), (5) :
+    - 引数 `v` で指定した値の要素を追加する
+    - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない
+- (6) :
+    - 引数 `obj` から構築されたオブジェクト `v` を追加する
+    - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない
+    - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である
+- (7) :
+    - 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と等価である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）
+- (8) :
+    - (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価である
+- (9) :
+    - `nh`が空の場合、効果はない
+    - そうでなければ、`nh`が所有する要素を挿入し、新しく挿入された要素を指すイテレータを返す
+    - `nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される
+- (10) :
+    - `nh`が空の場合、効果はなく、`(*this).end()`を返す
+    - そうでなければ、 `nh` によって所有されている要素をコンテナに挿入し、 `nh.key()` と等価なキーを持つ要素を指すイテレータを返す
+    - `nh.key()` と等しいキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。要素は、`p`の直前の位置のできるだけ近くに挿入される
 
 
 ## 戻り値
-- (1)から(4) : 追加された要素を指すイテレータ。
-- (5)、(6) : なし
-- (7), (8) : `nh` が空の場合は終端イテレータ、そうでなければ挿入された要素を指すイテレータ。
+- (1)から(6) : 追加された要素を指すイテレータを返す
+- (7)、(8) : なし
+- (9), (10) : `nh` が空の場合は終端イテレータ、そうでなければ挿入された要素を指すイテレータを返す
 
 
 ## 例外
-単一要素の形式（(1)から(4)）では、ハッシュ関数以外から例外が投げられた場合には、挿入はされない。
+単一要素の形式（(1)から(6)）では、ハッシュ関数以外から例外が投げられた場合には、挿入はされない。
 
 
 ## 計算量
-- (1)から(4) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
-- (5) : 平均的なケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size`](size.md)`()` に 1 加えたものの積に比例（O([`std::distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
-- (6) : (5)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価。
-- (7), (8) : 平均的なケースでは `O(1)`、最悪のケースでは `O(size())`。
+- (1)から(6) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
+- (7) : 平均的なケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size`](size.md)`()` に 1 加えたものの積に比例（O([`std::distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
+- (8) : (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価。
+- (9), (10) : 平均的なケースでは `O(1)`、最悪のケースでは `O(size())`。
 
 
 ## 備考
@@ -94,20 +106,12 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 	これは規格の誤りとして C++17 で修正されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
 
 - これらの関数が呼ばれた後、たとえ呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わった（＝リハッシュが発生した）場合でも、等価なキーの要素同士の相対的な順序は変わらない。
-
-- (2)、および、(4) の形式は、[`std::is_constructible`](/reference/type_traits/is_constructible.md)`<value_type, P&&>::value` が `true` でなければオーバーロード解決の対象にはならない。  
-	なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。  
-	これは規格の誤りとして C++14 で修正されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である。
-
-- `position` を引数にとる形式（(3)、(4)）の場合、本関数呼び出しで構築されるオブジェクトを `t` とすると、`t.first` と等価なキーの要素が既に存在する場合、`position` に応じて既存の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は存在しない。
-	従って、そのような期待はすべきではない。[`emplace_hint`](emplace_hint.md) も参照。
-
-- 引数 `position` は、C++14 までは間接参照可能（dereferenceable）でなければならない（つまり、[`cend`](cend.md)`()` ではいけない）との記載になっていたが、これは規格の誤りとして C++17 で修正された。
-
-- 上記の要件に示したように、`first`、および、`last` の参照先の要素は `value_type` 型でなければならないとされているが、その要件を満たさなくてももう一つの要件である [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) を満たすだけで十分にライブラリを実装可能と思われる。  
-	実際、Clang(libc++) は `first`、および、`last` の参照先の要素が `value_type` 型でなくとも (5) の形式を使用可能である。
-
-- (7), (8) の場合、要素はコピーもムーブもされない。
+- (4)、(5), (6) :
+    - 本関数呼び出しで構築されるオブジェクトを `t` とすると、`t.first` と等価なキーの要素が既に存在する場合、`position` に応じて既存の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は存在しない。従って、そのような期待はすべきではない。[`emplace_hint`](emplace_hint.md) も参照。
+    - 引数 `position` は、C++14 までは間接参照可能（dereferenceable）でなければならない（つまり、[`cend`](cend.md)`()` ではいけない）との記載になっていたが、これは規格の誤りとして C++17 で修正された。
+- 上記の要件に示したように、`first`、および、`last` の参照先の要素は `value_type` 型でなければならないとされているが、その要件を満たさなくてももう一つの要件である直接構築可能を満たすだけで十分にライブラリを実装可能と思われる。  
+	実際、Clang(libc++) は `first`、および、`last` の参照先の要素が `value_type` 型でなくとも (7) の形式を使用可能である。
+- (9), (10) の場合、要素はコピーもムーブもされない。
 
 
 ## 例
@@ -138,7 +142,7 @@ void print(const char* label, const C& c, std::ostream& os = std::cout)
 
 int main()
 {
-  // 一つの要素を挿入（(1)の形式）
+  // 一つの要素を挿入（(1), (2)の形式）
   {
     std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
@@ -149,7 +153,7 @@ int main()
     print("insert one element", um);
   }
 
-  // 一つの要素を挿入（(2)の形式）
+  // 一つの要素を挿入（(3)の形式）
   {
     std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
@@ -160,7 +164,7 @@ int main()
     print("insert one element", um);
   }
 
-  // 一つの要素を挿入（(3)の形式）
+  // 一つの要素を挿入（(4), (5)の形式）
   {
     std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
@@ -171,7 +175,7 @@ int main()
     print("insert one element with hint", um);
   }
 
-  // 一つの要素を挿入（(4)の形式）
+  // 一つの要素を挿入（(6)の形式）
   {
     std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
@@ -182,7 +186,7 @@ int main()
     print("insert one element with hint", um);
   }
 
-  // 複数の要素を挿入（(5)の形式）
+  // 複数の要素を挿入（(7)の形式）
   {
     std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
@@ -191,7 +195,7 @@ int main()
     print("insert range", um);
   }
 
-  // 複数の要素を挿入（(6)の形式）
+  // 複数の要素を挿入（(8)の形式）
   {
     std::unordered_multimap<int, std::string> um{ {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, };
 
@@ -239,11 +243,11 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,5th), (5,five), (4,four)
 ### 備考
 - Clang 3.3 以降は C++17 モードでなくても C++17 の条件でのリハッシュとなっている。
 - GCC は 8.2.0 時点でまだ C++17 の条件でのリハッシュとなっていない。また、バージョンによってリハッシュ条件が微妙に異なるため注意。
-- (7), (8) の場合、要素はコピーもムーブもされない。
+- (9), (10) の場合、要素はコピーもムーブもされない。
 
 
 ## 実装例
-(3)以降の形式は、(1)、および、(2)の形式を使って実装することができる。
+(4)以降の形式は、(1), (2), (3)の形式を使って実装することができる。
 
 ```cpp
 template <class Key, class Hash, class Pred, class Allocator>
@@ -297,11 +301,11 @@ inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(initializer_l
 ## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
-    - (6)の経緯となる提案文書
+    - (8)の経緯となる提案文書
 - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](https://wg21.cmeerw.net/lwg/issue518)
     - 安定性の保証が規定された経緯のレポート
 - [LWG Issue 2005. `unordered_map::insert(T&&)` protection should apply to `map` too](https://wg21.cmeerw.net/lwg/issue2005)
 - [LWG Issue 2540. unordered_multimap::insert hint iterator](https://wg21.cmeerw.net/lwg/issue2540)
 - [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
-    - (7), (8)経緯となる提案文書
+    - (9), (10)経緯となる提案文書
