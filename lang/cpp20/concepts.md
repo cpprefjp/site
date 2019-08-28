@@ -586,6 +586,7 @@
 - [`<concepts>`](/reference/concepts.md)
 - [`<iterator>`](/reference/iterator.md)
 - [`<ranges>`](/reference/ranges.md.nolink)
+- [C++20 autoパラメータによる関数テンプレートの簡易定義](function_templates_with_auto_parameters.md)
 
 
 ## 参照
