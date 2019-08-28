@@ -58,8 +58,11 @@ namespace std {
 ## 要件
 - 二項関数オブジェクト`pred`は、ふたつの値の等値性を判定できなければならない
 - `[first,last)` と `[result,result + (last - first))` は重なっていてはならない
+
+
+## テンプレートパラメータ制約
 - `*result = *first` は有効な式でなければならない
-- `InputIterator` と `OutputIterator` のどちらも forward iterator の要求を満たしていない場合、`InputIterator` の値型は [`CopyConstructible`](/reference/concepts/CopyConstructible.md) かつ [`CopyAssignable`](/reference/concepts/CopyAssignable.md) でなければならない。そうでない場合は [`CopyConstructible`](/reference/concepts/CopyConstructible.md) は要求されない
+- `InputIterator` と `OutputIterator` のどちらも forward iterator の要求を満たしていない場合、`InputIterator` の値型は [コピー構築可能](/reference/concepts/copy_constructible.md) かつ [コピー代入可能](/reference/type_traits/copy_assignable.md) でなければならない。そうでない場合は [コピー構築可能](/reference/concepts/copy_constructible.md) であることは要求されない
 
 
 ## 効果

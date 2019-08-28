@@ -14,8 +14,8 @@ void resize(size_type sz, const value_type& c);
 要素数を変更する
 
 
-## 要件
-- 型`T`がデフォルトコンストラクト可能であり、`*this`に対して[`CopyInsertable`](/reference/container_concepts/CopyInsertable.md)であること
+## テンプレートパラメータ制約
+- 型`T`がデフォルト構築可能であり、`*this`に対してコピー挿入可能であること
 
 
 ## 効果

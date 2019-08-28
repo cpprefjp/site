@@ -15,8 +15,8 @@ pair<iterator, bool> emplace(Args&&... args);
 コンテナ内へ要素を直接構築する
 
 
-## 要件
-このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) でなければならない。
+## テンプレートパラメータ制約
+- このコンテナの要素型 `value_type` が、コンテナに対して引数 `args` から直接構築可能であること
 
 
 ## 効果

@@ -21,9 +21,13 @@ namespace std {
 
 組み込み型以外の任意の型を`atomic`クラステンプレートを使用する場合、型`T`は、以下の条件を満たすこと：
 
-- 型`T`は制約[`std::CopyConstructible`](/reference/concepts/CopyConstructible.md)および[`std::CopyAssignable`](/reference/concepts/CopyAssignable.md)を満たすこと
+
+## テンプレートパラメータ制約
+- 型`T`は[コピー構築可能](/reference/concepts/copy_constructible.md)かつ[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
 - [`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> &&` [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T> &&` [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<T>`が`false`である場合、プログラムは不適格となる
 
+
+## 別名型
 特殊化された整数型および`bool`型には、それぞれ`atomic_T`という型の別名が提供される。
 
 | 名前付きアトミック型 | テンプレート引数となる整数型 | 対応バージョン |

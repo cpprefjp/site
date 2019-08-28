@@ -29,16 +29,16 @@ iterator insert(const_iterator position, initializer_list<T> il); // (5) C++11
 任意の位置に新たな要素を挿入する
 
 
-## 要件
+## テンプレートパラメータ制約
 - (1)
-    - 型`T`が`*this`のコンテナに対して[CopyInsertable](/reference/container_concepts/CopyInsertable.md)であること
-    - 型`T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
+    - 型`T`が`*this`のコンテナに対してコピー挿入可能であること
+    - 型`T`が[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
 - (2)
-    - 型`T`が`*this`のコンテナに対して[MoveInsertable](/reference/container_concepts/MoveInsertable.md)であること
-    - 型`T`が[MoveAssignable](/reference/concepts/MoveAssignable.md)であること
+    - 型`T`が`*this`のコンテナに対してムーブ挿入可能であること
+    - 型`T`が[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であること
 - (3)
-    - 型`T`が`*this`のコンテナに対して[CopyInsertable](/reference/container_concepts/CopyInsertable.md)であること
-    - 型`T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
+    - 型`T`が`*this`のコンテナに対してコピー挿入可能であること
+    - 型`T`が[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
 
 
 ## 戻り値

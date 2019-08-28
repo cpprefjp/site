@@ -6,10 +6,12 @@
 
 ```cpp
 vector& operator=(const vector& x);     // (1) C++03
+
 vector& operator=(vector&& x);          // (2) C++11
 vector& operator=(vector&& x) noexcept(
   allocator_traits<Allocator>::propagate_on_container_move_assignment::value
     || allocator_traits<Allocator>::is_always_equal::value); // (2) C++17
+
 vector& operator=(initializer_list<T>); // (3) C++11
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -21,9 +23,8 @@ vector& operator=(initializer_list<T>); // (3) C++11
 - (3) : 初期化子リストの代入
 
 
-## 要件
-- (1) : 要件：型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/CopyInsertable.md)であること。
-- (3) : 型`T`が`vector`に対して[`CopyInsertable`](/reference/container_concepts/CopyInsertable.md)であること。
+## テンプレートパラメータ制約
+- (1), (3) : 型`T`が`vector`に対してコピー挿入可能であること
 
 
 ## 効果

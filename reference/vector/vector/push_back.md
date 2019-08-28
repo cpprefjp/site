@@ -13,13 +13,13 @@ void push_back(T&& x);      // (2) C++11
 新たな要素を末尾に追加する。
 
 
-## 要件
+## テンプレートパラメータ制約
 - (1)
-    - 型`T`が`*this`のコンテナに対して[CopyInsertable](/reference/container_concepts/CopyInsertable.md)であること
-    - 型`T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
+    - 型`T`が`*this`のコンテナに対してコピー挿入可能であること
+    - 型`T`が[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
 - (2)
-    - 型`T`が`*this`のコンテナに対して[MoveInsertable](/reference/container_concepts/MoveInsertable.md)であること
-    - 型`T`が[MoveAssignable](/reference/concepts/MoveAssignable.md)であること
+    - 型`T`が`*this`のコンテナに対してムーブ挿入可能であること
+    - 型`T`が[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であること
 
 
 ## 効果
@@ -41,7 +41,7 @@ void push_back(T&& x);      // (2) C++11
 
 ## 備考
 - 要素を追加した後の[`size()`](size.md)が要素を追加する前の[`capacity()`](capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じなかった場合には全てのイテレータや参照は有効である。
-- 非[CopyInsertable](/reference/container_concepts/CopyInsertable.md)な要素型`T`のムーブコンストラクタ以外で例外が発生した場合、副作用は発生しない。
+- 非コピー挿入可能な要素型`T`のムーブコンストラクタ以外で例外が発生した場合、副作用は発生しない。
 
 
 ## 例

@@ -76,7 +76,12 @@ namespace std{
 
 
 ## 要件
-- (1), (2), (3), (4), (5), (6) : 型`T`が[MoveConstructible](/reference/concepts/MoveConstructible.md)であること
+- (1), (2), (4), (5) : 関数オブジェクト`binary_op1`と`binary_op2`の呼び出しは、範囲`[first1, last1]`と`[first2, first2 + (last1 - first1)]`の要素変更およびイテレータの無効化をしてはならない
+- (3), (6) : 関数オブジェクト`unary_op`と`binary_op`の呼び出しは、範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
+
+
+## テンプレートパラメータ制約
+- (1), (2), (3), (4), (5), (6) : 型`T`が[`std::move_constructible`](/reference/concepts/move_constructible.md)要件を満たすこと
 - (1), (2), (4), (5) : 以下の全ての演算結果の型が、型`T`に変換可能であること
     - `binary_op1(init, init)`
     - `binary_op1(init, binary_op2(*first1, *first2))`
@@ -87,8 +92,6 @@ namespace std{
     - `binary_op(init, unary_op(*first))`
     - `binary_op(unary_op(*first), init)`
     - `binary_op(unary_op(*first), unary_op(*first))`
-- (1), (2), (4), (5) : 関数オブジェクト`binary_op1`と`binary_op2`の呼び出しは、範囲`[first1, last1]`と`[first2, first2 + (last1 - first1)]`の要素変更およびイテレータの無効化をしてはならない
-- (3), (6) : 関数オブジェクト`unary_op`と`binary_op`の呼び出しは、範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
 
 
 ## 効果

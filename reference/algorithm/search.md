@@ -100,7 +100,7 @@ namespace std {
 - (1)〜(4) : `search()` と [`find_end()`](find_end.md) は共にサブシーケンスを検索する関数だが、以下の点が異なる。
     - `search()` は見つかった最初のサブシーケンスを返すが [`find_end()`](find_end.md) は見つかった最後のサブシーケンスを返す
     - `[first2,last2)` が空であるときに `search()` は `first1` を返すが、[`find_end()`](find_end.md) は `last1` を返す
-- (5) : `Searcher`は[CopyConstructible](/reference/concepts/CopyConstructible.md)要件を満たす必要はない
+- (5) : `Searcher`は[`std::copy_constructible`](/reference/concepts/copy_constructible.md)要件を満たす必要はない
 
 
 ## 例

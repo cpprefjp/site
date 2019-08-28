@@ -22,7 +22,7 @@ namespace std {
 ## テンプレートパラメータ制約
 [`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`として、
 
-- `FD`が[`std::MoveConstructible`](/reference/concepts/MoveConstructible.md)要件を満たすこと
+- `FD`が[`std::move_constructible`](/reference/concepts/move_constructible.md)要件を満たすこと
 
 
 ## 適格要件

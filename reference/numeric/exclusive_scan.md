@@ -61,12 +61,16 @@ namespace std{
 
 
 ## 要件
-- (1), (2), (3), (4) : 型`T`が[MoveConstructible](/reference/concepts/MoveConstructible.md)であること
+- (2), (4) :
+    - 関数オブジェクト`binary_op`の呼び出しは、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更およびイテレータの無効化をしてはならない
+
+
+## テンプレートパラメータ制約
+- (1), (2), (3), (4) : 型`T`が[`std::move_constructible`](/reference/concepts/move_constructible.md)要件を満たすこと
 - (2), (4) : 以下の全ての演算結果の型が、型`T`に変換可能であること
     - `binary_op(init, init)`
     - `binary_op(init, *first)`
     - `binary_op(*first, *first)`
-- (2), (4) : 関数オブジェクト`binary_op`の呼び出しは、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更およびイテレータの無効化をしてはならない
 
 
 ## 効果

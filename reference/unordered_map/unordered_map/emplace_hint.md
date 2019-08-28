@@ -15,9 +15,11 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 
 ## 要件
-- このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) でなければならない。
-
 - 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならないが、間接参照可能（dereferenceable）である必要はない。（つまり、[`cend`](cend.md)`()` でも良い）
+
+
+## テンプレートパラメータ制約
+- このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能であること
 
 
 ## 効果

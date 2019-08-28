@@ -72,15 +72,18 @@ namespace std{
 
 
 ## 要件
-- (1), (3) : `ForwardIterator`の要素型が[MoveConstructible](/reference/concepts/MoveConstructible.md)であること
-- (2), (4) : 型`T`が[MoveConstructible](/reference/concepts/MoveConstructible.md)であること
+- (1), (2), (3), (4) : 関数オブジェクト`unary_op`と`binary_op`の呼び出しは、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更およびイテレータの無効化をしてはならない
+
+
+## テンプレートパラメータ制約
+- (1), (3) : `ForwardIterator`の要素型が[`std::move_constructible`](/reference/concepts/move_constructible.md)要件を満たすこと
+- (2), (4) : 型`T`が[`std::move_constructible`](/reference/concepts/move_constructible.md)要件を満たすこと
 - (1), (3) : 以下の全ての演算結果の型が、`ForwardIterator`の要素型に変換可能であること
     - `binary_op(unary_op(*first), unary_op(*first))`
 - (2), (4) : 以下の全ての演算結果の型が、型`T`に変換可能であること
     - `binary_op(init, init)`
     - `binary_op(init, unary_op(*first))`
     - `binary_op(unary_op(*first), unary_op(*first))`
-- (1), (2), (3), (4) : 関数オブジェクト`unary_op`と`binary_op`の呼び出しは、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更およびイテレータの無効化をしてはならない
 
 
 ## 効果

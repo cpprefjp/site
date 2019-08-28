@@ -19,8 +19,8 @@ reference emplace_back(Args&&... args); // C++17 から
 この関数の引数 `args...` は、要素型 `value_type` のコンストラクタ引数である。当関数の内部で要素型 `value_type` のコンストラクタを呼び出し、追加する要素を構築する。
 
 
-## 要件
-`value_type` は、コンテナに対して `args` から [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) であること。
+## テンプレートパラメータ制約
+- `value_type` は、コンテナに対して `args` から直接構築可能であること
 
 
 ## 戻り値

@@ -14,8 +14,8 @@ void resize(size_type sz, T c = T());           // (1), (2) C++03。C++11で削�
 要素数を変更する。
 
 
-## 要件
-型`T`がデフォルトコンストラクト可能であり、`*this`に対して[`CopyInsertable`](/reference/container_concepts/CopyInsertable.md)であること
+## テンプレートパラメータ制約
+- 型`T`がデフォルト構築可能であり、`*this`に対してコピー挿入可能であること
 
 
 ## 効果

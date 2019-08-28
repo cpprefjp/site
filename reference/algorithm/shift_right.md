@@ -30,8 +30,8 @@ namespace std {
 この関数によって要素をn個だけ右にシフトすると、`[first, first + n)`の範囲は、ムーブされたあとの「使用してはいけないオブジェクト」となる。その範囲には、循環バッファ (circular buffer) のように新たな要素を代入するか、コンテナの`erase()`メンバ関数を使用して使わなくなった範囲を削除するなどの対応が必要になる。
 
 
-## 要件
-- `*first`の型が[MoveAssignable](/reference/concepts/MoveAssignable.md)要件を満たすこと
+## テンプレートパラメータ制約
+- `*first`の型が[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であること
 - `ForwardIterator`型が、Bidirectional Iteratorの要件もしくは[ValueSwappable](/reference/concepts/ValueSwappable.md)の要件を満たすこと
 
 

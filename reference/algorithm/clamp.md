@@ -20,9 +20,12 @@ namespace std {
 この関数は、`v`の値を範囲`[low, high]`に収める。
 
 
-## 要件
-- `low`の値は`high`の値より大きくなってはならない
+## テンプレートパラメータ制約
 - (1) : 型`T`は[LessThanComparable](/reference/concepts/LessThanComparable.md)の要件を満たしていること
+
+
+## 事前条件
+- `low`の値は`high`の値より大きくなってはならない
 
 
 ## 戻り値

@@ -23,7 +23,7 @@ namespace std {
 
 
 ## 効果
-型`T`と`T`が[*Swappable*](/reference/concepts/Swappable.md)コンセプトを満たしていれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+型`T`が[`std::swappable`](/reference/concepts/swappable.md)要件を満たしていれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 参照可能な型に対して、[`is_swappable_with`](is_swappable_with.md)`<T&, T&>::value`と同じ結果となり、参照可能でない型に対しては`false`となる。
 

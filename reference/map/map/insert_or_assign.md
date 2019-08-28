@@ -26,9 +26,9 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 引数 `hint` は、`k` を検索する際のヒントに使用される。
 
 
-## 要件
-- (1)、(3) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) であること。
-- (2)、(4) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) であること。
+## テンプレートパラメータ制約
+- (1)、(3) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に直接構築可能であること
+- (2)、(4) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に直接構築可能であること
 
 なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な読み取り専用イテレータである必要があるものと思われる。
 

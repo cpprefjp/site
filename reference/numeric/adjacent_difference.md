@@ -46,21 +46,27 @@ namespace std {
 
 
 ## 要件
+- (2) :
+    - C++03まで : 関数オブジェクト`binary_op`の呼び出しは、副作用を起こしてはならない
+    - C++11から : 関数オブジェクト`binary_op`の呼び出しが、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更、イテレータの無効化をしてはならない
+- (3), (4) :
+    - 範囲`[first, last)`と範囲`[result, result + (last - first))`は重なってはならない
+
+
+## テンプレートパラメータ制約
 - (1) :
-    - C++11から : `InputIterator`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
+    - C++11から : `InputIterator`が指す値の型が、[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
     - C++11からC++17まで : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`b - a`の結果が`result`出力イテレータに書き込めること
     - C++20から : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`b -` [`std::move`](/reference/utility/move.md)`(a)`の結果が`result`出力イテレータに書き込めること
 - (2) 
-    - C++11から : `InputIterator`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
+    - C++11から : `InputIterator`が指す値の型が、[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であり、`*first`で初期化でき、`result`出力イテレータに書き込めること
     - C++11からC++17まで : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b, a)`の結果が`result`出力イテレータに書き込めること
     - C++20から : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b,` [`std::move`](/reference/utility/move.md)`(a))`の結果が`result`出力イテレータに書き込めること
-    - C++03まで : 関数オブジェクト`binary_op`の呼び出しは、副作用を起こしてはならない
-    - C++11から : 関数オブジェクト`binary_op`の呼び出しが、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更、イテレータの無効化をしてはならない
 - (3) :
-    - `ForwardIterator1`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること
+    - `ForwardIterator1`が指す値の型が、[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること
     - `ForwardIterator1`が指す値の型のオブジェクト`a`と`b`において、式`b - a`の結果が、`ForwardIterator2`が指す値の型に対して代入できること
 - (4) :
-    - `ForwardIterator1`が指す値の型が、[MoveAssignable](/reference/concepts/MoveAssignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること
+    - `ForwardIterator1`が指す値の型が、[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること
     - `ForwardIterator1`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b, a)`の結果が、`ForwardIterator2`が指す値の型に対して代入できること
 
 
@@ -91,7 +97,6 @@ result + (last - first)
 
 ## 備考
 - (1), (2) : `result`は`first`と同値になるだろう
-- (3), (4) : 範囲`[first, last)`と範囲`[result, result + (last - first))`は重なってはならない
 
 
 ## 例

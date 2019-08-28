@@ -22,8 +22,13 @@ decay_t<T>& emplace(std::initializer_list<U> il,
 - (2) : 任意の型`T`のコンストラクタ引数`il`と`args...`をとり、この関数内部で`T`型オブジェクトを構築して代入する
 
 
-## 要件
-- (1), (2) : [`std::decay_t<T>`](/reference/type_traits/decay.md)が[CopyConstructible](/reference/concepts/CopyConstructible.md)要件を満たすこと
+## テンプレートパラメータ制約
+- (1) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、
+    - [`std::copy_constructible`](/reference/concepts/copy_constructible.md)`<VT>`および、
+    - [`std::constructible_from`](/reference/concepts/constructible_from.md)`<VT, Args...>`を満たすこと
+- (2) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、
+    - [`std::copy_constructible`](/reference/concepts/copy_constructible.md)`<VT>`および、
+    - [`std::constructible_from`](/reference/concepts/constructible_from.md)`<VT,` [`std::initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...>`を満たすこと
 
 
 ## 効果
@@ -41,11 +46,6 @@ decay_t<T>& emplace(std::initializer_list<U> il,
 
 ## 例外
 - (1), (2) : 型[`std::decay_t<T>`](/reference/type_traits/decay.md)の選択されたコンストラクタが、任意の例外を送出する可能性がある
-
-
-## 備考
-- (1) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT, Args...> == true`でない場合、この関数はオーバーロード解決の候補から除外される
-- (2) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<VT> == true`かつ[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<VT,` [`std::initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`でない場合、この関数はオーバーロード解決の候補から除外される
 
 
 ## 例

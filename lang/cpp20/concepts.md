@@ -208,15 +208,15 @@
 
     - コンセプト名を指定した場合、指定されたテンプレート引数が自動的にコンセプトの第1テンプレート引数として渡される：
     ```cpp
-    template <std::MoveConstructible T>
+    template <std::move_constructible T>
     class X;
 
     // 以下と等価
     template <class T>
-    requires std::MoveConstructible<T>
+    requires std::move_constructible<T>
     class X;
     ```
-    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
+    * std::move_constructible[link /reference/concepts/move_constructible.md]
 
     - 第1テンプレート引数を除いたコンセプトを制約パラメータとして指定することで、第1テンプレート引数以外のテンプレート引数を任意に指定することができる：
     ```cpp
@@ -379,11 +379,11 @@
 - requires節は、`&&` (AND条件、conjunction、連言)、`||` (OR条件、disjunction、選言) の論理演算子によって複合的に制約を指定できる
     ```cpp
     template <class T>
-    requires std::MoveConstructible<T> || std::CopyConstructible<T>
+    requires std::move_constructible<T> || std::copy_constructible<T>
     class MyVector;
     ```
-    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
-    * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
+    * std::move_constructible[link /reference/concepts/move_constructible.md]
+    * std::copy_constructible[link /reference/concepts/copy_constructible.md]
 
 - `&&`と`||`でつなげる個々の制約を「原子制約 (Atomic constraints)」という。制約単体、もしくは`&&`と`||`を含まない定数条件式が原子制約となる
 - requires節は、非テンプレートの関数宣言にも記述できる。これは、クラステンプレートの非テンプレートメンバ関数に対する制約として使用できる
@@ -418,11 +418,11 @@
         requires std::is_copy_constructible_v<T>;
 
       void push_back(T&&)
-        requires std::MoveConstructible<T>;
+        requires std::move_constructible<T>;
     };
     ```
     * std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
-    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
+    * std::move_constructible[link /reference/concepts/move_constructible.md]
 
     - 関数宣言と関数定義を分ける場合、非テンプレートの関数宣言に対するrequires節は宣言と定義は等価でなければならない
     ```cpp
@@ -430,23 +430,23 @@
     class MyVector {
     public:
       void push_back(const T&)
-        requires std::CopyConstructible<T>;
+        requires std::copy_constructible<T>;
 
       void push_back(T&&)
-        requires std::MoveConstructible<T>;
+        requires std::move_constructible<T>;
     };
 
     template <class T>
     void MyVector<T>::push_back(const T&)
-      requires CopyConstructible<T>
+      requires copy_constructible<T>
     {}                                    // OK
 
     template <class T>
     void MyVector<T>::push_back(T&&)
     {}                                    // コンパイルエラー！宣言と一致していない
     ```
-    * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
-    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
+    * std::copy_constructible[link /reference/concepts/copy_constructible.md]
+    * std::move_constructible[link /reference/concepts/move_constructible.md]
 
 - requires節は、requires式を持てる
     ```cpp
@@ -463,28 +463,28 @@
 - 関数のオーバーロードとしては、より制約が強い関数が選択される：
     ```cpp
     template <class T>
-    requires std::MoveConstructible<T>
+    requires std::move_constructible<T>
     void f(T)
     {
       std::cout << "move" << std::endl;
     }
 
     template <class T>
-    requires std::MoveConstructible<T> && std::CopyConstructible<T>
+    requires std::move_constructible<T> && std::copy_constructible<T>
     void f(T)
     {
       std::cout << "move&copy" << std::endl;
     }
 
     template <class T>
-    requires std::MoveConstructible<T> && std::CopyConstructible<T>
+    requires std::move_constructible<T> && std::copy_constructible<T>
     void g(T)
     {
       std::cout << "move&copy" << std::endl;
     }
 
     template <class T>
-    requires std::MoveConstructible<T>
+    requires std::move_constructible<T>
     void g(T)
     {
       std::cout << "move" << std::endl;
@@ -493,8 +493,8 @@
     f(0); // move&copy
     g(0); // move&copy
     ```
-    * std::MoveConstructible[link /reference/concepts/MoveConstructible.md]
-    * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
+    * std::move_constructible[link /reference/concepts/move_constructible.md]
+    * std::copy_constructible[link /reference/concepts/copy_constructible.md]
 
 - オーバーロードの優先順は、以下のようになる：
     1. 非関数テンプレート
@@ -557,14 +557,14 @@
 
 - テンプレート引数付きコンセプトを使用する場合、コンセプトの第1テンプレート引数として`auto`プレースホルダーで置き換わる型が自動的に渡される：
     ```cpp
-    // std::CopyConstructible<decltype(x)>を意味する
-    void f(std::CopyConstructible auto x);
+    // std::copy_constructible<decltype(x)>を意味する
+    void f(std::copy_constructible auto x);
 
-    // std::Constructible<decltype(x), int>を意味する
-    void g(std::Constructible<int> auto x);
+    // std::constructible_from<decltype(x), int>を意味する
+    void g(std::constructible_from<int> auto x);
     ```
-    * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
-    * std::Constructible[link /reference/concepts/Constructible.md.nolink]
+    * std::copy_constructible[link /reference/concepts/copy_constructible.md]
+    * std::constructible_from[link /reference/concepts/constructible_from.md.nolink]
 
 ## 備考
 - GCC 9.1では、コンセプトが正式サポートされていないため、コンパイルオプションとして`-fconcepts`を付ける必要がある

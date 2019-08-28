@@ -52,7 +52,10 @@ namespace std {
 
 ## 要件
 - 二項関数オブジェクト`pred`は、ふたつの値の等値性を判定できなければならない
-- `*first`の型は、[`MoveAssignable`](/reference/concepts/MoveAssignable.md)の要求を満たす必要がある
+
+
+## テンプレートパラメータ制約
+- `*first`の型が[MoveAssignable](/reference/concepts/MoveAssignable.md)要件を満たすこと
 
 
 ## 効果

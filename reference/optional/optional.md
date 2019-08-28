@@ -31,14 +31,14 @@ namespace std {
 このクラスは、ヒープからの動的メモリ確保を行わない。実装は配置newや[`std::aligned_storage`](/reference/type_traits/aligned_storage.md)のような機能によって、スタック領域のメモリのみを使用する。
 
 
-## 要件
+## テンプレートパラメータ制約
 型`T`が以下のいずれかに該当してはならない：
 
 - 参照型
 - (CV修飾された)[`std::in_place_t`](/reference/utility/in_place_t.md)
 - (CV修飾された)[`std::nullopt_t`](nullopt_t.md)
 
-また、型`T`は[破棄可能](/reference/concepts/Destructible.md)であること。
+また、型`T`は[`std::destructible`](/reference/concepts/destructible.md)要件を満たすこと。
 
 
 ## 備考

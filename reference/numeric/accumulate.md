@@ -26,10 +26,13 @@ namespace std{
 
 
 ## 要件
-- `T`が[CopyConstructible](/reference/concepts/CopyConstructible.md)であること
-- `T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
 - C++03まで : `binary_op`は副作用を起こしてはならない
 - C++11から : `binary_op`は、範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
+
+
+## テンプレートパラメータ制約
+- `T`が[コピー構築可能](/reference/concepts/copy_constructible.md)であること
+- `T`が[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
 
 
 ## 効果

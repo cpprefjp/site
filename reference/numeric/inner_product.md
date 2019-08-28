@@ -30,10 +30,13 @@ namespace std {
 
 
 ## 要件
-- 型`T`が[CopyConstructible](/reference/concepts/CopyConstructible.md)であること
-- 型`T`が[CopyAssignable](/reference/concepts/CopyAssignable.md)であること
 - C++03まで : `binary_op1`および`binary_op2`は、副作用を起こしてはならない
 - C++11から : `binary_op1`および`binary_op2`が、範囲`[first1, last1]`と範囲`[first2, first2 + (last1 - first2)]`の要素変更およびイテレータの無効化をしてはならない
+
+
+## テンプレートパラメータ制約
+- 型`T`が[コピー構築可能](/reference/concepts/copy_constructible.md)であること
+- 型`T`が[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
 
 
 ## 効果
@@ -50,10 +53,10 @@ namespace std {
 
 
 ## 計算量
+`last1 - first1`をnであるとして、
+
 - (1) : n 回の加算処理と n 回の乗算処理を行う。
 - (2) : n 回の `binary_op1` 呼び出しと n 回の `binary_op2` 呼び出しを行う。
-
-ここで、n は `last1 - first1`とする。
 
 
 ## 例

@@ -20,7 +20,7 @@ reference emplace_front(Args&&... args);    // C++17 から
 
 
 ## 要件
-`value_type` は、コンテナに対して `args` から [`EmplaceConstructible`](/reference/container_concepts/EmplaceConstructible.md) であること。
+- `value_type` は、コンテナに対して `args` から直接構築可能であること
 
 
 ## 戻り値
