@@ -19,17 +19,18 @@ constexpr reference_wrapper(const reference_wrapper& x) noexcept; // (2) C++20
 ## 概要
 与えられた参照で、参照オブジェクトを構築する。
 
-- (1) : `T& r = `[`forward<U>(u)`](/reference/utility/forward.md)のように作成した`r`への参照を保持する`reference_wrapper`オブジェクトを構築する  
-  `u`が右辺値、もしくは参照とCV修飾を除去した`U`が`reference_wrapper<T>`である（`is_­same_­v<remove_­cvref_­t<U>, reference_­wrapper<T>> == true`となる）場合、このコンストラクタはオーバーロード解決に参加しない
+- (1) : `T& r = ` [`forward`](/reference/utility/forward.md)`<U>(u)`のように作成した`r`への参照を保持する`reference_wrapper`オブジェクトを構築する  
+  `u`が右辺値、もしくは参照とCV修飾を除去した`U`が`reference_wrapper<T>`である（`is_same_v<remove_cvref_t<U>, reference_wrapper<T>> == true`となる）場合、このコンストラクタはオーバーロード解決に参加しない
 
 - (2) : `x.`[`get()`](/reference/functional/reference_wrapper/get.md)への参照を保持する`reference_wrapper`オブジェクトを構築する
-
-右辺値参照を保持してしまうことを防止するために`reference_wrapper(T&&) = delete;`のようなコンストラクタを用意しないのは、この`delete`指定コンストラクタの存在によって`T&&`から`reference_wrapper<T>`への暗黙変換が引き起こされることを防止するためである（なお、そのような変換が起こったとしても`delete`指定コンストラクタが選ばれるため右辺値参照を保持することは無い）。  
-ただし、これはC++17規格完成後の欠陥報告（[LWG Issue 2993](https://wg21.cmeerw.net/lwg/issue2993)）による修正のため、実装によっては`delete`指定したコンストラクタを用意している可能性がある。
 
 ## 例外
 - (1) : 投げない（右辺値を受け取らない限り`noexcept`指定される）
 - (2) : 投げない
+
+## 備考
+右辺値参照を保持してしまうことを防止するために`reference_wrapper(T&&) = delete;`のようなコンストラクタを用意しないのは、この`delete`指定コンストラクタの存在によって`T&&`から`reference_wrapper<T>`への暗黙変換が引き起こされることを防止するためである（なお、そのような変換が起こったとしても`delete`指定コンストラクタが選ばれるため右辺値参照を保持することは無い）。  
+ただし、これはC++17規格完成後の欠陥報告（[LWG Issue 2993](https://wg21.cmeerw.net/lwg/issue2993)）による修正のため、実装によっては`delete`指定したコンストラクタを用意している可能性がある。
 
 ## 例
 ```cpp example
@@ -46,7 +47,7 @@ int main()
   r.get() += 1;
   std::cout << x << std::endl;
 
-  // (3)
+  // (2)
   // 参照ラッパーrが指すxへの参照を保持する
   std::reference_wrapper<int> r2(r);
   r2.get() += 1;
