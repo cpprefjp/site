@@ -7,10 +7,10 @@
 ```cpp
 namespace std {
 namespace placeholders {
-  /*下記参照*/ unspecified _1;
-  /*下記参照*/ unspecified _2;
+  /*see below*/ unspecified _1;
+  /*see below*/ unspecified _2;
   …
-  /*下記参照*/ unspecified _N;
+  /*see below*/ unspecified _N;
 }}
 ```
 * unspecified[italic]
