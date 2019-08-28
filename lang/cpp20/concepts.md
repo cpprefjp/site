@@ -503,6 +503,69 @@
 - 満たされない制約を持つ全ての関数は、オーバーロード解決の候補から除外される
 
 
+## autoに対する制約
+- [ジェネリックラムダ](/lang/cpp14/generic_lambdas.md)では`[](auto a, auto b) { … }`のようにパラメータの型として`auto`を使用することで関数テンプレートとして関数呼び出し演算子が定義され、それぞれの変数にテンプレートパラメータが割り振られていた
+- コンセプトの導入にともない、この仕様を以下のように拡大する：
+    - ラムダ式以外の通常の関数もまたパラメータ型`auto`とすることで関数テンプレートを定義できるようにする
+    - 関数の戻り値型として使用する`auto`、変数定義の`auto`、パラメータ型の`auto`をコンセプトで制約できるようにする構文を追加する
+
+### autoパラメータによる関数テンプレートの簡易定義
+- パラメータ型を`auto`にすることにより、それぞれのパラメータにテンプレートパラメータが振り分けられる。
+    ```cpp
+    auto f(auto a, auto b) { return a + b; }
+
+    // 以下と同じ
+    // template <class T, class U>
+    // auto f(T a, T b) { return a + b; }
+
+    f(1, 2);     // パラメータaとbの型はint
+    f(0.1, 0.2); // パラメータaとbの型はdouble
+    ```
+
+    - これはコンセプトによる制約がされない、単純な関数テンプレートの定義である
+
+### auto変数、autoパラメータ、auto戻り値に対する制約
+- 変数定義のauto、関数パラメータのauto、戻り値型のautoをそれぞれ制約できる。単純な使い方は以下のようになる：
+    ```cpp
+    concept C = true;
+
+    // 変数を制約する。制約を満たさない型が代入されようとしたらコンパイルエラー
+    C auto a = 1;
+
+    // パラメータ型を制約する
+    // (constは制約の前)
+    void f(const C auto& a, C auto b, C auto&& c) {}
+    // 以下と同じ意味になる：
+    // template <class T, class U, class V>
+    // requires C<T> && C<U> && C<V>
+    // void f(const T& a, U b, V&& c) {}
+
+    // 戻り値型を制約する (decltype(auto)も同様)
+    C auto g() { return 1; }
+
+    // 非型テンプレート引数を制約する
+    template <C auto N>
+    struct X {};
+
+    struct Y {
+      // 型変換演算子の戻り値型を制約する
+      operator C auto() const {
+        return 1;
+      }
+    };
+    ```
+
+- テンプレート引数付きコンセプトを使用する場合、コンセプトの第1テンプレート引数として`auto`プレースホルダーで置き換わる型が自動的に渡される：
+    ```cpp
+    // std::CopyConstructible<decltype(x)>を意味する
+    void f(std::CopyConstructible auto x);
+
+    // std::Constructible<decltype(x), int>を意味する
+    void g(std::Constructible<int> auto x);
+    ```
+    * std::CopyConstructible[link /reference/concepts/CopyConstructible.md]
+    * std::Constructible[link /reference/concepts/Constructible.md.nolink]
+
 ## 備考
 - GCC 9.1では、コンセプトが正式サポートされていないため、コンパイルオプションとして`-fconcepts`を付ける必要がある
 
