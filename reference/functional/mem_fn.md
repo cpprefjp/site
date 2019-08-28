@@ -24,10 +24,17 @@ namespace std {
 
 
 ## 戻り値
+
+### C++17まで
 `fn(t, a2, ..., aN)` の呼出しが [`INVOKE`](/reference/concepts/Invoke.md)`(pm, t, a2, ..., aN)` と等価となる [*Callable*](/reference/concepts/Callable.md) オブジェクト `fn` を返す。
 
 `fn` の型には、必要に応じて型の別名 `argument_type`, `first_argument_type`, `second_argument_type`, `result_type` が定義される。
 
+### C++20から
+`fn(call_args...)`の呼び出しが[`invoke`](/reference/functional/invoke.md)`(pmd,  call_args...)`を行うシンプルなcall wrapperオブジェクト `fn` を返す。  
+ここで、`pmd`は`R T::* pmd(pm)`のように初期化された`fn`が保持するメンバポインタ、`call_args...`は`pm`の関数呼び出しに必要となる引数リストである。
+
+メンバポインタ呼び出しのためには`call_args...`の先頭に、`T`のオブジェクトもしくはそれを参照する何らかのものが無ければならない（詳細は[`INVOKE`](/reference/concepts/Invoke.md)を参照）。
 
 ## 例外
 投げない
@@ -86,3 +93,4 @@ true
 - [LWG Issue 2048. Unnecessary `mem_fn` overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2048)
     - 不必要なオーバーロードを、C++14で削除
 - [LWG Issue 2489. mem_fn() should be noexcept](https://wg21.cmeerw.net/lwg/issue2489)
+- [P1065R2 constexpr INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1065r2.html)
