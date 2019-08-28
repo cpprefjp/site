@@ -11,14 +11,14 @@ namespace std::pmr {
 ```
 
 ## 概要
-標準コンテナ等で、[`polymorphic_allocator`](polymorphic_allocator.md)を使用するが`memory_resource`が指定されない場合に利用されるデフォルトの`memory_resource`を設定する。
+[`polymorphic_allocator`](polymorphic_allocator.md)のコンストラクタ等で、`memory_resource`が指定されない場合に利用されるデフォルトの`memory_resource`を設定する。
 
 ## 引数
 
 - `r` -- 設定する`memory_resource`のポインタ
 
 ## 効果
-`r`がnullでなければ、デフォルトの`memory_resource`のポインタを`r`に設定する（この関数の呼び出し後、[`get_default_resource()`](get_default_resource.md) `== r`となる）。
+`r`がnullでなければ、デフォルトの`memory_resource`のポインタを`r`に設定する。
 
 `r`がnullならば、デフォルトの`memory_resource`のポインタを[`new_delete_resource()`](new_delete_resource.md)に設定する。
 
@@ -82,3 +82,6 @@ true
 
 ## 関連項目
 - [`memory_resource`](memory_resource.md)
+
+## 参照
+- [LWG Issue 2961. Bad postcondition for set_default_resource](https://wg21.cmeerw.net/lwg/issue2961)
