@@ -125,7 +125,7 @@ HelloWorld
 - [C++14 ラムダ式の初期化キャプチャ](initialize_capture.md)
 - [C++14 通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)
 - [C++20 ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md)
-- [C++20 autoパラメータによる関数テンプレートの簡易定義](function_templates_with_auto_parameters.md)
+- [C++20 autoパラメータによる関数テンプレートの簡易定義](/lang/cpp20/function_templates_with_auto_parameters.md)
 
 
 ## 参照
