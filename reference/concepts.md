@@ -81,3 +81,7 @@
 | [`INVOKE`](concepts/Invoke.md)                             | |
 | [`LessThanComparable`](concepts/LessThanComparable.md)     | 小なり比較可能 |
 | [`ValueSwappable`](concepts/ValueSwappable.md)             | 間接参照して入れ替え可能 |
+
+
+## 参照
+- [C++標準コンセプトの名前付けガイドライン - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20190826/p1)
