@@ -10,7 +10,10 @@ namespace std {
   unspecified mem_fn(R T::* pm);            //C++11
 
   template <class R, class T>
-  constexpr unspecified mem_fn(R T::* pm);  //C++20
+  unspecified mem_fn(R T::* pm) noexcept;   //C++17
+
+  template <class R, class T>
+  constexpr unspecified mem_fn(R T::* pm) noexcept; //C++20
 }
 ```
 * unspecified[italic]
@@ -82,4 +85,4 @@ true
 ## 参照
 - [LWG Issue 2048. Unnecessary `mem_fn` overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2048)
     - 不必要なオーバーロードを、C++14で削除
-
+- [LWG Issue 2489. mem_fn() should be noexcept](https://wg21.cmeerw.net/lwg/issue2489)
