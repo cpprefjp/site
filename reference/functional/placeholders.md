@@ -7,10 +7,10 @@
 ```cpp
 namespace std {
 namespace placeholders {
-  extern unspecified _1;
-  extern unspecified _2;
+  /*下記参照*/ unspecified _1;
+  /*下記参照*/ unspecified _2;
   …
-  extern unspecified _N;
+  /*下記参照*/ unspecified _N;
 }}
 ```
 * unspecified[italic]
@@ -20,6 +20,13 @@ namespace placeholders {
 
 それぞれ、[`bind()`](bind.md)によって返された関数オブジェクトに指定する「第1引数」「第2引数」…「第N引数」であることを意味する。
 
+各プレースホルダーオブジェクトの宣言は、可能ならば以下のように行われる。
+
+`inline constexpr unspecified _1;`
+
+そうできない場合、もしくはC++14までは次のように宣言される。
+
+`extern unspecified _1;`
 
 ## 備考
 プレースホルダーの数(`N`の値)は、10以上実装することが推奨される。
@@ -29,3 +36,6 @@ namespace placeholders {
 ### 言語
 - C++11
 
+## 参照
+- [LWG Issue 2488. Placeholders should be allowed and encouraged to be constexpr](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2488)
+- [P0607R0 Inline Variables for the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0607r0.html)
