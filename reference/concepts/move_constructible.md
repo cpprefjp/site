@@ -1,11 +1,11 @@
-# MoveConstructible
+# move_constructible
 * concepts[meta header]
 * std[meta namespace]
 * concept[meta id-type]
 * cpp20[meta cpp]
 
 ## 概要
-MoveConstructibleは、任意の型`T`がムーブ構築可能であることを表す要件である。
+`move_constructible`は、任意の型`T`がムーブ構築可能であることを表す要件である。
 
 
 ## 要件

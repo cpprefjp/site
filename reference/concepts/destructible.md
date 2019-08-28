@@ -1,11 +1,11 @@
-# Destructible
+# destructible
 * concepts[meta header]
 * std[meta namespace]
 * concept[meta id-type]
 * cpp20[meta cpp]
 
 ## 概要
-Destructibleは、任意の型`T`が破棄可能であることを表す要件である。
+`destructible`は、任意の型`T`が破棄可能であることを表す要件である。
 
 
 ## 要件

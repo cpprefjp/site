@@ -1,11 +1,11 @@
-# Swappable
+# swappable
 * concepts[meta header]
 * std[meta namespace]
 * concept[meta id-type]
 * cpp20[meta cpp]
 
 ## 概要
-Swappableは、任意の型`T`のオブジェクトと任意の型`U`のオブジェクトが入れ替え可能かを表す要件である。
+`swappable`は、任意の型`T`のオブジェクトと任意の型`U`のオブジェクトが入れ替え可能かを表す要件である。
 
 
 ## 要件
