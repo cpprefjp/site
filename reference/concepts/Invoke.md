@@ -29,11 +29,11 @@
 
 ## 要件（C++17）
 1. 仮想操作 *INVOKE*`(f, t1, t2, ..., tN)` を次のように定義する。
-	- `f` が型 `T` のメンバ関数へのポインタであり、[`std::is_baseof_v`](/reference/type_traits/is_base_of.md)`<T, `[`std::decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
-	- `f` が型 `T` のメンバ関数へのポインタであり、[`std::decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>`が[`reference_­wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_­wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `(t1.get().*f)(t2, ..., tN)` と同じ効果を持つ。
+	- `f` が型 `T` のメンバ関数へのポインタであり、[`is_baseof_v`](/reference/type_traits/is_base_of.md)`<T, `[`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
+	- `f` が型 `T` のメンバ関数へのポインタであり、[`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>`が[`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `(t1.get().*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `f` が型 `T` のメンバ関数へのポインタであり、 `t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、`((*t1).*f)(t2, ..., tN)` と同じ効果を持つ。
-	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`std::is_baseof_v`](/reference/type_traits/is_base_of.md)`<T, `[`std::decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `t1.*f` と同じ効果を持つ。
-	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`std::decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>`が[`reference_­wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_­wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `t1.get().*f` と同じ効果を持つ。
+	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`is_baseof_v`](/reference/type_traits/is_base_of.md)`<T, `[`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `t1.*f` と同じ効果を持つ。
+	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>`が[`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `t1.get().*f` と同じ効果を持つ。
 	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、`t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、 `(*t1).*f` と同じ効果を持つ。
 	- 上記の条件のどれにも当てはまらない場合、 `f(t1, t2, ..., tN)` と同じ効果を持つ。
 2. *INVOKE*`<R>(f, t1, t2, ..., tN)` を次のように定義する。
@@ -47,7 +47,7 @@
 ## 関連項目
 - [invoke](/reference/functional/invoke.md)
 - [function](/reference/functional/function.md)
-- [reference_­wrapper](/reference/functional/reference_wrapper.md)
+- [reference_wrapper](/reference/functional/reference_wrapper.md)
 - [bind](/reference/functional/bind.md)
 - [mem_fn](/reference/functional/mem_fn.md)
 - [not_fn](/reference/functional/not_fn.md)
