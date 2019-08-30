@@ -13,19 +13,19 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`e`](numbers/e.md)              | ネイピア数 (variable) | C++20 |
-| [`log2e`](numbers/log2e.md)      | eに対する2を底とする対数 (variable) | C++20 |
-| [`log10e`](numbers/log10e.md)    | eに対する10を底とする対数 (variable) | C++20 |
-| `pi`         | 円周率 (variable) | C++20 |
-| `inv_pi`     | 1/pi (variable) | C++20 |
-| `inv_sqrtpi` | 1/√pi (variable) | C++20 |
-| `ln2`        | 2に対するeを底とする対数 (variable) | C++20 |
-| `ln10`       | 10に対するeを底とする対数 (variable) | C++20 |
-| `sqrt2`      | √2 (variable) | C++20 |
-| `sqrt3`      | √3 (variable) | C++20 |
-| `inv_sqrt3`  | 1/√3 (variable) | C++20 |
-| `egamma`     | オイラー定数 (variable) | C++20 |
-| `phi`        | 黄金比 (variable) | C++20 |
+| [`e`](numbers/e.md)                   | ネイピア数e (variable) | C++20 |
+| [`log2e`](numbers/log2e.md)           | eに対する2を底とする対数log2(e) (variable) | C++20 |
+| [`log10e`](numbers/log10e.md)         | eに対する10を底とする対数log10(e) (variable) | C++20 |
+| [`pi`](numbers/pi.md)                 | 円周率π (variable) | C++20 |
+| [`inv_pi`](numbers/inv_pi.md)         | 円周率の逆数1/π (variable) | C++20 |
+| [`inv_sqrtpi`](numbers/inv_sqrtpi.md) | 円周率の平方根の逆数1/√π (variable) | C++20 |
+| `ln2`        | 2の自然対数log(2) (variable) | C++20 |
+| `ln10`       | 10の自然対数log(10) (variable) | C++20 |
+| `sqrt2`      | 2の平方根√2 (variable) | C++20 |
+| `sqrt3`      | 3の平方根√3 (variable) | C++20 |
+| `inv_sqrt3`  | 3の平方根の逆数1/√3 (variable) | C++20 |
+| `egamma`     | オイラー定数 γ (variable) | C++20 |
+| `phi`        | 黄金比φ (variable) | C++20 |
 
 
 ## バージョン
