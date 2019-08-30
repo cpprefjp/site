@@ -13,9 +13,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`e`](numbers/e.md)          | ネイピア数 (variable) | C++20 |
-| `log2e`      | eに対する2を底とする対数 (variable) | C++20 |
-| `log10e`     | eに対する10を底とする対数 (variable) | C++20 |
+| [`e`](numbers/e.md)              | ネイピア数 (variable) | C++20 |
+| [`log2e`](numbers/log2e.md)      | eに対する2を底とする対数 (variable) | C++20 |
+| [`log10e`](numbers/log10e.md)    | eに対する10を底とする対数 (variable) | C++20 |
 | `pi`         | 円周率 (variable) | C++20 |
 | `inv_pi`     | 1/pi (variable) | C++20 |
 | `inv_sqrtpi` | 1/√pi (variable) | C++20 |
