@@ -22,6 +22,7 @@
 | `signed_integral` | 符号付き整数型 | C++20 |
 | `unsigned_integral` | 符号なし整数型 | C++20 |
 | `boolean` | 真理値型 | C++20 |
+| `floating_point` | 浮動小数点数型 | C++20 |
 
 
 ## 型の構築・破棄・代入操作
