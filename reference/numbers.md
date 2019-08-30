@@ -24,8 +24,8 @@
 | [`sqrt2`](numbers/sqrt2.md)           | 2の平方根√2 (variable) | C++20 |
 | [`sqrt3`](numbers/sqrt3.md)           | 3の平方根√3 (variable) | C++20 |
 | [`inv_sqrt3`](numbers/inv_sqrt3.md)   | 3の平方根の逆数1/√3 (variable) | C++20 |
-| `egamma`     | オイラー定数 γ (variable) | C++20 |
-| `phi`        | 黄金比φ (variable) | C++20 |
+| [`egamma`](numbers/egamma.md)         | オイラー定数 γ (variable) | C++20 |
+| [`phi`](numbers/phi.md)               | 黄金比φ (variable) | C++20 |
 
 
 ## バージョン
