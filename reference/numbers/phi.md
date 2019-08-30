@@ -7,10 +7,10 @@
 ```cpp
 namespace std {
   template <class T>
-  inline constexpr T phi_v = unspecified;         // (1)
+  inline constexpr T phi_v = unspecified;      // (1)
 
   template <floating_point T>
-  inline constexpr T phi_v<T> = see below;        // (2)
+  inline constexpr T phi_v<T> = see below;     // (2)
 
   inline constexpr double phi = phi_v<double>; // (3)
 }
