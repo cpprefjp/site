@@ -409,6 +409,10 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`math_errhandling`](cmath/math_errhandling.md) | `<cmath>` 内の関数がエラーをどのように取り扱うかを表すマクロ | C++11 |
 
 
+## 関連項目
+- [`<numbers>`](numbers.md)
+
+
 ## 参照
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
 - [P00175R0 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r0.html)
