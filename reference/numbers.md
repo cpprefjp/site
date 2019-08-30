@@ -19,8 +19,8 @@
 | [`pi`](numbers/pi.md)                 | 円周率π (variable) | C++20 |
 | [`inv_pi`](numbers/inv_pi.md)         | 円周率の逆数1/π (variable) | C++20 |
 | [`inv_sqrtpi`](numbers/inv_sqrtpi.md) | 円周率の平方根の逆数1/√π (variable) | C++20 |
-| `ln2`        | 2の自然対数log(2) (variable) | C++20 |
-| `ln10`       | 10の自然対数log(10) (variable) | C++20 |
+| [`ln2`](numbers/ln2.md)               | 2の自然対数log(2) (variable) | C++20 |
+| [`ln10`](numbers/ln10.md)             | 10の自然対数log(10) (variable) | C++20 |
 | `sqrt2`      | 2の平方根√2 (variable) | C++20 |
 | `sqrt3`      | 3の平方根√3 (variable) | C++20 |
 | `inv_sqrt3`  | 3の平方根の逆数1/√3 (variable) | C++20 |
