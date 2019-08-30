@@ -127,6 +127,7 @@
 | [`<random>`](/reference/random.md)     | 乱数生成         | C++11          |
 | [`<valarray>`](/reference/valarray.md) | 数値の配列       |                |
 | [`<numeric>`](/reference/numeric.md)   | 一般的な数値操作 |                |
+| [`<numbers>`](/reference/numbers.md)   | 数値             | C++20          |
 
 
 ## <a id="io" href="#io">入出力ライブラリ</a>
