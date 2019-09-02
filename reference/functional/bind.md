@@ -52,6 +52,9 @@ struct bound_function_type {
 
 注意： `bound_args` は明示的に [`std::ref()`](ref.md) または [`std::cref()`](cref.md) で包まない限り、内部でコピーして保持される。他方、`unbound_args` は通常の [perfect forwarding](/reference/utility/forward.md) が行われるため、`move` で渡したあるいは一時オブジェクトを直接渡した `unbound_args` を複数回プレースホルダ経由で使用すると予期しない結果になることがある。
 
+## 例外
+
+戻り値のオブジェクト内に束縛する、関数オブジェクト`f`およびその引数`boud_args`の初期化時に例外を投げる可能性がある。
 
 ## 例
 ```cpp example
