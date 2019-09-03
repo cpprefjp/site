@@ -23,5 +23,8 @@ C++17において、動的メモリ確保時のアライメント指定がサポ
 - [GCC, C++17 mode](/implementation.md#gcc): 7.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+## 関連項目
+- [C++17 アライメント指定されたデータの動的メモリ確保](/lang/cpp17/dynamic_memory_allocation_for_over-aligned_data.md)
+
 ## 参照
 - [P0035R4 Dynamic memory allocation for over-aligned data](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0035r4.html)
