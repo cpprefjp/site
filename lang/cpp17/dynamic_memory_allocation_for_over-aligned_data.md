@@ -42,3 +42,4 @@ void* operator new(std::size_t size, std::align_val_t alignment);
 
 ## 参照
 - [P0035R4 Dynamic memory allocation for over-aligned data](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0035r4.html)
+- [New `new()` - The C++17's Alignment Parameter for Operator `new()`](https://www.bfilipek.com/2019/08/newnew-align.html)
