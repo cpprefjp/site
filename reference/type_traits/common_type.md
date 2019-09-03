@@ -38,6 +38,7 @@ namespace std {
 	- `T1,T2`に対する`decay`の適用は、少なくとも片方が恒等写像とならない（`is_same_v<T1, D1> && is_same_v<T2, D2> == false`となる）場合  
 	`type = common_type_t<D1, D2>;`のように`type`を定義。
 	- そうではなく、ユーザ定義の特殊化もない場合、`type = decay_t<decltype(false ? declval<D1>() : declval<D2>())>;`のように`type`を定義。
+	- 上記の様な型が定義できない場合、メンバ型`type`は定義されない。
 - `N >= 3` : `Types...`の１、2番目の型を`T1, T2`、残りのパラメータパックを`P...`とすると、`type = common_type_t<common_type_t<T1, T2>, P...>;`のように`type`を定義。
 	- 先頭2つの型の共通型を求めて、その型と3番目の型の共通型を求めて、その型と4番目の...というように再帰的に`common_type`を適用していく。
 
