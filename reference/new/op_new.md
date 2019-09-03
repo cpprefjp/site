@@ -4,9 +4,9 @@
 * [meta namespace]
 
 ```cpp
-void* operator new(std::size_t size) throw(std::bad_alloc);             // (1) C++03
-void* operator new(std::size_t size);                                   // (1) C++11
-[[nodiscard]] void* operator new(std::size_t size);                                   // (1) C++20
+void* operator new(std::size_t size) throw(std::bad_alloc);         // (1) C++03
+void* operator new(std::size_t size);                               // (1) C++11
+[[nodiscard]] void* operator new(std::size_t size);                 // (1) C++20
 
 void* operator new(std::size_t size,
                    std::align_val_t alignment);                     // (2) C++17
