@@ -15,7 +15,9 @@ class alignas(16) float4 {
 
 float4  v; // C++11でも適切にアライメントされる
 float4* p = new float4[1000]; // C++17以降では適切にアライメントされる
+float*  q = new (std::align_val_t{16}) float[4]; // new演算子に直接アライメント指定することもできる
 ```
+* std::align_val_t[link /reference/new/align_val_t.md]
 
 C++17以前で適切にアライメントされたメモリ領域を動的に確保するためには、C++11で追加された[`std::align`](/reference/memory/align.md)を用いて大きく確保した領域から指定を満たす部分を取り出すか、`posix_memalign`や`_aligned_malloc`などの処理系固有の関数を使用する必要があった。
 
