@@ -27,22 +27,42 @@ namespace std {
 ## 効果
 `common_type`は、`Types...`に含まれる全ての型が暗黙変換可能な型を、メンバ型`type`として定義する。
 
+より詳細には、次のように決定される。ただし、C++11では[`decay`](/reference/type_traits/decay.md)を適用するプロセスが、C++14では下記`N == 2`の時のプロセスが、それぞれ行われない。
+
+`N = sizeof...(Types)`として
+
+- `N == 0` : メンバ型`type`は定義されない。
+
+- `N == 1` : `Types...`内の唯一の型を`T`とすると、`type = common_type_t<T, T>;`のように`type`を定義。
+- `N == 2` : `Types...`の１、2番目の型を`T1, T2`、`D1 = decay_t<T1>, D2 = decay_t<T2>`として
+	- `T1,T2`に対する`decay`の適用は、少なくとも片方が恒等写像とならない（`is_same_v<T1, D1> && is_same_v<T2, D2> == false`となる）場合  
+	`type = common_type_t<D1, D2>;`のように`type`を定義。
+	- そうではなく、ユーザ定義の特殊化もない場合、`type = decay_t<decltype(false ? declval<D1>() : declval<D2>())>;`のように`type`を定義。
+- `N >= 3` : `Types...`の１、2番目の型を`T1, T2`、残りのパラメータパックを`P...`とすると、`type = common_type_t<common_type_t<T1, T2>, P...>;`のように`type`を定義。
+	- 先頭2つの型の共通型を求めて、その型と3番目の型の共通型を求めて、その型と4番目の...というように再帰的に`common_type`を適用していく。
+
+
+2つの型`T1, T2`に対する[`decay`](/reference/type_traits/decay.md)の適用がともに恒等写像となるのは以下の場合である。
+
+- `T1, T2`はともに配列型ではなく
+- `T1, T2`はともに関数型でもなく
+- `T1, T2`はともに参照型でもなく
+- `T1, T2`はともにCV修飾もされていない
+
 ## 特殊化
 `common_type`は以下の条件を満たす場合に、2引数のもの（`common_type<T1, T2>`）に限ってユーザー定義の特殊化が許可されている。
 
 - `T1, T2`の少なくとも片方はユーザー定義型に依存している
 	- 「ユーザー定義型に依存している」とは例えば、ユーザー定義型に対する`vector`等の特殊化のこと
-- `T1, T2`に対する[`std::decay`](/reference/type_traits/decay.md)の適用はともに恒等写像となる、すなわち
-	- `T1, T2`はともに配列型ではなく
-	- `T1, T2`はともに関数型でもなく
-	- `T1, T2`はともに参照型でもなく
-	- `T1, T2`はともにCV修飾もされていない
+- `T1, T2`に対する[`decay`](/reference/type_traits/decay.md)の適用はともに恒等写像となる（上記参照）
 
-そして、そのような特殊化は必ずしもメンバ型`::type`を持たなくても構わない。  
-もし`::type`を定義する場合は`public`にただ一つだけ定義し、その型は`T1, T2`から明示的に変換可能であり、かつCV修飾されておらず参照型でもない型である必要がある。  
-そして、その特殊化は`T1,T2`の引数順を入れ替えても同じ結果を返す（対称性を持つ）必要がある。
-
+そして、そのような特殊化は必ずしもメンバ型`type`を持たなくても構わない。  
+もし`type`を定義する場合は`public`にただ一つだけ定義し、その型は`T1, T2`から明示的に変換可能であり、かつCV修飾されておらず参照型でもない型である必要がある。  
+そして、その特殊化は`T1,T2`の引数順を入れ替えても同じ結果を返す（対称性を持つ）必要がある。  
 これらの規則に違反した特殊化を定義したとしてもコンパイルエラーにはならず、未定義動作となる。
+
+このように定義されたユーザー定義の特殊化は、`common_type_t<T1, T2>`のように使用された時`T1, T2`がともにCV修飾もなく参照でもない場合は直接利用される。  
+`T1, T2`のどちらかがCV修飾されているか参照である場合は、プライマリの`common_type`によって`decay`された上で利用される。
 
 なお、`common_type`以外の[`<type_traits>`](/reference/type_traits.md)内テンプレートに対するユーザー定義の特殊化は許可されていない。
 
@@ -145,4 +165,4 @@ struct common_type<T, U, V...> {
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 - [LWG Issue 2141. `common_type` trait produces reference types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2141)
     - C++11では、`common_type`の結果が参照型になる場合があった。C++14で`decay_t`を通すことにしたことにより、参照型が返されることがなくなった。
-
+- [P0453R1 Resolving LWG Issues re common_type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0435r1.pdf)
