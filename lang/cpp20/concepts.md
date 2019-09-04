@@ -5,12 +5,89 @@
 C++20から導入される「コンセプト (concepts)」は、テンプレートパラメータを制約する機能である。この機能を使用することで、以下のような面でプログラミングのしやすさが向上する：
 
 - コンパイルエラーのメッセージが読みやすくなる
-    - テンプレートパラメータの型およびそのオブジェクトに対する許可されていない操作をしようとした場合に発生するエラーメッセージが、「テンプレートパラメータ`T`はコンセプト`X`の要件を満たしません」のようなわかりやすいものになることが期待できる
+    - テンプレートパラメータの型およびそのオブジェクトに対する許可されていない操作をしようとした場合に発生するエラーメッセージが、「テンプレートパラメータ`T`がコンセプト`X`の要件を満たしません」のようなわかりやすいものになることが期待できる
 - これまで自然言語で書いていた制約の仕様をプログラムで記述できる
     - `assert` / `static_assert`はどのような値になるべきかを表明するが、コンセプトは型が持つべきインタフェースや特性を表明する
 - コンセプトによって関数オーバーロードやテンプレート特殊化ができる
     - これまでSFINAEと呼ばれる上級者向けの言語機能を使用していた制約によるオーバーロードが、コンセプトというわかりやすい機能で実現できる。これはたとえば、InputIteratorとRandomAccessIterator、整数と浮動小数点数でそれぞれに最適な実装を切り替えるような場合に必要となる
 
+以下は、関数テンプレートのテンプレートパラメータ`T`に対して、`draw()`メンバ関数を持っていることを要求する制約の定義例である：
+
+```cpp
+// 描画可能コンセプト。
+// メンバ関数draw()を持つことを要求する
+template <class T>
+concept Drawable = requires (T& x) {
+  x.draw(); // 型Tに要求する操作をセミコロン区切りで列挙する。
+            // ここでは、メンバ関数draw()を呼び出せることを要求している。
+};
+
+// テンプレートパラメータTをコンセプトDrawableで制約する。
+// Drawableの要件を満たさない型が渡された場合は制約エラーとなる
+template <Drawable T>
+void f(T& x) {
+  x.draw();
+}
+
+struct Circle {
+  void draw() {}
+};
+
+struct Box {
+  void draw() {}
+};
+
+int main() {
+  Circle c;
+  f(c);      // OK
+
+  Box b;
+  f(b);      // OK
+
+//int n = 0;
+//f(n);      // コンパイルエラー！
+             // 型intはDrawableコンセプトの要件を満たさず、
+             // draw()メンバ関数を持っていない
+}
+```
+
+`concept`キーワードを使用して、型に対する要求の集合であるコンセプトを定義する。コンセプトの定義では、型がどのような特性を持つのか (整数型なのか浮動小数点数型なのか、`==`で比較可能なのか`<`で順序付けられているか) や、型に対してどのような操作ができるべきか (メンバ関数呼び出し、非メンバ関数呼び出し、ほかの型との演算、特定のメンバ型を持っているか) などを列挙する。
+
+```cpp
+#include <type_traits>
+#include <iterator>
+
+// 型特性としてすでに用意されている定数式をラップしてコンセプトを定義できる
+template <class T>
+concept Integral = std::is_integral_v<T>;
+
+// 2つ以上のテンプレートパラメータをとるコンセプトも定義できる
+template <class T, class U>
+concept EqualityComparable = requires (T a, U b) {
+  {a == b} -> bool; // 式の戻り値型も要求できる
+};
+
+// 戻り値型の要求には、直接の型だけでなくコンセプトも指定できる
+template <class T, class U>
+concept Addable = requires (T a, U b) {
+  // 加算の結果として、型Tと型Uの共通の型が返ること
+  {a + b} -> std::common_with<T, U>;
+}
+
+// セミコロン区切りで複数の要求を列挙できる
+template <class T>
+concept SequenceContainer = requires (T c) {
+  typename T::size_type; // 型Tがメンバ型としてsize_typeを持っていること
+  {c.size()} -> typename T::size_type;
+  {std::size(c)} -> typename T::size_type; // 非メンバ関数の呼び出しも要求できる
+
+  typename T::value_type;
+  c.push_back(std::declval<typename T::value_type>());
+};
+```
+* std::is_integral_v[link /reference/type_traits/is_integral.md]
+* std::common_with[link /reference/concepts/common_with.md.nolink]
+* std::size[link /reference/iterator/size.md]
 
 (執筆中)
 
