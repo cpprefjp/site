@@ -60,6 +60,7 @@ int main() {
 #include <iterator>
 #include <utility>
 
+// bool型の定数式でコンセプトを定義できるため、
 // 型特性としてすでに用意されている定数式をラップしてコンセプトを定義できる
 template <class T>
 concept Integral = std::is_integral_v<T>;
