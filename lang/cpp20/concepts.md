@@ -146,6 +146,17 @@ int main() {
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
 * epsilon()[link /reference/limits/numeric_limits/epsilon.md]
 
+また、コンセプトは`bool`型の定数式でもあるため、`static_assert`と組み合わせてコンパイル時の表明としても使用できる。
+
+```cpp
+template <class T>
+void f(T x) {
+  // テンプレートパラメータTは整数型であること
+  static_assert(std::integral<T>);
+}
+```
+* std::integral[link /reference/concepts/integral.md.nolink]
+
 (執筆中)
 
 
