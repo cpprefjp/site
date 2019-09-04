@@ -56,6 +56,7 @@ int main() {
 ```cpp
 #include <type_traits>
 #include <iterator>
+#include <utility>
 
 // 型特性としてすでに用意されている定数式をラップしてコンセプトを定義できる
 template <class T>
@@ -88,6 +89,7 @@ concept SequenceContainer = requires (T c) {
 * std::is_integral_v[link /reference/type_traits/is_integral.md]
 * std::common_with[link /reference/concepts/common_with.md.nolink]
 * std::size[link /reference/iterator/size.md]
+* std::declval[link /reference/utility/declval.md]
 
 (執筆中)
 
