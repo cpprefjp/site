@@ -218,6 +218,7 @@ default宣言された`<=> ==`演算子はその基底クラスと非静的メ�
 2. 宣言された順番（上から下）で非静的メンバを`@`によって比較する。
     - この時、配列は要素ごとに比較する。
 3. これらの比較の際、結果が`0`（`==`なら`true`）とならない時点でその結果を返して終了する。
+4. 基底クラスもメンバも無い場合、`strong_ordering::equal`を返して終了する。
 
 この手順を明示的に書くと以下の様な実装になる。
 
@@ -303,12 +304,12 @@ struct C {
 
 |比較するペア|従来演算子での比較の可否|`<=>`での比較の可否|従来演算子の修正（C++20より、非推奨扱い）|
 |:-------------|:-------------|:-------------|:-------------|
-|符号なし整数型と符号付整数型|〇|×<br/>ただし定数式で符号付きオペランドが正の値に評価されれば可能|ー（従来通り）|
+|符号なし整数型と符号付整数型|〇|×<br/>ただし定数式で符号付きオペランドが正の値に評価されれば可能|━（従来通り）|
 |列挙型と算術型|〇<br/>例えば、列挙型と浮動小数点型の比較が可能|△<br/>スコープ無し列挙型と整数型のみ可能|△<br/>列挙型と浮動小数点型間比較は不可<br/>それ以外は従来通り|
 |異なる列挙型間|〇|×|×|
 |配列同士|△<br/>標準は未規定だが多くの実装ではポインタに変換して比較する|×|×|
-|`nullptr`とポインタ|△<br/>関係演算子では不可|〇<br/>ただし、ポインタが`nullptr`でない場合の結果は未規定|ー|
-|関数ポインタ間|〇<br/>異なるポインタ間の順序付けの結果は未規定|〇|ー|
+|`nullptr`とポインタ|△<br/>同値比較のみ可能|〇<br/>ただし、ポインタが`nullptr`でない場合の結果は未規定|━|
+|関数ポインタ間|〇<br/>異なるポインタ間の順序付けの結果は未規定|〇|━|
 
 ## C++17までの比較演算子実装の一例
 ```cpp example
@@ -571,7 +572,9 @@ struct has_vector {
     - [P0515R3 Consistent comparison](http://wg21.link/p0515)
     - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
     - [P1120R0 Consistency improvements for <=> and other comparison operators](http://wg21.link/p1120)
-    - [p1185R2 <=> != ==](http://wg21.link/p1185)
+    - [P1185R2 <=> != ==](http://wg21.link/p1185)
+    - [P1186R3 When do you actually use <=>?](http://wg21.link/p1186)
+    - [P1630R1 Spaceship needs a tune-up](http://wg21.link/p1630)
 - 以前に検討されていた提案文書
     - [N3950 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html)
     - [N4114 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4114.htm)
