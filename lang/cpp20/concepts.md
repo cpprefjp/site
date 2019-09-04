@@ -135,7 +135,8 @@ constexpr T pi<T> = static_cast<T>(3); // 整数の円周率は3 (これはジ�
 
 int main() {
   assert(equal(1 + 2, 3));
-  assert(equal(0.1 + 0.2, 0.3));
+  assert(equal(0.1 + 0.2, 0.3)); // 計算誤差によって0.1 + 0.2 == 0.3にはならないが、誤差を許容する
+                                 // (0.1 + 0.2 は 0.30000000000000004 のような値になる)
 
   std::cout << pi<double> << std::endl; // 3.14159
   std::cout << pi<int> << std::endl;    // 3
@@ -146,6 +147,7 @@ int main() {
 * std::abs[link /reference/cmath/abs.md]
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
 * epsilon()[link /reference/limits/numeric_limits/epsilon.md]
+* 0.30000000000000004[link https://0.30000000000000004.com]
 
 また、コンセプトは`bool`型の定数式でもあるため、`static_assert`と組み合わせてコンパイル時の表明としても使用できる。
 
