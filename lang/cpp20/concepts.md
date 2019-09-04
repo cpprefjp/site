@@ -11,9 +11,11 @@ C++20から導入される「コンセプト (concepts)」は、テンプレー�
 - コンセプトによって関数オーバーロードやテンプレート特殊化ができる
     - これまでSFINAEと呼ばれる上級者向けの言語機能を使用していた制約によるオーバーロードが、コンセプトというわかりやすい機能で実現できる。これはたとえば、InputIteratorとRandomAccessIterator、整数と浮動小数点数でそれぞれに最適な実装を切り替えるような場合に必要となる
 
+
+### コンセプトの基本的な定義方法
 以下は、関数テンプレートのテンプレートパラメータ`T`に対して、`draw()`メンバ関数を持っていることを要求する制約の定義例である：
 
-```cpp
+```cpp example
 // 描画可能コンセプト。
 // メンバ関数draw()を持つことを要求する
 template <class T>
@@ -90,6 +92,59 @@ concept SequenceContainer = requires (T c) {
 * std::common_with[link /reference/concepts/common_with.md.nolink]
 * std::size[link /reference/iterator/size.md]
 * std::declval[link /reference/utility/declval.md]
+
+
+### コンセプトによるオーバーロードと特殊化
+テンプレートパラメータを制約するためには`static_assert`を使うこともできるだろう。
+
+`static_assert`とコンセプトの違いとしては、`static_assert`は要件を満たさない場合に即座にコンパイルエラーになるが、コンセプトの場合は、要件を満たさない場合にほかの候補を探しに行き、要件を満たすに候補が見つからなかった時点でコンパイルエラーとする機能がある。
+
+そのため、コンセプトは関数テンプレートのオーバーロード、クラステンプレートや変数テンプレートの特殊化に使用できる。
+
+```cpp example
+#include <concepts>
+#include <cmath>
+#include <limits>
+#include <cassert>
+#include <iostream>
+
+// 数値の等値比較を行う関数を、整数型か浮動小数点数型かでオーバーロードする。
+// 整数型の場合は、単純な==演算子による比較
+template <std::integral T>
+bool equal(T a, T b) {
+  return a == b;
+}
+
+// 浮動小数点数型の場合は、計算誤差を許容する等値比較
+template <std::floating_point T>
+bool equal(T a, T b) {
+  return std::abs(a - b) <= std::numeric_limits<T>::epsilon();
+}
+
+// 変数テンプレートを、整数型か浮動小数点数型かで特殊化する。
+// 同じことはクラステンプレートでもできる
+template <class T>
+constexpr T pi;
+
+template <std::floating_point T>
+constexpr T pi<T> = static_cast<T>(3.141592653589793);
+
+template <std::integral T>
+constexpr T pi<T> = static_cast<T>(3); // 整数の円周率は3 (これはジョークです)
+
+int main() {
+  assert(equal(1 + 2, 3));
+  assert(equal(0.1 + 0.2, 0.3));
+
+  std::cout << pi<double> << std::endl; // 3.14159
+  std::cout << pi<int> << std::endl;    // 3
+}
+```
+* std::integral[link /reference/concepts/integral.md.nolink]
+* std::floating_point[link /reference/concepts/floating_point.md.nolink]
+* std::abs[link /reference/cmath/abs.md]
+* std::numeric_limits[link /reference/limits/numeric_limits.md]
+* epsilon()[link /reference/limits/numeric_limits/epsilon.md]
 
 (執筆中)
 
