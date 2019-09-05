@@ -68,7 +68,7 @@ concept Integral = std::is_integral_v<T>;
 // 2つ以上のテンプレートパラメータをとるコンセプトも定義できる
 template <class T, class U>
 concept EqualityComparable = requires (T a, U b) {
-  {a == b} -> bool; // 式の戻り値型も要求できる
+  {a == b} -> std::convertible_to<bool>; // 式の戻り値型も制約できる (直接の戻り値型は指定できない)
 };
 
 // 戻り値型の要求には、直接の型だけでなくコンセプトも指定できる
@@ -82,14 +82,15 @@ concept Addable = requires (T a, U b) {
 template <class T>
 concept SequenceContainer = requires (T c) {
   typename T::size_type; // 型Tがメンバ型としてsize_typeを持っていること
-  {c.size()} -> typename T::size_type;
-  {std::size(c)} -> typename T::size_type; // 非メンバ関数の呼び出しも要求できる
+  {c.size()} -> std::convertible_to<typename T::size_type>;
+  {std::size(c)} -> std::convertible_to<typename T::size_type>; // 非メンバ関数の呼び出しも要求できる
 
   typename T::value_type;
   c.push_back(std::declval<typename T::value_type>());
 };
 ```
 * std::is_integral_v[link /reference/type_traits/is_integral.md]
+* std::convertible_to[link /reference/concepts/convertible_to.md.nolink]
 * std::common_with[link /reference/concepts/common_with.md.nolink]
 * std::size[link /reference/iterator/size.md]
 * std::declval[link /reference/utility/declval.md]
@@ -199,10 +200,11 @@ void f(T x) {
     template <typename T>
     concept R = requires (T i) {       // 型Tの値iがあるとして、
       typename T::type;                // 型Tがメンバ型typeを持つこと。
-      {*i} -> const typename T::type&; // 型Tの値に対して式*iが妥当であり、
-                                       // その式の戻り値型としてconst typename T::type&が返ること
+      {*i} -> std::convertible_to<const typename T::type&>; // 型Tの値に対して式*iが妥当であり、
+                                                            // その式の戻り値型としてconst typename T::type&に変換可能な型が返ること
     };
     ```
+    * std::convertible_to[link /reference/concepts/convertible_to.md.nolink]
 
     - ここでは、関数形式でローカルパラメータをひとつ (`T i`) とるrequires式によってコンセプト`R`を定義している
     - ローカルパラメータである`T i`の変数定義では、`T`型に対して「コピー構築可能であること」といった要求は行わず、そのような評価はコンパイル時にも行われない。これは[`std::declval()`](/reference/utility/declval.md)関数と同様に、「`T`型のなんらかの値」であることのみを表し、特定の値は持たず、構築もされない
@@ -275,7 +277,7 @@ void f(T x) {
 - 「複合要件 (Compound requirements)」は、式のプロパティを表明する要件である。式の妥当性、`noexcept`、式の戻り値型に対する要件を順に検査する
 - 複合要件の構文は以下のようになる：
     ```cpp
-    { 妥当性を検査する式 } noexcept(省略可) -> 戻り値型、もしくは戻り値型の制約(省略可);
+    { 妥当性を検査する式 } noexcept(省略可) -> 戻り値型の制約(省略可);
     ```
 
 - この要件は、以下のように検査される：
@@ -283,8 +285,7 @@ void f(T x) {
     - `noexcept`を指定した場合、式は例外送出の可能性がある場合は`false`に評価される
     - 戻り値の型要件が指定された場合、
         - テンプレート引数で型を置き換えて型を評価し、妥当でなければ`false`に評価される
-        - 制約ではなく戻り値型が指定された場合、式の戻り値型が指定された戻り値型に変換可能であること。変換できなければ`false`に評価される
-        - 制約が指定された場合、戻り値の型が制約の要件を満たすこと。満たさなければ`false`に評価される。制約として制約名のみが指定された場合、`{E} -> Concept;`は`E; Concept<decltype((E))>;`と等価であり、唯一の制約引数として式の型が渡される。制約として引数付きの制約が指定された場合、`{E} -> Concept<Args...>;`は`E; Concept<decltype((E)), Args...>;`と等価となり、先頭の制約引数として式の型が渡される
+        - 戻り値型の制約が指定された場合、その要件を満たすこと。満たさなければ`false`に評価される。制約として制約名のみが指定された場合、`{E} -> Concept;`は`E; Concept<decltype((E))>;`と等価であり、唯一の制約引数として式の型が渡される。制約として引数付きの制約が指定された場合、`{E} -> Concept<Args...>;`は`E; Concept<decltype((E)), Args...>;`と等価となり、先頭の制約引数として式の型が渡される
 - 例として、式のみを指定する場合、単純要件と等価である：
     ```cpp
     template <typename T>
@@ -293,14 +294,16 @@ void f(T x) {
     };
     ```
 
-- 式と戻り値型を指定した場合：
+- 式と戻り値型を指定したい場合：
     ```cpp
     template <typename T>
     concept C2 = requires(T x) {
-      {*x} -> typename T::inner; // 型Tの値xに対して式*xが妥当であり、
-                                 // その戻り値型がtypename T::inner型に暗黙変換可能であること
+      {*x} -> std::same_as<typename T::inner>; // 型Tの値xに対して式*xが妥当であり、
+                                               // その戻り値型がtypename T::inner型であること。
+                                               // std::same_as<decltype(*x), typename T::inner>制約を意味する
     };
     ```
+    * std::same_as[link /reference/concepts/same_as.md.nolink]
 
 - 式と`noexcept`を指定した場合、指定した式`g(x)`が例外送出の可能性がないことが検査される：
     ```cpp
@@ -310,7 +313,7 @@ void f(T x) {
     };
     ```
 
-- 式と制約を指定した場合、指定した式が妥当であることと、その戻り値型が指定した制約を満たすことが検査される：
+- 式と戻り値型の制約を指定した場合、指定した式が妥当であることと、その戻り値型が指定した制約を満たすことが検査される：
     ```cpp
     template <typename T>
     concept C4 = requires(T x) {
@@ -753,3 +756,4 @@ void f(T x) {
 - [P0857R0 Wording for "functionality gaps in constraints"](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0857r0.html)
 - [P1084R2 Today's return-type-requirement s Are Insufcient](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1084r2.pdf)
 - [P1141R2 Yet another approach for constrained declarations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1141r2.html)
+- [P1452R2 On the non-uniform semantics of return-type-requirements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1452r2.html)
