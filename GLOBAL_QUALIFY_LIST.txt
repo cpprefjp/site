@@ -89,6 +89,7 @@
     * std::unique_lock[link /reference/mutex/unique_lock.md]
     * std::mutex[link /reference/mutex/mutex.md]
 * <new>[link /reference/new.md]
+* <numbers>[link /reference/numbers.md]
 * <numeric>[link /reference/numeric.md]
     * std::accumulate[link /reference/numeric/accumulate.md]
     * std::iota[link /reference/numeric/iota.md]
