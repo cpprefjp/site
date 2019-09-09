@@ -22,7 +22,7 @@ bool operator!=(const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T
 
 
 ## 計算量
-[`size()`](/reference/map/multimap/size.md) に対して線形時間。
+[`size()`](/reference/map/multimap/size.md) に対して線形時間。ただし、`x`と`y`のサイズが異なる場合は定数時間。
 
 
 ## 例
