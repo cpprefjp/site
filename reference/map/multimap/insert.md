@@ -6,25 +6,26 @@
 
 ```cpp
 iterator insert(const value_type& x);                          // (1)
-iterator insert(value_type&& value);                           // (1) C++17
+iterator insert(value_type&& y);                               // (2) C++17
 
 template <class P>
-iterator insert(P&& x);                                        // (2) C++11
+iterator insert(P&& x);                                        // (3) C++11
 
-iterator insert(iterator position, const value_type& x);       // (3) C++03
-iterator insert(const_iterator position, const value_type& x); // (3) C++11
-iterator insert(const_iterator hint, value_type&& value);      // (3) C++17
+iterator insert(iterator position, const value_type& x);       // (4) C++03
+iterator insert(const_iterator position, const value_type& x); // (4) C++11
+
+iterator insert(const_iterator hint, value_type&& y);          // (5) C++17
 
 template <class P>
-iterator insert(const_iterator position, P&& x);               // (4) C++11
+iterator insert(const_iterator position, P&& x);               // (6) C++11
 
 template <class InputIterator>
-void insert(InputIterator first, InputIterator last);          // (5)
+void insert(InputIterator first, InputIterator last);          // (7)
 
-void insert(initializer_list<value_type> init);                // (6) C++11
+void insert(initializer_list<value_type> init);                // (8) C++11
 
-iterator insert(node_type&& nh);                               // (7) C++17
-iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
+iterator insert(node_type&& nh);                               // (9) C++17
+iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -39,42 +40,42 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 
 
 ## 要件
-- (1) : `value_type` は、コンテナに対してコピー挿入可能でなければならない。
-- (2) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
-- (3) : `value_type` は、コンテナに対してコピー挿入可能でなければならない。
-- (4) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
-- (5) : 範囲`[first, last)`の各イテレータが、`*this` の要素を指さないこと。また `value_type` は `*first` から`multimap` コンテナへの`Cpp17EmplaceConstructible`であること。
-- (6) : (5)の要件と等価である。
-- (7) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`である。
-- (8) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`である。
+- (1), (4) : `value_type` は、コンテナに対してコピー挿入可能でなければならない。
+- (2), (5) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
+- (3), (6) : `P`から`value_type`が構築可能であること。
+- (7), (8) : 範囲`[first, last)`（`[list.begin(), list.end())`）の各イテレータが、`*this` の要素を指さないこと。また `value_type` は `*first` から`multimap` コンテナへの`Cpp17EmplaceConstructible`であること。
+- (9), (10) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`である。
 
 ## 効果
-- (1) : `x`を`*this`の要素としてコピー挿入する。
-- (2) : [`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
-- (3) : `x`を`*this`の要素としてコピー挿入する。可能であれば、挿入位置のヒントを表すイテレータ`position`のすぐ前に挿入する。
-- (4) : [`emplace_hint`](emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
-- (5) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。
-- (6) : `insert(init.begin(), init.end())`と等価。
-- (7) : `nh`が空の場合、効果はない。そうでなければ、`nh`が所有する要素を挿入し、新しく挿入された要素を指すイテレータを返す。`nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
-- (8) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。そうでなければ、 `nh` によって所有されている要素をコンテナに挿入し、 `nh.key()` と等価なキーを持つ要素を指すイテレータを返す。 `nh.key()` と等しいキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。要素は、`p`の直前の位置のできるだけ近くに挿入される。
+- (1) : 新たな要素`x`をコピー挿入する。
+- (2) : 新たな要素`y`をムーブ挿入する。
+- (3) : [`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
+- (4) : 新たな要素`x`を`position`より前の出来るだけ近い位置にコピー挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる。
+- (5) : 新たな要素`y`を`position`より前の出来るだけ近い位置にムーブ挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる。
+- (6) : [`emplace_hint`](emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
+- (7) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。
+- (8) : `insert(init.begin(), init.end())`と等価（(7)へ移譲）。
+- (9) : `nh`が空の場合、効果はない。そうでなければ、`nh`によって所有されている要素を挿入する。`nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
+- (10) : `nh`が空の場合、効果はない。そうでなければ、`nh` によって所有されている要素を`p`より前の出来るだけ近い位置に挿入する。 `nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
 
 
 ## 戻り値
-- (1), (2), (3), (4) : 新しく挿入された要素を指すイテレータを返す。
-- (5), (6) : なし
-- (7), (8) : `nh` が空の場合は終端イテレータ、そうでなければ挿入された要素を指すイテレータ。
+- (1), (2), (3), (4), (5), (6) : 新しく挿入された要素を指すイテレータを返す。
+- (7), (8) : なし
+- (9) : `nh` が空の場合は終端イテレータ、そうでなければ挿入された要素を指すイテレータ。
+- (10) : `nh` が空の場合は終端イテレータ、そうでなければ`nh.key()` と等価なキーを持つ要素を指すイテレータ。
 
 
 ## 計算量
-- (1), (2) : 対数時間。
-- (3), (4) : 一般に対数時間だが、`x` が `position` が指す要素の後に挿入された場合は償却定数時間。
-- (5), (6) : 一般に N log(size + N) だが、イテレータ範囲`[first, last)` が、コンテナで使われているものと同じ順序基準に従ってソート済みである場合は線形時間。
+- (1), (2), (3) : 対数時間。
+- (4), (5), (6) : 一般に対数時間だが、`x` が `position` が指す要素の直前に挿入された場合は償却定数時間。
+- (7), (8) : 一般に N log(size + N) だが、イテレータ範囲`[first, last)` が、コンテナで使われているものと同じ順序基準に従ってソート済みである場合は線形時間。
     - ※ ここで `N` は `first` と `last` の間の距離であり `size` は挿入前のコンテナの [`size()`](size.md)
-- (7) : コンテナのサイズの対数、`O(log(size()))`。
-- (8) : 挿入が `hint` の直前の位置に行われた場合、償却定数時間。 そうでなければ、コンテナのサイズの対数。
+- (9) : コンテナのサイズの対数、`O(log(size()))`。
+- (10) : 挿入が `hint` の直前の位置に行われた場合、償却定数時間。 そうでなければ、コンテナのサイズの対数。
 
 ## 備考
-(7), (8) の場合、要素はコピーもムーブもされない。
+(9), (10) の場合、要素はコピーもムーブもされない。
 
 ## 例
 ```cpp example
