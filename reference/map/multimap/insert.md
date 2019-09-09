@@ -14,7 +14,7 @@ iterator insert(P&& x);                                        // (3) C++11
 iterator insert(iterator position, const value_type& x);       // (4) C++03
 iterator insert(const_iterator position, const value_type& x); // (4) C++11
 
-iterator insert(const_iterator hint, value_type&& y);          // (5) C++17
+iterator insert(const_iterator position, value_type&& y);      // (5) C++17
 
 template <class P>
 iterator insert(const_iterator position, P&& x);               // (6) C++11
@@ -68,7 +68,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 
 ## 計算量
 - (1), (2), (3) : 対数時間。
-- (4), (5), (6) : 一般に対数時間だが、`x` が `position` が指す要素の直前に挿入された場合は償却定数時間。
+- (4), (5), (6) : 一般に対数時間だが、`x`（`y`） が `position` が指す要素の直前に挿入された場合は償却定数時間。
 - (7), (8) : 一般に N log(size + N) だが、イテレータ範囲`[first, last)` が、コンテナで使われているものと同じ順序基準に従ってソート済みである場合は線形時間。
     - ※ ここで `N` は `first` と `last` の間の距離であり `size` は挿入前のコンテナの [`size()`](size.md)
 - (9) : コンテナのサイズの対数、`O(log(size()))`。
@@ -132,6 +132,6 @@ int main ()
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
 - [LWG Issue 2005. `unordered_map::insert(T&&)` protection should apply to `map` too](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2005)
-    - C++14から、(2)と(4)の仕様の書き方が、`unordered_map::insert()`のものと統一された。
+    - C++14から、(3)と(6)の仕様の書き方が、`unordered_map::insert()`のものと統一された。
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
-    - (7), (8)経緯となる提案文書
+    - (9), (10)経緯となる提案文書
