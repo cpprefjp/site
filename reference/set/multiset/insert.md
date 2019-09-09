@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-pair<iterator,bool> insert(const value_type& x);               // (1)
-pair<iterator,bool> insert(value_type&& y);                    // (2) C++11
+iterator insert(const value_type& x);                          // (1)
+iterator insert(value_type&& y);                               // (2) C++11
 
 iterator insert(iterator position, const value_type& x);       // (3) C++03
 iterator insert(const_iterator position, const value_type& x); // (3) C++11
@@ -30,19 +30,18 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
  `set` コンテナは重複した値を許さないため、挿入操作はそれぞれの要素が他のコンテナ内の既存要素と同じ値かどうかをチェックし、同じ要素がすでにあれば挿入されない。`multiset`の場合には、同じ値の要素でも挿入される。
 
 
-- (1) : 新たな値`x`をコピー挿入する
-- (2) : 新たな要素`y`をムーブ挿入する
-- (3) : 新たな要素`x`をコピー挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる
-- (4) : 新たな要素`y`をムーブ挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる
+- (1) : 新たな要素`x`をコピー挿入する。既に同じ値を持つ要素が1つ以上ある場合はそれらの一番最後に挿入される。
+- (2) : 新たな要素`y`をムーブ挿入する。既に同じ値を持つ要素が1つ以上ある場合はそれらの一番最後に挿入される。
+- (3) : 新たな要素`x`を`position`より前の出来るだけ近い位置にコピー挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる
+- (4) : 新たな要素`y`を`position`より前の出来るだけ近い位置にムーブ挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる
 - (5) : イテレータ範囲`[first, last)`の要素を挿入する
 - (6) : 初期化子リスト`init`の要素を挿入する
-- (7) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`である。
-- (8) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`である。
+- (7) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`である。
+- (8) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`である。
 
 
 ## 戻り値
-- (1), (2) : `first` に新しく挿入された要素またはすでに `multiset` に格納されていた同じ値の要素を指すイテレータを設定する。`second` には、要素が挿入されたときに `true` を、同じ値の要素が存在したときに `false` を設定する。
-- (3), (4) : 新しく挿入された要素またはすでに `multiset` に格納されていた同じ値の要素を指すイテレータを返す。
+- (1), (2), (3), (4) : 挿入された要素へのイテレータ。
 - (5), (6) : なし
 - (7), (8) : `nh` が空の場合は終端イテレータ、そうでなければ挿入された要素を指すイテレータ。
 
