@@ -207,16 +207,17 @@ struct C {
   friend auto operator<=>(const C&, const C&) = default;
 
   //有効な==のdefault宣言
-  auto operator==(const C&) const = default;
-  friend auto operator==(const C&, const C&) = default;
+  bool operator==(const C&) const = default;
+  friend bool operator==(const C&, const C&) = default;
 };
 ```
 
 `<=>`をdefault宣言した場合、対応する`==`が暗黙的にdefault宣言される。そのアクセス指定は同一であり、`friend`であるかも`<=>`に従う。  
-また、これらのdefault宣言はその定義が`constexpr`関数の要件を満たしていれば、暗黙的に`constexpr`指定される。
+そして、このようなdefault宣言はその定義が`constexpr`関数の要件を満たしていれば暗黙的に`constexpr`指定され、呼び出す演算子が全て`noexcept`であるならば暗黙的に`noexcept`である（これらの指定は明示的に指定しておくこともできる）。
 
 `default`指定された三方比較演算子の戻り値型は基底クラス及び全メンバの`<=>`の結果型の共通比較カテゴリ型となるが、その型が`void`である場合は暗黙的に`delete`される。  
 その際、暗黙宣言される`==`演算子は定義可能（比較に参加するすべての型について`==`の呼び出しが適格）ならば`default`で宣言される。
+
 
 #### default実装
 default宣言された`<=> ==`演算子はその基底クラスと非静的メンバを宣言順に比較していくことで実装される。
@@ -254,19 +255,92 @@ public:
 
   //auto operator==(const D&) const = default;
   auto operator==(const D& that) const {
-    if (auto comp = static_cast<const Base1&>(*this) == static_cast<const Base1&>(that); comp != true) return false;
-    if (auto comp = static_cast<const Base2&>(*this) == static_cast<const Base2&>(that); comp != true) return false;
-    if (auto comp = x == that.x; comp != true) return false;
-    if (auto comp = y == that.y; comp != true) return false;
-    if (auto comp = str[0] == that.str[0]; comp != true) return false;
-    if (auto comp = str[1] == that.str[1]; comp != true) return false;
-    if (auto comp = str[2] == that.str[2]; comp != true) return false;
+    if (bool comp = static_cast<const Base1&>(*this) == static_cast<const Base1&>(that); comp != true) return false;
+    if (bool comp = static_cast<const Base2&>(*this) == static_cast<const Base2&>(that); comp != true) return false;
+    if (bool comp = x == that.x; comp != true) return false;
+    if (bool comp = y == that.y; comp != true) return false;
+    if (bool comp = str[0] == that.str[0]; comp != true) return false;
+    if (bool comp = str[1] == that.str[1]; comp != true) return false;
+    if (bool comp = str[2] == that.str[2]; comp != true) return false;
     return v == that.v;
   }
 };
 ```
 
 この時、使用可能な`<=> ==`演算子が見つからない場合、およびメンバに参照型を持つか匿名共用体を含む、もしくはその型が共用体である場合は宣言された全ての比較演算子のdefault宣言は暗黙的にdeleteされる（下記のその他演算子のdefault宣言も含む）。
+
+#### default実装における<=>の合成
+
+`<=>`のdefault比較実装はメンバおよび基底クラスに`<=>`を持たない型があると暗黙deleteされる。しかし、これでは現在使われている多くの`<=>`を持たない型をメンバに持つ際にdefaultの`<=>`を提供できない。  
+しかしその場合にも、`<=>`のdefault宣言に戻り値型を指定した上で、`<=>`を持たないメンバ（基底）型が`< ==`の2つの演算子を実装していれば、それらを元にして`<=>`を合成した上でdefault実装を行うことができる。
+
+```cpp
+//C++17以前に作成された<=>を持たない型
+struct legacy {
+  int n = 10;
+
+  //共に実装は省略
+  bool operator==(const legacy&) const;
+  bool operator< (const legacy&) const;
+};
+
+//C++20環境で作成された型、<=>を実装したい
+struct newer {
+  int m = 10;
+  legacy l = {20}; //<=>を持っていない
+  int n = 30;
+
+  //こう宣言すると暗黙delete
+  //auto operator<=>(const new_type&) const = default;
+
+  //legacyの比較に関しては指定した戻り値型とlegacyの持つ比較演算子< ==を用いて実装、使用可能
+  std::strong_ordering operator<=>(const new_type&) const = default;
+};
+
+newer n1{}, n2 = {20, {30}, 40};
+auto comp = n1 <=> n2;  //ok
+bool eq   = n1 ==  n2;  //ok
+```
+
+指定された戻り値型を`R`、比較しようとしている`T`の値を`a, b`として、それらの満たす条件によって以下のように`<=>`は合成される。
+
+|条件|合成された`<=>`の式|
+|:-------------|:-------------|
+|`a <=> b`のオーバーロード解決で使用可能な`<=>`が見つかる|`static_cast<R>(a <=> b);`|
+|`R`は`std::strong_ordering`|`a == b ? std::strong_ordering::equal :`<br/>`a < b  ? std::strong_ordering::less :`<br/>`std::strong_ordering::greater;`|
+|`R`は`std::weak_ordering`|`a == b ? std::weak_ordering::equivalent :`<br/>`a < b  ? std::weak_ordering::less :`<br/>`std::weak_ordering::greater;`|
+|`R`は`std::partial_ordering`|`a == b ? std::partial_ordering::equivalent :`<br/>`a < b  ? std::partial_ordering::less :`<br/>`b < a  ? std::partial_ordering::greater;`<br/>`std::partial_ordering::unordered`|
+|`R`は`std::strong_equality`|`a == b ? std::strong_equality::equal : strong_equality::nonequal;`|
+|`R`は`std::weak_equality`|`a == b ? std::weak_equality::equivalent : std::weak_equality::nonequivalent;`|
+|どれにも当てはまらない|定義されない|
+
+戻り値型に`auto`を指定した際は、共通比較カテゴリ型を`R`として1つ目（1番上）のように`<=>`が合成されている。  
+また、1つ目の条件により合成される際は、`static_cast`していることからも分かるように`a <=> b`の戻り値型が`R`に変換できない場合はコンパイルエラーとなる。
+
+先ほどの`newer`に対して明示的に書くと以下のようになる。
+```cpp
+struct newer {
+  int m = 10;
+  legacy l = {20}; //<=>を持っていない
+  int n = 30;
+
+  //std::strong_ordering operator<=>(const new_type&) const = default;
+  std::strong_ordering operator<=>(const new_type& that) const {
+    if (auto comp = static_cast<std::strong_ordering>(m <=> that.m); comp != 0) return comp;
+
+    //legacy型に対する<=>の合成
+    std::strong_ordering comp = (l == that.l) ? std::strong_ordering::equal :　
+                                (l <  that.l) ? std::strong_ordering::less
+                                              : std::strong_ordering::greater;
+    if (comp != 0) return comp;
+
+    return static_cast<std::strong_ordering>(n <=> that.n);
+  }
+};
+```
+
+この合成において使用される`< ==`演算子の戻り値型の妥当性はチェックされない。仮に`bool`ではなかったとしても、合成された式においてコンパイルエラーが発生しなければ`<=>`の合成はつつがなく行われる。  
+また、合成された`<=>`が定義されない（上記条件のいずれも当てはまらない）場合はdefault指定の`<=>`は暗黙にdeleteされる。
 
 #### その他の比較演算子のdefault宣言
 `<=> ==`だけでなく、残りの比較演算子もdefault指定で宣言することができる。その有効な宣言は`<=> ==`に従う。
@@ -452,7 +526,7 @@ template<typename T>
 strong_ordering operator<=>(const std::vector<T>& lhs, const std::vector<T>& rhs) {
   size_t min_size = std::min(lhs.size(), rhs.size());
   for (size_t i = 0; i != min_size; ++i) {
-    if (auto const cmp = std::compare_3way(lhs[i], rhs[i]); cmp != 0) {
+    if (auto const cmp = std::compare_three_way(lhs[i], rhs[i]); cmp != 0) {
       return cmp;
     }
   }
@@ -464,10 +538,10 @@ strong_ordering operator<=>(const std::vector<T>& lhs, const std::vector<T>& rhs
 * rhs.size()[link /reference/vector/vector/size.md]
 * size_t[link /reference/cstddef/size_t.md]
 * strong_ordering[link /reference/compare/strong_ordering.md.nolink]
-* std::compare_3way[link /reference/algorithm/compare_3way.md.nolink]
+* std::compare_three_way[link /reference/algorithm/compare_three_way.md.nolink]
 
 これは、保持する要素に対する辞書式比較を行う実装で既存の比較演算子と等価の処理である。  
-実際の比較は[`compare_3way`](/reference/algorithm/compare_3way.md.nolink)に移譲しているが、これは`T`に`<=>`があればそれを利用し無ければ`<`と`==`を使って比較を行う関数である（C++20より利用可能）。
+実際の比較は[`compare_three_way`](/reference/algorithm/compare_three_way.md.nolink)に移譲しているが、これは`T`に`<=>`があればそれを利用し無ければ`<`と`==`を使って比較を行う関数である（C++20より利用可能）。
 
 これは順序付けにおいては問題ないが、同値比較を行おうとすると非効率な点がある。それは、長さ（サイズ）を一番最後に比較していることで、同値比較の場合は一番最初に`vector`の長さをチェックし異なっていれば、その時点で結果が`false`になると分かり処理を終えることができる。  
 従って、`vector`における`==`の効率的な実装は以下のようになる。
@@ -574,8 +648,8 @@ struct has_vector {
         - [`partial_order`](/reference/compare/partial_order.md.nolink)
         - [`strong_equal`](/reference/compare/strong_equal.md.nolink)
         - [`weak_equal`](/reference/compare/weak_equal.md.nolink)
-- [`compare_3way`](/reference/algorithm/compare_3way.md.nolink)
-- [`lexicographical_compare_3way`](/reference/algorithm/lexicographical_compare_3way.md.nolink)
+- [`compare_three_way`](/reference/algorithm/compare_three_way.md.nolink)
+- [`lexicographical_compare_three_way`](/reference/algorithm/lexicographical_compare_three_way.md.nolink)
 
 ## 参照
 
@@ -592,7 +666,7 @@ struct has_vector {
         - メンバ変数に`<=>`を持たない型がある時、戻り値型と`< ==`を用いて`<=>`を合成する
     6. [P1630R1 Spaceship needs a tune-up](http://wg21.link/p1630)
         - `==`の戻り値型を`bool`限定にするなど、一貫比較仕様全般の細かいバグ修正
-    7. [P1614R2 The Mothership has Landed -Adding <=> to the Library-](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    7. [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
         - 標準ライブラリで提供されるクラスへの一貫比較仕様をベースとした`<=> ==`導入
 - 以前に検討されていた提案文書
     - [N3950 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html)
