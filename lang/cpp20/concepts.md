@@ -2,6 +2,8 @@
 * cpp20[meta cpp]
 
 ## 概要
+(この記事は執筆中です。まだ書ききれていないことがたくさんあります。)
+
 C++20から導入される「コンセプト (concepts)」は、テンプレートパラメータを制約する機能である。この機能を使用することで、以下のような面でプログラミングのしやすさが向上する：
 
 - コンパイルエラーのメッセージが読みやすくなる
@@ -82,7 +84,7 @@ concept Addable = requires (T a, U b) {
 template <class T>
 concept SequenceContainer = requires (T c) {
   typename T::size_type; // 型Tがメンバ型としてsize_typeを持っていること
-  {c.size()} -> std::convertible_to<typename T::size_type>;
+  {c.size()} -> std::convertible_to<typename T::size_type>;     // 型Tのオブジェクトに対して特定のメンバ関数が呼び出せることを要求
   {std::size(c)} -> std::convertible_to<typename T::size_type>; // 非メンバ関数の呼び出しも要求できる
 
   typename T::value_type;
@@ -161,6 +163,47 @@ void f(T x) {
 ```
 * std::integral[link /reference/concepts/integral.md.nolink]
 
+
+### テンプレートパラメータを制約する複数の方法
+テンプレートパラメータを制約する方法はいくつかある。ここまで紹介した方法は、`template <std::integral T>`のように`class`や`typename`といったキーワードを使用していたテンプレートパラメータの宣言部分にコンセプトを指定し、テンプレートパラメータ`T`を制約するものだった。この方法は簡易的な制約には便利だが、複数条件を指定できないというトレードオフがある。
+
+制約の方法としては、以下の選択肢がある：
+
+1. `class` / `typename`の代わりにコンセプトを指定する
+2. `requires`節を使用する
+3. 関数テンプレートの簡略構文を使用する
+
+
+#### class / typenameの代わりにコンセプトを指定して制約する
+`class` / `typename`キーワードの代わりにコンセプトを指定する方法は、これまでに紹介した。
+
+もう少し詳細な仕様を紹介すると、この構文の場合、コンセプトの第1テンプレート引数がテンプレートパラメータで置き換えられる。`template <std::integral T>`の場合、`std::integral<T>`のようにテンプレートパラメータ`T`を`std::integral`コンセプトに自動的に指定される。
+
+この方法では、複数のテンプレートパラメータをとるコンセプトを使用する場合に注意する必要がある。たとえば任意の引数型から型`T`を構築できることを要求する[`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)コンセプトの場合、`template <std::constructible_from<int> T>`のように指定すると、`std::constructible_from<T, int>`を意味し、「型`T`が`int`から構築できること」を要求する制約となる。
+
+```cpp
+#include <cassert>
+#include <vector>
+
+template <std::constructible_from<int> T>
+T make_from_int(int x) {
+  return T(x);
+}
+
+int main() {
+  int a = make_from_int<int>(3);
+  std::vector<int> b = make_from_int<std::vector<int>>(3);
+
+  assert(a == 3);
+  assert(b.size() == 3);
+}
+```
+* std::constructible_from[link /reference/concepts/constructible_from.md.nolink]
+
+
+#### requires節を使用して制約する
+
+#### 関数テンプレートの簡略構文を使用する
 (執筆中)
 
 
