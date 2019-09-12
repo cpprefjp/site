@@ -268,7 +268,7 @@ public:
   void push_back(const T& x) requires std::copy_constructible<T>
   {
     if (size_ >= capacity_)
-      throw std::runtime_error("over capacity");
+      throw std::out_of_range("over capacity");
 
     new (data_ + size_) T(x);
     size_ = size_ + 1;
@@ -278,10 +278,18 @@ public:
   void push_back(T&& x) requires std::move_constructible<T>
   {
     if (size_ >= capacity_)
-      throw std::runtime_error("over capacity");
+      throw std::out_of_range("over capacity");
 
     new (data_ + size_) T(std::move(x));
     size_ = size_ + 1;
+  }
+
+  // 非テンプレートな関数に対するrequires節は、関数修飾の後ろに記述する
+  T front() const& requires std::copy_constructible<T>
+  {
+    if (size_ < 1u)
+      throw std::out_of_range("empty");
+    return data_[0];
   }
 
   void print()
@@ -308,7 +316,7 @@ int main() {
 * std::destroy_n[link /reference/memory/destroy_n.md]
 * std::copy_constructible[link /reference/concepts/copy_constructible.md.nolink]
 * std::move_constructible[link /reference/concepts/move_constructible.md.nolink]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept.md]
 * std::move[link /reference/utility/move.md]
 * std::for_each_n[link /reference/algorithm/for_each_n.md]
 
