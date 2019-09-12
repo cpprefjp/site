@@ -146,7 +146,7 @@ int main() {
 }
 ```
 * std::integral[link /reference/concepts/integral.md.nolink]
-* std::floating_point[link /reference/concepts/floating_point.md.nolink]
+* std::floating_point[link /reference/concepts/floating_point.md]
 * std::abs[link /reference/cmath/abs.md]
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
 * epsilon()[link /reference/limits/numeric_limits/epsilon.md]
