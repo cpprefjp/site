@@ -181,7 +181,7 @@ void f(T x) {
 
 この方法では、複数のテンプレートパラメータをとるコンセプトを使用する場合に注意する必要がある。たとえば任意の引数型から型`T`を構築できることを要求する[`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)コンセプトの場合、`template <std::constructible_from<int> T>`のように指定すると、`std::constructible_from<T, int>`を意味し、「型`T`が`int`から構築できること」を要求する制約となる。
 
-```cpp
+```cpp example
 #include <concepts>
 #include <cassert>
 #include <vector>
@@ -211,7 +211,7 @@ int main() {
 
 `requires`節は基本的に、テンプレートパラメータ宣言のあとに記述する。これは、関数テンプレート、クラステンプレート、エイリアステンプレート、変数テンプレートなど、どれでも共通である。また、`requires`では、ひとつのテンプレートパラメータに対して複数の制約を指定することができる。`&&`演算子によるAND条件、`||`演算子によるOR条件によって複数の制約を指定する。
 
-```cpp
+```cpp example
 #include <concepts>
 #include <cassert>
 #include <vector>
@@ -236,7 +236,7 @@ int main() {
 
 また、requires節は、クラステンプレートのテンプレートパラメータを、メンバ関数ごとに制約するためにも使用できる。簡易的な[`std::vector`](/reference/vector/vector.md)の`push_back()`メンバ関数を実装してみよう。
 
-```cpp
+```cpp example
 #include <concepts>
 #include <iostream>
 #include <vector>
