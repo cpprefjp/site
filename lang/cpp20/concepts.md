@@ -182,6 +182,7 @@ void f(T x) {
 この方法では、複数のテンプレートパラメータをとるコンセプトを使用する場合に注意する必要がある。たとえば任意の引数型から型`T`を構築できることを要求する[`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)コンセプトの場合、`template <std::constructible_from<int> T>`のように指定すると、`std::constructible_from<T, int>`を意味し、「型`T`が`int`から構築できること」を要求する制約となる。
 
 ```cpp
+#include <concepts>
 #include <cassert>
 #include <vector>
 
@@ -199,9 +200,125 @@ int main() {
 }
 ```
 * std::constructible_from[link /reference/concepts/constructible_from.md.nolink]
+* b.size()[link /reference/vector/vector/size.md]
 
 
 #### requires節を使用して制約する
+`requires`節を使用することで、以下のような制約ができる：
+
+- ひとつのテンプレートパラメータを複数のコンセプトで制約 (AND / OR条件)
+- クラステンプレートでメンバ関数ごとにクラステンプレートパラメータを制約
+
+`requires`節は基本的に、テンプレートパラメータ宣言のあとに記述する。これは、関数テンプレート、クラステンプレート、エイリアステンプレート、変数テンプレートなど、どれでも共通である。また、`requires`では、ひとつのテンプレートパラメータに対して複数の制約を指定することができる。`&&`演算子によるAND条件、`||`演算子によるOR条件によって複数の制約を指定する。
+
+```cpp
+#include <concepts>
+#include <cassert>
+#include <vector>
+
+template <class T>
+requires std::constructible_from<T, int> && std::move_constructible<T>
+T make_from_int(int x) {
+  return T(x);
+}
+
+int main() {
+  int a = make_from_int<int>(3);
+  std::vector<int> b = make_from_int<std::vector<int>>(3);
+
+  assert(a == 3);
+  assert(b.size() == 3);
+}
+```
+* std::constructible_from[link /reference/concepts/constructible_from.md.nolink]
+* std::move_constructible[link /reference/concepts/move_constructible.md.nolink]
+* b.size()[link /reference/vector/vector/size.md]
+
+また、requires節は、クラステンプレートのテンプレートパラメータを、メンバ関数ごとに制約するためにも使用できる。簡易的な[`std::vector`](/reference/vector/vector.md)の`push_back()`メンバ関数を実装してみよう。
+
+```cpp
+#include <concepts>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <memory>
+#include <stdexcept>
+
+template <class T>
+class MyVector {
+  std::allocator<T> alloc_;
+  T* data_ = nullptr;
+  std::size_t capacity_ = 0;
+  std::size_t size_ = 0;
+public:
+  // 簡易実装のため、事前にメモリ領域を確保して再確保はしない。
+  // (std::vectorのコンストラクタとは効果が違う)
+  explicit MyVector(std::size_t n)
+    : data_{alloc_.allocate(n)},
+      capacity_{n},
+      size_{0}
+  {}
+
+  ~MyVector() {
+    std::destroy_n(data_, size_);
+    alloc_.deallocate(data_, size_);
+  }
+
+  // コピー版のpush_back
+  void push_back(const T& x) requires std::copy_constructible<T>
+  {
+    if (size_ >= capacity_)
+      throw std::runtime_error("over capacity");
+
+    new (data_ + size_) T(x);
+    size_ = size_ + 1;
+  }
+
+  // ムーブ版のpush_back
+  void push_back(T&& x) requires std::move_constructible<T>
+  {
+    if (size_ >= capacity_)
+      throw std::runtime_error("over capacity");
+
+    new (data_ + size_) T(std::move(x));
+    size_ = size_ + 1;
+  }
+
+  void print()
+  {
+    std::for_each_n(data_, size_, [](const T& x) {
+      std::cout << x << std::endl;
+    });
+  }
+};
+
+int main() {
+  std::string a = "Hello";
+  std::string b = "World";
+
+  MyVector<std::string> v(2);
+  v.push_back(a);
+  v.push_back(std::move(b));
+
+  v.print();
+}
+```
+* alloc_.allocate[link /reference/memory/allocator/allocate.md]
+* alloc_.deallocate[link /reference/memory/allocator/deallocate.md]
+* std::destroy_n[link /reference/memory/destroy_n.md]
+* std::copy_constructible[link /reference/concepts/copy_constructible.md.nolink]
+* std::move_constructible[link /reference/concepts/move_constructible.md.nolink]
+* std::runtime_error[link /reference/stdexcept.md]
+* std::move[link /reference/utility/move.md]
+* std::for_each_n[link /reference/algorithm/for_each_n.md]
+
+出力：
+
+```
+Hello
+World
+```
+
 
 #### 関数テンプレートの簡略構文を使用する
 (執筆中)
