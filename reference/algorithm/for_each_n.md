@@ -90,7 +90,7 @@ int main()
 
 ### 処理系
 - [Clang, C++17 mode](/implementation.md#clang): 5.0
-- [GCC, C++17 mode](/implementation.md#gcc):
+- [GCC, C++17 mode](/implementation.md#gcc): 9.3
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
@@ -98,3 +98,5 @@ int main()
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [Bug 91748 - doesn't compile `std::for_each_n` with random access iterator range](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91748)
+    - GCC 9.2の`std::for_each_n()`は、ランダムアクセスイテレータを与えるとコンパイルに失敗する。9.3で修正済み
