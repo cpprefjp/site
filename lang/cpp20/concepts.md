@@ -329,7 +329,34 @@ World
 
 
 #### 関数テンプレートの簡略構文を使用する
-(執筆中)
+ジェネリックラムダと同様に、関数テンプレートも`auto`プレースホルダーを使用して、簡易的にテンプレートを使用できる。その場合でも、各パラメータの型をコンセプトで制約できる。
+
+```cpp
+#include <concepts>
+#include <cassert>
+#include <limits>
+#include <cmath>
+
+// template <std::integral A, std::integral B>
+// bool equal(A a, B b); これと同じ
+bool equal(std::integral auto a, std::integral auto b) {
+  return a == b;
+}
+
+bool equal(std::floating_point auto a, std::floating_point b) {
+  return std::abs(a - b) <= std::numeric_limits<T>::epsilon();
+}
+
+int main() {
+  assert(equal(1 + 2, 3));
+  assert(equal(0.1 + 0.2, 0.3));
+}
+```
+* std::integral[link /reference/concepts/integral.md.nolink]
+* std::floating_point[link /reference/concepts/floating_point.md]
+* std::abs[link /reference/cmath/abs.md]
+* std::numeric_limits[link /reference/limits/numeric_limits.md]
+* epsilon()[link /reference/limits/numeric_limits/epsilon.md]
 
 
 ## 仕様
