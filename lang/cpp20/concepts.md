@@ -336,6 +336,7 @@ World
 #include <cassert>
 #include <limits>
 #include <cmath>
+#include <type_traits>
 
 // template <std::integral A, std::integral B>
 // bool equal(A a, B b); これと同じ
@@ -343,7 +344,8 @@ bool equal(std::integral auto a, std::integral auto b) {
   return a == b;
 }
 
-bool equal(std::floating_point auto a, std::floating_point b) {
+bool equal(std::floating_point auto a, std::floating_point auto b) {
+  using T = std::common_type_t<decltype(a), decltype(b)>;
   return std::abs(a - b) <= std::numeric_limits<T>::epsilon();
 }
 
@@ -354,6 +356,7 @@ int main() {
 ```
 * std::integral[link /reference/concepts/integral.md.nolink]
 * std::floating_point[link /reference/concepts/floating_point.md]
+* std::common_type_t[link /reference/type_traits/common_type.md]
 * std::abs[link /reference/cmath/abs.md]
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
 * epsilon()[link /reference/limits/numeric_limits/epsilon.md]
