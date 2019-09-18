@@ -75,7 +75,7 @@ constexpr if文の導入によりそのような複雑な手法を用いずに�
 #include <type_traits>
 
 template <typename T>
-void f()
+void f(T)
 {
   if constexpr (std::is_same_v<T, int>)
   {
