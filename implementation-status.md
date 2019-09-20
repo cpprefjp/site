@@ -172,14 +172,14 @@
 | [ビットフィールドのメンバ変数初期化](/lang/cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する | 8 | 6.0 | |
 | [ラムダ式のキャプチャとして`[=, this]`を許可する](/lang/cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする | 8 | 6.0 | | 2019 Update 1 |
 | [`[=]`による`this`の暗黙のキャプチャを非推奨化](/lang/cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする | 9 | | | |
-| [ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする | | | | 2019 Update 2 |
+| [ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする | | 9.0 | | 2019 Update 2 |
 | [`const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する | 8 | 6.0 | | 2015 |
-| [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0 | | |
+| [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0<br/> 9.0 ([p1042](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html)) | | |
 | [指示付き初期化][P0329] | | 8 | 6.0 (partial) | | 2019 Update 1 |
 | [コンセプト][P0734] | テンプレートパラメータに対する制約を行う | | | | 2019 Update 3 |
 | [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | | | |
 | [暗黙のラムダキャプチャを簡略化][p0588] | | 8 | | | |
-| [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正][p0846] | | | | | 2019 Update 1 |
+| [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正][p0846] | | | 9.0 | | 2019 Update 1 |
 | [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正][p0641] | | | | | |
 | [評価されない文脈で`constexpr`関数が定数式評価されることを規定][p0859] | | | | | |
 | [一貫性ある比較][p0515] | | | | | 2019 |
@@ -188,26 +188,26 @@
 | [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする][p0624] | | | | | 2019 Update 2 |
 | [PODを非推奨化][p0767] | | | | | |
 | [評価されない文脈でのラムダ式][p0315] | | | | | |
-| [空オブジェクトを言語サポート][p0840] | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | | | | |
+| [空オブジェクトを言語サポート][p0840] | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | | 9.0 | | |
 | [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく | 8 | | | |
 | [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする | | | | |
 | [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md) | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく | | | | |
 | [型の文脈で`typename`の省略を許可][p0634] | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする | | | | |
-| [ラムダ式の初期化キャプチャでのパック展開を許可][p0780] | `[...args = std::move(args)]`のようなキャプチャを許可 | | | | 2019 Update 2 |
+| [ラムダ式の初期化キャプチャでのパック展開を許可][p0780] | `[...args = std::move(args)]`のようなキャプチャを許可 | | 9.0 | | 2019 Update 2 |
 | [当たる確率が高い分岐と、当たる確率が低い分岐をコンパイラに伝える属性を追加][p0479] | コンパイラが分岐予測するためのヒントとする | | | | |
 | [宇宙船演算子に対称性をもたせる][p0905] | `a <=> b`が妥当であれば`b <=> a`も妥当とする | | | | 2019 Update 2 |
 | [抽象型のチェック][p0929] | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | | | | |
 | [非型テンプレートパラメータとしてクラス型を許可する][p0732] | `std::strong_equality`に変換可能な非メンバ関数`<=>`をもつ型を、非型テンプレートパラメータとして使用できるようにする | 9 | | | |
 | [可変長データを扱うクラスの効率的な`delete`][p0722] | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | | | |
-| [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | | | |
-| [定数式での`dynamic_cast`、多態的な`typeid`を許可][p1327] | 定数式での動的多態を許可 | 9 | | | |
+| [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | | |
+| [定数式での`dynamic_cast`、多態的な`typeid`を許可][p1327] | 定数式での動的多態を許可 | 9 | 9.0 | | |
 | [constexpr関数内でのtry-catchブロックを許可][p1002] | constexpr関数内でtry-catchブロックを書けるようにする | | | | |
 | [即時関数][p1073] | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | | | | |
-| [定数式内での共用体のアクティブメンバの変更を許可][p1330] | 共用体メンバの書き換えを定数式内で行えるようにする | | | | 2017 |
+| [定数式内での共用体のアクティブメンバの変更を許可][p1330] | 共用体メンバの書き換えを定数式内で行えるようにする | | 9.0 | | 2017 |
 | [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止][p1008] | コンストラクタが`delete`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | | | 2019 |
 | [契約に基づくプログラミング][p0542] | 事前条件、事後条件、表明を宣言する新たな属性構文を追加 | | | | |
-| [関数を条件付きで`explicit`にする構文を追加][p0892] | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | | | 2019 Update 2 |
-| [符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する | 9 | | | |
+| [関数を条件付きで`explicit`にする構文を追加][p0892] | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | 9.0 | | 2019 Update 2 |
+| [符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する | 9 | 9.0 | | |
 | [UTF-8エンコーディングされた文字の型として`char8_t`を追加][p0486] | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | | 7 (`-fchar8_t`オプションが必要) | | 2019 Update 2 |
 | [入れ子名前空間定義でのインライン名前空間][p1094] | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | | | |
 | [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md.nolink) | 記憶域指定子として`static`と`thread_local`の指定を許可 | | | | |
@@ -217,10 +217,10 @@
 | [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](/lang/cpp20/make_char16t_char32t_string_literals_be_utf16_32.md.nolink) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する | | Yes | | 2015 |
 | [モジュール](/lang/cpp20/modules.md) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | | partial (`-fmodules`, `-fmodules-ts`が必要) | | |
 | [コルーチン](/lang/cpp20/coroutines.md.nolink) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | | partial | | |
-| [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md.nolink) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | | | | |
+| [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md.nolink) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | | 9.0 | | |
 | [constexprの文脈での自明なデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md.nolink) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する | | | | |
 | [特殊メンバ関数の条件付き自明定義](/lang/cpp20/conditionally_trivial_special_member_functions.md.nolink) | 制約によって自明な特殊メンバ関数と非自明な特殊メンバ関数をオーバーロードできるようにする | | | | |
-| [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](cpp20/nodiscard_should_have_a_reason.md.nolink) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | | | | |
+| [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](cpp20/nodiscard_should_have_a_reason.md.nolink) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | | 9.0 | | |
 | [スコープ付き列挙型のusing宣言](/lang/cpp20/using_enum.md.nolink) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする | | | | |
 | [集成体クラステンプレートのテンプレート引数推論](cpp20/class_template_argument_deduction_for_aggregates.md.nolink) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする | | | | |
 | [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md.nolink) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 | | | | |
