@@ -44,7 +44,7 @@ constexpr T make_from_tuple_impl(Tuple&& t, std::index_sequence<Index...>){
 
 template <class T, class Tuple>
 constexpr T make_from_tuple(Tuple&& t) {
-  return make_from_tuple_impl(std::forward<Tuple>(t), std::make_index_sequence<std::tuple_size_v<std::decay_t<Tuple>>>{});
+  return make_from_tuple_impl<T>(std::forward<Tuple>(t), std::make_index_sequence<std::tuple_size_v<std::remove_reference_t<Tuple>>>{});
 }
 ```
 * std::forward[link /reference/utility/forward.md]
