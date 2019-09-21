@@ -24,7 +24,7 @@ namespace std {
 - Windows
     - Visual C++: 外部デバイスを用いており、暗号学的に安全で非決定論的 ([`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s))
     - Clang: 暗号論的な乱数である [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) を使用する
-    - GCC (MinGW): 擬似乱数生成器 [`mt19937`](mt19937.md) を用いるため**使用を推奨しない**。詳細は備考欄を参照
+    - GCC (MinGW): GCC 9.1までは擬似乱数生成器 [`mt19937`](mt19937.md) を用いるため**使用を推奨しない**。詳細は備考欄を参照。GCC 9.2からは暗号論的な乱数である [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) を使用する。
 - UNIX 系
     - Clang (libc++): `/dev/urandom` (デフォルト) または `/dev/random` から値を読み取る
     - GCC (libstdc++): CPU の `RDRAND` 命令を使う (デフォルト) か、`/dev/urandom` (`RDRAND` が使用できないときのデフォルト) または `/dev/random` から値を読み取る
@@ -170,7 +170,9 @@ jyiasder
 ## 備考
 ### MinGW GCC(libstdc++)
 
-Windows版のGCC (MinGW, libstdc++) では、`random_device`クラスは擬似乱数生成器である[`mt19937`](mt19937.md)で実装されている。その環境のデフォルトでは固定の乱数列が生成されてしまうので注意すること。コンストラクタの引数としてシード値を文字列化して渡せば`mt19937`のシードとして扱われるが、非決定論的な乱数として振る舞わないことは変わらない。この環境では`random_device`の使用は推奨しない
+Windows版のGCC (MinGW, libstdc++) 9.1まででは、`random_device`クラスは擬似乱数生成器である[`mt19937`](mt19937.md)で実装されている。その環境のデフォルトでは固定の乱数列が生成されてしまうので注意すること。コンストラクタの引数としてシード値を文字列化して渡せば`mt19937`のシードとして扱われるが、非決定論的な乱数として振る舞わないことは変わらない。この環境では`random_device`の使用は推奨しない
+
+GCC (MinGW, libstdc++) 9.2からは、この問題は解決されている。[PR libstdc++/85494 use rdseed and rand_s in std::random_device](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=91df033fd775060adde6f78fd4a0a7d744032910)により、暗号学的に安全で非決定論的な乱数を生成する`rand_s`関数での実装になるためである。
 
 ##### 代替
 - クロスプラットフォーム
