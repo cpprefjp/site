@@ -19,12 +19,11 @@ namespace std {
 ## 概要
 `atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。組み込み型に対する特殊化が提供されており、それぞれに特化した演算が用意されている。
 
-組み込み型以外の任意の型を`atomic`クラステンプレートを使用する場合、型`T`は、以下の条件を満たすこと：
-
 
 ## テンプレートパラメータ制約
 - 型`T`は[コピー構築可能](/reference/concepts/copy_constructible.md)かつ[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
 - [`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> &&` [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T> &&` [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<T>`が`false`である場合、プログラムは不適格となる
+    - 簡潔に言うと、`memcpy()`可能な型であること
 
 
 ## 別名型
