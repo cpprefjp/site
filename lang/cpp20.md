@@ -249,7 +249,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - ロックフリーであることが保証されたアトミック整数型の別名として[`atomic_signed_lock_free`](/reference/atomic/atomic.md)と[`atomic_unsigned_lock_free`](/reference/atomic/atomic.md)を追加
 - [`std::memory_order`](/reference/atomic/memory_order.md)の列挙子にスコープをもたせた
 - [`std::atomic_flag`](/reference/atomic/atomic_flag.md)の非メンバ関数操作として[`std::atomic_flag_test()`](/reference/atomic/atomic_flag_test.md.nolink)と[`std::atomic_flag_test_explicit()`](/reference/atomic/atomic_flag_test_explicit.md.nolink)を追加
-- 非アトミックな型にアトミック操作を適用するためのクラス[`std::atomic_ref`](/reference/atomic/atomic_ref.md.nolink)を追加
+- 非アトミックな型にアトミック操作を適用するためのクラス[`std::atomic_ref`](/reference/atomic/atomic_ref.md)を追加
 - ベクトル化の実行ポリシーとして、[`<execution>`](/reference/execution.md)に[`std::execution::unsequenced_policy`](/reference/execution/execution/execution_policy.md)型と[`std::execution::unseq`](/reference/execution/execution/execution_policy.md)タグを追加
 
 
