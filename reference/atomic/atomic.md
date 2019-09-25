@@ -156,10 +156,10 @@ namespace std {
 | [`operator-=`](atomic/op_minus_assign.md) | 減算 | C++20 |
 
 
-### atomic<integral>専用メンバ型
+### atomic<floating-point>専用メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `difference_type` | 2つの値の差を表す整数型`value_type` | C++17 |
+| `difference_type` | 2つの値の差を表す整数型`value_type` | C++20 |
 
 
 ### atomic<T*>専用メンバ関数
