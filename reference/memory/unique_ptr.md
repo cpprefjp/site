@@ -79,6 +79,7 @@ namespace std {
 | [`operator>=`](unique_ptr/op_greater_equal.md) | 左辺が右辺以上かを判定する                | C++11 |
 | [`swap`](unique_ptr/swap_free.md)              | 2つの`unique_ptr`オブジェクトを入れ替える | C++11 |
 | [`make_unique`](make_unique.md)                | `unique_ptr`を構築するヘルパ関数          | C++14 |
+| `template<class E, class T, class Y, class D>`<br/>`basic_ostream<E, T>& operator<<(basic_ostream<E, T>& os, const unique_ptr<Y, D>& p);`                | 保持するポインタ値を出力する。この関数は`os << p.get()`が有効である場合にのみオーバーロード解決に参加する。          | C++17 |
 
 ## ハッシュサポート
 
@@ -141,7 +142,8 @@ hoge::~hoge()
 - [LWG Issue 673. `unique_ptr` update](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#672)
     - `unique_ptr<void, Deleter>`を許可するために、インタフェースを改良した経緯
 - [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)
-- [N4089 Safe conversions in unique_ptr<T[]>, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
+- [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
+- [LWG Issue 2948. `unique_ptr` does not define `operator<<` for stream output](https://wg21.cmeerw.net/lwg/issue2948)
 
 ## 関連項目
 
