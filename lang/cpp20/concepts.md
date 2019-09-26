@@ -231,7 +231,7 @@ int main() {
 }
 ```
 * std::constructible_from[link /reference/concepts/constructible_from.md.nolink]
-* std::move_constructible[link /reference/concepts/move_constructible.md.nolink]
+* std::move_constructible[link /reference/concepts/move_constructible.md]
 * b.size()[link /reference/vector/vector/size.md]
 
 また、requires節は、クラステンプレートのテンプレートパラメータを、メンバ関数ごとに制約するためにも使用できる。簡易的な[`std::vector`](/reference/vector/vector.md)の`push_back()`メンバ関数を実装してみよう。
@@ -314,8 +314,8 @@ int main() {
 * alloc_.allocate[link /reference/memory/allocator/allocate.md]
 * alloc_.deallocate[link /reference/memory/allocator/deallocate.md]
 * std::destroy_n[link /reference/memory/destroy_n.md]
-* std::copy_constructible[link /reference/concepts/copy_constructible.md.nolink]
-* std::move_constructible[link /reference/concepts/move_constructible.md.nolink]
+* std::copy_constructible[link /reference/concepts/copy_constructible.md]
+* std::move_constructible[link /reference/concepts/move_constructible.md]
 * std::out_of_range[link /reference/stdexcept.md]
 * std::move[link /reference/utility/move.md]
 * std::for_each_n[link /reference/algorithm/for_each_n.md]
