@@ -7,14 +7,25 @@
 
 ```cpp
 constexpr unique_ptr() noexcept;             // (1) 単一オブジェクト、配列
-explicit unique_ptr(pointer p) noexcept;     // (2) 単一オブジェクト、配列
-unique_ptr(pointer p, const D& d1) noexcept; // (3) 単一オブジェクト、配列
-unique_ptr(pointer p, D&& d2) noexcept;      // (4) 単一オブジェクト、配列
+
+explicit unique_ptr(pointer p) noexcept;     // (2) 単一オブジェクト、配列（C++14まで）
+template<class U>
+explicit unique_ptr(U p) noexcept;           // (2) 配列 C++17
+
+unique_ptr(pointer p, const D& d1) noexcept; // (3) 単一オブジェクト、配列（C++14まで）
+template<class U>
+unique_ptr(U p, const D& d1) noexcept;       // (3) 配列 C++17
+
+unique_ptr(pointer p, D&& d2) noexcept;      // (4) 単一オブジェクト、配列（C++14まで）
+template<class U>
+unique_ptr(U p, D&& d2) noexcept;            // (4) 配列 C++17
+
 unique_ptr(unique_ptr&& u) noexcept;         // (5) 単一オブジェクト、配列
+
 constexpr unique_ptr(nullptr_t) noexcept;    // (6) 単一オブジェクト、配列
 
 template <class U, class E>
-unique_ptr(unique_ptr<U, E>&& u) noexcept;   // (7) 単一オブジェクト
+unique_ptr(unique_ptr<U, E>&& u) noexcept;   // (7) 単一オブジェクト、配列（C++17）
 
 template <class U>
 unique_ptr(auto_ptr<U>&& u) noexcept;        // (8) 単一オブジェクト
@@ -47,6 +58,17 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
     - `U`が配列型ではないこと。
     - `D`と`E`が同じ型であること。もしくは参照型ではない`D`において、`E`が`D`に暗黙的に変換可能な型であること。
 
+### C++17 配列版
+- (2), (3), (4) : 以下のいずれかの場合にのみオーバーロード解決に参加する：
+    - `U`はメンバ型`pointer`と同じ型
+    - `pointer`は`element_type*`と同じ型かつ`U`は何らかのポインタ型`V*`であり、`V(*)[]`は`element_type(*)[]`に変換可能である
+    - `U`は`nullptr_t`である（(3), (4)のみ）
+- (7) : 以下の全ての条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
+    - `U`は配列型ではないこと
+    - `pointer`は`element_type*`と同じ型
+    - `unique_ptr<U, E>::pointer`は`unique_ptr<U, E>::element_type*`と同じ型
+    - `unique_ptr<U, E>::element_type(*)[]`は`element_type(*)[]`に変換可能である
+    - `D`と`E`は同じ型で共に参照型である、もしくは`D`は参照型ではなく`E`は`D`に暗黙変換可能である
 
 ## 効果
 - (1) : 値初期化したポインタとデリータオブジェクトを、メンバ変数に保持する。
@@ -129,4 +151,5 @@ int main()
 - [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
     - (6)の経緯となる提案文書
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
-
+- [N4089 Safe conversions in unique_ptr<T[]>, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
+- [LWG Issue 2520 : N4089 broke initializing unique_ptr<T[]> from a nullptr](https://wg21.cmeerw.net/lwg/issue2520)

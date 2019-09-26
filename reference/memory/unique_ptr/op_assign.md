@@ -9,7 +9,7 @@
 unique_ptr& operator=(unique_ptr&& u) noexcept;       // (1) 単一オブジェクト、配列
 
 template <class U, class E>
-unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept; // (2) 単一オブジェクト、配列
+unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept; // (2) 単一オブジェクト、配列（C++17）
 
 unique_ptr& operator=(nullptr_t) noexcept;            // (3) 単一オブジェクト、配列
 

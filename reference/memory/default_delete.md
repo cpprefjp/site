@@ -35,9 +35,11 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `constexpr default_delete() noexcept=default;` | デフォルトコンストラクタ | C++11 |
+| `constexpr default_delete() noexcept=default;` | デフォルトコンストラクタ。 | C++11|
+| `template <class U> default_delete()(const default_delete<U[]>&) noexcept;` | 変換可能な型からのコピーコンストラクタ。 | C++17 |
 | `~default_delete() = default;` | デストラクタ | C++11 |
-| `void operator()(T* ptr) const;`<br/>`template <class U>`<br/>`void operator()(U*) const = delete;` | 関数呼び出し演算子。渡されたポインタ`ptr`を `delete[] ptr;`で削除する | C++11 |
+| `void operator()(T* ptr) const;`<br/>`template <class U>`<br/>`void operator()(U*) const = delete;` | 関数呼び出し演算子。渡されたポインタ`ptr`を `delete[] ptr;`で削除する | C++11<br/>C++14まで |
+| `template <class U> void operator()(U* ptr) const;`| 関数呼び出し演算子。渡されたポインタ`ptr`を `delete[] ptr;`で削除する。変換可能な型の配列へのポインタも削除可能。 | C++17 |
 
 
 ## 例

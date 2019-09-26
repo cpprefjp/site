@@ -62,7 +62,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|---------------------------------|-------|
-| `pointer`      | 所有するリソースのポインタ型`T*` 。ただし、`deleter_type::pointer` 型が存在する場合はその型になる。 | C++11 |
+| `pointer`      | 所有するリソースのポインタ型`element_type*`（`T*`） 。ただし、`deleter_type::pointer` 型が存在する場合はその型になる。 | C++11 |
 | `element_type` | 要素型`T` | C++11 |
 | `deleter_type` | デリータの型`D` | C++11 |
 
@@ -141,6 +141,7 @@ hoge::~hoge()
 - [LWG Issue 673. `unique_ptr` update](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#672)
     - `unique_ptr<void, Deleter>`を許可するために、インタフェースを改良した経緯
 - [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)
+- [N4089 Safe conversions in unique_ptr<T[]>, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
 
 ## 関連項目
 

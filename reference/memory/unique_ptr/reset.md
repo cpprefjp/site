@@ -6,11 +6,14 @@
 * cpp11[meta cpp]
 
 ```cpp
-void reset(pointer p = pointer()) noexcept; // (1)
+void reset(pointer p = pointer()) noexcept;   // (1)
 
 // 配列版のみ
-void reset(nullptr_t p) noexcept;           // (2)
-template <class U> void reset(U) = delete;  // (3)
+void reset(nullptr_t p) noexcept;             // (2) C++14まで
+void reset(nullptr_t = nullptr) noexcept;     // (2) C++17
+
+template <class U> void reset(U) = delete;    // (3) C++14まで
+template <class U> void reset(U p) noexcept;  // (3) C++17
 ```
 
 ## 概要
@@ -22,9 +25,13 @@ template <class U> void reset(U) = delete;  // (3)
     代入前に保持していたポインタ変数を`old_p`とし、それが`nullptr`でなければ、[`get_deleter()`](get_deleter.md)`(old_p)`によって、保持していたポインタを解放する。
 
 - (2) :
-    - C++14 : `reset(pointer())`と等価の効果を持つ。
+    - `reset(pointer())`と等価の効果を持つ。
 
-- (3) : 他のポインタ型から`pointer`型への変換を禁止する。
+- (3) : 
+    - C++14まで : 他のポインタ型から`pointer`型への変換を禁止する。
+    - C++17 : (1)と等価、ただし以下のどちらかの場合にのみオーバーロード解決に参加する。
+        - `U`はメンバ型`pointer`と同じ型
+        - `pointer`は`element_type*`と同じ型かつ`U`は何らかのポインタ型`V*`であり、`V(*)[]`は`element_type(*)[]`に変換可能である
 
 
 ## 戻り値
@@ -73,4 +80,4 @@ p doesn't have resource
 
 ## 参照
 - [LWG Issue 2169. Missing `reset()` requirements in `unique_ptr` specialization](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2169)
-
+- [N4089 Safe conversions in unique_ptr<T[]>, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
