@@ -58,12 +58,12 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
     - `U`が配列型ではないこと。
     - `D`と`E`が同じ型であること。もしくは参照型ではない`D`において、`E`が`D`に暗黙的に変換可能な型であること。
 
-### C++17
+### C++17 共通
 
 - (1), (2), (6) : 以下のいずれかの条件を満たす場合、オーバーロード解決に参加しない。
     - [`is_­pointer_­v<deleter_­type>`](/reference/type_traits/is_pointer.md)` == true`である（デリータがポインタである）
     - [`is_­default_­constructible_­v<deleter_­type>`](/reference/type_traits/is_default_constructible.md) `== false`である（デリータがデフォルト構築できない）
-- (6) : [推論補助](/reference/memory/shared_ptr/op_deduction_guide.md)がこのコンストラクタを選択する場合、プログラムはill-formed。
+- (3), (4), (6) : [クラステンプレートの実引数推定](/lang/cpp17/type_deduction_for_class_templates.md)によってこれらのコンストラクタが選択される場合、プログラムはill-formed。
 
 ### C++17 配列版
 - (2), (3), (4) : 以下のいずれかの場合にのみオーバーロード解決に参加する：
