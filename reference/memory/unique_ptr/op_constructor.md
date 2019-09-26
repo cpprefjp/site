@@ -58,6 +58,13 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
     - `U`が配列型ではないこと。
     - `D`と`E`が同じ型であること。もしくは参照型ではない`D`において、`E`が`D`に暗黙的に変換可能な型であること。
 
+### C++17
+
+- (1), (2), (6) : 以下のいずれかの条件を満たす場合、オーバーロード解決に参加しない。
+    - [`is_­pointer_­v<deleter_­type>`](/reference/type_traits/is_pointer.md)` == true`である（デリータがポインタである）
+    - [`is_­default_­constructible_­v<deleter_­type>`](/reference/type_traits/is_default_constructible.md) `== false`である（デリータがデフォルト構築できない）
+- (6) : [推論補助](/reference/memory/shared_ptr/op_deduction_guide.md)がこのコンストラクタを選択する場合、プログラムはill-formed。
+
 ### C++17 配列版
 - (2), (3), (4) : 以下のいずれかの場合にのみオーバーロード解決に参加する：
     - `U`はメンバ型`pointer`と同じ型
@@ -151,5 +158,6 @@ int main()
 - [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
     - (6)の経緯となる提案文書
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
-- [N4089 Safe conversions in unique_ptr<T[]>, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
-- [LWG Issue 2520 : N4089 broke initializing unique_ptr<T[]> from a nullptr](https://wg21.cmeerw.net/lwg/issue2520)
+- [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
+- [LWG Issue 2520 : N4089 broke initializing `unique_ptr<T[]>` from a nullptr](https://wg21.cmeerw.net/lwg/issue2520)
+- [LWG Issue 2801. Default-constructibility of `unique_ptr`](https://wg21.cmeerw.net/lwg/issue2948)
