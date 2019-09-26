@@ -40,7 +40,7 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
 
 - (1) : デフォルトコンストラクタ。所有権を持たない、空の`unique_ptr`オブジェクトを構築する。
 - (2) : 生ポインタの所有権を受け取る。
-- (3), (4) : 生ポインタの所有権、およびデリータオブジェクトを受け取る。
+- (3), (4) : 生ポインタの所有権、およびデリータオブジェクトを受け取る。デリータオブジェクトは[`forward`](/reference/utility/forward.md)される。
 - (5) : ムーブコンストラクタ。`u`から`*this`に、所有権を譲渡する。
 - (6) : デフォルトコンストラクタと同じく、所有権を持たない、空の`unique_ptr`オブジェクトを構築する。
 - (7) : 変換可能なポインタ型を持つ`unique_ptr`オブジェクトからの変換。
@@ -63,7 +63,8 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
 - (1), (2), (6) : 以下のいずれかの条件を満たす場合、オーバーロード解決に参加しない。
     - [`is_­pointer_­v<deleter_­type>`](/reference/type_traits/is_pointer.md)` == true`である（デリータがポインタである）
     - [`is_­default_­constructible_­v<deleter_­type>`](/reference/type_traits/is_default_constructible.md) `== false`である（デリータがデフォルト構築できない）
-- (3), (4), (6) : [クラステンプレートの実引数推定](/lang/cpp17/type_deduction_for_class_templates.md)によってこれらのコンストラクタが選択される場合、プログラムはill-formed。
+- (3), (4) : [`is_constructible_v<D, decltype(d)>`](/reference/type_traits/is_constructible.md)` == true`の場合にのみオーバーロード解決に参加する。
+- (3), (4), (6) : [クラステンプレートの実引数推定](/lang/cpp17/type_deduction_for_class_templates.md)によってこれらのコンストラクタが選択される場合、コンパイルエラーとなる。
 
 ### C++17 配列版
 - (2), (3), (4) : 以下のいずれかの場合にのみオーバーロード解決に参加する：
@@ -161,3 +162,4 @@ int main()
 - [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
 - [LWG Issue 2520 : N4089 broke initializing `unique_ptr<T[]>` from a nullptr](https://wg21.cmeerw.net/lwg/issue2520)
 - [LWG Issue 2801. Default-constructibility of `unique_ptr`](https://wg21.cmeerw.net/lwg/issue2948)
+- [LWG Issue 2905. `is_constructible_v<unique_ptr<P, D>, P, D const &>` should be false when D is not copy constructible](https://wg21.cmeerw.net/lwg/issue2905)
