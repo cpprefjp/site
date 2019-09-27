@@ -194,5 +194,6 @@ process data
 ## 参照
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
-
+- [Bug 41861 (DR887) - [DR 887][C++0x] `<condition_variable>` does not use `monotonic_clock`](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=41861)
+    - GCC 10から`steady_clock`がサポートされた
 
