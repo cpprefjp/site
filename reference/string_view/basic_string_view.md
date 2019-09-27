@@ -240,6 +240,45 @@ Hell
 Hell
 ```
 
+### 文字列リテラルを範囲として使用する場合にヌル文字が含まれないようにする
+```cpp
+#include <iostream>
+#include <string_view>
+
+int main()
+{
+  // 文字列リテラルを範囲として使用すると、ヌル文字が要素に含まれる
+  std::cout << '[' << std::endl;
+  for (char c : "ABC") {
+    std::cout << c << std::endl;
+  }
+  std::cout << ']' << std::endl;
+
+  // string_viewを使用すると、ヌル文字が要素に含まれない
+  std::cout << '[' << std::endl;
+  for (char c : std::string_view{"ABC"}) {
+    std::cout << c << std::endl;
+  }
+  std::cout << ']' << std::endl;
+}
+```
+* std::string_view[color ff0000]
+
+#### 出力
+```
+[
+A
+B
+C
+
+]
+[
+A
+B
+C
+]
+```
+
 ## バージョン
 ### 言語
 - C++17
@@ -266,3 +305,4 @@ Hell
 - [P0254R1 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r1.pdf)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [P0403R0 Literal suffixes for `basic_string_view`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0403r0.html)
+- [String literals make bad ranges - Andrzej's C++ blog](https://akrzemi1.wordpress.com/2019/09/25/string-literals-make-bad-ranges/)
