@@ -83,17 +83,45 @@ namespace std {
 ## 戻り値
 非同期実行される関数オブジェクト`f`の結果値取得のための`future`オブジェクトを返す。
 
-[`launch::async`](launch.md)を指定してこの関数を呼び出した場合のみ、戻り値の`future`オブジェクトはそのデストラクタにおいて、指定された関数の終了を待機する。
-
-すなわち、[`launch::async`](launch.md)を指定した場合には戻り値を何かしらの形で受けておかないとこの関数は同期的に実行されているかのように振舞う。また、戻り値を何かしらの形で受けた場合でもそのスコープを抜ける際に指定された関数の終了を待機する。この挙動はクラスのメンバ変数に保存する等、外部スコープに持ち出したとしても変わらない。
-
-なお、この関数に[`launch::async`](launch.md)指定して得た`future`オブジェクトのみがデストラクタでの共有状態の完了待機を行う。その他の方法で取得した`future`オブジェクトはこのような振舞をしない。
-
-
 ## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](future_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`resource_unavailable_try_again`](future_errc.md) ： [`launch::async`](launch.md)が指定され、新たなスレッドを起動しようとしたができなかった
+
+## launch::asyncポリシーを指定した場合の注意点
+
+### 戻り値
+
+[`launch::async`](launch.md)を指定してこの関数を呼び出した場合のみ、戻り値の`future`オブジェクトはそのデストラクタにおいて、指定された関数の終了を待機する。
+
+すなわち、[`launch::async`](launch.md)を指定した場合には戻り値を何かしらの形で受けておかないとこの関数は同期的に実行されているかのように振舞う。また、戻り値を何かしらの形で受けた場合でもそのスコープを抜ける際に指定された関数の終了を待機する。この挙動はクラスのメンバ変数に保存する等、外部スコープに持ち出したとしても変わらない。
+
+```cpp
+//これらの呼び出しは別スレッドで実行されるが、同期的に呼び出される
+std::async(std::launch::async, []{ f(); }); //f()が完了するまではこの行で待機する
+std::async(std::launch::async, []{ g(); }); //g()の呼び出しは必ずf()の終了後、g()の完了まで処理はブロックされる
+
+//次の様に戻り値を受けておけば、それぞれ非同期的に実行される
+{
+  auto futuref = std::async(std::launch::async, []{ f(); }); //f()の完了を待機しない
+  auto futureg = std::async(std::launch::async, []{ g(); }); //g()の呼び出しはf()の完了前かもしれない
+
+  /*何か他の処理*/
+
+} //このブロックスコープを抜ける際に、f()とg()の完了を待機する
+```
+
+なお、この関数に[`launch::async`](launch.md)指定して得た`future`オブジェクトのみがデストラクタでの共有状態の完了待機を行う。その他の方法で取得した`future`オブジェクトはこのような振舞をしない。
+
+
+### MSVCの実装とスレッドローカルストレージの利用
+MSVCにおける`launch::async`指定した際のこの関数の実装は、Windowsの提供するスレッドプールのスレッドを用いて処理を実行するため、新しいスレッドを起動せず、処理スレッドは終了されない。
+
+このため、スレッドローカルストレージを利用している場合、あるスレッドにおける同じ処理の1回目の呼び出しではスレッドローカルストレージ内のオブジェクトは破棄されず、2回目以降の呼び出しではスレッドローカルストレージ内オブジェクトの初期化処理は実行されない。  
+また、どのスレッドが呼ばれるかはおそらくランダムであるため、違うスレッドローカルストレージにある同じ名前のオブジェクトを利用していることになり可能性もある。  
+Windows環境においてMSVC実装の本関数とスレッドローカルストレージを合わせて利用する場合は注意が必要である。
+
+なおC++標準規格ではC++11以降一貫して、`launch::async`を指定して本関数を呼び出した場合は新しいスレッドを起動する、という様に記述されているため、MSVCのこの実装は規格違反となる。
 
 
 ## 例
@@ -176,3 +204,5 @@ foo() = 3
 - [async関数launch::asyncポリシーとfutureのちょっと特殊な動作 - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20120317/p1)
 - [P0604R0 Resolving GB 55, US 84, US 85, US 86](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html)
 - [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+- [In Visual Studio, `thread_local` variables' destructor not called when used with `std::async`, is this a bug? - stackoverflow](https://stackoverflow.com/questions/50897768/in-visual-studio-thread-local-variables-destructor-not-called-when-used-with)
+- [<future> functions - Microsoft Docs](https://docs.microsoft.com/en-us/cpp/standard-library/future-functions?view=vs-2019#remarks)
