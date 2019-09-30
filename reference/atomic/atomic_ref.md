@@ -129,10 +129,41 @@ namespace std {
 
 ### 例
 ```cpp example
-```
+#include <iostream>
+#include <atomic>
+#include <thread>
 
-### 出力例
+struct Info {
+  int value = 0;
+};
+
+int main()
+{
+  Info info;
+
+  std::thread consumer_thread {[&info] {
+    std::atomic_ref<int> x{info.value};
+    while (true) {
+      int value = x.load();
+       if (value != 0) {
+         std::cout << value << std::endl;
+         break;
+       }
+    }
+  }};
+
+  std::atomic_ref<int>{info.value}.store(3);
+  consumer_thread.join();
+}
 ```
+* std::atomic_ref[color ff0000]
+* x.load()[link atomic_ref/load.md.nolink]
+* x.store[link atomic_ref[store.md.nolink]
+* consumer_thread.join()[link /reference/thread/thread/join.md]
+
+### 出力
+```
+3
 ```
 
 
@@ -142,7 +173,7 @@ namespace std {
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc):
+- [GCC](/implementation.md#gcc): 10.1
 - [Visual C++](/implementation.md#visual_cpp):
 
 
