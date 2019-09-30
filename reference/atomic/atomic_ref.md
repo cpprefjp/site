@@ -30,6 +30,7 @@ namespace std {
 - 型`T`は[`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> == true`であること
 
 
+## メンバ関数
 ### 共通メンバ関数
 | 名前 | 説明 | 対応バージョン |
 |------|------|-----|

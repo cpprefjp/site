@@ -90,6 +90,7 @@ namespace std {
 | `atomic_uintptr_t` | [`uintptr_t`](/reference/cstdint/uintptr_t.md) | C++11 |
 
 
+## メンバ関数
 ### 共通メンバ関数
 | 名前 | 説明 | 対応バージョン |
 |------|------|-----|
