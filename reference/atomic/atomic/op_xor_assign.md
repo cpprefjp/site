@@ -98,7 +98,7 @@ int main()
 * hash ^= ar[2];[color ff0000]
 * hash ^= ar[3];[color ff0000]
 * hash ^= ar[4];[color ff0000]
-* x.load()[link load.md]
+* hash.load()[link load.md]
 
 #### 出力
 ```

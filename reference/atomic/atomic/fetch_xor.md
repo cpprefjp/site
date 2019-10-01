@@ -101,7 +101,7 @@ int main()
 }
 ```
 * fetch_xor[color ff0000]
-* x.load()[link load.md]
+* hash.load()[link load.md]
 
 #### 出力
 ```
