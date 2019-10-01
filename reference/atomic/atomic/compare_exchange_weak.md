@@ -122,8 +122,7 @@ public:
 
   // 値の上書き
   void store(int new_value) {
-    // 変更前の値に依存しない場合は、Spurious Failureを回避するためのwhile文のみ必要となる。
-    // compare_exchange_strong()を使用する場合、このwhile文は不要
+    // 変更前の値に依存しない場合は、Spurious Failureを回避するためのwhile文のみ必要となる
     int expected = value_.load();
     while (!value_.compare_exchange_weak(expected, new_value)) {}
   }
@@ -155,7 +154,6 @@ int main()
 * value_.compare_exchange_weak[color ff0000]
 * value_.load()[link load.md]
 * fetch_add[link fetch_add.md]
-* compare_exchange_strong()[link compare_exchange_strong.md]
 
 #### 出力
 ```
