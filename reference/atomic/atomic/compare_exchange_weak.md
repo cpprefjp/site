@@ -111,6 +111,13 @@ public:
     // value_ == expectedだったらその値に+1して値更新する。
     // 変更前の値に依存して変更後の値が必要な場合に、このようなdo/whileループが必要となる
     while (!value_.compare_exchange_weak(expected, desired));
+
+    // 変更前の値に依存した値更新のパターンは、以下のようになる：
+    // expected = current.load();
+    // do {
+    //   desired = function(expected); // expectedに何らかの変換を行う
+    // }
+    // while (!current.compare_exchange_weak(expected, desired));
   }
 
   // 値の上書き
@@ -164,9 +171,9 @@ int main()
 
 
 ## 参照
-[atomic compare_exchange_weak/strong関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120725/p1)
-[N2748 Strong Compare and Exchange](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2748.html)
-[cbloom rants: 07-14-11 - compare_exchange_strong vs compare_exchange_weak](http://cbloomrants.blogspot.jp/2011/07/07-14-11-compareexchangestrong-vs.html)
-[What does 'spurious failure' on a CAS mean? - StackOverflow](http://stackoverflow.com/q/355365/463412)
-[“Strong” and “weak” hardware memory models - Sutter’s Mill](https://herbsutter.com/2012/08/02/strong-and-weak-hardware-memory-models/)
-
+- [atomic compare_exchange_weak/strong関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120725/p1)
+- [N2748 Strong Compare and Exchange](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2748.html)
+- [cbloom rants: 07-14-11 - compare_exchange_strong vs compare_exchange_weak](http://cbloomrants.blogspot.jp/2011/07/07-14-11-compareexchangestrong-vs.html)
+- [What does 'spurious failure' on a CAS mean? - StackOverflow](http://stackoverflow.com/q/355365/463412)
+- [“Strong” and “weak” hardware memory models - Sutter’s Mill](https://herbsutter.com/2012/08/02/strong-and-weak-hardware-memory-models/)
+- [Understand `std::atomic::compare_exchange_weak()` in C++11 - Eric Z's blog](https://tonywearme.wordpress.com/2014/08/15/understand-stdatomiccompare_exchange_weak-in-c11/)
