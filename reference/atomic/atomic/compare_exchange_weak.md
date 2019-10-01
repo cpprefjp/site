@@ -53,6 +53,7 @@ bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_o
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <atomic>
@@ -82,10 +83,66 @@ int main()
 * compare_exchange_weak[color ff0000]
 * x.load()[link load.md]
 
-### 出力
+#### 出力
 ```
 true 2 3
 false 3 3
+```
+
+
+### 競合を回避しながら値を更新する例
+```cpp example
+#include <iostream>
+#include <atomic>
+#include <thread>
+
+class my_atomic_integer {
+  std::atomic<int> value_{0};
+public:
+  // std::atomic<int>::fetch_add(1)相当
+  void increment() {
+    int expected = value_.load();
+    int desired;
+    do {
+      desired = expected + 1;
+    }
+    // 他のスレッドによってvalue_の値が書き換わっている可能性があるため、
+    // value_ != expectedだったらexpected = value_に更新する。
+    // value_ == expectedだったらその値に+1して値更新する
+    while (!value_.compare_exchange_weak(expected, desired));
+  }
+
+  int load() const {
+    return value_.load();
+  }
+};
+
+int main()
+{
+  my_atomic_integer x;
+
+  // 複数スレッドでインクリメントを読んでも、
+  // 最終的に全てのインクリメントが処理された値になる
+  std::thread t1 {[&x] {
+    x.increment();
+  }};
+  std::thread t2 {[&x] {
+    x.increment();
+  }};
+
+  t1.join();
+  t2.join();
+
+  std::cout << x.load() << std::endl;
+}
+```
+* value_.compare_exchange_weak[color ff0000]
+* value_.load()[link load.md]
+* fetch_add[link fetch_add.md]
+
+#### 出力
+```
+2
 ```
 
 ## バージョン
@@ -93,10 +150,8 @@ false 3 3
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
-- [ICC](/implementation.md#icc): ??
+- [Clang](/implementation.md#clang): 3.2
+- [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 
