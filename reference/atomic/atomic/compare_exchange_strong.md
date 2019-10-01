@@ -51,6 +51,7 @@ bool compare_exchange_strong(T& expected, T desired, memory_order order = memory
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <atomic>
@@ -80,29 +81,74 @@ int main()
 * compare_exchange_strong[color ff0000]
 * x.load()[link load.md]
 
-### 出力
+#### 出力
 ```
 true 2 3
 false 3 3
 ```
+
+### フラグのオン・オフをする例
+```cpp example
+#include <iostream>
+#include <atomic>
+#include <thread>
+
+class my_atomic_flag {
+  std::atomic<bool> value_{false};
+public:
+  void set() {
+    // 値がfalseだったらtrueにする。
+    // falseでなかったら (true) 、そのまま
+    bool expected = false;
+    value_.compare_exchange_strong(expected, true);
+  }
+
+  bool load() const {
+    return value_.load();
+  }
+};
+
+int main()
+{
+  my_atomic_flag x;
+
+  // いずれかのスレッドの処理がおわったら (成功したら) フラグをオンにする
+  std::thread t1 {[&x] {
+    x.set();
+  }};
+  std::thread t2 {[&x] {
+    x.set();
+  }};
+
+  t1.join();
+  t2.join();
+
+  std::cout << std::boolalpha << x.load() << std::endl;
+}
+```
+* value_.compare_exchange_strong[color ff0000]
+* value_.load()[link load.md]
+
+#### 出力
+```
+true
+```
+
 
 ## バージョン
 ### 言語
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
-- [ICC](/implementation.md#icc): ??
+- [Clang](/implementation.md#clang): 3.2
+- [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 
 ## 参照
-[atomic compare_exchange_weak/strong関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120725/p1)
-[N2748 Strong Compare and Exchange](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2748.html)
-[cbloom rants: 07-14-11 - compare_exchange_strong vs compare_exchange_weak](http://cbloomrants.blogspot.jp/2011/07/07-14-11-compareexchangestrong-vs.html)
-[What does 'spurious failure' on a CAS mean? - StackOverflow](http://stackoverflow.com/q/355365/463412)
-[“Strong” and “weak” hardware memory models - Sutter’s Mill](https://herbsutter.com/2012/08/02/strong-and-weak-hardware-memory-models/)
-
-
+- [atomic compare_exchange_weak/strong関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120725/p1)
+- [N2748 Strong Compare and Exchange](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2748.html)
+- [cbloom rants: 07-14-11 - compare_exchange_strong vs compare_exchange_weak](http://cbloomrants.blogspot.jp/2011/07/07-14-11-compareexchangestrong-vs.html)
+- [What does 'spurious failure' on a CAS mean? - StackOverflow](http://stackoverflow.com/q/355365/463412)
+- [“Strong” and “weak” hardware memory models - Sutter’s Mill](https://herbsutter.com/2012/08/02/strong-and-weak-hardware-memory-models/)
+- [Understand `std::atomic::compare_exchange_weak()` in C++11 - Eric Z's blog](https://tonywearme.wordpress.com/2014/08/15/understand-stdatomiccompare_exchange_weak-in-c11/)
