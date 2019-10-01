@@ -108,8 +108,16 @@ public:
     }
     // 他のスレッドによってvalue_の値が書き換わっている可能性があるため、
     // value_ != expectedだったらexpected = value_に更新する。
-    // value_ == expectedだったらその値に+1して値更新する
+    // value_ == expectedだったらその値に+1して値更新する。
+    // 変更前の値に依存して変更後の値が必要な場合に、このようなdo/whileループが必要となる
     while (!value_.compare_exchange_weak(expected, desired));
+  }
+
+  // 値の上書き
+  void store(int new_value) {
+    // 変更前の値に依存しない場合は、Spurious Failureを回避するためのwhile文のみ必要となる
+    int expected = value_.load();
+    while (!value_.compare_exchange_weak(expected, new_value)) {}
   }
 
   int load() const {
