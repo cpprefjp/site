@@ -32,6 +32,7 @@ T operator--(int) noexcept;
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <atomic>
@@ -48,9 +49,42 @@ int main()
 * --x;[color ff0000]
 * x.load()[link load.md]
 
-### 出力
+#### 出力
 ```
 2
+```
+
+### 複数スレッドからデクリメントする例
+```cpp example
+#include <iostream>
+#include <atomic>
+#include <thread>
+
+int main()
+{
+  std::atomic<int> x{10};
+
+  // 複数スレッドでデクリメントを呼んでも、
+  // 最終的に全てのスレッドでのデクリメントが処理された値になる
+  std::thread t1 {[&x] {
+    --x;
+  }};
+  std::thread t2 {[&x] {
+    --x;
+  }};
+
+  t1.join();
+  t2.join();
+
+  std::cout << x.load() << std::endl;
+}
+```
+* --x;[color ff0000]
+* x.load()[link load.md]
+
+#### 出力
+```
+8
 ```
 
 ## バージョン
@@ -58,13 +92,6 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
-- [ICC](/implementation.md#icc): ??
+- [Clang](/implementation.md#clang): 3.2
+- [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
-
-
-## 参照
-
-

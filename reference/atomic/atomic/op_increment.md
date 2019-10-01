@@ -33,6 +33,7 @@ T operator++(int) noexcept;
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <atomic>
@@ -50,9 +51,42 @@ int main()
 * x.load()[link load.md]
 
 
-### 出力
+#### 出力
 ```
 4
+```
+
+### 複数スレッドからインクリメントする例
+```cpp example
+#include <iostream>
+#include <atomic>
+#include <thread>
+
+int main()
+{
+  std::atomic<int> x{0};
+
+  // 複数スレッドでインクリメントを呼んでも、
+  // 最終的に全てのスレッドでのインクリメントが処理された値になる
+  std::thread t1 {[&x] {
+    ++x;
+  }};
+  std::thread t2 {[&x] {
+    ++x;
+  }};
+
+  t1.join();
+  t2.join();
+
+  std::cout << x.load() << std::endl;
+}
+```
+* ++x;[color ff0000]
+* x.load()[link load.md]
+
+#### 出力
+```
+2
 ```
 
 
@@ -62,13 +96,6 @@ int main()
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
-- [ICC](/implementation.md#icc): ??
+- [Clang](/implementation.md#clang): 3.2
+- [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
-
-
-## 参照
-
-
