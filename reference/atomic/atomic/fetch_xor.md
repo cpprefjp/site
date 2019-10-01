@@ -38,6 +38,7 @@ XOR演算を行う
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <atomic>
@@ -61,23 +62,59 @@ int main()
 * x.load()[link load.md]
 * to_string()[link /reference/bitset/bitset/to_string.md]
 
-### 出力
+#### 出力
 ```
 1011
 1110
 0101
 ```
 
+### 複数スレッドからビット複合演算を行う例 (C++14)
+```cpp example
+#include <iostream>
+#include <atomic>
+#include <thread>
+#include <bitset>
+
+int main()
+{
+  int ar[] = {1, 2, 3, 4, 5};
+  std::atomic<int> hash{ar[0]};
+
+  // XORで配列のハッシュ値を並列に計算する。
+  // 複数スレッドでビット複合演算を呼んでも、
+  // 最終的に全てのスレッドでのビット複合演算が処理された値になる
+  std::thread t1 {[&hash, ar] {
+    hash.fetch_xor(ar[1]);
+    hash.fetch_xor(ar[2]);
+  }};
+  std::thread t2 {[&hash, ar] {
+    hash.fetch_xor(ar[3]);
+    hash.fetch_xor(ar[4]);
+  }};
+
+  t1.join();
+  t2.join();
+
+  int value = hash.load();
+  std::cout << std::hex << value << std::endl;
+}
+```
+* fetch_xor[color ff0000]
+* x.load()[link load.md]
+
+#### 出力
+```
+1
+```
+
 ## バージョン
 ### 言語
 - C++11
 
-
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
-- [ICC](/implementation.md#icc): ??
+- [Clang](/implementation.md#clang): 3.2
+- [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 

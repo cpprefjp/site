@@ -32,6 +32,7 @@ return fetch_or(operand) | operand;
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <atomic>
@@ -55,12 +56,50 @@ int main()
 * x.load()[link load.md]
 * to_string()[link /reference/bitset/bitset/to_string.md]
 
-### 出力
+#### 出力
 ```
 1011
 1110
 1111
 ```
+
+### 複数スレッドからビット複合演算を行う例 (C++14)
+```cpp example
+#include <iostream>
+#include <atomic>
+#include <thread>
+#include <bitset>
+
+int main()
+{
+  std::atomic<int> x{0b0110};
+
+  // 複数スレッドでビット複合演算を呼んでも、
+  // 最終的に全てのスレッドでのビット複合演算が処理された値になる
+  std::thread t1 {[&x] {
+    x |= 0b0001;
+  }};
+  std::thread t2 {[&x] {
+    x |= 0b1000;
+  }};
+
+  t1.join();
+  t2.join();
+
+  int value = x.load();
+  std::cout << std::bitset<4>(value).to_string() << std::endl;
+}
+```
+* x |= 0b0001;[color ff0000]
+* x |= 0b1000;[color ff0000]
+* x.load()[link load.md]
+* to_string()[link /reference/bitset/bitset/to_string.md]
+
+#### 出力
+```
+1111
+```
+
 
 ## バージョン
 ### 言語
@@ -68,13 +107,6 @@ int main()
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
-- [ICC](/implementation.md#icc): ??
+- [Clang](/implementation.md#clang): 3.2
+- [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
-
-
-## 参照
-
-
