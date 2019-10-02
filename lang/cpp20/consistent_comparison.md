@@ -658,15 +658,17 @@ struct has_vector {
         - 一貫比較仕様の追加 
     2. [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
         - 比較カテゴリ型の標準ライブラリへの導入
-    3. [P1120R0 Consistency improvements for <=> and other comparison operators](http://wg21.link/p1120)
+    3. [P0905R1 Symmetry for spaceship](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0905r1.html)
+        - `<=>`そのものの対称性補完
+    4. [P1120R0 Consistency improvements for <=> and other comparison operators](http://wg21.link/p1120)
         - `<=>`による比較を基にした従来の比較演算子の修正
-    4. [P1185R2 <=> != ==](http://wg21.link/p1185)
+    5. [P1185R2 <=> != ==](http://wg21.link/p1185)
         - `== !=`の`<=>`からの切り離し
-    5. [P1186R3 When do you actually use <=>?](http://wg21.link/p1186)
+    6. [P1186R3 When do you actually use <=>?](http://wg21.link/p1186)
         - メンバ変数に`<=>`を持たない型がある時、戻り値型と`< ==`を用いて`<=>`を合成する
-    6. [P1630R1 Spaceship needs a tune-up](http://wg21.link/p1630)
+    7. [P1630R1 Spaceship needs a tune-up](http://wg21.link/p1630)
         - `==`の戻り値型を`bool`限定にするなど、一貫比較仕様全般の細かいバグ修正
-    7. [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
+    8. [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
         - 標準ライブラリで提供されるクラスへの一貫比較仕様をベースとした`<=> ==`導入
 - 以前に検討されていた提案文書
     - [N3950 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html)
