@@ -10,7 +10,8 @@ enable_shared_from_this& operator=(const enable_shared_from_this&) noexcept;
 ```
 
 ## 概要
-何もしない
+何もしない。  
+保持するポインタ（`this`を指す`weak_ptr<T>`）は変更されない。
 
 
 ## 戻り値
