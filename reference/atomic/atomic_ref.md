@@ -145,8 +145,7 @@ int main()
   std::thread consumer_thread {[&info] {
     std::atomic_ref<int> x{info.value};
     while (true) {
-      int value = x.load();
-       if (value != 0) {
+       if (int value = x.exchange(0); value != 0) {
          std::cout << value << std::endl;
          break;
        }
@@ -158,7 +157,7 @@ int main()
 }
 ```
 * std::atomic_ref[color ff0000]
-* x.load()[link atomic_ref/load.md.nolink]
+* x.exchange[link atomic_ref/exchange.md.nolink]
 * x.store[link atomic_ref[store.md.nolink]
 * consumer_thread.join()[link /reference/thread/thread/join.md]
 
