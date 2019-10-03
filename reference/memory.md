@@ -46,13 +46,16 @@
 |--------------------------------------------------|--------------------------------------------|-------|
 | [`shared_ptr`](memory/shared_ptr.md) | 共有方式スマートポインタ(class template) | C++11 |
 | [`make_shared`](memory/make_shared.md) | `shared_ptr`を構築するヘルパ関数(function template) | C++11 |
+| [`make_shared_default_init`](memory/make_shared_default_init.md) | `shared_ptr`を構築するヘルパ関数(function template) | C++20 |
 | [`allocate_shared`](memory/allocate_shared.md) | アロケータを指定して`shared_ptr`を構築するヘルパ関数(function template) | C++11 |
+| [`allocate_shared_default_init`](memory/allocate_shared_default_init.md) | アロケータを指定して`shared_ptr`を構築するヘルパ関数(function template) | C++20 |
 | [`enable_shared_from_this`](memory/enable_shared_from_this.md) | `this`を指す`shared_ptr`を可能にする(class template) | C++11 |
 | [`weak_ptr`](memory/weak_ptr.md) | `shared_ptr`のインスタンス監視(class template) | C++11 |
 | [`bad_weak_ptr`](memory/bad_weak_ptr.md) | `weak_ptr`から投げられる例外クラス(class template) | C++11 |
 | [`owner_less`](memory/owner_less.md) | 所有権ベースの小なり比較(class template) | C++11 |
 | [`unique_ptr`](memory/unique_ptr.md) | 専有方式スマートポインタ(class template) | C++11 |
 | [`make_unique`](memory/make_unique.md) | `unique_ptr`を構築するヘルパ関数(function template) | C++14 |
+| [`make_unique_defauelt_init`](memory/make_unique_deafult_init.md) | `unique_ptr`を構築するヘルパ関数(function template) | C++20 |
 | [`default_delete`](memory/default_delete.md) | `unique_ptr`のデフォルトの削除子(class template) | C++11 |
 | `auto_ptr` | 古い専有方式スマートポインタ(class template) | C++11から非推奨<br/> C++17で削除 |
 
