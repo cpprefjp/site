@@ -13,7 +13,7 @@ explicit packaged_task(F&& f);                     // (2)
 
 template <class F, class Allocator>
 explicit packaged_task(allocator_arg_t,
-                       const Allocator& a, F&& f); // (3)
+                       const Allocator& a, F&& f); // (3) C++17で削除
 
 packaged_task(packaged_task&) = delete;            // (4) C++11
 packaged_task(const packaged_task&) = delete;      // (4) C++14
@@ -116,4 +116,5 @@ int main()
 ## 参照
 - [LWG Issue 2067. `packaged_task` should have deleted copy c'tor with const parameter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2067)
 - [LWG Issue 2097. `packaged_task` constructors should be constrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2097)
-
+- [LWG Issue 2921. `packaged_task` and type-erased allocators](https://wg21.cmeerw.net/lwg/issue2921)
+    - [`std::function`のコンストラクタ](/reference/functional/function/op_constructor.md)と同様の理由により、アロケータを受け取るコンストラクタを削除
