@@ -6,32 +6,49 @@
 * cpp11[meta cpp]
 
 ```cpp
-bool compare_exchange_weak(T& expected, T desired, memory_order success, memory_order failure) volatile noexcept;
-bool compare_exchange_weak(T& expected, T desired, memory_order success, memory_order failure) noexcept;
+bool compare_exchange_weak(T& expected,
+                           T desired,
+                           memory_order success,
+                           memory_order failure
+                           ) volatile noexcept;  // (1)
+bool compare_exchange_weak(T& expected,
+                           T desired,
+                           memory_order success,
+                           memory_order failure
+                           ) noexcept;           // (2)
 
-bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_order_seq_cst) volatile noexcept;
-bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_order_seq_cst) noexcept;
+bool compare_exchange_weak(T& expected,
+                           T desired,
+                           memory_order order = memory_order_seq_cst
+                           ) volatile noexcept;  // (3)
+bool compare_exchange_weak(T& expected,
+                           T desired,
+                           memory_order order = memory_order_seq_cst
+                           ) noexcept;           // (4)
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 ## 概要
-弱い比較で値を入れ替える
+弱い比較で値を入れ替える。
+
+- (1), (2) : 現在の値と`expected`が等値である場合に、`success`メモリオーダーで現在の値を`desired`で置き換え、そうでなければ`failure`メモリオーダーで`expected`を現在の値で置き換える
+- (3), (4) : 現在の値と`expected`が等値である場合に、現在の値を`desired`で置き換え、そうでなければ`expected`を現在の値で置き換える。どちらの値置き換えの場合でも`order`メモリオーダーが使用される
 
 
 ## 要件
-- `failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと。
-- `failure`が`success`よりも強くないこと。
+- `failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと
 
 
 ## 効果
 現在の値と`expected`をバイトレベルで等値比較を行い、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
 
-バイト等値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる。メモリオーダーが一つだけ指定された場合、`order`メモリオーダーが使用される。
+- (1), (2) : バイト等値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる
+- (3), (4) : アトミックな値置き換えでは`order`メモリオーダーが使用される
 
 
 ## 戻り値
-等値比較の結果が返される
+この関数を呼び出す前の`*this`が保持する値と`expected`の等値比較の結果が返される。等値であれば`true`、そうでなければ`false`が返る。
 
 
 ## 例外
@@ -39,9 +56,9 @@ bool compare_exchange_weak(T& expected, T desired, memory_order order = memory_o
 
 
 ## 備考
-この関数は、値が交換可能な場合でもCAS (compare-and-swap)操作が失敗する可能性がある(Spurious Failure)。
+この関数は、値が交換可能な場合でもCAS (compare-and-swap) 操作が失敗する可能性がある (Spurious Failure)。
 
-[`compare_exchange_strong`](compare_exchange_strong.md)()はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
+[`compare_exchange_strong()`](compare_exchange_strong.md)はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
 
 アーキテクチャによっては、この関数は[`compare_exchange_strong()`](compare_exchange_strong.md)と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](https://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](https://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
 

@@ -42,8 +42,8 @@ namespace std {
 | [`load`](atomic_ref/load.md)                    | 値を読み込む | C++20 |
 | [`operator T`](atomic_ref/op_t.md)              | 型Tへの変換演算子 | C++20 |
 | [`exchange`](atomic_ref/exchange.md)            | 値を入れ替える | C++20 |
-| [`compare_exchange_weak`](atomic_ref/compare_exchange_weak.md.nolink) | 弱い比較で値を入れ替える | C++20 |
-| [`compare_exchange_strong`](atomic_ref/compare_exchange_strong.md.nolink) | 強い比較で値を入れ替える | C++20 |
+| [`compare_exchange_weak`](atomic_ref/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++20 |
+| [`compare_exchange_strong`](atomic_ref/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++20 |
 | [`wait`](atomic_ref/wait.md.nolink) | | C++20 |
 | [`notify_one`](atomic_ref/notify_one.md.nolink) | | C++20 |
 | [`notify_all`](atomic_ref/notify_all.md.nolink) | | C++20 |

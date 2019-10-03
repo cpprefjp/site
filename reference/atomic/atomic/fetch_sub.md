@@ -17,7 +17,7 @@ T fetch_sub(difference_type operand, memory_order order = memory_order_seq_cst) 
 
 
 ## 要件
-- C++17 : 型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
+- `std::atomic<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない (C++17)
 
 
 ## 効果
@@ -31,7 +31,7 @@ T fetch_sub(difference_type operand, memory_order order = memory_order_seq_cst) 
 ## 備考
 - この関数は、`atomic`クラスの整数型、浮動小数点数型 (C++20)、ポインタに対する特殊化で定義される
 - 整数型
-    - 符号付き整数型に対しては、2の補数表現による演算が行われ、未定義動作はない
+    - 符号付き整数型に対しては、符号なし整数型に変換されたかのようにしたあと演算が行われ、結果は符号付き整数型になる。未定義動作はない
 - 浮動小数点数型 (C++20)
     - 演算結果が、その型で表現できない値であった場合、結果は未規定値になる。ただしその操作によって未定義動作は起こらない
     - 浮動小数点数型に対する操作は[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<floating-point>`トレイトに準拠する
