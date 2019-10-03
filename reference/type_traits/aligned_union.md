@@ -23,7 +23,7 @@ namespace std {
 
 
 ## 要件
-`Types...`に、1個以上の型が与えられること。
+`Types...`に、1個以上の型が与えられること。かつ、それらの型は全て完全型であること。
 
 
 ## 効果
@@ -83,4 +83,4 @@ hello
 - [N1877 Adding Alignment Support to the C++ Programming Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1877.pdf)
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
-
+- [LWG Issue 2979. `aligned_union` should require complete object types](https://wg21.cmeerw.net/lwg/issue2979)
