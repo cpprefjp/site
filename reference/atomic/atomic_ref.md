@@ -152,7 +152,7 @@ int main()
     }
   }};
 
-  std::atomic_ref<int>{info.value}.store(3);
+  std::atomic_ref{info.value}.store(3); // クラステンプレートのテンプレート引数推論も使用できる (<int>省略)
   consumer_thread.join();
 }
 ```
