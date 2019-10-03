@@ -55,7 +55,7 @@
 | [`owner_less`](memory/owner_less.md) | 所有権ベースの小なり比較(class template) | C++11 |
 | [`unique_ptr`](memory/unique_ptr.md) | 専有方式スマートポインタ(class template) | C++11 |
 | [`make_unique`](memory/make_unique.md) | `unique_ptr`を構築するヘルパ関数(function template) | C++14 |
-| [`make_unique_defauelt_init`](memory/make_unique_deafult_init.md) | `unique_ptr`を構築するヘルパ関数(function template) | C++20 |
+| [`make_unique_default_init`](memory/make_unique_default_init.md) | `unique_ptr`を構築するヘルパ関数(function template) | C++20 |
 | [`default_delete`](memory/default_delete.md) | `unique_ptr`のデフォルトの削除子(class template) | C++11 |
 | `auto_ptr` | 古い専有方式スマートポインタ(class template) | C++11から非推奨<br/> C++17で削除 |
 
