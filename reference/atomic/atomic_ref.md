@@ -38,10 +38,10 @@ namespace std {
 | `~atomic_ref() = default`                       | デストラクタ | C++20 |
 | [`operator=`](atomic_ref/op_assign.md.nolink) | 代入 | C++20
 | [`is_lock_free`](atomic_ref/is_lock_free.md.nolink)    | オブジェクトがロックフリーに振る舞えるかを判定する | C++20 |
-| [`store`](atomic_ref/store.md.nolink)                  | 値を書き込む | C++20 |
-| [`load`](atomic_ref/load.md.nolink)                    | 値を読み込む | C++20 |
+| [`store`](atomic_ref/store.md)                  | 値を書き込む | C++20 |
+| [`load`](atomic_ref/load.md)                    | 値を読み込む | C++20 |
 | [`operator T`](atomic_ref/op_t.md.nolink)              | 型Tへの変換演算子 | C++20 |
-| [`exchange`](atomic_ref/exchange.md.nolink)            | 値を入れ替える | C++20 |
+| [`exchange`](atomic_ref/exchange.md)            | 値を入れ替える | C++20 |
 | [`compare_exchange_weak`](atomic_ref/compare_exchange_weak.md.nolink) | 弱い比較で値を入れ替える | C++20 |
 | [`compare_exchange_strong`](atomic_ref/compare_exchange_strong.md.nolink) | 強い比較で値を入れ替える | C++20 |
 | [`wait`](atomic_ref/wait.md.nolink) | | C++20 |
@@ -157,8 +157,8 @@ int main()
 }
 ```
 * std::atomic_ref[color ff0000]
-* x.exchange[link atomic_ref/exchange.md.nolink]
-* x.store[link atomic_ref[store.md.nolink]
+* x.exchange[link atomic_ref/exchange.md]
+* x.store[link atomic_ref[store.md]
 * consumer_thread.join()[link /reference/thread/thread/join.md]
 
 ### 出力
