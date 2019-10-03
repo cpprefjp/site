@@ -29,9 +29,44 @@ namespace std {
 [`shared_ptr`](shared_ptr.md) オブジェクトを構築する。
 
 
+## 効果
+型`T`のオブジェクトにメモリを割り当てる（`T`が`U[]`の場合は`U[N]`。`N`はそれぞれのオーバーロードで指定された引数から決定される）。
+
+オブジェクトは、それぞれのオーバーロードで指定された引数から初期化される。
+
+例外がスローされた場合、関数は効果がない。
+
+配列型`U`のオブジェクトが（同じ型の）`u`の初期値を持つように指定されている場合、これは、オブジェクトの各配列要素が初期値として`u`からの対応する要素を持つことを意味すると解釈される。
+
+配列タイプのオブジェクトがデフォルトの初期値を持つように指定されている場合、これはオブジェクトの各配列要素がデフォルトの初期値を持つことを意味すると解釈される。
+
+非配列型`U`の（サブ）オブジェクトが、`v`または`U(l ...)`の初期値を持つように指定されている場合(`l...`はコンストラクター引数のリスト）、`make_shared`は、式`::new (pv) U(v)`または`::new (pv) U(l...)`を使用して、この（サブ）オブジェクトを初期化する。ここで、`pv`の型は`void*`であり、型`U`のオブジェクトを保持するのに適したストレージを指す。
+
+非配列型`U`の（サブ）オブジェクトがデフォルトの初期値を持つように指定されている場合、この関数は、式 `::new (pv) U()`を使用してこの（サブ）オブジェクトを初期化する。`void*`は型`U`のオブジェクトを保持するのに適したストレージを指す。
+
+配列要素は、アドレスの昇順で初期化される。
+
+戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外をスローすると、初期化された要素は元の構造の逆の順序で破棄される。
+
+この関数によって初期化された非配列型`U`の（サブ）オブジェクトを破棄する場合、式`pv->~U()`によって破棄される。pvは型`U`のオブジェクトを指す。
+
+- (1) : 初期値`T(forward<Args>(args)...)`を持つ型`T`のオブジェクトへの`shared_­ptr`を返す。Tが配列型でない場合にのみ、このオーバーロードはオーバーロード解決に関与する。この関数によって呼び出される`shared_­ptr`コンストラクターは、型`T`の新しく構築されたオブジェクトのアドレスで`shared_­from_­this`を有効にする。
+- (2) : デフォルトの初期値を持つ`U[N]`型のオブジェクトへの`shared_­ptr`を返す。ここで、`U`は`remove_­extent_­t<T>`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
+- (3) : デフォルトの初期値を持つ`T`型のオブジェクトへの`shared_­ptr`を返す。このオーバーロードは、`T`が`U[N]`の形式の場合にのみオーバーロード解決に関与する。
+- (4) : `U[N]`型のオブジェクトへの`shared_­ptr`を返す。ここで、`U`は`remove_­extent_­t<T>`であり、各配列要素の初期値は`u`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
+- (5) : 型`T`のオブジェクトへの`shared_­ptr`を返す。ここで、型`remove_­extent_­t<T>`の各配列要素は初期値`u`を持つ。
+
 ## 戻り値
 型`T`に対する `shared_ptr<T>`オブジェクトを生成し返却する。  
 このとき、`args...` で受け取った引数リストを型 `T`のコンストラクタへ渡して`shared_ptr<T>`型のオブジェクトを生成する。  
+
+
+## 事後条件
+`r.get() != 0 && r.use_­count() == 1`, ここで、`r` は戻り値である。
+
+
+## 例外
+`bad_­alloc`、または`allocate`またはオブジェクトの初期化からスローされた例外。
 
 
 ## 備考
@@ -50,7 +85,7 @@ namespace std {
 #include <iostream>
 
 int main() {
-  std::shared_ptr<int> sp = std::make_shared<int>(42);
+  std::shared_ptr<int> sp = std::make_shared<int>();
   if(sp) {
     std::cout << *sp << std::endl;
   }
@@ -78,10 +113,11 @@ int main() {
 
 ## 関連項目
 - [`std::allocate_shared()`](allocate_shared.md)
+- [`std::make_shared_default_init()`](make_shared_default_init.md)
+- [`std::allocate_shared_default_init()`](allocate_shared_default_init.md)
 
 
 ## 参照
 - [N2351 Improving `shared_ptr` for C++0x, Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2351.htm)
 - [std::make_shared から private コンストラクタを呼び出す - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20131211/1386771626)
-
-
+- [P0674R1 Extending `make_shared` to support arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0674r1.html)
