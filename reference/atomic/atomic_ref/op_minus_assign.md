@@ -1,4 +1,4 @@
-# fetch_add
+# operator-=
 * atomic[meta header]
 * std[meta namespace]
 * atomic_ref[meta class]
@@ -6,25 +6,20 @@
 * cpp20[meta cpp]
 
 ```cpp
-T fetch_add(difference_type operand, memory_order order = memory_order_seq_cst) const noexcept;
+T operator-=(T operand) const noexcept;
 ```
-* memory_order[link /reference/atomic/memory_order.md]
-* memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 ## 概要
 加算を行う
 
 
-## 要件
-- `std::atomic_ref<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない (C++17)
-
-
-## 効果
-`order`で指定されたメモリオーダーにしたがって、現在の値に`operand`を加算した値でアトミックに置き換える
-
-
 ## 戻り値
-変更前の値が返される
+以下と等価の式により、演算結果の値が返る：
+
+```cpp
+return fetch_sub(operand) + operand;
+```
+* fetch_sub[link fetch_sub.md]
 
 
 ## 例外
@@ -54,19 +49,16 @@ int main()
   int value = 3;
   std::atomic_ref<int> x{value};
 
-  int before = x.fetch_add(2);
+  x -= 2;
 
-  std::cout << before << std::endl;
   std::cout << value << std::endl;
 }
 ```
-* fetch_add[color ff0000]
-
+* x -= 2;[color ff0000]
 
 #### 出力
 ```
-3
-5
+1
 ```
 
 ### 浮動小数点数の例
@@ -79,21 +71,19 @@ int main()
   float value = 3.14f;
   std::atomic_ref<float> x{value};
 
-  float before = x.fetch_add(1.25f);
+  x -= 1.25f;
 
-  std::cout << before << std::endl;
   std::cout << value << std::endl;
 }
 ```
-* fetch_add[color ff0000]
+* x -= 1.25f;[color ff0000]
 
 #### 出力
 ```
-3.14
-4.39
+1.89
 ```
 
-### 複数スレッドから加算する例
+### 複数スレッドから減算する例
 ```cpp example
 #include <iostream>
 #include <atomic>
@@ -101,15 +91,15 @@ int main()
 
 int main()
 {
-  int value = 0;
+  int value = 10;
 
-  // 複数スレッドで加算を呼んでも、
-  // 最終的に全てのスレッドでの加算が処理された値になる
+  // 複数スレッドで減算を呼んでも、
+  // 最終的に全てのスレッドでの減算が処理された値になる
   std::thread t1 {[&value] {
-    std::atomic_ref{value}.fetch_add(1);
+    std::atomic_ref{value} -= 1;
   }};
   std::thread t2 {[&value] {
-    std::atomic_ref{value}.fetch_add(2);
+    std::atomic_ref{value} -= 2;
   }};
 
   t1.join();
@@ -118,12 +108,12 @@ int main()
   std::cout << value << std::endl;
 }
 ```
-* fetch_add[color ff0000]
 
 #### 出力
 ```
-3
+7
 ```
+
 
 ## バージョン
 ### 言語

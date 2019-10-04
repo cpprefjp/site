@@ -73,14 +73,14 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`fetch_add`](atomic_ref/fetch_add.md)        | 加算           | C++20 |
-| [`fetch_sub`](atomic_ref/fetch_sub.md.nolink)        | 減算           | C++20 |
+| [`fetch_sub`](atomic_ref/fetch_sub.md)        | 減算           | C++20 |
 | [`fetch_and`](atomic_ref/fetch_and.md.nolink)        | AND演算        | C++20 |
 | [`fetch_or`](atomic_ref/fetch_or.md.nolink)          | OR演算         | C++20 |
 | [`fetch_xor`](atomic_ref/fetch_xor.md.nolink)        | XOR演算        | C++20 |
-| [`operator++`](atomic_ref/op_increment.md.nolink)    | インクリメント | C++20 |
-| [`operator--`](atomic_ref/op_decrement.md.nolink)    | デクリメント   | C++20 |
-| [`operator+=`](atomic_ref/op_plus_assign.md.nolink)  | 加算           | C++20 |
-| [`operator-=`](atomic_ref/op_minus_assign.md.nolink) | 減算           | C++20 |
+| [`operator++`](atomic_ref/op_increment.md)    | インクリメント | C++20 |
+| [`operator--`](atomic_ref/op_decrement.md)    | デクリメント   | C++20 |
+| [`operator+=`](atomic_ref/op_plus_assign.md)  | 加算           | C++20 |
+| [`operator-=`](atomic_ref/op_minus_assign.md) | 減算           | C++20 |
 | [`operator&=`](atomic_ref/op_and_assign.md.nolink)   | AND演算        | C++20 |
 | <code>[operator&#x7C;=](atomic_ref/op_or_assign.md.nolink)</code> | OR演算 | C++20 |
 | [`operator^=`](atomic_ref/op_xor_assign.md.nolink)   | XOR演算 | C++20 |
@@ -98,9 +98,9 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`fetch_add`](atomic_ref/fetch_add.md)        | 加算 | C++20 |
-| [`fetch_sub`](atomic_ref/fetch_sub.md.nolink)        | 減算 | C++20 |
-| [`operator+=`](atomic_ref/op_plus_assign.md.nolink)  | 加算 | C++20 |
-| [`operator-=`](atomic_ref/op_minus_assign.md.nolink) | 減算 | C++20 |
+| [`fetch_sub`](atomic_ref/fetch_sub.md)        | 減算 | C++20 |
+| [`operator+=`](atomic_ref/op_plus_assign.md)  | 加算 | C++20 |
+| [`operator-=`](atomic_ref/op_minus_assign.md) | 減算 | C++20 |
 
 
 ### atomic_ref<floating-point>専用メンバ型
@@ -115,11 +115,11 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`fetch_add`](atomic_ref/fetch_add.md)        | 加算 | C++20 |
-| [`fetch_sub`](atomic_ref/fetch_sub.md.nolink)        | 減算 | C++20 |
-| [`operator++`](atomic_ref/op_increment.md.nolink)    | インクリメント | C++20 |
-| [`operator--`](atomic_ref/op_decrement.md.nolink)    | デクリメント | C++20 |
-| [`operator+=`](atomic_ref/op_plus_assign.md.nolink)  | 加算 | C++20 |
-| [`operator-=`](atomic_ref/op_minus_assign.md.nolink) | 減算 | C++20 |
+| [`fetch_sub`](atomic_ref/fetch_sub.md)        | 減算 | C++20 |
+| [`operator++`](atomic_ref/op_increment.md)    | インクリメント | C++20 |
+| [`operator--`](atomic_ref/op_decrement.md)    | デクリメント | C++20 |
+| [`operator+=`](atomic_ref/op_plus_assign.md)  | 加算 | C++20 |
+| [`operator-=`](atomic_ref/op_minus_assign.md) | 減算 | C++20 |
 
 
 ### atomic_ref<T*>専用メンバ型
