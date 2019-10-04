@@ -72,7 +72,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`fetch_add`](atomic_ref/fetch_add.md.nolink)        | 加算           | C++20 |
+| [`fetch_add`](atomic_ref/fetch_add.md)        | 加算           | C++20 |
 | [`fetch_sub`](atomic_ref/fetch_sub.md.nolink)        | 減算           | C++20 |
 | [`fetch_and`](atomic_ref/fetch_and.md.nolink)        | AND演算        | C++20 |
 | [`fetch_or`](atomic_ref/fetch_or.md.nolink)          | OR演算         | C++20 |
@@ -97,7 +97,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`fetch_add`](atomic_ref/fetch_add.md.nolink)        | 加算 | C++20 |
+| [`fetch_add`](atomic_ref/fetch_add.md)        | 加算 | C++20 |
 | [`fetch_sub`](atomic_ref/fetch_sub.md.nolink)        | 減算 | C++20 |
 | [`operator+=`](atomic_ref/op_plus_assign.md.nolink)  | 加算 | C++20 |
 | [`operator-=`](atomic_ref/op_minus_assign.md.nolink) | 減算 | C++20 |
@@ -114,7 +114,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`fetch_add`](atomic_ref/fetch_add.md.nolink)        | 加算 | C++20 |
+| [`fetch_add`](atomic_ref/fetch_add.md)        | 加算 | C++20 |
 | [`fetch_sub`](atomic_ref/fetch_sub.md.nolink)        | 減算 | C++20 |
 | [`operator++`](atomic_ref/op_increment.md.nolink)    | インクリメント | C++20 |
 | [`operator--`](atomic_ref/op_decrement.md.nolink)    | デクリメント | C++20 |
