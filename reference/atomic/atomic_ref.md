@@ -34,9 +34,9 @@ namespace std {
 ### 共通メンバ関数
 | 名前 | 説明 | 対応バージョン |
 |------|------|-----|
-| [`(constructor)`](atomic_ref/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](atomic_ref/op_constructor.md) | コンストラクタ | C++20 |
 | `~atomic_ref() = default`                       | デストラクタ | C++20 |
-| [`operator=`](atomic_ref/op_assign.md.nolink) | 代入 | C++20
+| [`operator=`](atomic_ref/op_assign.md)          | 代入 | C++20
 | [`is_lock_free`](atomic_ref/is_lock_free.md)    | オブジェクトがロックフリーに振る舞えるかを判定する | C++20 |
 | [`store`](atomic_ref/store.md)                  | 値を書き込む | C++20 |
 | [`load`](atomic_ref/load.md)                    | 値を読み込む | C++20 |
@@ -172,9 +172,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang):
+- [Clang](/implementation.md#clang): (9.0時点で実装なし)
 - [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp):
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 関連項目
