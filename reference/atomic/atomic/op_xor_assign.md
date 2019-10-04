@@ -68,7 +68,6 @@ int main()
 #include <iostream>
 #include <atomic>
 #include <thread>
-#include <bitset>
 
 int main()
 {

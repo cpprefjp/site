@@ -16,7 +16,7 @@ T fetch_sub(difference_type operand, memory_order order = memory_order_seq_cst) 
 
 
 ## 要件
-- `std::atomic<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない (C++17)
+- `std::atomic_ref<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない (C++17)
 
 
 ## 効果
