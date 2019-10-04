@@ -38,7 +38,7 @@ namespace std {
 |------|------|-----|
 | [`(constructor)`](atomic_ref/op_constructor.md) | コンストラクタ | C++20 |
 | `~atomic_ref() = default`                       | デストラクタ | C++20 |
-| [`operator=`](atomic_ref/op_assign.md)          | 代入 | C++20
+| [`operator=`](atomic_ref/op_assign.md)          | 代入 | C++20 |
 | [`is_lock_free`](atomic_ref/is_lock_free.md)    | オブジェクトがロックフリーに振る舞えるかを判定する | C++20 |
 | [`store`](atomic_ref/store.md)                  | 値を書き込む | C++20 |
 | [`load`](atomic_ref/load.md)                    | 値を読み込む | C++20 |
@@ -46,9 +46,9 @@ namespace std {
 | [`exchange`](atomic_ref/exchange.md)            | 値を入れ替える | C++20 |
 | [`compare_exchange_weak`](atomic_ref/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++20 |
 | [`compare_exchange_strong`](atomic_ref/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++20 |
-| [`wait`](atomic_ref/wait.md.nolink) | | C++20 |
-| [`notify_one`](atomic_ref/notify_one.md.nolink) | | C++20 |
-| [`notify_all`](atomic_ref/notify_all.md.nolink) | | C++20 |
+| [`wait`](atomic_ref/wait.md.nolink) | 起床されるまで待機する | C++20 |
+| [`notify_one`](atomic_ref/notify_one.md.nolink) | 待機しているスレッドをひとつ起床させる | C++20 |
+| [`notify_all`](atomic_ref/notify_all.md.nolink) | 待機している全てのスレッドを起床させる | C++20 |
 
 
 ### 共通メンバ型

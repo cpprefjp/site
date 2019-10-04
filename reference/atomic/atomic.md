@@ -116,6 +116,9 @@ namespace std {
 | [`exchange`](atomic/exchange.md)            | 値を入れ替える | C++11 |
 | [`compare_exchange_weak`](atomic/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++11 |
 | [`compare_exchange_strong`](atomic/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++11 |
+| [`wait`](atomic/wait.md) | 起床されるまで待機する | C++20 |
+| [`notify_one`](atomic/notify_one.md) | 待機しているスレッドをひとつ起床させる | C++20 |
+| [`notify_all`](atomic/notify_all.md) | 待機している全てのスレッドを起床させる | C++20 |
 
 
 ### 共通メンバ型
