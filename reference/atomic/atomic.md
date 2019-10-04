@@ -74,6 +74,18 @@ namespace std {
 | `atomic_intmax_t`       | [`intmax_t`](/reference/cstdint/intmax_t.md)             | C++11 |
 | `atomic_uintmax_t`      | [`uintmax_t`](/reference/cstdint/uintmax_t.md)           | C++11 |
 
+以下の整数型に対する別名は、整数型に対する`atomic`型の特殊化だが、その中でも以下の特性を持つものである：
+
+- `is_always_lock_free`プロパティが`true`である
+- wait/notify操作が最も効率的に行える整数アトミック型
+
+ただし、フリースタンディング環境において、これらの型は定義されない場合がある。
+
+| 名前付きアトミック型 | 説明 | 対応バージョン |
+|----------------------|------|----------------|
+| `atomic_signed_lock_free` | `is_always_lock_free == true`かつwait/notify操作が最も効率的に行える符号付き整数のアトミック型 | C++20 |
+| `atomic_unsigned_lock_free` | `is_always_lock_free == true`かつwait/notify操作が最も効率的に行える符号なし整数のアトミック型 | C++20 |
+
 [`<cstdint>`](/reference/cstdint.md)で定義される整数型に対する以下の別名は、元の整数型が定義される場合のみ定義される。
 
 | 名前付きアトミック型 | テンプレート引数となる整数型 | 対応バージョン |
