@@ -15,6 +15,10 @@ void wait(T old, memory_order order = memory_order::seq_cst) const noexcept;
 ## 概要
 起床されるまで待機する。
 
+この関数は、ブロッキング同期を行うための機能であり、ビジーループによるポーリングよりもエネルギー消費が低く効率的な待機を実現できる。アトミック操作版の[`std::condition_variable`](/reference/condition_variable/condition_variable.md)であると言える。
+
+この関数によってブロッキング待機をしたら、対応する起床関数である[`notify_one()`](notify_one.md)、[`notify_all()`](notify_all.md)によってブロッキング待機を解除できる。
+
 
 ## 効果
 - 以下のステップを順に繰り返し実行する：
