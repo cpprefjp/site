@@ -101,7 +101,7 @@
 このサイトでは Visual C++ と呼ぶ。Visual Studio 2012 以降、Visual C++は独立した製品名ではなくなり製品Visual Studioのみに含まれるようになったが、当サイトでは製品に含まれているコンポーネント名としてのVisual C++を採用する。
 
 - [Visual Studio - Microsoft Developer Tools](https://www.visualstudio.com/ja-jp/visual-studio-homepage-vs.aspx): Visual C++を含む統合開発環境。
-- [Visual C++ Build Tools](http://landinghub.visualstudio.com/visual-cpp-build-tools): コンパイラおよび関連ツールのみのパッケージ。
+- [Build Tools for Visual Studio](https://visualstudio.microsoft.com/ja/downloads/): コマンドラインのみからコンパイルするために必要な環境を構築するもの。
 
 ### 別名
 - VC
