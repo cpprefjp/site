@@ -122,3 +122,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 参照
+- [Doubling the speed of `std::uniform_int_distribution` in the GNU C++ library - Daniel Lemire's blog](https://lemire.me/blog/2019/09/28/doubling-the-speed-of-stduniform_int_distribution-in-the-gnu-c-library/)
