@@ -34,6 +34,9 @@ namespace std {
 | [`exchange`](/reference/atomic/atomic/exchange.md)            | 値を入れ替える | C++20 |
 | [`compare_exchange_weak`](/reference/atomic/atomic/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++20 |
 | [`compare_exchange_strong`](/reference/atomic/atomic/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++20 |
+| [`wait`](/reference/atomic/atomic/wait.md) | 起床されるまで待機する | C++20 |
+| [`notify_one`](/reference/atomic/atomic/notify_one.md) | 待機しているスレッドをひとつ起床させる | C++20 |
+| [`notify_all`](/reference/atomic/atomic/notify_all.md) | 待機している全てのスレッドを起床させる | C++20 |
 
 
 ### 共通メンバ型
@@ -106,3 +109,4 @@ int main()
 ### 参照
 - [P0718R2 Revising `atomic_shared_ptr` for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0718r2.html)
 - [cplusplus/draft #2824 - add forward declaration of `atomic` class for `atomic<shared_ptr<T>>` (P0718R2)](https://github.com/cplusplus/draft/pull/2824)
+- [P1644R0 Add wait/notify to `atomic<shared_ptr<T>>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1644r0.html)
