@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-`atomic_flag`クラスは、フラグを表現するためのアトミッククラスである。このクラスは、シンプルなtest-and-set (TAS)機能を提供し、有効値の設定とクリアの2状態のみを持つ。このクラスに対する操作はロックフリーであることが保証される。（機能的には[`atomic<bool>`](atomic.md)クラスよりも貧弱だが、`atomic_flag`クラスの操作は必ずロックフリーである点が異なる。）
+`atomic_flag`クラスは、フラグを表現するためのアトミッククラスである。このクラスは、シンプルなtest-and-set (TAS) 機能を提供し、有効値の設定とクリアの2状態のみを持つ。このクラスに対する操作はロックフリーであることが保証される。（機能的には[`atomic<bool>`](atomic.md)クラスよりも貧弱だが、`atomic_flag`クラスの操作は必ずロックフリーである点が異なる。）
 
 
 ### メンバ関数
@@ -20,8 +20,12 @@ namespace std {
 | [`(constructor)`](atomic_flag/op_constructor.md) | コンストラクタ           | C++11 |
 | `~atomic_flag() = default`                      | デストラクタ             | C++11 |
 | `operator=(const atomic_flag&) = delete`<br/>`operator=(const atomic_flag&) volatile = delete` | 代入演算子 | C++11 |
+| [`test`](atomic_flag/test.md) | 現在の値をbool値として取得する | C++20 |
 | [`test_and_set`](atomic_flag/test_and_set.md) | テストしてフラグを立てる | C++11 |
 | [`clear`](atomic_flag/clear.md)               | フラグをクリアする       | C++11 |
+| [`wait`](atomic_flag/wait.md)                 | 起床されるまで待機する | C++20 |
+| [`notify_one`](atomic_flag/notify_one.md)     | 待機しているスレッドをひとつ起床させる | C++20 |
+| [`notify_all`](atomic_flag/notify_all.md)     | 待機している全てのスレッドを起床させる | C++20 |
 
 
 ### 例
