@@ -41,7 +41,7 @@ int main()
   auto f = [&x] {
     while (true) {
       x.wait(false);
-      if (x.test() == true) {
+      if (x.test()) {
         break;
       }
     }

@@ -42,7 +42,7 @@ int main()
   auto f = [&x] {
     while (true) {
       std::atomic_flag_wait(&x, false);
-      if (std::atomic_flag_test(&x) == true) {
+      if (std::atomic_flag_test(&x)) {
         break;
       }
     }

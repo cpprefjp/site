@@ -53,7 +53,7 @@ class my_mutex {
   std::atomic_flag state_ = ATOMIC_FLAG_INIT; // clear:unlock, set:lock
 public:
   void lock() noexcept {
-    while (std::atomic_flag_test_and_set_explicit(&state_, std::memory_order::acquire) == true) {
+    while (std::atomic_flag_test_and_set_explicit(&state_, std::memory_order::acquire)) {
       std::atomic_flag_wait_explicit(&state_, true, std::memory_order::relaxed);
     }
   }

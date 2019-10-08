@@ -49,7 +49,7 @@ class my_mutex {
   std::atomic_flag state_ = ATOMIC_FLAG_INIT; // clear:unlock, set:lock
 public:
   void lock() noexcept {
-    while (std::atomic_flag_test_and_set(&state_) == true) {
+    while (std::atomic_flag_test_and_set(&state_)) {
       std::atomic_flag_wait(&state_, true);
     }
   }
