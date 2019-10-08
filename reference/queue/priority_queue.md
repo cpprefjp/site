@@ -161,7 +161,7 @@ int main()
       int,
       std::vector<int>,
       decltype(compare) // 比較関数オブジェクトを指定
-    > que;
+    > que {compare};
 
     que.push(3);
     que.push(1);
