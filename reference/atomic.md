@@ -73,6 +73,16 @@
 | [`atomic_fetch_xor_explicit`](atomic/atomic_fetch_xor_explicit.md) | メモリオーダーを指定してXOR演算(function template) | C++11 |
 
 
+## アトミック型に対するブロッキング同期操作
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`atomic_wait`](atomic/atomic_wait.md) | 起床されるまで待機する (function template ) | C++20 |
+| [`atomic_wait_explicit`](atomic/atomic_wait_explicit.md) | メモリオーダーを指定して起床されるまで待機する (function template ) | C++20 |
+| [`atomic_notify_one`](atomic/atomic_notify_one.md) | 待機しているスレッドをひとつ起床させる (function template) | C++20 |
+| [`atomic_notify_all`](atomic/atomic_notify_all.md) | 待機している全てのスレッドを起床させる (function template) | C++20 |
+
+
 ## 初期化
 
 | 名前 | 説明 | 対応バージョン |
