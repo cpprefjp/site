@@ -1,19 +1,20 @@
-# notify_all
+# atomic_flag_notify_all
 * atomic[meta header]
 * std[meta namespace]
-* atomic_flag[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
-void notify_all() volatile noexcept;
-void notify_all() noexcept;
+namespace std {
+  void atomic_flag_notify_all(volatile atomic_flag* object) const noexcept; // (1) C++20
+  void atomic_flag_notify_all(atomic_flag* object) const noexcept;          // (2) C++20
+}
 ```
 
 ## 概要
 待機している全てのスレッドを起床させる。
 
-この関数は、[`wait()`](wait.md)関数によるブロッキング待機を解除する。
+この関数は、[`atomic_flag_wait()`](atomic_flag_wait.md)関数によるブロッキング待機を解除する。
 
 
 ## 効果
@@ -40,8 +41,8 @@ int main()
 
   auto f = [&x] {
     while (true) {
-      x.wait(false);
-      if (x.test() == true) {
+      std::atomic_flag_wait(&x, false);
+      if (std::atomic_flag_test(&x) == true) {
         break;
       }
     }
@@ -50,17 +51,17 @@ int main()
   std::thread t1 {f};
   std::thread t2 {f};
 
-  x.clear();
-  x.notify_all();
+  std::atomic_flag_clear(&x);
+  std::atomic_flag_notify_all(&x);
 
   t1.join();
   t2.join();
 }
 ```
-* notify_all()[color ff0000]
-* test[link test.md]
-* clear[link clear.md]
-* wait[link wait.md]
+* std::atomic_flag_notify_all[color ff0000]
+* std::atomic_flag_test[link atomic_flag_test.md]
+* std::atomic_flag_clear[link atomic_flag_clear.md]
+* std::atomic_flag_wait[link atomic_flag_wait.md]
 * ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
 
 ### 出力

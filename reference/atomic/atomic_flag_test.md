@@ -1,27 +1,29 @@
-# notify_all
+# atomic_flag_test
 * atomic[meta header]
 * std[meta namespace]
-* atomic_flag[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
-void notify_all() volatile noexcept;
-void notify_all() noexcept;
+namespace std {
+  bool atomic_flag_test(const volatile atomic_flag* object) noexcept; // (1) C++20
+  bool atomic_flag_test(const atomic_flag* object) noexcept;          // (2) C++20
+}
 ```
 
 ## 概要
-待機している全てのスレッドを起床させる。
-
-この関数は、[`wait()`](wait.md)関数によるブロッキング待機を解除する。
+現在の値を`bool`値として取得する。
 
 
-## 効果
-起床待機している全てのアトミックオブジェクトの待機を解除する
+## 要件
+`order`が以下のメモリオーダーではないこと：
+
+- [`memory_order_release`](/reference/atomic/memory_order.md)
+- [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
 
 
 ## 戻り値
-なし
+アトミックに読み込まれた`*this`が指している値を返す
 
 
 ## 例外
@@ -32,45 +34,34 @@ void notify_all() noexcept;
 ```cpp example
 #include <iostream>
 #include <atomic>
-#include <thread>
 
 int main()
 {
+  std::cout << std::boolalpha;
+
   std::atomic_flag x = ATOMIC_FLAG_INIT;
+  std::cout << std::atomic_flag_test(&x) << std::endl;
 
-  auto f = [&x] {
-    while (true) {
-      x.wait(false);
-      if (x.test() == true) {
-        break;
-      }
-    }
-  };
-
-  std::thread t1 {f};
-  std::thread t2 {f};
-
-  x.clear();
-  x.notify_all();
-
-  t1.join();
-  t2.join();
+  std::atomic_flag_test_and_set(&x);
+  std::cout << std::atomic_flag_test(&x) << std::endl;
 }
 ```
-* notify_all()[color ff0000]
-* test[link test.md]
-* clear[link clear.md]
-* wait[link wait.md]
+* std::atomic_flag_test[color ff0000]
+* std::atomic_flag_test_and_set[link test_and_set.md]
 * ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
+
 
 ### 出力
 ```
+false
+true
 ```
 
 
 ## バージョン
 ### 言語
 - C++20
+
 
 ### 処理系
 - [Clang](/implementation.md#clang): (9.0時点で実装なし)

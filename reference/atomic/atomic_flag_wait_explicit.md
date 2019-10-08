@@ -1,4 +1,4 @@
-# atomic_wait_explicit
+# atomic_flag_wait_explicit
 * atomic[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -6,15 +6,12 @@
 
 ```cpp
 namespace std {
-  template<class T>
-  void atomic_wait(const volatile atomic<T>* object,
-                   typename atomic<T>::value_type old,
-                   memory_order order);                 // (1) C++20
-
-  template<class T>
-  void atomic_wait(const atomic<T>* object,
-                   typename atomic<T>::value_type old,
-                   memory_order order);                 // (2) C++20
+  void atomic_flag_wait_explicit(const volatile atomic_flag* object,
+                                 bool old,
+                                 memory_order order) noexcept;  // (1) C++20
+  void atomic_flag_wait_explicit(const atomic_flag* object,
+                                 bool old,
+                                 memory_order order) noexcept;  // (2) C++20
 }
 ```
 
@@ -23,13 +20,13 @@ namespace std {
 
 この関数は、ブロッキング同期を行うための機能であり、ビジーループによるポーリングよりもエネルギー消費が低く効率的な待機を実現できる。アトミック操作版の[`std::condition_variable`](/reference/condition_variable/condition_variable.md)であると言える。
 
-この関数によってブロッキング待機をしたら、対応する起床関数である[`atomic_notify_one()`](atomic_notify_one.md)、[`atomic_notify_all()`](atomic_notify_all.md)によってブロッキング待機を解除できる。
+この関数によってブロッキング待機をしたら、対応する起床関数である[`atomic_flag_notify_one()`](atomic_flag_notify_one.md)、[`atomic_flag_notify_all()`](atomic_flag_notify_all.md)によってブロッキング待機を解除できる。
 
 
 ## 効果
 - 以下のステップを順に繰り返し実行する：
-    - [`atomic_load_explicit`](atomic_load_explicit.md)`(object, order)`によって現在の値を読み込み、`old`と値を比較する
-    - 現在の値と`old`が等しくなければ、関数を`return`する
+    - 式[`atomic_flag_test_explicit`](atomic_flag_test_explicit.md)`(object, order) != old`を評価する
+    - 比較結果が`true`に評価された場合、関数を`return`する
     - アトミック起床操作が呼ばれてアンロックされるまで、この関数の実行をブロックする
         - ただし、起床操作が呼ばれていなくても、アンロックされる場合がある (spuriously unblock)
 
@@ -53,17 +50,17 @@ namespace std {
 #include <thread>
 
 class my_mutex {
-  std::atomic<bool> state_{false}; // false:unlock, true:lock
+  std::atomic_flag state_ = ATOMIC_FLAG_INIT; // clear:unlock, set:lock
 public:
   void lock() noexcept {
-    while (std::atomic_exchange_explicit(&state_, true, std::memory_order::acquire) == true) {
-      std::atomic_wait_explicit(&state_, true, std::memory_order::relaxed);
+    while (std::atomic_flag_test_and_set_explicit(&state_, std::memory_order::acquire) == true) {
+      std::atomic_flag_wait_explicit(&state_, true, std::memory_order::relaxed);
     }
   }
 
   void unlock() noexcept {
-    std::atomic_store_explicit(&state_, false, std::memory_order::release);
-    std::atomic_notify_one(&state_);
+    std::atomic_flag_clear_explicit(&state_, std::memory_order::release);
+    std::atomic_flag_notify_one(&state_);
   }
 };
 
@@ -91,10 +88,11 @@ int main()
   t2.join();
 }
 ```
-* std::atomic_wait_explicit[color ff0000]
-* std::atomic_exchange_explicit[link atomic_exchange_explicit.md]
-* std::atomic_store_explicit[link atomic_store_explicit.md]
-* std::atomic_notify_one[link atomic_notify_one.md]
+* std::atomic_flag_wait_explicit[color ff0000]
+* std::atomic_flag_test_and_set_explicit[link atomic_flag_test_and_set.md]
+* std::atomic_flag_clear_explicit[link atomic_flag_clear.md]
+* std::atomic_flag_notify_one_explicit[link notify_one.md]
+* ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
 * std::memory_order[link /reference/atomic/memory_order.md]
 
 ### 出力例
