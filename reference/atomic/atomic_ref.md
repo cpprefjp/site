@@ -46,9 +46,9 @@ namespace std {
 | [`exchange`](atomic_ref/exchange.md)            | 値を入れ替える | C++20 |
 | [`compare_exchange_weak`](atomic_ref/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++20 |
 | [`compare_exchange_strong`](atomic_ref/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++20 |
-| [`wait`](atomic_ref/wait.md.nolink) | 起床されるまで待機する | C++20 |
-| [`notify_one`](atomic_ref/notify_one.md.nolink) | 待機しているスレッドをひとつ起床させる | C++20 |
-| [`notify_all`](atomic_ref/notify_all.md.nolink) | 待機している全てのスレッドを起床させる | C++20 |
+| [`wait`](atomic_ref/wait.md) | 起床されるまで待機する | C++20 |
+| [`notify_one`](atomic_ref/notify_one.md) | 待機しているスレッドをひとつ起床させる | C++20 |
+| [`notify_all`](atomic_ref/notify_all.md) | 待機している全てのスレッドを起床させる | C++20 |
 
 
 ### 共通メンバ型

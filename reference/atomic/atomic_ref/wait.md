@@ -1,7 +1,7 @@
 # wait
 * atomic[meta header]
 * std[meta namespace]
-* atomic[meta class]
+* atomic_ref[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
@@ -46,17 +46,19 @@ void wait(T old, memory_order order = memory_order::seq_cst) const noexcept;
 #include <thread>
 
 class my_mutex {
-  std::atomic<bool> state_{false}; // false:unlock, true:lock
+  bool state_ = false; // false:unlock, true:lock
 public:
   void lock() noexcept {
-    while (state_.exchange(true) == true) {
-      state_.wait(true);
+    std::atomic_ref r{state_};
+    while (r.exchange(true) == true) {
+      r.wait(true);
     }
   }
 
   void unlock() noexcept {
-    state_.store(false);
-    state_.notify_one();
+    std::atomic_ref r{state_};
+    r.store(false);
+    r.notify_one();
   }
 };
 
@@ -117,3 +119,4 @@ int main()
 ## 参照
 - [P0514R4 Efficient concurrent waiting for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0514r4.pdf)
 - [ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify](https://github.com/ogiroux/atomic_wait)
+- [P1643R1 Add wait/notify to `atomic_ref`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1643r1.html)
