@@ -59,6 +59,7 @@ int main() {
 #include <type_traits>
 #include <iterator>
 #include <utility>
+#include <concepts>
 
 // bool型の定数式でコンセプトを定義できるため、
 // 型特性としてすでに用意されている定数式をラップしてコンセプトを定義できる
@@ -75,8 +76,8 @@ concept EqualityComparable = requires (T a, U b) {
 template <class T, class U>
 concept Addable = requires (T a, U b) {
   // 加算の結果として、型Tと型Uの共通の型が返ること
-  {a + b} -> std::common_with<T, U>;
-}
+  {a + b} -> std::common_with<T>;
+};
 
 // セミコロン区切りで複数の要求を列挙できる
 template <class T>
@@ -88,6 +89,16 @@ concept SequenceContainer = requires (T c) {
   typename T::value_type;
   c.push_back(std::declval<typename T::value_type>());
 };
+
+#include <string>
+#include <vector>
+int main() {
+  // コンセプトはbool定数式として使用できる
+  static_assert(Integral<int>);
+  static_assert(EqualityComparable<int, int>);
+  static_assert(Addable<std::string, char>);
+  static_assert(SequenceContainer<std::vector<int>>);
+}
 ```
 * std::is_integral_v[link /reference/type_traits/is_integral.md]
 * std::convertible_to[link /reference/concepts/convertible_to.md.nolink]
