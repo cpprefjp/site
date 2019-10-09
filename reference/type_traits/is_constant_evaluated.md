@@ -74,14 +74,14 @@ constexpr auto static_sin(T theta) {
     T series = theta;
     T tmp = theta;
     T fact = T(2.0);
-    
+
     //マクローリン級数の計算
     do {
       tmp *= x_sq / (fact * (fact+T(1.0)));
       series += tmp;
       fact += T(2.0);
     } while(fabs(tmp) >= std::numeric_limits<T>::epsilon());
-    
+
     return series;
   } else {
     //実行時
@@ -92,7 +92,7 @@ constexpr auto static_sin(T theta) {
 int main()
 {
   constexpr auto sin_static = static_sin(std::numbers::pi/3.0); //コンパイル時計算
- 
+
   double arg = std::numbers::pi/3.0;
   auto sin_dynamic = static_sin(arg);  //実行時計算
 
