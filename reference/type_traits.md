@@ -203,6 +203,13 @@
 | [`void_t`](type_traits/void_t.md) | 任意の型をvoidへ変換する (type-alias) | C++17 |
 
 
+## コンパイル時評価
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`is_constant_evaluated`](type_traits/is_constant_evaluated.md) | 呼び出された時、その呼び出しがコンパイル時に行われているかを判定する | C++20 |
+
+
 ## 備考
 - このヘッダで定義されるテンプレートは、[`std::common_type`](type_traits/common_type.md)を除いて、ユーザーが特殊化を追加することを禁止している
 
