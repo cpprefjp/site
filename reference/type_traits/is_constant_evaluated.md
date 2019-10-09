@@ -72,10 +72,11 @@ int c = y + (std::is_constant_evaluated() ? 2 : y); //cは実行時にy+yで初�
 #include <iomanip>
 #include <limits>
 
+//コンパイル時と実行時の、どちらでも呼び出せるsin関数
 template<typename T>
-constexpr auto static_sin(T theta) -> T {
+constexpr auto my_sin(T theta) -> T {
   if (std::is_constant_evaluated()) {
-    //コンパイル時
+    //コンパイル時に評価される文脈
     auto fabs = [](T v) -> T { return (v < T(0.0))?(-v):(v); };
     T x_sq = -(theta * theta);
     T series = theta;
@@ -91,17 +92,17 @@ constexpr auto static_sin(T theta) -> T {
 
     return series;
   } else {
-    //実行時
+    //実行時に評価される文脈
     return std::sin(theta);
   }
 }
 
 int main()
 {
-  constexpr auto sin_static = static_sin(std::numbers::pi/3.0); //コンパイル時計算
+  constexpr auto sin_static = my_sin(std::numbers::pi/3.0); //コンパイル時計算
 
   double arg = std::numbers::pi/3.0;
-  auto sin_dynamic = static_sin(arg);  //実行時計算
+  auto sin_dynamic = my_sin(arg);  //実行時計算
 
   std::cout << std::setprecision(16);
   std::cout << sin_static << std::endl;
