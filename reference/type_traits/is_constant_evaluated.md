@@ -52,9 +52,10 @@ const int b = std::is_constant_evaluated() ? 2 : y; //bはコンパイル時に2
 
 double array2[b];  //ok
 
-int c = y + (std::is_constant_evaluated() ? 2 : y); //実行時にy+yで初期化（yの初期化がされない場合未定義動作）
+int c = y + (std::is_constant_evaluated() ? 2 : y); //cは実行時にy+yで初期化される（yの初期化がされない場合未定義動作）
 //初期化式にまず定数式で利用出来ない変数yが出現するため、コンパイル時実行不可
-//is_constant_evaluated()は実行時に1度だけ呼び出されfalseを返す
+//is_constant_evaluated()は実行時に呼び出されfalseを返す
+//オペランドの評価順序によっては、コンパイル時にも1度呼ばれるかもしれない
 ```
 
 この様な挙動に依存したプログラムにならない様に注意が必要である。
