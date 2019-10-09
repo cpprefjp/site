@@ -66,6 +66,7 @@ int c = y + (std::is_constant_evaluated() ? 2 : y); //実行時にy+yで初期�
 #include <numbers>
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 template<typename T>
 constexpr auto static_sin(T theta) {
@@ -104,6 +105,8 @@ int main()
 }
 ```
 * is_constant_evaluated[color ff0000]
+* epsilon()[link /reference/limits/numeric_limits/epsilon.md]
+* std::numbers::pi[link /reference/numbers/pi.md]
 
 ### 出力
 ```
