@@ -26,11 +26,11 @@ namespace std {
     - 入れ子要件内
 - 定数式で使用可能な変数の初期化式
     - `constexpr`変数の初期化式
-    - 定数初期化される`const`な整数、列挙型変数の初期化式
-    - 定数初期化される参照型変数の初期化式
+    - 定数式となる`const`な整数、列挙型変数の初期化式
+    - 定数式となる参照型変数の初期化式
 - 定数初期化される変数の初期化式
 
-特に、`constexpr if`の条件式および`static_assert`の条件式に書かれている場合は必ず`true`に評価されるので注意が必要である。
+特に、`constexpr if`の条件式および`static_assert`の条件式に書かれている場合は必ず`true`に評価される。
 
 ## 備考
 
@@ -69,7 +69,7 @@ int c = y + (std::is_constant_evaluated() ? 2 : y); //実行時にy+yで初期�
 #include <limits>
 
 template<typename T>
-constexpr auto static_sin(T theta) {
+constexpr auto static_sin(T theta) -> T {
   if (std::is_constant_evaluated()) {
     //コンパイル時
     auto fabs = [](T v) -> T { return (v < T(0.0))?(-v):(v); };
