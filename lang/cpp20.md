@@ -245,11 +245,11 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### 並行・並列処理
 - [`<memory>`](/reference/memory.md)に、[`std::atomic`](/reference/memory/atomic.md)クラスの[`std::shared_ptr`](/reference/memory/shared_ptr.md)と[`std::weak_ptr`](/reference/memory/weak_ptr.md)に対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
-- アトミックな待機・起床操作として`wait()`、`notify_one()`、`notify_all()`を追加
+- アトミッククラスに対するブロッキング同期の機能として[`wait()`](/reference/atomic/atomic/wait.md)、[`notify_one()`](/reference/atomic/atomic/notify_one.md)、[`notify_all()`](/reference/atomic/atomic/notify_all.md)を追加
 - ロックフリーであることが保証されたアトミック整数型の別名として[`atomic_signed_lock_free`](/reference/atomic/atomic.md)と[`atomic_unsigned_lock_free`](/reference/atomic/atomic.md)を追加
 - [`std::memory_order`](/reference/atomic/memory_order.md)の列挙子にスコープをもたせた
-- [`std::atomic_flag`](/reference/atomic/atomic_flag.md)の非メンバ関数操作として[`std::atomic_flag_test()`](/reference/atomic/atomic_flag_test.md.nolink)と[`std::atomic_flag_test_explicit()`](/reference/atomic/atomic_flag_test_explicit.md.nolink)を追加
-- 非アトミックな型にアトミック操作を適用するためのクラス[`std::atomic_ref`](/reference/atomic/atomic_ref.md)を追加
+- [`std::atomic_flag`](/reference/atomic/atomic_flag.md)クラスに、`bool`値を読み込むメンバ関数[`test()`](/reference/atomic/atomic_flag/test.md)を追加
+- 非アトミックなオブジェクトにアトミック操作を適用するためのクラス[`std::atomic_ref`](/reference/atomic/atomic_ref.md)を追加
 - ベクトル化の実行ポリシーとして、[`<execution>`](/reference/execution.md)に[`std::execution::unsequenced_policy`](/reference/execution/execution/execution_policy.md)型と[`std::execution::unseq`](/reference/execution/execution/execution_policy.md)タグを追加
 
 
