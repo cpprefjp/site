@@ -48,14 +48,14 @@
 
 | マクロ | 説明 | 対応バージョン |
 |-------------------------------------------------|-----------------------|-------|
-| [`INT8_MIN`](cstdint/int8_min.md)               | `int8_t`の最小値 | C++11 |
-| [`INT8_MAX`](cstdint/int8_max.md)               | `int8_t`の最大値 | C++11 |
-| [`INT16_MIN`](cstdint/int16_min.md)             | `int16_t`の最小値 | C++11 |
-| [`INT16_MAX`](cstdint/int16_max.md)             | `int16_t`の最大値 | C++11 |
-| [`INT32_MIN`](cstdint/int32_min.md)             | `int32_t`の最小値 | C++11 |
-| [`INT32_MAX`](cstdint/int32_max.md)             | `int32_t`の最大値 | C++11 |
-| [`INT64_MIN`](cstdint/int64_min.md)             | `int64_t`の最小値 | C++11 |
-| [`INT64_MAX`](cstdint/int64_max.md)             | `int64_t`の最大値 | C++11 |
+| [`INT8_MIN`](cstdint/int8_min.md)               | `int8_t`の最小値(実装するかどうかは処理系定義) | C++11 |
+| [`INT8_MAX`](cstdint/int8_max.md)               | `int8_t`の最大値(実装するかどうかは処理系定義) | C++11 |
+| [`INT16_MIN`](cstdint/int16_min.md)             | `int16_t`の最小値(実装するかどうかは処理系定義) | C++11 |
+| [`INT16_MAX`](cstdint/int16_max.md)             | `int16_t`の最大値(実装するかどうかは処理系定義) | C++11 |
+| [`INT32_MIN`](cstdint/int32_min.md)             | `int32_t`の最小値(実装するかどうかは処理系定義) | C++11 |
+| [`INT32_MAX`](cstdint/int32_max.md)             | `int32_t`の最大値(実装するかどうかは処理系定義) | C++11 |
+| [`INT64_MIN`](cstdint/int64_min.md)             | `int64_t`の最小値(実装するかどうかは処理系定義) | C++11 |
+| [`INT64_MAX`](cstdint/int64_max.md)             | `int64_t`の最大値(実装するかどうかは処理系定義) | C++11 |
 | [`INT_FAST8_MIN`](cstdint/int_fast8_min.md)     | `int_fast8_t`の最小値 | C++11 |
 | [`INT_FAST8_MAX`](cstdint/int_fast8_max.md)     | `int_fast8_t`の最大値 | C++11 |
 | [`INT_FAST16_MIN`](cstdint/int_fast16_min.md)   | `int_fast16_t`の最小値 | C++11 |
@@ -74,8 +74,8 @@
 | [`INT_LEAST64_MAX`](cstdint/int_least64_max.md) | `int_least64_t`の最大値 | C++11 |
 | [`INTMAX_MIN`](cstdint/intmax_min.md)           | `intmax_t`の最小値 | C++11 |
 | [`INTMAX_MAX`](cstdint/intmax_max.md)           | `intmax_t`の最大値 | C++11 |
-| [`INTPTR_MIN`](cstdint/intptr_min.md)           | `intptr_t`の最小値 | C++11 |
-| [`INTPTR_MAX`](cstdint/intptr_max.md)           | `intptr_t`の最大値 | C++11 |
+| [`INTPTR_MIN`](cstdint/intptr_min.md)           | `intptr_t`の最小値(実装するかどうかは処理系定義) | C++11 |
+| [`INTPTR_MAX`](cstdint/intptr_max.md)           | `intptr_t`の最大値(実装するかどうかは処理系定義) | C++11 |
 | [`PTRDIFF_MIN`](cstdint/ptrdiff_min.md)         | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)の最小値 | C++11 |
 | [`PTRDIFF_MAX`](cstdint/ptrdiff_max.md)         | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)の最大値 | C++11 |
 | [`SIG_ATOMIC_MIN`](cstdint/sig_atomic_min.md)   | `sig_atomic_t`の最小値 | C++11 |
@@ -90,10 +90,10 @@
 
 | マクロ | 説明 | 対応バージョン |
 |---------------------------------------------------|-----------------------|-------|
-| [`UINT8_MAX`](cstdint/uint8_max.md)               | `uint8_t`の最大値 | C++11 |
-| [`UINT16_MAX`](cstdint/uint16_max.md)             | `uint16_t`の最大値 | C++11 |
-| [`UINT32_MAX`](cstdint/uint32_max.md)             | `uint32_t`の最大値 | C++11 |
-| [`UINT64_MAX`](cstdint/uint64_max.md)             | `uint64_t`の最大値 | C++11 |
+| [`UINT8_MAX`](cstdint/uint8_max.md)               | `uint8_t`の最大値(実装するかどうかは処理系定義) | C++11 |
+| [`UINT16_MAX`](cstdint/uint16_max.md)             | `uint16_t`の最大値(実装するかどうかは処理系定義) | C++11 |
+| [`UINT32_MAX`](cstdint/uint32_max.md)             | `uint32_t`の最大値(実装するかどうかは処理系定義) | C++11 |
+| [`UINT64_MAX`](cstdint/uint64_max.md)             | `uint64_t`の最大値(実装するかどうかは処理系定義) | C++11 |
 | [`UINT_FAST8_MAX`](cstdint/uint_fast8_max.md)     | `uint_fast8_t`の最大値 | C++11 |
 | [`UINT_FAST16_MAX`](cstdint/uint_fast16_max.md)   | `uint_fast16_t`の最大値 | C++11 |
 | [`UINT_FAST32_MAX`](cstdint/uint_fast32_max.md)   | `uint_fast32_t`の最大値 | C++11 |
@@ -103,7 +103,7 @@
 | [`UINT_LEAST32_MAX`](cstdint/uint_least32_max.md) | `uint_least32_t`の最大値 | C++11 |
 | [`UINT_LEAST64_MAX`](cstdint/uint_least64_max.md) | `uint_least64_t`の最大値 | C++11 |
 | [`UINTMAX_MAX`](cstdint/uintmax_max.md)           | `uintmax_t`の最大値 | C++11 |
-| [`UINTPTR_MAX`](cstdint/uintptr_max.md)           | `uintptr_t`の最大値 | C++11 |
+| [`UINTPTR_MAX`](cstdint/uintptr_max.md)           | `uintptr_t`の最大値(実装するかどうかは処理系定義) | C++11 |
 | [`SIZE_MAX`](cstdint/size_max.md)                 | [`size_t`](/reference/cstddef/size_t.md)の最大値 | C++11 |
 
 
@@ -114,10 +114,10 @@
 
 | マクロ | 説明 | 対応バージョン |
 |---------------|------------------------------------------|-------|
-| `INT8_C(n)`   | 8ビット幅を持つ、符号付き整数型の定数値  | C++11 |
-| `INT16_C(n)`  | 16ビット幅を持つ、符号付き整数型の定数値 | C++11 |
-| `INT32_C(n)`  | 32ビット幅を持つ、符号付き整数型の定数値 | C++11 |
-| `INT64_C(n)`  | 64ビット幅を持つ、符号付き整数型の定数値 | C++11 |
+| `INT8_C(n)`   | 8ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは処理系定義)  | C++11 |
+| `INT16_C(n)`  | 16ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは処理系定義) | C++11 |
+| `INT32_C(n)`  | 32ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは処理系定義) | C++11 |
+| `INT64_C(n)`  | 64ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは処理系定義) | C++11 |
 | `INTMAX_C(n)` | 最も大きい符号付き整数型の定数値 | C++11 |
 
 
@@ -125,10 +125,10 @@
 
 | マクロ | 説明 | 対応バージョン |
 |----------------|------------------------------------------|-------|
-| `UINT8_C(n)`   | 8ビット幅を持つ、符号なし整数型の定数値  | C++11 |
-| `UINT16_C(n)`  | 16ビット幅を持つ、符号なし整数型の定数値 | C++11 |
-| `UINT32_C(n)`  | 32ビット幅を持つ、符号なし整数型の定数値 | C++11 |
-| `UINT64_C(n)`  | 64ビット幅を持つ、符号なし整数型の定数値 | C++11 |
+| `UINT8_C(n)`   | 8ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは処理系定義)  | C++11 |
+| `UINT16_C(n)`  | 16ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは処理系定義) | C++11 |
+| `UINT32_C(n)`  | 32ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは処理系定義) | C++11 |
+| `UINT64_C(n)`  | 64ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは処理系定義) | C++11 |
 | `UINTMAX_C(n)` | 最も大きい符号なし整数型の定数値 | C++11 |
 
 ## 備考
