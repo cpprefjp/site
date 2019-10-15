@@ -19,12 +19,12 @@ basic_string& insert(size_type pos, size_type n, charT c);        // (5)
 iterator insert(iterator p, charT c);                             // (6) C++03
 iterator insert(const_iterator p, charT c);                       // (6) C++11
 
-iterator insert(iterator p, size_type n, charT c);                // (7) C++03
+void insert(iterator p, size_type n, charT c);                    // (7) C++03
 iterator insert(const_iterator p, size_type n, charT c);          // (7) C++11
 
 template<class InputIterator>
-iterator insert(iterator p,
-                InputIterator first, InputIterator last);         // (8) C++03
+void insert(iterator p,
+            InputIterator first, InputIterator last);             // (8) C++03
 template<class InputIterator>
 iterator insert(const_iterator p,
                 InputIterator first, InputIterator last);         // (8) C++11
