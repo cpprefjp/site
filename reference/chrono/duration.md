@@ -118,6 +118,16 @@ namespace chrono {
 | [`operator>`](duration/op_greater.md)        | 左辺が右辺より大きいか判定を行う | C++11 |
 | [`operator>=`](duration/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++11 |
 
+
+### 入出力
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator<<`](duration/op_ostream.md.nolink) | ストリームへの出力 | C++20 |
+| [`to_stream`](duration/to_stream.md.nolink) | フォーマットを指定してストリームへ出力 | C++20 |
+| [`from_stream`](duration/from_stream.md.nolink) | フォーマットを指定してストリームから入力 | C++20 |
+
+
 ### リテラル
 
 | 名前  | 説明               | 対応バージョン |
@@ -128,6 +138,9 @@ namespace chrono {
 | [`s`](duration/op_s.md)     | 秒リテラル         | C++14 |
 | [`min`](duration/op_min.md) | 分リテラル         | C++14 |
 | [`h`](duration/op_h.md)     | 時リテラル         | C++14 |
+| [`d`](duration/op_d.md.nolink) | 日リテラル | C++20 |
+| [`y`](duration/op_y.md.nolink) | 年リテラル | C++20 |
+
 
 ### common_type特殊化
 
@@ -191,4 +204,3 @@ Tue Oct 16 16:25:11 2012
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 ## 参照
-
