@@ -3,7 +3,7 @@
 * function[meta id-type]
 * std::pmr[meta namespace]
 * polymorphic_allocator[meta class]
-* cpp17[meta cpp]
+* cpp20[meta cpp]
 
 ```cpp
 template <class T>
