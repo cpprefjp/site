@@ -273,8 +273,8 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<memory>`](/reference/memory.md)に、uses allocator構築をサポートするユーティリティ関数として、[`std::uses_allocator_construction_args()`](/reference/memory/uses_allocator_construction_args.md)、[`std::make_obj_using_allocator()`](/reference/memory/make_obj_using_allocator.md)、[`std::uninitialized_construct_using_allocator()`](/reference/memory/uninitialized_construct_using_allocator.md)を追加
 - [`std::pmr::polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md)に、以下の変更を追加：
     - クラステンプレートのデフォルトテンプレート引数を[`std::byte`](/reference/cstddef/byte.md)型とした
-    - `void*`のバイト列をメモリ確保する[`allocate_bytes()`](/reference/memory_resource/polymorphic_allocator/allocate_bytes.md.nolink)、解放する[`deallocate_bytes()`](/reference/memory_resource/polymorphic_allocator/deallocate_bytes.md.nolink)メンバ関数を追加
-    - 指定した型のメモリを確保する[`allocate_object()`](/reference/memory_resource/polymorphic_allocator/allocate_object.md.nolink)、解放する[`deallocate_object()`](/reference/memory_resource/polymorphic_allocator/deallocate_object.md.nolink)を追加
+    - `void*`のバイト列をメモリ確保する[`allocate_bytes()`](/reference/memory_resource/polymorphic_allocator/allocate_bytes.md)、解放する[`deallocate_bytes()`](/reference/memory_resource/polymorphic_allocator/deallocate_bytes.md)メンバ関数を追加
+    - 指定した型のメモリを確保する[`allocate_object()`](/reference/memory_resource/polymorphic_allocator/allocate_object.md)、解放する[`deallocate_object()`](/reference/memory_resource/polymorphic_allocator/deallocate_object.md)を追加
 
 
 ### ユーティリティ
