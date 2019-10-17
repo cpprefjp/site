@@ -74,10 +74,11 @@ void construct(pair<T1,T2>* p, pair<U, V>&& pr);        //(6)
 
 本関数の`std::pair`関連のオーバーロードは、`std::pair`が「アロケータを使用する構築」に対応したコンストラクタを持たないことから用意されている（コンストラクタの数が多くなるという理由で削除された経緯があるとのこと）。
 
-## 要件
+## 適格要件
 
-- (1) : [`resource()`](resource.md)により取得した`memory_resource`と`args...`をコンストラクタ引数とした「アロケータを使用する構築」が可能であること。  
-アロケータを受け取るコンストラクタを持たない型については、（`args..`が適切ならば）この要件を常に満たしている。
+- (1) : `*this`と`args...`をコンストラクタ引数とした「アロケータを使用する構築」が可能であること。  
+アロケータを受け取るコンストラクタを持たない型については、（`args..`が適切ならば）この要件を常に満たしている。  
+C++17までは、この関数は`T`が`std::pair`の特殊化でない場合に限りオーバーロード解決に参加する。
 
 ## 引数
 
@@ -101,15 +102,15 @@ void construct(pair<T1,T2>* p, pair<U, V>&& pr);        //(6)
 
 - (1) : `T`のコンストラクタによって（「アロケータを使用する構築」によって）以下のいずれかと等価  
     - アロケータを受け取らない場合 :  `p = new(p) T(std::forward<Args>(args)...)`  
-    - アロケータを引数の先頭で受け取る場合 :  `p = new(p) T(allocator_­arg, this->resource(), std::forward<Args>(args)...)`  
-    - アロケータを引数の末尾で受け取る場合 :  `p = new(p) T(std::forward<Args>(args)..., this->resource())`
+    - アロケータを引数の先頭で受け取る場合 :  `p = new(p) T(allocator_­arg, *this, std::forward<Args>(args)...)`  
+    - アロケータを引数の末尾で受け取る場合 :  `p = new(p) T(std::forward<Args>(args)..., *this)`
 
 - (2) : 以下と等価  
         `p = new(p) std::pair<T1, T2>(piecewise_construct_t, xprime, yprime)`  
         `xprime`は`T1`について（「アロケータを使用する構築」によって）以下のように定義する（`yprime`は`T2`について同様に定義する）  
     - `T1`のコンストラクタがアロケータを受け取らない場合、`xprime`は`x`  
-    - `T1`のコンストラクタがアロケータを引数の先頭で受け取る場合、`xprime`は[`std::tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`std::make_tuple`](/reference/tuple/make_tuple.md)`(allocator_­arg, this->resource()), x)`  
-    - `T1`のコンストラクタがアロケータを引数の末尾で受け取る場合、`xprime`は[`std::tuple_cat`](/reference/tuple/tuple_cat.md)`(x, ` [`std::make_tuple`](/reference/tuple/make_tuple.md)`(this->resource()))`
+    - `T1`のコンストラクタがアロケータを引数の先頭で受け取る場合、`xprime`は[`std::tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`std::make_tuple`](/reference/tuple/make_tuple.md)`(allocator_­arg, *this), x)`  
+    - `T1`のコンストラクタがアロケータを引数の末尾で受け取る場合、`xprime`は[`std::tuple_cat`](/reference/tuple/tuple_cat.md)`(x, ` [`std::make_tuple`](/reference/tuple/make_tuple.md)`(*this))`
 
 - (3) : `this->construct(p, std::piecewise_construct, std::tuple<>(), std::tuple<>());`と等価、すなわち(2)に移譲
 
@@ -320,3 +321,5 @@ true
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
+- [LWG Issue 2969. `polymorphic_allocator::construct()` shouldn't pass resource()](https://wg21.cmeerw.net/lwg/issue2969)
+- [LWG Issue 2975. Missing case for pair construction in scoped and polymorphic allocators](https://wg21.cmeerw.net/lwg/issue2975)

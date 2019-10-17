@@ -49,6 +49,7 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6) C++17 ま�
 		- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T, inner_allocator_type>::value == true` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T, Args..., inner_allocator_type>::value == true` の場合  
 			`CONSTRUCT(`[`std::forward`](/reference/utility/forward.md)`<Args>(args)...,` [`inner_allocator`](inner_allocator.md)`())`を呼び出す。
 		- それ以外の場合、プログラムは不適格となる。
+		- この関数は`T`が`std::pair`の特殊化でない場合に限りオーバーロード解決に参加する。
 	- C++20 から : 以下と等価の動作を行う。
 
 		```cpp
@@ -246,3 +247,4 @@ int main()
 
 ## 参照
 - [P0591R4 Utility functions to implement uses-allocator construction](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0591r4.pdf)
+- [LWG Issue 2975. Missing case for pair construction in scoped and polymorphic allocators](https://wg21.cmeerw.net/lwg/issue2975)
