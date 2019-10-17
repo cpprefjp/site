@@ -275,6 +275,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
     - クラステンプレートのデフォルトテンプレート引数を[`std::byte`](/reference/cstddef/byte.md)型とした
     - `void*`のバイト列をメモリ確保する[`allocate_bytes()`](/reference/memory_resource/polymorphic_allocator/allocate_bytes.md)、解放する[`deallocate_bytes()`](/reference/memory_resource/polymorphic_allocator/deallocate_bytes.md)メンバ関数を追加
     - 指定した型のメモリを確保する[`allocate_object()`](/reference/memory_resource/polymorphic_allocator/allocate_object.md)、解放する[`deallocate_object()`](/reference/memory_resource/polymorphic_allocator/deallocate_object.md)を追加
+    - 指定した型のメモリ確保と構築をする[`new_object()`](/reference/memory_resource/polymorphic_allocator/new_object.md)、破棄と解放をする[`delete_object()`](/reference/memory_resource/polymorphic_allocator/delete_object.md)を追加
 
 
 ### ユーティリティ
