@@ -16,8 +16,7 @@ namespace std::pmr {
 * byte[link /reference/cstddef/byte.md]
 
 ## 概要
-`polymorphic_allocator`は任意の[`memory_resource`](memory_resource.md)実装によりメモリ確保・解放戦略に関わる実際の処理を動的に切り替えることのできるアロケータである。この様な設計は一般にStrategyパターンというデザインパターンの一つとして知られている。 
-
+`polymorphic_allocator`は任意の[`memory_resource`](memory_resource.md)実装によりメモリ確保・解放戦略に関わる実際の処理を動的に切り替えることのできるアロケータである。この様な設計は一般にStrategyパターンというデザインパターンの一つとして知られている。   
 このクラスと[`memory_resource`](memory_resource.md)の利用により、同じ静的型`polymorphic_allocator<Tp>`で実行時に異なるメモリの確保・解放戦略をとるアロケータの利用が可能になる。
 
 C++20にてC++プログラミングにおいての基礎部品となる型（*vocabulary type*）となるように改修され、`polymorphic_allocator<>`の形で幅広く利用できるようになった。
@@ -62,7 +61,7 @@ C++20にてC++プログラミングにおいての基礎部品となる型（*vo
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| `value_type` | `Tp`、確保・解放を行う対象の型 | C++17 |
+| `value_type` | `Tp`、確保・解放を行う対象の型（不完全型を使用可能） | C++17 |
 
 ## 非メンバ関数
 
@@ -92,3 +91,4 @@ C++20にてC++プログラミングにおいての基礎部品となる型（*vo
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
 - [P0339R6 polymorphic_allocator<> as a vocabulary type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0339r6.pdf)
+- [LWG Issue 3037. `polymorphic_allocator` and incomplete types](https://wg21.cmeerw.net/lwg/issue3037)
