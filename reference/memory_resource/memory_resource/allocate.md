@@ -15,15 +15,16 @@ void* allocate(size_t bytes, size_t alignment = alignof(max_align_t)); // (1) C+
 * max_align_t[link /reference/cstddef/max_align_t.md]
 
 ## 概要
-メモリを確保する。
+
+指定されたバイト数とアライメントでメモリを確保する。
 
 ## 事前条件
 呼び出す`do_allocate`の要件として  
 `alignment`は2の累乗であること。
 
 ## 引数
-- `bytes` -- 確保したい領域のサイズ
-- `alignment` -- 確保領域のアライメント要求
+- `bytes` -- 確保したい領域のサイズ（バイト数）
+- `alignment` -- 確保領域へのアライメント要求
 
 ## 効果
 `return this->do_allocate(bytes, alignment);` と等価。  
