@@ -64,7 +64,7 @@ int main() {
   for (int i = 0; i < 5; i++)
     v.emplace_back(new int(i));
 
-  // 0,1,2 値がある範囲を、3,4,5 の値がある範囲へムーブする
+  // 0,1,2 の値がある範囲を、2,3,4 の値がある範囲へムーブする
   std::move_backward(v.begin(), v.begin() + 3, v.end());
 
   // 以下のコードだと期待した結果にならないことを確認しよう。
