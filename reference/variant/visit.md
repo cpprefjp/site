@@ -126,7 +126,7 @@ std::visit([](const auto& x) {
 ## 戻り値
 - 現在全ての`vars...`に代入されている[`size_t`](/reference/cstddef/size_t.md)型インデックスのパックを`m`とする
 - (1) : 式[`INVOKE`](/reference/concepts/Invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`を呼び出して返す。戻り値の型は、その呼び出しの戻り値の型となる
-- (2) : 式[`INVOKE`](/reference/concepts/Invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`を呼び出して返す
+- (2) : 式[`INVOKE<R>`](/reference/concepts/Invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`を呼び出して返す
 
 `vars...`が空で、ビジターのみが指定された場合、引数なしのオーバーロードを呼び出して返す。
 
