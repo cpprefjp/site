@@ -56,12 +56,12 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 3.4
 - [GCC](/implementation.md#gcc): 8.3
-- [Visual C++](/implementation.md#visual_cpp): 2019 16.3の時点では未実装
+- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3の時点では未実装)
 
 #### 備考
 - Clangは、グローバル名前空間 (POSIXの実装) では、3.1で動作確認できた
 - GCCは、グローバル名前空間 (POSIXの実装) では、4.4で動作確認できた
-- Visual Studio2019 16.3の時点では存在が確認できない。_aligned_mallocという同等のWindows用機能が提供されているため、そちらを使う必要がある
+- Visual Studio 2019 Update 3の時点では存在が確認できない。`_aligned_malloc`という同等のWindows用機能が提供されているため、そちらを使う必要がある
 
 ## 参照
 - [`aligned_alloc`(3) - Linux man page](https://linux.die.net/man/3/aligned_alloc)
