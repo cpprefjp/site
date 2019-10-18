@@ -54,7 +54,7 @@ int main()
 }
 ```
 * std::atomic_flag_test[color ff0000]
-* std::atomic_flag_test_and_set[link test_and_set.md]
+* std::atomic_flag_test_and_set[link atomic_flag_test_and_set.md]
 * ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
 * memory_order[link /reference/atomic/memory_order.md]
 

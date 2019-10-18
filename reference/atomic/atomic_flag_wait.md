@@ -87,7 +87,7 @@ int main()
 * std::atomic_flag_wait[color ff0000]
 * std::atomic_flag_test_and_set[link atomic_flag_test_and_set.md]
 * std::atomic_flag_clear[link atomic_flag_clear.md]
-* std::atomic_flag_notify_one[link notify_one.md]
+* std::atomic_flag_notify_one[link atomic_flag_notify_one.md]
 * ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
 
 ### 出力例

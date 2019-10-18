@@ -210,7 +210,7 @@
 | [符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する | 9 | 9.0 | | |
 | [UTF-8エンコーディングされた文字の型として`char8_t`を追加][p0486] | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | 9 | 7 (`-fchar8_t`オプションが必要) | | 2019 Update 2 |
 | [入れ子名前空間定義でのインライン名前空間][p1094] | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | 8.0 | | |
-| [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md.nolink) | 記憶域指定子として`static`と`thread_local`の指定を許可 | 10 | 8.0 (partial) | | |
+| [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 | 10 | 8.0 (partial) | | |
 | [構造化束縛したビットフィールドの参照キャプチャ](/lang/cpp20/reference_capture_of_structured_bindings.md.nolink) | ビットフィールドを含む構造化束縛をした場合にラムダ式で参照キャプチャできない規定を緩和し、ビットフィールドを直接参照キャプチャ、もしくはデフォルト参照キャプチャして使用しなければ適格とする | 8 | 8.0 (partial) | | |
 | [丸カッコの値リストからの集成体初期化を許可](/lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md.nolink) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする | | | | |
 | [`new`式での配列要素数の推論](/lang/cpp20/array_size_deduction_in_new-expressions.md.nolink) | `double* p = new double[]{1,2,3};`を許可 | | | | |

@@ -26,7 +26,7 @@ namespace std {
 
 ## 効果
 - 以下のステップを順に繰り返し実行する：
-    - [`atomic_load`](load.md)`(object)`によって現在の値を読み込み、`old`と値を比較する
+    - [`atomic_load`](atomic_load.md)`(object)`によって現在の値を読み込み、`old`と値を比較する
     - 現在の値と`old`が等しくなければ、関数を`return`する
     - アトミック起床操作が呼ばれてアンロックされるまで、この関数の実行をブロックする
         - ただし、起床操作が呼ばれていなくても、アンロックされる場合がある (spuriously unblock)
