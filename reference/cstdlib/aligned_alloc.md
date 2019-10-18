@@ -56,14 +56,15 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 3.4
 - [GCC](/implementation.md#gcc): 8.3
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2019 16.3の時点では未実装
 
 #### 備考
 - Clangは、グローバル名前空間 (POSIXの実装) では、3.1で動作確認できた
 - GCCは、グローバル名前空間 (POSIXの実装) では、4.4で動作確認できた
-
+- Visual Studio2019 16.3の時点では存在が確認できない。_aligned_mallocという同等のWindows用機能が提供されているため、そちらを使う必要がある
 
 ## 参照
 - [`aligned_alloc`(3) - Linux man page](https://linux.die.net/man/3/aligned_alloc)
 - [P0063R3 C++17 should refer to C11 instead of C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html)
 - [P0175R1 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html)
+- [C ++ 17 std :: aligned_alloc缺失-C ++ 17 Std :: aligned_alloc欠落](https://developercommunity.visualstudio.com/content/problem/468021/c17-stdaligned-alloc%E7%BC%BA%E5%A4%B1.html)
