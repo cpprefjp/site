@@ -30,8 +30,8 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6) C++17 ま�
 * piecewise_construct_t[link /reference/utility/piecewise_construct_t.md]
 
 ## 概要
-`p` で指定された領域に、[`inner_allocator`](inner_allocator.md)`()` と指定された引数で uses-allocator 構築を行う。  
-また、`*p` が [`pair`](/reference/utility/pair.md) だった場合は、それぞれの要素に対して [`inner_allocator`](inner_allocator.md)`()` と指定された引数で uses-allocator 構築を行う。
+`p` で指定された領域に、[`inner_allocator`](inner_allocator.md)`()` と指定された引数で [uses-allocator 構築](/reference/memory/uses_allocator.md)を行う。  
+また、`*p` が [`pair`](/reference/utility/pair.md) だった場合は、それぞれの要素に対して [`inner_allocator`](inner_allocator.md)`()` と指定された引数で [uses-allocator 構築](/reference/memory/uses_allocator.md)を行う。
 
 
 ## 効果
@@ -43,29 +43,31 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6) C++17 ま�
 - (1) :
 	- C++17 まで : 以下のいずれかの動作を行う。
 		- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T, inner_allocator_type>::value == false` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T, Args...>::value == true` の場合  
-			`CONSTRUCT(`[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)` を呼び出す。
+			`CONSTRUCT(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` を呼び出す。
 		- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T, inner_allocator_type>::value == true` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T,` [`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type, Args...>::value == true` の場合  
-			`CONSTRUCT(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`,` [`inner_allocator`](inner_allocator.md)`(),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)` を呼び出す。
+			`CONSTRUCT(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`,` [`inner_allocator`](inner_allocator.md)`(),` [`forward`](/reference/utility/forward.md)`<Args>(args)...)` を呼び出す。
 		- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T, inner_allocator_type>::value == true` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T, Args..., inner_allocator_type>::value == true` の場合  
-			`CONSTRUCT(`[`std::forward`](/reference/utility/forward.md)`<Args>(args)...,` [`inner_allocator`](inner_allocator.md)`())`を呼び出す。
+			`CONSTRUCT(`[`forward`](/reference/utility/forward.md)`<Args>(args)...,` [`inner_allocator`](inner_allocator.md)`())`を呼び出す。
 		- それ以外の場合、プログラムは不適格となる。
-		- この関数は`T`が`std::pair`の特殊化でない場合に限りオーバーロード解決に参加する。
+		- この関数は `T` が [`pair`](/reference/utility/pair.md) の特殊化でない場合に限りオーバーロード解決に参加する。
 	- C++20 から : 以下と等価の動作を行う。
 
 		```cpp
 apply(
   [p, this](auto&&... newargs) {
-    CONSTRUCT(std::forward<decltype(newargs)>(newargs)...);
+    CONSTRUCT(forward<decltype(newargs)>(newargs)...);
   },
-  uses_allocator_construction_args<T>(inner_allocator(), std::forward<Args>(args)...)
+  uses_allocator_construction_args<T>(inner_allocator(), forward<Args>(args)...)
 );
 ```
 * apply[link /reference/tuple/apply.md]
-* std::forward[link /reference/utility/forward.md]
+* forward[link /reference/utility/forward.md]
 * uses_allocator_construction_args[link /reference/memory/uses_allocator_construction_args.md]
 * inner_allocator[link inner_allocator.md]
 
-- (2) : `T1` を構築するための説明用の変数 `xprime` を、`Args1...` を元に以下のように定義する。
+- (2) : 以下と等価の動作を行う。  
+	`CONSTRUCT(`[`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`move`](/reference/utility/move.md)`(xprime),` [`move`](/reference/utility/move.md)`(yprime))`  
+	ここで、`xprime` は以下のルールに従って `x` から構築された [`tuple`](/reference/tuple/tuple.md) とする。（`yprime` も `y` から同様に構築されるものとする）
 
 	- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T1, inner_allocator_type>::value == false` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T1, Args1...>::value == true` の場合  
 		`x` を `xprime` とする。
@@ -75,27 +77,21 @@ apply(
 		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(x,` [`tuple`](/reference/tuple/tuple.md)`<inner_allocator_type&>(inner_allocator_type()))` を `xprime` とする。
 	- それ以外の場合、プログラムは不適格となる。
 
-	同様に `T2` を構築するための説明用の変数 `yprime` を、`Args2...` を元に定義する。
-
-	ここで定義した `xprime` と `yprime` を使用し、以下の呼び出しを行う：
-
-	`CONSTRUCT(`[`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`std::move`](/reference/utility/move.md)`(xprime),` [`std::move`](/reference/utility/move.md)`(yprime))`
-
 - (3) : 以下と等価の動作を行う。  
 	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`tuple`](/reference/tuple/tuple.md)`<>(),` [`tuple`](/reference/tuple/tuple.md)`<>())`
 
 - (4) : 以下と等価の動作を行う。  
-	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`<U>(x)),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`<V>(y)))`
+	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<U>(x)),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<V>(y)))`
 
 - (5) : 以下と等価の動作を行う。  
 	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(x.first),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(x.second))`
 
 - (6) : 以下と等価の動作を行う。  
-	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`(x.first)),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`std::forward`](/reference/utility/forward.md)`(x.second)))`
+	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`(x.first)),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`(x.second)))`
 
 
 ## 備考
-- C++20 における変更は、一見新規導入されたユーティリティ関数（[`uses_allocator_construction_args`](/reference/memory/uses_allocator_construction_args.md)）を使用して定義を簡略化しただけのように思えるが、実はこの変更によりネストした [`pair`](/reference/utility/pair.md)  に対しても uses-allocator 構築がサポートされるように改善されている。
+- C++20 における変更は、一見新規導入されたユーティリティ関数（[`uses_allocator_construction_args`](/reference/memory/uses_allocator_construction_args.md)）を使用して定義を簡略化しただけのように思えるが、実はこの変更によりネストした [`pair`](/reference/utility/pair.md)  に対しても [uses-allocator 構築](/reference/memory/uses_allocator.md)がサポートされるように改善されている。
 
 
 
