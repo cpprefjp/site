@@ -137,7 +137,7 @@ construct(p, piecewise_construct,
 - (1) : `T`のコンストラクタが例外を投げないならば、この関数も例外を投げない。
 
 ## 備考
-- C++20 における変更は、一見新規導入されたユーティリティ関数（[`uses_allocator_construction_args`](/reference/memory/uses_allocator_construction_args.md)）を使用して定義を簡略化しただけのように思えるが、実はこの変更によりネストした [`pair`](/reference/utility/pair.md)  に対しても [uses-allocator 構築](/reference/memory/uses_allocator.md)がサポートされるように改善されている。
+- C++20 における変更は、一見新規導入されたユーティリティ関数（[`uninitialized_construct_using_allocator`](/reference/memory/uninitialized_construct_using_allocator.md)）を使用して定義を簡略化しただけのように思えるが、実はこの変更によりネストした [`pair`](/reference/utility/pair.md)  に対しても [uses-allocator 構築](/reference/memory/uses_allocator.md)がサポートされるように改善されている。
 
 ## (1)の例
 ```cpp example
