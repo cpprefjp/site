@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-static void deallocate(Alloc& a, pointer p, size_type n);
+static void deallocate(Alloc& a, pointer p, size_type n);               // C++17 まで
+static constexpr void deallocate(Alloc& a, pointer p, size_type n);     // C++20 から
 ```
 
 ## 概要
@@ -56,3 +57,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+
+
+## 参照
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

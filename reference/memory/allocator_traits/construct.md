@@ -7,7 +7,9 @@
 
 ```cpp
 template <class T, class... Args>
-static void construct(Alloc& a, T* p, Args&&... args);
+static void construct(Alloc& a, T* p, Args&&... args);              // C++17 まで
+template <class T, class... Args>
+static constexpr void construct(Alloc& a, T* p, Args&&... args);    // C++20 から
 ```
 
 ## 概要
@@ -68,3 +70,7 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 	- 2012までは、可変引数テンプレートに対応していないため、不完全な実装である。
+
+
+## 参照
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

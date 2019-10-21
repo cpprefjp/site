@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-static Alloc select_on_container_copy_construction(const Alloc& a);
+static Alloc select_on_container_copy_construction(const Alloc& a);                 // C++17 まで
+static constexpr Alloc select_on_container_copy_construction(const Alloc& a);       // C++20 から
 ```
 
 ## 概要
@@ -121,3 +122,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+
+
+## 参照
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

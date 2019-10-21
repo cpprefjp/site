@@ -7,7 +7,9 @@
 
 ```cpp
 template <class T>
-static void destroy(Alloc& a, T* p);
+static void destroy(Alloc& a, T* p);                // C++17 まで
+template <class T>
+static constexpr void destroy(Alloc& a, T* p);      // C++20 から
 ```
 
 ## 概要
@@ -68,3 +70,7 @@ int main()
 - [GCC, C++11 mode](/implementation.md#gcc): 4.7.3
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+
+
+## 参照
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

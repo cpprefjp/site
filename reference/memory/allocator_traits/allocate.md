@@ -6,13 +6,13 @@
 * cpp11[meta cpp]
 
 ```cpp
-static pointer allocate(Alloc& a, size_type n);                 // (1) C++11
-static [[nodiscard]] pointer allocate(Alloc& a, size_type n);   // (1) C++20
+static pointer allocate(Alloc& a, size_type n);                             // (1) C++17 まで
+[[nodiscard]] static constexpr pointer allocate(Alloc& a, size_type n);     // (1) C++20 から
 
 static pointer allocate(Alloc& a, size_type n,
-                        const_void_pointer hint);               // (2) C++11
-static [[nodiscard]] pointer allocate(Alloc& a, size_type n,
-                                      const_void_pointer hint); // (2) C++20
+                        const_void_pointer hint);                           // (2) C++17 まで
+[[nodiscard]] static constexpr pointer allocate(Alloc& a, size_type n,
+                                                const_void_pointer hint);   // (2) C++20 から
 ```
 
 ## 概要
@@ -63,3 +63,4 @@ int main()
 
 ## 参照
 - [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

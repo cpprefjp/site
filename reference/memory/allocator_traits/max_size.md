@@ -6,8 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-static size_type max_size(Alloc& a);                // C++11
-static size_type max_size(const Alloc& a) noexcept; // C++14
+static size_type max_size(Alloc& a);                            // C++11
+static size_type max_size(const Alloc& a) noexcept;             // C++14 から C++ 17 まで
+static constepx size_type max_size(const Alloc& a) noexcept;    // C++20 から
 ```
 
 ## 概要
@@ -59,3 +60,7 @@ int main()
 - [LWG Issue 2162. `allocator_traits::max_size` missing `noexcept`](https://wg21.cmeerw.net/lwg/issue2162)
 - [LWG Issue 2284. Inconsistency in `allocator_traits::max_size`](https://wg21.cmeerw.net/lwg/issue2284)
 - [LWG Issue 2466. `allocator_traits::max_size()` default behavior is incorrect](https://wg21.cmeerw.net/lwg/issue2466)
+
+
+## 参照
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
