@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void deallocate(pointer p, size_type n);
+void deallocate(pointer p, size_type n);                // C++17 まで
+constexpr void deallocate(pointer p, size_type n);      // C++20 から
 ```
 
 ## 概要
@@ -20,7 +21,7 @@ void deallocate(pointer p, size_type n);
 `p`が指すストレージを解放する。
 
 - C++11まで : 解放には[`::operator delete(void*)`](/reference/new/op_delete.md)を使用するが、この関数がいつ呼び出されるかは未規定。
-- C++14まで : 解放には[`::operator delete(void*, std::size_t)`](/reference/new/op_delete.md)を使用するが、この関数がいつ呼び出されるかは未規定。
+- C++14から : 解放には[`::operator delete(void*, std::size_t)`](/reference/new/op_delete.md)を使用するが、この関数がいつ呼び出されるかは未規定。
 
 
 ## 例
@@ -49,4 +50,4 @@ int main()
 
 ## 参照
 - [C++14 サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)
-
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
