@@ -55,8 +55,8 @@ int main()
 * time_point[link time_point.md]
 * system_clock[link system_clock.md]
 * time_point_cast[color ff0000]
-* milliseconds[link milliseconds.md]
-* seconds[link seconds.md]
+* milliseconds[link duration-aliases.md]
+* seconds[link duration-aliases.md]
 * time_since_epoch()[link time_point/time_since_epoch.md]
 * count()[link duration/count.md]
 

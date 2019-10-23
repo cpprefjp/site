@@ -80,8 +80,8 @@ int main()
 }
 ```
 * %[color ff0000]
-* seconds[link /reference/chrono/seconds.md]
-* milliseconds[link /reference/chrono/milliseconds.md]
+* seconds[link /reference/chrono/duration-aliases.md]
+* milliseconds[link /reference/chrono/duration-aliases.md]
 * count()[link count.md]
 
 ### 出力

@@ -101,9 +101,9 @@ int main()
   }
 }
 ```
-* seconds[link seconds.md]
+* seconds[link duration-aliases.md]
 * count()[link duration/count.md]
-* milliseconds[link milliseconds.md]
+* milliseconds[link duration-aliases.md]
 * time_point[link time_point.md]
 * system_clock[link system_clock.md]
 * now()[link system_clock/now.md]

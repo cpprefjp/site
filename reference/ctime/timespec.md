@@ -55,8 +55,8 @@ int main()
 * std::timespec_get[link timespec_get.md]
 * TIME_UTC[link time_utc.md]
 * chrono::duration_cast[link /reference/chrono/duration_cast.md]
-* chrono::milliseconds[link /reference/chrono/milliseconds.md]
-* chrono::nanoseconds[link /reference/chrono/nanoseconds.md]
+* chrono::milliseconds[link /reference/chrono/duration-aliases.md]
+* chrono::nanoseconds[link /reference/chrono/duration-aliases.md]
 * ms.count()[link /reference/chrono/duration/count.md]
 
 ### 出力例

@@ -39,7 +39,7 @@ int main()
 }
 ```
 * min()[color ff0000]
-* seconds[link /reference/chrono/seconds.md]
+* seconds[link /reference/chrono/duration-aliases.md]
 * duration[link /reference/chrono/duration.md]
 * std::nano[link /reference/ratio/si_prefix.md]
 

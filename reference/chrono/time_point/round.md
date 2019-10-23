@@ -47,8 +47,8 @@ int main()
 }
 ```
 * round[color ff0000]
-* milliseconds[link /reference/chrono/milliseconds.md]
-* seconds[link /reference/chrono/seconds.md]
+* milliseconds[link /reference/chrono/duration-aliases.md]
+* seconds[link /reference/chrono/duration-aliases.md]
 * system_clock[link /reference/chrono/system_clock.md]
 * sp.time_since_epoch()[link time_since_epoch.md]
 * count()[link /reference/chrono/duration/count.md]

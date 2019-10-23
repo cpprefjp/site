@@ -69,7 +69,7 @@ int main()
 * p.get_future()[link /reference/future/promise/get_future.md]
 * std::move[link /reference/utility/move.md]
 * std::future_status[link /reference/future/future_status.md]
-* std::chrono::seconds[link /reference/chrono/seconds.md]
+* std::chrono::seconds[link /reference/chrono/duration-aliases.md]
 * f.get()[link /reference/future/shared_future/get.md]
 
 ### 出力例

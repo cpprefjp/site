@@ -102,9 +102,9 @@ int main()
 }
 ```
 * +[color ff0000]
-* seconds[link seconds.md]
+* seconds[link duration-aliases.md]
 * count()[link duration/count.md]
-* milliseconds[link milliseconds.md]
+* milliseconds[link duration-aliases.md]
 * time_point[link time_point.md]
 * system_clock[link system_clock.md]
 * time_since_epoch()[link time_point/time_since_epoch.md]

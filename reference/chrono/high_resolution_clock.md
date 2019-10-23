@@ -69,7 +69,7 @@ int main()
 ```
 * now()[link high_resolution_clock/now.md]
 * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
-* seconds[link seconds.md]
+* seconds[link duration-aliases.md]
 * duration_cast[link duration_cast.md]
 * count()[link duration/count.md]
 

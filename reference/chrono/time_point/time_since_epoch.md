@@ -37,7 +37,7 @@ int main()
 * system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
 * duration_cast[link /reference/chrono/duration_cast.md]
-* seconds[link /reference/chrono/seconds.md]
+* seconds[link /reference/chrono/duration-aliases.md]
 * count()[link /reference/chrono/duration/count.md]
 
 ### 出力例

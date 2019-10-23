@@ -42,7 +42,7 @@ int main()
 }
 ```
 * abs[color ff0000]
-* seconds[link /reference/chrono/seconds.md]
+* seconds[link /reference/chrono/duration-aliases.md]
 * result.count()[link count.md]
 
 ### 出力

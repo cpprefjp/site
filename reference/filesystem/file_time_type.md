@@ -57,7 +57,7 @@ int main()
 * fs::file_time_type[link file_time_type.md]
 * fs::create_directory[link create_directory.md]
 * chrono::duration_cast[link /reference/chrono/duration_cast.md]
-* chrono::seconds[link /reference/chrono/seconds.md]
+* chrono::seconds[link /reference/chrono/duration-aliases.md]
 * tp.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * sec.count()[link /reference/chrono/duration/count.md]
 

@@ -70,7 +70,7 @@ int main()
 * share()[link /reference/future/future/share.md]
 * std::move[link /reference/utility/move.md]
 * std::future_status[link /reference/future/future_status.md]
-* std::chrono::seconds[link /reference/chrono/seconds.md]
+* std::chrono::seconds[link /reference/chrono/duration-aliases.md]
 * f.get()[link get.md]
 
 ### 出力例

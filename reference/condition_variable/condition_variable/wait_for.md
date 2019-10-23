@@ -165,7 +165,7 @@ int main()
 * cond_.notify_all()[link notify_all.md]
 * std::unique_lock[link /reference/mutex/unique_lock.md]
 * std::cv_status[link /reference/condition_variable/cv_status.md]
-* chrono::seconds[link /reference/chrono/seconds.md]
+* chrono::seconds[link /reference/chrono/duration-aliases.md]
 * std::cv_status::timeout[link /reference/condition_variable/cv_status.md]
 
 ### 出力例

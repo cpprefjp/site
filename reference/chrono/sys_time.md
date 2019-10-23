@@ -62,11 +62,11 @@ int main()
   // 未規定の経過時間単位をもつ時間点
   chrono::system_clock::time_point tp = chrono::system_clock::now();
 
-  // 秒単位の時間点
+  // 秒単位の時間点 (日付と時間が出力される)
   chrono::sys_seconds sec_p = chrono::time_point_cast<chrono::seconds>(tp);
   std::cout << sec_p << std::endl;
 
-  // 日単位の時間点
+  // 日単位の時間点 (日付が出力される)
   chrono::sys_days day_p = chrono::time_point_cast<chrono::days>(tp);
   std::cout << day_p << std::endl;
 }
@@ -76,8 +76,8 @@ int main()
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * chrono::time_point_cast[link time_point_cast.md]
-* chrono::seconds[link seconds.md]
-* chrono::days[link days.md.nolink]
+* chrono::seconds[link duration-aliases.md]
+* chrono::days[link duration-aliases.md]
 
 ### 出力例 (未検証)
 ```

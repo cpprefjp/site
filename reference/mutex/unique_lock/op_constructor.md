@@ -126,7 +126,7 @@ int main()
 * std::adopt_lock[link /reference/mutex/adopt_lock.md]
 * chrono::steady_clock[link /reference/chrono/steady_clock.md]
 * now()[link /reference/chrono/steady_clock/now.md]
-* chrono::seconds[link /reference/chrono/seconds.md]
+* chrono::seconds[link /reference/chrono/duration-aliases.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力

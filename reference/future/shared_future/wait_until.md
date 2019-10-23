@@ -75,7 +75,7 @@ int main()
 * std::future_status[link /reference/future/future_status.md]
 * chrono::steady_clock[link /reference/chrono/steady_clock.md]
 * now()[link /reference/chrono/steady_clock/now.md]
-* chrono::seconds[link /reference/chrono/seconds.md]
+* chrono::seconds[link /reference/chrono/duration-aliases.md]
 * f.get()[link get.md]
 
 ### 出力

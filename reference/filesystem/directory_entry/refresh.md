@@ -76,7 +76,7 @@ int main()
 * fs::directory_iterator[link /reference/filesystem/directory_iterator.md]
 * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * chrono::duration_cast[link /reference/chrono/duration_cast.md]
-* chrono::seconds[link /reference/chrono/seconds.md]
+* chrono::seconds[link /reference/chrono/duration-aliases.md]
 * tp.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * sec.count()[link /reference/chrono/duration/count.md]
 

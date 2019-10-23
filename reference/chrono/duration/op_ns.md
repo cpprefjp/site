@@ -22,7 +22,7 @@ using namespace literals::chrono_literals;
 
 }  // namespace std
 ```
-* chrono::nanoseconds[link /reference/chrono/nanoseconds.md]
+* chrono::nanoseconds[link /reference/chrono/duration-aliases.md]
 * chrono::duration[link /reference/chrono/duration.md]
 * nano[link /reference/ratio/si_prefix.md]
 * unspecified[italic]

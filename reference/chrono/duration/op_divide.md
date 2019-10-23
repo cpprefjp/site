@@ -79,9 +79,9 @@ int main()
   }
 }
 ```
-* seconds[link /reference/chrono/seconds.md]
+* seconds[link /reference/chrono/duration-aliases.md]
 * count()[link count.md]
-* milliseconds[link /reference/chrono/milliseconds.md]
+* milliseconds[link /reference/chrono/duration-aliases.md]
 
 ### 出力
 ```

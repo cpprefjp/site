@@ -47,7 +47,7 @@ int main()
 }
 ```
 * std::this_thread::sleep_for[color ff0000]
-* std::chrono::minutes[link /reference/chrono/minutes.md]
+* std::chrono::minutes[link /reference/chrono/duration-aliases.md]
 
 ### 出力
 ```

@@ -43,7 +43,7 @@ int main()
 }
 ```
 * seconds(2) < seconds(3)[color ff0000]
-* seconds[link /reference/chrono/seconds.md]
+* seconds[link /reference/chrono/duration-aliases.md]
 
 ### 出力
 ```

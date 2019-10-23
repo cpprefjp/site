@@ -47,7 +47,7 @@ int main()
 ```
 * p1 <= p2[color ff0000]
 * system_clock[link /reference/chrono/system_clock.md]
-* seconds[link /reference/chrono/seconds.md]
+* seconds[link /reference/chrono/duration-aliases.md]
 
 ### 出力
 ```

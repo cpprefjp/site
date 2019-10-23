@@ -39,7 +39,7 @@ int main()
 ```
 * high_resolution_clock::now()[color ff0000]
 * duration_cast[link /reference/chrono/duration_cast.md]
-* seconds[link /reference/chrono/seconds.md]
+* seconds[link /reference/chrono/duration-aliases.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * count()[link /reference/chrono/duration/count.md]
 
