@@ -14,14 +14,14 @@ namespace chrono {
   using minutes      = duration<少なくても29ビットを持つ符号付き整数型, ratio<60>>;   // (5) C++11
   using hours        = duration<少なくても23ビットを持つ符号付き整数型, ratio<3600>>; // (6) C++11
 
-  using days        = duration<少なくても25ビットを持つ符号付き整数型,
-                               ratio_multiply<ratio<24>, hours::period>>;             // (7) C++20
-  using weeks       = duration<少なくても22ビットを持つ符号付き整数型,
-                               ratio_multiply<ratio<7>, days::period>>;               // (8) C++20
-  using years       = duration<少なくても17ビットを持つ符号付き整数型,
+  using days         = duration<少なくても25ビットを持つ符号付き整数型,
+                                ratio_multiply<ratio<24>, hours::period>>;            // (7) C++20
+  using weeks        = duration<少なくても22ビットを持つ符号付き整数型,
+                                ratio_multiply<ratio<7>, days::period>>;              // (8) C++20
+  using years        = duration<少なくても17ビットを持つ符号付き整数型,
                                ratio_multiply<ratio<146097, 400>, days::period>>;     // (9) C++20
-  using months      = duration<少なくても20ビットを持つ符号付き整数型,
-                               ratio_divide<years::period, ratio<12>>>;               // (10) C++20
+  using months       = duration<少なくても20ビットを持つ符号付き整数型,
+                                ratio_divide<years::period, ratio<12>>>;              // (10) C++20
 }}
 ```
 * duration[link /reference/chrono/duration.md]
