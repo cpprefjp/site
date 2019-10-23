@@ -47,9 +47,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`sys_time`](chrono/sys_time.md.nolink) | システム時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
-| [`sys_seconds`](chrono/sys_time.md.nolink) | 秒単位でシステム時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
-| [`sys_days`](chrono/sys_time.md.nolink) | 日単位でシステム時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`sys_time`](chrono/sys_time.md) | システム時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`sys_seconds`](chrono/sys_time.md) | 秒単位でシステム時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`sys_days`](chrono/sys_time.md) | 日単位でシステム時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 
 
 ### ローカル時間用の機能
