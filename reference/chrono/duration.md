@@ -142,10 +142,6 @@ namespace chrono {
 | [`s`](duration/op_s.md)     | 秒リテラル         | C++14 |
 | [`min`](duration/op_min.md) | 分リテラル         | C++14 |
 | [`h`](duration/op_h.md)     | 時リテラル         | C++14 |
-| [`d`](duration/op_d.md.nolink) | 日リテラル | C++20 |
-| [`y`](duration/op_y.md.nolink) | 年リテラル | C++20 |
-
-[月は名前付きで定数が定義される](month_constants.md.nolink)ため、リテラル演算子は定義されない。
 
 
 ### common_type特殊化
