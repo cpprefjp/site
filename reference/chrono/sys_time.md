@@ -133,7 +133,7 @@ int main()
 {
   // タイムゾーンとオフセットを含まない入力
   {
-    std::stringstreram ss;
+    std::stringstream ss;
     ss << "2019-10-24 20:15:10";
 
     chrono::sys_seconds tp;
@@ -149,7 +149,7 @@ int main()
 
   // タイムゾーンとオフセットを含む入力
   {
-    std::stringstreram ss;
+    std::stringstream ss;
     ss << "2019-10-24 20:15:10 UTC+0900";
 
     chrono::sys_seconds tp;
