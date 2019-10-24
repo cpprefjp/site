@@ -42,6 +42,7 @@ int main()
 ```
 * from_sys[color ff0000]
 * sys_days[link /reference/chrono/sys_time.md]
+* July[link /reference/chrono/month_constants.md.nolink]
 * duration_cast[link /reference/chrono/duration_cast.md]
 * seconds[link /reference/chrono/duration-aliases.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
