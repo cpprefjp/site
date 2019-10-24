@@ -23,7 +23,7 @@ namespace chrono {
     operator<<(std::basic_ostream<charT, traits>& os,
                const sys_days& dp);                    // (5) C++20
 
-  template <class charT, class traits, class Duration, class Alloc = allocator<charT>>
+  template <class charT, class traits, class Duration, class Alloc = std::allocator<charT>>
   std::basic_istream<charT, traits>&
     from_stream(std::basic_istream<charT, traits>& is,
                 const charT* fmt,
