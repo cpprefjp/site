@@ -32,11 +32,11 @@ using namespace std::chrono;
 
 int main()
 {
-  // ここではsys_days (日付) からutc_days (日付) に変換しているが、
-  // sys_seconds (日時) を渡せばutc_seconds (日時) が返る。
+  // ここでは日付 (sys_days) から日付 (日単位のutc_time) に変換しているが、
+  // 日時 (sys_seconds) を渡せば日時 (utc_seconds) が返る。
   // system_clock::time_pointを渡せば、それと同じ時間単位のutc_clockのtime_pointが返る
-  sys_days t{July/1/2015};
-  utc_days u = utc_clock::from_sys(t);
+  auto t = sys_days{July/1/2015};
+  auto u = utc_clock::from_sys(t); // 日単位のUTC時間が返る
 
   auto leap_seconds = duration_cast<seconds>(u.time_since_epoch() - t.time_since_epoch());
 
@@ -47,7 +47,7 @@ int main()
 ```
 * from_sys[color ff0000]
 * sys_days[link /reference/chrono/sys_time.md]
-* utc_days[link /reference/chrono/utc_time.md.nolink]
+* utc_time[link /reference/chrono/utc_time.md.nolink]
 * sys_seconds[link /reference/chrono/sys_time.md]
 * utc_seconds[link /reference/chrono/utc_time.md.nolink]
 * system_clock[link /reference/chrono/system_clock.md]
@@ -59,7 +59,7 @@ int main()
 ### 出力
 ```
 2015-01-01
-2015-01-01
+2015-01-01 00:00:00 UTC
 26
 ```
 
