@@ -20,6 +20,8 @@ UTC時間からシステム時間に変換する。
 ## 戻り値
 UTC時間`u`からうるう秒を除外した、システム時間として表現可能な最後の日時を返す。
 
+変換元と変換先の時間単位は同じとなる。
+
 
 ## 例
 ```cpp example
@@ -30,8 +32,11 @@ using namespace std::chrono;
 
 int main()
 {
-  auto u = utc_days{July/1/2015};
-  auto t = utc_clock::to_sys(u);
+  // ここではutc_days (日付) からsys_days (日付) に変換しているが、
+  // utc_seconds (日時) を渡せばsys_seconds (日時) が返る。
+  // utc_clock::time_pointを渡せば、それと同じ時間単位のsystem_clockのtime_pointが返る
+  utc_days u{July/1/2015};
+  sys_days t = utc_clock::to_sys(u);
 
   auto leap_seconds = duration_cast<seconds>(u.time_since_epoch() - t.time_since_epoch());
 
@@ -42,6 +47,10 @@ int main()
 ```
 * to_sys[color ff0000]
 * utc_days[link /reference/chrono/utc_time.md.nolink]
+* sys_days[link /reference/chrono/sys_time.md]
+* utc_seconds[link /reference/chrono/utc_time.md.nolink]
+* sys_seconds[link /reference/chrono/sys_time.md]
+* system_clock[link /reference/chrono/system_clock.md]
 * July[link /reference/chrono/month_constants.md.nolink]
 * duration_cast[link /reference/chrono/duration_cast.md]
 * seconds[link /reference/chrono/duration-aliases.md]

@@ -20,6 +20,8 @@ static utc_time<common_type_t<Duration, seconds>>
 ## 戻り値
 システム時間`t`にエポックからのうるう秒を加算することで、UTC時間に変換して返す。
 
+変換元と変換先の時間単位は同じとなる。
+
 
 ## 例
 ```cpp example
@@ -30,8 +32,11 @@ using namespace std::chrono;
 
 int main()
 {
-  auto t = sys_days{July/1/2015};
-  auto u = utc_clock::from_sys(t);
+  // ここではsys_days (日付) からutc_days (日付) に変換しているが、
+  // sys_seconds (日時) を渡せばutc_seconds (日時) が返る。
+  // system_clock::time_pointを渡せば、それと同じ時間単位のutc_clockのtime_pointが返る
+  sys_days t{July/1/2015};
+  utc_days u = utc_clock::from_sys(t);
 
   auto leap_seconds = duration_cast<seconds>(u.time_since_epoch() - t.time_since_epoch());
 
@@ -42,6 +47,10 @@ int main()
 ```
 * from_sys[color ff0000]
 * sys_days[link /reference/chrono/sys_time.md]
+* utc_days[link /reference/chrono/utc_time.md.nolink]
+* sys_seconds[link /reference/chrono/sys_time.md]
+* utc_seconds[link /reference/chrono/utc_time.md.nolink]
+* system_clock[link /reference/chrono/system_clock.md]
 * July[link /reference/chrono/month_constants.md.nolink]
 * duration_cast[link /reference/chrono/duration_cast.md]
 * seconds[link /reference/chrono/duration-aliases.md]
