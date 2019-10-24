@@ -11,7 +11,7 @@ static sys_time<common_type_t<Duration, seconds>>
   to_sys(const utc_time<Duration>& u);
 ```
 * sys_time[link /reference/chrono/sys_time.md]
-* utc_time[link /reference/chrono/utc_time.md.nolink]
+* utc_time[link /reference/chrono/utc_time.md]
 
 ## 概要
 UTC時間からシステム時間に変換する。

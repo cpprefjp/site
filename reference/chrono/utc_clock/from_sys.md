@@ -10,7 +10,7 @@ template<class Duration>
 static utc_time<common_type_t<Duration, seconds>>
   from_sys(const sys_time<Duration>& t);
 ```
-* utc_time[link /reference/chrono/utc_time.md.nolink]
+* utc_time[link /reference/chrono/utc_time.md]
 * sys_time[link /reference/chrono/sys_time.md]
 
 ## 概要
@@ -47,9 +47,9 @@ int main()
 ```
 * from_sys[color ff0000]
 * sys_days[link /reference/chrono/sys_time.md]
-* utc_time[link /reference/chrono/utc_time.md.nolink]
+* utc_time[link /reference/chrono/utc_time.md]
 * sys_seconds[link /reference/chrono/sys_time.md]
-* utc_seconds[link /reference/chrono/utc_time.md.nolink]
+* utc_seconds[link /reference/chrono/utc_time.md]
 * system_clock[link /reference/chrono/system_clock.md]
 * July[link /reference/chrono/month_constants.md.nolink]
 * duration_cast[link /reference/chrono/duration_cast.md]

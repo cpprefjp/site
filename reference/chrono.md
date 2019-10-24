@@ -65,8 +65,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`utc_time`](chrono/utc_time.md.nolink) | UTC時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
-| [`utc_seconds`](chrono/utc_time.md.nolink) | 秒単位でUTC時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`utc_time`](chrono/utc_time.md) | UTC時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`utc_seconds`](chrono/utc_time.md) | 秒単位でUTC時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 
 
 ### TAI時間用の機能

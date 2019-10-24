@@ -1,4 +1,4 @@
-# sys_time
+# utc_time
 * chrono[meta header]
 * std::chrono[meta namespace]
 * type-alias[meta id-type]
@@ -8,74 +8,50 @@
 namespace std {
 namespace chrono {
   template <class Duration>
-  using sys_time = time_point<system_clock, Duration>; // (1) C++20
+  using utc_time = time_point<utc_clock, Duration>;    // (1) C++20
 
-  using sys_seconds = sys_time<seconds>;               // (2) C++20
-  using sys_days    = sys_time<days>;                  // (3) C++20
+  using utc_seconds = utc_time<seconds>;               // (2) C++20
 
   template <class charT, class traits, class Duration>
   std::basic_ostream<charT, traits>&
     operator<<(std::basic_ostream<charT, traits>& os,
-               const sys_time<Duration>& tp);          // (4) C++20
-
-  template <class charT, class traits>
-  std::basic_ostream<charT, traits>&
-    operator<<(std::basic_ostream<charT, traits>& os,
-               const sys_days& dp);                    // (5) C++20
+               const utc_time<Duration>& tp);          // (3) C++20
 
   template <class charT, class traits, class Duration, class Alloc = std::allocator<charT>>
   std::basic_istream<charT, traits>&
     from_stream(std::basic_istream<charT, traits>& is,
                 const charT* fmt,
-                sys_time<Duration>& tp,
+                utc_time<Duration>& tp,
                 std::basic_string<charT, traits, Alloc>* abbrev = nullptr,
-                minutes* offset = nullptr);            // (6) C++20
+                minutes* offset = nullptr);            // (4) C++20
 }}
 ```
 * time_point[link time_point.md]
-* system_clock[link system_clock.md]
+* utc_clock[link utc_clock.md]
 * seconds[link duration-aliases.md]
-* days[link duration-aliases.md]
 * minutes[link duration-aliases.md]
 
 ## 概要
-システム時間の一点を指す[`time_point`](time_point.md)に対する別名。
+UTC時間の一点を指す[`time_point`](time_point.md)に対する別名。
 
-- (1) : [`system_clock`](system_clock.md)の[`time_point`](time_point.md)に対する別名。経過時間を表す型はパラメータ化されている
+- (1) : [`utc_clock`](utc_clock.md)の[`time_point`](time_point.md)に対する別名。経過時間を表す型はパラメータ化されている
 - (2) : 秒単位でシステム時間の一点を指す[`time_point`](time_point.md)に対する別名
-- (3) : 日単位でシステム時間の一点を指す[`time_point`](time_point.md)に対する別名
-- (4) : 時間点に含まれる日付と時間を出力ストリームに出力する
-- (5) : 時間点に含まれる日付を出力ストリームに出力する
-- (6) : フォーマット指定して入力ストリームから日付・時間を時間点オブジェクトに入力する
-
-
-## テンプレートパラメータ制約
-- (4) : [`treat_as_floating_point_v`](treat_as_floating_point.md)`<typename Duration::rep> == false`かつ`Duration{1} <` [`days`](duration-aliases.md)`{1}`であること
+- (3) : 時間点に含まれる日付と時間を出力ストリームに出力する
+- (4) : フォーマット指定して入力ストリームから日付・時間を時間点オブジェクトに入力する
 
 
 ## 効果
 便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
 
-- (4) : 以下と等価：
+- (3) : 以下と等価：
     ```cpp
-    auto const dp = floor<days>(tp);
-    return os << format(os.getloc(), STATICALLY-WIDEN<charT>("{} {}"),
-                        year_month_day{dp}, hh_mm_ss{tp-dp});
+    return os << format(STATICALLY-WIDEN<charT>("{:%F %T}"), tp);
     ```
-    * floor[link time_point/floor.md]
-    * days[link duration-aliases.md]
     * format[link /reference/format/format.md.nolink]
-    * os.getloc()[link /reference/ios/ios_base/getloc.md]
-    * year_month_day[link year_month_day.md.nolink]
-    * hh_mm_ss[link hh_mm_ss.md.nolink]
 
-- (5) : 以下と等価：
-    ```cpp
-    return os << year_month_day{dp};
-    ```
-    * year_month_day[link year_month_day.md.nolink]
+    - フォーマットの詳細は[`local_time_format()`](local_time_format.md.nolink)を参照
 
-- (6) :
+- (4) :
     - パラメータ`fmt`で指定されたフォーマットフラグを使用して、入力を解析し、`tp`に代入する
     - 有効な日付・時間の解析に失敗した場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)`)`が呼び出され、パラメータ`tp`は変更されない
     - タイムゾーンフォーマット`"%Z"`が指定され、解析が成功した場合、パラメータ`abbrev`が非ヌルである場合に`*abbrev`にタイムゾーン名が代入される
@@ -85,7 +61,7 @@ namespace chrono {
 
 
 ## 備考
-- (1) : このバージョンは、関数テンプレートで任意の経過時間単位の`time_point`を受け取るために使用できる。`system_clock::time_point`がもつ経過時間の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、経過時間の型のみをパラメータ化して関数テンプレートで受け取ると便利である
+- (1) : このバージョンは、関数テンプレートで任意の経過時間単位の`time_point`を受け取るために使用できる。`utc_clock::time_point`がもつ経過時間の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、経過時間の型のみをパラメータ化して関数テンプレートで受け取ると便利である
 
 
 ## 例
@@ -99,29 +75,22 @@ namespace chrono = std::chrono;
 int main()
 {
   // 未規定の経過時間単位をもつ時間点
-  chrono::system_clock::time_point tp = chrono::system_clock::now();
+  chrono::utc_clock::time_point tp = chrono::utc_clock::now();
 
   // 秒単位の時間点 (日付と時間が出力される)
-  chrono::sys_seconds sec_p = chrono::time_point_cast<chrono::seconds>(tp);
+  chrono::utc_seconds sec_p = chrono::time_point_cast<chrono::seconds>(tp);
   std::cout << sec_p << std::endl;
-
-  // 日単位の時間点 (日付が出力される)
-  chrono::sys_days day_p = chrono::time_point_cast<chrono::days>(tp);
-  std::cout << day_p << std::endl;
 }
 ```
-* chrono::sys_seconds[color ff0000]
-* chrono::sys_days[color ff0000]
-* chrono::system_clock[link system_clock.md]
-* now()[link system_clock/now.md]
+* chrono::utc_seconds[color ff0000]
+* chrono::utc_clock[link utc_clock.md]
+* now()[link utc_clock/now.md]
 * chrono::time_point_cast[link time_point_cast.md]
 * chrono::seconds[link duration-aliases.md]
-* chrono::days[link duration-aliases.md]
 
 #### 出力例
 ```
 2019-10-24 11:15:10
-2019-10-24
 ```
 
 ### 入力の例
@@ -139,7 +108,7 @@ int main()
     std::stringstream ss;
     ss << "2019-10-24 20:15:10";
 
-    chrono::sys_seconds tp;
+    chrono::utc_seconds tp;
     chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S", tp);
 
     if (ss) {
@@ -155,7 +124,7 @@ int main()
     std::stringstream ss;
     ss << "2019-10-24 20:15:10 UTC+0900";
 
-    chrono::sys_seconds tp;
+    chrono::utc_seconds tp;
     std::string abbrev;
     chrono::minutes offset{0};
     chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S %Z%z", tp, &abbrev, &offset);
@@ -183,7 +152,7 @@ UTC
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0 (入出力ストリームなし)
+- [Clang](/implementation.md#clang): (9.0時点で実装なし)
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
 

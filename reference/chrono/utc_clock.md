@@ -14,7 +14,7 @@ namespace chrono {
 ## 概要
 `utc_clock`は、UTC時間 (協定世界時、Coordinated Universal Time) を表現するためのクロックである。
 
-うるう秒を考慮しないシステム時間のクロック[`system_clock`](system_clock.md)とその時間点[`sys_time`](sys_time.md)と違い、`utc_clock`とその時間点[`utc_time`](utc_time.md.nolink)は、エポック以降のうるう秒を含む時間をカウントする。
+うるう秒を考慮しないシステム時間のクロック[`system_clock`](system_clock.md)とその時間点[`sys_time`](sys_time.md)と違い、`utc_clock`とその時間点[`utc_time`](utc_time.md)は、エポック以降のうるう秒を含む時間をカウントする。
 
 他のクロッククラスとは違い、このクラスの[`now()`](utc_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
 
