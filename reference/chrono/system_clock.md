@@ -33,9 +33,9 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|--------------------|-------|
-| [`now`](system_clock/now.md)                 | 現在日時の取得     | C++11 |
-| [`to_time_t`](system_clock/to_time_t.md)     | `time_t`への変換   | C++11 |
-| [`from_time_t`](system_clock/from_time_t.md) | `time_t`からの変換 | C++11 |
+| [`now`](system_clock/now.md)                 | 現在日時を取得する                 | C++11 |
+| [`to_time_t`](system_clock/to_time_t.md)     | `time_point`から`time_t`へ変換する | C++11 |
+| [`from_time_t`](system_clock/from_time_t.md) | `time_t`から`time_point`へ変換する | C++11 |
 
 
 ## メンバ型

@@ -16,7 +16,7 @@ namespace chrono {
 
 うるう秒を考慮しないシステム時間のクロック[`system_clock`](system_clock.md)とその時間点[`sys_time`](sys_time.md)と違い、`utc_clock`とその時間点[`utc_time`](utc_time.md.nolink)は、エポック以降のうるう秒を含む時間をカウントする。
 
-他のクロッククラスとは違い、このクラスの[`now()`](utc_clock/now.md.nolink)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
+他のクロッククラスとは違い、このクラスの[`now()`](utc_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
 
 
 ### エポック
@@ -30,9 +30,9 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`now`](utc_clock/now.md.nolink)           | 現在日時の取得     | C++20 |
-| [`to_sys`](utc_clock/to_sys.md.nolink)     | システム時間への変換   | C++20 |
-| [`from_sys`](utc_clock/from_sys.md.nolink) | システム時間からの変換 | C++20 |
+| [`now`](utc_clock/now.md)           | 現在日時を取得する                | C++20 |
+| [`to_sys`](utc_clock/to_sys.md)     | UTC時間からシステム時間へ変換する | C++20 |
+| [`from_sys`](utc_clock/from_sys.md) | システム時間からUTC時間へ変換する | C++20 |
 
 
 ## メンバ型
@@ -61,15 +61,15 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  chrono::utc_seconds p = chrono::utc_clock::now();
-  std::cout << p << std::endl;
+  chrono::utc_clock::time_point tp = chrono::utc_clock::now();
+  std::cout << tp << std::endl;
 }
 ```
-* now()[link utc_clock/now.md.nolink]
-* utc_seconds[link utc_time.md.nolink]
+* now()[link utc_clock/now.md]
 
-### 出力例 (未検証)
+### 出力例
 ```
+2019-10-24 11:15:10 UTC
 ```
 
 ## バージョン
