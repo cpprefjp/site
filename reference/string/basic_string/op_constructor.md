@@ -6,8 +6,10 @@
 
 ```cpp
 basic_string();                                                 // (1) C++14
-explicit basic_string(const Allocator&);                        // (2) C++14
-basic_string() noexcept(noexcept(Allocator())) : basic_string(Allocator()) { } // (1) C++17
+basic_string() noexcept(noexcept(Allocator()))                  // (1) C++17
+  : basic_string(Allocator()) {}
+
+explicit basic_string(const Allocator& a);                      // (2) C++14
 explicit basic_string(const Allocator& a) noexcept;             // (2) C++17
 
 explicit basic_string(const Allocator& a = Allocator());        // (1) + (2) C++03
@@ -56,7 +58,7 @@ explicit basic_string(std::basic_string_view<charT, traits> sv,
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-- (1) : デフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
+- (1) : デフォルトコンストラクタ。アロケータをデフォルト構築して空の`basic_string`オブジェクトを構築する。
 - (2) : アロケータを受け取るデフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
 - (3) : コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
 - (4) : ムーブコンストラクタ。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
