@@ -114,7 +114,7 @@
 |------|------|----------------|
 | [`last_spec`](chrono/last_spec.md.nolink) | 月の最終日、週の最終日など、文脈に応じた「最後」を表す型 (class) | C++20 |
 | [`day`](chrono/day.md.nolink) | 未規定の月の指定した日を表す型 (class) | C++20 |
-| [`month`](chrono/month.md.nolink) | 未規定の年の指定した月を表す型 (class) | C++20 |
+| [`month`](chrono/month.md) | 月単体の値を表す型 (class) | C++20 |
 | [`year`](chrono/year.md.nolink) | カレンダーの年を表す型 (class) | C++20 |
 | [`weekday`](chrono/weekday.md.nolink) | 週の日を表す型 (class) | C++20 |
 | [`weekday_indexed`](chrono/weekday_indexed.md.nolink) | N回目の指定した曜日を表す型 (class) | C++20 |

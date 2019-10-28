@@ -71,6 +71,7 @@ C++にはこの表に含まれない演算子もいくつかあるが、ここ�
 - 型変換演算子
     - `operator int`のような`int`への型変換演算子は、`op_int`のようなファイル名とする
     - 型の別名が使用される場合もあるが、`operator int_type`型変換演算子の場合は、`op_int_type`をファイル名とする
+    - 規格で`operator unsigned`を使用しているところは、`operator unsigned int`とし、`op_unsigned_int`をファイル名とする。`unsigned`は`unsigned int`の短縮だが、この短縮法は認知度が低いため
 - リテラル演算子
     - `operator ""i`のような`i`サフィックスのリテラル演算子は、`op_i`のようなファイル名とする
 
