@@ -5,8 +5,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-namespace chrono {
+namespace std::chrono {
   template <class Duration>
   using utc_time = time_point<utc_clock, Duration>;    // (1) C++20
 
@@ -24,7 +23,7 @@ namespace chrono {
                 utc_time<Duration>& tp,
                 std::basic_string<charT, traits, Alloc>* abbrev = nullptr,
                 minutes* offset = nullptr);            // (4) C++20
-}}
+}
 ```
 * time_point[link time_point.md]
 * utc_clock[link utc_clock.md]

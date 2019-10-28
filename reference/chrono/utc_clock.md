@@ -5,10 +5,9 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-namespace chrono {
+namespace std::chrono {
   class utc_clock;
-}}
+}
 ```
 
 ## 概要

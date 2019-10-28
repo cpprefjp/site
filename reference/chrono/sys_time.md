@@ -5,8 +5,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-namespace chrono {
+namespace std::chrono {
   template <class Duration>
   using sys_time = time_point<system_clock, Duration>; // (1) C++20
 
@@ -30,7 +29,7 @@ namespace chrono {
                 sys_time<Duration>& tp,
                 std::basic_string<charT, traits, Alloc>* abbrev = nullptr,
                 minutes* offset = nullptr);            // (6) C++20
-}}
+}
 ```
 * time_point[link time_point.md]
 * system_clock[link system_clock.md]
