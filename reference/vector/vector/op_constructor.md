@@ -6,9 +6,12 @@
 
 ```cpp
 vector();                                            // (1) C++14
-vector() noexcept(noexcept(Allocator())) : vector(Allocator()) { } // (1) C++17
+vector() noexcept(noexcept(Allocator()))             // (1) C++17
+  : vector(Allocator()) {}
+
 explicit vector(const Allocator& a);                 // (2) C++14
 explicit vector(const Allocator&) noexcept;          // (2) C++17
+
 explicit vector(const Allocator& a = Allocator());   // (1) + (2) C++03
 
 explicit vector(size_type n);                        // (3) C++11
@@ -26,10 +29,14 @@ vector(InputIter first, InputIter last,
       const Allocator& a = Allocator());             // (5) C++03
 
 vector(const vector& x);                             // (6) C++03
+
 vector(vector&& x);                                  // (7) C++11
 vector(vector&& x); noexcept                         // (7) C++17
+
 vector(const vector& x, const Allocator& a);         // (8) C++11
+
 vector(vector&& x, const Allocator& a);              // (9) C++11
+
 vector(initializer_list<T> il,
        const Allocator& a = Allocator());            // (10) C++11
 ```
