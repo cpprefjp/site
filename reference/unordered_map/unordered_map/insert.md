@@ -38,7 +38,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (2), (5) : `value_type` はこのコンテナに対してムーブ挿入可能であること
 - (3), (6) :
     - `value_type` は引数 `obj` からこのコンテナに対して直接構築可能であること
-    - [`std::constructible_from`](/reference/concepts/constructible_from.md)`<value_type, P&&>`要件を満たすこと
+    - [`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)`<value_type, P&&>`要件を満たすこと
         - なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。これは規格の誤りとして C++14 で修正されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である
 - (4), (6) : `position` は、このコンテナの有効な読み取り専用イテレータであること
 - (7) :

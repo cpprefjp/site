@@ -55,7 +55,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-- `*first`の型が[MoveAssignable](/reference/concepts/MoveAssignable.md)要件を満たすこと
+- `*first`の型が[MoveAssignable](/reference/concepts/MoveAssignable.md.nolink)要件を満たすこと
 
 
 ## 効果

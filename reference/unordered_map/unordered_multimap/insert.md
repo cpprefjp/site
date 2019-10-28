@@ -38,7 +38,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (3), (6) :
     - `value_type` は引数 `obj` からこのコンテナに対して直接構築可能であること
     - 引数 `position` は、このコンテナの有効な読み取り専用イテレータであること
-    - [`std::constructible_from`](/reference/concepts/constructible_from.md)`<value_type, P&&>`要件を満たすこと
+    - [`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)`<value_type, P&&>`要件を満たすこと
         - なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。これは規格の誤りとして C++14 で修正されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である
 - (7) :
     - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、範囲 `[first, last)` が当該コンテナ **以外を指す** 有効な範囲であること

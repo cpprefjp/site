@@ -9,7 +9,7 @@
 
 
 ## 要件
-[MoveConstructible](MoveConstructible.md)の要件に加えて、以下の式が可能であること：
+[move_constructible](move_constructible.md)の要件に加えて、以下の式が可能であること：
 
 ```cpp
 T u = v;
