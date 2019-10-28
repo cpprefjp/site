@@ -87,16 +87,22 @@ namespace chrono = std::chrono;
 int main() {
   chrono::month m = chrono::January;
   ++m;
-
   std::cout << m << std::endl;
+
+  chrono::month n = chrono::March;
+  n += chrono::months{3};
+  std::cout << n << std::endl;
 }
 ```
 * chrono::month[color ff0000]
-* chrono::January[link month_constants.md.nolink]
+* chrono::January[link month_constants.md]
+* chrono::March[link month_constants.md]
+* chrono::months[link duration_aliases.md]
 
 ### 出力
 ```
 Feb
+Jun
 ```
 
 ## バージョン
@@ -108,3 +114,6 @@ Feb
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
 
+
+## 関連項目
+- [月の定数](month_constants.md)
