@@ -15,7 +15,7 @@ static time_point now();
 
 
 ## 戻り値
-[`from_sys`](from_sys.md)`(`[`system_clock`](/reference/chrono/system_clock.md)`::`[`now()`](/reference/system_clock/now.md)`)`、もしくはより精度が高いUTC時間としての現在日時を返す。
+[`from_sys`](from_sys.md)`(`[`system_clock`](/reference/chrono/system_clock.md)`::`[`now()`](/reference/chrono/system_clock/now.md)`)`、もしくはより精度が高いUTC時間としての現在日時を返す。
 
 
 ## 備考
