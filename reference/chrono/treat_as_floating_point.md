@@ -49,7 +49,6 @@ int main()
 * treat_as_floating_point[color ff0000]
 * duration[link duration.md]
 * std::ratio[link /reference/ratio/ratio.md]
-* milliseconds[link duration-aliases.md]
 
 ### 出力
 ```

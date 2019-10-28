@@ -16,7 +16,6 @@ bool wait_for(Lock& lock,
               Predicate pred);                                     // (2)
 ```
 * cv_status[link /reference/condition_variable/cv_status.md]
-* duration[link /reference/chrono/duration.md]
 
 ## 概要
 相対時間でタイムアウトを指定して、起床されるまで待機する。
@@ -156,7 +155,6 @@ int main()
 * std::recursive_mutex[link /reference/mutex/recursive_mutex.md]
 * std::unique_lock[link /reference/mutex/unique_lock.md]
 * std::cv_status[link /reference/condition_variable/cv_status.md]
-* chrono::seconds[link /reference/chrono/duration-aliases.md]
 * std::cv_status::timeout[link /reference/condition_variable/cv_status.md]
 
 ### 出力例

@@ -9,7 +9,6 @@
 template <class Rep, class Period>
 bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 ```
-* duration[link /reference/chrono/duration.md]
 
 ## 概要
 タイムアウトする相対時間を指定して排他ロックの取得を試みる
@@ -92,7 +91,6 @@ int main()
 * unlock_shared()[link unlock_shared.md]
 * std::thread[link /reference/thread/thread.md]
 * join()[link /reference/thread/thread/join.md]
-* std::chrono::seconds[link /reference/chrono/duration-aliases.md]
 * std::error_code[link /reference/system_error/error_code.md]
 * std::errc::device_or_resource_busy[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]

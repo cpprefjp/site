@@ -93,7 +93,6 @@ int main()
 * std::milli[color ff0000]
 * std::centi[color ff0000]
 * std::ratio[link ratio.md]
-* std::chrono::duration[link /reference/chrono/duration.md]
 * area.count()[link /reference/chrono/duration/count.md]
 
 ### 出力

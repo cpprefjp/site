@@ -10,7 +10,6 @@ template <class Rep, class Period>
 future_status wait_for(const chrono::duration<Rep, Period>& rel_time) const;
 ```
 * future_status[link /reference/future/future_status.md]
-* duration[link /reference/chrono/duration.md]
 
 ## 概要
 相対時間でタイムアウトを指定して、処理が完了するまで待機する
@@ -70,7 +69,6 @@ int main()
 * share()[link /reference/future/future/share.md]
 * std::move[link /reference/utility/move.md]
 * std::future_status[link /reference/future/future_status.md]
-* std::chrono::seconds[link /reference/chrono/duration-aliases.md]
 * f.get()[link get.md]
 
 ### 出力例

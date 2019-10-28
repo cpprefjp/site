@@ -38,7 +38,6 @@ namespace chrono {
               const time_point<Clock, Duration2>& rhs); // (3) C++14
 }}
 ```
-* duration[link /reference/chrono/duration.md]
 * time_point[link /reference/chrono/time_point.md]
 * common_type[link /reference/type_traits/common_type.md]
 
@@ -101,14 +100,11 @@ int main()
   }
 }
 ```
-* seconds[link duration-aliases.md]
 * count()[link duration/count.md]
-* milliseconds[link duration-aliases.md]
 * time_point[link time_point.md]
 * system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * time_since_epoch()[link time_point/time_since_epoch.md]
-* duration_cast[link duration_cast.md]
 
 ### 出力例
 ```

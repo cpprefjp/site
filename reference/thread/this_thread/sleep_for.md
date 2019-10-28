@@ -11,7 +11,6 @@ namespace this_thread {
   void sleep_for(const chrono::duration<Rep, Period>& rel_time);
 }}
 ```
-* duration[link /reference/chrono/duration.md]
 
 
 ## 概要
@@ -47,7 +46,6 @@ int main()
 }
 ```
 * std::this_thread::sleep_for[color ff0000]
-* std::chrono::minutes[link /reference/chrono/duration-aliases.md]
 
 ### 出力
 ```

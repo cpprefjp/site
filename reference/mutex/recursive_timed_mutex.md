@@ -108,7 +108,6 @@ int main()
 ```
 * std::recursive_timed_mutex[color ff0000]
 * mtx_.try_lock_for[link recursive_timed_mutex/try_lock_for.md]
-* std::chrono::seconds[link /reference/chrono/duration-aliases.md]
 * std::error_code[link /reference/system_error/error_code.md]
 * std::errc::device_or_resource_busy[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]

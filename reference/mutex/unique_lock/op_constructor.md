@@ -28,7 +28,6 @@ unique_lock(unique_lock&& u) noexcept;                            // (9)
 * try_to_lock_t[link /reference/mutex/try_to_lock.md]
 * adopt_lock_t[link /reference/mutex/adopt_lock.md]
 * chrono::time_point[link /reference/chrono/time_point.md]
-* chrono::duration[link /reference/chrono/duration.md]
 
 
 ## 概要
@@ -126,7 +125,6 @@ int main()
 * std::adopt_lock[link /reference/mutex/adopt_lock.md]
 * chrono::steady_clock[link /reference/chrono/steady_clock.md]
 * now()[link /reference/chrono/steady_clock/now.md]
-* chrono::seconds[link /reference/chrono/duration-aliases.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力

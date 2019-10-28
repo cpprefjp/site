@@ -12,7 +12,6 @@ namespace chrono {
                             const duration<Rep2, Period2>& rhs);
 }}
 ```
-* duration[link /reference/chrono/duration.md]
 
 ## 概要
 非等値の判定を行う
@@ -36,7 +35,6 @@ int main()
 }
 ```
 * seconds(3) != seconds(2)[color ff0000]
-* seconds[link /reference/chrono/duration-aliases.md]
 
 ### 出力
 ```

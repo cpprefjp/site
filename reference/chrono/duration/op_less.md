@@ -12,7 +12,6 @@ namespace chrono {
                            const duration<Rep2, Period2>& rhs);
 }}
 ```
-* duration[link /reference/chrono/duration.md]
 
 ## 概要
 左辺が右辺より小さいか判定を行う
@@ -43,7 +42,6 @@ int main()
 }
 ```
 * seconds(2) < seconds(3)[color ff0000]
-* seconds[link /reference/chrono/duration-aliases.md]
 
 ### 出力
 ```

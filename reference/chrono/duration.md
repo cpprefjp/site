@@ -22,16 +22,16 @@ namespace chrono {
 
 | 型の別名 | 説明 | 対応バージョン |
 |----------|------|----------------|
-| [`nanoseconds`](/reference/chrono/duration-aliases.md)  | ナノ秒     | C++11          |
-| [`microseconds`](/reference/chrono/duration-aliases.md) | マイクロ秒 | C++11          |
-| [`milliseconds`](/reference/chrono/duration-aliases.md) | ミリ秒     | C++11          |
-| [`seconds`](/reference/chrono/duration-aliases.md)      | 秒         | C++11          |
-| [`minutes`](/reference/chrono/duration-aliases.md)      | 分         | C++11          |
-| [`hours`](/reference/chrono/duration-aliases.md)        | 時         | C++11          |
-| [`days`](/reference/chrono/duration-aliases.md)         | 日         | C++20          |
-| [`weeks`](/reference/chrono/duration-aliases.md)        | 週         | C++20          |
-| [`years`](/reference/chrono/duration-aliases.md)        | 年         | C++20          |
-| [`months`](/reference/chrono/duration-aliases.md)       | 月         | C++20          |
+| [`nanoseconds`](/reference/chrono/duration_aliases.md)  | ナノ秒     | C++11          |
+| [`microseconds`](/reference/chrono/duration_aliases.md) | マイクロ秒 | C++11          |
+| [`milliseconds`](/reference/chrono/duration_aliases.md) | ミリ秒     | C++11          |
+| [`seconds`](/reference/chrono/duration_aliases.md)      | 秒         | C++11          |
+| [`minutes`](/reference/chrono/duration_aliases.md)      | 分         | C++11          |
+| [`hours`](/reference/chrono/duration_aliases.md)        | 時         | C++11          |
+| [`days`](/reference/chrono/duration_aliases.md)         | 日         | C++20          |
+| [`weeks`](/reference/chrono/duration_aliases.md)        | 週         | C++20          |
+| [`years`](/reference/chrono/duration_aliases.md)        | 年         | C++20          |
+| [`months`](/reference/chrono/duration_aliases.md)       | 月         | C++20          |
 
 
 ## メンバ関数
@@ -189,7 +189,6 @@ int main()
 * system_clock[link system_clock.md]
 * to_time_t[link system_clock/to_time_t.md]
 * now()[link system_clock/now.md]
-* seconds[link duration-aliases.md]
 
 ### 出力例
 ```

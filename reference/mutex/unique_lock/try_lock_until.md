@@ -90,7 +90,6 @@ int main()
 * std::defer_lock[link /reference/mutex/defer_lock.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
-* chrono::seconds[link /reference/chrono/duration-aliases.md]
 * std::error_code[link /reference/system_error/error_code.md]
 * std::errc::device_or_resource_busy[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]

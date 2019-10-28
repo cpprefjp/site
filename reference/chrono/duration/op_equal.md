@@ -12,7 +12,6 @@ namespace chrono {
                             const duration<Rep2, Period2>& rhs);
 }}
 ```
-* duration[link /reference/chrono/duration.md]
 
 ## 概要
 等値比較を行う
@@ -42,7 +41,6 @@ int main()
 }
 ```
 * ==[color ff0000]
-* seconds[link /reference/chrono/duration-aliases.md]
 
 ### 出力
 ```

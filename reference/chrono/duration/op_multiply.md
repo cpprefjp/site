@@ -18,7 +18,6 @@ namespace chrono {
     constexpr operator*(const Rep1& s, const duration<Rep2, Period>& d);
 }}
 ```
-* duration[link /reference/chrono/duration.md]
 * common_type[link /reference/type_traits/common_type.md]
 
 ## 概要
@@ -36,7 +35,6 @@ durationの乗算を行う
 using cd = duration<typename common_type<Rep1, Rep2>::type, Period>;
 return cd(cd(d).count() * s);
 ```
-* duration[link /reference/chrono/duration.md]
 * common_type[link /reference/type_traits/common_type.md]
 * count[link /reference/chrono/duration/count.md]
 
@@ -68,8 +66,6 @@ int main()
   }
 }
 ```
-* seconds[link /reference/chrono/duration-aliases.md]
-* milliseconds[link /reference/chrono/duration-aliases.md]
 * count()[link count.md]
 
 ### 出力

@@ -11,7 +11,6 @@ namespace chrono {
   constexpr ToDuration duration_cast(const duration<Rep, Period>& d);
 }}
 ```
-* duration[link /reference/chrono/duration.md]
 
 ## 概要
 分解能が低い[`duration`](/reference/chrono/duration.md)への変換。
@@ -40,8 +39,6 @@ int main()
 }
 ```
 * duration_cast[color ff0000]
-* milliseconds[link duration-aliases.md]
-* seconds[link duration-aliases.md]
 * s.count()[link duration/count.md]
 
 ### 出力

@@ -39,8 +39,6 @@ int main()
 }
 ```
 * max()[color ff0000]
-* seconds[link /reference/chrono/duration-aliases.md]
-* duration[link /reference/chrono/duration.md]
 * std::nano[link /reference/ratio/si_prefix.md]
 
 ### 出力例

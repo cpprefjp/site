@@ -20,7 +20,6 @@ namespace chrono {
               const duration<Rep2, Period2>& rhs); // (2)
 }}
 ```
-* duration[link ../duration.md]
 * common_type[link /reference/type_traits/common_type.md]
 
 ## 概要
@@ -38,7 +37,6 @@ namespace chrono {
 using cd = duration<typename common_type<Rep1, Rep2>::type, Period>;
 return cd(cd(d).count() / s);
 ```
-* duration[link /reference/chrono/duration.md]
 * common_type[link /reference/type_traits/common_type.md]
 * count[link /reference/chrono/duration/count.md]
 
@@ -79,9 +77,7 @@ int main()
   }
 }
 ```
-* seconds[link /reference/chrono/duration-aliases.md]
 * count()[link count.md]
-* milliseconds[link /reference/chrono/duration-aliases.md]
 
 ### 出力
 ```

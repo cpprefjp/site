@@ -27,8 +27,6 @@ namespace std::chrono {
 ```
 * time_point[link time_point.md]
 * utc_clock[link utc_clock.md]
-* seconds[link duration-aliases.md]
-* minutes[link duration-aliases.md]
 
 ## 概要
 UTC時間の一点を指す[`time_point`](time_point.md)に対する別名。
@@ -85,7 +83,6 @@ int main()
 * chrono::utc_clock[link utc_clock.md]
 * now()[link utc_clock/now.md]
 * chrono::time_point_cast[link time_point_cast.md]
-* chrono::seconds[link duration-aliases.md]
 
 #### 出力例
 ```
@@ -135,7 +132,6 @@ int main()
 }
 ```
 * chrono::from_stream[color ff0000]
-* chrono::minutes[link duration-aliases.md]
 * offset.count()[link duration/count.md]
 
 #### 出力例

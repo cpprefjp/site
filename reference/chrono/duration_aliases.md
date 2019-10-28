@@ -1,4 +1,4 @@
-# seconds
+# 経過時間を表す型
 * chrono[meta header]
 * std::chrono[meta namespace]
 * type-alias[meta id-type]
@@ -24,7 +24,6 @@ namespace chrono {
                                 ratio_divide<years::period, ratio<12>>>;              // (10) C++20
 }}
 ```
-* duration[link /reference/chrono/duration.md]
 * ratio[link /reference/ratio.md]
 * nano[link /reference/ratio/si_prefix.md]
 * micro[link /reference/ratio/si_prefix.md]
@@ -87,7 +86,6 @@ int main()
 }
 ```
 * count()[link duration/count.md]
-* chrono::duration_cast[link duration_cast.md]
 
 #### 出力
 ```

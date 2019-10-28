@@ -18,16 +18,16 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
-| [`nanoseconds`](chrono/duration-aliases.md)  | ナノ秒を表現するためのdurationの別名(type-alias) | C++11 |
-| [`microseconds`](chrono/duration-aliases.md) | マイクロ秒を表現するためのdurationの別名(type-alias) | C++11 |
-| [`milliseconds`](chrono/duration-aliases.md) | ミリ秒を表現するためのdurationの別名(type-alias) | C++11 |
-| [`seconds`](chrono/duration-aliases.md)      | 秒を表現するためのdurationの別名(type-alias) | C++11 |
-| [`minutes`](chrono/duration-aliases.md)      | 分を表現するためのdurationの別名(type-alias) | C++11 |
-| [`hours`](chrono/duration-aliases.md)        | 時を表現するためのdurationの別名(type-alias) | C++11 |
-| [`days`](chrono/duration-aliases.md)         | 日を表現するためのdurationの別名(type-alias) | C++20 |
-| [`weeks`](chrono/duration-aliases.md)        | 週を表現するためのdurationの別名(type-alias) | C++20 |
-| [`years`](chrono/duration-aliases.md)        | 年を表現するためのdurationの別名(type-alias) | C++20 |
-| [`months`](chrono/duration-aliases.md)       | 月を表現するためのdurationの別名(type-alias) | C++20 |
+| [`nanoseconds`](chrono/duration_aliases.md)  | ナノ秒を表現するためのdurationの別名(type-alias) | C++11 |
+| [`microseconds`](chrono/duration_aliases.md) | マイクロ秒を表現するためのdurationの別名(type-alias) | C++11 |
+| [`milliseconds`](chrono/duration_aliases.md) | ミリ秒を表現するためのdurationの別名(type-alias) | C++11 |
+| [`seconds`](chrono/duration_aliases.md)      | 秒を表現するためのdurationの別名(type-alias) | C++11 |
+| [`minutes`](chrono/duration_aliases.md)      | 分を表現するためのdurationの別名(type-alias) | C++11 |
+| [`hours`](chrono/duration_aliases.md)        | 時を表現するためのdurationの別名(type-alias) | C++11 |
+| [`days`](chrono/duration_aliases.md)         | 日を表現するためのdurationの別名(type-alias) | C++20 |
+| [`weeks`](chrono/duration_aliases.md)        | 週を表現するためのdurationの別名(type-alias) | C++20 |
+| [`years`](chrono/duration_aliases.md)        | 年を表現するためのdurationの別名(type-alias) | C++20 |
+| [`months`](chrono/duration_aliases.md)       | 月を表現するためのdurationの別名(type-alias) | C++20 |
 
 
 ## 時計型

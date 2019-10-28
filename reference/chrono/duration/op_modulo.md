@@ -19,7 +19,6 @@ namespace std {
                         const duration<Rep2, Period2>& rhs); // (2)
 }
 ```
-* duration[link /reference/chrono/duration.md]
 * common_type[link /reference/type_traits/common_type.md]
 
 ## 概要
@@ -37,7 +36,6 @@ durationの剰余演算を行う
 using cd = duration<typename common_type<Rep1, Rep2>::type, Period>;
 return cd(cd(d).count() % s);
 ```
-* duration[link /reference/chrono/duration.md]
 * common_type[link /reference/type_traits/common_type.md]
 * count[link /reference/chrono/duration/count.md]
 
@@ -47,7 +45,6 @@ return cd(cd(d).count() % s);
 using cd = duration<typename common_type<Rep1, Rep2>::type, Period>;
 return cd(cd(lhs).count() % cd(rhs).count());
 ```
-* duration[link /reference/chrono/duration.md]
 * common_type[link /reference/type_traits/common_type.md]
 * count[link /reference/chrono/duration/count.md]
 
@@ -80,8 +77,6 @@ int main()
 }
 ```
 * %[color ff0000]
-* seconds[link /reference/chrono/duration-aliases.md]
-* milliseconds[link /reference/chrono/duration-aliases.md]
 * count()[link count.md]
 
 ### 出力

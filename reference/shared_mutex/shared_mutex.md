@@ -128,7 +128,6 @@ int main()
 * std::shared_mutex[color ff0000]
 * std::shared_lock[link shared_lock.md]
 * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
-* std::chrono::milliseconds[link /reference/chrono/duration-aliases.md]
 * join()[link /reference/thread/thread/join.md]
 
 ### 出力例

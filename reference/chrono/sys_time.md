@@ -33,9 +33,7 @@ namespace std::chrono {
 ```
 * time_point[link time_point.md]
 * system_clock[link system_clock.md]
-* seconds[link duration-aliases.md]
-* days[link duration-aliases.md]
-* minutes[link duration-aliases.md]
+* days[link duration_aliases.md]
 
 ## 概要
 システム時間の一点を指す[`time_point`](time_point.md)に対する別名。
@@ -49,7 +47,7 @@ namespace std::chrono {
 
 
 ## テンプレートパラメータ制約
-- (4) : [`treat_as_floating_point_v`](treat_as_floating_point.md)`<typename Duration::rep> == false`かつ`Duration{1} <` [`days`](duration-aliases.md)`{1}`であること
+- (4) : [`treat_as_floating_point_v`](treat_as_floating_point.md)`<typename Duration::rep> == false`かつ`Duration{1} <` [`days`](duration_aliases.md)`{1}`であること
 
 
 ## 効果
@@ -62,7 +60,7 @@ namespace std::chrono {
                         year_month_day{dp}, hh_mm_ss{tp-dp});
     ```
     * floor[link time_point/floor.md]
-    * days[link duration-aliases.md]
+    * days[link duration_aliases.md]
     * format[link /reference/format/format.md.nolink]
     * os.getloc()[link /reference/ios/ios_base/getloc.md]
     * year_month_day[link year_month_day.md.nolink]
@@ -114,8 +112,7 @@ int main()
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * chrono::time_point_cast[link time_point_cast.md]
-* chrono::seconds[link duration-aliases.md]
-* chrono::days[link duration-aliases.md]
+* chrono::days[link duration_aliases.md]
 
 #### 出力例
 ```
@@ -166,7 +163,6 @@ int main()
 }
 ```
 * chrono::from_stream[color ff0000]
-* chrono::minutes[link duration-aliases.md]
 * offset.count()[link duration/count.md]
 
 #### 出力例

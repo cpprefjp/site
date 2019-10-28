@@ -168,7 +168,6 @@ int main()
 * std::launch::deferred[link launch.md]
 * std::future[link future.md]
 * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
-* std::chrono::milliseconds[link /reference/chrono/duration-aliases.md]
 * f.get()[link future/get.md]
 
 ### 出力

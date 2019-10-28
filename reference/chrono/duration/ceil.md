@@ -35,8 +35,6 @@ int main()
 }
 ```
 * ceil[color ff0000]
-* milliseconds[link /reference/chrono/duration-aliases.md]
-* seconds[link /reference/chrono/duration-aliases.md]
 * s.count()[link count.md]
 
 ### 出力

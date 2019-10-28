@@ -52,8 +52,6 @@ int main()
 * utc_seconds[link /reference/chrono/utc_time.md]
 * system_clock[link /reference/chrono/system_clock.md]
 * July[link /reference/chrono/month_constants.md.nolink]
-* duration_cast[link /reference/chrono/duration_cast.md]
-* seconds[link /reference/chrono/duration-aliases.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 
 ### 出力

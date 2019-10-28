@@ -39,8 +39,6 @@ int main()
 }
 ```
 * steady_clock::now()[color ff0000]
-* seconds[link /reference/chrono/duration-aliases.md]
-* duration_cast[link /reference/chrono/duration_cast.md]
 * count()[link /reference/chrono/duration/count.md]
 
 ### 出力

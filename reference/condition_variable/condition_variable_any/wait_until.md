@@ -159,7 +159,6 @@ int main()
 * std::unique_lock[link /reference/mutex/unique_lock.md]
 * steady_clock[link /reference/chrono/steady_clock.md]
 * now()[link /reference/chrono/steady_clock/now.md]
-* seconds[link /reference/chrono/duration-aliases.md]
 * std::cv_status[link /reference/condition_variable/cv_status.md]
 * std::cv_status::timeout[link /reference/condition_variable/cv_status.md]
 

@@ -29,7 +29,6 @@ namespace chrono {
 time_point<Clock, ToDuration>(duration_cast<ToDuration>(t.time_since_epoch()));
 ```
 * time_point[link /reference/chrono/time_point.md]
-* duration_cast[link /reference/chrono/duration_cast.md]
 * time_since_epoch[link /reference/chrono/time_point/time_since_epoch.md]
 
 ## 例
@@ -55,8 +54,6 @@ int main()
 * time_point[link time_point.md]
 * system_clock[link system_clock.md]
 * time_point_cast[color ff0000]
-* milliseconds[link duration-aliases.md]
-* seconds[link duration-aliases.md]
 * time_since_epoch()[link time_point/time_since_epoch.md]
 * count()[link duration/count.md]
 
