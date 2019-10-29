@@ -9,7 +9,7 @@ namespace std {
   // (1)
   template <class Rep1, class Period1, class Rep2, class Period2>
   struct common_type<chrono::duration<Rep1, Period1>, chrono::duration<Rep2, Period2>> {
-    using type = chrono::duration<common_type_t<Rep1, Rep2>, Period/*下記参照*/>;                       
+    using type = chrono::duration<common_type_t<Rep1, Rep2>, Period/*下記参照*/>;
   };
 
   // (2)
