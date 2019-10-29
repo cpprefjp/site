@@ -73,7 +73,7 @@ int main()
 ### 処理系
 - [Clang, C++20 mode](/implementation.md#clang): 7.0
 - [GCC, C++20 mode](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2019 update 1
 
 ## 参照
 - [P0457R2 String Prefix and Suffix Checking](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0457r2.html)
