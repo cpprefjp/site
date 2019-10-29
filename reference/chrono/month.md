@@ -25,31 +25,31 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](month/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](month/op_constructor.md) | コンストラクタ | C++20 |
 
 
 ### 算術演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator++`](month/op_increment.md.nolink) | インクリメント | C++20 |
-| [`operator-=`](month/op_decrement.md.nolink) | デクリメント   | C++20 |
-| [`operator+=`](month/op_plus_assign.md.nolink) | 加算の複合代入 | C++20 |
-| [`operator-=`](month/op_minus_assign.md.nolink) | 加算の複合代入 | C++20 |
+| [`operator++`](month/op_increment.md)    | インクリメント | C++20 |
+| [`operator-=`](month/op_decrement.md)    | デクリメント   | C++20 |
+| [`operator+=`](month/op_plus_assign.md)  | 加算の複合代入 | C++20 |
+| [`operator-=`](month/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
 
 ### 変換
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator unsigned int`](month/op_unsigned_int.md.nolink)  | `unsigned int`型への変換演算子 | C++20 |
+| [`operator unsigned int`](month/op_unsigned_int.md) | `unsigned int`型への変換演算子 | C++20 |
 
 
 ### 検証
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](month/ok.md.nolink) | 値が範囲`[1, 12]`に収まっているか判定する | C++20 |
+| [`ok`](month/ok.md) | 値が範囲`[1, 12]`に収まっているか判定する | C++20 |
 
 
 ## 非メンバ関数
@@ -57,8 +57,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](month/op_plus.md.nolink)  | 加算 | C++20 |
-| [`operator-`](month/op_minus.md.nolink) | 減算 | C++20 |
+| [`operator+`](month/op_plus.md)  | 加算 | C++20 |
+| [`operator-`](month/op_minus.md) | 減算 | C++20 |
 
 
 ### 比較演算
@@ -97,7 +97,6 @@ int main() {
 * chrono::month[color ff0000]
 * chrono::January[link month_constants.md]
 * chrono::March[link month_constants.md]
-* chrono::months[link duration_aliases.md]
 
 ### 出力
 ```
@@ -110,7 +109,7 @@ Jun
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0 (入出力ストリームなし)
+- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし)
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
 

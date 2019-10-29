@@ -105,11 +105,11 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------|-------------------------|-------|
-| [`operator+`](op_plus.md)              | 加算 | C++11 |
-| [`operator-`](op_minus.md)             | 減算 | C++11 |
+| [`operator+`](duration/op_plus.md)     | 加算 | C++11 |
+| [`operator-`](duration/op_minus.md)    | 減算 | C++11 |
 | [`operator*`](duration/op_multiply.md) | 乗算 | C++11 |
 | [`operator/`](duration/op_divide.md)   | 除算 | C++11 |
-| [`operator%`](duration/op_modulo.md)  | 剰余算 | C++11 |
+| [`operator%`](duration/op_modulo.md)   | 剰余算 | C++11 |
 
 ### 比較演算
 
