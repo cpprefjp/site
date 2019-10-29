@@ -65,16 +65,16 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](month/op_equal.md.nolink)         | 等値判定を行う | C++20 |
-| [`operator<=>`](month/op_compare_3way.md.nolink) | 三方比較を行う | C++20 |
+| [`operator==`](month/op_equal.md)         | 等値判定を行う | C++20 |
+| [`operator<=>`](month/op_compare_3way.md) | 三方比較を行う | C++20 |
 
 
 ### 入出力
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](month/op_ostream.md.nolink) | 出力ストリームに出力する | C++20 |
-| [`from_stream`](month/from_stream.md.nolink) | フォーマット指定して入力ストリームから入力する | C++20 |
+| [`operator<<`](month/op_ostream.md)   | 出力ストリームに出力する | C++20 |
+| [`from_stream`](month/from_stream.md) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
 ## 例
