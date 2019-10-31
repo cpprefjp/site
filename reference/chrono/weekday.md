@@ -42,8 +42,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`c_encoding`](weekday/c_encoding.md.nolink) | Cロケールに基づいた曜日の整数値を取得する | C++20 |
-| [`iso_encoding`](weekday/iso_encoding.md.nolink) | ISO 8601に基づいた曜日の整数値を取得する | C++20 |
+| [`c_encoding`](weekday/c_encoding.md) | C / C++仕様に基づいた曜日の整数値を取得する | C++20 |
+| [`iso_encoding`](weekday/iso_encoding.md) | ISO 8601に基づいた曜日の整数値を取得する | C++20 |
 
 
 ### 検証
