@@ -41,7 +41,7 @@ int main() {
 この様に、あるクラスに対して三方比較演算子`<=>`を定義しておくことで最大6つの関係演算子を導出し使用することができる。  
 そして、そのような`<=>`は`default`実装で十分ならば実装を省略できる。
 
-この様な三方比較の事を一貫比較（Consistent comparison）と言い、この演算子は三方比較演算子（Three-way comparison operator）と呼ぶ。また、演算子の見た目から宇宙船演算子と呼ばれることもある。
+この様な三方比較の事を一貫比較（Consistent comparison）と言い、この演算子は三方比較演算子（Three-way comparison operator）と呼ぶ。また、演算子の見た目から宇宙船演算子（Spaceship operator）と呼ばれることもある。
 
 この様に、三方比較演算子を用いれば比較演算子の定義が非常に容易になるため[`std::rel_ops`](/reference/utility/rel_ops.md)はその役割をほとんど失い、非推奨となった。
 
@@ -135,6 +135,68 @@ ordering -> equalityに変換できてもequality -> orderingに変換できな�
 そのようなdefaultの`==`の戻り値型は`bool`であり、`!=`の導出に使用される`==`も戻り値型は`bool`でなければならない。
 
 このため、異種型間比較や特殊な比較を実装するために`<=>`を独自に定義する場合、6×2個の関係演算子全てを導出するためには`==`も独自に定義しなければならない。
+
+```cpp
+//<=>を独自実装し、==の定義をしていない型
+struct not_eq_comparable {
+  char str[5];
+
+  std::strong_ordering operator<=>(const not_eq_comparable& that) const {
+    //大文字小文字を等値として扱って比較
+    for (std::size_t i = 0; i < sizeof(this->str); ++i) {
+      char l1 = std::tolower(this->str[i]);
+      char l2 = std::tolower(that.str[i]);
+      if (l1 != l2) {
+        return l1 <=> l2;
+      }
+    }
+    return std::strong_ordering::equal;
+  }
+};
+
+{
+  not_eq_comparable str1 = {"test"}, str2 = {"TEST"};
+
+  //<=>がデフォルトでは無いので==は定義されていない
+  bool eq1 = str1 == str2;         //error
+  bool eq2 = (str1 <=> str2) == 0; //ok
+  bool ne1 = str1 != str2;         //error
+  bool ne2 = (str1 <=> str2) != 0; //ok
+}
+
+//<=>と==両方実装をした型
+struct eq_comparable {
+  char str[5];
+
+  auto operator<=>(const eq_comparable& that) const {
+    //大文字小文字を等値として扱って比較
+    for (std::size_t i = 0; i < sizeof(this->str); ++i) {
+      if (std::tolower(this->str[i]) != std::tolower(that.str[i])) {
+        return this->str[i] <=> that.str[i];
+      }
+    }
+    return std::strong_ordering::equal;
+  }
+
+  bool operator==(const eq_comparable& that) const {
+    //大文字小文字を等値として扱って比較
+    for (std::size_t i = 0; i < sizeof(this->str); ++i) {
+      if (std::tolower(this->str[i]) != std::tolower(that.str[i])) return false;
+    }
+    return true;
+  }
+};
+
+{
+  eq_comparable str1 = {"test"}, str2 = {"TEST"};
+
+  //==を定義してあるので同値比較演算子を使用可能
+  bool eq1 = str1 == str2;         //ok
+  bool eq2 = (str1 <=> str2) == 0; //ok
+  bool ne1 = str1 != str2;         //ok
+  bool ne2 = (str1 <=> str2) != 0; //ok
+}
+```
 
 このような仕様になっているのは、`<=>`を用いた同値比較において発生しうるオーバーヘッドを回避するためである（詳細は後述の「検討された他の選択肢」を参照）。
 
