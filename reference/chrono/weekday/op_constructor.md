@@ -1,0 +1,82 @@
+# コンストラクタ
+* chrono[meta header]
+* std::chrono[meta namespace]
+* weekday[meta class]
+* function[meta id-type]
+* cpp20[meta cpp]
+
+```cpp
+weekday() = default;                                       // (1) C++20
+constexpr explicit weekday(unsigned int wd) noexcept;      // (2) C++20
+constexpr weekday(const sys_days& dp) noexcept;            // (3) C++20
+constexpr explicit weekday(const local_days& dp) noexcept; // (4) C++20
+```
+* sys_days[link /reference/chrono/sys_time.md]
+* local_days[link /reference/chrono/local_time.md.nolink]
+
+## 概要
+- (1) : デフォルトコンストラクタ
+- (2) : 曜日の整数値を指定して`weekday`オブジェクトを構築する
+- (3) : 指定されたシステム日付に対応する曜日から、`weekday`オブジェクトを構築する
+- (4) : 指定されたローカル日付に対応する曜日から、`weekday`オブジェクトを構築する
+
+
+## 効果
+- (1) :
+    - デフォルト初期化では符号なし整数の未初期化値となり、値初期化では値0となる
+- (2) :
+    - `wd`の値が7であれば0に変更し、そうでなければ`wd`の値をそのままに、メンバ変数として保持する
+        - `[月曜日, 日曜日]`の範囲を`[日曜日, 土曜日]`の範囲に変換
+    - `wd`の値範囲が`[0, 255]`に含まれなければ、保持される値は未規定
+- (3) : システム日付`dp`に対応する曜日の値を、メンバ変数として保持する
+- (4) : ローカル日付`dp`に対応する曜日の値を、メンバ変数として保持する
+
+
+## 例外
+投げない
+
+
+### 例
+```cpp example
+#include <cassert>
+#include <chrono>
+
+using namespace std::chrono;
+
+int main() {
+  weekday w1{0};
+  assert(w1 == Sunday);
+
+  weekday w2{1};
+  assert(w2 == Monday);
+
+  weekday w3{7};
+  assert(w3 == Sunday);
+
+  weekday w4{sys_days{1970y/January/1}};
+  assert(w4 == Thursday);
+
+  weekday w5{local_days{1970y/January/1}};
+  assert(w5 == Thursday);
+}
+```
+* Sunday[link /reference/chrono/weekday_constants.md]
+* Monday[link /reference/chrono/weekday_constants.md]
+* Thursday[link /reference/chrono/weekday_constants.md]
+* January[link /reference/chrono/month_constants.md]
+* sys_days[link /reference/chrono/sys_time.md]
+* local_days[link /reference/chrono/local_time.md.nolink]
+* 1970y[link /reference/chrono/year/op_y.md.nolink]
+
+### 出力
+```
+```
+
+## バージョン
+### 言語
+- C++20
+
+### 処理系
+- [Clang](/implementation.md#clang): 8.0 (値7は0にならない), 10.0
+- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
+- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)

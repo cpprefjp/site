@@ -25,7 +25,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](weekday/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](weekday/op_constructor.md) | コンストラクタ | C++20 |
 
 
 ### 算術演算
