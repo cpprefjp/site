@@ -34,8 +34,8 @@ namespace std::chrono {
 |------|------|----------------|
 | [`operator++`](weekday/op_increment.md)    | インクリメント | C++20 |
 | [`operator-=`](weekday/op_decrement.md)    | デクリメント   | C++20 |
-| [`operator+=`](weekday/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
-| [`operator-=`](weekday/op_minus_assign.md.nolink) | 減算の複合代入 | C++20 |
+| [`operator+=`](weekday/op_plus_assign.md)  | 加算の複合代入 | C++20 |
+| [`operator-=`](weekday/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
 
 ### 変換
@@ -50,7 +50,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](weekday/ok.md.nolink) | 値が範囲に収まっているか判定する | C++20 |
+| [`ok`](weekday/ok.md) | 値が範囲に収まっているか判定する | C++20 |
 
 
 ### 月のN回目の曜日
@@ -65,8 +65,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](weekday/op_plus.md.nolink)  | 加算 | C++20 |
-| [`operator-`](weekday/op_minus.md.nolink) | 減算 | C++20 |
+| [`operator+`](weekday/op_plus.md)  | 加算 | C++20 |
+| [`operator-`](weekday/op_minus.md) | 減算 | C++20 |
 
 
 ### 比較演算
