@@ -1,6 +1,7 @@
 # emplace
 * variant[meta header]
 * std[meta namespace]
+* variant[meta class]
 * function[meta id-type]
 * cpp17[meta cpp]
 
