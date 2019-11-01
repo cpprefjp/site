@@ -38,7 +38,7 @@ int main() {
 }
 ```
 
-この様に、あるクラスに対して三方比較演算子`<=>`を定義しておくことで最大6つの関係演算子を導出し使用することができる。  
+この様に、あるクラスに対して三方比較演算子`<=>`を定義しておくことで最大6つの比較演算子を導出し使用することができる。  
 そして、そのような`<=>`は`default`実装で十分ならば実装を省略できる。
 
 この様な三方比較の事を一貫比較（Consistent comparison）と言い、この演算子は三方比較演算子（Three-way comparison operator）と呼ぶ。また、演算子の見た目から宇宙船演算子（Spaceship operator）と呼ばれることもある。
@@ -115,7 +115,7 @@ ordering -> equalityに変換できてもequality -> orderingに変換できな�
 
 これはつまり、各比較カテゴリ間の順序関係を示している。この順序は半順序となる。
 
-クラス型に対するdefaultな三方比較演算子の戻り値型は比較に参加するすべての型の`<=>`による比較の結果となるカテゴリ型から共通して変換できる最も強い型となる。そのような型を共通比較カテゴリ型（common comparison category type）と呼ぶ。
+クラス型に対するdefaultな三方比較演算子の様に複数の型が参加する三方比較の結果の比較カテゴリは、比較に参加するすべての型の`<=>`による比較の結果となるカテゴリ型から共通して変換できる最も強い型となる。そのような型を共通比較カテゴリ型（common comparison category type）と呼ぶ。
 
 比較に参加するすべての型の`<=>`による比較カテゴリ型をそれぞれ`Ti (0 <= i < N)`として、共通比較カテゴリ型`U`は以下のように決定される。
 
@@ -130,19 +130,19 @@ ordering -> equalityに変換できてもequality -> orderingに変換できな�
 
 
 ### operator==
-`<=>`を利用する事で最大6つの関係演算子が導出されると説明したが、実際には同値比較演算子（`== !=`）は`<=>`から導出されず、`==`は定義されている必要があり`!=`は`==`から導出される。  
+`<=>`を利用する事で最大6つの比較演算子が導出されると説明したが、実際には同値比較演算子（`== !=`）は`<=>`から導出されず、`==`は定義されている必要があり`!=`は`==`から導出される。  
 ただし、`<=>`をdefault宣言した場合は同じアクセス指定で`==`が暗黙的にdefault宣言され利用可能になる。また、明示的にdefaultで宣言することもできる。  
 そのようなdefaultの`==`の戻り値型は`bool`であり、`!=`の導出に使用される`==`も戻り値型は`bool`でなければならない。
 
-このため、異種型間比較や特殊な比較を実装するために`<=>`を独自に定義する場合、6×2個の関係演算子全てを導出するためには`==`も独自に定義しなければならない。
+このため、異種型間比較や特殊な比較を実装するために`<=>`を独自に定義する場合、6×2個の比較演算子全てを導出するためには`==`も独自に定義しなければならない。
 
 ```cpp
-//<=>を独自実装し、==の定義をしていない型
+//<=>を独自実装し==を実装していない型、４種類の比較演算子による比較が可能
 struct not_eq_comparable {
   char str[5];
 
-  std::strong_ordering operator<=>(const not_eq_comparable& that) const {
-    //大文字小文字を等値として扱って比較
+  auto operator<=>(const not_eq_comparable& that) const -> std::weak_ordering {
+    //大文字小文字を同値として扱って比較
     for (std::size_t i = 0; i < sizeof(this->str); ++i) {
       char l1 = std::tolower(this->str[i]);
       char l2 = std::tolower(that.str[i]);
@@ -150,36 +150,38 @@ struct not_eq_comparable {
         return l1 <=> l2;
       }
     }
-    return std::strong_ordering::equal;
+    return std::weak_ordering::equivalent;
   }
 };
 
 {
   not_eq_comparable str1 = {"test"}, str2 = {"TEST"};
 
-  //<=>がデフォルトでは無いので==は定義されていない
+  //<=>がdefaultでは無いので==は定義されていない
   bool eq1 = str1 == str2;         //error
   bool eq2 = (str1 <=> str2) == 0; //ok
   bool ne1 = str1 != str2;         //error
   bool ne2 = (str1 <=> str2) != 0; //ok
 }
 
-//<=>と==両方実装をした型
+//<=>と==両方実装をした型、6種類全ての比較演算子を使用可能
 struct eq_comparable {
   char str[5];
 
-  auto operator<=>(const eq_comparable& that) const {
-    //大文字小文字を等値として扱って比較
+  auto operator<=>(const eq_comparable& that) const -> std::weak_ordering {
+    //大文字小文字を同値として扱って比較
     for (std::size_t i = 0; i < sizeof(this->str); ++i) {
-      if (std::tolower(this->str[i]) != std::tolower(that.str[i])) {
-        return this->str[i] <=> that.str[i];
+      char l1 = std::tolower(this->str[i]);
+      char l2 = std::tolower(that.str[i]);
+      if (l1 != l2) {
+        return l1 <=> l2;
       }
     }
-    return std::strong_ordering::equal;
+    return std::weak_ordering::equivalent;
   }
 
   bool operator==(const eq_comparable& that) const {
-    //大文字小文字を等値として扱って比較
+    //大文字小文字を同値として扱って比較
     for (std::size_t i = 0; i < sizeof(this->str); ++i) {
       if (std::tolower(this->str[i]) != std::tolower(that.str[i])) return false;
     }
@@ -220,7 +222,7 @@ int main() {
 
 ### 演算子の導出とオーバーロード候補
 `<=>`及び`==`から導出される演算子は暗黙的に宣言され実装されているわけではなく、それらの演算子を呼び出した際のオーバーロード候補に、`<=> ==`を利用して生成した候補を入れることによって導出される。  
-そのため、そのアドレスを取ることは出来ない。
+このために、導出された比較演算子のアドレスを取ることは出来ない。
 
 詳細な手順は以下のようになる。
 
@@ -353,10 +355,10 @@ struct newer {
   int n = 30;
 
   //こう宣言すると暗黙delete
-  //auto operator<=>(const new_type&) const = default;
+  //auto operator<=>(const newer&) const = default;
 
   //legacyの比較に関しては指定した戻り値型とlegacyの持つ比較演算子< ==を用いて実装、使用可能
-  std::strong_ordering operator<=>(const new_type&) const = default;
+  std::strong_ordering operator<=>(const newer&) const = default;
 };
 
 newer n1{}, n2 = {20, {30}, 40};
@@ -386,8 +388,8 @@ struct newer {
   legacy l = {20}; //<=>を持っていない
   int n = 30;
 
-  //std::strong_ordering operator<=>(const new_type&) const = default;
-  std::strong_ordering operator<=>(const new_type& that) const {
+  //std::strong_ordering operator<=>(const newer&) const = default;
+  std::strong_ordering operator<=>(const newer& that) const {
     if (auto comp = static_cast<std::strong_ordering>(m <=> that.m); comp != 0) return comp;
 
     //legacy型に対する<=>の合成
@@ -447,16 +449,16 @@ struct C {
 #### 従来の比較演算子との差異及び修正
 
 三方比較演算子による比較は従来の比較演算子の挙動とは異なるところがある（より安全な比較となっている）。  
-それに伴って、いくつかの比較演算子の挙動が修正された。
+それに伴って、いくつかの比較演算子の挙動が修正された（C++20では非推奨とされ、削除されてはいない）。
 
-|比較するペア|従来演算子での比較の可否|`<=>`での比較の可否|従来演算子の修正（C++20より、非推奨扱い）|
+|比較するペア|C++17までの従来演算子での比較の可否|`<=>`での比較の可否|C++20からの従来演算子での比較の可否|
 |:-------------|:-------------|:-------------|:-------------|
-|符号なし整数型と符号付整数型|〇|×<br/>ただし定数式で符号付きオペランドが正の値に評価されれば可能|━（従来通り）|
+|符号なし整数型と符号付整数型|〇|×<br/>ただし定数式で符号付きオペランドが正の値に評価されれば可能|〇（従来通り）|
 |列挙型と算術型|〇<br/>例えば、列挙型と浮動小数点型の比較が可能|△<br/>スコープ無し列挙型と整数型のみ可能|△<br/>列挙型と浮動小数点型間比較は不可<br/>それ以外は従来通り|
 |異なる列挙型間|〇|×|×|
 |配列同士|△<br/>標準は未規定だが多くの実装ではポインタに変換して比較する|×|×|
-|`nullptr`とポインタ|△<br/>同値比較のみ可能|〇<br/>ただし、ポインタが`nullptr`でない場合の結果は未規定|━|
-|関数ポインタ間|〇<br/>異なるポインタ間の順序付けの結果は未規定|〇|━|
+|`nullptr`とポインタ|△<br/>同値比較のみ可能|〇<br/>ただし、ポインタが`nullptr`でない場合の結果は未規定|△（従来通り）|
+|関数ポインタ間|〇<br/>異なるポインタ間の順序付けの結果は未規定|〇|〇（従来通り）|
 
 ## C++17までの比較演算子実装の一例
 ```cpp example
