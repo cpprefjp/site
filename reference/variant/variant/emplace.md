@@ -48,10 +48,6 @@ namespace std {
     - `Types...`の`I`番目の型を`Ti`として、[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Ti,` [`std::initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...>`が`true`であること
 
 
-## 事前条件
-- (3), (4) : [`index()`](index.md)が`I`であること
-
-
 ## 効果
 - (1) : `Types...`に含まれる型`T`のインデックスを`I`として、以下と等価：
     ```cpp
@@ -75,6 +71,10 @@ namespace std {
 
 ## 戻り値
 新たに保持する値への参照を返す。
+
+
+## 事後条件
+- (3), (4) : [`index()`](index.md)が`I`であること
 
 
 ## 例外
