@@ -13,7 +13,7 @@
 - 例外を投げない（エラーは戻り値で表現、エラーと有効値は区別可能）
 - 使用可能なフォーマットは最小限
     - スペースが現れた場合はそこで変換終了
-    - `+`符号の指定はできない
+    - 浮動小数点数の指数部以外の`+`符号は考慮されない
     - `#`による小数点以下の桁数指定はできない
     - 16進数に`0x`は付けられない
 
@@ -80,3 +80,4 @@ XMLやJSONに代表されるテキストベースのデータを利用するケ�
 - [P0067R5 Elementary string conversions, revision 5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html)
 - [P0682R1: Repairing elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html)
 - [N4412: Shortcomings of iostreams](http://open-std.org/JTC1/SC22/WG21/docs/papers/2015/n4412.html)
+- [LWG Issue 3080. Floating point from_chars pattern specification breaks round-tripping](https://wg21.cmeerw.net/lwg/issue3080)
