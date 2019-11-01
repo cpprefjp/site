@@ -73,7 +73,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](weekday/op_equal.md.nolink) | 等値判定を行う | C++20 |
+| [`operator==`](weekday/op_equal.md) | 等値判定を行う | C++20 |
 
 
 ### 入出力

@@ -6,16 +6,20 @@
 
 ```cpp
 namespace std::chrono {
-  constexpr bool operator==(const month& x, const month& y) noexcept; // (1) C++20
+  constexpr bool operator==(const weekday& x, const weekday& y) noexcept; // (1) C++20
 }
 ```
 
 ## 概要
-`month`同士の等値比較を行う。
+`weekday`同士の等値比較を行う。
 
 
 ## 戻り値
-- (1) : `static_cast<unsigned int>(x) == static_cast<unsigned int>(y);`
+コンストラクタで設定されて保持している曜日を表す値`wd`があるとして、以下を返す：
+
+```cpp
+return x.wd == y.wd;
+```
 
 
 ## 例外
@@ -35,12 +39,12 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  assert(chrono::January == chrono::January);
-  assert(chrono::January != chrono::February);
+  assert(chrono::Sunday == chrono::Sunday);
+  assert(chrono::Sunday != chrono::Tuesday);
 }
 ```
-* chrono::January[link /reference/chrono/month_constants.md]
-* chrono::February[link /reference/chrono/month_constants.md]
+* chrono::Sunday[link /reference/chrono/weekday_constants.md]
+* chrono::Tuesday[link /reference/chrono/weekday_constants.md]
 
 ### 出力
 ```
