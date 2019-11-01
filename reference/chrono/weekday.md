@@ -79,6 +79,7 @@ namespace std::chrono {
 
 ## 例
 ```cpp example
+#include <cassert>
 #include <iostream>
 #include <chrono>
 
@@ -92,11 +93,18 @@ int main() {
   chrono::weekday v = chrono::Wednesday;
   v += chrono::days{3};
   std::cout << v << std::endl;
+
+  // 曜日は循環する
+  chrono::weekday u = chrono::Saturday;
+  v += chrono::days{2};
+  assert(v == chrono::Monday);
 }
 ```
 * chrono::weekday[color ff0000]
-* chrono::Sunday[link weekday_constants.md.nolink]
-* chrono::Wednesday[link weekday_constants.md.nolink]
+* chrono::Sunday[link weekday_constants.md]
+* chrono::Wednesday[link weekday_constants.md]
+* chrono::Saturday[link weekday_constants.md]
+* chrono::Monday[link weekday_constants.md]
 
 ### 出力
 ```
@@ -115,4 +123,4 @@ Sat
 
 
 ## 関連項目
-- [曜日の定数](weekday_constants.md.nolink)
+- [曜日の定数](weekday_constants.md)

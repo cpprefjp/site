@@ -60,7 +60,6 @@ int main() {
 * chrono::January[color ff0000]
 * chrono::March[color ff0000]
 * chrono::month[link month.md]
-* chrono::months[link duration_aliases.md]
 
 #### 出力
 ```

@@ -50,13 +50,13 @@ int main()
 }
 ```
 * iso_encoding()[color ff0000]
-* chrono::Monday[link /reference/chrono/weekday_constants.md.nolink]
-* chrono::Tuesday[link /reference/chrono/weekday_constants.md.nolink]
-* chrono::Wednesday[link /reference/chrono/weekday_constants.md.nolink]
-* chrono::Thursday[link /reference/chrono/weekday_constants.md.nolink]
-* chrono::Friday[link /reference/chrono/weekday_constants.md.nolink]
-* chrono::Saturday[link /reference/chrono/weekday_constants.md.nolink]
-* chrono::Sunday[link /reference/chrono/weekday_constants.md.nolink]
+* chrono::Monday[link /reference/chrono/weekday_constants.md]
+* chrono::Tuesday[link /reference/chrono/weekday_constants.md]
+* chrono::Wednesday[link /reference/chrono/weekday_constants.md]
+* chrono::Thursday[link /reference/chrono/weekday_constants.md]
+* chrono::Friday[link /reference/chrono/weekday_constants.md]
+* chrono::Saturday[link /reference/chrono/weekday_constants.md]
+* chrono::Sunday[link /reference/chrono/weekday_constants.md]
 
 ### 出力
 ```

@@ -251,13 +251,13 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`Sunday`](chrono/weekday_constants.md.nolink)    | 日曜日を表す定数 (variable) | C++20 |
-| [`Monday`](chrono/weekday_constants.md.nolink)    | 月曜日を表す定数 (variable) | C++20 |
-| [`Tuesday`](chrono/weekday_constants.md.nolink)   | 火曜日を表す定数 (variable) | C++20 |
-| [`Wednesday`](chrono/weekday_constants.md.nolink) | 水曜日を表す定数 (variable) | C++20 |
-| [`Thursday`](chrono/weekday_constants.md.nolink)  | 木曜日を表す定数 (variable) | C++20 |
-| [`Friday`](chrono/weekday_constants.md.nolink)    | 金曜日を表す定数 (variable) | C++20 |
-| [`Saturday`](chrono/weekday_constants.md.nolink)  | 土曜日を表す定数 (variable) | C++20 |
+| [`Sunday`](chrono/weekday_constants.md)    | 日曜日を表す定数 (variable) | C++20 |
+| [`Monday`](chrono/weekday_constants.md)    | 月曜日を表す定数 (variable) | C++20 |
+| [`Tuesday`](chrono/weekday_constants.md)   | 火曜日を表す定数 (variable) | C++20 |
+| [`Wednesday`](chrono/weekday_constants.md) | 水曜日を表す定数 (variable) | C++20 |
+| [`Thursday`](chrono/weekday_constants.md)  | 木曜日を表す定数 (variable) | C++20 |
+| [`Friday`](chrono/weekday_constants.md)    | 金曜日を表す定数 (variable) | C++20 |
+| [`Saturday`](chrono/weekday_constants.md)  | 土曜日を表す定数 (variable) | C++20 |
 
 
 ### 月
