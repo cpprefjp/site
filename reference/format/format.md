@@ -110,6 +110,38 @@ string message = format("The answer is {}.", 42); // => "The answer is 42."
 |:-----------|:-----------|
 | p (省略可) | アドレスを出力する (`uintptr_t`にキャストして幅16の小文字16進数で出力) |
 
+### 例([P0645R10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)より)
+
+```cpp
+char c = 120;
+format("{:6}", 42);      // "    42"
+format("{:6}", 'x');     // "x     "
+format("{:*<6}", 'x');   // "x*****"
+format("{:*>6}", 'x');   // "*****x"
+format("{:*^6}", 'x');   // "**x***"
+format("{:=6}", 'x');    // エラー
+format("{:6d}", c);      // "   120"
+format("{:=+06d}", c);   // "+00120"
+format("{:0=#6x}", 0xa); // "0x000a"
+format("{:6}", true);    // "true  "
+```
+
+```cpp
+double inf = numeric_limits<double>::infinity();
+double nan = numeric_limits<double>::quiet_NaN();
+format("{0:} {0:+} {0:-} {0: }", 1);   // "1 +1 1  1"
+format("{0:} {0:+} {0:-} {0: }", -1);  // "-1 -1 -1 -1"
+format("{0:} {0:+} {0:-} {0: }", inf); // "inf +inf inf  inf"
+format("{0:} {0:+} {0:-} {0: }", nan); // "nan +nan nan  nan"
+```
+
+```cpp
+format("{}", 42);                      // "42"
+format("{0:b} {0:d} {0:o} {0:x}", 42); // "101010 42 52 2a"
+format("{0:#x} {0:#X}", 42);           // "0x2a 0X2A"
+format("{:n}", 1234);                  // "1,234" (ロケールによる)
+```
+
 ## 効果
 
 以下のコードと等しい。
