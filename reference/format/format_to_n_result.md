@@ -1,7 +1,7 @@
 # format_to_n_result
 
 * format[meta header]
-* class[meta id-type]
+* class template[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
 

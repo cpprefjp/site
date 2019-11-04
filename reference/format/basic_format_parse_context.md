@@ -1,7 +1,7 @@
 # basic_format_parse_context
 
 * format[meta header]
-* class[meta id-type]
+* class template[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
 
