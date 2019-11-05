@@ -29,31 +29,31 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](days/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](day/op_constructor.md.nolink) | コンストラクタ | C++20 |
 
 
 ### 算術演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator++`](days/op_increment.md.nolink)    | インクリメント | C++20 |
-| [`operator-=`](days/op_decrement.md.nolink)    | デクリメント   | C++20 |
-| [`operator+=`](days/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
-| [`operator-=`](days/op_minus_assign.md.nolink) | 減算の複合代入 | C++20 |
+| [`operator++`](day/op_increment.md.nolink)    | インクリメント | C++20 |
+| [`operator-=`](day/op_decrement.md.nolink)    | デクリメント   | C++20 |
+| [`operator+=`](day/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
+| [`operator-=`](day/op_minus_assign.md.nolink) | 減算の複合代入 | C++20 |
 
 
 ### 変換
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator unsigned int`](days/op_unsigned_int.md.nolink) | `unsigned int`型への変換演算子 | C++20 |
+| [`operator unsigned int`](day/op_unsigned_int.md.nolink) | `unsigned int`型への変換演算子 | C++20 |
 
 
 ### 検証
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](days/ok.md.nolink) | 値が範囲`[1, 31]`に収まっているか判定する | C++20 |
+| [`ok`](day/ok.md.nolink) | 値が範囲`[1, 31]`に収まっているか判定する | C++20 |
 
 
 ## 非メンバ関数
@@ -61,31 +61,31 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](days/op_plus.md.nolink)  | 加算 | C++20 |
-| [`operator-`](days/op_minus.md.nolink) | 減算 | C++20 |
+| [`operator+`](day/op_plus.md.nolink)  | 加算 | C++20 |
+| [`operator-`](day/op_minus.md.nolink) | 減算 | C++20 |
 
 
 ### 比較演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](days/op_equal.md.nolink)         | 等値判定を行う | C++20 |
-| [`operator<=>`](days/op_compare_3way.md.nolink) | 三方比較を行う | C++20 |
+| [`operator==`](day/op_equal.md.nolink)         | 等値判定を行う | C++20 |
+| [`operator<=>`](day/op_compare_3way.md.nolink) | 三方比較を行う | C++20 |
 
 
 ### 入出力
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](days/op_ostream.md.nolink)   | 出力ストリームに出力する | C++20 |
-| [`from_stream`](days/from_stream.md.nolink) | フォーマット指定して入力ストリームから入力する | C++20 |
+| [`operator<<`](day/op_ostream.md.nolink)   | 出力ストリームに出力する | C++20 |
+| [`from_stream`](day/from_stream.md.nolink) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
 ### リテラル
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`d`](days/op_d.md.nolink) | 日リテラル | C++20 |
+| [`d`](day/op_d.md.nolink) | 日リテラル | C++20 |
 
 
 ## 例
@@ -110,7 +110,7 @@ int main() {
 }
 ```
 * chrono::day[color ff0000]
-* 1d[link days/op_d.md.nolink]
+* 1d[link day/op_d.md.nolink]
 * month_day[link month_day.md.nolink]
 
 ### 出力
