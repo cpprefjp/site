@@ -57,7 +57,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator[]`](weekday/op_at.md.nolink) | 月のN回目の指定した曜日を取得する | C++20 |
+| [`operator[]`](weekday/op_at.md) | 月のN回目の指定した曜日を取得する | C++20 |
 
 
 ## 非メンバ関数
