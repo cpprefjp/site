@@ -26,7 +26,7 @@ namespace std::chrono {
       format(os.getloc(), STATICALLY-WIDEN<charT>("{} is not a valid month"),
              static_cast<unsigned int>(m)));
     ```
-    * format[link /reference/format/format.md.nolink]
+    * format[link /reference/format/format.md]
     * os.getloc()[link /reference/ios/ios_base/getloc.md]
 
 

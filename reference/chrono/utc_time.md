@@ -44,7 +44,7 @@ UTC時間の一点を指す[`time_point`](time_point.md)に対する別名。
     ```cpp
     return os << format(STATICALLY-WIDEN<charT>("{:%F %T}"), tp);
     ```
-    * format[link /reference/format/format.md.nolink]
+    * format[link /reference/format/format.md]
 
     - フォーマットの詳細は[`local_time_format()`](local_time_format.md.nolink)を参照
 
