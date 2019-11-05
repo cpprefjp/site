@@ -1,6 +1,6 @@
 # handle
 * format[meta header]
-* function[meta id-type]
+* class[meta id-type]
 * std[meta namespace]
 * basic_format_arg[meta class]
 * cpp20[meta cpp]
