@@ -80,8 +80,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](weekday/op_ostream.md.nolink)   | 出力ストリームに出力する | C++20 |
-| [`from_stream`](weekday/from_stream.md.nolink) | フォーマット指定して入力ストリームから入力する | C++20 |
+| [`operator<<`](weekday/op_ostream.md)   | 出力ストリームに出力する | C++20 |
+| [`from_stream`](weekday/from_stream.md) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
 ## 例
