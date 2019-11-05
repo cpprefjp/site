@@ -1,7 +1,8 @@
 # handle
 * format[meta header]
-* basic_format_arg[meta id-type]
+* function[meta id-type]
 * std[meta namespace]
+* basic_format_arg[meta class]
 * cpp20[meta cpp]
 
 ```cpp
