@@ -11,7 +11,7 @@ namespace std {
   format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, string_view fmt, const Args&... args); // (1)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to(Out out, iter_difference_t<Out> n, wstring_view fmt, const Args&... args); // (2)
+  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wstring_view fmt, const Args&... args); // (2)
 }
 ```
 
