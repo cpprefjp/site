@@ -11,6 +11,7 @@ namespace std {
   see_below visit_format_arg(Visitor&& vis, basic_format_arg<Context> arg); // (1)
 }
 ```
+* see_below[italic]
 
 ## 概要
 
