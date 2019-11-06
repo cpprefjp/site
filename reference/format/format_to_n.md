@@ -14,6 +14,9 @@ namespace std {
   format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wstring_view fmt, const Args&... args); // (2)
 }
 ```
+* string_view[link /reference/string_view/basic_string_view.md]
+* wstring_view[link /reference/string_view/basic_string_view.md]
+* format_to_n_result[link format_to_n_result.md]
 
 ## 概要
 

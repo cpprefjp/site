@@ -12,6 +12,7 @@ basic_format_args() noexcept; // (1)
 template<class... Args>
 basic_format_args(const format_arg_store<Context, Args...>& store) noexcept; // (2)
 ```
+* basic_format_args[link /reference/format/basic_format_args.md]
 * format_arg_store[italic]
 
 ## 概要
@@ -47,6 +48,8 @@ namespace std {
   };
 }
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
+* basic_format_args[link /reference/format/basic_format_args.md]
 
 ## バージョン
 ### 言語

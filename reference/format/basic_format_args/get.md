@@ -9,6 +9,7 @@
 ```cpp
 basic_format_arg<Context> get(std::size_t i) const noexcept;
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
 
 ## 概要
 
@@ -35,6 +36,7 @@ namespace std {
   };
 }
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
 
 ## バージョン
 ### 言語

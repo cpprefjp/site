@@ -15,6 +15,7 @@ namespace std {
 }
 ```
 * format_arg_store[italic]
+* wformat_context[link /reference/format/basic_format_context.md]
 
 ## 概要
 可変長引数の型を消去して、[`basic_format_arg`](basic_format_arg.md)の列に変換する。
@@ -29,6 +30,8 @@ namespace std {
 }
 ```
 * format_arg_store[italic]
+* basic_format_arg[link /reference/format/basic_format_arg.md]
+* array[link /reference/array/array.md]
 
 [`basic_format_args`](basic_format_args.md)は`format_arg_store`から構築できる。
 `make_format_args`の結果はただちに`basic_format_args`へ変換するのが意図された使い方である。
@@ -51,14 +54,16 @@ string format(string_view fmt, const Args&... args)
 ```cpp
 return make_format_args<wformat_context>(args...);
 ```
+* wformat_context[link /reference/format/basic_format_context.md]
 
 (1)は次と等しい。
 
 ```cpp
 return {basic_format_arg<Context>(args)...}
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
 
-ただし、便宜上、`basic_format_arg`は次のprivateメンバーを持つとする。
+ただし、便宜上、[`basic_format_arg`](/reference/format/basic_format_arg.md)は次のprivateメンバーを持つとする。
 (これらのprivateメンバーは規格に含まれない)
 
 ```cpp
@@ -102,6 +107,12 @@ namespace std {
   };
 }
 ```
+* variant[link /reference/variant/variant.md]
+* monostate[link /reference/variant/monostate.md]
+* handle[link /reference/format/basic_format_arg/handle.md]
+* basic_string[link /reference/string/basic_string.md]
+* basic_string_view[link /reference/string_view/basic_string_view.md]
+* basic_format_arg[link /reference/format/basic_format_arg.md]
 
 ここで、それぞれの効果は次と等しい。
 
@@ -141,6 +152,8 @@ namespace std {
   }
 }
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
+* wformat_context[link /reference/format/basic_format_context.md]
 
 ## バージョン
 ### 言語

@@ -73,6 +73,8 @@ namespace std {
     }
   };
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
+* formatter[link /reference/format/formatter.md]
 
 ## バージョン
 ### 言語

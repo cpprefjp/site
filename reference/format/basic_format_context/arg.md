@@ -9,6 +9,8 @@
 ```cpp
 basic_format_arg<basic_format_context> arg(size_t id) const
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
+* basic_format_context[link /reference/format/basic_format_context.md]
 
 ## 概要
 
