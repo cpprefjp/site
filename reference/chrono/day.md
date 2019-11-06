@@ -22,6 +22,7 @@ namespace std::chrono {
 
 ### 備考
 - このクラスは経過時間を表す型ではない。日の経過時間は[`days`](duration_aliases.md)である
+- 加算と減算は、[`month`](month.md)や[`weekday`](weekday.md)と違い、`[1, 31]`の範囲では循環しない
 
 
 ## メンバ関数
@@ -29,31 +30,31 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](day/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](day/op_constructor.md) | コンストラクタ | C++20 |
 
 
 ### 算術演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator++`](day/op_increment.md.nolink)    | インクリメント | C++20 |
-| [`operator-=`](day/op_decrement.md.nolink)    | デクリメント   | C++20 |
-| [`operator+=`](day/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
-| [`operator-=`](day/op_minus_assign.md.nolink) | 減算の複合代入 | C++20 |
+| [`operator++`](day/op_increment.md)    | インクリメント | C++20 |
+| [`operator-=`](day/op_decrement.md)    | デクリメント   | C++20 |
+| [`operator+=`](day/op_plus_assign.md)  | 加算の複合代入 | C++20 |
+| [`operator-=`](day/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
 
 ### 変換
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator unsigned int`](day/op_unsigned_int.md.nolink) | `unsigned int`型への変換演算子 | C++20 |
+| [`operator unsigned int`](day/op_unsigned_int.md) | `unsigned int`型への変換演算子 | C++20 |
 
 
 ### 検証
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](day/ok.md.nolink) | 値が範囲`[1, 31]`に収まっているか判定する | C++20 |
+| [`ok`](day/ok.md) | 値が範囲`[1, 31]`に収まっているか判定する | C++20 |
 
 
 ## 非メンバ関数
@@ -105,7 +106,7 @@ int main() {
   std::cout << e << std::endl;
 
   using namespace std::chrono_literals;
-  chrono::month_day date = 3/1d; // 月と日
+  chrono::month_day date = 3/1d; // 年の情報をもたない「3月1日」
   std::cout << date << std::endl;
 }
 ```
