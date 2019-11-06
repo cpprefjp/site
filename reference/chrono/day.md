@@ -15,7 +15,7 @@ namespace std::chrono {
 
 通常は値の範囲として`[1, 31]`を扱うが、このクラスではその範囲外の値として`[0, 255]`まで扱える。
 
-このクラスは等値比較および大小比較ができ、[EqualityComparable](/reference/concepts/equality_comprable.md)およびLessThanComparableの要件を満たす。
+このクラスは等値比較および大小比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)およびLessThanComparableの要件を満たす。
 
 このクラスは、[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)で、かつ[スタンダードレイアウト型](/reference/type_traits/is_standard_layout.md)である。
 
