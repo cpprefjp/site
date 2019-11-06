@@ -14,10 +14,11 @@ namespace std {
   format_arg_store<wformat_context, Args...> make_wformat_args(const Args&... args); // (2)
 }
 ```
+* format_arg_store[italic]
 
 ## 概要
 可変長引数の型を消去して、[`basic_format_arg`](basic_format_arg.md)の列に変換する。
-戻り値の型`format_arg_store`は便宜上次の通り定義されるが、その型名は規格に含まれない。
+戻り値の型 _`format_arg_store`_ は便宜上次の通り定義されるが、その型名は規格に含まれない。
 
 ```cpp
 namespace std {
@@ -27,6 +28,7 @@ namespace std {
   };
 }
 ```
+* format_arg_store[italic]
 
 [`basic_format_args`](basic_format_args.md)は`format_arg_store`から構築できる。
 `make_format_args`の結果はただちに`basic_format_args`へ変換するのが意図された使い方である。
