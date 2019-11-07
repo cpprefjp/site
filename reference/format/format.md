@@ -152,10 +152,12 @@ format("{:n}", 1234);                  // "1,234" (ロケールによる)
 以下のコードと等しい。
 
 ```cpp
-return vformat(fmt, {make_format_args(args...)});
+return vformat(fmt, {make_format_args(args...)});  // (1)
+return vformat(fmt, {make_wformat_args(args...)}); // (2)
 ```
 * vformat[link vformat.md]
 * make_format_args[link make_format_args.md]
+* make_wformat_args[link make_format_args.md]
 
 ## 戻り値
 
@@ -196,7 +198,7 @@ string format(string_view fmt, const Args&... args)
 template<class... Args>
 wstring format(wstring_view fmt, const Args&... args)
 {
-  return vformat(fmt, {make_format_args(args...)});
+  return vformat(fmt, {make_wformat_args(args...)});
 }
 ```
 * string[link /reference/string/basic_string.md]
@@ -205,6 +207,7 @@ wstring format(wstring_view fmt, const Args&... args)
 * wstring_view[link /reference/string_view/basic_string_view.md]
 * vformat[link vformat.md]
 * make_format_args[link make_format_args.md]
+* make_wformat_args[link make_format_args.md]
 
 ## バージョン
 ### 言語
