@@ -27,6 +27,7 @@ wstring format(wstring_view fmt, const Args&... args); // (2)
 ```cpp
 string message = format("The answer is {}.", 42); // => "The answer is 42."
 ```
+* string[link /reference/string/basic_string.md]
 
 ### 書式文字列
 
