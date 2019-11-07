@@ -62,31 +62,31 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](day/op_plus.md.nolink)  | 加算 | C++20 |
-| [`operator-`](day/op_minus.md.nolink) | 減算 | C++20 |
+| [`operator+`](day/op_plus.md)  | 加算 | C++20 |
+| [`operator-`](day/op_minus.md) | 減算 | C++20 |
 
 
 ### 比較演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](day/op_equal.md.nolink)         | 等値判定を行う | C++20 |
-| [`operator<=>`](day/op_compare_3way.md.nolink) | 三方比較を行う | C++20 |
+| [`operator==`](day/op_equal.md)         | 等値判定を行う | C++20 |
+| [`operator<=>`](day/op_compare_3way.md) | 三方比較を行う | C++20 |
 
 
 ### 入出力
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](day/op_ostream.md.nolink)   | 出力ストリームに出力する | C++20 |
-| [`from_stream`](day/from_stream.md.nolink) | フォーマット指定して入力ストリームから入力する | C++20 |
+| [`operator<<`](day/op_ostream.md)   | 出力ストリームに出力する | C++20 |
+| [`from_stream`](day/from_stream.md) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
 ### リテラル
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`d`](day/op_d.md.nolink) | 日リテラル | C++20 |
+| [`d`](day/op_d.md) | 日リテラル | C++20 |
 
 
 ## 例
@@ -111,7 +111,7 @@ int main() {
 }
 ```
 * chrono::day[color ff0000]
-* 1d[link day/op_d.md.nolink]
+* 1d[link day/op_d.md]
 * month_day[link month_day.md.nolink]
 
 ### 出力

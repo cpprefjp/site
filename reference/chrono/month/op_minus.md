@@ -12,7 +12,7 @@ namespace std::chrono {
 ```
 
 ## 概要
-`month`の加算を行う。
+`month`の減算を行う。
 
 - (1) : `month`から経過時間を減算する
 - (2) : `month`同士の差を求める
