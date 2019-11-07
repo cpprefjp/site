@@ -25,6 +25,8 @@ namespace std {
 ```cpp
 return visit(forward<Visitor>(vis), arg.value);
 ```
+* visit[link /reference/variant/visit.md]
+* forward[link /reference/utility/forward.md]
 
 ただし、便宜上、`basic_format_arg`は次のprivateメンバーを持つとする。
 (これらのprivateメンバーは規格に含まれない)
@@ -56,8 +58,6 @@ namespace std {
 * basic_string[link /reference/string/basic_string.md]
 * basic_string_view[link /reference/string_view/basic_string_view.md]
 * basic_format_arg[link /reference/format/basic_format_arg.md]
-* visit[link reference/variant/visit.md]
-* forward[link reference/utility/forward.md]
 
 ## 戻り値
 
@@ -74,8 +74,8 @@ namespace std {
 }
 ```
 * basic_format_arg[link /reference/format/basic_format_arg.md]
-* visit[link reference/variant/visit.md]
-* forward[link reference/utility/forward.md]
+* visit[link /reference/variant/visit.md]
+* forward[link /reference/utility/forward.md]
 
 ## バージョン
 ### 言語
