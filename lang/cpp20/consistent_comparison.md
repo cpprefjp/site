@@ -102,7 +102,7 @@ bool is_equal = comp == 0.0;
 三方比較演算子による比較の結果となる値は、これら比較カテゴリ型のいずれかの`prvalue`オブジェクトとなる。  
 全てのカテゴリにおいてそのようなオブジェクトの`0`リテラル以外との比較は未定義動作となる。
 
-これらの比較カテゴリ型は新しく追加される[`<compare>`](/reference/compare.md.nolink)ヘッダにて定義されるが、`<=>`をコード中で使用したとしても自動でインクルードされないため、`<=>`の使用も含めて比較カテゴリ型を利用する際は`<compare>`を明示的にインクルードする必要がある。
+これらの比較カテゴリ型は新しく追加される[`<compare>`](/reference/compare.md)ヘッダにて定義されるが、`<=>`をコード中で使用したとしても自動でインクルードされないため、`<=>`の使用も含めて比較カテゴリ型を利用する際は`<compare>`を明示的にインクルードする必要がある。
 
 #### 比較カテゴリ間の順序関係
 
@@ -698,7 +698,7 @@ struct has_vector {
 
 ## 関連項目
 
-- [`<compare>`](/reference/compare.md.nolink)
+- [`<compare>`](/reference/compare.md)
     - 比較カテゴリ型
         - [`weak_equality`](/reference/compare/weak_equality.md.nolink)
         - [`strong_equality`](/reference/compare/strong_equality.md.nolink)

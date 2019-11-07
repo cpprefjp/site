@@ -1,0 +1,79 @@
+# compare
+
+* compare[meta header]
+* cpp20[meta cpp]
+
+## 概要
+
+`<compare>`ヘッダでは三方比較演算子`<=>`の戻り値型である比較カテゴリ型、及び一貫比較に関連するコンセプトや関数等を提供する。
+
+比較カテゴリ型を返す`<=>`を利用する際は本ヘッダのインクルードは必須である。
+
+
+## 比較カテゴリ型
+
+| 名前                                                      | 説明                           | 対応バージョン |
+| --------------------------------------------------------- | ------------------------------ | -------------- |
+| [`weak_equality`](/compare/weak_equality.md.nolink)       | 同値関係を表す比較カテゴリ型   | C++20          |
+| [`strong_equality`](/compare/strong_equality.md.nolink)   | 相当関係を表す比較カテゴリ型   | C++20          |
+| [`partial_ordering`](/compare/partial_ordering.md.nolink) | 半順序関係を表す比較カテゴリ型 | C++20          |
+| [`weak_ordering`](/compare/weak_ordering.md.nolink)       | 弱順序関係を表す比較カテゴリ型 | C++20          |
+| [`strong_ordering`](/compare/strong_ordering.md.nolink)   | 全順序関係を表す比較カテゴリ型 | C++20          |
+
+## 三方比較の結果型
+
+| 名前                                                                          | 説明                                                      | 対応バージョン |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------- | -------------- |
+| [`common_comparison_category`](/compare/common_comparison_category.md.nolink) | 指定された全ての型が参加する`<=>`の比較カテゴリ型を求める | C++20          |
+| [`compare_three_way_result`](/compare/compare_three_way_result.md.nolink)     | 指定された2つの型の`<=>`の比較カテゴリ型を求める          | C++20          |
+
+## コンセプト
+
+| 名前                                                                        | 説明                                                                                        | 対応バージョン |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | -------------- |
+| [`three_way_comparable`](/compare/three_way_comparable.md.nolink)           | 指定された型が`<=>`による比較が可能であり、結果が指定した比較カテゴリ型に変換可能である     | C++20          |
+| [`three_way_comparable_with`](/compare/three_way_comparable_with.md.nolink) | 指定された型の間で`<=>`による比較が可能であり、結果が指定した比較カテゴリ型に変換可能である | C++20          |
+
+
+## 名前付きの比較関数
+
+| 名前                                    | 説明                                            | 対応バージョン |
+| --------------------------------------- | ----------------------------------------------- | -------------- |
+| [`is_eq`](/compare/is_eq.md.nolink)     | `a <=> b`の比較結果が`a == b`であるかを取得する | C++20          |
+| [`is_neq`](/compare/is_neq.md.nolink)   | `a <=> b`の比較結果が`a != b`であるかを取得する | C++20          |
+| [`is_lt`](/compare/is_lt.md.nolink)     | `a <=> b`の比較結果が`a < b`であるかを取得する  | C++20          |
+| [`is_lteq`](/compare/is_lteq.md.nolink) | `a <=> b`の比較結果が`a <= b`であるかを取得する | C++20          |
+| [`is_gt`](/compare/is_gt.md.nolink)     | `a <=> b`の比較結果が`a > b`であるかを取得する  | C++20          |
+| [`is_gteq`](/compare/is_gteq.md.nolink) | `a <=> b`の比較結果が`a >= b`であるかを取得する | C++20          |
+
+
+## 比較関数オブジェクト
+
+| 名前                                                                                  | 説明                                                                                                    | 対応バージョン |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------- |
+| [`compare_three_way`](/compare/compare_three_way.md.nolink)                           | ポインタ比較時のみ実装定義の狭義全順序によって、その他の場合はデフォルトの三方比較を行う                | C++20          |
+| [`strong_order`](/compare/strong_order.md.nolink)                                     | 全順序による三方比較を行う（カスタマイゼーションポイントオブジェクト）                                  | C++20          |
+| [`weak_order`](/compare/weak_order.md.nolink)                                         | 弱順序による三方比較を行う（カスタマイゼーションポイントオブジェクト）                                  | C++20          |
+| [`partial_order`](/compare/partial_order.md.nolink)                                   | 半順序による三方比較を行う（カスタマイゼーションポイントオブジェクト）                                  | C++20          |
+| [`compare_strong_order_fallback`](/compare/compare_strong_order_fallback.md.nolink)   | `<=>`が無い場合でも`< ==`を用いて全順序による三方比較を行う（カスタマイゼーションポイントオブジェクト） | C++20          |
+| [`compare_weak_order_fallback`](/compare/compare_weak_order_fallback.md.nolink)       | `<=>`が無い場合でも`< ==`を用いて弱順序による三方比較を行う（カスタマイゼーションポイントオブジェクト） | C++20          |
+| [`compare_partial_order_fallback`](/compare/compare_partial_order_fallback.md.nolink) | `<=>`が無い場合でも`< ==`を用いて半順序による三方比較を行う（カスタマイゼーションポイントオブジェクト） | C++20          |
+
+## バージョン
+### 言語
+- C++20
+
+### 処理系
+- [Clang](/implementation.md#clang): 8.0
+- [GCC](/implementation.md#gcc): 10.1
+- [Visual C++](/implementation.md#visual_cpp): 2019
+
+## 関連項目
+
+- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+
+
+## 参照
+
+- [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
+- [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
