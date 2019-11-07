@@ -12,6 +12,12 @@ namespace std {
   wstring vformat(wstring_view fmt, wformat_args args); // (2)
 }
 ```
+* string[link /reference/string/basic_string.md]
+* wstring[link /reference/string/basic_string.md]
+* string_view[link /reference/string_view/basic_string_view.md]
+* wstring_view[link /reference/string_view/basic_string_view.md]
+* format_args[link /reference/string_view/basic_format_args.md]
+* wformat_args[link /reference/string_view/basic_format_args.md]
 
 ## 概要
 
@@ -21,7 +27,7 @@ namespace std {
 * (2): ワイド文字列版
 
 [`format`](format.md)のフォーマット引数を型消去したバージョンであり、内部的に使用される。文字列をフォーマットする目的で直接利用する必要はない。
-ただし、`format`のような関数を自作する場合は、`vformat`を使って実装すると便利である。
+ただし、[`format`](format.md)のような関数を自作する場合は、`vformat`を使って実装すると便利である。
 
 ## 戻り値
 

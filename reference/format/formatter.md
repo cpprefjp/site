@@ -35,6 +35,8 @@ struct formatter<basic_string<charT, traits, Allocator>, charT>;
 template<class traits>
 struct formatter<basic_string_view<charT, traits>, charT>;
 ```
+* basic_string[link /reference/string/basic_string.md]
+* basic_string_view[link /reference/string_view/basic_string_view.md]
 
 2. 第1テンプレート引数が`nullptr_t`, `void*`, `const void*`, `bool`, すべてのCV修飾されない標準の整数型, 拡張整数型, 浮動小数点数型であり、第2テンプレート引数が`charT`であるもの。
 

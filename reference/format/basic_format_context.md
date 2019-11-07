@@ -14,6 +14,7 @@ namespace std {
   using wformat_context = basic_format_context<unspecified, wchar_t>; // (3)
 }
 ```
+* unspecified[italic]
 
 ## 概要
 実際に渡されたフォーマット引数を含む、フォーマット実行中の状態を保持するクラス。
@@ -72,6 +73,8 @@ namespace std {
     }
   };
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
+* formatter[link /reference/format/formatter.md]
 
 ## バージョン
 ### 言語

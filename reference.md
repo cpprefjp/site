@@ -64,10 +64,11 @@
 | [`<memory>`](/reference/memory.md)           | メモリ                       |                |
 | [`<scoped_allocator>`](/reference/scoped_allocator.md) | スコープ付きアロケータ        | C++11          |
 | [`<memory_resource>`](/reference/memory_resource.md) | 多相アロケータ        | C++17          |
-| [`<chrono>`](/reference/chrono.md)           | 時間ユーティリティ        | C++11          |
-| [`<typeindex>`](/reference/typeindex.md)     | 型のインデックス          | C++11          |
+| [`<chrono>`](/reference/chrono.md)           | 時間ユーティリティ           | C++11          |
+| [`<typeindex>`](/reference/typeindex.md)     | 型のインデックス             | C++11          |
 | [`<execution>`](/reference/execution.md)     | 実行ポリシー                 | C++17          |
-| [`<charconv>`](/reference/charconv.md)     | 高速な文字列 ⇔ 数値変換        | C++17          |
+| [`<charconv>`](/reference/charconv.md)       | 高速な文字列 ⇔ 数値変換     | C++17          |
+| [`<format>`](/reference/format.md)           | 文字列フォーマット           | C++20          |
 
 
 ## <a id="strings" href="#strings">文字列ライブラリ</a>

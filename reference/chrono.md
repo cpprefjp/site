@@ -113,12 +113,13 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`last_spec`](chrono/last_spec.md.nolink) | 月の最終日、週の最終日など、文脈に応じた「最後」を表す型 (class) | C++20 |
-| [`day`](chrono/day.md.nolink) | 未規定の月の指定した日を表す型 (class) | C++20 |
+| [`day`](chrono/day.md) | 未規定の月の指定した日を表す型 (class) | C++20 |
 | [`month`](chrono/month.md) | 月単体の値を表す型 (class) | C++20 |
 | [`year`](chrono/year.md.nolink) | カレンダーの年を表す型 (class) | C++20 |
 | [`weekday`](chrono/weekday.md) | 週の日を表す型 (class) | C++20 |
 | [`weekday_indexed`](chrono/weekday_indexed.md.nolink) | N回目の指定した曜日を表す型 (class) | C++20 |
 | [`weekday_last`](chrono/weekday_last.md.nolink) | 未規定の月の最後の指定した曜日を表す型 (class) | C++20 |
+| [`month_day`](chrono/month_day.md.nolink) | 月と日を表す型 (class) | C++20 |
 | [`month_day_last`](chrono/month_day_last.md.nolink) | 指定した月の最終日を表す型 (class) | C++20 |
 | [`month_weekday`](chrono/month_weekday.md.nolink) | 月の指定したN番目の曜日を表す型 (class) | C++20 |
 | [`month_weekday_last`](chrono/month_weekday_last.md.nolink) | 月の最後の指定した曜日を表す型 (class) | C++20 |
@@ -205,32 +206,32 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`local_time_format`](chrono/local_time_format.md.nolink) | ローカル時間の文字列フォーマット用オブジェクトを生成する (function template) | C++20 |
-| `template<class Rep, class Period, class charT>`<br/> `struct formatter<chrono::duration<Rep, Period>, charT>;` | `duration`に対する`formatter`の特殊化 | C++20 |
-| `template<class Duration, class charT>`<br/> `struct formatter<chrono::sys_time<Duration>, charT>;` | `sys_time`に対する`formatter`の特殊化 | C++20 |
-| `template<class Duration, class charT>`<br/> `struct formatter<chrono::utc_time<Duration>, charT>;` | `utc_time`に対する`formatter`の特殊化 | C++20 |
-| `template<class Duration, class charT>`<br/> `struct formatter<chrono::tai_time<Duration>, charT>;` | `tai_time`に対する`formatter`の特殊化 | C++20 |
-| `template<class Duration, class charT>`<br/> `struct formatter<chrono::gps_time<Duration>, charT>;` | `gps_time`に対する`formatter`の特殊化 | C++20 |
-| `template<class Duration, class charT>`<br/> `struct formatter<chrono::file_time<Duration>, charT>;` | `file_time`に対する`formatter`の特殊化 | C++20 |
-| `template<class Duration, class charT>`<br/> `struct formatter<chrono::local_time<Duration>, charT>;` | `local_time`に対する`formatter`の特殊化 | C++20 |
-| `template<class Duration, class charT>` `struct formatter<chrono::local-time-format-t <Duration>, charT>;` | `local_time_format()`の戻り値型に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::month, charT>;` | `month`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::year, charT>;` | `year`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::weekday, charT>;` | `weekday`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::weekday_indexed, charT>;` | `weekday_indexed`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::weekday_last, charT>;` | `weekday_last`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::month_day, charT>;` | `month_day`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::month_day_last, charT>;` | `month_day_last`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::month_weekday, charT>;` | `month_weekday`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::month_weekday_last, charT>;` | `month_weekday_last`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::year_month, charT>;` | `year_month`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::year_month_day, charT>;` | `year_month_day`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::year_month_day_last, charT>;` | `year_month_day_last`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::year_month_weekday, charT>;` | `year_month_weekday`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::year_month_weekday_last, charT>;` | `year_month_weekday_last`に対する`formatter`の特殊化 | C++20 |
-| `template<class Rep, class Period, class charT>`<br/> `struct formatter<chrono::hh_mm_ss<duration<Rep, Period>>, charT>;` | `hh_mm_ss`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::sys_info, charT>;` | `sys_info`に対する`formatter`の特殊化 | C++20 |
-| `template<class charT>`<br/> `struct formatter<chrono::local_info, charT>;` | `local_info`に対する`formatter`の特殊化 | C++20 |
-| `template<class Duration, class TimeZonePtr, class charT>`<br/> `struct formatter<chrono::zoned_time<Duration, TimeZonePtr>, charT>;` | `zoned_time`に対する`formatter`の特殊化 | C++20 |
+| `template<class Rep, class Period, class charT>`<br/> `struct formatter<chrono::duration<Rep, Period>, charT>;` | `duration`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class Duration, class charT>`<br/> `struct formatter<chrono::sys_time<Duration>, charT>;` | `sys_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class Duration, class charT>`<br/> `struct formatter<chrono::utc_time<Duration>, charT>;` | `utc_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class Duration, class charT>`<br/> `struct formatter<chrono::tai_time<Duration>, charT>;` | `tai_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class Duration, class charT>`<br/> `struct formatter<chrono::gps_time<Duration>, charT>;` | `gps_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class Duration, class charT>`<br/> `struct formatter<chrono::file_time<Duration>, charT>;` | `file_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class Duration, class charT>`<br/> `struct formatter<chrono::local_time<Duration>, charT>;` | `local_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class Duration, class charT>` `struct formatter<chrono::local-time-format-t <Duration>, charT>;` | `local_time_format()`の戻り値型に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::month, charT>;` | `month`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::year, charT>;` | `year`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::weekday, charT>;` | `weekday`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::weekday_indexed, charT>;` | `weekday_indexed`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::weekday_last, charT>;` | `weekday_last`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::month_day, charT>;` | `month_day`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::month_day_last, charT>;` | `month_day_last`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::month_weekday, charT>;` | `month_weekday`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::month_weekday_last, charT>;` | `month_weekday_last`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::year_month, charT>;` | `year_month`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::year_month_day, charT>;` | `year_month_day`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::year_month_day_last, charT>;` | `year_month_day_last`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::year_month_weekday, charT>;` | `year_month_weekday`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::year_month_weekday_last, charT>;` | `year_month_weekday_last`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class Rep, class Period, class charT>`<br/> `struct formatter<chrono::hh_mm_ss<duration<Rep, Period>>, charT>;` | `hh_mm_ss`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::sys_info, charT>;` | `sys_info`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class charT>`<br/> `struct formatter<chrono::local_info, charT>;` | `local_info`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
+| `template<class Duration, class TimeZonePtr, class charT>`<br/> `struct formatter<chrono::zoned_time<Duration, TimeZonePtr>, charT>;` | `zoned_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
 
 
 ## 文字列解析
@@ -245,7 +246,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`last`](chrono/last.md.nolink) | 月の最終日、週の最終日など、文脈に応じた「最後」を表す定数 (variable) | C++20 |
+| [`last`](chrono/last_spec.md.nolink) | 月の最終日、週の最終日など、文脈に応じた「最後」を表す定数 (variable) | C++20 |
 
 ### 曜日
 

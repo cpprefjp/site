@@ -7,8 +7,9 @@
 * cpp20[meta cpp]
 
 ```cpp
-basic_format_arg<Context> get(size_t i) const noexcept;
+basic_format_arg<Context> get(std::size_t i) const noexcept;
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
 
 ## 概要
 
@@ -24,17 +25,18 @@ basic_format_arg<Context> get(size_t i) const noexcept;
 namespace std {
   template<class Context>
   class basic_format_args {
-    size_t size_;
+    std::size_t size_;
     const basic_format_arg<Context>* data_;
 
   public:
-    basic_format_arg<Context> get(size_t i) const noexcept
+    basic_format_arg<Context> get(std::size_t i) const noexcept
     {
       return i < size_ ? data_[i] : basic_format_arg<Context>();
     }
   };
 }
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
 
 ## バージョン
 ### 言語

@@ -11,9 +11,12 @@ namespace std {
   format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, string_view fmt, const Args&... args); // (1)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to(Out out, iter_difference_t<Out> n, wstring_view fmt, const Args&... args); // (2)
+  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wstring_view fmt, const Args&... args); // (2)
 }
 ```
+* string_view[link /reference/string_view/basic_string_view.md]
+* wstring_view[link /reference/string_view/basic_string_view.md]
+* format_to_n_result[link format_to_n_result.md]
 
 ## 概要
 
@@ -41,15 +44,6 @@ cout << buffer; // The answer is 42.
 
 * `out`は`OutputIterator<const charT&>`を満たす型の有効なオブジェクトである。
 * `Args`のそれぞれの引数`Ti`に対応するフォーマッター`formatter<Ti, charT>`が`Formatter`要件を満たす。
-
-## 効果
-
-以下のコードと等しい。
-
-```cpp
-using context = basic_format_context<Out, decltype(fmt)::value_type>;
-return vformat_to(out, fmt, {make_format_args<context>(args...)});
-```
 
 ## 戻り値
 

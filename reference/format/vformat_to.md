@@ -8,12 +8,16 @@
 ```cpp
 namespace std {
   template<class Out, class... Args>
-  Out format_to(Out out, string_view fmt, const Args&... args); // (1)
+  Out vformat_to(Out out, string_view fmt, format_args args); // (1)
 
   template<class Out, class... Args>
-  Out format_to(Out out, wstring_view fmt, const Args&... args); // (2)
+  Out vformat_to(Out out, wstring_view fmt, wformat_args args); // (2)
 }
 ```
+* string_view[link /reference/string_view/basic_string_view.md]
+* wstring_view[link /reference/string_view/basic_string_view.md]
+* format_args[link /reference/format/basic_format_args.md]
+* wformat_args[link /reference/format/basic_format_args.md]
 
 ## 概要
 
@@ -23,7 +27,7 @@ namespace std {
 * (2): ワイド文字列版
 
 [`format_to`](format_to.md)のフォーマット引数を型消去したバージョンであり、内部的に使用される。文字列をフォーマットする目的で直接利用する必要はない。
-ただし、`format_to`のような関数を自作する場合は、`vformat_to`を使って実装すると便利である。
+ただし、[`format_to`](format_to.md)のような関数を自作する場合は、`vformat_to`を使って実装すると便利である。
 
 ## テンプレートパラメータ制約
 

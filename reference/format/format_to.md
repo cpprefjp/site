@@ -14,6 +14,8 @@ namespace std {
   Out format_to(Out out, wstring_view fmt, const Args&... args); // (2)
 }
 ```
+* string_view[link /reference/string_view/basic_string_view.md]
+* wstring_view[link /reference/string_view/basic_string_view.md]
 
 ## 概要
 
@@ -49,6 +51,9 @@ format_to(back_inserter(buffer), "The answer is {}.", 42);
 using context = basic_format_context<Out, decltype(fmt)::value_type>;
 return vformat_to(out, fmt, {make_format_args<context>(args...)});
 ```
+* basic_format_context[link basic_format_context.md]
+* vformat_to[link vformat.md]
+* make_format_args[link make_format_args.md]
 
 ## 戻り値
 
@@ -97,6 +102,11 @@ wstring format_to(Out out, wstring_view fmt, const Args&... args)
   return vformat_to(out, fmt, {make_format_args<context>(args...)});
 }
 ```
+* string_view[link /reference/string_view/basic_string_view.md]
+* wstring_view[link /reference/string_view/basic_string_view.md]
+* basic_format_context[link basic_format_context.md]
+* vformat_to[link vformat.md]
+* make_format_args[link make_format_args.md]
 
 ## バージョン
 ### 言語

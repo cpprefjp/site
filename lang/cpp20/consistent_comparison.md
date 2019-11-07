@@ -336,7 +336,7 @@ public:
 #### default実装における<=>の合成
 
 `<=>`のdefault比較実装はメンバおよび基底クラスに`<=>`を持たない型があると暗黙deleteされる。しかし、これでは現在使われている多くの`<=>`を持たない型をメンバに持つ際にdefaultの`<=>`を提供できない。  
-しかしその場合にも、`<=>`のdefault宣言に戻り値型を指定した上で、`<=>`を持たないメンバ（基底）型が`< ==`の2つの演算子を実装していれば、それらを元にして`<=>`を合成した上でdefault実装を行うことができる。
+しかしその場合にも、`<=>`のdefault宣言に戻り値型を指定した上で`<=>`を持たないメンバ（基底）型が`< ==`の2つの演算子を実装していれば、それらを元にして`<=>`を合成した上でdefault実装を行うことができる。
 
 ```cpp
 //C++17以前に作成された<=>を持たない型
@@ -379,7 +379,7 @@ bool eq   = n1 ==  n2;  //ok
 |どれにも当てはまらない|定義されない|
 
 戻り値型に`auto`を指定した際は、共通比較カテゴリ型を`R`として1つ目（1番上）のように`<=>`が合成されている。  
-また、1つ目の条件により合成される際は、`static_cast`していることからも分かるように`a <=> b`の戻り値型が`R`に変換できない場合はコンパイルエラーとなる。
+また、1つ目の条件により合成される際は`a <=> b`の戻り値型が`R`に変換できない場合はコンパイルエラーとなる。
 
 先ほどの`newer`に対して明示的に書くと以下のようになる。
 ```cpp
@@ -409,9 +409,9 @@ struct newer {
 #### その他の比較演算子のdefault宣言
 `<=> ==`だけでなく、残りの比較演算子もdefault指定で宣言することができる。その有効な宣言は`<=> ==`に従う。
 
-そのようなdefault実装は、オーバーロード解決時に生成される式と同様の式を使って実装される（すなわち、`<=> ==`から実装される）。
+そのようなdefault実装はオーバーロード解決時に生成される式と同様の式を使って`<=> ==`から実装される。
 
-`<=> ==`演算子が使用可能ではない場合や、`<=>`の戻り値型が対象の演算子を生成できないか`==`の戻り値型が`bool`ではない場合は、そのdefault宣言は暗黙的に`delete`される（オーバーロード候補生成時はコンパイルエラーとなる場合でも単にdeleteされる）。
+`<=> ==`演算子が使用可能ではない場合や`<=>`の戻り値型が対象の演算子を生成できない場合、`==`の戻り値型が`bool`ではない場合はそのdefault宣言は暗黙的に`delete`される（オーバーロード候補生成時はコンパイルエラーとなる場合でも単にdeleteされる）。
 
 ```cpp
 struct C {
@@ -742,3 +742,7 @@ struct has_vector {
     - [N4476 Thoughts about Comparisons (R2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4476.pdf)
     - [P0221R2: Proposed wording for default comparisons, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0221r2.html)
     - [P0100R2 Comparison in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0100r2.html)
+    - [P0436R1 An Extensible Approach to Obtaining Selected Operators](http://wg21.link/P0436R1)
+    - [P0474R0 Comparison in C++: Basic Facilities](http://wg21.link/P0474R0)
+    - [P0481R0 T. Van Eerd. “Bravely Default](http://wg21.link/P0481R0)
+    - [P0432R0 D. Stone. “Implicit and Explicit Default Comparison Operators](http://wg21.link/P0432R0)

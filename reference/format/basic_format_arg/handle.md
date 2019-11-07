@@ -1,7 +1,8 @@
 # handle
 * format[meta header]
-* basic_format_arg[meta id-type]
+* class[meta id-type]
 * std[meta namespace]
+* basic_format_arg[meta class]
 * cpp20[meta cpp]
 
 ```cpp
@@ -18,7 +19,7 @@ namespace std {
 
 | 名前                         | 説明                                                     | 対応バージョン |
 |------------------------------|----------------------------------------------------------|----------------|
-| [`format`](handle/format.md) | ユーザー定義型に対応するフォーマット関数を実行する       | C++20          |
+| [`format`](handle/format.md.nolink) | ユーザー定義型に対応するフォーマット関数を実行する       | C++20          |
 
 ## 実装例
 
@@ -53,6 +54,8 @@ namespace std {
   };
 }
 ```
+* basic_format_arg[link /reference/format/basic_format_arg.md]
+* basic_format_parse_context[link /reference/format/basic_format_parse_context.md]
 
 ## バージョン
 ### 言語

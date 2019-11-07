@@ -61,7 +61,7 @@ namespace std::chrono {
     ```
     * floor[link time_point/floor.md]
     * days[link duration_aliases.md]
-    * format[link /reference/format/format.md.nolink]
+    * format[link /reference/format/format.md]
     * os.getloc()[link /reference/ios/ios_base/getloc.md]
     * year_month_day[link year_month_day.md.nolink]
     * hh_mm_ss[link hh_mm_ss.md.nolink]
