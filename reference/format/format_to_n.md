@@ -45,15 +45,6 @@ cout << buffer; // The answer is 42.
 * `out`は`OutputIterator<const charT&>`を満たす型の有効なオブジェクトである。
 * `Args`のそれぞれの引数`Ti`に対応するフォーマッター`formatter<Ti, charT>`が`Formatter`要件を満たす。
 
-## 効果
-
-以下のコードと等しい。
-
-```cpp
-using context = basic_format_context<Out, decltype(fmt)::value_type>;
-return vformat_to(out, fmt, {make_format_args<context>(args...)});
-```
-
 ## 戻り値
 
 `format_to_n_result{out + M, N}` (ただし、`N` = `formatted_size(fmt, args...)`、`M` = `min(max(n, 0), N)`)
