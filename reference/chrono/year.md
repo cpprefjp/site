@@ -80,7 +80,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](year/op_equal.md.nolink)         | 等値判定を行う | C++20 |
+| [`operator==`](year/op_equal.md.nolink)         | 等値比較を行う | C++20 |
 | [`operator<=>`](year/op_compare_3way.md.nolink) | 三方比較を行う | C++20 |
 
 
