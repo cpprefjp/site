@@ -202,7 +202,8 @@ struct eq_comparable {
 
 このような仕様になっているのは、`<=>`を用いた同値比較において発生しうるオーバーヘッドを回避するためである（詳細は後述の「検討された他の選択肢」を参照）。
 
-なお、`<=>`がdelete宣言されている場合でも`==`は暗黙的にdefault宣言されている。
+なお、`<=>`がdelete宣言されている場合でも`==`は暗黙的にdefault宣言されている。  
+また、`<=>`を宣言せずに`==`だけをdefault指定で宣言することもでき、その場合でも`== !=`の2つの同値比較が可能である。
 
 ```cpp
 struct C {
@@ -218,7 +219,41 @@ int main() {
 }
 ```
 
-また、`<=>`を宣言せずに`==`だけをdefault指定で宣言することもでき、その場合でも`== !=`の2つの同値比較が可能である。
+ただし、`default`な`<=>`を宣言したうえで異種型間比較のために`==`を定義してしまうと、暗黙に宣言されていた`default`の`==`は宣言されなくなってしまうので注意が必要である。
+
+```cpp
+enum class category {
+  A.
+  B,
+  C
+};
+
+struct enum_wrap {
+  category cat{};
+  
+  auto operator<=>(const enum_wrap&) const = default;
+  
+  //この宣言が必要
+  //bool operator==(const enum_wrap&) const = default;
+
+  auto operator<=>(const category other_cat) const noexcept {
+    return cat <=> other_cat;
+  }
+  
+  bool operator==(const category other_cat) const noexcept {
+    return cat == other_cat;
+  }
+};
+
+enum_wrap a = {category::A};
+enum_wrap b = {category::B};
+
+auto comp1 a <=> b;           //ok
+auto comp2 a <=> category::C; //ok
+bool eq1 = a == b;            //ng
+bool eq2 = a == category::C;  //ok
+```
+この場合でも、`default`の`==`を明示的に宣言することで利用可能となる。
 
 ### 演算子の導出とオーバーロード候補
 `<=>`及び`==`から導出される演算子は暗黙的に宣言され実装されているわけではなく、それらの演算子を呼び出した際のオーバーロード候補に、`<=> ==`を利用して生成した候補を入れることによって導出される。  
