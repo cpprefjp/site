@@ -29,42 +29,42 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](year/op_constructor.md) | コンストラクタ | C++20 |
+| [`(constructor)`](year/op_constructor.md.nolink) | コンストラクタ | C++20 |
 
 
 ### 算術演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](year/op_unary_plus.md)    | 正の符号       | C++20 |
-| [`operator-`](year/op_unary_minus.md)   | 負の符号 (符号反転する) | C++20 |
-| [`operator++`](year/op_increment.md)    | インクリメント | C++20 |
-| [`operator-=`](year/op_decrement.md)    | デクリメント   | C++20 |
-| [`operator+=`](year/op_plus_assign.md)  | 加算の複合代入 | C++20 |
-| [`operator-=`](year/op_minus_assign.md) | 減算の複合代入 | C++20 |
+| [`operator+`](year/op_unary_plus.md.nolink)    | 正の符号       | C++20 |
+| [`operator-`](year/op_unary_minus.md.nolink)   | 負の符号 (符号反転する) | C++20 |
+| [`operator++`](year/op_increment.md.nolink)    | インクリメント | C++20 |
+| [`operator-=`](year/op_decrement.md.nolink)    | デクリメント   | C++20 |
+| [`operator+=`](year/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
+| [`operator-=`](year/op_minus_assign.md.nolink) | 減算の複合代入 | C++20 |
 
 
 ### うるう年
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`is_leap`](year/is_leap.md.nolink) | うるう年かを判定する | C++20 |
+| [`is_leap`](year/is_leap.md.nolink.nolink) | うるう年かを判定する | C++20 |
 
 
 ### 変換
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator unsigned int`](year/op_unsigned_int.md) | `unsigned int`型への変換演算子 | C++20 |
+| [`operator unsigned int`](year/op_unsigned_int.md.nolink) | `unsigned int`型への変換演算子 | C++20 |
 
 
 ### 値の範囲
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](year/ok.md)   | 値が範囲`[1, 31]`に収まっているか判定する | C++20 |
-| [`min`](year/min.md) | とりうる最小値 | C++20 |
-| [`max`](year/max.md) | とりうる最大値 | C++20 |
+| [`ok`](year/ok.md.nolink)   | 値が範囲`[1, 31]`に収まっているか判定する | C++20 |
+| [`min`](year/min.md.nolink) | とりうる最小値 | C++20 |
+| [`max`](year/max.md.nolink) | とりうる最大値 | C++20 |
 
 
 ## 非メンバ関数
@@ -72,31 +72,31 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](year/op_plus.md)  | 加算 | C++20 |
-| [`operator-`](year/op_minus.md) | 減算 | C++20 |
+| [`operator+`](year/op_plus.md.nolink)  | 加算 | C++20 |
+| [`operator-`](year/op_minus.md.nolink) | 減算 | C++20 |
 
 
 ### 比較演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](year/op_equal.md)         | 等値判定を行う | C++20 |
-| [`operator<=>`](year/op_compare_3way.md) | 三方比較を行う | C++20 |
+| [`operator==`](year/op_equal.md.nolink)         | 等値判定を行う | C++20 |
+| [`operator<=>`](year/op_compare_3way.md.nolink) | 三方比較を行う | C++20 |
 
 
 ### 入出力
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](year/op_ostream.md)   | 出力ストリームに出力する | C++20 |
-| [`from_stream`](year/from_stream.md) | フォーマット指定して入力ストリームから入力する | C++20 |
+| [`operator<<`](year/op_ostream.md.nolink)   | 出力ストリームに出力する | C++20 |
+| [`from_stream`](year/from_stream.md.nolink) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
 ### リテラル
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`y`](year/op_y.md) | 日リテラル | C++20 |
+| [`y`](year/op_y.md.nolink) | 年リテラル | C++20 |
 
 
 ## 例
