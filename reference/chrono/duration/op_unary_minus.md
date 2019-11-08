@@ -11,10 +11,15 @@ constexpr common_type_t<duration> operator-() const;
 * common_type_t[link /reference/chrono/common_type.md]
 
 ## 概要
-負の`duration`を生成する
+負の符号。
+
+符号反転する。
 
 ## 戻り値
-`common_type_t<duration>(-rep_)`
+```cpp
+return common_type_t<duration>(-rep_);
+```
+
 ※ `rep_`は内部で保持している値。メンバ変数名は説明用のもの
 
 

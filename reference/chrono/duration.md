@@ -54,8 +54,8 @@ namespace chrono {
 
 | 名前                                             | 説明                     | 対応バージョン |
 |--------------------------------------------------|--------------------------|----------------|
-| [`operator+`](duration/op_unary_plus.md)       | 正の`duration`を生成する | C++11          |
-| [`operator-`](duration/op_unary_minus.md)      | 負の`duration`を生成する | C++11          |
+| [`operator+`](duration/op_unary_plus.md)       | 正の符号                 | C++11          |
+| [`operator-`](duration/op_unary_minus.md)      | 負の符号 (符号反転する)  | C++11          |
 | [`operator++`](duration/op_increment.md)       | 値をインクリメントする   | C++11          |
 | [`operator--`](duration/op_decrement.md)       | 値をデクリメントする     | C++11          |
 | [`operator+=`](duration/op_plus_assign.md)     | `+`の複合代入            | C++11          |
