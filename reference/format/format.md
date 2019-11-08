@@ -113,7 +113,7 @@ string message = format("The answer is {}.", 42); // => "The answer is 42."
 
 | type     | 意味       |
 |:-----------|:-----------|
-| p (省略可) | アドレスを出力する (接頭辞`0x`に続き`uintptr_t`にキャストして16桁の小文字16進数で出力) |
+| p (省略可) | アドレスを出力する (接頭辞`0x`に続き[`uintptr_t`](/reference/cstdint/uintptr_t.md)にキャストして16桁の小文字16進数で出力) |
 
 ### 例([P0645R10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)より)
 
