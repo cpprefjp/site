@@ -29,7 +29,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](year/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](year/op_constructor.md) | コンストラクタ | C++20 |
 
 
 ### 算術演算
@@ -55,7 +55,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator unsigned int`](year/op_unsigned_int.md.nolink) | `unsigned int`型への変換演算子 | C++20 |
+| [`operator int`](year/op_int.md) | `int`型への変換演算子 | C++20 |
 
 
 ### 値の範囲
