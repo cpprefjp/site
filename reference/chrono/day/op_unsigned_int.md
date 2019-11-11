@@ -1,7 +1,7 @@
 # operator unsigned int
 * chrono[meta header]
 * std::chrono[meta namespace]
-* dau[meta class]
+* day[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
