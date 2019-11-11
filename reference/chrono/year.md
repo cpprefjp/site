@@ -36,8 +36,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](year/op_unary_plus.md.nolink)    | 正の符号       | C++20 |
-| [`operator-`](year/op_unary_minus.md.nolink)   | 負の符号 (符号反転する) | C++20 |
+| [`operator+`](year/op_unary_plus.md)    | 正の符号       | C++20 |
+| [`operator-`](year/op_unary_minus.md)   | 負の符号 (符号反転する) | C++20 |
 | [`operator++`](year/op_increment.md.nolink)    | インクリメント | C++20 |
 | [`operator-=`](year/op_decrement.md.nolink)    | デクリメント   | C++20 |
 | [`operator+=`](year/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
