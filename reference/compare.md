@@ -9,6 +9,13 @@
 
 比較カテゴリ型を返す`<=>`を利用する際は本ヘッダのインクルードは必須である。
 
+## 代入可能性（*substitutability*）
+
+代入可能性とは、`a == b`ならば`f(a) == f(b)`となる性質の事である。なお、ここでの`f()`は内部状態や副作用を持たず入力のアクセス可能な要素のみによって出力が決まる関数で、`pure`な関数と呼ばれるものである。
+
+`strong_ordering`と`strong_equality`を返す`<=>`における同値比較がこの性質を満たしていることを表明する。これらのカテゴリを返す`<=>`を実装する際はこれらの性質を満たすように実装する必要がある。
+
+数学では、このような同値関係のことを特に相当関係と呼ぶ。また、相当関係による同値類（ある集合上で`a == b`となる要素を集めて出来る集合）を考えるとその要素は常にただ1つだけとなり、その意味から最も細かい同値関係とも呼ばれる。
 
 ## 比較カテゴリ型
 
@@ -16,9 +23,9 @@
 | --------------------------------------------------------- | ------------------------------ | -------------- |
 | [`weak_equality`](/compare/weak_equality.md.nolink)       | 同値関係を表す比較カテゴリ型   | C++20          |
 | [`strong_equality`](/compare/strong_equality.md.nolink)   | 相当関係を表す比較カテゴリ型   | C++20          |
-| [`partial_ordering`](/compare/partial_ordering.md.nolink) | 半順序関係を表す比較カテゴリ型 | C++20          |
-| [`weak_ordering`](/compare/weak_ordering.md.nolink)       | 弱順序関係を表す比較カテゴリ型 | C++20          |
-| [`strong_ordering`](/compare/strong_ordering.md.nolink)   | 全順序関係を表す比較カテゴリ型 | C++20          |
+| [`partial_ordering`](/compare/partial_ordering.md) | 半順序関係を表す比較カテゴリ型 | C++20          |
+| [`weak_ordering`](/compare/weak_ordering.md)       | 弱順序関係を表す比較カテゴリ型 | C++20          |
+| [`strong_ordering`](/compare/strong_ordering.md)   | 全順序関係を表す比較カテゴリ型 | C++20          |
 
 ## 三方比較の結果型
 
