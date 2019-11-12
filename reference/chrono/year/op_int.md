@@ -1,20 +1,20 @@
-# operator unsigned int
+# operator int
 * chrono[meta header]
 * std::chrono[meta namespace]
-* day[meta class]
+* year[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
-constexpr explicit operator unsigned int() const noexcept; // (1) C++20
+constexpr explicit operator int() const noexcept; // (1) C++20
 ```
 
 ## 概要
-`day`オブジェクトを`unsigned int`型に明示的に変換する。
+`year`オブジェクトを`int`型に明示的に変換する。
 
 
 ## 戻り値
-- (1) : メンバ変数として保持している`unsigned int`型としての日の値を返す
+- (1) : メンバ変数として保持している`int`型としての年の値を返す
 
 
 ## 例
@@ -26,9 +26,9 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  chrono::day d{1};
-  auto value = static_cast<unsigned int>(d);
-  assert(value == 1);
+  chrono::year y{2020};
+  auto value = static_cast<int>(y);
+  assert(value == 2020);
 }
 ```
 

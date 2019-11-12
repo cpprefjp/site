@@ -29,19 +29,19 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](year/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](year/op_constructor.md) | コンストラクタ | C++20 |
 
 
 ### 算術演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](year/op_unary_plus.md.nolink)    | 正の符号       | C++20 |
-| [`operator-`](year/op_unary_minus.md.nolink)   | 負の符号 (符号反転する) | C++20 |
-| [`operator++`](year/op_increment.md.nolink)    | インクリメント | C++20 |
-| [`operator-=`](year/op_decrement.md.nolink)    | デクリメント   | C++20 |
-| [`operator+=`](year/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
-| [`operator-=`](year/op_minus_assign.md.nolink) | 減算の複合代入 | C++20 |
+| [`operator+`](year/op_unary_plus.md)    | 正の符号       | C++20 |
+| [`operator-`](year/op_unary_minus.md)   | 負の符号 (符号反転する) | C++20 |
+| [`operator++`](year/op_increment.md)    | インクリメント | C++20 |
+| [`operator-=`](year/op_decrement.md)    | デクリメント   | C++20 |
+| [`operator+=`](year/op_plus_assign.md)  | 加算の複合代入 | C++20 |
+| [`operator-=`](year/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
 
 ### うるう年
@@ -55,16 +55,23 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator unsigned int`](year/op_unsigned_int.md.nolink) | `unsigned int`型への変換演算子 | C++20 |
+| [`operator int`](year/op_int.md) | `int`型への変換演算子 | C++20 |
 
 
 ### 値の範囲
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](year/ok.md.nolink)   | 値が範囲`[1, 31]`に収まっているか判定する | C++20 |
-| [`min`](year/min.md.nolink) | とりうる最小値 | C++20 |
-| [`max`](year/max.md.nolink) | とりうる最大値 | C++20 |
+| [`ok`](year/ok.md)   | 値が範囲`[min(), max()]`に収まっているか判定する | C++20 |
+
+
+## 静的メンバ関数
+### 値の範囲
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`min`](year/min.md) | 扱える最小値 | C++20 |
+| [`max`](year/max.md) | 扱える最大値 | C++20 |
 
 
 ## 非メンバ関数

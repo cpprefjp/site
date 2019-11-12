@@ -1,20 +1,30 @@
-# operator unsigned int
+# operator-=
 * chrono[meta header]
 * std::chrono[meta namespace]
-* day[meta class]
+* year[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
-constexpr explicit operator unsigned int() const noexcept; // (1) C++20
+constexpr year& operator-=(const years& y) noexcept; // (1) C++20
 ```
 
 ## 概要
-`day`オブジェクトを`unsigned int`型に明示的に変換する。
+`year`の値に対して減算の複合代入を行う。
+
+パラメータの型が、本クラスである`year`ではなく、年単位の経過時間を表す[`years`](/reference/chrono/duration_aliases.md)であることに注意。
+
+
+## 効果
+- (1) : `*this = *this - y`
 
 
 ## 戻り値
-- (1) : メンバ変数として保持している`unsigned int`型としての日の値を返す
+- (1) : `*this`
+
+
+## 例外
+投げない
 
 
 ## 例
@@ -26,9 +36,10 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  chrono::day d{1};
-  auto value = static_cast<unsigned int>(d);
-  assert(value == 1);
+  chrono::year y{2020};
+
+  y -= chrono::years{3};
+  assert(static_cast<int>(y) == 2017);
 }
 ```
 

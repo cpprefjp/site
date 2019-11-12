@@ -1,39 +1,40 @@
-# operator unsigned int
+# max
 * chrono[meta header]
 * std::chrono[meta namespace]
-* day[meta class]
+* year[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
-constexpr explicit operator unsigned int() const noexcept; // (1) C++20
+static constexpr year max() noexcept; // (1) C++20
 ```
 
 ## 概要
-`day`オブジェクトを`unsigned int`型に明示的に変換する。
+`year`クラスが扱える最大値を取得する。
 
 
 ## 戻り値
-- (1) : メンバ変数として保持している`unsigned int`型としての日の値を返す
+`year{32767}`
 
 
 ## 例
 ```cpp example
-#include <cassert>
+#include <iostream>
 #include <chrono>
 
 namespace chrono = std::chrono;
 
 int main()
 {
-  chrono::day d{1};
-  auto value = static_cast<unsigned int>(d);
-  assert(value == 1);
+  std::cout << chrono::years::max() << std::endl;
 }
 ```
+* max()[color ff0000]
+
 
 ### 出力
 ```
+32767
 ```
 
 ## バージョン
