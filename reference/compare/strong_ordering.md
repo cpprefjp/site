@@ -97,7 +97,7 @@ struct national {
 
 int main()
 {
-  national p1 = {1, "tarou", "yamada"}, p2 = {2, "suzuki", "hanako"};
+  national p1 = {1, "yamada", "tarou"}, p2 = {2, "hanako", "suzuki"};
 
   std::cout << std::boolalpha;
   std::cout << (p1 <  p2) << std::endl;
