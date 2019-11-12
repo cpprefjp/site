@@ -28,6 +28,7 @@
 | [`<version>`](/reference/version.md)                   | 実装依存のバージョン情報 | C++20          |
 | [`<new>`](/reference/new.md)                           | 動的メモリ管理           |                |
 | [`<typeinfo>`](/reference/typeinfo.md)                 | 型情報                   |                |
+| [`<source_location>`](/reference/source_location.md)   | ソースコード上の位置     | C++20          |
 | [`<contract>`](/reference/contract.md)                 | 契約違反のハンドリング   | C++23          |
 | [`<exception>`](/reference/exception.md)               | 例外ハンドリング         |                |
 | [`<initializer_list>`](/reference/initializer_list.md) | 初期化子リスト           | C++11          |
