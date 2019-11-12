@@ -10,6 +10,9 @@ weekday() = default;                                       // (1) C++20
 constexpr explicit weekday(unsigned int wd) noexcept;      // (2) C++20
 constexpr weekday(const sys_days& dp) noexcept;            // (3) C++20
 constexpr explicit weekday(const local_days& dp) noexcept; // (4) C++20
+
+weekday(const weekday&) = default;                         // (5) C++20
+weekday(weekday&&) = default;                              // (6) C++20
 ```
 * sys_days[link /reference/chrono/sys_time.md]
 * local_days[link /reference/chrono/local_time.md.nolink]
@@ -19,6 +22,8 @@ constexpr explicit weekday(const local_days& dp) noexcept; // (4) C++20
 - (2) : 曜日の整数値を指定して`weekday`オブジェクトを構築する
 - (3) : 指定されたシステム日付に対応する曜日から、`weekday`オブジェクトを構築する
 - (4) : 指定されたローカル日付に対応する曜日から、`weekday`オブジェクトを構築する
+- (5) : コピーコンストラクタ
+- (6) : ムーブコンストラクタ
 
 
 ## 効果

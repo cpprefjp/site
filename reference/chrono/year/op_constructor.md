@@ -8,11 +8,16 @@
 ```cpp
 year() = default;                        // (1) C++20
 constexpr explicit year(int y) noexcept; // (2) C++20
+
+year(const year&) = default;             // (3) C++20
+year(year&&) = default;                  // (4) C++20
 ```
 
 ## 概要
 - (1) : デフォルトコンストラクタ
 - (2) : 年を指定して`year`オブジェクトを構築する
+- (3) : コピーコンストラクタ
+- (4) : ムーブコンストラクタ
 
 
 ## 効果

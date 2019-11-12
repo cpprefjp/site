@@ -26,6 +26,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](weekday/op_constructor.md) | コンストラクタ | C++20 |
+| `weekday& operator=(const weekday&) = default;`<br/> `weekday& operator=(weekday&&) = default;` | 代入演算子 | C++20 |
 
 
 ### 算術演算

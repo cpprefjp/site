@@ -30,6 +30,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](month/op_constructor.md) | コンストラクタ | C++20 |
+| `month& operator=(const month&) = default;`<br/> `month& operator=(month&&) = default;` | 代入演算子 | C++20 |
 
 
 ### 算術演算

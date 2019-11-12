@@ -31,6 +31,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](day/op_constructor.md) | コンストラクタ | C++20 |
+| `day& operator=(const day&) = default;`<br/> `day& operator=(day&&) = default;` | 代入演算子 | C++20 |
 
 
 ### 算術演算

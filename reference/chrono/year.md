@@ -30,6 +30,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](year/op_constructor.md) | コンストラクタ | C++20 |
+| `year& operator=(const year&) = default;`<br/> `year& operator=(year&&) = default;` | 代入演算子 | C++20 |
 
 
 ### 算術演算

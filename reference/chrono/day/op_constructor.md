@@ -8,11 +8,16 @@
 ```cpp
 day() = default;                                 // (1) C++20
 constexpr explicit day(unsigned int d) noexcept; // (2) C++20
+
+day(const day&) = default;                       // (3) C++20
+day(day&&) = default;                            // (4) C++20
 ```
 
 ## 概要
 - (1) : デフォルトコンストラクタ
 - (2) : 日を指定して`day`オブジェクトを構築する
+- (3) : コピーコンストラクタ
+- (4) : ムーブコンストラクタ
 
 
 ## 効果

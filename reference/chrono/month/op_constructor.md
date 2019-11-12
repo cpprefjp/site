@@ -8,11 +8,16 @@
 ```cpp
 month() = default;                                 // (1) C++20
 constexpr explicit month(unsigned int m) noexcept; // (2) C++20
+
+month(const month&) = default;                     // (3) C++20
+month(month&&) = default;                          // (4) C++20
 ```
 
 ## 概要
 - (1) : デフォルトコンストラクタ
 - (2) : 月を指定して`month`オブジェクトを構築する
+- (3) : コピーコンストラクタ
+- (4) : ムーブコンストラクタ
 
 
 ## 効果
