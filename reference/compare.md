@@ -21,11 +21,11 @@
 
 | 名前                                                      | 説明                           | 対応バージョン |
 | --------------------------------------------------------- | ------------------------------ | -------------- |
-| [`weak_equality`](/compare/weak_equality.md.nolink)       | 同値関係を表す比較カテゴリ型   | C++20          |
-| [`strong_equality`](/compare/strong_equality.md.nolink)   | 相当関係を表す比較カテゴリ型   | C++20          |
-| [`partial_ordering`](/compare/partial_ordering.md) | 半順序関係を表す比較カテゴリ型 | C++20          |
-| [`weak_ordering`](/compare/weak_ordering.md)       | 弱順序関係を表す比較カテゴリ型 | C++20          |
-| [`strong_ordering`](/compare/strong_ordering.md)   | 全順序関係を表す比較カテゴリ型 | C++20          |
+| [`weak_equality`](compare/weak_equality.md.nolink)       | 同値関係を表す比較カテゴリ型   | C++20          |
+| [`strong_equality`](compare/strong_equality.md.nolink)   | 相当関係を表す比較カテゴリ型   | C++20          |
+| [`partial_ordering`](compare/partial_ordering.md) | 半順序関係を表す比較カテゴリ型 | C++20          |
+| [`weak_ordering`](compare/weak_ordering.md)       | 弱順序関係を表す比較カテゴリ型 | C++20          |
+| [`strong_ordering`](compare/strong_ordering.md)   | 全順序関係を表す比較カテゴリ型 | C++20          |
 
 ## 三方比較の結果型
 
