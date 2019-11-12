@@ -1,5 +1,5 @@
 # strong_ordering
-* strong_ordering[meta header]
+* compare[meta header]
 * class[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]

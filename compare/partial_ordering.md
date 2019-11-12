@@ -1,5 +1,5 @@
 # partial_ordering
-* partial_ordering[meta header]
+* compare[meta header]
 * class[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
@@ -162,4 +162,4 @@ true
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
 - [全順序集合と半順序集合](http://proofcafe.org/k27c8/math/math/relation/page/totally_orderd_relation_and_partial_orderd_relation/)
-  - サンプルコードの半順序関係の参考
+    - サンプルコードの半順序関係の参考
