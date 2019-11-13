@@ -46,12 +46,12 @@
 
 | 名前                                    | 説明                                            | 対応バージョン |
 | --------------------------------------- | ----------------------------------------------- | -------------- |
-| [`is_eq`](/compare/is_eq.md.nolink)     | `a <=> b`の比較結果が`a == b`であるかを取得する | C++20          |
-| [`is_neq`](/compare/is_neq.md.nolink)   | `a <=> b`の比較結果が`a != b`であるかを取得する | C++20          |
-| [`is_lt`](/compare/is_lt.md.nolink)     | `a <=> b`の比較結果が`a < b`であるかを取得する  | C++20          |
-| [`is_lteq`](/compare/is_lteq.md.nolink) | `a <=> b`の比較結果が`a <= b`であるかを取得する | C++20          |
-| [`is_gt`](/compare/is_gt.md.nolink)     | `a <=> b`の比較結果が`a > b`であるかを取得する  | C++20          |
-| [`is_gteq`](/compare/is_gteq.md.nolink) | `a <=> b`の比較結果が`a >= b`であるかを取得する | C++20          |
+| [`is_eq`](compare/named_comparison_functions.md)     | `a <=> b`の比較結果が`a == b`であるかを取得する | C++20          |
+| [`is_neq`](compare/named_comparison_functions.md)   | `a <=> b`の比較結果が`a != b`であるかを取得する | C++20          |
+| [`is_lt`](compare/named_comparison_functions.md)     | `a <=> b`の比較結果が`a < b`であるかを取得する  | C++20          |
+| [`is_lteq`](compare/named_comparison_functions.md) | `a <=> b`の比較結果が`a <= b`であるかを取得する | C++20          |
+| [`is_gt`](compare/named_comparison_functions.md)     | `a <=> b`の比較結果が`a > b`であるかを取得する  | C++20          |
+| [`is_gteq`](compare/named_comparison_functions.md) | `a <=> b`の比較結果が`a >= b`であるかを取得する | C++20          |
 
 
 ## 比較関数オブジェクト
