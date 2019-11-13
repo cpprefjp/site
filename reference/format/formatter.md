@@ -82,7 +82,7 @@ struct formatter<basic_string_view<charT, traits>, charT>;
 * `pc`を`PC`のlvalue
 * `fc`を`FC`のlvalue
 * `pc.begin()`は書式文字列中の対応する置換フィールドのオプションの先頭を指す
-* オプションが空なら、`pc.begin() == pc.end()`であり`*pc.begin() == '}'`である
+* オプションが空なら、`pc.begin() == pc.end()`または`*pc.begin() == '}'`である
 
 とする。
 
