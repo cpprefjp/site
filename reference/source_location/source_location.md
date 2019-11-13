@@ -23,7 +23,7 @@ namespace std {
   };
 }
 ```
-* uint_least32_t [link /reference/cstdint/uint_least32_t.md]
+* uint_least32_t[link /reference/cstdint/uint_least32_t.md]
 
 ## 概要
 `source_location` は、ソースコード上の位置を表す。
