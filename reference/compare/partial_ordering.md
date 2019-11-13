@@ -78,6 +78,7 @@ struct vector2d {
 
   auto operator<=>(const vector2d& that) const noexcept -> std::partial_ordering {
     //2つの要素の順序関係が一致する時にのみ順序を定義
+    //v1 = (a1, b1), v2 = (a2, b2) の2つのベクトルに対して、a1 < a2 かつ b1 < b2 の時に限り v1 < v2 と順序を定義する
 
     auto comp0 = vec[0] <=> that.vec[0];
     auto comp1 = vec[1] <=> that.vec[1];
