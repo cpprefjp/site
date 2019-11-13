@@ -17,7 +17,7 @@ namespace std {
 デフォルトコンストラクタのみ公開されていて、デフォルトコンストラクタで構築したオブジェクトは無効である。
 この型の有効なオブジェクトを直接構築することはできず、[`make_format_args`](make_format_args.md)を使う必要がある。
 
-保持している値へのアクセスは[`visit_format_arg`](make_format_args.md)を使う。
+保持している値へのアクセスは[`visit_format_arg`](visit_format_arg.md)を使う。
 
 このテンプレートを特殊化した場合、プログラムの動作は未定義である。
 
