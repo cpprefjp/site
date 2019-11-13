@@ -8,7 +8,7 @@
 ```cpp
 constexpr uint_least32_t line() const noexcept;
 ```
-* uint_least32_t [link /reference/cstdint/uint_least32_t.md]
+* uint_least32_t[link /reference/cstdint/uint_least32_t.md]
 
 ## 概要
 [`source_location`](../source_location.md)オブジェクトが保持する行番号を返す。
@@ -23,7 +23,7 @@ constexpr uint_least32_t line() const noexcept;
 ```cpp
 constexpr uint_least32_t line() const noexcept { return line_; }
 ```
-* uint_least32_t [link /reference/cstdint/uint_least32_t.md]
+* uint_least32_t[link /reference/cstdint/uint_least32_t.md]
 
 ## バージョン
 ### 言語
