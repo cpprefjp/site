@@ -80,8 +80,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](year/op_plus.md.nolink)  | 加算 | C++20 |
-| [`operator-`](year/op_minus.md.nolink) | 減算 | C++20 |
+| [`operator+`](year/op_plus.md)  | 加算 | C++20 |
+| [`operator-`](year/op_minus.md) | 減算 | C++20 |
 
 
 ### 比較演算
