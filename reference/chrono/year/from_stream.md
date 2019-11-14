@@ -10,19 +10,19 @@ namespace std::chrono {
   std::basic_istream<charT, traits>&
     from_stream(std::basic_istream<charT, traits>& is,
                 const charT* fmt,
-                day& d,
+                year& y,
                 basic_string<charT, traits, Alloc>* abbrev = nullptr,
                 minutes* offset = nullptr);   // (1) C++20
 }
 ```
 
 ## 概要
-フォーマット指定して入力ストリームから`day`オブジェクトに入力する。
+フォーマット指定して入力ストリームから`year`オブジェクトに入力する。
 
 
 ## 効果
-- パラメータ`fmt`で指定されたフォーマットフラグを使用して、入力を解析し、`d`に代入する
-- 有効な日の解析に失敗した場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)`)`が呼び出され、パラメータ`d`は変更されない
+- パラメータ`fmt`で指定されたフォーマットフラグを使用して、入力を解析し、`y`に代入する
+- 有効な年の解析に失敗した場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)`)`が呼び出され、パラメータ`y`は変更されない
 - タイムゾーンフォーマット`"%Z"`が指定され、解析が成功した場合、パラメータ`abbrev`が非ヌルである場合に`*abbrev`にタイムゾーン名が代入される
 - タイムゾーンとしてUTC時間からのオフセット時間 (日本なら`"+0900"`) を意味するフォーマット`"%z"`が指定され、解析が成功した場合、パラメータ`offset`が非ヌルである場合に`*offset`にその値が代入される
 
@@ -32,7 +32,7 @@ namespace std::chrono {
 
 
 ## 備考
-- この解析においては、日のフォーマットは、デフォルトで2桁ゼロ埋めの日を意味する`%d`が使用される。1日を表すために`01`および`1`のどちらでも入力できる。1桁の場合の、先頭のゼロは必須ではない。ゼロ埋めの桁数を指定する`%Nd`も指定できる
+- この解析においては、日のフォーマットは、デフォルトで4桁ゼロ埋めの日を意味する`%Y`が使用される。3桁の年として123年を表すために`0123`および`123`のどちらでも入力できる。4桁の未満の場合、ゼロ埋めは必須ではない。ゼロ埋めの桁数を指定する`%NY`も指定できる
 
 
 ## 例
@@ -47,19 +47,19 @@ int main()
 {
   {
     std::stringstream ss;
-    ss << "01";
+    ss << "2020";
 
-    chrono::day d;
-    chrono::from_stream(ss, d, "%d");
-    assert(d == chrono::day{1});
+    chrono::year y;
+    chrono::from_stream(ss, y, "%y");
+    assert(y == chrono::year{2020});
   }
   {
     std::stringstream ss;
-    ss << "1";
+    ss << "0123";
 
-    chrono::day d;
-    chrono::from_stream(ss, d, "%2d");
-    assert(d == chrono::day{1});
+    chrono::year y;
+    chrono::from_stream(ss, y, "%4Y");
+    assert(y == chrono::year{123});
   }
 }
 ```
