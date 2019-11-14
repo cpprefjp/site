@@ -96,6 +96,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | note                               | 注                           |
 | output iterator                    | 出力イテレータ               |
 | overload                           | オーバーロード               |
+| partial ordering                   | 半順序                       |
 | partition                          | 区分化                       |
 | polymorphic                        | 多相的                       |
 | power of N                         | Nの累乗                      |
@@ -112,6 +113,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | signed                             | 符号付き                     |
 | Spurious Failure                   | 見かけ上の失敗<br/> [https://togetter.com/li/430770](https://togetter.com/li/430770) |
 | strict weak ordering               | 狭義の弱順序                 |
+| strong ordering                    | 全順序                       |
 | synchronization                    | 同期                         |
 | total ordering relationalship      | 全順序関係                   |
 | trailing return type               | 後置戻り値型                 |
@@ -121,6 +123,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | unordered associative container(s) | 非順序連想コンテナ           |
 | unspecified                        | 未規定                       |
 | virtual base class                 | 仮想基底クラス               |
+| weak ordering                      | 弱順序                       |
 | well-formed                        | 適格                         |
 
 
