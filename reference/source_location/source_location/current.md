@@ -30,6 +30,8 @@ static consteval source_location current() noexcept;
 
 ## 戻り値
 
+この関数を呼び出した側のソースコード上の位置を表す[`source_location`](../source_location.md)オブジェクト。
+
 ## 事後条件
 [`file_name`](file_name.md)`()`、[`function_name`](function_name.md)`()`の値は有効なヌル終端バイト文字列(NTBS)である。
 
@@ -37,8 +39,44 @@ static consteval source_location current() noexcept;
 投げない。
 
 ## 備考
-* 波カッコまたは`=`による非静的データメンバ初期化の中で`current()`を使う場合、`current()`の値は初期値が宣言された場所ではなく、その初期化をするに至ったコンストラクタ呼び出しやアグリゲートを指す。
+* 波カッコまたは`=`による非静的データメンバ初期化の中で`current()`を使う場合、`current()`の値は初期値が宣言された場所ではなく、その初期化をするに至ったコンストラクタやアグリゲートを指す。
 * 引数のデフォルト値に`current()`を使う場合、`current()`の値はデフォルト値が宣言された場所ではなく、その関数の呼び出し側を表す。
+
+```cpp
+struct Type {
+  source_location loc_ = source_location::current(); // (1)
+
+  Type(source_location loc = source_location::current()) // (2)
+    : loc_(loc)
+  {
+  }
+
+  Type(int) // (3)
+  {
+  }
+};
+```
+
+- (1): 非静的データメンバの初期化に`current()`を使う
+- (2): 引数`loc`はデフォルトで呼び出し側の位置を表す。`loc_`の値はコンストラクタを呼び出した側の位置になる
+- (3): このコンストラクタには`loc_`の初期化子がないので、(1)で初期化され、`loc_`の値は(3)のコンストラクタの位置になる
+
+```cpp
+void func(source_location a = source_location::current()) {
+  source_location b = source_location::current(); // (1)
+}
+
+int main() {
+  f(); // (2)
+
+  source_location c = source_location::current();
+  f(c); // (3)
+}
+```
+
+- (1): ローカル変数; `b`の値は(1)の行を表す
+- (2): デフォルト引数を渡す; `func`の引数`a`の値は(2)の行を指す
+- (3): 明示的に引数を渡す; `func`の引数`a`の値は`c`と同じ
 
 ## 例
 ```cpp example
