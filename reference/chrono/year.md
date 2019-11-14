@@ -114,10 +114,30 @@ namespace std::chrono {
 
 ## 例
 ```cpp example
+#include <iostream>
+#include <chrono>
+
+namespace chrono = std::chrono;
+
+int main()
+{
+  // yearオブジェクトの構築、および年を進める
+  chrono::year y{2020};
+  y += chrono::years{3};
+  std::cout << y << std::endl;
+
+  // 年リテラルyを使用してyearオブジェクトを構築し、
+  // operator/を使用して日付を組み立てる
+  using namespace std::chrono_literals;
+  chrono::year_month_day date = 2020y/3/1;
+  std::cout << date << std::endl;
+}
 ```
 
 ### 出力
 ```
+2023
+2020/Mar/01
 ```
 
 ## バージョン
