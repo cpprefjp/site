@@ -222,7 +222,7 @@ int main() {
 
 ```cpp
 enum class category {
-  A.
+  A,
   B,
   C
 };
