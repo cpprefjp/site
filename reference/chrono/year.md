@@ -49,7 +49,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`is_leap`](year/is_leap.md.nolink.nolink) | うるう年かを判定する | C++20 |
+| [`is_leap`](year/is_leap.md) | うるう年かを判定する | C++20 |
 
 
 ### 変換
