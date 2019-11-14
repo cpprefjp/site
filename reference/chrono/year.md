@@ -133,6 +133,7 @@ int main()
   std::cout << date << std::endl;
 }
 ```
+* chrono::year_month_day[link year_month_day.md.nolink]
 
 ### 出力
 ```
