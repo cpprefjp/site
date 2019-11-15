@@ -31,8 +31,8 @@
 
 | 名前                                                                          | 説明                                                      | 対応バージョン |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------- | -------------- |
-| [`common_comparison_category`](/compare/common_comparison_category.md.nolink) | 指定された全ての型が参加する`<=>`の比較カテゴリ型を求める | C++20          |
-| [`compare_three_way_result`](/compare/compare_three_way_result.md.nolink)     | 指定された2つの型の`<=>`の比較カテゴリ型を求める          | C++20          |
+| [`common_comparison_category`](compare/common_comparison_category.md) | 指定された全ての型の共通比較カテゴリ型を求める | C++20          |
+| [`compare_three_way_result`](compare/compare_three_way_result.md.nolink)     | 指定された2つの型の`<=>`の比較カテゴリ型を求める          | C++20          |
 
 ## コンセプト
 
