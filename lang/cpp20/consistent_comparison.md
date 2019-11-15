@@ -93,9 +93,9 @@ bool is_equal = comp == 0.0;
 |:---|:---:|:---:|
 |[`weak_equality`](/reference/compare/weak_equality.md.nolink)|同値関係|`== !=`|
 |[`strong_equality`](/reference/compare/strong_equality.md.nolink)|相等関係：最も細かい同値関係|`== !=`|
-|[`partial_ordering`](/reference/compare/partial_ordering.md.nolink)|半順序|`== != < <= > >=`|
-|[`weak_ordering`](/reference/compare/weak_ordering.md.nolink)|弱順序|`== != < <= > >=`|
-|[`strong_ordering`](/reference/compare/strong_ordering.md.nolink)|全順序|`== != < <= > >=`|
+|[`partial_ordering`](/reference/compare/partial_ordering.md)|半順序|`== != < <= > >=`|
+|[`weak_ordering`](/reference/compare/weak_ordering.md)|弱順序|`== != < <= > >=`|
+|[`strong_ordering`](/reference/compare/strong_ordering.md)|全順序|`== != < <= > >=`|
 
 表にあるように5つの比較カテゴリ型はそれぞれ数学的な2項関係の一つと対応している。また、それによって（orderingでないカテゴリでは）、順序の4つの演算子が導出されない。
 
@@ -222,7 +222,7 @@ int main() {
 
 ```cpp
 enum class category {
-  A.
+  A,
   B,
   C
 };
@@ -738,9 +738,9 @@ struct has_vector {
     - 比較カテゴリ型
         - [`weak_equality`](/reference/compare/weak_equality.md.nolink)
         - [`strong_equality`](/reference/compare/strong_equality.md.nolink)
-        - [`partial_ordering`](/reference/compare/partial_ordering.md.nolink)
-        - [`weak_ordering`](/reference/compare/weak_ordering.md.nolink)
-        - [`strong_ordering`](/reference/compare/strong_ordering.md.nolink)
+        - [`partial_ordering`](/reference/compare/partial_ordering.md)
+        - [`weak_ordering`](/reference/compare/weak_ordering.md)
+        - [`strong_ordering`](/reference/compare/strong_ordering.md)
     - [`common_comparison_category`](/reference/compare/common_comparison_category.md.nolink)
     - 比較関数
         - [`strong_order`](/reference/compare/strong_order.md.nolink)

@@ -49,7 +49,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`is_leap`](year/is_leap.md.nolink.nolink) | うるう年かを判定する | C++20 |
+| [`is_leap`](year/is_leap.md) | うるう年かを判定する | C++20 |
 
 
 ### 変換
@@ -80,39 +80,65 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](year/op_plus.md.nolink)  | 加算 | C++20 |
-| [`operator-`](year/op_minus.md.nolink) | 減算 | C++20 |
+| [`operator+`](year/op_plus.md)  | 加算 | C++20 |
+| [`operator-`](year/op_minus.md) | 減算 | C++20 |
 
 
 ### 比較演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](year/op_equal.md.nolink)         | 等値比較を行う | C++20 |
-| [`operator<=>`](year/op_compare_3way.md.nolink) | 三方比較を行う | C++20 |
+| [`operator==`](year/op_equal.md)         | 等値比較を行う | C++20 |
+| `bool operator!=(const year&, const year&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++20 |
+| [`operator<=>`](year/op_compare_3way.md) | 三方比較を行う | C++20 |
+| `bool operator<(const year&, const year&) noexcept;` | 左辺が右辺より小さいかを判定する (`<=>`により使用可能) | C++20 |
+| `bool operator<=(const year&, const year&) noexcept;` | 左辺が右辺以下を判定する (`<=>`により使用可能) | C++20 |
+| `bool operator>(const year&, const year&) noexcept;` | 左辺が右辺より大きいかを判定する (`<=>`により使用可能) | C++20 |
+| `bool operator>=(const year&, const year&) noexcept;` | 左辺が右辺以上を判定する (`<=>`により使用可能) | C++20 |
 
 
 ### 入出力
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](year/op_ostream.md.nolink)   | 出力ストリームに出力する | C++20 |
-| [`from_stream`](year/from_stream.md.nolink) | フォーマット指定して入力ストリームから入力する | C++20 |
+| [`operator<<`](year/op_ostream.md)   | 出力ストリームに出力する | C++20 |
+| [`from_stream`](year/from_stream.md) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
 ### リテラル
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`y`](year/op_y.md.nolink) | 年リテラル | C++20 |
+| [`y`](year/op_y.md) | 年リテラル | C++20 |
 
 
 ## 例
 ```cpp example
+#include <iostream>
+#include <chrono>
+
+namespace chrono = std::chrono;
+
+int main()
+{
+  // yearオブジェクトの構築、および年を進める
+  chrono::year y{2020};
+  y += chrono::years{3};
+  std::cout << y << std::endl;
+
+  // 年リテラルyを使用してyearオブジェクトを構築し、
+  // operator/を使用して日付を組み立てる
+  using namespace std::chrono_literals;
+  chrono::year_month_day date = 2020y/3/1;
+  std::cout << date << std::endl;
+}
 ```
+* chrono::year_month_day[link year_month_day.md.nolink]
 
 ### 出力
 ```
+2023
+2020/Mar/01
 ```
 
 ## バージョン

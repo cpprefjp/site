@@ -165,7 +165,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`nonexistent_local_time`](chrono/nonexistent_local_time.md.nolink) | ローカル時間に一貫性がない (class) | C++20 |
+| [`nonexistent_local_time`](chrono/nonexistent_local_time.md.nolink) | 存在しないローカル時間をシステム時間に変換しようとした (class) | C++20 |
 | [`ambiguous_local_time`](chrono/ambiguous_local_time.md.nolink) | ローカル時間があいまい (class) | C++20 |
 
 
