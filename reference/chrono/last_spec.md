@@ -41,8 +41,8 @@ int main()
 ```
 * last[color ff0000]
 * sys_days[link sys_time.md]
-* 2020y[link years/op_y.md]
-* 2019y[link years/op_y.md]
+* 2020y[link year/op_y.md]
+* 2019y[link year/op_y.md]
 * February[link month_constants.md]
 * November[link month_constants.md]
 
