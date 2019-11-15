@@ -56,6 +56,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
+| [`local_t`](chrono/local_t.md.nolink) | ローカル時間を表す擬似的なクロック (class) | C++20 |
 | [`local_time`](chrono/local_time.md.nolink) | ローカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 | [`local_seconds`](chrono/local_time.md.nolink) | 秒単位でローカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 | [`local_days`](chrono/local_time.md.nolink) | 日単位でローカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
