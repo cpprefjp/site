@@ -24,7 +24,7 @@ namespace std {
 
 ## 効果
 
-`T2 = remove_reference_t<T>`、`U2 = remove_reference_t<U>`として、`const T2& t`、`const U2& u`のように定義されるオブジェクト`t, u`に対する`t <=> u`が使用可能であれば、`type = decltype(t <~> u)`のようにメンバ型`type`を定義する。
+`T2 = remove_reference_t<T>`、`U2 = remove_reference_t<U>`として、`const T2& t`、`const U2& u`のように定義されるオブジェクト`t, u`に対する`t <=> u`が使用可能であれば、`type = decltype(t <=> u)`のようにメンバ型`type`を定義する。
 
 それ以外の場合は、`type`は定義されない。
 
@@ -113,9 +113,9 @@ struct compare_three_way_result<T, U> {
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
+- [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
 
