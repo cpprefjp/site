@@ -103,7 +103,7 @@ struct compare_three_way_result {};
 template<typename T, typename U>
 requires simple_3way_compareble<T, U>
 struct compare_three_way_result<T, U> {
-  using tyoe = decltype(declval<const std::remove_reference_t<T>&>() <=> declval<const std::remove_reference_t<U>&>());
+  using type = decltype(declval<const std::remove_reference_t<T>&>() <=> declval<const std::remove_reference_t<U>&>());
 };
 
 ```
