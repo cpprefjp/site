@@ -71,7 +71,7 @@ int main() {
 * January[link /reference/chrono/month_constants.md]
 * sys_days[link /reference/chrono/sys_time.md]
 * local_days[link /reference/chrono/local_time.md.nolink]
-* 1970y[link /reference/chrono/year/op_y.md.nolink]
+* 1970y[link /reference/chrono/year/op_y.md]
 
 ### 出力
 ```

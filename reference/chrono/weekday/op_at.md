@@ -14,7 +14,7 @@ constexpr weekday_last
 ```
 * weekday_indexed[link /reference/chrono/weekday_indexed.md.nolink]
 * weekday_last[link /reference/chrono/weekday_last.md.nolink]
-* last_spec[link /reference/chrono/last_spec.md.nolink]
+* last_spec[link /reference/chrono/last_spec.md]
 
 ## 概要
 月のN回目の指定した曜日を取得する。
@@ -57,7 +57,7 @@ int main()
 ```
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
 * chrono::November[link /reference/chrono/month_constants.md]
-* last[link /reference/chrono/chrono/last_spec.md.nolink]
+* last[link /reference/chrono/chrono/last_spec.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
 * year_month_weekday_last[link /reference/chrono/year_month_weekday.md.nolink]
 * year_month_day[link /reference/chrono/year_month_day.md.nolink]

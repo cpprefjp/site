@@ -56,6 +56,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
+| [`local_t`](chrono/local_t.md.nolink) | ローカル時間を表す擬似的なクロック (class) | C++20 |
 | [`local_time`](chrono/local_time.md.nolink) | ローカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 | [`local_seconds`](chrono/local_time.md.nolink) | 秒単位でローカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 | [`local_days`](chrono/local_time.md.nolink) | 日単位でローカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
@@ -112,7 +113,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`last_spec`](chrono/last_spec.md.nolink) | 月の最終日、週の最終日など、文脈に応じた「最後」を表す型 (class) | C++20 |
+| [`last_spec`](chrono/last_spec.md) | 月の最終日、週の最終日など、文脈に応じた「最後」を表す型 (class) | C++20 |
 | [`day`](chrono/day.md) | 未規定の月の指定した日を表す型 (class) | C++20 |
 | [`month`](chrono/month.md) | 月単体の値を表す型 (class) | C++20 |
 | [`year`](chrono/year.md) | カレンダーの年を表す型 (class) | C++20 |
@@ -246,7 +247,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`last`](chrono/last_spec.md.nolink) | 月の最終日、週の最終日など、文脈に応じた「最後」を表す定数 (variable) | C++20 |
+| [`last`](chrono/last_spec.md) | 月の最終日、週の最終日など、文脈に応じた「最後」を表す定数 (variable) | C++20 |
 
 ### 曜日
 
