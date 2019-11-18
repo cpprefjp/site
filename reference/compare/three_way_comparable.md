@@ -1,5 +1,5 @@
 # three_way_comparable
-* concepts[meta header]
+* compare[meta header]
 * std[meta namespace]
 * concept[meta id-type]
 * cpp20[meta cpp]
