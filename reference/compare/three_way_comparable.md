@@ -118,7 +118,7 @@ concept three_way_comparable_with =
     - `Cat`が`strong_ordering`に変換可能ならば
         - `T, U`は`totally_orderd_with`のモデルである
 
-- `partially-ordered-with` : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`について、3つ組`T, U, Cat`は`partially-ordered-with`のモデルである
+- `partially-ordered-with` : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`について次の条件を満たす場合に限って、3つ組`T, U, Cat`は`partially-ordered-with`のモデルである
     - `t < u, t <= u, t > u, t >= u, u < t, u <= t, u > t, u >= t`が全て同じ定義域を持つ
     - `bool(t < u) == bool(u > t)`が`true`
     - `bool(u < t) == bool(t > u)`が`true`
