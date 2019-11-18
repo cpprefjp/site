@@ -59,6 +59,13 @@ export module foo;                // fooのモジュールインターフェー�
 module foo;                       // fooのモジュール実装ユニット
 module foo.bar;                   // foo.barのモジュール実装ユニット
 export module bar [[deprecated]]; // 属性
+
+module foo . bar;              // OK. 'foo.bar'と等しい
+module foo . /*comment*/ bar;  // OK. 'foo.bar'と等しい
+module foo . . bar;            // NG. ドットの間に識別子がない
+module _Foo.bar                // NG. 識別子'_Foo'は予約されている
+module foo__bar                // NG. 識別子'foo__bar'は予約されている
+module foo.__bar.baz           // NG. 識別子'__bar'は予約されている
 ```
 
 #### プライベートモジュールフラグメント
