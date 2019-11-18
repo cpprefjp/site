@@ -16,7 +16,7 @@ namespace std {
 ```
 
 ## 概要
-`three_way_comparable`、`three_way_comparable_with`は、指定された型`T, U`が`<=>`による三方比較を使用可能であり、戻り値型が指定した型`Cat`に変換可能であることを表すコンセプトである。
+`three_way_comparable`及び`three_way_comparable_with`は、指定された型`T`もしくは`T, U`の間で`<=>`による三方比較を使用可能であり、その戻り値型が指定した比較カテゴリ型`Cat`に変換可能であることを表すコンセプトである。
 
 
 ## 要件
@@ -28,7 +28,7 @@ namespace std {
 template<class T, class Cat>
 concept compares-as = same_as<common_comparison_category_t<T, Cat>, Cat>;
 
-//順序付けの4種×2方向の比較演算子が使用可能であり、戻り値型がBooleanコンセプトを満たす
+//順序付けの4種×2方向の比較演算子が使用可能であり、戻り値型がbooleanコンセプトを満たす
 template<class T, class U>
 concept partially-ordered-with =
   requires(const remove_reference_t<T>& t, const remove_reference_t<U>& u) {
