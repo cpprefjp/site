@@ -89,41 +89,41 @@ concept three_way_comparable_with =
 ## モデル
 
 - (1) : `const remove_­reference_­t<T>`の左辺値`a, b`について次の条件を満たす場合に限って、2つ組`T, Cat`は`three_way_comparable`のモデルである
-  - `(a <=> b == 0) == bool(a == b)`が`true`であること
-  - `(a <=> b != 0) == bool(a != b)`が`true`であること
-  - `((a <=> b) <=> 0) == (0 <=> (a <=> b))`が等値
-  - `Cat`が`strong_­equality`に変換可能ならば
-    - `T`は`equality_­comparable`のモデルである
-  - `Cat`が`partial_­ordering`に変換可能ならば
-    - `(a <=> b < 0) == bool(a < b)`が`true`であること
-    - `(a <=> b > 0) == bool(a > b)`が`true`であること
-    - `(a <=> b <= 0) == bool(a <= b)`が`true`であること
-    - `(a <=> b >= 0) == bool(a >= b)`が`true`であること
-  - `Cat`が`strong_­ordering`に変換可能ならば
-    - `T`は`totally_­orderd`のモデルである
+    - `(a <=> b == 0) == bool(a == b)`が`true`であること
+    - `(a <=> b != 0) == bool(a != b)`が`true`であること
+    - `((a <=> b) <=> 0) == (0 <=> (a <=> b))`が等値
+    - `Cat`が`strong_­equality`に変換可能ならば
+        - `T`は`equality_­comparable`のモデルである
+    - `Cat`が`partial_­ordering`に変換可能ならば
+        - `(a <=> b < 0) == bool(a < b)`が`true`であること
+        - `(a <=> b > 0) == bool(a > b)`が`true`であること
+        - `(a <=> b <= 0) == bool(a <= b)`が`true`であること
+        - `(a <=> b >= 0) == bool(a >= b)`が`true`であること
+    - `Cat`が`strong_­ordering`に変換可能ならば
+        - `T`は`totally_­orderd`のモデルである
   
 - (2) : `const remove_­reference_­t<T>, const remove_­reference_­t<U>`の左辺値`t, u`、`C = common_­reference_­t<const remove_­reference_­t<T>&, const remove_­reference_­t<U>&>`について次の条件を満たす場合に限って、3つ組`T, U, Cat`は`three_way_comparable_with`のモデルである
-  - `t <=> u`と`u <=> t`が同じ定義域を持つ（それぞれの引数型がその順番によらず同一である）
-  - `((t <=> u) <=> 0) == (0 <=> (t <=> u))`が等値
-  - `(t <=> u == 0) == bool(t == u)`が`true`であること
-  - `(t <=> u != 0) == bool(t != u)`が`true`であること
-  - `Cat(t <=> u) == Cat(C(t) <=> C(u))`が`true`であること
-  - `Cat`が`strong_­equality`に変換可能ならば
-    - `T, U`は`equality_­comparable_with`のモデルである
-  - `Cat`が`partial_­ordering`に変換可能ならば
-    - `(t <=> u < 0) == bool(t < u)`が`true`であること
-    - `(t <=> u > 0) == bool(t > u)`が`true`であること
-    - `(t <=> u <= 0) == bool(t <= u)`が`true`であること
-    - `(t <=> u >= 0) == bool(t >= u)`が`true`であること
-  - `Cat`が`strong_­ordering`に変換可能ならば
-    - `T, U`は`totally_­orderd_with`のモデルである
+    - `t <=> u`と`u <=> t`が同じ定義域を持つ（それぞれの引数型がその順番によらず同一である）
+    - `((t <=> u) <=> 0) == (0 <=> (t <=> u))`が等値
+    - `(t <=> u == 0) == bool(t == u)`が`true`であること
+    - `(t <=> u != 0) == bool(t != u)`が`true`であること
+    - `Cat(t <=> u) == Cat(C(t) <=> C(u))`が`true`であること
+    - `Cat`が`strong_­equality`に変換可能ならば
+        - `T, U`は`equality_­comparable_with`のモデルである
+    - `Cat`が`partial_­ordering`に変換可能ならば
+        - `(t <=> u < 0) == bool(t < u)`が`true`であること
+        - `(t <=> u > 0) == bool(t > u)`が`true`であること
+        - `(t <=> u <= 0) == bool(t <= u)`が`true`であること
+        - `(t <=> u >= 0) == bool(t >= u)`が`true`であること
+    - `Cat`が`strong_­ordering`に変換可能ならば
+        - `T, U`は`totally_­orderd_with`のモデルである
 
 - `partially-ordered-with` : `const remove_­reference_­t<T>, const remove_­reference_­t<U>`の左辺値`t, u`について、3つ組`T, U, Cat`は`partially-ordered-with`のモデルである
-  - `t < u, t <= u, t > u, t >= u, u < t, u <= t, u > t, u >= t`が全て同じ定義域を持つ
-  - `bool(t < u) == bool(u > t)`が`true`
-  - `bool(u < t) == bool(t > u)`が`true`
-  - `bool(t <= u) == bool(u >= t)`が`true`
-  - `bool(u <= t) == bool(t >= u)`が`true`
+    - `t < u, t <= u, t > u, t >= u, u < t, u <= t, u > t, u >= t`が全て同じ定義域を持つ
+    - `bool(t < u) == bool(u > t)`が`true`
+    - `bool(u < t) == bool(t > u)`が`true`
+    - `bool(t <= u) == bool(u >= t)`が`true`
+    - `bool(u <= t) == bool(t >= u)`が`true`
 
 
 ## バージョン
