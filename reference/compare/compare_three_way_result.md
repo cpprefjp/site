@@ -93,7 +93,7 @@ false
 
 ```cpp
 template<typename T, typename U = T>
-concept simple_3way_compareble = requires(remove_reference_t<T> t, const remove_reference_t<U> u) {
+concept simple_3way_compareble = requires(const std::remove_reference_t<T>& t, const std::remove_reference_t<U>& u) {
   t <=> u;
 };
 
