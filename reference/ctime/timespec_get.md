@@ -1,5 +1,5 @@
 # timespec_get
-* timespec_get[meta header]
+* ctime[meta header]
 * std[meta namespace]
 * function[meta id-type]
 * cpp17[meta cpp]
