@@ -12,11 +12,18 @@ namespace std {
 
   template<class Out, class... Args>
   format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wstring_view fmt, const Args&... args); // (2)
+
+  template<class Out, class... Args>
+  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, string_view fmt, const Args&... args); // (3)
+
+  template<class Out, class... Args>
+  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, wstring_view fmt, const Args&... args); // (4)
 }
 ```
 * string_view[link /reference/string_view/basic_string_view.md]
 * wstring_view[link /reference/string_view/basic_string_view.md]
 * format_to_n_result[link format_to_n_result.md]
+* locale[link /reference/locale/locale.md]
 
 ## 概要
 
@@ -24,6 +31,8 @@ namespace std {
 
 * (1): マルチバイト文字列版
 * (2): ワイド文字列版
+* (3): マルチバイト文字列版 (ロケール指定あり)
+* (4): ワイド文字列版 (ロケール指定あり)
 
 ```cpp
 char buffer[256];
@@ -47,7 +56,7 @@ cout << buffer; // The answer is 42.
 
 ## 戻り値
 
-`format_to_n_result{out + M, N}` (ただし、`N` = `formatted_size(fmt, args...)`、`M` = `min(max(n, 0), N)`)
+`format_to_n_result{out + M, N}` (ただし、`N` = `formatted_size(fmt, args...)` または `formatted_size(loc, fmt, args...)`、`M` = `min(max(n, 0), N)`)
 
 ## 例外
 
@@ -89,4 +98,5 @@ The answer is 42.
 
 ## 参照
 
+* [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)

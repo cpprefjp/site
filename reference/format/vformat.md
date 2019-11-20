@@ -10,6 +10,10 @@ namespace std {
   string vformat(string_view fmt, format_args args); // (1)
 
   wstring vformat(wstring_view fmt, wformat_args args); // (2)
+
+  string vformat(const locale& loc, string_view fmt, format_args args); // (3)
+
+  wstring vformat(const locale& loc, wstring_view fmt, wformat_args args); // (4)
 }
 ```
 * string[link /reference/string/basic_string.md]
@@ -18,6 +22,7 @@ namespace std {
 * wstring_view[link /reference/string_view/basic_string_view.md]
 * format_args[link /reference/format/basic_format_args.md]
 * wformat_args[link /reference/format/basic_format_args.md]
+* locale[link /reference/locale/locale.md]
 
 ## 概要
 
@@ -25,6 +30,8 @@ namespace std {
 
 * (1): マルチバイト文字列版
 * (2): ワイド文字列版
+* (3): マルチバイト文字列版 (ロケール指定あり)
+* (4): ワイド文字列版 (ロケール指定あり)
 
 [`format`](format.md)のフォーマット引数を型消去したバージョンであり、内部的に使用される。文字列をフォーマットする目的で直接利用する必要はない。
 ただし、[`format`](format.md)のような関数を自作する場合は、`vformat`を使って実装すると便利である。
@@ -49,4 +56,5 @@ namespace std {
 
 ## 参照
 
+* [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)

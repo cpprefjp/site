@@ -35,6 +35,7 @@ namespace std {
 | [`arg`](basic_format_context/arg.md) | フォーマット引数を得る                           | C++20          |
 | `out`                                | 出力イテレーターを得る                           | C++20          |
 | `advance_to`                         | 出力イテレーターを指定したイテレーターに設定する | C++20          |
+| `locale`                             | ロケールを得る                                | C++20          |
 
 ## メンバ型
 
@@ -61,6 +62,8 @@ namespace std {
     {
       return args_.get(id);
     }
+
+    std::locale locale();
 
     iterator out();
     {

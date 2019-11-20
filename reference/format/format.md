@@ -11,18 +11,27 @@ string format(string_view fmt, const Args&... args); // (1)
 
 template<class... Args>
 wstring format(wstring_view fmt, const Args&... args); // (2)
+
+template<class... Args>
+string format(const locale& loc, string_view fmt, const Args&... args); // (3)
+
+template<class... Args>
+wstring format(const locale& loc, wstring_view fmt, const Args&... args); // (4)
 ```
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
 * string_view[link /reference/string_view/basic_string_view.md]
 * wstring_view[link /reference/string_view/basic_string_view.md]
+* locale[link /reference/locale/locale.md]
 
 ## 概要
 
-書式文字列`fmt`に従ったフォーマットで`args...`の文字列表現を文字列オブジェクトで返す。
+書式文字列`fmt`に従ったフォーマットで`args...`の文字列表現を文字列オブジェクトで返す。ロケール`loc`が指定された場合は、ロケール依存のフォーマットにおいて使用される。
 
 * (1): マルチバイト文字列版
 * (2): ワイド文字列版
+* (3): マルチバイト文字列版 (ロケール指定あり)
+* (4): ワイド文字列版 (ロケール指定あり)
 
 ```cpp
 string message = format("The answer is {}.", 42); // => "The answer is 42."
@@ -166,6 +175,8 @@ format("{:n}", 1234);                  // "1,234" (ロケールによる)
 ```cpp
 return vformat(fmt, {make_format_args(args...)});  // (1)
 return vformat(fmt, {make_wformat_args(args...)}); // (2)
+return vformat(loc, fmt, {make_format_args(args...)}); // (3)
+return vformat(loc, fmt, {make_wformat_args(args...)}); // (4)
 ```
 * vformat[link vformat.md]
 * make_format_args[link make_format_args.md]
@@ -212,6 +223,18 @@ wstring format(wstring_view fmt, const Args&... args)
 {
   return vformat(fmt, {make_wformat_args(args...)});
 }
+
+template<class... Args>
+string format(const locale& loc, string_view fmt, const Args&... args)
+{
+  return vformat(loc, fmt, {make_format_args(args...)});
+}
+
+template<class... Args>
+wstring format(const locale& loc, wstring_view fmt, const Args&... args)
+{
+  return vformat(loc, fmt, {make_wformat_args(args...)});
+}
 ```
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
@@ -220,6 +243,7 @@ wstring format(wstring_view fmt, const Args&... args)
 * vformat[link vformat.md]
 * make_format_args[link make_format_args.md]
 * make_wformat_args[link make_format_args.md]
+* locale[link /reference/locale/locale.md]
 
 ## バージョン
 ### 言語
@@ -233,4 +257,5 @@ wstring format(wstring_view fmt, const Args&... args)
 
 ## 参照
 
+* [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)

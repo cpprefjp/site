@@ -12,10 +12,17 @@ namespace std {
 
   template<class Out, class... Args>
   Out format_to(Out out, wstring_view fmt, const Args&... args); // (2)
+
+  template<class Out, class... Args>
+  Out format_to(Out out, const locale& loc, string_view fmt, const Args&... args); // (3)
+
+  template<class Out, class... Args>
+  Out format_to(Out out, const locale& loc, wstring_view fmt, const Args&... args); // (4)
 }
 ```
 * string_view[link /reference/string_view/basic_string_view.md]
 * wstring_view[link /reference/string_view/basic_string_view.md]
+* locale[link /reference/locale/locale.md]
 
 ## 概要
 
@@ -23,6 +30,8 @@ namespace std {
 
 * (1): マルチバイト文字列版
 * (2): ワイド文字列版
+* (3): マルチバイト文字列版 (ロケール指定あり)
+* (4): ワイド文字列版 (ロケール指定あり)
 
 ```cpp
 string buffer;
@@ -33,15 +42,15 @@ format_to(back_inserter(buffer), "The answer is {}.", 42);
 
 `Out`は以下の制約を満たす。
 
-* (1): `OutputIterator<const char&>`
-* (2): `OutputIterator<const wchar_t&>`
+* (1),(3): `OutputIterator<const char&>`
+* (2),(4): `OutputIterator<const wchar_t&>`
 
 ## 事前条件
 
 `out`は以下の制約を満たす型の有効なオブジェクトである。
 
-* (1): `OutputIterator<const char&>`
-* (2): `OutputIterator<const wchar_t&>`
+* (1),(3): `OutputIterator<const char&>`
+* (2),(4): `OutputIterator<const wchar_t&>`
 
 ## 効果
 
@@ -49,7 +58,10 @@ format_to(back_inserter(buffer), "The answer is {}.", 42);
 
 ```cpp
 using context = basic_format_context<Out, decltype(fmt)::value_type>;
+// (1), (2)
 return vformat_to(out, fmt, {make_format_args<context>(args...)});
+// (3), (4)
+return vformat_to(out, loc, fmt, {make_format_args<context>(args...)});
 ```
 * basic_format_context[link basic_format_context.md]
 * vformat_to[link vformat.md]
@@ -57,7 +69,7 @@ return vformat_to(out, fmt, {make_format_args<context>(args...)});
 
 ## 戻り値
 
-`out + N` (ただし、`N`=`formatted_size(fmt, args...)`)
+`out + N` (ただし、`N`=`formatted_size(fmt, args...)` または `formatted_size(loc, fmt, args...)`)
 
 ## 例外
 
@@ -101,12 +113,27 @@ wstring format_to(Out out, wstring_view fmt, const Args&... args)
   using context = basic_format_context<Out, decltype(fmt)::value_type>;
   return vformat_to(out, fmt, {make_format_args<context>(args...)});
 }
+
+template<class Out, class... Args>
+string format_to(Out out, const locale& loc, string_view fmt, const Args&... args)
+{
+  using context = basic_format_context<Out, decltype(fmt)::value_type>;
+  return vformat_to(out, loc, fmt, {make_format_args<context>(args...)});
+}
+
+template<class Out, class... Args>
+wstring format_to(Out out, const locale& loc, wstring_view fmt, const Args&... args)
+{
+  using context = basic_format_context<Out, decltype(fmt)::value_type>;
+  return vformat_to(out, loc, fmt, {make_format_args<context>(args...)});
+}
 ```
 * string_view[link /reference/string_view/basic_string_view.md]
 * wstring_view[link /reference/string_view/basic_string_view.md]
 * basic_format_context[link basic_format_context.md]
 * vformat_to[link vformat.md]
 * make_format_args[link make_format_args.md]
+* locale[link /reference/locale/locale.md]
 
 ## バージョン
 ### 言語
@@ -120,4 +147,5 @@ wstring format_to(Out out, wstring_view fmt, const Args&... args)
 
 ## 参照
 
+* [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)

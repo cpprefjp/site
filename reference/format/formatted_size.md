@@ -12,10 +12,17 @@ namespace std {
 
   template<class... Args>
   size_t formatted_size(wstring_view fmt, const Args&... args); // (2)
+
+  template<class... Args>
+  size_t formatted_size(const locale& loc, string_view fmt, const Args&... args); // (3)
+
+  template<class... Args>
+  size_t formatted_size(const locale& loc, wstring_view fmt, const Args&... args); // (4)
 }
 ```
 * string_view[link /reference/string_view/basic_string_view.md]
 * wstring_view[link /reference/string_view/basic_string_view.md]
+* locale[link /reference/locale/locale.md]
 
 ## 概要
 
@@ -23,6 +30,8 @@ namespace std {
 
 * (1): マルチバイト文字列版
 * (2): ワイド文字列版
+* (3): マルチバイト文字列版 (ロケール指定あり)
+* (4): ワイド文字列版 (ロケール指定あり)
 
 ```cpp
 formatted_size("The answer is {}.", 42); // => 17
@@ -74,4 +83,5 @@ int main()
 
 ## 参照
 
+* [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
