@@ -78,7 +78,7 @@ namespace std {
 
     variant<monostate, bool, charT,
             int, unsigned int, long long int, unsigned long long int,
-            double, long double,
+            float, double, long double,
             const charT*, basic_string_view<charT>,
             const void*, handle> value;
 
@@ -119,14 +119,12 @@ namespace std {
 * (a):
     * `T`が`bool`または`charT`なら、`value`を`v`で初期化
     * または、`T`が`char`かつ`charT`が`wchar_t`なら、`value`を`static_cast<wchar_t>(v)`で初期化
-    * または、`T`が符号つき整数型かつ`char`かつ`sizeof(T) <= sizeof(int)`なら、`value`を`static_cast<int>(v)`で初期化
-    * または、`T`が符号なし整数型かつ`char`かつ`sizeof(T) <= sizeof(unsigned int)`なら、`value`を`static_cast<unsigned int>(v)`で初期化
-    * または、`T`が符号つき整数型かつ`char`かつ`sizeof(T) <= sizeof(long long int)`なら、`value`を`static_cast<long long int>(v)`で初期化
-    * または、`T`が符号なし整数型かつ`char`かつ`sizeof(T) <= sizeof(unsigned long long int)`なら、`value`を`static_cast<unsigned long long int>(v)`で初期化
+    * または、`T`が符号つき整数型かつ`sizeof(T) <= sizeof(int)`なら、`value`を`static_cast<int>(v)`で初期化
+    * または、`T`が符号なし整数型かつ`sizeof(T) <= sizeof(unsigned int)`なら、`value`を`static_cast<unsigned int>(v)`で初期化
+    * または、`T`が符号つき整数型かつ`sizeof(T) <= sizeof(long long int)`なら、`value`を`static_cast<long long int>(v)`で初期化
+    * または、`T`が符号なし整数型かつ`sizeof(T) <= sizeof(unsigned long long int)`なら、`value`を`static_cast<unsigned long long int>(v)`で初期化
     * または、`value`を`handle(v)`で初期化
-* (b): `value`を`static_cast<double>(n)`で初期化
-* (c): `value`を`n`で初期化
-* (d): `value`を`n`で初期化
+* (b),(c),(d): `value`を`n`で初期化
 * (e): `value`を`s`で初期化 (`s`は有効なC文字列であること)
 * (f): `value`を`s`で初期化
 * (g): `value`を`basic_string_view<charT>(s.data(), s.size())`で初期化
