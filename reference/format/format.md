@@ -52,6 +52,13 @@ string message = format("The answer is {}.", 42); // => "The answer is 42."
 * 引数IDを一部のフィールドだけに書くことはできない(すべての置換フィールドに指定するか、すべての置換フィールドで指定しないかのどちらかのみ)。違反した場合は[`format_error`](format_error.md)。
 * オプションの書式は引数の型によって異なる。
 
+```cpp
+string s0 = format("{} {}",   "a", "b"); // OK
+string s1 = format("{1} {0}", "a", "b"); // OK
+string s2 = format("{0} {}",  "a", "b"); // format_error
+string s3 = format("{} {1}",  "a", "b"); // format_error
+```
+
 ### 標準のオプション書式
 
 組み込みの型に対して使える標準のオプション書式は次の通り(`[]`は省略可の意味)。
