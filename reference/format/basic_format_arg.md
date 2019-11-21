@@ -45,7 +45,7 @@ namespace std {
 | 名前                                      | 説明                                                                                             | 対応バージョン |
 |-------------------------------------------|--------------------------------------------------------------------------------------------------|----------------|
 | [`make_format_args`](make_format_args.md) | `basic_format_arg`の列を構築する (function template)                                             | C++20          |
-| [`visit_format_arg`](make_format_args.md) | `basic_format_arg`オブジェクトが現在保持している型に対応する関数を呼び出す (function template)   | C++20          |
+| [`visit_format_arg`](visit_format_arg.md) | `basic_format_arg`オブジェクトが現在保持している型に対応する関数を呼び出す (function template)   | C++20          |
 
 ## バージョン
 ### 言語
