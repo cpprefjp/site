@@ -61,7 +61,7 @@ namespace std {
 
 ## 戻り値
 
-* (1) : `basic_format_arg`オブジェクトが現在保持している型に対応する関数を呼び出した戻り値
+* (1) : [`basic_format_arg`](/reference/format/basic_format_arg.md)オブジェクトが現在保持している型に対応する関数を呼び出した戻り値
 
 ## 実装例
 ```cpp
@@ -76,6 +76,9 @@ namespace std {
 * basic_format_arg[link /reference/format/basic_format_arg.md]
 * visit[link /reference/variant/visit.md]
 * forward[link /reference/utility/forward.md]
+
+## 備考
+[`basic_format_arg`](/reference/format/basic_format_arg.md)オブジェクトが現在保持している型がユーザー定義型の場合、ビジターに渡されるのは[`handle`](/reference/format/basic_format_arg/handle.md)型のオブジェクトになるので、元々どのような型だったかを知ることはできない。
 
 ## バージョン
 ### 言語
