@@ -43,7 +43,7 @@ namespace std {
 
     variant<monostate, bool, charT,
             int, unsigned int, long long int, unsigned long long int,
-            double, long double,
+            float, double, long double,
             const charT*, basic_string_view<charT>,
             const void*, handle> value;
 
