@@ -100,7 +100,7 @@ namespace std {
 |-----|-----|-----|
 | `bool operator==(const X&, const X&) = default;`  | 等値比較 | |
 | `bool operator!=(const X&, const X&);`            | 非等値比較 (`==`により使用可能) | |
-| `bool operator<=>(const X&, const X&) = default;` | 三方比較 | |
+| `strong_ordering operator<=>(const X&, const X&) = default;` | 三方比較 | |
 | `bool operator<(const X&, const X&);`  | 左辺が右辺より小さいかを判定する (`<=>`により使用可能) | |
 | `bool operator<=(const X&, const X&);` | 左辺が右辺以下を判定する (`<=>`により使用可能) | |
 | `bool operator>(const X&, const X&);`  | 左辺が右辺より大きいかを判定する (`<=>`により使用可能) | |
