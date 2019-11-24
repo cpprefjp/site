@@ -124,24 +124,24 @@ string s3 = format("{} {1}",  "a", "b"); // format_error
 | c          | 文字として出力                  | `static_cast<charT>(value)` (収まらないときは`format_error`)              |
 | d          | 10進数                          | `to_­chars(first, last, value)`                                            |
 | n          | 10進数(ロケールを考慮する)      | ロケール依存の桁区切りを使った`d`                                         |
-| o          | 8進数                           | "0" (値が0のとき)<br>"0" + `to_­chars(first, last, value, 8)` (それ以外))  |
+| o          | 8進数                           | "0" (値が0のとき)<br/>"0" + `to_­chars(first, last, value, 8)` (それ以外))  |
 | x          | 16進数(小文字)                  | "0x" + `to_­chars(first, last, value, 16)`                                 |
 | X          | 16進数(大文字)                  | `x`の大文字版                                                             |
-| (なし)     | デフォルト                      | `d` (整数型の場合)<br>`c` (文字型の場合)<br>`"true"`/`"false"`を出力(`bool`型の場合) |
+| (なし)     | デフォルト                      | `d` (整数型の場合)<br/>`c` (文字型の場合)<br/>`"true"`/`"false"`を出力(`bool`型の場合) |
 
 #### 浮動小数点数型の場合
 
 | type       | 意味                             | 効果                                                                                                                                                                  |
 |:-----------|:---------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| f,F        | 指数表記しない                   | `to_chars(first, last, value, chars_format::fixed, precision)` (精度が指定されたとき)<br>`to_chars(first, last, value, chars_format::fixed, 6)` (それ以外)            |
-| e          | 指数表記(小文字)                 | `to_chars(first, last, value, chars_format::scientific, precision)` (精度が指定されたとき)<br>`to_chars(first, last, value, chars_format::scientific, 6)` (それ以外)  |
+| f,F        | 指数表記しない                   | `to_chars(first, last, value, chars_format::fixed, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::fixed, 6)` (それ以外)            |
+| e          | 指数表記(小文字)                 | `to_chars(first, last, value, chars_format::scientific, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::scientific, 6)` (それ以外)  |
 | E          | 指数表記(大文字)                 | `e`の大文字版                                                                                                                                                         |
-| a          | 16進指数表記(小文字)             | `to_chars(first, last, value, chars_format::hex, precision)` (精度が指定されたとき)<br>`to_chars(first, last, value, chars_format::hex)` (それ以外)                   |
+| a          | 16進指数表記(小文字)             | `to_chars(first, last, value, chars_format::hex, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::hex)` (それ以外)                   |
 | A          | 16進指数表記(大文字)             | `a`の大文字版                                                                                                                                                         |
-| g          | 値に応じた表記(小文字)           | `to_chars(first, last, value, chars_format::fixed, general, precision)` (精度が指定されたとき)<br>`to_chars(first, last, value, chars_format::general, 6)` (それ以外) |
+| g          | 値に応じた表記(小文字)           | `to_chars(first, last, value, chars_format::fixed, general, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::general, 6)` (それ以外) |
 | G          | 値に応じた表記(大文字)           | `g`の大文字版                                                                                                                                                         |
 | n          | ロケールを考慮した値に応じた表記 | ロケールを考慮した`g`                                                                                                                                                 |
-| (なし)     | デフォルト                       | `to_chars(first, last, value, chars_format::fixed, general, precision)` (精度が指定されたとき)<br>`to_chars(first, last, value)` (それ以外)                           |
+| (なし)     | デフォルト                       | `to_chars(first, last, value, chars_format::fixed, general, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value)` (それ以外)                           |
 
 #### ポインターの場合
 
