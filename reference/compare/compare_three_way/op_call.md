@@ -33,7 +33,7 @@ constexpr auto operator()(T&& t, U&& u) const;
 ## 効果
 - `std::forward<T>(t) <=> std::forward<U>(u)`が組み込みのポインタ型`P`に対する`<=>`演算子を呼び出す場合
     - `P`に変換された`t`が`u`より前に順序付けられる場合、[`std::strong_ordering::less`](/reference/compare/strong_ordering.md)を返す
-    - `P`に変換された`u`が`t`より前に順序付けられる場合、`std::strong_ordering::greater`を返す
+    - `P`に変換された`u`が`t`より前に順序付けられる場合、[`std::strong_ordering::greater`](/reference/compare/strong_ordering.md)を返す
     - どちらでもない場合、[`std::strong_ordering::equal`](/reference/compare/strong_ordering.md)を返す
 - それ以外の場合は以下と等価
     - `return std::forward<T>(t) <=> std::forward<U>(u);`
