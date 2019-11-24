@@ -27,7 +27,7 @@ constexpr auto operator()(T&& t, U&& u) const;
 
 ## 事前条件
 
-`std::forward<T>(t) <=> std::forward<U>(u)`が組み込みのポインタ型`P`に対する`<=>`演算子を呼び出す場合、`T, U`から`P`への変換は[等さを保持](/reference/concepts.md.nolink)すること。
+`std::forward<T>(t) <=> std::forward<U>(u)`が組み込みのポインタ型`P`に対する`<=>`演算子を呼び出す場合、`T, U`から`P`への変換は[等さを保持](/reference/concepts.md)すること。
 
 
 ## 効果
