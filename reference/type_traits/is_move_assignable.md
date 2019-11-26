@@ -83,7 +83,7 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC, C++11 mode](/implementation.md#gcc): 4.8.0
+- [GCC](/implementation.md#gcc): 4.8.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012は、誤って`std::is_move_assignable<void>`が`true_type`になっている。
 	- 2012～2013は、C++11の定義に基づく実装となっている。

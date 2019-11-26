@@ -104,8 +104,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 
-- [GCC](/implementation.md#gcc):
-- [GCC, C++11 mode](/implementation.md#gcc): 4.6.3, 4.7.0
+- [GCC](/implementation.md#gcc): 4.6.3, 4.7.0
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
     - 2012, 2013は、(2)での実引数の受け渡しにムーブを使用しない問題がある。上記の例でも、`std::unique_ptr<int>`の実引数でコンパイルエラーになる。

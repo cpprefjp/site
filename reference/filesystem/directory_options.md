@@ -70,6 +70,6 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang): 7.0
-- [GCC, C++17 mode](/implementation.md#gcc): 8.2
+- [Clang](/implementation.md#clang): 7.0
+- [GCC](/implementation.md#gcc): 8.2
 - [Visual C++](/implementation.md#visual_cpp):

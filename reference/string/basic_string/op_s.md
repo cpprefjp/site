@@ -67,8 +67,8 @@ int main()
 - C++14
 
 ### 処理系
-- [Clang, C++1y mode](/implementation.md#clang): 3.4
-- [GCC, C++1y mode](/implementation.md#gcc): 4.9.0
+- [Clang](/implementation.md#clang): 3.4
+- [GCC](/implementation.md#gcc): 4.9.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2015
 

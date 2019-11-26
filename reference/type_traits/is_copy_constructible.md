@@ -80,7 +80,7 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012～2013には、提案時の名前である`has_copy_constructor`も存在する。
 	- 2012は、`is_copy_constructible<void>`が誤って`true_type`になっている。

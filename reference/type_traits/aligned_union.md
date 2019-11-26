@@ -72,7 +72,7 @@ hello
 
 ### 処理系
 - [Clang](/implementation.md#clang): 3.3
-- [GCC, C++11 mode](/implementation.md#gcc): 5.0
+- [GCC](/implementation.md#gcc): 5.0
 - [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
 	- 2012は、`alignment_value`が定義されていない。
 	- 2012は、可変引数テンプレートに対応していないため、不完全な実装である。

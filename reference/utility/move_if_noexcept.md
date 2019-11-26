@@ -89,8 +89,7 @@ copy
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012は正しく実装されていないと思われる。上記「例」のコードにおいて、ともにmoveしてしまう結果となる。

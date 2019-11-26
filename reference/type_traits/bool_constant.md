@@ -60,8 +60,8 @@ true
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang): 3.7.1
-- [GCC, C++17 mode](/implementation.md#gcc): 6.1
+- [Clang](/implementation.md#clang): 3.7.1
+- [GCC](/implementation.md#gcc): 6.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

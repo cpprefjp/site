@@ -37,8 +37,8 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang C++11 mode](/implementation.md#clang): 3.2
-- [GCC, C++11 mode](/implementation.md#gcc): 4.4
+- [Clang](/implementation.md#clang): 3.2
+- [GCC](/implementation.md#gcc): 4.4
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
 

@@ -59,8 +59,8 @@ empty
 
 
 ### 処理系
-- [Clang, C++11 mode](/implementation.md#clang): 3.0
-- [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
+- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.6.4
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

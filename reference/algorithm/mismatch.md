@@ -187,7 +187,6 @@ std::pair<InputIterator1, InputIterator2> mismatch(
 ### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
-- [GCC, C++11 mode](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2005, 2008, 2010, 2012, 2013, 2015
     - C++14で追加されたオーバーロードは2015から実装されている。

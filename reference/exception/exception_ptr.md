@@ -94,8 +94,7 @@ error!
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
 	- 2010では、`bool`への暗黙の変換、`!=`での比較が実装されていない。上記コード例の1.と3.そして`error`の箇所にある`if`はコンパイルエラーになる。

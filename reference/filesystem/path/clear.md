@@ -51,5 +51,5 @@ cleared
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC, C++17 mode](/implementation.md#gcc): 8.1
+- [GCC](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):

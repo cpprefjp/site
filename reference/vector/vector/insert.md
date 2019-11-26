@@ -115,14 +115,14 @@ ccc
 - C++11 :右辺参照バージョン
 	- [Clang](/implementation.md#clang): ??
 	- [GCC](/implementation.md#gcc): 
-	- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+	- [GCC](/implementation.md#gcc): 4.7.0
 	- [ICC](/implementation.md#icc): ??
 	- [Visual C++](/implementation.md#visual_cpp): 2010
 
 - C++11 : 初期化子リストバージョン
 	- [Clang](/implementation.md#clang): ??
 	- [GCC](/implementation.md#gcc): 
-	- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+	- [GCC](/implementation.md#gcc): 4.7.0
 	- [ICC](/implementation.md#icc): ??
 	- [Visual C++](/implementation.md#visual_cpp) 
 

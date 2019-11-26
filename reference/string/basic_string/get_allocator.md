@@ -55,7 +55,7 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3
 - [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.2
-- [GCC, C++11 mode](/implementation.md#gcc):
+- [GCC](/implementation.md#gcc):
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2002, 2003, 2005, 2008, 2010, 2012, 2013, 2015, 2017
 	- 2012, 2013は、`noexcept`が実装されていないため、`throw()`が修飾されている。

@@ -75,8 +75,8 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang, C++11 mode](/implementation.md#clang): ?
-- [GCC, C++11 mode](/implementation.md#gcc): ?
+- [Clang](/implementation.md#clang): ?
+- [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015
 	- 2013は、正しく実装されていない。C++11での最低値である10と定義されている。しかし、`double`および`long double`がIEEE 754倍精度で実装されているため、少なくとも17以上でなければならない。

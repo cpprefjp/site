@@ -74,7 +74,7 @@ int main(){}
 
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012～2013には、提案時の名前である`has_default_constructor`も存在する。
 	- 2012～2013は、`std::is_default_constructible<int[]>`のような要素数の指定がない配列型において、誤って`true_type`になっている。`has_default_constructor`も同様である。

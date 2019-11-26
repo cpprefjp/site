@@ -68,7 +68,6 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3
 - [GCC](/implementation.md#gcc): ??
-- [GCC, C++11 mode](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

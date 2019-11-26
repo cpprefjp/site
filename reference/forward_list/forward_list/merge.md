@@ -85,8 +85,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0(&&バージョンのみ実装されている)
+- [GCC](/implementation.md#gcc): 4.7.0(&&バージョンのみ実装されている)
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): , 2010, 2012, 2013, 2015, 2017
 	- 2010は、`&`バージョン(1)と(3)のみ実装されている。

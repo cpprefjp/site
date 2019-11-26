@@ -70,8 +70,7 @@ int main()
 ### 処理系
 
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc):
-- [GCC, C++11 mode](/implementation.md#gcc): 4.6.3, 4.7.0
+- [GCC](/implementation.md#gcc): 4.6.3, 4.7.0
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
     - 2012現在はバグ有り [std::thread::join() hangs if called after main() exits when using VS2012 RC](https://connect.microsoft.com/VisualStudio/feedback/details/747145/)

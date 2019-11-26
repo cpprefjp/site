@@ -68,7 +68,7 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0, 4.8.0
+- [GCC](/implementation.md#gcc): 4.7.0, 4.8.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012は、可変引数テンプレートに対応していないため、不完全な実装である。
 

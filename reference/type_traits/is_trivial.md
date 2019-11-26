@@ -69,7 +69,7 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
+- [GCC](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
 	- 2010は、クラスへの参照型（上記例のうち`trivial_class&`）において、誤って`false_type`になっている。
 

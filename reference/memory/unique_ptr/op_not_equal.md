@@ -64,7 +64,7 @@ p3 is not nullptr
 
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7 (`nullptr`バージョン以外), 4.6.4
-- [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
+- [Clang](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 	- 2012までは`nullptr`バージョンがない。

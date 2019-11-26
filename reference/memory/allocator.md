@@ -119,8 +119,8 @@ int main(int argc, char** argv) {
 
 ### 処理系
 - `propagate_on_container_move_assignment`
-    - [Clang, C++1y mode](/implementation.md#clang): 3.4
-    - [GCC, C++1y mode](/implementation.md#gcc): 
+    - [Clang](/implementation.md#clang): 3.4
+    - [GCC](/implementation.md#gcc): 
     - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 ## 参照

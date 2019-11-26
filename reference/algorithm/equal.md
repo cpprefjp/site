@@ -214,8 +214,8 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1,
 - C++14: 2つ目の終端のイテレータ`last2`を実引数に取るオーバーロードの追加。
 
 ### 処理系(last2を受け取るバージョン)
-- [Clang, C++14 mode](/implementation.md#clang): 3.4
-- [GCC, C++14 mode](/implementation.md#gcc): 4.9
+- [Clang](/implementation.md#clang): 3.4
+- [GCC](/implementation.md#gcc): 4.9
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2015
 

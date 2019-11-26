@@ -102,8 +102,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang): 4.0
-- [GCC, C++17 mode](/implementation.md#gcc): 7.1
+- [Clang](/implementation.md#clang): 4.0
+- [GCC](/implementation.md#gcc): 7.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

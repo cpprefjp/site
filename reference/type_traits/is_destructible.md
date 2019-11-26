@@ -80,7 +80,7 @@ int main(){}
 
 ### 処理系
 - [Clang](/implementation.md#clang) 3.1, 3.2, 3.3, 3.4(revision 188080)
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.3, 4.8.0, 4.8.1
+- [GCC](/implementation.md#gcc): 4.7.3, 4.8.0, 4.8.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012～2013は、`delete`定義されたデストラクタを持つクラスにおいて、誤って`std::true_type`になっている。
 

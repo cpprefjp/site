@@ -72,8 +72,7 @@ m2 : {[10,a], [20,b], [30,c], }
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012
 

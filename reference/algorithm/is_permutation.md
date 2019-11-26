@@ -219,8 +219,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 
-- [GCC, C++11 mode](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
     - C++14で追加されたオーバーロードは2015から実装されている。

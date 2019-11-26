@@ -76,7 +76,7 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC, C++11 mode](/implementation.md#gcc): 4.8.0
+- [GCC](/implementation.md#gcc): 4.8.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012～2013には、提案時の名前である`has_nothrow_constructor`, `has_nothrow_default_constructor`も存在する。
 	- 2012は`void`において、誤って`false_type`になっている。

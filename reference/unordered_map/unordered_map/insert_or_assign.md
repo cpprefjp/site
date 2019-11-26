@@ -115,8 +115,8 @@ key = two, value = 42, is inserted = false, is empty = true
 
 ### 処理系
 
-- [Clang, C++17 mode](/implementation.md#clang): 3.7.0
-- [GCC, C++17 mode](/implementation.md#gcc): 6.1.0
+- [Clang](/implementation.md#clang): 3.7.0
+- [GCC](/implementation.md#gcc): 6.1.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

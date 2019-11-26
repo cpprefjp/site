@@ -105,8 +105,8 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
-- [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.4.7
+- [Clang](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

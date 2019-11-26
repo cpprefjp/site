@@ -79,7 +79,7 @@ int main() {}
 
 ### 処理系
 - [Clang](/implementation.md#clang): 3.1
-- [GCC, C++11 mode](/implementation.md#gcc): 4.6.4
+- [GCC](/implementation.md#gcc): 4.6.4
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012～2013は、C++11の定義に基づく実装となっている。すなわち、テンプレート実引数として`void`を渡すと`std::false_type`からの派生になる。
 

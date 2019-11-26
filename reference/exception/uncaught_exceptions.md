@@ -82,7 +82,7 @@ catch exception 2
 
 ### 処理系
 - [Clang](/implementation.md#clang): 6
-- [GCC, C++11 mode](/implementation.md#gcc): 3.7
+- [GCC](/implementation.md#gcc): 3.7
 - [Visual C++](/implementation.md#visual_cpp): 2015, 2017
 
 ## 参照

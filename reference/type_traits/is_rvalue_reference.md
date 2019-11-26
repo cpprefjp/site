@@ -64,7 +64,7 @@ int main(){}
 - C++11
 
 ### 処理系
-- GCC, C++11 mode: 4.3.4, 4.5.3, 4.6.1, 4.7.2
+- [GCC](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.1, 4.7.2
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
 	- 2010は、関数への右辺値参照（上記例のうち`void (&&)()`）において、誤って`false_type`になっている。
 

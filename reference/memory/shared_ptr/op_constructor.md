@@ -266,8 +266,8 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang, C++11 mode](/implementation.md#clang): 3.0
-- [GCC, C++11 mode](/implementation.md#gcc): 4.3.6 (unique_ptr, nullptr以外), 4.4.7 (nullptr以外), 4.6.4
+- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.3.6 (unique_ptr, nullptr以外), 4.4.7 (nullptr以外), 4.6.4
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
     - 2008は(1), (2), (3), (4), (8), (9), (12), (13)のみ

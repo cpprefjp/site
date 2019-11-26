@@ -86,7 +86,7 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC, C++11 mode](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2012, 2013は逆行が起こり得る、すなわち正しくない実装であった。
 	- 2015からは、Windows APIの`QueryPerformanceCounter`関数を使用した実装である。

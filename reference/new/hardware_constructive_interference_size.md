@@ -54,8 +54,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang, C++17 mode](/implementation.md#clang):
-- [GCC, C++17 mode](/implementation.md#gcc):
+- [Clang](/implementation.md#clang):
+- [GCC](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

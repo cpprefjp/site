@@ -68,6 +68,6 @@ int main()
 
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.3.6
-- [Clang libc++, C++11 mode](/implementation.md#clang): 3.0
+- [Clang](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013

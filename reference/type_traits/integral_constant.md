@@ -51,7 +51,7 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
+- [GCC](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
 	- `operator value_type`関数の実装状況は次のとおり。
 		- 2012～2013は、`operator value_type() const`と定義されている。`constexpr`と`noexcept`修飾がされていない。

@@ -230,8 +230,8 @@ int main()
 
 
 ### 処理系
-- [Clang, C++11 mode](/implementation.md#clang): 3.0
-- [GCC, C++11 mode](/implementation.md#gcc): 4.3.6(アロケータを受け取るバージョンは、4.8.2時点でサポートされていない)
+- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.3.6(アロケータを受け取るバージョンは、4.8.2時点でサポートされていない)
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

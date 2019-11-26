@@ -40,8 +40,8 @@ Visual C++では、`static_cast<int>(UINT8_MAX)`としないと、このとお�
 - C++11
 
 ### 処理系
-- [Clang C++11 mode](/implementation.md#clang): 3.2
-- [GCC, C++11 mode](/implementation.md#gcc): 4.4
+- [Clang](/implementation.md#clang): 3.2
+- [GCC](/implementation.md#gcc): 4.4
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
 	- 2012以降、値の型は`unsigned char`となっており、標準規格に合致していないことに注意。

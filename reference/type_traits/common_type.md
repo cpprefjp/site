@@ -154,7 +154,7 @@ struct common_type<T, U, V...> {
 
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0
-- [GCC, C++11 mode](/implementation.md#gcc): 4.4.7
+- [GCC](/implementation.md#gcc): 4.4.7
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
 	- 2012までは、可変引数テンプレートに対応していないため、不完全な実装である。
 	- `common_type_t`は、2013から。

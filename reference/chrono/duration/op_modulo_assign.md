@@ -62,7 +62,7 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC, C++11 mode](/implementation.md#gcc): 4.5.1, 4.6.1
+- [GCC](/implementation.md#gcc): 4.5.1, 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 

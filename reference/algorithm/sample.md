@@ -115,7 +115,7 @@ bcd
 
 ### 処理系
 - [Clang](/implementation.md#clang): 4.0
-- [GCC, C++17 mode](/implementation.md#gcc): 7.2
+- [GCC](/implementation.md#gcc): 7.2
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

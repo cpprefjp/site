@@ -89,8 +89,8 @@ int main() {}
 - C++11
 
 ### 処理系
-- [Clang, C++11 mode](/implementation.md#clang): 3.3
-- [GCC, C++11 mode](/implementation.md#gcc): 5.0
+- [Clang](/implementation.md#clang): 3.3
+- [GCC](/implementation.md#gcc): 5.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 ### 備考

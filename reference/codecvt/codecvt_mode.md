@@ -46,8 +46,8 @@ Unicode以外のShift_JISやBig5といった文字コードの利用が急激に
 - C++11
 
 ### 処理系
-- [Clang, C++11 mode](/implementation.md#clang): 3.0
-- [GCC, C++11 mode](/implementation.md#gcc): 5.1
+- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 5.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
 
