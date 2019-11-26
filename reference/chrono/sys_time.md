@@ -63,14 +63,14 @@ namespace std::chrono {
     * days[link duration_aliases.md]
     * format[link /reference/format/format.md]
     * os.getloc()[link /reference/ios/ios_base/getloc.md]
-    * year_month_day[link year_month_day.md.nolink]
+    * year_month_day[link year_month_day.md]
     * hh_mm_ss[link hh_mm_ss.md.nolink]
 
 - (5) : 以下と等価：
     ```cpp
     return os << year_month_day{dp};
     ```
-    * year_month_day[link year_month_day.md.nolink]
+    * year_month_day[link year_month_day.md]
 
 - (6) :
     - パラメータ`fmt`で指定されたフォーマットフラグを使用して、入力を解析し、`tp`に代入する

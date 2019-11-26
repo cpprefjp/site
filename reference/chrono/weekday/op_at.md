@@ -60,8 +60,8 @@ int main()
 * last[link /reference/chrono/last_spec.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
 * year_month_weekday_last[link /reference/chrono/year_month_weekday.md.nolink]
-* year_month_day[link /reference/chrono/year_month_day.md.nolink]
-* date.day()[link /reference/chrono/year_month_day/day.md.nolink]
+* year_month_day[link /reference/chrono/year_month_day.md]
+* date.day()[link /reference/chrono/year_month_day/day.md]
 
 ### 出力
 ```
