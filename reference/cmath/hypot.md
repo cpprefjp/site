@@ -159,7 +159,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 2.9, 3.1
-- [GCC, C++11 mode](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
+- [GCC](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015, 2017
 	- 2002, 2003, 2005, 2008, 2010およびそれ以降では、`<math.h>`でグローバル名前空間に以下が定義されている。
 		- 仮引数・戻り値が`float`型の`_hypotf`関数が定義されている。

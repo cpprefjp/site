@@ -65,8 +65,8 @@ fmin( nan, nan)  = +nan
 - C++11
 
 ### 処理系
-- [Clang, C++11 mode](/implementation.md#clang): 3.0
-- [GCC, C++11 mode](/implementation.md#gcc): 4.3.6
+- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

@@ -23,7 +23,6 @@ namespace std {
 ### 処理系
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
-- [GCC, C++11 mode](/implementation.md#gcc):
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015, 2017
 	- 2013では、常に`double`の別名。
