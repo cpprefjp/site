@@ -1,7 +1,7 @@
 # month
 * chrono[meta header]
 * std::chrono[meta namespace]
-* class template[meta id-type]
+* class[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
