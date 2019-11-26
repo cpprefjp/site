@@ -27,9 +27,8 @@ namespace std {
 - C++11
 
 ### 処理系
-- Clang: ?
-- GCC (c++11 or c++11 mode): 4.7.0
-- ICC: ?
+- [Clang](/implementation.md#clang): ?
+- [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 ## 関連項目
