@@ -75,6 +75,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator==`](weekday/op_equal.md) | 等値比較を行う | C++20 |
+| `bool operator!=(const weekday&, const weekday&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++20 |
 
 
 ### 入出力

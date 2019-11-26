@@ -72,7 +72,12 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator==`](day/op_equal.md)         | 等値比較を行う | C++20 |
+| `bool operator!=(const day&, const day&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++20 |
 | [`operator<=>`](day/op_compare_3way.md) | 三方比較を行う | C++20 |
+| `bool operator<(const day&, const day&) noexcept;` | 左辺が右辺より小さいかを判定する (`<=>`により使用可能) | C++20 |
+| `bool operator<=(const day&, const day&) noexcept;` | 左辺が右辺以下を判定する (`<=>`により使用可能) | C++20 |
+| `bool operator>(const day&, const day&) noexcept;` | 左辺が右辺より大きいかを判定する (`<=>`により使用可能) | C++20 |
+| `bool operator>=(const day&, const day&) noexcept;` | 左辺が右辺以上を判定する (`<=>`により使用可能) | C++20 |
 
 
 ### 入出力

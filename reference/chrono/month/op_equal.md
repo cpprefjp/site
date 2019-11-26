@@ -23,7 +23,7 @@ namespace std::chrono {
 
 
 ## 備考
-- この演算子により、`operator!=`が自動定義される
+- この演算子により、`operator!=`が使用可能になる
 
 
 ## 例
