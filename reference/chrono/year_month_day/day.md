@@ -6,16 +6,16 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr chrono::year year() const noexcept; // (1) C++20
+constexpr chrono::day day() const noexcept; // (1) C++20
 ```
-* chrono::year[link /reference/chrono/year.md]
+* chrono::day[link /reference/chrono/day.md]
 
 ## 概要
-年要素を取得する。
+日要素を取得する。
 
 
 ## 戻り値
-コンストラクタで設定されて保持している年オブジェクトを返す。
+コンストラクタで設定されて保持している日オブジェクトを返す。
 
 
 ## 例
@@ -29,13 +29,13 @@ using namespace std::chrono_literals;
 int main()
 {
   chrono::year_month_day date = 2020y/3/1;
-  chrono::year y = date.year();
-  assert(y == 2020y);
+  chrono::day d = date.day();
+  assert(d == 1d);
 }
 ```
-* date.year()[color ff0000]
-* chrono::year[link /reference/chrono/year.md]
-* 2020y[link /reference/chrono/year/op_y.md]
+* date.day()[color ff0000]
+* chrono::day[link /reference/chrono/day.md]
+* 1d[link /reference/chrono/day/op_d.md]
 
 ### 出力
 ```
