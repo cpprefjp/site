@@ -37,6 +37,7 @@ namespace std {
 | `atomic_short`    | `short`          | C++11 |
 | `atomic_ushort`   | `unsigned short` | C++11 |
 | `atomic_int`      | `int`            | C++11 |
+| `atomic_uint`     | `unsigned int`   | C++11 |
 | `atomic_long`     | `long`           | C++11 |
 | `atomic_ulong`    | `unsigned long`  | C++11 |
 | `atomic_llong`    | [`long long`](/lang/cpp11/long_long_type.md) | C++11 |
