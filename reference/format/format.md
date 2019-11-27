@@ -116,17 +116,18 @@ string s3 = format("{} {1}",  "a", "b"); // format_error
 `[first, last)`を[`to_chars`](/reference/charconv/to_chars.md)の結果を格納するのに十分な範囲、`value`をフォーマットする値、`charT`を`char`または`wchar_t`とする。
 
 * 以下の表の通りに[`to_chars`](/reference/charconv/to_chars.md)を呼び出したあと、その結果を出力へコピーするかのような振る舞いをする。ただし、実際に[`to_chars`](/reference/charconv/to_chars.md)を呼び出すかどうかは規定されていない。
+* 実際には、出力へコピーする際にパディングなども行われる。
 
 | type       | 意味                            | 効果                                                                      |
 |:-----------|:--------------------------------|:--------------------------------------------------------------------------|
-| b          | 2進数(小文字)                   | `"0b"` + `to_­chars(first, last, value, 2)`                                |
-| B          | 2進数(大文字)                   | `"0B"` + `to_­chars(first, last, value, 2)`                                |
+| b          | 2進数(小文字)                   | `to_chars(first, last, value, 2)` (代替表現の接頭辞 `0b`)                 |
+| B          | 2進数(大文字)                   | `b`の大文字版 (代替表現の接頭辞 `0B`)                                     |
 | c          | 文字として出力                  | `static_cast<charT>(value)` (収まらないときは`format_error`)              |
-| d          | 10進数                          | `to_­chars(first, last, value)`                                            |
+| d          | 10進数                          | `to_chars(first, last, value)`                                            |
 | n          | 10進数(ロケールを考慮する)      | ロケール依存の桁区切りを使った`d`                                         |
-| o          | 8進数                           | "0" (値が0のとき)<br/>"0" + `to_­chars(first, last, value, 8)` (それ以外))  |
-| x          | 16進数(小文字)                  | "0x" + `to_­chars(first, last, value, 16)`                                 |
-| X          | 16進数(大文字)                  | `x`の大文字版                                                             |
+| o          | 8進数                           | `to_chars(first, last, value, 8)` (代替表現の接頭辞 `0`、ただし値が0のときは接頭辞なし) |
+| x          | 16進数(小文字)                  | `to_chars(first, last, value, 16)` (代替表現の接頭辞 `0x`)                |
+| X          | 16進数(大文字)                  | `x`の大文字版 (代替表現の接頭辞 `0X`)                                     |
 | (なし)     | デフォルト                      | `d` (整数型の場合)<br/>`c` (文字型の場合)<br/>`"true"`/`"false"`を出力(`bool`型の場合) |
 
 #### 浮動小数点数型の場合
@@ -147,7 +148,7 @@ string s3 = format("{} {1}",  "a", "b"); // format_error
 
 | type       | 意味               | 効果                                                                                                            |
 |:-----------|:-------------------|:----------------------------------------------------------------------------------------------------------------|
-| p (省略可) | アドレスを出力する | `"0x" + `to_­chars(first, last, reinterpret_cast<`[`uintptr_t`](/reference/cstdint/uintptr_t.md)`>(value), 16)`  |
+| p (省略可) | アドレスを出力する | `"0x" + `to_­chars(first, last, reinterpret_cast<uintptr_t>(value), 16)`  |
 
 ### 例([P0645R10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)より)
 
