@@ -1,4 +1,4 @@
-# day
+# month
 * chrono[meta header]
 * std::chrono[meta namespace]
 * year_month_day[meta class]
@@ -6,16 +6,16 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr chrono::day day() const noexcept; // (1) C++20
+constexpr chrono::month month() const noexcept; // (1) C++20
 ```
-* chrono::day[link /reference/chrono/day.md]
+* chrono::month[link /reference/chrono/month.md]
 
 ## 概要
-日要素を取得する。
+月要素を取得する。
 
 
 ## 戻り値
-コンストラクタで設定されて保持している日オブジェクトを返す。
+コンストラクタで設定されて保持している月オブジェクトを返す。
 
 
 ## 例
@@ -29,14 +29,14 @@ using namespace std::chrono_literals;
 int main()
 {
   chrono::year_month_day date = 2020y/3/1;
-  chrono::day d = date.day();
-  assert(d == 1d);
+  chrono::month m = date.month();
+  assert(m == chrono::March);
 }
 ```
-* date.day()[color ff0000]
-* chrono::day[link /reference/chrono/day.md]
+* date.month()[color ff0000]
+* chrono::month[link /reference/chrono/month.md]
 * 2020y[link /reference/chrono/year/op_y.md]
-* 1d[link /reference/chrono/day/op_d.md]
+* chrono::March[link /reference/chrono/month_constants.md]
 
 ### 出力
 ```

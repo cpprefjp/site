@@ -41,8 +41,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`year`](year_month_day/year.md.nolink)   | 年要素を取得する | C++20 |
-| [`month`](year_month_day/month.md.nolink) | 月要素を取得する | C++20 |
+| [`year`](year_month_day/year.md)   | 年要素を取得する | C++20 |
+| [`month`](year_month_day/month.md) | 月要素を取得する | C++20 |
 | [`day`](year_month_day/day.md)     | 日要素を取得する | C++20 |
 
 
