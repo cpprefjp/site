@@ -12,7 +12,7 @@ constexpr month& operator+=(const months& m) noexcept; // (1) C++20
 ## 概要
 `month`の値に対して加算の複合代入を行う。
 
-パラメータの型が、本クラスである`month`ではなく、月単位の経過時間を表す[`months`](/reference/chrono/duration_aliases.md)であることに注意。
+パラメータの型が、本クラスである`month`ではなく、月単位の時間間隔を表す[`months`](/reference/chrono/duration_aliases.md)であることに注意。
 
 
 ## 効果

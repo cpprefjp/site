@@ -21,7 +21,7 @@ namespace std::chrono {
 
 
 ### 備考
-- このクラスは経過時間を表す型ではない。日の経過時間は[`days`](duration_aliases.md)である
+- このクラスは時間間隔を表す型ではない。日の時間間隔は[`days`](duration_aliases.md)である
 - 加算と減算は、[`month`](month.md)や[`weekday`](weekday.md)と違い、`[1, 31]`の範囲では循環しない
 
 

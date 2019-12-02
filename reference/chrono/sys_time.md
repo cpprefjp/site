@@ -38,7 +38,7 @@ namespace std::chrono {
 ## 概要
 システム時間の一点を指す[`time_point`](time_point.md)に対する別名。
 
-- (1) : [`system_clock`](system_clock.md)の[`time_point`](time_point.md)に対する別名。経過時間を表す型はパラメータ化されている
+- (1) : [`system_clock`](system_clock.md)の[`time_point`](time_point.md)に対する別名。時間間隔を表す型はパラメータ化されている
 - (2) : 秒単位でシステム時間の一点を指す[`time_point`](time_point.md)に対する別名
 - (3) : 日単位でシステム時間の一点を指す[`time_point`](time_point.md)に対する別名
 - (4) : 時間点に含まれる日付と時間を出力ストリームに出力する
@@ -82,7 +82,7 @@ namespace std::chrono {
 
 
 ## 備考
-- (1) : このバージョンは、関数テンプレートで任意の経過時間単位の`time_point`を受け取るために使用できる。`system_clock::time_point`がもつ経過時間の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、経過時間の型のみをパラメータ化して関数テンプレートで受け取ると便利である
+- (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`system_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
 
 
 ## 例
@@ -95,7 +95,7 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  // 未規定の経過時間単位をもつ時間点
+  // 未規定の時間間隔単位をもつ時間点
   chrono::system_clock::time_point tp = chrono::system_clock::now();
 
   // 秒単位の時間点 (日付と時間が出力される)

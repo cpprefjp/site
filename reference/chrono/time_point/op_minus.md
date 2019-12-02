@@ -36,7 +36,7 @@ namespace chrono {
 ## 概要
 `time_point`の減算を行う。
 
-- (1) : `time_point`から経過時間を減算する
+- (1) : `time_point`から時間間隔を減算する
 - (2) : `time_point`同士の差を求める
 
 

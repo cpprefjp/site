@@ -12,7 +12,7 @@ constexpr year& operator-=(const years& y) noexcept; // (1) C++20
 ## 概要
 `year`の値に対して減算の複合代入を行う。
 
-パラメータの型が、本クラスである`year`ではなく、年単位の経過時間を表す[`years`](/reference/chrono/duration_aliases.md)であることに注意。
+パラメータの型が、本クラスである`year`ではなく、年単位の時間間隔を表す[`years`](/reference/chrono/duration_aliases.md)であることに注意。
 
 
 ## 効果

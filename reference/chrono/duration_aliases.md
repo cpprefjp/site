@@ -1,4 +1,4 @@
-# 経過時間を表す型
+# 時間間隔を表す型
 * chrono[meta header]
 * std::chrono[meta namespace]
 * type-alias[meta id-type]
@@ -32,18 +32,18 @@ namespace chrono {
 * ratio_divide[link /reference/ratio/ratio_divide.md]
 
 ## 概要
-さまざまな日付・時間単位をの経過時間を表現する[`duration`](duration.md)型の別名。
+さまざまな日付・時間単位をの時間間隔を表現する[`duration`](duration.md)型の別名。
 
-- (1) : ナノ秒単位で経過時間を表現する[`duration`](duration.md)型の別名
-- (2) : マイクロ秒単位で経過時間を表現する[`duration`](duration.md)型の別名
-- (3) : ミリ秒単位で経過時間を表現する[`duration`](duration.md)型の別名
-- (4) : 秒単位で経過時間を表現する[`duration`](duration.md)型の別名
-- (5) : 分単位で経過時間を表現する[`duration`](duration.md)型の別名
-- (6) : 時単位で経過時間を表現する[`duration`](duration.md)型の別名
-- (7) : 日単位で経過時間を表現する[`duration`](duration.md)型の別名
-- (8) : 週単位で経過時間を表現する[`duration`](duration.md)型の別名
-- (9) : 年単位で経過時間を表現する[`duration`](duration.md)型の別名
-- (10) : 月単位で経過時間を表現する[`duration`](duration.md)型の別名
+- (1) : ナノ秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (2) : マイクロ秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (3) : ミリ秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (4) : 秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (5) : 分単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (6) : 時単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (7) : 日単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (8) : 週単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (9) : 年単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (10) : 月単位で時間間隔を表現する[`duration`](duration.md)型の別名
 
 
 ## 備考

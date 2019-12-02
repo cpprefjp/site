@@ -21,7 +21,7 @@ namespace std::chrono {
 
 
 ### 備考
-- このクラスは経過時間を表す型ではない。年の経過時間は[`years`](duration_aliases.md)である
+- このクラスは時間間隔を表す型ではない。年の時間間隔は[`years`](duration_aliases.md)である
 
 
 ## メンバ関数

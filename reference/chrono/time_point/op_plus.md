@@ -31,7 +31,7 @@ namespace chrono {
 * common_type[link /reference/chrono/common_type.md]
 
 ## 概要
-`time_point`に経過時間の加算を行う。
+`time_point`に時間間隔の加算を行う。
 
 
 ## 戻り値

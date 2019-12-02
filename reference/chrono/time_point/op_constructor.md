@@ -21,7 +21,7 @@ constexpr time_point(const time_point<clock, Duration2>& t); // (3) C++14
 
 ## time_pointの構築
 - (1) : デフォルトコンストラクタ。エポックの`time_point(duration::zero())`を生成する。
-- (2) : エポックからの経過時間から`time_point`を生成する。
+- (2) : エポックからの時間間隔から`time_point`を生成する。
 - (3) : 他のテンプレートパラメータを持つ`time_point`からの変換コンストラクタ。
 
 

@@ -12,7 +12,7 @@ constexpr day& operator+=(const days& m) noexcept; // (1) C++20
 ## 概要
 `day`の値に対して加算の複合代入を行う。
 
-パラメータの型が、本クラスである`day`ではなく、日単位の経過時間を表す[`days`](/reference/chrono/duration_aliases.md)であることに注意。
+パラメータの型が、本クラスである`day`ではなく、日単位の時間間隔を表す[`days`](/reference/chrono/duration_aliases.md)であることに注意。
 
 
 ## 効果
