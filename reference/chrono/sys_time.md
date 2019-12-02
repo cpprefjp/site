@@ -33,7 +33,6 @@ namespace std::chrono {
 ```
 * time_point[link time_point.md]
 * system_clock[link system_clock.md]
-* days[link duration_aliases.md]
 
 ## 概要
 システム時間の一点を指す[`time_point`](time_point.md)に対する別名。
@@ -82,7 +81,7 @@ namespace std::chrono {
 
 
 ## 備考
-- (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`system_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
+- (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`system_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であり、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
 
 
 ## 例
@@ -112,7 +111,6 @@ int main()
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * chrono::time_point_cast[link time_point_cast.md]
-* chrono::days[link duration_aliases.md]
 
 #### 出力例
 ```
@@ -178,7 +176,7 @@ UTC
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0 (入出力ストリームなし)
+- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし)
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
 
