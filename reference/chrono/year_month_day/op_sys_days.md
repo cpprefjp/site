@@ -17,7 +17,7 @@ constexpr operator sys_days() const noexcept; // (1) C++20
 ## 戻り値
 [`year()`](year.md)によって返される値を`y`、[`month()`](month.md)によって返される値を`m`、[`day()`](day.md)によって返される値を`d`として、
 
-- [`ok()`](ok.md) `== true`の場合、[`sys_days`](/refeerence/chrono/sys_days.md)のエポックから`*this`までの経過日を返す
+- [`ok()`](ok.md) `== true`の場合、[`sys_days`](/refeerence/chrono/sys_time.md)のエポックから`*this`までの経過日を返す
 - それ以外で`y.`[`ok()`](/reference/chrono/year/ok.md) `== true`かつ`m.`[`ok()`](/reference/chrono/month/ok.md) `== true`である場合、`sys_days{y/m/1d} + (d - 1d)`を返す
 - それ以外の場合、返される値は未規定
 

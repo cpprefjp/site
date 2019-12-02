@@ -20,7 +20,7 @@ return local_days{sys_days{*this}.time_since_epoch()};
 ```
 * local_days[link /reference/chrono/local_time.md]
 * sys_days[link /reference/chrono/sys_titme.md]
-* time_since_epoch()[link /reference/chrono/time_point/titme_since_epoch.md]
+* time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 
 
 ## 備考
