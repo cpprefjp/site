@@ -33,8 +33,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+=`](year_month_day/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
-| [`operator-=`](year_month_day/op_minus_assign.md.nolink) | 減算の複合代入 | C++20 |
+| [`operator+=`](year_month_day/op_plus_assign.md)  | 加算の複合代入 | C++20 |
+| [`operator-=`](year_month_day/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
 
 ### 観測
@@ -58,7 +58,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](year_month_day/ok.md.nolink) | 値が範囲に収まっているか判定する | C++20 |
+| [`ok`](year_month_day/ok.md) | 値が範囲に収まっているか判定する | C++20 |
 
 
 ## 非メンバ関数
@@ -66,8 +66,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](year_month_day/op_plus.md.nolink)  | 加算 | C++20 |
-| [`operator-`](year_month_day/op_minus.md.nolink) | 減算 | C++20 |
+| [`operator+`](year_month_day/op_plus.md)  | 加算 | C++20 |
+| [`operator-`](year_month_day/op_minus.md) | 減算 | C++20 |
 
 
 ### 比較演算
