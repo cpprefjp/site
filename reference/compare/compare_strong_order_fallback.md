@@ -6,8 +6,11 @@
 * cpp20[meta cpp]
 
 ```cpp
-inline namespace /*unspecified*/ {
-  inline constexpr /*unspecified*/ compare_strong_order_fallback = /*unspecified*/;
+namespace std {
+  inline namespace /*unspecified*/ {
+
+    inline constexpr /*unspecified*/ compare_strong_order_fallback = /*unspecified*/;
+  }
 }
 ```
 
