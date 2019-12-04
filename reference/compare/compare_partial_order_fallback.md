@@ -24,6 +24,7 @@ inline namespace /*unspecified*/ {
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
 2. [`partial_order`](partial_order.md)`(a, b)`が呼び出し可能ならば`partial_order(a, b)`
+
 3. `a == b`、`a < b`の両方の演算子が使用可能でありその戻り値型が`bool`へ変換可能ならば、以下の式
    ```cpp
    a == b ? partial_ordering::equivalent :
@@ -31,6 +32,7 @@ inline namespace /*unspecified*/ {
    b <  a ? partial_ordering::greater :
             partial_ordering::unordered
    ```
+
 4. それ以外の場合、呼び出しは不適格。
 
 ## 戻り値
@@ -42,6 +44,7 @@ inline namespace /*unspecified*/ {
 
 上記「効果」節のそれぞれのケース毎に
 
+1. --
 2. 呼び出される`partial_order(a, b)`が例外を送出するかに従う。
 3. 呼び出される`a < b`および`a == b`が例外を送出するかに従う。
 
@@ -49,6 +52,7 @@ inline namespace /*unspecified*/ {
 
 上記「効果」節のそれぞれのケース毎に
 
+1. --
 2. 呼び出される`partial_order(a, b)`が定数評価可能であるかに従う。
 3. 呼び出される`a < b`および`a == b`が定数評価可能であるかに従う。
 
@@ -56,8 +60,9 @@ inline namespace /*unspecified*/ {
 
 上記「効果」節2,3のケースでは、ユーザー定義の`< ==`演算子を定義、もしくは`partial_order()`へアダプトしておくことによって実行される比較をカスタマイズすることができる。
 
-1. 引数`a, b`の型`T`に対して、使用可能な`< ==`演算子を定義しておく。
+1. --
 2. 引数`a, b`の型`T`を[`partial_order`](partial_order.md)にアダプトしておく。
+3. 引数`a, b`の型`T`に対して、使用可能な`< ==`演算子を定義しておく。
 
 ただし、どのケースにおいてもその戻り値型は[`partial_ordering`](partial_ordering.md)に変換可能でなければならない。
 

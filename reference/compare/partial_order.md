@@ -23,8 +23,11 @@ inline namespace /*unspecified*/ {
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
 2. `std::partial_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`partial_ordering`](partial_ordering.md)`(partial_order(a, b))`が呼び出し可能ならば`partial_ordering(partial_order(a, b))`
+
 3. [`partial_ordering`](partial_ordering.md)`(a <=> b)`が呼び出し可能ならば`partial_ordering(a <=> b)`
+
 4. [`partial_ordering(`](partial_ordering.md)[`weak_order`](weak_order.md)`(a, b))`が呼び出し可能ならば`partial_ordering(weak_order(a, b))`
+
 5. それ以外の場合、呼び出しは不適格。
 
 ## 戻り値
@@ -36,6 +39,7 @@ inline namespace /*unspecified*/ {
 
 上記「効果」節のそれぞれのケース毎に
 
+1. --
 2. 呼び出される`partial_order(a, b)`およびその戻り値の`partial_ordering`への変換が例外を送出するかに従う。
 3. 呼び出される`a <=> b`およびその戻り値の`partial_ordering`への変換が例外を送出するかに従う。
 4. 呼び出される[`weak_order`](weak_order.md)`(a, b)`およびその戻り値の`partial_ordering`への変換が例外を送出するかに従う。
@@ -44,6 +48,7 @@ inline namespace /*unspecified*/ {
 
 上記「効果」節のそれぞれのケース毎に
 
+1. --
 2. 呼び出される`partial_order(a, b)`およびその戻り値の`partial_ordering`への変換が定数評価可能であるかに従う。
 3. 呼び出される`a <=> b`およびその戻り値の`partial_ordering`への変換が定数評価可能であるかに従う。
 4. 呼び出される[`weak_order`](weak_order.md)`(a, b)`およびその戻り値の`partial_ordering`への変換が定数評価可能であるかに従う。
@@ -53,6 +58,7 @@ inline namespace /*unspecified*/ {
 
 上記「効果」節2,3,4のケースでは、ユーザー定義の`partial_order()`、`<=>`演算子を定義、もしくは`weak_order()`へアダプトしておくことによって実行される比較をカスタマイズすることができる。
 
+1. --
 2. 引数`a, b`の型`T`と同じ名前空間、もしくは`T`の定義内で`friend`関数として`partial_order()`を定義しておく。
 3. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算子を定義しておく。
 4. 引数`a, b`の型`T`を[`weak_order`](weak_order.md)にアダプトしておく。

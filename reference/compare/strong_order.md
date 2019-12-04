@@ -22,9 +22,12 @@ inline namespace /*unspecified*/ {
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
 2. `std::strong_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`strong_ordering`](strong_ordering.md)`(strong_order(a, b))`が呼び出し可能ならば`strong_ordering(strong_order(a, b))`
+
 3. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型`T`が浮動小数点型の場合、`T`の組み込みの比較演算子による順序と一貫する[`strong_ordering`](strong_ordering.md)の値を返す。  
    さらに、[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md)` == true`の場合、その順序はISO/IEC/IEEE 60559の`totalOrder`による全順序と一致する。
+
 4. [`strong_ordering`](strong_ordering.md)`(a <=> b)`が呼び出し可能ならば`strong_ordering(a <=> b)`
+
 5. それ以外の場合、呼び出しは不適格。
 
 ## 戻り値
@@ -35,6 +38,7 @@ inline namespace /*unspecified*/ {
 
 上記「効果」節のそれぞれのケース毎に
 
+1. --
 2. 呼び出される`strong_order(a, b)`およびその戻り値の`strong_ordering`への変換が例外を送出するかに従う。
 3. 投げない。
 4. 呼び出される`a <=> b`およびその戻り値の`strong_ordering`への変換が例外を送出するかに従う。
@@ -44,6 +48,7 @@ inline namespace /*unspecified*/ {
 
 上記「効果」節のそれぞれのケース毎に
 
+1. --
 2. 呼び出される`strong_order(a, b)`およびその戻り値の`strong_ordering`への変換が定数評価可能であるかに従う。
 3. 常に定数評価可能
 4. 呼び出される`a <=> b`およびその戻り値の`strong_ordering`への変換が定数評価可能であるかに従う。
@@ -53,6 +58,7 @@ inline namespace /*unspecified*/ {
 
 上記「効果」節2,4のケースでは、ユーザー定義の`strong_order()`もしくは`<=>`演算子を定義しておくことによって実行される比較をカスタマイズすることができる。
 
+1. --
 2. 引数`a, b`の型`T`と同じ名前空間、もしくは`T`の定義内で`friend`関数として`strong_order()`を定義しておく。
 3. --
 4. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算子を定義しておく。
