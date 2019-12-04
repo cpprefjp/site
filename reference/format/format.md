@@ -139,7 +139,7 @@ string s3 = format("{} {1}",  "a", "b"); // format_error
 | E          | 指数表記(大文字)                 | `e`の大文字版                                                                                                                                                         |
 | a          | 16進指数表記(小文字)             | `to_chars(first, last, value, chars_format::hex, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::hex)` (それ以外)                   |
 | A          | 16進指数表記(大文字)             | `a`の大文字版                                                                                                                                                         |
-| g          | 値に応じた表記(小文字)           | `to_chars(first, last, value, chars_format::fixed, general, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::general, 6)` (それ以外) |
+| g          | 値に応じた表記(小文字)           | `to_chars(first, last, value, chars_format::general, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::general, 6)` (それ以外) |
 | G          | 値に応じた表記(大文字)           | `g`の大文字版                                                                                                                                                         |
 | n          | ロケールを考慮した値に応じた表記 | ロケールを考慮した`g`                                                                                                                                                 |
 | (なし)     | デフォルト                       | `to_chars(first, last, value, chars_format::fixed, general, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value)` (それ以外)                           |
