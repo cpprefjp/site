@@ -31,11 +31,9 @@ namespace std {
 `Ts...`内のそれぞれの型を`Ti (0 <= i < N)`として、共通比較カテゴリ型`U`は以下のように決定される。
 
 1. `Ti`の中に一つでも比較カテゴリ型でない型がある場合、`U = void`
-2. `Ti`の中に1つでも`weak_equality`か`strong_equality`があり、それ以外の`Ti`の中に1つでも`partial_ordering`か`weak_ordering`がある場合、`U = weak_equality`
-3. `Ti`の中に1つでも`strong_equality`がある場合、`U = strong_equality`
-4. `Ti`の中に1つでも`partial_ordering`がある場合、`U = partial_ordering`
-5. `Ti`の中に1つでも`weak_ordering`がある場合、`U = weak_ordering`
-6. それ以外の場合、`U = strong_ordering`
+2. `Ti`の中に1つでも`partial_ordering`がある場合、`U = partial_ordering`
+3. `Ti`の中に1つでも`weak_ordering`がある場合、`U = weak_ordering`
+4. それ以外の場合、`U = strong_ordering`（`N == 0`の場合）
 
 ## 備考
 

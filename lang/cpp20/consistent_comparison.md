@@ -91,8 +91,6 @@ bool is_equal = comp == 0.0;
 
 |比較カテゴリ型|対応する数学的な関係|導出される演算子|
 |:---|:---:|:---:|
-|[`weak_equality`](/reference/compare/weak_equality.md.nolink)|同値関係|`== !=`|
-|[`strong_equality`](/reference/compare/strong_equality.md.nolink)|相等関係：最も細かい同値関係|`== !=`|
 |[`partial_ordering`](/reference/compare/partial_ordering.md)|半順序|`== != < <= > >=`|
 |[`weak_ordering`](/reference/compare/weak_ordering.md)|弱順序|`== != < <= > >=`|
 |[`strong_ordering`](/reference/compare/strong_ordering.md)|全順序|`== != < <= > >=`|
@@ -120,11 +118,9 @@ ordering -> equalityに変換できてもequality -> orderingに変換できな�
 比較に参加するすべての型の`<=>`による比較カテゴリ型をそれぞれ`Ti (0 <= i < N)`として、共通比較カテゴリ型`U`は以下のように決定される。
 
 1. `Ti`の中に一つでも比較カテゴリ型でない型がある場合、`U = void`
-2. `Ti`の中に1つでも`weak_equality`か`strong_equality`があり、それ以外の`Ti`の中に1つでも`partial_ordering`か`weak_ordering`がある場合、`U = weak_equality`
-3. `Ti`の中に1つでも`strong_equality`がある場合、`U = strong_equality`
-4. `Ti`の中に1つでも`partial_ordering`がある場合、`U = partial_ordering`
-5. `Ti`の中に1つでも`weak_ordering`がある場合、`U = weak_ordering`
-6. それ以外の場合、`U = strong_ordering`
+2. `Ti`の中に1つでも`partial_ordering`がある場合、`U = partial_ordering`
+3. `Ti`の中に1つでも`weak_ordering`がある場合、`U = weak_ordering`
+4. それ以外の場合、`U = strong_ordering`（`N == 0`の場合）
 
 この共通比較カテゴリ型を求めるのは場合によっては困難なので、それを求めるために`<compare>`ヘッダにて[`common_comparison_category<Ts...>`](/reference/compare/common_comparison_category.md)というメタ関数が提供される。
 
@@ -410,8 +406,6 @@ bool eq   = n1 ==  n2;  //ok
 |`R`は`std::strong_ordering`|`a == b ? std::strong_ordering::equal :`<br/>`a < b  ? std::strong_ordering::less :`<br/>`std::strong_ordering::greater;`|
 |`R`は`std::weak_ordering`|`a == b ? std::weak_ordering::equivalent :`<br/>`a < b  ? std::weak_ordering::less :`<br/>`std::weak_ordering::greater;`|
 |`R`は`std::partial_ordering`|`a == b ? std::partial_ordering::equivalent :`<br/>`a < b  ? std::partial_ordering::less :`<br/>`b < a  ? std::partial_ordering::greater;`<br/>`std::partial_ordering::unordered`|
-|`R`は`std::strong_equality`|`a == b ? std::strong_equality::equal : strong_equality::nonequal;`|
-|`R`は`std::weak_equality`|`a == b ? std::weak_equality::equivalent : std::weak_equality::nonequivalent;`|
 |どれにも当てはまらない|定義されない|
 
 戻り値型に`auto`を指定した際は、共通比較カテゴリ型を`R`として1つ目（1番上）のように`<=>`が合成されている。  
@@ -451,10 +445,8 @@ struct newer {
 
 ```cpp
 struct C {
-  std::nullptr_t np = nullptr;
 
-
-  std::strong_equality operator<=>(const C&) const = default;
+  bool operator<=>(const C&) const { return true; }
 
   bool operator<(const C&) const = default;  //ok、暗黙的にdeleteされる
 
@@ -467,7 +459,7 @@ struct C {
 
 ### 組み込み型の三方比較
 
-三方比較演算子は`void`と参照型を除く組み込みの型に対して、組み込みの物が提供される。  
+三方比較演算子は`void`、`std::nullptr_t`、関数/メンバポインタ、および参照型を除く組み込みの型に対して、組み込みの物が提供される。  
 その比較カテゴリ型は以下のようになる（以下、比較とは`<=>`によるものを指す）。
 
 |型|カテゴリ|備考|
@@ -476,8 +468,6 @@ struct C {
 |[`整数型`](/reference/type_traits/is_integral.md)|`std::strong_ordering`|縮小変換が行われる場合は比較不可|
 |[`浮動小数点型`](/reference/type_traits/is_floating_point.md)|`std::partial_ordering`|縮小変換が行われる場合は比較不可<br/>`NaN`や`±0.0`の存在のため半順序|
 |オブジェクトポインタ|`std::strong_ordering`|あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可<br/>配列と配列は比較不可|
-|関数/メンバポインタ|`std::strong_equality`|あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可|
-|[`std::nullptr_t`](/reference/cstddef/nullptr_t.md)|`std::strong_equality`||
 |列挙型|`std::strong_ordering`|スコープ有無に関わらず同じ列挙型同士でしか比較不可|
 
 なお、参照型に対する`<=>`による比較は参照先の型による比較になる。
@@ -494,7 +484,6 @@ struct C {
 |異なる列挙型間|〇|×|×|
 |配列同士|△<br/>先頭要素へのポインタの比較になる|×|×|
 |ヌルポインタ定数とポインタ|△<br/>同値比較のみ可能|〇<br/>ただし、ポインタ側がヌルでない場合の結果は未規定|△（従来通り）|
-|関数ポインタ間|〇<br/>異なるポインタ間の順序付けの結果は未規定|〇|〇（従来通り）|
 
 ## C++17までの比較演算子実装の一例
 ```cpp example
@@ -616,6 +605,7 @@ C++17以前の例に示したように、従来のC++における比較演算子
 
 ## 検討されたほかの選択肢
 
+### `<=> != ==` : 同値比較の分離
 
 当初の三方比較演算子から導出される演算子は同値比較（`== !=`）のものも含めた最大6つであった。しかし、同値比較なら比較についての処理を短絡評価できる場合に、`<=>`を用いて`== !=`を導出すると短絡評価が行われず非効率になるケースがあったため、`<=>`から`==`を切り離し、`!=`は`==`から導出するように変更された。
 
@@ -731,23 +721,37 @@ struct has_vector {
 
 しかし、当初の一貫比較仕様の簡便さを損なわないために、default実装の`<=>`があれば暗黙的に`==`を宣言するという仕様を追加し、効率的な`==`の実装が必要ない型では当初の仕様にほぼ沿った形で恩恵を受けることができる。
 
+### 同値関係を表す比較カテゴリの削除
+
+当初の仕様では、`<=>`の比較が同値関係のみを満たすことを表明する2つの比較カテゴリ型が定義されていた。  
+これらの型を返す`<=>`による比較においては、`== !=`演算子のみが（`==`演算子によって）導出されていた。
+
+|比較カテゴリ型|対応する数学的な関係|導出される演算子|
+|:---|:---:|:---:|
+|[`weak_equality`](/reference/compare/weak_equality.md.nolink)|同値関係|`== !=`|
+|[`strong_equality`](/reference/compare/strong_equality.md.nolink)|相等関係：最も細かい同値関係|`== !=`|
+
+しかし、前項の変更によってこれらの型はほとんどその役割を失い、またそのカテゴリ付けにも問題があったため、残しておくのは混乱やバグのものとであるとして削除された。
+
+また、これに伴いこれらの型を返していた組み込みの型の比較も削除された。
+
+|型|カテゴリ|備考|
+|:-------------|:-------------:|:-------------|
+|関数/メンバポインタ|`std::strong_equality`|あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可|
+|[`std::nullptr_t`](/reference/cstddef/nullptr_t.md)|`std::strong_equality`||
 
 ## 関連項目
 
 - [`<compare>`](/reference/compare.md)
     - 比較カテゴリ型
-        - [`weak_equality`](/reference/compare/weak_equality.md.nolink)
-        - [`strong_equality`](/reference/compare/strong_equality.md.nolink)
         - [`partial_ordering`](/reference/compare/partial_ordering.md)
         - [`weak_ordering`](/reference/compare/weak_ordering.md)
         - [`strong_ordering`](/reference/compare/strong_ordering.md)
     - [`common_comparison_category`](/reference/compare/common_comparison_category.md)
     - 比較関数
-        - [`strong_order`](/reference/compare/strong_order.md.nolink)
-        - [`weak_order`](/reference/compare/weak_order.md.nolink)
-        - [`partial_order`](/reference/compare/partial_order.md.nolink)
-        - [`strong_equal`](/reference/compare/strong_equal.md.nolink)
-        - [`weak_equal`](/reference/compare/weak_equal.md.nolink)
+        - [`strong_order`](/reference/compare/strong_order.md)
+        - [`weak_order`](/reference/compare/weak_order.md)
+        - [`partial_order`](/reference/compare/partial_order.md)
 - [`compare_three_way`](/reference/algorithm/compare_three_way.md.nolink)
 - [`lexicographical_compare_three_way`](/reference/algorithm/lexicographical_compare_three_way.md.nolink)
 
@@ -770,6 +774,8 @@ struct has_vector {
         - `==`の戻り値型を`bool`限定にするなど、一貫比較仕様全般の細かいバグ修正
     8. [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
         - 標準ライブラリで提供されるクラスへの一貫比較仕様をベースとした`<=> ==`導入
+    9. [P1959R0 Remove `std::weak_equality` and `std::strong_equality`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1959r0.html)
+        - 不要になった`_equality`な比較カテゴリ型の削除  
 - 以前に検討されていた提案文書
     - [N3950 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html)
     - [N4114 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4114.htm)
