@@ -60,12 +60,12 @@
 | 名前                                                                                  | 説明                                                                                                    | 対応バージョン |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------- |
 | [`compare_three_way`](compare/compare_three_way.md)                           | ポインタ比較時のみ実装定義の狭義全順序によって、その他の場合はデフォルトの三方比較を行う                | C++20          |
-| [`strong_order`](compare/strong_order.md.nolink)                                     | 全順序による三方比較を行う（カスタマイゼーションポイントオブジェクト）                                  | C++20          |
-| [`weak_order`](compare/weak_order.md.nolink)                                         | 弱順序による三方比較を行う（カスタマイゼーションポイントオブジェクト）                                  | C++20          |
-| [`partial_order`](compare/partial_order.md.nolink)                                   | 半順序による三方比較を行う（カスタマイゼーションポイントオブジェクト）                                  | C++20          |
-| [`compare_strong_order_fallback`](compare/compare_strong_order_fallback.md.nolink)   | `<=>`が無い場合でも`< ==`を用いて全順序による三方比較を行う（カスタマイゼーションポイントオブジェクト） | C++20          |
-| [`compare_weak_order_fallback`](compare/compare_weak_order_fallback.md.nolink)       | `<=>`が無い場合でも`< ==`を用いて弱順序による三方比較を行う（カスタマイゼーションポイントオブジェクト） | C++20          |
-| [`compare_partial_order_fallback`](compare/compare_partial_order_fallback.md.nolink) | `<=>`が無い場合でも`< ==`を用いて半順序による三方比較を行う（カスタマイゼーションポイントオブジェクト） | C++20          |
+| [`strong_order`](compare/strong_order.md)                                     | 全順序による三方比較を行う（カスタマイゼーションポイントオブジェクト）                                  | C++20          |
+| [`weak_order`](compare/weak_order.md)                                         | 弱順序による三方比較を行う（カスタマイゼーションポイントオブジェクト）                                  | C++20          |
+| [`partial_order`](compare/partial_order.md)                                   | 半順序による三方比較を行う（カスタマイゼーションポイントオブジェクト）                                  | C++20          |
+| [`compare_strong_order_fallback`](compare/compare_strong_order_fallback.md)   | `<=>`が無い場合でも`< ==`を用いて全順序による三方比較を行う（カスタマイゼーションポイントオブジェクト） | C++20          |
+| [`compare_weak_order_fallback`](compare/compare_weak_order_fallback.md)       | `<=>`が無い場合でも`< ==`を用いて弱順序による三方比較を行う（カスタマイゼーションポイントオブジェクト） | C++20          |
+| [`compare_partial_order_fallback`](compare/compare_partial_order_fallback.md) | `<=>`が無い場合でも`< ==`を用いて半順序による三方比較を行う（カスタマイゼーションポイントオブジェクト） | C++20          |
 
 ## バージョン
 ### 言語
