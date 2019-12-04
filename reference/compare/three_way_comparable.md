@@ -52,7 +52,7 @@ concept partially-ordered-with =
 template<class T, class Cat = partial_ordering>
 concept three_way_comparable =
   weakly-equality-comparable-with<T, T> &&
-  (!convertible_to<Cat, partial_ordering> || partially-ordered-with<T, T>) &&
+  partially-ordered-with<T, T> &&
   requires(const remove_reference_t<T>& a, const remove_reference_t<T>& b) {
     { a <=> b } -> compares-as<Cat>;
   };
@@ -68,7 +68,7 @@ concept three_way_comparable =
 template<class T, class U, class Cat = partial_ordering>
 concept three_way_comparable_with =
   weakly-equality-comparable-with<T, U> &&
-  (!convertible_to<Cat, partial_ordering> || partially-ordered-with<T, U>) &&
+  partially-ordered-with<T, U> &&
   three_way_comparable<T, Cat> &&
   three_way_comparable<U, Cat> &&
   common_reference_with<const remove_reference_t<T>&, const remove_reference_t<U>&> &&
@@ -92,13 +92,10 @@ concept three_way_comparable_with =
     - `(a <=> b == 0) == bool(a == b)`が`true`であること
     - `(a <=> b != 0) == bool(a != b)`が`true`であること
     - `((a <=> b) <=> 0) == (0 <=> (a <=> b))`が等値
-    - `Cat`が`strong_equality`に変換可能ならば
-        - `T`は`equality_comparable`のモデルである
-    - `Cat`が`partial_ordering`に変換可能ならば
-        - `(a <=> b < 0) == bool(a < b)`が`true`であること
-        - `(a <=> b > 0) == bool(a > b)`が`true`であること
-        - `(a <=> b <= 0) == bool(a <= b)`が`true`であること
-        - `(a <=> b >= 0) == bool(a >= b)`が`true`であること
+    - `(a <=> b < 0) == bool(a < b)`が`true`であること
+    - `(a <=> b > 0) == bool(a > b)`が`true`であること
+    - `(a <=> b <= 0) == bool(a <= b)`が`true`であること
+    - `(a <=> b >= 0) == bool(a >= b)`が`true`であること
     - `Cat`が`strong_ordering`に変換可能ならば
         - `T`は`totally_orderd`のモデルである
   
@@ -108,13 +105,10 @@ concept three_way_comparable_with =
     - `(t <=> u == 0) == bool(t == u)`が`true`であること
     - `(t <=> u != 0) == bool(t != u)`が`true`であること
     - `Cat(t <=> u) == Cat(C(t) <=> C(u))`が`true`であること
-    - `Cat`が`strong_equality`に変換可能ならば
-        - `T, U`は`equality_comparable_with`のモデルである
-    - `Cat`が`partial_ordering`に変換可能ならば
-        - `(t <=> u < 0) == bool(t < u)`が`true`であること
-        - `(t <=> u > 0) == bool(t > u)`が`true`であること
-        - `(t <=> u <= 0) == bool(t <= u)`が`true`であること
-        - `(t <=> u >= 0) == bool(t >= u)`が`true`であること
+    - `(t <=> u < 0) == bool(t < u)`が`true`であること
+    - `(t <=> u > 0) == bool(t > u)`が`true`であること
+    - `(t <=> u <= 0) == bool(t <= u)`が`true`であること
+    - `(t <=> u >= 0) == bool(t >= u)`が`true`であること
     - `Cat`が`strong_ordering`に変換可能ならば
         - `T, U`は`totally_orderd_with`のモデルである
 

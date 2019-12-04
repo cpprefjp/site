@@ -7,8 +7,8 @@
 
 ```cpp
 namespace std {
-  constexpr bool is_eq  (weak_equality cmp) noexcept;     // (1)
-  constexpr bool is_neq (weak_equality cmp) noexcept;     // (2)
+  constexpr bool is_eq  (partial_ordering cmp) noexcept;     // (1)
+  constexpr bool is_neq (partial_ordering cmp) noexcept;     // (2)
   constexpr bool is_lt  (partial_ordering cmp) noexcept;  // (3)
   constexpr bool is_lteq(partial_ordering cmp) noexcept;  // (4)
   constexpr bool is_gt  (partial_ordering cmp) noexcept;  // (5)
@@ -103,8 +103,8 @@ true
 
 ## 実装例
 ```cpp
-constexpr bool is_eq  (weak_equality cmp) noexcept    { return cmp == 0; }
-constexpr bool is_neq (weak_equality cmp) noexcept    { return cmp != 0; }
+constexpr bool is_eq  (partial_ordering cmp) noexcept    { return cmp == 0; }
+constexpr bool is_neq (partial_ordering cmp) noexcept    { return cmp != 0; }
 constexpr bool is_lt  (partial_ordering cmp) noexcept { return cmp <  0; }
 constexpr bool is_lteq(partial_ordering cmp) noexcept { return cmp <= 0; }
 constexpr bool is_gt  (partial_ordering cmp) noexcept { return cmp >  0; }

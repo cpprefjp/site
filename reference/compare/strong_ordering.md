@@ -55,8 +55,6 @@ namespace std {
 
 | 名前                                                                         | 説明                                                      | 対応バージョン |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------- | -------------- |
-| [`oeprator weak_equality`](strong_ordering/op_weak_equality.md.nolink)       | [`weak_equality`](weak_equality.md.nolink)への型変換演算子       | C++20          |
-| [`oeprator strong_equality`](strong_ordering/op_strong_equality.md.nolink)   | [`strong_equality`](strong_equality.md.nolink)への型変換演算子   | C++20          |
 | [`oeprator partial_ordering`](strong_ordering/op_partial_ordering.md.nolink) | [`partial_ordering`](partial_ordering.md)への型変換演算子 | C++20          |
 | [`oeprator weak_ordering`](strong_ordering/op_weak_ordering.md.nolink)       | [`weak_ordering`](weak_ordering.md)への型変換演算子       | C++20          |
 
