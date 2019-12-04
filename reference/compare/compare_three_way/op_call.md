@@ -58,9 +58,6 @@ constexpr auto operator()(T&& t, U&& u) const;
 #include <iostream>
 #include <compare>
 
-int f(int) { return 0; }
-int g(int) { return 0; }
-
 int main() {
   int a{}, b{};
 
@@ -76,7 +73,6 @@ int main() {
   std::cout << (comp(pa, pb) <  0) << std::endl;
   std::cout << (comp(pa, pb) >  0) << std::endl;
   std::cout << (comp(pa, nullptr) >  0) << std::endl;
-  //std::cout << (comp(&f, &g) >  0) << std::endl;
 }
 ```
 
